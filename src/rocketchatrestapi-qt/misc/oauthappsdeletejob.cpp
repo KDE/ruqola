@@ -37,7 +37,7 @@ void OauthAppsDeleteJob::onPostRequestResponse(const QString &replyErrorString, 
     Q_EMIT oauthAppsDeleteDone();
 
     // qDebug() << " DDDDDDDDDDDDDDDDDD " << replyJson;
-    // if (replyObject[QLatin1StringView("success")].toBool()) {
+    // if (replyObject["success"_L1].toBool()) {
     //     addLoggerInfo(QByteArrayLiteral("OauthAppsDeleteJob success: ") + replyJson.toJson(QJsonDocument::Indented));
     //     Q_EMIT oauthAppsDeleteDone(replyObject);
     // } else {
@@ -85,7 +85,7 @@ QNetworkRequest OauthAppsDeleteJob::request() const
 QJsonDocument OauthAppsDeleteJob::json() const
 {
     QJsonObject jsonObj;
-    jsonObj[QLatin1StringView("appId")] = mIdentifier;
+    jsonObj["appId"_L1] = mIdentifier;
     const QJsonDocument postData = QJsonDocument(jsonObj);
     qDebug() << " postData " << postData;
     return postData;

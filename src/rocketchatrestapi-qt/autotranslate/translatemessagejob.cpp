@@ -31,7 +31,7 @@ bool TranslateMessageJob::start()
 void TranslateMessageJob::onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
     const QJsonObject replyObject = replyJson.object();
-    if (replyObject[QLatin1StringView("success")].toBool()) {
+    if (replyObject["success"_L1].toBool()) {
         addLoggerInfo(QByteArrayLiteral("TranslateMessageJob success: ") + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT translateMessageDone();
     } else {
@@ -93,8 +93,8 @@ QNetworkRequest TranslateMessageJob::request() const
 QJsonDocument TranslateMessageJob::json() const
 {
     QJsonObject jsonObj;
-    jsonObj[QLatin1StringView("messageId")] = mMessageId;
-    jsonObj[QLatin1StringView("targetLanguage")] = mTargetLanguage;
+    jsonObj["messageId"_L1] = mMessageId;
+    jsonObj["targetLanguage"_L1] = mTargetLanguage;
     const QJsonDocument postData = QJsonDocument(jsonObj);
     return postData;
 }

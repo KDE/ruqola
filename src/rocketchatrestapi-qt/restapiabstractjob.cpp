@@ -197,22 +197,22 @@ void RestApiAbstractJob::emitFailedMessage(const QString &replyErrorString, cons
 QString RestApiAbstractJob::errorStr(const QJsonObject &replyObject)
 {
     // JSon-level error
-    const QString errorType = replyObject[QLatin1StringView("errorType")].toString();
+    const QString errorType = replyObject["errorType"_L1].toString();
     if (!errorType.isEmpty()) {
         qCWarning(ROCKETCHATQTRESTAPI_LOG) << "errorType" << errorType;
-        const QString trStr = errorMessage(errorType, replyObject[QLatin1StringView("details")].toObject());
+        const QString trStr = errorMessage(errorType, replyObject["details"_L1].toObject());
         if (!trStr.isEmpty()) {
             return trStr;
         } else {
             qCWarning(ROCKETCHATQTRESTAPI_LOG) << " errorType not defined as translated message: " << errorType;
             return i18n("Unauthorized");
         }
-    } else if (replyObject[QLatin1StringView("status")].toString() == QLatin1StringView("error")) {
-        const QString message = replyObject[QLatin1StringView("message")].toString();
+    } else if (replyObject["status"_L1].toString() == QLatin1StringView("error")) {
+        const QString message = replyObject["message"_L1].toString();
         qCWarning(ROCKETCHATQTRESTAPI_LOG) << "message error " << message;
         return generateErrorMessage(message);
     } else {
-        const QString error = replyObject[QLatin1StringView("error")].toString();
+        const QString error = replyObject["error"_L1].toString();
         qCWarning(ROCKETCHATQTRESTAPI_LOG) << "error " << error;
         return generateErrorMessage(error);
     }
@@ -230,12 +230,12 @@ QString RestApiAbstractJob::errorMessage(const QString &str, const QJsonObject &
 {
     qDebug() << " details " << details;
     if (str == QLatin1StringView("error-action-not-allowed")) {
-        const QString actionName = details[QLatin1StringView("action")].toString();
+        const QString actionName = details["action"_L1].toString();
         return i18n("'%1' is not allowed", actionName);
     } else if (str == QLatin1StringView("error-application-not-found")) {
         return i18n("Application not found");
     } else if (str == QLatin1StringView("error-archived-duplicate-name")) {
-        const QString roomName = details[QLatin1StringView("room_name")].toString();
+        const QString roomName = details["room_name"_L1].toString();
         return i18n("There's an archived channel with name '%1'", roomName);
     } else if (str == QLatin1StringView("error-cant-invite-for-direct-room")) {
         return i18n("Can't invite user to direct rooms");
@@ -256,17 +256,17 @@ QString RestApiAbstractJob::errorMessage(const QString &str, const QJsonObject &
     } else if (str == QLatin1StringView("error-direct-message-file-upload-not-allowed")) {
         return i18n("File sharing not allowed in direct messages");
     } else if (str == QLatin1StringView("error-duplicate-channel-name")) {
-        const QString channelName = details[QLatin1StringView("channel_name")].toString();
+        const QString channelName = details["channel_name"_L1].toString();
         return i18n("A channel with name '%1' exists", channelName);
     } else if (str == QLatin1StringView("error-edit-permissions-not-allowed")) {
         return i18n("Editing permissions is not allowed");
     } else if (str == QLatin1StringView("error-email-domain-blacklisted")) {
         return i18n("The email domain is blacklisted");
     } else if (str == QLatin1StringView("error-email-send-failed")) {
-        const QString message = details[QLatin1StringView("message")].toString();
+        const QString message = details["message"_L1].toString();
         return i18n("Error trying to send email: %1", message);
     } else if (str == QLatin1StringView("error-field-unavailable")) {
-        const QString field = details[QLatin1StringView("field")].toString();
+        const QString field = details["field"_L1].toString();
         return i18n("'%1' is already in use :(", field);
     } else if (str == QLatin1StringView("error-file-too-large")) {
         return i18n("File is too large");
@@ -279,8 +279,8 @@ QString RestApiAbstractJob::errorMessage(const QString &str, const QJsonObject &
     } else if (str == QLatin1StringView("error-import-file-missing")) {
         return i18n("The file to be imported was not found on the specified path.");
     } else if (str == QLatin1StringView("error-input-is-not-a-valid-field")) {
-        const QString field = details[QLatin1StringView("field")].toString();
-        const QString input = details[QLatin1StringView("input")].toString();
+        const QString field = details["field"_L1].toString();
+        const QString input = details["input"_L1].toString();
         return i18n("%1 is not a valid %2", input, field);
     } else if (str == QLatin1StringView("error-invalid-actionlink")) {
         return i18n("Invalid action link");
@@ -305,7 +305,7 @@ QString RestApiAbstractJob::errorMessage(const QString &str, const QJsonObject &
     } else if (str == QLatin1StringView("error-invalid-domain")) {
         return i18n("Invalid domain");
     } else if (str == QLatin1StringView("error-invalid-email")) {
-        const QString email = details[QLatin1StringView("email")].toString();
+        const QString email = details["email"_L1].toString();
         return i18n("Invalid email '%1'", email);
     } else if (str == QLatin1StringView("error-invalid-email-address")) {
         return i18n("Invalid email address");
@@ -336,10 +336,10 @@ QString RestApiAbstractJob::errorMessage(const QString &str, const QJsonObject &
     } else if (str == QLatin1StringView("error-invalid-room")) {
         return i18n("Invalid room");
     } else if (str == QLatin1StringView("error-invalid-room-name")) {
-        const QString roomName = details[QLatin1StringView("room_name")].toString();
+        const QString roomName = details["room_name"_L1].toString();
         return i18n("'%1' is not a valid room name", roomName);
     } else if (str == QLatin1StringView("error-invalid-room-type")) {
-        const QString roomType = details[QLatin1StringView("type")].toString();
+        const QString roomType = details["type"_L1].toString();
         return i18n("'%1' is not a valid room type.", roomType);
     } else if (str == QLatin1StringView("error-invalid-settings")) {
         return i18n("Invalid settings provided");
@@ -401,7 +401,7 @@ QString RestApiAbstractJob::errorMessage(const QString &str, const QJsonObject &
     } else if (str == QLatin1StringView("error-room-is-not-closed")) {
         return i18n("Room is not closed");
     } else if (str == QLatin1StringView("error-the-field-is-required")) {
-        const QString field = details[QLatin1StringView("field")].toString();
+        const QString field = details["field"_L1].toString();
         return i18n("The field '%1' is required.", field);
     } else if (str == QLatin1StringView("error-this-is-not-a-livechat-room")) {
         return i18n("This is not a Livechat room");
@@ -412,7 +412,7 @@ QString RestApiAbstractJob::errorMessage(const QString &str, const QJsonObject &
     } else if (str == QLatin1StringView("error-token-does-not-exists")) {
         return i18n("Token does not exists");
     } else if (str == QLatin1StringView("error-too-many-requests")) {
-        const QString seconds = details[QLatin1StringView("seconds")].toString();
+        const QString seconds = details["seconds"_L1].toString();
         return i18n("Error, too many requests. Please slow down. You must wait %1 seconds before trying again.", seconds);
     } else if (str == QLatin1StringView("error-user-has-no-roles")) {
         return i18n("User has no roles");

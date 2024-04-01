@@ -34,7 +34,7 @@ bool UsersUpdateOwnBasicInfoJob::start()
 void UsersUpdateOwnBasicInfoJob::onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
     const QJsonObject replyObject = replyJson.object();
-    if (replyObject[QLatin1StringView("success")].toBool()) {
+    if (replyObject["success"_L1].toBool()) {
         addLoggerInfo(QByteArrayLiteral("UsersUpdateOwnBasicInfo: success: ") + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT updateOwnBasicInfoDone();
         if (mUpdateOwnBasicInfo.type & UpdateOwnBasicInfo::BasicInfoType::Password) {
@@ -87,23 +87,23 @@ QJsonDocument UsersUpdateOwnBasicInfoJob::json() const
     QJsonObject jsonObj;
     QJsonObject dataObj;
     if (mUpdateOwnBasicInfo.type & UpdateOwnBasicInfo::BasicInfoType::Email) {
-        dataObj[QLatin1StringView("email")] = mUpdateOwnBasicInfo.email;
+        dataObj["email"_L1] = mUpdateOwnBasicInfo.email;
     }
     if (mUpdateOwnBasicInfo.type & UpdateOwnBasicInfo::BasicInfoType::UserName) {
-        dataObj[QLatin1StringView("username")] = mUpdateOwnBasicInfo.userName;
+        dataObj["username"_L1] = mUpdateOwnBasicInfo.userName;
     }
     if (mUpdateOwnBasicInfo.type & UpdateOwnBasicInfo::BasicInfoType::NickName) {
-        dataObj[QLatin1StringView("nickname")] = mUpdateOwnBasicInfo.nickName;
+        dataObj["nickname"_L1] = mUpdateOwnBasicInfo.nickName;
     }
     if (mUpdateOwnBasicInfo.type & UpdateOwnBasicInfo::BasicInfoType::StatusText) {
-        dataObj[QLatin1StringView("statusText")] = mUpdateOwnBasicInfo.statusText;
+        dataObj["statusText"_L1] = mUpdateOwnBasicInfo.statusText;
     }
     if (mUpdateOwnBasicInfo.type & UpdateOwnBasicInfo::BasicInfoType::Password) {
-        dataObj[QLatin1StringView("currentPassword")] = QLatin1StringView(mUpdateOwnBasicInfo.currentPassword);
-        dataObj[QLatin1StringView("newPassword")] = mUpdateOwnBasicInfo.newPassword;
+        dataObj["currentPassword"_L1] = QLatin1StringView(mUpdateOwnBasicInfo.currentPassword);
+        dataObj["newPassword"_L1] = mUpdateOwnBasicInfo.newPassword;
     }
 
-    jsonObj[QLatin1StringView("data")] = dataObj;
+    jsonObj["data"_L1] = dataObj;
     const QJsonDocument postData = QJsonDocument(jsonObj);
     return postData;
 }

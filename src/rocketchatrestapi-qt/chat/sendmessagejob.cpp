@@ -38,7 +38,7 @@ void SendMessageJob::onPostRequestResponse(const QString &replyErrorString, cons
 {
     const QJsonObject replyObject = replyJson.object();
 
-    if (replyObject[QLatin1StringView("success")].toBool()) {
+    if (replyObject["success"_L1].toBool()) {
         addLoggerInfo(QByteArrayLiteral("SendMessageJob success: ") + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT sendMessageDone();
     } else {
@@ -87,14 +87,14 @@ QJsonDocument SendMessageJob::json() const
     QJsonObject message;
     QJsonObject jsonObj;
     if (!mSendMessageArguments.messageId.isEmpty()) {
-        jsonObj[QLatin1StringView("_id")] = mSendMessageArguments.messageId;
+        jsonObj["_id"_L1] = mSendMessageArguments.messageId;
     }
     if (!mSendMessageArguments.threadMessageId.isEmpty()) {
-        jsonObj[QLatin1StringView("tmid")] = mSendMessageArguments.threadMessageId;
+        jsonObj["tmid"_L1] = mSendMessageArguments.threadMessageId;
     }
-    jsonObj[QLatin1StringView("rid")] = mSendMessageArguments.roomId;
-    jsonObj[QLatin1StringView("msg")] = mSendMessageArguments.message;
-    message[QLatin1StringView("message")] = jsonObj;
+    jsonObj["rid"_L1] = mSendMessageArguments.roomId;
+    jsonObj["msg"_L1] = mSendMessageArguments.message;
+    message["message"_L1] = jsonObj;
     const QJsonDocument postData = QJsonDocument(message);
     return postData;
 }

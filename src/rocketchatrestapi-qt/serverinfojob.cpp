@@ -48,7 +48,7 @@ void ServerInfoJob::onGetRequestResponse(const QString &replyErrorString, const 
 {
     const QJsonObject replyObject = replyJson.object();
     // TODO send replyObject too. Need by administrator server info.
-    if (replyObject[QLatin1StringView("success")].toBool()) {
+    if (replyObject["success"_L1].toBool()) {
         const QString versionStr = replyObject.value(QStringLiteral("version")).toString();
         addLoggerInfo(QByteArrayLiteral("ServerInfoJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT serverInfoDone(versionStr, replyObject);

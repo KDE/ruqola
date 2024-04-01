@@ -34,7 +34,7 @@ void UpdateGroupKeyJob::onPostRequestResponse(const QString &replyErrorString, c
 {
     const QJsonObject replyObject = replyJson.object();
 
-    if (replyObject[QLatin1StringView("success")].toBool()) {
+    if (replyObject["success"_L1].toBool()) {
         addLoggerInfo(QByteArrayLiteral("UpdateGroupKeyJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT updateGroupKeyDone();
     } else {

@@ -8,6 +8,7 @@
 #include <QJsonArray>
 #include <QJsonObject>
 
+using namespace Qt::Literals::StringLiterals;
 using namespace RocketChatRestApi;
 
 bool CreateChannelTeamInfo::isValid() const
@@ -24,32 +25,32 @@ QJsonDocument CreateChannelTeamInfo::json() const
 {
     QJsonObject jsonObj;
     if (!members.isEmpty()) {
-        jsonObj[QLatin1StringView("members")] = QJsonArray::fromStringList(members);
+        jsonObj["members"_L1] = QJsonArray::fromStringList(members);
     }
-    jsonObj[QLatin1StringView("name")] = name;
+    jsonObj["name"_L1] = name;
     if (readOnly) {
-        jsonObj[QLatin1StringView("readOnly")] = true;
+        jsonObj["readOnly"_L1] = true;
     } // Default is false
 
     if (infoType == Team) {
-        jsonObj[QLatin1StringView("type")] = privateChannel ? 1 : 0;
+        jsonObj["type"_L1] = privateChannel ? 1 : 0;
     }
 
     QJsonObject extraJsonObj;
 
     if (broadcast) {
-        extraJsonObj[QLatin1StringView("broadcast")] = true;
+        extraJsonObj["broadcast"_L1] = true;
     } // Default is false
     if (encrypted) {
-        extraJsonObj[QLatin1StringView("encrypted")] = true;
+        extraJsonObj["encrypted"_L1] = true;
     } // Default is false
     if (!description.isEmpty()) {
-        extraJsonObj[QLatin1StringView("description")] = description;
+        extraJsonObj["description"_L1] = description;
     }
     if (!teamId.isEmpty()) {
-        extraJsonObj[QLatin1StringView("teamId")] = QLatin1StringView(teamId);
+        extraJsonObj["teamId"_L1] = QLatin1StringView(teamId);
     }
-    jsonObj[QLatin1StringView("extraData")] = extraJsonObj;
+    jsonObj["extraData"_L1] = extraJsonObj;
     const QJsonDocument postData = QJsonDocument(jsonObj);
     return postData;
 }

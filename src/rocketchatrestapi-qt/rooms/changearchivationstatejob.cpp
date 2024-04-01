@@ -34,7 +34,7 @@ void ChangeArchivationStateJob::onPostRequestResponse(const QString &replyErrorS
 {
     const QJsonObject replyObject = replyJson.object();
 
-    if (replyObject[QLatin1StringView("success")].toBool()) {
+    if (replyObject["success"_L1].toBool()) {
         addLoggerInfo(QByteArrayLiteral("ChangeArchivationStateJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT changeArchivationStateDone();
     } else {
@@ -92,8 +92,8 @@ QNetworkRequest ChangeArchivationStateJob::request() const
 QJsonDocument ChangeArchivationStateJob::json() const
 {
     QJsonObject jsonObj;
-    jsonObj[QLatin1StringView("rid")] = mRoomId;
-    jsonObj[QLatin1StringView("action")] = mArchive ? QStringLiteral("archive") : QStringLiteral("unarchive");
+    jsonObj["rid"_L1] = mRoomId;
+    jsonObj["action"_L1] = mArchive ? QStringLiteral("archive") : QStringLiteral("unarchive");
 
     const QJsonDocument postData = QJsonDocument(jsonObj);
     return postData;

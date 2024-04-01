@@ -8,6 +8,7 @@
 
 #include <QJsonArray>
 #include <QJsonObject>
+using namespace Qt::Literals::StringLiterals;
 using namespace RocketChatRestApi;
 
 bool CreateUpdateUserInfo::isValid() const
@@ -45,38 +46,38 @@ QJsonDocument CreateUpdateUserInfo::json() const
     // TODO add update support
     QJsonObject userInfoObj;
     if (!mEmail.isEmpty()) {
-        userInfoObj[QLatin1StringView("email")] = mEmail;
+        userInfoObj["email"_L1] = mEmail;
     }
     if (!mName.isEmpty()) {
-        userInfoObj[QLatin1StringView("name")] = mName;
+        userInfoObj["name"_L1] = mName;
     }
     if (!mUserName.isEmpty()) {
-        userInfoObj[QLatin1StringView("username")] = mUserName;
+        userInfoObj["username"_L1] = mUserName;
     }
     if (!mStatusText.isEmpty()) {
-        userInfoObj[QLatin1StringView("statusText")] = mStatusText;
+        userInfoObj["statusText"_L1] = mStatusText;
     }
     if (!mBio.isEmpty()) {
-        userInfoObj[QLatin1StringView("bio")] = mBio;
+        userInfoObj["bio"_L1] = mBio;
     }
     if (!mNickName.isEmpty()) {
-        userInfoObj[QLatin1StringView("nickname")] = mNickName;
+        userInfoObj["nickname"_L1] = mNickName;
     }
     if (!mRoles.isEmpty()) {
-        userInfoObj[QLatin1StringView("roles")] = QJsonArray::fromStringList(mRoles);
+        userInfoObj["roles"_L1] = QJsonArray::fromStringList(mRoles);
     }
 
-    userInfoObj[QLatin1StringView("password")] = mSetRandomPassword ? QString() : mPassword;
+    userInfoObj["password"_L1] = mSetRandomPassword ? QString() : mPassword;
 
-    userInfoObj[QLatin1StringView("requirePasswordChange")] = mRequirePasswordChange;
-    userInfoObj[QLatin1StringView("sendWelcomeEmail")] = mSendWelcomeEmail;
-    userInfoObj[QLatin1StringView("setRandomPassword")] = mSetRandomPassword;
-    userInfoObj[QLatin1StringView("verified")] = mVerified;
-    userInfoObj[QLatin1StringView("joinDefaultChannels")] = mJoinDefaultChannels;
+    userInfoObj["requirePasswordChange"_L1] = mRequirePasswordChange;
+    userInfoObj["sendWelcomeEmail"_L1] = mSendWelcomeEmail;
+    userInfoObj["setRandomPassword"_L1] = mSetRandomPassword;
+    userInfoObj["verified"_L1] = mVerified;
+    userInfoObj["joinDefaultChannels"_L1] = mJoinDefaultChannels;
     if (mTypeInfo == Update) {
         QJsonObject dataObj;
-        dataObj[QLatin1StringView("data")] = userInfoObj;
-        dataObj[QLatin1StringView("userId")] = mUserId;
+        dataObj["data"_L1] = userInfoObj;
+        dataObj["userId"_L1] = mUserId;
         const QJsonDocument postData = QJsonDocument(dataObj);
         return postData;
     }

@@ -34,7 +34,7 @@ void MarkRoomAsReadJob::onPostRequestResponse(const QString &replyErrorString, c
 {
     const QJsonObject replyObject = replyJson.object();
 
-    if (replyObject[QLatin1StringView("success")].toBool()) {
+    if (replyObject["success"_L1].toBool()) {
         addLoggerInfo(QByteArrayLiteral("MarkRoomAsReadJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT markAsReadDone(mRoomId);
     } else {
@@ -82,7 +82,7 @@ QNetworkRequest MarkRoomAsReadJob::request() const
 QJsonDocument MarkRoomAsReadJob::json() const
 {
     QJsonObject jsonObj;
-    jsonObj[QLatin1StringView("rid")] = QLatin1StringView(mRoomId);
+    jsonObj["rid"_L1] = QLatin1StringView(mRoomId);
 
     const QJsonDocument postData = QJsonDocument(jsonObj);
     return postData;

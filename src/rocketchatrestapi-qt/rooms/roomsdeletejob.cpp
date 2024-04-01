@@ -34,7 +34,7 @@ void RoomsDeleteJob::onPostRequestResponse(const QString &replyErrorString, cons
 {
     const QJsonObject replyObject = replyJson.object();
 
-    if (replyObject[QLatin1StringView("success")].toBool()) {
+    if (replyObject["success"_L1].toBool()) {
         addLoggerInfo(QByteArrayLiteral("RoomsDeleteJob success: ") + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT roomDeleteDone();
     } else {
@@ -82,7 +82,7 @@ QNetworkRequest RoomsDeleteJob::request() const
 QJsonDocument RoomsDeleteJob::json() const
 {
     QJsonObject jsonObj;
-    jsonObj[QLatin1StringView("roomId")] = mRoomId;
+    jsonObj["roomId"_L1] = mRoomId;
 
     const QJsonDocument postData = QJsonDocument(jsonObj);
     return postData;

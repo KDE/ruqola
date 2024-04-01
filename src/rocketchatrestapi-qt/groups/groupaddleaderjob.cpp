@@ -34,7 +34,7 @@ void GroupAddLeaderJob::onPostRequestResponse(const QString &replyErrorString, c
 {
     const QJsonObject replyObject = replyJson.object();
 
-    if (replyObject[QLatin1StringView("success")].toBool()) {
+    if (replyObject["success"_L1].toBool()) {
         addLoggerInfo(QByteArrayLiteral("GroupAddLeaderJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT addLeaderDone();
     } else {
@@ -78,7 +78,7 @@ QJsonDocument GroupAddLeaderJob::json() const
 {
     QJsonObject jsonObj;
     generateJson(jsonObj);
-    jsonObj[QLatin1StringView("userId")] = addLeaderUserId();
+    jsonObj["userId"_L1] = addLeaderUserId();
 
     const QJsonDocument postData = QJsonDocument(jsonObj);
     return postData;

@@ -34,7 +34,7 @@ void RunCommandJob::onPostRequestResponse(const QString &replyErrorString, const
 {
     const QJsonObject replyObject = replyJson.object();
 
-    if (replyObject[QLatin1StringView("success")].toBool()) {
+    if (replyObject["success"_L1].toBool()) {
         addLoggerInfo(QByteArrayLiteral("RunCommandJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT runCommandDone();
     } else {
@@ -99,17 +99,17 @@ QNetworkRequest RunCommandJob::request() const
 QJsonDocument RunCommandJob::json() const
 {
     QJsonObject jsonObj;
-    jsonObj[QLatin1StringView("command")] = mRunCommandInfo.commandName;
-    jsonObj[QLatin1StringView("roomId")] = mRunCommandInfo.roomId;
+    jsonObj["command"_L1] = mRunCommandInfo.commandName;
+    jsonObj["roomId"_L1] = mRunCommandInfo.roomId;
     if (!mRunCommandInfo.threadMessageId.isEmpty()) {
-        jsonObj[QLatin1StringView("tmid")] = mRunCommandInfo.threadMessageId;
+        jsonObj["tmid"_L1] = mRunCommandInfo.threadMessageId;
     }
     if (!mRunCommandInfo.triggerId.isEmpty()) {
-        jsonObj[QLatin1StringView("triggerId")] = mRunCommandInfo.triggerId;
+        jsonObj["triggerId"_L1] = mRunCommandInfo.triggerId;
     }
 
     if (!mRunCommandInfo.params.isEmpty()) {
-        jsonObj[QLatin1StringView("params")] = mRunCommandInfo.params;
+        jsonObj["params"_L1] = mRunCommandInfo.params;
     }
     const QJsonDocument postData = QJsonDocument(jsonObj);
     return postData;

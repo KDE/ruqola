@@ -33,7 +33,7 @@ void FollowMessageJob::onPostRequestResponse(const QString &replyErrorString, co
 {
     const QJsonObject replyObject = replyJson.object();
 
-    if (replyObject[QLatin1StringView("success")].toBool()) {
+    if (replyObject["success"_L1].toBool()) {
         addLoggerInfo(QByteArrayLiteral("FollowMessageJob success: ") + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT followMessageDone();
     } else {
@@ -62,7 +62,7 @@ bool FollowMessageJob::canStart() const
 QJsonDocument FollowMessageJob::json() const
 {
     QJsonObject jsonObj;
-    jsonObj[QLatin1StringView("mid")] = QLatin1StringView(mMessageId);
+    jsonObj["mid"_L1] = QLatin1StringView(mMessageId);
 
     const QJsonDocument postData = QJsonDocument(jsonObj);
     return postData;

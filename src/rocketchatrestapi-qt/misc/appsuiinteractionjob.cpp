@@ -36,9 +36,9 @@ void AppsUiInteractionJob::onPostRequestResponse(const QString &replyErrorString
 #if 0
     // qDebug() << " response " << replyErrorString << "replyJson  " << replyJson;
     const QJsonObject replyObject = replyJson.object();
-    if (replyObject[QLatin1StringView("success")].toBool()) {
+    if (replyObject["success"_L1].toBool()) {
         addLoggerInfo(QByteArrayLiteral("AppsUiInteractionJob success: ") + replyJson.toJson(QJsonDocument::Indented));
-        const QJsonObject obj = QJsonDocument::fromJson(replyObject[QLatin1StringView("message")].toString().toUtf8()).object();
+        const QJsonObject obj = QJsonDocument::fromJson(replyObject["message"_L1].toString().toUtf8()).object();
         Q_EMIT AppsUiInteractionDone(obj);
     } else {
         emitFailedMessage(replyErrorString, replyObject);

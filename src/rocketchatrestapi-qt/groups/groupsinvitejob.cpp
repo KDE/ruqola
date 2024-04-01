@@ -34,7 +34,7 @@ void GroupsInviteJob::onPostRequestResponse(const QString &replyErrorString, con
 {
     const QJsonObject replyObject = replyJson.object();
 
-    if (replyObject[QLatin1StringView("success")].toBool()) {
+    if (replyObject["success"_L1].toBool()) {
         addLoggerInfo(QByteArrayLiteral("GroupsInviteJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT inviteGroupsDone();
     } else {
@@ -89,9 +89,9 @@ QJsonDocument GroupsInviteJob::json() const
     QJsonObject jsonObj;
     generateJson(jsonObj);
     if (!inviteUserId().isEmpty()) {
-        jsonObj[QLatin1StringView("userId")] = inviteUserId();
+        jsonObj["userId"_L1] = inviteUserId();
     } else if (!inviteUserName().isEmpty()) {
-        jsonObj[QLatin1StringView("userName")] = inviteUserName();
+        jsonObj["userName"_L1] = inviteUserName();
     }
     const QJsonDocument postData = QJsonDocument(jsonObj);
     return postData;

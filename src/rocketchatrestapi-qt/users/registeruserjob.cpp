@@ -44,7 +44,7 @@ bool RegisterUserJob::start()
 void RegisterUserJob::onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
     const QJsonObject replyObject = replyJson.object();
-    if (replyObject[QLatin1StringView("success")].toBool()) {
+    if (replyObject["success"_L1].toBool()) {
         addLoggerInfo(QByteArrayLiteral("RegisterUserJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT registerUserDone();
     } else {
@@ -88,10 +88,10 @@ bool RegisterUserJob::requireHttpAuthentication() const
 QJsonDocument RegisterUserJob::json() const
 {
     QJsonObject jsonObj;
-    jsonObj[QLatin1StringView("username")] = mRegisterUserInfo.username;
-    jsonObj[QLatin1StringView("email")] = mRegisterUserInfo.email;
-    jsonObj[QLatin1StringView("name")] = mRegisterUserInfo.name;
-    jsonObj[QLatin1StringView("pass")] = mRegisterUserInfo.password; // TODO ??
+    jsonObj["username"_L1] = mRegisterUserInfo.username;
+    jsonObj["email"_L1] = mRegisterUserInfo.email;
+    jsonObj["name"_L1] = mRegisterUserInfo.name;
+    jsonObj["pass"_L1] = mRegisterUserInfo.password; // TODO ??
 
     const QJsonDocument postData = QJsonDocument(jsonObj);
     return postData;

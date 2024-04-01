@@ -52,7 +52,7 @@ bool GetPinnedMessagesJob::start()
 void GetPinnedMessagesJob::onGetRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
     const QJsonObject replyObject = replyJson.object();
-    if (replyObject[QLatin1StringView("success")].toBool()) {
+    if (replyObject["success"_L1].toBool()) {
         addLoggerInfo(QByteArrayLiteral("GetPinnedMessagesJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT getPinnedMessagesDone(replyObject, mRoomId);
     } else {

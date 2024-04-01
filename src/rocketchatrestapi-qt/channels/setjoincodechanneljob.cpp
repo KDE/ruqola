@@ -34,7 +34,7 @@ void SetJoinCodeChannelJob::onPostRequestResponse(const QString &replyErrorStrin
 {
     const QJsonObject replyObject = replyJson.object();
 
-    if (replyObject[QLatin1StringView("success")].toBool()) {
+    if (replyObject["success"_L1].toBool()) {
         addLoggerInfo(QByteArrayLiteral("SetJoinCodeChannelJob success: ") + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT setJoinCodeDone();
     } else {
@@ -78,7 +78,7 @@ QJsonDocument SetJoinCodeChannelJob::json() const
 {
     QJsonObject jsonObj;
     generateJson(jsonObj);
-    jsonObj[QLatin1StringView("joinCode")] = joinCode();
+    jsonObj["joinCode"_L1] = joinCode();
 
     const QJsonDocument postData = QJsonDocument(jsonObj);
     return postData;

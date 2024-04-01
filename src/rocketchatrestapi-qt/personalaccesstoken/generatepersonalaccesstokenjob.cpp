@@ -34,7 +34,7 @@ void GeneratePersonalAccessTokenJob::onPostRequestResponse(const QString &replyE
 {
     const QJsonObject replyObject = replyJson.object();
 
-    if (replyObject[QLatin1StringView("success")].toBool()) {
+    if (replyObject["success"_L1].toBool()) {
         addLoggerInfo(QByteArrayLiteral("GeneratePersonalAccessTokenJob success: ") + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT generateTokenDone(replyObject);
     } else {
@@ -92,8 +92,8 @@ QNetworkRequest GeneratePersonalAccessTokenJob::request() const
 QJsonDocument GeneratePersonalAccessTokenJob::json() const
 {
     QJsonObject jsonObj;
-    jsonObj[QLatin1StringView("tokenName")] = mTokenName;
-    jsonObj[QLatin1StringView("bypassTwoFactor")] = mBypassTwoFactor;
+    jsonObj["tokenName"_L1] = mTokenName;
+    jsonObj["bypassTwoFactor"_L1] = mBypassTwoFactor;
     const QJsonDocument postData = QJsonDocument(jsonObj);
     return postData;
 }

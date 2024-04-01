@@ -34,7 +34,7 @@ void ChannelInviteJob::onPostRequestResponse(const QString &replyErrorString, co
 {
     const QJsonObject replyObject = replyJson.object();
 
-    if (replyObject[QLatin1StringView("success")].toBool()) {
+    if (replyObject["success"_L1].toBool()) {
         addLoggerInfo(QByteArrayLiteral("ChannelInviteJob success: ") + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT inviteDone();
     } else {
@@ -89,9 +89,9 @@ QJsonDocument ChannelInviteJob::json() const
     QJsonObject jsonObj;
     generateJson(jsonObj);
     if (!inviteUserId().isEmpty()) {
-        jsonObj[QLatin1StringView("userId")] = inviteUserId();
+        jsonObj["userId"_L1] = inviteUserId();
     } else if (!inviteUserName().isEmpty()) {
-        jsonObj[QLatin1StringView("userName")] = inviteUserName();
+        jsonObj["userName"_L1] = inviteUserName();
     }
 
     const QJsonDocument postData = QJsonDocument(jsonObj);

@@ -84,7 +84,7 @@ void SetAvatarJob::slotSetAvatar()
 void SetAvatarJob::onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
     const QJsonObject replyObject = replyJson.object();
-    if (replyObject[QLatin1StringView("success")].toBool()) {
+    if (replyObject["success"_L1].toBool()) {
         addLoggerInfo(QByteArrayLiteral("SetAvatarJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT setAvatarDone();
     } else {
@@ -106,11 +106,11 @@ void SetAvatarJob::setAvatarInfo(const SetAvatarInfo &avatarInfo)
 QString SetAvatarJob::errorMessage(const QString &str, const QJsonObject &details)
 {
     if (str == QLatin1StringView("error-avatar-invalid-url")) {
-        const QString url = details[QLatin1StringView("url")].toString();
+        const QString url = details["url"_L1].toString();
         return i18n("Invalid avatar URL: %1", url);
     } else if (str == QLatin1StringView("error-avatar-url-handling")) {
-        const QString url = details[QLatin1StringView("url")].toString();
-        const QString username = details[QLatin1StringView("username")].toString();
+        const QString url = details["url"_L1].toString();
+        const QString username = details["username"_L1].toString();
         return i18n("Error while handling avatar setting from a URL \"%1\" for %2", url, username);
     }
 
@@ -150,7 +150,7 @@ QNetworkRequest SetAvatarJob::request() const
 QJsonDocument SetAvatarJob::json() const
 {
     QJsonObject jsonObj;
-    jsonObj[QLatin1StringView("avatarUrl")] = mAvatarInfo.mAvatarUrl;
+    jsonObj["avatarUrl"_L1] = mAvatarInfo.mAvatarUrl;
     generateJson(jsonObj);
     const QJsonDocument postData = QJsonDocument(jsonObj);
     return postData;

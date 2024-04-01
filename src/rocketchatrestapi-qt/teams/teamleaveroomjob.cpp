@@ -34,7 +34,7 @@ void TeamLeaveRoomJob::onPostRequestResponse(const QString &replyErrorString, co
 {
     const QJsonObject replyObject = replyJson.object();
 
-    if (replyObject[QLatin1StringView("success")].toBool()) {
+    if (replyObject["success"_L1].toBool()) {
         addLoggerInfo(QByteArrayLiteral("TeamLeaveRoomJob success: ") + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT removeLeaveRoomDone();
     } else {
@@ -96,8 +96,8 @@ QNetworkRequest TeamLeaveRoomJob::request() const
 QJsonDocument TeamLeaveRoomJob::json() const
 {
     QJsonObject jsonObj;
-    jsonObj[QLatin1StringView("roomId")] = mRoomId;
-    jsonObj[QLatin1StringView("teamId")] = mTeamId;
+    jsonObj["roomId"_L1] = mRoomId;
+    jsonObj["teamId"_L1] = mTeamId;
     const QJsonDocument postData = QJsonDocument(jsonObj);
     return postData;
 }

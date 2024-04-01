@@ -95,8 +95,8 @@ void ReportMessageJob::setMessageId(const QByteArray &messageId)
 QJsonDocument ReportMessageJob::json() const
 {
     QJsonObject jsonObj;
-    jsonObj[QLatin1StringView("messageId")] = QLatin1StringView(mMessageId);
-    jsonObj[QLatin1StringView("description")] = mReportMessage;
+    jsonObj["messageId"_L1] = QLatin1StringView(mMessageId);
+    jsonObj["description"_L1] = mReportMessage;
 
     const QJsonDocument postData = QJsonDocument(jsonObj);
     return postData;

@@ -33,7 +33,7 @@ void UpdateMessageJob::onPostRequestResponse(const QString &replyErrorString, co
 {
     const QJsonObject replyObject = replyJson.object();
 
-    if (replyObject[QLatin1StringView("success")].toBool()) {
+    if (replyObject["success"_L1].toBool()) {
         addLoggerInfo(QByteArrayLiteral("UpdateMessageJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT updateMessageDone();
     } else {
@@ -79,9 +79,9 @@ bool UpdateMessageJob::canStart() const
 QJsonDocument UpdateMessageJob::json() const
 {
     QJsonObject jsonObj;
-    jsonObj[QLatin1StringView("roomId")] = QLatin1StringView(mRoomId);
-    jsonObj[QLatin1StringView("msgId")] = QLatin1StringView(mMessageId);
-    jsonObj[QLatin1StringView("text")] = mUpdatedText;
+    jsonObj["roomId"_L1] = QLatin1StringView(mRoomId);
+    jsonObj["msgId"_L1] = QLatin1StringView(mMessageId);
+    jsonObj["text"_L1] = mUpdatedText;
 
     const QJsonDocument postData = QJsonDocument(jsonObj);
     return postData;

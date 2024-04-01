@@ -35,7 +35,7 @@ bool UsersSetPreferencesJob::start()
 void UsersSetPreferencesJob::onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
     const QJsonObject replyObject = replyJson.object();
-    if (replyObject[QLatin1StringView("success")].toBool()) {
+    if (replyObject["success"_L1].toBool()) {
         addLoggerInfo(QByteArrayLiteral("UsersSetPreferencesJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT usersSetPreferencesDone(replyObject);
     } else {
@@ -84,63 +84,63 @@ QJsonDocument UsersSetPreferencesJob::json() const
 {
     QJsonObject jsonObj;
     QJsonObject dataObj;
-    jsonObj[QLatin1StringView("userId")] = QLatin1StringView(mUsersSetPreferencesInfo.userId);
+    jsonObj["userId"_L1] = QLatin1StringView(mUsersSetPreferencesInfo.userId);
     if (!mUsersSetPreferencesInfo.newRoomNotification.isEmpty()) {
-        dataObj[QLatin1StringView("newRoomNotification")] = mUsersSetPreferencesInfo.newRoomNotification;
+        dataObj["newRoomNotification"_L1] = mUsersSetPreferencesInfo.newRoomNotification;
     }
     if (!mUsersSetPreferencesInfo.newMessageNotification.isEmpty()) {
-        dataObj[QLatin1StringView("newMessageNotification")] = mUsersSetPreferencesInfo.newMessageNotification;
+        dataObj["newMessageNotification"_L1] = mUsersSetPreferencesInfo.newMessageNotification;
     }
     if (!mUsersSetPreferencesInfo.desktopNotifications.isEmpty()) {
-        dataObj[QLatin1StringView("desktopNotifications")] = mUsersSetPreferencesInfo.desktopNotifications;
+        dataObj["desktopNotifications"_L1] = mUsersSetPreferencesInfo.desktopNotifications;
     }
     if (!mUsersSetPreferencesInfo.pushNotifications.isEmpty()) {
-        dataObj[QLatin1StringView("pushNotifications")] = mUsersSetPreferencesInfo.pushNotifications;
+        dataObj["pushNotifications"_L1] = mUsersSetPreferencesInfo.pushNotifications;
     }
     if (!mUsersSetPreferencesInfo.emailNotificationMode.isEmpty()) {
-        dataObj[QLatin1StringView("emailNotificationMode")] = mUsersSetPreferencesInfo.emailNotificationMode;
+        dataObj["emailNotificationMode"_L1] = mUsersSetPreferencesInfo.emailNotificationMode;
     }
     if (!mUsersSetPreferencesInfo.highlights.isEmpty()) {
-        dataObj[QLatin1StringView("highlights")] = QJsonArray::fromStringList(mUsersSetPreferencesInfo.highlights);
+        dataObj["highlights"_L1] = QJsonArray::fromStringList(mUsersSetPreferencesInfo.highlights);
     }
 
     if (mUsersSetPreferencesInfo.useEmoji != UsersSetPreferencesInfo::Unknown) {
-        dataObj[QLatin1StringView("useEmojis")] = UsersSetPreferencesInfo::convertToBool(mUsersSetPreferencesInfo.useEmoji);
+        dataObj["useEmojis"_L1] = UsersSetPreferencesInfo::convertToBool(mUsersSetPreferencesInfo.useEmoji);
     }
     if (mUsersSetPreferencesInfo.convertAsciiToEmoji != UsersSetPreferencesInfo::Unknown) {
-        dataObj[QLatin1StringView("convertAsciiEmoji")] = UsersSetPreferencesInfo::convertToBool(mUsersSetPreferencesInfo.convertAsciiToEmoji);
+        dataObj["convertAsciiEmoji"_L1] = UsersSetPreferencesInfo::convertToBool(mUsersSetPreferencesInfo.convertAsciiToEmoji);
     }
     if (mUsersSetPreferencesInfo.hideRoles != UsersSetPreferencesInfo::Unknown) {
-        dataObj[QLatin1StringView("hideRoles")] = UsersSetPreferencesInfo::convertToBool(mUsersSetPreferencesInfo.hideRoles);
+        dataObj["hideRoles"_L1] = UsersSetPreferencesInfo::convertToBool(mUsersSetPreferencesInfo.hideRoles);
     }
     if (mUsersSetPreferencesInfo.displayAvatars != UsersSetPreferencesInfo::Unknown) {
-        dataObj[QLatin1StringView("displayAvatars")] = UsersSetPreferencesInfo::convertToBool(mUsersSetPreferencesInfo.displayAvatars);
+        dataObj["displayAvatars"_L1] = UsersSetPreferencesInfo::convertToBool(mUsersSetPreferencesInfo.displayAvatars);
     }
     if (mUsersSetPreferencesInfo.sidebarDisplayAvatar != UsersSetPreferencesInfo::Unknown) {
-        dataObj[QLatin1StringView("sidebarDisplayAvatar")] = UsersSetPreferencesInfo::convertToBool(mUsersSetPreferencesInfo.sidebarDisplayAvatar);
+        dataObj["sidebarDisplayAvatar"_L1] = UsersSetPreferencesInfo::convertToBool(mUsersSetPreferencesInfo.sidebarDisplayAvatar);
     }
     if (mUsersSetPreferencesInfo.sidebarShowUnread != UsersSetPreferencesInfo::Unknown) {
-        dataObj[QLatin1StringView("sidebarShowUnread")] = UsersSetPreferencesInfo::convertToBool(mUsersSetPreferencesInfo.sidebarShowUnread);
+        dataObj["sidebarShowUnread"_L1] = UsersSetPreferencesInfo::convertToBool(mUsersSetPreferencesInfo.sidebarShowUnread);
     }
     if (mUsersSetPreferencesInfo.sidebarShowFavorites != UsersSetPreferencesInfo::Unknown) {
-        dataObj[QLatin1StringView("sidebarShowFavorites")] = UsersSetPreferencesInfo::convertToBool(mUsersSetPreferencesInfo.sidebarShowFavorites);
+        dataObj["sidebarShowFavorites"_L1] = UsersSetPreferencesInfo::convertToBool(mUsersSetPreferencesInfo.sidebarShowFavorites);
     }
     if (!mUsersSetPreferencesInfo.sidebarSortby.isEmpty()) {
-        dataObj[QLatin1StringView("sidebarSortby")] = mUsersSetPreferencesInfo.sidebarSortby;
+        dataObj["sidebarSortby"_L1] = mUsersSetPreferencesInfo.sidebarSortby;
     }
     if (!mUsersSetPreferencesInfo.sidebarViewMode.isEmpty()) {
-        dataObj[QLatin1StringView("sidebarViewMode")] = mUsersSetPreferencesInfo.sidebarViewMode;
+        dataObj["sidebarViewMode"_L1] = mUsersSetPreferencesInfo.sidebarViewMode;
     }
     if (mUsersSetPreferencesInfo.receiveLoginDetectionEmail != UsersSetPreferencesInfo::Unknown) {
-        dataObj[QLatin1StringView("receiveLoginDetectionEmail")] = UsersSetPreferencesInfo::convertToBool(mUsersSetPreferencesInfo.receiveLoginDetectionEmail);
+        dataObj["receiveLoginDetectionEmail"_L1] = UsersSetPreferencesInfo::convertToBool(mUsersSetPreferencesInfo.receiveLoginDetectionEmail);
     }
     if (mUsersSetPreferencesInfo.enableAutoAway != UsersSetPreferencesInfo::Unknown) {
-        dataObj[QLatin1StringView("enableAutoAway")] = UsersSetPreferencesInfo::convertToBool(mUsersSetPreferencesInfo.enableAutoAway);
+        dataObj["enableAutoAway"_L1] = UsersSetPreferencesInfo::convertToBool(mUsersSetPreferencesInfo.enableAutoAway);
     }
     if (mUsersSetPreferencesInfo.idleTimeLimit != -1) {
-        dataObj[QLatin1StringView("idleTimeLimit")] = mUsersSetPreferencesInfo.idleTimeLimit;
+        dataObj["idleTimeLimit"_L1] = mUsersSetPreferencesInfo.idleTimeLimit;
     }
-    jsonObj[QLatin1StringView("data")] = dataObj;
+    jsonObj["data"_L1] = dataObj;
     const QJsonDocument postData = QJsonDocument(jsonObj);
     return postData;
 }

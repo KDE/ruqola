@@ -36,7 +36,7 @@ void RoomFavoriteJob::onPostRequestResponse(const QString &replyErrorString, con
 {
     const QJsonObject replyObject = replyJson.object();
 
-    if (replyObject[QLatin1StringView("success")].toBool()) {
+    if (replyObject["success"_L1].toBool()) {
         addLoggerInfo(QByteArrayLiteral("RoomFavoriteJob success: ") + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT changeFavoriteDone();
     } else {
@@ -102,8 +102,8 @@ QNetworkRequest RoomFavoriteJob::request() const
 QJsonDocument RoomFavoriteJob::json() const
 {
     QJsonObject jsonObj;
-    jsonObj[QLatin1StringView("roomId")] = mRoomId;
-    jsonObj[QLatin1StringView("favorite")] = mFavorite;
+    jsonObj["roomId"_L1] = mRoomId;
+    jsonObj["favorite"_L1] = mFavorite;
 
     const QJsonDocument postData = QJsonDocument(jsonObj);
     return postData;

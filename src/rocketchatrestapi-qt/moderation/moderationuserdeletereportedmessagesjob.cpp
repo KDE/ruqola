@@ -34,7 +34,7 @@ void ModerationUserDeleteReportedMessagesJob::onPostRequestResponse(const QStrin
 {
     const QJsonObject replyObject = replyJson.object();
 
-    if (replyObject[QLatin1StringView("success")].toBool()) {
+    if (replyObject["success"_L1].toBool()) {
         addLoggerInfo(QByteArrayLiteral("ModerationUserDeleteReportedMessagesJob success: ") + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT moderationUserDeleteReportedMessagesDone();
     } else {
@@ -82,7 +82,7 @@ QNetworkRequest ModerationUserDeleteReportedMessagesJob::request() const
 QJsonDocument ModerationUserDeleteReportedMessagesJob::json() const
 {
     QJsonObject jsonObj;
-    jsonObj[QLatin1StringView("userId")] = QLatin1StringView(mUserIdForMessages);
+    jsonObj["userId"_L1] = QLatin1StringView(mUserIdForMessages);
     const QJsonDocument postData = QJsonDocument(jsonObj);
     return postData;
 }

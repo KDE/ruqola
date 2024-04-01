@@ -37,7 +37,7 @@ void RoomStartDiscussionJob::onPostRequestResponse(const QString &replyErrorStri
 {
     const QJsonObject replyObject = replyJson.object();
 
-    if (replyObject[QLatin1StringView("success")].toBool()) {
+    if (replyObject["success"_L1].toBool()) {
         addLoggerInfo(QByteArrayLiteral("RoomStartDiscussionJob success: ") + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT startDiscussionDone();
     } else {
@@ -129,13 +129,13 @@ QNetworkRequest RoomStartDiscussionJob::request() const
 QJsonDocument RoomStartDiscussionJob::json() const
 {
     QJsonObject jsonObj;
-    jsonObj[QLatin1StringView("prid")] = QLatin1StringView(mParentRoomId);
-    jsonObj[QLatin1StringView("t_name")] = mDiscussionName;
+    jsonObj["prid"_L1] = QLatin1StringView(mParentRoomId);
+    jsonObj["t_name"_L1] = mDiscussionName;
     if (!mParentMessageId.isEmpty()) {
-        jsonObj[QLatin1StringView("pmid")] = QLatin1StringView(mParentMessageId);
+        jsonObj["pmid"_L1] = QLatin1StringView(mParentMessageId);
     }
     if (!mReplyMessage.isEmpty()) {
-        jsonObj[QLatin1StringView("reply")] = mReplyMessage;
+        jsonObj["reply"_L1] = mReplyMessage;
     }
     if (!mUsers.isEmpty()) {
         QStringList lst;
@@ -145,7 +145,7 @@ QJsonDocument RoomStartDiscussionJob::json() const
         }
 
         const QJsonArray usersJson = QJsonArray::fromStringList(lst);
-        jsonObj[QLatin1StringView("users")] = usersJson;
+        jsonObj["users"_L1] = usersJson;
     }
     // TODO add encrypted
     const QJsonDocument postData = QJsonDocument(jsonObj);

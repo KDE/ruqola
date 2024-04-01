@@ -34,7 +34,7 @@ void ChangeGroupsAnnouncementJob::onPostRequestResponse(const QString &replyErro
 {
     const QJsonObject replyObject = replyJson.object();
 
-    if (replyObject[QLatin1StringView("success")].toBool()) {
+    if (replyObject["success"_L1].toBool()) {
         addLoggerInfo(QByteArrayLiteral("ChangeGroupsDescriptionJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT changeGroupsAnnouncement();
     } else {
@@ -64,7 +64,7 @@ QJsonDocument ChangeGroupsAnnouncementJob::json() const
 {
     QJsonObject jsonObj;
     generateJson(jsonObj);
-    jsonObj[QLatin1StringView("announcement")] = announcement();
+    jsonObj["announcement"_L1] = announcement();
 
     const QJsonDocument postData = QJsonDocument(jsonObj);
     return postData;

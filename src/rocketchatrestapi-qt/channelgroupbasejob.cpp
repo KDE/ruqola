@@ -45,10 +45,10 @@ void ChannelGroupBaseJob::generateJson(QJsonObject &jsonObj) const
         qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Type is unknown. It's a bug!";
         return;
     case ChannelGroupBaseJob::ChannelGroupInfoType::Identifier:
-        jsonObj[QLatin1StringView("roomId")] = mChannelGroupInfo.identifier;
+        jsonObj["roomId"_L1] = mChannelGroupInfo.identifier;
         break;
     case ChannelGroupBaseJob::ChannelGroupInfoType::Name:
-        jsonObj[QLatin1StringView("roomName")] = mChannelGroupInfo.identifier;
+        jsonObj["roomName"_L1] = mChannelGroupInfo.identifier;
         break;
     }
 }

@@ -66,7 +66,7 @@ void RemoveInviteJob::slotRemoveInviteFinished()
         const QJsonDocument replyJson = convertToJsonDocument(reply);
         const QJsonObject replyObject = replyJson.object();
 
-        if (replyObject[QLatin1StringView("success")].toBool()) {
+        if (replyObject["success"_L1].toBool()) {
             addLoggerInfo(QByteArrayLiteral("RemoveInviteJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
             Q_EMIT removeInviteDone();
         } else {

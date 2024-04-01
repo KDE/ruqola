@@ -38,7 +38,7 @@ bool OwnInfoJob::start()
 void OwnInfoJob::onGetRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
     const QJsonObject replyObject = replyJson.object();
-    if (replyObject[QLatin1StringView("status")].toString() == QLatin1StringView("error")) {
+    if (replyObject["status"_L1].toString() == QLatin1StringView("error")) {
         emitFailedMessage(replyErrorString, replyObject);
         addLoggerWarning(QByteArrayLiteral("OwnInfoJob: Problem: ") + replyJson.toJson(QJsonDocument::Indented));
     } else {

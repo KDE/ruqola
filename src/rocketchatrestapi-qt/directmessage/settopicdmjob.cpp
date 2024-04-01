@@ -34,7 +34,7 @@ void SetTopicDmJob::onPostRequestResponse(const QString &replyErrorString, const
 {
     const QJsonObject replyObject = replyJson.object();
 
-    if (replyObject[QLatin1StringView("success")].toBool()) {
+    if (replyObject["success"_L1].toBool()) {
         addLoggerInfo(QByteArrayLiteral("Create direct message success: ") + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT setTopicDmDone();
     } else {
@@ -73,8 +73,8 @@ bool SetTopicDmJob::canStart() const
 QJsonDocument SetTopicDmJob::json() const
 {
     QJsonObject jsonObj;
-    jsonObj[QLatin1StringView("userId")] = mDirectUserId;
-    jsonObj[QLatin1StringView("topic")] = mTopic;
+    jsonObj["userId"_L1] = mDirectUserId;
+    jsonObj["topic"_L1] = mTopic;
     const QJsonDocument postData = QJsonDocument(jsonObj);
     return postData;
 }

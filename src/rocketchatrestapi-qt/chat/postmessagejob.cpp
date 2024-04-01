@@ -40,7 +40,7 @@ void PostMessageJob::onPostRequestResponse(const QString &replyErrorString, cons
 {
     const QJsonObject replyObject = replyJson.object();
 
-    if (replyObject[QLatin1StringView("success")].toBool()) {
+    if (replyObject["success"_L1].toBool()) {
         addLoggerInfo(QByteArrayLiteral("PostMessageJob success: ") + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT postMessageDone(replyObject);
     } else {
@@ -100,16 +100,16 @@ QJsonDocument PostMessageJob::json() const
     QJsonObject jsonObj;
     if (mRoomIds.count() == 1) {
         // Make sure to not break old RC server
-        jsonObj[QLatin1StringView("roomId")] = QLatin1StringView(mRoomIds.at(0));
+        jsonObj["roomId"_L1] = QLatin1StringView(mRoomIds.at(0));
     } else {
         QStringList lst;
         lst.reserve(mRoomIds.count());
         for (const QByteArray &b : std::as_const(mRoomIds)) {
             lst.append(QLatin1StringView(b));
         }
-        jsonObj[QLatin1StringView("roomId")] = QJsonArray::fromStringList(lst);
+        jsonObj["roomId"_L1] = QJsonArray::fromStringList(lst);
     }
-    jsonObj[QLatin1StringView("text")] = mText;
+    jsonObj["text"_L1] = mText;
 
     const QJsonDocument postData = QJsonDocument(jsonObj);
     // qDebug() << " postData " << postData;

@@ -33,7 +33,7 @@ bool SetStatusJob::start()
 void SetStatusJob::onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
     const QJsonObject replyObject = replyJson.object();
-    if (replyObject[QLatin1StringView("success")].toBool()) {
+    if (replyObject["success"_L1].toBool()) {
         addLoggerInfo(QByteArrayLiteral("SetStatusJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT setStatusDone();
     } else {
@@ -105,7 +105,7 @@ QNetworkRequest SetStatusJob::request() const
 QJsonDocument SetStatusJob::json() const
 {
     QJsonObject jsonObj;
-    jsonObj[QLatin1StringView("userId")] = mStatusUserId;
+    jsonObj["userId"_L1] = mStatusUserId;
     QString statusType;
     switch (mStatus) {
     case OnLine:
@@ -123,8 +123,8 @@ QJsonDocument SetStatusJob::json() const
     case Unknown:
         break;
     }
-    jsonObj[QLatin1StringView("status")] = statusType;
-    jsonObj[QLatin1StringView("message")] = mStatusMessage;
+    jsonObj["status"_L1] = statusType;
+    jsonObj["message"_L1] = mStatusMessage;
 
     const QJsonDocument postData = QJsonDocument(jsonObj);
     return postData;

@@ -35,7 +35,7 @@ void MarkRoomAsUnReadJob::onPostRequestResponse(const QString &replyErrorString,
 {
     const QJsonObject replyObject = replyJson.object();
 
-    if (replyObject[QLatin1StringView("success")].toBool()) {
+    if (replyObject["success"_L1].toBool()) {
         addLoggerInfo(QByteArrayLiteral("MarkRoomAsUnReadJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT markAsUnReadDone();
     } else {
@@ -109,11 +109,11 @@ QJsonDocument MarkRoomAsUnReadJob::json() const
 {
     QJsonObject jsonObj;
     if (mUnReadObject == Room) {
-        jsonObj[QLatin1StringView("roomId")] = QLatin1StringView(mObjectId);
+        jsonObj["roomId"_L1] = QLatin1StringView(mObjectId);
     } else if (mUnReadObject == FromMessage) {
         QJsonObject fromMessage;
-        fromMessage[QLatin1StringView("_id")] = QLatin1StringView(mObjectId);
-        jsonObj[QLatin1StringView("firstUnreadMessage")] = fromMessage;
+        fromMessage["_id"_L1] = QLatin1StringView(mObjectId);
+        jsonObj["firstUnreadMessage"_L1] = fromMessage;
     }
 
     const QJsonDocument postData = QJsonDocument(jsonObj);

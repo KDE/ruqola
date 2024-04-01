@@ -35,7 +35,7 @@ void ChannelRemoveModeratorJob::onPostRequestResponse(const QString &replyErrorS
 {
     const QJsonObject replyObject = replyJson.object();
 
-    if (replyObject[QLatin1StringView("success")].toBool()) {
+    if (replyObject["success"_L1].toBool()) {
         addLoggerInfo(QByteArrayLiteral("ChannelRemoveModeratorJob success: ") + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT removeModeratorDone();
     } else {
@@ -79,7 +79,7 @@ QJsonDocument ChannelRemoveModeratorJob::json() const
 {
     QJsonObject jsonObj;
     generateJson(jsonObj);
-    jsonObj[QLatin1StringView("userId")] = removeUserId();
+    jsonObj["userId"_L1] = removeUserId();
 
     const QJsonDocument postData = QJsonDocument(jsonObj);
     return postData;

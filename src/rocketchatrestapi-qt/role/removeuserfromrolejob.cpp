@@ -35,7 +35,7 @@ bool RemoveUserFromRoleJob::start()
 void RemoveUserFromRoleJob::onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
     const QJsonObject replyObject = replyJson.object();
-    if (replyObject[QLatin1StringView("success")].toBool()) {
+    if (replyObject["success"_L1].toBool()) {
         addLoggerInfo(QByteArrayLiteral("RemoveUsersFromRoleJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT removeUsersFromRoleDone(replyObject);
     } else {
@@ -106,8 +106,8 @@ QJsonDocument RemoveUserFromRoleJob::json() const
 {
     // TODO restapi seems to not working. Need to report bug.
     QJsonObject jsonObj;
-    jsonObj[QLatin1StringView("roleName")] = mRoleName;
-    jsonObj[QLatin1StringView("username")] = mUsername;
+    jsonObj["roleName"_L1] = mRoleName;
+    jsonObj["username"_L1] = mUsername;
 
     const QJsonDocument postData = QJsonDocument(jsonObj);
     return postData;

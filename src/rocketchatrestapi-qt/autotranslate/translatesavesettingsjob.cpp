@@ -32,7 +32,7 @@ void TranslateSaveSettingsJob::onPostRequestResponse(const QString &replyErrorSt
 {
     const QJsonObject replyObject = replyJson.object();
 
-    if (replyObject[QLatin1StringView("success")].toBool()) {
+    if (replyObject["success"_L1].toBool()) {
         addLoggerInfo(QByteArrayLiteral("TranslateSaveSettingsJob success: ") + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT translateSavesettingsDone();
     } else {
@@ -118,15 +118,15 @@ QNetworkRequest TranslateSaveSettingsJob::request() const
 QJsonDocument TranslateSaveSettingsJob::json() const
 {
     QJsonObject jsonObj;
-    jsonObj[QLatin1StringView("roomId")] = mRoomId;
+    jsonObj["roomId"_L1] = mRoomId;
     switch (mType) {
     case AutoTranslateSetting:
-        jsonObj[QLatin1StringView("field")] = QStringLiteral("autoTranslate");
-        jsonObj[QLatin1StringView("value")] = mAutoTranslate;
+        jsonObj["field"_L1] = QStringLiteral("autoTranslate");
+        jsonObj["value"_L1] = mAutoTranslate;
         break;
     case LanguageSetting:
-        jsonObj[QLatin1StringView("field")] = QStringLiteral("autoTranslateLanguage");
-        jsonObj[QLatin1StringView("value")] = mLanguage;
+        jsonObj["field"_L1] = QStringLiteral("autoTranslateLanguage");
+        jsonObj["value"_L1] = mLanguage;
         break;
     case Undefined:
         break;

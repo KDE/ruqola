@@ -39,7 +39,7 @@ bool ModerationUserReportedMessagesJob::start()
 void ModerationUserReportedMessagesJob::onGetRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
     const QJsonObject replyObject = replyJson.object();
-    if (replyObject[QLatin1StringView("success")].toBool()) {
+    if (replyObject["success"_L1].toBool()) {
         addLoggerInfo(QByteArrayLiteral("ModerationReportJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT moderationUserReportedMessagesDone(replyObject);
     } else {

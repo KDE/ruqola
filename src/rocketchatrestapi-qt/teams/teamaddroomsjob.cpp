@@ -36,7 +36,7 @@ void TeamAddRoomsJob::onPostRequestResponse(const QString &replyErrorString, con
 {
     const QJsonObject replyObject = replyJson.object();
 
-    if (replyObject[QLatin1StringView("success")].toBool()) {
+    if (replyObject["success"_L1].toBool()) {
         addLoggerInfo(QByteArrayLiteral("TeamAddRoomsJob success: ") + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT teamAddRoomsDone(replyObject);
     } else {
@@ -105,8 +105,8 @@ QJsonDocument TeamAddRoomsJob::json() const
         lst.append(QLatin1StringView(b));
     }
 
-    jsonObj[QLatin1StringView("rooms")] = QJsonArray::fromStringList(lst);
-    jsonObj[QLatin1StringView("teamId")] = QLatin1StringView(mTeamId);
+    jsonObj["rooms"_L1] = QJsonArray::fromStringList(lst);
+    jsonObj["teamId"_L1] = QLatin1StringView(mTeamId);
     const QJsonDocument postData = QJsonDocument(jsonObj);
     return postData;
 }

@@ -32,7 +32,7 @@ bool SetUserActiveStatusJob::start()
 void SetUserActiveStatusJob::onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
     const QJsonObject replyObject = replyJson.object();
-    if (replyObject[QLatin1StringView("success")].toBool()) {
+    if (replyObject["success"_L1].toBool()) {
         addLoggerInfo(QByteArrayLiteral("SetUserActiveStatusJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT setUserActiveStatusDone(replyObject);
     } else {
@@ -90,8 +90,8 @@ QNetworkRequest SetUserActiveStatusJob::request() const
 QJsonDocument SetUserActiveStatusJob::json() const
 {
     QJsonObject jsonObj;
-    jsonObj[QLatin1StringView("userId")] = QLatin1StringView(mActivateUserId);
-    jsonObj[QLatin1StringView("activeStatus")] = mActivate;
+    jsonObj["userId"_L1] = QLatin1StringView(mActivateUserId);
+    jsonObj["activeStatus"_L1] = mActivate;
     const QJsonDocument postData = QJsonDocument(jsonObj);
     return postData;
 }

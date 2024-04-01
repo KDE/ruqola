@@ -34,7 +34,7 @@ void DeleteDmJob::onPostRequestResponse(const QString &replyErrorString, const Q
 {
     const QJsonObject replyObject = replyJson.object();
 
-    if (replyObject[QLatin1StringView("success")].toBool()) {
+    if (replyObject["success"_L1].toBool()) {
         addLoggerInfo(QByteArrayLiteral("DeleteDmJob success: ") + replyJson.toJson(QJsonDocument::Indented));
         qDebug() << " replyObject " << replyObject;
         Q_EMIT deleteDirectMessagesDone(channelGroupInfo().identifier);

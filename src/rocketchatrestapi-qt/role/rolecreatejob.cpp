@@ -34,7 +34,7 @@ bool RoleCreateJob::start()
 void RoleCreateJob::onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
     const QJsonObject replyObject = replyJson.object();
-    if (replyObject[QLatin1StringView("success")].toBool()) {
+    if (replyObject["success"_L1].toBool()) {
         addLoggerInfo(QByteArrayLiteral("RoleCreateJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT createRoleDone();
     } else {
@@ -82,10 +82,10 @@ QNetworkRequest RoleCreateJob::request() const
 QJsonDocument RoleCreateJob::json() const
 {
     QJsonObject jsonObj;
-    jsonObj[QLatin1StringView("name")] = mRoleCreateInfo.name;
-    jsonObj[QLatin1StringView("description")] = mRoleCreateInfo.description;
-    jsonObj[QLatin1StringView("scope")] = mRoleCreateInfo.scope;
-    jsonObj[QLatin1StringView("mandatory2fa")] = mRoleCreateInfo.mandatory2fa;
+    jsonObj["name"_L1] = mRoleCreateInfo.name;
+    jsonObj["description"_L1] = mRoleCreateInfo.description;
+    jsonObj["scope"_L1] = mRoleCreateInfo.scope;
+    jsonObj["mandatory2fa"_L1] = mRoleCreateInfo.mandatory2fa;
 
     const QJsonDocument postData = QJsonDocument(jsonObj);
     return postData;

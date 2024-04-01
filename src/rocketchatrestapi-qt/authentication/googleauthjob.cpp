@@ -51,12 +51,12 @@ bool GoogleAuthJob::start()
 void GoogleAuthJob::onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
     const QJsonObject replyObject = replyJson.object();
-    if (replyObject[QLatin1StringView("status")].toString() == QLatin1StringView("success") && replyObject.contains(QLatin1StringView("data"))) {
-        const QJsonObject dataObject = replyObject[QLatin1StringView("data")].toObject();
+    if (replyObject["status"_L1].toString() == QLatin1StringView("success") && replyObject.contains(QLatin1StringView("data"))) {
+        const QJsonObject dataObject = replyObject["data"_L1].toObject();
 
         if (dataObject.contains(QLatin1StringView("authToken")) && dataObject.contains(QLatin1StringView("userId"))) {
-            const QString authToken = dataObject[QLatin1StringView("authToken")].toString();
-            const QString userId = dataObject[QLatin1StringView("userId")].toString();
+            const QString authToken = dataObject["authToken"_L1].toString();
+            const QString userId = dataObject["userId"_L1].toString();
             Q_EMIT googleauthDone(authToken, userId);
         }
     } else {

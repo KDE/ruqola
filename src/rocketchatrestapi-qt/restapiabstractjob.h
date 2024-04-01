@@ -13,7 +13,7 @@
 #include <QPointer>
 
 class QNetworkAccessManager;
-
+using namespace Qt::Literals::StringLiterals;
 namespace RocketChatRestApi
 {
 class RestApiMethod;

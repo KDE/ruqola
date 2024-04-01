@@ -32,7 +32,7 @@ bool AddUserToRoleJob::start()
 void AddUserToRoleJob::onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
     const QJsonObject replyObject = replyJson.object();
-    if (replyObject[QLatin1StringView("success")].toBool()) {
+    if (replyObject["success"_L1].toBool()) {
         addLoggerInfo(QByteArrayLiteral("AddUserToRoleJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT addUsersToRoleDone(replyObject);
     } else {
@@ -94,8 +94,8 @@ QNetworkRequest AddUserToRoleJob::request() const
 QJsonDocument AddUserToRoleJob::json() const
 {
     QJsonObject jsonObj;
-    jsonObj[QLatin1StringView("roleName")] = mRoleName;
-    jsonObj[QLatin1StringView("username")] = mUsername;
+    jsonObj["roleName"_L1] = mRoleName;
+    jsonObj["username"_L1] = mUsername;
 
     const QJsonDocument postData = QJsonDocument(jsonObj);
     return postData;

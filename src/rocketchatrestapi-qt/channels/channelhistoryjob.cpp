@@ -35,7 +35,7 @@ void ChannelHistoryJob::onGetRequestResponse(const QString &replyErrorString, co
 {
     const QJsonObject replyObject = replyJson.object();
 
-    if (replyObject[QLatin1StringView("success")].toBool()) {
+    if (replyObject["success"_L1].toBool()) {
         addLoggerInfo(QByteArrayLiteral("ChannelHistoryJob success: ") + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT channelHistoryDone(replyObject, channelGroupInfo());
     } else {

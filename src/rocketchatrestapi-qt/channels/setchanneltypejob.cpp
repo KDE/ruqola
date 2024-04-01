@@ -34,7 +34,7 @@ void SetChannelTypeJob::onPostRequestResponse(const QString &replyErrorString, c
 {
     const QJsonObject replyObject = replyJson.object();
 
-    if (replyObject[QLatin1StringView("success")].toBool()) {
+    if (replyObject["success"_L1].toBool()) {
         addLoggerInfo(QByteArrayLiteral("SetChannelTypeJob success: ") + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT setGroupTypeDone();
     } else {
@@ -80,10 +80,10 @@ QJsonDocument SetChannelTypeJob::json() const
     generateJson(jsonObj);
     switch (mType) {
     case Public:
-        jsonObj[QLatin1StringView("type")] = QStringLiteral("c");
+        jsonObj["type"_L1] = QStringLiteral("c");
         break;
     case Private:
-        jsonObj[QLatin1StringView("type")] = QStringLiteral("p");
+        jsonObj["type"_L1] = QStringLiteral("p");
         break;
     case Unknown:
         break;

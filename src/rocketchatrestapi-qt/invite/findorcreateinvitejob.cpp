@@ -36,7 +36,7 @@ void FindOrCreateInviteJob::onPostRequestResponse(const QString &replyErrorStrin
 {
     const QJsonObject replyObject = replyJson.object();
 
-    if (replyObject[QLatin1StringView("success")].toBool()) {
+    if (replyObject["success"_L1].toBool()) {
         addLoggerInfo(QByteArrayLiteral("FindOrCreateInviteJob success: ") + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT findOrCreateInviteDone(parseResult(replyObject));
     } else {
@@ -48,11 +48,11 @@ void FindOrCreateInviteJob::onPostRequestResponse(const QString &replyErrorStrin
 FindOrCreateInviteJob::InviteUsersInfo FindOrCreateInviteJob::parseResult(const QJsonObject &replyObject)
 {
     FindOrCreateInviteJob::InviteUsersInfo info;
-    info.url = QUrl(replyObject[QLatin1StringView("url")].toString());
-    info.userId = replyObject[QLatin1StringView("userId")].toString();
-    info.roomId = replyObject[QLatin1StringView("rid")].toString();
-    info.expireDateTime = QDateTime::fromString(replyObject[QLatin1StringView("expires")].toString(), Qt::ISODate).toString();
-    info.maxUses = replyObject[QLatin1StringView("maxUses")].toInt();
+    info.url = QUrl(replyObject["url"_L1].toString());
+    info.userId = replyObject["userId"_L1].toString();
+    info.roomId = replyObject["rid"_L1].toString();
+    info.expireDateTime = QDateTime::fromString(replyObject["expires"_L1].toString(), Qt::ISODate).toString();
+    info.maxUses = replyObject["maxUses"_L1].toInt();
     return info;
 }
 
@@ -123,9 +123,9 @@ QNetworkRequest FindOrCreateInviteJob::request() const
 QJsonDocument FindOrCreateInviteJob::json() const
 {
     QJsonObject jsonObj;
-    jsonObj[QLatin1StringView("rid")] = QLatin1StringView(mRoomId);
-    jsonObj[QLatin1StringView("days")] = mNumberOfDays;
-    jsonObj[QLatin1StringView("maxUses")] = mMaxUses;
+    jsonObj["rid"_L1] = QLatin1StringView(mRoomId);
+    jsonObj["days"_L1] = mNumberOfDays;
+    jsonObj["maxUses"_L1] = mMaxUses;
     const QJsonDocument postData = QJsonDocument(jsonObj);
     return postData;
 }

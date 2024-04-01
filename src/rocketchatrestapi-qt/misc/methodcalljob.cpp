@@ -32,9 +32,9 @@ void MethodCallJob::onPostRequestResponse(const QString &replyErrorString, const
 {
     // qDebug() << " response " << replyErrorString << "replyJson  " << replyJson;
     const QJsonObject replyObject = replyJson.object();
-    if (replyObject[QLatin1StringView("success")].toBool()) {
+    if (replyObject["success"_L1].toBool()) {
         addLoggerInfo(QByteArrayLiteral("MethodCallJob success: ") + replyJson.toJson(QJsonDocument::Indented));
-        const QJsonObject obj = QJsonDocument::fromJson(replyObject[QLatin1StringView("message")].toString().toUtf8()).object();
+        const QJsonObject obj = QJsonDocument::fromJson(replyObject["message"_L1].toString().toUtf8()).object();
         Q_EMIT methodCallDone(obj);
     } else {
         emitFailedMessage(replyErrorString, replyObject);
@@ -84,7 +84,7 @@ QJsonDocument MethodCallJob::json() const
 {
     QJsonObject jsonObj;
     // We need to convert to string
-    jsonObj[QLatin1StringView("message")] = QString::fromUtf8(QJsonDocument(mMethodCallJobInfo.messageObj).toJson(QJsonDocument::Compact));
+    jsonObj["message"_L1] = QString::fromUtf8(QJsonDocument(mMethodCallJobInfo.messageObj).toJson(QJsonDocument::Compact));
     const QJsonDocument postData = QJsonDocument(jsonObj);
     return postData;
 }

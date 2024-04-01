@@ -34,7 +34,7 @@ void ChangeGroupsEncryptedJob::onPostRequestResponse(const QString &replyErrorSt
 {
     const QJsonObject replyObject = replyJson.object();
 
-    if (replyObject[QLatin1StringView("success")].toBool()) {
+    if (replyObject["success"_L1].toBool()) {
         addLoggerInfo(QByteArrayLiteral("Change encrypted success: ") + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT changeEncryptedDone();
     } else {
@@ -74,7 +74,7 @@ QJsonDocument ChangeGroupsEncryptedJob::json() const
 {
     QJsonObject jsonObj;
     generateJson(jsonObj);
-    jsonObj[QLatin1StringView("encrypted")] = encrypted();
+    jsonObj["encrypted"_L1] = encrypted();
 
     const QJsonDocument postData = QJsonDocument(jsonObj);
     return postData;

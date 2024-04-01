@@ -33,7 +33,7 @@ bool OauthAppsUpdateJob::start()
 void OauthAppsUpdateJob::onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
     const QJsonObject replyObject = replyJson.object();
-    if (replyObject[QLatin1StringView("success")].toBool()) {
+    if (replyObject["success"_L1].toBool()) {
         addLoggerInfo(QByteArrayLiteral("OauthAppsUpdateJob success: ") + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT oauthAppsUpdateDone(replyObject);
     } else {
@@ -81,10 +81,10 @@ QNetworkRequest OauthAppsUpdateJob::request() const
 QJsonDocument OauthAppsUpdateJob::json() const
 {
     QJsonObject jsonObj;
-    jsonObj[QLatin1StringView("name")] = mOauthAppsUpdateInfo.name;
-    jsonObj[QLatin1StringView("redirectUri")] = mOauthAppsUpdateInfo.redirectUri;
-    jsonObj[QLatin1StringView("active")] = mOauthAppsUpdateInfo.active;
-    jsonObj[QLatin1StringView("appId")] = mOauthAppsUpdateInfo.appId;
+    jsonObj["name"_L1] = mOauthAppsUpdateInfo.name;
+    jsonObj["redirectUri"_L1] = mOauthAppsUpdateInfo.redirectUri;
+    jsonObj["active"_L1] = mOauthAppsUpdateInfo.active;
+    jsonObj["appId"_L1] = mOauthAppsUpdateInfo.appId;
     const QJsonDocument postData = QJsonDocument(jsonObj);
     return postData;
 }

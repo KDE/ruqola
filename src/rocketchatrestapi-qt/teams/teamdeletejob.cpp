@@ -36,7 +36,7 @@ void TeamDeleteJob::onPostRequestResponse(const QString &replyErrorString, const
 {
     const QJsonObject replyObject = replyJson.object();
 
-    if (replyObject[QLatin1StringView("success")].toBool()) {
+    if (replyObject["success"_L1].toBool()) {
         addLoggerInfo(QByteArrayLiteral("TeamDeleteJob success: ") + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT deleteTeamDone();
     } else {
@@ -99,9 +99,9 @@ QJsonDocument TeamDeleteJob::json() const
         for (const QByteArray &b : std::as_const(mRoomToDeleteId)) {
             lst.append(QLatin1StringView(b));
         }
-        jsonObj[QLatin1StringView("roomsToRemove")] = QJsonArray::fromStringList(lst);
+        jsonObj["roomsToRemove"_L1] = QJsonArray::fromStringList(lst);
     }
-    jsonObj[QLatin1StringView("teamId")] = QLatin1StringView(mTeamId);
+    jsonObj["teamId"_L1] = QLatin1StringView(mTeamId);
     const QJsonDocument postData = QJsonDocument(jsonObj);
     return postData;
 }

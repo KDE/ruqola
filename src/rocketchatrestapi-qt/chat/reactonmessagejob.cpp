@@ -36,7 +36,7 @@ void ReactOnMessageJob::onPostRequestResponse(const QString &replyErrorString, c
 {
     const QJsonObject replyObject = replyJson.object();
 
-    if (replyObject[QLatin1StringView("success")].toBool()) {
+    if (replyObject["success"_L1].toBool()) {
         addLoggerInfo(QByteArrayLiteral("ReactOnMessageJob success: ") + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT reactOnMessageDone();
     } else {
@@ -89,9 +89,9 @@ bool ReactOnMessageJob::canStart() const
 QJsonDocument ReactOnMessageJob::json() const
 {
     QJsonObject jsonObj;
-    jsonObj[QLatin1StringView("emoji")] = mEmoji;
-    jsonObj[QLatin1StringView("messageId")] = QLatin1StringView(mMessageId);
-    jsonObj[QLatin1StringView("shouldReact")] = mAddReact;
+    jsonObj["emoji"_L1] = mEmoji;
+    jsonObj["messageId"_L1] = QLatin1StringView(mMessageId);
+    jsonObj["shouldReact"_L1] = mAddReact;
 
     const QJsonDocument postData = QJsonDocument(jsonObj);
     return postData;

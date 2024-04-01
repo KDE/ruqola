@@ -34,7 +34,7 @@ void GroupAddModeratorJob::onPostRequestResponse(const QString &replyErrorString
 {
     const QJsonObject replyObject = replyJson.object();
 
-    if (replyObject[QLatin1StringView("success")].toBool()) {
+    if (replyObject["success"_L1].toBool()) {
         addLoggerInfo(QByteArrayLiteral("GroupAddModeratorJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT addModeratorDone();
     } else {
@@ -78,7 +78,7 @@ QJsonDocument GroupAddModeratorJob::json() const
 {
     QJsonObject jsonObj;
     generateJson(jsonObj);
-    jsonObj[QLatin1StringView("userId")] = addModeratorUserId();
+    jsonObj["userId"_L1] = addModeratorUserId();
 
     const QJsonDocument postData = QJsonDocument(jsonObj);
     return postData;

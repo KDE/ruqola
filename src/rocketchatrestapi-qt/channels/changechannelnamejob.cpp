@@ -32,7 +32,7 @@ bool ChangeChannelNameJob::start()
 void ChangeChannelNameJob::onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
     const QJsonObject replyObject = replyJson.object();
-    if (replyObject[QLatin1StringView("success")].toBool()) {
+    if (replyObject["success"_L1].toBool()) {
         addLoggerInfo(QByteArrayLiteral("Change name success: ") + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT changeNameDone();
     } else {
@@ -65,8 +65,8 @@ bool ChangeChannelNameJob::canStart() const
 QJsonDocument ChangeChannelNameJob::json() const
 {
     QJsonObject jsonObj;
-    jsonObj[QLatin1StringView("roomId")] = roomId();
-    jsonObj[QLatin1StringView("name")] = name();
+    jsonObj["roomId"_L1] = roomId();
+    jsonObj["name"_L1] = name();
 
     const QJsonDocument postData = QJsonDocument(jsonObj);
     return postData;

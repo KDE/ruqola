@@ -33,7 +33,7 @@ void ChangeChannelDescriptionJob::onPostRequestResponse(const QString &replyErro
 {
     const QJsonObject replyObject = replyJson.object();
 
-    if (replyObject[QLatin1StringView("success")].toBool()) {
+    if (replyObject["success"_L1].toBool()) {
         addLoggerInfo(QByteArrayLiteral("Change description success: ") + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT changeDescriptionDone();
     } else {
@@ -72,8 +72,8 @@ bool ChangeChannelDescriptionJob::canStart() const
 QJsonDocument ChangeChannelDescriptionJob::json() const
 {
     QJsonObject jsonObj;
-    jsonObj[QLatin1StringView("roomId")] = roomId();
-    jsonObj[QLatin1StringView("description")] = description();
+    jsonObj["roomId"_L1] = roomId();
+    jsonObj["description"_L1] = description();
 
     const QJsonDocument postData = QJsonDocument(jsonObj);
     return postData;

@@ -33,9 +33,9 @@ bool VideoConferenceStartJob::start()
 void VideoConferenceStartJob::onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
     const QJsonObject replyObject = replyJson.object();
-    if (replyObject[QLatin1StringView("success")].toBool()) {
+    if (replyObject["success"_L1].toBool()) {
         addLoggerInfo(QByteArrayLiteral("VideoConferenceStartJob success: ") + replyJson.toJson(QJsonDocument::Indented));
-        Q_EMIT videoConferenceStartDone(replyObject[QLatin1StringView("data")].toObject());
+        Q_EMIT videoConferenceStartDone(replyObject["data"_L1].toObject());
     } else {
         emitFailedMessage(replyErrorString, replyObject);
         addLoggerWarning(QByteArrayLiteral("VideoConferenceStartJob: Problem: ") + replyJson.toJson(QJsonDocument::Indented));
@@ -81,10 +81,10 @@ QNetworkRequest VideoConferenceStartJob::request() const
 QJsonDocument VideoConferenceStartJob::json() const
 {
     QJsonObject jsonObj;
-    jsonObj[QLatin1StringView("roomId")] = QLatin1StringView(mInfo.roomId);
-    jsonObj[QLatin1StringView("allowRinging")] = mInfo.allowRinging;
+    jsonObj["roomId"_L1] = QLatin1StringView(mInfo.roomId);
+    jsonObj["allowRinging"_L1] = mInfo.allowRinging;
     if (!mInfo.title.isEmpty()) {
-        jsonObj[QLatin1StringView("title")] = mInfo.title;
+        jsonObj["title"_L1] = mInfo.title;
     }
     const QJsonDocument postData = QJsonDocument(jsonObj);
     return postData;

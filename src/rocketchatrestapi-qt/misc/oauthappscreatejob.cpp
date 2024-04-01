@@ -33,9 +33,9 @@ bool OauthAppsCreateJob::start()
 void OauthAppsCreateJob::onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
     const QJsonObject replyObject = replyJson.object();
-    if (replyObject[QLatin1StringView("success")].toBool()) {
+    if (replyObject["success"_L1].toBool()) {
         addLoggerInfo(QByteArrayLiteral("OauthAppsCreateJob success: ") + replyJson.toJson(QJsonDocument::Indented));
-        Q_EMIT oauthAppsCreateDone(replyObject[QLatin1StringView("application")].toObject());
+        Q_EMIT oauthAppsCreateDone(replyObject["application"_L1].toObject());
     } else {
         emitFailedMessage(replyErrorString, replyObject);
         addLoggerWarning(QByteArrayLiteral("OauthAppsCreateJob: Problem: ") + replyJson.toJson(QJsonDocument::Indented));
@@ -81,9 +81,9 @@ QNetworkRequest OauthAppsCreateJob::request() const
 QJsonDocument OauthAppsCreateJob::json() const
 {
     QJsonObject jsonObj;
-    jsonObj[QLatin1StringView("name")] = mOauthAppsCreateInfo.name;
-    jsonObj[QLatin1StringView("redirectUri")] = mOauthAppsCreateInfo.redirectUri;
-    jsonObj[QLatin1StringView("active")] = mOauthAppsCreateInfo.active;
+    jsonObj["name"_L1] = mOauthAppsCreateInfo.name;
+    jsonObj["redirectUri"_L1] = mOauthAppsCreateInfo.redirectUri;
+    jsonObj["active"_L1] = mOauthAppsCreateInfo.active;
     const QJsonDocument postData = QJsonDocument(jsonObj);
     return postData;
 }

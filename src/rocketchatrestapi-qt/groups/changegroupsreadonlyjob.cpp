@@ -34,7 +34,7 @@ void ChangeGroupsReadonlyJob::onPostRequestResponse(const QString &replyErrorStr
 {
     const QJsonObject replyObject = replyJson.object();
 
-    if (replyObject[QLatin1StringView("success")].toBool()) {
+    if (replyObject["success"_L1].toBool()) {
         addLoggerInfo(QByteArrayLiteral("Change read only success: ") + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT changeReadonlyDone();
     } else {
@@ -74,7 +74,7 @@ QJsonDocument ChangeGroupsReadonlyJob::json() const
 {
     QJsonObject jsonObj;
     generateJson(jsonObj);
-    jsonObj[QLatin1StringView("readOnly")] = readOnly();
+    jsonObj["readOnly"_L1] = readOnly();
 
     const QJsonDocument postData = QJsonDocument(jsonObj);
     return postData;

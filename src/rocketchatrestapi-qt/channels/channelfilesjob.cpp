@@ -34,7 +34,7 @@ void ChannelFilesJob::onGetRequestResponse(const QString &replyErrorString, cons
 {
     const QJsonObject replyObject = replyJson.object();
 
-    if (replyObject[QLatin1StringView("success")].toBool()) {
+    if (replyObject["success"_L1].toBool()) {
         addLoggerInfo(QByteArrayLiteral("channelFilesDone success: ") + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT channelFilesDone(replyObject, channelGroupInfo());
     } else {

@@ -34,7 +34,7 @@ void GroupsKickJob::onPostRequestResponse(const QString &replyErrorString, const
 {
     const QJsonObject replyObject = replyJson.object();
 
-    if (replyObject[QLatin1StringView("success")].toBool()) {
+    if (replyObject["success"_L1].toBool()) {
         addLoggerInfo(QByteArrayLiteral("GroupsKickJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT kickUserDone(replyObject);
     } else {
@@ -68,7 +68,7 @@ QJsonDocument GroupsKickJob::json() const
 {
     QJsonObject jsonObj;
     generateJson(jsonObj);
-    jsonObj[QLatin1StringView("userId")] = QLatin1StringView(kickUserId());
+    jsonObj["userId"_L1] = QLatin1StringView(kickUserId());
 
     const QJsonDocument postData = QJsonDocument(jsonObj);
     return postData;

@@ -36,7 +36,7 @@ void ChannelOpenJob::onPostRequestResponse(const QString &replyErrorString, cons
 {
     const QJsonObject replyObject = replyJson.object();
 
-    if (replyObject[QLatin1StringView("success")].toBool()) {
+    if (replyObject["success"_L1].toBool()) {
         addLoggerInfo(QByteArrayLiteral("ChannelOpenJob success: ") + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT channelOpenDone(replyObject, channelGroupInfo());
     } else {
