@@ -123,7 +123,7 @@ QNetworkRequest FindOrCreateInviteJob::request() const
 QJsonDocument FindOrCreateInviteJob::json() const
 {
     QJsonObject jsonObj;
-    jsonObj[QLatin1StringView("rid")] = QString::fromLatin1(mRoomId);
+    jsonObj[QLatin1StringView("rid")] = QLatin1StringView(mRoomId);
     jsonObj[QLatin1StringView("days")] = mNumberOfDays;
     jsonObj[QLatin1StringView("maxUses")] = mMaxUses;
     const QJsonDocument postData = QJsonDocument(jsonObj);

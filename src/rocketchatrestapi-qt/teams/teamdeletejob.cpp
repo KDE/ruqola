@@ -97,11 +97,11 @@ QJsonDocument TeamDeleteJob::json() const
     if (!mRoomToDeleteId.isEmpty()) {
         QStringList lst;
         for (const QByteArray &b : std::as_const(mRoomToDeleteId)) {
-            lst.append(QString::fromLatin1(b));
+            lst.append(QLatin1StringView(b));
         }
         jsonObj[QLatin1StringView("roomsToRemove")] = QJsonArray::fromStringList(lst);
     }
-    jsonObj[QLatin1StringView("teamId")] = QString::fromLatin1(mTeamId);
+    jsonObj[QLatin1StringView("teamId")] = QLatin1StringView(mTeamId);
     const QJsonDocument postData = QJsonDocument(jsonObj);
     return postData;
 }

@@ -82,7 +82,7 @@ QNetworkRequest MarkRoomAsReadJob::request() const
 QJsonDocument MarkRoomAsReadJob::json() const
 {
     QJsonObject jsonObj;
-    jsonObj[QLatin1StringView("rid")] = QString::fromLatin1(mRoomId);
+    jsonObj[QLatin1StringView("rid")] = QLatin1StringView(mRoomId);
 
     const QJsonDocument postData = QJsonDocument(jsonObj);
     return postData;

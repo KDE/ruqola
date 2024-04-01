@@ -38,7 +38,7 @@ void FollowMessageJobTest::shouldGenerateJson()
     FollowMessageJob job;
     const QByteArray messageid("foo1");
     job.setMessageId(messageid);
-    QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral(R"({"mid":"%1"})").arg(QString::fromLatin1(messageid)).toLatin1());
+    QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral(R"({"mid":"%1"})").arg(QLatin1StringView(messageid)).toLatin1());
 }
 
 void FollowMessageJobTest::shouldNotStarting()

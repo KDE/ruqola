@@ -96,8 +96,8 @@ QNetworkRequest TeamRemoveRoomJob::request() const
 QJsonDocument TeamRemoveRoomJob::json() const
 {
     QJsonObject jsonObj;
-    jsonObj[QLatin1StringView("roomId")] = QString::fromLatin1(mRoomId);
-    jsonObj[QLatin1StringView("teamId")] = QString::fromLatin1(mTeamId);
+    jsonObj[QLatin1StringView("roomId")] = QLatin1StringView(mRoomId);
+    jsonObj[QLatin1StringView("teamId")] = QLatin1StringView(mTeamId);
     const QJsonDocument postData = QJsonDocument(jsonObj);
     return postData;
 }

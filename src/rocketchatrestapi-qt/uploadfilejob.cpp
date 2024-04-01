@@ -107,7 +107,7 @@ void UploadFileJob::slotUploadProgress(qint64 bytesSent, qint64 bytesTotal)
 
 QNetworkRequest UploadFileJob::request() const
 {
-    const QUrl url = mRestApiMethod->generateUrl(RestApiUtil::RestApiUrlType::RoomsUpload, QString::fromLatin1(mUploadFileInfo.roomId));
+    const QUrl url = mRestApiMethod->generateUrl(RestApiUtil::RestApiUrlType::RoomsUpload, QLatin1StringView(mUploadFileInfo.roomId));
     QNetworkRequest request(url);
     addAuthRawHeader(request);
     addRequestAttribute(request, false);

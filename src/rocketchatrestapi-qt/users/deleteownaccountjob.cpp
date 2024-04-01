@@ -81,7 +81,7 @@ QJsonDocument DeleteOwnAccountJob::json() const
 {
     QJsonObject jsonObj;
     const QByteArray sha256pw = RestApiUtil::convertSha256Password(mPassword);
-    jsonObj[QLatin1StringView("password")] = QString::fromLatin1(sha256pw);
+    jsonObj[QLatin1StringView("password")] = QLatin1StringView(sha256pw);
 
     const QJsonDocument postData = QJsonDocument(jsonObj);
     return postData;

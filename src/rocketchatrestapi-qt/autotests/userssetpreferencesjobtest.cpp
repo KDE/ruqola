@@ -47,7 +47,7 @@ void UsersSetPreferencesJobTest::shouldGenerateJson()
         info.userId = userId;
         job.setUsersSetPreferencesInfo(info);
         QCOMPARE(job.json().toJson(QJsonDocument::Compact),
-                 QStringLiteral(R"({"data":{"desktopNotifications":"%2"},"userId":"%1"})").arg(QString::fromLatin1(userId), desktopNotifications).toLatin1());
+                 QStringLiteral(R"({"data":{"desktopNotifications":"%2"},"userId":"%1"})").arg(QLatin1StringView(userId), desktopNotifications).toLatin1());
     }
 }
 

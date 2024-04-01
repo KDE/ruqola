@@ -59,7 +59,7 @@ void RoomsExportJobTest::shouldGenerateJson()
     job.setRoomExportInfo(info);
     QCOMPARE(job.json().toJson(QJsonDocument::Compact),
              QStringLiteral(R"({"dateFrom":"2020-12-03T05:07:50.000","dateTo":"2020-03-03T05:07:50.000","rid":"%1","type":"file"})")
-                 .arg(QString::fromLatin1(roomId))
+                 .arg(QLatin1StringView(roomId))
                  .toLatin1());
     //    info.inclusive = true;
     //    job.setCleanHistoryInfo(info);

@@ -81,7 +81,7 @@ QNetworkRequest CustomUserStatusDeleteJob::request() const
 QJsonDocument CustomUserStatusDeleteJob::json() const
 {
     QJsonObject jsonObj;
-    jsonObj[QLatin1StringView("customUserStatusId")] = QString::fromLatin1(mCustomUserStatusId);
+    jsonObj[QLatin1StringView("customUserStatusId")] = QLatin1StringView(mCustomUserStatusId);
 
     const QJsonDocument postData = QJsonDocument(jsonObj);
     return postData;

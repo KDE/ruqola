@@ -73,7 +73,7 @@ QNetworkRequest GetMessageJob::request() const
 {
     QUrl url = mRestApiMethod->generateUrl(RestApiUtil::RestApiUrlType::ChatGetMessage);
     QUrlQuery queryUrl;
-    queryUrl.addQueryItem(QStringLiteral("msgId"), QString::fromLatin1(mMessageId));
+    queryUrl.addQueryItem(QStringLiteral("msgId"), QLatin1StringView(mMessageId));
     url.setQuery(queryUrl);
     QNetworkRequest request(url);
     addAuthRawHeader(request);
@@ -98,9 +98,9 @@ QString GetMessageJob::errorMessage(const QString &str, const QJsonObject &detai
 {
     if (str == QLatin1StringView("error-not-allowed")) {
         if (mRoomId.isEmpty()) {
-            return i18n("Not allowed to get message %1", QString::fromLatin1(mMessageId));
+            return i18n("Not allowed to get message %1", QLatin1StringView(mMessageId));
         }
-        return i18n("Not allowed to get message %2 in room %1", QString::fromLatin1(mRoomId), QString::fromLatin1(mMessageId));
+        return i18n("Not allowed to get message %2 in room %1", QLatin1StringView(mRoomId), QLatin1StringView(mMessageId));
     }
     return RestApiAbstractJob::errorMessage(str, details);
 }

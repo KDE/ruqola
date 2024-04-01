@@ -66,7 +66,7 @@ void ReportMessageJobTest::shouldGenerateJson()
     const QString reportMessage = QStringLiteral("foo2");
     job.setReportMessage(reportMessage);
     QCOMPARE(job.json().toJson(QJsonDocument::Compact),
-             QStringLiteral(R"({"description":"%2","messageId":"%1"})").arg(QString::fromLatin1(messageId), reportMessage).toLatin1());
+             QStringLiteral(R"({"description":"%2","messageId":"%1"})").arg(QLatin1StringView(messageId), reportMessage).toLatin1());
 }
 
 #include "moc_reportmessagejobtest.cpp"

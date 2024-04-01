@@ -44,7 +44,7 @@ void SaveRoomSettingsJobTest::shouldGenerateJson()
     info.roomId = roomId;
     job.setSaveRoomSettingsInfo(info);
     QCOMPARE(job.json().toJson(QJsonDocument::Compact),
-             QStringLiteral(R"({"favorite":{},"rid":"%1","roomType":""})").arg(QString::fromLatin1(roomId)).toLatin1());
+             QStringLiteral(R"({"favorite":{},"rid":"%1","roomType":""})").arg(QLatin1StringView(roomId)).toLatin1());
 
     const QString roomAnnouncement = QStringLiteral("announcement");
     info.mSettingsWillBeChanged |= SaveRoomSettingsJob::SaveRoomSettingsInfo::RoomAnnouncement;
@@ -63,7 +63,7 @@ void SaveRoomSettingsJobTest::shouldGenerateJson()
     }
     QCOMPARE(job.json().toJson(QJsonDocument::Compact),
              QStringLiteral(R"({"favorite":{},"rid":"%1","roomAnnouncement":"%2","roomType":"","systemMessages":[%3]})")
-                 .arg(QString::fromLatin1(roomId), roomAnnouncement, res)
+                 .arg(QLatin1StringView(roomId), roomAnnouncement, res)
                  .toLatin1());
 }
 

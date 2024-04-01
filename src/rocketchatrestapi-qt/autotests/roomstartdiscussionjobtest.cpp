@@ -46,17 +46,17 @@ void RoomStartDiscussionJobTest::shouldGenerateJson()
     const QString discussionName = QStringLiteral("bla");
     job.setDiscussionName(discussionName);
     QCOMPARE(job.json().toJson(QJsonDocument::Compact),
-             QStringLiteral(R"({"prid":"%1","t_name":"%2"})").arg(QString::fromLatin1(pRid), discussionName).toLatin1());
+             QStringLiteral(R"({"prid":"%1","t_name":"%2"})").arg(QLatin1StringView(pRid), discussionName).toLatin1());
     const QString replyMessage = QStringLiteral("Bli");
     job.setReplyMessage(replyMessage);
     QCOMPARE(job.json().toJson(QJsonDocument::Compact),
-             QStringLiteral(R"({"prid":"%1","reply":"%2","t_name":"%3"})").arg(QString::fromLatin1(pRid), replyMessage, discussionName).toLatin1());
+             QStringLiteral(R"({"prid":"%1","reply":"%2","t_name":"%3"})").arg(QLatin1StringView(pRid), replyMessage, discussionName).toLatin1());
 
     const QList<QByteArray> users{QByteArrayLiteral("aaa"), QByteArrayLiteral("bbb"), QByteArrayLiteral("ddd")};
     job.setUsers(users);
     QCOMPARE(job.json().toJson(QJsonDocument::Compact),
              QStringLiteral(R"({"prid":"%1","reply":"%2","t_name":"%3","users":["aaa","bbb","ddd"]})")
-                 .arg(QString::fromLatin1(pRid), replyMessage, discussionName, QStringLiteral("bla"))
+                 .arg(QLatin1StringView(pRid), replyMessage, discussionName, QStringLiteral("bla"))
                  .toLatin1());
 }
 

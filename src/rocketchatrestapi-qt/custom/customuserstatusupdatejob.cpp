@@ -81,7 +81,7 @@ QNetworkRequest CustomUserStatusUpdateJob::request() const
 QJsonDocument CustomUserStatusUpdateJob::json() const
 {
     QJsonObject jsonObj;
-    jsonObj[QLatin1StringView("_id")] = QString::fromLatin1(mStatusUpdateInfo.identifier);
+    jsonObj[QLatin1StringView("_id")] = QLatin1StringView(mStatusUpdateInfo.identifier);
     jsonObj[QLatin1StringView("name")] = mStatusUpdateInfo.name;
     jsonObj[QLatin1StringView("statusType")] = mStatusUpdateInfo.statusType;
 

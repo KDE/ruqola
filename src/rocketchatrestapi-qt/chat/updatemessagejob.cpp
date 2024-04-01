@@ -79,8 +79,8 @@ bool UpdateMessageJob::canStart() const
 QJsonDocument UpdateMessageJob::json() const
 {
     QJsonObject jsonObj;
-    jsonObj[QLatin1StringView("roomId")] = QString::fromLatin1(mRoomId);
-    jsonObj[QLatin1StringView("msgId")] = QString::fromLatin1(mMessageId);
+    jsonObj[QLatin1StringView("roomId")] = QLatin1StringView(mRoomId);
+    jsonObj[QLatin1StringView("msgId")] = QLatin1StringView(mMessageId);
     jsonObj[QLatin1StringView("text")] = mUpdatedText;
 
     const QJsonDocument postData = QJsonDocument(jsonObj);

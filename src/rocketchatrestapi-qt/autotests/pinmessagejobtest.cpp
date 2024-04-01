@@ -70,9 +70,9 @@ void PinMessageJobTest::shouldGenerateJson()
     PinMessageJob job;
     const QByteArray messageId("foo1");
     job.setMessageId(messageId);
-    QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral(R"({"messageId":"%1"})").arg(QString::fromLatin1(messageId)).toLatin1());
+    QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral(R"({"messageId":"%1"})").arg(QLatin1StringView(messageId)).toLatin1());
     job.setPinMessage(false);
-    QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral(R"({"messageId":"%1"})").arg(QString::fromLatin1(messageId)).toLatin1());
+    QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral(R"({"messageId":"%1"})").arg(QLatin1StringView(messageId)).toLatin1());
 }
 
 #include "moc_pinmessagejobtest.cpp"

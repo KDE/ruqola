@@ -196,7 +196,7 @@ QNetworkRequest SaveNotificationJob::request() const
 QJsonDocument SaveNotificationJob::json() const
 {
     QJsonObject jsonObj;
-    jsonObj[QLatin1StringView("roomId")] = QString::fromLatin1(mRoomId);
+    jsonObj[QLatin1StringView("roomId")] = QLatin1StringView(mRoomId);
     QJsonObject notificationsJson;
 
     if (mSettingsWillBeChanged & EmailNotifications) {

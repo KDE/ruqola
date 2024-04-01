@@ -35,7 +35,7 @@ void GetThreadMessagesJobTest::shouldGenerateRequest()
     const QByteArray threadMessageId("bla");
     job.setThreadMessageId(threadMessageId);
     const QNetworkRequest request = job.request();
-    QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/v1/chat.getThreadMessages?tmid=%1").arg(QString::fromLatin1(threadMessageId))));
+    QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/v1/chat.getThreadMessages?tmid=%1").arg(QLatin1StringView(threadMessageId))));
 }
 
 void GetThreadMessagesJobTest::shouldNotStarting()

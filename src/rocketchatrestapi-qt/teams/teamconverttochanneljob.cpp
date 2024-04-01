@@ -93,11 +93,11 @@ QNetworkRequest TeamConvertToChannelJob::request() const
 QJsonDocument TeamConvertToChannelJob::json() const
 {
     QJsonObject jsonObj;
-    jsonObj[QLatin1StringView("teamId")] = QString::fromLatin1(mTeamId);
+    jsonObj[QLatin1StringView("teamId")] = QLatin1StringView(mTeamId);
     if (!mRoomsToRemove.isEmpty()) {
         QStringList lst;
         for (const QByteArray &b : std::as_const(mRoomsToRemove)) {
-            lst.append(QString::fromLatin1(b));
+            lst.append(QLatin1StringView(b));
         }
         jsonObj[QLatin1StringView("roomsToRemove")] = QJsonArray::fromStringList(lst);
     }

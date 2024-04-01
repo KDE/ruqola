@@ -40,11 +40,11 @@ void TeamConvertToChannelJobTest::shouldGenerateJson()
     const QByteArray teamId("foo2");
     job.setTeamId(teamId);
 
-    QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral(R"({"teamId":"%1"})").arg(QString::fromLatin1(teamId)).toLatin1());
+    QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral(R"({"teamId":"%1"})").arg(QLatin1StringView(teamId)).toLatin1());
     const QList<QByteArray> roomsToRemove{QByteArrayLiteral("bla"), QByteArrayLiteral("bla1"), QByteArrayLiteral("bla2")};
     job.setRoomsToRemove(roomsToRemove);
     QCOMPARE(job.json().toJson(QJsonDocument::Compact),
-             QStringLiteral(R"({"roomsToRemove":["bla","bla1","bla2"],"teamId":"%1"})").arg(QString::fromLatin1(teamId)).toLatin1());
+             QStringLiteral(R"({"roomsToRemove":["bla","bla1","bla2"],"teamId":"%1"})").arg(QLatin1StringView(teamId)).toLatin1());
 }
 
 void TeamConvertToChannelJobTest::shouldNotStarting()

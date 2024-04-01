@@ -109,10 +109,10 @@ QJsonDocument MarkRoomAsUnReadJob::json() const
 {
     QJsonObject jsonObj;
     if (mUnReadObject == Room) {
-        jsonObj[QLatin1StringView("roomId")] = QString::fromLatin1(mObjectId);
+        jsonObj[QLatin1StringView("roomId")] = QLatin1StringView(mObjectId);
     } else if (mUnReadObject == FromMessage) {
         QJsonObject fromMessage;
-        fromMessage[QLatin1StringView("_id")] = QString::fromLatin1(mObjectId);
+        fromMessage[QLatin1StringView("_id")] = QLatin1StringView(mObjectId);
         jsonObj[QLatin1StringView("firstUnreadMessage")] = fromMessage;
     }
 

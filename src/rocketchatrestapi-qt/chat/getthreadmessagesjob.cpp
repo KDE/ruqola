@@ -75,7 +75,7 @@ QNetworkRequest GetThreadMessagesJob::request() const
 {
     QUrl url = mRestApiMethod->generateUrl(RestApiUtil::RestApiUrlType::ChatGetThreadMessages);
     QUrlQuery queryUrl;
-    queryUrl.addQueryItem(QStringLiteral("tmid"), QString::fromLatin1(mThreadMessageId));
+    queryUrl.addQueryItem(QStringLiteral("tmid"), QLatin1StringView(mThreadMessageId));
     url.setQuery(queryUrl);
 
     QNetworkRequest request(url);
@@ -88,7 +88,7 @@ QNetworkRequest GetThreadMessagesJob::request() const
 QString GetThreadMessagesJob::errorMessage(const QString &str, const QJsonObject &details)
 {
     if (str == QLatin1StringView("error-invalid-message")) {
-        return i18n("Invalid message: \'%1\'", QString::fromLatin1(mThreadMessageId));
+        return i18n("Invalid message: \'%1\'", QLatin1StringView(mThreadMessageId));
     }
     return RestApiAbstractJob::errorMessage(str, details);
 }

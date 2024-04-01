@@ -99,7 +99,7 @@ QJsonDocument UsersUpdateOwnBasicInfoJob::json() const
         dataObj[QLatin1StringView("statusText")] = mUpdateOwnBasicInfo.statusText;
     }
     if (mUpdateOwnBasicInfo.type & UpdateOwnBasicInfo::BasicInfoType::Password) {
-        dataObj[QLatin1StringView("currentPassword")] = QString::fromLatin1(mUpdateOwnBasicInfo.currentPassword);
+        dataObj[QLatin1StringView("currentPassword")] = QLatin1StringView(mUpdateOwnBasicInfo.currentPassword);
         dataObj[QLatin1StringView("newPassword")] = mUpdateOwnBasicInfo.newPassword;
     }
 

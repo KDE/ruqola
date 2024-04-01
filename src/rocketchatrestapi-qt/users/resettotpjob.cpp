@@ -82,7 +82,7 @@ QNetworkRequest ResetTOTPJob::request() const
 QJsonDocument ResetTOTPJob::json() const
 {
     QJsonObject jsonObj;
-    jsonObj[QLatin1StringView("userId")] = QString::fromLatin1(mResetUserId);
+    jsonObj[QLatin1StringView("userId")] = QLatin1StringView(mResetUserId);
     const QJsonDocument postData = QJsonDocument(jsonObj);
     return postData;
 }

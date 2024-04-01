@@ -56,18 +56,18 @@ void RoomsCleanHistoryJobTest::shouldGenerateJson()
     job.setCleanHistoryInfo(info);
     QCOMPARE(
         job.json().toJson(QJsonDocument::Compact),
-        QStringLiteral(R"({"latest":"2020-12-03T05:07:50.000","oldest":"2020-03-03T05:07:50.000","roomId":"%1"})").arg(QString::fromLatin1(roomId)).toLatin1());
+        QStringLiteral(R"({"latest":"2020-12-03T05:07:50.000","oldest":"2020-03-03T05:07:50.000","roomId":"%1"})").arg(QLatin1StringView(roomId)).toLatin1());
     info.inclusive = true;
     job.setCleanHistoryInfo(info);
     QCOMPARE(job.json().toJson(QJsonDocument::Compact),
              QStringLiteral(R"({"inclusive":true,"latest":"2020-12-03T05:07:50.000","oldest":"2020-03-03T05:07:50.000","roomId":"%1"})")
-                 .arg(QString::fromLatin1(roomId))
+                 .arg(QLatin1StringView(roomId))
                  .toLatin1());
     info.ignoreThreads = true;
     job.setCleanHistoryInfo(info);
     QCOMPARE(job.json().toJson(QJsonDocument::Compact),
              QStringLiteral(R"({"ignoreThreads":true,"inclusive":true,"latest":"2020-12-03T05:07:50.000","oldest":"2020-03-03T05:07:50.000","roomId":"%1"})")
-                 .arg(QString::fromLatin1(roomId))
+                 .arg(QLatin1StringView(roomId))
                  .toLatin1());
     const QStringList users = {QStringLiteral("bla"), QStringLiteral("bli")};
     info.users = users;
@@ -76,7 +76,7 @@ void RoomsCleanHistoryJobTest::shouldGenerateJson()
         job.json().toJson(QJsonDocument::Compact),
         QStringLiteral(
             R"({"ignoreThreads":true,"inclusive":true,"latest":"2020-12-03T05:07:50.000","oldest":"2020-03-03T05:07:50.000","roomId":"%1","users":["bla","bli"]})")
-            .arg(QString::fromLatin1(roomId))
+            .arg(QLatin1StringView(roomId))
             .toLatin1());
     info.ignoreDiscussion = true;
     job.setCleanHistoryInfo(info);
@@ -84,7 +84,7 @@ void RoomsCleanHistoryJobTest::shouldGenerateJson()
         job.json().toJson(QJsonDocument::Compact),
         QStringLiteral(
             R"({"ignoreDiscussion":true,"ignoreThreads":true,"inclusive":true,"latest":"2020-12-03T05:07:50.000","oldest":"2020-03-03T05:07:50.000","roomId":"%1","users":["bla","bli"]})")
-            .arg(QString::fromLatin1(roomId))
+            .arg(QLatin1StringView(roomId))
             .toLatin1());
 }
 

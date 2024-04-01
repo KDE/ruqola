@@ -61,8 +61,8 @@ RunCommandJob::RunCommandInfo RunCommandJob::parseString(const QString &str, con
         QStringList lst = newStr.split(QLatin1Char(' '), Qt::SkipEmptyParts);
         const int numberElement = lst.count();
         info.commandName = lst.takeAt(0);
-        info.roomId = QString::fromLatin1(roomId);
-        info.threadMessageId = QString::fromLatin1(tmid);
+        info.roomId = QLatin1StringView(roomId);
+        info.threadMessageId = QLatin1StringView(tmid);
         if (numberElement > 1) {
             info.params = lst.join(QLatin1Char(' '));
         }

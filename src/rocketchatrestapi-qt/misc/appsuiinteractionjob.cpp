@@ -111,12 +111,12 @@ void AppsUiInteractionJob::AppsUiInteractionJobInfo::generateMessageObj(const QS
     payload.insert(QStringLiteral("value"), value);
 
     o.insert(QStringLiteral("payload"), payload);
-    o.insert(QStringLiteral("rid"), QString::fromLatin1(roomId));
-    o.insert(QStringLiteral("mid"), QString::fromLatin1(messageId));
+    o.insert(QStringLiteral("rid"), QLatin1StringView(roomId));
+    o.insert(QStringLiteral("mid"), QLatin1StringView(messageId));
 
     QJsonObject container;
     container.insert(QStringLiteral("type"), QStringLiteral("message"));
-    container.insert(QStringLiteral("id"), QString::fromLatin1(messageId));
+    container.insert(QStringLiteral("id"), QLatin1StringView(messageId));
     o.insert(QStringLiteral("container"), container);
 
     // TODO fix me.

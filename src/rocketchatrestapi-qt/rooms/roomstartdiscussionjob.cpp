@@ -129,10 +129,10 @@ QNetworkRequest RoomStartDiscussionJob::request() const
 QJsonDocument RoomStartDiscussionJob::json() const
 {
     QJsonObject jsonObj;
-    jsonObj[QLatin1StringView("prid")] = QString::fromLatin1(mParentRoomId);
+    jsonObj[QLatin1StringView("prid")] = QLatin1StringView(mParentRoomId);
     jsonObj[QLatin1StringView("t_name")] = mDiscussionName;
     if (!mParentMessageId.isEmpty()) {
-        jsonObj[QLatin1StringView("pmid")] = QString::fromLatin1(mParentMessageId);
+        jsonObj[QLatin1StringView("pmid")] = QLatin1StringView(mParentMessageId);
     }
     if (!mReplyMessage.isEmpty()) {
         jsonObj[QLatin1StringView("reply")] = mReplyMessage;
@@ -141,7 +141,7 @@ QJsonDocument RoomStartDiscussionJob::json() const
         QStringList lst;
         lst.reserve(mUsers.count());
         for (const QByteArray &b : mUsers) {
-            lst.append(QString::fromLatin1(b));
+            lst.append(QLatin1StringView(b));
         }
 
         const QJsonArray usersJson = QJsonArray::fromStringList(lst);

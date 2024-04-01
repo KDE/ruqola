@@ -37,7 +37,7 @@ void GetDiscussionsJobTest::shouldGenerateRequest()
     const QByteArray roomId("bla");
     job.setRoomId(roomId);
     const QNetworkRequest request = job.request();
-    QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/v1/rooms.getDiscussions?roomId=%1").arg(QString::fromLatin1(roomId))));
+    QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/v1/rooms.getDiscussions?roomId=%1").arg(QLatin1StringView(roomId))));
 }
 
 void GetDiscussionsJobTest::shouldNotStarting()

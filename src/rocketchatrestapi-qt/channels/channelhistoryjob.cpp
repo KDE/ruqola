@@ -98,7 +98,9 @@ QNetworkRequest ChannelHistoryJob::request() const
     }
 
     QUrlQuery queryUrl;
-    queryUrl.addQueryItem(QStringLiteral("roomId"), QString::fromLatin1(mChannelHistoryInfo.roomId));
+    if (!mChannelHistoryInfo.roomId.isEmpty()) {
+        queryUrl.addQueryItem(QStringLiteral("roomId"), QLatin1StringView(mChannelHistoryInfo.roomId));
+    }
     if (!mChannelHistoryInfo.latestMessage.isEmpty()) {
         queryUrl.addQueryItem(QStringLiteral("latest"), mChannelHistoryInfo.latestMessage);
     }

@@ -90,7 +90,7 @@ QNetworkRequest SetUserActiveStatusJob::request() const
 QJsonDocument SetUserActiveStatusJob::json() const
 {
     QJsonObject jsonObj;
-    jsonObj[QLatin1StringView("userId")] = QString::fromLatin1(mActivateUserId);
+    jsonObj[QLatin1StringView("userId")] = QLatin1StringView(mActivateUserId);
     jsonObj[QLatin1StringView("activeStatus")] = mActivate;
     const QJsonDocument postData = QJsonDocument(jsonObj);
     return postData;

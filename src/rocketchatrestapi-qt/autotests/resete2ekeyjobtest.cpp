@@ -44,7 +44,7 @@ void ResetE2EKeyJobTest::shouldGenerateJson()
     ResetE2EKeyJob job;
     const QByteArray resetUserId("foo");
     job.setResetUserId(resetUserId);
-    QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral(R"({"userId":"%1"})").arg(QString::fromLatin1(resetUserId)).toLatin1());
+    QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral(R"({"userId":"%1"})").arg(QLatin1StringView(resetUserId)).toLatin1());
 }
 
 void ResetE2EKeyJobTest::shouldNotStarting()

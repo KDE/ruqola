@@ -75,7 +75,7 @@ bool RoomsCleanHistoryJob::canStart() const
 QJsonDocument RoomsCleanHistoryJob::json() const
 {
     QJsonObject jsonObj;
-    jsonObj[QLatin1StringView("roomId")] = QString::fromLatin1(mCleanHistoryInfo.roomId);
+    jsonObj[QLatin1StringView("roomId")] = QLatin1StringView(mCleanHistoryInfo.roomId);
     if (mCleanHistoryInfo.inclusive) {
         jsonObj[QLatin1StringView("inclusive")] = true;
     }

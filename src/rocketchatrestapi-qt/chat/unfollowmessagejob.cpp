@@ -62,7 +62,7 @@ bool UnFollowMessageJob::canStart() const
 QJsonDocument UnFollowMessageJob::json() const
 {
     QJsonObject jsonObj;
-    jsonObj[QLatin1StringView("mid")] = QString::fromLatin1(mMessageId);
+    jsonObj[QLatin1StringView("mid")] = QLatin1StringView(mMessageId);
 
     const QJsonDocument postData = QJsonDocument(jsonObj);
     return postData;

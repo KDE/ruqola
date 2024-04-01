@@ -39,7 +39,7 @@ void ModerationUserDeleteReportedMessagesJobTest::shouldGenerateJson()
     const QByteArray userIdForMessages("foo2");
     job.setUserIdForMessages(userIdForMessages);
 
-    QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral(R"({"userId":"%1"})").arg(QString::fromLatin1(userIdForMessages)).toLatin1());
+    QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral(R"({"userId":"%1"})").arg(QLatin1StringView(userIdForMessages)).toLatin1());
 }
 
 void ModerationUserDeleteReportedMessagesJobTest::shouldNotStarting()

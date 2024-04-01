@@ -82,8 +82,8 @@ QNetworkRequest IgnoreUserJob::request() const
 {
     QUrl url = mRestApiMethod->generateUrl(RestApiUtil::RestApiUrlType::ChatIgnoreUser);
     QUrlQuery queryUrl;
-    queryUrl.addQueryItem(QStringLiteral("rid"), QString::fromLatin1(mRoomId));
-    queryUrl.addQueryItem(QStringLiteral("userId"), QString::fromLatin1(mIgnoreUserId));
+    queryUrl.addQueryItem(QStringLiteral("rid"), QLatin1StringView(mRoomId));
+    queryUrl.addQueryItem(QStringLiteral("userId"), QLatin1StringView(mIgnoreUserId));
     queryUrl.addQueryItem(QStringLiteral("ignore"), mIgnore ? QStringLiteral("true") : QStringLiteral("false"));
     url.setQuery(queryUrl);
     QNetworkRequest request(url);

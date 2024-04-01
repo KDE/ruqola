@@ -41,7 +41,7 @@ void SyncMessagesJobTest::shouldGenerateRequest()
     QNetworkRequest request = job.request();
     QCOMPARE(request.url(),
              QUrl(QStringLiteral("http://www.kde.org/api/v1/chat.syncMessages?roomId=%1&lastUpdate=%2")
-                      .arg(QString::fromLatin1(roomId))
+                      .arg(QLatin1StringView(roomId))
                       .arg(lastUpdate.toUTC().toString(Qt::ISODateWithMs))));
 }
 

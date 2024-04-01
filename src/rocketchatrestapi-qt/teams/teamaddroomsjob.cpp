@@ -102,11 +102,11 @@ QJsonDocument TeamAddRoomsJob::json() const
     QStringList lst;
     lst.reserve(mRoomIds.count());
     for (const QByteArray &b : std::as_const(mRoomIds)) {
-        lst.append(QString::fromLatin1(b));
+        lst.append(QLatin1StringView(b));
     }
 
     jsonObj[QLatin1StringView("rooms")] = QJsonArray::fromStringList(lst);
-    jsonObj[QLatin1StringView("teamId")] = QString::fromLatin1(mTeamId);
+    jsonObj[QLatin1StringView("teamId")] = QLatin1StringView(mTeamId);
     const QJsonDocument postData = QJsonDocument(jsonObj);
     return postData;
 }

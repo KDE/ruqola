@@ -75,7 +75,7 @@ QNetworkRequest GetStarredMessagesJob::request() const
 {
     QUrl url = mRestApiMethod->generateUrl(RestApiUtil::RestApiUrlType::ChatGetStarredMessages);
     QUrlQuery queryUrl;
-    queryUrl.addQueryItem(QStringLiteral("roomId"), QString::fromLatin1(mRoomId));
+    queryUrl.addQueryItem(QStringLiteral("roomId"), QLatin1StringView(mRoomId));
     addQueryParameter(queryUrl);
     url.setQuery(queryUrl);
 

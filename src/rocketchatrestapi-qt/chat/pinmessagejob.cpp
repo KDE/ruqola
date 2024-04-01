@@ -96,7 +96,7 @@ void PinMessageJob::setPinMessage(bool pinMessage)
 QJsonDocument PinMessageJob::json() const
 {
     QJsonObject jsonObj;
-    jsonObj[QLatin1StringView("messageId")] = QString::fromLatin1(mMessageId);
+    jsonObj[QLatin1StringView("messageId")] = QLatin1StringView(mMessageId);
 
     const QJsonDocument postData = QJsonDocument(jsonObj);
     return postData;

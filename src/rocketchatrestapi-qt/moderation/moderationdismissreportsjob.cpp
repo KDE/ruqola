@@ -93,9 +93,9 @@ QJsonDocument ModerationDismissReportsJob::json() const
 {
     QJsonObject jsonObj;
     if (!mUserIdForMessages.isEmpty()) {
-        jsonObj[QLatin1StringView("userId")] = QString::fromLatin1(mUserIdForMessages);
+        jsonObj[QLatin1StringView("userId")] = QLatin1StringView(mUserIdForMessages);
     } else if (!mMessageId.isEmpty()) {
-        jsonObj[QLatin1StringView("msgId")] = QString::fromLatin1(mMessageId);
+        jsonObj[QLatin1StringView("msgId")] = QLatin1StringView(mMessageId);
     }
     const QJsonDocument postData = QJsonDocument(jsonObj);
     return postData;

@@ -91,7 +91,7 @@ QNetworkRequest TeamUpdateRoomJob::request() const
 QJsonDocument TeamUpdateRoomJob::json() const
 {
     QJsonObject jsonObj;
-    jsonObj[QLatin1StringView("roomId")] = QString::fromLatin1(mRoomId);
+    jsonObj[QLatin1StringView("roomId")] = QLatin1StringView(mRoomId);
     jsonObj[QLatin1StringView("isDefault")] = mIsDefault;
     const QJsonDocument postData = QJsonDocument(jsonObj);
     return postData;

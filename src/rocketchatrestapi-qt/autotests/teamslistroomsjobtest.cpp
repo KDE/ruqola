@@ -32,7 +32,7 @@ void TeamsListRoomsJobTest::shouldGenerateRequest()
     job.setTeamId(teamId);
     QNetworkRequest request = QNetworkRequest(QUrl());
     verifyAuthentication(&job, request);
-    QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/v1/teams.listRooms?teamId=%1").arg(QString::fromLatin1(teamId))));
+    QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/v1/teams.listRooms?teamId=%1").arg(QLatin1StringView(teamId))));
 }
 
 void TeamsListRoomsJobTest::shouldNotStarting()

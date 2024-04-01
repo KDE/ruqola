@@ -63,7 +63,7 @@ QNetworkRequest ModerationUserReportedMessagesJob::request() const
 {
     QUrl url = mRestApiMethod->generateUrl(RestApiUtil::RestApiUrlType::ModerationUserReportedMessages);
     QUrlQuery queryUrl;
-    queryUrl.addQueryItem(QStringLiteral("userId"), QString::fromLatin1(mReportedMessageFromUserId));
+    queryUrl.addQueryItem(QStringLiteral("userId"), QLatin1StringView(mReportedMessageFromUserId));
     url.setQuery(queryUrl);
     QNetworkRequest request(url);
     addAuthRawHeader(request);

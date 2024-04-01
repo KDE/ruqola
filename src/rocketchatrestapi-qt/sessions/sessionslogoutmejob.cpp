@@ -82,7 +82,7 @@ QNetworkRequest SessionsLogoutMeJob::request() const
 QJsonDocument SessionsLogoutMeJob::json() const
 {
     QJsonObject jsonObj;
-    jsonObj[QLatin1StringView("sessionId")] = QString::fromLatin1(mSessionId);
+    jsonObj[QLatin1StringView("sessionId")] = QLatin1StringView(mSessionId);
     const QJsonDocument postData = QJsonDocument(jsonObj);
     return postData;
 }

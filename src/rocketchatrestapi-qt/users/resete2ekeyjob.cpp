@@ -81,7 +81,7 @@ QNetworkRequest ResetE2EKeyJob::request() const
 QJsonDocument ResetE2EKeyJob::json() const
 {
     QJsonObject jsonObj;
-    jsonObj[QLatin1StringView("userId")] = QString::fromLatin1(mResetUserId);
+    jsonObj[QLatin1StringView("userId")] = QLatin1StringView(mResetUserId);
     const QJsonDocument postData = QJsonDocument(jsonObj);
     return postData;
 }

@@ -75,7 +75,7 @@ QNetworkRequest GetMentionedMessagesJob::request() const
 {
     QUrl url = mRestApiMethod->generateUrl(RestApiUtil::RestApiUrlType::ChatGetMentionedMessages);
     QUrlQuery queryUrl;
-    queryUrl.addQueryItem(QStringLiteral("roomId"), QString::fromLatin1(mRoomId));
+    queryUrl.addQueryItem(QStringLiteral("roomId"), QLatin1StringView(mRoomId));
     addQueryParameter(queryUrl);
     url.setQuery(queryUrl);
 

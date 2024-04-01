@@ -43,7 +43,7 @@ void TeamRemoveRoomJobTest::shouldGenerateJson()
     job.setTeamId(teamId);
 
     QCOMPARE(job.json().toJson(QJsonDocument::Compact),
-             QStringLiteral(R"({"roomId":"%1","teamId":"%2"})").arg(QString::fromLatin1(roomId)).arg(QString::fromLatin1(teamId)).toLatin1());
+             QStringLiteral(R"({"roomId":"%1","teamId":"%2"})").arg(QLatin1StringView(roomId)).arg(QLatin1StringView(teamId)).toLatin1());
 }
 
 void TeamRemoveRoomJobTest::shouldNotStarting()

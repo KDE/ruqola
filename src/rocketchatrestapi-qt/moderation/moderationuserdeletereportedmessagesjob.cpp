@@ -82,7 +82,7 @@ QNetworkRequest ModerationUserDeleteReportedMessagesJob::request() const
 QJsonDocument ModerationUserDeleteReportedMessagesJob::json() const
 {
     QJsonObject jsonObj;
-    jsonObj[QLatin1StringView("userId")] = QString::fromLatin1(mUserIdForMessages);
+    jsonObj[QLatin1StringView("userId")] = QLatin1StringView(mUserIdForMessages);
     const QJsonDocument postData = QJsonDocument(jsonObj);
     return postData;
 }

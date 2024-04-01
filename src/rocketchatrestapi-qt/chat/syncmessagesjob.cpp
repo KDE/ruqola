@@ -88,7 +88,7 @@ QNetworkRequest SyncMessagesJob::request() const
 {
     QUrl url = mRestApiMethod->generateUrl(RestApiUtil::RestApiUrlType::ChatSyncMessages);
     QUrlQuery queryUrl;
-    queryUrl.addQueryItem(QStringLiteral("roomId"), QString::fromLatin1(mRoomId));
+    queryUrl.addQueryItem(QStringLiteral("roomId"), QLatin1StringView(mRoomId));
     queryUrl.addQueryItem(QStringLiteral("lastUpdate"), mLastUpdate.toUTC().toString(Qt::ISODateWithMs));
 
     // qDebug() << " queryUrl " << queryUrl.toString();

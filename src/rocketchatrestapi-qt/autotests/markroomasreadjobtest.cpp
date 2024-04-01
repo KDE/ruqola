@@ -39,7 +39,7 @@ void MarkRoomAsReadJobTest::shouldGenerateJson()
     MarkRoomAsReadJob job;
     const QByteArray roomId = QByteArrayLiteral("foo1");
     job.setRoomId(roomId);
-    QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral(R"({"rid":"%1"})").arg(QString::fromLatin1(roomId)).toLatin1());
+    QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral(R"({"rid":"%1"})").arg(QLatin1StringView(roomId)).toLatin1());
 }
 
 void MarkRoomAsReadJobTest::shouldNotStarting()

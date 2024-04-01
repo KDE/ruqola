@@ -36,7 +36,7 @@ void GetSnippetedMessagesJobTest::shouldGenerateRequest()
     const QByteArray roomId = QByteArrayLiteral("bla");
     job.setRoomId(roomId);
     const QNetworkRequest request = job.request();
-    QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/v1/chat.getSnippetedMessages?roomId=%1").arg(QString::fromLatin1(roomId))));
+    QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/v1/chat.getSnippetedMessages?roomId=%1").arg(QLatin1StringView(roomId))));
 }
 
 void GetSnippetedMessagesJobTest::shouldNotStarting()

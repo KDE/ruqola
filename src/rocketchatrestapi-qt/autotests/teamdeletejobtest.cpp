@@ -39,11 +39,11 @@ void TeamDeleteJobTest::shouldGenerateJson()
     TeamDeleteJob job;
     const QByteArray teamId("foo2");
     job.setTeamId(teamId);
-    QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral(R"({"teamId":"%1"})").arg(QString::fromLatin1(teamId)).toLatin1());
+    QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral(R"({"teamId":"%1"})").arg(QLatin1StringView(teamId)).toLatin1());
     const QList<QByteArray> rooms = {QByteArrayLiteral("bla"), QByteArrayLiteral("bla1")};
     job.setRoomsId(rooms);
     QCOMPARE(job.json().toJson(QJsonDocument::Compact),
-             QStringLiteral(R"({"roomsToRemove":["bla","bla1"],"teamId":"%1"})").arg(QString::fromLatin1(teamId)).toLatin1());
+             QStringLiteral(R"({"roomsToRemove":["bla","bla1"],"teamId":"%1"})").arg(QLatin1StringView(teamId)).toLatin1());
 }
 
 void TeamDeleteJobTest::shouldNotStarting()

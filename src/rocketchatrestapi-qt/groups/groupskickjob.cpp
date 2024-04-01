@@ -68,7 +68,7 @@ QJsonDocument GroupsKickJob::json() const
 {
     QJsonObject jsonObj;
     generateJson(jsonObj);
-    jsonObj[QLatin1StringView("userId")] = QString::fromLatin1(kickUserId());
+    jsonObj[QLatin1StringView("userId")] = QLatin1StringView(kickUserId());
 
     const QJsonDocument postData = QJsonDocument(jsonObj);
     return postData;

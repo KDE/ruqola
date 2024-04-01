@@ -47,7 +47,7 @@ void ChannelKickJobTest::shouldGenerateJson()
     job.setKickUserId(userkick);
 
     QCOMPARE(job.json().toJson(QJsonDocument::Compact),
-             QStringLiteral(R"({"roomId":"%1","userId":"%2"})").arg(channelname, QString::fromLatin1(userkick)).toLatin1());
+             QStringLiteral(R"({"roomId":"%1","userId":"%2"})").arg(channelname, QLatin1StringView(userkick)).toLatin1());
 }
 
 void ChannelKickJobTest::shouldNotStarting()
