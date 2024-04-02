@@ -5,6 +5,7 @@
 */
 
 #include "activitiesmanagertest.h"
+#include "activities/activitiesmanager.h"
 #include <QTest>
 QTEST_GUILESS_MAIN(ActivitiesManagerTest)
 ActivitiesManagerTest::ActivitiesManagerTest(QObject *parent)
@@ -14,5 +15,6 @@ ActivitiesManagerTest::ActivitiesManagerTest(QObject *parent)
 
 void ActivitiesManagerTest::shouldHaveDefaultValues()
 {
-    // TODO
+    ActivitiesManager w;
+    QVERIFY(!w.enabled());
 }
