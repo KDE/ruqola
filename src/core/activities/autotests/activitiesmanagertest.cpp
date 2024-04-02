@@ -18,3 +18,5 @@ void ActivitiesManagerTest::shouldHaveDefaultValues()
     ActivitiesManager w;
     QVERIFY(!w.enabled());
 }
+
+#include "moc_activitiesmanagertest.cpp"
