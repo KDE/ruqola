@@ -394,6 +394,9 @@ target_sources(libruqolacore PRIVATE
     roomextra.h
     roomextra.cpp
 
+    roomencryptionkey.h
+    roomencryptionkey.cpp
+
     roominfo/roominfo.cpp
     roominfo/roominfo.h
     roominfo/roomsinfo.cpp

@@ -72,12 +72,12 @@ bool Room::isEqual(const Room &other) const
         && (mutedUsers() == other.mutedUsers()) && (mJitsiTimeout == other.jitsiTimeout()) && (mUnread == other.unread())
         && (mDescription == other.description()) && (mUserMentions == other.userMentions()) && (mNotificationOptions == other.notificationOptions())
         && (mUpdatedAt == other.updatedAt()) && (mLastSeenAt == other.lastSeenAt()) && (mRoles == other.roles()) && (ignoredUsers() == other.ignoredUsers())
-        && (mE2EKey == other.e2EKey()) && (mE2eKeyId == other.e2eKeyId()) && (mParentRid == other.parentRid()) && (mFName == other.fName())
-        && (autoTranslateLanguage() == other.autoTranslateLanguage()) && (mDirectChannelUserId == other.directChannelUserId())
-        && (mDisplaySystemMessageType == other.displaySystemMessageTypes()) && (mAvatarETag == other.avatarETag()) && (mUids == other.uids())
-        && (mUserNames == other.userNames()) && (highlightsWord() == other.highlightsWord()) && (mRetentionInfo == other.retentionInfo())
-        && (teamInfo() == other.teamInfo()) && (mLastMessageAt == other.lastMessageAt()) && (mGroupMentions == other.groupMentions())
-        && (mThreadUnread == other.threadUnread()) && (mRoomStates == other.roomStates());
+        && (mParentRid == other.parentRid()) && (mFName == other.fName()) && (autoTranslateLanguage() == other.autoTranslateLanguage())
+        && (mDirectChannelUserId == other.directChannelUserId()) && (mDisplaySystemMessageType == other.displaySystemMessageTypes())
+        && (mAvatarETag == other.avatarETag()) && (mUids == other.uids()) && (mUserNames == other.userNames()) && (highlightsWord() == other.highlightsWord())
+        && (mRetentionInfo == other.retentionInfo()) && (teamInfo() == other.teamInfo()) && (mLastMessageAt == other.lastMessageAt())
+        && (mGroupMentions == other.groupMentions()) && (mThreadUnread == other.threadUnread()) && (mRoomStates == other.roomStates())
+        && e2EKey() == other.e2EKey() && e2eKeyId() == other.e2eKeyId();
 }
 
 QString Room::displayRoomName() const
@@ -1195,27 +1195,45 @@ void Room::setJoinCodeRequired(bool joinCodeRequired)
 
 QString Room::e2eKeyId() const
 {
-    return mE2eKeyId;
+    if (mRoomEncryptionKey) {
+        return mRoomEncryptionKey->e2eKeyId();
+    }
+    return {};
 }
 
 void Room::setE2eKeyId(const QString &e2eKeyId)
 {
-    if (mE2eKeyId != e2eKeyId) {
-        mE2eKeyId = e2eKeyId;
+    if (mRoomEncryptionKey) {
+        if (mRoomEncryptionKey->e2eKeyId() != e2eKeyId) {
+            mRoomEncryptionKey->setE2eKeyId(e2eKeyId);
+            Q_EMIT encryptionKeyIdChanged();
+        }
+    } else {
+        mRoomEncryptionKey = new RoomEncryptionKey;
+        mRoomEncryptionKey->setE2eKeyId(e2eKeyId);
         Q_EMIT encryptionKeyIdChanged();
     }
 }
 
 QString Room::e2EKey() const
 {
-    return mE2EKey;
+    if (mRoomEncryptionKey) {
+        return mRoomEncryptionKey->e2EKey();
+    }
+    return {};
 }
 
 void Room::setE2EKey(const QString &e2EKey)
 {
-    if (mE2EKey != e2EKey) {
-        mE2EKey = e2EKey;
-        Q_EMIT encryptionKeyChanged();
+    if (mRoomEncryptionKey) {
+        if (mRoomEncryptionKey->e2EKey() != e2EKey) {
+            mRoomEncryptionKey->setE2EKey(e2EKey);
+            Q_EMIT encryptionKeyChanged();
+        }
+    } else {
+        mRoomEncryptionKey = new RoomEncryptionKey;
+        mRoomEncryptionKey->setE2EKey(e2EKey);
+        Q_EMIT encryptionKeyIdChanged();
     }
 }
 

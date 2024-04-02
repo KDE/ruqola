@@ -17,6 +17,7 @@
 #include "channelcounterinfo.h"
 #include "libruqolacore_export.h"
 #include "retentioninfo.h"
+#include "roomencryptionkey.h"
 #include "roomextra.h"
 #include "teams/teaminfo.h"
 #include "utils.h"
@@ -400,8 +401,7 @@ private:
     qint64 mLastMessageAt = -1;
 
     // Encryption Key
-    QString mE2EKey;
-    QString mE2eKeyId;
+    QSharedDataPointer<RoomEncryptionKey> mRoomEncryptionKey;
 
     // AvatarEtag
     QByteArray mAvatarETag;
