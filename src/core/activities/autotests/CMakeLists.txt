@@ -14,3 +14,4 @@ macro(add_ruqola_activities_test _source)
 
 endmacro()
 
+add_ruqola_activities_test(activitiesmanagertest.cpp)
