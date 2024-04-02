@@ -8,7 +8,6 @@
 #include "utils.h"
 
 #include <QJsonObject>
-
 QJsonArray AuthenticationManagerUtils::loginResume(const QString &token)
 {
     QJsonArray array;
@@ -50,7 +49,7 @@ QJsonObject AuthenticationManagerUtils::hashPassword(const QString &password)
     QJsonObject passwordObject;
     const QByteArray sha256pw = Utils::convertSha256Password(password);
     passwordObject[QLatin1StringView("algorithm")] = QStringLiteral("sha-256");
-    passwordObject[QLatin1StringView("digest")] = QString::fromLatin1(sha256pw);
+    passwordObject[QLatin1StringView("digest")] = QLatin1StringView(sha256pw);
     return passwordObject;
 }
 

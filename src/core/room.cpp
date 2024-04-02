@@ -1389,7 +1389,7 @@ QByteArray Room::serialize(Room *r, bool toBinary)
     o[QLatin1StringView("notifications")] = NotificationOptions::serialize(r->notificationOptions());
 
     if (!r->directChannelUserId().isEmpty()) {
-        o[QLatin1StringView("directChannelUserId")] = QString::fromLatin1(r->directChannelUserId());
+        o[QLatin1StringView("directChannelUserId")] = QLatin1StringView(r->directChannelUserId());
     }
 
     serializeStringList(o, QLatin1StringView("systemMessages"), r->displaySystemMessageTypes());
@@ -1397,7 +1397,7 @@ QByteArray Room::serialize(Room *r, bool toBinary)
     serializeStringList(o, QLatin1StringView("userHighlights"), r->highlightsWord());
 
     if (!r->avatarETag().isEmpty()) {
-        o[QLatin1StringView("avatarETag")] = QString::fromLatin1(r->avatarETag());
+        o[QLatin1StringView("avatarETag")] = QLatin1StringView(r->avatarETag());
     }
     if (!r->uids().isEmpty()) {
         o[QLatin1StringView("uids")] = QJsonArray::fromStringList(r->uids());
@@ -1410,7 +1410,7 @@ QByteArray Room::serialize(Room *r, bool toBinary)
         TeamInfo::serialize(r->teamInfo(), o);
     }
     if (!r->parentRid().isEmpty()) {
-        o[QLatin1StringView("prid")] = QString::fromLatin1(r->parentRid());
+        o[QLatin1StringView("prid")] = QLatin1StringView(r->parentRid());
     }
 
     serializeStringList(o, QLatin1StringView("usernames"), r->userNames());
