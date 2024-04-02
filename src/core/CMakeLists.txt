@@ -541,12 +541,15 @@ if (HAVE_TEXT_TRANSLATOR)
     )
 endif()
 
-target_sources(libruqolacore PRIVATE
-    activities/activitiesmanager.h
-    activities/activitiesmanager.cpp
-)
-if (BUILD_TESTING)
-    add_subdirectory(activities/autotests)
+if (TARGET Plasma::Activities)
+    target_sources(libruqolacore PRIVATE
+        activities/activitiesmanager.h
+        activities/activitiesmanager.cpp
+    )
+    target_link_libraries(libruqolacore Plasma::Activities)
+    if (BUILD_TESTING)
+        add_subdirectory(activities/autotests)
+    endif()
 endif()
 
 kconfig_add_kcfg_files(libruqolacore settings/ruqolaglobalconfig.kcfgc)
