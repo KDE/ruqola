@@ -374,9 +374,6 @@ private:
     // t (can take values "d" , "c" or "p" or "l")
     Room::RoomType mChannelType = RoomType::Unknown;
 
-    // Parent Rid when we have a discussion.
-    QByteArray mParentRid;
-
     // name
     QString mName;
 

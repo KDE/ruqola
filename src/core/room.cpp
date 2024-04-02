@@ -72,7 +72,7 @@ bool Room::isEqual(const Room &other) const
         && (mutedUsers() == other.mutedUsers()) && (mJitsiTimeout == other.jitsiTimeout()) && (mUnread == other.unread())
         && (mDescription == other.description()) && (mUserMentions == other.userMentions()) && (mNotificationOptions == other.notificationOptions())
         && (mUpdatedAt == other.updatedAt()) && (mLastSeenAt == other.lastSeenAt()) && (mRoles == other.roles()) && (ignoredUsers() == other.ignoredUsers())
-        && (mParentRid == other.parentRid()) && (mFName == other.fName()) && (autoTranslateLanguage() == other.autoTranslateLanguage())
+        && (parentRid() == other.parentRid()) && (mFName == other.fName()) && (autoTranslateLanguage() == other.autoTranslateLanguage())
         && (mDirectChannelUserId == other.directChannelUserId()) && (mDisplaySystemMessageType == other.displaySystemMessageTypes())
         && (mAvatarETag == other.avatarETag()) && (mUids == other.uids()) && (mUserNames == other.userNames()) && (highlightsWord() == other.highlightsWord())
         && (mRetentionInfo == other.retentionInfo()) && (teamInfo() == other.teamInfo()) && (mLastMessageAt == other.lastMessageAt())
@@ -1094,18 +1094,24 @@ void Room::setFName(const QString &value)
 
 bool Room::isDiscussionRoom() const
 {
-    return !mParentRid.isEmpty();
+    if (!mRoomExtra) {
+        return {};
+    }
+    return !mRoomExtra->isDiscussionRoom();
 }
 
 QByteArray Room::parentRid() const
 {
-    return mParentRid;
+    if (!mRoomExtra) {
+        return {};
+    }
+    return mRoomExtra->parentRid();
 }
 
-void Room::setParentRid(const QByteArray &parentRid)
+void Room::setParentRid(const QByteArray &rid)
 {
-    if (mParentRid != parentRid) {
-        mParentRid = parentRid;
+    if (parentRid() != rid) {
+        roomExtra()->setParentRid(rid);
         Q_EMIT parentRidChanged();
     }
 }
@@ -1312,7 +1318,9 @@ void Room::deserialize(Room *r, const QJsonObject &o)
     const TeamInfo teaminfo = TeamInfo::deserialize(o);
     r->setTeamInfo(teaminfo);
 
-    r->setParentRid(o[QLatin1StringView("prid")].toString().toLatin1());
+    if (o.contains(QLatin1StringView("prid"))) {
+        r->setParentRid(o[QLatin1StringView("prid")].toString().toLatin1());
+    }
 
     r->setUserNames(extractStringList(o, QLatin1StringView("usernames")));
 }

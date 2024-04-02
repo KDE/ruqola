@@ -31,6 +31,11 @@ public:
     [[nodiscard]] TeamInfo teamInfo() const;
     void setTeamInfo(const TeamInfo &newTeamInfo);
 
+    [[nodiscard]] QByteArray parentRid() const;
+    void setParentRid(const QByteArray &parentRid);
+
+    [[nodiscard]] bool isDiscussionRoom() const;
+
 private:
     // muted - collection of muted users by its usernames
     QStringList mMutedUsers;
@@ -43,4 +48,7 @@ private:
     QString mAutotranslateLanguage;
 
     TeamInfo mTeamInfo;
+
+    // Parent Rid when we have a discussion.
+    QByteArray mParentRid;
 };

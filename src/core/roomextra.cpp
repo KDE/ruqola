@@ -63,6 +63,21 @@ void RoomExtra::setTeamInfo(const TeamInfo &newTeamInfo)
     mTeamInfo = newTeamInfo;
 }
 
+bool RoomExtra::isDiscussionRoom() const
+{
+    return !mParentRid.isEmpty();
+}
+
+QByteArray RoomExtra::parentRid() const
+{
+    return mParentRid;
+}
+
+void RoomExtra::setParentRid(const QByteArray &parentRid)
+{
+    mParentRid = parentRid;
+}
+
 void RoomExtra::setMutedUsers(const QStringList &mutedUsers)
 {
     mMutedUsers = mutedUsers;
