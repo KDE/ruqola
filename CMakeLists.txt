@@ -182,7 +182,9 @@ find_package(KF6Config ${KF_MIN_VERSION} CONFIG REQUIRED)
 find_package(KF6KIO ${KF_MIN_VERSION} CONFIG REQUIRED)
 find_package(KF6Sonnet ${KF_MIN_VERSION} CONFIG REQUIRED)
 find_package(KF6TextWidgets ${KF_MIN_VERSION} CONFIG REQUIRED)
-find_package(KF6Purpose ${KF_MIN_VERSION} CONFIG)
+if (NOT APPLE)
+   find_package(KF6Purpose ${KF_MIN_VERSION} CONFIG)
+endif()
 
 find_package(KF6DocTools ${KF_MIN_VERSION})
 set_package_properties(KF6DocTools PROPERTIES DESCRIPTION
