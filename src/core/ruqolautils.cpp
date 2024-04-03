@@ -7,10 +7,14 @@
  */
 
 #include "ruqolautils.h"
+#include "config-ruqola.h"
 #include "ruqola_debug.h"
 #include "utils.h"
 #include <QDesktopServices>
 #include <QUrl>
+#ifdef HAS_ACTIVITY_SUPPORT
+#include <PlasmaActivities/ResourceInstance>
+#endif
 
 RuqolaUtils::RuqolaUtils(QObject *parent)
     : QObject(parent)
@@ -40,6 +44,10 @@ void RuqolaUtils::openUrl(const QUrl &url)
 {
     if (!QDesktopServices::openUrl(url)) {
         qCWarning(RUQOLA_LOG) << "Impossible to open " << url;
+    } else {
+#if HAS_ACTIVITY_SUPPORT
+        KActivities::ResourceInstance::notifyAccessed(url);
+#endif
     }
 }
 
