@@ -71,6 +71,7 @@ static const KLazyLocalizedString ruqolaNewFeatures2_2[] = {
     kli18n("Add support for deep linking <a href=\"https://developer.rocket.chat/getting-started/deep-linking\">Deep Linking</a>."),
     kli18n("Implement block actions."),
     kli18n("Implement personal token authentication. <a href=\"https://bugs.kde.org/show_bug.cgi?id=481400\">Bug 481400</a>"),
+    kli18n("Add Plasma Activities Support"),
 };
 static const int numRuqolaNewFeatures2_2 = sizeof ruqolaNewFeatures2_2 / sizeof *ruqolaNewFeatures2_2;
 // enter items for the "Important changes" list here:
