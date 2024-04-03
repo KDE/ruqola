@@ -11,7 +11,7 @@
 #include <QJsonArray>
 #include <QTemporaryFile>
 #include <QUrl>
-
+using namespace Qt::Literals::StringLiterals;
 PurposeMenuWidget::PurposeMenuWidget(QObject *parent)
     : QObject(parent)
     , mShareMenu(new Purpose::Menu)
@@ -63,7 +63,7 @@ void PurposeMenuWidget::slotShareActionFinished(const QJsonObject &output, int e
     if (error) {
         Q_EMIT errorMessage(i18n("There was a problem sharing the document: %1", message));
     } else {
-        const QString url = output[QLatin1StringView("url")].toString();
+        const QString url = output["url"_L1].toString();
         if (url.isEmpty()) {
             Q_EMIT successMessage(i18n("File was shared."));
         } else {
