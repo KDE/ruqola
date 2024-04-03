@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-03-29 00:37+0000\n"
+"POT-Creation-Date: 2024-04-03 00:38+0000\n"
 "PO-Revision-Date: 2024-03-27 23:03+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
@@ -1376,32 +1376,32 @@ msgstr "Hesap Eklendi"
 msgid "A new account was added."
 msgstr "Yeni bir hesap eklendi."
 
-#: core/room.cpp:1161
+#: core/room.cpp:1167
 #, kde-format
 msgid "Owner"
 msgstr "Sahip"
 
-#: core/room.cpp:1164
+#: core/room.cpp:1170
 #, kde-format
 msgid "Leader"
 msgstr "Lider"
 
-#: core/room.cpp:1167
+#: core/room.cpp:1173
 #, kde-format
 msgid "Moderator"
 msgstr "Moderatör"
 
-#: core/room.cpp:1499
+#: core/room.cpp:1525
 #, kde-format
 msgid "Channel is read only."
 msgstr "Kanal, saltokunur."
 
-#: core/room.cpp:1502
+#: core/room.cpp:1528
 #, kde-format
 msgid "You have blocked this channel."
 msgstr "Bu kanalı engellediniz."
 
-#: core/room.cpp:1505
+#: core/room.cpp:1531
 #, kde-format
 msgid "Channel was blocked."
 msgstr "Kanal engellenmiş."
