@@ -42,12 +42,12 @@ void RuqolaUtils::openUrl(const QString &url)
 
 void RuqolaUtils::openUrl(const QUrl &url)
 {
-    if (!QDesktopServices::openUrl(url)) {
-        qCWarning(RUQOLA_LOG) << "Impossible to open " << url;
-    } else {
+    if (QDesktopServices::openUrl(url)) {
 #if HAS_ACTIVITY_SUPPORT
         KActivities::ResourceInstance::notifyAccessed(url);
 #endif
+    } else {
+        qCWarning(RUQOLA_LOG) << "Impossible to open " << url;
     }
 }
 
