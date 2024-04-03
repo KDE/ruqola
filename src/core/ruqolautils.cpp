@@ -12,7 +12,7 @@
 #include "utils.h"
 #include <QDesktopServices>
 #include <QUrl>
-#ifdef HAS_ACTIVITY_SUPPORT
+#if HAS_ACTIVITY_SUPPORT
 #include <PlasmaActivities/ResourceInstance>
 #endif
 
