@@ -61,7 +61,7 @@ MessageLineWidget::MessageLineWidget(QWidget *parent)
     mSendFileButton->setAccessibleName(i18n("Attach File"));
 #endif
 
-    mSendFileButton->setIcon(QIcon::fromTheme(QStringLiteral("document-send-symbolic")));
+    mSendFileButton->setIcon(QIcon::fromTheme(QStringLiteral("mail-attachment-symbolic")));
     connect(mSendFileButton, &QToolButton::clicked, this, &MessageLineWidget::slotSendFile);
 
     mVideoMessageButton->setAutoRaise(true);
