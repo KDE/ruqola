@@ -4,6 +4,7 @@
    SPDX-License-Identifier: LGPL-2.0-or-later
 */
 #include "bannermessagewidget.h"
+#include "ruqolautils.h"
 #include "ruqolawidgets_debug.h"
 #include <KLocalizedString>
 #include <QAction>
@@ -66,7 +67,7 @@ void BannerMessageWidget::updateInfo()
 
 void BannerMessageWidget::slotOpenUrl(const QString &url)
 {
-    QDesktopServices::openUrl(QUrl(url));
+    RuqolaUtils::self()->openUrl(QUrl(url));
 }
 
 #include "moc_bannermessagewidget.cpp"

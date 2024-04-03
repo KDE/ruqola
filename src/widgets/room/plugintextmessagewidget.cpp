@@ -5,6 +5,7 @@
 */
 
 #include "plugintextmessagewidget.h"
+#include "ruqolautils.h"
 #include <QDesktopServices>
 #include <QUrl>
 
@@ -15,7 +16,7 @@ PluginTextMessageWidget::PluginTextMessageWidget(QWidget *parent)
     setPosition(KMessageWidget::Header);
     setCloseButtonVisible(true);
     connect(this, &KMessageWidget::linkActivated, this, [](const QString &contents) {
-        QDesktopServices::openUrl(QUrl(contents));
+        RuqolaUtils::self()->openUrl(QUrl(contents));
     });
 }
 

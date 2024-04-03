@@ -49,6 +49,7 @@
 #include <KLocalizedString>
 #include <KMessageBox>
 
+#include "ruqolautils.h"
 #include <QDesktopServices>
 #include <QDragEnterEvent>
 #include <QDropEvent>
@@ -478,7 +479,7 @@ void RoomWidget::slotCallRequested()
                 mCurrentRocketChatAccount->restApi()->initializeRestApiJob(conferenceJoinJob);
                 connect(conferenceJoinJob, &RocketChatRestApi::VideoConferenceJoinJob::videoConferenceJoinDone, this, [](const QJsonObject &joinObject) {
                     // qDebug() << " join info " << obj;
-                    QDesktopServices::openUrl(QUrl(joinObject[QLatin1StringView("url")].toString()));
+                    RuqolaUtils::self()->openUrl(QUrl(joinObject[QLatin1StringView("url")].toString()));
                 });
                 if (!conferenceJoinJob->start()) {
                     qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start VideoConferenceJoinJob job";

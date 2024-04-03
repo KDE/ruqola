@@ -33,8 +33,13 @@ QString RuqolaUtils::extractRoomUserFromUrl(const QString &url)
 void RuqolaUtils::openUrl(const QString &url)
 {
     const QUrl clickedUrl = QUrl::fromUserInput(url);
-    if (!QDesktopServices::openUrl(clickedUrl)) {
-        qCWarning(RUQOLA_LOG) << "Impossible to open " << clickedUrl;
+    openUrl(clickedUrl);
+}
+
+void RuqolaUtils::openUrl(const QUrl &url)
+{
+    if (!QDesktopServices::openUrl(url)) {
+        qCWarning(RUQOLA_LOG) << "Impossible to open " << url;
     }
 }
 

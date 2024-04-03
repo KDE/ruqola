@@ -7,6 +7,7 @@
 #include "rocketchataccount.h"
 #include "accountroomsettings.h"
 #include "config-ruqola.h"
+#include "ruqolautils.h"
 
 #include "attachments/fileattachments.h"
 #include "authenticationmanager.h"
@@ -739,7 +740,7 @@ void RocketChatAccount::joinJitsiConfCall(const QByteArray &roomId)
 #endif
     const QString url = scheme + mRuqolaServerConfig->jitsiMeetUrl() + QLatin1Char('/') + mRuqolaServerConfig->jitsiMeetPrefix() + hash;
     const QUrl clickedUrl = QUrl::fromUserInput(url);
-    QDesktopServices::openUrl(clickedUrl);
+    RuqolaUtils::self()->openUrl(clickedUrl);
 }
 
 void RocketChatAccount::eraseRoom(const QByteArray &roomId, Room::RoomType channelType)
@@ -2249,7 +2250,7 @@ void RocketChatAccount::checkInitializedRoom(const QByteArray &roomId)
 
 void RocketChatAccount::openDocumentation()
 {
-    QDesktopServices::openUrl(QUrl(QStringLiteral("help:/")));
+    RuqolaUtils::self()->openUrl(QUrl(QStringLiteral("help:/")));
 }
 
 void RocketChatAccount::updateAvatarCache(const Utils::AvatarInfo &info)

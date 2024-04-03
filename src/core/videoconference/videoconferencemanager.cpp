@@ -8,11 +8,11 @@
 #include "connection.h"
 #include "rocketchataccount.h"
 #include "ruqola_videoconference_core_debug.h"
+#include "ruqolautils.h"
 #include "video-conference/videoconferencejoinjob.h"
 #include "videoconferencenotificationjob.h"
 #include <QDesktopServices>
 #include <QJsonObject>
-
 VideoConferenceManager::VideoConferenceManager(RocketChatAccount *account, QObject *parent)
     : QObject{parent}
     , mRocketChatAccount(account)
@@ -74,7 +74,7 @@ void VideoConferenceManager::showNotification(const VideoConference &videoConfer
         mRocketChatAccount->restApi()->initializeRestApiJob(conferenceJoinJob);
         connect(conferenceJoinJob, &RocketChatRestApi::VideoConferenceJoinJob::videoConferenceJoinDone, this, [videoConference, this](const QJsonObject &obj) {
             // qDebug() << " join info " << obj;
-            QDesktopServices::openUrl(QUrl(obj[QLatin1StringView("url")].toString()));
+            RuqolaUtils::self()->openUrl(QUrl(obj[QLatin1StringView("url")].toString()));
             mVideoConferenceList.removeAll(videoConference);
         });
         if (!conferenceJoinJob->start()) {

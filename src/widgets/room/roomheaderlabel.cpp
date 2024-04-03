@@ -6,6 +6,7 @@
 
 #include "roomheaderlabel.h"
 
+#include "ruqolautils.h"
 #include <KLocalizedString>
 #include <QDesktopServices>
 #include <QTextDocument>
@@ -54,7 +55,7 @@ void RoomHeaderLabel::slotMoreInfo(const QString &content)
         mExpandTopic = false;
         updateSqueezedText();
     } else {
-        QDesktopServices::openUrl(QUrl(content));
+        RuqolaUtils::self()->openUrl(QUrl(content));
     }
 }
 
