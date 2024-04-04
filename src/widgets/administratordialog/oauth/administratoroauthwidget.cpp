@@ -6,10 +6,10 @@
 #include "administratoroauthwidget.h"
 using namespace Qt::Literals::StringLiterals;
 
-#include "administratoroauthfilterproxymodel.h"
 #include "connection.h"
 #include "ddpapi/ddpclient.h"
 #include "misc/listoauthappsjob.h"
+#include "model/administratoroauthfilterproxymodel.h"
 #include "model/adminoauthmodel.h"
 #include "oauth/oauthinfo.h"
 #include "oauthtreeview.h"

@@ -5,9 +5,10 @@
 */
 
 #pragma once
+#include "libruqolacore_export.h"
 #include "model/searchtreebasefilterproxymodel.h"
 
-class AdministratorOauthFilterProxyModel : public SearchTreeBaseFilterProxyModel
+class LIBRUQOLACORE_EXPORT AdministratorOauthFilterProxyModel : public SearchTreeBaseFilterProxyModel
 {
     Q_OBJECT
 public:

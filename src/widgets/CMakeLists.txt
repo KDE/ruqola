@@ -55,8 +55,6 @@ target_sources(libruqolawidgets PRIVATE
     administratordialog/oauth/administratoroautheditdialog.h
     administratordialog/oauth/administratoroautheditwidget.cpp
     administratordialog/oauth/administratoroautheditwidget.h
-    administratordialog/oauth/administratoroauthfilterproxymodel.cpp
-    administratordialog/oauth/administratoroauthfilterproxymodel.h
     administratordialog/oauth/administratoroauthwidget.cpp
     administratordialog/oauth/administratoroauthwidget.h
     administratordialog/oauth/oauthtreeview.cpp
