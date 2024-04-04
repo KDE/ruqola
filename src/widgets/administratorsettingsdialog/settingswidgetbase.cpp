@@ -5,6 +5,8 @@
 */
 
 #include "settingswidgetbase.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "connection.h"
 #include "dialogs/confirmpassworddialog.h"
 #include "rocketchataccount.h"
@@ -95,7 +97,7 @@ bool SettingsWidgetBase::updateSettings(const QString &settingName,
 void SettingsWidgetBase::slotAdminSettingsDone(const QJsonObject &obj, const QString &buttonObjectName)
 {
     qDebug() << "AccountSettingsWidget::slotAdminSettingsDone " << obj;
-    if (obj[QLatin1StringView("success")].toBool()) {
+    if (obj["success"_L1].toBool()) {
         // Disable apply button
         if (!buttonObjectName.isEmpty()) {
             Q_EMIT changedDone(buttonObjectName);

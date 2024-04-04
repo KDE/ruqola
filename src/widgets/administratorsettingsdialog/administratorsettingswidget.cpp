@@ -5,6 +5,8 @@
 */
 
 #include "administratorsettingswidget.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "accounts/accountsettingswidget.h"
 #include "analytics/analyticswidget.h"
 #include "cas/cassettingswidget.h"
@@ -144,13 +146,13 @@ void AdministratorSettingsWidget::loadSettings()
 
 void AdministratorSettingsWidget::initialize(const QJsonObject &obj)
 {
-    QJsonArray configs = obj.value(QLatin1StringView("result")).toArray();
+    QJsonArray configs = obj.value("result"_L1).toArray();
     // qDebug() << " obj " << obj;
     QMap<QString, QVariant> mapSettings;
     for (QJsonValueRef currentConfig : configs) {
         const QJsonObject currentConfObject = currentConfig.toObject();
-        const QString id = currentConfObject[QLatin1StringView("_id")].toString();
-        const QVariant value = currentConfObject[QLatin1StringView("value")].toVariant();
+        const QString id = currentConfObject["_id"_L1].toString();
+        const QVariant value = currentConfObject["value"_L1].toVariant();
         // qDebug() << "id  " << id << " value " << value;
         mapSettings.insert(id, value);
     }

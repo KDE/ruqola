@@ -4,6 +4,8 @@
    SPDX-License-Identifier: LGPL-2.0-or-later
 */
 #include "administratoroauthwidget.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "administratoroauthfilterproxymodel.h"
 #include "connection.h"
 #include "ddpapi/ddpclient.h"
@@ -95,7 +97,7 @@ void AdministratorOauthWidget::slotOauthAppUpdated(const QJsonObject &obj)
 void AdministratorOauthWidget::slotListOauthDone(const QJsonObject &obj)
 {
     QList<OauthInfo> lstOauth;
-    const QJsonArray array = obj[QLatin1StringView("oauthApps")].toArray();
+    const QJsonArray array = obj["oauthApps"_L1].toArray();
     const auto arrayCount{array.count()};
     lstOauth.reserve(arrayCount);
     for (auto i = 0; i < arrayCount; ++i) {

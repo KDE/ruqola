@@ -31,10 +31,10 @@ void ConferenceCallSettingsWidget::initialize(const QMap<QString, QVariant> &map
     connect(job, &RocketChatRestApi::VideoConferenceProvidersJob::videoConferenceProvidersDone, this, [this, mapSettings](const QJsonObject &obj) {
         // {"data":[{"key":"jitsi","label":"Jitsi"}],"success":true}
         QMap<QString, QString> maps;
-        const QJsonArray array = obj[QLatin1StringView("data")].toArray();
+        const QJsonArray array = obj["data"_L1].toArray();
         for (const QJsonValue &current : array) {
             const QJsonObject roleObject = current.toObject();
-            maps.insert(roleObject[QLatin1StringView("key")].toString(), roleObject[QLatin1StringView("label")].toString());
+            maps.insert(roleObject["key"_L1].toString(), roleObject["label"_L1].toString());
         }
         // qDebug() << " list " << obj << " maps " << maps;
         fillComboBox(mDefaultProvider, maps);

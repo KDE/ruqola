@@ -5,6 +5,8 @@
 */
 
 #include "administratoruserswidget.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "administratoradduserdialog.h"
 #include "administratorinviteusersdialog.h"
 #include "connection.h"
@@ -132,7 +134,7 @@ void AdministratorUsersWidget::slotUserInfoDone(const QJsonObject &obj)
     QPointer<AdministratorAddUserDialog> dlg = new AdministratorAddUserDialog(mRocketChatAccount, this);
     dlg->setRoleInfo(mRocketChatAccount->roleInfo());
     User user;
-    user.parseUserRestApi(obj[QLatin1StringView("user")].toObject(), mRocketChatAccount->roleInfo());
+    user.parseUserRestApi(obj["user"_L1].toObject(), mRocketChatAccount->roleInfo());
     dlg->setUser(user);
     if (dlg->exec()) {
         QString password;
@@ -219,8 +221,8 @@ void AdministratorUsersWidget::slotActivateUser(const QModelIndex &index, bool a
 
 void AdministratorUsersWidget::slotSetUserActiveStatus(const QJsonObject &replyObject, const QModelIndex &modelIndex)
 {
-    const QJsonObject userObj = replyObject[QLatin1StringView("user")].toObject();
-    const bool active = userObj[QLatin1StringView("active")].toBool();
+    const QJsonObject userObj = replyObject["user"_L1].toObject();
+    const bool active = userObj["active"_L1].toBool();
     mModel->setData(modelIndex, active, AdminUsersModel::ActiveUser);
 }
 

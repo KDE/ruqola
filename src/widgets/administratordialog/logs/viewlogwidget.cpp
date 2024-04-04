@@ -5,6 +5,8 @@
 */
 
 #include "viewlogwidget.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "config-ruqola.h"
 #include "connection.h"
 #include "ddpapi/ddpclient.h"
@@ -85,11 +87,11 @@ void ViewLogWidget::insertLine(const QString &str)
 void ViewLogWidget::slotStdoutQueueDone(const QJsonObject &obj)
 {
     // qDebug() << " obj" << obj;
-    const QJsonArray array = obj[QLatin1StringView("queue")].toArray();
+    const QJsonArray array = obj["queue"_L1].toArray();
     mPlainTextEdit->blockSignals(true);
     for (int i = 0; i < array.count(); ++i) {
         const QJsonObject objQueue = array.at(i).toObject();
-        insertLine(objQueue[QLatin1StringView("string")].toString());
+        insertLine(objQueue["string"_L1].toString());
     }
     mHistoryStdoutLoaded = true;
     for (const QString &str : std::as_const(mStdoutBeforeLoadingHistory)) {
