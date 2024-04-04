@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-03 00:38+0000\n"
+"POT-Creation-Date: 2024-04-04 00:38+0000\n"
 "PO-Revision-Date: 2024-03-27 23:08+0100\n"
 "Last-Translator: Enol P. <enolp@softastur.org>\n"
 "Language-Team: Asturian <alministradores@softastur.org>\n"
@@ -1353,12 +1353,12 @@ msgstr ""
 msgid "<strong>%1</strong> are typing..."
 msgstr ""
 
-#: core/rocketchataccount.cpp:2883
+#: core/rocketchataccount.cpp:2884
 #, kde-format
 msgid "Export Messages"
 msgstr ""
 
-#: core/rocketchataccount.cpp:2884
+#: core/rocketchataccount.cpp:2885
 #, kde-format
 msgid "Your email has been queued for sending."
 msgstr ""
@@ -3787,7 +3787,7 @@ msgid "Password"
 msgstr ""
 
 #: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:113
-#: widgets/room/roomwidget.cpp:444
+#: widgets/room/roomwidget.cpp:445
 #, kde-format
 msgid "Video Conference"
 msgstr ""
@@ -5895,7 +5895,7 @@ msgstr ""
 msgid "Copy Text"
 msgstr ""
 
-#: widgets/bannerinfodialog/bannermessagewidget.cpp:22
+#: widgets/bannerinfodialog/bannermessagewidget.cpp:23
 #, kde-format
 msgid "Mark as Read"
 msgstr ""
@@ -8470,12 +8470,12 @@ msgstr ""
 msgid "(Jump to first Unread)"
 msgstr ""
 
-#: widgets/room/roomheaderlabel.cpp:67
+#: widgets/room/roomheaderlabel.cpp:68
 #, kde-format
 msgid "(Show More Info...)"
 msgstr ""
 
-#: widgets/room/roomheaderlabel.cpp:99
+#: widgets/room/roomheaderlabel.cpp:100
 #, kde-format
 msgid "(Show Less Info...)"
 msgstr ""
@@ -8531,18 +8531,18 @@ msgstr ""
 msgid "Reply in Thread for Message: '%1'"
 msgstr ""
 
-#: widgets/room/roomwidget.cpp:273
+#: widgets/room/roomwidget.cpp:274
 #, kde-format
 msgid "Do you want really remove history?"
 msgstr ""
 
-#: widgets/room/roomwidget.cpp:274
+#: widgets/room/roomwidget.cpp:275
 #, kde-format
 msgctxt "@title:window"
 msgid "Remove History"
 msgstr ""
 
-#: widgets/room/roomwidget.cpp:444
+#: widgets/room/roomwidget.cpp:445
 #, kde-format
 msgid ""
 "A workspace admin needs to install and configure a conference call apps."
@@ -9258,26 +9258,30 @@ msgid ""
 "show_bug.cgi?id=481400\">Bug 481400</a>"
 msgstr ""
 
-#: widgets/whatsnew/whatsnewwidgettranslation.h:78
-msgid "Fix dark mode support."
+#: widgets/whatsnew/whatsnewwidgettranslation.h:74
+msgid "Add Plasma Activities Support"
 msgstr ""
 
 #: widgets/whatsnew/whatsnewwidgettranslation.h:79
-msgid "Fix jitsi support."
+msgid "Fix dark mode support."
 msgstr ""
 
 #: widgets/whatsnew/whatsnewwidgettranslation.h:80
-msgid "Fix translate message in direct channel."
+msgid "Fix jitsi support."
 msgstr ""
 
 #: widgets/whatsnew/whatsnewwidgettranslation.h:81
-msgid "Don't show @here/@all as user."
+msgid "Fix translate message in direct channel."
 msgstr ""
 
 #: widgets/whatsnew/whatsnewwidgettranslation.h:82
-msgid "Reduce memory footprint."
+msgid "Don't show @here/@all as user."
 msgstr ""
 
 #: widgets/whatsnew/whatsnewwidgettranslation.h:83
+msgid "Reduce memory footprint."
+msgstr ""
+
+#: widgets/whatsnew/whatsnewwidgettranslation.h:84
 msgid "Use RESTAPI for logging."
 msgstr ""

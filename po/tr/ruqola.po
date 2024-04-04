@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-03 00:38+0000\n"
+"POT-Creation-Date: 2024-04-04 00:38+0000\n"
 "PO-Revision-Date: 2024-03-27 23:03+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
@@ -1356,12 +1356,12 @@ msgstr "<strong>%1</strong> yazıyor…"
 msgid "<strong>%1</strong> are typing..."
 msgstr "<strong>%1</strong> yazıyor…"
 
-#: core/rocketchataccount.cpp:2883
+#: core/rocketchataccount.cpp:2884
 #, kde-format
 msgid "Export Messages"
 msgstr "İletileri Dışa Aktar"
 
-#: core/rocketchataccount.cpp:2884
+#: core/rocketchataccount.cpp:2885
 #, kde-format
 msgid "Your email has been queued for sending."
 msgstr "E-postanız, gönderme için kuyruğa eklendi."
@@ -3826,7 +3826,7 @@ msgid "Password"
 msgstr "Parola"
 
 #: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:113
-#: widgets/room/roomwidget.cpp:444
+#: widgets/room/roomwidget.cpp:445
 #, kde-format
 msgid "Video Conference"
 msgstr "Video Konferans"
@@ -6074,7 +6074,7 @@ msgstr "Okunmamışları Göster"
 msgid "Copy Text"
 msgstr "Metni Kopyala"
 
-#: widgets/bannerinfodialog/bannermessagewidget.cpp:22
+#: widgets/bannerinfodialog/bannermessagewidget.cpp:23
 #, kde-format
 msgid "Mark as Read"
 msgstr "Okundu Olarak İmle"
@@ -8718,12 +8718,12 @@ msgstr "(Okundu Olarak İmle)"
 msgid "(Jump to first Unread)"
 msgstr "(İlk Okunmamışa Atla)"
 
-#: widgets/room/roomheaderlabel.cpp:67
+#: widgets/room/roomheaderlabel.cpp:68
 #, kde-format
 msgid "(Show More Info...)"
 msgstr "(Daha Fazla Bilgi Göster…)"
 
-#: widgets/room/roomheaderlabel.cpp:99
+#: widgets/room/roomheaderlabel.cpp:100
 #, kde-format
 msgid "(Show Less Info...)"
 msgstr "(Daha Az Bilgi Göster…)"
@@ -8779,18 +8779,18 @@ msgstr "Bir ilmekte yanıtlanıyor"
 msgid "Reply in Thread for Message: '%1'"
 msgstr "Şu iletiyi ilmekte yanıtla: '%1'"
 
-#: widgets/room/roomwidget.cpp:273
+#: widgets/room/roomwidget.cpp:274
 #, kde-format
 msgid "Do you want really remove history?"
 msgstr "Geçmişi kaldırmayı gerçekten istiyor musunuz?"
 
-#: widgets/room/roomwidget.cpp:274
+#: widgets/room/roomwidget.cpp:275
 #, kde-format
 msgctxt "@title:window"
 msgid "Remove History"
 msgstr "Geçmişi Kaldır"
 
-#: widgets/room/roomwidget.cpp:444
+#: widgets/room/roomwidget.cpp:445
 #, kde-format
 msgid ""
 "A workspace admin needs to install and configure a conference call apps."
@@ -9523,27 +9523,31 @@ msgstr ""
 "Kişisel jeton kullanımını gerçekle. <a href=\"https://bugs.kde.org/show_bug."
 "cgi?id=481400\">481400 numaralı kayıt</a>"
 
-#: widgets/whatsnew/whatsnewwidgettranslation.h:78
+#: widgets/whatsnew/whatsnewwidgettranslation.h:74
+msgid "Add Plasma Activities Support"
+msgstr ""
+
+#: widgets/whatsnew/whatsnewwidgettranslation.h:79
 msgid "Fix dark mode support."
 msgstr "Koyu kip desteği onarıldı."
 
-#: widgets/whatsnew/whatsnewwidgettranslation.h:79
+#: widgets/whatsnew/whatsnewwidgettranslation.h:80
 msgid "Fix jitsi support."
 msgstr "Jitsi desteği onarıldı."
 
-#: widgets/whatsnew/whatsnewwidgettranslation.h:80
+#: widgets/whatsnew/whatsnewwidgettranslation.h:81
 msgid "Fix translate message in direct channel."
 msgstr "Doğrudan kanaldaki ileti çevirmeyi onar."
 
-#: widgets/whatsnew/whatsnewwidgettranslation.h:81
+#: widgets/whatsnew/whatsnewwidgettranslation.h:82
 msgid "Don't show @here/@all as user."
 msgstr "Kullanıcı olarak @burada/@tümü gösterme."
 
-#: widgets/whatsnew/whatsnewwidgettranslation.h:82
+#: widgets/whatsnew/whatsnewwidgettranslation.h:83
 msgid "Reduce memory footprint."
 msgstr "Bellek kullanımını azalt."
 
-#: widgets/whatsnew/whatsnewwidgettranslation.h:83
+#: widgets/whatsnew/whatsnewwidgettranslation.h:84
 msgid "Use RESTAPI for logging."
 msgstr "Günlükleme için RESTAPI kullan."
 

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-03 00:38+0000\n"
+"POT-Creation-Date: 2024-04-04 00:38+0000\n"
 "PO-Revision-Date: 2024-03-23 06:07+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
@@ -1356,12 +1356,12 @@ msgstr "<strong>%1</strong> კრეფს..."
 msgid "<strong>%1</strong> are typing..."
 msgstr "<strong>%1</strong> კრეფს..."
 
-#: core/rocketchataccount.cpp:2883
+#: core/rocketchataccount.cpp:2884
 #, kde-format
 msgid "Export Messages"
 msgstr "შეტყობინებების გატანა"
 
-#: core/rocketchataccount.cpp:2884
+#: core/rocketchataccount.cpp:2885
 #, kde-format
 msgid "Your email has been queued for sending."
 msgstr "თქვენი ელფოსტა რიგშია გასაგზავნად."
@@ -3837,7 +3837,7 @@ msgid "Password"
 msgstr "Password"
 
 #: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:113
-#: widgets/room/roomwidget.cpp:444
+#: widgets/room/roomwidget.cpp:445
 #, kde-format
 msgid "Video Conference"
 msgstr "ვიდეო კონფერენცია"
@@ -6085,7 +6085,7 @@ msgstr "წაუკითხავის ჩვენება"
 msgid "Copy Text"
 msgstr "ტექსტის კოპირება"
 
-#: widgets/bannerinfodialog/bannermessagewidget.cpp:22
+#: widgets/bannerinfodialog/bannermessagewidget.cpp:23
 #, kde-format
 msgid "Mark as Read"
 msgstr "მონიშნე როგორც წაკითხული"
@@ -8715,12 +8715,12 @@ msgstr "(წაკითხულად მონიშვნა)"
 msgid "(Jump to first Unread)"
 msgstr "(პირველ წაუკითხავ შეტყობინებაზე გადასვლა)"
 
-#: widgets/room/roomheaderlabel.cpp:67
+#: widgets/room/roomheaderlabel.cpp:68
 #, kde-format
 msgid "(Show More Info...)"
 msgstr "(მეტი ინფორმაციის ჩვენება...)"
 
-#: widgets/room/roomheaderlabel.cpp:99
+#: widgets/room/roomheaderlabel.cpp:100
 #, kde-format
 msgid "(Show Less Info...)"
 msgstr "(ნაკლები ინფორმაციის ჩვენება...)"
@@ -8776,18 +8776,18 @@ msgstr "ნაკადში პასუხი"
 msgid "Reply in Thread for Message: '%1'"
 msgstr "ნაკადში პასუხი შეტყობინებაზე: '%1'"
 
-#: widgets/room/roomwidget.cpp:273
+#: widgets/room/roomwidget.cpp:274
 #, kde-format
 msgid "Do you want really remove history?"
 msgstr "მართლა გნებავთ ისტორიის წაშლა?"
 
-#: widgets/room/roomwidget.cpp:274
+#: widgets/room/roomwidget.cpp:275
 #, kde-format
 msgctxt "@title:window"
 msgid "Remove History"
 msgstr "ისტორიის წაშლა"
 
-#: widgets/room/roomwidget.cpp:444
+#: widgets/room/roomwidget.cpp:445
 #, kde-format
 msgid ""
 "A workspace admin needs to install and configure a conference call apps."
@@ -9521,27 +9521,31 @@ msgstr ""
 "პირადი კოდით ავთენტიკაციის განხორციელება. <a href=\"https://bugs.kde.org/"
 "show_bug.cgi?id=481400\">Bug 481400</a>"
 
-#: widgets/whatsnew/whatsnewwidgettranslation.h:78
+#: widgets/whatsnew/whatsnewwidgettranslation.h:74
+msgid "Add Plasma Activities Support"
+msgstr ""
+
+#: widgets/whatsnew/whatsnewwidgettranslation.h:79
 msgid "Fix dark mode support."
 msgstr "ბნელი რეჟიმის მხარდაჭერის გასწორება."
 
-#: widgets/whatsnew/whatsnewwidgettranslation.h:79
+#: widgets/whatsnew/whatsnewwidgettranslation.h:80
 msgid "Fix jitsi support."
 msgstr "JITSI-ის მხარდაჭერის გასწორება."
 
-#: widgets/whatsnew/whatsnewwidgettranslation.h:80
+#: widgets/whatsnew/whatsnewwidgettranslation.h:81
 msgid "Fix translate message in direct channel."
 msgstr "პირდაპირ არხში შეტყობინების თარგმნის გასწორება."
 
-#: widgets/whatsnew/whatsnewwidgettranslation.h:81
+#: widgets/whatsnew/whatsnewwidgettranslation.h:82
 msgid "Don't show @here/@all as user."
 msgstr "მომხმარებლისთვის @here/@all ნაჩვენები არ იქნება."
 
-#: widgets/whatsnew/whatsnewwidgettranslation.h:82
+#: widgets/whatsnew/whatsnewwidgettranslation.h:83
 msgid "Reduce memory footprint."
 msgstr "მეხსიერებაში კვალის შემცირება."
 
-#: widgets/whatsnew/whatsnewwidgettranslation.h:83
+#: widgets/whatsnew/whatsnewwidgettranslation.h:84
 msgid "Use RESTAPI for logging."
 msgstr "ჟურნალისთვის RESTAPI-ის გამოყენება."
 

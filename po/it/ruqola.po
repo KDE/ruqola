@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-03 00:38+0000\n"
+"POT-Creation-Date: 2024-04-04 00:38+0000\n"
 "PO-Revision-Date: 2024-03-24 03:42+0100\n"
 "Last-Translator: Vincenzo Reale <smart2128vr@gmail.com>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
@@ -1357,12 +1357,12 @@ msgstr "<strong>%1</strong> sta scrivendo..."
 msgid "<strong>%1</strong> are typing..."
 msgstr "<strong>%1</strong> stanno scrivendo..."
 
-#: core/rocketchataccount.cpp:2883
+#: core/rocketchataccount.cpp:2884
 #, kde-format
 msgid "Export Messages"
 msgstr "Esporta messaggi"
 
-#: core/rocketchataccount.cpp:2884
+#: core/rocketchataccount.cpp:2885
 #, kde-format
 msgid "Your email has been queued for sending."
 msgstr "La tua email è stata messa in coda per la spedizione."
@@ -3850,7 +3850,7 @@ msgid "Password"
 msgstr "Password"
 
 #: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:113
-#: widgets/room/roomwidget.cpp:444
+#: widgets/room/roomwidget.cpp:445
 #, kde-format
 msgid "Video Conference"
 msgstr "Videoconferenza"
@@ -6126,7 +6126,7 @@ msgstr "Mostra non letti"
 msgid "Copy Text"
 msgstr "Copia il testo"
 
-#: widgets/bannerinfodialog/bannermessagewidget.cpp:22
+#: widgets/bannerinfodialog/bannermessagewidget.cpp:23
 #, kde-format
 msgid "Mark as Read"
 msgstr "Marca come letto"
@@ -8773,12 +8773,12 @@ msgstr "(Segna come letto)"
 msgid "(Jump to first Unread)"
 msgstr "(Vai al primo non letto)"
 
-#: widgets/room/roomheaderlabel.cpp:67
+#: widgets/room/roomheaderlabel.cpp:68
 #, kde-format
 msgid "(Show More Info...)"
 msgstr "(Mostra altre informazioni...)"
 
-#: widgets/room/roomheaderlabel.cpp:99
+#: widgets/room/roomheaderlabel.cpp:100
 #, kde-format
 msgid "(Show Less Info...)"
 msgstr "(Mostra meno informazioni...)"
@@ -8834,18 +8834,18 @@ msgstr "Rispondi in una discussione"
 msgid "Reply in Thread for Message: '%1'"
 msgstr "Risposta alla discussione per messaggio: «%1»"
 
-#: widgets/room/roomwidget.cpp:273
+#: widgets/room/roomwidget.cpp:274
 #, kde-format
 msgid "Do you want really remove history?"
 msgstr "Vuoi davvero rimuovere la cronologia?"
 
-#: widgets/room/roomwidget.cpp:274
+#: widgets/room/roomwidget.cpp:275
 #, kde-format
 msgctxt "@title:window"
 msgid "Remove History"
 msgstr "Rimuovi cronologia"
 
-#: widgets/room/roomwidget.cpp:444
+#: widgets/room/roomwidget.cpp:445
 #, kde-format
 msgid ""
 "A workspace admin needs to install and configure a conference call apps."
@@ -9582,27 +9582,31 @@ msgstr ""
 "Implementata l'autenticazione tramite token personale. <a href=\"https://"
 "bugs.kde.org/show_bug.cgi?id=481400\">Bug 481400</a>"
 
-#: widgets/whatsnew/whatsnewwidgettranslation.h:78
+#: widgets/whatsnew/whatsnewwidgettranslation.h:74
+msgid "Add Plasma Activities Support"
+msgstr ""
+
+#: widgets/whatsnew/whatsnewwidgettranslation.h:79
 msgid "Fix dark mode support."
 msgstr "Corregge il supporto della modalità scura."
 
-#: widgets/whatsnew/whatsnewwidgettranslation.h:79
+#: widgets/whatsnew/whatsnewwidgettranslation.h:80
 msgid "Fix jitsi support."
 msgstr "Corregge il supporto jitsi."
 
-#: widgets/whatsnew/whatsnewwidgettranslation.h:80
+#: widgets/whatsnew/whatsnewwidgettranslation.h:81
 msgid "Fix translate message in direct channel."
 msgstr "Corretta la traduzione del messaggio nel canale diretto."
 
-#: widgets/whatsnew/whatsnewwidgettranslation.h:81
+#: widgets/whatsnew/whatsnewwidgettranslation.h:82
 msgid "Don't show @here/@all as user."
 msgstr "Non mostrare @qui/@tutti come utente."
 
-#: widgets/whatsnew/whatsnewwidgettranslation.h:82
+#: widgets/whatsnew/whatsnewwidgettranslation.h:83
 msgid "Reduce memory footprint."
 msgstr "Impronta sulla memoria ridotta."
 
-#: widgets/whatsnew/whatsnewwidgettranslation.h:83
+#: widgets/whatsnew/whatsnewwidgettranslation.h:84
 msgid "Use RESTAPI for logging."
 msgstr "Utilizza le API REST per la registrazione."
 
