@@ -34,7 +34,6 @@ private:
     void slotTextMessageReceived(const QString &msg);
     void slotError(QAbstractSocket::SocketError error);
 
-private:
     RuqolaLogger *const mLogger;
     QWebSocket *const mWebSocket;
 };
