@@ -5,10 +5,19 @@
 */
 
 #include "configureactivitieswidget.h"
+#include <QListView>
+#include <QVBoxLayout>
+using namespace Qt::Literals::StringLiterals;
 
 ConfigureActivitiesWidget::ConfigureActivitiesWidget(QWidget *parent)
     : QWidget{parent}
+    , mListView(new QListView(this))
 {
+    auto mainLayout = new QVBoxLayout(this);
+    mainLayout->setObjectName("mainLayout"_L1);
+
+    mListView->setObjectName("mListView"_L1);
+    mainLayout->addWidget(mListView);
 }
 
 ConfigureActivitiesWidget::~ConfigureActivitiesWidget() = default;

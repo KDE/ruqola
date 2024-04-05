@@ -6,8 +6,10 @@
 
 #include "configureactivitieswidgettest.h"
 #include "configurenewserver/configureactivitieswidget.h"
+#include <QListView>
 #include <QTest>
 #include <QVBoxLayout>
+using namespace Qt::Literals::StringLiterals;
 QTEST_MAIN(ConfigureActivitiesWidgetTest)
 ConfigureActivitiesWidgetTest::ConfigureActivitiesWidgetTest(QObject *parent)
     : QObject{parent}
@@ -16,6 +18,11 @@ ConfigureActivitiesWidgetTest::ConfigureActivitiesWidgetTest(QObject *parent)
 
 void ConfigureActivitiesWidgetTest::shouldHaveDefaultValues()
 {
-    ConfigureActivitiesWidget d;
-    // TODO
+    ConfigureActivitiesWidget w;
+
+    auto mListView = w.findChild<QListView *>("mListView"_L1);
+    QVERIFY(mListView);
+
+    auto mainLayout = w.findChild<QVBoxLayout *>("mainLayout"_L1);
+    QVERIFY(mainLayout);
 }

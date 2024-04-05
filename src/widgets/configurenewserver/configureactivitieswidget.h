@@ -7,7 +7,7 @@
 #pragma once
 #include "libruqolawidgets_private_export.h"
 #include <QWidget>
-
+class QListView;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT ConfigureActivitiesWidget : public QWidget
 {
     Q_OBJECT
@@ -16,4 +16,7 @@ public:
     ~ConfigureActivitiesWidget() override;
 
     [[nodiscard]] QStringList activities() const;
+
+private:
+    QListView *const mListView;
 };
