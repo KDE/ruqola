@@ -54,7 +54,7 @@ ChannelListWidget::ChannelListWidget(QWidget *parent)
     mSearchRoomLineEdit->setClearButtonEnabled(true);
     mSearchRoomLineEdit->installEventFilter(this);
     mSearchRoomLineEdit->setProperty("_breeze_borders_sides", QVariant::fromValue(QFlags{Qt::TopEdge}));
-    mSearchRoomLineEdit->setMinimumHeight(36); // match the default size of the message text field
+    mSearchRoomLineEdit->setMinimumHeight(34); // match the default size of the message text field
     mainLayout->addWidget(mSearchRoomLineEdit);
     connect(mSearchRoomLineEdit, &QLineEdit::textChanged, this, &ChannelListWidget::slotSearchRoomTextChanged);
 
