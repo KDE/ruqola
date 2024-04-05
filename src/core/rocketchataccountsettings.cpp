@@ -107,7 +107,7 @@ void RocketChatAccountSettings::setActivities(const QStringList &newActivities)
     mSetting->setValue(QStringLiteral("activites"), newActivities);
     mSetting->sync();
     mActivities = newActivities;
-    Q_EMIT serverActivitiesChanged();
+    Q_EMIT activitiesChanged();
 }
 
 AuthenticationManager::AuthMethodType RocketChatAccountSettings::authMethodType() const

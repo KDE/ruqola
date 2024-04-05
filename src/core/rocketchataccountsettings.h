@@ -86,7 +86,7 @@ Q_SIGNALS:
     void twoFactorAuthenticationCodeChanged();
     void enableAccountChanged();
     void displayNameChanged();
-    void serverActivitiesChanged();
+    void activitiesChanged();
 
 private:
     Q_DISABLE_COPY(RocketChatAccountSettings)
