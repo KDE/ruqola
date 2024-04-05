@@ -5,10 +5,14 @@
 */
 
 #include "activitiesmanager.h"
-
+#include "config-ruqola.h"
+#include "ruqolaglobalconfig.h"
 ActivitiesManager::ActivitiesManager(QObject *parent)
     : QObject{parent}
 {
+#if HAS_ACTIVITY_SUPPORT
+    mEnabled = RuqolaGlobalConfig::self()->plasmaActivities();
+#endif
 }
 
 ActivitiesManager::~ActivitiesManager() = default;

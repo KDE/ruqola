@@ -6,6 +6,7 @@
 
 #pragma once
 
+#include "config-ruqola.h"
 #include "libruqolawidgets_private_export.h"
 #include <QWidget>
 class QCheckBox;
@@ -29,4 +30,7 @@ private:
     QCheckBox *const mShowHoverHightLights;
     QCheckBox *const mAnimateGif;
     QCheckBox *const mStoreMessageInDataBase;
+#if HAS_ACTIVITY_SUPPORT
+    QCheckBox *const mEnabledActivitySupport;
+#endif
 };

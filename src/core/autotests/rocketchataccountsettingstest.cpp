@@ -200,6 +200,7 @@ void RocketChatAccountSettingsTest::shouldHaveDefaultValues()
     QVERIFY(chat.twoFactorAuthenticationCode().isEmpty());
     QVERIFY(chat.accountEnabled());
     QVERIFY(chat.displayName().isEmpty());
+    QVERIFY(chat.activities().isEmpty());
 }
 
 #include "moc_rocketchataccountsettingstest.cpp"

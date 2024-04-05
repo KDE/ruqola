@@ -18,6 +18,10 @@
     <entry name="InternalVersion" type="Int">
       <default>0</default>
     </entry>
+    <entry name="PlasmaActivities" type="Bool">
+      <default>false</default>
+    </entry>
+
   </group>
 
   <group name="View">

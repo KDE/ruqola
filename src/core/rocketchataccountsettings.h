@@ -74,6 +74,9 @@ public:
     [[nodiscard]] AuthenticationManager::AuthMethodType authMethodType() const;
     void setAuthMethodType(const AuthenticationManager::AuthMethodType &newAuthMethodType);
 
+    [[nodiscard]] QStringList activities() const;
+    void setActivities(const QStringList &newActivities);
+
 Q_SIGNALS:
     void serverURLChanged();
     void userNameChanged();
@@ -83,6 +86,7 @@ Q_SIGNALS:
     void twoFactorAuthenticationCodeChanged();
     void enableAccountChanged();
     void displayNameChanged();
+    void serverActivitiesChanged();
 
 private:
     Q_DISABLE_COPY(RocketChatAccountSettings)
@@ -99,6 +103,7 @@ private:
     QString mCachePath;
     QString mUserName;
     QString mPassword;
+    QStringList mActivities;
     QDate mLastCheckedPreviewUrlCacheDate;
     bool mUseLdap = false;
     QString mTwoFactorAuthenticationCode;

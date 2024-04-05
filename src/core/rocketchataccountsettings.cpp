@@ -54,6 +54,7 @@ void RocketChatAccountSettings::initializeSettings(const QString &accountFileNam
     mAuthToken = mSetting->value(QStringLiteral("authToken")).toString();
     mExpireToken = mSetting->value(QStringLiteral("expireToken")).toLongLong();
     mAccountName = mSetting->value(QStringLiteral("accountName")).toString();
+    mActivities = mSetting->value(QStringLiteral("activites")).toStringList();
     mUseLdap = mSetting->value(QStringLiteral("useLdap")).toBool();
     mAccountEnabled = mSetting->value(QStringLiteral("enabled"), true).toBool();
     mDisplayName = mSetting->value(QStringLiteral("displayName")).toString();
@@ -90,6 +91,23 @@ void RocketChatAccountSettings::slotPasswordWritten(QKeychain::Job *baseJob)
     if (baseJob->error()) {
         qCWarning(RUQOLA_PASSWORD_CORE_LOG) << "Error writing password using QKeychain:" << baseJob->errorString();
     }
+}
+
+QStringList RocketChatAccountSettings::activities() const
+{
+    return mActivities;
+}
+
+void RocketChatAccountSettings::setActivities(const QStringList &newActivities)
+{
+    if (mActivities == newActivities) {
+        return;
+    }
+
+    mSetting->setValue(QStringLiteral("activites"), newActivities);
+    mSetting->sync();
+    mActivities = newActivities;
+    Q_EMIT serverActivitiesChanged();
 }
 
 AuthenticationManager::AuthMethodType RocketChatAccountSettings::authMethodType() const
@@ -349,6 +367,7 @@ QDebug operator<<(QDebug d, const RocketChatAccountSettings &t)
     d.space() << "mTwoFactorAuthenticationCode" << t.twoFactorAuthenticationCode();
     d.space() << "mExpireToken" << t.expireToken();
     d.space() << "mAccountEnabled" << t.accountEnabled();
+    d.space() << "mActivities" << t.activities();
     return d;
 }
 

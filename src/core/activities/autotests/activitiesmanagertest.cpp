@@ -6,11 +6,13 @@
 
 #include "activitiesmanagertest.h"
 #include "activities/activitiesmanager.h"
+#include <QStandardPaths>
 #include <QTest>
 QTEST_GUILESS_MAIN(ActivitiesManagerTest)
 ActivitiesManagerTest::ActivitiesManagerTest(QObject *parent)
     : QObject{parent}
 {
+    QStandardPaths::setTestModeEnabled(true);
 }
 
 void ActivitiesManagerTest::shouldHaveDefaultValues()

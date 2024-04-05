@@ -21,6 +21,9 @@ ConfigureGeneralWidget::ConfigureGeneralWidget(QWidget *parent)
     , mShowHoverHightLights(new QCheckBox(i18n("Show hover highlights"), this))
     , mAnimateGif(new QCheckBox(i18n("Animate Gif Image"), this))
     , mStoreMessageInDataBase(new QCheckBox(i18n("Use local dataBase (experimental)"), this))
+#if HAS_ACTIVITY_SUPPORT
+    , mEnabledActivitySupport(new QCheckBox(i18n("Enable Plasma Activities"), this))
+#endif
 {
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
@@ -52,6 +55,11 @@ ConfigureGeneralWidget::ConfigureGeneralWidget(QWidget *parent)
     mStoreMessageInDataBase->setObjectName(QStringLiteral("mStoreMessageInDataBase"));
     mainLayout->addWidget(mStoreMessageInDataBase);
 
+#if HAS_ACTIVITY_SUPPORT
+    mEnabledActivitySupport->setObjectName(QStringLiteral("mEnabledActivitySupport"));
+    mainLayout->addWidget(mEnabledActivitySupport);
+#endif
+
     mainLayout->addStretch(1);
 }
 
@@ -68,6 +76,9 @@ void ConfigureGeneralWidget::save()
     RuqolaGlobalConfig::self()->setAnimateGifImage(mAnimateGif->isChecked());
     RuqolaGlobalConfig::self()->setStoreMessageInDataBase(mStoreMessageInDataBase->isChecked());
     RuqolaGlobalConfig::self()->setShowPreviewUrl(mShowPreviewUrlByDefault->isChecked());
+#if HAS_ACTIVITY_SUPPORT
+    RuqolaGlobalConfig::self()->setPlasmaActivities(mEnabledActivitySupport->isChecked());
+#endif
     RuqolaGlobalConfig::self()->save();
 }
 
@@ -82,6 +93,9 @@ void ConfigureGeneralWidget::load()
     mAnimateGif->setChecked(RuqolaGlobalConfig::self()->animateGifImage());
     mStoreMessageInDataBase->setChecked(RuqolaGlobalConfig::self()->storeMessageInDataBase());
     mShowPreviewUrlByDefault->setChecked(RuqolaGlobalConfig::self()->showPreviewUrl());
+#if HAS_ACTIVITY_SUPPORT
+    mEnabledActivitySupport->setChecked(RuqolaGlobalConfig::self()->plasmaActivities());
+#endif
 }
 
 #include "moc_configuregeneralwidget.cpp"
