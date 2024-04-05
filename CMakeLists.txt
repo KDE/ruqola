@@ -47,7 +47,11 @@ option(OPTION_USE_PLASMA_ACTIVITIES "Activate plasma activities (experimental)" 
 
 
 if (OPTION_USE_PLASMA_ACTIVITIES)
-    set(HAS_ACTIVITY_SUPPORT true)
+    if (NOT WIN32 AND NOT APPLE)
+       set(HAS_ACTIVITY_SUPPORT true)
+    else()
+       set(HAS_ACTIVITY_SUPPORT false)
+    endif()
 endif()    
 
 if (OPTION_USE_PERSONAL_ACCESS_TOKEN)
