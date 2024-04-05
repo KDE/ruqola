@@ -31,3 +31,5 @@ void ConfigureActivitiesDialogTest::shouldHaveDefaultValues()
     auto buttonBox = d.findChild<QDialogButtonBox *>(QStringLiteral("button"));
     QVERIFY(buttonBox);
 }
+
+#include "moc_configureactivitiesdialogtest.cpp"

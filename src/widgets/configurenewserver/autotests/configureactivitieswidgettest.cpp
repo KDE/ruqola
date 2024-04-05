@@ -26,3 +26,5 @@ void ConfigureActivitiesWidgetTest::shouldHaveDefaultValues()
     auto mainLayout = w.findChild<QVBoxLayout *>("mainLayout"_L1);
     QVERIFY(mainLayout);
 }
+
+#include "moc_configureactivitieswidgettest.cpp"
