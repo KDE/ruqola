@@ -18,6 +18,8 @@ public:
 
     [[nodiscard]] QStringList activities() const;
 
+    void setActivities(const QStringList &lst);
+
 private:
     LIBRUQOLAWIDGETS_NO_EXPORT void readConfig();
     LIBRUQOLAWIDGETS_NO_EXPORT void writeConfig();

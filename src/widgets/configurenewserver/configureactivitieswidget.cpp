@@ -66,4 +66,9 @@ QStringList ConfigureActivitiesWidget::activities() const
     return {};
 }
 
+void ConfigureActivitiesWidget::setActivities(const QStringList &lst)
+{
+    // TODO
+}
+
 #include "moc_configureactivitieswidget.cpp"

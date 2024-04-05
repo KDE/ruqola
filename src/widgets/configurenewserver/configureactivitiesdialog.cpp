@@ -62,4 +62,9 @@ QStringList ConfigureActivitiesDialog::activities() const
     return mConfigureActivitiesWidget->activities();
 }
 
+void ConfigureActivitiesDialog::setActivities(const QStringList &lst)
+{
+    mConfigureActivitiesWidget->setActivities(lst);
+}
+
 #include "moc_configureactivitiesdialog.cpp"

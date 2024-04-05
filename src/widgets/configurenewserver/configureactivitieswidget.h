@@ -16,6 +16,7 @@ public:
     ~ConfigureActivitiesWidget() override;
 
     [[nodiscard]] QStringList activities() const;
+    void setActivities(const QStringList &lst);
 
 private:
     QListView *const mListView;
