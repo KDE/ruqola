@@ -62,13 +62,32 @@ ConfigureActivitiesWidget::~ConfigureActivitiesWidget() = default;
 
 QStringList ConfigureActivitiesWidget::activities() const
 {
-    // TODO
-    return {};
+    const auto selection = mListView->selectionModel();
+    QStringList selectedActivities;
+    for (const auto &selectedIndex : selection->selectedIndexes()) {
+        selectedActivities << selectedIndex.data(KActivities::ActivitiesModel::ActivityId).toString();
+    }
+    return selectedActivities;
 }
 
 void ConfigureActivitiesWidget::setActivities(const QStringList &lst)
 {
-    // TODO
+    // mListView->setEnabled(false);
+
+    auto model = mListView->model();
+    auto selection = mListView->selectionModel();
+    selection->clearSelection();
+
+    if (!lst.isEmpty()) {
+        for (int row = 0; row < model->rowCount(); ++row) {
+            const auto index = model->index(row, 0);
+            const auto activity = model->data(index, KActivities::ActivitiesModel::ActivityId).toString();
+
+            if (lst.contains(activity)) {
+                selection->select(index, QItemSelectionModel::Select);
+            }
+        }
+    }
 }
 
 #include "moc_configureactivitieswidget.cpp"
