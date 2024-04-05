@@ -50,7 +50,8 @@ ChannelListWidget::ChannelListWidget(QWidget *parent)
     // dummy action just for getting the icon)
     mSearchRoomLineEdit->addAction(QIcon::fromTheme(QStringLiteral("view-filter")), QLineEdit::LeadingPosition);
     mSearchRoomLineEdit->setObjectName(QStringLiteral("mSearchRoom"));
-    mSearchRoomLineEdit->setPlaceholderText(i18n("Filter channels (%1)", QKeySequence(Qt::CTRL | Qt::Key_K).toString(QKeySequence::NativeText)));
+    const auto shortcut = QKeySequence(Qt::CTRL | Qt::Key_K);
+    mSearchRoomLineEdit->setPlaceholderText(i18n("Filter channels (%1)", shortcut.toString(QKeySequence::NativeText)));
     mSearchRoomLineEdit->setClearButtonEnabled(true);
     mSearchRoomLineEdit->installEventFilter(this);
     mSearchRoomLineEdit->setProperty("_breeze_borders_sides", QVariant::fromValue(QFlags{Qt::TopEdge}));
@@ -60,7 +61,7 @@ ChannelListWidget::ChannelListWidget(QWidget *parent)
 
     // BEGIN: Actions
     auto searchRoomAction = new QAction(i18n("Search Channels"), this);
-    searchRoomAction->setShortcut(Qt::CTRL | Qt::Key_K);
+    searchRoomAction->setShortcut(shortcut);
     connect(searchRoomAction, &QAction::triggered, this, [this]() {
         mSearchRoomLineEdit->setFocus();
     });
