@@ -51,7 +51,7 @@ ChannelListWidget::ChannelListWidget(QWidget *parent)
     // dummy action just for getting the icon)
     mSearchRoomLineEdit->addAction(QIcon::fromTheme(QStringLiteral("view-filter")), QLineEdit::LeadingPosition);
     mSearchRoomLineEdit->setObjectName(QStringLiteral("mSearchRoom"));
-    mSearchRoomLineEdit->setPlaceholderText(i18n("Filter channels (CTRL + K)"));
+    mSearchRoomLineEdit->setPlaceholderText(i18n("Filter channels (%1)", QKeySequence(Qt::CTRL | Qt::Key_K).toString(QKeySequence::NativeText)));
     mSearchRoomLineEdit->setClearButtonEnabled(true);
     mSearchRoomLineEdit->installEventFilter(this);
     mSearchRoomLineEdit->setProperty("_breeze_borders_sides", QVariant::fromValue(QFlags{Qt::TopEdge}));
