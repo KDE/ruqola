@@ -379,6 +379,12 @@ target_sources(libruqolawidgets PRIVATE
     configurenewserver/checknewserverurlwidget.h
     configurenewserver/checknewserverurlwidget.cpp
 
+    configurenewserver/configureactivitiesdialog.h
+    configurenewserver/configureactivitiesdialog.cpp
+
+    configurenewserver/configureactivitieswidget.h
+    configurenewserver/configureactivitieswidget.cpp
+
     dialogs/directchannelinfodialog.cpp
     dialogs/directchannelinfodialog.h
     dialogs/directchannelinfowidget.cpp
