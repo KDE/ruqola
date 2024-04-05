@@ -7,7 +7,6 @@
 #include "channellistwidget.h"
 #include "model/roomfilterproxymodel.h"
 #include "rocketchaturlutils.h"
-#include "room/roomutil.h"
 #include "ruqola_jitsi_debug.h"
 #include "ruqolawidgets_debug.h"
 
