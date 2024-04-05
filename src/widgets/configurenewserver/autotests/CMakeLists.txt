@@ -14,3 +14,8 @@ add_ruqolacreatenewserver_test(createnewserverstackwidgettest.cpp)
 add_ruqolacreatenewserver_test(createnewserverdialogtest.cpp)
 add_ruqolacreatenewserver_test(createnewserverwidgettest.cpp)
 add_ruqolacreatenewserver_test(checknewserverurlwidgettest.cpp)
+
+if (TARGET Plasma::Activities)
+    add_ruqolacreatenewserver_test(configureactivitieswidgettest.cpp)
+    add_ruqolacreatenewserver_test(configureactivitiesdialogtest.cpp)
+endif()
