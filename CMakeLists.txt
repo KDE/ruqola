@@ -94,7 +94,7 @@ endif()
 
 set(KTEXTADDONS_MIN_VERSION "1.5.4")
 set(KLLMWIDGETS_VERSION "0.1.0")
-set(QT6KEYCHAIN_LIB_VERSION "0.14.1")
+set(QT6KEYCHAIN_LIB_VERSION "0.14.2")
 
 find_package(Qt6 ${REQUIRED_QT_VERSION} REQUIRED COMPONENTS Core Gui Widgets WebSockets Network NetworkAuth MultimediaWidgets Sql)
 
@@ -216,10 +216,6 @@ set_package_properties(Qt6Keychain PROPERTIES
                                    DESCRIPTION "Provides support for secure credentials storage"
                                    URL "https://github.com/frankosterfeld/qtkeychain"
                                    TYPE REQUIRED)
-
-if (Qt6Keychain_VERSION VERSION_LESS 0.14.2)
-    MESSAGE(STATUS "Qt6KeyChain version is less 0.14.2. It will not support KWallet 6... It will not able to load password. Please update it.")
-endif()
 
 if (OPTION_SELENIUMWEBDRIVER_SUPPORT)
     find_package(SeleniumWebDriverATSPI)
