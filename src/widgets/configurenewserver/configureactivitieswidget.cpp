@@ -66,11 +66,13 @@ ConfigureActivitiesWidget::ConfigureActivitiesWidget(QWidget *parent)
 
     mEnableActivitiesSupport->setObjectName("mEnableActivitiesSupport"_L1);
     mainLayout->addWidget(mEnableActivitiesSupport);
+    mEnableActivitiesSupport->setChecked(false);
 
     mListView->setObjectName("mListView"_L1);
     mListView->setModel(new KActivities::ActivitiesModel(this));
     mListView->setItemDelegate(new CheckboxDelegate(this));
     mainLayout->addWidget(mListView);
+    connect(mEnableActivitiesSupport, &QCheckBox::clicked, mListView, &QListView::setEnabled);
 }
 
 ConfigureActivitiesWidget::~ConfigureActivitiesWidget() = default;
@@ -89,13 +91,13 @@ QStringList ConfigureActivitiesWidget::activities() const
 
 void ConfigureActivitiesWidget::setActivities(const QStringList &lst)
 {
-    // mListView->setEnabled(false);
-
     auto model = mListView->model();
     auto selection = mListView->selectionModel();
     selection->clearSelection();
 
-    if (!lst.isEmpty()) {
+    bool listIsEmpty{lst.isEmpty()};
+    mListView->setEnabled(!listIsEmpty);
+    if (!listIsEmpty) {
         for (int row = 0; row < model->rowCount(); ++row) {
             const auto index = model->index(row, 0);
             const auto activity = model->data(index, KActivities::ActivitiesModel::ActivityId).toString();
