@@ -28,7 +28,7 @@ public:
     [[nodiscard]] QByteArray roomId() const;
     void setCurrentRocketChatAccount(RocketChatAccount *account);
     [[nodiscard]] Room::RoomType roomType() const;
-    Room *room() const;
+    [[nodiscard]] Room *room() const;
 
     void selectNextUnreadChannel();
 
