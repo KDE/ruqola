@@ -72,6 +72,7 @@ ConfigureActivitiesWidget::ConfigureActivitiesWidget(QWidget *parent)
     mListView->setModel(new KActivities::ActivitiesModel(this));
     mListView->setItemDelegate(new CheckboxDelegate(this));
     mainLayout->addWidget(mListView);
+    mListView->setEnabled(false);
     connect(mEnableActivitiesSupport, &QCheckBox::clicked, mListView, &QListView::setEnabled);
 }
 
