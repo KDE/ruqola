@@ -30,7 +30,7 @@ public:
     void setCurrentRocketChatAccount(RocketChatAccount *account);
     void selectNextUnreadChannel();
     [[nodiscard]] Room::RoomType roomType() const;
-    Room *room() const;
+    [[nodiscard]] Room *room() const;
 Q_SIGNALS:
     void channelSelected();
     void loginPageActivated(bool showLoginPage);
