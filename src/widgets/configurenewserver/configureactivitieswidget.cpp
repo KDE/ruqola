@@ -63,8 +63,10 @@ ConfigureActivitiesWidget::~ConfigureActivitiesWidget() = default;
 QStringList ConfigureActivitiesWidget::activities() const
 {
     const auto selection = mListView->selectionModel();
+    const auto selected = selection->selectedIndexes();
     QStringList selectedActivities;
-    for (const auto &selectedIndex : selection->selectedIndexes()) {
+    selectedActivities.reserve(selected.count());
+    for (const auto &selectedIndex : selected) {
         selectedActivities << selectedIndex.data(KActivities::ActivitiesModel::ActivityId).toString();
     }
     return selectedActivities;
