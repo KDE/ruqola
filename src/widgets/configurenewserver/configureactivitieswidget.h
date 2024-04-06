@@ -8,6 +8,7 @@
 #include "libruqolawidgets_private_export.h"
 #include <QWidget>
 class QListView;
+class QCheckBox;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT ConfigureActivitiesWidget : public QWidget
 {
     Q_OBJECT
@@ -20,4 +21,5 @@ public:
 
 private:
     QListView *const mListView;
+    QCheckBox *const mEnableActivitiesSupport;
 };

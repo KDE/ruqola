@@ -5,10 +5,14 @@
 */
 
 #include "configureactivitieswidget.h"
+#include <KLocalizedString>
 #include <PlasmaActivities/ActivitiesModel>
+#include <QCheckBox>
 #include <QItemDelegate>
+#include <QLabel>
 #include <QListView>
 #include <QVBoxLayout>
+
 using namespace Qt::Literals::StringLiterals;
 namespace
 {
@@ -48,9 +52,20 @@ public:
 ConfigureActivitiesWidget::ConfigureActivitiesWidget(QWidget *parent)
     : QWidget{parent}
     , mListView(new QListView(this))
+    , mEnableActivitiesSupport(new QCheckBox(i18n("Limit to the selected activities:"), this))
 {
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName("mainLayout"_L1);
+
+    auto label = new QLabel(i18n("If you limit this account to activity, it will be shown in Ruqola only when you are in those activities. Furthermore, when "
+                                 "you switch to an activity it should not be available in, it will automatically be hidden."),
+                            this);
+    label->setWordWrap(true);
+    label->setObjectName("label"_L1);
+    mainLayout->addWidget(label);
+
+    mEnableActivitiesSupport->setObjectName("mEnableActivitiesSupport"_L1);
+    mainLayout->addWidget(mEnableActivitiesSupport);
 
     mListView->setObjectName("mListView"_L1);
     mListView->setModel(new KActivities::ActivitiesModel(this));

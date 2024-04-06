@@ -6,6 +6,8 @@
 
 #include "configureactivitieswidgettest.h"
 #include "configurenewserver/configureactivitieswidget.h"
+#include <QCheckBox>
+#include <QLabel>
 #include <QListView>
 #include <QTest>
 #include <QVBoxLayout>
@@ -25,6 +27,16 @@ void ConfigureActivitiesWidgetTest::shouldHaveDefaultValues()
 
     auto mainLayout = w.findChild<QVBoxLayout *>("mainLayout"_L1);
     QVERIFY(mainLayout);
+
+    auto label = w.findChild<QLabel *>("label"_L1);
+    QVERIFY(label);
+    QVERIFY(!label->text().isEmpty());
+    QVERIFY(label->wordWrap());
+
+    auto mEnableActivitiesSupport = w.findChild<QCheckBox *>("mEnableActivitiesSupport"_L1);
+    QVERIFY(mEnableActivitiesSupport);
+    QVERIFY(!mEnableActivitiesSupport->text().isEmpty());
+    QVERIFY(!mEnableActivitiesSupport->isChecked());
 }
 
 #include "moc_configureactivitieswidgettest.cpp"
