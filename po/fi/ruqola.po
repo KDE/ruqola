@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-05 00:37+0000\n"
+"POT-Creation-Date: 2024-04-06 00:38+0000\n"
 "PO-Revision-Date: 2023-09-20 18:47+0300\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
@@ -6084,8 +6084,9 @@ msgid "Convert to Team"
 msgstr "Muunna ryhmäksi"
 
 #: widgets/channellist/channellistwidget.cpp:54
-#, kde-format
-msgid "Filter channels (CTRL + K)"
+#, fuzzy, kde-format
+#| msgid "Filter channels (CTRL + K)"
+msgid "Filter channels (%1)"
 msgstr "Suodata kanavia (Ctrl+K)"
 
 #: widgets/channellist/channellistwidget.cpp:63
@@ -6274,6 +6275,12 @@ msgstr "Animoi Gif-kuva"
 msgid "Use local dataBase (experimental)"
 msgstr "Talleta viestit paikalliseen tietokantaan"
 
+#: widgets/configuredialog/configuregeneralwidget.cpp:25
+#, fuzzy, kde-format
+#| msgid "No Limit"
+msgid "Enable Plasma Activities"
+msgstr "Ei rajoitusta"
+
 #: widgets/configuredialog/configuresettingsdialog.cpp:62
 #, kde-format
 msgctxt "@title:window"
@@ -6360,6 +6367,13 @@ msgstr "Palvelimen osoite:"
 #| msgid "Impossible to copy file"
 msgid "Impossible to access to server."
 msgstr "Tiedostoa on mahdotonta kopioida"
+
+#: widgets/configurenewserver/configureactivitiesdialog.cpp:25
+#, fuzzy, kde-format
+#| msgid "Configure Accounts"
+msgctxt "@title:window"
+msgid "Configure Activities"
+msgstr "Tiliasetukset"
 
 #: widgets/configurenewserver/createnewserverdialog.cpp:27
 #, kde-format
@@ -10031,9 +10045,6 @@ msgstr ""
 
 #~ msgid "Channel '%1' needs a password"
 #~ msgstr "Kanava ”%1” vaatii salasanan"
-
-#~ msgid "Configure Accounts"
-#~ msgstr "Tiliasetukset"
 
 #~ msgid "Parent Channel or Group:"
 #~ msgstr "Yläkanava tai -ryhmä:"

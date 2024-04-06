@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-05 00:37+0000\n"
+"POT-Creation-Date: 2024-04-06 00:38+0000\n"
 "PO-Revision-Date: 2024-02-27 06:54+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
@@ -6173,8 +6173,9 @@ msgid "Convert to Team"
 msgstr "轉換為團隊"
 
 #: widgets/channellist/channellistwidget.cpp:54
-#, kde-format
-msgid "Filter channels (CTRL + K)"
+#, fuzzy, kde-format
+#| msgid "Filter channels (CTRL + K)"
+msgid "Filter channels (%1)"
 msgstr "過濾頻道 (CTRL + K)"
 
 #: widgets/channellist/channellistwidget.cpp:63
@@ -6357,6 +6358,12 @@ msgstr "圖片"
 msgid "Use local dataBase (experimental)"
 msgstr ""
 
+#: widgets/configuredialog/configuregeneralwidget.cpp:25
+#, fuzzy, kde-format
+#| msgid "Delete Room"
+msgid "Enable Plasma Activities"
+msgstr "刪除聊天室"
+
 #: widgets/configuredialog/configuresettingsdialog.cpp:62
 #, kde-format
 msgctxt "@title:window"
@@ -6441,6 +6448,13 @@ msgstr "伺服器網址："
 #, kde-format
 msgid "Impossible to access to server."
 msgstr "無法存取伺服器。"
+
+#: widgets/configurenewserver/configureactivitiesdialog.cpp:25
+#, fuzzy, kde-format
+#| msgid "Configure Accounts"
+msgctxt "@title:window"
+msgid "Configure Activities"
+msgstr "設定帳戶"
 
 #: widgets/configurenewserver/createnewserverdialog.cpp:27
 #, kde-format
@@ -9873,9 +9887,6 @@ msgstr ""
 
 #~ msgid "Channel '%1' needs a password"
 #~ msgstr "「%1」頻道需要密碼"
-
-#~ msgid "Configure Accounts"
-#~ msgstr "設定帳戶"
 
 #~ msgid "Parent Channel or Group:"
 #~ msgstr "上級頻道或群組："

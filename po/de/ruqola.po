@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-05 00:37+0000\n"
+"POT-Creation-Date: 2024-04-06 00:38+0000\n"
 "PO-Revision-Date: 2023-05-10 20:24+0200\n"
 "Last-Translator: Frederik Schwarzer <schwarzer@kde.org>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
@@ -6352,7 +6352,7 @@ msgstr "Umwandeln in Team"
 #: widgets/channellist/channellistwidget.cpp:54
 #, fuzzy, kde-format
 #| msgid "Filter Channels (CTRL + K)"
-msgid "Filter channels (CTRL + K)"
+msgid "Filter channels (%1)"
 msgstr "Kanäle filtern (Strg+K)"
 
 #: widgets/channellist/channellistwidget.cpp:63
@@ -6547,6 +6547,12 @@ msgstr "Bild speichern"
 msgid "Use local dataBase (experimental)"
 msgstr ""
 
+#: widgets/configuredialog/configuregeneralwidget.cpp:25
+#, fuzzy, kde-format
+#| msgid "No Limit"
+msgid "Enable Plasma Activities"
+msgstr "Keine Begrenzung"
+
 #: widgets/configuredialog/configuresettingsdialog.cpp:62
 #, kde-format
 msgctxt "@title:window"
@@ -6636,6 +6642,13 @@ msgstr "Server-Adresse:"
 #, kde-format
 msgid "Impossible to access to server."
 msgstr ""
+
+#: widgets/configurenewserver/configureactivitiesdialog.cpp:25
+#, fuzzy, kde-format
+#| msgid "Configure Account"
+msgctxt "@title:window"
+msgid "Configure Activities"
+msgstr "Zugang einrichten"
 
 #: widgets/configurenewserver/createnewserverdialog.cpp:27
 #, kde-format
@@ -10424,11 +10437,6 @@ msgstr ""
 
 #~ msgid "Info about this channel"
 #~ msgstr "Information über diesen Kanal "
-
-#, fuzzy
-#~| msgid "Configure Account"
-#~ msgid "Configure Accounts"
-#~ msgstr "Zugang einrichten"
 
 #~ msgid "Do you want to delete '%1' account?"
 #~ msgstr "Möchten Sie den Zugang „'%1“ wirklich löschen?"

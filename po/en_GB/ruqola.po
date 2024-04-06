@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-05 00:37+0000\n"
+"POT-Creation-Date: 2024-04-06 00:38+0000\n"
 "PO-Revision-Date: 2023-06-17 12:10+0100\n"
 "Last-Translator: Steve Allewell <steve.allewell@gmail.com>\n"
 "Language-Team: British English\n"
@@ -6210,8 +6210,9 @@ msgid "Convert to Team"
 msgstr "Convert to Team"
 
 #: widgets/channellist/channellistwidget.cpp:54
-#, kde-format
-msgid "Filter channels (CTRL + K)"
+#, fuzzy, kde-format
+#| msgid "Filter channels (CTRL + K)"
+msgid "Filter channels (%1)"
 msgstr "Filter channels (CTRL + K)"
 
 #: widgets/channellist/channellistwidget.cpp:63
@@ -6400,6 +6401,12 @@ msgstr "Animate GIF Image"
 msgid "Use local dataBase (experimental)"
 msgstr "Store Message in Local Database"
 
+#: widgets/configuredialog/configuregeneralwidget.cpp:25
+#, fuzzy, kde-format
+#| msgid "Enable Rate Limiter"
+msgid "Enable Plasma Activities"
+msgstr "Enable Rate Limiter"
+
 #: widgets/configuredialog/configuresettingsdialog.cpp:62
 #, kde-format
 msgctxt "@title:window"
@@ -6486,6 +6493,13 @@ msgstr "Server URL:"
 #| msgid "Impossible to open log."
 msgid "Impossible to access to server."
 msgstr "Impossible to open log."
+
+#: widgets/configurenewserver/configureactivitiesdialog.cpp:25
+#, fuzzy, kde-format
+#| msgid "Configure Accounts"
+msgctxt "@title:window"
+msgid "Configure Activities"
+msgstr "Configure Accounts"
 
 #: widgets/configurenewserver/createnewserverdialog.cpp:27
 #, kde-format
@@ -10573,9 +10587,6 @@ msgstr ""
 
 #~ msgid "Channel '%1' needs a password"
 #~ msgstr "Channel '%1' needs a password"
-
-#~ msgid "Configure Accounts"
-#~ msgstr "Configure Accounts"
 
 #~ msgid "Parent Channel or Group:"
 #~ msgstr "Parent Channel or Group:"

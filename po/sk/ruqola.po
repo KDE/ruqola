@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-05 00:37+0000\n"
+"POT-Creation-Date: 2024-04-06 00:38+0000\n"
 "PO-Revision-Date: 2019-07-29 20:25+0200\n"
 "Last-Translator: Roman Paholík <wizzardsk@gmail.com>\n"
 "Language-Team: Slovak <kde-sk@linux.sk>\n"
@@ -6333,7 +6333,7 @@ msgstr "Odstrániť účet"
 #: widgets/channellist/channellistwidget.cpp:54
 #, fuzzy, kde-format
 #| msgid "Leave Channel"
-msgid "Filter channels (CTRL + K)"
+msgid "Filter channels (%1)"
 msgstr "Opustiť kanál"
 
 #: widgets/channellist/channellistwidget.cpp:63
@@ -6527,6 +6527,12 @@ msgstr "Obrázok"
 msgid "Use local dataBase (experimental)"
 msgstr ""
 
+#: widgets/configuredialog/configuregeneralwidget.cpp:25
+#, fuzzy, kde-format
+#| msgid "Default"
+msgid "Enable Plasma Activities"
+msgstr "Predvolené"
+
 #: widgets/configuredialog/configuresettingsdialog.cpp:62
 #, fuzzy, kde-format
 #| msgid "Configure Account"
@@ -6619,6 +6625,13 @@ msgstr "URL serveru:"
 #, kde-format
 msgid "Impossible to access to server."
 msgstr ""
+
+#: widgets/configurenewserver/configureactivitiesdialog.cpp:25
+#, fuzzy, kde-format
+#| msgid "Configure Account"
+msgctxt "@title:window"
+msgid "Configure Activities"
+msgstr "Nastaviť účet"
 
 #: widgets/configurenewserver/createnewserverdialog.cpp:27
 #, fuzzy, kde-format
@@ -10345,11 +10358,6 @@ msgstr ""
 #~| msgid "Translation"
 #~ msgid "Automatic Translation:"
 #~ msgstr "Preklad"
-
-#, fuzzy
-#~| msgid "Configure Account"
-#~ msgid "Configure Accounts"
-#~ msgstr "Nastaviť účet"
 
 #~ msgid "Hello, %1"
 #~ msgstr "Ahoj, %1"

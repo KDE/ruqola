@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-05 00:37+0000\n"
+"POT-Creation-Date: 2024-04-06 00:38+0000\n"
 "PO-Revision-Date: 2024-04-04 09:25+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian\n"
@@ -6233,8 +6233,9 @@ msgid "Convert to Team"
 msgstr "Перетворення на команду"
 
 #: widgets/channellist/channellistwidget.cpp:54
-#, kde-format
-msgid "Filter channels (CTRL + K)"
+#, fuzzy, kde-format
+#| msgid "Filter channels (CTRL + K)"
+msgid "Filter channels (%1)"
 msgstr "Фільтрувати канали (Ctrl + K)"
 
 #: widgets/channellist/channellistwidget.cpp:63
@@ -6419,6 +6420,12 @@ msgstr "Анімувати зображення Gif"
 msgid "Use local dataBase (experimental)"
 msgstr "Використати локальну базу даних (експеримент)"
 
+#: widgets/configuredialog/configuregeneralwidget.cpp:25
+#, fuzzy, kde-format
+#| msgid "Add Plasma Activities Support"
+msgid "Enable Plasma Activities"
+msgstr "Додано підтримку просторів дій Плазми"
+
 #: widgets/configuredialog/configuresettingsdialog.cpp:62
 #, kde-format
 msgctxt "@title:window"
@@ -6503,6 +6510,13 @@ msgstr "Адреса сервера:"
 #, kde-format
 msgid "Impossible to access to server."
 msgstr "Неможливо отримати доступ до сервера."
+
+#: widgets/configurenewserver/configureactivitiesdialog.cpp:25
+#, fuzzy, kde-format
+#| msgid "Configure Accounts"
+msgctxt "@title:window"
+msgid "Configure Activities"
+msgstr "Налаштувати облікові записи"
 
 #: widgets/configurenewserver/createnewserverdialog.cpp:27
 #, kde-format
@@ -10621,9 +10635,6 @@ msgstr "Використати RESTAPI для ведення журналу."
 
 #~ msgid "Channel '%1' needs a password"
 #~ msgstr "Для доступу до каналу «%1» потрібен пароль"
-
-#~ msgid "Configure Accounts"
-#~ msgstr "Налаштувати облікові записи"
 
 #~ msgid "Parent Channel or Group:"
 #~ msgstr "Батьківський канал або група:"

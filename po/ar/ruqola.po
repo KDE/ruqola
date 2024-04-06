@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-05 00:37+0000\n"
+"POT-Creation-Date: 2024-04-06 00:38+0000\n"
 "PO-Revision-Date: 2024-02-25 21:19+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
@@ -6024,7 +6024,7 @@ msgstr ""
 
 #: widgets/channellist/channellistwidget.cpp:54
 #, kde-format
-msgid "Filter channels (CTRL + K)"
+msgid "Filter channels (%1)"
 msgstr ""
 
 #: widgets/channellist/channellistwidget.cpp:63
@@ -6205,6 +6205,11 @@ msgstr ""
 msgid "Use local dataBase (experimental)"
 msgstr ""
 
+#: widgets/configuredialog/configuregeneralwidget.cpp:25
+#, kde-format
+msgid "Enable Plasma Activities"
+msgstr ""
+
 #: widgets/configuredialog/configuresettingsdialog.cpp:62
 #, kde-format
 msgctxt "@title:window"
@@ -6288,6 +6293,12 @@ msgstr "عنوان الخادوم:"
 #: widgets/configurenewserver/checknewserverurlwidget.cpp:121
 #, kde-format
 msgid "Impossible to access to server."
+msgstr ""
+
+#: widgets/configurenewserver/configureactivitiesdialog.cpp:25
+#, kde-format
+msgctxt "@title:window"
+msgid "Configure Activities"
 msgstr ""
 
 #: widgets/configurenewserver/createnewserverdialog.cpp:27

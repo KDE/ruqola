@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-05 00:37+0000\n"
+"POT-Creation-Date: 2024-04-06 00:38+0000\n"
 "PO-Revision-Date: 2024-03-24 10:02+0100\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
 "Language-Team: French <French <kde-francophone@kde.org>>\n"
@@ -6241,8 +6241,9 @@ msgid "Convert to Team"
 msgstr "Convertir en équipe"
 
 #: widgets/channellist/channellistwidget.cpp:54
-#, kde-format
-msgid "Filter channels (CTRL + K)"
+#, fuzzy, kde-format
+#| msgid "Filter channels (CTRL + K)"
+msgid "Filter channels (%1)"
 msgstr "Filtrer les canaux (« CTRL » + « K »)"
 
 #: widgets/channellist/channellistwidget.cpp:63
@@ -6426,6 +6427,12 @@ msgstr "Animer l'image au format « GIF »"
 msgid "Use local dataBase (experimental)"
 msgstr "Utiliser la base de données locale (Expérimental)"
 
+#: widgets/configuredialog/configuregeneralwidget.cpp:25
+#, fuzzy, kde-format
+#| msgid "Enable Rate Limiter"
+msgid "Enable Plasma Activities"
+msgstr "Activer le limiteur de débit"
+
 #: widgets/configuredialog/configuresettingsdialog.cpp:62
 #, kde-format
 msgctxt "@title:window"
@@ -6510,6 +6517,13 @@ msgstr "URL du serveur :"
 #, kde-format
 msgid "Impossible to access to server."
 msgstr "Impossible d'accéder au serveur."
+
+#: widgets/configurenewserver/configureactivitiesdialog.cpp:25
+#, fuzzy, kde-format
+#| msgid "Configure Account"
+msgctxt "@title:window"
+msgid "Configure Activities"
+msgstr "Configurer le compte"
 
 #: widgets/configurenewserver/createnewserverdialog.cpp:27
 #, kde-format
@@ -10591,11 +10605,6 @@ msgstr "Utiliser « RESTAPI » pour se connecter."
 
 #~ msgid "Channel '%1' needs a password"
 #~ msgstr "Le canal « %1 » nécessite un mot de passe"
-
-#, fuzzy
-#~| msgid "Configure Account"
-#~ msgid "Configure Accounts"
-#~ msgstr "Configurer le compte"
 
 #~ msgid "Parent Channel or Group:"
 #~ msgstr "Canal ou groupe parent :"

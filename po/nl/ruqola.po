@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-05 00:37+0000\n"
+"POT-Creation-Date: 2024-04-06 00:38+0000\n"
 "PO-Revision-Date: 2024-04-04 13:37+0200\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
@@ -6206,8 +6206,9 @@ msgid "Convert to Team"
 msgstr "Naar team converteren"
 
 #: widgets/channellist/channellistwidget.cpp:54
-#, kde-format
-msgid "Filter channels (CTRL + K)"
+#, fuzzy, kde-format
+#| msgid "Filter channels (CTRL + K)"
+msgid "Filter channels (%1)"
 msgstr "Kanalen filteren (CTRL + K)"
 
 #: widgets/channellist/channellistwidget.cpp:63
@@ -6391,6 +6392,12 @@ msgstr "Gif-afbeelding animeren"
 msgid "Use local dataBase (experimental)"
 msgstr "Lokale database gebruiken (experimenteel)"
 
+#: widgets/configuredialog/configuregeneralwidget.cpp:25
+#, fuzzy, kde-format
+#| msgid "Add Plasma Activities Support"
+msgid "Enable Plasma Activities"
+msgstr "Ondersteuning voor activiteiten van Plasma toevoegen"
+
 #: widgets/configuredialog/configuresettingsdialog.cpp:62
 #, kde-format
 msgctxt "@title:window"
@@ -6475,6 +6482,13 @@ msgstr "URL-adres server:"
 #, kde-format
 msgid "Impossible to access to server."
 msgstr "Toegang tot server is onmogelijk."
+
+#: widgets/configurenewserver/configureactivitiesdialog.cpp:25
+#, fuzzy, kde-format
+#| msgid "Configure Accounts"
+msgctxt "@title:window"
+msgid "Configure Activities"
+msgstr "Accounts configureren"
 
 #: widgets/configurenewserver/createnewserverdialog.cpp:27
 #, kde-format
@@ -10559,9 +10573,6 @@ msgstr "RESTAPI voor loggen gebruiken."
 
 #~ msgid "Channel '%1' needs a password"
 #~ msgstr "Kanaal '%1' heeft een wachtwoord nodig"
-
-#~ msgid "Configure Accounts"
-#~ msgstr "Accounts configureren"
 
 #~ msgid "Parent Channel or Group:"
 #~ msgstr "Ouderkanaal of groep:"

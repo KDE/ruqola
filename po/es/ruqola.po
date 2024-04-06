@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-05 00:37+0000\n"
+"POT-Creation-Date: 2024-04-06 00:38+0000\n"
 "PO-Revision-Date: 2024-03-23 17:44+0100\n"
 "Last-Translator: Víctor Rodrigo Córdoba <vrcordoba@gmail.com>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
@@ -6205,8 +6205,9 @@ msgid "Convert to Team"
 msgstr "Convertir a equipo"
 
 #: widgets/channellist/channellistwidget.cpp:54
-#, kde-format
-msgid "Filter channels (CTRL + K)"
+#, fuzzy, kde-format
+#| msgid "Filter channels (CTRL + K)"
+msgid "Filter channels (%1)"
 msgstr "Filtrar canales (CTRL + K)"
 
 #: widgets/channellist/channellistwidget.cpp:63
@@ -6389,6 +6390,12 @@ msgstr "Animar imagen Gif"
 msgid "Use local dataBase (experimental)"
 msgstr "Usar base de datos local (experimental)"
 
+#: widgets/configuredialog/configuregeneralwidget.cpp:25
+#, fuzzy, kde-format
+#| msgid "Enable Rate Limiter"
+msgid "Enable Plasma Activities"
+msgstr "Activar límite de velocidad"
+
 #: widgets/configuredialog/configuresettingsdialog.cpp:62
 #, kde-format
 msgctxt "@title:window"
@@ -6473,6 +6480,14 @@ msgstr "URL del servidor:"
 #, kde-format
 msgid "Impossible to access to server."
 msgstr "No se pudo acceder al servidor."
+
+#: widgets/configurenewserver/configureactivitiesdialog.cpp:25
+#, fuzzy, kde-format
+#| msgctxt "@title:window"
+#| msgid "Configure Notification"
+msgctxt "@title:window"
+msgid "Configure Activities"
+msgstr "Configurar notificación"
 
 #: widgets/configurenewserver/createnewserverdialog.cpp:27
 #, kde-format

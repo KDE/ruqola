@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-05 00:37+0000\n"
+"POT-Creation-Date: 2024-04-06 00:38+0000\n"
 "PO-Revision-Date: 2023-06-07 13:29-0300\n"
 "Last-Translator: Luiz Fernando Ranghetti <elchevive@opensuse.org>\n"
 "Language-Team: Brazilian Portuguese <kde-i18n-pt_BR@kde.org>\n"
@@ -6308,7 +6308,7 @@ msgstr "Converter para equipe"
 #: widgets/channellist/channellistwidget.cpp:54
 #, fuzzy, kde-format
 #| msgid "Filter Channels (CTRL + K)"
-msgid "Filter channels (CTRL + K)"
+msgid "Filter channels (%1)"
 msgstr "Filtrar canais (Ctrl + K)"
 
 #: widgets/channellist/channellistwidget.cpp:63
@@ -6501,6 +6501,12 @@ msgstr "Salvar imagem"
 msgid "Use local dataBase (experimental)"
 msgstr ""
 
+#: widgets/configuredialog/configuregeneralwidget.cpp:25
+#, fuzzy, kde-format
+#| msgid "No Limit"
+msgid "Enable Plasma Activities"
+msgstr "Sem limite"
+
 #: widgets/configuredialog/configuresettingsdialog.cpp:62
 #, kde-format
 msgctxt "@title:window"
@@ -6592,6 +6598,13 @@ msgstr "URL do servidor:"
 #| msgid "Failed to extract import file."
 msgid "Impossible to access to server."
 msgstr "Falha ao extrair o arquivo de importação."
+
+#: widgets/configurenewserver/configureactivitiesdialog.cpp:25
+#, fuzzy, kde-format
+#| msgid "Configure Accounts"
+msgctxt "@title:window"
+msgid "Configure Activities"
+msgstr "Configurar contas"
 
 #: widgets/configurenewserver/createnewserverdialog.cpp:27
 #, kde-format
@@ -10372,9 +10385,6 @@ msgstr ""
 
 #~ msgid "Channel '%1' needs a password"
 #~ msgstr "O canal '%1' precisa de uma senha"
-
-#~ msgid "Configure Accounts"
-#~ msgstr "Configurar contas"
 
 #~ msgid "Parent Channel or Group:"
 #~ msgstr "Canal pai ou grupo:"

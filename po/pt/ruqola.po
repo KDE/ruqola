@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-05 00:37+0000\n"
+"POT-Creation-Date: 2024-04-06 00:38+0000\n"
 "PO-Revision-Date: 2023-07-14 22:16+0100\n"
 "Last-Translator: José Nuno Coelho Pires <zepires@gmail.com>\n"
 "Language-Team: Portuguese <kde-i18n-pt@kde.org>\n"
@@ -6275,8 +6275,9 @@ msgid "Convert to Team"
 msgstr "Converter para uma Equipa"
 
 #: widgets/channellist/channellistwidget.cpp:54
-#, kde-format
-msgid "Filter channels (CTRL + K)"
+#, fuzzy, kde-format
+#| msgid "Filter channels (CTRL + K)"
+msgid "Filter channels (%1)"
 msgstr "Filtrar os canais (CTRL + K)"
 
 #: widgets/channellist/channellistwidget.cpp:63
@@ -6465,6 +6466,12 @@ msgstr "Animar a Imagem GIF"
 msgid "Use local dataBase (experimental)"
 msgstr "Guardar a Mensagem na Base de Dados Local"
 
+#: widgets/configuredialog/configuregeneralwidget.cpp:25
+#, fuzzy, kde-format
+#| msgid "Enable Rate Limiter"
+msgid "Enable Plasma Activities"
+msgstr "Activar a Limitação por Taxa"
+
 #: widgets/configuredialog/configuresettingsdialog.cpp:62
 #, kde-format
 msgctxt "@title:window"
@@ -6552,6 +6559,14 @@ msgstr "URL do servidor:"
 #| msgid "Impossible to copy file"
 msgid "Impossible to access to server."
 msgstr "Não é possível copiar o ficheiro"
+
+#: widgets/configurenewserver/configureactivitiesdialog.cpp:25
+#, fuzzy, kde-format
+#| msgctxt "@title:window"
+#| msgid "Configure Notification"
+msgctxt "@title:window"
+msgid "Configure Activities"
+msgstr "Configurar a Notificação"
 
 #: widgets/configurenewserver/createnewserverdialog.cpp:27
 #, kde-format

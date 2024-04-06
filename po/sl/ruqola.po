@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-05 00:37+0000\n"
+"POT-Creation-Date: 2024-04-06 00:38+0000\n"
 "PO-Revision-Date: 2024-04-04 07:29+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
@@ -6185,8 +6185,9 @@ msgid "Convert to Team"
 msgstr "Pretvori v ekipo"
 
 #: widgets/channellist/channellistwidget.cpp:54
-#, kde-format
-msgid "Filter channels (CTRL + K)"
+#, fuzzy, kde-format
+#| msgid "Filter channels (CTRL + K)"
+msgid "Filter channels (%1)"
 msgstr "Filtriraj kanale (krmilka+K)"
 
 #: widgets/channellist/channellistwidget.cpp:63
@@ -6369,6 +6370,12 @@ msgstr "Animiraj gif sliko"
 msgid "Use local dataBase (experimental)"
 msgstr "Uporabi lokalno zbirko (eksperimentalno)"
 
+#: widgets/configuredialog/configuregeneralwidget.cpp:25
+#, fuzzy, kde-format
+#| msgid "Add Plasma Activities Support"
+msgid "Enable Plasma Activities"
+msgstr "Dodaj podporo za dejavnosti v Plasmi"
+
 #: widgets/configuredialog/configuresettingsdialog.cpp:62
 #, kde-format
 msgctxt "@title:window"
@@ -6453,6 +6460,14 @@ msgstr "Url strežnika:"
 #, kde-format
 msgid "Impossible to access to server."
 msgstr "Ni mogoče pristopiti do strežnika."
+
+#: widgets/configurenewserver/configureactivitiesdialog.cpp:25
+#, fuzzy, kde-format
+#| msgctxt "@title:window"
+#| msgid "Configure Notification"
+msgctxt "@title:window"
+msgid "Configure Activities"
+msgstr "Prilagodi obvestilo"
 
 #: widgets/configurenewserver/createnewserverdialog.cpp:27
 #, kde-format

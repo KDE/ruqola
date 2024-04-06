@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-05 00:37+0000\n"
+"POT-Creation-Date: 2024-04-06 00:38+0000\n"
 "PO-Revision-Date: 2024-04-04 08:40+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
@@ -6165,8 +6165,9 @@ msgid "Convert to Team"
 msgstr "გუნდად გადაკეთება"
 
 #: widgets/channellist/channellistwidget.cpp:54
-#, kde-format
-msgid "Filter channels (CTRL + K)"
+#, fuzzy, kde-format
+#| msgid "Filter channels (CTRL + K)"
+msgid "Filter channels (%1)"
 msgstr "არხების გაფილტვრა (CTRL + K)"
 
 #: widgets/channellist/channellistwidget.cpp:63
@@ -6349,6 +6350,12 @@ msgstr "GIF გამოსახულებების ანიმაცი�
 msgid "Use local dataBase (experimental)"
 msgstr "ლოკალური ბაზის გამოყენება (საცდელი)"
 
+#: widgets/configuredialog/configuregeneralwidget.cpp:25
+#, fuzzy, kde-format
+#| msgid "Add Plasma Activities Support"
+msgid "Enable Plasma Activities"
+msgstr "Plasma-ის აქტივობების მხარდაჭერის დამატება"
+
 #: widgets/configuredialog/configuresettingsdialog.cpp:62
 #, kde-format
 msgctxt "@title:window"
@@ -6433,6 +6440,14 @@ msgstr "სერვერის URL:"
 #, kde-format
 msgid "Impossible to access to server."
 msgstr "სერვერთან წვდომა შეუძლებელია."
+
+#: widgets/configurenewserver/configureactivitiesdialog.cpp:25
+#, fuzzy, kde-format
+#| msgctxt "@title:window"
+#| msgid "Configure Notification"
+msgctxt "@title:window"
+msgid "Configure Activities"
+msgstr "გაფრთხილების მორგება"
 
 #: widgets/configurenewserver/createnewserverdialog.cpp:27
 #, kde-format

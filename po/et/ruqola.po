@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-05 00:37+0000\n"
+"POT-Creation-Date: 2024-04-06 00:38+0000\n"
 "PO-Revision-Date: 2020-06-13 21:18+0300\n"
 "Last-Translator: Marek Laane <qiilaq69@gmail.com>\n"
 "Language-Team: Estonian <kde-et@lists.linux.ee>\n"
@@ -6435,7 +6435,7 @@ msgstr "Eemalda toast"
 #: widgets/channellist/channellistwidget.cpp:54
 #, fuzzy, kde-format
 #| msgid "Search Rooms (CTRL + K)"
-msgid "Filter channels (CTRL + K)"
+msgid "Filter channels (%1)"
 msgstr "Toa otsimine (Ctrl+K)"
 
 #: widgets/channellist/channellistwidget.cpp:63
@@ -6631,6 +6631,12 @@ msgstr "Pildi salvestamine"
 msgid "Use local dataBase (experimental)"
 msgstr ""
 
+#: widgets/configuredialog/configuregeneralwidget.cpp:25
+#, fuzzy, kde-format
+#| msgid "No Limit"
+msgid "Enable Plasma Activities"
+msgstr "Piiramata"
+
 #: widgets/configuredialog/configuresettingsdialog.cpp:62
 #, kde-format
 msgctxt "@title:window"
@@ -6722,6 +6728,13 @@ msgstr "Serveri URL:"
 #| msgid "Failed to extract import file."
 msgid "Impossible to access to server."
 msgstr "Importfaili lahtipakkimine nurjus."
+
+#: widgets/configurenewserver/configureactivitiesdialog.cpp:25
+#, fuzzy, kde-format
+#| msgid "Configure Accounts"
+msgctxt "@title:window"
+msgid "Configure Activities"
+msgstr "Kontode seadistamine"
 
 #: widgets/configurenewserver/createnewserverdialog.cpp:27
 #, fuzzy, kde-format
@@ -10567,9 +10580,6 @@ msgstr ""
 
 #~ msgid "Channel '%1' needs a password"
 #~ msgstr "Kanal '%1' nõuab parooli"
-
-#~ msgid "Configure Accounts"
-#~ msgstr "Kontode seadistamine"
 
 #~ msgid "Parent Channel or Group:"
 #~ msgstr "Eellaskanal või -grupp:"
