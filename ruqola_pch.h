@@ -134,7 +134,6 @@
 #include <QUrlQuery>
 #include <QVBoxLayout>
 #include <QVariant>
-#include <QVector>
 #include <QWebSocket>
 #include <QWebSocketProtocol>
 #include <QWheelEvent>
