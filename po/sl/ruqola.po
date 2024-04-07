@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-06 00:38+0000\n"
-"PO-Revision-Date: 2024-04-04 07:29+0200\n"
+"POT-Creation-Date: 2024-04-07 00:38+0000\n"
+"PO-Revision-Date: 2024-04-06 08:58+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
@@ -6185,10 +6185,9 @@ msgid "Convert to Team"
 msgstr "Pretvori v ekipo"
 
 #: widgets/channellist/channellistwidget.cpp:54
-#, fuzzy, kde-format
-#| msgid "Filter channels (CTRL + K)"
+#, kde-format
 msgid "Filter channels (%1)"
-msgstr "Filtriraj kanale (krmilka+K)"
+msgstr "Filter kanalov (%1)"
 
 #: widgets/channellist/channellistwidget.cpp:63
 #, kde-format
@@ -6371,10 +6370,9 @@ msgid "Use local dataBase (experimental)"
 msgstr "Uporabi lokalno zbirko (eksperimentalno)"
 
 #: widgets/configuredialog/configuregeneralwidget.cpp:25
-#, fuzzy, kde-format
-#| msgid "Add Plasma Activities Support"
+#, kde-format
 msgid "Enable Plasma Activities"
-msgstr "Dodaj podporo za dejavnosti v Plasmi"
+msgstr "Omogoči dejavnosti Plasma"
 
 #: widgets/configuredialog/configuresettingsdialog.cpp:62
 #, kde-format
@@ -6462,12 +6460,23 @@ msgid "Impossible to access to server."
 msgstr "Ni mogoče pristopiti do strežnika."
 
 #: widgets/configurenewserver/configureactivitiesdialog.cpp:25
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Configure Notification"
+#, kde-format
 msgctxt "@title:window"
 msgid "Configure Activities"
-msgstr "Prilagodi obvestilo"
+msgstr "Konfiguriraj dejavnosti"
+
+#: widgets/configurenewserver/configureactivitieswidget.cpp:55
+#, kde-format
+msgid "Limit to the selected activities:"
+msgstr ""
+
+#: widgets/configurenewserver/configureactivitieswidget.cpp:60
+#, kde-format
+msgid ""
+"If you limit this account to activity, it will be shown in Ruqola only when "
+"you are in those activities. Furthermore, when you switch to an activity it "
+"should not be available in, it will automatically be hidden."
+msgstr ""
 
 #: widgets/configurenewserver/createnewserverdialog.cpp:27
 #, kde-format

@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-06 00:38+0000\n"
-"PO-Revision-Date: 2024-03-23 17:44+0100\n"
+"POT-Creation-Date: 2024-04-07 00:38+0000\n"
+"PO-Revision-Date: 2024-04-06 18:10+0200\n"
 "Last-Translator: Víctor Rodrigo Córdoba <vrcordoba@gmail.com>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -6205,10 +6205,9 @@ msgid "Convert to Team"
 msgstr "Convertir a equipo"
 
 #: widgets/channellist/channellistwidget.cpp:54
-#, fuzzy, kde-format
-#| msgid "Filter channels (CTRL + K)"
+#, kde-format
 msgid "Filter channels (%1)"
-msgstr "Filtrar canales (CTRL + K)"
+msgstr "Filtrar canales (%1)"
 
 #: widgets/channellist/channellistwidget.cpp:63
 #, kde-format
@@ -6391,10 +6390,9 @@ msgid "Use local dataBase (experimental)"
 msgstr "Usar base de datos local (experimental)"
 
 #: widgets/configuredialog/configuregeneralwidget.cpp:25
-#, fuzzy, kde-format
-#| msgid "Enable Rate Limiter"
+#, kde-format
 msgid "Enable Plasma Activities"
-msgstr "Activar límite de velocidad"
+msgstr "Activar actividades de Plasma"
 
 #: widgets/configuredialog/configuresettingsdialog.cpp:62
 #, kde-format
@@ -6482,12 +6480,23 @@ msgid "Impossible to access to server."
 msgstr "No se pudo acceder al servidor."
 
 #: widgets/configurenewserver/configureactivitiesdialog.cpp:25
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Configure Notification"
+#, kde-format
 msgctxt "@title:window"
 msgid "Configure Activities"
-msgstr "Configurar notificación"
+msgstr "Configurar actividades"
+
+#: widgets/configurenewserver/configureactivitieswidget.cpp:55
+#, kde-format
+msgid "Limit to the selected activities:"
+msgstr ""
+
+#: widgets/configurenewserver/configureactivitieswidget.cpp:60
+#, kde-format
+msgid ""
+"If you limit this account to activity, it will be shown in Ruqola only when "
+"you are in those activities. Furthermore, when you switch to an activity it "
+"should not be available in, it will automatically be hidden."
+msgstr ""
 
 #: widgets/configurenewserver/createnewserverdialog.cpp:27
 #, kde-format
@@ -9599,7 +9608,7 @@ msgstr ""
 
 #: widgets/whatsnew/whatsnewwidgettranslation.h:74
 msgid "Add Plasma Activities Support"
-msgstr ""
+msgstr "Añade soporte para actividades de Plasma"
 
 #: widgets/whatsnew/whatsnewwidgettranslation.h:79
 msgid "Fix dark mode support."

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-06 00:38+0000\n"
+"POT-Creation-Date: 2024-04-07 00:38+0000\n"
 "PO-Revision-Date: 2024-03-23 11:18+0100\n"
 "Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>\n"
 "Language-Team: Polish <kde-i18n-doc@kde.org>\n"
@@ -6480,6 +6480,19 @@ msgstr "Nie można uzyskać dostępu do serwera."
 msgctxt "@title:window"
 msgid "Configure Activities"
 msgstr "Ustaw konto"
+
+#: widgets/configurenewserver/configureactivitieswidget.cpp:55
+#, kde-format
+msgid "Limit to the selected activities:"
+msgstr ""
+
+#: widgets/configurenewserver/configureactivitieswidget.cpp:60
+#, kde-format
+msgid ""
+"If you limit this account to activity, it will be shown in Ruqola only when "
+"you are in those activities. Furthermore, when you switch to an activity it "
+"should not be available in, it will automatically be hidden."
+msgstr ""
 
 #: widgets/configurenewserver/createnewserverdialog.cpp:27
 #, kde-format
