@@ -5,6 +5,7 @@
 */
 
 #include "rocketchataccountfilterproxymodel.h"
+#include "config-ruqola.h"
 #include "rocketchataccountmodel.h"
 
 RocketChatAccountFilterProxyModel::RocketChatAccountFilterProxyModel(QObject *parent)
@@ -16,6 +17,16 @@ RocketChatAccountFilterProxyModel::RocketChatAccountFilterProxyModel(QObject *pa
 }
 
 RocketChatAccountFilterProxyModel::~RocketChatAccountFilterProxyModel() = default;
+
+bool RocketChatAccountFilterProxyModel::filterAcceptsRow(int source_row, const QModelIndex &source_parent) const
+{
+#if HAS_ACTIVITY_SUPPORT
+    // TODO if activity is enable ...
+    // TODO verify that account is in activity
+#endif
+    // TODO implement plasma activity support
+    return QSortFilterProxyModel::filterAcceptsRow(source_row, source_parent);
+}
 
 bool RocketChatAccountFilterProxyModel::lessThan(const QModelIndex &left, const QModelIndex &right) const
 {
