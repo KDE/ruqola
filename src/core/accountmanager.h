@@ -7,6 +7,7 @@
 #pragma once
 
 #include "authenticationinfo.h"
+#include "config-ruqola.h"
 #include "libruqolacore_export.h"
 #include "model/rocketchataccountfilterproxymodel.h"
 #include "model/rocketchataccountmodel.h"
@@ -15,7 +16,9 @@
 #include <QIcon>
 #include <QObject>
 class RocketChatAccount;
-
+#if HAS_ACTIVITY_SUPPORT
+class ActivitiesManager;
+#endif
 class LIBRUQOLACORE_EXPORT AccountManager : public QObject
 {
     Q_OBJECT
@@ -84,6 +87,9 @@ private:
     RocketChatAccount *mCurrentAccount = nullptr;
     RocketChatAccountModel *const mRocketChatAccountModel;
     RocketChatAccountFilterProxyModel *const mRocketChatAccountProxyModel;
+#if HAS_ACTIVITY_SUPPORT
+    ActivitiesManager *const mActivitiesManager;
+#endif
 };
 Q_DECLARE_TYPEINFO(AccountManager::AccountManagerInfo, Q_RELOCATABLE_TYPE);
 Q_DECLARE_TYPEINFO(AccountManager::AccountDisplayInfo, Q_RELOCATABLE_TYPE);

@@ -12,9 +12,7 @@ ActivitiesManager::ActivitiesManager(QObject *parent)
     : QObject{parent}
     , mActivitiesConsumer(new KActivities::Consumer(this))
 {
-#if HAS_ACTIVITY_SUPPORT
     mEnabled = RuqolaGlobalConfig::self()->plasmaActivities();
-#endif
     connect(mActivitiesConsumer, &KActivities::Consumer::currentActivityChanged, this, &ActivitiesManager::activitiesChanged);
     connect(mActivitiesConsumer, &KActivities::Consumer::serviceStatusChanged, this, &ActivitiesManager::activitiesChanged);
 }

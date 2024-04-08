@@ -5,7 +5,6 @@
 */
 
 #include "accountmanager.h"
-#include "config-ruqola.h"
 #include "localdatabase/localdatabaseutils.h"
 #include "managerdatapaths.h"
 #include "notificationhistorymanager.h"
@@ -14,16 +13,21 @@
 #include "ruqola_debug.h"
 #include "ruqolaglobalconfig.h"
 #include "utils.h"
+#if HAS_ACTIVITY_SUPPORT
+#include "activities/activitiesmanager.h"
+#endif
 #include <KLocalizedString>
 #include <QDir>
 #include <QDirIterator>
 #include <QSettings>
 #include <TextEmoticonsCore/EmojiModelManager>
-
 AccountManager::AccountManager(QObject *parent)
     : QObject(parent)
     , mRocketChatAccountModel(new RocketChatAccountModel(this))
     , mRocketChatAccountProxyModel(new RocketChatAccountFilterProxyModel(this))
+#if HAS_ACTIVITY_SUPPORT
+    , mActivitiesManager(new ActivitiesManager(this))
+#endif
 {
     mRocketChatAccountProxyModel->setSourceModel(mRocketChatAccountModel);
     loadExcludeEmoticons();

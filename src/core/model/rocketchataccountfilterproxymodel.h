@@ -8,8 +8,11 @@
 
 #include <QSortFilterProxyModel>
 
+#include "config-ruqola.h"
 #include "libruqolacore_export.h"
-
+#if HAS_ACTIVITY_SUPPORT
+class ActivitiesManager;
+#endif
 class LIBRUQOLACORE_EXPORT RocketChatAccountFilterProxyModel : public QSortFilterProxyModel
 {
     Q_OBJECT
@@ -21,10 +24,18 @@ public:
     [[nodiscard]] QStringList accountOrder() const;
     void setAccountOrder(const QStringList &newAccountOrder);
 
+#if HAS_ACTIVITY_SUPPORT
+    [[nodiscard]] ActivitiesManager *activitiesManager() const;
+    void setActivitiesManager(ActivitiesManager *newActivitiesManager);
+#endif
+
 protected:
     [[nodiscard]] bool lessThan(const QModelIndex &left, const QModelIndex &right) const override;
     [[nodiscard]] bool filterAcceptsRow(int source_row, const QModelIndex &source_parent) const override;
 
 private:
     QStringList mAccountOrder;
+#if HAS_ACTIVITY_SUPPORT
+    ActivitiesManager *mActivitiesManager = nullptr;
+#endif
 };
