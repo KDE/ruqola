@@ -118,6 +118,8 @@ QVariant RocketChatAccountModel::data(const QModelIndex &index, int role) const
         return QVariant::fromValue(account);
     case AccountName:
         return account->accountName();
+    case Activities:
+        return account->activities();
     }
     // Add icon ???
     return {};

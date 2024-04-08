@@ -404,6 +404,8 @@ public:
     void setDisplayName(const QString &displayName);
     [[nodiscard]] QString displayName() const;
 
+    [[nodiscard]] QStringList activities() const;
+
     void deleteCustomUserStatus(const QJsonArray &replyArray);
 
     void updateCustomUserStatus(const QJsonArray &replyArray);

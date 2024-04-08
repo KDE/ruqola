@@ -19,6 +19,7 @@ public:
         UserName,
         Account,
         AccountName,
+        Activities,
     };
     Q_ENUM(AccountRoles)
 

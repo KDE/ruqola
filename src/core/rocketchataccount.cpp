@@ -1506,6 +1506,11 @@ QString RocketChatAccount::displayName() const
     return settings()->displayName();
 }
 
+QStringList RocketChatAccount::activities() const
+{
+    return settings()->activities();
+}
+
 void RocketChatAccount::addUpdateEmojiCustomList(const QJsonArray &replyArray)
 {
     mEmojiManager->addUpdateEmojiCustomList(replyArray);
