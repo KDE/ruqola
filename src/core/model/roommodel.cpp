@@ -82,7 +82,8 @@ QVariant RoomModel::data(const QModelIndex &index, int role) const
 
     Room *r = mRoomsList.at(index.row());
 
-    if (role == Qt::DisplayRole) {
+    switch (role) {
+    case Qt::DisplayRole: {
         if (!r->parentRid().isEmpty()) {
             return r->fName();
         } else {
@@ -92,9 +93,8 @@ QVariant RoomModel::data(const QModelIndex &index, int role) const
                 return r->name();
             }
         }
+        break;
     }
-
-    switch (role) {
     case RoomModel::RoomName:
         return r->name();
     case RoomModel::RoomFName:
