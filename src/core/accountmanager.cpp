@@ -31,6 +31,7 @@ AccountManager::AccountManager(QObject *parent)
 {
 #if HAS_ACTIVITY_SUPPORT
     mRocketChatAccountProxyModel->setActivitiesManager(mActivitiesManager);
+    // TODO disable/enable account
 #endif
     mRocketChatAccountProxyModel->setSourceModel(mRocketChatAccountModel);
     loadExcludeEmoticons();
