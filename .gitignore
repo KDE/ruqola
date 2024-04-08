@@ -31,3 +31,4 @@ compile_commands.json
 /Testing/
 .clang-format
 .cache
+/.vscode/
