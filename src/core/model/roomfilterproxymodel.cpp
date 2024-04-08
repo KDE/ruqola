@@ -30,8 +30,8 @@ bool RoomFilterProxyModel::lessThan(const QModelIndex &left, const QModelIndex &
             rightDate = sourceModel()->data(right, RoomModel::RoomLastMessageAt).toLongLong();
         }
         if (leftDate == rightDate) {
-            const QString leftString = sourceModel()->data(left, RoomModel::RoomFName).toString();
-            const QString rightString = sourceModel()->data(right, RoomModel::RoomFName).toString();
+            const QString leftString = sourceModel()->data(left, Qt::DisplayRole).toString();
+            const QString rightString = sourceModel()->data(right, Qt::DisplayRole).toString();
             const bool leftFavorite = sourceModel()->data(left, RoomModel::RoomFavorite).toBool();
             const bool rightFavorite = sourceModel()->data(right, RoomModel::RoomFavorite).toBool();
             if (leftFavorite && (leftFavorite == rightFavorite)) {
