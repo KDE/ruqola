@@ -976,6 +976,7 @@ QDebug operator<<(QDebug d, const AccountManager::AccountManagerInfo &t)
     d.space() << " canResetPassword" << t.canResetPassword;
     d.space() << " enabled" << t.enabled;
     d.space() << " canRegisterAccount" << t.canRegisterAccount;
+    d.space() << " activities" << t.activities;
     return d;
 }
 
