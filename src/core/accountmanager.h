@@ -47,10 +47,10 @@ public:
     void removeAccount(const QString &accountName, bool removeLogFiles = false);
     void addAccount(const AccountManagerInfo &info);
 
-    RocketChatAccount *account() const;
-    RocketChatAccountModel *rocketChatAccountModel() const;
+    [[nodiscard]] RocketChatAccount *account() const;
+    [[nodiscard]] RocketChatAccountModel *rocketChatAccountModel() const;
 
-    RocketChatAccountFilterProxyModel *rocketChatAccountProxyModel() const;
+    [[nodiscard]] RocketChatAccountFilterProxyModel *rocketChatAccountProxyModel() const;
 
     void addAccount(RocketChatAccount *account);
 
