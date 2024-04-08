@@ -673,7 +673,8 @@ void AccountManager::loadExcludeEmoticons()
                                          QStringLiteral(":flag_eh:"),
                                          QStringLiteral(":flag_ea:"),
                                          QStringLiteral(":flag_dg:"),
-                                         QStringLiteral(":flag_mf:")});
+                                         QStringLiteral(":flag_mf:"),
+                                         QStringLiteral(":yo_yo:")});
     TextEmoticonsCore::EmojiModelManager::self()->setExcludeEmoticons(lst);
 #endif
 }
