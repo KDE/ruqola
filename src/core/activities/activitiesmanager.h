@@ -8,7 +8,10 @@
 
 #include "libruqolacore_export.h"
 #include <QObject>
-
+namespace KActivities
+{
+class Consumer;
+}
 class LIBRUQOLACORE_EXPORT ActivitiesManager : public QObject
 {
     Q_OBJECT
@@ -18,6 +21,10 @@ public:
     [[nodiscard]] bool enabled() const;
     void setEnabled(bool newEnabled);
 
+Q_SIGNALS:
+    void activitiesChanged();
+
 private:
+    KActivities::Consumer *const mActivitiesConsumer;
     bool mEnabled = false;
 };
