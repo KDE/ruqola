@@ -29,6 +29,9 @@ AccountManager::AccountManager(QObject *parent)
     , mActivitiesManager(new ActivitiesManager(this))
 #endif
 {
+#if HAS_ACTIVITY_SUPPORT
+    mRocketChatAccountProxyModel->setActivitiesManager(mActivitiesManager);
+#endif
     mRocketChatAccountProxyModel->setSourceModel(mRocketChatAccountModel);
     loadExcludeEmoticons();
     loadAccount();

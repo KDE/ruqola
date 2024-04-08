@@ -44,6 +44,9 @@ ActivitiesManager *RocketChatAccountFilterProxyModel::activitiesManager() const
 void RocketChatAccountFilterProxyModel::setActivitiesManager(ActivitiesManager *newActivitiesManager)
 {
     mActivitiesManager = newActivitiesManager;
+    if (mActivitiesManager) {
+        connect(mActivitiesManager, &ActivitiesManager::activitiesChanged, this, &RocketChatAccountFilterProxyModel::invalidateFilter);
+    }
 }
 #endif
 
