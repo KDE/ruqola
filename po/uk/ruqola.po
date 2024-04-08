@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-04-07 00:38+0000\n"
-"PO-Revision-Date: 2024-04-06 15:05+0300\n"
+"PO-Revision-Date: 2024-04-07 08:35+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian\n"
 "Language: uk\n"
@@ -6518,7 +6518,7 @@ msgstr "Налаштовування просторів дій"
 #: widgets/configurenewserver/configureactivitieswidget.cpp:55
 #, kde-format
 msgid "Limit to the selected activities:"
-msgstr ""
+msgstr "Обмежити вибраними просторами дій:"
 
 #: widgets/configurenewserver/configureactivitieswidget.cpp:60
 #, kde-format
@@ -6527,6 +6527,10 @@ msgid ""
 "you are in those activities. Furthermore, when you switch to an activity it "
 "should not be available in, it will automatically be hidden."
 msgstr ""
+"Якщо ви обмежите дію цього облікового запису лише певними просторами дій, "
+"його буде показано лише тоді, коли ви користуєтеся цими просторами дій. Крім "
+"того, якщо ви перемкнетеся на простір дій, з якого обліковий запис є "
+"недоступним, його автоматично буде приховано."
 
 #: widgets/configurenewserver/createnewserverdialog.cpp:27
 #, kde-format

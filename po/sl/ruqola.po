@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-04-07 00:38+0000\n"
-"PO-Revision-Date: 2024-04-06 08:58+0200\n"
+"PO-Revision-Date: 2024-04-07 07:14+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
@@ -6468,7 +6468,7 @@ msgstr "Konfiguriraj dejavnosti"
 #: widgets/configurenewserver/configureactivitieswidget.cpp:55
 #, kde-format
 msgid "Limit to the selected activities:"
-msgstr ""
+msgstr "Omejitev na izbrane dejavnosti:"
 
 #: widgets/configurenewserver/configureactivitieswidget.cpp:60
 #, kde-format
@@ -6477,6 +6477,9 @@ msgid ""
 "you are in those activities. Furthermore, when you switch to an activity it "
 "should not be available in, it will automatically be hidden."
 msgstr ""
+"Če ta račun omejite na dejavnost, bo prikazan v Ruqoli samo, ko ste v teh "
+"dejavnostih. Poleg tega, ko preklopite na dejavnost, katera ne bi smela biti "
+"na voljo, bo samodejno skrita."
 
 #: widgets/configurenewserver/createnewserverdialog.cpp:27
 #, kde-format

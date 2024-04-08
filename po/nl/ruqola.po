@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-04-07 00:38+0000\n"
-"PO-Revision-Date: 2024-04-06 15:09+0200\n"
+"PO-Revision-Date: 2024-04-07 13:38+0200\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
 "Language: nl\n"
@@ -6490,7 +6490,7 @@ msgstr "Activiteiten configureren"
 #: widgets/configurenewserver/configureactivitieswidget.cpp:55
 #, kde-format
 msgid "Limit to the selected activities:"
-msgstr ""
+msgstr "Tot de geselecteerde activiteiten beperken:"
 
 #: widgets/configurenewserver/configureactivitieswidget.cpp:60
 #, kde-format
@@ -6499,6 +6499,10 @@ msgid ""
 "you are in those activities. Furthermore, when you switch to an activity it "
 "should not be available in, it will automatically be hidden."
 msgstr ""
+"Als u dit account beperkt tot activiteit, zal het in Ruqola alleen getoond "
+"worden wanneer u zich in die activiteiten bevindt. Verder, wanneer u "
+"omschakelt naar een activiteit waarin het niet beschikbaar zou moeten zijn, "
+"dan zal het automatisch verborgen worden."
 
 #: widgets/configurenewserver/createnewserverdialog.cpp:27
 #, kde-format

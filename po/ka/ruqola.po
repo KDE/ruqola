@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-04-07 00:38+0000\n"
-"PO-Revision-Date: 2024-04-06 05:26+0200\n"
+"PO-Revision-Date: 2024-04-07 03:22+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -6448,7 +6448,7 @@ msgstr "აქტივობების მორგება"
 #: widgets/configurenewserver/configureactivitieswidget.cpp:55
 #, kde-format
 msgid "Limit to the selected activities:"
-msgstr ""
+msgstr "მონიშნულ ქმედებებზე შეზღუდვა:"
 
 #: widgets/configurenewserver/configureactivitieswidget.cpp:60
 #, kde-format
@@ -6457,6 +6457,9 @@ msgid ""
 "you are in those activities. Furthermore, when you switch to an activity it "
 "should not be available in, it will automatically be hidden."
 msgstr ""
+"თუ ამ ანგარიშს აქტივობაზე შეზღუდავთ, ის Ruqola-ში, მხოლოდ, მაშინ გამოჩნდება, "
+"რომ იმ აქტივობებში ბრძანდებით. უფრო მეტიც კი, როცა გადაერთვებით აქტივობაზე, "
+"სადაც ის ხელმისაწვდომი არ უნდა იყოს, ის ავტომატურად დაიმალება."
 
 #: widgets/configurenewserver/createnewserverdialog.cpp:27
 #, kde-format

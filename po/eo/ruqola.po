@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-04-07 00:38+0000\n"
-"PO-Revision-Date: 2024-04-06 22:35+0100\n"
+"PO-Revision-Date: 2024-04-07 17:09+0100\n"
 "Last-Translator: Oliver Kellogg <okellogg@users.sourceforge.net>\n"
 "Language-Team: Esperanto <kde-i18n-eo.org>\n"
 "Language: eo\n"
@@ -6450,7 +6450,7 @@ msgstr "Agordi Aktivecojn"
 #: widgets/configurenewserver/configureactivitieswidget.cpp:55
 #, kde-format
 msgid "Limit to the selected activities:"
-msgstr ""
+msgstr "Limigi al la elektitaj aktivecoj:"
 
 #: widgets/configurenewserver/configureactivitieswidget.cpp:60
 #, kde-format
@@ -6459,6 +6459,9 @@ msgid ""
 "you are in those activities. Furthermore, when you switch to an activity it "
 "should not be available in, it will automatically be hidden."
 msgstr ""
+"Se vi limigas ĉi tiun konton al aktiveco, ĝi montriĝos en Ruqola nur kiam vi "
+"estas en tiuj agadoj. Krome, kiam vi ŝanĝas al agado en kiu ĝi ne devus esti "
+"disponebla, ĝi aŭtomate estos kaŝita."
 
 #: widgets/configurenewserver/createnewserverdialog.cpp:27
 #, kde-format
