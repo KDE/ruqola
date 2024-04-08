@@ -29,4 +29,9 @@ void ActivitiesManager::setEnabled(bool newEnabled)
     mEnabled = newEnabled;
 }
 
+bool ActivitiesManager::isInCurrentActivity(const QStringList &lst) const
+{
+    return lst.contains(mActivitiesConsumer->currentActivity());
+}
+
 #include "moc_activitiesmanager.cpp"

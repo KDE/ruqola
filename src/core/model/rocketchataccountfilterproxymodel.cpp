@@ -25,11 +25,11 @@ bool RocketChatAccountFilterProxyModel::filterAcceptsRow(int source_row, const Q
 {
 #if HAS_ACTIVITY_SUPPORT
     if (mActivitiesManager && mActivitiesManager->enabled()) {
-        // TODO
+        const auto activities = sourceModel()->index(source_row, 0).data(RocketChatAccountModel::Activities).toStringList();
+        // TODO verify
+        return mActivitiesManager->isInCurrentActivity(activities);
     }
-    // TODO verify that account is in activity
 #endif
-    // TODO implement plasma activity support
     return QSortFilterProxyModel::filterAcceptsRow(source_row, source_parent);
 }
 

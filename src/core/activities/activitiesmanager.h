@@ -21,6 +21,8 @@ public:
     [[nodiscard]] bool enabled() const;
     void setEnabled(bool newEnabled);
 
+    [[nodiscard]] bool isInCurrentActivity(const QStringList &lst) const;
+
 Q_SIGNALS:
     void activitiesChanged();
 
