@@ -78,9 +78,6 @@ void ModerationReportedMessageConsoleTreeWidget::slotLoadElements(int offset, in
     info.mLatest = mModerationRanges.toDate;
     info.mSelector = searchName;
     RocketChatRestApi::QueryParameters parameters;
-    //    QMap<QString, RocketChatRestApi::QueryParameters::SortOrder> map;
-    //    map.insert(QStringLiteral("name"), RocketChatRestApi::QueryParameters::SortOrder::Ascendant);
-    //    parameters.setSorting(map);
     if (offset != -1) {
         parameters.setOffset(offset);
     }
