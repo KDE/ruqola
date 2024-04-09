@@ -351,9 +351,7 @@ QVariant MessagesModel::data(const QModelIndex &index, int role) const
 
 QString MessagesModel::convertedText(const Message &message, const QString &searchedText) const
 {
-    if (message.privateMessage()) {
-        return i18n("Only you can see this message");
-    } else if (message.messageType() == Message::System) {
+    if (message.messageType() == Message::System) {
         return message.systemMessageText();
     } else {
         QStringList highlightWords;
@@ -367,7 +365,11 @@ QString MessagesModel::convertedText(const Message &message, const QString &sear
         }
         const QString userName = mRocketChatAccount ? mRocketChatAccount->userName() : QString();
         const QStringList highlightWordsLst = mRocketChatAccount ? mRocketChatAccount->highlightWords() : highlightWords;
-        return convertMessageText(message, userName, highlightWordsLst, searchedText);
+        const QString convertedMessage{convertMessageText(message, userName, highlightWordsLst, searchedText)};
+        if (message.privateMessage()) {
+            return i18n("Only you can see this message") + convertedMessage;
+        }
+        return convertedMessage;
     }
 }
 
