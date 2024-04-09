@@ -709,6 +709,14 @@ bool AccountManager::showMessage(const ParseRocketChatUrlUtils::ParsingInfo &par
     return false;
 }
 
+void AccountManager::disconnectAccount(RocketChatAccount *account)
+{
+    disconnect(account, &RocketChatAccount::updateNotification, this, &AccountManager::updateNotification);
+    disconnect(account, &RocketChatAccount::roomNeedAttention, this, &AccountManager::roomNeedAttention);
+    disconnect(account, &RocketChatAccount::logoutDone, this, &AccountManager::logoutAccountDone);
+    // TODO connect(account, &RocketChatAccount::notification
+}
+
 void AccountManager::connectToAccount(RocketChatAccount *account)
 {
     connect(account, &RocketChatAccount::notification, this, [this, account](const NotificationInfo &info) {
@@ -766,7 +774,9 @@ void AccountManager::loadAccount()
         qCDebug(RUQOLA_LOG) << "Account found list.at(i)" << val;
         auto account = new RocketChatAccount(val);
         if (account->settings()->isValid()) {
-            connectToAccount(account);
+            if (account->accountEnabled()) {
+                connectToAccount(account);
+            }
             lstAccounts.append(account);
         } else {
             account->deleteLater();
@@ -808,6 +818,15 @@ RocketChatAccountFilterProxyModel *AccountManager::rocketChatAccountProxyModel()
 RocketChatAccount *AccountManager::account() const
 {
     return mCurrentAccount;
+}
+
+void AccountManager::changeEnableState(RocketChatAccount *account, bool enabled)
+{
+    if (enabled) {
+        connectToAccount(account);
+    } else {
+        disconnectAccount(account);
+    }
 }
 
 void AccountManager::addAccount(const AccountManagerInfo &info)
@@ -854,11 +873,10 @@ void AccountManager::modifyAccount(const AccountManagerInfo &info)
         } else {
             // TODO ????
         }
-        if (!info.enabled) {
-            // TODO fixme
-            // disconnect(account, &RocketChatAccount::notification, this, &AccountManager::notification);
-            disconnect(account, &RocketChatAccount::updateNotification, this, &AccountManager::updateNotification);
-            disconnect(account, &RocketChatAccount::logoutDone, this, &AccountManager::logoutAccountDone);
+        if (!info.enabled && account->accountEnabled()) {
+            changeEnableState(account, false);
+        } else if (info.enabled && !account->accountEnabled()) {
+            changeEnableState(account, true);
         }
     }
 }
