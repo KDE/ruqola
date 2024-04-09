@@ -150,6 +150,7 @@ void ModerationReportedMessageConsoleTreeWidget::slotCustomContextMenuRequested(
 
 void ModerationReportedMessageConsoleTreeWidget::slotShowReportedMessages(const QJsonObject &obj)
 {
+    // Fix parse user/messages (message ok here)
     mCommonMessagesModel->parse(obj);
     ModerationMessagesDialog dlg(mRocketChatAccount, this);
     dlg.setModel(mCommonMessageFilterProxyModel);
