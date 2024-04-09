@@ -5,10 +5,13 @@
 */
 
 #include "rocketchataccountfilterproxymodeltest.h"
+#include "config-ruqola.h"
 #include "model/rocketchataccountfilterproxymodel.h"
 #include "model/rocketchataccountmodel.h"
 #include <QTest>
-
+#if HAS_ACTIVITY_SUPPORT
+#include "activities/activitiesmanager.h"
+#endif
 QTEST_GUILESS_MAIN(RocketChatAccountFilterProxyModelTest)
 
 RocketChatAccountFilterProxyModelTest::RocketChatAccountFilterProxyModelTest(QObject *parent)
@@ -25,6 +28,9 @@ void RocketChatAccountFilterProxyModelTest::shouldHaveDefaultValue()
     QVERIFY(w.sourceModel());
     QCOMPARE(w.sourceModel(), &sourceModel);
     QVERIFY(w.accountOrder().isEmpty());
+#if HAS_ACTIVITY_SUPPORT
+    QVERIFY(!w.activitiesManager());
+#endif
 }
 
 #include "moc_rocketchataccountfilterproxymodeltest.cpp"
