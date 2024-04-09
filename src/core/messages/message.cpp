@@ -1236,10 +1236,14 @@ QDebug operator<<(QDebug d, const Message &t)
     d.space() << "Mentions:" << t.mentions();
     d.space() << "mMessageType:" << t.messageType();
     d.space() << "mRole:" << t.role();
-    d.space() << "mReaction:" << *t.reactions();
+    if (t.reactions()) {
+        d.space() << "mReaction:" << *t.reactions();
+    }
     d.space() << "mUnread:" << t.unread();
     d.space() << "starred" << t.messageStarred();
-    d.space() << "pinned" << *t.messagePinned();
+    if (t.messagePinned()) {
+        d.space() << "pinned" << *t.messagePinned();
+    }
     d.space() << "threadcount" << t.threadCount();
     d.space() << "threadlastmessage" << t.threadLastMessage();
     d.space() << "discussionlastmessage" << t.discussionLastMessage();
