@@ -15,6 +15,15 @@ class LIBROCKETCHATRESTAPI_QT_EXPORT ModerationUserReportsJob : public RestApiAb
 {
     Q_OBJECT
 public:
+    struct LIBROCKETCHATRESTAPI_QT_EXPORT ModerationUserReportsInfo {
+        QDateTime mLatest;
+        QDateTime mOldest;
+        QString mSelector;
+        [[nodiscard]] bool isValid() const
+        {
+            return mLatest.isValid() && mOldest.isValid();
+        }
+    };
     explicit ModerationUserReportsJob(QObject *parent = nullptr);
     ~ModerationUserReportsJob() override;
 
@@ -26,11 +35,15 @@ public:
 
     [[nodiscard]] bool canStart() const override;
 
+    [[nodiscard]] ModerationUserReportsInfo moderationUserReportsInfo() const;
+    void setModerationUserReportsInfo(const ModerationUserReportsInfo &newModerationUserReportsInfo);
+
 Q_SIGNALS:
     void moderationUserReportJobDone(const QJsonObject &obj);
 
 private:
     Q_DISABLE_COPY(ModerationUserReportsJob)
     LIBROCKETCHATRESTAPI_QT_NO_EXPORT void onGetRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson) override;
+    ModerationUserReportsInfo mModerationUserReportsInfo;
 };
 }

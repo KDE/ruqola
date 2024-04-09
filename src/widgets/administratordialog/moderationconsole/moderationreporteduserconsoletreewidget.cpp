@@ -72,6 +72,11 @@ void ModerationReportedUserConsoleTreeWidget::slotLoadElements(int offset, int c
 {
     auto job = new RocketChatRestApi::ModerationUserReportsJob(this);
 
+    RocketChatRestApi::ModerationUserReportsJob::ModerationUserReportsInfo info;
+    info.mOldest = mModerationRanges.fromDate;
+    info.mLatest = mModerationRanges.toDate;
+    info.mSelector = searchName;
+
     RocketChatRestApi::QueryParameters parameters;
     if (offset != -1) {
         parameters.setOffset(offset);
@@ -79,17 +84,8 @@ void ModerationReportedUserConsoleTreeWidget::slotLoadElements(int offset, int c
     if (count != -1) {
         parameters.setCount(count);
     }
-    QMap<QString, QString> customMap;
-    if (mModerationRanges.isValid()) {
-        // latest
-        // oldest
-        // TODO
-    }
-    if (!searchName.isEmpty()) {
-        customMap.insert(QLatin1StringView("selector"), searchName);
-    }
-    if (!customMap.isEmpty()) {
-        parameters.setCustom(customMap);
+    if (info.isValid()) {
+        job->setModerationUserReportsInfo(info);
     }
     job->setQueryParameters(parameters);
 

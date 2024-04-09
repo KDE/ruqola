@@ -49,9 +49,31 @@ void ModerationUserReportsJob::onGetRequestResponse(const QString &replyErrorStr
     }
 }
 
+ModerationUserReportsJob::ModerationUserReportsInfo ModerationUserReportsJob::moderationUserReportsInfo() const
+{
+    return mModerationUserReportsInfo;
+}
+
+void ModerationUserReportsJob::setModerationUserReportsInfo(const ModerationUserReportsInfo &newModerationUserReportsInfo)
+{
+    mModerationUserReportsInfo = newModerationUserReportsInfo;
+}
+
 QNetworkRequest ModerationUserReportsJob::request() const
 {
     QUrl url = mRestApiMethod->generateUrl(RestApiUtil::RestApiUrlType::ModerationUserReports);
+
+    QUrlQuery queryUrl;
+    if (mModerationUserReportsInfo.isValid()) {
+        queryUrl.addQueryItem(QStringLiteral("oldest"), mModerationUserReportsInfo.mOldest.toString(Qt::ISODate));
+        queryUrl.addQueryItem(QStringLiteral("latest"), mModerationUserReportsInfo.mLatest.toString(Qt::ISODate));
+        if (!mModerationUserReportsInfo.mSelector.isEmpty()) {
+            queryUrl.addQueryItem(QStringLiteral("selector"), mModerationUserReportsInfo.mSelector);
+        }
+    }
+    addQueryParameter(queryUrl);
+    url.setQuery(queryUrl);
+
     QNetworkRequest request(url);
     addAuthRawHeader(request);
     addRequestAttribute(request, false);
