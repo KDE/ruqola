@@ -144,4 +144,9 @@ QDebug operator<<(QDebug d, const AdministratorModerationRangeWidget::DateTimeRa
     return d;
 }
 
+bool AdministratorModerationRangeWidget::DateTimeRange::isValid() const
+{
+    return fromDate.isValid() && toDate.isValid();
+}
+
 #include "moc_administratormoderationrangewidget.cpp"

@@ -17,6 +17,7 @@ public:
     struct DateTimeRange {
         QDateTime fromDate;
         QDateTime toDate;
+        [[nodiscard]] bool isValid() const;
     };
     explicit AdministratorModerationRangeWidget(QWidget *parent = nullptr);
     ~AdministratorModerationRangeWidget() override;
