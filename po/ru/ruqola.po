@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-03-22 03:03+0000\n"
+"POT-Creation-Date: 2024-04-09 03:29+0000\n"
 "PO-Revision-Date: 2023-11-24 12:18+0300\n"
 "Last-Translator: Olesya Gerasimenko <translation-team@basealt.ru>\n"
 "Language-Team: Basealt Translation Team\n"
@@ -154,7 +154,7 @@ msgstr "Оптимизация, исправление поддержки Window
 msgid "The following accounts are available:"
 msgstr "Доступны следующие учётные записи:"
 
-#: core/accountmanager.cpp:712
+#: core/accountmanager.cpp:713
 #, kde-format
 msgid "Server not found: %1"
 msgstr "Сервер не найден: %1"

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-03-22 03:03+0000\n"
+"POT-Creation-Date: 2024-04-09 03:29+0000\n"
 "PO-Revision-Date: 2023-05-10 20:24+0200\n"
 "Last-Translator: Frederik Schwarzer <schwarzer@kde.org>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
@@ -150,7 +150,7 @@ msgstr "Optimierungen, Windows-/macOS-Unterstützung korrigiert"
 msgid "The following accounts are available:"
 msgstr "Die folgenden Zugänge sind vorhanden:"
 
-#: core/accountmanager.cpp:712
+#: core/accountmanager.cpp:713
 #, kde-format
 msgid "Server not found: %1"
 msgstr "Server nicht gefunden: %1"
