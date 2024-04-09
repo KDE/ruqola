@@ -54,7 +54,7 @@ void RocketChatAccountSettings::initializeSettings(const QString &accountFileNam
     mAuthToken = mSetting->value(QStringLiteral("authToken")).toString();
     mExpireToken = mSetting->value(QStringLiteral("expireToken")).toLongLong();
     mAccountName = mSetting->value(QStringLiteral("accountName")).toString();
-    mActivities = mSetting->value(QStringLiteral("activites")).toStringList();
+    mActivities = mSetting->value(QStringLiteral("activities")).toStringList();
     mUseLdap = mSetting->value(QStringLiteral("useLdap")).toBool();
     mAccountEnabled = mSetting->value(QStringLiteral("enabled"), true).toBool();
     mDisplayName = mSetting->value(QStringLiteral("displayName")).toString();
@@ -104,7 +104,7 @@ void RocketChatAccountSettings::setActivities(const QStringList &newActivities)
         return;
     }
 
-    mSetting->setValue(QStringLiteral("activites"), newActivities);
+    mSetting->setValue(QStringLiteral("activities"), newActivities);
     mSetting->sync();
     mActivities = newActivities;
     Q_EMIT activitiesChanged();
