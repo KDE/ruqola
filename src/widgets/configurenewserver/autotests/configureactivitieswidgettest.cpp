@@ -24,6 +24,8 @@ void ConfigureActivitiesWidgetTest::shouldHaveDefaultValues()
 
     auto mListView = w.findChild<QListView *>("mListView"_L1);
     QVERIFY(mListView);
+    QVERIFY(!mListView->isEnabled());
+    QCOMPARE(mListView->selectionMode(), QAbstractItemView::MultiSelection);
 
     auto mainLayout = w.findChild<QVBoxLayout *>("mainLayout"_L1);
     QVERIFY(mainLayout);
