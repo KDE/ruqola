@@ -6,6 +6,7 @@
 
 #include "createnewserverstackwidget.h"
 #include "checknewserverurlwidget.h"
+#include "config-ruqola.h"
 #include "configureactivitiesdialog.h"
 #include "createnewserverwidget.h"
 #include "plugins/pluginauthentication.h"
@@ -100,6 +101,7 @@ void CreateNewServerStackWidget::setAccountInfo(const AccountManager::AccountMan
 
 void CreateNewServerStackWidget::slotConfigureActivities()
 {
+#if HAS_ACTIVITY_SUPPORT
     QPointer<ConfigureActivitiesDialog> dlg = new ConfigureActivitiesDialog(this);
     dlg->setActivities(mAccountManagerInfo.activities);
     if (dlg->exec()) {
@@ -107,6 +109,7 @@ void CreateNewServerStackWidget::slotConfigureActivities()
     }
     delete dlg;
     // TODO
+#endif
 }
 
 #include "moc_createnewserverstackwidget.cpp"
