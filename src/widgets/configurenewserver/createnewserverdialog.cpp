@@ -7,6 +7,7 @@
 #include "createnewserverdialog.h"
 #include "config-ruqola.h"
 #include "configurenewserver/createnewserverstackwidget.h"
+#include "ruqolaglobalconfig.h"
 #include <KConfigGroup>
 #include <KLocalizedString>
 #include <KSharedConfig>
@@ -44,9 +45,11 @@ CreateNewServerDialog::CreateNewServerDialog(QWidget *parent)
         mOkButton->setEnabled(state);
     });
 #if HAS_ACTIVITY_SUPPORT
-    // TODO hide it when activities is not enabled in ruqola
-    auto configureActivities = buttonBox->addButton(i18n("Configure Activities"), QDialogButtonBox::ActionRole);
-    connect(configureActivities, &QPushButton::clicked, mCreateNewServerStackWidget, &CreateNewServerStackWidget::slotConfigureActivities);
+    if (RuqolaGlobalConfig::self()->plasmaActivities()) {
+        // TODO hide it when activities is not enabled in ruqola
+        auto configureActivities = buttonBox->addButton(i18n("Configure Activities"), QDialogButtonBox::ActionRole);
+        connect(configureActivities, &QPushButton::clicked, mCreateNewServerStackWidget, &CreateNewServerStackWidget::slotConfigureActivities);
+    }
 #endif
 }
 
