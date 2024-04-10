@@ -33,6 +33,7 @@ private:
     LIBRUQOLAWIDGETS_NO_EXPORT void slotShowReportedMessages(const QJsonObject &obj);
     LIBRUQOLAWIDGETS_NO_EXPORT void slotDismissReport(const QModelIndex &index);
     LIBRUQOLAWIDGETS_NO_EXPORT void slotShowReports(const QModelIndex &newModelIndex);
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotDesactivateUser(const QModelIndex &index);
     [[nodiscard]] LIBRUQOLAWIDGETS_NO_EXPORT QString displayShowMessage() const;
     AdministratorModerationRangeWidget::DateTimeRange mModerationRanges;
     ModerationMessagesModel *const mCommonMessagesModel;

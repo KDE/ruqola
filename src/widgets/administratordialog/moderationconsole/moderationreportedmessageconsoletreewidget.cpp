@@ -140,11 +140,30 @@ void ModerationReportedMessageConsoleTreeWidget::slotCustomContextMenuRequested(
             const QModelIndex modelIndex = mModel->index(newModelIndex.row(), ModerationReportedMessageModel::UserId);
             slotDismissReport(modelIndex);
         });
-        menu.addAction(QIcon::fromTheme(QStringLiteral("list-remove")), i18n("Delete all Messages"), this, [this, newModelIndex]() {
+        menu.addAction(QIcon::fromTheme(QStringLiteral("edit-delete")), i18n("Delete all Messages"), this, [this, newModelIndex]() {
             const QModelIndex modelIndex = mModel->index(newModelIndex.row(), ModerationReportedMessageModel::UserId);
             slotDeleteAllMessages(modelIndex);
         });
+        menu.addSeparator();
+        menu.addAction(QIcon::fromTheme(QStringLiteral("list-remove")), i18n("Desactivate user"), this, [this, newModelIndex]() {
+            const QModelIndex modelIndex = mModel->index(newModelIndex.row(), ModerationReportedMessageModel::UserId);
+            slotDesactivateUser(modelIndex);
+            // TODO
+        });
         menu.exec(mTreeView->viewport()->mapToGlobal(pos));
+    }
+}
+
+void ModerationReportedMessageConsoleTreeWidget::slotDesactivateUser(const QModelIndex &index)
+{
+    if (KMessageBox::questionTwoActions(
+            this,
+            i18n("User will be unable to log in unless reactivated. All reported messages will be permanently deleted from their respective room."),
+            i18nc("@title:window", "Desactivate User"),
+            KStandardGuiItem::remove(),
+            KStandardGuiItem::cancel())
+        == KMessageBox::ButtonCode::PrimaryAction) {
+        // TODO
     }
 }
 

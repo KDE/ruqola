@@ -35,6 +35,7 @@ private:
     LIBRUQOLAWIDGETS_NO_EXPORT void slotDeleteAllMessages(const QModelIndex &index);
     LIBRUQOLAWIDGETS_NO_EXPORT void slotShowMessages(const QModelIndex &newModelIndex);
     [[nodiscard]] LIBRUQOLAWIDGETS_NO_EXPORT QString displayShowMessage() const;
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotDesactivateUser(const QModelIndex &index);
     AdministratorModerationRangeWidget::DateTimeRange mModerationRanges;
     ModerationMessagesModel *const mCommonMessagesModel;
     CommonMessageFilterProxyModel *mCommonMessageFilterProxyModel = nullptr;
