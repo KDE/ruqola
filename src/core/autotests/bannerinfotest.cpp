@@ -65,6 +65,7 @@ void BannerInfoTest::shouldBannerInfo_data()
         info.setText(QStringLiteral("New_version_available_(s)"));
         info.setTextArguments(QStringList({QStringLiteral("4.4.1")}));
         info.setTitle(QStringLiteral("Update_your_RocketChat"));
+        info.setRead(false);
         QTest::addRow("bannerinfo2") << QStringLiteral("bannerinfo2") << info;
     }
 }
