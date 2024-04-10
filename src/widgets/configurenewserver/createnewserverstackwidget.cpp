@@ -80,10 +80,15 @@ void CreateNewServerStackWidget::setExistingAccountNames(const QStringList &lst)
 
 AccountManager::AccountManagerInfo CreateNewServerStackWidget::accountInfo() const
 {
+    AccountManager::AccountManagerInfo info;
     if (mPluginAuthenticationConfigureWidget) {
-        return mPluginAuthenticationConfigureWidget->accountInfo();
+        info = mPluginAuthenticationConfigureWidget->accountInfo();
+        info.activities = mAccountManagerInfo.activities;
+        return info;
     }
-    return mCreateNewServerWidget->accountInfo();
+    info = mCreateNewServerWidget->accountInfo();
+    info.activities = mAccountManagerInfo.activities;
+    return info;
 }
 
 void CreateNewServerStackWidget::setAccountInfo(const AccountManager::AccountManagerInfo &info)
@@ -105,10 +110,9 @@ void CreateNewServerStackWidget::slotConfigureActivities()
     QPointer<ConfigureActivitiesDialog> dlg = new ConfigureActivitiesDialog(this);
     dlg->setActivities(mAccountManagerInfo.activities);
     if (dlg->exec()) {
-        // TODO
+        mAccountManagerInfo.activities = dlg->activities();
     }
     delete dlg;
-    // TODO
 #endif
 }
 
