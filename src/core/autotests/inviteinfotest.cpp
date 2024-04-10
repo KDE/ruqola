@@ -43,14 +43,14 @@ void InviteInfoTest::shouldParseInviteInfo_data()
 
         QDateTime expireDateTime;
         expireDateTime.setDate(QDate(2021, 04, 8));
-        expireDateTime.setTime(QTime(8, 49, 04, 571));
-        expireDateTime.setTimeSpec(Qt::LocalTime);
+        expireDateTime.setTime(QTime(6, 49, 04, 571));
+        expireDateTime.setTimeZone(QTimeZone::UTC);
         expected.setExpireDateTime(expireDateTime);
 
         QDateTime createDateTime;
         createDateTime.setDate(QDate(2021, 04, 7));
-        createDateTime.setTime(QTime(8, 49, 04, 571));
-        createDateTime.setTimeSpec(Qt::LocalTime);
+        createDateTime.setTime(QTime(6, 49, 04, 571));
+        createDateTime.setTimeZone(QTimeZone::UTC);
         expected.setCreateDateTime(createDateTime);
         QTest::newRow("inviteinfo") << QStringLiteral("inviteinfo") << expected;
     }
