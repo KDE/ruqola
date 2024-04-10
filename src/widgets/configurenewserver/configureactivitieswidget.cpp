@@ -56,6 +56,7 @@ ConfigureActivitiesWidget::ConfigureActivitiesWidget(QWidget *parent)
 {
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName("mainLayout"_L1);
+    mainLayout->setContentsMargins({});
 
     auto label = new QLabel(i18n("If you limit this account to activity, it will be shown in Ruqola only when you are in those activities. Furthermore, when "
                                  "you switch to an activity it should not be available in, it will automatically be hidden."),
@@ -72,6 +73,7 @@ ConfigureActivitiesWidget::ConfigureActivitiesWidget(QWidget *parent)
     mListView->setModel(new KActivities::ActivitiesModel(this));
     mListView->setItemDelegate(new CheckboxDelegate(this));
     mainLayout->addWidget(mListView);
+    mListView->setSelectionMode(QAbstractItemView::MultiSelection);
     mListView->setEnabled(false);
     connect(mEnableActivitiesSupport, &QCheckBox::clicked, mListView, &QListView::setEnabled);
 }

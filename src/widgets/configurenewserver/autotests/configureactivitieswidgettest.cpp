@@ -27,6 +27,7 @@ void ConfigureActivitiesWidgetTest::shouldHaveDefaultValues()
 
     auto mainLayout = w.findChild<QVBoxLayout *>("mainLayout"_L1);
     QVERIFY(mainLayout);
+    QCOMPARE(mainLayout->contentsMargins(), QMargins{});
 
     auto label = w.findChild<QLabel *>("label"_L1);
     QVERIFY(label);

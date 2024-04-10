@@ -6,11 +6,14 @@
 
 #include "createnewserverstackwidget.h"
 #include "checknewserverurlwidget.h"
+#include "configureactivitiesdialog.h"
 #include "createnewserverwidget.h"
 #include "plugins/pluginauthentication.h"
 #include "plugins/pluginauthenticationconfigurewidget.h"
 #include "plugins/pluginauthenticationinterface.h"
 #include "ruqolawidgets_debug.h"
+
+#include <QPointer>
 
 CreateNewServerStackWidget::CreateNewServerStackWidget(QWidget *parent)
     : QStackedWidget(parent)
@@ -94,4 +97,16 @@ void CreateNewServerStackWidget::setAccountInfo(const AccountManager::AccountMan
         setCurrentWidget(mCreateNewServerWidget);
     }
 }
+
+void CreateNewServerStackWidget::slotConfigureActivities()
+{
+    QPointer<ConfigureActivitiesDialog> dlg = new ConfigureActivitiesDialog(this);
+    dlg->setActivities(mAccountManagerInfo.activities);
+    if (dlg->exec()) {
+        // TODO
+    }
+    delete dlg;
+    // TODO
+}
+
 #include "moc_createnewserverstackwidget.cpp"

@@ -24,6 +24,7 @@ public:
 
     void setAccountInfo(const AccountManager::AccountManagerInfo &info);
 
+    void slotConfigureActivities();
 Q_SIGNALS:
     void settingsIsValid(bool state);
     void tryLogin();
