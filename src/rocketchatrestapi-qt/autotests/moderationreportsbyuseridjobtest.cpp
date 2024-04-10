@@ -5,8 +5,7 @@
 */
 
 #include "moderationreportsbyuseridjobtest.h"
-#include "moderation/moderationreportsbyusersjob.h"
-#include "restapimethod.h"
+#include "moderation/moderationreportsbyuseridjob.h"
 #include "ruqola_restapi_helper.h"
 QTEST_GUILESS_MAIN(ModerationReportsByUserIdJobTest)
 using namespace RocketChatRestApi;
@@ -17,33 +16,28 @@ ModerationReportsByUserIdJobTest::ModerationReportsByUserIdJobTest(QObject *pare
 
 void ModerationReportsByUserIdJobTest::shouldHaveDefaultValue()
 {
-    ModerationReportsByUsersJob job;
+    ModerationReportsByUserIdJob job;
     verifyDefaultValue(&job);
     QVERIFY(job.requireHttpAuthentication());
     QVERIFY(job.hasQueryParameterSupport());
     QVERIFY(!job.requireTwoFactorAuthentication());
-    QVERIFY(!job.moderationReportsByUsersInfo().isValid());
+    QVERIFY(job.moderationUserId().isEmpty());
 }
 
 void ModerationReportsByUserIdJobTest::shouldGenerateRequest()
 {
-    ModerationReportsByUsersJob job;
     {
-        ModerationReportsByUsersJob job;
+        ModerationReportsByUserIdJob job;
         QNetworkRequest request = QNetworkRequest(QUrl());
         verifyAuthentication(&job, request);
-        QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/v1/moderation.reportsByUsers")));
+        QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/v1/moderation.user.reportsByUserId?userId")));
     }
     {
-        ModerationReportsByUsersJob job;
+        ModerationReportsByUserIdJob job;
+        job.setModerationUserId(QByteArrayLiteral("foo"));
         QNetworkRequest request = QNetworkRequest(QUrl());
-        ModerationReportsByUsersJob::ModerationReportsByUsersInfo info;
-        info.mLatest = QDateTime(QDate(2023, 1, 5), QTime(5, 10, 3));
-        info.mOldest = QDateTime(QDate(2022, 1, 5), QTime(5, 10, 3));
-        job.setModerationReportsByUsersInfo(info);
         verifyAuthentication(&job, request);
-        QCOMPARE(request.url(),
-                 QUrl(QStringLiteral("http://www.kde.org/api/v1/moderation.reportsByUsers?oldest=2022-01-05T05:10:03&latest=2023-01-05T05:10:03")));
+        QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/v1/moderation.user.reportsByUserId?userId=foo")));
     }
 }
 
