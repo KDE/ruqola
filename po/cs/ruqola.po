@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-09 00:38+0000\n"
+"POT-Creation-Date: 2024-04-10 00:38+0000\n"
 "PO-Revision-Date: 2023-11-14 13:24+0100\n"
 "Last-Translator: Vit Pelcak <vit@pelcak.org>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
@@ -858,15 +858,15 @@ msgstr "Nepřečtená vlákna zpráv"
 msgid "Edited at %1 by %2"
 msgstr "Upravil %2 v %1"
 
-#: core/model/messagesmodel.cpp:355
-#, kde-format
-msgid "Only you can see this message"
-msgstr ""
-
-#: core/model/messagesmodel.cpp:363
+#: core/model/messagesmodel.cpp:361
 #, kde-format
 msgid "Ignored Message"
 msgstr "Ignorovaná zpráva"
+
+#: core/model/messagesmodel.cpp:370
+#, kde-format
+msgid "Only you can see this message"
+msgstr ""
 
 #: core/model/moderationreportedmessagemodel.cpp:37
 #, kde-format
@@ -2759,41 +2759,36 @@ msgstr[0] ""
 msgstr[1] ""
 msgstr[2] ""
 
-#: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:137
-#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:129
+#: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:134
 #, kde-format
 msgid "See messages"
 msgstr ""
 
-#: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:142
-#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:134
+#: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:139
+#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:135
 #, kde-format
 msgid "Dismiss reports"
 msgstr ""
 
-#: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:146
-#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:138
+#: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:143
 #, kde-format
 msgid "Delete all Messages"
 msgstr ""
 
-#: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:165
-#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:159
+#: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:163
 #, kde-format
 msgid ""
 "Are you sure you want to dismiss and delete all reports for this user's "
 "messages? This action cannot be undone."
 msgstr ""
 
-#: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:166
-#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:160
+#: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:164
 #, kde-format
 msgctxt "@title:window"
 msgid "Dismiss"
 msgstr "Zahodit"
 
-#: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:186
-#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:182
+#: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:184
 #, kde-format
 msgid ""
 "Are you sure you want to delete all reported messages from this user?\n"
@@ -2802,11 +2797,28 @@ msgid ""
 "This action cannot be undone."
 msgstr ""
 
-#: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:189
-#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:185
+#: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:187
 #, kde-format
 msgctxt "@title:window"
 msgid "Delete All Messages"
+msgstr ""
+
+#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:130
+#, fuzzy, kde-format
+#| msgid "Reports"
+msgid "See reports"
+msgstr "Hlášení"
+
+#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:156
+#, kde-format
+msgid ""
+"All reports will be deleted and the reported messages won't be affected."
+msgstr ""
+
+#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:157
+#, kde-format
+msgctxt "@title:window"
+msgid "Dismiss All Reports"
 msgstr ""
 
 #: widgets/administratordialog/moderationconsole/moderationreportinfolistview.cpp:76
@@ -6279,12 +6291,10 @@ msgid "Impossible to access to server."
 msgstr ""
 
 #: widgets/configurenewserver/configureactivitiesdialog.cpp:25
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Configure Notification"
+#, kde-format
 msgctxt "@title:window"
 msgid "Configure Activities"
-msgstr "Nastavit upozornění"
+msgstr ""
 
 #: widgets/configurenewserver/configureactivitieswidget.cpp:55
 #, kde-format

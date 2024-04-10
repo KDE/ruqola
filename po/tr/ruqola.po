@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-09 00:38+0000\n"
+"POT-Creation-Date: 2024-04-10 00:38+0000\n"
 "PO-Revision-Date: 2024-04-07 12:35+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
@@ -860,15 +860,15 @@ msgstr "Okunmamış İlmekli İletiler"
 msgid "Edited at %1 by %2"
 msgstr "%2 tarafından %1 tarihinde düzenlendi"
 
-#: core/model/messagesmodel.cpp:355
-#, kde-format
-msgid "Only you can see this message"
-msgstr "Bu iletiyi yalnızca siz görebilirsiniz"
-
-#: core/model/messagesmodel.cpp:363
+#: core/model/messagesmodel.cpp:361
 #, kde-format
 msgid "Ignored Message"
 msgstr "Yok Sayılan İleti"
+
+#: core/model/messagesmodel.cpp:370
+#, kde-format
+msgid "Only you can see this message"
+msgstr "Bu iletiyi yalnızca siz görebilirsiniz"
 
 #: core/model/moderationreportedmessagemodel.cpp:37
 #, kde-format
@@ -2747,26 +2747,23 @@ msgid_plural "%1 moderation messages (Total: %2)"
 msgstr[0] "%1 moderasyon iletisi (Toplam: %2)"
 msgstr[1] "%1 moderasyon iletisi (Toplam: %2)"
 
-#: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:137
-#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:129
+#: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:134
 #, kde-format
 msgid "See messages"
 msgstr "İletileri gör"
 
-#: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:142
-#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:134
+#: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:139
+#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:135
 #, kde-format
 msgid "Dismiss reports"
 msgstr "Raporları göz ardı et"
 
-#: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:146
-#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:138
+#: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:143
 #, kde-format
 msgid "Delete all Messages"
 msgstr "Tüm İletileri Sil"
 
-#: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:165
-#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:159
+#: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:163
 #, kde-format
 msgid ""
 "Are you sure you want to dismiss and delete all reports for this user's "
@@ -2775,15 +2772,13 @@ msgstr ""
 "Bu kullanıcının iletilerine ilişkin tüm raporları göz ardı etmek ve silmek "
 "istediğinizden emin misiniz? Bu eylem geri alınamaz."
 
-#: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:166
-#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:160
+#: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:164
 #, kde-format
 msgctxt "@title:window"
 msgid "Dismiss"
 msgstr "Göz Ardı Et"
 
-#: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:186
-#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:182
+#: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:184
 #, kde-format
 msgid ""
 "Are you sure you want to delete all reported messages from this user?\n"
@@ -2796,12 +2791,30 @@ msgstr ""
 "İletlire, ileti geçmişinden silinecek ve hiç kimse göremeyecektir.\n"
 "Bu eylem geri alınamaz."
 
-#: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:189
-#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:185
+#: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:187
 #, kde-format
 msgctxt "@title:window"
 msgid "Delete All Messages"
 msgstr "Tüm İletileri Sil"
+
+#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:130
+#, fuzzy, kde-format
+#| msgid "View Reports"
+msgid "See reports"
+msgstr "Raporları Görüntüle"
+
+#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:156
+#, kde-format
+msgid ""
+"All reports will be deleted and the reported messages won't be affected."
+msgstr ""
+
+#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:157
+#, fuzzy, kde-format
+#| msgid "Dismiss Reports"
+msgctxt "@title:window"
+msgid "Dismiss All Reports"
+msgstr "Raporları göz ardı et"
 
 #: widgets/administratordialog/moderationconsole/moderationreportinfolistview.cpp:76
 #: widgets/notificationhistory/notificationhistorylistview.cpp:83
