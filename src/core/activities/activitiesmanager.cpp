@@ -31,7 +31,11 @@ void ActivitiesManager::setEnabled(bool newEnabled)
 
 bool ActivitiesManager::isInCurrentActivity(const QStringList &lst) const
 {
-    return lst.contains(mActivitiesConsumer->currentActivity());
+    if (mActivitiesConsumer->serviceStatus() == KActivities::Consumer::ServiceStatus::Running) {
+        return lst.contains(mActivitiesConsumer->currentActivity());
+    } else {
+        return true;
+    }
 }
 
 #include "moc_activitiesmanager.cpp"
