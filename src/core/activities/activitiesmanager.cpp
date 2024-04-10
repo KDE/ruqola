@@ -6,6 +6,7 @@
 
 #include "activitiesmanager.h"
 #include "config-ruqola.h"
+#include "ruqola_plasma_activities_debug.h"
 #include "ruqolaglobalconfig.h"
 #include <PlasmaActivities/Consumer>
 ActivitiesManager::ActivitiesManager(QObject *parent)
@@ -15,6 +16,9 @@ ActivitiesManager::ActivitiesManager(QObject *parent)
     mEnabled = RuqolaGlobalConfig::self()->plasmaActivities();
     connect(mActivitiesConsumer, &KActivities::Consumer::currentActivityChanged, this, &ActivitiesManager::activitiesChanged);
     connect(mActivitiesConsumer, &KActivities::Consumer::serviceStatusChanged, this, &ActivitiesManager::activitiesChanged);
+    if (mActivitiesConsumer->serviceStatus() != KActivities::Consumer::ServiceStatus::Running) {
+        qCWarning(RUQOLA_PLASMAACTIVITIES_LOG) << "Plasma activities is not running: " << mActivitiesConsumer->serviceStatus();
+    }
 }
 
 ActivitiesManager::~ActivitiesManager() = default;
