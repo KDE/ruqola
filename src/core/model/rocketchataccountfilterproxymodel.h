@@ -29,12 +29,16 @@ public:
     void setActivitiesManager(ActivitiesManager *newActivitiesManager);
 #endif
 
+    bool filterActivities() const;
+    void setFilterActivities(bool newFilterActivities);
+
 protected:
     [[nodiscard]] bool lessThan(const QModelIndex &left, const QModelIndex &right) const override;
     [[nodiscard]] bool filterAcceptsRow(int source_row, const QModelIndex &source_parent) const override;
 
 private:
     QStringList mAccountOrder;
+    bool mFilterActivities = true;
 #if HAS_ACTIVITY_SUPPORT
     ActivitiesManager *mActivitiesManager = nullptr;
 #endif
