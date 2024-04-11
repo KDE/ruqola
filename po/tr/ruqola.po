@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-10 00:38+0000\n"
-"PO-Revision-Date: 2024-04-07 12:35+0300\n"
+"POT-Creation-Date: 2024-04-11 00:38+0000\n"
+"PO-Revision-Date: 2024-04-10 14:18+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -2763,7 +2763,30 @@ msgstr "Raporları göz ardı et"
 msgid "Delete all Messages"
 msgstr "Tüm İletileri Sil"
 
-#: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:163
+#: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:148
+#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:141
+#, fuzzy, kde-format
+#| msgid "Deactivated Users"
+msgid "Desactivate user"
+msgstr "Pasifleştirilen Kullanıcılar"
+
+#: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:161
+#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:153
+#, kde-format
+msgid ""
+"User will be unable to log in unless reactivated. All reported messages will "
+"be permanently deleted from their respective room."
+msgstr ""
+
+#: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:162
+#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:154
+#, fuzzy, kde-format
+#| msgid "Deactivated Users"
+msgctxt "@title:window"
+msgid "Desactivate User"
+msgstr "Pasifleştirilen Kullanıcılar"
+
+#: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:182
 #, kde-format
 msgid ""
 "Are you sure you want to dismiss and delete all reports for this user's "
@@ -2772,13 +2795,13 @@ msgstr ""
 "Bu kullanıcının iletilerine ilişkin tüm raporları göz ardı etmek ve silmek "
 "istediğinizden emin misiniz? Bu eylem geri alınamaz."
 
-#: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:164
+#: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:183
 #, kde-format
 msgctxt "@title:window"
 msgid "Dismiss"
 msgstr "Göz Ardı Et"
 
-#: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:184
+#: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:203
 #, kde-format
 msgid ""
 "Are you sure you want to delete all reported messages from this user?\n"
@@ -2791,30 +2814,28 @@ msgstr ""
 "İletlire, ileti geçmişinden silinecek ve hiç kimse göremeyecektir.\n"
 "Bu eylem geri alınamaz."
 
-#: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:187
+#: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:206
 #, kde-format
 msgctxt "@title:window"
 msgid "Delete All Messages"
 msgstr "Tüm İletileri Sil"
 
 #: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:130
-#, fuzzy, kde-format
-#| msgid "View Reports"
+#, kde-format
 msgid "See reports"
-msgstr "Raporları Görüntüle"
+msgstr "Raporları Gör"
 
-#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:156
+#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:175
 #, kde-format
 msgid ""
 "All reports will be deleted and the reported messages won't be affected."
-msgstr ""
+msgstr "Tüm raporlar silinecek ve raporlanan iletiler etkilenmeyecek."
 
-#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:157
-#, fuzzy, kde-format
-#| msgid "Dismiss Reports"
+#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:176
+#, kde-format
 msgctxt "@title:window"
 msgid "Dismiss All Reports"
-msgstr "Raporları göz ardı et"
+msgstr "Tüm Raporları Yok Say"
 
 #: widgets/administratordialog/moderationconsole/moderationreportinfolistview.cpp:76
 #: widgets/notificationhistory/notificationhistorylistview.cpp:83
@@ -6452,7 +6473,7 @@ msgstr "Etkinlikleri Yapılandır"
 msgid "Limit to the selected activities:"
 msgstr "Seçili etkinliklere sınırla:"
 
-#: widgets/configurenewserver/configureactivitieswidget.cpp:60
+#: widgets/configurenewserver/configureactivitieswidget.cpp:61
 #, kde-format
 msgid ""
 "If you limit this account to activity, it will be shown in Ruqola only when "
@@ -6463,13 +6484,20 @@ msgstr ""
 "görüntülenecektir. Dahası, kullanılabilir olmadığı bir etkinliğe geçerseniz "
 "kendiliğinden gizlenir."
 
-#: widgets/configurenewserver/createnewserverdialog.cpp:27
+#: widgets/configurenewserver/createnewserverdialog.cpp:29
 #, kde-format
 msgctxt "@title:window"
 msgid "Add Server"
 msgstr "Sunucu Ekle"
 
-#: widgets/configurenewserver/createnewserverdialog.cpp:59
+#: widgets/configurenewserver/createnewserverdialog.cpp:50
+#, fuzzy, kde-format
+#| msgctxt "@title:window"
+#| msgid "Configure Activities"
+msgid "Configure Activities"
+msgstr "Etkinlikleri Yapılandır"
+
+#: widgets/configurenewserver/createnewserverdialog.cpp:68
 #, kde-format
 msgctxt "@title:window"
 msgid "Modify Account"

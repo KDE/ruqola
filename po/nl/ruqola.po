@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-10 00:38+0000\n"
-"PO-Revision-Date: 2024-04-07 13:38+0200\n"
+"POT-Creation-Date: 2024-04-11 00:38+0000\n"
+"PO-Revision-Date: 2024-04-10 11:11+0200\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
 "Language: nl\n"
@@ -2786,7 +2786,30 @@ msgstr "Rapporten verwerpen"
 msgid "Delete all Messages"
 msgstr "Alle berichten verwijderen"
 
-#: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:163
+#: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:148
+#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:141
+#, fuzzy, kde-format
+#| msgid "Deactivated Users"
+msgid "Desactivate user"
+msgstr "Gedeactiveerde gebruikers"
+
+#: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:161
+#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:153
+#, kde-format
+msgid ""
+"User will be unable to log in unless reactivated. All reported messages will "
+"be permanently deleted from their respective room."
+msgstr ""
+
+#: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:162
+#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:154
+#, fuzzy, kde-format
+#| msgid "Deactivated Users"
+msgctxt "@title:window"
+msgid "Desactivate User"
+msgstr "Gedeactiveerde gebruikers"
+
+#: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:182
 #, kde-format
 msgid ""
 "Are you sure you want to dismiss and delete all reports for this user's "
@@ -2795,13 +2818,13 @@ msgstr ""
 "Weet u zeker dat u alle rapporten voor de meldingen van deze gebruiker wilt "
 "verwerpen en verwijderen? Deze actie kan niet ongedaan worden gemaakt."
 
-#: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:164
+#: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:183
 #, kde-format
 msgctxt "@title:window"
 msgid "Dismiss"
 msgstr "Verwerpen"
 
-#: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:184
+#: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:203
 #, kde-format
 msgid ""
 "Are you sure you want to delete all reported messages from this user?\n"
@@ -2815,30 +2838,30 @@ msgstr ""
 "niemand zal in staat zijn on ze te zien.\n"
 "Deze actie kan niet ongedaan worden gemaakt."
 
-#: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:187
+#: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:206
 #, kde-format
 msgctxt "@title:window"
 msgid "Delete All Messages"
 msgstr "Alle berichten verwijderen"
 
 #: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:130
-#, fuzzy, kde-format
-#| msgid "View Reports"
+#, kde-format
 msgid "See reports"
-msgstr "Rapporten bekijken"
+msgstr "Zie rapporten"
 
-#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:156
+#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:175
 #, kde-format
 msgid ""
 "All reports will be deleted and the reported messages won't be affected."
 msgstr ""
+"Alle rapporten zullen verwijderd worden en de gerapporteerde berichten "
+"zullen niet beïnvloed worden."
 
-#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:157
-#, fuzzy, kde-format
-#| msgid "Dismiss Reports"
+#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:176
+#, kde-format
 msgctxt "@title:window"
 msgid "Dismiss All Reports"
-msgstr "Rapporten verwerpen"
+msgstr "Alle rapporten verwerpen"
 
 #: widgets/administratordialog/moderationconsole/moderationreportinfolistview.cpp:76
 #: widgets/notificationhistory/notificationhistorylistview.cpp:83
@@ -6505,7 +6528,7 @@ msgstr "Activiteiten configureren"
 msgid "Limit to the selected activities:"
 msgstr "Tot de geselecteerde activiteiten beperken:"
 
-#: widgets/configurenewserver/configureactivitieswidget.cpp:60
+#: widgets/configurenewserver/configureactivitieswidget.cpp:61
 #, kde-format
 msgid ""
 "If you limit this account to activity, it will be shown in Ruqola only when "
@@ -6517,13 +6540,20 @@ msgstr ""
 "omschakelt naar een activiteit waarin het niet beschikbaar zou moeten zijn, "
 "dan zal het automatisch verborgen worden."
 
-#: widgets/configurenewserver/createnewserverdialog.cpp:27
+#: widgets/configurenewserver/createnewserverdialog.cpp:29
 #, kde-format
 msgctxt "@title:window"
 msgid "Add Server"
 msgstr "Server toevoegen"
 
-#: widgets/configurenewserver/createnewserverdialog.cpp:59
+#: widgets/configurenewserver/createnewserverdialog.cpp:50
+#, fuzzy, kde-format
+#| msgctxt "@title:window"
+#| msgid "Configure Activities"
+msgid "Configure Activities"
+msgstr "Activiteiten configureren"
+
+#: widgets/configurenewserver/createnewserverdialog.cpp:68
 #, kde-format
 msgctxt "@title:window"
 msgid "Modify Account"

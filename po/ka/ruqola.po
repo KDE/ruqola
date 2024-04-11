@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-10 00:38+0000\n"
-"PO-Revision-Date: 2024-04-07 03:22+0200\n"
+"POT-Creation-Date: 2024-04-11 00:38+0000\n"
+"PO-Revision-Date: 2024-04-10 04:49+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -2776,7 +2776,30 @@ msgstr "ანგარიშების გაუქმება"
 msgid "Delete all Messages"
 msgstr "ყველა შეტყობინების წაშლა"
 
-#: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:163
+#: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:148
+#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:141
+#, fuzzy, kde-format
+#| msgid "Deactivated Users"
+msgid "Desactivate user"
+msgstr "დეაქტივირებული მომხმრებლები"
+
+#: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:161
+#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:153
+#, kde-format
+msgid ""
+"User will be unable to log in unless reactivated. All reported messages will "
+"be permanently deleted from their respective room."
+msgstr ""
+
+#: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:162
+#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:154
+#, fuzzy, kde-format
+#| msgid "Deactivated Users"
+msgctxt "@title:window"
+msgid "Desactivate User"
+msgstr "დეაქტივირებული მომხმრებლები"
+
+#: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:182
 #, kde-format
 msgid ""
 "Are you sure you want to dismiss and delete all reports for this user's "
@@ -2785,13 +2808,13 @@ msgstr ""
 "დარწმუნებული ბრძანდებით, რომ გნებავთ, მოაცილოთ და წაშალოთ ყველა ანგარიში ამ "
 "მომხმარებლის შეტყობინებებისთვის? ეს ქმედება შეუქცევადია."
 
-#: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:164
+#: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:183
 #, kde-format
 msgctxt "@title:window"
 msgid "Dismiss"
 msgstr "მოცილება"
 
-#: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:184
+#: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:203
 #, kde-format
 msgid ""
 "Are you sure you want to delete all reported messages from this user?\n"
@@ -2805,30 +2828,28 @@ msgstr ""
 "დაინახავს.\n"
 "ქმედება შეუქცევადია."
 
-#: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:187
+#: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:206
 #, kde-format
 msgctxt "@title:window"
 msgid "Delete All Messages"
 msgstr "ყველა შეტყობინების წაშლა"
 
 #: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:130
-#, fuzzy, kde-format
-#| msgid "View Reports"
+#, kde-format
 msgid "See reports"
 msgstr "ანგარიშების ნახვა"
 
-#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:156
+#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:175
 #, kde-format
 msgid ""
 "All reports will be deleted and the reported messages won't be affected."
-msgstr ""
+msgstr "ყველა ანგარიში წაიშლება და დასახელებული შეტყობინებები არ შეიცვლება."
 
-#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:157
-#, fuzzy, kde-format
-#| msgid "Dismiss Reports"
+#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:176
+#, kde-format
 msgctxt "@title:window"
 msgid "Dismiss All Reports"
-msgstr "ანგარიშების გაუქმება"
+msgstr "ყველა ანგარიშის გაუქმება"
 
 #: widgets/administratordialog/moderationconsole/moderationreportinfolistview.cpp:76
 #: widgets/notificationhistory/notificationhistorylistview.cpp:83
@@ -6463,7 +6484,7 @@ msgstr "აქტივობების მორგება"
 msgid "Limit to the selected activities:"
 msgstr "მონიშნულ ქმედებებზე შეზღუდვა:"
 
-#: widgets/configurenewserver/configureactivitieswidget.cpp:60
+#: widgets/configurenewserver/configureactivitieswidget.cpp:61
 #, kde-format
 msgid ""
 "If you limit this account to activity, it will be shown in Ruqola only when "
@@ -6474,13 +6495,20 @@ msgstr ""
 "რომ იმ აქტივობებში ბრძანდებით. უფრო მეტიც კი, როცა გადაერთვებით აქტივობაზე, "
 "სადაც ის ხელმისაწვდომი არ უნდა იყოს, ის ავტომატურად დაიმალება."
 
-#: widgets/configurenewserver/createnewserverdialog.cpp:27
+#: widgets/configurenewserver/createnewserverdialog.cpp:29
 #, kde-format
 msgctxt "@title:window"
 msgid "Add Server"
 msgstr "სერვერის დამატება"
 
-#: widgets/configurenewserver/createnewserverdialog.cpp:59
+#: widgets/configurenewserver/createnewserverdialog.cpp:50
+#, fuzzy, kde-format
+#| msgctxt "@title:window"
+#| msgid "Configure Activities"
+msgid "Configure Activities"
+msgstr "აქტივობების მორგება"
+
+#: widgets/configurenewserver/createnewserverdialog.cpp:68
 #, kde-format
 msgctxt "@title:window"
 msgid "Modify Account"

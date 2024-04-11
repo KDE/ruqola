@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-10 00:38+0000\n"
+"POT-Creation-Date: 2024-04-11 00:38+0000\n"
 "PO-Revision-Date: 2024-04-06 18:10+0200\n"
 "Last-Translator: Víctor Rodrigo Córdoba <vrcordoba@gmail.com>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
@@ -2786,7 +2786,30 @@ msgstr "Descartar reportes"
 msgid "Delete all Messages"
 msgstr "Borrar todos los mensajes"
 
-#: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:163
+#: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:148
+#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:141
+#, fuzzy, kde-format
+#| msgid "Deactivated Users"
+msgid "Desactivate user"
+msgstr "Usuarios desactivados"
+
+#: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:161
+#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:153
+#, kde-format
+msgid ""
+"User will be unable to log in unless reactivated. All reported messages will "
+"be permanently deleted from their respective room."
+msgstr ""
+
+#: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:162
+#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:154
+#, fuzzy, kde-format
+#| msgid "Deactivated Users"
+msgctxt "@title:window"
+msgid "Desactivate User"
+msgstr "Usuarios desactivados"
+
+#: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:182
 #, kde-format
 msgid ""
 "Are you sure you want to dismiss and delete all reports for this user's "
@@ -2795,13 +2818,13 @@ msgstr ""
 "¿Está seguro de querer descartar y borrar todos los reportes de los mensajes "
 "de este usuario? Esta acción no se puede deshacer."
 
-#: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:164
+#: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:183
 #, kde-format
 msgctxt "@title:window"
 msgid "Dismiss"
 msgstr "Descartar"
 
-#: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:184
+#: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:203
 #, kde-format
 msgid ""
 "Are you sure you want to delete all reported messages from this user?\n"
@@ -2815,7 +2838,7 @@ msgstr ""
 "verlos.\n"
 "Esta acción no se puede deshacer."
 
-#: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:187
+#: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:206
 #, kde-format
 msgctxt "@title:window"
 msgid "Delete All Messages"
@@ -2827,13 +2850,13 @@ msgstr "Borrar todos los mensajes"
 msgid "See reports"
 msgstr "Ver reportes"
 
-#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:156
+#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:175
 #, kde-format
 msgid ""
 "All reports will be deleted and the reported messages won't be affected."
 msgstr ""
 
-#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:157
+#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:176
 #, fuzzy, kde-format
 #| msgid "Dismiss Reports"
 msgctxt "@title:window"
@@ -6503,7 +6526,7 @@ msgstr "Configurar actividades"
 msgid "Limit to the selected activities:"
 msgstr ""
 
-#: widgets/configurenewserver/configureactivitieswidget.cpp:60
+#: widgets/configurenewserver/configureactivitieswidget.cpp:61
 #, kde-format
 msgid ""
 "If you limit this account to activity, it will be shown in Ruqola only when "
@@ -6511,13 +6534,20 @@ msgid ""
 "should not be available in, it will automatically be hidden."
 msgstr ""
 
-#: widgets/configurenewserver/createnewserverdialog.cpp:27
+#: widgets/configurenewserver/createnewserverdialog.cpp:29
 #, kde-format
 msgctxt "@title:window"
 msgid "Add Server"
 msgstr "Añadir servidor"
 
-#: widgets/configurenewserver/createnewserverdialog.cpp:59
+#: widgets/configurenewserver/createnewserverdialog.cpp:50
+#, fuzzy, kde-format
+#| msgctxt "@title:window"
+#| msgid "Configure Activities"
+msgid "Configure Activities"
+msgstr "Configurar actividades"
+
+#: widgets/configurenewserver/createnewserverdialog.cpp:68
 #, kde-format
 msgctxt "@title:window"
 msgid "Modify Account"
