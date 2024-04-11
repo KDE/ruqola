@@ -51,7 +51,11 @@ AdministratorOauthEditWidget::AdministratorOauthEditWidget(QWidget *parent)
 
     connect(mApplicationName, &QLineEdit::textEdited, this, &AdministratorOauthEditWidget::slotChanged);
     connect(mRedirectUrl, &QLineEdit::textEdited, this, &AdministratorOauthEditWidget::slotChanged);
+#if QT_VERSION < QT_VERSION_CHECK(6, 7, 0)
     connect(mActiveCheckBox, &QCheckBox::stateChanged, this, &AdministratorOauthEditWidget::slotChanged);
+#else
+    connect(mActiveCheckBox, &QCheckBox::checkStateChanged, this, &AdministratorOauthEditWidget::slotChanged);
+#endif
 }
 
 AdministratorOauthEditWidget::~AdministratorOauthEditWidget() = default;
