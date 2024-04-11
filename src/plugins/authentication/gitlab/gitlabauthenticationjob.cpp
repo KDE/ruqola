@@ -54,7 +54,7 @@ void GitLabAuthenticationJob::start()
     mOAuth2->setToken(mGitLabInfo.token);
     mOAuth2->setRefreshToken(mGitLabInfo.refreshToken);
 
-    QObject::connect(mOAuth2, &QOAuth2AuthorizationCodeFlow::statusChanged, [this](QAbstractOAuth::Status status) {
+    QObject::connect(mOAuth2, &QOAuth2AuthorizationCodeFlow::statusChanged, this, [this](QAbstractOAuth::Status status) {
         qCDebug(RUQOLA_GITLABAUTHENTICATION_PLUGIN_LOG)
             << (int)status << mOAuth2->token() << mOAuth2->refreshToken() << mOAuth2->expirationAt() << mOAuth2->extraTokens();
         if (status == QAbstractOAuth::Status::Granted) {
@@ -66,13 +66,13 @@ void GitLabAuthenticationJob::start()
                                &QOAuth2AuthorizationCodeFlow::refreshAccessToken);
         }
     });
-    QObject::connect(mOAuth2, &QOAuth2AuthorizationCodeFlow::authorizationCallbackReceived, [](const QVariantMap &m) {
+    QObject::connect(mOAuth2, &QOAuth2AuthorizationCodeFlow::authorizationCallbackReceived, this, [](const QVariantMap &m) {
         qCDebug(RUQOLA_GITLABAUTHENTICATION_PLUGIN_LOG) << "auth callback received" << m;
     });
-    QObject::connect(mOAuth2, &QOAuth2AuthorizationCodeFlow::error, [](const QString &err, const QString &desc) {
+    QObject::connect(mOAuth2, &QOAuth2AuthorizationCodeFlow::error, this, [](const QString &err, const QString &desc) {
         qCDebug(RUQOLA_GITLABAUTHENTICATION_PLUGIN_LOG) << "error" << err << desc;
     });
-    QObject::connect(mOAuth2, &QOAuth2AuthorizationCodeFlow::authorizeWithBrowser, &QDesktopServices::openUrl);
+    QObject::connect(mOAuth2, &QOAuth2AuthorizationCodeFlow::authorizeWithBrowser, this, &QDesktopServices::openUrl);
 
     if (mOAuth2->refreshToken().isEmpty()) {
         mOAuth2->grant();
