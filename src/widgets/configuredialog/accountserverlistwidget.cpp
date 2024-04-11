@@ -42,6 +42,7 @@ void AccountServerListWidget::load()
         info.authMethodType = account->authMethodType();
         info.token = account->authToken();
         info.userId = account->userId();
+        info.activities = account->activities();
         item->setToolTip(info.serverUrl);
         item->setNewAccount(false);
         item->setCheckState(account->accountEnabled() ? Qt::Checked : Qt::Unchecked);
