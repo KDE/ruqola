@@ -174,18 +174,19 @@ void LocalMessageDatabaseTest::shouldExtractSpecificNumberOfMessages_data()
     QTest::addRow("timestand-start1") << static_cast<qint64>(1623100790000) << static_cast<qint64>(-1) << static_cast<qint64>(0) << static_cast<qint64>(0);
     QTest::addRow("timestand-start2") << static_cast<qint64>(1623100790000) << static_cast<qint64>(-1) << static_cast<qint64>(1) << static_cast<qint64>(1);
     QTest::addRow("timestand-start3") << static_cast<qint64>(1623100790000) << static_cast<qint64>(-1) << static_cast<qint64>(2) << static_cast<qint64>(2);
-    QTest::addRow("timestand-start4") << static_cast<qint64>(1623100790000) << static_cast<qint64>(-1) << static_cast<qint64>(10) << static_cast<qint64>(2);
-    QTest::addRow("timestand-start5") << static_cast<qint64>(1623100790000) << static_cast<qint64>(-1) << (qint64)3 << static_cast<qint64>(2);
+    QTest::addRow("timestand-start4") << static_cast<qint64>(1623107990000) << static_cast<qint64>(-1) << static_cast<qint64>(10) << static_cast<qint64>(2);
+    QTest::addRow("timestand-start5") << static_cast<qint64>(1623107990000) << static_cast<qint64>(-1) << (qint64)3 << static_cast<qint64>(2);
 
     // Start 1623099710000 end 1623100850000
-    QTest::addRow("timestand-start1-end1") << static_cast<qint64>(1623099710000) << static_cast<qint64>(1623099710000) << static_cast<qint64>(5)
+    QTest::addRow("timestand-start1-end1") << static_cast<qint64>(1623108050000) << static_cast<qint64>(1623108050100) << static_cast<qint64>(5)
                                            << static_cast<qint64>(1);
-    QTest::addRow("timestand-start1-end2") << static_cast<qint64>(1623099710000) << static_cast<qint64>(1623100850000) << static_cast<qint64>(30)
+    QTest::addRow("timestand-start1-end2") << static_cast<qint64>(1623106910000) << static_cast<qint64>(1623108050100) << static_cast<qint64>(30)
                                            << static_cast<qint64>(20);
 
     // End
-    QTest::addRow("timestand-end1") << static_cast<qint64>(-1) << static_cast<qint64>(1623099710000) << static_cast<qint64>(5) << static_cast<qint64>(1);
-    QTest::addRow("timestand-end3") << static_cast<qint64>(-1) << (qint64)(QDateTime(QDate(2021, 6, 7), QTime(23, 1 + 3, 50)).toMSecsSinceEpoch())
+    QTest::addRow("timestand-end1") << static_cast<qint64>(-1) << static_cast<qint64>(1623106910000) << static_cast<qint64>(5) << static_cast<qint64>(1);
+    QTest::addRow("timestand-end3") << static_cast<qint64>(-1)
+                                    << (qint64)(QDateTime(QDate(2021, 6, 7), QTime(23, 1 + 3, 50), QTimeZone::UTC).toMSecsSinceEpoch())
                                     << static_cast<qint64>(5) << (qint64)4;
 }
 
@@ -202,7 +203,8 @@ void LocalMessageDatabaseTest::shouldExtractSpecificNumberOfMessages()
         Message message1;
         message1.setText(QString::fromUtf8("Message text: %1").arg(i));
         message1.setUsername(QString::fromUtf8("Hervé %1").arg(i));
-        message1.setTimeStamp(QDateTime(QDate(2021, 6, 7), QTime(23, 1 + i, 50)).toMSecsSinceEpoch());
+        const auto value = QDateTime(QDate(2021, 6, 7), QTime(23, 1 + i, 50), QTimeZone::UTC).toMSecsSinceEpoch();
+        message1.setTimeStamp(value);
         message1.setMessageId(QStringLiteral("msg-%1").arg(i).toLatin1());
         logger.addMessage(accountName(), roomName(), message1);
     }
