@@ -186,8 +186,9 @@ void UserTest::shouldParseRestApiJson_data()
         expected.setUtcOffset(0);
         expected.setRoles({QStringLiteral("user")}, {});
         QDateTime createdTime;
-        createdTime.setDate(QDate(2020, 10, 05));
-        createdTime.setTime(QTime(00, 48, 01, 903));
+        createdTime.setDate(QDate(2020, 10, 04));
+        createdTime.setTime(QTime(22, 48, 01, 903));
+        createdTime.setTimeZone(QTimeZone::UTC);
         expected.setCreatedAt(createdTime);
         expected.setLastLogin(QDateTime());
         QTest::newRow("userrestapi1") << QStringLiteral("userrestapi") << expected;
@@ -201,12 +202,15 @@ void UserTest::shouldParseRestApiJson_data()
         expected.setUtcOffset(2);
         expected.setRoles({QStringLiteral("user"), QStringLiteral("admin")}, {});
         QDateTime createdTime;
+        createdTime.setTimeZone(QTimeZone::UTC);
         createdTime.setDate(QDate(2018, 01, 18));
-        createdTime.setTime(QTime(12, 52, 50, 772));
+        createdTime.setTime(QTime(11, 52, 50, 772));
+
         expected.setCreatedAt(createdTime);
         QDateTime lastLogin;
+        lastLogin.setTimeZone(QTimeZone::UTC);
         lastLogin.setDate(QDate(2020, 10, 12));
-        lastLogin.setTime(QTime(02, 26, 27, 324));
+        lastLogin.setTime(QTime(00, 26, 27, 324));
         expected.setLastLogin(lastLogin);
         User::UserEmailsInfo info;
         info.email = QStringLiteral("bla@kde.com");

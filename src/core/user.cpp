@@ -13,6 +13,7 @@
 
 #include <QJsonArray>
 #include <QJsonObject>
+#include <QTimeZone>
 
 User::User() = default;
 
@@ -143,10 +144,10 @@ void User::parseUserRestApi(const QJsonObject &object, const QList<RoleInfo> &ro
     }
     setRoles(roles, roleInfo);
     if (object.contains(QLatin1StringView("createdAt"))) {
-        setCreatedAt(QDateTime::fromMSecsSinceEpoch(Utils::parseIsoDate(QStringLiteral("createdAt"), object)));
+        setCreatedAt(QDateTime::fromMSecsSinceEpoch(Utils::parseIsoDate(QStringLiteral("createdAt"), object), QTimeZone::UTC));
     }
     if (object.contains(QLatin1StringView("lastLogin"))) {
-        setLastLogin(QDateTime::fromMSecsSinceEpoch(Utils::parseIsoDate(QStringLiteral("lastLogin"), object)));
+        setLastLogin(QDateTime::fromMSecsSinceEpoch(Utils::parseIsoDate(QStringLiteral("lastLogin"), object), QTimeZone::UTC));
     }
     if (object.contains(QLatin1StringView("emails"))) {
         const QJsonArray emails = object.value(QStringLiteral("emails")).toArray();
