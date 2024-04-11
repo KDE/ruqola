@@ -7,6 +7,7 @@
 #include "rocketchataccountfilterproxymodel.h"
 #include "config-ruqola.h"
 #include "rocketchataccountmodel.h"
+#include "ruqola_plasma_activities_debug.h"
 #if HAS_ACTIVITY_SUPPORT
 #include "activities/activitiesmanager.h"
 #endif
@@ -44,7 +45,10 @@ void RocketChatAccountFilterProxyModel::setActivitiesManager(ActivitiesManager *
 {
     mActivitiesManager = newActivitiesManager;
     if (mActivitiesManager) {
-        connect(mActivitiesManager, &ActivitiesManager::activitiesChanged, this, &RocketChatAccountFilterProxyModel::invalidateFilter);
+        connect(mActivitiesManager, &ActivitiesManager::activitiesChanged, this, [this]() {
+            qCDebug(RUQOLA_PLASMAACTIVITIES_LOG) << " invalidate filter";
+            invalidateFilter();
+        });
     }
 }
 #endif

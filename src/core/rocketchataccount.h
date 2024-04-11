@@ -530,6 +530,8 @@ public:
                             const QByteArray &roomId,
                             const QByteArray &messageId);
 
+    void setActivities(const QStringList &activities);
+
 Q_SIGNALS:
     void roomRemoved(const QByteArray &roomId);
     void disabledTotpValid(bool checked);

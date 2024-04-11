@@ -14,7 +14,10 @@ ActivitiesManager::ActivitiesManager(QObject *parent)
     , mActivitiesConsumer(new KActivities::Consumer(this))
 {
     mEnabled = RuqolaGlobalConfig::self()->plasmaActivities();
-    connect(mActivitiesConsumer, &KActivities::Consumer::currentActivityChanged, this, &ActivitiesManager::activitiesChanged);
+    connect(mActivitiesConsumer, &KActivities::Consumer::currentActivityChanged, this, [this](const QString &activityId) {
+        qCDebug(RUQOLA_PLASMAACTIVITIES_LOG) << " switch to activity " << activityId;
+        Q_EMIT activitiesChanged();
+    });
     connect(mActivitiesConsumer, &KActivities::Consumer::serviceStatusChanged, this, &ActivitiesManager::activitiesChanged);
     if (mActivitiesConsumer->serviceStatus() != KActivities::Consumer::ServiceStatus::Running) {
         qCWarning(RUQOLA_PLASMAACTIVITIES_LOG) << "Plasma activities is not running: " << mActivitiesConsumer->serviceStatus();

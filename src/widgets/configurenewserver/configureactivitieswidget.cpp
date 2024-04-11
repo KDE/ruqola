@@ -82,6 +82,9 @@ ConfigureActivitiesWidget::~ConfigureActivitiesWidget() = default;
 
 QStringList ConfigureActivitiesWidget::activities() const
 {
+    if (!mEnableActivitiesSupport->isChecked()) {
+        return {};
+    }
     const auto selection = mListView->selectionModel();
     const auto selected = selection->selectedIndexes();
     QStringList selectedActivities;
@@ -100,6 +103,7 @@ void ConfigureActivitiesWidget::setActivities(const QStringList &lst)
 
     bool listIsEmpty{lst.isEmpty()};
     mListView->setEnabled(!listIsEmpty);
+    mEnableActivitiesSupport->setChecked(!listIsEmpty);
     if (!listIsEmpty) {
         for (int row = 0; row < model->rowCount(); ++row) {
             const auto index = model->index(row, 0);

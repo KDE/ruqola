@@ -1633,6 +1633,11 @@ void RocketChatAccount::setTwoFactorAuthenticationCode(const QString &twoFactorA
     settings()->setTwoFactorAuthenticationCode(twoFactorAuthenticationCode);
 }
 
+void RocketChatAccount::setActivities(const QStringList &activities)
+{
+    settings()->setActivities(activities);
+}
+
 void RocketChatAccount::setAccountEnabled(bool enabled)
 {
     settings()->setAccountEnabled(enabled);

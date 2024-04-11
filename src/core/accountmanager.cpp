@@ -836,6 +836,7 @@ void AccountManager::addAccount(const AccountManagerInfo &info)
     account->setAccountName(newAccountName);
     account->setServerUrl(info.serverUrl);
     account->setAccountEnabled(info.enabled);
+    account->setActivities(info.activities);
     if (info.authMethodType == AuthenticationManager::AuthMethodType::Password) {
         account->setUserName(info.userName);
         account->setPassword(info.password);
@@ -864,6 +865,7 @@ void AccountManager::modifyAccount(const AccountManagerInfo &info)
         account->setServerUrl(info.serverUrl);
         account->setAccountEnabled(info.enabled);
         account->setAuthMethodType(info.authMethodType);
+        account->setActivities(info.activities);
         if (info.authMethodType == AuthenticationManager::AuthMethodType::Password) {
             account->setUserName(info.userName);
             // TODO add password ???
