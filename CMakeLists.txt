@@ -48,9 +48,9 @@ option(OPTION_USE_PLASMA_ACTIVITIES "Activate plasma activities (experimental)" 
 
 if (OPTION_USE_PLASMA_ACTIVITIES)
     if (NOT WIN32 AND NOT APPLE)
-       set(HAS_ACTIVITY_SUPPORT true)
+       set(OPTION_USE_PLASMA_ACTIVITIES true)
     else()
-       set(HAS_ACTIVITY_SUPPORT false)
+       set(OPTION_USE_PLASMA_ACTIVITIES false)
     endif()
 endif()    
 
@@ -123,11 +123,16 @@ if (OPTION_USE_PLASMA_ACTIVITIES)
     endif()
 endif()	
 
+if (TARGET Plasma::Activities)
+    set(HAS_ACTIVITY_SUPPORT TRUE)
+endif()
+
 find_package(KF6TextTranslator ${KTEXTADDONS_MIN_VERSION} CONFIG)
 set_package_properties(KF6TextTranslator PROPERTIES DESCRIPTION
     "Add support for text translation (ktextaddons)"
     TYPE OPTIONAL
 )
+
 if (TARGET KF6::TextTranslator)
     set(HAVE_TEXT_TRANSLATOR TRUE)
 endif()
