@@ -6,7 +6,7 @@ Dependencies:
   'require':
     'third-party/qtkeychain': '@latest'
 
-- 'on': ['Linux/Qt6', 'FreeBSD/Qt6', 'Windows/Qt6']
+- 'on': ['Linux', 'FreeBSD', 'Windows']
   'require':
     'frameworks/extra-cmake-modules': '@latest-qt6'
     'frameworks/kcoreaddons': '@latest-kf6'
