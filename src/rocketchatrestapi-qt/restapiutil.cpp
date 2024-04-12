@@ -580,6 +580,8 @@ QString RestApiUtil::restUrl(RestApiUtil::RestApiUrlType type)
         return QStringLiteral("moderation.userReports");
     case RestApiUtil::RestApiUrlType::ModerationUserReportsByUserId:
         return QStringLiteral("moderation.user.reportsByUserId");
+    case RestApiUtil::RestApiUrlType::ModerationDismissUserReports:
+        return QStringLiteral("moderation.dismissUserReports");
 
     case RestApiUtil::RestApiUrlType::RoomsNameExists:
         return QStringLiteral("rooms.nameExists");

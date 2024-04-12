@@ -366,6 +366,8 @@ void RestApiMethodTest::shouldGenerateUrl()
     QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::ModerationUserReports), QUrl(QStringLiteral("http://www.kde.org/api/v1/moderation.userReports")));
     QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::ModerationUserReportsByUserId),
              QUrl(QStringLiteral("http://www.kde.org/api/v1/moderation.user.reportsByUserId")));
+    QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::ModerationDismissUserReports),
+             QUrl(QStringLiteral("http://www.kde.org/api/v1/moderation.dismissUserReports")));
 
     QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::RoomsNameExists), QUrl(QStringLiteral("http://www.kde.org/api/v1/rooms.nameExists")));
 

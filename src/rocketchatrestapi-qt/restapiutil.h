@@ -340,6 +340,7 @@ enum class RestApiUrlType {
     ModerationReportInfo,
     ModerationUserReports,
     ModerationUserReportsByUserId,
+    ModerationDismissUserReports,
 
     // Proxy
     MethodCall,
