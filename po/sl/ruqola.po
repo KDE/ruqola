@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-11 00:38+0000\n"
-"PO-Revision-Date: 2024-04-10 07:28+0200\n"
+"POT-Creation-Date: 2024-04-12 00:37+0000\n"
+"PO-Revision-Date: 2024-04-11 07:27+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
@@ -1368,12 +1368,12 @@ msgstr "<strong>%1</strong> vnaša ..."
 msgid "<strong>%1</strong> are typing..."
 msgstr "<strong>%1</strong> vnašajo …"
 
-#: core/rocketchataccount.cpp:2889
+#: core/rocketchataccount.cpp:2894
 #, kde-format
 msgid "Export Messages"
 msgstr "Izvozi sporočila"
 
-#: core/rocketchataccount.cpp:2890
+#: core/rocketchataccount.cpp:2895
 #, kde-format
 msgid "Your email has been queued for sending."
 msgstr "Vaša e-pošta je čakala v čakalni vrsti za pošiljanje."
@@ -1457,17 +1457,17 @@ msgstr "Večkanalno"
 msgid "Missing translator info. It's a bug"
 msgstr "Manjkajoče informacije o prevajalcu. To je programska napaka"
 
-#: core/user.cpp:204
+#: core/user.cpp:205
 #, kde-format
 msgid "User"
 msgstr "Uporabnik"
 
-#: core/user.cpp:206 widgets/ruqolamainwindow.cpp:490
+#: core/user.cpp:207 widgets/ruqolamainwindow.cpp:490
 #, kde-format
 msgid "Administrator"
 msgstr "Skrbnik"
 
-#: core/user.cpp:208
+#: core/user.cpp:209
 #, kde-format
 msgid "Bot"
 msgstr "Bot"
@@ -2792,10 +2792,9 @@ msgstr "Izbriši vsa sporočila"
 
 #: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:148
 #: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:141
-#, fuzzy, kde-format
-#| msgid "Deactivated Users"
+#, kde-format
 msgid "Desactivate user"
-msgstr "Deaktivirani uporabniki"
+msgstr "Deaktiviraj uporabnika"
 
 #: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:161
 #: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:153
@@ -2804,14 +2803,15 @@ msgid ""
 "User will be unable to log in unless reactivated. All reported messages will "
 "be permanently deleted from their respective room."
 msgstr ""
+"Uporabnik se ne bo mogel prijaviti, razen če bo ponovno aktiviran. Vsa "
+"prijavljena sporočila bodo trajno izbrisana iz njihove sobe."
 
 #: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:162
 #: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:154
-#, fuzzy, kde-format
-#| msgid "Deactivated Users"
+#, kde-format
 msgctxt "@title:window"
 msgid "Desactivate User"
-msgstr "Deaktivirani uporabniki"
+msgstr "Deaktiviraj uporabnika"
 
 #: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:182
 #, kde-format
@@ -6523,9 +6523,7 @@ msgid "Add Server"
 msgstr "Dodaj strežnik"
 
 #: widgets/configurenewserver/createnewserverdialog.cpp:50
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Configure Activities"
+#, kde-format
 msgid "Configure Activities"
 msgstr "Konfiguriraj dejavnosti"
 

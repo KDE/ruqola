@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-11 00:38+0000\n"
-"PO-Revision-Date: 2024-04-08 12:14+0200\n"
+"POT-Creation-Date: 2024-04-12 00:37+0000\n"
+"PO-Revision-Date: 2024-04-11 12:14+0200\n"
 "Last-Translator: giovanni <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
 "Language: ia\n"
@@ -1353,12 +1353,12 @@ msgstr "<strong>%1</strong> es typante ..."
 msgid "<strong>%1</strong> are typing..."
 msgstr "<strong>%1</strong> es typante..."
 
-#: core/rocketchataccount.cpp:2889
+#: core/rocketchataccount.cpp:2894
 #, kde-format
 msgid "Export Messages"
 msgstr "Exporta Messages "
 
-#: core/rocketchataccount.cpp:2890
+#: core/rocketchataccount.cpp:2895
 #, kde-format
 msgid "Your email has been queued for sending."
 msgstr "Tu e-posta ha essite ponite in cauda pro inviar."
@@ -1442,17 +1442,17 @@ msgstr "Omnicanal"
 msgid "Missing translator info. It's a bug"
 msgstr "Mancante information de traductor. Il es un bug"
 
-#: core/user.cpp:204
+#: core/user.cpp:205
 #, kde-format
 msgid "User"
 msgstr "Usator"
 
-#: core/user.cpp:206 widgets/ruqolamainwindow.cpp:490
+#: core/user.cpp:207 widgets/ruqolamainwindow.cpp:490
 #, kde-format
 msgid "Administrator"
 msgstr "Administrator"
 
-#: core/user.cpp:208
+#: core/user.cpp:209
 #, kde-format
 msgid "Bot"
 msgstr "Bot(Robot)"
@@ -2781,10 +2781,9 @@ msgstr "Dele omne Messages"
 
 #: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:148
 #: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:141
-#, fuzzy, kde-format
-#| msgid "Deactivated Users"
+#, kde-format
 msgid "Desactivate user"
-msgstr "Deactiva Usatores"
+msgstr "Deactiva Usator"
 
 #: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:161
 #: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:153
@@ -2796,11 +2795,10 @@ msgstr ""
 
 #: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:162
 #: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:154
-#, fuzzy, kde-format
-#| msgid "Deactivated Users"
+#, kde-format
 msgctxt "@title:window"
 msgid "Desactivate User"
-msgstr "Deactiva Usatores"
+msgstr "Deactiva Usator"
 
 #: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:182
 #, kde-format
@@ -2831,8 +2829,7 @@ msgid "Delete All Messages"
 msgstr "Dele omne Messages"
 
 #: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:130
-#, fuzzy, kde-format
-#| msgid "View Reports"
+#, kde-format
 msgid "See reports"
 msgstr "Vide Reportos"
 
@@ -2843,11 +2840,10 @@ msgid ""
 msgstr ""
 
 #: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:176
-#, fuzzy, kde-format
-#| msgid "Dismiss Reports"
+#, kde-format
 msgctxt "@title:window"
 msgid "Dismiss All Reports"
-msgstr "Abbandona Reportos"
+msgstr "Abbandona Omne Reportos"
 
 #: widgets/administratordialog/moderationconsole/moderationreportinfolistview.cpp:76
 #: widgets/notificationhistory/notificationhistorylistview.cpp:83
@@ -6352,9 +6348,7 @@ msgid "Add Server"
 msgstr "Adde Servitor"
 
 #: widgets/configurenewserver/createnewserverdialog.cpp:50
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Configure Activities"
+#, kde-format
 msgid "Configure Activities"
 msgstr "Configura Activitates"
 

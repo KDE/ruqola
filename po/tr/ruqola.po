@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-11 00:38+0000\n"
-"PO-Revision-Date: 2024-04-10 14:18+0300\n"
+"POT-Creation-Date: 2024-04-12 00:37+0000\n"
+"PO-Revision-Date: 2024-04-11 11:41+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -1356,12 +1356,12 @@ msgstr "<strong>%1</strong> yazıyor…"
 msgid "<strong>%1</strong> are typing..."
 msgstr "<strong>%1</strong> yazıyor…"
 
-#: core/rocketchataccount.cpp:2889
+#: core/rocketchataccount.cpp:2894
 #, kde-format
 msgid "Export Messages"
 msgstr "İletileri Dışa Aktar"
 
-#: core/rocketchataccount.cpp:2890
+#: core/rocketchataccount.cpp:2895
 #, kde-format
 msgid "Your email has been queued for sending."
 msgstr "E-postanız, gönderme için kuyruğa eklendi."
@@ -1445,17 +1445,17 @@ msgstr "Tek Kanal"
 msgid "Missing translator info. It's a bug"
 msgstr "Çevirmen bilgisi eksik. Bu bir hata"
 
-#: core/user.cpp:204
+#: core/user.cpp:205
 #, kde-format
 msgid "User"
 msgstr "Kullanıcı"
 
-#: core/user.cpp:206 widgets/ruqolamainwindow.cpp:490
+#: core/user.cpp:207 widgets/ruqolamainwindow.cpp:490
 #, kde-format
 msgid "Administrator"
 msgstr "Yönetici"
 
-#: core/user.cpp:208
+#: core/user.cpp:209
 #, kde-format
 msgid "Bot"
 msgstr "Bot"
@@ -2765,10 +2765,9 @@ msgstr "Tüm İletileri Sil"
 
 #: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:148
 #: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:141
-#, fuzzy, kde-format
-#| msgid "Deactivated Users"
+#, kde-format
 msgid "Desactivate user"
-msgstr "Pasifleştirilen Kullanıcılar"
+msgstr "Kullanıcıyı Pasifleştir"
 
 #: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:161
 #: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:153
@@ -2777,14 +2776,15 @@ msgid ""
 "User will be unable to log in unless reactivated. All reported messages will "
 "be permanently deleted from their respective room."
 msgstr ""
+"Yeniden etkinleştirilmediği sürece kullanıcı yeniden oturum açamaz. Tüm "
+"raporlanan iletiler, ilgili odalarından kalıcı olarak silinecektir."
 
 #: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:162
 #: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:154
-#, fuzzy, kde-format
-#| msgid "Deactivated Users"
+#, kde-format
 msgctxt "@title:window"
 msgid "Desactivate User"
-msgstr "Pasifleştirilen Kullanıcılar"
+msgstr "Kullanıcıyı Pasifleştir"
 
 #: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:182
 #, kde-format
@@ -6491,9 +6491,7 @@ msgid "Add Server"
 msgstr "Sunucu Ekle"
 
 #: widgets/configurenewserver/createnewserverdialog.cpp:50
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Configure Activities"
+#, kde-format
 msgid "Configure Activities"
 msgstr "Etkinlikleri Yapılandır"
 

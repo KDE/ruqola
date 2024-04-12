@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-11 00:38+0000\n"
+"POT-Creation-Date: 2024-04-12 00:37+0000\n"
 "PO-Revision-Date: 2020-06-13 21:18+0300\n"
 "Last-Translator: Marek Laane <qiilaq69@gmail.com>\n"
 "Language-Team: Estonian <kde-et@lists.linux.ee>\n"
@@ -1455,13 +1455,13 @@ msgstr "<strong>%1</strong> kirjutab ..."
 msgid "<strong>%1</strong> are typing..."
 msgstr "<strong>%1</strong> kirjutavad ..."
 
-#: core/rocketchataccount.cpp:2889
+#: core/rocketchataccount.cpp:2894
 #, fuzzy, kde-format
 #| msgid "Report Message"
 msgid "Export Messages"
 msgstr "Anna sõnumist teada"
 
-#: core/rocketchataccount.cpp:2890
+#: core/rocketchataccount.cpp:2895
 #, kde-format
 msgid "Your email has been queued for sending."
 msgstr ""
@@ -1550,18 +1550,18 @@ msgstr "Ava kanal"
 msgid "Missing translator info. It's a bug"
 msgstr ""
 
-#: core/user.cpp:204
+#: core/user.cpp:205
 #, fuzzy, kde-format
 #| msgid "Users:"
 msgid "User"
 msgstr "Kasutajad:"
 
-#: core/user.cpp:206 widgets/ruqolamainwindow.cpp:490
+#: core/user.cpp:207 widgets/ruqolamainwindow.cpp:490
 #, kde-format
 msgid "Administrator"
 msgstr ""
 
-#: core/user.cpp:208
+#: core/user.cpp:209
 #, kde-format
 msgid "Bot"
 msgstr ""

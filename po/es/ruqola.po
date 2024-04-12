@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-11 00:38+0000\n"
+"POT-Creation-Date: 2024-04-12 00:37+0000\n"
 "PO-Revision-Date: 2024-04-06 18:10+0200\n"
 "Last-Translator: Víctor Rodrigo Córdoba <vrcordoba@gmail.com>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
@@ -1359,12 +1359,12 @@ msgstr "<strong>%1</strong> está escribiendo..."
 msgid "<strong>%1</strong> are typing..."
 msgstr "<strong>%1</strong> están escribiendo..."
 
-#: core/rocketchataccount.cpp:2889
+#: core/rocketchataccount.cpp:2894
 #, kde-format
 msgid "Export Messages"
 msgstr "Exportar mensajes"
 
-#: core/rocketchataccount.cpp:2890
+#: core/rocketchataccount.cpp:2895
 #, kde-format
 msgid "Your email has been queued for sending."
 msgstr "Su email se ha encolado para ser enviado."
@@ -1448,17 +1448,17 @@ msgstr "Omnicanal"
 msgid "Missing translator info. It's a bug"
 msgstr "Falta información de traductor. Es un error"
 
-#: core/user.cpp:204
+#: core/user.cpp:205
 #, kde-format
 msgid "User"
 msgstr "Usuario"
 
-#: core/user.cpp:206 widgets/ruqolamainwindow.cpp:490
+#: core/user.cpp:207 widgets/ruqolamainwindow.cpp:490
 #, kde-format
 msgid "Administrator"
 msgstr "Administrador"
 
-#: core/user.cpp:208
+#: core/user.cpp:209
 #, kde-format
 msgid "Bot"
 msgstr "Robot"
