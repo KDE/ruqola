@@ -473,6 +473,8 @@ target_sources(librocketchatrestapi-qt PRIVATE
     moderation/moderationuserreportsjob.cpp
     moderation/moderationreportsbyuseridjob.cpp
     moderation/moderationreportsbyuseridjob.h
+    moderation/moderationdismissuserreportsjob.cpp
+    moderation/moderationdismissuserreportsjob.h
 
 )
 
