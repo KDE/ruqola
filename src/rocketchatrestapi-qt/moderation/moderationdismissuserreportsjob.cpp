@@ -33,7 +33,7 @@ bool ModerationDismissUserReportsJob::canStart() const
     if (!RestApiAbstractJob::canStart()) {
         return false;
     }
-    if (mModerationUserId.isEmpty()) {
+    if (mModerationReportedUserId.isEmpty()) {
         qCWarning(ROCKETCHATQTRESTAPI_LOG) << "mModerationUserId is empty";
         return false;
     }
@@ -58,28 +58,28 @@ void ModerationDismissUserReportsJob::onGetRequestResponse(const QString &replyE
 
     if (replyObject["success"_L1].toBool()) {
         addLoggerInfo(QByteArrayLiteral("ModerationDismissUserReportsJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
-        Q_EMIT moderationReportsByUserIdDone(replyObject);
+        Q_EMIT moderationDismissReportedUserDone(replyObject);
     } else {
         emitFailedMessage(replyErrorString, replyObject);
         addLoggerWarning(QByteArrayLiteral("ModerationDismissUserReportsJob: Problem: ") + replyJson.toJson(QJsonDocument::Indented));
     }
 }
 
-QByteArray ModerationDismissUserReportsJob::moderationUserId() const
+QByteArray ModerationDismissUserReportsJob::moderationReportedUserId() const
 {
-    return mModerationUserId;
+    return mModerationReportedUserId;
 }
 
-void ModerationDismissUserReportsJob::setModerationUserId(const QByteArray &newModerationUserId)
+void ModerationDismissUserReportsJob::setModerationReportedUserId(const QByteArray &newModerationReportedUserId)
 {
-    mModerationUserId = newModerationUserId;
+    mModerationReportedUserId = newModerationReportedUserId;
 }
 
 QNetworkRequest ModerationDismissUserReportsJob::request() const
 {
     QUrl url = mRestApiMethod->generateUrl(RestApiUtil::RestApiUrlType::ModerationDismissUserReports);
     QUrlQuery queryUrl;
-    queryUrl.addQueryItem(QStringLiteral("userId"), QString::fromLatin1(mModerationUserId));
+    queryUrl.addQueryItem(QStringLiteral("userId"), QString::fromLatin1(mModerationReportedUserId));
     url.setQuery(queryUrl);
 
     QNetworkRequest request(url);

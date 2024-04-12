@@ -26,17 +26,17 @@ public:
 
     [[nodiscard]] bool hasQueryParameterSupport() const override;
 
-    [[nodiscard]] QByteArray moderationUserId() const;
-    void setModerationUserId(const QByteArray &newModerationUserId);
-
     [[nodiscard]] bool canStart() const override;
 
+    [[nodiscard]] QByteArray moderationReportedUserId() const;
+    void setModerationReportedUserId(const QByteArray &newModerationReportedUserId);
+
 Q_SIGNALS:
-    void moderationReportsByUserIdDone(const QJsonObject &obj);
+    void moderationDismissReportedUserDone(const QJsonObject &obj);
 
 private:
     Q_DISABLE_COPY(ModerationDismissUserReportsJob)
     LIBROCKETCHATRESTAPI_QT_NO_EXPORT void onGetRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson) override;
-    QByteArray mModerationUserId;
+    QByteArray mModerationReportedUserId;
 };
 }

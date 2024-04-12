@@ -21,7 +21,7 @@ void ModerationDismissUserReportsJobTest::shouldHaveDefaultValue()
     QVERIFY(job.requireHttpAuthentication());
     QVERIFY(job.hasQueryParameterSupport());
     QVERIFY(!job.requireTwoFactorAuthentication());
-    QVERIFY(job.moderationUserId().isEmpty());
+    QVERIFY(job.moderationReportedUserId().isEmpty());
 }
 
 void ModerationDismissUserReportsJobTest::shouldGenerateRequest()
@@ -30,14 +30,14 @@ void ModerationDismissUserReportsJobTest::shouldGenerateRequest()
         ModerationDismissUserReportsJob job;
         QNetworkRequest request = QNetworkRequest(QUrl());
         verifyAuthentication(&job, request);
-        QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/v1/moderation.user.reportsByUserId?userId")));
+        QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/v1/moderation.dismissUserReports?userId")));
     }
     {
         ModerationDismissUserReportsJob job;
-        job.setModerationUserId(QByteArrayLiteral("foo"));
+        job.setModerationReportedUserId(QByteArrayLiteral("foo"));
         QNetworkRequest request = QNetworkRequest(QUrl());
         verifyAuthentication(&job, request);
-        QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/v1/moderation.user.reportsByUserId?userId=foo")));
+        QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/v1/moderation.dismissUserReports?userId=foo")));
     }
 }
 
