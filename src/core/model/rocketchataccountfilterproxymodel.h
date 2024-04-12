@@ -29,7 +29,7 @@ public:
     void setActivitiesManager(ActivitiesManager *newActivitiesManager);
 #endif
 
-    bool filterActivities() const;
+    [[nodiscard]] bool filterActivities() const;
     void setFilterActivities(bool newFilterActivities);
 
 protected:
