@@ -7,7 +7,9 @@
 #include "createnewserverstackwidget.h"
 #include "checknewserverurlwidget.h"
 #include "config-ruqola.h"
+#if HAS_ACTIVITY_SUPPORT
 #include "configureactivitiesdialog.h"
+#endif
 #include "createnewserverwidget.h"
 #include "plugins/pluginauthentication.h"
 #include "plugins/pluginauthenticationconfigurewidget.h"
