@@ -104,6 +104,7 @@ void ConfigureActivitiesWidget::setActivities(const QStringList &lst)
     bool listIsEmpty{lst.isEmpty()};
     mListView->setEnabled(!listIsEmpty);
     mEnableActivitiesSupport->setChecked(!listIsEmpty);
+    bool hasFoundActivities = false;
     if (!listIsEmpty) {
         for (int row = 0; row < model->rowCount(); ++row) {
             const auto index = model->index(row, 0);
@@ -111,7 +112,13 @@ void ConfigureActivitiesWidget::setActivities(const QStringList &lst)
 
             if (lst.contains(activity)) {
                 selection->select(index, QItemSelectionModel::Select);
+                hasFoundActivities = true;
             }
+        }
+        // Make sure to disable it if we don't find activities => it was removed
+        if (!hasFoundActivities) {
+            mListView->setEnabled(false);
+            mEnableActivitiesSupport->setChecked(false);
         }
     }
 }
