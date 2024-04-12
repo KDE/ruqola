@@ -19,6 +19,7 @@
 #include "moderation/moderationuserreportedmessagesjob.h"
 #include "rocketchataccount.h"
 #include "ruqolawidgets_debug.h"
+#include "users/setuseractivestatusjob.h"
 #include <KLocalizedString>
 #include <KMessageBox>
 #include <QLabel>
@@ -163,12 +164,25 @@ void ModerationReportedMessageConsoleTreeWidget::slotDesactivateUser(const QMode
             KStandardGuiItem::remove(),
             KStandardGuiItem::cancel())
         == KMessageBox::ButtonCode::PrimaryAction) {
-        // TODO
+        auto job = new RocketChatRestApi::SetUserActiveStatusJob(this);
+        const QByteArray userId = index.data().toByteArray();
+        qDebug() << " userId " << userId;
+        job->setActivate(false);
+        job->setActivateUserId(userId);
+        mRocketChatAccount->restApi()->initializeRestApiJob(job);
+        connect(job, &RocketChatRestApi::SetUserActiveStatusJob::setUserActiveStatusDone, this, [this, index](const QJsonObject &replyObject) {
+            // TODO
+            qDebug() << " XCXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX" << replyObject;
+        });
+        if (!job->start()) {
+            qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start SetUserActiveStatusJob job";
+        }
     }
 }
 
 void ModerationReportedMessageConsoleTreeWidget::slotShowReportedMessages(const QJsonObject &obj)
 {
+    qDebug() << " obj " << obj;
     // Fix parse user/messages (message ok here)
     mCommonMessagesModel->parse(obj);
     ModerationMessagesDialog dlg(mRocketChatAccount, this);
