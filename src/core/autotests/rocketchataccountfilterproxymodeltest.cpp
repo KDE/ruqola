@@ -31,6 +31,7 @@ void RocketChatAccountFilterProxyModelTest::shouldHaveDefaultValue()
 #if HAS_ACTIVITY_SUPPORT
     QVERIFY(!w.activitiesManager());
 #endif
+    QVERIFY(w.filterActivities());
 }
 
 #include "moc_rocketchataccountfilterproxymodeltest.cpp"
