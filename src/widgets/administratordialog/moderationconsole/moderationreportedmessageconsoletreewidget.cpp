@@ -149,7 +149,6 @@ void ModerationReportedMessageConsoleTreeWidget::slotCustomContextMenuRequested(
         menu.addAction(QIcon::fromTheme(QStringLiteral("list-remove")), i18n("Desactivate user"), this, [this, newModelIndex]() {
             const QModelIndex modelIndex = mModel->index(newModelIndex.row(), ModerationReportedMessageModel::UserId);
             slotDesactivateUser(modelIndex);
-            // TODO
         });
         menu.exec(mTreeView->viewport()->mapToGlobal(pos));
     }
@@ -166,13 +165,12 @@ void ModerationReportedMessageConsoleTreeWidget::slotDesactivateUser(const QMode
         == KMessageBox::ButtonCode::PrimaryAction) {
         auto job = new RocketChatRestApi::SetUserActiveStatusJob(this);
         const QByteArray userId = index.data().toByteArray();
-        qDebug() << " userId " << userId;
+        // qDebug() << " userId " << userId;
         job->setActivate(false);
         job->setActivateUserId(userId);
         mRocketChatAccount->restApi()->initializeRestApiJob(job);
         connect(job, &RocketChatRestApi::SetUserActiveStatusJob::setUserActiveStatusDone, this, [this, index](const QJsonObject &replyObject) {
             // TODO
-            qDebug() << " XCXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX" << replyObject;
         });
         if (!job->start()) {
             qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start SetUserActiveStatusJob job";

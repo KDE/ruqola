@@ -13,6 +13,7 @@
 #include "model/moderationreportedusermodel.h"
 #include "model/moderationreporteduserproxymodel.h"
 #include "model/searchtreebasefilterproxymodel.h"
+#include "moderation/moderationdismissuserreportsjob.h"
 #include "moderation/moderationreportsbyuseridjob.h"
 #include "moderation/moderationuserreportsjob.h"
 
@@ -163,7 +164,7 @@ void ModerationReportedUserConsoleTreeWidget::slotDesactivateUser(const QModelIn
         job->setActivateUserId(userId);
         mRocketChatAccount->restApi()->initializeRestApiJob(job);
         connect(job, &RocketChatRestApi::SetUserActiveStatusJob::setUserActiveStatusDone, this, [this, index](const QJsonObject &replyObject) {
-            // TODO
+            // TODO use ModerationDismissUserReportsJob
             qDebug() << " XCXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX" << replyObject;
         });
         if (!job->start()) {
