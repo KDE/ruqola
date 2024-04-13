@@ -170,7 +170,8 @@ void ModerationReportedMessageConsoleTreeWidget::slotDesactivateUser(const QMode
         job->setActivateUserId(userId);
         mRocketChatAccount->restApi()->initializeRestApiJob(job);
         connect(job, &RocketChatRestApi::SetUserActiveStatusJob::setUserActiveStatusDone, this, [this, index](const QJsonObject &replyObject) {
-            // TODO
+            // TODO delete messages
+            slotLoadElements();
         });
         if (!job->start()) {
             qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start SetUserActiveStatusJob job";
