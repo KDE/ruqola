@@ -86,7 +86,19 @@ QVariant RoomModel::data(const QModelIndex &index, int role) const
             return r->fName();
         } else {
             if (mRocketChatAccount) {
-                return mRocketChatAccount->useRealName() ? r->displayFName() : r->name();
+                if (mRocketChatAccount->useRealName()) {
+                    return r->displayFName();
+                } else {
+                    if (r->channelType() == Room::RoomType::Direct) {
+                        return r->name();
+                    } else {
+                        if (r->fName().isEmpty()) {
+                            return r->name();
+                        } else {
+                            return r->fName();
+                        }
+                    }
+                }
             } else {
                 return r->name();
             }
