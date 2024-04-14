@@ -8,7 +8,7 @@
 #include "ruqola_debug.h"
 #include <KLocalizedString>
 #include <QJsonObject>
-
+using namespace Qt::Literals::StringLiterals;
 BannerInfos::BannerInfos() = default;
 
 BannerInfos::~BannerInfos() = default;
@@ -16,7 +16,7 @@ BannerInfos::~BannerInfos() = default;
 void BannerInfos::parseBannerInfos(const QJsonObject &object)
 {
     mBanners.clear();
-    const QJsonObject obj = object[QLatin1StringView("banners")].toObject();
+    const QJsonObject obj = object["banners"_L1].toObject();
     const QStringList keys = obj.keys();
     for (const auto &key : keys) {
         const QJsonObject currentObj = obj[key].toObject();

@@ -8,30 +8,30 @@
 #include "utils.h"
 #include <QDateTime>
 #include <QJsonObject>
-
+using namespace Qt::Literals::StringLiterals;
 File::File() = default;
 
 void File::parseFile(const QJsonObject &object, bool restApi)
 {
-    const QJsonObject fields = restApi ? object : object.value(QLatin1StringView("fields")).toObject();
-    setUserId(fields.value(QLatin1StringView("userId")).toString().toLatin1());
+    const QJsonObject fields = restApi ? object : object.value("fields"_L1).toObject();
+    setUserId(fields.value("userId"_L1).toString().toLatin1());
 
-    setDescription(fields.value(QLatin1StringView("description")).toString());
-    setFileName(fields.value(QLatin1StringView("name")).toString());
-    setMimeType(fields.value(QLatin1StringView("type")).toString());
-    setUrl(fields.value(QLatin1StringView("url")).toString());
-    setComplete(fields.value(QLatin1StringView("complete")).toBool());
-    setTypeGroup(fields.value(QLatin1StringView("typeGroup")).toString());
+    setDescription(fields.value("description"_L1).toString());
+    setFileName(fields.value("name"_L1).toString());
+    setMimeType(fields.value("type"_L1).toString());
+    setUrl(fields.value("url"_L1).toString());
+    setComplete(fields.value("complete"_L1).toBool());
+    setTypeGroup(fields.value("typeGroup"_L1).toString());
     if (restApi) {
         setUploadedAt(Utils::parseIsoDate(QStringLiteral("uploadedAt"), fields));
     } else {
         setUploadedAt(Utils::parseDate(QStringLiteral("uploadedAt"), fields));
     }
 
-    const QJsonObject user = object.value(QLatin1StringView("user")).toObject();
-    setUserName(user.value(QLatin1StringView("username")).toString());
+    const QJsonObject user = object.value("user"_L1).toObject();
+    setUserName(user.value("username"_L1).toString());
 
-    setFileId(restApi ? object.value(QLatin1StringView("_id")).toString().toLatin1() : object.value(QLatin1StringView("id")).toString().toLatin1());
+    setFileId(restApi ? object.value("_id"_L1).toString().toLatin1() : object.value("id"_L1).toString().toLatin1());
 }
 
 QString File::fileName() const
