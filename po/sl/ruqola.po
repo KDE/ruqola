@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-13 00:38+0000\n"
+"POT-Creation-Date: 2024-04-14 00:38+0000\n"
 "PO-Revision-Date: 2024-04-11 07:27+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
@@ -2813,7 +2813,7 @@ msgctxt "@title:window"
 msgid "Desactivate User"
 msgstr "Deaktiviraj uporabnika"
 
-#: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:194
+#: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:195
 #, kde-format
 msgid ""
 "Are you sure you want to dismiss and delete all reports for this user's "
@@ -2822,13 +2822,13 @@ msgstr ""
 "Ali ste prepričani, da želite opustiti in izbrisati vsa poročila za "
 "sporočila tega uporabnika? Tega dejanja ni mogoče razveljaviti."
 
-#: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:195
+#: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:196
 #, kde-format
 msgctxt "@title:window"
 msgid "Dismiss"
 msgstr "Odpusti"
 
-#: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:215
+#: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:216
 #, kde-format
 msgid ""
 "Are you sure you want to delete all reported messages from this user?\n"
@@ -2842,7 +2842,7 @@ msgstr ""
 "videti.\n"
 "Tega dejanja ni mogoče razveljaviti."
 
-#: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:218
+#: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:219
 #, kde-format
 msgctxt "@title:window"
 msgid "Delete All Messages"
@@ -2853,14 +2853,14 @@ msgstr "Izbriši vsa sporočila"
 msgid "See reports"
 msgstr "Poglejte poročila"
 
-#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:189
+#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:191
 #, kde-format
 msgid ""
 "All reports will be deleted and the reported messages won't be affected."
 msgstr ""
 "Vsa poročila bodo izbrisana in to ne bo vplivalo na poročana sporočila."
 
-#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:190
+#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:192
 #, kde-format
 msgctxt "@title:window"
 msgid "Dismiss All Reports"

@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-13 00:38+0000\n"
-"PO-Revision-Date: 2024-04-07 17:09+0100\n"
+"POT-Creation-Date: 2024-04-14 00:38+0000\n"
+"PO-Revision-Date: 2024-04-14 00:04+0100\n"
 "Last-Translator: Oliver Kellogg <okellogg@users.sourceforge.net>\n"
 "Language-Team: Esperanto <kde-i18n-eo.org>\n"
 "Language: eo\n"
@@ -2781,10 +2781,9 @@ msgstr "Forigi ĉiujn Mesaĝojn"
 
 #: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:149
 #: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:143
-#, fuzzy, kde-format
-#| msgid "Deactivated Users"
+#, kde-format
 msgid "Desactivate user"
-msgstr "Malaktivigitaj Uzantoj"
+msgstr "Malaktivigi uzanton"
 
 #: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:161
 #: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:155
@@ -2793,16 +2792,17 @@ msgid ""
 "User will be unable to log in unless reactivated. All reported messages will "
 "be permanently deleted from their respective room."
 msgstr ""
+"Uzanto ne povos ensaluti krom se reaktivigita. Ĉiuj raportitaj mesaĝoj estos "
+"porĉiame forigitaj de ilia respektiva ĉambro."
 
 #: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:162
 #: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:156
-#, fuzzy, kde-format
-#| msgid "Deactivated Users"
+#, kde-format
 msgctxt "@title:window"
 msgid "Desactivate User"
-msgstr "Malaktivigitaj Uzantoj"
+msgstr "Malaktivigi Uzanton"
 
-#: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:194
+#: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:195
 #, kde-format
 msgid ""
 "Are you sure you want to dismiss and delete all reports for this user's "
@@ -2811,13 +2811,13 @@ msgstr ""
 "Ĉu vi certas, ke vi volas malakcepti kaj forigi ĉiujn raportojn por la "
 "mesaĝoj de ĉi tiu uzanto? Ĉi tiu ago ne povas esti malfarita."
 
-#: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:195
+#: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:196
 #, kde-format
 msgctxt "@title:window"
 msgid "Dismiss"
 msgstr "Forĵeti"
 
-#: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:215
+#: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:216
 #, kde-format
 msgid ""
 "Are you sure you want to delete all reported messages from this user?\n"
@@ -2830,30 +2830,30 @@ msgstr ""
 "La mesaĝoj estos forigitaj el la mesaĝhistorio kaj neniu povos vidi ĝin.\n"
 "Tiu ago ne povas esti malfarita."
 
-#: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:218
+#: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:219
 #, kde-format
 msgctxt "@title:window"
 msgid "Delete All Messages"
 msgstr "Forigi Ĉiuj Mesaĝoj"
 
 #: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:132
-#, fuzzy, kde-format
-#| msgid "View Reports"
+#, kde-format
 msgid "See reports"
-msgstr "Vidi Raportojn"
+msgstr "Vidi raportojn"
 
-#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:189
+#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:191
 #, kde-format
 msgid ""
 "All reports will be deleted and the reported messages won't be affected."
 msgstr ""
+"Ĉiuj raportoj estos porĉiame forigitaj kaj la raportitaj mesaĝoj ne estos "
+"tuŝitaj."
 
-#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:190
-#, fuzzy, kde-format
-#| msgid "Dismiss Reports"
+#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:192
+#, kde-format
 msgctxt "@title:window"
 msgid "Dismiss All Reports"
-msgstr "Forigi Raportojn"
+msgstr "Forigi Ĉiujn Raportojn"
 
 #: widgets/administratordialog/moderationconsole/moderationreportinfolistview.cpp:76
 #: widgets/notificationhistory/notificationhistorylistview.cpp:83
@@ -6506,9 +6506,7 @@ msgid "Add Server"
 msgstr "Aldoni Servilon"
 
 #: widgets/configurenewserver/createnewserverdialog.cpp:50
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Configure Activities"
+#, kde-format
 msgid "Configure Activities"
 msgstr "Agordi Aktivecojn"
 
