@@ -46,7 +46,6 @@ CreateNewServerDialog::CreateNewServerDialog(QWidget *parent)
     });
 #if HAS_ACTIVITY_SUPPORT
     if (RuqolaGlobalConfig::self()->plasmaActivities()) {
-        // TODO hide it when activities is not enabled in ruqola
         auto configureActivities = buttonBox->addButton(i18n("Configure Activities"), QDialogButtonBox::ActionRole);
         connect(configureActivities, &QPushButton::clicked, mCreateNewServerStackWidget, &CreateNewServerStackWidget::slotConfigureActivities);
     }
