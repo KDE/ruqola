@@ -14,12 +14,12 @@ public:
     explicit PersonalAccessTokenAuthenticationConfigWidget(QWidget *parent = nullptr);
     ~PersonalAccessTokenAuthenticationConfigWidget() override;
 
-    [[nodiscard]] AccountManager::AccountManagerInfo accountInfo() const override;
+    [[nodiscard]] AccountManager::AccountManagerInfo accountInfo() override;
     void setAccountInfo(const AccountManager::AccountManagerInfo &info) override;
     void changeAuthenticationWidgetStatus(bool enabled) override;
 
 private:
-    void slotEnableOkButton();
+    void slotLoginSettingsChanged();
     QLineEdit *const mServerNameLineEdit;
     QLineEdit *const mAccountNameLineEdit;
     QLineEdit *const mUserLineEdit;

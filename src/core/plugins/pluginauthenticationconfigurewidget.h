@@ -16,7 +16,7 @@ public:
     explicit PluginAuthenticationConfigureWidget(QWidget *parent = nullptr);
     ~PluginAuthenticationConfigureWidget() override;
 
-    [[nodiscard]] virtual AccountManager::AccountManagerInfo accountInfo() const = 0;
+    [[nodiscard]] virtual AccountManager::AccountManagerInfo accountInfo() = 0;
     virtual void setAccountInfo(const AccountManager::AccountManagerInfo &info) = 0;
     virtual void changeAuthenticationWidgetStatus(bool enabled) = 0;
 

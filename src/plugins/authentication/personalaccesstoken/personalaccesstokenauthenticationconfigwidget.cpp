@@ -34,15 +34,15 @@ PersonalAccessTokenAuthenticationConfigWidget::PersonalAccessTokenAuthentication
     mainLayout->addRow(i18n("Account name:"), mAccountNameLineEdit);
     mainLayout->addRow(i18n("User Id:"), mUserLineEdit);
     mainLayout->addRow(i18n("Token:"), mPersonalAccessTokenLineEdit);
-    connect(mUserLineEdit, &QLineEdit::textChanged, this, &PersonalAccessTokenAuthenticationConfigWidget::slotEnableOkButton);
-    connect(mPersonalAccessTokenLineEdit, &QLineEdit::textChanged, this, &PersonalAccessTokenAuthenticationConfigWidget::slotEnableOkButton);
-    connect(mServerNameLineEdit, &QLineEdit::textChanged, this, &PersonalAccessTokenAuthenticationConfigWidget::slotEnableOkButton);
-    connect(mAccountNameLineEdit, &QLineEdit::textChanged, this, &PersonalAccessTokenAuthenticationConfigWidget::slotEnableOkButton);
+    connect(mUserLineEdit, &QLineEdit::textChanged, this, &PersonalAccessTokenAuthenticationConfigWidget::slotLoginSettingsChanged);
+    connect(mPersonalAccessTokenLineEdit, &QLineEdit::textChanged, this, &PersonalAccessTokenAuthenticationConfigWidget::slotLoginSettingsChanged);
+    connect(mServerNameLineEdit, &QLineEdit::textChanged, this, &PersonalAccessTokenAuthenticationConfigWidget::slotLoginSettingsChanged);
+    connect(mAccountNameLineEdit, &QLineEdit::textChanged, this, &PersonalAccessTokenAuthenticationConfigWidget::slotLoginSettingsChanged);
 }
 
 PersonalAccessTokenAuthenticationConfigWidget::~PersonalAccessTokenAuthenticationConfigWidget() = default;
 
-AccountManager::AccountManagerInfo PersonalAccessTokenAuthenticationConfigWidget::accountInfo() const
+AccountManager::AccountManagerInfo PersonalAccessTokenAuthenticationConfigWidget::accountInfo()
 {
     AccountManager::AccountManagerInfo info;
     info.accountName = mAccountNameLineEdit->text();
@@ -68,7 +68,7 @@ void PersonalAccessTokenAuthenticationConfigWidget::changeAuthenticationWidgetSt
     // TODO ?
 }
 
-void PersonalAccessTokenAuthenticationConfigWidget::slotEnableOkButton()
+void PersonalAccessTokenAuthenticationConfigWidget::slotLoginSettingsChanged()
 {
     const QString accountName = mAccountNameLineEdit->text().trimmed();
     Q_EMIT settingsIsValid(!accountName.isEmpty() && !mExistingAccountNames.contains(accountName) && !mServerNameLineEdit->text().trimmed().isEmpty()
