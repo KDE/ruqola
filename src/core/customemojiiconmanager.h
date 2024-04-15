@@ -21,7 +21,7 @@ public:
 
     void setCurrentRocketChatAccount(RocketChatAccount *currentRocketChatAccount);
 
-    RocketChatAccount *currentRocketChatAccount() const;
+    [[nodiscard]] RocketChatAccount *currentRocketChatAccount() const;
 
 private:
     RocketChatAccount *mCurrentRocketChatAccount = nullptr;
