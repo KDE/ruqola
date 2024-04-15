@@ -5,6 +5,8 @@
 */
 
 #include "personalaccesstokeninfos.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "ruqola_debug.h"
 
 #include <QJsonArray>
@@ -54,7 +56,7 @@ void PersonalAccessTokenInfos::setPersonalAccessTokenInfos(const QList<PersonalA
 void PersonalAccessTokenInfos::parsePersonalAccessTokenInfos(const QJsonObject &obj)
 {
     mPersonalAccessTokenInfos.clear();
-    const QJsonArray tokensArray = obj[QLatin1StringView("tokens")].toArray();
+    const QJsonArray tokensArray = obj["tokens"_L1].toArray();
     const auto tokensArrayCount = tokensArray.count();
     mPersonalAccessTokenInfos.reserve(tokensArrayCount);
     for (auto i = 0; i < tokensArrayCount; ++i) {

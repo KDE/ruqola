@@ -5,6 +5,7 @@
 */
 
 #include "teamroomcompleter.h"
+using namespace Qt::Literals::StringLiterals;
 
 TeamRoomCompleter::TeamRoomCompleter() = default;
 
@@ -38,9 +39,9 @@ void TeamRoomCompleter::parse(const QJsonObject &obj)
     // QJsonObject({"items":[{"_id":"zMHhMfsEPvKjgFuyE","fname":"ruqola-broadcast",
     // "name":"ruqola-broadcast","t":"p"},
     // {"_id":"QMkvkiMyxKoEuJjnb","avatarETag":"MDRisL8NzZtsCdkYE","fname":"ruqola-test","name":"ruqola-test","t":"p"},
-    mName = obj[QLatin1StringView("name")].toString();
-    mFname = obj[QLatin1StringView("fname")].toString();
-    mIdentifier = obj[QLatin1StringView("_id")].toString().toLatin1();
+    mName = obj["name"_L1].toString();
+    mFname = obj["fname"_L1].toString();
+    mIdentifier = obj["_id"_L1].toString().toLatin1();
     // TODO add room type too
 }
 

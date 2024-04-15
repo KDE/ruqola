@@ -5,6 +5,8 @@
 */
 
 #include "customsoundsinfo.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "ruqola_debug.h"
 #include <QJsonArray>
 #include <QJsonObject>
@@ -37,16 +39,16 @@ CustomSoundInfo CustomSoundsInfo::at(int index) const
 
 void CustomSoundsInfo::parseMoreCustomSounds(const QJsonObject &obj)
 {
-    const int adminRoomsCount = obj[QLatin1StringView("count")].toInt();
-    mOffset = obj[QLatin1StringView("offset")].toInt();
-    mTotal = obj[QLatin1StringView("total")].toInt();
+    const int adminRoomsCount = obj["count"_L1].toInt();
+    mOffset = obj["offset"_L1].toInt();
+    mTotal = obj["total"_L1].toInt();
     parseListCustomSound(obj);
     mRoomsCount += adminRoomsCount;
 }
 
 void CustomSoundsInfo::parseListCustomSound(const QJsonObject &obj)
 {
-    const QJsonArray adminRoomsArray = obj[QLatin1StringView("sounds")].toArray();
+    const QJsonArray adminRoomsArray = obj["sounds"_L1].toArray();
     mCustomSoundInfos.reserve(mCustomSoundInfos.count() + adminRoomsArray.count());
     for (const QJsonValue &current : adminRoomsArray) {
         if (current.type() == QJsonValue::Object) {
@@ -82,9 +84,9 @@ void CustomSoundsInfo::setRoomsCount(int count)
 
 void CustomSoundsInfo::parseCustomSounds(const QJsonObject &obj)
 {
-    mRoomsCount = obj[QLatin1StringView("count")].toInt();
-    mOffset = obj[QLatin1StringView("offset")].toInt();
-    mTotal = obj[QLatin1StringView("total")].toInt();
+    mRoomsCount = obj["count"_L1].toInt();
+    mOffset = obj["offset"_L1].toInt();
+    mTotal = obj["total"_L1].toInt();
     mCustomSoundInfos.clear();
     parseListCustomSound(obj);
 }

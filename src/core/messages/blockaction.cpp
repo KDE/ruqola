@@ -5,6 +5,7 @@
 */
 
 #include "blockaction.h"
+using namespace Qt::Literals::StringLiterals;
 
 BlockAction::BlockAction() = default;
 
@@ -35,12 +36,12 @@ bool BlockAction::isValid() const
 
 void BlockAction::parseAction(const QJsonObject &o)
 {
-    mActionId = o[QLatin1StringView("actionId")].toString();
-    mBlockId = o[QLatin1StringView("blockId")].toString();
-    mType = o[QLatin1StringView("type")].toString();
-    mValue = o[QLatin1StringView("value")].toString();
-    const QJsonObject objText = o[QLatin1StringView("text")].toObject();
-    mText = objText[QLatin1StringView("text")].toString();
+    mActionId = o["actionId"_L1].toString();
+    mBlockId = o["blockId"_L1].toString();
+    mType = o["type"_L1].toString();
+    mValue = o["value"_L1].toString();
+    const QJsonObject objText = o["text"_L1].toObject();
+    mText = objText["text"_L1].toString();
 }
 
 QString BlockAction::actionId() const

@@ -5,6 +5,8 @@
 */
 
 #include "ownuserpreferences.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "ruqola_debug.h"
 
 #include <QJsonArray>
@@ -17,7 +19,7 @@ OwnUserPreferences::~OwnUserPreferences() = default;
 void OwnUserPreferences::parsePreferences(const QJsonObject &replyObject)
 {
     // qDebug() << " replyObject " << replyObject;
-    const QJsonArray highlightsArray = replyObject.value(QLatin1StringView("highlights")).toArray();
+    const QJsonArray highlightsArray = replyObject.value("highlights"_L1).toArray();
     QStringList lstHighlightsWord;
     const int highlightsWordArrayCount = highlightsArray.count();
     lstHighlightsWord.reserve(highlightsWordArrayCount);
@@ -25,35 +27,35 @@ void OwnUserPreferences::parsePreferences(const QJsonObject &replyObject)
         lstHighlightsWord << highlightsArray.at(i).toString();
     }
     setHighlightWords(lstHighlightsWord);
-    setEmailNotificationMode(replyObject.value(QLatin1StringView("emailNotificationMode")).toString());
-    setDesktopNotifications(replyObject.value(QLatin1StringView("desktopNotifications")).toString());
-    setPushNotifications(replyObject.value(QLatin1StringView("pushNotifications")).toString());
-    setConvertAsciiEmoji(replyObject.value(QLatin1StringView("convertAsciiEmoji")).toBool(true));
-    setUseEmojis(replyObject.value(QLatin1StringView("useEmojis")).toBool(true));
-    setHideRoles(replyObject.value(QLatin1StringView("hideRoles")).toBool(false));
-    setDisplayAvatars(replyObject.value(QLatin1StringView("displayAvatars")).toBool(true));
-    setIdleTimeLimit(replyObject.value(QLatin1StringView("idleTimeLimit")).toInt(-1));
-    setEnableAutoAway(replyObject.value(QLatin1StringView("enableAutoAway")).toBool(false));
-    setShowUnread(replyObject.value(QLatin1StringView("sidebarShowUnread")).toBool(false));
-    const QString sidebarSortBy = replyObject.value(QLatin1StringView("sidebarSortby")).toString();
-    if (sidebarSortBy == QLatin1StringView("activity")) {
+    setEmailNotificationMode(replyObject.value("emailNotificationMode"_L1).toString());
+    setDesktopNotifications(replyObject.value("desktopNotifications"_L1).toString());
+    setPushNotifications(replyObject.value("pushNotifications"_L1).toString());
+    setConvertAsciiEmoji(replyObject.value("convertAsciiEmoji"_L1).toBool(true));
+    setUseEmojis(replyObject.value("useEmojis"_L1).toBool(true));
+    setHideRoles(replyObject.value("hideRoles"_L1).toBool(false));
+    setDisplayAvatars(replyObject.value("displayAvatars"_L1).toBool(true));
+    setIdleTimeLimit(replyObject.value("idleTimeLimit"_L1).toInt(-1));
+    setEnableAutoAway(replyObject.value("enableAutoAway"_L1).toBool(false));
+    setShowUnread(replyObject.value("sidebarShowUnread"_L1).toBool(false));
+    const QString sidebarSortBy = replyObject.value("sidebarSortby"_L1).toString();
+    if (sidebarSortBy == "activity"_L1) {
         setRoomListSortOrder(OwnUserPreferences::RoomListSortOrder::ByLastMessage);
-    } else if (sidebarSortBy == QLatin1StringView("alphabetical")) {
+    } else if (sidebarSortBy == "alphabetical"_L1) {
         setRoomListSortOrder(OwnUserPreferences::RoomListSortOrder::Alphabetically);
     }
-    const QString sidebarViewMode = replyObject.value(QLatin1StringView("sidebarViewMode")).toString();
-    if (sidebarViewMode == QLatin1StringView("medium")) {
+    const QString sidebarViewMode = replyObject.value("sidebarViewMode"_L1).toString();
+    if (sidebarViewMode == "medium"_L1) {
         setRoomListDisplay(OwnUserPreferences::RoomListDisplay::Medium);
-    } else if (sidebarViewMode == QLatin1StringView("condensed")) {
+    } else if (sidebarViewMode == "condensed"_L1) {
         setRoomListDisplay(OwnUserPreferences::RoomListDisplay::Condensed);
-    } else if (sidebarViewMode == QLatin1StringView("extended")) {
+    } else if (sidebarViewMode == "extended"_L1) {
         setRoomListDisplay(OwnUserPreferences::RoomListDisplay::Extended);
     } else {
         qCWarning(RUQOLA_LOG) << "RoomListDisplay is not defined ?  " << sidebarViewMode;
     }
-    setShowRoomAvatar(replyObject.value(QLatin1StringView("sidebarDisplayAvatar")).toBool(false));
-    setShowFavorite(replyObject.value(QLatin1StringView("sidebarShowFavorites")).toBool(false));
-    setReceiveLoginDetectionEmail(replyObject.value(QLatin1StringView("receiveLoginDetectionEmail")).toBool(true));
+    setShowRoomAvatar(replyObject.value("sidebarDisplayAvatar"_L1).toBool(false));
+    setShowFavorite(replyObject.value("sidebarShowFavorites"_L1).toBool(false));
+    setReceiveLoginDetectionEmail(replyObject.value("receiveLoginDetectionEmail"_L1).toBool(true));
 }
 
 bool OwnUserPreferences::operator==(const OwnUserPreferences &other) const

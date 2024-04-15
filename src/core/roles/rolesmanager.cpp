@@ -5,6 +5,8 @@
 */
 
 #include "rolesmanager.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "ruqola_debug.h"
 #include <QJsonArray>
 RolesManager::RolesManager(QObject *parent)
@@ -16,7 +18,7 @@ RolesManager::~RolesManager() = default;
 
 void RolesManager::parseRoles(const QJsonObject &obj)
 {
-    const QJsonArray array = obj[QLatin1StringView("roles")].toArray();
+    const QJsonArray array = obj["roles"_L1].toArray();
 
     mRoleInfo.reserve(array.count());
     for (const QJsonValue &current : array) {
@@ -34,7 +36,7 @@ void RolesManager::updateRoles(const QJsonArray &contents)
         const QJsonObject roleObject = current.toObject();
         const QString type = roleObject.value(QStringLiteral("type")).toString();
         const QString identifier = roleObject.value(QStringLiteral("_id")).toString();
-        if (type == QLatin1StringView("removed")) {
+        if (type == "removed"_L1) {
             for (int i = 0; i < mRoleInfo.count(); ++i) {
                 if (mRoleInfo.at(i).identifier() == identifier) {
                     mRoleInfo.removeAt(i);
@@ -42,7 +44,7 @@ void RolesManager::updateRoles(const QJsonArray &contents)
                     break;
                 }
             }
-        } else if (type == QLatin1StringView("changed")) {
+        } else if (type == "changed"_L1) {
             bool found = false;
             RoleInfo info;
             info.parseRoleInfo(roleObject);

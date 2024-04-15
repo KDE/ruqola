@@ -4,6 +4,8 @@
    SPDX-License-Identifier: LGPL-2.0-or-later
 */
 #include "localroomsdatabasetest.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "localdatabase/localroomsdatabase.h"
 #include "room.h"
 #include "ruqola_autotest_helper.h"
@@ -45,7 +47,7 @@ void LocalRoomsDatabaseTest::shouldVerifyDbFileName()
 void LocalRoomsDatabaseTest::shouldStoreRoomsSettings()
 {
     {
-        const QString originalJsonFile = QLatin1StringView(RUQOLA_DATA_DIR) + QLatin1StringView("/rooms/direct-room.json");
+        const QString originalJsonFile = QLatin1StringView(RUQOLA_DATA_DIR) + "/rooms/direct-room.json"_L1;
         const QJsonObject fields = AutoTestHelper::loadJsonObject(originalJsonFile);
         LocalRoomsDatabase roomDataBase;
         Room r;

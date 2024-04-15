@@ -5,6 +5,8 @@
 */
 
 #include "deviceinfos.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "ruqola_debug.h"
 
 #include <QJsonArray>
@@ -90,16 +92,16 @@ DeviceInfo DeviceInfos::at(int index) const
 void DeviceInfos::parseDeviceInfos(const QJsonObject &deviceInfosObj)
 {
     mDeviceInfosList.clear();
-    mDeviceInfosCount = deviceInfosObj[QLatin1StringView("count")].toInt();
-    mOffset = deviceInfosObj[QLatin1StringView("offset")].toInt();
-    mTotal = deviceInfosObj[QLatin1StringView("total")].toInt();
+    mDeviceInfosCount = deviceInfosObj["count"_L1].toInt();
+    mOffset = deviceInfosObj["offset"_L1].toInt();
+    mTotal = deviceInfosObj["total"_L1].toInt();
     mDeviceInfosList.reserve(mDeviceInfosCount);
     parseDeviceInfosObj(deviceInfosObj);
 }
 
 void DeviceInfos::parseDeviceInfosObj(const QJsonObject &deviceInfosObj)
 {
-    const QJsonArray discussionsArray = deviceInfosObj[QLatin1StringView("sessions")].toArray();
+    const QJsonArray discussionsArray = deviceInfosObj["sessions"_L1].toArray();
     for (const QJsonValue &current : discussionsArray) {
         if (current.type() == QJsonValue::Object) {
             const QJsonObject discussionObject = current.toObject();
@@ -114,9 +116,9 @@ void DeviceInfos::parseDeviceInfosObj(const QJsonObject &deviceInfosObj)
 
 void DeviceInfos::parseMoreDeviceInfos(const QJsonObject &deviceInfosObj)
 {
-    const int deviceInfosCount = deviceInfosObj[QLatin1StringView("count")].toInt();
-    mOffset = deviceInfosObj[QLatin1StringView("offset")].toInt();
-    mTotal = deviceInfosObj[QLatin1StringView("total")].toInt();
+    const int deviceInfosCount = deviceInfosObj["count"_L1].toInt();
+    mOffset = deviceInfosObj["offset"_L1].toInt();
+    mTotal = deviceInfosObj["total"_L1].toInt();
     parseDeviceInfosObj(deviceInfosObj);
     mDeviceInfosCount += deviceInfosCount;
 }

@@ -5,6 +5,8 @@
 */
 
 #include "conferencecallsettingswidget.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "connection.h"
 #include "rocketchataccount.h"
 #include "ruqolawidgets_debug.h"

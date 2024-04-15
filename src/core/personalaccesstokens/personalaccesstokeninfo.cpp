@@ -5,6 +5,8 @@
 */
 
 #include "personalaccesstokeninfo.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "utils.h"
 
 #include <QLocale>
@@ -22,9 +24,9 @@ QDebug operator<<(QDebug d, const PersonalAccessTokenInfo &t)
 
 void PersonalAccessTokenInfo::parsePersonalAccessTokenInfo(const QJsonObject &replyObject)
 {
-    mName = replyObject.value(QLatin1StringView("name")).toString();
-    mLastTokenPart = replyObject.value(QLatin1StringView("lastTokenPart")).toString();
-    mBypassTwoFactor = replyObject.value(QLatin1StringView("bypassTwoFactor")).toBool();
+    mName = replyObject.value("name"_L1).toString();
+    mLastTokenPart = replyObject.value("lastTokenPart"_L1).toString();
+    mBypassTwoFactor = replyObject.value("bypassTwoFactor"_L1).toBool();
     setCreatedAt(Utils::parseIsoDate(QStringLiteral("createdAt"), replyObject));
 }
 

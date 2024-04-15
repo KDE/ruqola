@@ -5,6 +5,8 @@
 */
 
 #include "customsoundinfo.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include <QJsonObject>
 
 CustomSoundInfo::CustomSoundInfo() = default;
@@ -31,9 +33,9 @@ void CustomSoundInfo::setName(const QString &newName)
 
 void CustomSoundInfo::parseCustomSoundInfo(const QJsonObject &obj)
 {
-    mName = obj[QLatin1StringView("name")].toString();
-    mIdentifier = obj[QLatin1StringView("_id")].toString().toLatin1();
-    mExtension = obj[QLatin1StringView("extension")].toString();
+    mName = obj["name"_L1].toString();
+    mIdentifier = obj["_id"_L1].toString().toLatin1();
+    mExtension = obj["extension"_L1].toString();
 }
 
 const QString &CustomSoundInfo::extension() const

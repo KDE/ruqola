@@ -6,7 +6,7 @@
 
 #include "deviceinfo.h"
 #include "utils.h"
-
+using namespace Qt::Literals::StringLiterals;
 DeviceInfo::DeviceInfo() = default;
 
 DeviceInfo::~DeviceInfo() = default;
@@ -24,18 +24,18 @@ QDebug operator<<(QDebug d, const DeviceInfo &t)
 
 void DeviceInfo::parseDeviceInfo(const QJsonObject &obj)
 {
-    mIdentifier = obj[QLatin1StringView("_id")].toString().toLatin1();
-    mHost = obj[QLatin1StringView("host")].toString();
-    mSessionId = obj[QLatin1StringView("sessionId")].toString().toLatin1();
-    mIp = obj[QLatin1StringView("ip")].toString();
-    mUserId = obj[QLatin1StringView("userId")].toString().toLatin1();
-    const QJsonObject deviceObj = obj[QLatin1StringView("device")].toObject();
+    mIdentifier = obj["_id"_L1].toString().toLatin1();
+    mHost = obj["host"_L1].toString();
+    mSessionId = obj["sessionId"_L1].toString().toLatin1();
+    mIp = obj["ip"_L1].toString();
+    mUserId = obj["userId"_L1].toString().toLatin1();
+    const QJsonObject deviceObj = obj["device"_L1].toObject();
     if (!deviceObj.isEmpty()) {
-        const QJsonObject osObj = deviceObj[QLatin1StringView("os")].toObject();
+        const QJsonObject osObj = deviceObj["os"_L1].toObject();
         if (!osObj.isEmpty()) {
-            mOs = osObj[QLatin1StringView("name")].toString() + QLatin1Char(' ') + osObj[QLatin1StringView("version")].toString();
+            mOs = osObj["name"_L1].toString() + QLatin1Char(' ') + osObj["version"_L1].toString();
         }
-        mClient = deviceObj[QLatin1StringView("name")].toString();
+        mClient = deviceObj["name"_L1].toString();
     }
     setLoginAt(Utils::parseIsoDate(QStringLiteral("loginAt"), obj));
     //"device":{"longVersion":"103.0","name":"Firefox","os":{"name":"Linux","version":"x86_64"},"type":"browser","version":"103.0"}

@@ -5,6 +5,7 @@
 */
 
 #include "roominfo/roominfo.h"
+using namespace Qt::Literals::StringLiterals;
 
 #include "ruqola_debug.h"
 #include "utils.h"
@@ -19,34 +20,34 @@ RoomInfo::~RoomInfo() = default;
 void RoomInfo::parseRoomInfo(const QJsonObject &object)
 {
     // qDebug() << " void AdminRoom::parseAdminRoom(const QJsonObject &object)" << object;
-    if (object.contains(QLatin1StringView("name"))) {
-        setName(object[QLatin1StringView("name")].toString());
+    if (object.contains("name"_L1)) {
+        setName(object["name"_L1].toString());
     }
-    setTopic(object[QLatin1StringView("topic")].toString());
-    setDescription(object[QLatin1StringView("description")].toString());
-    setAnnouncement(object[QLatin1StringView("announcement")].toString());
-    if (object.contains(QLatin1StringView("msgs"))) {
-        setMessageCount(object[QLatin1StringView("msgs")].toInt());
+    setTopic(object["topic"_L1].toString());
+    setDescription(object["description"_L1].toString());
+    setAnnouncement(object["announcement"_L1].toString());
+    if (object.contains("msgs"_L1)) {
+        setMessageCount(object["msgs"_L1].toInt());
     }
-    if (object.contains(QLatin1StringView("t"))) {
-        setChannelType(object[QLatin1StringView("t")].toString());
+    if (object.contains("t"_L1)) {
+        setChannelType(object["t"_L1].toString());
     }
-    setBelongsTo(object[QLatin1StringView("belongsTo")].toString());
-    setDefaultRoom(object[QLatin1StringView("default")].toBool(false));
-    if (object.contains(QLatin1StringView("lastMessage"))) {
-        setLastMessage(Utils::parseIsoDate(QStringLiteral("_updatedAt"), object[QLatin1StringView("lastMessage")].toObject()));
+    setBelongsTo(object["belongsTo"_L1].toString());
+    setDefaultRoom(object["default"_L1].toBool(false));
+    if (object.contains("lastMessage"_L1)) {
+        setLastMessage(Utils::parseIsoDate(QStringLiteral("_updatedAt"), object["lastMessage"_L1].toObject()));
     }
-    if (object.contains(QLatin1StringView("ts"))) {
+    if (object.contains("ts"_L1)) {
         setCreatedRoom(Utils::parseIsoDate(QStringLiteral("ts"), object));
     }
-    setIdentifier(object[QLatin1StringView("_id")].toString().toLatin1());
-    setReadOnly(object[QLatin1StringView("ro")].toBool());
+    setIdentifier(object["_id"_L1].toString().toLatin1());
+    setReadOnly(object["ro"_L1].toBool());
 
-    setFeatured(object[QLatin1StringView("featured")].toBool(false));
-    if (object.contains(QLatin1StringView("usersCount"))) {
-        setUsersCount(object[QLatin1StringView("usersCount")].toInt());
+    setFeatured(object["featured"_L1].toBool(false));
+    if (object.contains("usersCount"_L1)) {
+        setUsersCount(object["usersCount"_L1].toInt());
     }
-    const QJsonArray userNamesArray = object[QLatin1StringView("usernames")].toArray();
+    const QJsonArray userNamesArray = object["usernames"_L1].toArray();
     const QVariantList userNamesList = userNamesArray.toVariantList();
     mUserNames.reserve(userNamesList.count());
     for (const auto &var : userNamesList) {
@@ -55,10 +56,10 @@ void RoomInfo::parseRoomInfo(const QJsonObject &object)
     mTeamInfo.parseTeamInfo(object);
     generateDisplayChannelType();
 
-    const QJsonValue ownerValue = object.value(QLatin1StringView("u"));
+    const QJsonValue ownerValue = object.value("u"_L1);
     if (!ownerValue.isUndefined()) {
         const QJsonObject objOwner = ownerValue.toObject();
-        mOwnerName = objOwner.value(QLatin1StringView("username")).toString();
+        mOwnerName = objOwner.value("username"_L1).toString();
     }
 
     // TODO load team info

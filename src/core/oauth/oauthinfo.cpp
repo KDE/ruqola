@@ -5,6 +5,7 @@
 */
 
 #include "oauthinfo.h"
+using namespace Qt::Literals::StringLiterals;
 
 #include "utils.h"
 
@@ -30,17 +31,17 @@ bool OauthInfo::operator==(const OauthInfo &other) const
 
 void OauthInfo::parseOauthInfo(const QJsonObject &replyObject, bool restApi)
 {
-    mIdentifier = replyObject[QLatin1StringView("_id")].toString();
-    mActive = replyObject[QLatin1StringView("active")].toBool();
-    mName = replyObject[QLatin1StringView("name")].toString();
-    mClientId = replyObject[QLatin1StringView("clientId")].toString();
-    mClientSecret = replyObject[QLatin1StringView("clientSecret")].toString();
-    mRedirectUri = replyObject[QLatin1StringView("redirectUri")].toString();
+    mIdentifier = replyObject["_id"_L1].toString();
+    mActive = replyObject["active"_L1].toBool();
+    mName = replyObject["name"_L1].toString();
+    mClientId = replyObject["clientId"_L1].toString();
+    mClientSecret = replyObject["clientSecret"_L1].toString();
+    mRedirectUri = replyObject["redirectUri"_L1].toString();
     // TODO _updatedAt
-    const QJsonObject createdBy = replyObject[QLatin1StringView("_createdBy")].toObject();
-    mCreatedBy = createdBy[QLatin1StringView("username")].toString();
+    const QJsonObject createdBy = replyObject["_createdBy"_L1].toObject();
+    mCreatedBy = createdBy["username"_L1].toString();
     // {"_id":"system","username":"system"}
-    if (replyObject.contains(QLatin1StringView("_createdAt"))) {
+    if (replyObject.contains("_createdAt"_L1)) {
         if (restApi) {
             setCreatedDateTime(QDateTime::fromMSecsSinceEpoch(Utils::parseIsoDate(QStringLiteral("_createdAt"), replyObject)));
         } else {

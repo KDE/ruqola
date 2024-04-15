@@ -5,6 +5,8 @@
 */
 
 #include "roominfo/roomsinfo.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "ruqola_debug.h"
 #include <QJsonArray>
 #include <QJsonObject>
@@ -37,9 +39,9 @@ RoomInfo RoomsInfo::at(int index) const
 
 void RoomsInfo::parseMoreRooms(const QJsonObject &obj, RoomsInfo::ParseType type)
 {
-    const int adminRoomsCount = obj[QLatin1StringView("count")].toInt();
-    mOffset = obj[QLatin1StringView("offset")].toInt();
-    mTotal = obj[QLatin1StringView("total")].toInt();
+    const int adminRoomsCount = obj["count"_L1].toInt();
+    mOffset = obj["offset"_L1].toInt();
+    mTotal = obj["total"_L1].toInt();
     parseListRooms(obj, type);
     mRoomsCount += adminRoomsCount;
 }
@@ -102,9 +104,9 @@ void RoomsInfo::setRooms(const QList<RoomInfo> &rooms)
 
 void RoomsInfo::parseRooms(const QJsonObject &obj, RoomsInfo::ParseType type)
 {
-    mRoomsCount = obj[QLatin1StringView("count")].toInt();
-    mOffset = obj[QLatin1StringView("offset")].toInt();
-    mTotal = obj[QLatin1StringView("total")].toInt();
+    mRoomsCount = obj["count"_L1].toInt();
+    mOffset = obj["offset"_L1].toInt();
+    mTotal = obj["total"_L1].toInt();
     mRooms.clear();
     parseListRooms(obj, type);
 }

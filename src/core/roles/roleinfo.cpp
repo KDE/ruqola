@@ -5,6 +5,8 @@
 */
 
 #include "roleinfo.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include <QJsonObject>
 
 //{"_id":"admin","description":"Admin","mandatory2fa":false,"name":"admin","protected":true,"scope":"Users"},
@@ -39,12 +41,12 @@ bool RoleInfo::operator==(const RoleInfo &other) const
 void RoleInfo::parseRoleInfo(const QJsonObject &obj)
 {
     // TODO updateAt!
-    mScope = obj[QLatin1StringView("scope")].toString();
-    mIdentifier = obj[QLatin1StringView("_id")].toString();
-    mName = obj[QLatin1StringView("name")].toString();
-    mDescription = obj[QLatin1StringView("description")].toString();
-    mRoleProtected = obj[QLatin1StringView("protected")].toBool();
-    mMandatory2fa = obj[QLatin1StringView("mandatory2fa")].toBool();
+    mScope = obj["scope"_L1].toString();
+    mIdentifier = obj["_id"_L1].toString();
+    mName = obj["name"_L1].toString();
+    mDescription = obj["description"_L1].toString();
+    mRoleProtected = obj["protected"_L1].toBool();
+    mMandatory2fa = obj["mandatory2fa"_L1].toBool();
 }
 
 const QString &RoleInfo::name() const

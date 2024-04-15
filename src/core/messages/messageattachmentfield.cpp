@@ -5,8 +5,10 @@
 */
 
 #include "messageattachmentfield.h"
+
 #include <QJsonObject>
 
+using namespace Qt::Literals::StringLiterals;
 MessageAttachmentField::MessageAttachmentField() = default;
 
 MessageAttachmentField::~MessageAttachmentField() = default;
@@ -39,16 +41,16 @@ void MessageAttachmentField::setValue(const QString &value)
 QJsonObject MessageAttachmentField::serialize(const MessageAttachmentField &message)
 {
     QJsonObject obj;
-    obj[QLatin1StringView("title")] = message.title();
-    obj[QLatin1StringView("value")] = message.value();
+    obj["title"_L1] = message.title();
+    obj["value"_L1] = message.value();
     return obj;
 }
 
 MessageAttachmentField MessageAttachmentField::deserialize(const QJsonObject &o)
 {
     MessageAttachmentField att;
-    att.setValue(o.value(QLatin1StringView("value")).toString());
-    att.setTitle(o.value(QLatin1StringView("title")).toString());
+    att.setValue(o.value("value"_L1).toString());
+    att.setTitle(o.value("title"_L1).toString());
     return att;
 }
 

@@ -5,6 +5,7 @@
 */
 
 #include "teamroom.h"
+using namespace Qt::Literals::StringLiterals;
 
 #include <QJsonArray>
 
@@ -47,10 +48,10 @@ void TeamRoom::setFname(const QString &fname)
 
 void TeamRoom::parse(const QJsonObject &obj)
 {
-    mName = obj[QLatin1StringView("name")].toString();
-    mFname = obj[QLatin1StringView("fname")].toString();
-    mAutoJoin = obj[QLatin1StringView("teamDefault")].toBool(false);
-    mIdentifier = obj[QLatin1StringView("_id")].toString().toLatin1();
+    mName = obj["name"_L1].toString();
+    mFname = obj["fname"_L1].toString();
+    mAutoJoin = obj["teamDefault"_L1].toBool(false);
+    mIdentifier = obj["_id"_L1].toString().toLatin1();
 }
 
 QByteArray TeamRoom::identifier() const
@@ -66,7 +67,7 @@ void TeamRoom::setIdentifier(const QByteArray &identifier)
 QList<TeamRoom> TeamRoom::parseTeamRooms(const QJsonObject &obj)
 {
     QList<TeamRoom> teamRooms;
-    const QJsonArray rooms = obj.value(QLatin1StringView("rooms")).toArray();
+    const QJsonArray rooms = obj.value("rooms"_L1).toArray();
     teamRooms.reserve(rooms.count());
     for (int i = 0, total = rooms.count(); i < total; ++i) {
         const QJsonObject r = rooms.at(i).toObject();

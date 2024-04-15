@@ -11,56 +11,56 @@
 #include <KLocalizedString>
 #include <QJsonArray>
 #include <QJsonObject>
-
+using namespace Qt::Literals::StringLiterals;
 MessageAttachment::MessageAttachment() = default;
 
 void MessageAttachment::parseAttachment(const QJsonObject &attachment)
 {
-    const QJsonValue description = attachment.value(QLatin1StringView("description"));
+    const QJsonValue description = attachment.value("description"_L1);
     if (!description.isUndefined()) {
         setDescription(description.toString());
     }
-    const QJsonValue title = attachment.value(QLatin1StringView("title"));
+    const QJsonValue title = attachment.value("title"_L1);
     if (!title.isUndefined()) {
         setTitle(title.toString());
     }
     AttachmentType attType = AttachmentType::Unknown;
-    if (attachment.contains(QLatin1StringView("audio_url"))) {
-        setLink(attachment.value(QLatin1StringView("audio_url")).toString());
+    if (attachment.contains("audio_url"_L1)) {
+        setLink(attachment.value("audio_url"_L1).toString());
         attType = AttachmentType::Audio;
-        setAttachmentSize(attachment.value(QLatin1StringView("audio_size")).toInteger(-1));
-    } else if (attachment.contains(QLatin1StringView("video_url"))) {
-        setLink(attachment.value(QLatin1StringView("video_url")).toString());
+        setAttachmentSize(attachment.value("audio_size"_L1).toInteger(-1));
+    } else if (attachment.contains("video_url"_L1)) {
+        setLink(attachment.value("video_url"_L1).toString());
         attType = AttachmentType::Video;
-        setAttachmentSize(attachment.value(QLatin1StringView("video_size")).toInteger(-1));
-    } else if (attachment.contains(QLatin1StringView("image_url"))) {
+        setAttachmentSize(attachment.value("video_size"_L1).toInteger(-1));
+    } else if (attachment.contains("image_url"_L1)) {
         // prefer the title_link as the image_url may just serve us the tiny preview image
-        setLink(attachment.value(QLatin1StringView("title_link")).toString());
-        mImageUrlPreview = attachment.value(QLatin1StringView("image_url")).toString();
+        setLink(attachment.value("title_link"_L1).toString());
+        mImageUrlPreview = attachment.value("image_url"_L1).toString();
         if (link().isEmpty()) // fallback to the image_url otherwise
             setLink(mImageUrlPreview);
         attType = AttachmentType::Image;
         // Image Size
-        setAttachmentSize(attachment.value(QLatin1StringView("image_size")).toInteger(-1));
-    } else if (attachment.contains(QLatin1StringView("author_link"))) {
-        setLink(attachment.value(QLatin1StringView("author_link")).toString());
+        setAttachmentSize(attachment.value("image_size"_L1).toInteger(-1));
+    } else if (attachment.contains("author_link"_L1)) {
+        setLink(attachment.value("author_link"_L1).toString());
         attType = AttachmentType::NormalText;
         // TODO implement it.
-        //    } else if (attachment.contains(QLatin1StringView("message_link"))) {
-        //        setLink(attachment.value(QLatin1StringView("message_link")).toString());
+        //    } else if (attachment.contains("message_link"_L1)) {
+        //        setLink(attachment.value("message_link"_L1).toString());
         //        attType = AttachmentType::NormalText;
-    } else if (attachment.contains(QLatin1StringView("title_link"))) { // Last as an image_url can have a title_link
-        setLink(attachment.value(QLatin1StringView("title_link")).toString());
+    } else if (attachment.contains("title_link"_L1)) { // Last as an image_url can have a title_link
+        setLink(attachment.value("title_link"_L1).toString());
         attType = AttachmentType::File;
     }
     // Add image dimension
     if (attType == AttachmentType::Image) {
-        const QJsonValue imageDimensions = attachment.value(QLatin1StringView("image_dimensions"));
+        const QJsonValue imageDimensions = attachment.value("image_dimensions"_L1);
         if (!imageDimensions.isUndefined()) {
             const QJsonObject imageDimensionsParams = imageDimensions.toObject();
 
-            setImageHeight(imageDimensionsParams.value(QLatin1StringView("height")).toInt());
-            setImageWidth(imageDimensionsParams.value(QLatin1StringView("width")).toInt());
+            setImageHeight(imageDimensionsParams.value("height"_L1).toInt());
+            setImageWidth(imageDimensionsParams.value("width"_L1).toInt());
             // TODO validate image size
         } else {
             // Use default value
@@ -69,27 +69,27 @@ void MessageAttachment::parseAttachment(const QJsonObject &attachment)
         }
     }
 
-    setAuthorName(attachment.value(QLatin1StringView("author_name")).toString());
-    setAuthorIcon(attachment.value(QLatin1StringView("author_icon")).toString());
+    setAuthorName(attachment.value("author_name"_L1).toString());
+    setAuthorIcon(attachment.value("author_icon"_L1).toString());
 
     // Color
-    const QJsonValue color = attachment.value(QLatin1StringView("color"));
+    const QJsonValue color = attachment.value("color"_L1);
     if (!color.isUndefined()) {
         setColor(color.toString());
     }
     // MimeType
-    setMimeType(attachment.value(QLatin1StringView("image_type")).toString());
+    setMimeType(attachment.value("image_type"_L1).toString());
 
     // Text
-    const QJsonValue text = attachment.value(QLatin1StringView("text"));
+    const QJsonValue text = attachment.value("text"_L1);
     if (!text.isUndefined()) {
-        const QJsonValue messagelink = attachment.value(QLatin1StringView("message_link"));
+        const QJsonValue messagelink = attachment.value("message_link"_L1);
         if (messagelink.isUndefined()) { // Don't show attachment if we have message_link. We already implement message preview
             attType = AttachmentType::NormalText;
             setText(text.toString());
         }
     }
-    const QJsonArray fieldsArray = attachment.value(QLatin1StringView("fields")).toArray();
+    const QJsonArray fieldsArray = attachment.value("fields"_L1).toArray();
     QList<MessageAttachmentField> messageFields;
     messageFields.reserve(fieldsArray.size());
     for (int i = 0, total = fieldsArray.size(); i < total; ++i) {
@@ -102,7 +102,7 @@ void MessageAttachment::parseAttachment(const QJsonObject &attachment)
         }
     }
     setAttachmentType(attType);
-    mCollapsed = attachment.value(QLatin1StringView("collapsed")).toBool();
+    mCollapsed = attachment.value("collapsed"_L1).toBool();
     generateTitle();
 }
 
@@ -110,42 +110,42 @@ QJsonObject MessageAttachment::serialize(const MessageAttachment &messageAttach)
 {
     QJsonObject obj;
     if (!messageAttach.description().isEmpty()) {
-        obj[QLatin1StringView("description")] = messageAttach.description();
+        obj["description"_L1] = messageAttach.description();
     }
     if (!messageAttach.title().isEmpty()) {
-        obj[QLatin1StringView("title")] = messageAttach.title();
+        obj["title"_L1] = messageAttach.title();
     }
-    obj[QLatin1StringView("url")] = messageAttach.link();
+    obj["url"_L1] = messageAttach.link();
     if (!messageAttach.imageUrlPreview().isEmpty()) {
-        obj[QLatin1StringView("image_preview")] = messageAttach.imageUrlPreview();
+        obj["image_preview"_L1] = messageAttach.imageUrlPreview();
     }
 
     const QString authorname = messageAttach.authorName();
     if (!authorname.isEmpty()) {
-        obj[QLatin1StringView("authorname")] = authorname;
+        obj["authorname"_L1] = authorname;
     }
     const QString authorIcon = messageAttach.authorIcon();
     if (!authorIcon.isEmpty()) {
-        obj[QLatin1StringView("authoricon")] = authorIcon;
+        obj["authoricon"_L1] = authorIcon;
     }
     const QString mimeType = messageAttach.mimeType();
     if (!mimeType.isEmpty()) {
-        obj[QLatin1StringView("mimetype")] = mimeType;
+        obj["mimetype"_L1] = mimeType;
     }
     if ((messageAttach.imageHeight() != -1) && (messageAttach.imageWidth() != -1)) {
-        obj[QLatin1StringView("image_height")] = messageAttach.imageHeight();
-        obj[QLatin1StringView("image_width")] = messageAttach.imageWidth();
+        obj["image_height"_L1] = messageAttach.imageHeight();
+        obj["image_width"_L1] = messageAttach.imageWidth();
     }
     const QString color = messageAttach.color();
     if (!color.isEmpty()) {
-        obj[QLatin1StringView("color")] = color;
+        obj["color"_L1] = color;
     }
     const QString text = messageAttach.text();
     if (!text.isEmpty()) {
-        obj[QLatin1StringView("text")] = text;
+        obj["text"_L1] = text;
     }
     if (messageAttach.attachmentSize() != -1) {
-        obj[QLatin1StringView("attachment_size")] = messageAttach.attachmentSize();
+        obj["attachment_size"_L1] = messageAttach.attachmentSize();
     }
 
     QJsonArray fieldArray;
@@ -154,14 +154,14 @@ QJsonObject MessageAttachment::serialize(const MessageAttachment &messageAttach)
         fieldArray.append(std::move(fields));
     }
     if (!fieldArray.isEmpty()) {
-        obj[QLatin1StringView("fields")] = fieldArray;
+        obj["fields"_L1] = fieldArray;
     }
     if (messageAttach.collapsed()) {
-        obj[QLatin1StringView("collapsed")] = true;
+        obj["collapsed"_L1] = true;
     }
-    obj[QLatin1StringView("attachmentType")] = QJsonValue::fromVariant(QVariant::fromValue<MessageAttachment::AttachmentType>(messageAttach.attachmentType()));
+    obj["attachmentType"_L1] = QJsonValue::fromVariant(QVariant::fromValue<MessageAttachment::AttachmentType>(messageAttach.attachmentType()));
     if (bool show = messageAttach.showAttachment()) {
-        obj[QLatin1StringView("show_attachment")] = show;
+        obj["show_attachment"_L1] = show;
     }
     return obj;
 }
@@ -169,35 +169,35 @@ QJsonObject MessageAttachment::serialize(const MessageAttachment &messageAttach)
 MessageAttachment MessageAttachment::deserialize(const QJsonObject &o)
 {
     MessageAttachment att;
-    att.setDescription(o.value(QLatin1StringView("description")).toString());
-    att.setTitle(o.value(QLatin1StringView("title")).toString());
-    att.setText(o.value(QLatin1StringView("text")).toString());
-    att.setLink(o.value(QLatin1StringView("url")).toString());
-    att.setImageUrlPreview(o.value(QLatin1StringView("image_preview")).toString());
-    att.setAuthorName(o.value(QLatin1StringView("authorname")).toString());
-    att.setAuthorIcon(o.value(QLatin1StringView("authoricon")).toString());
-    att.setMimeType(o.value(QLatin1StringView("mimetype")).toString());
-    att.setAttachmentSize(o.value(QLatin1StringView("attachment_size")).toInteger(-1));
+    att.setDescription(o.value("description"_L1).toString());
+    att.setTitle(o.value("title"_L1).toString());
+    att.setText(o.value("text"_L1).toString());
+    att.setLink(o.value("url"_L1).toString());
+    att.setImageUrlPreview(o.value("image_preview"_L1).toString());
+    att.setAuthorName(o.value("authorname"_L1).toString());
+    att.setAuthorIcon(o.value("authoricon"_L1).toString());
+    att.setMimeType(o.value("mimetype"_L1).toString());
+    att.setAttachmentSize(o.value("attachment_size"_L1).toInteger(-1));
 
-    const QJsonValue valHeight = o.value(QLatin1StringView("image_height"));
+    const QJsonValue valHeight = o.value("image_height"_L1);
     if (!valHeight.isUndefined()) {
         att.setImageHeight(valHeight.toInt());
     }
-    const QJsonValue valWidth = o.value(QLatin1StringView("image_width"));
+    const QJsonValue valWidth = o.value("image_width"_L1);
     if (!valWidth.isUndefined()) {
         att.setImageWidth(valWidth.toInt());
     }
-    att.setColor(o.value(QLatin1StringView("color")).toString());
-    const QJsonArray fieldsArray = o.value(QLatin1StringView("fields")).toArray();
+    att.setColor(o.value("color"_L1).toString());
+    const QJsonArray fieldsArray = o.value("fields"_L1).toArray();
     QList<MessageAttachmentField> messageFields;
     messageFields.reserve(fieldsArray.size());
     for (int i = 0, total = fieldsArray.size(); i < total; ++i) {
         messageFields.append(MessageAttachmentField::deserialize(fieldsArray.at(i).toObject()));
     }
     att.setAttachmentFields(messageFields);
-    att.setCollapsed(o.value(QLatin1StringView("collapsed")).toBool());
-    att.setAttachmentType(o[QLatin1StringView("attachmentType")].toVariant().value<AttachmentType>());
-    att.setShowAttachment(o[QLatin1StringView("show_attachment")].toBool());
+    att.setCollapsed(o.value("collapsed"_L1).toBool());
+    att.setAttachmentType(o["attachmentType"_L1].toVariant().value<AttachmentType>());
+    att.setShowAttachment(o["show_attachment"_L1].toBool());
     att.generateTitle();
     return att;
 }
@@ -250,7 +250,7 @@ bool MessageAttachment::isValid() const
 bool MessageAttachment::canDownloadAttachment() const
 {
     // Improve it !
-    if (mLink.startsWith(QLatin1StringView("http://")) || mLink.startsWith(QLatin1StringView("https://"))) {
+    if (mLink.startsWith("http://"_L1) || mLink.startsWith("https://"_L1)) {
         return false;
     }
     return true;
@@ -264,7 +264,7 @@ QString MessageAttachment::mimeType() const
 void MessageAttachment::setMimeType(const QString &type)
 {
     mMimeType = type;
-    if (mMimeType == QLatin1StringView("image/gif")) {
+    if (mMimeType == "image/gif"_L1) {
         mIsAnimatedImage = true;
     }
 }
@@ -442,7 +442,7 @@ QString MessageAttachment::link() const
 void MessageAttachment::setLink(const QString &link)
 {
     mLink = link;
-    if (link.endsWith(QLatin1StringView(".gif"))) { // Gify doesn't set mimetype
+    if (link.endsWith(".gif"_L1)) { // Gify doesn't set mimetype
         mIsAnimatedImage = true;
     } else {
         QUrl url(link);

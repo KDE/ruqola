@@ -7,96 +7,97 @@
 #include "systemmessagetypeutil.h"
 
 using namespace SystemMessageTypeUtil;
+using namespace Qt::Literals::StringLiterals;
 
 SystemMessageType SystemMessageTypeUtil::systemMessageTypeFromString(const QString &str)
 {
-    if (str == QLatin1StringView("uj")) {
+    if (str == "uj"_L1) {
         return UserJoined;
-    } else if (str == QLatin1StringView("ul")) {
+    } else if (str == "ul"_L1) {
         return UserLeft;
-    } else if (str == QLatin1StringView("ult")) {
+    } else if (str == "ult"_L1) {
         return UserLeftTeam;
-    } else if (str == QLatin1StringView("room_changed_topic")) {
+    } else if (str == "room_changed_topic"_L1) {
         return RoomTopicChanged;
-    } else if (str == QLatin1StringView("au")) {
+    } else if (str == "au"_L1) {
         return UserAdded;
     } else if (str == QLatin1Char('r')) {
         return RoomNameChanged;
-    } else if (str == QLatin1StringView("ru")) {
+    } else if (str == "ru"_L1) {
         return UserRemoved;
-    } else if (str == QLatin1StringView("room_changed_description")) {
+    } else if (str == "room_changed_description"_L1) {
         return RoomDescriptionChanged;
-    } else if (str == QLatin1StringView("room_changed_announcement")) {
+    } else if (str == "room_changed_announcement"_L1) {
         return RoomAnnoucementChanged;
-    } else if (str == QLatin1StringView("room_changed_privacy")) {
+    } else if (str == "room_changed_privacy"_L1) {
         return RoomPrivacyChanged;
-    } else if (str == QLatin1StringView("jitsi_call_started")) {
+    } else if (str == "jitsi_call_started"_L1) {
         return JitsiCallStarted;
-    } else if (str == QLatin1StringView("rm")) {
+    } else if (str == "rm"_L1) {
         return MessageDeleted;
-    } else if (str == QLatin1StringView("message_pinned")) {
+    } else if (str == "message_pinned"_L1) {
         return MessagePinned;
-    } else if (str == QLatin1StringView("otr")) {
+    } else if (str == "otr"_L1) {
         return EncryptedMessage;
-    } else if (str == QLatin1StringView("user-unmuted")) {
+    } else if (str == "user-unmuted"_L1) {
         return UserUnmuted;
-    } else if (str == QLatin1StringView("user-muted")) {
+    } else if (str == "user-muted"_L1) {
         return UserMuted;
-    } else if (str == QLatin1StringView("subscription-role-added")) {
+    } else if (str == "subscription-role-added"_L1) {
         return SubscriptionRoleAdded;
-    } else if (str == QLatin1StringView("subscription-role-removed")) {
+    } else if (str == "subscription-role-removed"_L1) {
         return SubscriptionRoleRemoved;
-    } else if (str == QLatin1StringView("e2e")) {
+    } else if (str == "e2e"_L1) {
         return MessageE2E;
-    } else if (str == QLatin1StringView("discussion-created")) {
+    } else if (str == "discussion-created"_L1) {
         return DiscussionCreated;
-    } else if (str == QLatin1StringView("ut")) {
+    } else if (str == "ut"_L1) {
         return UserJoinedConversation;
-    } else if (str == QLatin1StringView("room-archived")) {
+    } else if (str == "room-archived"_L1) {
         return RoomArchived;
-    } else if (str == QLatin1StringView("room-unarchived")) {
+    } else if (str == "room-unarchived"_L1) {
         return RoomUnarchived;
-    } else if (str == QLatin1StringView("rtc")) {
+    } else if (str == "rtc"_L1) {
         return Rtc;
-    } else if (str == QLatin1StringView("wm")) {
+    } else if (str == "wm"_L1) {
         return Welcome;
-    } else if (str == QLatin1StringView("room_changed_avatar")) {
+    } else if (str == "room_changed_avatar"_L1) {
         return RoomAvatarChanged;
-    } else if (str == QLatin1StringView("room_e2e_enabled")) {
+    } else if (str == "room_e2e_enabled"_L1) {
         return RoomE2eEnabled;
-    } else if (str == QLatin1StringView("room_e2e_disabled")) {
+    } else if (str == "room_e2e_disabled"_L1) {
         return RoomE2eDisabled;
-    } else if (str == QLatin1StringView("room-set-read-only")) {
+    } else if (str == "room-set-read-only"_L1) {
         return RoomSetReadOnly;
-    } else if (str == QLatin1StringView("room-removed-read-only")) {
+    } else if (str == "room-removed-read-only"_L1) {
         return RoomRemoveReadOnly;
-    } else if (str == QLatin1StringView("added-user-to-team")) {
+    } else if (str == "added-user-to-team"_L1) {
         return AddedUserToTeam;
-    } else if (str == QLatin1StringView("removed-user-from-team")) {
+    } else if (str == "removed-user-from-team"_L1) {
         return RemovedUserFromTeam;
-    } else if (str == QLatin1StringView("user-converted-to-team")) {
+    } else if (str == "user-converted-to-team"_L1) {
         return UserConvertedToTeam;
-    } else if (str == QLatin1StringView("user-converted-to-channel")) {
+    } else if (str == "user-converted-to-channel"_L1) {
         return UserConvertedToChannel;
-    } else if (str == QLatin1StringView("user-removed-room-from-team")) {
+    } else if (str == "user-removed-room-from-team"_L1) {
         return UserRemovedRoomFromTeam;
-    } else if (str == QLatin1StringView("user-deleted-room-from-team")) {
+    } else if (str == "user-deleted-room-from-team"_L1) {
         return UserDeletedRoomFromTeam;
-    } else if (str == QLatin1StringView("user-added-room-to-team")) {
+    } else if (str == "user-added-room-to-team"_L1) {
         return UserAddedRoomToTeam;
-    } else if (str == QLatin1StringView("room-allowed-reacting")) {
+    } else if (str == "room-allowed-reacting"_L1) {
         return RoomAllowedReacting;
-    } else if (str == QLatin1StringView("room-disallowed-reacting")) {
+    } else if (str == "room-disallowed-reacting"_L1) {
         return RoomDisallowedReacting;
-    } else if (str == QLatin1StringView("ujt")) {
+    } else if (str == "ujt"_L1) {
         return UserJoinedTeam;
-    } else if (str == QLatin1StringView("user_joined_otr")) {
+    } else if (str == "user_joined_otr"_L1) {
         return UserJoinedOtr;
-    } else if (str == QLatin1StringView("user_key_refreshed_successfully")) {
+    } else if (str == "user_key_refreshed_successfully"_L1) {
         return UserKeyRefreshedSuccessfully;
-    } else if (str == QLatin1StringView("user_requested_otr_key_refresh")) {
+    } else if (str == "user_requested_otr_key_refresh"_L1) {
         return UserRequesterOtrKeyRefresh;
-    } else if (str == QLatin1StringView("videoconf")) {
+    } else if (str == "videoconf"_L1) {
         return VideoConf;
     } else {
         return Unknown;
@@ -107,93 +108,93 @@ QString SystemMessageTypeUtil::systemMessageTypeStringFromEnum(SystemMessageType
 {
     switch (type) {
     case UserJoined:
-        return QLatin1StringView("uj");
+        return "uj"_L1;
     case UserLeft:
-        return QLatin1StringView("ul");
+        return "ul"_L1;
     case UserLeftTeam:
-        return QLatin1StringView("ult");
+        return "ult"_L1;
     case RoomTopicChanged:
-        return QLatin1StringView("room_changed_topic");
+        return "room_changed_topic"_L1;
     case UserAdded:
-        return QLatin1StringView("au");
+        return "au"_L1;
     case RoomNameChanged:
-        return QLatin1StringView("r");
+        return "r"_L1;
     case UserRemoved:
-        return QLatin1StringView("ru");
+        return "ru"_L1;
     case RoomDescriptionChanged:
-        return QLatin1StringView("room_changed_description");
+        return "room_changed_description"_L1;
     case RoomAnnoucementChanged:
-        return QLatin1StringView("room_changed_announcement");
+        return "room_changed_announcement"_L1;
     case RoomPrivacyChanged:
-        return QLatin1StringView("room_changed_privacy");
+        return "room_changed_privacy"_L1;
     case JitsiCallStarted:
-        return QLatin1StringView("jitsi_call_started");
+        return "jitsi_call_started"_L1;
     case MessageDeleted:
-        return QLatin1StringView("rm");
+        return "rm"_L1;
     case MessagePinned:
-        return QLatin1StringView("message_pinned");
+        return "message_pinned"_L1;
     case EncryptedMessage:
-        return QLatin1StringView("otr");
+        return "otr"_L1;
     case UserUnmuted:
-        return QLatin1StringView("user-unmuted");
+        return "user-unmuted"_L1;
     case UserMuted:
-        return QLatin1StringView("user-muted");
+        return "user-muted"_L1;
     case SubscriptionRoleAdded:
-        return QLatin1StringView("subscription-role-added");
+        return "subscription-role-added"_L1;
     case SubscriptionRoleRemoved:
-        return QLatin1StringView("subscription-role-removed");
+        return "subscription-role-removed"_L1;
     case MessageE2E:
-        return QLatin1StringView("e2e");
+        return "e2e"_L1;
     case DiscussionCreated:
-        return QLatin1StringView("discussion-created");
+        return "discussion-created"_L1;
     case UserJoinedConversation:
-        return QLatin1StringView("ut");
+        return "ut"_L1;
     case RoomArchived:
-        return QLatin1StringView("room-archived");
+        return "room-archived"_L1;
     case RoomUnarchived:
-        return QLatin1StringView("room-unarchived");
+        return "room-unarchived"_L1;
     case Rtc:
-        return QLatin1StringView("rtc");
+        return "rtc"_L1;
     case Welcome:
-        return QLatin1StringView("wm");
+        return "wm"_L1;
     case RoomAvatarChanged:
-        return QLatin1StringView("room_changed_avatar");
+        return "room_changed_avatar"_L1;
     case RoomE2eEnabled:
-        return QLatin1StringView("room_e2e_enabled");
+        return "room_e2e_enabled"_L1;
     case RoomE2eDisabled:
-        return QLatin1StringView("room_e2e_disabled");
+        return "room_e2e_disabled"_L1;
     case RoomSetReadOnly:
-        return QLatin1StringView("room-set-read-only");
+        return "room-set-read-only"_L1;
     case RoomRemoveReadOnly:
-        return QLatin1StringView("room-removed-read-only");
+        return "room-removed-read-only"_L1;
     case AddedUserToTeam:
-        return QLatin1StringView("added-user-to-team");
+        return "added-user-to-team"_L1;
     case RemovedUserFromTeam:
-        return QLatin1StringView("removed-user-from-team");
+        return "removed-user-from-team"_L1;
     case UserConvertedToTeam:
-        return QLatin1StringView("user-converted-to-team");
+        return "user-converted-to-team"_L1;
     case UserConvertedToChannel:
-        return QLatin1StringView("user-converted-to-channel");
+        return "user-converted-to-channel"_L1;
     case UserRemovedRoomFromTeam:
-        return QLatin1StringView("user-removed-room-from-team");
+        return "user-removed-room-from-team"_L1;
     case UserDeletedRoomFromTeam:
-        return QLatin1StringView("user-deleted-room-from-team");
+        return "user-deleted-room-from-team"_L1;
     case UserAddedRoomToTeam:
-        return QLatin1StringView("user-added-room-to-team");
+        return "user-added-room-to-team"_L1;
     case RoomAllowedReacting:
-        return QLatin1StringView("room-allowed-reacting");
+        return "room-allowed-reacting"_L1;
     case RoomDisallowedReacting:
-        return QLatin1StringView("room-disallowed-reacting");
+        return "room-disallowed-reacting"_L1;
     case UserJoinedTeam:
-        return QLatin1StringView("ujt");
+        return "ujt"_L1;
     case UserJoinedOtr:
-        return QLatin1StringView("user_joined_otr");
+        return "user_joined_otr"_L1;
     case UserKeyRefreshedSuccessfully:
-        return QLatin1StringView("user_key_refreshed_successfully");
+        return "user_key_refreshed_successfully"_L1;
     case UserRequesterOtrKeyRefresh:
-        return QLatin1StringView("user_requested_otr_key_refresh");
+        return "user_requested_otr_key_refresh"_L1;
     case VideoConf:
-        return QLatin1StringView("videoconf");
+        return "videoconf"_L1;
     case Unknown:
         return {};
     }

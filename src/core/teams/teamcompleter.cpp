@@ -5,6 +5,7 @@
 */
 
 #include "teamcompleter.h"
+using namespace Qt::Literals::StringLiterals;
 
 TeamCompleter::TeamCompleter() = default;
 
@@ -35,9 +36,9 @@ void TeamCompleter::setFname(const QString &fname)
 
 void TeamCompleter::parse(const QJsonObject &obj)
 {
-    mName = obj[QLatin1StringView("name")].toString();
-    mFname = obj[QLatin1StringView("fname")].toString();
-    mTeamId = obj[QLatin1StringView("teamId")].toString().toLatin1();
+    mName = obj["name"_L1].toString();
+    mFname = obj["fname"_L1].toString();
+    mTeamId = obj["teamId"_L1].toString().toLatin1();
     // TODO add room type too
 }
 

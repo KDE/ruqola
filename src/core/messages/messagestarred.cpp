@@ -5,8 +5,10 @@
 */
 
 #include "messagestarred.h"
+
 #include <QJsonArray>
 #include <QJsonObject>
+using namespace Qt::Literals::StringLiterals;
 MessageStarred::MessageStarred() = default;
 
 bool MessageStarred::isStarred() const
@@ -16,7 +18,7 @@ bool MessageStarred::isStarred() const
 
 void MessageStarred::parse(const QJsonObject &o)
 {
-    if (o.contains(QLatin1StringView("starred"))) {
+    if (o.contains("starred"_L1)) {
         mIsStarred = !o.value(QStringLiteral("starred")).toArray().isEmpty();
     } else {
         mIsStarred = false;

@@ -4,10 +4,12 @@
    SPDX-License-Identifier: LGPL-2.0-or-later
 */
 #include "messagetranslation.h"
+
 #include "ruqola_message_memory_debug.h"
 #include <QJsonArray>
 #include <QJsonObject>
 
+using namespace Qt::Literals::StringLiterals;
 MessageTranslation::MessageTranslation()
     : QSharedData()
 {
@@ -35,7 +37,7 @@ QDebug operator<<(QDebug d, const MessageTranslation &t)
 void MessageTranslation::parse(const QJsonObject &obj)
 {
     mTranslatedString.clear();
-    const QJsonObject languageObject = obj[QLatin1StringView("translations")].toObject();
+    const QJsonObject languageObject = obj["translations"_L1].toObject();
     const QStringList keys = languageObject.keys();
     for (const QString &lang : keys) {
         mTranslatedString.insert(lang, languageObject.value(lang).toString());

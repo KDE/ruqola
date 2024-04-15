@@ -5,6 +5,7 @@
 */
 
 #include "teaminfo.h"
+using namespace Qt::Literals::StringLiterals;
 
 TeamInfo::TeamInfo() = default;
 
@@ -23,14 +24,14 @@ void TeamInfo::parseTeamInfo(const QJsonObject &replyObject)
 void TeamInfo::serialize(const TeamInfo &teams, QJsonObject &obj)
 {
     if (teams.isValid()) {
-        obj[QLatin1StringView("teamId")] = QLatin1StringView(teams.teamId());
-        obj[QLatin1StringView("teamMain")] = teams.mainTeam();
+        obj["teamId"_L1] = QLatin1StringView(teams.teamId());
+        obj["teamMain"_L1] = teams.mainTeam();
         if (teams.autoJoin()) {
-            obj[QLatin1StringView("teamDefault")] = true;
+            obj["teamDefault"_L1] = true;
         }
         const auto roomsCount = teams.roomsCount();
         if (roomsCount > 0) {
-            obj[QLatin1StringView("roomsCount")] = roomsCount;
+            obj["roomsCount"_L1] = roomsCount;
         }
     }
 }
@@ -38,10 +39,10 @@ void TeamInfo::serialize(const TeamInfo &teams, QJsonObject &obj)
 TeamInfo TeamInfo::deserialize(const QJsonObject &obj)
 {
     TeamInfo info;
-    info.setMainTeam(obj[QLatin1StringView("teamMain")].toBool());
-    info.setTeamId(obj[QLatin1StringView("teamId")].toString().toLatin1());
-    info.setAutoJoin(obj[QLatin1StringView("teamDefault")].toBool());
-    info.setRoomsCount(obj[QLatin1StringView("roomsCount")].toInt(0));
+    info.setMainTeam(obj["teamMain"_L1].toBool());
+    info.setTeamId(obj["teamId"_L1].toString().toLatin1());
+    info.setAutoJoin(obj["teamDefault"_L1].toBool());
+    info.setRoomsCount(obj["roomsCount"_L1].toInt(0));
     return info;
 }
 

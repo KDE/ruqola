@@ -5,21 +5,23 @@
 */
 
 #include "inviteinfo.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "utils.h"
 
 InviteInfo::InviteInfo() = default;
 
 void InviteInfo::parseInviteInfo(const QJsonObject &replyObject)
 {
-    mIdentifier = replyObject[QLatin1StringView("_id")].toString().toLatin1();
-    mUserIdentifier = replyObject[QLatin1StringView("userId")].toString().toLatin1();
-    mRoomId = replyObject[QLatin1StringView("rid")].toString().toLatin1();
-    mUses = replyObject[QLatin1StringView("uses")].toInt();
-    mMaxUses = replyObject[QLatin1StringView("maxUses")].toInt();
-    if (replyObject.contains(QLatin1StringView("createdAt"))) {
+    mIdentifier = replyObject["_id"_L1].toString().toLatin1();
+    mUserIdentifier = replyObject["userId"_L1].toString().toLatin1();
+    mRoomId = replyObject["rid"_L1].toString().toLatin1();
+    mUses = replyObject["uses"_L1].toInt();
+    mMaxUses = replyObject["maxUses"_L1].toInt();
+    if (replyObject.contains("createdAt"_L1)) {
         setCreateDateTime(QDateTime::fromMSecsSinceEpoch(Utils::parseIsoDate(QStringLiteral("createdAt"), replyObject)));
     }
-    if (replyObject.contains(QLatin1StringView("expires"))) {
+    if (replyObject.contains("expires"_L1)) {
         setExpireDateTime(QDateTime::fromMSecsSinceEpoch(Utils::parseIsoDate(QStringLiteral("expires"), replyObject)));
     }
 }

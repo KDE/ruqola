@@ -5,6 +5,8 @@
 */
 
 #include "whatsnewmessagewidget.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "whatsnewdialog.h"
 #include <KLocalizedString>
 
@@ -23,7 +25,7 @@ WhatsNewMessageWidget::~WhatsNewMessageWidget() = default;
 
 void WhatsNewMessageWidget::slotLinkActivated(const QString &contents)
 {
-    if (contents == QLatin1StringView("show_whats_new")) {
+    if (contents == "show_whats_new"_L1) {
         WhatsNewDialog dlg(this);
         dlg.updateInformations();
         dlg.exec();

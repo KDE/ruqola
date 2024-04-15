@@ -8,7 +8,7 @@
 #include "ruqola_debug.h"
 
 #include <QJsonArray>
-
+using namespace Qt::Literals::StringLiterals;
 Roles::Roles() = default;
 
 QList<Role> Roles::roles() const
@@ -28,12 +28,12 @@ void Roles::setRoles(const QList<Role> &roles)
 
 void Roles::updateRoles(const QJsonObject &obj)
 {
-    const QString type = obj[QLatin1StringView("type")].toString();
-    const QString id = obj[QLatin1StringView("_id")].toString();
-    const QByteArray userId = obj[QLatin1StringView("u")].toObject().value(QLatin1StringView("_id")).toString().toLatin1();
+    const QString type = obj["type"_L1].toString();
+    const QString id = obj["_id"_L1].toString();
+    const QByteArray userId = obj["u"_L1].toObject().value("_id"_L1).toString().toLatin1();
     bool foundUser = false;
     // qDebug() << " type " << type << " id " << id << " userId" << userId;
-    if (type == QLatin1StringView("added")) {
+    if (type == "added"_L1) {
         for (int i = 0, total = mRoles.count(); i < total; ++i) {
             if (mRoles.at(i).userId() == userId) {
                 Role &r = mRoles[i];
@@ -48,7 +48,7 @@ void Roles::updateRoles(const QJsonObject &obj)
             r.updateRole(id, true);
             mRoles.append(std::move(r));
         }
-    } else if (type == QLatin1StringView("removed")) {
+    } else if (type == "removed"_L1) {
         for (int i = 0, total = mRoles.count(); i < total; ++i) {
             if (mRoles.at(i).userId() == userId) {
                 Role r = mRoles.takeAt(i);
@@ -86,7 +86,7 @@ void Roles::parseRole(const QJsonObject &obj)
 {
     mRoles.clear();
 
-    const QJsonArray roleArray = obj[QLatin1StringView("roles")].toArray();
+    const QJsonArray roleArray = obj["roles"_L1].toArray();
     const auto roleArrayCount = roleArray.count();
     mRoles.reserve(roleArrayCount);
     for (auto i = 0; i < roleArrayCount; ++i) {

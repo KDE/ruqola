@@ -5,6 +5,7 @@
 */
 
 #include "downloadappslanguagesinfo.h"
+using namespace Qt::Literals::StringLiterals;
 
 #include <QVariant>
 
@@ -12,7 +13,7 @@ DownloadAppsLanguagesInfo::DownloadAppsLanguagesInfo() = default;
 
 bool DownloadAppsLanguagesInfo::parse(const QJsonObject &language, const QString &id)
 {
-    const QJsonObject languagesObj = language[QLatin1StringView("languages")].toObject();
+    const QJsonObject languagesObj = language["languages"_L1].toObject();
     if (languagesObj.isEmpty()) {
         return false;
     }
