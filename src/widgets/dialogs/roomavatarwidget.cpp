@@ -5,6 +5,8 @@
 */
 
 #include "roomavatarwidget.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include <KLocalizedString>
 #include <QBuffer>
 #include <QContextMenuEvent>
@@ -42,7 +44,7 @@ void RoomAvatarWidget::slotChangeImage()
         if (!filter.isEmpty()) {
             filter += QLatin1Char(' ');
         }
-        filter += QLatin1StringView("*.") + QString::fromLatin1(ba);
+        filter += "*."_L1 + QString::fromLatin1(ba);
     }
     filter = QStringLiteral("%1 (%2)").arg(i18n("Image"), filter);
     const QString fileName = QFileDialog::getOpenFileName(this, i18n("Select Room Avatar"), QString(), filter);

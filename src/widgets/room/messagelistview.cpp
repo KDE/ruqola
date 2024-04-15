@@ -5,6 +5,8 @@
 */
 
 #include "messagelistview.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "administratordialog/moderationconsole/moderationmessageinfodialog.h"
 #include "chat/followmessagejob.h"
 #include "chat/postmessagejob.h"
@@ -370,7 +372,7 @@ void MessageListView::contextMenuEvent(QContextMenuEvent *event)
         QString url = mMessageListDelegate->urlAt(options, index, viewport()->mapFromGlobal(event->globalPos()));
         if (url.isEmpty())
             return {};
-        if (url.startsWith(QLatin1StringView("ruqola:/user/"))) {
+        if (url.startsWith("ruqola:/user/"_L1)) {
             url.remove(QStringLiteral("ruqola:/user/"));
             if (!Utils::validUser(url)) {
                 return {};

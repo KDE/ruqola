@@ -5,6 +5,8 @@
 */
 
 #include "myaccountpreferenceconfigurewidget.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "connection.h"
 #include "rocketchataccount.h"
 #include "ruqolawidgets_debug.h"
@@ -181,11 +183,11 @@ void MyAccountPreferenceConfigureWidget::slotUserRequestDataDownloadDone()
 
 QString MyAccountPreferenceConfigureWidget::desktopPushNotificationI18n(const QString &value) const
 {
-    if (value == QLatin1StringView("all")) {
+    if (value == "all"_L1) {
         return i18n("All Messages");
-    } else if (value == QLatin1StringView("mentions")) {
+    } else if (value == "mentions"_L1) {
         return i18n("Mentions");
-    } else if (value == QLatin1StringView("nothing")) {
+    } else if (value == "nothing"_L1) {
         return i18n("Nothing");
     }
     qCWarning(RUQOLAWIDGETS_LOG) << "String not found: " << value << " It's a bug";

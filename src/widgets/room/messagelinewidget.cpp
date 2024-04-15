@@ -5,6 +5,8 @@
 */
 
 #include "messagelinewidget.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "dialogs/createsoundmessagewizard.h"
 #include "dialogs/createvideomessagewizard.h"
 #include "messagemaximumsizedialog/messagemaximumsizedialog.h"
@@ -483,7 +485,7 @@ bool MessageLineWidget::handleMimeData(const QMimeData *mimeData)
         }
         return true;
     } else if (mimeData->hasImage()) {
-        QTemporaryFile tempFile(QDir::tempPath() + QLatin1StringView("/XXXXXX.png"));
+        QTemporaryFile tempFile(QDir::tempPath() + "/XXXXXX.png"_L1);
         if (tempFile.open()) {
             const auto image = mimeData->imageData().value<QImage>();
             QImageWriter writer(&tempFile, "PNG");

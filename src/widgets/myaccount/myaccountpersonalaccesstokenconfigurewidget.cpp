@@ -5,6 +5,8 @@
 */
 
 #include "myaccountpersonalaccesstokenconfigurewidget.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "connection.h"
 #include "model/personalaccesstokeninfosfilterproxymodel.h"
 #include "model/personalaccesstokeninfosmodel.h"
@@ -118,7 +120,7 @@ void MyAccountPersonalAccessTokenConfigureWidget::slotCreateToken()
 
                 mRocketChatAccount->restApi()->initializeRestApiJob(job);
                 connect(job, &RocketChatRestApi::GeneratePersonalAccessTokenJob::generateTokenDone, this, [this](const QJsonObject &obj) {
-                    const QString token = obj[QLatin1StringView("token")].toString();
+                    const QString token = obj["token"_L1].toString();
                     KMessageBox::information(this,
                                              i18n("<qt>Please save your token carefully as you will no longer be able to view it afterwards.<br>"
                                                   "<b>Token:</b> %1<br>"
@@ -192,7 +194,7 @@ void MyAccountPersonalAccessTokenConfigureWidget::slotRegenerateToken(const QStr
             job->setTokenName(tokenName);
             mRocketChatAccount->restApi()->initializeRestApiJob(job);
             connect(job, &RocketChatRestApi::RegeneratePersonalAccessTokenJob::regenerateTokenDone, this, [this](const QJsonObject &obj) {
-                const QString token = obj[QLatin1StringView("token")].toString();
+                const QString token = obj["token"_L1].toString();
                 KMessageBox::information(this,
                                          i18n("<qt>Please save your token carefully as you will no longer be able to view it afterwards.<br>"
                                               "<b>Token:</b> %1<br>"

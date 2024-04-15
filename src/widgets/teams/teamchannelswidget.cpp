@@ -5,6 +5,8 @@
 */
 
 #include "teamchannelswidget.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "channels/createchanneljob.h"
 #include "connection.h"
 #include "dialogs/createnewchanneldialog.h"
@@ -150,7 +152,7 @@ void TeamChannelsWidget::updateAutojoin(const QByteArray &roomId, bool autojoin)
 
 void TeamChannelsWidget::slotTeamUpdateRoomDone(const QJsonObject &replyObject)
 {
-    const QJsonObject room = replyObject.value(QLatin1StringView("room")).toObject();
+    const QJsonObject room = replyObject.value("room"_L1).toObject();
     TeamRoom teamRoom;
     teamRoom.parse(room);
     mTeamRoomsModel->setRoomChanged(std::move(teamRoom));
@@ -240,7 +242,7 @@ void TeamChannelsWidget::createChannels(const RocketChatRestApi::CreateChannelTe
     // TODO connect(job, &RocketChatRestApi::CreateChannelJob::addJoinCodeToChannel, this, &RestApiConnection::slotAddJoinCodeToChannel);
     mRocketChatAccount->restApi()->initializeRestApiJob(job);
     connect(job, &RocketChatRestApi::CreateChannelJob::createChannelDone, this, [this](const QJsonObject &replyObject) {
-        const QJsonObject obj = replyObject[QLatin1StringView("channel")].toObject();
+        const QJsonObject obj = replyObject["channel"_L1].toObject();
         TeamRoom teamRoom;
         teamRoom.parse(obj);
         mTeamRoomsModel->insertRooms({teamRoom});
@@ -257,7 +259,7 @@ void TeamChannelsWidget::createGroups(const RocketChatRestApi::CreateChannelTeam
     mRocketChatAccount->restApi()->initializeRestApiJob(job);
     job->setCreateGroupsInfo(info);
     connect(job, &RocketChatRestApi::CreateGroupsJob::createGroupsDone, this, [this](const QJsonObject &replyObject) {
-        const QJsonObject obj = replyObject[QLatin1StringView("group")].toObject();
+        const QJsonObject obj = replyObject["group"_L1].toObject();
         TeamRoom teamRoom;
         teamRoom.parse(obj);
         mTeamRoomsModel->insertRooms({teamRoom});

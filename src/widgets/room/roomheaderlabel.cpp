@@ -10,6 +10,7 @@
 #include <KLocalizedString>
 #include <QDesktopServices>
 #include <QTextDocument>
+using namespace Qt::Literals::StringLiterals;
 
 RoomHeaderLabel::RoomHeaderLabel(QWidget *parent)
     : QLabel(parent)
@@ -40,7 +41,7 @@ void RoomHeaderLabel::updateSqueezedText()
     }
     setVisible(true);
     const QString text = rPixelSqueeze(mFullText, width() - 10);
-    QLabel::setText(QLatin1StringView("<qt>") + text + QLatin1StringView("</qt>"));
+    QLabel::setText("<qt>"_L1 + text + "</qt>"_L1);
     if (mFullText != text && !mExpandTopic) {
         setToolTip(mFullText);
     }
@@ -48,10 +49,10 @@ void RoomHeaderLabel::updateSqueezedText()
 
 void RoomHeaderLabel::slotMoreInfo(const QString &content)
 {
-    if (content == QLatin1StringView("showmoretext")) {
+    if (content == "showmoretext"_L1) {
         mExpandTopic = true;
         updateSqueezedText();
-    } else if (content == QLatin1StringView("showlesstext")) {
+    } else if (content == "showlesstext"_L1) {
         mExpandTopic = false;
         updateSqueezedText();
     } else {
@@ -107,7 +108,7 @@ QSize RoomHeaderLabel::textSize(const QString &text) const
 {
     QTextDocument document;
     document.setDefaultFont(font());
-    document.setHtml(QLatin1StringView("<qt>") + text + QLatin1StringView("</qt>"));
+    document.setHtml("<qt>"_L1 + text + "</qt>"_L1);
 
     return document.size().toSize();
 }

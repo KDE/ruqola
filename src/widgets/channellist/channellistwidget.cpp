@@ -5,6 +5,8 @@
 */
 
 #include "channellistwidget.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "model/roomfilterproxymodel.h"
 #include "rocketchaturlutils.h"
 #include "ruqola_jitsi_debug.h"
@@ -276,7 +278,7 @@ void ChannelListWidget::slotSelectMessageRequested(const QByteArray &messageId,
 void ChannelListWidget::slotOpenLinkRequested(const QString &link)
 {
     // qDebug() << " void ChannelListWidget::slotOpenLinkRequested(const QString &link)" << link;
-    if (link.startsWith(QLatin1StringView("ruqola:"))) {
+    if (link.startsWith("ruqola:"_L1)) {
         const QString roomOrUserId = RuqolaUtils::self()->extractRoomUserFromUrl(link);
         const QModelIndex selectedIndex = mChannelView->selectionModel()->currentIndex();
         if (selectedIndex.isValid()) {
@@ -285,11 +287,11 @@ void ChannelListWidget::slotOpenLinkRequested(const QString &link)
                 return;
             }
         }
-        if (link.startsWith(QLatin1StringView("ruqola:/room/"))) {
+        if (link.startsWith("ruqola:/room/"_L1)) {
             if (!mChannelView->selectChannelByRoomIdRequested(roomOrUserId)) {
                 mCurrentRocketChatAccount->openChannel(roomOrUserId, RocketChatAccount::ChannelTypeInfo::RoomId);
             }
-        } else if (link.startsWith(QLatin1StringView("ruqola:/user/"))) {
+        } else if (link.startsWith("ruqola:/user/"_L1)) {
             if (!Utils::validUser(roomOrUserId)) {
                 return;
             }
@@ -303,7 +305,7 @@ void ChannelListWidget::slotOpenLinkRequested(const QString &link)
                     // mCurrentRocketChatAccount->openDirectChannel(roomOrUserId);
                 }
             }
-        } else if (link == QLatin1StringView("ruqola:/jitsicall/")) {
+        } else if (link == "ruqola:/jitsicall/"_L1) {
             const QModelIndex jitsiSelectedIndex = mChannelView->selectionModel()->currentIndex();
             if (jitsiSelectedIndex.isValid()) {
                 const QByteArray roomId = jitsiSelectedIndex.data(RoomModel::RoomId).toByteArray();

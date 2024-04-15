@@ -4,6 +4,8 @@
    SPDX-License-Identifier: LGPL-2.0-or-later
 */
 #include "roomcounterinfowidget.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include <KLocalizedString>
 RoomCounterInfoWidget::RoomCounterInfoWidget(QWidget *parent)
     : KMessageWidget(parent)
@@ -57,9 +59,9 @@ void RoomCounterInfoWidget::updateInfo()
 
 void RoomCounterInfoWidget::slotLinkActivated(const QString &contents)
 {
-    if (contents == QLatin1StringView("markAsRead")) {
+    if (contents == "markAsRead"_L1) {
         Q_EMIT markAsRead();
-    } else if (contents == QLatin1StringView("gotofirstunreadmessage")) {
+    } else if (contents == "gotofirstunreadmessage"_L1) {
         Q_EMIT jumpToUnreadMessage(mChannelCounterInfo->unreadMessages());
         setVisible(false);
     }

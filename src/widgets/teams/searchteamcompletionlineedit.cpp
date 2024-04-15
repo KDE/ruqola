@@ -5,6 +5,8 @@
 */
 
 #include "searchteamcompletionlineedit.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "common/completionlistview.h"
 #include "connection.h"
 #include "model/teamcompletermodel.h"
@@ -76,7 +78,7 @@ void SearchTeamCompletionLineEdit::slotTextChanged(const QString &text)
 void SearchTeamCompletionLineEdit::slotTeamAutoCompleteDone(const QJsonObject &obj)
 {
     // qDebug() << " obj " << obj;
-    const QJsonArray items = obj[QLatin1StringView("teams")].toArray();
+    const QJsonArray items = obj["teams"_L1].toArray();
     QList<TeamCompleter> teams;
     const auto total = items.count();
     teams.reserve(total);

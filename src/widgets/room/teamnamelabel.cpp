@@ -5,6 +5,7 @@
 */
 
 #include "teamnamelabel.h"
+using namespace Qt::Literals::StringLiterals;
 
 TeamNameLabel::TeamNameLabel(QWidget *parent)
     : QLabel(parent)
@@ -22,7 +23,7 @@ TeamNameLabel::~TeamNameLabel() = default;
 
 void TeamNameLabel::slotGoToRoomTeam(const QString &contents)
 {
-    if (contents == QLatin1StringView("gotoroomteam")) {
+    if (contents == "gotoroomteam"_L1) {
         Q_EMIT openTeam(mTeamNameInfo.teamIdentifier);
     }
 }

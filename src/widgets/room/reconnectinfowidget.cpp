@@ -5,6 +5,8 @@
 */
 
 #include "reconnectinfowidget.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include <KLocalizedString>
 #include <QTimer>
 #include <chrono>
@@ -41,7 +43,7 @@ void ReconnectInfoWidget::slotUpdateTimer()
 
 void ReconnectInfoWidget::slotLinkActivated(const QString &contents)
 {
-    if (contents == QLatin1StringView("try_reconnect")) {
+    if (contents == "try_reconnect"_L1) {
         if (mDelayTimer->isActive()) {
             mDelayTimer->stop();
         }

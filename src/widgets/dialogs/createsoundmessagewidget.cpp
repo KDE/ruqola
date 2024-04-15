@@ -5,6 +5,8 @@
 */
 
 #include "createsoundmessagewidget.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include <KConfigGroup>
 #include <KLocalizedString>
 #include <KMessageWidget>
@@ -139,7 +141,7 @@ void CreateSoundMessageWidget::initializeInput()
         mDeviceComboBox->addItem(name, QVariant::fromValue(device));
     }
 
-    mTemporaryFile = new QTemporaryFile(QDir::tempPath() + QLatin1StringView("/ruqola_XXXXXX")); // TODO fix extension
+    mTemporaryFile = new QTemporaryFile(QDir::tempPath() + "/ruqola_XXXXXX"_L1); // TODO fix extension
     mTemporaryFile->setAutoRemove(false);
     mTemporaryFile->open();
     //        QMediaFormat format;

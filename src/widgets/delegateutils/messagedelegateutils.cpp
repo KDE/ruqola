@@ -14,7 +14,7 @@
 #include <QTextFrame>
 #include <QTextFrameFormat>
 #include <QTextStream>
-
+using namespace Qt::Literals::StringLiterals;
 std::unique_ptr<QTextDocument> MessageDelegateUtils::createTextDocument(bool useItalic, const QString &text, int width)
 {
     std::unique_ptr<QTextDocument> doc(new QTextDocument);
@@ -35,7 +35,7 @@ bool MessageDelegateUtils::generateToolTip(const QTextDocument *doc, const QPoin
     const auto format = doc->documentLayout()->formatAt(pos);
     const auto tooltip = format.property(QTextFormat::TextToolTip).toString();
     const auto href = format.property(QTextFormat::AnchorHref).toString();
-    if (tooltip.isEmpty() && (href.isEmpty() || href.startsWith(QLatin1StringView("ruqola:/")))) {
+    if (tooltip.isEmpty() && (href.isEmpty() || href.startsWith("ruqola:/"_L1))) {
         return false;
     }
 
@@ -48,14 +48,14 @@ void MessageDelegateUtils::generateToolTip(const QString &toolTip, const QString
     QTextStream stream(&formattedTooltip);
     auto addLine = [&](const QString &line) {
         if (!line.isEmpty()) {
-            stream << QLatin1StringView("<p>") << line << QLatin1StringView("</p>");
+            stream << "<p>"_L1 << line << "</p>"_L1;
         }
     };
 
-    stream << QLatin1StringView("<qt>");
+    stream << "<qt>"_L1;
     addLine(toolTip);
     addLine(href);
-    stream << QLatin1StringView("</qt>");
+    stream << "</qt>"_L1;
 }
 
 bool MessageDelegateUtils::useItalicsForMessage(const QModelIndex &index)

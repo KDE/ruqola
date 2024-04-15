@@ -5,6 +5,8 @@
 */
 
 #include "myaccountprofileconfigureavatarwidget.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "rocketchataccount.h"
 #include <KLocalizedString>
 #include <QContextMenuEvent>
@@ -68,7 +70,7 @@ void AvatarImage::changeImage()
         if (!filter.isEmpty()) {
             filter += QLatin1Char(' ');
         }
-        filter += QLatin1StringView("*.") + QString::fromLatin1(ba);
+        filter += "*."_L1 + QString::fromLatin1(ba);
     }
     filter = QStringLiteral("%1 (%2)").arg(i18n("Image"), filter);
     const QUrl url = QFileDialog::getOpenFileUrl(this, i18n("Select Image"), {}, filter);

@@ -5,6 +5,8 @@
 */
 
 #include "addteamroomcompletionlineedit.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "common/completionlistview.h"
 #include "connection.h"
 #include "model/teamroomcompletermodel.h"
@@ -78,7 +80,7 @@ void AddTeamRoomCompletionLineEdit::slotTextChanged(const QString &text)
 void AddTeamRoomCompletionLineEdit::slotAutoCompletTeamRoomDone(const QJsonObject &obj)
 {
     // qDebug() << " obj " << obj;
-    const QJsonArray items = obj[QLatin1StringView("items")].toArray();
+    const QJsonArray items = obj["items"_L1].toArray();
     QList<TeamRoomCompleter> teams;
     for (int i = 0, total = items.count(); i < total; ++i) {
         TeamRoomCompleter teamCompleter;

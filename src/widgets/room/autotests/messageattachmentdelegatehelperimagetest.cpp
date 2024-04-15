@@ -5,6 +5,8 @@
 */
 
 #include "messageattachmentdelegatehelperimagetest.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "messages/messageattachment.h"
 #include "rocketchataccount.h"
 #include "room/delegate/messageattachmentdelegatehelperimage.h"
@@ -38,7 +40,7 @@ void MessageDelegateHelperImageTest::shouldExtractMessageData()
     QCOMPARE(layout.hasDescription, msgAttach.hasDescription());
     QVERIFY(layout.isShown);
     QVERIFY(!layout.isAnimatedImage);
-    QVERIFY(layout.imagePreviewPath.endsWith(QLatin1StringView("/testfile.png")));
+    QVERIFY(layout.imagePreviewPath.endsWith("/testfile.png"_L1));
     QVERIFY(qAbs(layout.imageSize.height() - layout.imageSize.width() * 2) <= 1); // aspect ratio is preserved, allow for one pixel rounding diff
     QCOMPARE(layout.pixmap.devicePixelRatioF(), fakeWidget.devicePixelRatioF());
     QVERIFY(layout.imageSize.height() < 500 * fakeWidget.devicePixelRatioF());

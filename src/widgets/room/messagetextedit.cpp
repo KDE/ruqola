@@ -5,6 +5,8 @@
 */
 
 #include "messagetextedit.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "common/commandcompletiondelegate.h"
 #include "common/completionlistview.h"
 #include "common/emojicompletiondelegate.h"
@@ -97,7 +99,7 @@ void MessageTextEdit::switchAutoCorrectionLanguage(const QString &lang)
 void MessageTextEdit::loadSpellCheckingSettings()
 {
     KSharedConfig::Ptr config = KSharedConfig::openConfig();
-    if (config->hasGroup(QLatin1StringView("Spelling"))) {
+    if (config->hasGroup("Spelling"_L1)) {
         KConfigGroup group(config, QStringLiteral("Spelling"));
         setCheckSpellingEnabled(group.readEntry("checkerEnabledByDefault", false));
         const QString language = group.readEntry("Language", QString());

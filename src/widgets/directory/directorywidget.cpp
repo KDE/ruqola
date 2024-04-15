@@ -5,6 +5,8 @@
 */
 
 #include "directorywidget.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "connection.h"
 #include "misc/directoryjob.h"
 #include "misc/searchwithdelaylineedit.h"
@@ -80,9 +82,9 @@ void DirectoryWidget::slotOpen(const QModelIndex &index)
         const QByteArray channelId = modelIndex.data().toByteArray();
         modelIndex = mModel->index(index.row(), DirectoryRoomsModel::ChannelType);
         const QString channelType = modelIndex.data().toString();
-        if (channelType == QLatin1StringView("p")) {
+        if (channelType == "p"_L1) {
             mRocketChatAccount->openPrivateGroup(QString::fromLatin1(channelId), RocketChatAccount::ChannelTypeInfo::RoomId);
-        } else if (channelType == QLatin1StringView("c")) {
+        } else if (channelType == "c"_L1) {
             mRocketChatAccount->openChannel(QString::fromLatin1(channelId), RocketChatAccount::ChannelTypeInfo::RoomId);
         }
         break;

@@ -5,6 +5,8 @@
 */
 
 #include "testdata.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "managerdatapaths.h"
 #include "rocketchataccount.h"
 #include "ruqola.h"
@@ -58,5 +60,5 @@ QUrl avatarLink()
         }
     }
 
-    return QUrl(QLatin1StringView("https://example.com") + link);
+    return QUrl("https://example.com"_L1 + link);
 }

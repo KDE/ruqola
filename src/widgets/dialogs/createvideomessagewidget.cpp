@@ -5,6 +5,8 @@
 */
 
 #include "createvideomessagewidget.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include <KMessageWidget>
 #include <QAudioInput>
 #include <QCamera>
@@ -155,7 +157,7 @@ void CreateVideoMessageWidget::setCamera(const QCameraDevice &cameraDevice)
 
     if (!mMediaRecorder) {
         mMediaRecorder.reset(new QMediaRecorder);
-        mTemporaryFile = new QTemporaryFile(QDir::tempPath() + QLatin1StringView("/ruqola_XXXXXX")); // TODO fix extension
+        mTemporaryFile = new QTemporaryFile(QDir::tempPath() + "/ruqola_XXXXXX"_L1); // TODO fix extension
         mTemporaryFile->setAutoRemove(false);
         mTemporaryFile->open();
         //        QMediaFormat format;
