@@ -5,7 +5,6 @@
 */
 
 #include "configureaccessibilitywidget.h"
-#include "textedittexttospeech_version.h"
 #include <TextEditTextToSpeech/TextToSpeechConfigWidget>
 
 #include <QShowEvent>
