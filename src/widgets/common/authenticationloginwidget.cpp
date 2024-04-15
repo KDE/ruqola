@@ -17,7 +17,7 @@
 #include <QPushButton>
 
 AuthenticationLoginWidget::AuthenticationLoginWidget(QWidget *parent)
-    : QWidget{parent}
+    : PluginAuthenticationConfigureWidget{parent}
     , mServerUrl(new QLineEdit(this))
     , mAccountName(new QLineEdit(this))
     , mUserName(new QLineEdit(this))
@@ -84,11 +84,6 @@ void AuthenticationLoginWidget::changeAuthenticationWidgetStatus(bool enabled)
     mPasswordLineEditWidget->setEnabled(enabled);
 }
 
-void AuthenticationLoginWidget::setExistingAccountName(const QStringList &lst)
-{
-    mNames = lst;
-}
-
 void AuthenticationLoginWidget::slotResetPasswordRequested(const QString &email)
 {
     auto restApi = new Connection(this);
@@ -102,7 +97,7 @@ void AuthenticationLoginWidget::slotResetPasswordRequested(const QString &email)
 void AuthenticationLoginWidget::slotLoginSettingsChanged()
 {
     const QString accountName = mAccountName->text().trimmed();
-    Q_EMIT settingsIsValid(!accountName.isEmpty() && !mNames.contains(accountName) && !mServerUrl->text().trimmed().isEmpty()
+    Q_EMIT settingsIsValid(!accountName.isEmpty() && !mExistingAccountNames.contains(accountName) && !mServerUrl->text().trimmed().isEmpty()
                            && !mUserName->text().trimmed().isEmpty());
 }
 
