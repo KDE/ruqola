@@ -5,17 +5,15 @@
 */
 
 #include "conferencecallwidget.h"
-#include "rocketchataccount.h"
 #include <KLocalizedString>
 #include <QFormLayout>
 #include <QToolButton>
 
-ConferenceCallWidget::ConferenceCallWidget(RocketChatAccount *account, QWidget *parent)
+ConferenceCallWidget::ConferenceCallWidget(QWidget *parent)
     : QWidget{parent}
     , mMicroButton(new QToolButton(this))
     , mCameraButton(new QToolButton(this))
 {
-    Q_UNUSED(account);
     auto mainLayout = new QFormLayout(this);
     mainLayout->setContentsMargins({});
     mainLayout->setObjectName(QStringLiteral("mainLayout"));

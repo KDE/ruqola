@@ -454,7 +454,7 @@ void RoomWidget::slotCallRequested()
         callInfo.useCamera = useCam;
         callInfo.useMic = useMic;
 
-        QPointer<ConferenceCallDialog> dlg = new ConferenceCallDialog(mCurrentRocketChatAccount, this);
+        QPointer<ConferenceCallDialog> dlg = new ConferenceCallDialog(this);
         dlg->setConferenceCallInfo(callInfo);
         if (dlg->exec()) {
             const ConferenceCallWidget::ConferenceCallStart conferenceCallInfo = dlg->conferenceCallInfo();

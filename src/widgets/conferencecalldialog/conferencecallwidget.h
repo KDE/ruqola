@@ -18,7 +18,7 @@ public:
         bool useCamera = false;
         bool useMic = false;
     };
-    explicit ConferenceCallWidget(RocketChatAccount *account, QWidget *parent = nullptr);
+    explicit ConferenceCallWidget(QWidget *parent = nullptr);
     ~ConferenceCallWidget() override;
 
     [[nodiscard]] ConferenceCallStart conferenceCallInfo() const;

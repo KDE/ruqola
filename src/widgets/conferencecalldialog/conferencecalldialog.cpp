@@ -5,15 +5,14 @@
 */
 
 #include "conferencecalldialog.h"
-#include "rocketchataccount.h"
 #include <KLocalizedString>
 #include <QDialogButtonBox>
 #include <QPushButton>
 #include <QVBoxLayout>
 
-ConferenceCallDialog::ConferenceCallDialog(RocketChatAccount *account, QWidget *parent)
+ConferenceCallDialog::ConferenceCallDialog(QWidget *parent)
     : QDialog(parent)
-    , mConferenceCallWidget(new ConferenceCallWidget(account, this))
+    , mConferenceCallWidget(new ConferenceCallWidget(this))
 {
     setWindowTitle(i18nc("@title:window", "Start a Call"));
     auto mainLayout = new QVBoxLayout(this);

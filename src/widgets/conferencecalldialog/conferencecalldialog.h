@@ -10,12 +10,11 @@
 #include "libruqolawidgets_private_export.h"
 
 #include <QDialog>
-class RocketChatAccount;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT ConferenceCallDialog : public QDialog
 {
     Q_OBJECT
 public:
-    explicit ConferenceCallDialog(RocketChatAccount *account, QWidget *parent = nullptr);
+    explicit ConferenceCallDialog(QWidget *parent = nullptr);
     ~ConferenceCallDialog() override;
 
     [[nodiscard]] ConferenceCallWidget::ConferenceCallStart conferenceCallInfo() const;
