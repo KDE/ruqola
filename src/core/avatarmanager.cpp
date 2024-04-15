@@ -59,11 +59,6 @@ void AvatarManager::insertInDownloadQueue(const Utils::AvatarInfo &info)
     }
 }
 
-RocketChatAccount *AvatarManager::account() const
-{
-    return mAccount;
-}
-
 void AvatarManager::slotInsertAvatarUrl(const Utils::AvatarInfo &info, const QUrl &url)
 {
     const QString identifier = info.generateAvatarIdentifier();

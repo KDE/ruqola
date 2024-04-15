@@ -20,8 +20,6 @@ public:
 
     void insertInDownloadQueue(const Utils::AvatarInfo &info);
 
-    RocketChatAccount *account() const;
-
 Q_SIGNALS:
     void insertAvatarUrl(const QString &userId, const QUrl &url);
 
