@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-14 00:38+0000\n"
+"POT-Creation-Date: 2024-04-15 00:38+0000\n"
 "PO-Revision-Date: 2024-01-02 16:40+0100\n"
 "Last-Translator: Stefan Asserhäll <stefan.asserhall@bredband.net>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
@@ -790,7 +790,7 @@ msgstr "Kanaltyp"
 msgid "Belongs To"
 msgstr "Tillhör"
 
-#: core/model/directoryteamsmodel.cpp:92 core/model/roommodel.cpp:567
+#: core/model/directoryteamsmodel.cpp:92 core/model/roommodel.cpp:579
 #: widgets/administratordialog/administratorwidget.cpp:53
 #: widgets/administratordialog/roles/rolescopecombobox.cpp:13
 #: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:18
@@ -1003,7 +1003,7 @@ msgstr "Tvåfaktorsbehörighetskontroll"
 msgid "Last token part"
 msgstr "Sista symboldel"
 
-#: core/model/roommodel.cpp:451
+#: core/model/roommodel.cpp:463
 #, fuzzy, kde-format
 #| msgid "Mentions"
 msgid "%1 Mention"
@@ -1011,7 +1011,7 @@ msgid_plural "%1 Mentions"
 msgstr[0] "Omnämnanden"
 msgstr[1] "Omnämnanden"
 
-#: core/model/roommodel.cpp:455
+#: core/model/roommodel.cpp:467
 #, fuzzy, kde-format
 #| msgid "Mute Group Mentions"
 msgid "%1 Group Mention"
@@ -1019,7 +1019,7 @@ msgid_plural "%1 Group Mentions"
 msgstr[0] "Tysta gruppomnämnanden"
 msgstr[1] "Tysta gruppomnämnanden"
 
-#: core/model/roommodel.cpp:459
+#: core/model/roommodel.cpp:471
 #, fuzzy, kde-format
 #| msgid "Unread Threads Messages"
 msgid "%1 Unread Threaded Message"
@@ -1027,7 +1027,7 @@ msgid_plural "%1 Unread Threaded Messages"
 msgstr[0] "Olästa meddelanden i tråd"
 msgstr[1] "Olästa meddelanden i tråd"
 
-#: core/model/roommodel.cpp:463
+#: core/model/roommodel.cpp:475
 #, fuzzy, kde-format
 #| msgid "%1 has %2 Unread Message"
 msgid "%1 Unread Message"
@@ -1035,55 +1035,55 @@ msgid_plural "%1 Unread Messages"
 msgstr[0] "%1 har %2 olästa meddelanden"
 msgstr[1] "%1 har %2 olästa meddelanden"
 
-#: core/model/roommodel.cpp:489
+#: core/model/roommodel.cpp:501
 #, kde-format
 msgid "Teams Room"
 msgstr "Rum för lag"
 
-#: core/model/roommodel.cpp:495
+#: core/model/roommodel.cpp:507
 #, kde-format
 msgid "Private Room"
 msgstr "Privat rum"
 
-#: core/model/roommodel.cpp:497
+#: core/model/roommodel.cpp:509
 #, kde-format
 msgid "Discussion Room"
 msgstr "Diskussionsrum"
 
-#: core/model/roommodel.cpp:501
+#: core/model/roommodel.cpp:513
 #, kde-format
 msgid "Channel Room"
 msgstr "Kanalrum"
 
-#: core/model/roommodel.cpp:561
+#: core/model/roommodel.cpp:573
 #, kde-format
 msgid "Unread"
 msgstr "Oläst"
 
-#: core/model/roommodel.cpp:563
+#: core/model/roommodel.cpp:575
 #, kde-format
 msgid "Favorites"
 msgstr "Favoriter"
 
-#: core/model/roommodel.cpp:565
+#: core/model/roommodel.cpp:577
 #: widgets/administratordialog/rooms/administratorroomsselectroomtypewidget.cpp:18
 #: widgets/directory/directorytabwidget.cpp:22
 #, kde-format
 msgid "Teams"
 msgstr "Lag"
 
-#: core/model/roommodel.cpp:569
+#: core/model/roommodel.cpp:581
 #: widgets/administratordialog/rooms/administratorroomsselectroomtypewidget.cpp:17
 #, kde-format
 msgid "Discussions"
 msgstr "Diskussioner"
 
-#: core/model/roommodel.cpp:571
+#: core/model/roommodel.cpp:583
 #, kde-format
 msgid "Private Messages"
 msgstr "Privata meddelanden"
 
-#: core/model/roommodel.cpp:573
+#: core/model/roommodel.cpp:585
 #, kde-format
 msgid "Unknown"
 msgstr "Okänt"

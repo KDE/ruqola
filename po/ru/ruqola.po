@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-14 00:38+0000\n"
+"POT-Creation-Date: 2024-04-15 00:38+0000\n"
 "PO-Revision-Date: 2023-11-24 12:18+0300\n"
 "Last-Translator: Olesya Gerasimenko <translation-team@basealt.ru>\n"
 "Language-Team: Basealt Translation Team\n"
@@ -804,7 +804,7 @@ msgstr "Тип канала"
 msgid "Belongs To"
 msgstr "Принадлежность"
 
-#: core/model/directoryteamsmodel.cpp:92 core/model/roommodel.cpp:567
+#: core/model/directoryteamsmodel.cpp:92 core/model/roommodel.cpp:579
 #: widgets/administratordialog/administratorwidget.cpp:53
 #: widgets/administratordialog/roles/rolescopecombobox.cpp:13
 #: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:18
@@ -1019,7 +1019,7 @@ msgstr "Двухфакторная аутентификация"
 msgid "Last token part"
 msgstr "Последняя часть маркера"
 
-#: core/model/roommodel.cpp:451
+#: core/model/roommodel.cpp:463
 #, fuzzy, kde-format
 #| msgid "Mentions"
 msgid "%1 Mention"
@@ -1029,7 +1029,7 @@ msgstr[1] "Упоминания"
 msgstr[2] "Упоминания"
 msgstr[3] "Упоминания"
 
-#: core/model/roommodel.cpp:455
+#: core/model/roommodel.cpp:467
 #, fuzzy, kde-format
 #| msgid "Group mentions only"
 msgid "%1 Group Mention"
@@ -1039,7 +1039,7 @@ msgstr[1] "Только упоминания группы"
 msgstr[2] "Только упоминания группы"
 msgstr[3] "Только упоминания группы"
 
-#: core/model/roommodel.cpp:459
+#: core/model/roommodel.cpp:471
 #, fuzzy, kde-format
 #| msgid "Unread Threads Messages"
 msgid "%1 Unread Threaded Message"
@@ -1049,7 +1049,7 @@ msgstr[1] "Непрочитанные сообщения в ветках"
 msgstr[2] "Непрочитанные сообщения в ветках"
 msgstr[3] "Непрочитанные сообщения в ветках"
 
-#: core/model/roommodel.cpp:463
+#: core/model/roommodel.cpp:475
 #, fuzzy, kde-format
 #| msgid "%1 has %2 Unread Message"
 msgid "%1 Unread Message"
@@ -1059,55 +1059,55 @@ msgstr[1] "%1 — имеются непрочитанные сообщения (
 msgstr[2] "%1 — имеются непрочитанные сообщения (%2)"
 msgstr[3] "%1 — имеются непрочитанные сообщения (%2)"
 
-#: core/model/roommodel.cpp:489
+#: core/model/roommodel.cpp:501
 #, kde-format
 msgid "Teams Room"
 msgstr "Комната команд"
 
-#: core/model/roommodel.cpp:495
+#: core/model/roommodel.cpp:507
 #, kde-format
 msgid "Private Room"
 msgstr "Закрытая комната"
 
-#: core/model/roommodel.cpp:497
+#: core/model/roommodel.cpp:509
 #, kde-format
 msgid "Discussion Room"
 msgstr "Переговорная комната"
 
-#: core/model/roommodel.cpp:501
+#: core/model/roommodel.cpp:513
 #, kde-format
 msgid "Channel Room"
 msgstr "Комната канала"
 
-#: core/model/roommodel.cpp:561
+#: core/model/roommodel.cpp:573
 #, kde-format
 msgid "Unread"
 msgstr "Не прочитано"
 
-#: core/model/roommodel.cpp:563
+#: core/model/roommodel.cpp:575
 #, kde-format
 msgid "Favorites"
 msgstr "Избранное"
 
-#: core/model/roommodel.cpp:565
+#: core/model/roommodel.cpp:577
 #: widgets/administratordialog/rooms/administratorroomsselectroomtypewidget.cpp:18
 #: widgets/directory/directorytabwidget.cpp:22
 #, kde-format
 msgid "Teams"
 msgstr "Команды"
 
-#: core/model/roommodel.cpp:569
+#: core/model/roommodel.cpp:581
 #: widgets/administratordialog/rooms/administratorroomsselectroomtypewidget.cpp:17
 #, kde-format
 msgid "Discussions"
 msgstr "Обсуждения"
 
-#: core/model/roommodel.cpp:571
+#: core/model/roommodel.cpp:583
 #, kde-format
 msgid "Private Messages"
 msgstr "Личные сообщения"
 
-#: core/model/roommodel.cpp:573
+#: core/model/roommodel.cpp:585
 #, kde-format
 msgid "Unknown"
 msgstr "Неизвестно"
