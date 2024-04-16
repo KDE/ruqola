@@ -13,7 +13,7 @@
 #include "ruqola_debug.h"
 #include "ruqolaglobalconfig.h"
 #include "utils.h"
-#if HAS_ACTIVITY_SUPPORT
+#if HAVE_ACTIVITY_SUPPORT
 #include "activities/activitiesmanager.h"
 #endif
 #include <KLocalizedString>
@@ -25,11 +25,11 @@ AccountManager::AccountManager(QObject *parent)
     : QObject(parent)
     , mRocketChatAccountModel(new RocketChatAccountModel(this))
     , mRocketChatAccountProxyModel(new RocketChatAccountFilterProxyModel(this))
-#if HAS_ACTIVITY_SUPPORT
+#if HAVE_ACTIVITY_SUPPORT
     , mActivitiesManager(new ActivitiesManager(this))
 #endif
 {
-#if HAS_ACTIVITY_SUPPORT
+#if HAVE_ACTIVITY_SUPPORT
     mRocketChatAccountProxyModel->setActivitiesManager(mActivitiesManager);
     // TODO disable/enable account
 #endif

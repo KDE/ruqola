@@ -8,7 +8,7 @@
 #include "config-ruqola.h"
 #include "rocketchataccountmodel.h"
 #include "ruqola_plasma_activities_debug.h"
-#if HAS_ACTIVITY_SUPPORT
+#if HAVE_ACTIVITY_SUPPORT
 #include "activities/activitiesmanager.h"
 #endif
 
@@ -24,7 +24,7 @@ RocketChatAccountFilterProxyModel::~RocketChatAccountFilterProxyModel() = defaul
 
 bool RocketChatAccountFilterProxyModel::filterAcceptsRow(int source_row, const QModelIndex &source_parent) const
 {
-#if HAS_ACTIVITY_SUPPORT
+#if HAVE_ACTIVITY_SUPPORT
     if (mFilterActivities) {
         if (mActivitiesManager && mActivitiesManager->enabled()) {
             const auto activities = sourceModel()->index(source_row, 0).data(RocketChatAccountModel::Activities).toStringList();
@@ -50,7 +50,7 @@ void RocketChatAccountFilterProxyModel::setFilterActivities(bool newFilterActivi
     }
 }
 
-#if HAS_ACTIVITY_SUPPORT
+#if HAVE_ACTIVITY_SUPPORT
 ActivitiesManager *RocketChatAccountFilterProxyModel::activitiesManager() const
 {
     return mActivitiesManager;

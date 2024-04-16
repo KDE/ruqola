@@ -16,7 +16,7 @@
 #include <QIcon>
 #include <QObject>
 class RocketChatAccount;
-#if HAS_ACTIVITY_SUPPORT
+#if HAVE_ACTIVITY_SUPPORT
 class ActivitiesManager;
 #endif
 class LIBRUQOLACORE_EXPORT AccountManager : public QObject
@@ -89,7 +89,7 @@ private:
     RocketChatAccount *mCurrentAccount = nullptr;
     RocketChatAccountModel *const mRocketChatAccountModel;
     RocketChatAccountFilterProxyModel *const mRocketChatAccountProxyModel;
-#if HAS_ACTIVITY_SUPPORT
+#if HAVE_ACTIVITY_SUPPORT
     ActivitiesManager *const mActivitiesManager;
 #endif
 };

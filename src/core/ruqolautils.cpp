@@ -12,7 +12,7 @@
 #include "utils.h"
 #include <QDesktopServices>
 #include <QUrl>
-#if HAS_ACTIVITY_SUPPORT
+#if HAVE_ACTIVITY_SUPPORT
 #include <PlasmaActivities/ResourceInstance>
 #endif
 
@@ -43,7 +43,7 @@ void RuqolaUtils::openUrl(const QString &url)
 void RuqolaUtils::openUrl(const QUrl &url)
 {
     if (QDesktopServices::openUrl(url)) {
-#if HAS_ACTIVITY_SUPPORT
+#if HAVE_ACTIVITY_SUPPORT
         KActivities::ResourceInstance::notifyAccessed(url);
 #endif
     } else {

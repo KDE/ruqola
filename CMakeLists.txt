@@ -92,7 +92,7 @@ else()
 endif()
 
 if (UNITY_SUPPORT)
-    set(HAS_UNITY_SUPPORT true)
+    set(HAVE_UNITY_SUPPORT true)
 endif()
 
 
@@ -124,7 +124,7 @@ if (OPTION_USE_PLASMA_ACTIVITIES)
 endif()	
 
 if (TARGET Plasma::Activities)
-    set(HAS_ACTIVITY_SUPPORT TRUE)
+    set(HAVE_ACTIVITY_SUPPORT TRUE)
 endif()
 
 find_package(KF6TextTranslator ${KTEXTADDONS_MIN_VERSION} CONFIG)

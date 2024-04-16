@@ -30,7 +30,7 @@ private:
     QCheckBox *const mShowHoverHightLights;
     QCheckBox *const mAnimateGif;
     QCheckBox *const mStoreMessageInDataBase;
-#if HAS_ACTIVITY_SUPPORT
+#if HAVE_ACTIVITY_SUPPORT
     QCheckBox *const mEnabledActivitySupport;
 #endif
 };

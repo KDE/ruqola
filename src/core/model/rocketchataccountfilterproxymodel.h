@@ -10,7 +10,7 @@
 
 #include "config-ruqola.h"
 #include "libruqolacore_export.h"
-#if HAS_ACTIVITY_SUPPORT
+#if HAVE_ACTIVITY_SUPPORT
 class ActivitiesManager;
 #endif
 class LIBRUQOLACORE_EXPORT RocketChatAccountFilterProxyModel : public QSortFilterProxyModel
@@ -24,7 +24,7 @@ public:
     [[nodiscard]] QStringList accountOrder() const;
     void setAccountOrder(const QStringList &newAccountOrder);
 
-#if HAS_ACTIVITY_SUPPORT
+#if HAVE_ACTIVITY_SUPPORT
     [[nodiscard]] ActivitiesManager *activitiesManager() const;
     void setActivitiesManager(ActivitiesManager *newActivitiesManager);
 #endif
@@ -39,7 +39,7 @@ protected:
 private:
     QStringList mAccountOrder;
     bool mFilterActivities = true;
-#if HAS_ACTIVITY_SUPPORT
+#if HAVE_ACTIVITY_SUPPORT
     ActivitiesManager *mActivitiesManager = nullptr;
 #endif
 };

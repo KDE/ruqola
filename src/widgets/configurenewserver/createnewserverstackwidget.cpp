@@ -7,7 +7,7 @@
 #include "createnewserverstackwidget.h"
 #include "checknewserverurlwidget.h"
 #include "config-ruqola.h"
-#if HAS_ACTIVITY_SUPPORT
+#if HAVE_ACTIVITY_SUPPORT
 #include "configureactivitiesdialog.h"
 #endif
 #include "createnewserverwidget.h"
@@ -108,7 +108,7 @@ void CreateNewServerStackWidget::setAccountInfo(const AccountManager::AccountMan
 
 void CreateNewServerStackWidget::slotConfigureActivities()
 {
-#if HAS_ACTIVITY_SUPPORT
+#if HAVE_ACTIVITY_SUPPORT
     QPointer<ConfigureActivitiesDialog> dlg = new ConfigureActivitiesDialog(this);
     dlg->setActivities(mAccountManagerInfo.activities);
     if (dlg->exec()) {

@@ -24,7 +24,7 @@ public:
     void roomNeedAttention();
     void updateNotification(bool hasAlert, int unreadNumber, const QString &account);
     void clearNotification(const QString &account);
-#if HAS_UNITY_SUPPORT
+#if HAVE_UNITY_SUPPORT
     UnityServiceManager *unityServiceManager();
 #endif
 
@@ -56,7 +56,7 @@ private:
     LIBRUQOLACORE_NO_EXPORT void updateUnityService(int unreadMessage);
 
     QMap<QString, TrayInfo> mListTrayIcon;
-#if HAS_UNITY_SUPPORT
+#if HAVE_UNITY_SUPPORT
     UnityServiceManager *mUnityServiceManager = nullptr;
 #endif
 };
