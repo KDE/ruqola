@@ -8,11 +8,11 @@
 
 #include "accountmanager.h"
 #include "libruqolawidgets_private_export.h"
-#include <QListWidget>
-class AccountServerListWidgetItem : public QListWidgetItem
+#include <QTreeWidget>
+class AccountServerListWidgetItem : public QTreeWidgetItem
 {
 public:
-    explicit AccountServerListWidgetItem(QListWidget *parent = nullptr);
+    explicit AccountServerListWidgetItem(QTreeWidget *parent = nullptr);
     ~AccountServerListWidgetItem() override;
     [[nodiscard]] AccountManager::AccountManagerInfo accountInfo() const;
     void setAccountInfo(const AccountManager::AccountManagerInfo &accountInfo);
@@ -25,17 +25,17 @@ private:
     bool mNewAccount = false;
 };
 
-class LIBRUQOLAWIDGETS_TESTS_EXPORT AccountServerListWidget : public QListWidget
+class LIBRUQOLAWIDGETS_TESTS_EXPORT AccountServerTreeWidget : public QTreeWidget
 {
     Q_OBJECT
 public:
-    explicit AccountServerListWidget(QWidget *parent = nullptr);
-    ~AccountServerListWidget() override;
+    explicit AccountServerTreeWidget(QWidget *parent = nullptr);
+    ~AccountServerTreeWidget() override;
 
     void load();
     void save();
     void addAccountConfig();
-    void deleteAccountConfig(QListWidgetItem *item, bool removeLogs);
+    void deleteAccountConfig(QTreeWidgetItem *item, bool removeLogs);
 
     void modifyAccountConfig();
 

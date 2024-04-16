@@ -4,26 +4,33 @@
    SPDX-License-Identifier: LGPL-2.0-or-later
 */
 
-#include "accountserverlistwidget.h"
+#include "accountservertreewidget.h"
 #include "configurenewserver/createnewserverdialog.h"
 #include "model/rocketchataccountmodel.h"
 #include "rocketchataccount.h"
 #include "ruqola.h"
 #include "ruqolaglobalconfig.h"
 
-#include <QListWidgetItem>
+#include <QHeaderView>
 #include <QPointer>
+#include <QTreeWidgetItem>
 
-AccountServerListWidget::AccountServerListWidget(QWidget *parent)
-    : QListWidget(parent)
+#include <QCheckBox>
+#include <QHBoxLayout>
+#include <QLabel>
+
+AccountServerTreeWidget::AccountServerTreeWidget(QWidget *parent)
+    : QTreeWidget(parent)
 {
     setDragDropMode(QAbstractItemView::InternalMove);
-    connect(this, &AccountServerListWidget::itemDoubleClicked, this, &AccountServerListWidget::modifyAccountConfig);
+    setRootIsDecorated(false);
+    header()->hide();
+    connect(this, &AccountServerTreeWidget::itemDoubleClicked, this, &AccountServerTreeWidget::modifyAccountConfig);
 }
 
-AccountServerListWidget::~AccountServerListWidget() = default;
+AccountServerTreeWidget::~AccountServerTreeWidget() = default;
 
-void AccountServerListWidget::load()
+void AccountServerTreeWidget::load()
 {
     auto model = new RocketChatAccountFilterProxyModel(this);
     model->setFilterActivities(false);
@@ -47,14 +54,29 @@ void AccountServerListWidget::load()
         info.token = account->authToken();
         info.userId = account->userId();
         info.activities = account->activities();
-        item->setToolTip(info.serverUrl);
+        item->setToolTip(0, info.serverUrl);
         item->setNewAccount(false);
-        item->setCheckState(account->accountEnabled() ? Qt::Checked : Qt::Unchecked);
+#if 0
+        {
+            QWidget *w = new QWidget;
+            QHBoxLayout *l = new QHBoxLayout(w);
+            l->setContentsMargins({});
+            auto enabled = new QCheckBox(this);
+            enabled->setChecked(account->accountEnabled());
+            l->addWidget(enabled);
+            l->addWidget(new QLabel(info.displayName, this));
+            l->addWidget(new QCheckBox(QLatin1String("show in activity"), this));
+            l->addStretch(1);
+            item->setSizeHint(w->sizeHint());
+            setItemWidget(item, w);
+        }
+#endif
+        item->setCheckState(0, account->accountEnabled() ? Qt::Checked : Qt::Unchecked);
         item->setAccountInfo(std::move(info));
     }
 }
 
-void AccountServerListWidget::save()
+void AccountServerTreeWidget::save()
 {
     // First remove account
     auto accountManager = Ruqola::self()->accountManager();
@@ -65,15 +87,15 @@ void AccountServerListWidget::save()
     }
 
     QStringList order;
-    const int numberOfItems(count());
+    const int numberOfItems(topLevelItemCount());
     order.reserve(numberOfItems);
     // Add account or modify it
     for (int i = 0; i < numberOfItems; ++i) {
-        QListWidgetItem *it = item(i);
+        QTreeWidgetItem *it = topLevelItem(i);
         auto serverListItem = static_cast<AccountServerListWidgetItem *>(it);
         AccountManager::AccountManagerInfo info = serverListItem->accountInfo();
 
-        info.enabled = serverListItem->checkState() == Qt::Checked;
+        info.enabled = serverListItem->checkState(0) == Qt::Checked;
         if (serverListItem->newAccount()) {
             accountManager->addAccount(info);
         } else {
@@ -85,9 +107,9 @@ void AccountServerListWidget::save()
     RuqolaGlobalConfig::self()->setAccountOrder(order);
 }
 
-void AccountServerListWidget::modifyAccountConfig()
+void AccountServerTreeWidget::modifyAccountConfig()
 {
-    QListWidgetItem *item = currentItem();
+    QTreeWidgetItem *item = currentItem();
     if (!item) {
         return;
     }
@@ -103,26 +125,25 @@ void AccountServerListWidget::modifyAccountConfig()
     delete dlg;
 }
 
-void AccountServerListWidget::deleteAccountConfig(QListWidgetItem *item, bool removeLogs)
+void AccountServerTreeWidget::deleteAccountConfig(QTreeWidgetItem *item, bool removeLogs)
 {
-    mListRemovedAccount.insert(item->text(), removeLogs);
+    mListRemovedAccount.insert(item->text(0), removeLogs);
 }
 
-void AccountServerListWidget::addAccountConfig()
+void AccountServerTreeWidget::addAccountConfig()
 {
-    // TODO
     QPointer<CreateNewServerDialog> dlg = new CreateNewServerDialog(this);
     QStringList listAccounts;
-    for (int i = 0; i < count(); ++i) {
-        listAccounts << item(i)->text();
+    for (int i = 0; i < topLevelItemCount(); ++i) {
+        listAccounts << topLevelItem(i)->text(0);
     }
     dlg->setExistingAccountName(listAccounts);
     if (dlg->exec()) {
         AccountManager::AccountManagerInfo info = dlg->accountInfo();
         QStringList accountList;
-        accountList.reserve(count());
-        for (int i = 0; i < count(); ++i) {
-            accountList << item(i)->text();
+        accountList.reserve(topLevelItemCount());
+        for (int i = 0; i < topLevelItemCount(); ++i) {
+            accountList << topLevelItem(i)->text(0);
         }
         QString newAccountName = info.accountName;
         int i = 1;
@@ -131,45 +152,45 @@ void AccountServerListWidget::addAccountConfig()
         }
         info.accountName = newAccountName;
         auto accountServeritem = new AccountServerListWidgetItem(this);
-        accountServeritem->setCheckState(Qt::Checked);
+        accountServeritem->setCheckState(0, Qt::Checked);
         accountServeritem->setAccountInfo(std::move(info));
         accountServeritem->setNewAccount(true);
     }
     delete dlg;
 }
 
-void AccountServerListWidget::slotMoveAccountUp()
+void AccountServerTreeWidget::slotMoveAccountUp()
 {
     if (!currentItem()) {
         return;
     }
-    const int pos = row(currentItem());
+    const int pos = indexOfTopLevelItem(currentItem());
     blockSignals(true);
-    QListWidgetItem *item = takeItem(pos);
+    QTreeWidgetItem *item = takeTopLevelItem(pos);
     // now selected item is at idx(idx-1), so
     // insert the other item at idx, ie. above(below).
-    insertItem(pos - 1, item);
+    insertTopLevelItem(pos - 1, item);
     blockSignals(false);
-    setCurrentRow(pos - 1);
+    setCurrentItem(topLevelItem(pos - 1));
 }
 
-void AccountServerListWidget::slotMoveAccountDown()
+void AccountServerTreeWidget::slotMoveAccountDown()
 {
     if (!currentItem()) {
         return;
     }
-    const int pos = row(currentItem());
+    const int pos = indexOfTopLevelItem(currentItem());
     blockSignals(true);
-    QListWidgetItem *item = takeItem(pos);
+    QTreeWidgetItem *item = takeTopLevelItem(pos);
     // now selected item is at idx(idx-1), so
     // insert the other item at idx, ie. above(below).
-    insertItem(pos + 1, item);
+    insertTopLevelItem(pos + 1, item);
     blockSignals(false);
-    setCurrentRow(pos + 1);
+    setCurrentItem(topLevelItem(pos + 1));
 }
 
-AccountServerListWidgetItem::AccountServerListWidgetItem(QListWidget *parent)
-    : QListWidgetItem(parent)
+AccountServerListWidgetItem::AccountServerListWidgetItem(QTreeWidget *parent)
+    : QTreeWidgetItem(parent)
 {
 }
 
@@ -183,7 +204,7 @@ AccountManager::AccountManagerInfo AccountServerListWidgetItem::accountInfo() co
 void AccountServerListWidgetItem::setAccountInfo(const AccountManager::AccountManagerInfo &info)
 {
     mInfo = info;
-    setText(info.displayName);
+    setText(0, info.displayName);
 }
 
 bool AccountServerListWidgetItem::newAccount() const
@@ -196,4 +217,4 @@ void AccountServerListWidgetItem::setNewAccount(bool newAccount)
     mNewAccount = newAccount;
 }
 
-#include "moc_accountserverlistwidget.cpp"
+#include "moc_accountservertreewidget.cpp"

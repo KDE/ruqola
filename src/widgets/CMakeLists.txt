@@ -274,8 +274,8 @@ target_sources(libruqolawidgets PRIVATE
     common/userandchannelcompletiondelegate.h
     common/userandchannelcompletiondelegate.cpp
 
-    configuredialog/accountserverlistwidget.cpp
-    configuredialog/accountserverlistwidget.h
+    configuredialog/accountservertreewidget.cpp
+    configuredialog/accountservertreewidget.h
     configuredialog/configureaccountserverwidget.cpp
     configuredialog/configureaccountserverwidget.h
     configuredialog/configureaccountwidget.cpp
