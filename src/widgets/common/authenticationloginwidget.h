@@ -16,22 +16,15 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT AuthenticationLoginWidget : public PluginAut
 {
     Q_OBJECT
 public:
-    enum class AuthenticationLoginType {
-        Unknown = 0,
-        Create,
-        Modify,
-        Login,
-    };
-
     explicit AuthenticationLoginWidget(QWidget *parent = nullptr);
     ~AuthenticationLoginWidget() override;
 
     void setAccountInfo(const AccountManager::AccountManagerInfo &info) override;
     [[nodiscard]] AccountManager::AccountManagerInfo accountInfo() override;
 
-    void setAuthenticationLoginType(AuthenticationLoginType type);
-
     void changeAuthenticationWidgetStatus(bool enabled) override;
+
+    void setAuthenticationLoginType(AuthenticationLoginType type) override;
 
 private:
     LIBRUQOLAWIDGETS_NO_EXPORT void slotResetPasswordRequested(const QString &email);

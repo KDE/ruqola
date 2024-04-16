@@ -5,6 +5,7 @@
 */
 
 #include "passwordauthenticationinterface.h"
+#include "common/authenticationloginwidget.h"
 #include "config-ruqola.h"
 #include "rocketchataccount.h"
 
@@ -65,9 +66,7 @@ void PasswordAuthenticationInterface::login()
 
 PluginAuthenticationConfigureWidget *PasswordAuthenticationInterface::configureWidget(QWidget *parent)
 {
-    Q_UNUSED(parent);
-    // Nothing
-    return nullptr;
+    return new AuthenticationLoginWidget(parent);
 }
 
 #include "moc_passwordauthenticationinterface.cpp"

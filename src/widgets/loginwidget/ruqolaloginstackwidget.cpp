@@ -12,12 +12,8 @@
 
 RuqolaLoginStackWidget::RuqolaLoginStackWidget(QWidget *parent)
     : QStackedWidget(parent)
-    , mAuthenticationLoginWidget(new AuthenticationLoginWidget(this))
 {
-    mAuthenticationLoginWidget->setObjectName(QStringLiteral("mAuthenticationLoginWidget"));
-    addWidget(mAuthenticationLoginWidget);
-    mAuthenticationLoginWidget->setAuthenticationLoginType(AuthenticationLoginWidget::AuthenticationLoginType::Login);
-    connect(mAuthenticationLoginWidget, &AuthenticationLoginWidget::tryLogin, this, &RuqolaLoginStackWidget::tryLogin);
+    addAuthenticationConfigureWidget(AuthenticationManager::AuthMethodType::Password);
 }
 
 RuqolaLoginStackWidget::~RuqolaLoginStackWidget() = default;
@@ -26,16 +22,11 @@ void RuqolaLoginStackWidget::changeAuthenticationWidgetStatus(bool enabled)
 {
     if (mPluginAuthenticationConfigureWidget) {
         mPluginAuthenticationConfigureWidget->changeAuthenticationWidgetStatus(enabled);
-    } else {
-        mAuthenticationLoginWidget->changeAuthenticationWidgetStatus(enabled);
     }
 }
 
 void RuqolaLoginStackWidget::addAuthenticationConfigureWidget(AuthenticationManager::AuthMethodType type)
 {
-    if (type == AuthenticationManager::AuthMethodType::Password) {
-        return;
-    }
     if (auto plugin = AuthenticationManager::self()->findPluginAuthentication(type)) {
         auto interface = plugin->createInterface(this);
         auto configureWidget = interface->configureWidget(this);
@@ -44,6 +35,7 @@ void RuqolaLoginStackWidget::addAuthenticationConfigureWidget(AuthenticationMana
             delete mPluginAuthenticationConfigureWidget;
         }
         mPluginAuthenticationConfigureWidget = configureWidget;
+        mPluginAuthenticationConfigureWidget->setAuthenticationLoginType(PluginAuthenticationConfigureWidget::AuthenticationLoginType::Login);
         connect(mPluginAuthenticationConfigureWidget, &PluginAuthenticationConfigureWidget::settingsIsValid, this, &RuqolaLoginStackWidget::settingsIsValid);
         connect(mPluginAuthenticationConfigureWidget, &PluginAuthenticationConfigureWidget::tryLogin, this, &RuqolaLoginStackWidget::tryLogin);
 
@@ -62,7 +54,7 @@ AccountManager::AccountManagerInfo RuqolaLoginStackWidget::accountInfo() const
     if (mPluginAuthenticationConfigureWidget) {
         return mPluginAuthenticationConfigureWidget->accountInfo();
     }
-    return mAuthenticationLoginWidget->accountInfo();
+    return {};
 }
 
 void RuqolaLoginStackWidget::setAccountInfo(const AccountManager::AccountManagerInfo &info)
@@ -72,9 +64,6 @@ void RuqolaLoginStackWidget::setAccountInfo(const AccountManager::AccountManager
     if (mPluginAuthenticationConfigureWidget) {
         mPluginAuthenticationConfigureWidget->setAccountInfo(mAccountManagerInfo);
         setCurrentWidget(mPluginAuthenticationConfigureWidget);
-    } else {
-        mAuthenticationLoginWidget->setAccountInfo(mAccountManagerInfo);
-        setCurrentWidget(mAuthenticationLoginWidget);
     }
 }
 

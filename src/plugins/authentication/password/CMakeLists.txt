@@ -15,7 +15,7 @@ kcoreaddons_add_plugin(ruqola_passwordauthenticationplugin SOURCES
     ${ruqola_passwordauthenticationplugin_SRCS} INSTALL_NAMESPACE ruqolaplugins/authentication)
 
 target_link_libraries(ruqola_passwordauthenticationplugin
-    libruqolacore
+    libruqolacore libruqolawidgets
 )
 
 if (BUILD_TESTING)

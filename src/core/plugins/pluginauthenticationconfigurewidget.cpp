@@ -18,4 +18,9 @@ void PluginAuthenticationConfigureWidget::setExistingAccountNames(const QStringL
     mExistingAccountNames = list;
 }
 
+void PluginAuthenticationConfigureWidget::setAuthenticationLoginType(AuthenticationLoginType type)
+{
+    Q_UNUSED(type);
+}
+
 #include "moc_pluginauthenticationconfigurewidget.cpp"

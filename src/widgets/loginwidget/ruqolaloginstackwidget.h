@@ -8,7 +8,6 @@
 
 #include "accountmanager.h"
 #include "authenticationmanager.h"
-#include "common/authenticationloginwidget.h"
 #include "libruqolawidgets_private_export.h"
 #include <QStackedWidget>
 
@@ -34,6 +33,5 @@ Q_SIGNALS:
 private:
     QStringList mExistingAccountNames;
     AccountManager::AccountManagerInfo mAccountManagerInfo;
-    AuthenticationLoginWidget *const mAuthenticationLoginWidget;
     PluginAuthenticationConfigureWidget *mPluginAuthenticationConfigureWidget = nullptr;
 };

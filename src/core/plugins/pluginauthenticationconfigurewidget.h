@@ -13,6 +13,12 @@ class LIBRUQOLACORE_EXPORT PluginAuthenticationConfigureWidget : public QWidget
 {
     Q_OBJECT
 public:
+    enum class AuthenticationLoginType {
+        Unknown = 0,
+        Create,
+        Modify,
+        Login,
+    };
     explicit PluginAuthenticationConfigureWidget(QWidget *parent = nullptr);
     ~PluginAuthenticationConfigureWidget() override;
 
@@ -21,6 +27,8 @@ public:
     virtual void changeAuthenticationWidgetStatus(bool enabled) = 0;
 
     void setExistingAccountNames(const QStringList &list);
+
+    virtual void setAuthenticationLoginType(AuthenticationLoginType type);
 
 Q_SIGNALS:
     void settingsIsValid(bool enabled);
