@@ -5,7 +5,6 @@
 */
 
 #include "activitiesmanager.h"
-#include "config-ruqola.h"
 #include "ruqola_plasma_activities_debug.h"
 #include "ruqolaglobalconfig.h"
 #include <PlasmaActivities/Consumer>
