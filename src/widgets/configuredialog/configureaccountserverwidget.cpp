@@ -5,6 +5,7 @@
 */
 
 #include "configureaccountserverwidget.h"
+#include "config-ruqola.h"
 #include "removeaccountdialog.h"
 #include "ui_configureaccountserverwidget.h"
 #include <KLocalizedString>
@@ -18,8 +19,8 @@ ConfigureAccountServerWidget::ConfigureAccountServerWidget(QWidget *parent)
     connect(ui->modifyServer, &QPushButton::clicked, this, &ConfigureAccountServerWidget::slotModifyServer);
     connect(ui->addServer, &QPushButton::clicked, this, &ConfigureAccountServerWidget::slotAddServer);
     connect(ui->removeServer, &QPushButton::clicked, this, &ConfigureAccountServerWidget::slotDeleteServer);
-    connect(ui->accountServerListwidget, &AccountServerListWidget::itemSelectionChanged, this, &ConfigureAccountServerWidget::slotItemSelectionChanged);
-    connect(ui->accountServerListwidget->model(), &QAbstractItemModel::rowsMoved, this, &ConfigureAccountServerWidget::slotItemSelectionChanged);
+    connect(ui->accountServerTreeWidget, &AccountServerTreeWidget::itemSelectionChanged, this, &ConfigureAccountServerWidget::slotItemSelectionChanged);
+    connect(ui->accountServerTreeWidget->model(), &QAbstractItemModel::rowsMoved, this, &ConfigureAccountServerWidget::slotItemSelectionChanged);
 
     ui->moveUpServer->setIcon(QIcon::fromTheme(QStringLiteral("go-up")));
     ui->moveUpServer->setToolTip(i18nc("Move selected account up.", "Up"));
@@ -33,8 +34,15 @@ ConfigureAccountServerWidget::ConfigureAccountServerWidget(QWidget *parent)
     ui->moveDownServer->setFocusPolicy(Qt::StrongFocus);
     ui->moveDownServer->setAutoRepeat(true);
 
-    connect(ui->moveUpServer, &QPushButton::clicked, ui->accountServerListwidget, &AccountServerListWidget::slotMoveAccountUp);
-    connect(ui->moveDownServer, &QPushButton::clicked, ui->accountServerListwidget, &AccountServerListWidget::slotMoveAccountDown);
+#if HAVE_ACTIVITY_SUPPORT
+    // TODO rename text
+    ui->configureCurrentActivity->hide();
+#else
+    ui->configureCurrentActivity->hide();
+#endif
+
+    connect(ui->moveUpServer, &QPushButton::clicked, ui->accountServerTreeWidget, &AccountServerTreeWidget::slotMoveAccountUp);
+    connect(ui->moveDownServer, &QPushButton::clicked, ui->accountServerTreeWidget, &AccountServerTreeWidget::slotMoveAccountDown);
 
     slotItemSelectionChanged();
 }
@@ -46,34 +54,34 @@ ConfigureAccountServerWidget::~ConfigureAccountServerWidget()
 
 void ConfigureAccountServerWidget::save()
 {
-    ui->accountServerListwidget->save();
+    ui->accountServerTreeWidget->save();
 }
 
 void ConfigureAccountServerWidget::load()
 {
-    ui->accountServerListwidget->load();
+    ui->accountServerTreeWidget->load();
 }
 
 void ConfigureAccountServerWidget::slotModifyServer()
 {
-    ui->accountServerListwidget->modifyAccountConfig();
+    ui->accountServerTreeWidget->modifyAccountConfig();
 }
 
 void ConfigureAccountServerWidget::slotAddServer()
 {
-    ui->accountServerListwidget->addAccountConfig();
+    ui->accountServerTreeWidget->addAccountConfig();
 }
 
 void ConfigureAccountServerWidget::slotDeleteServer()
 {
-    QListWidgetItem *item = ui->accountServerListwidget->currentItem();
+    QTreeWidgetItem *item = ui->accountServerTreeWidget->currentItem();
     if (!item) {
         return;
     }
     QPointer<RemoveAccountDialog> dlg = new RemoveAccountDialog(this);
-    dlg->setAccountName(item->text());
+    dlg->setAccountName(item->text(0));
     if (dlg->exec()) {
-        ui->accountServerListwidget->deleteAccountConfig(item, dlg->removeLogs());
+        ui->accountServerTreeWidget->deleteAccountConfig(item, dlg->removeLogs());
         delete item;
         slotItemSelectionChanged();
     }
@@ -82,12 +90,13 @@ void ConfigureAccountServerWidget::slotDeleteServer()
 
 void ConfigureAccountServerWidget::slotItemSelectionChanged()
 {
-    const bool hasItemSelected = ui->accountServerListwidget->currentItem();
+    const bool hasItemSelected = ui->accountServerTreeWidget->currentItem();
     ui->modifyServer->setEnabled(hasItemSelected);
     ui->removeServer->setEnabled(hasItemSelected);
 
-    ui->moveUpServer->setEnabled(hasItemSelected && ui->accountServerListwidget->currentRow() != 0);
-    ui->moveDownServer->setEnabled(hasItemSelected && ui->accountServerListwidget->currentRow() != ui->accountServerListwidget->count() - 1);
+    const int index = ui->accountServerTreeWidget->indexOfTopLevelItem(ui->accountServerTreeWidget->currentItem());
+    ui->moveUpServer->setEnabled(hasItemSelected && index != 0);
+    ui->moveDownServer->setEnabled(hasItemSelected && index != ui->accountServerTreeWidget->topLevelItemCount() - 1);
 }
 
 #include "moc_configureaccountserverwidget.cpp"
