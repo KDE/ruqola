@@ -78,9 +78,4 @@ void RuqolaLoginStackWidget::setAccountInfo(const AccountManager::AccountManager
     }
 }
 
-void RuqolaLoginStackWidget::setAuthenticationLoginType(AuthenticationLoginWidget::AuthenticationLoginType type)
-{
-    mAuthenticationLoginWidget->setAuthenticationLoginType(type);
-}
-
 #include "moc_ruqolaloginstackwidget.cpp"

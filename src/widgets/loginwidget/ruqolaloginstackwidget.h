@@ -25,8 +25,6 @@ public:
     [[nodiscard]] AccountManager::AccountManagerInfo accountInfo() const;
     void setAccountInfo(const AccountManager::AccountManagerInfo &info);
 
-    void setAuthenticationLoginType(AuthenticationLoginWidget::AuthenticationLoginType type);
-
     void changeAuthenticationWidgetStatus(bool enabled);
 
 Q_SIGNALS:
