@@ -33,9 +33,6 @@ public:
     void setAuthenticationLoginType(AuthenticationLoginType type);
 
     void changeAuthenticationWidgetStatus(bool enabled) override;
-Q_SIGNALS:
-    void settingsIsValid(bool enabled);
-    void tryLogin();
 
 private:
     LIBRUQOLAWIDGETS_NO_EXPORT void slotResetPasswordRequested(const QString &email);
