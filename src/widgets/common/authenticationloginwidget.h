@@ -9,7 +9,6 @@
 #include "accountmanager.h"
 #include "libruqolawidgets_private_export.h"
 #include "plugins/pluginauthenticationconfigurewidget.h"
-#include <QWidget>
 class QLineEdit;
 class QPushButton;
 class PasswordLineEditWidget;
