@@ -7,12 +7,12 @@
 #pragma once
 
 #include "accountmanager.h"
-#include "libruqolawidgets_private_export.h"
+#include "libruqolawidgets_export.h"
 #include "plugins/pluginauthenticationconfigurewidget.h"
 class QLineEdit;
 class QPushButton;
 class PasswordLineEditWidget;
-class LIBRUQOLAWIDGETS_TESTS_EXPORT AuthenticationLoginWidget : public PluginAuthenticationConfigureWidget
+class LIBRUQOLAWIDGETS_EXPORT AuthenticationLoginWidget : public PluginAuthenticationConfigureWidget
 {
     Q_OBJECT
 public:
