@@ -28,8 +28,14 @@ bool RocketChatAccountFilterProxyModel::filterAcceptsRow(int source_row, const Q
     if (mFilterActivities) {
         if (mActivitiesManager && mActivitiesManager->enabled()) {
             const auto activities = sourceModel()->index(source_row, 0).data(RocketChatAccountModel::Activities).toStringList();
-            if (!activities.isEmpty()) {
-                return mActivitiesManager->isInCurrentActivity(activities);
+            const auto activitiesEnabled = sourceModel()->index(source_row, 0).data(RocketChatAccountModel::ActivitiesEnabled).toBool();
+            qDebug() << " activities " << activities << "activitiesEnabled " << activitiesEnabled;
+            if (activitiesEnabled) {
+                if (!activities.isEmpty()) {
+                    return mActivitiesManager->isInCurrentActivity(activities);
+                } else {
+                    return false;
+                }
             }
         }
     }
