@@ -5,19 +5,17 @@
 */
 
 #include "accountservertreewidget.h"
+#include "activities/activitiesmanager.h"
 #include "configurenewserver/createnewserverdialog.h"
 #include "model/rocketchataccountmodel.h"
 #include "rocketchataccount.h"
 #include "ruqola.h"
 #include "ruqolaglobalconfig.h"
+#include <KLocalizedString>
 
 #include <QHeaderView>
 #include <QPointer>
 #include <QTreeWidgetItem>
-
-#include <QCheckBox>
-#include <QHBoxLayout>
-#include <QLabel>
 
 AccountServerTreeWidget::AccountServerTreeWidget(QWidget *parent)
     : QTreeWidget(parent)
@@ -57,24 +55,10 @@ void AccountServerTreeWidget::load()
         info.activities = account->activities();
         item->setToolTip(0, info.serverUrl);
         item->setNewAccount(false);
-#if 0
-        {
-            QWidget *w = new QWidget;
-            QHBoxLayout *l = new QHBoxLayout(w);
-            l->setContentsMargins({});
-            auto enabled = new QCheckBox(this);
-            enabled->setChecked(account->accountEnabled());
-            l->addWidget(enabled);
-            l->addWidget(new QLabel(info.displayName, this));
-            l->addWidget(new QCheckBox(QLatin1String("show in activity"), this));
-            l->addStretch(1);
-            item->setSizeHint(w->sizeHint());
-            setItemWidget(item, w);
-        }
-#endif
         item->setCheckState(0, account->accountEnabled() ? Qt::Checked : Qt::Unchecked);
         item->setAccountInfo(std::move(info));
     }
+    resizeColumnToContents(0);
 }
 
 void AccountServerTreeWidget::save()
@@ -90,6 +74,10 @@ void AccountServerTreeWidget::save()
     QStringList order;
     const int numberOfItems(topLevelItemCount());
     order.reserve(numberOfItems);
+    QString currentActivity;
+    if (columnCount() == 2) { // Configure activity
+        currentActivity = Ruqola::self()->accountManager()->rocketChatAccountProxyModel()->activitiesManager()->currentActivity();
+    }
     // Add account or modify it
     for (int i = 0; i < numberOfItems; ++i) {
         QTreeWidgetItem *it = topLevelItem(i);
@@ -97,6 +85,17 @@ void AccountServerTreeWidget::save()
         AccountManager::AccountManagerInfo info = serverListItem->accountInfo();
 
         info.enabled = serverListItem->checkState(0) == Qt::Checked;
+        if (!currentActivity.isEmpty()) { // Configure activity
+            if (serverListItem->checkState(1) == Qt::Checked) {
+                if (!info.activities.contains(currentActivity)) {
+                    info.activities.append(currentActivity);
+                }
+            } else {
+                if (info.activities.contains(currentActivity)) {
+                    info.activities.removeAll(currentActivity);
+                }
+            }
+        }
         if (serverListItem->newAccount()) {
             accountManager->addAccount(info);
         } else {
@@ -206,6 +205,11 @@ void AccountServerListWidgetItem::setAccountInfo(const AccountManager::AccountMa
 {
     mInfo = info;
     setText(0, info.displayName);
+    setText(1, i18n("Display Account in Current Activity"));
+    setCheckState(1,
+                  info.activities.contains(Ruqola::self()->accountManager()->rocketChatAccountProxyModel()->activitiesManager()->currentActivity())
+                      ? Qt::Checked
+                      : Qt::Unchecked);
 }
 
 bool AccountServerListWidgetItem::newAccount() const

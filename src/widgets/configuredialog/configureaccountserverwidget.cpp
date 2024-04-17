@@ -40,6 +40,12 @@ ConfigureAccountServerWidget::ConfigureAccountServerWidget(QWidget *parent)
 #if HAVE_ACTIVITY_SUPPORT
     if (!Ruqola::self()->accountManager()->activitiesManager()->enabled()) {
         ui->configureCurrentActivity->hide();
+    } else {
+#if QT_VERSION < QT_VERSION_CHECK(6, 7, 0)
+        connect(ui->configureCurrentActivity, &QCheckBox::stateChanged, this, &ConfigureAccountServerWidget::slotConfigureAccountFromCurrentActivity);
+#else
+        connect(ui->configureCurrentActivity, &QCheckBox::checkStateChanged, this, &ConfigureAccountServerWidget::slotConfigureAccountFromCurrentActivity);
+#endif
     }
 #else
     ui->configureCurrentActivity->hide();
@@ -54,6 +60,15 @@ ConfigureAccountServerWidget::ConfigureAccountServerWidget(QWidget *parent)
 ConfigureAccountServerWidget::~ConfigureAccountServerWidget()
 {
     delete ui;
+}
+
+void ConfigureAccountServerWidget::slotConfigureAccountFromCurrentActivity()
+{
+    if (ui->configureCurrentActivity->isChecked()) {
+        ui->accountServerTreeWidget->setColumnCount(2);
+    } else {
+        ui->accountServerTreeWidget->setColumnCount(1);
+    }
 }
 
 void ConfigureAccountServerWidget::save()

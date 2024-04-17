@@ -29,7 +29,6 @@ private:
     LIBRUQOLAWIDGETS_NO_EXPORT void slotAddServer();
     LIBRUQOLAWIDGETS_NO_EXPORT void slotDeleteServer();
     LIBRUQOLAWIDGETS_NO_EXPORT void slotItemSelectionChanged();
-
-private:
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotConfigureAccountFromCurrentActivity();
     Ui::ConfigureAccountServerWidget *const ui;
 };

@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>400</width>
+    <width>704</width>
     <height>300</height>
    </rect>
   </property>
@@ -79,12 +79,18 @@
     </spacer>
    </item>
    <item row="1" column="0" rowspan="2">
-    <widget class="AccountServerTreeWidget" name="accountServerTreeWidget"/>
+    <widget class="AccountServerTreeWidget" name="accountServerTreeWidget">
+     <column>
+      <property name="text">
+       <string notr="true">1</string>
+      </property>
+     </column>
+    </widget>
    </item>
    <item row="0" column="0">
     <widget class="QCheckBox" name="configureCurrentActivity">
      <property name="text">
-      <string>Configure Current Activity</string>
+      <string>Configure Accounts in Current Activity</string>
      </property>
     </widget>
    </item>
