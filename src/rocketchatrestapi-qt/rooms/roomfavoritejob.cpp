@@ -5,6 +5,8 @@
 */
 
 #include "roomfavoritejob.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "restapimethod.h"
 #include "rocketchatqtrestapi_debug.h"
 
@@ -57,7 +59,7 @@ void RoomFavoriteJob::setFavorite(bool favorite)
 
 QString RoomFavoriteJob::errorMessage(const QString &str, const QJsonObject &details)
 {
-    if (str == QLatin1StringView("error-invalid-subscription")) {
+    if (str == "error-invalid-subscription"_L1) {
         return i18n("Invalid Subscription");
     }
     return RestApiAbstractJob::errorMessage(str, details);

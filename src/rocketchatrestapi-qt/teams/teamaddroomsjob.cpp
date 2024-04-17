@@ -5,6 +5,8 @@
 */
 
 #include "teamaddroomsjob.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "restapimethod.h"
 #include "rocketchatqtrestapi_debug.h"
 
@@ -113,7 +115,7 @@ QJsonDocument TeamAddRoomsJob::json() const
 
 QString TeamAddRoomsJob::generateErrorMessage(const QString &errorStr) const
 {
-    if (errorStr == QLatin1StringView("error-no-permission-team-channel")) {
+    if (errorStr == "error-no-permission-team-channel"_L1) {
         return i18n("You don't have permission to add this channel to the team");
     }
     return RestApiAbstractJob::generateErrorMessage(errorStr);

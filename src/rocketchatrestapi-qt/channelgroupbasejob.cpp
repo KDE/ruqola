@@ -5,6 +5,8 @@
 */
 
 #include "channelgroupbasejob.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "rocketchatqtrestapi_debug.h"
 #include <QUrlQuery>
 using namespace RocketChatRestApi;

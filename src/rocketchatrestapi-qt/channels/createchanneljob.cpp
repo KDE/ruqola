@@ -5,6 +5,7 @@
 */
 
 #include "createchanneljob.h"
+using namespace Qt::Literals::StringLiterals;
 
 #include "restapimethod.h"
 #include "rocketchatqtrestapi_debug.h"
@@ -56,9 +57,9 @@ void CreateChannelJob::setCreateChannelInfo(const CreateChannelTeamInfo &createC
 
 QString CreateChannelJob::errorMessage(const QString &str, const QJsonObject &detail)
 {
-    if (str == QLatin1StringView("error-duplicate-channel-name")) {
+    if (str == "error-duplicate-channel-name"_L1) {
         return i18n("A channel with name '%1' exists", detail.value(QStringLiteral("channel_name")).toString());
-    } else if (str == QLatin1StringView("error-invalid-room-name")) {
+    } else if (str == "error-invalid-room-name"_L1) {
         return i18n("'%1' is not a valid room name", detail.value(QStringLiteral("channel_name")).toString());
     }
 

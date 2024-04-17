@@ -5,6 +5,8 @@
 */
 
 #include "saveroomsettingsjob.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "restapimethod.h"
 #include "rocketchatqtrestapi_debug.h"
 
@@ -58,14 +60,14 @@ void SaveRoomSettingsJob::setSaveRoomSettingsInfo(const SaveRoomSettingsInfo &sa
 
 QString SaveRoomSettingsJob::errorMessage(const QString &str, const QJsonObject &detail)
 {
-    if (str == QLatin1StringView("error-invalid-room-name")) {
+    if (str == "error-invalid-room-name"_L1) {
         return i18n("\'%1\' is not a valid room name", detail.value(QStringLiteral("channel_name")).toString());
-    } else if (str == QLatin1StringView("error-action-not-allowed")) {
+    } else if (str == "error-action-not-allowed"_L1) {
         const QString detailActionStr = detail[QStringLiteral("action")].toString();
         // qDebug() << " detailActionStr " << detailActionStr;
-        if (detailActionStr == QLatin1StringView("Change_Room_Encrypted")) {
+        if (detailActionStr == "Change_Room_Encrypted"_L1) {
             return i18n("Only groups or direct channels can enable encryption");
-        } else if (detailActionStr == QLatin1StringView("Editing_room")) {
+        } else if (detailActionStr == "Editing_room"_L1) {
             return i18n("Room does not have retention policy");
         }
     }

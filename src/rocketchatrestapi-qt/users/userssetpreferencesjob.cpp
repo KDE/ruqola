@@ -5,6 +5,8 @@
 */
 
 #include "userssetpreferencesjob.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "restapimethod.h"
 #include "rocketchatqtrestapi_debug.h"
 
@@ -147,7 +149,7 @@ QJsonDocument UsersSetPreferencesJob::json() const
 
 QString UsersSetPreferencesJob::errorMessage(const QString &str, const QJsonObject &details)
 {
-    if (str == QLatin1StringView("invalid-params")) {
+    if (str == "invalid-params"_L1) {
         return i18n("Invalid parameters");
     }
     return RestApiAbstractJob::errorMessage(str, details);

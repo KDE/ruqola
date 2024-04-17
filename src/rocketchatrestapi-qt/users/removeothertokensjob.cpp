@@ -5,6 +5,8 @@
 */
 
 #include "removeothertokensjob.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "restapimethod.h"
 
 #include <QJsonDocument>

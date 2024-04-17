@@ -5,6 +5,7 @@
 */
 
 #include "channelopenjob.h"
+using namespace Qt::Literals::StringLiterals;
 
 #include "restapimethod.h"
 #include "rocketchatqtrestapi_debug.h"
@@ -73,7 +74,7 @@ QJsonDocument ChannelOpenJob::json() const
 
 QString ChannelOpenJob::errorMessage(const QString &str, const QJsonObject &detail)
 {
-    if (str == QLatin1StringView("error-room-not-found")) {
+    if (str == "error-room-not-found"_L1) {
         return i18n("The required channel is not found.");
     }
     return ChannelGroupBaseJob::errorMessage(str, detail);

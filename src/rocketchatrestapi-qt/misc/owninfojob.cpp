@@ -5,6 +5,8 @@
 */
 
 #include "owninfojob.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "restapimethod.h"
 #include "rocketchatqtrestapi_debug.h"
 #include <QJsonDocument>
@@ -38,7 +40,7 @@ bool OwnInfoJob::start()
 void OwnInfoJob::onGetRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
     const QJsonObject replyObject = replyJson.object();
-    if (replyObject["status"_L1].toString() == QLatin1StringView("error")) {
+    if (replyObject["status"_L1].toString() == "error"_L1) {
         emitFailedMessage(replyErrorString, replyObject);
         addLoggerWarning(QByteArrayLiteral("OwnInfoJob: Problem: ") + replyJson.toJson(QJsonDocument::Indented));
     } else {

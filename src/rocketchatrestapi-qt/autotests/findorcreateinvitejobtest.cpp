@@ -85,7 +85,7 @@ void FindOrCreateInviteJobTest::shouldParseResult()
 {
     QFETCH(QString, name);
     QFETCH(FindOrCreateInviteJob::InviteUsersInfo, inviteUsersInfo);
-    const QString originalJsonFile = QLatin1StringView(RUQOLA_DATA_DIR) + QLatin1StringView("/inviteusers/") + name + QLatin1StringView(".json");
+    const QString originalJsonFile = QLatin1StringView(RUQOLA_DATA_DIR) + "/inviteusers/"_L1 + name + ".json"_L1;
     QFile f(originalJsonFile);
     QVERIFY(f.open(QIODevice::ReadOnly));
     const QByteArray content = f.readAll();

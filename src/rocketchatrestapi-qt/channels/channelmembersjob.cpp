@@ -5,6 +5,7 @@
 */
 
 #include "channelmembersjob.h"
+using namespace Qt::Literals::StringLiterals;
 
 #include "restapimethod.h"
 #include "rocketchatqtrestapi_debug.h"
@@ -44,7 +45,7 @@ void ChannelMembersJob::onGetRequestResponse(const QString &replyErrorString, co
 
 QString ChannelMembersJob::generateErrorMessage(const QString &errorStr) const
 {
-    if (errorStr == QLatin1StringView("unauthorized")) {
+    if (errorStr == "unauthorized"_L1) {
         return i18n("Get Members not authorized in this room");
     }
     return ChannelGroupBaseJob::generateErrorMessage(errorStr);

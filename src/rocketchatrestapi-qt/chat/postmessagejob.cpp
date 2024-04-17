@@ -5,6 +5,8 @@
 */
 
 #include "postmessagejob.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "restapimethod.h"
 #include "rocketchatqtrestapi_debug.h"
 #include <KLocalizedString>
@@ -118,11 +120,11 @@ QJsonDocument PostMessageJob::json() const
 
 QString PostMessageJob::generateErrorMessage(const QString &errorStr) const
 {
-    if (errorStr == QLatin1StringView("room_is_blocked")) {
+    if (errorStr == "room_is_blocked"_L1) {
         return i18n("This room is blocked");
-    } else if (errorStr == QLatin1StringView("You_have_been_muted")) {
+    } else if (errorStr == "You_have_been_muted"_L1) {
         return i18n("You have been muted and cannot speak in this room");
-    } else if (errorStr == QLatin1StringView("invalid-channel")) {
+    } else if (errorStr == "invalid-channel"_L1) {
         return i18n("Invalid channel");
     }
     return RestApiAbstractJob::generateErrorMessage(errorStr);
@@ -130,7 +132,7 @@ QString PostMessageJob::generateErrorMessage(const QString &errorStr) const
 
 QString PostMessageJob::errorMessage(const QString &str, const QJsonObject &details)
 {
-    if (str == QLatin1StringView("invalid-channel")) {
+    if (str == "invalid-channel"_L1) {
         return i18n("Invalid channel");
     }
     return RestApiAbstractJob::errorMessage(str, details);

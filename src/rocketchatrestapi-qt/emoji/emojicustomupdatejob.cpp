@@ -5,6 +5,7 @@
 */
 
 #include "emojicustomupdatejob.h"
+using namespace Qt::Literals::StringLiterals;
 
 #include "restapimethod.h"
 #include "rocketchatqtrestapi_debug.h"
@@ -57,17 +58,17 @@ bool EmojiCustomUpdateJob::start()
     }
 
     QHttpPart identifierPart;
-    identifierPart.setHeader(QNetworkRequest::ContentDispositionHeader, QVariant(QLatin1StringView("form-data; name=\"_id\"")));
+    identifierPart.setHeader(QNetworkRequest::ContentDispositionHeader, QVariant("form-data; name=\"_id\""_L1));
     identifierPart.setBody(mEmojiInfo.emojiId.toUtf8());
     multiPart->append(std::move(identifierPart));
 
     QHttpPart namePart;
-    namePart.setHeader(QNetworkRequest::ContentDispositionHeader, QVariant(QLatin1StringView("form-data; name=\"name\"")));
+    namePart.setHeader(QNetworkRequest::ContentDispositionHeader, QVariant("form-data; name=\"name\""_L1));
     namePart.setBody(mEmojiInfo.name.toUtf8());
     multiPart->append(std::move(namePart));
 
     QHttpPart aliasesPart;
-    aliasesPart.setHeader(QNetworkRequest::ContentDispositionHeader, QVariant(QLatin1StringView("form-data; name=\"aliases\"")));
+    aliasesPart.setHeader(QNetworkRequest::ContentDispositionHeader, QVariant("form-data; name=\"aliases\""_L1));
     aliasesPart.setBody(mEmojiInfo.alias.toUtf8());
     multiPart->append(std::move(aliasesPart));
 

@@ -5,6 +5,8 @@
 */
 
 #include "channelsconverttoteamjob.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "restapimethod.h"
 #include "rocketchatqtrestapi_debug.h"
 
@@ -92,9 +94,9 @@ QJsonDocument ChannelsConvertToTeamJob::json() const
 
 QString ChannelsConvertToTeamJob::generateErrorMessage(const QString &errorStr) const
 {
-    if (errorStr == QLatin1StringView("unauthorized")) {
+    if (errorStr == "unauthorized"_L1) {
         return i18n("Channel can not convert to Team.");
-    } else if (errorStr == QLatin1StringView("team-name-already-exists")) {
+    } else if (errorStr == "team-name-already-exists"_L1) {
         return i18n("Team already exists.");
     }
     return RestApiAbstractJob::generateErrorMessage(errorStr);

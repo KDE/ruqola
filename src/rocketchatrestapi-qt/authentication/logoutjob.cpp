@@ -5,6 +5,8 @@
 */
 
 #include "logoutjob.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "restapimethod.h"
 #include "rocketchatqtrestapi_debug.h"
 
@@ -34,7 +36,7 @@ bool LogoutJob::start()
 void LogoutJob::onGetRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
     const QJsonObject replyObject = replyJson.object();
-    if (replyObject["status"_L1].toString() == QLatin1StringView("success")) {
+    if (replyObject["status"_L1].toString() == "success"_L1) {
         addLoggerInfo(QByteArrayLiteral("LogoutJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
         qCDebug(ROCKETCHATQTRESTAPI_LOG) << " Logout";
         Q_EMIT logoutDone(); // connected to RestApiConnection::slotLogout

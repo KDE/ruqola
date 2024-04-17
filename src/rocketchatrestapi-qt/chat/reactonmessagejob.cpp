@@ -5,6 +5,8 @@
 */
 
 #include "reactonmessagejob.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "restapimethod.h"
 #include "rocketchatqtrestapi_debug.h"
 #include <KLocalizedString>
@@ -118,7 +120,7 @@ QNetworkRequest ReactOnMessageJob::request() const
 
 QString ReactOnMessageJob::errorMessage(const QString &str, const QJsonObject &details)
 {
-    if (str == QLatin1StringView("error-not-allowed")) {
+    if (str == "error-not-allowed"_L1) {
         return i18n("Invalid emoji provided.");
     }
     return RestApiAbstractJob::errorMessage(str, details);

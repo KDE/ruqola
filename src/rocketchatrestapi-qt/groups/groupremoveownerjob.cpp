@@ -5,6 +5,7 @@
 */
 
 #include "groupremoveownerjob.h"
+using namespace Qt::Literals::StringLiterals;
 
 #include "restapimethod.h"
 #include "rocketchatqtrestapi_debug.h"
@@ -41,7 +42,7 @@ void GroupRemoveOwnerJob::onPostRequestResponse(const QString &replyErrorString,
     } else {
         emitFailedMessage(replyErrorString, replyObject);
         addLoggerWarning(QByteArrayLiteral("GroupRemoveOwnerJob problem: ") + replyJson.toJson(QJsonDocument::Indented));
-        if (replyObject["errorType"_L1].toString() == QLatin1StringView("error-remove-last-owner")) {
+        if (replyObject["errorType"_L1].toString() == "error-remove-last-owner"_L1) {
             Q_EMIT failed(i18n("This is the last owner. Please set a new owner before removing this one."));
         }
     }

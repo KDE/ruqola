@@ -5,6 +5,8 @@
 */
 
 #include "userscreatejob.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "restapimethod.h"
 #include "rocketchatqtrestapi_debug.h"
 
@@ -87,8 +89,8 @@ QJsonDocument UsersCreateJob::json() const
 QString UsersCreateJob::errorMessage(const QString &str, const QJsonObject &detail)
 {
     // qDebug() << " str " << str << " details " << detail;
-    if (str == QLatin1StringView("error-field-unavailable")) {
-        const QString field = detail.value(QLatin1StringView("field")).toString();
+    if (str == "error-field-unavailable"_L1) {
+        const QString field = detail.value("field"_L1).toString();
         return i18n("%1 is already in use.", field);
     }
     return RestApiAbstractJob::errorMessage(str, detail);

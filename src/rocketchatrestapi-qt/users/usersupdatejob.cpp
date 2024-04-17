@@ -5,6 +5,8 @@
 */
 
 #include "usersupdatejob.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "restapimethod.h"
 #include "rocketchatqtrestapi_debug.h"
 #include <KLocalizedString>
@@ -59,7 +61,7 @@ bool UsersUpdateJob::requireTwoFactorAuthentication() const
 
 QString UsersUpdateJob::errorMessage(const QString &str, const QJsonObject &details)
 {
-    if (str == QLatin1StringView("error-email-send-failed")) {
+    if (str == "error-email-send-failed"_L1) {
         return i18n("Error trying to send email %1", mUpdateInfo.mEmail);
     }
     return RestApiAbstractJob::errorMessage(str, details);

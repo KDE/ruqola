@@ -5,6 +5,7 @@
 */
 
 #include "emojicustomcreatejob.h"
+using namespace Qt::Literals::StringLiterals;
 
 #include "restapimethod.h"
 #include "rocketchatqtrestapi_debug.h"
@@ -56,12 +57,12 @@ bool EmojiCustomCreateJob::start()
     }
 
     QHttpPart namePart;
-    namePart.setHeader(QNetworkRequest::ContentDispositionHeader, QVariant(QLatin1StringView("form-data; name=\"name\"")));
+    namePart.setHeader(QNetworkRequest::ContentDispositionHeader, QVariant("form-data; name=\"name\""_L1));
     namePart.setBody(mEmojiInfo.name.toUtf8());
     multiPart->append(std::move(namePart));
 
     QHttpPart aliasesPart;
-    aliasesPart.setHeader(QNetworkRequest::ContentDispositionHeader, QVariant(QLatin1StringView("form-data; name=\"aliases\"")));
+    aliasesPart.setHeader(QNetworkRequest::ContentDispositionHeader, QVariant("form-data; name=\"aliases\""_L1));
     aliasesPart.setBody(mEmojiInfo.alias.toUtf8());
     multiPart->append(std::move(aliasesPart));
 
@@ -135,7 +136,7 @@ bool EmojiCustomCreateJob::EmojiInfo::isValid() const
 
 QString EmojiCustomCreateJob::errorMessage(const QString &str, const QJsonObject &details)
 {
-    if (str == QLatin1StringView("Custom_Emoji_Error_Name_Or_Alias_Already_In_Use")) {
+    if (str == "Custom_Emoji_Error_Name_Or_Alias_Already_In_Use"_L1) {
         return i18n("The custom emoji or one of its aliases is already in use.");
     }
     return RestApiAbstractJob::errorMessage(str, details);

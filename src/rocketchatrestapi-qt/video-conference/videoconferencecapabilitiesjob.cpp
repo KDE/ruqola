@@ -5,6 +5,8 @@
 */
 
 #include "videoconferencecapabilitiesjob.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "restapimethod.h"
 #include "rocketchatqtrestapi_debug.h"
 #include <QJsonDocument>
@@ -44,7 +46,7 @@ void VideoConferenceCapabilitiesJob::onGetRequestResponse(const QString &replyEr
         Q_EMIT videoConferenceCapabilitiesDone(replyObject);
     } else {
         const QString errorType = replyObject["error"_L1].toString();
-        if (errorType == QLatin1StringView("no-videoconf-provider-app")) {
+        if (errorType == "no-videoconf-provider-app"_L1) {
             Q_EMIT noVideoConferenceProviderApps();
             addLoggerWarning(QByteArrayLiteral("VideoConferenceCapabilitiesJob: Problem: ") + replyJson.toJson(QJsonDocument::Indented));
         } else {

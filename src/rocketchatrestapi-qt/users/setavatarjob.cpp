@@ -5,6 +5,8 @@
 */
 
 #include "setavatarjob.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "restapimethod.h"
 #include "rocketchatqtrestapi_debug.h"
 
@@ -58,7 +60,7 @@ bool SetAvatarJob::start()
         multiPart->append(filePart);
 
         QHttpPart userPart;
-        userPart.setHeader(QNetworkRequest::ContentDispositionHeader, QVariant(QLatin1StringView("form-data; name=\"userId\"")));
+        userPart.setHeader(QNetworkRequest::ContentDispositionHeader, QVariant("form-data; name=\"userId\""_L1));
         userPart.setBody(userId().toUtf8());
         multiPart->append(userPart);
 
@@ -105,10 +107,10 @@ void SetAvatarJob::setAvatarInfo(const SetAvatarInfo &avatarInfo)
 
 QString SetAvatarJob::errorMessage(const QString &str, const QJsonObject &details)
 {
-    if (str == QLatin1StringView("error-avatar-invalid-url")) {
+    if (str == "error-avatar-invalid-url"_L1) {
         const QString url = details["url"_L1].toString();
         return i18n("Invalid avatar URL: %1", url);
-    } else if (str == QLatin1StringView("error-avatar-url-handling")) {
+    } else if (str == "error-avatar-url-handling"_L1) {
         const QString url = details["url"_L1].toString();
         const QString username = details["username"_L1].toString();
         return i18n("Error while handling avatar setting from a URL \"%1\" for %2", url, username);

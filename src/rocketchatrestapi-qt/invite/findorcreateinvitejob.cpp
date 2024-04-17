@@ -5,6 +5,8 @@
 */
 
 #include "findorcreateinvitejob.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "restapimethod.h"
 #include "rocketchatqtrestapi_debug.h"
 
@@ -132,7 +134,7 @@ QJsonDocument FindOrCreateInviteJob::json() const
 
 QString FindOrCreateInviteJob::errorMessage(const QString &str, const QJsonObject &details)
 {
-    if (str == QLatin1StringView("not_authorized")) {
+    if (str == "not_authorized"_L1) {
         return i18n("Generate link is not authorized in this channel.");
     }
     return RestApiAbstractJob::errorMessage(str, details);

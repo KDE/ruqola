@@ -5,6 +5,8 @@
 */
 
 #include "getsupportedlanguagesjob.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "restapimethod.h"
 #include "rocketchatqtrestapi_debug.h"
 #include <KLocalizedString>
@@ -83,7 +85,7 @@ bool GetSupportedLanguagesJob::canStart() const
 
 QString GetSupportedLanguagesJob::errorMessage(const QString &str, const QJsonObject &detail)
 {
-    if (str == QLatin1StringView("invalid-params")) {
+    if (str == "invalid-params"_L1) {
         return i18n("Invalid Parameters");
     }
     return RestApiAbstractJob::errorMessage(str, detail);

@@ -5,6 +5,8 @@
 */
 
 #include "roomstartdiscussionjob.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "restapimethod.h"
 #include "rocketchatqtrestapi_debug.h"
 
@@ -155,7 +157,7 @@ QJsonDocument RoomStartDiscussionJob::json() const
 
 QString RoomStartDiscussionJob::generateErrorMessage(const QString &errorStr) const
 {
-    if (errorStr == QLatin1StringView("error-invalid-room")) {
+    if (errorStr == "error-invalid-room"_L1) {
         return i18n("Invalid room");
     }
     return RestApiAbstractJob::generateErrorMessage(errorStr);

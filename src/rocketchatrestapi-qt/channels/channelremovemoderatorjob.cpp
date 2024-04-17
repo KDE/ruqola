@@ -5,6 +5,7 @@
 */
 
 #include "channelremovemoderatorjob.h"
+using namespace Qt::Literals::StringLiterals;
 
 #include "restapimethod.h"
 #include "rocketchatqtrestapi_debug.h"
@@ -96,7 +97,7 @@ QNetworkRequest ChannelRemoveModeratorJob::request() const
 
 QString ChannelRemoveModeratorJob::errorMessage(const QString &str, const QJsonObject &detail)
 {
-    if (str == QLatin1StringView("error-user-not-moderator")) {
+    if (str == "error-user-not-moderator"_L1) {
         return i18n("User is not a moderator.");
     }
 

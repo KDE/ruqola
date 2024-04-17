@@ -5,6 +5,7 @@
 */
 
 #include "channeljoinjob.h"
+using namespace Qt::Literals::StringLiterals;
 
 #include "restapimethod.h"
 #include "rocketchatqtrestapi_debug.h"
@@ -44,9 +45,9 @@ void ChannelJoinJob::onPostRequestResponse(const QString &replyErrorString, cons
         addLoggerWarning(QByteArrayLiteral("ChannelJoinJob problem: ") + replyJson.toJson(QJsonDocument::Indented));
         // Invalid password
         const QString errorType = replyObject["errorType"_L1].toString();
-        if (errorType == QLatin1StringView("error-code-invalid")) {
+        if (errorType == "error-code-invalid"_L1) {
             Q_EMIT missingChannelPassword(channelGroupInfo());
-        } else if (errorType == QLatin1StringView("error-room-archived")) {
+        } else if (errorType == "error-room-archived"_L1) {
             Q_EMIT openArchivedRoom(channelGroupInfo());
         }
     }
@@ -102,9 +103,9 @@ QNetworkRequest ChannelJoinJob::request() const
 
 QString ChannelJoinJob::errorMessage(const QString &str, const QJsonObject &detail)
 {
-    if (str == QLatin1StringView("error-room-not-found")) {
+    if (str == "error-room-not-found"_L1) {
         return i18n("The required \'%1\' param provided does not match any channel", channelGroupInfo().identifier);
-    } else if (str == QLatin1StringView("error-code-invalid")) {
+    } else if (str == "error-code-invalid"_L1) {
         return i18n("The room required a password.");
     }
     return ChannelGroupBaseJob::errorMessage(str, detail);

@@ -5,6 +5,8 @@
 */
 
 #include "rolecreatejob.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "restapimethod.h"
 #include "rocketchatqtrestapi_debug.h"
 
@@ -93,7 +95,7 @@ QJsonDocument RoleCreateJob::json() const
 
 QString RoleCreateJob::errorMessage(const QString &str, const QJsonObject &detail)
 {
-    if (str == QLatin1StringView("error-action-not-allowed")) {
+    if (str == "error-action-not-allowed"_L1) {
         return i18n("This is an enterprise feature");
     }
 

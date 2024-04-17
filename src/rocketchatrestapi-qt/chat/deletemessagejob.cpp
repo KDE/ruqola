@@ -5,6 +5,8 @@
 */
 
 #include "deletemessagejob.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "restapimethod.h"
 #include "rocketchatqtrestapi_debug.h"
 #include <KLocalizedString>
@@ -110,7 +112,7 @@ QString DeleteMessageJob::jobName() const
 
 QString DeleteMessageJob::errorMessage(const QString &str, const QJsonObject &details)
 {
-    if (str == QLatin1StringView("error-action-not-allowed")) {
+    if (str == "error-action-not-allowed"_L1) {
         return i18n("Message deletion is not allowed.");
     }
     return RestApiAbstractJob::errorMessage(str, details);

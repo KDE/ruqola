@@ -5,6 +5,8 @@
 */
 
 #include "resetowne2ekeyjob.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "restapimethod.h"
 
 #include <QJsonDocument>

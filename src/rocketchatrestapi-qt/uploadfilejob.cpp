@@ -5,6 +5,8 @@
 */
 
 #include "uploadfilejob.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "restapimethod.h"
 #include "rocketchatqtrestapi_debug.h"
 #include <KLocalizedString>
@@ -72,19 +74,19 @@ bool UploadFileJob::start()
     multiPart->append(filePart);
 
     QHttpPart msgPart;
-    msgPart.setHeader(QNetworkRequest::ContentDispositionHeader, QVariant(QLatin1StringView("form-data; name=\"msg\"")));
+    msgPart.setHeader(QNetworkRequest::ContentDispositionHeader, QVariant("form-data; name=\"msg\""_L1));
     msgPart.setBody(mUploadFileInfo.messageText.toUtf8());
     multiPart->append(msgPart);
 
     if (!mUploadFileInfo.threadMessageId.isEmpty()) {
         QHttpPart msgPart;
-        msgPart.setHeader(QNetworkRequest::ContentDispositionHeader, QVariant(QLatin1StringView("form-data; name=\"tmid\"")));
+        msgPart.setHeader(QNetworkRequest::ContentDispositionHeader, QVariant("form-data; name=\"tmid\""_L1));
         msgPart.setBody(mUploadFileInfo.threadMessageId);
         multiPart->append(msgPart);
     }
 
     QHttpPart descriptionPart;
-    descriptionPart.setHeader(QNetworkRequest::ContentDispositionHeader, QVariant(QLatin1StringView("form-data; name=\"description\"")));
+    descriptionPart.setHeader(QNetworkRequest::ContentDispositionHeader, QVariant("form-data; name=\"description\""_L1));
     descriptionPart.setBody(mUploadFileInfo.description.toUtf8());
     multiPart->append(descriptionPart);
     mReply = networkAccessManager()->post(request(), multiPart);
@@ -129,7 +131,7 @@ void UploadFileJob::slotUploadFinished()
     if (reply) {
         const QJsonDocument replyJson = convertToJsonDocument(reply);
         const QJsonObject replyObject = replyJson.object();
-        if (replyObject.value(QLatin1StringView("success")).toBool()) {
+        if (replyObject.value("success"_L1).toBool()) {
             addLoggerInfo(QByteArrayLiteral("UploadFileJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
         } else {
             if (reply->error() != QNetworkReply::NoError) {

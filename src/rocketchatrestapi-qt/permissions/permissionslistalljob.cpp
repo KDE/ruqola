@@ -5,6 +5,8 @@
 */
 
 #include "permissionslistalljob.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "restapimethod.h"
 #include "rocketchatqtrestapi_debug.h"
 #include <QJsonDocument>

@@ -5,6 +5,7 @@
 */
 
 #include "channelremoveownerjob.h"
+using namespace Qt::Literals::StringLiterals;
 
 #include "restapimethod.h"
 #include "rocketchatqtrestapi_debug.h"
@@ -96,7 +97,7 @@ QNetworkRequest ChannelRemoveOwnerJob::request() const
 
 QString ChannelRemoveOwnerJob::errorMessage(const QString &str, const QJsonObject &detail)
 {
-    if (str == QLatin1StringView("error-user-not-owner")) {
+    if (str == "error-user-not-owner"_L1) {
         return i18n("User is not an owner.");
     }
 

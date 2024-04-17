@@ -5,6 +5,8 @@
 */
 
 #include "getmessagejob.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "restapimethod.h"
 #include "rocketchatqtrestapi_debug.h"
 #include <KLocalizedString>
@@ -96,7 +98,7 @@ bool GetMessageJob::canStart() const
 
 QString GetMessageJob::errorMessage(const QString &str, const QJsonObject &details)
 {
-    if (str == QLatin1StringView("error-not-allowed")) {
+    if (str == "error-not-allowed"_L1) {
         if (mRoomId.isEmpty()) {
             return i18n("Not allowed to get message %1", QLatin1StringView(mMessageId));
         }

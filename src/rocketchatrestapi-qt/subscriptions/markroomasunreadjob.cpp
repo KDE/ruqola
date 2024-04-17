@@ -5,6 +5,8 @@
 */
 
 #include "markroomasunreadjob.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "restapimethod.h"
 #include "rocketchatqtrestapi_debug.h"
 
@@ -56,9 +58,9 @@ void MarkRoomAsUnReadJob::setObjectId(const QByteArray &objectId)
 
 QString MarkRoomAsUnReadJob::errorMessage(const QString &str, const QJsonObject &detail)
 {
-    if (str == QLatin1StringView("error-action-not-allowed")) {
+    if (str == "error-action-not-allowed"_L1) {
         return i18n("Unread message not authorized.");
-    } else if (str == QLatin1StringView("error-no-message-for-unread")) {
+    } else if (str == "error-no-message-for-unread"_L1) {
         return i18n("There are no messages to mark unread.");
     }
     return RestApiAbstractJob::errorMessage(str, detail);

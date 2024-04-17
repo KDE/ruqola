@@ -5,6 +5,8 @@
 */
 
 #include "getthreadmessagesjob.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "restapimethod.h"
 #include "rocketchatqtrestapi_debug.h"
 #include <KLocalizedString>
@@ -87,7 +89,7 @@ QNetworkRequest GetThreadMessagesJob::request() const
 
 QString GetThreadMessagesJob::errorMessage(const QString &str, const QJsonObject &details)
 {
-    if (str == QLatin1StringView("error-invalid-message")) {
+    if (str == "error-invalid-message"_L1) {
         return i18n("Invalid message: \'%1\'", QLatin1StringView(mThreadMessageId));
     }
     return RestApiAbstractJob::errorMessage(str, details);

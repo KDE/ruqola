@@ -5,6 +5,7 @@
 */
 
 #include "changechanneldescriptionjob.h"
+using namespace Qt::Literals::StringLiterals;
 
 #include "restapimethod.h"
 #include "rocketchatqtrestapi_debug.h"

@@ -5,6 +5,8 @@
 */
 
 #include "user2faenableemailjob.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "restapimethod.h"
 
 #include <QJsonDocument>

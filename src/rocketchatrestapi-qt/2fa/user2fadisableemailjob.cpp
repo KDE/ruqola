@@ -5,6 +5,8 @@
 */
 
 #include "user2fadisableemailjob.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "restapimethod.h"
 #include <KLocalizedString>
 

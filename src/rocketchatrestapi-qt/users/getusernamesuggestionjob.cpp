@@ -5,6 +5,8 @@
 */
 
 #include "getusernamesuggestionjob.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "restapimethod.h"
 #include <QJsonDocument>
 #include <QJsonObject>

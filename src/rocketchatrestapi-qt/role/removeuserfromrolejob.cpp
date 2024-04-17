@@ -5,6 +5,8 @@
 */
 
 #include "removeuserfromrolejob.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "restapimethod.h"
 #include "rocketchatqtrestapi_debug.h"
 
@@ -46,7 +48,7 @@ void RemoveUserFromRoleJob::onPostRequestResponse(const QString &replyErrorStrin
 
 QString RemoveUserFromRoleJob::errorMessage(const QString &str, const QJsonObject &details)
 {
-    if (str == QLatin1StringView("error-user-not-in-role")) {
+    if (str == "error-user-not-in-role"_L1) {
         return i18n("This user is not in this role.");
     }
     return RestApiAbstractJob::errorMessage(str, details);

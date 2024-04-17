@@ -7,14 +7,14 @@
 #include "restapiutil.h"
 #include "rocketchatqtrestapi_debug.h"
 #include <QCryptographicHash>
-
+using namespace Qt::Literals::StringLiterals;
 QString RestApiUtil::adaptUrl(const QString &url)
 {
     if (url.isEmpty()) {
         return url;
     }
     // Avoid to add more https:// :)
-    if (url.startsWith(QLatin1StringView("https://")) || url.startsWith(QLatin1StringView("http://"))) {
+    if (url.startsWith("https://"_L1) || url.startsWith("http://"_L1)) {
         return url;
     } else {
         // Default to https

@@ -5,6 +5,8 @@
 */
 
 #include "registeruserjob.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "restapimethod.h"
 #include "rocketchatqtrestapi_debug.h"
 #include <KLocalizedString>
@@ -65,8 +67,8 @@ void RegisterUserJob::setRegisterUserInfo(const RegisterUserInfo &registerUserIn
 
 QString RegisterUserJob::errorMessage(const QString &str, const QJsonObject &detail)
 {
-    if (str == QLatin1StringView("error-invalid-email")) {
-        const QString email = detail.value(QLatin1StringView("email")).toString();
+    if (str == "error-invalid-email"_L1) {
+        const QString email = detail.value("email"_L1).toString();
         return i18n("Invalid Email \'%1\'.", email);
     }
     return RestApiAbstractJob::errorMessage(str, detail);
