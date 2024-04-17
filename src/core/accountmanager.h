@@ -23,9 +23,32 @@ class LIBRUQOLACORE_EXPORT AccountManager : public QObject
 {
     Q_OBJECT
 public:
+    struct LIBRUQOLACORE_EXPORT ActivitySettings {
+        QStringList activities;
+        bool enabled = false;
+        [[nodiscard]] bool contains(const QString &str) const
+        {
+            return activities.contains(str);
+        }
+
+        void changeActivities(bool added, const QString &currentActivity)
+        {
+            if (added) {
+                if (!activities.contains(currentActivity)) {
+                    activities.append(currentActivity);
+                }
+            } else {
+                if (activities.contains(currentActivity)) {
+                    activities.removeAll(currentActivity);
+                }
+            }
+            enabled = true;
+        }
+    };
+
     struct LIBRUQOLACORE_EXPORT AccountManagerInfo {
         QList<AuthenticationInfo> authenticationInfos;
-        QStringList activities;
+        ActivitySettings activitiesSettings;
         QString displayName;
         QString accountName;
         QString userName;

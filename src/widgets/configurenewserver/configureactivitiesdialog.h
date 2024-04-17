@@ -6,6 +6,7 @@
 
 #pragma once
 
+#include "accountmanager.h"
 #include "libruqolawidgets_private_export.h"
 #include <QDialog>
 class ConfigureActivitiesWidget;
@@ -16,9 +17,9 @@ public:
     explicit ConfigureActivitiesDialog(QWidget *parent = nullptr);
     ~ConfigureActivitiesDialog() override;
 
-    [[nodiscard]] QStringList activities() const;
+    [[nodiscard]] AccountManager::ActivitySettings activitiesSettings() const;
 
-    void setActivities(const QStringList &lst);
+    void setActivitiesSettings(const AccountManager::ActivitySettings &lst);
 
 private:
     LIBRUQOLAWIDGETS_NO_EXPORT void readConfig();

@@ -77,6 +77,9 @@ public:
     [[nodiscard]] QStringList activities() const;
     void setActivities(const QStringList &newActivities);
 
+    [[nodiscard]] bool activityEnabled() const;
+    void setActivityEnabled(bool newActivityEnabled);
+
 Q_SIGNALS:
     void serverURLChanged();
     void userNameChanged();
@@ -105,10 +108,11 @@ private:
     QString mPassword;
     QStringList mActivities;
     QDate mLastCheckedPreviewUrlCacheDate;
-    bool mUseLdap = false;
     QString mTwoFactorAuthenticationCode;
     qint64 mExpireToken = -1;
     QSettings *mSetting = nullptr;
+    bool mUseLdap = false;
     bool mAccountEnabled = true;
+    bool mActivityEnabled = false;
 };
 LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const RocketChatAccountSettings &t);

@@ -1506,6 +1506,11 @@ QString RocketChatAccount::displayName() const
     return settings()->displayName();
 }
 
+bool RocketChatAccount::activityEnabled() const
+{
+    return settings()->activityEnabled();
+}
+
 QStringList RocketChatAccount::activities() const
 {
     return settings()->activities();
@@ -1631,6 +1636,11 @@ void RocketChatAccount::setPassword(const QString &password)
 void RocketChatAccount::setTwoFactorAuthenticationCode(const QString &twoFactorAuthenticationCode)
 {
     settings()->setTwoFactorAuthenticationCode(twoFactorAuthenticationCode);
+}
+
+void RocketChatAccount::setActivityEnabled(bool enabled)
+{
+    settings()->setActivityEnabled(enabled);
 }
 
 void RocketChatAccount::setActivities(const QStringList &activities)

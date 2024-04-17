@@ -843,7 +843,8 @@ void AccountManager::addAccount(const AccountManagerInfo &info)
     account->setAccountName(newAccountName);
     account->setServerUrl(info.serverUrl);
     account->setAccountEnabled(info.enabled);
-    account->setActivities(info.activities);
+    account->setActivities(info.activitiesSettings.activities);
+    account->setActivityEnabled(info.activitiesSettings.enabled);
     if (info.authMethodType == AuthenticationManager::AuthMethodType::Password) {
         account->setUserName(info.userName);
         account->setPassword(info.password);
@@ -872,7 +873,8 @@ void AccountManager::modifyAccount(const AccountManagerInfo &info)
         account->setServerUrl(info.serverUrl);
         account->setAccountEnabled(info.enabled);
         account->setAuthMethodType(info.authMethodType);
-        account->setActivities(info.activities);
+        account->setActivities(info.activitiesSettings.activities);
+        account->setActivityEnabled(info.activitiesSettings.enabled);
         if (info.authMethodType == AuthenticationManager::AuthMethodType::Password) {
             account->setUserName(info.userName);
             // TODO add password ???
@@ -1012,7 +1014,8 @@ QDebug operator<<(QDebug d, const AccountManager::AccountManagerInfo &t)
     d.space() << " canResetPassword" << t.canResetPassword;
     d.space() << " enabled" << t.enabled;
     d.space() << " canRegisterAccount" << t.canRegisterAccount;
-    d.space() << " activities" << t.activities;
+    d.space() << " activities" << t.activitiesSettings.activities;
+    d.space() << " activities enabled" << t.activitiesSettings.enabled;
     return d;
 }
 

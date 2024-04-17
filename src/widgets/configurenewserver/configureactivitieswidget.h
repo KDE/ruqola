@@ -5,6 +5,7 @@
 */
 
 #pragma once
+#include "accountmanager.h"
 #include "libruqolawidgets_private_export.h"
 #include <QWidget>
 class QListView;
@@ -16,8 +17,8 @@ public:
     explicit ConfigureActivitiesWidget(QWidget *parent = nullptr);
     ~ConfigureActivitiesWidget() override;
 
-    [[nodiscard]] QStringList activities() const;
-    void setActivities(const QStringList &lst);
+    [[nodiscard]] AccountManager::ActivitySettings activitiesSettings() const;
+    void setActivitiesSettings(const AccountManager::ActivitySettings &activitySettings);
 
 private:
     QListView *const mListView;

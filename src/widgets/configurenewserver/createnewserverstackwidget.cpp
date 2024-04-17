@@ -85,11 +85,11 @@ AccountManager::AccountManagerInfo CreateNewServerStackWidget::accountInfo() con
     AccountManager::AccountManagerInfo info;
     if (mPluginAuthenticationConfigureWidget) {
         info = mPluginAuthenticationConfigureWidget->accountInfo();
-        info.activities = mAccountManagerInfo.activities;
+        info.activitiesSettings = mAccountManagerInfo.activitiesSettings;
         return info;
     }
     info = mCreateNewServerWidget->accountInfo();
-    info.activities = mAccountManagerInfo.activities;
+    info.activitiesSettings = mAccountManagerInfo.activitiesSettings;
     return info;
 }
 
@@ -110,9 +110,9 @@ void CreateNewServerStackWidget::slotConfigureActivities()
 {
 #if HAVE_ACTIVITY_SUPPORT
     QPointer<ConfigureActivitiesDialog> dlg = new ConfigureActivitiesDialog(this);
-    dlg->setActivities(mAccountManagerInfo.activities);
+    dlg->setActivitiesSettings(mAccountManagerInfo.activitiesSettings);
     if (dlg->exec()) {
-        mAccountManagerInfo.activities = dlg->activities();
+        mAccountManagerInfo.activitiesSettings = dlg->activitiesSettings();
     }
     delete dlg;
 #endif

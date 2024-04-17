@@ -52,7 +52,7 @@ void AccountServerTreeWidget::load()
         info.authMethodType = account->authMethodType();
         info.token = account->authToken();
         info.userId = account->userId();
-        info.activities = account->activities();
+        info.activitiesSettings = {account->activities(), account->activityEnabled()};
         item->setToolTip(0, info.serverUrl);
         item->setNewAccount(false);
         item->setCheckState(0, account->accountEnabled() ? Qt::Checked : Qt::Unchecked);
@@ -86,15 +86,7 @@ void AccountServerTreeWidget::save()
 
         info.enabled = serverListItem->checkState(0) == Qt::Checked;
         if (!currentActivity.isEmpty()) { // Configure activity
-            if (serverListItem->checkState(1) == Qt::Checked) {
-                if (!info.activities.contains(currentActivity)) {
-                    info.activities.append(currentActivity);
-                }
-            } else {
-                if (info.activities.contains(currentActivity)) {
-                    info.activities.removeAll(currentActivity);
-                }
-            }
+            info.activitiesSettings.changeActivities(serverListItem->checkState(1) == Qt::Checked, currentActivity);
         }
         if (serverListItem->newAccount()) {
             accountManager->addAccount(info);
@@ -207,7 +199,7 @@ void AccountServerListWidgetItem::setAccountInfo(const AccountManager::AccountMa
     setText(0, info.displayName);
     setText(1, i18n("Display Account in Current Activity"));
     setCheckState(1,
-                  info.activities.contains(Ruqola::self()->accountManager()->rocketChatAccountProxyModel()->activitiesManager()->currentActivity())
+                  info.activitiesSettings.contains(Ruqola::self()->accountManager()->rocketChatAccountProxyModel()->activitiesManager()->currentActivity())
                       ? Qt::Checked
                       : Qt::Unchecked);
 }

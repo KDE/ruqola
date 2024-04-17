@@ -80,7 +80,7 @@ ConfigureActivitiesWidget::ConfigureActivitiesWidget(QWidget *parent)
 
 ConfigureActivitiesWidget::~ConfigureActivitiesWidget() = default;
 
-QStringList ConfigureActivitiesWidget::activities() const
+AccountManager::ActivitySettings ConfigureActivitiesWidget::activitiesSettings() const
 {
     if (!mEnableActivitiesSupport->isChecked()) {
         return {};
@@ -92,25 +92,26 @@ QStringList ConfigureActivitiesWidget::activities() const
     for (const auto &selectedIndex : selected) {
         selectedActivities << selectedIndex.data(KActivities::ActivitiesModel::ActivityId).toString();
     }
-    return selectedActivities;
+    const AccountManager::ActivitySettings activities{selectedActivities, true};
+    return activities;
 }
 
-void ConfigureActivitiesWidget::setActivities(const QStringList &lst)
+void ConfigureActivitiesWidget::setActivitiesSettings(const AccountManager::ActivitySettings &activitySettings)
 {
     auto model = mListView->model();
     auto selection = mListView->selectionModel();
     selection->clearSelection();
 
-    bool listIsEmpty{lst.isEmpty()};
-    mListView->setEnabled(!listIsEmpty);
-    mEnableActivitiesSupport->setChecked(!listIsEmpty);
+    bool listIsEmpty{activitySettings.activities.isEmpty()};
+    mListView->setEnabled(activitySettings.enabled);
+    mEnableActivitiesSupport->setChecked(activitySettings.enabled);
     bool hasFoundActivities = false;
     if (!listIsEmpty) {
         for (int row = 0; row < model->rowCount(); ++row) {
             const auto index = model->index(row, 0);
             const auto activity = model->data(index, KActivities::ActivitiesModel::ActivityId).toString();
 
-            if (lst.contains(activity)) {
+            if (activitySettings.contains(activity)) {
                 selection->select(index, QItemSelectionModel::Select);
                 hasFoundActivities = true;
             }

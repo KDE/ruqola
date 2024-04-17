@@ -532,6 +532,8 @@ public:
 
     void setActivities(const QStringList &activities);
 
+    void setActivityEnabled(bool enabled);
+    [[nodiscard]] bool activityEnabled() const;
 Q_SIGNALS:
     void roomRemoved(const QByteArray &roomId);
     void disabledTotpValid(bool checked);

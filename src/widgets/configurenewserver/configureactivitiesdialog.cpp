@@ -57,14 +57,14 @@ void ConfigureActivitiesDialog::writeConfig()
     KWindowConfig::saveWindowSize(windowHandle(), group);
 }
 
-QStringList ConfigureActivitiesDialog::activities() const
+AccountManager::ActivitySettings ConfigureActivitiesDialog::activitiesSettings() const
 {
-    return mConfigureActivitiesWidget->activities();
+    return mConfigureActivitiesWidget->activitiesSettings();
 }
 
-void ConfigureActivitiesDialog::setActivities(const QStringList &lst)
+void ConfigureActivitiesDialog::setActivitiesSettings(const AccountManager::ActivitySettings &lst)
 {
-    mConfigureActivitiesWidget->setActivities(lst);
+    mConfigureActivitiesWidget->setActivitiesSettings(lst);
 }
 
 #include "moc_configureactivitiesdialog.cpp"
