@@ -25,6 +25,7 @@ AccountServerTreeWidget::AccountServerTreeWidget(QWidget *parent)
     setDragDropMode(QAbstractItemView::InternalMove);
     setRootIsDecorated(false);
     header()->hide();
+    setColumnCount(1);
     connect(this, &AccountServerTreeWidget::itemDoubleClicked, this, &AccountServerTreeWidget::modifyAccountConfig);
 }
 
