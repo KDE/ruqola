@@ -75,9 +75,11 @@ void AccountServerTreeWidget::save()
     const int numberOfItems(topLevelItemCount());
     order.reserve(numberOfItems);
     QString currentActivity;
+#if HAVE_ACTIVITY_SUPPORT
     if (columnCount() == 2) { // Configure activity
         currentActivity = Ruqola::self()->accountManager()->rocketChatAccountProxyModel()->activitiesManager()->currentActivity();
     }
+#endif
     // Add account or modify it
     for (int i = 0; i < numberOfItems; ++i) {
         QTreeWidgetItem *it = topLevelItem(i);
@@ -85,9 +87,11 @@ void AccountServerTreeWidget::save()
         AccountManager::AccountManagerInfo info = serverListItem->accountInfo();
 
         info.enabled = serverListItem->checkState(0) == Qt::Checked;
+#if HAVE_ACTIVITY_SUPPORT
         if (!currentActivity.isEmpty()) { // Configure activity
             info.activitiesSettings.changeActivities(serverListItem->checkState(1) == Qt::Checked, currentActivity);
         }
+#endif
         if (serverListItem->newAccount()) {
             accountManager->addAccount(info);
         } else {
