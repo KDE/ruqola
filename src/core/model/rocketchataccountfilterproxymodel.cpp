@@ -55,6 +55,13 @@ void RocketChatAccountFilterProxyModel::setFilterActivities(bool newFilterActivi
     }
 }
 
+void RocketChatAccountFilterProxyModel::slotActivitiesChanged()
+{
+#if HAVE_ACTIVITY_SUPPORT
+    invalidateFilter();
+#endif
+}
+
 #if HAVE_ACTIVITY_SUPPORT
 ActivitiesManager *RocketChatAccountFilterProxyModel::activitiesManager() const
 {

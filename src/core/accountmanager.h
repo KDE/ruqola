@@ -101,6 +101,7 @@ Q_SIGNALS:
     void updateNotification(bool hasAlert, int nbUnread, const QString &accountName);
     void currentAccountChanged();
     void roomNeedAttention();
+    void activitiesChanged();
 
 private:
     LIBRUQOLACORE_NO_EXPORT void removeDatabaseAccount(const QString &accountName);

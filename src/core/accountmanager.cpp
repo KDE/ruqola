@@ -36,6 +36,7 @@ AccountManager::AccountManager(QObject *parent)
     mRocketChatAccountProxyModel->setSourceModel(mRocketChatAccountModel);
     loadExcludeEmoticons();
     loadAccount();
+    connect(this, &AccountManager::activitiesChanged, mRocketChatAccountProxyModel, &RocketChatAccountFilterProxyModel::slotActivitiesChanged);
 }
 
 AccountManager::~AccountManager() = default;
@@ -714,6 +715,7 @@ void AccountManager::disconnectAccount(RocketChatAccount *account)
     disconnect(account, &RocketChatAccount::updateNotification, this, &AccountManager::updateNotification);
     disconnect(account, &RocketChatAccount::roomNeedAttention, this, &AccountManager::roomNeedAttention);
     disconnect(account, &RocketChatAccount::logoutDone, this, &AccountManager::logoutAccountDone);
+    disconnect(account, &RocketChatAccount::activitiesChanged, this, &AccountManager::activitiesChanged);
     // TODO connect(account, &RocketChatAccount::notification
 }
 
@@ -753,6 +755,7 @@ void AccountManager::connectToAccount(RocketChatAccount *account)
     connect(account, &RocketChatAccount::updateNotification, this, &AccountManager::updateNotification);
     connect(account, &RocketChatAccount::roomNeedAttention, this, &AccountManager::roomNeedAttention);
     connect(account, &RocketChatAccount::logoutDone, this, &AccountManager::logoutAccountDone);
+    connect(account, &RocketChatAccount::activitiesChanged, this, &AccountManager::activitiesChanged);
 }
 
 void AccountManager::slotSwitchToAccountAndRoomName(const QString &accountName, const QByteArray &roomId, const QString &channelType)

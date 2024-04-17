@@ -601,6 +601,7 @@ Q_SIGNALS:
     void privateSettingsChanged();
     void updateMessageFailed(const QString &str);
     void wsClosedSocketError();
+    void activitiesChanged();
 
 private:
     Q_DISABLE_COPY(RocketChatAccount)

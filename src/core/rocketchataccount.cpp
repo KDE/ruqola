@@ -281,6 +281,7 @@ void RocketChatAccount::loadSettings(const QString &accountFileName)
         connect(mSettings, &RocketChatAccountSettings::userIdChanged, this, &RocketChatAccount::userIdChanged);
         connect(mSettings, &RocketChatAccountSettings::userNameChanged, this, &RocketChatAccount::userNameChanged);
         connect(mSettings, &RocketChatAccountSettings::passwordChanged, this, &RocketChatAccount::passwordChanged);
+        connect(mSettings, &RocketChatAccountSettings::activitiesChanged, this, &RocketChatAccount::activitiesChanged);
     }
 }
 
