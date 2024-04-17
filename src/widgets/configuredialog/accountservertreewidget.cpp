@@ -197,11 +197,13 @@ void AccountServerListWidgetItem::setAccountInfo(const AccountManager::AccountMa
 {
     mInfo = info;
     setText(0, info.displayName);
+#if HAVE_ACTIVITY_SUPPORT
     setText(1, i18n("Display Account in Current Activity"));
     setCheckState(1,
                   info.activitiesSettings.contains(Ruqola::self()->accountManager()->rocketChatAccountProxyModel()->activitiesManager()->currentActivity())
                       ? Qt::Checked
                       : Qt::Unchecked);
+#endif
 }
 
 bool AccountServerListWidgetItem::newAccount() const
