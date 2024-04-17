@@ -69,6 +69,9 @@ public:
     [[nodiscard]] RocketChatAccount *accountFromName(const QString &accountName);
 
     [[nodiscard]] QList<AccountDisplayInfo> accountDisplayInfoSorted() const;
+#if HAVE_ACTIVITY_SUPPORT
+    ActivitiesManager *activitiesManager() const;
+#endif
 
 Q_SIGNALS:
     void logoutAccountDone(const QString &accountName);

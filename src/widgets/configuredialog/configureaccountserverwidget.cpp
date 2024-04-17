@@ -5,8 +5,11 @@
 */
 
 #include "configureaccountserverwidget.h"
+#include "accountmanager.h"
+#include "activities/activitiesmanager.h"
 #include "config-ruqola.h"
 #include "removeaccountdialog.h"
+#include "ruqola.h"
 #include "ui_configureaccountserverwidget.h"
 #include <KLocalizedString>
 #include <QPointer>
@@ -35,8 +38,9 @@ ConfigureAccountServerWidget::ConfigureAccountServerWidget(QWidget *parent)
     ui->moveDownServer->setAutoRepeat(true);
 
 #if HAVE_ACTIVITY_SUPPORT
-    // TODO rename text
-    ui->configureCurrentActivity->hide();
+    if (!Ruqola::self()->accountManager()->activitiesManager()->enabled()) {
+        ui->configureCurrentActivity->hide();
+    }
 #else
     ui->configureCurrentActivity->hide();
 #endif

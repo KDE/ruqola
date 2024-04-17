@@ -717,6 +717,13 @@ void AccountManager::disconnectAccount(RocketChatAccount *account)
     // TODO connect(account, &RocketChatAccount::notification
 }
 
+#if HAVE_ACTIVITY_SUPPORT
+ActivitiesManager *AccountManager::activitiesManager() const
+{
+    return mActivitiesManager;
+}
+#endif
+
 void AccountManager::connectToAccount(RocketChatAccount *account)
 {
     connect(account, &RocketChatAccount::notification, this, [this, account](const NotificationInfo &info) {
