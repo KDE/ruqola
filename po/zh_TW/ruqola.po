@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-16 00:38+0000\n"
-"PO-Revision-Date: 2024-02-27 06:54+0900\n"
+"POT-Creation-Date: 2024-04-17 00:38+0000\n"
+"PO-Revision-Date: 2024-04-17 05:58+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
 "Language: zh_TW\n"
@@ -2431,11 +2431,10 @@ msgid "Moderation Console"
 msgstr "提及"
 
 #: widgets/administratordialog/customemoji/administratorcustomemojicreateorupdatedialog.cpp:25
-#, fuzzy, kde-format
-#| msgid "Custom User Status"
+#, kde-format
 msgctxt "@title:window"
 msgid "Configure Custom Emoji"
-msgstr "自訂使用者狀態"
+msgstr "設定自訂表情符號"
 
 #: widgets/administratordialog/customemoji/administratorcustomemojicreateorupdatewidget.cpp:24
 #, kde-format
@@ -2513,7 +2512,7 @@ msgstr "移除表情符號"
 #: widgets/administratordialog/roles/administratorroleswidget.cpp:101
 #: widgets/administratordialog/roles/usersinrolewidget.cpp:106
 #: widgets/administratordialog/users/administratoruserswidget.cpp:239
-#: widgets/configuredialog/configureaccountserverwidget.ui:39
+#: widgets/configuredialog/configureaccountserverwidget.ui:31
 #: widgets/myaccount/myaccountpersonalaccesstokentreeview.cpp:35
 #, kde-format
 msgid "Add..."
@@ -2528,7 +2527,7 @@ msgstr "新增..."
 #: widgets/administratordialog/roles/administratorroleswidget.cpp:105
 #: widgets/administratordialog/rooms/administratorroomswidget.cpp:63
 #: widgets/administratordialog/users/administratoruserswidget.cpp:246
-#: widgets/configuredialog/configureaccountserverwidget.ui:46
+#: widgets/configuredialog/configureaccountserverwidget.ui:38
 #, kde-format
 msgid "Modify..."
 msgstr "變更..."
@@ -2543,7 +2542,7 @@ msgstr "變更..."
 #: widgets/administratordialog/roles/usersinrolewidget.cpp:110
 #: widgets/administratordialog/rooms/administratorroomswidget.cpp:67
 #: widgets/administratordialog/users/administratoruserswidget.cpp:283
-#: widgets/configuredialog/configureaccountserverwidget.ui:53
+#: widgets/configuredialog/configureaccountserverwidget.ui:45
 #: widgets/myaccount/myaccountpersonalaccesstokentreeview.cpp:42
 #, kde-format
 msgid "Remove"
@@ -6045,7 +6044,7 @@ msgstr ""
 #: widgets/administratorsettingsdialog/videoconference/videoconferencewidget.cpp:54
 #, kde-format
 msgid "Jitsi"
-msgstr ""
+msgstr "Jitsi"
 
 #: widgets/administratorsettingsdialog/videoconference/videoconferencewidget.cpp:66
 #, kde-format
@@ -6330,17 +6329,24 @@ msgstr "伺服器網址："
 msgid "Provider:"
 msgstr "提供者："
 
-#: widgets/configuredialog/configureaccountserverwidget.cpp:25
+#: widgets/configuredialog/configureaccountserverwidget.cpp:26
 #, kde-format
 msgctxt "Move selected account up."
 msgid "Up"
 msgstr ""
 
-#: widgets/configuredialog/configureaccountserverwidget.cpp:31
+#: widgets/configuredialog/configureaccountserverwidget.cpp:32
 #, kde-format
 msgctxt "Move selected account down."
 msgid "Down"
 msgstr ""
+
+#. i18n: ectx: property (text), widget (QCheckBox, configureCurrentActivity)
+#: widgets/configuredialog/configureaccountserverwidget.ui:87
+#, fuzzy, kde-format
+#| msgid "Configure Activities"
+msgid "Configure Current Activity"
+msgstr "設定活動"
 
 #: widgets/configuredialog/configurefontwidget.cpp:17
 #, kde-format
@@ -6370,7 +6376,7 @@ msgstr ""
 #: widgets/configuredialog/configuregeneralwidget.cpp:19
 #, kde-format
 msgid "Enable system tray icon"
-msgstr ""
+msgstr "開啟系統匣圖示"
 
 #: widgets/configuredialog/configuregeneralwidget.cpp:20
 #, kde-format
@@ -6394,16 +6400,15 @@ msgid "Use local dataBase (experimental)"
 msgstr ""
 
 #: widgets/configuredialog/configuregeneralwidget.cpp:25
-#, fuzzy, kde-format
-#| msgid "Delete Room"
+#, kde-format
 msgid "Enable Plasma Activities"
-msgstr "刪除聊天室"
+msgstr "啟用 Plasma 活動"
 
 #: widgets/configuredialog/configuresettingsdialog.cpp:62
 #, kde-format
 msgctxt "@title:window"
 msgid "Configure Ruqola"
-msgstr ""
+msgstr "設定 Ruqola"
 
 #: widgets/configuredialog/configuresettingsdialog.cpp:67
 #, kde-format
@@ -6445,7 +6450,7 @@ msgstr "翻譯"
 #, kde-format
 msgctxt "@title Preferences page name"
 msgid "User Feedback"
-msgstr ""
+msgstr "使用者意見回應"
 
 #: widgets/configuredialog/configuresettingsdialog.cpp:109
 #, kde-format
@@ -6485,11 +6490,10 @@ msgid "Impossible to access to server."
 msgstr "無法存取伺服器。"
 
 #: widgets/configurenewserver/configureactivitiesdialog.cpp:25
-#, fuzzy, kde-format
-#| msgid "Configure Accounts"
+#, kde-format
 msgctxt "@title:window"
 msgid "Configure Activities"
-msgstr "設定帳戶"
+msgstr "設定活動"
 
 #: widgets/configurenewserver/configureactivitieswidget.cpp:55
 #, kde-format
@@ -6511,10 +6515,9 @@ msgid "Add Server"
 msgstr "新增伺服器"
 
 #: widgets/configurenewserver/createnewserverdialog.cpp:49
-#, fuzzy, kde-format
-#| msgid "Configure Accounts"
+#, kde-format
 msgid "Configure Activities"
-msgstr "設定帳戶"
+msgstr "設定活動"
 
 #: widgets/configurenewserver/createnewserverdialog.cpp:67
 #, kde-format

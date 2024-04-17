@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-16 00:38+0000\n"
+"POT-Creation-Date: 2024-04-17 00:38+0000\n"
 "PO-Revision-Date: 2024-04-11 08:39+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian\n"
@@ -2530,7 +2530,7 @@ msgstr "Вилучення емодзі"
 #: widgets/administratordialog/roles/administratorroleswidget.cpp:101
 #: widgets/administratordialog/roles/usersinrolewidget.cpp:106
 #: widgets/administratordialog/users/administratoruserswidget.cpp:239
-#: widgets/configuredialog/configureaccountserverwidget.ui:39
+#: widgets/configuredialog/configureaccountserverwidget.ui:31
 #: widgets/myaccount/myaccountpersonalaccesstokentreeview.cpp:35
 #, kde-format
 msgid "Add..."
@@ -2545,7 +2545,7 @@ msgstr "Додати…"
 #: widgets/administratordialog/roles/administratorroleswidget.cpp:105
 #: widgets/administratordialog/rooms/administratorroomswidget.cpp:63
 #: widgets/administratordialog/users/administratoruserswidget.cpp:246
-#: widgets/configuredialog/configureaccountserverwidget.ui:46
+#: widgets/configuredialog/configureaccountserverwidget.ui:38
 #, kde-format
 msgid "Modify..."
 msgstr "Змінити…"
@@ -2560,7 +2560,7 @@ msgstr "Змінити…"
 #: widgets/administratordialog/roles/usersinrolewidget.cpp:110
 #: widgets/administratordialog/rooms/administratorroomswidget.cpp:67
 #: widgets/administratordialog/users/administratoruserswidget.cpp:283
-#: widgets/configuredialog/configureaccountserverwidget.ui:53
+#: widgets/configuredialog/configureaccountserverwidget.ui:45
 #: widgets/myaccount/myaccountpersonalaccesstokentreeview.cpp:42
 #, kde-format
 msgid "Remove"
@@ -6394,17 +6394,24 @@ msgstr "Адреса засідання:"
 msgid "Provider:"
 msgstr "Надавач:"
 
-#: widgets/configuredialog/configureaccountserverwidget.cpp:25
+#: widgets/configuredialog/configureaccountserverwidget.cpp:26
 #, kde-format
 msgctxt "Move selected account up."
 msgid "Up"
 msgstr "Вище"
 
-#: widgets/configuredialog/configureaccountserverwidget.cpp:31
+#: widgets/configuredialog/configureaccountserverwidget.cpp:32
 #, kde-format
 msgctxt "Move selected account down."
 msgid "Down"
 msgstr "Нижче"
+
+#. i18n: ectx: property (text), widget (QCheckBox, configureCurrentActivity)
+#: widgets/configuredialog/configureaccountserverwidget.ui:87
+#, fuzzy, kde-format
+#| msgid "Configure Activities"
+msgid "Configure Current Activity"
+msgstr "Налаштовування просторів дій"
 
 #: widgets/configuredialog/configurefontwidget.cpp:17
 #, kde-format
