@@ -30,8 +30,10 @@ QVariant NotificationHistoryModel::data(const QModelIndex &index, int role) cons
     case Qt::DisplayRole:
     case AccountName:
         return info.accountName();
-    case DateTime:
-        return info.dateTime();
+    case Time:
+        return QLocale().toString(info.dateTime().time());
+    case Date:
+        return QLocale().toString(info.dateTime().date());
     case MessageStr:
         return generateMessage(info);
     case RoomId:

@@ -191,12 +191,12 @@ bool NotificationInfo::isValid() const
     return valid && !mMessage.isEmpty();
 }
 
-const QString &NotificationInfo::dateTime() const
+QDateTime NotificationInfo::dateTime() const
 {
     return mDateTime;
 }
 
-void NotificationInfo::setDateTime(const QString &newDateTime)
+void NotificationInfo::setDateTime(const QDateTime &newDateTime)
 {
     mDateTime = newDateTime;
 }

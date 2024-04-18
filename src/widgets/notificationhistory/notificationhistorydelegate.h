@@ -62,6 +62,7 @@ private:
 
         QString timeStampText;
         QPoint timeStampPos;
+        QRect timeStampRect;
 
         bool sameAccountRoomAsPreviousMessage = false;
     };

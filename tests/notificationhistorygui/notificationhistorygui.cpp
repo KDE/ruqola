@@ -48,7 +48,7 @@ void NotificationHistoryGui::slotSendNotification()
         }
         NotificationInfo info;
         info.setAccountName(QStringLiteral("accountName")); // TODO
-        info.setDateTime(QDateTime::currentDateTime().toString());
+        info.setDateTime(QDateTime::currentDateTime());
         info.parseNotification(doc.array());
         qDebug() << " info " << info;
         NotificationHistoryManager::self()->addNotification(info);

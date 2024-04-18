@@ -175,7 +175,7 @@ NotificationHistoryDelegate::Layout NotificationHistoryDelegate::doLayout(const 
     layout.senderFont.setBold(true);
 
     // Timestamp
-    layout.timeStampText = index.data(NotificationHistoryModel::DateTime).toString();
+    layout.timeStampText = index.data(NotificationHistoryModel::Time).toString();
 
     // Message (using the rest of the available width)
     const int iconSize = option.widget->style()->pixelMetric(QStyle::PM_ButtonIconSize);
@@ -205,6 +205,7 @@ NotificationHistoryDelegate::Layout NotificationHistoryDelegate::doLayout(const 
     if (!layout.sameAccountRoomAsPreviousMessage) {
         usableRect.setTop(usableRect.top() + option.fontMetrics.height());
     }
+    layout.timeStampRect = QRect(QPoint(layout.timeStampPos.x(), usableRect.top()), timeSize);
 
     layout.textRect = QRect(textLeft, usableRect.top() + textVMargin, maxWidth, textSize.height() + textVMargin);
     layout.baseLine += layout.textRect.top(); // make it absolute
@@ -265,6 +266,12 @@ bool NotificationHistoryDelegate::helpEvent(QHelpEvent *helpEvent, QAbstractItem
                 return true;
             }
         }
+    }
+
+    if (layout.timeStampRect.contains(helpEvent->pos())) {
+        const QString dateStr = index.data(MessagesModel::Date).toString();
+        QToolTip::showText(helpEvent->globalPos(), dateStr, view);
+        return true;
     }
 
     const QPoint relativePos = adaptMousePosition(helpEvent->pos(), layout.textRect, option);

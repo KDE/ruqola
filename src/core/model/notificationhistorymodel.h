@@ -18,7 +18,8 @@ class LIBRUQOLACORE_EXPORT NotificationHistoryModel : public QAbstractListModel
 public:
     enum NotificationHistoryRoles {
         AccountName = Qt::UserRole + 1,
-        DateTime,
+        Time,
+        Date,
         MessageStr,
         RoomId,
         RoomName,

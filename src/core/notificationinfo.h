@@ -62,8 +62,8 @@ public:
     // Pixmap can be null.
     [[nodiscard]] bool isValid() const;
 
-    [[nodiscard]] const QString &dateTime() const;
-    void setDateTime(const QString &newDateTime);
+    [[nodiscard]] QDateTime dateTime() const;
+    void setDateTime(const QDateTime &newDateTime);
 
     [[nodiscard]] const QByteArray &messageId() const;
     void setMessageId(const QByteArray &newMessageId);
@@ -85,7 +85,7 @@ private:
     QByteArray mRoomId;
     QString mChannelType;
     QByteArray mTmId;
-    QString mDateTime;
+    QDateTime mDateTime;
     QPixmap mPixmap;
     NotificationType mNotificationType = StandardMessage;
 };
