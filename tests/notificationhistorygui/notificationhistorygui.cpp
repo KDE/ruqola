@@ -21,6 +21,15 @@ NotificationHistoryGui::NotificationHistoryGui(QWidget *parent)
 {
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->addWidget(mTextEdit);
+    auto addDefaultValueButton = new QPushButton(QStringLiteral("Default Parameter"), this);
+    mainLayout->addWidget(addDefaultValueButton);
+    connect(addDefaultValueButton, &QPushButton::clicked, this, [this]() {
+        mTextEdit->setText(QStringLiteral(
+            R"([{"payload":{"_id":"dNYhFAYBhqPFnBwRy","message":{"msg":"@here"},"name":"roomname example","rid":"Fc4EWcQXCkJkJ7QEQ","sender":{"_id":"Gsvg6BGoBfmPLoFie","name":"foo","username":"foo.bla"},"type":"c", "tmid":"QLN
+cu8TnRi8Ld57Pk"},"text":"text s","title":"my title"}
+])"));
+    });
+
     auto pushButton = new QPushButton(QStringLiteral("Send Notification"), this);
     mainLayout->addWidget(pushButton);
     connect(pushButton, &QPushButton::clicked, this, &NotificationHistoryGui::slotSendNotification);
