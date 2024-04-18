@@ -20,6 +20,7 @@ public:
 
     [[nodiscard]] QString description() const;
     [[nodiscard]] QUrl fileUrl() const;
+    [[nodiscard]] QString fileName() const;
     void setFileUrl(const QUrl &url);
     void setPixmap(const QPixmap &pix);
     void setAuthorizedMediaTypes(const QStringList &mediaTypes);
@@ -29,6 +30,7 @@ Q_SIGNALS:
 
 private:
     QLineEdit *const mDescription;
+    QLineEdit *const mFileName;
     KUrlRequester *const mSelectFile;
     QLabel *const mImagePreview;
     QLabel *const mFileLabel;

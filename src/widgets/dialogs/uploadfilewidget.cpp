@@ -16,6 +16,7 @@
 UploadFileWidget::UploadFileWidget(QWidget *parent)
     : QWidget(parent)
     , mDescription(new QLineEdit(this))
+    , mFileName(new QLineEdit(this))
     , mSelectFile(new KUrlRequester(this))
     , mImagePreview(new QLabel(this))
     , mFileLabel(new QLabel(i18n("File:"), this))
@@ -38,6 +39,11 @@ UploadFileWidget::UploadFileWidget(QWidget *parent)
     layout->addRow(i18n("Description:"), mDescription);
     KLineEditEventHandler::catchReturnKey(mDescription);
 
+    mFileName->setObjectName(QStringLiteral("mFileName"));
+    mFileName->setClearButtonEnabled(true);
+    layout->addRow(i18n("File Name:"), mFileName);
+    KLineEditEventHandler::catchReturnKey(mFileName);
+
     mSelectFile->setObjectName(QStringLiteral("mSelectFile"));
     mFileLabel->setObjectName(QStringLiteral("mFileLabel"));
     layout->addRow(mFileLabel, mSelectFile);
@@ -52,6 +58,11 @@ UploadFileWidget::~UploadFileWidget() = default;
 QString UploadFileWidget::description() const
 {
     return mDescription->text();
+}
+
+QString UploadFileWidget::fileName() const
+{
+    return mFileName->text();
 }
 
 QUrl UploadFileWidget::fileUrl() const
