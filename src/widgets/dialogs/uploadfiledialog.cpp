@@ -76,6 +76,7 @@ UploadFileDialog::UploadFileInfo UploadFileDialog::fileInfo() const
     UploadFileInfo result;
     result.description = mUploadFileWidget->description();
     result.fileUrl = mUploadFileWidget->fileUrl();
+    result.fileName = mUploadFileWidget->fileName();
     return result;
 }
 
