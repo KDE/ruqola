@@ -2149,7 +2149,7 @@ void RocketChatAccount::sendNotification(const QJsonArray &contents)
 
     NotificationInfo info;
     info.setAccountName(accountName());
-    info.setDateTime(QDateTime::currentDateTime());
+    info.setDateTime(QDateTime::currentDateTimeUtc());
     info.parseNotification(contents);
     if (!info.isValid()) {
         qCWarning(RUQOLA_LOG) << " Info is invalid ! " << contents;
