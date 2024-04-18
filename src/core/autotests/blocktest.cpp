@@ -8,7 +8,7 @@
 #include "messages/block.h"
 #include "ruqola_autotest_helper.h"
 #include <QJsonObject>
-
+using namespace Qt::Literals::StringLiterals;
 QTEST_GUILESS_MAIN(BlockTest)
 BlockTest::BlockTest(QObject *parent)
     : QObject{parent}
@@ -89,7 +89,7 @@ void BlockTest::shouldLoadBlock()
 {
     QFETCH(QString, name);
     QFETCH(Block, blockInfo);
-    const QString originalJsonFile = QLatin1StringView(RUQOLA_DATA_DIR) + QLatin1StringView("/blocks/") + name + QLatin1StringView(".json");
+    const QString originalJsonFile = QLatin1StringView(RUQOLA_DATA_DIR) + "/blocks/"_L1 + name + ".json"_L1;
     const QJsonObject obj = AutoTestHelper::loadJsonObject(originalJsonFile);
 
     Block r;

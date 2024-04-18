@@ -5,6 +5,8 @@
 */
 
 #include "inputcompletermodeltest.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "model/inputcompletermodel.h"
 #include "test_model_helpers.h"
 #include <QJsonDocument>
@@ -106,7 +108,7 @@ void InputCompleterModelTest::shouldAssignValues()
 
 QJsonObject loadFile(const QString &file)
 {
-    const QString originalJsonFile = QLatin1StringView(RUQOLA_DATA_DIR) + QLatin1StringView("/json/") + file;
+    const QString originalJsonFile = QLatin1StringView(RUQOLA_DATA_DIR) + "/json/"_L1 + file;
     QFile f(originalJsonFile);
     if (!f.open(QIODevice::ReadOnly)) {
         qWarning() << " Unable to load file " << file;
@@ -116,7 +118,7 @@ QJsonObject loadFile(const QString &file)
     f.close();
     const QJsonDocument doc = QJsonDocument::fromJson(content);
     const QJsonObject root = doc.object();
-    const QJsonObject obj = root.value(QLatin1StringView("result")).toObject();
+    const QJsonObject obj = root.value("result"_L1).toObject();
     return obj;
 }
 

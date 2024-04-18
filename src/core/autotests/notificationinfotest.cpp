@@ -8,6 +8,7 @@
 #include <QJsonDocument>
 #include <QJsonObject>
 #include <QTest>
+using namespace Qt::Literals::StringLiterals;
 QTEST_GUILESS_MAIN(NotificationInfoTest)
 
 NotificationInfoTest::NotificationInfoTest(QObject *parent)
@@ -80,14 +81,14 @@ void NotificationInfoTest::shouldParseNotification()
     QFETCH(QByteArray, roomId);
     QFETCH(QByteArray, tmId);
     QFETCH(QByteArray, messageId);
-    const QString originalJsonFile = QLatin1StringView(RUQOLA_DATA_DIR) + QLatin1StringView("/json/") + fileName + QLatin1StringView(".json");
+    const QString originalJsonFile = QLatin1StringView(RUQOLA_DATA_DIR) + "/json/"_L1 + fileName + ".json"_L1;
     QFile f(originalJsonFile);
     QVERIFY(f.open(QIODevice::ReadOnly));
     const QByteArray content = f.readAll();
     f.close();
     const QJsonDocument doc = QJsonDocument::fromJson(content);
-    const QJsonObject fields = doc.object().value(QLatin1StringView("fields")).toObject();
-    const QJsonArray contents = fields.value(QLatin1StringView("args")).toArray();
+    const QJsonObject fields = doc.object().value("fields"_L1).toObject();
+    const QJsonArray contents = fields.value("args"_L1).toArray();
 
     NotificationInfo info;
     info.parseNotification(contents);

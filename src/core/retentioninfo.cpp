@@ -5,6 +5,8 @@
 */
 
 #include "retentioninfo.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include <QJsonObject>
 
 RetentionInfo::RetentionInfo() = default;
@@ -16,11 +18,11 @@ bool RetentionInfo::isNotDefault() const
 
 void RetentionInfo::parseRetentionInfo(const QJsonObject &replyObject)
 {
-    mEnabled = replyObject.value(QLatin1StringView("enabled")).toBool(false);
-    mExcludePinned = replyObject.value(QLatin1StringView("excludePinned")).toBool(false);
-    mFilesOnly = replyObject.value(QLatin1StringView("filesOnly")).toBool(false);
-    mOverrideGlobal = replyObject.value(QLatin1StringView("overrideGlobal")).toBool(false);
-    mMaxAge = replyObject.value(QLatin1StringView("maxAge")).toInt(-1);
+    mEnabled = replyObject.value("enabled"_L1).toBool(false);
+    mExcludePinned = replyObject.value("excludePinned"_L1).toBool(false);
+    mFilesOnly = replyObject.value("filesOnly"_L1).toBool(false);
+    mOverrideGlobal = replyObject.value("overrideGlobal"_L1).toBool(false);
+    mMaxAge = replyObject.value("maxAge"_L1).toInt(-1);
 }
 
 bool RetentionInfo::enabled() const
@@ -87,22 +89,22 @@ bool RetentionInfo::operator!=(RetentionInfo other) const
 QJsonObject RetentionInfo::serialize(RetentionInfo retention)
 {
     QJsonObject obj;
-    obj[QLatin1StringView("enabled")] = retention.enabled();
-    obj[QLatin1StringView("overrideGlobal")] = retention.overrideGlobal();
-    obj[QLatin1StringView("excludePinned")] = retention.excludePinned();
-    obj[QLatin1StringView("filesOnly")] = retention.filesOnly();
-    obj[QLatin1StringView("maxAge")] = retention.maxAge();
+    obj["enabled"_L1] = retention.enabled();
+    obj["overrideGlobal"_L1] = retention.overrideGlobal();
+    obj["excludePinned"_L1] = retention.excludePinned();
+    obj["filesOnly"_L1] = retention.filesOnly();
+    obj["maxAge"_L1] = retention.maxAge();
     return obj;
 }
 
 RetentionInfo RetentionInfo::deserialize(const QJsonObject &obj)
 {
     RetentionInfo info;
-    info.setEnabled(obj[QLatin1StringView("enabled")].toBool());
-    info.setOverrideGlobal(obj[QLatin1StringView("overrideGlobal")].toBool());
-    info.setExcludePinned(obj[QLatin1StringView("excludePinned")].toBool());
-    info.setFilesOnly(obj[QLatin1StringView("filesOnly")].toBool());
-    info.setMaxAge(obj[QLatin1StringView("maxAge")].toInt(-1));
+    info.setEnabled(obj["enabled"_L1].toBool());
+    info.setOverrideGlobal(obj["overrideGlobal"_L1].toBool());
+    info.setExcludePinned(obj["excludePinned"_L1].toBool());
+    info.setFilesOnly(obj["filesOnly"_L1].toBool());
+    info.setMaxAge(obj["maxAge"_L1].toInt(-1));
 
     return info;
 }

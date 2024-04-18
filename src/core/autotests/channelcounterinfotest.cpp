@@ -7,7 +7,7 @@
 #include "channelcounterinfotest.h"
 #include "channelcounterinfo.h"
 #include "ruqola_autotest_helper.h"
-
+using namespace Qt::Literals::StringLiterals;
 QTEST_GUILESS_MAIN(ChannelCounterInfoTest)
 ChannelCounterInfoTest::ChannelCounterInfoTest(QObject *parent)
     : QObject(parent)
@@ -45,7 +45,7 @@ void ChannelCounterInfoTest::shouldLoadChannelCounter()
 {
     QFETCH(QString, name);
     QFETCH(ChannelCounterInfo *, channelcounter);
-    const QString originalJsonFile = QLatin1StringView(RUQOLA_DATA_DIR) + QLatin1StringView("/channelcounter/") + name + QLatin1StringView(".json");
+    const QString originalJsonFile = QLatin1StringView(RUQOLA_DATA_DIR) + "/channelcounter/"_L1 + name + ".json"_L1;
     const QJsonObject obj = AutoTestHelper::loadJsonObject(originalJsonFile);
 
     ChannelCounterInfo r;

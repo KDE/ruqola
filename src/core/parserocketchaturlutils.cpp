@@ -8,7 +8,7 @@
 #include "ruqola_debug.h"
 #include <QUrl>
 #include <QUrlQuery>
-
+using namespace Qt::Literals::StringLiterals;
 // https://developer.rocket.chat/getting-started/deep-linking
 
 ParseRocketChatUrlUtils::ParseRocketChatUrlUtils() = default;
@@ -21,13 +21,13 @@ ParseRocketChatUrlUtils::UrlType ParseRocketChatUrlUtils::parseUrl(const QString
         return ParseRocketChatUrlUtils::UrlType::Unknown;
     }
     QString newMessageUrl = messageUrl;
-    newMessageUrl.replace(QLatin1StringView("rocketchat://"), QLatin1StringView("https://go.rocket.chat/"));
+    newMessageUrl.replace("rocketchat://"_L1, "https://go.rocket.chat/"_L1);
     QUrl url(newMessageUrl);
     const QUrlQuery query(url);
     if (newMessageUrl.startsWith(QStringLiteral("https://go.rocket.chat/"))) {
         const QString urlPath{url.path()};
         qDebug() << url;
-        if (urlPath == QLatin1StringView("/room")) {
+        if (urlPath == "/room"_L1) {
             // qDebug() << "queryItems " << queryItems;
 
             mParsingInfo.serverHost = query.queryItemValue(QStringLiteral("host"));
@@ -50,16 +50,16 @@ ParseRocketChatUrlUtils::UrlType ParseRocketChatUrlUtils::parseUrl(const QString
                 return ParseRocketChatUrlUtils::UrlType::Unknown;
             }
             return ParseRocketChatUrlUtils::UrlType::Message;
-        } else if (urlPath == QLatin1StringView("/auth")) {
+        } else if (urlPath == "/auth"_L1) {
             mParsingInfo.serverHost = query.queryItemValue(QStringLiteral("host"));
             mParsingInfo.token = query.queryItemValue(QStringLiteral("token"));
             mParsingInfo.userId = query.queryItemValue(QStringLiteral("userId")).toLatin1();
             return ParseRocketChatUrlUtils::UrlType::Server;
-        } else if (urlPath == QLatin1StringView("/invite")) {
+        } else if (urlPath == "/invite"_L1) {
             mParsingInfo.serverHost = query.queryItemValue(QStringLiteral("host"));
             // TODO
             return ParseRocketChatUrlUtils::UrlType::Invite;
-        } else if (urlPath == QLatin1StringView("/conference")) {
+        } else if (urlPath == "/conference"_L1) {
             mParsingInfo.serverHost = query.queryItemValue(QStringLiteral("host"));
             // TODO
             return ParseRocketChatUrlUtils::UrlType::ConferenceCall;

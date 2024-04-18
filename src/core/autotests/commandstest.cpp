@@ -7,7 +7,7 @@
 #include "commandstest.h"
 #include "commands/commands.h"
 #include "ruqola_autotest_helper.h"
-
+using namespace Qt::Literals::StringLiterals;
 QTEST_GUILESS_MAIN(CommandsTest)
 
 CommandsTest::CommandsTest(QObject *parent)
@@ -36,7 +36,7 @@ void CommandsTest::shouldLoadCommands()
 {
     QFETCH(QString, name);
     QFETCH(int, commandsCount);
-    const QString originalJsonFile = QLatin1StringView(RUQOLA_DATA_DIR) + QLatin1StringView("/commands/") + name + QLatin1StringView(".json");
+    const QString originalJsonFile = QLatin1StringView(RUQOLA_DATA_DIR) + "/commands/"_L1 + name + ".json"_L1;
     const QJsonObject obj = AutoTestHelper::loadJsonObject(originalJsonFile);
 
     Commands r;
@@ -46,7 +46,7 @@ void CommandsTest::shouldLoadCommands()
 
 void CommandsTest::shouldLoadPermissions()
 {
-    const QString originalJsonFile = QLatin1StringView(RUQOLA_DATA_DIR) + QLatin1StringView("/commands/command3.json");
+    const QString originalJsonFile = QLatin1StringView(RUQOLA_DATA_DIR) + "/commands/command3.json"_L1;
     const QJsonObject obj = AutoTestHelper::loadJsonObject(originalJsonFile);
 
     Commands r;

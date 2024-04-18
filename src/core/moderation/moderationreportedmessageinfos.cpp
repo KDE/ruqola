@@ -5,6 +5,8 @@
 */
 
 #include "moderationreportedmessageinfos.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "ruqola_debug.h"
 
 #include <QJsonArray>
@@ -90,16 +92,16 @@ ModerationReportedMessageInfo ModerationReportedMessageInfos::at(int index) cons
 void ModerationReportedMessageInfos::parseModerationInfos(const QJsonObject &moderationInfosObj)
 {
     mModerationInfosList.clear();
-    mModerationInfosCount = moderationInfosObj[QLatin1StringView("count")].toInt();
-    mOffset = moderationInfosObj[QLatin1StringView("offset")].toInt();
-    mTotal = moderationInfosObj[QLatin1StringView("total")].toInt();
+    mModerationInfosCount = moderationInfosObj["count"_L1].toInt();
+    mOffset = moderationInfosObj["offset"_L1].toInt();
+    mTotal = moderationInfosObj["total"_L1].toInt();
     mModerationInfosList.reserve(mModerationInfosCount);
     parseModerationInfosObj(moderationInfosObj);
 }
 
 void ModerationReportedMessageInfos::parseModerationInfosObj(const QJsonObject &moderationInfosObj)
 {
-    const QJsonArray moderationsArray = moderationInfosObj[QLatin1StringView("reports")].toArray();
+    const QJsonArray moderationsArray = moderationInfosObj["reports"_L1].toArray();
     for (const QJsonValue &current : moderationsArray) {
         if (current.type() == QJsonValue::Object) {
             const QJsonObject moderationObject = current.toObject();
@@ -114,9 +116,9 @@ void ModerationReportedMessageInfos::parseModerationInfosObj(const QJsonObject &
 
 void ModerationReportedMessageInfos::parseMoreModerationInfos(const QJsonObject &moderationInfosObj)
 {
-    const int moderationInfosCount = moderationInfosObj[QLatin1StringView("count")].toInt();
-    mOffset = moderationInfosObj[QLatin1StringView("offset")].toInt();
-    mTotal = moderationInfosObj[QLatin1StringView("total")].toInt();
+    const int moderationInfosCount = moderationInfosObj["count"_L1].toInt();
+    mOffset = moderationInfosObj["offset"_L1].toInt();
+    mTotal = moderationInfosObj["total"_L1].toInt();
     parseModerationInfosObj(moderationInfosObj);
     mModerationInfosCount += moderationInfosCount;
 }

@@ -5,6 +5,8 @@
 */
 
 #include "videoconferenceinfos.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "ruqola_debug.h"
 
 #include <QJsonArray>
@@ -90,16 +92,16 @@ VideoConferenceInfo VideoConferenceInfos::at(int index) const
 void VideoConferenceInfos::parseVideoConferenceInfos(const QJsonObject &videoConferenceInfosObj)
 {
     mVideoConferenceInfosList.clear();
-    mVideoConferenceInfosCount = videoConferenceInfosObj[QLatin1StringView("count")].toInt();
-    mOffset = videoConferenceInfosObj[QLatin1StringView("offset")].toInt();
-    mTotal = videoConferenceInfosObj[QLatin1StringView("total")].toInt();
+    mVideoConferenceInfosCount = videoConferenceInfosObj["count"_L1].toInt();
+    mOffset = videoConferenceInfosObj["offset"_L1].toInt();
+    mTotal = videoConferenceInfosObj["total"_L1].toInt();
     mVideoConferenceInfosList.reserve(mVideoConferenceInfosCount);
     parseVideoConferenceInfosObj(videoConferenceInfosObj);
 }
 
 void VideoConferenceInfos::parseVideoConferenceInfosObj(const QJsonObject &videoConferenceInfosObj)
 {
-    const QJsonArray videoConferencesArray = videoConferenceInfosObj[QLatin1StringView("data")].toArray();
+    const QJsonArray videoConferencesArray = videoConferenceInfosObj["data"_L1].toArray();
     for (const QJsonValue &current : videoConferencesArray) {
         if (current.type() == QJsonValue::Object) {
             const QJsonObject videoConferenceObject = current.toObject();
@@ -114,9 +116,9 @@ void VideoConferenceInfos::parseVideoConferenceInfosObj(const QJsonObject &video
 
 void VideoConferenceInfos::parseMoreVideoConferenceInfos(const QJsonObject &videoConferenceInfosObj)
 {
-    const int videoConferenceInfosCount = videoConferenceInfosObj[QLatin1StringView("count")].toInt();
-    mOffset = videoConferenceInfosObj[QLatin1StringView("offset")].toInt();
-    mTotal = videoConferenceInfosObj[QLatin1StringView("total")].toInt();
+    const int videoConferenceInfosCount = videoConferenceInfosObj["count"_L1].toInt();
+    mOffset = videoConferenceInfosObj["offset"_L1].toInt();
+    mTotal = videoConferenceInfosObj["total"_L1].toInt();
     parseVideoConferenceInfosObj(videoConferenceInfosObj);
     mVideoConferenceInfosCount += videoConferenceInfosCount;
 }

@@ -5,6 +5,8 @@
 */
 
 #include "moderationreporteduserinfos.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "ruqola_debug.h"
 
 #include <QJsonArray>
@@ -91,16 +93,16 @@ void ModerationReportedUserInfos::parseModerationReportedUserInfos(const QJsonOb
 {
     mModerationReportedUserInfosList.clear();
     // qDebug() << " ModerationReportedUserInfosObj " << ModerationReportedUserInfosObj;
-    mModerationReportedUserInfosCount = ModerationReportedUserInfosObj[QLatin1StringView("count")].toInt();
-    mOffset = ModerationReportedUserInfosObj[QLatin1StringView("offset")].toInt();
-    mTotal = ModerationReportedUserInfosObj[QLatin1StringView("total")].toInt();
+    mModerationReportedUserInfosCount = ModerationReportedUserInfosObj["count"_L1].toInt();
+    mOffset = ModerationReportedUserInfosObj["offset"_L1].toInt();
+    mTotal = ModerationReportedUserInfosObj["total"_L1].toInt();
     mModerationReportedUserInfosList.reserve(mModerationReportedUserInfosCount);
     parseModerationReportedUserInfosObj(ModerationReportedUserInfosObj);
 }
 
 void ModerationReportedUserInfos::parseModerationReportedUserInfosObj(const QJsonObject &ModerationReportedUserInfosObj)
 {
-    const QJsonArray moderationsArray = ModerationReportedUserInfosObj[QLatin1StringView("reports")].toArray();
+    const QJsonArray moderationsArray = ModerationReportedUserInfosObj["reports"_L1].toArray();
     for (const QJsonValue &current : moderationsArray) {
         if (current.type() == QJsonValue::Object) {
             const QJsonObject moderationObject = current.toObject();
@@ -115,9 +117,9 @@ void ModerationReportedUserInfos::parseModerationReportedUserInfosObj(const QJso
 
 void ModerationReportedUserInfos::parseMoreModerationReportedUserInfos(const QJsonObject &ModerationReportedUserInfosObj)
 {
-    const int ModerationReportedUserInfosCount = ModerationReportedUserInfosObj[QLatin1StringView("count")].toInt();
-    mOffset = ModerationReportedUserInfosObj[QLatin1StringView("offset")].toInt();
-    mTotal = ModerationReportedUserInfosObj[QLatin1StringView("total")].toInt();
+    const int ModerationReportedUserInfosCount = ModerationReportedUserInfosObj["count"_L1].toInt();
+    mOffset = ModerationReportedUserInfosObj["offset"_L1].toInt();
+    mTotal = ModerationReportedUserInfosObj["total"_L1].toInt();
     parseModerationReportedUserInfosObj(ModerationReportedUserInfosObj);
     mModerationReportedUserInfosCount += ModerationReportedUserInfosCount;
 }

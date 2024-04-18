@@ -5,6 +5,8 @@
 */
 
 #include "adminroomsfilterproxymodel.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "adminroomsmodel.h"
 AdminRoomsFilterProxyModel::AdminRoomsFilterProxyModel(CustomBaseModel *model, QObject *parent)
     : SearchTreeBaseFilterProxyModel(model, parent)
@@ -31,22 +33,22 @@ bool AdminRoomsFilterProxyModel::filterAcceptsRow(int source_row, const QModelIn
     const QModelIndex sourceIndex = sourceModel()->index(source_row, AdminRoomsModel::AdminRoomsRoles::ChannelType, source_parent);
     const QString channelType = sourceModel()->data(sourceIndex).toString();
     if (mFilters & FilterRoom::DirectRooms) {
-        if (channelType == QLatin1StringView("d")) {
+        if (channelType == "d"_L1) {
             return true;
         }
     }
     if (mFilters & FilterRoom::PublicRooms) {
-        if (channelType == QLatin1StringView("c")) {
+        if (channelType == "c"_L1) {
             return true;
         }
     }
     if (mFilters & FilterRoom::PrivateRooms) {
-        if (channelType == QLatin1StringView("p")) {
+        if (channelType == "p"_L1) {
             return true;
         }
     }
     if (mFilters & FilterRoom::PrivateRooms) {
-        if (channelType == QLatin1StringView("l")) {
+        if (channelType == "l"_L1) {
             return true;
         }
     }

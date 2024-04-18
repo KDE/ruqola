@@ -8,7 +8,7 @@
 #include "retentioninfo.h"
 #include "ruqola_autotest_helper.h"
 #include <QJsonObject>
-
+using namespace Qt::Literals::StringLiterals;
 QTEST_GUILESS_MAIN(RetentionInfoTest)
 RetentionInfoTest::RetentionInfoTest(QObject *parent)
     : QObject(parent)
@@ -42,7 +42,7 @@ void RetentionInfoTest::shouldLoadRetention()
 {
     QFETCH(QString, name);
     QFETCH(RetentionInfo, retentionInfo);
-    const QString originalJsonFile = QLatin1StringView(RUQOLA_DATA_DIR) + QLatin1StringView("/retention/") + name + QLatin1StringView(".json");
+    const QString originalJsonFile = QLatin1StringView(RUQOLA_DATA_DIR) + "/retention/"_L1 + name + ".json"_L1;
     const QJsonObject obj = AutoTestHelper::loadJsonObject(originalJsonFile);
 
     RetentionInfo r;

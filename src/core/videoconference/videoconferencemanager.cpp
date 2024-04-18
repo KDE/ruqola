@@ -5,6 +5,8 @@
 */
 
 #include "videoconferencemanager.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "connection.h"
 #include "rocketchataccount.h"
 #include "ruqola_videoconference_core_debug.h"
@@ -74,7 +76,7 @@ void VideoConferenceManager::showNotification(const VideoConference &videoConfer
         mRocketChatAccount->restApi()->initializeRestApiJob(conferenceJoinJob);
         connect(conferenceJoinJob, &RocketChatRestApi::VideoConferenceJoinJob::videoConferenceJoinDone, this, [videoConference, this](const QJsonObject &obj) {
             // qDebug() << " join info " << obj;
-            RuqolaUtils::self()->openUrl(QUrl(obj[QLatin1StringView("url")].toString()));
+            RuqolaUtils::self()->openUrl(QUrl(obj["url"_L1].toString()));
             mVideoConferenceList.removeAll(videoConference);
         });
         if (!conferenceJoinJob->start()) {

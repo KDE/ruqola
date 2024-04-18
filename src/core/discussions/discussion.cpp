@@ -5,6 +5,8 @@
 */
 
 #include "discussions/discussion.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "utils.h"
 #include <KLocalizedString>
 #include <QDateTime>
@@ -118,17 +120,17 @@ bool Discussion::operator==(const Discussion &other) const
 
 void Discussion::parseDiscussion(const QJsonObject &o)
 {
-    mParentRoomId = o.value(QLatin1StringView("prid")).toString().toLatin1();
-    mDescription = o.value(QLatin1StringView("description")).toString();
-    mFname = o.value(QLatin1StringView("fname")).toString();
-    mNumberMessages = o.value(QLatin1StringView("msgs")).toInt();
-    mDiscussionRoomId = o.value(QLatin1StringView("_id")).toString().toLatin1();
+    mParentRoomId = o.value("prid"_L1).toString().toLatin1();
+    mDescription = o.value("description"_L1).toString();
+    mFname = o.value("fname"_L1).toString();
+    mNumberMessages = o.value("msgs"_L1).toInt();
+    mDiscussionRoomId = o.value("_id"_L1).toString().toLatin1();
     setLastMessage(Utils::parseIsoDate(QStringLiteral("lm"), o));
     setTimeStamp(Utils::parseIsoDate(QStringLiteral("ts"), o));
-    const QJsonValue ownerValue = o.value(QLatin1StringView("u"));
+    const QJsonValue ownerValue = o.value("u"_L1);
     if (!ownerValue.isUndefined()) {
         const QJsonObject objOwner = ownerValue.toObject();
-        mUserName = objOwner.value(QLatin1StringView("username")).toString();
+        mUserName = objOwner.value("username"_L1).toString();
     }
 }
 

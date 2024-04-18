@@ -5,6 +5,7 @@
 */
 
 #include "bannerinfo.h"
+using namespace Qt::Literals::StringLiterals;
 
 #include <KLocalizedString>
 #include <QJsonArray>
@@ -22,18 +23,18 @@ bool BannerInfo::isValid() const
 void BannerInfo::parseBannerInfo(const QJsonObject &object)
 {
     QStringList lst;
-    const QJsonArray array = object[QLatin1StringView("textArguments")].toArray();
+    const QJsonArray array = object["textArguments"_L1].toArray();
     lst.reserve(array.count());
     for (const QJsonValue &current : array) {
         lst.append(current.toString());
     }
     mTextArguments = lst;
-    mText = object[QLatin1StringView("text")].toString();
-    mTitle = object[QLatin1StringView("title")].toString();
-    mLink = object[QLatin1StringView("link")].toString();
-    mIdentifier = object[QLatin1StringView("id")].toString().toLatin1();
-    mPriority = object[QLatin1StringView("priority")].toInt(-1);
-    mRead = object[QLatin1StringView("read")].toBool(false);
+    mText = object["text"_L1].toString();
+    mTitle = object["title"_L1].toString();
+    mLink = object["link"_L1].toString();
+    mIdentifier = object["id"_L1].toString().toLatin1();
+    mPriority = object["priority"_L1].toInt(-1);
+    mRead = object["read"_L1].toBool(false);
     //    if (mPriority != -1) {
     //        qWarning() << " priority != -1 " << object;
     //    }
@@ -42,7 +43,7 @@ void BannerInfo::parseBannerInfo(const QJsonObject &object)
 QString BannerInfo::defaultText(const BannerInfo &info)
 {
     QString str{info.text()};
-    if (str == QLatin1StringView("New_version_available_(s)")) {
+    if (str == "New_version_available_(s)"_L1) {
         str = i18n("New version available %1", info.textArguments().at(0));
     }
     return str;

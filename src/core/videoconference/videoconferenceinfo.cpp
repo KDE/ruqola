@@ -5,6 +5,8 @@
 */
 
 #include "videoconferenceinfo.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "ruqola_videoconference_core_debug.h"
 #include "utils.h"
 
@@ -19,24 +21,24 @@ VideoConferenceInfo::~VideoConferenceInfo() = default;
 void VideoConferenceInfo::parse(const QJsonObject &content)
 {
     qCDebug(RUQOLA_VIDEO_CONFERENCE_LOG) << " content " << content;
-    mBlockId = content[QLatin1StringView("_id")].toString();
-    mStatus = content[QLatin1StringView("status")].toInt();
-    mUrl = content[QLatin1StringView("url")].toString();
-    mRoomId = content[QLatin1StringView("rid")].toString();
-    if (content.contains(QLatin1StringView("createdAt"))) {
+    mBlockId = content["_id"_L1].toString();
+    mStatus = content["status"_L1].toInt();
+    mUrl = content["url"_L1].toString();
+    mRoomId = content["rid"_L1].toString();
+    if (content.contains("createdAt"_L1)) {
         setCreatedAtDateTime(Utils::parseIsoDate(QStringLiteral("createdAt"), content));
     }
-    if (content.contains(QLatin1StringView("endedAt"))) {
+    if (content.contains("endedAt"_L1)) {
         setEndedAtDateTime(Utils::parseIsoDate(QStringLiteral("endedAt"), content));
     }
-    const QJsonObject messageObj = content[QLatin1StringView("messages")].toObject();
-    mMessageId = messageObj[QLatin1StringView("started")].toString();
+    const QJsonObject messageObj = content["messages"_L1].toObject();
+    mMessageId = messageObj["started"_L1].toString();
     // TODO ended ???
 
-    mConferenceType = convertTypeToEnum(content[QLatin1StringView("type")].toString());
-    mProviderName = content[QLatin1StringView("providerName")].toString();
+    mConferenceType = convertTypeToEnum(content["type"_L1].toString());
+    mProviderName = content["providerName"_L1].toString();
     // Users
-    const QJsonArray usersArray = content[QLatin1StringView("users")].toArray();
+    const QJsonArray usersArray = content["users"_L1].toArray();
     mUsers.reserve(usersArray.count());
     for (const QJsonValue &current : usersArray) {
         if (current.type() == QJsonValue::Object) {
@@ -54,9 +56,9 @@ void VideoConferenceInfo::parse(const QJsonObject &content)
 
 VideoConferenceInfo::VideoConferenceType VideoConferenceInfo::convertTypeToEnum(const QString &str) const
 {
-    if (str == QLatin1StringView("videoconference")) {
+    if (str == "videoconference"_L1) {
         return VideoConferenceInfo::VideoConferenceType::Conference;
-    } else if (str == QLatin1StringView("direct")) {
+    } else if (str == "direct"_L1) {
         return VideoConferenceInfo::VideoConferenceType::Direct;
     }
     qCWarning(RUQOLA_VIDEO_CONFERENCE_LOG) << "VideoConferenceInfo::convertTypeToEnum invalid " << str;
@@ -105,21 +107,21 @@ QString VideoConferenceInfo::title() const
 QJsonObject VideoConferenceInfo::serialize(const VideoConferenceInfo &videoConfInfo)
 {
     QJsonObject obj;
-    obj[QLatin1StringView("_id")] = videoConfInfo.mBlockId;
-    obj[QLatin1StringView("status")] = videoConfInfo.mStatus;
-    obj[QLatin1StringView("url")] = videoConfInfo.mUrl;
-    obj[QLatin1StringView("rid")] = videoConfInfo.mRoomId;
-    obj[QLatin1StringView("providerName")] = videoConfInfo.mProviderName;
-    obj[QLatin1StringView("messageId")] = videoConfInfo.mMessageId;
-    obj[QLatin1StringView("type")] = VideoConferenceInfo::convertEnumToString(videoConfInfo);
-    obj[QLatin1StringView("createdAt")] = videoConfInfo.createdAtDateTime();
-    obj[QLatin1StringView("endedAt")] = videoConfInfo.endedAtDateTime();
+    obj["_id"_L1] = videoConfInfo.mBlockId;
+    obj["status"_L1] = videoConfInfo.mStatus;
+    obj["url"_L1] = videoConfInfo.mUrl;
+    obj["rid"_L1] = videoConfInfo.mRoomId;
+    obj["providerName"_L1] = videoConfInfo.mProviderName;
+    obj["messageId"_L1] = videoConfInfo.mMessageId;
+    obj["type"_L1] = VideoConferenceInfo::convertEnumToString(videoConfInfo);
+    obj["createdAt"_L1] = videoConfInfo.createdAtDateTime();
+    obj["endedAt"_L1] = videoConfInfo.endedAtDateTime();
     if (!videoConfInfo.mUsers.isEmpty()) {
         QJsonArray userArray;
         for (const User &user : videoConfInfo.mUsers) {
             userArray.append(User::serialize(user));
         }
-        obj[QLatin1StringView("users")] = userArray;
+        obj["users"_L1] = userArray;
     }
     return obj;
 }
@@ -127,17 +129,17 @@ QJsonObject VideoConferenceInfo::serialize(const VideoConferenceInfo &videoConfI
 VideoConferenceInfo VideoConferenceInfo::deserialize(const QJsonObject &o)
 {
     VideoConferenceInfo info;
-    info.mBlockId = o[QLatin1StringView("_id")].toString();
-    info.mStatus = o[QLatin1StringView("status")].toInt();
-    info.mUrl = o[QLatin1StringView("url")].toString();
-    info.mRoomId = o[QLatin1StringView("rid")].toString();
-    info.mProviderName = o[QLatin1StringView("providerName")].toString();
-    info.mMessageId = o[QLatin1StringView("messageId")].toString();
-    info.mCreatedAtDateTime = o[QLatin1StringView("createdAt")].toInt();
-    info.mEndedAtDateTime = o[QLatin1StringView("endedAt")].toInt();
+    info.mBlockId = o["_id"_L1].toString();
+    info.mStatus = o["status"_L1].toInt();
+    info.mUrl = o["url"_L1].toString();
+    info.mRoomId = o["rid"_L1].toString();
+    info.mProviderName = o["providerName"_L1].toString();
+    info.mMessageId = o["messageId"_L1].toString();
+    info.mCreatedAtDateTime = o["createdAt"_L1].toInt();
+    info.mEndedAtDateTime = o["endedAt"_L1].toInt();
 
-    info.mConferenceType = info.convertTypeToEnum(o[QLatin1StringView("type")].toString());
-    const QJsonArray usersArray = o[QLatin1StringView("users")].toArray();
+    info.mConferenceType = info.convertTypeToEnum(o["type"_L1].toString());
+    const QJsonArray usersArray = o["users"_L1].toArray();
     info.mUsers.reserve(usersArray.count());
     for (const QJsonValue &current : usersArray) {
         if (current.type() == QJsonValue::Object) {

@@ -7,7 +7,7 @@
 #include "videoconferenceinfotest.h"
 #include "ruqola_autotest_helper.h"
 #include "videoconference/videoconferenceinfo.h"
-
+using namespace Qt::Literals::StringLiterals;
 QTEST_GUILESS_MAIN(VideoConferenceInfoTest)
 VideoConferenceInfoTest::VideoConferenceInfoTest(QObject *parent)
     : QObject{parent}
@@ -75,7 +75,7 @@ void VideoConferenceInfoTest::shouldLoadVideoConferenceInfo()
 {
     QFETCH(QString, fileName);
     QFETCH(VideoConferenceInfo, videoconferenceInfo);
-    const QString originalJsonFile = QLatin1StringView(RUQOLA_DATA_DIR) + QLatin1StringView("/videoconferenceinfo/") + fileName + QLatin1StringView(".json");
+    const QString originalJsonFile = QLatin1StringView(RUQOLA_DATA_DIR) + "/videoconferenceinfo/"_L1 + fileName + ".json"_L1;
     const QJsonObject obj = AutoTestHelper::loadJsonObject(originalJsonFile);
 
     VideoConferenceInfo r;

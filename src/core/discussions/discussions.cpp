@@ -5,6 +5,8 @@
 */
 
 #include "discussions/discussions.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "ruqola_debug.h"
 #include <QJsonArray>
 #include <QJsonObject>
@@ -29,16 +31,16 @@ void Discussions::setDiscussions(const QList<Discussion> &discussion)
 void Discussions::parseDiscussions(const QJsonObject &discussionsObj)
 {
     mDiscussion.clear();
-    mDiscussionsCount = discussionsObj[QLatin1StringView("count")].toInt();
-    mOffset = discussionsObj[QLatin1StringView("offset")].toInt();
-    mTotal = discussionsObj[QLatin1StringView("total")].toInt();
+    mDiscussionsCount = discussionsObj["count"_L1].toInt();
+    mOffset = discussionsObj["offset"_L1].toInt();
+    mTotal = discussionsObj["total"_L1].toInt();
     mDiscussion.reserve(mDiscussionsCount);
     parseDiscussionsObj(discussionsObj);
 }
 
 void Discussions::parseDiscussionsObj(const QJsonObject &discussionsObj)
 {
-    const QJsonArray discussionsArray = discussionsObj[QLatin1StringView("discussions")].toArray();
+    const QJsonArray discussionsArray = discussionsObj["discussions"_L1].toArray();
     for (const QJsonValue &current : discussionsArray) {
         if (current.type() == QJsonValue::Object) {
             const QJsonObject discussionObject = current.toObject();
@@ -53,9 +55,9 @@ void Discussions::parseDiscussionsObj(const QJsonObject &discussionsObj)
 
 void Discussions::parseMoreDiscussions(const QJsonObject &discussionsObj)
 {
-    const int discussionsCount = discussionsObj[QLatin1StringView("count")].toInt();
-    mOffset = discussionsObj[QLatin1StringView("offset")].toInt();
-    mTotal = discussionsObj[QLatin1StringView("total")].toInt();
+    const int discussionsCount = discussionsObj["count"_L1].toInt();
+    mOffset = discussionsObj["offset"_L1].toInt();
+    mTotal = discussionsObj["total"_L1].toInt();
     parseDiscussionsObj(discussionsObj);
     mDiscussionsCount += discussionsCount;
 }

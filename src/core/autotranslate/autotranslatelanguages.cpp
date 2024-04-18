@@ -5,6 +5,8 @@
 */
 
 #include "autotranslatelanguages.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "ruqola_debug.h"
 #include <QJsonArray>
 #include <QJsonObject>
@@ -49,12 +51,12 @@ void AutotranslateLanguages::parseLanguages(const QJsonObject &obj)
 {
     clear();
     // qDebug() << " obj " << obj;
-    const QJsonArray array = obj[QLatin1StringView("languages")].toArray();
+    const QJsonArray array = obj["languages"_L1].toArray();
     for (const QJsonValue &current : array) {
         const QJsonObject languageObject = current.toObject();
         AutotranslateLanguage lang;
-        lang.setLanguage(languageObject.value(QLatin1StringView("language")).toString());
-        lang.setDisplayLanguage(languageObject.value(QLatin1StringView("name")).toString());
+        lang.setLanguage(languageObject.value("language"_L1).toString());
+        lang.setDisplayLanguage(languageObject.value("name"_L1).toString());
         mAutotranslateLanguages.append(std::move(lang));
     }
 }

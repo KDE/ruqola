@@ -5,6 +5,8 @@
 */
 
 #include "channelusercompleter.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include <QJsonObject>
 
 ChannelUserCompleter::ChannelUserCompleter() = default;
@@ -58,21 +60,21 @@ void ChannelUserCompleter::parseChannel(const QJsonObject &object, ChannelUserCo
 {
     // qDebug() << " object " << object;
     mType = type;
-    mName = object.value(QLatin1StringView("name")).toString();
-    mIdentifier = object.value(QLatin1StringView("_id")).toString().toLatin1();
+    mName = object.value("name"_L1).toString();
+    mIdentifier = object.value("_id"_L1).toString().toLatin1();
     if (mType == ChannelUserCompleterType::DirectChannel) {
-        mAvatarTag = object.value(QLatin1StringView("avatarETag")).toString();
-        mUserName = object.value(QLatin1StringView("username")).toString();
-        mStatusIcon = QIcon::fromTheme(Utils::iconFromStatus(object.value(QLatin1StringView("status")).toString()));
+        mAvatarTag = object.value("avatarETag"_L1).toString();
+        mUserName = object.value("username"_L1).toString();
+        mStatusIcon = QIcon::fromTheme(Utils::iconFromStatus(object.value("status"_L1).toString()));
     } else {
-        const QString roomType = object.value(QLatin1StringView("t")).toString();
+        const QString roomType = object.value("t"_L1).toString();
         if (roomType == QLatin1Char('c')) {
             setChannelIcon();
         } else if (roomType == QLatin1Char('p')) {
             mStatusIcon = QIcon::fromTheme(QStringLiteral("lock"));
         }
     }
-    mOutsideRoom = object.value(QLatin1StringView("outside")).toBool();
+    mOutsideRoom = object.value("outside"_L1).toBool();
     createAvatarInfo();
 }
 

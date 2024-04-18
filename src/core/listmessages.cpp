@@ -5,6 +5,8 @@
 */
 
 #include "listmessages.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "ruqola_debug.h"
 #include <QJsonArray>
 #include <QJsonObject>
@@ -14,9 +16,9 @@ ListMessages::~ListMessages() = default;
 
 void ListMessages::parseListInfo(const QJsonObject &messagesObj)
 {
-    mMessagesCount = messagesObj[QLatin1StringView("count")].toInt();
-    mOffset = messagesObj[QLatin1StringView("offset")].toInt();
-    mTotal = messagesObj[QLatin1StringView("total")].toInt();
+    mMessagesCount = messagesObj["count"_L1].toInt();
+    mOffset = messagesObj["offset"_L1].toInt();
+    mTotal = messagesObj["total"_L1].toInt();
     mListMessages.clear();
 }
 

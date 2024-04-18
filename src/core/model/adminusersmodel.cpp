@@ -5,6 +5,8 @@
 */
 
 #include "adminusersmodel.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "ruqola_debug.h"
 #include "utils.h"
 #include <KLocalizedString>
@@ -24,7 +26,7 @@ Users::ParseType AdminUsersModel::parseType() const
 void AdminUsersModel::insertElement(const QJsonObject &obj)
 {
     User user;
-    const QJsonObject userObj = obj[QLatin1StringView("user")].toObject();
+    const QJsonObject userObj = obj["user"_L1].toObject();
     user.parseUserRestApi(userObj, {});
     if (user.isValid()) {
         const int numberOfElement = mUsers.count();
@@ -53,7 +55,7 @@ void AdminUsersModel::removeElement(const QByteArray &identifier)
 void AdminUsersModel::updateElement(const QJsonObject &userObj)
 {
     const int roomCount = mUsers.count();
-    const QJsonObject obj = userObj[QLatin1StringView("user")].toObject();
+    const QJsonObject obj = userObj["user"_L1].toObject();
     const QByteArray identifier{obj.value(QStringLiteral("_id")).toString().toLatin1()};
     for (int i = 0; i < roomCount; ++i) {
         if (mUsers.at(i).userId() == identifier) {

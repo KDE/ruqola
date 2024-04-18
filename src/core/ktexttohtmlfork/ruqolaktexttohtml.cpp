@@ -11,7 +11,7 @@
 #include <QRegularExpression>
 
 #include <climits>
-
+using namespace Qt::Literals::StringLiterals;
 KTextToHTMLHelper::KTextToHTMLHelper(const QString &plainText, int pos, int maxUrlLen, int maxAddressLen)
     : mText(plainText)
     , mMaxUrlLen(maxUrlLen)
@@ -170,24 +170,19 @@ bool KTextToHTMLHelper::atUrl() const
     }
 
     const auto segment = QStringView(mText).mid(mPos);
-    return segment.startsWith(QLatin1StringView("http://")) || segment.startsWith(QLatin1StringView("https://"))
-        || segment.startsWith(QLatin1StringView("vnc://")) || segment.startsWith(QLatin1StringView("fish://"))
-        || segment.startsWith(QLatin1StringView("ftp://")) || segment.startsWith(QLatin1StringView("ftps://"))
-        || segment.startsWith(QLatin1StringView("sftp://")) || segment.startsWith(QLatin1StringView("smb://"))
-        || segment.startsWith(QLatin1StringView("mailto:")) || segment.startsWith(QLatin1StringView("www.")) || segment.startsWith(QLatin1StringView("ftp."))
-        || segment.startsWith(QLatin1StringView("file://")) || segment.startsWith(QLatin1StringView("news:")) || segment.startsWith(QLatin1StringView("tel:"))
-        || segment.startsWith(QLatin1StringView("xmpp:")) || segment.startsWith(QLatin1StringView("irc://"))
-        || segment.startsWith(QLatin1StringView("ircs://"));
+    return segment.startsWith("http://"_L1) || segment.startsWith("https://"_L1) || segment.startsWith("vnc://"_L1) || segment.startsWith("fish://"_L1)
+        || segment.startsWith("ftp://"_L1) || segment.startsWith("ftps://"_L1) || segment.startsWith("sftp://"_L1) || segment.startsWith("smb://"_L1)
+        || segment.startsWith(QLatin1StringView("mailto:")) || segment.startsWith("www."_L1) || segment.startsWith("ftp."_L1)
+        || segment.startsWith(QLatin1StringView("file://")) || segment.startsWith("news:"_L1) || segment.startsWith("tel:"_L1) || segment.startsWith("xmpp:"_L1)
+        || segment.startsWith("irc://"_L1) || segment.startsWith("ircs://"_L1);
 }
 
 bool KTextToHTMLHelper::isEmptyUrl(const QString &url) const
 {
-    return url.isEmpty() || url == QLatin1StringView("http://") || url == QLatin1StringView("https://") || url == QLatin1StringView("fish://")
-        || url == QLatin1StringView("ftp://") || url == QLatin1StringView("ftps://") || url == QLatin1StringView("sftp://")
-        || url == QLatin1StringView("smb://") || url == QLatin1StringView("vnc://") || url == QLatin1StringView("mailto") || url == QLatin1StringView("mailto:")
-        || url == QLatin1StringView("www") || url == QLatin1StringView("ftp") || url == QLatin1StringView("news:") || url == QLatin1StringView("news://")
-        || url == QLatin1StringView("tel") || url == QLatin1StringView("tel:") || url == QLatin1StringView("xmpp:") || url == QLatin1StringView("irc://")
-        || url == QLatin1StringView("ircs://");
+    return url.isEmpty() || url == QLatin1StringView("http://") || url == "https://"_L1 || url == "fish://"_L1 || url == QLatin1StringView("ftp://")
+        || url == "ftps://"_L1 || url == "sftp://"_L1 || url == QLatin1StringView("smb://") || url == QLatin1StringView("vnc://") || url == "mailto"_L1
+        || url == "mailto:"_L1 || url == QLatin1StringView("www") || url == QLatin1StringView("ftp") || url == "news:"_L1 || url == "news://"_L1
+        || url == QLatin1StringView("tel") || url == QLatin1StringView("tel:") || url == "xmpp:"_L1 || url == "irc://"_L1 || url == "ircs://"_L1;
 }
 
 QString KTextToHTMLHelper::getUrl(bool *badurl)
@@ -393,12 +388,12 @@ QString RuqolaKTextToHTML::convertToHtml(const QString &plainText, RuqolaKTextTo
                         if (!startOfLine && !endOfLine) {
                             result += QLatin1Char(' ');
                         } else {
-                            result += QLatin1StringView("&nbsp;");
+                            result += "&nbsp;"_L1;
                         }
                     } else {
                         // Whitespace of more than one space, make it all non-breaking
                         while (helper.mPos < helper.mText.length() && helper.mText.at(helper.mPos) == QLatin1Char(' ')) {
-                            result += QLatin1StringView("&nbsp;");
+                            result += "&nbsp;"_L1;
                             ++helper.mPos;
                             ++x;
                         }
@@ -409,7 +404,7 @@ QString RuqolaKTextToHTML::convertToHtml(const QString &plainText, RuqolaKTextTo
                     }
                 } else {
                     // Last space in the text, it is non-breaking
-                    result += QLatin1StringView("&nbsp;");
+                    result += "&nbsp;"_L1;
                 }
 
                 if (startOfLine) {
@@ -418,7 +413,7 @@ QString RuqolaKTextToHTML::convertToHtml(const QString &plainText, RuqolaKTextTo
                 continue;
             } else if (ch == QLatin1Char('\t')) {
                 do {
-                    result += QLatin1StringView("&nbsp;");
+                    result += "&nbsp;"_L1;
                     ++x;
                 } while ((x & 7) != 0);
                 --x;
@@ -427,7 +422,7 @@ QString RuqolaKTextToHTML::convertToHtml(const QString &plainText, RuqolaKTextTo
             }
         }
         if (ch == QLatin1Char('\n')) {
-            result += QLatin1StringView("<br />\n"); // Keep the \n, so apps can figure out the quoting levels correctly.
+            result += "<br />\n"_L1; // Keep the \n, so apps can figure out the quoting levels correctly.
             startOfLine = true;
             x = -1;
             continue;
@@ -435,13 +430,13 @@ QString RuqolaKTextToHTML::convertToHtml(const QString &plainText, RuqolaKTextTo
 
         startOfLine = false;
         if (ch == QLatin1Char('&')) {
-            result += QLatin1StringView("&amp;");
+            result += "&amp;"_L1;
         } else if (ch == QLatin1Char('"')) {
-            result += QLatin1StringView("&quot;");
+            result += "&quot;"_L1;
         } else if (ch == QLatin1Char('<')) {
-            result += QLatin1StringView("&lt;");
+            result += "&lt;"_L1;
         } else if (ch == QLatin1Char('>')) {
-            result += QLatin1StringView("&gt;");
+            result += "&gt;"_L1;
         } else {
             const int start = helper.mPos;
             if (!(flags & IgnoreUrls)) {
@@ -453,13 +448,13 @@ QString RuqolaKTextToHTML::convertToHtml(const QString &plainText, RuqolaKTextTo
                     for (int i = 0; i < helperTextSize; ++i) {
                         const QChar chBadUrl = helper.mText.at(i);
                         if (chBadUrl == QLatin1Char('&')) {
-                            resultBadUrl += QLatin1StringView("&amp;");
+                            resultBadUrl += "&amp;"_L1;
                         } else if (chBadUrl == QLatin1Char('"')) {
-                            resultBadUrl += QLatin1StringView("&quot;");
+                            resultBadUrl += "&quot;"_L1;
                         } else if (chBadUrl == QLatin1Char('<')) {
-                            resultBadUrl += QLatin1StringView("&lt;");
+                            resultBadUrl += "&lt;"_L1;
                         } else if (chBadUrl == QLatin1Char('>')) {
-                            resultBadUrl += QLatin1StringView("&gt;");
+                            resultBadUrl += "&gt;"_L1;
                         } else {
                             resultBadUrl += chBadUrl;
                         }
@@ -468,10 +463,10 @@ QString RuqolaKTextToHTML::convertToHtml(const QString &plainText, RuqolaKTextTo
                 }
                 if (!str.isEmpty()) {
                     QString hyperlink;
-                    if (str.startsWith(QLatin1StringView("www."))) {
-                        hyperlink = QLatin1StringView("http://") + str;
-                    } else if (str.startsWith(QLatin1StringView("ftp."))) {
-                        hyperlink = QLatin1StringView("ftp://") + str;
+                    if (str.startsWith("www."_L1)) {
+                        hyperlink = "http://"_L1 + str;
+                    } else if (str.startsWith("ftp."_L1)) {
+                        hyperlink = "ftp://"_L1 + str;
                     } else {
                         hyperlink = str;
                     }
@@ -481,7 +476,7 @@ QString RuqolaKTextToHTML::convertToHtml(const QString &plainText, RuqolaKTextTo
                     if (str.endsWith(QLatin1Char('"'))) {
                         str.chop(1);
                     }
-                    result += QLatin1StringView("<a href=\"") + hyperlink + QLatin1StringView("\">") + str.toHtmlEscaped() + QLatin1StringView("</a>");
+                    result += QLatin1StringView("<a href=\"") + hyperlink + "\">"_L1 + str.toHtmlEscaped() + "</a>"_L1;
                     x += helper.mPos - start;
                     continue;
                 }
@@ -496,14 +491,14 @@ QString RuqolaKTextToHTML::convertToHtml(const QString &plainText, RuqolaKTextTo
                     result.truncate(result.length() - len - (localPart.count(QLatin1Char('&')) * 4));
                     x -= len;
 
-                    result += QLatin1StringView("<a href=\"mailto:") + str + QLatin1StringView("\">") + str + QLatin1StringView("</a>");
+                    result += QLatin1StringView("<a href=\"mailto:") + str + "\">"_L1 + str + "</a>"_L1;
                     x += str.length() - 1;
                     continue;
                 }
                 if (flags & ConvertPhoneNumbers) {
                     str = helper.getPhoneNumber();
                     if (!str.isEmpty()) {
-                        result += QLatin1StringView("<a href=\"tel:") + normalizePhoneNumber(str) + QLatin1StringView("\">") + str + QLatin1StringView("</a>");
+                        result += QLatin1StringView("<a href=\"tel:") + normalizePhoneNumber(str) + "\">"_L1 + str + "</a>"_L1;
                         x += str.length() - 1;
                         continue;
                     }

@@ -5,6 +5,8 @@
 */
 
 #include "messagecache.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "connection.h"
 #include "rocketchataccount.h"
 #include "ruqola_debug.h"
@@ -71,7 +73,7 @@ void MessageCache::slotGetThreadMessagesDone(const QJsonObject &obj, const QByte
 
 void MessageCache::slotGetMessageDone(const QJsonObject &obj, const QByteArray &messageId)
 {
-    const QJsonObject msgObject = obj[QLatin1StringView("message")].toObject();
+    const QJsonObject msgObject = obj["message"_L1].toObject();
     Q_ASSERT(!msgObject.isEmpty());
     auto message = new Message;
     message->parseMessage(msgObject, true, nullptr);

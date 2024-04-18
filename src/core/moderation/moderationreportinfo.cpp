@@ -5,6 +5,8 @@
 */
 
 #include "moderationreportinfo.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "utils.h"
 
 #include <QLocale>
@@ -21,11 +23,11 @@ bool ModerationReportInfo::operator==(const ModerationReportInfo &other) const
 
 void ModerationReportInfo::parseModerationReportInfo(const QJsonObject &o)
 {
-    mReportIdentifier = o[QLatin1StringView("_id")].toString().toLatin1();
-    mDescription = o[QLatin1StringView("description")].toString();
+    mReportIdentifier = o["_id"_L1].toString().toLatin1();
+    mDescription = o["description"_L1].toString();
     setTimeStamp(Utils::parseIsoDate(QStringLiteral("ts"), o));
-    parseRoom(o[QLatin1StringView("room")].toObject());
-    parseReportedBy(o[QLatin1StringView("reportedBy")].toObject());
+    parseRoom(o["room"_L1].toObject());
+    parseReportedBy(o["reportedBy"_L1].toObject());
     // TODO add more
     //{"reports":[{"_id":"6523e2465d66533fd6f85856","description":"test message report\n","reportedBy":{"_id":"H7Q9djXQ4zD9T2","username":"bla","name":"foo",
     // "createdAt":"2018-03-13T16:11:51.761Z"},"room":{"_id":"bBvCRnStXcG68zjna","name":"roomname","t":"p","fname":"roomname"},
@@ -71,8 +73,8 @@ void ModerationReportInfo::setReportIdentifier(const QByteArray &newReportIdenti
 
 void ModerationReportInfo::parseReportedBy(const QJsonObject &o)
 {
-    mUserId = o[QLatin1StringView("_id")].toString().toLatin1();
-    mUserName = o[QLatin1StringView("username")].toString();
+    mUserId = o["_id"_L1].toString().toLatin1();
+    mUserName = o["username"_L1].toString();
     // TODO
 }
 
@@ -108,7 +110,7 @@ void ModerationReportInfo::setRoomId(const QByteArray &newRoomId)
 
 void ModerationReportInfo::parseRoom(const QJsonObject &o)
 {
-    mRoomId = o[QLatin1StringView("_id")].toString().toLatin1();
+    mRoomId = o["_id"_L1].toString().toLatin1();
     // TODO add more ? roomName etc ?
 }
 

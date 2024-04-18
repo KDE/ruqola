@@ -222,9 +222,9 @@ void RoomModel::getUnreadAlertFromAccount(bool &hasAlert, int &nbUnread) const
 void RoomModel::updateSubscriptionRoom(const QJsonObject &roomData)
 {
     // Use "_id"
-    QByteArray rId = roomData.value(QLatin1StringView("rid")).toString().toLatin1();
+    QByteArray rId = roomData.value("rid"_L1).toString().toLatin1();
     if (rId.isEmpty()) {
-        rId = roomData.value(QLatin1StringView("_id")).toString().toLatin1();
+        rId = roomData.value("_id"_L1).toString().toLatin1();
     }
     if (!rId.isEmpty()) {
         const int roomCount = mRoomsList.size();
@@ -316,26 +316,25 @@ void RoomModel::updateSubscription(const QJsonArray &array)
 {
     const QString actionName = array[0].toString();
     const QJsonObject roomData = array[1].toObject();
-    if (actionName == QLatin1StringView("removed")) {
-        qCDebug(RUQOLA_ROOMS_LOG) << "REMOVE ROOM name "
-                                  << " rid " << roomData.value(QLatin1StringView("rid"));
-        const QByteArray id = roomData.value(QLatin1StringView("rid")).toString().toLatin1();
+    if (actionName == "removed"_L1) {
+        qCDebug(RUQOLA_ROOMS_LOG) << "REMOVE ROOM name " << " rid " << roomData.value("rid"_L1);
+        const QByteArray id = roomData.value("rid"_L1).toString().toLatin1();
         removeRoom(id);
-    } else if (actionName == QLatin1StringView("inserted")) {
-        qCDebug(RUQOLA_ROOMS_LOG) << "INSERT ROOM  name " << roomData.value(QLatin1StringView("name")) << " rid " << roomData.value(QLatin1StringView("rid"));
+    } else if (actionName == "inserted"_L1) {
+        qCDebug(RUQOLA_ROOMS_LOG) << "INSERT ROOM  name " << roomData.value("name"_L1) << " rid " << roomData.value("rid"_L1);
         // TODO fix me!
         addRoom(roomData);
 
-        // addRoom(roomData.value(QLatin1StringView("rid")).toString(), roomData.value(QLatin1StringView("name")).toString(), false);
-    } else if (actionName == QLatin1StringView("updated")) {
-        qCDebug(RUQOLA_ROOMS_LOG) << "UPDATE ROOM name " << roomData.value(QLatin1StringView("name")).toString() << " rid "
-                                  << roomData.value(QLatin1StringView("rid")) << " roomData " << roomData;
+        // addRoom(roomData.value("rid"_L1).toString(), roomData.value("name"_L1).toString(), false);
+    } else if (actionName == "updated"_L1) {
+        qCDebug(RUQOLA_ROOMS_LOG) << "UPDATE ROOM name " << roomData.value("name"_L1).toString() << " rid " << roomData.value("rid"_L1) << " roomData "
+                                  << roomData;
         updateSubscriptionRoom(roomData);
-    } else if (actionName == QLatin1StringView("changed")) {
-        // qDebug() << "CHANGED ROOM name " << roomData.value(QLatin1StringView("name")).toString() << " rid " << roomData.value(QLatin1StringView("rid")) << "
+    } else if (actionName == "changed"_L1) {
+        // qDebug() << "CHANGED ROOM name " << roomData.value("name"_L1).toString() << " rid " << roomData.value("rid"_L1) << "
         // roomData " << roomData;
-        qCDebug(RUQOLA_ROOMS_LOG) << "CHANGED ROOM name " << roomData.value(QLatin1StringView("name")).toString() << " rid "
-                                  << roomData.value(QLatin1StringView("rid")) << " roomData " << roomData;
+        qCDebug(RUQOLA_ROOMS_LOG) << "CHANGED ROOM name " << roomData.value("name"_L1).toString() << " rid " << roomData.value("rid"_L1) << " roomData "
+                                  << roomData;
         qCDebug(RUQOLA_ROOMS_LOG) << "RoomModel::updateSubscription Not implementer changed room yet" << array;
         updateRoom(roomData);
     } else {
@@ -348,9 +347,9 @@ void RoomModel::updateRoom(const QJsonObject &roomData)
     qCDebug(RUQOLA_ROOMS_LOG) << " void RoomModel::updateRoom(const QJsonObject &roomData)" << roomData;
     // TODO fix me!
     // Use "_id"
-    QByteArray rId = roomData.value(QLatin1StringView("rid")).toString().toLatin1();
+    QByteArray rId = roomData.value("rid"_L1).toString().toLatin1();
     if (rId.isEmpty()) {
-        rId = roomData.value(QLatin1StringView("_id")).toString().toLatin1();
+        rId = roomData.value("_id"_L1).toString().toLatin1();
     }
     if (!rId.isEmpty()) {
         const int roomCount = mRoomsList.size();
@@ -475,7 +474,7 @@ QString RoomModel::generateUnreadToolTip(Room *r) const
         toolTipStr.append(i18np("%1 Unread Message", "%1 Unread Messages", count));
     }
 
-    return toolTipStr.join(QLatin1StringView(", "));
+    return toolTipStr.join(", "_L1);
 }
 
 RoomModel::MentionsInfoType RoomModel::mentionsInfoType(Room *r) const

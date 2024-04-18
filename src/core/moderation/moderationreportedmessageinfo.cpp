@@ -5,6 +5,8 @@
 */
 
 #include "moderationreportedmessageinfo.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "utils.h"
 
 ModerationReportedMessageInfo::ModerationReportedMessageInfo() = default;
@@ -36,8 +38,8 @@ void ModerationReportedMessageInfo::parseRoomList(const QJsonArray &rooms)
 {
     for (int i = 0; i < rooms.size(); i++) {
         const QJsonObject o = rooms.at(i).toObject();
-        const QString fname = o[QLatin1StringView("fname")].toString();
-        const QString name = o[QLatin1StringView("name")].toString();
+        const QString fname = o["fname"_L1].toString();
+        const QString name = o["name"_L1].toString();
         mRoomList.append(fname.isEmpty() ? name : fname);
     }
 }
@@ -45,15 +47,15 @@ void ModerationReportedMessageInfo::parseRoomList(const QJsonArray &rooms)
 void ModerationReportedMessageInfo::parseModerationInfo(const QJsonObject &o)
 {
     // qDebug() << " ModerationInfo " << o;
-    mUserId = o[QLatin1StringView("userId")].toString().toLatin1();
-    mName = o[QLatin1StringView("name")].toString();
-    mUserName = o[QLatin1StringView("username")].toString();
-    mMsgId = o[QLatin1StringView("msgId")].toString().toLatin1();
-    mCount = o[QLatin1StringView("count")].toInt();
-    mIsUserDeleted = o[QLatin1StringView("isUserDeleted")].toBool();
-    mMessage = o[QLatin1StringView("message")].toString();
+    mUserId = o["userId"_L1].toString().toLatin1();
+    mName = o["name"_L1].toString();
+    mUserName = o["username"_L1].toString();
+    mMsgId = o["msgId"_L1].toString().toLatin1();
+    mCount = o["count"_L1].toInt();
+    mIsUserDeleted = o["isUserDeleted"_L1].toBool();
+    mMessage = o["message"_L1].toString();
     setCreatedAt(Utils::parseIsoDate(QStringLiteral("ts"), o));
-    parseRoomList(o[QLatin1StringView("rooms")].toArray());
+    parseRoomList(o["rooms"_L1].toArray());
 }
 
 void ModerationReportedMessageInfo::setCreatedAt(qint64 newCreatedAt)

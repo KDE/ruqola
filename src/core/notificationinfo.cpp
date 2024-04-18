@@ -7,7 +7,7 @@
 #include "notificationinfo.h"
 #include "ruqola_debug.h"
 #include <QJsonObject>
-
+using namespace Qt::Literals::StringLiterals;
 NotificationInfo::NotificationInfo() = default;
 
 NotificationInfo::~NotificationInfo() = default;
@@ -145,34 +145,34 @@ void NotificationInfo::parseNotification(const QJsonArray &contents)
 {
     // qDebug() << " NotificationInfo::parseNotification(const QJsonArray &contents)" << contents;
     const QJsonObject obj = contents.at(0).toObject();
-    setTitle(obj[QLatin1StringView("title")].toString());
-    const QJsonObject payloadObj = obj.value(QLatin1StringView("payload")).toObject();
+    setTitle(obj["title"_L1].toString());
+    const QJsonObject payloadObj = obj.value("payload"_L1).toObject();
     if (!payloadObj.isEmpty()) {
-        setMessageId(payloadObj[QLatin1StringView("_id")].toString().toLatin1());
-        setRoomId(payloadObj[QLatin1StringView("rid")].toString().toLatin1());
-        setRoomName(payloadObj[QLatin1StringView("name")].toString());
-        setChannelType(payloadObj[QLatin1StringView("type")].toString());
-        setTmId(payloadObj[QLatin1StringView("tmid")].toString().toLatin1());
-        const QJsonObject senderObj = payloadObj.value(QLatin1StringView("sender")).toObject();
+        setMessageId(payloadObj["_id"_L1].toString().toLatin1());
+        setRoomId(payloadObj["rid"_L1].toString().toLatin1());
+        setRoomName(payloadObj["name"_L1].toString());
+        setChannelType(payloadObj["type"_L1].toString());
+        setTmId(payloadObj["tmid"_L1].toString().toLatin1());
+        const QJsonObject senderObj = payloadObj.value("sender"_L1).toObject();
         if (!senderObj.isEmpty()) {
-            setSenderId(senderObj.value(QLatin1StringView("_id")).toString().toLatin1());
-            setSenderName(senderObj.value(QLatin1StringView("name")).toString());
-            setSenderUserName(senderObj.value(QLatin1StringView("username")).toString());
+            setSenderId(senderObj.value("_id"_L1).toString().toLatin1());
+            setSenderName(senderObj.value("name"_L1).toString());
+            setSenderUserName(senderObj.value("username"_L1).toString());
         } else {
             qCDebug(RUQOLA_LOG) << "Problem with notification json: missing sender";
         }
-        const QJsonObject messageObj = payloadObj.value(QLatin1StringView("message")).toObject();
+        const QJsonObject messageObj = payloadObj.value("message"_L1).toObject();
         if (messageObj.isEmpty()) {
             qCDebug(RUQOLA_LOG) << "Problem with notification json: missing message";
-            setMessage(obj[QLatin1StringView("text")].toString());
+            setMessage(obj["text"_L1].toString());
         } else {
-            if (messageObj[QLatin1StringView("t")].toString() == QLatin1StringView("videoconf")) {
+            if (messageObj["t"_L1].toString() == "videoconf"_L1) {
                 mNotificationType = ConferenceCall;
             } else {
-                setMessage(messageObj[QLatin1StringView("msg")].toString());
+                setMessage(messageObj["msg"_L1].toString());
                 if (message().isEmpty()) {
                     // Fallback to text
-                    setMessage(obj[QLatin1StringView("text")].toString());
+                    setMessage(obj["text"_L1].toString());
                 }
             }
         }

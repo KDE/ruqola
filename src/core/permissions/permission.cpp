@@ -5,6 +5,7 @@
 */
 
 #include "permission.h"
+using namespace Qt::Literals::StringLiterals;
 
 #include "utils.h"
 
@@ -13,16 +14,16 @@ Permission::Permission() = default;
 bool Permission::parsePermission(const QJsonObject &replyObject, const QList<RoleInfo> &roleInfo, bool restApi)
 {
     // Don't store settings value.
-    if (!replyObject.value(QLatin1StringView("settingId")).toString().isEmpty()) {
+    if (!replyObject.value("settingId"_L1).toString().isEmpty()) {
         return false;
     }
-    mIdentifier = replyObject.value(QLatin1StringView("_id")).toString();
+    mIdentifier = replyObject.value("_id"_L1).toString();
     if (restApi) {
         mUpdatedAt = Utils::parseIsoDate(QStringLiteral("_updatedAt"), replyObject);
     } else {
         mUpdatedAt = Utils::parseDate(QStringLiteral("_updatedAt"), replyObject);
     }
-    const QJsonArray roleArray = replyObject.value(QLatin1StringView("roles")).toArray();
+    const QJsonArray roleArray = replyObject.value("roles"_L1).toArray();
     const auto roleArrayCount{roleArray.count()};
     mRoles.reserve(roleArrayCount);
     for (int i = 0; i < roleArrayCount; ++i) {

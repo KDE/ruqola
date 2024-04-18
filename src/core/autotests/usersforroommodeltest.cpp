@@ -5,6 +5,8 @@
 */
 
 #include "usersforroommodeltest.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "model/usersforroommodel.h"
 #include "test_model_helpers.h"
 #include <QJsonDocument>
@@ -118,7 +120,7 @@ void UsersForRoomModelTest::shouldParseUsers_data()
 
 QJsonObject loadFile(const QString &file)
 {
-    const QString originalJsonFile = QLatin1StringView(RUQOLA_DATA_DIR) + QLatin1StringView("/usersforroom/") + file;
+    const QString originalJsonFile = QLatin1StringView(RUQOLA_DATA_DIR) + "/usersforroom/"_L1 + file;
     QFile f(originalJsonFile);
     if (!f.open(QIODevice::ReadOnly)) {
         qWarning() << " Unable to load file " << file;

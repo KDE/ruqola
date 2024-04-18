@@ -5,6 +5,8 @@
 */
 
 #include "ruqolaserverconfigtest.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "ruqola_autotest_helper.h"
 #include "ruqolaserverconfig.h"
 
@@ -299,7 +301,7 @@ void RuqolaServerConfigTest::shouldSerializeConfig()
     QFETCH(QString, name);
     QFETCH(AuthenticationManager::AuthMethodTypes, authentications);
 
-    const QString originalJsonFile = QLatin1StringView(RUQOLA_DATA_DIR) + QLatin1StringView("/serverconfig/%1").arg(name);
+    const QString originalJsonFile = QLatin1StringView(RUQOLA_DATA_DIR) + "/serverconfig/%1"_L1.arg(name);
     const QJsonObject obj = AutoTestHelper::loadJsonObject(originalJsonFile);
 
     RuqolaServerConfig config;

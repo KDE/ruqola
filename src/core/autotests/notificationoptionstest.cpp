@@ -9,6 +9,7 @@
 #include <QJsonDocument>
 #include <QJsonObject>
 #include <QTest>
+using namespace Qt::Literals::StringLiterals;
 QTEST_GUILESS_MAIN(NotificationOptionsTest)
 
 NotificationOptionsTest::NotificationOptionsTest(QObject *parent)
@@ -89,7 +90,7 @@ void NotificationOptionsTest::shouldParseNotification()
     QFETCH(QByteArray, mobilePushNotification);
     QFETCH(QByteArray, emailNotifications);
 
-    const QString originalJsonFile = QLatin1StringView(RUQOLA_DATA_DIR) + QLatin1StringView("/notificationoption/") + fileNameinit + QLatin1StringView(".json");
+    const QString originalJsonFile = QLatin1StringView(RUQOLA_DATA_DIR) + "/notificationoption/"_L1 + fileNameinit + ".json"_L1;
     QFile f(originalJsonFile);
     QVERIFY(f.open(QIODevice::ReadOnly));
     const QByteArray content = f.readAll();

@@ -5,6 +5,8 @@
 */
 
 #include "moderationreportinfos.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "ruqola_debug.h"
 
 #include <QJsonArray>
@@ -90,16 +92,16 @@ void ModerationReportInfos::parseModerationReportInfos(const QJsonObject &modera
 {
     mModerationReportInfosList.clear();
     // qDebug() << " moderationReportInfosObj " << moderationReportInfosObj;
-    mModerationReportInfosCount = moderationReportInfosObj[QLatin1StringView("count")].toInt();
-    mOffset = moderationReportInfosObj[QLatin1StringView("offset")].toInt();
-    mTotal = moderationReportInfosObj[QLatin1StringView("total")].toInt();
+    mModerationReportInfosCount = moderationReportInfosObj["count"_L1].toInt();
+    mOffset = moderationReportInfosObj["offset"_L1].toInt();
+    mTotal = moderationReportInfosObj["total"_L1].toInt();
     mModerationReportInfosList.reserve(mModerationReportInfosCount);
     parseModerationReportInfosObj(moderationReportInfosObj);
 }
 
 void ModerationReportInfos::parseModerationReportInfosObj(const QJsonObject &moderationReportInfosObj)
 {
-    const QJsonArray moderationsArray = moderationReportInfosObj[QLatin1StringView("reports")].toArray();
+    const QJsonArray moderationsArray = moderationReportInfosObj["reports"_L1].toArray();
     for (const QJsonValue &current : moderationsArray) {
         if (current.type() == QJsonValue::Object) {
             const QJsonObject moderationObject = current.toObject();
@@ -114,9 +116,9 @@ void ModerationReportInfos::parseModerationReportInfosObj(const QJsonObject &mod
 
 void ModerationReportInfos::parseMoreModerationReportInfos(const QJsonObject &moderationReportInfosObj)
 {
-    const int moderationReportInfosCount = moderationReportInfosObj[QLatin1StringView("count")].toInt();
-    mOffset = moderationReportInfosObj[QLatin1StringView("offset")].toInt();
-    mTotal = moderationReportInfosObj[QLatin1StringView("total")].toInt();
+    const int moderationReportInfosCount = moderationReportInfosObj["count"_L1].toInt();
+    mOffset = moderationReportInfosObj["offset"_L1].toInt();
+    mTotal = moderationReportInfosObj["total"_L1].toInt();
     parseModerationReportInfosObj(moderationReportInfosObj);
     mModerationReportInfosCount += moderationReportInfosCount;
 }

@@ -9,7 +9,7 @@
 #include "ruqola_autotest_helper.h"
 #include <QCborValue>
 #include <QJsonDocument>
-
+using namespace Qt::Literals::StringLiterals;
 QTEST_GUILESS_MAIN(MessageTest)
 MessageTest::MessageTest(QObject *parent)
     : QObject(parent)
@@ -306,7 +306,7 @@ void MessageTest::shouldParseMessage()
 {
     QFETCH(QString, name);
     QFETCH(Message, expectedMessage);
-    const QString originalJsonFile = QLatin1StringView(RUQOLA_DATA_DIR) + QLatin1StringView("/json/") + name + QLatin1StringView(".json");
+    const QString originalJsonFile = QLatin1StringView(RUQOLA_DATA_DIR) + "/json/"_L1 + name + ".json"_L1;
     QFile f(originalJsonFile);
     QVERIFY(f.open(QIODevice::ReadOnly));
     const QByteArray content = f.readAll();
@@ -677,7 +677,7 @@ void MessageTest::shouldParseJsonMessage_data()
 void MessageTest::shouldParseJsonMessage()
 {
     QFETCH(QString, fileName);
-    const QString originalJsonFile = QLatin1StringView(RUQOLA_DATA_DIR) + QLatin1StringView("/messages/") + fileName + QLatin1StringView(".json");
+    const QString originalJsonFile = QLatin1StringView(RUQOLA_DATA_DIR) + "/messages/"_L1 + fileName + ".json"_L1;
     QFile f(originalJsonFile);
     QVERIFY(f.open(QIODevice::ReadOnly));
     const QByteArray content = f.readAll();
@@ -723,7 +723,7 @@ void MessageTest::shouldUpdateJsonMessage()
     QFETCH(QString, fileNameinit);
     QFETCH(QStringList, fileNameupdate);
 
-    const QString originalJsonFile = QLatin1StringView(RUQOLA_DATA_DIR) + QLatin1StringView("/messages-updated/") + fileNameinit + QLatin1StringView(".json");
+    const QString originalJsonFile = QLatin1StringView(RUQOLA_DATA_DIR) + "/messages-updated/"_L1 + fileNameinit + ".json"_L1;
     QFile f(originalJsonFile);
     QVERIFY(f.open(QIODevice::ReadOnly));
     const QByteArray content = f.readAll();
@@ -735,8 +735,7 @@ void MessageTest::shouldUpdateJsonMessage()
     r.parseMessage(fields, false, nullptr);
 
     for (const QString &updateFile : fileNameupdate) {
-        const QString originalUpdateJsonFile =
-            QLatin1StringView(RUQOLA_DATA_DIR) + QLatin1StringView("/messages-updated/") + updateFile + QLatin1StringView(".json");
+        const QString originalUpdateJsonFile = QLatin1StringView(RUQOLA_DATA_DIR) + "/messages-updated/"_L1 + updateFile + ".json"_L1;
         QFile f(originalUpdateJsonFile);
         QVERIFY(f.open(QIODevice::ReadOnly));
         const QByteArray content = f.readAll();

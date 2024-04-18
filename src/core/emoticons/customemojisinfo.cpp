@@ -5,6 +5,8 @@
 */
 
 #include "customemojisinfo.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "ruqola_debug.h"
 #include <QJsonArray>
 #include <QJsonObject>
@@ -38,16 +40,16 @@ CustomEmoji CustomEmojisInfo::at(int index) const
 
 void CustomEmojisInfo::parseMoreCustomEmojis(const QJsonObject &obj)
 {
-    const int adminRoomsCount = obj[QLatin1StringView("count")].toInt();
-    mOffset = obj[QLatin1StringView("offset")].toInt();
-    mTotal = obj[QLatin1StringView("total")].toInt();
+    const int adminRoomsCount = obj["count"_L1].toInt();
+    mOffset = obj["offset"_L1].toInt();
+    mTotal = obj["total"_L1].toInt();
     parseListCustomEmoji(obj);
     mRoomsCount += adminRoomsCount;
 }
 
 void CustomEmojisInfo::parseListCustomEmoji(const QJsonObject &obj)
 {
-    const QJsonArray adminRoomsArray = obj[QLatin1StringView("emojis")].toArray();
+    const QJsonArray adminRoomsArray = obj["emojis"_L1].toArray();
     mCustomEmojiInfos.reserve(mCustomEmojiInfos.count() + adminRoomsArray.count());
     for (const QJsonValue &current : adminRoomsArray) {
         if (current.type() == QJsonValue::Object) {
@@ -83,9 +85,9 @@ void CustomEmojisInfo::setRoomsCount(int count)
 
 void CustomEmojisInfo::parseCustomEmojis(const QJsonObject &obj)
 {
-    mRoomsCount = obj[QLatin1StringView("count")].toInt();
-    mOffset = obj[QLatin1StringView("offset")].toInt();
-    mTotal = obj[QLatin1StringView("total")].toInt();
+    mRoomsCount = obj["count"_L1].toInt();
+    mOffset = obj["offset"_L1].toInt();
+    mTotal = obj["total"_L1].toInt();
     mCustomEmojiInfos.clear();
     parseListCustomEmoji(obj);
 }

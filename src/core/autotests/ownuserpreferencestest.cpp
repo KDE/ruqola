@@ -7,7 +7,7 @@
 #include "ownuserpreferencestest.h"
 #include "ownuser/ownuserpreferences.h"
 #include "ruqola_autotest_helper.h"
-
+using namespace Qt::Literals::StringLiterals;
 QTEST_GUILESS_MAIN(OwnUserPreferencesTest)
 OwnUserPreferencesTest::OwnUserPreferencesTest(QObject *parent)
     : QObject(parent)
@@ -63,7 +63,7 @@ void OwnUserPreferencesTest::shouldLoadOwnUserPreferencesInfo()
 {
     QFETCH(QString, fileName);
     QFETCH(OwnUserPreferences, ownUserPreferences);
-    const QString originalJsonFile = QLatin1StringView(RUQOLA_DATA_DIR) + QLatin1StringView("/ownuserpreferences/") + fileName + QLatin1StringView(".json");
+    const QString originalJsonFile = QLatin1StringView(RUQOLA_DATA_DIR) + "/ownuserpreferences/"_L1 + fileName + ".json"_L1;
     const QJsonObject obj = AutoTestHelper::loadJsonObject(originalJsonFile);
 
     OwnUserPreferences r;

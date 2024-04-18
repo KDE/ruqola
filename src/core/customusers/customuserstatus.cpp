@@ -5,6 +5,7 @@
 */
 
 #include "customuserstatus.h"
+using namespace Qt::Literals::StringLiterals;
 
 #include "utils.h"
 
@@ -19,10 +20,10 @@ bool CustomUserStatus::isValid() const
 
 void CustomUserStatus::parseCustomStatus(const QJsonObject &customStatusObj, bool useRestApi)
 {
-    mIdentifier = customStatusObj[QLatin1StringView("_id")].toString().toLatin1();
-    mName = customStatusObj[QLatin1StringView("name")].toString();
-    mStatusType = Utils::presenceStatusFromString(customStatusObj[QLatin1StringView("statusType")].toString());
-    if (customStatusObj.contains(QLatin1StringView("_updatedAt"))) {
+    mIdentifier = customStatusObj["_id"_L1].toString().toLatin1();
+    mName = customStatusObj["name"_L1].toString();
+    mStatusType = Utils::presenceStatusFromString(customStatusObj["statusType"_L1].toString());
+    if (customStatusObj.contains("_updatedAt"_L1)) {
         if (useRestApi) {
             mUpdatedAt = Utils::parseIsoDate(QStringLiteral("_updatedAt"), customStatusObj);
         } else {

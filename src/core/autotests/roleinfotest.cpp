@@ -7,7 +7,7 @@
 #include "roleinfotest.h"
 #include "roles/roleinfo.h"
 #include "ruqola_autotest_helper.h"
-
+using namespace Qt::Literals::StringLiterals;
 QTEST_GUILESS_MAIN(RoleInfoTest)
 RoleInfoTest::RoleInfoTest(QObject *parent)
     : QObject(parent)
@@ -55,7 +55,7 @@ void RoleInfoTest::shouldLoadRoles()
 {
     QFETCH(QString, name);
     QFETCH(RoleInfo, role);
-    const QString originalJsonFile = QLatin1StringView(RUQOLA_DATA_DIR) + QLatin1StringView("/rolesinfo/") + name + QLatin1StringView(".json");
+    const QString originalJsonFile = QLatin1StringView(RUQOLA_DATA_DIR) + "/rolesinfo/"_L1 + name + ".json"_L1;
     const QJsonObject obj = AutoTestHelper::loadJsonObject(originalJsonFile);
 
     RoleInfo r;

@@ -6,7 +6,7 @@
 #include "bannerinfotest.h"
 #include "bannerinfo/bannerinfo.h"
 #include "ruqola_autotest_helper.h"
-
+using namespace Qt::Literals::StringLiterals;
 QTEST_GUILESS_MAIN(BannerInfoTest)
 BannerInfoTest::BannerInfoTest(QObject *parent)
     : QObject{parent}
@@ -29,7 +29,7 @@ void BannerInfoTest::shouldBannerInfo()
 {
     QFETCH(QString, name);
     QFETCH(BannerInfo, bannerInfo);
-    const QString originalJsonFile = QLatin1StringView(RUQOLA_DATA_DIR) + QLatin1StringView("/bannerinfo/") + name + QLatin1StringView(".json");
+    const QString originalJsonFile = QLatin1StringView(RUQOLA_DATA_DIR) + "/bannerinfo/"_L1 + name + ".json"_L1;
     const QJsonObject obj = AutoTestHelper::loadJsonObject(originalJsonFile);
 
     BannerInfo result;

@@ -5,6 +5,8 @@
 */
 
 #include "managelocaldatabase.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "chat/syncmessagesjob.h"
 #include "connection.h"
 #include "localdatabase/localdatabasemanager.h"
@@ -100,13 +102,13 @@ void ManageLocalDatabase::loadMessagesHistory(const ManageLocalDatabase::ManageL
         params.append(QJsonValue(50)); // Max number of messages to load;
         QJsonObject dateObject;
         // qCDebug(RUQOLA_LOAD_HISTORY_LOG) << "roomModel->lastTimestamp()" << roomModel->lastTimestamp() << " ROOMID " << roomID;
-        dateObject[QLatin1StringView("$date")] = QJsonValue(info.lastSeenAt);
+        dateObject["$date"_L1] = QJsonValue(info.lastSeenAt);
         params.append(dateObject);
     } else if (info.timeStamp != 0) {
         params.append(info.timeStamp);
 
         QJsonObject dateObjectEnd;
-        dateObjectEnd[QLatin1StringView("$date")] = QJsonValue(endDateTime);
+        dateObjectEnd["$date"_L1] = QJsonValue(endDateTime);
 
         // qCDebug(RUQOLA_LOAD_HISTORY_LOG) << " QDATE TIME END" << QDateTime::fromMSecsSinceEpoch(endDateTime) << " START "  <<
         // QDateTime::fromMSecsSinceEpoch(startDateTime) << " ROOMID" << roomID;
@@ -141,7 +143,7 @@ void ManageLocalDatabase::loadMessagesHistory(const ManageLocalDatabase::ManageL
 #endif
         }
         QJsonObject dateObjectEnd;
-        dateObjectEnd[QLatin1StringView("$date")] = QJsonValue(endDateTime);
+        dateObjectEnd["$date"_L1] = QJsonValue(endDateTime);
 
         // qCDebug(RUQOLA_LOAD_HISTORY_LOG) << " QDATE TIME END" << QDateTime::fromMSecsSinceEpoch(endDateTime) << " START "  <<
         // QDateTime::fromMSecsSinceEpoch(startDateTime) << " ROOMID" << roomID;
@@ -151,7 +153,7 @@ void ManageLocalDatabase::loadMessagesHistory(const ManageLocalDatabase::ManageL
 
         QJsonObject dateObjectStart;
         // qCDebug(RUQOLA_LOAD_HISTORY_LOG) << "roomModel->lastTimestamp()" << endDateTime << " ROOMID " << roomID;
-        dateObjectStart[QLatin1StringView("$date")] = QJsonValue(startDateTime);
+        dateObjectStart["$date"_L1] = QJsonValue(startDateTime);
         params.append(std::move(dateObjectStart));
     }
     qCDebug(RUQOLA_LOAD_HISTORY_LOG) << " load history ddp:" << params;

@@ -5,6 +5,8 @@
 */
 
 #include "inputcompletermodel.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "rocketchataccount.h"
 #include <KLocalizedString>
 
@@ -107,7 +109,7 @@ void InputCompleterModel::setSearchInfo(const SearchInfo &newSearchInfo)
 void InputCompleterModel::parseSearchChannels(const QJsonObject &obj)
 {
     QList<ChannelUserCompleter> channelList;
-    const QJsonArray rooms = obj.value(QLatin1StringView("items")).toArray();
+    const QJsonArray rooms = obj.value("items"_L1).toArray();
     const auto roomsSize(rooms.size());
     channelList.reserve(roomsSize);
     for (auto i = 0; i < roomsSize; i++) {
@@ -127,7 +129,7 @@ void InputCompleterModel::parseChannels(const QJsonObject &obj)
 {
     QList<ChannelUserCompleter> channelList;
     if (mSearchInfo.searchType == SearchInfo::Channels || mSearchInfo.searchType == SearchInfo::ChannelsAndUsers) {
-        const QJsonArray rooms = obj.value(QLatin1StringView("rooms")).toArray();
+        const QJsonArray rooms = obj.value("rooms"_L1).toArray();
         channelList.reserve(rooms.size());
         for (int i = 0; i < rooms.size(); i++) {
             const QJsonObject o = rooms.at(i).toObject();
@@ -139,7 +141,7 @@ void InputCompleterModel::parseChannels(const QJsonObject &obj)
         channelList.append(searchOpenedRooms());
     }
     if (mSearchInfo.searchType == SearchInfo::Users || mSearchInfo.searchType == SearchInfo::ChannelsAndUsers) {
-        const QJsonArray users = obj.value(QLatin1StringView("users")).toArray();
+        const QJsonArray users = obj.value("users"_L1).toArray();
         bool needToAddAll = false;
         bool needToAddHere = false;
         for (int i = 0; i < users.size(); i++) {

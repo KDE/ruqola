@@ -5,6 +5,8 @@
 */
 
 #include "usersforroommodel.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "ruqola_debug.h"
 #include "usersmodel.h"
 #include "utils.h"
@@ -132,19 +134,19 @@ void UsersForRoomModel::setTotal(int total)
 void UsersForRoomModel::parseUsersForRooms(const QJsonObject &root, UsersModel *model, bool restapi)
 {
     if (restapi) {
-        mTotal = root[QLatin1StringView("total")].toInt();
-        mOffset = root[QLatin1StringView("offset")].toInt();
-        const QJsonArray members = root[QLatin1StringView("members")].toArray();
+        mTotal = root["total"_L1].toInt();
+        mOffset = root["offset"_L1].toInt();
+        const QJsonArray members = root["members"_L1].toArray();
         QList<User> users;
         users.reserve(members.count());
         for (const QJsonValue &current : members) {
             if (current.type() == QJsonValue::Object) {
                 const QJsonObject userObject = current.toObject();
-                const QString userName = userObject[QLatin1StringView("username")].toString();
-                const QString name = userObject[QLatin1StringView("name")].toString();
-                const QByteArray id = userObject[QLatin1StringView("_id")].toString().toLatin1();
-                const double utcOffset = userObject[QLatin1StringView("utcOffset")].toDouble();
-                const QString status = userObject[QLatin1StringView("status")].toString();
+                const QString userName = userObject["username"_L1].toString();
+                const QString name = userObject["name"_L1].toString();
+                const QByteArray id = userObject["_id"_L1].toString().toLatin1();
+                const double utcOffset = userObject["utcOffset"_L1].toDouble();
+                const QString status = userObject["status"_L1].toString();
                 User user;
                 user.setName(name);
                 user.setUserName(userName);
@@ -163,20 +165,20 @@ void UsersForRoomModel::parseUsersForRooms(const QJsonObject &root, UsersModel *
         }
         setUsers(users);
     } else {
-        const QJsonObject result = root[QLatin1StringView("result")].toObject();
+        const QJsonObject result = root["result"_L1].toObject();
         if (!result.isEmpty()) {
-            const QJsonArray records = result[QLatin1StringView("records")].toArray();
-            mTotal = result[QLatin1StringView("total")].toInt();
-            mOffset = root[QLatin1StringView("offset")].toInt(); // TODO verify if a day we use no rest api
+            const QJsonArray records = result["records"_L1].toArray();
+            mTotal = result["total"_L1].toInt();
+            mOffset = root["offset"_L1].toInt(); // TODO verify if a day we use no rest api
 
             QList<User> users;
             users.reserve(records.count());
             for (const QJsonValue &current : records) {
                 if (current.type() == QJsonValue::Object) {
                     const QJsonObject userObject = current.toObject();
-                    const QString userName = userObject[QLatin1StringView("username")].toString();
-                    const QString name = userObject[QLatin1StringView("name")].toString();
-                    const QByteArray id = userObject[QLatin1StringView("_id")].toString().toLatin1();
+                    const QString userName = userObject["username"_L1].toString();
+                    const QString name = userObject["name"_L1].toString();
+                    const QByteArray id = userObject["_id"_L1].toString().toLatin1();
                     User user;
                     user.setName(name);
                     user.setUserName(userName);

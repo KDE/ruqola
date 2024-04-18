@@ -40,7 +40,7 @@ void EmojiManagerTest::shouldParseEmoji()
 {
     QFETCH(QString, name);
     QFETCH(int, number);
-    const QString originalJsonFile = QLatin1StringView(RUQOLA_DATA_DIR) + QLatin1StringView("/json/restapi/") + name + QLatin1StringView(".json");
+    const QString originalJsonFile = QLatin1StringView(RUQOLA_DATA_DIR) + "/json/restapi/"_L1 + name + ".json"_L1;
     auto obj = AutoTestHelper::loadJsonObject(originalJsonFile);
     EmojiManager manager(nullptr);
     manager.loadCustomEmoji(obj);
@@ -109,14 +109,14 @@ void EmojiManagerTest::shouldDeleteEmojiCustom()
     QFETCH(QString, deleteName);
     QFETCH(QList<CustomEmoji>, original);
     QFETCH(QList<CustomEmoji>, customEmoji);
-    const QString originalJsonFile = QLatin1StringView(RUQOLA_DATA_DIR) + QLatin1StringView("/json/restapi/") + initialListName + QLatin1StringView(".json");
+    const QString originalJsonFile = QLatin1StringView(RUQOLA_DATA_DIR) + "/json/restapi/"_L1 + initialListName + ".json"_L1;
     const auto obj = AutoTestHelper::loadJsonObject(originalJsonFile);
     EmojiManager manager(nullptr);
     manager.loadCustomEmoji(obj);
     QCOMPARE(manager.count(), number);
     QCOMPARE(manager.customEmojiList(), original);
 
-    const QString deleteJsonFile = QLatin1StringView(RUQOLA_DATA_DIR) + QLatin1StringView("/json/restapi/") + deleteName + QLatin1StringView(".json");
+    const QString deleteJsonFile = QLatin1StringView(RUQOLA_DATA_DIR) + "/json/restapi/"_L1 + deleteName + ".json"_L1;
     const auto objDelete = AutoTestHelper::loadJsonArrayObject(deleteJsonFile);
     manager.deleteEmojiCustom(objDelete);
     // qDebug() << " manager.customEmojiList() " << manager.customEmojiList();
@@ -171,7 +171,7 @@ void EmojiManagerTest::shouldAddEmojiCustom()
     QFETCH(QString, addName);
     QFETCH(QList<CustomEmoji>, original);
     QFETCH(QList<CustomEmoji>, customEmoji);
-    const QString originalJsonFile = QLatin1StringView(RUQOLA_DATA_DIR) + QLatin1StringView("/json/restapi/") + initialListName + QLatin1StringView(".json");
+    const QString originalJsonFile = QLatin1StringView(RUQOLA_DATA_DIR) + "/json/restapi/"_L1 + initialListName + ".json"_L1;
     auto obj = AutoTestHelper::loadJsonObject(originalJsonFile);
     EmojiManager manager(nullptr);
     QSignalSpy customEmojiChanged(&manager, &EmojiManager::customEmojiChanged);
@@ -180,7 +180,7 @@ void EmojiManagerTest::shouldAddEmojiCustom()
 
     QCOMPARE(manager.customEmojiList(), original);
 
-    const QString addJsonFile = QLatin1StringView(RUQOLA_DATA_DIR) + QLatin1StringView("/json/restapi/") + addName + QLatin1StringView(".json");
+    const QString addJsonFile = QLatin1StringView(RUQOLA_DATA_DIR) + "/json/restapi/"_L1 + addName + ".json"_L1;
     const auto objAdd = AutoTestHelper::loadJsonArrayObject(addJsonFile);
     manager.addUpdateEmojiCustomList(objAdd);
     QCOMPARE(customEmojiChanged.count(), 1);
@@ -239,7 +239,7 @@ void EmojiManagerTest::shouldUpdateEmojiCustom()
     QFETCH(QString, addName);
     QFETCH(QList<CustomEmoji>, original);
     QFETCH(QList<CustomEmoji>, customEmoji);
-    const QString originalJsonFile = QLatin1StringView(RUQOLA_DATA_DIR) + QLatin1StringView("/json/restapi/") + initialListName + QLatin1StringView(".json");
+    const QString originalJsonFile = QLatin1StringView(RUQOLA_DATA_DIR) + "/json/restapi/"_L1 + initialListName + ".json"_L1;
     auto obj = AutoTestHelper::loadJsonObject(originalJsonFile);
     EmojiManager manager(nullptr);
     QSignalSpy customEmojiChanged(&manager, &EmojiManager::customEmojiChanged);
@@ -248,7 +248,7 @@ void EmojiManagerTest::shouldUpdateEmojiCustom()
     QCOMPARE(manager.count(), number);
     QCOMPARE(manager.customEmojiList(), original);
 
-    const QString addJsonFile = QLatin1StringView(RUQOLA_DATA_DIR) + QLatin1StringView("/json/restapi/") + addName + QLatin1StringView(".json");
+    const QString addJsonFile = QLatin1StringView(RUQOLA_DATA_DIR) + "/json/restapi/"_L1 + addName + ".json"_L1;
     const auto objAdd = AutoTestHelper::loadJsonArrayObject(addJsonFile);
     manager.addUpdateEmojiCustomList(objAdd);
     QCOMPARE(customEmojiChanged.count(), 1);
@@ -317,7 +317,7 @@ void EmojiManagerTest::shouldOrderUnicodeEmojis()
 
 void EmojiManagerTest::shouldGenerateHtml()
 {
-    const QString originalJsonFile = QLatin1StringView(RUQOLA_DATA_DIR) + QLatin1StringView("/json/restapi/emojiparent.json");
+    const QString originalJsonFile = QLatin1StringView(RUQOLA_DATA_DIR) + "/json/restapi/emojiparent.json"_L1;
     QFile f(originalJsonFile);
     QVERIFY(f.open(QIODevice::ReadOnly));
     const QByteArray content = f.readAll();
@@ -349,7 +349,7 @@ void EmojiManagerTest::shouldGenerateHtml()
 
 void EmojiManagerTest::shouldChangeServerUrl()
 {
-    //    const QString originalJsonFile = QLatin1StringView(RUQOLA_DATA_DIR) + QLatin1StringView("/json/restapi/emojiparent.json");
+    //    const QString originalJsonFile = QLatin1StringView(RUQOLA_DATA_DIR) + "/json/restapi/emojiparent.json"_L1;
     //    QFile f(originalJsonFile);
     //    QVERIFY(f.open(QIODevice::ReadOnly));
     //    const QByteArray content = f.readAll();

@@ -5,6 +5,8 @@
 */
 
 #include "customuserstatuses.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "ruqola_debug.h"
 
 #include <QJsonArray>
@@ -16,16 +18,16 @@ CustomUserStatuses::~CustomUserStatuses() = default;
 
 void CustomUserStatuses::parseCustomUserStatuses(const QJsonObject &customStatusObj)
 {
-    mCustomUserCount = customStatusObj[QLatin1StringView("count")].toInt();
-    mOffset = customStatusObj[QLatin1StringView("offset")].toInt();
-    mTotal = customStatusObj[QLatin1StringView("total")].toInt();
+    mCustomUserCount = customStatusObj["count"_L1].toInt();
+    mOffset = customStatusObj["offset"_L1].toInt();
+    mTotal = customStatusObj["total"_L1].toInt();
     mCustomUserses.clear();
     parseListCustomUserStatuses(customStatusObj);
 }
 
 void CustomUserStatuses::parseListCustomUserStatuses(const QJsonObject &customStatusObj)
 {
-    const QJsonArray customsUserArray = customStatusObj[QLatin1StringView("statuses")].toArray();
+    const QJsonArray customsUserArray = customStatusObj["statuses"_L1].toArray();
     mCustomUserses.reserve(mCustomUserses.count() + customsUserArray.count());
     for (const QJsonValue &current : customsUserArray) {
         if (current.type() == QJsonValue::Object) {
@@ -97,10 +99,10 @@ void CustomUserStatuses::deleteCustomUserStatuses(const QJsonArray &replyArray)
 {
     for (int i = 0, total = replyArray.count(); i < total; ++i) {
         const QJsonObject obj = replyArray.at(i).toObject();
-        const QJsonObject customStatusObj = obj.value(QLatin1StringView("userStatusData")).toObject();
+        const QJsonObject customStatusObj = obj.value("userStatusData"_L1).toObject();
         if (!customStatusObj.isEmpty()) {
-            if (customStatusObj.contains(QLatin1StringView("_id"))) {
-                const QByteArray identifier = customStatusObj.value(QLatin1StringView("_id")).toString().toLatin1();
+            if (customStatusObj.contains("_id"_L1)) {
+                const QByteArray identifier = customStatusObj.value("_id"_L1).toString().toLatin1();
                 for (const CustomUserStatus &status : std::as_const(mCustomUserses)) {
                     if (status.identifier() == identifier) {
                         mCustomUserses.removeOne(status);
@@ -120,14 +122,14 @@ void CustomUserStatuses::updateCustomUserStatues(const QJsonArray &replyArray)
     // TODO fix total
     for (int i = 0; i < replyArray.count(); ++i) {
         const QJsonObject obj = replyArray.at(i).toObject();
-        const QJsonObject customStatusObj = obj.value(QLatin1StringView("userStatusData")).toObject();
+        const QJsonObject customStatusObj = obj.value("userStatusData"_L1).toObject();
         if (!customStatusObj.isEmpty()) {
-            if (customStatusObj.contains(QLatin1StringView("_id"))) {
+            if (customStatusObj.contains("_id"_L1)) {
                 // previousStatusType
                 // previousName
                 //=> update otherwise add
                 bool found = false;
-                const QByteArray identifier = customStatusObj.value(QLatin1StringView("_id")).toString().toLatin1();
+                const QByteArray identifier = customStatusObj.value("_id"_L1).toString().toLatin1();
                 for (CustomUserStatus &status : mCustomUserses) {
                     if (status.identifier() == identifier) {
                         status.parseCustomStatus(customStatusObj);

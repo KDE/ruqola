@@ -7,7 +7,7 @@
 #include "inviteinfotest.h"
 #include "invite/inviteinfo.h"
 #include "ruqola_autotest_helper.h"
-
+using namespace Qt::Literals::StringLiterals;
 QTEST_GUILESS_MAIN(InviteInfoTest)
 
 InviteInfoTest::InviteInfoTest(QObject *parent)
@@ -60,7 +60,7 @@ void InviteInfoTest::shouldParseInviteInfo()
 {
     QFETCH(QString, fileName);
     QFETCH(InviteInfo, expectedInvite);
-    const QString originalJsonFile = QLatin1StringView(RUQOLA_DATA_DIR) + QLatin1StringView("/json/") + fileName + QLatin1StringView(".json");
+    const QString originalJsonFile = QLatin1StringView(RUQOLA_DATA_DIR) + "/json/"_L1 + fileName + ".json"_L1;
     const QJsonObject fields = AutoTestHelper::loadJsonObject(originalJsonFile);
 
     InviteInfo newFile;

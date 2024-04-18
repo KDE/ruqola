@@ -9,7 +9,7 @@
 
 #include <QJsonArray>
 #include <QJsonObject>
-
+using namespace Qt::Literals::StringLiterals;
 CustomEmoji::CustomEmoji() = default;
 
 CustomEmoji::~CustomEmoji() = default;
@@ -31,21 +31,21 @@ void CustomEmoji::setUpdatedAt(qint64 updatedAt)
 
 bool CustomEmoji::isAnimatedImage() const
 {
-    return mExtension == QLatin1StringView("gif");
+    return mExtension == "gif"_L1;
 }
 
 void CustomEmoji::parseEmoji(const QJsonObject &emoji, bool useIsoDate)
 {
-    mIdentifier = emoji.value(QLatin1StringView("_id")).toString().toLatin1();
-    mExtension = emoji.value(QLatin1StringView("extension")).toString();
-    mName = emoji.value(QLatin1StringView("name")).toString();
+    mIdentifier = emoji.value("_id"_L1).toString().toLatin1();
+    mExtension = emoji.value("extension"_L1).toString();
+    mName = emoji.value("name"_L1).toString();
     mEmojiIdentifier = QLatin1Char(':') + mName + QLatin1Char(':');
     if (useIsoDate) {
         mUpdatedAt = Utils::parseDate(QStringLiteral("_updatedAt"), emoji);
     } else {
         mUpdatedAt = Utils::parseIsoDate(QStringLiteral("_updatedAt"), emoji);
     }
-    const QJsonArray array = emoji.value(QLatin1StringView("aliases")).toArray();
+    const QJsonArray array = emoji.value("aliases"_L1).toArray();
     const auto arrayCount = array.count();
     QStringList lst;
     lst.reserve(arrayCount);
@@ -65,8 +65,8 @@ QString CustomEmoji::emojiUrl(const QString &serverUrl) const
 {
     QString url = serverUrl + emojiFileName();
     // ???? http ? not https ???
-    if (!url.startsWith(QLatin1StringView("http://")) && !url.startsWith(QLatin1StringView("https://"))) {
-        url.prepend(QLatin1StringView("http://"));
+    if (!url.startsWith("http://"_L1) && !url.startsWith("https://"_L1)) {
+        url.prepend("http://"_L1);
     }
     return url;
 }

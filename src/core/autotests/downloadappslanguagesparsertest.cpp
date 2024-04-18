@@ -4,6 +4,8 @@
    SPDX-License-Identifier: LGPL-2.0-or-later
 */
 #include "downloadappslanguagesparsertest.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "downloadappslanguages/downloadappslanguagesparser.h"
 #include <QTest>
 QTEST_GUILESS_MAIN(DownloadAppsLanguagesParserTest)
@@ -25,7 +27,7 @@ void DownloadAppsLanguagesParserTest::shouldParseFile()
     QFETCH(QString, filename);
     QFETCH(int, identifier);
     DownloadAppsLanguagesParser parser;
-    const QString originalJsonFile = QLatin1StringView(RUQOLA_DATA_DIR) + QLatin1StringView("/downloadappslanguages/") + filename;
+    const QString originalJsonFile = QLatin1StringView(RUQOLA_DATA_DIR) + "/downloadappslanguages/"_L1 + filename;
     parser.setFilename(originalJsonFile);
     QVERIFY(parser.parse());
     QCOMPARE(parser.map().count(), identifier);

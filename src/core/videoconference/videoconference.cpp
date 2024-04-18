@@ -5,6 +5,8 @@
 */
 
 #include "videoconference.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "ruqola_debug.h"
 
 #include <QJsonObject>
@@ -20,26 +22,26 @@ bool VideoConference::operator==(const VideoConference &other) const
 
 void VideoConference::parseVideoConference(const QJsonObject &content)
 {
-    mAction = convertActionToEnum(content[QLatin1StringView("action")].toString());
-    const QJsonObject videoConfParams = content[QLatin1StringView("params")].toObject();
-    mCallId = videoConfParams[QLatin1StringView("callId")].toString().toLatin1();
-    mRoomId = videoConfParams[QLatin1StringView("rid")].toString().toLatin1();
-    mUserId = videoConfParams[QLatin1StringView("uid")].toString().toLatin1();
+    mAction = convertActionToEnum(content["action"_L1].toString());
+    const QJsonObject videoConfParams = content["params"_L1].toObject();
+    mCallId = videoConfParams["callId"_L1].toString().toLatin1();
+    mRoomId = videoConfParams["rid"_L1].toString().toLatin1();
+    mUserId = videoConfParams["uid"_L1].toString().toLatin1();
     // {"action":"call","params":{"callId":"63983180a7f9e1466a4eedc6","rid":"YbwG4T2uB3wZSZSKBxkNpoB3T98EEPCj2K","uid":"YbwG4T2uB3wZSZSKB"}}
 }
 
 VideoConference::Action VideoConference::convertActionToEnum(const QString &str)
 {
     Action action = Unknown;
-    if (str == QLatin1StringView("call")) {
+    if (str == "call"_L1) {
         action = IncomingCall;
-    } else if (str == QLatin1StringView("canceled")) {
+    } else if (str == "canceled"_L1) {
         action = Canceled;
-    } else if (str == QLatin1StringView("confirmed")) {
+    } else if (str == "confirmed"_L1) {
         action = Confirmed;
-    } else if (str == QLatin1StringView("accepted")) {
+    } else if (str == "accepted"_L1) {
         action = Accepted;
-    } else if (str == QLatin1StringView("rejected")) {
+    } else if (str == "rejected"_L1) {
         action = Rejected;
     } else {
         qCWarning(RUQOLA_LOG) << "Action not implemented! " << str;

@@ -24,12 +24,12 @@ QUrl Utils::generateServerUrl(const QString &url)
         return {};
     }
     QString serverUrl = url;
-    if (serverUrl.startsWith(QLatin1StringView("https://"))) {
-        serverUrl.replace(QLatin1StringView("https://"), QLatin1StringView("wss://"));
-    } else if (serverUrl.startsWith(QLatin1StringView("http://"))) {
-        serverUrl.replace(QLatin1StringView("http://"), QLatin1StringView("ws://"));
+    if (serverUrl.startsWith("https://"_L1)) {
+        serverUrl.replace("https://"_L1, "wss://"_L1);
+    } else if (serverUrl.startsWith("http://"_L1)) {
+        serverUrl.replace("http://"_L1, "ws://"_L1);
     } else {
-        serverUrl = QLatin1StringView("wss://") + serverUrl;
+        serverUrl = "wss://"_L1 + serverUrl;
     }
     return QUrl(serverUrl + QStringLiteral("/websocket"));
 }
@@ -96,13 +96,13 @@ QString Utils::iconFromPresenceStatus(User::PresenceStatus status)
 
 QString Utils::iconFromStatus(const QString &status)
 {
-    if (status == QLatin1StringView("online")) {
+    if (status == "online"_L1) {
         return QStringLiteral("user-online");
-    } else if (status == QLatin1StringView("busy")) {
+    } else if (status == "busy"_L1) {
         return QStringLiteral("user-busy");
-    } else if (status == QLatin1StringView("away")) {
+    } else if (status == "away"_L1) {
         return QStringLiteral("user-away");
-    } else if (status == QLatin1StringView("offline")) {
+    } else if (status == "offline"_L1) {
         return QStringLiteral("user-offline");
     } else {
         qCWarning(RUQOLA_LOG) << "Unknown status" << status;
@@ -112,13 +112,13 @@ QString Utils::iconFromStatus(const QString &status)
 
 User::PresenceStatus Utils::presenceStatusFromString(const QString &status)
 {
-    if (status == QLatin1StringView("online")) {
+    if (status == "online"_L1) {
         return User::PresenceStatus::PresenceOnline;
-    } else if (status == QLatin1StringView("busy")) {
+    } else if (status == "busy"_L1) {
         return User::PresenceStatus::PresenceBusy;
-    } else if (status == QLatin1StringView("away")) {
+    } else if (status == "away"_L1) {
         return User::PresenceStatus::PresenceAway;
-    } else if (status == QLatin1StringView("offline")) {
+    } else if (status == "offline"_L1) {
         return User::PresenceStatus::PresenceOffline;
     } else {
         qCDebug(RUQOLA_LOG) << "Problem with status " << status;
@@ -135,7 +135,7 @@ QString Utils::userIdFromDirectChannel(const QString &rid, const QString &userId
 
 qint64 Utils::parseDate(const QString &key, const QJsonObject &o)
 {
-    return o.value(key).toObject().value(QLatin1StringView("$date")).toDouble(-1);
+    return o.value(key).toObject().value("$date"_L1).toDouble(-1);
 }
 
 qint64 Utils::parseIsoDate(const QString &key, const QJsonObject &o)
@@ -248,7 +248,7 @@ QString Utils::convertTextWithUrl(const QString &str)
     if (isRef) {
         newStr += QLatin1Char('[') + references;
     } else if (isUrl) {
-        newStr += QLatin1Char('[') + references + QLatin1StringView("](") + url;
+        newStr += QLatin1Char('[') + references + "]("_L1 + url;
     } else if (isHasNewRef) {
         if (!url.isEmpty() && !references.isEmpty()) {
             newStr += QStringLiteral("<a href=\'%1'>%2</a>").arg(url, references);
@@ -383,7 +383,7 @@ QIcon Utils::iconFromAccount(RocketChatAccount *account)
 
 bool Utils::validUser(const QString &userName)
 {
-    return (userName != QLatin1StringView("here") && userName != QLatin1StringView("all"));
+    return (userName != "here"_L1 && userName != "all"_L1);
 }
 
 QString Utils::createUniqueAccountName(const QStringList &list, const QString &accountName)

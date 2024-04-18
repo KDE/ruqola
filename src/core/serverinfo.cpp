@@ -5,6 +5,7 @@
 */
 
 #include "serverinfo.h"
+using namespace Qt::Literals::StringLiterals;
 
 ServerInfo::ServerInfo() = default;
 
@@ -12,21 +13,21 @@ ServerInfo::~ServerInfo() = default;
 
 void ServerInfo::parseServerInfo(const QJsonObject &obj)
 {
-    const QJsonObject infoObj = obj[QLatin1StringView("info")].toObject();
-    mVersion = infoObj.value(QLatin1StringView("version")).toString();
-    const QJsonObject commitObj = infoObj[QLatin1StringView("commit")].toObject();
-    mCommitAuthor = commitObj.value(QLatin1StringView("author")).toString();
-    mCommitBranch = commitObj.value(QLatin1StringView("branch")).toString();
-    mCommitTag = commitObj.value(QLatin1StringView("tag")).toString();
-    mCommitSubject = commitObj.value(QLatin1StringView("subject")).toString();
-    mCommitHash = commitObj.value(QLatin1StringView("hash")).toString();
+    const QJsonObject infoObj = obj["info"_L1].toObject();
+    mVersion = infoObj.value("version"_L1).toString();
+    const QJsonObject commitObj = infoObj["commit"_L1].toObject();
+    mCommitAuthor = commitObj.value("author"_L1).toString();
+    mCommitBranch = commitObj.value("branch"_L1).toString();
+    mCommitTag = commitObj.value("tag"_L1).toString();
+    mCommitSubject = commitObj.value("subject"_L1).toString();
+    mCommitHash = commitObj.value("hash"_L1).toString();
 
-    const QJsonObject buildObj = infoObj[QLatin1StringView("build")].toObject();
-    mArch = buildObj.value(QLatin1StringView("arch")).toString();
-    mNumberOfCpu = buildObj.value(QLatin1StringView("cpus")).toInt();
-    mPlatform = buildObj.value(QLatin1StringView("platform")).toString();
-    mOsRelease = buildObj.value(QLatin1StringView("osRelease")).toString();
-    mNodeVersion = buildObj.value(QLatin1StringView("nodeVersion")).toString();
+    const QJsonObject buildObj = infoObj["build"_L1].toObject();
+    mArch = buildObj.value("arch"_L1).toString();
+    mNumberOfCpu = buildObj.value("cpus"_L1).toInt();
+    mPlatform = buildObj.value("platform"_L1).toString();
+    mOsRelease = buildObj.value("osRelease"_L1).toString();
+    mNodeVersion = buildObj.value("nodeVersion"_L1).toString();
 #if 0
     {
         "info" : {"build" : {"arch" : "x64", "cpus" : 2, "date" : "2020-12-29T04:59:35.728Z", "freeMemory" : 461508608, "nodeVersion" : "v12.18.4", "osRelease" : "5.4.0-1032-azure", "platform" : "linux", "totalMemory" : 7292207104},

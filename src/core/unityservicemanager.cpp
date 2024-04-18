@@ -5,6 +5,8 @@
 */
 
 #include "unityservicemanager.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "ruqola_debug.h"
 #include <QApplication>
 #include <QDBusConnection>
@@ -26,7 +28,7 @@ UnityServiceManager::~UnityServiceManager() = default;
 void UnityServiceManager::updateCount()
 {
     if (mUnityServiceAvailable) {
-        const QString launcherId = qApp->desktopFileName() + QLatin1StringView(".desktop");
+        const QString launcherId = qApp->desktopFileName() + ".desktop"_L1;
 
         const QVariantMap properties{{QStringLiteral("count-visible"), mCount > 0}, {QStringLiteral("count"), mCount}};
 
@@ -75,7 +77,7 @@ void UnityServiceManager::initUnity()
 
         const QStringList &services = reply.value();
 
-        mUnityServiceAvailable = services.contains(QLatin1StringView("com.canonical.Unity"));
+        mUnityServiceAvailable = services.contains("com.canonical.Unity"_L1);
         if (mUnityServiceAvailable) {
             updateCount();
         }

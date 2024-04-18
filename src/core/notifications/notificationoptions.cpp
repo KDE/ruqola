@@ -5,6 +5,8 @@
 */
 
 #include "notificationoptions.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "ruqola_debug.h"
 #include <QJsonObject>
 
@@ -18,24 +20,23 @@ void NotificationOptions::updateNotificationOptions(const QJsonObject &obj)
 void NotificationOptions::parseNotificationOptions(const QJsonObject &obj)
 {
     // qDebug() << " parseNotificationOptions " << obj;
-    mHideUnreadStatus = obj.value(QLatin1StringView("hideUnreadStatus")).toBool();
-    mHideMentionStatus = obj.value(QLatin1StringView("hideMentionStatus")).toBool();
-    mDisableNotifications = obj.value(QLatin1StringView("disableNotifications")).toBool();
+    mHideUnreadStatus = obj.value("hideUnreadStatus"_L1).toBool();
+    mHideMentionStatus = obj.value("hideMentionStatus"_L1).toBool();
+    mDisableNotifications = obj.value("disableNotifications"_L1).toBool();
 
-    mAudioNotificationValue = obj.value(QLatin1StringView("audioNotificationValue")).toString();
+    mAudioNotificationValue = obj.value("audioNotificationValue"_L1).toString();
 
     //"desktopNotificationDuration":0,"desktopNotifications":"mentions"
-    mDesktopNotifications = NotificationValue{obj.value(QLatin1StringView("desktopNotifications")).toString().toLatin1(),
-                                              obj.value(QLatin1StringView("desktopPrefOrigin")).toString().toLatin1()};
+    mDesktopNotifications =
+        NotificationValue{obj.value("desktopNotifications"_L1).toString().toLatin1(), obj.value("desktopPrefOrigin"_L1).toString().toLatin1()};
     //"mobilePushNotifications":"nothing"
-    mMobilePushNotification = NotificationValue{obj.value(QLatin1StringView("mobilePushNotifications")).toString().toLatin1(),
-                                                obj.value(QLatin1StringView("mobilePrefOrigin")).toString().toLatin1()};
+    mMobilePushNotification =
+        NotificationValue{obj.value("mobilePushNotifications"_L1).toString().toLatin1(), obj.value("mobilePrefOrigin"_L1).toString().toLatin1()};
     //"emailNotifications":"default"
-    mEmailNotifications = NotificationValue{obj.value(QLatin1StringView("emailNotifications")).toString().toLatin1(),
-                                            obj.value(QLatin1StringView("emailPrefOrigin")).toString().toLatin1()};
+    mEmailNotifications = NotificationValue{obj.value("emailNotifications"_L1).toString().toLatin1(), obj.value("emailPrefOrigin"_L1).toString().toLatin1()};
     //"unreadAlert":"nothing"
-    mUnreadTrayIconAlert = obj.value(QLatin1StringView("unreadAlert")).toString();
-    mMuteGroupMentions = obj.value(QLatin1StringView("muteGroupMentions")).toBool();
+    mUnreadTrayIconAlert = obj.value("unreadAlert"_L1).toString();
+    mMuteGroupMentions = obj.value("muteGroupMentions"_L1).toBool();
 }
 
 QString NotificationOptions::audioNotificationValue() const
@@ -51,15 +52,15 @@ void NotificationOptions::setAudioNotificationValue(const QString &audioNotifica
 QJsonObject NotificationOptions::serialize(const NotificationOptions &options)
 {
     QJsonObject obj;
-    obj[QLatin1StringView("audioNotificationValue")] = options.audioNotificationValue();
-    obj[QLatin1StringView("disableNotifications")] = options.disableNotifications();
-    obj[QLatin1StringView("desktopNotifications")] = QString::fromLatin1(options.desktopNotifications().currentValue());
-    obj[QLatin1StringView("mobilePushNotifications")] = QString::fromLatin1(options.mobilePushNotification().currentValue());
-    obj[QLatin1StringView("emailNotifications")] = QString::fromLatin1(options.emailNotifications().currentValue());
-    obj[QLatin1StringView("unreadAlert")] = options.unreadTrayIconAlert();
-    obj[QLatin1StringView("hideUnreadStatus")] = options.hideUnreadStatus();
-    obj[QLatin1StringView("muteGroupMentions")] = options.muteGroupMentions();
-    obj[QLatin1StringView("hideMentionStatus")] = options.hideMentionStatus();
+    obj["audioNotificationValue"_L1] = options.audioNotificationValue();
+    obj["disableNotifications"_L1] = options.disableNotifications();
+    obj["desktopNotifications"_L1] = QString::fromLatin1(options.desktopNotifications().currentValue());
+    obj["mobilePushNotifications"_L1] = QString::fromLatin1(options.mobilePushNotification().currentValue());
+    obj["emailNotifications"_L1] = QString::fromLatin1(options.emailNotifications().currentValue());
+    obj["unreadAlert"_L1] = options.unreadTrayIconAlert();
+    obj["hideUnreadStatus"_L1] = options.hideUnreadStatus();
+    obj["muteGroupMentions"_L1] = options.muteGroupMentions();
+    obj["hideMentionStatus"_L1] = options.hideMentionStatus();
     return obj;
 }
 
@@ -67,15 +68,15 @@ NotificationOptions NotificationOptions::deserialize(const QJsonObject &o)
 {
     qCWarning(RUQOLA_LOG) << "Not implemented yet";
     NotificationOptions options;
-    options.setAudioNotificationValue(o[QLatin1StringView("audioNotificationValue")].toString());
-    options.setDisableNotifications(o[QLatin1StringView("disableNotifications")].toBool());
-    options.setUnreadTrayIconAlert(o[QLatin1StringView("unreadAlert")].toString());
-    options.setHideUnreadStatus(o[QLatin1StringView("hideUnreadStatus")].toBool());
-    options.setMuteGroupMentions(o[QLatin1StringView("muteGroupMentions")].toBool());
-    options.setHideMentionStatus(o[QLatin1StringView("hideMentionStatus")].toBool());
-    options.setDesktopNotifications(NotificationValue(o[QLatin1StringView("desktopNotifications")].toString().toLatin1(), QByteArray()));
-    options.setMobilePushNotification(NotificationValue(o[QLatin1StringView("mobilePushNotifications")].toString().toLatin1(), QByteArray()));
-    options.setEmailNotifications(NotificationValue(o[QLatin1StringView("emailNotifications")].toString().toLatin1(), QByteArray()));
+    options.setAudioNotificationValue(o["audioNotificationValue"_L1].toString());
+    options.setDisableNotifications(o["disableNotifications"_L1].toBool());
+    options.setUnreadTrayIconAlert(o["unreadAlert"_L1].toString());
+    options.setHideUnreadStatus(o["hideUnreadStatus"_L1].toBool());
+    options.setMuteGroupMentions(o["muteGroupMentions"_L1].toBool());
+    options.setHideMentionStatus(o["hideMentionStatus"_L1].toBool());
+    options.setDesktopNotifications(NotificationValue(o["desktopNotifications"_L1].toString().toLatin1(), QByteArray()));
+    options.setMobilePushNotification(NotificationValue(o["mobilePushNotifications"_L1].toString().toLatin1(), QByteArray()));
+    options.setEmailNotifications(NotificationValue(o["emailNotifications"_L1].toString().toLatin1(), QByteArray()));
     return options;
 }
 

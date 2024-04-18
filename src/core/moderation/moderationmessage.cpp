@@ -5,6 +5,8 @@
 */
 
 #include "moderationmessage.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "ruqola_message_memory_debug.h"
 #include <QJsonObject>
 ModerationMessage::ModerationMessage()
@@ -45,17 +47,17 @@ void ModerationMessage::setModerationId(const QByteArray &newModerationId)
 
 void ModerationMessage::parse(const QJsonObject &obj)
 {
-    mModerationId = obj[QLatin1StringView("_id")].toString().toLatin1();
+    mModerationId = obj["_id"_L1].toString().toLatin1();
     // TODO add timestamp
-    const QJsonObject messageObject = obj[QLatin1StringView("message")].toObject();
-    parseRoom(obj[QLatin1StringView("room")].toObject());
+    const QJsonObject messageObject = obj["message"_L1].toObject();
+    parseRoom(obj["room"_L1].toObject());
 }
 
 void ModerationMessage::parseRoom(const QJsonObject &roomObj)
 {
-    mRoomId = roomObj[QLatin1StringView("_id")].toString().toLatin1();
-    mRoomName = roomObj[QLatin1StringView("name")].toString();
-    mRoomFName = roomObj[QLatin1StringView("fname")].toString();
+    mRoomId = roomObj["_id"_L1].toString().toLatin1();
+    mRoomName = roomObj["name"_L1].toString();
+    mRoomFName = roomObj["fname"_L1].toString();
 }
 
 QString ModerationMessage::roomFName() const

@@ -7,7 +7,7 @@
 #include "moderationreportinfotest.h"
 #include "moderation/moderationreportinfo.h"
 #include "ruqola_autotest_helper.h"
-
+using namespace Qt::Literals::StringLiterals;
 QTEST_GUILESS_MAIN(ModerationReportInfoTest)
 ModerationReportInfoTest::ModerationReportInfoTest(QObject *parent)
     : QObject{parent}
@@ -46,7 +46,7 @@ void ModerationReportInfoTest::shouldLoadReportInfo()
 {
     QFETCH(QString, name);
     QFETCH(ModerationReportInfo, reportinfo);
-    const QString originalJsonFile = QLatin1StringView(RUQOLA_DATA_DIR) + QLatin1StringView("/moderationreportinfo/") + name + QLatin1StringView(".json");
+    const QString originalJsonFile = QLatin1StringView(RUQOLA_DATA_DIR) + "/moderationreportinfo/"_L1 + name + ".json"_L1;
     const QJsonObject obj = AutoTestHelper::loadJsonObject(originalJsonFile);
     ModerationReportInfo m;
     m.parseModerationReportInfo(obj);

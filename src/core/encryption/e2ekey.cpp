@@ -5,6 +5,7 @@
 */
 
 #include "e2ekey.h"
+using namespace Qt::Literals::StringLiterals;
 
 E2eKey::E2eKey() = default;
 
@@ -12,9 +13,9 @@ E2eKey::~E2eKey() = default;
 
 void E2eKey::parseKeyInfo(const QJsonObject &replyObject)
 {
-    const QJsonObject publicKey = replyObject[QLatin1StringView("public_key")].toObject();
+    const QJsonObject publicKey = replyObject["public_key"_L1].toObject();
 
-    const QJsonObject privateKey = replyObject[QLatin1StringView("private_key")].toObject();
+    const QJsonObject privateKey = replyObject["private_key"_L1].toObject();
     // TODO
 }
 

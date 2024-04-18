@@ -5,6 +5,8 @@
 */
 
 #include "users.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "ruqola_debug.h"
 #include <QJsonArray>
 #include <QJsonObject>
@@ -42,9 +44,9 @@ User &Users::operator[](int i)
 
 void Users::parseMoreUsers(const QJsonObject &obj, ParseType type, const QList<RoleInfo> &roleInfo)
 {
-    const int usersCount = obj[QLatin1StringView("count")].toInt();
-    mOffset = obj[QLatin1StringView("offset")].toInt();
-    mTotal = obj[QLatin1StringView("total")].toInt();
+    const int usersCount = obj["count"_L1].toInt();
+    mOffset = obj["offset"_L1].toInt();
+    mTotal = obj["total"_L1].toInt();
     parseListUsers(obj, type, roleInfo);
     mUsersCount += usersCount;
 }
@@ -108,9 +110,9 @@ void Users::setUsers(const QList<User> &rooms)
 
 void Users::parseUsers(const QJsonObject &obj, ParseType type, const QList<RoleInfo> &roleInfo)
 {
-    mUsersCount = obj[QLatin1StringView("count")].toInt();
-    mOffset = obj[QLatin1StringView("offset")].toInt();
-    mTotal = obj[QLatin1StringView("total")].toInt();
+    mUsersCount = obj["count"_L1].toInt();
+    mOffset = obj["offset"_L1].toInt();
+    mTotal = obj["total"_L1].toInt();
     mUsers.clear();
     parseListUsers(obj, type, roleInfo);
 }

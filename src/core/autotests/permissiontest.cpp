@@ -7,7 +7,7 @@
 #include "permissiontest.h"
 #include "permissions/permission.h"
 #include "ruqola_autotest_helper.h"
-
+using namespace Qt::Literals::StringLiterals;
 QTEST_GUILESS_MAIN(PermissionTest)
 PermissionTest::PermissionTest(QObject *parent)
     : QObject(parent)
@@ -48,7 +48,7 @@ void PermissionTest::shouldLoadPermission()
 {
     QFETCH(QString, name);
     QFETCH(Permission, permission);
-    const QString originalJsonFile = QLatin1StringView(RUQOLA_DATA_DIR) + QLatin1StringView("/permission/") + name + QLatin1StringView(".json");
+    const QString originalJsonFile = QLatin1StringView(RUQOLA_DATA_DIR) + "/permission/"_L1 + name + ".json"_L1;
     const QJsonObject obj = AutoTestHelper::loadJsonObject(originalJsonFile);
 
     Permission r;

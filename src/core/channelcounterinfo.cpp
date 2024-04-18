@@ -5,6 +5,8 @@
 */
 
 #include "channelcounterinfo.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "ruqola_room_memory_debug.h"
 
 ChannelCounterInfo::ChannelCounterInfo()
@@ -32,10 +34,10 @@ ChannelCounterInfo::~ChannelCounterInfo()
 
 void ChannelCounterInfo::parseCounterInfo(const QJsonObject &replyObject)
 {
-    mMessageCount = replyObject.value(QLatin1StringView("msgs")).toInt();
-    mUnreadMessages = replyObject.value(QLatin1StringView("unreads")).toInt();
-    mJoined = replyObject.value(QLatin1StringView("joined")).toBool();
-    mUnreadFrom = QDateTime::fromString(replyObject.value(QLatin1StringView("unreadsFrom")).toString(), Qt::ISODate);
+    mMessageCount = replyObject.value("msgs"_L1).toInt();
+    mUnreadMessages = replyObject.value("unreads"_L1).toInt();
+    mJoined = replyObject.value("joined"_L1).toBool();
+    mUnreadFrom = QDateTime::fromString(replyObject.value("unreadsFrom"_L1).toString(), Qt::ISODate);
     mUnreadFrom = mUnreadFrom.toTimeSpec(Qt::UTC);
     mUnreadMessageTimeStep = mUnreadFrom.toMSecsSinceEpoch();
 }

@@ -5,6 +5,8 @@
 */
 
 #include "rolesmodel.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "roles/roleinfo.h"
 #include "ruqola_debug.h"
 
@@ -77,7 +79,7 @@ void RolesModel::fillRoleSelected()
         }
     }
     // Remove empty string otherwise it will signal it.
-    copyList.removeAll(QLatin1StringView(""));
+    copyList.removeAll(""_L1);
     if (!copyList.isEmpty()) {
         qCWarning(RUQOLA_LOG) << "role is not implemented here " << copyList;
     }

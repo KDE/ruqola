@@ -8,6 +8,8 @@
  */
 
 #include "rocketchatbackend.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "authenticationmanager/ddpauthenticationmanager.h"
 #include "config-ruqola.h"
 #include "connection.h"
@@ -62,19 +64,19 @@ void process_publicsettings_administrator(const QJsonObject &obj, RocketChatAcco
 
 void rooms_parsing(const QJsonObject &root, RocketChatAccount *account)
 {
-    const QJsonObject obj = root.value(QLatin1StringView("result")).toObject();
+    const QJsonObject obj = root.value("result"_L1).toObject();
     RoomModel *model = account->roomModel();
 
     // qDebug() << " doc " << doc;
 
-    // QJsonArray removed = obj.value(QLatin1StringView("remove")).toArray();
+    // QJsonArray removed = obj.value("remove"_L1).toArray();
     // qDebug() << " rooms_parsing: room removed *************************************************" << removed;
-    const QJsonArray updated = obj.value(QLatin1StringView("update")).toArray();
+    const QJsonArray updated = obj.value("update"_L1).toArray();
     // qDebug() << " rooms_parsing: updated  *******************************************************: "<< updated;
 
     for (int i = 0; i < updated.size(); i++) {
         QJsonObject roomJson = updated.at(i).toObject();
-        const QString roomType = roomJson.value(QLatin1StringView("t")).toString();
+        const QString roomType = roomJson.value("t"_L1).toString();
         if (account->ruqolaLogger()) {
             QJsonDocument d;
             d.setObject(roomJson);
@@ -95,24 +97,24 @@ void rooms_parsing(const QJsonObject &root, RocketChatAccount *account)
 
 void getsubscription_parsing(const QJsonObject &root, RocketChatAccount *account)
 {
-    const QJsonObject obj = root.value(QLatin1StringView("result")).toObject();
+    const QJsonObject obj = root.value("result"_L1).toObject();
     RoomModel *model = account->roomModel();
 
     // qDebug() << " doc " << doc;
 
-    const QJsonArray removed = obj.value(QLatin1StringView("remove")).toArray();
+    const QJsonArray removed = obj.value("remove"_L1).toArray();
     if (!removed.isEmpty()) {
         // TODO implement it.
         qDebug() << " room removed " << removed;
     }
 
-    const QJsonArray updated = obj.value(QLatin1StringView("update")).toArray();
+    const QJsonArray updated = obj.value("update"_L1).toArray();
     // qDebug() << " updated : "<< updated;
 
     for (int i = 0; i < updated.size(); i++) {
         QJsonObject room = updated.at(i).toObject();
 
-        const QString roomType = room.value(QLatin1StringView("t")).toString();
+        const QString roomType = room.value("t"_L1).toString();
         if (account->ruqolaLogger()) {
             QJsonDocument d;
             d.setObject(room);
@@ -133,7 +135,7 @@ void getsubscription_parsing(const QJsonObject &root, RocketChatAccount *account
     // We need to load all room after get subscription to update parameters
     QJsonObject params;
     // TODO use timeStamp too
-    params[QLatin1StringView("$date")] = QJsonValue(0); // get ALL rooms we've ever seen
+    params["$date"_L1] = QJsonValue(0); // get ALL rooms we've ever seen
     // Add timestamp https://developer.rocket.chat/reference/api/realtime-api/method-calls/get-rooms
     account->ddp()->method(QStringLiteral("rooms/get"), QJsonDocument(params), rooms_parsing);
 
@@ -179,7 +181,7 @@ void RocketChatBackend::loadPublicSettings(qint64 timeStamp)
     QJsonObject params;
     if (timeStamp != -1) {
         // "params": [ { "$date": 1480377601 } ]
-        params[QLatin1StringView("$date")] = timeStamp;
+        params["$date"_L1] = timeStamp;
         qDebug() << "RocketChatBackend::loadPublicSettings load from: " << params;
         ddp->method(QStringLiteral("public-settings/get"), QJsonDocument(params), process_updatePublicsettings);
     } else {
@@ -197,7 +199,7 @@ void RocketChatBackend::loadPublicSettingsAdministrator(qint64 timeStamp)
     QJsonObject params;
     if (timeStamp != -1) {
         // "params": [ { "$date": 1480377601 } ]
-        params[QLatin1StringView("$date")] = timeStamp;
+        params["$date"_L1] = timeStamp;
     }
     qDebug() << " params " << params;
     ddp->method(QStringLiteral("public-settings/get"), QJsonDocument(params), process_publicsettings_administrator);
@@ -344,7 +346,7 @@ void RocketChatBackend::initializeSubscription(DDPClient *ddp)
 {
     QJsonObject params;
     // TODO use timeStamp too
-    params[QLatin1StringView("$date")] = QJsonValue(0); // get ALL rooms we've ever seen
+    params["$date"_L1] = QJsonValue(0); // get ALL rooms we've ever seen
 
     std::function<void(QJsonObject, RocketChatAccount *)> subscription_callback = [=](const QJsonObject &obj, RocketChatAccount *account) {
         getsubscription_parsing(obj, account);
@@ -401,9 +403,9 @@ QList<User> RocketChatBackend::users() const
 
 void RocketChatBackend::slotRemoved(const QJsonObject &object)
 {
-    const QString collection = object.value(QLatin1StringView("collection")).toString();
-    if (collection == QLatin1StringView("users")) {
-        const QByteArray id = object.value(QLatin1StringView("id")).toString().toLatin1();
+    const QString collection = object.value("collection"_L1).toString();
+    if (collection == "users"_L1) {
+        const QByteArray id = object.value("id"_L1).toString().toLatin1();
         mRocketChatAccount->usersModel()->removeUser(id);
         if (mRocketChatAccount->ruqolaLogger()) {
             QJsonDocument d;
@@ -412,7 +414,7 @@ void RocketChatBackend::slotRemoved(const QJsonObject &object)
         } else {
             qDebug() << "USER REMOVED VALUE" << object;
         }
-    } else if (collection == QLatin1StringView("stream-notify-logged")) {
+    } else if (collection == "stream-notify-logged"_L1) {
         qDebug() << "removed stream-notify-logged " << object;
     } else {
         qDebug() << " RocketChatBackend::slotRemove " << collection << " object " << object;
@@ -422,15 +424,15 @@ void RocketChatBackend::slotRemoved(const QJsonObject &object)
 
 void RocketChatBackend::slotAdded(const QJsonObject &object)
 {
-    const QString collection = object.value(QLatin1StringView("collection")).toString();
+    const QString collection = object.value("collection"_L1).toString();
     // qDebug() << " void RocketChatBackend::slotAdded(const QJsonObject &object)" << object;
-    if (collection == QLatin1StringView("stream-room-messages")) {
+    if (collection == "stream-room-messages"_L1) {
         qCDebug(RUQOLA_LOG) << mRocketChatAccount->accountName() << ":stream-room-messages : " << object;
-    } else if (collection == QLatin1StringView("users")) {
-        const QJsonObject fields = object.value(QLatin1StringView("fields")).toObject();
-        const QString username = fields.value(QLatin1StringView("username")).toString();
+    } else if (collection == "users"_L1) {
+        const QJsonObject fields = object.value("fields"_L1).toObject();
+        const QString username = fields.value("username"_L1).toString();
         if (username == mRocketChatAccount->settings()->userName()) {
-            mRocketChatAccount->settings()->setUserId(object[QLatin1StringView("id")].toString().toLatin1());
+            mRocketChatAccount->settings()->setUserId(object["id"_L1].toString().toLatin1());
             qCDebug(RUQOLA_LOG) << "User id set to " << mRocketChatAccount->settings()->userId();
         } else {
             // TODO add current user ? me ?
@@ -446,17 +448,17 @@ void RocketChatBackend::slotAdded(const QJsonObject &object)
             mRocketChatAccount->usersModel()->addUser(user);
         }
         qCDebug(RUQOLA_LOG) << "NEW USER ADDED: " << username << fields;
-    } else if (collection == QLatin1StringView("rooms")) {
+    } else if (collection == "rooms"_L1) {
         qCDebug(RUQOLA_LOG) << "NEW ROOMS ADDED: " << object;
-    } else if (collection == QLatin1StringView("stream-notify-user")) {
+    } else if (collection == "stream-notify-user"_L1) {
         // qDebug() << "stream-notify-user: " << object;
-    } else if (collection == QLatin1StringView("stream-notify-all")) {
+    } else if (collection == "stream-notify-all"_L1) {
         // void RocketChatBackend::slotChanged(const QJsonObject &object)
         // QJsonObject({"collection":"stream-notify-all","fields":{"args":[{"soundData":{"_id":"oikq5aYewRkYBGebK","_updatedAt":{"$date":1603350166714},"extension":"mp3","name":"test"}}],"eventName":"deleteCustomSound"},"id":"id","msg":"changed"})
 
         // qCDebug(RUQOLA_UNKNOWN_COLLECTIONTYPE_LOG) << mRocketChatAccount->accountName() << ":stream-notify-all: " << object;
         // TODO verify that all is ok !
-    } else if (collection == QLatin1StringView("autocompleteRecords")) {
+    } else if (collection == "autocompleteRecords"_L1) {
         if (mRocketChatAccount->ruqolaLogger()) {
             QJsonDocument d;
             d.setObject(object);
@@ -467,7 +469,7 @@ void RocketChatBackend::slotAdded(const QJsonObject &object)
         User user;
         user.parseUser(object);
         mUsers.append(std::move(user));
-    } else if (collection == QLatin1StringView("room_files")) {
+    } else if (collection == "room_files"_L1) {
         if (mRocketChatAccount->ruqolaLogger()) {
             QJsonDocument d;
             d.setObject(object);
@@ -478,9 +480,9 @@ void RocketChatBackend::slotAdded(const QJsonObject &object)
         File file;
         file.parseFile(object, false);
         mFiles.append(std::move(file));
-    } else if (collection == QLatin1StringView("stream-notify-room")) {
+    } else if (collection == "stream-notify-room"_L1) {
         // qCDebug(RUQOLA_UNKNOWN_COLLECTIONTYPE_LOG) << mRocketChatAccount->accountName() << ":stream-notify-room not implemented: "<< object;
-    } else if (collection == QLatin1StringView("stream-notify-logged")) {
+    } else if (collection == "stream-notify-logged"_L1) {
         // qCDebug(RUQOLA_UNKNOWN_COLLECTIONTYPE_LOG) << mRocketChatAccount->accountName() << ": stream-notify-logged not implemented: "<< object;
     } else {
         qCDebug(RUQOLA_UNKNOWN_COLLECTIONTYPE_LOG) << mRocketChatAccount->accountName() << ":Unknown added element: " << object;
@@ -489,14 +491,14 @@ void RocketChatBackend::slotAdded(const QJsonObject &object)
 
 void RocketChatBackend::slotChanged(const QJsonObject &object)
 {
-    const QString collection = object[QLatin1StringView("collection")].toString();
-    const QJsonObject fields = object.value(QLatin1StringView("fields")).toObject();
-    const QJsonArray contents = fields.value(QLatin1StringView("args")).toArray();
+    const QString collection = object["collection"_L1].toString();
+    const QJsonObject fields = object.value("fields"_L1).toObject();
+    const QJsonArray contents = fields.value("args"_L1).toArray();
 
-    if (collection == QLatin1StringView("stream-room-messages")) {
+    if (collection == "stream-room-messages"_L1) {
         qDebug() << " RocketChatBackend::slotChanged stream-room-messages " << contents;
         processIncomingMessages(contents, false);
-    } else if (collection == QLatin1StringView("users")) {
+    } else if (collection == "users"_L1) {
         if (mRocketChatAccount->ruqolaLogger()) {
             QJsonDocument d;
             d.setObject(object);
@@ -504,7 +506,7 @@ void RocketChatBackend::slotChanged(const QJsonObject &object)
         } else {
             qCDebug(RUQOLA_LOG) << "USER CHANGED" << object;
         }
-    } else if (collection == QLatin1StringView("rooms")) {
+    } else if (collection == "rooms"_L1) {
         if (mRocketChatAccount->ruqolaLogger()) {
             QJsonDocument d;
             d.setObject(object);
@@ -512,12 +514,12 @@ void RocketChatBackend::slotChanged(const QJsonObject &object)
         } else {
             qCDebug(RUQOLA_LOG) << "ROOMS CHANGED: " << object;
         }
-    } else if (collection == QLatin1StringView("stream-notify-user")) {
-        const QString eventname = fields.value(QLatin1StringView("eventName")).toString();
+    } else if (collection == "stream-notify-user"_L1) {
+        const QString eventname = fields.value("eventName"_L1).toString();
         qCDebug(RUQOLA_LOG) << " EVENT " << eventname << "account name: " << mRocketChatAccount->accountName() << " contents " << contents
-                            << fields.value(QLatin1StringView("args")).toArray().toVariantList();
+                            << fields.value("args"_L1).toArray().toVariantList();
 
-        if (eventname.endsWith(QLatin1StringView("/subscriptions-changed"))) {
+        if (eventname.endsWith("/subscriptions-changed"_L1)) {
             RoomModel *model = mRocketChatAccount->roomModel();
             model->updateSubscription(contents);
             if (mRocketChatAccount->ruqolaLogger()) {
@@ -527,20 +529,20 @@ void RocketChatBackend::slotChanged(const QJsonObject &object)
             } else {
                 qCDebug(RUQOLA_LOG) << "stream-notify-user: subscriptions-changed " << object;
             }
-        } else if (eventname.endsWith(QLatin1StringView("/rooms-changed"))) {
+        } else if (eventname.endsWith("/rooms-changed"_L1)) {
             RoomModel *model = mRocketChatAccount->roomModel();
-            // qDebug() << " EVENT " << eventname << " contents " << contents << fields.value(QLatin1StringView("args")).toArray().toVariantList();
+            // qDebug() << " EVENT " << eventname << " contents " << contents << fields.value("args"_L1).toArray().toVariantList();
             const QString actionName = contents[0].toString();
-            if (actionName == QLatin1StringView("updated")) {
+            if (actionName == "updated"_L1) {
                 qCDebug(RUQOLA_LOG) << " Update room " << contents;
                 const QJsonObject roomData = contents[1].toObject();
                 model->updateRoom(roomData);
                 mRocketChatAccount->updateUserInRoom(roomData);
-            } else if (actionName == QLatin1StringView("inserted")) {
+            } else if (actionName == "inserted"_L1) {
                 qCDebug(RUQOLA_LOG) << "****************************************** insert new Room !!!!!" << contents;
                 const QJsonObject roomData = contents[1].toObject();
                 model->insertRoom(roomData);
-            } else if (actionName == QLatin1StringView("removed")) {
+            } else if (actionName == "removed"_L1) {
                 qCDebug(RUQOLA_LOG) << "Remove channel" << contents;
                 const QJsonObject roomData = contents[1].toObject();
                 // TODO use rid
@@ -553,7 +555,7 @@ void RocketChatBackend::slotChanged(const QJsonObject &object)
                 d.setObject(object);
                 mRocketChatAccount->ruqolaLogger()->dataReceived(QByteArrayLiteral("stream-notify-user: Room Changed:") + d.toJson());
             }
-        } else if (eventname.endsWith(QLatin1StringView("/notification"))) {
+        } else if (eventname.endsWith("/notification"_L1)) {
             if (mRocketChatAccount->ruqolaLogger()) {
                 QJsonDocument d;
                 d.setObject(object);
@@ -562,7 +564,7 @@ void RocketChatBackend::slotChanged(const QJsonObject &object)
                 qCDebug(RUQOLA_UNKNOWN_COLLECTIONTYPE_LOG) << "NOTIFICATION: " << object;
             }
             mRocketChatAccount->sendNotification(contents);
-        } else if (eventname.endsWith(QLatin1StringView("/webrtc"))) {
+        } else if (eventname.endsWith("/webrtc"_L1)) {
             if (mRocketChatAccount->ruqolaLogger()) {
                 QJsonDocument d;
                 d.setObject(object);
@@ -571,7 +573,7 @@ void RocketChatBackend::slotChanged(const QJsonObject &object)
                 qCDebug(RUQOLA_LOG) << "WEBRTC CHANGED: " << object;
             }
             qCWarning(RUQOLA_LOG) << "stream-notify-user : WEBRTC ? " << eventname << " contents " << contents;
-        } else if (eventname.endsWith(QLatin1StringView("/otr"))) {
+        } else if (eventname.endsWith("/otr"_L1)) {
             if (mRocketChatAccount->ruqolaLogger()) {
                 QJsonDocument d;
                 d.setObject(object);
@@ -581,7 +583,7 @@ void RocketChatBackend::slotChanged(const QJsonObject &object)
             }
             mRocketChatAccount->parseOtr(contents);
             qCDebug(RUQOLA_UNKNOWN_COLLECTIONTYPE_LOG) << "stream-notify-user : OTR ? " << eventname << " contents " << contents;
-        } else if (eventname.endsWith(QLatin1StringView("/message"))) {
+        } else if (eventname.endsWith("/message"_L1)) {
             if (mRocketChatAccount->ruqolaLogger()) {
                 QJsonDocument d;
                 d.setObject(object);
@@ -593,7 +595,7 @@ void RocketChatBackend::slotChanged(const QJsonObject &object)
             mRocketChatAccount->addMessage(roomData);
             qCDebug(RUQOLA_LOG) << "stream-notify-user : Message  " << eventname << " contents " << contents;
             qDebug() << "stream-notify-user : Message  " << eventname << " contents " << contents;
-        } else if (eventname.endsWith(QLatin1StringView("/userData"))) {
+        } else if (eventname.endsWith("/userData"_L1)) {
             if (mRocketChatAccount->ruqolaLogger()) {
                 QJsonDocument d;
                 d.setObject(object);
@@ -605,7 +607,7 @@ void RocketChatBackend::slotChanged(const QJsonObject &object)
             // TODO update avatar
             qCDebug(RUQOLA_LOG) << "stream-notify-user : message event " << eventname << " contents " << contents;
 
-        } else if (eventname.endsWith(QLatin1StringView("/video-conference"))) {
+        } else if (eventname.endsWith("/video-conference"_L1)) {
             qDebug() << " *******************************************************************" << eventname << " contents " << contents;
             if (mRocketChatAccount->ruqolaLogger()) {
                 QJsonDocument d;
@@ -626,12 +628,12 @@ void RocketChatBackend::slotChanged(const QJsonObject &object)
             }
             qCDebug(RUQOLA_LOG) << "stream-notify-user : message event " << eventname << " contents " << contents;
         }
-    } else if (collection == QLatin1StringView("stream-notify-room")) {
+    } else if (collection == "stream-notify-room"_L1) {
         qCDebug(RUQOLA_LOG) << " stream-notify-room " << collection << " object " << object;
-        const QString eventname = fields.value(QLatin1StringView("eventName")).toString();
-        qCDebug(RUQOLA_LOG) << " EVENT " << eventname << " contents " << contents << fields.value(QLatin1StringView("args")).toArray().toVariantList();
+        const QString eventname = fields.value("eventName"_L1).toString();
+        qCDebug(RUQOLA_LOG) << " EVENT " << eventname << " contents " << contents << fields.value("args"_L1).toArray().toVariantList();
 
-        if (eventname.endsWith(QLatin1StringView("/deleteMessage"))) {
+        if (eventname.endsWith("/deleteMessage"_L1)) {
             // qDebug() << " deleteMessage :" << object;
             if (mRocketChatAccount->ruqolaLogger()) {
                 QJsonDocument d;
@@ -646,7 +648,7 @@ void RocketChatBackend::slotChanged(const QJsonObject &object)
             roomId.remove(QStringLiteral("/deleteMessage"));
             MessagesModel *messageModel = mRocketChatAccount->messageModelForRoom(roomId.toLatin1());
             if (messageModel) {
-                const QByteArray messageId = contents.at(0).toObject()[QLatin1StringView("_id")].toString().toLatin1();
+                const QByteArray messageId = contents.at(0).toObject()["_id"_L1].toString().toLatin1();
                 messageModel->deleteMessage(messageId);
                 Room *room = mRocketChatAccount->room(roomId.toLatin1());
                 if (room) {
@@ -658,7 +660,7 @@ void RocketChatBackend::slotChanged(const QJsonObject &object)
             } else {
                 qCWarning(RUQOLA_MESSAGE_LOG) << " MessageModel is empty for :" << roomId << " It's a bug for sure.";
             }
-        } else if (eventname.endsWith(QLatin1StringView("/user-activity"))) {
+        } else if (eventname.endsWith("/user-activity"_L1)) {
             if (mRocketChatAccount->ruqolaLogger()) {
                 QJsonDocument d;
                 d.setObject(object);
@@ -676,7 +678,7 @@ void RocketChatBackend::slotChanged(const QJsonObject &object)
                 const bool status = contents.toVariantList().at(1).toBool();
                 mRocketChatAccount->receiveTypingNotificationManager()->insertTypingNotification(roomId.toLatin1(), typingUserName, status);
             }
-        } else if (eventname.endsWith(QLatin1StringView("/deleteMessageBulk"))) {
+        } else if (eventname.endsWith("/deleteMessageBulk"_L1)) {
             if (mRocketChatAccount->ruqolaLogger()) {
                 QJsonDocument d;
                 d.setObject(object);
@@ -698,50 +700,50 @@ void RocketChatBackend::slotChanged(const QJsonObject &object)
                 qCDebug(RUQOLA_UNKNOWN_COLLECTIONTYPE_LOG) << "stream-notify-room:  Unknown event ? " << eventname;
             }
         }
-    } else if (collection == QLatin1StringView("stream-notify-logged")) {
-        const QString eventname = fields.value(QLatin1StringView("eventName")).toString();
-        qCDebug(RUQOLA_LOG) << " EVENT " << eventname << " contents " << contents << fields.value(QLatin1StringView("args")).toArray().toVariantList();
-        if (eventname == QLatin1StringView("roles-change")) {
+    } else if (collection == "stream-notify-logged"_L1) {
+        const QString eventname = fields.value("eventName"_L1).toString();
+        qCDebug(RUQOLA_LOG) << " EVENT " << eventname << " contents " << contents << fields.value("args"_L1).toArray().toVariantList();
+        if (eventname == "roles-change"_L1) {
             mRocketChatAccount->rolesChanged(contents);
-        } else if (eventname == QLatin1StringView("updateAvatar")) {
+        } else if (eventname == "updateAvatar"_L1) {
             mRocketChatAccount->avatarChanged(contents);
-        } else if (eventname == QLatin1StringView("updateEmojiCustom")) {
+        } else if (eventname == "updateEmojiCustom"_L1) {
             mRocketChatAccount->addUpdateEmojiCustomList(contents);
-        } else if (eventname == QLatin1StringView("Users:NameChanged")) {
+        } else if (eventname == "Users:NameChanged"_L1) {
             mRocketChatAccount->setNameChanged(contents);
-        } else if (eventname == QLatin1StringView("Users:Deleted")) {
+        } else if (eventname == "Users:Deleted"_L1) {
             mRocketChatAccount->deleteUser(contents);
-        } else if (eventname == QLatin1StringView("deleteCustomUserStatus")) {
+        } else if (eventname == "deleteCustomUserStatus"_L1) {
             mRocketChatAccount->deleteCustomUserStatus(contents);
-        } else if (eventname == QLatin1StringView("updateCustomUserStatus")) {
+        } else if (eventname == "updateCustomUserStatus"_L1) {
             mRocketChatAccount->updateCustomUserStatus(contents);
-        } else if (eventname == QLatin1StringView("user-status")) {
+        } else if (eventname == "user-status"_L1) {
             mRocketChatAccount->setUserStatusChanged(contents);
-        } else if (eventname == QLatin1StringView("deleteEmojiCustom")) {
+        } else if (eventname == "deleteEmojiCustom"_L1) {
             mRocketChatAccount->deleteEmojiCustom(contents);
-        } else if (eventname == QLatin1StringView("permissions-changed")) {
+        } else if (eventname == "permissions-changed"_L1) {
             mRocketChatAccount->permissionUpdated(contents);
-        } else if (eventname == QLatin1StringView("private-settings-changed")) {
+        } else if (eventname == "private-settings-changed"_L1) {
             mRocketChatAccount->privateSettingsUpdated(contents);
         } else {
             qWarning() << "stream-notify-logged not supported " << fields;
         }
-    } else if (collection == QLatin1StringView("stream-notify-all")) {
-        const QString eventname = fields.value(QLatin1StringView("eventName")).toString();
-        if (eventname == QLatin1StringView("deleteCustomSound")) {
+    } else if (collection == "stream-notify-all"_L1) {
+        const QString eventname = fields.value("eventName"_L1).toString();
+        if (eventname == "deleteCustomSound"_L1) {
             mRocketChatAccount->deleteCustomSound(contents);
-        } else if (eventname == QLatin1StringView("updateCustomSound")) {
+        } else if (eventname == "updateCustomSound"_L1) {
             mRocketChatAccount->updateCustomSound(contents);
         } else {
             qDebug() << " NEED TO IMPLEMENT stream-notify-all " << object;
         }
         //{"collection":"stream-notify-all","fields":{"args":[{"soundData":{"_id":"LmShBQiqaCJDbgduR","_updatedAt":{"$date":1603350386481},"extension":"mp3","name":"ss"}}],"eventName":"deleteCustomSound"},"id":"id","msg":"changed"}
-    } else if (collection == QLatin1StringView("stream-stdout")) {
-        // const QString eventname = fields.value(QLatin1StringView("eventName")).toString();
+    } else if (collection == "stream-stdout"_L1) {
+        // const QString eventname = fields.value("eventName"_L1).toString();
         mRocketChatAccount->addStdoutInfo(contents);
-    } else if (collection == QLatin1StringView("stream-roles")) {
-        const QString eventname = fields.value(QLatin1StringView("eventName")).toString();
-        if (eventname == QLatin1StringView("roles")) {
+    } else if (collection == "stream-roles"_L1) {
+        const QString eventname = fields.value("eventName"_L1).toString();
+        if (eventname == "roles"_L1) {
             mRocketChatAccount->updateRoles(contents);
         }
     } else {

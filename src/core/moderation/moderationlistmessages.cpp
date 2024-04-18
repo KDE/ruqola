@@ -4,6 +4,8 @@
    SPDX-License-Identifier: LGPL-2.0-or-later
 */
 #include "moderationlistmessages.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "moderationmessage.h"
 #include "ruqola_debug.h"
 
@@ -21,7 +23,7 @@ void ModerationListMessages::parseMessagesList(const QJsonObject &messagesObj, c
             Message m;
             ModerationMessage moderationMessage;
             moderationMessage.parse(messageModerationObject);
-            m.parseMessage(messageModerationObject[QLatin1StringView("message")].toObject(), true, nullptr);
+            m.parseMessage(messageModerationObject["message"_L1].toObject(), true, nullptr);
             m.setModerationMessage(moderationMessage);
             mListMessages.append(std::move(m));
         } else {

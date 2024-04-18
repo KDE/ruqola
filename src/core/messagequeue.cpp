@@ -7,6 +7,8 @@
  */
 
 #include "messagequeue.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "config-ruqola.h"
 #include "ddpapi/ddpclient.h"
 #include "rocketchataccount.h"
@@ -47,8 +49,8 @@ QPair<QString, QJsonDocument> MessageQueue::fromJson(const QJsonObject &object)
 {
     QPair<QString, QJsonDocument> pair;
 
-    pair.first = object[QLatin1StringView("method")].toString();
-    QJsonArray arr = object[QLatin1StringView("params")].toArray();
+    pair.first = object["method"_L1].toString();
+    QJsonArray arr = object["params"_L1].toArray();
     pair.second = QJsonDocument(arr);
     return pair;
 }
@@ -57,7 +59,7 @@ QByteArray MessageQueue::serialize(const QPair<QString, QJsonDocument> &pair)
 {
     QJsonObject o;
 
-    o[QLatin1StringView("method")] = QJsonValue(pair.first);
+    o["method"_L1] = QJsonValue(pair.first);
 
     QJsonArray arr;
     if (pair.second.isArray()) {
@@ -66,7 +68,7 @@ QByteArray MessageQueue::serialize(const QPair<QString, QJsonDocument> &pair)
         arr.append(pair.second.object());
     }
 
-    o[QLatin1StringView("params")] = QJsonValue(arr);
+    o["params"_L1] = QJsonValue(arr);
 
     return QCborValue::fromJsonValue(o).toCbor();
 }

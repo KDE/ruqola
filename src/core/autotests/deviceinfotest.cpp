@@ -7,7 +7,7 @@
 #include "deviceinfotest.h"
 #include "managedevices/deviceinfo.h"
 #include "ruqola_autotest_helper.h"
-
+using namespace Qt::Literals::StringLiterals;
 QTEST_GUILESS_MAIN(DeviceInfoTest)
 DeviceInfoTest::DeviceInfoTest(QObject *parent)
     : QObject{parent}
@@ -31,7 +31,7 @@ void DeviceInfoTest::shouldDeviceInfo()
 {
     QFETCH(QString, name);
     QFETCH(DeviceInfo, deviceInfo);
-    const QString originalJsonFile = QLatin1StringView(RUQOLA_DATA_DIR) + QLatin1StringView("/deviceinfo/") + name + QLatin1StringView(".json");
+    const QString originalJsonFile = QLatin1StringView(RUQOLA_DATA_DIR) + "/deviceinfo/"_L1 + name + ".json"_L1;
     const QJsonObject obj = AutoTestHelper::loadJsonObject(originalJsonFile);
 
     DeviceInfo result;

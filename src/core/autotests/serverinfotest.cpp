@@ -7,7 +7,7 @@
 #include "serverinfotest.h"
 #include "ruqola_autotest_helper.h"
 #include "serverinfo.h"
-
+using namespace Qt::Literals::StringLiterals;
 QTEST_GUILESS_MAIN(ServerInfoTest)
 
 ServerInfoTest::ServerInfoTest(QObject *parent)
@@ -61,7 +61,7 @@ void ServerInfoTest::shouldLoadServerInfo()
 {
     QFETCH(QString, fileName);
     QFETCH(ServerInfo, serverInfo);
-    const QString originalJsonFile = QLatin1StringView(RUQOLA_DATA_DIR) + QLatin1StringView("/serverinfo/") + fileName + QLatin1StringView(".json");
+    const QString originalJsonFile = QLatin1StringView(RUQOLA_DATA_DIR) + "/serverinfo/"_L1 + fileName + ".json"_L1;
     const QJsonObject obj = AutoTestHelper::loadJsonObject(originalJsonFile);
 
     ServerInfo r;

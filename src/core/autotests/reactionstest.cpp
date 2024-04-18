@@ -9,7 +9,7 @@
 #include "ruqola_autotest_helper.h"
 #include <QDebug>
 #include <QJsonObject>
-
+using namespace Qt::Literals::StringLiterals;
 QTEST_GUILESS_MAIN(ReactionsTest)
 
 ReactionsTest::ReactionsTest(QObject *parent)
@@ -53,7 +53,7 @@ void ReactionsTest::shouldParseReactions()
 {
     QFETCH(QString, name);
     QFETCH(Reactions *, expectedReactions);
-    const QString originalJsonFile = QLatin1StringView(RUQOLA_DATA_DIR) + QLatin1StringView("/json/") + name + QLatin1StringView(".json");
+    const QString originalJsonFile = QLatin1StringView(RUQOLA_DATA_DIR) + "/json/"_L1 + name + ".json"_L1;
     const QJsonObject obj = AutoTestHelper::loadJsonObject(originalJsonFile);
     Reactions originalReactions;
     originalReactions.parseReactions(obj);

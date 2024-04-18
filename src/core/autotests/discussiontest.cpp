@@ -8,7 +8,7 @@
 #include "discussions/discussion.h"
 #include "ruqola_autotest_helper.h"
 #include <QJsonObject>
-
+using namespace Qt::Literals::StringLiterals;
 QTEST_GUILESS_MAIN(DiscussionTest)
 DiscussionTest::DiscussionTest(QObject *parent)
     : QObject(parent)
@@ -48,7 +48,7 @@ void DiscussionTest::shouldLoadDiscussion()
 {
     QFETCH(QString, name);
     QFETCH(Discussion, discussion);
-    const QString originalJsonFile = QLatin1StringView(RUQOLA_DATA_DIR) + QLatin1StringView("/discussion/") + name + QLatin1StringView(".json");
+    const QString originalJsonFile = QLatin1StringView(RUQOLA_DATA_DIR) + "/discussion/"_L1 + name + ".json"_L1;
     const QJsonObject obj = AutoTestHelper::loadJsonObject(originalJsonFile);
     Discussion m;
     m.parseDiscussion(obj);

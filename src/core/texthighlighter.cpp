@@ -5,6 +5,7 @@
 */
 
 #include "texthighlighter.h"
+using namespace Qt::Literals::StringLiterals;
 
 #include <KSyntaxHighlighting/Format>
 #include <KSyntaxHighlighting/State>
@@ -35,7 +36,7 @@ void TextHighlighter::highlight(const QString &str)
         mCurrentLine = str.mid(lineStart);
         state = highlightLine(mCurrentLine, state);
     }
-    *mStream << QLatin1StringView("</code>");
+    *mStream << "</code>"_L1;
 }
 
 void TextHighlighter::applyFormat(int offset, int length, const KSyntaxHighlighting::Format &format)
@@ -63,7 +64,7 @@ void TextHighlighter::applyFormat(int offset, int length, const KSyntaxHighlight
         *mStream << QStringLiteral("\">");
     }
 
-    *mStream << mCurrentLine.mid(offset, length).toHtmlEscaped().replace(QLatin1Char(' '), QLatin1StringView("&nbsp;"));
+    *mStream << mCurrentLine.mid(offset, length).toHtmlEscaped().replace(QLatin1Char(' '), "&nbsp;"_L1);
 
     if (!format.isDefaultTextStyle(theme())) {
         *mStream << QStringLiteral("</span>");

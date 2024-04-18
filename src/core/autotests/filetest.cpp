@@ -7,7 +7,7 @@
 #include "filetest.h"
 #include "attachments/file.h"
 #include "ruqola_autotest_helper.h"
-
+using namespace Qt::Literals::StringLiterals;
 QTEST_GUILESS_MAIN(FileTest)
 
 FileTest::FileTest(QObject *parent)
@@ -127,9 +127,9 @@ void FileTest::shouldParseFile()
     QFETCH(bool, usingRestApi);
     QString originalJsonFile;
     if (usingRestApi) {
-        originalJsonFile = QLatin1StringView(RUQOLA_DATA_DIR) + QLatin1StringView("/json/restapi/") + fileName + QLatin1StringView(".json");
+        originalJsonFile = QLatin1StringView(RUQOLA_DATA_DIR) + "/json/restapi/"_L1 + fileName + ".json"_L1;
     } else {
-        originalJsonFile = QLatin1StringView(RUQOLA_DATA_DIR) + QLatin1StringView("/json/") + fileName + QLatin1StringView(".json");
+        originalJsonFile = QLatin1StringView(RUQOLA_DATA_DIR) + "/json/"_L1 + fileName + ".json"_L1;
     }
     const QJsonObject fields = AutoTestHelper::loadJsonObject(originalJsonFile);
 

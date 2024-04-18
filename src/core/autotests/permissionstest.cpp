@@ -34,7 +34,7 @@ void PermissionsTest::shouldLoadPermissions()
 {
     QFETCH(QString, name);
     QFETCH(int, permissionsCount);
-    const QString originalJsonFile = QLatin1StringView(RUQOLA_DATA_DIR) + QLatin1StringView("/permissions/") + name + QLatin1StringView(".json");
+    const QString originalJsonFile = QLatin1StringView(RUQOLA_DATA_DIR) + "/permissions/"_L1 + name + ".json"_L1;
     const QJsonObject obj = AutoTestHelper::loadJsonObject(originalJsonFile);
 
     Permissions r;

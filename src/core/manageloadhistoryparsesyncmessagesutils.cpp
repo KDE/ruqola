@@ -5,6 +5,8 @@
 */
 
 #include "manageloadhistoryparsesyncmessagesutils.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "rocketchataccount.h"
 
 ManageLoadHistoryParseSyncMessagesUtils::ManageLoadHistoryParseSyncMessagesUtils(RocketChatAccount *account)
@@ -38,15 +40,15 @@ void ManageLoadHistoryParseSyncMessagesUtils::parse(const QJsonObject &obj)
 {
     mDeletedMessages.clear();
     mUpdatesMessages.clear();
-    const QJsonObject result = obj[QLatin1StringView("result")].toObject();
-    const QJsonArray deleteArray = result[QLatin1StringView("deleted")].toArray();
+    const QJsonObject result = obj["result"_L1].toObject();
+    const QJsonArray deleteArray = result["deleted"_L1].toArray();
     for (int i = 0, total = deleteArray.size(); i < total; ++i) {
         const QJsonObject o = deleteArray.at(i).toObject();
-        mDeletedMessages.append(o[QLatin1StringView("_id")].toString().toLatin1());
+        mDeletedMessages.append(o["_id"_L1].toString().toLatin1());
     }
 
     QList<Message> updatedMessages;
-    const QJsonArray updatedArray = result[QLatin1StringView("updated")].toArray();
+    const QJsonArray updatedArray = result["updated"_L1].toArray();
     for (int i = 0, total = updatedArray.size(); i < total; ++i) {
         const QJsonObject o = updatedArray.at(i).toObject();
         Message m;
