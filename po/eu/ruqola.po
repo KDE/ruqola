@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-17 00:38+0000\n"
+"POT-Creation-Date: 2024-04-18 00:38+0000\n"
 "PO-Revision-Date: 2024-03-05 20:19+0100\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
@@ -1360,12 +1360,12 @@ msgstr "<strong>%1</strong> tekleatzen ari da..."
 msgid "<strong>%1</strong> are typing..."
 msgstr "<strong>%1</strong> idaten ari dira..."
 
-#: core/rocketchataccount.cpp:2894
+#: core/rocketchataccount.cpp:2905
 #, kde-format
 msgid "Export Messages"
 msgstr "Esportatu mezuak"
 
-#: core/rocketchataccount.cpp:2895
+#: core/rocketchataccount.cpp:2906
 #, kde-format
 msgid "Your email has been queued for sending."
 msgstr "Zure e-posta bidaltzeko ilaran ipini da."
@@ -1568,284 +1568,284 @@ msgid "<qt>You can find the new request at:<br /><a href='%1'>%1</a> </qt>"
 msgstr ""
 "<qt>Eskaera berria hemen aurki dezakezu:<br /><a href='%1'>%1</a> </qt>"
 
-#: rocketchatrestapi-qt/autotranslate/getsupportedlanguagesjob.cpp:87
+#: rocketchatrestapi-qt/autotranslate/getsupportedlanguagesjob.cpp:89
 #, kde-format
 msgid "Invalid Parameters"
 msgstr "Parametro baliogabeak"
 
-#: rocketchatrestapi-qt/channels/channeljoinjob.cpp:106
+#: rocketchatrestapi-qt/channels/channeljoinjob.cpp:107
 #, kde-format
 msgid "The required '%1' param provided does not match any channel"
 msgstr "Emandako, beharrezko '%1' parametroa, ez dator bat inongo kanalekin"
 
-#: rocketchatrestapi-qt/channels/channeljoinjob.cpp:108
+#: rocketchatrestapi-qt/channels/channeljoinjob.cpp:109
 #, kde-format
 msgid "The room required a password."
 msgstr "Gelak pasahitz bat eskatu du."
 
-#: rocketchatrestapi-qt/channels/channelmembersjob.cpp:48
+#: rocketchatrestapi-qt/channels/channelmembersjob.cpp:49
 #, kde-format
 msgid "Get Members not authorized in this room"
 msgstr "Lortu gela honetan baimenik ez duten kideak"
 
-#: rocketchatrestapi-qt/channels/channelopenjob.cpp:77
+#: rocketchatrestapi-qt/channels/channelopenjob.cpp:78
 #, kde-format
 msgid "The required channel is not found."
 msgstr "Eskatutako kanala ez da aurkitu."
 
-#: rocketchatrestapi-qt/channels/channelremovemoderatorjob.cpp:100
+#: rocketchatrestapi-qt/channels/channelremovemoderatorjob.cpp:101
 #, kde-format
 msgid "User is not a moderator."
 msgstr "Erabiltzaile ez de moderatzailea"
 
-#: rocketchatrestapi-qt/channels/channelremoveownerjob.cpp:100
+#: rocketchatrestapi-qt/channels/channelremoveownerjob.cpp:101
 #, kde-format
 msgid "User is not an owner."
 msgstr "Erabiltzailea ez da jabea."
 
-#: rocketchatrestapi-qt/channels/createchanneljob.cpp:60
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:260
+#: rocketchatrestapi-qt/channels/createchanneljob.cpp:61
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:262
 #, kde-format
 msgid "A channel with name '%1' exists"
 msgstr "'%1' izeneko kanal bat dago"
 
-#: rocketchatrestapi-qt/channels/createchanneljob.cpp:62
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:340
-#: rocketchatrestapi-qt/rooms/saveroomsettingsjob.cpp:62
+#: rocketchatrestapi-qt/channels/createchanneljob.cpp:63
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:342
+#: rocketchatrestapi-qt/rooms/saveroomsettingsjob.cpp:64
 #, kde-format
 msgid "'%1' is not a valid room name"
 msgstr "'%1' ez da gela-izen balioduna"
 
-#: rocketchatrestapi-qt/channels/getchannelrolesjob.cpp:78
-#: rocketchatrestapi-qt/groups/getgrouprolesjob.cpp:64
+#: rocketchatrestapi-qt/channels/getchannelrolesjob.cpp:80
+#: rocketchatrestapi-qt/groups/getgrouprolesjob.cpp:66
 #, kde-format
 msgid "Extract Roles"
 msgstr "Atera eginkizunak"
 
-#: rocketchatrestapi-qt/chat/deletemessagejob.cpp:114
+#: rocketchatrestapi-qt/chat/deletemessagejob.cpp:116
 #, kde-format
 msgid "Message deletion is not allowed."
 msgstr "Mezuak ezabatzea ez dago baimenduta."
 
-#: rocketchatrestapi-qt/chat/getmessagejob.cpp:101
+#: rocketchatrestapi-qt/chat/getmessagejob.cpp:103
 #, fuzzy, kde-format
 #| msgid "File sharing not allowed in direct messages"
 msgid "Not allowed to get message %1"
 msgstr "Fitxategi partekatzea ez dago baimenduta zuzeneko mezuetan"
 
-#: rocketchatrestapi-qt/chat/getmessagejob.cpp:103
+#: rocketchatrestapi-qt/chat/getmessagejob.cpp:105
 #, kde-format
 msgid "Not allowed to get message %2 in room %1"
 msgstr ""
 
-#: rocketchatrestapi-qt/chat/getthreadmessagesjob.cpp:91
+#: rocketchatrestapi-qt/chat/getthreadmessagesjob.cpp:93
 #, kde-format
 msgid "Invalid message: '%1'"
 msgstr "Mezu baliogabea: '%1'"
 
-#: rocketchatrestapi-qt/chat/postmessagejob.cpp:122
+#: rocketchatrestapi-qt/chat/postmessagejob.cpp:124
 #, kde-format
 msgid "This room is blocked"
 msgstr "Gela hau blokeatuta dago"
 
-#: rocketchatrestapi-qt/chat/postmessagejob.cpp:124
+#: rocketchatrestapi-qt/chat/postmessagejob.cpp:126
 #, kde-format
 msgid "You have been muted and cannot speak in this room"
 msgstr "Isilarazi zaituzte eta ezin duzu gela honetan hitz egin"
 
-#: rocketchatrestapi-qt/chat/postmessagejob.cpp:126
-#: rocketchatrestapi-qt/chat/postmessagejob.cpp:134
+#: rocketchatrestapi-qt/chat/postmessagejob.cpp:128
+#: rocketchatrestapi-qt/chat/postmessagejob.cpp:136
 #, kde-format
 msgid "Invalid channel"
 msgstr "Kanal baliogabea"
 
-#: rocketchatrestapi-qt/chat/reactonmessagejob.cpp:122
+#: rocketchatrestapi-qt/chat/reactonmessagejob.cpp:124
 #, kde-format
 msgid "Invalid emoji provided."
 msgstr "Emoji baliogabea eman da."
 
-#: rocketchatrestapi-qt/emoji/emojicustomcreatejob.cpp:37
-#: rocketchatrestapi-qt/emoji/emojicustomupdatejob.cpp:38
-#: rocketchatrestapi-qt/uploadfilejob.cpp:54
-#: rocketchatrestapi-qt/users/setavatarjob.cpp:41
+#: rocketchatrestapi-qt/emoji/emojicustomcreatejob.cpp:38
+#: rocketchatrestapi-qt/emoji/emojicustomupdatejob.cpp:39
+#: rocketchatrestapi-qt/uploadfilejob.cpp:56
+#: rocketchatrestapi-qt/users/setavatarjob.cpp:43
 #, kde-format
 msgid "File not found '%1'"
 msgstr "Fitxategia ez da aurkitu '%1'"
 
-#: rocketchatrestapi-qt/emoji/emojicustomcreatejob.cpp:139
+#: rocketchatrestapi-qt/emoji/emojicustomcreatejob.cpp:140
 #, kde-format
 msgid "The custom emoji or one of its aliases is already in use."
 msgstr ""
 "Neurrira ipinitako emojia edo haren ezizenetako bat dagoneko erabilita dago."
 
-#: rocketchatrestapi-qt/groups/groupremoveownerjob.cpp:45
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:396
+#: rocketchatrestapi-qt/groups/groupremoveownerjob.cpp:46
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:398
 #, kde-format
 msgid ""
 "This is the last owner. Please set a new owner before removing this one."
 msgstr "Hau da azken jabea. Mesedez, ezarri jabe berri bat hau kendu aurretik."
 
-#: rocketchatrestapi-qt/invite/findorcreateinvitejob.cpp:136
+#: rocketchatrestapi-qt/invite/findorcreateinvitejob.cpp:138
 #, kde-format
 msgid "Generate link is not authorized in this channel."
 msgstr "Esteka sortzea ez dago baimenduta kanal honetan."
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:208
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:210
 #, kde-format
 msgid "Unauthorized"
 msgstr "Baimenik gabe"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:226
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:228
 #, kde-format
 msgid "%1:%2"
 msgstr "%1:%2"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:234
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:236
 #, kde-format
 msgid "'%1' is not allowed"
 msgstr "'%1' ez dago baimenduta"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:236
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:238
 #, kde-format
 msgid "Application not found"
 msgstr "Aplikazioa ez da aurkitu"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:239
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:241
 #, kde-format
 msgid "There's an archived channel with name '%1'"
 msgstr "'%1' izeneko artxibatutako kanal bat dago"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:241
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:243
 #, kde-format
 msgid "Can't invite user to direct rooms"
 msgstr "Ezin erabiltzaile bat zuzeneko geletara gonbidatu"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:243
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:245
 #, kde-format
 msgid "The channel default setting is the same as what it would be changed to."
 msgstr "Kanalaren ezarpen lehenetsia, aldaketarekin izango zenaren berdina da."
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:245
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:247
 #, kde-format
 msgid "The bodyParam 'default' is required"
 msgstr "«bodyParam 'default' beharrezkoa da"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:247
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:249
 #, kde-format
 msgid "Could not change email"
 msgstr "Ezin izan du e-posta aldatu"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:249
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:251
 #, kde-format
 msgid "Could not change name"
 msgstr "Ezin izan du izena aldatu"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:251
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:253
 #, kde-format
 msgid "Could not change username"
 msgstr "Ezin izan du erabiltzaile-izena aldatu"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:253
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:255
 #, kde-format
 msgid "Cannot delete a protected role"
 msgstr "Ezin da ezabatu babestutako eginkizun bat"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:255
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:257
 #, kde-format
 msgid "Department not found"
 msgstr "Departamentua ez da aurkitu"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:257
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:259
 #, kde-format
 msgid "File sharing not allowed in direct messages"
 msgstr "Fitxategi partekatzea ez dago baimenduta zuzeneko mezuetan"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:262
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:264
 #, kde-format
 msgid "Editing permissions is not allowed"
 msgstr "Baimenak editatzea ez dago baimenduta"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:264
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:266
 #, kde-format
 msgid "The email domain is blacklisted"
 msgstr "E-postaren domeinua zerrenda beltzean dago"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:267
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:269
 #, kde-format
 msgid "Error trying to send email: %1"
 msgstr "Errorea e-posta bidaltzen saiatzean: %1"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:270
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:272
 #, kde-format
 msgid "'%1' is already in use :("
 msgstr "%1 dagoeneko erabiltzen ari dira :("
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:272
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:274
 #, kde-format
 msgid "File is too large"
 msgstr "Fitxategia luzeegia da"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:274
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:276
 #, kde-format
 msgid "The importer was not defined correctly, it is missing the Import class."
 msgstr "Inportatzailea ez da zuzen definitu, «Import» klasea falta du."
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:276
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:278
 #, kde-format
 msgid "Failed to extract import file."
 msgstr "Inportatutako fitxategi erauztea huts egin du."
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:278
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:280
 #, kde-format
 msgid "Imported file seems to be empty."
 msgstr "Inportatutako fitxategia hutsik dagoela dirudi."
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:280
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:282
 #, kde-format
 msgid "The file to be imported was not found on the specified path."
 msgstr "Inportatu beharreko fitxategia ez da aurkitu zehaztutako bide-izenean."
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:284
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:286
 #, kde-format
 msgid "%1 is not a valid %2"
 msgstr "%1 ez da %2 balioduna"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:286
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:288
 #, kde-format
 msgid "Invalid action link"
 msgstr "Ekintza esteka baliogabea"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:288
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:290
 #, kde-format
 msgid "Invalid Account"
 msgstr "Kontu baliogabea"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:290
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:292
 #, kde-format
 msgid "Invalid arguments"
 msgstr "Argumentu baliogabeak"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:292
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:294
 #, kde-format
 msgid "Invalid asset"
 msgstr "Aktibo baliogabea"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:294
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:296
 #, kde-format
 msgid "Invalid channel."
 msgstr "Kanal baliogabea."
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:296
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:298
 #, kde-format
 msgid "Invalid channel. Start with @ or #"
 msgstr "Kanal baliogabea. Hasi @ edo # erabiliz"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:298
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:300
 #, kde-format
 msgid "Invalid custom field"
 msgstr "Neurrira ipinitako eremu baliogabea"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:300
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:302
 #, kde-format
 msgid ""
 "Invalid custom field name. Use only letters, numbers, hyphens and "
@@ -1854,184 +1854,184 @@ msgstr ""
 "Neurrira ipinitako eremu baliogabea. Erabili bakarrik letrak, zenbakiak, "
 "marratxoak eta azpimarrak."
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:302
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:304
 #, kde-format
 msgid "Invalid date provided."
 msgstr "Data baliogabea eman da."
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:304
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:306
 #, kde-format
 msgid "Invalid description"
 msgstr "Deskribapen baliogabea"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:306
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:308
 #, kde-format
 msgid "Invalid domain"
 msgstr "Domeinu baliogabea"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:309
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:311
 #, kde-format
 msgid "Invalid email '%1'"
 msgstr "E-posta baliogabea '%1'"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:311
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:313
 #, kde-format
 msgid "Invalid email address"
 msgstr "E-posta helbide baliogabea"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:313
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:315
 #, kde-format
 msgid "Invalid file height"
 msgstr "Fitxategi altuera baliogabea"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:315
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:317
 #, kde-format
 msgid "Invalid file type"
 msgstr "Fitxategi-mota baliogabea"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:317
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:319
 #, kde-format
 msgid "Invalid file width"
 msgstr "Fitxategi-zabalera baliogabea"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:319
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:321
 #, kde-format
 msgid "You informed an invalid FROM address."
 msgstr ""
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:321
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:323
 #, kde-format
 msgid "Invalid integration"
 msgstr ""
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:323
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:325
 #, kde-format
 msgid "Invalid message"
 msgstr "Mezu baliogabea"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:325
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:327
 #, kde-format
 msgid "Invalid method"
 msgstr "Metodo baliogabea"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:327
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:329
 #, kde-format
 msgid "Invalid name"
 msgstr "Izen baliogabea"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:329
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:331
 #, kde-format
 msgid "Invalid password"
 msgstr "Pasahitz baliogabea"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:331
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:333
 #, kde-format
 msgid "Invalid permission"
 msgstr "Baimen baliogabea"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:333
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:335
 #, kde-format
 msgid "Invalid redirectUri"
 msgstr ""
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:335
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:337
 #, kde-format
 msgid "Invalid role"
 msgstr "Eginkizun baliogabea"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:337
-#: rocketchatrestapi-qt/rooms/roomstartdiscussionjob.cpp:159
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:339
+#: rocketchatrestapi-qt/rooms/roomstartdiscussionjob.cpp:161
 #, kde-format
 msgid "Invalid room"
 msgstr "Gela baliogabea"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:343
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:345
 #, kde-format
 msgid "'%1' is not a valid room type."
 msgstr "'%1' ez da gela-mota balioduna."
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:345
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:347
 #, kde-format
 msgid "Invalid settings provided"
 msgstr "Ezarpen baliogabeak eman dira"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:347
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:349
 #, kde-format
 msgid "Invalid subscription"
 msgstr "Harpidetza baliogabea"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:349
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:351
 #, kde-format
 msgid "Invalid token"
 msgstr "Token baliogabea"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:351
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:353
 #, kde-format
 msgid "Invalid triggerWords"
 msgstr ""
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:353
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:355
 #, kde-format
 msgid "Invalid URLs"
 msgstr "URL baliogabeak"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:355
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:357
 #, kde-format
 msgid "Invalid user"
 msgstr "Erabiltzaile baliogabea"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:357
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:359
 #, kde-format
 msgid "Invalid username"
 msgstr "Erabiltzaile-izen baliogabea"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:359
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:361
 #, kde-format
 msgid "The webhook URL responded with a status other than 200"
 msgstr ""
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:361
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:363
 #, kde-format
 msgid "Message deleting is blocked"
 msgstr "Mezu ezabatzea blokeatuta dago"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:363
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:365
 #, kde-format
 msgid "Message editing is blocked"
 msgstr "Mezu editatzea blokeatuta dago"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:365
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:367
 #, kde-format
 msgid "Message size exceeds Message_MaxAllowedSize"
 msgstr "Mezuaren neurriak Message_MaxAllowedSize gainditzen du"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:367
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:369
 #, kde-format
 msgid "You must provide the [unsubscribe] link."
 msgstr "[unsubscribe] esteka eman behar duzu."
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:369
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:371
 #, kde-format
 msgid "There are no tokens for this user"
 msgstr "Ez dago erabiltzaile honen tokenik"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:371
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:373
 #, kde-format
 msgid "Not allowed"
 msgstr ""
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:373
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:375
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:377
 #, kde-format
 msgid "Not authorized"
 msgstr "Baimenik gabe"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:377
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:379
 #, kde-format
 msgid "Password does not meet the server's policy"
 msgstr "Pasahitzak ez du betetzen zerbitzariaren gidalerroa"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:379
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:381
 #, kde-format
 msgid ""
 "Password does not meet the server's policy of maximum length (password too "
@@ -2040,7 +2040,7 @@ msgstr ""
 "Pasahitzak ez du betetzen, gehieneko luzera, zerbitzariaren gidalerroa "
 "(pasahitz luzeegia)"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:381
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:383
 #, kde-format
 msgid ""
 "Password does not meet the server's policy of minimum length (password too "
@@ -2049,7 +2049,7 @@ msgstr ""
 "Pasahitzak ez du betetzen, gutxieneko luzera, zerbitzariaren gidalerroa "
 "(pasahitz laburregia)"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:383
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:385
 #, kde-format
 msgid ""
 "Password does not meet the server's policy of at least one lowercase "
@@ -2058,7 +2058,7 @@ msgstr ""
 "Pasahitzak ez du betetzen, gutxienez karaktere xehe bat, zerbitzariaren "
 "gidalerroa"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:385
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:387
 #, kde-format
 msgid ""
 "Password does not meet the server's policy of at least one numerical "
@@ -2067,7 +2067,7 @@ msgstr ""
 "Pasahitzak ez du betetzen, gutxienez zenbaki karaktere bat, zerbitzariaren "
 "gidalerroa"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:387
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:389
 #, kde-format
 msgid ""
 "Password does not meet the server's policy of at least one special character"
@@ -2075,7 +2075,7 @@ msgstr ""
 "Pasahitzak ez du betetzen, gutxienez karaktere berezi bat, zerbitzariaren "
 "gidalerroa"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:389
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:391
 #, kde-format
 msgid ""
 "Password does not meet the server's policy of at least one uppercase "
@@ -2084,7 +2084,7 @@ msgstr ""
 "Pasahitzak ez du betetzen, gutxienez karaktere larri bat, zerbitzariaren "
 "gidalerroa"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:392
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:394
 #, kde-format
 msgid ""
 "Password does not meet the server's policy of forbidden repeating characters "
@@ -2093,52 +2093,52 @@ msgstr ""
 "Pasahitzak ez du betetzen zerbitzariaren karaktere errepikapen debeku "
 "gidalerroa (karaktere berdin gehiegi dituzu elkarren ondoan)"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:394
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:396
 #, kde-format
 msgid "Push is disabled"
 msgstr ""
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:398
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:400
 #, kde-format
 msgid "Cannot delete role because it's in use"
 msgstr "Ezin da eginkizuna ezabatu erabilita dagoelako"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:400
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:402
 #, kde-format
 msgid "Role name is required"
 msgstr "Eginkizunaren izena beharrezkoa da"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:402
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:404
 #, kde-format
 msgid "Room is not closed"
 msgstr "Gela ez dago itxita"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:405
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:407
 #, kde-format
 msgid "The field '%1' is required."
 msgstr "'%1' eremua beharrezkoa da."
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:407
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:409
 #, kde-format
 msgid "This is not a Livechat room"
 msgstr "Gela hau ez da «Livechat» bat"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:409
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:411
 #, kde-format
 msgid "Personal Access Tokens are currently disabled"
 msgstr "Sarbide pertsonaleko tokenak, egun, ezgaituta daude"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:411
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:413
 #, kde-format
 msgid "A token with this name already exists"
 msgstr "Izen hori duen token bat existitzen da dagoeneko"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:413
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:415
 #, kde-format
 msgid "Token does not exists"
 msgstr "Tokena ez da existitzen"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:416
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:418
 #, kde-format
 msgid ""
 "Error, too many requests. Please slow down. You must wait %1 seconds before "
@@ -2147,17 +2147,17 @@ msgstr ""
 "Errorea, eskaera gehiegi. Mesedez, polikiago. Berriz saiatu aurretik %1 "
 "segundoz itxoin behar duzu."
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:418
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:420
 #, kde-format
 msgid "User has no roles"
 msgstr "Erabiltzaileak ez dauka eginkizunik"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:420
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:422
 #, kde-format
 msgid "User is not activated"
 msgstr "Erabiltzailea ez dago aktibatuta"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:422
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:424
 #, kde-format
 msgid ""
 "The number of users you are trying to invite to #channel_name exceeds the "
@@ -2166,88 +2166,88 @@ msgstr ""
 "#channel_name kanalera gonbidatzen saiatzen ari zaren erabiltzaile kopuruak "
 "administratzaileak ezarritako muga gainditzen du"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:424
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:426
 #, kde-format
 msgid "User is not in this room"
 msgstr "Erabiltzailea ez dago gela honetan"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:426
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:428
 #, kde-format
 msgid "You are not in the room `%s`"
 msgstr "Ez zaude `%s` gelan"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:428
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:430
 #, kde-format
 msgid "User registration is disabled"
 msgstr "Erabiltzaileen izen-ematea ezgaituta dago"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:430
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:432
 #, kde-format
 msgid "User registration is only allowed via Secret URL"
 msgstr "Erabiltzaileen izen-ematea URL sekretu bidez bakarrik baimenduta dago"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:432
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:434
 #, kde-format
 msgid "You are the last owner. Please set new owner before leaving the room."
 msgstr ""
 "Zu zara azken jabea. Mesedez, ezarri jabe berria gelatik alde egin aurretik."
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:434
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:436
 #, kde-format
 msgid "The private group is archived"
 msgstr "Talde pribatua artxibatuta dago"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:436
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:438
 #, kde-format
 msgid "User is already an owner"
 msgstr "Erabiltzailea dagoeneko jabe bat da"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:438
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:440
 #, kde-format
 msgid "User is already a leader"
 msgstr "Erabiltzailea dagoeneko lider bat da"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:440
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:442
 #, kde-format
 msgid "User is already a moderator"
 msgstr "Erabiltzailea dagoeneko moderatzaile bat da"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:442
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:444
 #, kde-format
 msgid "Invalid message id"
 msgstr "Mezu ID baliogabea"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:444
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:446
 #, kde-format
 msgid "User is not a leader"
 msgstr "Erabiltzailea ez da lider bat"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:446
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:448
 #, kde-format
 msgid "App user is not allowed to login"
 msgstr "Aplikazio-erabiltzailea ez dago saio-hasteko baimenduta"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:448
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:450
 #, kde-format
 msgid "Direct Messages can not be archived"
 msgstr "Zuzeneko-mezuak ezin dira artxibatu"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:450
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:452
 #, kde-format
 msgid "Message not found."
 msgstr "Mezua ez da aurkitu."
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:452
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:454
 #, kde-format
 msgid "Two Authentication Password Required"
 msgstr "Bi autentifikazio pasahitz beharrezko dira"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:454
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:456
 #, kde-format
 msgid "Invalid Password"
 msgstr "Pasahitz baliogabea"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:456
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:458
 #, kde-format
 msgid ""
 "The required \\\"roomId\\\" or \\\"roomName\\\" param provided does not "
@@ -2256,77 +2256,77 @@ msgstr ""
 "Emandako beharrezko \\\"roomId\\\" edo \\\"roomName\\\"  parametroa, ez "
 "dator bat inongo kanalekin"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:458
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:460
 #, kde-format
 msgid "A role with this name already exists"
 msgstr "Izen hori duen eginkizun bat jada existitzen da"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:460
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:462
 #, kde-format
 msgid "Message could not be pinned"
 msgstr "Ezin izan da mezua iltzatu"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:462
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:464
 #, kde-format
 msgid "Entered password has been previously used"
 msgstr "Sartutako pasahitza aurrez erabili da"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:464
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:466
 #, kde-format
 msgid "The maximum number of rooms per guest has been reached."
 msgstr "Gonbidatuko gehienezko gela kopurura iritsi da."
 
-#: rocketchatrestapi-qt/role/removeuserfromrolejob.cpp:50
+#: rocketchatrestapi-qt/role/removeuserfromrolejob.cpp:52
 #, kde-format
 msgid "This user is not in this role."
 msgstr "Erabiltzaile hori ez dago eginkizun horretan."
 
-#: rocketchatrestapi-qt/role/rolecreatejob.cpp:97
+#: rocketchatrestapi-qt/role/rolecreatejob.cpp:99
 #, kde-format
 msgid "This is an enterprise feature"
 msgstr "Hori enpresarako ezaugarri bat da"
 
-#: rocketchatrestapi-qt/rooms/roomfavoritejob.cpp:61
+#: rocketchatrestapi-qt/rooms/roomfavoritejob.cpp:63
 #, kde-format
 msgid "Invalid Subscription"
 msgstr "Harpidetza baliogabea"
 
-#: rocketchatrestapi-qt/rooms/saveroomsettingsjob.cpp:67
+#: rocketchatrestapi-qt/rooms/saveroomsettingsjob.cpp:69
 #, kde-format
 msgid "Only groups or direct channels can enable encryption"
 msgstr "Taldeek edo zuzeneko kanalek bakarrik gaitu dezakete enkriptatzea"
 
-#: rocketchatrestapi-qt/rooms/saveroomsettingsjob.cpp:69
+#: rocketchatrestapi-qt/rooms/saveroomsettingsjob.cpp:71
 #, kde-format
 msgid "Room does not have retention policy"
 msgstr ""
 
-#: rocketchatrestapi-qt/subscriptions/markroomasunreadjob.cpp:60
+#: rocketchatrestapi-qt/subscriptions/markroomasunreadjob.cpp:62
 #, kde-format
 msgid "Unread message not authorized."
 msgstr ""
 
-#: rocketchatrestapi-qt/subscriptions/markroomasunreadjob.cpp:62
+#: rocketchatrestapi-qt/subscriptions/markroomasunreadjob.cpp:64
 #, kde-format
 msgid "There are no messages to mark unread."
 msgstr "Ez dago irakurri-gabe gisa markatzeko mezurik."
 
-#: rocketchatrestapi-qt/teams/channelsconverttoteamjob.cpp:96
+#: rocketchatrestapi-qt/teams/channelsconverttoteamjob.cpp:98
 #, kde-format
 msgid "Channel can not convert to Team."
 msgstr "Kanala ezin da talde bihurtu."
 
-#: rocketchatrestapi-qt/teams/channelsconverttoteamjob.cpp:98
+#: rocketchatrestapi-qt/teams/channelsconverttoteamjob.cpp:100
 #, kde-format
 msgid "Team already exists."
 msgstr "Taldea jada existitzen da."
 
-#: rocketchatrestapi-qt/teams/teamaddroomsjob.cpp:117
+#: rocketchatrestapi-qt/teams/teamaddroomsjob.cpp:119
 #, kde-format
 msgid "You don't have permission to add this channel to the team"
 msgstr "Ez daukazu kanal hau taldera gehitzeko baimenik"
 
-#: rocketchatrestapi-qt/teams/teamslistroomsjob.cpp:92
+#: rocketchatrestapi-qt/teams/teamslistroomsjob.cpp:94
 #, kde-format
 msgid ""
 "The required \\\"roomId\\\" or \\\"roomName\\\" param provided does not "
@@ -2340,37 +2340,37 @@ msgstr ""
 msgid "Get Avatar"
 msgstr "Lortu abatarra"
 
-#: rocketchatrestapi-qt/users/registeruserjob.cpp:70
+#: rocketchatrestapi-qt/users/registeruserjob.cpp:72
 #, kde-format
 msgid "Invalid Email '%1'."
 msgstr "E-posta baliogabea '%1'."
 
-#: rocketchatrestapi-qt/users/setavatarjob.cpp:110
+#: rocketchatrestapi-qt/users/setavatarjob.cpp:112
 #, kde-format
 msgid "Invalid avatar URL: %1"
 msgstr "Abatarraren URL baliogabea: %1"
 
-#: rocketchatrestapi-qt/users/setavatarjob.cpp:114
+#: rocketchatrestapi-qt/users/setavatarjob.cpp:116
 #, kde-format
 msgid "Error while handling avatar setting from a URL \"%1\" for %2"
 msgstr ""
 
-#: rocketchatrestapi-qt/users/setstatusjob.cpp:136
+#: rocketchatrestapi-qt/users/setstatusjob.cpp:138
 #, kde-format
 msgid "Invisible status is disabled"
 msgstr "Ikusezin egoera ezgaituta dago"
 
-#: rocketchatrestapi-qt/users/userscreatejob.cpp:92
+#: rocketchatrestapi-qt/users/userscreatejob.cpp:94
 #, kde-format
 msgid "%1 is already in use."
 msgstr "%1 lehendik erabiltzen ari da."
 
-#: rocketchatrestapi-qt/users/userssetpreferencesjob.cpp:151
+#: rocketchatrestapi-qt/users/userssetpreferencesjob.cpp:153
 #, kde-format
 msgid "Invalid parameters"
 msgstr "Parametro baliogabeak"
 
-#: rocketchatrestapi-qt/users/usersupdatejob.cpp:63
+#: rocketchatrestapi-qt/users/usersupdatejob.cpp:65
 #, kde-format
 msgid "Error trying to send email %1"
 msgstr "Errorea %1 e-posta bidaltzen saiatzean"
@@ -6220,24 +6220,31 @@ msgstr "Bileraren URL:"
 msgid "Provider:"
 msgstr "Hornitzailea:"
 
-#: widgets/configuredialog/configureaccountserverwidget.cpp:26
+#: widgets/configuredialog/accountservertreewidget.cpp:205
+#, fuzzy, kde-format
+#| msgctxt "@title:window"
+#| msgid "Configure Notification"
+msgid "Display Account in Current Activity"
+msgstr "Konfiguratu jakinarazpena"
+
+#: widgets/configuredialog/configureaccountserverwidget.cpp:29
 #, kde-format
 msgctxt "Move selected account up."
 msgid "Up"
 msgstr "Gora"
 
-#: widgets/configuredialog/configureaccountserverwidget.cpp:32
+#: widgets/configuredialog/configureaccountserverwidget.cpp:35
 #, kde-format
 msgctxt "Move selected account down."
 msgid "Down"
 msgstr "Behera"
 
 #. i18n: ectx: property (text), widget (QCheckBox, configureCurrentActivity)
-#: widgets/configuredialog/configureaccountserverwidget.ui:87
+#: widgets/configuredialog/configureaccountserverwidget.ui:93
 #, fuzzy, kde-format
 #| msgctxt "@title:window"
 #| msgid "Configure Notification"
-msgid "Configure Current Activity"
+msgid "Configure Accounts in Current Activity"
 msgstr "Konfiguratu jakinarazpena"
 
 #: widgets/configuredialog/configurefontwidget.cpp:17

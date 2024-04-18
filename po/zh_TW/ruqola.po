@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-17 00:38+0000\n"
+"POT-Creation-Date: 2024-04-18 00:38+0000\n"
 "PO-Revision-Date: 2024-04-17 05:58+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
@@ -1368,12 +1368,12 @@ msgstr ""
 msgid "<strong>%1</strong> are typing..."
 msgstr ""
 
-#: core/rocketchataccount.cpp:2894
+#: core/rocketchataccount.cpp:2905
 #, kde-format
 msgid "Export Messages"
 msgstr "匯出訊息"
 
-#: core/rocketchataccount.cpp:2895
+#: core/rocketchataccount.cpp:2906
 #, kde-format
 msgid "Your email has been queued for sending."
 msgstr ""
@@ -1580,284 +1580,284 @@ msgstr ""
 msgid "<qt>You can find the new request at:<br /><a href='%1'>%1</a> </qt>"
 msgstr ""
 
-#: rocketchatrestapi-qt/autotranslate/getsupportedlanguagesjob.cpp:87
+#: rocketchatrestapi-qt/autotranslate/getsupportedlanguagesjob.cpp:89
 #, kde-format
 msgid "Invalid Parameters"
 msgstr "無效的參數"
 
-#: rocketchatrestapi-qt/channels/channeljoinjob.cpp:106
+#: rocketchatrestapi-qt/channels/channeljoinjob.cpp:107
 #, kde-format
 msgid "The required '%1' param provided does not match any channel"
 msgstr "所提供的必要參數「%1」不符合任何頻道"
 
-#: rocketchatrestapi-qt/channels/channeljoinjob.cpp:108
+#: rocketchatrestapi-qt/channels/channeljoinjob.cpp:109
 #, kde-format
 msgid "The room required a password."
 msgstr "聊天室需要密碼。"
 
-#: rocketchatrestapi-qt/channels/channelmembersjob.cpp:48
+#: rocketchatrestapi-qt/channels/channelmembersjob.cpp:49
 #, kde-format
 msgid "Get Members not authorized in this room"
 msgstr "此聊天室不允許「取得成員」"
 
-#: rocketchatrestapi-qt/channels/channelopenjob.cpp:77
+#: rocketchatrestapi-qt/channels/channelopenjob.cpp:78
 #, kde-format
 msgid "The required channel is not found."
 msgstr "找不到所要求的頻道。"
 
-#: rocketchatrestapi-qt/channels/channelremovemoderatorjob.cpp:100
+#: rocketchatrestapi-qt/channels/channelremovemoderatorjob.cpp:101
 #, kde-format
 msgid "User is not a moderator."
 msgstr "使用者不是 Mod。"
 
-#: rocketchatrestapi-qt/channels/channelremoveownerjob.cpp:100
+#: rocketchatrestapi-qt/channels/channelremoveownerjob.cpp:101
 #, kde-format
 msgid "User is not an owner."
 msgstr "使用者不是擁有者。"
 
-#: rocketchatrestapi-qt/channels/createchanneljob.cpp:60
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:260
+#: rocketchatrestapi-qt/channels/createchanneljob.cpp:61
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:262
 #, kde-format
 msgid "A channel with name '%1' exists"
 msgstr "名為「%1」的頻道已經存在"
 
-#: rocketchatrestapi-qt/channels/createchanneljob.cpp:62
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:340
-#: rocketchatrestapi-qt/rooms/saveroomsettingsjob.cpp:62
+#: rocketchatrestapi-qt/channels/createchanneljob.cpp:63
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:342
+#: rocketchatrestapi-qt/rooms/saveroomsettingsjob.cpp:64
 #, kde-format
 msgid "'%1' is not a valid room name"
 msgstr "「%1」不是有效的聊天室名稱"
 
-#: rocketchatrestapi-qt/channels/getchannelrolesjob.cpp:78
-#: rocketchatrestapi-qt/groups/getgrouprolesjob.cpp:64
+#: rocketchatrestapi-qt/channels/getchannelrolesjob.cpp:80
+#: rocketchatrestapi-qt/groups/getgrouprolesjob.cpp:66
 #, kde-format
 msgid "Extract Roles"
 msgstr "提取角色"
 
-#: rocketchatrestapi-qt/chat/deletemessagejob.cpp:114
+#: rocketchatrestapi-qt/chat/deletemessagejob.cpp:116
 #, kde-format
 msgid "Message deletion is not allowed."
 msgstr "訊息刪除不被允許。"
 
-#: rocketchatrestapi-qt/chat/getmessagejob.cpp:101
+#: rocketchatrestapi-qt/chat/getmessagejob.cpp:103
 #, fuzzy, kde-format
 #| msgid "Pinned Messages"
 msgid "Not allowed to get message %1"
 msgstr "置頂的訊息"
 
-#: rocketchatrestapi-qt/chat/getmessagejob.cpp:103
+#: rocketchatrestapi-qt/chat/getmessagejob.cpp:105
 #, kde-format
 msgid "Not allowed to get message %2 in room %1"
 msgstr ""
 
-#: rocketchatrestapi-qt/chat/getthreadmessagesjob.cpp:91
+#: rocketchatrestapi-qt/chat/getthreadmessagesjob.cpp:93
 #, kde-format
 msgid "Invalid message: '%1'"
 msgstr "無效訊息：「%1」"
 
-#: rocketchatrestapi-qt/chat/postmessagejob.cpp:122
+#: rocketchatrestapi-qt/chat/postmessagejob.cpp:124
 #, kde-format
 msgid "This room is blocked"
 msgstr "此聊天室已被封鎖"
 
-#: rocketchatrestapi-qt/chat/postmessagejob.cpp:124
+#: rocketchatrestapi-qt/chat/postmessagejob.cpp:126
 #, kde-format
 msgid "You have been muted and cannot speak in this room"
 msgstr "您已被噤聲而不能在此聊天室說話。"
 
-#: rocketchatrestapi-qt/chat/postmessagejob.cpp:126
-#: rocketchatrestapi-qt/chat/postmessagejob.cpp:134
+#: rocketchatrestapi-qt/chat/postmessagejob.cpp:128
+#: rocketchatrestapi-qt/chat/postmessagejob.cpp:136
 #, fuzzy, kde-format
 #| msgid "Next Channel"
 msgid "Invalid channel"
 msgstr "下一個頻道"
 
-#: rocketchatrestapi-qt/chat/reactonmessagejob.cpp:122
+#: rocketchatrestapi-qt/chat/reactonmessagejob.cpp:124
 #, kde-format
 msgid "Invalid emoji provided."
 msgstr "提供了無效的表情符號。"
 
-#: rocketchatrestapi-qt/emoji/emojicustomcreatejob.cpp:37
-#: rocketchatrestapi-qt/emoji/emojicustomupdatejob.cpp:38
-#: rocketchatrestapi-qt/uploadfilejob.cpp:54
-#: rocketchatrestapi-qt/users/setavatarjob.cpp:41
+#: rocketchatrestapi-qt/emoji/emojicustomcreatejob.cpp:38
+#: rocketchatrestapi-qt/emoji/emojicustomupdatejob.cpp:39
+#: rocketchatrestapi-qt/uploadfilejob.cpp:56
+#: rocketchatrestapi-qt/users/setavatarjob.cpp:43
 #, kde-format
 msgid "File not found '%1'"
 msgstr "找不到檔案 '%1'"
 
-#: rocketchatrestapi-qt/emoji/emojicustomcreatejob.cpp:139
+#: rocketchatrestapi-qt/emoji/emojicustomcreatejob.cpp:140
 #, kde-format
 msgid "The custom emoji or one of its aliases is already in use."
 msgstr "該自訂表情符號或它的某個別名已被使用。"
 
-#: rocketchatrestapi-qt/groups/groupremoveownerjob.cpp:45
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:396
+#: rocketchatrestapi-qt/groups/groupremoveownerjob.cpp:46
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:398
 #, kde-format
 msgid ""
 "This is the last owner. Please set a new owner before removing this one."
 msgstr "這是最後一個擁有者。請在移除這個擁有者之前先設定新的擁有者。"
 
-#: rocketchatrestapi-qt/invite/findorcreateinvitejob.cpp:136
+#: rocketchatrestapi-qt/invite/findorcreateinvitejob.cpp:138
 #, kde-format
 msgid "Generate link is not authorized in this channel."
 msgstr "此聊天室不允許「產生連結」"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:208
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:210
 #, kde-format
 msgid "Unauthorized"
 msgstr "不被允許"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:226
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:228
 #, kde-format
 msgid "%1:%2"
 msgstr "%1:%2"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:234
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:236
 #, kde-format
 msgid "'%1' is not allowed"
 msgstr "「%1」不被允許"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:236
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:238
 #, kde-format
 msgid "Application not found"
 msgstr "找不到應用程式"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:239
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:241
 #, kde-format
 msgid "There's an archived channel with name '%1'"
 msgstr ""
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:241
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:243
 #, kde-format
 msgid "Can't invite user to direct rooms"
 msgstr "無法邀請使用者到搜尋聊天室"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:243
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:245
 #, kde-format
 msgid "The channel default setting is the same as what it would be changed to."
 msgstr ""
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:245
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:247
 #, kde-format
 msgid "The bodyParam 'default' is required"
 msgstr ""
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:247
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:249
 #, kde-format
 msgid "Could not change email"
 msgstr "無法變更電子郵件"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:249
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:251
 #, kde-format
 msgid "Could not change name"
 msgstr "無法變更名稱"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:251
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:253
 #, kde-format
 msgid "Could not change username"
 msgstr "無法變更使用者名稱"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:253
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:255
 #, kde-format
 msgid "Cannot delete a protected role"
 msgstr ""
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:255
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:257
 #, kde-format
 msgid "Department not found"
 msgstr "找不到部門"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:257
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:259
 #, kde-format
 msgid "File sharing not allowed in direct messages"
 msgstr ""
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:262
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:264
 #, kde-format
 msgid "Editing permissions is not allowed"
 msgstr ""
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:264
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:266
 #, kde-format
 msgid "The email domain is blacklisted"
 msgstr "電子郵件網域在黑名單中"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:267
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:269
 #, kde-format
 msgid "Error trying to send email: %1"
 msgstr ""
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:270
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:272
 #, kde-format
 msgid "'%1' is already in use :("
 msgstr ""
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:272
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:274
 #, kde-format
 msgid "File is too large"
 msgstr "檔案太大"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:274
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:276
 #, kde-format
 msgid "The importer was not defined correctly, it is missing the Import class."
 msgstr ""
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:276
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:278
 #, kde-format
 msgid "Failed to extract import file."
 msgstr ""
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:278
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:280
 #, kde-format
 msgid "Imported file seems to be empty."
 msgstr ""
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:280
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:282
 #, kde-format
 msgid "The file to be imported was not found on the specified path."
 msgstr "在指定路徑找不到要匯入的檔案。"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:284
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:286
 #, kde-format
 msgid "%1 is not a valid %2"
 msgstr ""
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:286
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:288
 #, kde-format
 msgid "Invalid action link"
 msgstr "無效的動作連結"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:288
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:290
 #, kde-format
 msgid "Invalid Account"
 msgstr "無效帳戶"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:290
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:292
 #, kde-format
 msgid "Invalid arguments"
 msgstr "無效的參數"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:292
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:294
 #, kde-format
 msgid "Invalid asset"
 msgstr ""
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:294
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:296
 #, kde-format
 msgid "Invalid channel."
 msgstr "無效的頻道。"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:296
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:298
 #, kde-format
 msgid "Invalid channel. Start with @ or #"
 msgstr "無效的頻道。應以 @ 或 # 開頭"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:298
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:300
 #, kde-format
 msgid "Invalid custom field"
 msgstr "無效的自訂欄位"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:300
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:302
 #, kde-format
 msgid ""
 "Invalid custom field name. Use only letters, numbers, hyphens and "
@@ -1865,460 +1865,460 @@ msgid ""
 msgstr ""
 "無效的自訂欄位名稱。只能使用字母、數字、hyphen (\"-\") 或底線 (\"_\")。"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:302
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:304
 #, kde-format
 msgid "Invalid date provided."
 msgstr "提供了無效日期。"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:304
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:306
 #, kde-format
 msgid "Invalid description"
 msgstr "無效的描述"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:306
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:308
 #, kde-format
 msgid "Invalid domain"
 msgstr "無效的網域"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:309
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:311
 #, fuzzy, kde-format
 #| msgid "Invalid message id"
 msgid "Invalid email '%1'"
 msgstr "訊息 ID 無效"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:311
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:313
 #, kde-format
 msgid "Invalid email address"
 msgstr "無效的電子郵件地址"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:313
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:315
 #, kde-format
 msgid "Invalid file height"
 msgstr "無效的檔案高度"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:315
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:317
 #, kde-format
 msgid "Invalid file type"
 msgstr "無效的檔案類型"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:317
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:319
 #, kde-format
 msgid "Invalid file width"
 msgstr "無效的檔案寬度"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:319
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:321
 #, kde-format
 msgid "You informed an invalid FROM address."
 msgstr "您提供了無效的 FROM 地址。"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:321
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:323
 #, kde-format
 msgid "Invalid integration"
 msgstr "無效的整合"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:323
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:325
 #, kde-format
 msgid "Invalid message"
 msgstr "無效的訊息"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:325
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:327
 #, kde-format
 msgid "Invalid method"
 msgstr "無效的方法"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:327
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:329
 #, kde-format
 msgid "Invalid name"
 msgstr "無效的名稱"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:329
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:331
 #, kde-format
 msgid "Invalid password"
 msgstr "不正確的密碼"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:331
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:333
 #, kde-format
 msgid "Invalid permission"
 msgstr "無效的權限"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:333
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:335
 #, kde-format
 msgid "Invalid redirectUri"
 msgstr ""
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:335
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:337
 #, kde-format
 msgid "Invalid role"
 msgstr ""
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:337
-#: rocketchatrestapi-qt/rooms/roomstartdiscussionjob.cpp:159
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:339
+#: rocketchatrestapi-qt/rooms/roomstartdiscussionjob.cpp:161
 #, kde-format
 msgid "Invalid room"
 msgstr "無效的聊天室"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:343
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:345
 #, kde-format
 msgid "'%1' is not a valid room type."
 msgstr "「%1」不是有效的聊天室類型。"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:345
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:347
 #, kde-format
 msgid "Invalid settings provided"
 msgstr ""
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:347
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:349
 #, kde-format
 msgid "Invalid subscription"
 msgstr ""
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:349
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:351
 #, kde-format
 msgid "Invalid token"
 msgstr "無效的權杖"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:351
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:353
 #, kde-format
 msgid "Invalid triggerWords"
 msgstr ""
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:353
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:355
 #, kde-format
 msgid "Invalid URLs"
 msgstr ""
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:355
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:357
 #, kde-format
 msgid "Invalid user"
 msgstr ""
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:357
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:359
 #, kde-format
 msgid "Invalid username"
 msgstr "無效的使用者名稱"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:359
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:361
 #, kde-format
 msgid "The webhook URL responded with a status other than 200"
 msgstr ""
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:361
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:363
 #, kde-format
 msgid "Message deleting is blocked"
 msgstr ""
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:363
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:365
 #, kde-format
 msgid "Message editing is blocked"
 msgstr ""
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:365
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:367
 #, kde-format
 msgid "Message size exceeds Message_MaxAllowedSize"
 msgstr ""
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:367
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:369
 #, kde-format
 msgid "You must provide the [unsubscribe] link."
 msgstr ""
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:369
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:371
 #, kde-format
 msgid "There are no tokens for this user"
 msgstr "這個使用者沒有權杖"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:371
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:373
 #, kde-format
 msgid "Not allowed"
 msgstr ""
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:373
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:375
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:377
 #, kde-format
 msgid "Not authorized"
 msgstr ""
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:377
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:379
 #, kde-format
 msgid "Password does not meet the server's policy"
 msgstr ""
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:379
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:381
 #, kde-format
 msgid ""
 "Password does not meet the server's policy of maximum length (password too "
 "long)"
 msgstr ""
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:381
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:383
 #, kde-format
 msgid ""
 "Password does not meet the server's policy of minimum length (password too "
 "short)"
 msgstr ""
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:383
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:385
 #, kde-format
 msgid ""
 "Password does not meet the server's policy of at least one lowercase "
 "character"
 msgstr ""
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:385
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:387
 #, kde-format
 msgid ""
 "Password does not meet the server's policy of at least one numerical "
 "character"
 msgstr ""
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:387
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:389
 #, kde-format
 msgid ""
 "Password does not meet the server's policy of at least one special character"
 msgstr ""
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:389
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:391
 #, kde-format
 msgid ""
 "Password does not meet the server's policy of at least one uppercase "
 "character"
 msgstr ""
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:392
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:394
 #, kde-format
 msgid ""
 "Password does not meet the server's policy of forbidden repeating characters "
 "(you have too many of the same characters next to each other)"
 msgstr ""
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:394
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:396
 #, kde-format
 msgid "Push is disabled"
 msgstr ""
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:398
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:400
 #, kde-format
 msgid "Cannot delete role because it's in use"
 msgstr ""
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:400
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:402
 #, kde-format
 msgid "Role name is required"
 msgstr ""
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:402
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:404
 #, kde-format
 msgid "Room is not closed"
 msgstr ""
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:405
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:407
 #, kde-format
 msgid "The field '%1' is required."
 msgstr ""
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:407
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:409
 #, kde-format
 msgid "This is not a Livechat room"
 msgstr ""
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:409
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:411
 #, kde-format
 msgid "Personal Access Tokens are currently disabled"
 msgstr "個人存取權杖目前已停用"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:411
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:413
 #, kde-format
 msgid "A token with this name already exists"
 msgstr "已經存在相同名稱的權杖"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:413
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:415
 #, kde-format
 msgid "Token does not exists"
 msgstr "權杖不存在"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:416
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:418
 #, kde-format
 msgid ""
 "Error, too many requests. Please slow down. You must wait %1 seconds before "
 "trying again."
 msgstr ""
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:418
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:420
 #, kde-format
 msgid "User has no roles"
 msgstr ""
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:420
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:422
 #, kde-format
 msgid "User is not activated"
 msgstr ""
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:422
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:424
 #, kde-format
 msgid ""
 "The number of users you are trying to invite to #channel_name exceeds the "
 "limit set by the administrator"
 msgstr "您嘗試邀請到 #channel_name 的使用者數量已經超過了管理員所設定的限制"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:424
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:426
 #, kde-format
 msgid "User is not in this room"
 msgstr ""
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:426
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:428
 #, kde-format
 msgid "You are not in the room `%s`"
 msgstr ""
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:428
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:430
 #, kde-format
 msgid "User registration is disabled"
 msgstr ""
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:430
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:432
 #, kde-format
 msgid "User registration is only allowed via Secret URL"
 msgstr ""
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:432
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:434
 #, kde-format
 msgid "You are the last owner. Please set new owner before leaving the room."
 msgstr ""
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:434
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:436
 #, kde-format
 msgid "The private group is archived"
 msgstr ""
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:436
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:438
 #, kde-format
 msgid "User is already an owner"
 msgstr ""
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:438
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:440
 #, kde-format
 msgid "User is already a leader"
 msgstr ""
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:440
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:442
 #, kde-format
 msgid "User is already a moderator"
 msgstr ""
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:442
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:444
 #, kde-format
 msgid "Invalid message id"
 msgstr "訊息 ID 無效"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:444
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:446
 #, kde-format
 msgid "User is not a leader"
 msgstr ""
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:446
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:448
 #, kde-format
 msgid "App user is not allowed to login"
 msgstr "應用程式使用者不被允許登入"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:448
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:450
 #, kde-format
 msgid "Direct Messages can not be archived"
 msgstr ""
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:450
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:452
 #, kde-format
 msgid "Message not found."
 msgstr "找不到訊息。"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:452
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:454
 #, fuzzy, kde-format
 #| msgid "Authentication Method"
 msgid "Two Authentication Password Required"
 msgstr "身份驗證方式"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:454
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:456
 #, kde-format
 msgid "Invalid Password"
 msgstr "不正確的密碼"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:456
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:458
 #, kde-format
 msgid ""
 "The required \\\"roomId\\\" or \\\"roomName\\\" param provided does not "
 "match any channel"
 msgstr ""
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:458
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:460
 #, kde-format
 msgid "A role with this name already exists"
 msgstr ""
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:460
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:462
 #, kde-format
 msgid "Message could not be pinned"
 msgstr "無法置頂訊息"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:462
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:464
 #, kde-format
 msgid "Entered password has been previously used"
 msgstr ""
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:464
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:466
 #, kde-format
 msgid "The maximum number of rooms per guest has been reached."
 msgstr ""
 
-#: rocketchatrestapi-qt/role/removeuserfromrolejob.cpp:50
+#: rocketchatrestapi-qt/role/removeuserfromrolejob.cpp:52
 #, kde-format
 msgid "This user is not in this role."
 msgstr ""
 
-#: rocketchatrestapi-qt/role/rolecreatejob.cpp:97
+#: rocketchatrestapi-qt/role/rolecreatejob.cpp:99
 #, kde-format
 msgid "This is an enterprise feature"
 msgstr ""
 
-#: rocketchatrestapi-qt/rooms/roomfavoritejob.cpp:61
+#: rocketchatrestapi-qt/rooms/roomfavoritejob.cpp:63
 #, kde-format
 msgid "Invalid Subscription"
 msgstr "無效的訂閱"
 
-#: rocketchatrestapi-qt/rooms/saveroomsettingsjob.cpp:67
+#: rocketchatrestapi-qt/rooms/saveroomsettingsjob.cpp:69
 #, kde-format
 msgid "Only groups or direct channels can enable encryption"
 msgstr ""
 
-#: rocketchatrestapi-qt/rooms/saveroomsettingsjob.cpp:69
+#: rocketchatrestapi-qt/rooms/saveroomsettingsjob.cpp:71
 #, kde-format
 msgid "Room does not have retention policy"
 msgstr "聊天室沒有保留原則"
 
-#: rocketchatrestapi-qt/subscriptions/markroomasunreadjob.cpp:60
+#: rocketchatrestapi-qt/subscriptions/markroomasunreadjob.cpp:62
 #, kde-format
 msgid "Unread message not authorized."
 msgstr ""
 
-#: rocketchatrestapi-qt/subscriptions/markroomasunreadjob.cpp:62
+#: rocketchatrestapi-qt/subscriptions/markroomasunreadjob.cpp:64
 #, kde-format
 msgid "There are no messages to mark unread."
 msgstr ""
 
-#: rocketchatrestapi-qt/teams/channelsconverttoteamjob.cpp:96
+#: rocketchatrestapi-qt/teams/channelsconverttoteamjob.cpp:98
 #, kde-format
 msgid "Channel can not convert to Team."
 msgstr "頻道不能轉換為團隊。"
 
-#: rocketchatrestapi-qt/teams/channelsconverttoteamjob.cpp:98
+#: rocketchatrestapi-qt/teams/channelsconverttoteamjob.cpp:100
 #, kde-format
 msgid "Team already exists."
 msgstr "團隊已存在。"
 
-#: rocketchatrestapi-qt/teams/teamaddroomsjob.cpp:117
+#: rocketchatrestapi-qt/teams/teamaddroomsjob.cpp:119
 #, kde-format
 msgid "You don't have permission to add this channel to the team"
 msgstr ""
 
-#: rocketchatrestapi-qt/teams/teamslistroomsjob.cpp:92
+#: rocketchatrestapi-qt/teams/teamslistroomsjob.cpp:94
 #, kde-format
 msgid ""
 "The required \\\"roomId\\\" or \\\"roomName\\\" param provided does not "
@@ -2330,37 +2330,37 @@ msgstr "所提供的必要 \\\"roomId\\\" 或 \\\"roomName\\\" 參數不符合�
 msgid "Get Avatar"
 msgstr "取得頭貼"
 
-#: rocketchatrestapi-qt/users/registeruserjob.cpp:70
+#: rocketchatrestapi-qt/users/registeruserjob.cpp:72
 #, kde-format
 msgid "Invalid Email '%1'."
 msgstr "無效電子郵件 '%1'。"
 
-#: rocketchatrestapi-qt/users/setavatarjob.cpp:110
+#: rocketchatrestapi-qt/users/setavatarjob.cpp:112
 #, kde-format
 msgid "Invalid avatar URL: %1"
 msgstr "無效的頭貼網址：%1"
 
-#: rocketchatrestapi-qt/users/setavatarjob.cpp:114
+#: rocketchatrestapi-qt/users/setavatarjob.cpp:116
 #, kde-format
 msgid "Error while handling avatar setting from a URL \"%1\" for %2"
 msgstr "為 %2 處理來自 URL \"%1\" 的頭貼設定時發生錯誤"
 
-#: rocketchatrestapi-qt/users/setstatusjob.cpp:136
+#: rocketchatrestapi-qt/users/setstatusjob.cpp:138
 #, kde-format
 msgid "Invisible status is disabled"
 msgstr ""
 
-#: rocketchatrestapi-qt/users/userscreatejob.cpp:92
+#: rocketchatrestapi-qt/users/userscreatejob.cpp:94
 #, kde-format
 msgid "%1 is already in use."
 msgstr ""
 
-#: rocketchatrestapi-qt/users/userssetpreferencesjob.cpp:151
+#: rocketchatrestapi-qt/users/userssetpreferencesjob.cpp:153
 #, kde-format
 msgid "Invalid parameters"
 msgstr "無效的參數"
 
-#: rocketchatrestapi-qt/users/usersupdatejob.cpp:63
+#: rocketchatrestapi-qt/users/usersupdatejob.cpp:65
 #, kde-format
 msgid "Error trying to send email %1"
 msgstr ""
@@ -6329,23 +6329,29 @@ msgstr "伺服器網址："
 msgid "Provider:"
 msgstr "提供者："
 
-#: widgets/configuredialog/configureaccountserverwidget.cpp:26
+#: widgets/configuredialog/accountservertreewidget.cpp:205
+#, fuzzy, kde-format
+#| msgid "Configure Activities"
+msgid "Display Account in Current Activity"
+msgstr "設定活動"
+
+#: widgets/configuredialog/configureaccountserverwidget.cpp:29
 #, kde-format
 msgctxt "Move selected account up."
 msgid "Up"
 msgstr ""
 
-#: widgets/configuredialog/configureaccountserverwidget.cpp:32
+#: widgets/configuredialog/configureaccountserverwidget.cpp:35
 #, kde-format
 msgctxt "Move selected account down."
 msgid "Down"
 msgstr ""
 
 #. i18n: ectx: property (text), widget (QCheckBox, configureCurrentActivity)
-#: widgets/configuredialog/configureaccountserverwidget.ui:87
+#: widgets/configuredialog/configureaccountserverwidget.ui:93
 #, fuzzy, kde-format
 #| msgid "Configure Activities"
-msgid "Configure Current Activity"
+msgid "Configure Accounts in Current Activity"
 msgstr "設定活動"
 
 #: widgets/configuredialog/configurefontwidget.cpp:17
