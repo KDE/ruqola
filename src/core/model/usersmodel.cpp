@@ -53,7 +53,7 @@ bool UsersModel::userIsOffline(const QString &name) const
     for (int i = 0; i < userCount; ++i) {
         const auto &user = mUsers.at(i);
         if (user.userName() == name) {
-            return user.status() == User::PresenceStatus::PresenceOffline;
+            return user.status() == User::PresenceStatus::Offline;
         }
     }
     return true;
@@ -98,7 +98,7 @@ User::PresenceStatus UsersModel::status(const QByteArray &userId) const
         }
     }
     // Return offline as default;
-    return User::PresenceStatus::PresenceOffline;
+    return User::PresenceStatus::Offline;
 }
 
 User UsersModel::fullUserInfo(const QString &userName) const
@@ -123,7 +123,7 @@ void UsersModel::removeUser(const QByteArray &userId)
             qCDebug(RUQOLA_LOG) << " User removed " << mUsers.at(i).name();
             // Send info as it's disconnected. But don't remove it from list
             User &user = mUsers[i];
-            user.setStatus(User::PresenceStatus::PresenceOffline);
+            user.setStatus(User::PresenceStatus::Offline);
             const QModelIndex idx = createIndex(i, 0);
             Q_EMIT userStatusChanged(user);
             Q_EMIT dataChanged(idx, idx);

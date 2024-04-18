@@ -39,7 +39,7 @@ void UsersForRoomModelTest::shouldAddValues()
     for (int i = 0; i < 10; i++) {
         User user;
         user.setName(QStringLiteral("name%1").arg(i));
-        user.setStatus(User::PresenceStatus::PresenceAway);
+        user.setStatus(User::PresenceStatus::Away);
         user.setUserId(QStringLiteral("userId%1").arg(i).toLatin1());
         user.setUserName(QStringLiteral("username%1").arg(i));
         users.append(std::move(user));
@@ -58,7 +58,7 @@ void UsersForRoomModelTest::shouldAddValues()
     for (int i = 0; i < 3; ++i) {
         User user;
         user.setName(QStringLiteral("name%1").arg(i));
-        user.setStatus(User::PresenceStatus::PresenceOffline);
+        user.setStatus(User::PresenceStatus::Offline);
         user.setUserId(QStringLiteral("userId%1").arg(i).toLatin1());
         user.setUserName(QStringLiteral("username%1").arg(i));
         users.append(std::move(user));
@@ -91,7 +91,7 @@ void UsersForRoomModelTest::shouldVerifyData()
     for (int i = 0; i < 10; i++) {
         User user;
         user.setName(QStringLiteral("name%1").arg(i));
-        user.setStatus(User::PresenceStatus::PresenceOnline);
+        user.setStatus(User::PresenceStatus::Online);
         user.setUserId(QStringLiteral("userId%1").arg(i).toLatin1());
         user.setUserName(QStringLiteral("username%1").arg(i));
         users.append(std::move(user));

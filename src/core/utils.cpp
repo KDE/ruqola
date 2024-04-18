@@ -61,13 +61,13 @@ QString Utils::formatQuotedRichText(const QuotedRichTextInfo &info)
 QString Utils::presenceStatusToString(User::PresenceStatus status)
 {
     switch (status) {
-    case User::PresenceStatus::PresenceOnline:
+    case User::PresenceStatus::Online:
         return QStringLiteral("online");
-    case User::PresenceStatus::PresenceBusy:
+    case User::PresenceStatus::Busy:
         return QStringLiteral("busy");
-    case User::PresenceStatus::PresenceAway:
+    case User::PresenceStatus::Away:
         return QStringLiteral("away");
-    case User::PresenceStatus::PresenceOffline:
+    case User::PresenceStatus::Offline:
         return QStringLiteral("offline");
     case User::PresenceStatus::Unknown:
         return {};
@@ -79,13 +79,13 @@ QString Utils::presenceStatusToString(User::PresenceStatus status)
 QString Utils::iconFromPresenceStatus(User::PresenceStatus status)
 {
     switch (status) {
-    case User::PresenceStatus::PresenceOnline:
+    case User::PresenceStatus::Online:
         return QStringLiteral("user-online");
-    case User::PresenceStatus::PresenceBusy:
+    case User::PresenceStatus::Busy:
         return QStringLiteral("user-busy");
-    case User::PresenceStatus::PresenceAway:
+    case User::PresenceStatus::Away:
         return QStringLiteral("user-away");
-    case User::PresenceStatus::PresenceOffline:
+    case User::PresenceStatus::Offline:
         return QStringLiteral("user-offline");
     case User::PresenceStatus::Unknown:
         return QStringLiteral("unknown");
@@ -113,13 +113,13 @@ QString Utils::iconFromStatus(const QString &status)
 User::PresenceStatus Utils::presenceStatusFromString(const QString &status)
 {
     if (status == "online"_L1) {
-        return User::PresenceStatus::PresenceOnline;
+        return User::PresenceStatus::Online;
     } else if (status == "busy"_L1) {
-        return User::PresenceStatus::PresenceBusy;
+        return User::PresenceStatus::Busy;
     } else if (status == "away"_L1) {
-        return User::PresenceStatus::PresenceAway;
+        return User::PresenceStatus::Away;
     } else if (status == "offline"_L1) {
-        return User::PresenceStatus::PresenceOffline;
+        return User::PresenceStatus::Offline;
     } else {
         qCDebug(RUQOLA_LOG) << "Problem with status " << status;
         return User::PresenceStatus::Unknown;
@@ -345,13 +345,13 @@ QString Utils::emojiFontName()
 QString Utils::displaytextFromPresenceStatus(User::PresenceStatus status)
 {
     switch (status) {
-    case User::PresenceStatus::PresenceOnline:
+    case User::PresenceStatus::Online:
         return i18n("Online");
-    case User::PresenceStatus::PresenceBusy:
+    case User::PresenceStatus::Busy:
         return i18n("Busy");
-    case User::PresenceStatus::PresenceAway:
+    case User::PresenceStatus::Away:
         return i18n("Away");
-    case User::PresenceStatus::PresenceOffline:
+    case User::PresenceStatus::Offline:
         return i18n("Offline");
     case User::PresenceStatus::Unknown:
         return {};

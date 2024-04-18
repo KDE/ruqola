@@ -17,10 +17,10 @@ class LIBRUQOLACORE_EXPORT User
     Q_GADGET
 public:
     enum class PresenceStatus {
-        PresenceOnline,
-        PresenceBusy,
-        PresenceAway,
-        PresenceOffline,
+        Online,
+        Busy,
+        Away,
+        Offline,
         Unknown,
     };
     Q_ENUM(PresenceStatus)
@@ -111,7 +111,7 @@ private:
     QDateTime mCreatedAt;
     QDateTime mLastLogin;
 
-    PresenceStatus mStatus = PresenceStatus::PresenceOffline;
+    PresenceStatus mStatus = PresenceStatus::Offline;
     QByteArray mUserId;
     QString mName;
     QString mUserName;

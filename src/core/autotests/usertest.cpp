@@ -22,7 +22,7 @@ void UserTest::shouldHaveDefaultValue()
     User u;
     QVERIFY(u.name().isEmpty());
     QVERIFY(u.userId().isEmpty());
-    QCOMPARE(u.status(), User::PresenceStatus::PresenceOffline);
+    QCOMPARE(u.status(), User::PresenceStatus::Offline);
     QVERIFY(u.userName().isEmpty());
     QVERIFY(!u.isValid());
     QVERIFY(u.roles().isEmpty());
@@ -95,15 +95,15 @@ void UserTest::shouldSetAndGetStatus()
 {
     User sampleUser;
 
-    sampleUser.setStatus(User::PresenceStatus::PresenceOffline);
+    sampleUser.setStatus(User::PresenceStatus::Offline);
 
-    QCOMPARE(sampleUser.status(), User::PresenceStatus::PresenceOffline);
+    QCOMPARE(sampleUser.status(), User::PresenceStatus::Offline);
 
-    sampleUser.setStatus(User::PresenceStatus::PresenceOnline);
-    QCOMPARE(sampleUser.status(), User::PresenceStatus::PresenceOnline);
+    sampleUser.setStatus(User::PresenceStatus::Online);
+    QCOMPARE(sampleUser.status(), User::PresenceStatus::Online);
 
-    sampleUser.setStatus(User::PresenceStatus::PresenceOnline);
-    QCOMPARE(sampleUser.status(), User::PresenceStatus::PresenceOnline);
+    sampleUser.setStatus(User::PresenceStatus::Online);
+    QCOMPARE(sampleUser.status(), User::PresenceStatus::Online);
 }
 
 void UserTest::shouldParseUser()
@@ -120,7 +120,7 @@ void UserTest::shouldParseUser()
 
     sampleUser.parseUser(object);
     QCOMPARE(sampleUser.name(), name);
-    QCOMPARE(sampleUser.status(), User::PresenceStatus::PresenceOffline);
+    QCOMPARE(sampleUser.status(), User::PresenceStatus::Offline);
 }
 
 void UserTest::checkEqualsAndUnequalsOperator()
@@ -132,12 +132,12 @@ void UserTest::checkEqualsAndUnequalsOperator()
 
     sampleuser.setUserId(Id);
     sampleuser.setName(name);
-    sampleuser.setStatus(User::PresenceStatus::PresenceOffline);
+    sampleuser.setStatus(User::PresenceStatus::Offline);
     QVERIFY(sampleuser != sampleuserOther);
 
     sampleuserOther.setUserId(Id);
     sampleuserOther.setName(name);
-    sampleuserOther.setStatus(User::PresenceStatus::PresenceOffline);
+    sampleuserOther.setStatus(User::PresenceStatus::Offline);
     QVERIFY(sampleuser == sampleuserOther);
 
     sampleuserOther.setName(QStringLiteral("Robert Segwick_NEW"));
@@ -150,7 +150,7 @@ void UserTest::shouldParseJson_data()
     QTest::addColumn<User>("expectedUser");
     User expected;
     expected.setName(QStringLiteral("Laurent M"));
-    expected.setStatus(User::PresenceStatus::PresenceAway);
+    expected.setStatus(User::PresenceStatus::Away);
     expected.setUserId(QByteArrayLiteral("yi2ucvqkdkxiTkyZ5"));
     expected.setUserName(QStringLiteral("laurent"));
     expected.setUtcOffset(1);
@@ -180,7 +180,7 @@ void UserTest::shouldParseRestApiJson_data()
     {
         User expected;
         expected.setName(QStringLiteral("name_user"));
-        expected.setStatus(User::PresenceStatus::PresenceOffline);
+        expected.setStatus(User::PresenceStatus::Offline);
         expected.setUserId(QByteArrayLiteral("BDFj6E7Z9RYucn8C"));
         expected.setUserName(QStringLiteral("username"));
         expected.setUtcOffset(0);
@@ -196,7 +196,7 @@ void UserTest::shouldParseRestApiJson_data()
     {
         User expected;
         expected.setName(QStringLiteral("Bla bla"));
-        expected.setStatus(User::PresenceStatus::PresenceOnline);
+        expected.setStatus(User::PresenceStatus::Online);
         expected.setUserId(QByteArrayLiteral("XQZAk3998f9hSNwh"));
         expected.setUserName(QStringLiteral("steffen"));
         expected.setUtcOffset(2);
@@ -241,10 +241,10 @@ void UserTest::shouldGetStatusIcon_data()
 {
     QTest::addColumn<User::PresenceStatus>("status");
     QTest::addColumn<QString>("iconFileName");
-    QTest::newRow("online") << User::PresenceStatus::PresenceOnline << QStringLiteral("user-online");
-    QTest::newRow("busy") << User::PresenceStatus::PresenceBusy << QStringLiteral("user-busy");
-    QTest::newRow("away") << User::PresenceStatus::PresenceAway << QStringLiteral("user-away");
-    QTest::newRow("offline") << User::PresenceStatus::PresenceOffline << QStringLiteral("user-offline");
+    QTest::newRow("online") << User::PresenceStatus::Online << QStringLiteral("user-online");
+    QTest::newRow("busy") << User::PresenceStatus::Busy << QStringLiteral("user-busy");
+    QTest::newRow("away") << User::PresenceStatus::Away << QStringLiteral("user-away");
+    QTest::newRow("offline") << User::PresenceStatus::Offline << QStringLiteral("user-offline");
     QTest::newRow("unknown") << User::PresenceStatus::Unknown << QStringLiteral("unknown");
 }
 

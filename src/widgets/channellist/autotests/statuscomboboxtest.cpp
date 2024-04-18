@@ -24,10 +24,10 @@ void StatusComboboxTest::shouldSelectStatus()
 {
     StatusCombobox w;
     w.setUseOnlyStandardStatus();
-    w.setStatus(User::PresenceStatus::PresenceOffline);
+    w.setStatus(User::PresenceStatus::Offline);
     QCOMPARE(w.currentIndex(), 3);
 
-    w.setStatus(User::PresenceStatus::PresenceAway);
+    w.setStatus(User::PresenceStatus::Away);
     QCOMPARE(w.currentIndex(), 2);
 }
 

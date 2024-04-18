@@ -57,13 +57,13 @@ void StatusModel::setCurrentPresenceStatus(User::PresenceStatus status)
 QString StatusModel::textFromPresenceStatus(User::PresenceStatus status) const
 {
     switch (status) {
-    case User::PresenceStatus::PresenceOnline:
+    case User::PresenceStatus::Online:
         return i18n("Online");
-    case User::PresenceStatus::PresenceBusy:
+    case User::PresenceStatus::Busy:
         return i18n("Busy");
-    case User::PresenceStatus::PresenceAway:
+    case User::PresenceStatus::Away:
         return i18n("Away");
-    case User::PresenceStatus::PresenceOffline:
+    case User::PresenceStatus::Offline:
         return i18n("Offline");
     case User::PresenceStatus::Unknown:
         return i18n("Modify Status...");
@@ -74,13 +74,13 @@ QString StatusModel::textFromPresenceStatus(User::PresenceStatus status) const
 QIcon StatusModel::iconFromPresenceStatus(User::PresenceStatus status) const
 {
     switch (status) {
-    case User::PresenceStatus::PresenceOnline:
+    case User::PresenceStatus::Online:
         return QIcon::fromTheme(QStringLiteral("user-online"));
-    case User::PresenceStatus::PresenceBusy:
+    case User::PresenceStatus::Busy:
         return QIcon::fromTheme(QStringLiteral("user-busy"));
-    case User::PresenceStatus::PresenceAway:
+    case User::PresenceStatus::Away:
         return QIcon::fromTheme(QStringLiteral("user-away"));
-    case User::PresenceStatus::PresenceOffline:
+    case User::PresenceStatus::Offline:
         return QIcon::fromTheme(QStringLiteral("user-offline"));
     case User::PresenceStatus::Unknown:
         return {};
@@ -103,19 +103,19 @@ void StatusModel::fillModel()
 {
     mStatusList.clear();
     {
-        const DisplayStatusInfo statusInfo = createStatusInfo(User::PresenceStatus::PresenceOnline, 20);
+        const DisplayStatusInfo statusInfo = createStatusInfo(User::PresenceStatus::Online, 20);
         mStatusList.append(std::move(statusInfo));
     }
     {
-        const DisplayStatusInfo statusInfo = createStatusInfo(User::PresenceStatus::PresenceBusy, 19);
+        const DisplayStatusInfo statusInfo = createStatusInfo(User::PresenceStatus::Busy, 19);
         mStatusList.append(std::move(statusInfo));
     }
     {
-        const DisplayStatusInfo statusInfo = createStatusInfo(User::PresenceStatus::PresenceAway, 18);
+        const DisplayStatusInfo statusInfo = createStatusInfo(User::PresenceStatus::Away, 18);
         mStatusList.append(std::move(statusInfo));
     }
     {
-        const DisplayStatusInfo statusInfo = createStatusInfo(User::PresenceStatus::PresenceOffline, 17);
+        const DisplayStatusInfo statusInfo = createStatusInfo(User::PresenceStatus::Offline, 17);
         mStatusList.append(std::move(statusInfo));
     }
     {

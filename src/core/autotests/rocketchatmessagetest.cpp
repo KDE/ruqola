@@ -32,16 +32,16 @@ void RocketChatMessageTest::shouldSetDefaultStatus()
 {
     RocketChatMessage m;
     m.setJsonFormat(QJsonDocument::Indented);
-    RocketChatMessage::RocketChatMessageResult r = m.setDefaultStatus(User::PresenceStatus::PresenceBusy, 42);
+    RocketChatMessage::RocketChatMessageResult r = m.setDefaultStatus(User::PresenceStatus::Busy, 42);
     compareFile(r.result, QStringLiteral("defaultstatusbusy"));
 
-    r = m.setDefaultStatus(User::PresenceStatus::PresenceAway, 43);
+    r = m.setDefaultStatus(User::PresenceStatus::Away, 43);
     compareFile(r.result, QStringLiteral("defaultstatusaway"));
 
-    r = m.setDefaultStatus(User::PresenceStatus::PresenceOffline, 44);
+    r = m.setDefaultStatus(User::PresenceStatus::Offline, 44);
     compareFile(r.result, QStringLiteral("defaultstatusoffline"));
 
-    r = m.setDefaultStatus(User::PresenceStatus::PresenceOnline, 45);
+    r = m.setDefaultStatus(User::PresenceStatus::Online, 45);
     compareFile(r.result, QStringLiteral("defaultstatusonline"));
 }
 

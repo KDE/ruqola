@@ -815,16 +815,16 @@ void RocketChatAccount::setDefaultStatus(User::PresenceStatus status, const QStr
 {
     RocketChatRestApi::SetStatusJob::StatusType type = RocketChatRestApi::SetStatusJob::Unknown;
     switch (status) {
-    case User::PresenceStatus::PresenceOnline:
+    case User::PresenceStatus::Online:
         type = RocketChatRestApi::SetStatusJob::OnLine;
         break;
-    case User::PresenceStatus::PresenceBusy:
+    case User::PresenceStatus::Busy:
         type = RocketChatRestApi::SetStatusJob::Busy;
         break;
-    case User::PresenceStatus::PresenceAway:
+    case User::PresenceStatus::Away:
         type = RocketChatRestApi::SetStatusJob::Away;
         break;
-    case User::PresenceStatus::PresenceOffline:
+    case User::PresenceStatus::Offline:
         type = RocketChatRestApi::SetStatusJob::Offline;
         break;
     case User::PresenceStatus::Unknown:
@@ -2437,7 +2437,7 @@ void RocketChatAccount::initializeAccount()
     // Force set online.
     // TODO don't reset message status !
     if (RuqolaGlobalConfig::self()->setOnlineAccounts()) {
-        ddp()->setDefaultStatus(User::PresenceStatus::PresenceOnline);
+        ddp()->setDefaultStatus(User::PresenceStatus::Online);
     }
     // Initialize sounds
     mCustomSoundManager->initializeDefaultSounds();

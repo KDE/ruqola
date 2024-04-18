@@ -39,7 +39,7 @@ bool StatusModelFilterProxyModel::filterAcceptsRow(int source_row, const QModelI
     }
     if (!mAllowOfflineSupport) {
         const User::PresenceStatus status = sourceIndex.data(StatusModel::Status).value<User::PresenceStatus>();
-        if (status == User::PresenceStatus::PresenceOffline) {
+        if (status == User::PresenceStatus::Offline) {
             return false;
         }
     }

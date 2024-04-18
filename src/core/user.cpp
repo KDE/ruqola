@@ -178,13 +178,13 @@ void User::parseUser(const QVariantList &list)
     setUserName(list.at(1).toString());
     const int valueStatus = list.at(2).toInt();
     if (valueStatus == 0) {
-        setStatus(PresenceStatus::PresenceOffline);
+        setStatus(PresenceStatus::Offline);
     } else if (valueStatus == 1) {
-        setStatus(PresenceStatus::PresenceOnline);
+        setStatus(PresenceStatus::Online);
     } else if (valueStatus == 2) {
-        setStatus(PresenceStatus::PresenceAway);
+        setStatus(PresenceStatus::Away);
     } else if (valueStatus == 3) {
-        setStatus(PresenceStatus::PresenceBusy);
+        setStatus(PresenceStatus::Busy);
     } else {
         qCWarning(RUQOLA_LOG) << " Invalid status value" << valueStatus;
         return;

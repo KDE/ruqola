@@ -37,7 +37,7 @@ void UsersForRoomFilterProxyModelTest::shouldAssignValue()
     for (int i = 0; i < 10; i++) {
         User user;
         user.setName(QStringLiteral("name%1").arg(i));
-        user.setStatus(User::PresenceStatus::PresenceOffline);
+        user.setStatus(User::PresenceStatus::Offline);
         user.setUserId(QStringLiteral("userId%1").arg(i).toLatin1());
         user.setUserName(QStringLiteral("username%1").arg(i));
         users.append(std::move(user));
