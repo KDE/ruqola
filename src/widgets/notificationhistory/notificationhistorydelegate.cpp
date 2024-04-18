@@ -205,12 +205,12 @@ NotificationHistoryDelegate::Layout NotificationHistoryDelegate::doLayout(const 
     if (!layout.sameAccountRoomAsPreviousMessage) {
         usableRect.setTop(usableRect.top() + option.fontMetrics.height());
     }
-    layout.timeStampRect = QRect(QPoint(layout.timeStampPos.x(), usableRect.top()), timeSize);
 
     layout.textRect = QRect(textLeft, usableRect.top() + textVMargin, maxWidth, textSize.height() + textVMargin);
     layout.baseLine += layout.textRect.top(); // make it absolute
 
     layout.timeStampPos = QPoint(option.rect.width() - timeSize.width() - margin / 2, layout.baseLine);
+    layout.timeStampRect = QRect(QPoint(layout.timeStampPos.x(), usableRect.top()), timeSize);
 
     layout.senderRect = QRectF(senderX, layout.baseLine - senderAscent, senderTextSize.width(), senderTextSize.height());
     // Align top of avatar with top of sender rect
@@ -269,7 +269,7 @@ bool NotificationHistoryDelegate::helpEvent(QHelpEvent *helpEvent, QAbstractItem
     }
 
     if (layout.timeStampRect.contains(helpEvent->pos())) {
-        const QString dateStr = index.data(MessagesModel::Date).toString();
+        const QString dateStr = index.data(NotificationHistoryModel::Date).toString();
         QToolTip::showText(helpEvent->globalPos(), dateStr, view);
         return true;
     }
