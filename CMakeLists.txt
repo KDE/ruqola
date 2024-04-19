@@ -98,7 +98,13 @@ endif()
 
 set(KTEXTADDONS_MIN_VERSION "1.5.4")
 set(KLLMWIDGETS_VERSION "0.1.0")
-set(QT6KEYCHAIN_LIB_VERSION "0.14.2")
+if (WIN32)
+    set(QT6KEYCHAIN_LIB_VERSION "0.14.1")
+else()
+    set(QT6KEYCHAIN_LIB_VERSION "0.14.2")
+endif()
+
+
 
 find_package(Qt6 ${REQUIRED_QT_VERSION} REQUIRED COMPONENTS Core Gui Widgets WebSockets Network NetworkAuth MultimediaWidgets Sql)
 
