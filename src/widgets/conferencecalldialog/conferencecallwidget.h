@@ -8,7 +8,6 @@
 
 #include "libruqolawidgets_private_export.h"
 #include <QWidget>
-class RocketChatAccount;
 class QToolButton;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT ConferenceCallWidget : public QWidget
 {
