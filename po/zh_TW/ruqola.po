@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-18 00:38+0000\n"
-"PO-Revision-Date: 2024-04-17 05:58+0900\n"
+"POT-Creation-Date: 2024-04-19 00:38+0000\n"
+"PO-Revision-Date: 2024-04-19 03:55+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
 "Language: zh_TW\n"
@@ -152,7 +152,7 @@ msgstr "最佳化、修正 Windows/Mac 支援"
 msgid "The following accounts are available:"
 msgstr "可使用以下帳戶："
 
-#: core/bannerinfo/bannerinfo.cpp:46
+#: core/bannerinfo/bannerinfo.cpp:47
 #, kde-format
 msgid "New version available %1"
 msgstr "有新版可用 %1"
@@ -162,143 +162,143 @@ msgstr "有新版可用 %1"
 msgid "(link)"
 msgstr "（連結）"
 
-#: core/commands/command.cpp:53
+#: core/commands/command.cpp:55
 #, kde-format
 msgid "Status message"
 msgstr "狀態訊息"
 
-#: core/commands/command.cpp:55
+#: core/commands/command.cpp:57
 #, kde-format
 msgid "Topic message"
 msgstr "主題訊息"
 
-#: core/commands/command.cpp:57
+#: core/commands/command.cpp:59
 #, kde-format
 msgid "your message"
 msgstr "您的訊息"
 
-#: core/commands/command.cpp:59
+#: core/commands/command.cpp:61
 #, kde-format
 msgid "your message (optional)"
 msgstr "您的訊息（可選）"
 
-#: core/commands/command.cpp:75
+#: core/commands/command.cpp:77
 #, kde-format
 msgid "Archive"
 msgstr "封存"
 
-#: core/commands/command.cpp:77
+#: core/commands/command.cpp:79
 #, kde-format
 msgid "Displays ༼ つ ◕_◕ ༽つ before your message"
 msgstr "在您的訊息之前顯示 ༼ つ ◕_◕ ༽つ"
 
-#: core/commands/command.cpp:79
+#: core/commands/command.cpp:81
 #, kde-format
 msgid "Displays ( ͡° ͜ʖ ͡°) after your message"
 msgstr "在您的訊息之後顯示 ( ͡° ͜ʖ ͡°)"
 
-#: core/commands/command.cpp:81
+#: core/commands/command.cpp:83
 #, kde-format
 msgid "Displays ¯\\_(ツ)_/¯ after your message"
 msgstr "在您的訊息之後顯示 ¯\\_(ツ)_/¯"
 
-#: core/commands/command.cpp:83
+#: core/commands/command.cpp:85
 #, kde-format
 msgid "Displays (╯°□°）╯︵ ┻━┻"
 msgstr "顯示 (╯°□°）╯︵ ┻━┻"
 
-#: core/commands/command.cpp:85
+#: core/commands/command.cpp:87
 #, kde-format
 msgid "Displays ┬─┬<feff> ノ( ゜-゜ノ)"
 msgstr "顯示 ┬─┬<feff> ノ( ゜-゜ノ)"
 
-#: core/commands/command.cpp:87
+#: core/commands/command.cpp:89
 #, kde-format
 msgid "Create a New Channel"
 msgstr "建立一個新頻道"
 
-#: core/commands/command.cpp:89
+#: core/commands/command.cpp:91
 #, kde-format
 msgid "Show the keyboard shortcut list"
 msgstr "顯示鍵盤快捷鍵列表"
 
-#: core/commands/command.cpp:91
+#: core/commands/command.cpp:93
 #, kde-format
 msgid "Hide Room"
 msgstr "隱藏聊天室"
 
-#: core/commands/command.cpp:93
+#: core/commands/command.cpp:95
 #, kde-format
 msgid "Invite one user to join this channel"
 msgstr "邀請一名使用者加入此頻道"
 
-#: core/commands/command.cpp:95
+#: core/commands/command.cpp:97
 #, kde-format
 msgid "Invite all users from this channel to join [#channel]"
 msgstr "邀請這個頻道中的所有使用者加入 [#channel]"
 
-#: core/commands/command.cpp:97
+#: core/commands/command.cpp:99
 #, kde-format
 msgid "Invite all users from [#channel] to join this channel"
 msgstr "邀請 [#channel] 中的所有使用者加入此頻道"
 
-#: core/commands/command.cpp:99
+#: core/commands/command.cpp:101
 #, kde-format
 msgid "Join the given channel"
 msgstr "加入指定頻道"
 
-#: core/commands/command.cpp:101
+#: core/commands/command.cpp:103
 #, kde-format
 msgid "Remove someone from the room"
 msgstr "從聊天室移除某人"
 
-#: core/commands/command.cpp:103
+#: core/commands/command.cpp:105
 #, kde-format
 msgid "Leave the current channel"
 msgstr "離開目前的頻道"
 
-#: core/commands/command.cpp:105
+#: core/commands/command.cpp:107
 #, kde-format
 msgid "Displays action text"
 msgstr "顯示動作文字"
 
-#: core/commands/command.cpp:107
+#: core/commands/command.cpp:109
 #, kde-format
 msgid "Direct message someone"
 msgstr "傳送私訊給某人"
 
-#: core/commands/command.cpp:109
+#: core/commands/command.cpp:111
 #, kde-format
 msgid "Mute someone in the room"
 msgstr "在聊天室裡靜音某人"
 
-#: core/commands/command.cpp:111
+#: core/commands/command.cpp:113
 #, kde-format
 msgid "Unmute someone in the room"
 msgstr "在聊天室裡解除靜音某人"
 
-#: core/commands/command.cpp:113
+#: core/commands/command.cpp:115
 #, kde-format
 msgid "Set your status message"
 msgstr "設定您的狀態訊息"
 
-#: core/commands/command.cpp:115
+#: core/commands/command.cpp:117
 #, kde-format
 msgid "Set topic"
 msgstr "設定主題"
 
-#: core/commands/command.cpp:117
+#: core/commands/command.cpp:119
 #, kde-format
 msgid "Unarchive"
 msgstr "取消封存"
 
-#: core/discussions/discussion.cpp:84
+#: core/discussions/discussion.cpp:86
 #, kde-format
 msgid "(Last Message: %1)"
 msgstr "（最後的訊息：%1）"
 
 #: core/messages/block.cpp:128 core/messages/message.cpp:766
-#: core/model/notificationhistorymodel.cpp:61
+#: core/model/notificationhistorymodel.cpp:63
 #: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:128
 #, kde-format
 msgid "Conference Call"
@@ -556,7 +556,7 @@ msgstr "%1 和 %2"
 #: core/model/admincustomemojimodel.cpp:34
 #: core/model/admincustomsoundmodel.cpp:30 core/model/adminoauthmodel.cpp:32
 #: core/model/adminrolesmodel.cpp:32 core/model/adminroomsmodel.cpp:30
-#: core/model/adminusersmodel.cpp:106 core/model/directoryroomsmodel.cpp:116
+#: core/model/adminusersmodel.cpp:108 core/model/directoryroomsmodel.cpp:116
 #: core/model/directoryteamsmodel.cpp:90 core/model/directoryusersmodel.cpp:100
 #: core/model/moderationreportedmessagemodel.cpp:30
 #: core/model/moderationreportedusermodel.cpp:39
@@ -632,7 +632,7 @@ msgstr ""
 msgid "Redirect Url"
 msgstr "重新導向 URL"
 
-#: core/model/adminoauthmodel.cpp:40 core/model/adminusersmodel.cpp:161
+#: core/model/adminoauthmodel.cpp:40 core/model/adminusersmodel.cpp:163
 #: widgets/administratordialog/oauth/administratoroauthcreatewidget.cpp:15
 #: widgets/administratordialog/oauth/administratoroautheditwidget.cpp:15
 #: widgets/administratordialog/users/administratoruserswidget.cpp:255
@@ -670,10 +670,9 @@ msgstr "身份驗證方式"
 
 #: core/model/adminrolesmodel.cpp:40
 #: widgets/administratorsettingsdialog/ircfederation/ircfederationwidget.cpp:50
-#, fuzzy, kde-format
-#| msgid "Description:"
+#, kde-format
 msgid "Description"
-msgstr "描述："
+msgstr "描述"
 
 #: core/model/adminroomsmodel.cpp:32
 #, kde-format
@@ -705,30 +704,30 @@ msgstr "預設聊天室"
 msgid "Type"
 msgstr "類型"
 
-#: core/model/adminusersmodel.cpp:108
+#: core/model/adminusersmodel.cpp:110
 #, kde-format
 msgid "UserName"
 msgstr "使用者名稱"
 
-#: core/model/adminusersmodel.cpp:110
+#: core/model/adminusersmodel.cpp:112
 #: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:125
 #: widgets/dialogs/configurenotificationwidget.cpp:102
 #, kde-format
 msgid "Email"
 msgstr "電子信箱"
 
-#: core/model/adminusersmodel.cpp:112
+#: core/model/adminusersmodel.cpp:114
 #, kde-format
 msgid "Role"
 msgstr "角色"
 
-#: core/model/adminusersmodel.cpp:114 core/model/adminusersmodel.cpp:161
+#: core/model/adminusersmodel.cpp:116 core/model/adminusersmodel.cpp:163
 #: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:218
 #, kde-format
 msgid "Disabled"
 msgstr "已停用"
 
-#: core/model/adminusersmodel.cpp:116
+#: core/model/adminusersmodel.cpp:118
 #: widgets/administratorsettingsdialog/enterprise/enterprisesettingswidget.cpp:24
 #, kde-format
 msgid "Status"
@@ -798,7 +797,7 @@ msgstr "頻道類型"
 msgid "Belongs To"
 msgstr ""
 
-#: core/model/directoryteamsmodel.cpp:92 core/model/roommodel.cpp:579
+#: core/model/directoryteamsmodel.cpp:92 core/model/roommodel.cpp:578
 #: widgets/administratordialog/administratorwidget.cpp:53
 #: widgets/administratordialog/roles/rolescopecombobox.cpp:13
 #: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:18
@@ -819,22 +818,21 @@ msgid "Join At"
 msgstr "加入於"
 
 #: core/model/emoticonmodel.cpp:85
-#, fuzzy, kde-format
-#| msgid "Custom User Status"
+#, kde-format
 msgid "Custom"
-msgstr "自訂使用者狀態"
+msgstr "自訂"
 
-#: core/model/inputcompletermodel.cpp:37
+#: core/model/inputcompletermodel.cpp:39
 #, kde-format
 msgid "Notify all in this room"
 msgstr ""
 
-#: core/model/inputcompletermodel.cpp:45
+#: core/model/inputcompletermodel.cpp:47
 #, kde-format
 msgid "No result found."
 msgstr "找不到結果。"
 
-#: core/model/inputcompletermodel.cpp:54
+#: core/model/inputcompletermodel.cpp:56
 #, kde-format
 msgid "Notify active users in this room"
 msgstr ""
@@ -984,7 +982,7 @@ msgstr "所有訊息"
 msgid "Mentions"
 msgstr "提及"
 
-#: core/model/permissionsmodel.cpp:33 core/model/rolesmodel.cpp:31
+#: core/model/permissionsmodel.cpp:33 core/model/rolesmodel.cpp:33
 #: widgets/administratordialog/administratorwidget.cpp:77
 #: widgets/dialogs/channelrolesinfowidget.cpp:21
 #, kde-format
@@ -1016,79 +1014,79 @@ msgstr "兩步驟驗證"
 msgid "Last token part"
 msgstr ""
 
-#: core/model/roommodel.cpp:463
+#: core/model/roommodel.cpp:462
 #, kde-format
 msgid "%1 Mention"
 msgid_plural "%1 Mentions"
 msgstr[0] "%1 個提及"
 
-#: core/model/roommodel.cpp:467
+#: core/model/roommodel.cpp:466
 #, kde-format
 msgid "%1 Group Mention"
 msgid_plural "%1 Group Mentions"
 msgstr[0] "%1 個群組提及"
 
-#: core/model/roommodel.cpp:471
+#: core/model/roommodel.cpp:470
 #, kde-format
 msgid "%1 Unread Threaded Message"
 msgid_plural "%1 Unread Threaded Messages"
 msgstr[0] "%1 個未讀的對話串訊息"
 
-#: core/model/roommodel.cpp:475
+#: core/model/roommodel.cpp:474
 #, kde-format
 msgid "%1 Unread Message"
 msgid_plural "%1 Unread Messages"
 msgstr[0] "%1 個未讀訊息"
 
-#: core/model/roommodel.cpp:501
+#: core/model/roommodel.cpp:500
 #, kde-format
 msgid "Teams Room"
 msgstr "團隊聊天室"
 
-#: core/model/roommodel.cpp:507
+#: core/model/roommodel.cpp:506
 #, kde-format
 msgid "Private Room"
 msgstr "私人聊天室"
 
-#: core/model/roommodel.cpp:509
+#: core/model/roommodel.cpp:508
 #, kde-format
 msgid "Discussion Room"
 msgstr "討論室"
 
-#: core/model/roommodel.cpp:513
+#: core/model/roommodel.cpp:512
 #, kde-format
 msgid "Channel Room"
 msgstr "頻道聊天室"
 
-#: core/model/roommodel.cpp:573
+#: core/model/roommodel.cpp:572
 #, kde-format
 msgid "Unread"
 msgstr "未讀"
 
-#: core/model/roommodel.cpp:575
+#: core/model/roommodel.cpp:574
 #, kde-format
 msgid "Favorites"
 msgstr "最愛"
 
-#: core/model/roommodel.cpp:577
+#: core/model/roommodel.cpp:576
 #: widgets/administratordialog/rooms/administratorroomsselectroomtypewidget.cpp:18
 #: widgets/directory/directorytabwidget.cpp:22
 #, kde-format
 msgid "Teams"
 msgstr "團隊"
 
-#: core/model/roommodel.cpp:581
+#: core/model/roommodel.cpp:580
 #: widgets/administratordialog/rooms/administratorroomsselectroomtypewidget.cpp:17
 #, kde-format
 msgid "Discussions"
 msgstr "討論"
 
-#: core/model/roommodel.cpp:583
+#: core/model/roommodel.cpp:582
 #, kde-format
 msgid "Private Messages"
 msgstr "私訊"
 
-#: core/model/roommodel.cpp:585
+#: core/model/roommodel.cpp:584
 #, kde-format
 msgid "Unknown"
 msgstr "未知"
@@ -1110,7 +1108,7 @@ msgstr "忙碌"
 msgid "Away"
 msgstr ""
 
-#: core/model/statusmodel.cpp:67 core/model/usersmodel.cpp:71
+#: core/model/statusmodel.cpp:67 core/model/usersmodel.cpp:73
 #: core/utils.cpp:355
 #, kde-format
 msgid "Offline"
@@ -1390,32 +1388,32 @@ msgstr "帳戶名稱"
 msgid "A new account was added."
 msgstr "輸入帳戶名稱"
 
-#: core/room.cpp:1167
+#: core/room.cpp:1169
 #, kde-format
 msgid "Owner"
 msgstr "擁有者"
 
-#: core/room.cpp:1170
+#: core/room.cpp:1172
 #, kde-format
 msgid "Leader"
 msgstr ""
 
-#: core/room.cpp:1173
+#: core/room.cpp:1175
 #, kde-format
 msgid "Moderator"
 msgstr ""
 
-#: core/room.cpp:1525
+#: core/room.cpp:1527
 #, kde-format
 msgid "Channel is read only."
 msgstr "頻道是唯讀的。"
 
-#: core/room.cpp:1528
+#: core/room.cpp:1530
 #, kde-format
 msgid "You have blocked this channel."
 msgstr "您已封鎖此頻道。"
 
-#: core/room.cpp:1531
+#: core/room.cpp:1533
 #, kde-format
 msgid "Channel was blocked."
 msgstr "頻道已封鎖。"
@@ -1460,38 +1458,38 @@ msgstr "下一個頻道"
 msgid "Missing translator info. It's a bug"
 msgstr ""
 
-#: core/user.cpp:205
+#: core/user.cpp:207
 #, kde-format
 msgid "User"
 msgstr "使用者"
 
-#: core/user.cpp:207 widgets/ruqolamainwindow.cpp:490
+#: core/user.cpp:209 widgets/ruqolamainwindow.cpp:490
 #, kde-format
 msgid "Administrator"
 msgstr "管理員"
 
-#: core/user.cpp:209
+#: core/user.cpp:211
 #, kde-format
 msgid "Bot"
 msgstr "機器人"
 
-#: core/videoconference/videoconferenceinfo.cpp:284
 #: core/videoconference/videoconferenceinfo.cpp:286
+#: core/videoconference/videoconferenceinfo.cpp:288
 #, kde-format
 msgid "Call was not answered"
 msgstr ""
 
-#: core/videoconference/videoconferenceinfo.cpp:288
+#: core/videoconference/videoconferenceinfo.cpp:290
 #, kde-format
 msgid "Call ended"
 msgstr ""
 
-#: core/videoconference/videoconferenceinfo.cpp:292
+#: core/videoconference/videoconferenceinfo.cpp:294
 #, kde-format
 msgid "Waiting for answer"
 msgstr ""
 
-#: core/videoconference/videoconferenceinfo.cpp:294
+#: core/videoconference/videoconferenceinfo.cpp:296
 #, kde-format
 msgid "Call ongoing"
 msgstr ""
@@ -2383,16 +2381,14 @@ msgid "Custom User Status"
 msgstr "自訂使用者狀態"
 
 #: widgets/administratordialog/administratorwidget.cpp:59
-#, fuzzy, kde-format
-#| msgid "Custom User Status"
+#, kde-format
 msgid "Custom Sounds"
-msgstr "自訂使用者狀態"
+msgstr "自訂聲音"
 
 #: widgets/administratordialog/administratorwidget.cpp:62
-#, fuzzy, kde-format
-#| msgid "Custom User Status"
+#, kde-format
 msgid "Custom Emojis"
-msgstr "自訂使用者狀態"
+msgstr "自訂表情符號"
 
 #: widgets/administratordialog/administratorwidget.cpp:65
 #: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:19
@@ -2422,7 +2418,7 @@ msgstr "討論"
 #: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:131
 #, kde-format
 msgid "Oauth"
-msgstr ""
+msgstr "OAuth"
 
 #: widgets/administratordialog/administratorwidget.cpp:83
 #, fuzzy, kde-format
@@ -2467,7 +2463,7 @@ msgstr "別名："
 
 #: widgets/administratordialog/customemoji/administratorcustomemojicreateorupdatewidget.cpp:51
 #: widgets/administratordialog/customsounds/administratorcustomsoundscreatewidget.cpp:29
-#: widgets/dialogs/uploadfilewidget.cpp:21
+#: widgets/dialogs/uploadfilewidget.cpp:22
 #, kde-format
 msgid "File:"
 msgstr "檔案："
@@ -2643,10 +2639,9 @@ msgstr "移除邀請"
 
 #: widgets/administratordialog/logs/viewlogplaintextedit.cpp:35
 #: widgets/administratordialog/logs/viewlogplaintextedit.cpp:91
-#, fuzzy, kde-format
-#| msgid "Video Chat"
+#, kde-format
 msgid "Save as &File"
-msgstr "視訊聊天"
+msgstr "存成檔案(&F)"
 
 #: widgets/administratordialog/logs/viewlogplaintextedit.cpp:57
 #: widgets/administratordialog/logs/viewlogplaintextedit.cpp:117
@@ -2660,10 +2655,9 @@ msgstr ""
 
 #: widgets/administratordialog/logs/viewlogplaintextedit.cpp:61
 #: widgets/administratordialog/logs/viewlogplaintextedit.cpp:121
-#, fuzzy, kde-format
-#| msgid "Video Chat"
+#, kde-format
 msgid "Save File Error"
-msgstr "視訊聊天"
+msgstr "儲存檔案時出錯"
 
 #: widgets/administratordialog/moderationconsole/administratormoderationconsolewidget.cpp:31
 #, fuzzy, kde-format
@@ -2692,17 +2686,17 @@ msgstr ""
 #: widgets/administratordialog/moderationconsole/administratormoderationrangewidget.cpp:75
 #, kde-format
 msgid "Today"
-msgstr ""
+msgstr "今天"
 
 #: widgets/administratordialog/moderationconsole/administratormoderationrangewidget.cpp:85
 #, kde-format
 msgid "Yesterday"
-msgstr ""
+msgstr "昨天"
 
 #: widgets/administratordialog/moderationconsole/administratormoderationrangewidget.cpp:95
 #, kde-format
 msgid "This week"
-msgstr ""
+msgstr "本週"
 
 #: widgets/administratordialog/moderationconsole/administratormoderationrangewidget.cpp:105
 #, fuzzy, kde-format
@@ -2713,7 +2707,7 @@ msgstr "上一個頻道"
 #: widgets/administratordialog/moderationconsole/administratormoderationrangewidget.cpp:115
 #, kde-format
 msgid "This month"
-msgstr ""
+msgstr "這個月"
 
 #: widgets/administratordialog/moderationconsole/administratormoderationrangewidget.cpp:126
 #, fuzzy, kde-format
@@ -2795,7 +2789,7 @@ msgstr "搜尋訊息"
 #: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:137
 #, kde-format
 msgid "Dismiss reports"
-msgstr ""
+msgstr "忽略檢舉"
 
 #: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:144
 #, kde-format
@@ -2836,7 +2830,7 @@ msgstr ""
 #, kde-format
 msgctxt "@title:window"
 msgid "Dismiss"
-msgstr ""
+msgstr "忽略"
 
 #: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:216
 #, kde-format
@@ -2869,7 +2863,7 @@ msgstr ""
 #, kde-format
 msgctxt "@title:window"
 msgid "Dismiss All Reports"
-msgstr ""
+msgstr "忽略所有檢舉"
 
 #: widgets/administratordialog/moderationconsole/moderationreportinfolistview.cpp:76
 #: widgets/notificationhistory/notificationhistorylistview.cpp:83
@@ -3038,7 +3032,7 @@ msgstr "身份驗證方式"
 #: widgets/dialogs/channelinforeadonlywidget.cpp:47
 #: widgets/dialogs/createsoundmessagewizard.cpp:120
 #: widgets/dialogs/createvideomessagewizard.cpp:146
-#: widgets/dialogs/uploadfilewidget.cpp:38
+#: widgets/dialogs/uploadfilewidget.cpp:39
 #: widgets/messagemaximumsizedialog/messagemaximumsizewidget.cpp:27
 #, kde-format
 msgid "Description:"
@@ -3052,7 +3046,7 @@ msgstr ""
 #: widgets/administratordialog/roles/rolescopecombobox.cpp:14
 #, kde-format
 msgid "Global"
-msgstr ""
+msgstr "全域"
 
 #: widgets/administratordialog/roles/userinroleeditdialog.cpp:27
 #, fuzzy, kde-format
@@ -3209,7 +3203,7 @@ msgstr "移除"
 #: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:49
 #, kde-format
 msgid "Refresh"
-msgstr ""
+msgstr "重新整理"
 
 #: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:68
 #, kde-format
@@ -3246,7 +3240,7 @@ msgstr ""
 #: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:142
 #, kde-format
 msgid "Version"
-msgstr ""
+msgstr "版本"
 
 #: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:143
 #, kde-format
@@ -3397,18 +3391,18 @@ msgstr "邀請使用者"
 #: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:268
 #, kde-format
 msgid "OS Release"
-msgstr ""
+msgstr "作業系統釋出版"
 
 #: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:224
 #, kde-format
 msgid "OS Type"
-msgstr ""
+msgstr "作業系統類型"
 
 #: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:225
 #: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:286
 #, kde-format
 msgid "OS Platform"
-msgstr ""
+msgstr "作業系統平台"
 
 #: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:226
 #, fuzzy, kde-format
@@ -3420,7 +3414,7 @@ msgstr "邀請使用者"
 #: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:227
 #, kde-format
 msgid "OS Free Memory"
-msgstr ""
+msgstr "作業系統剩餘記憶體"
 
 #: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:234
 #, kde-format
@@ -3508,13 +3502,13 @@ msgstr "密碼"
 #: widgets/administratordialog/users/administratoradduserwidget.cpp:30
 #, kde-format
 msgid "Set random password and send by email"
-msgstr ""
+msgstr "設定隨機密碼並透過電子郵件傳送"
 
 #: widgets/administratordialog/users/administratoradduserwidget.cpp:31
 #: widgets/dialogs/directchannelinfowidget.cpp:161
 #, kde-format
 msgid "Verified"
-msgstr ""
+msgstr "已驗證"
 
 #: widgets/administratordialog/users/administratoradduserwidget.cpp:60
 #: widgets/dialogs/directchannelinfowidget.cpp:95
@@ -4111,7 +4105,7 @@ msgstr ""
 #: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:70
 #, kde-format
 msgid "URL"
-msgstr ""
+msgstr "網址"
 
 #: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:73
 #, kde-format
@@ -4314,10 +4308,9 @@ msgid "From Email"
 msgstr "電子信箱"
 
 #: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:75
-#, fuzzy, kde-format
-#| msgid "Private:"
+#, kde-format
 msgid "Privacy"
-msgstr "私密："
+msgstr "隱私"
 
 #: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:87
 #, kde-format
@@ -4691,7 +4684,7 @@ msgstr ""
 #: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:105
 #, kde-format
 msgid "TimeZone"
-msgstr ""
+msgstr "時區"
 
 #: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:110
 #, kde-format
@@ -4701,21 +4694,19 @@ msgid ""
 msgstr ""
 
 #: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:112
-#, fuzzy, kde-format
-#| msgid "Server Info"
+#, kde-format
 msgid "Server Timezone"
-msgstr "伺服器資訊"
+msgstr "伺服器時區"
 
 #: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:113
-#, fuzzy, kde-format
-#| msgid "Custom User Status"
+#, kde-format
 msgid "Custom Timezone"
-msgstr "自訂使用者狀態"
+msgstr "自訂時區"
 
 #: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:114
 #, kde-format
 msgid "User's current Timezone"
-msgstr ""
+msgstr "使用者目前的時區"
 
 #: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:116
 #, kde-format
@@ -4770,10 +4761,9 @@ msgid "The cache limit for outbound message handling."
 msgstr ""
 
 #: widgets/administratorsettingsdialog/irc/ircwidget.cpp:25
-#, fuzzy, kde-format
-#| msgid "Search Discussions..."
+#, kde-format
 msgid "Regular Expressions"
-msgstr "搜尋討論區…"
+msgstr "正則表達式"
 
 #: widgets/administratorsettingsdialog/irc/ircwidget.cpp:30
 #, kde-format
@@ -4783,7 +4773,7 @@ msgstr ""
 #: widgets/administratorsettingsdialog/irc/ircwidget.cpp:31
 #, kde-format
 msgid "Login Successful"
-msgstr ""
+msgstr "登入成功"
 
 #: widgets/administratorsettingsdialog/ircfederation/ircfederationwidget.cpp:28
 #, kde-format
@@ -4795,7 +4785,7 @@ msgstr ""
 #: widgets/administratorsettingsdialog/ircfederation/ircfederationwidget.cpp:34
 #, kde-format
 msgid "RFC2813"
-msgstr ""
+msgstr "RFC2813"
 
 #: widgets/administratorsettingsdialog/ircfederation/ircfederationwidget.cpp:42
 #, kde-format
@@ -4820,10 +4810,9 @@ msgid "Display Roles"
 msgstr "封存的聊天室"
 
 #: widgets/administratorsettingsdialog/layout/layoutsettingswidget.cpp:16
-#, fuzzy, kde-format
-#| msgid "Username:"
+#, kde-format
 msgid "Use Real Name"
-msgstr "使用者名稱："
+msgstr "使用真實姓名"
 
 #: widgets/administratorsettingsdialog/layout/layoutsettingswidget.cpp:17
 #, kde-format
@@ -4878,10 +4867,9 @@ msgid ""
 msgstr ""
 
 #: widgets/administratorsettingsdialog/ldap/ldapsettingswidget.cpp:48
-#, fuzzy, kde-format
-#| msgid "Authentication Method"
+#, kde-format
 msgid "Authentication"
-msgstr "身份驗證方式"
+msgstr "認證"
 
 #: widgets/administratorsettingsdialog/ldap/ldapsettingswidget.cpp:57
 #, fuzzy, kde-format
@@ -4955,10 +4943,9 @@ msgid "Log Exceptions to Channel"
 msgstr "建立帳戶"
 
 #: widgets/administratorsettingsdialog/logs/logssettingswidget.cpp:33
-#, fuzzy, kde-format
-#| msgid "Error"
+#, kde-format
 msgid "Errors Only"
-msgstr "錯誤"
+msgstr "僅錯誤"
 
 #: widgets/administratorsettingsdialog/logs/logssettingswidget.cpp:34
 #, kde-format
@@ -5221,12 +5208,12 @@ msgstr "自動翻譯"
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:171
 #, kde-format
 msgid "Deepl"
-msgstr ""
+msgstr "DeepL"
 
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:172
 #, kde-format
 msgid "Microsoft"
-msgstr ""
+msgstr "Microsoft"
 
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:174
 #, fuzzy, kde-format
@@ -6817,11 +6804,10 @@ msgid "Sound:"
 msgstr "聲音："
 
 #: widgets/dialogs/confirmpassworddialog.cpp:19
-#, fuzzy, kde-format
-#| msgid "Password:"
+#, kde-format
 msgctxt "@title:window"
 msgid "Confirm Password"
-msgstr "密碼："
+msgstr "確認密碼"
 
 #: widgets/dialogs/confirmpasswordwidget.cpp:23
 #, kde-format
@@ -6849,10 +6835,9 @@ msgstr ""
 
 #: widgets/dialogs/createdirectmessageswidget.cpp:33
 #: widgets/prunemessages/prunemessageswidget.cpp:66
-#, fuzzy, kde-format
-#| msgid "Search User..."
+#, kde-format
 msgid "Select users..."
-msgstr "搜尋使用者…"
+msgstr "選擇使用者…"
 
 #: widgets/dialogs/createnewchanneldialog.cpp:26
 #, kde-format
@@ -6914,11 +6899,10 @@ msgid "Encrypted Room:"
 msgstr ""
 
 #: widgets/dialogs/createnewdiscussiondialog.cpp:28
-#, fuzzy, kde-format
-#| msgid "Create Discussion"
+#, kde-format
 msgctxt "@title:window"
 msgid "Create Discussion - %1"
-msgstr "建立討論區"
+msgstr "建立討論區 - %1"
 
 #: widgets/dialogs/createnewdiscussiondialog.cpp:42
 #: widgets/myaccount/myaccountpersonalaccesscreatedialog.cpp:32
@@ -6981,18 +6965,15 @@ msgid "Create Video Message"
 msgstr "建立影片訊息"
 
 #: widgets/dialogs/directchannelinfodialog.cpp:18
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Users Info"
+#, kde-format
 msgctxt "@title:window"
 msgid "User Info"
 msgstr "使用者資訊"
 
 #: widgets/dialogs/directchannelinfowidget.cpp:106
-#, fuzzy, kde-format
-#| msgid "Custom User Status"
+#, kde-format
 msgid "Custom Status:"
-msgstr "自訂使用者狀態"
+msgstr "自訂狀態："
 
 #: widgets/dialogs/directchannelinfowidget.cpp:124
 #, kde-format
@@ -7000,15 +6981,14 @@ msgid "Timezone:"
 msgstr "時區："
 
 #: widgets/dialogs/directchannelinfowidget.cpp:148
-#, fuzzy, kde-format
-#| msgid "Create Account"
+#, kde-format
 msgid "Created At:"
-msgstr "建立帳戶"
+msgstr "建立時間："
 
 #: widgets/dialogs/directchannelinfowidget.cpp:155
 #, kde-format
 msgid "Last Login:"
-msgstr ""
+msgstr "上次登入："
 
 #: widgets/dialogs/directchannelinfowidget.cpp:161
 #, kde-format
@@ -7336,18 +7316,16 @@ msgid "Show Threads Messages"
 msgstr "顯示對話串訊息"
 
 #: widgets/dialogs/showvideodialog.cpp:26
-#, fuzzy, kde-format
-#| msgid "Video Chat"
+#, kde-format
 msgctxt "@title:window"
 msgid "Video"
-msgstr "視訊聊天"
+msgstr "影片"
 
 #: widgets/dialogs/showvideodialog.cpp:48
-#, fuzzy, kde-format
-#| msgid "Video Chat"
+#, kde-format
 msgctxt "@title:window"
 msgid "Video: %1"
-msgstr "視訊聊天"
+msgstr "影片：%1"
 
 #: widgets/dialogs/uploadfiledialog.cpp:26
 #, kde-format
@@ -7355,11 +7333,17 @@ msgctxt "@title:window"
 msgid "Upload File"
 msgstr "上傳檔案"
 
-#: widgets/dialogs/uploadfiledialog.cpp:84
+#: widgets/dialogs/uploadfiledialog.cpp:85
 #, kde-format
 msgctxt "@title:window"
 msgid "Upload Image"
 msgstr "上傳影像"
+
+#: widgets/dialogs/uploadfilewidget.cpp:44
+#, fuzzy, kde-format
+#| msgid "Filename:"
+msgid "File Name:"
+msgstr "檔案名稱："
 
 #: widgets/directory/directorydialog.cpp:27
 #, kde-format
@@ -7450,11 +7434,10 @@ msgid_plural "%1 Discussions in room (Total: %2)"
 msgstr[0] "聊天室中有 %1 個討論區 (總計：%2)"
 
 #: widgets/encryption/e2ecopypassworddialog.cpp:18
-#, fuzzy, kde-format
-#| msgid "Password"
+#, kde-format
 msgctxt "@title:window"
 msgid "Copy Password"
-msgstr "密碼"
+msgstr "複製密碼"
 
 #: widgets/encryption/e2ecopypasswordwidget.cpp:23
 #, kde-format
@@ -7477,10 +7460,9 @@ msgstr ""
 
 #: widgets/encryption/e2edecodeencryptionkeyfailedwidget.cpp:19
 #: widgets/encryption/e2edecodeencryptionkeywidget.cpp:19
-#, fuzzy, kde-format
-#| msgid "Encrypted:"
+#, kde-format
 msgid "Decrypte Encryption Key"
-msgstr "加密："
+msgstr "解密加密金鑰"
 
 #: widgets/encryption/e2edecodeencryptionkeywidget.cpp:17
 #, kde-format
@@ -7537,11 +7519,10 @@ msgid "Html"
 msgstr "HTML"
 
 #: widgets/forwardmessage/forwardmessagedialog.cpp:18
-#, fuzzy, kde-format
-#| msgid "Report Message"
+#, kde-format
 msgctxt "@title:window"
 msgid "Forward Message"
-msgstr "檢舉訊息"
+msgstr "轉寄訊息"
 
 #: widgets/forwardmessage/forwardmessagewidget.cpp:23
 #, kde-format
@@ -7691,11 +7672,10 @@ msgid "Login Failed: App user is not allowed to login."
 msgstr "登入失敗：應用程式使用者不能登入。"
 
 #: widgets/messagemaximumsizedialog/messagemaximumsizedialog.cpp:18
-#, fuzzy, kde-format
-#| msgid "Delete Attachment"
+#, kde-format
 msgctxt "@title:window"
 msgid "Convert Message As Attachment"
-msgstr "刪除附件"
+msgstr "將訊息轉換為附件"
 
 #: widgets/misc/accountsoverviewwidget.cpp:31
 #, kde-format
@@ -7775,36 +7755,32 @@ msgstr "未知狀態"
 #: widgets/misc/accountsoverviewwidget.cpp:81
 #, kde-format
 msgid "(Unnamed)"
-msgstr ""
+msgstr "（未命名）"
 
 #: widgets/misc/changefontsizemenu.cpp:17
-#, fuzzy, kde-format
-#| msgctxt "@title Preferences page name"
-#| msgid "Font"
+#, kde-format
 msgid "Font Size"
-msgstr "字型"
+msgstr "字型大小"
 
 #: widgets/misc/changefontsizemenu.cpp:19
 #, kde-format
 msgid "Increase Font"
-msgstr ""
+msgstr "增大字型"
 
 #: widgets/misc/changefontsizemenu.cpp:26
 #, kde-format
 msgid "Decrease Font"
-msgstr ""
+msgstr "縮小字型"
 
 #: widgets/misc/messageattachmentdownloadandsavejob.cpp:62
-#, fuzzy, kde-format
-#| msgid "Video Chat"
+#, kde-format
 msgid "Save Video"
-msgstr "視訊聊天"
+msgstr "儲存影片"
 
 #: widgets/misc/messageattachmentdownloadandsavejob.cpp:65
-#, fuzzy, kde-format
-#| msgid "Sound:"
+#, kde-format
 msgid "Save Sound"
-msgstr "聲音："
+msgstr "儲存聲音"
 
 #: widgets/misc/messageattachmentdownloadandsavejob.cpp:77
 #, kde-format
@@ -7829,11 +7805,10 @@ msgid "Download Video..."
 msgstr "下載影片..."
 
 #: widgets/misc/messageattachmentdownloadandsavejob.cpp:85
-#, fuzzy, kde-format
-#| msgid "Sound:"
+#, kde-format
 msgctxt "@title:window"
 msgid "Download Sound"
-msgstr "聲音："
+msgstr "下載聲音"
 
 #: widgets/misc/messageattachmentdownloadandsavejob.cpp:86
 #, kde-format
@@ -7849,13 +7824,13 @@ msgstr "訊息風格"
 #, kde-format
 msgctxt "Message Style"
 msgid "Normal"
-msgstr ""
+msgstr "一般"
 
 #: widgets/misc/messagestylelayoutmenu.cpp:20
 #, kde-format
 msgctxt "Message Style"
 msgid "Compact"
-msgstr ""
+msgstr "簡潔"
 
 #: widgets/misc/passwordconfirmwidget.cpp:24
 #, kde-format
@@ -7874,10 +7849,9 @@ msgid "Reset Password"
 msgstr "重設密碼"
 
 #: widgets/misc/searchwithdelaylineedit.cpp:16
-#, fuzzy, kde-format
-#| msgid "Search User..."
+#, kde-format
 msgid "Search Word..."
-msgstr "搜尋使用者…"
+msgstr "搜尋單字"
 
 #: widgets/misc/servermenu.cpp:20
 #, kde-format
@@ -7890,16 +7864,14 @@ msgid "Filter Account..."
 msgstr "過濾帳戶..."
 
 #: widgets/misc/twoauthenticationpasswordwidget.cpp:25
-#, fuzzy, kde-format
-#| msgid "Enter account name"
+#, kde-format
 msgid "Enter code"
-msgstr "輸入帳戶名稱"
+msgstr "輸入驗證碼"
 
 #: widgets/misc/twoauthenticationpasswordwidget.cpp:30
-#, fuzzy, kde-format
-#| msgid "Enter account name"
+#, kde-format
 msgid "Send new code"
-msgstr "輸入帳戶名稱"
+msgstr "輸入新的驗證碼"
 
 #: widgets/myaccount/myaccount2e2configurewidget.cpp:28
 #, kde-format
@@ -7923,16 +7895,14 @@ msgid ""
 msgstr ""
 
 #: widgets/myaccount/myaccount2faconfigurewidget.cpp:19
-#, fuzzy, kde-format
-#| msgid "Authentication Method"
+#, kde-format
 msgid "Activate Two Authentication Factor via Email"
-msgstr "身份驗證方式"
+msgstr "啟用電子郵件兩步驟驗證"
 
 #: widgets/myaccount/myaccount2faconfigurewidget.cpp:20
-#, fuzzy, kde-format
-#| msgid "Authentication Method"
+#, kde-format
 msgid "Activate Two Authentication Factor via TOTP"
-msgstr "身份驗證方式"
+msgstr "啟用 TOTP（基於時間的）兩步驟驗證"
 
 #: widgets/myaccount/myaccount2fadisabletotpwidget.cpp:27
 #, kde-format
@@ -7943,10 +7913,9 @@ msgstr ""
 
 #: widgets/myaccount/myaccount2fadisabletotpwidget.cpp:37
 #: widgets/myaccount/myaccount2fatotpwidget.cpp:52
-#, fuzzy, kde-format
-#| msgid "Authentication Method"
+#, kde-format
 msgid "Enter authentication code"
-msgstr "身份驗證方式"
+msgstr "輸入認證碼"
 
 #: widgets/myaccount/myaccount2fadisabletotpwidget.cpp:41
 #: widgets/myaccount/myaccount2fatotpwidget.cpp:56
@@ -8002,18 +7971,17 @@ msgstr "設定我的帳戶"
 #: widgets/myaccount/myaccountconfigurewidget.cpp:37
 #, kde-format
 msgid "Profile"
-msgstr ""
+msgstr "個人資料"
 
 #: widgets/myaccount/myaccountconfigurewidget.cpp:43
 #, kde-format
 msgid "Preference"
-msgstr ""
+msgstr "偏好設定"
 
 #: widgets/myaccount/myaccountconfigurewidget.cpp:46
-#, fuzzy, kde-format
-#| msgid "Authentication Method"
+#, kde-format
 msgid "Two Authentication Factor"
-msgstr "身份驗證方式"
+msgstr "兩步驟驗證"
 
 #: widgets/myaccount/myaccountconfigurewidget.cpp:52
 #, kde-format
@@ -8055,10 +8023,9 @@ msgid "Create Personal Token"
 msgstr "建立個人權杖"
 
 #: widgets/myaccount/myaccountpersonalaccesscreatewidget.cpp:16
-#, fuzzy, kde-format
-#| msgid "Authentication Method"
+#, kde-format
 msgid "Ignore Two Factor Authentication"
-msgstr "身份驗證方式"
+msgstr "忽略兩步驟驗證"
 
 #: widgets/myaccount/myaccountpersonalaccesstokenconfigurewidget.cpp:47
 #, kde-format
@@ -8210,10 +8177,9 @@ msgstr ""
 
 #: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:200
 #: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:208
-#, fuzzy, kde-format
-#| msgid "Default"
+#, kde-format
 msgid "Default (%1)"
-msgstr "預設"
+msgstr "預設（%1）"
 
 #: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:217
 #, fuzzy, kde-format
@@ -8314,7 +8280,7 @@ msgstr "跳到訊息"
 #: widgets/offlinewidget/offlinewidget.cpp:17
 #, kde-format
 msgid "Network is offline mode."
-msgstr ""
+msgstr "網路為離線狀態。"
 
 #: widgets/otr/otrwidget.cpp:19
 #, fuzzy, kde-format
@@ -8560,10 +8526,9 @@ msgid "Sound Message"
 msgstr "語音訊息"
 
 #: widgets/room/messagelinewidget.cpp:94
-#, fuzzy, kde-format
-#| msgid "Search Room... (%1)"
+#, kde-format
 msgid "Add Emoticon"
-msgstr "搜尋房間… (%1)"
+msgstr "新增表情符號"
 
 #: widgets/room/messagelinewidget.cpp:102
 #, kde-format
@@ -9061,7 +9026,7 @@ msgstr "建立團隊..."
 #: widgets/ruqolamainwindow.cpp:434
 #, kde-format
 msgid "Unread on Top"
-msgstr ""
+msgstr "未讀優先"
 
 #: widgets/ruqolamainwindow.cpp:442
 #, kde-format
@@ -9071,7 +9036,7 @@ msgstr "依最新的訊息"
 #: widgets/ruqolamainwindow.cpp:448
 #, kde-format
 msgid "Alphabetically"
-msgstr ""
+msgstr "依字母排序"
 
 #: widgets/ruqolamainwindow.cpp:454
 #, kde-format
@@ -9101,7 +9066,7 @@ msgstr "我的帳戶..."
 #: widgets/ruqolamainwindow.cpp:491
 #, kde-format
 msgid "Administrator..."
-msgstr ""
+msgstr "管理員..."
 
 #: widgets/ruqolamainwindow.cpp:497
 #, kde-format
@@ -9172,7 +9137,7 @@ msgstr "匯出帳戶"
 #: widgets/ruqolamainwindow.cpp:631
 #, kde-format
 msgid "Medium"
-msgstr ""
+msgstr "中等"
 
 #: widgets/ruqolamainwindow.cpp:639
 #, kde-format

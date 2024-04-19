@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-18 00:38+0000\n"
+"POT-Creation-Date: 2024-04-19 00:38+0000\n"
 "PO-Revision-Date: 2024-01-02 16:40+0100\n"
 "Last-Translator: Stefan Asserhäll <stefan.asserhall@bredband.net>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
@@ -148,7 +148,7 @@ msgstr "Optimering, rätta stöd för Windows/Mac"
 msgid "The following accounts are available:"
 msgstr "Följande konton är tillgängliga:"
 
-#: core/bannerinfo/bannerinfo.cpp:46
+#: core/bannerinfo/bannerinfo.cpp:47
 #, kde-format
 msgid "New version available %1"
 msgstr "Ny version tillgänglig %1"
@@ -158,143 +158,143 @@ msgstr "Ny version tillgänglig %1"
 msgid "(link)"
 msgstr "(länk)"
 
-#: core/commands/command.cpp:53
+#: core/commands/command.cpp:55
 #, kde-format
 msgid "Status message"
 msgstr "Statusmeddelande"
 
-#: core/commands/command.cpp:55
+#: core/commands/command.cpp:57
 #, kde-format
 msgid "Topic message"
 msgstr "Ämnesmeddelande"
 
-#: core/commands/command.cpp:57
+#: core/commands/command.cpp:59
 #, kde-format
 msgid "your message"
 msgstr "ditt meddelande"
 
-#: core/commands/command.cpp:59
+#: core/commands/command.cpp:61
 #, kde-format
 msgid "your message (optional)"
 msgstr "ditt meddelande (valfritt)"
 
-#: core/commands/command.cpp:75
+#: core/commands/command.cpp:77
 #, kde-format
 msgid "Archive"
 msgstr "Arkiv"
 
-#: core/commands/command.cpp:77
+#: core/commands/command.cpp:79
 #, kde-format
 msgid "Displays ༼ つ ◕_◕ ༽つ before your message"
 msgstr "Visar ༼ つ ◕_◕ ༽つ innan ditt meddelande"
 
-#: core/commands/command.cpp:79
+#: core/commands/command.cpp:81
 #, kde-format
 msgid "Displays ( ͡° ͜ʖ ͡°) after your message"
 msgstr "Visar ( ͡° ͜ʖ ͡°) efter ditt meddelande"
 
-#: core/commands/command.cpp:81
+#: core/commands/command.cpp:83
 #, kde-format
 msgid "Displays ¯\\_(ツ)_/¯ after your message"
 msgstr "Visar ¯\\_(ツ)_/¯ efter ditt meddelande"
 
-#: core/commands/command.cpp:83
+#: core/commands/command.cpp:85
 #, kde-format
 msgid "Displays (╯°□°）╯︵ ┻━┻"
 msgstr "Visar (╯°□°）╯︵ ┻━┻"
 
-#: core/commands/command.cpp:85
+#: core/commands/command.cpp:87
 #, kde-format
 msgid "Displays ┬─┬<feff> ノ( ゜-゜ノ)"
 msgstr "Visar ┬─┬<feff> ノ( ゜-゜ノ)"
 
-#: core/commands/command.cpp:87
+#: core/commands/command.cpp:89
 #, kde-format
 msgid "Create a New Channel"
 msgstr "Skapa en ny kanal"
 
-#: core/commands/command.cpp:89
+#: core/commands/command.cpp:91
 #, kde-format
 msgid "Show the keyboard shortcut list"
 msgstr "Visa listan över snabbtangenter"
 
-#: core/commands/command.cpp:91
+#: core/commands/command.cpp:93
 #, kde-format
 msgid "Hide Room"
 msgstr "Dölj rum"
 
-#: core/commands/command.cpp:93
+#: core/commands/command.cpp:95
 #, kde-format
 msgid "Invite one user to join this channel"
 msgstr "Bjud in en användare att gå med i kanalen"
 
-#: core/commands/command.cpp:95
+#: core/commands/command.cpp:97
 #, kde-format
 msgid "Invite all users from this channel to join [#channel]"
 msgstr "Bjud in alla användare från den här kanalen att gå med i [#kanal]"
 
-#: core/commands/command.cpp:97
+#: core/commands/command.cpp:99
 #, kde-format
 msgid "Invite all users from [#channel] to join this channel"
 msgstr "Bjud in alla användare från [#kanal] att gå med i den här kanalen"
 
-#: core/commands/command.cpp:99
+#: core/commands/command.cpp:101
 #, kde-format
 msgid "Join the given channel"
 msgstr "Gå med i den angivna kanalen"
 
-#: core/commands/command.cpp:101
+#: core/commands/command.cpp:103
 #, kde-format
 msgid "Remove someone from the room"
 msgstr "Ta bort någon från rummet"
 
-#: core/commands/command.cpp:103
+#: core/commands/command.cpp:105
 #, kde-format
 msgid "Leave the current channel"
 msgstr "Lämna aktuell kanal"
 
-#: core/commands/command.cpp:105
+#: core/commands/command.cpp:107
 #, kde-format
 msgid "Displays action text"
 msgstr "Visar åtgärdstext"
 
-#: core/commands/command.cpp:107
+#: core/commands/command.cpp:109
 #, kde-format
 msgid "Direct message someone"
 msgstr "Skicka direktmeddelande till någon"
 
-#: core/commands/command.cpp:109
+#: core/commands/command.cpp:111
 #, kde-format
 msgid "Mute someone in the room"
 msgstr "Tysta någon i rummet"
 
-#: core/commands/command.cpp:111
+#: core/commands/command.cpp:113
 #, kde-format
 msgid "Unmute someone in the room"
 msgstr "Tillåt någon i rummet att delta"
 
-#: core/commands/command.cpp:113
+#: core/commands/command.cpp:115
 #, kde-format
 msgid "Set your status message"
 msgstr "Ange ditt statusmeddelande"
 
-#: core/commands/command.cpp:115
+#: core/commands/command.cpp:117
 #, kde-format
 msgid "Set topic"
 msgstr "Ange ämne"
 
-#: core/commands/command.cpp:117
+#: core/commands/command.cpp:119
 #, kde-format
 msgid "Unarchive"
 msgstr "Packa upp"
 
-#: core/discussions/discussion.cpp:84
+#: core/discussions/discussion.cpp:86
 #, kde-format
 msgid "(Last Message: %1)"
 msgstr "(Senaste meddelande: %1)"
 
 #: core/messages/block.cpp:128 core/messages/message.cpp:766
-#: core/model/notificationhistorymodel.cpp:61
+#: core/model/notificationhistorymodel.cpp:63
 #: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:128
 #, kde-format
 msgid "Conference Call"
@@ -553,7 +553,7 @@ msgstr "%1 och %2"
 #: core/model/admincustomemojimodel.cpp:34
 #: core/model/admincustomsoundmodel.cpp:30 core/model/adminoauthmodel.cpp:32
 #: core/model/adminrolesmodel.cpp:32 core/model/adminroomsmodel.cpp:30
-#: core/model/adminusersmodel.cpp:106 core/model/directoryroomsmodel.cpp:116
+#: core/model/adminusersmodel.cpp:108 core/model/directoryroomsmodel.cpp:116
 #: core/model/directoryteamsmodel.cpp:90 core/model/directoryusersmodel.cpp:100
 #: core/model/moderationreportedmessagemodel.cpp:30
 #: core/model/moderationreportedusermodel.cpp:39
@@ -629,7 +629,7 @@ msgstr "Klienthemlighet"
 msgid "Redirect Url"
 msgstr "Omdirigera webbadress"
 
-#: core/model/adminoauthmodel.cpp:40 core/model/adminusersmodel.cpp:161
+#: core/model/adminoauthmodel.cpp:40 core/model/adminusersmodel.cpp:163
 #: widgets/administratordialog/oauth/administratoroauthcreatewidget.cpp:15
 #: widgets/administratordialog/oauth/administratoroautheditwidget.cpp:15
 #: widgets/administratordialog/users/administratoruserswidget.cpp:255
@@ -698,30 +698,30 @@ msgstr "Standardrum"
 msgid "Type"
 msgstr "Typ"
 
-#: core/model/adminusersmodel.cpp:108
+#: core/model/adminusersmodel.cpp:110
 #, kde-format
 msgid "UserName"
 msgstr "Användarnamn"
 
-#: core/model/adminusersmodel.cpp:110
+#: core/model/adminusersmodel.cpp:112
 #: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:125
 #: widgets/dialogs/configurenotificationwidget.cpp:102
 #, kde-format
 msgid "Email"
 msgstr "E-post"
 
-#: core/model/adminusersmodel.cpp:112
+#: core/model/adminusersmodel.cpp:114
 #, kde-format
 msgid "Role"
 msgstr "Roll"
 
-#: core/model/adminusersmodel.cpp:114 core/model/adminusersmodel.cpp:161
+#: core/model/adminusersmodel.cpp:116 core/model/adminusersmodel.cpp:163
 #: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:218
 #, kde-format
 msgid "Disabled"
 msgstr "Inaktiverad"
 
-#: core/model/adminusersmodel.cpp:116
+#: core/model/adminusersmodel.cpp:118
 #: widgets/administratorsettingsdialog/enterprise/enterprisesettingswidget.cpp:24
 #, kde-format
 msgid "Status"
@@ -790,7 +790,7 @@ msgstr "Kanaltyp"
 msgid "Belongs To"
 msgstr "Tillhör"
 
-#: core/model/directoryteamsmodel.cpp:92 core/model/roommodel.cpp:579
+#: core/model/directoryteamsmodel.cpp:92 core/model/roommodel.cpp:578
 #: widgets/administratordialog/administratorwidget.cpp:53
 #: widgets/administratordialog/roles/rolescopecombobox.cpp:13
 #: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:18
@@ -814,17 +814,17 @@ msgstr "Gå med"
 msgid "Custom"
 msgstr "Egen"
 
-#: core/model/inputcompletermodel.cpp:37
+#: core/model/inputcompletermodel.cpp:39
 #, kde-format
 msgid "Notify all in this room"
 msgstr "Underrätta alla i det här rummet"
 
-#: core/model/inputcompletermodel.cpp:45
+#: core/model/inputcompletermodel.cpp:47
 #, kde-format
 msgid "No result found."
 msgstr "Inga resultat hittades."
 
-#: core/model/inputcompletermodel.cpp:54
+#: core/model/inputcompletermodel.cpp:56
 #, kde-format
 msgid "Notify active users in this room"
 msgstr "Underrätta aktiva användare i det här rummet"
@@ -971,7 +971,7 @@ msgstr "Alla meddelanden"
 msgid "Mentions"
 msgstr "Omnämnanden"
 
-#: core/model/permissionsmodel.cpp:33 core/model/rolesmodel.cpp:31
+#: core/model/permissionsmodel.cpp:33 core/model/rolesmodel.cpp:33
 #: widgets/administratordialog/administratorwidget.cpp:77
 #: widgets/dialogs/channelrolesinfowidget.cpp:21
 #, kde-format
@@ -1003,7 +1003,7 @@ msgstr "Tvåfaktorsbehörighetskontroll"
 msgid "Last token part"
 msgstr "Sista symboldel"
 
-#: core/model/roommodel.cpp:463
+#: core/model/roommodel.cpp:462
 #, fuzzy, kde-format
 #| msgid "Mentions"
 msgid "%1 Mention"
@@ -1011,7 +1011,7 @@ msgid_plural "%1 Mentions"
 msgstr[0] "Omnämnanden"
 msgstr[1] "Omnämnanden"
 
-#: core/model/roommodel.cpp:467
+#: core/model/roommodel.cpp:466
 #, fuzzy, kde-format
 #| msgid "Mute Group Mentions"
 msgid "%1 Group Mention"
@@ -1019,7 +1019,7 @@ msgid_plural "%1 Group Mentions"
 msgstr[0] "Tysta gruppomnämnanden"
 msgstr[1] "Tysta gruppomnämnanden"
 
-#: core/model/roommodel.cpp:471
+#: core/model/roommodel.cpp:470
 #, fuzzy, kde-format
 #| msgid "Unread Threads Messages"
 msgid "%1 Unread Threaded Message"
@@ -1027,7 +1027,7 @@ msgid_plural "%1 Unread Threaded Messages"
 msgstr[0] "Olästa meddelanden i tråd"
 msgstr[1] "Olästa meddelanden i tråd"
 
-#: core/model/roommodel.cpp:475
+#: core/model/roommodel.cpp:474
 #, fuzzy, kde-format
 #| msgid "%1 has %2 Unread Message"
 msgid "%1 Unread Message"
@@ -1035,55 +1035,55 @@ msgid_plural "%1 Unread Messages"
 msgstr[0] "%1 har %2 olästa meddelanden"
 msgstr[1] "%1 har %2 olästa meddelanden"
 
-#: core/model/roommodel.cpp:501
+#: core/model/roommodel.cpp:500
 #, kde-format
 msgid "Teams Room"
 msgstr "Rum för lag"
 
-#: core/model/roommodel.cpp:507
+#: core/model/roommodel.cpp:506
 #, kde-format
 msgid "Private Room"
 msgstr "Privat rum"
 
-#: core/model/roommodel.cpp:509
+#: core/model/roommodel.cpp:508
 #, kde-format
 msgid "Discussion Room"
 msgstr "Diskussionsrum"
 
-#: core/model/roommodel.cpp:513
+#: core/model/roommodel.cpp:512
 #, kde-format
 msgid "Channel Room"
 msgstr "Kanalrum"
 
-#: core/model/roommodel.cpp:573
+#: core/model/roommodel.cpp:572
 #, kde-format
 msgid "Unread"
 msgstr "Oläst"
 
-#: core/model/roommodel.cpp:575
+#: core/model/roommodel.cpp:574
 #, kde-format
 msgid "Favorites"
 msgstr "Favoriter"
 
-#: core/model/roommodel.cpp:577
+#: core/model/roommodel.cpp:576
 #: widgets/administratordialog/rooms/administratorroomsselectroomtypewidget.cpp:18
 #: widgets/directory/directorytabwidget.cpp:22
 #, kde-format
 msgid "Teams"
 msgstr "Lag"
 
-#: core/model/roommodel.cpp:581
+#: core/model/roommodel.cpp:580
 #: widgets/administratordialog/rooms/administratorroomsselectroomtypewidget.cpp:17
 #, kde-format
 msgid "Discussions"
 msgstr "Diskussioner"
 
-#: core/model/roommodel.cpp:583
+#: core/model/roommodel.cpp:582
 #, kde-format
 msgid "Private Messages"
 msgstr "Privata meddelanden"
 
-#: core/model/roommodel.cpp:585
+#: core/model/roommodel.cpp:584
 #, kde-format
 msgid "Unknown"
 msgstr "Okänt"
@@ -1105,7 +1105,7 @@ msgstr "Upptagen"
 msgid "Away"
 msgstr "Borta"
 
-#: core/model/statusmodel.cpp:67 core/model/usersmodel.cpp:71
+#: core/model/statusmodel.cpp:67 core/model/usersmodel.cpp:73
 #: core/utils.cpp:355
 #, kde-format
 msgid "Offline"
@@ -1382,32 +1382,32 @@ msgstr "Kontonamn"
 msgid "A new account was added."
 msgstr "Skriv in kontonamn"
 
-#: core/room.cpp:1167
+#: core/room.cpp:1169
 #, kde-format
 msgid "Owner"
 msgstr "Ägare"
 
-#: core/room.cpp:1170
+#: core/room.cpp:1172
 #, kde-format
 msgid "Leader"
 msgstr "Ledare"
 
-#: core/room.cpp:1173
+#: core/room.cpp:1175
 #, kde-format
 msgid "Moderator"
 msgstr "Moderator"
 
-#: core/room.cpp:1525
+#: core/room.cpp:1527
 #, kde-format
 msgid "Channel is read only."
 msgstr "Kanalen är skrivskyddad."
 
-#: core/room.cpp:1528
+#: core/room.cpp:1530
 #, kde-format
 msgid "You have blocked this channel."
 msgstr "Du har blockerat kanalen."
 
-#: core/room.cpp:1531
+#: core/room.cpp:1533
 #, kde-format
 msgid "Channel was blocked."
 msgstr "Kanalen har blockerats."
@@ -1451,38 +1451,38 @@ msgstr "Omnikanal"
 msgid "Missing translator info. It's a bug"
 msgstr "Saknar översättarinformation. Det är ett fel."
 
-#: core/user.cpp:205
+#: core/user.cpp:207
 #, kde-format
 msgid "User"
 msgstr "Användare"
 
-#: core/user.cpp:207 widgets/ruqolamainwindow.cpp:490
+#: core/user.cpp:209 widgets/ruqolamainwindow.cpp:490
 #, kde-format
 msgid "Administrator"
 msgstr "Administratör"
 
-#: core/user.cpp:209
+#: core/user.cpp:211
 #, kde-format
 msgid "Bot"
 msgstr "Bot"
 
-#: core/videoconference/videoconferenceinfo.cpp:284
 #: core/videoconference/videoconferenceinfo.cpp:286
+#: core/videoconference/videoconferenceinfo.cpp:288
 #, kde-format
 msgid "Call was not answered"
 msgstr "Samtal besvarades inte"
 
-#: core/videoconference/videoconferenceinfo.cpp:288
+#: core/videoconference/videoconferenceinfo.cpp:290
 #, kde-format
 msgid "Call ended"
 msgstr "Samtal avslutat"
 
-#: core/videoconference/videoconferenceinfo.cpp:292
+#: core/videoconference/videoconferenceinfo.cpp:294
 #, kde-format
 msgid "Waiting for answer"
 msgstr "Väntar på svar"
 
-#: core/videoconference/videoconferenceinfo.cpp:294
+#: core/videoconference/videoconferenceinfo.cpp:296
 #, kde-format
 msgid "Call ongoing"
 msgstr "Samtal pågår"
@@ -2467,7 +2467,7 @@ msgstr "Alias:"
 
 #: widgets/administratordialog/customemoji/administratorcustomemojicreateorupdatewidget.cpp:51
 #: widgets/administratordialog/customsounds/administratorcustomsoundscreatewidget.cpp:29
-#: widgets/dialogs/uploadfilewidget.cpp:21
+#: widgets/dialogs/uploadfilewidget.cpp:22
 #, kde-format
 msgid "File:"
 msgstr "Fil:"
@@ -3008,7 +3008,7 @@ msgstr "Använd tvåfaktorsbehörighetskontroll"
 #: widgets/dialogs/channelinforeadonlywidget.cpp:47
 #: widgets/dialogs/createsoundmessagewizard.cpp:120
 #: widgets/dialogs/createvideomessagewizard.cpp:146
-#: widgets/dialogs/uploadfilewidget.cpp:38
+#: widgets/dialogs/uploadfilewidget.cpp:39
 #: widgets/messagemaximumsizedialog/messagemaximumsizewidget.cpp:27
 #, kde-format
 msgid "Description:"
@@ -7362,11 +7362,17 @@ msgctxt "@title:window"
 msgid "Upload File"
 msgstr "Ladda upp fil"
 
-#: widgets/dialogs/uploadfiledialog.cpp:84
+#: widgets/dialogs/uploadfiledialog.cpp:85
 #, kde-format
 msgctxt "@title:window"
 msgid "Upload Image"
 msgstr "Ladda upp bild"
+
+#: widgets/dialogs/uploadfilewidget.cpp:44
+#, fuzzy, kde-format
+#| msgid "Filename:"
+msgid "File Name:"
+msgstr "Filnamn:"
 
 #: widgets/directory/directorydialog.cpp:27
 #, kde-format
