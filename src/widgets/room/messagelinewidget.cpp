@@ -20,6 +20,7 @@ using namespace Qt::Literals::StringLiterals;
 
 #include <KLocalizedString>
 #include <KMessageBox>
+#include <QFileDialog>
 #include <QMimeDatabase>
 
 #include <KIO/Global>
@@ -354,7 +355,10 @@ void MessageLineWidget::slotSendVideoMessage()
 
 void MessageLineWidget::slotSendFile()
 {
-    QPointer<UploadFileDialog> dlg = new UploadFileDialog(this);
+    const QList<QUrl> urls = QFileDialog::getOpenFileUrls(this, i18nc("@title:window", "Upload File"));
+    if (urls.isEmpty()) {
+        return;
+    }
     QStringList whiteList = mCurrentRocketChatAccount->ruqolaServerConfig()->mediaWhiteList();
     const QStringList blackList = mCurrentRocketChatAccount->ruqolaServerConfig()->mediaBlackList();
     for (const auto &mediaType : blackList) {
@@ -362,43 +366,47 @@ void MessageLineWidget::slotSendFile()
             whiteList.removeAll(mediaType);
         }
     }
-    // Disable for the moment dlg->setAuthorizedMediaTypes(whiteList);
-    // qDebug() << " whiteList " << whiteList << " blackList " << blackList;
-    if (dlg->exec()) {
-        const UploadFileDialog::UploadFileInfo result = dlg->fileInfo();
-        if (result.fileUrl.isLocalFile()) {
-            const QFileInfo info(result.fileUrl.toLocalFile());
-            const qint64 maximumFileSize = mCurrentRocketChatAccount->ruqolaServerConfig()->fileMaxFileSize();
-            if (info.size() > maximumFileSize) {
-                KMessageBox::error(this, i18n("File selected is too big (Maximum size %1)", KIO::convertSize(maximumFileSize)), i18n("File upload"));
-                delete dlg;
-                return;
-            }
-            auto invalidMedia = [this, dlg]() {
-                KMessageBox::error(this, i18n("Server doesn't authorized this file (invalid mimetype)"));
-                delete dlg;
-            };
+    for (const auto &url : urls) {
+        QPointer<UploadFileDialog> dlg = new UploadFileDialog(this);
+        dlg->setFileUrl(url);
+        // Disable for the moment dlg->setAuthorizedMediaTypes(whiteList);
+        // qDebug() << " whiteList " << whiteList << " blackList " << blackList;
+        if (dlg->exec()) {
+            const UploadFileDialog::UploadFileInfo result = dlg->fileInfo();
+            if (result.fileUrl.isLocalFile()) {
+                const QFileInfo info(result.fileUrl.toLocalFile());
+                const qint64 maximumFileSize = mCurrentRocketChatAccount->ruqolaServerConfig()->fileMaxFileSize();
+                if (info.size() > maximumFileSize) {
+                    KMessageBox::error(this, i18n("File selected is too big (Maximum size %1)", KIO::convertSize(maximumFileSize)), i18n("File upload"));
+                    delete dlg;
+                    return;
+                }
+                auto invalidMedia = [this, dlg]() {
+                    KMessageBox::error(this, i18n("Server doesn't authorized this file (invalid mimetype)"));
+                    delete dlg;
+                };
 
-            QMimeDatabase mimeDatabase;
-            const QString mimeTypeName = mimeDatabase.mimeTypeForFile(result.fileUrl.toLocalFile()).name();
+                QMimeDatabase mimeDatabase;
+                const QString mimeTypeName = mimeDatabase.mimeTypeForFile(result.fileUrl.toLocalFile()).name();
 #if 0 // Disable for the moment "image/*" is not a valid MIME type for example
-            qDebug() << " mimeTypeName" << mimeTypeName << " whiteList " << whiteList;
-            if (!whiteList.isEmpty()) {
-                if (!whiteList.contains(mimeTypeName)) {
+                qDebug() << " mimeTypeName" << mimeTypeName << " whiteList " << whiteList;
+                if (!whiteList.isEmpty()) {
+                    if (!whiteList.contains(mimeTypeName)) {
+                        invalidMedia();
+                        return;
+                    }
+                }
+#endif
+                if (blackList.contains(mimeTypeName)) {
                     invalidMedia();
                     return;
                 }
             }
-#endif
-            if (blackList.contains(mimeTypeName)) {
-                invalidMedia();
-                return;
-            }
-        }
 
-        sendFile(result);
+            sendFile(result);
+        }
+        delete dlg;
     }
-    delete dlg;
 }
 
 QByteArray MessageLineWidget::threadMessageId() const

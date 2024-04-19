@@ -15,11 +15,9 @@
 
 UploadFileWidget::UploadFileWidget(QWidget *parent)
     : QWidget(parent)
-    , mDescription(new QLineEdit(this))
     , mFileName(new QLineEdit(this))
-    , mSelectFile(new KUrlRequester(this))
+    , mDescription(new QLineEdit(this))
     , mImagePreview(new QLabel(this))
-    , mFileLabel(new QLabel(i18n("File:"), this))
 {
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
@@ -34,23 +32,15 @@ UploadFileWidget::UploadFileWidget(QWidget *parent)
     layout->setContentsMargins({});
     mainLayout->addLayout(layout);
 
-    mDescription->setObjectName(QStringLiteral("mDescription"));
-    mDescription->setClearButtonEnabled(true);
-    layout->addRow(i18n("Description:"), mDescription);
-    KLineEditEventHandler::catchReturnKey(mDescription);
-
     mFileName->setObjectName(QStringLiteral("mFileName"));
     mFileName->setClearButtonEnabled(true);
     layout->addRow(i18n("File Name:"), mFileName);
     KLineEditEventHandler::catchReturnKey(mFileName);
 
-    mSelectFile->setObjectName(QStringLiteral("mSelectFile"));
-    mFileLabel->setObjectName(QStringLiteral("mFileLabel"));
-    layout->addRow(mFileLabel, mSelectFile);
-
-    connect(mSelectFile->lineEdit(), &KLineEdit::textChanged, this, [this](const QString &str) {
-        Q_EMIT updateOkButton(!str.trimmed().isEmpty());
-    });
+    mDescription->setObjectName(QStringLiteral("mDescription"));
+    mDescription->setClearButtonEnabled(true);
+    layout->addRow(i18n("Description:"), mDescription);
+    KLineEditEventHandler::catchReturnKey(mDescription);
 }
 
 UploadFileWidget::~UploadFileWidget() = default;
@@ -67,27 +57,22 @@ QString UploadFileWidget::fileName() const
 
 QUrl UploadFileWidget::fileUrl() const
 {
-    return mSelectFile->url();
+    return mUrl;
 }
 
 void UploadFileWidget::setFileUrl(const QUrl &url)
 {
-    mSelectFile->setUrl(url);
+    mUrl = url;
+    const QFileInfo fileInfo(mUrl.toLocalFile());
+    mFileName->setText(fileInfo.fileName());
 }
 
 void UploadFileWidget::setPixmap(const QPixmap &pix)
 {
     if (!pix.isNull()) {
-        mSelectFile->setVisible(false);
-        mFileLabel->setVisible(false);
         mImagePreview->setVisible(true);
         mImagePreview->setPixmap(pix);
     }
-}
-
-void UploadFileWidget::setAuthorizedMediaTypes(const QStringList &mediaTypes)
-{
-    mSelectFile->setMimeTypeFilters(mediaTypes);
 }
 
 #include "moc_uploadfilewidget.cpp"

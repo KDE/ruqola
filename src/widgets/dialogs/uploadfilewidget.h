@@ -7,9 +7,9 @@
 #pragma once
 
 #include "libruqolawidgets_private_export.h"
+#include <QUrl>
 #include <QWidget>
 class QLineEdit;
-class KUrlRequester;
 class QLabel;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT UploadFileWidget : public QWidget
 {
@@ -23,15 +23,10 @@ public:
     [[nodiscard]] QString fileName() const;
     void setFileUrl(const QUrl &url);
     void setPixmap(const QPixmap &pix);
-    void setAuthorizedMediaTypes(const QStringList &mediaTypes);
-
-Q_SIGNALS:
-    void updateOkButton(bool enabled);
 
 private:
-    QLineEdit *const mDescription;
     QLineEdit *const mFileName;
-    KUrlRequester *const mSelectFile;
+    QLineEdit *const mDescription;
     QLabel *const mImagePreview;
-    QLabel *const mFileLabel;
+    QUrl mUrl;
 };

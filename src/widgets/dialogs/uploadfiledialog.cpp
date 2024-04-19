@@ -35,9 +35,6 @@ UploadFileDialog::UploadFileDialog(QWidget *parent)
     connect(buttonBox, &QDialogButtonBox::accepted, this, &UploadFileDialog::accept);
     connect(buttonBox, &QDialogButtonBox::rejected, this, &UploadFileDialog::reject);
     mainLayout->addWidget(buttonBox);
-    mOkButton = buttonBox->button(QDialogButtonBox::Ok);
-    mOkButton->setEnabled(false);
-    connect(mUploadFileWidget, &UploadFileWidget::updateOkButton, mOkButton, &QPushButton::setEnabled);
     readConfig();
 }
 
@@ -49,11 +46,6 @@ UploadFileDialog::~UploadFileDialog()
 void UploadFileDialog::setFileUrl(const QUrl &url)
 {
     mUploadFileWidget->setFileUrl(url);
-}
-
-void UploadFileDialog::setAuthorizedMediaTypes(const QStringList &mediaTypes)
-{
-    mUploadFileWidget->setAuthorizedMediaTypes(mediaTypes);
 }
 
 void UploadFileDialog::readConfig()

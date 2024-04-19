@@ -34,8 +34,6 @@ public:
 
     [[nodiscard]] UploadFileInfo fileInfo() const;
 
-    void setAuthorizedMediaTypes(const QStringList &mediaTypes);
-
     void setPixmap(const QPixmap &pix);
 
 private:
