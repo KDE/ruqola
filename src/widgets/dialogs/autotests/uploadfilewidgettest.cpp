@@ -42,11 +42,6 @@ void UploadFileWidgetTest::shouldHaveDefaultValues()
     QVERIFY(mImagePreview);
     QVERIFY(!mImagePreview->isVisible());
 
-    auto mFileLabel = w.findChild<QLabel *>(QStringLiteral("mFileLabel"));
-    QVERIFY(mFileLabel);
-    QVERIFY(!mFileLabel->isVisible());
-    QVERIFY(!mFileLabel->text().isEmpty());
-
     auto mFileNameInfo = w.findChild<QLabel *>(QStringLiteral("mFileNameInfo"));
     QVERIFY(mFileNameInfo);
     QVERIFY(mFileNameInfo->text().isEmpty());
