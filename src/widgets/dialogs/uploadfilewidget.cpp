@@ -9,6 +9,7 @@
 #include <KLocalizedString>
 #include <KUrlRequester>
 
+#include <KFormat>
 #include <KLineEdit>
 #include <QFormLayout>
 #include <QLabel>
@@ -18,10 +19,14 @@ UploadFileWidget::UploadFileWidget(QWidget *parent)
     , mFileName(new QLineEdit(this))
     , mDescription(new QLineEdit(this))
     , mImagePreview(new QLabel(this))
+    , mFileNameInfo(new QLabel(this))
 {
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
     mainLayout->setContentsMargins({});
+
+    mFileNameInfo->setObjectName(QStringLiteral("mFileNameInfo"));
+    mainLayout->addWidget(mFileNameInfo);
 
     mImagePreview->setObjectName(QStringLiteral("mImagePreview"));
     mainLayout->addWidget(mImagePreview, 0, Qt::AlignCenter);
@@ -65,6 +70,8 @@ void UploadFileWidget::setFileUrl(const QUrl &url)
     mUrl = url;
     const QFileInfo fileInfo(mUrl.toLocalFile());
     mFileName->setText(fileInfo.fileName());
+    KFormat format;
+    mFileNameInfo->setText(QStringLiteral("%1 - %2").arg(fileInfo.fileName(), format.formatByteSize(fileInfo.size())));
 }
 
 void UploadFileWidget::setPixmap(const QPixmap &pix)

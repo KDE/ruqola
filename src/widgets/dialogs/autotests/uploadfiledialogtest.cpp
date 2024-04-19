@@ -31,9 +31,6 @@ void UploadFileDialogTest::shouldHaveDefaultValues()
     QVERIFY(mUploadFileWidget);
     auto buttonBox = w.findChild<QDialogButtonBox *>(QStringLiteral("buttonBox"));
     QVERIFY(buttonBox);
-
-    QPushButton *mOkButton = buttonBox->button(QDialogButtonBox::Ok);
-    QVERIFY(!mOkButton->isEnabled());
 }
 
 #include "moc_uploadfiledialogtest.cpp"

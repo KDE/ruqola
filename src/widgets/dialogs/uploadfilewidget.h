@@ -28,5 +28,6 @@ private:
     QLineEdit *const mFileName;
     QLineEdit *const mDescription;
     QLabel *const mImagePreview;
+    QLabel *const mFileNameInfo;
     QUrl mUrl;
 };
