@@ -74,7 +74,9 @@ UploadFileDialog::UploadFileInfo UploadFileDialog::fileInfo() const
 
 void UploadFileDialog::setPixmap(const QPixmap &pix)
 {
-    setWindowTitle(i18nc("@title:window", "Upload Image"));
+    if (!pix.isNull()) {
+        setWindowTitle(i18nc("@title:window", "Upload Image"));
+    }
     mUploadFileWidget->setPixmap(pix);
 }
 
