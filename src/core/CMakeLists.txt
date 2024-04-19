@@ -416,8 +416,6 @@ target_sources(libruqolacore PRIVATE
     ruqolawebsocket.h
     serverconfiginfo.cpp
     serverconfiginfo.h
-    serverinfo.cpp
-    serverinfo.h
     servicepassword.cpp
     servicepassword.h
     syntaxhighlightingmanager.cpp

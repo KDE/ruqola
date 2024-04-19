@@ -7,7 +7,6 @@
 #pragma once
 
 #include "libruqolawidgets_private_export.h"
-#include "serverinfo.h"
 #include <QJsonObject>
 #include <QWidget>
 class QTreeWidget;
@@ -27,8 +26,6 @@ private:
     LIBRUQOLAWIDGETS_NO_EXPORT void parseServerInfo(QTreeWidgetItem *serverInfoItem, const QJsonObject &obj);
     LIBRUQOLAWIDGETS_NO_EXPORT void parseUsageInfo(QTreeWidgetItem *usageInfoItem, const QJsonObject &obj);
     LIBRUQOLAWIDGETS_NO_EXPORT void parseRuntimeInfo(QTreeWidgetItem *runtimeInfoItem, const QJsonObject &obj);
-    LIBRUQOLAWIDGETS_NO_EXPORT void parseCommitInfo(QTreeWidgetItem *commitInfoItem);
-    LIBRUQOLAWIDGETS_NO_EXPORT void parseBuildInfo(QTreeWidgetItem *buildInfoItem);
     LIBRUQOLAWIDGETS_NO_EXPORT void
     createItemFromIntValue(QTreeWidgetItem *usageInfoItem, const QJsonObject &obj, const QString &label, const QString &identifier);
     LIBRUQOLAWIDGETS_NO_EXPORT void
@@ -46,7 +43,6 @@ private:
     QTreeWidget *const mTreeWidget;
     KTreeWidgetSearchLineWidget *const mSearchLineWidget;
     QPushButton *const mRefreshButton;
-    ServerInfo mServerInfo;
     QTreeWidgetItem *mServerInfoItem = nullptr;
     QTreeWidgetItem *mUsageInfoItem = nullptr;
     QTreeWidgetItem *mRuntimeInfoItem = nullptr;

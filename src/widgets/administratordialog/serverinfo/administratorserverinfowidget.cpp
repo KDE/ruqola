@@ -227,68 +227,6 @@ void AdministratorServerInfoWidget::parseRuntimeInfo(QTreeWidgetItem *runtimeInf
     createItemDisplayFormat(runtimeInfoItem, runtimeObj, i18n("OS Free Memory"), QStringLiteral("freemem"));
 }
 
-void AdministratorServerInfoWidget::parseCommitInfo(QTreeWidgetItem *commitInfoItem)
-{
-    {
-        auto item = new QTreeWidgetItem(commitInfoItem);
-        item->setText(0, i18n("Hash"));
-        item->setText(1, mServerInfo.commitHash());
-        item->addChild(item);
-    }
-    {
-        auto item = new QTreeWidgetItem(commitInfoItem);
-        item->setText(0, i18n("Branch"));
-        item->setText(1, mServerInfo.commitBranch());
-        item->addChild(item);
-    }
-    {
-        auto item = new QTreeWidgetItem(commitInfoItem);
-        item->setText(0, i18n("Tag"));
-        item->setText(1, mServerInfo.commitTag());
-        item->addChild(item);
-    }
-    {
-        auto item = new QTreeWidgetItem(commitInfoItem);
-        item->setText(0, i18n("Author"));
-        item->setText(1, mServerInfo.commitAuthor());
-        item->addChild(item);
-    }
-    {
-        auto item = new QTreeWidgetItem(commitInfoItem);
-        item->setText(0, i18n("Subject"));
-        item->setText(1, mServerInfo.commitSubject());
-        item->addChild(item);
-    }
-}
-
-void AdministratorServerInfoWidget::parseBuildInfo(QTreeWidgetItem *buildInfoItem)
-{
-    {
-        auto item = new QTreeWidgetItem(buildInfoItem);
-        item->setText(0, i18n("OS Release"));
-        item->setText(1, mServerInfo.osRelease());
-        item->addChild(item);
-    }
-    {
-        auto item = new QTreeWidgetItem(buildInfoItem);
-        item->setText(0, i18n("Node Version"));
-        item->setText(1, mServerInfo.nodeVersion());
-        item->addChild(item);
-    }
-    {
-        auto item = new QTreeWidgetItem(buildInfoItem);
-        item->setText(0, i18n("Arch"));
-        item->setText(1, mServerInfo.arch());
-        item->addChild(item);
-    }
-    {
-        auto item = new QTreeWidgetItem(buildInfoItem);
-        item->setText(0, i18n("OS Platform"));
-        item->setText(1, mServerInfo.platform());
-        item->addChild(item);
-    }
-}
-
 void AdministratorServerInfoWidget::slotStatisticDone(const QJsonObject &obj)
 {
     delete mServerInfoItem;
