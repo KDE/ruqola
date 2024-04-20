@@ -45,6 +45,10 @@ void UploadFileWidgetTest::shouldHaveDefaultValues()
     auto mFileNameInfo = w.findChild<QLabel *>(QStringLiteral("mFileNameInfo"));
     QVERIFY(mFileNameInfo);
     QVERIFY(mFileNameInfo->text().isEmpty());
+
+    auto mMimeTypeLabel = w.findChild<QLabel *>(QStringLiteral("mMimeTypeLabel"));
+    QVERIFY(mMimeTypeLabel);
+    QVERIFY(mMimeTypeLabel->text().isEmpty());
 }
 
 void UploadFileWidgetTest::shouldReturnEmptyResult()
