@@ -13,6 +13,8 @@
 #include <KLineEdit>
 #include <QFormLayout>
 #include <QLabel>
+#include <QMimeDatabase>
+#include <QStyle>
 
 UploadFileWidget::UploadFileWidget(QWidget *parent)
     : QWidget(parent)
@@ -20,13 +22,11 @@ UploadFileWidget::UploadFileWidget(QWidget *parent)
     , mDescription(new QLineEdit(this))
     , mImagePreview(new QLabel(this))
     , mFileNameInfo(new QLabel(this))
+    , mMimeTypeLabel(new QLabel(this))
 {
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
     mainLayout->setContentsMargins({});
-
-    mFileNameInfo->setObjectName(QStringLiteral("mFileNameInfo"));
-    mainLayout->addWidget(mFileNameInfo);
 
     mImagePreview->setObjectName(QStringLiteral("mImagePreview"));
     mainLayout->addWidget(mImagePreview, 0, Qt::AlignCenter);
@@ -36,6 +36,11 @@ UploadFileWidget::UploadFileWidget(QWidget *parent)
     layout->setObjectName(QStringLiteral("layout"));
     layout->setContentsMargins({});
     mainLayout->addLayout(layout);
+
+    mMimeTypeLabel->setObjectName(QStringLiteral("mMimeTypeLabel"));
+
+    mFileNameInfo->setObjectName(QStringLiteral("mFileNameInfo"));
+    layout->addRow(mMimeTypeLabel, mFileNameInfo);
 
     mFileName->setObjectName(QStringLiteral("mFileName"));
     mFileName->setClearButtonEnabled(true);
@@ -72,6 +77,12 @@ void UploadFileWidget::setFileUrl(const QUrl &url)
     mFileName->setText(fileInfo.fileName());
     KFormat format;
     mFileNameInfo->setText(QStringLiteral("%1 - %2").arg(fileInfo.fileName(), format.formatByteSize(fileInfo.size())));
+
+    QMimeDatabase db;
+    const QMimeType mimeType = db.mimeTypeForFile(fileInfo);
+    const QPixmap pix =
+        QIcon::fromTheme(mimeType.iconName(), QIcon::fromTheme(QStringLiteral("unknown"))).pixmap(style()->pixelMetric(QStyle::PM_LargeIconSize));
+    mMimeTypeLabel->setPixmap(pix);
 }
 
 void UploadFileWidget::setPixmap(const QPixmap &pix)
