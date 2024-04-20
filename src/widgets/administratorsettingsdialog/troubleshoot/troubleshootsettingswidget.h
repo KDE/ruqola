@@ -11,6 +11,7 @@
 class QCheckBox;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT TroubleshootSettingsWidget : public SettingsWidgetBase
 {
+    Q_OBJECT
 public:
     explicit TroubleshootSettingsWidget(RocketChatAccount *account, QWidget *parent = nullptr);
     ~TroubleshootSettingsWidget() override;
