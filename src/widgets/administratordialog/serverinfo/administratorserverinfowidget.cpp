@@ -111,6 +111,9 @@ void AdministratorServerInfoWidget::fillLicenses(const QJsonObject &obj)
     }
     auto licenseItem = new QTreeWidgetItem(mTreeWidget);
     licenseItem->setText(0, i18n("Licenses"));
+    QFont f = licenseItem->font(0);
+    f.setBold(true);
+    licenseItem->setFont(0, f);
     createItemFromLicense(licenseItem, i18n("Omnichannel"), listLicences.contains(QStringLiteral("livechat-enterprise")));
     createItemFromLicense(licenseItem, i18n("Auditing"), listLicences.contains(QStringLiteral("auditing")));
     createItemFromLicense(licenseItem, i18n("Canned Responses"), listLicences.contains(QStringLiteral("canned-responses")));
@@ -231,17 +234,22 @@ void AdministratorServerInfoWidget::slotStatisticDone(const QJsonObject &obj)
 {
     delete mServerInfoItem;
     mServerInfoItem = new QTreeWidgetItem(mTreeWidget);
+    QFont f = mServerInfoItem->font(0);
+    f.setBold(true);
+    mServerInfoItem->setFont(0, f);
     mServerInfoItem->setText(0, i18n("Server Info"));
     parseServerInfo(mServerInfoItem, obj);
 
     delete mUsageInfoItem;
     mUsageInfoItem = new QTreeWidgetItem(mTreeWidget);
     mUsageInfoItem->setText(0, i18n("Usage"));
+    mUsageInfoItem->setFont(0, f);
     parseUsageInfo(mUsageInfoItem, obj);
 
     delete mRuntimeInfoItem;
     mRuntimeInfoItem = new QTreeWidgetItem(mTreeWidget);
     mRuntimeInfoItem->setText(0, i18n("Runtime Environment"));
+    mRuntimeInfoItem->setFont(0, f);
     parseRuntimeInfo(mRuntimeInfoItem, obj);
     mTreeWidget->expandAll();
     mTreeWidget->resizeColumnToContents(1);
