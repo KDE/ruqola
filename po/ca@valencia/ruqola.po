@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-19 00:38+0000\n"
-"PO-Revision-Date: 2024-04-11 12:47+0200\n"
+"POT-Creation-Date: 2024-04-20 00:38+0000\n"
+"PO-Revision-Date: 2024-04-19 09:07+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca@valencia\n"
@@ -64,7 +64,7 @@ msgstr "David Faure"
 #: apps/main.cpp:57
 #, kde-format
 msgid "Bug fixing, delegates etc."
-msgstr "Correcció d'errors, delegats, etc."
+msgstr "Esmena d'errors, delegats, etc."
 
 #: apps/main.cpp:58
 #, kde-format
@@ -75,7 +75,7 @@ msgstr "Kevin Funk"
 #: apps/main.cpp:63
 #, kde-format
 msgid "Bug fixing"
-msgstr "Correcció d'errors"
+msgstr "Esmena d'errors"
 
 #: apps/main.cpp:59
 #, kde-format
@@ -115,7 +115,7 @@ msgstr "Hannah von Reth"
 #: apps/main.cpp:64
 #, kde-format
 msgid "Bug fixing for Windows/Mac"
-msgstr "Correcció d'errors per a Windows/Mac"
+msgstr "Esmena d'errors per a Windows/Mac"
 
 #: apps/main.cpp:65
 #, kde-format
@@ -135,7 +135,7 @@ msgstr "Waqar Ahmed"
 #: apps/main.cpp:66
 #, kde-format
 msgid "Bug fixing (compile, network crash...)"
-msgstr "Correcció d'errors (compilació, fallada de la xarxa,...)"
+msgstr "Esmena d'errors (compilació, fallada de la xarxa,...)"
 
 #: apps/main.cpp:67
 #, kde-format
@@ -2385,7 +2385,7 @@ msgid "Administrator"
 msgstr "Administrador"
 
 #: widgets/administratordialog/administratorwidget.cpp:50
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:296
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:234
 #, kde-format
 msgid "Server Info"
 msgstr "Informació del servidor"
@@ -2476,7 +2476,6 @@ msgstr "Àlies:"
 
 #: widgets/administratordialog/customemoji/administratorcustomemojicreateorupdatewidget.cpp:51
 #: widgets/administratordialog/customsounds/administratorcustomsoundscreatewidget.cpp:29
-#: widgets/dialogs/uploadfilewidget.cpp:22
 #, kde-format
 msgid "File:"
 msgstr "Fitxer:"
@@ -3014,7 +3013,7 @@ msgstr "Utilitza una autenticació de dos factors"
 #: widgets/dialogs/channelinforeadonlywidget.cpp:47
 #: widgets/dialogs/createsoundmessagewizard.cpp:120
 #: widgets/dialogs/createvideomessagewizard.cpp:146
-#: widgets/dialogs/uploadfilewidget.cpp:39
+#: widgets/dialogs/uploadfilewidget.cpp:47
 #: widgets/messagemaximumsizedialog/messagemaximumsizewidget.cpp:27
 #, kde-format
 msgid "Description:"
@@ -3329,7 +3328,6 @@ msgid "Total Connected Users"
 msgstr "Usuaris connectats en total"
 
 #: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:223
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:268
 #, kde-format
 msgid "OS Release"
 msgstr "Llançament del SO"
@@ -3340,7 +3338,6 @@ msgid "OS Type"
 msgstr "Tipus de SO"
 
 #: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:225
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:286
 #, kde-format
 msgid "OS Platform"
 msgstr "Plataforma del SO"
@@ -3355,53 +3352,12 @@ msgstr "Memòria total del SO"
 msgid "OS Free Memory"
 msgstr "Memòria lliure del SO"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:234
-#, kde-format
-msgid "Hash"
-msgstr "Resum"
-
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:240
-#, kde-format
-msgid "Branch"
-msgstr "Branca"
-
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:246
-#, kde-format
-msgid "Tag"
-msgstr "Etiqueta"
-
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:252
-#, kde-format
-msgid "Author"
-msgstr "Autoria"
-
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:258
-#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:110
-#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:115
-#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:133
-#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:143
-#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:153
-#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:163
-#, kde-format
-msgid "Subject"
-msgstr "Assumpte"
-
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:274
-#, kde-format
-msgid "Node Version"
-msgstr "Versió de node"
-
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:280
-#, kde-format
-msgid "Arch"
-msgstr "Arquitectura"
-
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:301
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:239
 #, kde-format
 msgid "Usage"
 msgstr "Ús"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:306
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:244
 #, kde-format
 msgid "Runtime Environment"
 msgstr "Entorn d'execució"
@@ -4282,7 +4238,7 @@ msgid ""
 "exclusively for access by Rocket.Chat\n"
 "and is not read/processed \"in parallel\" by humans."
 msgstr ""
-"[Atenció!] Si s'ha activat la «Resposta directa», Rocket.Chat controlarà la "
+"[Atenció!] Si s'ha marcat la «Resposta directa», Rocket.Chat controlarà la "
 "bústia de correu configurada.\n"
 "Tots els correus sense llegir es recuperen, es marquen com a llegits i es "
 "processen.\n"
@@ -4303,6 +4259,16 @@ msgstr ""
 #, kde-format
 msgid "Forgot password"
 msgstr "Oblida la contrasenya"
+
+#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:110
+#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:115
+#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:133
+#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:143
+#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:153
+#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:163
+#, kde-format
+msgid "Subject"
+msgstr "Assumpte"
 
 #: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:113
 #: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:136
@@ -4374,7 +4340,7 @@ msgid ""
 "Enable option to create encrypted groups and be able to change groups and "
 "direct messages to be encrypted."
 msgstr ""
-"Selecciona l'opció de crear grups encriptats i ser capaç de canviar grups i "
+"Marca l'opció de crear grups encriptats i ser capaç de canviar grups i "
 "missatges directes perquè es puguen encriptar."
 
 #: widgets/administratorsettingsdialog/encryption/encryptionsettingswidget.cpp:36
@@ -4384,10 +4350,9 @@ msgid ""
 "between 2 users. OTR messages are not recorded on the server and exchanged "
 "directly and encrypted between the 2 users."
 msgstr ""
-"Selecciona l'opció per a utilitzar els missatges «off-the-record» (OTR) en "
-"els missatges directes entre 2 usuaris. Els missatges OTR no s'enregistren "
-"en el servidor i s'intercanvien de manera directa i encriptada entre els 2 "
-"usuaris."
+"Marca l'opció per a utilitzar els missatges «off-the-record» (OTR) en els "
+"missatges directes entre 2 usuaris. Els missatges OTR no s'enregistren en el "
+"servidor i s'intercanvien de manera directa i encriptada entre els 2 usuaris."
 
 #: widgets/administratorsettingsdialog/enterprise/enterprisesettingswidget.cpp:20
 #, kde-format
@@ -6362,10 +6327,9 @@ msgid "Provider:"
 msgstr "Proveïdor:"
 
 #: widgets/configuredialog/accountservertreewidget.cpp:205
-#, fuzzy, kde-format
-#| msgid "Configure Activities"
+#, kde-format
 msgid "Display Account in Current Activity"
-msgstr "Configura les activitats"
+msgstr "Mostra el compte a l'activitat actual"
 
 #: widgets/configuredialog/configureaccountserverwidget.cpp:29
 #, kde-format
@@ -6381,10 +6345,9 @@ msgstr "Avall"
 
 #. i18n: ectx: property (text), widget (QCheckBox, configureCurrentActivity)
 #: widgets/configuredialog/configureaccountserverwidget.ui:93
-#, fuzzy, kde-format
-#| msgid "Configure Activities"
+#, kde-format
 msgid "Configure Accounts in Current Activity"
-msgstr "Configura les activitats"
+msgstr "Configura els comptes a l'activitat actual"
 
 #: widgets/configuredialog/configurefontwidget.cpp:17
 #, kde-format
@@ -6598,7 +6561,7 @@ msgstr "Voleu suprimir este fitxer?"
 #, kde-format
 msgctxt "@title"
 msgid "Delete File"
-msgstr "Supressió de fitxer"
+msgstr "Suprimiu el fitxer"
 
 #: widgets/dialogs/autotranslateconfiguredialog.cpp:17
 #, kde-format
@@ -6683,7 +6646,7 @@ msgstr "Voleu suprimir este equip?"
 #, kde-format
 msgctxt "@title"
 msgid "Delete Team"
-msgstr "Supressió d'equip"
+msgstr "Suprimiu l'equip"
 
 #: widgets/dialogs/channelinfoeditablewidget.cpp:126
 #, kde-format
@@ -6694,7 +6657,7 @@ msgstr "Voleu suprimir esta sala?"
 #, kde-format
 msgctxt "@title"
 msgid "Delete Room"
-msgstr "Supressió de sala"
+msgstr "Suprimiu la sala"
 
 #: widgets/dialogs/channelinfoeditablewidget.cpp:264
 #, kde-format
@@ -6853,7 +6816,7 @@ msgstr "So:"
 #, kde-format
 msgctxt "@title:window"
 msgid "Confirm Password"
-msgstr "Confirmació de contrasenya"
+msgstr "Confirmeu la contrasenya"
 
 #: widgets/dialogs/confirmpasswordwidget.cpp:23
 #, kde-format
@@ -7382,20 +7345,20 @@ msgid "Video: %1"
 msgstr "Vídeo: %1"
 
 #: widgets/dialogs/uploadfiledialog.cpp:26
+#: widgets/room/messagelinewidget.cpp:358
 #, kde-format
 msgctxt "@title:window"
 msgid "Upload File"
 msgstr "Pujada de fitxer"
 
-#: widgets/dialogs/uploadfiledialog.cpp:85
+#: widgets/dialogs/uploadfiledialog.cpp:78
 #, kde-format
 msgctxt "@title:window"
 msgid "Upload Image"
 msgstr "Pujada d'imatge"
 
-#: widgets/dialogs/uploadfilewidget.cpp:44
-#, fuzzy, kde-format
-#| msgid "Filename:"
+#: widgets/dialogs/uploadfilewidget.cpp:42
+#, kde-format
 msgid "File Name:"
 msgstr "Nom del fitxer:"
 
@@ -8353,7 +8316,7 @@ msgstr "Segur de suprimir el vostre compte?"
 #, kde-format
 msgctxt "@title"
 msgid "Delete my Account"
-msgstr "Supressió del meu compte"
+msgstr "Suprimiu el meu compte"
 
 #: widgets/myaccount/myaccountprofileconfigurewidget.cpp:105
 #: widgets/myaccount/myaccountprofileconfigurewidget.cpp:169
@@ -8626,53 +8589,53 @@ msgstr "El missatge s'ha fixat"
 msgid "Message has been starred"
 msgstr "El missatge s'ha destacat"
 
-#: widgets/room/messagelinewidget.cpp:63
+#: widgets/room/messagelinewidget.cpp:64
 #, kde-format
 msgid "Attach File"
 msgstr "Adjunta un fitxer"
 
-#: widgets/room/messagelinewidget.cpp:72
+#: widgets/room/messagelinewidget.cpp:73
 #, kde-format
 msgid "Video Message"
 msgstr "Missatge de vídeo"
 
-#: widgets/room/messagelinewidget.cpp:82
+#: widgets/room/messagelinewidget.cpp:83
 #, kde-format
 msgid "Sound Message"
 msgstr "Missatge de so"
 
-#: widgets/room/messagelinewidget.cpp:94
+#: widgets/room/messagelinewidget.cpp:95
 #, kde-format
 msgid "Add Emoticon"
 msgstr "Afig una emoticona"
 
-#: widgets/room/messagelinewidget.cpp:102
+#: widgets/room/messagelinewidget.cpp:103
 #, kde-format
 msgid "Send Message"
 msgstr "Envia un missatge"
 
-#: widgets/room/messagelinewidget.cpp:141
+#: widgets/room/messagelinewidget.cpp:142
 #, kde-format
 msgid "Do you want to convert this big text as attachment?"
 msgstr "Voleu convertir este text llarg en un adjunt?"
 
-#: widgets/room/messagelinewidget.cpp:142
+#: widgets/room/messagelinewidget.cpp:143
 #, kde-format
 msgctxt "@title:window"
 msgid "Message Too Big"
 msgstr "Missatge massa llarg"
 
-#: widgets/room/messagelinewidget.cpp:373
+#: widgets/room/messagelinewidget.cpp:380
 #, kde-format
 msgid "File selected is too big (Maximum size %1)"
 msgstr "El fitxer seleccionat és massa gran (la mida màxima és %1)"
 
-#: widgets/room/messagelinewidget.cpp:373
+#: widgets/room/messagelinewidget.cpp:380
 #, kde-format
 msgid "File upload"
 msgstr "Pujada de fitxer"
 
-#: widgets/room/messagelinewidget.cpp:378
+#: widgets/room/messagelinewidget.cpp:385
 #, kde-format
 msgid "Server doesn't authorized this file (invalid mimetype)"
 msgstr "El servidor no ha autoritzat este fitxer (tipus MIME no vàlid)"
@@ -8793,7 +8756,7 @@ msgstr "Voleu suprimir este missatge?"
 #, kde-format
 msgctxt "@title"
 msgid "Delete Message"
-msgstr "Supressió de missatge"
+msgstr "Suprimiu el missatge"
 
 #: widgets/room/messagelistview.cpp:958
 #, kde-format
@@ -9524,7 +9487,7 @@ msgstr ""
 #: widgets/whatsnew/whatsnewwidget.cpp:100
 #, kde-format
 msgid "Some bug fixing:"
-msgstr "Correcció d'errors:"
+msgstr "Esmena d'errors:"
 
 #: widgets/whatsnew/whatsnewwidgettranslation.h:14
 msgid "Store Message in Local Database (experimental)"
@@ -9698,3 +9661,25 @@ msgstr "Reduïx el consum de memòria."
 #: widgets/whatsnew/whatsnewwidgettranslation.h:84
 msgid "Use RESTAPI for logging."
 msgstr "Utilitza RESTAPI per al registre."
+
+#: widgets/whatsnew/whatsnewwidgettranslation.h:85
+msgid "Allow to send multi files."
+msgstr ""
+
+#~ msgid "Hash"
+#~ msgstr "Resum"
+
+#~ msgid "Branch"
+#~ msgstr "Branca"
+
+#~ msgid "Tag"
+#~ msgstr "Etiqueta"
+
+#~ msgid "Author"
+#~ msgstr "Autoria"
+
+#~ msgid "Node Version"
+#~ msgstr "Versió de node"
+
+#~ msgid "Arch"
+#~ msgstr "Arquitectura"

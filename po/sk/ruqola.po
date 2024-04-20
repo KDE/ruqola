@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-19 00:38+0000\n"
+"POT-Creation-Date: 2024-04-20 00:38+0000\n"
 "PO-Revision-Date: 2019-07-29 20:25+0200\n"
 "Last-Translator: Roman Paholík <wizzardsk@gmail.com>\n"
 "Language-Team: Slovak <kde-sk@linux.sk>\n"
@@ -2466,7 +2466,7 @@ msgid "Administrator"
 msgstr ""
 
 #: widgets/administratordialog/administratorwidget.cpp:50
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:296
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:234
 #, kde-format
 msgid "Server Info"
 msgstr "Informácie o serveri"
@@ -2564,7 +2564,6 @@ msgstr ""
 
 #: widgets/administratordialog/customemoji/administratorcustomemojicreateorupdatewidget.cpp:51
 #: widgets/administratordialog/customsounds/administratorcustomsoundscreatewidget.cpp:29
-#: widgets/dialogs/uploadfilewidget.cpp:22
 #, kde-format
 msgid "File:"
 msgstr ""
@@ -3141,7 +3140,7 @@ msgstr "Autentifikačná metóda"
 #: widgets/dialogs/channelinforeadonlywidget.cpp:47
 #: widgets/dialogs/createsoundmessagewizard.cpp:120
 #: widgets/dialogs/createvideomessagewizard.cpp:146
-#: widgets/dialogs/uploadfilewidget.cpp:39
+#: widgets/dialogs/uploadfilewidget.cpp:47
 #: widgets/messagemaximumsizedialog/messagemaximumsizewidget.cpp:27
 #, kde-format
 msgid "Description:"
@@ -3496,7 +3495,6 @@ msgid "Total Connected Users"
 msgstr "Zadajte užívateľské meno"
 
 #: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:223
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:268
 #, kde-format
 msgid "OS Release"
 msgstr ""
@@ -3507,7 +3505,6 @@ msgid "OS Type"
 msgstr ""
 
 #: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:225
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:286
 #, kde-format
 msgid "OS Platform"
 msgstr ""
@@ -3523,56 +3520,13 @@ msgstr "Zadajte užívateľské meno"
 msgid "OS Free Memory"
 msgstr ""
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:234
-#, kde-format
-msgid "Hash"
-msgstr ""
-
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:240
-#, kde-format
-msgid "Branch"
-msgstr ""
-
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:246
-#, kde-format
-msgid "Tag"
-msgstr ""
-
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:252
-#, kde-format
-msgid "Author"
-msgstr "Autor"
-
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:258
-#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:110
-#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:115
-#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:133
-#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:143
-#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:153
-#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:163
-#, kde-format
-msgid "Subject"
-msgstr ""
-
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:274
-#, fuzzy, kde-format
-#| msgid "Version %1"
-msgid "Node Version"
-msgstr "Verzia %1"
-
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:280
-#, fuzzy, kde-format
-#| msgid "Archive:"
-msgid "Arch"
-msgstr "Archív:"
-
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:301
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:239
 #, fuzzy, kde-format
 #| msgid "Message"
 msgid "Usage"
 msgstr "Správa"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:306
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:244
 #, kde-format
 msgid "Runtime Environment"
 msgstr ""
@@ -4459,6 +4413,16 @@ msgstr ""
 #| msgid "Enter your password"
 msgid "Forgot password"
 msgstr "Zadajte svoje heslo"
+
+#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:110
+#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:115
+#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:133
+#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:143
+#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:153
+#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:163
+#, kde-format
+msgid "Subject"
+msgstr ""
 
 #: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:113
 #: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:136
@@ -7603,19 +7567,20 @@ msgid "Video: %1"
 msgstr "Video"
 
 #: widgets/dialogs/uploadfiledialog.cpp:26
+#: widgets/room/messagelinewidget.cpp:358
 #, kde-format
 msgctxt "@title:window"
 msgid "Upload File"
 msgstr ""
 
-#: widgets/dialogs/uploadfiledialog.cpp:85
+#: widgets/dialogs/uploadfiledialog.cpp:78
 #, fuzzy, kde-format
 #| msgid "Image"
 msgctxt "@title:window"
 msgid "Upload Image"
 msgstr "Obrázok"
 
-#: widgets/dialogs/uploadfilewidget.cpp:44
+#: widgets/dialogs/uploadfilewidget.cpp:42
 #, fuzzy, kde-format
 #| msgid "User name: %1"
 msgid "File Name:"
@@ -8890,59 +8855,59 @@ msgstr ""
 msgid "Message has been starred"
 msgstr "Súkromné adresy"
 
-#: widgets/room/messagelinewidget.cpp:63
+#: widgets/room/messagelinewidget.cpp:64
 #, fuzzy, kde-format
 #| msgid "Attachments"
 msgid "Attach File"
 msgstr "Prílohy"
 
-#: widgets/room/messagelinewidget.cpp:72
+#: widgets/room/messagelinewidget.cpp:73
 #, fuzzy, kde-format
 #| msgid "Message"
 msgid "Video Message"
 msgstr "Správa"
 
-#: widgets/room/messagelinewidget.cpp:82
+#: widgets/room/messagelinewidget.cpp:83
 #, fuzzy, kde-format
 #| msgid "All Messages"
 msgid "Sound Message"
 msgstr "Všetky správy"
 
-#: widgets/room/messagelinewidget.cpp:94
+#: widgets/room/messagelinewidget.cpp:95
 #, fuzzy, kde-format
 #| msgid "Add Account"
 msgid "Add Emoticon"
 msgstr "Pridať účet"
 
-#: widgets/room/messagelinewidget.cpp:102
+#: widgets/room/messagelinewidget.cpp:103
 #, fuzzy, kde-format
 #| msgid "Private Messages"
 msgid "Send Message"
 msgstr "Súkromné adresy"
 
-#: widgets/room/messagelinewidget.cpp:141
+#: widgets/room/messagelinewidget.cpp:142
 #, kde-format
 msgid "Do you want to convert this big text as attachment?"
 msgstr ""
 
-#: widgets/room/messagelinewidget.cpp:142
+#: widgets/room/messagelinewidget.cpp:143
 #, fuzzy, kde-format
 #| msgid "Message"
 msgctxt "@title:window"
 msgid "Message Too Big"
 msgstr "Správa"
 
-#: widgets/room/messagelinewidget.cpp:373
+#: widgets/room/messagelinewidget.cpp:380
 #, kde-format
 msgid "File selected is too big (Maximum size %1)"
 msgstr ""
 
-#: widgets/room/messagelinewidget.cpp:373
+#: widgets/room/messagelinewidget.cpp:380
 #, kde-format
 msgid "File upload"
 msgstr ""
 
-#: widgets/room/messagelinewidget.cpp:378
+#: widgets/room/messagelinewidget.cpp:385
 #, kde-format
 msgid "Server doesn't authorized this file (invalid mimetype)"
 msgstr ""
@@ -10049,6 +10014,23 @@ msgstr ""
 #: widgets/whatsnew/whatsnewwidgettranslation.h:84
 msgid "Use RESTAPI for logging."
 msgstr ""
+
+#: widgets/whatsnew/whatsnewwidgettranslation.h:85
+msgid "Allow to send multi files."
+msgstr ""
+
+#~ msgid "Author"
+#~ msgstr "Autor"
+
+#, fuzzy
+#~| msgid "Version %1"
+#~ msgid "Node Version"
+#~ msgstr "Verzia %1"
+
+#, fuzzy
+#~| msgid "Archive:"
+#~ msgid "Arch"
+#~ msgstr "Archív:"
 
 #, fuzzy
 #~| msgid "Server Info"

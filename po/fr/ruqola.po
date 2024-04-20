@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-19 00:38+0000\n"
+"POT-Creation-Date: 2024-04-20 00:38+0000\n"
 "PO-Revision-Date: 2024-04-12 08:09+0200\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
 "Language-Team: French <French <kde-francophone@kde.org>>\n"
@@ -2397,7 +2397,7 @@ msgid "Administrator"
 msgstr "Administrateur"
 
 #: widgets/administratordialog/administratorwidget.cpp:50
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:296
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:234
 #, kde-format
 msgid "Server Info"
 msgstr "Informations du serveur"
@@ -2488,7 +2488,6 @@ msgstr "Alias :"
 
 #: widgets/administratordialog/customemoji/administratorcustomemojicreateorupdatewidget.cpp:51
 #: widgets/administratordialog/customsounds/administratorcustomsoundscreatewidget.cpp:29
-#: widgets/dialogs/uploadfilewidget.cpp:22
 #, kde-format
 msgid "File:"
 msgstr "Fichier :"
@@ -3027,7 +3026,7 @@ msgstr "Utiliser une authentification à deux facteurs"
 #: widgets/dialogs/channelinforeadonlywidget.cpp:47
 #: widgets/dialogs/createsoundmessagewizard.cpp:120
 #: widgets/dialogs/createvideomessagewizard.cpp:146
-#: widgets/dialogs/uploadfilewidget.cpp:39
+#: widgets/dialogs/uploadfilewidget.cpp:47
 #: widgets/messagemaximumsizedialog/messagemaximumsizewidget.cpp:27
 #, kde-format
 msgid "Description:"
@@ -3342,7 +3341,6 @@ msgid "Total Connected Users"
 msgstr "Total des utilisateurs connectés"
 
 #: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:223
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:268
 #, kde-format
 msgid "OS Release"
 msgstr "Version du système d'exploitation"
@@ -3353,7 +3351,6 @@ msgid "OS Type"
 msgstr "Type de système d'exploitation"
 
 #: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:225
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:286
 #, kde-format
 msgid "OS Platform"
 msgstr "Plate-forme de système d'exploitation"
@@ -3368,53 +3365,12 @@ msgstr "Mémoire total du système"
 msgid "OS Free Memory"
 msgstr "Mémoire libre du système d'exploitation"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:234
-#, kde-format
-msgid "Hash"
-msgstr "Hachage"
-
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:240
-#, kde-format
-msgid "Branch"
-msgstr "Branche"
-
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:246
-#, kde-format
-msgid "Tag"
-msgstr "Étiquette"
-
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:252
-#, kde-format
-msgid "Author"
-msgstr "Auteur"
-
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:258
-#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:110
-#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:115
-#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:133
-#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:143
-#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:153
-#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:163
-#, kde-format
-msgid "Subject"
-msgstr "Sujet"
-
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:274
-#, kde-format
-msgid "Node Version"
-msgstr "Version du nœud"
-
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:280
-#, kde-format
-msgid "Arch"
-msgstr "Archive"
-
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:301
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:239
 #, kde-format
 msgid "Usage"
 msgstr "Usage"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:306
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:244
 #, kde-format
 msgid "Runtime Environment"
 msgstr "Environnement d'exécution"
@@ -4320,6 +4276,16 @@ msgstr ""
 #, kde-format
 msgid "Forgot password"
 msgstr "Mot de passe oublié"
+
+#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:110
+#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:115
+#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:133
+#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:143
+#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:153
+#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:163
+#, kde-format
+msgid "Subject"
+msgstr "Sujet"
 
 #: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:113
 #: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:136
@@ -7424,18 +7390,19 @@ msgid "Video: %1"
 msgstr "Vidéo : %1"
 
 #: widgets/dialogs/uploadfiledialog.cpp:26
+#: widgets/room/messagelinewidget.cpp:358
 #, kde-format
 msgctxt "@title:window"
 msgid "Upload File"
 msgstr "Envoyer un fichier"
 
-#: widgets/dialogs/uploadfiledialog.cpp:85
+#: widgets/dialogs/uploadfiledialog.cpp:78
 #, kde-format
 msgctxt "@title:window"
 msgid "Upload Image"
 msgstr "Envoyer une image"
 
-#: widgets/dialogs/uploadfilewidget.cpp:44
+#: widgets/dialogs/uploadfilewidget.cpp:42
 #, fuzzy, kde-format
 #| msgid "Filename:"
 msgid "File Name:"
@@ -8670,54 +8637,54 @@ msgstr "Le message a été agrafé."
 msgid "Message has been starred"
 msgstr "Le message a été marqué avec une étoile."
 
-#: widgets/room/messagelinewidget.cpp:63
+#: widgets/room/messagelinewidget.cpp:64
 #, kde-format
 msgid "Attach File"
 msgstr "Joindre un fichier"
 
-#: widgets/room/messagelinewidget.cpp:72
+#: widgets/room/messagelinewidget.cpp:73
 #, kde-format
 msgid "Video Message"
 msgstr "Message vidéo"
 
-#: widgets/room/messagelinewidget.cpp:82
+#: widgets/room/messagelinewidget.cpp:83
 #, kde-format
 msgid "Sound Message"
 msgstr "Message audio"
 
-#: widgets/room/messagelinewidget.cpp:94
+#: widgets/room/messagelinewidget.cpp:95
 #, kde-format
 msgid "Add Emoticon"
 msgstr "Ajouter une émoticône"
 
-#: widgets/room/messagelinewidget.cpp:102
+#: widgets/room/messagelinewidget.cpp:103
 #, kde-format
 msgid "Send Message"
 msgstr "Envoyer le message"
 
-#: widgets/room/messagelinewidget.cpp:141
+#: widgets/room/messagelinewidget.cpp:142
 #, kde-format
 msgid "Do you want to convert this big text as attachment?"
 msgstr "Voulez-vous vraiment convertir ce texte volumineux en pièce jointe ?"
 
-#: widgets/room/messagelinewidget.cpp:142
+#: widgets/room/messagelinewidget.cpp:143
 #, kde-format
 msgctxt "@title:window"
 msgid "Message Too Big"
 msgstr "Message trop volumineux"
 
-#: widgets/room/messagelinewidget.cpp:373
+#: widgets/room/messagelinewidget.cpp:380
 #, kde-format
 msgid "File selected is too big (Maximum size %1)"
 msgstr ""
 "Le fichier sélectionné est trop volumineux (La taille maximale est de %1)."
 
-#: widgets/room/messagelinewidget.cpp:373
+#: widgets/room/messagelinewidget.cpp:380
 #, kde-format
 msgid "File upload"
 msgstr "Envoi de fichiers"
 
-#: widgets/room/messagelinewidget.cpp:378
+#: widgets/room/messagelinewidget.cpp:385
 #, kde-format
 msgid "Server doesn't authorized this file (invalid mimetype)"
 msgstr "Le serveur n'a pas autorisé ce fichier (Type « MIME » non valable)"
@@ -9753,6 +9720,28 @@ msgstr "Réduire l'empreinte mémoire."
 #: widgets/whatsnew/whatsnewwidgettranslation.h:84
 msgid "Use RESTAPI for logging."
 msgstr "Utiliser « RESTAPI » pour se connecter."
+
+#: widgets/whatsnew/whatsnewwidgettranslation.h:85
+msgid "Allow to send multi files."
+msgstr ""
+
+#~ msgid "Hash"
+#~ msgstr "Hachage"
+
+#~ msgid "Branch"
+#~ msgstr "Branche"
+
+#~ msgid "Tag"
+#~ msgstr "Étiquette"
+
+#~ msgid "Author"
+#~ msgstr "Auteur"
+
+#~ msgid "Node Version"
+#~ msgstr "Version du nœud"
+
+#~ msgid "Arch"
+#~ msgstr "Archive"
 
 #, fuzzy
 #~| msgid "Implement block actions."
