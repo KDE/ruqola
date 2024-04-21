@@ -36,9 +36,9 @@ Dependencies:
     'frameworks/kuserfeedback': '@latest-kf6'
     'libraries/ktextaddons': '@latest-kf6'
 
-- 'on': ['Linux']
-  'require':
-    'sdk/selenium-webdriver-at-spi': '@latest-kf6'
+    #- 'on': ['Linux']
+    #'require':
+    #'sdk/selenium-webdriver-at-spi': '@latest-kf6'
 
 Options:
   require-passing-tests-on: [ 'Linux', 'FreeBSD' ]
