@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-04-21 00:38+0000\n"
-"PO-Revision-Date: 2024-04-06 18:10+0200\n"
+"PO-Revision-Date: 2024-04-20 18:40+0200\n"
 "Last-Translator: Víctor Rodrigo Córdoba <vrcordoba@gmail.com>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -2787,10 +2787,9 @@ msgstr "Borrar todos los mensajes"
 
 #: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:149
 #: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:143
-#, fuzzy, kde-format
-#| msgid "Deactivated Users"
+#, kde-format
 msgid "Desactivate user"
-msgstr "Usuarios desactivados"
+msgstr "Desactivar usuario"
 
 #: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:161
 #: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:155
@@ -2799,14 +2798,15 @@ msgid ""
 "User will be unable to log in unless reactivated. All reported messages will "
 "be permanently deleted from their respective room."
 msgstr ""
+"El usuario no podrá registrarse a no ser que se reactive. Todos los mensajes "
+"reportados serán borrados permanentemente de las salas respectivas."
 
 #: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:162
 #: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:156
-#, fuzzy, kde-format
-#| msgid "Deactivated Users"
+#, kde-format
 msgctxt "@title:window"
 msgid "Desactivate User"
-msgstr "Usuarios desactivados"
+msgstr "Desactivar usuario"
 
 #: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:195
 #, kde-format
@@ -2844,8 +2844,7 @@ msgid "Delete All Messages"
 msgstr "Borrar todos los mensajes"
 
 #: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:132
-#, fuzzy, kde-format
-#| msgid "View Reports"
+#, kde-format
 msgid "See reports"
 msgstr "Ver reportes"
 
@@ -2854,13 +2853,14 @@ msgstr "Ver reportes"
 msgid ""
 "All reports will be deleted and the reported messages won't be affected."
 msgstr ""
+"Todos los reportes serán borrados y los mensajes reportados no serán "
+"afectados."
 
 #: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:192
-#, fuzzy, kde-format
-#| msgid "Dismiss Reports"
+#, kde-format
 msgctxt "@title:window"
 msgid "Dismiss All Reports"
-msgstr "Descartar reportes"
+msgstr "Descartar todos los reportes"
 
 #: widgets/administratordialog/moderationconsole/moderationreportinfolistview.cpp:76
 #: widgets/notificationhistory/notificationhistorylistview.cpp:83
@@ -6330,11 +6330,9 @@ msgid "Provider:"
 msgstr "Proveedor:"
 
 #: widgets/configuredialog/accountservertreewidget.cpp:205
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Configure Activities"
+#, kde-format
 msgid "Display Account in Current Activity"
-msgstr "Configurar actividades"
+msgstr "Mostrar cuenta en la actividad actual"
 
 #: widgets/configuredialog/configureaccountserverwidget.cpp:29
 #, kde-format
@@ -6350,11 +6348,9 @@ msgstr "Abajo"
 
 #. i18n: ectx: property (text), widget (QCheckBox, configureCurrentActivity)
 #: widgets/configuredialog/configureaccountserverwidget.ui:93
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Configure Activities"
+#, kde-format
 msgid "Configure Accounts in Current Activity"
-msgstr "Configurar actividades"
+msgstr "Configurar cuentas en la actividad actual"
 
 #: widgets/configuredialog/configurefontwidget.cpp:17
 #, kde-format
@@ -6505,7 +6501,7 @@ msgstr "Configurar actividades"
 #: widgets/configurenewserver/configureactivitieswidget.cpp:55
 #, kde-format
 msgid "Limit to the selected activities:"
-msgstr ""
+msgstr "Límite a las actividades seleccionadas:"
 
 #: widgets/configurenewserver/configureactivitieswidget.cpp:61
 #, kde-format
@@ -6514,6 +6510,9 @@ msgid ""
 "you are in those activities. Furthermore, when you switch to an activity it "
 "should not be available in, it will automatically be hidden."
 msgstr ""
+"Si limita esta cuenta a actividad, se mostrará en Ruqola solo cuando esté en "
+"esas actividades. Además, cuando cambie a una actividad en la que no está "
+"disponible, será automáticamente ocultado."
 
 #: widgets/configurenewserver/createnewserverdialog.cpp:29
 #, kde-format
@@ -6522,9 +6521,7 @@ msgid "Add Server"
 msgstr "Añadir servidor"
 
 #: widgets/configurenewserver/createnewserverdialog.cpp:49
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Configure Activities"
+#, kde-format
 msgid "Configure Activities"
 msgstr "Configurar actividades"
 
@@ -7362,10 +7359,9 @@ msgid "Upload Image"
 msgstr "Subir imagen"
 
 #: widgets/dialogs/uploadfilewidget.cpp:47
-#, fuzzy, kde-format
-#| msgid "Filename:"
+#, kde-format
 msgid "File Name:"
-msgstr "Nombre de archivo:"
+msgstr "Nombre del archivo:"
 
 #: widgets/directory/directorydialog.cpp:27
 #, kde-format
@@ -9667,22 +9663,4 @@ msgstr "Uso de RESTAPI para los registros."
 
 #: widgets/whatsnew/whatsnewwidgettranslation.h:85
 msgid "Allow to send multi files."
-msgstr ""
-
-#~ msgid "Hash"
-#~ msgstr "Resumen criptográfico"
-
-#~ msgid "Branch"
-#~ msgstr "Rama"
-
-#~ msgid "Tag"
-#~ msgstr "Etiqueta"
-
-#~ msgid "Author"
-#~ msgstr "Autor"
-
-#~ msgid "Node Version"
-#~ msgstr "Versión del nodo"
-
-#~ msgid "Arch"
-#~ msgstr "Arquitectura"
+msgstr "Permitir el envío de múltiples archivos."

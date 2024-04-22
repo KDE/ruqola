@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-04-21 00:38+0000\n"
-"PO-Revision-Date: 2024-04-14 00:04+0100\n"
+"PO-Revision-Date: 2024-04-21 17:45+0100\n"
 "Last-Translator: Oliver Kellogg <okellogg@users.sourceforge.net>\n"
 "Language-Team: Esperanto <kde-i18n-eo.org>\n"
 "Language: eo\n"
@@ -6292,10 +6292,9 @@ msgid "Provider:"
 msgstr "Provizanto:"
 
 #: widgets/configuredialog/accountservertreewidget.cpp:205
-#, fuzzy, kde-format
-#| msgid "Configure Activities"
+#, kde-format
 msgid "Display Account in Current Activity"
-msgstr "Agordi Aktivecojn"
+msgstr "Montri Konton en Aktuala Aktiveco"
 
 #: widgets/configuredialog/configureaccountserverwidget.cpp:29
 #, kde-format
@@ -6311,10 +6310,9 @@ msgstr "Malsupren"
 
 #. i18n: ectx: property (text), widget (QCheckBox, configureCurrentActivity)
 #: widgets/configuredialog/configureaccountserverwidget.ui:93
-#, fuzzy, kde-format
-#| msgid "Configure Activities"
+#, kde-format
 msgid "Configure Accounts in Current Activity"
-msgstr "Agordi Aktivecojn"
+msgstr "Agordi Kontojn en Aktuala Aktiveco"
 
 #: widgets/configuredialog/configurefontwidget.cpp:17
 #, kde-format
@@ -7322,8 +7320,7 @@ msgid "Upload Image"
 msgstr "Alŝuti Bildon"
 
 #: widgets/dialogs/uploadfilewidget.cpp:47
-#, fuzzy, kde-format
-#| msgid "Filename:"
+#, kde-format
 msgid "File Name:"
 msgstr "Dosiernomo:"
 
@@ -9601,22 +9598,4 @@ msgstr "Uzi RESTAPI por protokolado."
 
 #: widgets/whatsnew/whatsnewwidgettranslation.h:85
 msgid "Allow to send multi files."
-msgstr ""
-
-#~ msgid "Hash"
-#~ msgstr "Haketkodo"
-
-#~ msgid "Branch"
-#~ msgstr "Branĉo"
-
-#~ msgid "Tag"
-#~ msgstr "Etikedo"
-
-#~ msgid "Author"
-#~ msgstr "Aŭtoro"
-
-#~ msgid "Node Version"
-#~ msgstr "Noda Versio"
-
-#~ msgid "Arch"
-#~ msgstr "Arko"
+msgstr "Permesi sendi plurajn dosierojn."
