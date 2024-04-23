@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-04-21 00:38+0000\n"
-"PO-Revision-Date: 2024-04-19 15:21+0200\n"
+"PO-Revision-Date: 2024-04-22 09:58+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -9600,7 +9600,7 @@ msgstr "ჟურნალისთვის RESTAPI-ის გამოყე�
 
 #: widgets/whatsnew/whatsnewwidgettranslation.h:85
 msgid "Allow to send multi files."
-msgstr ""
+msgstr "ერთზე მეტი ფაილის გაგზავნის დაშვება."
 
 #~ msgid "Hash"
 #~ msgstr "ჰეში"
