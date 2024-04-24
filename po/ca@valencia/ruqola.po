@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-04-21 00:38+0000\n"
-"PO-Revision-Date: 2024-04-19 09:07+0200\n"
+"PO-Revision-Date: 2024-04-20 12:34+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca@valencia\n"
@@ -9664,22 +9664,4 @@ msgstr "Utilitza RESTAPI per al registre."
 
 #: widgets/whatsnew/whatsnewwidgettranslation.h:85
 msgid "Allow to send multi files."
-msgstr ""
-
-#~ msgid "Hash"
-#~ msgstr "Resum"
-
-#~ msgid "Branch"
-#~ msgstr "Branca"
-
-#~ msgid "Tag"
-#~ msgstr "Etiqueta"
-
-#~ msgid "Author"
-#~ msgstr "Autoria"
-
-#~ msgid "Node Version"
-#~ msgstr "Versió de node"
-
-#~ msgid "Arch"
-#~ msgstr "Arquitectura"
+msgstr "Permet enviar múltiples fitxers."

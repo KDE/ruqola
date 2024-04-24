@@ -2776,10 +2776,9 @@ msgstr ""
 
 #: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:149
 #: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:143
-#, fuzzy, kde-format
-#| msgid "Deactivate"
+#, kde-format
 msgid "Desactivate user"
-msgstr "Deaktivovat"
+msgstr ""
 
 #: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:161
 #: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:155
@@ -2791,11 +2790,10 @@ msgstr ""
 
 #: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:162
 #: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:156
-#, fuzzy, kde-format
-#| msgid "Deactivate"
+#, kde-format
 msgctxt "@title:window"
 msgid "Desactivate User"
-msgstr "Deaktivovat"
+msgstr ""
 
 #: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:195
 #, kde-format
@@ -2826,10 +2824,9 @@ msgid "Delete All Messages"
 msgstr ""
 
 #: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:132
-#, fuzzy, kde-format
-#| msgid "Reports"
+#, kde-format
 msgid "See reports"
-msgstr "Hlášení"
+msgstr ""
 
 #: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:191
 #, kde-format
@@ -6128,11 +6125,9 @@ msgid "Provider:"
 msgstr "Poskytovatel:"
 
 #: widgets/configuredialog/accountservertreewidget.cpp:205
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Configure Notification"
+#, kde-format
 msgid "Display Account in Current Activity"
-msgstr "Nastavit upozornění"
+msgstr ""
 
 #: widgets/configuredialog/configureaccountserverwidget.cpp:29
 #, kde-format
@@ -6148,11 +6143,9 @@ msgstr "Dolů"
 
 #. i18n: ectx: property (text), widget (QCheckBox, configureCurrentActivity)
 #: widgets/configuredialog/configureaccountserverwidget.ui:93
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Configure Notification"
+#, kde-format
 msgid "Configure Accounts in Current Activity"
-msgstr "Nastavit upozornění"
+msgstr ""
 
 #: widgets/configuredialog/configurefontwidget.cpp:17
 #, kde-format
@@ -6320,11 +6313,9 @@ msgid "Add Server"
 msgstr "Přidat server"
 
 #: widgets/configurenewserver/createnewserverdialog.cpp:49
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Configure Notification"
+#, kde-format
 msgid "Configure Activities"
-msgstr "Nastavit upozornění"
+msgstr ""
 
 #: widgets/configurenewserver/createnewserverdialog.cpp:67
 #, kde-format
@@ -7161,8 +7152,7 @@ msgid "Upload Image"
 msgstr "Odeslat obrázek"
 
 #: widgets/dialogs/uploadfilewidget.cpp:47
-#, fuzzy, kde-format
-#| msgid "Filename:"
+#, kde-format
 msgid "File Name:"
 msgstr "Název souboru:"
 
@@ -9395,18 +9385,3 @@ msgstr ""
 #: widgets/whatsnew/whatsnewwidgettranslation.h:85
 msgid "Allow to send multi files."
 msgstr ""
-
-#~ msgid "Hash"
-#~ msgstr "Hash"
-
-#~ msgid "Branch"
-#~ msgstr "Větev"
-
-#~ msgid "Tag"
-#~ msgstr "Značka"
-
-#~ msgid "Author"
-#~ msgstr "Autor"
-
-#~ msgid "Arch"
-#~ msgstr "Architektura"
