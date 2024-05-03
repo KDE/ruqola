@@ -43,11 +43,11 @@ void MessageAttachmentDelegateHelperImage::draw(const MessageAttachment &msgAtta
     // drawTitle(msgAttach, painter, );
     painter->drawText(messageRect.x(), messageRect.y() + option.fontMetrics.ascent(), layout.title);
     int nextY = messageRect.y() + layout.titleSize.height() + DelegatePaintUtil::margin();
+    const QIcon downloadIcon = QIcon::fromTheme(QStringLiteral("cloud-download"));
     if (!layout.pixmap.isNull()) {
         // Draw title and buttons
         const QIcon hideShowIcon = QIcon::fromTheme(layout.isShown ? QStringLiteral("visibility") : QStringLiteral("hint"));
         hideShowIcon.paint(painter, layout.hideShowButtonRect.translated(messageRect.topLeft()));
-        const QIcon downloadIcon = QIcon::fromTheme(QStringLiteral("cloud-download"));
         downloadIcon.paint(painter, layout.downloadButtonRect.translated(messageRect.topLeft()));
 
         // Draw main pixmap (if shown)
@@ -88,7 +88,6 @@ void MessageAttachmentDelegateHelperImage::draw(const MessageAttachment &msgAtta
         }
     } else {
         qCWarning(RUQOLAWIDGETS_LOG) << "Invalid image (Qt bug or others). It will not render: " << layout.imagePreviewPath;
-        const QIcon downloadIcon = QIcon::fromTheme(QStringLiteral("cloud-download"));
         downloadIcon.paint(painter, layout.downloadButtonRect.translated(messageRect.topLeft()));
     }
 
