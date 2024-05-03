@@ -11,6 +11,7 @@
 #include "rocketchataccount.h"
 #include "ruqola.h"
 #include "ruqolaglobalconfig.h"
+#include "ruqolawidgets_debug.h"
 
 #include <KLocalizedString>
 
@@ -85,6 +86,10 @@ void MessageAttachmentDelegateHelperImage::draw(const MessageAttachment &msgAtta
             painter->drawPixmap(messageRect.x(), nextY, scaledPixmap);
             nextY += scaledPixmap.height() / scaledPixmap.devicePixelRatioF() + DelegatePaintUtil::margin();
         }
+    } else {
+        qCWarning(RUQOLAWIDGETS_LOG) << "Invalid image. It will not render" << layout.imagePreviewPath;
+        const QIcon downloadIcon = QIcon::fromTheme(QStringLiteral("cloud-download"));
+        downloadIcon.paint(painter, layout.downloadButtonRect.translated(messageRect.topLeft()));
     }
 
     drawDescription(msgAttach, messageRect, painter, nextY, index, option);
@@ -191,8 +196,13 @@ MessageAttachmentDelegateHelperImage::ImageLayout MessageAttachmentDelegateHelpe
         layout.isShown = msgAttach.showAttachment();
         layout.isAnimatedImage = msgAttach.isAnimatedImage();
         const int iconSize = option.widget->style()->pixelMetric(QStyle::PM_ButtonIconSize);
-        layout.hideShowButtonRect = QRect(layout.titleSize.width() + DelegatePaintUtil::margin(), 0, iconSize, iconSize);
-        layout.downloadButtonRect = layout.hideShowButtonRect.translated(iconSize + DelegatePaintUtil::margin(), 0);
+        const QRect firstIconRect = QRect(layout.titleSize.width() + DelegatePaintUtil::margin(), 0, iconSize, iconSize);
+        if (!layout.pixmap.isNull()) {
+            layout.hideShowButtonRect = firstIconRect;
+            layout.downloadButtonRect = layout.hideShowButtonRect.translated(iconSize + DelegatePaintUtil::margin(), 0);
+        } else {
+            layout.downloadButtonRect = firstIconRect;
+        }
 
         if (attachmentsHeight > 0) {
             // Vertically: attachmentsHeight = title | DelegatePaintUtil::margin() | image | DelegatePaintUtil::margin() [| description |
