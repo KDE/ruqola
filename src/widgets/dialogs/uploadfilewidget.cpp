@@ -49,6 +49,7 @@ UploadFileWidget::UploadFileWidget(QWidget *parent)
 
     mDescription->setObjectName(QStringLiteral("mDescription"));
     mDescription->setClearButtonEnabled(true);
+    mDescription->setFocus();
     layout->addRow(i18n("Description:"), mDescription);
     KLineEditEventHandler::catchReturnKey(mDescription);
 }
