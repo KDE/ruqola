@@ -14,6 +14,7 @@
         "Name[nl]": "Plug-in voor authenticatie in Gitlab",
         "Name[pl]": "Wtyczka uwierzytelniania z GitLab",
         "Name[sl]": "Vtičnik overovljenja GitLab",
+        "Name[sv]": "Insticksprogram för GitLab behörighetskontroll",
         "Name[uk]": "Додаток розпізнавання GitLab",
         "Name[x-test]": "xxGitLab Authentication Pluginxx",
         "ServiceTypes": [

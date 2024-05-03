@@ -14,6 +14,7 @@
         "Name[nl]": "Plug-in voor authenticatie in Github",
         "Name[pl]": "Wtyczka uwierzytelniania z Github",
         "Name[sl]": "Vtičnik overovljenja Github",
+        "Name[sv]": "Insticksprogram för Github behörighetskontroll",
         "Name[uk]": "Додаток розпізнавання Github",
         "Name[x-test]": "xxGithub Authentication Pluginxx",
         "ServiceTypes": [
