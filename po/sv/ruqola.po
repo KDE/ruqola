@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-04-09 03:29+0000\n"
-"PO-Revision-Date: 2024-05-01 12:02+0200\n"
+"PO-Revision-Date: 2024-05-02 12:04+0200\n"
 "Last-Translator: Stefan Asserhäll <stefan.asserhall@bredband.net>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
 "Language: sv\n"
@@ -835,7 +835,7 @@ msgstr "Egen"
 #: core/model/inputcompletermodel.cpp:38
 #, kde-format
 msgid "Notify all in this room"
-msgstr ""
+msgstr "Underrätta alla i rummet"
 
 #: core/model/inputcompletermodel.cpp:46
 #, kde-format
@@ -845,7 +845,7 @@ msgstr "Inget resultat hittades."
 #: core/model/inputcompletermodel.cpp:55
 #, kde-format
 msgid "Notify active users in this room"
-msgstr ""
+msgstr "Underrätta aktiva användare i rummet"
 
 #: core/model/listmessagesfilterproxymodel.cpp:43
 #, kde-format
@@ -1469,12 +1469,12 @@ msgstr "Acceptera"
 #: plugins/authentication/github/githubpluginauthentication.cpp:33
 #, kde-format
 msgid "GitHub"
-msgstr ""
+msgstr "GitHub"
 
 #: plugins/authentication/gitlab/gitlabpluginauthentication.cpp:33
 #, kde-format
 msgid "GitLab"
-msgstr ""
+msgstr "GitLab"
 
 #: plugins/authentication/google/googlepluginauthentication.cpp:36
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:170
@@ -1625,7 +1625,7 @@ msgstr "%1:%2"
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:234
 #, kde-format
 msgid "'%1' is not allowed"
-msgstr ""
+msgstr "'%1' är inte tillåten"
 
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:236
 #, kde-format
@@ -2182,12 +2182,12 @@ msgstr "Meddelandet kunde inte sättas upp"
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:462
 #, kde-format
 msgid "Entered password has been previously used"
-msgstr ""
+msgstr "Angivet lösenord har används tidigare"
 
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:464
 #, kde-format
 msgid "The maximum number of rooms per guest has been reached."
-msgstr ""
+msgstr "Maximalt antal rum per gäst har uppnåtts."
 
 #: rocketchatrestapi-qt/role/removeuserfromrolejob.cpp:51
 #, kde-format
@@ -2207,7 +2207,7 @@ msgstr "Ogiltig prenumeration"
 #: rocketchatrestapi-qt/rooms/saveroomsettingsjob.cpp:68
 #, kde-format
 msgid "Only groups or direct channels can enable encryption"
-msgstr ""
+msgstr "Bara grupper eller direktkanaler kan aktivera kryptering"
 
 #: rocketchatrestapi-qt/rooms/saveroomsettingsjob.cpp:70
 #, kde-format
@@ -2347,7 +2347,7 @@ msgstr "Oauth"
 #: widgets/administratordialog/administratorwidget.cpp:83
 #, kde-format
 msgid "Moderation Console"
-msgstr ""
+msgstr "Moderatorterminal"
 
 #: widgets/administratordialog/customemoji/administratorcustomemojicreateorupdatedialog.cpp:25
 #, kde-format
@@ -2616,19 +2616,19 @@ msgstr "Förra månaden"
 #: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:35
 #, kde-format
 msgid "Search moderation message..."
-msgstr ""
+msgstr "Sök efter moderatormeddelanden..."
 
 #: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:59
 #, kde-format
 msgid "No moderation message found"
-msgstr ""
+msgstr "Inga moderatormeddelanden hittades"
 
 #: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:64
 #, kde-format
 msgid "%1 moderation message (Total: %2)"
 msgid_plural "%1 moderation messages (Total: %2)"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%1 moderatormeddelande (totalt: %2)"
+msgstr[1] "%1 moderatormeddelanden (totalt: %2)"
 
 #: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:130
 #, kde-format
@@ -2638,7 +2638,7 @@ msgstr "Visa meddelanden"
 #: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:135
 #, kde-format
 msgid "Dismiss reports"
-msgstr ""
+msgstr "Avvisa rapporter"
 
 #: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:139
 #, kde-format
@@ -2651,12 +2651,14 @@ msgid ""
 "Are you sure you want to dismiss and delete all reports for this user's "
 "messages? This action cannot be undone."
 msgstr ""
+"Är du säker på att du vill avvisa och radera alla rapporter för den här "
+"användarens meddelanden? Åtgärden kan inte ångras."
 
 #: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:159
 #, kde-format
 msgctxt "@title:window"
 msgid "Dismiss"
-msgstr ""
+msgstr "Avvisa"
 
 #: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:179
 #, kde-format
@@ -2666,6 +2668,11 @@ msgid ""
 "able to see it.\n"
 "This action cannot be undone."
 msgstr ""
+"Är du säker på att du vill ta bort alla rapporterade meddelanden från "
+"användaren?\n"
+"Meddelanden kommer att raderas från meddelandehistoriken och ingen kommer "
+"att kunna se dem.\n"
+"Åtgärden kan inte ångras."
 
 #: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:182
 #, kde-format
@@ -2677,13 +2684,13 @@ msgstr "Ta bort alla meddelanden"
 #, kde-format
 msgctxt "@title:window"
 msgid "Show Moderation Report"
-msgstr ""
+msgstr "Visa moderatorrapport"
 
 #: widgets/administratordialog/moderationconsole/moderationmessagesdialog.cpp:27
 #, kde-format
 msgctxt "@title:window"
 msgid "Show Moderation Messages"
-msgstr ""
+msgstr "Visa moderatormeddelanden"
 
 #: widgets/administratordialog/moderationconsole/moderationmessageswidget.cpp:55
 #: widgets/dialogs/searchmessagewidget.cpp:101
@@ -3568,12 +3575,12 @@ msgstr "Använd DNS domänkontroll"
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:50
 #, kde-format
 msgid "Allow Feature Preview"
-msgstr ""
+msgstr "Tillåt förhandsgranskning av funktioner"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:51
 #, kde-format
 msgid "Registration with Authentication Services"
-msgstr ""
+msgstr "Registrering med behörighetskontrolltjänster"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:54
 #, kde-format
@@ -3659,11 +3666,13 @@ msgid ""
 "Default roles (comma-separated) users will be given when registering through "
 "authentication services"
 msgstr ""
+"Användare med standardroller (åtskilda med kommatecken) anges vid "
+"registrering med behörighetskontrolltjänster"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:207
 #, kde-format
 msgid "Default Roles for Authentication Services"
-msgstr ""
+msgstr "Standardroller för behörighetskontrolltjänster"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:213
 #, kde-format
@@ -3671,11 +3680,13 @@ msgid ""
 "Default roles (comma-separated) users will be given when registering through "
 "manual registration (including via API)"
 msgstr ""
+"Användare med standardroller (åtskilda med kommatecken) anges vid manuell "
+"registrering (inklusive via programmeringsgränssnitt)"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:214
 #, kde-format
 msgid "Default Roles for Users"
-msgstr ""
+msgstr "Standardroller för användare"
 
 #: widgets/administratorsettingsdialog/administratorsettingsdialog.cpp:30
 #, kde-format
@@ -4873,7 +4884,7 @@ msgstr "Aktivera automatiskt översättning"
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:45
 #, kde-format
 msgid "Embed Link Previews"
-msgstr ""
+msgstr "Inbädda länkförhandsgranskningar"
 
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:53
 #, kde-format
@@ -5074,11 +5085,13 @@ msgid ""
 "Whether embedded link previews are enabled or not when a user posts a link "
 "to a website."
 msgstr ""
+"Om förhandsgranskning av inbäddade länkar är aktiverade eller inte när en "
+"användare lägger upp en länk till en webbplats."
 
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:191
 #, kde-format
 msgid "Embed Cache Expiration Days"
-msgstr ""
+msgstr "Inbädda cacheutgångsdatum"
 
 #: widgets/administratorsettingsdialog/mobile/mobilesettingswidget.cpp:16
 #, kde-format
@@ -6219,7 +6232,7 @@ msgstr "Visa normalt bilder"
 #: widgets/configuredialog/configuregeneralwidget.cpp:17
 #, kde-format
 msgid "Show preview url by default"
-msgstr ""
+msgstr "Visa normalt förhandsgranskning av webbadresser"
 
 #: widgets/configuredialog/configuregeneralwidget.cpp:18
 #, kde-format
@@ -7878,6 +7891,7 @@ msgstr "Tidsgräns för overksamhet:"
 msgid ""
 "Period of time until status changes to away. Value needs to be in seconds."
 msgstr ""
+"Tidsperiod tills statusändringar försvinner. Värdet måste anges i sekunder."
 
 #: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:127
 #, kde-format
@@ -7931,7 +7945,7 @@ msgstr "Ändra webbadress för avatar..."
 #: widgets/myaccount/myaccountprofileconfigurewidget.cpp:26
 #, kde-format
 msgid "Your administrator has disabled the changing of email."
-msgstr ""
+msgstr "Administratören har inaktiverat ändring av e-post."
 
 #: widgets/myaccount/myaccountprofileconfigurewidget.cpp:31
 #, kde-format
@@ -7979,12 +7993,14 @@ msgstr "Inaktivera versionskontroll"
 #, kde-format
 msgid "Your version is older than 6 months, we encourage you to upgrade."
 msgstr ""
+"Din version är äldre än 6 månader, vi rekommenderar att du uppgraderar."
 
 #: widgets/needupdateversion/needupdateversionwidget.cpp:41
 #, kde-format
 msgid ""
 "Your version is older than 1 year, we strongly encourage you to upgrade."
 msgstr ""
+"Din version är äldre än 1 år, vi rekommenderar starkt att du uppgraderar."
 
 #: widgets/notificationhistory/notificationhistorydialog.cpp:27
 #, kde-format
@@ -8184,7 +8200,7 @@ msgstr "Gå med"
 #: widgets/room/delegate/messagedelegatehelperurlpreview.cpp:80
 #, kde-format
 msgid "Link Preview"
-msgstr ""
+msgstr "Förhandsgranskning av länk"
 
 #: widgets/room/delegate/messagelistdelegate.cpp:397
 #: widgets/room/messagelistview.cpp:374 widgets/room/usersinroommenu.cpp:86
@@ -8378,7 +8394,7 @@ msgstr "Visa rapporter"
 #: widgets/room/messagelistview.cpp:530
 #, kde-format
 msgid "Dismiss Reports"
-msgstr ""
+msgstr "Avvisa rapporter"
 
 #: widgets/room/messagelistview.cpp:599
 #, kde-format
@@ -9232,7 +9248,7 @@ msgstr "Fixa kf6-stöd"
 
 #: widgets/whatsnew/whatsnewwidgettranslation.h:46
 msgid "Add Moderation Console (Administration, RC server 6.2)"
-msgstr ""
+msgstr "Lägg till moderatorterminal (administration, RC-server 6.2)"
 
 #: widgets/whatsnew/whatsnewwidgettranslation.h:47
 msgid "Implement message style"
@@ -9240,11 +9256,11 @@ msgstr "Implementera meddelandestil"
 
 #: widgets/whatsnew/whatsnewwidgettranslation.h:48
 msgid "Implement Url Preview"
-msgstr ""
+msgstr "Implementera förhandsgranskning av webbadresser"
 
 #: widgets/whatsnew/whatsnewwidgettranslation.h:54
 msgid "Fix markdown support (header + check mark)"
-msgstr ""
+msgstr "Rätta stöd av Markdown (huvuden + bock)"
 
 #: widgets/whatsnew/whatsnewwidgettranslation.h:55
 msgid "Fix mem leak"
@@ -9259,16 +9275,20 @@ msgid ""
 "Improve select room or user in message line edit (show icon, inform if user "
 "is in channel)"
 msgstr ""
+"Förbättra val av rum eller användare i meddelandens radeditor (visa ikon, "
+"informera om användaren finns i kanalen)"
 
 #: widgets/whatsnew/whatsnewwidgettranslation.h:58
 msgid ""
 "Fix show commands in message line edit (Hide action when room doesn't "
 "support it)."
 msgstr ""
+"Rätta visning av kommandon i meddelandens radeditor (dölj åtgärden när "
+"rummet inte stöder den)."
 
 #: widgets/whatsnew/whatsnewwidgettranslation.h:59
 msgid "Fix download sound/video file when it's not in cache."
-msgstr ""
+msgstr "Rätta nerladdning av ljud- och videofil när den inte finns i cachen."
 
 #: widgets/whatsnew/whatsnewwidgettranslation.h:60
 msgid "Fix list of authentication method."
