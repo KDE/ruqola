@@ -72,7 +72,7 @@ QString MessageDelegateHelperText::makeMessageText(const QPersistentModelIndex &
                                 if (msg) {
                                     contextMessage = *msg;
                                 } else if (connectToUpdates) {
-                                    connect(messageCache, &MessageCache::messageLoaded, this, [=](const QByteArray &msgId) {
+                                    connect(messageCache, &MessageCache::messageLoaded, this, [threadMessageId, that, index](const QByteArray &msgId) {
                                         if (msgId == threadMessageId) {
                                             that->updateView(index);
                                         }
@@ -82,7 +82,7 @@ QString MessageDelegateHelperText::makeMessageText(const QPersistentModelIndex &
                                 // qDebug() << "using cache, found" << contextMessage.messageId() << contextMessage.text();
                             }
                         } else if (connectToUpdates) {
-                            connect(messageCache, &MessageCache::modelLoaded, this, [=]() {
+                            connect(messageCache, &MessageCache::modelLoaded, this, [that, index]() {
                                 that->updateView(index);
                             });
                         }
@@ -106,7 +106,7 @@ QString MessageDelegateHelperText::makeMessageText(const QPersistentModelIndex &
                     int recursiveIndex = 0;
                     const QString contextString = TextConverter::convertMessageText(settings, needUpdateMessageId, recursiveIndex);
                     if (!needUpdateMessageId.isEmpty() && connectToUpdates) {
-                        connect(messageCache, &MessageCache::messageLoaded, this, [=](const QByteArray &msgId) {
+                        connect(messageCache, &MessageCache::messageLoaded, this, [needUpdateMessageId, that, index](const QByteArray &msgId) {
                             if (msgId == needUpdateMessageId) {
                                 that->updateView(index);
                             }

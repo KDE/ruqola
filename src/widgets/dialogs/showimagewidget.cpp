@@ -77,7 +77,7 @@ void ImageGraphicsView::updatePixmap(const QPixmap &pix, const QString &path)
     clearContents();
     if (!mImageInfo.isAnimatedImage) {
         mGraphicsPixmapItem->setPixmap(pix);
-        QTimer::singleShot(0, this, [=] {
+        QTimer::singleShot(0, this, [this] {
             updateRanges();
 
             fitToView();
@@ -89,7 +89,7 @@ void ImageGraphicsView::updatePixmap(const QPixmap &pix, const QString &path)
         mMovie->stop();
         mAnimatedLabel->setMovie(mMovie.data());
 
-        QTimer::singleShot(0, this, [=] {
+        QTimer::singleShot(0, this, [this] {
             mOriginalMovieSize = mMovie->currentPixmap().size();
             updateRanges();
 
@@ -283,7 +283,7 @@ ShowImageWidget::ShowImageWidget(RocketChatAccount *account, QWidget *parent)
     auto resetButton = new QPushButton(i18n("100%"), this);
     resetButton->setObjectName(QStringLiteral("resetButton"));
     zoomLayout->addWidget(resetButton);
-    connect(resetButton, &QPushButton::clicked, this, [=] {
+    connect(resetButton, &QPushButton::clicked, this, [this] {
         mImageGraphicsView->setZoom(1.0);
     });
 

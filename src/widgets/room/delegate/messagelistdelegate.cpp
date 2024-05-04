@@ -427,7 +427,7 @@ bool MessageListDelegate::contextMenu(const QStyleOptionViewItem &option, const 
                 if (mRocketChatAccount->hasPermission(QStringLiteral("create-d"))) {
                     menu.addSeparator();
                     auto startPrivateConversationAction = new QAction(i18n("Start a Private Conversation"), &menu);
-                    connect(startPrivateConversationAction, &QAction::triggered, this, [=]() {
+                    connect(startPrivateConversationAction, &QAction::triggered, this, [this, message]() {
                         Q_EMIT startPrivateConversation(message->username());
                     });
                     menu.addAction(startPrivateConversationAction);
@@ -745,7 +745,7 @@ bool MessageListDelegate::mouseEvent(QEvent *event, const QStyleOptionViewItem &
             mEmoticonMenuWidget->forceLineEditFocus();
             positionPopup(mev->globalPosition().toPoint(), mListView, mEmoticonMenuWidget);
             mEmoticonMenuWidget->show();
-            connect(mEmoticonMenuWidget, &EmoticonMenuWidget::insertEmojiIdentifier, this, [=](const QString &id) {
+            connect(mEmoticonMenuWidget, &EmoticonMenuWidget::insertEmojiIdentifier, this, [this, message](const QString &id) {
                 mRocketChatAccount->reactOnMessage(message->messageId(), id, true /*add*/);
             });
             return true;
