@@ -223,7 +223,7 @@ RocketChatAccount::RocketChatAccount(const QString &accountFileName, QObject *pa
 #endif
 
 #if HAVE_NETWORKMANAGER
-    connect(NetworkManager::notifier(), &NetworkManager::Notifier::primaryConnectionChanged, this, [=](const QString &uni) {
+    connect(NetworkManager::notifier(), &NetworkManager::Notifier::primaryConnectionChanged, this, [this](const QString &uni) {
         // If there is a new network connection, log out and back. The uni is "/" when the last primary connection
         // was closed. Do not log out to keep the messages visible. Login only if we were logged in at this point.
         if (uni != "/"_L1 && mDdp) {
