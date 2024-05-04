@@ -95,9 +95,7 @@ QJsonDocument ModerationReportUserJob::json() const
 {
     QJsonObject jsonObj;
     jsonObj["userId"_L1] = QLatin1StringView(mReportedUserId);
-    if (!mDescription.isEmpty()) {
-        jsonObj["description"_L1] = mDescription;
-    }
+    jsonObj["description"_L1] = mDescription;
     const QJsonDocument postData = QJsonDocument(jsonObj);
     return postData;
 }
