@@ -87,8 +87,10 @@ void MessageAttachmentDelegateHelperImage::draw(const MessageAttachment &msgAtta
             nextY += scaledPixmap.height() / scaledPixmap.devicePixelRatioF() + DelegatePaintUtil::margin();
         }
     } else {
-        qCWarning(RUQOLAWIDGETS_LOG) << "Invalid image (Qt bug or others). It will not render: " << layout.imagePreviewPath;
-        downloadIcon.paint(painter, layout.downloadButtonRect.translated(messageRect.topLeft()));
+        if (!layout.imagePreviewPath.isEmpty()) {
+            qCWarning(RUQOLAWIDGETS_LOG) << "Invalid image (Qt bug or others). It will not render: " << layout.imagePreviewPath;
+            downloadIcon.paint(painter, layout.downloadButtonRect.translated(messageRect.topLeft()));
+        }
     }
 
     drawDescription(msgAttach, messageRect, painter, nextY, index, option);
