@@ -1,5 +1,5 @@
 /*
-   SPDX-FileCopyrightText: 2023-2024 Laurent Montel <montel.org>
+   SPDX-FileCopyrightText: 2024 Laurent Montel <montel.org>
 
    SPDX-License-Identifier: LGPL-2.0-or-later
 */
@@ -24,19 +24,19 @@ public:
 
     [[nodiscard]] QJsonDocument json() const;
 
-    [[nodiscard]] QByteArray userIdForMessages() const;
-    void setUserIdForMessages(const QByteArray &newUserIdForMessages);
+    [[nodiscard]] QByteArray reportedUserId() const;
+    void setReportedUserId(const QByteArray &newReportedUserId);
 
-    [[nodiscard]] QByteArray messageId() const;
-    void setMessageId(const QByteArray &newMessageId);
+    [[nodiscard]] QString description() const;
+    void setDescription(const QString &newDescription);
 
 Q_SIGNALS:
-    void moderationDismissReportsDone();
+    void moderationReportUserDone();
 
 private:
     Q_DISABLE_COPY(ModerationReportUserJob)
     LIBROCKETCHATRESTAPI_QT_NO_EXPORT void onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson) override;
-    QByteArray mUserIdForMessages;
-    QByteArray mMessageId;
+    QByteArray mReportedUserId;
+    QString mDescription;
 };
 }

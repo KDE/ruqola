@@ -1,17 +1,17 @@
 /*
-   SPDX-FileCopyrightText: 2023-2024 Laurent Montel <montel.org>
+   SPDX-FileCopyrightText: 2024 Laurent Montel <montel.org>
 
    SPDX-License-Identifier: LGPL-2.0-or-later
 */
 
 #include "moderationreportuserjob.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "restapimethod.h"
 #include "rocketchatqtrestapi_debug.h"
 
 #include <QJsonDocument>
 #include <QJsonObject>
+using namespace Qt::Literals::StringLiterals;
 using namespace RocketChatRestApi;
 ModerationReportUserJob::ModerationReportUserJob(QObject *parent)
     : RestApiAbstractJob(parent)
@@ -38,31 +38,31 @@ void ModerationReportUserJob::onPostRequestResponse(const QString &replyErrorStr
 
     if (replyObject["success"_L1].toBool()) {
         addLoggerInfo(QByteArrayLiteral("ModerationReportUserJob success: ") + replyJson.toJson(QJsonDocument::Indented));
-        Q_EMIT moderationDismissReportsDone();
+        Q_EMIT moderationReportUserDone();
     } else {
         emitFailedMessage(replyErrorString, replyObject);
         addLoggerWarning(QByteArrayLiteral("ModerationReportUserJob: Problem: ") + replyJson.toJson(QJsonDocument::Indented));
     }
 }
 
-QByteArray ModerationReportUserJob::messageId() const
+QString ModerationReportUserJob::description() const
 {
-    return mMessageId;
+    return mDescription;
 }
 
-void ModerationReportUserJob::setMessageId(const QByteArray &newMessageId)
+void ModerationReportUserJob::setDescription(const QString &newDescription)
 {
-    mMessageId = newMessageId;
+    mDescription = newDescription;
 }
 
-QByteArray ModerationReportUserJob::userIdForMessages() const
+QByteArray ModerationReportUserJob::reportedUserId() const
 {
-    return mUserIdForMessages;
+    return mReportedUserId;
 }
 
-void ModerationReportUserJob::setUserIdForMessages(const QByteArray &newUserIdForMessages)
+void ModerationReportUserJob::setReportedUserId(const QByteArray &newReportedUserId)
 {
-    mUserIdForMessages = newUserIdForMessages;
+    mReportedUserId = newReportedUserId;
 }
 
 bool ModerationReportUserJob::requireHttpAuthentication() const
@@ -75,8 +75,8 @@ bool ModerationReportUserJob::canStart() const
     if (!RestApiAbstractJob::canStart()) {
         return false;
     }
-    if (mUserIdForMessages.isEmpty() && mMessageId.isEmpty()) {
-        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "ModerationReportUserJob: mUserIdForMessages is empty and mMessageId isEmpty()";
+    if (mReportedUserId.isEmpty() && mDescription.isEmpty()) {
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "ModerationReportUserJob: mReportedUserId is empty and mDescription isEmpty()";
         return false;
     }
     return true;
@@ -84,7 +84,7 @@ bool ModerationReportUserJob::canStart() const
 
 QNetworkRequest ModerationReportUserJob::request() const
 {
-    const QUrl url = mRestApiMethod->generateUrl(RestApiUtil::RestApiUrlType::ModerationDismissReports);
+    const QUrl url = mRestApiMethod->generateUrl(RestApiUtil::RestApiUrlType::ModerationReportUser);
     QNetworkRequest request(url);
     addAuthRawHeader(request);
     addRequestAttribute(request);
@@ -94,10 +94,9 @@ QNetworkRequest ModerationReportUserJob::request() const
 QJsonDocument ModerationReportUserJob::json() const
 {
     QJsonObject jsonObj;
-    if (!mUserIdForMessages.isEmpty()) {
-        jsonObj["userId"_L1] = QLatin1StringView(mUserIdForMessages);
-    } else if (!mMessageId.isEmpty()) {
-        jsonObj["msgId"_L1] = QLatin1StringView(mMessageId);
+    jsonObj["userId"_L1] = QLatin1StringView(mReportedUserId);
+    if (!mDescription.isEmpty()) {
+        jsonObj["description"_L1] = mDescription;
     }
     const QJsonDocument postData = QJsonDocument(jsonObj);
     return postData;
