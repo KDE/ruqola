@@ -1,12 +1,12 @@
 /*
-   SPDX-FileCopyrightText: 2020-2024 Laurent Montel <montel@kde.org>
+   SPDX-FileCopyrightText: 2024 Laurent Montel <montel@kde.org>
 
    SPDX-License-Identifier: LGPL-2.0-or-later
 */
 
 #include "reportuserdialogtest.h"
-#include "dialogs/reportmessagedialog.h"
-#include "dialogs/reportmessagewidget.h"
+#include "dialogs/reportuserdialog.h"
+#include "dialogs/reportuserwidget.h"
 #include <KTextEdit>
 #include <QDialogButtonBox>
 #include <QPushButton>
@@ -24,14 +24,14 @@ ReportUserDialogTest::ReportUserDialogTest(QObject *parent)
 
 void ReportUserDialogTest::shouldHaveDefaultValues()
 {
-    ReportMessageDialog w;
+    ReportUserDialog w;
     QVERIFY(!w.windowTitle().isEmpty());
 
     auto mainLayout = w.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
     QVERIFY(mainLayout);
 
-    auto mReportMessageWidget = w.findChild<ReportMessageWidget *>(QStringLiteral("mReportMessageWidget"));
-    QVERIFY(mReportMessageWidget);
+    auto mReportUserWidget = w.findChild<ReportUserWidget *>(QStringLiteral("mReportUserWidget"));
+    QVERIFY(mReportUserWidget);
 
     auto button = w.findChild<QDialogButtonBox *>(QStringLiteral("button"));
     QVERIFY(button);
@@ -44,11 +44,11 @@ void ReportUserDialogTest::shouldHaveDefaultValues()
 
 void ReportUserDialogTest::shouldUpdateOkButton()
 {
-    ReportMessageDialog w;
-    auto mReportMessageWidget = w.findChild<ReportMessageWidget *>(QStringLiteral("mReportMessageWidget"));
+    ReportUserDialog w;
+    auto mReportUserWidget = w.findChild<ReportUserWidget *>(QStringLiteral("mReportUserWidget"));
     auto button = w.findChild<QDialogButtonBox *>(QStringLiteral("button"));
 
-    auto mMessageLineEdit = mReportMessageWidget->findChild<KTextEdit *>(QStringLiteral("mMessageLineEdit"));
+    auto mMessageLineEdit = mReportUserWidget->findChild<KTextEdit *>(QStringLiteral("mMessageLineEdit"));
     QVERIFY(mMessageLineEdit);
     mMessageLineEdit->setText(QStringLiteral("foo"));
     QPushButton *okButton = button->button(QDialogButtonBox::Ok);

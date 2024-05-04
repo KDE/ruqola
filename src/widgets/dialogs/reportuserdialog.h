@@ -9,7 +9,7 @@
 #include "libruqolawidgets_export.h"
 
 #include <QDialog>
-class ReportMessageWidget;
+class ReportUserWidget;
 class LIBRUQOLAWIDGETS_EXPORT ReportUserDialog : public QDialog
 {
     Q_OBJECT
@@ -22,5 +22,5 @@ public:
 private:
     LIBRUQOLAWIDGETS_NO_EXPORT void readConfig();
     LIBRUQOLAWIDGETS_NO_EXPORT void writeConfig();
-    ReportMessageWidget *const mReportMessageWidget;
+    ReportUserWidget *const mReportUserWidget;
 };

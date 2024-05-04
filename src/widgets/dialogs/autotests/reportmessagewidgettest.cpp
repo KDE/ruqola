@@ -1,11 +1,11 @@
 /*
-   SPDX-FileCopyrightText: 2020-2024 Laurent Montel <montel@kde.org>
+   SPDX-FileCopyrightText: 2024 Laurent Montel <montel@kde.org>
 
    SPDX-License-Identifier: LGPL-2.0-or-later
 */
 
 #include "reportmessagewidgettest.h"
-#include "dialogs/reportmessagewidget.h"
+#include "dialogs/reportuserwidget.h"
 #include <KTextEdit>
 #include <QLabel>
 #include <QTest>
@@ -18,7 +18,7 @@ ReportMessageWidgetTest::ReportMessageWidgetTest(QObject *parent)
 
 void ReportMessageWidgetTest::shouldHaveDefaultValues()
 {
-    ReportMessageWidget w;
+    ReportUserWidget w;
     auto mainLayout = w.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
     QVERIFY(mainLayout);
     QCOMPARE(mainLayout->contentsMargins(), QMargins{});

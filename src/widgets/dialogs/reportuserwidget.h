@@ -20,6 +20,7 @@ public:
     [[nodiscard]] QString message() const;
 
     void setPreviewMessage(const QString &msg);
+
 Q_SIGNALS:
     void updateOkButton(bool enabled);
 

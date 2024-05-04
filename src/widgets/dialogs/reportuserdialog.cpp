@@ -5,7 +5,7 @@
 */
 
 #include "reportuserdialog.h"
-#include "reportmessagewidget.h"
+#include "reportuserwidget.h"
 
 #include <KConfigGroup>
 #include <KLocalizedString>
@@ -21,14 +21,14 @@ static const char myReportUserDialogGroupName[] = "ReportUserDialog";
 }
 ReportUserDialog::ReportUserDialog(QWidget *parent)
     : QDialog(parent)
-    , mReportMessageWidget(new ReportMessageWidget(this))
+    , mReportUserWidget(new ReportUserWidget(this))
 {
     setWindowTitle(i18nc("@title:window", "Report User"));
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
 
-    mReportMessageWidget->setObjectName(QStringLiteral("mReportMessageWidget"));
-    mainLayout->addWidget(mReportMessageWidget);
+    mReportUserWidget->setObjectName(QStringLiteral("mReportUserWidget"));
+    mainLayout->addWidget(mReportUserWidget);
     mainLayout->addStretch(1);
 
     auto button = new QDialogButtonBox(QDialogButtonBox::Ok | QDialogButtonBox::Cancel, this);
@@ -40,7 +40,7 @@ ReportUserDialog::ReportUserDialog(QWidget *parent)
 
     QPushButton *okButton = button->button(QDialogButtonBox::Ok);
     okButton->setEnabled(false);
-    connect(mReportMessageWidget, &ReportMessageWidget::updateOkButton, okButton, &QPushButton::setEnabled);
+    connect(mReportUserWidget, &ReportUserWidget::updateOkButton, okButton, &QPushButton::setEnabled);
 }
 
 ReportUserDialog::~ReportUserDialog()
@@ -65,12 +65,12 @@ void ReportUserDialog::writeConfig()
 
 QString ReportUserDialog::message() const
 {
-    return mReportMessageWidget->message();
+    return mReportUserWidget->message();
 }
 
 void ReportUserDialog::setPreviewMessage(const QString &msg)
 {
-    mReportMessageWidget->setPreviewMessage(msg);
+    mReportUserWidget->setPreviewMessage(msg);
 }
 
 #include "moc_reportuserdialog.cpp"
