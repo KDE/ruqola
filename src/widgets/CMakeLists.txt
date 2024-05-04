@@ -401,6 +401,10 @@ target_sources(libruqolawidgets PRIVATE
     dialogs/reportmessagedialog.h
     dialogs/reportmessagewidget.cpp
     dialogs/reportmessagewidget.h
+
+    dialogs/reportuserdialog.cpp
+    dialogs/reportuserdialog.h
+
     dialogs/roomavatarwidget.cpp
     dialogs/roomavatarwidget.h
     dialogs/roomavatarreadonlywidget.h
