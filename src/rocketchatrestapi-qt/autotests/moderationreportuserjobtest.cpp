@@ -41,7 +41,8 @@ void ModerationReportUserJobTest::shouldGenerateJson()
         const QByteArray reportedUserId("foo2");
         job.setReportedUserId(reportedUserId);
 
-        QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral(R"({"userId":"%1"})").arg(QLatin1StringView(reportedUserId)).toLatin1());
+        QCOMPARE(job.json().toJson(QJsonDocument::Compact),
+                 QStringLiteral(R"({"description":"","userId":"%1"})").arg(QLatin1StringView(reportedUserId)).toLatin1());
     }
     {
         ModerationReportUserJob job;
