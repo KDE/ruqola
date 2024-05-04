@@ -76,7 +76,7 @@ bool ModerationReportUserJob::canStart() const
         return false;
     }
     if (mReportedUserId.isEmpty() || mDescription.isEmpty()) {
-        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "ModerationReportUserJob: mReportedUserId is empty and mDescription isEmpty()";
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "ModerationReportUserJob: mReportedUserId is empty or mDescription isEmpty()";
         return false;
     }
     return true;
