@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-05-04 00:40+0000\n"
+"POT-Creation-Date: 2024-05-05 00:38+0000\n"
 "PO-Revision-Date: 2024-04-19 03:55+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
@@ -7058,14 +7058,23 @@ msgid "Report Message"
 msgstr "檢舉訊息"
 
 #: widgets/dialogs/reportmessagewidget.cpp:37
+#: widgets/dialogs/reportuserwidget.cpp:37
 #, kde-format
 msgid "Message:"
 msgstr "訊息："
 
 #: widgets/dialogs/reportmessagewidget.cpp:43
+#: widgets/dialogs/reportuserwidget.cpp:43
 #, kde-format
 msgid "Why you signal this message?"
 msgstr ""
+
+#: widgets/dialogs/reportuserdialog.cpp:26
+#, fuzzy, kde-format
+#| msgid "Report Message"
+msgctxt "@title:window"
+msgid "Report User"
+msgstr "檢舉訊息"
 
 #: widgets/dialogs/resetpassworddialog.cpp:18
 #, kde-format
@@ -7212,7 +7221,7 @@ msgid "Display Image"
 msgstr "顯示影像"
 
 #: widgets/dialogs/showimagedialog.cpp:41
-#: widgets/room/delegate/messageattachmentdelegatehelperimage.cpp:258
+#: widgets/room/delegate/messageattachmentdelegatehelperimage.cpp:262
 #, kde-format
 msgid "Copy Image to Clipboard"
 msgstr "複製影像到剪貼簿"

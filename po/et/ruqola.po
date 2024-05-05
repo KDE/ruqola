@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-05-04 00:40+0000\n"
+"POT-Creation-Date: 2024-05-05 00:38+0000\n"
 "PO-Revision-Date: 2020-06-13 21:18+0300\n"
 "Last-Translator: Marek Laane <qiilaq69@gmail.com>\n"
 "Language-Team: Estonian <kde-et@lists.linux.ee>\n"
@@ -7395,14 +7395,23 @@ msgid "Report Message"
 msgstr "Sõnumist teatamine"
 
 #: widgets/dialogs/reportmessagewidget.cpp:37
+#: widgets/dialogs/reportuserwidget.cpp:37
 #, kde-format
 msgid "Message:"
 msgstr "Sõnum:"
 
 #: widgets/dialogs/reportmessagewidget.cpp:43
+#: widgets/dialogs/reportuserwidget.cpp:43
 #, kde-format
 msgid "Why you signal this message?"
 msgstr "Miks sa sellest sõnumist märku annad?"
+
+#: widgets/dialogs/reportuserdialog.cpp:26
+#, fuzzy, kde-format
+#| msgid "Report Message"
+msgctxt "@title:window"
+msgid "Report User"
+msgstr "Anna sõnumist teada"
 
 #: widgets/dialogs/resetpassworddialog.cpp:18
 #, fuzzy, kde-format
@@ -7566,7 +7575,7 @@ msgid "Display Image"
 msgstr "Pildi näitamine"
 
 #: widgets/dialogs/showimagedialog.cpp:41
-#: widgets/room/delegate/messageattachmentdelegatehelperimage.cpp:258
+#: widgets/room/delegate/messageattachmentdelegatehelperimage.cpp:262
 #, kde-format
 msgid "Copy Image to Clipboard"
 msgstr ""
