@@ -6,6 +6,7 @@
 
 #include "usersinroommenu.h"
 #include "dialogs/directchannelinfodialog.h"
+#include "dialogs/reportuserdialog.h"
 #include "rocketchataccount.h"
 #include "roomutil.h"
 #include "ruqola.h"
@@ -44,6 +45,9 @@ void UsersInRoomMenu::slotBlockUser()
 
 void UsersInRoomMenu::slotReportUser()
 {
+    ReportUserDialog dlg(mParentWidget);
+    dlg.exec();
+
     // TODO
 }
 
