@@ -17,7 +17,6 @@ public:
     explicit ReportUserDialog(QWidget *parent = nullptr);
     ~ReportUserDialog() override;
     [[nodiscard]] QString message() const;
-    void setPreviewMessage(const QString &msg);
 
 private:
     LIBRUQOLAWIDGETS_NO_EXPORT void readConfig();

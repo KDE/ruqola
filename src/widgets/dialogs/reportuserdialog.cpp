@@ -68,9 +68,4 @@ QString ReportUserDialog::message() const
     return mReportUserWidget->message();
 }
 
-void ReportUserDialog::setPreviewMessage(const QString &msg)
-{
-    mReportUserWidget->setPreviewMessage(msg);
-}
-
 #include "moc_reportuserdialog.cpp"

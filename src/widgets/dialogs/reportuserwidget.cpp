@@ -54,9 +54,4 @@ QString ReportUserWidget::message() const
     return mMessageLineEdit->toPlainText();
 }
 
-void ReportUserWidget::setPreviewMessage(const QString &msg)
-{
-    mMessagePreview->setText(msg);
-}
-
 #include "moc_reportuserwidget.cpp"
