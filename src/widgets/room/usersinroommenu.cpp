@@ -42,6 +42,11 @@ void UsersInRoomMenu::slotBlockUser()
     Ruqola::self()->rocketChatAccount()->blockUser(QString::fromLatin1(mRoom->roomId()), !userIsBlocked);
 }
 
+void UsersInRoomMenu::slotReportUser()
+{
+    // TODO
+}
+
 void UsersInRoomMenu::slotIgnoreUser()
 {
     const bool userIsIgnored = mRoom->userIsIgnored(mUserId);
@@ -152,6 +157,10 @@ void UsersInRoomMenu::slotCustomContextMenuRequested(const QPoint &pos)
             connect(ignoreAction, &QAction::triggered, this, &UsersInRoomMenu::slotIgnoreUser);
             menu.addAction(ignoreAction);
         }
+        menu.addSeparator();
+        auto reportUserAction = new QAction(i18n("Report User"), &menu);
+        connect(reportUserAction, &QAction::triggered, this, &UsersInRoomMenu::slotReportUser);
+        menu.addAction(reportUserAction);
     }
     menu.exec(mParentWidget->mapToGlobal(pos));
 }

@@ -30,6 +30,7 @@ private:
     LIBRUQOLAWIDGETS_NO_EXPORT void slotIgnoreUser();
     LIBRUQOLAWIDGETS_NO_EXPORT void slotRemoveFromRoom();
     LIBRUQOLAWIDGETS_NO_EXPORT void slotUserInfo();
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotReportUser();
     QByteArray mUserId;
     QString mUserName;
     QPointer<Room> mRoom;
