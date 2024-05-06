@@ -32,6 +32,7 @@ Q_SIGNALS:
     void roomSelected(const ChannelListView::ChannelSelectedInfo &roomInfo);
     void roomPressed(const QByteArray &roomId);
     void selectMessageIdRequested(const QByteArray &messageId);
+    void forceLineEditFocus();
 
 protected:
     bool eventFilter(QObject *object, QEvent *event) override;

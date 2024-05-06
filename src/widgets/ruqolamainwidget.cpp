@@ -73,6 +73,7 @@ RuqolaMainWidget::RuqolaMainWidget(QWidget *parent)
 
     connect(mChannelList, &ChannelListWidget::roomSelected, this, &RuqolaMainWidget::selectChannelRoom);
     connect(mChannelList, &ChannelListWidget::roomPressed, this, &RuqolaMainWidget::slotRoomPressed);
+    connect(mChannelList, &ChannelListWidget::forceLineEditFocus, mRoomWidget, &RoomWidget::forceLineEditFocus);
     connect(mChannelList, &ChannelListWidget::selectMessageIdRequested, mRoomWidget, &RoomWidget::scrollToMessageId);
 
     KConfigGroup group(KSharedConfig::openConfig(), QLatin1StringView(myRuqolaMainWidgetGroupName));

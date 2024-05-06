@@ -60,6 +60,7 @@ ChannelListWidget::ChannelListWidget(QWidget *parent)
     mSearchRoomLineEdit->setMinimumHeight(34); // match the default size of the message text field
     mainLayout->addWidget(mSearchRoomLineEdit);
     connect(mSearchRoomLineEdit, &QLineEdit::textChanged, this, &ChannelListWidget::slotSearchRoomTextChanged);
+    connect(mSearchRoomLineEdit, &QLineEdit::returnPressed, this, &ChannelListWidget::forceLineEditFocus);
 
     // BEGIN: Actions
     auto searchRoomAction = new QAction(i18n("Search Channels"), this);
