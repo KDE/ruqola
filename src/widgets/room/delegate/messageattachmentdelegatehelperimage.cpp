@@ -141,9 +141,9 @@ bool MessageAttachmentDelegateHelperImage::handleMouseEvent(const MessageAttachm
             MessageAttachmentDownloadAndSaveJob::MessageAttachmentDownloadJobInfo info;
             info.attachmentType = MessageAttachmentDownloadAndSaveJob::AttachmentType::Image;
             info.actionType = MessageAttachmentDownloadAndSaveJob::ActionType::DownloadAndSave;
-            info.needToDownloadAttachment = !mRocketChatAccount->attachmentIsInLocalCache(layout.imageBigPath);
-            info.parentWidget = const_cast<QWidget *>(option.widget);
             info.attachmentPath = layout.imageBigPath;
+            info.needToDownloadAttachment = !mRocketChatAccount->attachmentIsInLocalCache(info.attachmentPath);
+            info.parentWidget = const_cast<QWidget *>(option.widget);
             auto job = new MessageAttachmentDownloadAndSaveJob(this);
             job->setRocketChatAccount(mRocketChatAccount);
             job->setInfo(info);
@@ -159,7 +159,7 @@ bool MessageAttachmentDelegateHelperImage::handleMouseEvent(const MessageAttachm
                 ShowImageWidget::ImageInfo info;
                 info.bigImagePath = layout.imageBigPath;
                 info.previewImagePath = layout.imagePreviewPath;
-                info.needToDownloadBigImage = !mRocketChatAccount->attachmentIsInLocalCache(layout.imageBigPath);
+                info.needToDownloadBigImage = !mRocketChatAccount->attachmentIsInLocalCache(info.bigImagePath);
                 info.pixmap = layout.pixmap;
                 info.isAnimatedImage = layout.isAnimatedImage;
                 dlg->setImageInfo(std::move(info));

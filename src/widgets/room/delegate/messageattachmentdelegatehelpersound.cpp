@@ -87,9 +87,9 @@ bool MessageAttachmentDelegateHelperSound::handleMouseEvent(const MessageAttachm
             MessageAttachmentDownloadAndSaveJob::MessageAttachmentDownloadJobInfo info;
             info.attachmentType = MessageAttachmentDownloadAndSaveJob::AttachmentType::Sound;
             info.actionType = MessageAttachmentDownloadAndSaveJob::ActionType::DownloadAndSave;
-            info.needToDownloadAttachment = !mRocketChatAccount->attachmentIsInLocalCache(layout.audioPath);
-            info.parentWidget = const_cast<QWidget *>(option.widget);
             info.attachmentPath = layout.audioPath;
+            info.needToDownloadAttachment = !mRocketChatAccount->attachmentIsInLocalCache(info.attachmentPath);
+            info.parentWidget = const_cast<QWidget *>(option.widget);
             auto job = new MessageAttachmentDownloadAndSaveJob(this);
             job->setRocketChatAccount(mRocketChatAccount);
             job->setInfo(std::move(info));
