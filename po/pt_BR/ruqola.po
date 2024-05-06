@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-05-05 00:38+0000\n"
+"POT-Creation-Date: 2024-05-06 00:38+0000\n"
 "PO-Revision-Date: 2023-06-07 13:29-0300\n"
 "Last-Translator: Luiz Fernando Ranghetti <elchevive@opensuse.org>\n"
 "Language-Team: Brazilian Portuguese <kde-i18n-pt_BR@kde.org>\n"
@@ -7254,6 +7254,13 @@ msgctxt "@title:window"
 msgid "Report Message"
 msgstr "Reportar mensagem"
 
+#: widgets/dialogs/reportmessagedialog.cpp:43
+#: widgets/dialogs/reportuserdialog.cpp:43
+#, fuzzy, kde-format
+#| msgid "Report a Bug"
+msgid "Report"
+msgstr "Relatar erro"
+
 #: widgets/dialogs/reportmessagewidget.cpp:37
 #: widgets/dialogs/reportuserwidget.cpp:37
 #, kde-format
@@ -7261,7 +7268,6 @@ msgid "Message:"
 msgstr "Mensagem:"
 
 #: widgets/dialogs/reportmessagewidget.cpp:43
-#: widgets/dialogs/reportuserwidget.cpp:43
 #, kde-format
 msgid "Why you signal this message?"
 msgstr "Por que você sinaliza esta mensagem?"
@@ -7272,6 +7278,12 @@ msgstr "Por que você sinaliza esta mensagem?"
 msgctxt "@title:window"
 msgid "Report User"
 msgstr "Reportar mensagem"
+
+#: widgets/dialogs/reportuserwidget.cpp:43
+#, fuzzy, kde-format
+#| msgid "Do you want to remove \"%1\"?"
+msgid "Why do you want to report?"
+msgstr "Deseja excluir '%1'?"
 
 #: widgets/dialogs/resetpassworddialog.cpp:18
 #, fuzzy, kde-format
@@ -8736,7 +8748,7 @@ msgid "Link Preview"
 msgstr ""
 
 #: widgets/room/delegate/messagelistdelegate.cpp:420
-#: widgets/room/messagelistview.cpp:383 widgets/room/usersinroommenu.cpp:86
+#: widgets/room/messagelistview.cpp:383 widgets/room/usersinroommenu.cpp:95
 #, kde-format
 msgid "User Info"
 msgstr "Informação do usuário"
@@ -9149,99 +9161,105 @@ msgstr "Usuários"
 msgid "(Open External Dialog...)"
 msgstr "(Abrir janela externa...)"
 
-#: widgets/room/usersinroommenu.cpp:35
+#: widgets/room/usersinroommenu.cpp:36
 #, kde-format
 msgid "Do you want to block this user?"
 msgstr "Deseja bloquear este usuário?"
 
-#: widgets/room/usersinroommenu.cpp:36
+#: widgets/room/usersinroommenu.cpp:37
 #, kde-format
 msgctxt "@title"
 msgid "Block User"
 msgstr "Bloquear usuário"
 
-#: widgets/room/usersinroommenu.cpp:37
+#: widgets/room/usersinroommenu.cpp:38
 #, kde-format
 msgctxt "@action:button"
 msgid "Block User"
 msgstr "Bloquear usuário"
 
-#: widgets/room/usersinroommenu.cpp:51
+#: widgets/room/usersinroommenu.cpp:60
 #, kde-format
 msgid "Do you want to ignore this user?"
 msgstr "Deseja ignorar este usuário?"
 
-#: widgets/room/usersinroommenu.cpp:52
+#: widgets/room/usersinroommenu.cpp:61
 #, kde-format
 msgctxt "@title"
 msgid "Ignore User"
 msgstr "Ignorar usuário"
 
-#: widgets/room/usersinroommenu.cpp:53
+#: widgets/room/usersinroommenu.cpp:62
 #, kde-format
 msgctxt "@action:button"
 msgid "Ignore User"
 msgstr "Ignorar usuário"
 
-#: widgets/room/usersinroommenu.cpp:78
+#: widgets/room/usersinroommenu.cpp:87
 #, kde-format
 msgid "Start Conversation"
 msgstr "Iniciar conversa"
 
-#: widgets/room/usersinroommenu.cpp:95
+#: widgets/room/usersinroommenu.cpp:104
 #, kde-format
 msgid "Remove as Owner"
 msgstr "Excluir como proprietário"
 
-#: widgets/room/usersinroommenu.cpp:95
+#: widgets/room/usersinroommenu.cpp:104
 #, kde-format
 msgid "Add as Owner"
 msgstr "Adicionar como proprietário"
 
-#: widgets/room/usersinroommenu.cpp:108
+#: widgets/room/usersinroommenu.cpp:117
 #, kde-format
 msgid "Remove as Leader"
 msgstr "Excluir como líder"
 
-#: widgets/room/usersinroommenu.cpp:108
+#: widgets/room/usersinroommenu.cpp:117
 #, kde-format
 msgid "Add as Leader"
 msgstr "Adicionar como líder"
 
-#: widgets/room/usersinroommenu.cpp:120
+#: widgets/room/usersinroommenu.cpp:129
 #, kde-format
 msgid "Remove as Moderator"
 msgstr "Excluir como moderador"
 
-#: widgets/room/usersinroommenu.cpp:120
+#: widgets/room/usersinroommenu.cpp:129
 #, kde-format
 msgid "Add as Moderator"
 msgstr "Adicionar como moderador"
 
-#: widgets/room/usersinroommenu.cpp:131
+#: widgets/room/usersinroommenu.cpp:140
 #, kde-format
 msgid "Remove from Room"
 msgstr "Excluir da sala"
 
-#: widgets/room/usersinroommenu.cpp:142
+#: widgets/room/usersinroommenu.cpp:151
 #, kde-format
 msgid "Unblock User"
 msgstr "Desbloquear usuário"
 
-#: widgets/room/usersinroommenu.cpp:142
+#: widgets/room/usersinroommenu.cpp:151
 #, kde-format
 msgid "Block User"
 msgstr "Bloquear usuário"
 
-#: widgets/room/usersinroommenu.cpp:151
+#: widgets/room/usersinroommenu.cpp:160
 #, kde-format
 msgid "Unignore"
 msgstr "Não ignorar"
 
-#: widgets/room/usersinroommenu.cpp:151
+#: widgets/room/usersinroommenu.cpp:160
 #, kde-format
 msgid "Ignore"
 msgstr "Ignorar"
+
+#: widgets/room/usersinroommenu.cpp:165
+#, fuzzy, kde-format
+#| msgid "Report Message"
+msgid "Report User"
+msgstr "Reportar mensagem"
 
 #: widgets/room/usersinroomwidget.cpp:144
 #, kde-format
