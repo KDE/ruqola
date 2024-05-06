@@ -551,6 +551,13 @@ void MessageListDelegate::paint(QPainter *painter, const QStyleOptionViewItem &o
         painter->drawText(layout.senderRect.x(), layout.baseLine, layout.senderText);
         painter->setFont(oldFont);
 
+#if 0
+        painter->save();
+        painter->setPen(QPen(Qt::red));
+        painter->drawRect(layout.senderRect);
+        painter->restore();
+#endif
+
         // Draw the roles icon
         if (!index.data(MessagesModel::Roles).toString().isEmpty() && !mRocketChatAccount->hideRoles()) {
             mRolesIcon.paint(painter, layout.rolesIconRect);
