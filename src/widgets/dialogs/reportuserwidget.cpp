@@ -15,18 +15,18 @@
 ReportUserWidget::ReportUserWidget(QWidget *parent)
     : QWidget(parent)
     , mMessageLineEdit(new KTextEdit(this))
-    , mMessagePreview(new QLabel(this))
+    , mUserName(new QLabel(this))
 {
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
     mainLayout->setContentsMargins({});
 
-    mMessagePreview->setObjectName(QStringLiteral("mMessagePreview"));
-    mMessagePreview->setWordWrap(true);
-    QFont messagePreviewFont = mMessagePreview->font();
+    mUserName->setObjectName(QStringLiteral("mUserName"));
+    mUserName->setWordWrap(true);
+    QFont messagePreviewFont = mUserName->font();
     messagePreviewFont.setBold(true);
-    mMessagePreview->setFont(messagePreviewFont);
-    mainLayout->addWidget(mMessagePreview);
+    mUserName->setFont(messagePreviewFont);
+    mainLayout->addWidget(mUserName);
 
     auto messageLayout = new QHBoxLayout;
     messageLayout->setObjectName(QStringLiteral("messageLayout"));
@@ -56,7 +56,7 @@ QString ReportUserWidget::message() const
 
 void ReportUserWidget::setUserName(const QString &userName)
 {
-    // TODO
+    mUserName->setText(userName);
 }
 
 #include "moc_reportuserwidget.cpp"

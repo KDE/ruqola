@@ -26,5 +26,5 @@ Q_SIGNALS:
 
 private:
     KTextEdit *const mMessageLineEdit;
-    QLabel *const mMessagePreview;
+    QLabel *const mUserName;
 };

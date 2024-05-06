@@ -27,10 +27,10 @@ void ReportMessageWidgetTest::shouldHaveDefaultValues()
     QVERIFY(lab);
     QVERIFY(!lab->text().isEmpty());
 
-    auto mMessagePreview = w.findChild<QLabel *>(QStringLiteral("mMessagePreview"));
-    QVERIFY(mMessagePreview);
-    QVERIFY(mMessagePreview->wordWrap());
-    QVERIFY(mMessagePreview->text().isEmpty());
+    auto mUserName = w.findChild<QLabel *>(QStringLiteral("mUserName"));
+    QVERIFY(mUserName);
+    QVERIFY(mUserName->wordWrap());
+    QVERIFY(mUserName->text().isEmpty());
 
     auto mMessageLineEdit = w.findChild<KTextEdit *>(QStringLiteral("mMessageLineEdit"));
     QVERIFY(mMessageLineEdit);
