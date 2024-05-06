@@ -46,9 +46,9 @@ void UsersInRoomMenu::slotBlockUser()
 void UsersInRoomMenu::slotReportUser()
 {
     ReportUserDialog dlg(mParentWidget);
-    dlg.exec();
-
-    // TODO
+    if (dlg.exec()) {
+        // TODO
+    }
 }
 
 void UsersInRoomMenu::slotIgnoreUser()
