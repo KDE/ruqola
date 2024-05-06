@@ -49,6 +49,7 @@ void UsersInRoomMenu::slotBlockUser()
 void UsersInRoomMenu::slotReportUser()
 {
     ReportUserDialog dlg(mParentWidget);
+    dlg.setUserName(mUserName);
     if (dlg.exec()) {
         auto job = new RocketChatRestApi::ModerationReportUserJob(this);
         Ruqola::self()->rocketChatAccount()->restApi()->initializeRestApiJob(job);

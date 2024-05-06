@@ -69,4 +69,9 @@ QString ReportUserDialog::message() const
     return mReportUserWidget->message();
 }
 
+void ReportUserDialog::setUserName(const QString &userName)
+{
+    mReportUserWidget->setUserName(userName);
+}
+
 #include "moc_reportuserdialog.cpp"

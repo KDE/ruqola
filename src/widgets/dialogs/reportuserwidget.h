@@ -19,6 +19,8 @@ public:
     ~ReportUserWidget() override;
     [[nodiscard]] QString message() const;
 
+    void setUserName(const QString &userName);
+
 Q_SIGNALS:
     void updateOkButton(bool enabled);
 

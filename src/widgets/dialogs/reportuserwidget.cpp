@@ -54,4 +54,9 @@ QString ReportUserWidget::message() const
     return mMessageLineEdit->toPlainText();
 }
 
+void ReportUserWidget::setUserName(const QString &userName)
+{
+    // TODO
+}
+
 #include "moc_reportuserwidget.cpp"

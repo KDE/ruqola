@@ -18,6 +18,8 @@ public:
     ~ReportUserDialog() override;
     [[nodiscard]] QString message() const;
 
+    void setUserName(const QString &userName);
+
 private:
     LIBRUQOLAWIDGETS_NO_EXPORT void readConfig();
     LIBRUQOLAWIDGETS_NO_EXPORT void writeConfig();
