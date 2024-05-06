@@ -134,8 +134,10 @@ MessageListLayoutBase::Layout MessageListNormalLayout::doLayout(const QStyleOpti
     layout.senderRect =
         QRectF(senderX, layout.baseLine - senderAscent, senderTextSize.width(), (layout.sameSenderAsPreviousMessage ? 0 : senderTextSize.height()));
     if (index.data(MessagesModel::DateDiffersFromPrevious).toBool()) {
-        layout.baseLine += option.fontMetrics.height();
+        layout.baseLine += option.fontMetrics.height() - 4; // TODO fix -4 !
+        const auto height = layout.senderRect.height();
         layout.senderRect.setTop(layout.senderRect.top() + senderAscent);
+        layout.senderRect.setHeight(height);
     }
     // Align top of avatar with top of sender rect
     const double senderRectY{layout.senderRect.y()};
