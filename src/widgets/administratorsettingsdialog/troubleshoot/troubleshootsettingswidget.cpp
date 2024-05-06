@@ -84,3 +84,5 @@ void TroubleshootSettingsWidget::initialize(const QMap<QString, QVariant> &mapSe
     initializeWidget(mDisableDataExporterProcessor, mapSettings, false);
     initializeWidget(mDisableWorkspaceSync, mapSettings, false);
 }
+
+#include "moc_troubleshootsettingswidget.cpp"
