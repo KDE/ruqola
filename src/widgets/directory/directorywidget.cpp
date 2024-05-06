@@ -49,7 +49,7 @@ DirectoryWidget::DirectoryWidget(RocketChatAccount *account, DirectoryType type,
         break;
     }
     mTreeView->setModel(mProxyModelModel);
-    connect(mTreeView, &QTreeView::doubleClicked, this, [this](const QModelIndex &index) {
+    connect(mTreeView, &QTreeView::activated, this, [this](const QModelIndex &index) {
         if (index.isValid()) {
             const QModelIndex i = mProxyModelModel->mapToSource(index);
             slotOpen(i);
