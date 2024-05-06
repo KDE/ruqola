@@ -5,11 +5,14 @@
 */
 
 #include "usersinroommenu.h"
+#include "connection.h"
 #include "dialogs/directchannelinfodialog.h"
 #include "dialogs/reportuserdialog.h"
+#include "moderation/moderationreportuserjob.h"
 #include "rocketchataccount.h"
 #include "roomutil.h"
 #include "ruqola.h"
+#include "ruqolawidgets_debug.h"
 #include <KLocalizedString>
 #include <KMessageBox>
 #include <QAction>
@@ -47,7 +50,13 @@ void UsersInRoomMenu::slotReportUser()
 {
     ReportUserDialog dlg(mParentWidget);
     if (dlg.exec()) {
-        // TODO
+        auto job = new RocketChatRestApi::ModerationReportUserJob(this);
+        Ruqola::self()->rocketChatAccount()->restApi()->initializeRestApiJob(job);
+        job->setDescription(dlg.message());
+        job->setReportedUserId(mUserId);
+        if (!job->start()) {
+            qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start ModerationReportUserJob job";
+        }
     }
 }
 
