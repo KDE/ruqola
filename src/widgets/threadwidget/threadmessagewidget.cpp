@@ -71,6 +71,7 @@ ThreadMessageWidget::ThreadMessageWidget(RocketChatAccount *account, QWidget *pa
 
     mRoomWidgetBase->setObjectName(QStringLiteral("mRoomWidgetBase"));
     mainLayout->addWidget(mRoomWidgetBase);
+    mRoomWidgetBase->messageLineWidget()->setFocus();
     connect(mRoomWidgetBase, &RoomWidgetBase::createNewDiscussion, this, &ThreadMessageWidget::slotCreateNewDiscussion);
     setAcceptDrops(true);
     if (mRocketChatAccount) {
