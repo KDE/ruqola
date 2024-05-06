@@ -36,7 +36,7 @@ ReportUserWidget::ReportUserWidget(QWidget *parent)
 
     auto lab = new QLabel(i18n("Message:"), this);
     lab->setObjectName(QStringLiteral("label"));
-    messageLayout->addWidget(lab);
+    messageLayout->addWidget(lab, 0, Qt::AlignTop);
 
     mMessageLineEdit->setObjectName(QStringLiteral("mMessageLineEdit"));
     mMessageLineEdit->setAcceptRichText(false);
