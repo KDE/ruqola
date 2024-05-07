@@ -41,3 +41,5 @@ private:
     QList<NotificationDesktopSoundPreferenceInfo> mNotificationDestktopSoundPreferenceList;
     int mCurrentPreference = 0;
 };
+Q_DECLARE_METATYPE(NotificationDesktopSoundPreferenceModel::NotificationDesktopSoundPreferenceInfo)
+Q_DECLARE_TYPEINFO(NotificationDesktopSoundPreferenceModel::NotificationDesktopSoundPreferenceInfo, Q_RELOCATABLE_TYPE);

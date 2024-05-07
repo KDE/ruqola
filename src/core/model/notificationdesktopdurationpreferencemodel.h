@@ -41,3 +41,5 @@ private:
     QList<NotificationDesktopDurationPreferenceInfo> mNotificationDestktopDurationPreferenceList;
     int mCurrentPreference = 0;
 };
+Q_DECLARE_METATYPE(NotificationDesktopDurationPreferenceModel::NotificationDesktopDurationPreferenceInfo)
+Q_DECLARE_TYPEINFO(NotificationDesktopDurationPreferenceModel::NotificationDesktopDurationPreferenceInfo, Q_RELOCATABLE_TYPE);
