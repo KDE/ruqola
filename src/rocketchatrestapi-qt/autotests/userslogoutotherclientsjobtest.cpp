@@ -35,13 +35,13 @@ void UsersLogoutOtherClientsJobTest::shouldGenerateRequest()
     method.setServerUrl(QStringLiteral("http://www.kde.org"));
     job.setRestApiMethod(&method);
     const QNetworkRequest request = job.request();
-    QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/v1/users.resetE2EKey")));
+    QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/v1/users.logoutOtherClients")));
 }
 
 void UsersLogoutOtherClientsJobTest::shouldGenerateJson()
 {
     UsersLogoutOtherClientsJob job;
-    QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral(R"({"userId":"%1"})").arg(QLatin1StringView("")).toLatin1());
+    QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral(R"({})").toLatin1());
 }
 
 void UsersLogoutOtherClientsJobTest::shouldNotStarting()
