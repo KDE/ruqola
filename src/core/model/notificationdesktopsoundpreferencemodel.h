@@ -33,7 +33,7 @@ public:
 
     [[nodiscard]] QString currentPreference(int index) const;
 
-    void addCustomSound();
+    void addCustomSounds(const QList<NotificationDesktopSoundPreferenceInfo> &customSound);
 
 Q_SIGNALS:
     void currentNotificationPreferenceChanged();

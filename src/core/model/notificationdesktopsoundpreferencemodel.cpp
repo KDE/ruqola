@@ -158,7 +158,7 @@ QString NotificationDesktopSoundPreferenceModel::currentPreference(int index) co
     return str;
 }
 
-void NotificationDesktopSoundPreferenceModel::addCustomSound()
+void NotificationDesktopSoundPreferenceModel::addCustomSounds(const QList<NotificationDesktopSoundPreferenceInfo> &customSound)
 {
     // TODO
 }
