@@ -593,6 +593,9 @@ QString RestApiUtil::restUrl(RestApiUtil::RestApiUrlType type)
         return QStringLiteral("method.callAnon");
     case RestApiUtil::RestApiUrlType::AppsUiInteraction:
         return QStringLiteral("apps/ui.interaction");
+
+    case RestApiUtil::RestApiUrlType::UsersLogoutOtherClients:
+        return QStringLiteral("users.logoutOtherClients");
     }
     qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Unknown RestApiUtil::RestApiUrlType " << static_cast<int>(type);
     return {};
