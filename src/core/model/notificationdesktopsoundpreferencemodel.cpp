@@ -91,6 +91,49 @@ void NotificationDesktopSoundPreferenceModel::fillModel()
         preferenceInfo.preference = QStringLiteral("seasons");
         mNotificationDestktopSoundPreferenceList.append(std::move(preferenceInfo));
     }
+
+    {
+        NotificationDesktopSoundPreferenceInfo preferenceInfo;
+        preferenceInfo.displayText = i18n("Chime");
+        preferenceInfo.preference = QStringLiteral("chime");
+        mNotificationDestktopSoundPreferenceList.append(std::move(preferenceInfo));
+    }
+    {
+        NotificationDesktopSoundPreferenceInfo preferenceInfo;
+        preferenceInfo.displayText = i18n("Door");
+        preferenceInfo.preference = QStringLiteral("door");
+        mNotificationDestktopSoundPreferenceList.append(std::move(preferenceInfo));
+    }
+    {
+        NotificationDesktopSoundPreferenceInfo preferenceInfo;
+        preferenceInfo.displayText = i18n("Telephone");
+        preferenceInfo.preference = QStringLiteral("telephone");
+        mNotificationDestktopSoundPreferenceList.append(std::move(preferenceInfo));
+    }
+    {
+        NotificationDesktopSoundPreferenceInfo preferenceInfo;
+        preferenceInfo.displayText = i18n("Outbound Call Ringing");
+        preferenceInfo.preference = QStringLiteral("outbound-call-ringing");
+        mNotificationDestktopSoundPreferenceList.append(std::move(preferenceInfo));
+    }
+    {
+        NotificationDesktopSoundPreferenceInfo preferenceInfo;
+        preferenceInfo.displayText = i18n("Call Ended");
+        preferenceInfo.preference = QStringLiteral("call-ended");
+        mNotificationDestktopSoundPreferenceList.append(std::move(preferenceInfo));
+    }
+    {
+        NotificationDesktopSoundPreferenceInfo preferenceInfo;
+        preferenceInfo.displayText = i18n("Dialtone");
+        preferenceInfo.preference = QStringLiteral("dialtone");
+        mNotificationDestktopSoundPreferenceList.append(std::move(preferenceInfo));
+    }
+    {
+        NotificationDesktopSoundPreferenceInfo preferenceInfo;
+        preferenceInfo.displayText = i18n("Ringtone");
+        preferenceInfo.preference = QStringLiteral("ringtone");
+        mNotificationDestktopSoundPreferenceList.append(std::move(preferenceInfo));
+    }
 }
 
 int NotificationDesktopSoundPreferenceModel::setCurrentNotificationPreference(const QString &preference)
