@@ -89,6 +89,7 @@ class AccountRoomSettings;
 class PreviewUrlCacheManager;
 class E2eKeyManager;
 class Connection;
+class NotificationPreferences;
 
 class LIBRUQOLACORE_EXPORT RocketChatAccount : public QObject
 {
@@ -533,6 +534,8 @@ public:
 
     void setActivityEnabled(bool enabled);
     [[nodiscard]] bool activityEnabled() const;
+    [[nodiscard]] NotificationPreferences *notificationPreferences() const;
+
 Q_SIGNALS:
     void roomRemoved(const QByteArray &roomId);
     void disabledTotpValid(bool checked);
@@ -723,6 +726,7 @@ private:
     std::unique_ptr<LocalDatabaseManager> mLocalDatabaseManager;
     ManageLocalDatabase *const mManageLoadHistory;
     PreviewUrlCacheManager *const mPreviewUrlCacheManager;
+    NotificationPreferences *const mNotificationPreferences;
     E2eKeyManager *const mE2eKeyManager;
     int mDelayReconnect = 100;
     bool mEditingMode = false;

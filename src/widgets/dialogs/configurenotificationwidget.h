@@ -33,4 +33,5 @@ private:
     QComboBox *const mDesktopSoundCombobox;
     QComboBox *const mMobileAlertCombobox;
     QComboBox *const mEmailAlertCombobox;
+    RocketChatAccount *const mRocketChatAccount;
 };

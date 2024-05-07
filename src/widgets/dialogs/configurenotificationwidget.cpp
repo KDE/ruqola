@@ -27,6 +27,7 @@ ConfigureNotificationWidget::ConfigureNotificationWidget(RocketChatAccount *acco
     , mDesktopSoundCombobox(new QComboBox(this))
     , mMobileAlertCombobox(new QComboBox(this))
     , mEmailAlertCombobox(new QComboBox(this))
+    , mRocketChatAccount(account)
 {
     auto topLayout = new QVBoxLayout(this);
     topLayout->setObjectName(QStringLiteral("topLayout"));
@@ -35,27 +36,27 @@ ConfigureNotificationWidget::ConfigureNotificationWidget(RocketChatAccount *acco
     mDisableNotification->setObjectName(QStringLiteral("mDisableNotification"));
     mDisableNotification->setToolTip(i18n("Receive alerts"));
     topLayout->addWidget(mDisableNotification);
-    connect(mDisableNotification, &QCheckBox::clicked, this, [this, account](bool checked) {
-        account->changeNotificationsSettings(mRoom->roomId(), RocketChatAccount::DisableNotifications, checked);
+    connect(mDisableNotification, &QCheckBox::clicked, this, [this](bool checked) {
+        mRocketChatAccount->changeNotificationsSettings(mRoom->roomId(), RocketChatAccount::DisableNotifications, checked);
     });
 
     mHideUnreadRoomStatus->setObjectName(QStringLiteral("mHideUnreadRoomStatus"));
     topLayout->addWidget(mHideUnreadRoomStatus);
-    connect(mHideUnreadRoomStatus, &QCheckBox::clicked, this, [this, account](bool checked) {
-        account->changeNotificationsSettings(mRoom->roomId(), RocketChatAccount::HideUnreadStatus, checked);
+    connect(mHideUnreadRoomStatus, &QCheckBox::clicked, this, [this](bool checked) {
+        mRocketChatAccount->changeNotificationsSettings(mRoom->roomId(), RocketChatAccount::HideUnreadStatus, checked);
     });
 
     mMuteGroupMentions->setObjectName(QStringLiteral("mMuteGroupMentions"));
     topLayout->addWidget(mMuteGroupMentions);
-    connect(mMuteGroupMentions, &QCheckBox::clicked, this, [this, account](bool checked) {
-        account->changeNotificationsSettings(mRoom->roomId(), RocketChatAccount::MuteGroupMentions, checked);
+    connect(mMuteGroupMentions, &QCheckBox::clicked, this, [this](bool checked) {
+        mRocketChatAccount->changeNotificationsSettings(mRoom->roomId(), RocketChatAccount::MuteGroupMentions, checked);
     });
 
     mShowBadgeMentions->setObjectName(QStringLiteral("mShowBadgeMentions"));
     mShowBadgeMentions->setToolTip(i18n("Display badge for direct mentions only"));
     topLayout->addWidget(mShowBadgeMentions);
-    connect(mShowBadgeMentions, &QCheckBox::clicked, this, [this, account](bool checked) {
-        account->changeNotificationsSettings(mRoom->roomId(), RocketChatAccount::HideMentionStatus, !checked);
+    connect(mShowBadgeMentions, &QCheckBox::clicked, this, [this](bool checked) {
+        mRocketChatAccount->changeNotificationsSettings(mRoom->roomId(), RocketChatAccount::HideMentionStatus, !checked);
     });
 
     auto desktopGroupBox = new QGroupBox(i18n("Desktop"), this);
@@ -67,20 +68,21 @@ ConfigureNotificationWidget::ConfigureNotificationWidget(RocketChatAccount *acco
 
     mDesktopAlertCombobox->setObjectName(QStringLiteral("mDesktopAlertCombobox"));
     desktopGroupBoxLayout->addRow(i18n("Alert:"), mDesktopAlertCombobox);
-    mDesktopAlertCombobox->setModel(NotificationPreferences::self()->desktopNotificationModel());
-    connect(mDesktopAlertCombobox, &QComboBox::activated, this, [this, account](int index) {
-        account->changeNotificationsSettings(mRoom->roomId(),
-                                             RocketChatAccount::DesktopNotifications,
-                                             NotificationPreferences::self()->desktopNotificationModel()->currentPreference(index));
+    mDesktopAlertCombobox->setModel(mRocketChatAccount->notificationPreferences()->desktopNotificationModel());
+    connect(mDesktopAlertCombobox, &QComboBox::activated, this, [this](int index) {
+        mRocketChatAccount->changeNotificationsSettings(mRoom->roomId(),
+                                                        RocketChatAccount::DesktopNotifications,
+                                                        mRocketChatAccount->notificationPreferences()->desktopNotificationModel()->currentPreference(index));
     });
 
     mDesktopSoundCombobox->setObjectName(QStringLiteral("mDesktopSoundCombobox"));
     desktopGroupBoxLayout->addRow(i18n("Sound:"), mDesktopSoundCombobox);
-    mDesktopSoundCombobox->setModel(NotificationPreferences::self()->desktopSoundNotificationModel());
-    connect(mDesktopSoundCombobox, &QComboBox::activated, this, [this, account](int index) {
-        account->changeNotificationsSettings(mRoom->roomId(),
-                                             RocketChatAccount::DesktopSoundNotifications,
-                                             NotificationPreferences::self()->desktopSoundNotificationModel()->currentPreference(index));
+    mDesktopSoundCombobox->setModel(mRocketChatAccount->notificationPreferences()->desktopSoundNotificationModel());
+    connect(mDesktopSoundCombobox, &QComboBox::activated, this, [this](int index) {
+        mRocketChatAccount->changeNotificationsSettings(
+            mRoom->roomId(),
+            RocketChatAccount::DesktopSoundNotifications,
+            mRocketChatAccount->notificationPreferences()->desktopSoundNotificationModel()->currentPreference(index));
     });
 
     auto mobileGroupBox = new QGroupBox(i18n("Mobile"), this);
@@ -92,11 +94,11 @@ ConfigureNotificationWidget::ConfigureNotificationWidget(RocketChatAccount *acco
 
     mMobileAlertCombobox->setObjectName(QStringLiteral("mMobileAlertCombobox"));
     mobileGroupBoxLayout->addRow(i18n("Alert:"), mMobileAlertCombobox);
-    mMobileAlertCombobox->setModel(NotificationPreferences::self()->mobileNotificationModel());
-    connect(mMobileAlertCombobox, &QComboBox::activated, this, [this, account](int index) {
-        account->changeNotificationsSettings(mRoom->roomId(),
-                                             RocketChatAccount::MobilePushNotifications,
-                                             NotificationPreferences::self()->mobileNotificationModel()->currentPreference(index));
+    mMobileAlertCombobox->setModel(mRocketChatAccount->notificationPreferences()->mobileNotificationModel());
+    connect(mMobileAlertCombobox, &QComboBox::activated, this, [this](int index) {
+        mRocketChatAccount->changeNotificationsSettings(mRoom->roomId(),
+                                                        RocketChatAccount::MobilePushNotifications,
+                                                        mRocketChatAccount->notificationPreferences()->mobileNotificationModel()->currentPreference(index));
     });
 
     auto emailGroupBox = new QGroupBox(i18n("Email"), this);
@@ -108,11 +110,11 @@ ConfigureNotificationWidget::ConfigureNotificationWidget(RocketChatAccount *acco
 
     mEmailAlertCombobox->setObjectName(QStringLiteral("mEmailAlertCombobox"));
     emailGroupBoxLayout->addRow(i18n("Alert:"), mEmailAlertCombobox);
-    mEmailAlertCombobox->setModel(NotificationPreferences::self()->emailNotificationModel());
-    connect(mEmailAlertCombobox, &QComboBox::activated, this, [this, account](int index) {
-        account->changeNotificationsSettings(mRoom->roomId(),
-                                             RocketChatAccount::EmailNotifications,
-                                             NotificationPreferences::self()->emailNotificationModel()->currentPreference(index));
+    mEmailAlertCombobox->setModel(mRocketChatAccount->notificationPreferences()->emailNotificationModel());
+    connect(mEmailAlertCombobox, &QComboBox::activated, this, [this](int index) {
+        mRocketChatAccount->changeNotificationsSettings(mRoom->roomId(),
+                                                        RocketChatAccount::EmailNotifications,
+                                                        mRocketChatAccount->notificationPreferences()->emailNotificationModel()->currentPreference(index));
     });
 }
 
@@ -131,14 +133,14 @@ void ConfigureNotificationWidget::setRoom(Room *room)
     mHideUnreadRoomStatus->setChecked(notificationOptions.hideUnreadStatus());
     mMuteGroupMentions->setChecked(notificationOptions.muteGroupMentions());
     mShowBadgeMentions->setChecked(!notificationOptions.hideMentionStatus());
-    mDesktopAlertCombobox->setCurrentIndex(NotificationPreferences::self()->desktopNotificationModel()->setCurrentNotificationPreference(
+    mDesktopAlertCombobox->setCurrentIndex(mRocketChatAccount->notificationPreferences()->desktopNotificationModel()->setCurrentNotificationPreference(
         notificationOptions.desktopNotifications().currentValue()));
-    mDesktopSoundCombobox->setCurrentIndex(
-        NotificationPreferences::self()->desktopSoundNotificationModel()->setCurrentNotificationPreference(notificationOptions.audioNotificationValue()));
-    mMobileAlertCombobox->setCurrentIndex(NotificationPreferences::self()->mobileNotificationModel()->setCurrentNotificationPreference(
+    mDesktopSoundCombobox->setCurrentIndex(mRocketChatAccount->notificationPreferences()->desktopSoundNotificationModel()->setCurrentNotificationPreference(
+        notificationOptions.audioNotificationValue()));
+    mMobileAlertCombobox->setCurrentIndex(mRocketChatAccount->notificationPreferences()->mobileNotificationModel()->setCurrentNotificationPreference(
         notificationOptions.mobilePushNotification().currentValue()));
-    mEmailAlertCombobox->setCurrentIndex(
-        NotificationPreferences::self()->emailNotificationModel()->setCurrentNotificationPreference(notificationOptions.emailNotifications().currentValue()));
+    mEmailAlertCombobox->setCurrentIndex(mRocketChatAccount->notificationPreferences()->emailNotificationModel()->setCurrentNotificationPreference(
+        notificationOptions.emailNotifications().currentValue()));
 }
 
 #include "moc_configurenotificationwidget.cpp"

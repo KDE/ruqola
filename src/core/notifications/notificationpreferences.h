@@ -28,7 +28,6 @@ public:
     [[nodiscard]] NotificationDesktopDurationPreferenceModel *desktopDurationNotificationModel() const;
 
     [[nodiscard]] NotificationDesktopSoundPreferenceModel *desktopSoundNotificationModel() const;
-    static NotificationPreferences *self();
 
 private:
     NotificationPreferenceModel *const mEmailNotificationModel;

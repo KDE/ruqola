@@ -7,6 +7,7 @@
 #include "rocketchataccount.h"
 #include "accountroomsettings.h"
 #include "config-ruqola.h"
+#include "notifications/notificationpreferences.h"
 #include "ruqolautils.h"
 
 #include "attachments/fileattachments.h"
@@ -126,6 +127,7 @@ RocketChatAccount::RocketChatAccount(const QString &accountFileName, QObject *pa
     , mLocalDatabaseManager(std::make_unique<LocalDatabaseManager>())
     , mManageLoadHistory(new ManageLocalDatabase(this, this))
     , mPreviewUrlCacheManager(new PreviewUrlCacheManager(this, this))
+    , mNotificationPreferences(new NotificationPreferences(this))
     , mE2eKeyManager(new E2eKeyManager(this, this))
 {
     qCDebug(RUQOLA_LOG) << " RocketChatAccount::RocketChatAccount(const QString &accountFileName, QObject *parent)" << accountFileName;
@@ -2480,6 +2482,11 @@ void RocketChatAccount::licenseGetModules()
     } else {
         ddp()->licenseGetModules();
     }
+}
+
+NotificationPreferences *RocketChatAccount::notificationPreferences() const
+{
+    return mNotificationPreferences;
 }
 
 LocalDatabaseManager *RocketChatAccount::localDatabaseManager() const
