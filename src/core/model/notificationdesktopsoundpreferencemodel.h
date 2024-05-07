@@ -9,15 +9,14 @@
 #include "libruqolacore_export.h"
 #include <QAbstractListModel>
 
-struct NotificationDesktopSoundPreferenceInfo {
-    QString displayText;
-    QString preference;
-};
-
 class LIBRUQOLACORE_EXPORT NotificationDesktopSoundPreferenceModel : public QAbstractListModel
 {
     Q_OBJECT
 public:
+    struct NotificationDesktopSoundPreferenceInfo {
+        QString displayText;
+        QString preference;
+    };
     enum NotificationPreferenceRoles {
         NotificationPreferenceI18n = Qt::UserRole + 1,
         NotificationPreference,
