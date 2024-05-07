@@ -72,9 +72,4 @@ QJsonDocument UsersLogoutOtherClientsJob::json() const
     return postData;
 }
 
-bool UsersLogoutOtherClientsJob::requireTwoFactorAuthentication() const
-{
-    return true;
-}
-
 #include "moc_userslogoutotherclientsjob.cpp"

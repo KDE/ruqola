@@ -23,7 +23,6 @@ public:
     [[nodiscard]] QNetworkRequest request() const override;
 
     [[nodiscard]] QJsonDocument json() const;
-    [[nodiscard]] bool requireTwoFactorAuthentication() const override;
 
 Q_SIGNALS:
     void usersLogoutOtherClientsDone();

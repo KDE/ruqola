@@ -399,7 +399,6 @@ public:
     [[nodiscard]] bool videoRecorderEnabled() const;
 
     void enable2FaEmailJob(bool enable);
-    void logoutFromOtherLocation();
     void createDirectMessages(const QStringList &usernames);
     void setDisplayName(const QString &displayName);
     [[nodiscard]] QString displayName() const;

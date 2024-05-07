@@ -186,7 +186,6 @@ public:
     void getRoomsAdmin(const RocketChatRestApi::AdminRoomsJob::AdminRoomsJobInfo &info);
     void getChannelsCounter(const QByteArray &roomId);
     void setUserPreferences(const RocketChatRestApi::UsersSetPreferencesJob::UsersSetPreferencesInfo &info);
-    void removeOtherTokens();
     void createCustomUserStatus(const RocketChatRestApi::CustomUserStatusCreateJob::StatusCreateInfo &statusCreateInfo);
     void deleteCustomUserStatus(const QByteArray &customUserStatusId);
     void updateCustomUserStatus(const RocketChatRestApi::CustomUserStatusUpdateJob::StatusUpdateInfo &statusUpdateInfo);
@@ -267,7 +266,6 @@ Q_SIGNALS:
     void channelGetCountersDone(const QJsonObject &obj, const RocketChatRestApi::ChannelGroupBaseJob::ChannelGroupInfo &channelInfo);
     void markAsReadDone(const QByteArray &roomId);
     void usersSetPreferencesDone(const QJsonObject &replyObject);
-    void removeOtherTokensDone();
     void createUserStatusDone();
     void userStatusDeletedDone();
     void customUserUpdateDone();

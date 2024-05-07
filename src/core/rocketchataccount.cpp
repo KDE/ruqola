@@ -2682,11 +2682,6 @@ void RocketChatAccount::slotMarkAsReadDone(const QByteArray &roomId)
     }
 }
 
-void RocketChatAccount::logoutFromOtherLocation()
-{
-    restApi()->removeOtherTokens();
-}
-
 void RocketChatAccount::createDirectMessages(const QStringList &usernames)
 {
     restApi()->createDirectMessage(usernames);

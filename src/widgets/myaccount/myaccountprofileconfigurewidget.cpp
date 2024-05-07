@@ -5,10 +5,13 @@
 */
 
 #include "myaccountprofileconfigurewidget.h"
+#include "connection.h"
 #include "dialogs/asktwoauthenticationpassworddialog.h"
 #include "misc/passwordconfirmwidget.h"
 #include "myaccountprofileconfigureavatarwidget.h"
 #include "rocketchataccount.h"
+#include "ruqolawidgets_debug.h"
+#include "users/userslogoutotherclientsjob.h"
 #include <KAuthorized>
 #include <KLineEditEventHandler>
 #include <KLocalizedString>
@@ -88,7 +91,14 @@ MyAccountProfileConfigureWidget::~MyAccountProfileConfigureWidget() = default;
 
 void MyAccountProfileConfigureWidget::slotLogoutFromOtherLocation()
 {
-    mRocketChatAccount->logoutFromOtherLocation();
+    auto job = new RocketChatRestApi::UsersLogoutOtherClientsJob(this);
+    mRocketChatAccount->restApi()->initializeRestApiJob(job);
+    connect(job, &RocketChatRestApi::UsersLogoutOtherClientsJob::usersLogoutOtherClientsDone, this, [this]() {
+        // TODO ?
+    });
+    if (!job->start()) {
+        qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start UsersLogoutOtherClientsJob job";
+    }
 }
 
 void MyAccountProfileConfigureWidget::slotDeleteMyAccount()

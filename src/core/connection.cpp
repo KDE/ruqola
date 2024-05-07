@@ -19,7 +19,6 @@
 #include "users/getavatarjob.h"
 #include "users/getpresencejob.h"
 #include "users/getusernamesuggestionjob.h"
-#include "users/removeothertokensjob.h"
 #include "users/resetavatarjob.h"
 #include "users/userinfojob.h"
 #include "users/userspresencejob.h"
@@ -1815,20 +1814,10 @@ void Connection::updateOwnBasicInfo(const RocketChatRestApi::UsersUpdateOwnBasic
     initializeRestApiJob(job);
     connect(job, &UsersUpdateOwnBasicInfoJob::updateOwnBasicInfoDone, this, &Connection::updateOwnBasicInfoDone);
     // Clear all other tokens when password was changed
-    connect(job, &UsersUpdateOwnBasicInfoJob::passwordChanged, this, &Connection::removeOtherTokens);
+    // TODO fix me connect(job, &UsersUpdateOwnBasicInfoJob::passwordChanged, this, &Connection::updateOwnBasicInfoDone);
 
     if (!job->start()) {
         qCDebug(RUQOLA_LOG) << "Impossible to start UsersUpdateOwnBasicInfoJob";
-    }
-}
-
-void Connection::removeOtherTokens()
-{
-    auto job = new RemoveOtherTokensJob(this);
-    initializeRestApiJob(job);
-    connect(job, &RemoveOtherTokensJob::removeOtherTokensDone, this, &Connection::removeOtherTokensDone);
-    if (!job->start()) {
-        qCDebug(RUQOLA_LOG) << "Impossible to start RemoveOtherTokensJob";
     }
 }
 
