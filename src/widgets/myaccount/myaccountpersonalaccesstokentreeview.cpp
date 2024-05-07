@@ -32,9 +32,9 @@ void MyAccountPersonalAccessTokenTreeView::slotCustomContextMenuRequested(const 
 {
     const QModelIndex index = indexAt(pos);
     QMenu menu(this);
-    menu.addAction(QIcon::fromTheme(QStringLiteral("list-add")), i18n("Add..."), this, &MyAccountPersonalAccessTokenTreeView::createToken);
+    menu.addAction(QIcon::fromTheme(QStringLiteral("list-add")), i18n("Add…"), this, &MyAccountPersonalAccessTokenTreeView::createToken);
     if (index.isValid()) {
-        menu.addAction(QIcon::fromTheme(QStringLiteral("view-refresh")), i18n("Regenerate..."), this, [this, index]() {
+        menu.addAction(QIcon::fromTheme(QStringLiteral("view-refresh")), i18n("Regenerate…"), this, [this, index]() {
             const QModelIndex modelIndex = model()->index(index.row(), PersonalAccessTokenInfosModel::Name);
             Q_EMIT regenerateToken(modelIndex.data().toString());
         });

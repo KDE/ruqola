@@ -36,7 +36,7 @@ ShowListMessageBaseWidget::ShowListMessageBaseWidget(RocketChatAccount *account,
     mSearchMessageLineEdit->setObjectName(QStringLiteral("mSearchMessageLineEdit"));
     mSearchMessageLineEdit->setClearButtonEnabled(true);
     KLineEditEventHandler::catchReturnKey(mSearchMessageLineEdit);
-    mSearchMessageLineEdit->setPlaceholderText(i18n("Search messages..."));
+    mSearchMessageLineEdit->setPlaceholderText(i18n("Search messages…"));
     connect(mSearchMessageLineEdit, &QLineEdit::textChanged, this, &ShowListMessageBaseWidget::slotSearchMessageTextChanged);
     mainLayout->addWidget(mSearchMessageLineEdit);
 
@@ -94,7 +94,7 @@ void ShowListMessageBaseWidget::setRoom(Room *room)
 void ShowListMessageBaseWidget::updateLabel()
 {
     if (mModel->loadMoreListMessagesInProgress()) {
-        mMessageListInfo->setText(i18n("Loading..."));
+        mMessageListInfo->setText(i18n("Loading…"));
     } else {
         mMessageListInfo->setText(mModel->numberOfMessages() == 0 ? i18n("No Message found") : displayShowMessageInRoom());
     }
@@ -104,7 +104,7 @@ QString ShowListMessageBaseWidget::displayShowMessageInRoom() const
 {
     QString displayMessageStr = i18np("%1 Message in room (Total: %2)", "%1 Messages in room (Total: %2)", mModel->numberOfMessages(), mModel->total());
     if (!mModel->hasFullList()) {
-        displayMessageStr += QStringLiteral(" <a href=\"loadmoreelement\">%1</a>").arg(i18n("(Click here for Loading more...)"));
+        displayMessageStr += QStringLiteral(" <a href=\"loadmoreelement\">%1</a>").arg(i18n("(Click here for Loading more…"));
     }
     return displayMessageStr;
 }

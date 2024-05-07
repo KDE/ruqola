@@ -75,15 +75,15 @@ void MessageAttachmentDownloadAndSaveJob::assignProgressDialogStr(QProgressDialo
         break;
     case MessageAttachmentDownloadAndSaveJob::AttachmentType::Image:
         progressDialog->setWindowTitle(i18nc("@title:window", "Download Image"));
-        progressDialog->setLabelText(i18n("Download Image..."));
+        progressDialog->setLabelText(i18n("Download Image…"));
         break;
     case MessageAttachmentDownloadAndSaveJob::AttachmentType::Video:
         progressDialog->setWindowTitle(i18nc("@title:window", "Download Video"));
-        progressDialog->setLabelText(i18n("Download Video..."));
+        progressDialog->setLabelText(i18n("Download Video…"));
         break;
     case MessageAttachmentDownloadAndSaveJob::AttachmentType::Sound:
         progressDialog->setWindowTitle(i18nc("@title:window", "Download Sound"));
-        progressDialog->setLabelText(i18n("Download Sound..."));
+        progressDialog->setLabelText(i18n("Download Sound…"));
         break;
     }
 }

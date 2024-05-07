@@ -43,11 +43,11 @@ UnicodeEmoticonGui::UnicodeEmoticonGui(QWidget *parent)
 
     auto buttonLayout = new QHBoxLayout;
     mainLayout->addLayout(buttonLayout);
-    auto save = new QPushButton(QStringLiteral("Save..."), this);
+    auto save = new QPushButton(QStringLiteral("Save…"), this);
     buttonLayout->addWidget(save);
     connect(save, &QPushButton::clicked, this, &UnicodeEmoticonGui::save);
 
-    auto exportIdentifier = new QPushButton(QStringLiteral("Export identifiers..."), this);
+    auto exportIdentifier = new QPushButton(QStringLiteral("Export identifiers…"), this);
     buttonLayout->addWidget(exportIdentifier);
     connect(exportIdentifier, &QPushButton::clicked, this, &UnicodeEmoticonGui::slotExportIdentifier);
 

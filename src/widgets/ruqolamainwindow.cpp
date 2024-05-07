@@ -393,12 +393,12 @@ void RuqolaMainWindow::setupActions()
     KStandardAction::preferences(this, &RuqolaMainWindow::slotConfigure, ac);
     KStandardAction::configureNotifications(this, &RuqolaMainWindow::slotConfigureNotifications, ac);
 
-    auto act = new QAction(i18n("Add Server..."), this);
+    auto act = new QAction(i18n("Add Server…"), this);
     connect(act, &QAction::triggered, this, &RuqolaMainWindow::slotAddServer);
     ac->addAction(QStringLiteral("add_server"), act);
 
     // Move in specific server widget
-    mServerInfo = new QAction(i18n("Server Info..."), this);
+    mServerInfo = new QAction(i18n("Server Info…"), this);
     connect(mServerInfo, &QAction::triggered, this, &RuqolaMainWindow::slotServerInfo);
     ac->addAction(QStringLiteral("server_info"), mServerInfo);
 
@@ -411,19 +411,19 @@ void RuqolaMainWindow::setupActions()
     ac->setDefaultShortcut(mNextUnreadChannel, Qt::Key_Control | Qt::Key_PageDown);
     ac->addAction(QStringLiteral("next_unread_channel"), mNextUnreadChannel);
 
-    mCreateNewChannel = new QAction(QIcon::fromTheme(QStringLiteral("irc-join-channel")), i18n("Create New Channel..."), this);
+    mCreateNewChannel = new QAction(QIcon::fromTheme(QStringLiteral("irc-join-channel")), i18n("Create New Channel…"), this);
     connect(mCreateNewChannel, &QAction::triggered, this, &RuqolaMainWindow::slotCreateNewChannel);
     ac->addAction(QStringLiteral("create_new_channel"), mCreateNewChannel);
 
-    mCreateDirectMessages = new QAction(QIcon::fromTheme(QStringLiteral("irc-join-channel")), i18n("Create Direct Messages..."), this);
+    mCreateDirectMessages = new QAction(QIcon::fromTheme(QStringLiteral("irc-join-channel")), i18n("Create Direct Messages…"), this);
     connect(mCreateDirectMessages, &QAction::triggered, this, &RuqolaMainWindow::slotCreateDirectMessages);
     ac->addAction(QStringLiteral("create_direct_messages"), mCreateDirectMessages);
 
-    mCreateDiscussion = new QAction(QIcon::fromTheme(QStringLiteral("irc-join-channel")), i18n("Create Discussion..."), this);
+    mCreateDiscussion = new QAction(QIcon::fromTheme(QStringLiteral("irc-join-channel")), i18n("Create Discussion…"), this);
     connect(mCreateDiscussion, &QAction::triggered, this, &RuqolaMainWindow::slotCreateDiscussion);
     ac->addAction(QStringLiteral("create_discussion"), mCreateDiscussion);
 
-    mCreateTeam = new QAction(QIcon::fromTheme(QStringLiteral("irc-join-channel")), i18n("Create Team..."), this);
+    mCreateTeam = new QAction(QIcon::fromTheme(QStringLiteral("irc-join-channel")), i18n("Create Team…"), this);
     connect(mCreateTeam, &QAction::triggered, this, &RuqolaMainWindow::slotCreateTeam);
     ac->addAction(QStringLiteral("create_team"), mCreateTeam);
 
@@ -479,27 +479,27 @@ void RuqolaMainWindow::setupActions()
     connect(mClearAlerts, &QAction::triggered, this, &RuqolaMainWindow::slotClearAccountAlerts);
     ac->addAction(QStringLiteral("mark_all_channels_read"), mClearAlerts);
 
-    mRegisterNewUser = new QAction(i18n("Register a New User..."), this);
+    mRegisterNewUser = new QAction(i18n("Register a New User…"), this);
     connect(mRegisterNewUser, &QAction::triggered, this, &RuqolaMainWindow::slotRegisterNewUser);
     ac->addAction(QStringLiteral("register_new_user"), mRegisterNewUser);
 
-    mMyAccount = new QAction(i18n("My Account..."), this);
+    mMyAccount = new QAction(i18n("My Account…"), this);
     connect(mMyAccount, &QAction::triggered, this, &RuqolaMainWindow::slotConfigureMyAccount);
     ac->addAction(QStringLiteral("configure_my_account"), mMyAccount);
 
     mAdministratorMenu = new KActionMenu(i18n("Administrator"), this);
-    mAdministrator = new QAction(i18n("Administrator..."), this);
+    mAdministrator = new QAction(i18n("Administrator…"), this);
     ac->addAction(QStringLiteral("administrator_account_settings"), mAdministrator);
     connect(mAdministrator, &QAction::triggered, this, &RuqolaMainWindow::slotAdministrator);
     mAdministratorMenu->addAction(mAdministrator);
     ac->addAction(QStringLiteral("administrator"), mAdministratorMenu);
 
-    mAdministratorServerSettings = new QAction(i18n("Server Settings..."), this);
+    mAdministratorServerSettings = new QAction(i18n("Server Settings…"), this);
     connect(mAdministratorServerSettings, &QAction::triggered, this, &RuqolaMainWindow::slotAdministratorServerSettings);
     ac->addAction(QStringLiteral("administrator_server_settings"), mAdministratorServerSettings);
     mAdministratorMenu->addAction(mAdministratorServerSettings);
 
-    mDirectory = new QAction(i18nc("Action which allows to search room/user/team", "Directory..."), this);
+    mDirectory = new QAction(i18nc("Action which allows to search room/user/team", "Directory…"), this);
     connect(mDirectory, &QAction::triggered, this, &RuqolaMainWindow::slotDirectory);
     ac->addAction(QStringLiteral("directory"), mDirectory);
 

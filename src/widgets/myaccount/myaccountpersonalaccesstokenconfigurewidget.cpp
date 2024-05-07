@@ -44,7 +44,7 @@ MyAccountPersonalAccessTokenConfigureWidget::MyAccountPersonalAccessTokenConfigu
 
     mSearchLineWidget->setObjectName(QStringLiteral("mSearchLineWidget"));
     mainLayout->addWidget(mSearchLineWidget);
-    mSearchLineWidget->setPlaceholderText(i18n("Search Personal Access Token..."));
+    mSearchLineWidget->setPlaceholderText(i18n("Search Personal Access Token…"));
     mPersonalAccessTokenTreeView->setObjectName(QStringLiteral("mPersonalAccessTokenTreeView"));
     mPersonalAccessTokenTreeView->setProperty("_breeze_borders_sides", QVariant::fromValue(QFlags{Qt::TopEdge}));
     mainLayout->addWidget(mPersonalAccessTokenTreeView);

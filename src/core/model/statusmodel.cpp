@@ -66,7 +66,7 @@ QString StatusModel::textFromPresenceStatus(User::PresenceStatus status) const
     case User::PresenceStatus::Offline:
         return i18n("Offline");
     case User::PresenceStatus::Unknown:
-        return i18n("Modify Status...");
+        return i18n("Modify Status…");
     }
     return {};
 }

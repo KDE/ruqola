@@ -138,9 +138,9 @@ void AdministratorCustomSoundsWidget::slotCustomContextMenuRequested(const QPoin
 {
     QMenu menu(this);
     const QModelIndex index = mTreeView->indexAt(pos);
-    menu.addAction(QIcon::fromTheme(QStringLiteral("list-add")), i18n("Add..."), this, &AdministratorCustomSoundsWidget::slotAddCustomSound);
+    menu.addAction(QIcon::fromTheme(QStringLiteral("list-add")), i18n("Add…"), this, &AdministratorCustomSoundsWidget::slotAddCustomSound);
     if (index.isValid()) {
-        menu.addAction(QIcon::fromTheme(QStringLiteral("document-edit")), i18n("Modify..."), this, [this, index]() {
+        menu.addAction(QIcon::fromTheme(QStringLiteral("document-edit")), i18n("Modify…"), this, [this, index]() {
             slotModifyCustomSound(index);
         });
         menu.addSeparator();

@@ -17,7 +17,7 @@ ServersComboBox::~ServersComboBox() = default;
 
 void ServersComboBox::addServerList(const QList<AccountManager::AccountDisplayInfo> &infos)
 {
-    addItem(i18n("Filter Account..."), QString());
+    addItem(i18n("Filter Account…"), QString());
     for (const auto &info : infos) {
         addItem(info.icon, info.name, info.name);
     }

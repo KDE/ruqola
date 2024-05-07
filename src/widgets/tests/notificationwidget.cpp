@@ -42,7 +42,7 @@ void NotificationWidget::slotSendNotification()
         });
 
         std::unique_ptr<KNotificationReplyAction> replyAction(new KNotificationReplyAction(QStringLiteral("Reply")));
-        replyAction->setPlaceholderText(QStringLiteral("Reply..."));
+        replyAction->setPlaceholderText(QStringLiteral("Reply…"));
         QObject::connect(replyAction.get(), &KNotificationReplyAction::replied, this, [](const QString &text) {
             qDebug() << " reply " << text;
         });

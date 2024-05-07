@@ -34,7 +34,7 @@ ShowAttachmentWidget::ShowAttachmentWidget(RocketChatAccount *account, QWidget *
     mSearchAttachmentFileLineEdit->setObjectName(QStringLiteral("mSearchAttachmentFileLineEdit"));
     mSearchAttachmentFileLineEdit->setClearButtonEnabled(true);
     KLineEditEventHandler::catchReturnKey(mSearchAttachmentFileLineEdit);
-    mSearchAttachmentFileLineEdit->setPlaceholderText(i18n("Search attachments..."));
+    mSearchAttachmentFileLineEdit->setPlaceholderText(i18n("Search attachments…"));
     connect(mSearchAttachmentFileLineEdit, &QLineEdit::textChanged, this, &ShowAttachmentWidget::slotSearchMessageTextChanged);
     searchAttachmentLayout->addWidget(mSearchAttachmentFileLineEdit);
 
@@ -97,7 +97,7 @@ QString ShowAttachmentWidget::displayShowMessageInRoom() const
 {
     QString displayMessageStr = i18np("%1 Attachment in room (Total: %2)", "%1 Attachments in room (Total: %2)", mModel->attachmentCount(), mModel->total());
     if (!mModel->hasFullList()) {
-        displayMessageStr += QStringLiteral(" <a href=\"loadmoreelement\">%1</a>").arg(i18n("(Click here for Loading more...)"));
+        displayMessageStr += QStringLiteral(" <a href=\"loadmoreelement\">%1</a>").arg(i18n("(Click here for Loading more…)"));
     }
     return displayMessageStr;
 }

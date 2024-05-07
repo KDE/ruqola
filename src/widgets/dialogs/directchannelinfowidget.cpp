@@ -16,7 +16,7 @@
 #include <QIcon>
 #include <QLabel>
 #include <QScreen>
-
+using namespace Qt::Literals::StringLiterals;
 DirectChannelInfoWidget::DirectChannelInfoWidget(RocketChatAccount *account, QWidget *parent)
     : QWidget(parent)
     , mAvatar(new QLabel(this))
@@ -58,7 +58,7 @@ void DirectChannelInfoWidget::fetchUserInfo(const QString &userName)
 
 void DirectChannelInfoWidget::slotUserInfoDone(const QJsonObject &obj)
 {
-    const QJsonObject userJson = obj.value(QStringLiteral("user")).toObject();
+    const QJsonObject userJson = obj.value("user"_L1).toObject();
     User user;
     user.parseUserRestApi(userJson, mListRoleInfos);
     if (user.isValid()) {

@@ -34,7 +34,7 @@ ModerationReportedMessageConsoleTreeWidget::ModerationReportedMessageConsoleTree
     mCommonMessageFilterProxyModel = new CommonMessageFilterProxyModel(mCommonMessagesModel, this);
     mModel = new ModerationReportedMessageModel(this);
     mModel->setObjectName(QStringLiteral("mModel"));
-    mSearchLineEdit->setPlaceholderText(i18n("Search moderation message..."));
+    mSearchLineEdit->setPlaceholderText(i18n("Search moderation message…"));
 
     mProxyModelModel = new ModerationReportedMessageProxyModel(mModel, this);
     mProxyModelModel->setObjectName(QStringLiteral("mProxyModelModel"));

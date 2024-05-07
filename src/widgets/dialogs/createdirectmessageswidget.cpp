@@ -30,7 +30,7 @@ CreateDirectMessagesWidget::CreateDirectMessagesWidget(RocketChatAccount *accoun
     mainLayout->addWidget(label);
 
     mUsers->setObjectName(QStringLiteral("mUsers"));
-    mUsers->setPlaceholderText(i18n("Select users..."));
+    mUsers->setPlaceholderText(i18n("Select users…"));
 
     mTooManyUsers->setObjectName(QStringLiteral("mTooManyUsers"));
     mainLayout->addWidget(mUsers);

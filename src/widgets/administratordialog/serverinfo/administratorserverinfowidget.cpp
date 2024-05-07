@@ -5,7 +5,6 @@
 */
 
 #include "administratorserverinfowidget.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "connection.h"
 #include "license/licenseslistjob.h"
@@ -25,6 +24,7 @@ using namespace Qt::Literals::StringLiterals;
 #include <QPushButton>
 #include <QTreeWidget>
 #include <QVBoxLayout>
+using namespace Qt::Literals::StringLiterals;
 
 AdministratorServerInfoWidget::AdministratorServerInfoWidget(RocketChatAccount *account, QWidget *parent)
     : QWidget(parent)
@@ -105,7 +105,7 @@ void AdministratorServerInfoWidget::slotLicensesListDone(const QJsonObject &obj)
 void AdministratorServerInfoWidget::fillLicenses(const QJsonObject &obj)
 {
     QStringList listLicences;
-    const QJsonArray licenses = obj.value(QStringLiteral("licenses")).toArray();
+    const QJsonArray licenses = obj.value("licenses"_L1).toArray();
     for (const auto &a : licenses) {
         listLicences.append(a.toString());
     }
@@ -114,7 +114,7 @@ void AdministratorServerInfoWidget::fillLicenses(const QJsonObject &obj)
     QFont f = licenseItem->font(0);
     f.setBold(true);
     licenseItem->setFont(0, f);
-    createItemFromLicense(licenseItem, i18n("Omnichannel"), listLicences.contains(QStringLiteral("livechat-enterprise")));
+    createItemFromLicense(licenseItem, i18n("Omnichannel"), listLicences.contains("livechat-enterprise"_L1));
     createItemFromLicense(licenseItem, i18n("Auditing"), listLicences.contains(QStringLiteral("auditing")));
     createItemFromLicense(licenseItem, i18n("Canned Responses"), listLicences.contains(QStringLiteral("canned-responses")));
     createItemFromLicense(licenseItem, i18n("Engagement Dashboard"), listLicences.contains(QStringLiteral("engagement-dashboard")));

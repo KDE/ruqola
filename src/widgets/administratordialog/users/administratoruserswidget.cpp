@@ -45,7 +45,7 @@ AdministratorUsersWidget::AdministratorUsersWidget(RocketChatAccount *account, Q
 
     mProxyModelModel = new SearchTreeBaseFilterProxyModel(mModel, this);
     mProxyModelModel->setObjectName(QStringLiteral("mAdminUsersProxyModel"));
-    mSearchLineEdit->setPlaceholderText(i18n("Search users..."));
+    mSearchLineEdit->setPlaceholderText(i18n("Search users…"));
     mTreeView->setModel(mProxyModelModel);
     connect(mTreeView, &QTreeView::doubleClicked, this, &AdministratorUsersWidget::slotModifyDoubleClickUser);
     hideColumns();
@@ -230,20 +230,20 @@ void AdministratorUsersWidget::slotCustomContextMenuRequested(const QPoint &pos)
 {
     QMenu menu(this);
     if (mRocketChatAccount->hasPermission(QStringLiteral("bulk-register-user"))) {
-        menu.addAction(QIcon::fromTheme(QStringLiteral("list-add")), i18n("Invite..."), this, &AdministratorUsersWidget::slotInviteUsers);
+        menu.addAction(QIcon::fromTheme(QStringLiteral("list-add")), i18n("Invite…"), this, &AdministratorUsersWidget::slotInviteUsers);
     }
     if (mRocketChatAccount->hasPermission(QStringLiteral("create-user"))) {
         if (!menu.isEmpty()) {
             menu.addSeparator();
         }
-        menu.addAction(QIcon::fromTheme(QStringLiteral("list-add")), i18n("Add..."), this, &AdministratorUsersWidget::slotAddUser);
+        menu.addAction(QIcon::fromTheme(QStringLiteral("list-add")), i18n("Add…"), this, &AdministratorUsersWidget::slotAddUser);
     }
     const QModelIndex index = mTreeView->indexAt(pos);
     if (index.isValid()) {
         const QModelIndex newModelIndex = mProxyModelModel->mapToSource(index);
 
         if (mRocketChatAccount->hasPermission(QStringLiteral("edit-other-user-info"))) {
-            menu.addAction(QIcon::fromTheme(QStringLiteral("document-edit")), i18n("Modify..."), this, [this, newModelIndex]() {
+            menu.addAction(QIcon::fromTheme(QStringLiteral("document-edit")), i18n("Modify…"), this, [this, newModelIndex]() {
                 const QModelIndex modelIndex = mModel->index(newModelIndex.row(), AdminUsersModel::UserId);
                 slotModifyUser(modelIndex);
             });

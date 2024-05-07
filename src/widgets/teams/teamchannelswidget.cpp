@@ -58,7 +58,7 @@ TeamChannelsWidget::TeamChannelsWidget(RocketChatAccount *account, QWidget *pare
 
     mainLayout->addLayout(hboxLayout);
 
-    mSearchLineEdit->setPlaceholderText(i18n("Search room..."));
+    mSearchLineEdit->setPlaceholderText(i18n("Search room…"));
     mSearchLineEdit->setClearButtonEnabled(true);
     KLineEditEventHandler::catchReturnKey(mSearchLineEdit);
 

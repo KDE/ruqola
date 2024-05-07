@@ -31,17 +31,17 @@ DirectoryWidget::DirectoryWidget(RocketChatAccount *account, DirectoryType type,
 {
     switch (mType) {
     case Room:
-        mSearchLineEdit->setPlaceholderText(i18n("Search channels..."));
+        mSearchLineEdit->setPlaceholderText(i18n("Search channels…"));
         mModel = new DirectoryRoomsModel(this);
         mProxyModelModel = new DirectoryRoomsProxyModel(mModel, this);
         break;
     case User:
-        mSearchLineEdit->setPlaceholderText(i18n("Search users..."));
+        mSearchLineEdit->setPlaceholderText(i18n("Search users…"));
         mModel = new DirectoryUsersModel(this);
         mProxyModelModel = new DirectoryUsersProxyModel(mModel, this);
         break;
     case Team:
-        mSearchLineEdit->setPlaceholderText(i18n("Search teams..."));
+        mSearchLineEdit->setPlaceholderText(i18n("Search teams…"));
         mModel = new DirectoryTeamsModel(this);
         mProxyModelModel = new DirectoryTeamsProxyModel(mModel, this);
         break;
@@ -67,7 +67,7 @@ void DirectoryWidget::slotCustomContextMenuRequested(const QPoint &pos)
     const QModelIndex index = mTreeView->indexAt(pos);
     if (index.isValid()) {
         const QModelIndex i = mProxyModelModel->mapToSource(index);
-        menu.addAction(i18n("Open..."), this, [this, i]() {
+        menu.addAction(i18n("Open…"), this, [this, i]() {
             slotOpen(i);
         });
     }
@@ -200,13 +200,13 @@ void DirectoryWidget::fillDirectory()
 {
     switch (mType) {
     case Room:
-        mSearchLineEdit->setPlaceholderText(i18n("Search rooms..."));
+        mSearchLineEdit->setPlaceholderText(i18n("Search rooms…"));
         break;
     case User:
-        mSearchLineEdit->setPlaceholderText(i18n("Search users..."));
+        mSearchLineEdit->setPlaceholderText(i18n("Search users…"));
         break;
     case Team:
-        mSearchLineEdit->setPlaceholderText(i18n("Search teams..."));
+        mSearchLineEdit->setPlaceholderText(i18n("Search teams…"));
         break;
     case Unknown:
         qCWarning(RUQOLAWIDGETS_LOG) << "Invalid type it's a bug";

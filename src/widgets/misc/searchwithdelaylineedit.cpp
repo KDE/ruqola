@@ -13,7 +13,7 @@ SearchWithDelayLineEdit::SearchWithDelayLineEdit(QWidget *parent)
     , mSearchTimer(new QTimer(this))
 {
     setClearButtonEnabled(true);
-    setPlaceholderText(i18n("Search Word..."));
+    setPlaceholderText(i18n("Search Word…"));
     connect(mSearchTimer, &QTimer::timeout, this, &SearchWithDelayLineEdit::slotSearchTimerFired);
     connect(this, &SearchWithDelayLineEdit::textChanged, this, &SearchWithDelayLineEdit::slotSearchTextEdited);
     connect(this, &SearchWithDelayLineEdit::returnPressed, this, &SearchWithDelayLineEdit::slotSearchTimerFired);

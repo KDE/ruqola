@@ -36,7 +36,7 @@ ShowDiscussionsWidget::ShowDiscussionsWidget(RocketChatAccount *account, QWidget
     mSearchDiscussionLineEdit->setObjectName(QStringLiteral("mSearchDiscussionLineEdit"));
     mSearchDiscussionLineEdit->setClearButtonEnabled(true);
     KLineEditEventHandler::catchReturnKey(mSearchDiscussionLineEdit);
-    mSearchDiscussionLineEdit->setPlaceholderText(i18n("Search discussion..."));
+    mSearchDiscussionLineEdit->setPlaceholderText(i18n("Search discussion…"));
     connect(mSearchDiscussionLineEdit, &QLineEdit::textChanged, this, &ShowDiscussionsWidget::slotSearchMessageTextChanged);
     mainLayout->addWidget(mSearchDiscussionLineEdit);
 
@@ -85,7 +85,7 @@ void ShowDiscussionsWidget::setModel(DiscussionsFilterProxyModel *model)
 void ShowDiscussionsWidget::updateLabel()
 {
     if (mDiscussionModel->loadMoreDiscussionsInProgress()) {
-        mDiscussionInfoLabel->setText(i18n("Loading..."));
+        mDiscussionInfoLabel->setText(i18n("Loading…"));
     } else {
         mDiscussionInfoLabel->setText(mDiscussionModel->rowCount() == 0 ? i18n("No Discussion found") : displayShowDiscussionInRoom());
     }
@@ -96,7 +96,7 @@ QString ShowDiscussionsWidget::displayShowDiscussionInRoom() const
     QString displayMessageStr =
         i18np("%1 Discussion in room (Total: %2)", "%1 Discussions in room (Total: %2)", mDiscussionModel->rowCount(), mDiscussionModel->total());
     if (!mDiscussionModel->hasFullList()) {
-        displayMessageStr += QStringLiteral(" <a href=\"loadmoreelement\">%1</a>").arg(i18n("(Click here for Loading more...)"));
+        displayMessageStr += QStringLiteral(" <a href=\"loadmoreelement\">%1</a>").arg(i18n("(Click here for Loading more…"));
     }
     return displayMessageStr;
 }

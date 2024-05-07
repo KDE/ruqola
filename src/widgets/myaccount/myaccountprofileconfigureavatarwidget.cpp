@@ -97,8 +97,8 @@ void AvatarImage::resetAvatar()
 void AvatarImage::contextMenuEvent(QContextMenuEvent *event)
 {
     QMenu menu;
-    menu.addAction(i18n("Change Picture..."), this, &AvatarImage::changeImage);
-    menu.addAction(i18n("Change URL for avatar..."), this, &AvatarImage::changeUrl);
+    menu.addAction(i18n("Change Picture…"), this, &AvatarImage::changeImage);
+    menu.addAction(i18n("Change URL for avatar…"), this, &AvatarImage::changeUrl);
     menu.addSeparator();
     menu.addAction(i18n("Reset Avatar"), this, &AvatarImage::resetAvatar);
     menu.exec(event->globalPos());

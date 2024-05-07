@@ -38,7 +38,7 @@ PermissionsWidget::PermissionsWidget(RocketChatAccount *account, QWidget *parent
     mainLayout->setSpacing(0);
 
     mSearchLineWidget->setObjectName(QStringLiteral("mSearchLineWidget"));
-    mSearchLineWidget->setPlaceholderText(i18n("Search permissions..."));
+    mSearchLineWidget->setPlaceholderText(i18n("Search permissions…"));
     KLineEditEventHandler::catchReturnKey(mSearchLineWidget);
     mSearchLineWidget->setClearButtonEnabled(true);
     mainLayout->addWidget(mSearchLineWidget);
@@ -89,7 +89,7 @@ void PermissionsWidget::slotCustomContextMenuRequested(const QPoint &pos)
     if (mRocketChatAccount->hasPermission(QStringLiteral("access-permissions"))) {
         if (index.isValid()) {
             QMenu menu(this);
-            menu.addAction(QIcon::fromTheme(QStringLiteral("document-edit")), i18n("Modify..."), this, [this, index]() {
+            menu.addAction(QIcon::fromTheme(QStringLiteral("document-edit")), i18n("Modify…"), this, [this, index]() {
                 modifyRoles(index);
             });
             menu.exec(mTreeView->viewport()->mapToGlobal(pos));

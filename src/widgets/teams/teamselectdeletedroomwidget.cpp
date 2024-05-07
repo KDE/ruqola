@@ -29,7 +29,7 @@ TeamSelectDeletedRoomWidget::TeamSelectDeletedRoomWidget(QWidget *parent)
 
     mainLayout->addWidget(mSearchLineEdit);
 
-    mSearchLineEdit->setPlaceholderText(i18n("Search room..."));
+    mSearchLineEdit->setPlaceholderText(i18n("Search room…"));
     mSearchLineEdit->setClearButtonEnabled(true);
     KLineEditEventHandler::catchReturnKey(mSearchLineEdit);
 

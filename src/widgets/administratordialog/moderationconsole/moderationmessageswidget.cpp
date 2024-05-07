@@ -52,7 +52,7 @@ ModerationMessagesWidget::~ModerationMessagesWidget()
 void ModerationMessagesWidget::updateLabel()
 {
     if (mModel->loadCommonMessagesInProgress()) {
-        mSearchLabel->setText(i18n("Loading..."));
+        mSearchLabel->setText(i18n("Loading…"));
     } else {
         mSearchLabel->setText(mModel->rowCount() == 0 ? i18n("No Message found") : displayShowSearch());
     }

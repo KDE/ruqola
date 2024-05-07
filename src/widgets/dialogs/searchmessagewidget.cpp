@@ -98,7 +98,7 @@ void SearchMessageWidget::setRoomId(const QByteArray &roomId)
 void SearchMessageWidget::updateLabel()
 {
     if (mModel->loadCommonMessagesInProgress()) {
-        mSearchLabel->setText(i18n("Loading..."));
+        mSearchLabel->setText(i18n("Loading…"));
     } else if (mSearchLineEdit->text().isEmpty() && mModel->rowCount() == 0) {
         mSearchLabel->clear();
     } else {

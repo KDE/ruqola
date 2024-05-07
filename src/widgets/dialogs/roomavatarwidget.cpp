@@ -28,7 +28,7 @@ RoomAvatarWidget::~RoomAvatarWidget() = default;
 void RoomAvatarWidget::contextMenuEvent(QContextMenuEvent *event)
 {
     QMenu menu;
-    menu.addAction(i18n("Change Picture..."), this, &RoomAvatarWidget::slotChangeImage);
+    menu.addAction(i18n("Change Picture…"), this, &RoomAvatarWidget::slotChangeImage);
     menu.addSeparator();
     menu.addAction(i18n("Reset Avatar"), this, &RoomAvatarWidget::slotResetAvatar);
     menu.addSeparator();

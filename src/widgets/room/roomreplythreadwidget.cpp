@@ -31,7 +31,7 @@ void RoomReplyThreadWidget::setMessageText(const QString &str)
 {
     QString strToDisplay = str;
     if (strToDisplay.length() > 80) {
-        strToDisplay = strToDisplay.left(80) + QStringLiteral("...");
+        strToDisplay = strToDisplay.left(80) + QStringLiteral("…");
     }
     setText(i18n("Reply in Thread for Message: \'%1\'", strToDisplay));
 }

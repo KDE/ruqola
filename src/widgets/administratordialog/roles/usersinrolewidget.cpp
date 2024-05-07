@@ -33,7 +33,7 @@ UsersInRoleWidget::UsersInRoleWidget(RocketChatAccount *account, QWidget *parent
 
     mProxyModelModel = new SearchTreeBaseFilterProxyModel(mModel, this);
     mProxyModelModel->setObjectName(QStringLiteral("mAdminUsersProxyModel"));
-    mSearchLineEdit->setPlaceholderText(i18n("Search users..."));
+    mSearchLineEdit->setPlaceholderText(i18n("Search users…"));
     mTreeView->setModel(mProxyModelModel);
     hideColumns();
     connectModel();
@@ -103,7 +103,7 @@ void UsersInRoleWidget::slotRemoveUsersFromRoleDone(const QJsonObject &replyObje
 void UsersInRoleWidget::slotCustomContextMenuRequested(const QPoint &pos)
 {
     QMenu menu(this);
-    menu.addAction(QIcon::fromTheme(QStringLiteral("list-add")), i18n("Add..."), this, &UsersInRoleWidget::slotAddUser);
+    menu.addAction(QIcon::fromTheme(QStringLiteral("list-add")), i18n("Add…"), this, &UsersInRoleWidget::slotAddUser);
     const QModelIndex index = mTreeView->indexAt(pos);
     if (index.isValid()) {
         menu.addSeparator();

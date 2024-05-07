@@ -21,7 +21,7 @@ BannerInfoListSearchLineWidget::BannerInfoListSearchLineWidget(QWidget *parent)
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
 
     mSearchLineEdit->setObjectName(QStringLiteral("mSearchLineEdit"));
-    mSearchLineEdit->setPlaceholderText(i18n("Search..."));
+    mSearchLineEdit->setPlaceholderText(i18n("Search…"));
     mSearchLineEdit->setClearButtonEnabled(true);
     KLineEditEventHandler::catchReturnKey(mSearchLineEdit);
     mainLayout->addWidget(mSearchLineEdit);

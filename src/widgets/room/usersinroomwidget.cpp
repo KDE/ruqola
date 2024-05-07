@@ -37,7 +37,7 @@ UsersInRoomWidget::UsersInRoomWidget(RocketChatAccount *account, QWidget *parent
     mainLayout->addLayout(hMainLayout);
 
     mSearchLineEdit->setObjectName(QStringLiteral("mSearchLineEdit"));
-    mSearchLineEdit->setPlaceholderText(i18n("Search users..."));
+    mSearchLineEdit->setPlaceholderText(i18n("Search users…"));
     mSearchLineEdit->setClearButtonEnabled(true);
     KLineEditEventHandler::catchReturnKey(mSearchLineEdit);
     connect(mSearchLineEdit, &QLineEdit::textChanged, this, &UsersInRoomWidget::slotTextChanged);
@@ -132,7 +132,7 @@ void UsersInRoomWidget::slotShowUserInfo(const QModelIndex &index)
 void UsersInRoomWidget::updateLabel()
 {
     if (mUsersForRoomFilterProxy->loadMoreUsersInProgress()) {
-        mMessageListInfo->setText(i18n("Loading..."));
+        mMessageListInfo->setText(i18n("Loading…"));
     } else {
         mMessageListInfo->setText(mUsersForRoomFilterProxy->numberOfUsers() == 0 ? i18n("No Message found") : displayShowMessageInRoom());
     }

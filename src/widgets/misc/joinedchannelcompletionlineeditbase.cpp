@@ -22,7 +22,7 @@ JoinedChannelCompletionLineEditBase::JoinedChannelCompletionLineEditBase(RocketC
     , mSearchTimer(new QTimer(this))
     , mRocketChatAccount(account)
 {
-    setPlaceholderText(i18n("Search rooms..."));
+    setPlaceholderText(i18n("Search rooms…"));
     setCompletionModel(mJoinedChannelModel);
     connect(this, &JoinedChannelCompletionLineEditBase::complete, this, &JoinedChannelCompletionLineEditBase::slotComplete);
     connect(mSearchTimer, &QTimer::timeout, this, &JoinedChannelCompletionLineEditBase::slotSearchTimerFired);
