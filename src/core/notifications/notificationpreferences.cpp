@@ -46,7 +46,7 @@ NotificationDesktopSoundPreferenceModel *NotificationPreferences::desktopSoundNo
     return mDesktopSoundNotificationModel;
 }
 
-NotificationPreferences *NotificationPreferences::NotificationPreferences::self()
+NotificationPreferences *NotificationPreferences::self()
 {
     static NotificationPreferences s_self;
     return &s_self;
