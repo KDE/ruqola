@@ -158,4 +158,9 @@ QString NotificationDesktopSoundPreferenceModel::currentPreference(int index) co
     return str;
 }
 
+void NotificationDesktopSoundPreferenceModel::addCustomSound()
+{
+    // TODO
+}
+
 #include "moc_notificationdesktopsoundpreferencemodel.cpp"
