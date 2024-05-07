@@ -6,7 +6,7 @@
 
 #include "adminroomsmodel.h"
 #include <KLocalizedString>
-
+using namespace Qt::Literals::StringLiterals;
 AdminRoomsModel::AdminRoomsModel(QObject *parent)
     : CustomBaseModel(parent)
 {
@@ -154,7 +154,7 @@ void AdminRoomsModel::addMoreElements(const QJsonObject &obj)
 void AdminRoomsModel::updateElement(const QJsonObject &obj)
 {
     const int roomCount = mAdminRooms.count();
-    const QByteArray identifier{obj.value(QStringLiteral("_id")).toString().toLatin1()};
+    const QByteArray identifier{obj.value("_id"_L1).toString().toLatin1()};
     for (int i = 0; i < roomCount; ++i) {
         if (mAdminRooms.at(i).identifier() == identifier) {
             beginRemoveRows(QModelIndex(), i, i);
