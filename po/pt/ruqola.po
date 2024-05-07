@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-05-06 00:38+0000\n"
+"POT-Creation-Date: 2024-05-07 00:38+0000\n"
 "PO-Revision-Date: 2023-07-14 22:16+0100\n"
 "Last-Translator: José Nuno Coelho Pires <zepires@gmail.com>\n"
 "Language-Team: Portuguese <kde-i18n-pt@kde.org>\n"
@@ -6282,17 +6282,17 @@ msgstr "Converter para uma Equipa"
 msgid "Filter channels (%1)"
 msgstr "Filtrar os canais (CTRL + K)"
 
-#: widgets/channellist/channellistwidget.cpp:65
+#: widgets/channellist/channellistwidget.cpp:66
 #, kde-format
 msgid "Search Channels"
 msgstr "Procurar nos Canais"
 
-#: widgets/channellist/channellistwidget.cpp:72
+#: widgets/channellist/channellistwidget.cpp:73
 #, kde-format
 msgid "Previous Channel"
 msgstr "Canal Anterior"
 
-#: widgets/channellist/channellistwidget.cpp:80
+#: widgets/channellist/channellistwidget.cpp:81
 #, kde-format
 msgid "Next Channel"
 msgstr "Canal Seguinte"
@@ -8655,7 +8655,7 @@ msgid "Link Preview"
 msgstr ""
 
 #: widgets/room/delegate/messagelistdelegate.cpp:420
-#: widgets/room/messagelistview.cpp:383 widgets/room/usersinroommenu.cpp:95
+#: widgets/room/messagelistview.cpp:383 widgets/room/usersinroommenu.cpp:105
 #, kde-format
 msgid "User Info"
 msgstr "Informações do Utilizador"
@@ -8666,36 +8666,36 @@ msgstr "Informações do Utilizador"
 msgid "Start a Private Conversation"
 msgstr "Iniciar uma Conversação Privada"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:640
+#: widgets/room/delegate/messagelistdelegate.cpp:647
 #, kde-format
 msgid "1 reply"
 msgid_plural "%1 replies"
 msgstr[0] "1 resposta"
 msgstr[1] "%1 respostas"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:650
+#: widgets/room/delegate/messagelistdelegate.cpp:657
 #, kde-format
 msgid "1 message"
 msgid_plural "%1 messages"
 msgstr[0] "1 mensagem"
 msgstr[1] "%1 mensagens"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:650
+#: widgets/room/delegate/messagelistdelegate.cpp:657
 #, kde-format
 msgid "No message yet"
 msgstr "Ainda sem mensagem"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:938
+#: widgets/room/delegate/messagelistdelegate.cpp:945
 #, kde-format
 msgid "Following"
 msgstr "A Seguir"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:942
+#: widgets/room/delegate/messagelistdelegate.cpp:949
 #, kde-format
 msgid "Message has been pinned"
 msgstr "A mensagem ficou fixa"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:946
+#: widgets/room/delegate/messagelistdelegate.cpp:953
 #, kde-format
 msgid "Message has been starred"
 msgstr "A mensagem ficou marcada com uma estrela"
@@ -8815,13 +8815,13 @@ msgid "Forward Message"
 msgstr "Seguir a Mensagem"
 
 #: widgets/room/messagelistview.cpp:347
-#: widgets/threadwidget/threadmessagewidget.cpp:116
+#: widgets/threadwidget/threadmessagewidget.cpp:117
 #, kde-format
 msgid "Unfollow Message"
 msgstr "Não Seguir a Mensagem"
 
 #: widgets/room/messagelistview.cpp:347
-#: widgets/threadwidget/threadmessagewidget.cpp:116
+#: widgets/threadwidget/threadmessagewidget.cpp:117
 #, kde-format
 msgid "Follow Message"
 msgstr "Seguir a Mensagem"
@@ -9059,101 +9059,101 @@ msgstr "Utilizadores"
 msgid "(Open External Dialog...)"
 msgstr "(Abrir uma Janela Externa...)"
 
-#: widgets/room/usersinroommenu.cpp:36
+#: widgets/room/usersinroommenu.cpp:39
 #, kde-format
 msgid "Do you want to block this user?"
 msgstr "Deseja bloquear este utilizador?"
 
-#: widgets/room/usersinroommenu.cpp:37
+#: widgets/room/usersinroommenu.cpp:40
 #, kde-format
 msgctxt "@title"
 msgid "Block User"
 msgstr "Bloquear o Utilizador"
 
-#: widgets/room/usersinroommenu.cpp:38
+#: widgets/room/usersinroommenu.cpp:41
 #, kde-format
 msgctxt "@action:button"
 msgid "Block User"
 msgstr "Bloquear o Utilizador"
 
-#: widgets/room/usersinroommenu.cpp:60
+#: widgets/room/usersinroommenu.cpp:70
 #, kde-format
 msgid "Do you want to ignore this user?"
 msgstr "Deseja ignorar este utilizador?"
 
-#: widgets/room/usersinroommenu.cpp:61
+#: widgets/room/usersinroommenu.cpp:71
 #, kde-format
 msgctxt "@title"
 msgid "Ignore User"
 msgstr "Ignorar o Utilizador"
 
-#: widgets/room/usersinroommenu.cpp:62
+#: widgets/room/usersinroommenu.cpp:72
 #, kde-format
 msgctxt "@action:button"
 msgid "Ignore User"
 msgstr "Ignorar o Utilizador"
 
-#: widgets/room/usersinroommenu.cpp:87
+#: widgets/room/usersinroommenu.cpp:97
 #, kde-format
 msgid "Start Conversation"
 msgstr "Iniciar a Conversação"
 
-#: widgets/room/usersinroommenu.cpp:104
+#: widgets/room/usersinroommenu.cpp:114
 #, kde-format
 msgid "Remove as Owner"
 msgstr "Remover como Dono"
 
-#: widgets/room/usersinroommenu.cpp:104
+#: widgets/room/usersinroommenu.cpp:114
 #, kde-format
 msgid "Add as Owner"
 msgstr "Adicionar como Dono"
 
-#: widgets/room/usersinroommenu.cpp:117
+#: widgets/room/usersinroommenu.cpp:127
 #, kde-format
 msgid "Remove as Leader"
 msgstr "Remover como Chefe"
 
-#: widgets/room/usersinroommenu.cpp:117
+#: widgets/room/usersinroommenu.cpp:127
 #, kde-format
 msgid "Add as Leader"
 msgstr "Adicionar como Chefe"
 
-#: widgets/room/usersinroommenu.cpp:129
+#: widgets/room/usersinroommenu.cpp:139
 #, kde-format
 msgid "Remove as Moderator"
 msgstr "Remover como Moderador"
 
-#: widgets/room/usersinroommenu.cpp:129
+#: widgets/room/usersinroommenu.cpp:139
 #, kde-format
 msgid "Add as Moderator"
 msgstr "Adicionar como Moderador"
 
-#: widgets/room/usersinroommenu.cpp:140
+#: widgets/room/usersinroommenu.cpp:150
 #, kde-format
 msgid "Remove from Room"
 msgstr "Remover da Sala"
 
-#: widgets/room/usersinroommenu.cpp:151
+#: widgets/room/usersinroommenu.cpp:161
 #, kde-format
 msgid "Unblock User"
 msgstr "Desbloquear Utilizador"
 
-#: widgets/room/usersinroommenu.cpp:151
+#: widgets/room/usersinroommenu.cpp:161
 #, kde-format
 msgid "Block User"
 msgstr "Bloquear Utilizador"
 
-#: widgets/room/usersinroommenu.cpp:160
+#: widgets/room/usersinroommenu.cpp:170
 #, kde-format
 msgid "Unignore"
 msgstr "Não Ignorar"
 
-#: widgets/room/usersinroommenu.cpp:160
+#: widgets/room/usersinroommenu.cpp:170
 #, kde-format
 msgid "Ignore"
 msgstr "Ignorar"
 
-#: widgets/room/usersinroommenu.cpp:165
+#: widgets/room/usersinroommenu.cpp:175
 #, fuzzy, kde-format
 #| msgid "Report Message"
 msgid "Report User"
@@ -9777,37 +9777,43 @@ msgstr ""
 msgid "Add Plasma Activities Support"
 msgstr ""
 
-#: widgets/whatsnew/whatsnewwidgettranslation.h:79
+#: widgets/whatsnew/whatsnewwidgettranslation.h:75
+#, fuzzy
+#| msgid "Report Message"
+msgid "Add Report User Support"
+msgstr "Mensagem de Relatório"
+
+#: widgets/whatsnew/whatsnewwidgettranslation.h:80
 #, fuzzy
 #| msgid "Fix kf6 support"
 msgid "Fix dark mode support."
 msgstr "Correcção do suporte para as KF6"
 
-#: widgets/whatsnew/whatsnewwidgettranslation.h:80
+#: widgets/whatsnew/whatsnewwidgettranslation.h:81
 #, fuzzy
 #| msgid "Fix kf6 support"
 msgid "Fix jitsi support."
 msgstr "Correcção do suporte para as KF6"
 
-#: widgets/whatsnew/whatsnewwidgettranslation.h:81
+#: widgets/whatsnew/whatsnewwidgettranslation.h:82
 #, fuzzy
 #| msgid "Total Messages in Channels"
 msgid "Fix translate message in direct channel."
 msgstr "Total de Mensagens nos Canais"
 
-#: widgets/whatsnew/whatsnewwidgettranslation.h:82
+#: widgets/whatsnew/whatsnewwidgettranslation.h:83
 msgid "Don't show @here/@all as user."
 msgstr ""
 
-#: widgets/whatsnew/whatsnewwidgettranslation.h:83
+#: widgets/whatsnew/whatsnewwidgettranslation.h:84
 msgid "Reduce memory footprint."
 msgstr ""
 
-#: widgets/whatsnew/whatsnewwidgettranslation.h:84
+#: widgets/whatsnew/whatsnewwidgettranslation.h:85
 msgid "Use RESTAPI for logging."
 msgstr ""
 
-#: widgets/whatsnew/whatsnewwidgettranslation.h:85
+#: widgets/whatsnew/whatsnewwidgettranslation.h:86
 msgid "Allow to send multi files."
 msgstr ""
 

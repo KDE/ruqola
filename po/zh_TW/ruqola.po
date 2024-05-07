@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-05-06 00:38+0000\n"
+"POT-Creation-Date: 2024-05-07 00:38+0000\n"
 "PO-Revision-Date: 2024-04-19 03:55+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
@@ -6164,17 +6164,17 @@ msgstr "轉換為團隊"
 msgid "Filter channels (%1)"
 msgstr "過濾頻道 (CTRL + K)"
 
-#: widgets/channellist/channellistwidget.cpp:65
+#: widgets/channellist/channellistwidget.cpp:66
 #, kde-format
 msgid "Search Channels"
 msgstr "搜尋頻道"
 
-#: widgets/channellist/channellistwidget.cpp:72
+#: widgets/channellist/channellistwidget.cpp:73
 #, kde-format
 msgid "Previous Channel"
 msgstr "上一個頻道"
 
-#: widgets/channellist/channellistwidget.cpp:80
+#: widgets/channellist/channellistwidget.cpp:81
 #, kde-format
 msgid "Next Channel"
 msgstr "下一個頻道"
@@ -8453,7 +8453,7 @@ msgid "Link Preview"
 msgstr "連結預覽"
 
 #: widgets/room/delegate/messagelistdelegate.cpp:420
-#: widgets/room/messagelistview.cpp:383 widgets/room/usersinroommenu.cpp:95
+#: widgets/room/messagelistview.cpp:383 widgets/room/usersinroommenu.cpp:105
 #, kde-format
 msgid "User Info"
 msgstr "使用者資訊"
@@ -8464,34 +8464,34 @@ msgstr "使用者資訊"
 msgid "Start a Private Conversation"
 msgstr "開始私人對話"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:640
+#: widgets/room/delegate/messagelistdelegate.cpp:647
 #, kde-format
 msgid "1 reply"
 msgid_plural "%1 replies"
 msgstr[0] "%1 則回覆"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:650
+#: widgets/room/delegate/messagelistdelegate.cpp:657
 #, kde-format
 msgid "1 message"
 msgid_plural "%1 messages"
 msgstr[0] "%1 則訊息"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:650
+#: widgets/room/delegate/messagelistdelegate.cpp:657
 #, kde-format
 msgid "No message yet"
 msgstr "尚無訊息"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:938
+#: widgets/room/delegate/messagelistdelegate.cpp:945
 #, kde-format
 msgid "Following"
 msgstr ""
 
-#: widgets/room/delegate/messagelistdelegate.cpp:942
+#: widgets/room/delegate/messagelistdelegate.cpp:949
 #, kde-format
 msgid "Message has been pinned"
 msgstr "訊息已置頂"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:946
+#: widgets/room/delegate/messagelistdelegate.cpp:953
 #, fuzzy, kde-format
 #| msgid "No Messages found"
 msgid "Message has been starred"
@@ -8605,13 +8605,13 @@ msgid "Forward Message"
 msgstr "轉寄訊息"
 
 #: widgets/room/messagelistview.cpp:347
-#: widgets/threadwidget/threadmessagewidget.cpp:116
+#: widgets/threadwidget/threadmessagewidget.cpp:117
 #, kde-format
 msgid "Unfollow Message"
 msgstr "取消跟隨訊息"
 
 #: widgets/room/messagelistview.cpp:347
-#: widgets/threadwidget/threadmessagewidget.cpp:116
+#: widgets/threadwidget/threadmessagewidget.cpp:117
 #, kde-format
 msgid "Follow Message"
 msgstr "跟隨訊息"
@@ -8845,101 +8845,101 @@ msgstr "使用者"
 msgid "(Open External Dialog...)"
 msgstr "（開啟外部對話框...）"
 
-#: widgets/room/usersinroommenu.cpp:36
+#: widgets/room/usersinroommenu.cpp:39
 #, kde-format
 msgid "Do you want to block this user?"
 msgstr "您確定要封鎖這個使用者嗎？"
 
-#: widgets/room/usersinroommenu.cpp:37
+#: widgets/room/usersinroommenu.cpp:40
 #, kde-format
 msgctxt "@title"
 msgid "Block User"
 msgstr "封鎖使用者"
 
-#: widgets/room/usersinroommenu.cpp:38
+#: widgets/room/usersinroommenu.cpp:41
 #, kde-format
 msgctxt "@action:button"
 msgid "Block User"
 msgstr "封鎖使用者"
 
-#: widgets/room/usersinroommenu.cpp:60
+#: widgets/room/usersinroommenu.cpp:70
 #, kde-format
 msgid "Do you want to ignore this user?"
 msgstr "您確定要無視這個使用者嗎？"
 
-#: widgets/room/usersinroommenu.cpp:61
+#: widgets/room/usersinroommenu.cpp:71
 #, kde-format
 msgctxt "@title"
 msgid "Ignore User"
 msgstr "無視使用者"
 
-#: widgets/room/usersinroommenu.cpp:62
+#: widgets/room/usersinroommenu.cpp:72
 #, kde-format
 msgctxt "@action:button"
 msgid "Ignore User"
 msgstr "無視使用者"
 
-#: widgets/room/usersinroommenu.cpp:87
+#: widgets/room/usersinroommenu.cpp:97
 #, kde-format
 msgid "Start Conversation"
 msgstr "開始對話"
 
-#: widgets/room/usersinroommenu.cpp:104
+#: widgets/room/usersinroommenu.cpp:114
 #, kde-format
 msgid "Remove as Owner"
 msgstr ""
 
-#: widgets/room/usersinroommenu.cpp:104
+#: widgets/room/usersinroommenu.cpp:114
 #, kde-format
 msgid "Add as Owner"
 msgstr ""
 
-#: widgets/room/usersinroommenu.cpp:117
+#: widgets/room/usersinroommenu.cpp:127
 #, kde-format
 msgid "Remove as Leader"
 msgstr ""
 
-#: widgets/room/usersinroommenu.cpp:117
+#: widgets/room/usersinroommenu.cpp:127
 #, kde-format
 msgid "Add as Leader"
 msgstr ""
 
-#: widgets/room/usersinroommenu.cpp:129
+#: widgets/room/usersinroommenu.cpp:139
 #, kde-format
 msgid "Remove as Moderator"
 msgstr ""
 
-#: widgets/room/usersinroommenu.cpp:129
+#: widgets/room/usersinroommenu.cpp:139
 #, kde-format
 msgid "Add as Moderator"
 msgstr ""
 
-#: widgets/room/usersinroommenu.cpp:140
+#: widgets/room/usersinroommenu.cpp:150
 #, kde-format
 msgid "Remove from Room"
 msgstr ""
 
-#: widgets/room/usersinroommenu.cpp:151
+#: widgets/room/usersinroommenu.cpp:161
 #, kde-format
 msgid "Unblock User"
 msgstr "解除封鎖使用者"
 
-#: widgets/room/usersinroommenu.cpp:151
+#: widgets/room/usersinroommenu.cpp:161
 #, kde-format
 msgid "Block User"
 msgstr "封鎖使用者"
 
-#: widgets/room/usersinroommenu.cpp:160
+#: widgets/room/usersinroommenu.cpp:170
 #, kde-format
 msgid "Unignore"
 msgstr "不再無視"
 
-#: widgets/room/usersinroommenu.cpp:160
+#: widgets/room/usersinroommenu.cpp:170
 #, kde-format
 msgid "Ignore"
 msgstr "無視"
 
-#: widgets/room/usersinroommenu.cpp:165
+#: widgets/room/usersinroommenu.cpp:175
 #, fuzzy, kde-format
 #| msgid "Report Message"
 msgid "Report User"
@@ -9534,31 +9534,37 @@ msgstr ""
 msgid "Add Plasma Activities Support"
 msgstr ""
 
-#: widgets/whatsnew/whatsnewwidgettranslation.h:79
+#: widgets/whatsnew/whatsnewwidgettranslation.h:75
+#, fuzzy
+#| msgid "Report Message"
+msgid "Add Report User Support"
+msgstr "檢舉訊息"
+
+#: widgets/whatsnew/whatsnewwidgettranslation.h:80
 msgid "Fix dark mode support."
 msgstr "修正暗色模式支援。"
 
-#: widgets/whatsnew/whatsnewwidgettranslation.h:80
+#: widgets/whatsnew/whatsnewwidgettranslation.h:81
 msgid "Fix jitsi support."
 msgstr "修正 Jitsi 支援。"
 
-#: widgets/whatsnew/whatsnewwidgettranslation.h:81
+#: widgets/whatsnew/whatsnewwidgettranslation.h:82
 msgid "Fix translate message in direct channel."
 msgstr "修正私訊頻道中的翻譯訊息。"
 
-#: widgets/whatsnew/whatsnewwidgettranslation.h:82
+#: widgets/whatsnew/whatsnewwidgettranslation.h:83
 msgid "Don't show @here/@all as user."
 msgstr ""
 
-#: widgets/whatsnew/whatsnewwidgettranslation.h:83
+#: widgets/whatsnew/whatsnewwidgettranslation.h:84
 msgid "Reduce memory footprint."
 msgstr ""
 
-#: widgets/whatsnew/whatsnewwidgettranslation.h:84
+#: widgets/whatsnew/whatsnewwidgettranslation.h:85
 msgid "Use RESTAPI for logging."
 msgstr ""
 
-#: widgets/whatsnew/whatsnewwidgettranslation.h:85
+#: widgets/whatsnew/whatsnewwidgettranslation.h:86
 msgid "Allow to send multi files."
 msgstr ""
 
