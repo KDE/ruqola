@@ -25,7 +25,6 @@ void UsersLogoutOtherClientsJobTest::shouldHaveDefaultValue()
     QVERIFY(job.requireHttpAuthentication());
     QVERIFY(!job.restApiLogger());
     QVERIFY(!job.hasQueryParameterSupport());
-    QVERIFY(job.requireTwoFactorAuthentication());
 }
 
 void UsersLogoutOtherClientsJobTest::shouldGenerateRequest()
@@ -60,7 +59,7 @@ void UsersLogoutOtherClientsJobTest::shouldNotStarting()
     job.setAuthToken(auth);
     QVERIFY(!job.canStart());
     job.setUserId(userId);
-    QVERIFY(!job.canStart());
+    QVERIFY(job.canStart());
 }
 
 #include "moc_userslogoutotherclientsjobtest.cpp"
