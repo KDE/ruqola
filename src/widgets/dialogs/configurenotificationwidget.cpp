@@ -68,7 +68,9 @@ ConfigureNotificationWidget::ConfigureNotificationWidget(RocketChatAccount *acco
 
     mDesktopAlertCombobox->setObjectName(QStringLiteral("mDesktopAlertCombobox"));
     desktopGroupBoxLayout->addRow(i18n("Alert:"), mDesktopAlertCombobox);
-    mDesktopAlertCombobox->setModel(mRocketChatAccount->notificationPreferences()->desktopNotificationModel());
+    if (mRocketChatAccount) {
+        mDesktopAlertCombobox->setModel(mRocketChatAccount->notificationPreferences()->desktopNotificationModel());
+    }
     connect(mDesktopAlertCombobox, &QComboBox::activated, this, [this](int index) {
         mRocketChatAccount->changeNotificationsSettings(mRoom->roomId(),
                                                         RocketChatAccount::DesktopNotifications,
@@ -77,7 +79,9 @@ ConfigureNotificationWidget::ConfigureNotificationWidget(RocketChatAccount *acco
 
     mDesktopSoundCombobox->setObjectName(QStringLiteral("mDesktopSoundCombobox"));
     desktopGroupBoxLayout->addRow(i18n("Sound:"), mDesktopSoundCombobox);
-    mDesktopSoundCombobox->setModel(mRocketChatAccount->notificationPreferences()->desktopSoundNotificationModel());
+    if (mRocketChatAccount) {
+        mDesktopSoundCombobox->setModel(mRocketChatAccount->notificationPreferences()->desktopSoundNotificationModel());
+    }
     connect(mDesktopSoundCombobox, &QComboBox::activated, this, [this](int index) {
         mRocketChatAccount->changeNotificationsSettings(
             mRoom->roomId(),
@@ -94,7 +98,9 @@ ConfigureNotificationWidget::ConfigureNotificationWidget(RocketChatAccount *acco
 
     mMobileAlertCombobox->setObjectName(QStringLiteral("mMobileAlertCombobox"));
     mobileGroupBoxLayout->addRow(i18n("Alert:"), mMobileAlertCombobox);
-    mMobileAlertCombobox->setModel(mRocketChatAccount->notificationPreferences()->mobileNotificationModel());
+    if (mRocketChatAccount) {
+        mMobileAlertCombobox->setModel(mRocketChatAccount->notificationPreferences()->mobileNotificationModel());
+    }
     connect(mMobileAlertCombobox, &QComboBox::activated, this, [this](int index) {
         mRocketChatAccount->changeNotificationsSettings(mRoom->roomId(),
                                                         RocketChatAccount::MobilePushNotifications,
@@ -110,7 +116,9 @@ ConfigureNotificationWidget::ConfigureNotificationWidget(RocketChatAccount *acco
 
     mEmailAlertCombobox->setObjectName(QStringLiteral("mEmailAlertCombobox"));
     emailGroupBoxLayout->addRow(i18n("Alert:"), mEmailAlertCombobox);
-    mEmailAlertCombobox->setModel(mRocketChatAccount->notificationPreferences()->emailNotificationModel());
+    if (mRocketChatAccount) {
+        mEmailAlertCombobox->setModel(mRocketChatAccount->notificationPreferences()->emailNotificationModel());
+    }
     connect(mEmailAlertCombobox, &QComboBox::activated, this, [this](int index) {
         mRocketChatAccount->changeNotificationsSettings(mRoom->roomId(),
                                                         RocketChatAccount::EmailNotifications,
