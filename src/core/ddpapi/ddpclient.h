@@ -76,7 +76,7 @@ public:
      *   a (collection name, event name) pair.
      *
      * @param collection the name of the collection to which the event belongs
-     * @param event the name of the event to which subsribe the @class DDPManager object
+     * @param event the name of the event to which subscribe the @class DDPManager object
      * @param ddpManager the @class DDPManager instance that will process event messages
      * @param subscriptionId a manager specific id that helps the manager keep track of
      *   the subscription
@@ -92,7 +92,7 @@ public:
      *   don't match.
      *
      * @param collection the name of the collection to which the event belongs
-     * @param event the name of the event to which subsribe the @class DDPManager object
+     * @param event the name of the event to which subscribe the @class DDPManager object
      * @param ddpManager the @class DDPManager instance that will process event messages
      * @param subscriptionId a manager specific id that helps the manager keep track of
      *   the subscription

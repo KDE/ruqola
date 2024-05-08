@@ -35,7 +35,7 @@ ListDiscussionDelegate::~ListDiscussionDelegate() = default;
 // [date]
 // text
 // number of discussion + last date
-// add text for opening dicussion.
+// add text for opening discussion.
 void ListDiscussionDelegate::paint(QPainter *painter, const QStyleOptionViewItem &option, const QModelIndex &index) const
 {
     painter->save();
