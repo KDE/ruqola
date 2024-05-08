@@ -22,15 +22,6 @@ void CustomSoundsManagerTest::shouldHaveDefaultValues()
     QVERIFY(w.customSoundsInfo().isEmpty());
 }
 
-void CustomSoundsManagerTest::shouldParseCustomSounds_data()
-{
-    QTest::addColumn<QString>("name");
-    QTest::addColumn<int>("numberOfSounds");
-    {
-        QTest::addRow("customSounds1") << QStringLiteral("customSounds1") << 5;
-    }
-}
-
 void CustomSoundsManagerTest::shouldDeleteCustomSounds()
 {
     QFETCH(QString, name);
@@ -68,8 +59,8 @@ void CustomSoundsManagerTest::shouldDeleteCustomSounds_data()
     QTest::addColumn<int>("initialNumberOfSounds");
     QTest::addColumn<int>("afterDeletingNumberOfSounds");
     QTest::addColumn<int>("signalsEmittingCount");
-    QTest::addRow("customSounds1") << QStringLiteral("customSounds1") << QStringLiteral("deleteCustomSounds1") << 5 << 4 << 1;
-    QTest::addRow("customSounds1") << QStringLiteral("customSounds1") << QStringLiteral("deleteCustomSounds2") << 5 << 5 << 0;
+    QTest::addRow("customSounds1") << QStringLiteral("customSounds1") << QStringLiteral("deleteCustomSounds1") << 20 << 19 << 1;
+    QTest::addRow("customSounds1") << QStringLiteral("customSounds1") << QStringLiteral("deleteCustomSounds2") << 20 << 20 << 0;
 }
 
 void CustomSoundsManagerTest::shouldAddCustomSounds()
@@ -109,7 +100,7 @@ void CustomSoundsManagerTest::shouldAddCustomSounds_data()
     QTest::addColumn<int>("initialNumberOfSounds");
     QTest::addColumn<int>("afterDeletingNumberOfSounds");
     QTest::addColumn<int>("signalsEmittingCount");
-    QTest::addRow("customSounds1") << QStringLiteral("customSounds1") << QStringLiteral("addCustomSounds1") << 5 << 6 << 1;
+    QTest::addRow("customSounds1") << QStringLiteral("customSounds1") << QStringLiteral("addCustomSounds1") << 20 << 21 << 1;
 }
 
 void CustomSoundsManagerTest::shouldUpdateCustomSounds()
@@ -149,7 +140,7 @@ void CustomSoundsManagerTest::shouldUpdateCustomSounds_data()
     QTest::addColumn<int>("initialNumberOfSounds");
     QTest::addColumn<int>("afterDeletingNumberOfSounds");
     QTest::addColumn<int>("signalsEmittingCount");
-    QTest::addRow("customSounds1") << QStringLiteral("customSounds1") << QStringLiteral("updateCustomSounds1") << 5 << 5 << 1;
+    QTest::addRow("customSounds1") << QStringLiteral("customSounds1") << QStringLiteral("updateCustomSounds1") << 20 << 20 << 1;
 }
 
 void CustomSoundsManagerTest::shouldParseCustomSounds()
@@ -168,6 +159,15 @@ void CustomSoundsManagerTest::shouldParseCustomSounds()
     //        qDebug() << "ExpectedEmoji " << expectedEmoji;
     //    }
     QCOMPARE(w.customSoundsInfo().count(), numberOfSounds);
+}
+
+void CustomSoundsManagerTest::shouldParseCustomSounds_data()
+{
+    QTest::addColumn<QString>("name");
+    QTest::addColumn<int>("numberOfSounds");
+    {
+        QTest::addRow("customSounds1") << QStringLiteral("customSounds1") << 20;
+    }
 }
 
 #include "moc_customsoundsmanagertest.cpp"

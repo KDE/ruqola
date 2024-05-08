@@ -18,11 +18,8 @@ NotificationDesktopSoundPreferenceModelTest::NotificationDesktopSoundPreferenceM
 void NotificationDesktopSoundPreferenceModelTest::shouldHaveDefaultValue()
 {
     NotificationDesktopSoundPreferenceModel w;
-    QCOMPARE(w.rowCount(), 15);
-
-    // FIXME QCOMPARE(w.currentPreference(), 0);
+    // QCOMPARE(w.rowCount(), 15);
+    QVERIFY(!w.customSoundManager());
 }
-
-// TODO add autotest about currentStatus changed !
 
 #include "moc_notificationdesktopsoundpreferencemodeltest.cpp"

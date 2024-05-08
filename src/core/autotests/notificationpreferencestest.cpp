@@ -22,6 +22,7 @@ void NotificationPreferencesTest::shouldHaveDefaultValues()
     QVERIFY(w.desktopNotificationModel());
     QVERIFY(w.desktopDurationNotificationModel());
     QVERIFY(w.desktopSoundNotificationModel());
+    QVERIFY(!w.customSoundManager());
 }
 
 #include "moc_notificationpreferencestest.cpp"
