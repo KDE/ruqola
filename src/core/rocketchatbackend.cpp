@@ -371,13 +371,13 @@ void RocketChatBackend::tryAutoLogin()
 {
     if (mRocketChatAccount->authMethodType() == AuthenticationManager::AuthMethodType::Password) {
         if (mRocketChatAccount->serverVersion().isEmpty() || mRocketChatAccount->password().isEmpty()) {
-            qCWarning(RUQOLA_LOG) << " Impossible to log: mRocketChatAccount->serverVersion().isEmpty(" << mRocketChatAccount->serverVersion().isEmpty()
+            qCWarning(RUQOLA_LOG) << " Impossible to log: mRocketChatAccount->serverVersion().isEmpty()" << mRocketChatAccount->serverVersion().isEmpty()
                                   << "mRocketChatAccount->password().isEmpty() " << mRocketChatAccount->password().isEmpty();
             return;
         }
     } else if (mRocketChatAccount->authMethodType() == AuthenticationManager::AuthMethodType::PersonalAccessToken) {
         if (mRocketChatAccount->serverVersion().isEmpty() || mRocketChatAccount->authToken().isEmpty()) {
-            qCWarning(RUQOLA_LOG) << " Impossible to log: mRocketChatAccount->serverVersion().isEmpty(" << mRocketChatAccount->serverVersion().isEmpty()
+            qCWarning(RUQOLA_LOG) << " Impossible to log: mRocketChatAccount->serverVersion().isEmpty()" << mRocketChatAccount->serverVersion().isEmpty()
                                   << "mRocketChatAccount->authToken().isEmpty() " << mRocketChatAccount->authToken().isEmpty();
             return;
         }
