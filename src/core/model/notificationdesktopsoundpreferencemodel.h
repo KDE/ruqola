@@ -13,10 +13,6 @@ class LIBRUQOLACORE_EXPORT NotificationDesktopSoundPreferenceModel : public QAbs
 {
     Q_OBJECT
 public:
-    struct NotificationDesktopSoundPreferenceInfo {
-        QString displayText;
-        QString preference;
-    };
     enum NotificationPreferenceRoles {
         NotificationPreferenceI18n = Qt::UserRole + 1,
         NotificationPreference,
@@ -29,20 +25,17 @@ public:
     [[nodiscard]] int rowCount(const QModelIndex &parent = QModelIndex()) const override;
     [[nodiscard]] QVariant data(const QModelIndex &index, int role = Qt::DisplayRole) const override;
 
-    [[nodiscard]] int setCurrentNotificationPreference(const QString &preference);
+    [[nodiscard]] int setCurrentNotificationPreference(const QByteArray &preference);
 
-    [[nodiscard]] QString currentPreference(int index) const;
+    [[nodiscard]] QByteArray currentPreference(int index) const;
 
-    void addCustomSounds(const QList<NotificationDesktopSoundPreferenceInfo> &customSound);
+    [[nodiscard]] QList<CustomSoundInfo> notificationDestktopSoundInfo() const;
+    void setNotificationDestktopSoundInfo(const QList<CustomSoundInfo> &newNotificationDestktopSoundInfo);
 
 Q_SIGNALS:
     void currentNotificationPreferenceChanged();
 
 private:
-    LIBRUQOLACORE_NO_EXPORT void fillModel();
     QList<CustomSoundInfo> mNotificationDestktopSoundInfo;
-    QList<NotificationDesktopSoundPreferenceInfo> mNotificationDestktopSoundPreferenceList;
     int mCurrentPreference = 0;
 };
-Q_DECLARE_METATYPE(NotificationDesktopSoundPreferenceModel::NotificationDesktopSoundPreferenceInfo)
-Q_DECLARE_TYPEINFO(NotificationDesktopSoundPreferenceModel::NotificationDesktopSoundPreferenceInfo, Q_RELOCATABLE_TYPE);

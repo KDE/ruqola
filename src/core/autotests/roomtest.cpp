@@ -200,7 +200,7 @@ void RoomTest::shouldSerialized()
         w.setDisableNotifications(false);
         w.setHideUnreadStatus(true);
         w.setMuteGroupMentions(true);
-        w.setAudioNotificationValue(QStringLiteral("test1"));
+        w.setAudioNotificationValue(QByteArrayLiteral("test1"));
         input.setNotificationOptions(w);
 
         // setParentRid

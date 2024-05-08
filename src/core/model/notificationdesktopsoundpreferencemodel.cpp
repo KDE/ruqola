@@ -5,12 +5,10 @@
 */
 
 #include "notificationdesktopsoundpreferencemodel.h"
-#include <KLocalizedString>
 
 NotificationDesktopSoundPreferenceModel::NotificationDesktopSoundPreferenceModel(QObject *parent)
     : QAbstractListModel(parent)
 {
-    fillModel();
 }
 
 NotificationDesktopSoundPreferenceModel::~NotificationDesktopSoundPreferenceModel() = default;
@@ -18,129 +16,42 @@ NotificationDesktopSoundPreferenceModel::~NotificationDesktopSoundPreferenceMode
 int NotificationDesktopSoundPreferenceModel::rowCount(const QModelIndex &parent) const
 {
     Q_UNUSED(parent)
-    return mNotificationDestktopSoundPreferenceList.count();
+    return mNotificationDestktopSoundInfo.count();
 }
 
 QVariant NotificationDesktopSoundPreferenceModel::data(const QModelIndex &index, int role) const
 {
     const int rowIndex = index.row();
-    if (rowIndex < 0 || rowIndex >= mNotificationDestktopSoundPreferenceList.count()) {
+    if (rowIndex < 0 || rowIndex >= mNotificationDestktopSoundInfo.count()) {
         return {};
     }
-    NotificationDesktopSoundPreferenceInfo preferenceInfo = mNotificationDestktopSoundPreferenceList.at(rowIndex);
+    const CustomSoundInfo preferenceInfo = mNotificationDestktopSoundInfo.at(rowIndex);
     switch (role) {
     case Qt::DisplayRole:
     case NotificationPreferenceI18n:
-        return preferenceInfo.displayText;
+        return preferenceInfo.name();
     case NotificationPreference:
-        return preferenceInfo.preference;
+        return preferenceInfo.identifier();
     }
 
     return {};
 }
 
-void NotificationDesktopSoundPreferenceModel::fillModel()
+QList<CustomSoundInfo> NotificationDesktopSoundPreferenceModel::notificationDestktopSoundInfo() const
 {
-    mNotificationDestktopSoundPreferenceList.reserve(8);
-    // This one must be first one.
-    {
-        NotificationDesktopSoundPreferenceInfo preferenceInfo;
-        preferenceInfo.displayText = i18n("Default");
-        preferenceInfo.preference = QStringLiteral("default");
-        mNotificationDestktopSoundPreferenceList.append(std::move(preferenceInfo));
-    }
-    {
-        NotificationDesktopSoundPreferenceInfo preferenceInfo;
-        preferenceInfo.displayText = i18n("Nothing");
-        preferenceInfo.preference = QStringLiteral("none");
-        mNotificationDestktopSoundPreferenceList.append(std::move(preferenceInfo));
-    }
-    {
-        NotificationDesktopSoundPreferenceInfo preferenceInfo;
-        preferenceInfo.displayText = i18n("Beep");
-        preferenceInfo.preference = QStringLiteral("beep");
-        mNotificationDestktopSoundPreferenceList.append(std::move(preferenceInfo));
-    }
-    {
-        NotificationDesktopSoundPreferenceInfo preferenceInfo;
-        preferenceInfo.displayText = i18n("Chelle");
-        preferenceInfo.preference = QStringLiteral("chelle");
-        mNotificationDestktopSoundPreferenceList.append(std::move(preferenceInfo));
-    }
-    {
-        NotificationDesktopSoundPreferenceInfo preferenceInfo;
-        preferenceInfo.displayText = i18n("Ding");
-        preferenceInfo.preference = QStringLiteral("ding");
-        mNotificationDestktopSoundPreferenceList.append(std::move(preferenceInfo));
-    }
-    {
-        NotificationDesktopSoundPreferenceInfo preferenceInfo;
-        preferenceInfo.displayText = i18n("Droplet");
-        preferenceInfo.preference = QStringLiteral("droplet");
-        mNotificationDestktopSoundPreferenceList.append(std::move(preferenceInfo));
-    }
-    {
-        NotificationDesktopSoundPreferenceInfo preferenceInfo;
-        preferenceInfo.displayText = i18n("Highbell");
-        preferenceInfo.preference = QStringLiteral("highbell");
-        mNotificationDestktopSoundPreferenceList.append(std::move(preferenceInfo));
-    }
-    {
-        NotificationDesktopSoundPreferenceInfo preferenceInfo;
-        preferenceInfo.displayText = i18n("Seasons");
-        preferenceInfo.preference = QStringLiteral("seasons");
-        mNotificationDestktopSoundPreferenceList.append(std::move(preferenceInfo));
-    }
-
-    {
-        NotificationDesktopSoundPreferenceInfo preferenceInfo;
-        preferenceInfo.displayText = i18n("Chime");
-        preferenceInfo.preference = QStringLiteral("chime");
-        mNotificationDestktopSoundPreferenceList.append(std::move(preferenceInfo));
-    }
-    {
-        NotificationDesktopSoundPreferenceInfo preferenceInfo;
-        preferenceInfo.displayText = i18n("Door");
-        preferenceInfo.preference = QStringLiteral("door");
-        mNotificationDestktopSoundPreferenceList.append(std::move(preferenceInfo));
-    }
-    {
-        NotificationDesktopSoundPreferenceInfo preferenceInfo;
-        preferenceInfo.displayText = i18n("Telephone");
-        preferenceInfo.preference = QStringLiteral("telephone");
-        mNotificationDestktopSoundPreferenceList.append(std::move(preferenceInfo));
-    }
-    {
-        NotificationDesktopSoundPreferenceInfo preferenceInfo;
-        preferenceInfo.displayText = i18n("Outbound Call Ringing");
-        preferenceInfo.preference = QStringLiteral("outbound-call-ringing");
-        mNotificationDestktopSoundPreferenceList.append(std::move(preferenceInfo));
-    }
-    {
-        NotificationDesktopSoundPreferenceInfo preferenceInfo;
-        preferenceInfo.displayText = i18n("Call Ended");
-        preferenceInfo.preference = QStringLiteral("call-ended");
-        mNotificationDestktopSoundPreferenceList.append(std::move(preferenceInfo));
-    }
-    {
-        NotificationDesktopSoundPreferenceInfo preferenceInfo;
-        preferenceInfo.displayText = i18n("Dialtone");
-        preferenceInfo.preference = QStringLiteral("dialtone");
-        mNotificationDestktopSoundPreferenceList.append(std::move(preferenceInfo));
-    }
-    {
-        NotificationDesktopSoundPreferenceInfo preferenceInfo;
-        preferenceInfo.displayText = i18n("Ringtone");
-        preferenceInfo.preference = QStringLiteral("ringtone");
-        mNotificationDestktopSoundPreferenceList.append(std::move(preferenceInfo));
-    }
+    return mNotificationDestktopSoundInfo;
 }
 
-int NotificationDesktopSoundPreferenceModel::setCurrentNotificationPreference(const QString &preference)
+void NotificationDesktopSoundPreferenceModel::setNotificationDestktopSoundInfo(const QList<CustomSoundInfo> &newNotificationDestktopSoundInfo)
+{
+    mNotificationDestktopSoundInfo = newNotificationDestktopSoundInfo;
+}
+
+int NotificationDesktopSoundPreferenceModel::setCurrentNotificationPreference(const QByteArray &preference)
 {
     int newStatusIndex = 0;
-    for (int i = 0; i < mNotificationDestktopSoundPreferenceList.count(); ++i) {
-        if (mNotificationDestktopSoundPreferenceList.at(i).preference == preference) {
+    for (int i = 0; i < mNotificationDestktopSoundInfo.count(); ++i) {
+        if (mNotificationDestktopSoundInfo.at(i).identifier() == preference) {
             newStatusIndex = i;
             break;
         }
@@ -152,15 +63,10 @@ int NotificationDesktopSoundPreferenceModel::setCurrentNotificationPreference(co
     return mCurrentPreference;
 }
 
-QString NotificationDesktopSoundPreferenceModel::currentPreference(int index) const
+QByteArray NotificationDesktopSoundPreferenceModel::currentPreference(int index) const
 {
-    const QString str = mNotificationDestktopSoundPreferenceList.at(index).preference;
+    const QByteArray str = mNotificationDestktopSoundInfo.at(index).identifier();
     return str;
-}
-
-void NotificationDesktopSoundPreferenceModel::addCustomSounds(const QList<NotificationDesktopSoundPreferenceInfo> &customSound)
-{
-    // TODO
 }
 
 #include "moc_notificationdesktopsoundpreferencemodel.cpp"

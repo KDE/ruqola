@@ -47,7 +47,7 @@ void NotificationOptionsTest::shouldAssignValue()
     QString unreadTrayIconAlert = QStringLiteral("Ablu");
     w.setUnreadTrayIconAlert(unreadTrayIconAlert);
 
-    QString audioNotificationValue = QStringLiteral("ZZZZ");
+    QByteArray audioNotificationValue = QByteArrayLiteral("ZZZZ");
     w.setAudioNotificationValue(audioNotificationValue);
 
     bool disableNotifications = true;

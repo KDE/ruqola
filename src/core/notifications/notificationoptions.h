@@ -56,8 +56,8 @@ public:
     [[nodiscard]] NotificationValue desktopNotifications() const;
     void setDesktopNotifications(const NotificationValue &desktopNotifications);
 
-    [[nodiscard]] QString audioNotificationValue() const;
-    void setAudioNotificationValue(const QString &audioNotificationValue);
+    [[nodiscard]] QByteArray audioNotificationValue() const;
+    void setAudioNotificationValue(const QByteArray &audioNotificationValue);
 
     [[nodiscard]] static QJsonObject serialize(const NotificationOptions &message);
     [[nodiscard]] static NotificationOptions deserialize(const QJsonObject &o);
@@ -82,7 +82,7 @@ private:
 
     // TODO use enums ????
     QString mUnreadTrayIconAlert;
-    QString mAudioNotificationValue; // Type
+    QByteArray mAudioNotificationValue; // Type
     bool mDisableNotifications = false;
     bool mHideUnreadStatus = false;
     bool mMuteGroupMentions = false;

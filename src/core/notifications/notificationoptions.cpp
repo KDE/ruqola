@@ -24,7 +24,7 @@ void NotificationOptions::parseNotificationOptions(const QJsonObject &obj)
     mHideMentionStatus = obj.value("hideMentionStatus"_L1).toBool();
     mDisableNotifications = obj.value("disableNotifications"_L1).toBool();
 
-    mAudioNotificationValue = obj.value("audioNotificationValue"_L1).toString();
+    mAudioNotificationValue = obj.value("audioNotificationValue"_L1).toString().toLatin1();
 
     //"desktopNotificationDuration":0,"desktopNotifications":"mentions"
     mDesktopNotifications =
@@ -39,20 +39,20 @@ void NotificationOptions::parseNotificationOptions(const QJsonObject &obj)
     mMuteGroupMentions = obj.value("muteGroupMentions"_L1).toBool();
 }
 
-QString NotificationOptions::audioNotificationValue() const
+QByteArray NotificationOptions::audioNotificationValue() const
 {
     return mAudioNotificationValue;
 }
 
-void NotificationOptions::setAudioNotificationValue(const QString &audioNotificationValue)
+void NotificationOptions::setAudioNotificationValue(const QByteArray &newAudioNotificationValue)
 {
-    mAudioNotificationValue = audioNotificationValue;
+    mAudioNotificationValue = newAudioNotificationValue;
 }
 
 QJsonObject NotificationOptions::serialize(const NotificationOptions &options)
 {
     QJsonObject obj;
-    obj["audioNotificationValue"_L1] = options.audioNotificationValue();
+    obj["audioNotificationValue"_L1] = QString::fromLatin1(options.audioNotificationValue());
     obj["disableNotifications"_L1] = options.disableNotifications();
     obj["desktopNotifications"_L1] = QString::fromLatin1(options.desktopNotifications().currentValue());
     obj["mobilePushNotifications"_L1] = QString::fromLatin1(options.mobilePushNotification().currentValue());
@@ -68,7 +68,7 @@ NotificationOptions NotificationOptions::deserialize(const QJsonObject &o)
 {
     qCWarning(RUQOLA_LOG) << "Not implemented yet";
     NotificationOptions options;
-    options.setAudioNotificationValue(o["audioNotificationValue"_L1].toString());
+    options.setAudioNotificationValue(o["audioNotificationValue"_L1].toString().toLatin1());
     options.setDisableNotifications(o["disableNotifications"_L1].toBool());
     options.setUnreadTrayIconAlert(o["unreadAlert"_L1].toString());
     options.setHideUnreadStatus(o["hideUnreadStatus"_L1].toBool());
