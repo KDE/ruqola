@@ -19,6 +19,7 @@ public:
         Picture = 2,
         Video = 3,
         PreviewUrl = 4,
+        CustomSound = 5,
     };
     static ManagerDataPaths *self();
 
