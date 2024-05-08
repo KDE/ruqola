@@ -27,7 +27,7 @@
 #include <QJsonDocument>
 #include <QJsonObject>
 #include <QStandardPaths>
-
+using namespace Qt::Literals::StringLiterals;
 namespace RuqolaTestWebSocket
 {
 LIBRUQOLACORE_EXPORT AbstractWebSocket *_k_ruqola_webSocket = nullptr;
@@ -71,7 +71,7 @@ void license_get_modules(const QJsonObject &root, RocketChatAccount *account)
     if (account->ruqolaLogger()) {
         account->ruqolaLogger()->dataReceived(QByteArrayLiteral("License GetModule:") + QJsonDocument(root).toJson());
     }
-    const QJsonArray obj = root.value(QLatin1StringView("result")).toArray();
+    const QJsonArray obj = root.value("result"_L1).toArray();
     account->parseLicenses(obj);
 }
 
@@ -89,7 +89,7 @@ void list_custom_sounds(const QJsonObject &root, RocketChatAccount *account)
     if (account->ruqolaLogger()) {
         account->ruqolaLogger()->dataReceived(QByteArrayLiteral("list custom sounds:") + QJsonDocument(root).toJson());
     }
-    const QJsonArray obj = root.value(QLatin1StringView("result")).toArray();
+    const QJsonArray obj = root.value("result"_L1).toArray();
     account->parseCustomSounds(obj);
 }
 
@@ -98,7 +98,7 @@ void delete_oauth_app(const QJsonObject &root, RocketChatAccount *account)
     if (account->ruqolaLogger()) {
         account->ruqolaLogger()->dataReceived(QByteArrayLiteral("Delete Oauth app:") + QJsonDocument(root).toJson());
     }
-    const QJsonObject obj = root.value(QLatin1StringView("result")).toObject();
+    const QJsonObject obj = root.value("result"_L1).toObject();
     qDebug() << "delete_oauth_app root " << root;
 }
 
@@ -107,7 +107,7 @@ void update_oauth_app(const QJsonObject &root, RocketChatAccount *account)
     if (account->ruqolaLogger()) {
         account->ruqolaLogger()->dataReceived(QByteArrayLiteral("Update Oauth App:") + QJsonDocument(root).toJson());
     }
-    const QJsonObject obj = root.value(QLatin1StringView("result")).toObject();
+    const QJsonObject obj = root.value("result"_L1).toObject();
     account->setOauthAppUpdated(obj);
     qDebug() << "update_oauth_app root " << root;
 }
@@ -117,7 +117,7 @@ void add_oauth_app(const QJsonObject &root, RocketChatAccount *account)
     if (account->ruqolaLogger()) {
         account->ruqolaLogger()->dataReceived(QByteArrayLiteral("Add Oauth App:") + QJsonDocument(root).toJson());
     }
-    const QJsonObject obj = root.value(QLatin1StringView("result")).toObject();
+    const QJsonObject obj = root.value("result"_L1).toObject();
     account->setOauthAppAdded(obj);
 }
 
@@ -179,7 +179,7 @@ void regenerateCodes_2fa(const QJsonObject &root, RocketChatAccount *account)
     if (account->ruqolaLogger()) {
         account->ruqolaLogger()->dataReceived(QByteArrayLiteral("Regenerate Codes 2FA:") + QJsonDocument(root).toJson());
     }
-    const QJsonObject obj = root.value(QLatin1StringView("result")).toObject();
+    const QJsonObject obj = root.value("result"_L1).toObject();
     // TODO
     qDebug() << " regenerateCodes_2fa " << root;
 }
@@ -189,7 +189,7 @@ void enable_2fa(const QJsonObject &root, RocketChatAccount *account)
     if (account->ruqolaLogger()) {
         account->ruqolaLogger()->dataReceived(QByteArrayLiteral("Enable 2FA:") + QJsonDocument(root).toJson());
     }
-    const QJsonObject obj = root.value(QLatin1StringView("result")).toObject();
+    const QJsonObject obj = root.value("result"_L1).toObject();
     account->generate2FaTotp(obj);
 }
 
@@ -206,7 +206,7 @@ void input_user_channel_autocomplete(const QJsonObject &root, RocketChatAccount 
     if (account->ruqolaLogger()) {
         account->ruqolaLogger()->dataReceived(QByteArrayLiteral("Input channel/User autocomplete:") + QJsonDocument(root).toJson());
     }
-    const QJsonObject obj = root.value(QLatin1StringView("result")).toObject();
+    const QJsonObject obj = root.value("result"_L1).toObject();
     account->inputTextManager()->inputTextCompleter(obj);
 }
 
@@ -215,14 +215,14 @@ void input_user_channel_autocomplete_thread(const QJsonObject &root, RocketChatA
     if (account->ruqolaLogger()) {
         account->ruqolaLogger()->dataReceived(QByteArrayLiteral("Input channel/User autocomplete thread dialog:") + QJsonDocument(root).toJson());
     }
-    const QJsonObject obj = root.value(QLatin1StringView("result")).toObject();
+    const QJsonObject obj = root.value("result"_L1).toObject();
 
     account->inputThreadMessageTextManager()->inputTextCompleter(obj);
 }
 
 void process_backlog(const QJsonObject &root, RocketChatAccount *account)
 {
-    const QJsonObject obj = root.value(QLatin1StringView("result")).toObject();
+    const QJsonObject obj = root.value("result"_L1).toObject();
     // qCDebug(RUQOLA_DDPAPI_LOG) << obj.value(QLatin1StringView("messages")).toArray().size();
     account->rocketChatBackend()->processIncomingMessages(obj.value(QLatin1StringView("messages")).toArray(), true);
 }
@@ -243,10 +243,10 @@ void create_jitsi_conf_call(const QJsonObject &root, RocketChatAccount *account)
 
 void open_direct_channel(const QJsonObject &root, RocketChatAccount *account)
 {
-    const QJsonObject obj = root.value(QLatin1StringView("result")).toObject();
+    const QJsonObject obj = root.value("result"_L1).toObject();
     // qDebug() << " void open_direct_channel(const QJsonObject &root, RocketChatAccount *account)" << obj;
     if (!obj.isEmpty()) {
-        const QByteArray rid = obj.value(QLatin1StringView("rid")).toString().toLatin1();
+        const QByteArray rid = obj.value("rid"_L1).toString().toLatin1();
         if (!rid.isEmpty()) {
             account->ddp()->subscribeRoomMessage(rid);
         }
