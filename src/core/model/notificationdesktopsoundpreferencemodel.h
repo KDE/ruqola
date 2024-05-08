@@ -6,9 +6,9 @@
 
 #pragma once
 
+#include "customsound/customsoundinfo.h"
 #include "libruqolacore_export.h"
 #include <QAbstractListModel>
-
 class LIBRUQOLACORE_EXPORT NotificationDesktopSoundPreferenceModel : public QAbstractListModel
 {
     Q_OBJECT
@@ -40,6 +40,7 @@ Q_SIGNALS:
 
 private:
     LIBRUQOLACORE_NO_EXPORT void fillModel();
+    QList<CustomSoundInfo> mNotificationDestktopSoundInfo;
     QList<NotificationDesktopSoundPreferenceInfo> mNotificationDestktopSoundPreferenceList;
     int mCurrentPreference = 0;
 };
