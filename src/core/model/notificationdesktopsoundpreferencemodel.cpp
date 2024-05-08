@@ -17,8 +17,6 @@ NotificationDesktopSoundPreferenceModel::~NotificationDesktopSoundPreferenceMode
 int NotificationDesktopSoundPreferenceModel::rowCount(const QModelIndex &parent) const
 {
     Q_UNUSED(parent)
-    qDebug() << " mCustomSoundManager->customSoundsInfo().count() " << mCustomSoundManager->customSoundsInfo().count() << "mCustomSoundManager "
-             << mCustomSoundManager;
     return mCustomSoundManager->customSoundsInfo().count();
 }
 
