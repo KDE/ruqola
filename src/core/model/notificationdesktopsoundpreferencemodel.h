@@ -9,6 +9,7 @@
 #include "customsound/customsoundinfo.h"
 #include "libruqolacore_export.h"
 #include <QAbstractListModel>
+class CustomSoundsManager;
 class LIBRUQOLACORE_EXPORT NotificationDesktopSoundPreferenceModel : public QAbstractListModel
 {
     Q_OBJECT
@@ -32,10 +33,13 @@ public:
     [[nodiscard]] QList<CustomSoundInfo> notificationDestktopSoundInfo() const;
     void setNotificationDestktopSoundInfo(const QList<CustomSoundInfo> &newNotificationDestktopSoundInfo);
 
+    [[nodiscard]] CustomSoundsManager *customSoundManager() const;
+    void setCustomSoundManager(CustomSoundsManager *newCustomSoundManager);
+
 Q_SIGNALS:
     void currentNotificationPreferenceChanged();
 
 private:
-    QList<CustomSoundInfo> mNotificationDestktopSoundInfo;
+    CustomSoundsManager *mCustomSoundManager = nullptr;
     int mCurrentPreference = 0;
 };

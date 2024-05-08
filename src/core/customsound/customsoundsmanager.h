@@ -31,6 +31,7 @@ Q_SIGNALS:
     void customSoundRemoved(const QByteArray &identifier);
     void customSoundAdded(const QByteArray &identifier);
     void customSoundUpdated(const QByteArray &identifier);
+    void customSoundChanged();
 
 private:
     QList<CustomSoundInfo> mCustomSoundsInfo;

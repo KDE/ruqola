@@ -247,6 +247,7 @@ RocketChatAccount::RocketChatAccount(const QString &accountFileName, QObject *pa
 
     mPreviewUrlCacheManager->setCachePath(ManagerDataPaths::self()->path(ManagerDataPaths::PreviewUrl, accountName()));
     setDefaultAuthentication(mSettings->authMethodType());
+    mNotificationPreferences->setCustomSoundManager(mCustomSoundManager);
 }
 
 RocketChatAccount::~RocketChatAccount()

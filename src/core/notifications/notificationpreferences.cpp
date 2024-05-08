@@ -46,4 +46,14 @@ NotificationDesktopSoundPreferenceModel *NotificationPreferences::desktopSoundNo
     return mDesktopSoundNotificationModel;
 }
 
+CustomSoundsManager *NotificationPreferences::customSoundManager() const
+{
+    return mDesktopSoundNotificationModel->customSoundManager();
+}
+
+void NotificationPreferences::setCustomSoundManager(CustomSoundsManager *newCustomSoundManager)
+{
+    mDesktopSoundNotificationModel->setCustomSoundManager(newCustomSoundManager);
+}
+
 #include "moc_notificationpreferences.cpp"

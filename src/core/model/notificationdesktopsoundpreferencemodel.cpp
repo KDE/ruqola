@@ -5,6 +5,7 @@
 */
 
 #include "notificationdesktopsoundpreferencemodel.h"
+#include "customsound/customsoundsmanager.h"
 
 NotificationDesktopSoundPreferenceModel::NotificationDesktopSoundPreferenceModel(QObject *parent)
     : QAbstractListModel(parent)
@@ -16,16 +17,18 @@ NotificationDesktopSoundPreferenceModel::~NotificationDesktopSoundPreferenceMode
 int NotificationDesktopSoundPreferenceModel::rowCount(const QModelIndex &parent) const
 {
     Q_UNUSED(parent)
-    return mNotificationDestktopSoundInfo.count();
+    qDebug() << " mCustomSoundManager->customSoundsInfo().count() " << mCustomSoundManager->customSoundsInfo().count() << "mCustomSoundManager "
+             << mCustomSoundManager;
+    return mCustomSoundManager->customSoundsInfo().count();
 }
 
 QVariant NotificationDesktopSoundPreferenceModel::data(const QModelIndex &index, int role) const
 {
     const int rowIndex = index.row();
-    if (rowIndex < 0 || rowIndex >= mNotificationDestktopSoundInfo.count()) {
+    if (rowIndex < 0 || rowIndex >= mCustomSoundManager->customSoundsInfo().count()) {
         return {};
     }
-    const CustomSoundInfo preferenceInfo = mNotificationDestktopSoundInfo.at(rowIndex);
+    const CustomSoundInfo preferenceInfo = mCustomSoundManager->customSoundsInfo().at(rowIndex);
     switch (role) {
     case Qt::DisplayRole:
     case NotificationPreferenceI18n:
@@ -39,19 +42,36 @@ QVariant NotificationDesktopSoundPreferenceModel::data(const QModelIndex &index,
 
 QList<CustomSoundInfo> NotificationDesktopSoundPreferenceModel::notificationDestktopSoundInfo() const
 {
-    return mNotificationDestktopSoundInfo;
+    return mCustomSoundManager->customSoundsInfo();
 }
 
 void NotificationDesktopSoundPreferenceModel::setNotificationDestktopSoundInfo(const QList<CustomSoundInfo> &newNotificationDestktopSoundInfo)
 {
-    mNotificationDestktopSoundInfo = newNotificationDestktopSoundInfo;
+    mCustomSoundManager->setCustomSoundsInfo(newNotificationDestktopSoundInfo);
+}
+
+CustomSoundsManager *NotificationDesktopSoundPreferenceModel::customSoundManager() const
+{
+    return mCustomSoundManager;
+}
+
+void NotificationDesktopSoundPreferenceModel::setCustomSoundManager(CustomSoundsManager *newCustomSoundManager)
+{
+    if (mCustomSoundManager != newCustomSoundManager) {
+        mCustomSoundManager = newCustomSoundManager;
+        connect(mCustomSoundManager, &CustomSoundsManager::customSoundChanged, this, [this]() {
+            beginResetModel();
+            endResetModel();
+        });
+    }
 }
 
 int NotificationDesktopSoundPreferenceModel::setCurrentNotificationPreference(const QByteArray &preference)
 {
     int newStatusIndex = 0;
-    for (int i = 0; i < mNotificationDestktopSoundInfo.count(); ++i) {
-        if (mNotificationDestktopSoundInfo.at(i).identifier() == preference) {
+    const QList<CustomSoundInfo> info = mCustomSoundManager->customSoundsInfo();
+    for (int i = 0; i < info.count(); ++i) {
+        if (info.at(i).identifier() == preference) {
             newStatusIndex = i;
             break;
         }
@@ -65,7 +85,7 @@ int NotificationDesktopSoundPreferenceModel::setCurrentNotificationPreference(co
 
 QByteArray NotificationDesktopSoundPreferenceModel::currentPreference(int index) const
 {
-    const QByteArray str = mNotificationDestktopSoundInfo.at(index).identifier();
+    const QByteArray str = mCustomSoundManager->customSoundsInfo().at(index).identifier();
     return str;
 }
 

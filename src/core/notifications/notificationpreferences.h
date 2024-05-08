@@ -12,6 +12,7 @@
 class NotificationPreferenceModel;
 class NotificationDesktopDurationPreferenceModel;
 class NotificationDesktopSoundPreferenceModel;
+class CustomSoundsManager;
 class LIBRUQOLACORE_EXPORT NotificationPreferences : public QObject
 {
     Q_OBJECT
@@ -28,6 +29,9 @@ public:
     [[nodiscard]] NotificationDesktopDurationPreferenceModel *desktopDurationNotificationModel() const;
 
     [[nodiscard]] NotificationDesktopSoundPreferenceModel *desktopSoundNotificationModel() const;
+
+    [[nodiscard]] CustomSoundsManager *customSoundManager() const;
+    void setCustomSoundManager(CustomSoundsManager *newCustomSoundManager);
 
 private:
     NotificationPreferenceModel *const mEmailNotificationModel;
