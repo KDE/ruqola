@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-05-07 00:38+0000\n"
+"POT-Creation-Date: 2024-05-08 00:38+0000\n"
 "PO-Revision-Date: 2023-11-14 13:24+0100\n"
 "Last-Translator: Vit Pelcak <vit@pelcak.org>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
@@ -287,6 +287,82 @@ msgstr "Nastavit téma"
 #, kde-format
 msgid "Unarchive"
 msgstr "Zrušit archivaci"
+
+#: core/customsound/customsoundsmanager.cpp:27
+#: core/customsound/customsoundsmanager.cpp:82
+#: core/model/notificationdesktopsoundpreferencemodel.cpp:97
+#, kde-format
+msgid "Chime"
+msgstr ""
+
+#: core/customsound/customsoundsmanager.cpp:34
+#: core/customsound/customsoundsmanager.cpp:89
+#: core/model/notificationdesktopsoundpreferencemodel.cpp:103
+#, kde-format
+msgid "Door"
+msgstr ""
+
+#: core/customsound/customsoundsmanager.cpp:41
+#: core/model/notificationdesktopsoundpreferencemodel.cpp:60
+#, kde-format
+msgid "Beep"
+msgstr "Pípnutí"
+
+#: core/customsound/customsoundsmanager.cpp:48
+#: core/model/notificationdesktopsoundpreferencemodel.cpp:66
+#, kde-format
+msgid "Chelle"
+msgstr "Ťuknutí"
+
+#: core/customsound/customsoundsmanager.cpp:55
+#: core/model/notificationdesktopsoundpreferencemodel.cpp:72
+#, kde-format
+msgid "Ding"
+msgstr "Mužský hlas"
+
+#: core/customsound/customsoundsmanager.cpp:69
+#: core/model/notificationdesktopsoundpreferencemodel.cpp:84
+#, kde-format
+msgid "Highbell"
+msgstr "Zvonek"
+
+#: core/customsound/customsoundsmanager.cpp:76
+#: core/model/notificationdesktopsoundpreferencemodel.cpp:90
+#, kde-format
+msgid "Seasons"
+msgstr "Roční období"
+
+#: core/customsound/customsoundsmanager.cpp:96
+#: core/model/notificationdesktopsoundpreferencemodel.cpp:109
+#, kde-format
+msgid "Telephone"
+msgstr ""
+
+#: core/customsound/customsoundsmanager.cpp:103
+#: core/model/notificationdesktopsoundpreferencemodel.cpp:115
+#, fuzzy, kde-format
+#| msgid "Call ongoing"
+msgid "Outbound Call Ringing"
+msgstr "Probíhá hovor"
+
+#: core/customsound/customsoundsmanager.cpp:110
+#: core/model/notificationdesktopsoundpreferencemodel.cpp:121
+#, fuzzy, kde-format
+#| msgid "Call ended"
+msgid "Call Ended"
+msgstr "Hovor byl ukončen"
+
+#: core/customsound/customsoundsmanager.cpp:117
+#: core/model/notificationdesktopsoundpreferencemodel.cpp:127
+#, kde-format
+msgid "Dialtone"
+msgstr ""
+
+#: core/customsound/customsoundsmanager.cpp:124
+#: core/model/notificationdesktopsoundpreferencemodel.cpp:133
+#, kde-format
+msgid "Ringtone"
+msgstr ""
 
 #: core/discussions/discussion.cpp:86
 #, kde-format
@@ -704,7 +780,7 @@ msgstr "Uživatelské jméno"
 
 #: core/model/adminusersmodel.cpp:112
 #: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:125
-#: widgets/dialogs/configurenotificationwidget.cpp:102
+#: widgets/dialogs/configurenotificationwidget.cpp:110
 #, kde-format
 msgid "Email"
 msgstr "E-mail"
@@ -928,35 +1004,10 @@ msgstr[2] "%1 sekund"
 msgid "Nothing"
 msgstr "Nic"
 
-#: core/model/notificationdesktopsoundpreferencemodel.cpp:60
-#, kde-format
-msgid "Beep"
-msgstr "Pípnutí"
-
-#: core/model/notificationdesktopsoundpreferencemodel.cpp:66
-#, kde-format
-msgid "Chelle"
-msgstr "Ťuknutí"
-
-#: core/model/notificationdesktopsoundpreferencemodel.cpp:72
-#, kde-format
-msgid "Ding"
-msgstr "Mužský hlas"
-
 #: core/model/notificationdesktopsoundpreferencemodel.cpp:78
 #, kde-format
 msgid "Droplet"
 msgstr "Kapka"
-
-#: core/model/notificationdesktopsoundpreferencemodel.cpp:84
-#, kde-format
-msgid "Highbell"
-msgstr "Zvonek"
-
-#: core/model/notificationdesktopsoundpreferencemodel.cpp:90
-#, kde-format
-msgid "Seasons"
-msgstr "Roční období"
 
 #: core/model/notificationpreferencemodel.cpp:51
 #: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:187
@@ -1111,9 +1162,11 @@ msgid "Offline"
 msgstr "Odpojen"
 
 #: core/model/statusmodel.cpp:69
-#, kde-format
-msgid "Modify Status..."
-msgstr "Upravit stav..."
+#, fuzzy, kde-format
+#| msgctxt "@title:window"
+#| msgid "Modify Status"
+msgid "Modify Status…"
+msgstr "Upravit stav"
 
 #: core/model/systemmessagesmodel.cpp:31
 #, kde-format
@@ -1312,9 +1365,10 @@ msgid "Reply"
 msgstr "Odpovědět"
 
 #: core/notifications/notifierjob.cpp:42
-#, kde-format
-msgid "Reply..."
-msgstr "Odpovědět..."
+#, fuzzy, kde-format
+#| msgid "Reply"
+msgid "Reply…"
+msgstr "Odpovědět"
 
 #: core/otr/otrnotificationjob.cpp:45 core/otr/otrnotificationjob.cpp:55
 #: core/otr/otrnotificationjob.cpp:70
@@ -1359,12 +1413,12 @@ msgstr "<strong>%1</strong> píše..."
 msgid "<strong>%1</strong> are typing..."
 msgstr "<strong>%1</strong> píší…"
 
-#: core/rocketchataccount.cpp:2905
+#: core/rocketchataccount.cpp:2907
 #, kde-format
 msgid "Export Messages"
 msgstr "Exportovat zprávy"
 
-#: core/rocketchataccount.cpp:2906
+#: core/rocketchataccount.cpp:2908
 #, kde-format
 msgid "Your email has been queued for sending."
 msgstr ""
@@ -2449,7 +2503,7 @@ msgstr ""
 #: widgets/dialogs/createnewchannelwidget.cpp:33
 #: widgets/dialogs/directchannelinfowidget.cpp:88
 #: widgets/myaccount/myaccountpersonalaccesscreatewidget.cpp:28
-#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:50
+#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:53
 #, kde-format
 msgid "Name:"
 msgstr "Jméno:"
@@ -2494,7 +2548,6 @@ msgctxt "@title"
 msgid "Remove Emoji"
 msgstr "Odstranit emotikon"
 
-#. i18n: ectx: property (text), widget (QPushButton, addServer)
 #: widgets/administratordialog/customemoji/administratorcustomemojiwidget.cpp:178
 #: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:141
 #: widgets/administratordialog/customuserstatus/customuserstatustreewidget.cpp:127
@@ -2502,13 +2555,11 @@ msgstr "Odstranit emotikon"
 #: widgets/administratordialog/roles/administratorroleswidget.cpp:101
 #: widgets/administratordialog/roles/usersinrolewidget.cpp:106
 #: widgets/administratordialog/users/administratoruserswidget.cpp:239
-#: widgets/configuredialog/configureaccountserverwidget.ui:31
 #: widgets/myaccount/myaccountpersonalaccesstokentreeview.cpp:35
 #, kde-format
-msgid "Add..."
-msgstr "Přidat..."
+msgid "Add…"
+msgstr ""
 
-#. i18n: ectx: property (text), widget (QPushButton, modifyServer)
 #: widgets/administratordialog/customemoji/administratorcustomemojiwidget.cpp:181
 #: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:143
 #: widgets/administratordialog/customuserstatus/customuserstatustreewidget.cpp:130
@@ -2517,9 +2568,9 @@ msgstr "Přidat..."
 #: widgets/administratordialog/roles/administratorroleswidget.cpp:105
 #: widgets/administratordialog/rooms/administratorroomswidget.cpp:63
 #: widgets/administratordialog/users/administratoruserswidget.cpp:246
-#: widgets/configuredialog/configureaccountserverwidget.ui:38
-#, kde-format
-msgid "Modify..."
+#, fuzzy, kde-format
+#| msgid "Modify..."
+msgid "Modify…"
 msgstr "Změnit..."
 
 #. i18n: ectx: property (text), widget (QPushButton, removeServer)
@@ -2611,8 +2662,9 @@ msgid "Remove Custom User Status"
 msgstr "Odstranit vlastní stav uživatele"
 
 #: widgets/administratordialog/invites/administratorinviteswidget.cpp:39
-#, kde-format
-msgid "Search invite..."
+#, fuzzy, kde-format
+#| msgid "Search invite..."
+msgid "Search invite…"
 msgstr "Hledat pozvánku..."
 
 #: widgets/administratordialog/invites/invitetreeview.cpp:51
@@ -2716,8 +2768,9 @@ msgstr ""
 #: widgets/dialogs/showlistmessagebasewidget.cpp:97
 #: widgets/discussions/showdiscussionswidget.cpp:88
 #: widgets/room/usersinroomwidget.cpp:135
-#, kde-format
-msgid "Loading..."
+#, fuzzy, kde-format
+#| msgid "Loading..."
+msgid "Loading…"
 msgstr "Probíhá načítání..."
 
 #: widgets/administratordialog/moderationconsole/moderationmessageswidget.cpp:57
@@ -2739,9 +2792,10 @@ msgstr[2] "%1 zpráv v místnosti"
 
 #: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:37
 #: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:37
-#, kde-format
-msgid "Search moderation message..."
-msgstr ""
+#, fuzzy, kde-format
+#| msgid "Search messages"
+msgid "Search moderation message…"
+msgstr "Hledat zprávy"
 
 #: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:61
 #: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:61
@@ -2871,8 +2925,9 @@ msgstr "Vybrat vše"
 #: widgets/bannerinfodialog/bannerinfolistsearchlinewidget.cpp:24
 #: widgets/notificationhistory/notificationhistorywidget.cpp:45
 #: widgets/servererrorinfohistory/servererrorinfomessagehistorywidget.cpp:43
-#, kde-format
-msgid "Search..."
+#, fuzzy, kde-format
+#| msgid "Search..."
+msgid "Search…"
 msgstr "Hledat..."
 
 #: widgets/administratordialog/oauth/administratoroauthcreatedialog.cpp:25
@@ -2915,7 +2970,7 @@ msgstr "URL přístupového tokenu:"
 
 #: widgets/administratordialog/oauth/administratoroauthwidget.cpp:37
 #, kde-format
-msgid "Search Oauth apps..."
+msgid "Search Oauth apps…"
 msgstr ""
 
 #: widgets/administratordialog/oauth/oauthtreeview.cpp:67
@@ -2944,19 +2999,23 @@ msgstr "Úlohy:"
 
 #: widgets/administratordialog/permissions/permissionswidget.cpp:41
 #: widgets/explorepermissionsdialog/explorepermissionswidget.cpp:38
-#, kde-format
-msgid "Search permissions..."
+#, fuzzy, kde-format
+#| msgid "Search permissions..."
+msgid "Search permissions…"
 msgstr "Hledat oprávnění..."
 
 #: widgets/administratordialog/roles/administratorroleswidget.cpp:46
-#, kde-format
-msgid "Search roles..."
+#, fuzzy, kde-format
+#| msgid "Search roles..."
+msgid "Search roles…"
 msgstr "Hledat role..."
 
 #: widgets/administratordialog/roles/administratorroleswidget.cpp:112
-#, kde-format
-msgid "Add Users In Role..."
-msgstr ""
+#, fuzzy, kde-format
+#| msgctxt "@title:window"
+#| msgid "Add Users in Room"
+msgid "Add Users In Role…"
+msgstr "Přidat uživatele do místnosti"
 
 #: widgets/administratordialog/roles/administratorroleswidget.cpp:229
 #, kde-format
@@ -3020,8 +3079,9 @@ msgstr ""
 #: widgets/directory/directorywidget.cpp:39
 #: widgets/directory/directorywidget.cpp:206
 #: widgets/room/usersinroomwidget.cpp:40
-#, kde-format
-msgid "Search users..."
+#, fuzzy, kde-format
+#| msgid "Search users..."
+msgid "Search users…"
 msgstr "Hledat uživatele…"
 
 #: widgets/administratordialog/roles/usersinrolewidget.cpp:52
@@ -3384,7 +3444,7 @@ msgstr "Ověřeno"
 #: widgets/administratordialog/users/administratoradduserwidget.cpp:60
 #: widgets/dialogs/directchannelinfowidget.cpp:95
 #: widgets/dialogs/serverinfo/serverinfowidget.cpp:39
-#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:55
+#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:58
 #: widgets/registeruser/registeruserwidget.cpp:29
 #, kde-format
 msgid "Username:"
@@ -3398,7 +3458,7 @@ msgstr "Stavová zpráva:"
 #: widgets/administratordialog/users/administratoradduserwidget.cpp:62
 #: widgets/dialogs/directchannelinfowidget.cpp:166
 #: widgets/dialogs/resetpasswordwidget.cpp:23
-#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:59
+#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:62
 #: widgets/registeruser/registeruserwidget.cpp:33
 #, kde-format
 msgid "Email:"
@@ -3419,7 +3479,7 @@ msgid "Bio:"
 msgstr ""
 
 #: widgets/administratordialog/users/administratoradduserwidget.cpp:66
-#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:66
+#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:69
 #, kde-format
 msgid "Nickname:"
 msgstr "Přezdívka:"
@@ -3446,9 +3506,10 @@ msgid "Do you want to remove this user?"
 msgstr ""
 
 #: widgets/administratordialog/users/administratoruserswidget.cpp:233
-#, kde-format
-msgid "Invite..."
-msgstr "Pozvat..."
+#, fuzzy, kde-format
+#| msgid "Invites"
+msgid "Invite…"
+msgstr "Pozvánky"
 
 #: widgets/administratordialog/users/administratoruserswidget.cpp:255
 #, kde-format
@@ -3859,7 +3920,7 @@ msgid "Logs"
 msgstr "Záznamy"
 
 #: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:126
-#: widgets/dialogs/configurenotificationwidget.cpp:86
+#: widgets/dialogs/configurenotificationwidget.cpp:92
 #, kde-format
 msgid "Mobile"
 msgstr "Mobilní"
@@ -5973,9 +6034,11 @@ msgstr ""
 
 #: widgets/channellist/channellistview.cpp:195
 #: widgets/room/channelactionpopupmenu.cpp:75
-#, kde-format
-msgid "Configure Notification..."
-msgstr "Nastavit upozornění..."
+#, fuzzy, kde-format
+#| msgctxt "@title:window"
+#| msgid "Configure Notification"
+msgid "Configure Notification…"
+msgstr "Nastavit upozornění"
 
 #: widgets/channellist/channellistview.cpp:202
 #, kde-format
@@ -6140,6 +6203,18 @@ msgstr "Nahoru"
 msgctxt "Move selected account down."
 msgid "Down"
 msgstr "Dolů"
+
+#. i18n: ectx: property (text), widget (QPushButton, addServer)
+#: widgets/configuredialog/configureaccountserverwidget.ui:31
+#, kde-format
+msgid "Add..."
+msgstr "Přidat..."
+
+#. i18n: ectx: property (text), widget (QPushButton, modifyServer)
+#: widgets/configuredialog/configureaccountserverwidget.ui:38
+#, kde-format
+msgid "Modify..."
+msgstr "Změnit..."
 
 #. i18n: ectx: property (text), widget (QCheckBox, configureCurrentActivity)
 #: widgets/configuredialog/configureaccountserverwidget.ui:93
@@ -6583,29 +6658,29 @@ msgstr ""
 msgid "Show badge for mentions"
 msgstr ""
 
-#: widgets/dialogs/configurenotificationwidget.cpp:36
+#: widgets/dialogs/configurenotificationwidget.cpp:37
 #, kde-format
 msgid "Receive alerts"
 msgstr ""
 
-#: widgets/dialogs/configurenotificationwidget.cpp:55
+#: widgets/dialogs/configurenotificationwidget.cpp:56
 #, kde-format
 msgid "Display badge for direct mentions only"
 msgstr ""
 
-#: widgets/dialogs/configurenotificationwidget.cpp:61
+#: widgets/dialogs/configurenotificationwidget.cpp:62
 #, kde-format
 msgid "Desktop"
 msgstr "Pracovní plocha"
 
-#: widgets/dialogs/configurenotificationwidget.cpp:69
-#: widgets/dialogs/configurenotificationwidget.cpp:94
-#: widgets/dialogs/configurenotificationwidget.cpp:110
+#: widgets/dialogs/configurenotificationwidget.cpp:70
+#: widgets/dialogs/configurenotificationwidget.cpp:100
+#: widgets/dialogs/configurenotificationwidget.cpp:118
 #, kde-format
 msgid "Alert:"
 msgstr "Upozornění:"
 
-#: widgets/dialogs/configurenotificationwidget.cpp:78
+#: widgets/dialogs/configurenotificationwidget.cpp:81
 #, kde-format
 msgid "Sound:"
 msgstr "Zvuk:"
@@ -6641,8 +6716,9 @@ msgstr ""
 
 #: widgets/dialogs/createdirectmessageswidget.cpp:33
 #: widgets/prunemessages/prunemessageswidget.cpp:66
-#, kde-format
-msgid "Select users..."
+#, fuzzy, kde-format
+#| msgid "Select users..."
+msgid "Select users…"
 msgstr "Vybrat uživatele..."
 
 #: widgets/dialogs/createnewchanneldialog.cpp:26
@@ -6658,9 +6734,10 @@ msgstr "Téma:"
 
 #: widgets/dialogs/createnewchannelwidget.cpp:40
 #: widgets/dialogs/createnewdiscussionwidget.cpp:51
-#, kde-format
-msgid "Invite users..."
-msgstr "Pozvat uživatele..."
+#, fuzzy, kde-format
+#| msgid "Invite Users"
+msgid "Invite users…"
+msgstr "Pozvat uživatele"
 
 #: widgets/dialogs/createnewchannelwidget.cpp:41
 #, kde-format
@@ -6902,8 +6979,7 @@ msgstr "Nahlásit zprávu"
 
 #: widgets/dialogs/reportmessagedialog.cpp:43
 #: widgets/dialogs/reportuserdialog.cpp:43
-#, fuzzy, kde-format
-#| msgid "Reports"
+#, kde-format
 msgid "Report"
 msgstr "Hlášení"
 
@@ -6919,17 +6995,15 @@ msgid "Why you signal this message?"
 msgstr "Proč chcete nahlásit tuto zprávu?"
 
 #: widgets/dialogs/reportuserdialog.cpp:26
-#, fuzzy, kde-format
-#| msgid "Reports"
+#, kde-format
 msgctxt "@title:window"
 msgid "Report User"
-msgstr "Hlášení"
+msgstr ""
 
 #: widgets/dialogs/reportuserwidget.cpp:43
-#, fuzzy, kde-format
-#| msgid "Do you want to remove \"%1\"?"
+#, kde-format
 msgid "Why do you want to report?"
-msgstr "Přejete si odstranit \"%1\"?"
+msgstr ""
 
 #: widgets/dialogs/resetpassworddialog.cpp:18
 #, kde-format
@@ -6939,8 +7013,9 @@ msgstr ""
 
 #: widgets/dialogs/roomavatarwidget.cpp:31
 #: widgets/myaccount/myaccountprofileconfigureavatarwidget.cpp:100
-#, kde-format
-msgid "Change Picture..."
+#, fuzzy, kde-format
+#| msgid "Change Picture..."
+msgid "Change Picture…"
 msgstr "Změnit obrázek..."
 
 #: widgets/dialogs/roomavatarwidget.cpp:33
@@ -7045,8 +7120,9 @@ msgid "Show Attachments - %1"
 msgstr "Zobrazit přílohy - %1"
 
 #: widgets/dialogs/showattachmentwidget.cpp:37
-#, kde-format
-msgid "Search attachments..."
+#, fuzzy, kde-format
+#| msgid "Search attachments..."
+msgid "Search attachments…"
 msgstr "Hledat přílohy..."
 
 #: widgets/dialogs/showattachmentwidget.cpp:93
@@ -7063,13 +7139,9 @@ msgstr[1] "%1 přílohy v místnosti (celkem: %2)"
 msgstr[2] "%1 příloh v místnosti (celkem: %2)"
 
 #: widgets/dialogs/showattachmentwidget.cpp:100
-#: widgets/dialogs/showlistmessagebasewidget.cpp:107
-#: widgets/discussions/showdiscussionswidget.cpp:99
-#: widgets/misc/searchtreebasewidget.cpp:72
-#: widgets/room/usersinroomflowwidget.cpp:129
-#: widgets/room/usersinroomwidget.cpp:146
-#, kde-format
-msgid "(Click here for Loading more...)"
+#, fuzzy, kde-format
+#| msgid "(Click here for Loading more...)"
+msgid "(Click here for Loading more…)"
 msgstr "(Kliknutím zde načtete další)"
 
 #: widgets/dialogs/showimagedialog.cpp:29
@@ -7111,9 +7183,10 @@ msgid "Save Image"
 msgstr "Uložit obrázek"
 
 #: widgets/dialogs/showlistmessagebasewidget.cpp:39
-#, kde-format
-msgid "Search messages..."
-msgstr "Hledat zprávy..."
+#, fuzzy, kde-format
+#| msgid "Search messages"
+msgid "Search messages…"
+msgstr "Hledat zprávy"
 
 #: widgets/dialogs/showlistmessagebasewidget.cpp:105
 #, kde-format
@@ -7122,6 +7195,14 @@ msgid_plural "%1 Messages in room (Total: %2)"
 msgstr[0] "%1 zpráva v místnosti (celkem: %2)"
 msgstr[1] "%1 zprávy v místnosti (celkem: %2)"
 msgstr[2] "%1 zpráv v místnosti (celkem: %2)"
+
+#: widgets/dialogs/showlistmessagebasewidget.cpp:107
+#: widgets/discussions/showdiscussionswidget.cpp:99
+#: widgets/misc/searchtreebasewidget.cpp:72
+#, fuzzy, kde-format
+#| msgid "(Click here for Loading more...)"
+msgid "(Click here for Loading more…"
+msgstr "(Kliknutím zde načtete další)"
 
 #: widgets/dialogs/showmentionsmessagesdialog.cpp:22
 #, kde-format
@@ -7189,20 +7270,22 @@ msgid "You are not authorized to view this page."
 msgstr "Nejste oprávněni prohlížet tuto stránku."
 
 #: widgets/directory/directorywidget.cpp:34
-#, kde-format
-msgid "Search channels..."
-msgstr "Vyhledat v kanálech..."
+#, fuzzy, kde-format
+#| msgid "Search Channels"
+msgid "Search channels…"
+msgstr "Vyhledat v kanálech"
 
 #: widgets/directory/directorywidget.cpp:44
 #: widgets/directory/directorywidget.cpp:209
-#, kde-format
-msgid "Search teams..."
+#, fuzzy, kde-format
+#| msgid "Search teams..."
+msgid "Search teams…"
 msgstr "Hledat týmy..."
 
 #: widgets/directory/directorywidget.cpp:70
 #, kde-format
-msgid "Open..."
-msgstr "Otevřít..."
+msgid "Open…"
+msgstr ""
 
 #: widgets/directory/directorywidget.cpp:166
 #, kde-format
@@ -7230,9 +7313,10 @@ msgstr[2] ""
 #: widgets/directory/directorywidget.cpp:203
 #: widgets/misc/joinedchannelcompletionlineeditbase.cpp:25
 #: widgets/teams/addteamroomcompletionlineedit.cpp:32
-#, kde-format
-msgid "Search rooms..."
-msgstr "Hledat místnosti..."
+#, fuzzy, kde-format
+#| msgid "Search rooms"
+msgid "Search rooms…"
+msgstr "Hledat místnosti"
 
 #: widgets/discussions/discussion/listdiscussiondelegate.cpp:78
 #, kde-format
@@ -7254,8 +7338,9 @@ msgid "Show Discussions - %1"
 msgstr "Zobrazit diskuze - %1"
 
 #: widgets/discussions/showdiscussionswidget.cpp:39
-#, kde-format
-msgid "Search discussion..."
+#, fuzzy, kde-format
+#| msgid "Search discussion..."
+msgid "Search discussion…"
 msgstr "Hledat diskuze…"
 
 #: widgets/discussions/showdiscussionswidget.cpp:90
@@ -7626,9 +7711,11 @@ msgid "Download Image"
 msgstr "Stáhnout obrázek"
 
 #: widgets/misc/messageattachmentdownloadandsavejob.cpp:78
-#, kde-format
-msgid "Download Image..."
-msgstr "Stáhnout obrázek..."
+#, fuzzy, kde-format
+#| msgctxt "@title:window"
+#| msgid "Download Image"
+msgid "Download Image…"
+msgstr "Stáhnout obrázek"
 
 #: widgets/misc/messageattachmentdownloadandsavejob.cpp:81
 #, kde-format
@@ -7637,9 +7724,11 @@ msgid "Download Video"
 msgstr ""
 
 #: widgets/misc/messageattachmentdownloadandsavejob.cpp:82
-#, kde-format
-msgid "Download Video..."
-msgstr ""
+#, fuzzy, kde-format
+#| msgctxt "@title:window"
+#| msgid "Download Image"
+msgid "Download Video…"
+msgstr "Stáhnout obrázek"
 
 #: widgets/misc/messageattachmentdownloadandsavejob.cpp:85
 #, kde-format
@@ -7649,7 +7738,7 @@ msgstr ""
 
 #: widgets/misc/messageattachmentdownloadandsavejob.cpp:86
 #, kde-format
-msgid "Download Sound..."
+msgid "Download Sound…"
 msgstr ""
 
 #: widgets/misc/messagestylelayoutmenu.cpp:16
@@ -7686,8 +7775,9 @@ msgid "Reset Password"
 msgstr "Obnovit heslo"
 
 #: widgets/misc/searchwithdelaylineedit.cpp:16
-#, kde-format
-msgid "Search Word..."
+#, fuzzy, kde-format
+#| msgid "Search Word..."
+msgid "Search Word…"
 msgstr "Hledat slovo..."
 
 #: widgets/misc/servermenu.cpp:20
@@ -7696,9 +7786,10 @@ msgid "Server"
 msgstr "Server"
 
 #: widgets/misc/serverscombobox.cpp:20
-#, kde-format
-msgid "Filter Account..."
-msgstr ""
+#, fuzzy, kde-format
+#| msgid "Delete my Account"
+msgid "Filter Account…"
+msgstr "Smazat můj účet"
 
 #: widgets/misc/twoauthenticationpasswordwidget.cpp:25
 #, kde-format
@@ -7831,9 +7922,10 @@ msgid "Manage Device"
 msgstr ""
 
 #: widgets/myaccount/myaccountmanagedeviceconfigurewidget.cpp:29
-#, kde-format
-msgid "Search device..."
-msgstr ""
+#, fuzzy, kde-format
+#| msgid "Search invite..."
+msgid "Search device…"
+msgstr "Hledat pozvánku..."
 
 #: widgets/myaccount/myaccountmanagedeviceconfigurewidget.cpp:42
 #, kde-format
@@ -7866,7 +7958,7 @@ msgstr ""
 
 #: widgets/myaccount/myaccountpersonalaccesstokenconfigurewidget.cpp:47
 #, kde-format
-msgid "Search Personal Access Token..."
+msgid "Search Personal Access Token…"
 msgstr ""
 
 #: widgets/myaccount/myaccountpersonalaccesstokenconfigurewidget.cpp:125
@@ -7899,7 +7991,7 @@ msgstr ""
 
 #: widgets/myaccount/myaccountpersonalaccesstokentreeview.cpp:37
 #, kde-format
-msgid "Regenerate..."
+msgid "Regenerate…"
 msgstr ""
 
 #: widgets/myaccount/myaccountpersonalaccesstokentreeview.cpp:54
@@ -8043,43 +8135,44 @@ msgid "Define Avatar Url:"
 msgstr "Zadejte URL avatara:"
 
 #: widgets/myaccount/myaccountprofileconfigureavatarwidget.cpp:101
-#, kde-format
-msgid "Change URL for avatar..."
+#, fuzzy, kde-format
+#| msgid "Change URL for avatar..."
+msgid "Change URL for avatar…"
 msgstr "Změnit URL avatara..."
 
-#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:26
+#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:29
 #, kde-format
 msgid "Your administrator has disabled the changing of email."
 msgstr ""
 
-#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:31
+#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:34
 #, kde-format
 msgid "Delete my Account"
 msgstr "Smazat můj účet"
 
-#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:32
+#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:35
 #, kde-format
 msgid "Logout From Other Logged In Locations"
 msgstr ""
 
-#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:71
+#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:74
 #, kde-format
 msgid "Status text:"
 msgstr "Text stavu:"
 
-#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:98
+#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:108
 #, kde-format
 msgid "Do you really delete your account ?"
 msgstr "Přejete si opravdu smazat váš účet?"
 
-#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:99
+#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:109
 #, kde-format
 msgctxt "@title"
 msgid "Delete my Account"
 msgstr "Smazat můj účet"
 
-#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:105
-#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:169
+#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:115
+#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:179
 #, kde-format
 msgid "Current Password"
 msgstr "Stávající heslo"
@@ -8196,48 +8289,58 @@ msgid "Register"
 msgstr "Registrovat"
 
 #: widgets/room/channelactionpopupmenu.cpp:29
-#, kde-format
-msgid "Prune Messages..."
-msgstr ""
+#, fuzzy, kde-format
+#| msgid "Pinned Messages"
+msgid "Prune Messages…"
+msgstr "Připnuté zprávy"
 
 #: widgets/room/channelactionpopupmenu.cpp:37
-#, kde-format
-msgid "Show Mentions..."
+#, fuzzy, kde-format
+#| msgid "Show Mentions..."
+msgid "Show Mentions…"
 msgstr "Zobrazit zmínky..."
 
 #: widgets/room/channelactionpopupmenu.cpp:43
-#, kde-format
-msgid "Show Pinned Messages..."
+#, fuzzy, kde-format
+#| msgid "Show Pinned Messages..."
+msgid "Show Pinned Messages…"
 msgstr "Zobrazit připnuté zprávy..."
 
 #: widgets/room/channelactionpopupmenu.cpp:49
-#, kde-format
-msgid "Show Starred Messages..."
+#, fuzzy, kde-format
+#| msgid "Show Starred Messages..."
+msgid "Show Starred Messages…"
 msgstr "Zobrazit zprávy označené hvězdičkou…"
 
 #: widgets/room/channelactionpopupmenu.cpp:55
-#, kde-format
-msgid "Show File Attachments..."
+#, fuzzy, kde-format
+#| msgid "Show File Attachments..."
+msgid "Show File Attachments…"
 msgstr "Zobrazit přílohy..."
 
 #: widgets/room/channelactionpopupmenu.cpp:61
-#, kde-format
-msgid "Show Discussions..."
+#, fuzzy, kde-format
+#| msgid "Show Discussions..."
+msgid "Show Discussions…"
 msgstr "Zobrazit diskuze..."
 
 #: widgets/room/channelactionpopupmenu.cpp:67
-#, kde-format
-msgid "Show Threads..."
+#, fuzzy, kde-format
+#| msgid "Show Threads..."
+msgid "Show Threads…"
 msgstr "Zobrazit vlákna..."
 
 #: widgets/room/channelactionpopupmenu.cpp:82
-#, kde-format
-msgid "Configure Auto-Translate..."
-msgstr "Nastavení automatického překladu..."
+#, fuzzy, kde-format
+#| msgctxt "@title:window"
+#| msgid "Configure Auto-Translate"
+msgid "Configure Auto-Translate…"
+msgstr "Nastavení automatického překladu"
 
 #: widgets/room/channelactionpopupmenu.cpp:97
-#, kde-format
-msgid "Add Users in Channel..."
+#, fuzzy, kde-format
+#| msgid "Add Users in Channel..."
+msgid "Add Users in Channel…"
 msgstr "Přidat uživatele do místnosti…"
 
 #: widgets/room/channelactionpopupmenu.cpp:105
@@ -8246,9 +8349,10 @@ msgid "Video Chat"
 msgstr "Video rozhovor"
 
 #: widgets/room/channelactionpopupmenu.cpp:112
-#, kde-format
-msgid "Export Messages..."
-msgstr "Exportovat zprávy..."
+#, fuzzy, kde-format
+#| msgid "Export Messages"
+msgid "Export Messages…"
+msgstr "Exportovat zprávy"
 
 #: widgets/room/channelactionpopupmenu.cpp:126
 #, kde-format
@@ -8273,13 +8377,15 @@ msgid "&Open With '%1'"
 msgstr "&Otevřít pomocí '%1'"
 
 #: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:122
-#, kde-format
-msgid "Open &With..."
+#, fuzzy, kde-format
+#| msgid "Open &With..."
+msgid "Open &With…"
 msgstr "Otevřít &pomocí..."
 
 #: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:123
-#, kde-format
-msgid "Save &As..."
+#, fuzzy, kde-format
+#| msgid "Save &As..."
+msgid "Save &As…"
 msgstr "Uložit j&ako..."
 
 #: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:160
@@ -8584,13 +8690,15 @@ msgid "(Jump to first Unread)"
 msgstr ""
 
 #: widgets/room/roomheaderlabel.cpp:69
-#, kde-format
-msgid "(Show More Info...)"
-msgstr ""
+#, fuzzy, kde-format
+#| msgid "(Show Less Info...)"
+msgid "(Show More Info…"
+msgstr "(Zobrazit méně informací...)"
 
 #: widgets/room/roomheaderlabel.cpp:101
-#, kde-format
-msgid "(Show Less Info...)"
+#, fuzzy, kde-format
+#| msgid "(Show Less Info...)"
+msgid "(Show Less Info…"
 msgstr "(Zobrazit méně informací...)"
 
 #: widgets/room/roomheaderwidget.cpp:63
@@ -8620,9 +8728,11 @@ msgid "Show List of Users"
 msgstr "Zobrazit seznam uživatelů"
 
 #: widgets/room/roomheaderwidget.cpp:154 widgets/room/roomheaderwidget.cpp:156
-#, kde-format
-msgid "Search Messages..."
-msgstr "Hledat zprávy..."
+#, fuzzy, kde-format
+#| msgctxt "@title:window"
+#| msgid "Search Messages"
+msgid "Search Messages…"
+msgstr "Hledat zprávy"
 
 #: widgets/room/roomheaderwidget.cpp:227
 #, kde-format
@@ -8693,6 +8803,12 @@ msgstr "Uživatelé"
 #, kde-format
 msgid "(Open External Dialog...)"
 msgstr ""
+
+#: widgets/room/usersinroomflowwidget.cpp:129
+#: widgets/room/usersinroomwidget.cpp:146
+#, kde-format
+msgid "(Click here for Loading more...)"
+msgstr "(Kliknutím zde načtete další)"
 
 #: widgets/room/usersinroommenu.cpp:39
 #, kde-format
@@ -8789,10 +8905,9 @@ msgid "Ignore"
 msgstr "Ignorovat"
 
 #: widgets/room/usersinroommenu.cpp:175
-#, fuzzy, kde-format
-#| msgid "Reports"
+#, kde-format
 msgid "Report User"
-msgstr "Hlášení"
+msgstr ""
 
 #: widgets/room/usersinroomwidget.cpp:144
 #, kde-format
@@ -8828,14 +8943,17 @@ msgid "Show New Notifications"
 msgstr ""
 
 #: widgets/ruqolamainwindow.cpp:396
-#, kde-format
-msgid "Add Server..."
-msgstr "Přidat server..."
+#, fuzzy, kde-format
+#| msgctxt "@title:window"
+#| msgid "Add Server"
+msgid "Add Server…"
+msgstr "Přidat server"
 
 #: widgets/ruqolamainwindow.cpp:401
-#, kde-format
-msgid "Server Info..."
-msgstr "Informace o serveru..."
+#, fuzzy, kde-format
+#| msgid "Server Info"
+msgid "Server Info…"
+msgstr "Informace o serveru"
 
 #: widgets/ruqolamainwindow.cpp:405
 #, kde-format
@@ -8848,24 +8966,30 @@ msgid "Jump to Next Unread Channel"
 msgstr ""
 
 #: widgets/ruqolamainwindow.cpp:414
-#, kde-format
-msgid "Create New Channel..."
-msgstr "Vytvořit nový kanál..."
+#, fuzzy, kde-format
+#| msgid "Create a New Channel"
+msgid "Create New Channel…"
+msgstr "Vytvořit nový kanál"
 
 #: widgets/ruqolamainwindow.cpp:418
-#, kde-format
-msgid "Create Direct Messages..."
-msgstr ""
+#, fuzzy, kde-format
+#| msgctxt "@title:window"
+#| msgid "Create Video Message"
+msgid "Create Direct Messages…"
+msgstr "Vytvořit video zprávu"
 
 #: widgets/ruqolamainwindow.cpp:422
-#, kde-format
-msgid "Create Discussion..."
+#, fuzzy, kde-format
+#| msgid "Create Discussion..."
+msgid "Create Discussion…"
 msgstr "Vytvořit diskuzi..."
 
 #: widgets/ruqolamainwindow.cpp:426
-#, kde-format
-msgid "Create Team..."
-msgstr "Vytvořit tým..."
+#, fuzzy, kde-format
+#| msgctxt "@title:window"
+#| msgid "Create Team"
+msgid "Create Team…"
+msgstr "Vytvořit tým"
 
 #: widgets/ruqolamainwindow.cpp:434
 #, kde-format
@@ -8898,29 +9022,35 @@ msgid "Mark All Channels as Read"
 msgstr ""
 
 #: widgets/ruqolamainwindow.cpp:482
-#, kde-format
-msgid "Register a New User..."
-msgstr "Registrovat nového uživatele..."
+#, fuzzy, kde-format
+#| msgid "Register New User"
+msgid "Register a New User…"
+msgstr "Registrovat nového uživatele"
 
 #: widgets/ruqolamainwindow.cpp:486
-#, kde-format
-msgid "My Account..."
+#, fuzzy, kde-format
+#| msgid "My Account..."
+msgid "My Account…"
 msgstr "Můj účet..."
 
 #: widgets/ruqolamainwindow.cpp:491
-#, kde-format
-msgid "Administrator..."
-msgstr "Administrátor..."
+#, fuzzy, kde-format
+#| msgid "Administrator"
+msgid "Administrator…"
+msgstr "Administrátor"
 
 #: widgets/ruqolamainwindow.cpp:497
-#, kde-format
-msgid "Server Settings..."
+#, fuzzy, kde-format
+#| msgid "Server Settings..."
+msgid "Server Settings…"
 msgstr "Nastavení serveru..."
 
 #: widgets/ruqolamainwindow.cpp:502
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "Action which allows to search room/user/team"
+#| msgid "Directory..."
 msgctxt "Action which allows to search room/user/team"
-msgid "Directory..."
+msgid "Directory…"
 msgstr "Adresář..."
 
 #: widgets/ruqolamainwindow.cpp:523
@@ -9105,9 +9235,10 @@ msgstr "Kanály týmu"
 
 #: widgets/teams/teamchannelswidget.cpp:61
 #: widgets/teams/teamselectdeletedroomwidget.cpp:32
-#, kde-format
-msgid "Search room..."
-msgstr "Hledat místnost..."
+#, fuzzy, kde-format
+#| msgid "Search rooms"
+msgid "Search room…"
+msgstr "Hledat místnosti"
 
 #: widgets/teams/teamchannelswidget.cpp:115
 #, kde-format
@@ -9386,10 +9517,8 @@ msgid "Add Plasma Activities Support"
 msgstr ""
 
 #: widgets/whatsnew/whatsnewwidgettranslation.h:75
-#, fuzzy
-#| msgid "Reports"
 msgid "Add Report User Support"
-msgstr "Hlášení"
+msgstr ""
 
 #: widgets/whatsnew/whatsnewwidgettranslation.h:80
 msgid "Fix dark mode support."
@@ -9418,3 +9547,63 @@ msgstr ""
 #: widgets/whatsnew/whatsnewwidgettranslation.h:86
 msgid "Allow to send multi files."
 msgstr ""
+
+#~ msgid "Modify Status..."
+#~ msgstr "Upravit stav..."
+
+#~ msgid "Reply..."
+#~ msgstr "Odpovědět..."
+
+#~ msgid "Invite..."
+#~ msgstr "Pozvat..."
+
+#~ msgid "Configure Notification..."
+#~ msgstr "Nastavit upozornění..."
+
+#~ msgid "Invite users..."
+#~ msgstr "Pozvat uživatele..."
+
+#~ msgid "Search messages..."
+#~ msgstr "Hledat zprávy..."
+
+#~ msgid "Search channels..."
+#~ msgstr "Vyhledat v kanálech..."
+
+#~ msgid "Open..."
+#~ msgstr "Otevřít..."
+
+#~ msgid "Search rooms..."
+#~ msgstr "Hledat místnosti..."
+
+#~ msgid "Download Image..."
+#~ msgstr "Stáhnout obrázek..."
+
+#~ msgid "Configure Auto-Translate..."
+#~ msgstr "Nastavení automatického překladu..."
+
+#~ msgid "Export Messages..."
+#~ msgstr "Exportovat zprávy..."
+
+#~ msgid "Search Messages..."
+#~ msgstr "Hledat zprávy..."
+
+#~ msgid "Add Server..."
+#~ msgstr "Přidat server..."
+
+#~ msgid "Server Info..."
+#~ msgstr "Informace o serveru..."
+
+#~ msgid "Create New Channel..."
+#~ msgstr "Vytvořit nový kanál..."
+
+#~ msgid "Create Team..."
+#~ msgstr "Vytvořit tým..."
+
+#~ msgid "Register a New User..."
+#~ msgstr "Registrovat nového uživatele..."
+
+#~ msgid "Administrator..."
+#~ msgstr "Administrátor..."
+
+#~ msgid "Search room..."
+#~ msgstr "Hledat místnost..."

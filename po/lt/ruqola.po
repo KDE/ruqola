@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-05-07 00:38+0000\n"
+"POT-Creation-Date: 2024-05-08 00:38+0000\n"
 "PO-Revision-Date: 2024-02-03 02:20+0200\n"
 "Last-Translator: Moo\n"
 "Language-Team: none\n"
@@ -298,6 +298,80 @@ msgstr ""
 #, kde-format
 msgid "Unarchive"
 msgstr "Išarchyvuoti"
+
+#: core/customsound/customsoundsmanager.cpp:27
+#: core/customsound/customsoundsmanager.cpp:82
+#: core/model/notificationdesktopsoundpreferencemodel.cpp:97
+#, kde-format
+msgid "Chime"
+msgstr ""
+
+#: core/customsound/customsoundsmanager.cpp:34
+#: core/customsound/customsoundsmanager.cpp:89
+#: core/model/notificationdesktopsoundpreferencemodel.cpp:103
+#, kde-format
+msgid "Door"
+msgstr ""
+
+#: core/customsound/customsoundsmanager.cpp:41
+#: core/model/notificationdesktopsoundpreferencemodel.cpp:60
+#, kde-format
+msgid "Beep"
+msgstr ""
+
+#: core/customsound/customsoundsmanager.cpp:48
+#: core/model/notificationdesktopsoundpreferencemodel.cpp:66
+#, kde-format
+msgid "Chelle"
+msgstr ""
+
+#: core/customsound/customsoundsmanager.cpp:55
+#: core/model/notificationdesktopsoundpreferencemodel.cpp:72
+#, kde-format
+msgid "Ding"
+msgstr ""
+
+#: core/customsound/customsoundsmanager.cpp:69
+#: core/model/notificationdesktopsoundpreferencemodel.cpp:84
+#, kde-format
+msgid "Highbell"
+msgstr ""
+
+#: core/customsound/customsoundsmanager.cpp:76
+#: core/model/notificationdesktopsoundpreferencemodel.cpp:90
+#, kde-format
+msgid "Seasons"
+msgstr ""
+
+#: core/customsound/customsoundsmanager.cpp:96
+#: core/model/notificationdesktopsoundpreferencemodel.cpp:109
+#, kde-format
+msgid "Telephone"
+msgstr ""
+
+#: core/customsound/customsoundsmanager.cpp:103
+#: core/model/notificationdesktopsoundpreferencemodel.cpp:115
+#, kde-format
+msgid "Outbound Call Ringing"
+msgstr ""
+
+#: core/customsound/customsoundsmanager.cpp:110
+#: core/model/notificationdesktopsoundpreferencemodel.cpp:121
+#, kde-format
+msgid "Call Ended"
+msgstr ""
+
+#: core/customsound/customsoundsmanager.cpp:117
+#: core/model/notificationdesktopsoundpreferencemodel.cpp:127
+#, kde-format
+msgid "Dialtone"
+msgstr ""
+
+#: core/customsound/customsoundsmanager.cpp:124
+#: core/model/notificationdesktopsoundpreferencemodel.cpp:133
+#, kde-format
+msgid "Ringtone"
+msgstr ""
 
 #: core/discussions/discussion.cpp:86
 #, kde-format
@@ -737,7 +811,7 @@ msgstr "Naudotojo vardas"
 
 #: core/model/adminusersmodel.cpp:112
 #: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:125
-#: widgets/dialogs/configurenotificationwidget.cpp:102
+#: widgets/dialogs/configurenotificationwidget.cpp:110
 #, kde-format
 msgid "Email"
 msgstr ""
@@ -980,34 +1054,9 @@ msgstr[3] ""
 msgid "Nothing"
 msgstr ""
 
-#: core/model/notificationdesktopsoundpreferencemodel.cpp:60
-#, kde-format
-msgid "Beep"
-msgstr ""
-
-#: core/model/notificationdesktopsoundpreferencemodel.cpp:66
-#, kde-format
-msgid "Chelle"
-msgstr ""
-
-#: core/model/notificationdesktopsoundpreferencemodel.cpp:72
-#, kde-format
-msgid "Ding"
-msgstr ""
-
 #: core/model/notificationdesktopsoundpreferencemodel.cpp:78
 #, kde-format
 msgid "Droplet"
-msgstr ""
-
-#: core/model/notificationdesktopsoundpreferencemodel.cpp:84
-#, kde-format
-msgid "Highbell"
-msgstr ""
-
-#: core/model/notificationdesktopsoundpreferencemodel.cpp:90
-#, kde-format
-msgid "Seasons"
 msgstr ""
 
 #: core/model/notificationpreferencemodel.cpp:51
@@ -1183,7 +1232,7 @@ msgstr ""
 
 #: core/model/statusmodel.cpp:69
 #, kde-format
-msgid "Modify Status..."
+msgid "Modify Status…"
 msgstr ""
 
 #: core/model/systemmessagesmodel.cpp:31
@@ -1397,7 +1446,7 @@ msgstr ""
 
 #: core/notifications/notifierjob.cpp:42
 #, kde-format
-msgid "Reply..."
+msgid "Reply…"
 msgstr ""
 
 #: core/otr/otrnotificationjob.cpp:45 core/otr/otrnotificationjob.cpp:55
@@ -1443,13 +1492,13 @@ msgstr "<strong>%1</strong> rašo..."
 msgid "<strong>%1</strong> are typing..."
 msgstr "<strong>%1</strong> rašo..."
 
-#: core/rocketchataccount.cpp:2905
+#: core/rocketchataccount.cpp:2907
 #, fuzzy, kde-format
 #| msgid "Encrypted Message"
 msgid "Export Messages"
 msgstr "Šifruota žinutė"
 
-#: core/rocketchataccount.cpp:2906
+#: core/rocketchataccount.cpp:2908
 #, kde-format
 msgid "Your email has been queued for sending."
 msgstr ""
@@ -2560,7 +2609,7 @@ msgstr ""
 #: widgets/dialogs/createnewchannelwidget.cpp:33
 #: widgets/dialogs/directchannelinfowidget.cpp:88
 #: widgets/myaccount/myaccountpersonalaccesscreatewidget.cpp:28
-#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:50
+#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:53
 #, kde-format
 msgid "Name:"
 msgstr "Pavadinimas:"
@@ -2610,7 +2659,6 @@ msgctxt "@title"
 msgid "Remove Emoji"
 msgstr "Šalinti iš kambario"
 
-#. i18n: ectx: property (text), widget (QPushButton, addServer)
 #: widgets/administratordialog/customemoji/administratorcustomemojiwidget.cpp:178
 #: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:141
 #: widgets/administratordialog/customuserstatus/customuserstatustreewidget.cpp:127
@@ -2618,13 +2666,11 @@ msgstr "Šalinti iš kambario"
 #: widgets/administratordialog/roles/administratorroleswidget.cpp:101
 #: widgets/administratordialog/roles/usersinrolewidget.cpp:106
 #: widgets/administratordialog/users/administratoruserswidget.cpp:239
-#: widgets/configuredialog/configureaccountserverwidget.ui:31
 #: widgets/myaccount/myaccountpersonalaccesstokentreeview.cpp:35
 #, kde-format
-msgid "Add..."
+msgid "Add…"
 msgstr ""
 
-#. i18n: ectx: property (text), widget (QPushButton, modifyServer)
 #: widgets/administratordialog/customemoji/administratorcustomemojiwidget.cpp:181
 #: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:143
 #: widgets/administratordialog/customuserstatus/customuserstatustreewidget.cpp:130
@@ -2633,9 +2679,8 @@ msgstr ""
 #: widgets/administratordialog/roles/administratorroleswidget.cpp:105
 #: widgets/administratordialog/rooms/administratorroomswidget.cpp:63
 #: widgets/administratordialog/users/administratoruserswidget.cpp:246
-#: widgets/configuredialog/configureaccountserverwidget.ui:38
 #, kde-format
-msgid "Modify..."
+msgid "Modify…"
 msgstr ""
 
 #. i18n: ectx: property (text), widget (QPushButton, removeServer)
@@ -2740,7 +2785,7 @@ msgstr "Tinkinta naudotojo būsena"
 #: widgets/administratordialog/invites/administratorinviteswidget.cpp:39
 #, fuzzy, kde-format
 #| msgid "Search User..."
-msgid "Search invite..."
+msgid "Search invite…"
 msgstr "Ieškoti naudotojo..."
 
 #: widgets/administratordialog/invites/invitetreeview.cpp:51
@@ -2854,8 +2899,9 @@ msgstr "Rodyti diskusijas..."
 #: widgets/dialogs/showlistmessagebasewidget.cpp:97
 #: widgets/discussions/showdiscussionswidget.cpp:88
 #: widgets/room/usersinroomwidget.cpp:135
-#, kde-format
-msgid "Loading..."
+#, fuzzy, kde-format
+#| msgid "Loading..."
+msgid "Loading…"
 msgstr "Įkeliama..."
 
 #: widgets/administratordialog/moderationconsole/moderationmessageswidget.cpp:57
@@ -2880,7 +2926,7 @@ msgstr[3] ""
 #: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:37
 #, fuzzy, kde-format
 #| msgid "Search Messages..."
-msgid "Search moderation message..."
+msgid "Search moderation message…"
 msgstr "Ieškoti žinučių..."
 
 #: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:61
@@ -3024,7 +3070,7 @@ msgstr ""
 #: widgets/servererrorinfohistory/servererrorinfomessagehistorywidget.cpp:43
 #, fuzzy, kde-format
 #| msgid "Search User..."
-msgid "Search..."
+msgid "Search…"
 msgstr "Ieškoti naudotojo..."
 
 #: widgets/administratordialog/oauth/administratoroauthcreatedialog.cpp:25
@@ -3071,7 +3117,7 @@ msgstr ""
 #: widgets/administratordialog/oauth/administratoroauthwidget.cpp:37
 #, fuzzy, kde-format
 #| msgid "Search Messages..."
-msgid "Search Oauth apps..."
+msgid "Search Oauth apps…"
 msgstr "Ieškoti žinučių..."
 
 #: widgets/administratordialog/oauth/oauthtreeview.cpp:67
@@ -3106,19 +3152,19 @@ msgstr ""
 #: widgets/explorepermissionsdialog/explorepermissionswidget.cpp:38
 #, fuzzy, kde-format
 #| msgid "Search Messages..."
-msgid "Search permissions..."
+msgid "Search permissions…"
 msgstr "Ieškoti žinučių..."
 
 #: widgets/administratordialog/roles/administratorroleswidget.cpp:46
 #, fuzzy, kde-format
 #| msgid "Search Messages..."
-msgid "Search roles..."
+msgid "Search roles…"
 msgstr "Ieškoti žinučių..."
 
 #: widgets/administratordialog/roles/administratorroleswidget.cpp:112
 #, fuzzy, kde-format
 #| msgid "Server Info..."
-msgid "Add Users In Role..."
+msgid "Add Users In Role…"
 msgstr "Informacija apie serverį..."
 
 #: widgets/administratordialog/roles/administratorroleswidget.cpp:229
@@ -3191,7 +3237,7 @@ msgstr "Informacija apie serverį..."
 #: widgets/room/usersinroomwidget.cpp:40
 #, fuzzy, kde-format
 #| msgid "Search Messages..."
-msgid "Search users..."
+msgid "Search users…"
 msgstr "Ieškoti žinučių..."
 
 #: widgets/administratordialog/roles/usersinrolewidget.cpp:52
@@ -3593,7 +3639,7 @@ msgstr ""
 #: widgets/administratordialog/users/administratoradduserwidget.cpp:60
 #: widgets/dialogs/directchannelinfowidget.cpp:95
 #: widgets/dialogs/serverinfo/serverinfowidget.cpp:39
-#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:55
+#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:58
 #: widgets/registeruser/registeruserwidget.cpp:29
 #, kde-format
 msgid "Username:"
@@ -3609,7 +3655,7 @@ msgstr "1 žinutė"
 #: widgets/administratordialog/users/administratoradduserwidget.cpp:62
 #: widgets/dialogs/directchannelinfowidget.cpp:166
 #: widgets/dialogs/resetpasswordwidget.cpp:23
-#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:59
+#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:62
 #: widgets/registeruser/registeruserwidget.cpp:33
 #, kde-format
 msgid "Email:"
@@ -3630,7 +3676,7 @@ msgid "Bio:"
 msgstr ""
 
 #: widgets/administratordialog/users/administratoradduserwidget.cpp:66
-#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:66
+#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:69
 #, fuzzy, kde-format
 #| msgid "Name:"
 msgid "Nickname:"
@@ -3663,7 +3709,7 @@ msgstr "Ar norite nepaisyti šio naudotojo?"
 #: widgets/administratordialog/users/administratoruserswidget.cpp:233
 #, fuzzy, kde-format
 #| msgid "Search User..."
-msgid "Invite..."
+msgid "Invite…"
 msgstr "Ieškoti naudotojo..."
 
 #: widgets/administratordialog/users/administratoruserswidget.cpp:255
@@ -4101,7 +4147,7 @@ msgid "Logs"
 msgstr ""
 
 #: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:126
-#: widgets/dialogs/configurenotificationwidget.cpp:86
+#: widgets/dialogs/configurenotificationwidget.cpp:92
 #, kde-format
 msgid "Mobile"
 msgstr ""
@@ -6316,9 +6362,10 @@ msgstr "Šalinti iš kambario"
 
 #: widgets/channellist/channellistview.cpp:195
 #: widgets/room/channelactionpopupmenu.cpp:75
-#, kde-format
-msgid "Configure Notification..."
-msgstr ""
+#, fuzzy, kde-format
+#| msgid "Configure Accounts"
+msgid "Configure Notification…"
+msgstr "Konfigūruoti paskyras"
 
 #: widgets/channellist/channellistview.cpp:202
 #, kde-format
@@ -6498,6 +6545,18 @@ msgstr ""
 #, kde-format
 msgctxt "Move selected account down."
 msgid "Down"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QPushButton, addServer)
+#: widgets/configuredialog/configureaccountserverwidget.ui:31
+#, kde-format
+msgid "Add..."
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QPushButton, modifyServer)
+#: widgets/configuredialog/configureaccountserverwidget.ui:38
+#, kde-format
+msgid "Modify..."
 msgstr ""
 
 #. i18n: ectx: property (text), widget (QCheckBox, configureCurrentActivity)
@@ -6972,30 +7031,30 @@ msgstr ""
 msgid "Show badge for mentions"
 msgstr "Rocket.Chat prisijungimas"
 
-#: widgets/dialogs/configurenotificationwidget.cpp:36
+#: widgets/dialogs/configurenotificationwidget.cpp:37
 #, kde-format
 msgid "Receive alerts"
 msgstr ""
 
-#: widgets/dialogs/configurenotificationwidget.cpp:55
+#: widgets/dialogs/configurenotificationwidget.cpp:56
 #, fuzzy, kde-format
 #| msgid "Rocket.Chat Login"
 msgid "Display badge for direct mentions only"
 msgstr "Rocket.Chat prisijungimas"
 
-#: widgets/dialogs/configurenotificationwidget.cpp:61
+#: widgets/dialogs/configurenotificationwidget.cpp:62
 #, kde-format
 msgid "Desktop"
 msgstr ""
 
-#: widgets/dialogs/configurenotificationwidget.cpp:69
-#: widgets/dialogs/configurenotificationwidget.cpp:94
-#: widgets/dialogs/configurenotificationwidget.cpp:110
+#: widgets/dialogs/configurenotificationwidget.cpp:70
+#: widgets/dialogs/configurenotificationwidget.cpp:100
+#: widgets/dialogs/configurenotificationwidget.cpp:118
 #, kde-format
 msgid "Alert:"
 msgstr ""
 
-#: widgets/dialogs/configurenotificationwidget.cpp:78
+#: widgets/dialogs/configurenotificationwidget.cpp:81
 #, kde-format
 msgid "Sound:"
 msgstr ""
@@ -7035,7 +7094,7 @@ msgstr ""
 #: widgets/prunemessages/prunemessageswidget.cpp:66
 #, fuzzy, kde-format
 #| msgid "Search User..."
-msgid "Select users..."
+msgid "Select users…"
 msgstr "Ieškoti naudotojo..."
 
 #: widgets/dialogs/createnewchanneldialog.cpp:26
@@ -7053,7 +7112,7 @@ msgstr ""
 #: widgets/dialogs/createnewdiscussionwidget.cpp:51
 #, fuzzy, kde-format
 #| msgid "Search Messages..."
-msgid "Invite users..."
+msgid "Invite users…"
 msgstr "Ieškoti žinučių..."
 
 #: widgets/dialogs/createnewchannelwidget.cpp:41
@@ -7349,7 +7408,7 @@ msgstr "Slaptažodis"
 #: widgets/myaccount/myaccountprofileconfigureavatarwidget.cpp:100
 #, fuzzy, kde-format
 #| msgid "Change Text"
-msgid "Change Picture..."
+msgid "Change Picture…"
 msgstr "Keisti tekstą"
 
 #: widgets/dialogs/roomavatarwidget.cpp:33
@@ -7465,7 +7524,7 @@ msgstr "Rodyti priedus"
 #: widgets/dialogs/showattachmentwidget.cpp:37
 #, fuzzy, kde-format
 #| msgid "Search Attachments..."
-msgid "Search attachments..."
+msgid "Search attachments…"
 msgstr "Ieškoti priedų..."
 
 #: widgets/dialogs/showattachmentwidget.cpp:93
@@ -7483,13 +7542,8 @@ msgstr[2] ""
 msgstr[3] ""
 
 #: widgets/dialogs/showattachmentwidget.cpp:100
-#: widgets/dialogs/showlistmessagebasewidget.cpp:107
-#: widgets/discussions/showdiscussionswidget.cpp:99
-#: widgets/misc/searchtreebasewidget.cpp:72
-#: widgets/room/usersinroomflowwidget.cpp:129
-#: widgets/room/usersinroomwidget.cpp:146
 #, kde-format
-msgid "(Click here for Loading more...)"
+msgid "(Click here for Loading more…)"
 msgstr ""
 
 #: widgets/dialogs/showimagedialog.cpp:29
@@ -7533,7 +7587,7 @@ msgstr "Įrašyti paveikslą"
 #: widgets/dialogs/showlistmessagebasewidget.cpp:39
 #, fuzzy, kde-format
 #| msgid "Search Messages..."
-msgid "Search messages..."
+msgid "Search messages…"
 msgstr "Ieškoti žinučių..."
 
 #: widgets/dialogs/showlistmessagebasewidget.cpp:105
@@ -7544,6 +7598,13 @@ msgstr[0] ""
 msgstr[1] ""
 msgstr[2] ""
 msgstr[3] ""
+
+#: widgets/dialogs/showlistmessagebasewidget.cpp:107
+#: widgets/discussions/showdiscussionswidget.cpp:99
+#: widgets/misc/searchtreebasewidget.cpp:72
+#, kde-format
+msgid "(Click here for Loading more…"
+msgstr ""
 
 #: widgets/dialogs/showmentionsmessagesdialog.cpp:22
 #, fuzzy, kde-format
@@ -7619,19 +7680,19 @@ msgstr "Naudotojo nėra šiame kambaryje"
 #: widgets/directory/directorywidget.cpp:34
 #, fuzzy, kde-format
 #| msgid "Search User..."
-msgid "Search channels..."
+msgid "Search channels…"
 msgstr "Ieškoti naudotojo..."
 
 #: widgets/directory/directorywidget.cpp:44
 #: widgets/directory/directorywidget.cpp:209
 #, fuzzy, kde-format
 #| msgid "Search Messages..."
-msgid "Search teams..."
+msgid "Search teams…"
 msgstr "Ieškoti žinučių..."
 
 #: widgets/directory/directorywidget.cpp:70
 #, kde-format
-msgid "Open..."
+msgid "Open…"
 msgstr ""
 
 #: widgets/directory/directorywidget.cpp:166
@@ -7666,7 +7727,7 @@ msgstr[3] ""
 #: widgets/teams/addteamroomcompletionlineedit.cpp:32
 #, fuzzy, kde-format
 #| msgid "Search Messages..."
-msgid "Search rooms..."
+msgid "Search rooms…"
 msgstr "Ieškoti žinučių..."
 
 #: widgets/discussions/discussion/listdiscussiondelegate.cpp:78
@@ -7695,7 +7756,7 @@ msgstr "Rodyti diskusijas..."
 #: widgets/discussions/showdiscussionswidget.cpp:39
 #, fuzzy, kde-format
 #| msgid "Search Messages..."
-msgid "Search discussion..."
+msgid "Search discussion…"
 msgstr "Ieškoti žinučių..."
 
 #: widgets/discussions/showdiscussionswidget.cpp:90
@@ -8096,9 +8157,10 @@ msgid "Download Image"
 msgstr ""
 
 #: widgets/misc/messageattachmentdownloadandsavejob.cpp:78
-#, kde-format
-msgid "Download Image..."
-msgstr ""
+#, fuzzy, kde-format
+#| msgid "Save Image"
+msgid "Download Image…"
+msgstr "Įrašyti paveikslą"
 
 #: widgets/misc/messageattachmentdownloadandsavejob.cpp:81
 #, kde-format
@@ -8107,9 +8169,11 @@ msgid "Download Video"
 msgstr ""
 
 #: widgets/misc/messageattachmentdownloadandsavejob.cpp:82
-#, kde-format
-msgid "Download Video..."
-msgstr ""
+#, fuzzy, kde-format
+#| msgctxt "@title:window"
+#| msgid "Play Sound"
+msgid "Download Video…"
+msgstr "Atkurti garsą"
 
 #: widgets/misc/messageattachmentdownloadandsavejob.cpp:85
 #, fuzzy, kde-format
@@ -8120,9 +8184,11 @@ msgid "Download Sound"
 msgstr "Atkurti garsą"
 
 #: widgets/misc/messageattachmentdownloadandsavejob.cpp:86
-#, kde-format
-msgid "Download Sound..."
-msgstr ""
+#, fuzzy, kde-format
+#| msgctxt "@title:window"
+#| msgid "Play Sound"
+msgid "Download Sound…"
+msgstr "Atkurti garsą"
 
 #: widgets/misc/messagestylelayoutmenu.cpp:16
 #, fuzzy, kde-format
@@ -8162,9 +8228,10 @@ msgid "Reset Password"
 msgstr "Slaptažodis"
 
 #: widgets/misc/searchwithdelaylineedit.cpp:16
-#, kde-format
-msgid "Search Word..."
-msgstr ""
+#, fuzzy, kde-format
+#| msgid "Search Messages..."
+msgid "Search Word…"
+msgstr "Ieškoti žinučių..."
 
 #: widgets/misc/servermenu.cpp:20
 #, fuzzy, kde-format
@@ -8176,7 +8243,7 @@ msgstr "Informacija apie serverį"
 #: widgets/misc/serverscombobox.cpp:20
 #, fuzzy, kde-format
 #| msgid "Add Account..."
-msgid "Filter Account..."
+msgid "Filter Account…"
 msgstr "Pridėti paskyrą..."
 
 #: widgets/misc/twoauthenticationpasswordwidget.cpp:25
@@ -8319,7 +8386,7 @@ msgstr "Ieškoti naudotojo..."
 #: widgets/myaccount/myaccountmanagedeviceconfigurewidget.cpp:29
 #, fuzzy, kde-format
 #| msgid "Search User..."
-msgid "Search device..."
+msgid "Search device…"
 msgstr "Ieškoti naudotojo..."
 
 #: widgets/myaccount/myaccountmanagedeviceconfigurewidget.cpp:42
@@ -8359,7 +8426,7 @@ msgstr "Tapatybės nustatymo metodas"
 #: widgets/myaccount/myaccountpersonalaccesstokenconfigurewidget.cpp:47
 #, fuzzy, kde-format
 #| msgid "Search Messages..."
-msgid "Search Personal Access Token..."
+msgid "Search Personal Access Token…"
 msgstr "Ieškoti žinučių..."
 
 #: widgets/myaccount/myaccountpersonalaccesstokenconfigurewidget.cpp:125
@@ -8395,7 +8462,7 @@ msgstr ""
 
 #: widgets/myaccount/myaccountpersonalaccesstokentreeview.cpp:37
 #, kde-format
-msgid "Regenerate..."
+msgid "Regenerate…"
 msgstr ""
 
 #: widgets/myaccount/myaccountpersonalaccesstokentreeview.cpp:54
@@ -8553,46 +8620,46 @@ msgstr "Slaptažodis"
 
 #: widgets/myaccount/myaccountprofileconfigureavatarwidget.cpp:101
 #, kde-format
-msgid "Change URL for avatar..."
+msgid "Change URL for avatar…"
 msgstr ""
 
-#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:26
+#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:29
 #, kde-format
 msgid "Your administrator has disabled the changing of email."
 msgstr ""
 
-#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:31
+#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:34
 #, fuzzy, kde-format
 #| msgid "Delete Account"
 msgid "Delete my Account"
 msgstr "Ištrinti paskyrą"
 
-#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:32
+#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:35
 #, kde-format
 msgid "Logout From Other Logged In Locations"
 msgstr ""
 
-#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:71
+#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:74
 #, fuzzy, kde-format
 #| msgid "Status Text:"
 msgid "Status text:"
 msgstr "Būsenos tekstas:"
 
-#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:98
+#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:108
 #, fuzzy, kde-format
 #| msgid "Do you want to delete '%1' account?"
 msgid "Do you really delete your account ?"
 msgstr "Ar norite ištrinti paskyrą \"%1\"?"
 
-#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:99
+#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:109
 #, fuzzy, kde-format
 #| msgid "Delete Account"
 msgctxt "@title"
 msgid "Delete my Account"
 msgstr "Ištrinti paskyrą"
 
-#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:105
-#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:169
+#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:115
+#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:179
 #, fuzzy, kde-format
 #| msgid "Password"
 msgid "Current Password"
@@ -8716,49 +8783,57 @@ msgstr "Naudotojų sąrašas"
 #: widgets/room/channelactionpopupmenu.cpp:29
 #, fuzzy, kde-format
 #| msgid "Encrypted Message"
-msgid "Prune Messages..."
+msgid "Prune Messages…"
 msgstr "Šifruota žinutė"
 
 #: widgets/room/channelactionpopupmenu.cpp:37
-#, kde-format
-msgid "Show Mentions..."
-msgstr ""
+#, fuzzy, kde-format
+#| msgid "Rocket.Chat Login"
+msgid "Show Mentions…"
+msgstr "Rocket.Chat prisijungimas"
 
 #: widgets/room/channelactionpopupmenu.cpp:43
-#, kde-format
-msgid "Show Pinned Messages..."
-msgstr ""
+#, fuzzy, kde-format
+#| msgid "Encrypted Message"
+msgid "Show Pinned Messages…"
+msgstr "Šifruota žinutė"
 
 #: widgets/room/channelactionpopupmenu.cpp:49
-#, kde-format
-msgid "Show Starred Messages..."
-msgstr ""
+#, fuzzy, kde-format
+#| msgid "Search Messages..."
+msgid "Show Starred Messages…"
+msgstr "Ieškoti žinučių..."
 
 #: widgets/room/channelactionpopupmenu.cpp:55
 #, fuzzy, kde-format
 #| msgid "Delete Attachment"
-msgid "Show File Attachments..."
+msgid "Show File Attachments…"
 msgstr "Ištrinti priedą"
 
 #: widgets/room/channelactionpopupmenu.cpp:61
-#, kde-format
-msgid "Show Discussions..."
+#, fuzzy, kde-format
+#| msgid "Show Discussions..."
+msgid "Show Discussions…"
 msgstr "Rodyti diskusijas..."
 
 #: widgets/room/channelactionpopupmenu.cpp:67
-#, kde-format
-msgid "Show Threads..."
+#, fuzzy, kde-format
+#| msgid "Show Threads..."
+msgid "Show Threads…"
 msgstr "Rodyti gijas..."
 
 #: widgets/room/channelactionpopupmenu.cpp:82
-#, kde-format
-msgid "Configure Auto-Translate..."
-msgstr "Konfigūruoti automatinį vertimą..."
+#, fuzzy, kde-format
+#| msgctxt "@title:window"
+#| msgid "Configure Auto-Translate"
+msgid "Configure Auto-Translate…"
+msgstr "Konfigūruoti automatinį vertimą"
 
 #: widgets/room/channelactionpopupmenu.cpp:97
-#, kde-format
-msgid "Add Users in Channel..."
-msgstr ""
+#, fuzzy, kde-format
+#| msgid "Server Info..."
+msgid "Add Users in Channel…"
+msgstr "Informacija apie serverį..."
 
 #: widgets/room/channelactionpopupmenu.cpp:105
 #, kde-format
@@ -8768,7 +8843,7 @@ msgstr ""
 #: widgets/room/channelactionpopupmenu.cpp:112
 #, fuzzy, kde-format
 #| msgid "Encrypted Message"
-msgid "Export Messages..."
+msgid "Export Messages…"
 msgstr "Šifruota žinutė"
 
 #: widgets/room/channelactionpopupmenu.cpp:126
@@ -8797,12 +8872,12 @@ msgstr ""
 
 #: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:122
 #, kde-format
-msgid "Open &With..."
+msgid "Open &With…"
 msgstr ""
 
 #: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:123
 #, kde-format
-msgid "Save &As..."
+msgid "Save &As…"
 msgstr ""
 
 #: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:160
@@ -9138,13 +9213,13 @@ msgstr ""
 #: widgets/room/roomheaderlabel.cpp:69
 #, fuzzy, kde-format
 #| msgid "Server Info..."
-msgid "(Show More Info...)"
+msgid "(Show More Info…"
 msgstr "Informacija apie serverį..."
 
 #: widgets/room/roomheaderlabel.cpp:101
 #, fuzzy, kde-format
 #| msgid "Server Info..."
-msgid "(Show Less Info...)"
+msgid "(Show Less Info…"
 msgstr "Informacija apie serverį..."
 
 #: widgets/room/roomheaderwidget.cpp:63
@@ -9176,8 +9251,9 @@ msgid "Show List of Users"
 msgstr "Rodyti naudotojų sąrašą"
 
 #: widgets/room/roomheaderwidget.cpp:154 widgets/room/roomheaderwidget.cpp:156
-#, kde-format
-msgid "Search Messages..."
+#, fuzzy, kde-format
+#| msgid "Search Messages..."
+msgid "Search Messages…"
 msgstr "Ieškoti žinučių..."
 
 #: widgets/room/roomheaderwidget.cpp:227
@@ -9254,6 +9330,12 @@ msgstr "Naudotojai:"
 #: widgets/room/usersinroomflowwidget.cpp:123
 #, kde-format
 msgid "(Open External Dialog...)"
+msgstr ""
+
+#: widgets/room/usersinroomflowwidget.cpp:129
+#: widgets/room/usersinroomwidget.cpp:146
+#, kde-format
+msgid "(Click here for Loading more...)"
 msgstr ""
 
 #: widgets/room/usersinroommenu.cpp:39
@@ -9399,13 +9481,15 @@ msgstr ""
 #: widgets/ruqolamainwindow.cpp:396
 #, fuzzy, kde-format
 #| msgid "Server Info..."
-msgid "Add Server..."
+msgid "Add Server…"
 msgstr "Informacija apie serverį..."
 
 #: widgets/ruqolamainwindow.cpp:401
-#, kde-format
-msgid "Server Info..."
-msgstr "Informacija apie serverį..."
+#, fuzzy, kde-format
+#| msgctxt "@title:window"
+#| msgid "Server Info"
+msgid "Server Info…"
+msgstr "Informacija apie serverį"
 
 #: widgets/ruqolamainwindow.cpp:405
 #, fuzzy, kde-format
@@ -9419,26 +9503,27 @@ msgid "Jump to Next Unread Channel"
 msgstr ""
 
 #: widgets/ruqolamainwindow.cpp:414
-#, kde-format
-msgid "Create New Channel..."
-msgstr "Sukurti naują kanalą..."
+#, fuzzy, kde-format
+#| msgid "Create a New Channel"
+msgid "Create New Channel…"
+msgstr "Sukurti naują kanalą"
 
 #: widgets/ruqolamainwindow.cpp:418
 #, fuzzy, kde-format
 #| msgid "Delete Message"
-msgid "Create Direct Messages..."
+msgid "Create Direct Messages…"
 msgstr "Ištrinti žinutę"
 
 #: widgets/ruqolamainwindow.cpp:422
 #, fuzzy, kde-format
 #| msgid "Create Discussion"
-msgid "Create Discussion..."
+msgid "Create Discussion…"
 msgstr "Sukurti diskusiją"
 
 #: widgets/ruqolamainwindow.cpp:426
 #, fuzzy, kde-format
 #| msgid "Create New Channel..."
-msgid "Create Team..."
+msgid "Create Team…"
 msgstr "Sukurti naują kanalą..."
 
 #: widgets/ruqolamainwindow.cpp:434
@@ -9478,30 +9563,30 @@ msgstr "Žymėti visus kanalus kaip skaitytus"
 #: widgets/ruqolamainwindow.cpp:482
 #, fuzzy, kde-format
 #| msgid "List of Users"
-msgid "Register a New User..."
+msgid "Register a New User…"
 msgstr "Naudotojų sąrašas"
 
 #: widgets/ruqolamainwindow.cpp:486
 #, fuzzy, kde-format
 #| msgid "Add Account..."
-msgid "My Account..."
+msgid "My Account…"
 msgstr "Pridėti paskyrą..."
 
 #: widgets/ruqolamainwindow.cpp:491
 #, kde-format
-msgid "Administrator..."
+msgid "Administrator…"
 msgstr ""
 
 #: widgets/ruqolamainwindow.cpp:497
 #, fuzzy, kde-format
 #| msgid "Server Info..."
-msgid "Server Settings..."
+msgid "Server Settings…"
 msgstr "Informacija apie serverį..."
 
 #: widgets/ruqolamainwindow.cpp:502
 #, kde-format
 msgctxt "Action which allows to search room/user/team"
-msgid "Directory..."
+msgid "Directory…"
 msgstr ""
 
 #: widgets/ruqolamainwindow.cpp:523
@@ -9708,7 +9793,7 @@ msgstr "Išeiti iš kanalo"
 #: widgets/teams/teamselectdeletedroomwidget.cpp:32
 #, fuzzy, kde-format
 #| msgid "Search Messages..."
-msgid "Search room..."
+msgid "Search room…"
 msgstr "Ieškoti žinučių..."
 
 #: widgets/teams/teamchannelswidget.cpp:115
@@ -10062,6 +10147,78 @@ msgid "Allow to send multi files."
 msgstr ""
 
 #, fuzzy
+#~| msgid "Search User..."
+#~ msgid "Search..."
+#~ msgstr "Ieškoti naudotojo..."
+
+#, fuzzy
+#~| msgid "Server Info..."
+#~ msgid "Add Users In Role..."
+#~ msgstr "Informacija apie serverį..."
+
+#, fuzzy
+#~| msgid "Search Messages..."
+#~ msgid "Search users..."
+#~ msgstr "Ieškoti žinučių..."
+
+#, fuzzy
+#~| msgid "Search Messages..."
+#~ msgid "Search messages..."
+#~ msgstr "Ieškoti žinučių..."
+
+#, fuzzy
+#~| msgid "Search User..."
+#~ msgid "Search channels..."
+#~ msgstr "Ieškoti naudotojo..."
+
+#, fuzzy
+#~| msgid "Search Messages..."
+#~ msgid "Search teams..."
+#~ msgstr "Ieškoti žinučių..."
+
+#, fuzzy
+#~| msgid "Search Messages..."
+#~ msgid "Search rooms..."
+#~ msgstr "Ieškoti žinučių..."
+
+#, fuzzy
+#~| msgid "Encrypted Message"
+#~ msgid "Prune Messages..."
+#~ msgstr "Šifruota žinutė"
+
+#~ msgid "Configure Auto-Translate..."
+#~ msgstr "Konfigūruoti automatinį vertimą..."
+
+#, fuzzy
+#~| msgid "Encrypted Message"
+#~ msgid "Export Messages..."
+#~ msgstr "Šifruota žinutė"
+
+#~ msgid "Search Messages..."
+#~ msgstr "Ieškoti žinučių..."
+
+#~ msgid "Server Info..."
+#~ msgstr "Informacija apie serverį..."
+
+#~ msgid "Create New Channel..."
+#~ msgstr "Sukurti naują kanalą..."
+
+#, fuzzy
+#~| msgid "Create New Channel..."
+#~ msgid "Create Team..."
+#~ msgstr "Sukurti naują kanalą..."
+
+#, fuzzy
+#~| msgid "List of Users"
+#~ msgid "Register a New User..."
+#~ msgstr "Naudotojų sąrašas"
+
+#, fuzzy
+#~| msgid "Search Messages..."
+#~ msgid "Search room..."
+#~ msgstr "Ieškoti žinučių..."
+
+#, fuzzy
 #~| msgid "Server Version:"
 #~ msgid "Node Version"
 #~ msgstr "Serverio versija:"
@@ -10113,11 +10270,6 @@ msgstr ""
 #~| msgid "Search Messages..."
 #~ msgid "Search Emoticon..."
 #~ msgstr "Ieškoti žinučių..."
-
-#, fuzzy
-#~| msgid "Search User..."
-#~ msgid "Search"
-#~ msgstr "Ieškoti naudotojo..."
 
 #, fuzzy
 #~| msgid "Encrypted Message"
@@ -10296,16 +10448,6 @@ msgstr ""
 #~| msgid "Password"
 #~ msgid "Select Room To Delete:"
 #~ msgstr "Slaptažodis"
-
-#, fuzzy
-#~| msgid "Search Messages..."
-#~ msgid "Search Users"
-#~ msgstr "Ieškoti žinučių..."
-
-#, fuzzy
-#~| msgid "Search Messages..."
-#~ msgid "Search Teams"
-#~ msgstr "Ieškoti žinučių..."
 
 #, fuzzy
 #~| msgid "Encrypted Message"
