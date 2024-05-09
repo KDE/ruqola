@@ -183,6 +183,7 @@ void CustomSoundsManager::deleteCustomSounds(const QJsonArray &replyArray)
                 if (mCustomSoundsInfo.at(j).identifier() == identifier) {
                     mCustomSoundsInfo.removeAt(j);
                     Q_EMIT customSoundRemoved(identifier);
+                    Q_EMIT customSoundChanged();
                     break;
                 }
             }
@@ -209,6 +210,7 @@ void CustomSoundsManager::updateCustomSounds(const QJsonArray &replyArray)
                     if (sound.isValid()) {
                         mCustomSoundsInfo.append(sound);
                         Q_EMIT customSoundUpdated(identifier);
+                        Q_EMIT customSoundChanged();
                     }
                     break;
                 }
@@ -219,6 +221,7 @@ void CustomSoundsManager::updateCustomSounds(const QJsonArray &replyArray)
                 if (sound.isValid()) {
                     mCustomSoundsInfo.append(std::move(sound));
                     Q_EMIT customSoundAdded(identifier);
+                    Q_EMIT customSoundChanged();
                 }
             }
         }
