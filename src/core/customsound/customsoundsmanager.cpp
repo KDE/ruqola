@@ -23,6 +23,20 @@ void CustomSoundsManager::initializeDefaultSounds()
     {
         CustomSoundInfo info;
         info.setExtension(QStringLiteral("mp3"));
+        info.setName(i18n("Default"));
+        info.setIdentifier(QByteArrayLiteral("default"));
+        listSounds.append(std::move(info));
+    }
+    {
+        CustomSoundInfo info;
+        info.setExtension(QStringLiteral("mp3"));
+        info.setName(i18n("Nothing"));
+        info.setIdentifier(QByteArrayLiteral("none"));
+        listSounds.append(std::move(info));
+    }
+    {
+        CustomSoundInfo info;
+        info.setExtension(QStringLiteral("mp3"));
         info.setIdentifier(QByteArrayLiteral("chime"));
         info.setName(i18n("Chime"));
         listSounds.append(std::move(info));
