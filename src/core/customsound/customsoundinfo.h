@@ -28,10 +28,14 @@ public:
 
     [[nodiscard]] bool isValid() const;
 
+    [[nodiscard]] bool defaultSound() const;
+    void setDefaultSound(bool newDefaultSound);
+
 private:
     QByteArray mIdentifier;
     QString mName;
     QString mExtension;
+    bool mDefaultSound = false;
 };
 
 Q_DECLARE_METATYPE(CustomSoundInfo)

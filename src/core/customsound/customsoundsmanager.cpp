@@ -24,6 +24,7 @@ void CustomSoundsManager::initializeDefaultSounds()
         CustomSoundInfo info;
         info.setExtension(QStringLiteral("mp3"));
         info.setName(i18n("Default"));
+        info.setDefaultSound(true);
         info.setIdentifier(QByteArrayLiteral("default"));
         listSounds.append(std::move(info));
     }
@@ -31,12 +32,14 @@ void CustomSoundsManager::initializeDefaultSounds()
         CustomSoundInfo info;
         info.setExtension(QStringLiteral("mp3"));
         info.setName(i18n("None"));
+        info.setDefaultSound(true);
         info.setIdentifier(QByteArrayLiteral("none"));
         listSounds.append(std::move(info));
     }
     {
         CustomSoundInfo info;
         info.setExtension(QStringLiteral("mp3"));
+        info.setDefaultSound(true);
         info.setIdentifier(QByteArrayLiteral("chime"));
         info.setName(i18n("Chime"));
         listSounds.append(std::move(info));
@@ -44,6 +47,7 @@ void CustomSoundsManager::initializeDefaultSounds()
     {
         CustomSoundInfo info;
         info.setExtension(QStringLiteral("mp3"));
+        info.setDefaultSound(true);
         info.setIdentifier(QByteArrayLiteral("door"));
         info.setName(i18n("Door"));
         listSounds.append(std::move(info));
@@ -51,6 +55,7 @@ void CustomSoundsManager::initializeDefaultSounds()
     {
         CustomSoundInfo info;
         info.setExtension(QStringLiteral("mp3"));
+        info.setDefaultSound(true);
         info.setIdentifier(QByteArrayLiteral("beep"));
         info.setName(i18n("Beep"));
         listSounds.append(std::move(info));
@@ -58,6 +63,7 @@ void CustomSoundsManager::initializeDefaultSounds()
     {
         CustomSoundInfo info;
         info.setExtension(QStringLiteral("mp3"));
+        info.setDefaultSound(true);
         info.setIdentifier(QByteArrayLiteral("chelle"));
         info.setName(i18n("Chelle"));
         listSounds.append(std::move(info));
@@ -65,6 +71,7 @@ void CustomSoundsManager::initializeDefaultSounds()
     {
         CustomSoundInfo info;
         info.setExtension(QStringLiteral("mp3"));
+        info.setDefaultSound(true);
         info.setIdentifier(QByteArrayLiteral("ding"));
         info.setName(i18n("Ding"));
         listSounds.append(std::move(info));
@@ -72,12 +79,14 @@ void CustomSoundsManager::initializeDefaultSounds()
     {
         CustomSoundInfo info;
         info.setExtension(QStringLiteral("mp3"));
+        info.setDefaultSound(true);
         info.setIdentifier(QByteArrayLiteral("droplet"));
         info.setName(QStringLiteral("Droplet"));
         listSounds.append(std::move(info));
     }
     {
         CustomSoundInfo info;
+        info.setDefaultSound(true);
         info.setExtension(QStringLiteral("mp3"));
         info.setIdentifier(QByteArrayLiteral("highbell"));
         info.setName(i18n("Highbell"));
@@ -85,6 +94,7 @@ void CustomSoundsManager::initializeDefaultSounds()
     }
     {
         CustomSoundInfo info;
+        info.setDefaultSound(true);
         info.setExtension(QStringLiteral("mp3"));
         info.setIdentifier(QByteArrayLiteral("seasons"));
         info.setName(i18n("Seasons"));
@@ -92,6 +102,7 @@ void CustomSoundsManager::initializeDefaultSounds()
     }
     {
         CustomSoundInfo info;
+        info.setDefaultSound(true);
         info.setExtension(QStringLiteral("mp3"));
         info.setName(i18n("Chime"));
         info.setIdentifier(QByteArrayLiteral("chime"));
@@ -99,6 +110,7 @@ void CustomSoundsManager::initializeDefaultSounds()
     }
     {
         CustomSoundInfo info;
+        info.setDefaultSound(true);
         info.setExtension(QStringLiteral("mp3"));
         info.setName(i18n("Door"));
         info.setIdentifier(QByteArrayLiteral("door"));
@@ -106,6 +118,7 @@ void CustomSoundsManager::initializeDefaultSounds()
     }
     {
         CustomSoundInfo info;
+        info.setDefaultSound(true);
         info.setExtension(QStringLiteral("mp3"));
         info.setName(i18n("Telephone"));
         info.setIdentifier(QByteArrayLiteral("telephone"));
@@ -113,6 +126,7 @@ void CustomSoundsManager::initializeDefaultSounds()
     }
     {
         CustomSoundInfo info;
+        info.setDefaultSound(true);
         info.setExtension(QStringLiteral("mp3"));
         info.setName(i18n("Outbound Call Ringing"));
         info.setIdentifier(QByteArrayLiteral("outbound-call-ringing"));
@@ -120,6 +134,7 @@ void CustomSoundsManager::initializeDefaultSounds()
     }
     {
         CustomSoundInfo info;
+        info.setDefaultSound(true);
         info.setExtension(QStringLiteral("mp3"));
         info.setName(i18n("Call Ended"));
         info.setIdentifier(QByteArrayLiteral("call-ended"));
@@ -127,6 +142,7 @@ void CustomSoundsManager::initializeDefaultSounds()
     }
     {
         CustomSoundInfo info;
+        info.setDefaultSound(true);
         info.setExtension(QStringLiteral("mp3"));
         info.setName(i18n("Dialtone"));
         info.setIdentifier(QByteArrayLiteral("dialtone"));
@@ -134,6 +150,7 @@ void CustomSoundsManager::initializeDefaultSounds()
     }
     {
         CustomSoundInfo info;
+        info.setDefaultSound(true);
         info.setExtension(QStringLiteral("mp3"));
         info.setName(i18n("Ringtone"));
         info.setIdentifier(QByteArrayLiteral("ringtone"));

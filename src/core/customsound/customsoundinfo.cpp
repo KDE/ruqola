@@ -53,10 +53,21 @@ bool CustomSoundInfo::isValid() const
     return !mIdentifier.isEmpty() && !mName.isEmpty();
 }
 
+bool CustomSoundInfo::defaultSound() const
+{
+    return mDefaultSound;
+}
+
+void CustomSoundInfo::setDefaultSound(bool newDefaultSound)
+{
+    mDefaultSound = newDefaultSound;
+}
+
 QDebug operator<<(QDebug d, const CustomSoundInfo &t)
 {
     d.space() << "Identifier:" << t.identifier();
     d.space() << "Name:" << t.name();
     d.space() << "Extension:" << t.extension();
+    d.space() << "DefaultSound" << t.defaultSound();
     return d;
 }
