@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-05-08 00:38+0000\n"
+"POT-Creation-Date: 2024-05-09 00:39+0000\n"
 "PO-Revision-Date: 2019-07-29 20:25+0200\n"
 "Last-Translator: Roman Paholík <wizzardsk@gmail.com>\n"
 "Language-Team: Slovak <kde-sk@linux.sk>\n"
@@ -303,74 +303,62 @@ msgstr "Archív:"
 
 #: core/customsound/customsoundsmanager.cpp:27
 #: core/customsound/customsoundsmanager.cpp:82
-#: core/model/notificationdesktopsoundpreferencemodel.cpp:97
 #, kde-format
 msgid "Chime"
 msgstr ""
 
 #: core/customsound/customsoundsmanager.cpp:34
 #: core/customsound/customsoundsmanager.cpp:89
-#: core/model/notificationdesktopsoundpreferencemodel.cpp:103
 #, kde-format
 msgid "Door"
 msgstr ""
 
 #: core/customsound/customsoundsmanager.cpp:41
-#: core/model/notificationdesktopsoundpreferencemodel.cpp:60
 #, kde-format
 msgid "Beep"
 msgstr "Pípnuť"
 
 #: core/customsound/customsoundsmanager.cpp:48
-#: core/model/notificationdesktopsoundpreferencemodel.cpp:66
 #, kde-format
 msgid "Chelle"
 msgstr ""
 
 #: core/customsound/customsoundsmanager.cpp:55
-#: core/model/notificationdesktopsoundpreferencemodel.cpp:72
 #, kde-format
 msgid "Ding"
 msgstr "Ding"
 
 #: core/customsound/customsoundsmanager.cpp:69
-#: core/model/notificationdesktopsoundpreferencemodel.cpp:84
 #, kde-format
 msgid "Highbell"
 msgstr ""
 
 #: core/customsound/customsoundsmanager.cpp:76
-#: core/model/notificationdesktopsoundpreferencemodel.cpp:90
 #, kde-format
 msgid "Seasons"
 msgstr "Série "
 
 #: core/customsound/customsoundsmanager.cpp:96
-#: core/model/notificationdesktopsoundpreferencemodel.cpp:109
 #, kde-format
 msgid "Telephone"
 msgstr ""
 
 #: core/customsound/customsoundsmanager.cpp:103
-#: core/model/notificationdesktopsoundpreferencemodel.cpp:115
 #, kde-format
 msgid "Outbound Call Ringing"
 msgstr ""
 
 #: core/customsound/customsoundsmanager.cpp:110
-#: core/model/notificationdesktopsoundpreferencemodel.cpp:121
 #, kde-format
 msgid "Call Ended"
 msgstr ""
 
 #: core/customsound/customsoundsmanager.cpp:117
-#: core/model/notificationdesktopsoundpreferencemodel.cpp:127
 #, kde-format
 msgid "Dialtone"
 msgstr ""
 
 #: core/customsound/customsoundsmanager.cpp:124
-#: core/model/notificationdesktopsoundpreferencemodel.cpp:133
 #, kde-format
 msgid "Ringtone"
 msgstr ""
@@ -1024,7 +1012,6 @@ msgid "Room"
 msgstr "Súkromné:"
 
 #: core/model/notificationdesktopdurationpreferencemodel.cpp:48
-#: core/model/notificationdesktopsoundpreferencemodel.cpp:48
 #: core/model/notificationpreferencemodel.cpp:45
 #: widgets/administratordialog/rooms/administratordirectroomseditwidget.cpp:16
 #: widgets/administratordialog/rooms/administratorroomseditwidget.cpp:20
@@ -1047,18 +1034,6 @@ msgstr[0] "1 sekunda"
 msgstr[1] "%1 sekundy"
 msgstr[2] "%1 sekúnd"
 
-#: core/model/notificationdesktopsoundpreferencemodel.cpp:54
-#: core/model/notificationpreferencemodel.cpp:63
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:191
-#, kde-format
-msgid "Nothing"
-msgstr "Nič"
-
-#: core/model/notificationdesktopsoundpreferencemodel.cpp:78
-#, kde-format
-msgid "Droplet"
-msgstr ""
-
 #: core/model/notificationpreferencemodel.cpp:51
 #: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:187
 #, kde-format
@@ -1070,6 +1045,12 @@ msgstr "Všetky správy"
 #, kde-format
 msgid "Mentions"
 msgstr ""
+
+#: core/model/notificationpreferencemodel.cpp:63
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:191
+#, kde-format
+msgid "Nothing"
+msgstr "Nič"
 
 #: core/model/permissionsmodel.cpp:33 core/model/rolesmodel.cpp:33
 #: widgets/administratordialog/administratorwidget.cpp:77
@@ -1492,13 +1473,13 @@ msgstr ""
 msgid "<strong>%1</strong> are typing..."
 msgstr ""
 
-#: core/rocketchataccount.cpp:2907
+#: core/rocketchataccount.cpp:2908
 #, fuzzy, kde-format
 #| msgid "Message"
 msgid "Export Messages"
 msgstr "Správa"
 
-#: core/rocketchataccount.cpp:2908
+#: core/rocketchataccount.cpp:2909
 #, kde-format
 msgid "Your email has been queued for sending."
 msgstr ""

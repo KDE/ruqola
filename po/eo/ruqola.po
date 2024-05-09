@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-05-08 00:38+0000\n"
+"POT-Creation-Date: 2024-05-09 00:39+0000\n"
 "PO-Revision-Date: 2024-05-07 23:27+0100\n"
 "Last-Translator: Oliver Kellogg <okellogg@users.sourceforge.net>\n"
 "Language-Team: Esperanto <kde-i18n-eo.org>\n"
@@ -291,76 +291,64 @@ msgstr "Malarkivigi"
 
 #: core/customsound/customsoundsmanager.cpp:27
 #: core/customsound/customsoundsmanager.cpp:82
-#: core/model/notificationdesktopsoundpreferencemodel.cpp:97
 #, kde-format
 msgid "Chime"
 msgstr ""
 
 #: core/customsound/customsoundsmanager.cpp:34
 #: core/customsound/customsoundsmanager.cpp:89
-#: core/model/notificationdesktopsoundpreferencemodel.cpp:103
 #, kde-format
 msgid "Door"
 msgstr ""
 
 #: core/customsound/customsoundsmanager.cpp:41
-#: core/model/notificationdesktopsoundpreferencemodel.cpp:60
 #, kde-format
 msgid "Beep"
 msgstr "Bip"
 
 #: core/customsound/customsoundsmanager.cpp:48
-#: core/model/notificationdesktopsoundpreferencemodel.cpp:66
 #, kde-format
 msgid "Chelle"
 msgstr "Chelle"
 
 #: core/customsound/customsoundsmanager.cpp:55
-#: core/model/notificationdesktopsoundpreferencemodel.cpp:72
 #, kde-format
 msgid "Ding"
 msgstr "Ding"
 
 #: core/customsound/customsoundsmanager.cpp:69
-#: core/model/notificationdesktopsoundpreferencemodel.cpp:84
 #, kde-format
 msgid "Highbell"
 msgstr "Highsonorilo"
 
 #: core/customsound/customsoundsmanager.cpp:76
-#: core/model/notificationdesktopsoundpreferencemodel.cpp:90
 #, kde-format
 msgid "Seasons"
 msgstr "Sezonoj"
 
 #: core/customsound/customsoundsmanager.cpp:96
-#: core/model/notificationdesktopsoundpreferencemodel.cpp:109
 #, kde-format
 msgid "Telephone"
 msgstr ""
 
 #: core/customsound/customsoundsmanager.cpp:103
-#: core/model/notificationdesktopsoundpreferencemodel.cpp:115
 #, fuzzy, kde-format
 #| msgid "Call ongoing"
 msgid "Outbound Call Ringing"
 msgstr "Voko daŭranta"
 
 #: core/customsound/customsoundsmanager.cpp:110
-#: core/model/notificationdesktopsoundpreferencemodel.cpp:121
 #, fuzzy, kde-format
 #| msgid "Call ended"
 msgid "Call Ended"
 msgstr "Voko finiĝis"
 
 #: core/customsound/customsoundsmanager.cpp:117
-#: core/model/notificationdesktopsoundpreferencemodel.cpp:127
 #, kde-format
 msgid "Dialtone"
 msgstr ""
 
 #: core/customsound/customsoundsmanager.cpp:124
-#: core/model/notificationdesktopsoundpreferencemodel.cpp:133
 #, kde-format
 msgid "Ringtone"
 msgstr ""
@@ -976,7 +964,6 @@ msgid "Room"
 msgstr "Ĉambro"
 
 #: core/model/notificationdesktopdurationpreferencemodel.cpp:48
-#: core/model/notificationdesktopsoundpreferencemodel.cpp:48
 #: core/model/notificationpreferencemodel.cpp:45
 #: widgets/administratordialog/rooms/administratordirectroomseditwidget.cpp:16
 #: widgets/administratordialog/rooms/administratorroomseditwidget.cpp:20
@@ -998,18 +985,6 @@ msgid_plural "%1 seconds"
 msgstr[0] "1 sekundo"
 msgstr[1] "%1 sekundoj"
 
-#: core/model/notificationdesktopsoundpreferencemodel.cpp:54
-#: core/model/notificationpreferencemodel.cpp:63
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:191
-#, kde-format
-msgid "Nothing"
-msgstr "Nenio"
-
-#: core/model/notificationdesktopsoundpreferencemodel.cpp:78
-#, kde-format
-msgid "Droplet"
-msgstr "Guteto"
-
 #: core/model/notificationpreferencemodel.cpp:51
 #: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:187
 #, kde-format
@@ -1021,6 +996,12 @@ msgstr "Ĉiuj Mesaĝoj"
 #, kde-format
 msgid "Mentions"
 msgstr "Mencioj"
+
+#: core/model/notificationpreferencemodel.cpp:63
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:191
+#, kde-format
+msgid "Nothing"
+msgstr "Nenio"
 
 #: core/model/permissionsmodel.cpp:33 core/model/rolesmodel.cpp:33
 #: widgets/administratordialog/administratorwidget.cpp:77
@@ -1410,12 +1391,12 @@ msgstr "<strong>%1</strong> tajpas..."
 msgid "<strong>%1</strong> are typing..."
 msgstr "<strong>%1</strong> tajpas..."
 
-#: core/rocketchataccount.cpp:2907
+#: core/rocketchataccount.cpp:2908
 #, kde-format
 msgid "Export Messages"
 msgstr "Eksporti Mesaĝojn"
 
-#: core/rocketchataccount.cpp:2908
+#: core/rocketchataccount.cpp:2909
 #, kde-format
 msgid "Your email has been queued for sending."
 msgstr "Via retpoŝto estas vicigita por sendo."
@@ -9766,6 +9747,9 @@ msgstr "Uzi RESTAPI por protokolado."
 #: widgets/whatsnew/whatsnewwidgettranslation.h:86
 msgid "Allow to send multi files."
 msgstr "Permesi sendi plurajn dosierojn."
+
+#~ msgid "Droplet"
+#~ msgstr "Guteto"
 
 #~ msgid "Modify Status..."
 #~ msgstr "Modifi Staton..."

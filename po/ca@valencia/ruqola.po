@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-05-08 00:38+0000\n"
-"PO-Revision-Date: 2024-05-05 11:53+0200\n"
+"POT-Creation-Date: 2024-05-09 00:39+0000\n"
+"PO-Revision-Date: 2024-05-07 11:45+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca@valencia\n"
@@ -295,76 +295,64 @@ msgstr "Desarxiva"
 
 #: core/customsound/customsoundsmanager.cpp:27
 #: core/customsound/customsoundsmanager.cpp:82
-#: core/model/notificationdesktopsoundpreferencemodel.cpp:97
 #, kde-format
 msgid "Chime"
 msgstr ""
 
 #: core/customsound/customsoundsmanager.cpp:34
 #: core/customsound/customsoundsmanager.cpp:89
-#: core/model/notificationdesktopsoundpreferencemodel.cpp:103
 #, kde-format
 msgid "Door"
 msgstr ""
 
 #: core/customsound/customsoundsmanager.cpp:41
-#: core/model/notificationdesktopsoundpreferencemodel.cpp:60
 #, kde-format
 msgid "Beep"
 msgstr "Timbre"
 
 #: core/customsound/customsoundsmanager.cpp:48
-#: core/model/notificationdesktopsoundpreferencemodel.cpp:66
 #, kde-format
 msgid "Chelle"
 msgstr "Cello"
 
 #: core/customsound/customsoundsmanager.cpp:55
-#: core/model/notificationdesktopsoundpreferencemodel.cpp:72
 #, kde-format
 msgid "Ding"
 msgstr "Ding"
 
 #: core/customsound/customsoundsmanager.cpp:69
-#: core/model/notificationdesktopsoundpreferencemodel.cpp:84
 #, kde-format
 msgid "Highbell"
 msgstr "Campaneta"
 
 #: core/customsound/customsoundsmanager.cpp:76
-#: core/model/notificationdesktopsoundpreferencemodel.cpp:90
 #, kde-format
 msgid "Seasons"
 msgstr "Estacions"
 
 #: core/customsound/customsoundsmanager.cpp:96
-#: core/model/notificationdesktopsoundpreferencemodel.cpp:109
 #, kde-format
 msgid "Telephone"
 msgstr ""
 
 #: core/customsound/customsoundsmanager.cpp:103
-#: core/model/notificationdesktopsoundpreferencemodel.cpp:115
 #, fuzzy, kde-format
 #| msgid "Call ongoing"
 msgid "Outbound Call Ringing"
 msgstr "Tocada en curs"
 
 #: core/customsound/customsoundsmanager.cpp:110
-#: core/model/notificationdesktopsoundpreferencemodel.cpp:121
 #, fuzzy, kde-format
 #| msgid "Call ended"
 msgid "Call Ended"
 msgstr "Tocada finalitzada"
 
 #: core/customsound/customsoundsmanager.cpp:117
-#: core/model/notificationdesktopsoundpreferencemodel.cpp:127
 #, kde-format
 msgid "Dialtone"
 msgstr ""
 
 #: core/customsound/customsoundsmanager.cpp:124
-#: core/model/notificationdesktopsoundpreferencemodel.cpp:133
 #, kde-format
 msgid "Ringtone"
 msgstr ""
@@ -980,7 +968,6 @@ msgid "Room"
 msgstr "Sala"
 
 #: core/model/notificationdesktopdurationpreferencemodel.cpp:48
-#: core/model/notificationdesktopsoundpreferencemodel.cpp:48
 #: core/model/notificationpreferencemodel.cpp:45
 #: widgets/administratordialog/rooms/administratordirectroomseditwidget.cpp:16
 #: widgets/administratordialog/rooms/administratorroomseditwidget.cpp:20
@@ -1002,18 +989,6 @@ msgid_plural "%1 seconds"
 msgstr[0] "1 segon"
 msgstr[1] "%1 segons"
 
-#: core/model/notificationdesktopsoundpreferencemodel.cpp:54
-#: core/model/notificationpreferencemodel.cpp:63
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:191
-#, kde-format
-msgid "Nothing"
-msgstr "Res"
-
-#: core/model/notificationdesktopsoundpreferencemodel.cpp:78
-#, kde-format
-msgid "Droplet"
-msgstr "Gota"
-
 #: core/model/notificationpreferencemodel.cpp:51
 #: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:187
 #, kde-format
@@ -1025,6 +1000,12 @@ msgstr "Tots els missatges"
 #, kde-format
 msgid "Mentions"
 msgstr "Mencions"
+
+#: core/model/notificationpreferencemodel.cpp:63
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:191
+#, kde-format
+msgid "Nothing"
+msgstr "Res"
 
 #: core/model/permissionsmodel.cpp:33 core/model/rolesmodel.cpp:33
 #: widgets/administratordialog/administratorwidget.cpp:77
@@ -1415,12 +1396,12 @@ msgstr "<strong>%1</strong> està escrivint…"
 msgid "<strong>%1</strong> are typing..."
 msgstr "<strong>%1</strong> estan escrivint…"
 
-#: core/rocketchataccount.cpp:2907
+#: core/rocketchataccount.cpp:2908
 #, kde-format
 msgid "Export Messages"
 msgstr "Exporta missatges"
 
-#: core/rocketchataccount.cpp:2908
+#: core/rocketchataccount.cpp:2909
 #, kde-format
 msgid "Your email has been queued for sending."
 msgstr "El correu s'ha posat a la cua per a enviar."
@@ -7189,10 +7170,9 @@ msgstr "Informació del missatge"
 
 #: widgets/dialogs/reportmessagedialog.cpp:43
 #: widgets/dialogs/reportuserdialog.cpp:43
-#, fuzzy, kde-format
-#| msgid "Reports"
+#, kde-format
 msgid "Report"
-msgstr "Informes"
+msgstr "Informa"
 
 #: widgets/dialogs/reportmessagewidget.cpp:37
 #: widgets/dialogs/reportuserwidget.cpp:37
@@ -7212,10 +7192,9 @@ msgid "Report User"
 msgstr "Informa d'un usuari"
 
 #: widgets/dialogs/reportuserwidget.cpp:43
-#, fuzzy, kde-format
-#| msgid "Do you want to remove \"%1\"?"
+#, kde-format
 msgid "Why do you want to report?"
-msgstr "Voleu eliminar «%1»?"
+msgstr "Perquè voleu informar?"
 
 #: widgets/dialogs/resetpassworddialog.cpp:18
 #, kde-format
@@ -9177,9 +9156,7 @@ msgid "Ignore"
 msgstr "Ignora"
 
 #: widgets/room/usersinroommenu.cpp:175
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Report User"
+#, kde-format
 msgid "Report User"
 msgstr "Informa d'un usuari"
 
@@ -9806,11 +9783,8 @@ msgid "Add Plasma Activities Support"
 msgstr "Afig el suport d'activitats de Plasma"
 
 #: widgets/whatsnew/whatsnewwidgettranslation.h:75
-#, fuzzy
-#| msgctxt "@title:window"
-#| msgid "Report User"
 msgid "Add Report User Support"
-msgstr "Informa d'un usuari"
+msgstr "Afig el suport d'informació d'un usuari"
 
 #: widgets/whatsnew/whatsnewwidgettranslation.h:80
 msgid "Fix dark mode support."
@@ -9840,74 +9814,5 @@ msgstr "Utilitza RESTAPI per al registre."
 msgid "Allow to send multi files."
 msgstr "Permet enviar múltiples fitxers."
 
-#~ msgid "Modify Status..."
-#~ msgstr "Modifica l'estat…"
-
-#~ msgid "Reply..."
-#~ msgstr "Respon…"
-
-#~ msgid "Add Users In Role..."
-#~ msgstr "Afig els usuaris al rol…"
-
-#~ msgid "Invite..."
-#~ msgstr "Invita…"
-
-#~ msgid "Configure Notification..."
-#~ msgstr "Configura la notificació…"
-
-#~ msgid "Invite users..."
-#~ msgstr "Convida usuaris…"
-
-#~ msgid "Search messages..."
-#~ msgstr "Busca missatges…"
-
-#~ msgid "Search channels..."
-#~ msgstr "Busca de canals…"
-
-#~ msgid "Open..."
-#~ msgstr "Obri…"
-
-#~ msgid "Search rooms..."
-#~ msgstr "Busca de sales…"
-
-#~ msgid "Download Image..."
-#~ msgstr "Baixa la imatge…"
-
-#~ msgid "Download Video..."
-#~ msgstr "Baixa el vídeo…"
-
-#~ msgid "Download Sound..."
-#~ msgstr "Baixa el so…"
-
-#~ msgid "Prune Messages..."
-#~ msgstr "Eliminació de missatges…"
-
-#~ msgid "Configure Auto-Translate..."
-#~ msgstr "Configura la traducció automàtica…"
-
-#~ msgid "Export Messages..."
-#~ msgstr "Exporta missatges…"
-
-#~ msgid "Search Messages..."
-#~ msgstr "Busca en els missatges…"
-
-#~ msgid "Add Server..."
-#~ msgstr "Afig un servidor…"
-
-#~ msgid "Server Info..."
-#~ msgstr "Informació del servidor…"
-
-#~ msgid "Create New Channel..."
-#~ msgstr "Crea un canal nou…"
-
-#~ msgid "Create Team..."
-#~ msgstr "Crea un equip…"
-
-#~ msgid "Register a New User..."
-#~ msgstr "Registra un usuari nou…"
-
-#~ msgid "Administrator..."
-#~ msgstr "Administrador…"
-
-#~ msgid "Search room..."
-#~ msgstr "Busca una sala…"
+#~ msgid "Droplet"
+#~ msgstr "Gota"

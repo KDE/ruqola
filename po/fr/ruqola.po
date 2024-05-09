@@ -5,8 +5,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-05-08 00:38+0000\n"
-"PO-Revision-Date: 2024-05-02 15:47+0200\n"
+"POT-Creation-Date: 2024-05-09 00:39+0000\n"
+"PO-Revision-Date: 2024-05-07 12:03+0200\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
 "Language-Team: French <French <kde-francophone@kde.org>>\n"
 "Language: fr\n"
@@ -289,76 +289,64 @@ msgstr "Désarchiver"
 
 #: core/customsound/customsoundsmanager.cpp:27
 #: core/customsound/customsoundsmanager.cpp:82
-#: core/model/notificationdesktopsoundpreferencemodel.cpp:97
 #, kde-format
 msgid "Chime"
 msgstr ""
 
 #: core/customsound/customsoundsmanager.cpp:34
 #: core/customsound/customsoundsmanager.cpp:89
-#: core/model/notificationdesktopsoundpreferencemodel.cpp:103
 #, kde-format
 msgid "Door"
 msgstr ""
 
 #: core/customsound/customsoundsmanager.cpp:41
-#: core/model/notificationdesktopsoundpreferencemodel.cpp:60
 #, kde-format
 msgid "Beep"
 msgstr "Bip"
 
 #: core/customsound/customsoundsmanager.cpp:48
-#: core/model/notificationdesktopsoundpreferencemodel.cpp:66
 #, kde-format
 msgid "Chelle"
 msgstr "Chelle"
 
 #: core/customsound/customsoundsmanager.cpp:55
-#: core/model/notificationdesktopsoundpreferencemodel.cpp:72
 #, kde-format
 msgid "Ding"
 msgstr "Ding"
 
 #: core/customsound/customsoundsmanager.cpp:69
-#: core/model/notificationdesktopsoundpreferencemodel.cpp:84
 #, kde-format
 msgid "Highbell"
 msgstr "Haute cloche"
 
 #: core/customsound/customsoundsmanager.cpp:76
-#: core/model/notificationdesktopsoundpreferencemodel.cpp:90
 #, kde-format
 msgid "Seasons"
 msgstr "Saisons"
 
 #: core/customsound/customsoundsmanager.cpp:96
-#: core/model/notificationdesktopsoundpreferencemodel.cpp:109
 #, kde-format
 msgid "Telephone"
 msgstr ""
 
 #: core/customsound/customsoundsmanager.cpp:103
-#: core/model/notificationdesktopsoundpreferencemodel.cpp:115
 #, fuzzy, kde-format
 #| msgid "Call ongoing"
 msgid "Outbound Call Ringing"
 msgstr "Appel en cours"
 
 #: core/customsound/customsoundsmanager.cpp:110
-#: core/model/notificationdesktopsoundpreferencemodel.cpp:121
 #, fuzzy, kde-format
 #| msgid "Call ended"
 msgid "Call Ended"
 msgstr "Appel terminé"
 
 #: core/customsound/customsoundsmanager.cpp:117
-#: core/model/notificationdesktopsoundpreferencemodel.cpp:127
 #, kde-format
 msgid "Dialtone"
 msgstr ""
 
 #: core/customsound/customsoundsmanager.cpp:124
-#: core/model/notificationdesktopsoundpreferencemodel.cpp:133
 #, kde-format
 msgid "Ringtone"
 msgstr ""
@@ -974,7 +962,6 @@ msgid "Room"
 msgstr "Salon"
 
 #: core/model/notificationdesktopdurationpreferencemodel.cpp:48
-#: core/model/notificationdesktopsoundpreferencemodel.cpp:48
 #: core/model/notificationpreferencemodel.cpp:45
 #: widgets/administratordialog/rooms/administratordirectroomseditwidget.cpp:16
 #: widgets/administratordialog/rooms/administratorroomseditwidget.cpp:20
@@ -996,18 +983,6 @@ msgid_plural "%1 seconds"
 msgstr[0] "1 seconde"
 msgstr[1] "%1 secondes"
 
-#: core/model/notificationdesktopsoundpreferencemodel.cpp:54
-#: core/model/notificationpreferencemodel.cpp:63
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:191
-#, kde-format
-msgid "Nothing"
-msgstr "Rien"
-
-#: core/model/notificationdesktopsoundpreferencemodel.cpp:78
-#, kde-format
-msgid "Droplet"
-msgstr "Goutte"
-
 #: core/model/notificationpreferencemodel.cpp:51
 #: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:187
 #, kde-format
@@ -1019,6 +994,12 @@ msgstr "Tous les messages"
 #, kde-format
 msgid "Mentions"
 msgstr "Mentions"
+
+#: core/model/notificationpreferencemodel.cpp:63
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:191
+#, kde-format
+msgid "Nothing"
+msgstr "Rien"
 
 #: core/model/permissionsmodel.cpp:33 core/model/rolesmodel.cpp:33
 #: widgets/administratordialog/administratorwidget.cpp:77
@@ -1412,12 +1393,12 @@ msgstr "<strong>%1</strong>est en train d'écrire un message..."
 msgid "<strong>%1</strong> are typing..."
 msgstr "<strong>%1</strong>sont en train d'écrire un message..."
 
-#: core/rocketchataccount.cpp:2907
+#: core/rocketchataccount.cpp:2908
 #, kde-format
 msgid "Export Messages"
 msgstr "Exporter des messages"
 
-#: core/rocketchataccount.cpp:2908
+#: core/rocketchataccount.cpp:2909
 #, kde-format
 msgid "Your email has been queued for sending."
 msgstr "Un courrier électronique a été mis dans la liste d'attente pour envoi."
@@ -2864,7 +2845,7 @@ msgid ""
 "User will be unable to log in unless reactivated. All reported messages will "
 "be permanently deleted from their respective room."
 msgstr ""
-"L’utilisateur ne pourra pas se connecter à moins d’être réactivé. Tous les "
+"L'utilisateur ne pourra pas se connecter à moins d'être réactivé. Tous les "
 "messages signalés seront supprimés définitivement de leurs salons respectifs."
 
 #: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:162
@@ -3753,12 +3734,12 @@ msgstr "Utiliser la vérification de domaine « DNS »"
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:50
 #, kde-format
 msgid "Allow Feature Preview"
-msgstr "Autoriser l’aperçu des fonctionnalités"
+msgstr "Autoriser l'aperçu des fonctionnalités"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:51
 #, kde-format
 msgid "Registration with Authentication Services"
-msgstr "Enregistrement avec des services d’authentification"
+msgstr "Enregistrement avec des services d'authentification"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:54
 #, kde-format
@@ -3845,8 +3826,8 @@ msgid ""
 "Default roles (comma-separated) users will be given when registering through "
 "authentication services"
 msgstr ""
-"Les utilisateurs avec des rôles par défaut (séparés par des virgules)  "
-"seront donnés lors de l’enregistrement grâce aux services d’authentification"
+"Les utilisateurs avec des rôles par défaut (séparés par des virgules) seront "
+"donnés lors de l'enregistrement grâce aux services d'authentification"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:207
 #, kde-format
@@ -3860,7 +3841,7 @@ msgid ""
 "manual registration (including via API)"
 msgstr ""
 "Les utilisateurs avec des rôles par défaut (séparés par des virgules) seront "
-"fournis lors de l’enregistrement (y compris grâce aux services « API »)"
+"fournis lors de l'enregistrement (y compris grâce aux services « API »)"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:214
 #, kde-format
@@ -5298,7 +5279,7 @@ msgid ""
 "Whether embedded link previews are enabled or not when a user posts a link "
 "to a website."
 msgstr ""
-"Définit si les aperçus intégrés de liens sont activés ou non lorsqu’un "
+"Définit si les aperçus intégrés de liens sont activés ou non lorsqu'un "
 "utilisateur publie un lien vers un site Internet."
 
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:191
@@ -7625,10 +7606,10 @@ msgstr ""
 "Créez des salons privés sécurisés et des messages directs avec un "
 "chiffrement de bout en bout. <br/><br/>Enregistrez votre mot de passe en "
 "toute sécurité, car la clé pour chiffrer / déchiffrer vos messages ne sera "
-"pas enregistrée sur le serveur. Vous devrez le saisir sur d’autres appareils "
+"pas enregistrée sur le serveur. Vous devrez le saisir sur d'autres appareils "
 "pour utiliser le chiffrement de bout en bout. <br /><br/>Modifiez votre mot "
-"de passe à tout moment à partir de n’importe quel navigateur sur lequel vous "
-"l’avez saisi. N’oubliez pas d'enregistrer votre mot de passe avant de "
+"de passe à tout moment à partir de n'importe quel navigateur sur lequel vous "
+"l'avez saisi. N'oubliez pas d'enregistrer votre mot de passe avant de "
 "rejeter ce message. <br/><br/>Votre mot de passe est : <span style=\"font-"
 "weight : bold;\">%1</span>"
 
@@ -7672,7 +7653,7 @@ msgstr ""
 "Pour accéder à vos groupes privés et messages directs chiffrés, veuillez "
 "saisir votre mot de passe de chiffrement.\n"
 "Vous devez saisir ce mot de passe pour encoder / décoder vos messages pour "
-"chaque client que vous utilisez, car la clé n’est pas enregistrée sur le "
+"chaque client que vous utilisez, car la clé n'est pas enregistrée sur le "
 "serveur."
 
 #: widgets/explorepermissionsdialog/explorepermissionsdialog.cpp:24
@@ -7957,17 +7938,17 @@ msgstr "(Sans nom)"
 #: widgets/misc/changefontsizemenu.cpp:17
 #, kde-format
 msgid "Font Size"
-msgstr "Taille de la fonte"
+msgstr "Taille de la police"
 
 #: widgets/misc/changefontsizemenu.cpp:19
 #, kde-format
 msgid "Increase Font"
-msgstr "Augmenter la taille de la fonte"
+msgstr "Augmenter la taille de la police"
 
 #: widgets/misc/changefontsizemenu.cpp:26
 #, kde-format
 msgid "Decrease Font"
-msgstr "Diminuer la taille de la fonte"
+msgstr "Diminuer la taille de la police"
 
 #: widgets/misc/messageattachmentdownloadandsavejob.cpp:62
 #, kde-format
@@ -8379,14 +8360,14 @@ msgstr ""
 #: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:105
 #, kde-format
 msgid "Idle Time Limit:"
-msgstr "Délai maximal d’inactivité :"
+msgstr "Délai maximal d'inactivité :"
 
 #: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:112
 #, kde-format
 msgid ""
 "Period of time until status changes to away. Value needs to be in seconds."
 msgstr ""
-"Période de temps jusqu’à une modification d'état avant de disparaître. La "
+"Période de temps jusqu'à une modification d'état avant de disparaître. La "
 "valeur doit être en secondes."
 
 #: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:129
@@ -9801,8 +9782,8 @@ msgid ""
 "Fix show commands in message line edit (Hide action when room doesn't "
 "support it)."
 msgstr ""
-"Correction des commandes d’affichage dans l’édition de la ligne de messages "
-"(Masquer l’action lorsque le salon ne la prend pas en charge)."
+"Correction des commandes d'affichage dans l'édition de la ligne de messages "
+"(Masquer l'action lorsque le salon ne la prend pas en charge)."
 
 #: widgets/whatsnew/whatsnewwidgettranslation.h:59
 msgid "Fix download sound/video file when it's not in cache."
@@ -9821,7 +9802,7 @@ msgstr "Correction de l'affichage d'une URL d'avatar"
 #: widgets/whatsnew/whatsnewwidgettranslation.h:67
 msgid "Allow to increase/decrease font (CTRL++/CTRL+-)"
 msgstr ""
-"Autoriser l'augmentation / diminution de la taille de la fonte (« CTRL » + "
+"Autoriser l'augmentation / diminution de la taille de la police (« CTRL » + "
 "« + » / « CTRL » + « - »)"
 
 #: widgets/whatsnew/whatsnewwidgettranslation.h:68
@@ -9893,6 +9874,9 @@ msgstr "Utiliser « RESTAPI » pour se connecter."
 #: widgets/whatsnew/whatsnewwidgettranslation.h:86
 msgid "Allow to send multi files."
 msgstr "Autoriser l'envoi de fichiers multiples."
+
+#~ msgid "Droplet"
+#~ msgstr "Goutte"
 
 #~ msgid "Modify Status..."
 #~ msgstr "Modifier l'état..."

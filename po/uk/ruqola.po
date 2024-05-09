@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-05-08 00:38+0000\n"
-"PO-Revision-Date: 2024-05-07 08:59+0300\n"
+"POT-Creation-Date: 2024-05-09 00:39+0000\n"
+"PO-Revision-Date: 2024-05-08 12:03+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian\n"
 "Language: uk\n"
@@ -295,79 +295,65 @@ msgstr "Скасувати архівування"
 
 #: core/customsound/customsoundsmanager.cpp:27
 #: core/customsound/customsoundsmanager.cpp:82
-#: core/model/notificationdesktopsoundpreferencemodel.cpp:97
 #, kde-format
 msgid "Chime"
-msgstr ""
+msgstr "Дзвінок"
 
 #: core/customsound/customsoundsmanager.cpp:34
 #: core/customsound/customsoundsmanager.cpp:89
-#: core/model/notificationdesktopsoundpreferencemodel.cpp:103
 #, kde-format
 msgid "Door"
-msgstr ""
+msgstr "Двері"
 
 #: core/customsound/customsoundsmanager.cpp:41
-#: core/model/notificationdesktopsoundpreferencemodel.cpp:60
 #, kde-format
 msgid "Beep"
 msgstr "Гудок"
 
 #: core/customsound/customsoundsmanager.cpp:48
-#: core/model/notificationdesktopsoundpreferencemodel.cpp:66
 #, kde-format
 msgid "Chelle"
 msgstr "Шель"
 
 #: core/customsound/customsoundsmanager.cpp:55
-#: core/model/notificationdesktopsoundpreferencemodel.cpp:72
 #, kde-format
 msgid "Ding"
 msgstr "Дзвінок"
 
 #: core/customsound/customsoundsmanager.cpp:69
-#: core/model/notificationdesktopsoundpreferencemodel.cpp:84
 #, kde-format
 msgid "Highbell"
 msgstr "Різкий дзвінок"
 
 #: core/customsound/customsoundsmanager.cpp:76
-#: core/model/notificationdesktopsoundpreferencemodel.cpp:90
 #, kde-format
 msgid "Seasons"
 msgstr "Пори"
 
 #: core/customsound/customsoundsmanager.cpp:96
-#: core/model/notificationdesktopsoundpreferencemodel.cpp:109
 #, kde-format
 msgid "Telephone"
-msgstr ""
+msgstr "Телефон"
 
 #: core/customsound/customsoundsmanager.cpp:103
-#: core/model/notificationdesktopsoundpreferencemodel.cpp:115
-#, fuzzy, kde-format
-#| msgid "Call ongoing"
+#, kde-format
 msgid "Outbound Call Ringing"
-msgstr "У процесі виклику"
+msgstr "Дзвінок для вихідного виклику"
 
 #: core/customsound/customsoundsmanager.cpp:110
-#: core/model/notificationdesktopsoundpreferencemodel.cpp:121
-#, fuzzy, kde-format
-#| msgid "Call ended"
+#, kde-format
 msgid "Call Ended"
 msgstr "Виклик завершено"
 
 #: core/customsound/customsoundsmanager.cpp:117
-#: core/model/notificationdesktopsoundpreferencemodel.cpp:127
 #, kde-format
 msgid "Dialtone"
-msgstr ""
+msgstr "Набирання"
 
 #: core/customsound/customsoundsmanager.cpp:124
-#: core/model/notificationdesktopsoundpreferencemodel.cpp:133
 #, kde-format
 msgid "Ringtone"
-msgstr ""
+msgstr "Мелодія дзвінка"
 
 #: core/discussions/discussion.cpp:86
 #, kde-format
@@ -980,7 +966,6 @@ msgid "Room"
 msgstr "Кімната"
 
 #: core/model/notificationdesktopdurationpreferencemodel.cpp:48
-#: core/model/notificationdesktopsoundpreferencemodel.cpp:48
 #: core/model/notificationpreferencemodel.cpp:45
 #: widgets/administratordialog/rooms/administratordirectroomseditwidget.cpp:16
 #: widgets/administratordialog/rooms/administratorroomseditwidget.cpp:20
@@ -1004,18 +989,6 @@ msgstr[1] "%1 секунди"
 msgstr[2] "%1 секунд"
 msgstr[3] "%1 секунда"
 
-#: core/model/notificationdesktopsoundpreferencemodel.cpp:54
-#: core/model/notificationpreferencemodel.cpp:63
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:191
-#, kde-format
-msgid "Nothing"
-msgstr "Нічого"
-
-#: core/model/notificationdesktopsoundpreferencemodel.cpp:78
-#, kde-format
-msgid "Droplet"
-msgstr "Крапля"
-
 #: core/model/notificationpreferencemodel.cpp:51
 #: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:187
 #, kde-format
@@ -1027,6 +1000,12 @@ msgstr "Всі повідомлення"
 #, kde-format
 msgid "Mentions"
 msgstr "Згадування"
+
+#: core/model/notificationpreferencemodel.cpp:63
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:191
+#, kde-format
+msgid "Nothing"
+msgstr "Нічого"
 
 #: core/model/permissionsmodel.cpp:33 core/model/rolesmodel.cpp:33
 #: widgets/administratordialog/administratorwidget.cpp:77
@@ -1173,11 +1152,9 @@ msgid "Offline"
 msgstr "Поза мережею"
 
 #: core/model/statusmodel.cpp:69
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Modify Status"
+#, kde-format
 msgid "Modify Status…"
-msgstr "Зміна стану"
+msgstr "Змінити стан…"
 
 #: core/model/systemmessagesmodel.cpp:31
 #, kde-format
@@ -1377,10 +1354,9 @@ msgid "Reply"
 msgstr "Відповісти"
 
 #: core/notifications/notifierjob.cpp:42
-#, fuzzy, kde-format
-#| msgid "Reply"
+#, kde-format
 msgid "Reply…"
-msgstr "Відповісти"
+msgstr "Відповісти…"
 
 #: core/otr/otrnotificationjob.cpp:45 core/otr/otrnotificationjob.cpp:55
 #: core/otr/otrnotificationjob.cpp:70
@@ -1425,12 +1401,12 @@ msgstr "<strong>%1</strong> вводить текст…"
 msgid "<strong>%1</strong> are typing..."
 msgstr "<strong>%1</strong> вводить текст…"
 
-#: core/rocketchataccount.cpp:2907
+#: core/rocketchataccount.cpp:2908
 #, kde-format
 msgid "Export Messages"
 msgstr "Експортувати повідомлення"
 
-#: core/rocketchataccount.cpp:2908
+#: core/rocketchataccount.cpp:2909
 #, kde-format
 msgid "Your email has been queued for sending."
 msgstr "Вашу електронну пошту додано до черги надсилання."
@@ -2585,7 +2561,7 @@ msgstr "Вилучення емодзі"
 #: widgets/myaccount/myaccountpersonalaccesstokentreeview.cpp:35
 #, kde-format
 msgid "Add…"
-msgstr ""
+msgstr "Додати…"
 
 #: widgets/administratordialog/customemoji/administratorcustomemojiwidget.cpp:181
 #: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:143
@@ -2595,10 +2571,9 @@ msgstr ""
 #: widgets/administratordialog/roles/administratorroleswidget.cpp:105
 #: widgets/administratordialog/rooms/administratorroomswidget.cpp:63
 #: widgets/administratordialog/users/administratoruserswidget.cpp:246
-#, fuzzy, kde-format
-#| msgid "&Modify"
+#, kde-format
 msgid "Modify…"
-msgstr "З&мінити"
+msgstr "Змінити…"
 
 #. i18n: ectx: property (text), widget (QPushButton, removeServer)
 #: widgets/administratordialog/customemoji/administratorcustomemojiwidget.cpp:186
@@ -2690,8 +2665,7 @@ msgid "Remove Custom User Status"
 msgstr "Вилучення нетипового запису стану користувача"
 
 #: widgets/administratordialog/invites/administratorinviteswidget.cpp:39
-#, fuzzy, kde-format
-#| msgid "Search invite..."
+#, kde-format
 msgid "Search invite…"
 msgstr "Шукати запрошення…"
 
@@ -2796,8 +2770,7 @@ msgstr "Показ повідомлень модерування"
 #: widgets/dialogs/showlistmessagebasewidget.cpp:97
 #: widgets/discussions/showdiscussionswidget.cpp:88
 #: widgets/room/usersinroomwidget.cpp:135
-#, fuzzy, kde-format
-#| msgid "Loading..."
+#, kde-format
 msgid "Loading…"
 msgstr "Завантаження…"
 
@@ -2821,8 +2794,7 @@ msgstr[3] "Одне повідомлення у кімнаті"
 
 #: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:37
 #: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:37
-#, fuzzy, kde-format
-#| msgid "Search moderation message..."
+#, kde-format
 msgid "Search moderation message…"
 msgstr "Шукати повідомлення для модерації…"
 
@@ -2967,10 +2939,9 @@ msgstr "Вибрати все"
 #: widgets/bannerinfodialog/bannerinfolistsearchlinewidget.cpp:24
 #: widgets/notificationhistory/notificationhistorywidget.cpp:45
 #: widgets/servererrorinfohistory/servererrorinfomessagehistorywidget.cpp:43
-#, fuzzy, kde-format
-#| msgid "Search"
+#, kde-format
 msgid "Search…"
-msgstr "Пошук"
+msgstr "Шукати…"
 
 #: widgets/administratordialog/oauth/administratoroauthcreatedialog.cpp:25
 #, kde-format
@@ -3011,8 +2982,7 @@ msgid "Access Token URL:"
 msgstr "Адреса жетона доступу:"
 
 #: widgets/administratordialog/oauth/administratoroauthwidget.cpp:37
-#, fuzzy, kde-format
-#| msgid "Search Oauth apps..."
+#, kde-format
 msgid "Search Oauth apps…"
 msgstr "Шукати програми OAuth…"
 
@@ -3042,23 +3012,19 @@ msgstr "Ролі:"
 
 #: widgets/administratordialog/permissions/permissionswidget.cpp:41
 #: widgets/explorepermissionsdialog/explorepermissionswidget.cpp:38
-#, fuzzy, kde-format
-#| msgid "Search permissions..."
+#, kde-format
 msgid "Search permissions…"
 msgstr "Шукати права доступу…"
 
 #: widgets/administratordialog/roles/administratorroleswidget.cpp:46
-#, fuzzy, kde-format
-#| msgid "Search roles..."
+#, kde-format
 msgid "Search roles…"
 msgstr "Шукати ролі…"
 
 #: widgets/administratordialog/roles/administratorroleswidget.cpp:112
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Add Users in Role"
+#, kde-format
 msgid "Add Users In Role…"
-msgstr "Додавання користувачів до ролі"
+msgstr "Додати користувачів до ролі…"
 
 #: widgets/administratordialog/roles/administratorroleswidget.cpp:229
 #, kde-format
@@ -3122,8 +3088,7 @@ msgstr "Користувачі у ролі"
 #: widgets/directory/directorywidget.cpp:39
 #: widgets/directory/directorywidget.cpp:206
 #: widgets/room/usersinroomwidget.cpp:40
-#, fuzzy, kde-format
-#| msgid "Search Users"
+#, kde-format
 msgid "Search users…"
 msgstr "Шукати користувачів…"
 
@@ -3551,10 +3516,9 @@ msgid "Do you want to remove this user?"
 msgstr "Хочете вилучити запис цього користувача?"
 
 #: widgets/administratordialog/users/administratoruserswidget.cpp:233
-#, fuzzy, kde-format
-#| msgid "Invites"
+#, kde-format
 msgid "Invite…"
-msgstr "Запрошення"
+msgstr "Запросити…"
 
 #: widgets/administratordialog/users/administratoruserswidget.cpp:255
 #, kde-format
@@ -6265,10 +6229,9 @@ msgstr "Пересунути до команди"
 
 #: widgets/channellist/channellistview.cpp:195
 #: widgets/room/channelactionpopupmenu.cpp:75
-#, fuzzy, kde-format
-#| msgid "Configure Notification"
+#, kde-format
 msgid "Configure Notification…"
-msgstr "Налаштувати сповіщення"
+msgstr "Налаштувати сповіщення…"
 
 #: widgets/channellist/channellistview.cpp:202
 #, kde-format
@@ -6964,8 +6927,7 @@ msgstr ""
 
 #: widgets/dialogs/createdirectmessageswidget.cpp:33
 #: widgets/prunemessages/prunemessageswidget.cpp:66
-#, fuzzy, kde-format
-#| msgid "Select users..."
+#, kde-format
 msgid "Select users…"
 msgstr "Вибрати користувачів…"
 
@@ -6982,10 +6944,9 @@ msgstr "Тема:"
 
 #: widgets/dialogs/createnewchannelwidget.cpp:40
 #: widgets/dialogs/createnewdiscussionwidget.cpp:51
-#, fuzzy, kde-format
-#| msgid "Invite Users"
+#, kde-format
 msgid "Invite users…"
-msgstr "Запросити користувачів"
+msgstr "Запросити користувачів…"
 
 #: widgets/dialogs/createnewchannelwidget.cpp:41
 #, kde-format
@@ -7274,8 +7235,7 @@ msgstr "Скидання пароля"
 
 #: widgets/dialogs/roomavatarwidget.cpp:31
 #: widgets/myaccount/myaccountprofileconfigureavatarwidget.cpp:100
-#, fuzzy, kde-format
-#| msgid "Change Picture..."
+#, kde-format
 msgid "Change Picture…"
 msgstr "Змінити зображення…"
 
@@ -7380,8 +7340,7 @@ msgid "Show Attachments - %1"
 msgstr "Показ долучень — %1"
 
 #: widgets/dialogs/showattachmentwidget.cpp:37
-#, fuzzy, kde-format
-#| msgid "Search attachments..."
+#, kde-format
 msgid "Search attachments…"
 msgstr "Шукати долучення…"
 
@@ -7400,8 +7359,7 @@ msgstr[2] "%1 долучень у кімнаті (загалом: %2)"
 msgstr[3] "%1 долучення у кімнаті (загалом: %2)"
 
 #: widgets/dialogs/showattachmentwidget.cpp:100
-#, fuzzy, kde-format
-#| msgid "(Click here for Loading more...)"
+#, kde-format
 msgid "(Click here for Loading more…)"
 msgstr "(Натисніть тут, щоб завантажити ще…)"
 
@@ -7444,10 +7402,9 @@ msgid "Save Image"
 msgstr "Збереження зображення"
 
 #: widgets/dialogs/showlistmessagebasewidget.cpp:39
-#, fuzzy, kde-format
-#| msgid "Search messages"
+#, kde-format
 msgid "Search messages…"
-msgstr "Шукати повідомлення"
+msgstr "Пошук повідомлень"
 
 #: widgets/dialogs/showlistmessagebasewidget.cpp:105
 #, kde-format
@@ -7461,8 +7418,7 @@ msgstr[3] "Одне повідомлення у кімнаті (загалом: 
 #: widgets/dialogs/showlistmessagebasewidget.cpp:107
 #: widgets/discussions/showdiscussionswidget.cpp:99
 #: widgets/misc/searchtreebasewidget.cpp:72
-#, fuzzy, kde-format
-#| msgid "(Click here for Loading more...)"
+#, kde-format
 msgid "(Click here for Loading more…"
 msgstr "(Натисніть тут, щоб завантажити ще…)"
 
@@ -7532,22 +7488,20 @@ msgid "You are not authorized to view this page."
 msgstr "Вас не уповноважено на перегляд цієї сторінки."
 
 #: widgets/directory/directorywidget.cpp:34
-#, fuzzy, kde-format
-#| msgid "Search Channels"
+#, kde-format
 msgid "Search channels…"
-msgstr "Пошук каналів"
+msgstr "Шукати канали…"
 
 #: widgets/directory/directorywidget.cpp:44
 #: widgets/directory/directorywidget.cpp:209
-#, fuzzy, kde-format
-#| msgid "Search Teams"
+#, kde-format
 msgid "Search teams…"
-msgstr "Шукати команди"
+msgstr "Шукати команди…"
 
 #: widgets/directory/directorywidget.cpp:70
 #, kde-format
 msgid "Open…"
-msgstr ""
+msgstr "Відкрити…"
 
 #: widgets/directory/directorywidget.cpp:166
 #, kde-format
@@ -7576,10 +7530,9 @@ msgstr[3] "%1 команда (загалом: %2)"
 #: widgets/directory/directorywidget.cpp:203
 #: widgets/misc/joinedchannelcompletionlineeditbase.cpp:25
 #: widgets/teams/addteamroomcompletionlineedit.cpp:32
-#, fuzzy, kde-format
-#| msgid "Search rooms"
+#, kde-format
 msgid "Search rooms…"
-msgstr "Пошук кімнат"
+msgstr "Шукати кімнати…"
 
 #: widgets/discussions/discussion/listdiscussiondelegate.cpp:78
 #, kde-format
@@ -7602,8 +7555,7 @@ msgid "Show Discussions - %1"
 msgstr "Показ обговорень — %1"
 
 #: widgets/discussions/showdiscussionswidget.cpp:39
-#, fuzzy, kde-format
-#| msgid "Search discussion..."
+#, kde-format
 msgid "Search discussion…"
 msgstr "Шукати обговорення…"
 
@@ -7996,11 +7948,9 @@ msgid "Download Image"
 msgstr "Отримати зображення"
 
 #: widgets/misc/messageattachmentdownloadandsavejob.cpp:78
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Download Image"
+#, kde-format
 msgid "Download Image…"
-msgstr "Отримати зображення"
+msgstr "Отримати зображення…"
 
 #: widgets/misc/messageattachmentdownloadandsavejob.cpp:81
 #, kde-format
@@ -8009,11 +7959,9 @@ msgid "Download Video"
 msgstr "Отримання відео"
 
 #: widgets/misc/messageattachmentdownloadandsavejob.cpp:82
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Download Video"
+#, kde-format
 msgid "Download Video…"
-msgstr "Отримання відео"
+msgstr "Отримати відео…"
 
 #: widgets/misc/messageattachmentdownloadandsavejob.cpp:85
 #, kde-format
@@ -8022,11 +7970,9 @@ msgid "Download Sound"
 msgstr "Отримання звукових даних"
 
 #: widgets/misc/messageattachmentdownloadandsavejob.cpp:86
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Download Sound"
+#, kde-format
 msgid "Download Sound…"
-msgstr "Отримання звукових даних"
+msgstr "Отримати звукові дані…"
 
 #: widgets/misc/messagestylelayoutmenu.cpp:16
 #, kde-format
@@ -8062,8 +8008,7 @@ msgid "Reset Password"
 msgstr "Скинути пароль"
 
 #: widgets/misc/searchwithdelaylineedit.cpp:16
-#, fuzzy, kde-format
-#| msgid "Search Word..."
+#, kde-format
 msgid "Search Word…"
 msgstr "Шукати слово…"
 
@@ -8073,8 +8018,7 @@ msgid "Server"
 msgstr "Сервер"
 
 #: widgets/misc/serverscombobox.cpp:20
-#, fuzzy, kde-format
-#| msgid "Filter Account..."
+#, kde-format
 msgid "Filter Account…"
 msgstr "Фільтрувати обліковий запис…"
 
@@ -8230,8 +8174,7 @@ msgid "Manage Device"
 msgstr "Керування пристроєм"
 
 #: widgets/myaccount/myaccountmanagedeviceconfigurewidget.cpp:29
-#, fuzzy, kde-format
-#| msgid "Search device..."
+#, kde-format
 msgid "Search device…"
 msgstr "Шукати пристрій…"
 
@@ -8266,8 +8209,7 @@ msgid "Ignore Two Factor Authentication"
 msgstr "Ігнорувати двофакторне розпізнавання"
 
 #: widgets/myaccount/myaccountpersonalaccesstokenconfigurewidget.cpp:47
-#, fuzzy, kde-format
-#| msgid "Search Personal Access Token..."
+#, kde-format
 msgid "Search Personal Access Token…"
 msgstr "Шукати жетон особистих прав доступу…"
 
@@ -8303,8 +8245,7 @@ msgid "Personal Token Regenerated"
 msgstr "Особистий жетон створено повторно"
 
 #: widgets/myaccount/myaccountpersonalaccesstokentreeview.cpp:37
-#, fuzzy, kde-format
-#| msgid "Regenerate..."
+#, kde-format
 msgid "Regenerate…"
 msgstr "Повторно створити…"
 
@@ -8456,8 +8397,7 @@ msgid "Define Avatar Url:"
 msgstr "Визначення адреси аватара:"
 
 #: widgets/myaccount/myaccountprofileconfigureavatarwidget.cpp:101
-#, fuzzy, kde-format
-#| msgid "Change URL for avatar..."
+#, kde-format
 msgid "Change URL for avatar…"
 msgstr "Змінити адресу аватара…"
 
@@ -8613,58 +8553,47 @@ msgid "Register"
 msgstr "Зареєструвати"
 
 #: widgets/room/channelactionpopupmenu.cpp:29
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Prune Messages"
+#, kde-format
 msgid "Prune Messages…"
-msgstr "Обрізати повідомлення"
+msgstr "Обрізати повідомлення…"
 
 #: widgets/room/channelactionpopupmenu.cpp:37
-#, fuzzy, kde-format
-#| msgid "Show Mentions..."
+#, kde-format
 msgid "Show Mentions…"
 msgstr "Показати згадки…"
 
 #: widgets/room/channelactionpopupmenu.cpp:43
-#, fuzzy, kde-format
-#| msgid "Show Pinned Messages..."
+#, kde-format
 msgid "Show Pinned Messages…"
 msgstr "Показати пришпилені повідомлення…"
 
 #: widgets/room/channelactionpopupmenu.cpp:49
-#, fuzzy, kde-format
-#| msgid "Show Starred Messages..."
+#, kde-format
 msgid "Show Starred Messages…"
 msgstr "Показати повідомлення із зіркою…"
 
 #: widgets/room/channelactionpopupmenu.cpp:55
-#, fuzzy, kde-format
-#| msgid "Show File Attachments..."
+#, kde-format
 msgid "Show File Attachments…"
 msgstr "Показати файлові долучення…"
 
 #: widgets/room/channelactionpopupmenu.cpp:61
-#, fuzzy, kde-format
-#| msgid "Show Discussions..."
+#, kde-format
 msgid "Show Discussions…"
 msgstr "Показати обговорення…"
 
 #: widgets/room/channelactionpopupmenu.cpp:67
-#, fuzzy, kde-format
-#| msgid "Show Threads..."
+#, kde-format
 msgid "Show Threads…"
 msgstr "Показати гілки…"
 
 #: widgets/room/channelactionpopupmenu.cpp:82
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Configure Auto-Translate"
+#, kde-format
 msgid "Configure Auto-Translate…"
-msgstr "Налаштовування автоматичного перекладу"
+msgstr "Налаштувати автоматичний переклад…"
 
 #: widgets/room/channelactionpopupmenu.cpp:97
-#, fuzzy, kde-format
-#| msgid "Add Users in Channel..."
+#, kde-format
 msgid "Add Users in Channel…"
 msgstr "Додати користувачів на канал…"
 
@@ -8674,10 +8603,9 @@ msgid "Video Chat"
 msgstr "Відеоспілкування"
 
 #: widgets/room/channelactionpopupmenu.cpp:112
-#, fuzzy, kde-format
-#| msgid "Export Messages"
+#, kde-format
 msgid "Export Messages…"
-msgstr "Експортувати повідомлення"
+msgstr "Експортувати повідомлення…"
 
 #: widgets/room/channelactionpopupmenu.cpp:126
 #, kde-format
@@ -8702,14 +8630,12 @@ msgid "&Open With '%1'"
 msgstr "&Відкрити за допомогою «%1»"
 
 #: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:122
-#, fuzzy, kde-format
-#| msgid "Open &With..."
+#, kde-format
 msgid "Open &With…"
 msgstr "Відкрити з&а допомогою…"
 
 #: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:123
-#, fuzzy, kde-format
-#| msgid "Save &As..."
+#, kde-format
 msgid "Save &As…"
 msgstr "Зберегти &як…"
 
@@ -9018,16 +8944,14 @@ msgid "(Jump to first Unread)"
 msgstr "(Перейти до першого непрочитаного)"
 
 #: widgets/room/roomheaderlabel.cpp:69
-#, fuzzy, kde-format
-#| msgid "(Show More Info...)"
+#, kde-format
 msgid "(Show More Info…"
-msgstr "(Показати більше відомостей…)"
+msgstr "(Показати більше відомостей…"
 
 #: widgets/room/roomheaderlabel.cpp:101
-#, fuzzy, kde-format
-#| msgid "(Show Less Info...)"
+#, kde-format
 msgid "(Show Less Info…"
-msgstr "(Показати менше відомостей…)"
+msgstr "(Показати менше відомостей…"
 
 #: widgets/room/roomheaderwidget.cpp:63
 #, kde-format
@@ -9056,11 +8980,9 @@ msgid "Show List of Users"
 msgstr "Показувати список користувачів"
 
 #: widgets/room/roomheaderwidget.cpp:154 widgets/room/roomheaderwidget.cpp:156
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Search Messages"
+#, kde-format
 msgid "Search Messages…"
-msgstr "Пошук повідомлень"
+msgstr "Шукати повідомлення…"
 
 #: widgets/room/roomheaderwidget.cpp:227
 #, kde-format
@@ -9273,17 +9195,14 @@ msgid "Show New Notifications"
 msgstr "Показати нові сповіщення"
 
 #: widgets/ruqolamainwindow.cpp:396
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Add Server"
+#, kde-format
 msgid "Add Server…"
-msgstr "Додати сервер"
+msgstr "Додати сервер…"
 
 #: widgets/ruqolamainwindow.cpp:401
-#, fuzzy, kde-format
-#| msgid "Server Info"
+#, kde-format
 msgid "Server Info…"
-msgstr "Дані щодо сервера"
+msgstr "Дані щодо сервера…"
 
 #: widgets/ruqolamainwindow.cpp:405
 #, kde-format
@@ -9296,29 +9215,24 @@ msgid "Jump to Next Unread Channel"
 msgstr "Перейти до наступного непрочитаного каналу"
 
 #: widgets/ruqolamainwindow.cpp:414
-#, fuzzy, kde-format
-#| msgid "Create New Channel"
+#, kde-format
 msgid "Create New Channel…"
-msgstr "Створення каналу"
+msgstr "Створити канал…"
 
 #: widgets/ruqolamainwindow.cpp:418
-#, fuzzy, kde-format
-#| msgid "Create Direct Messages..."
+#, kde-format
 msgid "Create Direct Messages…"
 msgstr "Створити безпосередні повідомлення…"
 
 #: widgets/ruqolamainwindow.cpp:422
-#, fuzzy, kde-format
-#| msgid "Create Discussion..."
+#, kde-format
 msgid "Create Discussion…"
 msgstr "Створити обговорення…"
 
 #: widgets/ruqolamainwindow.cpp:426
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Create Team"
+#, kde-format
 msgid "Create Team…"
-msgstr "Створення команди"
+msgstr "Створити команду…"
 
 #: widgets/ruqolamainwindow.cpp:434
 #, kde-format
@@ -9351,33 +9265,27 @@ msgid "Mark All Channels as Read"
 msgstr "Позначити усі канали як прочитані"
 
 #: widgets/ruqolamainwindow.cpp:482
-#, fuzzy, kde-format
-#| msgid "Register New User"
+#, kde-format
 msgid "Register a New User…"
-msgstr "Реєстрація нового користувача"
+msgstr "Зареєструвати нового користувача…"
 
 #: widgets/ruqolamainwindow.cpp:486
-#, fuzzy, kde-format
-#| msgid "My Account..."
+#, kde-format
 msgid "My Account…"
 msgstr "Обліковий запис…"
 
 #: widgets/ruqolamainwindow.cpp:491
-#, fuzzy, kde-format
-#| msgid "Administrator"
+#, kde-format
 msgid "Administrator…"
-msgstr "Адміністратор"
+msgstr "Адміністратор…"
 
 #: widgets/ruqolamainwindow.cpp:497
-#, fuzzy, kde-format
-#| msgid "Server Settings..."
+#, kde-format
 msgid "Server Settings…"
 msgstr "Параметри сервера…"
 
 #: widgets/ruqolamainwindow.cpp:502
-#, fuzzy, kde-format
-#| msgctxt "Action which allows to search room/user/team"
-#| msgid "Directory..."
+#, kde-format
 msgctxt "Action which allows to search room/user/team"
 msgid "Directory…"
 msgstr "Каталог…"
@@ -9564,10 +9472,9 @@ msgstr "Канали команди"
 
 #: widgets/teams/teamchannelswidget.cpp:61
 #: widgets/teams/teamselectdeletedroomwidget.cpp:32
-#, fuzzy, kde-format
-#| msgid "Search rooms"
+#, kde-format
 msgid "Search room…"
-msgstr "Пошук кімнат"
+msgstr "Шукати кімнату…"
 
 #: widgets/teams/teamchannelswidget.cpp:115
 #, kde-format
@@ -9894,6 +9801,9 @@ msgstr "Використати RESTAPI для ведення журналу."
 #: widgets/whatsnew/whatsnewwidgettranslation.h:86
 msgid "Allow to send multi files."
 msgstr "Уможливлено надсилання декількох файлів одночасно."
+
+#~ msgid "Droplet"
+#~ msgstr "Крапля"
 
 #~ msgid "Modify Status..."
 #~ msgstr "Змінити стан…"
