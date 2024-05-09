@@ -30,7 +30,7 @@ void CustomSoundsManager::initializeDefaultSounds()
     {
         CustomSoundInfo info;
         info.setExtension(QStringLiteral("mp3"));
-        info.setName(i18n("Nothing"));
+        info.setName(i18n("None"));
         info.setIdentifier(QByteArrayLiteral("none"));
         listSounds.append(std::move(info));
     }
