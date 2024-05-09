@@ -24,4 +24,24 @@ void CustomSoundInfoTest::shouldHaveDefaultValues()
     // TODO
 }
 
+void CustomSoundInfoTest::shouldGenerateUrl()
+{
+    {
+        CustomSoundInfo info;
+        info.setDefaultSound(true);
+        info.setExtension(QStringLiteral("jjj"));
+        info.setName(QStringLiteral("bla"));
+        info.setIdentifier(QByteArrayLiteral("foo"));
+        QCOMPARE(info.generateUrl(), QStringLiteral("/sounds/foo.jjj"));
+    }
+    {
+        CustomSoundInfo info;
+        info.setDefaultSound(false);
+        info.setExtension(QStringLiteral("bbb"));
+        info.setName(QStringLiteral("bla"));
+        info.setIdentifier(QByteArrayLiteral("kde"));
+        QCOMPARE(info.generateUrl(), QStringLiteral("/custom-sounds/kde.bbb"));
+    }
+}
+
 #include "moc_customsoundinfotest.cpp"
