@@ -63,6 +63,15 @@ void CustomSoundInfo::setDefaultSound(bool newDefaultSound)
     mDefaultSound = newDefaultSound;
 }
 
+QString CustomSoundInfo::generateUrl() const
+{
+    if (mDefaultSound) {
+        return QLatin1String("/sounds/%1.%2").arg(QString::fromLatin1(mIdentifier), mExtension);
+    } else {
+        return QLatin1String("/custom-sounds/%1.%2").arg(QString::fromLatin1(mIdentifier), mExtension);
+    }
+}
+
 QDebug operator<<(QDebug d, const CustomSoundInfo &t)
 {
     d.space() << "Identifier:" << t.identifier();

@@ -31,6 +31,8 @@ public:
     [[nodiscard]] bool defaultSound() const;
     void setDefaultSound(bool newDefaultSound);
 
+    [[nodiscard]] QString generateUrl() const;
+
 private:
     QByteArray mIdentifier;
     QString mName;
