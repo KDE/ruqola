@@ -20,6 +20,7 @@ void CustomSoundInfoTest::shouldHaveDefaultValues()
     QVERIFY(info.name().isEmpty());
     QVERIFY(info.extension().isEmpty());
     QVERIFY(!info.isValid());
+    QVERIFY(!info.defaultSound());
     // TODO
 }
 
