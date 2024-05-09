@@ -33,7 +33,7 @@ bool AppsUiInteractionJob::start()
 void AppsUiInteractionJob::onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
     // qDebug() << " response " << replyErrorString << "replyJson  " << replyJson;
-    // It doesn't return sucess or not!
+    // It doesn't return success or not!
     Q_EMIT appsUiInteractionDone();
 #if 0
     // qDebug() << " response " << replyErrorString << "replyJson  " << replyJson;
