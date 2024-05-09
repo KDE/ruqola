@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-04-09 03:29+0000\n"
-"PO-Revision-Date: 2024-05-02 15:47+0200\n"
+"PO-Revision-Date: 2024-05-07 12:03+0200\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
 "Language-Team: French <French <kde-francophone@kde.org>>\n"
 "Language: fr\n"
@@ -3609,12 +3609,12 @@ msgstr "Utiliser la vérification de domaine « DNS »"
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:50
 #, kde-format
 msgid "Allow Feature Preview"
-msgstr "Autoriser l’aperçu des fonctionnalités"
+msgstr "Autoriser l'aperçu des fonctionnalités"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:51
 #, kde-format
 msgid "Registration with Authentication Services"
-msgstr "Enregistrement avec des services d’authentification"
+msgstr "Enregistrement avec des services d'authentification"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:54
 #, kde-format
@@ -3701,8 +3701,8 @@ msgid ""
 "Default roles (comma-separated) users will be given when registering through "
 "authentication services"
 msgstr ""
-"Les utilisateurs avec des rôles par défaut (séparés par des virgules)  "
-"seront donnés lors de l’enregistrement grâce aux services d’authentification"
+"Les utilisateurs avec des rôles par défaut (séparés par des virgules) seront "
+"donnés lors de l'enregistrement grâce aux services d'authentification"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:207
 #, kde-format
@@ -3716,7 +3716,7 @@ msgid ""
 "manual registration (including via API)"
 msgstr ""
 "Les utilisateurs avec des rôles par défaut (séparés par des virgules) seront "
-"fournis lors de l’enregistrement (y compris grâce aux services « API »)"
+"fournis lors de l'enregistrement (y compris grâce aux services « API »)"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:214
 #, kde-format
@@ -5145,7 +5145,7 @@ msgid ""
 "Whether embedded link previews are enabled or not when a user posts a link "
 "to a website."
 msgstr ""
-"Définit si les aperçus intégrés de liens sont activés ou non lorsqu’un "
+"Définit si les aperçus intégrés de liens sont activés ou non lorsqu'un "
 "utilisateur publie un lien vers un site Internet."
 
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:191
@@ -7973,14 +7973,14 @@ msgstr ""
 #: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:103
 #, kde-format
 msgid "Idle Time Limit:"
-msgstr "Délai maximal d’inactivité :"
+msgstr "Délai maximal d'inactivité :"
 
 #: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:110
 #, kde-format
 msgid ""
 "Period of time until status changes to away. Value needs to be in seconds."
 msgstr ""
-"Période de temps jusqu’à une modification d'état avant de disparaître. La "
+"Période de temps jusqu'à une modification d'état avant de disparaître. La "
 "valeur doit être en secondes."
 
 #: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:127
@@ -9392,8 +9392,8 @@ msgid ""
 "Fix show commands in message line edit (Hide action when room doesn't "
 "support it)."
 msgstr ""
-"Correction des commandes d’affichage dans l’édition de la ligne de messages "
-"(Masquer l’action lorsque le salon ne la prend pas en charge)."
+"Correction des commandes d'affichage dans l'édition de la ligne de messages "
+"(Masquer l'action lorsque le salon ne la prend pas en charge)."
 
 #: widgets/whatsnew/whatsnewwidgettranslation.h:59
 msgid "Fix download sound/video file when it's not in cache."

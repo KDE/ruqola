@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-04-09 03:29+0000\n"
-"PO-Revision-Date: 2024-05-07 13:19+0200\n"
+"PO-Revision-Date: 2024-05-08 17:58+0200\n"
 "Last-Translator: Vincenzo Reale <smart2128vr@gmail.com>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
 "Language: it\n"
@@ -867,12 +867,12 @@ msgstr "Messaggi di menzioni"
 #: core/model/listmessagesfilterproxymodel.cpp:49
 #, kde-format
 msgid "Threads Messages"
-msgstr "Messaggi delle discussioni"
+msgstr "Messaggi delle conversazioni"
 
 #: core/model/listmessagesfilterproxymodel.cpp:51
 #, kde-format
 msgid "Unread Threads Messages"
-msgstr "Messaggi delle discussioni non letti"
+msgstr "Messaggi delle conversazioni non letti"
 
 #: core/model/messagesmodel.cpp:221
 #, kde-format
@@ -3158,7 +3158,7 @@ msgstr "Totale stanze di messaggistica diretta"
 #: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:180
 #, kde-format
 msgid "Total Threads"
-msgstr "Discussioni totali"
+msgstr "Conversazioni totali"
 
 #: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:181
 #, kde-format
@@ -5597,7 +5597,7 @@ msgstr "Utilizza la configurazione dei criteri di conservazione avanzati"
 #: widgets/administratorsettingsdialog/retentionpolicy/retentionpolicysettingswidget.cpp:20
 #, kde-format
 msgid "Do not prune Threads"
-msgstr "Non eliminare le discussioni"
+msgstr "Non eliminare le conversazioni"
 
 #: widgets/administratorsettingsdialog/retentionpolicy/retentionpolicysettingswidget.cpp:21
 #, kde-format
@@ -7207,7 +7207,7 @@ msgstr "Mostra messaggi speciali - %1"
 #, kde-format
 msgctxt "@title:window"
 msgid "Show Threads Messages"
-msgstr "Mostra messaggi di discussione"
+msgstr "Mostra messaggi delle conversazioni"
 
 #: widgets/dialogs/showvideodialog.cpp:26
 #, kde-format
@@ -8110,7 +8110,7 @@ msgstr "Non eliminare i messaggi di discussione"
 #: widgets/prunemessages/prunemessageswidget.cpp:22
 #, kde-format
 msgid "Do not Prune Threads"
-msgstr "Non eliminare le discussioni"
+msgstr "Non eliminare le conversazioni"
 
 #: widgets/prunemessages/prunemessageswidget.cpp:23
 #, kde-format
@@ -8184,7 +8184,7 @@ msgstr "Mostra discussioni..."
 #: widgets/room/channelactionpopupmenu.cpp:67
 #, kde-format
 msgid "Show Threads..."
-msgstr "Mostra discussione..."
+msgstr "Mostra conversazioni..."
 
 #: widgets/room/channelactionpopupmenu.cpp:82
 #, kde-format
@@ -8384,7 +8384,7 @@ msgstr "Segna il messaggio come non letto"
 #: widgets/room/messagelistview.cpp:310
 #, kde-format
 msgid "Show Full Thread"
-msgstr "Mostra discussione intera"
+msgstr "Mostra conversazione intera"
 
 #: widgets/room/messagelistview.cpp:315
 #, kde-format
@@ -8426,7 +8426,7 @@ msgstr "Inizia una discussione"
 #: widgets/room/messagelistview.cpp:405
 #, kde-format
 msgid "Reply in Thread"
-msgstr "Rispondi nella discussione"
+msgstr "Rispondi nella conversazione"
 
 #: widgets/room/messagelistview.cpp:465
 #, kde-format
@@ -8585,12 +8585,12 @@ msgstr "Cita messaggio: «%1»"
 #: widgets/room/roomreplythreadwidget.cpp:19
 #, kde-format
 msgid "Replying in a thread"
-msgstr "Rispondi in una discussione"
+msgstr "Rispondi in una conversazione"
 
 #: widgets/room/roomreplythreadwidget.cpp:38
 #, kde-format
 msgid "Reply in Thread for Message: '%1'"
-msgstr "Risposta alla discussione per messaggio: «%1»"
+msgstr "Risposta alla conversazione per messaggio: «%1»"
 
 #: widgets/room/roomwidget.cpp:274
 #, kde-format
@@ -9184,7 +9184,7 @@ msgstr "Elimina stanze"
 #, kde-format
 msgctxt "@title:window"
 msgid "Thread"
-msgstr "Discussione"
+msgstr "Conversazione"
 
 #: widgets/userfeedback/accountinfosource.cpp:22
 #, kde-format
