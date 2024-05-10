@@ -19,9 +19,8 @@ public:
     void setCount(int count);
 
 private:
-    Q_DISABLE_COPY(UnityServiceManager)
-    void initUnity();
-    void updateCount();
+    LIBRUQOLACORE_NO_EXPORT void initUnity();
+    LIBRUQOLACORE_NO_EXPORT void updateCount();
     QDBusServiceWatcher *const mUnityServiceWatcher;
     int mCount = 0;
     bool mUnityServiceAvailable = false;

@@ -30,8 +30,8 @@ Q_SIGNALS:
     void rejectVideoConference();
 
 private:
-    void inComingCall();
-    [[nodiscard]] QString generateText() const;
+    LIBRUQOLACORE_NO_EXPORT void inComingCall();
+    [[nodiscard]] LIBRUQOLACORE_NO_EXPORT QString generateText() const;
     VideoConference mVideoConference;
     QPointer<RocketChatAccount> mRocketChatAccount;
 };

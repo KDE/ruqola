@@ -24,9 +24,9 @@ Q_SIGNALS:
     void insertAvatarUrl(const QString &userId, const QUrl &url);
 
 private:
-    void slotInsertAvatarUrl(const Utils::AvatarInfo &info, const QUrl &url);
-    void slotLoadNextAvatar();
-    void slotRescheduleDownload();
+    LIBRUQOLACORE_NO_EXPORT void slotInsertAvatarUrl(const Utils::AvatarInfo &info, const QUrl &url);
+    LIBRUQOLACORE_NO_EXPORT void slotLoadNextAvatar();
+    LIBRUQOLACORE_NO_EXPORT void slotRescheduleDownload();
     QList<Utils::AvatarInfo> mAvatarDownloadIdentifer;
     RocketChatAccount *const mAccount;
     QTimer *const mTimer;

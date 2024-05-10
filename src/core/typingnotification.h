@@ -21,7 +21,7 @@ Q_SIGNALS:
     void informTypingStatus(const QByteArray &room, bool typing);
 
 private:
-    void slotTimeout();
+    LIBRUQOLACORE_NO_EXPORT void slotTimeout();
     QByteArray mRoomId;
     bool mTypingInprogress = false;
     QTimer *const mTimer;

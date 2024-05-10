@@ -27,7 +27,6 @@ public:
     KSyntaxHighlighting::Repository &repo() const;
 
 private:
-    Q_DISABLE_COPY(SyntaxHighlightingManager)
     void initialize();
     mutable KSyntaxHighlighting::Repository mRepo;
     KSyntaxHighlighting::Definition mDefaultDef;

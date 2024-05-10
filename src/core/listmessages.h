@@ -35,7 +35,7 @@ protected:
     QList<Message> mListMessages;
 
 private:
-    void parseListInfo(const QJsonObject &messagesObj);
+    LIBRUQOLACORE_NO_EXPORT void parseListInfo(const QJsonObject &messagesObj);
     int mMessagesCount = 0;
     int mOffset = 0;
     int mTotal = 0;

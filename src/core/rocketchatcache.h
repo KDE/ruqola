@@ -47,14 +47,15 @@ Q_SIGNALS:
     void fileDownloaded(const QString &filePath, const QUrl &cacheImageUrl);
 
 private:
-    Q_DISABLE_COPY(RocketChatCache)
-    [[nodiscard]] QUrl urlFromLocalCache(const QString &url, bool needAuthentication, ManagerDataPaths::PathType type = ManagerDataPaths::Cache);
-    [[nodiscard]] bool fileInCache(const QUrl &url);
-    [[nodiscard]] QString fileCachePath(const QUrl &url, ManagerDataPaths::PathType type = ManagerDataPaths::Cache);
-    void downloadAvatarFromServer(const Utils::AvatarInfo &info);
-    void slotDataDownloaded(const QUrl &url, const QUrl &localFileUrl);
-    void removeAvatar(const QString &avatarIdentifier);
-    void loadAvatarCache();
+    [[nodiscard]] LIBRUQOLACORE_NO_EXPORT QUrl urlFromLocalCache(const QString &url,
+                                                                 bool needAuthentication,
+                                                                 ManagerDataPaths::PathType type = ManagerDataPaths::Cache);
+    [[nodiscard]] LIBRUQOLACORE_NO_EXPORT bool fileInCache(const QUrl &url);
+    [[nodiscard]] LIBRUQOLACORE_NO_EXPORT QString fileCachePath(const QUrl &url, ManagerDataPaths::PathType type = ManagerDataPaths::Cache);
+    LIBRUQOLACORE_NO_EXPORT void downloadAvatarFromServer(const Utils::AvatarInfo &info);
+    LIBRUQOLACORE_NO_EXPORT void slotDataDownloaded(const QUrl &url, const QUrl &localFileUrl);
+    LIBRUQOLACORE_NO_EXPORT void removeAvatar(const QString &avatarIdentifier);
+    LIBRUQOLACORE_NO_EXPORT void loadAvatarCache();
     QHash<QString, QUrl> mAvatarUrl;
     QSet<QString> mFileInDownload;
     RocketChatAccount *const mAccount;

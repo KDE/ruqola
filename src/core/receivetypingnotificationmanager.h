@@ -26,7 +26,6 @@ Q_SIGNALS:
     void clearNotification();
 
 private:
-    Q_DISABLE_COPY(ReceiveTypingNotificationManager)
     [[nodiscard]] LIBRUQOLACORE_NO_EXPORT QString generateNotification(const QStringList &userNames) const;
     QMap<QByteArray, QStringList> mMapTypingNotifications;
 };

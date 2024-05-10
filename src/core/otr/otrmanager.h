@@ -20,7 +20,6 @@ public:
     void parseOtr(const QJsonArray &contents);
 
 private:
-    Q_DISABLE_COPY(OtrManager)
     LIBRUQOLACORE_NO_EXPORT void slotAcceptOtr(const Otr &t);
     LIBRUQOLACORE_NO_EXPORT void slotRejectOtr(const Otr &t);
     LIBRUQOLACORE_NO_EXPORT void slotAcknowLedgeOtr(const Otr &t);

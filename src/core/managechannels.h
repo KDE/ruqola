@@ -33,9 +33,9 @@ Q_SIGNALS:
     void openArchivedRoom(const RocketChatRestApi::ChannelGroupBaseJob::ChannelGroupInfo &channelInfo);
 
 private:
-    void setChannelJoinDone(const RocketChatRestApi::ChannelGroupBaseJob::ChannelGroupInfo &channelInfo);
-    [[nodiscard]] SearchChannelFound searchOpenChannels(const QString &roomId);
-    [[nodiscard]] RocketChatRestApi::ChannelGroupBaseJob::ChannelGroupInfo generateGroupInfo(const QString &roomId,
-                                                                                             RocketChatAccount::ChannelTypeInfo typeInfo);
+    LIBRUQOLACORE_NO_EXPORT void setChannelJoinDone(const RocketChatRestApi::ChannelGroupBaseJob::ChannelGroupInfo &channelInfo);
+    [[nodiscard]] LIBRUQOLACORE_NO_EXPORT SearchChannelFound searchOpenChannels(const QString &roomId);
+    [[nodiscard]] LIBRUQOLACORE_NO_EXPORT RocketChatRestApi::ChannelGroupBaseJob::ChannelGroupInfo
+    generateGroupInfo(const QString &roomId, RocketChatAccount::ChannelTypeInfo typeInfo);
     RocketChatAccount *const mAccount;
 };

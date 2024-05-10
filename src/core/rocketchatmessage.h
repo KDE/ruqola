@@ -93,7 +93,6 @@ public:
     videoConferenceConfirmed(const QString &roomId, const QString &callId, const QString &userId, quint64 id);
 
 private:
-    Q_DISABLE_COPY(RocketChatMessage)
     [[nodiscard]] LIBRUQOLACORE_NO_EXPORT QJsonValue toJsonDateTime(const QDateTime &dateTime);
     [[nodiscard]] LIBRUQOLACORE_NO_EXPORT RocketChatMessage::RocketChatMessageResult subscribe(const QString &name, const QJsonDocument &params, quint64 id);
     [[nodiscard]] LIBRUQOLACORE_NO_EXPORT RocketChatMessage::RocketChatMessageResult

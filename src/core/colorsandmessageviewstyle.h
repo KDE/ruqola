@@ -30,7 +30,7 @@ Q_SIGNALS:
     void needUpdateFontSize();
 
 protected:
-    bool eventFilter(QObject *obj, QEvent *event) override;
+    [[nodiscard]] bool eventFilter(QObject *obj, QEvent *event) override;
 
 private:
     LIBRUQOLACORE_NO_EXPORT void regenerateColorScheme();

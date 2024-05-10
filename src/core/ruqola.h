@@ -61,7 +61,6 @@ Q_SIGNALS:
     void translatorMenuChanged();
 
 private:
-    Q_DISABLE_COPY(Ruqola)
     AccountManager *mAccountManager = nullptr;
 #if HAVE_TEXT_AUTOCORRECTION_WIDGETS
     TextAutoCorrectionCore::AutoCorrection *const mAutoCorrection = nullptr;
