@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-05-09 00:39+0000\n"
+"POT-Creation-Date: 2024-05-10 00:38+0000\n"
 "PO-Revision-Date: 2024-05-08 17:58+0200\n"
 "Last-Translator: Vincenzo Reale <smart2128vr@gmail.com>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
@@ -289,64 +289,86 @@ msgstr "Imposta argomento"
 msgid "Unarchive"
 msgstr "Togli dall'archivio"
 
-#: core/customsound/customsoundsmanager.cpp:27
-#: core/customsound/customsoundsmanager.cpp:82
+#: core/customsound/customsoundsmanager.cpp:26
+#: core/model/notificationdesktopdurationpreferencemodel.cpp:48
+#: core/model/notificationpreferencemodel.cpp:45
+#: widgets/administratordialog/rooms/administratordirectroomseditwidget.cpp:16
+#: widgets/administratordialog/rooms/administratorroomseditwidget.cpp:20
+#: widgets/dialogs/createsoundmessagewidget.cpp:96
+#: widgets/dialogs/createsoundmessagewidget.cpp:138
+#: widgets/dialogs/playsoundwidget.cpp:122
+#: widgets/dialogs/showvideowidget.cpp:122
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:201
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:209
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:216
+#, kde-format
+msgid "Default"
+msgstr "Predefinito"
+
+#: core/customsound/customsoundsmanager.cpp:34
+#: widgets/dialogs/serverinfo/serverinfowidget.cpp:57
+#, kde-format
+msgid "None"
+msgstr "Nessuno"
+
+#: core/customsound/customsoundsmanager.cpp:44
+#: core/customsound/customsoundsmanager.cpp:107
 #, kde-format
 msgid "Chime"
 msgstr "Campanello"
 
-#: core/customsound/customsoundsmanager.cpp:34
-#: core/customsound/customsoundsmanager.cpp:89
+#: core/customsound/customsoundsmanager.cpp:52
+#: core/customsound/customsoundsmanager.cpp:115
 #, kde-format
 msgid "Door"
 msgstr "Porta"
 
-#: core/customsound/customsoundsmanager.cpp:41
+#: core/customsound/customsoundsmanager.cpp:60
 #, kde-format
 msgid "Beep"
 msgstr "Bip"
 
-#: core/customsound/customsoundsmanager.cpp:48
+#: core/customsound/customsoundsmanager.cpp:68
 #, kde-format
 msgid "Chelle"
 msgstr "Chelle"
 
-#: core/customsound/customsoundsmanager.cpp:55
+#: core/customsound/customsoundsmanager.cpp:76
 #, kde-format
 msgid "Ding"
 msgstr "Ding"
 
-#: core/customsound/customsoundsmanager.cpp:69
+#: core/customsound/customsoundsmanager.cpp:92
 #, kde-format
 msgid "Highbell"
 msgstr "Highbell"
 
-#: core/customsound/customsoundsmanager.cpp:76
+#: core/customsound/customsoundsmanager.cpp:100
 #, kde-format
 msgid "Seasons"
 msgstr "Stagioni"
 
-#: core/customsound/customsoundsmanager.cpp:96
+#: core/customsound/customsoundsmanager.cpp:123
 #, kde-format
 msgid "Telephone"
 msgstr "Telefono"
 
-#: core/customsound/customsoundsmanager.cpp:103
+#: core/customsound/customsoundsmanager.cpp:131
 #, kde-format
 msgid "Outbound Call Ringing"
 msgstr "Chiamata in uscita che squilla"
 
-#: core/customsound/customsoundsmanager.cpp:110
+#: core/customsound/customsoundsmanager.cpp:139
 #, kde-format
 msgid "Call Ended"
 msgstr "Chiamata terminata"
 
-#: core/customsound/customsoundsmanager.cpp:117
+#: core/customsound/customsoundsmanager.cpp:147
 #, kde-format
 msgid "Dialtone"
 msgstr "Segnale acustico"
 
-#: core/customsound/customsoundsmanager.cpp:124
+#: core/customsound/customsoundsmanager.cpp:155
 #, kde-format
 msgid "Ringtone"
 msgstr "Suoneria"
@@ -961,21 +983,6 @@ msgstr "Data segnalata"
 #, kde-format
 msgid "Room"
 msgstr "Stanza"
-
-#: core/model/notificationdesktopdurationpreferencemodel.cpp:48
-#: core/model/notificationpreferencemodel.cpp:45
-#: widgets/administratordialog/rooms/administratordirectroomseditwidget.cpp:16
-#: widgets/administratordialog/rooms/administratorroomseditwidget.cpp:20
-#: widgets/dialogs/createsoundmessagewidget.cpp:96
-#: widgets/dialogs/createsoundmessagewidget.cpp:138
-#: widgets/dialogs/playsoundwidget.cpp:122
-#: widgets/dialogs/showvideowidget.cpp:122
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:201
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:209
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:216
-#, kde-format
-msgid "Default"
-msgstr "Predefinito"
 
 #: core/model/notificationdesktopdurationpreferencemodel.cpp:54
 #, kde-format
@@ -7247,11 +7254,6 @@ msgstr "Versione del server:"
 #, kde-format
 msgid "License:"
 msgstr "Licenza:"
-
-#: widgets/dialogs/serverinfo/serverinfowidget.cpp:57
-#, kde-format
-msgid "None"
-msgstr "Nessuno"
 
 #: widgets/dialogs/showattachmentcombobox.cpp:19
 #: widgets/room/usersinroomcombobox.cpp:20
