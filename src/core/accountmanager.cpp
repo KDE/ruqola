@@ -5,6 +5,7 @@
 */
 
 #include "accountmanager.h"
+#include "customsound/customsoundsmanager.h"
 #include "localdatabase/localdatabaseutils.h"
 #include "managerdatapaths.h"
 #include "notificationhistorymanager.h"
@@ -733,6 +734,12 @@ void AccountManager::connectToAccount(RocketChatAccount *account)
 
         switch (info.notificationType()) {
         case NotificationInfo::StandardMessage: {
+            if (Room *room = account->room(info.roomId())) {
+                const QByteArray audioNotificationId = room->notificationOptions().audioNotificationValue();
+                if (!audioNotificationId.isEmpty()) {
+                    account->playSound(account->soundUrlFromLocalCache(account->customSoundManager()->soundFilePath(audioNotificationId)));
+                }
+            }
             auto job = new NotifierJob;
             job->setInfo(info);
             connect(job, &NotifierJob::switchToAccountAndRoomName, this, &AccountManager::slotSwitchToAccountAndRoomName);
