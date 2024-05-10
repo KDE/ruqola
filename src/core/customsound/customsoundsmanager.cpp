@@ -251,8 +251,14 @@ void CustomSoundsManager::updateCustomSounds(const QJsonArray &replyArray)
 
 QString CustomSoundsManager::soundFile(const QByteArray &identifier) const
 {
-    // TODO
-    return {};
+    auto index = std::find_if(mCustomSoundsInfo.begin(), mCustomSoundsInfo.end(), [identifier](const CustomSoundInfo &info) {
+        return (info.identifier() == identifier);
+    });
+    QString url;
+    if (index != mCustomSoundsInfo.end()) {
+        url = (*index).generateUrl();
+    }
+    return url;
 }
 
 #include "moc_customsoundsmanager.cpp"
