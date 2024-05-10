@@ -94,10 +94,9 @@ ConfigureNotificationWidget::ConfigureNotificationWidget(RocketChatAccount *acco
         mDesktopSoundCombobox->setModel(mRocketChatAccount->notificationPreferences()->desktopSoundNotificationModel());
     }
     connect(mDesktopSoundCombobox, &QComboBox::activated, this, [this](int index) {
-        mRocketChatAccount->changeNotificationsSettings(
-            mRoom->roomId(),
-            RocketChatAccount::DesktopSoundNotifications,
-            mRocketChatAccount->notificationPreferences()->desktopSoundNotificationModel()->currentPreference(index));
+        const QByteArray identifier = mRocketChatAccount->notificationPreferences()->desktopSoundNotificationModel()->currentPreference(index);
+        mRocketChatAccount->changeNotificationsSettings(mRoom->roomId(), RocketChatAccount::DesktopSoundNotifications, identifier);
+        mPlaySoundToolButton->setEnabled(identifier != QByteArrayLiteral("none"));
     });
 
     auto mobileGroupBox = new QGroupBox(i18n("Mobile"), this);
@@ -149,7 +148,9 @@ void ConfigureNotificationWidget::slotPlaySound()
     if (mRocketChatAccount) {
         const QByteArray identifier =
             mRocketChatAccount->notificationPreferences()->desktopSoundNotificationModel()->currentPreference(mDesktopSoundCombobox->currentIndex());
-        // TODO
+        if (!identifier.isEmpty() || identifier != "none") {
+            // TODO
+        }
     }
 }
 

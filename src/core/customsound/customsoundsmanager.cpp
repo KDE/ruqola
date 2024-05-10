@@ -24,6 +24,7 @@ void CustomSoundsManager::initializeDefaultSounds()
         CustomSoundInfo info;
         info.setName(i18n("None"));
         info.setDefaultSound(true);
+        info.setIdentifier(QByteArrayLiteral("none"));
         listSounds.append(std::move(info));
     }
     {
