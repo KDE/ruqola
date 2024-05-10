@@ -83,8 +83,6 @@ target_sources(libruqolacore PRIVATE
     downloadappslanguages/downloadappslanguagesmanager.h
     downloadappslanguages/downloadappslanguagesparser.cpp
     downloadappslanguages/downloadappslanguagesparser.h
-    downloadavartarurlmanager.cpp
-    downloadavartarurlmanager.h
     emoticons/customemoji.cpp
     emoticons/customemoji.h
     emoticons/customemojisinfo.cpp
