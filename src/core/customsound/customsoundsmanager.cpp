@@ -244,7 +244,7 @@ void CustomSoundsManager::updateCustomSounds(const QJsonArray &replyArray)
     qCDebug(RUQOLA_CUSTOMSOUNDS_LOG) << " Update Custom Sounds count: " << mCustomSoundsInfo.count();
 }
 
-QString CustomSoundsManager::soundFile(const QString &identifier) const
+QString CustomSoundsManager::soundFile(const QByteArray &identifier) const
 {
     // TODO
     return {};

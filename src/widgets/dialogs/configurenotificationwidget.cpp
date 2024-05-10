@@ -146,7 +146,11 @@ Room *ConfigureNotificationWidget::room() const
 
 void ConfigureNotificationWidget::slotPlaySound()
 {
-    // TODO
+    if (mRocketChatAccount) {
+        const QByteArray identifier =
+            mRocketChatAccount->notificationPreferences()->desktopSoundNotificationModel()->currentPreference(mDesktopSoundCombobox->currentIndex());
+        // TODO
+    }
 }
 
 void ConfigureNotificationWidget::setRoom(Room *room)

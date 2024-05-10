@@ -28,7 +28,7 @@ public:
 
     void initializeDefaultSounds();
 
-    [[nodiscard]] QString soundFile(const QString &) const;
+    [[nodiscard]] QString soundFile(const QByteArray &) const;
 
 Q_SIGNALS:
     void customSoundRemoved(const QByteArray &identifier);
