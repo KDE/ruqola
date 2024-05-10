@@ -249,7 +249,7 @@ void CustomSoundsManager::updateCustomSounds(const QJsonArray &replyArray)
     qCDebug(RUQOLA_CUSTOMSOUNDS_LOG) << " Update Custom Sounds count: " << mCustomSoundsInfo.count();
 }
 
-QString CustomSoundsManager::soundFile(const QByteArray &identifier) const
+QString CustomSoundsManager::soundFilePath(const QByteArray &identifier) const
 {
     auto index = std::find_if(mCustomSoundsInfo.begin(), mCustomSoundsInfo.end(), [identifier](const CustomSoundInfo &info) {
         return (info.identifier() == identifier);

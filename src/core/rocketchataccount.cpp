@@ -241,13 +241,13 @@ RocketChatAccount::RocketChatAccount(const QString &accountFileName, QObject *pa
     connect(mManageChannels, &ManageChannels::openArchivedRoom, this, &RocketChatAccount::openArchivedRoom);
     connect(&mRolesManager, &RolesManager::rolesChanged, this, &RocketChatAccount::rolesUpdated);
     connect(mCustomSoundManager, &CustomSoundsManager::customSoundRemoved, this, [this](const QByteArray &identifier) {
-        const QString urlFilePath = mCustomSoundManager->soundFile(identifier);
+        const QString urlFilePath = mCustomSoundManager->soundFilePath(identifier);
 
         // TODO remove from disk
         Q_EMIT customSoundRemoved(identifier);
     });
     connect(mCustomSoundManager, &CustomSoundsManager::customSoundAdded, this, [this](const QByteArray &identifier) {
-        const QString urlFilePath = mCustomSoundManager->soundFile(identifier);
+        const QString urlFilePath = mCustomSoundManager->soundFilePath(identifier);
         if (!urlFilePath.isEmpty()) {
             (void)mCache->soundUrlFromLocalCache(urlFilePath);
             // TODO download sound file
@@ -255,7 +255,7 @@ RocketChatAccount::RocketChatAccount(const QString &accountFileName, QObject *pa
         }
     });
     connect(mCustomSoundManager, &CustomSoundsManager::customSoundUpdated, this, [this](const QByteArray &identifier) {
-        const QString urlFilePath = mCustomSoundManager->soundFile(identifier);
+        const QString urlFilePath = mCustomSoundManager->soundFilePath(identifier);
         if (!urlFilePath.isEmpty()) {
             (void)mCache->soundUrlFromLocalCache(urlFilePath);
             // TODO update sound file
