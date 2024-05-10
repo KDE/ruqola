@@ -153,12 +153,7 @@ void ConfigureNotificationWidget::slotPlaySound()
             mRocketChatAccount->notificationPreferences()->desktopSoundNotificationModel()->currentPreference(mDesktopSoundCombobox->currentIndex());
         if (!identifier.isEmpty() || identifier != "none") {
             const QUrl url = mRocketChatAccount->soundUrlFromLocalCache(mRocketChatAccount->customSoundManager()->soundFilePath(identifier));
-            auto player = new QMediaPlayer;
-            auto audioOutput = new QAudioOutput;
-            player->setAudioOutput(audioOutput);
-            player->setSource(url);
-            audioOutput->setVolume(50);
-            player->play();
+            mRocketChatAccount->playSound(url);
         }
     }
 }

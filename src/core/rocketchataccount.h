@@ -90,6 +90,7 @@ class PreviewUrlCacheManager;
 class E2eKeyManager;
 class Connection;
 class NotificationPreferences;
+class SoundManager;
 
 class LIBRUQOLACORE_EXPORT RocketChatAccount : public QObject
 {
@@ -537,6 +538,8 @@ public:
     [[nodiscard]] bool activityEnabled() const;
     [[nodiscard]] NotificationPreferences *notificationPreferences() const;
 
+    void playSound(const QUrl &url);
+
 Q_SIGNALS:
     void roomRemoved(const QByteArray &roomId);
     void disabledTotpValid(bool checked);
@@ -730,6 +733,7 @@ private:
     PreviewUrlCacheManager *const mPreviewUrlCacheManager;
     NotificationPreferences *const mNotificationPreferences;
     E2eKeyManager *const mE2eKeyManager;
+    SoundManager *const mSoundManager;
     int mDelayReconnect = 100;
     bool mEditingMode = false;
     bool mMarkUnreadThreadsAsReadOnNextReply = false;

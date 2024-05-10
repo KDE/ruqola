@@ -532,6 +532,9 @@ target_sources(libruqolacore PRIVATE
     encryption/e2ekeymanager.h
     encryption/e2ekey.h
     encryption/e2ekey.cpp
+
+    soundmanager.h
+    soundmanager.cpp
 )
 
 if (HAVE_TEXT_TRANSLATOR)
@@ -667,6 +670,7 @@ target_link_libraries(libruqolacore
     qt6keychain
     KF6::StatusNotifierItem
     KF6::KIOCore
+    Qt::Multimedia
 )
 
 if (HAVE_TEXT_TRANSLATOR)

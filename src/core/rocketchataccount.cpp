@@ -22,6 +22,7 @@
 #include "managerdatapaths.h"
 #include "messagequeue.h"
 #include "previewurlcachemanager.h"
+#include "soundmanager.h"
 
 #include "authenticationmanager/restauthenticationmanager.h"
 #include "model/autotranslatelanguagesmodel.h"
@@ -129,6 +130,7 @@ RocketChatAccount::RocketChatAccount(const QString &accountFileName, QObject *pa
     , mPreviewUrlCacheManager(new PreviewUrlCacheManager(this, this))
     , mNotificationPreferences(new NotificationPreferences(this))
     , mE2eKeyManager(new E2eKeyManager(this, this))
+    , mSoundManager(new SoundManager(this))
 {
     qCDebug(RUQOLA_LOG) << " RocketChatAccount::RocketChatAccount(const QString &accountFileName, QObject *parent)" << accountFileName;
     // create an unique file for each account
@@ -3133,6 +3135,11 @@ void RocketChatAccount::executeBlockAction(const QString &appId,
     if (!job->start()) {
         qCWarning(RUQOLA_LOG) << "Impossible to start AppsUiInteractionJob job";
     }
+}
+
+void RocketChatAccount::playSound(const QUrl &url)
+{
+    mSoundManager->playSound(url);
 }
 
 #include "moc_rocketchataccount.cpp"
