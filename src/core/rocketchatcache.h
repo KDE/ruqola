@@ -41,6 +41,8 @@ public:
     [[nodiscard]] QUrl faviconLogoUrlFromLocalCache(const QString &url);
     [[nodiscard]] QUrl previewUrlFromLocalCache(const QString &url);
     [[nodiscard]] QUrl avatarUrlFromLocalCache(const QString &url);
+    [[nodiscard]] QUrl soundUrlFromLocalCache(const QString &url);
+
 Q_SIGNALS:
     void fileDownloaded(const QString &filePath, const QUrl &cacheImageUrl);
 

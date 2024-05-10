@@ -129,6 +129,13 @@ QUrl RocketChatCache::urlFromLocalCache(const QString &url, bool needAuthenticat
     return {};
 }
 
+QUrl RocketChatCache::soundUrlFromLocalCache(const QString &url)
+{
+    const QUrl previewUrl = urlFromLocalCache(url, false, ManagerDataPaths::CustomSound);
+    // qDebug() << "previewUrl  " << previewUrl;
+    return previewUrl;
+}
+
 QUrl RocketChatCache::previewUrlFromLocalCache(const QString &url)
 {
     const QUrl previewUrl = urlFromLocalCache(url, false, ManagerDataPaths::PreviewUrl);

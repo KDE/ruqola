@@ -240,14 +240,34 @@ RocketChatAccount::RocketChatAccount(const QString &accountFileName, QObject *pa
     connect(mManageChannels, &ManageChannels::missingChannelPassword, this, &RocketChatAccount::missingChannelPassword);
     connect(mManageChannels, &ManageChannels::openArchivedRoom, this, &RocketChatAccount::openArchivedRoom);
     connect(&mRolesManager, &RolesManager::rolesChanged, this, &RocketChatAccount::rolesUpdated);
-    connect(mCustomSoundManager, &CustomSoundsManager::customSoundRemoved, this, &RocketChatAccount::customSoundRemoved);
-    connect(mCustomSoundManager, &CustomSoundsManager::customSoundAdded, this, &RocketChatAccount::customSoundAdded);
-    connect(mCustomSoundManager, &CustomSoundsManager::customSoundUpdated, this, &RocketChatAccount::customSoundUpdated);
+    connect(mCustomSoundManager, &CustomSoundsManager::customSoundRemoved, this, [this](const QByteArray &identifier) {
+        const QString urlFilePath = mCustomSoundManager->soundFile(identifier);
+
+        // TODO remove from disk
+        Q_EMIT customSoundRemoved(identifier);
+    });
+    connect(mCustomSoundManager, &CustomSoundsManager::customSoundAdded, this, [this](const QByteArray &identifier) {
+        const QString urlFilePath = mCustomSoundManager->soundFile(identifier);
+        if (!urlFilePath.isEmpty()) {
+            (void)mCache->soundUrlFromLocalCache(urlFilePath);
+            // TODO download sound file
+            Q_EMIT customSoundAdded(identifier);
+        }
+    });
+    connect(mCustomSoundManager, &CustomSoundsManager::customSoundUpdated, this, [this](const QByteArray &identifier) {
+        const QString urlFilePath = mCustomSoundManager->soundFile(identifier);
+        if (!urlFilePath.isEmpty()) {
+            (void)mCache->soundUrlFromLocalCache(urlFilePath);
+            // TODO update sound file
+            Q_EMIT customSoundUpdated(identifier);
+        }
+    });
     connect(mAwayManager, &AwayManager::awayChanged, this, &RocketChatAccount::slotAwayStatusChanged);
 
     mPreviewUrlCacheManager->setCachePath(ManagerDataPaths::self()->path(ManagerDataPaths::PreviewUrl, accountName()));
     setDefaultAuthentication(mSettings->authMethodType());
     mNotificationPreferences->setCustomSoundManager(mCustomSoundManager);
+    // TODO load default file sound
 }
 
 RocketChatAccount::~RocketChatAccount()
