@@ -89,6 +89,7 @@ ConfigureNotificationWidget::ConfigureNotificationWidget(RocketChatAccount *acco
     mDesktopSoundCombobox->setObjectName(QStringLiteral("mDesktopSoundCombobox"));
     mPlaySoundToolButton->setObjectName(QStringLiteral("mPlaySoundToolButton"));
     desktopGroupBoxLayout->addRow(i18n("Sound:"), soundLayout);
+    connect(mPlaySoundToolButton, &QToolButton::clicked, this, &ConfigureNotificationWidget::slotPlaySound);
     if (mRocketChatAccount) {
         mDesktopSoundCombobox->setModel(mRocketChatAccount->notificationPreferences()->desktopSoundNotificationModel());
     }
@@ -141,6 +142,11 @@ ConfigureNotificationWidget::~ConfigureNotificationWidget() = default;
 Room *ConfigureNotificationWidget::room() const
 {
     return mRoom;
+}
+
+void ConfigureNotificationWidget::slotPlaySound()
+{
+    // TODO
 }
 
 void ConfigureNotificationWidget::setRoom(Room *room)

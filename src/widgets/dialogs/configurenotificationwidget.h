@@ -25,6 +25,7 @@ public:
     void setRoom(Room *room);
 
 private:
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotPlaySound();
     QCheckBox *const mDisableNotification;
     QCheckBox *const mHideUnreadRoomStatus;
     QCheckBox *const mMuteGroupMentions;
