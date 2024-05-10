@@ -516,6 +516,7 @@ public:
     [[nodiscard]] QUrl previewUrlFromLocalCache(const QString &url);
     [[nodiscard]] bool previewEmbed() const;
     [[nodiscard]] QUrl avatarUrlFromLocalCache(const QString &url);
+    [[nodiscard]] QUrl soundUrlFromLocalCache(const QString &url);
 
     [[nodiscard]] OwnUserPreferences::RoomListDisplay roomListDisplay() const;
 

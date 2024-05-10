@@ -5,16 +5,19 @@
 */
 
 #include "configurenotificationwidget.h"
+#include "customsound/customsoundsmanager.h"
 #include "model/notificationdesktopsoundpreferencemodel.h"
 #include "model/notificationpreferencemodel.h"
 #include "notifications/notificationpreferences.h"
 #include "rocketchataccount.h"
 #include "room.h"
 #include <KLocalizedString>
+#include <QAudioOutput>
 #include <QCheckBox>
 #include <QComboBox>
 #include <QFormLayout>
 #include <QGroupBox>
+#include <QMediaPlayer>
 #include <QToolButton>
 #include <QVBoxLayout>
 
@@ -149,16 +152,13 @@ void ConfigureNotificationWidget::slotPlaySound()
         const QByteArray identifier =
             mRocketChatAccount->notificationPreferences()->desktopSoundNotificationModel()->currentPreference(mDesktopSoundCombobox->currentIndex());
         if (!identifier.isEmpty() || identifier != "none") {
-#if 0
-            player = new QMediaPlayer;
-            audioOutput = new QAudioOutput;
+            const QUrl url = mRocketChatAccount->soundUrlFromLocalCache(mRocketChatAccount->customSoundManager()->soundFilePath(identifier));
+            auto player = new QMediaPlayer;
+            auto audioOutput = new QAudioOutput;
             player->setAudioOutput(audioOutput);
-            // ...
-            player->setSource(QUrl::fromLocalFile("/Users/me/Music/coolsong.mp3"));
+            player->setSource(url);
             audioOutput->setVolume(50);
             player->play();
-#endif
-            // TODO
         }
     }
 }

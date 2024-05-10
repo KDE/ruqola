@@ -284,7 +284,7 @@ void RocketChatAccount::loadSoundFiles()
 {
     const QList<CustomSoundInfo> customSoundInfos = mCustomSoundManager->customSoundsInfo();
     for (const CustomSoundInfo &info : customSoundInfos) {
-        (void)mCache->soundUrlFromLocalCache(mCustomSoundManager->soundFilePath(info.identifier()));
+        (void)soundUrlFromLocalCache(mCustomSoundManager->soundFilePath(info.identifier()));
     }
 }
 
@@ -1746,6 +1746,11 @@ void RocketChatAccount::downloadFile(const QString &downloadFileUrl, const QUrl 
 QUrl RocketChatAccount::avatarUrlFromLocalCache(const QString &url)
 {
     return mCache->avatarUrlFromLocalCache(url);
+}
+
+QUrl RocketChatAccount::soundUrlFromLocalCache(const QString &url)
+{
+    return mCache->soundUrlFromLocalCache(url);
 }
 
 QUrl RocketChatAccount::faviconLogoUrlFromLocalCache(const QString &url)
