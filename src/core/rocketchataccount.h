@@ -660,6 +660,7 @@ private:
     LIBRUQOLACORE_NO_EXPORT void checkLicenses();
     LIBRUQOLACORE_NO_EXPORT void parsePublicSettings();
     LIBRUQOLACORE_NO_EXPORT void licenseGetModules();
+    LIBRUQOLACORE_NO_EXPORT void loadSoundFiles();
 
     AccountRoomSettings *const mAccountRoomSettings;
 

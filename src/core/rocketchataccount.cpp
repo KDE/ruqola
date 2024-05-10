@@ -263,11 +263,11 @@ RocketChatAccount::RocketChatAccount(const QString &accountFileName, QObject *pa
         }
     });
     connect(mAwayManager, &AwayManager::awayChanged, this, &RocketChatAccount::slotAwayStatusChanged);
+    connect(mCustomSoundManager, &CustomSoundsManager::customSoundChanged, this, &RocketChatAccount::loadSoundFiles);
 
     mPreviewUrlCacheManager->setCachePath(ManagerDataPaths::self()->path(ManagerDataPaths::PreviewUrl, accountName()));
     setDefaultAuthentication(mSettings->authMethodType());
     mNotificationPreferences->setCustomSoundManager(mCustomSoundManager);
-    // TODO load default file sound
 }
 
 RocketChatAccount::~RocketChatAccount()
@@ -278,6 +278,14 @@ RocketChatAccount::~RocketChatAccount()
     delete mRuqolaServerConfig;
     delete mRuqolaLogger;
     delete mAccountRoomSettings;
+}
+
+void RocketChatAccount::loadSoundFiles()
+{
+    const QList<CustomSoundInfo> customSoundInfos = mCustomSoundManager->customSoundsInfo();
+    for (const CustomSoundInfo &info : customSoundInfos) {
+        (void)mCache->soundUrlFromLocalCache(mCustomSoundManager->soundFilePath(info.identifier()));
+    }
 }
 
 void RocketChatAccount::reconnectToServer()
