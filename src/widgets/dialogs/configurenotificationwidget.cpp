@@ -15,6 +15,7 @@
 #include <QComboBox>
 #include <QFormLayout>
 #include <QGroupBox>
+#include <QToolButton>
 #include <QVBoxLayout>
 
 ConfigureNotificationWidget::ConfigureNotificationWidget(RocketChatAccount *account, QWidget *parent)
@@ -27,6 +28,7 @@ ConfigureNotificationWidget::ConfigureNotificationWidget(RocketChatAccount *acco
     , mDesktopSoundCombobox(new QComboBox(this))
     , mMobileAlertCombobox(new QComboBox(this))
     , mEmailAlertCombobox(new QComboBox(this))
+    , mPlaySoundToolButton(new QToolButton(this))
     , mRocketChatAccount(account)
 {
     auto topLayout = new QVBoxLayout(this);
@@ -77,8 +79,16 @@ ConfigureNotificationWidget::ConfigureNotificationWidget(RocketChatAccount *acco
                                                         mRocketChatAccount->notificationPreferences()->desktopNotificationModel()->currentPreference(index));
     });
 
+    auto soundLayout = new QHBoxLayout;
+    soundLayout->setContentsMargins({});
+    soundLayout->setSpacing(0);
+    soundLayout->addWidget(mDesktopSoundCombobox);
+    soundLayout->addWidget(mPlaySoundToolButton);
+    mPlaySoundToolButton->setIcon(QIcon::fromTheme(QStringLiteral("media-playback-start")));
+
     mDesktopSoundCombobox->setObjectName(QStringLiteral("mDesktopSoundCombobox"));
-    desktopGroupBoxLayout->addRow(i18n("Sound:"), mDesktopSoundCombobox);
+    mPlaySoundToolButton->setObjectName(QStringLiteral("mPlaySoundToolButton"));
+    desktopGroupBoxLayout->addRow(i18n("Sound:"), soundLayout);
     if (mRocketChatAccount) {
         mDesktopSoundCombobox->setModel(mRocketChatAccount->notificationPreferences()->desktopSoundNotificationModel());
     }

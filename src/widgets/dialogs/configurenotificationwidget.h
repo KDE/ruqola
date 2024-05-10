@@ -14,6 +14,7 @@ class QCheckBox;
 class Room;
 class QComboBox;
 class RocketChatAccount;
+class QToolButton;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT ConfigureNotificationWidget : public QWidget
 {
     Q_OBJECT
@@ -33,5 +34,6 @@ private:
     QComboBox *const mDesktopSoundCombobox;
     QComboBox *const mMobileAlertCombobox;
     QComboBox *const mEmailAlertCombobox;
+    QToolButton *const mPlaySoundToolButton;
     RocketChatAccount *const mRocketChatAccount;
 };
