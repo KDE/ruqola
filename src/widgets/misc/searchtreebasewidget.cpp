@@ -69,7 +69,7 @@ SearchTreeBaseWidget::~SearchTreeBaseWidget() = default;
 
 QString SearchTreeBaseWidget::clickableStr() const
 {
-    return QStringLiteral(" <a href=\"loadmoreelement\">%1</a>").arg(i18n("(Click here for Loading more…"));
+    return QStringLiteral(" <a href=\"loadmoreelement\">%1</a>").arg(i18n("(Click here for Loading more…)"));
 }
 
 void SearchTreeBaseWidget::slotLoadMoreElements()
