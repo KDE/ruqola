@@ -25,3 +25,5 @@ void SoundManager::playSound(const QUrl &url)
     mAudioOutput->setVolume(50);
     mPlayer->play();
 }
+
+#include "moc_soundmanager.cpp"
