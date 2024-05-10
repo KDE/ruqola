@@ -187,6 +187,7 @@ void CustomSoundsManager::parseCustomSounds(const QJsonArray &replyArray)
     }
     qCDebug(RUQOLA_CUSTOMSOUNDS_LOG) << " Parse Custom Sounds count: " << mCustomSoundsInfo.count();
     Q_EMIT customSoundChanged();
+    // Download it.
 }
 
 void CustomSoundsManager::deleteCustomSounds(const QJsonArray &replyArray)
@@ -202,6 +203,7 @@ void CustomSoundsManager::deleteCustomSounds(const QJsonArray &replyArray)
                     mCustomSoundsInfo.removeAt(j);
                     Q_EMIT customSoundRemoved(identifier);
                     Q_EMIT customSoundChanged();
+                    // TODO remove from disk
                     break;
                 }
             }
