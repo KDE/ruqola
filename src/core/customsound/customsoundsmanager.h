@@ -27,6 +27,9 @@ public:
     void updateCustomSounds(const QJsonArray &replyArray);
 
     void initializeDefaultSounds();
+
+    [[nodiscard]] QString soundFile(const QString &) const;
+
 Q_SIGNALS:
     void customSoundRemoved(const QByteArray &identifier);
     void customSoundAdded(const QByteArray &identifier);
