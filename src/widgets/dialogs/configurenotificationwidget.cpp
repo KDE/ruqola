@@ -149,6 +149,15 @@ void ConfigureNotificationWidget::slotPlaySound()
         const QByteArray identifier =
             mRocketChatAccount->notificationPreferences()->desktopSoundNotificationModel()->currentPreference(mDesktopSoundCombobox->currentIndex());
         if (!identifier.isEmpty() || identifier != "none") {
+#if 0
+            player = new QMediaPlayer;
+            audioOutput = new QAudioOutput;
+            player->setAudioOutput(audioOutput);
+            // ...
+            player->setSource(QUrl::fromLocalFile("/Users/me/Music/coolsong.mp3"));
+            audioOutput->setVolume(50);
+            player->play();
+#endif
             // TODO
         }
     }
