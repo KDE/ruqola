@@ -22,18 +22,16 @@ void CustomSoundsManager::initializeDefaultSounds()
     QList<CustomSoundInfo> listSounds;
     {
         CustomSoundInfo info;
-        info.setExtension(QStringLiteral("mp3"));
-        info.setName(i18n("Default"));
+        info.setName(i18n("None"));
         info.setDefaultSound(true);
-        info.setIdentifier(QByteArrayLiteral("default"));
         listSounds.append(std::move(info));
     }
     {
         CustomSoundInfo info;
         info.setExtension(QStringLiteral("mp3"));
-        info.setName(i18n("None"));
+        info.setName(i18n("Default"));
         info.setDefaultSound(true);
-        info.setIdentifier(QByteArrayLiteral("none"));
+        info.setIdentifier(QByteArrayLiteral("default"));
         listSounds.append(std::move(info));
     }
     {
