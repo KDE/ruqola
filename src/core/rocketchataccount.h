@@ -583,8 +583,8 @@ Q_SIGNALS:
     void displayReconnectWidget(int seconds);
 
     void customSoundRemoved(const QByteArray &identifier);
-    void customSoundAdded(); // TODO add argument ?
-    void customSoundUpdated(); // TODO add argument ?
+    void customSoundAdded(const QByteArray &identifier);
+    void customSoundUpdated(const QByteArray &identifier);
 
     void insertStdOutInfo(const QString &str);
     void rolesUpdated();
