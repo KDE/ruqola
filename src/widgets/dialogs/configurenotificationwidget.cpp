@@ -91,6 +91,7 @@ ConfigureNotificationWidget::ConfigureNotificationWidget(RocketChatAccount *acco
 
     mDesktopSoundCombobox->setObjectName(QStringLiteral("mDesktopSoundCombobox"));
     mPlaySoundToolButton->setObjectName(QStringLiteral("mPlaySoundToolButton"));
+    mPlaySoundToolButton->setEnabled(false);
     desktopGroupBoxLayout->addRow(i18n("Sound:"), soundLayout);
     connect(mPlaySoundToolButton, &QToolButton::clicked, this, &ConfigureNotificationWidget::slotPlaySound);
     if (mRocketChatAccount) {
@@ -99,7 +100,7 @@ ConfigureNotificationWidget::ConfigureNotificationWidget(RocketChatAccount *acco
     connect(mDesktopSoundCombobox, &QComboBox::activated, this, [this](int index) {
         const QByteArray identifier = mRocketChatAccount->notificationPreferences()->desktopSoundNotificationModel()->currentPreference(index);
         mRocketChatAccount->changeNotificationsSettings(mRoom->roomId(), RocketChatAccount::DesktopSoundNotifications, identifier);
-        mPlaySoundToolButton->setEnabled(identifier != QByteArrayLiteral("none"));
+        updateButtonState();
     });
 
     auto mobileGroupBox = new QGroupBox(i18n("Mobile"), this);
@@ -146,6 +147,13 @@ Room *ConfigureNotificationWidget::room() const
     return mRoom;
 }
 
+void ConfigureNotificationWidget::updateButtonState()
+{
+    const QByteArray identifier =
+        mRocketChatAccount->notificationPreferences()->desktopSoundNotificationModel()->currentPreference(mDesktopSoundCombobox->currentIndex());
+    mPlaySoundToolButton->setEnabled(identifier != QByteArrayLiteral("none"));
+}
+
 void ConfigureNotificationWidget::slotPlaySound()
 {
     if (mRocketChatAccount) {
@@ -174,6 +182,7 @@ void ConfigureNotificationWidget::setRoom(Room *room)
         notificationOptions.mobilePushNotification().currentValue()));
     mEmailAlertCombobox->setCurrentIndex(mRocketChatAccount->notificationPreferences()->emailNotificationModel()->setCurrentNotificationPreference(
         notificationOptions.emailNotifications().currentValue()));
+    updateButtonState();
 }
 
 #include "moc_configurenotificationwidget.cpp"

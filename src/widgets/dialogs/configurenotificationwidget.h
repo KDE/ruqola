@@ -26,6 +26,7 @@ public:
 
 private:
     LIBRUQOLAWIDGETS_NO_EXPORT void slotPlaySound();
+    LIBRUQOLAWIDGETS_NO_EXPORT void updateButtonState();
     QCheckBox *const mDisableNotification;
     QCheckBox *const mHideUnreadRoomStatus;
     QCheckBox *const mMuteGroupMentions;
