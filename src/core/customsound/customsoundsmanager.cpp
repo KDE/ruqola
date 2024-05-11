@@ -157,9 +157,6 @@ void CustomSoundsManager::initializeDefaultSounds()
     }
 
     setCustomSoundsInfo(listSounds);
-    // TODO download it in customsound repo I think.
-
-    // https://<server_url>/sounds/ding.mp3?cacheKey=6.7.2
 }
 
 const QList<CustomSoundInfo> &CustomSoundsManager::customSoundsInfo() const
