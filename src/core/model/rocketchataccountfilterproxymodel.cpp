@@ -5,7 +5,6 @@
 */
 
 #include "rocketchataccountfilterproxymodel.h"
-#include "config-ruqola.h"
 #include "rocketchataccountmodel.h"
 #include "ruqola_plasma_activities_debug.h"
 #if HAVE_ACTIVITY_SUPPORT
