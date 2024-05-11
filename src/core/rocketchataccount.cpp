@@ -255,7 +255,6 @@ RocketChatAccount::RocketChatAccount(const QString &accountFileName, QObject *pa
         const QString urlFilePath = mCustomSoundManager->soundFilePath(identifier);
         if (!urlFilePath.isEmpty()) {
             (void)mCache->soundUrlFromLocalCache(urlFilePath);
-            // TODO download sound file
             Q_EMIT customSoundAdded(identifier);
         }
     });
