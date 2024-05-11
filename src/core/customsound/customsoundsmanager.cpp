@@ -199,10 +199,10 @@ void CustomSoundsManager::deleteCustomSounds(const QJsonArray &replyArray)
         if (!identifier.isEmpty()) {
             for (int j = 0, total = mCustomSoundsInfo.count(); j < total; ++j) {
                 if (mCustomSoundsInfo.at(j).identifier() == identifier) {
+                    const QString soundPath = soundFilePath(identifier);
                     mCustomSoundsInfo.removeAt(j);
-                    Q_EMIT customSoundRemoved(identifier);
+                    Q_EMIT customSoundRemoved(identifier, soundPath);
                     Q_EMIT customSoundChanged();
-                    // TODO remove from disk
                     break;
                 }
             }

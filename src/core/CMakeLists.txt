@@ -633,6 +633,8 @@ ecm_qt_declare_logging_category(libruqolacore_debug_SRCS HEADER ruqola_room_memo
 ecm_qt_declare_logging_category(libruqolacore_debug_SRCS HEADER ruqola_plasma_activities_debug.h IDENTIFIER RUQOLA_PLASMAACTIVITIES_LOG
     CATEGORY_NAME org.kde.ruqola.plasma.activities DESCRIPTION "ruqola plasma activities support" EXPORT RUQOLA)
 
+ecm_qt_declare_logging_category(libruqolacore_debug_SRCS HEADER ruqola_sound_debug.h IDENTIFIER RUQOLA_SOUND_LOG
+    CATEGORY_NAME org.kde.ruqola.sound DESCRIPTION "ruqola sound support" EXPORT RUQOLA)
 
 target_sources(libruqolacore PRIVATE ${libruqolacore_debug_SRCS})
 

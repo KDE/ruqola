@@ -49,6 +49,7 @@
 #include "ruqola_debug.h"
 #include "ruqola_notification_debug.h"
 #include "ruqola_reconnect_core_debug.h"
+#include "ruqola_sound_debug.h"
 #include "ruqola_typing_notification_debug.h"
 #include "ruqolaglobalconfig.h"
 #include "ruqolalogger.h"
@@ -242,10 +243,12 @@ RocketChatAccount::RocketChatAccount(const QString &accountFileName, QObject *pa
     connect(mManageChannels, &ManageChannels::missingChannelPassword, this, &RocketChatAccount::missingChannelPassword);
     connect(mManageChannels, &ManageChannels::openArchivedRoom, this, &RocketChatAccount::openArchivedRoom);
     connect(&mRolesManager, &RolesManager::rolesChanged, this, &RocketChatAccount::rolesUpdated);
-    connect(mCustomSoundManager, &CustomSoundsManager::customSoundRemoved, this, [this](const QByteArray &identifier) {
-        const QString urlFilePath = mCustomSoundManager->soundFilePath(identifier);
-
-        // TODO remove from disk
+    connect(mCustomSoundManager, &CustomSoundsManager::customSoundRemoved, this, [this](const QByteArray &identifier, const QString &soundFilePath) {
+        const QUrl url = soundUrlFromLocalCache(soundFilePath);
+        QFile f(url.toLocalFile());
+        if (!f.remove()) {
+            qCWarning(RUQOLA_SOUND_LOG) << "Impossible to remove " << soundFilePath;
+        }
         Q_EMIT customSoundRemoved(identifier);
     });
     connect(mCustomSoundManager, &CustomSoundsManager::customSoundAdded, this, [this](const QByteArray &identifier) {

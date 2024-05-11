@@ -31,7 +31,7 @@ public:
     [[nodiscard]] QString soundFilePath(const QByteArray &) const;
 
 Q_SIGNALS:
-    void customSoundRemoved(const QByteArray &identifier);
+    void customSoundRemoved(const QByteArray &identifier, const QString &soundFilePath);
     void customSoundAdded(const QByteArray &identifier);
     void customSoundUpdated(const QByteArray &identifier);
     void customSoundChanged();
