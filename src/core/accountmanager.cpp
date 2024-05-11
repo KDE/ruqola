@@ -737,7 +737,10 @@ void AccountManager::connectToAccount(RocketChatAccount *account)
             if (Room *room = account->room(info.roomId())) {
                 const QByteArray audioNotificationId = room->notificationOptions().audioNotificationValue();
                 if (!audioNotificationId.isEmpty()) {
-                    account->playSound(account->soundUrlFromLocalCache(account->customSoundManager()->soundFilePath(audioNotificationId)));
+                    const QString url = account->customSoundManager()->soundFilePath(audioNotificationId);
+                    if (!url.isEmpty()) {
+                        account->playSound(account->soundUrlFromLocalCache(url));
+                    }
                 }
             }
             auto job = new NotifierJob;
