@@ -31,13 +31,13 @@ public:
     void insertAvatarUrl(const QString &userId, const QUrl &url);
 
     void downloadFileFromServer(const QString &filename, bool needAuthentication, ManagerDataPaths::PathType type = ManagerDataPaths::Cache);
+    void downloadFile(const QString &url, const QUrl &localFile);
+    void updateAvatar(const Utils::AvatarInfo &info);
+
+    [[nodiscard]] QString avatarUrlFromCacheOnly(const QString &userId);
+    [[nodiscard]] bool attachmentIsInLocalCache(const QString &url);
 
     [[nodiscard]] QUrl attachmentUrlFromLocalCache(const QString &url);
-    void downloadFile(const QString &url, const QUrl &localFile);
-    [[nodiscard]] QString avatarUrlFromCacheOnly(const QString &userId);
-
-    void updateAvatar(const Utils::AvatarInfo &info);
-    [[nodiscard]] bool attachmentIsInLocalCache(const QString &url);
     [[nodiscard]] QUrl faviconLogoUrlFromLocalCache(const QString &url);
     [[nodiscard]] QUrl previewUrlFromLocalCache(const QString &url);
     [[nodiscard]] QUrl avatarUrlFromLocalCache(const QString &url);
