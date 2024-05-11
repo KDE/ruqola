@@ -12,6 +12,7 @@
 #include "notifications/notifierjob.h"
 #include "rocketchataccount.h"
 #include "ruqola_debug.h"
+#include "ruqola_sound_debug.h"
 #include "ruqolaglobalconfig.h"
 #include "utils.h"
 #if HAVE_ACTIVITY_SUPPORT
@@ -742,6 +743,8 @@ void AccountManager::connectToAccount(RocketChatAccount *account)
                         account->playSound(account->soundUrlFromLocalCache(url));
                     }
                 }
+            } else {
+                qCWarning(RUQOLA_SOUND_LOG) << "Room doesn't exist!" << info.roomId();
             }
             auto job = new NotifierJob;
             job->setInfo(info);
