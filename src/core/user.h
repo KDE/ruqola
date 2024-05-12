@@ -126,5 +126,6 @@ private:
 };
 Q_DECLARE_METATYPE(User)
 Q_DECLARE_TYPEINFO(User, Q_RELOCATABLE_TYPE);
+Q_DECLARE_TYPEINFO(User::UserEmailsInfo, Q_RELOCATABLE_TYPE);
 LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const User &t);
 LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const User::UserEmailsInfo &t);
