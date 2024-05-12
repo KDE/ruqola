@@ -34,8 +34,8 @@ void RolesManager::updateRoles(const QJsonArray &contents)
     bool wasChanged = false;
     for (const QJsonValue &current : contents) {
         const QJsonObject roleObject = current.toObject();
-        const QString type = roleObject.value(QStringLiteral("type")).toString();
-        const QString identifier = roleObject.value(QStringLiteral("_id")).toString();
+        const QString type = roleObject.value("type"_L1).toString();
+        const QString identifier = roleObject.value("_id"_L1).toString();
         if (type == "removed"_L1) {
             for (int i = 0; i < mRoleInfo.count(); ++i) {
                 if (mRoleInfo.at(i).identifier() == identifier) {

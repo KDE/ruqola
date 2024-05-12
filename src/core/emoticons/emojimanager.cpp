@@ -82,8 +82,8 @@ void EmojiManager::deleteEmojiCustom(const QJsonArray &arrayEmojiCustomArray)
     const auto count{arrayEmojiCustomArray.count()};
     for (auto i = 0; i < count; ++i) {
         const QJsonObject obj = arrayEmojiCustomArray.at(i).toObject();
-        const QJsonObject emojiData = obj.value(QStringLiteral("emojiData")).toObject();
-        const QByteArray identifier = emojiData.value(QStringLiteral("_id")).toString().toLatin1();
+        const QJsonObject emojiData = obj.value("emojiData"_L1).toObject();
+        const QByteArray identifier = emojiData.value("_id"_L1).toString().toLatin1();
         if (!identifier.isEmpty()) {
             auto it = std::find_if(mCustomEmojiList.cbegin(), mCustomEmojiList.cend(), [identifier](const auto &emoji) {
                 return emoji.identifier() == identifier;

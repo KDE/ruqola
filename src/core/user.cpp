@@ -137,7 +137,7 @@ void User::parseUserRestApi(const QJsonObject &object, const QList<RoleInfo> &ro
     setActive(object.value("active"_L1).toBool(true)); // By default it's active
     setBio(object.value("bio"_L1).toString());
     setNickName(object.value("nickname"_L1).toString());
-    const QJsonArray rolesArray = object.value(QStringLiteral("roles")).toArray();
+    const QJsonArray rolesArray = object.value("roles"_L1).toArray();
     QStringList roles;
     const int total = rolesArray.size();
     roles.reserve(total);
@@ -152,7 +152,7 @@ void User::parseUserRestApi(const QJsonObject &object, const QList<RoleInfo> &ro
         setLastLogin(QDateTime::fromMSecsSinceEpoch(Utils::parseIsoDate(QStringLiteral("lastLogin"), object), QTimeZone::UTC));
     }
     if (object.contains("emails"_L1)) {
-        const QJsonArray emails = object.value(QStringLiteral("emails")).toArray();
+        const QJsonArray emails = object.value("emails"_L1).toArray();
         if (emails.count() > 1) {
             qCWarning(RUQOLA_LOG) << " Users info has more that 1 emails. Bug or missing feature" << emails;
         } else {

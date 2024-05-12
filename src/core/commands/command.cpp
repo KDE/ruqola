@@ -5,12 +5,12 @@
 */
 
 #include "command.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "ruqola_commands_debug.h"
 #include <KLocalizedString>
 #include <QJsonArray>
 #include <QJsonObject>
+using namespace Qt::Literals::StringLiterals;
 
 Command::Command() = default;
 
@@ -135,14 +135,14 @@ void Command::setClientOnly(bool clientOnly)
 void Command::parseCommand(const QJsonObject &obj)
 {
     // qDebug() << "Command::parseCommand " << obj;
-    mProvidesPreview = obj.value(QStringLiteral("providesPreview")).toBool();
-    mClientOnly = obj.value(QStringLiteral("clientOnly")).toBool();
+    mProvidesPreview = obj.value("providesPreview"_L1).toBool();
+    mClientOnly = obj.value("clientOnly"_L1).toBool();
     // Add "/" for completion.
-    mCommandName = QLatin1Char('/') + obj.value(QStringLiteral("command")).toString();
-    setDescription(obj.value(QStringLiteral("description")).toString());
-    setParams(obj.value(QStringLiteral("params")).toString());
+    mCommandName = QLatin1Char('/') + obj.value("command"_L1).toString();
+    setDescription(obj.value("description"_L1).toString());
+    setParams(obj.value("params"_L1).toString());
 
-    const QJsonValue permissionValue = obj.value(QStringLiteral("permission"));
+    const QJsonValue permissionValue = obj.value("permission"_L1);
     if (!permissionValue.isUndefined()) {
         if (permissionValue.isString()) {
             mPermissions.append(permissionValue.toString());

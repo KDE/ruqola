@@ -2430,7 +2430,7 @@ void RocketChatAccount::autoTranslateSaveAutoTranslateSettings(const QByteArray 
 void RocketChatAccount::slotUsersPresenceDone(const QJsonObject &obj)
 {
     // qDebug() << " void RocketChatAccount::slotUsersPresenceDone(const QJsonObject &obj)" << obj;
-    const auto lst = obj.value(QStringLiteral("users")).toArray();
+    const auto lst = obj.value("users"_L1).toArray();
     for (const auto &var : lst) {
         const QJsonObject userJson = var.toObject();
         User user;
@@ -3053,14 +3053,14 @@ void RocketChatAccount::slotAwayStatusChanged(bool away)
 void RocketChatAccount::generate2FaTotp(const QJsonObject &obj)
 {
     // qDebug() << "RocketChatAccount::generate2FaTotp " << obj;
-    const QString secret = obj.value(QStringLiteral("secret")).toString();
-    const QString url = obj.value(QStringLiteral("url")).toString();
+    const QString secret = obj.value("secret"_L1).toString();
+    const QString url = obj.value("url"_L1).toString();
     Q_EMIT totpResult(secret, url);
 }
 
 void RocketChatAccount::totpDisabledVerify(const QJsonObject &root)
 {
-    const int result = root.value(QStringLiteral("result")).toInt();
+    const int result = root.value("result"_L1).toInt();
     Q_EMIT disabledTotpValid(result == 1);
 }
 
@@ -3071,7 +3071,7 @@ void RocketChatAccount::totpVerify(const QJsonObject &obj)
     } else {
         // qDebug() << "totpValid " << obj;
         QStringList lstCodes;
-        const QJsonArray codes = obj.value(QStringLiteral("codes")).toArray();
+        const QJsonArray codes = obj.value("codes"_L1).toArray();
         const auto nbCodes{codes.count()};
         lstCodes.reserve(nbCodes);
         for (auto i = 0; i < nbCodes; ++i) {

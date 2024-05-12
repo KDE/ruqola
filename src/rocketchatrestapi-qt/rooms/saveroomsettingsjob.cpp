@@ -41,7 +41,7 @@ void SaveRoomSettingsJob::onPostRequestResponse(const QString &replyErrorString,
 
     if (replyObject["success"_L1].toBool()) {
         addLoggerInfo(QByteArrayLiteral("SaveRoomSettingsJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
-        Q_EMIT saveRoomSettingsDone(replyObject.value(QStringLiteral("rid")).toString());
+        Q_EMIT saveRoomSettingsDone(replyObject.value("rid"_L1).toString());
     } else {
         emitFailedMessage(replyErrorString, replyObject);
         addLoggerWarning(QByteArrayLiteral("SaveRoomSettingsJob: Problem: ") + replyJson.toJson(QJsonDocument::Indented));
@@ -61,7 +61,7 @@ void SaveRoomSettingsJob::setSaveRoomSettingsInfo(const SaveRoomSettingsInfo &sa
 QString SaveRoomSettingsJob::errorMessage(const QString &str, const QJsonObject &detail)
 {
     if (str == "error-invalid-room-name"_L1) {
-        return i18n("\'%1\' is not a valid room name", detail.value(QStringLiteral("channel_name")).toString());
+        return i18n("\'%1\' is not a valid room name", detail.value("channel_name"_L1).toString());
     } else if (str == "error-action-not-allowed"_L1) {
         const QString detailActionStr = detail[QStringLiteral("action")].toString();
         // qDebug() << " detailActionStr " << detailActionStr;
