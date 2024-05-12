@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-05-10 00:38+0000\n"
+"POT-Creation-Date: 2024-05-12 00:38+0000\n"
 "PO-Revision-Date: 2024-05-08 09:49+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
@@ -291,7 +291,13 @@ msgstr "Nastavi temo"
 msgid "Unarchive"
 msgstr "Povrni iz arhiva"
 
-#: core/customsound/customsoundsmanager.cpp:26
+#: core/customsound/customsoundsmanager.cpp:25
+#: widgets/dialogs/serverinfo/serverinfowidget.cpp:57
+#, kde-format
+msgid "None"
+msgstr "Noben"
+
+#: core/customsound/customsoundsmanager.cpp:33
 #: core/model/notificationdesktopdurationpreferencemodel.cpp:48
 #: core/model/notificationpreferencemodel.cpp:45
 #: widgets/administratordialog/rooms/administratordirectroomseditwidget.cpp:16
@@ -307,70 +313,64 @@ msgstr "Povrni iz arhiva"
 msgid "Default"
 msgstr "Privzeto"
 
-#: core/customsound/customsoundsmanager.cpp:34
-#: widgets/dialogs/serverinfo/serverinfowidget.cpp:57
-#, kde-format
-msgid "None"
-msgstr "Noben"
-
-#: core/customsound/customsoundsmanager.cpp:44
-#: core/customsound/customsoundsmanager.cpp:107
+#: core/customsound/customsoundsmanager.cpp:43
+#: core/customsound/customsoundsmanager.cpp:106
 #, kde-format
 msgid "Chime"
 msgstr "Zvonec"
 
-#: core/customsound/customsoundsmanager.cpp:52
-#: core/customsound/customsoundsmanager.cpp:115
+#: core/customsound/customsoundsmanager.cpp:51
+#: core/customsound/customsoundsmanager.cpp:114
 #, kde-format
 msgid "Door"
 msgstr "Vrata"
 
-#: core/customsound/customsoundsmanager.cpp:60
+#: core/customsound/customsoundsmanager.cpp:59
 #, kde-format
 msgid "Beep"
 msgstr "Pisk"
 
-#: core/customsound/customsoundsmanager.cpp:68
+#: core/customsound/customsoundsmanager.cpp:67
 #, kde-format
 msgid "Chelle"
 msgstr "Chelle"
 
-#: core/customsound/customsoundsmanager.cpp:76
+#: core/customsound/customsoundsmanager.cpp:75
 #, kde-format
 msgid "Ding"
 msgstr "Ding"
 
-#: core/customsound/customsoundsmanager.cpp:92
+#: core/customsound/customsoundsmanager.cpp:91
 #, kde-format
 msgid "Highbell"
 msgstr "Zvonec"
 
-#: core/customsound/customsoundsmanager.cpp:100
+#: core/customsound/customsoundsmanager.cpp:99
 #, kde-format
 msgid "Seasons"
 msgstr "Letni časi"
 
-#: core/customsound/customsoundsmanager.cpp:123
+#: core/customsound/customsoundsmanager.cpp:122
 #, kde-format
 msgid "Telephone"
 msgstr "Telefon"
 
-#: core/customsound/customsoundsmanager.cpp:131
+#: core/customsound/customsoundsmanager.cpp:130
 #, kde-format
 msgid "Outbound Call Ringing"
 msgstr "Zunanji klic v teku"
 
-#: core/customsound/customsoundsmanager.cpp:139
+#: core/customsound/customsoundsmanager.cpp:138
 #, kde-format
 msgid "Call Ended"
 msgstr "Klic končan"
 
-#: core/customsound/customsoundsmanager.cpp:147
+#: core/customsound/customsoundsmanager.cpp:146
 #, kde-format
 msgid "Dialtone"
 msgstr "Zvok izbiranja"
 
-#: core/customsound/customsoundsmanager.cpp:155
+#: core/customsound/customsoundsmanager.cpp:154
 #, kde-format
 msgid "Ringtone"
 msgstr "Zvok klicanja"
@@ -792,7 +792,7 @@ msgstr "Uporabniško ime"
 
 #: core/model/adminusersmodel.cpp:112
 #: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:125
-#: widgets/dialogs/configurenotificationwidget.cpp:110
+#: widgets/dialogs/configurenotificationwidget.cpp:124
 #, kde-format
 msgid "Email"
 msgstr "E-pošta"
@@ -1405,12 +1405,12 @@ msgstr "<strong>%1</strong> vnaša ..."
 msgid "<strong>%1</strong> are typing..."
 msgstr "<strong>%1</strong> vnašajo …"
 
-#: core/rocketchataccount.cpp:2908
+#: core/rocketchataccount.cpp:2945
 #, kde-format
 msgid "Export Messages"
 msgstr "Izvozi sporočila"
 
-#: core/rocketchataccount.cpp:2909
+#: core/rocketchataccount.cpp:2946
 #, kde-format
 msgid "Your email has been queued for sending."
 msgstr "Vaša e-pošta je čakala v čakalni vrsti za pošiljanje."
@@ -3933,7 +3933,7 @@ msgid "Logs"
 msgstr "Dnevniki"
 
 #: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:126
-#: widgets/dialogs/configurenotificationwidget.cpp:92
+#: widgets/dialogs/configurenotificationwidget.cpp:106
 #, kde-format
 msgid "Mobile"
 msgstr "Mobilni telefon"
@@ -6798,49 +6798,49 @@ msgctxt "@title:window"
 msgid "Configure Notification"
 msgstr "Prilagodi obvestilo"
 
-#: widgets/dialogs/configurenotificationwidget.cpp:22
+#: widgets/dialogs/configurenotificationwidget.cpp:26
 #, kde-format
 msgid "Disable Notification"
 msgstr "Onemogoči obveščanje"
 
-#: widgets/dialogs/configurenotificationwidget.cpp:23
+#: widgets/dialogs/configurenotificationwidget.cpp:27
 #, kde-format
 msgid "Hide Unread Room Status"
 msgstr "Skrij stanje neprebrane sobe"
 
-#: widgets/dialogs/configurenotificationwidget.cpp:24
+#: widgets/dialogs/configurenotificationwidget.cpp:28
 #, kde-format
 msgid "Mute %1 and %2 mentions"
 msgstr "Utišaj %1 in omembe %2"
 
-#: widgets/dialogs/configurenotificationwidget.cpp:25
+#: widgets/dialogs/configurenotificationwidget.cpp:29
 #, kde-format
 msgid "Show badge for mentions"
 msgstr "Pokaži značko za omembe"
 
-#: widgets/dialogs/configurenotificationwidget.cpp:37
+#: widgets/dialogs/configurenotificationwidget.cpp:42
 #, kde-format
 msgid "Receive alerts"
 msgstr "Sprejemaj opozorila"
 
-#: widgets/dialogs/configurenotificationwidget.cpp:56
+#: widgets/dialogs/configurenotificationwidget.cpp:61
 #, kde-format
 msgid "Display badge for direct mentions only"
 msgstr "Prikaži značke samo za neposredne omembe"
 
-#: widgets/dialogs/configurenotificationwidget.cpp:62
+#: widgets/dialogs/configurenotificationwidget.cpp:67
 #, kde-format
 msgid "Desktop"
 msgstr "Namizje"
 
-#: widgets/dialogs/configurenotificationwidget.cpp:70
-#: widgets/dialogs/configurenotificationwidget.cpp:100
-#: widgets/dialogs/configurenotificationwidget.cpp:118
+#: widgets/dialogs/configurenotificationwidget.cpp:75
+#: widgets/dialogs/configurenotificationwidget.cpp:114
+#: widgets/dialogs/configurenotificationwidget.cpp:132
 #, kde-format
 msgid "Alert:"
 msgstr "Opozorilo:"
 
-#: widgets/dialogs/configurenotificationwidget.cpp:81
+#: widgets/dialogs/configurenotificationwidget.cpp:95
 #, kde-format
 msgid "Sound:"
 msgstr "Zvok:"
@@ -7295,6 +7295,9 @@ msgstr[2] "%1 priponke v sobi (skupaj: %2)"
 msgstr[3] "%1 priponk v sobi (skupaj: %2)"
 
 #: widgets/dialogs/showattachmentwidget.cpp:100
+#: widgets/dialogs/showlistmessagebasewidget.cpp:107
+#: widgets/discussions/showdiscussionswidget.cpp:99
+#: widgets/misc/searchtreebasewidget.cpp:72
 #, kde-format
 msgid "(Click here for Loading more…)"
 msgstr "(Kliknite tukaj za nalaganje dodatnih…)"
@@ -7350,13 +7353,6 @@ msgstr[0] "%1 sporočilo v sobi (skupaj: %2)"
 msgstr[1] "%1 sporočili v sobi (skupaj: %2)"
 msgstr[2] "%1 sporočila v sobi (skupaj: %2)"
 msgstr[3] "%1 sporočil v sobi (skupaj: %2)"
-
-#: widgets/dialogs/showlistmessagebasewidget.cpp:107
-#: widgets/discussions/showdiscussionswidget.cpp:99
-#: widgets/misc/searchtreebasewidget.cpp:72
-#, kde-format
-msgid "(Click here for Loading more…"
-msgstr "(Kliknite tukaj za nalaganje dodatnih…)"
 
 #: widgets/dialogs/showmentionsmessagesdialog.cpp:22
 #, kde-format
@@ -8872,13 +8868,15 @@ msgid "(Jump to first Unread)"
 msgstr "(Skoči na prvo neprebrano)"
 
 #: widgets/room/roomheaderlabel.cpp:69
-#, kde-format
-msgid "(Show More Info…"
+#, fuzzy, kde-format
+#| msgid "(Show More Info…"
+msgid "(Show More Info…)"
 msgstr "(Pokaži več informacij ..."
 
 #: widgets/room/roomheaderlabel.cpp:101
-#, kde-format
-msgid "(Show Less Info…"
+#, fuzzy, kde-format
+#| msgid "(Show Less Info…"
+msgid "(Show Less Info…)"
 msgstr "(Pokaži manj informacij…"
 
 #: widgets/room/roomheaderwidget.cpp:63
@@ -9696,33 +9694,42 @@ msgstr "Dodaj podporo za dejavnosti v Plasmi"
 msgid "Add Report User Support"
 msgstr "Dodaj podporo poročanja uporabnika"
 
-#: widgets/whatsnew/whatsnewwidgettranslation.h:80
+#: widgets/whatsnew/whatsnewwidgettranslation.h:76
+#, fuzzy
+#| msgid "Implement personal token authentication."
+msgid "Implement Channel Sound Notification."
+msgstr "Izvedi avtentikacijo z osebnim žetonom."
+
+#: widgets/whatsnew/whatsnewwidgettranslation.h:81
 msgid "Fix dark mode support."
 msgstr "Popravi podporo temnega načina."
 
-#: widgets/whatsnew/whatsnewwidgettranslation.h:81
+#: widgets/whatsnew/whatsnewwidgettranslation.h:82
 msgid "Fix jitsi support."
 msgstr "Popravi podporo jitsi."
 
-#: widgets/whatsnew/whatsnewwidgettranslation.h:82
+#: widgets/whatsnew/whatsnewwidgettranslation.h:83
 msgid "Fix translate message in direct channel."
 msgstr "Popravi prevajanje sporočila v neposrednem kanalu."
 
-#: widgets/whatsnew/whatsnewwidgettranslation.h:83
+#: widgets/whatsnew/whatsnewwidgettranslation.h:84
 msgid "Don't show @here/@all as user."
 msgstr "Ne prikazuj @here/@all kot uporabnika."
 
-#: widgets/whatsnew/whatsnewwidgettranslation.h:84
+#: widgets/whatsnew/whatsnewwidgettranslation.h:85
 msgid "Reduce memory footprint."
 msgstr "Zmanjšaj pomnilniški odtis."
 
-#: widgets/whatsnew/whatsnewwidgettranslation.h:85
+#: widgets/whatsnew/whatsnewwidgettranslation.h:86
 msgid "Use RESTAPI for logging."
 msgstr "Uporabi RESTAPI za beleženje dnevnika."
 
-#: widgets/whatsnew/whatsnewwidgettranslation.h:86
+#: widgets/whatsnew/whatsnewwidgettranslation.h:87
 msgid "Allow to send multi files."
 msgstr "Dovoli pošiljanje več datotek."
+
+#~ msgid "(Click here for Loading more…"
+#~ msgstr "(Kliknite tukaj za nalaganje dodatnih…)"
 
 #~ msgid "Droplet"
 #~ msgstr "Kapljica"
@@ -9819,9 +9826,6 @@ msgstr "Dovoli pošiljanje več datotek."
 
 #~ msgid "Arch"
 #~ msgstr "Arhitektura"
-
-#~ msgid "Implement personal token authentication."
-#~ msgstr "Izvedi avtentikacijo z osebnim žetonom."
 
 #~ msgid "Room topic changed to: %1 by %2"
 #~ msgstr "%2 je spremenil temo sobe v %1"

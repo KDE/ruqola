@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-05-10 00:38+0000\n"
+"POT-Creation-Date: 2024-05-12 00:38+0000\n"
 "PO-Revision-Date: 2024-05-09 19:22+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
@@ -289,7 +289,13 @@ msgstr "Konu ayarla"
 msgid "Unarchive"
 msgstr "Arşivden çıkar"
 
-#: core/customsound/customsoundsmanager.cpp:26
+#: core/customsound/customsoundsmanager.cpp:25
+#: widgets/dialogs/serverinfo/serverinfowidget.cpp:57
+#, kde-format
+msgid "None"
+msgstr "Yok"
+
+#: core/customsound/customsoundsmanager.cpp:33
 #: core/model/notificationdesktopdurationpreferencemodel.cpp:48
 #: core/model/notificationpreferencemodel.cpp:45
 #: widgets/administratordialog/rooms/administratordirectroomseditwidget.cpp:16
@@ -305,70 +311,64 @@ msgstr "Arşivden çıkar"
 msgid "Default"
 msgstr "Öntanımlı"
 
-#: core/customsound/customsoundsmanager.cpp:34
-#: widgets/dialogs/serverinfo/serverinfowidget.cpp:57
-#, kde-format
-msgid "None"
-msgstr "Yok"
-
-#: core/customsound/customsoundsmanager.cpp:44
-#: core/customsound/customsoundsmanager.cpp:107
+#: core/customsound/customsoundsmanager.cpp:43
+#: core/customsound/customsoundsmanager.cpp:106
 #, kde-format
 msgid "Chime"
 msgstr "Zil"
 
-#: core/customsound/customsoundsmanager.cpp:52
-#: core/customsound/customsoundsmanager.cpp:115
+#: core/customsound/customsoundsmanager.cpp:51
+#: core/customsound/customsoundsmanager.cpp:114
 #, kde-format
 msgid "Door"
 msgstr "Kapı"
 
-#: core/customsound/customsoundsmanager.cpp:60
+#: core/customsound/customsoundsmanager.cpp:59
 #, kde-format
 msgid "Beep"
 msgstr "Bip"
 
-#: core/customsound/customsoundsmanager.cpp:68
+#: core/customsound/customsoundsmanager.cpp:67
 #, kde-format
 msgid "Chelle"
 msgstr "Chelle"
 
-#: core/customsound/customsoundsmanager.cpp:76
+#: core/customsound/customsoundsmanager.cpp:75
 #, kde-format
 msgid "Ding"
 msgstr "Ding"
 
-#: core/customsound/customsoundsmanager.cpp:92
+#: core/customsound/customsoundsmanager.cpp:91
 #, kde-format
 msgid "Highbell"
 msgstr "Yüksek Çan"
 
-#: core/customsound/customsoundsmanager.cpp:100
+#: core/customsound/customsoundsmanager.cpp:99
 #, kde-format
 msgid "Seasons"
 msgstr "Mevsimler"
 
-#: core/customsound/customsoundsmanager.cpp:123
+#: core/customsound/customsoundsmanager.cpp:122
 #, kde-format
 msgid "Telephone"
 msgstr "Telefon"
 
-#: core/customsound/customsoundsmanager.cpp:131
+#: core/customsound/customsoundsmanager.cpp:130
 #, kde-format
 msgid "Outbound Call Ringing"
 msgstr "Dışarı Giden Arama"
 
-#: core/customsound/customsoundsmanager.cpp:139
+#: core/customsound/customsoundsmanager.cpp:138
 #, kde-format
 msgid "Call Ended"
 msgstr "Arama Sonlandı"
 
-#: core/customsound/customsoundsmanager.cpp:147
+#: core/customsound/customsoundsmanager.cpp:146
 #, kde-format
 msgid "Dialtone"
 msgstr "Çağrı Tonu"
 
-#: core/customsound/customsoundsmanager.cpp:155
+#: core/customsound/customsoundsmanager.cpp:154
 #, kde-format
 msgid "Ringtone"
 msgstr "Zil Sesi"
@@ -790,7 +790,7 @@ msgstr "Kullanıcı Adı"
 
 #: core/model/adminusersmodel.cpp:112
 #: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:125
-#: widgets/dialogs/configurenotificationwidget.cpp:110
+#: widgets/dialogs/configurenotificationwidget.cpp:124
 #, kde-format
 msgid "Email"
 msgstr "E-posta"
@@ -1393,12 +1393,12 @@ msgstr "<strong>%1</strong> yazıyor…"
 msgid "<strong>%1</strong> are typing..."
 msgstr "<strong>%1</strong> yazıyor…"
 
-#: core/rocketchataccount.cpp:2908
+#: core/rocketchataccount.cpp:2945
 #, kde-format
 msgid "Export Messages"
 msgstr "İletileri Dışa Aktar"
 
-#: core/rocketchataccount.cpp:2909
+#: core/rocketchataccount.cpp:2946
 #, kde-format
 msgid "Your email has been queued for sending."
 msgstr "E-postanız, gönderme için kuyruğa eklendi."
@@ -3901,7 +3901,7 @@ msgid "Logs"
 msgstr "Günlükler"
 
 #: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:126
-#: widgets/dialogs/configurenotificationwidget.cpp:92
+#: widgets/dialogs/configurenotificationwidget.cpp:106
 #, kde-format
 msgid "Mobile"
 msgstr "Taşınabilir"
@@ -6760,49 +6760,49 @@ msgctxt "@title:window"
 msgid "Configure Notification"
 msgstr "Bildirimi Yapılandır"
 
-#: widgets/dialogs/configurenotificationwidget.cpp:22
+#: widgets/dialogs/configurenotificationwidget.cpp:26
 #, kde-format
 msgid "Disable Notification"
 msgstr "Bildirimi Devre Dışı Bırak"
 
-#: widgets/dialogs/configurenotificationwidget.cpp:23
+#: widgets/dialogs/configurenotificationwidget.cpp:27
 #, kde-format
 msgid "Hide Unread Room Status"
 msgstr "Okunmamış Oda Durumunu Gizle"
 
-#: widgets/dialogs/configurenotificationwidget.cpp:24
+#: widgets/dialogs/configurenotificationwidget.cpp:28
 #, kde-format
 msgid "Mute %1 and %2 mentions"
 msgstr "%1 ve %2 değinmelerini sessize al"
 
-#: widgets/dialogs/configurenotificationwidget.cpp:25
+#: widgets/dialogs/configurenotificationwidget.cpp:29
 #, kde-format
 msgid "Show badge for mentions"
 msgstr "Değinmeler için rozetler göster"
 
-#: widgets/dialogs/configurenotificationwidget.cpp:37
+#: widgets/dialogs/configurenotificationwidget.cpp:42
 #, kde-format
 msgid "Receive alerts"
 msgstr "Alarmları al"
 
-#: widgets/dialogs/configurenotificationwidget.cpp:56
+#: widgets/dialogs/configurenotificationwidget.cpp:61
 #, kde-format
 msgid "Display badge for direct mentions only"
 msgstr "Rozeti yalnızca doğrudan değinmeler için göster"
 
-#: widgets/dialogs/configurenotificationwidget.cpp:62
+#: widgets/dialogs/configurenotificationwidget.cpp:67
 #, kde-format
 msgid "Desktop"
 msgstr "Masaüstü"
 
-#: widgets/dialogs/configurenotificationwidget.cpp:70
-#: widgets/dialogs/configurenotificationwidget.cpp:100
-#: widgets/dialogs/configurenotificationwidget.cpp:118
+#: widgets/dialogs/configurenotificationwidget.cpp:75
+#: widgets/dialogs/configurenotificationwidget.cpp:114
+#: widgets/dialogs/configurenotificationwidget.cpp:132
 #, kde-format
 msgid "Alert:"
 msgstr "Alarm:"
 
-#: widgets/dialogs/configurenotificationwidget.cpp:81
+#: widgets/dialogs/configurenotificationwidget.cpp:95
 #, kde-format
 msgid "Sound:"
 msgstr "Ses:"
@@ -7257,6 +7257,9 @@ msgstr[0] "Odada %1 ek (Toplam: %2)"
 msgstr[1] "Odada %1 ek (Toplam: %2)"
 
 #: widgets/dialogs/showattachmentwidget.cpp:100
+#: widgets/dialogs/showlistmessagebasewidget.cpp:107
+#: widgets/discussions/showdiscussionswidget.cpp:99
+#: widgets/misc/searchtreebasewidget.cpp:72
 #, kde-format
 msgid "(Click here for Loading more…)"
 msgstr "(Daha fazla yüklemek için buraya tıklayın…)"
@@ -7310,13 +7313,6 @@ msgid "%1 Message in room (Total: %2)"
 msgid_plural "%1 Messages in room (Total: %2)"
 msgstr[0] "Odada %1 ileti (Toplam: %2)"
 msgstr[1] "Odada %1 ileti (Toplam: %2)"
-
-#: widgets/dialogs/showlistmessagebasewidget.cpp:107
-#: widgets/discussions/showdiscussionswidget.cpp:99
-#: widgets/misc/searchtreebasewidget.cpp:72
-#, kde-format
-msgid "(Click here for Loading more…"
-msgstr "(Daha fazla yüklemek için buraya tıklayın…)"
 
 #: widgets/dialogs/showmentionsmessagesdialog.cpp:22
 #, kde-format
@@ -8828,13 +8824,15 @@ msgid "(Jump to first Unread)"
 msgstr "(İlk Okunmamışa Atla)"
 
 #: widgets/room/roomheaderlabel.cpp:69
-#, kde-format
-msgid "(Show More Info…"
+#, fuzzy, kde-format
+#| msgid "(Show More Info…"
+msgid "(Show More Info…)"
 msgstr "(Daha Fazla Bilgi Göster…)"
 
 #: widgets/room/roomheaderlabel.cpp:101
-#, kde-format
-msgid "(Show Less Info…"
+#, fuzzy, kde-format
+#| msgid "(Show Less Info…"
+msgid "(Show Less Info…)"
 msgstr "(Daha Az Bilgi Göster…)"
 
 #: widgets/room/roomheaderwidget.cpp:63
@@ -9651,33 +9649,42 @@ msgstr "Plasma Etkinlikler desteği eklendi"
 msgid "Add Report User Support"
 msgstr "Kullanıcıyı Bildirme Desteği Ekle"
 
-#: widgets/whatsnew/whatsnewwidgettranslation.h:80
+#: widgets/whatsnew/whatsnewwidgettranslation.h:76
+#, fuzzy
+#| msgid "Implement personal token authentication."
+msgid "Implement Channel Sound Notification."
+msgstr "Kişisel jetonla kimlik doğraulamayı gerçekle."
+
+#: widgets/whatsnew/whatsnewwidgettranslation.h:81
 msgid "Fix dark mode support."
 msgstr "Koyu kip desteği onarıldı."
 
-#: widgets/whatsnew/whatsnewwidgettranslation.h:81
+#: widgets/whatsnew/whatsnewwidgettranslation.h:82
 msgid "Fix jitsi support."
 msgstr "Jitsi desteği onarıldı."
 
-#: widgets/whatsnew/whatsnewwidgettranslation.h:82
+#: widgets/whatsnew/whatsnewwidgettranslation.h:83
 msgid "Fix translate message in direct channel."
 msgstr "Doğrudan kanaldaki ileti çevirmeyi onar."
 
-#: widgets/whatsnew/whatsnewwidgettranslation.h:83
+#: widgets/whatsnew/whatsnewwidgettranslation.h:84
 msgid "Don't show @here/@all as user."
 msgstr "Kullanıcı olarak @burada/@tümü gösterme."
 
-#: widgets/whatsnew/whatsnewwidgettranslation.h:84
+#: widgets/whatsnew/whatsnewwidgettranslation.h:85
 msgid "Reduce memory footprint."
 msgstr "Bellek kullanımını azalt."
 
-#: widgets/whatsnew/whatsnewwidgettranslation.h:85
+#: widgets/whatsnew/whatsnewwidgettranslation.h:86
 msgid "Use RESTAPI for logging."
 msgstr "Günlükleme için RESTAPI kullan."
 
-#: widgets/whatsnew/whatsnewwidgettranslation.h:86
+#: widgets/whatsnew/whatsnewwidgettranslation.h:87
 msgid "Allow to send multi files."
 msgstr "Birden çok dosya göndermeye izin ver."
+
+#~ msgid "(Click here for Loading more…"
+#~ msgstr "(Daha fazla yüklemek için buraya tıklayın…)"
 
 #~ msgid "Droplet"
 #~ msgstr "Damlacık"
@@ -9771,10 +9778,6 @@ msgstr "Birden çok dosya göndermeye izin ver."
 
 #~ msgid "Arch"
 #~ msgstr "Mimari"
-
-#~| msgid "Implement block actions."
-#~ msgid "Implement personal token authentication."
-#~ msgstr "Kişisel jetonla kimlik doğraulamayı gerçekle."
 
 #~ msgid "Room topic changed to: %1 by %2"
 #~ msgstr "Oda konusu, %2 tarafından değiştirildi: %1"

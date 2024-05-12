@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-05-10 00:38+0000\n"
+"POT-Creation-Date: 2024-05-12 00:38+0000\n"
 "PO-Revision-Date: 2024-05-08 22:06+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
@@ -293,7 +293,13 @@ msgstr "Establix el tema"
 msgid "Unarchive"
 msgstr "Desarxiva"
 
-#: core/customsound/customsoundsmanager.cpp:26
+#: core/customsound/customsoundsmanager.cpp:25
+#: widgets/dialogs/serverinfo/serverinfowidget.cpp:57
+#, kde-format
+msgid "None"
+msgstr "Cap"
+
+#: core/customsound/customsoundsmanager.cpp:33
 #: core/model/notificationdesktopdurationpreferencemodel.cpp:48
 #: core/model/notificationpreferencemodel.cpp:45
 #: widgets/administratordialog/rooms/administratordirectroomseditwidget.cpp:16
@@ -309,70 +315,64 @@ msgstr "Desarxiva"
 msgid "Default"
 msgstr "Predeterminat"
 
-#: core/customsound/customsoundsmanager.cpp:34
-#: widgets/dialogs/serverinfo/serverinfowidget.cpp:57
-#, kde-format
-msgid "None"
-msgstr "Cap"
-
-#: core/customsound/customsoundsmanager.cpp:44
-#: core/customsound/customsoundsmanager.cpp:107
+#: core/customsound/customsoundsmanager.cpp:43
+#: core/customsound/customsoundsmanager.cpp:106
 #, kde-format
 msgid "Chime"
 msgstr "Campanetes"
 
-#: core/customsound/customsoundsmanager.cpp:52
-#: core/customsound/customsoundsmanager.cpp:115
+#: core/customsound/customsoundsmanager.cpp:51
+#: core/customsound/customsoundsmanager.cpp:114
 #, kde-format
 msgid "Door"
 msgstr "Porta"
 
-#: core/customsound/customsoundsmanager.cpp:60
+#: core/customsound/customsoundsmanager.cpp:59
 #, kde-format
 msgid "Beep"
 msgstr "Timbre"
 
-#: core/customsound/customsoundsmanager.cpp:68
+#: core/customsound/customsoundsmanager.cpp:67
 #, kde-format
 msgid "Chelle"
 msgstr "Cello"
 
-#: core/customsound/customsoundsmanager.cpp:76
+#: core/customsound/customsoundsmanager.cpp:75
 #, kde-format
 msgid "Ding"
 msgstr "Ding"
 
-#: core/customsound/customsoundsmanager.cpp:92
+#: core/customsound/customsoundsmanager.cpp:91
 #, kde-format
 msgid "Highbell"
 msgstr "Campaneta"
 
-#: core/customsound/customsoundsmanager.cpp:100
+#: core/customsound/customsoundsmanager.cpp:99
 #, kde-format
 msgid "Seasons"
 msgstr "Estacions"
 
-#: core/customsound/customsoundsmanager.cpp:123
+#: core/customsound/customsoundsmanager.cpp:122
 #, kde-format
 msgid "Telephone"
 msgstr "Telèfon"
 
-#: core/customsound/customsoundsmanager.cpp:131
+#: core/customsound/customsoundsmanager.cpp:130
 #, kde-format
 msgid "Outbound Call Ringing"
 msgstr "So de tocada eixint"
 
-#: core/customsound/customsoundsmanager.cpp:139
+#: core/customsound/customsoundsmanager.cpp:138
 #, kde-format
 msgid "Call Ended"
 msgstr "Tocada finalitzada"
 
-#: core/customsound/customsoundsmanager.cpp:147
+#: core/customsound/customsoundsmanager.cpp:146
 #, kde-format
 msgid "Dialtone"
 msgstr "To de marcació"
 
-#: core/customsound/customsoundsmanager.cpp:155
+#: core/customsound/customsoundsmanager.cpp:154
 #, kde-format
 msgid "Ringtone"
 msgstr "To de tocada"
@@ -794,7 +794,7 @@ msgstr "Nom d'usuari"
 
 #: core/model/adminusersmodel.cpp:112
 #: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:125
-#: widgets/dialogs/configurenotificationwidget.cpp:110
+#: widgets/dialogs/configurenotificationwidget.cpp:124
 #, kde-format
 msgid "Email"
 msgstr "Correu electrònic"
@@ -1398,12 +1398,12 @@ msgstr "<strong>%1</strong> està escrivint…"
 msgid "<strong>%1</strong> are typing..."
 msgstr "<strong>%1</strong> estan escrivint…"
 
-#: core/rocketchataccount.cpp:2908
+#: core/rocketchataccount.cpp:2945
 #, kde-format
 msgid "Export Messages"
 msgstr "Exporta missatges"
 
-#: core/rocketchataccount.cpp:2909
+#: core/rocketchataccount.cpp:2946
 #, kde-format
 msgid "Your email has been queued for sending."
 msgstr "El correu s'ha posat a la cua per a enviar."
@@ -3926,7 +3926,7 @@ msgid "Logs"
 msgstr "Registres"
 
 #: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:126
-#: widgets/dialogs/configurenotificationwidget.cpp:92
+#: widgets/dialogs/configurenotificationwidget.cpp:106
 #, kde-format
 msgid "Mobile"
 msgstr "Mòbil"
@@ -6810,49 +6810,49 @@ msgctxt "@title:window"
 msgid "Configure Notification"
 msgstr "Configureu la notificació"
 
-#: widgets/dialogs/configurenotificationwidget.cpp:22
+#: widgets/dialogs/configurenotificationwidget.cpp:26
 #, kde-format
 msgid "Disable Notification"
 msgstr "Desactiva la notificació"
 
-#: widgets/dialogs/configurenotificationwidget.cpp:23
+#: widgets/dialogs/configurenotificationwidget.cpp:27
 #, kde-format
 msgid "Hide Unread Room Status"
 msgstr "Oculta l'estat sense llegir de la sala"
 
-#: widgets/dialogs/configurenotificationwidget.cpp:24
+#: widgets/dialogs/configurenotificationwidget.cpp:28
 #, kde-format
 msgid "Mute %1 and %2 mentions"
 msgstr "Silencia les mencions %1 i %2"
 
-#: widgets/dialogs/configurenotificationwidget.cpp:25
+#: widgets/dialogs/configurenotificationwidget.cpp:29
 #, kde-format
 msgid "Show badge for mentions"
 msgstr "Mostra els distintius per a les mencions"
 
-#: widgets/dialogs/configurenotificationwidget.cpp:37
+#: widgets/dialogs/configurenotificationwidget.cpp:42
 #, kde-format
 msgid "Receive alerts"
 msgstr "Rep alertes"
 
-#: widgets/dialogs/configurenotificationwidget.cpp:56
+#: widgets/dialogs/configurenotificationwidget.cpp:61
 #, kde-format
 msgid "Display badge for direct mentions only"
 msgstr "Mostra els distintius només per a les mencions directes"
 
-#: widgets/dialogs/configurenotificationwidget.cpp:62
+#: widgets/dialogs/configurenotificationwidget.cpp:67
 #, kde-format
 msgid "Desktop"
 msgstr "Escriptori"
 
-#: widgets/dialogs/configurenotificationwidget.cpp:70
-#: widgets/dialogs/configurenotificationwidget.cpp:100
-#: widgets/dialogs/configurenotificationwidget.cpp:118
+#: widgets/dialogs/configurenotificationwidget.cpp:75
+#: widgets/dialogs/configurenotificationwidget.cpp:114
+#: widgets/dialogs/configurenotificationwidget.cpp:132
 #, kde-format
 msgid "Alert:"
 msgstr "Alerta:"
 
-#: widgets/dialogs/configurenotificationwidget.cpp:81
+#: widgets/dialogs/configurenotificationwidget.cpp:95
 #, kde-format
 msgid "Sound:"
 msgstr "So:"
@@ -7307,6 +7307,9 @@ msgstr[0] "%1 adjunt a la sala (Total: %2)"
 msgstr[1] "%1 adjunts a la sala (Total: %2)"
 
 #: widgets/dialogs/showattachmentwidget.cpp:100
+#: widgets/dialogs/showlistmessagebasewidget.cpp:107
+#: widgets/discussions/showdiscussionswidget.cpp:99
+#: widgets/misc/searchtreebasewidget.cpp:72
 #, kde-format
 msgid "(Click here for Loading more…)"
 msgstr "(Feu clic ací per a carregar-ne més…)"
@@ -7360,13 +7363,6 @@ msgid "%1 Message in room (Total: %2)"
 msgid_plural "%1 Messages in room (Total: %2)"
 msgstr[0] "%1 missatge a la sala (Total: %2)"
 msgstr[1] "%1 missatges a la sala (Total: %2)"
-
-#: widgets/dialogs/showlistmessagebasewidget.cpp:107
-#: widgets/discussions/showdiscussionswidget.cpp:99
-#: widgets/misc/searchtreebasewidget.cpp:72
-#, kde-format
-msgid "(Click here for Loading more…"
-msgstr "(Feu clic ací per a carregar-ne més…"
 
 #: widgets/dialogs/showmentionsmessagesdialog.cpp:22
 #, kde-format
@@ -8886,13 +8882,15 @@ msgid "(Jump to first Unread)"
 msgstr "(Ves fins al primer no llegit)"
 
 #: widgets/room/roomheaderlabel.cpp:69
-#, kde-format
-msgid "(Show More Info…"
+#, fuzzy, kde-format
+#| msgid "(Show More Info…"
+msgid "(Show More Info…)"
 msgstr "(Mostra més informació…"
 
 #: widgets/room/roomheaderlabel.cpp:101
-#, kde-format
-msgid "(Show Less Info…"
+#, fuzzy, kde-format
+#| msgid "(Show Less Info…"
+msgid "(Show Less Info…)"
 msgstr "(Mostra menys informació…"
 
 #: widgets/room/roomheaderwidget.cpp:63
@@ -9713,30 +9711,39 @@ msgstr "Afig el suport d'activitats de Plasma"
 msgid "Add Report User Support"
 msgstr "Afig el suport d'informació d'un usuari"
 
-#: widgets/whatsnew/whatsnewwidgettranslation.h:80
+#: widgets/whatsnew/whatsnewwidgettranslation.h:76
+#, fuzzy
+#| msgid "Implement block actions."
+msgid "Implement Channel Sound Notification."
+msgstr "Implementa les accions de bloqueig."
+
+#: widgets/whatsnew/whatsnewwidgettranslation.h:81
 msgid "Fix dark mode support."
 msgstr "Corregix la implementació del mode fosc."
 
-#: widgets/whatsnew/whatsnewwidgettranslation.h:81
+#: widgets/whatsnew/whatsnewwidgettranslation.h:82
 msgid "Fix jitsi support."
 msgstr "Corregix la implementació de Jitsi."
 
-#: widgets/whatsnew/whatsnewwidgettranslation.h:82
+#: widgets/whatsnew/whatsnewwidgettranslation.h:83
 msgid "Fix translate message in direct channel."
 msgstr "Corregix el missatge de traducció en el canal directe."
 
-#: widgets/whatsnew/whatsnewwidgettranslation.h:83
+#: widgets/whatsnew/whatsnewwidgettranslation.h:84
 msgid "Don't show @here/@all as user."
 msgstr "No mostra @here/@all com a usuari."
 
-#: widgets/whatsnew/whatsnewwidgettranslation.h:84
+#: widgets/whatsnew/whatsnewwidgettranslation.h:85
 msgid "Reduce memory footprint."
 msgstr "Reduïx el consum de memòria."
 
-#: widgets/whatsnew/whatsnewwidgettranslation.h:85
+#: widgets/whatsnew/whatsnewwidgettranslation.h:86
 msgid "Use RESTAPI for logging."
 msgstr "Utilitza RESTAPI per al registre."
 
-#: widgets/whatsnew/whatsnewwidgettranslation.h:86
+#: widgets/whatsnew/whatsnewwidgettranslation.h:87
 msgid "Allow to send multi files."
 msgstr "Permet enviar múltiples fitxers."
+
+#~ msgid "(Click here for Loading more…"
+#~ msgstr "(Feu clic ací per a carregar-ne més…"

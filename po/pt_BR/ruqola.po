@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-05-10 00:38+0000\n"
+"POT-Creation-Date: 2024-05-12 00:38+0000\n"
 "PO-Revision-Date: 2023-06-07 13:29-0300\n"
 "Last-Translator: Luiz Fernando Ranghetti <elchevive@opensuse.org>\n"
 "Language-Team: Brazilian Portuguese <kde-i18n-pt_BR@kde.org>\n"
@@ -291,7 +291,13 @@ msgstr "Definir tópico"
 msgid "Unarchive"
 msgstr "Desarquivar"
 
-#: core/customsound/customsoundsmanager.cpp:26
+#: core/customsound/customsoundsmanager.cpp:25
+#: widgets/dialogs/serverinfo/serverinfowidget.cpp:57
+#, kde-format
+msgid "None"
+msgstr ""
+
+#: core/customsound/customsoundsmanager.cpp:33
 #: core/model/notificationdesktopdurationpreferencemodel.cpp:48
 #: core/model/notificationpreferencemodel.cpp:45
 #: widgets/administratordialog/rooms/administratordirectroomseditwidget.cpp:16
@@ -307,71 +313,65 @@ msgstr "Desarquivar"
 msgid "Default"
 msgstr "Padrão"
 
-#: core/customsound/customsoundsmanager.cpp:34
-#: widgets/dialogs/serverinfo/serverinfowidget.cpp:57
-#, kde-format
-msgid "None"
-msgstr ""
-
-#: core/customsound/customsoundsmanager.cpp:44
-#: core/customsound/customsoundsmanager.cpp:107
+#: core/customsound/customsoundsmanager.cpp:43
+#: core/customsound/customsoundsmanager.cpp:106
 #, kde-format
 msgid "Chime"
 msgstr ""
 
-#: core/customsound/customsoundsmanager.cpp:52
-#: core/customsound/customsoundsmanager.cpp:115
+#: core/customsound/customsoundsmanager.cpp:51
+#: core/customsound/customsoundsmanager.cpp:114
 #, kde-format
 msgid "Door"
 msgstr ""
 
-#: core/customsound/customsoundsmanager.cpp:60
+#: core/customsound/customsoundsmanager.cpp:59
 #, kde-format
 msgid "Beep"
 msgstr "Alarme sonoro"
 
-#: core/customsound/customsoundsmanager.cpp:68
+#: core/customsound/customsoundsmanager.cpp:67
 #, kde-format
 msgid "Chelle"
 msgstr "Chelle"
 
-#: core/customsound/customsoundsmanager.cpp:76
+#: core/customsound/customsoundsmanager.cpp:75
 #, kde-format
 msgid "Ding"
 msgstr "Ding"
 
-#: core/customsound/customsoundsmanager.cpp:92
+#: core/customsound/customsoundsmanager.cpp:91
 #, kde-format
 msgid "Highbell"
 msgstr "Highbell"
 
-#: core/customsound/customsoundsmanager.cpp:100
+#: core/customsound/customsoundsmanager.cpp:99
 #, kde-format
 msgid "Seasons"
 msgstr "Seasons"
 
-#: core/customsound/customsoundsmanager.cpp:123
+#: core/customsound/customsoundsmanager.cpp:122
 #, kde-format
 msgid "Telephone"
 msgstr ""
 
-#: core/customsound/customsoundsmanager.cpp:131
+#: core/customsound/customsoundsmanager.cpp:130
 #, fuzzy, kde-format
 #| msgid "Call ongoing"
 msgid "Outbound Call Ringing"
 msgstr "Chamada em curso"
 
-#: core/customsound/customsoundsmanager.cpp:139
+#: core/customsound/customsoundsmanager.cpp:138
 #, kde-format
 msgid "Call Ended"
 msgstr ""
 
-#: core/customsound/customsoundsmanager.cpp:147
+#: core/customsound/customsoundsmanager.cpp:146
 #, kde-format
 msgid "Dialtone"
 msgstr ""
 
-#: core/customsound/customsoundsmanager.cpp:155
+#: core/customsound/customsoundsmanager.cpp:154
 #, kde-format
 msgid "Ringtone"
 msgstr ""
@@ -796,7 +796,7 @@ msgstr "Nome do usuário"
 
 #: core/model/adminusersmodel.cpp:112
 #: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:125
-#: widgets/dialogs/configurenotificationwidget.cpp:110
+#: widgets/dialogs/configurenotificationwidget.cpp:124
 #, kde-format
 msgid "Email"
 msgstr "E-mail"
@@ -1429,12 +1429,12 @@ msgstr "<strong>%1</strong> está digitando..."
 msgid "<strong>%1</strong> are typing..."
 msgstr "<strong>%1</strong> estão digitando..."
 
-#: core/rocketchataccount.cpp:2908
+#: core/rocketchataccount.cpp:2945
 #, kde-format
 msgid "Export Messages"
 msgstr "Exportar mensagens"
 
-#: core/rocketchataccount.cpp:2909
+#: core/rocketchataccount.cpp:2946
 #, kde-format
 msgid "Your email has been queued for sending."
 msgstr "Seu e-mail está na fila para envio."
@@ -4046,7 +4046,7 @@ msgid "Logs"
 msgstr ""
 
 #: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:126
-#: widgets/dialogs/configurenotificationwidget.cpp:92
+#: widgets/dialogs/configurenotificationwidget.cpp:106
 #, kde-format
 msgid "Mobile"
 msgstr "Celular"
@@ -6955,52 +6955,52 @@ msgctxt "@title:window"
 msgid "Configure Notification"
 msgstr "Configurar notificação"
 
-#: widgets/dialogs/configurenotificationwidget.cpp:22
+#: widgets/dialogs/configurenotificationwidget.cpp:26
 #, kde-format
 msgid "Disable Notification"
 msgstr "Desativar notificação"
 
-#: widgets/dialogs/configurenotificationwidget.cpp:23
+#: widgets/dialogs/configurenotificationwidget.cpp:27
 #, kde-format
 msgid "Hide Unread Room Status"
 msgstr "Ocultar status não lidos na sala"
 
-#: widgets/dialogs/configurenotificationwidget.cpp:24
+#: widgets/dialogs/configurenotificationwidget.cpp:28
 #, fuzzy, kde-format
 #| msgid "Mute Group Mentions"
 msgid "Mute %1 and %2 mentions"
 msgstr "Silenciar menções do grupo"
 
-#: widgets/dialogs/configurenotificationwidget.cpp:25
+#: widgets/dialogs/configurenotificationwidget.cpp:29
 #, fuzzy, kde-format
 #| msgid "Show Mentions..."
 msgid "Show badge for mentions"
 msgstr "Mostrar menções ..."
 
-#: widgets/dialogs/configurenotificationwidget.cpp:37
+#: widgets/dialogs/configurenotificationwidget.cpp:42
 #, kde-format
 msgid "Receive alerts"
 msgstr ""
 
-#: widgets/dialogs/configurenotificationwidget.cpp:56
+#: widgets/dialogs/configurenotificationwidget.cpp:61
 #, fuzzy, kde-format
 #| msgid "Show Mentions..."
 msgid "Display badge for direct mentions only"
 msgstr "Mostrar menções ..."
 
-#: widgets/dialogs/configurenotificationwidget.cpp:62
+#: widgets/dialogs/configurenotificationwidget.cpp:67
 #, kde-format
 msgid "Desktop"
 msgstr "Área de trabalho"
 
-#: widgets/dialogs/configurenotificationwidget.cpp:70
-#: widgets/dialogs/configurenotificationwidget.cpp:100
-#: widgets/dialogs/configurenotificationwidget.cpp:118
+#: widgets/dialogs/configurenotificationwidget.cpp:75
+#: widgets/dialogs/configurenotificationwidget.cpp:114
+#: widgets/dialogs/configurenotificationwidget.cpp:132
 #, kde-format
 msgid "Alert:"
 msgstr "Alerta:"
 
-#: widgets/dialogs/configurenotificationwidget.cpp:81
+#: widgets/dialogs/configurenotificationwidget.cpp:95
 #, kde-format
 msgid "Sound:"
 msgstr "Som:"
@@ -7478,6 +7478,9 @@ msgstr[0] "%1 anexo na sala (total: %2)"
 msgstr[1] "%1 anexos na sala (total: %2)"
 
 #: widgets/dialogs/showattachmentwidget.cpp:100
+#: widgets/dialogs/showlistmessagebasewidget.cpp:107
+#: widgets/discussions/showdiscussionswidget.cpp:99
+#: widgets/misc/searchtreebasewidget.cpp:72
 #, fuzzy, kde-format
 #| msgid "(Click here for Loading more...)"
 msgid "(Click here for Loading more…)"
@@ -7533,14 +7536,6 @@ msgid "%1 Message in room (Total: %2)"
 msgid_plural "%1 Messages in room (Total: %2)"
 msgstr[0] "%1 mensagem na sala (total: %2)"
 msgstr[1] "%1 mensagens na sala (total: %2)"
-
-#: widgets/dialogs/showlistmessagebasewidget.cpp:107
-#: widgets/discussions/showdiscussionswidget.cpp:99
-#: widgets/misc/searchtreebasewidget.cpp:72
-#, fuzzy, kde-format
-#| msgid "(Click here for Loading more...)"
-msgid "(Click here for Loading more…"
-msgstr "(Clique aqui para carregar mais...)"
 
 #: widgets/dialogs/showmentionsmessagesdialog.cpp:22
 #, fuzzy, kde-format
@@ -9126,13 +9121,13 @@ msgstr "(Pular para o primeiro não lido)"
 #: widgets/room/roomheaderlabel.cpp:69
 #, fuzzy, kde-format
 #| msgid "(Show More Infos...)"
-msgid "(Show More Info…"
+msgid "(Show More Info…)"
 msgstr "(Mostrar mais informações...)"
 
 #: widgets/room/roomheaderlabel.cpp:101
 #, fuzzy, kde-format
 #| msgid "(Show Less Info...)"
-msgid "(Show Less Info…"
+msgid "(Show Less Info…)"
 msgstr "(Mostrar menos informações...)"
 
 #: widgets/room/roomheaderwidget.cpp:63
@@ -9993,39 +9988,48 @@ msgstr ""
 msgid "Add Report User Support"
 msgstr "Reportar mensagem"
 
-#: widgets/whatsnew/whatsnewwidgettranslation.h:80
+#: widgets/whatsnew/whatsnewwidgettranslation.h:76
+msgid "Implement Channel Sound Notification."
+msgstr ""
+
+#: widgets/whatsnew/whatsnewwidgettranslation.h:81
 #, fuzzy
 #| msgid "Android support"
 msgid "Fix dark mode support."
 msgstr "Suporte ao Android"
 
-#: widgets/whatsnew/whatsnewwidgettranslation.h:81
+#: widgets/whatsnew/whatsnewwidgettranslation.h:82
 #, fuzzy
 #| msgid "Android support"
 msgid "Fix jitsi support."
 msgstr "Suporte ao Android"
 
-#: widgets/whatsnew/whatsnewwidgettranslation.h:82
+#: widgets/whatsnew/whatsnewwidgettranslation.h:83
 #, fuzzy
 #| msgid "Total Messages in Channels"
 msgid "Fix translate message in direct channel."
 msgstr "Total de mensagens nos canais"
 
-#: widgets/whatsnew/whatsnewwidgettranslation.h:83
+#: widgets/whatsnew/whatsnewwidgettranslation.h:84
 msgid "Don't show @here/@all as user."
 msgstr ""
 
-#: widgets/whatsnew/whatsnewwidgettranslation.h:84
+#: widgets/whatsnew/whatsnewwidgettranslation.h:85
 msgid "Reduce memory footprint."
 msgstr ""
 
-#: widgets/whatsnew/whatsnewwidgettranslation.h:85
+#: widgets/whatsnew/whatsnewwidgettranslation.h:86
 msgid "Use RESTAPI for logging."
 msgstr ""
 
-#: widgets/whatsnew/whatsnewwidgettranslation.h:86
+#: widgets/whatsnew/whatsnewwidgettranslation.h:87
 msgid "Allow to send multi files."
 msgstr ""
+
+#, fuzzy
+#~| msgid "(Click here for Loading more...)"
+#~ msgid "(Click here for Loading more…"
+#~ msgstr "(Clique aqui para carregar mais...)"
 
 #~ msgid "Droplet"
 #~ msgstr "Droplet"
