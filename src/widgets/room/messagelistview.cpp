@@ -695,7 +695,6 @@ void MessageListView::slotFollowMessage(const QModelIndex &index, bool messageIs
         auto job = new RocketChatRestApi::UnFollowMessageJob(this);
         job->setMessageId(messageId);
         mCurrentRocketChatAccount->restApi()->initializeRestApiJob(job);
-        // connect(job, &RocketChatRestApi::FollowMessageJob::followMessageDone, this, &UsersInRoleWidget::slotAddUsersToRoleDone);
         if (!job->start()) {
             qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start UnFollowMessageJob job";
         }
@@ -703,7 +702,6 @@ void MessageListView::slotFollowMessage(const QModelIndex &index, bool messageIs
         auto job = new RocketChatRestApi::FollowMessageJob(this);
         job->setMessageId(messageId);
         mCurrentRocketChatAccount->restApi()->initializeRestApiJob(job);
-        // connect(job, &RocketChatRestApi::UnFollowMessageJob::followMessageDone, this, &UsersInRoleWidget::slotAddUsersToRoleDone);
         if (!job->start()) {
             qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start FollowMessageJob job";
         }
