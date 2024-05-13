@@ -47,7 +47,7 @@ void JoinedChannelCompletionDelegate::paint(QPainter *painter, const QStyleOptio
     if (info.isValid()) {
         const QRect displayRect(margin, option.rect.y(), option.rect.height(), option.rect.height());
         constexpr int marginTop = padding / 2;
-        const QPixmap pix = mAvatarCacheManager->makeAvatarPixmap(option.widget, info, option.rect.height() - marginTop);
+        const QPixmap pix = mAvatarCacheManager->makeRoundedAvatarPixmap(option.widget, info, option.rect.height() - marginTop);
         if (!pix.isNull()) {
             drawDecoration(painter, option, displayRect, pix);
             xPos = margin + option.rect.height();
