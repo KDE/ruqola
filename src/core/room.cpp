@@ -1617,4 +1617,39 @@ void Room::assignRoomStateValue(RoomState type, bool status)
     }
 }
 
+QIcon Room::icon() const
+{
+    if (teamInfo().mainTeam()) {
+        return QIcon::fromTheme(QStringLiteral("group"));
+    }
+
+    // TODO add team icon support.
+    switch (channelType()) {
+    case Room::RoomType::Private:
+        if (parentRid().isEmpty()) {
+            return QIcon::fromTheme(QStringLiteral("lock"));
+        } else {
+            // TODO use a specific icon for discussion
+        }
+        break;
+    case Room::RoomType::Channel:
+        if (unread() > 0 || alert()) {
+            return QIcon::fromTheme(QStringLiteral("irc-channel-active"));
+        } else {
+            return QIcon::fromTheme(QStringLiteral("irc-channel-inactive"));
+        }
+    case Room::RoomType::Direct: {
+        const QString userStatusIconFileName = mRocketChatAccount ? mRocketChatAccount->userStatusIconFileName(name()) : QString();
+        if (userStatusIconFileName.isEmpty()) {
+            return QIcon::fromTheme(QStringLiteral("user-available"));
+        } else {
+            return QIcon::fromTheme(userStatusIconFileName);
+        }
+    }
+    case Room::RoomType::Unknown:
+        break;
+    }
+    return {};
+}
+
 #include "moc_room.cpp"

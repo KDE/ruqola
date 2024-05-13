@@ -132,7 +132,6 @@ Q_SIGNALS:
 private:
     LIBRUQOLACORE_NO_EXPORT Room *createNewRoom();
     [[nodiscard]] LIBRUQOLACORE_NO_EXPORT bool userOffline(Room *r) const;
-    [[nodiscard]] LIBRUQOLACORE_NO_EXPORT QIcon icon(Room *r) const;
     [[nodiscard]] LIBRUQOLACORE_NO_EXPORT Section section(Room *r) const;
     [[nodiscard]] LIBRUQOLACORE_NO_EXPORT QString generateToolTip(Room *r) const;
     [[nodiscard]] LIBRUQOLACORE_NO_EXPORT QString generateUnreadToolTip(Room *r) const;

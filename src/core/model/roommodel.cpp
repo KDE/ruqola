@@ -141,7 +141,7 @@ QVariant RoomModel::data(const QModelIndex &index, int role) const
         return QVariant::fromValue(section(r));
     case RoomModel::RoomIcon:
     case Qt::DecorationRole:
-        return icon(r);
+        return r->icon();
     case RoomModel::RoomOtr:
         // TODO implement it.
         return {};
@@ -512,41 +512,6 @@ QString RoomModel::generateToolTip(Room *r) const
         return i18n("Channel Room");
     case Room::RoomType::Direct: {
         return mRocketChatAccount ? mRocketChatAccount->userStatusStr(r->name()) : QString();
-    }
-    case Room::RoomType::Unknown:
-        break;
-    }
-    return {};
-}
-
-QIcon RoomModel::icon(Room *r) const
-{
-    if (r->teamInfo().mainTeam()) {
-        return QIcon::fromTheme(QStringLiteral("group"));
-    }
-
-    // TODO add team icon support.
-    switch (r->channelType()) {
-    case Room::RoomType::Private:
-        if (r->parentRid().isEmpty()) {
-            return QIcon::fromTheme(QStringLiteral("lock"));
-        } else {
-            // TODO use a specific icon for discussion
-        }
-        break;
-    case Room::RoomType::Channel:
-        if (r->unread() > 0 || r->alert()) {
-            return QIcon::fromTheme(QStringLiteral("irc-channel-active"));
-        } else {
-            return QIcon::fromTheme(QStringLiteral("irc-channel-inactive"));
-        }
-    case Room::RoomType::Direct: {
-        const QString userStatusIconFileName = mRocketChatAccount ? mRocketChatAccount->userStatusIconFileName(r->name()) : QString();
-        if (userStatusIconFileName.isEmpty()) {
-            return QIcon::fromTheme(QStringLiteral("user-available"));
-        } else {
-            return QIcon::fromTheme(userStatusIconFileName);
-        }
     }
     case Room::RoomType::Unknown:
         break;

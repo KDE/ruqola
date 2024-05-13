@@ -291,6 +291,7 @@ public:
     [[nodiscard]] RoomStates roomStates() const;
     void setRoomStates(Room::RoomStates newRoomStates);
 
+    [[nodiscard]] QIcon icon() const;
 Q_SIGNALS:
     void highlightsWordChanged();
     void nameChanged();
