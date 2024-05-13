@@ -615,6 +615,7 @@ void RoomWidget::updateRoomHeader()
 {
     if (mRoom) {
         mRoomHeaderWidget->setRoomName(mRoom->displayRoomName());
+        mRoomWidgetBase->messageLineWidget()->setRoomName(mRoom->displayRoomName());
         mRoomHeaderWidget->setRoomAnnouncement(mRoom->displayAnnouncement());
         mRoomHeaderWidget->setRoomTopic(mRoom->displayTopic());
         mRoomHeaderWidget->setFavoriteStatus(mRoom->favorite());
@@ -685,9 +686,11 @@ void RoomWidget::connectRoom()
         });
         connect(mRoom, &Room::nameChanged, this, [this]() {
             mRoomHeaderWidget->setRoomName(mRoom->displayRoomName());
+            mRoomWidgetBase->messageLineWidget()->setRoomName(mRoom->displayRoomName());
         });
         connect(mRoom, &Room::fnameChanged, this, [this]() {
             mRoomHeaderWidget->setRoomName(mRoom->displayRoomName());
+            mRoomWidgetBase->messageLineWidget()->setRoomName(mRoom->displayRoomName());
         });
         connect(mRoom, &Room::favoriteChanged, this, [this]() {
             mRoomHeaderWidget->setFavoriteStatus(mRoom->favorite());

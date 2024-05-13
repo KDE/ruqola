@@ -120,6 +120,7 @@ MessageLineWidget::MessageLineWidget(QWidget *parent)
     connect(mMessageTextEdit, &MessageTextEdit::handleMimeData, this, &MessageLineWidget::handleMimeData);
 
     setFocusProxy(mMessageTextEdit);
+    mMessageTextEdit->setPlaceholderText(QStringLiteral("dddd"));
 }
 
 MessageLineWidget::~MessageLineWidget() = default;
@@ -237,6 +238,11 @@ void MessageLineWidget::clearEditingMode()
 QString MessageLineWidget::quoteText() const
 {
     return mQuoteText;
+}
+
+void MessageLineWidget::setRoomName(const QString &roomName)
+{
+    mMessageTextEdit->setPlaceholderText(i18n("Message %1", roomName));
 }
 
 QString MessageLineWidget::quotePermalink() const
