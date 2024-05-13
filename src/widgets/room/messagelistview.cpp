@@ -5,7 +5,6 @@
 */
 
 #include "messagelistview.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "administratordialog/moderationconsole/moderationmessageinfodialog.h"
 #include "chat/followmessagejob.h"
@@ -49,6 +48,7 @@ using namespace Qt::Literals::StringLiterals;
 
 #include <TextTranslator/TranslatorMenu>
 #endif
+using namespace Qt::Literals::StringLiterals;
 
 MessageListView::MessageListView(RocketChatAccount *account, Mode mode, QWidget *parent)
     : MessageListViewBase(parent)
@@ -234,9 +234,6 @@ void MessageListView::createTranslorMenu()
 
 void MessageListView::contextMenuEvent(QContextMenuEvent *event)
 {
-    //    if (!mRoom) {
-    //        return;
-    //    }
     const QModelIndex index = indexAt(event->pos());
     if (!index.isValid()) {
         if (Ruqola::self()->debug()) {

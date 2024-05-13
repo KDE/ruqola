@@ -5,7 +5,6 @@
 */
 
 #include "messagelinewidget.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "dialogs/createsoundmessagewizard.h"
 #include "dialogs/createvideomessagewizard.h"
@@ -35,6 +34,7 @@ using namespace Qt::Literals::StringLiterals;
 #include <QTemporaryFile>
 #include <QToolButton>
 #include <QWidgetAction>
+using namespace Qt::Literals::StringLiterals;
 
 MessageLineWidget::MessageLineWidget(QWidget *parent)
     : QWidget(parent)
@@ -214,7 +214,7 @@ void MessageLineWidget::sendFile(const UploadFileDialog::UploadFileInfo &uploadF
     info.fileName = uploadFileInfo.fileName;
     info.deleteTemporaryFile = uploadFileInfo.deleteTemporaryFile;
 
-    Q_EMIT createUploadJob(info);
+    Q_EMIT createUploadJob(std::move(info));
 }
 
 void MessageLineWidget::setQuoteMessage(const QString &permalink, const QString &text)
@@ -286,8 +286,7 @@ void MessageLineWidget::setEditMessage(const QByteArray &messageId, const QStrin
 void MessageLineWidget::slotPublicSettingChanged()
 {
     mSendFileButton->setVisible(mCurrentRocketChatAccount->uploadFileEnabled());
-    mSoundMessageButton->setVisible(mCurrentRocketChatAccount->audioRecorderEnabled());
-    mVideoMessageButton->setVisible(mCurrentRocketChatAccount->videoRecorderEnabled());
+    slotPrivateSettingsChanged();
 }
 
 void MessageLineWidget::slotOwnUserPreferencesChanged()
