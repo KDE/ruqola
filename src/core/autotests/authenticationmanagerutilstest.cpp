@@ -9,6 +9,7 @@
 #include <QJsonDocument>
 #include <QJsonObject>
 #include <QTest>
+using namespace Qt::Literals::StringLiterals;
 QTEST_GUILESS_MAIN(AuthenticationManagerUtilsTest)
 AuthenticationManagerUtilsTest::AuthenticationManagerUtilsTest(QObject *parent)
     : QObject{parent}
@@ -78,7 +79,7 @@ void AuthenticationManagerUtilsTest::shouldTestSendOtp()
     {
         const QString codeOtp = QStringLiteral(R"(foo42)");
         QJsonObject lastLoginPayLoad;
-        lastLoginPayLoad[QLatin1StringView("test")] = QStringLiteral("test");
+        lastLoginPayLoad["test"_L1] = QStringLiteral("test");
         QCOMPARE(QJsonDocument(AuthenticationManagerUtils::sendOTP(codeOtp, lastLoginPayLoad)).toJson(QJsonDocument::Compact),
                  QByteArray("[{\"totp\":{\"code\":\"foo42\",\"login\":{\"test\":\"test\"}}}]"));
     }

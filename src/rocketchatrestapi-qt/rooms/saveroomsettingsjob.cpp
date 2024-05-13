@@ -63,7 +63,7 @@ QString SaveRoomSettingsJob::errorMessage(const QString &str, const QJsonObject 
     if (str == "error-invalid-room-name"_L1) {
         return i18n("\'%1\' is not a valid room name", detail.value("channel_name"_L1).toString());
     } else if (str == "error-action-not-allowed"_L1) {
-        const QString detailActionStr = detail[QStringLiteral("action")].toString();
+        const QString detailActionStr = detail["action"_L1].toString();
         // qDebug() << " detailActionStr " << detailActionStr;
         if (detailActionStr == "Change_Room_Encrypted"_L1) {
             return i18n("Only groups or direct channels can enable encryption");

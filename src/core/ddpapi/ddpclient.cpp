@@ -699,19 +699,19 @@ quint64 DDPClient::subscribe(const QString &collection, const QJsonArray &params
 {
     quint64 registerId = mUid;
     QJsonObject json;
-    json[QLatin1StringView("msg")] = QStringLiteral("sub");
-    json[QLatin1StringView("id")] = QString::number(mUid);
-    json[QLatin1StringView("name")] = collection;
+    json["msg"_L1] = QStringLiteral("sub");
+    json["id"_L1] = QString::number(mUid);
+    json["name"_L1] = collection;
 
     QJsonArray newParams = params;
 
     QJsonArray args;
     QJsonObject obj;
-    obj[QLatin1StringView("useCollection")] = false;
-    obj[QLatin1StringView("args")] = args;
+    obj["useCollection"_L1] = false;
+    obj["args"_L1] = args;
     newParams.append(std::move(obj));
 
-    json[QLatin1StringView("params")] = newParams;
+    json["params"_L1] = newParams;
     qCDebug(RUQOLA_DDPAPI_LOG) << "subscribe: json " << json << "m_uid " << mUid;
     qint64 bytes = mWebSocket->sendTextMessage(QString::fromUtf8(QJsonDocument(json).toJson(QJsonDocument::Compact)));
     if (bytes < json.length()) {
@@ -848,12 +848,12 @@ void DDPClient::onTextMessageReceived(const QString &message)
         } else if (messageType == QLatin1StringView("nosub")) {
             const QString id = root.value(QStringLiteral("id")).toString();
             qCDebug(RUQOLA_DDPAPI_LOG) << mRocketChatAccount->accountName() << "Unsubscribe element" << message << id;
-            const QJsonObject errorObj = root[QLatin1StringView("error")].toObject();
+            const QJsonObject errorObj = root["error"_L1].toObject();
             if (!errorObj.isEmpty()) {
                 qWarning() << mRocketChatAccount->accountName() << "Error unsubscribing from" << id;
-                qWarning() << mRocketChatAccount->accountName() << "ERROR: " << errorObj[QLatin1StringView("error")].toString();
-                qWarning() << mRocketChatAccount->accountName() << "Message: " << errorObj[QLatin1StringView("message")].toString();
-                qWarning() << mRocketChatAccount->accountName() << "Reason: " << errorObj[QLatin1StringView("reason")].toString();
+                qWarning() << mRocketChatAccount->accountName() << "ERROR: " << errorObj["error"_L1].toString();
+                qWarning() << mRocketChatAccount->accountName() << "Message: " << errorObj["message"_L1].toString();
+                qWarning() << mRocketChatAccount->accountName() << "Reason: " << errorObj["reason"_L1].toString();
                 qWarning() << mRocketChatAccount->accountName() << "-- Error found END --";
             }
         } else {
@@ -904,9 +904,9 @@ void DDPClient::onWSConnected()
     QJsonArray supportedVersions;
     supportedVersions.append(QLatin1StringView("1"));
     QJsonObject protocol;
-    protocol[QLatin1StringView("msg")] = QStringLiteral("connect");
-    protocol[QLatin1StringView("version")] = QStringLiteral("1");
-    protocol[QLatin1StringView("support")] = supportedVersions;
+    protocol["msg"_L1] = QStringLiteral("connect");
+    protocol["version"_L1] = QStringLiteral("1");
+    protocol["support"_L1] = supportedVersions;
     const QByteArray serialize = QJsonDocument(protocol).toJson(QJsonDocument::Compact);
     const qint64 bytes = mWebSocket->sendTextMessage(QString::fromUtf8(serialize));
     if (bytes < serialize.length()) {
@@ -951,13 +951,13 @@ void DDPClient::onWSclosed()
 void DDPClient::pong()
 {
     QJsonObject pong;
-    pong[QLatin1StringView("msg")] = QStringLiteral("pong");
+    pong["msg"_L1] = QStringLiteral("pong");
     mWebSocket->sendBinaryMessage(QJsonDocument(pong).toJson(QJsonDocument::Compact));
 }
 
 void DDPClient::executeSubsCallBack(const QJsonObject &root)
 {
-    const QJsonArray subs = root[QLatin1StringView("subs")].toArray();
+    const QJsonArray subs = root["subs"_L1].toArray();
     if (!subs.isEmpty()) {
         const quint64 id = subs.at(0).toString().toULongLong();
         if (m_callbackHash.contains(id)) {

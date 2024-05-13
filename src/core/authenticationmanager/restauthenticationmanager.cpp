@@ -10,6 +10,7 @@
 #include "ruqola_restapi_authentication_debug.h"
 #include <QJsonArray>
 // We use method.callAnon here.
+using namespace Qt::Literals::StringLiterals;
 
 RESTAuthenticationManager::RESTAuthenticationManager(Connection *restApiConnection, QObject *parent)
     : AuthenticationManagerBase(parent)
@@ -22,17 +23,17 @@ RESTAuthenticationManager::~RESTAuthenticationManager() = default;
 QJsonObject RESTAuthenticationManager::generateJsonMethod(const QString &method, const QJsonDocument &params, quint64 id)
 {
     QJsonObject json;
-    json[QLatin1StringView("msg")] = QStringLiteral("method");
-    json[QLatin1StringView("method")] = method;
-    json[QLatin1StringView("id")] = QString::number(id);
+    json["msg"_L1] = QStringLiteral("method");
+    json["method"_L1] = method;
+    json["id"_L1] = QString::number(id);
 
     if (!params.isEmpty()) {
         if (params.isArray()) {
-            json[QLatin1StringView("params")] = params.array();
+            json["params"_L1] = params.array();
         } else if (params.isObject()) {
             QJsonArray arr;
             arr.append(params.object());
-            json[QLatin1StringView("params")] = arr;
+            json["params"_L1] = arr;
         }
     }
     return json;
