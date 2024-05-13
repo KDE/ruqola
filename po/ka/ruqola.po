@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-05-12 00:38+0000\n"
-"PO-Revision-Date: 2024-05-08 06:06+0200\n"
+"PO-Revision-Date: 2024-05-12 04:04+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -8821,14 +8821,12 @@ msgid "(Jump to first Unread)"
 msgstr "(პირველ წაუკითხავ შეტყობინებაზე გადასვლა)"
 
 #: widgets/room/roomheaderlabel.cpp:69
-#, fuzzy, kde-format
-#| msgid "(Show More Info…"
+#, kde-format
 msgid "(Show More Info…)"
 msgstr "(მეტი ინფორმაციის ჩვენება…)"
 
 #: widgets/room/roomheaderlabel.cpp:101
-#, fuzzy, kde-format
-#| msgid "(Show Less Info…"
+#, kde-format
 msgid "(Show Less Info…)"
 msgstr "(ნაკლები ინფორმაციის ჩვენება…)"
 
@@ -9648,10 +9646,8 @@ msgid "Add Report User Support"
 msgstr "მომხმარებლის დარეპორტების მხარდაჭერის დამატება"
 
 #: widgets/whatsnew/whatsnewwidgettranslation.h:76
-#, fuzzy
-#| msgid "Implement personal token authentication."
 msgid "Implement Channel Sound Notification."
-msgstr "პირადი ტოკენით ავთენტიკაციის განხორციელება."
+msgstr "არხის ხმოვანი შეტყობინების ჩართვა."
 
 #: widgets/whatsnew/whatsnewwidgettranslation.h:81
 msgid "Fix dark mode support."

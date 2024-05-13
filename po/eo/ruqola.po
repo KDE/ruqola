@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-05-12 00:38+0000\n"
-"PO-Revision-Date: 2024-05-09 22:01+0100\n"
+"PO-Revision-Date: 2024-05-12 10:35+0100\n"
 "Last-Translator: Oliver Kellogg <okellogg@users.sourceforge.net>\n"
 "Language-Team: Esperanto <kde-i18n-eo.org>\n"
 "Language: eo\n"
@@ -8821,16 +8821,14 @@ msgid "(Jump to first Unread)"
 msgstr "(Salti al la unua Nelegita)"
 
 #: widgets/room/roomheaderlabel.cpp:69
-#, fuzzy, kde-format
-#| msgid "(Show More Info…"
+#, kde-format
 msgid "(Show More Info…)"
 msgstr "(Montri Pliajn Informojn…)"
 
 #: widgets/room/roomheaderlabel.cpp:101
-#, fuzzy, kde-format
-#| msgid "(Show Less Info…"
+#, kde-format
 msgid "(Show Less Info…)"
-msgstr "(Montri malpli da informoj…)"
+msgstr "(Montri Malpli da Informoj…)"
 
 #: widgets/room/roomheaderwidget.cpp:63
 #, kde-format
@@ -9646,10 +9644,8 @@ msgid "Add Report User Support"
 msgstr "Aldoni Raporti Uzant-Subtenon"
 
 #: widgets/whatsnew/whatsnewwidgettranslation.h:76
-#, fuzzy
-#| msgid "Implement block actions."
 msgid "Implement Channel Sound Notification."
-msgstr "Realigi blokad-agojn."
+msgstr "Realigi Kanalan Son-Sciigon."
 
 #: widgets/whatsnew/whatsnewwidgettranslation.h:81
 msgid "Fix dark mode support."
@@ -9678,6 +9674,3 @@ msgstr "Uzi RESTAPI por protokolado."
 #: widgets/whatsnew/whatsnewwidgettranslation.h:87
 msgid "Allow to send multi files."
 msgstr "Permesi sendi plurajn dosierojn."
-
-#~ msgid "(Click here for Loading more…"
-#~ msgstr "(Alklaku ĉi tie por Ŝargi pli…)"

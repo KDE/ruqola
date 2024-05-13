@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-05-12 00:38+0000\n"
-"PO-Revision-Date: 2024-05-08 09:49+0200\n"
+"PO-Revision-Date: 2024-05-12 07:57+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
@@ -8868,16 +8868,14 @@ msgid "(Jump to first Unread)"
 msgstr "(Skoči na prvo neprebrano)"
 
 #: widgets/room/roomheaderlabel.cpp:69
-#, fuzzy, kde-format
-#| msgid "(Show More Info…"
+#, kde-format
 msgid "(Show More Info…)"
-msgstr "(Pokaži več informacij ..."
+msgstr "(Pokaži več informacij…)"
 
 #: widgets/room/roomheaderlabel.cpp:101
-#, fuzzy, kde-format
-#| msgid "(Show Less Info…"
+#, kde-format
 msgid "(Show Less Info…)"
-msgstr "(Pokaži manj informacij…"
+msgstr "(Pokaži manj informacij…)"
 
 #: widgets/room/roomheaderwidget.cpp:63
 #, kde-format
@@ -9695,10 +9693,8 @@ msgid "Add Report User Support"
 msgstr "Dodaj podporo poročanja uporabnika"
 
 #: widgets/whatsnew/whatsnewwidgettranslation.h:76
-#, fuzzy
-#| msgid "Implement personal token authentication."
 msgid "Implement Channel Sound Notification."
-msgstr "Izvedi avtentikacijo z osebnim žetonom."
+msgstr "Izvedi obvestilo prek zvočnega kanala."
 
 #: widgets/whatsnew/whatsnewwidgettranslation.h:81
 msgid "Fix dark mode support."

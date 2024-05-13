@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-05-12 00:38+0000\n"
-"PO-Revision-Date: 2024-05-08 10:38+0200\n"
+"PO-Revision-Date: 2024-05-12 14:27+0200\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
 "Language: nl\n"
@@ -8877,14 +8877,12 @@ msgid "(Jump to first Unread)"
 msgstr "(Naar eerste ongelezen gaan)"
 
 #: widgets/room/roomheaderlabel.cpp:69
-#, fuzzy, kde-format
-#| msgid "(Show More Info…"
+#, kde-format
 msgid "(Show More Info…)"
 msgstr "(Meer informatie tonen…)"
 
 #: widgets/room/roomheaderlabel.cpp:101
-#, fuzzy, kde-format
-#| msgid "(Show Less Info…"
+#, kde-format
 msgid "(Show Less Info…)"
 msgstr "(Minder informatie tonen…)"
 
@@ -9708,10 +9706,8 @@ msgid "Add Report User Support"
 msgstr "Rapport over gebruikersondersteuning toevoegen"
 
 #: widgets/whatsnew/whatsnewwidgettranslation.h:76
-#, fuzzy
-#| msgid "Implement block actions."
 msgid "Implement Channel Sound Notification."
-msgstr "Blokkeeracties implementeren."
+msgstr "Melding van kanaalgeluid implementeren."
 
 #: widgets/whatsnew/whatsnewwidgettranslation.h:81
 msgid "Fix dark mode support."

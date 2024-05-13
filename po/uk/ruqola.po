@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-05-12 00:38+0000\n"
-"PO-Revision-Date: 2024-05-08 12:03+0300\n"
+"PO-Revision-Date: 2024-05-12 08:53+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian\n"
 "Language: uk\n"
@@ -8942,16 +8942,14 @@ msgid "(Jump to first Unread)"
 msgstr "(Перейти до першого непрочитаного)"
 
 #: widgets/room/roomheaderlabel.cpp:69
-#, fuzzy, kde-format
-#| msgid "(Show More Info…"
+#, kde-format
 msgid "(Show More Info…)"
-msgstr "(Показати більше відомостей…"
+msgstr "(Показати більше відомостей…)"
 
 #: widgets/room/roomheaderlabel.cpp:101
-#, fuzzy, kde-format
-#| msgid "(Show Less Info…"
+#, kde-format
 msgid "(Show Less Info…)"
-msgstr "(Показати менше відомостей…"
+msgstr "(Показати менше відомостей…)"
 
 #: widgets/room/roomheaderwidget.cpp:63
 #, kde-format
@@ -9775,10 +9773,8 @@ msgid "Add Report User Support"
 msgstr "Додано підтримку скарг на користувача"
 
 #: widgets/whatsnew/whatsnewwidgettranslation.h:76
-#, fuzzy
-#| msgid "Implement personal token authentication."
 msgid "Implement Channel Sound Notification."
-msgstr "Реалізовано розпізнавання за особистим жетоном."
+msgstr "Реалізовано звукові сповіщення щодо дій на каналі."
 
 #: widgets/whatsnew/whatsnewwidgettranslation.h:81
 msgid "Fix dark mode support."

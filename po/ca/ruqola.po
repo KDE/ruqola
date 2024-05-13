@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-05-12 00:38+0000\n"
-"PO-Revision-Date: 2024-05-08 22:06+0200\n"
+"PO-Revision-Date: 2024-05-12 09:46+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca\n"
@@ -8881,16 +8881,14 @@ msgid "(Jump to first Unread)"
 msgstr "(Ves al primer no llegit)"
 
 #: widgets/room/roomheaderlabel.cpp:69
-#, fuzzy, kde-format
-#| msgid "(Show More Info…"
+#, kde-format
 msgid "(Show More Info…)"
-msgstr "(Mostra més informació…"
+msgstr "(Mostra més informació…)"
 
 #: widgets/room/roomheaderlabel.cpp:101
-#, fuzzy, kde-format
-#| msgid "(Show Less Info…"
+#, kde-format
 msgid "(Show Less Info…)"
-msgstr "(Mostra menys informació…"
+msgstr "(Mostra menys informació…)"
 
 #: widgets/room/roomheaderwidget.cpp:63
 #, kde-format
@@ -9712,10 +9710,8 @@ msgid "Add Report User Support"
 msgstr "Afegeix el suport d'informació d'un usuari"
 
 #: widgets/whatsnew/whatsnewwidgettranslation.h:76
-#, fuzzy
-#| msgid "Implement personal token authentication."
 msgid "Implement Channel Sound Notification."
-msgstr "Implementa l'autenticació de testimonis personals."
+msgstr "Implementa la notificació de so de canal."
 
 #: widgets/whatsnew/whatsnewwidgettranslation.h:81
 msgid "Fix dark mode support."
@@ -9744,9 +9740,6 @@ msgstr "Fa servir RESTAPI per al registre."
 #: widgets/whatsnew/whatsnewwidgettranslation.h:87
 msgid "Allow to send multi files."
 msgstr "Permet enviar diversos fitxers."
-
-#~ msgid "(Click here for Loading more…"
-#~ msgstr "(Feu clic aquí per a carregar-ne més…"
 
 #~ msgid "Droplet"
 #~ msgstr "Gota"

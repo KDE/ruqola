@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-05-12 00:38+0000\n"
-"PO-Revision-Date: 2024-05-09 19:22+0300\n"
+"PO-Revision-Date: 2024-05-12 13:30+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -8824,14 +8824,12 @@ msgid "(Jump to first Unread)"
 msgstr "(İlk Okunmamışa Atla)"
 
 #: widgets/room/roomheaderlabel.cpp:69
-#, fuzzy, kde-format
-#| msgid "(Show More Info…"
+#, kde-format
 msgid "(Show More Info…)"
 msgstr "(Daha Fazla Bilgi Göster…)"
 
 #: widgets/room/roomheaderlabel.cpp:101
-#, fuzzy, kde-format
-#| msgid "(Show Less Info…"
+#, kde-format
 msgid "(Show Less Info…)"
 msgstr "(Daha Az Bilgi Göster…)"
 
@@ -9650,10 +9648,8 @@ msgid "Add Report User Support"
 msgstr "Kullanıcıyı Bildirme Desteği Ekle"
 
 #: widgets/whatsnew/whatsnewwidgettranslation.h:76
-#, fuzzy
-#| msgid "Implement personal token authentication."
 msgid "Implement Channel Sound Notification."
-msgstr "Kişisel jetonla kimlik doğraulamayı gerçekle."
+msgstr "Kanal sesli bildirimi gerçeklendi."
 
 #: widgets/whatsnew/whatsnewwidgettranslation.h:81
 msgid "Fix dark mode support."
