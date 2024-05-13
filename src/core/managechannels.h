@@ -18,6 +18,7 @@ public:
         ChannelOpened,
         ChannelHidden,
     };
+    Q_ENUM(SearchChannelFound);
     explicit ManageChannels(RocketChatAccount *account, QObject *parent = nullptr);
     ~ManageChannels() override;
 
