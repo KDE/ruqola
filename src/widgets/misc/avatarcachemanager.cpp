@@ -9,6 +9,7 @@
 #include "rocketchataccount.h"
 #include "ruqolawidgets_debug.h"
 #include <QPainter>
+#include <QPainterPath>
 #include <QWidget>
 
 AvatarCacheManager::AvatarCacheManager(const Utils::AvatarType avatarType, QObject *parent)
@@ -151,4 +152,45 @@ QPixmap AvatarCacheManager::makeAvatarPixmap(const QWidget *widget, const Utils:
     return downScaled;
 }
 
+QPixmap AvatarCacheManager::makeRoundedAvatarPixmap(const QWidget *widget, const Utils::AvatarInfo &info, int maxHeight) const
+{
+    const QString iconUrlStr = mRocketChatAccount->avatarUrl(info);
+    if (iconUrlStr.isEmpty()) {
+        return {};
+    }
+
+    const auto dpr = checkIfNeededToClearCache(widget);
+
+    auto &cache = mAvatarCache.cache;
+
+    auto downScaled = cache.findCachedPixmap(iconUrlStr);
+    if (downScaled.isNull()) {
+        const QUrl iconUrl(iconUrlStr);
+        Q_ASSERT(iconUrl.isLocalFile());
+        QPixmap pix;
+        if (!pix.load(iconUrl.toLocalFile())) {
+            qCWarning(RUQOLAWIDGETS_LOG) << "Could not load" << iconUrl.toLocalFile();
+            return {};
+        }
+        pix = pix.scaledToHeight(maxHeight * dpr, Qt::SmoothTransformation);
+        pix.setDevicePixelRatio(dpr);
+
+        QPixmap fullScale(pix.size());
+        fullScale.fill(Qt::transparent);
+
+        downScaled = fullScale.scaledToHeight(maxHeight * dpr, Qt::SmoothTransformation);
+        downScaled.setDevicePixelRatio(dpr);
+
+        QPainterPath path;
+        QPainter p(&downScaled);
+        p.setRenderHint(QPainter::Antialiasing);
+        path.addRoundedRect(downScaled.rect(), 5, 5);
+
+        p.setClipPath(path);
+        p.drawPixmap(QPoint(0, 0), pix);
+
+        cache.insertCachedPixmap(iconUrlStr, downScaled);
+    }
+    return downScaled;
+}
 #include "moc_avatarcachemanager.cpp"
