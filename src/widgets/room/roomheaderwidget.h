@@ -17,6 +17,7 @@ class RocketChatAccount;
 class Room;
 class TeamNameLabel;
 class RoomHeaderLabel;
+class AvatarCacheManager;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT RoomHeaderWidget : public QWidget
 {
     Q_OBJECT
@@ -85,4 +86,6 @@ private:
     QToolButton *const mTeamChannelsButton;
     QToolButton *const mCallButton;
     ChannelActionPopupMenu *mChannelActionPopupMenu = nullptr;
+    QLabel *const mRoomIcon;
+    AvatarCacheManager *const mAvatarCacheManager;
 };

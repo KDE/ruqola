@@ -6,6 +6,7 @@
 
 #include "roomheaderwidget.h"
 #include "channelactionpopupmenu.h"
+#include "misc/avatarcachemanager.h"
 #include "room.h"
 #include "roomheaderlabel.h"
 #include "teamnamelabel.h"
@@ -28,6 +29,8 @@ RoomHeaderWidget::RoomHeaderWidget(QWidget *parent)
     , mChannelInfoButton(new QToolButton(this))
     , mTeamChannelsButton(new QToolButton(this))
     , mCallButton(new QToolButton(this))
+    , mRoomIcon(new QLabel(this))
+    , mAvatarCacheManager(new AvatarCacheManager(Utils::AvatarType::Room, this))
 {
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
@@ -69,6 +72,8 @@ RoomHeaderWidget::RoomHeaderWidget(QWidget *parent)
     mEncryptedButton->setVisible(false);
     headerLayout->addWidget(mEncryptedButton, 0, Qt::AlignTop);
     connect(mEncryptedButton, &QToolButton::clicked, this, &RoomHeaderWidget::encryptedChanged);
+
+    headerLayout->addWidget(mRoomIcon, 0, Qt::AlignTop);
 
     auto infoLayout = new QVBoxLayout;
     infoLayout->setObjectName(QStringLiteral("infoLayout"));
@@ -236,11 +241,17 @@ void RoomHeaderWidget::setIsDiscussion(bool isDiscussion)
 void RoomHeaderWidget::setRoom(Room *room)
 {
     mChannelActionPopupMenu->setRoom(room);
+    const auto avatarInfo = room->avatarInfo();
+    if (avatarInfo.isValid()) {
+        const QPixmap pix = mAvatarCacheManager->makeRoundedAvatarPixmap(this, avatarInfo, mFavoriteButton->size().height() - 4);
+        mRoomIcon->setPixmap(pix);
+    }
 }
 
 void RoomHeaderWidget::setCurrentRocketChatAccount(RocketChatAccount *account)
 {
     mChannelActionPopupMenu->setCurrentRocketChatAccount(account);
+    mAvatarCacheManager->setCurrentRocketChatAccount(account);
 }
 
 #include "moc_roomheaderwidget.cpp"
