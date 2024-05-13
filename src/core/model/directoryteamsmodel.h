@@ -21,7 +21,7 @@ public:
         CreateTeamDateTime,
         CreateTeam,
         RoomIdentifier,
-        LastColumn = CreateTeam,
+        LastColumn = RoomIdentifier,
     };
     Q_ENUM(DirectoryTeamsRoles)
     explicit DirectoryTeamsModel(QObject *parent = nullptr);
