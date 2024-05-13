@@ -1097,9 +1097,9 @@ void Room::setFName(const QString &value)
 bool Room::isDiscussionRoom() const
 {
     if (!mRoomExtra) {
-        return {};
+        return false;
     }
-    return !mRoomExtra->isDiscussionRoom();
+    return mRoomExtra->isDiscussionRoom();
 }
 
 QByteArray Room::parentRid() const
