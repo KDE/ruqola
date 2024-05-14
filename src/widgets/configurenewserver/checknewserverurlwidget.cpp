@@ -54,6 +54,12 @@ CheckNewServerUrlWidget::CheckNewServerUrlWidget(QWidget *parent)
         mConnectionPushButton->setEnabled(!str.trimmed().isEmpty());
     });
 
+    connect(mServerUrl, &QLineEdit::returnPressed, this, [this]() {
+        if (mConnectionPushButton->isEnabled()) {
+            mConnectionPushButton->click();
+        }
+    });
+
     mBusyIndicatorWidget->setObjectName(QStringLiteral("mBusyIndicatorWidget"));
     serverUrlLayout->addWidget(mBusyIndicatorWidget);
 
