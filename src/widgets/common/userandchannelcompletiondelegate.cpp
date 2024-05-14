@@ -101,3 +101,9 @@ void UserAndChannelCompletionDelegate::setRocketChatAccount(RocketChatAccount *n
 {
     mAvatarCacheManager->setCurrentRocketChatAccount(newRocketChatAccount);
 }
+
+QSize UserAndChannelCompletionDelegate::sizeHint(const QStyleOptionViewItem &option, const QModelIndex &index) const
+{
+    const QSize size = QItemDelegate::sizeHint(option, index);
+    return size + QSize(0, 4 * option.widget->devicePixelRatioF());
+}
