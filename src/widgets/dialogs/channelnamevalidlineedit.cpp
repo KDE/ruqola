@@ -52,7 +52,7 @@ void ChannelNameValidLineEdit::clearLineEdit()
 void ChannelNameValidLineEdit::slotSearchChannelRequested(const QString &text)
 {
     auto job = new RocketChatRestApi::RoomsNameExistsJob(this);
-    job->setRoomName(text);
+    job->setRoomName(text.trimmed());
     mRocketChatAccount->restApi()->initializeRestApiJob(job);
     connect(job, &RocketChatRestApi::RoomsNameExistsJob::roomNameExistsDone, this, [this](bool exists) {
         emitIsValid(!exists);

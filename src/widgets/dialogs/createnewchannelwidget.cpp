@@ -72,7 +72,7 @@ void CreateNewChannelWidget::slotChangeOkButtonEnabled(bool state)
 
 QString CreateNewChannelWidget::channelName() const
 {
-    return mChannelName->text();
+    return mChannelName->text().trimmed();
 }
 
 QStringList CreateNewChannelWidget::members(bool userId) const
