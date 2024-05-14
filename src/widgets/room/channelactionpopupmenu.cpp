@@ -26,7 +26,7 @@ ChannelActionPopupMenu::~ChannelActionPopupMenu()
 
 void ChannelActionPopupMenu::createMenu()
 {
-    mPruneMessages = new QAction(i18n("Prune Messages…"), this);
+    mPruneMessages = new QAction(i18nc("@action", "Prune Messages…"), this);
     mMenu->addAction(mPruneMessages);
     connect(mPruneMessages, &QAction::triggered, this, [this]() {
         Q_EMIT actionRequested(RoomHeaderWidget::PruneMessages);
@@ -34,19 +34,19 @@ void ChannelActionPopupMenu::createMenu()
 
     mPruneMessagesSeparator = mMenu->addSeparator();
 
-    mShowMentions = new QAction(i18n("Show Mentions…"), this);
+    mShowMentions = new QAction(i18nc("@action", "Show Mentions…"), this);
     mMenu->addAction(mShowMentions);
     connect(mShowMentions, &QAction::triggered, this, [this]() {
         Q_EMIT actionRequested(RoomHeaderWidget::ShowMentions);
     });
 
-    mShowPinnedMessages = new QAction(i18n("Show Pinned Messages…"), this);
+    mShowPinnedMessages = new QAction(i18nc("@action", "Show Pinned Messages…"), this);
     mMenu->addAction(mShowPinnedMessages);
     connect(mShowPinnedMessages, &QAction::triggered, this, [this]() {
         Q_EMIT actionRequested(RoomHeaderWidget::ShowPinned);
     });
 
-    mShowStarredMessages = new QAction(i18n("Show Starred Messages…"), this);
+    mShowStarredMessages = new QAction(i18nc("@action", "Show Starred Messages…"), this);
     mMenu->addAction(mShowStarredMessages);
     connect(mShowStarredMessages, &QAction::triggered, this, [this]() {
         Q_EMIT actionRequested(RoomHeaderWidget::ShowStarred);
@@ -58,13 +58,13 @@ void ChannelActionPopupMenu::createMenu()
         Q_EMIT actionRequested(RoomHeaderWidget::ShowAttachment);
     });
 
-    mShowDiscussions = new QAction(i18n("Show Discussions…"), this);
+    mShowDiscussions = new QAction(i18nc("@action", "Show Discussions…"), this);
     mMenu->addAction(mShowDiscussions);
     connect(mShowDiscussions, &QAction::triggered, this, [this]() {
         Q_EMIT actionRequested(RoomHeaderWidget::ShowDiscussions);
     });
 
-    mShowThreads = new QAction(i18n("Show Threads…"), this);
+    mShowThreads = new QAction(i18nc("@action", "Show Threads…"), this);
     mMenu->addAction(mShowThreads);
     connect(mShowThreads, &QAction::triggered, this, [this]() {
         Q_EMIT actionRequested(RoomHeaderWidget::ShowThreads);
@@ -79,7 +79,7 @@ void ChannelActionPopupMenu::createMenu()
     });
 
     mAutoTranslateSeparator = mMenu->addSeparator();
-    mAutoTranslate = new QAction(i18n("Configure Auto-Translate…"), this);
+    mAutoTranslate = new QAction(i18nc("@action", "Configure Auto-Translate…"), this);
     mMenu->addAction(mAutoTranslate);
     connect(mAutoTranslate, &QAction::triggered, this, [this]() {
         Q_EMIT actionRequested(RoomHeaderWidget::AutoTranslate);
@@ -87,14 +87,14 @@ void ChannelActionPopupMenu::createMenu()
 
     mInviteUsersGenerateUrlSeparator = mMenu->addSeparator();
     mMenu->addAction(mInviteUsersGenerateUrlSeparator);
-    mInviteUsersGenerateUrl = new QAction(i18n("Invite Users"), this);
+    mInviteUsersGenerateUrl = new QAction(i18nc("@action", "Invite Users"), this);
     mMenu->addAction(mInviteUsersGenerateUrl);
     connect(mInviteUsersGenerateUrl, &QAction::triggered, this, [this]() {
         Q_EMIT actionRequested(RoomHeaderWidget::InviteUsers);
     });
 
     mAddUserInRoomsSeparator = mMenu->addSeparator();
-    mAddUserInRooms = new QAction(i18n("Add Users in Channel…"), this);
+    mAddUserInRooms = new QAction(i18nc("@action", "Add Users in Channel…"), this);
     mMenu->addAction(mAddUserInRoomsSeparator);
     connect(mAddUserInRooms, &QAction::triggered, this, [this]() {
         Q_EMIT actionRequested(RoomHeaderWidget::AddUsersInRoom);
@@ -109,21 +109,21 @@ void ChannelActionPopupMenu::createMenu()
     });
 
     mMenu->addSeparator();
-    mExportMessages = new QAction(i18n("Export Messages…"), this);
+    mExportMessages = new QAction(i18nc("@action", "Export Messages…"), this);
     mMenu->addAction(mExportMessages);
     connect(mExportMessages, &QAction::triggered, this, [this]() {
         Q_EMIT actionRequested(RoomHeaderWidget::ExportMessages);
     });
 
     mMenu->addSeparator();
-    mOffTheRecordMessages = new QAction(i18n("OTR"), this);
+    mOffTheRecordMessages = new QAction(i18nc("@action", "OTR"), this);
     mOffTheRecordMessages->setCheckable(true);
     mMenu->addAction(mOffTheRecordMessages);
     connect(mOffTheRecordMessages, &QAction::triggered, this, [this]() {
         Q_EMIT actionRequested(RoomHeaderWidget::OtrMessages);
     });
     mMenu->addSeparator();
-    mEncryptMessages = new QAction(i18n("Encrypt Messages"), this);
+    mEncryptMessages = new QAction(i18nc("@action", "Encrypt Messages"), this);
     mEncryptMessages->setCheckable(true);
     mMenu->addAction(mEncryptMessages);
     connect(mEncryptMessages, &QAction::triggered, this, [this]() {

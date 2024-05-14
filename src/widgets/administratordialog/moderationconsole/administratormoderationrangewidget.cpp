@@ -72,7 +72,7 @@ void AdministratorModerationRangeWidget::slotRangeChanged()
 void AdministratorModerationRangeWidget::initializeMenu()
 {
     auto *menu = new QMenu(mFilterDate);
-    auto todayAction = new QAction(i18n("Today"), menu);
+    auto todayAction = new QAction(i18nc("@action", "Today"), menu);
     menu->addAction(todayAction);
     connect(todayAction, &QAction::triggered, this, [this]() {
         const QDate date = QDate::currentDate();
@@ -82,7 +82,7 @@ void AdministratorModerationRangeWidget::initializeMenu()
         mToDate->setDate(date);
         Q_EMIT rangeChanged();
     });
-    auto yesterdayAction = new QAction(i18n("Yesterday"), menu);
+    auto yesterdayAction = new QAction(i18nc("@action", "Yesterday"), menu);
     menu->addAction(yesterdayAction);
     connect(yesterdayAction, &QAction::triggered, this, [this]() {
         QSignalBlocker b(mFromDate);
@@ -92,7 +92,7 @@ void AdministratorModerationRangeWidget::initializeMenu()
         mToDate->setDate(date);
         Q_EMIT rangeChanged();
     });
-    auto thisWeekAction = new QAction(i18n("This week"), menu);
+    auto thisWeekAction = new QAction(i18nc("@action", "This week"), menu);
     menu->addAction(thisWeekAction);
     connect(thisWeekAction, &QAction::triggered, this, [this]() {
         QSignalBlocker b(mFromDate);
@@ -102,7 +102,7 @@ void AdministratorModerationRangeWidget::initializeMenu()
         mToDate->setDate(date);
         Q_EMIT rangeChanged();
     });
-    auto previousWeekAction = new QAction(i18n("Previous week"), menu);
+    auto previousWeekAction = new QAction(i18nc("@action", "Previous week"), menu);
     menu->addAction(previousWeekAction);
     connect(previousWeekAction, &QAction::triggered, this, [this]() {
         QSignalBlocker b(mFromDate);
@@ -112,7 +112,7 @@ void AdministratorModerationRangeWidget::initializeMenu()
         mToDate->setDate(date);
         Q_EMIT rangeChanged();
     });
-    auto thisMonthAction = new QAction(i18n("This month"), menu);
+    auto thisMonthAction = new QAction(i18nc("@action", "This month"), menu);
     menu->addAction(thisMonthAction);
     connect(thisMonthAction, &QAction::triggered, this, [this]() {
         QSignalBlocker b(mFromDate);
@@ -123,7 +123,7 @@ void AdministratorModerationRangeWidget::initializeMenu()
         mToDate->setDate(QDate(date.year(), date.month(), monthDate.daysInMonth()));
         Q_EMIT rangeChanged();
     });
-    auto previousMonthAction = new QAction(i18n("Previous month"), menu);
+    auto previousMonthAction = new QAction(i18nc("@action", "Previous month"), menu);
     menu->addAction(previousMonthAction);
     connect(previousMonthAction, &QAction::triggered, this, [this]() {
         QSignalBlocker b(mFromDate);

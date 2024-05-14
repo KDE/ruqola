@@ -17,12 +17,12 @@ OtrWidget::OtrWidget(QWidget *parent)
     setMessageType(Information);
     setPosition(KMessageWidget::Header);
     setText(i18n("Otr Activated"));
-    auto endOtrAction = new QAction(i18n("End OTR"), this);
+    auto endOtrAction = new QAction(i18nc("@action", "End OTR"), this);
     endOtrAction->setObjectName(QStringLiteral("endOtrAction"));
     connect(endOtrAction, &QAction::triggered, this, &OtrWidget::closeOtr);
     addAction(endOtrAction);
 
-    auto refreshKeysAction = new QAction(i18n("Refresh Keys"), this);
+    auto refreshKeysAction = new QAction(i18nc("@action", "Refresh Keys"), this);
     refreshKeysAction->setObjectName(QStringLiteral("refreshKeysAction"));
     connect(refreshKeysAction, &QAction::triggered, this, &OtrWidget::refreshKeys);
     addAction(refreshKeysAction);

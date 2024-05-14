@@ -298,17 +298,17 @@ void MessageListView::contextMenuEvent(QContextMenuEvent *event)
         });
     }
 
-    auto selectAllAction = new QAction(i18n("Select All"), &menu);
+    auto selectAllAction = new QAction(i18nc("@action", "Select All"), &menu);
     connect(selectAllAction, &QAction::triggered, this, [this, index]() {
         slotSelectAll(index);
     });
 
-    auto markMessageAsUnReadAction = new QAction(i18n("Mark Message As Unread"), &menu);
+    auto markMessageAsUnReadAction = new QAction(i18nc("@action", "Mark Message As Unread"), &menu);
     connect(markMessageAsUnReadAction, &QAction::triggered, this, [this, index]() {
         slotMarkMessageAsUnread(index);
     });
 
-    auto showFullThreadAction = new QAction(i18n("Show Full Thread"), &menu);
+    auto showFullThreadAction = new QAction(i18nc("@action", "Show Full Thread"), &menu);
     connect(showFullThreadAction, &QAction::triggered, this, [this, index]() {
         slotShowFullThread(index);
     });
@@ -323,12 +323,12 @@ void MessageListView::contextMenuEvent(QContextMenuEvent *event)
         slotQuoteMessage(index);
     });
 
-    auto copyLinkToMessageAction = new QAction(i18n("Copy Link To Message"), &menu); // TODO add icon
+    auto copyLinkToMessageAction = new QAction(i18nc("@action", "Copy Link To Message"), &menu); // TODO add icon
     connect(copyLinkToMessageAction, &QAction::triggered, this, [this, index]() {
         slotCopyLinkToMessage(index);
     });
 
-    auto forwardMessageAction = new QAction(i18n("Forward Message"), &menu); // TODO add icon
+    auto forwardMessageAction = new QAction(i18nc("@action", "Forward Message"), &menu); // TODO add icon
     connect(forwardMessageAction, &QAction::triggered, this, [this, index]() {
         slotForwardMessage(index);
     });
@@ -385,7 +385,7 @@ void MessageListView::contextMenuEvent(QContextMenuEvent *event)
         if (info.editMode) {
             if (info.roomType != Room::RoomType::Direct) {
                 if (mCurrentRocketChatAccount->hasPermission(QStringLiteral("create-d"))) {
-                    auto startPrivateConversationAction = new QAction(i18n("Start a Private Conversation"), &menu);
+                    auto startPrivateConversationAction = new QAction(i18nc("@action", "Start a Private Conversation"), &menu);
                     connect(startPrivateConversationAction, &QAction::triggered, this, [this, url]() {
                         slotStartPrivateConversation(url);
                     });
@@ -401,14 +401,14 @@ void MessageListView::contextMenuEvent(QContextMenuEvent *event)
 
     switch (mMode) {
     case Mode::Editing: {
-        auto startDiscussion = new QAction(i18n("Start a Discussion"), &menu);
+        auto startDiscussion = new QAction(i18nc("@action", "Start a Discussion"), &menu);
         connect(startDiscussion, &QAction::triggered, this, [this, index]() {
             slotStartDiscussion(index);
         });
         menu.addAction(startDiscussion);
         menu.addSeparator();
         if (mCurrentRocketChatAccount->threadsEnabled()) {
-            auto replyInThreadAction = new QAction(i18n("Reply in Thread"), &menu);
+            auto replyInThreadAction = new QAction(i18nc("@action", "Reply in Thread"), &menu);
             connect(replyInThreadAction, &QAction::triggered, this, [this, index]() {
                 slotReplyInThread(index);
             });
@@ -512,7 +512,7 @@ void MessageListView::contextMenuEvent(QContextMenuEvent *event)
         break;
     }
     case Mode::Moderation: {
-        auto showReportInfo = new QAction(i18n("View Reports"), &menu); // Add icon
+        auto showReportInfo = new QAction(i18nc("@action", "View Reports"), &menu); // Add icon
         connect(showReportInfo, &QAction::triggered, this, [this, message]() {
             const auto messageId = message->messageId();
             const auto job = new RocketChatRestApi::ModerationReportsJob(this);
@@ -535,7 +535,7 @@ void MessageListView::contextMenuEvent(QContextMenuEvent *event)
         menu.addSeparator();
         menu.addAction(selectAllAction);
         menu.addSeparator();
-        auto dismissReports = new QAction(i18n("Dismiss Reports"), &menu); // Add icon
+        auto dismissReports = new QAction(i18nc("@action", "Dismiss Reports"), &menu); // Add icon
         connect(dismissReports, &QAction::triggered, this, [this, message]() {
             const auto messageId = message->messageId();
             const auto job = new RocketChatRestApi::ModerationDismissReportsJob(this);
@@ -580,7 +580,7 @@ void MessageListView::contextMenuEvent(QContextMenuEvent *event)
         }
 #endif
         menu.addSeparator();
-        auto goToMessageAction = new QAction(i18n("Go to Message"), &menu); // Add icon
+        auto goToMessageAction = new QAction(i18nc("@action", "Go to Message"), &menu); // Add icon
         connect(goToMessageAction, &QAction::triggered, this, [this, index, message]() {
             const QByteArray messageId = message->messageId();
             const QString messageDateTimeUtc = index.data(MessagesModel::DateTimeUtc).toString();

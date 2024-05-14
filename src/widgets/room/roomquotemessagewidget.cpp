@@ -17,7 +17,7 @@ RoomQuoteMessageWidget::RoomQuoteMessageWidget(QWidget *parent)
     setPosition(KMessageWidget::Header);
     setWordWrap(true);
     setVisible(false);
-    auto cancelReplyingInThreadAction = new QAction(i18n("Cancel"), this);
+    auto cancelReplyingInThreadAction = new QAction(i18nc("@action", "Cancel"), this);
     connect(cancelReplyingInThreadAction, &QAction::triggered, this, &RoomQuoteMessageWidget::cancelQuoteMessage);
     addAction(cancelReplyingInThreadAction);
 }

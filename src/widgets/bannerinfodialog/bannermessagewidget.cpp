@@ -20,7 +20,7 @@ BannerMessageWidget::BannerMessageWidget(QWidget *parent)
     setWordWrap(true);
     setPosition(KMessageWidget::Header);
 
-    auto readAction = new QAction(i18n("Mark as Read"), this);
+    auto readAction = new QAction(i18nc("@action", "Mark as Read"), this);
     readAction->setObjectName(QStringLiteral("read_action"));
     connect(readAction, &QAction::triggered, this, &BannerMessageWidget::slotReadInfo);
     addAction(readAction);

@@ -426,7 +426,7 @@ bool MessageListDelegate::contextMenu(const QStyleOptionViewItem &option, const 
             if (info.roomType != Room::RoomType::Direct) {
                 if (mRocketChatAccount->hasPermission(QStringLiteral("create-d"))) {
                     menu.addSeparator();
-                    auto startPrivateConversationAction = new QAction(i18n("Start a Private Conversation"), &menu);
+                    auto startPrivateConversationAction = new QAction(i18nc("@action", "Start a Private Conversation"), &menu);
                     connect(startPrivateConversationAction, &QAction::triggered, this, [this, message]() {
                         Q_EMIT startPrivateConversation(message->username());
                     });

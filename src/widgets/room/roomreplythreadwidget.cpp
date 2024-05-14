@@ -18,7 +18,7 @@ RoomReplyThreadWidget::RoomReplyThreadWidget(QWidget *parent)
     setWordWrap(true);
     setText(i18n("Replying in a thread"));
     setVisible(false);
-    auto cancelReplyingInThreadAction = new QAction(i18n("Cancel"), this);
+    auto cancelReplyingInThreadAction = new QAction(i18nc("@action", "Cancel"), this);
     connect(cancelReplyingInThreadAction, &QAction::triggered, this, &RoomReplyThreadWidget::cancelReplyingInThread);
     addAction(cancelReplyingInThreadAction);
 

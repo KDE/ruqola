@@ -16,7 +16,7 @@ E2eDecodeEncryptionKeyWidget::E2eDecodeEncryptionKeyWidget(QWidget *parent)
     setPosition(KMessageWidget::Header);
     setText(i18n("Save your encryption password. Click here to view and copy your password."));
 
-    auto decodeEncryptionKeyAction = new QAction(i18n("Decrypte Encryption Key"), this);
+    auto decodeEncryptionKeyAction = new QAction(i18nc("@action", "Decrypte Encryption Key"), this);
     decodeEncryptionKeyAction->setObjectName(QStringLiteral("decodeEncryptionKeyAction"));
     connect(decodeEncryptionKeyAction, &QAction::triggered, this, &E2eDecodeEncryptionKeyWidget::decodeEncrytionKey);
     addAction(decodeEncryptionKeyAction);

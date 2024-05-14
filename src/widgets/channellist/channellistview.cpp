@@ -152,7 +152,7 @@ void ChannelListView::contextMenuEvent(QContextMenuEvent *event)
                     const QByteArray mainTeamId = index.data(RoomModel::RoomTeamId).toByteArray();
                     if (mainTeamId.isEmpty() && room->hasPermission(QStringLiteral("convert-team"))) {
                         menu.addSeparator();
-                        auto convertToTeam = new QAction(i18n("Convert to Team"), &menu);
+                        auto convertToTeam = new QAction(i18nc("@action", "Convert to Team"), &menu);
                         connect(convertToTeam, &QAction::triggered, this, [this, index, roomType]() {
                             if (index.isValid()) {
                                 slotConvertToTeam(index, roomType);
@@ -163,7 +163,7 @@ void ChannelListView::contextMenuEvent(QContextMenuEvent *event)
                 } else {
                     if (room->hasPermission(QStringLiteral("convert-team"))) {
                         menu.addSeparator();
-                        auto convertToChanne = new QAction(i18n("Convert to Channel"), &menu);
+                        auto convertToChanne = new QAction(i18nc("@action", "Convert to Channel"), &menu);
                         connect(convertToChanne, &QAction::triggered, this, [this, index]() {
                             if (index.isValid()) {
                                 slotConvertToChannel(index);
@@ -175,7 +175,7 @@ void ChannelListView::contextMenuEvent(QContextMenuEvent *event)
                 const QByteArray mainTeamId = index.data(RoomModel::RoomTeamId).toByteArray();
                 if (mainTeamId.isEmpty() && !mainTeam && room->hasPermission(QStringLiteral("add-team-channel"))) {
                     menu.addSeparator();
-                    auto moveToTeam = new QAction(i18n("Move to Team"), &menu);
+                    auto moveToTeam = new QAction(i18nc("@action", "Move to Team"), &menu);
                     connect(moveToTeam, &QAction::triggered, this, [this, index]() {
                         if (index.isValid()) {
                             slotMoveToTeam(index);

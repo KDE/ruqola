@@ -16,7 +16,7 @@ NeedUpdateVersionWidget::NeedUpdateVersionWidget(QWidget *parent)
     setVisible(false);
     setPosition(KMessageWidget::Header);
     setCloseButtonVisible(true);
-    auto action = new QAction(i18n("Disable version check"), this);
+    auto action = new QAction(i18nc("@action", "Disable version check"), this);
     addAction(action);
     connect(action, &QAction::triggered, this, &NeedUpdateVersionWidget::slotDisableVersionCheck);
 }

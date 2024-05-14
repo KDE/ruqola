@@ -94,7 +94,7 @@ void UsersInRoomMenu::slotCustomContextMenuRequested(const QPoint &pos)
 
     if (account->hasPermission(QStringLiteral("create-d"))) {
         if (isNotMe && !isAdirectChannel) {
-            auto conversationAction = new QAction(i18n("Start Conversation"), &menu);
+            auto conversationAction = new QAction(i18nc("@action", "Start Conversation"), &menu);
             connect(conversationAction, &QAction::triggered, this, &UsersInRoomMenu::slotOpenConversation);
             menu.addAction(conversationAction);
         }
@@ -147,7 +147,7 @@ void UsersInRoomMenu::slotCustomContextMenuRequested(const QPoint &pos)
         }
         if (isAdministrator || mRoom->hasPermission(QStringLiteral("remove-user"))) {
             menu.addSeparator();
-            auto removeFromRoom = new QAction(i18n("Remove from Room"), &menu);
+            auto removeFromRoom = new QAction(i18nc("@action", "Remove from Room"), &menu);
             connect(removeFromRoom, &QAction::triggered, this, &UsersInRoomMenu::slotRemoveFromRoom);
             menu.addAction(removeFromRoom);
         }
@@ -172,7 +172,7 @@ void UsersInRoomMenu::slotCustomContextMenuRequested(const QPoint &pos)
             menu.addAction(ignoreAction);
         }
         menu.addSeparator();
-        auto reportUserAction = new QAction(i18n("Report User"), &menu);
+        auto reportUserAction = new QAction(i18nc("@action", "Report User"), &menu);
         connect(reportUserAction, &QAction::triggered, this, &UsersInRoomMenu::slotReportUser);
         menu.addAction(reportUserAction);
     }

@@ -63,14 +63,14 @@ ChannelListWidget::ChannelListWidget(QWidget *parent)
     connect(mSearchRoomLineEdit, &QLineEdit::returnPressed, this, &ChannelListWidget::forceLineEditFocus);
 
     // BEGIN: Actions
-    auto searchRoomAction = new QAction(i18n("Search Channels"), this);
+    auto searchRoomAction = new QAction(i18nc("@action", "Search Channels"), this);
     searchRoomAction->setShortcut(shortcut);
     connect(searchRoomAction, &QAction::triggered, this, [this]() {
         mSearchRoomLineEdit->setFocus();
     });
     addAction(searchRoomAction); // TODO: Add to MainWindow's action collection instead?
 
-    auto previousRoomAction = new QAction(i18n("Previous Channel"), this);
+    auto previousRoomAction = new QAction(i18nc("@action", "Previous Channel"), this);
     previousRoomAction->setShortcut(Qt::CTRL | Qt::Key_Up);
     connect(previousRoomAction, &QAction::triggered, this, [this]() {
         mChannelView->selectNextChannel(ChannelListView::Direction::Up);
@@ -78,7 +78,7 @@ ChannelListWidget::ChannelListWidget(QWidget *parent)
     });
     addAction(previousRoomAction); // TODO: Add to MainWindow's action collection instead?
 
-    auto nextRoomAction = new QAction(i18n("Next Channel"), this);
+    auto nextRoomAction = new QAction(i18nc("@action", "Next Channel"), this);
     nextRoomAction->setShortcut(Qt::CTRL | Qt::Key_Down);
     connect(nextRoomAction, &QAction::triggered, this, [this]() {
         mChannelView->selectNextChannel(ChannelListView::Direction::Down);

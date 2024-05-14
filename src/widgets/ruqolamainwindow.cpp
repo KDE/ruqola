@@ -393,20 +393,20 @@ void RuqolaMainWindow::setupActions()
     KStandardAction::preferences(this, &RuqolaMainWindow::slotConfigure, ac);
     KStandardAction::configureNotifications(this, &RuqolaMainWindow::slotConfigureNotifications, ac);
 
-    auto act = new QAction(i18n("Add Server…"), this);
+    auto act = new QAction(i18nc("@action", "Add Server…"), this);
     connect(act, &QAction::triggered, this, &RuqolaMainWindow::slotAddServer);
     ac->addAction(QStringLiteral("add_server"), act);
 
     // Move in specific server widget
-    mServerInfo = new QAction(i18n("Server Info…"), this);
+    mServerInfo = new QAction(i18nc("@action", "Server Info…"), this);
     connect(mServerInfo, &QAction::triggered, this, &RuqolaMainWindow::slotServerInfo);
     ac->addAction(QStringLiteral("server_info"), mServerInfo);
 
-    mLogout = new QAction(i18n("Logout Current Server"), this);
+    mLogout = new QAction(i18nc("@action", "Logout Current Server"), this);
     connect(mLogout, &QAction::triggered, this, &RuqolaMainWindow::slotLogout);
     ac->addAction(QStringLiteral("logout"), mLogout);
 
-    mNextUnreadChannel = new QAction(i18n("Jump to Next Unread Channel"), this);
+    mNextUnreadChannel = new QAction(i18nc("@action", "Jump to Next Unread Channel"), this);
     connect(mNextUnreadChannel, &QAction::triggered, this, &RuqolaMainWindow::slotSelectNextUnreadChannel);
     ac->setDefaultShortcut(mNextUnreadChannel, Qt::Key_Control | Qt::Key_PageDown);
     ac->addAction(QStringLiteral("next_unread_channel"), mNextUnreadChannel);
@@ -431,7 +431,7 @@ void RuqolaMainWindow::setupActions()
     mServerMenu->setActionCollection(ac);
     ac->addAction(QStringLiteral("server_menu"), mServerMenu);
 
-    mUnreadOnTop = new QAction(i18n("Unread on Top"), this);
+    mUnreadOnTop = new QAction(i18nc("@action", "Unread on Top"), this);
     mUnreadOnTop->setCheckable(true);
     connect(mUnreadOnTop, &QAction::triggered, this, &RuqolaMainWindow::slotUnreadOnTop);
     ac->addAction(QStringLiteral("unread_on_top"), mUnreadOnTop);
@@ -439,13 +439,13 @@ void RuqolaMainWindow::setupActions()
     auto roomListSortOrder = new QActionGroup(this);
     roomListSortOrder->setExclusive(true);
 
-    mRoomListSortByLastMessage = new QAction(i18n("By Last Message"), this);
+    mRoomListSortByLastMessage = new QAction(i18nc("@action", "By Last Message"), this);
     mRoomListSortByLastMessage->setCheckable(true);
     connect(mRoomListSortByLastMessage, &QAction::triggered, this, &RuqolaMainWindow::slotRoomListSortByLastMessage);
     roomListSortOrder->addAction(mRoomListSortByLastMessage);
     ac->addAction(QStringLiteral("room_list_sort_by_last_message"), mRoomListSortByLastMessage);
 
-    mRoomListSortAlphabetically = new QAction(i18n("Alphabetically"), this);
+    mRoomListSortAlphabetically = new QAction(i18nc("@action", "Alphabetically"), this);
     mRoomListSortAlphabetically->setCheckable(true);
     connect(mRoomListSortAlphabetically, &QAction::triggered, this, &RuqolaMainWindow::slotRoomListSortAlphabetically);
     roomListSortOrder->addAction(mRoomListSortAlphabetically);
@@ -474,27 +474,27 @@ void RuqolaMainWindow::setupActions()
         menu->addAction(mShowPermissions);
     }
 
-    mClearAlerts = new QAction(i18n("Mark All Channels as Read"), this);
+    mClearAlerts = new QAction(i18nc("@action", "Mark All Channels as Read"), this);
     ac->setDefaultShortcut(mClearAlerts, Qt::SHIFT | Qt::Key_Escape);
     connect(mClearAlerts, &QAction::triggered, this, &RuqolaMainWindow::slotClearAccountAlerts);
     ac->addAction(QStringLiteral("mark_all_channels_read"), mClearAlerts);
 
-    mRegisterNewUser = new QAction(i18n("Register a New User…"), this);
+    mRegisterNewUser = new QAction(i18nc("@action", "Register a New User…"), this);
     connect(mRegisterNewUser, &QAction::triggered, this, &RuqolaMainWindow::slotRegisterNewUser);
     ac->addAction(QStringLiteral("register_new_user"), mRegisterNewUser);
 
-    mMyAccount = new QAction(i18n("My Account…"), this);
+    mMyAccount = new QAction(i18nc("@action", "My Account…"), this);
     connect(mMyAccount, &QAction::triggered, this, &RuqolaMainWindow::slotConfigureMyAccount);
     ac->addAction(QStringLiteral("configure_my_account"), mMyAccount);
 
     mAdministratorMenu = new KActionMenu(i18n("Administrator"), this);
-    mAdministrator = new QAction(i18n("Administrator…"), this);
+    mAdministrator = new QAction(i18nc("@action", "Administrator…"), this);
     ac->addAction(QStringLiteral("administrator_account_settings"), mAdministrator);
     connect(mAdministrator, &QAction::triggered, this, &RuqolaMainWindow::slotAdministrator);
     mAdministratorMenu->addAction(mAdministrator);
     ac->addAction(QStringLiteral("administrator"), mAdministratorMenu);
 
-    mAdministratorServerSettings = new QAction(i18n("Server Settings…"), this);
+    mAdministratorServerSettings = new QAction(i18nc("@action", "Server Settings…"), this);
     connect(mAdministratorServerSettings, &QAction::triggered, this, &RuqolaMainWindow::slotAdministratorServerSettings);
     ac->addAction(QStringLiteral("administrator_server_settings"), mAdministratorServerSettings);
     mAdministratorMenu->addAction(mAdministratorServerSettings);
@@ -547,14 +547,14 @@ void RuqolaMainWindow::setupActions()
 
     {
         QList<QAction *> listActions;
-        auto act = new QAction(i18n("Previous Selected Channel"), this);
+        auto act = new QAction(i18nc("@action", "Previous Selected Channel"), this);
         ac->setDefaultShortcut(act, QKeySequence(Qt::CTRL | Qt::Key_Tab));
         ac->addAction(QStringLiteral("previous_channel"), act);
         listActions.append(act);
 
         connect(act, &QAction::triggered, this, &RuqolaMainWindow::undoSwitchChannel);
 
-        act = new QAction(i18n("Next Selected Channel"), this);
+        act = new QAction(i18nc("@action", "Next Selected Channel"), this);
         ac->addAction(QStringLiteral("next_channel"), act);
         QKeyCombination combinationKeys(Qt::CTRL | Qt::SHIFT, Qt::Key_Tab);
         ac->setDefaultShortcut(act, combinationKeys);
@@ -589,16 +589,16 @@ void RuqolaMainWindow::setupActions()
     connect(mShowNotifyHistory, &QAction::triggered, this, &RuqolaMainWindow::slotOpenNotificationHistory);
     ac->addAction(QStringLiteral("show_notify_history"), mShowNotifyHistory);
 
-    mShowRocketChatServerInfo = new QAction(i18n("Show RocketChat Information"), this);
+    mShowRocketChatServerInfo = new QAction(i18nc("@action", "Show RocketChat Information"), this);
     connect(mShowRocketChatServerInfo, &QAction::triggered, this, &RuqolaMainWindow::slotRocketChatInformation);
     ac->addAction(QStringLiteral("show_rocketchat_information"), mShowRocketChatServerInfo);
 
-    mRoomAvatar = new QAction(i18n("Show Room Avatar"), this);
+    mRoomAvatar = new QAction(i18nc("@action", "Show Room Avatar"), this);
     mRoomAvatar->setCheckable(true);
     connect(mRoomAvatar, &QAction::triggered, this, &RuqolaMainWindow::slotShowRoomAvatar);
     ac->addAction(QStringLiteral("room_avatar"), mRoomAvatar);
 
-    mRoomFavorite = new QAction(i18n("Show Favorite Room"), this);
+    mRoomFavorite = new QAction(i18nc("@action", "Show Favorite Room"), this);
     mRoomFavorite->setCheckable(true);
     connect(mRoomFavorite, &QAction::triggered, this, &RuqolaMainWindow::slotShowFavoriteRoom);
     ac->addAction(QStringLiteral("room_favorite"), mRoomFavorite);
@@ -628,7 +628,7 @@ void RuqolaMainWindow::setupActions()
     auto roomListDisplay = new QActionGroup(this);
     roomListDisplay->setExclusive(true);
 
-    mRoomListDisplayMedium = new QAction(i18n("Medium"), this);
+    mRoomListDisplayMedium = new QAction(i18nc("@action", "Medium"), this);
     mRoomListDisplayMedium->setCheckable(true);
     connect(mRoomListDisplayMedium, &QAction::triggered, this, [this]() {
         mCurrentRocketChatAccount->setRoomListDisplay(OwnUserPreferences::RoomListDisplay::Medium);
@@ -636,7 +636,7 @@ void RuqolaMainWindow::setupActions()
     roomListDisplay->addAction(mRoomListDisplayMedium);
     ac->addAction(QStringLiteral("room_list_display_medium"), mRoomListDisplayMedium);
 
-    mRoomListDisplayCondensed = new QAction(i18n("Condensed"), this);
+    mRoomListDisplayCondensed = new QAction(i18nc("@action", "Condensed"), this);
     mRoomListDisplayCondensed->setCheckable(true);
     connect(mRoomListDisplayCondensed, &QAction::triggered, this, [this]() {
         mCurrentRocketChatAccount->setRoomListDisplay(OwnUserPreferences::RoomListDisplay::Condensed);
@@ -645,7 +645,7 @@ void RuqolaMainWindow::setupActions()
     roomListDisplay->addAction(mRoomListDisplayCondensed);
     ac->addAction(QStringLiteral("room_list_display_condensed"), mRoomListDisplayCondensed);
 
-    mRoomListDisplayExtended = new QAction(i18n("Extended"), this);
+    mRoomListDisplayExtended = new QAction(i18nc("@action", "Extended"), this);
     mRoomListDisplayExtended->setCheckable(true);
     connect(mRoomListDisplayExtended, &QAction::triggered, this, [this]() {
         mCurrentRocketChatAccount->setRoomListDisplay(OwnUserPreferences::RoomListDisplay::Extended);
