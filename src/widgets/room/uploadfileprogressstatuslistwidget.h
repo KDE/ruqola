@@ -27,8 +27,8 @@ Q_SIGNALS:
 
 protected:
     void resizeEvent(QResizeEvent *event) override;
-    QSize sizeHint() const override;
-    QSize minimumSizeHint() const override;
+    [[nodiscard]] QSize sizeHint() const override;
+    [[nodiscard]] QSize minimumSizeHint() const override;
 
 private:
     LIBRUQOLAWIDGETS_NO_EXPORT void slotLayoutFirstItem();

@@ -22,8 +22,8 @@ public:
     [[nodiscard]] int verticalSpacing() const;
     void setVerticalSpacing(int verticalSpacing);
 
-    QSize sizeHint() const override;
-    QSize minimumSize() const override;
+    [[nodiscard]] QSize sizeHint() const override;
+    [[nodiscard]] QSize minimumSize() const override;
 
     void addItem(QLayoutItem *item) override;
     QLayoutItem *itemAt(int index) const override;

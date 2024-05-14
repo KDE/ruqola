@@ -29,8 +29,8 @@ public:
     void insertEmoji(const QString &text);
     [[nodiscard]] QString text() const;
 
-    QSize sizeHint() const override;
-    QSize minimumSizeHint() const override;
+    [[nodiscard]] QSize sizeHint() const override;
+    [[nodiscard]] QSize minimumSizeHint() const override;
 
     void changeText(const QString &str, int cursorPosition);
 

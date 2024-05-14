@@ -19,7 +19,7 @@ public:
 
     void setRocketChatAccount(RocketChatAccount *newRocketChatAccount);
 
-    QSize sizeHint(const QStyleOptionViewItem &option, const QModelIndex &index) const override;
+    [[nodiscard]] QSize sizeHint(const QStyleOptionViewItem &option, const QModelIndex &index) const override;
 
 private:
     AvatarCacheManager *const mAvatarCacheManager;

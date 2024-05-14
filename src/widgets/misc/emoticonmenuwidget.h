@@ -19,5 +19,5 @@ public:
     void setCurrentRocketChatAccount(RocketChatAccount *currentRocketChatAccount);
 
 protected:
-    QSize sizeHint() const override;
+    [[nodiscard]] QSize sizeHint() const override;
 };
