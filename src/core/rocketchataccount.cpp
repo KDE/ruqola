@@ -2443,6 +2443,9 @@ void RocketChatAccount::slotUsersPresenceDone(const QJsonObject &obj)
 
 void RocketChatAccount::slotReconnectToServer()
 {
+    // Clear auth token otherwise we can't reconnect.
+    setAuthToken({});
+
     // This happens when we didn't react to pings for a while
     // (e.g. while stopped in gdb, or if network went down for a bit)
     // Let's try connecting in again
