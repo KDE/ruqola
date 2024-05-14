@@ -127,6 +127,9 @@ void AuthenticationLoginWidget::setAccountInfo(const AccountManager::AccountMana
     mPasswordLineEditWidget->setPassword(info.password);
     mPasswordLineEditWidget->setAllowPasswordReset(info.canResetPassword);
     mRegisterAccount->setVisible(info.canRegisterAccount);
+    if (mAccountName->text().isEmpty()) {
+        mAccountName->setReadOnly(false);
+    }
 }
 
 void AuthenticationLoginWidget::slotRegisterAccount()
