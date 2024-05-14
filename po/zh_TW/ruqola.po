@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-05-12 00:38+0000\n"
+"POT-Creation-Date: 2024-05-14 00:38+0000\n"
 "PO-Revision-Date: 2024-05-09 06:59+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
@@ -881,7 +881,7 @@ msgstr "頻道類型"
 msgid "Belongs To"
 msgstr ""
 
-#: core/model/directoryteamsmodel.cpp:92 core/model/roommodel.cpp:578
+#: core/model/directoryteamsmodel.cpp:92 core/model/roommodel.cpp:543
 #: widgets/administratordialog/administratorwidget.cpp:53
 #: widgets/administratordialog/roles/rolescopecombobox.cpp:13
 #: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:18
@@ -1095,35 +1095,35 @@ msgstr "討論室"
 msgid "Channel Room"
 msgstr "頻道聊天室"
 
-#: core/model/roommodel.cpp:572
+#: core/model/roommodel.cpp:537
 #, kde-format
 msgid "Unread"
 msgstr "未讀"
 
-#: core/model/roommodel.cpp:574
+#: core/model/roommodel.cpp:539
 #, kde-format
 msgid "Favorites"
 msgstr "最愛"
 
-#: core/model/roommodel.cpp:576
+#: core/model/roommodel.cpp:541
 #: widgets/administratordialog/rooms/administratorroomsselectroomtypewidget.cpp:18
 #: widgets/directory/directorytabwidget.cpp:22
 #, kde-format
 msgid "Teams"
 msgstr "團隊"
 
-#: core/model/roommodel.cpp:580
+#: core/model/roommodel.cpp:545
 #: widgets/administratordialog/rooms/administratorroomsselectroomtypewidget.cpp:17
 #, kde-format
 msgid "Discussions"
 msgstr "討論"
 
-#: core/model/roommodel.cpp:582
+#: core/model/roommodel.cpp:547
 #, kde-format
 msgid "Private Messages"
 msgstr "私訊"
 
-#: core/model/roommodel.cpp:584
+#: core/model/roommodel.cpp:549
 #, kde-format
 msgid "Unknown"
 msgstr "未知"
@@ -2905,7 +2905,7 @@ msgstr "忽略所有檢舉"
 
 #: widgets/administratordialog/moderationconsole/moderationreportinfolistview.cpp:76
 #: widgets/notificationhistory/notificationhistorylistview.cpp:83
-#: widgets/room/messagelistview.cpp:274
+#: widgets/room/messagelistview.cpp:271
 #: widgets/servererrorinfohistory/servererrorinfomessagehistorylistview.cpp:47
 #, kde-format
 msgid "Copy Message"
@@ -2914,7 +2914,7 @@ msgstr "複製訊息"
 #: widgets/administratordialog/moderationconsole/moderationreportinfolistview.cpp:87
 #: widgets/discussions/discussionlistview.cpp:68
 #: widgets/notificationhistory/notificationhistorylistview.cpp:94
-#: widgets/room/messagelistview.cpp:603
+#: widgets/room/messagelistview.cpp:600
 #: widgets/servererrorinfohistory/servererrorinfomessagehistorylistview.cpp:59
 #, kde-format
 msgid "Speak Text"
@@ -2924,7 +2924,7 @@ msgstr "唸出文字"
 #: widgets/bannerinfodialog/bannerinfolistview.cpp:51
 #: widgets/discussions/discussionlistview.cpp:74
 #: widgets/notificationhistory/notificationhistorylistview.cpp:100
-#: widgets/room/messagelistview.cpp:304
+#: widgets/room/messagelistview.cpp:301
 #: widgets/servererrorinfohistory/servererrorinfomessagehistorylistview.cpp:66
 #, kde-format
 msgid "Select All"
@@ -3145,7 +3145,7 @@ msgstr[0] "聊天室中有 %1 則訊息 (總共：%2)"
 
 #: widgets/administratordialog/rooms/administratordirectroomseditwidget.cpp:17
 #: widgets/administratordialog/rooms/administratorroomseditwidget.cpp:21
-#: widgets/room/roomheaderwidget.cpp:45 widgets/room/roomheaderwidget.cpp:47
+#: widgets/room/roomheaderwidget.cpp:48 widgets/room/roomheaderwidget.cpp:50
 #, kde-format
 msgid "Favorite"
 msgstr "收藏"
@@ -3910,7 +3910,7 @@ msgid "Accounts"
 msgstr "帳戶"
 
 #: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:108
-#: widgets/room/roomheaderwidget.cpp:65
+#: widgets/room/roomheaderwidget.cpp:68
 #, fuzzy, kde-format
 #| msgid "Encrypted:"
 msgid "Encryption"
@@ -6135,7 +6135,7 @@ msgid "Mark As Unread"
 msgstr "標記為未讀"
 
 #: widgets/channellist/channellistview.cpp:129
-#: widgets/room/messagelistview.cpp:291
+#: widgets/room/messagelistview.cpp:288
 #, kde-format
 msgid "Set as Favorite"
 msgstr "收藏"
@@ -6594,7 +6594,7 @@ msgid "Channel Info about '%1'"
 msgstr ""
 
 #: widgets/dialogs/channelinfoeditablewidget.cpp:41
-#: widgets/room/messagelistview.cpp:298
+#: widgets/room/messagelistview.cpp:295
 #, kde-format
 msgid "Delete"
 msgstr "刪除"
@@ -7357,7 +7357,7 @@ msgid "Video: %1"
 msgstr "影片：%1"
 
 #: widgets/dialogs/uploadfiledialog.cpp:26
-#: widgets/room/messagelinewidget.cpp:358
+#: widgets/room/messagelinewidget.cpp:363
 #, kde-format
 msgctxt "@title:window"
 msgid "Upload File"
@@ -8318,7 +8318,7 @@ msgid "Notification"
 msgstr "通知"
 
 #: widgets/notificationhistory/notificationhistorylistview.cpp:79
-#: widgets/room/messagelistview.cpp:586
+#: widgets/room/messagelistview.cpp:583
 #, kde-format
 msgid "Go to Message"
 msgstr "跳到訊息"
@@ -8512,13 +8512,13 @@ msgid "Link Preview"
 msgstr "連結預覽"
 
 #: widgets/room/delegate/messagelistdelegate.cpp:420
-#: widgets/room/messagelistview.cpp:383 widgets/room/usersinroommenu.cpp:105
+#: widgets/room/messagelistview.cpp:380 widgets/room/usersinroommenu.cpp:105
 #, kde-format
 msgid "User Info"
 msgstr "使用者資訊"
 
 #: widgets/room/delegate/messagelistdelegate.cpp:429
-#: widgets/room/messagelistview.cpp:391
+#: widgets/room/messagelistview.cpp:388
 #, kde-format
 msgid "Start a Private Conversation"
 msgstr "開始私人對話"
@@ -8581,29 +8581,35 @@ msgstr "新增表情符號"
 msgid "Send Message"
 msgstr "傳送訊息"
 
-#: widgets/room/messagelinewidget.cpp:142
+#: widgets/room/messagelinewidget.cpp:143
 #, fuzzy, kde-format
 #| msgid "Do you want to delete this attachment?"
 msgid "Do you want to convert this big text as attachment?"
 msgstr "您確定要刪除此附件嗎？"
 
-#: widgets/room/messagelinewidget.cpp:143
+#: widgets/room/messagelinewidget.cpp:144
 #, kde-format
 msgctxt "@title:window"
 msgid "Message Too Big"
 msgstr "訊息太大"
 
-#: widgets/room/messagelinewidget.cpp:380
+#: widgets/room/messagelinewidget.cpp:245
+#, fuzzy, kde-format
+#| msgid "Message"
+msgid "Message %1"
+msgstr "訊息"
+
+#: widgets/room/messagelinewidget.cpp:385
 #, kde-format
 msgid "File selected is too big (Maximum size %1)"
 msgstr ""
 
-#: widgets/room/messagelinewidget.cpp:380
+#: widgets/room/messagelinewidget.cpp:385
 #, kde-format
 msgid "File upload"
 msgstr "檔案上傳"
 
-#: widgets/room/messagelinewidget.cpp:385
+#: widgets/room/messagelinewidget.cpp:390
 #, kde-format
 msgid "Server doesn't authorized this file (invalid mimetype)"
 msgstr "伺服器未授權此檔案（無效的 MIME 類型）"
@@ -8618,115 +8624,115 @@ msgstr "您已加入新的私訊"
 msgid "Start of conversation"
 msgstr "對話開頭"
 
-#: widgets/room/messagelistview.cpp:282
+#: widgets/room/messagelistview.cpp:279
 #, kde-format
 msgid "Unpin Message"
 msgstr "取消訊息置頂"
 
-#: widgets/room/messagelistview.cpp:282
+#: widgets/room/messagelistview.cpp:279
 #, kde-format
 msgid "Pin Message"
 msgstr "置頂訊息"
 
-#: widgets/room/messagelistview.cpp:291
+#: widgets/room/messagelistview.cpp:288
 #, kde-format
 msgid "Remove as Favorite"
 msgstr "移出收藏"
 
-#: widgets/room/messagelistview.cpp:309
+#: widgets/room/messagelistview.cpp:306
 #, kde-format
 msgid "Mark Message As Unread"
 msgstr "將訊息標記為未讀"
 
-#: widgets/room/messagelistview.cpp:314
+#: widgets/room/messagelistview.cpp:311
 #, kde-format
 msgid "Show Full Thread"
 msgstr "顯示完整對話串"
 
-#: widgets/room/messagelistview.cpp:319
+#: widgets/room/messagelistview.cpp:316
 #, kde-format
 msgid "Edit"
 msgstr "編輯"
 
-#: widgets/room/messagelistview.cpp:324
+#: widgets/room/messagelistview.cpp:321
 #, kde-format
 msgid "Quote"
 msgstr ""
 
-#: widgets/room/messagelistview.cpp:329
+#: widgets/room/messagelistview.cpp:326
 #, kde-format
 msgid "Copy Link To Message"
 msgstr "複製訊息連結"
 
-#: widgets/room/messagelistview.cpp:334
+#: widgets/room/messagelistview.cpp:331
 #, kde-format
 msgid "Forward Message"
 msgstr "轉寄訊息"
 
-#: widgets/room/messagelistview.cpp:347
+#: widgets/room/messagelistview.cpp:344
 #: widgets/threadwidget/threadmessagewidget.cpp:117
 #, kde-format
 msgid "Unfollow Message"
 msgstr "取消跟隨訊息"
 
-#: widgets/room/messagelistview.cpp:347
+#: widgets/room/messagelistview.cpp:344
 #: widgets/threadwidget/threadmessagewidget.cpp:117
 #, kde-format
 msgid "Follow Message"
 msgstr "跟隨訊息"
 
-#: widgets/room/messagelistview.cpp:360
+#: widgets/room/messagelistview.cpp:357
 #, kde-format
 msgid "Copy URL"
 msgstr "複製網址"
 
-#: widgets/room/messagelistview.cpp:407
+#: widgets/room/messagelistview.cpp:404
 #, kde-format
 msgid "Start a Discussion"
 msgstr "開始討論"
 
-#: widgets/room/messagelistview.cpp:414
+#: widgets/room/messagelistview.cpp:411
 #, kde-format
 msgid "Reply in Thread"
 msgstr "在對話串中回覆"
 
-#: widgets/room/messagelistview.cpp:475
+#: widgets/room/messagelistview.cpp:472
 #, kde-format
 msgid "Show Original Message"
 msgstr "顯示原始訊息"
 
-#: widgets/room/messagelistview.cpp:475
+#: widgets/room/messagelistview.cpp:472
 #, kde-format
 msgid "Translate Message"
 msgstr "翻譯訊息"
 
-#: widgets/room/messagelistview.cpp:518
+#: widgets/room/messagelistview.cpp:515
 #, kde-format
 msgid "View Reports"
 msgstr "檢視檢舉"
 
-#: widgets/room/messagelistview.cpp:541
+#: widgets/room/messagelistview.cpp:538
 #, kde-format
 msgid "Dismiss Reports"
 msgstr ""
 
-#: widgets/room/messagelistview.cpp:611
+#: widgets/room/messagelistview.cpp:608
 #, kde-format
 msgid "Report Message"
 msgstr "檢舉訊息"
 
-#: widgets/room/messagelistview.cpp:808
+#: widgets/room/messagelistview.cpp:803
 #, kde-format
 msgid "Do you want to delete this message?"
 msgstr "您確定要刪除此則訊息嗎？"
 
-#: widgets/room/messagelistview.cpp:809
+#: widgets/room/messagelistview.cpp:804
 #, kde-format
 msgctxt "@title"
 msgid "Delete Message"
 msgstr "刪除訊息"
 
-#: widgets/room/messagelistview.cpp:958
+#: widgets/room/messagelistview.cpp:953
 #, kde-format
 msgid "Translator Error"
 msgstr "翻譯工具錯誤"
@@ -8806,38 +8812,38 @@ msgstr "（顯示更多資訊…"
 msgid "(Show Less Info…)"
 msgstr "（顯示較少資訊…"
 
-#: widgets/room/roomheaderwidget.cpp:63
+#: widgets/room/roomheaderwidget.cpp:66
 #, kde-format
 msgid "E2E Enabled"
 msgstr ""
 
-#: widgets/room/roomheaderwidget.cpp:107 widgets/room/roomheaderwidget.cpp:109
+#: widgets/room/roomheaderwidget.cpp:112 widgets/room/roomheaderwidget.cpp:114
 #, kde-format
 msgid "Call"
 msgstr ""
 
-#: widgets/room/roomheaderwidget.cpp:118 widgets/room/roomheaderwidget.cpp:120
-#: widgets/room/roomheaderwidget.cpp:227
+#: widgets/room/roomheaderwidget.cpp:123 widgets/room/roomheaderwidget.cpp:125
+#: widgets/room/roomheaderwidget.cpp:232
 #, kde-format
 msgid "Channel's Information"
 msgstr "頻道資訊"
 
-#: widgets/room/roomheaderwidget.cpp:129 widgets/room/roomheaderwidget.cpp:131
+#: widgets/room/roomheaderwidget.cpp:134 widgets/room/roomheaderwidget.cpp:136
 #, kde-format
 msgid "Team Channels"
 msgstr "團隊頻道"
 
-#: widgets/room/roomheaderwidget.cpp:141 widgets/room/roomheaderwidget.cpp:143
+#: widgets/room/roomheaderwidget.cpp:146 widgets/room/roomheaderwidget.cpp:148
 #, kde-format
 msgid "Show List of Users"
 msgstr "顯示使用者清單"
 
-#: widgets/room/roomheaderwidget.cpp:154 widgets/room/roomheaderwidget.cpp:156
+#: widgets/room/roomheaderwidget.cpp:159 widgets/room/roomheaderwidget.cpp:161
 #, kde-format
 msgid "Search Messages…"
 msgstr "搜尋訊息…"
 
-#: widgets/room/roomheaderwidget.cpp:227
+#: widgets/room/roomheaderwidget.cpp:232
 #, kde-format
 msgid "Team's Information"
 msgstr "團隊資訊"
