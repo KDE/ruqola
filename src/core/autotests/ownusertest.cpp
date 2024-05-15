@@ -67,6 +67,9 @@ void OwnUserTest::shouldLoadOwnUser_data()
     ownUser.setRoomListSortOrder(OwnUserPreferences::RoomListSortOrder::ByLastMessage);
     ownUser.setRoomListDisplay(OwnUserPreferences::RoomListDisplay::Medium);
     ownUser.setReceiveLoginDetectionEmail(true);
+    ownUser.setNewRoomNotification(QStringLiteral("door"));
+    ownUser.setNewMessageNotification(QStringLiteral("chime"));
+
     result.setOwnUserPreferences(ownUser);
 
     QTest::addRow("example1") << QStringLiteral("example1") << result;

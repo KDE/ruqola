@@ -55,6 +55,8 @@ void OwnUserPreferencesTest::shouldLoadOwnUserPreferencesInfo_data()
         preferences.setRoomListSortOrder(OwnUserPreferences::RoomListSortOrder::ByLastMessage);
         preferences.setRoomListDisplay(OwnUserPreferences::RoomListDisplay::Medium);
         preferences.setReceiveLoginDetectionEmail(true);
+        preferences.setNewRoomNotification(QStringLiteral("door"));
+        preferences.setNewMessageNotification(QStringLiteral("chime"));
         QTest::addRow("ownuserpreferences1") << QStringLiteral("ownuserpreferences1") << preferences;
     }
 }

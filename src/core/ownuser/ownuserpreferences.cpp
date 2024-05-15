@@ -56,6 +56,8 @@ void OwnUserPreferences::parsePreferences(const QJsonObject &replyObject)
     setShowRoomAvatar(replyObject.value("sidebarDisplayAvatar"_L1).toBool(false));
     setShowFavorite(replyObject.value("sidebarShowFavorites"_L1).toBool(false));
     setReceiveLoginDetectionEmail(replyObject.value("receiveLoginDetectionEmail"_L1).toBool(true));
+    setNewMessageNotification(replyObject.value("newMessageNotification"_L1).toString());
+    setNewRoomNotification(replyObject.value("newRoomNotification"_L1).toString());
 }
 
 bool OwnUserPreferences::operator==(const OwnUserPreferences &other) const
@@ -65,7 +67,8 @@ bool OwnUserPreferences::operator==(const OwnUserPreferences &other) const
         && mHideRoles == other.hideRoles() && mDisplayAvatars == other.displayAvatars() && mIdleTimeLimit == other.idleTimeLimit()
         && mEnableAutoAway == other.enableAutoAway() && mPushNotifications == other.pushNotifications() && mShowUnread == other.showUnread()
         && mShowRoomAvatar == other.showRoomAvatar() && mShowFavorite == other.showFavorite() && mRoomListSortOrder == other.roomListSortOrder()
-        && mReceiveLoginDetectionEmail == other.receiveLoginDetectionEmail() && mRoomListDisplay == other.roomListDisplay();
+        && mReceiveLoginDetectionEmail == other.receiveLoginDetectionEmail() && mRoomListDisplay == other.roomListDisplay()
+        && mNewMessageNotification == other.newMessageNotification() && mNewRoomNotification == other.newRoomNotification();
 }
 
 QStringList OwnUserPreferences::highlightWords() const
@@ -239,6 +242,26 @@ void OwnUserPreferences::setEnableAutoAway(bool newEnableAutoAway)
     mEnableAutoAway = newEnableAutoAway;
 }
 
+QString OwnUserPreferences::newMessageNotification() const
+{
+    return mNewMessageNotification;
+}
+
+void OwnUserPreferences::setNewMessageNotification(const QString &newNewMessageNotification)
+{
+    mNewMessageNotification = newNewMessageNotification;
+}
+
+QString OwnUserPreferences::newRoomNotification() const
+{
+    return mNewRoomNotification;
+}
+
+void OwnUserPreferences::setNewRoomNotification(const QString &newNewRoomNotification)
+{
+    mNewRoomNotification = newNewRoomNotification;
+}
+
 QDebug operator<<(QDebug d, const OwnUserPreferences &t)
 {
     d.space() << "mHighlightWords " << t.highlightWords();
@@ -257,6 +280,8 @@ QDebug operator<<(QDebug d, const OwnUserPreferences &t)
     d.space() << "mShowFavorite " << t.showFavorite();
     d.space() << "mReceiveLoginDetectionEmail " << t.receiveLoginDetectionEmail();
     d.space() << "mRoomListDisplay " << t.roomListDisplay();
+    d.space() << "newMessageNotification " << t.newMessageNotification();
+    d.space() << "newRoomNotification " << t.newRoomNotification();
     return d;
 }
 
