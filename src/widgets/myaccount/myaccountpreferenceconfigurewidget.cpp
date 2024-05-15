@@ -279,6 +279,9 @@ void MyAccountPreferenceConfigureWidget::save()
         info.convertAsciiToEmoji = RocketChatRestApi::UsersSetPreferencesJob::UsersSetPreferencesInfo::convertToState(mConvertAsciiEmoji->isChecked());
         info.idleTimeLimit = mIdleTimeLimit->value();
         info.enableAutoAway = RocketChatRestApi::UsersSetPreferencesJob::UsersSetPreferencesInfo::convertToState(mAutomaticAway->isChecked());
+        // TODO
+        // info.newMessageNotification = ;
+        // info.newRoomNotification = ;
         if (mRocketChatAccount) {
             if (mRocketChatAccount->ruqolaServerConfig()->hasAtLeastVersion(5, 4, 0)) {
                 if (mRocketChatAccount->ruqolaServerConfig()->deviceManagementEnableLoginEmails()
