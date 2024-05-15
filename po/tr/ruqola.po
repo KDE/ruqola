@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-05-14 00:38+0000\n"
+"POT-Creation-Date: 2024-05-15 00:38+0000\n"
 "PO-Revision-Date: 2024-05-12 13:30+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
@@ -1352,7 +1352,6 @@ msgstr "Yanıtla…"
 
 #: core/otr/otrnotificationjob.cpp:45 core/otr/otrnotificationjob.cpp:55
 #: core/otr/otrnotificationjob.cpp:70
-#: widgets/room/channelactionpopupmenu.cpp:119
 #, kde-format
 msgid "OTR"
 msgstr "Kayıt Dışı"
@@ -1393,12 +1392,12 @@ msgstr "<strong>%1</strong> yazıyor…"
 msgid "<strong>%1</strong> are typing..."
 msgstr "<strong>%1</strong> yazıyor…"
 
-#: core/rocketchataccount.cpp:2945
+#: core/rocketchataccount.cpp:2948
 #, kde-format
 msgid "Export Messages"
 msgstr "İletileri Dışa Aktar"
 
-#: core/rocketchataccount.cpp:2946
+#: core/rocketchataccount.cpp:2949
 #, kde-format
 msgid "Your email has been queued for sending."
 msgstr "E-postanız, gönderme için kuyruğa eklendi."
@@ -2693,32 +2692,44 @@ msgid "To:"
 msgstr "Nereye:"
 
 #: widgets/administratordialog/moderationconsole/administratormoderationrangewidget.cpp:75
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Today"
+msgctxt "@action"
 msgid "Today"
 msgstr "Bugün"
 
 #: widgets/administratordialog/moderationconsole/administratormoderationrangewidget.cpp:85
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Yesterday"
+msgctxt "@action"
 msgid "Yesterday"
 msgstr "Dün"
 
 #: widgets/administratordialog/moderationconsole/administratormoderationrangewidget.cpp:95
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "This week"
+msgctxt "@action"
 msgid "This week"
 msgstr "Bu hafta"
 
 #: widgets/administratordialog/moderationconsole/administratormoderationrangewidget.cpp:105
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Previous week"
+msgctxt "@action"
 msgid "Previous week"
 msgstr "Önceki hafta"
 
 #: widgets/administratordialog/moderationconsole/administratormoderationrangewidget.cpp:115
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "This month"
+msgctxt "@action"
 msgid "This month"
 msgstr "Bu ay"
 
 #: widgets/administratordialog/moderationconsole/administratormoderationrangewidget.cpp:126
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Previous month"
+msgctxt "@action"
 msgid "Previous month"
 msgstr "Önceki ay"
 
@@ -2890,7 +2901,6 @@ msgstr "Metni Konuş"
 #: widgets/bannerinfodialog/bannerinfolistview.cpp:51
 #: widgets/discussions/discussionlistview.cpp:74
 #: widgets/notificationhistory/notificationhistorylistview.cpp:100
-#: widgets/room/messagelistview.cpp:301
 #: widgets/servererrorinfohistory/servererrorinfomessagehistorylistview.cpp:66
 #, kde-format
 msgid "Select All"
@@ -6108,7 +6118,9 @@ msgid "Copy Text"
 msgstr "Metni Kopyala"
 
 #: widgets/bannerinfodialog/bannermessagewidget.cpp:23
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Mark as Read"
+msgctxt "@action"
 msgid "Mark as Read"
 msgstr "Okundu Olarak İmle"
 
@@ -6139,17 +6151,23 @@ msgid "Hide Channel"
 msgstr "Kanalı Gizle"
 
 #: widgets/channellist/channellistview.cpp:155
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Convert to Team"
+msgctxt "@action"
 msgid "Convert to Team"
 msgstr "Takıma Dönüştür"
 
 #: widgets/channellist/channellistview.cpp:166
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Convert to Channel"
+msgctxt "@action"
 msgid "Convert to Channel"
 msgstr "Kanala Dönüştür"
 
 #: widgets/channellist/channellistview.cpp:178
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Move to Team"
+msgctxt "@action"
 msgid "Move to Team"
 msgstr "Takıma Taşı"
 
@@ -6192,17 +6210,23 @@ msgid "Filter channels (%1)"
 msgstr "Kanalları süz (%1)"
 
 #: widgets/channellist/channellistwidget.cpp:66
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Search Channels"
+msgctxt "@action"
 msgid "Search Channels"
 msgstr "Kanalları Ara"
 
 #: widgets/channellist/channellistwidget.cpp:73
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Previous Channel"
+msgctxt "@action"
 msgid "Previous Channel"
 msgstr "Önceki Kanal"
 
 #: widgets/channellist/channellistwidget.cpp:81
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Next Channel"
+msgctxt "@action"
 msgid "Next Channel"
 msgstr "Sonraki Kanal"
 
@@ -6226,7 +6250,7 @@ msgstr "Kullanıcı adı veya e-posta"
 msgid "Username or Email:"
 msgstr "Kullanıcı adı veya e-posta:"
 
-#: widgets/common/authenticationloginwidget.cpp:152
+#: widgets/common/authenticationloginwidget.cpp:155
 #: widgets/ruqolamainwindow.cpp:916
 #, kde-format
 msgid ""
@@ -6236,7 +6260,7 @@ msgstr ""
 "Kaydınızı doğrulamak için bir e-posta gönderdik.\n"
 "Kısa bir süre içinde bir e-posta almazsanız yeniden deneyin."
 
-#: widgets/common/authenticationloginwidget.cpp:153
+#: widgets/common/authenticationloginwidget.cpp:156
 #: widgets/ruqolamainwindow.cpp:917
 #, kde-format
 msgid "Register New User"
@@ -6479,7 +6503,7 @@ msgstr "Bağlan"
 msgid "Server Url:"
 msgstr "Sunucu URL'si:"
 
-#: widgets/configurenewserver/checknewserverurlwidget.cpp:121
+#: widgets/configurenewserver/checknewserverurlwidget.cpp:127
 #, kde-format
 msgid "Impossible to access to server."
 msgstr "Sunucuya erişim olanaksız."
@@ -6928,7 +6952,6 @@ msgid "Discussion Name"
 msgstr "Tartışma Adı"
 
 #: widgets/dialogs/createnewdiscussionwidget.cpp:46
-#: widgets/room/channelactionpopupmenu.cpp:90
 #, kde-format
 msgid "Invite Users"
 msgstr "Kullanıcıları Davet Et"
@@ -7151,8 +7174,6 @@ msgid "Reset Avatar"
 msgstr "Avatarı Sıfırla"
 
 #: widgets/dialogs/roomavatarwidget.cpp:35
-#: widgets/room/roomquotemessagewidget.cpp:20
-#: widgets/room/roomreplythreadwidget.cpp:21
 #, kde-format
 msgid "Cancel"
 msgstr "İptal"
@@ -7495,7 +7516,9 @@ msgstr ""
 
 #: widgets/encryption/e2edecodeencryptionkeyfailedwidget.cpp:19
 #: widgets/encryption/e2edecodeencryptionkeywidget.cpp:19
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Decrypte Encryption Key"
+msgctxt "@action"
 msgid "Decrypte Encryption Key"
 msgstr "Şifreleme Anahtarının Kodunu Çöz"
 
@@ -7810,12 +7833,16 @@ msgid "Font Size"
 msgstr "Yazıtipi Boyutu"
 
 #: widgets/misc/changefontsizemenu.cpp:19
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Increase Font"
+msgctxt "@action"
 msgid "Increase Font"
 msgstr "Yazıtipi Büyüklüğünü Artır"
 
 #: widgets/misc/changefontsizemenu.cpp:26
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Decrease Font"
+msgctxt "@action"
 msgid "Decrease Font"
 msgstr "Yazıtipi Büyüklüğünü Azalt"
 
@@ -8323,7 +8350,9 @@ msgid "Current Password"
 msgstr "Geçerli Parola"
 
 #: widgets/needupdateversion/needupdateversionwidget.cpp:19
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Disable version check"
+msgctxt "@action"
 msgid "Disable version check"
 msgstr "Sürüm denetimini devre dışı bırak"
 
@@ -8347,7 +8376,6 @@ msgid "Notification"
 msgstr "Bildirim"
 
 #: widgets/notificationhistory/notificationhistorylistview.cpp:79
-#: widgets/room/messagelistview.cpp:583
 #, kde-format
 msgid "Go to Message"
 msgstr "İletiye Git"
@@ -8363,12 +8391,16 @@ msgid "Otr Activated"
 msgstr "Kayıt Dışı Etkin"
 
 #: widgets/otr/otrwidget.cpp:20
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "End OTR"
+msgctxt "@action"
 msgid "End OTR"
 msgstr "Kayıt Dışı'yı Sonlandır"
 
 #: widgets/otr/otrwidget.cpp:25
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Refresh Keys"
+msgctxt "@action"
 msgid "Refresh Keys"
 msgstr "Anahtarları Yenile"
 
@@ -8439,22 +8471,30 @@ msgid "Register"
 msgstr "Kaydet"
 
 #: widgets/room/channelactionpopupmenu.cpp:29
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Prune Messages…"
+msgctxt "@action"
 msgid "Prune Messages…"
 msgstr "İletileri Buda…"
 
 #: widgets/room/channelactionpopupmenu.cpp:37
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Show Mentions…"
+msgctxt "@action"
 msgid "Show Mentions…"
 msgstr "Değinmeleri Göster…"
 
 #: widgets/room/channelactionpopupmenu.cpp:43
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Show Pinned Messages…"
+msgctxt "@action"
 msgid "Show Pinned Messages…"
 msgstr "Sabitlenmiş İletileri Göster…"
 
 #: widgets/room/channelactionpopupmenu.cpp:49
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Show Starred Messages…"
+msgctxt "@action"
 msgid "Show Starred Messages…"
 msgstr "Yıldızlı İletileri Göster…"
 
@@ -8464,22 +8504,37 @@ msgid "Show File Attachments…"
 msgstr "Dosya İlişiklerini Göster…"
 
 #: widgets/room/channelactionpopupmenu.cpp:61
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Show Discussions…"
+msgctxt "@action"
 msgid "Show Discussions…"
 msgstr "Tartışmaları Göster…"
 
 #: widgets/room/channelactionpopupmenu.cpp:67
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Show Threads…"
+msgctxt "@action"
 msgid "Show Threads…"
 msgstr "İlmekleri Göster…"
 
 #: widgets/room/channelactionpopupmenu.cpp:82
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Configure Auto-Translate…"
+msgctxt "@action"
 msgid "Configure Auto-Translate…"
 msgstr "Kendiliğinden Çeviriyi Yapılandır…"
 
+#: widgets/room/channelactionpopupmenu.cpp:90
+#, fuzzy, kde-format
+#| msgid "Invite Users"
+msgctxt "@action"
+msgid "Invite Users"
+msgstr "Kullanıcıları Davet Et"
+
 #: widgets/room/channelactionpopupmenu.cpp:97
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Add Users in Channel…"
+msgctxt "@action"
 msgid "Add Users in Channel…"
 msgstr "Kanala Kullanıcı Ekle…"
 
@@ -8489,12 +8544,23 @@ msgid "Video Chat"
 msgstr "Video Sohbet"
 
 #: widgets/room/channelactionpopupmenu.cpp:112
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Export Messages…"
+msgctxt "@action"
 msgid "Export Messages…"
 msgstr "İletileri Dışa Aktar…"
 
+#: widgets/room/channelactionpopupmenu.cpp:119
+#, fuzzy, kde-format
+#| msgid "OTR"
+msgctxt "@action"
+msgid "OTR"
+msgstr "Kayıt Dışı"
+
 #: widgets/room/channelactionpopupmenu.cpp:126
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Encrypt Messages"
+msgctxt "@action"
 msgid "Encrypt Messages"
 msgstr "İletileri Şifrele"
 
@@ -8549,7 +8615,9 @@ msgstr "Kullanıcı Bilgisi"
 
 #: widgets/room/delegate/messagelistdelegate.cpp:429
 #: widgets/room/messagelistview.cpp:388
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Start a Private Conversation"
+msgctxt "@action"
 msgid "Start a Private Conversation"
 msgstr "Özel bir Konuşma Başlat"
 
@@ -8669,13 +8737,24 @@ msgstr "İletiyi Sabitle"
 msgid "Remove as Favorite"
 msgstr "Sık Kullanılanlardan Kaldır"
 
+#: widgets/room/messagelistview.cpp:301
+#, fuzzy, kde-format
+#| msgid "Select All"
+msgctxt "@action"
+msgid "Select All"
+msgstr "Tümünü Seç"
+
 #: widgets/room/messagelistview.cpp:306
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Mark Message As Unread"
+msgctxt "@action"
 msgid "Mark Message As Unread"
 msgstr "İletiyi Okunmadı Olarak İmle"
 
 #: widgets/room/messagelistview.cpp:311
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Show Full Thread"
+msgctxt "@action"
 msgid "Show Full Thread"
 msgstr "Tüm İlmeği Göster"
 
@@ -8690,12 +8769,16 @@ msgid "Quote"
 msgstr "Alıntı"
 
 #: widgets/room/messagelistview.cpp:326
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Copy Link To Message"
+msgctxt "@action"
 msgid "Copy Link To Message"
 msgstr "Bağlantıyı İletiye Kopyala"
 
 #: widgets/room/messagelistview.cpp:331
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Forward Message"
+msgctxt "@action"
 msgid "Forward Message"
 msgstr "İletiyi Yönlendir"
 
@@ -8717,12 +8800,16 @@ msgid "Copy URL"
 msgstr "URL'yi Kopyala"
 
 #: widgets/room/messagelistview.cpp:404
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Start a Discussion"
+msgctxt "@action"
 msgid "Start a Discussion"
 msgstr "Bir Tartışma Başlat"
 
 #: widgets/room/messagelistview.cpp:411
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Reply in Thread"
+msgctxt "@action"
 msgid "Reply in Thread"
 msgstr "İlmekte Yanıtla"
 
@@ -8737,14 +8824,25 @@ msgid "Translate Message"
 msgstr "İletiyi Çevir"
 
 #: widgets/room/messagelistview.cpp:515
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "View Reports"
+msgctxt "@action"
 msgid "View Reports"
 msgstr "Raporları Görüntüle"
 
 #: widgets/room/messagelistview.cpp:538
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Dismiss Reports"
+msgctxt "@action"
 msgid "Dismiss Reports"
 msgstr "Raporları göz ardı et"
+
+#: widgets/room/messagelistview.cpp:583
+#, fuzzy, kde-format
+#| msgid "Go to Message"
+msgctxt "@action"
+msgid "Go to Message"
+msgstr "İletiye Git"
 
 #: widgets/room/messagelistview.cpp:608
 #, kde-format
@@ -8875,6 +8973,14 @@ msgstr "İletiler Ara…"
 msgid "Team's Information"
 msgstr "Takım Bilgisi"
 
+#: widgets/room/roomquotemessagewidget.cpp:20
+#: widgets/room/roomreplythreadwidget.cpp:21
+#, fuzzy, kde-format
+#| msgid "Cancel"
+msgctxt "@action"
+msgid "Cancel"
+msgstr "İptal"
+
 #: widgets/room/roomquotemessagewidget.cpp:29
 #, kde-format
 msgid "Quote Message: '%1'"
@@ -8982,7 +9088,9 @@ msgid "Ignore User"
 msgstr "Kullanıcıyı Yok Say"
 
 #: widgets/room/usersinroommenu.cpp:97
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Start Conversation"
+msgctxt "@action"
 msgid "Start Conversation"
 msgstr "Konuşma Başlat"
 
@@ -9017,7 +9125,9 @@ msgid "Add as Moderator"
 msgstr "Moderatör Olarak Ekle"
 
 #: widgets/room/usersinroommenu.cpp:150
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Remove from Room"
+msgctxt "@action"
 msgid "Remove from Room"
 msgstr "Odadan Çıkar"
 
@@ -9042,7 +9152,9 @@ msgid "Ignore"
 msgstr "Yok Say"
 
 #: widgets/room/usersinroommenu.cpp:175
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Report User"
+msgctxt "@action"
 msgid "Report User"
 msgstr "Kullanıcıyı Bildir"
 
@@ -9079,22 +9191,30 @@ msgid "Show New Notifications"
 msgstr "Yeni Bildirimleri Göster"
 
 #: widgets/ruqolamainwindow.cpp:396
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Add Server…"
+msgctxt "@action"
 msgid "Add Server…"
 msgstr "Sunucu Ekle…"
 
 #: widgets/ruqolamainwindow.cpp:401
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Server Info…"
+msgctxt "@action"
 msgid "Server Info…"
 msgstr "Sunucu Bilgisi…"
 
 #: widgets/ruqolamainwindow.cpp:405
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Logout Current Server"
+msgctxt "@action"
 msgid "Logout Current Server"
 msgstr "Geçerli Sunucu Oturumunu Kapat"
 
 #: widgets/ruqolamainwindow.cpp:409
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Jump to Next Unread Channel"
+msgctxt "@action"
 msgid "Jump to Next Unread Channel"
 msgstr "Sonraki Okunmamış Kanala Atla"
 
@@ -9119,17 +9239,23 @@ msgid "Create Team…"
 msgstr "Takım Oluştur…"
 
 #: widgets/ruqolamainwindow.cpp:434
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Unread on Top"
+msgctxt "@action"
 msgid "Unread on Top"
 msgstr "Okunmamışlar En Üstte"
 
 #: widgets/ruqolamainwindow.cpp:442
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "By Last Message"
+msgctxt "@action"
 msgid "By Last Message"
 msgstr "Son İletiye Göre"
 
 #: widgets/ruqolamainwindow.cpp:448
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Alphabetically"
+msgctxt "@action"
 msgid "Alphabetically"
 msgstr "Abecesel"
 
@@ -9144,27 +9270,37 @@ msgid "Show Server Errors"
 msgstr "Sunucu Hatalarını Göster"
 
 #: widgets/ruqolamainwindow.cpp:477
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Mark All Channels as Read"
+msgctxt "@action"
 msgid "Mark All Channels as Read"
 msgstr "Tüm Kanalları Okundu Olarak İmle"
 
 #: widgets/ruqolamainwindow.cpp:482
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Register a New User…"
+msgctxt "@action"
 msgid "Register a New User…"
 msgstr "Yeni Kullanıcı Kaydet…"
 
 #: widgets/ruqolamainwindow.cpp:486
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "My Account…"
+msgctxt "@action"
 msgid "My Account…"
 msgstr "Hesabım…"
 
 #: widgets/ruqolamainwindow.cpp:491
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Administrator…"
+msgctxt "@action"
 msgid "Administrator…"
 msgstr "Yönetici…"
 
 #: widgets/ruqolamainwindow.cpp:497
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Server Settings…"
+msgctxt "@action"
 msgid "Server Settings…"
 msgstr "Sunucu Ayarları…"
 
@@ -9185,12 +9321,16 @@ msgid "&Previous Server"
 msgstr "&Önceki Sunucu"
 
 #: widgets/ruqolamainwindow.cpp:550
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Previous Selected Channel"
+msgctxt "@action"
 msgid "Previous Selected Channel"
 msgstr "Önceki Seçili Kanal"
 
 #: widgets/ruqolamainwindow.cpp:557
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Next Selected Channel"
+msgctxt "@action"
 msgid "Next Selected Channel"
 msgstr "Sonraki Seçili Kanal"
 
@@ -9200,17 +9340,23 @@ msgid "Show Notify History"
 msgstr "Bildiri Geçmişini Göster"
 
 #: widgets/ruqolamainwindow.cpp:592
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Show RocketChat Information"
+msgctxt "@action"
 msgid "Show RocketChat Information"
 msgstr "Rocket.Chat Bilgisini Göster"
 
 #: widgets/ruqolamainwindow.cpp:596
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Show Room Avatar"
+msgctxt "@action"
 msgid "Show Room Avatar"
 msgstr "Oda Avatarını Göster"
 
 #: widgets/ruqolamainwindow.cpp:601
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Show Favorite Room"
+msgctxt "@action"
 msgid "Show Favorite Room"
 msgstr "Sık Kullanılan Odayı Göster"
 
@@ -9230,17 +9376,23 @@ msgid "Export Accounts"
 msgstr "Hesapları Dışa Aktar"
 
 #: widgets/ruqolamainwindow.cpp:631
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Medium"
+msgctxt "@action"
 msgid "Medium"
 msgstr "Orta"
 
 #: widgets/ruqolamainwindow.cpp:639
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Condensed"
+msgctxt "@action"
 msgid "Condensed"
 msgstr "Sıkıştırılmış"
 
 #: widgets/ruqolamainwindow.cpp:648
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Extended"
+msgctxt "@action"
 msgid "Extended"
 msgstr "Genişletilmiş"
 

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-05-14 00:38+0000\n"
+"POT-Creation-Date: 2024-05-15 00:38+0000\n"
 "PO-Revision-Date: 2020-06-13 21:18+0300\n"
 "Last-Translator: Marek Laane <qiilaq69@gmail.com>\n"
 "Language-Team: Estonian <kde-et@lists.linux.ee>\n"
@@ -1453,7 +1453,6 @@ msgstr "Vasta"
 
 #: core/otr/otrnotificationjob.cpp:45 core/otr/otrnotificationjob.cpp:55
 #: core/otr/otrnotificationjob.cpp:70
-#: widgets/room/channelactionpopupmenu.cpp:119
 #, kde-format
 msgid "OTR"
 msgstr ""
@@ -1494,13 +1493,13 @@ msgstr "<strong>%1</strong> kirjutab ..."
 msgid "<strong>%1</strong> are typing..."
 msgstr "<strong>%1</strong> kirjutavad ..."
 
-#: core/rocketchataccount.cpp:2945
+#: core/rocketchataccount.cpp:2948
 #, fuzzy, kde-format
 #| msgid "Report Message"
 msgid "Export Messages"
 msgstr "Anna sõnumist teada"
 
-#: core/rocketchataccount.cpp:2946
+#: core/rocketchataccount.cpp:2949
 #, kde-format
 msgid "Your email has been queued for sending."
 msgstr ""
@@ -2882,33 +2881,41 @@ msgstr ""
 
 #: widgets/administratordialog/moderationconsole/administratormoderationrangewidget.cpp:75
 #, kde-format
+msgctxt "@action"
 msgid "Today"
 msgstr ""
 
 #: widgets/administratordialog/moderationconsole/administratormoderationrangewidget.cpp:85
 #, kde-format
+msgctxt "@action"
 msgid "Yesterday"
 msgstr ""
 
 #: widgets/administratordialog/moderationconsole/administratormoderationrangewidget.cpp:95
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Previous Channel"
+msgctxt "@action"
 msgid "This week"
-msgstr ""
+msgstr "Eelmine kanal"
 
 #: widgets/administratordialog/moderationconsole/administratormoderationrangewidget.cpp:105
 #, fuzzy, kde-format
 #| msgid "Previous Channel"
+msgctxt "@action"
 msgid "Previous week"
 msgstr "Eelmine kanal"
 
 #: widgets/administratordialog/moderationconsole/administratormoderationrangewidget.cpp:115
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Previous Channel"
+msgctxt "@action"
 msgid "This month"
-msgstr ""
+msgstr "Eelmine kanal"
 
 #: widgets/administratordialog/moderationconsole/administratormoderationrangewidget.cpp:126
 #, fuzzy, kde-format
 #| msgid "Previous Channel"
+msgctxt "@action"
 msgid "Previous month"
 msgstr "Eelmine kanal"
 
@@ -3089,7 +3096,6 @@ msgstr "Kõnele teksti"
 #: widgets/bannerinfodialog/bannerinfolistview.cpp:51
 #: widgets/discussions/discussionlistview.cpp:74
 #: widgets/notificationhistory/notificationhistorylistview.cpp:100
-#: widgets/room/messagelistview.cpp:301
 #: widgets/servererrorinfohistory/servererrorinfomessagehistorylistview.cpp:66
 #, kde-format
 msgid "Select All"
@@ -6387,6 +6393,7 @@ msgstr "Kõnele teksti"
 #: widgets/bannerinfodialog/bannermessagewidget.cpp:23
 #, fuzzy, kde-format
 #| msgid "Mark As Read"
+msgctxt "@action"
 msgid "Mark as Read"
 msgstr "Märgi loetuks"
 
@@ -6419,6 +6426,7 @@ msgstr "Peida kanal"
 #: widgets/channellist/channellistview.cpp:155
 #, fuzzy, kde-format
 #| msgid "Remove from Room"
+msgctxt "@action"
 msgid "Convert to Team"
 msgstr "Eemalda toast"
 
@@ -6426,12 +6434,14 @@ msgstr "Eemalda toast"
 #, fuzzy, kde-format
 #| msgctxt "@title:window"
 #| msgid "Create Channel"
+msgctxt "@action"
 msgid "Convert to Channel"
 msgstr "Kanali loomine"
 
 #: widgets/channellist/channellistview.cpp:178
 #, fuzzy, kde-format
 #| msgid "Remove from Room"
+msgctxt "@action"
 msgid "Move to Team"
 msgstr "Eemalda toast"
 
@@ -6479,17 +6489,21 @@ msgstr "Toa otsimine (Ctrl+K)"
 #: widgets/channellist/channellistwidget.cpp:66
 #, fuzzy, kde-format
 #| msgid "Search Channel"
+msgctxt "@action"
 msgid "Search Channels"
 msgstr "Kanali otsimine"
 
 #: widgets/channellist/channellistwidget.cpp:73
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Previous Channel"
+msgctxt "@action"
 msgid "Previous Channel"
 msgstr "Eelmine kanal"
 
 #: widgets/channellist/channellistwidget.cpp:81
 #, fuzzy, kde-format
 #| msgid "Create Channel"
+msgctxt "@action"
 msgid "Next Channel"
 msgstr "Kanali loomine"
 
@@ -6517,7 +6531,7 @@ msgstr "Kasutajanimi"
 msgid "Username or Email:"
 msgstr "Kasutajanimi:"
 
-#: widgets/common/authenticationloginwidget.cpp:152
+#: widgets/common/authenticationloginwidget.cpp:155
 #: widgets/ruqolamainwindow.cpp:916
 #, kde-format
 msgid ""
@@ -6525,7 +6539,7 @@ msgid ""
 "If you do not receive an email shortly, please come back and try again."
 msgstr ""
 
-#: widgets/common/authenticationloginwidget.cpp:153
+#: widgets/common/authenticationloginwidget.cpp:156
 #: widgets/ruqolamainwindow.cpp:917
 #, fuzzy, kde-format
 #| msgid "Invite Users"
@@ -6786,7 +6800,7 @@ msgstr "Pole ühendatud"
 msgid "Server Url:"
 msgstr "Serveri URL:"
 
-#: widgets/configurenewserver/checknewserverurlwidget.cpp:121
+#: widgets/configurenewserver/checknewserverurlwidget.cpp:127
 #, fuzzy, kde-format
 #| msgid "Failed to extract import file."
 msgid "Impossible to access to server."
@@ -7263,7 +7277,6 @@ msgid "Discussion Name"
 msgstr "Diskussiooni nimi"
 
 #: widgets/dialogs/createnewdiscussionwidget.cpp:46
-#: widgets/room/channelactionpopupmenu.cpp:90
 #, kde-format
 msgid "Invite Users"
 msgstr "Kutsu kasutajaid"
@@ -7497,8 +7510,6 @@ msgid "Reset Avatar"
 msgstr "Hangi avatar"
 
 #: widgets/dialogs/roomavatarwidget.cpp:35
-#: widgets/room/roomquotemessagewidget.cpp:20
-#: widgets/room/roomreplythreadwidget.cpp:21
 #, kde-format
 msgid "Cancel"
 msgstr "Loobu"
@@ -7873,6 +7884,7 @@ msgstr ""
 #: widgets/encryption/e2edecodeencryptionkeywidget.cpp:19
 #, fuzzy, kde-format
 #| msgid "Encrypted:"
+msgctxt "@action"
 msgid "Decrypte Encryption Key"
 msgstr "Krüptitud:"
 
@@ -8199,11 +8211,13 @@ msgstr ""
 
 #: widgets/misc/changefontsizemenu.cpp:19
 #, kde-format
+msgctxt "@action"
 msgid "Increase Font"
 msgstr ""
 
 #: widgets/misc/changefontsizemenu.cpp:26
 #, kde-format
+msgctxt "@action"
 msgid "Decrease Font"
 msgstr ""
 
@@ -8746,6 +8760,7 @@ msgstr "Parool"
 
 #: widgets/needupdateversion/needupdateversionwidget.cpp:19
 #, kde-format
+msgctxt "@action"
 msgid "Disable version check"
 msgstr ""
 
@@ -8768,7 +8783,6 @@ msgid "Notification"
 msgstr "Märguanded"
 
 #: widgets/notificationhistory/notificationhistorylistview.cpp:79
-#: widgets/room/messagelistview.cpp:583
 #, kde-format
 msgid "Go to Message"
 msgstr "Liikumine sõnumile"
@@ -8786,11 +8800,13 @@ msgstr "Kasutaja ei ole aktiveeritud"
 
 #: widgets/otr/otrwidget.cpp:20
 #, kde-format
+msgctxt "@action"
 msgid "End OTR"
 msgstr ""
 
 #: widgets/otr/otrwidget.cpp:25
 #, kde-format
+msgctxt "@action"
 msgid "Refresh Keys"
 msgstr ""
 
@@ -8866,24 +8882,28 @@ msgstr "Kutsu kasutajaid"
 #: widgets/room/channelactionpopupmenu.cpp:29
 #, fuzzy, kde-format
 #| msgid "Pinned Messages"
+msgctxt "@action"
 msgid "Prune Messages…"
 msgstr "Kinnistatud sõnumid"
 
 #: widgets/room/channelactionpopupmenu.cpp:37
 #, fuzzy, kde-format
 #| msgid "Show Mentions..."
+msgctxt "@action"
 msgid "Show Mentions…"
 msgstr "Näita mainimisi ..."
 
 #: widgets/room/channelactionpopupmenu.cpp:43
 #, fuzzy, kde-format
 #| msgid "Show Pinned Messages..."
+msgctxt "@action"
 msgid "Show Pinned Messages…"
 msgstr "Näita kinnistatud sõnumeid ..."
 
 #: widgets/room/channelactionpopupmenu.cpp:49
 #, fuzzy, kde-format
 #| msgid "Show Starred Messages..."
+msgctxt "@action"
 msgid "Show Starred Messages…"
 msgstr "Näita tärniga sõnumeid ..."
 
@@ -8896,12 +8916,14 @@ msgstr "Näita failimanuseid ..."
 #: widgets/room/channelactionpopupmenu.cpp:61
 #, fuzzy, kde-format
 #| msgid "Show Discussions..."
+msgctxt "@action"
 msgid "Show Discussions…"
 msgstr "Näita diskussioone ..."
 
 #: widgets/room/channelactionpopupmenu.cpp:67
 #, fuzzy, kde-format
 #| msgid "Show Threads..."
+msgctxt "@action"
 msgid "Show Threads…"
 msgstr "Näita lõimi ..."
 
@@ -8909,12 +8931,21 @@ msgstr "Näita lõimi ..."
 #, fuzzy, kde-format
 #| msgctxt "@title:window"
 #| msgid "Configure Auto-Translate"
+msgctxt "@action"
 msgid "Configure Auto-Translate…"
 msgstr "Automaattõlke seadistamine"
+
+#: widgets/room/channelactionpopupmenu.cpp:90
+#, fuzzy, kde-format
+#| msgid "Invite Users"
+msgctxt "@action"
+msgid "Invite Users"
+msgstr "Kutsu kasutajaid"
 
 #: widgets/room/channelactionpopupmenu.cpp:97
 #, fuzzy, kde-format
 #| msgid "Add Users in Channel..."
+msgctxt "@action"
 msgid "Add Users in Channel…"
 msgstr "Lisa kanalile kasutajaid ..."
 
@@ -8926,12 +8957,20 @@ msgstr "Videovestlus"
 #: widgets/room/channelactionpopupmenu.cpp:112
 #, fuzzy, kde-format
 #| msgid "Report Message"
+msgctxt "@action"
 msgid "Export Messages…"
 msgstr "Anna sõnumist teada"
+
+#: widgets/room/channelactionpopupmenu.cpp:119
+#, kde-format
+msgctxt "@action"
+msgid "OTR"
+msgstr ""
 
 #: widgets/room/channelactionpopupmenu.cpp:126
 #, fuzzy, kde-format
 #| msgid "Encrypted Message"
+msgctxt "@action"
 msgid "Encrypt Messages"
 msgstr "Krüptitud sõnum"
 
@@ -8988,7 +9027,9 @@ msgstr "Kasutaja teave"
 
 #: widgets/room/delegate/messagelistdelegate.cpp:429
 #: widgets/room/messagelistview.cpp:388
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Start a Private Conversation"
+msgctxt "@action"
 msgid "Start a Private Conversation"
 msgstr "Alusta privaatvestlust"
 
@@ -9121,8 +9162,17 @@ msgstr "Kinnista sõnum"
 msgid "Remove as Favorite"
 msgstr "Eemalda lemmikute seast"
 
+#: widgets/room/messagelistview.cpp:301
+#, fuzzy, kde-format
+#| msgid "Select All"
+msgctxt "@action"
+msgid "Select All"
+msgstr "Vali kõik"
+
 #: widgets/room/messagelistview.cpp:306
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Mark Message As Unread"
+msgctxt "@action"
 msgid "Mark Message As Unread"
 msgstr "Märgi sõnum mitteloetuks"
 
@@ -9130,6 +9180,7 @@ msgstr "Märgi sõnum mitteloetuks"
 #, fuzzy, kde-format
 #| msgctxt "@title:window"
 #| msgid "Show Threads"
+msgctxt "@action"
 msgid "Show Full Thread"
 msgstr "Lõimede näitamine"
 
@@ -9146,12 +9197,14 @@ msgstr ""
 #: widgets/room/messagelistview.cpp:326
 #, fuzzy, kde-format
 #| msgid "Go to Message"
+msgctxt "@action"
 msgid "Copy Link To Message"
 msgstr "Liikumine sõnumile"
 
 #: widgets/room/messagelistview.cpp:331
 #, fuzzy, kde-format
 #| msgid "All Messages"
+msgctxt "@action"
 msgid "Forward Message"
 msgstr "Kõik sõnumid"
 
@@ -9176,12 +9229,16 @@ msgid "Copy URL"
 msgstr "Kopeeri link"
 
 #: widgets/room/messagelistview.cpp:404
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Start a Discussion"
+msgctxt "@action"
 msgid "Start a Discussion"
 msgstr "Alusta diskussiooni"
 
 #: widgets/room/messagelistview.cpp:411
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Reply in Thread"
+msgctxt "@action"
 msgid "Reply in Thread"
 msgstr "Vasta lõimes"
 
@@ -9198,14 +9255,23 @@ msgstr "Tõlgi sõnum"
 #: widgets/room/messagelistview.cpp:515
 #, fuzzy, kde-format
 #| msgid "Report a Bug"
+msgctxt "@action"
 msgid "View Reports"
 msgstr "Veast teatamine"
 
 #: widgets/room/messagelistview.cpp:538
 #, fuzzy, kde-format
 #| msgid "Report a Bug"
+msgctxt "@action"
 msgid "Dismiss Reports"
 msgstr "Veast teatamine"
+
+#: widgets/room/messagelistview.cpp:583
+#, fuzzy, kde-format
+#| msgid "Go to Message"
+msgctxt "@action"
+msgid "Go to Message"
+msgstr "Liikumine sõnumile"
 
 #: widgets/room/messagelistview.cpp:608
 #, kde-format
@@ -9349,6 +9415,14 @@ msgstr "Sõnumite otsimine"
 msgid "Team's Information"
 msgstr ""
 
+#: widgets/room/roomquotemessagewidget.cpp:20
+#: widgets/room/roomreplythreadwidget.cpp:21
+#, fuzzy, kde-format
+#| msgid "Cancel"
+msgctxt "@action"
+msgid "Cancel"
+msgstr "Loobu"
+
 #: widgets/room/roomquotemessagewidget.cpp:29
 #, fuzzy, kde-format
 #| msgid "(Last Message: %1)"
@@ -9466,7 +9540,9 @@ msgid "Ignore User"
 msgstr "Eira kasutajat"
 
 #: widgets/room/usersinroommenu.cpp:97
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Start Conversation"
+msgctxt "@action"
 msgid "Start Conversation"
 msgstr "Alusta vestlust"
 
@@ -9501,7 +9577,9 @@ msgid "Add as Moderator"
 msgstr "Lisa moderaatorina"
 
 #: widgets/room/usersinroommenu.cpp:150
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Remove from Room"
+msgctxt "@action"
 msgid "Remove from Room"
 msgstr "Eemalda toast"
 
@@ -9528,6 +9606,7 @@ msgstr "Eira"
 #: widgets/room/usersinroommenu.cpp:175
 #, fuzzy, kde-format
 #| msgid "Report Message"
+msgctxt "@action"
 msgid "Report User"
 msgstr "Anna sõnumist teada"
 
@@ -9570,24 +9649,28 @@ msgstr "Märguande keelamine:"
 #: widgets/ruqolamainwindow.cpp:396
 #, fuzzy, kde-format
 #| msgid "Add as Leader"
+msgctxt "@action"
 msgid "Add Server…"
 msgstr "Lisa juhina"
 
 #: widgets/ruqolamainwindow.cpp:401
 #, fuzzy, kde-format
 #| msgid "Server Info"
+msgctxt "@action"
 msgid "Server Info…"
 msgstr "Serveri teave"
 
 #: widgets/ruqolamainwindow.cpp:405
 #, fuzzy, kde-format
 #| msgid "Logout Current Account"
+msgctxt "@action"
 msgid "Logout Current Server"
 msgstr "Logi aktiivsest kontost välja"
 
 #: widgets/ruqolamainwindow.cpp:409
 #, fuzzy, kde-format
 #| msgid "Next Channel"
+msgctxt "@action"
 msgid "Jump to Next Unread Channel"
 msgstr "Järgmine kanal"
 
@@ -9617,18 +9700,22 @@ msgid "Create Team…"
 msgstr "Loo uus kanal ..."
 
 #: widgets/ruqolamainwindow.cpp:434
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Unread on Top"
+msgctxt "@action"
 msgid "Unread on Top"
 msgstr "Lugemata eespool"
 
 #: widgets/ruqolamainwindow.cpp:442
 #, fuzzy, kde-format
 #| msgid "(Last Message: %1)"
+msgctxt "@action"
 msgid "By Last Message"
 msgstr "(Viimane sõnum: %1)"
 
 #: widgets/ruqolamainwindow.cpp:448
 #, kde-format
+msgctxt "@action"
 msgid "Alphabetically"
 msgstr ""
 
@@ -9647,29 +9734,34 @@ msgstr "Kanali teave"
 #: widgets/ruqolamainwindow.cpp:477
 #, fuzzy, kde-format
 #| msgid "Mark all channels read"
+msgctxt "@action"
 msgid "Mark All Channels as Read"
 msgstr "Märgi kõik kanalid loetuks"
 
 #: widgets/ruqolamainwindow.cpp:482
 #, fuzzy, kde-format
 #| msgid "Invite Users"
+msgctxt "@action"
 msgid "Register a New User…"
 msgstr "Kutsu kasutajaid"
 
 #: widgets/ruqolamainwindow.cpp:486
 #, fuzzy, kde-format
 #| msgid "Add Account..."
+msgctxt "@action"
 msgid "My Account…"
 msgstr "Lisa konto ..."
 
 #: widgets/ruqolamainwindow.cpp:491
 #, kde-format
+msgctxt "@action"
 msgid "Administrator…"
 msgstr ""
 
 #: widgets/ruqolamainwindow.cpp:497
 #, fuzzy, kde-format
 #| msgid "Server Info..."
+msgctxt "@action"
 msgid "Server Settings…"
 msgstr "Serveri teave ..."
 
@@ -9694,12 +9786,14 @@ msgstr "Eelmine kanal"
 #: widgets/ruqolamainwindow.cpp:550
 #, fuzzy, kde-format
 #| msgid "Previous Channel"
+msgctxt "@action"
 msgid "Previous Selected Channel"
 msgstr "Eelmine kanal"
 
 #: widgets/ruqolamainwindow.cpp:557
 #, fuzzy, kde-format
 #| msgid "Create Channel"
+msgctxt "@action"
 msgid "Next Selected Channel"
 msgstr "Kanali loomine"
 
@@ -9712,18 +9806,21 @@ msgstr "Märguande keelamine:"
 #: widgets/ruqolamainwindow.cpp:592
 #, fuzzy, kde-format
 #| msgid "Rocket.Chat Login"
+msgctxt "@action"
 msgid "Show RocketChat Information"
 msgstr "Rocket.Chati sisselogimine"
 
 #: widgets/ruqolamainwindow.cpp:596
 #, fuzzy, kde-format
 #| msgid "Get Avatar"
+msgctxt "@action"
 msgid "Show Room Avatar"
 msgstr "Hangi avatar"
 
 #: widgets/ruqolamainwindow.cpp:601
 #, fuzzy, kde-format
 #| msgid "Delete Room"
+msgctxt "@action"
 msgid "Show Favorite Room"
 msgstr "Toa kustutamine"
 
@@ -9746,16 +9843,19 @@ msgstr "Konto"
 
 #: widgets/ruqolamainwindow.cpp:631
 #, kde-format
+msgctxt "@action"
 msgid "Medium"
 msgstr ""
 
 #: widgets/ruqolamainwindow.cpp:639
 #, kde-format
+msgctxt "@action"
 msgid "Condensed"
 msgstr ""
 
 #: widgets/ruqolamainwindow.cpp:648
 #, kde-format
+msgctxt "@action"
 msgid "Extended"
 msgstr ""
 

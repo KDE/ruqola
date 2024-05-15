@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-05-14 00:38+0000\n"
+"POT-Creation-Date: 2024-05-15 00:38+0000\n"
 "PO-Revision-Date: 2024-04-22 15:59\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
@@ -1344,7 +1344,6 @@ msgstr ""
 
 #: core/otr/otrnotificationjob.cpp:45 core/otr/otrnotificationjob.cpp:55
 #: core/otr/otrnotificationjob.cpp:70
-#: widgets/room/channelactionpopupmenu.cpp:119
 #, kde-format
 msgid "OTR"
 msgstr ""
@@ -1385,12 +1384,12 @@ msgstr ""
 msgid "<strong>%1</strong> are typing..."
 msgstr ""
 
-#: core/rocketchataccount.cpp:2945
+#: core/rocketchataccount.cpp:2948
 #, kde-format
 msgid "Export Messages"
 msgstr ""
 
-#: core/rocketchataccount.cpp:2946
+#: core/rocketchataccount.cpp:2949
 #, kde-format
 msgid "Your email has been queued for sending."
 msgstr ""
@@ -2669,31 +2668,37 @@ msgstr ""
 
 #: widgets/administratordialog/moderationconsole/administratormoderationrangewidget.cpp:75
 #, kde-format
+msgctxt "@action"
 msgid "Today"
 msgstr ""
 
 #: widgets/administratordialog/moderationconsole/administratormoderationrangewidget.cpp:85
 #, kde-format
+msgctxt "@action"
 msgid "Yesterday"
 msgstr ""
 
 #: widgets/administratordialog/moderationconsole/administratormoderationrangewidget.cpp:95
 #, kde-format
+msgctxt "@action"
 msgid "This week"
 msgstr ""
 
 #: widgets/administratordialog/moderationconsole/administratormoderationrangewidget.cpp:105
 #, kde-format
+msgctxt "@action"
 msgid "Previous week"
 msgstr ""
 
 #: widgets/administratordialog/moderationconsole/administratormoderationrangewidget.cpp:115
 #, kde-format
+msgctxt "@action"
 msgid "This month"
 msgstr ""
 
 #: widgets/administratordialog/moderationconsole/administratormoderationrangewidget.cpp:126
 #, kde-format
+msgctxt "@action"
 msgid "Previous month"
 msgstr ""
 
@@ -2855,7 +2860,6 @@ msgstr ""
 #: widgets/bannerinfodialog/bannerinfolistview.cpp:51
 #: widgets/discussions/discussionlistview.cpp:74
 #: widgets/notificationhistory/notificationhistorylistview.cpp:100
-#: widgets/room/messagelistview.cpp:301
 #: widgets/servererrorinfohistory/servererrorinfomessagehistorylistview.cpp:66
 #, kde-format
 msgid "Select All"
@@ -5917,6 +5921,7 @@ msgstr ""
 
 #: widgets/bannerinfodialog/bannermessagewidget.cpp:23
 #, kde-format
+msgctxt "@action"
 msgid "Mark as Read"
 msgstr ""
 
@@ -5948,16 +5953,19 @@ msgstr ""
 
 #: widgets/channellist/channellistview.cpp:155
 #, kde-format
+msgctxt "@action"
 msgid "Convert to Team"
 msgstr ""
 
 #: widgets/channellist/channellistview.cpp:166
 #, kde-format
+msgctxt "@action"
 msgid "Convert to Channel"
 msgstr ""
 
 #: widgets/channellist/channellistview.cpp:178
 #, kde-format
+msgctxt "@action"
 msgid "Move to Team"
 msgstr ""
 
@@ -6000,16 +6008,19 @@ msgstr ""
 
 #: widgets/channellist/channellistwidget.cpp:66
 #, kde-format
+msgctxt "@action"
 msgid "Search Channels"
 msgstr ""
 
 #: widgets/channellist/channellistwidget.cpp:73
 #, kde-format
+msgctxt "@action"
 msgid "Previous Channel"
 msgstr ""
 
 #: widgets/channellist/channellistwidget.cpp:81
 #, kde-format
+msgctxt "@action"
 msgid "Next Channel"
 msgstr ""
 
@@ -6033,7 +6044,7 @@ msgstr ""
 msgid "Username or Email:"
 msgstr ""
 
-#: widgets/common/authenticationloginwidget.cpp:152
+#: widgets/common/authenticationloginwidget.cpp:155
 #: widgets/ruqolamainwindow.cpp:916
 #, kde-format
 msgid ""
@@ -6041,7 +6052,7 @@ msgid ""
 "If you do not receive an email shortly, please come back and try again."
 msgstr ""
 
-#: widgets/common/authenticationloginwidget.cpp:153
+#: widgets/common/authenticationloginwidget.cpp:156
 #: widgets/ruqolamainwindow.cpp:917
 #, kde-format
 msgid "Register New User"
@@ -6284,7 +6295,7 @@ msgstr ""
 msgid "Server Url:"
 msgstr ""
 
-#: widgets/configurenewserver/checknewserverurlwidget.cpp:121
+#: widgets/configurenewserver/checknewserverurlwidget.cpp:127
 #, kde-format
 msgid "Impossible to access to server."
 msgstr ""
@@ -6723,7 +6734,6 @@ msgid "Discussion Name"
 msgstr ""
 
 #: widgets/dialogs/createnewdiscussionwidget.cpp:46
-#: widgets/room/channelactionpopupmenu.cpp:90
 #, kde-format
 msgid "Invite Users"
 msgstr ""
@@ -6941,8 +6951,6 @@ msgid "Reset Avatar"
 msgstr ""
 
 #: widgets/dialogs/roomavatarwidget.cpp:35
-#: widgets/room/roomquotemessagewidget.cpp:20
-#: widgets/room/roomreplythreadwidget.cpp:21
 #, kde-format
 msgid "Cancel"
 msgstr ""
@@ -7272,6 +7280,7 @@ msgstr ""
 #: widgets/encryption/e2edecodeencryptionkeyfailedwidget.cpp:19
 #: widgets/encryption/e2edecodeencryptionkeywidget.cpp:19
 #, kde-format
+msgctxt "@action"
 msgid "Decrypte Encryption Key"
 msgstr ""
 
@@ -7572,11 +7581,13 @@ msgstr ""
 
 #: widgets/misc/changefontsizemenu.cpp:19
 #, kde-format
+msgctxt "@action"
 msgid "Increase Font"
 msgstr ""
 
 #: widgets/misc/changefontsizemenu.cpp:26
 #, kde-format
+msgctxt "@action"
 msgid "Decrease Font"
 msgstr ""
 
@@ -8055,6 +8066,7 @@ msgstr ""
 
 #: widgets/needupdateversion/needupdateversionwidget.cpp:19
 #, kde-format
+msgctxt "@action"
 msgid "Disable version check"
 msgstr ""
 
@@ -8076,7 +8088,6 @@ msgid "Notification"
 msgstr ""
 
 #: widgets/notificationhistory/notificationhistorylistview.cpp:79
-#: widgets/room/messagelistview.cpp:583
 #, kde-format
 msgid "Go to Message"
 msgstr ""
@@ -8093,11 +8104,13 @@ msgstr ""
 
 #: widgets/otr/otrwidget.cpp:20
 #, kde-format
+msgctxt "@action"
 msgid "End OTR"
 msgstr ""
 
 #: widgets/otr/otrwidget.cpp:25
 #, kde-format
+msgctxt "@action"
 msgid "Refresh Keys"
 msgstr ""
 
@@ -8166,21 +8179,25 @@ msgstr ""
 
 #: widgets/room/channelactionpopupmenu.cpp:29
 #, kde-format
+msgctxt "@action"
 msgid "Prune Messages…"
 msgstr ""
 
 #: widgets/room/channelactionpopupmenu.cpp:37
 #, kde-format
+msgctxt "@action"
 msgid "Show Mentions…"
 msgstr ""
 
 #: widgets/room/channelactionpopupmenu.cpp:43
 #, kde-format
+msgctxt "@action"
 msgid "Show Pinned Messages…"
 msgstr ""
 
 #: widgets/room/channelactionpopupmenu.cpp:49
 #, kde-format
+msgctxt "@action"
 msgid "Show Starred Messages…"
 msgstr ""
 
@@ -8191,21 +8208,31 @@ msgstr ""
 
 #: widgets/room/channelactionpopupmenu.cpp:61
 #, kde-format
+msgctxt "@action"
 msgid "Show Discussions…"
 msgstr ""
 
 #: widgets/room/channelactionpopupmenu.cpp:67
 #, kde-format
+msgctxt "@action"
 msgid "Show Threads…"
 msgstr ""
 
 #: widgets/room/channelactionpopupmenu.cpp:82
 #, kde-format
+msgctxt "@action"
 msgid "Configure Auto-Translate…"
+msgstr ""
+
+#: widgets/room/channelactionpopupmenu.cpp:90
+#, kde-format
+msgctxt "@action"
+msgid "Invite Users"
 msgstr ""
 
 #: widgets/room/channelactionpopupmenu.cpp:97
 #, kde-format
+msgctxt "@action"
 msgid "Add Users in Channel…"
 msgstr ""
 
@@ -8216,11 +8243,19 @@ msgstr ""
 
 #: widgets/room/channelactionpopupmenu.cpp:112
 #, kde-format
+msgctxt "@action"
 msgid "Export Messages…"
+msgstr ""
+
+#: widgets/room/channelactionpopupmenu.cpp:119
+#, kde-format
+msgctxt "@action"
+msgid "OTR"
 msgstr ""
 
 #: widgets/room/channelactionpopupmenu.cpp:126
 #, kde-format
+msgctxt "@action"
 msgid "Encrypt Messages"
 msgstr ""
 
@@ -8276,6 +8311,7 @@ msgstr ""
 #: widgets/room/delegate/messagelistdelegate.cpp:429
 #: widgets/room/messagelistview.cpp:388
 #, kde-format
+msgctxt "@action"
 msgid "Start a Private Conversation"
 msgstr ""
 
@@ -8392,13 +8428,21 @@ msgstr ""
 msgid "Remove as Favorite"
 msgstr ""
 
+#: widgets/room/messagelistview.cpp:301
+#, kde-format
+msgctxt "@action"
+msgid "Select All"
+msgstr ""
+
 #: widgets/room/messagelistview.cpp:306
 #, kde-format
+msgctxt "@action"
 msgid "Mark Message As Unread"
 msgstr ""
 
 #: widgets/room/messagelistview.cpp:311
 #, kde-format
+msgctxt "@action"
 msgid "Show Full Thread"
 msgstr ""
 
@@ -8414,11 +8458,13 @@ msgstr ""
 
 #: widgets/room/messagelistview.cpp:326
 #, kde-format
+msgctxt "@action"
 msgid "Copy Link To Message"
 msgstr ""
 
 #: widgets/room/messagelistview.cpp:331
 #, kde-format
+msgctxt "@action"
 msgid "Forward Message"
 msgstr ""
 
@@ -8441,11 +8487,13 @@ msgstr ""
 
 #: widgets/room/messagelistview.cpp:404
 #, kde-format
+msgctxt "@action"
 msgid "Start a Discussion"
 msgstr ""
 
 #: widgets/room/messagelistview.cpp:411
 #, kde-format
+msgctxt "@action"
 msgid "Reply in Thread"
 msgstr ""
 
@@ -8461,12 +8509,20 @@ msgstr ""
 
 #: widgets/room/messagelistview.cpp:515
 #, kde-format
+msgctxt "@action"
 msgid "View Reports"
 msgstr ""
 
 #: widgets/room/messagelistview.cpp:538
 #, kde-format
+msgctxt "@action"
 msgid "Dismiss Reports"
+msgstr ""
+
+#: widgets/room/messagelistview.cpp:583
+#, kde-format
+msgctxt "@action"
+msgid "Go to Message"
 msgstr ""
 
 #: widgets/room/messagelistview.cpp:608
@@ -8597,6 +8653,13 @@ msgstr ""
 msgid "Team's Information"
 msgstr ""
 
+#: widgets/room/roomquotemessagewidget.cpp:20
+#: widgets/room/roomreplythreadwidget.cpp:21
+#, kde-format
+msgctxt "@action"
+msgid "Cancel"
+msgstr ""
+
 #: widgets/room/roomquotemessagewidget.cpp:29
 #, kde-format
 msgid "Quote Message: '%1'"
@@ -8703,6 +8766,7 @@ msgstr ""
 
 #: widgets/room/usersinroommenu.cpp:97
 #, kde-format
+msgctxt "@action"
 msgid "Start Conversation"
 msgstr ""
 
@@ -8738,6 +8802,7 @@ msgstr ""
 
 #: widgets/room/usersinroommenu.cpp:150
 #, kde-format
+msgctxt "@action"
 msgid "Remove from Room"
 msgstr ""
 
@@ -8763,6 +8828,7 @@ msgstr ""
 
 #: widgets/room/usersinroommenu.cpp:175
 #, kde-format
+msgctxt "@action"
 msgid "Report User"
 msgstr ""
 
@@ -8799,21 +8865,25 @@ msgstr ""
 
 #: widgets/ruqolamainwindow.cpp:396
 #, kde-format
+msgctxt "@action"
 msgid "Add Server…"
 msgstr ""
 
 #: widgets/ruqolamainwindow.cpp:401
 #, kde-format
+msgctxt "@action"
 msgid "Server Info…"
 msgstr ""
 
 #: widgets/ruqolamainwindow.cpp:405
 #, kde-format
+msgctxt "@action"
 msgid "Logout Current Server"
 msgstr ""
 
 #: widgets/ruqolamainwindow.cpp:409
 #, kde-format
+msgctxt "@action"
 msgid "Jump to Next Unread Channel"
 msgstr ""
 
@@ -8839,16 +8909,19 @@ msgstr ""
 
 #: widgets/ruqolamainwindow.cpp:434
 #, kde-format
+msgctxt "@action"
 msgid "Unread on Top"
 msgstr ""
 
 #: widgets/ruqolamainwindow.cpp:442
 #, kde-format
+msgctxt "@action"
 msgid "By Last Message"
 msgstr ""
 
 #: widgets/ruqolamainwindow.cpp:448
 #, kde-format
+msgctxt "@action"
 msgid "Alphabetically"
 msgstr ""
 
@@ -8864,26 +8937,31 @@ msgstr ""
 
 #: widgets/ruqolamainwindow.cpp:477
 #, kde-format
+msgctxt "@action"
 msgid "Mark All Channels as Read"
 msgstr ""
 
 #: widgets/ruqolamainwindow.cpp:482
 #, kde-format
+msgctxt "@action"
 msgid "Register a New User…"
 msgstr ""
 
 #: widgets/ruqolamainwindow.cpp:486
 #, kde-format
+msgctxt "@action"
 msgid "My Account…"
 msgstr ""
 
 #: widgets/ruqolamainwindow.cpp:491
 #, kde-format
+msgctxt "@action"
 msgid "Administrator…"
 msgstr ""
 
 #: widgets/ruqolamainwindow.cpp:497
 #, kde-format
+msgctxt "@action"
 msgid "Server Settings…"
 msgstr ""
 
@@ -8905,11 +8983,13 @@ msgstr ""
 
 #: widgets/ruqolamainwindow.cpp:550
 #, kde-format
+msgctxt "@action"
 msgid "Previous Selected Channel"
 msgstr ""
 
 #: widgets/ruqolamainwindow.cpp:557
 #, kde-format
+msgctxt "@action"
 msgid "Next Selected Channel"
 msgstr ""
 
@@ -8920,16 +9000,19 @@ msgstr ""
 
 #: widgets/ruqolamainwindow.cpp:592
 #, kde-format
+msgctxt "@action"
 msgid "Show RocketChat Information"
 msgstr ""
 
 #: widgets/ruqolamainwindow.cpp:596
 #, kde-format
+msgctxt "@action"
 msgid "Show Room Avatar"
 msgstr ""
 
 #: widgets/ruqolamainwindow.cpp:601
 #, kde-format
+msgctxt "@action"
 msgid "Show Favorite Room"
 msgstr ""
 
@@ -8950,16 +9033,19 @@ msgstr ""
 
 #: widgets/ruqolamainwindow.cpp:631
 #, kde-format
+msgctxt "@action"
 msgid "Medium"
 msgstr ""
 
 #: widgets/ruqolamainwindow.cpp:639
 #, kde-format
+msgctxt "@action"
 msgid "Condensed"
 msgstr ""
 
 #: widgets/ruqolamainwindow.cpp:648
 #, kde-format
+msgctxt "@action"
 msgid "Extended"
 msgstr ""
 
