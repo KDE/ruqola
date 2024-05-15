@@ -306,6 +306,7 @@ void MyAccountPreferenceConfigureWidget::load()
     mReceiveLoginDetectionEmails->setChecked(ownUserPreferences.receiveLoginDetectionEmail());
     mIdleTimeLimit->setValue(ownUserPreferences.idleTimeLimit());
     mAutomaticAway->setChecked(ownUserPreferences.enableAutoAway());
+    mSoundNewRoomNotification->setCurrentIndex(mSoundModel->setCurrentNotificationPreference(ownUserPreferences.newRoomNotification().toLatin1()) - 2);
     mChanged = false;
 }
 
