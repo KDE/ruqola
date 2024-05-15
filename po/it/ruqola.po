@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-04-09 03:29+0000\n"
-"PO-Revision-Date: 2024-05-08 17:58+0200\n"
+"PO-Revision-Date: 2024-05-14 12:31+0200\n"
 "Last-Translator: Vincenzo Reale <smart2128vr@gmail.com>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
 "Language: it\n"
@@ -9311,11 +9311,11 @@ msgstr "Aggiungi console di moderazione (Amministrazione, server RC 6.2)"
 
 #: widgets/whatsnew/whatsnewwidgettranslation.h:47
 msgid "Implement message style"
-msgstr "Implementa lo stile del messaggio"
+msgstr "Implementato lo stile del messaggio"
 
 #: widgets/whatsnew/whatsnewwidgettranslation.h:48
 msgid "Implement Url Preview"
-msgstr "Implementa l'anteprima dei collegamenti"
+msgstr "Implementata l'anteprima dei collegamenti"
 
 #: widgets/whatsnew/whatsnewwidgettranslation.h:54
 msgid "Fix markdown support (header + check mark)"
