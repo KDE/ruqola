@@ -215,6 +215,10 @@ target_sources(libruqolacore PRIVATE
     model/notificationdesktopdurationpreferencemodel.h
     model/notificationdesktopsoundpreferencemodel.cpp
     model/notificationdesktopsoundpreferencemodel.h
+
+    model/notificationdesktopsoundpreferenceproxymodel.h
+    model/notificationdesktopsoundpreferenceproxymodel.cpp
+
     model/notificationhistorymodel.cpp
     model/notificationhistorymodel.h
     model/notificationhistorymodelfilterproxymodel.h
