@@ -213,8 +213,8 @@ void MyAccountPreferenceConfigureWidget::initComboboxValues()
     mPushNotification->addItem(desktopPushNotificationI18n(QStringLiteral("nothing")), QStringLiteral("nothing"));
 
     // TODO default value from server
-    mEmailNotification->addItem(i18n("Default"), QStringLiteral("default"));
-    mEmailNotification->addItem(i18n("Each Mentions"), QStringLiteral("mentions"));
+    mEmailNotification->addItem(i18n("Default (Every Mention/DM)"), QStringLiteral("default"));
+    mEmailNotification->addItem(i18n("Every Mention/DM"), QStringLiteral("mentions"));
     mEmailNotification->addItem(i18n("Disabled"), QStringLiteral("nothing"));
     if (mRocketChatAccount && !mRocketChatAccount->ruqolaServerConfig()->allowEmailNotifications()) {
         mEmailNotification->setEnabled(false);
