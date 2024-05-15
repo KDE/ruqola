@@ -15,6 +15,8 @@ class QCheckBox;
 class RocketChatAccount;
 class QSpinBox;
 class QLabel;
+class NotificationDesktopSoundPreferenceModel;
+class NotificationDesktopSoundPreferenceProxyModel;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT MyAccountPreferenceConfigureWidget : public QWidget
 {
     Q_OBJECT
@@ -43,7 +45,9 @@ private:
 
     QCheckBox *const mAutomaticAway;
     QLabel *const mEmailNotificationLabel;
-
+    QComboBox *const mSoundNewRoomNotification;
+    NotificationDesktopSoundPreferenceModel *const mSoundModel;
+    NotificationDesktopSoundPreferenceProxyModel *const mSoundProxyModel;
     RocketChatAccount *const mRocketChatAccount;
     bool mChanged = false;
 };

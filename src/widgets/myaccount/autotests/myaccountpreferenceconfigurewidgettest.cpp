@@ -109,6 +109,23 @@ void MyAccountPreferenceConfigureWidgetTest::shouldHaveDefaultValues()
     auto mIdleTimeLimit = w.findChild<QSpinBox *>(QStringLiteral("mIdleTimeLimit"));
     QVERIFY(mIdleTimeLimit);
     QVERIFY(!mIdleTimeLimit->toolTip().isEmpty());
+
+    auto downloadWidget = w.findChild<QWidget *>(QStringLiteral("downloadWidget"));
+    QVERIFY(downloadWidget);
+
+    auto downloadWidgetLayout = downloadWidget->findChild<QVBoxLayout *>(QStringLiteral("downloadWidgetLayout"));
+    QVERIFY(downloadWidgetLayout);
+    QCOMPARE(downloadWidgetLayout->contentsMargins(), QMargins{});
+
+    auto soundWidget = w.findChild<QWidget *>(QStringLiteral("soundWidget"));
+    QVERIFY(soundWidget);
+
+    auto soundWidgetLayout = soundWidget->findChild<QVBoxLayout *>(QStringLiteral("soundWidgetLayout"));
+    QVERIFY(soundWidgetLayout);
+    QCOMPARE(soundWidgetLayout->contentsMargins(), QMargins{});
+
+    auto mSoundNewRoomNotification = soundWidget->findChild<QComboBox *>(QStringLiteral("mSoundNewRoomNotification"));
+    QVERIFY(mSoundNewRoomNotification);
 }
 
 #include "moc_myaccountpreferenceconfigurewidgettest.cpp"

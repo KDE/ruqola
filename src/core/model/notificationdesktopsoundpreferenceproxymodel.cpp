@@ -18,8 +18,9 @@ bool NotificationDesktopSoundPreferenceProxyModel::filterAcceptsRow(int source_r
 {
     const QModelIndex modelIndex = sourceModel()->index(source_row, 0, source_parent);
     const QByteArray identifier = modelIndex.data(NotificationDesktopSoundPreferenceModel::NotificationPreference).toByteArray();
-
-    // TODO
+    if (identifier == "none" || identifier == "default") {
+        return false;
+    }
     return true;
 }
 

@@ -5,6 +5,8 @@
 */
 
 #include "myaccountpreferenceconfigurewidget.h"
+#include "model/notificationdesktopsoundpreferencemodel.h"
+#include "model/notificationdesktopsoundpreferenceproxymodel.h"
 using namespace Qt::Literals::StringLiterals;
 
 #include "connection.h"
@@ -37,12 +39,16 @@ MyAccountPreferenceConfigureWidget::MyAccountPreferenceConfigureWidget(RocketCha
     , mIdleTimeLimit(new QSpinBox(this))
     , mAutomaticAway(new QCheckBox(i18n("Enable Auto Away"), this))
     , mEmailNotificationLabel(new QLabel(i18n("Offline Email notification:"), this))
+    , mSoundNewRoomNotification(new QComboBox(this))
+    , mSoundModel(new NotificationDesktopSoundPreferenceModel(this))
+    , mSoundProxyModel(new NotificationDesktopSoundPreferenceProxyModel(this))
     , mRocketChatAccount(account)
 {
     mUseEmojis->setObjectName(QStringLiteral("mUseEmojis"));
     mConvertAsciiEmoji->setObjectName(QStringLiteral("mConvertAsciiEmoji"));
     mHideRoles->setObjectName(QStringLiteral("mHideRoles"));
     mDisplayAvatars->setObjectName(QStringLiteral("mDisplayAvatars"));
+    mSoundNewRoomNotification->setObjectName(QStringLiteral("mSoundNewRoomNotification"));
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
 
@@ -113,9 +119,32 @@ MyAccountPreferenceConfigureWidget::MyAccountPreferenceConfigureWidget(RocketCha
     connect(mIdleTimeLimit, &QSpinBox::valueChanged, this, &MyAccountPreferenceConfigureWidget::setWasChanged);
     mainLayout->addWidget(mIdleTimeLimit);
 
+    QWidget *soundWidget = new QWidget;
+    soundWidget->setObjectName(QStringLiteral("soundWidget"));
+    auto soundWidgetLayout = new QVBoxLayout(soundWidget);
+    soundWidgetLayout->setObjectName(QStringLiteral("soundWidgetLayout"));
+    soundWidgetLayout->setContentsMargins({});
+
+    soundWidgetLayout->addWidget(new KSeparator(this));
+
+    auto newRoomNotificationLabel = new QLabel(i18n("New Room Notification:"), this);
+    newRoomNotificationLabel->setObjectName(QStringLiteral("newRoomNotificationLabel"));
+    newRoomNotificationLabel->setTextFormat(Qt::PlainText);
+    soundWidgetLayout->addWidget(newRoomNotificationLabel);
+
+    soundWidgetLayout->addWidget(mSoundNewRoomNotification);
+    if (mRocketChatAccount) {
+        mSoundModel->setCustomSoundManager(mRocketChatAccount->customSoundManager());
+        mSoundProxyModel->setSourceModel(mSoundModel);
+        mSoundNewRoomNotification->setModel(mSoundProxyModel);
+    }
+
+    mainLayout->addWidget(soundWidget);
+
     QWidget *downloadWidget = new QWidget;
     downloadWidget->setObjectName(QStringLiteral("downloadWidget"));
     auto downloadWidgetLayout = new QVBoxLayout(downloadWidget);
+    downloadWidgetLayout->setObjectName(QStringLiteral("downloadWidgetLayout"));
     downloadWidgetLayout->setContentsMargins({});
 
     downloadWidgetLayout->addWidget(new KSeparator(this));
