@@ -5,6 +5,7 @@
 */
 
 #include "notificationdesktopsoundpreferenceproxymodel.h"
+#include "notificationdesktopsoundpreferencemodel.h"
 
 NotificationDesktopSoundPreferenceProxyModel::NotificationDesktopSoundPreferenceProxyModel(QObject *parent)
     : QSortFilterProxyModel{parent}
@@ -15,6 +16,9 @@ NotificationDesktopSoundPreferenceProxyModel::~NotificationDesktopSoundPreferenc
 
 bool NotificationDesktopSoundPreferenceProxyModel::filterAcceptsRow(int source_row, const QModelIndex &source_parent) const
 {
+    const QModelIndex modelIndex = sourceModel()->index(source_row, 0, source_parent);
+    const QByteArray identifier = modelIndex.data(NotificationDesktopSoundPreferenceModel::NotificationPreference).toByteArray();
+
     // TODO
     return true;
 }
