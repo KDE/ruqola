@@ -7,9 +7,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-05-15 00:38+0000\n"
-"PO-Revision-Date: 2024-05-12 10:35+0100\n"
-"Last-Translator: Oliver Kellogg <okellogg@users.sourceforge.net>\n"
+"POT-Creation-Date: 2024-05-16 00:38+0000\n"
+"PO-Revision-Date: 2024-05-15 09:56+0100\n"
+"Last-Translator: Oliver Kellogg <olivermkellogg@gmail.com>\n"
 "Language-Team: Esperanto <kde-i18n-eo.org>\n"
 "Language: eo\n"
 "MIME-Version: 1.0\n"
@@ -34,7 +34,9 @@ msgid "Copyright © 2020-2024 Ruqola authors"
 msgstr "Kopirajto © 2020-2024 Ruqola aŭtoroj"
 
 #: apps/main.cpp:52
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Laurent Montel"
+msgctxt "@info:credit"
 msgid "Laurent Montel"
 msgstr "Laurent Montel"
 
@@ -44,7 +46,9 @@ msgid "Maintainer"
 msgstr "Prizorganto"
 
 #: apps/main.cpp:53
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Riccardo Iaconelli"
+msgctxt "@info:credit"
 msgid "Riccardo Iaconelli"
 msgstr "Riccardo Iaconelli"
 
@@ -54,7 +58,9 @@ msgid "Original Author"
 msgstr "Origina Aŭtoro"
 
 #: apps/main.cpp:57
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "David Faure"
+msgctxt "@info:credit"
 msgid "David Faure"
 msgstr "David Faure"
 
@@ -64,7 +70,9 @@ msgid "Bug fixing, delegates etc."
 msgstr "Cimsolvado, delegitoj ktp."
 
 #: apps/main.cpp:58
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Kevin Funk"
+msgctxt "@info:credit"
 msgid "Kevin Funk"
 msgstr "Kevin Funk"
 
@@ -75,17 +83,23 @@ msgid "Bug fixing"
 msgstr "Cimkorektado"
 
 #: apps/main.cpp:59
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Olivier JG"
+msgctxt "@info:credit"
 msgid "Olivier JG"
 msgstr "Olivier JG"
 
 #: apps/main.cpp:60
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Milian Wolff"
+msgctxt "@info:credit"
 msgid "Milian Wolff"
 msgstr "Milian Wolff"
 
 #: apps/main.cpp:61
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Till Adam"
+msgctxt "@info:credit"
 msgid "Till Adam"
 msgstr "Till Adam"
 
@@ -95,17 +109,23 @@ msgid "Windows compile bug fixing"
 msgstr "Kompila cimriparado en Vindozo"
 
 #: apps/main.cpp:62
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Shantanu Tushar"
+msgctxt "@info:credit"
 msgid "Shantanu Tushar"
 msgstr "Shantanu Tushar"
 
 #: apps/main.cpp:63
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Alessandro Ambrosano"
+msgctxt "@info:credit"
 msgid "Alessandro Ambrosano"
 msgstr "Alessandro Ambrosano"
 
 #: apps/main.cpp:64
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Hannah von Reth"
+msgctxt "@info:credit"
 msgid "Hannah von Reth"
 msgstr "Hannah von Reth"
 
@@ -115,7 +135,9 @@ msgid "Bug fixing for Windows/Mac"
 msgstr "Cimo korekto por Vindozo/Mac"
 
 #: apps/main.cpp:65
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Allen Winter"
+msgctxt "@info:credit"
 msgid "Allen Winter"
 msgstr "Allen Winter"
 
@@ -125,7 +147,9 @@ msgid "Packaging"
 msgstr "Pakado"
 
 #: apps/main.cpp:66
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Waqar Ahmed"
+msgctxt "@info:credit"
 msgid "Waqar Ahmed"
 msgstr "Waqar Ahmed"
 
@@ -135,7 +159,9 @@ msgid "Bug fixing (compile, network crash...)"
 msgstr "Cimo-solvado (kompilo, retopaneo...)"
 
 #: apps/main.cpp:67
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Nicolas Fella"
+msgctxt "@info:credit"
 msgid "Nicolas Fella"
 msgstr "Nicolas Fella"
 
@@ -304,9 +330,8 @@ msgstr "Neniu"
 #: widgets/dialogs/createsoundmessagewidget.cpp:138
 #: widgets/dialogs/playsoundwidget.cpp:122
 #: widgets/dialogs/showvideowidget.cpp:122
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:201
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:209
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:216
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:230
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:238
 #, kde-format
 msgid "Default"
 msgstr "Defaŭlta"
@@ -801,7 +826,7 @@ msgid "Role"
 msgstr "Rolo"
 
 #: core/model/adminusersmodel.cpp:116 core/model/adminusersmodel.cpp:163
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:218
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:247
 #, kde-format
 msgid "Disabled"
 msgstr "Malŝaltita"
@@ -991,19 +1016,19 @@ msgstr[0] "1 sekundo"
 msgstr[1] "%1 sekundoj"
 
 #: core/model/notificationpreferencemodel.cpp:51
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:187
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:216
 #, kde-format
 msgid "All Messages"
 msgstr "Ĉiuj Mesaĝoj"
 
 #: core/model/notificationpreferencemodel.cpp:57
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:189
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:218
 #, kde-format
 msgid "Mentions"
 msgstr "Mencioj"
 
 #: core/model/notificationpreferencemodel.cpp:63
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:191
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:220
 #, kde-format
 msgid "Nothing"
 msgstr "Nenio"
@@ -2708,43 +2733,37 @@ msgid "To:"
 msgstr "Al:"
 
 #: widgets/administratordialog/moderationconsole/administratormoderationrangewidget.cpp:75
-#, fuzzy, kde-format
-#| msgid "Today"
+#, kde-format
 msgctxt "@action"
 msgid "Today"
 msgstr "Hodiaŭ"
 
 #: widgets/administratordialog/moderationconsole/administratormoderationrangewidget.cpp:85
-#, fuzzy, kde-format
-#| msgid "Yesterday"
+#, kde-format
 msgctxt "@action"
 msgid "Yesterday"
 msgstr "Hieraŭ"
 
 #: widgets/administratordialog/moderationconsole/administratormoderationrangewidget.cpp:95
-#, fuzzy, kde-format
-#| msgid "This week"
+#, kde-format
 msgctxt "@action"
 msgid "This week"
 msgstr "Ĉi-semajne"
 
 #: widgets/administratordialog/moderationconsole/administratormoderationrangewidget.cpp:105
-#, fuzzy, kde-format
-#| msgid "Previous week"
+#, kde-format
 msgctxt "@action"
 msgid "Previous week"
 msgstr "Antaŭa semajno"
 
 #: widgets/administratordialog/moderationconsole/administratormoderationrangewidget.cpp:115
-#, fuzzy, kde-format
-#| msgid "This month"
+#, kde-format
 msgctxt "@action"
 msgid "This month"
 msgstr "Ĉi-monate"
 
 #: widgets/administratordialog/moderationconsole/administratormoderationrangewidget.cpp:126
-#, fuzzy, kde-format
-#| msgid "Previous month"
+#, kde-format
 msgctxt "@action"
 msgid "Previous month"
 msgstr "Antaŭa monato"
@@ -6134,8 +6153,7 @@ msgid "Copy Text"
 msgstr "Kopii tekston"
 
 #: widgets/bannerinfodialog/bannermessagewidget.cpp:23
-#, fuzzy, kde-format
-#| msgid "Mark as Read"
+#, kde-format
 msgctxt "@action"
 msgid "Mark as Read"
 msgstr "Marki kiel Legita"
@@ -6167,22 +6185,19 @@ msgid "Hide Channel"
 msgstr "Kaŝi Kanalon"
 
 #: widgets/channellist/channellistview.cpp:155
-#, fuzzy, kde-format
-#| msgid "Convert to Team"
+#, kde-format
 msgctxt "@action"
 msgid "Convert to Team"
 msgstr "Konverti al Teamo"
 
 #: widgets/channellist/channellistview.cpp:166
-#, fuzzy, kde-format
-#| msgid "Convert to Channel"
+#, kde-format
 msgctxt "@action"
 msgid "Convert to Channel"
 msgstr "Konverti al Kanalo"
 
 #: widgets/channellist/channellistview.cpp:178
-#, fuzzy, kde-format
-#| msgid "Move to Team"
+#, kde-format
 msgctxt "@action"
 msgid "Move to Team"
 msgstr "Movi al Teamo"
@@ -6225,22 +6240,19 @@ msgid "Filter channels (%1)"
 msgstr "Filtrilaj kanaloj (%1)"
 
 #: widgets/channellist/channellistwidget.cpp:66
-#, fuzzy, kde-format
-#| msgid "Search Channels"
+#, kde-format
 msgctxt "@action"
 msgid "Search Channels"
 msgstr "Serĉi Kanalojn"
 
 #: widgets/channellist/channellistwidget.cpp:73
-#, fuzzy, kde-format
-#| msgid "Previous Channel"
+#, kde-format
 msgctxt "@action"
 msgid "Previous Channel"
 msgstr "Antaŭa Kanalo"
 
 #: widgets/channellist/channellistwidget.cpp:81
-#, fuzzy, kde-format
-#| msgid "Next Channel"
+#, kde-format
 msgctxt "@action"
 msgid "Next Channel"
 msgstr "Sekva Kanalo"
@@ -7528,8 +7540,7 @@ msgstr ""
 
 #: widgets/encryption/e2edecodeencryptionkeyfailedwidget.cpp:19
 #: widgets/encryption/e2edecodeencryptionkeywidget.cpp:19
-#, fuzzy, kde-format
-#| msgid "Decrypte Encryption Key"
+#, kde-format
 msgctxt "@action"
 msgid "Decrypte Encryption Key"
 msgstr "Malĉifri Ĉifradan Ŝlosilon"
@@ -7838,15 +7849,13 @@ msgid "Font Size"
 msgstr "Grandeco de Tiparo"
 
 #: widgets/misc/changefontsizemenu.cpp:19
-#, fuzzy, kde-format
-#| msgid "Increase Font"
+#, kde-format
 msgctxt "@action"
 msgid "Increase Font"
 msgstr "Pligrandigi Tiparon"
 
 #: widgets/misc/changefontsizemenu.cpp:26
-#, fuzzy, kde-format
-#| msgid "Decrease Font"
+#, kde-format
 msgctxt "@action"
 msgid "Decrease Font"
 msgstr "Malpligrandigi Tiparon"
@@ -8174,94 +8183,100 @@ msgctxt "@title:window"
 msgid "Remove Token"
 msgstr "Forigi Ĵetonon"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:32
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:34
 #, kde-format
 msgid "Use Emojis"
 msgstr "Uzi Emojis"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:33
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:35
 #, kde-format
 msgid "Convert Ascii to Emoji"
 msgstr "Konverti Ascii al Emoji"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:34
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:36
 #, kde-format
 msgid "Hide roles"
 msgstr "Kaŝi rolojn"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:35
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:37
 #, kde-format
 msgid "Display avatars"
 msgstr "Montri avatarojn"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:36
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:38
 #, kde-format
 msgid "Receive login detection emails"
 msgstr "Ricevi retpoŝtojn pri ensalutaj detektado"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:38
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:40
 #, kde-format
 msgid "Enable Auto Away"
 msgstr "Ebligi Aŭtomata For"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:39
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:41
 #, kde-format
 msgid "Offline Email notification:"
 msgstr "Senrete Retpoŝta sciigo:"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:49
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:55
 #, kde-format
 msgid "Highlight words:"
 msgstr "Elstarigi vortojn:"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:56
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:62
 #, kde-format
 msgid "Use ',' for separating words"
 msgstr "Uzi ',' por apartigi vortojn"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:57
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:63
 #, kde-format
 msgid "Separate each word with ','."
 msgstr "Apartigi ĉiun vorton per ','."
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:65
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:71
 #, kde-format
 msgid "Desktop notification:"
 msgstr "Labortabla sciigo:"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:78
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:84
 #, kde-format
 msgid "Push notification:"
 msgstr "Puŝa sciigo:"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:86
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:92
 #, kde-format
 msgid "Receive an email each time a new login is detected on your account."
 msgstr ""
 "Ricevi retpoŝton ĉiufoje kiam nova ensaluto estas detektita en via konto."
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:105
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:111
 #, kde-format
 msgid "Idle Time Limit:"
 msgstr "Neaktiva Tempolimo:"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:112
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:118
 #, kde-format
 msgid ""
 "Period of time until status changes to away. Value needs to be in seconds."
 msgstr "Tempodaŭro ĝis statuso ŝanĝiĝas al for. Valoro devas esti en sekundoj."
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:129
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:130
+#, fuzzy, kde-format
+#| msgid "Show New Notifications"
+msgid "New Room Notification:"
+msgstr "Montri Novajn Sciigojn"
+
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:158
 #, kde-format
 msgid "Download my Data (HTML)"
 msgstr "Elŝuti miajn Datumojn (HTML)"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:136
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:165
 #, kde-format
 msgid "Export my Data (JSON)"
 msgstr "Eksporti miajn Datumojn (JSON)"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:180
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:209
 #, kde-format
 msgid ""
 "Your data file will be generated. A link to download it will be sent to your "
@@ -8270,23 +8285,29 @@ msgstr ""
 "Via datuma dosiero estos generita. Ligilo por elŝuti ĝin estos sendita al "
 "via retadreso kiam preta."
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:181
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:210
 #, kde-format
 msgid "Download File Requested"
 msgstr "Elŝuti Dosieron Petitan"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:200
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:208
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:229
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:237
 #, kde-format
 msgid "Default (%1)"
 msgstr "Defaŭlta (%1)"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:217
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:245
 #, kde-format
-msgid "Each Mentions"
+msgid "Default (Every Mention/DM)"
+msgstr ""
+
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:246
+#, fuzzy, kde-format
+#| msgid "Each Mentions"
+msgid "Every Mention/DM"
 msgstr "Ĉiu Mencioj"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:221
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:250
 #, kde-format
 msgid "Your Rocket.Chat administrator has disabled email notifications"
 msgstr "Via administranto de Rocket.Chat malŝaltis retpoŝtajn sciigojn."
@@ -8349,8 +8370,7 @@ msgid "Current Password"
 msgstr "Aktuala Pasvorto"
 
 #: widgets/needupdateversion/needupdateversionwidget.cpp:19
-#, fuzzy, kde-format
-#| msgid "Disable version check"
+#, kde-format
 msgctxt "@action"
 msgid "Disable version check"
 msgstr "Malebligi versiokontrolon"
@@ -8389,15 +8409,13 @@ msgid "Otr Activated"
 msgstr "Otr Aktivigita"
 
 #: widgets/otr/otrwidget.cpp:20
-#, fuzzy, kde-format
-#| msgid "End OTR"
+#, kde-format
 msgctxt "@action"
 msgid "End OTR"
 msgstr "Fini OTR"
 
 #: widgets/otr/otrwidget.cpp:25
-#, fuzzy, kde-format
-#| msgid "Refresh Keys"
+#, kde-format
 msgctxt "@action"
 msgid "Refresh Keys"
 msgstr "Refreŝigi Ŝlosilojn"
@@ -8468,29 +8486,25 @@ msgid "Register"
 msgstr "Registriĝi"
 
 #: widgets/room/channelactionpopupmenu.cpp:29
-#, fuzzy, kde-format
-#| msgid "Prune Messages…"
+#, kde-format
 msgctxt "@action"
 msgid "Prune Messages…"
 msgstr "Pritondi Mesaĝojn…"
 
 #: widgets/room/channelactionpopupmenu.cpp:37
-#, fuzzy, kde-format
-#| msgid "Show Mentions…"
+#, kde-format
 msgctxt "@action"
 msgid "Show Mentions…"
 msgstr "Montri Menciojn…"
 
 #: widgets/room/channelactionpopupmenu.cpp:43
-#, fuzzy, kde-format
-#| msgid "Show Pinned Messages…"
+#, kde-format
 msgctxt "@action"
 msgid "Show Pinned Messages…"
 msgstr "Montri Alpinglitajn Mesaĝojn…"
 
 #: widgets/room/channelactionpopupmenu.cpp:49
-#, fuzzy, kde-format
-#| msgid "Show Starred Messages…"
+#, kde-format
 msgctxt "@action"
 msgid "Show Starred Messages…"
 msgstr "Montri Stelajn Mesaĝojn…"
@@ -8501,36 +8515,31 @@ msgid "Show File Attachments…"
 msgstr "Montri Dosierajn Aldonaĵojn…"
 
 #: widgets/room/channelactionpopupmenu.cpp:61
-#, fuzzy, kde-format
-#| msgid "Show Discussions…"
+#, kde-format
 msgctxt "@action"
 msgid "Show Discussions…"
 msgstr "Montri Diskutojn…"
 
 #: widgets/room/channelactionpopupmenu.cpp:67
-#, fuzzy, kde-format
-#| msgid "Show Threads…"
+#, kde-format
 msgctxt "@action"
 msgid "Show Threads…"
 msgstr "Montri Fadenojn…"
 
 #: widgets/room/channelactionpopupmenu.cpp:82
-#, fuzzy, kde-format
-#| msgid "Configure Auto-Translate…"
+#, kde-format
 msgctxt "@action"
 msgid "Configure Auto-Translate…"
 msgstr "Agordi Aŭtomatan Tradukadon…"
 
 #: widgets/room/channelactionpopupmenu.cpp:90
-#, fuzzy, kde-format
-#| msgid "Invite Users"
+#, kde-format
 msgctxt "@action"
 msgid "Invite Users"
 msgstr "Inviti Uzantojn"
 
 #: widgets/room/channelactionpopupmenu.cpp:97
-#, fuzzy, kde-format
-#| msgid "Add Users in Channel…"
+#, kde-format
 msgctxt "@action"
 msgid "Add Users in Channel…"
 msgstr "Aldoni Uzantojn en Kanalo…"
@@ -8541,22 +8550,19 @@ msgid "Video Chat"
 msgstr "Vid-Babilejo"
 
 #: widgets/room/channelactionpopupmenu.cpp:112
-#, fuzzy, kde-format
-#| msgid "Export Messages…"
+#, kde-format
 msgctxt "@action"
 msgid "Export Messages…"
 msgstr "Elporti Mesaĝojn…"
 
 #: widgets/room/channelactionpopupmenu.cpp:119
-#, fuzzy, kde-format
-#| msgid "OTR"
+#, kde-format
 msgctxt "@action"
 msgid "OTR"
 msgstr "OTR"
 
 #: widgets/room/channelactionpopupmenu.cpp:126
-#, fuzzy, kde-format
-#| msgid "Encrypt Messages"
+#, kde-format
 msgctxt "@action"
 msgid "Encrypt Messages"
 msgstr "Ĉifri Mesaĝojn"
@@ -8612,8 +8618,7 @@ msgstr "Informoj pri uzantoj"
 
 #: widgets/room/delegate/messagelistdelegate.cpp:429
 #: widgets/room/messagelistview.cpp:388
-#, fuzzy, kde-format
-#| msgid "Start a Private Conversation"
+#, kde-format
 msgctxt "@action"
 msgid "Start a Private Conversation"
 msgstr "Komenci Privatan Konversacion"
@@ -8689,10 +8694,9 @@ msgid "Message Too Big"
 msgstr "Mesaĝo Tro Granda"
 
 #: widgets/room/messagelinewidget.cpp:245
-#, fuzzy, kde-format
-#| msgid "Message"
+#, kde-format
 msgid "Message %1"
-msgstr "Mesaĝo"
+msgstr "Mesaĝo %1"
 
 #: widgets/room/messagelinewidget.cpp:385
 #, kde-format
@@ -8735,22 +8739,19 @@ msgid "Remove as Favorite"
 msgstr "Forigi kiel Plej ŝatatan"
 
 #: widgets/room/messagelistview.cpp:301
-#, fuzzy, kde-format
-#| msgid "Select All"
+#, kde-format
 msgctxt "@action"
 msgid "Select All"
 msgstr "Elekti Ĉion"
 
 #: widgets/room/messagelistview.cpp:306
-#, fuzzy, kde-format
-#| msgid "Mark Message As Unread"
+#, kde-format
 msgctxt "@action"
 msgid "Mark Message As Unread"
 msgstr "Marki Mesaĝon Kiel Nelegita"
 
 #: widgets/room/messagelistview.cpp:311
-#, fuzzy, kde-format
-#| msgid "Show Full Thread"
+#, kde-format
 msgctxt "@action"
 msgid "Show Full Thread"
 msgstr "Montri Plenan Fadenon"
@@ -8766,15 +8767,13 @@ msgid "Quote"
 msgstr "Citaĵo"
 
 #: widgets/room/messagelistview.cpp:326
-#, fuzzy, kde-format
-#| msgid "Copy Link To Message"
+#, kde-format
 msgctxt "@action"
 msgid "Copy Link To Message"
 msgstr "Kopii Ligilon Al Mesaĝo"
 
 #: widgets/room/messagelistview.cpp:331
-#, fuzzy, kde-format
-#| msgid "Forward Message"
+#, kde-format
 msgctxt "@action"
 msgid "Forward Message"
 msgstr "Plusendi Mesaĝon"
@@ -8797,15 +8796,13 @@ msgid "Copy URL"
 msgstr "Kopii URL"
 
 #: widgets/room/messagelistview.cpp:404
-#, fuzzy, kde-format
-#| msgid "Start a Discussion"
+#, kde-format
 msgctxt "@action"
 msgid "Start a Discussion"
 msgstr "Komenci Diskuton"
 
 #: widgets/room/messagelistview.cpp:411
-#, fuzzy, kde-format
-#| msgid "Reply in Thread"
+#, kde-format
 msgctxt "@action"
 msgid "Reply in Thread"
 msgstr "Respondi en Fadeno"
@@ -8821,22 +8818,19 @@ msgid "Translate Message"
 msgstr "Traduki Mesaĝon"
 
 #: widgets/room/messagelistview.cpp:515
-#, fuzzy, kde-format
-#| msgid "View Reports"
+#, kde-format
 msgctxt "@action"
 msgid "View Reports"
 msgstr "Vidi Raportojn"
 
 #: widgets/room/messagelistview.cpp:538
-#, fuzzy, kde-format
-#| msgid "Dismiss Reports"
+#, kde-format
 msgctxt "@action"
 msgid "Dismiss Reports"
 msgstr "Forigi Raportojn"
 
 #: widgets/room/messagelistview.cpp:583
-#, fuzzy, kde-format
-#| msgid "Go to Message"
+#, kde-format
 msgctxt "@action"
 msgid "Go to Message"
 msgstr "Iri al Mesaĝo"
@@ -8972,8 +8966,7 @@ msgstr "Informoj de Teamo"
 
 #: widgets/room/roomquotemessagewidget.cpp:20
 #: widgets/room/roomreplythreadwidget.cpp:21
-#, fuzzy, kde-format
-#| msgid "Cancel"
+#, kde-format
 msgctxt "@action"
 msgid "Cancel"
 msgstr "Nuligi"
@@ -9085,8 +9078,7 @@ msgid "Ignore User"
 msgstr "Ignori Uzanton"
 
 #: widgets/room/usersinroommenu.cpp:97
-#, fuzzy, kde-format
-#| msgid "Start Conversation"
+#, kde-format
 msgctxt "@action"
 msgid "Start Conversation"
 msgstr "Komenci Konversacion"
@@ -9122,8 +9114,7 @@ msgid "Add as Moderator"
 msgstr "Aldoni kiel Moderiganto"
 
 #: widgets/room/usersinroommenu.cpp:150
-#, fuzzy, kde-format
-#| msgid "Remove from Room"
+#, kde-format
 msgctxt "@action"
 msgid "Remove from Room"
 msgstr "Forigi el Ĉambro"
@@ -9149,8 +9140,7 @@ msgid "Ignore"
 msgstr "Ignori"
 
 #: widgets/room/usersinroommenu.cpp:175
-#, fuzzy, kde-format
-#| msgid "Report User"
+#, kde-format
 msgctxt "@action"
 msgid "Report User"
 msgstr "Raporti Uzanton"
@@ -9188,29 +9178,25 @@ msgid "Show New Notifications"
 msgstr "Montri Novajn Sciigojn"
 
 #: widgets/ruqolamainwindow.cpp:396
-#, fuzzy, kde-format
-#| msgid "Add Server…"
+#, kde-format
 msgctxt "@action"
 msgid "Add Server…"
 msgstr "Aldoni Servilon…"
 
 #: widgets/ruqolamainwindow.cpp:401
-#, fuzzy, kde-format
-#| msgid "Server Info…"
+#, kde-format
 msgctxt "@action"
 msgid "Server Info…"
 msgstr "Servila Informo…"
 
 #: widgets/ruqolamainwindow.cpp:405
-#, fuzzy, kde-format
-#| msgid "Logout Current Server"
+#, kde-format
 msgctxt "@action"
 msgid "Logout Current Server"
 msgstr "Elsaluti Aktualan Servilon"
 
 #: widgets/ruqolamainwindow.cpp:409
-#, fuzzy, kde-format
-#| msgid "Jump to Next Unread Channel"
+#, kde-format
 msgctxt "@action"
 msgid "Jump to Next Unread Channel"
 msgstr "Salti al Sekva Nelegita Kanalo"
@@ -9236,22 +9222,19 @@ msgid "Create Team…"
 msgstr "Krei Teamon…"
 
 #: widgets/ruqolamainwindow.cpp:434
-#, fuzzy, kde-format
-#| msgid "Unread on Top"
+#, kde-format
 msgctxt "@action"
 msgid "Unread on Top"
 msgstr "Nelegita supre"
 
 #: widgets/ruqolamainwindow.cpp:442
-#, fuzzy, kde-format
-#| msgid "By Last Message"
+#, kde-format
 msgctxt "@action"
 msgid "By Last Message"
 msgstr "Per Lasta Mesaĝo"
 
 #: widgets/ruqolamainwindow.cpp:448
-#, fuzzy, kde-format
-#| msgid "Alphabetically"
+#, kde-format
 msgctxt "@action"
 msgid "Alphabetically"
 msgstr "Alfabete"
@@ -9267,36 +9250,31 @@ msgid "Show Server Errors"
 msgstr "Montri Servilaj Eraroj"
 
 #: widgets/ruqolamainwindow.cpp:477
-#, fuzzy, kde-format
-#| msgid "Mark All Channels as Read"
+#, kde-format
 msgctxt "@action"
 msgid "Mark All Channels as Read"
 msgstr "Marki Ĉiuj Kanaloj kiel Legita"
 
 #: widgets/ruqolamainwindow.cpp:482
-#, fuzzy, kde-format
-#| msgid "Register a New User…"
+#, kde-format
 msgctxt "@action"
 msgid "Register a New User…"
 msgstr "Registri Novan Uzanton…"
 
 #: widgets/ruqolamainwindow.cpp:486
-#, fuzzy, kde-format
-#| msgid "My Account…"
+#, kde-format
 msgctxt "@action"
 msgid "My Account…"
 msgstr "Mia konto…"
 
 #: widgets/ruqolamainwindow.cpp:491
-#, fuzzy, kde-format
-#| msgid "Administrator…"
+#, kde-format
 msgctxt "@action"
 msgid "Administrator…"
 msgstr "Administranto…"
 
 #: widgets/ruqolamainwindow.cpp:497
-#, fuzzy, kde-format
-#| msgid "Server Settings…"
+#, kde-format
 msgctxt "@action"
 msgid "Server Settings…"
 msgstr "Agordoj de la servilo…"
@@ -9318,15 +9296,13 @@ msgid "&Previous Server"
 msgstr "&Antaŭa Servilo"
 
 #: widgets/ruqolamainwindow.cpp:550
-#, fuzzy, kde-format
-#| msgid "Previous Selected Channel"
+#, kde-format
 msgctxt "@action"
 msgid "Previous Selected Channel"
 msgstr "Antaŭa Elektita Kanalo"
 
 #: widgets/ruqolamainwindow.cpp:557
-#, fuzzy, kde-format
-#| msgid "Next Selected Channel"
+#, kde-format
 msgctxt "@action"
 msgid "Next Selected Channel"
 msgstr "Sekva Elektita Kanalo"
@@ -9337,22 +9313,19 @@ msgid "Show Notify History"
 msgstr "Montri Sciigo-Historion"
 
 #: widgets/ruqolamainwindow.cpp:592
-#, fuzzy, kde-format
-#| msgid "Show RocketChat Information"
+#, kde-format
 msgctxt "@action"
 msgid "Show RocketChat Information"
 msgstr "Montri RocketChat-Informojn"
 
 #: widgets/ruqolamainwindow.cpp:596
-#, fuzzy, kde-format
-#| msgid "Show Room Avatar"
+#, kde-format
 msgctxt "@action"
 msgid "Show Room Avatar"
 msgstr "Montri Ĉambran Avataron"
 
 #: widgets/ruqolamainwindow.cpp:601
-#, fuzzy, kde-format
-#| msgid "Show Favorite Room"
+#, kde-format
 msgctxt "@action"
 msgid "Show Favorite Room"
 msgstr "Montri Ŝatatan Ĉambron"
@@ -9373,22 +9346,19 @@ msgid "Export Accounts"
 msgstr "Eksporto-Kontoj"
 
 #: widgets/ruqolamainwindow.cpp:631
-#, fuzzy, kde-format
-#| msgid "Medium"
+#, kde-format
 msgctxt "@action"
 msgid "Medium"
 msgstr "Meza"
 
 #: widgets/ruqolamainwindow.cpp:639
-#, fuzzy, kde-format
-#| msgid "Condensed"
+#, kde-format
 msgctxt "@action"
 msgid "Condensed"
 msgstr "Densigita"
 
 #: widgets/ruqolamainwindow.cpp:648
-#, fuzzy, kde-format
-#| msgid "Extended"
+#, kde-format
 msgctxt "@action"
 msgid "Extended"
 msgstr "Etendita"

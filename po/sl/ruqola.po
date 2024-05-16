@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-05-15 00:38+0000\n"
-"PO-Revision-Date: 2024-05-14 07:14+0200\n"
+"POT-Creation-Date: 2024-05-16 00:38+0000\n"
+"PO-Revision-Date: 2024-05-15 07:41+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
@@ -36,7 +36,9 @@ msgid "Copyright © 2020-2024 Ruqola authors"
 msgstr "Copyright/Avtorske pravice © 2020-2024 avtorji programa Ruqola"
 
 #: apps/main.cpp:52
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Laurent Montel"
+msgctxt "@info:credit"
 msgid "Laurent Montel"
 msgstr "Laurent Montel"
 
@@ -46,7 +48,9 @@ msgid "Maintainer"
 msgstr "Vzdrževalec"
 
 #: apps/main.cpp:53
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Riccardo Iaconelli"
+msgctxt "@info:credit"
 msgid "Riccardo Iaconelli"
 msgstr "Riccardo Iaconelli"
 
@@ -56,7 +60,9 @@ msgid "Original Author"
 msgstr "Izvirni avtor"
 
 #: apps/main.cpp:57
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "David Faure"
+msgctxt "@info:credit"
 msgid "David Faure"
 msgstr "David Faure"
 
@@ -66,7 +72,9 @@ msgid "Bug fixing, delegates etc."
 msgstr "Odpravljanje napak, delegati itd."
 
 #: apps/main.cpp:58
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Kevin Funk"
+msgctxt "@info:credit"
 msgid "Kevin Funk"
 msgstr "Kevin Funk"
 
@@ -77,17 +85,23 @@ msgid "Bug fixing"
 msgstr "Odpravljanje napak"
 
 #: apps/main.cpp:59
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Olivier JG"
+msgctxt "@info:credit"
 msgid "Olivier JG"
 msgstr "Olivier JG"
 
 #: apps/main.cpp:60
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Milian Wolff"
+msgctxt "@info:credit"
 msgid "Milian Wolff"
 msgstr "Milian Wolff"
 
 #: apps/main.cpp:61
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Till Adam"
+msgctxt "@info:credit"
 msgid "Till Adam"
 msgstr "Till Adam"
 
@@ -97,17 +111,23 @@ msgid "Windows compile bug fixing"
 msgstr "Odpravljanje napaka prevajanja za Windows"
 
 #: apps/main.cpp:62
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Shantanu Tushar"
+msgctxt "@info:credit"
 msgid "Shantanu Tushar"
 msgstr "Šantanu Tušar"
 
 #: apps/main.cpp:63
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Alessandro Ambrosano"
+msgctxt "@info:credit"
 msgid "Alessandro Ambrosano"
 msgstr "Alessandro Ambrosano"
 
 #: apps/main.cpp:64
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Hannah von Reth"
+msgctxt "@info:credit"
 msgid "Hannah von Reth"
 msgstr "Hannah von Reth"
 
@@ -117,7 +137,9 @@ msgid "Bug fixing for Windows/Mac"
 msgstr "Odpravljanje napak za Windows/macOS"
 
 #: apps/main.cpp:65
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Allen Winter"
+msgctxt "@info:credit"
 msgid "Allen Winter"
 msgstr "Allen Winter"
 
@@ -127,7 +149,9 @@ msgid "Packaging"
 msgstr "Pakiranje"
 
 #: apps/main.cpp:66
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Waqar Ahmed"
+msgctxt "@info:credit"
 msgid "Waqar Ahmed"
 msgstr "Waqar Ahmed"
 
@@ -137,7 +161,9 @@ msgid "Bug fixing (compile, network crash...)"
 msgstr "Odpravljanje napak (prevajanje, omrežno sesutje ...)"
 
 #: apps/main.cpp:67
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Nicolas Fella"
+msgctxt "@info:credit"
 msgid "Nicolas Fella"
 msgstr "Nicolas Fella"
 
@@ -306,9 +332,8 @@ msgstr "Noben"
 #: widgets/dialogs/createsoundmessagewidget.cpp:138
 #: widgets/dialogs/playsoundwidget.cpp:122
 #: widgets/dialogs/showvideowidget.cpp:122
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:201
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:209
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:216
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:230
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:238
 #, kde-format
 msgid "Default"
 msgstr "Privzeto"
@@ -803,7 +828,7 @@ msgid "Role"
 msgstr "Vloga"
 
 #: core/model/adminusersmodel.cpp:116 core/model/adminusersmodel.cpp:163
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:218
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:247
 #, kde-format
 msgid "Disabled"
 msgstr "Onemogočeno"
@@ -995,19 +1020,19 @@ msgstr[2] "%1 sekunde"
 msgstr[3] "%1 sekund"
 
 #: core/model/notificationpreferencemodel.cpp:51
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:187
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:216
 #, kde-format
 msgid "All Messages"
 msgstr "Vsa sporočila"
 
 #: core/model/notificationpreferencemodel.cpp:57
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:189
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:218
 #, kde-format
 msgid "Mentions"
 msgstr "Omembe"
 
 #: core/model/notificationpreferencemodel.cpp:63
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:191
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:220
 #, kde-format
 msgid "Nothing"
 msgstr "Nič"
@@ -2715,43 +2740,37 @@ msgid "To:"
 msgstr "Za:"
 
 #: widgets/administratordialog/moderationconsole/administratormoderationrangewidget.cpp:75
-#, fuzzy, kde-format
-#| msgid "Today"
+#, kde-format
 msgctxt "@action"
 msgid "Today"
 msgstr "Danes"
 
 #: widgets/administratordialog/moderationconsole/administratormoderationrangewidget.cpp:85
-#, fuzzy, kde-format
-#| msgid "Yesterday"
+#, kde-format
 msgctxt "@action"
 msgid "Yesterday"
 msgstr "Včeraj"
 
 #: widgets/administratordialog/moderationconsole/administratormoderationrangewidget.cpp:95
-#, fuzzy, kde-format
-#| msgid "This week"
+#, kde-format
 msgctxt "@action"
 msgid "This week"
 msgstr "Ta teden"
 
 #: widgets/administratordialog/moderationconsole/administratormoderationrangewidget.cpp:105
-#, fuzzy, kde-format
-#| msgid "Previous week"
+#, kde-format
 msgctxt "@action"
 msgid "Previous week"
 msgstr "Prejšnji teden"
 
 #: widgets/administratordialog/moderationconsole/administratormoderationrangewidget.cpp:115
-#, fuzzy, kde-format
-#| msgid "This month"
+#, kde-format
 msgctxt "@action"
 msgid "This month"
 msgstr "Ta mesec"
 
 #: widgets/administratordialog/moderationconsole/administratormoderationrangewidget.cpp:126
-#, fuzzy, kde-format
-#| msgid "Previous month"
+#, kde-format
 msgctxt "@action"
 msgid "Previous month"
 msgstr "Prejšnji mesec"
@@ -6149,8 +6168,7 @@ msgid "Copy Text"
 msgstr "Kopiraj besedilo"
 
 #: widgets/bannerinfodialog/bannermessagewidget.cpp:23
-#, fuzzy, kde-format
-#| msgid "Mark as Read"
+#, kde-format
 msgctxt "@action"
 msgid "Mark as Read"
 msgstr "Označi kot prebrano"
@@ -6182,22 +6200,19 @@ msgid "Hide Channel"
 msgstr "Skrij kanal"
 
 #: widgets/channellist/channellistview.cpp:155
-#, fuzzy, kde-format
-#| msgid "Convert to Team"
+#, kde-format
 msgctxt "@action"
 msgid "Convert to Team"
 msgstr "Pretvori v ekipo"
 
 #: widgets/channellist/channellistview.cpp:166
-#, fuzzy, kde-format
-#| msgid "Convert to Channel"
+#, kde-format
 msgctxt "@action"
 msgid "Convert to Channel"
 msgstr "Pretvori v kanal"
 
 #: widgets/channellist/channellistview.cpp:178
-#, fuzzy, kde-format
-#| msgid "Move to Team"
+#, kde-format
 msgctxt "@action"
 msgid "Move to Team"
 msgstr "Premakni v ekipo"
@@ -6242,22 +6257,19 @@ msgid "Filter channels (%1)"
 msgstr "Filter kanalov (%1)"
 
 #: widgets/channellist/channellistwidget.cpp:66
-#, fuzzy, kde-format
-#| msgid "Search Channels"
+#, kde-format
 msgctxt "@action"
 msgid "Search Channels"
 msgstr "Išči kanale"
 
 #: widgets/channellist/channellistwidget.cpp:73
-#, fuzzy, kde-format
-#| msgid "Previous Channel"
+#, kde-format
 msgctxt "@action"
 msgid "Previous Channel"
 msgstr "Prejšnji kanal"
 
 #: widgets/channellist/channellistwidget.cpp:81
-#, fuzzy, kde-format
-#| msgid "Next Channel"
+#, kde-format
 msgctxt "@action"
 msgid "Next Channel"
 msgstr "Naslednji kanal"
@@ -7562,8 +7574,7 @@ msgstr ""
 
 #: widgets/encryption/e2edecodeencryptionkeyfailedwidget.cpp:19
 #: widgets/encryption/e2edecodeencryptionkeywidget.cpp:19
-#, fuzzy, kde-format
-#| msgid "Decrypte Encryption Key"
+#, kde-format
 msgctxt "@action"
 msgid "Decrypte Encryption Key"
 msgstr "Dešifriraj ključ šifriranja"
@@ -7872,15 +7883,13 @@ msgid "Font Size"
 msgstr "Velikost pisave"
 
 #: widgets/misc/changefontsizemenu.cpp:19
-#, fuzzy, kde-format
-#| msgid "Increase Font"
+#, kde-format
 msgctxt "@action"
 msgid "Increase Font"
 msgstr "Povečaj pisavo"
 
 #: widgets/misc/changefontsizemenu.cpp:26
-#, fuzzy, kde-format
-#| msgid "Decrease Font"
+#, kde-format
 msgctxt "@action"
 msgid "Decrease Font"
 msgstr "Zmanjšaj pisavo"
@@ -8213,95 +8222,101 @@ msgctxt "@title:window"
 msgid "Remove Token"
 msgstr "Odstrani žeton"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:32
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:34
 #, kde-format
 msgid "Use Emojis"
 msgstr "Uporabi emodžije"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:33
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:35
 #, kde-format
 msgid "Convert Ascii to Emoji"
 msgstr "Pretvori ascii v emodži"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:34
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:36
 #, kde-format
 msgid "Hide roles"
 msgstr "Skrij vloge"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:35
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:37
 #, kde-format
 msgid "Display avatars"
 msgstr "Prikaži avatarje"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:36
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:38
 #, kde-format
 msgid "Receive login detection emails"
 msgstr "Sprejemaj elektronska sporočila o zaznavi prijav"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:38
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:40
 #, kde-format
 msgid "Enable Auto Away"
 msgstr "Omogoči samodejno odsotnost"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:39
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:41
 #, kde-format
 msgid "Offline Email notification:"
 msgstr "Nepovezano e-poštno obvestilo:"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:49
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:55
 #, kde-format
 msgid "Highlight words:"
 msgstr "Poudari besede:"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:56
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:62
 #, kde-format
 msgid "Use ',' for separating words"
 msgstr "Uporabi ',' za ločevanje besed"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:57
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:63
 #, kde-format
 msgid "Separate each word with ','."
 msgstr "Ločite vsako besedo z ','."
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:65
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:71
 #, kde-format
 msgid "Desktop notification:"
 msgstr "Obvestilo na namizju:"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:78
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:84
 #, kde-format
 msgid "Push notification:"
 msgstr "Objavi obvestilo:"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:86
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:92
 #, kde-format
 msgid "Receive an email each time a new login is detected on your account."
 msgstr ""
 "Prejmite elektronsko sporočilo vsakič, ko je zaznana nova prijava na vašem "
 "računu."
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:105
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:111
 #, kde-format
 msgid "Idle Time Limit:"
 msgstr "Časovni rok nedejavnosti:"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:112
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:118
 #, kde-format
 msgid ""
 "Period of time until status changes to away. Value needs to be in seconds."
 msgstr "Čas do spremembe stanja v odsotnega. Vrednost mora biti v sekundah."
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:129
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:130
+#, fuzzy, kde-format
+#| msgid "Show New Notifications"
+msgid "New Room Notification:"
+msgstr "Prikaži nova obvestila"
+
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:158
 #, kde-format
 msgid "Download my Data (HTML)"
 msgstr "Prenesi my Data (HTML)"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:136
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:165
 #, kde-format
 msgid "Export my Data (JSON)"
 msgstr "Izvozi my Data (JSON)"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:180
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:209
 #, kde-format
 msgid ""
 "Your data file will be generated. A link to download it will be sent to your "
@@ -8310,23 +8325,29 @@ msgstr ""
 "Vaša podatkovna datoteka bo generirana. Povezava za prenos po poslana na "
 "vašo elektronsko pošto, ko bo pripravljena."
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:181
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:210
 #, kde-format
 msgid "Download File Requested"
 msgstr "Zahtevan je prenos datoteke"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:200
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:208
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:229
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:237
 #, kde-format
 msgid "Default (%1)"
 msgstr "Privzeto (%1)"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:217
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:245
 #, kde-format
-msgid "Each Mentions"
+msgid "Default (Every Mention/DM)"
+msgstr ""
+
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:246
+#, fuzzy, kde-format
+#| msgid "Each Mentions"
+msgid "Every Mention/DM"
 msgstr "Vsaka omemba"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:221
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:250
 #, kde-format
 msgid "Your Rocket.Chat administrator has disabled email notifications"
 msgstr "Vaš skrbnik Rocket.Chat je onemogočil e-poštna obvestila"
@@ -8389,8 +8410,7 @@ msgid "Current Password"
 msgstr "Trenutno geslo"
 
 #: widgets/needupdateversion/needupdateversionwidget.cpp:19
-#, fuzzy, kde-format
-#| msgid "Disable version check"
+#, kde-format
 msgctxt "@action"
 msgid "Disable version check"
 msgstr "Onemogoči preverjanje različice"
@@ -8430,15 +8450,13 @@ msgid "Otr Activated"
 msgstr "Aktiviran Otr"
 
 #: widgets/otr/otrwidget.cpp:20
-#, fuzzy, kde-format
-#| msgid "End OTR"
+#, kde-format
 msgctxt "@action"
 msgid "End OTR"
-msgstr "Končaj OTR"
+msgstr "Konec OTR"
 
 #: widgets/otr/otrwidget.cpp:25
-#, fuzzy, kde-format
-#| msgid "Refresh Keys"
+#, kde-format
 msgctxt "@action"
 msgid "Refresh Keys"
 msgstr "Osveži tipke"
@@ -8509,32 +8527,28 @@ msgid "Register"
 msgstr "Registriraj"
 
 #: widgets/room/channelactionpopupmenu.cpp:29
-#, fuzzy, kde-format
-#| msgid "Prune Messages…"
+#, kde-format
 msgctxt "@action"
 msgid "Prune Messages…"
-msgstr "Klešči sporočila…"
+msgstr "Oklešči sporočila..."
 
 #: widgets/room/channelactionpopupmenu.cpp:37
-#, fuzzy, kde-format
-#| msgid "Show Mentions…"
+#, kde-format
 msgctxt "@action"
 msgid "Show Mentions…"
-msgstr "Pokaži omembe…"
+msgstr "Pokaži omembe..."
 
 #: widgets/room/channelactionpopupmenu.cpp:43
-#, fuzzy, kde-format
-#| msgid "Show Pinned Messages…"
+#, kde-format
 msgctxt "@action"
 msgid "Show Pinned Messages…"
-msgstr "Pokaži pripeta sporočila…"
+msgstr "Pokaži pripeta sporočila..."
 
 #: widgets/room/channelactionpopupmenu.cpp:49
-#, fuzzy, kde-format
-#| msgid "Show Starred Messages…"
+#, kde-format
 msgctxt "@action"
 msgid "Show Starred Messages…"
-msgstr "Pokaži sporočila z zvezdico…"
+msgstr "Pokaži sporočila z zvezdico..."
 
 #: widgets/room/channelactionpopupmenu.cpp:55
 #, kde-format
@@ -8542,39 +8556,34 @@ msgid "Show File Attachments…"
 msgstr "Pokaži pripete datoteke…"
 
 #: widgets/room/channelactionpopupmenu.cpp:61
-#, fuzzy, kde-format
-#| msgid "Show Discussions…"
+#, kde-format
 msgctxt "@action"
 msgid "Show Discussions…"
-msgstr "Pokaži razprave…"
+msgstr "Pokaži razprave..."
 
 #: widgets/room/channelactionpopupmenu.cpp:67
-#, fuzzy, kde-format
-#| msgid "Show Threads…"
+#, kde-format
 msgctxt "@action"
 msgid "Show Threads…"
-msgstr "Pokaži niti…"
+msgstr "Pokaži niti..."
 
 #: widgets/room/channelactionpopupmenu.cpp:82
-#, fuzzy, kde-format
-#| msgid "Configure Auto-Translate…"
+#, kde-format
 msgctxt "@action"
 msgid "Configure Auto-Translate…"
-msgstr "Konfiguriraj samodejno prevajanje…"
+msgstr "Konfiguriraj samodejno prevajanje..."
 
 #: widgets/room/channelactionpopupmenu.cpp:90
-#, fuzzy, kde-format
-#| msgid "Invite Users"
+#, kde-format
 msgctxt "@action"
 msgid "Invite Users"
 msgstr "Povabi uporabnike"
 
 #: widgets/room/channelactionpopupmenu.cpp:97
-#, fuzzy, kde-format
-#| msgid "Add Users in Channel…"
+#, kde-format
 msgctxt "@action"
 msgid "Add Users in Channel…"
-msgstr "Dodaj uporabnike v kanal…"
+msgstr "Dodaj uporabnike v kanal..."
 
 #: widgets/room/channelactionpopupmenu.cpp:105
 #, kde-format
@@ -8582,22 +8591,19 @@ msgid "Video Chat"
 msgstr "Video klepet"
 
 #: widgets/room/channelactionpopupmenu.cpp:112
-#, fuzzy, kde-format
-#| msgid "Export Messages…"
+#, kde-format
 msgctxt "@action"
 msgid "Export Messages…"
-msgstr "Izvozi sporočila…"
+msgstr "Izvozi sporočila..."
 
 #: widgets/room/channelactionpopupmenu.cpp:119
-#, fuzzy, kde-format
-#| msgid "OTR"
+#, kde-format
 msgctxt "@action"
 msgid "OTR"
 msgstr "OTR"
 
 #: widgets/room/channelactionpopupmenu.cpp:126
-#, fuzzy, kde-format
-#| msgid "Encrypt Messages"
+#, kde-format
 msgctxt "@action"
 msgid "Encrypt Messages"
 msgstr "Šifriraj sporočila"
@@ -8653,8 +8659,7 @@ msgstr "Podatki o uporabniku"
 
 #: widgets/room/delegate/messagelistdelegate.cpp:429
 #: widgets/room/messagelistview.cpp:388
-#, fuzzy, kde-format
-#| msgid "Start a Private Conversation"
+#, kde-format
 msgctxt "@action"
 msgid "Start a Private Conversation"
 msgstr "Začni zasebni pogovor"
@@ -8779,22 +8784,19 @@ msgid "Remove as Favorite"
 msgstr "Odstrani iz priljubljenih"
 
 #: widgets/room/messagelistview.cpp:301
-#, fuzzy, kde-format
-#| msgid "Select All"
+#, kde-format
 msgctxt "@action"
 msgid "Select All"
 msgstr "Izberi vse"
 
 #: widgets/room/messagelistview.cpp:306
-#, fuzzy, kde-format
-#| msgid "Mark Message As Unread"
+#, kde-format
 msgctxt "@action"
 msgid "Mark Message As Unread"
 msgstr "Označi sporočilo kot neprebrano"
 
 #: widgets/room/messagelistview.cpp:311
-#, fuzzy, kde-format
-#| msgid "Show Full Thread"
+#, kde-format
 msgctxt "@action"
 msgid "Show Full Thread"
 msgstr "Pokaži polno nit"
@@ -8810,15 +8812,13 @@ msgid "Quote"
 msgstr "Citiraj"
 
 #: widgets/room/messagelistview.cpp:326
-#, fuzzy, kde-format
-#| msgid "Copy Link To Message"
+#, kde-format
 msgctxt "@action"
 msgid "Copy Link To Message"
 msgstr "Kopiraj povezavo v sporočilo"
 
 #: widgets/room/messagelistview.cpp:331
-#, fuzzy, kde-format
-#| msgid "Forward Message"
+#, kde-format
 msgctxt "@action"
 msgid "Forward Message"
 msgstr "Posreduj sporočilo"
@@ -8841,15 +8841,13 @@ msgid "Copy URL"
 msgstr "Kopiraj URL"
 
 #: widgets/room/messagelistview.cpp:404
-#, fuzzy, kde-format
-#| msgid "Start a Discussion"
+#, kde-format
 msgctxt "@action"
 msgid "Start a Discussion"
 msgstr "Začni razpravo"
 
 #: widgets/room/messagelistview.cpp:411
-#, fuzzy, kde-format
-#| msgid "Reply in Thread"
+#, kde-format
 msgctxt "@action"
 msgid "Reply in Thread"
 msgstr "Odgovori v niti"
@@ -8865,25 +8863,22 @@ msgid "Translate Message"
 msgstr "Prevedi sporočilo"
 
 #: widgets/room/messagelistview.cpp:515
-#, fuzzy, kde-format
-#| msgid "View Reports"
+#, kde-format
 msgctxt "@action"
 msgid "View Reports"
 msgstr "Pogled poročil"
 
 #: widgets/room/messagelistview.cpp:538
-#, fuzzy, kde-format
-#| msgid "Dismiss Reports"
+#, kde-format
 msgctxt "@action"
 msgid "Dismiss Reports"
 msgstr "Odpusti poročila"
 
 #: widgets/room/messagelistview.cpp:583
-#, fuzzy, kde-format
-#| msgid "Go to Message"
+#, kde-format
 msgctxt "@action"
 msgid "Go to Message"
-msgstr "Sporočilo"
+msgstr "Pojdi na sporočilo"
 
 #: widgets/room/messagelistview.cpp:608
 #, kde-format
@@ -9018,8 +9013,7 @@ msgstr "Podatki o ekipi"
 
 #: widgets/room/roomquotemessagewidget.cpp:20
 #: widgets/room/roomreplythreadwidget.cpp:21
-#, fuzzy, kde-format
-#| msgid "Cancel"
+#, kde-format
 msgctxt "@action"
 msgid "Cancel"
 msgstr "Prekliči"
@@ -9131,8 +9125,7 @@ msgid "Ignore User"
 msgstr "Prezri uporabnika"
 
 #: widgets/room/usersinroommenu.cpp:97
-#, fuzzy, kde-format
-#| msgid "Start Conversation"
+#, kde-format
 msgctxt "@action"
 msgid "Start Conversation"
 msgstr "Začni pogovor"
@@ -9168,8 +9161,7 @@ msgid "Add as Moderator"
 msgstr "Dodaj kot moderatorja"
 
 #: widgets/room/usersinroommenu.cpp:150
-#, fuzzy, kde-format
-#| msgid "Remove from Room"
+#, kde-format
 msgctxt "@action"
 msgid "Remove from Room"
 msgstr "Odstrani iz sobe"
@@ -9195,11 +9187,10 @@ msgid "Ignore"
 msgstr "Prezri"
 
 #: widgets/room/usersinroommenu.cpp:175
-#, fuzzy, kde-format
-#| msgid "Report User"
+#, kde-format
 msgctxt "@action"
 msgid "Report User"
-msgstr "Poročaj uporabniku"
+msgstr "Poročaj uporabnika"
 
 #: widgets/room/usersinroomwidget.cpp:144
 #, kde-format
@@ -9236,29 +9227,25 @@ msgid "Show New Notifications"
 msgstr "Prikaži nova obvestila"
 
 #: widgets/ruqolamainwindow.cpp:396
-#, fuzzy, kde-format
-#| msgid "Add Server…"
+#, kde-format
 msgctxt "@action"
 msgid "Add Server…"
-msgstr "Dodaj strežnik…"
+msgstr "Dodaj strežnik..."
 
 #: widgets/ruqolamainwindow.cpp:401
-#, fuzzy, kde-format
-#| msgid "Server Info…"
+#, kde-format
 msgctxt "@action"
 msgid "Server Info…"
-msgstr "Informacije o strežniku…"
+msgstr "Informacije o strežniku..."
 
 #: widgets/ruqolamainwindow.cpp:405
-#, fuzzy, kde-format
-#| msgid "Logout Current Server"
+#, kde-format
 msgctxt "@action"
 msgid "Logout Current Server"
-msgstr "Odjavi se iz trenutnega strežnika"
+msgstr "Odjavi trenutnega strežnika"
 
 #: widgets/ruqolamainwindow.cpp:409
-#, fuzzy, kde-format
-#| msgid "Jump to Next Unread Channel"
+#, kde-format
 msgctxt "@action"
 msgid "Jump to Next Unread Channel"
 msgstr "Skoči na naslednji neprebrani kanal"
@@ -9284,22 +9271,19 @@ msgid "Create Team…"
 msgstr "Ustvari ekipo…"
 
 #: widgets/ruqolamainwindow.cpp:434
-#, fuzzy, kde-format
-#| msgid "Unread on Top"
+#, kde-format
 msgctxt "@action"
 msgid "Unread on Top"
 msgstr "Neprebrano na vrhu"
 
 #: widgets/ruqolamainwindow.cpp:442
-#, fuzzy, kde-format
-#| msgid "By Last Message"
+#, kde-format
 msgctxt "@action"
 msgid "By Last Message"
 msgstr "Z zadnjim sporočilom"
 
 #: widgets/ruqolamainwindow.cpp:448
-#, fuzzy, kde-format
-#| msgid "Alphabetically"
+#, kde-format
 msgctxt "@action"
 msgid "Alphabetically"
 msgstr "Po abecednem redu"
@@ -9315,39 +9299,34 @@ msgid "Show Server Errors"
 msgstr "Pokaži napake strežnika"
 
 #: widgets/ruqolamainwindow.cpp:477
-#, fuzzy, kde-format
-#| msgid "Mark All Channels as Read"
+#, kde-format
 msgctxt "@action"
 msgid "Mark All Channels as Read"
 msgstr "Označi vse kanale kot prebrane"
 
 #: widgets/ruqolamainwindow.cpp:482
-#, fuzzy, kde-format
-#| msgid "Register a New User…"
+#, kde-format
 msgctxt "@action"
 msgid "Register a New User…"
-msgstr "Registriraj novega uporabnika…"
+msgstr "Registriraj novega uporabnika..."
 
 #: widgets/ruqolamainwindow.cpp:486
-#, fuzzy, kde-format
-#| msgid "My Account…"
+#, kde-format
 msgctxt "@action"
 msgid "My Account…"
-msgstr "Moj račun…"
+msgstr "Moj račun..."
 
 #: widgets/ruqolamainwindow.cpp:491
-#, fuzzy, kde-format
-#| msgid "Administrator…"
+#, kde-format
 msgctxt "@action"
 msgid "Administrator…"
-msgstr "Skrbnik…"
+msgstr "Skrbnik..."
 
 #: widgets/ruqolamainwindow.cpp:497
-#, fuzzy, kde-format
-#| msgid "Server Settings…"
+#, kde-format
 msgctxt "@action"
 msgid "Server Settings…"
-msgstr "Nastavitve strežnika…"
+msgstr "Nastavitve strežnika..."
 
 #: widgets/ruqolamainwindow.cpp:502
 #, kde-format
@@ -9366,15 +9345,13 @@ msgid "&Previous Server"
 msgstr "&Prejšnji strežnik"
 
 #: widgets/ruqolamainwindow.cpp:550
-#, fuzzy, kde-format
-#| msgid "Previous Selected Channel"
+#, kde-format
 msgctxt "@action"
 msgid "Previous Selected Channel"
 msgstr "Prejšnji izbrani kanal"
 
 #: widgets/ruqolamainwindow.cpp:557
-#, fuzzy, kde-format
-#| msgid "Next Selected Channel"
+#, kde-format
 msgctxt "@action"
 msgid "Next Selected Channel"
 msgstr "Naslednji izbrani kanal"
@@ -9385,22 +9362,19 @@ msgid "Show Notify History"
 msgstr "Prikaži zgodovino obvestil"
 
 #: widgets/ruqolamainwindow.cpp:592
-#, fuzzy, kde-format
-#| msgid "Show RocketChat Information"
+#, kde-format
 msgctxt "@action"
 msgid "Show RocketChat Information"
 msgstr "Prikaži informacijo o RocketChatu"
 
 #: widgets/ruqolamainwindow.cpp:596
-#, fuzzy, kde-format
-#| msgid "Show Room Avatar"
+#, kde-format
 msgctxt "@action"
 msgid "Show Room Avatar"
 msgstr "Pokaži avatarja sobe"
 
 #: widgets/ruqolamainwindow.cpp:601
-#, fuzzy, kde-format
-#| msgid "Show Favorite Room"
+#, kde-format
 msgctxt "@action"
 msgid "Show Favorite Room"
 msgstr "Prikaži priljubljeno sobo"
@@ -9421,22 +9395,19 @@ msgid "Export Accounts"
 msgstr "Izvozi račune"
 
 #: widgets/ruqolamainwindow.cpp:631
-#, fuzzy, kde-format
-#| msgid "Medium"
+#, kde-format
 msgctxt "@action"
 msgid "Medium"
 msgstr "Srednje"
 
 #: widgets/ruqolamainwindow.cpp:639
-#, fuzzy, kde-format
-#| msgid "Condensed"
+#, kde-format
 msgctxt "@action"
 msgid "Condensed"
 msgstr "Strnjeno"
 
 #: widgets/ruqolamainwindow.cpp:648
-#, fuzzy, kde-format
-#| msgid "Extended"
+#, kde-format
 msgctxt "@action"
 msgid "Extended"
 msgstr "Razširjeno"

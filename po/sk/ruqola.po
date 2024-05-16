@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-05-15 00:38+0000\n"
+"POT-Creation-Date: 2024-05-16 00:38+0000\n"
 "PO-Revision-Date: 2019-07-29 20:25+0200\n"
 "Last-Translator: Roman Paholík <wizzardsk@gmail.com>\n"
 "Language-Team: Slovak <kde-sk@linux.sk>\n"
@@ -32,7 +32,9 @@ msgid "Copyright © 2020-2024 Ruqola authors"
 msgstr "Copyright © 2017-2019 Autori Ruqola"
 
 #: apps/main.cpp:52
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Laurent Montel"
+msgctxt "@info:credit"
 msgid "Laurent Montel"
 msgstr "Laurent Montel"
 
@@ -42,7 +44,9 @@ msgid "Maintainer"
 msgstr "Správca"
 
 #: apps/main.cpp:53
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Riccardo Iaconelli"
+msgctxt "@info:credit"
 msgid "Riccardo Iaconelli"
 msgstr "Riccardo Iaconelli"
 
@@ -53,7 +57,9 @@ msgid "Original Author"
 msgstr "Pôvodný autor"
 
 #: apps/main.cpp:57
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "David Faure"
+msgctxt "@info:credit"
 msgid "David Faure"
 msgstr "David Faure"
 
@@ -64,6 +70,7 @@ msgstr ""
 
 #: apps/main.cpp:58
 #, kde-format
+msgctxt "@info:credit"
 msgid "Kevin Funk"
 msgstr ""
 
@@ -75,16 +82,19 @@ msgstr ""
 
 #: apps/main.cpp:59
 #, kde-format
+msgctxt "@info:credit"
 msgid "Olivier JG"
 msgstr ""
 
 #: apps/main.cpp:60
 #, kde-format
+msgctxt "@info:credit"
 msgid "Milian Wolff"
 msgstr ""
 
 #: apps/main.cpp:61
 #, kde-format
+msgctxt "@info:credit"
 msgid "Till Adam"
 msgstr ""
 
@@ -95,16 +105,19 @@ msgstr ""
 
 #: apps/main.cpp:62
 #, kde-format
+msgctxt "@info:credit"
 msgid "Shantanu Tushar"
 msgstr ""
 
 #: apps/main.cpp:63
 #, kde-format
+msgctxt "@info:credit"
 msgid "Alessandro Ambrosano"
 msgstr ""
 
 #: apps/main.cpp:64
 #, kde-format
+msgctxt "@info:credit"
 msgid "Hannah von Reth"
 msgstr ""
 
@@ -115,6 +128,7 @@ msgstr ""
 
 #: apps/main.cpp:65
 #, kde-format
+msgctxt "@info:credit"
 msgid "Allen Winter"
 msgstr ""
 
@@ -125,6 +139,7 @@ msgstr ""
 
 #: apps/main.cpp:66
 #, kde-format
+msgctxt "@info:credit"
 msgid "Waqar Ahmed"
 msgstr ""
 
@@ -135,6 +150,7 @@ msgstr ""
 
 #: apps/main.cpp:67
 #, kde-format
+msgctxt "@info:credit"
 msgid "Nicolas Fella"
 msgstr ""
 
@@ -316,9 +332,8 @@ msgstr ""
 #: widgets/dialogs/createsoundmessagewidget.cpp:138
 #: widgets/dialogs/playsoundwidget.cpp:122
 #: widgets/dialogs/showvideowidget.cpp:122
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:201
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:209
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:216
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:230
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:238
 #, kde-format
 msgid "Default"
 msgstr "Predvolené"
@@ -833,7 +848,7 @@ msgid "Role"
 msgstr ""
 
 #: core/model/adminusersmodel.cpp:116 core/model/adminusersmodel.cpp:163
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:218
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:247
 #, kde-format
 msgid "Disabled"
 msgstr ""
@@ -1042,19 +1057,19 @@ msgstr[1] "%1 sekundy"
 msgstr[2] "%1 sekúnd"
 
 #: core/model/notificationpreferencemodel.cpp:51
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:187
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:216
 #, kde-format
 msgid "All Messages"
 msgstr "Všetky správy"
 
 #: core/model/notificationpreferencemodel.cpp:57
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:189
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:218
 #, kde-format
 msgid "Mentions"
 msgstr ""
 
 #: core/model/notificationpreferencemodel.cpp:63
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:191
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:220
 #, kde-format
 msgid "Nothing"
 msgstr "Nič"
@@ -8460,124 +8475,136 @@ msgctxt "@title:window"
 msgid "Remove Token"
 msgstr "Odstrániť účet"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:32
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:34
 #, fuzzy, kde-format
 #| msgid "Status:"
 msgid "Use Emojis"
 msgstr "Stav:"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:33
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:35
 #, kde-format
 msgid "Convert Ascii to Emoji"
 msgstr ""
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:34
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:36
 #, fuzzy, kde-format
 #| msgid "Private:"
 msgid "Hide roles"
 msgstr "Súkromné:"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:35
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:37
 #, fuzzy, kde-format
 #| msgid "Password:"
 msgid "Display avatars"
 msgstr "Heslo:"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:36
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:38
 #, kde-format
 msgid "Receive login detection emails"
 msgstr ""
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:38
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:40
 #, fuzzy, kde-format
 #| msgid "Translation"
 msgid "Enable Auto Away"
 msgstr "Preklad"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:39
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:41
 #, fuzzy, kde-format
 #| msgid "Notifications"
 msgid "Offline Email notification:"
 msgstr "Upozornenia"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:49
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:55
 #, kde-format
 msgid "Highlight words:"
 msgstr ""
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:56
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:62
 #, kde-format
 msgid "Use ',' for separating words"
 msgstr ""
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:57
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:63
 #, kde-format
 msgid "Separate each word with ','."
 msgstr ""
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:65
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:71
 #, fuzzy, kde-format
 #| msgid "Notifications"
 msgid "Desktop notification:"
 msgstr "Upozornenia"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:78
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:84
 #, fuzzy, kde-format
 #| msgid "Notifications"
 msgid "Push notification:"
 msgstr "Upozornenia"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:86
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:92
 #, kde-format
 msgid "Receive an email each time a new login is detected on your account."
 msgstr ""
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:105
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:111
 #, kde-format
 msgid "Idle Time Limit:"
 msgstr ""
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:112
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:118
 #, kde-format
 msgid ""
 "Period of time until status changes to away. Value needs to be in seconds."
 msgstr ""
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:129
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:130
+#, fuzzy, kde-format
+#| msgid "Notifications"
+msgid "New Room Notification:"
+msgstr "Upozornenia"
+
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:158
 #, kde-format
 msgid "Download my Data (HTML)"
 msgstr ""
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:136
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:165
 #, kde-format
 msgid "Export my Data (JSON)"
 msgstr ""
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:180
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:209
 #, kde-format
 msgid ""
 "Your data file will be generated. A link to download it will be sent to your "
 "email address when ready."
 msgstr ""
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:181
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:210
 #, kde-format
 msgid "Download File Requested"
 msgstr ""
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:200
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:208
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:229
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:237
 #, fuzzy, kde-format
 #| msgid "Default"
 msgid "Default (%1)"
 msgstr "Predvolené"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:217
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:245
 #, kde-format
-msgid "Each Mentions"
+msgid "Default (Every Mention/DM)"
 msgstr ""
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:221
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:246
+#, fuzzy, kde-format
+#| msgid "Private Messages"
+msgid "Every Mention/DM"
+msgstr "Súkromné adresy"
+
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:250
 #, kde-format
 msgid "Your Rocket.Chat administrator has disabled email notifications"
 msgstr ""
