@@ -58,14 +58,14 @@ MyAccountPreferenceConfigureWidget::MyAccountPreferenceConfigureWidget(RocketCha
     auto highlightWordsLabel = new QLabel(i18n("Highlight words:"), this);
     highlightWordsLabel->setObjectName(QStringLiteral("highlightWordsLabel"));
     highlightWordsLabel->setTextFormat(Qt::PlainText);
-    mainLayout->addWidget(highlightWordsLabel);
 
     mHighlightWords->setObjectName(QStringLiteral("mHighlightWords"));
     KLineEditEventHandler::catchReturnKey(mHighlightWords);
     mHighlightWords->setPlaceholderText(i18n("Use \',\' for separating words"));
     mHighlightWords->setToolTip(i18n("Separate each word with \',\'."));
     connect(mHighlightWords, &QLineEdit::textEdited, this, &MyAccountPreferenceConfigureWidget::setWasChanged);
-    mainLayout->addWidget(mHighlightWords);
+
+    createLayout(highlightWordsLabel, mHighlightWords, mainLayout);
 
     mDesktopNotification->setObjectName(QStringLiteral("mDesktopNotification"));
     mEmailNotification->setObjectName(QStringLiteral("mEmailNotification"));
@@ -77,19 +77,17 @@ MyAccountPreferenceConfigureWidget::MyAccountPreferenceConfigureWidget(RocketCha
     mainLayout->addWidget(desktopNotificationLabel);
 
     mainLayout->addWidget(mDesktopNotification);
+    createLayout(desktopNotificationLabel, mDesktopNotification, mainLayout);
 
     mEmailNotificationLabel->setObjectName(QStringLiteral("emailNotificationLabel"));
     mEmailNotificationLabel->setTextFormat(Qt::PlainText);
-    mainLayout->addWidget(mEmailNotificationLabel);
-
-    mainLayout->addWidget(mEmailNotification);
+    createLayout(mEmailNotificationLabel, mEmailNotification, mainLayout);
 
     auto pushNotificationLabel = new QLabel(i18n("Push notification:"), this);
     pushNotificationLabel->setObjectName(QStringLiteral("pushNotificationLabel"));
     pushNotificationLabel->setTextFormat(Qt::PlainText);
-    mainLayout->addWidget(pushNotificationLabel);
 
-    mainLayout->addWidget(mPushNotification);
+    createLayout(pushNotificationLabel, mPushNotification, mainLayout);
 
     mReceiveLoginDetectionEmails->setObjectName(QStringLiteral("mReceiveLoginDetectionEmails"));
     mReceiveLoginDetectionEmails->setToolTip(i18n("Receive an email each time a new login is detected on your account."));
