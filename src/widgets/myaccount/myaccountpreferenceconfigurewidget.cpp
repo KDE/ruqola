@@ -7,7 +7,6 @@
 #include "myaccountpreferenceconfigurewidget.h"
 #include "model/notificationdesktopsoundpreferencemodel.h"
 #include "model/notificationdesktopsoundpreferenceproxymodel.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "connection.h"
 #include "rocketchataccount.h"
@@ -25,6 +24,7 @@ using namespace Qt::Literals::StringLiterals;
 #include <QSpinBox>
 #include <QVBoxLayout>
 
+using namespace Qt::Literals::StringLiterals;
 MyAccountPreferenceConfigureWidget::MyAccountPreferenceConfigureWidget(RocketChatAccount *account, QWidget *parent)
     : QWidget(parent)
     , mHighlightWords(new QLineEdit(this))

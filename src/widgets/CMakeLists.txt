@@ -582,6 +582,9 @@ target_sources(libruqolawidgets PRIVATE
     myaccount/myaccountmanagedeviceconfigurewidget.cpp
     myaccount/myaccountmanagedeviceconfigurewidget.h
 
+    myaccount/myaccountpreferenceconfiguresoundcombobox.h
+    myaccount/myaccountpreferenceconfiguresoundcombobox.cpp
+
     notificationhistory/notificationhistorydialog.cpp
     notificationhistory/notificationhistorydialog.h
     notificationhistory/notificationhistorywidget.cpp
