@@ -18,6 +18,7 @@ class QLabel;
 class NotificationDesktopSoundPreferenceModel;
 class NotificationDesktopSoundPreferenceProxyModel;
 class MyAccountPreferenceConfigureSoundComboBox;
+class QVBoxLayout;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT MyAccountPreferenceConfigureWidget : public QWidget
 {
     Q_OBJECT
@@ -32,6 +33,7 @@ private:
     LIBRUQOLAWIDGETS_NO_EXPORT void setWasChanged();
     LIBRUQOLAWIDGETS_NO_EXPORT void initComboboxValues();
     LIBRUQOLAWIDGETS_NO_EXPORT void downloadData(bool fullData);
+    LIBRUQOLAWIDGETS_NO_EXPORT void createLayout(QLabel *label, QWidget *widget, QVBoxLayout *layout);
     [[nodiscard]] LIBRUQOLAWIDGETS_NO_EXPORT QString desktopPushNotificationI18n(const QString &value) const;
     QLineEdit *const mHighlightWords;
     QComboBox *const mDesktopNotification;

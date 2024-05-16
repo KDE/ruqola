@@ -114,13 +114,13 @@ MyAccountPreferenceConfigureWidget::MyAccountPreferenceConfigureWidget(RocketCha
     auto idleTimeLimitLabel = new QLabel(i18n("Idle Time Limit:"), this);
     idleTimeLimitLabel->setObjectName(QStringLiteral("idleTimeLimitLabel"));
     idleTimeLimitLabel->setTextFormat(Qt::PlainText);
-    mainLayout->addWidget(idleTimeLimitLabel);
 
     mIdleTimeLimit->setObjectName(QStringLiteral("mIdleTimeLimit"));
     mIdleTimeLimit->setMaximum(9999);
     mIdleTimeLimit->setToolTip(i18n("Period of time until status changes to away. Value needs to be in seconds."));
     connect(mIdleTimeLimit, &QSpinBox::valueChanged, this, &MyAccountPreferenceConfigureWidget::setWasChanged);
-    mainLayout->addWidget(mIdleTimeLimit);
+
+    createLayout(idleTimeLimitLabel, mIdleTimeLimit, mainLayout);
 
     QWidget *soundWidget = new QWidget;
     soundWidget->setObjectName(QStringLiteral("soundWidget"));
@@ -133,16 +133,15 @@ MyAccountPreferenceConfigureWidget::MyAccountPreferenceConfigureWidget(RocketCha
     auto newRoomNotificationLabel = new QLabel(i18n("New Room Notification:"), this);
     newRoomNotificationLabel->setObjectName(QStringLiteral("newRoomNotificationLabel"));
     newRoomNotificationLabel->setTextFormat(Qt::PlainText);
-    soundWidgetLayout->addWidget(newRoomNotificationLabel);
 
-    soundWidgetLayout->addWidget(mSoundNewRoomNotification);
+    createLayout(newRoomNotificationLabel, mSoundNewRoomNotification, soundWidgetLayout);
 
     auto newMessageNotificationLabel = new QLabel(i18n("New Message Notification:"), this);
     newMessageNotificationLabel->setObjectName(QStringLiteral("newMessageNotificationLabel"));
     newMessageNotificationLabel->setTextFormat(Qt::PlainText);
-    soundWidgetLayout->addWidget(newMessageNotificationLabel);
 
-    soundWidgetLayout->addWidget(mSoundNewMessageNotification);
+    createLayout(newMessageNotificationLabel, mSoundNewMessageNotification, soundWidgetLayout);
+
     if (mRocketChatAccount) {
         mSoundModel->setCustomSoundManager(mRocketChatAccount->customSoundManager());
         mSoundProxyModel->setSourceModel(mSoundModel);
@@ -199,6 +198,15 @@ MyAccountPreferenceConfigureWidget::MyAccountPreferenceConfigureWidget(RocketCha
 }
 
 MyAccountPreferenceConfigureWidget::~MyAccountPreferenceConfigureWidget() = default;
+
+void MyAccountPreferenceConfigureWidget::createLayout(QLabel *label, QWidget *widget, QVBoxLayout *layout)
+{
+    auto newMessageNotificationLayout = new QHBoxLayout;
+    newMessageNotificationLayout->setContentsMargins({});
+    newMessageNotificationLayout->addWidget(label);
+    newMessageNotificationLayout->addWidget(widget);
+    layout->addLayout(newMessageNotificationLayout);
+}
 
 void MyAccountPreferenceConfigureWidget::downloadData(bool fullData)
 {
