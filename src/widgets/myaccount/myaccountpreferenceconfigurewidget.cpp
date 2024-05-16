@@ -41,6 +41,7 @@ MyAccountPreferenceConfigureWidget::MyAccountPreferenceConfigureWidget(RocketCha
     , mAutomaticAway(new QCheckBox(i18n("Enable Auto Away"), this))
     , mEmailNotificationLabel(new QLabel(i18n("Offline Email notification:"), this))
     , mSoundNewRoomNotification(new MyAccountPreferenceConfigureSoundComboBox(this))
+    , mSoundNewMessageNotification(new MyAccountPreferenceConfigureSoundComboBox(this))
     , mSoundModel(new NotificationDesktopSoundPreferenceModel(this))
     , mSoundProxyModel(new NotificationDesktopSoundPreferenceProxyModel(this))
     , mRocketChatAccount(account)
@@ -50,6 +51,7 @@ MyAccountPreferenceConfigureWidget::MyAccountPreferenceConfigureWidget(RocketCha
     mHideRoles->setObjectName(QStringLiteral("mHideRoles"));
     mDisplayAvatars->setObjectName(QStringLiteral("mDisplayAvatars"));
     mSoundNewRoomNotification->setObjectName(QStringLiteral("mSoundNewRoomNotification"));
+    mSoundNewMessageNotification->setObjectName(QStringLiteral("mSoundNewMessageNotification"));
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
 
@@ -134,10 +136,18 @@ MyAccountPreferenceConfigureWidget::MyAccountPreferenceConfigureWidget(RocketCha
     soundWidgetLayout->addWidget(newRoomNotificationLabel);
 
     soundWidgetLayout->addWidget(mSoundNewRoomNotification);
+
+    auto newMessageNotificationLabel = new QLabel(i18n("New Message Notification:"), this);
+    newMessageNotificationLabel->setObjectName(QStringLiteral("newMessageNotificationLabel"));
+    newMessageNotificationLabel->setTextFormat(Qt::PlainText);
+    soundWidgetLayout->addWidget(newMessageNotificationLabel);
+
+    soundWidgetLayout->addWidget(mSoundNewMessageNotification);
     if (mRocketChatAccount) {
         mSoundModel->setCustomSoundManager(mRocketChatAccount->customSoundManager());
         mSoundProxyModel->setSourceModel(mSoundModel);
         mSoundNewRoomNotification->setModel(mSoundProxyModel);
+        mSoundNewMessageNotification->setModel(mSoundProxyModel);
     }
 
     mainLayout->addWidget(soundWidget);
@@ -255,11 +265,11 @@ void MyAccountPreferenceConfigureWidget::initComboboxValues()
     connect(mPushNotification, &QComboBox::activated, this, &MyAccountPreferenceConfigureWidget::setWasChanged);
     connect(mEmailNotification, &QComboBox::activated, this, &MyAccountPreferenceConfigureWidget::setWasChanged);
     connect(mSoundNewRoomNotification, &MyAccountPreferenceConfigureSoundComboBox::activated, this, &MyAccountPreferenceConfigureWidget::setWasChanged);
+    connect(mSoundNewMessageNotification, &MyAccountPreferenceConfigureSoundComboBox::activated, this, &MyAccountPreferenceConfigureWidget::setWasChanged);
 }
 
 void MyAccountPreferenceConfigureWidget::save()
 {
-    qDebug() << " mSoundNewRoomNotification " << mSoundNewRoomNotification->identifier();
     if (mChanged) {
         const QStringList highlightWords = mHighlightWords->text().split(QLatin1Char(','));
         QStringList listWords;
@@ -282,8 +292,7 @@ void MyAccountPreferenceConfigureWidget::save()
         info.convertAsciiToEmoji = RocketChatRestApi::UsersSetPreferencesJob::UsersSetPreferencesInfo::convertToState(mConvertAsciiEmoji->isChecked());
         info.idleTimeLimit = mIdleTimeLimit->value();
         info.enableAutoAway = RocketChatRestApi::UsersSetPreferencesJob::UsersSetPreferencesInfo::convertToState(mAutomaticAway->isChecked());
-        // TODO
-        // info.newMessageNotification = ;
+        info.newMessageNotification = mSoundNewMessageNotification->identifier();
         info.newRoomNotification = mSoundNewRoomNotification->identifier();
         if (mRocketChatAccount) {
             if (mRocketChatAccount->ruqolaServerConfig()->hasAtLeastVersion(5, 4, 0)) {
@@ -313,6 +322,7 @@ void MyAccountPreferenceConfigureWidget::load()
     mIdleTimeLimit->setValue(ownUserPreferences.idleTimeLimit());
     mAutomaticAway->setChecked(ownUserPreferences.enableAutoAway());
     mSoundNewRoomNotification->setCurrentSoundName(ownUserPreferences.newRoomNotification().toLatin1());
+    mSoundNewMessageNotification->setCurrentSoundName(ownUserPreferences.newMessageNotification().toLatin1());
     mChanged = false;
 }
 

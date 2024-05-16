@@ -47,6 +47,7 @@ private:
     QCheckBox *const mAutomaticAway;
     QLabel *const mEmailNotificationLabel;
     MyAccountPreferenceConfigureSoundComboBox *const mSoundNewRoomNotification;
+    MyAccountPreferenceConfigureSoundComboBox *const mSoundNewMessageNotification;
     NotificationDesktopSoundPreferenceModel *const mSoundModel;
     NotificationDesktopSoundPreferenceProxyModel *const mSoundProxyModel;
     RocketChatAccount *const mRocketChatAccount;

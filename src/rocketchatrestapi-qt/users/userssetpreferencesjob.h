@@ -28,7 +28,7 @@ public:
         [[nodiscard]] static State convertToState(bool checked);
         QByteArray userId;
         QByteArray newRoomNotification;
-        QString newMessageNotification;
+        QByteArray newMessageNotification;
         QString desktopNotifications;
         QString pushNotifications;
         QString emailNotificationMode;

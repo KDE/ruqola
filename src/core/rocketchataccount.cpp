@@ -2845,6 +2845,14 @@ void RocketChatAccount::updateUserData(const QJsonArray &contents)
                 ownUserPreferences.setEmailNotificationMode(updateJson.value(key).toString());
                 mOwnUser.setOwnUserPreferences(ownUserPreferences);
                 Q_EMIT ownUserPreferencesChanged();
+            } else if (key == "settings.preferences.newMessageNotification"_L1) {
+                ownUserPreferences.setNewMessageNotification(updateJson.value(key).toString());
+                mOwnUser.setOwnUserPreferences(ownUserPreferences);
+                Q_EMIT ownUserPreferencesChanged();
+            } else if (key == "settings.preferences.newRoomNotification"_L1) {
+                ownUserPreferences.setNewRoomNotification(updateJson.value(key).toString());
+                mOwnUser.setOwnUserPreferences(ownUserPreferences);
+                Q_EMIT ownUserPreferencesChanged();
             } else {
                 const static QRegularExpression bannerRegularExpression(QStringLiteral("banners.(.*).read"));
                 QRegularExpressionMatch rmatch;
