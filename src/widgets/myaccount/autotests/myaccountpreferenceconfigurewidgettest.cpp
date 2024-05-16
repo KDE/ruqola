@@ -126,6 +126,9 @@ void MyAccountPreferenceConfigureWidgetTest::shouldHaveDefaultValues()
 
     auto mSoundNewRoomNotification = soundWidget->findChild<QComboBox *>(QStringLiteral("mSoundNewRoomNotification"));
     QVERIFY(mSoundNewRoomNotification);
+
+    auto mSoundNewMessageNotification = soundWidget->findChild<QComboBox *>(QStringLiteral("mSoundNewMessageNotification"));
+    QVERIFY(mSoundNewMessageNotification);
 }
 
 #include "moc_myaccountpreferenceconfigurewidgettest.cpp"
