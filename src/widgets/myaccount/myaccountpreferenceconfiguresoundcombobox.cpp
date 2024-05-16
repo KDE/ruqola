@@ -23,3 +23,5 @@ void MyAccountPreferenceConfigureSoundComboBox::setCurrentSoundName(const QByteA
 {
     setCurrentIndex(findData(identifier, NotificationDesktopSoundPreferenceModel::NotificationPreference));
 }
+
+#include "moc_myaccountpreferenceconfiguresoundcombobox.cpp"
