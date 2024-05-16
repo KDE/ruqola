@@ -27,7 +27,7 @@ public:
         [[nodiscard]] static bool convertToBool(State state);
         [[nodiscard]] static State convertToState(bool checked);
         QByteArray userId;
-        QString newRoomNotification;
+        QByteArray newRoomNotification;
         QString newMessageNotification;
         QString desktopNotifications;
         QString pushNotifications;

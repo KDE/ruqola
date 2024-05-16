@@ -9,6 +9,7 @@
 #include "model/notificationdesktopsoundpreferenceproxymodel.h"
 
 #include "connection.h"
+#include "myaccountpreferenceconfiguresoundcombobox.h"
 #include "rocketchataccount.h"
 #include "ruqolawidgets_debug.h"
 #include "users/userrequestdatadownloadjob.h"
@@ -39,7 +40,7 @@ MyAccountPreferenceConfigureWidget::MyAccountPreferenceConfigureWidget(RocketCha
     , mIdleTimeLimit(new QSpinBox(this))
     , mAutomaticAway(new QCheckBox(i18n("Enable Auto Away"), this))
     , mEmailNotificationLabel(new QLabel(i18n("Offline Email notification:"), this))
-    , mSoundNewRoomNotification(new QComboBox(this))
+    , mSoundNewRoomNotification(new MyAccountPreferenceConfigureSoundComboBox(this))
     , mSoundModel(new NotificationDesktopSoundPreferenceModel(this))
     , mSoundProxyModel(new NotificationDesktopSoundPreferenceProxyModel(this))
     , mRocketChatAccount(account)
@@ -253,10 +254,12 @@ void MyAccountPreferenceConfigureWidget::initComboboxValues()
     connect(mDesktopNotification, &QComboBox::activated, this, &MyAccountPreferenceConfigureWidget::setWasChanged);
     connect(mPushNotification, &QComboBox::activated, this, &MyAccountPreferenceConfigureWidget::setWasChanged);
     connect(mEmailNotification, &QComboBox::activated, this, &MyAccountPreferenceConfigureWidget::setWasChanged);
+    connect(mSoundNewRoomNotification, &MyAccountPreferenceConfigureSoundComboBox::activated, this, &MyAccountPreferenceConfigureWidget::setWasChanged);
 }
 
 void MyAccountPreferenceConfigureWidget::save()
 {
+    qDebug() << " mSoundNewRoomNotification " << mSoundNewRoomNotification->identifier();
     if (mChanged) {
         const QStringList highlightWords = mHighlightWords->text().split(QLatin1Char(','));
         QStringList listWords;
@@ -281,7 +284,7 @@ void MyAccountPreferenceConfigureWidget::save()
         info.enableAutoAway = RocketChatRestApi::UsersSetPreferencesJob::UsersSetPreferencesInfo::convertToState(mAutomaticAway->isChecked());
         // TODO
         // info.newMessageNotification = ;
-        // info.newRoomNotification = ;
+        info.newRoomNotification = mSoundNewRoomNotification->identifier();
         if (mRocketChatAccount) {
             if (mRocketChatAccount->ruqolaServerConfig()->hasAtLeastVersion(5, 4, 0)) {
                 if (mRocketChatAccount->ruqolaServerConfig()->deviceManagementEnableLoginEmails()
@@ -309,7 +312,7 @@ void MyAccountPreferenceConfigureWidget::load()
     mReceiveLoginDetectionEmails->setChecked(ownUserPreferences.receiveLoginDetectionEmail());
     mIdleTimeLimit->setValue(ownUserPreferences.idleTimeLimit());
     mAutomaticAway->setChecked(ownUserPreferences.enableAutoAway());
-    mSoundNewRoomNotification->setCurrentIndex(mSoundModel->setCurrentNotificationPreference(ownUserPreferences.newRoomNotification().toLatin1()) - 2);
+    mSoundNewRoomNotification->setCurrentSoundName(ownUserPreferences.newRoomNotification().toLatin1());
     mChanged = false;
 }
 
