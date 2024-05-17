@@ -85,5 +85,6 @@ static const KLazyLocalizedString ruqolaBugfixing2_2[] = {
     kli18n("Reduce memory footprint."),
     kli18n("Use RESTAPI for logging."),
     kli18n("Allow to send multi files."),
+    kli18n("Fix preview url."),
 };
 static const int numRuqolaBugfixing2_2 = sizeof ruqolaBugfixing2_2 / sizeof *ruqolaBugfixing2_2;
