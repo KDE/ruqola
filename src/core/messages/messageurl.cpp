@@ -250,6 +250,25 @@ MessageUrl::ContentType MessageUrl::stringToContentTypeEnum(const QString &str)
     return MessageUrl::ContentType::None;
 }
 
+MessageUrl::ContentType MessageUrl::parseHeaderContentType(const QString &typeHeader)
+{
+    if (!typeHeader.isEmpty()) {
+        const static QRegularExpression rimage(QStringLiteral("image/.*"));
+        const static QRegularExpression raudio(QStringLiteral("audio/.*"));
+        const static QRegularExpression rvideo(QStringLiteral("video/.*"));
+        if (typeHeader.contains(rimage)) {
+            return MessageUrl::ContentType::Image;
+        } else if (typeHeader.contains(raudio)) {
+            return MessageUrl::ContentType::Audio;
+        } else if (typeHeader.contains(rvideo)) {
+            return MessageUrl::ContentType::Video;
+        } else {
+            qCWarning(RUQOLA_LOG) << "Invalid content type " << typeHeader;
+        }
+    }
+    return MessageUrl::ContentType::None;
+}
+
 void MessageUrl::parseUrl(const QJsonObject &url)
 {
     const QJsonValue urlStr = url.value("url"_L1);

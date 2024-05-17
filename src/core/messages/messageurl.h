@@ -82,6 +82,8 @@ public:
     [[nodiscard]] static QString contentTypeEnumToString(ContentType type);
     [[nodiscard]] static MessageUrl::ContentType stringToContentTypeEnum(const QString &str);
 
+    [[nodiscard]] static MessageUrl::ContentType parseHeaderContentType(const QString &typeHeader);
+
 private:
     [[nodiscard]] LIBRUQOLACORE_NO_EXPORT static QStringList pageTitleElements();
     [[nodiscard]] LIBRUQOLACORE_NO_EXPORT static QStringList descriptionElements();

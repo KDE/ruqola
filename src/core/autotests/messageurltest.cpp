@@ -287,6 +287,12 @@ void MessageUrlTest::shouldContentTypeConvert()
     QCOMPARE(MessageUrl::stringToContentTypeEnum(QStringLiteral("image")), MessageUrl::Image);
     QCOMPARE(MessageUrl::stringToContentTypeEnum(QStringLiteral("audio")), MessageUrl::Audio);
     QCOMPARE(MessageUrl::stringToContentTypeEnum(QStringLiteral("video")), MessageUrl::Video);
+
+    QCOMPARE(MessageUrl::parseHeaderContentType(QStringLiteral("foo")), MessageUrl::None);
+    QCOMPARE(MessageUrl::parseHeaderContentType(QStringLiteral("image/foo")), MessageUrl::Image);
+    QCOMPARE(MessageUrl::parseHeaderContentType(QStringLiteral("audio/bla")), MessageUrl::Audio);
+    QCOMPARE(MessageUrl::parseHeaderContentType(QStringLiteral("video/foo")), MessageUrl::Video);
+    QCOMPARE(MessageUrl::parseHeaderContentType(QStringLiteral("image")), MessageUrl::None);
 }
 
 #include "moc_messageurltest.cpp"
