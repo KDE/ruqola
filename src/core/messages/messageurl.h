@@ -76,6 +76,12 @@ public:
 
     void generateMessageUrlInfo();
 
+    [[nodiscard]] ContentType contentType() const;
+    void setContentType(ContentType newContentType);
+
+    [[nodiscard]] static QString contentTypeEnumToString(ContentType type);
+    [[nodiscard]] static MessageUrl::ContentType stringToContentTypeEnum(const QString &str);
+
 private:
     [[nodiscard]] LIBRUQOLACORE_NO_EXPORT static QStringList pageTitleElements();
     [[nodiscard]] LIBRUQOLACORE_NO_EXPORT static QStringList descriptionElements();
@@ -102,6 +108,7 @@ private:
     int mImageHeight = -1;
     int mImageWidth = -1;
     bool mShowPreview = true;
+    ContentType mContentType = ContentType::None;
 };
 LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const MessageUrl &t);
 Q_DECLARE_TYPEINFO(MessageUrl, Q_RELOCATABLE_TYPE);

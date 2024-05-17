@@ -6,6 +6,7 @@
 
 #include "messageurl.h"
 
+#include "ruqola_debug.h"
 #include "ruqolaglobalconfig.h"
 #include <QJsonObject>
 
@@ -192,6 +193,16 @@ void MessageUrl::generateImageUrl()
     }
 }
 
+MessageUrl::ContentType MessageUrl::contentType() const
+{
+    return mContentType;
+}
+
+void MessageUrl::setContentType(ContentType newContentType)
+{
+    mContentType = newContentType;
+}
+
 QString MessageUrl::buildImageUrl() const
 {
     return mImageBuildUrl;
@@ -207,6 +218,38 @@ void MessageUrl::setImageUrl(const QString &newImageUrl)
     mImageUrl = newImageUrl;
 }
 
+QString MessageUrl::contentTypeEnumToString(ContentType type)
+{
+    switch (type) {
+    case None:
+        return {};
+    case Image:
+        return QLatin1String("image");
+    case Audio:
+        return QLatin1String("audio");
+    case Video:
+        return QLatin1String("video");
+    }
+    return {};
+}
+
+MessageUrl::ContentType MessageUrl::stringToContentTypeEnum(const QString &str)
+{
+    if (str.isEmpty()) {
+        return MessageUrl::ContentType::None;
+    }
+    if (str == "image"_L1) {
+        return MessageUrl::ContentType::Image;
+    }
+    if (str == "audio"_L1) {
+        return MessageUrl::ContentType::Audio;
+    }
+    if (str == "video"_L1) {
+        return MessageUrl::ContentType::Video;
+    }
+    return MessageUrl::ContentType::None;
+}
+
 void MessageUrl::parseUrl(const QJsonObject &url)
 {
     const QJsonValue urlStr = url.value("url"_L1);
@@ -217,7 +260,18 @@ void MessageUrl::parseUrl(const QJsonObject &url)
     const QJsonObject headers = url.value("headers"_L1).toObject();
     const QString typeHeader = headers.value("contentType"_L1).toString();
     if (!typeHeader.isEmpty()) {
-        // TODO
+        const static QRegularExpression rimage(QStringLiteral("image/.*"));
+        const static QRegularExpression raudio(QStringLiteral("audio/.*"));
+        const static QRegularExpression rvideo(QStringLiteral("video/.*"));
+        if (typeHeader.contains(rimage)) {
+            mContentType = Image;
+        } else if (typeHeader.contains(raudio)) {
+            mContentType = Audio;
+        } else if (typeHeader.contains(rvideo)) {
+            mContentType = Video;
+        } else {
+            qCWarning(RUQOLA_LOG) << "Invalid content type " << typeHeader;
+        }
     }
     // TODO
 
@@ -390,7 +444,8 @@ bool MessageUrl::operator==(const MessageUrl &other) const
     return (mUrl == other.url()) && (mPageTitle == other.pageTitle()) && (mDescription == other.description()) && (mImageUrl == other.imageUrl())
         && (mAuthorName == other.authorName()) && (mAuthorUrl == other.authorUrl()) && (mSiteUrl == other.siteUrl()) && (mSiteName == other.siteName())
         && (mImageHeight == other.imageHeight()) && (mImageWidth == other.imageWidth())
-        && (mUrlId == other.urlId() && (mHtmlDescription == other.htmlDescription()) && (mImageBuildUrl == other.buildImageUrl()));
+        && (mUrlId == other.urlId() && (mHtmlDescription == other.htmlDescription()) && (mImageBuildUrl == other.buildImageUrl()))
+        && (mContentType == other.contentType());
 }
 
 QDebug operator<<(QDebug d, const MessageUrl &t)
@@ -408,6 +463,7 @@ QDebug operator<<(QDebug d, const MessageUrl &t)
     d.space() << "UrlId:" << t.urlId();
     d.space() << "htmlDescription:" << t.htmlDescription();
     d.space() << "buildImageUrl:" << t.buildImageUrl();
+    d.space() << "contentType:" << t.contentType();
     return d;
 }
 
