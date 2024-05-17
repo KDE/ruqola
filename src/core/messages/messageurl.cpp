@@ -233,6 +233,8 @@ QString MessageUrl::contentTypeEnumToString(ContentType type)
         return {};
     case Image:
         return QLatin1String("image");
+    case ImageAnimated:
+        return QLatin1String("image_animated");
     case Audio:
         return QLatin1String("audio");
     case Video:
@@ -260,6 +262,9 @@ MessageUrl::ContentType MessageUrl::stringToContentTypeEnum(const QString &str)
     if (str == "video"_L1) {
         return MessageUrl::ContentType::Video;
     }
+    if (str == "image_animated"_L1) {
+        return MessageUrl::ContentType::ImageAnimated;
+    }
     return MessageUrl::ContentType::None;
 }
 
@@ -269,7 +274,9 @@ MessageUrl::ContentType MessageUrl::parseHeaderContentType(const QString &typeHe
         const static QRegularExpression rimage(QStringLiteral("image/.*"));
         const static QRegularExpression raudio(QStringLiteral("audio/.*"));
         const static QRegularExpression rvideo(QStringLiteral("video/.*"));
-        if (typeHeader.contains(rimage)) {
+        if (typeHeader.contains("image/gif"_L1)) {
+            return MessageUrl::ContentType::ImageAnimated;
+        } else if (typeHeader.contains(rimage)) {
             return MessageUrl::ContentType::Image;
         } else if (typeHeader.contains(raudio)) {
             return MessageUrl::ContentType::Audio;

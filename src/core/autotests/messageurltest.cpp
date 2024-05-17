@@ -282,16 +282,19 @@ void MessageUrlTest::shouldContentTypeConvert()
     QCOMPARE(MessageUrl::contentTypeEnumToString(MessageUrl::Image), QStringLiteral("image"));
     QCOMPARE(MessageUrl::contentTypeEnumToString(MessageUrl::Audio), QStringLiteral("audio"));
     QCOMPARE(MessageUrl::contentTypeEnumToString(MessageUrl::Video), QStringLiteral("video"));
+    QCOMPARE(MessageUrl::contentTypeEnumToString(MessageUrl::ImageAnimated), QStringLiteral("image_animated"));
 
     QCOMPARE(MessageUrl::stringToContentTypeEnum(QStringLiteral("foo")), MessageUrl::None);
     QCOMPARE(MessageUrl::stringToContentTypeEnum(QStringLiteral("image")), MessageUrl::Image);
     QCOMPARE(MessageUrl::stringToContentTypeEnum(QStringLiteral("audio")), MessageUrl::Audio);
     QCOMPARE(MessageUrl::stringToContentTypeEnum(QStringLiteral("video")), MessageUrl::Video);
+    QCOMPARE(MessageUrl::stringToContentTypeEnum(QStringLiteral("image_animated")), MessageUrl::ImageAnimated);
 
     QCOMPARE(MessageUrl::parseHeaderContentType(QStringLiteral("foo")), MessageUrl::None);
     QCOMPARE(MessageUrl::parseHeaderContentType(QStringLiteral("image/foo")), MessageUrl::Image);
     QCOMPARE(MessageUrl::parseHeaderContentType(QStringLiteral("audio/bla")), MessageUrl::Audio);
     QCOMPARE(MessageUrl::parseHeaderContentType(QStringLiteral("video/foo")), MessageUrl::Video);
+    QCOMPARE(MessageUrl::parseHeaderContentType(QStringLiteral("image/gif")), MessageUrl::ImageAnimated);
     QCOMPARE(MessageUrl::parseHeaderContentType(QStringLiteral("image")), MessageUrl::None);
 }
 

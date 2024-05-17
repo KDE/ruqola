@@ -17,6 +17,7 @@ public:
     enum ContentType {
         None,
         Image,
+        ImageAnimated,
         Audio,
         Video,
     };
