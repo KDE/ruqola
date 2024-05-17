@@ -275,24 +275,10 @@ void MessageUrl::parseUrl(const QJsonObject &url)
     if (!urlStr.isUndefined()) {
         setUrl(urlStr.toString());
     }
-    // TODO parse headers
+    // parse headers
     const QJsonObject headers = url.value("headers"_L1).toObject();
     const QString typeHeader = headers.value("contentType"_L1).toString();
-    if (!typeHeader.isEmpty()) {
-        const static QRegularExpression rimage(QStringLiteral("image/.*"));
-        const static QRegularExpression raudio(QStringLiteral("audio/.*"));
-        const static QRegularExpression rvideo(QStringLiteral("video/.*"));
-        if (typeHeader.contains(rimage)) {
-            mContentType = Image;
-        } else if (typeHeader.contains(raudio)) {
-            mContentType = Audio;
-        } else if (typeHeader.contains(rvideo)) {
-            mContentType = Video;
-        } else {
-            qCWarning(RUQOLA_LOG) << "Invalid content type " << typeHeader;
-        }
-    }
-    // TODO
+    mContentType = parseHeaderContentType(typeHeader);
 
     const QJsonObject meta = url.value("meta"_L1).toObject();
     if (!meta.isEmpty()) {
