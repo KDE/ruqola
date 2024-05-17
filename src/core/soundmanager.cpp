@@ -22,8 +22,14 @@ void SoundManager::playSound(const QUrl &url)
 {
     mPlayer->setAudioOutput(mAudioOutput);
     mPlayer->setSource(url);
+    // TODO change volume
     mAudioOutput->setVolume(50);
     mPlayer->play();
+}
+
+void SoundManager::setVolume(int volume)
+{
+    mAudioOutput->setVolume(volume);
 }
 
 #include "moc_soundmanager.cpp"

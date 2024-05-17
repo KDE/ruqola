@@ -18,6 +18,8 @@ public:
 
     void playSound(const QUrl &url);
 
+    void setVolume(int volume);
+
 private:
     QMediaPlayer *const mPlayer;
     QAudioOutput *const mAudioOutput;
