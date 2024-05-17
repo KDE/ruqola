@@ -6,7 +6,7 @@
 
 #include "messageurl.h"
 
-#include "ruqola_debug.h"
+#include "ruqola_message_url_debug.h"
 #include "ruqolaglobalconfig.h"
 #include <QJsonObject>
 
@@ -268,7 +268,7 @@ MessageUrl::ContentType MessageUrl::stringToContentTypeEnum(const QString &str)
     return MessageUrl::ContentType::None;
 }
 
-MessageUrl::ContentType MessageUrl::parseHeaderContentType(const QString &typeHeader)
+MessageUrl::ContentType MessageUrl::parseHeaderContentType(const QString &typeHeader) const
 {
     if (!typeHeader.isEmpty()) {
         const static QRegularExpression rimage(QStringLiteral("image/.*"));
@@ -283,7 +283,7 @@ MessageUrl::ContentType MessageUrl::parseHeaderContentType(const QString &typeHe
         } else if (typeHeader.contains(rvideo)) {
             return MessageUrl::ContentType::Video;
         } else {
-            qCWarning(RUQOLA_LOG) << "Invalid content type " << typeHeader;
+            qCWarning(RUQOLA_MESSAGE_URL_LOG) << "Invalid content type " << typeHeader << " this " << *this;
         }
     }
     return MessageUrl::ContentType::None;

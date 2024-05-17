@@ -290,12 +290,13 @@ void MessageUrlTest::shouldContentTypeConvert()
     QCOMPARE(MessageUrl::stringToContentTypeEnum(QStringLiteral("video")), MessageUrl::Video);
     QCOMPARE(MessageUrl::stringToContentTypeEnum(QStringLiteral("image_animated")), MessageUrl::ImageAnimated);
 
-    QCOMPARE(MessageUrl::parseHeaderContentType(QStringLiteral("foo")), MessageUrl::None);
-    QCOMPARE(MessageUrl::parseHeaderContentType(QStringLiteral("image/foo")), MessageUrl::Image);
-    QCOMPARE(MessageUrl::parseHeaderContentType(QStringLiteral("audio/bla")), MessageUrl::Audio);
-    QCOMPARE(MessageUrl::parseHeaderContentType(QStringLiteral("video/foo")), MessageUrl::Video);
-    QCOMPARE(MessageUrl::parseHeaderContentType(QStringLiteral("image/gif")), MessageUrl::ImageAnimated);
-    QCOMPARE(MessageUrl::parseHeaderContentType(QStringLiteral("image")), MessageUrl::None);
+    MessageUrl m;
+    QCOMPARE(m.parseHeaderContentType(QStringLiteral("foo")), MessageUrl::None);
+    QCOMPARE(m.parseHeaderContentType(QStringLiteral("image/foo")), MessageUrl::Image);
+    QCOMPARE(m.parseHeaderContentType(QStringLiteral("audio/bla")), MessageUrl::Audio);
+    QCOMPARE(m.parseHeaderContentType(QStringLiteral("video/foo")), MessageUrl::Video);
+    QCOMPARE(m.parseHeaderContentType(QStringLiteral("image/gif")), MessageUrl::ImageAnimated);
+    QCOMPARE(m.parseHeaderContentType(QStringLiteral("image")), MessageUrl::None);
 }
 
 #include "moc_messageurltest.cpp"

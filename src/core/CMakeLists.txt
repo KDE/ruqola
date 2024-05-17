@@ -640,6 +640,9 @@ ecm_qt_declare_logging_category(libruqolacore_debug_SRCS HEADER ruqola_plasma_ac
 ecm_qt_declare_logging_category(libruqolacore_debug_SRCS HEADER ruqola_sound_debug.h IDENTIFIER RUQOLA_SOUND_LOG
     CATEGORY_NAME org.kde.ruqola.sound DESCRIPTION "ruqola sound support" EXPORT RUQOLA)
 
+ecm_qt_declare_logging_category(libruqolacore_debug_SRCS HEADER ruqola_message_url_debug.h IDENTIFIER RUQOLA_MESSAGE_URL_LOG
+    CATEGORY_NAME org.kde.ruqola.messageurl DESCRIPTION "ruqola message url" EXPORT RUQOLA)
+
 target_sources(libruqolacore PRIVATE ${libruqolacore_debug_SRCS})
 
 ruqola_target_precompile_headers(libruqolacore PUBLIC ../../ruqola_pch.h)
