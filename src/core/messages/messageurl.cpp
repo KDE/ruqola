@@ -100,6 +100,9 @@ bool MessageUrl::hasPreviewUrl() const
     if (!mImageUrl.isEmpty()) {
         return true;
     }
+    if (hasPreviewContentType()) {
+        return true;
+    }
     return false;
 }
 
@@ -178,18 +181,23 @@ void MessageUrl::generateImageUrl()
     if (!mImageBuildUrl.isEmpty()) {
         return;
     }
-    if (mImageUrl.isEmpty()) {
-        return;
-    }
-    const QUrl newUrl = QUrl(mImageUrl);
-    if (!newUrl.isRelative()) {
-        mImageBuildUrl = mImageUrl;
-    } else {
+
+    if (hasPreviewContentType()) {
         mImageBuildUrl = url();
-        if (!url().endsWith(QLatin1Char('/')) && !mImageUrl.startsWith(QLatin1Char('/'))) {
-            mImageBuildUrl += QLatin1Char('/');
+    } else {
+        if (mImageUrl.isEmpty()) {
+            return;
         }
-        mImageBuildUrl += mImageUrl;
+        const QUrl newUrl = QUrl(mImageUrl);
+        if (!newUrl.isRelative()) {
+            mImageBuildUrl = mImageUrl;
+        } else {
+            mImageBuildUrl = url();
+            if (!url().endsWith(QLatin1Char('/')) && !mImageUrl.startsWith(QLatin1Char('/'))) {
+                mImageBuildUrl += QLatin1Char('/');
+            }
+            mImageBuildUrl += mImageUrl;
+        }
     }
 }
 
@@ -231,6 +239,11 @@ QString MessageUrl::contentTypeEnumToString(ContentType type)
         return QLatin1String("video");
     }
     return {};
+}
+
+bool MessageUrl::hasPreviewContentType() const
+{
+    return mContentType != MessageUrl::ContentType::None;
 }
 
 MessageUrl::ContentType MessageUrl::stringToContentTypeEnum(const QString &str)

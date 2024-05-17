@@ -80,8 +80,11 @@ MessageDelegateHelperUrlPreview::PreviewLayout MessageDelegateHelperUrlPreview::
     layout.previewTitle = i18n("Link Preview");
     layout.previewTitleSize = option.fontMetrics.size(Qt::TextSingleLine, layout.previewTitle);
     layout.hasDescription = messageUrl.hasHtmlDescription();
-    const QUrl previewImageUrl =
-        messageUrl.imageUrl().isEmpty() ? QUrl{} : (mRocketChatAccount ? mRocketChatAccount->previewUrlFromLocalCache(messageUrl.buildImageUrl()) : QUrl{});
+
+    QUrl previewImageUrl;
+    if (messageUrl.imageUrl().isEmpty() || messageUrl.hasPreviewUrl()) {
+        previewImageUrl = mRocketChatAccount ? mRocketChatAccount->previewUrlFromLocalCache(messageUrl.buildImageUrl()) : QUrl{};
+    }
     if (previewImageUrl.isLocalFile()) {
         layout.imageUrl = messageUrl.imageUrl();
 

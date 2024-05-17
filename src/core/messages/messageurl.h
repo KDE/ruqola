@@ -95,6 +95,7 @@ private:
     [[nodiscard]] LIBRUQOLACORE_NO_EXPORT static QString cleanText(const QString &str);
     LIBRUQOLACORE_NO_EXPORT void generateHtmlDescription();
     LIBRUQOLACORE_NO_EXPORT void generateImageUrl();
+    [[nodiscard]] LIBRUQOLACORE_NO_EXPORT bool hasPreviewContentType() const;
 
     QString mUrl;
     QString mPageTitle;
