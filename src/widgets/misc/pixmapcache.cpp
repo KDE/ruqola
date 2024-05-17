@@ -6,6 +6,7 @@
 
 #include "pixmapcache.h"
 #include "ruqolawidgets_debug.h"
+#include <QFileInfo>
 
 void PixmapCache::setMaxEntries(int maxEntries)
 {
@@ -19,7 +20,9 @@ QPixmap PixmapCache::pixmapForLocalFile(const QString &path)
     if (pixmap.isNull()) {
         pixmap = QPixmap(path);
         if (pixmap.isNull()) {
-            qCWarning(RUQOLAWIDGETS_LOG) << "Could not load" << path;
+            if (QFileInfo(path).isFile()) { // When url needs access it will failed
+                qCWarning(RUQOLAWIDGETS_LOG) << "Could not load" << path << " from cache";
+            }
             return pixmap;
         }
         insertCachedPixmap(path, pixmap);
