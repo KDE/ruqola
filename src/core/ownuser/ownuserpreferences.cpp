@@ -58,6 +58,8 @@ void OwnUserPreferences::parsePreferences(const QJsonObject &replyObject)
     setReceiveLoginDetectionEmail(replyObject.value("receiveLoginDetectionEmail"_L1).toBool(true));
     setNewMessageNotification(replyObject.value("newMessageNotification"_L1).toString());
     setNewRoomNotification(replyObject.value("newRoomNotification"_L1).toString());
+    setNotificationsSoundVolume(replyObject.value("notificationsSoundVolume"_L1).toInt());
+    setMuteFocusedConversations(replyObject.value("muteFocusedConversations"_L1).toBool(false));
 }
 
 bool OwnUserPreferences::operator==(const OwnUserPreferences &other) const
@@ -68,7 +70,8 @@ bool OwnUserPreferences::operator==(const OwnUserPreferences &other) const
         && mEnableAutoAway == other.enableAutoAway() && mPushNotifications == other.pushNotifications() && mShowUnread == other.showUnread()
         && mShowRoomAvatar == other.showRoomAvatar() && mShowFavorite == other.showFavorite() && mRoomListSortOrder == other.roomListSortOrder()
         && mReceiveLoginDetectionEmail == other.receiveLoginDetectionEmail() && mRoomListDisplay == other.roomListDisplay()
-        && mNewMessageNotification == other.newMessageNotification() && mNewRoomNotification == other.newRoomNotification();
+        && mNewMessageNotification == other.newMessageNotification() && mNewRoomNotification == other.newRoomNotification()
+        && mNotificationsSoundVolume == other.notificationsSoundVolume() && mMuteFocusedConversations == other.muteFocusedConversations();
 }
 
 QStringList OwnUserPreferences::highlightWords() const
@@ -262,6 +265,26 @@ void OwnUserPreferences::setNewRoomNotification(const QString &newNewRoomNotific
     mNewRoomNotification = newNewRoomNotification;
 }
 
+int OwnUserPreferences::notificationsSoundVolume() const
+{
+    return mNotificationsSoundVolume;
+}
+
+void OwnUserPreferences::setNotificationsSoundVolume(int newNotificationsSoundVolume)
+{
+    mNotificationsSoundVolume = newNotificationsSoundVolume;
+}
+
+bool OwnUserPreferences::muteFocusedConversations() const
+{
+    return mMuteFocusedConversations;
+}
+
+void OwnUserPreferences::setMuteFocusedConversations(bool newMuteFocusedConversations)
+{
+    mMuteFocusedConversations = newMuteFocusedConversations;
+}
+
 QDebug operator<<(QDebug d, const OwnUserPreferences &t)
 {
     d.space() << "mHighlightWords " << t.highlightWords();
@@ -282,6 +305,8 @@ QDebug operator<<(QDebug d, const OwnUserPreferences &t)
     d.space() << "mRoomListDisplay " << t.roomListDisplay();
     d.space() << "newMessageNotification " << t.newMessageNotification();
     d.space() << "newRoomNotification " << t.newRoomNotification();
+    d.space() << "notificationsSoundVolume " << t.notificationsSoundVolume();
+    d.space() << "muteFocusedConversations " << t.muteFocusedConversations();
     return d;
 }
 

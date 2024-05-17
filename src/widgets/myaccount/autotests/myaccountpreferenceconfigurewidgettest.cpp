@@ -129,6 +129,19 @@ void MyAccountPreferenceConfigureWidgetTest::shouldHaveDefaultValues()
 
     auto mSoundNewMessageNotification = soundWidget->findChild<QComboBox *>(QStringLiteral("mSoundNewMessageNotification"));
     QVERIFY(mSoundNewMessageNotification);
+
+    auto mMuteFocusedConversations = w.findChild<QCheckBox *>(QStringLiteral("mMuteFocusedConversations"));
+    QVERIFY(mMuteFocusedConversations);
+    QVERIFY(!mMuteFocusedConversations->isChecked()); // False by default as we didn't load values yet
+    QVERIFY(!mMuteFocusedConversations->text().isEmpty());
+
+    auto mNotificationsSoundVolume = soundWidget->findChild<QSpinBox *>(QStringLiteral("mNotificationsSoundVolume"));
+    QVERIFY(mNotificationsSoundVolume);
+
+    auto notificationsSoundVolumeLabel = soundWidget->findChild<QLabel *>(QStringLiteral("notificationsSoundVolumeLabel"));
+    QVERIFY(notificationsSoundVolumeLabel);
+    QCOMPARE(notificationsSoundVolumeLabel->textFormat(), Qt::PlainText);
+    QVERIFY(!notificationsSoundVolumeLabel->text().isEmpty());
 }
 
 #include "moc_myaccountpreferenceconfigurewidgettest.cpp"

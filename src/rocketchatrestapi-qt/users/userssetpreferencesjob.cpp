@@ -142,6 +142,13 @@ QJsonDocument UsersSetPreferencesJob::json() const
     if (mUsersSetPreferencesInfo.idleTimeLimit != -1) {
         dataObj["idleTimeLimit"_L1] = mUsersSetPreferencesInfo.idleTimeLimit;
     }
+    if (mUsersSetPreferencesInfo.muteFocusedConversations != UsersSetPreferencesInfo::Unknown) {
+        dataObj["muteFocusedConversations"_L1] = UsersSetPreferencesInfo::convertToBool(mUsersSetPreferencesInfo.muteFocusedConversations);
+    }
+    if (mUsersSetPreferencesInfo.notificationsSoundVolume != -1) {
+        dataObj["notificationsSoundVolume"_L1] = mUsersSetPreferencesInfo.notificationsSoundVolume;
+    }
+
     jsonObj["data"_L1] = dataObj;
     const QJsonDocument postData = QJsonDocument(jsonObj);
     return postData;
@@ -174,7 +181,10 @@ QDebug operator<<(QDebug d, const RocketChatRestApi::UsersSetPreferencesJob::Use
     d.space() << "sidebarShowFavorites:" << t.sidebarShowFavorites;
     d.space() << "sidebarSortby:" << t.sidebarSortby;
     d.space() << "sidebarViewMode:" << t.sidebarViewMode;
+    d.space() << "idleTimeLimit:" << t.idleTimeLimit;
     d.space() << "receiveLoginDetectionEmail:" << t.receiveLoginDetectionEmail;
+    d.space() << "notificationsSoundVolume:" << t.notificationsSoundVolume;
+    d.space() << "muteFocusedConversations:" << t.muteFocusedConversations;
     return d;
 }
 

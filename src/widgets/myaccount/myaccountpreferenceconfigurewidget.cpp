@@ -44,6 +44,8 @@ MyAccountPreferenceConfigureWidget::MyAccountPreferenceConfigureWidget(RocketCha
     , mSoundNewMessageNotification(new MyAccountPreferenceConfigureSoundComboBox(this))
     , mSoundModel(new NotificationDesktopSoundPreferenceModel(this))
     , mSoundProxyModel(new NotificationDesktopSoundPreferenceProxyModel(this))
+    , mMuteFocusedConversations(new QCheckBox(i18n("Mute Focused Conversations"), this))
+    , mNotificationsSoundVolume(new QSpinBox(this))
     , mRocketChatAccount(account)
 {
     mUseEmojis->setObjectName(QStringLiteral("mUseEmojis"));
@@ -139,6 +141,19 @@ MyAccountPreferenceConfigureWidget::MyAccountPreferenceConfigureWidget(RocketCha
     newMessageNotificationLabel->setTextFormat(Qt::PlainText);
 
     createLayout(newMessageNotificationLabel, mSoundNewMessageNotification, soundWidgetLayout);
+
+    mMuteFocusedConversations->setObjectName(QStringLiteral("mMuteFocusedConversations"));
+    soundWidgetLayout->addWidget(mMuteFocusedConversations);
+    connect(mMuteFocusedConversations, &QCheckBox::clicked, this, &MyAccountPreferenceConfigureWidget::setWasChanged);
+
+    auto notificationsSoundVolumeLabel = new QLabel(i18n("Notifications sound volume:"), this);
+    notificationsSoundVolumeLabel->setObjectName(QStringLiteral("notificationsSoundVolumeLabel"));
+    notificationsSoundVolumeLabel->setTextFormat(Qt::PlainText);
+
+    mNotificationsSoundVolume->setRange(0, 100);
+    mNotificationsSoundVolume->setObjectName(QStringLiteral("mNotificationsSoundVolume"));
+    connect(mNotificationsSoundVolume, &QSpinBox::valueChanged, this, &MyAccountPreferenceConfigureWidget::setWasChanged);
+    createLayout(notificationsSoundVolumeLabel, mNotificationsSoundVolume, soundWidgetLayout);
 
     if (mRocketChatAccount) {
         mSoundModel->setCustomSoundManager(mRocketChatAccount->customSoundManager());
@@ -297,7 +312,10 @@ void MyAccountPreferenceConfigureWidget::save()
         info.displayAvatars = RocketChatRestApi::UsersSetPreferencesJob::UsersSetPreferencesInfo::convertToState(mDisplayAvatars->isChecked());
         info.convertAsciiToEmoji = RocketChatRestApi::UsersSetPreferencesJob::UsersSetPreferencesInfo::convertToState(mConvertAsciiEmoji->isChecked());
         info.idleTimeLimit = mIdleTimeLimit->value();
+        info.notificationsSoundVolume = mNotificationsSoundVolume->value();
         info.enableAutoAway = RocketChatRestApi::UsersSetPreferencesJob::UsersSetPreferencesInfo::convertToState(mAutomaticAway->isChecked());
+        info.muteFocusedConversations =
+            RocketChatRestApi::UsersSetPreferencesJob::UsersSetPreferencesInfo::convertToState(mMuteFocusedConversations->isChecked());
         info.newMessageNotification = mSoundNewMessageNotification->identifier();
         info.newRoomNotification = mSoundNewRoomNotification->identifier();
         if (mRocketChatAccount) {
@@ -329,6 +347,8 @@ void MyAccountPreferenceConfigureWidget::load()
     mAutomaticAway->setChecked(ownUserPreferences.enableAutoAway());
     mSoundNewRoomNotification->setCurrentSoundName(ownUserPreferences.newRoomNotification().toLatin1());
     mSoundNewMessageNotification->setCurrentSoundName(ownUserPreferences.newMessageNotification().toLatin1());
+    mMuteFocusedConversations->setChecked(ownUserPreferences.muteFocusedConversations());
+    mNotificationsSoundVolume->setValue(ownUserPreferences.notificationsSoundVolume());
     mChanged = false;
 }
 

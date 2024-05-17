@@ -45,6 +45,9 @@ public:
         QString sidebarSortby;
         QString sidebarViewMode;
         int idleTimeLimit = -1;
+        int notificationsSoundVolume = -1;
+        State muteFocusedConversations = Unknown;
+
         // Add more
     };
 

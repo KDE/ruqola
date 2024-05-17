@@ -88,6 +88,12 @@ public:
     [[nodiscard]] QString newRoomNotification() const;
     void setNewRoomNotification(const QString &newNewRoomNotification);
 
+    [[nodiscard]] int notificationsSoundVolume() const;
+    void setNotificationsSoundVolume(int newNotificationsSoundVolume);
+
+    [[nodiscard]] bool muteFocusedConversations() const;
+    void setMuteFocusedConversations(bool newMuteFocusedConversations);
+
 private:
     QStringList mHighlightWords;
     QString mEmailNotificationMode;
@@ -98,6 +104,7 @@ private:
     RoomListSortOrder mRoomListSortOrder = RoomListSortOrder::Unknown;
     RoomListDisplay mRoomListDisplay = RoomListDisplay::Unknown;
     int mIdleTimeLimit = -1;
+    int mNotificationsSoundVolume = -1;
     bool mConvertAsciiEmoji = true;
     bool mUseEmojis = true;
     bool mHideRoles = false;
@@ -107,6 +114,7 @@ private:
     bool mShowRoomAvatar = false;
     bool mShowFavorite = true;
     bool mReceiveLoginDetectionEmail = false;
+    bool mMuteFocusedConversations = false;
 };
 Q_DECLARE_TYPEINFO(OwnUserPreferences, Q_RELOCATABLE_TYPE);
 LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const OwnUserPreferences &t);

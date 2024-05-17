@@ -2853,6 +2853,14 @@ void RocketChatAccount::updateUserData(const QJsonArray &contents)
                 ownUserPreferences.setNewRoomNotification(updateJson.value(key).toString());
                 mOwnUser.setOwnUserPreferences(ownUserPreferences);
                 Q_EMIT ownUserPreferencesChanged();
+            } else if (key == "settings.preferences.notificationsSoundVolume"_L1) {
+                ownUserPreferences.setNotificationsSoundVolume(updateJson.value(key).toInt());
+                mOwnUser.setOwnUserPreferences(ownUserPreferences);
+                Q_EMIT ownUserPreferencesChanged();
+            } else if (key == "settings.preferences.muteFocusedConversations"_L1) {
+                ownUserPreferences.setMuteFocusedConversations(updateJson.value(key).toBool());
+                mOwnUser.setOwnUserPreferences(ownUserPreferences);
+                Q_EMIT ownUserPreferencesChanged();
             } else {
                 const static QRegularExpression bannerRegularExpression(QStringLiteral("banners.(.*).read"));
                 QRegularExpressionMatch rmatch;

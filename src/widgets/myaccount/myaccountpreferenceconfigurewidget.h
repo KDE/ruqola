@@ -52,6 +52,9 @@ private:
     MyAccountPreferenceConfigureSoundComboBox *const mSoundNewMessageNotification;
     NotificationDesktopSoundPreferenceModel *const mSoundModel;
     NotificationDesktopSoundPreferenceProxyModel *const mSoundProxyModel;
+    QCheckBox *const mMuteFocusedConversations;
+    QSpinBox *const mNotificationsSoundVolume;
+
     RocketChatAccount *const mRocketChatAccount;
     bool mChanged = false;
 };
