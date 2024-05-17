@@ -363,17 +363,6 @@ void MessageUrl::parseUrl(const QJsonObject &url)
     generateMessageUrlInfo();
     // qDebug() << " *this " << *this << " is empty " << isEmpty() << " url" << url;
     // Use apps/meteor/client/components/message/content/UrlPreviews.tsx
-
-    /*
-     RocketChatBackend::slotChanged stream-room-messages  QJsonArray([{"_id":"K4CFmx4FqC99x78xn","_updatedAt":{"$date":1715924370941},"alias":"",
-"attachments":[],"channels":[],"groupable":false,"md":[{"type":"PARAGRAPH",
-"value":[{"type":"LINK","value":{"label":[{"type":"PLAIN_TEXT","value":"https://media1.tenor.com/m/nwoJ4BS0XHYAAAAC/oh-no-anyway.gif"}],
-"src":{"type":"PLAIN_TEXT","value":"https://media1.tenor.com/m/nwoJ4BS0XHYAAAAC/oh-no-anyway.gif"}}}]}],
-"mentions":[],"msg":"https://media1.tenor.com/m/nwoJ4BS0XHYAAAAC/oh-no-anyway.gif","parseUrls":true,"rid":"2agW7mzbF8GGi2dBv",
-"ts":{"$date":1715924370817},"u":{"_id":"uKK39zoewTkdacidH","name":"Laurent Montel","username":"laurent"},"unread":true,
-"urls":[{"headers":{"contentLength":"1354875","contentType":"image/gif"},"meta":{},
-"url":"https://media1.tenor.com/m/nwoJ4BS0XHYAAAAC/oh-no-anyway.gif"}]}])
-    */
 }
 
 void MessageUrl::generateMessageUrlInfo()
