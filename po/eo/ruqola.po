@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-05-16 00:38+0000\n"
+"POT-Creation-Date: 2024-05-17 00:38+0000\n"
 "PO-Revision-Date: 2024-05-15 09:56+0100\n"
 "Last-Translator: Oliver Kellogg <olivermkellogg@gmail.com>\n"
 "Language-Team: Esperanto <kde-i18n-eo.org>\n"
@@ -330,8 +330,8 @@ msgstr "Neniu"
 #: widgets/dialogs/createsoundmessagewidget.cpp:138
 #: widgets/dialogs/playsoundwidget.cpp:122
 #: widgets/dialogs/showvideowidget.cpp:122
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:230
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:238
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:247
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:255
 #, kde-format
 msgid "Default"
 msgstr "Defaŭlta"
@@ -826,7 +826,7 @@ msgid "Role"
 msgstr "Rolo"
 
 #: core/model/adminusersmodel.cpp:116 core/model/adminusersmodel.cpp:163
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:247
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:264
 #, kde-format
 msgid "Disabled"
 msgstr "Malŝaltita"
@@ -1016,19 +1016,19 @@ msgstr[0] "1 sekundo"
 msgstr[1] "%1 sekundoj"
 
 #: core/model/notificationpreferencemodel.cpp:51
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:216
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:233
 #, kde-format
 msgid "All Messages"
 msgstr "Ĉiuj Mesaĝoj"
 
 #: core/model/notificationpreferencemodel.cpp:57
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:218
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:235
 #, kde-format
 msgid "Mentions"
 msgstr "Mencioj"
 
 #: core/model/notificationpreferencemodel.cpp:63
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:220
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:237
 #, kde-format
 msgid "Nothing"
 msgstr "Nenio"
@@ -1417,12 +1417,12 @@ msgstr "<strong>%1</strong> tajpas..."
 msgid "<strong>%1</strong> are typing..."
 msgstr "<strong>%1</strong> tajpas..."
 
-#: core/rocketchataccount.cpp:2948
+#: core/rocketchataccount.cpp:2956
 #, kde-format
 msgid "Export Messages"
 msgstr "Eksporti Mesaĝojn"
 
-#: core/rocketchataccount.cpp:2949
+#: core/rocketchataccount.cpp:2957
 #, kde-format
 msgid "Your email has been queued for sending."
 msgstr "Via retpoŝto estas vicigita por sendo."
@@ -8183,73 +8183,73 @@ msgctxt "@title:window"
 msgid "Remove Token"
 msgstr "Forigi Ĵetonon"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:34
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:35
 #, kde-format
 msgid "Use Emojis"
 msgstr "Uzi Emojis"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:35
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:36
 #, kde-format
 msgid "Convert Ascii to Emoji"
 msgstr "Konverti Ascii al Emoji"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:36
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:37
 #, kde-format
 msgid "Hide roles"
 msgstr "Kaŝi rolojn"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:37
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:38
 #, kde-format
 msgid "Display avatars"
 msgstr "Montri avatarojn"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:38
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:39
 #, kde-format
 msgid "Receive login detection emails"
 msgstr "Ricevi retpoŝtojn pri ensalutaj detektado"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:40
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:41
 #, kde-format
 msgid "Enable Auto Away"
 msgstr "Ebligi Aŭtomata For"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:41
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:42
 #, kde-format
 msgid "Offline Email notification:"
 msgstr "Senrete Retpoŝta sciigo:"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:55
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:58
 #, kde-format
 msgid "Highlight words:"
 msgstr "Elstarigi vortojn:"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:62
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:64
 #, kde-format
 msgid "Use ',' for separating words"
 msgstr "Uzi ',' por apartigi vortojn"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:63
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:65
 #, kde-format
 msgid "Separate each word with ','."
 msgstr "Apartigi ĉiun vorton per ','."
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:71
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:74
 #, kde-format
 msgid "Desktop notification:"
 msgstr "Labortabla sciigo:"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:84
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:86
 #, kde-format
 msgid "Push notification:"
 msgstr "Puŝa sciigo:"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:92
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:93
 #, kde-format
 msgid "Receive an email each time a new login is detected on your account."
 msgstr ""
 "Ricevi retpoŝton ĉiufoje kiam nova ensaluto estas detektita en via konto."
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:111
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:112
 #, kde-format
 msgid "Idle Time Limit:"
 msgstr "Neaktiva Tempolimo:"
@@ -8260,23 +8260,29 @@ msgid ""
 "Period of time until status changes to away. Value needs to be in seconds."
 msgstr "Tempodaŭro ĝis statuso ŝanĝiĝas al for. Valoro devas esti en sekundoj."
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:130
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:131
 #, fuzzy, kde-format
 #| msgid "Show New Notifications"
 msgid "New Room Notification:"
 msgstr "Montri Novajn Sciigojn"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:158
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:137
+#, fuzzy, kde-format
+#| msgid "Show New Notifications"
+msgid "New Message Notification:"
+msgstr "Montri Novajn Sciigojn"
+
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:166
 #, kde-format
 msgid "Download my Data (HTML)"
 msgstr "Elŝuti miajn Datumojn (HTML)"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:165
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:173
 #, kde-format
 msgid "Export my Data (JSON)"
 msgstr "Eksporti miajn Datumojn (JSON)"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:209
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:226
 #, kde-format
 msgid ""
 "Your data file will be generated. A link to download it will be sent to your "
@@ -8285,29 +8291,29 @@ msgstr ""
 "Via datuma dosiero estos generita. Ligilo por elŝuti ĝin estos sendita al "
 "via retadreso kiam preta."
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:210
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:227
 #, kde-format
 msgid "Download File Requested"
 msgstr "Elŝuti Dosieron Petitan"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:229
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:237
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:246
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:254
 #, kde-format
 msgid "Default (%1)"
 msgstr "Defaŭlta (%1)"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:245
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:262
 #, kde-format
 msgid "Default (Every Mention/DM)"
 msgstr ""
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:246
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:263
 #, fuzzy, kde-format
 #| msgid "Each Mentions"
 msgid "Every Mention/DM"
 msgstr "Ĉiu Mencioj"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:250
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:267
 #, kde-format
 msgid "Your Rocket.Chat administrator has disabled email notifications"
 msgstr "Via administranto de Rocket.Chat malŝaltis retpoŝtajn sciigojn."
