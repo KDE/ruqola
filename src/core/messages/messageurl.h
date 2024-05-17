@@ -13,6 +13,15 @@ class LIBRUQOLACORE_EXPORT MessageUrl
     Q_GADGET
 public:
     MessageUrl();
+
+    enum ContentType {
+        None,
+        Image,
+        Audio,
+        Video,
+    };
+    Q_ENUM(ContentType)
+
     [[nodiscard]] bool operator==(const MessageUrl &other) const;
     static QJsonObject serialize(const MessageUrl &url);
     static MessageUrl deserialize(const QJsonObject &o);
