@@ -32,6 +32,7 @@ void MessageUrlTest::shouldHaveDefaultValue()
     QVERIFY(url.showPreview());
     QVERIFY(!url.hasPreviewUrl());
     QVERIFY(!url.hasHtmlDescription());
+    QCOMPARE(url.contentType(), MessageUrl::ContentType::None);
 }
 
 void MessageUrlTest::shouldSerializeData()
@@ -273,6 +274,19 @@ void MessageUrlTest::shouldGenerateBuildImageUrl_data()
 
         QTest::newRow("test3") << url << QString();
     }
+}
+
+void MessageUrlTest::shouldContentTypeConvert()
+{
+    QVERIFY(MessageUrl::contentTypeEnumToString(MessageUrl::None).isEmpty());
+    QCOMPARE(MessageUrl::contentTypeEnumToString(MessageUrl::Image), QStringLiteral("image"));
+    QCOMPARE(MessageUrl::contentTypeEnumToString(MessageUrl::Audio), QStringLiteral("audio"));
+    QCOMPARE(MessageUrl::contentTypeEnumToString(MessageUrl::Video), QStringLiteral("video"));
+
+    QCOMPARE(MessageUrl::stringToContentTypeEnum(QStringLiteral("foo")), MessageUrl::None);
+    QCOMPARE(MessageUrl::stringToContentTypeEnum(QStringLiteral("image")), MessageUrl::Image);
+    QCOMPARE(MessageUrl::stringToContentTypeEnum(QStringLiteral("audio")), MessageUrl::Audio);
+    QCOMPARE(MessageUrl::stringToContentTypeEnum(QStringLiteral("video")), MessageUrl::Video);
 }
 
 #include "moc_messageurltest.cpp"

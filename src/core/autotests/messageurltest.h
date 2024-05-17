@@ -24,4 +24,6 @@ private Q_SLOTS:
 
     void shouldGenerateBuildImageUrl();
     void shouldGenerateBuildImageUrl_data();
+
+    void shouldContentTypeConvert();
 };
