@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-05-17 00:38+0000\n"
-"PO-Revision-Date: 2024-05-16 07:36+0200\n"
+"POT-Creation-Date: 2024-05-18 00:38+0000\n"
+"PO-Revision-Date: 2024-05-17 07:15+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
@@ -319,8 +319,8 @@ msgstr "Noben"
 #: widgets/dialogs/createsoundmessagewidget.cpp:138
 #: widgets/dialogs/playsoundwidget.cpp:122
 #: widgets/dialogs/showvideowidget.cpp:122
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:247
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:255
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:262
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:270
 #, kde-format
 msgid "Default"
 msgstr "Privzeto"
@@ -815,7 +815,7 @@ msgid "Role"
 msgstr "Vloga"
 
 #: core/model/adminusersmodel.cpp:116 core/model/adminusersmodel.cpp:163
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:264
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:279
 #, kde-format
 msgid "Disabled"
 msgstr "Onemogočeno"
@@ -1007,19 +1007,19 @@ msgstr[2] "%1 sekunde"
 msgstr[3] "%1 sekund"
 
 #: core/model/notificationpreferencemodel.cpp:51
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:233
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:248
 #, kde-format
 msgid "All Messages"
 msgstr "Vsa sporočila"
 
 #: core/model/notificationpreferencemodel.cpp:57
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:235
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:250
 #, kde-format
 msgid "Mentions"
 msgstr "Omembe"
 
 #: core/model/notificationpreferencemodel.cpp:63
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:237
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:252
 #, kde-format
 msgid "Nothing"
 msgstr "Nič"
@@ -1416,12 +1416,12 @@ msgstr "<strong>%1</strong> vnaša ..."
 msgid "<strong>%1</strong> are typing..."
 msgstr "<strong>%1</strong> vnašajo …"
 
-#: core/rocketchataccount.cpp:2956
+#: core/rocketchataccount.cpp:2964
 #, kde-format
 msgid "Export Messages"
 msgstr "Izvozi sporočila"
 
-#: core/rocketchataccount.cpp:2957
+#: core/rocketchataccount.cpp:2965
 #, kde-format
 msgid "Your email has been queued for sending."
 msgstr "Vaša e-pošta je čakala v čakalni vrsti za pošiljanje."
@@ -2413,7 +2413,7 @@ msgstr "Nevidno stanje je onemogočeno"
 msgid "%1 is already in use."
 msgstr "%1 je že v uporabi."
 
-#: rocketchatrestapi-qt/users/userssetpreferencesjob.cpp:153
+#: rocketchatrestapi-qt/users/userssetpreferencesjob.cpp:160
 #, kde-format
 msgid "Invalid parameters"
 msgstr "Neveljavni parametri"
@@ -8244,71 +8244,82 @@ msgstr "Omogoči samodejno odsotnost"
 msgid "Offline Email notification:"
 msgstr "Nepovezano e-poštno obvestilo:"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:58
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:47
+#, fuzzy, kde-format
+#| msgid "Start of conversation"
+msgid "Mute Focused Conversations"
+msgstr "Začetek pogovora"
+
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:60
 #, kde-format
 msgid "Highlight words:"
 msgstr "Poudari besede:"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:64
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:66
 #, kde-format
 msgid "Use ',' for separating words"
 msgstr "Uporabi ',' za ločevanje besed"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:65
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:67
 #, kde-format
 msgid "Separate each word with ','."
 msgstr "Ločite vsako besedo z ','."
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:74
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:76
 #, kde-format
 msgid "Desktop notification:"
 msgstr "Obvestilo na namizju:"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:86
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:88
 #, kde-format
 msgid "Push notification:"
 msgstr "Objavi obvestilo:"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:93
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:95
 #, kde-format
 msgid "Receive an email each time a new login is detected on your account."
 msgstr ""
 "Prejmite elektronsko sporočilo vsakič, ko je zaznana nova prijava na vašem "
 "računu."
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:112
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:114
 #, kde-format
 msgid "Idle Time Limit:"
 msgstr "Časovni rok nedejavnosti:"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:118
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:120
 #, kde-format
 msgid ""
 "Period of time until status changes to away. Value needs to be in seconds."
 msgstr "Čas do spremembe stanja v odsotnega. Vrednost mora biti v sekundah."
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:131
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:133
 #, kde-format
 msgid "New Room Notification:"
 msgstr "Obvestilo o novi sobi:"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:137
-#, fuzzy, kde-format
-#| msgid "New Room Notification:"
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:139
+#, kde-format
 msgid "New Message Notification:"
-msgstr "Obvestilo o novi sobi:"
+msgstr "Obvestilo o novem sporočilu:"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:166
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:149
+#, fuzzy, kde-format
+#| msgid "Notifications"
+msgid "Notifications sound volume:"
+msgstr "Obvestila"
+
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:181
 #, kde-format
 msgid "Download my Data (HTML)"
 msgstr "Prenesi my Data (HTML)"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:173
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:188
 #, kde-format
 msgid "Export my Data (JSON)"
 msgstr "Izvozi my Data (JSON)"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:226
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:241
 #, kde-format
 msgid ""
 "Your data file will be generated. A link to download it will be sent to your "
@@ -8317,28 +8328,28 @@ msgstr ""
 "Vaša podatkovna datoteka bo generirana. Povezava za prenos po poslana na "
 "vašo elektronsko pošto, ko bo pripravljena."
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:227
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:242
 #, kde-format
 msgid "Download File Requested"
 msgstr "Zahtevan je prenos datoteke"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:246
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:254
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:261
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:269
 #, kde-format
 msgid "Default (%1)"
 msgstr "Privzeto (%1)"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:262
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:277
 #, kde-format
 msgid "Default (Every Mention/DM)"
 msgstr "Privzeto (Vsaka omemba/DM)"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:263
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:278
 #, kde-format
 msgid "Every Mention/DM"
 msgstr "Vsaka omemba/DM"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:267
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:282
 #, kde-format
 msgid "Your Rocket.Chat administrator has disabled email notifications"
 msgstr "Vaš skrbnik Rocket.Chat je onemogočil e-poštna obvestila"
@@ -9842,6 +9853,10 @@ msgstr "Uporabi RESTAPI za beleženje dnevnika."
 #: widgets/whatsnew/whatsnewwidgettranslation.h:87
 msgid "Allow to send multi files."
 msgstr "Dovoli pošiljanje več datotek."
+
+#: widgets/whatsnew/whatsnewwidgettranslation.h:88
+msgid "Fix preview url."
+msgstr ""
 
 #~ msgid "(Click here for Loading more…"
 #~ msgstr "(Kliknite tukaj za nalaganje dodatnih…)"

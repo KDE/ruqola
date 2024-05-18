@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-05-17 00:38+0000\n"
-"PO-Revision-Date: 2024-05-15 09:56+0100\n"
+"POT-Creation-Date: 2024-05-18 00:38+0000\n"
+"PO-Revision-Date: 2024-05-17 06:24+0100\n"
 "Last-Translator: Oliver Kellogg <olivermkellogg@gmail.com>\n"
 "Language-Team: Esperanto <kde-i18n-eo.org>\n"
 "Language: eo\n"
@@ -34,8 +34,7 @@ msgid "Copyright © 2020-2024 Ruqola authors"
 msgstr "Kopirajto © 2020-2024 Ruqola aŭtoroj"
 
 #: apps/main.cpp:52
-#, fuzzy, kde-format
-#| msgid "Laurent Montel"
+#, kde-format
 msgctxt "@info:credit"
 msgid "Laurent Montel"
 msgstr "Laurent Montel"
@@ -46,8 +45,7 @@ msgid "Maintainer"
 msgstr "Prizorganto"
 
 #: apps/main.cpp:53
-#, fuzzy, kde-format
-#| msgid "Riccardo Iaconelli"
+#, kde-format
 msgctxt "@info:credit"
 msgid "Riccardo Iaconelli"
 msgstr "Riccardo Iaconelli"
@@ -58,8 +56,7 @@ msgid "Original Author"
 msgstr "Origina Aŭtoro"
 
 #: apps/main.cpp:57
-#, fuzzy, kde-format
-#| msgid "David Faure"
+#, kde-format
 msgctxt "@info:credit"
 msgid "David Faure"
 msgstr "David Faure"
@@ -70,8 +67,7 @@ msgid "Bug fixing, delegates etc."
 msgstr "Cimsolvado, delegitoj ktp."
 
 #: apps/main.cpp:58
-#, fuzzy, kde-format
-#| msgid "Kevin Funk"
+#, kde-format
 msgctxt "@info:credit"
 msgid "Kevin Funk"
 msgstr "Kevin Funk"
@@ -83,22 +79,19 @@ msgid "Bug fixing"
 msgstr "Cimkorektado"
 
 #: apps/main.cpp:59
-#, fuzzy, kde-format
-#| msgid "Olivier JG"
+#, kde-format
 msgctxt "@info:credit"
 msgid "Olivier JG"
 msgstr "Olivier JG"
 
 #: apps/main.cpp:60
-#, fuzzy, kde-format
-#| msgid "Milian Wolff"
+#, kde-format
 msgctxt "@info:credit"
 msgid "Milian Wolff"
 msgstr "Milian Wolff"
 
 #: apps/main.cpp:61
-#, fuzzy, kde-format
-#| msgid "Till Adam"
+#, kde-format
 msgctxt "@info:credit"
 msgid "Till Adam"
 msgstr "Till Adam"
@@ -109,22 +102,19 @@ msgid "Windows compile bug fixing"
 msgstr "Kompila cimriparado en Vindozo"
 
 #: apps/main.cpp:62
-#, fuzzy, kde-format
-#| msgid "Shantanu Tushar"
+#, kde-format
 msgctxt "@info:credit"
 msgid "Shantanu Tushar"
 msgstr "Shantanu Tushar"
 
 #: apps/main.cpp:63
-#, fuzzy, kde-format
-#| msgid "Alessandro Ambrosano"
+#, kde-format
 msgctxt "@info:credit"
 msgid "Alessandro Ambrosano"
 msgstr "Alessandro Ambrosano"
 
 #: apps/main.cpp:64
-#, fuzzy, kde-format
-#| msgid "Hannah von Reth"
+#, kde-format
 msgctxt "@info:credit"
 msgid "Hannah von Reth"
 msgstr "Hannah von Reth"
@@ -135,8 +125,7 @@ msgid "Bug fixing for Windows/Mac"
 msgstr "Cimo korekto por Vindozo/Mac"
 
 #: apps/main.cpp:65
-#, fuzzy, kde-format
-#| msgid "Allen Winter"
+#, kde-format
 msgctxt "@info:credit"
 msgid "Allen Winter"
 msgstr "Allen Winter"
@@ -147,8 +136,7 @@ msgid "Packaging"
 msgstr "Pakado"
 
 #: apps/main.cpp:66
-#, fuzzy, kde-format
-#| msgid "Waqar Ahmed"
+#, kde-format
 msgctxt "@info:credit"
 msgid "Waqar Ahmed"
 msgstr "Waqar Ahmed"
@@ -159,8 +147,7 @@ msgid "Bug fixing (compile, network crash...)"
 msgstr "Cimo-solvado (kompilo, retopaneo...)"
 
 #: apps/main.cpp:67
-#, fuzzy, kde-format
-#| msgid "Nicolas Fella"
+#, kde-format
 msgctxt "@info:credit"
 msgid "Nicolas Fella"
 msgstr "Nicolas Fella"
@@ -330,8 +317,8 @@ msgstr "Neniu"
 #: widgets/dialogs/createsoundmessagewidget.cpp:138
 #: widgets/dialogs/playsoundwidget.cpp:122
 #: widgets/dialogs/showvideowidget.cpp:122
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:247
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:255
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:262
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:270
 #, kde-format
 msgid "Default"
 msgstr "Defaŭlta"
@@ -826,7 +813,7 @@ msgid "Role"
 msgstr "Rolo"
 
 #: core/model/adminusersmodel.cpp:116 core/model/adminusersmodel.cpp:163
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:264
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:279
 #, kde-format
 msgid "Disabled"
 msgstr "Malŝaltita"
@@ -1016,19 +1003,19 @@ msgstr[0] "1 sekundo"
 msgstr[1] "%1 sekundoj"
 
 #: core/model/notificationpreferencemodel.cpp:51
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:233
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:248
 #, kde-format
 msgid "All Messages"
 msgstr "Ĉiuj Mesaĝoj"
 
 #: core/model/notificationpreferencemodel.cpp:57
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:235
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:250
 #, kde-format
 msgid "Mentions"
 msgstr "Mencioj"
 
 #: core/model/notificationpreferencemodel.cpp:63
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:237
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:252
 #, kde-format
 msgid "Nothing"
 msgstr "Nenio"
@@ -1417,12 +1404,12 @@ msgstr "<strong>%1</strong> tajpas..."
 msgid "<strong>%1</strong> are typing..."
 msgstr "<strong>%1</strong> tajpas..."
 
-#: core/rocketchataccount.cpp:2956
+#: core/rocketchataccount.cpp:2964
 #, kde-format
 msgid "Export Messages"
 msgstr "Eksporti Mesaĝojn"
 
-#: core/rocketchataccount.cpp:2957
+#: core/rocketchataccount.cpp:2965
 #, kde-format
 msgid "Your email has been queued for sending."
 msgstr "Via retpoŝto estas vicigita por sendo."
@@ -2423,7 +2410,7 @@ msgstr "Nevidebla stato estas malŝaltita"
 msgid "%1 is already in use."
 msgstr "%1 jam estas uzata."
 
-#: rocketchatrestapi-qt/users/userssetpreferencesjob.cpp:153
+#: rocketchatrestapi-qt/users/userssetpreferencesjob.cpp:160
 #, kde-format
 msgid "Invalid parameters"
 msgstr "Nevalidaj parametroj"
@@ -3453,7 +3440,7 @@ msgstr "Agordi hazardan pasvorton kaj sendu retpoŝte"
 #: widgets/dialogs/directchannelinfowidget.cpp:161
 #, kde-format
 msgid "Verified"
-msgstr "Kontrolita"
+msgstr "Konfirmita"
 
 #: widgets/administratordialog/users/administratoradduserwidget.cpp:60
 #: widgets/dialogs/directchannelinfowidget.cpp:95
@@ -3660,7 +3647,7 @@ msgstr "Permesi Pasvortŝanĝon por Uzantoj de OAuth"
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:29
 #, kde-format
 msgid "Allow Invisible status option"
-msgstr "Permesi opcion de Nevidebla stato"
+msgstr "Permesi elekteblon de Nevidebla stato"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:30
 #, kde-format
@@ -3705,12 +3692,12 @@ msgstr "Postuli Pasvorton Konfirmon"
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:41
 #, kde-format
 msgid "Only Allow Verified Users to Login"
-msgstr "Nur Permesi Kontrolitajn Uzantojn Ensaluti"
+msgstr "Nur Permesi Konfirmitajn Uzantojn Ensaluti"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:42
 #, kde-format
 msgid "Mark Email for External Accounts Verified"
-msgstr "Marki Retpoŝton por Eksteraj Kontoj Kontrolita"
+msgstr "Marki Retpoŝton por Eksteraj Kontoj Konfirmita"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:43
 #, kde-format
@@ -4150,7 +4137,7 @@ msgstr ""
 "Kiam ĝi estas ebligita, Rocket.Chat fidos, ke iu ajn uzantnomo de CAS "
 "apartenas al la sama uzanto ĉe Rocket.Chat.\n"
 "Tio povas esti bezonata se uzanto estas renomita en CAS, sed ankaŭ povas "
-"permesi al homoj preni kontrolon de Rocket.Chat-kontoj per renomante siajn "
+"permesi al homoj preni regon de Rocket.Chat-kontoj per renomante siajn "
 "proprajn CAS-uzantojn."
 
 #: widgets/administratorsettingsdialog/cas/cassettingswidget.cpp:56
@@ -4284,8 +4271,8 @@ msgid ""
 "exclusively for access by Rocket.Chat\n"
 "and is not read/processed \"in parallel\" by humans."
 msgstr ""
-"[Atentu!] Se \"Rekta Respondo\" estas ebligita, Rocket.Chat kontrolos la "
-"agordita retpoŝta leterkesto.\n"
+"[Atentu!] Se \"Rekta Respondo\" estas ebligita, Rocket.Chat regos la "
+"agorditan retpoŝtan leterkeston.\n"
 "Ĉiuj nelegitaj retpoŝtoj estas reakiritaj, markitaj kiel legitaj kaj "
 "prilaboritaj.\n"
 "\"Rekta Respondo\" devus esti nur aktivigita se la leterkesto uzata estas "
@@ -4386,8 +4373,8 @@ msgid ""
 "Enable option to create encrypted groups and be able to change groups and "
 "direct messages to be encrypted."
 msgstr ""
-"Ebligi opcion por krei ĉifritajn grupojn kaj povi ŝanĝi grupojn kaj direkti "
-"mesaĝojn por esti ĉifritaj."
+"Ŝaltu elekteblon por krei ĉifritajn grupojn kaj povi ŝanĝi grupojn kaj "
+"direkti mesaĝojn por esti ĉifritaj."
 
 #: widgets/administratorsettingsdialog/encryption/encryptionsettingswidget.cpp:36
 #, kde-format
@@ -4396,9 +4383,9 @@ msgid ""
 "between 2 users. OTR messages are not recorded on the server and exchanged "
 "directly and encrypted between the 2 users."
 msgstr ""
-"Ebligi opcion por uzi neregistritajn mesaĝojn (OTR) en rektaj mesaĝoj inter "
-"2 uzantoj. OTR-mesaĝoj ne estas registritaj sur la servilo kaj interŝanĝitaj "
-"rekte kaj ĉifritaj inter la 2 uzantoj."
+"Ŝaltu elekteblon por uzi neregistritajn mesaĝojn (OTR) en rektaj mesaĝoj "
+"inter 2 uzantoj. OTR-mesaĝoj ne estas registritaj sur la servilo kaj "
+"interŝanĝitaj rekte kaj ĉifritaj inter la 2 uzantoj."
 
 #: widgets/administratorsettingsdialog/enterprise/enterprisesettingswidget.cpp:20
 #, kde-format
@@ -5128,8 +5115,9 @@ msgstr ""
 "estos forigitaj de Rektaj Mesaĝoj kaj estos konservitaj en aliaj ĉambroj. "
 "Forigi Ĉiujn Mesaĝojn: Ĉiuj mesaĝoj kaj dosieroj de la uzanto estos "
 "forigitaj el la datumbazo kaj ne plu eblos lokalizi la uzanton. Forigi "
-"ligilon inter uzanto kaj mesaĝoj: Ĉi tiu opcio asignos ĉiujn mesaĝojn kaj "
-"dosierojn de la uzanto al Rocket.Chat-bot kaj Rektaj Mesaĝoj estos forigitaj."
+"ligilon inter uzanto kaj mesaĝoj: Ĉi tiu elekteblo asignos ĉiujn mesaĝojn "
+"kaj dosierojn de la uzanto al Rocket.Chat-bot kaj Rektaj Mesaĝoj estos "
+"forigitaj."
 
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:114
 #, kde-format
@@ -5184,12 +5172,12 @@ msgstr ""
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:143
 #, kde-format
 msgid "Thumbnail's max width (in pixels)"
-msgstr "Maksimuma larĝo de bildeto (en pikseloj)"
+msgstr "Maksimuma larĝo de bildeto (en rastrumeroj)"
 
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:146
 #, kde-format
 msgid "Thumbnail's max height (in pixels)"
-msgstr "Maksimuma alteco de bildeto (en pikseloj)"
+msgstr "Maksimuma alteco de bildeto (en rastrumeroj)"
 
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:148
 #, kde-format
@@ -6019,7 +6007,7 @@ msgstr "Ĉiam Malfermu en Nova Fenestro"
 #: widgets/administratorsettingsdialog/videoconference/videoconferencewidget.cpp:25
 #, kde-format
 msgid "Enable room name hash"
-msgstr "Ebligi haŝan nomon de ĉambro"
+msgstr "Ebligi haketkodon de ĉambronomon"
 
 #: widgets/administratorsettingsdialog/videoconference/videoconferencewidget.cpp:26
 #, kde-format
@@ -8218,71 +8206,81 @@ msgstr "Ebligi Aŭtomata For"
 msgid "Offline Email notification:"
 msgstr "Senrete Retpoŝta sciigo:"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:58
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:47
+#, fuzzy, kde-format
+#| msgid "Start of conversation"
+msgid "Mute Focused Conversations"
+msgstr "Komenco de konversacio"
+
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:60
 #, kde-format
 msgid "Highlight words:"
 msgstr "Elstarigi vortojn:"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:64
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:66
 #, kde-format
 msgid "Use ',' for separating words"
 msgstr "Uzi ',' por apartigi vortojn"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:65
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:67
 #, kde-format
 msgid "Separate each word with ','."
 msgstr "Apartigi ĉiun vorton per ','."
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:74
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:76
 #, kde-format
 msgid "Desktop notification:"
 msgstr "Labortabla sciigo:"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:86
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:88
 #, kde-format
 msgid "Push notification:"
 msgstr "Puŝa sciigo:"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:93
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:95
 #, kde-format
 msgid "Receive an email each time a new login is detected on your account."
 msgstr ""
 "Ricevi retpoŝton ĉiufoje kiam nova ensaluto estas detektita en via konto."
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:112
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:114
 #, kde-format
 msgid "Idle Time Limit:"
 msgstr "Neaktiva Tempolimo:"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:118
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:120
 #, kde-format
 msgid ""
 "Period of time until status changes to away. Value needs to be in seconds."
 msgstr "Tempodaŭro ĝis statuso ŝanĝiĝas al for. Valoro devas esti en sekundoj."
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:131
-#, fuzzy, kde-format
-#| msgid "Show New Notifications"
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:133
+#, kde-format
 msgid "New Room Notification:"
-msgstr "Montri Novajn Sciigojn"
+msgstr "Sciigo pri Nova Ĉambro:"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:137
-#, fuzzy, kde-format
-#| msgid "Show New Notifications"
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:139
+#, kde-format
 msgid "New Message Notification:"
-msgstr "Montri Novajn Sciigojn"
+msgstr "Sciigo pri Nova Mesaĝo:"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:166
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:149
+#, fuzzy, kde-format
+#| msgid "Notifications"
+msgid "Notifications sound volume:"
+msgstr "Sciigoj"
+
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:181
 #, kde-format
 msgid "Download my Data (HTML)"
 msgstr "Elŝuti miajn Datumojn (HTML)"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:173
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:188
 #, kde-format
 msgid "Export my Data (JSON)"
 msgstr "Eksporti miajn Datumojn (JSON)"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:226
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:241
 #, kde-format
 msgid ""
 "Your data file will be generated. A link to download it will be sent to your "
@@ -8291,29 +8289,28 @@ msgstr ""
 "Via datuma dosiero estos generita. Ligilo por elŝuti ĝin estos sendita al "
 "via retadreso kiam preta."
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:227
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:242
 #, kde-format
 msgid "Download File Requested"
 msgstr "Elŝuti Dosieron Petitan"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:246
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:254
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:261
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:269
 #, kde-format
 msgid "Default (%1)"
 msgstr "Defaŭlta (%1)"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:262
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:277
 #, kde-format
 msgid "Default (Every Mention/DM)"
-msgstr ""
+msgstr "Defaŭlta (Ĉiu Mencio/DM)"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:263
-#, fuzzy, kde-format
-#| msgid "Each Mentions"
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:278
+#, kde-format
 msgid "Every Mention/DM"
-msgstr "Ĉiu Mencioj"
+msgstr "Ĉiu Mencio/DM"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:267
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:282
 #, kde-format
 msgid "Your Rocket.Chat administrator has disabled email notifications"
 msgstr "Via administranto de Rocket.Chat malŝaltis retpoŝtajn sciigojn."
@@ -9176,7 +9173,7 @@ msgstr "Montri Mesaĝon"
 #: widgets/ruqolacommandlineoptions.cpp:43
 #, kde-format
 msgid "Lists the available options for user feedback"
-msgstr "Listigas la disponeblajn opciojn por uzant-sugestoj"
+msgstr "Listigas la disponeblajn elekteblojn por uzant-sugestoj"
 
 #: widgets/ruqolamainwindow.cpp:214 widgets/ruqolamainwindow.cpp:216
 #, kde-format
@@ -9808,3 +9805,7 @@ msgstr "Uzi RESTAPI por protokolado."
 #: widgets/whatsnew/whatsnewwidgettranslation.h:87
 msgid "Allow to send multi files."
 msgstr "Permesi sendi plurajn dosierojn."
+
+#: widgets/whatsnew/whatsnewwidgettranslation.h:88
+msgid "Fix preview url."
+msgstr ""

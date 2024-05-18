@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-05-17 00:38+0000\n"
+"POT-Creation-Date: 2024-05-18 00:38+0000\n"
 "PO-Revision-Date: 2023-05-10 20:24+0200\n"
 "Last-Translator: Frederik Schwarzer <schwarzer@kde.org>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
@@ -334,8 +334,8 @@ msgstr ""
 #: widgets/dialogs/createsoundmessagewidget.cpp:138
 #: widgets/dialogs/playsoundwidget.cpp:122
 #: widgets/dialogs/showvideowidget.cpp:122
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:247
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:255
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:262
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:270
 #, kde-format
 msgid "Default"
 msgstr "Voreinstellung"
@@ -852,7 +852,7 @@ msgid "Role"
 msgstr "Rolle"
 
 #: core/model/adminusersmodel.cpp:116 core/model/adminusersmodel.cpp:163
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:264
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:279
 #, kde-format
 msgid "Disabled"
 msgstr "Deaktiviert"
@@ -1063,19 +1063,19 @@ msgstr[0] "1 Sekunde"
 msgstr[1] "%1 Sekunden"
 
 #: core/model/notificationpreferencemodel.cpp:51
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:233
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:248
 #, kde-format
 msgid "All Messages"
 msgstr "Alle Nachrichten"
 
 #: core/model/notificationpreferencemodel.cpp:57
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:235
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:250
 #, kde-format
 msgid "Mentions"
 msgstr "Nennungen"
 
 #: core/model/notificationpreferencemodel.cpp:63
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:237
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:252
 #, kde-format
 msgid "Nothing"
 msgstr "Nichts"
@@ -1494,12 +1494,12 @@ msgstr "<strong>%1</strong> schreibt gerade ..."
 msgid "<strong>%1</strong> are typing..."
 msgstr "<strong>%1</strong> schreiben gerade ..."
 
-#: core/rocketchataccount.cpp:2956
+#: core/rocketchataccount.cpp:2964
 #, kde-format
 msgid "Export Messages"
 msgstr "Nachrichten exportieren"
 
-#: core/rocketchataccount.cpp:2957
+#: core/rocketchataccount.cpp:2965
 #, kde-format
 msgid "Your email has been queued for sending."
 msgstr ""
@@ -2505,7 +2505,7 @@ msgstr "Benutzerregistrierung ist deaktiviert"
 msgid "%1 is already in use."
 msgstr "Benutzer ist nicht aktiviert"
 
-#: rocketchatrestapi-qt/users/userssetpreferencesjob.cpp:153
+#: rocketchatrestapi-qt/users/userssetpreferencesjob.cpp:160
 #, fuzzy, kde-format
 #| msgid "Invalid arguments"
 msgid "Invalid parameters"
@@ -8520,103 +8520,115 @@ msgstr "Automatisch übersetzen"
 msgid "Offline Email notification:"
 msgstr "E-Mail-Benachrichtigung:"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:58
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:47
+#, fuzzy, kde-format
+#| msgid "Server version: %1"
+msgid "Mute Focused Conversations"
+msgstr "Serverversion: %1"
+
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:60
 #, kde-format
 msgid "Highlight words:"
 msgstr "Wörter hervorheben:"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:64
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:66
 #, kde-format
 msgid "Use ',' for separating words"
 msgstr ""
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:65
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:67
 #, kde-format
 msgid "Separate each word with ','."
 msgstr ""
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:74
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:76
 #, fuzzy, kde-format
 #| msgid "Desktop Notification:"
 msgid "Desktop notification:"
 msgstr "Arbeitsflächen-Benachrichtigungen:"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:86
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:88
 #, fuzzy, kde-format
 #| msgid "Notifications"
 msgid "Push notification:"
 msgstr "Benachrichtigungen"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:93
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:95
 #, kde-format
 msgid "Receive an email each time a new login is detected on your account."
 msgstr ""
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:112
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:114
 #, fuzzy, kde-format
 #| msgid "No Limit"
 msgid "Idle Time Limit:"
 msgstr "Keine Begrenzung"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:118
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:120
 #, kde-format
 msgid ""
 "Period of time until status changes to away. Value needs to be in seconds."
 msgstr ""
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:131
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:133
 #, fuzzy, kde-format
 #| msgid "Mobile Notification:"
 msgid "New Room Notification:"
 msgstr "Mobil-Benachrichtigung:"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:137
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:139
 #, fuzzy, kde-format
 #| msgid "Mobile Notification:"
 msgid "New Message Notification:"
 msgstr "Mobil-Benachrichtigung:"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:166
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:149
+#, fuzzy, kde-format
+#| msgid "Notifications"
+msgid "Notifications sound volume:"
+msgstr "Benachrichtigungen"
+
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:181
 #, kde-format
 msgid "Download my Data (HTML)"
 msgstr ""
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:173
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:188
 #, kde-format
 msgid "Export my Data (JSON)"
 msgstr ""
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:226
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:241
 #, kde-format
 msgid ""
 "Your data file will be generated. A link to download it will be sent to your "
 "email address when ready."
 msgstr ""
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:227
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:242
 #, kde-format
 msgid "Download File Requested"
 msgstr ""
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:246
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:254
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:261
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:269
 #, fuzzy, kde-format
 #| msgid "Default"
 msgid "Default (%1)"
 msgstr "Voreinstellung"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:262
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:277
 #, kde-format
 msgid "Default (Every Mention/DM)"
 msgstr ""
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:263
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:278
 #, fuzzy, kde-format
 #| msgid "Mentions"
 msgid "Every Mention/DM"
 msgstr "Nennungen"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:267
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:282
 #, kde-format
 msgid "Your Rocket.Chat administrator has disabled email notifications"
 msgstr ""
@@ -10239,6 +10251,10 @@ msgstr ""
 
 #: widgets/whatsnew/whatsnewwidgettranslation.h:87
 msgid "Allow to send multi files."
+msgstr ""
+
+#: widgets/whatsnew/whatsnewwidgettranslation.h:88
+msgid "Fix preview url."
 msgstr ""
 
 #~ msgid "Modify Status..."

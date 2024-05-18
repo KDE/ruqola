@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-05-17 00:38+0000\n"
-"PO-Revision-Date: 2024-05-16 09:08+0300\n"
+"POT-Creation-Date: 2024-05-18 00:38+0000\n"
+"PO-Revision-Date: 2024-05-17 16:47+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian\n"
 "Language: uk\n"
@@ -321,8 +321,8 @@ msgstr "Немає"
 #: widgets/dialogs/createsoundmessagewidget.cpp:138
 #: widgets/dialogs/playsoundwidget.cpp:122
 #: widgets/dialogs/showvideowidget.cpp:122
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:247
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:255
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:262
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:270
 #, kde-format
 msgid "Default"
 msgstr "Типовий"
@@ -817,7 +817,7 @@ msgid "Role"
 msgstr "Роль"
 
 #: core/model/adminusersmodel.cpp:116 core/model/adminusersmodel.cpp:163
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:264
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:279
 #, kde-format
 msgid "Disabled"
 msgstr "Вимкнено"
@@ -1009,19 +1009,19 @@ msgstr[2] "%1 секунд"
 msgstr[3] "%1 секунда"
 
 #: core/model/notificationpreferencemodel.cpp:51
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:233
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:248
 #, kde-format
 msgid "All Messages"
 msgstr "Всі повідомлення"
 
 #: core/model/notificationpreferencemodel.cpp:57
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:235
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:250
 #, kde-format
 msgid "Mentions"
 msgstr "Згадування"
 
 #: core/model/notificationpreferencemodel.cpp:63
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:237
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:252
 #, kde-format
 msgid "Nothing"
 msgstr "Нічого"
@@ -1419,12 +1419,12 @@ msgstr "<strong>%1</strong> вводить текст…"
 msgid "<strong>%1</strong> are typing..."
 msgstr "<strong>%1</strong> вводить текст…"
 
-#: core/rocketchataccount.cpp:2956
+#: core/rocketchataccount.cpp:2964
 #, kde-format
 msgid "Export Messages"
 msgstr "Експортувати повідомлення"
 
-#: core/rocketchataccount.cpp:2957
+#: core/rocketchataccount.cpp:2965
 #, kde-format
 msgid "Your email has been queued for sending."
 msgstr "Вашу електронну пошту додано до черги надсилання."
@@ -2427,7 +2427,7 @@ msgstr "Невидимий стан вимкнено"
 msgid "%1 is already in use."
 msgstr "%1 вже використано."
 
-#: rocketchatrestapi-qt/users/userssetpreferencesjob.cpp:153
+#: rocketchatrestapi-qt/users/userssetpreferencesjob.cpp:160
 #, kde-format
 msgid "Invalid parameters"
 msgstr "Некоректні параметри"
@@ -8316,44 +8316,50 @@ msgstr "Увімкнути автоматичну відсутність"
 msgid "Offline Email notification:"
 msgstr "Автономне сповіщення електронною поштою:"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:58
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:47
+#, fuzzy, kde-format
+#| msgid "Encrypted Conversation"
+msgid "Mute Focused Conversations"
+msgstr "Зашифроване спілкування"
+
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:60
 #, kde-format
 msgid "Highlight words:"
 msgstr "Позначення слів:"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:64
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:66
 #, kde-format
 msgid "Use ',' for separating words"
 msgstr "Скористайтеся «,» для відокремлення слів"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:65
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:67
 #, kde-format
 msgid "Separate each word with ','."
 msgstr "Слова слід відокремлювати за допомогою «,»."
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:74
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:76
 #, kde-format
 msgid "Desktop notification:"
 msgstr "Стільничне сповіщення:"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:86
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:88
 #, kde-format
 msgid "Push notification:"
 msgstr "Пуш-сповіщення:"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:93
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:95
 #, kde-format
 msgid "Receive an email each time a new login is detected on your account."
 msgstr ""
 "Отримувати поштове повідомлення кожного разу, коли буде виявлено вхід до "
 "облікового запису."
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:112
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:114
 #, kde-format
 msgid "Idle Time Limit:"
 msgstr "Обмеження часу бездіяльності:"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:118
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:120
 #, kde-format
 msgid ""
 "Period of time until status changes to away. Value needs to be in seconds."
@@ -8361,28 +8367,33 @@ msgstr ""
 "Період часу до зміни стану на «відсутній». Значення слід вказувати у "
 "секундах."
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:131
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:133
 #, kde-format
 msgid "New Room Notification:"
 msgstr "Нове сповіщення кімнати:"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:137
-#, fuzzy, kde-format
-#| msgid "New Room Notification:"
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:139
+#, kde-format
 msgid "New Message Notification:"
 msgstr "Нове сповіщення кімнати:"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:166
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:149
+#, fuzzy, kde-format
+#| msgid "Notifications"
+msgid "Notifications sound volume:"
+msgstr "Сповіщення"
+
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:181
 #, kde-format
 msgid "Download my Data (HTML)"
 msgstr "Отримання ваших даних (HTML)"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:173
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:188
 #, kde-format
 msgid "Export my Data (JSON)"
 msgstr "Експортування ваших даних (JSON)"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:226
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:241
 #, kde-format
 msgid ""
 "Your data file will be generated. A link to download it will be sent to your "
@@ -8391,28 +8402,28 @@ msgstr ""
 "Буде створено файл даних. На вашу адресу електронної пошти буде надіслано "
 "посилання на його отримання, коли його формування буде завершено."
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:227
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:242
 #, kde-format
 msgid "Download File Requested"
 msgstr "Отримати потрібний файл"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:246
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:254
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:261
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:269
 #, kde-format
 msgid "Default (%1)"
 msgstr "Типовий (%1)"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:262
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:277
 #, kde-format
 msgid "Default (Every Mention/DM)"
 msgstr "Типовий (усі згадки/БП)"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:263
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:278
 #, kde-format
 msgid "Every Mention/DM"
 msgstr "Усі згадки/БП"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:267
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:282
 #, kde-format
 msgid "Your Rocket.Chat administrator has disabled email notifications"
 msgstr ""
@@ -9923,6 +9934,10 @@ msgstr "Використати RESTAPI для ведення журналу."
 msgid "Allow to send multi files."
 msgstr "Уможливлено надсилання декількох файлів одночасно."
 
+#: widgets/whatsnew/whatsnewwidgettranslation.h:88
+msgid "Fix preview url."
+msgstr ""
+
 #~ msgid "(Click here for Loading more…"
 #~ msgstr "(Натисніть тут, щоб завантажити ще…)"
 
@@ -10994,9 +11009,6 @@ msgstr "Уможливлено надсилання декількох файл�
 
 #~ msgid "Please choose a file"
 #~ msgstr "Будь ласка, виберіть файл"
-
-#~ msgid "Encrypted Conversation"
-#~ msgstr "Зашифроване спілкування"
 
 #~ msgid "Do you want to accept encrypted conversation?"
 #~ msgstr "Хочете підтвердити зашифроване спілкування?"

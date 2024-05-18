@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-05-17 00:38+0000\n"
-"PO-Revision-Date: 2024-05-16 08:07+0200\n"
+"POT-Creation-Date: 2024-05-18 00:38+0000\n"
+"PO-Revision-Date: 2024-05-17 04:53+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -317,8 +317,8 @@ msgstr "არაფერი"
 #: widgets/dialogs/createsoundmessagewidget.cpp:138
 #: widgets/dialogs/playsoundwidget.cpp:122
 #: widgets/dialogs/showvideowidget.cpp:122
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:247
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:255
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:262
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:270
 #, kde-format
 msgid "Default"
 msgstr "ნაგულისხმები"
@@ -813,7 +813,7 @@ msgid "Role"
 msgstr "როლი"
 
 #: core/model/adminusersmodel.cpp:116 core/model/adminusersmodel.cpp:163
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:264
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:279
 #, kde-format
 msgid "Disabled"
 msgstr "გამორთულია"
@@ -1003,19 +1003,19 @@ msgstr[0] "1 წამი"
 msgstr[1] "%1 წამი"
 
 #: core/model/notificationpreferencemodel.cpp:51
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:233
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:248
 #, kde-format
 msgid "All Messages"
 msgstr "ყველა შეტყობინება"
 
 #: core/model/notificationpreferencemodel.cpp:57
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:235
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:250
 #, kde-format
 msgid "Mentions"
 msgstr "მოხსენებები"
 
 #: core/model/notificationpreferencemodel.cpp:63
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:237
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:252
 #, kde-format
 msgid "Nothing"
 msgstr "არაფერი"
@@ -1404,12 +1404,12 @@ msgstr "<strong>%1</strong> კრეფს…"
 msgid "<strong>%1</strong> are typing..."
 msgstr "<strong>%1</strong> კრეფს…"
 
-#: core/rocketchataccount.cpp:2956
+#: core/rocketchataccount.cpp:2964
 #, kde-format
 msgid "Export Messages"
 msgstr "შეტყობინებების გატანა"
 
-#: core/rocketchataccount.cpp:2957
+#: core/rocketchataccount.cpp:2965
 #, kde-format
 msgid "Your email has been queued for sending."
 msgstr "თქვენი ელფოსტა რიგშია გასაგზავნად."
@@ -2407,7 +2407,7 @@ msgstr "უხილავის სტატუსი გათიშული�
 msgid "%1 is already in use."
 msgstr "%1 უკვე გამოიყენება."
 
-#: rocketchatrestapi-qt/users/userssetpreferencesjob.cpp:153
+#: rocketchatrestapi-qt/users/userssetpreferencesjob.cpp:160
 #, kde-format
 msgid "Invalid parameters"
 msgstr "არასწორი პარამეტრები"
@@ -8205,42 +8205,48 @@ msgstr "ავტოგასულობის ჩართვა"
 msgid "Offline Email notification:"
 msgstr "ელფოსტის შეტყობინებების ოფლაინ მიღება:"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:58
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:47
+#, fuzzy, kde-format
+#| msgid "Start of conversation"
+msgid "Mute Focused Conversations"
+msgstr "საუბრის დაწყება"
+
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:60
 #, kde-format
 msgid "Highlight words:"
 msgstr "სიტყვების გამოკვეთა:"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:64
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:66
 #, kde-format
 msgid "Use ',' for separating words"
 msgstr "სიტყვების გამყოფად ',' გამოიყენეთ"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:65
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:67
 #, kde-format
 msgid "Separate each word with ','."
 msgstr "სიტყვების გამყოფად ',' გამოიყენეთ."
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:74
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:76
 #, kde-format
 msgid "Desktop notification:"
 msgstr "გაფრთხილება სამუშაო მაგიდაზე:"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:86
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:88
 #, kde-format
 msgid "Push notification:"
 msgstr "პუშ გაფრთხილება:"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:93
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:95
 #, kde-format
 msgid "Receive an email each time a new login is detected on your account."
 msgstr "მიიღეთ ელფოსტა ყოველ ჯერზე, როცა თქვენს ანგარიშში ვინმე შევა."
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:112
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:114
 #, kde-format
 msgid "Idle Time Limit:"
 msgstr "უქმობის დროის ზღვარი:"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:118
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:120
 #, kde-format
 msgid ""
 "Period of time until status changes to away. Value needs to be in seconds."
@@ -8248,28 +8254,33 @@ msgstr ""
 "დროის შუალედი, რომელიც უნდა მოვიცადო, სანამ გასულობა ჩაირთვება. მნიშვნელობა "
 "წამებშია."
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:131
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:133
 #, kde-format
 msgid "New Room Notification:"
 msgstr "ახალი ოთახის გაფრთხილება:"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:137
-#, fuzzy, kde-format
-#| msgid "New Room Notification:"
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:139
+#, kde-format
 msgid "New Message Notification:"
-msgstr "ახალი ოთახის გაფრთხილება:"
+msgstr "ახალი შეტყობინების გაფრთხილება:"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:166
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:149
+#, fuzzy, kde-format
+#| msgid "Notifications"
+msgid "Notifications sound volume:"
+msgstr "გაფრთხილებები"
+
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:181
 #, kde-format
 msgid "Download my Data (HTML)"
 msgstr "ჩემი მონაცემების გადმოწერა (HTML)"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:173
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:188
 #, kde-format
 msgid "Export my Data (JSON)"
 msgstr "ჩემი მონაცემების გამოტანა (JSON)"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:226
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:241
 #, kde-format
 msgid ""
 "Your data file will be generated. A link to download it will be sent to your "
@@ -8277,28 +8288,28 @@ msgid ""
 msgstr ""
 "თქვენი მონაცემების ფაილის ბმული ელფოსტაზე გამოგეგზავნებათ, როცა ის შეიქმნება."
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:227
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:242
 #, kde-format
 msgid "Download File Requested"
 msgstr "ფაილის გადმოწერა მოთხოვნილია"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:246
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:254
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:261
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:269
 #, kde-format
 msgid "Default (%1)"
 msgstr "ნაგულისხმევი (%1)"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:262
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:277
 #, kde-format
 msgid "Default (Every Mention/DM)"
 msgstr "ნაგულისხმევი (ყველა ხსენება/პშ)"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:263
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:278
 #, kde-format
 msgid "Every Mention/DM"
 msgstr "თითოეული ხსენება/პშ"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:267
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:282
 #, kde-format
 msgid "Your Rocket.Chat administrator has disabled email notifications"
 msgstr ""
@@ -9795,6 +9806,10 @@ msgstr "ჟურნალისთვის RESTAPI-ის გამოყე�
 #: widgets/whatsnew/whatsnewwidgettranslation.h:87
 msgid "Allow to send multi files."
 msgstr "ერთზე მეტი ფაილის გაგზავნის დაშვება."
+
+#: widgets/whatsnew/whatsnewwidgettranslation.h:88
+msgid "Fix preview url."
+msgstr ""
 
 #~ msgid "(Click here for Loading more…"
 #~ msgstr "(მეტის ჩასატვირთად დააწკაპუნეთ…)"

@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-05-17 00:38+0000\n"
-"PO-Revision-Date: 2024-05-15 11:41+0200\n"
+"POT-Creation-Date: 2024-05-18 00:38+0000\n"
+"PO-Revision-Date: 2024-05-17 09:51+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca@valencia\n"
@@ -37,8 +37,7 @@ msgid "Copyright © 2020-2024 Ruqola authors"
 msgstr "Copyright © 2020-2024, els autors de Ruqola"
 
 #: apps/main.cpp:52
-#, fuzzy, kde-format
-#| msgid "Laurent Montel"
+#, kde-format
 msgctxt "@info:credit"
 msgid "Laurent Montel"
 msgstr "Laurent Montel"
@@ -49,8 +48,7 @@ msgid "Maintainer"
 msgstr "Mantenidor"
 
 #: apps/main.cpp:53
-#, fuzzy, kde-format
-#| msgid "Riccardo Iaconelli"
+#, kde-format
 msgctxt "@info:credit"
 msgid "Riccardo Iaconelli"
 msgstr "Riccardo Iaconelli"
@@ -61,8 +59,7 @@ msgid "Original Author"
 msgstr "Autor original"
 
 #: apps/main.cpp:57
-#, fuzzy, kde-format
-#| msgid "David Faure"
+#, kde-format
 msgctxt "@info:credit"
 msgid "David Faure"
 msgstr "David Faure"
@@ -73,8 +70,7 @@ msgid "Bug fixing, delegates etc."
 msgstr "Esmena d'errors, delegats, etc."
 
 #: apps/main.cpp:58
-#, fuzzy, kde-format
-#| msgid "Kevin Funk"
+#, kde-format
 msgctxt "@info:credit"
 msgid "Kevin Funk"
 msgstr "Kevin Funk"
@@ -86,22 +82,19 @@ msgid "Bug fixing"
 msgstr "Esmena d'errors"
 
 #: apps/main.cpp:59
-#, fuzzy, kde-format
-#| msgid "Olivier JG"
+#, kde-format
 msgctxt "@info:credit"
 msgid "Olivier JG"
 msgstr "Olivier JG"
 
 #: apps/main.cpp:60
-#, fuzzy, kde-format
-#| msgid "Milian Wolff"
+#, kde-format
 msgctxt "@info:credit"
 msgid "Milian Wolff"
 msgstr "Milian Wolff"
 
 #: apps/main.cpp:61
-#, fuzzy, kde-format
-#| msgid "Till Adam"
+#, kde-format
 msgctxt "@info:credit"
 msgid "Till Adam"
 msgstr "Till Adam"
@@ -112,22 +105,19 @@ msgid "Windows compile bug fixing"
 msgstr "Correcció de l'error de compilació a Windows"
 
 #: apps/main.cpp:62
-#, fuzzy, kde-format
-#| msgid "Shantanu Tushar"
+#, kde-format
 msgctxt "@info:credit"
 msgid "Shantanu Tushar"
 msgstr "Shantanu Tushar"
 
 #: apps/main.cpp:63
-#, fuzzy, kde-format
-#| msgid "Alessandro Ambrosano"
+#, kde-format
 msgctxt "@info:credit"
 msgid "Alessandro Ambrosano"
 msgstr "Alessandro Ambrosano"
 
 #: apps/main.cpp:64
-#, fuzzy, kde-format
-#| msgid "Hannah von Reth"
+#, kde-format
 msgctxt "@info:credit"
 msgid "Hannah von Reth"
 msgstr "Hannah von Reth"
@@ -138,8 +128,7 @@ msgid "Bug fixing for Windows/Mac"
 msgstr "Esmena d'errors per a Windows/Mac"
 
 #: apps/main.cpp:65
-#, fuzzy, kde-format
-#| msgid "Allen Winter"
+#, kde-format
 msgctxt "@info:credit"
 msgid "Allen Winter"
 msgstr "Allen Winter"
@@ -150,8 +139,7 @@ msgid "Packaging"
 msgstr "Empaquetament"
 
 #: apps/main.cpp:66
-#, fuzzy, kde-format
-#| msgid "Waqar Ahmed"
+#, kde-format
 msgctxt "@info:credit"
 msgid "Waqar Ahmed"
 msgstr "Waqar Ahmed"
@@ -162,8 +150,7 @@ msgid "Bug fixing (compile, network crash...)"
 msgstr "Esmena d'errors (compilació, fallada de la xarxa…)"
 
 #: apps/main.cpp:67
-#, fuzzy, kde-format
-#| msgid "Nicolas Fella"
+#, kde-format
 msgctxt "@info:credit"
 msgid "Nicolas Fella"
 msgstr "Nicolas Fella"
@@ -334,8 +321,8 @@ msgstr "Cap"
 #: widgets/dialogs/createsoundmessagewidget.cpp:138
 #: widgets/dialogs/playsoundwidget.cpp:122
 #: widgets/dialogs/showvideowidget.cpp:122
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:247
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:255
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:262
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:270
 #, kde-format
 msgid "Default"
 msgstr "Predeterminat"
@@ -830,7 +817,7 @@ msgid "Role"
 msgstr "Rol"
 
 #: core/model/adminusersmodel.cpp:116 core/model/adminusersmodel.cpp:163
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:264
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:279
 #, kde-format
 msgid "Disabled"
 msgstr "Desactivat"
@@ -1020,19 +1007,19 @@ msgstr[0] "1 segon"
 msgstr[1] "%1 segons"
 
 #: core/model/notificationpreferencemodel.cpp:51
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:233
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:248
 #, kde-format
 msgid "All Messages"
 msgstr "Tots els missatges"
 
 #: core/model/notificationpreferencemodel.cpp:57
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:235
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:250
 #, kde-format
 msgid "Mentions"
 msgstr "Mencions"
 
 #: core/model/notificationpreferencemodel.cpp:63
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:237
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:252
 #, kde-format
 msgid "Nothing"
 msgstr "Res"
@@ -1422,12 +1409,12 @@ msgstr "<strong>%1</strong> està escrivint…"
 msgid "<strong>%1</strong> are typing..."
 msgstr "<strong>%1</strong> estan escrivint…"
 
-#: core/rocketchataccount.cpp:2956
+#: core/rocketchataccount.cpp:2964
 #, kde-format
 msgid "Export Messages"
 msgstr "Exporta missatges"
 
-#: core/rocketchataccount.cpp:2957
+#: core/rocketchataccount.cpp:2965
 #, kde-format
 msgid "Your email has been queued for sending."
 msgstr "El correu s'ha posat a la cua per a enviar."
@@ -2429,7 +2416,7 @@ msgstr "L'estat invisible està desactivat"
 msgid "%1 is already in use."
 msgstr "%1 ja es troba en ús."
 
-#: rocketchatrestapi-qt/users/userssetpreferencesjob.cpp:153
+#: rocketchatrestapi-qt/users/userssetpreferencesjob.cpp:160
 #, kde-format
 msgid "Invalid parameters"
 msgstr "Paràmetres no vàlids"
@@ -8272,44 +8259,50 @@ msgstr "Activa l'absència automàtica"
 msgid "Offline Email notification:"
 msgstr "Notificació de correu electrònic desconnectat:"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:58
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:47
+#, fuzzy, kde-format
+#| msgid "Start of conversation"
+msgid "Mute Focused Conversations"
+msgstr "Inici de la conversa"
+
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:60
 #, kde-format
 msgid "Highlight words:"
 msgstr "Ressalta les paraules:"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:64
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:66
 #, kde-format
 msgid "Use ',' for separating words"
 msgstr "Utilitzeu «,» per a separar paraules"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:65
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:67
 #, kde-format
 msgid "Separate each word with ','."
 msgstr "Separa cada paraula per «,»."
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:74
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:76
 #, kde-format
 msgid "Desktop notification:"
 msgstr "Notificació a l'escriptori:"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:86
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:88
 #, kde-format
 msgid "Push notification:"
 msgstr "Notificació d'inserció:"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:93
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:95
 #, kde-format
 msgid "Receive an email each time a new login is detected on your account."
 msgstr ""
 "Rebre un correu electrònic cada vegada que es detecte un inici de sessió nou "
 "en el vostre compte."
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:112
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:114
 #, kde-format
 msgid "Idle Time Limit:"
 msgstr "Límit del temps d'espera sense activitat:"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:118
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:120
 #, kde-format
 msgid ""
 "Period of time until status changes to away. Value needs to be in seconds."
@@ -8317,29 +8310,33 @@ msgstr ""
 "Període de temps fins que l'estat canvia a absent. El valor ha de ser en "
 "segons."
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:131
-#, fuzzy, kde-format
-#| msgid "Show New Notifications"
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:133
+#, kde-format
 msgid "New Room Notification:"
-msgstr "Mostra les notificacions noves"
+msgstr "Notificació de sala nova:"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:137
-#, fuzzy, kde-format
-#| msgid "Show New Notifications"
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:139
+#, kde-format
 msgid "New Message Notification:"
-msgstr "Mostra les notificacions noves"
+msgstr "Notificació de missatge nou:"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:166
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:149
+#, fuzzy, kde-format
+#| msgid "Notifications"
+msgid "Notifications sound volume:"
+msgstr "Notificacions"
+
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:181
 #, kde-format
 msgid "Download my Data (HTML)"
 msgstr "Baixa les meues dades (HTML)"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:173
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:188
 #, kde-format
 msgid "Export my Data (JSON)"
 msgstr "Exporta les meues dades (JSON)"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:226
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:241
 #, kde-format
 msgid ""
 "Your data file will be generated. A link to download it will be sent to your "
@@ -8348,29 +8345,28 @@ msgstr ""
 "Es generarà el fitxer amb les vostres dades. S'enviarà a la vostra adreça "
 "electrònica un enllaç per a baixar-lo quan estiga llest."
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:227
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:242
 #, kde-format
 msgid "Download File Requested"
 msgstr "S'ha sol·licitat la baixada del fitxer"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:246
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:254
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:261
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:269
 #, kde-format
 msgid "Default (%1)"
 msgstr "Predeterminat (%1)"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:262
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:277
 #, kde-format
 msgid "Default (Every Mention/DM)"
-msgstr ""
+msgstr "Predeterminat (Cada menció/DM)"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:263
-#, fuzzy, kde-format
-#| msgid "Each Mentions"
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:278
+#, kde-format
 msgid "Every Mention/DM"
-msgstr "Cada menció"
+msgstr "Cada menció/DM"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:267
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:282
 #, kde-format
 msgid "Your Rocket.Chat administrator has disabled email notifications"
 msgstr ""
@@ -9874,3 +9870,7 @@ msgstr "Utilitza RESTAPI per al registre."
 #: widgets/whatsnew/whatsnewwidgettranslation.h:87
 msgid "Allow to send multi files."
 msgstr "Permet enviar múltiples fitxers."
+
+#: widgets/whatsnew/whatsnewwidgettranslation.h:88
+msgid "Fix preview url."
+msgstr ""
