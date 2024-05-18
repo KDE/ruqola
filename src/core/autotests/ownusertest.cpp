@@ -69,6 +69,8 @@ void OwnUserTest::shouldLoadOwnUser_data()
     ownUser.setReceiveLoginDetectionEmail(true);
     ownUser.setNewRoomNotification(QStringLiteral("door"));
     ownUser.setNewMessageNotification(QStringLiteral("chime"));
+    ownUser.setNotificationsSoundVolume(100);
+    ownUser.setMuteFocusedConversations(true);
 
     result.setOwnUserPreferences(ownUser);
 

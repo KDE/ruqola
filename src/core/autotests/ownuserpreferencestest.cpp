@@ -41,6 +41,8 @@ void OwnUserPreferencesTest::shouldLoadOwnUserPreferencesInfo_data()
         OwnUserPreferences preferences;
         preferences.setShowFavorite(false);
         preferences.setReceiveLoginDetectionEmail(true);
+        preferences.setNotificationsSoundVolume(0);
+        preferences.setMuteFocusedConversations(false);
         QTest::addRow("empty") << QStringLiteral("empty") << preferences;
     }
     {
@@ -57,6 +59,9 @@ void OwnUserPreferencesTest::shouldLoadOwnUserPreferencesInfo_data()
         preferences.setReceiveLoginDetectionEmail(true);
         preferences.setNewRoomNotification(QStringLiteral("door"));
         preferences.setNewMessageNotification(QStringLiteral("chime"));
+        preferences.setNotificationsSoundVolume(100);
+        preferences.setMuteFocusedConversations(true);
+
         QTest::addRow("ownuserpreferences1") << QStringLiteral("ownuserpreferences1") << preferences;
     }
 }
