@@ -116,11 +116,11 @@ static UserChoice askUser(const QUrl &url, const KService::Ptr &offer, QWidget *
     QMessageBox msgBox(QMessageBox::Question, title, text, QMessageBox::NoButton, widget);
     const char *prop = "_enumValue";
     if (offer) {
-        auto *b = msgBox.addButton(i18n("&Open With '%1'", offer->name()), QMessageBox::YesRole);
+        auto *b = msgBox.addButton(i18nc("@action:button", "&Open With '%1'", offer->name()), QMessageBox::YesRole);
         b->setProperty(prop, QVariant::fromValue(UserChoice::Open));
     }
-    msgBox.addButton(i18n("Open &With…"), QMessageBox::YesRole)->setProperty(prop, QVariant::fromValue(UserChoice::OpenWith));
-    msgBox.addButton(i18n("Save &As…"), QMessageBox::ActionRole)->setProperty(prop, QVariant::fromValue(UserChoice::Save));
+    msgBox.addButton(i18nc("@action:button", "Open &With…"), QMessageBox::YesRole)->setProperty(prop, QVariant::fromValue(UserChoice::OpenWith));
+    msgBox.addButton(i18nc("@action:button", "Save &As…"), QMessageBox::ActionRole)->setProperty(prop, QVariant::fromValue(UserChoice::Save));
     msgBox.addButton(QMessageBox::Cancel)->setProperty(prop, QVariant::fromValue(UserChoice::Cancel));
     msgBox.exec();
     return msgBox.clickedButton()->property(prop).value<UserChoice>();
