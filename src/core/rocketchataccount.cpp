@@ -2857,6 +2857,8 @@ void RocketChatAccount::updateUserData(const QJsonArray &contents)
                 ownUserPreferences.setNotificationsSoundVolume(updateJson.value(key).toInt());
                 mOwnUser.setOwnUserPreferences(ownUserPreferences);
                 Q_EMIT ownUserPreferencesChanged();
+                // Update notification volume!
+                mSoundManager->setVolume(mOwnUser.ownUserPreferences().notificationsSoundVolume());
             } else if (key == "settings.preferences.muteFocusedConversations"_L1) {
                 ownUserPreferences.setMuteFocusedConversations(updateJson.value(key).toBool());
                 mOwnUser.setOwnUserPreferences(ownUserPreferences);
