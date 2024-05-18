@@ -9,6 +9,8 @@ using namespace Qt::Literals::StringLiterals;
 
 #include "ruqola_room_memory_debug.h"
 
+#include <QTimeZone>
+
 ChannelCounterInfo::ChannelCounterInfo()
     : QSharedData()
 {
@@ -38,7 +40,7 @@ void ChannelCounterInfo::parseCounterInfo(const QJsonObject &replyObject)
     mUnreadMessages = replyObject.value("unreads"_L1).toInt();
     mJoined = replyObject.value("joined"_L1).toBool();
     mUnreadFrom = QDateTime::fromString(replyObject.value("unreadsFrom"_L1).toString(), Qt::ISODate);
-    mUnreadFrom = mUnreadFrom.toTimeSpec(Qt::UTC);
+    mUnreadFrom = mUnreadFrom.toTimeZone(QTimeZone::UTC);
     mUnreadMessageTimeStep = mUnreadFrom.toMSecsSinceEpoch();
 }
 
