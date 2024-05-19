@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-05-18 00:38+0000\n"
+"POT-Creation-Date: 2024-05-19 00:38+0000\n"
 "PO-Revision-Date: 2023-05-10 20:24+0200\n"
 "Last-Translator: Frederik Schwarzer <schwarzer@kde.org>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
@@ -1494,12 +1494,12 @@ msgstr "<strong>%1</strong> schreibt gerade ..."
 msgid "<strong>%1</strong> are typing..."
 msgstr "<strong>%1</strong> schreiben gerade ..."
 
-#: core/rocketchataccount.cpp:2964
+#: core/rocketchataccount.cpp:2966
 #, kde-format
 msgid "Export Messages"
 msgstr "Nachrichten exportieren"
 
-#: core/rocketchataccount.cpp:2965
+#: core/rocketchataccount.cpp:2967
 #, kde-format
 msgid "Your email has been queued for sending."
 msgstr ""
@@ -6779,6 +6779,7 @@ msgstr "Server hinzufügen"
 #: widgets/configurenewserver/createnewserverdialog.cpp:49
 #, fuzzy, kde-format
 #| msgid "Configure Account"
+msgctxt "@action:button"
 msgid "Configure Activities"
 msgstr "Zugang einrichten"
 
@@ -8920,19 +8921,23 @@ msgid "Open attachment <filename>%1</filename>?<nl/>"
 msgstr "Anhang <filename>%1</filename> öffnen?<nl/>"
 
 #: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:119
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "&Open With '%1'"
+msgctxt "@action:button"
 msgid "&Open With '%1'"
 msgstr "&Öffnen mit  „%1“"
 
 #: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:122
 #, fuzzy, kde-format
 #| msgid "Open &With..."
+msgctxt "@action:button"
 msgid "Open &With…"
 msgstr "Öffnen &mit ..."
 
 #: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:123
 #, fuzzy, kde-format
 #| msgid "Save &As..."
+msgctxt "@action:button"
 msgid "Save &As…"
 msgstr "Speichern &unter ..."
 

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-05-18 00:38+0000\n"
+"POT-Creation-Date: 2024-05-19 00:38+0000\n"
 "PO-Revision-Date: 2023-11-14 13:24+0100\n"
 "Last-Translator: Vit Pelcak <vit@pelcak.org>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
@@ -1408,12 +1408,12 @@ msgstr "<strong>%1</strong> píše..."
 msgid "<strong>%1</strong> are typing..."
 msgstr "<strong>%1</strong> píší…"
 
-#: core/rocketchataccount.cpp:2964
+#: core/rocketchataccount.cpp:2966
 #, kde-format
 msgid "Export Messages"
 msgstr "Exportovat zprávy"
 
-#: core/rocketchataccount.cpp:2965
+#: core/rocketchataccount.cpp:2967
 #, kde-format
 msgid "Your email has been queued for sending."
 msgstr ""
@@ -6382,9 +6382,12 @@ msgid "Add Server"
 msgstr "Přidat server"
 
 #: widgets/configurenewserver/createnewserverdialog.cpp:49
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@title:window"
+#| msgid "Configure Notification"
+msgctxt "@action:button"
 msgid "Configure Activities"
-msgstr ""
+msgstr "Nastavit upozornění"
 
 #: widgets/configurenewserver/createnewserverdialog.cpp:67
 #, kde-format
@@ -8378,17 +8381,22 @@ msgid "Open attachment <filename>%1</filename>?<nl/>"
 msgstr "Otevřít přílohu <filename>%1</filename>?<nl/>"
 
 #: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:119
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "&Open With '%1'"
+msgctxt "@action:button"
 msgid "&Open With '%1'"
 msgstr "&Otevřít pomocí '%1'"
 
 #: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:122
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "&Open With '%1'"
+msgctxt "@action:button"
 msgid "Open &With…"
-msgstr ""
+msgstr "&Otevřít pomocí '%1'"
 
 #: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:123
 #, kde-format
+msgctxt "@action:button"
 msgid "Save &As…"
 msgstr ""
 

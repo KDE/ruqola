@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-05-18 00:38+0000\n"
+"POT-Creation-Date: 2024-05-19 00:38+0000\n"
 "PO-Revision-Date: 2023-11-24 12:18+0300\n"
 "Last-Translator: Olesya Gerasimenko <translation-team@basealt.ru>\n"
 "Language-Team: Basealt Translation Team\n"
@@ -1450,12 +1450,12 @@ msgstr "<strong>%1</strong> печатает..."
 msgid "<strong>%1</strong> are typing..."
 msgstr "<strong>%1</strong> печатают..."
 
-#: core/rocketchataccount.cpp:2964
+#: core/rocketchataccount.cpp:2966
 #, kde-format
 msgid "Export Messages"
 msgstr "Экспорт сообщений"
 
-#: core/rocketchataccount.cpp:2965
+#: core/rocketchataccount.cpp:2967
 #, kde-format
 msgid "Your email has been queued for sending."
 msgstr "Электронное письмо помещено в очередь для отправки."
@@ -6694,6 +6694,7 @@ msgstr "Добавление сервера"
 #, fuzzy, kde-format
 #| msgctxt "@title:window"
 #| msgid "Configure Notification"
+msgctxt "@action:button"
 msgid "Configure Activities"
 msgstr "Настройка уведомления"
 
@@ -8803,19 +8804,23 @@ msgid "Open attachment <filename>%1</filename>?<nl/>"
 msgstr "Открыть вложение <filename>%1</filename>?<nl/>"
 
 #: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:119
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "&Open With '%1'"
+msgctxt "@action:button"
 msgid "&Open With '%1'"
 msgstr "&Открыть с помощью «%1»"
 
 #: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:122
 #, fuzzy, kde-format
 #| msgid "Open &With..."
+msgctxt "@action:button"
 msgid "Open &With…"
 msgstr "Открыть с &помощью…"
 
 #: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:123
 #, fuzzy, kde-format
 #| msgid "Save &As..."
+msgctxt "@action:button"
 msgid "Save &As…"
 msgstr "Сохранить &как..."
 

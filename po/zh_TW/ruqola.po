@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-05-18 00:38+0000\n"
+"POT-Creation-Date: 2024-05-19 00:38+0000\n"
 "PO-Revision-Date: 2024-05-09 06:59+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
@@ -1430,12 +1430,12 @@ msgstr ""
 msgid "<strong>%1</strong> are typing..."
 msgstr ""
 
-#: core/rocketchataccount.cpp:2964
+#: core/rocketchataccount.cpp:2966
 #, kde-format
 msgid "Export Messages"
 msgstr "匯出訊息"
 
-#: core/rocketchataccount.cpp:2965
+#: core/rocketchataccount.cpp:2967
 #, kde-format
 msgid "Your email has been queued for sending."
 msgstr ""
@@ -6572,7 +6572,9 @@ msgid "Add Server"
 msgstr "新增伺服器"
 
 #: widgets/configurenewserver/createnewserverdialog.cpp:49
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Configure Activities"
+msgctxt "@action:button"
 msgid "Configure Activities"
 msgstr "設定活動"
 
@@ -8596,17 +8598,23 @@ msgid "Open attachment <filename>%1</filename>?<nl/>"
 msgstr ""
 
 #: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:119
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "&Open With '%1'"
+msgctxt "@action:button"
 msgid "&Open With '%1'"
 msgstr "用「%1」開啟(&O)"
 
 #: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:122
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Open &With…"
+msgctxt "@action:button"
 msgid "Open &With…"
 msgstr "開啟方式(&W)…"
 
 #: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:123
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Save &As…"
+msgctxt "@action:button"
 msgid "Save &As…"
 msgstr "另存為(&A)…"
 

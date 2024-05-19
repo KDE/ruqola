@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-05-18 00:38+0000\n"
+"POT-Creation-Date: 2024-05-19 00:38+0000\n"
 "PO-Revision-Date: 2024-05-12 13:30+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
@@ -1417,12 +1417,12 @@ msgstr "<strong>%1</strong> yazıyor…"
 msgid "<strong>%1</strong> are typing..."
 msgstr "<strong>%1</strong> yazıyor…"
 
-#: core/rocketchataccount.cpp:2964
+#: core/rocketchataccount.cpp:2966
 #, kde-format
 msgid "Export Messages"
 msgstr "İletileri Dışa Aktar"
 
-#: core/rocketchataccount.cpp:2965
+#: core/rocketchataccount.cpp:2967
 #, kde-format
 msgid "Your email has been queued for sending."
 msgstr "E-postanız, gönderme için kuyruğa eklendi."
@@ -6562,7 +6562,9 @@ msgid "Add Server"
 msgstr "Sunucu Ekle"
 
 #: widgets/configurenewserver/createnewserverdialog.cpp:49
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Configure Activities"
+msgctxt "@action:button"
 msgid "Configure Activities"
 msgstr "Etkinlikleri Yapılandır"
 
@@ -8632,17 +8634,23 @@ msgid "Open attachment <filename>%1</filename>?<nl/>"
 msgstr "<filename>%1</filename> ilişiği açılsın mı?<nl/>"
 
 #: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:119
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "&Open With '%1'"
+msgctxt "@action:button"
 msgid "&Open With '%1'"
 msgstr "'%1' ile &Aç"
 
 #: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:122
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Open &With…"
+msgctxt "@action:button"
 msgid "Open &With…"
 msgstr "&Birlikte Aç…"
 
 #: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:123
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Save &As…"
+msgctxt "@action:button"
 msgid "Save &As…"
 msgstr "&Farklı Kaydet…"
 
