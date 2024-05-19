@@ -26,6 +26,8 @@ public:
     void setLoginStatus(AuthenticationManager::LoginStatus status);
     void showError(const QString &text);
 
+    void forceLoginFocus();
+
 private:
     LIBRUQOLAWIDGETS_NO_EXPORT void changeWidgetStatus(bool enabled);
     LIBRUQOLAWIDGETS_NO_EXPORT void slotLogin();

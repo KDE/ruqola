@@ -49,6 +49,7 @@ RuqolaCentralWidget::RuqolaCentralWidget(QWidget *parent)
     mStackedWidget->addWidget(mRuqolaLoginWidget);
 
     mStackedWidget->setCurrentWidget(mRuqolaLoginWidget);
+    mRuqolaLoginWidget->forceLoginFocus();
     connect(mRuqolaMainWidget, &RuqolaMainWidget::channelSelected, this, &RuqolaCentralWidget::channelSelected);
     connect(ServerErrorInfoHistoryManager::self(), &ServerErrorInfoHistoryManager::newServerErrorInfo, this, &RuqolaCentralWidget::slotNewErrorInfo);
 }
@@ -129,6 +130,7 @@ void RuqolaCentralWidget::slotLoginStatusChanged()
         mStackedWidget->setCurrentWidget(mRuqolaMainWidget);
     } else {
         mStackedWidget->setCurrentWidget(mRuqolaLoginWidget);
+        mRuqolaLoginWidget->forceLoginFocus();
         mRuqolaLoginWidget->setRocketChatAccount(mCurrentRocketChatAccount);
         loginPage = true;
     }

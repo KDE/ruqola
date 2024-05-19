@@ -80,9 +80,15 @@ RuqolaLoginWidget::RuqolaLoginWidget(QWidget *parent)
     mainLayout->addStretch(2);
     // Hide by default
     mFailedError->hide();
+    mLoginButton->setAutoDefault(true);
 }
 
 RuqolaLoginWidget::~RuqolaLoginWidget() = default;
+
+void RuqolaLoginWidget::forceLoginFocus()
+{
+    mLoginButton->setFocus();
+}
 
 void RuqolaLoginWidget::setRocketChatAccount(RocketChatAccount *rocketChatAccount)
 {
