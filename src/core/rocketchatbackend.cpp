@@ -542,6 +542,7 @@ void RocketChatBackend::slotChanged(const QJsonObject &object)
                 qCDebug(RUQOLA_LOG) << "****************************************** insert new Room !!!!!" << contents;
                 const QJsonObject roomData = contents[1].toObject();
                 model->insertRoom(roomData);
+                mRocketChatAccount->playNewRoomNotification();
             } else if (actionName == "removed"_L1) {
                 qCDebug(RUQOLA_LOG) << "Remove channel" << contents;
                 const QJsonObject roomData = contents[1].toObject();

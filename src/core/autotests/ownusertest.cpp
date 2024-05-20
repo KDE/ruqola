@@ -67,8 +67,8 @@ void OwnUserTest::shouldLoadOwnUser_data()
     ownUser.setRoomListSortOrder(OwnUserPreferences::RoomListSortOrder::ByLastMessage);
     ownUser.setRoomListDisplay(OwnUserPreferences::RoomListDisplay::Medium);
     ownUser.setReceiveLoginDetectionEmail(true);
-    ownUser.setNewRoomNotification(QStringLiteral("door"));
-    ownUser.setNewMessageNotification(QStringLiteral("chime"));
+    ownUser.setNewRoomNotification(QByteArrayLiteral("door"));
+    ownUser.setNewMessageNotification(QByteArrayLiteral("chime"));
     ownUser.setNotificationsSoundVolume(100);
     ownUser.setMuteFocusedConversations(true);
 

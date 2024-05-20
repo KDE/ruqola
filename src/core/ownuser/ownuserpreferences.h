@@ -82,11 +82,11 @@ public:
     [[nodiscard]] bool receiveLoginDetectionEmail() const;
     void setReceiveLoginDetectionEmail(bool newReceiveLoginDetectionEmail);
 
-    [[nodiscard]] QString newMessageNotification() const;
-    void setNewMessageNotification(const QString &newNewMessageNotification);
+    [[nodiscard]] QByteArray newMessageNotification() const;
+    void setNewMessageNotification(const QByteArray &newNewMessageNotification);
 
-    [[nodiscard]] QString newRoomNotification() const;
-    void setNewRoomNotification(const QString &newNewRoomNotification);
+    [[nodiscard]] QByteArray newRoomNotification() const;
+    void setNewRoomNotification(const QByteArray &newNewRoomNotification);
 
     [[nodiscard]] int notificationsSoundVolume() const;
     void setNotificationsSoundVolume(int newNotificationsSoundVolume);
@@ -99,8 +99,8 @@ private:
     QString mEmailNotificationMode;
     QString mDesktopNotifications;
     QString mPushNotifications;
-    QString mNewMessageNotification;
-    QString mNewRoomNotification;
+    QByteArray mNewMessageNotification;
+    QByteArray mNewRoomNotification;
     RoomListSortOrder mRoomListSortOrder = RoomListSortOrder::Unknown;
     RoomListDisplay mRoomListDisplay = RoomListDisplay::Unknown;
     int mIdleTimeLimit = -1;

@@ -56,8 +56,8 @@ void OwnUserPreferences::parsePreferences(const QJsonObject &replyObject)
     setShowRoomAvatar(replyObject.value("sidebarDisplayAvatar"_L1).toBool(false));
     setShowFavorite(replyObject.value("sidebarShowFavorites"_L1).toBool(false));
     setReceiveLoginDetectionEmail(replyObject.value("receiveLoginDetectionEmail"_L1).toBool(true));
-    setNewMessageNotification(replyObject.value("newMessageNotification"_L1).toString());
-    setNewRoomNotification(replyObject.value("newRoomNotification"_L1).toString());
+    setNewMessageNotification(replyObject.value("newMessageNotification"_L1).toString().toLatin1());
+    setNewRoomNotification(replyObject.value("newRoomNotification"_L1).toString().toLatin1());
     setNotificationsSoundVolume(replyObject.value("notificationsSoundVolume"_L1).toInt());
     setMuteFocusedConversations(replyObject.value("muteFocusedConversations"_L1).toBool(false));
 }
@@ -245,22 +245,22 @@ void OwnUserPreferences::setEnableAutoAway(bool newEnableAutoAway)
     mEnableAutoAway = newEnableAutoAway;
 }
 
-QString OwnUserPreferences::newMessageNotification() const
+QByteArray OwnUserPreferences::newMessageNotification() const
 {
     return mNewMessageNotification;
 }
 
-void OwnUserPreferences::setNewMessageNotification(const QString &newNewMessageNotification)
+void OwnUserPreferences::setNewMessageNotification(const QByteArray &newNewMessageNotification)
 {
     mNewMessageNotification = newNewMessageNotification;
 }
 
-QString OwnUserPreferences::newRoomNotification() const
+QByteArray OwnUserPreferences::newRoomNotification() const
 {
     return mNewRoomNotification;
 }
 
-void OwnUserPreferences::setNewRoomNotification(const QString &newNewRoomNotification)
+void OwnUserPreferences::setNewRoomNotification(const QByteArray &newNewRoomNotification)
 {
     mNewRoomNotification = newNewRoomNotification;
 }

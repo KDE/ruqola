@@ -2846,11 +2846,11 @@ void RocketChatAccount::updateUserData(const QJsonArray &contents)
                 mOwnUser.setOwnUserPreferences(ownUserPreferences);
                 Q_EMIT ownUserPreferencesChanged();
             } else if (key == "settings.preferences.newMessageNotification"_L1) {
-                ownUserPreferences.setNewMessageNotification(updateJson.value(key).toString());
+                ownUserPreferences.setNewMessageNotification(updateJson.value(key).toString().toLatin1());
                 mOwnUser.setOwnUserPreferences(ownUserPreferences);
                 Q_EMIT ownUserPreferencesChanged();
             } else if (key == "settings.preferences.newRoomNotification"_L1) {
-                ownUserPreferences.setNewRoomNotification(updateJson.value(key).toString());
+                ownUserPreferences.setNewRoomNotification(updateJson.value(key).toString().toLatin1());
                 mOwnUser.setOwnUserPreferences(ownUserPreferences);
                 Q_EMIT ownUserPreferencesChanged();
             } else if (key == "settings.preferences.notificationsSoundVolume"_L1) {
@@ -3163,6 +3163,12 @@ void RocketChatAccount::executeBlockAction(const QString &appId,
 void RocketChatAccount::playSound(const QUrl &url)
 {
     mSoundManager->playSound(url);
+}
+
+void RocketChatAccount::playNewRoomNotification()
+{
+    const QByteArray identifier = mOwnUser.ownUserPreferences().newRoomNotification();
+    // TODO
 }
 
 #include "moc_rocketchataccount.cpp"

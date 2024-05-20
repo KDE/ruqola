@@ -539,6 +539,7 @@ public:
     [[nodiscard]] NotificationPreferences *notificationPreferences() const;
 
     void playSound(const QUrl &url);
+    void playNewRoomNotification();
 
 Q_SIGNALS:
     void roomRemoved(const QByteArray &roomId);

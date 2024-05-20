@@ -345,8 +345,8 @@ void MyAccountPreferenceConfigureWidget::load()
     mReceiveLoginDetectionEmails->setChecked(ownUserPreferences.receiveLoginDetectionEmail());
     mIdleTimeLimit->setValue(ownUserPreferences.idleTimeLimit());
     mAutomaticAway->setChecked(ownUserPreferences.enableAutoAway());
-    mSoundNewRoomNotification->setCurrentSoundName(ownUserPreferences.newRoomNotification().toLatin1());
-    mSoundNewMessageNotification->setCurrentSoundName(ownUserPreferences.newMessageNotification().toLatin1());
+    mSoundNewRoomNotification->setCurrentSoundName(ownUserPreferences.newRoomNotification());
+    mSoundNewMessageNotification->setCurrentSoundName(ownUserPreferences.newMessageNotification());
     mMuteFocusedConversations->setChecked(ownUserPreferences.muteFocusedConversations());
     mNotificationsSoundVolume->setValue(ownUserPreferences.notificationsSoundVolume());
     mChanged = false;
