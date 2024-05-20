@@ -379,6 +379,9 @@ void RestApiMethodTest::shouldGenerateUrl()
 
     QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::UsersLogoutOtherClients),
              QUrl(QStringLiteral("http://www.kde.org/api/v1/users.logoutOtherClients")));
+
+    QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::RoomsMuteUser), QUrl(QStringLiteral("http://www.kde.org/api/v1/rooms.muteUser")));
+    QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::RoomsUnmuteUser), QUrl(QStringLiteral("http://www.kde.org/api/v1/rooms.unmuteUser")));
 }
 
 #include "moc_restapimethodtest.cpp"

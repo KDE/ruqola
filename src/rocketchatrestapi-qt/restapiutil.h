@@ -352,6 +352,10 @@ enum class RestApiUrlType {
 
     // users.logoutOtherClients
     UsersLogoutOtherClients,
+
+    // rooms.muteUser
+    RoomsMuteUser,
+    RoomsUnmuteUser,
 };
 LIBROCKETCHATRESTAPI_QT_EXPORT QString adaptUrl(const QString &url);
 LIBROCKETCHATRESTAPI_QT_EXPORT QString restUrl(RestApiUtil::RestApiUrlType type);

@@ -596,6 +596,12 @@ QString RestApiUtil::restUrl(RestApiUtil::RestApiUrlType type)
 
     case RestApiUtil::RestApiUrlType::UsersLogoutOtherClients:
         return QStringLiteral("users.logoutOtherClients");
+
+    // 6.8.0
+    case RestApiUtil::RestApiUrlType::RoomsMuteUser:
+        return QStringLiteral("rooms.muteUser");
+    case RestApiUtil::RestApiUrlType::RoomsUnmuteUser:
+        return QStringLiteral("rooms.unmuteUser");
     }
     qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Unknown RestApiUtil::RestApiUrlType " << static_cast<int>(type);
     return {};
