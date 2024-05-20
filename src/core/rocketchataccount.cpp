@@ -3160,15 +3160,20 @@ void RocketChatAccount::executeBlockAction(const QString &appId,
     }
 }
 
-void RocketChatAccount::playSound(const QUrl &url)
+void RocketChatAccount::playSound(const QByteArray &soundIdentifier)
 {
-    mSoundManager->playSound(url);
+    if (!soundIdentifier.isEmpty()) {
+        const QString url = customSoundManager()->soundFilePath(soundIdentifier);
+        if (!url.isEmpty()) {
+            mSoundManager->playSound(soundUrlFromLocalCache(url));
+        }
+    }
 }
 
 void RocketChatAccount::playNewRoomNotification()
 {
     const QByteArray identifier = mOwnUser.ownUserPreferences().newRoomNotification();
-    // TODO
+    playSound(identifier);
 }
 
 #include "moc_rocketchataccount.cpp"

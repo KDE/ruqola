@@ -737,12 +737,7 @@ void AccountManager::connectToAccount(RocketChatAccount *account)
         case NotificationInfo::StandardMessage: {
             if (Room *room = account->room(info.roomId())) {
                 const QByteArray audioNotificationId = room->notificationOptions().audioNotificationValue();
-                if (!audioNotificationId.isEmpty()) {
-                    const QString url = account->customSoundManager()->soundFilePath(audioNotificationId);
-                    if (!url.isEmpty()) {
-                        account->playSound(account->soundUrlFromLocalCache(url));
-                    }
-                }
+                account->playSound(audioNotificationId);
             } else {
                 qCWarning(RUQOLA_SOUND_LOG) << "Room doesn't exist!" << info.roomId();
             }

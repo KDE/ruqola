@@ -160,8 +160,7 @@ void ConfigureNotificationWidget::slotPlaySound()
         const QByteArray identifier =
             mRocketChatAccount->notificationPreferences()->desktopSoundNotificationModel()->currentPreference(mDesktopSoundCombobox->currentIndex());
         if (!identifier.isEmpty() || identifier != "none") {
-            const QUrl url = mRocketChatAccount->soundUrlFromLocalCache(mRocketChatAccount->customSoundManager()->soundFilePath(identifier));
-            mRocketChatAccount->playSound(url);
+            mRocketChatAccount->playSound(identifier);
         }
     }
 }

@@ -538,7 +538,7 @@ public:
     [[nodiscard]] bool activityEnabled() const;
     [[nodiscard]] NotificationPreferences *notificationPreferences() const;
 
-    void playSound(const QUrl &url);
+    void playSound(const QByteArray &soundIdentifier);
     void playNewRoomNotification();
 
 Q_SIGNALS:
