@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-05-19 00:38+0000\n"
-"PO-Revision-Date: 2024-05-17 04:53+0200\n"
+"POT-Creation-Date: 2024-05-20 00:38+0000\n"
+"PO-Revision-Date: 2024-05-19 05:40+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -6547,8 +6547,7 @@ msgid "Add Server"
 msgstr "სერვერის დამატება"
 
 #: widgets/configurenewserver/createnewserverdialog.cpp:49
-#, fuzzy, kde-format
-#| msgid "Configure Activities"
+#, kde-format
 msgctxt "@action:button"
 msgid "Configure Activities"
 msgstr "აქტივობების მორგება"
@@ -7701,43 +7700,43 @@ msgstr ""
 "თქვენ ჩართეთ 2.\n"
 "შეიყვანეთ გენერირებული ან მარქაფი კოდი."
 
-#: widgets/loginwidget/ruqolaloginwidget.cpp:155
+#: widgets/loginwidget/ruqolaloginwidget.cpp:161
 #, kde-format
 msgid "Login Failed: invalid username or password"
 msgstr "შესვლის შეცდომა: მომხმარებელი ან პაროლი არასწორია"
 
-#: widgets/loginwidget/ruqolaloginwidget.cpp:159
+#: widgets/loginwidget/ruqolaloginwidget.cpp:165
 #: widgets/misc/accountsoverviewwidget.cpp:53
 #, kde-format
 msgid "Login failed: Invalid OTP code."
 msgstr "შესვლის შეცდომა: OTP კოდი არასწორია."
 
-#: widgets/loginwidget/ruqolaloginwidget.cpp:169
+#: widgets/loginwidget/ruqolaloginwidget.cpp:175
 #, kde-format
 msgid "Installation Problem found. No plugins found here."
 msgstr "დაყენების შეცდომა. დამატებები ვერ ვიპოვე."
 
-#: widgets/loginwidget/ruqolaloginwidget.cpp:175
+#: widgets/loginwidget/ruqolaloginwidget.cpp:181
 #, kde-format
 msgid "Login Failed: generic error"
 msgstr "შესვლა ვერ მოხერხდა: ზოგადი შეცდომა"
 
-#: widgets/loginwidget/ruqolaloginwidget.cpp:181
+#: widgets/loginwidget/ruqolaloginwidget.cpp:187
 #, kde-format
 msgid "Login Failed: Login has been temporarily blocked For IP."
 msgstr "შესვლის შეცდომ: ამ IP-დან შემოსვლა დროებით დაბლოკილია."
 
-#: widgets/loginwidget/ruqolaloginwidget.cpp:187
+#: widgets/loginwidget/ruqolaloginwidget.cpp:193
 #, kde-format
 msgid "Login Failed: Login has been temporarily blocked For User."
 msgstr "შესვლის შეცდომა: ამ მომხმარებლით შემოსვლა დროებით დაბლოკილია."
 
-#: widgets/loginwidget/ruqolaloginwidget.cpp:193
+#: widgets/loginwidget/ruqolaloginwidget.cpp:199
 #, kde-format
 msgid "Login Failed: User is not activated."
 msgstr "შესვლის შეცდომა: მომხმარებელი გააქტიურებული არაა."
 
-#: widgets/loginwidget/ruqolaloginwidget.cpp:199
+#: widgets/loginwidget/ruqolaloginwidget.cpp:205
 #, kde-format
 msgid "Login Failed: App user is not allowed to login."
 msgstr "შესვლის შეცდომა: აპის მომხმარებელს შესვლის უფლება არ აქვს."
@@ -8208,10 +8207,9 @@ msgid "Offline Email notification:"
 msgstr "ელფოსტის შეტყობინებების ოფლაინ მიღება:"
 
 #: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:47
-#, fuzzy, kde-format
-#| msgid "Start of conversation"
+#, kde-format
 msgid "Mute Focused Conversations"
-msgstr "საუბრის დაწყება"
+msgstr "ფოკუსის მქონე საუბრების დადუმება"
 
 #: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:60
 #, kde-format
@@ -8267,10 +8265,9 @@ msgid "New Message Notification:"
 msgstr "ახალი შეტყობინების გაფრთხილება:"
 
 #: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:149
-#, fuzzy, kde-format
-#| msgid "Notifications"
+#, kde-format
 msgid "Notifications sound volume:"
-msgstr "გაფრთხილებები"
+msgstr "გაფრთხილებების ხმის სიძლიერე:"
 
 #: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:181
 #, kde-format
@@ -8584,22 +8581,19 @@ msgid "Open attachment <filename>%1</filename>?<nl/>"
 msgstr "გავხსნა მიმარებული ფაილი <filename>%1</filename>?<nl/>"
 
 #: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:119
-#, fuzzy, kde-format
-#| msgid "&Open With '%1'"
+#, kde-format
 msgctxt "@action:button"
 msgid "&Open With '%1'"
-msgstr "%1-ით &გახსნა"
+msgstr "'%1'-ით &გახსნა"
 
 #: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:122
-#, fuzzy, kde-format
-#| msgid "Open &With…"
+#, kde-format
 msgctxt "@action:button"
 msgid "Open &With…"
 msgstr "&გამხსნელი პროგრამა…"
 
 #: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:123
-#, fuzzy, kde-format
-#| msgid "Save &As…"
+#, kde-format
 msgctxt "@action:button"
 msgid "Save &As…"
 msgstr "შეინახვა &როგორც…"
@@ -9817,7 +9811,7 @@ msgstr "ერთზე მეტი ფაილის გაგზავნი
 
 #: widgets/whatsnew/whatsnewwidgettranslation.h:88
 msgid "Fix preview url."
-msgstr ""
+msgstr "მინიატურის ბმულის გასწორება."
 
 #~ msgid "(Click here for Loading more…"
 #~ msgstr "(მეტის ჩასატვირთად დააწკაპუნეთ…)"

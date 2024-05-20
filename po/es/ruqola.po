@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-05-19 00:38+0000\n"
+"POT-Creation-Date: 2024-05-20 00:38+0000\n"
 "PO-Revision-Date: 2024-05-18 17:47+0200\n"
 "Last-Translator: Víctor Rodrigo Córdoba <vrcordoba@gmail.com>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
@@ -7744,50 +7744,50 @@ msgstr ""
 "Ha activado la autenticación de dos factores.\n"
 "Introduzca el código generado o un código de recuperación."
 
-#: widgets/loginwidget/ruqolaloginwidget.cpp:155
+#: widgets/loginwidget/ruqolaloginwidget.cpp:161
 #, kde-format
 msgid "Login Failed: invalid username or password"
 msgstr ""
 "El inicio de sesión ha fallado: nombre de usuario o contraseña erróneos"
 
-#: widgets/loginwidget/ruqolaloginwidget.cpp:159
+#: widgets/loginwidget/ruqolaloginwidget.cpp:165
 #: widgets/misc/accountsoverviewwidget.cpp:53
 #, kde-format
 msgid "Login failed: Invalid OTP code."
 msgstr "El inicio de sesión ha fallado: código OTP inválido."
 
-#: widgets/loginwidget/ruqolaloginwidget.cpp:169
+#: widgets/loginwidget/ruqolaloginwidget.cpp:175
 #, kde-format
 msgid "Installation Problem found. No plugins found here."
 msgstr ""
 "Se ha encontrado un problema de instalación. No se han encontrado "
 "complementos."
 
-#: widgets/loginwidget/ruqolaloginwidget.cpp:175
+#: widgets/loginwidget/ruqolaloginwidget.cpp:181
 #, kde-format
 msgid "Login Failed: generic error"
 msgstr "El inicio de sesión ha fallado: error genérico"
 
-#: widgets/loginwidget/ruqolaloginwidget.cpp:181
+#: widgets/loginwidget/ruqolaloginwidget.cpp:187
 #, kde-format
 msgid "Login Failed: Login has been temporarily blocked For IP."
 msgstr ""
 "Inicio de sesión fallido: El inicio ha sido bloqueado temporalmente para la "
 "IP."
 
-#: widgets/loginwidget/ruqolaloginwidget.cpp:187
+#: widgets/loginwidget/ruqolaloginwidget.cpp:193
 #, kde-format
 msgid "Login Failed: Login has been temporarily blocked For User."
 msgstr ""
 "Inicio de sesión fallido: El inicio ha sido bloqueado temporalmente para el "
 "usuario."
 
-#: widgets/loginwidget/ruqolaloginwidget.cpp:193
+#: widgets/loginwidget/ruqolaloginwidget.cpp:199
 #, kde-format
 msgid "Login Failed: User is not activated."
 msgstr "Inicio de sesión fallido: El usuario no está activado."
 
-#: widgets/loginwidget/ruqolaloginwidget.cpp:199
+#: widgets/loginwidget/ruqolaloginwidget.cpp:205
 #, kde-format
 msgid "Login Failed: App user is not allowed to login."
 msgstr ""

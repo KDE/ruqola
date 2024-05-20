@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-05-19 00:38+0000\n"
+"POT-Creation-Date: 2024-05-20 00:38+0000\n"
 "PO-Revision-Date: 2024-05-16 10:43+0200\n"
 "Last-Translator: giovanni <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
@@ -7534,43 +7534,43 @@ msgstr ""
 "Tu ha habiliatate authentication a duo factores.\n"
 "Pro favor insert le coice generate o un codice de retrocopiar (backup)."
 
-#: widgets/loginwidget/ruqolaloginwidget.cpp:155
+#: widgets/loginwidget/ruqolaloginwidget.cpp:161
 #, kde-format
 msgid "Login Failed: invalid username or password"
 msgstr "Authentication Fallite: nomine de usator o contrasigno invalide"
 
-#: widgets/loginwidget/ruqolaloginwidget.cpp:159
+#: widgets/loginwidget/ruqolaloginwidget.cpp:165
 #: widgets/misc/accountsoverviewwidget.cpp:53
 #, kde-format
 msgid "Login failed: Invalid OTP code."
 msgstr "Authentication falleva: codice de OTP Invalide."
 
-#: widgets/loginwidget/ruqolaloginwidget.cpp:169
+#: widgets/loginwidget/ruqolaloginwidget.cpp:175
 #, kde-format
 msgid "Installation Problem found. No plugins found here."
 msgstr "Trovate Problema de Installation. Nulle plugin trovate hic."
 
-#: widgets/loginwidget/ruqolaloginwidget.cpp:175
+#: widgets/loginwidget/ruqolaloginwidget.cpp:181
 #, kde-format
 msgid "Login Failed: generic error"
 msgstr "Authentication fallite: error generic"
 
-#: widgets/loginwidget/ruqolaloginwidget.cpp:181
+#: widgets/loginwidget/ruqolaloginwidget.cpp:187
 #, kde-format
 msgid "Login Failed: Login has been temporarily blocked For IP."
 msgstr ""
 
-#: widgets/loginwidget/ruqolaloginwidget.cpp:187
+#: widgets/loginwidget/ruqolaloginwidget.cpp:193
 #, kde-format
 msgid "Login Failed: Login has been temporarily blocked For User."
 msgstr ""
 
-#: widgets/loginwidget/ruqolaloginwidget.cpp:193
+#: widgets/loginwidget/ruqolaloginwidget.cpp:199
 #, kde-format
 msgid "Login Failed: User is not activated."
 msgstr "Accesso falleva: Usator non es activate"
 
-#: widgets/loginwidget/ruqolaloginwidget.cpp:199
+#: widgets/loginwidget/ruqolaloginwidget.cpp:205
 #, kde-format
 msgid "Login Failed: App user is not allowed to login."
 msgstr "Accesso falleva: Usator de app non es permittite a acceder."

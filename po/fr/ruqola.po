@@ -5,8 +5,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-05-19 00:38+0000\n"
-"PO-Revision-Date: 2024-05-17 09:04+0200\n"
+"POT-Creation-Date: 2024-05-20 00:38+0000\n"
+"PO-Revision-Date: 2024-05-18 09:42+0200\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
 "Language-Team: French <French <kde-francophone@kde.org>>\n"
 "Language: fr\n"
@@ -7789,47 +7789,47 @@ msgstr ""
 "Vous avez activé l'authentification par double facteur. \n"
 "Veuillez saisir le code généré ou un code de secours."
 
-#: widgets/loginwidget/ruqolaloginwidget.cpp:155
+#: widgets/loginwidget/ruqolaloginwidget.cpp:161
 #, kde-format
 msgid "Login Failed: invalid username or password"
 msgstr "Connexion impossible : nom d'utilisateur ou mot de passe non valable."
 
-#: widgets/loginwidget/ruqolaloginwidget.cpp:159
+#: widgets/loginwidget/ruqolaloginwidget.cpp:165
 #: widgets/misc/accountsoverviewwidget.cpp:53
 #, kde-format
 msgid "Login failed: Invalid OTP code."
 msgstr "Échec de la connexion : code « OTP » non valable"
 
-#: widgets/loginwidget/ruqolaloginwidget.cpp:169
+#: widgets/loginwidget/ruqolaloginwidget.cpp:175
 #, kde-format
 msgid "Installation Problem found. No plugins found here."
 msgstr ""
 "Problème d'installation découvert. Aucun module externe disponible ici."
 
-#: widgets/loginwidget/ruqolaloginwidget.cpp:175
+#: widgets/loginwidget/ruqolaloginwidget.cpp:181
 #, kde-format
 msgid "Login Failed: generic error"
 msgstr "Échec de la connexion : erreur générique"
 
-#: widgets/loginwidget/ruqolaloginwidget.cpp:181
+#: widgets/loginwidget/ruqolaloginwidget.cpp:187
 #, kde-format
 msgid "Login Failed: Login has been temporarily blocked For IP."
 msgstr ""
 "Connexion impossible : la connexion a été temporairement bloquée par IP."
 
-#: widgets/loginwidget/ruqolaloginwidget.cpp:187
+#: widgets/loginwidget/ruqolaloginwidget.cpp:193
 #, kde-format
 msgid "Login Failed: Login has been temporarily blocked For User."
 msgstr ""
 "Connexion impossible : la connexion a été temporairement bloquée pour "
 "l'utilisateur."
 
-#: widgets/loginwidget/ruqolaloginwidget.cpp:193
+#: widgets/loginwidget/ruqolaloginwidget.cpp:199
 #, kde-format
 msgid "Login Failed: User is not activated."
 msgstr "Connexion impossible : l'utilisateur n'est pas activé."
 
-#: widgets/loginwidget/ruqolaloginwidget.cpp:199
+#: widgets/loginwidget/ruqolaloginwidget.cpp:205
 #, kde-format
 msgid "Login Failed: App user is not allowed to login."
 msgstr ""
@@ -8362,10 +8362,9 @@ msgid "New Room Notification:"
 msgstr "Notification de nouveau salon :"
 
 #: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:139
-#, fuzzy, kde-format
-#| msgid "Show New Notifications"
+#, kde-format
 msgid "New Message Notification:"
-msgstr "Afficher les nouvelles notifications"
+msgstr "Notification d'un nouveau message :"
 
 #: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:149
 #, fuzzy, kde-format

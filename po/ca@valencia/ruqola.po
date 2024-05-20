@@ -4,13 +4,13 @@
 # version 3 or later versions approved by the membership of KDE e.V.
 #
 # SPDX-FileCopyrightText: 2019, 2020, 2022, 2023 Antoni Bella Pérez <antonibella5@yahoo.com>
-# Josep M. Ferrer <txemaq@gmail.com>, 2019, 2020, 2021, 2022, 2023, 2024.
+# SPDX-FileCopyrightText: 2019, 2020, 2021, 2022, 2023, 2024 Josep M. Ferrer <txemaq@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-05-19 00:38+0000\n"
-"PO-Revision-Date: 2024-05-17 09:51+0200\n"
+"POT-Creation-Date: 2024-05-20 00:38+0000\n"
+"PO-Revision-Date: 2024-05-19 08:57+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca@valencia\n"
@@ -19,7 +19,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Accelerator-Marker: &\n"
-"X-Generator: Lokalize 22.12.3\n"
+"X-Generator: Lokalize 24.02.2\n"
 
 #: apps/main.cpp:46
 #, kde-format
@@ -6586,11 +6586,10 @@ msgid "Add Server"
 msgstr "Afegir un servidor"
 
 #: widgets/configurenewserver/createnewserverdialog.cpp:49
-#, fuzzy, kde-format
-#| msgid "Configure Activities"
+#, kde-format
 msgctxt "@action:button"
 msgid "Configure Activities"
-msgstr "Configura les activitats"
+msgstr "Configureu les activitats"
 
 #: widgets/configurenewserver/createnewserverdialog.cpp:67
 #, kde-format
@@ -7746,49 +7745,49 @@ msgstr ""
 "Heu activat un segon factor d'autenticació.\n"
 "Introduïu el codi generat o un codi alternatiu."
 
-#: widgets/loginwidget/ruqolaloginwidget.cpp:155
+#: widgets/loginwidget/ruqolaloginwidget.cpp:161
 #, kde-format
 msgid "Login Failed: invalid username or password"
 msgstr ""
 "No s'ha pogut fer l'inici de la sessió: nom d'usuari o contrasenya no vàlids"
 
-#: widgets/loginwidget/ruqolaloginwidget.cpp:159
+#: widgets/loginwidget/ruqolaloginwidget.cpp:165
 #: widgets/misc/accountsoverviewwidget.cpp:53
 #, kde-format
 msgid "Login failed: Invalid OTP code."
 msgstr "No s'ha pogut fer l'inici de la sessió: codi OTP no vàlid."
 
-#: widgets/loginwidget/ruqolaloginwidget.cpp:169
+#: widgets/loginwidget/ruqolaloginwidget.cpp:175
 #, kde-format
 msgid "Installation Problem found. No plugins found here."
 msgstr ""
 "S'ha trobat un problema d'instal·lació. Ací no s'ha trobat cap connector."
 
-#: widgets/loginwidget/ruqolaloginwidget.cpp:175
+#: widgets/loginwidget/ruqolaloginwidget.cpp:181
 #, kde-format
 msgid "Login Failed: generic error"
 msgstr "No s'ha pogut fer l'inici de la sessió: error genèric"
 
-#: widgets/loginwidget/ruqolaloginwidget.cpp:181
+#: widgets/loginwidget/ruqolaloginwidget.cpp:187
 #, kde-format
 msgid "Login Failed: Login has been temporarily blocked For IP."
 msgstr ""
 "No s'ha pogut fer l'inici de la sessió: s'ha bloquejat temporalment l'inici "
 "de sessió per IP."
 
-#: widgets/loginwidget/ruqolaloginwidget.cpp:187
+#: widgets/loginwidget/ruqolaloginwidget.cpp:193
 #, kde-format
 msgid "Login Failed: Login has been temporarily blocked For User."
 msgstr ""
 "No s'ha pogut fer l'inici de la sessió: s'ha bloquejat temporalment l'inici "
 "de sessió per usuari."
 
-#: widgets/loginwidget/ruqolaloginwidget.cpp:193
+#: widgets/loginwidget/ruqolaloginwidget.cpp:199
 #, kde-format
 msgid "Login Failed: User is not activated."
 msgstr "No s'ha pogut fer l'inici de la sessió: l'usuari no està activat."
 
-#: widgets/loginwidget/ruqolaloginwidget.cpp:199
+#: widgets/loginwidget/ruqolaloginwidget.cpp:205
 #, kde-format
 msgid "Login Failed: App user is not allowed to login."
 msgstr ""
@@ -8262,10 +8261,9 @@ msgid "Offline Email notification:"
 msgstr "Notificació de correu electrònic desconnectat:"
 
 #: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:47
-#, fuzzy, kde-format
-#| msgid "Start of conversation"
+#, kde-format
 msgid "Mute Focused Conversations"
-msgstr "Inici de la conversa"
+msgstr "Silencia les conversa amb el focus"
 
 #: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:60
 #, kde-format
@@ -8323,10 +8321,9 @@ msgid "New Message Notification:"
 msgstr "Notificació de missatge nou:"
 
 #: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:149
-#, fuzzy, kde-format
-#| msgid "Notifications"
+#, kde-format
 msgid "Notifications sound volume:"
-msgstr "Notificacions"
+msgstr "Volum de so de les notificacions:"
 
 #: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:181
 #, kde-format
@@ -8645,22 +8642,19 @@ msgid "Open attachment <filename>%1</filename>?<nl/>"
 msgstr "Voleu obrir l'adjunt <filename>%1</filename>?<nl/>"
 
 #: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:119
-#, fuzzy, kde-format
-#| msgid "&Open With '%1'"
+#, kde-format
 msgctxt "@action:button"
 msgid "&Open With '%1'"
 msgstr "O&bri amb «%1»"
 
 #: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:122
-#, fuzzy, kde-format
-#| msgid "Open &With…"
+#, kde-format
 msgctxt "@action:button"
 msgid "Open &With…"
 msgstr "Obri &amb…"
 
 #: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:123
-#, fuzzy, kde-format
-#| msgid "Save &As…"
+#, kde-format
 msgctxt "@action:button"
 msgid "Save &As…"
 msgstr "Anomena i gu&arda…"
@@ -9881,4 +9875,4 @@ msgstr "Permet enviar múltiples fitxers."
 
 #: widgets/whatsnew/whatsnewwidgettranslation.h:88
 msgid "Fix preview url."
-msgstr ""
+msgstr "Corregix l'URL de la vista prèvia."

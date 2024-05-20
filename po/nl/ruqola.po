@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-05-19 00:38+0000\n"
-"PO-Revision-Date: 2024-05-18 10:33+0200\n"
+"POT-Creation-Date: 2024-05-20 00:38+0000\n"
+"PO-Revision-Date: 2024-05-19 13:35+0200\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
 "Language: nl\n"
@@ -6593,8 +6593,7 @@ msgid "Add Server"
 msgstr "Server toevoegen"
 
 #: widgets/configurenewserver/createnewserverdialog.cpp:49
-#, fuzzy, kde-format
-#| msgid "Configure Activities"
+#, kde-format
 msgctxt "@action:button"
 msgid "Configure Activities"
 msgstr "Activiteiten configureren"
@@ -7750,45 +7749,45 @@ msgstr ""
 "U hebt tweefactor authenticatie ingeschakeld.\n"
 "Voer de gegenereerde code of een backupcode in."
 
-#: widgets/loginwidget/ruqolaloginwidget.cpp:155
+#: widgets/loginwidget/ruqolaloginwidget.cpp:161
 #, kde-format
 msgid "Login Failed: invalid username or password"
 msgstr "Aanmelden is mislukt: ongeldige gebruikersnaam of wachtwoord"
 
-#: widgets/loginwidget/ruqolaloginwidget.cpp:159
+#: widgets/loginwidget/ruqolaloginwidget.cpp:165
 #: widgets/misc/accountsoverviewwidget.cpp:53
 #, kde-format
 msgid "Login failed: Invalid OTP code."
 msgstr "Aanmelden is mislukt: ongeldige OTP-code"
 
-#: widgets/loginwidget/ruqolaloginwidget.cpp:169
+#: widgets/loginwidget/ruqolaloginwidget.cpp:175
 #, kde-format
 msgid "Installation Problem found. No plugins found here."
 msgstr "Installatieprobleem gevonden. Hier geen plug-ins gevonden."
 
-#: widgets/loginwidget/ruqolaloginwidget.cpp:175
+#: widgets/loginwidget/ruqolaloginwidget.cpp:181
 #, kde-format
 msgid "Login Failed: generic error"
 msgstr "Aanmelden is mislukt: algemene fout"
 
-#: widgets/loginwidget/ruqolaloginwidget.cpp:181
+#: widgets/loginwidget/ruqolaloginwidget.cpp:187
 #, kde-format
 msgid "Login Failed: Login has been temporarily blocked For IP."
 msgstr ""
 "Aanmelden is mislukt: aanmelden is tijdelijk geblokkeerd voor IP-adres."
 
-#: widgets/loginwidget/ruqolaloginwidget.cpp:187
+#: widgets/loginwidget/ruqolaloginwidget.cpp:193
 #, kde-format
 msgid "Login Failed: Login has been temporarily blocked For User."
 msgstr ""
 "Aanmelden is mislukt: aanmelden is tijdelijk geblokkeerd voor gebruiker."
 
-#: widgets/loginwidget/ruqolaloginwidget.cpp:193
+#: widgets/loginwidget/ruqolaloginwidget.cpp:199
 #, kde-format
 msgid "Login Failed: User is not activated."
 msgstr "Aanmelden is mislukt: gebruiker is niet geactiveerd."
 
-#: widgets/loginwidget/ruqolaloginwidget.cpp:199
+#: widgets/loginwidget/ruqolaloginwidget.cpp:205
 #, kde-format
 msgid "Login Failed: App user is not allowed to login."
 msgstr ""
@@ -8638,22 +8637,19 @@ msgid "Open attachment <filename>%1</filename>?<nl/>"
 msgstr "Bijlage <filename>%1</filename> openen?<nl/>"
 
 #: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:119
-#, fuzzy, kde-format
-#| msgid "&Open With '%1'"
+#, kde-format
 msgctxt "@action:button"
 msgid "&Open With '%1'"
 msgstr "&Openen met '%1'"
 
 #: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:122
-#, fuzzy, kde-format
-#| msgid "Open &With…"
+#, kde-format
 msgctxt "@action:button"
 msgid "Open &With…"
 msgstr "Openen &met…"
 
 #: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:123
-#, fuzzy, kde-format
-#| msgid "Save &As…"
+#, kde-format
 msgctxt "@action:button"
 msgid "Save &As…"
 msgstr "Opslaan &als…"
