@@ -9,12 +9,12 @@
 #include "libruqolawidgets_private_export.h"
 #include <QComboBox>
 
-class LIBRUQOLAWIDGETS_TESTS_EXPORT MyAccountPreferenceConfigureSoundComboBox : public QComboBox
+class LIBRUQOLAWIDGETS_TESTS_EXPORT ConfigureSoundComboBox : public QComboBox
 {
     Q_OBJECT
 public:
-    explicit MyAccountPreferenceConfigureSoundComboBox(QWidget *parent = nullptr);
-    ~MyAccountPreferenceConfigureSoundComboBox() override;
+    explicit ConfigureSoundComboBox(QWidget *parent = nullptr);
+    ~ConfigureSoundComboBox() override;
 
     void setCurrentSoundName(const QByteArray &identifier);
     [[nodiscard]] QByteArray identifier() const;

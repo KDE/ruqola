@@ -554,8 +554,8 @@ target_sources(libruqolawidgets PRIVATE
     misc/soundconfigurewidget.h
     misc/soundconfigurewidget.cpp
 
-    misc/myaccountpreferenceconfiguresoundcombobox.h
-    misc/myaccountpreferenceconfiguresoundcombobox.cpp
+    misc/configuresoundcombobox.h
+    misc/configuresoundcombobox.cpp
 
     myaccount/myaccount2e2configurewidget.cpp
     myaccount/myaccount2e2configurewidget.h

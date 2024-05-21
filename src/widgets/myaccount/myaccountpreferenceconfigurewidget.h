@@ -17,7 +17,7 @@ class QSpinBox;
 class QLabel;
 class NotificationDesktopSoundPreferenceModel;
 class NotificationDesktopSoundPreferenceProxyModel;
-class MyAccountPreferenceConfigureSoundComboBox;
+class ConfigureSoundComboBox;
 class QVBoxLayout;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT MyAccountPreferenceConfigureWidget : public QWidget
 {
@@ -48,8 +48,8 @@ private:
 
     QCheckBox *const mAutomaticAway;
     QLabel *const mEmailNotificationLabel;
-    MyAccountPreferenceConfigureSoundComboBox *const mSoundNewRoomNotification;
-    MyAccountPreferenceConfigureSoundComboBox *const mSoundNewMessageNotification;
+    ConfigureSoundComboBox *const mSoundNewRoomNotification;
+    ConfigureSoundComboBox *const mSoundNewMessageNotification;
     NotificationDesktopSoundPreferenceModel *const mSoundModel;
     NotificationDesktopSoundPreferenceProxyModel *const mSoundProxyModel;
     QCheckBox *const mMuteFocusedConversations;

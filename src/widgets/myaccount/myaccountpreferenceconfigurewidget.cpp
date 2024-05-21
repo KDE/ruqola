@@ -9,7 +9,7 @@
 #include "model/notificationdesktopsoundpreferenceproxymodel.h"
 
 #include "connection.h"
-#include "misc/myaccountpreferenceconfiguresoundcombobox.h"
+#include "misc/configuresoundcombobox.h"
 #include "rocketchataccount.h"
 #include "ruqolawidgets_debug.h"
 #include "users/userrequestdatadownloadjob.h"
@@ -40,8 +40,8 @@ MyAccountPreferenceConfigureWidget::MyAccountPreferenceConfigureWidget(RocketCha
     , mIdleTimeLimit(new QSpinBox(this))
     , mAutomaticAway(new QCheckBox(i18n("Enable Auto Away"), this))
     , mEmailNotificationLabel(new QLabel(i18n("Offline Email notification:"), this))
-    , mSoundNewRoomNotification(new MyAccountPreferenceConfigureSoundComboBox(this))
-    , mSoundNewMessageNotification(new MyAccountPreferenceConfigureSoundComboBox(this))
+    , mSoundNewRoomNotification(new ConfigureSoundComboBox(this))
+    , mSoundNewMessageNotification(new ConfigureSoundComboBox(this))
     , mSoundModel(new NotificationDesktopSoundPreferenceModel(this))
     , mSoundProxyModel(new NotificationDesktopSoundPreferenceProxyModel(this))
     , mMuteFocusedConversations(new QCheckBox(i18n("Mute Focused Conversations"), this))
@@ -285,8 +285,8 @@ void MyAccountPreferenceConfigureWidget::initComboboxValues()
     connect(mDesktopNotification, &QComboBox::activated, this, &MyAccountPreferenceConfigureWidget::setWasChanged);
     connect(mPushNotification, &QComboBox::activated, this, &MyAccountPreferenceConfigureWidget::setWasChanged);
     connect(mEmailNotification, &QComboBox::activated, this, &MyAccountPreferenceConfigureWidget::setWasChanged);
-    connect(mSoundNewRoomNotification, &MyAccountPreferenceConfigureSoundComboBox::activated, this, &MyAccountPreferenceConfigureWidget::setWasChanged);
-    connect(mSoundNewMessageNotification, &MyAccountPreferenceConfigureSoundComboBox::activated, this, &MyAccountPreferenceConfigureWidget::setWasChanged);
+    connect(mSoundNewRoomNotification, &ConfigureSoundComboBox::activated, this, &MyAccountPreferenceConfigureWidget::setWasChanged);
+    connect(mSoundNewMessageNotification, &ConfigureSoundComboBox::activated, this, &MyAccountPreferenceConfigureWidget::setWasChanged);
 }
 
 void MyAccountPreferenceConfigureWidget::save()
