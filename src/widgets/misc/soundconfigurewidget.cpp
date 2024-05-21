@@ -7,13 +7,15 @@
 #include "soundconfigurewidget.h"
 #include "configuresoundcombobox.h"
 #include "model/notificationdesktopsoundpreferencemodel.h"
+#include "rocketchataccount.h"
 #include <QHBoxLayout>
 #include <QToolButton>
 
-SoundConfigureWidget::SoundConfigureWidget(QWidget *parent)
+SoundConfigureWidget::SoundConfigureWidget(RocketChatAccount *account, QWidget *parent)
     : QWidget{parent}
     , mConfigureSoundComboBox(new ConfigureSoundComboBox(this))
     , mPlaySoundToolButton(new QToolButton(this))
+    , mRocketChatAccount(account)
 {
     auto mainLayout = new QHBoxLayout(this);
     mainLayout->setContentsMargins({});
@@ -31,21 +33,18 @@ SoundConfigureWidget::~SoundConfigureWidget() = default;
 
 void SoundConfigureWidget::setSoundModel(NotificationDesktopSoundPreferenceModel *model)
 {
-    mNotificationDesktopSoundPreferenceModel = model;
+    mDesktopSoundModel = model;
     mConfigureSoundComboBox->setModel(model);
 }
 
 void SoundConfigureWidget::slotPlaySound()
 {
-#if 0
     if (mRocketChatAccount) {
-        const QByteArray identifier =
-            mNotificationDesktopSoundPreferenceModel->currentPreference(mConfigureSoundComboBox->currentIndex());
+        const QByteArray identifier = mDesktopSoundModel->currentPreference(mConfigureSoundComboBox->currentIndex());
         if (!identifier.isEmpty() || identifier != "none") {
             mRocketChatAccount->playSound(identifier);
         }
     }
-#endif
 }
 
 #include "moc_soundconfigurewidget.cpp"
