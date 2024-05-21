@@ -6,6 +6,7 @@
 
 #include "soundconfigurewidget.h"
 #include "configuresoundcombobox.h"
+#include "model/notificationdesktopsoundpreferencemodel.h"
 #include <QHBoxLayout>
 #include <QToolButton>
 
@@ -28,8 +29,9 @@ SoundConfigureWidget::SoundConfigureWidget(QWidget *parent)
 
 SoundConfigureWidget::~SoundConfigureWidget() = default;
 
-void SoundConfigureWidget::setSoundModel(QAbstractItemModel *model)
+void SoundConfigureWidget::setSoundModel(NotificationDesktopSoundPreferenceModel *model)
 {
+    mNotificationDesktopSoundPreferenceModel = model;
     mConfigureSoundComboBox->setModel(model);
 }
 
@@ -38,7 +40,7 @@ void SoundConfigureWidget::slotPlaySound()
 #if 0
     if (mRocketChatAccount) {
         const QByteArray identifier =
-            mRocketChatAccount->notificationPreferences()->desktopSoundNotificationModel()->currentPreference(mDesktopSoundCombobox->currentIndex());
+            mNotificationDesktopSoundPreferenceModel->currentPreference(mConfigureSoundComboBox->currentIndex());
         if (!identifier.isEmpty() || identifier != "none") {
             mRocketChatAccount->playSound(identifier);
         }

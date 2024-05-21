@@ -10,6 +10,7 @@
 class ConfigureSoundComboBox;
 class QToolButton;
 class QAbstractItemModel;
+class NotificationDesktopSoundPreferenceModel;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT SoundConfigureWidget : public QWidget
 {
     Q_OBJECT
@@ -17,10 +18,11 @@ public:
     explicit SoundConfigureWidget(QWidget *parent = nullptr);
     ~SoundConfigureWidget() override;
 
-    void setSoundModel(QAbstractItemModel *model);
+    void setSoundModel(NotificationDesktopSoundPreferenceModel *model);
 
 private:
     LIBRUQOLAWIDGETS_NO_EXPORT void slotPlaySound();
     ConfigureSoundComboBox *const mConfigureSoundComboBox;
     QToolButton *const mPlaySoundToolButton;
+    NotificationDesktopSoundPreferenceModel *mNotificationDesktopSoundPreferenceModel = nullptr;
 };

@@ -5,7 +5,6 @@
 */
 
 #include "configurenotificationwidget.h"
-#include "customsound/customsoundsmanager.h"
 #include "model/notificationdesktopsoundpreferencemodel.h"
 #include "model/notificationpreferencemodel.h"
 #include "notifications/notificationpreferences.h"
