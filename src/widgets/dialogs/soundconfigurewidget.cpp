@@ -15,3 +15,5 @@ SoundConfigureWidget::SoundConfigureWidget(QWidget *parent)
 }
 
 SoundConfigureWidget::~SoundConfigureWidget() = default;
+
+#include "moc_soundconfigurewidget.cpp"
