@@ -11,6 +11,9 @@ target_link_libraries(ruqola
     KF6::Crash
     KF6::XmlGui
 )
+if(TARGET KF6::IconThemes)
+    target_link_libraries(ruqola KF6::IconThemes)
+endif()
 
 if (NOT WIN32 AND NOT APPLE)
     target_link_libraries(ruqola KF6::DBusAddons)
