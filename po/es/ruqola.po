@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-05-20 00:38+0000\n"
+"POT-Creation-Date: 2024-05-21 00:38+0000\n"
 "PO-Revision-Date: 2024-05-18 17:47+0200\n"
 "Last-Translator: Víctor Rodrigo Córdoba <vrcordoba@gmail.com>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
@@ -9848,34 +9848,40 @@ msgstr "Añade soporte para reportar usuarios"
 msgid "Implement Channel Sound Notification."
 msgstr "Implementación de la notificación de sonido del canal."
 
-#: widgets/whatsnew/whatsnewwidgettranslation.h:81
+#: widgets/whatsnew/whatsnewwidgettranslation.h:77
+#, fuzzy
+#| msgid "Implement Channel Sound Notification."
+msgid "Implement New Room Sound Notification."
+msgstr "Implementación de la notificación de sonido del canal."
+
+#: widgets/whatsnew/whatsnewwidgettranslation.h:82
 msgid "Fix dark mode support."
 msgstr "Mejora en el soporte del modo oscuro."
 
-#: widgets/whatsnew/whatsnewwidgettranslation.h:82
+#: widgets/whatsnew/whatsnewwidgettranslation.h:83
 msgid "Fix jitsi support."
 msgstr "Mejora en el soporte de jitsi."
 
-#: widgets/whatsnew/whatsnewwidgettranslation.h:83
+#: widgets/whatsnew/whatsnewwidgettranslation.h:84
 msgid "Fix translate message in direct channel."
 msgstr "Mejora en la traducción de mensajes en los canales directos."
 
-#: widgets/whatsnew/whatsnewwidgettranslation.h:84
+#: widgets/whatsnew/whatsnewwidgettranslation.h:85
 msgid "Don't show @here/@all as user."
 msgstr "No muestra @here/@all como usuario."
 
-#: widgets/whatsnew/whatsnewwidgettranslation.h:85
+#: widgets/whatsnew/whatsnewwidgettranslation.h:86
 msgid "Reduce memory footprint."
 msgstr "Reducción del consumo de memoria."
 
-#: widgets/whatsnew/whatsnewwidgettranslation.h:86
+#: widgets/whatsnew/whatsnewwidgettranslation.h:87
 msgid "Use RESTAPI for logging."
 msgstr "Uso de RESTAPI para los registros."
 
-#: widgets/whatsnew/whatsnewwidgettranslation.h:87
+#: widgets/whatsnew/whatsnewwidgettranslation.h:88
 msgid "Allow to send multi files."
 msgstr "Permitir el envío de múltiples archivos."
 
-#: widgets/whatsnew/whatsnewwidgettranslation.h:88
+#: widgets/whatsnew/whatsnewwidgettranslation.h:89
 msgid "Fix preview url."
 msgstr "Mejora en la vista preliminar de URLs."

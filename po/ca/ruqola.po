@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-05-20 00:38+0000\n"
+"POT-Creation-Date: 2024-05-21 00:38+0000\n"
 "PO-Revision-Date: 2024-05-19 08:57+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
@@ -9845,35 +9845,41 @@ msgstr "Afegeix el suport d'informació d'un usuari"
 msgid "Implement Channel Sound Notification."
 msgstr "Implementa la notificació de so de canal."
 
-#: widgets/whatsnew/whatsnewwidgettranslation.h:81
+#: widgets/whatsnew/whatsnewwidgettranslation.h:77
+#, fuzzy
+#| msgid "Implement Channel Sound Notification."
+msgid "Implement New Room Sound Notification."
+msgstr "Implementa la notificació de so de canal."
+
+#: widgets/whatsnew/whatsnewwidgettranslation.h:82
 msgid "Fix dark mode support."
 msgstr "Corregeix la implementació del mode fosc."
 
-#: widgets/whatsnew/whatsnewwidgettranslation.h:82
+#: widgets/whatsnew/whatsnewwidgettranslation.h:83
 msgid "Fix jitsi support."
 msgstr "Corregeix la implementació del Jitsi."
 
-#: widgets/whatsnew/whatsnewwidgettranslation.h:83
+#: widgets/whatsnew/whatsnewwidgettranslation.h:84
 msgid "Fix translate message in direct channel."
 msgstr "Corregeix el missatge de traducció al canal directe."
 
-#: widgets/whatsnew/whatsnewwidgettranslation.h:84
+#: widgets/whatsnew/whatsnewwidgettranslation.h:85
 msgid "Don't show @here/@all as user."
 msgstr "No mostra @here/@all com a usuari."
 
-#: widgets/whatsnew/whatsnewwidgettranslation.h:85
+#: widgets/whatsnew/whatsnewwidgettranslation.h:86
 msgid "Reduce memory footprint."
 msgstr "Redueix el consum de memòria."
 
-#: widgets/whatsnew/whatsnewwidgettranslation.h:86
+#: widgets/whatsnew/whatsnewwidgettranslation.h:87
 msgid "Use RESTAPI for logging."
 msgstr "Fa servir RESTAPI per al registre."
 
-#: widgets/whatsnew/whatsnewwidgettranslation.h:87
+#: widgets/whatsnew/whatsnewwidgettranslation.h:88
 msgid "Allow to send multi files."
 msgstr "Permet enviar diversos fitxers."
 
-#: widgets/whatsnew/whatsnewwidgettranslation.h:88
+#: widgets/whatsnew/whatsnewwidgettranslation.h:89
 msgid "Fix preview url."
 msgstr "Corregeix l'URL de la vista prèvia."
 

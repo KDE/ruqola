@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-05-20 00:38+0000\n"
+"POT-Creation-Date: 2024-05-21 00:38+0000\n"
 "PO-Revision-Date: 2024-05-19 15:33+0100\n"
 "Last-Translator: Steve Allewell <steve.allewell@gmail.com>\n"
 "Language-Team: British English\n"
@@ -9769,35 +9769,41 @@ msgstr "Add Report User Support"
 msgid "Implement Channel Sound Notification."
 msgstr "Implement Channel Sound Notification."
 
-#: widgets/whatsnew/whatsnewwidgettranslation.h:81
+#: widgets/whatsnew/whatsnewwidgettranslation.h:77
+#, fuzzy
+#| msgid "Implement Channel Sound Notification."
+msgid "Implement New Room Sound Notification."
+msgstr "Implement Channel Sound Notification."
+
+#: widgets/whatsnew/whatsnewwidgettranslation.h:82
 msgid "Fix dark mode support."
 msgstr "Fix dark mode support."
 
-#: widgets/whatsnew/whatsnewwidgettranslation.h:82
+#: widgets/whatsnew/whatsnewwidgettranslation.h:83
 msgid "Fix jitsi support."
 msgstr "Fix jitsi support."
 
-#: widgets/whatsnew/whatsnewwidgettranslation.h:83
+#: widgets/whatsnew/whatsnewwidgettranslation.h:84
 msgid "Fix translate message in direct channel."
 msgstr "Fix translate message in direct channel."
 
-#: widgets/whatsnew/whatsnewwidgettranslation.h:84
+#: widgets/whatsnew/whatsnewwidgettranslation.h:85
 msgid "Don't show @here/@all as user."
 msgstr "Do not show @here/@all as user."
 
-#: widgets/whatsnew/whatsnewwidgettranslation.h:85
+#: widgets/whatsnew/whatsnewwidgettranslation.h:86
 msgid "Reduce memory footprint."
 msgstr "Reduce memory footprint."
 
-#: widgets/whatsnew/whatsnewwidgettranslation.h:86
+#: widgets/whatsnew/whatsnewwidgettranslation.h:87
 msgid "Use RESTAPI for logging."
 msgstr "Use RESTAPI for logging."
 
-#: widgets/whatsnew/whatsnewwidgettranslation.h:87
+#: widgets/whatsnew/whatsnewwidgettranslation.h:88
 msgid "Allow to send multi files."
 msgstr "Allow to send multi files."
 
-#: widgets/whatsnew/whatsnewwidgettranslation.h:88
+#: widgets/whatsnew/whatsnewwidgettranslation.h:89
 msgid "Fix preview url."
 msgstr "Fix preview URL."
 

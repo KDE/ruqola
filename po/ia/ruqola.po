@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-05-20 00:38+0000\n"
-"PO-Revision-Date: 2024-05-16 10:43+0200\n"
+"POT-Creation-Date: 2024-05-21 00:38+0000\n"
+"PO-Revision-Date: 2024-05-20 12:53+0200\n"
 "Last-Translator: giovanni <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
 "Language: ia\n"
@@ -6393,8 +6393,7 @@ msgid "Add Server"
 msgstr "Adde Servitor"
 
 #: widgets/configurenewserver/createnewserverdialog.cpp:49
-#, fuzzy, kde-format
-#| msgid "Configure Activities"
+#, kde-format
 msgctxt "@action:button"
 msgid "Configure Activities"
 msgstr "Configura Activitates"
@@ -8041,10 +8040,9 @@ msgid "Offline Email notification:"
 msgstr "Notification de e-posta foras de linea"
 
 #: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:47
-#, fuzzy, kde-format
-#| msgid "Start of conversation"
+#, kde-format
 msgid "Mute Focused Conversations"
-msgstr "Initio de Conversation"
+msgstr "Silentia  Conversationes focalisate"
 
 #: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:60
 #, kde-format
@@ -8093,16 +8091,14 @@ msgid "New Room Notification:"
 msgstr "Notification de Nove Sala:"
 
 #: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:139
-#, fuzzy, kde-format
-#| msgid "New Room Notification:"
+#, kde-format
 msgid "New Message Notification:"
-msgstr "Notification de Nove Sala:"
+msgstr "Notification de Nove Message:"
 
 #: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:149
-#, fuzzy, kde-format
-#| msgid "Notifications"
+#, kde-format
 msgid "Notifications sound volume:"
-msgstr "Notificationes"
+msgstr "Voluimine de sono de Notificationes:"
 
 #: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:181
 #, kde-format
@@ -8416,22 +8412,19 @@ msgid "Open attachment <filename>%1</filename>?<nl/>"
 msgstr "Aperir Attachamento <filename>%1</filename>?<nl/>"
 
 #: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:119
-#, fuzzy, kde-format
-#| msgid "&Open With '%1'"
+#, kde-format
 msgctxt "@action:button"
 msgid "&Open With '%1'"
 msgstr "&Aperi con '%1'"
 
 #: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:122
-#, fuzzy, kde-format
-#| msgid "Open &With…"
+#, kde-format
 msgctxt "@action:button"
 msgid "Open &With…"
 msgstr "A&peri con..."
 
 #: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:123
-#, fuzzy, kde-format
-#| msgid "Save &As…"
+#, kde-format
 msgctxt "@action:button"
 msgid "Save &As…"
 msgstr "S&alva como..."
@@ -9606,37 +9599,43 @@ msgstr "Adde Supporto de Usator de Reporto"
 msgid "Implement Channel Sound Notification."
 msgstr ""
 
-#: widgets/whatsnew/whatsnewwidgettranslation.h:81
+#: widgets/whatsnew/whatsnewwidgettranslation.h:77
+#, fuzzy
+#| msgid "New Room Notification:"
+msgid "Implement New Room Sound Notification."
+msgstr "Notification de Nove Sala:"
+
+#: widgets/whatsnew/whatsnewwidgettranslation.h:82
 msgid "Fix dark mode support."
 msgstr "Corrige supporto de modo obscur."
 
-#: widgets/whatsnew/whatsnewwidgettranslation.h:82
+#: widgets/whatsnew/whatsnewwidgettranslation.h:83
 msgid "Fix jitsi support."
 msgstr "Corrige supporto de  Jitsi."
 
-#: widgets/whatsnew/whatsnewwidgettranslation.h:83
+#: widgets/whatsnew/whatsnewwidgettranslation.h:84
 msgid "Fix translate message in direct channel."
 msgstr "Corrige message de traduction in canal directe."
 
-#: widgets/whatsnew/whatsnewwidgettranslation.h:84
+#: widgets/whatsnew/whatsnewwidgettranslation.h:85
 msgid "Don't show @here/@all as user."
 msgstr ""
 
-#: widgets/whatsnew/whatsnewwidgettranslation.h:85
+#: widgets/whatsnew/whatsnewwidgettranslation.h:86
 msgid "Reduce memory footprint."
 msgstr ""
 
-#: widgets/whatsnew/whatsnewwidgettranslation.h:86
+#: widgets/whatsnew/whatsnewwidgettranslation.h:87
 msgid "Use RESTAPI for logging."
 msgstr ""
 
-#: widgets/whatsnew/whatsnewwidgettranslation.h:87
+#: widgets/whatsnew/whatsnewwidgettranslation.h:88
 msgid "Allow to send multi files."
 msgstr ""
 
-#: widgets/whatsnew/whatsnewwidgettranslation.h:88
+#: widgets/whatsnew/whatsnewwidgettranslation.h:89
 msgid "Fix preview url."
-msgstr ""
+msgstr "Assigna url de vista preliminar"
 
 #~ msgid "(Click here for Loading more…"
 #~ msgstr "(Pulsa hic per cargar plus ...)"

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-05-20 00:38+0000\n"
+"POT-Creation-Date: 2024-05-21 00:38+0000\n"
 "PO-Revision-Date: 2024-05-19 05:40+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
@@ -9781,35 +9781,41 @@ msgstr "მომხმარებლის დარეპორტები�
 msgid "Implement Channel Sound Notification."
 msgstr "არხის ხმოვანი შეტყობინების ჩართვა."
 
-#: widgets/whatsnew/whatsnewwidgettranslation.h:81
+#: widgets/whatsnew/whatsnewwidgettranslation.h:77
+#, fuzzy
+#| msgid "Implement Channel Sound Notification."
+msgid "Implement New Room Sound Notification."
+msgstr "არხის ხმოვანი შეტყობინების ჩართვა."
+
+#: widgets/whatsnew/whatsnewwidgettranslation.h:82
 msgid "Fix dark mode support."
 msgstr "ბნელი რეჟიმის მხარდაჭერის გასწორება."
 
-#: widgets/whatsnew/whatsnewwidgettranslation.h:82
+#: widgets/whatsnew/whatsnewwidgettranslation.h:83
 msgid "Fix jitsi support."
 msgstr "JITSI-ის მხარდაჭერის გასწორება."
 
-#: widgets/whatsnew/whatsnewwidgettranslation.h:83
+#: widgets/whatsnew/whatsnewwidgettranslation.h:84
 msgid "Fix translate message in direct channel."
 msgstr "პირდაპირ არხში შეტყობინების თარგმნის გასწორება."
 
-#: widgets/whatsnew/whatsnewwidgettranslation.h:84
+#: widgets/whatsnew/whatsnewwidgettranslation.h:85
 msgid "Don't show @here/@all as user."
 msgstr "მომხმარებლისთვის @here/@all ნაჩვენები არ იქნება."
 
-#: widgets/whatsnew/whatsnewwidgettranslation.h:85
+#: widgets/whatsnew/whatsnewwidgettranslation.h:86
 msgid "Reduce memory footprint."
 msgstr "მეხსიერებაში კვალის შემცირება."
 
-#: widgets/whatsnew/whatsnewwidgettranslation.h:86
+#: widgets/whatsnew/whatsnewwidgettranslation.h:87
 msgid "Use RESTAPI for logging."
 msgstr "ჟურნალისთვის RESTAPI-ის გამოყენება."
 
-#: widgets/whatsnew/whatsnewwidgettranslation.h:87
+#: widgets/whatsnew/whatsnewwidgettranslation.h:88
 msgid "Allow to send multi files."
 msgstr "ერთზე მეტი ფაილის გაგზავნის დაშვება."
 
-#: widgets/whatsnew/whatsnewwidgettranslation.h:88
+#: widgets/whatsnew/whatsnewwidgettranslation.h:89
 msgid "Fix preview url."
 msgstr "მინიატურის ბმულის გასწორება."
 

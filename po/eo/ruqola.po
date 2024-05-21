@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-05-20 00:38+0000\n"
-"PO-Revision-Date: 2024-05-17 06:24+0100\n"
+"POT-Creation-Date: 2024-05-21 00:38+0000\n"
+"PO-Revision-Date: 2024-05-20 13:35+0100\n"
 "Last-Translator: Oliver Kellogg <olivermkellogg@gmail.com>\n"
 "Language-Team: Esperanto <kde-i18n-eo.org>\n"
 "Language: eo\n"
@@ -6552,8 +6552,7 @@ msgid "Add Server"
 msgstr "Aldoni Servilon"
 
 #: widgets/configurenewserver/createnewserverdialog.cpp:49
-#, fuzzy, kde-format
-#| msgid "Configure Activities"
+#, kde-format
 msgctxt "@action:button"
 msgid "Configure Activities"
 msgstr "Agordi Aktivecojn"
@@ -7976,7 +7975,7 @@ msgid ""
 "the E2E encryption, Rocket.Chat will not be able to restore access to any "
 "encrypted room that has no member online."
 msgstr ""
-"Ĉi tiu opcio forigos vian nunan E2E-ŝlosilon kaj elsalutos vin. Kiam vi "
+"Ĉi tiu elekteblo forigos vian nunan E2E-ŝlosilon kaj elsalutos vin. Kiam vi "
 "ensalutos denove, Rocket.Chat generos al vi novan ŝlosilon kaj restarigos "
 "vian aliron al iu ajn ĉifrita ĉambro, kiu havas unu aŭ plurajn membrojn "
 "interrete. Pro la naturo de la ĉifrado E2E, Rocket.Chat ne povos restarigi "
@@ -8209,10 +8208,9 @@ msgid "Offline Email notification:"
 msgstr "Senrete Retpoŝta sciigo:"
 
 #: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:47
-#, fuzzy, kde-format
-#| msgid "Start of conversation"
+#, kde-format
 msgid "Mute Focused Conversations"
-msgstr "Komenco de konversacio"
+msgstr "Silentigi Fokusitajn Konversaciojn"
 
 #: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:60
 #, kde-format
@@ -8267,10 +8265,9 @@ msgid "New Message Notification:"
 msgstr "Sciigo pri Nova Mesaĝo:"
 
 #: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:149
-#, fuzzy, kde-format
-#| msgid "Notifications"
+#, kde-format
 msgid "Notifications sound volume:"
-msgstr "Sciigoj"
+msgstr "Sonlaŭteco de sciigoj:"
 
 #: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:181
 #, kde-format
@@ -8585,22 +8582,19 @@ msgid "Open attachment <filename>%1</filename>?<nl/>"
 msgstr "Malfermi aldonaĵon <filename>%1</filename>?<nl/>"
 
 #: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:119
-#, fuzzy, kde-format
-#| msgid "&Open With '%1'"
+#, kde-format
 msgctxt "@action:button"
 msgid "&Open With '%1'"
 msgstr "&Malfermi kun '%1'"
 
 #: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:122
-#, fuzzy, kde-format
-#| msgid "Open &With…"
+#, kde-format
 msgctxt "@action:button"
 msgid "Open &With…"
 msgstr "Malfermi &Kun…"
 
 #: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:123
-#, fuzzy, kde-format
-#| msgid "Save &As…"
+#, kde-format
 msgctxt "@action:button"
 msgid "Save &As…"
 msgstr "Konservi &Kiel…"
@@ -9786,34 +9780,40 @@ msgstr "Aldoni Raporti Uzant-Subtenon"
 msgid "Implement Channel Sound Notification."
 msgstr "Realigi Kanalan Son-Sciigon."
 
-#: widgets/whatsnew/whatsnewwidgettranslation.h:81
+#: widgets/whatsnew/whatsnewwidgettranslation.h:77
+#, fuzzy
+#| msgid "Implement Channel Sound Notification."
+msgid "Implement New Room Sound Notification."
+msgstr "Realigi Kanalan Son-Sciigon."
+
+#: widgets/whatsnew/whatsnewwidgettranslation.h:82
 msgid "Fix dark mode support."
 msgstr "Ripari subtenon por malhela reĝimo."
 
-#: widgets/whatsnew/whatsnewwidgettranslation.h:82
+#: widgets/whatsnew/whatsnewwidgettranslation.h:83
 msgid "Fix jitsi support."
 msgstr "Ripari subtenon de jitsi."
 
-#: widgets/whatsnew/whatsnewwidgettranslation.h:83
+#: widgets/whatsnew/whatsnewwidgettranslation.h:84
 msgid "Fix translate message in direct channel."
 msgstr "Ripari traduki mesaĝon en rekta kanalo."
 
-#: widgets/whatsnew/whatsnewwidgettranslation.h:84
+#: widgets/whatsnew/whatsnewwidgettranslation.h:85
 msgid "Don't show @here/@all as user."
 msgstr "Ne montri @here/@all kiel uzanto."
 
-#: widgets/whatsnew/whatsnewwidgettranslation.h:85
+#: widgets/whatsnew/whatsnewwidgettranslation.h:86
 msgid "Reduce memory footprint."
 msgstr "Redukti memorbezonon."
 
-#: widgets/whatsnew/whatsnewwidgettranslation.h:86
+#: widgets/whatsnew/whatsnewwidgettranslation.h:87
 msgid "Use RESTAPI for logging."
 msgstr "Uzi RESTAPI por protokolado."
 
-#: widgets/whatsnew/whatsnewwidgettranslation.h:87
+#: widgets/whatsnew/whatsnewwidgettranslation.h:88
 msgid "Allow to send multi files."
 msgstr "Permesi sendi plurajn dosierojn."
 
-#: widgets/whatsnew/whatsnewwidgettranslation.h:88
+#: widgets/whatsnew/whatsnewwidgettranslation.h:89
 msgid "Fix preview url."
-msgstr ""
+msgstr "Ripari antaŭrigardan URL."

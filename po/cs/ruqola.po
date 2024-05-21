@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-05-20 00:38+0000\n"
+"POT-Creation-Date: 2024-05-21 00:38+0000\n"
 "PO-Revision-Date: 2023-11-14 13:24+0100\n"
 "Last-Translator: Vit Pelcak <vit@pelcak.org>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
@@ -6382,12 +6382,10 @@ msgid "Add Server"
 msgstr "Přidat server"
 
 #: widgets/configurenewserver/createnewserverdialog.cpp:49
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Configure Notification"
+#, kde-format
 msgctxt "@action:button"
 msgid "Configure Activities"
-msgstr "Nastavit upozornění"
+msgstr ""
 
 #: widgets/configurenewserver/createnewserverdialog.cpp:67
 #, kde-format
@@ -8010,10 +8008,9 @@ msgid "Offline Email notification:"
 msgstr ""
 
 #: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:47
-#, fuzzy, kde-format
-#| msgid "Start of conversation"
+#, kde-format
 msgid "Mute Focused Conversations"
-msgstr "Zahájení rozhovoru"
+msgstr ""
 
 #: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:60
 #, kde-format
@@ -8062,16 +8059,14 @@ msgid "New Room Notification:"
 msgstr ""
 
 #: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:139
-#, fuzzy, kde-format
-#| msgid "Disable Notification"
+#, kde-format
 msgid "New Message Notification:"
-msgstr "Vypnout upozornění"
+msgstr ""
 
 #: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:149
-#, fuzzy, kde-format
-#| msgid "Notifications"
+#, kde-format
 msgid "Notifications sound volume:"
-msgstr "Upozornění"
+msgstr ""
 
 #: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:181
 #, kde-format
@@ -8381,18 +8376,16 @@ msgid "Open attachment <filename>%1</filename>?<nl/>"
 msgstr "Otevřít přílohu <filename>%1</filename>?<nl/>"
 
 #: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:119
-#, fuzzy, kde-format
-#| msgid "&Open With '%1'"
+#, kde-format
 msgctxt "@action:button"
 msgid "&Open With '%1'"
-msgstr "&Otevřít pomocí '%1'"
+msgstr ""
 
 #: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:122
-#, fuzzy, kde-format
-#| msgid "&Open With '%1'"
+#, kde-format
 msgctxt "@action:button"
 msgid "Open &With…"
-msgstr "&Otevřít pomocí '%1'"
+msgstr ""
 
 #: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:123
 #, kde-format
@@ -9572,34 +9565,38 @@ msgstr ""
 msgid "Implement Channel Sound Notification."
 msgstr ""
 
-#: widgets/whatsnew/whatsnewwidgettranslation.h:81
-msgid "Fix dark mode support."
+#: widgets/whatsnew/whatsnewwidgettranslation.h:77
+msgid "Implement New Room Sound Notification."
 msgstr ""
 
 #: widgets/whatsnew/whatsnewwidgettranslation.h:82
-msgid "Fix jitsi support."
+msgid "Fix dark mode support."
 msgstr ""
 
 #: widgets/whatsnew/whatsnewwidgettranslation.h:83
-msgid "Fix translate message in direct channel."
+msgid "Fix jitsi support."
 msgstr ""
 
 #: widgets/whatsnew/whatsnewwidgettranslation.h:84
-msgid "Don't show @here/@all as user."
+msgid "Fix translate message in direct channel."
 msgstr ""
 
 #: widgets/whatsnew/whatsnewwidgettranslation.h:85
-msgid "Reduce memory footprint."
+msgid "Don't show @here/@all as user."
 msgstr ""
 
 #: widgets/whatsnew/whatsnewwidgettranslation.h:86
-msgid "Use RESTAPI for logging."
+msgid "Reduce memory footprint."
 msgstr ""
 
 #: widgets/whatsnew/whatsnewwidgettranslation.h:87
-msgid "Allow to send multi files."
+msgid "Use RESTAPI for logging."
 msgstr ""
 
 #: widgets/whatsnew/whatsnewwidgettranslation.h:88
+msgid "Allow to send multi files."
+msgstr ""
+
+#: widgets/whatsnew/whatsnewwidgettranslation.h:89
 msgid "Fix preview url."
 msgstr ""

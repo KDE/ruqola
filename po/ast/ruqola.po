@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-05-20 00:38+0000\n"
+"POT-Creation-Date: 2024-05-21 00:38+0000\n"
 "PO-Revision-Date: 2024-03-27 23:08+0100\n"
 "Last-Translator: Enol P. <enolp@softastur.org>\n"
 "Language-Team: Asturian <alministradores@softastur.org>\n"
@@ -9513,34 +9513,38 @@ msgstr ""
 msgid "Implement Channel Sound Notification."
 msgstr ""
 
-#: widgets/whatsnew/whatsnewwidgettranslation.h:81
-msgid "Fix dark mode support."
+#: widgets/whatsnew/whatsnewwidgettranslation.h:77
+msgid "Implement New Room Sound Notification."
 msgstr ""
 
 #: widgets/whatsnew/whatsnewwidgettranslation.h:82
-msgid "Fix jitsi support."
+msgid "Fix dark mode support."
 msgstr ""
 
 #: widgets/whatsnew/whatsnewwidgettranslation.h:83
-msgid "Fix translate message in direct channel."
+msgid "Fix jitsi support."
 msgstr ""
 
 #: widgets/whatsnew/whatsnewwidgettranslation.h:84
-msgid "Don't show @here/@all as user."
+msgid "Fix translate message in direct channel."
 msgstr ""
 
 #: widgets/whatsnew/whatsnewwidgettranslation.h:85
-msgid "Reduce memory footprint."
+msgid "Don't show @here/@all as user."
 msgstr ""
 
 #: widgets/whatsnew/whatsnewwidgettranslation.h:86
-msgid "Use RESTAPI for logging."
+msgid "Reduce memory footprint."
 msgstr ""
 
 #: widgets/whatsnew/whatsnewwidgettranslation.h:87
-msgid "Allow to send multi files."
+msgid "Use RESTAPI for logging."
 msgstr ""
 
 #: widgets/whatsnew/whatsnewwidgettranslation.h:88
+msgid "Allow to send multi files."
+msgstr ""
+
+#: widgets/whatsnew/whatsnewwidgettranslation.h:89
 msgid "Fix preview url."
 msgstr ""
