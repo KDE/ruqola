@@ -5,15 +5,45 @@
 */
 
 #include "soundconfigurewidget.h"
+#include "configuresoundcombobox.h"
 #include <QHBoxLayout>
+#include <QToolButton>
 
 SoundConfigureWidget::SoundConfigureWidget(QWidget *parent)
     : QWidget{parent}
+    , mSoundNewRoomNotification(new ConfigureSoundComboBox(this))
+    , mPlaySoundToolButton(new QToolButton(this))
 {
     auto mainLayout = new QHBoxLayout(this);
     mainLayout->setContentsMargins({});
+    mSoundNewRoomNotification->setObjectName(QStringLiteral("mSoundNewRoomNotification"));
+
+    mainLayout->addWidget(mSoundNewRoomNotification);
+
+    mPlaySoundToolButton->setObjectName(QStringLiteral("mPlaySoundToolButton"));
+    mPlaySoundToolButton->setIcon(QIcon::fromTheme(QStringLiteral("media-playback-start")));
+    mainLayout->addWidget(mPlaySoundToolButton);
+    connect(mPlaySoundToolButton, &QToolButton::clicked, this, &SoundConfigureWidget::slotPlaySound);
+#if 0
+    if (mRocketChatAccount) {
+        mDesktopSoundCombobox->setModel(mRocketChatAccount->notificationPreferences()->desktopSoundNotificationModel());
+    }
+#endif
 }
 
 SoundConfigureWidget::~SoundConfigureWidget() = default;
+
+void SoundConfigureWidget::slotPlaySound()
+{
+#if 0
+    if (mRocketChatAccount) {
+        const QByteArray identifier =
+            mRocketChatAccount->notificationPreferences()->desktopSoundNotificationModel()->currentPreference(mDesktopSoundCombobox->currentIndex());
+        if (!identifier.isEmpty() || identifier != "none") {
+            mRocketChatAccount->playSound(identifier);
+        }
+    }
+#endif
+}
 
 #include "moc_soundconfigurewidget.cpp"

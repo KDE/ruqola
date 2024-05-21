@@ -7,11 +7,17 @@
 #pragma once
 #include "libruqolawidgets_private_export.h"
 #include <QWidget>
-
+class ConfigureSoundComboBox;
+class QToolButton;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT SoundConfigureWidget : public QWidget
 {
     Q_OBJECT
 public:
     explicit SoundConfigureWidget(QWidget *parent = nullptr);
     ~SoundConfigureWidget() override;
+
+private:
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotPlaySound();
+    ConfigureSoundComboBox *const mSoundNewRoomNotification;
+    QToolButton *const mPlaySoundToolButton;
 };
