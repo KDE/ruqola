@@ -370,9 +370,6 @@ target_sources(libruqolawidgets PRIVATE
     dialogs/resetpasswordwidget.h
     dialogs/resetpasswordwidget.cpp
 
-    dialogs/soundconfigurewidget.h
-    dialogs/soundconfigurewidget.cpp
-
     configurenewserver/createnewserverdialog.cpp
     configurenewserver/createnewserverdialog.h
     configurenewserver/createnewserverwidget.cpp
@@ -554,6 +551,12 @@ target_sources(libruqolawidgets PRIVATE
     misc/joinedchannelcompletionlineeditbase.cpp
     misc/joinedchannelcompletionlineeditbase.h
     
+    misc/soundconfigurewidget.h
+    misc/soundconfigurewidget.cpp
+
+    misc/myaccountpreferenceconfiguresoundcombobox.h
+    misc/myaccountpreferenceconfiguresoundcombobox.cpp
+
     myaccount/myaccount2e2configurewidget.cpp
     myaccount/myaccount2e2configurewidget.h
     myaccount/myaccount2faconfigurewidget.cpp
@@ -584,9 +587,6 @@ target_sources(libruqolawidgets PRIVATE
 
     myaccount/myaccountmanagedeviceconfigurewidget.cpp
     myaccount/myaccountmanagedeviceconfigurewidget.h
-
-    myaccount/myaccountpreferenceconfiguresoundcombobox.h
-    myaccount/myaccountpreferenceconfiguresoundcombobox.cpp
 
     notificationhistory/notificationhistorydialog.cpp
     notificationhistory/notificationhistorydialog.h

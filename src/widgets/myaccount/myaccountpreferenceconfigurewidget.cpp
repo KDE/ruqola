@@ -9,7 +9,7 @@
 #include "model/notificationdesktopsoundpreferenceproxymodel.h"
 
 #include "connection.h"
-#include "myaccountpreferenceconfiguresoundcombobox.h"
+#include "misc/myaccountpreferenceconfiguresoundcombobox.h"
 #include "rocketchataccount.h"
 #include "ruqolawidgets_debug.h"
 #include "users/userrequestdatadownloadjob.h"
