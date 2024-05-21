@@ -5,6 +5,7 @@
 */
 
 #include "myaccountpreferenceconfigurewidgettest.h"
+#include "misc/soundconfigurewidget.h"
 #include "myaccount/myaccountpreferenceconfigurewidget.h"
 #include <QCheckBox>
 #include <QComboBox>
@@ -124,10 +125,10 @@ void MyAccountPreferenceConfigureWidgetTest::shouldHaveDefaultValues()
     QVERIFY(soundWidgetLayout);
     QCOMPARE(soundWidgetLayout->contentsMargins(), QMargins{});
 
-    auto mSoundNewRoomNotification = soundWidget->findChild<QComboBox *>(QStringLiteral("mSoundNewRoomNotification"));
+    auto mSoundNewRoomNotification = soundWidget->findChild<SoundConfigureWidget *>(QStringLiteral("mSoundNewRoomNotification"));
     QVERIFY(mSoundNewRoomNotification);
 
-    auto mSoundNewMessageNotification = soundWidget->findChild<QComboBox *>(QStringLiteral("mSoundNewMessageNotification"));
+    auto mSoundNewMessageNotification = soundWidget->findChild<SoundConfigureWidget *>(QStringLiteral("mSoundNewMessageNotification"));
     QVERIFY(mSoundNewMessageNotification);
 
     auto mMuteFocusedConversations = w.findChild<QCheckBox *>(QStringLiteral("mMuteFocusedConversations"));
