@@ -5,8 +5,8 @@
 */
 
 #include "myaccountpreferenceconfigurewidget.h"
+#include "misc/soundconfigurewidget.h"
 #include "model/notificationdesktopsoundpreferencemodel.h"
-#include "model/notificationdesktopsoundpreferenceproxymodel.h"
 
 #include "connection.h"
 #include "misc/configuresoundcombobox.h"
@@ -40,10 +40,9 @@ MyAccountPreferenceConfigureWidget::MyAccountPreferenceConfigureWidget(RocketCha
     , mIdleTimeLimit(new QSpinBox(this))
     , mAutomaticAway(new QCheckBox(i18n("Enable Auto Away"), this))
     , mEmailNotificationLabel(new QLabel(i18n("Offline Email notification:"), this))
-    , mSoundNewRoomNotification(new ConfigureSoundComboBox(this))
-    , mSoundNewMessageNotification(new ConfigureSoundComboBox(this))
+    , mSoundNewRoomNotification(new SoundConfigureWidget(account, this))
+    , mSoundNewMessageNotification(new SoundConfigureWidget(account, this))
     , mSoundModel(new NotificationDesktopSoundPreferenceModel(this))
-    , mSoundProxyModel(new NotificationDesktopSoundPreferenceProxyModel(this))
     , mMuteFocusedConversations(new QCheckBox(i18n("Mute Focused Conversations"), this))
     , mNotificationsSoundVolume(new QSpinBox(this))
     , mRocketChatAccount(account)
@@ -157,9 +156,8 @@ MyAccountPreferenceConfigureWidget::MyAccountPreferenceConfigureWidget(RocketCha
 
     if (mRocketChatAccount) {
         mSoundModel->setCustomSoundManager(mRocketChatAccount->customSoundManager());
-        mSoundProxyModel->setSourceModel(mSoundModel);
-        mSoundNewRoomNotification->setModel(mSoundProxyModel);
-        mSoundNewMessageNotification->setModel(mSoundProxyModel);
+        mSoundNewRoomNotification->setSoundModel(mSoundModel, true);
+        mSoundNewMessageNotification->setSoundModel(mSoundModel, true);
     }
 
     mainLayout->addWidget(soundWidget);
@@ -285,8 +283,8 @@ void MyAccountPreferenceConfigureWidget::initComboboxValues()
     connect(mDesktopNotification, &QComboBox::activated, this, &MyAccountPreferenceConfigureWidget::setWasChanged);
     connect(mPushNotification, &QComboBox::activated, this, &MyAccountPreferenceConfigureWidget::setWasChanged);
     connect(mEmailNotification, &QComboBox::activated, this, &MyAccountPreferenceConfigureWidget::setWasChanged);
-    connect(mSoundNewRoomNotification, &ConfigureSoundComboBox::activated, this, &MyAccountPreferenceConfigureWidget::setWasChanged);
-    connect(mSoundNewMessageNotification, &ConfigureSoundComboBox::activated, this, &MyAccountPreferenceConfigureWidget::setWasChanged);
+    connect(mSoundNewRoomNotification, &SoundConfigureWidget::soundChanged, this, &MyAccountPreferenceConfigureWidget::setWasChanged);
+    connect(mSoundNewMessageNotification, &SoundConfigureWidget::soundChanged, this, &MyAccountPreferenceConfigureWidget::setWasChanged);
 }
 
 void MyAccountPreferenceConfigureWidget::save()
@@ -345,8 +343,8 @@ void MyAccountPreferenceConfigureWidget::load()
     mReceiveLoginDetectionEmails->setChecked(ownUserPreferences.receiveLoginDetectionEmail());
     mIdleTimeLimit->setValue(ownUserPreferences.idleTimeLimit());
     mAutomaticAway->setChecked(ownUserPreferences.enableAutoAway());
-    mSoundNewRoomNotification->setCurrentSoundName(ownUserPreferences.newRoomNotification());
-    mSoundNewMessageNotification->setCurrentSoundName(ownUserPreferences.newMessageNotification());
+    mSoundNewRoomNotification->setCurrentSound(ownUserPreferences.newRoomNotification());
+    mSoundNewMessageNotification->setCurrentSound(ownUserPreferences.newMessageNotification());
     mMuteFocusedConversations->setChecked(ownUserPreferences.muteFocusedConversations());
     mNotificationsSoundVolume->setValue(ownUserPreferences.notificationsSoundVolume());
     mChanged = false;

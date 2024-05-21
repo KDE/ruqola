@@ -15,6 +15,7 @@ class Room;
 class QComboBox;
 class RocketChatAccount;
 class QToolButton;
+class SoundConfigureWidget;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT ConfigureNotificationWidget : public QWidget
 {
     Q_OBJECT
@@ -25,17 +26,14 @@ public:
     void setRoom(Room *room);
 
 private:
-    LIBRUQOLAWIDGETS_NO_EXPORT void slotPlaySound();
-    LIBRUQOLAWIDGETS_NO_EXPORT void updateButtonState();
     QCheckBox *const mDisableNotification;
     QCheckBox *const mHideUnreadRoomStatus;
     QCheckBox *const mMuteGroupMentions;
     QCheckBox *const mShowBadgeMentions;
     QPointer<Room> mRoom;
     QComboBox *const mDesktopAlertCombobox;
-    QComboBox *const mDesktopSoundCombobox;
+    SoundConfigureWidget *const mDesktopSoundConfigureWidget;
     QComboBox *const mMobileAlertCombobox;
     QComboBox *const mEmailAlertCombobox;
-    QToolButton *const mPlaySoundToolButton;
     RocketChatAccount *const mRocketChatAccount;
 };

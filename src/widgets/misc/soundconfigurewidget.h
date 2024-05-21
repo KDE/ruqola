@@ -19,7 +19,16 @@ public:
     explicit SoundConfigureWidget(RocketChatAccount *account, QWidget *parent = nullptr);
     ~SoundConfigureWidget() override;
 
-    void setSoundModel(NotificationDesktopSoundPreferenceModel *model);
+    void setSoundModel(NotificationDesktopSoundPreferenceModel *model, bool excludeDefaultNone = false);
+
+    void setCurrentSound(const QByteArray &identifier);
+
+    void updateButtonState();
+
+    [[nodiscard]] QByteArray identifier() const;
+
+Q_SIGNALS:
+    void soundChanged(const QByteArray &identifier);
 
 private:
     LIBRUQOLAWIDGETS_NO_EXPORT void slotPlaySound();

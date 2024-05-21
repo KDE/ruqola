@@ -5,6 +5,7 @@
 */
 
 #include "configurenotificationwidget.h"
+#include "misc/soundconfigurewidget.h"
 #include "model/notificationdesktopsoundpreferencemodel.h"
 #include "model/notificationpreferencemodel.h"
 #include "notifications/notificationpreferences.h"
@@ -27,10 +28,9 @@ ConfigureNotificationWidget::ConfigureNotificationWidget(RocketChatAccount *acco
     , mMuteGroupMentions(new QCheckBox(i18n("Mute %1 and %2 mentions", QStringLiteral("@all"), QStringLiteral("@here")), this))
     , mShowBadgeMentions(new QCheckBox(i18n("Show badge for mentions"), this))
     , mDesktopAlertCombobox(new QComboBox(this))
-    , mDesktopSoundCombobox(new QComboBox(this))
+    , mDesktopSoundConfigureWidget(new SoundConfigureWidget(account, this))
     , mMobileAlertCombobox(new QComboBox(this))
     , mEmailAlertCombobox(new QComboBox(this))
-    , mPlaySoundToolButton(new QToolButton(this))
     , mRocketChatAccount(account)
 {
     auto topLayout = new QVBoxLayout(this);
@@ -84,22 +84,16 @@ ConfigureNotificationWidget::ConfigureNotificationWidget(RocketChatAccount *acco
     auto soundLayout = new QHBoxLayout;
     soundLayout->setContentsMargins({});
     soundLayout->setSpacing(0);
-    soundLayout->addWidget(mDesktopSoundCombobox);
-    soundLayout->addWidget(mPlaySoundToolButton);
-    mPlaySoundToolButton->setIcon(QIcon::fromTheme(QStringLiteral("media-playback-start")));
+    soundLayout->addWidget(mDesktopSoundConfigureWidget);
 
-    mDesktopSoundCombobox->setObjectName(QStringLiteral("mDesktopSoundCombobox"));
-    mPlaySoundToolButton->setObjectName(QStringLiteral("mPlaySoundToolButton"));
-    mPlaySoundToolButton->setEnabled(false);
+    mDesktopSoundConfigureWidget->setObjectName(QStringLiteral("mDesktopSoundConfigureWidget"));
     desktopGroupBoxLayout->addRow(i18n("Sound:"), soundLayout);
-    connect(mPlaySoundToolButton, &QToolButton::clicked, this, &ConfigureNotificationWidget::slotPlaySound);
     if (mRocketChatAccount) {
-        mDesktopSoundCombobox->setModel(mRocketChatAccount->notificationPreferences()->desktopSoundNotificationModel());
+        mDesktopSoundConfigureWidget->setSoundModel(mRocketChatAccount->notificationPreferences()->desktopSoundNotificationModel());
     }
-    connect(mDesktopSoundCombobox, &QComboBox::activated, this, [this](int index) {
-        const QByteArray identifier = mRocketChatAccount->notificationPreferences()->desktopSoundNotificationModel()->currentPreference(index);
+
+    connect(mDesktopSoundConfigureWidget, &SoundConfigureWidget::soundChanged, this, [this](const QByteArray &identifier) {
         mRocketChatAccount->changeNotificationsSettings(mRoom->roomId(), RocketChatAccount::DesktopSoundNotifications, identifier);
-        updateButtonState();
     });
 
     auto mobileGroupBox = new QGroupBox(i18n("Mobile"), this);
@@ -146,24 +140,6 @@ Room *ConfigureNotificationWidget::room() const
     return mRoom;
 }
 
-void ConfigureNotificationWidget::updateButtonState()
-{
-    const QByteArray identifier =
-        mRocketChatAccount->notificationPreferences()->desktopSoundNotificationModel()->currentPreference(mDesktopSoundCombobox->currentIndex());
-    mPlaySoundToolButton->setEnabled(identifier != QByteArrayLiteral("none"));
-}
-
-void ConfigureNotificationWidget::slotPlaySound()
-{
-    if (mRocketChatAccount) {
-        const QByteArray identifier =
-            mRocketChatAccount->notificationPreferences()->desktopSoundNotificationModel()->currentPreference(mDesktopSoundCombobox->currentIndex());
-        if (!identifier.isEmpty() || identifier != "none") {
-            mRocketChatAccount->playSound(identifier);
-        }
-    }
-}
-
 void ConfigureNotificationWidget::setRoom(Room *room)
 {
     mRoom = room;
@@ -174,13 +150,12 @@ void ConfigureNotificationWidget::setRoom(Room *room)
     mShowBadgeMentions->setChecked(!notificationOptions.hideMentionStatus());
     mDesktopAlertCombobox->setCurrentIndex(mRocketChatAccount->notificationPreferences()->desktopNotificationModel()->setCurrentNotificationPreference(
         notificationOptions.desktopNotifications().currentValue()));
-    mDesktopSoundCombobox->setCurrentIndex(mRocketChatAccount->notificationPreferences()->desktopSoundNotificationModel()->setCurrentNotificationPreference(
-        notificationOptions.audioNotificationValue()));
+    mDesktopSoundConfigureWidget->setCurrentSound(notificationOptions.audioNotificationValue());
     mMobileAlertCombobox->setCurrentIndex(mRocketChatAccount->notificationPreferences()->mobileNotificationModel()->setCurrentNotificationPreference(
         notificationOptions.mobilePushNotification().currentValue()));
     mEmailAlertCombobox->setCurrentIndex(mRocketChatAccount->notificationPreferences()->emailNotificationModel()->setCurrentNotificationPreference(
         notificationOptions.emailNotifications().currentValue()));
-    updateButtonState();
+    mDesktopSoundConfigureWidget->updateButtonState();
 }
 
 #include "moc_configurenotificationwidget.cpp"
