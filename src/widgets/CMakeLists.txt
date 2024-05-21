@@ -370,6 +370,9 @@ target_sources(libruqolawidgets PRIVATE
     dialogs/resetpasswordwidget.h
     dialogs/resetpasswordwidget.cpp
 
+    dialogs/soundconfigurewidget.h
+    dialogs/soundconfigurewidget.cpp
+
     configurenewserver/createnewserverdialog.cpp
     configurenewserver/createnewserverdialog.h
     configurenewserver/createnewserverwidget.cpp
