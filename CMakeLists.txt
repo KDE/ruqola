@@ -123,8 +123,6 @@ find_package(KF6 ${KF_MIN_VERSION} REQUIRED COMPONENTS
     Codecs
 )
 
-find_package(KF6IconThemes ${KF_MIN_VERSION} QUIET)
-
 if (OPTION_USE_PLASMA_ACTIVITIES)
     if (NOT WIN32 AND NOT APPLE)
        find_package(PlasmaActivities "6.0.0")
