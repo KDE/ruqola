@@ -63,7 +63,7 @@ MyAccountPreferenceConfigureWidget::MyAccountPreferenceConfigureWidget(RocketCha
     mHighlightWords->setObjectName(QStringLiteral("mHighlightWords"));
     KLineEditEventHandler::catchReturnKey(mHighlightWords);
     mHighlightWords->setPlaceholderText(i18n("Use \',\' for separating words"));
-    mHighlightWords->setToolTip(i18n("Separate each word with \',\'."));
+    mHighlightWords->setToolTip(i18nc("@info:tooltip", "Separate each word with \',\'."));
     connect(mHighlightWords, &QLineEdit::textEdited, this, &MyAccountPreferenceConfigureWidget::setWasChanged);
 
     createLayout(highlightWordsLabel, mHighlightWords, mainLayout);
@@ -91,7 +91,7 @@ MyAccountPreferenceConfigureWidget::MyAccountPreferenceConfigureWidget(RocketCha
     createLayout(pushNotificationLabel, mPushNotification, mainLayout);
 
     mReceiveLoginDetectionEmails->setObjectName(QStringLiteral("mReceiveLoginDetectionEmails"));
-    mReceiveLoginDetectionEmails->setToolTip(i18n("Receive an email each time a new login is detected on your account."));
+    mReceiveLoginDetectionEmails->setToolTip(i18nc("@info:tooltip", "Receive an email each time a new login is detected on your account."));
     connect(mReceiveLoginDetectionEmails, &QCheckBox::clicked, this, &MyAccountPreferenceConfigureWidget::setWasChanged);
     mainLayout->addWidget(mReceiveLoginDetectionEmails);
 
@@ -116,7 +116,7 @@ MyAccountPreferenceConfigureWidget::MyAccountPreferenceConfigureWidget(RocketCha
 
     mIdleTimeLimit->setObjectName(QStringLiteral("mIdleTimeLimit"));
     mIdleTimeLimit->setMaximum(9999);
-    mIdleTimeLimit->setToolTip(i18n("Period of time until status changes to away. Value needs to be in seconds."));
+    mIdleTimeLimit->setToolTip(i18nc("@info:tooltip", "Period of time until status changes to away. Value needs to be in seconds."));
     connect(mIdleTimeLimit, &QSpinBox::valueChanged, this, &MyAccountPreferenceConfigureWidget::setWasChanged);
 
     createLayout(idleTimeLimitLabel, mIdleTimeLimit, mainLayout);

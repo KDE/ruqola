@@ -32,11 +32,11 @@ CasSettingsWidget::CasSettingsWidget(RocketChatAccount *account, QWidget *parent
 
     mSSOBaseURL->setObjectName(QStringLiteral("mSSOBaseURL"));
     addLineEdit(i18n("SSO Base URL"), mSSOBaseURL, QStringLiteral("CAS_base_url"));
-    mSSOBaseURL->setToolTip(i18n("The base URL of your external SSO service e.g: https://sso.example.undef/sso/"));
+    mSSOBaseURL->setToolTip(i18nc("@info:tooltip", "The base URL of your external SSO service e.g: https://sso.example.undef/sso/"));
 
     mSSOLoginURL->setObjectName(QStringLiteral("mSSOLoginURL"));
     addLineEdit(i18n("SSO Login URL"), mSSOLoginURL, QStringLiteral("CAS_login_url"));
-    mSSOLoginURL->setToolTip(i18n("The login URL of your external SSO service e.g: https://sso.example.undef/sso/login"));
+    mSSOLoginURL->setToolTip(i18nc("@info:tooltip", "The login URL of your external SSO service e.g: https://sso.example.undef/sso/login"));
 
     mCASVersion->setObjectName(QStringLiteral("mCASVersion"));
     const QMap<QString, QString> maps = {
@@ -53,7 +53,7 @@ CasSettingsWidget::CasSettingsWidget(RocketChatAccount *account, QWidget *parent
     connectCheckBox(mTrustCASUsername, QStringLiteral("CAS_trust_username"));
 
     mAllowUserCreation->setObjectName(QStringLiteral("mAllowUserCreation"));
-    mAllowUserCreation->setToolTip(i18n("Allow CAS User creation from data provided by the CAS ticket."));
+    mAllowUserCreation->setToolTip(i18nc("@info:tooltip", "Allow CAS User creation from data provided by the CAS ticket."));
     mMainLayout->addWidget(mAllowUserCreation);
     connectCheckBox(mAllowUserCreation, QStringLiteral("CAS_Creation_User_Enabled"));
 
@@ -62,7 +62,8 @@ CasSettingsWidget::CasSettingsWidget(RocketChatAccount *account, QWidget *parent
     mMainLayout->addWidget(attributeHandlingLabel);
 
     mAlwaysSyncUserData->setObjectName(QStringLiteral("mAlwaysSyncUserData"));
-    mAlwaysSyncUserData->setToolTip(i18n(
+    mAlwaysSyncUserData->setToolTip(i18nc(
+        "@info:tooltip",
         "Always synchronize external CAS User data into available attributes upon login.\nNote: Attributes are always synced upon account creation anyway."));
     mMainLayout->addWidget(mAlwaysSyncUserData);
     connectCheckBox(mAlwaysSyncUserData, QStringLiteral("CAS_Sync_User_Data_Enabled"));

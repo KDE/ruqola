@@ -18,7 +18,7 @@ IrcWidget::IrcWidget(RocketChatAccount *account, QWidget *parent)
     , mLoginSuccessful(new QLineEdit(this))
 {
     mCacheLimitOutBoundMessage->setObjectName(QStringLiteral("mCacheLimitOutBoundMessage"));
-    mCacheLimitOutBoundMessage->setToolTip(i18n("The cache limit for outbound message handling."));
+    mCacheLimitOutBoundMessage->setToolTip(i18nc("@info:tooltip", "The cache limit for outbound message handling."));
     mCacheLimitOutBoundMessage->setMaximum(99999);
     addSpinbox(i18n("The cache limit for outbound message handling."), mCacheLimitOutBoundMessage, QStringLiteral("IRC_Message_Cache_Size"));
 
@@ -27,7 +27,7 @@ IrcWidget::IrcWidget(RocketChatAccount *account, QWidget *parent)
     mMainLayout->addWidget(regularExpressionsLabel);
 
     mLoginSuccessful->setObjectName(QStringLiteral("mLoginSuccessful"));
-    mLoginSuccessful->setToolTip(i18n("Output upon a successful connection to the IRC server."));
+    mLoginSuccessful->setToolTip(i18nc("@info:tooltip", "Output upon a successful connection to the IRC server."));
     addLineEdit(i18n("Login Successful"), mLoginSuccessful, QStringLiteral("IRC_RegEx_successLogin"));
 }
 

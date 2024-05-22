@@ -32,22 +32,22 @@ FileUploadSettingsWidget::FileUploadSettingsWidget(RocketChatAccount *account, Q
     connectCheckBox(mFileUploadsEnabled, QStringLiteral("FileUpload_Enabled"));
 
     mMaximumFileUploadSize->setObjectName(QStringLiteral("mMaximumFileUploadSize"));
-    mMaximumFileUploadSize->setToolTip(i18n("Set it to -1 to remove the file size limitation."));
+    mMaximumFileUploadSize->setToolTip(i18nc("@info:tooltip", "Set it to -1 to remove the file size limitation."));
     mMaximumFileUploadSize->setMaximum(1215752191);
     addSpinbox(i18n("Maximum File Upload Size (in bytes)"), mMaximumFileUploadSize, QStringLiteral("FileUpload_MaxFileSize"));
 
     mProtectUploadedFiles->setObjectName(QStringLiteral("mProtectUploadedFiles"));
-    mProtectUploadedFiles->setToolTip(i18n("Only authenticated users will have access"));
+    mProtectUploadedFiles->setToolTip(i18nc("@info:tooltip", "Only authenticated users will have access"));
     mMainLayout->addWidget(mProtectUploadedFiles);
     connectCheckBox(mProtectUploadedFiles, QStringLiteral("FileUpload_ProtectFiles"));
 
     mRotateImagesUpload->setObjectName(QStringLiteral("mRotateImagesUpload"));
-    mRotateImagesUpload->setToolTip(i18n("Enabling this setting may cause image quality loss"));
+    mRotateImagesUpload->setToolTip(i18nc("@info:tooltip", "Enabling this setting may cause image quality loss"));
     mMainLayout->addWidget(mRotateImagesUpload);
     connectCheckBox(mRotateImagesUpload, QStringLiteral("FileUpload_RotateImages"));
 
     mRestrictFilesToRooms->setObjectName(QStringLiteral("mRestrictFilesToRooms"));
-    mRestrictFilesToRooms->setToolTip(i18n("Restrict the access of files uploaded on rooms to the rooms' members only"));
+    mRestrictFilesToRooms->setToolTip(i18nc("@info:tooltip", "Restrict the access of files uploaded on rooms to the rooms' members only"));
     mMainLayout->addWidget(mRestrictFilesToRooms);
     connectCheckBox(mRestrictFilesToRooms, QStringLiteral("FileUpload_Restrict_to_room_members"));
 
@@ -56,15 +56,16 @@ FileUploadSettingsWidget::FileUploadSettingsWidget(RocketChatAccount *account, Q
     connectCheckBox(mFileUploadsEnabledDirectMessages, QStringLiteral("FileUpload_Enabled_Direct"));
 
     mAcceptedMediaTypes->setObjectName(QStringLiteral("mAcceptedMediaTypes"));
-    mAcceptedMediaTypes->setToolTip(i18n("Comma-separated list of media types. Leave it blank for accepting all media types."));
+    mAcceptedMediaTypes->setToolTip(i18nc("@info:tooltip", "Comma-separated list of media types. Leave it blank for accepting all media types."));
     addLineEdit(i18n("Accepted Media Types"), mAcceptedMediaTypes, QStringLiteral("FileUpload_MediaTypeWhiteList"));
 
     mBlockedMediaTypes->setObjectName(QStringLiteral("mBlockedMediaTypes"));
-    mBlockedMediaTypes->setToolTip(i18n("Comma-separated list of media types. This setting has priority over the Accepted Media Types."));
+    mBlockedMediaTypes->setToolTip(i18nc("@info:tooltip", "Comma-separated list of media types. This setting has priority over the Accepted Media Types."));
     addLineEdit(i18n("Accepted Media Types"), mBlockedMediaTypes, QStringLiteral("FileUpload_MediaTypeBlackList"));
 
     mFileUploadJsonWebTokenSecret->setObjectName(QStringLiteral("mFileUploadJsonWebTokenSecret"));
-    mFileUploadJsonWebTokenSecret->setToolTip(i18n("File Upload Json Web Token Secret (Used to be able to access uploaded files without authentication)."));
+    mFileUploadJsonWebTokenSecret->setToolTip(
+        i18nc("@info:tooltip", "File Upload Json Web Token Secret (Used to be able to access uploaded files without authentication)."));
     addLineEdit(i18n("Accepted Media Types"), mFileUploadJsonWebTokenSecret, QStringLiteral("FileUpload_json_web_token_secret_for_files"));
 
     mStorageType->setObjectName(QStringLiteral("mStorageType"));

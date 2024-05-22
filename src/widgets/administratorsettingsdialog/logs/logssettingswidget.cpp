@@ -25,7 +25,7 @@ LogsSettingsWidget::LogsSettingsWidget(RocketChatAccount *account, QWidget *pare
     , mTraceSubscriptionFilter(new QLineEdit(this))
 {
     mLogExceptionsChannel->setObjectName(QStringLiteral("mLogExceptionsChannel"));
-    mLogExceptionsChannel->setToolTip(i18n("A channel that will receive all captured exceptions. Leave empty to ignore exceptions."));
+    mLogExceptionsChannel->setToolTip(i18nc("@info:tooltip", "A channel that will receive all captured exceptions. Leave empty to ignore exceptions."));
     addLineEdit(i18n("Log Exceptions to Channel"), mLogExceptionsChannel, QStringLiteral("Log_Exceptions_to_Channel"));
 
     mLogLevel->setObjectName(QStringLiteral("mLogLevel"));
@@ -45,7 +45,8 @@ LogsSettingsWidget::LogsSettingsWidget(RocketChatAccount *account, QWidget *pare
     connectCheckBox(mTraceMethodCalls, QStringLiteral("Log_Trace_Methods"));
 
     mTraceMethodFilter->setObjectName(QStringLiteral("mTraceMethodFilter"));
-    mTraceMethodFilter->setToolTip(i18n("The text here will be evaluated as RegExp (new RegExp('text')). Keep it empty to show trace of every call."));
+    mTraceMethodFilter->setToolTip(
+        i18nc("@info:tooltip", "The text here will be evaluated as RegExp (new RegExp('text')). Keep it empty to show trace of every call."));
     addLineEdit(i18n("Trace method filter"), mTraceMethodFilter, QStringLiteral("Log_Trace_Methods_Filter"));
 
     mTraceSubscriptionCalls->setObjectName(QStringLiteral("mTraceSubscriptionCalls"));
@@ -53,7 +54,8 @@ LogsSettingsWidget::LogsSettingsWidget(RocketChatAccount *account, QWidget *pare
     connectCheckBox(mTraceSubscriptionCalls, QStringLiteral("Log_Trace_Subscriptions"));
 
     mTraceSubscriptionFilter->setObjectName(QStringLiteral("mTraceSubscriptionFilter"));
-    mTraceSubscriptionFilter->setToolTip(i18n("The text here will be evaluated as RegExp (new RegExp('text')). Keep it empty to show trace of every call."));
+    mTraceSubscriptionFilter->setToolTip(
+        i18nc("@info:tooltip", "The text here will be evaluated as RegExp (new RegExp('text')). Keep it empty to show trace of every call."));
     addLineEdit(i18n("Trace method filter"), mTraceSubscriptionFilter, QStringLiteral("Log_Trace_Subscriptions_Filter"));
 }
 

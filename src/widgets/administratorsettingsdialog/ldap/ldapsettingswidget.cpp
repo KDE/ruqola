@@ -28,20 +28,20 @@ LDapSettingsWidget::LDapSettingsWidget(RocketChatAccount *account, QWidget *pare
     , mAuthenticationPassword(new KPasswordLineEdit(this))
 {
     mEnabled->setObjectName(QStringLiteral("mEnabled"));
-    mEnabled->setToolTip(i18n("Attempt to utilize LDAP for authentication."));
+    mEnabled->setToolTip(i18nc("@info:tooltip", "Attempt to utilize LDAP for authentication."));
     mMainLayout->addWidget(mEnabled);
     connectCheckBox(mEnabled, QStringLiteral("LDAP_Enable"));
 
     mPort->setObjectName(QStringLiteral("mPort"));
     mPort->setMaximum(9999);
-    mPort->setToolTip(i18n("Port to access LDAP. eg: 389 or 636 for LDAPS"));
+    mPort->setToolTip(i18nc("@info:tooltip", "Port to access LDAP. eg: 389 or 636 for LDAPS"));
     addSpinbox(i18n("Port"), mPort, QStringLiteral("LDAP_Port"));
 
     mHost->setObjectName(QStringLiteral("mHost"));
     addLineEdit(i18n("Host"), mHost, QStringLiteral("LDAP_Host"));
 
     mReconnect->setObjectName(QStringLiteral("mReconnect"));
-    mReconnect->setToolTip(i18n("Try to reconnect automatically when connection is interrupted by some reason while executing operations."));
+    mReconnect->setToolTip(i18nc("@info:tooltip", "Try to reconnect automatically when connection is interrupted by some reason while executing operations."));
     mMainLayout->addWidget(mReconnect);
     connectCheckBox(mReconnect, QStringLiteral("LDAP_Reconnect"));
 
@@ -71,12 +71,12 @@ LDapSettingsWidget::LDapSettingsWidget(RocketChatAccount *account, QWidget *pare
     // Add timeouts
     mTimeouts->setObjectName(QStringLiteral("mTimeouts"));
     mTimeouts->setMaximum(99999);
-    mTimeouts->setToolTip(i18n("How many milliseconds wait for a search result before return an error"));
+    mTimeouts->setToolTip(i18nc("@info:tooltip", "How many milliseconds wait for a search result before return an error"));
     addSpinbox(i18n("Timeout (ms)"), mTimeouts, QStringLiteral("LDAP_Timeout"));
 
     mConnectionTimeouts->setObjectName(QStringLiteral("mConnectionTimeouts"));
     mConnectionTimeouts->setMaximum(99999);
-    mConnectionTimeouts->setToolTip(i18n("How many milliseconds wait for a search result before return an error"));
+    mConnectionTimeouts->setToolTip(i18nc("@info:tooltip", "How many milliseconds wait for a search result before return an error"));
     addSpinbox(i18n("Connection Timeout (ms)"), mConnectionTimeouts, QStringLiteral("LDAP_Connect_Timeout"));
 
     mIdleTimeouts->setObjectName(QStringLiteral("mIdleTimeouts"));

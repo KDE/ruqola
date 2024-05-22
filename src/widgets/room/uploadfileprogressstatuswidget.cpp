@@ -32,7 +32,7 @@ UploadFileProgressStatusWidget::UploadFileProgressStatusWidget(QWidget *parent)
 
     mCancelToolButton->setObjectName(QStringLiteral("mCancelToolButton"));
     mCancelToolButton->setIcon(QIcon::fromTheme(QStringLiteral("dialog-cancel")));
-    mCancelToolButton->setToolTip(i18n("Cancel Upload"));
+    mCancelToolButton->setToolTip(i18nc("@info:tooltip", "Cancel Upload"));
     connect(mCancelToolButton, &QToolButton::clicked, this, [this] {
         Q_EMIT cancelUpload(mIdentifier);
     });

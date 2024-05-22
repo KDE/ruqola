@@ -59,7 +59,7 @@ OauthSettingsWidget::OauthSettingsWidget(RocketChatAccount *account, QWidget *pa
 
     mSignWithApple->setObjectName(QStringLiteral("mSignWithApple"));
     mMainLayout->addWidget(mSignWithApple);
-    mSignWithApple->setToolTip(i18n("If you want Apple login enabled only on mobile, you can leave all fields empty."));
+    mSignWithApple->setToolTip(i18nc("@info:tooltip", "If you want Apple login enabled only on mobile, you can leave all fields empty."));
     connectCheckBox(mSignWithApple, QStringLiteral("Accounts_OAuth_Apple"));
 
     mAccountsOAuthAppleId->setObjectName(QStringLiteral("mAccountsOAuthAppleId"));
@@ -197,7 +197,7 @@ OauthSettingsWidget::OauthSettingsWidget(RocketChatAccount *account, QWidget *pa
     connectCheckBox(mTokenpassLogin, QStringLiteral("Accounts_OAuth_Tokenpass"));
 
     mTokenpassServerURL->setObjectName(QStringLiteral("mTokenpassServerURL"));
-    mTokenpassServerURL->setToolTip(i18n("Example: https://domain.com (excluding trailing slash)"));
+    mTokenpassServerURL->setToolTip(i18nc("@info:tooltip", "Example: https://domain.com (excluding trailing slash)"));
     addLineEdit(i18n("Tokenpass Server URL"), mTokenpassServerURL, QStringLiteral("API_Tokenpass_URL"));
 
     mTokenpassId->setObjectName(QStringLiteral("mTokenpassId"));

@@ -42,17 +42,17 @@ CreateNewChannelWidget::CreateNewChannelWidget(RocketChatAccount *account, QWidg
 
     mReadOnly->setObjectName(QStringLiteral("mReadOnly"));
     mReadOnly->setChecked(false);
-    mReadOnly->setToolTip(i18n("All users in this team can write messages"));
+    mReadOnly->setToolTip(i18nc("@info:tooltip", "All users in this team can write messages"));
     mMainLayout->addRow(i18n("Read-Only:"), mReadOnly);
 
     mBroadcast->setObjectName(QStringLiteral("mBroadcast"));
     mBroadcast->setChecked(false);
-    mBroadcast->setToolTip(i18n("Only authorized users can write new messages, but the other users will be able to reply"));
+    mBroadcast->setToolTip(i18nc("@info:tooltip", "Only authorized users can write new messages, but the other users will be able to reply"));
     mMainLayout->addRow(i18n("Broadcast:"), mBroadcast);
 
     mPrivate->setObjectName(QStringLiteral("mPrivate"));
     mPrivate->setChecked(false);
-    mPrivate->setToolTip(i18n("Only invited people can join"));
+    mPrivate->setToolTip(i18nc("@info:tooltip", "Only invited people can join"));
 
     mMainLayout->addRow(i18n("Private Room:"), mPrivate);
 

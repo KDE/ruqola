@@ -50,7 +50,7 @@ MessageSettingsWidget::MessageSettingsWidget(RocketChatAccount *account, QWidget
     connectCheckBox(mAllowMessageEditing, QStringLiteral("Message_AllowEditing"));
 
     mBlockMessageEditingAfterMinutes->setObjectName(QStringLiteral("mBlockMessageEditingAfterMinutes"));
-    mBlockMessageEditingAfterMinutes->setToolTip(i18n("Enter 0 to disable blocking."));
+    mBlockMessageEditingAfterMinutes->setToolTip(i18nc("@info:tooltip", "Enter 0 to disable blocking."));
     addSpinbox(i18n("Block Message Editing After (n) Minutes"), mBlockMessageEditingAfterMinutes, QStringLiteral("Message_AllowEditing_BlockEditInMinutes"));
 
     mAllowMessageDeleting->setObjectName(QStringLiteral("mAllowMessageDeleting"));
@@ -58,13 +58,13 @@ MessageSettingsWidget::MessageSettingsWidget(RocketChatAccount *account, QWidget
     connectCheckBox(mAllowMessageDeleting, QStringLiteral("Message_AllowDeleting"));
 
     mBlockMessageDeletingAfterMinutes->setObjectName(QStringLiteral("mBlockMessageDeletingAfterMinutes"));
-    mBlockMessageDeletingAfterMinutes->setToolTip(i18n("Block Message Deleting After (n) Minutes."));
+    mBlockMessageDeletingAfterMinutes->setToolTip(i18nc("@info:tooltip", "Block Message Deleting After (n) Minutes."));
     addSpinbox(i18n("Block Message Deleting After (n) Minutes"),
                mBlockMessageDeletingAfterMinutes,
                QStringLiteral("Message_AllowDeleting_BlockDeleteInMinutes"));
 
     mShowEditedStatus->setObjectName(QStringLiteral("mShowEditedStatus"));
-    mShowEditedStatus->setToolTip(i18n("This is a deprecated feature. It may not work as expected and will not get new updates."));
+    mShowEditedStatus->setToolTip(i18nc("@info:tooltip", "This is a deprecated feature. It may not work as expected and will not get new updates."));
     mMainLayout->addWidget(mShowEditedStatus);
     connectCheckBox(mShowEditedStatus, QStringLiteral("Message_ShowEditedStatus"));
 
@@ -73,7 +73,7 @@ MessageSettingsWidget::MessageSettingsWidget(RocketChatAccount *account, QWidget
     connectCheckBox(mShowDeletedStatus, QStringLiteral("Message_ShowDeletedStatus"));
 
     mAllowMessagePinning->setObjectName(QStringLiteral("mAllowMessagePinning"));
-    mAllowMessagePinning->setToolTip(i18n("Allow Message Pinning"));
+    mAllowMessagePinning->setToolTip(i18nc("@info:tooltip", "Allow Message Pinning"));
     mMainLayout->addWidget(mAllowMessagePinning);
     connectCheckBox(mAllowMessagePinning, QStringLiteral("Message_AllowPinning"));
 
@@ -86,7 +86,7 @@ MessageSettingsWidget::MessageSettingsWidget(RocketChatAccount *account, QWidget
     connectCheckBox(mAllowConvertingLongMessageAttachment, QStringLiteral("Message_AllowConvertLongMessagesToAttachment"));
 
     mVideoRecorderEnabled->setObjectName(QStringLiteral("mVideoRecorderEnabled"));
-    mVideoRecorderEnabled->setToolTip(i18n("Requires 'video/webm' files to be an accepted media type within 'File Upload' settings."));
+    mVideoRecorderEnabled->setToolTip(i18nc("@info:tooltip", "Requires 'video/webm' files to be an accepted media type within 'File Upload' settings."));
     mMainLayout->addWidget(mVideoRecorderEnabled);
     connectCheckBox(mVideoRecorderEnabled, QStringLiteral("Message_VideoRecorderEnabled"));
 
@@ -127,13 +127,15 @@ MessageSettingsWidget::MessageSettingsWidget(RocketChatAccount *account, QWidget
     mMainLayout->addWidget(messageAttachmentsLabel);
 
     mRemoveEXIFMetadata->setObjectName(QStringLiteral("mRemoveEXIFMetadata"));
-    mRemoveEXIFMetadata->setToolTip(i18n(
+    mRemoveEXIFMetadata->setToolTip(i18nc(
+        "@info:tooltip",
         "Strips out EXIF metadata from image files (jpeg, tiff, etc). This setting is not retroactive, so files uploaded while disabled will have EXIF data"));
     mMainLayout->addWidget(mRemoveEXIFMetadata);
     connectCheckBox(mRemoveEXIFMetadata, QStringLiteral("Message_Attachments_Strip_Exif"));
 
     mEnableImageThumbnails->setObjectName(QStringLiteral("mEnableImageThumbnails"));
-    mEnableImageThumbnails->setToolTip(i18n(
+    mEnableImageThumbnails->setToolTip(i18nc(
+        "@info:tooltip",
         "Thumbnails will be served instead of the original image to reduce bandwidth usage. Images at original resolution can be downloaded using the icon "
         "next to the attachment's name."));
     mMainLayout->addWidget(mEnableImageThumbnails);
@@ -183,7 +185,7 @@ MessageSettingsWidget::MessageSettingsWidget(RocketChatAccount *account, QWidget
     addLineEdit(i18n("Microsoft API Key"), mMicrosoftApiKey, QStringLiteral("AutoTranslate_MicrosoftAPIKey"));
 
     mApiEmbed->setObjectName(QStringLiteral("mApiEmbed"));
-    mApiEmbed->setToolTip(i18n("Whether embedded link previews are enabled or not when a user posts a link to a website."));
+    mApiEmbed->setToolTip(i18nc("@info:tooltip", "Whether embedded link previews are enabled or not when a user posts a link to a website."));
     mMainLayout->addWidget(mApiEmbed);
     connectCheckBox(mApiEmbed, QStringLiteral("API_Embed"));
 

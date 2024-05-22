@@ -50,11 +50,11 @@ GeneralSettingsWidget::GeneralSettingsWidget(RocketChatAccount *account, QWidget
     mMainLayout->addWidget(utf8Label);
 
     mUTF8UsernamesValidation->setObjectName(QStringLiteral("mUTF8UsernamesValidation"));
-    mUTF8UsernamesValidation->setToolTip(i18n("RegExp that will be used to validate usernames"));
+    mUTF8UsernamesValidation->setToolTip(i18nc("@info:tooltip", "RegExp that will be used to validate usernames"));
     addLineEdit(i18n("UTF8 Usernames Validation"), mUTF8UsernamesValidation, QStringLiteral("UTF8_User_Names_Validation"));
 
     mUTF8ChannelNamesValidation->setObjectName(QStringLiteral("mUTF8ChannelNamesValidation"));
-    mUTF8ChannelNamesValidation->setToolTip(i18n("RegExp that will be used to validate channel names"));
+    mUTF8ChannelNamesValidation->setToolTip(i18nc("@info:tooltip", "RegExp that will be used to validate channel names"));
     addLineEdit(i18n("UTF8 Channel Names Validation"), mUTF8ChannelNamesValidation, QStringLiteral("UTF8_Channel_Names_Validation"));
 
     mUTF8NamesSlugify->setObjectName(QStringLiteral("mUTF8NamesSlugify"));
@@ -107,7 +107,7 @@ GeneralSettingsWidget::GeneralSettingsWidget(RocketChatAccount *account, QWidget
     mMainLayout->addWidget(timeZoneLabel);
 
     mDefaultTimeZone->setObjectName(QStringLiteral("mDefaultTimeZone"));
-    mDefaultTimeZone->setToolTip(i18n("Sets the default timezone that will be used when showing dashboards or sending emails"));
+    mDefaultTimeZone->setToolTip(i18nc("@info:tooltip", "Sets the default timezone that will be used when showing dashboards or sending emails"));
     maps = {
         {QStringLiteral("server"), i18n("Server Timezone")},
         {QStringLiteral("custom"), i18n("Custom Timezone")},
@@ -143,7 +143,7 @@ GeneralSettingsWidget::GeneralSettingsWidget(RocketChatAccount *account, QWidget
 
     mStreamCastAddress->setObjectName(QStringLiteral("mStreamCastAddress"));
     addLineEdit(i18n("Stream Cast Address"), mStreamCastAddress, QStringLiteral("Stream_Cast_Address"));
-    mStreamCastAddress->setToolTip(i18n("IP or Host of your Rocket.Chat central Stream Cast. E.g. 192.168.1.1:3000 or localhost:4000"));
+    mStreamCastAddress->setToolTip(i18nc("@info:tooltip", "IP or Host of your Rocket.Chat central Stream Cast. E.g. 192.168.1.1:3000 or localhost:4000"));
 }
 
 GeneralSettingsWidget::~GeneralSettingsWidget() = default;

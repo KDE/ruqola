@@ -46,7 +46,7 @@ AdministratorServerInfoWidget::AdministratorServerInfoWidget(RocketChatAccount *
     KLineEditEventHandler::catchReturnKey(mSearchLineWidget->searchLine());
     hboxLayout->addWidget(mSearchLineWidget);
     mRefreshButton->setObjectName(QStringLiteral("mRefreshButton"));
-    mRefreshButton->setToolTip(i18n("Refresh"));
+    mRefreshButton->setToolTip(i18nc("@info:tooltip", "Refresh"));
     hboxLayout->addWidget(mRefreshButton);
     connect(mRefreshButton, &QPushButton::clicked, this, &AdministratorServerInfoWidget::slotRefreshInfo);
 

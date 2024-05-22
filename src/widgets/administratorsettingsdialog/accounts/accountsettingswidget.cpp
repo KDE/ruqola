@@ -163,7 +163,7 @@ AccountSettingsWidget::AccountSettingsWidget(RocketChatAccount *account, QWidget
 
     mOnlyAllowVerifiedUsersLogin->setObjectName(QStringLiteral("mOnlyAllowVerifiedUsersLogin"));
     mMainLayout->addWidget(mOnlyAllowVerifiedUsersLogin);
-    mOnlyAllowVerifiedUsersLogin->setToolTip(i18n("Make sure you have correct SMTP settings to use this feature"));
+    mOnlyAllowVerifiedUsersLogin->setToolTip(i18nc("@info:tooltip", "Make sure you have correct SMTP settings to use this feature"));
     connectCheckBox(mOnlyAllowVerifiedUsersLogin, QStringLiteral("Accounts_EmailVerification"));
 
     mMarkEmailExternalAccountsVerified->setObjectName(QStringLiteral("mMarkEmailExternalAccountsVerified"));
@@ -178,15 +178,15 @@ AccountSettingsWidget::AccountSettingsWidget(RocketChatAccount *account, QWidget
     addLineEdit(i18n("Default Username Prefix Suggestion"), mDefaultUsernamePrefixSuggestion, QStringLiteral("Accounts_DefaultUsernamePrefixSuggestion"));
 
     mAllowedDomainsList->setObjectName(QStringLiteral("mAllowedDomainsList"));
-    mAllowedDomainsList->setToolTip(i18n("Comma-separated list of allowed domains"));
+    mAllowedDomainsList->setToolTip(i18nc("@info:tooltip", "Comma-separated list of allowed domains"));
     addLineEdit(i18n("Allowed Domains List"), mAllowedDomainsList, QStringLiteral("Accounts_AllowedDomainsList"));
 
     mBlockedDomainsList->setObjectName(QStringLiteral("mBlockedDomainsList"));
-    mBlockedDomainsList->setToolTip(i18n("Comma-separated list of blocked domains"));
+    mBlockedDomainsList->setToolTip(i18nc("@info:tooltip", "Comma-separated list of blocked domains"));
     addLineEdit(i18n("Blocked Domains List"), mBlockedDomainsList, QStringLiteral("Accounts_BlockedDomainsList"));
 
     mBlockedUsernameList->setObjectName(QStringLiteral("mBlockedUsernameList"));
-    mBlockedUsernameList->setToolTip(i18n("Comma-separated list of blocked usernames (case-insensitive)"));
+    mBlockedUsernameList->setToolTip(i18nc("@info:tooltip", "Comma-separated list of blocked usernames (case-insensitive)"));
     addLineEdit(i18n("Blocked Username List"), mBlockedUsernameList, QStringLiteral("Accounts_BlockedUsernameList"));
 
     mUseDefaultBlockedDomainsList->setObjectName(QStringLiteral("mUseDefaultBlockedDomainsList"));

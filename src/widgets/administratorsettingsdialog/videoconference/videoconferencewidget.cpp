@@ -69,7 +69,7 @@ VideoConferenceWidget::VideoConferenceWidget(RocketChatAccount *account, QWidget
     addLineEdit(i18n("URL room suffix"), mJitsiRoomSuffix, QStringLiteral("Jitsi_URL_Room_Suffix"));
 
     mJitsiEnableRoomNameHash->setObjectName(QStringLiteral("mJitsiEnableRoomNameHash"));
-    mJitsiEnableRoomNameHash->setToolTip(i18n("Recommended to enable if the Jitsi instance doesn't use any authentication mechanism."));
+    mJitsiEnableRoomNameHash->setToolTip(i18nc("@info:tooltip", "Recommended to enable if the Jitsi instance doesn't use any authentication mechanism."));
     mMainLayout->addWidget(mJitsiEnableRoomNameHash);
     connectCheckBox(mJitsiEnableRoomNameHash, QStringLiteral("Jitsi_URL_Room_Hash"));
 

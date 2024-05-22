@@ -24,7 +24,7 @@ ChannelSearchNameLineResultWidget::ChannelSearchNameLineResultWidget(QWidget *pa
 
     mClearToolButton->setObjectName(QStringLiteral("mClearToolButton"));
     mClearToolButton->setIcon(QIcon::fromTheme(QStringLiteral("delete")));
-    mClearToolButton->setToolTip(i18n("Clear"));
+    mClearToolButton->setToolTip(i18nc("@info:tooltip", "Clear"));
     mainLayout->addWidget(mClearToolButton);
     connect(mClearToolButton, &QToolButton::clicked, this, &ChannelSearchNameLineResultWidget::clearRoomName);
 }

@@ -26,13 +26,13 @@ MobileSettingsWidget::MobileSettingsWidget(RocketChatAccount *account, QWidget *
     mMainLayout->addWidget(screenLockLabel);
 
     mForceScreenLock->setObjectName(QStringLiteral("mForceScreenLock"));
-    mForceScreenLock->setToolTip(i18n("When enabled, you'll force your users to use a PIN/BIOMETRY/FACEID to unlock the app."));
+    mForceScreenLock->setToolTip(i18nc("@info:tooltip", "When enabled, you'll force your users to use a PIN/BIOMETRY/FACEID to unlock the app."));
     mMainLayout->addWidget(mForceScreenLock);
     connectCheckBox(mForceScreenLock, QStringLiteral("Force_Screen_Lock"));
 
     mForceScreenLockAfter->setObjectName(QStringLiteral("mForceScreenLockAfter"));
     mForceScreenLockAfter->setMaximum(99999);
-    mForceScreenLockAfter->setToolTip(i18n("The time to request password again after the finish of the latest session, in seconds."));
+    mForceScreenLockAfter->setToolTip(i18nc("@info:tooltip", "The time to request password again after the finish of the latest session, in seconds."));
     addSpinbox(i18n("Force Screen Lock After"), mForceScreenLockAfter, QStringLiteral("Force_Screen_Lock_After"));
 }
 

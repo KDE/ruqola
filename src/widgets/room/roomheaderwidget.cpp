@@ -45,7 +45,7 @@ RoomHeaderWidget::RoomHeaderWidget(QWidget *parent)
     mFavoriteButton->setObjectName(QStringLiteral("mFavoriteButton"));
     mFavoriteButton->setIcon(QIcon::fromTheme(QStringLiteral("favorite")));
     mFavoriteButton->setCheckable(true);
-    mFavoriteButton->setToolTip(i18n("Favorite"));
+    mFavoriteButton->setToolTip(i18nc("@info:tooltip", "Favorite"));
 #ifndef QT_NO_ACCESSIBILITY
     mFavoriteButton->setAccessibleName(i18n("Favorite"));
 #endif
@@ -63,7 +63,7 @@ RoomHeaderWidget::RoomHeaderWidget(QWidget *parent)
     mEncryptedButton->setAutoRaise(true);
     mEncryptedButton->setObjectName(QStringLiteral("mEncryptedButton"));
     mEncryptedButton->setIcon(QIcon::fromTheme(QStringLiteral("encrypted")));
-    mEncryptedButton->setToolTip(i18n("E2E Enabled"));
+    mEncryptedButton->setToolTip(i18nc("@info:tooltip", "E2E Enabled"));
 #ifndef QT_NO_ACCESSIBILITY
     mEncryptedButton->setAccessibleName(i18n("Encryption"));
 #endif
@@ -109,7 +109,7 @@ RoomHeaderWidget::RoomHeaderWidget(QWidget *parent)
     mCallButton->setAutoRaise(true);
     mCallButton->setObjectName(QStringLiteral("mCallButton"));
     mCallButton->setIcon(QIcon::fromTheme(QStringLiteral("call-start-symbolic")));
-    mCallButton->setToolTip(i18n("Call"));
+    mCallButton->setToolTip(i18nc("@info:tooltip", "Call"));
 #ifndef QT_NO_ACCESSIBILITY
     mCallButton->setAccessibleName(i18n("Call"));
 #endif
@@ -120,7 +120,7 @@ RoomHeaderWidget::RoomHeaderWidget(QWidget *parent)
     mChannelInfoButton->setAutoRaise(true);
     mChannelInfoButton->setObjectName(QStringLiteral("mChannelInfoButton"));
     mChannelInfoButton->setIcon(QIcon::fromTheme(QStringLiteral("documentinfo")));
-    mChannelInfoButton->setToolTip(i18n("Channel's Information"));
+    mChannelInfoButton->setToolTip(i18nc("@info:tooltip", "Channel's Information"));
 #ifndef QT_NO_ACCESSIBILITY
     mChannelInfoButton->setAccessibleName(i18n("Channel's Information"));
 #endif
@@ -131,7 +131,7 @@ RoomHeaderWidget::RoomHeaderWidget(QWidget *parent)
     mTeamChannelsButton->setAutoRaise(true);
     mTeamChannelsButton->setObjectName(QStringLiteral("mTeamChannelsButton"));
     mTeamChannelsButton->setIcon(QIcon::fromTheme(QStringLiteral("irc-channel-active")));
-    mTeamChannelsButton->setToolTip(i18n("Team Channels"));
+    mTeamChannelsButton->setToolTip(i18nc("@info:tooltip", "Team Channels"));
 #ifndef QT_NO_ACCESSIBILITY
     mListOfUsersButton->setAccessibleName(i18n("Team Channels"));
 #endif
@@ -143,7 +143,7 @@ RoomHeaderWidget::RoomHeaderWidget(QWidget *parent)
     mListOfUsersButton->setObjectName(QStringLiteral("mListOfUsersButton"));
     mListOfUsersButton->setIcon(QIcon::fromTheme(QStringLiteral("system-users")));
     mListOfUsersButton->setCheckable(true);
-    mListOfUsersButton->setToolTip(i18n("Show List of Users"));
+    mListOfUsersButton->setToolTip(i18nc("@info:tooltip", "Show List of Users"));
 #ifndef QT_NO_ACCESSIBILITY
     mListOfUsersButton->setAccessibleName(i18n("Show List of Users"));
 #endif
@@ -156,7 +156,7 @@ RoomHeaderWidget::RoomHeaderWidget(QWidget *parent)
     mSearchMessageButton->setIcon(QIcon::fromTheme(QStringLiteral("edit-find")));
     mSearchMessageButton->setCheckable(false);
     mSearchMessageButton->setShortcut(Qt::CTRL | Qt::Key_F);
-    mSearchMessageButton->setToolTip(i18n("Search Messages…"));
+    mSearchMessageButton->setToolTip(i18nc("@info:tooltip", "Search Messages…"));
 #ifndef QT_NO_ACCESSIBILITY
     mSearchMessageButton->setAccessibleName(i18n("Search Messages…"));
 #endif

@@ -38,7 +38,7 @@ ConfigureNotificationWidget::ConfigureNotificationWidget(RocketChatAccount *acco
     topLayout->setContentsMargins({});
 
     mDisableNotification->setObjectName(QStringLiteral("mDisableNotification"));
-    mDisableNotification->setToolTip(i18n("Receive alerts"));
+    mDisableNotification->setToolTip(i18nc("@info:tooltip", "Receive alerts"));
     topLayout->addWidget(mDisableNotification);
     connect(mDisableNotification, &QCheckBox::clicked, this, [this](bool checked) {
         mRocketChatAccount->changeNotificationsSettings(mRoom->roomId(), RocketChatAccount::DisableNotifications, checked);
@@ -57,7 +57,7 @@ ConfigureNotificationWidget::ConfigureNotificationWidget(RocketChatAccount *acco
     });
 
     mShowBadgeMentions->setObjectName(QStringLiteral("mShowBadgeMentions"));
-    mShowBadgeMentions->setToolTip(i18n("Display badge for direct mentions only"));
+    mShowBadgeMentions->setToolTip(i18nc("@info:tooltip", "Display badge for direct mentions only"));
     topLayout->addWidget(mShowBadgeMentions);
     connect(mShowBadgeMentions, &QCheckBox::clicked, this, [this](bool checked) {
         mRocketChatAccount->changeNotificationsSettings(mRoom->roomId(), RocketChatAccount::HideMentionStatus, !checked);

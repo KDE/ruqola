@@ -25,7 +25,7 @@ SlackBridgeWidget::SlackBridgeWidget(RocketChatAccount *account, QWidget *parent
     , mAPITokens(new QPlainTextEdit(this))
 {
     mEnabled->setObjectName(QStringLiteral("mEnabled"));
-    mEnabled->setToolTip(i18n("Enable Rocket.Chat to communicate directly with Slack."));
+    mEnabled->setToolTip(i18nc("@info:tooltip", "Enable Rocket.Chat to communicate directly with Slack."));
     mMainLayout->addWidget(mEnabled);
     connectCheckBox(mEnabled, QStringLiteral("SlackBridge_Enabled"));
 
@@ -37,17 +37,18 @@ SlackBridgeWidget::SlackBridgeWidget(RocketChatAccount *account, QWidget *parent
     connectCheckBox(mFileUpload, QStringLiteral("SlackBridge_FileUpload_Enabled"));
 
     mSlackBridgeOutEnabled->setObjectName(QStringLiteral("mSlackBridgeOutEnabled"));
-    mSlackBridgeOutEnabled->setToolTip(i18n("Choose whether SlackBridge should also send your messages back to Slack"));
+    mSlackBridgeOutEnabled->setToolTip(i18nc("@info:tooltip", "Choose whether SlackBridge should also send your messages back to Slack"));
     mMainLayout->addWidget(mSlackBridgeOutEnabled);
     connectCheckBox(mSlackBridgeOutEnabled, QStringLiteral("SlackBridge_Out_Enabled"));
 
     mSlackBridgeOutAll->setObjectName(QStringLiteral("mSlackBridgeOutAll"));
-    mSlackBridgeOutAll->setToolTip(i18n("Send messages from all channels that exist in Slack and the bot has joined"));
+    mSlackBridgeOutAll->setToolTip(i18nc("@info:tooltip", "Send messages from all channels that exist in Slack and the bot has joined"));
     mMainLayout->addWidget(mSlackBridgeOutAll);
     connectCheckBox(mSlackBridgeOutAll, QStringLiteral("SlackBridge_Out_All"));
 
     mAliasFormat->setObjectName(QStringLiteral("mAliasFormat"));
-    mAliasFormat->setToolTip(i18n("Import messages from Slack with an alias; %s is replaced by the username of the user. If empty, no alias will be used."));
+    mAliasFormat->setToolTip(
+        i18nc("@info:tooltip", "Import messages from Slack with an alias; %s is replaced by the username of the user. If empty, no alias will be used."));
     addLineEdit(i18n("Alias Format"), mAliasFormat, QStringLiteral("SlackBridge_AliasFormat"));
 
     mExcludeBots->setObjectName(QStringLiteral("mExcludeBots"));

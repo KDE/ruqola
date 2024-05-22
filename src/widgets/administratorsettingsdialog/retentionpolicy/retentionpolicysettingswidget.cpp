@@ -59,7 +59,7 @@ RetentionPolicySettingsWidget::RetentionPolicySettingsWidget(RocketChatAccount *
     connectCheckBox(mDontPrunePinnedMessages, QStringLiteral("RetentionPolicy_DoNotPrunePinned"));
 
     mOnlyDeleteFiles->setObjectName(QStringLiteral("mOnlyDeleteFiles"));
-    mOnlyDeleteFiles->setToolTip(i18n("Only files will be deleted, the messages themselves will stay in place."));
+    mOnlyDeleteFiles->setToolTip(i18nc("@info:tooltip", "Only files will be deleted, the messages themselves will stay in place."));
     mMainLayout->addWidget(mOnlyDeleteFiles);
     connectCheckBox(mOnlyDeleteFiles, QStringLiteral("RetentionPolicy_FilesOnly"));
 
@@ -69,7 +69,7 @@ RetentionPolicySettingsWidget::RetentionPolicySettingsWidget(RocketChatAccount *
     connectCheckBox(mAppliesChannels, QStringLiteral("RetentionPolicy_AppliesToChannels"));
 
     mMaximumMessageChannels->setObjectName(QStringLiteral("mMaximumMessageChannels"));
-    mMaximumMessageChannels->setToolTip(i18n("Prune all messages older than this value, in days."));
+    mMaximumMessageChannels->setToolTip(i18nc("@info:tooltip", "Prune all messages older than this value, in days."));
     mMaximumMessageChannels->setMaximum(9999);
     addSpinbox(i18n("Maximum message age in channels"), mMaximumMessageChannels, QStringLiteral("RetentionPolicy_MaxAge_Channels"));
 
@@ -79,7 +79,7 @@ RetentionPolicySettingsWidget::RetentionPolicySettingsWidget(RocketChatAccount *
     connectCheckBox(mAppliesGroups, QStringLiteral("RetentionPolicy_AppliesToGroups"));
 
     mMaximumMessagePrivateGroups->setObjectName(QStringLiteral("mMaximumMessagePrivateGroups"));
-    mMaximumMessagePrivateGroups->setToolTip(i18n("Prune all messages older than this value, in days."));
+    mMaximumMessagePrivateGroups->setToolTip(i18nc("@info:tooltip", "Prune all messages older than this value, in days."));
     mMaximumMessagePrivateGroups->setMaximum(9999);
     addSpinbox(i18n("Maximum message age in private groups"), mMaximumMessagePrivateGroups, QStringLiteral("RetentionPolicy_MaxAge_Groups"));
 
@@ -89,7 +89,7 @@ RetentionPolicySettingsWidget::RetentionPolicySettingsWidget(RocketChatAccount *
     connectCheckBox(mAppliesMessages, QStringLiteral("RetentionPolicy_AppliesToDMs"));
 
     mMaximumMessageDirectMessages->setObjectName(QStringLiteral("mMaximumMessageDirectMessages"));
-    mMaximumMessageDirectMessages->setToolTip(i18n("Prune all messages older than this value, in days."));
+    mMaximumMessageDirectMessages->setToolTip(i18nc("@info:tooltip", "Prune all messages older than this value, in days."));
     mMaximumMessageDirectMessages->setMaximum(9999);
     addSpinbox(i18n("Maximum message age in direct messages"), mMaximumMessageDirectMessages, QStringLiteral("RetentionPolicy_MaxAge_DMs"));
 }

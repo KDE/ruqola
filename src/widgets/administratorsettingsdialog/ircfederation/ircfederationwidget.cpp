@@ -25,7 +25,7 @@ IrcFederationWidget::IrcFederationWidget(RocketChatAccount *account, QWidget *pa
 
 {
     mEnabled->setObjectName(QStringLiteral("mEnabled"));
-    mEnabled->setToolTip(i18n("Attempt to integrate IRC support. Changing this value requires restarting Rocket.Chat."));
+    mEnabled->setToolTip(i18nc("@info:tooltip", "Attempt to integrate IRC support. Changing this value requires restarting Rocket.Chat."));
     mMainLayout->addWidget(mEnabled);
     connectCheckBox(mEnabled, QStringLiteral("IRC_Enabled"));
 
@@ -39,7 +39,7 @@ IrcFederationWidget::IrcFederationWidget(RocketChatAccount *account, QWidget *pa
     addLineEdit(i18n("Host"), mHost, QStringLiteral("IRC_Host"));
 
     mPort->setObjectName(QStringLiteral("mPort"));
-    mPort->setToolTip(i18n("The port to bind to on the IRC host server."));
+    mPort->setToolTip(i18nc("@info:tooltip", "The port to bind to on the IRC host server."));
     mPort->setMaximum(99999);
     addSpinbox(i18n("Port"), mPort, QStringLiteral("IRC_Port"));
 
