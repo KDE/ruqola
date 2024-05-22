@@ -12,6 +12,7 @@ using namespace Qt::Literals::StringLiterals;
 #include "rocketchataccount.h"
 #include "ruqolawidgets_debug.h"
 
+#include <KLineEditEventHandler>
 #include <KLocalizedString>
 
 #include <KPasswordLineEdit>
@@ -158,6 +159,7 @@ void SettingsWidgetBase::addLineEdit(const QString &labelStr, QLineEdit *lineEdi
     toolButton->setText(i18n("Apply"));
     toolButton->setProperty(s_property, variable);
     lineEdit->setProperty(s_property, variable);
+    KLineEditEventHandler::catchReturnKey(lineEdit);
     lineEdit->setReadOnly(readOnly);
     layout->addWidget(toolButton);
     toolButton->setEnabled(false);
