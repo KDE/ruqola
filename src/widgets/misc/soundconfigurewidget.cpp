@@ -43,6 +43,7 @@ SoundConfigureWidget::~SoundConfigureWidget() = default;
 void SoundConfigureWidget::setSoundModel(NotificationDesktopSoundPreferenceModel *model, bool excludeDefaultNone)
 {
     mDesktopSoundModel = model;
+    mExcludeDefaultNone = excludeDefaultNone;
     if (excludeDefaultNone) {
         auto soundProxyModel = new NotificationDesktopSoundPreferenceProxyModel(this);
         soundProxyModel->setSourceModel(mDesktopSoundModel);
@@ -55,7 +56,11 @@ void SoundConfigureWidget::setSoundModel(NotificationDesktopSoundPreferenceModel
 void SoundConfigureWidget::slotPlaySound()
 {
     if (mRocketChatAccount) {
-        const QByteArray identifier = mDesktopSoundModel->currentPreference(mConfigureSoundComboBox->currentIndex());
+        int index = mConfigureSoundComboBox->currentIndex();
+        if (mExcludeDefaultNone) {
+            index += 2;
+        }
+        const QByteArray identifier = mDesktopSoundModel->currentPreference(index);
         if (!identifier.isEmpty() || identifier != "none") {
             mRocketChatAccount->playSound(identifier);
         }
@@ -64,12 +69,21 @@ void SoundConfigureWidget::slotPlaySound()
 
 void SoundConfigureWidget::setCurrentSound(const QByteArray &identifier)
 {
-    mConfigureSoundComboBox->setCurrentIndex(mDesktopSoundModel->setCurrentNotificationPreference(identifier));
+    int index = mDesktopSoundModel->setCurrentNotificationPreference(identifier);
+    if (mExcludeDefaultNone) {
+        index -= 2;
+    }
+    mConfigureSoundComboBox->setCurrentIndex(index);
+    updateButtonState();
 }
 
 void SoundConfigureWidget::updateButtonState()
 {
-    const QByteArray identifier = mDesktopSoundModel->currentPreference(mConfigureSoundComboBox->currentIndex());
+    int index = mConfigureSoundComboBox->currentIndex();
+    if (mExcludeDefaultNone) {
+        index += 2;
+    }
+    const QByteArray identifier = mDesktopSoundModel->currentPreference(index);
     mPlaySoundToolButton->setEnabled(identifier != QByteArrayLiteral("none"));
 }
 

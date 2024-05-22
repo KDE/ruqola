@@ -36,4 +36,5 @@ private:
     QToolButton *const mPlaySoundToolButton;
     RocketChatAccount *const mRocketChatAccount;
     NotificationDesktopSoundPreferenceModel *mDesktopSoundModel = nullptr;
+    bool mExcludeDefaultNone = false;
 };
