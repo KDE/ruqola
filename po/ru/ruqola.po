@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-05-21 00:38+0000\n"
+"POT-Creation-Date: 2024-05-22 00:39+0000\n"
 "PO-Revision-Date: 2023-11-24 12:18+0300\n"
 "Last-Translator: Olesya Gerasimenko <translation-team@basealt.ru>\n"
 "Language-Team: Basealt Translation Team\n"
@@ -20,162 +20,162 @@ msgstr ""
 "%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
 "X-Generator: Lokalize 23.04.3\n"
 
-#: apps/main.cpp:46
+#: apps/main.cpp:62
 #, kde-format
 msgid "Ruqola"
 msgstr "Ruqola"
 
-#: apps/main.cpp:48
+#: apps/main.cpp:64
 #, kde-format
 msgid "Rocket Chat Client"
 msgstr "Клиент Rocket Chat"
 
-#: apps/main.cpp:50
+#: apps/main.cpp:66
 #, fuzzy, kde-format
 #| msgid "Copyright © 2020-2023 Ruqola authors"
 msgid "Copyright © 2020-2024 Ruqola authors"
 msgstr "© Авторы Ruqola, 2020—2023"
 
-#: apps/main.cpp:52
+#: apps/main.cpp:68
 #, fuzzy, kde-format
 #| msgid "Laurent Montel"
 msgctxt "@info:credit"
 msgid "Laurent Montel"
 msgstr "Laurent Montel"
 
-#: apps/main.cpp:52
+#: apps/main.cpp:68
 #, kde-format
 msgid "Maintainer"
 msgstr "Сопровождающий"
 
-#: apps/main.cpp:53
+#: apps/main.cpp:69
 #, fuzzy, kde-format
 #| msgid "Riccardo Iaconelli"
 msgctxt "@info:credit"
 msgid "Riccardo Iaconelli"
 msgstr "Riccardo Iaconelli"
 
-#: apps/main.cpp:53
+#: apps/main.cpp:69
 #, kde-format
 msgid "Original Author"
 msgstr "Первоначальный автор"
 
-#: apps/main.cpp:57
+#: apps/main.cpp:73
 #, fuzzy, kde-format
 #| msgid "David Faure"
 msgctxt "@info:credit"
 msgid "David Faure"
 msgstr "David Faure"
 
-#: apps/main.cpp:57
+#: apps/main.cpp:73
 #, kde-format
 msgid "Bug fixing, delegates etc."
 msgstr "Исправление ошибок, делегирование и так далее"
 
-#: apps/main.cpp:58
+#: apps/main.cpp:74
 #, fuzzy, kde-format
 #| msgid "Kevin Funk"
 msgctxt "@info:credit"
 msgid "Kevin Funk"
 msgstr "Kevin Funk"
 
-#: apps/main.cpp:58 apps/main.cpp:59 apps/main.cpp:60 apps/main.cpp:62
-#: apps/main.cpp:63
+#: apps/main.cpp:74 apps/main.cpp:75 apps/main.cpp:76 apps/main.cpp:78
+#: apps/main.cpp:79
 #, kde-format
 msgid "Bug fixing"
 msgstr "Исправление ошибок"
 
-#: apps/main.cpp:59
+#: apps/main.cpp:75
 #, fuzzy, kde-format
 #| msgid "Olivier JG"
 msgctxt "@info:credit"
 msgid "Olivier JG"
 msgstr "Olivier JG"
 
-#: apps/main.cpp:60
+#: apps/main.cpp:76
 #, fuzzy, kde-format
 #| msgid "Milian Wolff"
 msgctxt "@info:credit"
 msgid "Milian Wolff"
 msgstr "Milian Wolff"
 
-#: apps/main.cpp:61
+#: apps/main.cpp:77
 #, fuzzy, kde-format
 #| msgid "Till Adam"
 msgctxt "@info:credit"
 msgid "Till Adam"
 msgstr "Till Adam"
 
-#: apps/main.cpp:61
+#: apps/main.cpp:77
 #, kde-format
 msgid "Windows compile bug fixing"
 msgstr "Исправление ошибок компиляции в Windows"
 
-#: apps/main.cpp:62
+#: apps/main.cpp:78
 #, fuzzy, kde-format
 #| msgid "Shantanu Tushar"
 msgctxt "@info:credit"
 msgid "Shantanu Tushar"
 msgstr "Shantanu Tushar"
 
-#: apps/main.cpp:63
+#: apps/main.cpp:79
 #, fuzzy, kde-format
 #| msgid "Alessandro Ambrosano"
 msgctxt "@info:credit"
 msgid "Alessandro Ambrosano"
 msgstr "Alessandro Ambrosano"
 
-#: apps/main.cpp:64
+#: apps/main.cpp:80
 #, fuzzy, kde-format
 #| msgid "Hannah von Reth"
 msgctxt "@info:credit"
 msgid "Hannah von Reth"
 msgstr "Hannah von Reth"
 
-#: apps/main.cpp:64
+#: apps/main.cpp:80
 #, kde-format
 msgid "Bug fixing for Windows/Mac"
 msgstr "Исправление ошибок в Windows/Mac"
 
-#: apps/main.cpp:65
+#: apps/main.cpp:81
 #, fuzzy, kde-format
 #| msgid "Allen Winter"
 msgctxt "@info:credit"
 msgid "Allen Winter"
 msgstr "Allen Winter"
 
-#: apps/main.cpp:65
+#: apps/main.cpp:81
 #, kde-format
 msgid "Packaging"
 msgstr "Создание пакетов"
 
-#: apps/main.cpp:66
+#: apps/main.cpp:82
 #, fuzzy, kde-format
 #| msgid "Waqar Ahmed"
 msgctxt "@info:credit"
 msgid "Waqar Ahmed"
 msgstr "Waqar Ahmed"
 
-#: apps/main.cpp:66
+#: apps/main.cpp:82
 #, kde-format
 msgid "Bug fixing (compile, network crash...)"
 msgstr ""
 "Исправление ошибок (компиляция, аварийное завершение работы, связанное с "
 "сетью...)"
 
-#: apps/main.cpp:67
+#: apps/main.cpp:83
 #, fuzzy, kde-format
 #| msgid "Nicolas Fella"
 msgctxt "@info:credit"
 msgid "Nicolas Fella"
 msgstr "Nicolas Fella"
 
-#: apps/main.cpp:67
+#: apps/main.cpp:83
 #, kde-format
 msgid "Optimization, fix windows/mac support"
 msgstr "Оптимизация, исправление поддержки Windows/Mac"
 
-#: apps/main.cpp:92
+#: apps/main.cpp:108
 #, kde-format
 msgid "The following accounts are available:"
 msgstr "Доступны следующие учётные записи:"
@@ -339,8 +339,8 @@ msgstr "Нет"
 #: widgets/dialogs/createsoundmessagewidget.cpp:138
 #: widgets/dialogs/playsoundwidget.cpp:122
 #: widgets/dialogs/showvideowidget.cpp:122
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:262
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:270
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:260
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:268
 #, kde-format
 msgid "Default"
 msgstr "По умолчанию"
@@ -830,7 +830,7 @@ msgstr "Пользователь"
 
 #: core/model/adminusersmodel.cpp:112
 #: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:125
-#: widgets/dialogs/configurenotificationwidget.cpp:124
+#: widgets/dialogs/configurenotificationwidget.cpp:117
 #, kde-format
 msgid "Email"
 msgstr "Эл. почта"
@@ -841,7 +841,7 @@ msgid "Role"
 msgstr "Роль"
 
 #: core/model/adminusersmodel.cpp:116 core/model/adminusersmodel.cpp:163
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:279
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:277
 #, kde-format
 msgid "Disabled"
 msgstr "Отключено"
@@ -1034,19 +1034,19 @@ msgstr[2] "%1 секунд"
 msgstr[3] "1 секунда"
 
 #: core/model/notificationpreferencemodel.cpp:51
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:248
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:246
 #, kde-format
 msgid "All Messages"
 msgstr "Все сообщения"
 
 #: core/model/notificationpreferencemodel.cpp:57
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:250
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:248
 #, kde-format
 msgid "Mentions"
 msgstr "Упоминания"
 
 #: core/model/notificationpreferencemodel.cpp:63
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:252
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:250
 #, kde-format
 msgid "Nothing"
 msgstr "Ничего"
@@ -4022,7 +4022,7 @@ msgid "Logs"
 msgstr "Журналы"
 
 #: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:126
-#: widgets/dialogs/configurenotificationwidget.cpp:106
+#: widgets/dialogs/configurenotificationwidget.cpp:99
 #, kde-format
 msgid "Mobile"
 msgstr "Мобильный"
@@ -6967,29 +6967,29 @@ msgstr "Не показывать упоминания %1 и %2"
 msgid "Show badge for mentions"
 msgstr "Показывать отметку для напоминаний"
 
-#: widgets/dialogs/configurenotificationwidget.cpp:42
+#: widgets/dialogs/configurenotificationwidget.cpp:41
 #, kde-format
 msgid "Receive alerts"
 msgstr "Получать предупреждения"
 
-#: widgets/dialogs/configurenotificationwidget.cpp:61
+#: widgets/dialogs/configurenotificationwidget.cpp:60
 #, kde-format
 msgid "Display badge for direct mentions only"
 msgstr "Показывать отметку только для прямых упоминаний"
 
-#: widgets/dialogs/configurenotificationwidget.cpp:67
+#: widgets/dialogs/configurenotificationwidget.cpp:66
 #, kde-format
 msgid "Desktop"
 msgstr "Рабочий стол"
 
-#: widgets/dialogs/configurenotificationwidget.cpp:75
-#: widgets/dialogs/configurenotificationwidget.cpp:114
-#: widgets/dialogs/configurenotificationwidget.cpp:132
+#: widgets/dialogs/configurenotificationwidget.cpp:74
+#: widgets/dialogs/configurenotificationwidget.cpp:107
+#: widgets/dialogs/configurenotificationwidget.cpp:125
 #, kde-format
 msgid "Alert:"
 msgstr "Предупреждение:"
 
-#: widgets/dialogs/configurenotificationwidget.cpp:95
+#: widgets/dialogs/configurenotificationwidget.cpp:90
 #, kde-format
 msgid "Sound:"
 msgstr "Звук:"
@@ -8404,84 +8404,84 @@ msgstr "Включить автоперевод"
 msgid "Offline Email notification:"
 msgstr "Уведомление по электронной почте для пользователей не в сети:"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:47
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:46
 #, fuzzy, kde-format
 #| msgid "Start of conversation"
 msgid "Mute Focused Conversations"
 msgstr "Начало разговора"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:60
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:59
 #, kde-format
 msgid "Highlight words:"
 msgstr "Выделение слов:"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:66
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:65
 #, kde-format
 msgid "Use ',' for separating words"
 msgstr "Используйте «,» для разделения слов"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:67
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:66
 #, kde-format
 msgid "Separate each word with ','."
 msgstr "Разделяйте слова с помощью «,»."
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:76
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:75
 #, kde-format
 msgid "Desktop notification:"
 msgstr "Уведомление на рабочем столе:"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:88
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:87
 #, kde-format
 msgid "Push notification:"
 msgstr "Пуш-уведомление:"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:95
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:94
 #, kde-format
 msgid "Receive an email each time a new login is detected on your account."
 msgstr ""
 "Получать по почте сообщение при каждом новом входе под вашей учётной записью."
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:114
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:113
 #, fuzzy, kde-format
 #| msgid "Idle Timeout (ms)"
 msgid "Idle Time Limit:"
 msgstr "Время ожидания в режиме простоя (мс)"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:120
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:119
 #, kde-format
 msgid ""
 "Period of time until status changes to away. Value needs to be in seconds."
 msgstr ""
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:133
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:132
 #, fuzzy, kde-format
 #| msgid "Show New Notifications"
 msgid "New Room Notification:"
 msgstr "Показать новые уведомления"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:139
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:138
 #, fuzzy, kde-format
 #| msgid "Show New Notifications"
 msgid "New Message Notification:"
 msgstr "Показать новые уведомления"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:149
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:148
 #, fuzzy, kde-format
 #| msgid "Notifications"
 msgid "Notifications sound volume:"
 msgstr "Уведомления"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:181
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:179
 #, kde-format
 msgid "Download my Data (HTML)"
 msgstr "Загрузить мои данные (HTML)"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:188
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:186
 #, kde-format
 msgid "Export my Data (JSON)"
 msgstr "Экспорт моих данных (JSON)"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:241
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:239
 #, kde-format
 msgid ""
 "Your data file will be generated. A link to download it will be sent to your "
@@ -8490,30 +8490,30 @@ msgstr ""
 "Будет создан файл данных. Как только он будет готов, на ваш адрес "
 "электронной почты будет отправлена ссылка на загрузку."
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:242
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:240
 #, kde-format
 msgid "Download File Requested"
 msgstr "Отправлен запрос на загрузку файла"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:261
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:269
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:259
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:267
 #, fuzzy, kde-format
 #| msgid "Default"
 msgid "Default (%1)"
 msgstr "По умолчанию"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:277
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:275
 #, kde-format
 msgid "Default (Every Mention/DM)"
 msgstr ""
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:278
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:276
 #, fuzzy, kde-format
 #| msgid "Each Mentions"
 msgid "Every Mention/DM"
 msgstr "Каждое упоминание"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:282
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:280
 #, kde-format
 msgid "Your Rocket.Chat administrator has disabled email notifications"
 msgstr ""
