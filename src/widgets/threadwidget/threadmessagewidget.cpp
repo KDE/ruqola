@@ -127,6 +127,7 @@ void ThreadMessageWidget::setThreadMessageInfo(const ThreadMessageWidget::Thread
         mRoomWidgetBase->messageLineWidget()->setRoomId(mRoom->roomId());
         mRoomWidgetBase->messageListView()->setRoom(mRoom);
         mRoomWidgetBase->updateRoomReadOnly(mRoom);
+        mRoomWidgetBase->messageLineWidget()->setRoomName(mRoom->displayRoomName(), true);
     }
     mThreadPreview->setText(info.threadMessagePreview);
     if (mThreadMessageId != info.threadMessageId) {
