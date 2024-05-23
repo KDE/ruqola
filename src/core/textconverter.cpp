@@ -149,6 +149,8 @@ QString markdownToRichText(const QString &markDown)
     str = Utils::convertTextWithCheckMark(str);
     // Substiture # header
     str = Utils::convertTextHeaders(str);
+    // Substiture unsorted list
+    str = Utils::convertTextUnsortedList(str);
     qCDebug(RUQOLA_TEXTTOHTML_LOG) << " AFTER convertTextWithUrl " << str;
 
     return str;

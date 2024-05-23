@@ -147,6 +147,27 @@ qint64 Utils::parseIsoDate(const QString &key, const QJsonObject &o)
     }
 }
 
+QString Utils::convertTextUnsortedList(const QString &str)
+{
+#if 0
+    const QList<QStringView> split = QStringView(str).split(QLatin1Char('\n'));
+    QString newStr;
+    for (QStringView s : split) {
+        if (s.startsWith(QStringLiteral("- "))) {
+            s.truncate(s.length() - 2);
+            QString val = s.toString();
+        } else {
+            if (!newStr.isEmpty()) {
+                newStr.append(QLatin1Char('\n'));
+            }
+            newStr.append(s.toString());
+        }
+    }
+#endif
+    // TODO
+    return str;
+}
+
 QString Utils::convertTextHeaders(const QString &str)
 {
     static const QRegularExpression useHeaders(QStringLiteral("(^|\\n)#.*\\s"));
