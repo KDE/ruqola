@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-05-22 00:39+0000\n"
+"POT-Creation-Date: 2024-05-23 00:38+0000\n"
 "PO-Revision-Date: 2024-05-21 23:26+0100\n"
 "Last-Translator: Oliver Kellogg <olivermkellogg@gmail.com>\n"
 "Language-Team: Esperanto <kde-i18n-eo.org>\n"
@@ -1550,7 +1550,7 @@ msgid "GitLab"
 msgstr "GitLab"
 
 #: plugins/authentication/google/googlepluginauthentication.cpp:36
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:170
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:172
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:213
 #, kde-format
 msgid "Google"
@@ -3122,7 +3122,7 @@ msgstr[1] "%1 uzantoj (Totalo: %2)"
 
 #: widgets/administratordialog/rooms/administratordirectroomseditwidget.cpp:17
 #: widgets/administratordialog/rooms/administratorroomseditwidget.cpp:21
-#: widgets/room/roomheaderwidget.cpp:48 widgets/room/roomheaderwidget.cpp:50
+#: widgets/room/roomheaderwidget.cpp:50
 #, kde-format
 msgid "Favorite"
 msgstr "Ŝatata"
@@ -3210,7 +3210,9 @@ msgid "Remove Room"
 msgstr "Forigi Ĉambron"
 
 #: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:49
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Refresh"
+msgctxt "@info:tooltip"
 msgid "Refresh"
 msgstr "Refreŝigi"
 
@@ -3760,7 +3762,9 @@ msgid "Registration"
 msgstr "Registriĝo"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:166
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Make sure you have correct SMTP settings to use this feature"
+msgctxt "@info:tooltip"
 msgid "Make sure you have correct SMTP settings to use this feature"
 msgstr "Certigu, ke vi havas ĝustajn SMTP-agordojn por uzi ĉi tiun funkcion"
 
@@ -3770,7 +3774,9 @@ msgid "Default Username Prefix Suggestion"
 msgstr "Defaŭlta Uzantnomo-Prefiksa Sugesto"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:181
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Comma-separated list of allowed domains"
+msgctxt "@info:tooltip"
 msgid "Comma-separated list of allowed domains"
 msgstr "Komo-disigita listo de permesitaj domajnoj"
 
@@ -3780,7 +3786,9 @@ msgid "Allowed Domains List"
 msgstr "Listo de Permesitaj Domajnoj"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:185
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Comma-separated list of blocked domains"
+msgctxt "@info:tooltip"
 msgid "Comma-separated list of blocked domains"
 msgstr "Komo-disigita listo de blokitaj domajnoj"
 
@@ -3790,7 +3798,9 @@ msgid "Blocked Domains List"
 msgstr "Listo de Blokitaj Domajnoj"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:189
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Comma-separated list of blocked usernames (case-insensitive)"
+msgctxt "@info:tooltip"
 msgid "Comma-separated list of blocked usernames (case-insensitive)"
 msgstr "Komo-separata listo de blokitaj uzantnomoj (majuskle-malsentema)"
 
@@ -3984,13 +3994,19 @@ msgid "Features Enabled"
 msgstr "Trajtoj Ebligitaj"
 
 #: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:36
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Tracks custom events related to actions a user does on messages."
+msgctxt "@info:tooltip"
 msgid "Tracks custom events related to actions a user does on messages."
 msgstr ""
 "Spuras proprajn eventojn rilatajn al agoj kiujn uzanto faras en mesaĝoj."
 
 #: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:41
-#, kde-format
+#, fuzzy, kde-format
+#| msgid ""
+#| "Tracks custom events related to actions on a channel or group (create, "
+#| "leave, delete)."
+msgctxt "@info:tooltip"
 msgid ""
 "Tracks custom events related to actions on a channel or group (create, "
 "leave, delete)."
@@ -3999,7 +4015,11 @@ msgstr ""
 "forigi)."
 
 #: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:46
-#, kde-format
+#, fuzzy, kde-format
+#| msgid ""
+#| "Tracks custom events related to actions related to users (password reset "
+#| "times, profile picture change, etc)."
+msgctxt "@info:tooltip"
 msgid ""
 "Tracks custom events related to actions related to users (password reset "
 "times, profile picture change, etc)."
@@ -4023,7 +4043,11 @@ msgid "Piwik Analytics"
 msgstr "Piwik Analytics"
 
 #: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:69
-#, kde-format
+#, fuzzy, kde-format
+#| msgid ""
+#| "The url where the Piwik resides, be sure to include the trailing slash. "
+#| "Example: //piwik.rocket.chat/"
+msgctxt "@info:tooltip"
 msgid ""
 "The url where the Piwik resides, be sure to include the trailing slash. "
 "Example: //piwik.rocket.chat/"
@@ -4037,7 +4061,9 @@ msgid "URL"
 msgstr "URL"
 
 #: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:73
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "The site id to use for identifying this site. Example: 17"
+msgctxt "@info:tooltip"
 msgid "The site id to use for identifying this site. Example: 17"
 msgstr "La retidentigilo uzinda por identigi ĉi tiun retejon. Ekzemplo: 17"
 
@@ -4052,12 +4078,16 @@ msgid "Additional Piwik Sites"
 msgstr "Pliaj Piwik-ejoj"
 
 #: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:80
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Prepend the site domain to the page title when tracking"
+msgctxt "@info:tooltip"
 msgid "Prepend the site domain to the page title when tracking"
 msgstr "Antaŭmeti la retdomajnon al la paĝa titolo dum spurado"
 
 #: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:85
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Track visitors across all subdomains"
+msgctxt "@info:tooltip"
 msgid "Track visitors across all subdomains"
 msgstr "Spuri vizitantojn tra ĉiuj subdomajnoj"
 
@@ -4099,7 +4129,11 @@ msgid "SSO Base URL"
 msgstr "SSO Baza URL"
 
 #: widgets/administratorsettingsdialog/cas/cassettingswidget.cpp:35
-#, kde-format
+#, fuzzy, kde-format
+#| msgid ""
+#| "The base URL of your external SSO service e.g: https://sso.example.undef/"
+#| "sso/"
+msgctxt "@info:tooltip"
 msgid ""
 "The base URL of your external SSO service e.g: https://sso.example.undef/sso/"
 msgstr ""
@@ -4111,7 +4145,11 @@ msgid "SSO Login URL"
 msgstr "SSO-ensaluta URL"
 
 #: widgets/administratorsettingsdialog/cas/cassettingswidget.cpp:39
-#, kde-format
+#, fuzzy, kde-format
+#| msgid ""
+#| "The login URL of your external SSO service e.g: https://sso.example.undef/"
+#| "sso/login"
+msgctxt "@info:tooltip"
 msgid ""
 "The login URL of your external SSO service e.g: https://sso.example.undef/"
 "sso/login"
@@ -4141,7 +4179,9 @@ msgstr ""
 "proprajn CAS-uzantojn."
 
 #: widgets/administratorsettingsdialog/cas/cassettingswidget.cpp:56
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Allow CAS User creation from data provided by the CAS ticket."
+msgctxt "@info:tooltip"
 msgid "Allow CAS User creation from data provided by the CAS ticket."
 msgstr ""
 "Permesi la kreadon de CAS-Uzanto el datumoj provizitaj de la CAS-bileto."
@@ -4151,8 +4191,13 @@ msgstr ""
 msgid "Attribute handling"
 msgstr "Atribut-traktado"
 
-#: widgets/administratorsettingsdialog/cas/cassettingswidget.cpp:66
-#, kde-format
+#: widgets/administratorsettingsdialog/cas/cassettingswidget.cpp:67
+#, fuzzy, kde-format
+#| msgid ""
+#| "Always synchronize external CAS User data into available attributes upon "
+#| "login.\n"
+#| "Note: Attributes are always synced upon account creation anyway."
+msgctxt "@info:tooltip"
 msgid ""
 "Always synchronize external CAS User data into available attributes upon "
 "login.\n"
@@ -4162,12 +4207,12 @@ msgstr ""
 "atributojn post ensaluto.\n"
 "Noto: Atributoj ĉiam estas sinkronigitaj post kreado de konto ĉiuokaze."
 
-#: widgets/administratorsettingsdialog/cas/cassettingswidget.cpp:71
+#: widgets/administratorsettingsdialog/cas/cassettingswidget.cpp:72
 #, kde-format
 msgid "Attribute Map"
 msgstr "Atributa Mapo"
 
-#: widgets/administratorsettingsdialog/cas/cassettingswidget.cpp:73
+#: widgets/administratorsettingsdialog/cas/cassettingswidget.cpp:74
 #, kde-format
 msgid ""
 "Use this JSON input to build internal attributes (key) from external "
@@ -4280,7 +4325,11 @@ msgstr ""
 "kaj ne estas legita/prilaborita \"paralele\" de homoj."
 
 #: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:102
-#, kde-format
+#, fuzzy, kde-format
+#| msgid ""
+#| "[Beware] Enabling Debug mode would display your 'Plain Text Password' in "
+#| "Admin console."
+msgctxt "@info:tooltip"
 msgid ""
 "[Beware] Enabling Debug mode would display your 'Plain Text Password' in "
 "Admin console."
@@ -4367,8 +4416,12 @@ msgstr "Ebligi ĉifradon por Privataj Ĉambroj defaŭlte"
 msgid "Enable OTR"
 msgstr "Ebligi OTR"
 
-#: widgets/administratorsettingsdialog/encryption/encryptionsettingswidget.cpp:22
-#, kde-format
+#: widgets/administratorsettingsdialog/encryption/encryptionsettingswidget.cpp:23
+#, fuzzy, kde-format
+#| msgid ""
+#| "Enable option to create encrypted groups and be able to change groups and "
+#| "direct messages to be encrypted."
+msgctxt "@info:tooltip"
 msgid ""
 "Enable option to create encrypted groups and be able to change groups and "
 "direct messages to be encrypted."
@@ -4376,7 +4429,7 @@ msgstr ""
 "Ŝaltu elekteblon por krei ĉifritajn grupojn kaj povi ŝanĝi grupojn kaj "
 "direkti mesaĝojn por esti ĉifritaj."
 
-#: widgets/administratorsettingsdialog/encryption/encryptionsettingswidget.cpp:36
+#: widgets/administratorsettingsdialog/encryption/encryptionsettingswidget.cpp:37
 #, kde-format
 msgid ""
 "Enable option to use off-the-record (OTR) messages in direct messages "
@@ -4427,7 +4480,9 @@ msgid "File Uploads Enabled in Direct Messages"
 msgstr "Dosieraj Alŝutoj Ebligitaj en Rektaj Mesaĝoj"
 
 #: widgets/administratorsettingsdialog/fileupload/fileuploadsettingswidget.cpp:35
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Set it to -1 to remove the file size limitation."
+msgctxt "@info:tooltip"
 msgid "Set it to -1 to remove the file size limitation."
 msgstr "Agordu ĝin al -1 por forigi la dosiergrandeclimon."
 
@@ -4437,17 +4492,24 @@ msgid "Maximum File Upload Size (in bytes)"
 msgstr "Maksimuma Dosiera Alŝuta Grandeco (en bajtoj)"
 
 #: widgets/administratorsettingsdialog/fileupload/fileuploadsettingswidget.cpp:40
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Only authenticated users will have access"
+msgctxt "@info:tooltip"
 msgid "Only authenticated users will have access"
 msgstr "Nur aŭtentikigitaj uzantoj havos aliron"
 
 #: widgets/administratorsettingsdialog/fileupload/fileuploadsettingswidget.cpp:45
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Enabling this setting may cause image quality loss"
+msgctxt "@info:tooltip"
 msgid "Enabling this setting may cause image quality loss"
 msgstr "Ebligi ĉi tiun agordon povas kaŭzi bildkvalitan perdon"
 
 #: widgets/administratorsettingsdialog/fileupload/fileuploadsettingswidget.cpp:50
-#, kde-format
+#, fuzzy, kde-format
+#| msgid ""
+#| "Restrict the access of files uploaded on rooms to the rooms' members only"
+msgctxt "@info:tooltip"
 msgid ""
 "Restrict the access of files uploaded on rooms to the rooms' members only"
 msgstr ""
@@ -4455,7 +4517,11 @@ msgstr ""
 "ĉambroj"
 
 #: widgets/administratorsettingsdialog/fileupload/fileuploadsettingswidget.cpp:59
-#, kde-format
+#, fuzzy, kde-format
+#| msgid ""
+#| "Comma-separated list of media types. Leave it blank for accepting all "
+#| "media types."
+msgctxt "@info:tooltip"
 msgid ""
 "Comma-separated list of media types. Leave it blank for accepting all media "
 "types."
@@ -4465,13 +4531,17 @@ msgstr ""
 
 #: widgets/administratorsettingsdialog/fileupload/fileuploadsettingswidget.cpp:60
 #: widgets/administratorsettingsdialog/fileupload/fileuploadsettingswidget.cpp:64
-#: widgets/administratorsettingsdialog/fileupload/fileuploadsettingswidget.cpp:68
+#: widgets/administratorsettingsdialog/fileupload/fileuploadsettingswidget.cpp:69
 #, kde-format
 msgid "Accepted Media Types"
 msgstr "Akceptitaj Aŭdvidaĵaj Tipoj"
 
 #: widgets/administratorsettingsdialog/fileupload/fileuploadsettingswidget.cpp:63
-#, kde-format
+#, fuzzy, kde-format
+#| msgid ""
+#| "Comma-separated list of media types. This setting has priority over the "
+#| "Accepted Media Types."
+msgctxt "@info:tooltip"
 msgid ""
 "Comma-separated list of media types. This setting has priority over the "
 "Accepted Media Types."
@@ -4479,8 +4549,12 @@ msgstr ""
 "Komo-separata listo de aŭdvidaĵaj tipoj. Ĉi tiu agordo havas prioritaton "
 "super la Akceptitaj Media-Tipoj."
 
-#: widgets/administratorsettingsdialog/fileupload/fileuploadsettingswidget.cpp:67
-#, kde-format
+#: widgets/administratorsettingsdialog/fileupload/fileuploadsettingswidget.cpp:68
+#, fuzzy, kde-format
+#| msgid ""
+#| "File Upload Json Web Token Secret (Used to be able to access uploaded "
+#| "files without authentication)."
+msgctxt "@info:tooltip"
 msgid ""
 "File Upload Json Web Token Secret (Used to be able to access uploaded files "
 "without authentication)."
@@ -4488,32 +4562,32 @@ msgstr ""
 "Dosiera Alŝuto Json Web Token Secret (Uzita por povi aliri alŝutitajn "
 "dosierojn sen aŭtentigo)."
 
-#: widgets/administratorsettingsdialog/fileupload/fileuploadsettingswidget.cpp:72
+#: widgets/administratorsettingsdialog/fileupload/fileuploadsettingswidget.cpp:73
 #, kde-format
 msgid "GridFS"
 msgstr "GridFS"
 
-#: widgets/administratorsettingsdialog/fileupload/fileuploadsettingswidget.cpp:73
+#: widgets/administratorsettingsdialog/fileupload/fileuploadsettingswidget.cpp:74
 #, kde-format
 msgid "AmazonS3"
 msgstr "AmazonS3"
 
-#: widgets/administratorsettingsdialog/fileupload/fileuploadsettingswidget.cpp:74
+#: widgets/administratorsettingsdialog/fileupload/fileuploadsettingswidget.cpp:75
 #, kde-format
 msgid "GoogleCloudStorage"
 msgstr "Google Cloud Storage"
 
-#: widgets/administratorsettingsdialog/fileupload/fileuploadsettingswidget.cpp:75
+#: widgets/administratorsettingsdialog/fileupload/fileuploadsettingswidget.cpp:76
 #, kde-format
 msgid "WebDAV"
 msgstr "WebDAV"
 
-#: widgets/administratorsettingsdialog/fileupload/fileuploadsettingswidget.cpp:76
+#: widgets/administratorsettingsdialog/fileupload/fileuploadsettingswidget.cpp:77
 #, kde-format
 msgid "FileSystem"
 msgstr "DosierSistemo"
 
-#: widgets/administratorsettingsdialog/fileupload/fileuploadsettingswidget.cpp:78
+#: widgets/administratorsettingsdialog/fileupload/fileuploadsettingswidget.cpp:79
 #, kde-format
 msgid "Storage Type"
 msgstr "Konserveja Tipo"
@@ -4554,7 +4628,9 @@ msgid "UTF8"
 msgstr "UTF8"
 
 #: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:53
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "RegExp that will be used to validate usernames"
+msgctxt "@info:tooltip"
 msgid "RegExp that will be used to validate usernames"
 msgstr "RegExp kiu estos uzata por validigi uzantnomojn"
 
@@ -4564,7 +4640,9 @@ msgid "UTF8 Usernames Validation"
 msgstr "Pritaksado de UTF8-Uzantnomoj"
 
 #: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:57
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "RegExp that will be used to validate channel names"
+msgctxt "@info:tooltip"
 msgid "RegExp that will be used to validate channel names"
 msgstr "RegExp kiu estos uzata por konfirmi kanalnomojn"
 
@@ -4655,7 +4733,11 @@ msgid "TimeZone"
 msgstr "Horzono"
 
 #: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:110
-#, kde-format
+#, fuzzy, kde-format
+#| msgid ""
+#| "Sets the default timezone that will be used when showing dashboards or "
+#| "sending emails"
+msgctxt "@info:tooltip"
 msgid ""
 "Sets the default timezone that will be used when showing dashboards or "
 "sending emails"
@@ -4720,7 +4802,11 @@ msgid "Stream Cast Address"
 msgstr "Rolantaro-Adreso"
 
 #: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:146
-#, kde-format
+#, fuzzy, kde-format
+#| msgid ""
+#| "IP or Host of your Rocket.Chat central Stream Cast. E.g. 192.168.1.1:3000 "
+#| "or localhost:4000"
+msgctxt "@info:tooltip"
 msgid ""
 "IP or Host of your Rocket.Chat central Stream Cast. E.g. 192.168.1.1:3000 or "
 "localhost:4000"
@@ -4729,6 +4815,12 @@ msgstr ""
 "192.168.1.1:3000 aŭ localhost:4000"
 
 #: widgets/administratorsettingsdialog/irc/ircwidget.cpp:21
+#, fuzzy, kde-format
+#| msgid "The cache limit for outbound message handling."
+msgctxt "@info:tooltip"
+msgid "The cache limit for outbound message handling."
+msgstr "La kaŝmemorlimo por eksiĝinta mesaĝtraktado."
+
 #: widgets/administratorsettingsdialog/irc/ircwidget.cpp:23
 #, kde-format
 msgid "The cache limit for outbound message handling."
@@ -4740,7 +4832,9 @@ msgid "Regular Expressions"
 msgstr "Regulaj Esprimoj"
 
 #: widgets/administratorsettingsdialog/irc/ircwidget.cpp:30
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Output upon a successful connection to the IRC server."
+msgctxt "@info:tooltip"
 msgid "Output upon a successful connection to the IRC server."
 msgstr "Eligo post sukcesa konekto al la IRC-servilo."
 
@@ -4750,7 +4844,11 @@ msgid "Login Successful"
 msgstr "Ensaluto Sukcesa"
 
 #: widgets/administratorsettingsdialog/ircfederation/ircfederationwidget.cpp:28
-#, kde-format
+#, fuzzy, kde-format
+#| msgid ""
+#| "Attempt to integrate IRC support. Changing this value requires restarting "
+#| "Rocket.Chat."
+msgctxt "@info:tooltip"
 msgid ""
 "Attempt to integrate IRC support. Changing this value requires restarting "
 "Rocket.Chat."
@@ -4764,7 +4862,9 @@ msgid "RFC2813"
 msgstr "RFC2813"
 
 #: widgets/administratorsettingsdialog/ircfederation/ircfederationwidget.cpp:42
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "The port to bind to on the IRC host server."
+msgctxt "@info:tooltip"
 msgid "The port to bind to on the IRC host server."
 msgstr "La pordo al kiu ligiĝos sur la IRC-gastiga servilo."
 
@@ -4824,17 +4924,25 @@ msgid "Reconnect"
 msgstr "Rekonekti"
 
 #: widgets/administratorsettingsdialog/ldap/ldapsettingswidget.cpp:31
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Attempt to utilize LDAP for authentication."
+msgctxt "@info:tooltip"
 msgid "Attempt to utilize LDAP for authentication."
 msgstr "Provu uzi LDAP por aŭtentigo."
 
 #: widgets/administratorsettingsdialog/ldap/ldapsettingswidget.cpp:37
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Port to access LDAP. eg: 389 or 636 for LDAPS"
+msgctxt "@info:tooltip"
 msgid "Port to access LDAP. eg: 389 or 636 for LDAPS"
 msgstr "Pordo por aliri LDAP. ekz.: 389 aŭ 636 por LDAPS"
 
 #: widgets/administratorsettingsdialog/ldap/ldapsettingswidget.cpp:44
-#, kde-format
+#, fuzzy, kde-format
+#| msgid ""
+#| "Try to reconnect automatically when connection is interrupted by some "
+#| "reason while executing operations."
+msgctxt "@info:tooltip"
 msgid ""
 "Try to reconnect automatically when connection is interrupted by some reason "
 "while executing operations."
@@ -4872,7 +4980,10 @@ msgstr "Tempoforpasoj"
 
 #: widgets/administratorsettingsdialog/ldap/ldapsettingswidget.cpp:74
 #: widgets/administratorsettingsdialog/ldap/ldapsettingswidget.cpp:79
-#, kde-format
+#, fuzzy, kde-format
+#| msgid ""
+#| "How many milliseconds wait for a search result before return an error"
+msgctxt "@info:tooltip"
 msgid "How many milliseconds wait for a search result before return an error"
 msgstr "Kiom da milisekundoj atendas serĉrezulton antaŭ redoni eraron"
 
@@ -4911,7 +5022,11 @@ msgid "Trace subscription calls"
 msgstr "Spuri abonvokojn"
 
 #: widgets/administratorsettingsdialog/logs/logssettingswidget.cpp:28
-#, kde-format
+#, fuzzy, kde-format
+#| msgid ""
+#| "A channel that will receive all captured exceptions. Leave empty to "
+#| "ignore exceptions."
+msgctxt "@info:tooltip"
 msgid ""
 "A channel that will receive all captured exceptions. Leave empty to ignore "
 "exceptions."
@@ -4949,9 +5064,13 @@ msgstr "Protokola Nivelo"
 msgid "Log View Limit"
 msgstr "Limo de Protokolvido"
 
-#: widgets/administratorsettingsdialog/logs/logssettingswidget.cpp:48
-#: widgets/administratorsettingsdialog/logs/logssettingswidget.cpp:56
-#, kde-format
+#: widgets/administratorsettingsdialog/logs/logssettingswidget.cpp:49
+#: widgets/administratorsettingsdialog/logs/logssettingswidget.cpp:58
+#, fuzzy, kde-format
+#| msgid ""
+#| "The text here will be evaluated as RegExp (new RegExp('text')). Keep it "
+#| "empty to show trace of every call."
+msgctxt "@info:tooltip"
 msgid ""
 "The text here will be evaluated as RegExp (new RegExp('text')). Keep it "
 "empty to show trace of every call."
@@ -4959,8 +5078,8 @@ msgstr ""
 "La teksto ĉi tie estos taksita kiel RegExp (nova RegExp('teksto')). Tenu ĝin "
 "malplena por montri spuron de ĉiu voko."
 
-#: widgets/administratorsettingsdialog/logs/logssettingswidget.cpp:49
-#: widgets/administratorsettingsdialog/logs/logssettingswidget.cpp:57
+#: widgets/administratorsettingsdialog/logs/logssettingswidget.cpp:50
+#: widgets/administratorsettingsdialog/logs/logssettingswidget.cpp:59
 #, kde-format
 msgid "Trace method filter"
 msgstr "Filtrilo de la metodo de spuro"
@@ -4986,7 +5105,6 @@ msgid "Show Deleted Status"
 msgstr "Montri Forigitan Statuson"
 
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:22
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:76
 #, kde-format
 msgid "Allow Message Pinning"
 msgstr "Permesi Mesaĝan Alpinglon"
@@ -5032,7 +5150,9 @@ msgid "Embed Link Previews"
 msgstr "Enigi Ligi-antaŭrigardojn"
 
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:53
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Enter 0 to disable blocking."
+msgctxt "@info:tooltip"
 msgid "Enter 0 to disable blocking."
 msgstr "Enigi 0 por malŝalti blokadon."
 
@@ -5042,7 +5162,9 @@ msgid "Block Message Editing After (n) Minutes"
 msgstr "Bloki Mesaĝan Redakton Post (n) Minutoj"
 
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:61
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Block Message Deleting After (n) Minutes."
+msgctxt "@info:tooltip"
 msgid "Block Message Deleting After (n) Minutes."
 msgstr "Bloki Mesaĝon Forigante Post (n) Minutoj."
 
@@ -5052,7 +5174,11 @@ msgid "Block Message Deleting After (n) Minutes"
 msgstr "Bloki Mesaĝon Forigante Post (n) Minutoj"
 
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:67
-#, kde-format
+#, fuzzy, kde-format
+#| msgid ""
+#| "This is a deprecated feature. It may not work as expected and will not "
+#| "get new updates."
+msgctxt "@info:tooltip"
 msgid ""
 "This is a deprecated feature. It may not work as expected and will not get "
 "new updates."
@@ -5060,8 +5186,19 @@ msgstr ""
 "Ĉi tio estas malrekomendita trajto. Ĝi eble ne funkcios kiel atendite kaj ne "
 "ricevos novajn ĝisdatigojn."
 
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:76
+#, fuzzy, kde-format
+#| msgid "Allow Message Pinning"
+msgctxt "@info:tooltip"
+msgid "Allow Message Pinning"
+msgstr "Permesi Mesaĝan Alpinglon"
+
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:89
-#, kde-format
+#, fuzzy, kde-format
+#| msgid ""
+#| "Requires 'video/webm' files to be an accepted media type within 'File "
+#| "Upload' settings."
+msgctxt "@info:tooltip"
 msgid ""
 "Requires 'video/webm' files to be an accepted media type within 'File "
 "Upload' settings."
@@ -5148,8 +5285,12 @@ msgstr "Rekta Mesaĝo Maksimumaj Uzantoj"
 msgid "Message Attachments"
 msgstr "Mesaĝaj Aldonaĵoj"
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:131
-#, kde-format
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:132
+#, fuzzy, kde-format
+#| msgid ""
+#| "Strips out EXIF metadata from image files (jpeg, tiff, etc). This setting "
+#| "is not retroactive, so files uploaded while disabled will have EXIF data"
+msgctxt "@info:tooltip"
 msgid ""
 "Strips out EXIF metadata from image files (jpeg, tiff, etc). This setting is "
 "not retroactive, so files uploaded while disabled will have EXIF data"
@@ -5158,8 +5299,13 @@ msgstr ""
 "ne estas retroaktiva, do dosieroj alŝutitaj dum malŝaltite havos EXIF-"
 "datumojn"
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:137
-#, kde-format
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:139
+#, fuzzy, kde-format
+#| msgid ""
+#| "Thumbnails will be served instead of the original image to reduce "
+#| "bandwidth usage. Images at original resolution can be downloaded using "
+#| "the icon next to the attachment's name."
+msgctxt "@info:tooltip"
 msgid ""
 "Thumbnails will be served instead of the original image to reduce bandwidth "
 "usage. Images at original resolution can be downloaded using the icon next "
@@ -5169,64 +5315,68 @@ msgstr ""
 "uzadon. Bildoj kun origina distingivo povas esti elŝutitaj per la piktogramo "
 "apud la nomo de la aldonaĵo."
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:143
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:145
 #, kde-format
 msgid "Thumbnail's max width (in pixels)"
 msgstr "Maksimuma larĝo de bildeto (en rastrumeroj)"
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:146
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:148
 #, kde-format
 msgid "Thumbnail's max height (in pixels)"
 msgstr "Maksimuma alteco de bildeto (en rastrumeroj)"
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:148
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:150
 #, kde-format
 msgid "Audio Message"
 msgstr "Sona Mesaĝo"
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:158
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:160
 #, kde-format
 msgid "Audio Message Bit Rate"
 msgstr "Bito-Indico de Audio Mesaĝo"
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:160
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:162
 #: widgets/dialogs/autotranslateconfigurewidget.cpp:20
 #, kde-format
 msgid "Auto-Translate"
 msgstr "Aŭtomata tradukado"
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:171
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:173
 #, kde-format
 msgid "Deepl"
 msgstr "Deepl"
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:172
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:174
 #, kde-format
 msgid "Microsoft"
 msgstr "Mikrosofto"
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:174
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:176
 #, kde-format
 msgid "Service Provider"
 msgstr "Servoprovizanto"
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:177
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:179
 #, kde-format
 msgid "DeepL API Key"
 msgstr "DeepL API-Ŝlosilo"
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:180
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:182
 #, kde-format
 msgid "Google API Key"
 msgstr "Google API-Ŝlosilo"
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:183
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:185
 #, kde-format
 msgid "Microsoft API Key"
 msgstr "Microsoft API-Ŝlosilo"
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:186
-#, kde-format
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:188
+#, fuzzy, kde-format
+#| msgid ""
+#| "Whether embedded link previews are enabled or not when a user posts a "
+#| "link to a website."
+msgctxt "@info:tooltip"
 msgid ""
 "Whether embedded link previews are enabled or not when a user posts a link "
 "to a website."
@@ -5234,7 +5384,7 @@ msgstr ""
 "Ĉu enigita ligo-antaŭprezentoj estas ebligitaj aŭ ne kiam uzanto afiŝas "
 "ligon al retejo."
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:191
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:193
 #, kde-format
 msgid "Embed Cache Expiration Days"
 msgstr "Enkorpigi Cache Eksvalidiĝaj Tagoj"
@@ -5255,7 +5405,11 @@ msgid "Screen Lock"
 msgstr "Ekrana Ŝlosilo"
 
 #: widgets/administratorsettingsdialog/mobile/mobilesettingswidget.cpp:29
-#, kde-format
+#, fuzzy, kde-format
+#| msgid ""
+#| "When enabled, you'll force your users to use a PIN/BIOMETRY/FACEID to "
+#| "unlock the app."
+msgctxt "@info:tooltip"
 msgid ""
 "When enabled, you'll force your users to use a PIN/BIOMETRY/FACEID to unlock "
 "the app."
@@ -5264,7 +5418,11 @@ msgstr ""
 "por malŝlosi la apon."
 
 #: widgets/administratorsettingsdialog/mobile/mobilesettingswidget.cpp:35
-#, kde-format
+#, fuzzy, kde-format
+#| msgid ""
+#| "The time to request password again after the finish of the latest "
+#| "session, in seconds."
+msgctxt "@info:tooltip"
 msgid ""
 "The time to request password again after the finish of the latest session, "
 "in seconds."
@@ -5323,7 +5481,11 @@ msgid "Apple"
 msgstr "Apple"
 
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:62
-#, kde-format
+#, fuzzy, kde-format
+#| msgid ""
+#| "If you want Apple login enabled only on mobile, you can leave all fields "
+#| "empty."
+msgctxt "@info:tooltip"
 msgid ""
 "If you want Apple login enabled only on mobile, you can leave all fields "
 "empty."
@@ -5467,7 +5629,9 @@ msgid "Tokenpass"
 msgstr "Tokenpass"
 
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:200
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Example: https://domain.com (excluding trailing slash)"
+msgctxt "@info:tooltip"
 msgid "Example: https://domain.com (excluding trailing slash)"
 msgstr "Ekzemplo: https://domain.com (ekskludante malantaŭa oblikvo)"
 
@@ -5538,9 +5702,13 @@ msgstr "Almenaŭ Unu Simbolo"
 msgid "Password History"
 msgstr "Pasvorto Historio"
 
-#: widgets/administratorsettingsdialog/password/passwordsettingswidget.cpp:34
-#: widgets/administratorsettingsdialog/password/passwordsettingswidget.cpp:47
-#, kde-format
+#: widgets/administratorsettingsdialog/password/passwordsettingswidget.cpp:35
+#: widgets/administratorsettingsdialog/password/passwordsettingswidget.cpp:49
+#, fuzzy, kde-format
+#| msgid ""
+#| "When enabled, users won't be able to update their passwords to some of "
+#| "their most recently used passwords."
+msgctxt "@info:tooltip"
 msgid ""
 "When enabled, users won't be able to update their passwords to some of their "
 "most recently used passwords."
@@ -5548,24 +5716,31 @@ msgstr ""
 "Kiam ĝi estas ebligita, uzantoj ne povos ĝisdatigi siajn pasvortojn al "
 "kelkaj el siaj plej lastatempe uzitaj pasvortoj."
 
-#: widgets/administratorsettingsdialog/password/passwordsettingswidget.cpp:39
-#, kde-format
+#: widgets/administratorsettingsdialog/password/passwordsettingswidget.cpp:40
+#, fuzzy, kde-format
+#| msgid ""
+#| "Amount of most recently used passwords to prevent users from reusing."
+msgctxt "@info:tooltip"
 msgid "Amount of most recently used passwords to prevent users from reusing."
 msgstr ""
 "Kvanto de plej lastatempe uzataj pasvortoj por malhelpi uzantojn de reuzo."
 
-#: widgets/administratorsettingsdialog/password/passwordsettingswidget.cpp:40
+#: widgets/administratorsettingsdialog/password/passwordsettingswidget.cpp:41
 #, kde-format
 msgid "Password History Length"
 msgstr "Pasvorto Historio Longo"
 
-#: widgets/administratorsettingsdialog/password/passwordsettingswidget.cpp:42
+#: widgets/administratorsettingsdialog/password/passwordsettingswidget.cpp:43
 #, kde-format
 msgid "Password Policy"
 msgstr "Pasvortpolitiko"
 
-#: widgets/administratorsettingsdialog/password/passwordsettingswidget.cpp:52
-#, kde-format
+#: widgets/administratorsettingsdialog/password/passwordsettingswidget.cpp:54
+#, fuzzy, kde-format
+#| msgid ""
+#| "Ensures that passwords must have at least this amount of characters. Use "
+#| "-1 to disable."
+msgctxt "@info:tooltip"
 msgid ""
 "Ensures that passwords must have at least this amount of characters. Use -1 "
 "to disable."
@@ -5573,13 +5748,17 @@ msgstr ""
 "Certigas, ke pasvortoj devas havi almenaŭ ĉi tiun kvanton da signoj. Uzu -1 "
 "por malŝalti."
 
-#: widgets/administratorsettingsdialog/password/passwordsettingswidget.cpp:54
+#: widgets/administratorsettingsdialog/password/passwordsettingswidget.cpp:56
 #, kde-format
 msgid "Minimum Length"
 msgstr "Minimuma Longo"
 
-#: widgets/administratorsettingsdialog/password/passwordsettingswidget.cpp:57
-#, kde-format
+#: widgets/administratorsettingsdialog/password/passwordsettingswidget.cpp:59
+#, fuzzy, kde-format
+#| msgid ""
+#| "Ensures that passwords do not have more than this amount of characters. "
+#| "Use -1 to disable."
+msgctxt "@info:tooltip"
 msgid ""
 "Ensures that passwords do not have more than this amount of characters. Use "
 "-1 to disable."
@@ -5587,13 +5766,17 @@ msgstr ""
 "Certigas, ke pasvortoj ne havas pli ol ĉi tiu kvanto da signoj. Uzu -1 por "
 "malŝalti."
 
-#: widgets/administratorsettingsdialog/password/passwordsettingswidget.cpp:59
+#: widgets/administratorsettingsdialog/password/passwordsettingswidget.cpp:61
 #, kde-format
 msgid "Maximum Length"
 msgstr "Maksimuma Longo"
 
-#: widgets/administratorsettingsdialog/password/passwordsettingswidget.cpp:62
-#, kde-format
+#: widgets/administratorsettingsdialog/password/passwordsettingswidget.cpp:64
+#, fuzzy, kde-format
+#| msgid ""
+#| "Ensures passwords do not contain the same character repeating next to "
+#| "each other."
+msgctxt "@info:tooltip"
 msgid ""
 "Ensures passwords do not contain the same character repeating next to each "
 "other."
@@ -5601,35 +5784,46 @@ msgstr ""
 "Certigas, ke pasvortoj ne enhavas la saman signon ripetantan unu apud la "
 "alia."
 
-#: widgets/administratorsettingsdialog/password/passwordsettingswidget.cpp:67
-#, kde-format
+#: widgets/administratorsettingsdialog/password/passwordsettingswidget.cpp:69
+#, fuzzy, kde-format
+#| msgid ""
+#| "The amount of times a character can be repeating before it is not allowed."
+msgctxt "@info:tooltip"
 msgid ""
 "The amount of times a character can be repeating before it is not allowed."
 msgstr ""
 "La kvanto da fojoj kiun signo povas ripeti antaŭ ol ĝi ne estas permesita."
 
-#: widgets/administratorsettingsdialog/password/passwordsettingswidget.cpp:68
+#: widgets/administratorsettingsdialog/password/passwordsettingswidget.cpp:70
 #, kde-format
 msgid "Max Repeating Characters"
 msgstr "Maksimumaj Ripetantaj Signoj"
 
-#: widgets/administratorsettingsdialog/password/passwordsettingswidget.cpp:71
-#, kde-format
+#: widgets/administratorsettingsdialog/password/passwordsettingswidget.cpp:73
+#, fuzzy, kde-format
+#| msgid "Enforce that a password contain at least one lowercase character."
+msgctxt "@info:tooltip"
 msgid "Enforce that a password contain at least one lowercase character."
 msgstr "Devigi, ke pasvorto enhavu almenaŭ unu minusklan signon."
 
-#: widgets/administratorsettingsdialog/password/passwordsettingswidget.cpp:76
-#, kde-format
+#: widgets/administratorsettingsdialog/password/passwordsettingswidget.cpp:78
+#, fuzzy, kde-format
+#| msgid "Enforce that a password contain at least one uppercase character."
+msgctxt "@info:tooltip"
 msgid "Enforce that a password contain at least one uppercase character."
 msgstr "Devigi ke pasvorto enhavu almenaŭ unu majusklan signon."
 
-#: widgets/administratorsettingsdialog/password/passwordsettingswidget.cpp:81
-#, kde-format
+#: widgets/administratorsettingsdialog/password/passwordsettingswidget.cpp:83
+#, fuzzy, kde-format
+#| msgid "Enforce that a password contain at least one numerical character."
+msgctxt "@info:tooltip"
 msgid "Enforce that a password contain at least one numerical character."
 msgstr "Devigi ke pasvorto enhavu almenaŭ unu numeran signon."
 
-#: widgets/administratorsettingsdialog/password/passwordsettingswidget.cpp:86
-#, kde-format
+#: widgets/administratorsettingsdialog/password/passwordsettingswidget.cpp:88
+#, fuzzy, kde-format
+#| msgid "Enforce that a password contain at least one special character."
+msgctxt "@info:tooltip"
 msgid "Enforce that a password contain at least one special character."
 msgstr "Devigi ke pasvorto enhavu almenaŭ unu specialan signon."
 
@@ -5765,14 +5959,19 @@ msgid "Timer Precision"
 msgstr "Precizeco de Tempumilo"
 
 #: widgets/administratorsettingsdialog/retentionpolicy/retentionpolicysettingswidget.cpp:62
-#, kde-format
+#, fuzzy, kde-format
+#| msgid ""
+#| "Only files will be deleted, the messages themselves will stay in place."
+msgctxt "@info:tooltip"
 msgid "Only files will be deleted, the messages themselves will stay in place."
 msgstr "Nur dosieroj estos forigitaj, la mesaĝoj mem restos en la loko."
 
 #: widgets/administratorsettingsdialog/retentionpolicy/retentionpolicysettingswidget.cpp:72
 #: widgets/administratorsettingsdialog/retentionpolicy/retentionpolicysettingswidget.cpp:82
 #: widgets/administratorsettingsdialog/retentionpolicy/retentionpolicysettingswidget.cpp:92
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Prune all messages older than this value, in days."
+msgctxt "@info:tooltip"
 msgid "Prune all messages older than this value, in days."
 msgstr "Pritondi ĉiujn mesaĝojn pli malnovajn ol ĉi tiu valoro, en tagoj."
 
@@ -5791,11 +5990,11 @@ msgstr "Maksimuma mesaĝo-aĝo en privataj grupoj"
 msgid "Maximum message age in direct messages"
 msgstr "Maksimuma mesaĝo-aĝo en rektaj mesaĝoj"
 
-#: widgets/administratorsettingsdialog/settingswidgetbase.cpp:119
-#: widgets/administratorsettingsdialog/settingswidgetbase.cpp:158
-#: widgets/administratorsettingsdialog/settingswidgetbase.cpp:212
-#: widgets/administratorsettingsdialog/settingswidgetbase.cpp:251
-#: widgets/administratorsettingsdialog/settingswidgetbase.cpp:290
+#: widgets/administratorsettingsdialog/settingswidgetbase.cpp:120
+#: widgets/administratorsettingsdialog/settingswidgetbase.cpp:159
+#: widgets/administratorsettingsdialog/settingswidgetbase.cpp:214
+#: widgets/administratorsettingsdialog/settingswidgetbase.cpp:253
+#: widgets/administratorsettingsdialog/settingswidgetbase.cpp:292
 #, kde-format
 msgid "Apply"
 msgstr "Apliki"
@@ -5816,7 +6015,9 @@ msgid "Reactions"
 msgstr "Reagoj"
 
 #: widgets/administratorsettingsdialog/slackbridge/slackbridgewidget.cpp:28
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Enable Rocket.Chat to communicate directly with Slack."
+msgctxt "@info:tooltip"
 msgid "Enable Rocket.Chat to communicate directly with Slack."
 msgstr "Ebligi Rocket.Chat por komuniki rekte kun Slack."
 
@@ -5826,19 +6027,29 @@ msgid "API Tokens"
 msgstr "API Tokens"
 
 #: widgets/administratorsettingsdialog/slackbridge/slackbridgewidget.cpp:40
-#, kde-format
+#, fuzzy, kde-format
+#| msgid ""
+#| "Choose whether SlackBridge should also send your messages back to Slack"
+msgctxt "@info:tooltip"
 msgid "Choose whether SlackBridge should also send your messages back to Slack"
 msgstr "Elekti ĉu SlackBridge ankaŭ resendi viajn mesaĝojn al Slack"
 
 #: widgets/administratorsettingsdialog/slackbridge/slackbridgewidget.cpp:45
-#, kde-format
+#, fuzzy, kde-format
+#| msgid ""
+#| "Send messages from all channels that exist in Slack and the bot has joined"
+msgctxt "@info:tooltip"
 msgid ""
 "Send messages from all channels that exist in Slack and the bot has joined"
 msgstr ""
 "Sendi mesaĝojn de ĉiuj kanaloj kiuj ekzistas en Slack kaj la bot aliĝis"
 
-#: widgets/administratorsettingsdialog/slackbridge/slackbridgewidget.cpp:50
-#, kde-format
+#: widgets/administratorsettingsdialog/slackbridge/slackbridgewidget.cpp:51
+#, fuzzy, kde-format
+#| msgid ""
+#| "Import messages from Slack with an alias; %s is replaced by the username "
+#| "of the user. If empty, no alias will be used."
+msgctxt "@info:tooltip"
 msgid ""
 "Import messages from Slack with an alias; %s is replaced by the username of "
 "the user. If empty, no alias will be used."
@@ -5846,12 +6057,12 @@ msgstr ""
 "Importi mesaĝojn de Slack kun kaŝnomo; %s estas anstataŭigita per la "
 "uzantnomo de la uzanto. Se malplena, neniu kaŝnomo estos uzata."
 
-#: widgets/administratorsettingsdialog/slackbridge/slackbridgewidget.cpp:51
+#: widgets/administratorsettingsdialog/slackbridge/slackbridgewidget.cpp:52
 #, kde-format
 msgid "Alias Format"
 msgstr "Alias-Formato"
 
-#: widgets/administratorsettingsdialog/slackbridge/slackbridgewidget.cpp:55
+#: widgets/administratorsettingsdialog/slackbridge/slackbridgewidget.cpp:56
 #, kde-format
 msgid ""
 "Do not propagate messages from bots whose name matches the regular "
@@ -5860,7 +6071,7 @@ msgstr ""
 "Ne disvastigi mesaĝojn de robotoj, kies nomo kongruas kun la regula esprimo "
 "supre. Se lasitaj malplenaj, ĉiuj mesaĝoj de robotoj estos disvastigitaj."
 
-#: widgets/administratorsettingsdialog/slackbridge/slackbridgewidget.cpp:56
+#: widgets/administratorsettingsdialog/slackbridge/slackbridgewidget.cpp:57
 #, kde-format
 msgid "Exclude Bots"
 msgstr "Ekskludi Robotojn"
@@ -6066,7 +6277,11 @@ msgid "URL room suffix"
 msgstr "URL-ĉambra sufikso"
 
 #: widgets/administratorsettingsdialog/videoconference/videoconferencewidget.cpp:72
-#, kde-format
+#, fuzzy, kde-format
+#| msgid ""
+#| "Recommended to enable if the Jitsi instance doesn't use any "
+#| "authentication mechanism."
+msgctxt "@info:tooltip"
 msgid ""
 "Recommended to enable if the Jitsi instance doesn't use any authentication "
 "mechanism."
@@ -6783,9 +6998,9 @@ msgstr[0] "Estro:"
 msgstr[1] "Estroj:"
 
 #: widgets/dialogs/channelsearchnamelineresultwidget.cpp:27
-#: widgets/notificationhistory/notificationhistorylistview.cpp:75
-#: widgets/servererrorinfohistory/servererrorinfomessagehistorylistview.cpp:43
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Clear"
+msgctxt "@info:tooltip"
 msgid "Clear"
 msgstr "Viŝi"
 
@@ -6821,12 +7036,16 @@ msgid "Show badge for mentions"
 msgstr "Montri insignon por mencioj"
 
 #: widgets/dialogs/configurenotificationwidget.cpp:41
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Receive alerts"
+msgctxt "@info:tooltip"
 msgid "Receive alerts"
 msgstr "Ricevi atentigojn"
 
 #: widgets/dialogs/configurenotificationwidget.cpp:60
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Display badge for direct mentions only"
+msgctxt "@info:tooltip"
 msgid "Display badge for direct mentions only"
 msgstr "Montri insignon nur por rektaj mencioj"
 
@@ -6907,7 +7126,9 @@ msgid "Users:"
 msgstr "Uzantoj:"
 
 #: widgets/dialogs/createnewchannelwidget.cpp:45
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "All users in this team can write messages"
+msgctxt "@info:tooltip"
 msgid "All users in this team can write messages"
 msgstr "Ĉiuj uzantoj en ĉi tiu teamo povas skribi mesaĝojn"
 
@@ -6917,7 +7138,11 @@ msgid "Read-Only:"
 msgstr "Nurlegebla:"
 
 #: widgets/dialogs/createnewchannelwidget.cpp:50
-#, kde-format
+#, fuzzy, kde-format
+#| msgid ""
+#| "Only authorized users can write new messages, but the other users will be "
+#| "able to reply"
+msgctxt "@info:tooltip"
 msgid ""
 "Only authorized users can write new messages, but the other users will be "
 "able to reply"
@@ -6931,7 +7156,9 @@ msgid "Broadcast:"
 msgstr "Elsendo:"
 
 #: widgets/dialogs/createnewchannelwidget.cpp:55
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Only invited people can join"
+msgctxt "@info:tooltip"
 msgid "Only invited people can join"
 msgstr "Nur invititaj homoj povas aliĝi"
 
@@ -7059,7 +7286,9 @@ msgid "Invite Link:"
 msgstr "Invita ligilo:"
 
 #: widgets/dialogs/inviteuserswidget.cpp:54
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Copy link"
+msgctxt "@info:tooltip"
 msgid "Copy link"
 msgstr "Kopii ligilon"
 
@@ -7385,7 +7614,7 @@ msgid "Video: %1"
 msgstr "Video: %1"
 
 #: widgets/dialogs/uploadfiledialog.cpp:26
-#: widgets/room/messagelinewidget.cpp:363
+#: widgets/room/messagelinewidget.cpp:362
 #, kde-format
 msgctxt "@title:window"
 msgid "Upload File"
@@ -8223,7 +8452,9 @@ msgid "Use ',' for separating words"
 msgstr "Uzi ',' por apartigi vortojn"
 
 #: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:66
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Separate each word with ','."
+msgctxt "@info:tooltip"
 msgid "Separate each word with ','."
 msgstr "Apartigi ĉiun vorton per ','."
 
@@ -8238,7 +8469,9 @@ msgid "Push notification:"
 msgstr "Puŝa sciigo:"
 
 #: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:94
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Receive an email each time a new login is detected on your account."
+msgctxt "@info:tooltip"
 msgid "Receive an email each time a new login is detected on your account."
 msgstr ""
 "Ricevi retpoŝton ĉiufoje kiam nova ensaluto estas detektita en via konto."
@@ -8249,7 +8482,10 @@ msgid "Idle Time Limit:"
 msgstr "Neaktiva Tempolimo:"
 
 #: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:119
-#, kde-format
+#, fuzzy, kde-format
+#| msgid ""
+#| "Period of time until status changes to away. Value needs to be in seconds."
+msgctxt "@info:tooltip"
 msgid ""
 "Period of time until status changes to away. Value needs to be in seconds."
 msgstr "Tempodaŭro ĝis statuso ŝanĝiĝas al for. Valoro devas esti en sekundoj."
@@ -8394,6 +8630,12 @@ msgstr ""
 msgctxt "@title:window"
 msgid "Notification"
 msgstr "Sciigo"
+
+#: widgets/notificationhistory/notificationhistorylistview.cpp:75
+#: widgets/servererrorinfohistory/servererrorinfomessagehistorylistview.cpp:43
+#, kde-format
+msgid "Clear"
+msgstr "Viŝi"
 
 #: widgets/notificationhistory/notificationhistorylistview.cpp:79
 #, kde-format
@@ -8687,33 +8929,39 @@ msgstr "Aldoni Emoticon"
 msgid "Send Message"
 msgstr "Sendi Mesaĝon"
 
-#: widgets/room/messagelinewidget.cpp:143
+#: widgets/room/messagelinewidget.cpp:142
 #, kde-format
 msgid "Do you want to convert this big text as attachment?"
 msgstr "Ĉu vi volas konverti ĉi tiun grandan tekston kiel aldonaĵon?"
 
-#: widgets/room/messagelinewidget.cpp:144
+#: widgets/room/messagelinewidget.cpp:143
 #, kde-format
 msgctxt "@title:window"
 msgid "Message Too Big"
 msgstr "Mesaĝo Tro Granda"
 
-#: widgets/room/messagelinewidget.cpp:245
+#: widgets/room/messagelinewidget.cpp:244
+#, fuzzy, kde-format
+#| msgid "Message Pinned"
+msgid "Message %1 in thread"
+msgstr "Mesaĝo Alpinglita"
+
+#: widgets/room/messagelinewidget.cpp:244
 #, kde-format
 msgid "Message %1"
 msgstr "Mesaĝo %1"
 
-#: widgets/room/messagelinewidget.cpp:385
+#: widgets/room/messagelinewidget.cpp:384
 #, kde-format
 msgid "File selected is too big (Maximum size %1)"
 msgstr "Dosiero elektita estas tro granda (Maksimuma grandeco %1)"
 
-#: widgets/room/messagelinewidget.cpp:385
+#: widgets/room/messagelinewidget.cpp:384
 #, kde-format
 msgid "File upload"
 msgstr "Dosiera alŝuto"
 
-#: widgets/room/messagelinewidget.cpp:390
+#: widgets/room/messagelinewidget.cpp:389
 #, kde-format
 msgid "Server doesn't authorized this file (invalid mimetype)"
 msgstr "Servilo ne rajtigis ĉi tiun dosieron (nevalida mimetipo)"
@@ -8933,33 +9181,76 @@ msgstr "(Montri Pliajn Informojn…)"
 msgid "(Show Less Info…)"
 msgstr "(Montri Malpli da Informoj…)"
 
+#: widgets/room/roomheaderwidget.cpp:48
+#, fuzzy, kde-format
+#| msgid "Favorite"
+msgctxt "@info:tooltip"
+msgid "Favorite"
+msgstr "Ŝatata"
+
 #: widgets/room/roomheaderwidget.cpp:66
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "E2E Enabled"
+msgctxt "@info:tooltip"
 msgid "E2E Enabled"
 msgstr "E2E Ebligita"
 
-#: widgets/room/roomheaderwidget.cpp:112 widgets/room/roomheaderwidget.cpp:114
+#: widgets/room/roomheaderwidget.cpp:112
+#, fuzzy, kde-format
+#| msgid "Call"
+msgctxt "@info:tooltip"
+msgid "Call"
+msgstr "Voki"
+
+#: widgets/room/roomheaderwidget.cpp:114
 #, kde-format
 msgid "Call"
 msgstr "Voki"
 
-#: widgets/room/roomheaderwidget.cpp:123 widgets/room/roomheaderwidget.cpp:125
-#: widgets/room/roomheaderwidget.cpp:232
+#: widgets/room/roomheaderwidget.cpp:123
+#, fuzzy, kde-format
+#| msgid "Channel's Information"
+msgctxt "@info:tooltip"
+msgid "Channel's Information"
+msgstr "Informoj de Kanalo"
+
+#: widgets/room/roomheaderwidget.cpp:125 widgets/room/roomheaderwidget.cpp:232
 #, kde-format
 msgid "Channel's Information"
 msgstr "Informoj de Kanalo"
 
-#: widgets/room/roomheaderwidget.cpp:134 widgets/room/roomheaderwidget.cpp:136
+#: widgets/room/roomheaderwidget.cpp:134
+#, fuzzy, kde-format
+#| msgid "Team Channels"
+msgctxt "@info:tooltip"
+msgid "Team Channels"
+msgstr "Teamaj Kanaloj"
+
+#: widgets/room/roomheaderwidget.cpp:136
 #, kde-format
 msgid "Team Channels"
 msgstr "Teamaj Kanaloj"
 
-#: widgets/room/roomheaderwidget.cpp:146 widgets/room/roomheaderwidget.cpp:148
+#: widgets/room/roomheaderwidget.cpp:146
+#, fuzzy, kde-format
+#| msgid "Show List of Users"
+msgctxt "@info:tooltip"
+msgid "Show List of Users"
+msgstr "Montri Liston de Uzantoj"
+
+#: widgets/room/roomheaderwidget.cpp:148
 #, kde-format
 msgid "Show List of Users"
 msgstr "Montri Liston de Uzantoj"
 
-#: widgets/room/roomheaderwidget.cpp:159 widgets/room/roomheaderwidget.cpp:161
+#: widgets/room/roomheaderwidget.cpp:159
+#, fuzzy, kde-format
+#| msgid "Search Messages…"
+msgctxt "@info:tooltip"
+msgid "Search Messages…"
+msgstr "Serĉi Mesaĝojn…"
+
+#: widgets/room/roomheaderwidget.cpp:161
 #, kde-format
 msgid "Search Messages…"
 msgstr "Serĉi Mesaĝojn…"
@@ -9017,7 +9308,9 @@ msgid "%p%"
 msgstr "%p%"
 
 #: widgets/room/uploadfileprogressstatuswidget.cpp:35
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Cancel Upload"
+msgctxt "@info:tooltip"
 msgid "Cancel Upload"
 msgstr "Nuligi Alŝuton"
 
@@ -9177,7 +9470,14 @@ msgstr "Montri Mesaĝon"
 msgid "Lists the available options for user feedback"
 msgstr "Listigas la disponeblajn elekteblojn por uzant-sugestoj"
 
-#: widgets/ruqolamainwindow.cpp:214 widgets/ruqolamainwindow.cpp:216
+#: widgets/ruqolamainwindow.cpp:214
+#, fuzzy, kde-format
+#| msgid "Show New Notifications"
+msgctxt "@info:tooltip"
+msgid "Show New Notifications"
+msgstr "Montri Novajn Sciigojn"
+
+#: widgets/ruqolamainwindow.cpp:216
 #, kde-format
 msgid "Show New Notifications"
 msgstr "Montri Novajn Sciigojn"
