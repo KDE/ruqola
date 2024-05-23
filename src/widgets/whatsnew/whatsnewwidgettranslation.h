@@ -75,6 +75,7 @@ static const KLazyLocalizedString ruqolaNewFeatures2_2[] = {
     kli18n("Add Report User Support"),
     kli18n("Implement Channel Sound Notification."),
     kli18n("Implement New Room Sound Notification."),
+    kli18n("Implement Sorted/Unsorted markdown list."),
 };
 static const int numRuqolaNewFeatures2_2 = sizeof ruqolaNewFeatures2_2 / sizeof *ruqolaNewFeatures2_2;
 // enter items for the "Important changes" list here:
