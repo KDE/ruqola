@@ -34,11 +34,16 @@ void MyAccountProfileConfigureWidgetTest::shouldHaveDefaultValues()
     auto mUserName = w.findChild<QLineEdit *>(QStringLiteral("mUserName"));
     QVERIFY(mUserName);
 
+    auto mUserNameInfo = w.findChild<QLabel *>(QStringLiteral("mUserNameInfo"));
+    QVERIFY(mUserNameInfo);
+    QVERIFY(!mUserNameInfo->text().isEmpty());
+
     auto mEmail = w.findChild<QLineEdit *>(QStringLiteral("mEmail"));
     QVERIFY(mEmail);
 
     auto mEmailInfo = w.findChild<QLabel *>(QStringLiteral("mEmailInfo"));
     QVERIFY(mEmailInfo);
+    QVERIFY(!mEmailInfo->text().isEmpty());
 
     auto mName = w.findChild<QLineEdit *>(QStringLiteral("mName"));
     QVERIFY(mName);
@@ -51,6 +56,10 @@ void MyAccountProfileConfigureWidgetTest::shouldHaveDefaultValues()
     auto mStatusText = w.findChild<QLineEdit *>(QStringLiteral("mStatusText"));
     QVERIFY(mStatusText);
     QVERIFY(mStatusText->isClearButtonEnabled());
+
+    auto mStatusTextInfo = w.findChild<QLabel *>(QStringLiteral("mStatusTextInfo"));
+    QVERIFY(mStatusTextInfo);
+    QVERIFY(!mStatusTextInfo->text().isEmpty());
 
     auto mDeleteMyAccount = w.findChild<QPushButton *>(QStringLiteral("mDeleteMyAccount"));
     QVERIFY(mDeleteMyAccount);

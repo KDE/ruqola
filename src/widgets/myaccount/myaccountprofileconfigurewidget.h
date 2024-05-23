@@ -32,8 +32,10 @@ private:
     QLabel *const mEmailInfo;
     QLineEdit *const mName;
     QLineEdit *const mUserName;
+    QLabel *const mUserNameInfo;
     QLineEdit *const mNickName;
     QLineEdit *const mStatusText;
+    QLabel *const mStatusTextInfo;
     QPushButton *const mDeleteMyAccount;
     QPushButton *const mLogoutFromOtherLocation;
     PasswordConfirmWidget *const mPasswordConfirmWidget;

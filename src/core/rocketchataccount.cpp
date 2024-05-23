@@ -3176,4 +3176,9 @@ void RocketChatAccount::playNewRoomNotification()
     playSound(identifier);
 }
 
+bool RocketChatAccount::allowCustomStatusMessage() const
+{
+    return mRuqolaServerConfig->allowCustomStatusMessage();
+}
+
 #include "moc_rocketchataccount.cpp"

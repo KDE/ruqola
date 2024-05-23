@@ -29,8 +29,10 @@ MyAccountProfileConfigureWidget::MyAccountProfileConfigureWidget(RocketChatAccou
     , mEmailInfo(new QLabel(i18n("Your administrator has disabled the changing of email."), this))
     , mName(new QLineEdit(this))
     , mUserName(new QLineEdit(this))
+    , mUserNameInfo(new QLabel(i18n("Your administrator has disabled the changing of usernames."), this))
     , mNickName(new QLineEdit(this))
     , mStatusText(new QLineEdit(this))
+    , mStatusTextInfo(new QLabel(i18n("Your administrator has disabled the changing of status messages."), this))
     , mDeleteMyAccount(new QPushButton(i18n("Delete my Account"), this))
     , mLogoutFromOtherLocation(new QPushButton(i18n("Logout From Other Logged In Locations"), this))
     , mPasswordConfirmWidget(new PasswordConfirmWidget(this))
@@ -56,6 +58,8 @@ MyAccountProfileConfigureWidget::MyAccountProfileConfigureWidget(RocketChatAccou
     mUserName->setObjectName(QStringLiteral("mUserName"));
     KLineEditEventHandler::catchReturnKey(mUserName);
     mainLayout->addRow(i18n("Username:"), mUserName);
+    mUserNameInfo->setObjectName(QStringLiteral("mUserNameInfo"));
+    mainLayout->addWidget(mUserNameInfo);
 
     mEmail->setObjectName(QStringLiteral("mEmail"));
     KLineEditEventHandler::catchReturnKey(mEmail);
@@ -73,6 +77,9 @@ MyAccountProfileConfigureWidget::MyAccountProfileConfigureWidget(RocketChatAccou
     mStatusText->setObjectName(QStringLiteral("mStatusText"));
     mainLayout->addRow(i18n("Status text:"), mStatusText);
     mStatusText->setClearButtonEnabled(true);
+
+    mStatusTextInfo->setObjectName(QStringLiteral("mStatusTextInfo"));
+    mainLayout->addWidget(mStatusTextInfo);
 
     mPasswordConfirmWidget->setObjectName(QStringLiteral("mPasswordConfirmWidget"));
     mainLayout->addRow(mPasswordConfirmWidget);
@@ -123,9 +130,12 @@ void MyAccountProfileConfigureWidget::slotDeleteMyAccount()
 void MyAccountProfileConfigureWidget::initialize()
 {
     mUserName->setReadOnly(!mRocketChatAccount->allowUsernameChange());
+    mUserNameInfo->setVisible(!mRocketChatAccount->allowUsernameChange());
+
     mEmail->setReadOnly(!mRocketChatAccount->allowEmailChange());
     mEmailInfo->setVisible(!mRocketChatAccount->allowEmailChange());
 
+    mStatusTextInfo->setVisible(!mRocketChatAccount->allowCustomStatusMessage());
     mPasswordConfirmWidget->setVisible(mRocketChatAccount->allowPasswordChange());
     mDeleteMyAccount->setVisible(mRocketChatAccount->allowDeleteOwnAccount());
     mConfigureAvatarWidget->setVisible(mRocketChatAccount->allowAvatarChanged());

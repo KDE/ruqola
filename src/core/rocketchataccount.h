@@ -541,6 +541,7 @@ public:
     void playSound(const QByteArray &soundIdentifier);
     void playNewRoomNotification();
 
+    [[nodiscard]] bool allowCustomStatusMessage() const;
 Q_SIGNALS:
     void roomRemoved(const QByteArray &roomId);
     void disabledTotpValid(bool checked);
