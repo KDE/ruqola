@@ -149,23 +149,84 @@ qint64 Utils::parseIsoDate(const QString &key, const QJsonObject &o)
 
 QString Utils::convertTextUnsortedList(const QString &str)
 {
-#if 0
     const QList<QStringView> split = QStringView(str).split(QLatin1Char('\n'));
     QString newStr;
+    bool inUnsortedList = false;
     for (QStringView s : split) {
         if (s.startsWith(QStringLiteral("- "))) {
-            s.truncate(s.length() - 2);
-            QString val = s.toString();
+            s = s.last(s.length() - 2);
+            const QString brStr(QStringLiteral("<br />"));
+            if (!inUnsortedList) {
+                inUnsortedList = true;
+                if (newStr.endsWith(brStr)) {
+                    newStr = newStr.first(newStr.length() - brStr.length());
+                }
+                newStr += QStringLiteral("<ul>");
+            }
+            // convertToHtml will add <br /> => we need to remove it.
+            if (s.endsWith(brStr)) {
+                s = s.first(s.length() - brStr.length());
+            }
+            const QString val = s.toString();
+            newStr += QStringLiteral("<li>%1</li>").arg(val);
         } else {
-            if (!newStr.isEmpty()) {
-                newStr.append(QLatin1Char('\n'));
+            if (inUnsortedList) {
+                inUnsortedList = false;
+                newStr += QStringLiteral("</ul>");
+            } else {
+                if (!newStr.isEmpty()) {
+                    newStr += QStringLiteral("\n");
+                }
             }
             newStr.append(s.toString());
         }
     }
-#endif
-    // TODO
-    return str;
+    if (inUnsortedList) {
+        newStr += QStringLiteral("</ul>");
+    }
+    return newStr;
+}
+
+QString Utils::convertTextSortedList(const QString &str)
+{
+    const QList<QStringView> split = QStringView(str).split(QLatin1Char('\n'));
+    QString newStr;
+    bool inSortedList = false;
+    for (QStringView s : split) {
+        static QRegularExpression r(QStringLiteral("^[0-9]*\\..s*"));
+        QRegularExpressionMatch rmatch;
+        if (s.contains(r, &rmatch)) {
+            s = s.last(s.length() - rmatch.capturedLength());
+            const QString brStr(QStringLiteral("<br />"));
+            if (!inSortedList) {
+                inSortedList = true;
+                if (newStr.endsWith(brStr)) {
+                    newStr = newStr.first(newStr.length() - brStr.length());
+                }
+                newStr += QStringLiteral("<ol>");
+            }
+            // convertToHtml will add <br /> => we need to remove it.
+            if (s.endsWith(brStr)) {
+                s = s.first(s.length() - brStr.length());
+            }
+            const QString val = s.toString();
+            newStr += QStringLiteral("<li>%1</li>").arg(val);
+        } else {
+            if (inSortedList) {
+                inSortedList = false;
+                newStr += QStringLiteral("</ol>");
+            } else {
+                if (!newStr.isEmpty()) {
+                    newStr += QStringLiteral("\n");
+                }
+            }
+            newStr.append(s.toString());
+        }
+    }
+    if (inSortedList) {
+        newStr += QStringLiteral("</ol>");
+    }
+    return newStr;
 }
 
 QString Utils::convertTextHeaders(const QString &str)

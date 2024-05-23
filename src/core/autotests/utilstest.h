@@ -37,4 +37,10 @@ private Q_SLOTS:
 
     void shouldGenerateUniqueAccountName();
     void shouldGenerateUniqueAccountName_data();
+
+    void shouldGenerateUnsortedList_data();
+    void shouldGenerateUnsortedList();
+
+    void shouldGenerateSortedList_data();
+    void shouldGenerateSortedList();
 };

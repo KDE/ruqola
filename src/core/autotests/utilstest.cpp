@@ -282,4 +282,40 @@ void UtilsTest::shouldGenerateUniqueAccountName_data()
         QTest::newRow("accountlist4") << lst << QStringLiteral("bla") << QStringLiteral("bla4");
     }
 }
+
+void UtilsTest::shouldGenerateUnsortedList_data()
+{
+    QTest::addColumn<QString>("text");
+    QTest::addColumn<QString>("convertedText");
+    QTest::newRow("empty") << QString() << QString();
+    QTest::newRow("test1") << QStringLiteral("- bla\n- foo") << QStringLiteral("<ul><li>bla</li><li>foo</li></ul>");
+    QTest::newRow("test2") << QStringLiteral("- bla\n- foo\n- bla\nklu") << QStringLiteral("<ul><li>bla</li><li>foo</li><li>bla</li></ul>klu");
+    QTest::newRow("test3") << QStringLiteral("ss bla\n sdffds foo\nbla\nklu") << QStringLiteral("ss bla\n sdffds foo\nbla\nklu");
+    QTest::newRow("test4") << QStringLiteral("we would need 2 different repositories:\n- first repo\n- second repo")
+                           << QStringLiteral("we would need 2 different repositories:<ul><li>first repo</li><li>second repo</li></ul>");
+}
+
+void UtilsTest::shouldGenerateUnsortedList()
+{
+    QFETCH(QString, text);
+    QFETCH(QString, convertedText);
+    QCOMPARE(Utils::convertTextUnsortedList(text), convertedText);
+}
+
+void UtilsTest::shouldGenerateSortedList_data()
+{
+    QTest::addColumn<QString>("text");
+    QTest::addColumn<QString>("convertedText");
+    QTest::newRow("empty") << QString() << QString();
+    QTest::newRow("test1") << QStringLiteral("- bla\n- foo") << QStringLiteral("- bla\n- foo");
+    QTest::newRow("test2") << QStringLiteral("1. bla\n2. foo\n3. bla\nklu") << QStringLiteral("<ol><li>bla</li><li>foo</li><li>bla</li></ol>klu");
+}
+
+void UtilsTest::shouldGenerateSortedList()
+{
+    QFETCH(QString, text);
+    QFETCH(QString, convertedText);
+    QCOMPARE(Utils::convertTextSortedList(text), convertedText);
+}
+
 #include "moc_utilstest.cpp"

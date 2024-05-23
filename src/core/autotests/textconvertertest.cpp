@@ -73,7 +73,7 @@ void TextConverterTest::shouldConvertText_data()
     QTest::newRow("0.6.3") << QStringLiteral("0.6.3") << QStringLiteral("<div>0.6.3</div>");
     // Bug 391520
     QTest::newRow("multi-line") << QStringLiteral("These are the options:\n- a\n- b")
-                                << QStringLiteral("<div>These are the options:<br />\n- a<br />\n- b</div>");
+                                << QStringLiteral("<div>These are the options:<ul><li>a</li><li>b</li></ul></div>");
 
     QTest::newRow("word@") << QStringLiteral("@foo") << QStringLiteral("<div><a href='ruqola:/user/foo'>@foo</a></div>");
     QTest::newRow("word@-2") << QStringLiteral("@foo.bla") << QStringLiteral("<div><a href='ruqola:/user/foo.bla'>@foo.bla</a></div>");
