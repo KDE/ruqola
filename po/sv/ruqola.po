@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-05-23 00:38+0000\n"
+"POT-Creation-Date: 2024-05-24 00:39+0000\n"
 "PO-Revision-Date: 2024-01-02 16:40+0100\n"
 "Last-Translator: Stefan Asserhäll <stefan.asserhall@bredband.net>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
@@ -1152,25 +1152,25 @@ msgstr "Privata meddelanden"
 msgid "Unknown"
 msgstr "Okänt"
 
-#: core/model/statusmodel.cpp:61 core/utils.cpp:349
+#: core/model/statusmodel.cpp:61 core/utils.cpp:431
 #, kde-format
 msgid "Online"
 msgstr "Uppkopplad"
 
-#: core/model/statusmodel.cpp:63 core/utils.cpp:351
+#: core/model/statusmodel.cpp:63 core/utils.cpp:433
 #: widgets/room/usersinroomcombobox.cpp:24
 #, kde-format
 msgid "Busy"
 msgstr "Upptagen"
 
-#: core/model/statusmodel.cpp:65 core/utils.cpp:353
+#: core/model/statusmodel.cpp:65 core/utils.cpp:435
 #: widgets/room/usersinroomcombobox.cpp:23
 #, kde-format
 msgid "Away"
 msgstr "Borta"
 
 #: core/model/statusmodel.cpp:67 core/model/usersmodel.cpp:73
-#: core/utils.cpp:355
+#: core/utils.cpp:437
 #, kde-format
 msgid "Offline"
 msgstr "Nerkopplad"
@@ -1417,12 +1417,16 @@ msgid "%1 denied the OTR session."
 msgstr "%1 nekade till OTR-sessionen."
 
 #: core/receivetypingnotificationmanager.cpp:58
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "<strong>%1</strong> is typing..."
+msgctxt "We need a space between after </strong>"
 msgid "<strong>%1</strong> is typing..."
 msgstr "<strong>%1</strong> skriver..."
 
 #: core/receivetypingnotificationmanager.cpp:72
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "<strong>%1</strong> are typing..."
+msgctxt "We need a space between after </strong>"
 msgid "<strong>%1</strong> are typing..."
 msgstr "<strong>%1</strong> skriver ..."
 
@@ -2521,7 +2525,7 @@ msgstr "Den egna emojins namn och dess alias ska vara annorlunda."
 #: widgets/dialogs/createnewchannelwidget.cpp:33
 #: widgets/dialogs/directchannelinfowidget.cpp:88
 #: widgets/myaccount/myaccountpersonalaccesscreatewidget.cpp:28
-#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:53
+#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:55
 #, kde-format
 msgid "Name:"
 msgstr "Namn:"
@@ -3483,7 +3487,7 @@ msgstr "Verifierad"
 #: widgets/administratordialog/users/administratoradduserwidget.cpp:60
 #: widgets/dialogs/directchannelinfowidget.cpp:95
 #: widgets/dialogs/serverinfo/serverinfowidget.cpp:39
-#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:58
+#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:60
 #: widgets/registeruser/registeruserwidget.cpp:29
 #, kde-format
 msgid "Username:"
@@ -3497,7 +3501,7 @@ msgstr "Statusmeddelande"
 #: widgets/administratordialog/users/administratoradduserwidget.cpp:62
 #: widgets/dialogs/directchannelinfowidget.cpp:166
 #: widgets/dialogs/resetpasswordwidget.cpp:23
-#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:62
+#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:66
 #: widgets/registeruser/registeruserwidget.cpp:33
 #, kde-format
 msgid "Email:"
@@ -3518,7 +3522,7 @@ msgid "Bio:"
 msgstr "Biografi:"
 
 #: widgets/administratordialog/users/administratoradduserwidget.cpp:66
-#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:69
+#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:73
 #, kde-format
 msgid "Nickname:"
 msgstr "Smeknamn:"
@@ -8658,34 +8662,46 @@ msgstr "Ändra webbadress för avatar..."
 msgid "Your administrator has disabled the changing of email."
 msgstr "Administratören har inaktiverat ändring av e-post."
 
-#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:34
+#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:32
+#, fuzzy, kde-format
+#| msgid "Your administrator has disabled the changing of email."
+msgid "Your administrator has disabled the changing of usernames."
+msgstr "Administratören har inaktiverat ändring av e-post."
+
+#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:35
+#, fuzzy, kde-format
+#| msgid "Your administrator has disabled the changing of email."
+msgid "Your administrator has disabled the changing of status messages."
+msgstr "Administratören har inaktiverat ändring av e-post."
+
+#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:36
 #, kde-format
 msgid "Delete my Account"
 msgstr "Ta bort mitt konto"
 
-#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:35
+#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:37
 #, kde-format
 msgid "Logout From Other Logged In Locations"
 msgstr "Logga ut från andra inloggade platser"
 
-#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:74
+#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:78
 #, kde-format
 msgid "Status text:"
 msgstr "Statustext:"
 
-#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:108
+#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:115
 #, kde-format
 msgid "Do you really delete your account ?"
 msgstr "Vill du ta verkligen ta bort ditt konto?"
 
-#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:109
+#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:116
 #, kde-format
 msgctxt "@title"
 msgid "Delete my Account"
 msgstr "Ta bort mitt konto"
 
-#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:115
-#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:179
+#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:122
+#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:189
 #, kde-format
 msgid "Current Password"
 msgstr "Nuvarande lösenord"
@@ -10238,41 +10254,45 @@ msgstr ""
 msgid "Implement New Room Sound Notification."
 msgstr "Visa nya underrättelser"
 
-#: widgets/whatsnew/whatsnewwidgettranslation.h:82
+#: widgets/whatsnew/whatsnewwidgettranslation.h:78
+msgid "Implement Sorted/Unsorted markdown list."
+msgstr ""
+
+#: widgets/whatsnew/whatsnewwidgettranslation.h:83
 #, fuzzy
 #| msgid "Fix kf6 support"
 msgid "Fix dark mode support."
 msgstr "Fixa kf6-stöd"
 
-#: widgets/whatsnew/whatsnewwidgettranslation.h:83
+#: widgets/whatsnew/whatsnewwidgettranslation.h:84
 #, fuzzy
 #| msgid "Fix kf6 support"
 msgid "Fix jitsi support."
 msgstr "Fixa kf6-stöd"
 
-#: widgets/whatsnew/whatsnewwidgettranslation.h:84
+#: widgets/whatsnew/whatsnewwidgettranslation.h:85
 #, fuzzy
 #| msgid "Total Messages in Channels"
 msgid "Fix translate message in direct channel."
 msgstr "Totalt antal meddelande i kanaler"
 
-#: widgets/whatsnew/whatsnewwidgettranslation.h:85
+#: widgets/whatsnew/whatsnewwidgettranslation.h:86
 msgid "Don't show @here/@all as user."
 msgstr ""
 
-#: widgets/whatsnew/whatsnewwidgettranslation.h:86
+#: widgets/whatsnew/whatsnewwidgettranslation.h:87
 msgid "Reduce memory footprint."
 msgstr ""
 
-#: widgets/whatsnew/whatsnewwidgettranslation.h:87
+#: widgets/whatsnew/whatsnewwidgettranslation.h:88
 msgid "Use RESTAPI for logging."
 msgstr ""
 
-#: widgets/whatsnew/whatsnewwidgettranslation.h:88
+#: widgets/whatsnew/whatsnewwidgettranslation.h:89
 msgid "Allow to send multi files."
 msgstr ""
 
-#: widgets/whatsnew/whatsnewwidgettranslation.h:89
+#: widgets/whatsnew/whatsnewwidgettranslation.h:90
 msgid "Fix preview url."
 msgstr ""
 

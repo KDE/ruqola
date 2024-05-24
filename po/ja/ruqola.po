@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-05-23 00:38+0000\n"
+"POT-Creation-Date: 2024-05-24 00:39+0000\n"
 "PO-Revision-Date: 2019-08-04 18:23-0700\n"
 "Last-Translator: Japanese KDE translation team <kde-jp@kde.org>\n"
 "Language-Team: Japanese <kde-jp@kde.org>\n"
@@ -1122,25 +1122,25 @@ msgstr ""
 msgid "Unknown"
 msgstr ""
 
-#: core/model/statusmodel.cpp:61 core/utils.cpp:349
+#: core/model/statusmodel.cpp:61 core/utils.cpp:431
 #, kde-format
 msgid "Online"
 msgstr ""
 
-#: core/model/statusmodel.cpp:63 core/utils.cpp:351
+#: core/model/statusmodel.cpp:63 core/utils.cpp:433
 #: widgets/room/usersinroomcombobox.cpp:24
 #, kde-format
 msgid "Busy"
 msgstr ""
 
-#: core/model/statusmodel.cpp:65 core/utils.cpp:353
+#: core/model/statusmodel.cpp:65 core/utils.cpp:435
 #: widgets/room/usersinroomcombobox.cpp:23
 #, kde-format
 msgid "Away"
 msgstr ""
 
 #: core/model/statusmodel.cpp:67 core/model/usersmodel.cpp:73
-#: core/utils.cpp:355
+#: core/utils.cpp:437
 #, kde-format
 msgid "Offline"
 msgstr ""
@@ -1385,11 +1385,13 @@ msgstr ""
 
 #: core/receivetypingnotificationmanager.cpp:58
 #, kde-format
+msgctxt "We need a space between after </strong>"
 msgid "<strong>%1</strong> is typing..."
 msgstr ""
 
 #: core/receivetypingnotificationmanager.cpp:72
 #, kde-format
+msgctxt "We need a space between after </strong>"
 msgid "<strong>%1</strong> are typing..."
 msgstr ""
 
@@ -2465,7 +2467,7 @@ msgstr ""
 #: widgets/dialogs/createnewchannelwidget.cpp:33
 #: widgets/dialogs/directchannelinfowidget.cpp:88
 #: widgets/myaccount/myaccountpersonalaccesscreatewidget.cpp:28
-#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:53
+#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:55
 #, kde-format
 msgid "Name:"
 msgstr ""
@@ -3388,7 +3390,7 @@ msgstr ""
 #: widgets/administratordialog/users/administratoradduserwidget.cpp:60
 #: widgets/dialogs/directchannelinfowidget.cpp:95
 #: widgets/dialogs/serverinfo/serverinfowidget.cpp:39
-#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:58
+#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:60
 #: widgets/registeruser/registeruserwidget.cpp:29
 #, kde-format
 msgid "Username:"
@@ -3402,7 +3404,7 @@ msgstr ""
 #: widgets/administratordialog/users/administratoradduserwidget.cpp:62
 #: widgets/dialogs/directchannelinfowidget.cpp:166
 #: widgets/dialogs/resetpasswordwidget.cpp:23
-#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:62
+#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:66
 #: widgets/registeruser/registeruserwidget.cpp:33
 #, kde-format
 msgid "Email:"
@@ -3423,7 +3425,7 @@ msgid "Bio:"
 msgstr ""
 
 #: widgets/administratordialog/users/administratoradduserwidget.cpp:66
-#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:69
+#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:73
 #, kde-format
 msgid "Nickname:"
 msgstr ""
@@ -8151,34 +8153,44 @@ msgstr ""
 msgid "Your administrator has disabled the changing of email."
 msgstr ""
 
-#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:34
+#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:32
 #, kde-format
-msgid "Delete my Account"
+msgid "Your administrator has disabled the changing of usernames."
 msgstr ""
 
 #: widgets/myaccount/myaccountprofileconfigurewidget.cpp:35
 #, kde-format
+msgid "Your administrator has disabled the changing of status messages."
+msgstr ""
+
+#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:36
+#, kde-format
+msgid "Delete my Account"
+msgstr ""
+
+#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:37
+#, kde-format
 msgid "Logout From Other Logged In Locations"
 msgstr ""
 
-#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:74
+#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:78
 #, kde-format
 msgid "Status text:"
 msgstr ""
 
-#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:108
+#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:115
 #, kde-format
 msgid "Do you really delete your account ?"
 msgstr ""
 
-#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:109
+#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:116
 #, kde-format
 msgctxt "@title"
 msgid "Delete my Account"
 msgstr ""
 
-#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:115
-#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:179
+#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:122
+#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:189
 #, kde-format
 msgid "Current Password"
 msgstr ""
@@ -9627,34 +9639,38 @@ msgstr ""
 msgid "Implement New Room Sound Notification."
 msgstr ""
 
-#: widgets/whatsnew/whatsnewwidgettranslation.h:82
-msgid "Fix dark mode support."
+#: widgets/whatsnew/whatsnewwidgettranslation.h:78
+msgid "Implement Sorted/Unsorted markdown list."
 msgstr ""
 
 #: widgets/whatsnew/whatsnewwidgettranslation.h:83
-msgid "Fix jitsi support."
+msgid "Fix dark mode support."
 msgstr ""
 
 #: widgets/whatsnew/whatsnewwidgettranslation.h:84
-msgid "Fix translate message in direct channel."
+msgid "Fix jitsi support."
 msgstr ""
 
 #: widgets/whatsnew/whatsnewwidgettranslation.h:85
-msgid "Don't show @here/@all as user."
+msgid "Fix translate message in direct channel."
 msgstr ""
 
 #: widgets/whatsnew/whatsnewwidgettranslation.h:86
-msgid "Reduce memory footprint."
+msgid "Don't show @here/@all as user."
 msgstr ""
 
 #: widgets/whatsnew/whatsnewwidgettranslation.h:87
-msgid "Use RESTAPI for logging."
+msgid "Reduce memory footprint."
 msgstr ""
 
 #: widgets/whatsnew/whatsnewwidgettranslation.h:88
-msgid "Allow to send multi files."
+msgid "Use RESTAPI for logging."
 msgstr ""
 
 #: widgets/whatsnew/whatsnewwidgettranslation.h:89
+msgid "Allow to send multi files."
+msgstr ""
+
+#: widgets/whatsnew/whatsnewwidgettranslation.h:90
 msgid "Fix preview url."
 msgstr ""

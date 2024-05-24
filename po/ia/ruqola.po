@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-05-23 00:38+0000\n"
-"PO-Revision-Date: 2024-05-21 10:20+0200\n"
+"POT-Creation-Date: 2024-05-24 00:39+0000\n"
+"PO-Revision-Date: 2024-05-23 10:46+0200\n"
 "Last-Translator: giovanni <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
 "Language: ia\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 22.12.3\n"
+"X-Generator: Lokalize 21.12.1\n"
 
 #: apps/main.cpp:62
 #, kde-format
@@ -1130,25 +1130,25 @@ msgstr "Messages private"
 msgid "Unknown"
 msgstr "Incognite"
 
-#: core/model/statusmodel.cpp:61 core/utils.cpp:349
+#: core/model/statusmodel.cpp:61 core/utils.cpp:431
 #, kde-format
 msgid "Online"
 msgstr "In linea"
 
-#: core/model/statusmodel.cpp:63 core/utils.cpp:351
+#: core/model/statusmodel.cpp:63 core/utils.cpp:433
 #: widgets/room/usersinroomcombobox.cpp:24
 #, kde-format
 msgid "Busy"
 msgstr "Occupate"
 
-#: core/model/statusmodel.cpp:65 core/utils.cpp:353
+#: core/model/statusmodel.cpp:65 core/utils.cpp:435
 #: widgets/room/usersinroomcombobox.cpp:23
 #, kde-format
 msgid "Away"
 msgstr "Absente"
 
 #: core/model/statusmodel.cpp:67 core/model/usersmodel.cpp:73
-#: core/utils.cpp:355
+#: core/utils.cpp:437
 #, kde-format
 msgid "Offline"
 msgstr "Foras de linea"
@@ -1392,12 +1392,16 @@ msgid "%1 denied the OTR session."
 msgstr "%1 refusava le session de OTR."
 
 #: core/receivetypingnotificationmanager.cpp:58
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "<strong>%1</strong> is typing..."
+msgctxt "We need a space between after </strong>"
 msgid "<strong>%1</strong> is typing..."
 msgstr "<strong>%1</strong> es typante ..."
 
 #: core/receivetypingnotificationmanager.cpp:72
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "<strong>%1</strong> are typing..."
+msgctxt "We need a space between after </strong>"
 msgid "<strong>%1</strong> are typing..."
 msgstr "<strong>%1</strong> es typante..."
 
@@ -2505,7 +2509,7 @@ msgstr ""
 #: widgets/dialogs/createnewchannelwidget.cpp:33
 #: widgets/dialogs/directchannelinfowidget.cpp:88
 #: widgets/myaccount/myaccountpersonalaccesscreatewidget.cpp:28
-#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:53
+#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:55
 #, kde-format
 msgid "Name:"
 msgstr "Nomine:"
@@ -3200,8 +3204,7 @@ msgid "Remove Room"
 msgstr "Remove Sala"
 
 #: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:49
-#, fuzzy, kde-format
-#| msgid "Refresh"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Refresh"
 msgstr "Refresca"
@@ -3437,7 +3440,7 @@ msgstr "Verificate"
 #: widgets/administratordialog/users/administratoradduserwidget.cpp:60
 #: widgets/dialogs/directchannelinfowidget.cpp:95
 #: widgets/dialogs/serverinfo/serverinfowidget.cpp:39
-#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:58
+#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:60
 #: widgets/registeruser/registeruserwidget.cpp:29
 #, kde-format
 msgid "Username:"
@@ -3451,7 +3454,7 @@ msgstr "Message de stato:"
 #: widgets/administratordialog/users/administratoradduserwidget.cpp:62
 #: widgets/dialogs/directchannelinfowidget.cpp:166
 #: widgets/dialogs/resetpasswordwidget.cpp:23
-#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:62
+#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:66
 #: widgets/registeruser/registeruserwidget.cpp:33
 #, kde-format
 msgid "Email:"
@@ -3472,7 +3475,7 @@ msgid "Bio:"
 msgstr "Bio:"
 
 #: widgets/administratordialog/users/administratoradduserwidget.cpp:66
-#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:69
+#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:73
 #, kde-format
 msgid "Nickname:"
 msgstr "Pseudonymo:"
@@ -4992,11 +4995,10 @@ msgid "Block Message Editing After (n) Minutes"
 msgstr ""
 
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:61
-#, fuzzy, kde-format
-#| msgid "Allow Message Deleting"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Block Message Deleting After (n) Minutes."
-msgstr "Permitte deletion de message"
+msgstr "Bloca deletion de message post (n) Minutas."
 
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:62
 #, kde-format
@@ -5012,8 +5014,7 @@ msgid ""
 msgstr ""
 
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:76
-#, fuzzy, kde-format
-#| msgid "Allow Message Pinning"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Allow Message Pinning"
 msgstr "Permitte Message appunctate"
@@ -5504,13 +5505,14 @@ msgid "Password Policy"
 msgstr "Politica de contrasigno"
 
 #: widgets/administratorsettingsdialog/password/passwordsettingswidget.cpp:54
-#, fuzzy, kde-format
-#| msgid "Enforce that a password contain at least one lowercase character."
+#, kde-format
 msgctxt "@info:tooltip"
 msgid ""
 "Ensures that passwords must have at least this amount of characters. Use -1 "
 "to disable."
-msgstr "Applica que un contrasigno contine  al minus un character minuscule."
+msgstr ""
+"Assecura  que le contrasignos debe haber  al minusiste amonta de "
+"characteres. Usa -1 per dishabilitar."
 
 #: widgets/administratorsettingsdialog/password/passwordsettingswidget.cpp:56
 #, kde-format
@@ -5551,29 +5553,25 @@ msgid "Max Repeating Characters"
 msgstr ""
 
 #: widgets/administratorsettingsdialog/password/passwordsettingswidget.cpp:73
-#, fuzzy, kde-format
-#| msgid "Enforce that a password contain at least one lowercase character."
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Enforce that a password contain at least one lowercase character."
 msgstr "Applica que un contrasigno contine  al minus un character minuscule."
 
 #: widgets/administratorsettingsdialog/password/passwordsettingswidget.cpp:78
-#, fuzzy, kde-format
-#| msgid "Enforce that a password contain at least one uppercase character."
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Enforce that a password contain at least one uppercase character."
 msgstr "Applica que un contrasigno contine al minus un character majuscule."
 
 #: widgets/administratorsettingsdialog/password/passwordsettingswidget.cpp:83
-#, fuzzy, kde-format
-#| msgid "Enforce that a password contain at least one numerical character."
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Enforce that a password contain at least one numerical character."
 msgstr "Applica que un contrasigno contine al minus un character numeric"
 
 #: widgets/administratorsettingsdialog/password/passwordsettingswidget.cpp:88
-#, fuzzy, kde-format
-#| msgid "Enforce that a password contain at least one special character."
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Enforce that a password contain at least one special character."
 msgstr "Applica que un contrasigno contine al minus un character special"
@@ -6708,8 +6706,7 @@ msgstr[0] "Chef:"
 msgstr[1] "Chefes:"
 
 #: widgets/dialogs/channelsearchnamelineresultwidget.cpp:27
-#, fuzzy, kde-format
-#| msgid "Clear"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Clear"
 msgstr "Netta"
@@ -6752,11 +6749,10 @@ msgid "Receive alerts"
 msgstr ""
 
 #: widgets/dialogs/configurenotificationwidget.cpp:60
-#, fuzzy, kde-format
-#| msgid "Show badge for mentions"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Display badge for direct mentions only"
-msgstr "Monstra badge per Mentiones"
+msgstr "Monstra badge solmente per mentiones directe"
 
 #: widgets/dialogs/configurenotificationwidget.cpp:66
 #, kde-format
@@ -6836,8 +6832,7 @@ msgid "Users:"
 msgstr "Usatores:"
 
 #: widgets/dialogs/createnewchannelwidget.cpp:45
-#, fuzzy, kde-format
-#| msgid "All users in this team can write messages"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "All users in this team can write messages"
 msgstr "Omne usatores in iste equipa pote scriber messages"
@@ -6848,10 +6843,7 @@ msgid "Read-Only:"
 msgstr "Solmente de lectura:"
 
 #: widgets/dialogs/createnewchannelwidget.cpp:50
-#, fuzzy, kde-format
-#| msgid ""
-#| "Only authorized users can write new messages, but the other users will be "
-#| "able to reply"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid ""
 "Only authorized users can write new messages, but the other users will be "
@@ -6866,8 +6858,7 @@ msgid "Broadcast:"
 msgstr "Broadcast(diffusion):"
 
 #: widgets/dialogs/createnewchannelwidget.cpp:55
-#, fuzzy, kde-format
-#| msgid "Only invited people can join"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Only invited people can join"
 msgstr "Solmente personas invitate pote unir se"
@@ -6997,8 +6988,7 @@ msgid "Invite Link:"
 msgstr "Invita Ligamine:"
 
 #: widgets/dialogs/inviteuserswidget.cpp:54
-#, fuzzy, kde-format
-#| msgid "Copy link"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Copy link"
 msgstr "Copia Ligamine"
@@ -8152,8 +8142,7 @@ msgid "Use ',' for separating words"
 msgstr "Usa ',' per separar parolas"
 
 #: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:66
-#, fuzzy, kde-format
-#| msgid "Separate each word with ','."
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Separate each word with ','."
 msgstr "Separa cata parola con ','."
@@ -8269,34 +8258,44 @@ msgstr "Cambia URL per avatar..."
 msgid "Your administrator has disabled the changing of email."
 msgstr ""
 
-#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:34
+#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:32
+#, kde-format
+msgid "Your administrator has disabled the changing of usernames."
+msgstr ""
+
+#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:35
+#, kde-format
+msgid "Your administrator has disabled the changing of status messages."
+msgstr ""
+
+#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:36
 #, kde-format
 msgid "Delete my Account"
 msgstr "Dele mi conto"
 
-#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:35
+#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:37
 #, kde-format
 msgid "Logout From Other Logged In Locations"
 msgstr "Claude session ex altere locationes de session aperite"
 
-#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:74
+#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:78
 #, kde-format
 msgid "Status text:"
 msgstr "Texto de stato:"
 
-#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:108
+#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:115
 #, kde-format
 msgid "Do you really delete your account ?"
 msgstr "Tu vermente vole deler tu conto?"
 
-#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:109
+#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:116
 #, kde-format
 msgctxt "@title"
 msgid "Delete my Account"
 msgstr "Dele mi conto"
 
-#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:115
-#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:179
+#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:122
+#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:189
 #, kde-format
 msgid "Current Password"
 msgstr "Contrasigno currente"
@@ -8636,10 +8635,9 @@ msgid "Message Too Big"
 msgstr "Message troppo grande"
 
 #: widgets/room/messagelinewidget.cpp:244
-#, fuzzy, kde-format
-#| msgid "Message Pinned"
+#, kde-format
 msgid "Message %1 in thread"
-msgstr "Message appunctate"
+msgstr "Message %1 in topico"
 
 #: widgets/room/messagelinewidget.cpp:244
 #, kde-format
@@ -8877,22 +8875,19 @@ msgid "(Show Less Info…)"
 msgstr "(Monstra Minus Info...)"
 
 #: widgets/room/roomheaderwidget.cpp:48
-#, fuzzy, kde-format
-#| msgid "Favorite"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Favorite"
 msgstr "Favorito"
 
 #: widgets/room/roomheaderwidget.cpp:66
-#, fuzzy, kde-format
-#| msgid "E2E Enabled"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "E2E Enabled"
 msgstr "E2E Habilitate"
 
 #: widgets/room/roomheaderwidget.cpp:112
-#, fuzzy, kde-format
-#| msgid "Call"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Call"
 msgstr "Appello"
@@ -8903,8 +8898,7 @@ msgid "Call"
 msgstr "Appello"
 
 #: widgets/room/roomheaderwidget.cpp:123
-#, fuzzy, kde-format
-#| msgid "Channel's Information"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Channel's Information"
 msgstr "Information de Canal"
@@ -8915,8 +8909,7 @@ msgid "Channel's Information"
 msgstr "Information de Canal"
 
 #: widgets/room/roomheaderwidget.cpp:134
-#, fuzzy, kde-format
-#| msgid "Team Channels"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Team Channels"
 msgstr "Canales de Equipa"
@@ -8927,8 +8920,7 @@ msgid "Team Channels"
 msgstr "Canales de Equipa"
 
 #: widgets/room/roomheaderwidget.cpp:146
-#, fuzzy, kde-format
-#| msgid "Show List of Users"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Show List of Users"
 msgstr "Monstra lista de usatores"
@@ -8939,8 +8931,7 @@ msgid "Show List of Users"
 msgstr "Monstra lista de usatores"
 
 #: widgets/room/roomheaderwidget.cpp:159
-#, fuzzy, kde-format
-#| msgid "Search Messages…"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Search Messages…"
 msgstr "Cerca Messages…"
@@ -9001,8 +8992,7 @@ msgid "%p%"
 msgstr "%p%"
 
 #: widgets/room/uploadfileprogressstatuswidget.cpp:35
-#, fuzzy, kde-format
-#| msgid "Cancel Upload"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Cancel Upload"
 msgstr "Cancella Incargamento "
@@ -9164,8 +9154,7 @@ msgid "Lists the available options for user feedback"
 msgstr "Lista le optiones disponibile per responsa al usator"
 
 #: widgets/ruqolamainwindow.cpp:214
-#, fuzzy, kde-format
-#| msgid "Show New Notifications"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Show New Notifications"
 msgstr "Monsta nove notificationes"
@@ -9768,35 +9757,39 @@ msgstr ""
 msgid "Implement New Room Sound Notification."
 msgstr "Implementa Notification de Sono de Nove Sala."
 
-#: widgets/whatsnew/whatsnewwidgettranslation.h:82
+#: widgets/whatsnew/whatsnewwidgettranslation.h:78
+msgid "Implement Sorted/Unsorted markdown list."
+msgstr ""
+
+#: widgets/whatsnew/whatsnewwidgettranslation.h:83
 msgid "Fix dark mode support."
 msgstr "Corrige supporto de modo obscur."
 
-#: widgets/whatsnew/whatsnewwidgettranslation.h:83
+#: widgets/whatsnew/whatsnewwidgettranslation.h:84
 msgid "Fix jitsi support."
 msgstr "Corrige supporto de  Jitsi."
 
-#: widgets/whatsnew/whatsnewwidgettranslation.h:84
+#: widgets/whatsnew/whatsnewwidgettranslation.h:85
 msgid "Fix translate message in direct channel."
 msgstr "Corrige message de traduction in canal directe."
 
-#: widgets/whatsnew/whatsnewwidgettranslation.h:85
+#: widgets/whatsnew/whatsnewwidgettranslation.h:86
 msgid "Don't show @here/@all as user."
 msgstr ""
 
-#: widgets/whatsnew/whatsnewwidgettranslation.h:86
+#: widgets/whatsnew/whatsnewwidgettranslation.h:87
 msgid "Reduce memory footprint."
 msgstr ""
 
-#: widgets/whatsnew/whatsnewwidgettranslation.h:87
+#: widgets/whatsnew/whatsnewwidgettranslation.h:88
 msgid "Use RESTAPI for logging."
 msgstr ""
 
-#: widgets/whatsnew/whatsnewwidgettranslation.h:88
+#: widgets/whatsnew/whatsnewwidgettranslation.h:89
 msgid "Allow to send multi files."
 msgstr ""
 
-#: widgets/whatsnew/whatsnewwidgettranslation.h:89
+#: widgets/whatsnew/whatsnewwidgettranslation.h:90
 msgid "Fix preview url."
 msgstr "Assigna url de vista preliminar"
 
