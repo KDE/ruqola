@@ -120,7 +120,7 @@ find_package(KF6 ${KF_MIN_VERSION} REQUIRED COMPONENTS
     IdleTime
     Prison
     Archive
-    Codecs
+    Codecs # KEmailAddress
 )
 
 if (OPTION_USE_PLASMA_ACTIVITIES)
