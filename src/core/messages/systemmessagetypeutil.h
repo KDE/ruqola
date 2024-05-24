@@ -25,7 +25,7 @@ enum SystemMessageType {
     RoomPrivacyChanged,
     JitsiCallStarted,
     MessageDeleted,
-    MessagePinned,
+    Pinned,
     EncryptedMessage,
     UserMuted,
     UserUnmuted,
