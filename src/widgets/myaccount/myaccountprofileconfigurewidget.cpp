@@ -17,6 +17,7 @@
 #include <KLocalizedString>
 #include <KMessageBox>
 #include <KPasswordDialog>
+#include <KStatefulBrush>
 #include <QFormLayout>
 #include <QLabel>
 #include <QLineEdit>
@@ -39,6 +40,12 @@ MyAccountProfileConfigureWidget::MyAccountProfileConfigureWidget(RocketChatAccou
     , mConfigureAvatarWidget(new MyAccountProfileConfigureAvatarWidget(account, this))
     , mRocketChatAccount(account)
 {
+    const KStatefulBrush bgBrush(KColorScheme::View, KColorScheme::NegativeText);
+    const QColor color = bgBrush.brush(palette()).color();
+
+    QPalette pal = this->palette();
+    pal.setColor(QPalette::WindowText, color);
+
     auto topLayout = new QVBoxLayout(this);
     topLayout->setObjectName(QStringLiteral("topLayout"));
     topLayout->setContentsMargins({});
@@ -58,6 +65,7 @@ MyAccountProfileConfigureWidget::MyAccountProfileConfigureWidget(RocketChatAccou
     mUserName->setObjectName(QStringLiteral("mUserName"));
     KLineEditEventHandler::catchReturnKey(mUserName);
     mainLayout->addRow(i18n("Username:"), mUserName);
+    mUserNameInfo->setPalette(pal);
     mUserNameInfo->setObjectName(QStringLiteral("mUserNameInfo"));
     mainLayout->addWidget(mUserNameInfo);
 
@@ -65,6 +73,7 @@ MyAccountProfileConfigureWidget::MyAccountProfileConfigureWidget(RocketChatAccou
     KLineEditEventHandler::catchReturnKey(mEmail);
     mainLayout->addRow(i18n("Email:"), mEmail);
 
+    mEmailInfo->setPalette(pal);
     mEmailInfo->setObjectName(QStringLiteral("mEmailInfo"));
     mainLayout->addWidget(mEmailInfo);
 
@@ -78,6 +87,7 @@ MyAccountProfileConfigureWidget::MyAccountProfileConfigureWidget(RocketChatAccou
     mainLayout->addRow(i18n("Status text:"), mStatusText);
     mStatusText->setClearButtonEnabled(true);
 
+    mStatusTextInfo->setPalette(pal);
     mStatusTextInfo->setObjectName(QStringLiteral("mStatusTextInfo"));
     mainLayout->addWidget(mStatusTextInfo);
 
