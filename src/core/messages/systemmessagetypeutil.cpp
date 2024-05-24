@@ -36,7 +36,7 @@ SystemMessageType SystemMessageTypeUtil::systemMessageTypeFromString(const QStri
     } else if (str == "rm"_L1) {
         return MessageDeleted;
     } else if (str == "message_pinned"_L1) {
-        return MessagePinned;
+        return Pinned;
     } else if (str == "otr"_L1) {
         return EncryptedMessage;
     } else if (str == "user-unmuted"_L1) {
@@ -131,7 +131,7 @@ QString SystemMessageTypeUtil::systemMessageTypeStringFromEnum(SystemMessageType
         return "jitsi_call_started"_L1;
     case MessageDeleted:
         return "rm"_L1;
-    case MessagePinned:
+    case Pinned:
         return "message_pinned"_L1;
     case EncryptedMessage:
         return "otr"_L1;

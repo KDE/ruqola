@@ -695,7 +695,7 @@ QString Message::systemMessageText() const
     case SystemMessageTypeUtil::SystemMessageType::MessageDeleted:
         // TODO encrypted message
         return i18n("Message Deleted");
-    case SystemMessageTypeUtil::SystemMessageType::MessagePinned:
+    case SystemMessageTypeUtil::SystemMessageType::Pinned:
         return i18n("Message Pinned");
     case SystemMessageTypeUtil::SystemMessageType::EncryptedMessage:
         return i18n("Encrypted Message");
