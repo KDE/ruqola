@@ -48,6 +48,7 @@ Extra features:
 - Add import export Accounts.
 - Implement message layout (normal/compact)
 - Increase/Decrease global font by using CTRL++/CTRL+- shortcut
+- Add Plasma Activities support.
 
 
 ## Source Code
@@ -60,7 +61,7 @@ You can get ruqola from:
 
 ## Requirements
 
-`cmake`, `cmake-extra-tools`, `qt-websockets`, `qt-networkauth`, `qt-multimedia`, `kwidgetaddons`, `ki18n`, `kcrash`, `kcoreaddons`, `syntaxhighlighting`, `sonnet`, `textwidgets`, `notifyconfig`, `kio`, `iconthemes`, `xmlgui`, `ktextaddons`, `qtkeychain`
+`cmake`, `cmake-extra-tools`, `qt-websockets`, `qt-networkauth`, `qt-multimedia`, `kwidgetaddons`, `ki18n`, `kcrash`, `kcoreaddons`, `syntaxhighlighting`, `sonnet`, `textwidgets`, `notifyconfig`, `kio`, `iconthemes`, `xmlgui`, `ktextaddons`, `qtkeychain`, `prison`, `idletime`, `karchive`, `kcodecs`
 
 ## How to build ruqola
 
