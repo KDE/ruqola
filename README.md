@@ -73,12 +73,6 @@ make install
 ````
 or using CMakePresets support (need cmake > 3.20)
 ````
-cmake --preset dev && cmake --build --preset dev
-````
-
-
-Build against qt6
-````
 cmake --preset dev-qt6 && cmake --build --preset dev-qt6
 ````
 
@@ -93,7 +87,7 @@ example: LSAN_OPTIONS=suppressions=../sanitizers.supp ./bin/ruqolaserverconfigte
 
 Ruqola can build with cmake unity support
 ````
-cmake --preset unity && cmake --build --preset unity
+cmake --preset unity-qt6 && cmake --build --preset unity-qt6
 ````
 
 ## Maintainer
