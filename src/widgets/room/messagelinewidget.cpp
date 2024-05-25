@@ -59,6 +59,7 @@ MessageLineWidget::MessageLineWidget(QWidget *parent)
 
     mSendFileButton->setAutoRaise(true);
     mSendFileButton->setObjectName(QStringLiteral("mSendFileButton"));
+    mSendFileButton->setToolTip(i18nc("@info:tooltip", "Attach a file…"));
     mainLayout->addWidget(mSendFileButton);
 #ifndef QT_NO_ACCESSIBILITY
     mSendFileButton->setAccessibleName(i18n("Attach File"));
@@ -69,6 +70,7 @@ MessageLineWidget::MessageLineWidget(QWidget *parent)
 
     mVideoMessageButton->setAutoRaise(true);
     mVideoMessageButton->setObjectName(QStringLiteral("mVideoMessageButton"));
+    mVideoMessageButton->setToolTip(i18nc("@info:tooltip", "Send a video message…"));
 #ifndef QT_NO_ACCESSIBILITY
     mVideoMessageButton->setAccessibleName(i18n("Video Message"));
 #endif
@@ -79,6 +81,7 @@ MessageLineWidget::MessageLineWidget(QWidget *parent)
 
     mSoundMessageButton->setAutoRaise(true);
     mSoundMessageButton->setObjectName(QStringLiteral("mSoundMessageButton"));
+    mSoundMessageButton->setToolTip(i18nc("@info:tooltip", "Send a sound message…"));
 #ifndef QT_NO_ACCESSIBILITY
     mSoundMessageButton->setAccessibleName(i18n("Sound Message"));
 #endif
@@ -91,6 +94,7 @@ MessageLineWidget::MessageLineWidget(QWidget *parent)
     mEmoticonButton->setObjectName(QStringLiteral("mEmoticonButton"));
     mEmoticonButton->setIcon(QIcon::fromTheme(QStringLiteral("smiley-add")));
     mEmoticonButton->setPopupMode(QToolButton::InstantPopup);
+    mEmoticonButton->setToolTip(i18nc("@info:tooltip", "Add emoticon…"));
 #ifndef QT_NO_ACCESSIBILITY
     mEmoticonButton->setAccessibleName(i18n("Add Emoticon"));
 #endif
@@ -99,6 +103,7 @@ MessageLineWidget::MessageLineWidget(QWidget *parent)
     mSendMessageButton->setAutoRaise(true);
     mSendMessageButton->setObjectName(QStringLiteral("mSendMessageButton"));
     mSendMessageButton->setIcon(QIcon::fromTheme(QStringLiteral("mail-sent")));
+    mSendMessageButton->setToolTip(i18nc("@info:tooltip", "Send message"));
 #ifndef QT_NO_ACCESSIBILITY
     mSendMessageButton->setAccessibleName(i18n("Send Message"));
 #endif
@@ -241,7 +246,7 @@ QString MessageLineWidget::quoteText() const
 
 void MessageLineWidget::setRoomName(const QString &roomName, bool thread)
 {
-    mMessageTextEdit->setPlaceholderText(thread ? i18n("Message %1 in thread", roomName) : i18n("Message %1", roomName));
+    mMessageTextEdit->setPlaceholderText(thread ? i18n("Message %1 in thread", roomName) : i18n("Send a message in %1…", roomName));
 }
 
 QString MessageLineWidget::quotePermalink() const
