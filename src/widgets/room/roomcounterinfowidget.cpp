@@ -14,7 +14,21 @@ RoomCounterInfoWidget::RoomCounterInfoWidget(QWidget *parent)
     setCloseButtonVisible(false);
     setMessageType(Information);
     setPosition(KMessageWidget::Header);
-    connect(this, &KMessageWidget::linkActivated, this, &RoomCounterInfoWidget::slotLinkActivated);
+
+    auto jumpToFirstUnreadAction = new QAction(i18nc("@action:button", "Jump to First Unread"));
+    jumpToFirstUnreadAction->setIcon(QIcon::fromTheme(QStringLiteral("go-jump-locationbar")));
+    connect(jumpToFirstUnreadAction, &QAction::triggered, this, [this] {
+        Q_EMIT jumpToUnreadMessage(mChannelCounterInfo->unreadMessages());
+        setVisible(false);
+    });
+    addAction(jumpToFirstUnreadAction);
+
+    auto markAsReadAction = new QAction(i18nc("@action:button", "Mark as Read"));
+    markAsReadAction->setIcon(QIcon::fromTheme(QStringLiteral("checkmark-symbolic")));
+    connect(markAsReadAction, &QAction::triggered, this, [this] {
+        Q_EMIT markAsRead();
+    });
+    addAction(markAsReadAction);
 }
 
 RoomCounterInfoWidget::~RoomCounterInfoWidget() = default;
@@ -45,24 +59,12 @@ void RoomCounterInfoWidget::setChannelCounterInfo(const ChannelCounterInfo *chan
 void RoomCounterInfoWidget::updateInfo()
 {
     if (mChannelCounterInfo && mChannelCounterInfo->isValid() && mChannelCounterInfo->unreadMessages() > 0) {
-        setText(i18np("%4 %1 new message since %2. %3",
-                      "%4 %1 new messages since %2. %3",
+        setText(i18np("%1 new message since %2.",
+                      "%1 new messages since %2.",
                       mChannelCounterInfo->unreadMessages(),
-                      QLocale().toString(mChannelCounterInfo->unreadFrom().toLocalTime()),
-                      QStringLiteral(" <a href=\"markAsRead\">%1</a>").arg(i18n("(Mark as Read)")),
-                      QStringLiteral("<a href=\"gotofirstunreadmessage\">%1</a>").arg(i18n("(Jump to first Unread)"))));
+                      QLocale().toString(mChannelCounterInfo->unreadFrom().toLocalTime())));
         setVisible(true); // FIXME: AnimateShow create some pb. Need to investigate it
     } else {
-        setVisible(false);
-    }
-}
-
-void RoomCounterInfoWidget::slotLinkActivated(const QString &contents)
-{
-    if (contents == "markAsRead"_L1) {
-        Q_EMIT markAsRead();
-    } else if (contents == "gotofirstunreadmessage"_L1) {
-        Q_EMIT jumpToUnreadMessage(mChannelCounterInfo->unreadMessages());
         setVisible(false);
     }
 }

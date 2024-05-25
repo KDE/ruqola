@@ -26,6 +26,5 @@ Q_SIGNALS:
 
 private:
     LIBRUQOLAWIDGETS_NO_EXPORT void updateInfo();
-    LIBRUQOLAWIDGETS_NO_EXPORT void slotLinkActivated(const QString &contents);
     const ChannelCounterInfo *mChannelCounterInfo = nullptr;
 };
