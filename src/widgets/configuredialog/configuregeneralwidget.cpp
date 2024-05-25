@@ -12,17 +12,17 @@
 
 ConfigureGeneralWidget::ConfigureGeneralWidget(QWidget *parent)
     : QWidget(parent)
-    , mSetOnlineForAllAccount(new QCheckBox(i18n("Set accounts online on startup"), this))
-    , mShowImageByDefault(new QCheckBox(i18n("Show images by default"), this))
-    , mShowPreviewUrlByDefault(new QCheckBox(i18n("Show preview url by default"), this))
-    , mMarkAsReadOnTextClicked(new QCheckBox(i18n("Mark room as read when clicking to write a reply"), this))
+    , mSetOnlineForAllAccount(new QCheckBox(i18n("Set status to \"Online\" on startup"), this))
+    , mShowImageByDefault(new QCheckBox(i18n("Enable image previews"), this))
+    , mShowPreviewUrlByDefault(new QCheckBox(i18n("Enable URL previews"), this))
+    , mMarkAsReadOnTextClicked(new QCheckBox(i18n("Mark channel as read when writing a reply"), this))
     , mEnableSystemTray(new QCheckBox(i18n("Enable system tray icon"), this))
     , mEnableLogging(new QCheckBox(i18n("Enable logging"), this))
-    , mShowHoverHightLights(new QCheckBox(i18n("Show hover highlights"), this))
-    , mAnimateGif(new QCheckBox(i18n("Animate Gif Image"), this))
-    , mStoreMessageInDataBase(new QCheckBox(i18n("Use local dataBase (experimental)"), this))
+    , mShowHoverHightLights(new QCheckBox(i18n("Highlight messages when hovering"), this))
+    , mAnimateGif(new QCheckBox(i18n("Animate GIFs"), this))
+    , mStoreMessageInDataBase(new QCheckBox(i18n("Enable experimental local database"), this))
 #if HAVE_ACTIVITY_SUPPORT
-    , mEnabledActivitySupport(new QCheckBox(i18n("Enable Plasma Activities"), this))
+    , mEnabledActivitySupport(new QCheckBox(i18n("Enable Plasma Activities integration"), this))
 #endif
 {
     auto mainLayout = new QVBoxLayout(this);
