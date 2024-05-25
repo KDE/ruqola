@@ -69,7 +69,7 @@ ConfigureSettingsDialog::ConfigureSettingsDialog(QWidget *parent)
     mConfigureGeneralWidgetPage->setIcon(QIcon::fromTheme(QStringLiteral("ruqola")));
     addPage(mConfigureGeneralWidgetPage);
 
-    const QString accountPageName = i18nc("@title Preferences page name", "Account");
+    const QString accountPageName = i18nc("@title Preferences page name", "Accounts");
     mConfigureAccountWidgetPage = new KPageWidgetItem(mConfigureAccountWidget, accountPageName);
     mConfigureAccountWidgetPage->setIcon(QIcon::fromTheme(QStringLiteral("network-workgroup")));
     addPage(mConfigureAccountWidgetPage);
@@ -80,9 +80,9 @@ ConfigureSettingsDialog::ConfigureSettingsDialog(QWidget *parent)
     addPage(mConfigureFontWidgetPage);
 
 #if HAVE_TEXT_AUTOCORRECTION_WIDGETS
-    const QString autoCorrectionPageName = i18nc("@title AutoCorrection page name", "AutoCorrection");
+    const QString autoCorrectionPageName = i18nc("@title AutoCorrection page name", "Auto-Correction");
     mConfigureAutoCorrectionWidgetPage = new KPageWidgetItem(mConfigureAutoCorrectionWidget, autoCorrectionPageName);
-    // TODO add icon mConfigureAutoCorrectionWidgetPage->setIcon(QIcon::fromTheme(QStringLiteral("font")));
+    mConfigureAutoCorrectionWidgetPage->setIcon(QIcon::fromTheme(QStringLiteral("autocorrection-symbolic")));
     addPage(mConfigureAutoCorrectionWidgetPage);
 #endif
 
@@ -92,7 +92,7 @@ ConfigureSettingsDialog::ConfigureSettingsDialog(QWidget *parent)
     addPage(mConfigureSpellCheckingWidgetPage);
 
 #if HAVE_TEXT_TRANSLATOR
-    const QString translatePageName = i18nc("@title Preferences page name", "Translate");
+    const QString translatePageName = i18nc("@title Preferences page name", "Translation");
     mConfigureTranslateWidgetPage = new KPageWidgetItem(mConfigureTranslateWidget, translatePageName);
     mConfigureTranslateWidgetPage->setIcon(QIcon::fromTheme(QStringLiteral("network-workgroup")));
     addPage(mConfigureTranslateWidgetPage);
