@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-05-24 00:39+0000\n"
+"POT-Creation-Date: 2024-05-25 00:38+0000\n"
 "PO-Revision-Date: 2023-11-24 12:18+0300\n"
 "Last-Translator: Olesya Gerasimenko <translation-team@basealt.ru>\n"
 "Language-Team: Basealt Translation Team\n"
@@ -2576,7 +2576,7 @@ msgstr ""
 #: widgets/dialogs/createnewchannelwidget.cpp:33
 #: widgets/dialogs/directchannelinfowidget.cpp:88
 #: widgets/myaccount/myaccountpersonalaccesscreatewidget.cpp:28
-#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:55
+#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:62
 #, kde-format
 msgid "Name:"
 msgstr "Имя:"
@@ -3532,7 +3532,7 @@ msgstr "Проверено"
 #: widgets/administratordialog/users/administratoradduserwidget.cpp:60
 #: widgets/dialogs/directchannelinfowidget.cpp:95
 #: widgets/dialogs/serverinfo/serverinfowidget.cpp:39
-#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:60
+#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:67
 #: widgets/registeruser/registeruserwidget.cpp:29
 #, kde-format
 msgid "Username:"
@@ -3546,7 +3546,7 @@ msgstr "Сообщение статуса:"
 #: widgets/administratordialog/users/administratoradduserwidget.cpp:62
 #: widgets/dialogs/directchannelinfowidget.cpp:166
 #: widgets/dialogs/resetpasswordwidget.cpp:23
-#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:66
+#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:74
 #: widgets/registeruser/registeruserwidget.cpp:33
 #, kde-format
 msgid "Email:"
@@ -3567,7 +3567,7 @@ msgid "Bio:"
 msgstr "Био:"
 
 #: widgets/administratordialog/users/administratoradduserwidget.cpp:66
-#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:73
+#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:82
 #, kde-format
 msgid "Nickname:"
 msgstr "Псевдоним:"
@@ -8774,49 +8774,49 @@ msgstr "Указание адреса аватара:"
 msgid "Change URL for avatar…"
 msgstr "Изменить адрес аватара…"
 
-#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:29
+#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:30
 #, kde-format
 msgid "Your administrator has disabled the changing of email."
 msgstr ""
 
-#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:32
+#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:33
 #, kde-format
 msgid "Your administrator has disabled the changing of usernames."
 msgstr ""
 
-#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:35
+#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:36
 #, kde-format
 msgid "Your administrator has disabled the changing of status messages."
 msgstr ""
 
-#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:36
+#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:37
 #, kde-format
 msgid "Delete my Account"
 msgstr "Удалить мою учётную запись"
 
-#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:37
+#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:38
 #, kde-format
 msgid "Logout From Other Logged In Locations"
 msgstr "Выйти из других расположений, куда был совершён вход"
 
-#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:78
+#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:87
 #, kde-format
 msgid "Status text:"
 msgstr "Текст статуса:"
 
-#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:115
+#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:125
 #, kde-format
 msgid "Do you really delete your account ?"
 msgstr "Удалить вашу учётную запись?"
 
-#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:116
+#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:126
 #, kde-format
 msgctxt "@title"
 msgid "Delete my Account"
 msgstr "Удаление учётной записи"
 
-#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:122
-#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:189
+#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:132
+#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:199
 #, kde-format
 msgid "Current Password"
 msgstr "Текущий пароль"

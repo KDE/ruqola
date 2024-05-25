@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-05-24 00:39+0000\n"
+"POT-Creation-Date: 2024-05-25 00:38+0000\n"
 "PO-Revision-Date: 2024-02-03 02:20+0200\n"
 "Last-Translator: Moo\n"
 "Language-Team: none\n"
@@ -2620,7 +2620,7 @@ msgstr ""
 #: widgets/dialogs/createnewchannelwidget.cpp:33
 #: widgets/dialogs/directchannelinfowidget.cpp:88
 #: widgets/myaccount/myaccountpersonalaccesscreatewidget.cpp:28
-#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:55
+#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:62
 #, kde-format
 msgid "Name:"
 msgstr "Pavadinimas:"
@@ -3658,7 +3658,7 @@ msgstr ""
 #: widgets/administratordialog/users/administratoradduserwidget.cpp:60
 #: widgets/dialogs/directchannelinfowidget.cpp:95
 #: widgets/dialogs/serverinfo/serverinfowidget.cpp:39
-#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:60
+#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:67
 #: widgets/registeruser/registeruserwidget.cpp:29
 #, kde-format
 msgid "Username:"
@@ -3674,7 +3674,7 @@ msgstr "1 žinutė"
 #: widgets/administratordialog/users/administratoradduserwidget.cpp:62
 #: widgets/dialogs/directchannelinfowidget.cpp:166
 #: widgets/dialogs/resetpasswordwidget.cpp:23
-#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:66
+#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:74
 #: widgets/registeruser/registeruserwidget.cpp:33
 #, kde-format
 msgid "Email:"
@@ -3695,7 +3695,7 @@ msgid "Bio:"
 msgstr ""
 
 #: widgets/administratordialog/users/administratoradduserwidget.cpp:66
-#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:73
+#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:82
 #, fuzzy, kde-format
 #| msgid "Name:"
 msgid "Nickname:"
@@ -8754,53 +8754,53 @@ msgstr "Slaptažodis"
 msgid "Change URL for avatar…"
 msgstr ""
 
-#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:29
+#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:30
 #, kde-format
 msgid "Your administrator has disabled the changing of email."
 msgstr ""
 
-#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:32
+#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:33
 #, kde-format
 msgid "Your administrator has disabled the changing of usernames."
 msgstr ""
 
-#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:35
+#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:36
 #, kde-format
 msgid "Your administrator has disabled the changing of status messages."
 msgstr ""
 
-#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:36
+#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:37
 #, fuzzy, kde-format
 #| msgid "Delete Account"
 msgid "Delete my Account"
 msgstr "Ištrinti paskyrą"
 
-#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:37
+#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:38
 #, kde-format
 msgid "Logout From Other Logged In Locations"
 msgstr ""
 
-#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:78
+#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:87
 #, fuzzy, kde-format
 #| msgid "Status Text:"
 msgid "Status text:"
 msgstr "Būsenos tekstas:"
 
-#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:115
+#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:125
 #, fuzzy, kde-format
 #| msgid "Do you want to delete '%1' account?"
 msgid "Do you really delete your account ?"
 msgstr "Ar norite ištrinti paskyrą \"%1\"?"
 
-#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:116
+#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:126
 #, fuzzy, kde-format
 #| msgid "Delete Account"
 msgctxt "@title"
 msgid "Delete my Account"
 msgstr "Ištrinti paskyrą"
 
-#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:122
-#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:189
+#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:132
+#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:199
 #, fuzzy, kde-format
 #| msgid "Password"
 msgid "Current Password"

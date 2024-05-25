@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-05-24 00:39+0000\n"
-"PO-Revision-Date: 2024-05-23 12:48+0200\n"
+"POT-Creation-Date: 2024-05-25 00:38+0000\n"
+"PO-Revision-Date: 2024-05-24 18:29+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca\n"
@@ -1400,15 +1400,13 @@ msgid "%1 denied the OTR session."
 msgstr "%1 ha denegat la sessió OTR."
 
 #: core/receivetypingnotificationmanager.cpp:58
-#, fuzzy, kde-format
-#| msgid "<strong>%1</strong> is typing..."
+#, kde-format
 msgctxt "We need a space between after </strong>"
 msgid "<strong>%1</strong> is typing..."
 msgstr "<strong>%1</strong> està escrivint..."
 
 #: core/receivetypingnotificationmanager.cpp:72
-#, fuzzy, kde-format
-#| msgid "<strong>%1</strong> are typing..."
+#, kde-format
 msgctxt "We need a space between after </strong>"
 msgid "<strong>%1</strong> are typing..."
 msgstr "<strong>%1</strong> estan escrivint..."
@@ -2516,7 +2514,7 @@ msgstr ""
 #: widgets/dialogs/createnewchannelwidget.cpp:33
 #: widgets/dialogs/directchannelinfowidget.cpp:88
 #: widgets/myaccount/myaccountpersonalaccesscreatewidget.cpp:28
-#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:55
+#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:62
 #, kde-format
 msgid "Name:"
 msgstr "Nom:"
@@ -3457,7 +3455,7 @@ msgstr "Verificat"
 #: widgets/administratordialog/users/administratoradduserwidget.cpp:60
 #: widgets/dialogs/directchannelinfowidget.cpp:95
 #: widgets/dialogs/serverinfo/serverinfowidget.cpp:39
-#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:60
+#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:67
 #: widgets/registeruser/registeruserwidget.cpp:29
 #, kde-format
 msgid "Username:"
@@ -3471,7 +3469,7 @@ msgstr "Missatge d'estat:"
 #: widgets/administratordialog/users/administratoradduserwidget.cpp:62
 #: widgets/dialogs/directchannelinfowidget.cpp:166
 #: widgets/dialogs/resetpasswordwidget.cpp:23
-#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:66
+#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:74
 #: widgets/registeruser/registeruserwidget.cpp:33
 #, kde-format
 msgid "Email:"
@@ -3492,7 +3490,7 @@ msgid "Bio:"
 msgstr "Biografia:"
 
 #: widgets/administratordialog/users/administratoradduserwidget.cpp:66
-#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:73
+#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:82
 #, kde-format
 msgid "Nickname:"
 msgstr "Sobrenom:"
@@ -8479,51 +8477,49 @@ msgstr "Defineix l'URL de l'avatar:"
 msgid "Change URL for avatar…"
 msgstr "Canvia l'URL de l'avatar…"
 
-#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:29
+#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:30
 #, kde-format
 msgid "Your administrator has disabled the changing of email."
 msgstr "L'administrador ha desactivat el canvi del correu electrònic."
 
-#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:32
-#, fuzzy, kde-format
-#| msgid "Your administrator has disabled the changing of email."
+#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:33
+#, kde-format
 msgid "Your administrator has disabled the changing of usernames."
-msgstr "L'administrador ha desactivat el canvi del correu electrònic."
-
-#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:35
-#, fuzzy, kde-format
-#| msgid "Your administrator has disabled the changing of email."
-msgid "Your administrator has disabled the changing of status messages."
-msgstr "L'administrador ha desactivat el canvi del correu electrònic."
+msgstr "L'administrador ha desactivat el canvi de noms d'usuari."
 
 #: widgets/myaccount/myaccountprofileconfigurewidget.cpp:36
+#, kde-format
+msgid "Your administrator has disabled the changing of status messages."
+msgstr "L'administrador ha desactivat el canvi del missatge d'estat."
+
+#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:37
 #, kde-format
 msgid "Delete my Account"
 msgstr "Suprimeix el meu compte"
 
-#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:37
+#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:38
 #, kde-format
 msgid "Logout From Other Logged In Locations"
 msgstr "Desconnecta des d'altres ubicacions connectades"
 
-#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:78
+#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:87
 #, kde-format
 msgid "Status text:"
 msgstr "Text de l'estat:"
 
-#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:115
+#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:125
 #, kde-format
 msgid "Do you really delete your account ?"
 msgstr "Esteu segur de suprimir el vostre compte?"
 
-#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:116
+#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:126
 #, kde-format
 msgctxt "@title"
 msgid "Delete my Account"
 msgstr "Supressió del meu compte"
 
-#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:122
-#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:189
+#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:132
+#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:199
 #, kde-format
 msgid "Current Password"
 msgstr "Contrasenya actual"
@@ -10005,7 +10001,7 @@ msgstr "Implementa la notificació de so de sala nova."
 
 #: widgets/whatsnew/whatsnewwidgettranslation.h:78
 msgid "Implement Sorted/Unsorted markdown list."
-msgstr ""
+msgstr "Implementa la llista ordenada/desordenada en Markdown."
 
 #: widgets/whatsnew/whatsnewwidgettranslation.h:83
 msgid "Fix dark mode support."

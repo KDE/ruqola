@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-05-24 00:39+0000\n"
-"PO-Revision-Date: 2024-05-23 11:41+0200\n"
+"POT-Creation-Date: 2024-05-25 00:38+0000\n"
+"PO-Revision-Date: 2024-05-24 06:55+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
@@ -1407,18 +1407,16 @@ msgid "%1 denied the OTR session."
 msgstr "%1 je zavrnil sejo OTR."
 
 #: core/receivetypingnotificationmanager.cpp:58
-#, fuzzy, kde-format
-#| msgid "<strong>%1</strong> is typing..."
+#, kde-format
 msgctxt "We need a space between after </strong>"
 msgid "<strong>%1</strong> is typing..."
-msgstr "<strong>%1</strong> vnaša ..."
+msgstr "<strong>%1</strong> ravnokar tipka..."
 
 #: core/receivetypingnotificationmanager.cpp:72
-#, fuzzy, kde-format
-#| msgid "<strong>%1</strong> are typing..."
+#, kde-format
 msgctxt "We need a space between after </strong>"
 msgid "<strong>%1</strong> are typing..."
-msgstr "<strong>%1</strong> vnašajo …"
+msgstr "<strong>%1</strong> tipkajo…"
 
 #: core/rocketchataccount.cpp:2966
 #, kde-format
@@ -2512,7 +2510,7 @@ msgstr "Ime emodžija po meri in njegovi vzdevki morajo biti različni."
 #: widgets/dialogs/createnewchannelwidget.cpp:33
 #: widgets/dialogs/directchannelinfowidget.cpp:88
 #: widgets/myaccount/myaccountpersonalaccesscreatewidget.cpp:28
-#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:55
+#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:62
 #, kde-format
 msgid "Name:"
 msgstr "Ime:"
@@ -3465,7 +3463,7 @@ msgstr "Preverjeno"
 #: widgets/administratordialog/users/administratoradduserwidget.cpp:60
 #: widgets/dialogs/directchannelinfowidget.cpp:95
 #: widgets/dialogs/serverinfo/serverinfowidget.cpp:39
-#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:60
+#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:67
 #: widgets/registeruser/registeruserwidget.cpp:29
 #, kde-format
 msgid "Username:"
@@ -3479,7 +3477,7 @@ msgstr "Sporočilo o stanju:"
 #: widgets/administratordialog/users/administratoradduserwidget.cpp:62
 #: widgets/dialogs/directchannelinfowidget.cpp:166
 #: widgets/dialogs/resetpasswordwidget.cpp:23
-#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:66
+#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:74
 #: widgets/registeruser/registeruserwidget.cpp:33
 #, kde-format
 msgid "Email:"
@@ -3500,7 +3498,7 @@ msgid "Bio:"
 msgstr "Bio:"
 
 #: widgets/administratordialog/users/administratoradduserwidget.cpp:66
-#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:73
+#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:82
 #, kde-format
 msgid "Nickname:"
 msgstr "Vzdevek:"
@@ -8460,51 +8458,49 @@ msgstr "Določi Url avatarja:"
 msgid "Change URL for avatar…"
 msgstr "Spremeni URL za avatar…"
 
-#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:29
+#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:30
 #, kde-format
 msgid "Your administrator has disabled the changing of email."
 msgstr "Vaš skrbnik je onemogočil spreminjanje naslova e-pošte."
 
-#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:32
-#, fuzzy, kde-format
-#| msgid "Your administrator has disabled the changing of email."
+#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:33
+#, kde-format
 msgid "Your administrator has disabled the changing of usernames."
-msgstr "Vaš skrbnik je onemogočil spreminjanje naslova e-pošte."
-
-#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:35
-#, fuzzy, kde-format
-#| msgid "Your administrator has disabled the changing of email."
-msgid "Your administrator has disabled the changing of status messages."
-msgstr "Vaš skrbnik je onemogočil spreminjanje naslova e-pošte."
+msgstr "Vaš skrbnik je onemogočil spreminjanje uporabniških imen."
 
 #: widgets/myaccount/myaccountprofileconfigurewidget.cpp:36
+#, kde-format
+msgid "Your administrator has disabled the changing of status messages."
+msgstr "Vaš skrbnik je onemogočil spreminjanje sporočil o stanju."
+
+#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:37
 #, kde-format
 msgid "Delete my Account"
 msgstr "Izbriši moj račun"
 
-#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:37
+#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:38
 #, kde-format
 msgid "Logout From Other Logged In Locations"
 msgstr "Odjava iz drugih prijavljenih mest"
 
-#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:78
+#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:87
 #, kde-format
 msgid "Status text:"
 msgstr "Besedilo stanja:"
 
-#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:115
+#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:125
 #, kde-format
 msgid "Do you really delete your account ?"
 msgstr "Ali res želite izbrisati svoj račun?"
 
-#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:116
+#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:126
 #, kde-format
 msgctxt "@title"
 msgid "Delete my Account"
 msgstr "Izbriši moj račun"
 
-#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:122
-#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:189
+#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:132
+#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:199
 #, kde-format
 msgid "Current Password"
 msgstr "Trenutno geslo"
@@ -9987,7 +9983,7 @@ msgstr "Izvedi zvočno obvestilo o novi sobi."
 
 #: widgets/whatsnew/whatsnewwidgettranslation.h:78
 msgid "Implement Sorted/Unsorted markdown list."
-msgstr ""
+msgstr "Izpelji markdown seznam razvrščeno/nerazvrščeno."
 
 #: widgets/whatsnew/whatsnewwidgettranslation.h:83
 msgid "Fix dark mode support."
