@@ -74,6 +74,9 @@ void WhatsNewWidget::slotVersionChanged(WhatsNewComboBoxWidget::VersionType type
     } else if (type == WhatsNewComboBoxWidget::Version2_2) {
         const QString message = generateStartEndHtml(createVersionInformationsV2_2());
         mLabelInfo->setHtml(message);
+    } else if (type == WhatsNewComboBoxWidget::Version2_3) {
+        // TODO
+        mLabelInfo->clear();
     } else if (type == WhatsNewComboBoxWidget::AllVersion) {
         QString message = generateVersionHeader(WhatsNewComboBoxWidget::Version2_2);
         message += createVersionInformationsV2_2();
@@ -182,6 +185,7 @@ QString WhatsNewWidget::generateVersionHeader(WhatsNewComboBoxWidget::VersionTyp
     case WhatsNewComboBoxWidget::VersionType::Version2_0:
     case WhatsNewComboBoxWidget::VersionType::Version2_1:
     case WhatsNewComboBoxWidget::VersionType::Version2_2:
+    case WhatsNewComboBoxWidget::VersionType::Version2_3:
         return QStringLiteral("<h1><i> %1 </i></h1><hr/><br>").arg(WhatsNewComboBoxWidget::convertVersionEnumToString(type));
     }
     return {};
