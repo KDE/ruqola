@@ -20,7 +20,7 @@ AuthenticationButton::~AuthenticationButton() = default;
 void AuthenticationButton::setAuthenticationInfo(const AuthenticationInfo &info)
 {
     mAuthenticationInfo = info;
-    setText(i18nc("@action:button", "Sign in with %1", info.name()));
+    setText(i18nc("@action:button", "Sign in With %1", info.name()));
     setIcon(QIcon::fromTheme(info.iconName()));
 }
 

@@ -34,6 +34,7 @@ AuthenticationLoginWidget::AuthenticationLoginWidget(QWidget *parent)
 
     mAccountName->setObjectName(QStringLiteral("mAccountName"));
     mAccountName->setClearButtonEnabled(true);
+    mAccountName->setPlaceholderText(i18n("My Account"));
     KLineEditEventHandler::catchReturnKey(mAccountName);
     mainLayout->addRow(i18n("Account name:"), mAccountName);
 
@@ -41,7 +42,7 @@ AuthenticationLoginWidget::AuthenticationLoginWidget(QWidget *parent)
     mUserName->setClearButtonEnabled(true);
     mUserName->setPlaceholderText(i18nc("@info:placeholder", "Username or email"));
     KLineEditEventHandler::catchReturnKey(mUserName);
-    mainLayout->addRow(i18n("Username or Email:"), mUserName);
+    mainLayout->addRow(i18n("Username or email:"), mUserName);
 
     mPasswordLineEditWidget->setObjectName(QStringLiteral("mPasswordLineEdit"));
     mainLayout->addRow(i18n("Password:"), mPasswordLineEditWidget);

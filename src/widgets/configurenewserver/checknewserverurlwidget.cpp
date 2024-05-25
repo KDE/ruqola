@@ -22,7 +22,7 @@ CheckNewServerUrlWidget::CheckNewServerUrlWidget(QWidget *parent)
     , mServerUrl(new QLineEdit(this))
     , mBusyIndicatorWidget(new KBusyIndicatorWidget(this))
     , mFailedError(new KMessageWidget(this))
-    , mConnectionPushButton(new QPushButton(i18nc("@action:button", "Connection"), this))
+    , mConnectionPushButton(new QPushButton(i18nc("@action:button", "Connect"), this))
 {
     auto topLayout = new QVBoxLayout(this);
     topLayout->setObjectName(QStringLiteral("topLayout"));
@@ -33,15 +33,17 @@ CheckNewServerUrlWidget::CheckNewServerUrlWidget(QWidget *parent)
     serverUrlLayout->setContentsMargins({});
     topLayout->addLayout(serverUrlLayout);
 
-    auto label = new QLabel(i18nc("@label:textbox", "Server Url:"), this);
+    auto label = new QLabel(i18nc("@label:textbox", "Server URL:"), this);
     label->setObjectName(QStringLiteral("label"));
     serverUrlLayout->addWidget(label);
 
     mServerUrl->setObjectName(QStringLiteral("mServerUrl"));
+    mServerUrl->setPlaceholderText(QStringLiteral("open.rocket.chat"));
     serverUrlLayout->addWidget(mServerUrl);
     mServerUrl->setClearButtonEnabled(true);
     KLineEditEventHandler::catchReturnKey(mServerUrl);
 
+    mConnectionPushButton->setIcon(QIcon::fromTheme(QStringLiteral("network-connect-symbolic")));
     mConnectionPushButton->setObjectName(QStringLiteral("connectionPushButton"));
     mConnectionPushButton->setEnabled(false);
     serverUrlLayout->addWidget(mConnectionPushButton);
@@ -89,7 +91,7 @@ void CheckNewServerUrlWidget::slotTestConnection()
         connect(ddpClient, &DDPClient::wsClosedSocketError, this, [this, ddpClient, account]() {
             mBusyIndicatorWidget->hide();
             mConnectionPushButton->setEnabled(true);
-            slotErrorConnection();
+            slotErrorConnection(i18n("Socket was unexpectedly closed."));
             ddpClient->deleteLater();
             account->deleteLater();
         });
@@ -98,7 +100,7 @@ void CheckNewServerUrlWidget::slotTestConnection()
             Q_UNUSED(strError);
             mConnectionPushButton->setEnabled(true);
             mBusyIndicatorWidget->hide();
-            slotErrorConnection();
+            slotErrorConnection(strError);
             ddpClient->deleteLater();
             account->deleteLater();
         });
@@ -124,9 +126,9 @@ void CheckNewServerUrlWidget::slotTestConnection()
     }
 }
 
-void CheckNewServerUrlWidget::slotErrorConnection()
+void CheckNewServerUrlWidget::slotErrorConnection(const QString &message)
 {
-    mFailedError->setText(i18n("Impossible to access to server."));
+    mFailedError->setText(i18n("Failed to connect to server: %1", message));
     mFailedError->animatedShow();
 }
 
