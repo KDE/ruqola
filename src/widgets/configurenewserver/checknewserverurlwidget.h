@@ -31,7 +31,7 @@ Q_SIGNALS:
 
 private:
     LIBRUQOLAWIDGETS_NO_EXPORT void slotTestConnection();
-    LIBRUQOLAWIDGETS_NO_EXPORT void slotErrorConnection();
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotErrorConnection(const QString &message);
     QLineEdit *const mServerUrl;
     KBusyIndicatorWidget *const mBusyIndicatorWidget;
     KMessageWidget *const mFailedError;
