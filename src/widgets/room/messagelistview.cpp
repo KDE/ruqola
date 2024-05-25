@@ -299,11 +299,13 @@ void MessageListView::contextMenuEvent(QContextMenuEvent *event)
     }
 
     auto selectAllAction = new QAction(i18nc("@action", "Select All"), &menu);
+    selectAllAction->setIcon(QIcon::fromTheme(QStringLiteral("edit-select-all-symbolic")));
     connect(selectAllAction, &QAction::triggered, this, [this, index]() {
         slotSelectAll(index);
     });
 
     auto markMessageAsUnReadAction = new QAction(i18nc("@action", "Mark Message As Unread"), &menu);
+    markMessageAsUnReadAction->setIcon(QIcon::fromTheme(QStringLiteral("checkmark-symbolic")));
     connect(markMessageAsUnReadAction, &QAction::triggered, this, [this, index]() {
         slotMarkMessageAsUnread(index);
     });
@@ -323,12 +325,12 @@ void MessageListView::contextMenuEvent(QContextMenuEvent *event)
         slotQuoteMessage(index);
     });
 
-    auto copyLinkToMessageAction = new QAction(i18nc("@action", "Copy Link To Message"), &menu); // TODO add icon
+    auto copyLinkToMessageAction = new QAction(QIcon::fromTheme(QStringLiteral("edit-copy")), i18nc("@action", "Copy Link To Message"), &menu);
     connect(copyLinkToMessageAction, &QAction::triggered, this, [this, index]() {
         slotCopyLinkToMessage(index);
     });
 
-    auto forwardMessageAction = new QAction(i18nc("@action", "Forward Message"), &menu); // TODO add icon
+    auto forwardMessageAction = new QAction(QIcon::fromTheme(QStringLiteral("mail-forward-symbolic")), i18nc("@action", "Forward Message"), &menu);
     connect(forwardMessageAction, &QAction::triggered, this, [this, index]() {
         slotForwardMessage(index);
     });
@@ -386,6 +388,7 @@ void MessageListView::contextMenuEvent(QContextMenuEvent *event)
             if (info.roomType != Room::RoomType::Direct) {
                 if (mCurrentRocketChatAccount->hasPermission(QStringLiteral("create-d"))) {
                     auto startPrivateConversationAction = new QAction(i18nc("@action", "Start a Private Conversation"), &menu);
+                    startPrivateConversationAction->setIcon(QIcon::fromTheme(QStringLiteral("document-send-symbolic")));
                     connect(startPrivateConversationAction, &QAction::triggered, this, [this, url]() {
                         slotStartPrivateConversation(url);
                     });
@@ -409,6 +412,7 @@ void MessageListView::contextMenuEvent(QContextMenuEvent *event)
         menu.addSeparator();
         if (mCurrentRocketChatAccount->threadsEnabled()) {
             auto replyInThreadAction = new QAction(i18nc("@action", "Reply in Thread"), &menu);
+            replyInThreadAction->setIcon(QIcon::fromTheme(QStringLiteral("mail-replied-symbolic")));
             connect(replyInThreadAction, &QAction::triggered, this, [this, index]() {
                 slotReplyInThread(index);
             });
@@ -597,7 +601,7 @@ void MessageListView::contextMenuEvent(QContextMenuEvent *event)
 
 #if HAVE_TEXT_TO_SPEECH
     createSeparator(menu);
-    auto speakAction = menu.addAction(QIcon::fromTheme(QStringLiteral("preferences-desktop-text-to-speech")), i18n("Speak Text"));
+    auto speakAction = menu.addAction(QIcon::fromTheme(QStringLiteral("text-speak-symbolic")), i18n("Speak Text"));
     connect(speakAction, &QAction::triggered, this, [this, index]() {
         slotTextToSpeech(index);
     });

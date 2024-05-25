@@ -192,8 +192,7 @@ void ChannelListView::contextMenuEvent(QContextMenuEvent *event)
 
         if (room) {
             menu.addSeparator();
-            auto configureNotificationChannel =
-                new QAction(QIcon::fromTheme(QStringLiteral("preferences-desktop-notification")), i18n("Configure Notification…"), &menu);
+            auto configureNotificationChannel = new QAction(QIcon::fromTheme(QStringLiteral("notifications-symbolic")), i18n("Configure Notification…"), &menu);
             connect(configureNotificationChannel, &QAction::triggered, this, [this, room]() {
                 slotConfigureNotification(room);
             });
