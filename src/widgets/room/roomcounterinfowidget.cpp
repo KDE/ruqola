@@ -15,16 +15,14 @@ RoomCounterInfoWidget::RoomCounterInfoWidget(QWidget *parent)
     setMessageType(Information);
     setPosition(KMessageWidget::Header);
 
-    auto jumpToFirstUnreadAction = new QAction(i18nc("@action:button", "Jump to First Unread"));
-    jumpToFirstUnreadAction->setIcon(QIcon::fromTheme(QStringLiteral("go-jump-locationbar")));
+    auto jumpToFirstUnreadAction = new QAction(QIcon::fromTheme(QStringLiteral("go-jump-locationbar")), i18nc("@action:button", "Jump to First Unread"));
     connect(jumpToFirstUnreadAction, &QAction::triggered, this, [this] {
         Q_EMIT jumpToUnreadMessage(mChannelCounterInfo->unreadMessages());
         setVisible(false);
     });
     addAction(jumpToFirstUnreadAction);
 
-    auto markAsReadAction = new QAction(i18nc("@action:button", "Mark as Read"));
-    markAsReadAction->setIcon(QIcon::fromTheme(QStringLiteral("checkmark-symbolic")));
+    auto markAsReadAction = new QAction(QIcon::fromTheme(QStringLiteral("checkmark-symbolic")), i18nc("@action:button", "Mark as Read"));
     connect(markAsReadAction, &QAction::triggered, this, [this] {
         Q_EMIT markAsRead();
     });

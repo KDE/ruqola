@@ -298,14 +298,12 @@ void MessageListView::contextMenuEvent(QContextMenuEvent *event)
         });
     }
 
-    auto selectAllAction = new QAction(i18nc("@action", "Select All"), &menu);
-    selectAllAction->setIcon(QIcon::fromTheme(QStringLiteral("edit-select-all-symbolic")));
+    auto selectAllAction = new QAction(QIcon::fromTheme(QStringLiteral("edit-select-all-symbolic")), i18nc("@action", "Select All"), &menu);
     connect(selectAllAction, &QAction::triggered, this, [this, index]() {
         slotSelectAll(index);
     });
 
-    auto markMessageAsUnReadAction = new QAction(i18nc("@action", "Mark Message As Unread"), &menu);
-    markMessageAsUnReadAction->setIcon(QIcon::fromTheme(QStringLiteral("checkmark-symbolic")));
+    auto markMessageAsUnReadAction = new QAction(QIcon::fromTheme(QStringLiteral("checkmark-symbolic")), i18nc("@action", "Mark Message As Unread"), &menu);
     connect(markMessageAsUnReadAction, &QAction::triggered, this, [this, index]() {
         slotMarkMessageAsUnread(index);
     });
@@ -387,8 +385,8 @@ void MessageListView::contextMenuEvent(QContextMenuEvent *event)
         if (info.editMode) {
             if (info.roomType != Room::RoomType::Direct) {
                 if (mCurrentRocketChatAccount->hasPermission(QStringLiteral("create-d"))) {
-                    auto startPrivateConversationAction = new QAction(i18nc("@action", "Start a Private Conversation"), &menu);
-                    startPrivateConversationAction->setIcon(QIcon::fromTheme(QStringLiteral("document-send-symbolic")));
+                    auto startPrivateConversationAction =
+                        new QAction(QIcon::fromTheme(QStringLiteral("document-send-symbolic")), i18nc("@action", "Start a Private Conversation"), &menu);
                     connect(startPrivateConversationAction, &QAction::triggered, this, [this, url]() {
                         slotStartPrivateConversation(url);
                     });
@@ -411,8 +409,7 @@ void MessageListView::contextMenuEvent(QContextMenuEvent *event)
         menu.addAction(startDiscussion);
         menu.addSeparator();
         if (mCurrentRocketChatAccount->threadsEnabled()) {
-            auto replyInThreadAction = new QAction(i18nc("@action", "Reply in Thread"), &menu);
-            replyInThreadAction->setIcon(QIcon::fromTheme(QStringLiteral("mail-replied-symbolic")));
+            auto replyInThreadAction = new QAction(QIcon::fromTheme(QStringLiteral("mail-replied-symbolic")), i18nc("@action", "Reply in Thread"), &menu);
             connect(replyInThreadAction, &QAction::triggered, this, [this, index]() {
                 slotReplyInThread(index);
             });
