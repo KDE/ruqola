@@ -81,6 +81,7 @@ MessageLineWidget::MessageLineWidget(QWidget *parent)
 
     mSoundMessageButton->setAutoRaise(true);
     mSoundMessageButton->setObjectName(QStringLiteral("mSoundMessageButton"));
+    mSoundMessageButton->setToolTip(i18nc("@info:tooltip", "Send a sound message…"));
 #ifndef QT_NO_ACCESSIBILITY
     mSoundMessageButton->setAccessibleName(i18n("Sound Message"));
 #endif
@@ -246,7 +247,7 @@ QString MessageLineWidget::quoteText() const
 
 void MessageLineWidget::setRoomName(const QString &roomName, bool thread)
 {
-    mMessageTextEdit->setPlaceholderText(thread ? i18n("Message %1 in thread", roomName) : i18n("Message %1", roomName));
+    mMessageTextEdit->setPlaceholderText(thread ? i18n("Message %1 in thread", roomName) : i18n("Send a message in %1…", roomName));
 }
 
 QString MessageLineWidget::quotePermalink() const
