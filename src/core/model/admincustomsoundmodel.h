@@ -34,7 +34,7 @@ public:
     void addMoreElements(const QJsonObject &obj) override;
     [[nodiscard]] QList<int> hideColumns() const override;
 
-    const CustomSoundsInfo &customSounds() const;
+    [[nodiscard]] const CustomSoundsInfo &customSounds() const;
     void setCustomSounds(const CustomSoundsInfo &newCustomSounds);
 
     void removeElement(const QByteArray &identifier) override;

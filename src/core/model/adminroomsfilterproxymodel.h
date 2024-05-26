@@ -32,7 +32,7 @@ public:
     void setFilterRooms(AdminRoomsFilterProxyModel::FilterRooms filters);
 
 protected:
-    bool filterAcceptsRow(int source_row, const QModelIndex &source_parent) const override;
+    [[nodiscard]] bool filterAcceptsRow(int source_row, const QModelIndex &source_parent) const override;
 
 private:
     AdminRoomsFilterProxyModel::FilterRooms mFilters = FilterRoom::All;

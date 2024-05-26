@@ -32,7 +32,7 @@ public:
     [[nodiscard]] int roomsCount() const;
     void setRoomsCount(int adminroomsCount);
 
-    const QList<CustomEmoji> &customSoundInfos() const;
+    [[nodiscard]] const QList<CustomEmoji> &customSoundInfos() const;
     void setCustomSoundInfos(const QList<CustomEmoji> &newCustomSoundInfos);
 
     CustomEmoji takeAt(int index);

@@ -23,7 +23,7 @@ public:
 
     [[nodiscard]] QString translatedStringFromLanguage(const QString &lang) const;
 
-    static QJsonArray serialize(const MessageTranslation &translation);
+    [[nodiscard]] static QJsonArray serialize(const MessageTranslation &translation);
     static MessageTranslation *deserialize(const QJsonArray &o);
 
     [[nodiscard]] bool isEmpty() const;

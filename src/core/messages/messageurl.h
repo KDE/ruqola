@@ -24,8 +24,8 @@ public:
     Q_ENUM(ContentType)
 
     [[nodiscard]] bool operator==(const MessageUrl &other) const;
-    static QJsonObject serialize(const MessageUrl &url);
-    static MessageUrl deserialize(const QJsonObject &o);
+    [[nodiscard]] static QJsonObject serialize(const MessageUrl &url);
+    [[nodiscard]] static MessageUrl deserialize(const QJsonObject &o);
 
     [[nodiscard]] QString url() const;
     void setUrl(const QString &url);

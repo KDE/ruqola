@@ -36,7 +36,7 @@ public:
     [[nodiscard]] QVariant headerData(int section, Qt::Orientation orientation, int role) const override;
     [[nodiscard]] int columnCount(const QModelIndex &parent = QModelIndex()) const override;
 
-    const QList<OauthInfo> &adminOauth() const;
+    [[nodiscard]] const QList<OauthInfo> &adminOauth() const;
     void setAdminOauth(const QList<OauthInfo> &newAdminInvites);
 
     void removeOauth(const QString &identifier);
