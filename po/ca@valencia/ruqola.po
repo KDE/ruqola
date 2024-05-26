@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-05-25 00:38+0000\n"
+"POT-Creation-Date: 2024-05-26 00:38+0000\n"
 "PO-Revision-Date: 2024-05-24 18:29+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
@@ -9806,6 +9806,12 @@ msgstr "Versió 2.1"
 msgid "Version 2.2"
 msgstr "Versió 2.2"
 
+#: widgets/whatsnew/whatsnewcomboboxwidget.cpp:57
+#, fuzzy, kde-format
+#| msgid "Version 2.0"
+msgid "Version 2.3"
+msgstr "Versió 2.0"
+
 #: widgets/whatsnew/whatsnewdialog.cpp:25
 #, kde-format
 msgctxt "@title:window"
@@ -9822,18 +9828,18 @@ msgstr "(Mostra les novetats de Ruqola)"
 msgid "What's new in Ruqola. %1"
 msgstr "Què hi ha de nou en Ruqola. %1"
 
-#: widgets/whatsnew/whatsnewwidget.cpp:90
+#: widgets/whatsnew/whatsnewwidget.cpp:95
 #, kde-format
 msgid "Important changes since last version:"
 msgstr "Canvis importants des de l'última versió:"
 
-#: widgets/whatsnew/whatsnewwidget.cpp:95
+#: widgets/whatsnew/whatsnewwidget.cpp:100
 #, kde-format
 msgid "Some of the new features in this release of Ruqola include:"
 msgstr ""
 "Algunes de les característiques noves d'esta versió de Ruqola inclouen:"
 
-#: widgets/whatsnew/whatsnewwidget.cpp:100
+#: widgets/whatsnew/whatsnewwidget.cpp:105
 #, kde-format
 msgid "Some bug fixing:"
 msgstr "Esmena d'errors:"

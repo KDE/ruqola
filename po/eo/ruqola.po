@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-05-25 00:38+0000\n"
-"PO-Revision-Date: 2024-05-23 05:51+0100\n"
+"POT-Creation-Date: 2024-05-26 00:38+0000\n"
+"PO-Revision-Date: 2024-05-25 15:43+0200\n"
 "Last-Translator: Oliver Kellogg <olivermkellogg@gmail.com>\n"
 "Language-Team: Esperanto <kde-i18n-eo.org>\n"
 "Language: eo\n"
@@ -1395,15 +1395,13 @@ msgid "%1 denied the OTR session."
 msgstr "%1 neis la OTR-seancon."
 
 #: core/receivetypingnotificationmanager.cpp:58
-#, fuzzy, kde-format
-#| msgid "<strong>%1</strong> is typing..."
+#, kde-format
 msgctxt "We need a space between after </strong>"
 msgid "<strong>%1</strong> is typing..."
 msgstr "<strong>%1</strong> tajpas..."
 
 #: core/receivetypingnotificationmanager.cpp:72
-#, fuzzy, kde-format
-#| msgid "<strong>%1</strong> are typing..."
+#, kde-format
 msgctxt "We need a space between after </strong>"
 msgid "<strong>%1</strong> are typing..."
 msgstr "<strong>%1</strong> tajpas..."
@@ -8428,16 +8426,14 @@ msgid "Your administrator has disabled the changing of email."
 msgstr "Via administranto malŝaltis la ŝanĝon de retpoŝto."
 
 #: widgets/myaccount/myaccountprofileconfigurewidget.cpp:33
-#, fuzzy, kde-format
-#| msgid "Your administrator has disabled the changing of email."
+#, kde-format
 msgid "Your administrator has disabled the changing of usernames."
-msgstr "Via administranto malŝaltis la ŝanĝon de retpoŝto."
+msgstr "Via administranto malŝaltis la ŝanĝon de uzantnomoj."
 
 #: widgets/myaccount/myaccountprofileconfigurewidget.cpp:36
-#, fuzzy, kde-format
-#| msgid "Your administrator has disabled the changing of email."
+#, kde-format
 msgid "Your administrator has disabled the changing of status messages."
-msgstr "Via administranto malŝaltis la ŝanĝon de retpoŝto."
+msgstr "Via administranto malŝaltis la ŝanĝon de statusmesaĝoj."
 
 #: widgets/myaccount/myaccountprofileconfigurewidget.cpp:37
 #, kde-format
@@ -9750,6 +9746,12 @@ msgstr "Versio 2.1"
 msgid "Version 2.2"
 msgstr "Versio 2.2"
 
+#: widgets/whatsnew/whatsnewcomboboxwidget.cpp:57
+#, fuzzy, kde-format
+#| msgid "Version 2.0"
+msgid "Version 2.3"
+msgstr "Versio 2.0"
+
 #: widgets/whatsnew/whatsnewdialog.cpp:25
 #, kde-format
 msgctxt "@title:window"
@@ -9766,17 +9768,17 @@ msgstr "(Montri Novaĵojn en Ruqola)"
 msgid "What's new in Ruqola. %1"
 msgstr "Kio estas nova en Ruqola. %1"
 
-#: widgets/whatsnew/whatsnewwidget.cpp:90
+#: widgets/whatsnew/whatsnewwidget.cpp:95
 #, kde-format
 msgid "Important changes since last version:"
 msgstr "Gravaj ŝanĝoj ekde la lasta versio:"
 
-#: widgets/whatsnew/whatsnewwidget.cpp:95
+#: widgets/whatsnew/whatsnewwidget.cpp:100
 #, kde-format
 msgid "Some of the new features in this release of Ruqola include:"
 msgstr "Kelkaj el la novaj funkcioj en ĉi tiu eldono de Ruqola inkluzivas:"
 
-#: widgets/whatsnew/whatsnewwidget.cpp:100
+#: widgets/whatsnew/whatsnewwidget.cpp:105
 #, kde-format
 msgid "Some bug fixing:"
 msgstr "Iu eraro korekto:"
@@ -9940,7 +9942,7 @@ msgstr "Realigi Novĉambran Son-Sciigon."
 
 #: widgets/whatsnew/whatsnewwidgettranslation.h:78
 msgid "Implement Sorted/Unsorted markdown list."
-msgstr ""
+msgstr "Realigi Ordigita/Neordigita markdown-listo."
 
 #: widgets/whatsnew/whatsnewwidgettranslation.h:83
 msgid "Fix dark mode support."
