@@ -46,7 +46,6 @@ public:
     [[nodiscard]] QList<PluginText *> pluginsList() const;
 
 private:
-    Q_DISABLE_COPY(TextPluginManager)
     LIBRUQOLAWIDGETS_NO_EXPORT void initializePluginList();
     LIBRUQOLAWIDGETS_NO_EXPORT void loadPlugin(TextPluginManagerInfo *item);
     LIBRUQOLAWIDGETS_NO_EXPORT PluginTextUtilData createPluginMetaData(const KPluginMetaData &metaData);
