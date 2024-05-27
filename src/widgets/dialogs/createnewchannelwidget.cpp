@@ -13,6 +13,7 @@
 #include <KLocalizedString>
 #include <QCheckBox>
 #include <QFormLayout>
+#include <QLabel>
 #include <QLineEdit>
 
 CreateNewChannelWidget::CreateNewChannelWidget(RocketChatAccount *account, QWidget *parent)
@@ -44,6 +45,8 @@ CreateNewChannelWidget::CreateNewChannelWidget(RocketChatAccount *account, QWidg
     mReadOnly->setChecked(false);
     mReadOnly->setToolTip(i18nc("@info:tooltip", "All users in this team can write messages"));
     mMainLayout->addRow(i18n("Read-Only:"), mReadOnly);
+    auto label = new QLabel(i18n("Only authorized users can write new messages"), this);
+    mMainLayout->addWidget(label);
 
     mBroadcast->setObjectName(QStringLiteral("mBroadcast"));
     mBroadcast->setChecked(false);
@@ -53,6 +56,8 @@ CreateNewChannelWidget::CreateNewChannelWidget(RocketChatAccount *account, QWidg
     mPrivate->setObjectName(QStringLiteral("mPrivate"));
     mPrivate->setChecked(false);
     mPrivate->setToolTip(i18nc("@info:tooltip", "Only invited people can join"));
+    label = new QLabel(i18n("Just invited people can access this channel."), this);
+    mMainLayout->addWidget(label);
 
     mMainLayout->addRow(i18n("Private Room:"), mPrivate);
 
