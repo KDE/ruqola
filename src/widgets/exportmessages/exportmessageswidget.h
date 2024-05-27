@@ -21,9 +21,6 @@ public:
 
     [[nodiscard]] RocketChatRestApi::RoomsExportJob::RoomsExportInfo roomExportInfo() const;
 
-    // Q_SIGNALS:
-    //    void updateOkButton(bool state);
-
 private:
     LIBRUQOLAWIDGETS_NO_EXPORT void fillFormat();
     QDateEdit *const mFromDate;
