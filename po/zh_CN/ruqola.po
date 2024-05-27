@@ -14,8 +14,8 @@ msgstr ""
 "X-Crowdin-Project: kdeorg\n"
 "X-Crowdin-Project-ID: 269464\n"
 "X-Crowdin-Language: zh-CN\n"
-"X-Crowdin-File: /kf6-trunk/messages/ruqola/ruqola.pot\n"
-"X-Crowdin-File-ID: 49360\n"
+"X-Crowdin-File: /kf6-stable/messages/ruqola/ruqola.pot\n"
+"X-Crowdin-File-ID: 53692\n"
 
 #: apps/main.cpp:62
 #, kde-format

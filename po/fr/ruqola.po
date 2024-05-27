@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-05-26 02:25+0000\n"
-"PO-Revision-Date: 2024-05-22 09:07+0200\n"
+"PO-Revision-Date: 2024-05-25 14:48+0200\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
 "Language-Team: French <French <kde-francophone@kde.org>>\n"
 "Language: fr\n"
@@ -1397,18 +1397,16 @@ msgid "%1 denied the OTR session."
 msgstr "%1 a refusé la session » OTR »."
 
 #: core/receivetypingnotificationmanager.cpp:58
-#, fuzzy, kde-format
-#| msgid "<strong>%1</strong> is typing..."
+#, kde-format
 msgctxt "We need a space between after </strong>"
 msgid "<strong>%1</strong> is typing..."
-msgstr "<strong>%1</strong>est en train d'écrire un message..."
+msgstr "<strong>%1</strong>est en train d'écrire..."
 
 #: core/receivetypingnotificationmanager.cpp:72
-#, fuzzy, kde-format
-#| msgid "<strong>%1</strong> are typing..."
+#, kde-format
 msgctxt "We need a space between after </strong>"
 msgid "<strong>%1</strong> are typing..."
-msgstr "<strong>%1</strong>sont en train d'écrire un message..."
+msgstr "<strong>%1</strong>sont en train d'écrire..."
 
 #: core/rocketchataccount.cpp:2966
 #, kde-format
@@ -3234,8 +3232,7 @@ msgid "Remove Room"
 msgstr "Supprimer un salon"
 
 #: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:49
-#, fuzzy, kde-format
-#| msgid "Refresh"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Refresh"
 msgstr "Rafraîchir"
@@ -3803,8 +3800,7 @@ msgid "Default Username Prefix Suggestion"
 msgstr "Suggestion d'un préfixe par défaut de nom d'utilisateur"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:181
-#, fuzzy, kde-format
-#| msgid "Comma-separated list of allowed domains"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Comma-separated list of allowed domains"
 msgstr "Une liste séparée par des virgules de tous les domaines autorisés."
@@ -3815,8 +3811,7 @@ msgid "Allowed Domains List"
 msgstr "Liste des domaines autorisés"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:185
-#, fuzzy, kde-format
-#| msgid "Comma-separated list of blocked domains"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Comma-separated list of blocked domains"
 msgstr "Une liste séparée par des virgules de tous les domaines bloqués."
@@ -4094,11 +4089,10 @@ msgid "URL"
 msgstr "URL"
 
 #: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:73
-#, fuzzy, kde-format
-#| msgid "The site id to use for identifying this site. Example: 17"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "The site id to use for identifying this site. Example: 17"
-msgstr "L'identifiant du site pour être identifié sur ce site. Exemple : 17"
+msgstr "L'identifiant du site pour identifier le site. Exemple : 17"
 
 #: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:74
 #, kde-format
@@ -4111,15 +4105,13 @@ msgid "Additional Piwik Sites"
 msgstr "Sites additionnels Piwik"
 
 #: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:80
-#, fuzzy, kde-format
-#| msgid "Prepend the site domain to the page title when tracking"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Prepend the site domain to the page title when tracking"
-msgstr "Préparer le domaine du site au titre de la page lors du suivi"
+msgstr "Préparer le domaine du site au titre de la page lors du suivi."
 
 #: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:85
-#, fuzzy, kde-format
-#| msgid "Track visitors across all subdomains"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Track visitors across all subdomains"
 msgstr "Suivre les visiteurs dans tous les sous-domaines"
@@ -4519,13 +4511,12 @@ msgid "File Uploads Enabled in Direct Messages"
 msgstr "Les envois de fichiers sont activés dans les messages instantanés"
 
 #: widgets/administratorsettingsdialog/fileupload/fileuploadsettingswidget.cpp:35
-#, fuzzy, kde-format
-#| msgid "Set it to -1 to remove the file size limitation."
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Set it to -1 to remove the file size limitation."
 msgstr ""
 "Définissez le à la valeur -1 pour la suppression de la limitation concernant "
-"la taille du fichier."
+"la taille de fichier."
 
 #: widgets/administratorsettingsdialog/fileupload/fileuploadsettingswidget.cpp:37
 #, kde-format
@@ -4533,15 +4524,13 @@ msgid "Maximum File Upload Size (in bytes)"
 msgstr "Taille maximale pour l'envoi de fichiers (En octets)"
 
 #: widgets/administratorsettingsdialog/fileupload/fileuploadsettingswidget.cpp:40
-#, fuzzy, kde-format
-#| msgid "Only authenticated users will have access"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Only authenticated users will have access"
 msgstr "Seules les personnes authentifiées auront un accès."
 
 #: widgets/administratorsettingsdialog/fileupload/fileuploadsettingswidget.cpp:45
-#, fuzzy, kde-format
-#| msgid "Enabling this setting may cause image quality loss"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Enabling this setting may cause image quality loss"
 msgstr ""
@@ -4671,12 +4660,12 @@ msgid "UTF8"
 msgstr "UTF8"
 
 #: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:53
-#, fuzzy, kde-format
-#| msgid "RegExp that will be used to validate usernames"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "RegExp that will be used to validate usernames"
 msgstr ""
-"Expression rationnelle qui sera utilisée pour valider les noms d'utilisateurs"
+"Expression rationnelle qui sera utilisée pour valider les noms "
+"d'utilisateurs."
 
 #: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:54
 #, kde-format
@@ -4684,12 +4673,11 @@ msgid "UTF8 Usernames Validation"
 msgstr "Validation des noms d'utilisateurs au format « UTF8 »"
 
 #: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:57
-#, fuzzy, kde-format
-#| msgid "RegExp that will be used to validate channel names"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "RegExp that will be used to validate channel names"
 msgstr ""
-"Expression rationnelle qui sera utilisée pour valider les noms de canaux"
+"Expression rationnelle qui sera utilisée pour valider les noms de canaux."
 
 #: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:58
 #, kde-format
@@ -4864,8 +4852,7 @@ msgstr ""
 "exemple « 192.168.1.1:3000 » ou « localhost:4000 »"
 
 #: widgets/administratorsettingsdialog/irc/ircwidget.cpp:21
-#, fuzzy, kde-format
-#| msgid "The cache limit for outbound message handling."
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "The cache limit for outbound message handling."
 msgstr "La limite de cache pour la gestion des messages sortants."
@@ -4881,11 +4868,10 @@ msgid "Regular Expressions"
 msgstr "Expressions rationnelles"
 
 #: widgets/administratorsettingsdialog/irc/ircwidget.cpp:30
-#, fuzzy, kde-format
-#| msgid "Output upon a successful connection to the IRC server."
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Output upon a successful connection to the IRC server."
-msgstr "Sortie à partir d'un connexion réussie à un serveur « IRC »"
+msgstr "Sortie à partir d'un connexion réussie à un serveur « IRC »."
 
 #: widgets/administratorsettingsdialog/irc/ircwidget.cpp:31
 #, kde-format
@@ -4911,11 +4897,10 @@ msgid "RFC2813"
 msgstr "RFC 2813"
 
 #: widgets/administratorsettingsdialog/ircfederation/ircfederationwidget.cpp:42
-#, fuzzy, kde-format
-#| msgid "The port to bind to on the IRC host server."
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "The port to bind to on the IRC host server."
-msgstr "Le port à lier sur le serveur de l'hôte « IRC »."
+msgstr "Le port sur lequel se connecter sur le serveur de l'hôte « IRC »."
 
 #: widgets/administratorsettingsdialog/ircfederation/ircfederationwidget.cpp:53
 #, kde-format
@@ -4973,15 +4958,13 @@ msgid "Reconnect"
 msgstr "Se reconnecter"
 
 #: widgets/administratorsettingsdialog/ldap/ldapsettingswidget.cpp:31
-#, fuzzy, kde-format
-#| msgid "Attempt to utilize LDAP for authentication."
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Attempt to utilize LDAP for authentication."
 msgstr "Tentative d'utilisation de « LDAP » pour authentification."
 
 #: widgets/administratorsettingsdialog/ldap/ldapsettingswidget.cpp:37
-#, fuzzy, kde-format
-#| msgid "Port to access LDAP. eg: 389 or 636 for LDAPS"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Port to access LDAP. eg: 389 or 636 for LDAPS"
 msgstr "Port pour l'accès « LDAP ». Par exemple : 389 ou 636 pour « LDAPS »"
@@ -5204,8 +5187,7 @@ msgid "Embed Link Previews"
 msgstr "Intégrer les aperçus de liens"
 
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:53
-#, fuzzy, kde-format
-#| msgid "Enter 0 to disable blocking."
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Enter 0 to disable blocking."
 msgstr "Saisissez la valeur 0 pour la désactivation du blocage."
@@ -5216,11 +5198,10 @@ msgid "Block Message Editing After (n) Minutes"
 msgstr "Bloquer la modification de messages après (n) minutes"
 
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:61
-#, fuzzy, kde-format
-#| msgid "Block Message Deleting After (n) Minutes."
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Block Message Deleting After (n) Minutes."
-msgstr "Bloquer la suppression de messages après (n) minutes"
+msgstr "Bloquer la suppression de messages après (n) minutes."
 
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:62
 #, kde-format
@@ -5241,8 +5222,7 @@ msgstr ""
 "fonctionner comme prévu et ne pourra recevoir de nouvelles mises à jour."
 
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:76
-#, fuzzy, kde-format
-#| msgid "Allow Message Pinning"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Allow Message Pinning"
 msgstr "Permettre l'épinglage de messages"
@@ -5688,11 +5668,10 @@ msgid "Tokenpass"
 msgstr "Jeton"
 
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:200
-#, fuzzy, kde-format
-#| msgid "Example: https://domain.com (excluding trailing slash)"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Example: https://domain.com (excluding trailing slash)"
-msgstr "Exemple : https://domain.com (hormis les barres obliques superflus)"
+msgstr "Exemple : https://domaine.com (Hormis les barres obliques superflus)"
 
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:201
 #, kde-format
@@ -6033,11 +6012,10 @@ msgstr ""
 #: widgets/administratorsettingsdialog/retentionpolicy/retentionpolicysettingswidget.cpp:72
 #: widgets/administratorsettingsdialog/retentionpolicy/retentionpolicysettingswidget.cpp:82
 #: widgets/administratorsettingsdialog/retentionpolicy/retentionpolicysettingswidget.cpp:92
-#, fuzzy, kde-format
-#| msgid "Prune all messages older than this value, in days."
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Prune all messages older than this value, in days."
-msgstr "Supprimer tous les messages plus anciens que cette valeur, en jours"
+msgstr "Supprimer tous les messages plus anciens que cette valeur, en jours."
 
 #: widgets/administratorsettingsdialog/retentionpolicy/retentionpolicysettingswidget.cpp:74
 #, kde-format
@@ -6079,8 +6057,7 @@ msgid "Reactions"
 msgstr "Réactions"
 
 #: widgets/administratorsettingsdialog/slackbridge/slackbridgewidget.cpp:28
-#, fuzzy, kde-format
-#| msgid "Enable Rocket.Chat to communicate directly with Slack."
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Enable Rocket.Chat to communicate directly with Slack."
 msgstr "Activer « Rocket.Chat » pour communiquer directement avec Slack."
@@ -7078,8 +7055,7 @@ msgstr[0] "Responsable :"
 msgstr[1] "Responsables :"
 
 #: widgets/dialogs/channelsearchnamelineresultwidget.cpp:27
-#, fuzzy, kde-format
-#| msgid "Clear"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Clear"
 msgstr "Effacer"
@@ -7116,15 +7092,13 @@ msgid "Show badge for mentions"
 msgstr "Afficher un 'insigne pour les citations"
 
 #: widgets/dialogs/configurenotificationwidget.cpp:41
-#, fuzzy, kde-format
-#| msgid "Receive alerts"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Receive alerts"
 msgstr "Recevoir des alertes"
 
 #: widgets/dialogs/configurenotificationwidget.cpp:60
-#, fuzzy, kde-format
-#| msgid "Display badge for direct mentions only"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Display badge for direct mentions only"
 msgstr "Afficher un insigne uniquement pour les citations directes"
@@ -7209,11 +7183,10 @@ msgid "Users:"
 msgstr "Utilisateurs :"
 
 #: widgets/dialogs/createnewchannelwidget.cpp:45
-#, fuzzy, kde-format
-#| msgid "All users in this team can write messages"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "All users in this team can write messages"
-msgstr "Tout utilisateur de cette équipe peut écrire des messages."
+msgstr "Tous les utilisateurs de cette équipe peuvent écrire des messages."
 
 #: widgets/dialogs/createnewchannelwidget.cpp:46
 #, kde-format
@@ -7239,8 +7212,7 @@ msgid "Broadcast:"
 msgstr "Diffusion :"
 
 #: widgets/dialogs/createnewchannelwidget.cpp:55
-#, fuzzy, kde-format
-#| msgid "Only invited people can join"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Only invited people can join"
 msgstr "Seules les personnes invitées peuvent participer."
@@ -7370,8 +7342,7 @@ msgid "Invite Link:"
 msgstr "Lien d'invitation :"
 
 #: widgets/dialogs/inviteuserswidget.cpp:54
-#, fuzzy, kde-format
-#| msgid "Copy link"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Copy link"
 msgstr "Copier un lien"
@@ -8553,8 +8524,7 @@ msgid "Use ',' for separating words"
 msgstr "Utiliser « , » pour la séparation des mots"
 
 #: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:66
-#, fuzzy, kde-format
-#| msgid "Separate each word with ','."
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Separate each word with ','."
 msgstr "Séparer chaque mot avec « , »"
@@ -8682,10 +8652,10 @@ msgid "Your administrator has disabled the changing of email."
 msgstr "Votre administrateur a désactivé la modification de courriel."
 
 #: widgets/myaccount/myaccountprofileconfigurewidget.cpp:33
-#, fuzzy, kde-format
-#| msgid "Your administrator has disabled the changing of email."
+#, kde-format
 msgid "Your administrator has disabled the changing of usernames."
-msgstr "Votre administrateur a désactivé la modification de courriel."
+msgstr ""
+"Votre administrateur a désactivé la modification de noms d'utilisateurs."
 
 #: widgets/myaccount/myaccountprofileconfigurewidget.cpp:36
 #, fuzzy, kde-format
@@ -9062,10 +9032,9 @@ msgid "Message Too Big"
 msgstr "Message trop volumineux"
 
 #: widgets/room/messagelinewidget.cpp:244
-#, fuzzy, kde-format
-#| msgid "Message Pinned"
+#, kde-format
 msgid "Message %1 in thread"
-msgstr "Message agrafé"
+msgstr "Message %1 dans le fil de discussions"
 
 #: widgets/room/messagelinewidget.cpp:244
 #, kde-format
@@ -9304,22 +9273,19 @@ msgid "(Show Less Info…)"
 msgstr "(Afficher moins d'informations...)"
 
 #: widgets/room/roomheaderwidget.cpp:48
-#, fuzzy, kde-format
-#| msgid "Favorite"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Favorite"
-msgstr "Favoris"
+msgstr "Préféré"
 
 #: widgets/room/roomheaderwidget.cpp:66
-#, fuzzy, kde-format
-#| msgid "E2E Enabled"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "E2E Enabled"
 msgstr "« E2E » activé"
 
 #: widgets/room/roomheaderwidget.cpp:112
-#, fuzzy, kde-format
-#| msgid "Call"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Call"
 msgstr "Appeler"
@@ -9330,8 +9296,7 @@ msgid "Call"
 msgstr "Appeler"
 
 #: widgets/room/roomheaderwidget.cpp:123
-#, fuzzy, kde-format
-#| msgid "Channel's Information"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Channel's Information"
 msgstr "Informations du canal"
@@ -9342,8 +9307,7 @@ msgid "Channel's Information"
 msgstr "Informations du canal"
 
 #: widgets/room/roomheaderwidget.cpp:134
-#, fuzzy, kde-format
-#| msgid "Team Channels"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Team Channels"
 msgstr "Canaux des équipes"
@@ -9354,8 +9318,7 @@ msgid "Team Channels"
 msgstr "Canaux des équipes"
 
 #: widgets/room/roomheaderwidget.cpp:146
-#, fuzzy, kde-format
-#| msgid "Show List of Users"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Show List of Users"
 msgstr "Afficher la liste des utilisateurs"
@@ -9366,8 +9329,7 @@ msgid "Show List of Users"
 msgstr "Afficher la liste des utilisateurs"
 
 #: widgets/room/roomheaderwidget.cpp:159
-#, fuzzy, kde-format
-#| msgid "Search Messages…"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Search Messages…"
 msgstr "Rechercher des messages..."
@@ -9430,8 +9392,7 @@ msgid "%p%"
 msgstr "%p %"
 
 #: widgets/room/uploadfileprogressstatuswidget.cpp:35
-#, fuzzy, kde-format
-#| msgid "Cancel Upload"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Cancel Upload"
 msgstr "Annuler un envoi"
@@ -9593,8 +9554,7 @@ msgid "Lists the available options for user feedback"
 msgstr "Liste les options disponibles pour le retour utilisateur"
 
 #: widgets/ruqolamainwindow.cpp:214
-#, fuzzy, kde-format
-#| msgid "Show New Notifications"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Show New Notifications"
 msgstr "Afficher les nouvelles notifications"
@@ -10223,7 +10183,7 @@ msgstr "Implémenter une nouvelle notification sonore de salon."
 
 #: widgets/whatsnew/whatsnewwidgettranslation.h:78
 msgid "Implement Sorted/Unsorted markdown list."
-msgstr ""
+msgstr "Implémenter une liste triée / non triée de type Markdown."
 
 #: widgets/whatsnew/whatsnewwidgettranslation.h:83
 msgid "Fix dark mode support."

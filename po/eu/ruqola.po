@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-05-26 02:25+0000\n"
-"PO-Revision-Date: 2024-03-05 20:19+0100\n"
+"PO-Revision-Date: 2024-05-26 12:21+0200\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
 "Language: eu\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 24.02.0\n"
+"X-Generator: Lokalize 24.02.2\n"
 
 #: apps/main.cpp:62
 #, kde-format
@@ -36,8 +36,7 @@ msgid "Copyright © 2020-2024 Ruqola authors"
 msgstr "Copyright © 2020-2024 «Ruqola»ren egileak"
 
 #: apps/main.cpp:68
-#, fuzzy, kde-format
-#| msgid "Laurent Montel"
+#, kde-format
 msgctxt "@info:credit"
 msgid "Laurent Montel"
 msgstr "Laurent Montel"
@@ -48,8 +47,7 @@ msgid "Maintainer"
 msgstr "Arduraduna"
 
 #: apps/main.cpp:69
-#, fuzzy, kde-format
-#| msgid "Riccardo Iaconelli"
+#, kde-format
 msgctxt "@info:credit"
 msgid "Riccardo Iaconelli"
 msgstr "Riccardo Iaconelli"
@@ -60,8 +58,7 @@ msgid "Original Author"
 msgstr "Jatorrizko egilea"
 
 #: apps/main.cpp:73
-#, fuzzy, kde-format
-#| msgid "David Faure"
+#, kde-format
 msgctxt "@info:credit"
 msgid "David Faure"
 msgstr "David Faure"
@@ -72,8 +69,7 @@ msgid "Bug fixing, delegates etc."
 msgstr "Akatsak konpontzea, ordezkariak etab."
 
 #: apps/main.cpp:74
-#, fuzzy, kde-format
-#| msgid "Kevin Funk"
+#, kde-format
 msgctxt "@info:credit"
 msgid "Kevin Funk"
 msgstr "Kevin Funk"
@@ -85,22 +81,19 @@ msgid "Bug fixing"
 msgstr "Akatsak konpontzea"
 
 #: apps/main.cpp:75
-#, fuzzy, kde-format
-#| msgid "Olivier JG"
+#, kde-format
 msgctxt "@info:credit"
 msgid "Olivier JG"
 msgstr "Olivier JG"
 
 #: apps/main.cpp:76
-#, fuzzy, kde-format
-#| msgid "Milian Wolff"
+#, kde-format
 msgctxt "@info:credit"
 msgid "Milian Wolff"
 msgstr "Milian Wolff"
 
 #: apps/main.cpp:77
-#, fuzzy, kde-format
-#| msgid "Till Adam"
+#, kde-format
 msgctxt "@info:credit"
 msgid "Till Adam"
 msgstr "Till Adam"
@@ -111,22 +104,19 @@ msgid "Windows compile bug fixing"
 msgstr "Windows-erako konpilatzeko akatsak konpontzea"
 
 #: apps/main.cpp:78
-#, fuzzy, kde-format
-#| msgid "Shantanu Tushar"
+#, kde-format
 msgctxt "@info:credit"
 msgid "Shantanu Tushar"
 msgstr "Shantanu Tushar"
 
 #: apps/main.cpp:79
-#, fuzzy, kde-format
-#| msgid "Alessandro Ambrosano"
+#, kde-format
 msgctxt "@info:credit"
 msgid "Alessandro Ambrosano"
 msgstr "Alessandro Ambrosano"
 
 #: apps/main.cpp:80
-#, fuzzy, kde-format
-#| msgid "Hannah von Reth"
+#, kde-format
 msgctxt "@info:credit"
 msgid "Hannah von Reth"
 msgstr "Hannah von Reth"
@@ -137,8 +127,7 @@ msgid "Bug fixing for Windows/Mac"
 msgstr "Windows/Mac-erako akatsak konpontzea"
 
 #: apps/main.cpp:81
-#, fuzzy, kde-format
-#| msgid "Allen Winter"
+#, kde-format
 msgctxt "@info:credit"
 msgid "Allen Winter"
 msgstr "Allen Winter"
@@ -149,8 +138,7 @@ msgid "Packaging"
 msgstr "Paketatzea"
 
 #: apps/main.cpp:82
-#, fuzzy, kde-format
-#| msgid "Waqar Ahmed"
+#, kde-format
 msgctxt "@info:credit"
 msgid "Waqar Ahmed"
 msgstr "Waqar Ahmed"
@@ -158,11 +146,10 @@ msgstr "Waqar Ahmed"
 #: apps/main.cpp:82
 #, kde-format
 msgid "Bug fixing (compile, network crash...)"
-msgstr "Akats konponketa (konpilatzea, sareko kraskadura...)"
+msgstr "Akatsak konpontzea (konpilatzea, sareko kraskadura...)"
 
 #: apps/main.cpp:83
-#, fuzzy, kde-format
-#| msgid "Nicolas Fella"
+#, kde-format
 msgctxt "@info:credit"
 msgid "Nicolas Fella"
 msgstr "Nicolas Fella"
@@ -342,13 +329,13 @@ msgstr "Lehenetsia"
 #: core/customsound/customsoundsmanager.cpp:106
 #, kde-format
 msgid "Chime"
-msgstr ""
+msgstr "Kanpai-hotsa"
 
 #: core/customsound/customsoundsmanager.cpp:51
 #: core/customsound/customsoundsmanager.cpp:114
 #, kde-format
 msgid "Door"
-msgstr ""
+msgstr "Atea"
 
 #: core/customsound/customsoundsmanager.cpp:59
 #, kde-format
@@ -979,14 +966,12 @@ msgid "Ignored Message"
 msgstr "Ezikusitako mezua"
 
 #: core/model/messagesmodel.cpp:370
-#, fuzzy, kde-format
-#| msgid "Do you want to delete this message?"
+#, kde-format
 msgid "Only you can see this message"
-msgstr "Mezu hori ezabatu nahi duzu?"
+msgstr "Zuk bakarrik ikus dezakezu mezu hau"
 
 #: core/model/moderationreportedmessagemodel.cpp:37
-#, fuzzy, kde-format
-#| msgid "Report Message"
+#, kde-format
 msgid "Reported message"
 msgstr "Berri emandako mezua"
 
@@ -1176,11 +1161,9 @@ msgid "Offline"
 msgstr "Lerroz kanpo"
 
 #: core/model/statusmodel.cpp:69
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Modify Status"
+#, kde-format
 msgid "Modify Status…"
-msgstr "Aldatu egoera"
+msgstr "Aldatu egoera..."
 
 #: core/model/systemmessagesmodel.cpp:31
 #, kde-format
@@ -1379,10 +1362,9 @@ msgid "Reply"
 msgstr "Erantzun"
 
 #: core/notifications/notifierjob.cpp:42
-#, fuzzy, kde-format
-#| msgid "Reply"
+#, kde-format
 msgid "Reply…"
-msgstr "Erantzun"
+msgstr "Erantzun..."
 
 #: core/otr/otrnotificationjob.cpp:45 core/otr/otrnotificationjob.cpp:55
 #: core/otr/otrnotificationjob.cpp:70
@@ -1417,18 +1399,16 @@ msgid "%1 denied the OTR session."
 msgstr "%1(e)k «OTR» saioa ukatu du."
 
 #: core/receivetypingnotificationmanager.cpp:58
-#, fuzzy, kde-format
-#| msgid "<strong>%1</strong> is typing..."
+#, kde-format
 msgctxt "We need a space between after </strong>"
 msgid "<strong>%1</strong> is typing..."
 msgstr "<strong>%1</strong> tekleatzen ari da..."
 
 #: core/receivetypingnotificationmanager.cpp:72
-#, fuzzy, kde-format
-#| msgid "<strong>%1</strong> are typing..."
+#, kde-format
 msgctxt "We need a space between after </strong>"
 msgid "<strong>%1</strong> are typing..."
-msgstr "<strong>%1</strong> idaten ari dira..."
+msgstr "<strong>%1</strong> tekleatzen ari dira..."
 
 #: core/rocketchataccount.cpp:2966
 #, kde-format
@@ -1698,15 +1678,14 @@ msgid "Message deletion is not allowed."
 msgstr "Mezuak ezabatzea ez dago baimenduta."
 
 #: rocketchatrestapi-qt/chat/getmessagejob.cpp:103
-#, fuzzy, kde-format
-#| msgid "File sharing not allowed in direct messages"
+#, kde-format
 msgid "Not allowed to get message %1"
-msgstr "Fitxategi partekatzea ez dago baimenduta zuzeneko mezuetan"
+msgstr "%1 mezua lortzeko baimenik ez"
 
 #: rocketchatrestapi-qt/chat/getmessagejob.cpp:105
 #, kde-format
 msgid "Not allowed to get message %2 in room %1"
-msgstr ""
+msgstr "%1 gelan %2 mezua lortzeko baimenik ez"
 
 #: rocketchatrestapi-qt/chat/getthreadmessagesjob.cpp:93
 #, kde-format
@@ -2595,10 +2574,9 @@ msgstr ""
 #: widgets/administratordialog/roles/administratorroleswidget.cpp:105
 #: widgets/administratordialog/rooms/administratorroomswidget.cpp:63
 #: widgets/administratordialog/users/administratoruserswidget.cpp:246
-#, fuzzy, kde-format
-#| msgid "&Modify"
+#, kde-format
 msgid "Modify…"
-msgstr "&Aldatu"
+msgstr "Aldatu..."
 
 #. i18n: ectx: property (text), widget (QPushButton, removeServer)
 #: widgets/administratordialog/customemoji/administratorcustomemojiwidget.cpp:186
@@ -2688,8 +2666,7 @@ msgid "Remove Custom User Status"
 msgstr "Kendu neurrira ipinitako Erabiltzaile-egoera"
 
 #: widgets/administratordialog/invites/administratorinviteswidget.cpp:39
-#, fuzzy, kde-format
-#| msgid "Search invite..."
+#, kde-format
 msgid "Search invite…"
 msgstr "Bilatu gonbita..."
 
@@ -2726,16 +2703,14 @@ msgid "Save File Error"
 msgstr "Fitxategia gordetzeko errorea"
 
 #: widgets/administratordialog/moderationconsole/administratormoderationconsolewidget.cpp:31
-#, fuzzy, kde-format
-#| msgid "Report Message"
+#, kde-format
 msgid "Reported Messages"
-msgstr "Berri emandako mezua"
+msgstr "Berri emandako mezuak"
 
 #: widgets/administratordialog/moderationconsole/administratormoderationconsolewidget.cpp:34
-#, fuzzy, kde-format
-#| msgid "Report Message"
+#, kde-format
 msgid "Reported Users"
-msgstr "Berri emandako mezua"
+msgstr "Berri emandako erabiltzaileak"
 
 #: widgets/administratordialog/moderationconsole/administratormoderationrangewidget.cpp:32
 #: widgets/exportmessages/exportmessageswidget.cpp:24
@@ -2750,46 +2725,40 @@ msgid "To:"
 msgstr "Nori:"
 
 #: widgets/administratordialog/moderationconsole/administratormoderationrangewidget.cpp:75
-#, fuzzy, kde-format
-#| msgid "Today"
+#, kde-format
 msgctxt "@action"
 msgid "Today"
 msgstr "Gaur"
 
 #: widgets/administratordialog/moderationconsole/administratormoderationrangewidget.cpp:85
-#, fuzzy, kde-format
-#| msgid "Yesterday"
+#, kde-format
 msgctxt "@action"
 msgid "Yesterday"
 msgstr "Atzo"
 
 #: widgets/administratordialog/moderationconsole/administratormoderationrangewidget.cpp:95
-#, fuzzy, kde-format
-#| msgid "This week"
+#, kde-format
 msgctxt "@action"
 msgid "This week"
-msgstr "Aste hau"
+msgstr "Aste honetan"
 
 #: widgets/administratordialog/moderationconsole/administratormoderationrangewidget.cpp:105
-#, fuzzy, kde-format
-#| msgid "Previous week"
+#, kde-format
 msgctxt "@action"
 msgid "Previous week"
-msgstr "Aurreko astea"
+msgstr "Aurreko astean"
 
 #: widgets/administratordialog/moderationconsole/administratormoderationrangewidget.cpp:115
-#, fuzzy, kde-format
-#| msgid "This month"
+#, kde-format
 msgctxt "@action"
 msgid "This month"
-msgstr "Hilabete hau"
+msgstr "Hilabete honetan"
 
 #: widgets/administratordialog/moderationconsole/administratormoderationrangewidget.cpp:126
-#, fuzzy, kde-format
-#| msgid "Previous month"
+#, kde-format
 msgctxt "@action"
 msgid "Previous month"
-msgstr "Aurreko hilabetea"
+msgstr "Aurreko hilabetean"
 
 #: widgets/administratordialog/moderationconsole/moderationmessageinfodialog.cpp:26
 #, kde-format
@@ -2808,8 +2777,7 @@ msgstr "Erakutsi moderatze-mezuak"
 #: widgets/dialogs/showlistmessagebasewidget.cpp:97
 #: widgets/discussions/showdiscussionswidget.cpp:88
 #: widgets/room/usersinroomwidget.cpp:135
-#, fuzzy, kde-format
-#| msgid "Loading..."
+#, kde-format
 msgid "Loading…"
 msgstr "Zamatzen..."
 
@@ -2831,8 +2799,7 @@ msgstr[1] "Gelan %1 mezu"
 
 #: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:37
 #: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:37
-#, fuzzy, kde-format
-#| msgid "Search moderation message..."
+#, kde-format
 msgid "Search moderation message…"
 msgstr "Bilatu moderatzeko mezua..."
 
@@ -2868,10 +2835,9 @@ msgstr "Ezabatu mezu guztiak"
 
 #: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:149
 #: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:143
-#, fuzzy, kde-format
-#| msgid "Deactivated Users"
+#, kde-format
 msgid "Desactivate user"
-msgstr "Desaktibatutako erabiltzaileak"
+msgstr "Desaktibatu erabiltzailea"
 
 #: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:161
 #: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:155
@@ -2880,14 +2846,15 @@ msgid ""
 "User will be unable to log in unless reactivated. All reported messages will "
 "be permanently deleted from their respective room."
 msgstr ""
+"Berraktibatu ezean erabiltzaileak ezingo du saiorik hasi. Berri emandako "
+"mezu guztiak haien geletatik betiko ezabatuko dira."
 
 #: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:162
 #: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:156
-#, fuzzy, kde-format
-#| msgid "Deactivated Users"
+#, kde-format
 msgctxt "@title:window"
 msgid "Desactivate User"
-msgstr "Desaktibatutako erabiltzaileak"
+msgstr "Desaktibatutako erabiltzailea"
 
 #: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:195
 #, kde-format
@@ -2918,10 +2885,9 @@ msgid "Delete All Messages"
 msgstr "Ezabatu mezu guztiak"
 
 #: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:132
-#, fuzzy, kde-format
-#| msgid "Report Message"
+#, kde-format
 msgid "See reports"
-msgstr "Mezuaren berri ematea"
+msgstr "Ikusi txosteank"
 
 #: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:191
 #, kde-format
@@ -2966,10 +2932,9 @@ msgstr "Hautatu guztia"
 #: widgets/bannerinfodialog/bannerinfolistsearchlinewidget.cpp:24
 #: widgets/notificationhistory/notificationhistorywidget.cpp:45
 #: widgets/servererrorinfohistory/servererrorinfomessagehistorywidget.cpp:43
-#, fuzzy, kde-format
-#| msgid "Search"
+#, kde-format
 msgid "Search…"
-msgstr "Bilatu"
+msgstr "Bilatu..."
 
 #: widgets/administratordialog/oauth/administratoroauthcreatedialog.cpp:25
 #, kde-format
@@ -3010,8 +2975,7 @@ msgid "Access Token URL:"
 msgstr "Sarbide tokenaren URL:"
 
 #: widgets/administratordialog/oauth/administratoroauthwidget.cpp:37
-#, fuzzy, kde-format
-#| msgid "Search Oauth apps..."
+#, kde-format
 msgid "Search Oauth apps…"
 msgstr "Bilatu Oauth aplikazioak..."
 
@@ -3041,23 +3005,19 @@ msgstr "Eginkizunak:"
 
 #: widgets/administratordialog/permissions/permissionswidget.cpp:41
 #: widgets/explorepermissionsdialog/explorepermissionswidget.cpp:38
-#, fuzzy, kde-format
-#| msgid "Search permissions..."
+#, kde-format
 msgid "Search permissions…"
 msgstr "Bilatu baimenak..."
 
 #: widgets/administratordialog/roles/administratorroleswidget.cpp:46
-#, fuzzy, kde-format
-#| msgid "Search roles..."
+#, kde-format
 msgid "Search roles…"
 msgstr "Bilatu eginkizunak..."
 
 #: widgets/administratordialog/roles/administratorroleswidget.cpp:112
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Add Users in Role"
+#, kde-format
 msgid "Add Users In Role…"
-msgstr "Gehitu erabiltzailek eginkizunera"
+msgstr "Gehitu erabiltzailek eginkizunera..."
 
 #: widgets/administratordialog/roles/administratorroleswidget.cpp:229
 #, kde-format
@@ -3121,8 +3081,7 @@ msgstr "Eginkizuneko erabiltzaileak"
 #: widgets/directory/directorywidget.cpp:39
 #: widgets/directory/directorywidget.cpp:206
 #: widgets/room/usersinroomwidget.cpp:40
-#, fuzzy, kde-format
-#| msgid "Search users..."
+#, kde-format
 msgid "Search users…"
 msgstr "Bilatu erabiltzaileak..."
 
@@ -3249,11 +3208,10 @@ msgid "Remove Room"
 msgstr "Kendu gela"
 
 #: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:49
-#, fuzzy, kde-format
-#| msgid "Refresh"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Refresh"
-msgstr "Freskatu"
+msgstr "Berritu"
 
 #: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:68
 #, kde-format
@@ -3278,7 +3236,7 @@ msgstr "Erantzun ontziratuak"
 #: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:120
 #, kde-format
 msgid "Engagement Dashboard"
-msgstr ""
+msgstr "Konpromiso aginte-mahaia"
 
 #: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:121
 #, fuzzy, kde-format
@@ -3696,16 +3654,14 @@ msgid "Enable collect log in data"
 msgstr ""
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:32
-#, fuzzy, kde-format
-#| msgid "Status Message:"
+#, kde-format
 msgid "Allow Custom Status Message"
-msgstr "Egoera-mezua:"
+msgstr "Bainmendu neurrira ipinitako egoera-mezua"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:33
-#, fuzzy, kde-format
-#| msgid "Failed Login Attempts"
+#, kde-format
 msgid "Block Failed Login Attempts by Username"
-msgstr "Saio-hastean huts egindako saiakerak"
+msgstr "Blokeatu erabiltzaile-izenak huts egindako saio-haste saiakerak,"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:37
 #, kde-format
@@ -3811,8 +3767,7 @@ msgid "Default Username Prefix Suggestion"
 msgstr ""
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:181
-#, fuzzy, kde-format
-#| msgid "Comma-separated list of allowed domains"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Comma-separated list of allowed domains"
 msgstr "Baimendutako domeinuen komaz bereizitako zerrenda"
@@ -3823,8 +3778,7 @@ msgid "Allowed Domains List"
 msgstr "Baimendutako domeinuen zerrenda"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:185
-#, fuzzy, kde-format
-#| msgid "Comma-separated list of blocked domains"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Comma-separated list of blocked domains"
 msgstr "Oztopatutako domeinuen komaz bereizitako zerrenda"
@@ -3835,10 +3789,12 @@ msgid "Blocked Domains List"
 msgstr "Oztopatutako domeinuen zerrenda"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:189
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Comma-separated list of blocked usernames (case-insensitive)"
-msgstr "Komaz bereizitako oztopatutako erabiltzaile-izenen zerrenda ("
+msgstr ""
+"Oztomatutako erabiltzaile-izenen komaz bereizitako zerrenda (ez bereizi "
+"maius/minus)"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:190
 #, kde-format
@@ -4065,17 +4021,14 @@ msgid "Piwik Analytics"
 msgstr "Piwik Analytics"
 
 #: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:69
-#, fuzzy, kde-format
-#| msgid ""
-#| "The url where the Piwik resides, be sure to include the trailing slash. "
-#| "Example: //piwik.rocket.chat/"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid ""
 "The url where the Piwik resides, be sure to include the trailing slash. "
 "Example: //piwik.rocket.chat/"
 msgstr ""
-"Piwik dagoen URL, ez ahaztu bukaerako barra zeiharra. Adibidez: //piwik."
-"rocket.chat/"
+"Piwik dagoen URL, ez ahaztu bukaerako barra zeiharra ipintzeaz. Adibidez: //"
+"piwik.rocket.chat/"
 
 #: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:70
 #, kde-format
@@ -4083,11 +4036,10 @@ msgid "URL"
 msgstr "URL"
 
 #: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:73
-#, fuzzy, kde-format
-#| msgid "The site id to use for identifying this site. Example: 17"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "The site id to use for identifying this site. Example: 17"
-msgstr "Leku hori identifikatzeko leku ID. Adibidez: 17"
+msgstr "Leku hori identifikatzeko erabilitako leku ID. Adibidez: 17"
 
 #: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:74
 #, kde-format
@@ -4097,7 +4049,7 @@ msgstr "Bezero ID"
 #: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:77
 #, kde-format
 msgid "Additional Piwik Sites"
-msgstr "Piwik leku osagarriak"
+msgstr "Piwik leku gehigarriak"
 
 #: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:80
 #, kde-format
@@ -10065,7 +10017,7 @@ msgstr ""
 
 #: widgets/whatsnew/whatsnewwidgettranslation.h:74
 msgid "Add Plasma Activities Support"
-msgstr ""
+msgstr "Plasma Jardueren euskarria gehitzea"
 
 #: widgets/whatsnew/whatsnewwidgettranslation.h:75
 #, fuzzy
