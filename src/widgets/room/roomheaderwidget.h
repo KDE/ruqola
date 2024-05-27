@@ -76,16 +76,17 @@ private:
     QLabel *const mRoomName;
     TeamNameLabel *const mTeamName;
     RoomHeaderLabel *const mRoomHeaderLabel;
-    QToolButton *const mFavoriteButton;
-    QToolButton *const mEncryptedButton;
     QToolButton *const mDiscussionBackButton;
-    QToolButton *const mListOfUsersButton;
-    QToolButton *const mSearchMessageButton;
-    QToolButton *const mChannelAction;
+    QToolButton *const mFavoriteButton;
+    QLabel *const mRoomIcon;
+    QToolButton *const mCallButton;
     QToolButton *const mChannelInfoButton;
     QToolButton *const mTeamChannelsButton;
-    QToolButton *const mCallButton;
+    QToolButton *const mListOfUsersButton;
+    QToolButton *const mSearchMessageButton;
+
+    QToolButton *const mEncryptedButton;
+    QToolButton *const mChannelAction;
     ChannelActionPopupMenu *mChannelActionPopupMenu = nullptr;
-    QLabel *const mRoomIcon;
     AvatarCacheManager *const mAvatarCacheManager;
 };
