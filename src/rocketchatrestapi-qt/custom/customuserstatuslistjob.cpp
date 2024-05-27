@@ -53,10 +53,7 @@ bool CustomUserStatusListJob::requireHttpAuthentication() const
 
 QNetworkRequest CustomUserStatusListJob::request() const
 {
-    QUrl url = mRestApiMethod->generateUrl(RestApiUtil::RestApiUrlType::CustomUserStatusList);
-    QUrlQuery queryUrl;
-    addQueryParameter(queryUrl);
-    url.setQuery(queryUrl);
+    const QUrl url = mRestApiMethod->generateUrl(RestApiUtil::RestApiUrlType::CustomUserStatusList);
     QNetworkRequest req(url);
     addAuthRawHeader(req);
     return req;
@@ -64,7 +61,7 @@ QNetworkRequest CustomUserStatusListJob::request() const
 
 bool CustomUserStatusListJob::hasQueryParameterSupport() const
 {
-    return true;
+    return false;
 }
 
 #include "moc_customuserstatuslistjob.cpp"
