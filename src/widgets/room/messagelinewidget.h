@@ -91,10 +91,10 @@ private:
     EditingMode mMode = EditingMode::NewMessage;
     MessageTextEdit *const mMessageTextEdit;
     QToolButton *const mSendFileButton;
-    QToolButton *const mEmoticonButton;
-    QToolButton *const mSendMessageButton;
     QToolButton *const mVideoMessageButton;
     QToolButton *const mSoundMessageButton;
+    QToolButton *const mEmoticonButton;
+    QToolButton *const mSendMessageButton;
     EmoticonMenuWidget *mEmoticonMenuWidget = nullptr;
     QPointer<RocketChatAccount> mCurrentRocketChatAccount;
     bool mReplyInThreadDialogBox = false;
