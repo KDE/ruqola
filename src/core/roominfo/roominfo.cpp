@@ -118,7 +118,7 @@ static QString convertChannelType(const QString &str, bool mainTeam)
             return i18n("Channel");
         }
     } else if (str == QLatin1Char('d')) {
-        return i18n("Direct");
+        return i18n("Direct message");
     } else if (str == QLatin1Char('l')) {
         return i18n("Omnichannel");
     } else {
