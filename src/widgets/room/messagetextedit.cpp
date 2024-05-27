@@ -40,6 +40,7 @@ MessageTextEdit::MessageTextEdit(QWidget *parent)
     , mEmojiCompletionListView(new CompletionListView)
     , mCommandCompletionListView(new CompletionListView)
 {
+    setTabChangesFocus(true);
     setAcceptRichText(false);
     enableFindReplace(false); // not needed here, let's instead make sure the Ctrl+F shortcut will search through channel history
 
