@@ -30,7 +30,6 @@ using namespace Qt::Literals::StringLiterals;
 #include "config-ruqola.h"
 
 #if HAVE_TEXT_AUTOCORRECTION_WIDGETS
-#include "textautocorrectioncore/textautocorrectionsettings.h"
 #include <TextAutoCorrectionCore/AutoCorrection>
 #endif
 
