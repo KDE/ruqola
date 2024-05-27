@@ -2494,16 +2494,34 @@ void RocketChatAccount::initializeAccount()
 
 void RocketChatAccount::checkLicenses()
 {
-    auto job = new RocketChatRestApi::LicensesIsEnterpriseJob(this);
-    restApi()->initializeRestApiJob(job);
-    connect(job, &RocketChatRestApi::LicensesIsEnterpriseJob::licensesIsEnterpriseDone, this, [this](bool isEnterprise) {
-        mRuqolaServerConfig->setHasEnterpriseSupport(isEnterprise);
-        if (isEnterprise) {
-            licenseGetModules();
+    if (ruqolaServerConfig()->hasAtLeastVersion(6, 5, 0)) {
+        auto job = new RocketChatRestApi::LicensesInfoJob(this);
+        restApi()->initializeRestApiJob(job);
+        connect(job, &RocketChatRestApi::LicensesInfoJob::licensesInfoDone, this, [this](const QJsonObject &obj) {
+            const QJsonObject license = obj["license"_L1].toObject();
+            if (!license.isEmpty()) {
+                bool isEnterprise = !license["activeModules"_L1].toArray().isEmpty();
+                mRuqolaServerConfig->setHasEnterpriseSupport(isEnterprise);
+                if (isEnterprise) {
+                    licenseGetModules();
+                }
+            }
+        });
+        if (!job->start()) {
+            qCWarning(RUQOLA_LOG) << "Impossible to start LicensesInfoJob job";
         }
-    });
-    if (!job->start()) {
-        qCWarning(RUQOLA_LOG) << "Impossible to start LicensesIsEnterpriseJob job";
+    } else {
+        auto job = new RocketChatRestApi::LicensesIsEnterpriseJob(this);
+        restApi()->initializeRestApiJob(job);
+        connect(job, &RocketChatRestApi::LicensesIsEnterpriseJob::licensesIsEnterpriseDone, this, [this](bool isEnterprise) {
+            mRuqolaServerConfig->setHasEnterpriseSupport(isEnterprise);
+            if (isEnterprise) {
+                licenseGetModules();
+            }
+        });
+        if (!job->start()) {
+            qCWarning(RUQOLA_LOG) << "Impossible to start LicensesIsEnterpriseJob job";
+        }
     }
 }
 
