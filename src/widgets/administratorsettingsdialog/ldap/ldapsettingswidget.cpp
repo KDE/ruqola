@@ -17,15 +17,15 @@
 LDapSettingsWidget::LDapSettingsWidget(RocketChatAccount *account, QWidget *parent)
     : SettingsWidgetBase(account, parent)
     , mEnabled(new QCheckBox(i18n("LDAP Enabled"), this))
-    , mHost(new QLineEdit(this))
     , mPort(new QSpinBox(this))
+    , mHost(new QLineEdit(this))
     , mReconnect(new QCheckBox(i18n("Reconnect"), this))
     , mAuthenticationEnabled(new QCheckBox(i18n("Enabled"), this))
     , mAuthenticationUserDN(new QLineEdit(this))
+    , mAuthenticationPassword(new KPasswordLineEdit(this))
     , mTimeouts(new QSpinBox(this))
     , mConnectionTimeouts(new QSpinBox(this))
     , mIdleTimeouts(new QSpinBox(this))
-    , mAuthenticationPassword(new KPasswordLineEdit(this))
 {
     mEnabled->setObjectName(QStringLiteral("mEnabled"));
     mEnabled->setToolTip(i18nc("@info:tooltip", "Attempt to utilize LDAP for authentication."));

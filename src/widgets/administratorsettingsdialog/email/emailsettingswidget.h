@@ -29,8 +29,8 @@ private:
     QSpinBox *const mSmtpPort;
     QCheckBox *const mSmtpIgnoreTls;
     QLineEdit *const mSmtpUserName;
-    QLineEdit *const mSmtpFromEmail;
     KPasswordLineEdit *const mSmtpPassword;
+    QLineEdit *const mSmtpFromEmail;
     QCheckBox *const mShowMessageEmailNotification;
     QCheckBox *const mAddSenderReplyTo;
     QCheckBox *const mEnableDirectReply;

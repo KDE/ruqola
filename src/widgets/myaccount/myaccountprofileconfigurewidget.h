@@ -28,10 +28,11 @@ public:
 private:
     LIBRUQOLAWIDGETS_NO_EXPORT void slotLogoutFromOtherLocation();
     LIBRUQOLAWIDGETS_NO_EXPORT void slotDeleteMyAccount();
-    QLineEdit *const mEmail;
-    QLabel *const mEmailInfo;
+    MyAccountProfileConfigureAvatarWidget *const mConfigureAvatarWidget;
     QLineEdit *const mName;
     QLineEdit *const mUserName;
+    QLineEdit *const mEmail;
+    QLabel *const mEmailInfo;
     QLabel *const mUserNameInfo;
     QLineEdit *const mNickName;
     QLineEdit *const mStatusText;
@@ -39,7 +40,6 @@ private:
     QPushButton *const mDeleteMyAccount;
     QPushButton *const mLogoutFromOtherLocation;
     PasswordConfirmWidget *const mPasswordConfirmWidget;
-    MyAccountProfileConfigureAvatarWidget *const mConfigureAvatarWidget;
     RocketChatAccount *const mRocketChatAccount;
     OwnUser mOwnUser;
 };
