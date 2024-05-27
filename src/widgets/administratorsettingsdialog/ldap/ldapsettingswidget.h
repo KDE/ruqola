@@ -22,13 +22,13 @@ public:
 
 private:
     QCheckBox *const mEnabled;
-    QLineEdit *const mHost;
     QSpinBox *const mPort;
+    QLineEdit *const mHost;
     QCheckBox *const mReconnect;
     QCheckBox *const mAuthenticationEnabled;
     QLineEdit *const mAuthenticationUserDN;
+    KPasswordLineEdit *const mAuthenticationPassword;
     QSpinBox *const mTimeouts;
     QSpinBox *const mConnectionTimeouts;
     QSpinBox *const mIdleTimeouts;
-    KPasswordLineEdit *const mAuthenticationPassword;
 };

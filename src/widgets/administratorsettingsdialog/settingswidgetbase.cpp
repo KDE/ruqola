@@ -226,9 +226,9 @@ void SettingsWidgetBase::addPlainTextEdit(const QString &labelStr, QPlainTextEdi
     });
     connect(plainTextEdit, &QPlainTextEdit::textChanged, this, [toolButton, plainTextEdit]() {
         if (plainTextEdit->toPlainText() != plainTextEdit->property(s_property_default_value).toString()) {
-            toolButton->setEnabled(false);
-        } else {
             toolButton->setEnabled(true);
+        } else {
+            toolButton->setEnabled(false);
         }
     });
     connect(this, &SettingsWidgetBase::changedDone, this, [toolButton, plainTextEdit](const QString &buttonName) {

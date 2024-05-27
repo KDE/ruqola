@@ -38,14 +38,14 @@ private:
     QComboBox *const mDesktopNotification;
     QComboBox *const mEmailNotification;
     QComboBox *const mPushNotification;
+    QCheckBox *const mReceiveLoginDetectionEmails;
     QCheckBox *const mUseEmojis;
     QCheckBox *const mConvertAsciiEmoji;
     QCheckBox *const mHideRoles;
     QCheckBox *const mDisplayAvatars;
-    QCheckBox *const mReceiveLoginDetectionEmails;
+    QCheckBox *const mAutomaticAway;
     QSpinBox *const mIdleTimeLimit;
 
-    QCheckBox *const mAutomaticAway;
     QLabel *const mEmailNotificationLabel;
     SoundConfigureWidget *const mSoundNewRoomNotification;
     SoundConfigureWidget *const mSoundNewMessageNotification;

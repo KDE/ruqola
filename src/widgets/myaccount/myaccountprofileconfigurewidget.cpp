@@ -26,10 +26,11 @@
 
 MyAccountProfileConfigureWidget::MyAccountProfileConfigureWidget(RocketChatAccount *account, QWidget *parent)
     : QWidget(parent)
-    , mEmail(new QLineEdit(this))
-    , mEmailInfo(new QLabel(i18n("Your administrator has disabled the changing of email."), this))
+    , mConfigureAvatarWidget(new MyAccountProfileConfigureAvatarWidget(account, this))
     , mName(new QLineEdit(this))
     , mUserName(new QLineEdit(this))
+    , mEmail(new QLineEdit(this))
+    , mEmailInfo(new QLabel(i18n("Your administrator has disabled the changing of email."), this))
     , mUserNameInfo(new QLabel(i18n("Your administrator has disabled the changing of usernames."), this))
     , mNickName(new QLineEdit(this))
     , mStatusText(new QLineEdit(this))
@@ -37,7 +38,6 @@ MyAccountProfileConfigureWidget::MyAccountProfileConfigureWidget(RocketChatAccou
     , mDeleteMyAccount(new QPushButton(i18n("Delete my Account"), this))
     , mLogoutFromOtherLocation(new QPushButton(i18n("Logout From Other Logged In Locations"), this))
     , mPasswordConfirmWidget(new PasswordConfirmWidget(this))
-    , mConfigureAvatarWidget(new MyAccountProfileConfigureAvatarWidget(account, this))
     , mRocketChatAccount(account)
 {
     const KStatefulBrush bgBrush(KColorScheme::View, KColorScheme::NegativeText);
