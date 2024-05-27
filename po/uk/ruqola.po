@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-05-26 00:38+0000\n"
-"PO-Revision-Date: 2024-05-24 15:35+0300\n"
+"PO-Revision-Date: 2024-05-26 08:27+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian\n"
 "Language: uk\n"
@@ -9869,10 +9869,9 @@ msgid "Version 2.2"
 msgstr "Версія 2.2"
 
 #: widgets/whatsnew/whatsnewcomboboxwidget.cpp:57
-#, fuzzy, kde-format
-#| msgid "Version 2.0"
+#, kde-format
 msgid "Version 2.3"
-msgstr "Версія 2.0"
+msgstr "Версія 2.3"
 
 #: widgets/whatsnew/whatsnewdialog.cpp:25
 #, kde-format
