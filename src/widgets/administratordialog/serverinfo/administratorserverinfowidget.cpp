@@ -7,6 +7,7 @@
 #include "administratorserverinfowidget.h"
 
 #include "connection.h"
+#include "license/licensesinfojob.h"
 #include "license/licenseslistjob.h"
 #include "misc/statisticsjob.h"
 #include "rocketchataccount.h"
@@ -87,11 +88,23 @@ void AdministratorServerInfoWidget::initialize()
 
 void AdministratorServerInfoWidget::loadLicensesInfo()
 {
-    auto licenseInfoJob = new RocketChatRestApi::LicensesListJob(this);
-    mRocketChatAccount->restApi()->initializeRestApiJob(licenseInfoJob);
-    connect(licenseInfoJob, &RocketChatRestApi::LicensesListJob::licensesListDone, this, &AdministratorServerInfoWidget::slotLicensesListDone);
-    if (!licenseInfoJob->start()) {
-        qCDebug(RUQOLAWIDGETS_LOG) << "Impossible to start LicensesListJob";
+    if (mRocketChatAccount->ruqolaServerConfig()->hasAtLeastVersion(6, 5, 0)) {
+        auto job = new RocketChatRestApi::LicensesInfoJob(this);
+        mRocketChatAccount->restApi()->initializeRestApiJob(job);
+        connect(job, &RocketChatRestApi::LicensesInfoJob::licensesInfoDone, this, [this](const QJsonObject &obj) {
+            const QJsonObject license = obj["license"_L1].toObject();
+            slotLicensesListDone(license);
+        });
+        if (!job->start()) {
+            qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start LicensesInfoJob job";
+        }
+    } else {
+        auto licenseInfoJob = new RocketChatRestApi::LicensesListJob(this);
+        mRocketChatAccount->restApi()->initializeRestApiJob(licenseInfoJob);
+        connect(licenseInfoJob, &RocketChatRestApi::LicensesListJob::licensesListDone, this, &AdministratorServerInfoWidget::slotLicensesListDone);
+        if (!licenseInfoJob->start()) {
+            qCDebug(RUQOLAWIDGETS_LOG) << "Impossible to start LicensesListJob";
+        }
     }
 }
 
@@ -105,7 +118,12 @@ void AdministratorServerInfoWidget::slotLicensesListDone(const QJsonObject &obj)
 void AdministratorServerInfoWidget::fillLicenses(const QJsonObject &obj)
 {
     QStringList listLicences;
-    const QJsonArray licenses = obj.value("licenses"_L1).toArray();
+    QJsonArray licenses;
+    if (mRocketChatAccount->ruqolaServerConfig()->hasAtLeastVersion(6, 5, 0)) {
+        licenses = obj.value("activeModules"_L1).toArray();
+    } else {
+        licenses = obj.value("licenses"_L1).toArray();
+    }
     for (const auto &a : licenses) {
         listLicences.append(a.toString());
     }
