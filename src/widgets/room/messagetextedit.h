@@ -40,7 +40,6 @@ public:
     [[nodiscard]] QByteArray roomId() const;
 
 Q_SIGNALS:
-
     void sendMessage(const QString &str);
     void keyPressed(QKeyEvent *ev);
     void textEditing(bool clearNotification);
