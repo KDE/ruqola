@@ -40,10 +40,10 @@ MessageLineWidget::MessageLineWidget(QWidget *parent)
     : QWidget(parent)
     , mMessageTextEdit(new MessageTextEdit(this))
     , mSendFileButton(new QToolButton(this))
-    , mEmoticonButton(new QToolButton(this))
-    , mSendMessageButton(new QToolButton(this))
     , mVideoMessageButton(new QToolButton(this))
     , mSoundMessageButton(new QToolButton(this))
+    , mEmoticonButton(new QToolButton(this))
+    , mSendMessageButton(new QToolButton(this))
 {
     auto mainLayout = new QHBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
