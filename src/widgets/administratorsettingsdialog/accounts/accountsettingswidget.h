@@ -22,6 +22,7 @@ public:
 
 private:
     QCheckBox *const mAllowChangeName;
+    QCheckBox *const mAllowCustomStatusMessage;
     QCheckBox *const mAllowChangeUserProfile;
     QCheckBox *const mAllowChangeUserAvatar;
     QCheckBox *const mAllowChangeEmail;
@@ -32,11 +33,11 @@ private:
     QCheckBox *const mAllowAnonymousRead;
     QCheckBox *const mAllowUsersDeleteOwnAccount;
     QCheckBox *const mAllowPasswordChangeOauthUsers;
+    QCheckBox *const mAllowFeaturePreview;
     QSpinBox *const mLoginExpirationInDays;
     QCheckBox *const mAllowInvisibleStatusOption;
     QCheckBox *const mForgetUserSessionWindowClose;
     QCheckBox *const mEnableCollectLog;
-    QCheckBox *const mAllowCustomStatusMessage;
     QCheckBox *const mBlockFailedLoginAttemptsUsername;
     QSpinBox *const mHowManyFailedAttemptsUntilBlockUser;
     QSpinBox *const mTimeUnblockUser;
@@ -55,7 +56,6 @@ private:
     QLineEdit *const mBlockedUsernameList;
     QCheckBox *const mUseDefaultBlockedDomainsList;
     QCheckBox *const mUseDNSDomainCheck;
-    QCheckBox *const mAllowFeaturePreview;
     QCheckBox *const mRegistrationAuthenticationServices;
     QLineEdit *const mRegistrationAuthenticationServicesDefaultRoles;
     QLineEdit *const mRegistrationUsersDefaultRoles;
