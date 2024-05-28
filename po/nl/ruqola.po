@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-05-26 00:38+0000\n"
-"PO-Revision-Date: 2024-05-24 11:20+0200\n"
+"POT-Creation-Date: 2024-05-28 00:38+0000\n"
+"PO-Revision-Date: 2024-05-26 13:40+0200\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
 "Language: nl\n"
@@ -1409,12 +1409,12 @@ msgctxt "We need a space between after </strong>"
 msgid "<strong>%1</strong> are typing..."
 msgstr "<strong>%1</strong> zijn aan het typen..."
 
-#: core/rocketchataccount.cpp:2966
+#: core/rocketchataccount.cpp:2984
 #, kde-format
 msgid "Export Messages"
 msgstr "Berichten exporteren"
 
-#: core/rocketchataccount.cpp:2967
+#: core/rocketchataccount.cpp:2985
 #, kde-format
 msgid "Your email has been queued for sending."
 msgstr "Uw e-mailbericht is klaargezet voor verzending."
@@ -1481,14 +1481,14 @@ msgid "Channel"
 msgstr "Kanaal"
 
 #: core/roominfo/roominfo.cpp:121
-#: widgets/administratordialog/rooms/administratorroomsselectroomtypewidget.cpp:14
-#, kde-format
-msgid "Direct"
-msgstr "Direct"
+#, fuzzy, kde-format
+#| msgid "Direct message someone"
+msgid "Direct message"
+msgstr "Iemand direct berichten"
 
 #: core/roominfo/roominfo.cpp:123
 #: widgets/administratordialog/rooms/administratorroomsselectroomtypewidget.cpp:19
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:117
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:135
 #, kde-format
 msgid "Omnichannel"
 msgstr "Omni-kanaal"
@@ -2435,7 +2435,7 @@ msgid "Administrator"
 msgstr "Systeembeheerder"
 
 #: widgets/administratordialog/administratorwidget.cpp:50
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:240
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:258
 #, kde-format
 msgid "Server Info"
 msgstr "Serverinformatie"
@@ -2511,7 +2511,7 @@ msgstr ""
 #: widgets/administratordialog/users/administratoradduserwidget.cpp:59
 #: widgets/dialogs/channelinfoeditablewidget.cpp:53
 #: widgets/dialogs/channelinforeadonlywidget.cpp:33
-#: widgets/dialogs/createnewchannelwidget.cpp:33
+#: widgets/dialogs/createnewchannelwidget.cpp:34
 #: widgets/dialogs/directchannelinfowidget.cpp:88
 #: widgets/myaccount/myaccountpersonalaccesscreatewidget.cpp:28
 #: widgets/myaccount/myaccountprofileconfigurewidget.cpp:62
@@ -3191,6 +3191,31 @@ msgstr "Toelichting:"
 msgid "Announcement:"
 msgstr "Aankondiging:"
 
+#: widgets/administratordialog/rooms/administratorroomseditwidget.cpp:63
+#: widgets/dialogs/createnewchannelwidget.cpp:48
+#, fuzzy, kde-format
+#| msgctxt "@info:tooltip"
+#| msgid ""
+#| "Only authorized users can write new messages, but the other users will be "
+#| "able to reply"
+msgid "Only authorized users can write new messages"
+msgstr ""
+"Alleen geautoriseerde personen kunnen nieuwe berichten schrijven, maar de "
+"andere gebruikers zullen kunnen antwoorden"
+
+#: widgets/administratordialog/rooms/administratorroomseditwidget.cpp:67
+#: widgets/dialogs/createnewchannelwidget.cpp:59
+#, fuzzy, kde-format
+#| msgctxt "@info:tooltip"
+#| msgid "Only invited people can join"
+msgid "Just invited people can access this channel."
+msgstr "Alleen uitgenodigde mensen kunnen meedoen"
+
+#: widgets/administratordialog/rooms/administratorroomsselectroomtypewidget.cpp:14
+#, kde-format
+msgid "Direct"
+msgstr "Direct"
+
 #: widgets/administratordialog/rooms/administratorroomsselectroomtypewidget.cpp:15
 #, kde-format
 msgid "Public"
@@ -3220,198 +3245,198 @@ msgctxt "@title"
 msgid "Remove Room"
 msgstr "Uit room verwijderen"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:49
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:50
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Refresh"
 msgstr "Vernieuwen"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:68
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:69
 #, kde-format
 msgid "Copy"
 msgstr "Kopiëren"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:113
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:131
 #, kde-format
 msgid "Licenses"
 msgstr "Licenties"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:118
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:136
 #, kde-format
 msgid "Auditing"
 msgstr "Controleren"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:119
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:137
 #, kde-format
 msgid "Canned Responses"
 msgstr "Ingeblikte antwoorden"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:120
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:138
 #, kde-format
 msgid "Engagement Dashboard"
 msgstr "Dashboard met engagementen"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:121
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:139
 #, kde-format
 msgid "Read Receipts"
 msgstr "Recepten lezen"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:145
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:163
 #, kde-format
 msgid "Version"
 msgstr "Versie"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:146
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:164
 #, kde-format
 msgid "Deployment ID"
 msgstr "Inzet-ID"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:166
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:184
 #, kde-format
 msgid "Rocket.Chat App Users"
 msgstr "Rocket.Chat App gebruikers"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:167
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:185
 #, kde-format
 msgid "Total Uploads Size"
 msgstr "Totale grootte uploads"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:168
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:186
 #, kde-format
 msgid "Total Uploads"
 msgstr "Totaal aantal uploads"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:170
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:188
 #, kde-format
 msgid "Online Users"
 msgstr "Online gebruikers"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:171
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:189
 #, kde-format
 msgid "Away Users"
 msgstr "Afwezige gebruikers"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:172
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:190
 #, kde-format
 msgid "Offline Users"
 msgstr "Offlinegebruikers"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:173
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:191
 #, kde-format
 msgid "Busy Users"
 msgstr "Bezige gebruikers"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:175
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:193
 #, kde-format
 msgid "Activated Users"
 msgstr "Geactiveerde gebruikers"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:176
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:194
 #, kde-format
 msgid "Activated Guests"
 msgstr "Geactiveerde gasten"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:177
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:195
 #, kde-format
 msgid "Deactivated Users"
 msgstr "Gedeactiveerde gebruikers"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:179
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:197
 #, kde-format
 msgid "Total Channels"
 msgstr "Totaal aantal kanalen"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:180
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:198
 #, kde-format
 msgid "Total Rooms"
 msgstr "Totaal aantal rooms"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:181
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:199
 #, kde-format
 msgid "Total Private Groups"
 msgstr "Totaal aantal private groepen"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:182
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:200
 #, kde-format
 msgid "Total Direct Message Rooms"
 msgstr "Totaal aantal directe berichtenrooms"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:183
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:201
 #, kde-format
 msgid "Total Threads"
 msgstr "Totaal aantal threads"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:184
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:202
 #, kde-format
 msgid "Total Users"
 msgstr "Totaal aantal gebruikers"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:185
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:203
 #, kde-format
 msgid "Total Discussions"
 msgstr "Totaal aantal discussies"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:186
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:204
 #, kde-format
 msgid "Total Omnichannel Rooms"
 msgstr "Totaal aantal Omnichannel rooms"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:188
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:206
 #, kde-format
 msgid "Total Messages"
 msgstr "Totaal aantal berichten"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:189
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:207
 #, kde-format
 msgid "Total Messages in Channels"
 msgstr "Totaal aantal berichten in kanalen"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:190
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:208
 #, kde-format
 msgid "Total Messages in Private Groups"
 msgstr "Totaal aantal berichten in private groepen"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:191
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:209
 #, kde-format
 msgid "Total Messages in Direct Messages"
 msgstr "Totaal aantal berichten in directe berichten"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:192
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:210
 #, kde-format
 msgid "Total Connected Users"
 msgstr "Totaal aantal verbonden gebruikers"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:226
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:244
 #, kde-format
 msgid "OS Release"
 msgstr "OS-release"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:227
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:245
 #, kde-format
 msgid "OS Type"
 msgstr "Type OS"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:228
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:246
 #, kde-format
 msgid "OS Platform"
 msgstr "OS-platform"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:229
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:247
 #, kde-format
 msgid "OS Total Memory"
 msgstr "OS totaal geheugen"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:230
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:248
 #, kde-format
 msgid "OS Free Memory"
 msgstr "OS vrij geheugen"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:245
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:263
 #, kde-format
 msgid "Usage"
 msgstr "Gebruik"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:251
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:269
 #, kde-format
 msgid "Runtime Environment"
 msgstr "Omgeving tijdens uitvoeren"
@@ -7012,34 +7037,34 @@ msgctxt "@title:window"
 msgid "Create Channel"
 msgstr "Kanaal aanmaken"
 
-#: widgets/dialogs/createnewchannelwidget.cpp:36
+#: widgets/dialogs/createnewchannelwidget.cpp:37
 #, kde-format
 msgid "Topic:"
 msgstr "Onderwerp:"
 
-#: widgets/dialogs/createnewchannelwidget.cpp:40
+#: widgets/dialogs/createnewchannelwidget.cpp:41
 #: widgets/dialogs/createnewdiscussionwidget.cpp:51
 #, kde-format
 msgid "Invite users…"
 msgstr "Gebruikers inviteren…"
 
-#: widgets/dialogs/createnewchannelwidget.cpp:41
+#: widgets/dialogs/createnewchannelwidget.cpp:42
 #, kde-format
 msgid "Users:"
 msgstr "Gebruikers:"
 
-#: widgets/dialogs/createnewchannelwidget.cpp:45
+#: widgets/dialogs/createnewchannelwidget.cpp:46
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "All users in this team can write messages"
 msgstr "Alle gebruikers in dit team kunnen berichten schrijven"
 
-#: widgets/dialogs/createnewchannelwidget.cpp:46
+#: widgets/dialogs/createnewchannelwidget.cpp:47
 #, kde-format
 msgid "Read-Only:"
 msgstr "Alleen-lezen:"
 
-#: widgets/dialogs/createnewchannelwidget.cpp:50
+#: widgets/dialogs/createnewchannelwidget.cpp:53
 #, kde-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -7049,23 +7074,23 @@ msgstr ""
 "Alleen geautoriseerde personen kunnen nieuwe berichten schrijven, maar de "
 "andere gebruikers zullen kunnen antwoorden"
 
-#: widgets/dialogs/createnewchannelwidget.cpp:51
+#: widgets/dialogs/createnewchannelwidget.cpp:54
 #, kde-format
 msgid "Broadcast:"
 msgstr "Broadcast:"
 
-#: widgets/dialogs/createnewchannelwidget.cpp:55
+#: widgets/dialogs/createnewchannelwidget.cpp:58
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Only invited people can join"
 msgstr "Alleen uitgenodigde mensen kunnen meedoen"
 
-#: widgets/dialogs/createnewchannelwidget.cpp:57
+#: widgets/dialogs/createnewchannelwidget.cpp:62
 #, kde-format
 msgid "Private Room:"
 msgstr "Privéroom:"
 
-#: widgets/dialogs/createnewchannelwidget.cpp:61
+#: widgets/dialogs/createnewchannelwidget.cpp:66
 #, kde-format
 msgid "Encrypted Room:"
 msgstr "Versleutelde room:"
@@ -8309,30 +8334,30 @@ msgstr "Token verwijderen"
 
 #: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:35
 #, kde-format
+msgid "Receive login detection emails"
+msgstr "E-mails over aanmelddetectie ontvangen"
+
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:36
+#, kde-format
 msgid "Use Emojis"
 msgstr "Emoji's gebruiken"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:36
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:37
 #, kde-format
 msgid "Convert Ascii to Emoji"
 msgstr "Ascii naar Emoji converteren"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:37
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:38
 #, kde-format
 msgid "Hide roles"
 msgstr "Rollen verbergen"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:38
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:39
 #, kde-format
 msgid "Display avatars"
 msgstr "Avatars tonen"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:39
-#, kde-format
-msgid "Receive login detection emails"
-msgstr "E-mails over aanmelddetectie ontvangen"
-
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:41
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:40
 #, kde-format
 msgid "Enable Auto Away"
 msgstr "Automatisch weg zijn inschakelen"
@@ -8474,29 +8499,29 @@ msgstr "URL van avatar definiëren:"
 msgid "Change URL for avatar…"
 msgstr "URL voor avatar wijzigen…"
 
-#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:30
+#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:33
 #, kde-format
 msgid "Your administrator has disabled the changing of email."
 msgstr "Uw systeembeheerder heeft het wijzigen van e-mail uitgeschakeld."
 
-#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:33
+#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:34
 #, kde-format
 msgid "Your administrator has disabled the changing of usernames."
 msgstr ""
 "Uw systeembeheerder heeft het wijzigen van gebruikersnamen uitgeschakeld."
 
-#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:36
+#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:37
 #, kde-format
 msgid "Your administrator has disabled the changing of status messages."
 msgstr ""
 "Uw systeembeheerder heeft het wijzigen van statusberichten uitgeschakeld."
 
-#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:37
+#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:38
 #, kde-format
 msgid "Delete my Account"
 msgstr "Mijn account verwijderen"
 
-#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:38
+#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:39
 #, kde-format
 msgid "Logout From Other Logged In Locations"
 msgstr "Afmelden uit andere aangemelde locaties"
@@ -9805,10 +9830,9 @@ msgid "Version 2.2"
 msgstr "Versie 2.2"
 
 #: widgets/whatsnew/whatsnewcomboboxwidget.cpp:57
-#, fuzzy, kde-format
-#| msgid "Version 2.0"
+#, kde-format
 msgid "Version 2.3"
-msgstr "Versie 2.0"
+msgstr "Versie 2.3"
 
 #: widgets/whatsnew/whatsnewdialog.cpp:25
 #, kde-format

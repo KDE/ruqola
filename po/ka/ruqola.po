@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-05-26 00:38+0000\n"
-"PO-Revision-Date: 2024-05-24 16:52+0200\n"
+"POT-Creation-Date: 2024-05-28 00:38+0000\n"
+"PO-Revision-Date: 2024-05-27 04:44+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -1406,12 +1406,12 @@ msgctxt "We need a space between after </strong>"
 msgid "<strong>%1</strong> are typing..."
 msgstr "<strong>%1</strong> კრეფს…"
 
-#: core/rocketchataccount.cpp:2966
+#: core/rocketchataccount.cpp:2984
 #, kde-format
 msgid "Export Messages"
 msgstr "შეტყობინებების გატანა"
 
-#: core/rocketchataccount.cpp:2967
+#: core/rocketchataccount.cpp:2985
 #, kde-format
 msgid "Your email has been queued for sending."
 msgstr "თქვენი ელფოსტა რიგშია გასაგზავნად."
@@ -1478,14 +1478,14 @@ msgid "Channel"
 msgstr "არხი"
 
 #: core/roominfo/roominfo.cpp:121
-#: widgets/administratordialog/rooms/administratorroomsselectroomtypewidget.cpp:14
-#, kde-format
-msgid "Direct"
-msgstr "პირდაპირი"
+#, fuzzy, kde-format
+#| msgid "Direct message someone"
+msgid "Direct message"
+msgstr "ვინმესთვის პირადი შეტყობინების მიწერა"
 
 #: core/roominfo/roominfo.cpp:123
 #: widgets/administratordialog/rooms/administratorroomsselectroomtypewidget.cpp:19
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:117
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:135
 #, kde-format
 msgid "Omnichannel"
 msgstr "ომნიარხი"
@@ -2426,7 +2426,7 @@ msgid "Administrator"
 msgstr "ადმინისტრატორი"
 
 #: widgets/administratordialog/administratorwidget.cpp:50
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:240
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:258
 #, kde-format
 msgid "Server Info"
 msgstr "სერვერის ინფორმაცია"
@@ -2501,7 +2501,7 @@ msgstr "ემოჯუს სახელი და მისი მეტს�
 #: widgets/administratordialog/users/administratoradduserwidget.cpp:59
 #: widgets/dialogs/channelinfoeditablewidget.cpp:53
 #: widgets/dialogs/channelinforeadonlywidget.cpp:33
-#: widgets/dialogs/createnewchannelwidget.cpp:33
+#: widgets/dialogs/createnewchannelwidget.cpp:34
 #: widgets/dialogs/directchannelinfowidget.cpp:88
 #: widgets/myaccount/myaccountpersonalaccesscreatewidget.cpp:28
 #: widgets/myaccount/myaccountprofileconfigurewidget.cpp:62
@@ -3178,6 +3178,31 @@ msgstr "კომენტარი:"
 msgid "Announcement:"
 msgstr "გამოცხადება:"
 
+#: widgets/administratordialog/rooms/administratorroomseditwidget.cpp:63
+#: widgets/dialogs/createnewchannelwidget.cpp:48
+#, fuzzy, kde-format
+#| msgctxt "@info:tooltip"
+#| msgid ""
+#| "Only authorized users can write new messages, but the other users will be "
+#| "able to reply"
+msgid "Only authorized users can write new messages"
+msgstr ""
+"ახალი შეტყობინებების დაწერა მხოლოდ ავტორიზებულ მომხმარებლებს შეეძლებათ, "
+"პასუხი კი ყველას"
+
+#: widgets/administratordialog/rooms/administratorroomseditwidget.cpp:67
+#: widgets/dialogs/createnewchannelwidget.cpp:59
+#, fuzzy, kde-format
+#| msgctxt "@info:tooltip"
+#| msgid "Only invited people can join"
+msgid "Just invited people can access this channel."
+msgstr "შემოსვლა მხოლოდ მოწვეულ ხალხს შეუძლია"
+
+#: widgets/administratordialog/rooms/administratorroomsselectroomtypewidget.cpp:14
+#, kde-format
+msgid "Direct"
+msgstr "პირდაპირი"
+
 #: widgets/administratordialog/rooms/administratorroomsselectroomtypewidget.cpp:15
 #, kde-format
 msgid "Public"
@@ -3207,198 +3232,198 @@ msgctxt "@title"
 msgid "Remove Room"
 msgstr "ოთახის წაშლა"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:49
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:50
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Refresh"
 msgstr "განახლება"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:68
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:69
 #, kde-format
 msgid "Copy"
 msgstr "კოპირება"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:113
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:131
 #, kde-format
 msgid "Licenses"
 msgstr "ლიცენზიები"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:118
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:136
 #, kde-format
 msgid "Auditing"
 msgstr "აუდიტი"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:119
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:137
 #, kde-format
 msgid "Canned Responses"
 msgstr "დაკონსერვებული პასუხები"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:120
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:138
 #, kde-format
 msgid "Engagement Dashboard"
 msgstr "ჩართულობის დაფა"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:121
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:139
 #, kde-format
 msgid "Read Receipts"
 msgstr "წაკითხულობის ანგარიშები"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:145
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:163
 #, kde-format
 msgid "Version"
 msgstr "ვერსია"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:146
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:164
 #, kde-format
 msgid "Deployment ID"
 msgstr "გაშლის ID"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:166
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:184
 #, kde-format
 msgid "Rocket.Chat App Users"
 msgstr "Rocket.Chat აპლიკაციის მომხმარებლები"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:167
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:185
 #, kde-format
 msgid "Total Uploads Size"
 msgstr "ატვირთვის ჯამური ზომა"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:168
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:186
 #, kde-format
 msgid "Total Uploads"
 msgstr "სულ ატვირთვები"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:170
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:188
 #, kde-format
 msgid "Online Users"
 msgstr "ონლაინ მომხმარებელები"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:171
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:189
 #, kde-format
 msgid "Away Users"
 msgstr "გასული მომხმარებლები"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:172
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:190
 #, kde-format
 msgid "Offline Users"
 msgstr "გათიშული მომხმარებლები"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:173
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:191
 #, kde-format
 msgid "Busy Users"
 msgstr "დაკავებული მომხმარებლები"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:175
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:193
 #, kde-format
 msgid "Activated Users"
 msgstr "აქტივირებული მომხმარებლები"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:176
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:194
 #, kde-format
 msgid "Activated Guests"
 msgstr "აქტივირებული სტუმრები"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:177
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:195
 #, kde-format
 msgid "Deactivated Users"
 msgstr "დეაქტივირებული მომხმრებლები"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:179
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:197
 #, kde-format
 msgid "Total Channels"
 msgstr "სულ არხები"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:180
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:198
 #, kde-format
 msgid "Total Rooms"
 msgstr "სულ ოთახები"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:181
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:199
 #, kde-format
 msgid "Total Private Groups"
 msgstr "სულ პირადი ჯგუფები"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:182
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:200
 #, kde-format
 msgid "Total Direct Message Rooms"
 msgstr "პირდაპირი შეტყობინებების ოთახების რაოდენობა"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:183
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:201
 #, kde-format
 msgid "Total Threads"
 msgstr "სულ ნაკადები"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:184
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:202
 #, kde-format
 msgid "Total Users"
 msgstr "სულ მომხმარებლები"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:185
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:203
 #, kde-format
 msgid "Total Discussions"
 msgstr "სულ კამათები"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:186
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:204
 #, kde-format
 msgid "Total Omnichannel Rooms"
 msgstr "ომნიარხების ოთახები სულ"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:188
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:206
 #, kde-format
 msgid "Total Messages"
 msgstr "შეტყობინებები სულ"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:189
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:207
 #, kde-format
 msgid "Total Messages in Channels"
 msgstr "სულ შეტყობინებები არხებში"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:190
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:208
 #, kde-format
 msgid "Total Messages in Private Groups"
 msgstr "სულ შეტყობინებები პირად ჯგუფებში"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:191
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:209
 #, kde-format
 msgid "Total Messages in Direct Messages"
 msgstr "სულ შეტყობინებები პირდაპირ შეტყობინებებში"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:192
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:210
 #, kde-format
 msgid "Total Connected Users"
 msgstr "სულ მიერთებული მომხმარებლები"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:226
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:244
 #, kde-format
 msgid "OS Release"
 msgstr "OS -ის რელიზი"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:227
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:245
 #, kde-format
 msgid "OS Type"
 msgstr "ოს-ის ტიპი"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:228
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:246
 #, kde-format
 msgid "OS Platform"
 msgstr "OS -ის პლატფორმა"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:229
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:247
 #, kde-format
 msgid "OS Total Memory"
 msgstr "OS -ის სრული მეხსიერება"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:230
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:248
 #, kde-format
 msgid "OS Free Memory"
 msgstr "OS -ის თავისუფალი მეხსიერება"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:245
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:263
 #, kde-format
 msgid "Usage"
 msgstr "გამოყენება"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:251
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:269
 #, kde-format
 msgid "Runtime Environment"
 msgstr "გაშვების გარემო"
@@ -6964,34 +6989,34 @@ msgctxt "@title:window"
 msgid "Create Channel"
 msgstr "არხის შექმნა"
 
-#: widgets/dialogs/createnewchannelwidget.cpp:36
+#: widgets/dialogs/createnewchannelwidget.cpp:37
 #, kde-format
 msgid "Topic:"
 msgstr "თემა:"
 
-#: widgets/dialogs/createnewchannelwidget.cpp:40
+#: widgets/dialogs/createnewchannelwidget.cpp:41
 #: widgets/dialogs/createnewdiscussionwidget.cpp:51
 #, kde-format
 msgid "Invite users…"
 msgstr "მომხმარებლების მოწვევა…"
 
-#: widgets/dialogs/createnewchannelwidget.cpp:41
+#: widgets/dialogs/createnewchannelwidget.cpp:42
 #, kde-format
 msgid "Users:"
 msgstr "მომხმარებლები:"
 
-#: widgets/dialogs/createnewchannelwidget.cpp:45
+#: widgets/dialogs/createnewchannelwidget.cpp:46
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "All users in this team can write messages"
 msgstr "ამ გუნდის ყველა წევრს შეუძლია, შეტყობინებები დაწეროს"
 
-#: widgets/dialogs/createnewchannelwidget.cpp:46
+#: widgets/dialogs/createnewchannelwidget.cpp:47
 #, kde-format
 msgid "Read-Only:"
 msgstr "მხოლოდ-კითხვადი:"
 
-#: widgets/dialogs/createnewchannelwidget.cpp:50
+#: widgets/dialogs/createnewchannelwidget.cpp:53
 #, kde-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -7001,23 +7026,23 @@ msgstr ""
 "ახალი შეტყობინებების დაწერა მხოლოდ ავტორიზებულ მომხმარებლებს შეეძლებათ, "
 "პასუხი კი ყველას"
 
-#: widgets/dialogs/createnewchannelwidget.cpp:51
+#: widgets/dialogs/createnewchannelwidget.cpp:54
 #, kde-format
 msgid "Broadcast:"
 msgstr "ტრანსლირება:"
 
-#: widgets/dialogs/createnewchannelwidget.cpp:55
+#: widgets/dialogs/createnewchannelwidget.cpp:58
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Only invited people can join"
 msgstr "შემოსვლა მხოლოდ მოწვეულ ხალხს შეუძლია"
 
-#: widgets/dialogs/createnewchannelwidget.cpp:57
+#: widgets/dialogs/createnewchannelwidget.cpp:62
 #, kde-format
 msgid "Private Room:"
 msgstr "პირადი ოთახი:"
 
-#: widgets/dialogs/createnewchannelwidget.cpp:61
+#: widgets/dialogs/createnewchannelwidget.cpp:66
 #, kde-format
 msgid "Encrypted Room:"
 msgstr "დაშიფრული ოთახი:"
@@ -8256,30 +8281,30 @@ msgstr "კოდის წაშლა"
 
 #: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:35
 #, kde-format
+msgid "Receive login detection emails"
+msgstr "შესვლის აღმოჩენის ელფოსტების მიღება"
+
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:36
+#, kde-format
 msgid "Use Emojis"
 msgstr "ემოჯის გამოყენება"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:36
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:37
 #, kde-format
 msgid "Convert Ascii to Emoji"
 msgstr "ASCII-ის ემოჯიში გადაყვანა"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:37
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:38
 #, kde-format
 msgid "Hide roles"
 msgstr "როლების დამალვა"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:38
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:39
 #, kde-format
 msgid "Display avatars"
 msgstr "ავატარების ჩვენება"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:39
-#, kde-format
-msgid "Receive login detection emails"
-msgstr "შესვლის აღმოჩენის ელფოსტების მიღება"
-
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:41
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:40
 #, kde-format
 msgid "Enable Auto Away"
 msgstr "ავტოგასულობის ჩართვა"
@@ -8420,27 +8445,27 @@ msgstr "ავატარის ბმული:"
 msgid "Change URL for avatar…"
 msgstr "ავატარის ბმულის შეცვლა…"
 
-#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:30
+#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:33
 #, kde-format
 msgid "Your administrator has disabled the changing of email."
 msgstr "ელფოსტის შეცვლა გათიშულია თქვენი ადმინისტრატორის მიერ."
 
-#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:33
+#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:34
 #, kde-format
 msgid "Your administrator has disabled the changing of usernames."
 msgstr "ელფოსტის შეცვლა გათიშულია თქვენი ადმინისტრატორის მიერ."
 
-#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:36
+#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:37
 #, kde-format
 msgid "Your administrator has disabled the changing of status messages."
 msgstr "ელფოსტის შეცვლა გათიშულია თქვენი ადმინისტრატორის მიერ."
 
-#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:37
+#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:38
 #, kde-format
 msgid "Delete my Account"
 msgstr "ჩემი ანგარიშის წაშლა"
 
-#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:38
+#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:39
 #, kde-format
 msgid "Logout From Other Logged In Locations"
 msgstr "სხვა ადგილებზე შესვლების გაუქმება"
@@ -9746,10 +9771,9 @@ msgid "Version 2.2"
 msgstr "ვერსია 2.2"
 
 #: widgets/whatsnew/whatsnewcomboboxwidget.cpp:57
-#, fuzzy, kde-format
-#| msgid "Version 2.0"
+#, kde-format
 msgid "Version 2.3"
-msgstr "ვერსია 2.0"
+msgstr "ვერსია 2.3"
 
 #: widgets/whatsnew/whatsnewdialog.cpp:25
 #, kde-format
