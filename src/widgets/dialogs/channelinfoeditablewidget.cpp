@@ -38,9 +38,9 @@ ChannelInfoEditableWidget::ChannelInfoEditableWidget(Room *room, RocketChatAccou
     , mArchive(new QCheckBox(this))
     , mPrivate(new QCheckBox(this))
     , mEncrypted(new QCheckBox(this))
+    , mSystemMessageCombox(new SystemMessagesComboBox(this))
     , mDeleteChannel(new QPushButton(QIcon::fromTheme(QStringLiteral("edit-delete-shred")), i18n("Delete"), this))
     , mChannelInfoPruneWidget(new ChannelInfoPruneWidget(this))
-    , mSystemMessageCombox(new SystemMessagesComboBox(this))
     , mRoomAvatarWidget(new RoomAvatarWidget(this))
     , mRocketChatAccount(account)
 {
