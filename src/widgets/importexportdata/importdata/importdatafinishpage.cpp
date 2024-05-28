@@ -24,6 +24,7 @@ ImportDataFinishPage::ImportDataFinishPage(QWidget *parent)
 
     mInfos->setObjectName(QStringLiteral("mInfos"));
     mainLayout->addWidget(mInfos);
+    mInfos->setVisible(false);
 
     mMessageWidget->setObjectName(QStringLiteral("mMessageWidget"));
     mMessageWidget->setVisible(false);
@@ -77,6 +78,7 @@ void ImportDataFinishPage::slotImportFailed(const QString &msg)
         currentText += QLatin1Char('\n');
     }
     mInfos->setText(currentText + msg);
+    mInfos->setVisible(true);
 }
 
 #include "moc_importdatafinishpage.cpp"
