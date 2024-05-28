@@ -28,16 +28,16 @@ ManageLocalDatabase::~ManageLocalDatabase() = default;
 
 void ManageLocalDatabase::loadAccountSettings()
 {
-    qCWarning(RUQOLA_LOAD_HISTORY_LOG) << " loadAccountSettings ";
+    qCDebug(RUQOLA_LOAD_HISTORY_LOG) << "loadAccountSettings";
     qint64 timeStamp = -1;
 #ifdef USE_LOCALDATABASE
     const QString accountName{mRocketChatAccount->accountName()};
     const QByteArray ba = mRocketChatAccount->localDatabaseManager()->jsonAccount(accountName);
     if (!ba.isEmpty()) {
-        qCWarning(RUQOLA_LOAD_HISTORY_LOG) << "Account info loads from database";
+        qCDebug(RUQOLA_LOAD_HISTORY_LOG) << "Account info loads from database";
         mRocketChatAccount->ruqolaServerConfig()->loadAccountSettingsFromLocalDataBase(ba);
         timeStamp = mRocketChatAccount->localDatabaseManager()->timeStamp(accountName, QString(), GlobalDatabase::TimeStampType::AccountTimeStamp);
-        qCWarning(RUQOLA_LOAD_HISTORY_LOG) << " timeStamp: " << timeStamp;
+        qCDebug(RUQOLA_LOAD_HISTORY_LOG) << " timeStamp:" << timeStamp;
     }
 #endif
     mRocketChatAccount->rocketChatBackend()->loadPublicSettings(timeStamp);
@@ -51,13 +51,13 @@ void ManageLocalDatabase::syncMessage(const QByteArray &roomId, qint64 lastSeenA
     mRocketChatAccount->restApi()->initializeRestApiJob(job);
     connect(job, &RocketChatRestApi::SyncMessagesJob::syncMessagesDone, this, &ManageLocalDatabase::slotSyncMessages);
     if (!job->start()) {
-        qCWarning(RUQOLA_LOAD_HISTORY_LOG) << "Impossible to start SyncMessagesJob job";
+        qCWarning(RUQOLA_LOAD_HISTORY_LOG) << "Couldn't start SyncMessagesJob job";
     }
 }
 
 void ManageLocalDatabase::slotSyncMessages(const QJsonObject &obj, const QByteArray &roomId)
 {
-    qCWarning(RUQOLA_LOAD_HISTORY_LOG) << " roomId " << roomId << " obj " << obj;
+    qCDebug(RUQOLA_LOAD_HISTORY_LOG) << "roomId" << roomId << "obj" << obj;
     ManageLoadHistoryParseSyncMessagesUtils utils(mRocketChatAccount);
     utils.parse(obj);
 
