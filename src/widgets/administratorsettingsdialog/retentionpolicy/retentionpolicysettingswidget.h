@@ -21,16 +21,16 @@ public:
 
 private:
     QCheckBox *const mEnabled;
+    QComboBox *const mTimerPrecision;
     QCheckBox *const mUseAdvancedRetentionPolicyConfiguration;
     QCheckBox *const mDontPruneThreads;
     QCheckBox *const mDontPruneDiscussion;
     QCheckBox *const mDontPrunePinnedMessages;
     QCheckBox *const mOnlyDeleteFiles;
     QCheckBox *const mAppliesChannels;
+    QSpinBox *const mMaximumMessageChannels;
     QCheckBox *const mAppliesGroups;
+    QSpinBox *const mMaximumMessagePrivateGroups;
     QCheckBox *const mAppliesMessages;
     QSpinBox *const mMaximumMessageDirectMessages;
-    QSpinBox *const mMaximumMessagePrivateGroups;
-    QSpinBox *const mMaximumMessageChannels;
-    QComboBox *const mTimerPrecision;
 };

@@ -16,18 +16,18 @@
 RetentionPolicySettingsWidget::RetentionPolicySettingsWidget(RocketChatAccount *account, QWidget *parent)
     : SettingsWidgetBase(account, parent)
     , mEnabled(new QCheckBox(i18n("Enabled"), this))
+    , mTimerPrecision(new QComboBox(this))
     , mUseAdvancedRetentionPolicyConfiguration(new QCheckBox(i18n("Use Advanced Retention Policy configuration"), this))
     , mDontPruneThreads(new QCheckBox(i18n("Do not prune Threads"), this))
     , mDontPruneDiscussion(new QCheckBox(i18n("Do not prune Discussion message"), this))
     , mDontPrunePinnedMessages(new QCheckBox(i18n("Do not prune pinned messages"), this))
     , mOnlyDeleteFiles(new QCheckBox(i18n("Only delete files"), this))
     , mAppliesChannels(new QCheckBox(i18n("Applies to channels"), this))
+    , mMaximumMessageChannels(new QSpinBox(this))
     , mAppliesGroups(new QCheckBox(i18n("Applies to private groups"), this))
+    , mMaximumMessagePrivateGroups(new QSpinBox(this))
     , mAppliesMessages(new QCheckBox(i18n("Applies to direct messages"), this))
     , mMaximumMessageDirectMessages(new QSpinBox(this))
-    , mMaximumMessagePrivateGroups(new QSpinBox(this))
-    , mMaximumMessageChannels(new QSpinBox(this))
-    , mTimerPrecision(new QComboBox(this))
 {
     mEnabled->setObjectName(QStringLiteral("mEnabled"));
     mMainLayout->addWidget(mEnabled);
