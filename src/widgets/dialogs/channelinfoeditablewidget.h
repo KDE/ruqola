@@ -55,10 +55,10 @@ private:
     QCheckBox *const mArchive;
     QCheckBox *const mPrivate;
     QCheckBox *const mEncrypted;
+    SystemMessagesComboBox *const mSystemMessageCombox;
     QPushButton *const mDeleteChannel;
     QWidget *mEncryptedLabel = nullptr;
     ChannelInfoPruneWidget *const mChannelInfoPruneWidget;
-    SystemMessagesComboBox *const mSystemMessageCombox;
     RoomAvatarWidget *const mRoomAvatarWidget;
     RocketChatAccount *const mRocketChatAccount;
 };
