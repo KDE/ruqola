@@ -22,11 +22,11 @@ public:
 
 private:
     QCheckBox *const mEnabled;
+    QPlainTextEdit *const mAPITokens;
     QCheckBox *const mFileUpload;
     QCheckBox *const mSlackBridgeOutEnabled;
     QCheckBox *const mSlackBridgeOutAll;
     QLineEdit *const mAliasFormat;
     QLineEdit *const mExcludeBots;
     QCheckBox *const mReactions;
-    QPlainTextEdit *const mAPITokens;
 };

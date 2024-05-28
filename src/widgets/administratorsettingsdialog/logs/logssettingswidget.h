@@ -22,8 +22,8 @@ public:
 
 private:
     QLineEdit *const mLogExceptionsChannel;
-    QSpinBox *const mLogViewLimit;
     QComboBox *const mLogLevel;
+    QSpinBox *const mLogViewLimit;
     QCheckBox *const mTraceMethodCalls;
     QLineEdit *const mTraceMethodFilter;
     QCheckBox *const mTraceSubscriptionCalls;
