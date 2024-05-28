@@ -25,12 +25,12 @@ private:
     QCheckBox *const mRooms;
     QCheckBox *const mUsers;
     QCheckBox *const mGoogleEnabled;
-    QCheckBox *const mPiwikEnabled;
     QLineEdit *const mGoogleTrackingId;
+    QCheckBox *const mPiwikEnabled;
     QLineEdit *const mPiwikUrl;
     QLineEdit *const mPiwikClientID;
+    QPlainTextEdit *const mAdditionalPiwikSites;
     QCheckBox *const mPrependDomain;
     QCheckBox *const mAllSubdomains;
-    QPlainTextEdit *const mAdditionalPiwikSites;
     QPlainTextEdit *const mHideOutgoingLinks;
 };

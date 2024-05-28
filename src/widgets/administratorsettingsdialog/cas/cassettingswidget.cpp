@@ -18,11 +18,11 @@
 CasSettingsWidget::CasSettingsWidget(RocketChatAccount *account, QWidget *parent)
     : SettingsWidgetBase{account, parent}
     , mEnabled(new QCheckBox(i18n("Enabled"), this))
-    , mTrustCASUsername(new QCheckBox(i18n("Trust CAS Username"), this))
-    , mAllowUserCreation(new QCheckBox(i18n("Allow user creation"), this))
     , mSSOBaseURL(new QLineEdit(this))
     , mSSOLoginURL(new QLineEdit(this))
     , mCASVersion(new QComboBox(this))
+    , mTrustCASUsername(new QCheckBox(i18n("Trust CAS Username"), this))
+    , mAllowUserCreation(new QCheckBox(i18n("Allow user creation"), this))
     , mAlwaysSyncUserData(new QCheckBox(i18n("Always Sync User Data"), this))
     , mAttributeMap(new QLineEdit(this))
 {
