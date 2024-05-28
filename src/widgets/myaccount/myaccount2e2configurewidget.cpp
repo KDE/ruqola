@@ -25,9 +25,10 @@ MyAccount2e2ConfigureWidget::MyAccount2e2ConfigureWidget(RocketChatAccount *acco
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
 
     auto changePasswordLabel =
-        new QLabel(i18n("You can now create encrypted private groups and direct messages. You may also change existing private groups or DMs to encrypted. "
-                        "This is end to end encryption so the key to encode/decode your messages will not be saved on the server. For that reason you need to "
-                        "store your password somewhere safe. You will be required to enter it on other devices you wish to use e2e encryption on."),
+        new QLabel(i18nc("@label:textbox",
+                         "You can now create encrypted private groups and direct messages. You may also change existing private groups or DMs to encrypted. "
+                         "This is end to end encryption so the key to encode/decode your messages will not be saved on the server. For that reason you need to "
+                         "store your password somewhere safe. You will be required to enter it on other devices you wish to use e2e encryption on."),
                    this);
     changePasswordLabel->setWordWrap(true);
     changePasswordLabel->setObjectName(QStringLiteral("changePasswordLabel"));

@@ -60,11 +60,11 @@ AdministratorRoomsEditWidget::AdministratorRoomsEditWidget(QWidget *parent)
     mArchivedCheckBox->setObjectName(QStringLiteral("mArchivedCheckBox"));
 
     mainLayout->addWidget(mReadOnlyCheckBox);
-    auto label = new QLabel(i18n("Only authorized users can write new messages"), this);
+    auto label = new QLabel(i18nc("@label:textbox", "Only authorized users can write new messages"), this);
     mainLayout->addWidget(label);
 
     mainLayout->addWidget(mPrivateCheckBox);
-    label = new QLabel(i18n("Just invited people can access this channel."), this);
+    label = new QLabel(i18nc("@label:textbox", "Just invited people can access this channel."), this);
     mainLayout->addWidget(label);
 
     mainLayout->addWidget(mDefaultCheckBox);

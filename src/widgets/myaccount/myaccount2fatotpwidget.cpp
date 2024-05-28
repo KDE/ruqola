@@ -32,8 +32,9 @@ MyAccount2FaTotpWidget::MyAccount2FaTotpWidget(RocketChatAccount *account, QWidg
 
     mTotpQrCode->setObjectName(QStringLiteral("mTotpQrCode"));
     mainLayout->addWidget(mTotpQrCode);
-    auto label = new QLabel(i18n("Scan the QR code. It will display a 6 digit code which you need to enter below."
-                                 "\n If you can't scan the QR code, you may enter code manually instead:"),
+    auto label = new QLabel(i18nc("@label:textbox",
+                                  "Scan the QR code. It will display a 6 digit code which you need to enter below."
+                                  "\n If you can't scan the QR code, you may enter code manually instead:"),
                             this);
     label->setObjectName(QStringLiteral("label"));
     mainLayout->addWidget(label);

@@ -35,7 +35,7 @@ PruneMessagesWidget::PruneMessagesWidget(RocketChatAccount *account, QWidget *pa
     lastestLayout->setContentsMargins({});
     mainLayout->addLayout(lastestLayout);
 
-    auto lastestLabel = new QLabel(i18n("Newer than:"), this);
+    auto lastestLabel = new QLabel(i18nc("@label:textbox", "Newer than:"), this);
     lastestLabel->setObjectName(QStringLiteral("lastestLabel"));
     lastestLayout->addWidget(lastestLabel);
 
@@ -48,7 +48,7 @@ PruneMessagesWidget::PruneMessagesWidget(RocketChatAccount *account, QWidget *pa
     oldestLayout->setContentsMargins({});
     mainLayout->addLayout(oldestLayout);
 
-    auto oldestLabel = new QLabel(i18n("Older than:"), this);
+    auto oldestLabel = new QLabel(i18nc("@label:textbox", "Older than:"), this);
     oldestLabel->setObjectName(QStringLiteral("oldestLabel"));
     oldestLayout->addWidget(oldestLabel);
 
@@ -56,7 +56,7 @@ PruneMessagesWidget::PruneMessagesWidget(RocketChatAccount *account, QWidget *pa
     connect(mOldestDateTimeEdit, &QDateTimeEdit::dateTimeChanged, this, &PruneMessagesWidget::slotCheckDateTime);
     oldestLayout->addWidget(mOldestDateTimeEdit);
 
-    auto usersLabel = new QLabel(i18n("Only Prune content from these users (Keep empty to prune everyone's content)"), this);
+    auto usersLabel = new QLabel(i18nc("@label:textbox", "Only Prune content from these users (Keep empty to prune everyone's content)"), this);
     usersLabel->setObjectName(QStringLiteral("usersLabel"));
     usersLabel->setWordWrap(true);
     usersLabel->setTextFormat(Qt::PlainText);

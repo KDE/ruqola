@@ -20,7 +20,7 @@ ResetPasswordWidget::ResetPasswordWidget(QWidget *parent)
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
     mainLayout->setContentsMargins({});
 
-    auto label = new QLabel(i18n("Email:"), this);
+    auto label = new QLabel(i18nc("@label:textbox", "Email:"), this);
     label->setObjectName(QStringLiteral("label"));
     mainLayout->addWidget(label);
 

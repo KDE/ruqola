@@ -17,7 +17,7 @@ ExportDataSelectAccountPage::ExportDataSelectAccountPage(QWidget *parent)
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
 
-    auto label = new QLabel(i18n("Select Accounts:"), this);
+    auto label = new QLabel(i18nc("@label:textbox", "Select Accounts:"), this);
     label->setObjectName(QStringLiteral("label"));
     mainLayout->addWidget(label);
 

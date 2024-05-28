@@ -25,7 +25,7 @@ CreateNewDiscussionWidget::CreateNewDiscussionWidget(RocketChatAccount *account,
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
     mainLayout->setContentsMargins({});
 
-    auto channelLabel = new QLabel(i18n("Channel or Group parent"), this);
+    auto channelLabel = new QLabel(i18nc("@label:textbox", "Channel or Group parent"), this);
     channelLabel->setObjectName(QStringLiteral("channelLabel"));
     mainLayout->addWidget(channelLabel);
 
@@ -33,7 +33,7 @@ CreateNewDiscussionWidget::CreateNewDiscussionWidget(RocketChatAccount *account,
     connect(mChannelSearchWidget, &ChannelSearchWidget::updateRoomName, this, &CreateNewDiscussionWidget::updateOkButton);
     mainLayout->addWidget(mChannelSearchWidget);
 
-    auto discussionName = new QLabel(i18n("Discussion Name"), this);
+    auto discussionName = new QLabel(i18nc("@label:textbox", "Discussion Name"), this);
     discussionName->setObjectName(QStringLiteral("discussionName"));
     discussionName->setTextFormat(Qt::PlainText);
     mainLayout->addWidget(discussionName);
@@ -43,7 +43,7 @@ CreateNewDiscussionWidget::CreateNewDiscussionWidget(RocketChatAccount *account,
     mDiscussionNameLineEdit->setClearButtonEnabled(true);
     mainLayout->addWidget(mDiscussionNameLineEdit);
 
-    auto usersLabel = new QLabel(i18n("Invite Users"), this);
+    auto usersLabel = new QLabel(i18nc("@label:textbox", "Invite Users"), this);
     usersLabel->setObjectName(QStringLiteral("usersLabel"));
     mainLayout->addWidget(usersLabel);
 
@@ -51,7 +51,7 @@ CreateNewDiscussionWidget::CreateNewDiscussionWidget(RocketChatAccount *account,
     mUsers->setPlaceholderText(i18n("Invite users…"));
     mainLayout->addWidget(mUsers);
 
-    auto messageLabel = new QLabel(i18n("Message"), this);
+    auto messageLabel = new QLabel(i18nc("@label:textbox", "Message"), this);
     messageLabel->setObjectName(QStringLiteral("messageLabel"));
     mainLayout->addWidget(messageLabel);
 

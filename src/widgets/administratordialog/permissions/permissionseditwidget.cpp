@@ -16,7 +16,7 @@ PermissionsEditWidget::PermissionsEditWidget(QWidget *parent)
     auto mainLayout = new QHBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
     mainLayout->setContentsMargins({});
-    auto label = new QLabel(i18n("Roles:"), this);
+    auto label = new QLabel(i18nc("@label:textbox", "Roles:"), this);
     label->setObjectName(QStringLiteral("label"));
     mRolesCombobox->setObjectName(QStringLiteral("mRolesCombobox"));
     mainLayout->addWidget(label);

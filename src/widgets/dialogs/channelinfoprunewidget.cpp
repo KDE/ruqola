@@ -47,7 +47,7 @@ ChannelInfoPruneWidget::ChannelInfoPruneWidget(QWidget *parent)
     maxAgeLayout->setContentsMargins({});
     groupBoxLayout->addLayout(maxAgeLayout);
 
-    auto label = new QLabel(i18n("Maximum message age in days (default: 30):"), this);
+    auto label = new QLabel(i18nc("@label:textbox", "Maximum message age in days (default: 30):"), this);
     label->setObjectName(QStringLiteral("label"));
     mMaximumAgeInDay->setObjectName(QStringLiteral("mMaximumAgeInDay"));
     maxAgeLayout->addWidget(label);

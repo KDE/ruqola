@@ -24,7 +24,7 @@ WhatsNewComboBoxWidget::WhatsNewComboBoxWidget(QWidget *parent)
     hboxLayout->setContentsMargins({});
     mainLayout->addLayout(hboxLayout);
 
-    auto label = new QLabel(i18n("Version:"), this);
+    auto label = new QLabel(i18nc("@label:textbox", "Version:"), this);
     label->setObjectName(QStringLiteral("label"));
     hboxLayout->addWidget(label);
 

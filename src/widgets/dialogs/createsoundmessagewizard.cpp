@@ -104,7 +104,7 @@ GenerateSoundMessagePage::GenerateSoundMessagePage(RocketChatAccount *account, Q
     mShowSoundWidget->setObjectName(QStringLiteral("mShowSoundWidget"));
     mainLayout->addWidget(mShowSoundWidget);
 
-    auto label = new QLabel(i18n("Filename:"), this);
+    auto label = new QLabel(i18nc("@label:textbox", "Filename:"), this);
     label->setTextFormat(Qt::PlainText);
     mainLayout->addWidget(label);
 
@@ -117,7 +117,7 @@ GenerateSoundMessagePage::GenerateSoundMessagePage(RocketChatAccount *account, Q
     KLineEditEventHandler::catchReturnKey(mFileName);
     KLineEditEventHandler::catchReturnKey(mDescription);
 
-    label = new QLabel(i18n("Description:"), this);
+    label = new QLabel(i18nc("@label:textbox", "Description:"), this);
     label->setTextFormat(Qt::PlainText);
     mainLayout->addWidget(label);
 

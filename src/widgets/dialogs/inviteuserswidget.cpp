@@ -38,7 +38,7 @@ InviteUsersWidget::InviteUsersWidget(RocketChatAccount *account, QWidget *parent
     hlayout->setContentsMargins({});
     mainLayout->addLayout(hlayout);
 
-    auto label = new QLabel(i18n("Invite Link:"), this);
+    auto label = new QLabel(i18nc("@label:textbox", "Invite Link:"), this);
     label->setObjectName(QStringLiteral("label"));
     label->setTextFormat(Qt::PlainText);
     hlayout->addWidget(label);

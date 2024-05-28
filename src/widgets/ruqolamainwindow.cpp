@@ -534,7 +534,7 @@ void RuqolaMainWindow::setupActions()
         mContainerStatusInfo = new QWidget(this);
         auto layout = new QHBoxLayout(mContainerStatusInfo);
         layout->setContentsMargins({});
-        auto label = new QLabel(i18n("Status:"), mContainerStatusInfo);
+        auto label = new QLabel(i18nc("@label:textbox", "Status:"), mContainerStatusInfo);
         label->setObjectName(QStringLiteral("label"));
         layout->addWidget(label);
 

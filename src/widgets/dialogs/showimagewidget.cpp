@@ -264,7 +264,7 @@ ShowImageWidget::ShowImageWidget(RocketChatAccount *account, QWidget *parent)
     mZoomControls->setLayout(zoomLayout);
     mainLayout->addWidget(mZoomControls);
 
-    auto mLabel = new QLabel(i18n("Zoom:"), this);
+    auto mLabel = new QLabel(i18nc("@label:textbox", "Zoom:"), this);
     mLabel->setObjectName(QStringLiteral("zoomLabel"));
     zoomLayout->addWidget(mLabel);
 

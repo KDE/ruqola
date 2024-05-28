@@ -58,8 +58,9 @@ ConfigureActivitiesWidget::ConfigureActivitiesWidget(QWidget *parent)
     mainLayout->setObjectName("mainLayout"_L1);
     mainLayout->setContentsMargins({});
 
-    auto label = new QLabel(i18n("If you limit this account to activity, it will be shown in Ruqola only when you are in those activities. Furthermore, when "
-                                 "you switch to an activity it should not be available in, it will automatically be hidden."),
+    auto label = new QLabel(i18nc("@label:textbox",
+                                  "If you limit this account to activity, it will be shown in Ruqola only when you are in those activities. Furthermore, when "
+                                  "you switch to an activity it should not be available in, it will automatically be hidden."),
                             this);
     label->setWordWrap(true);
     label->setObjectName("label"_L1);

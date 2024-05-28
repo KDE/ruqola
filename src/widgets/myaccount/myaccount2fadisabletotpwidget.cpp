@@ -24,7 +24,7 @@ MyAccount2FaDisableTotpWidget::MyAccount2FaDisableTotpWidget(RocketChatAccount *
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
     mainLayout->setContentsMargins({});
 
-    auto label = new QLabel(i18n("Open your authentication app and enter the code.\nYou can also use one of your backup codes."), this);
+    auto label = new QLabel(i18nc("@label:textbox", "Open your authentication app and enter the code.\nYou can also use one of your backup codes."), this);
     label->setObjectName(QStringLiteral("label"));
     mainLayout->addWidget(label);
 

@@ -33,7 +33,7 @@ CheckNewServerUrlWidget::CheckNewServerUrlWidget(QWidget *parent)
     serverUrlLayout->setContentsMargins({});
     topLayout->addLayout(serverUrlLayout);
 
-    auto label = new QLabel(i18n("Server Url:"), this);
+    auto label = new QLabel(i18nc("@label:textbox", "Server Url:"), this);
     label->setObjectName(QStringLiteral("label"));
     serverUrlLayout->addWidget(label);
 

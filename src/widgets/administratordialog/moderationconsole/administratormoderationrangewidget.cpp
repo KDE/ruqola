@@ -29,10 +29,10 @@ AdministratorModerationRangeWidget::AdministratorModerationRangeWidget(QWidget *
     mFilterDate->setPopupMode(QToolButton::InstantPopup);
     mFilterDate->setIcon(QIcon::fromTheme(QStringLiteral("application-menu")));
 
-    auto fromLabel = new QLabel(i18n("From:"), this);
+    auto fromLabel = new QLabel(i18nc("@label:textbox", "From:"), this);
     fromLabel->setObjectName(QStringLiteral("fromLabel"));
 
-    auto toLabel = new QLabel(i18n("To:"), this);
+    auto toLabel = new QLabel(i18nc("@label:textbox", "To:"), this);
     toLabel->setObjectName(QStringLiteral("toLabel"));
 
     mainLayout->addWidget(fromLabel);

@@ -130,7 +130,7 @@ GenerateVideoMessagePage::GenerateVideoMessagePage(RocketChatAccount *account, Q
     mShowVideoWidget->setObjectName(QStringLiteral("mShowVideoWidget"));
     mainLayout->addWidget(mShowVideoWidget);
 
-    auto label = new QLabel(i18n("Filename:"), this);
+    auto label = new QLabel(i18nc("@label:textbox", "Filename:"), this);
     label->setObjectName(QStringLiteral("label-filename"));
     label->setTextFormat(Qt::PlainText);
     mainLayout->addWidget(label);
@@ -143,7 +143,7 @@ GenerateVideoMessagePage::GenerateVideoMessagePage(RocketChatAccount *account, Q
 
     mainLayout->addWidget(mFileName);
 
-    label = new QLabel(i18n("Description:"), this);
+    label = new QLabel(i18nc("@label:textbox", "Description:"), this);
     label->setObjectName(QStringLiteral("label-description"));
     label->setTextFormat(Qt::PlainText);
     mainLayout->addWidget(label);

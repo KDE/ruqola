@@ -16,14 +16,15 @@ CreateDirectMessagesWidget::CreateDirectMessagesWidget(RocketChatAccount *accoun
     : QWidget(parent)
     , mUsers(new AddUsersWidget(account, this))
     , mRocketChatAccount(account)
-    , mTooManyUsers(new QLabel(i18n("Too many users selected."), this))
+    , mTooManyUsers(new QLabel(i18nc("@label:textbox", "Too many users selected."), this))
 {
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
     mainLayout->setContentsMargins({});
 
-    auto label = new QLabel(i18n("You are about to create a chat with multiple users. Add the ones you would like to talk, "
-                                 "everyone in the same place, using direct messages."),
+    auto label = new QLabel(i18nc("@label:textbox",
+                                  "You are about to create a chat with multiple users. Add the ones you would like to talk, "
+                                  "everyone in the same place, using direct messages."),
                             this);
     label->setObjectName(QStringLiteral("label"));
     label->setWordWrap(true);

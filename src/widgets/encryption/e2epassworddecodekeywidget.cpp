@@ -19,8 +19,9 @@ E2ePasswordDecodeKeyWidget::E2ePasswordDecodeKeyWidget(QWidget *parent)
     mainLayout->setContentsMargins({});
 
     auto label =
-        new QLabel(i18n("To access your encrypted private groups and direct messages, enter your encryption password.\n"
-                        "You need to enter this password to encode/decode your messages on every client you use, since the key is not stored on the server."),
+        new QLabel(i18nc("@label:textbox",
+                         "To access your encrypted private groups and direct messages, enter your encryption password.\n"
+                         "You need to enter this password to encode/decode your messages on every client you use, since the key is not stored on the server."),
                    this);
     label->setObjectName(QStringLiteral("label"));
     label->setWordWrap(true);

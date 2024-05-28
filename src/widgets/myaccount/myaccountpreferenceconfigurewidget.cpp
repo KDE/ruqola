@@ -39,7 +39,7 @@ MyAccountPreferenceConfigureWidget::MyAccountPreferenceConfigureWidget(RocketCha
     , mDisplayAvatars(new QCheckBox(i18n("Display avatars"), this))
     , mAutomaticAway(new QCheckBox(i18n("Enable Auto Away"), this))
     , mIdleTimeLimit(new QSpinBox(this))
-    , mEmailNotificationLabel(new QLabel(i18n("Offline Email notification:"), this))
+    , mEmailNotificationLabel(new QLabel(i18nc("@label:textbox", "Offline Email notification:"), this))
     , mSoundNewRoomNotification(new SoundConfigureWidget(account, this))
     , mSoundNewMessageNotification(new SoundConfigureWidget(account, this))
     , mSoundModel(new NotificationDesktopSoundPreferenceModel(this))
@@ -56,7 +56,7 @@ MyAccountPreferenceConfigureWidget::MyAccountPreferenceConfigureWidget(RocketCha
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
 
-    auto highlightWordsLabel = new QLabel(i18n("Highlight words:"), this);
+    auto highlightWordsLabel = new QLabel(i18nc("@label:textbox", "Highlight words:"), this);
     highlightWordsLabel->setObjectName(QStringLiteral("highlightWordsLabel"));
     highlightWordsLabel->setTextFormat(Qt::PlainText);
 
@@ -72,7 +72,7 @@ MyAccountPreferenceConfigureWidget::MyAccountPreferenceConfigureWidget(RocketCha
     mEmailNotification->setObjectName(QStringLiteral("mEmailNotification"));
     mPushNotification->setObjectName(QStringLiteral("mPushNotification"));
 
-    auto desktopNotificationLabel = new QLabel(i18n("Desktop notification:"), this);
+    auto desktopNotificationLabel = new QLabel(i18nc("@label:textbox", "Desktop notification:"), this);
     desktopNotificationLabel->setObjectName(QStringLiteral("desktopNotificationLabel"));
     desktopNotificationLabel->setTextFormat(Qt::PlainText);
     mainLayout->addWidget(desktopNotificationLabel);
@@ -84,7 +84,7 @@ MyAccountPreferenceConfigureWidget::MyAccountPreferenceConfigureWidget(RocketCha
     mEmailNotificationLabel->setTextFormat(Qt::PlainText);
     createLayout(mEmailNotificationLabel, mEmailNotification, mainLayout);
 
-    auto pushNotificationLabel = new QLabel(i18n("Push notification:"), this);
+    auto pushNotificationLabel = new QLabel(i18nc("@label:textbox", "Push notification:"), this);
     pushNotificationLabel->setObjectName(QStringLiteral("pushNotificationLabel"));
     pushNotificationLabel->setTextFormat(Qt::PlainText);
 
@@ -110,7 +110,7 @@ MyAccountPreferenceConfigureWidget::MyAccountPreferenceConfigureWidget(RocketCha
     connect(mAutomaticAway, &QCheckBox::clicked, this, &MyAccountPreferenceConfigureWidget::setWasChanged);
     mainLayout->addWidget(mAutomaticAway);
 
-    auto idleTimeLimitLabel = new QLabel(i18n("Idle Time Limit:"), this);
+    auto idleTimeLimitLabel = new QLabel(i18nc("@label:textbox", "Idle Time Limit:"), this);
     idleTimeLimitLabel->setObjectName(QStringLiteral("idleTimeLimitLabel"));
     idleTimeLimitLabel->setTextFormat(Qt::PlainText);
 
@@ -129,13 +129,13 @@ MyAccountPreferenceConfigureWidget::MyAccountPreferenceConfigureWidget(RocketCha
 
     soundWidgetLayout->addWidget(new KSeparator(this));
 
-    auto newRoomNotificationLabel = new QLabel(i18n("New Room Notification:"), this);
+    auto newRoomNotificationLabel = new QLabel(i18nc("@label:textbox", "New Room Notification:"), this);
     newRoomNotificationLabel->setObjectName(QStringLiteral("newRoomNotificationLabel"));
     newRoomNotificationLabel->setTextFormat(Qt::PlainText);
 
     createLayout(newRoomNotificationLabel, mSoundNewRoomNotification, soundWidgetLayout);
 
-    auto newMessageNotificationLabel = new QLabel(i18n("New Message Notification:"), this);
+    auto newMessageNotificationLabel = new QLabel(i18nc("@label:textbox", "New Message Notification:"), this);
     newMessageNotificationLabel->setObjectName(QStringLiteral("newMessageNotificationLabel"));
     newMessageNotificationLabel->setTextFormat(Qt::PlainText);
 
@@ -145,7 +145,7 @@ MyAccountPreferenceConfigureWidget::MyAccountPreferenceConfigureWidget(RocketCha
     soundWidgetLayout->addWidget(mMuteFocusedConversations);
     connect(mMuteFocusedConversations, &QCheckBox::clicked, this, &MyAccountPreferenceConfigureWidget::setWasChanged);
 
-    auto notificationsSoundVolumeLabel = new QLabel(i18n("Notifications sound volume:"), this);
+    auto notificationsSoundVolumeLabel = new QLabel(i18nc("@label:textbox", "Notifications sound volume:"), this);
     notificationsSoundVolumeLabel->setObjectName(QStringLiteral("notificationsSoundVolumeLabel"));
     notificationsSoundVolumeLabel->setTextFormat(Qt::PlainText);
 

@@ -34,7 +34,7 @@ AutoTranslateConfigureWidget::AutoTranslateConfigureWidget(RocketChatAccount *ac
     horizontalLayout->setContentsMargins({});
     mainLayout->addLayout(horizontalLayout);
 
-    auto label = new QLabel(i18n("Language:"), this);
+    auto label = new QLabel(i18nc("@label:textbox", "Language:"), this);
     label->setObjectName(QStringLiteral("label"));
     label->setTextFormat(Qt::PlainText);
     horizontalLayout->addWidget(label);

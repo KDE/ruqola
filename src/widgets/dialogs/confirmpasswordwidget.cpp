@@ -20,7 +20,7 @@ ConfirmPasswordWidget::ConfirmPasswordWidget(QWidget *parent)
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
     mainLayout->setContentsMargins({});
 
-    auto label = new QLabel(i18n("For your security, you must enter your current password to continue"), this);
+    auto label = new QLabel(i18nc("@label:textbox", "For your security, you must enter your current password to continue"), this);
     label->setObjectName(QStringLiteral("label"));
     mainLayout->addWidget(label);
 

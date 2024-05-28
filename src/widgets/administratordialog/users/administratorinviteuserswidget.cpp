@@ -18,7 +18,7 @@ AdministratorInviteUsersWidget::AdministratorInviteUsersWidget(QWidget *parent)
     mainLayout->setContentsMargins({});
     mainLayout->setObjectName(QStringLiteral("formLayout"));
 
-    auto label = new QLabel(i18n("Emails:"), this);
+    auto label = new QLabel(i18nc("@label:textbox", "Emails:"), this);
     label->setObjectName(QStringLiteral("label"));
 
     mListEmails->setObjectName(QStringLiteral("mListEmails"));

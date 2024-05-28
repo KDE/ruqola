@@ -21,7 +21,7 @@ AdministratorCustomEmojiCreateOrUpdateWidget::AdministratorCustomEmojiCreateOrUp
     , mName(new QLineEdit(this))
     , mAlias(new QLineEdit(this))
     , mSelectFile(new KUrlRequester(this))
-    , mWarningLabel(new QLabel(i18n("The custom emoji name and their aliases should be different."), this))
+    , mWarningLabel(new QLabel(i18nc("@label:textbox", "The custom emoji name and their aliases should be different."), this))
     , mIconLabel(new QLabel(this))
 {
     mWarningLabel->setObjectName(QStringLiteral("mWarningLabel"));

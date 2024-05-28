@@ -34,7 +34,7 @@ ReportUserWidget::ReportUserWidget(QWidget *parent)
 
     mainLayout->addLayout(messageLayout);
 
-    auto lab = new QLabel(i18n("Message:"), this);
+    auto lab = new QLabel(i18nc("@label:textbox", "Message:"), this);
     lab->setObjectName(QStringLiteral("label"));
     messageLayout->addWidget(lab, 0, Qt::AlignTop);
 
