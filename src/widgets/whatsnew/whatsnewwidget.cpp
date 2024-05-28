@@ -80,7 +80,9 @@ void WhatsNewWidget::slotVersionChanged(WhatsNewComboBoxWidget::VersionType type
         const QString message = generateVersionHeader(WhatsNewComboBoxWidget::Version2_3);
         mLabelInfo->setHtml(message);
     } else if (type == WhatsNewComboBoxWidget::AllVersion) {
-        QString message = generateVersionHeader(WhatsNewComboBoxWidget::Version2_2);
+        QString message = generateVersionHeader(WhatsNewComboBoxWidget::Version2_3);
+        // TODO message += createVersionInformationsV2_3();
+        message += generateVersionHeader(WhatsNewComboBoxWidget::Version2_2);
         message += createVersionInformationsV2_2();
         message += generateVersionHeader(WhatsNewComboBoxWidget::Version2_1);
         message += createVersionInformationsV2_1();
