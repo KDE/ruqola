@@ -45,6 +45,9 @@ QUrl ImportDataSelectAccountPage::zipFileUrl() const
 
 bool ImportDataSelectAccountPage::verifySelectedUrl() const
 {
+    if (mUrlRequester->text().trimmed().isEmpty()) {
+        return false;
+    }
     const auto url = mUrlRequester->url();
     return (url.isValid() && !url.toLocalFile().isEmpty());
 }
