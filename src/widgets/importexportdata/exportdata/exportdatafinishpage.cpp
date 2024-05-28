@@ -25,6 +25,7 @@ ExportDataFinishPage::ExportDataFinishPage(QWidget *parent)
 
     mInfos->setObjectName(QStringLiteral("mInfos"));
     mainLayout->addWidget(mInfos);
+    mInfos->setVisible(false);
 
     mDetails->setObjectName(QStringLiteral("mDetails"));
     mDetails->setReadOnly(true);
@@ -86,6 +87,7 @@ void ExportDataFinishPage::slotExportFailed(const QString &msg)
         currentText += QLatin1Char('\n');
     }
     mInfos->setText(currentText + msg);
+    mInfos->setVisible(true);
 }
 
 void ExportDataFinishPage::slotExportInfo(const QString &msg)
