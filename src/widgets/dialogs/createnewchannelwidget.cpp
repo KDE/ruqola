@@ -56,10 +56,10 @@ CreateNewChannelWidget::CreateNewChannelWidget(RocketChatAccount *account, QWidg
     mPrivate->setObjectName(QStringLiteral("mPrivate"));
     mPrivate->setChecked(false);
     mPrivate->setToolTip(i18nc("@info:tooltip", "Only invited people can join"));
-    label = new QLabel(i18nc("@label:textbox", "Just invited people can access this channel."), this);
-    mMainLayout->addWidget(label);
 
     mMainLayout->addRow(i18n("Private Room:"), mPrivate);
+    label = new QLabel(i18nc("@label:textbox", "Just invited people can access this channel."), this);
+    mMainLayout->addWidget(label);
 
     mEncryptedRoom->setObjectName(QStringLiteral("mEncryptedRoom"));
     mEncryptedRoom->setChecked(false);
