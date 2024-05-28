@@ -57,7 +57,7 @@ private:
     void slotItemChanged(QListWidgetItem *item);
     void slotItemSelectionChanged();
     void slotExportIdentifier();
-    QListWidget *mListWidget = nullptr;
-    UnicodeEmoticonInfo *mWidgetInfo = nullptr;
-    KListWidgetSearchLine *mSearchEmoticon = nullptr;
+    KListWidgetSearchLine *const mSearchEmoticon;
+    QListWidget *const mListWidget;
+    UnicodeEmoticonInfo *const mWidgetInfo;
 };

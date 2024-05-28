@@ -18,6 +18,7 @@ void MessageTextEditorTest::shouldHaveDefaultValues()
     MessageTextEditor d;
     QVERIFY(!d.acceptRichText());
     QVERIFY(d.toPlainText().isEmpty());
+    QVERIFY(d.tabChangesFocus());
 }
 
 #include "moc_messagetexteditortest.cpp"

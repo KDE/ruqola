@@ -22,6 +22,9 @@
 
 UnicodeEmoticonGui::UnicodeEmoticonGui(QWidget *parent)
     : QWidget(parent)
+    , mSearchEmoticon(new KListWidgetSearchLine(this))
+    , mListWidget(new QListWidget(this))
+    , mWidgetInfo(new UnicodeEmoticonInfo(this))
 {
     auto mainLayout = new QVBoxLayout(this);
     auto hboxLayout = new QHBoxLayout;
@@ -31,14 +34,11 @@ UnicodeEmoticonGui::UnicodeEmoticonGui(QWidget *parent)
     auto mainComponentLayout = new QVBoxLayout;
     mainComponentLayout->setContentsMargins({});
 
-    mSearchEmoticon = new KListWidgetSearchLine(this);
-    mListWidget = new QListWidget(this);
     mSearchEmoticon->setListWidget(mListWidget);
     mainComponentLayout->addWidget(mSearchEmoticon);
     mainComponentLayout->addWidget(mListWidget);
     hboxLayout->addLayout(mainComponentLayout);
 
-    mWidgetInfo = new UnicodeEmoticonInfo(this);
     hboxLayout->addWidget(mWidgetInfo);
 
     auto buttonLayout = new QHBoxLayout;

@@ -36,6 +36,6 @@ public:
 private:
     [[nodiscard]] QStringList load();
     [[nodiscard]] QString generateExcludeEmoticon(const QUrl &url, const QStringList &identifiers) const;
-    QListWidget *mListWidget = nullptr;
-    KListWidgetSearchLine *mSearchEmoticon = nullptr;
+    KListWidgetSearchLine *const mSearchEmoticon;
+    QListWidget *const mListWidget;
 };

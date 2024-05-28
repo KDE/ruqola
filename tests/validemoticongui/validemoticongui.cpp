@@ -27,6 +27,8 @@
 
 ValidEmoticonGui::ValidEmoticonGui(QWidget *parent)
     : QWidget(parent)
+    , mSearchEmoticon(new KListWidgetSearchLine(this))
+    , mListWidget(new QListWidget(this))
 {
     auto mainLayout = new QVBoxLayout(this);
     auto hboxLayout = new QHBoxLayout;
@@ -36,8 +38,6 @@ ValidEmoticonGui::ValidEmoticonGui(QWidget *parent)
     auto mainComponentLayout = new QVBoxLayout;
     mainComponentLayout->setContentsMargins({});
 
-    mSearchEmoticon = new KListWidgetSearchLine(this);
-    mListWidget = new QListWidget(this);
     mSearchEmoticon->setListWidget(mListWidget);
     mainComponentLayout->addWidget(mSearchEmoticon);
     mainComponentLayout->addWidget(mListWidget);
