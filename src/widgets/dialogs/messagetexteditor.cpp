@@ -10,6 +10,7 @@ MessageTextEditor::MessageTextEditor(QWidget *parent)
     : KTextEdit(parent)
 {
     setAcceptRichText(false);
+    setTabChangesFocus(true);
 }
 
 MessageTextEditor::~MessageTextEditor() = default;
