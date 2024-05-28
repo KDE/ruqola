@@ -30,10 +30,10 @@ public:
     ~ConfigureSettingsDialog() override;
 
 private:
-    void readConfig();
-    void writeConfig();
-    void slotAccepted();
-    void load();
+    LIBRUQOLAWIDGETS_NO_EXPORT void readConfig();
+    LIBRUQOLAWIDGETS_NO_EXPORT void writeConfig();
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotAccepted();
+    LIBRUQOLAWIDGETS_NO_EXPORT void load();
     KPageWidgetItem *mConfigureAccountWidgetPage = nullptr;
     ConfigureAccountWidget *const mConfigureAccountWidget;
     KPageWidgetItem *mConfigureSpellCheckingWidgetPage = nullptr;

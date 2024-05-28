@@ -18,6 +18,4 @@ public:
 private Q_SLOTS:
     void layoutChecks_data();
     void layoutChecks();
-
-private:
 };
