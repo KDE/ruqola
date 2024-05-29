@@ -30,7 +30,7 @@ public:
 
 private:
     LIBRUQOLACORE_NO_EXPORT void createItem(const QString &displayStr, const QString &identifier);
+    LIBRUQOLACORE_NO_EXPORT void fillRoleSelected();
 
     QStringList mRolesSelected;
-    void fillRoleSelected();
 };

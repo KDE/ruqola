@@ -31,8 +31,8 @@ Q_SIGNALS:
 private:
     LIBRUQOLACORE_NO_EXPORT void slotResumeFromIdle();
     LIBRUQOLACORE_NO_EXPORT void slotIdleTimeoutReached(int timerId);
-    [[nodiscard]] int calculateRemainingTime() const;
-    [[nodiscard]] int timeValue() const;
+    [[nodiscard]] LIBRUQOLACORE_NO_EXPORT int calculateRemainingTime() const;
+    [[nodiscard]] LIBRUQOLACORE_NO_EXPORT int timeValue() const;
     RocketChatAccount *const mRocketChatAccount;
     int mTimerId = -1;
     int mIdleTiming = -1;

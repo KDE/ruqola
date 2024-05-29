@@ -24,8 +24,8 @@ public:
     [[nodiscard]] bool operator==(const MessagePinned &other) const;
     void parse(const QJsonObject &o);
 
-    static QJsonObject serialize(const MessagePinned &message);
-    static MessagePinned *deserialize(const QJsonObject &o);
+    [[nodiscard]] static QJsonObject serialize(const MessagePinned &message);
+    [[nodiscard]] static MessagePinned *deserialize(const QJsonObject &o);
 
     [[nodiscard]] bool isValid() const;
 
