@@ -274,6 +274,7 @@ MessageUrl::ContentType MessageUrl::parseHeaderContentType(const QString &typeHe
         const static QRegularExpression rimage(QStringLiteral("image/.*"));
         const static QRegularExpression raudio(QStringLiteral("audio/.*"));
         const static QRegularExpression rvideo(QStringLiteral("video/.*"));
+        const static QRegularExpression rhtml(QStringLiteral("text/html.*"));
         if (typeHeader.contains("image/gif"_L1)) {
             return MessageUrl::ContentType::ImageAnimated;
         } else if (typeHeader.contains(rimage)) {
@@ -282,8 +283,10 @@ MessageUrl::ContentType MessageUrl::parseHeaderContentType(const QString &typeHe
             return MessageUrl::ContentType::Audio;
         } else if (typeHeader.contains(rvideo)) {
             return MessageUrl::ContentType::Video;
+        } else if (typeHeader.contains(rhtml)) {
+            return MessageUrl::ContentType::None;
         } else {
-            qCWarning(RUQOLA_MESSAGE_URL_LOG) << "Invalid content type " << typeHeader << " this " << *this;
+            qCDebug(RUQOLA_MESSAGE_URL_LOG) << "Invalid content type " << typeHeader << " this " << *this;
         }
     }
     return MessageUrl::ContentType::None;
