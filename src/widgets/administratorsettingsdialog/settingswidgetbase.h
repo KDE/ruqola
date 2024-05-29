@@ -30,6 +30,7 @@ public:
 
 Q_SIGNALS:
     void changedDone(const QString &buttonObjectName);
+    void changedChanceled(const QString &variableName);
 
 protected:
     void connectCheckBox(QCheckBox *checkBox, const QString &variable);
@@ -60,10 +61,10 @@ protected:
     RocketChatAccount *const mAccount;
 
 private:
-    LIBRUQOLAWIDGETS_NO_EXPORT bool updateSettings(const QString &settingName,
-                                                   const QVariant &value,
-                                                   RocketChatRestApi::UpdateAdminSettingsJob::UpdateAdminSettingsInfo::ValueType typeValue,
-                                                   const QString &buttonObjectName = {});
+    [[nodiscard]] LIBRUQOLAWIDGETS_NO_EXPORT bool updateSettings(const QString &settingName,
+                                                                 const QVariant &value,
+                                                                 RocketChatRestApi::UpdateAdminSettingsJob::UpdateAdminSettingsInfo::ValueType typeValue,
+                                                                 const QString &buttonObjectName = {});
     LIBRUQOLAWIDGETS_NO_EXPORT void slotAdminSettingsDone(const QJsonObject &obj, const QString &buttonObjectName);
     LIBRUQOLAWIDGETS_NO_EXPORT void disableTooButton(const QString &variableName);
 };
