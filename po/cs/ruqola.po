@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-05-28 02:28+0000\n"
+"POT-Creation-Date: 2024-05-29 03:09+0000\n"
 "PO-Revision-Date: 2023-11-14 13:24+0100\n"
 "Last-Translator: Vit Pelcak <vit@pelcak.org>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
@@ -3588,123 +3588,123 @@ msgstr ""
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:18
 #, kde-format
-msgid "Allow User Profile Change"
+msgid "Allow Custom Status Message"
 msgstr ""
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:19
 #, kde-format
-msgid "Allow User Avatar Change"
+msgid "Allow User Profile Change"
 msgstr ""
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:20
 #, kde-format
-msgid "Allow Email Change"
+msgid "Allow User Avatar Change"
 msgstr ""
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:21
 #, kde-format
-msgid "Allow Password Change"
+msgid "Allow Email Change"
 msgstr ""
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:22
 #, kde-format
-msgid "Allow Email Notifications"
+msgid "Allow Password Change"
 msgstr ""
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:23
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:26
+#, kde-format
+msgid "Allow Email Notifications"
+msgstr ""
+
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:24
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:27
 #, kde-format
 msgid "Allow Users to Delete Own Account"
 msgstr ""
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:24
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:25
 #, kde-format
 msgid "Allow Anonymous Write"
 msgstr ""
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:25
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:26
 #, kde-format
 msgid "Allow Anonymous Read"
 msgstr "Povolit anonymní čtení"
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:27
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:28
 #, kde-format
 msgid "Allow Password Change for OAuth Users"
 msgstr ""
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:29
 #, kde-format
-msgid "Allow Invisible status option"
-msgstr "Povolit možnost neviditelného stavu"
-
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:30
-#, kde-format
-msgid "Forget User Session on Window Close"
+msgid "Allow Feature Preview"
 msgstr ""
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:31
 #, kde-format
-msgid "Enable collect log in data"
-msgstr ""
+msgid "Allow Invisible status option"
+msgstr "Povolit možnost neviditelného stavu"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:32
 #, kde-format
-msgid "Allow Custom Status Message"
+msgid "Forget User Session on Window Close"
 msgstr ""
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:33
 #, kde-format
-msgid "Block Failed Login Attempts by Username"
+msgid "Enable collect log in data"
 msgstr ""
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:37
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:34
 #, kde-format
-msgid "Send Email to User when User is Activated"
+msgid "Block Failed Login Attempts by Username"
 msgstr ""
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:38
 #, kde-format
-msgid "Send Email to User when User is Deactivated"
+msgid "Send Email to User when User is Activated"
 msgstr ""
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:39
 #, kde-format
-msgid "Require Name For Signup"
+msgid "Send Email to User when User is Deactivated"
 msgstr ""
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:40
 #, kde-format
-msgid "Require Password Confirmation"
+msgid "Require Name For Signup"
 msgstr ""
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:41
 #, kde-format
-msgid "Only Allow Verified Users to Login"
+msgid "Require Password Confirmation"
 msgstr ""
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:42
 #, kde-format
-msgid "Mark Email for External Accounts Verified"
+msgid "Only Allow Verified Users to Login"
 msgstr ""
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:43
 #, kde-format
-msgid "Manually Approve New Users"
+msgid "Mark Email for External Accounts Verified"
 msgstr ""
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:48
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:44
 #, kde-format
-msgid "Use Default Blocked Domains List"
+msgid "Manually Approve New Users"
 msgstr ""
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:49
 #, kde-format
-msgid "Use DNS Domain Check"
+msgid "Use Default Blocked Domains List"
 msgstr ""
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:50
 #, kde-format
-msgid "Allow Feature Preview"
+msgid "Use DNS Domain Check"
 msgstr ""
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:51
@@ -3839,7 +3839,7 @@ msgid "Message"
 msgstr "Zpráva"
 
 #: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:110
-#: widgets/administratorsettingsdialog/slackbridge/slackbridgewidget.cpp:19
+#: widgets/administratorsettingsdialog/slackbridge/slackbridgewidget.cpp:20
 #, kde-format
 msgid "File Upload"
 msgstr "Odeslání souboru"
@@ -3950,18 +3950,18 @@ msgid "Messages"
 msgstr "Zprávy"
 
 #: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:20
-#: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:21
+#: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:22
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:52
 #, kde-format
 msgid "Enable"
 msgstr "Povolit"
 
-#: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:25
+#: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:26
 #, kde-format
 msgid "Prepend Domain"
 msgstr ""
 
-#: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:26
+#: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:27
 #, kde-format
 msgid "All Subdomains"
 msgstr ""
@@ -4066,12 +4066,12 @@ msgstr ""
 msgid "Enabled"
 msgstr "Povoleno"
 
-#: widgets/administratorsettingsdialog/cas/cassettingswidget.cpp:21
+#: widgets/administratorsettingsdialog/cas/cassettingswidget.cpp:24
 #, kde-format
 msgid "Trust CAS Username"
 msgstr ""
 
-#: widgets/administratorsettingsdialog/cas/cassettingswidget.cpp:22
+#: widgets/administratorsettingsdialog/cas/cassettingswidget.cpp:25
 #, kde-format
 msgid "Allow user creation"
 msgstr ""
@@ -4361,17 +4361,17 @@ msgstr ""
 msgid "Enabled File Upload"
 msgstr "Povoleno odesílání souboru"
 
-#: widgets/administratorsettingsdialog/fileupload/fileuploadsettingswidget.cpp:20
+#: widgets/administratorsettingsdialog/fileupload/fileuploadsettingswidget.cpp:21
 #, kde-format
 msgid "Protect Uploaded Files"
 msgstr "Chránit odeslané soubory"
 
-#: widgets/administratorsettingsdialog/fileupload/fileuploadsettingswidget.cpp:21
+#: widgets/administratorsettingsdialog/fileupload/fileuploadsettingswidget.cpp:22
 #, kde-format
 msgid "Rotate images on upload"
 msgstr ""
 
-#: widgets/administratorsettingsdialog/fileupload/fileuploadsettingswidget.cpp:22
+#: widgets/administratorsettingsdialog/fileupload/fileuploadsettingswidget.cpp:23
 #, kde-format
 msgid "Restrict files to rooms' members"
 msgstr ""
@@ -5646,42 +5646,42 @@ msgstr ""
 msgid "Limit by User: interval time"
 msgstr ""
 
-#: widgets/administratorsettingsdialog/retentionpolicy/retentionpolicysettingswidget.cpp:19
+#: widgets/administratorsettingsdialog/retentionpolicy/retentionpolicysettingswidget.cpp:20
 #, kde-format
 msgid "Use Advanced Retention Policy configuration"
 msgstr ""
 
-#: widgets/administratorsettingsdialog/retentionpolicy/retentionpolicysettingswidget.cpp:20
+#: widgets/administratorsettingsdialog/retentionpolicy/retentionpolicysettingswidget.cpp:21
 #, kde-format
 msgid "Do not prune Threads"
 msgstr ""
 
-#: widgets/administratorsettingsdialog/retentionpolicy/retentionpolicysettingswidget.cpp:21
+#: widgets/administratorsettingsdialog/retentionpolicy/retentionpolicysettingswidget.cpp:22
 #, kde-format
 msgid "Do not prune Discussion message"
 msgstr ""
 
-#: widgets/administratorsettingsdialog/retentionpolicy/retentionpolicysettingswidget.cpp:22
+#: widgets/administratorsettingsdialog/retentionpolicy/retentionpolicysettingswidget.cpp:23
 #, kde-format
 msgid "Do not prune pinned messages"
 msgstr ""
 
-#: widgets/administratorsettingsdialog/retentionpolicy/retentionpolicysettingswidget.cpp:23
+#: widgets/administratorsettingsdialog/retentionpolicy/retentionpolicysettingswidget.cpp:24
 #, kde-format
 msgid "Only delete files"
 msgstr ""
 
-#: widgets/administratorsettingsdialog/retentionpolicy/retentionpolicysettingswidget.cpp:24
+#: widgets/administratorsettingsdialog/retentionpolicy/retentionpolicysettingswidget.cpp:25
 #, kde-format
 msgid "Applies to channels"
 msgstr ""
 
-#: widgets/administratorsettingsdialog/retentionpolicy/retentionpolicysettingswidget.cpp:25
+#: widgets/administratorsettingsdialog/retentionpolicy/retentionpolicysettingswidget.cpp:27
 #, kde-format
 msgid "Applies to private groups"
 msgstr ""
 
-#: widgets/administratorsettingsdialog/retentionpolicy/retentionpolicysettingswidget.cpp:26
+#: widgets/administratorsettingsdialog/retentionpolicy/retentionpolicysettingswidget.cpp:29
 #, kde-format
 msgid "Applies to direct messages"
 msgstr ""
@@ -5749,17 +5749,17 @@ msgstr ""
 msgid "Apply"
 msgstr "Použít"
 
-#: widgets/administratorsettingsdialog/slackbridge/slackbridgewidget.cpp:20
+#: widgets/administratorsettingsdialog/slackbridge/slackbridgewidget.cpp:21
 #, kde-format
 msgid "SlackBridge Out Enabled"
 msgstr ""
 
-#: widgets/administratorsettingsdialog/slackbridge/slackbridgewidget.cpp:21
+#: widgets/administratorsettingsdialog/slackbridge/slackbridgewidget.cpp:22
 #, kde-format
 msgid "SlackBridge Out All"
 msgstr ""
 
-#: widgets/administratorsettingsdialog/slackbridge/slackbridgewidget.cpp:24
+#: widgets/administratorsettingsdialog/slackbridge/slackbridgewidget.cpp:25
 #, kde-format
 msgid "Reactions"
 msgstr ""
@@ -6545,7 +6545,7 @@ msgctxt "@title:window"
 msgid "Channel Info about '%1'"
 msgstr "Informace o kanálu '%1'"
 
-#: widgets/dialogs/channelinfoeditablewidget.cpp:41
+#: widgets/dialogs/channelinfoeditablewidget.cpp:42
 #: widgets/room/messagelistview.cpp:295
 #, kde-format
 msgid "Delete"
@@ -6900,7 +6900,7 @@ msgstr "Název diskuze"
 msgid "Invite Users"
 msgstr "Pozvat uživatele"
 
-#: widgets/dialogs/createnewdiscussionwidget.cpp:60
+#: widgets/dialogs/createnewdiscussionwidget.cpp:61
 #, kde-format
 msgid ""
 "Usually a discussion starts with a question, like \"How do I upload a "
@@ -7559,7 +7559,7 @@ msgstr ""
 msgid "Directory \"%1\" cannot be added to backup file."
 msgstr "Adresář \"%1\" nelze přidat do souboru zálohy."
 
-#: widgets/importexportdata/exportdata/exportdatafinishpage.cpp:37
+#: widgets/importexportdata/exportdata/exportdatafinishpage.cpp:38
 #, kde-format
 msgid "Accounts Exported."
 msgstr ""
@@ -7595,7 +7595,7 @@ msgstr "Nelze otevřít soubor"
 msgid "Import Done."
 msgstr "Import byl dokončen."
 
-#: widgets/importexportdata/importdata/importdatafinishpage.cpp:33
+#: widgets/importexportdata/importdata/importdatafinishpage.cpp:34
 #, kde-format
 msgid "Accounts imported."
 msgstr "Účty byly importovány."

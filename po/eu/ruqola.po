@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-05-28 02:28+0000\n"
+"POT-Creation-Date: 2024-05-29 03:09+0000\n"
 "PO-Revision-Date: 2024-05-26 12:21+0200\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
@@ -3594,125 +3594,125 @@ msgstr "Baimendu izena aldatzea"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:18
 #, kde-format
+msgid "Allow Custom Status Message"
+msgstr "Bainmendu neurrira ipinitako egoera-mezua"
+
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:19
+#, kde-format
 msgid "Allow User Profile Change"
 msgstr "Baimendu erabiltzaile-profila aldatzea"
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:19
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:20
 #, kde-format
 msgid "Allow User Avatar Change"
 msgstr "Baimendu erabiltzaile-abatarra aldatzea"
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:20
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:21
 #, kde-format
 msgid "Allow Email Change"
 msgstr "Baimendu e-posta aldatzea"
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:21
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:22
 #, kde-format
 msgid "Allow Password Change"
 msgstr "Baimendu pasahitza aldatzea"
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:22
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:23
 #, kde-format
 msgid "Allow Email Notifications"
 msgstr "Baimendu e-posta jakinarazpenak"
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:23
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:26
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:24
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:27
 #, kde-format
 msgid "Allow Users to Delete Own Account"
 msgstr "Baimendu erabiltzaileek kontu propioa aldatzea"
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:24
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:25
 #, kde-format
 msgid "Allow Anonymous Write"
 msgstr "Baimendu idazketa anonimoa"
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:25
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:26
 #, kde-format
 msgid "Allow Anonymous Read"
 msgstr "Baimendu irakurketa anonimoa"
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:27
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:28
 #, kde-format
 msgid "Allow Password Change for OAuth Users"
 msgstr "Baimendu OAuth erabiltzaileetarako pasahitz aldaketa"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:29
-#, kde-format
-msgid "Allow Invisible status option"
-msgstr "Baimendu Ikusezin egoera aukera"
-
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:30
-#, kde-format
-msgid "Forget User Session on Window Close"
-msgstr "Ahaztu erabiltzaile-saioa leihoa ixtean"
-
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:31
-#, kde-format
-msgid "Enable collect log in data"
-msgstr ""
-
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:32
-#, kde-format
-msgid "Allow Custom Status Message"
-msgstr "Bainmendu neurrira ipinitako egoera-mezua"
-
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:33
-#, kde-format
-msgid "Block Failed Login Attempts by Username"
-msgstr "Blokeatu erabiltzaile-izenak huts egindako saio-haste saiakerak,"
-
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:37
-#, kde-format
-msgid "Send Email to User when User is Activated"
-msgstr "Bidali e-posta erabiltzaileari erabiltzailea aktibatuta dagoenean"
-
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:38
-#, kde-format
-msgid "Send Email to User when User is Deactivated"
-msgstr "Bidali e-posta erabiltzaileari erabiltzailea ezgaituta dagoenean"
-
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:39
-#, kde-format
-msgid "Require Name For Signup"
-msgstr ""
-
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:40
-#, kde-format
-msgid "Require Password Confirmation"
-msgstr "Eskatu pasahitz berrespena"
-
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:41
-#, kde-format
-msgid "Only Allow Verified Users to Login"
-msgstr ""
-
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:42
-#, kde-format
-msgid "Mark Email for External Accounts Verified"
-msgstr ""
-
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:43
-#, kde-format
-msgid "Manually Approve New Users"
-msgstr "Erabiltzaile berriak eskuz onetsi"
-
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:48
-#, kde-format
-msgid "Use Default Blocked Domains List"
-msgstr "Erabili oztopatutako domeinuen zerrenda lehenetsia"
-
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:49
-#, kde-format
-msgid "Use DNS Domain Check"
-msgstr ""
-
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:50
 #, fuzzy, kde-format
 #| msgid "Allow user creation"
 msgid "Allow Feature Preview"
 msgstr "Baimendu erabiltzaile sorrera"
+
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:31
+#, kde-format
+msgid "Allow Invisible status option"
+msgstr "Baimendu Ikusezin egoera aukera"
+
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:32
+#, kde-format
+msgid "Forget User Session on Window Close"
+msgstr "Ahaztu erabiltzaile-saioa leihoa ixtean"
+
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:33
+#, kde-format
+msgid "Enable collect log in data"
+msgstr ""
+
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:34
+#, kde-format
+msgid "Block Failed Login Attempts by Username"
+msgstr "Blokeatu erabiltzaile-izenak huts egindako saio-haste saiakerak,"
+
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:38
+#, kde-format
+msgid "Send Email to User when User is Activated"
+msgstr "Bidali e-posta erabiltzaileari erabiltzailea aktibatuta dagoenean"
+
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:39
+#, kde-format
+msgid "Send Email to User when User is Deactivated"
+msgstr "Bidali e-posta erabiltzaileari erabiltzailea ezgaituta dagoenean"
+
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:40
+#, kde-format
+msgid "Require Name For Signup"
+msgstr ""
+
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:41
+#, kde-format
+msgid "Require Password Confirmation"
+msgstr "Eskatu pasahitz berrespena"
+
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:42
+#, kde-format
+msgid "Only Allow Verified Users to Login"
+msgstr ""
+
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:43
+#, kde-format
+msgid "Mark Email for External Accounts Verified"
+msgstr ""
+
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:44
+#, kde-format
+msgid "Manually Approve New Users"
+msgstr "Erabiltzaile berriak eskuz onetsi"
+
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:49
+#, kde-format
+msgid "Use Default Blocked Domains List"
+msgstr "Erabili oztopatutako domeinuen zerrenda lehenetsia"
+
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:50
+#, kde-format
+msgid "Use DNS Domain Check"
+msgstr ""
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:51
 #, kde-format
@@ -3850,7 +3850,7 @@ msgid "Message"
 msgstr "Mezua"
 
 #: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:110
-#: widgets/administratorsettingsdialog/slackbridge/slackbridgewidget.cpp:19
+#: widgets/administratorsettingsdialog/slackbridge/slackbridgewidget.cpp:20
 #, kde-format
 msgid "File Upload"
 msgstr "Fitxategiak zama-igotzea"
@@ -3961,18 +3961,18 @@ msgid "Messages"
 msgstr "Mezuak"
 
 #: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:20
-#: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:21
+#: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:22
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:52
 #, kde-format
 msgid "Enable"
 msgstr "Gaitu"
 
-#: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:25
+#: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:26
 #, fuzzy, kde-format
 msgid "Prepend Domain"
 msgstr "Domeinua"
 
-#: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:26
+#: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:27
 #, kde-format
 msgid "All Subdomains"
 msgstr "Azpidomeinu denak"
@@ -4080,12 +4080,12 @@ msgstr ""
 msgid "Enabled"
 msgstr "Gaituta"
 
-#: widgets/administratorsettingsdialog/cas/cassettingswidget.cpp:21
+#: widgets/administratorsettingsdialog/cas/cassettingswidget.cpp:24
 #, kde-format
 msgid "Trust CAS Username"
 msgstr "Konfiantza CAS erabiltzaile-izenean"
 
-#: widgets/administratorsettingsdialog/cas/cassettingswidget.cpp:22
+#: widgets/administratorsettingsdialog/cas/cassettingswidget.cpp:25
 #, kde-format
 msgid "Allow user creation"
 msgstr "Baimendu erabiltzaile sorrera"
@@ -4394,17 +4394,17 @@ msgstr "Enpresa-lizentzia"
 msgid "Enabled File Upload"
 msgstr "Fitxategiak zama-igotzea gaituta"
 
-#: widgets/administratorsettingsdialog/fileupload/fileuploadsettingswidget.cpp:20
+#: widgets/administratorsettingsdialog/fileupload/fileuploadsettingswidget.cpp:21
 #, kde-format
 msgid "Protect Uploaded Files"
 msgstr "Babestu zama-igotako fitxategiak"
 
-#: widgets/administratorsettingsdialog/fileupload/fileuploadsettingswidget.cpp:21
+#: widgets/administratorsettingsdialog/fileupload/fileuploadsettingswidget.cpp:22
 #, kde-format
 msgid "Rotate images on upload"
 msgstr "Biratu irudiak zama-igotzean"
 
-#: widgets/administratorsettingsdialog/fileupload/fileuploadsettingswidget.cpp:22
+#: widgets/administratorsettingsdialog/fileupload/fileuploadsettingswidget.cpp:23
 #, kde-format
 msgid "Restrict files to rooms' members"
 msgstr "Mugatu fitxategiak gelako kideetara"
@@ -5745,42 +5745,42 @@ msgstr ""
 msgid "Limit by User: interval time"
 msgstr ""
 
-#: widgets/administratorsettingsdialog/retentionpolicy/retentionpolicysettingswidget.cpp:19
+#: widgets/administratorsettingsdialog/retentionpolicy/retentionpolicysettingswidget.cpp:20
 #, kde-format
 msgid "Use Advanced Retention Policy configuration"
 msgstr ""
 
-#: widgets/administratorsettingsdialog/retentionpolicy/retentionpolicysettingswidget.cpp:20
+#: widgets/administratorsettingsdialog/retentionpolicy/retentionpolicysettingswidget.cpp:21
 #, kde-format
 msgid "Do not prune Threads"
 msgstr ""
 
-#: widgets/administratorsettingsdialog/retentionpolicy/retentionpolicysettingswidget.cpp:21
+#: widgets/administratorsettingsdialog/retentionpolicy/retentionpolicysettingswidget.cpp:22
 #, kde-format
 msgid "Do not prune Discussion message"
 msgstr "Ez inausi elkarrizketako mezua"
 
-#: widgets/administratorsettingsdialog/retentionpolicy/retentionpolicysettingswidget.cpp:22
+#: widgets/administratorsettingsdialog/retentionpolicy/retentionpolicysettingswidget.cpp:23
 #, kde-format
 msgid "Do not prune pinned messages"
 msgstr ""
 
-#: widgets/administratorsettingsdialog/retentionpolicy/retentionpolicysettingswidget.cpp:23
+#: widgets/administratorsettingsdialog/retentionpolicy/retentionpolicysettingswidget.cpp:24
 #, kde-format
 msgid "Only delete files"
 msgstr "Bakarrik fitxategiak ezabatu"
 
-#: widgets/administratorsettingsdialog/retentionpolicy/retentionpolicysettingswidget.cpp:24
+#: widgets/administratorsettingsdialog/retentionpolicy/retentionpolicysettingswidget.cpp:25
 #, kde-format
 msgid "Applies to channels"
 msgstr "Kanalei aplikatzen zaizkie"
 
-#: widgets/administratorsettingsdialog/retentionpolicy/retentionpolicysettingswidget.cpp:25
+#: widgets/administratorsettingsdialog/retentionpolicy/retentionpolicysettingswidget.cpp:27
 #, kde-format
 msgid "Applies to private groups"
 msgstr "Talde pribatuei aplikatzen zaie"
 
-#: widgets/administratorsettingsdialog/retentionpolicy/retentionpolicysettingswidget.cpp:26
+#: widgets/administratorsettingsdialog/retentionpolicy/retentionpolicysettingswidget.cpp:29
 #, kde-format
 msgid "Applies to direct messages"
 msgstr "Zuzeneko mezuei aplikatzen zaio"
@@ -5851,17 +5851,17 @@ msgstr ""
 msgid "Apply"
 msgstr "Ezarri"
 
-#: widgets/administratorsettingsdialog/slackbridge/slackbridgewidget.cpp:20
+#: widgets/administratorsettingsdialog/slackbridge/slackbridgewidget.cpp:21
 #, kde-format
 msgid "SlackBridge Out Enabled"
 msgstr ""
 
-#: widgets/administratorsettingsdialog/slackbridge/slackbridgewidget.cpp:21
+#: widgets/administratorsettingsdialog/slackbridge/slackbridgewidget.cpp:22
 #, kde-format
 msgid "SlackBridge Out All"
 msgstr ""
 
-#: widgets/administratorsettingsdialog/slackbridge/slackbridgewidget.cpp:24
+#: widgets/administratorsettingsdialog/slackbridge/slackbridgewidget.cpp:25
 #, kde-format
 msgid "Reactions"
 msgstr "Erreakzioak"
@@ -6670,7 +6670,7 @@ msgctxt "@title:window"
 msgid "Channel Info about '%1'"
 msgstr ""
 
-#: widgets/dialogs/channelinfoeditablewidget.cpp:41
+#: widgets/dialogs/channelinfoeditablewidget.cpp:42
 #: widgets/room/messagelistview.cpp:295
 #, kde-format
 msgid "Delete"
@@ -7037,7 +7037,7 @@ msgstr "Elkarrizketaren izena"
 msgid "Invite Users"
 msgstr "Gonbidatu erabiltzaileak"
 
-#: widgets/dialogs/createnewdiscussionwidget.cpp:60
+#: widgets/dialogs/createnewdiscussionwidget.cpp:61
 #, kde-format
 msgid ""
 "Usually a discussion starts with a question, like \"How do I upload a "
@@ -7711,7 +7711,7 @@ msgstr "%1 kontua: egunkariak esportatzea burutu da."
 msgid "Directory \"%1\" cannot be added to backup file."
 msgstr "\"%1\" direktorioa ezin da gehitu babeskopia fitxategira."
 
-#: widgets/importexportdata/exportdata/exportdatafinishpage.cpp:37
+#: widgets/importexportdata/exportdata/exportdatafinishpage.cpp:38
 #, kde-format
 msgid "Accounts Exported."
 msgstr "Kontuak esportatu dira."
@@ -7747,7 +7747,7 @@ msgstr "Ezin da fitxategia ireki"
 msgid "Import Done."
 msgstr "Inportatzea burutu da."
 
-#: widgets/importexportdata/importdata/importdatafinishpage.cpp:33
+#: widgets/importexportdata/importdata/importdatafinishpage.cpp:34
 #, kde-format
 msgid "Accounts imported."
 msgstr "Kontuak inportatu dira."
