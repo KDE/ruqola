@@ -124,6 +124,7 @@ void SettingsWidgetBase::addSpinbox(const QString &labelStr, QSpinBox *spinBox, 
     spinBox->setProperty(s_property, variable);
     layout->addWidget(toolButton);
     toolButton->setEnabled(false);
+    setTabOrder(spinBox, toolButton);
     connect(toolButton, &QToolButton::clicked, this, [this, variable, spinBox, toolButton]() {
         if (!updateSettings(variable,
                             spinBox->value(),
@@ -158,6 +159,7 @@ void SettingsWidgetBase::addLineEdit(const QString &labelStr, QLineEdit *lineEdi
     layout->addWidget(label);
     layout->addWidget(lineEdit);
     auto toolButton = new QToolButton(this);
+    setTabOrder(lineEdit, toolButton);
     toolButton->setObjectName(QStringLiteral("toolbutton_%1").arg(variable));
     toolButton->setText(i18n("Apply"));
     toolButton->setProperty(s_property, variable);
@@ -220,6 +222,7 @@ void SettingsWidgetBase::addPlainTextEdit(const QString &labelStr, QPlainTextEdi
     plainTextEdit->setProperty(s_property, variable);
     layout->addWidget(toolButton, 0, Qt::AlignTop);
     toolButton->setEnabled(false);
+    setTabOrder(plainTextEdit, toolButton);
     connect(toolButton, &QToolButton::clicked, this, [this, variable, plainTextEdit, toolButton]() {
         if (!updateSettings(variable,
                             plainTextEdit->toPlainText(),
@@ -260,6 +263,7 @@ void SettingsWidgetBase::addPasswordEdit(const QString &labelStr, KPasswordLineE
     lineEdit->setProperty(s_property, variable);
     layout->addWidget(toolButton);
     toolButton->setEnabled(false);
+    setTabOrder(lineEdit, toolButton);
     connect(toolButton, &QToolButton::clicked, this, [this, variable, lineEdit, toolButton]() {
         if (!updateSettings(variable,
                             lineEdit->password(),
@@ -304,6 +308,7 @@ void SettingsWidgetBase::addComboBox(const QString &labelStr, const QMap<QString
     comboBox->setProperty(s_property, variable);
     layout->addWidget(toolButton);
     toolButton->setEnabled(false);
+    setTabOrder(comboBox, toolButton);
     connect(toolButton, &QToolButton::clicked, this, [this, variable, comboBox, toolButton]() {
         if (!updateSettings(variable,
                             comboBox->currentData().toString(),
