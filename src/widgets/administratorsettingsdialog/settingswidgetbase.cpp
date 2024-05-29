@@ -54,6 +54,9 @@ void SettingsWidgetBase::connectCheckBox(QCheckBox *checkBox, const QString &var
     connect(checkBox, &QCheckBox::clicked, this, [this, variable, checkBox](bool checked) {
         if (!updateSettings(variable, checked, RocketChatRestApi::UpdateAdminSettingsJob::UpdateAdminSettingsInfo::Boolean)) {
             checkBox->setChecked(!checked);
+            Q_EMIT changedChanceled(variable);
+        } else {
+            Q_EMIT changedDone(variable);
         }
     });
 }
@@ -97,7 +100,6 @@ bool SettingsWidgetBase::updateSettings(const QString &settingName,
 
 void SettingsWidgetBase::slotAdminSettingsDone(const QJsonObject &obj, const QString &buttonObjectName)
 {
-    qDebug() << "AccountSettingsWidget::slotAdminSettingsDone " << obj;
     if (obj["success"_L1].toBool()) {
         // Disable apply button
         if (!buttonObjectName.isEmpty()) {
@@ -128,6 +130,7 @@ void SettingsWidgetBase::addSpinbox(const QString &labelStr, QSpinBox *spinBox, 
                             RocketChatRestApi::UpdateAdminSettingsJob::UpdateAdminSettingsInfo::Integer,
                             toolButton->objectName())) {
             spinBox->setValue(spinBox->property(s_property_default_value).toInt());
+            Q_EMIT changedChanceled(variable);
         }
     });
     connect(this, &SettingsWidgetBase::changedDone, this, [toolButton, spinBox](const QString &buttonName) {
@@ -177,6 +180,7 @@ void SettingsWidgetBase::addLineEdit(const QString &labelStr, QLineEdit *lineEdi
                                 RocketChatRestApi::UpdateAdminSettingsJob::UpdateAdminSettingsInfo::String,
                                 toolButton->objectName())) {
                 lineEdit->setText(lineEdit->property(s_property_default_value).toString());
+                Q_EMIT changedChanceled(variable);
             }
         });
         connect(lineEdit, &QLineEdit::textChanged, this, [toolButton, lineEdit](const QString &str) {
@@ -222,6 +226,7 @@ void SettingsWidgetBase::addPlainTextEdit(const QString &labelStr, QPlainTextEdi
                             RocketChatRestApi::UpdateAdminSettingsJob::UpdateAdminSettingsInfo::String,
                             toolButton->objectName())) {
             plainTextEdit->setPlainText(plainTextEdit->property(s_property_default_value).toString());
+            Q_EMIT changedChanceled(variable);
         }
     });
     connect(plainTextEdit, &QPlainTextEdit::textChanged, this, [toolButton, plainTextEdit]() {
@@ -256,7 +261,12 @@ void SettingsWidgetBase::addPasswordEdit(const QString &labelStr, KPasswordLineE
     layout->addWidget(toolButton);
     toolButton->setEnabled(false);
     connect(toolButton, &QToolButton::clicked, this, [this, variable, lineEdit, toolButton]() {
-        updateSettings(variable, lineEdit->password(), RocketChatRestApi::UpdateAdminSettingsJob::UpdateAdminSettingsInfo::String, toolButton->objectName());
+        if (!updateSettings(variable,
+                            lineEdit->password(),
+                            RocketChatRestApi::UpdateAdminSettingsJob::UpdateAdminSettingsInfo::String,
+                            toolButton->objectName())) {
+            Q_EMIT changedChanceled(variable);
+        }
     });
     connect(lineEdit, &KPasswordLineEdit::passwordChanged, this, [toolButton]() {
         toolButton->setEnabled(true);
@@ -300,6 +310,7 @@ void SettingsWidgetBase::addComboBox(const QString &labelStr, const QMap<QString
                             RocketChatRestApi::UpdateAdminSettingsJob::UpdateAdminSettingsInfo::String,
                             toolButton->objectName())) {
             comboBox->setCurrentIndex(comboBox->findData(comboBox->property(s_property_default_value).toString()));
+            Q_EMIT changedChanceled(variable);
         }
     });
     connect(this, &SettingsWidgetBase::changedDone, this, [toolButton, comboBox](const QString &buttonName) {
