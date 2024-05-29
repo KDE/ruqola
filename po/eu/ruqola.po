@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-05-28 00:38+0000\n"
+"POT-Creation-Date: 2024-05-29 00:38+0000\n"
 "PO-Revision-Date: 2024-05-26 12:21+0200\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
@@ -2491,7 +2491,9 @@ msgid "Configure Custom Emoji"
 msgstr "Konfiguratu neurrira ipinitako Emoji"
 
 #: widgets/administratordialog/customemoji/administratorcustomemojicreateorupdatewidget.cpp:24
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "The custom emoji name and their aliases should be different."
+msgctxt "@label:textbox"
 msgid "The custom emoji name and their aliases should be different."
 msgstr ""
 "Neurrira ipinitako emoji-izena eta haren ezizenak ezberdinak izan behar dira."
@@ -2643,7 +2645,7 @@ msgstr "Editatu Erabiltzailearen-egoera"
 #: widgets/administratordialog/customuserstatus/administratorcustomuserstatuscreatewidget.cpp:28
 #: widgets/conferencecalldialog/conferenceinfowidget.cpp:49
 #: widgets/dialogs/directchannelinfowidget.cpp:100
-#: widgets/dialogs/modifystatuswidget.cpp:32 widgets/ruqolamainwindow.cpp:537
+#: widgets/dialogs/modifystatuswidget.cpp:32
 #, kde-format
 msgid "Status:"
 msgstr "Egoera:"
@@ -2713,14 +2715,16 @@ msgid "Reported Users"
 msgstr "Berri emandako erabiltzaileak"
 
 #: widgets/administratordialog/moderationconsole/administratormoderationrangewidget.cpp:32
-#: widgets/exportmessages/exportmessageswidget.cpp:24
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "From:"
+msgctxt "@label:textbox"
 msgid "From:"
 msgstr "Nork:"
 
 #: widgets/administratordialog/moderationconsole/administratormoderationrangewidget.cpp:35
-#: widgets/exportmessages/exportmessageswidget.cpp:27
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "To:"
+msgctxt "@label:textbox"
 msgid "To:"
 msgstr "Nori:"
 
@@ -2997,9 +3001,9 @@ msgid "Edit '%1' Permission"
 msgstr "Editatu '%1' baimena"
 
 #: widgets/administratordialog/permissions/permissionseditwidget.cpp:19
-#: widgets/administratordialog/users/administratoradduserwidget.cpp:71
-#: widgets/dialogs/directchannelinfowidget.cpp:141
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Roles:"
+msgctxt "@label:textbox"
 msgid "Roles:"
 msgstr "Eginkizunak:"
 
@@ -3051,8 +3055,6 @@ msgstr "Erabili bi faktoreko kautotzea"
 #: widgets/administratordialog/rooms/administratorroomseditwidget.cpp:53
 #: widgets/dialogs/channelinfoeditablewidget.cpp:69
 #: widgets/dialogs/channelinforeadonlywidget.cpp:47
-#: widgets/dialogs/createsoundmessagewizard.cpp:120
-#: widgets/dialogs/createvideomessagewizard.cpp:146
 #: widgets/dialogs/uploadfilewidget.cpp:53
 #: widgets/messagemaximumsizedialog/messagemaximumsizewidget.cpp:27
 #, kde-format
@@ -3184,15 +3186,17 @@ msgstr "Iragarpena:"
 #| msgid ""
 #| "Only authorized users can write new messages, but the other users will be "
 #| "able to reply"
+msgctxt "@label:textbox"
 msgid "Only authorized users can write new messages"
 msgstr ""
 "Baimena duten erabiltzaileek soilik sor ditzakete mezuak, baina beste "
 "erabiltzaileak erantzuteko gai izango dira"
 
 #: widgets/administratordialog/rooms/administratorroomseditwidget.cpp:67
-#: widgets/dialogs/createnewchannelwidget.cpp:59
+#: widgets/dialogs/createnewchannelwidget.cpp:61
 #, fuzzy, kde-format
 #| msgid "Only invited people can join"
+msgctxt "@label:textbox"
 msgid "Just invited people can access this channel."
 msgstr "Gonbidatutako jendea bakarrik batu daiteke"
 
@@ -3481,7 +3485,6 @@ msgstr "Egoera-mezua:"
 
 #: widgets/administratordialog/users/administratoradduserwidget.cpp:62
 #: widgets/dialogs/directchannelinfowidget.cpp:166
-#: widgets/dialogs/resetpasswordwidget.cpp:23
 #: widgets/myaccount/myaccountprofileconfigurewidget.cpp:74
 #: widgets/registeruser/registeruserwidget.cpp:33
 #, kde-format
@@ -3508,6 +3511,12 @@ msgstr "Bio:"
 msgid "Nickname:"
 msgstr "Goitizena:"
 
+#: widgets/administratordialog/users/administratoradduserwidget.cpp:71
+#: widgets/dialogs/directchannelinfowidget.cpp:141
+#, kde-format
+msgid "Roles:"
+msgstr "Eginkizunak:"
+
 #: widgets/administratordialog/users/administratorinviteusersdialog.cpp:18
 #, kde-format
 msgctxt "@title:window"
@@ -3515,7 +3524,9 @@ msgid "Send Emails Invite"
 msgstr "Bidali gonbit e-postak"
 
 #: widgets/administratordialog/users/administratorinviteuserswidget.cpp:21
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Emails:"
+msgctxt "@label:textbox"
 msgid "Emails:"
 msgstr "E-postak:"
 
@@ -3617,125 +3628,125 @@ msgstr "Baimendu izena aldatzea"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:18
 #, kde-format
+msgid "Allow Custom Status Message"
+msgstr "Bainmendu neurrira ipinitako egoera-mezua"
+
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:19
+#, kde-format
 msgid "Allow User Profile Change"
 msgstr "Baimendu erabiltzaile-profila aldatzea"
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:19
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:20
 #, kde-format
 msgid "Allow User Avatar Change"
 msgstr "Baimendu erabiltzaile-abatarra aldatzea"
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:20
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:21
 #, kde-format
 msgid "Allow Email Change"
 msgstr "Baimendu e-posta aldatzea"
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:21
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:22
 #, kde-format
 msgid "Allow Password Change"
 msgstr "Baimendu pasahitza aldatzea"
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:22
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:23
 #, kde-format
 msgid "Allow Email Notifications"
 msgstr "Baimendu e-posta jakinarazpenak"
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:23
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:26
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:24
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:27
 #, kde-format
 msgid "Allow Users to Delete Own Account"
 msgstr "Baimendu erabiltzaileek kontu propioa aldatzea"
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:24
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:25
 #, kde-format
 msgid "Allow Anonymous Write"
 msgstr "Baimendu idazketa anonimoa"
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:25
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:26
 #, kde-format
 msgid "Allow Anonymous Read"
 msgstr "Baimendu irakurketa anonimoa"
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:27
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:28
 #, kde-format
 msgid "Allow Password Change for OAuth Users"
 msgstr "Baimendu OAuth erabiltzaileetarako pasahitz aldaketa"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:29
-#, kde-format
-msgid "Allow Invisible status option"
-msgstr "Baimendu Ikusezin egoera aukera"
-
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:30
-#, kde-format
-msgid "Forget User Session on Window Close"
-msgstr "Ahaztu erabiltzaile-saioa leihoa ixtean"
-
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:31
-#, kde-format
-msgid "Enable collect log in data"
-msgstr ""
-
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:32
-#, kde-format
-msgid "Allow Custom Status Message"
-msgstr "Bainmendu neurrira ipinitako egoera-mezua"
-
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:33
-#, kde-format
-msgid "Block Failed Login Attempts by Username"
-msgstr "Blokeatu erabiltzaile-izenak huts egindako saio-haste saiakerak,"
-
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:37
-#, kde-format
-msgid "Send Email to User when User is Activated"
-msgstr "Bidali e-posta erabiltzaileari erabiltzailea aktibatuta dagoenean"
-
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:38
-#, kde-format
-msgid "Send Email to User when User is Deactivated"
-msgstr "Bidali e-posta erabiltzaileari erabiltzailea ezgaituta dagoenean"
-
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:39
-#, kde-format
-msgid "Require Name For Signup"
-msgstr ""
-
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:40
-#, kde-format
-msgid "Require Password Confirmation"
-msgstr "Eskatu pasahitz berrespena"
-
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:41
-#, kde-format
-msgid "Only Allow Verified Users to Login"
-msgstr ""
-
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:42
-#, kde-format
-msgid "Mark Email for External Accounts Verified"
-msgstr ""
-
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:43
-#, kde-format
-msgid "Manually Approve New Users"
-msgstr "Erabiltzaile berriak eskuz onetsi"
-
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:48
-#, kde-format
-msgid "Use Default Blocked Domains List"
-msgstr "Erabili oztopatutako domeinuen zerrenda lehenetsia"
-
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:49
-#, kde-format
-msgid "Use DNS Domain Check"
-msgstr ""
-
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:50
 #, fuzzy, kde-format
 #| msgid "Allow user creation"
 msgid "Allow Feature Preview"
 msgstr "Baimendu erabiltzaile sorrera"
+
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:31
+#, kde-format
+msgid "Allow Invisible status option"
+msgstr "Baimendu Ikusezin egoera aukera"
+
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:32
+#, kde-format
+msgid "Forget User Session on Window Close"
+msgstr "Ahaztu erabiltzaile-saioa leihoa ixtean"
+
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:33
+#, kde-format
+msgid "Enable collect log in data"
+msgstr ""
+
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:34
+#, kde-format
+msgid "Block Failed Login Attempts by Username"
+msgstr "Blokeatu erabiltzaile-izenak huts egindako saio-haste saiakerak,"
+
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:38
+#, kde-format
+msgid "Send Email to User when User is Activated"
+msgstr "Bidali e-posta erabiltzaileari erabiltzailea aktibatuta dagoenean"
+
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:39
+#, kde-format
+msgid "Send Email to User when User is Deactivated"
+msgstr "Bidali e-posta erabiltzaileari erabiltzailea ezgaituta dagoenean"
+
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:40
+#, kde-format
+msgid "Require Name For Signup"
+msgstr ""
+
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:41
+#, kde-format
+msgid "Require Password Confirmation"
+msgstr "Eskatu pasahitz berrespena"
+
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:42
+#, kde-format
+msgid "Only Allow Verified Users to Login"
+msgstr ""
+
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:43
+#, kde-format
+msgid "Mark Email for External Accounts Verified"
+msgstr ""
+
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:44
+#, kde-format
+msgid "Manually Approve New Users"
+msgstr "Erabiltzaile berriak eskuz onetsi"
+
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:49
+#, kde-format
+msgid "Use Default Blocked Domains List"
+msgstr "Erabili oztopatutako domeinuen zerrenda lehenetsia"
+
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:50
+#, kde-format
+msgid "Use DNS Domain Check"
+msgstr ""
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:51
 #, kde-format
@@ -3867,13 +3878,12 @@ msgid "Encryption"
 msgstr "Zifratzea"
 
 #: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:109
-#: widgets/dialogs/createnewdiscussionwidget.cpp:54
 #, kde-format
 msgid "Message"
 msgstr "Mezua"
 
 #: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:110
-#: widgets/administratorsettingsdialog/slackbridge/slackbridgewidget.cpp:19
+#: widgets/administratorsettingsdialog/slackbridge/slackbridgewidget.cpp:20
 #, kde-format
 msgid "File Upload"
 msgstr "Fitxategiak zama-igotzea"
@@ -3984,18 +3994,18 @@ msgid "Messages"
 msgstr "Mezuak"
 
 #: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:20
-#: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:21
+#: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:22
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:52
 #, kde-format
 msgid "Enable"
 msgstr "Gaitu"
 
-#: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:25
+#: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:26
 #, fuzzy, kde-format
 msgid "Prepend Domain"
 msgstr "Domeinua"
 
-#: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:26
+#: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:27
 #, kde-format
 msgid "All Subdomains"
 msgstr "Azpidomeinu denak"
@@ -4103,12 +4113,12 @@ msgstr ""
 msgid "Enabled"
 msgstr "Gaituta"
 
-#: widgets/administratorsettingsdialog/cas/cassettingswidget.cpp:21
+#: widgets/administratorsettingsdialog/cas/cassettingswidget.cpp:24
 #, kde-format
 msgid "Trust CAS Username"
 msgstr "Konfiantza CAS erabiltzaile-izenean"
 
-#: widgets/administratorsettingsdialog/cas/cassettingswidget.cpp:22
+#: widgets/administratorsettingsdialog/cas/cassettingswidget.cpp:25
 #, kde-format
 msgid "Allow user creation"
 msgstr "Baimendu erabiltzaile sorrera"
@@ -4417,17 +4427,17 @@ msgstr "Enpresa-lizentzia"
 msgid "Enabled File Upload"
 msgstr "Fitxategiak zama-igotzea gaituta"
 
-#: widgets/administratorsettingsdialog/fileupload/fileuploadsettingswidget.cpp:20
+#: widgets/administratorsettingsdialog/fileupload/fileuploadsettingswidget.cpp:21
 #, kde-format
 msgid "Protect Uploaded Files"
 msgstr "Babestu zama-igotako fitxategiak"
 
-#: widgets/administratorsettingsdialog/fileupload/fileuploadsettingswidget.cpp:21
+#: widgets/administratorsettingsdialog/fileupload/fileuploadsettingswidget.cpp:22
 #, kde-format
 msgid "Rotate images on upload"
 msgstr "Biratu irudiak zama-igotzean"
 
-#: widgets/administratorsettingsdialog/fileupload/fileuploadsettingswidget.cpp:22
+#: widgets/administratorsettingsdialog/fileupload/fileuploadsettingswidget.cpp:23
 #, kde-format
 msgid "Restrict files to rooms' members"
 msgstr "Mugatu fitxategiak gelako kideetara"
@@ -5768,42 +5778,42 @@ msgstr ""
 msgid "Limit by User: interval time"
 msgstr ""
 
-#: widgets/administratorsettingsdialog/retentionpolicy/retentionpolicysettingswidget.cpp:19
+#: widgets/administratorsettingsdialog/retentionpolicy/retentionpolicysettingswidget.cpp:20
 #, kde-format
 msgid "Use Advanced Retention Policy configuration"
 msgstr ""
 
-#: widgets/administratorsettingsdialog/retentionpolicy/retentionpolicysettingswidget.cpp:20
+#: widgets/administratorsettingsdialog/retentionpolicy/retentionpolicysettingswidget.cpp:21
 #, kde-format
 msgid "Do not prune Threads"
 msgstr ""
 
-#: widgets/administratorsettingsdialog/retentionpolicy/retentionpolicysettingswidget.cpp:21
+#: widgets/administratorsettingsdialog/retentionpolicy/retentionpolicysettingswidget.cpp:22
 #, kde-format
 msgid "Do not prune Discussion message"
 msgstr "Ez inausi elkarrizketako mezua"
 
-#: widgets/administratorsettingsdialog/retentionpolicy/retentionpolicysettingswidget.cpp:22
+#: widgets/administratorsettingsdialog/retentionpolicy/retentionpolicysettingswidget.cpp:23
 #, kde-format
 msgid "Do not prune pinned messages"
 msgstr ""
 
-#: widgets/administratorsettingsdialog/retentionpolicy/retentionpolicysettingswidget.cpp:23
+#: widgets/administratorsettingsdialog/retentionpolicy/retentionpolicysettingswidget.cpp:24
 #, kde-format
 msgid "Only delete files"
 msgstr "Bakarrik fitxategiak ezabatu"
 
-#: widgets/administratorsettingsdialog/retentionpolicy/retentionpolicysettingswidget.cpp:24
+#: widgets/administratorsettingsdialog/retentionpolicy/retentionpolicysettingswidget.cpp:25
 #, kde-format
 msgid "Applies to channels"
 msgstr "Kanalei aplikatzen zaizkie"
 
-#: widgets/administratorsettingsdialog/retentionpolicy/retentionpolicysettingswidget.cpp:25
+#: widgets/administratorsettingsdialog/retentionpolicy/retentionpolicysettingswidget.cpp:27
 #, kde-format
 msgid "Applies to private groups"
 msgstr "Talde pribatuei aplikatzen zaie"
 
-#: widgets/administratorsettingsdialog/retentionpolicy/retentionpolicysettingswidget.cpp:26
+#: widgets/administratorsettingsdialog/retentionpolicy/retentionpolicysettingswidget.cpp:29
 #, kde-format
 msgid "Applies to direct messages"
 msgstr "Zuzeneko mezuei aplikatzen zaio"
@@ -5874,17 +5884,17 @@ msgstr ""
 msgid "Apply"
 msgstr "Ezarri"
 
-#: widgets/administratorsettingsdialog/slackbridge/slackbridgewidget.cpp:20
+#: widgets/administratorsettingsdialog/slackbridge/slackbridgewidget.cpp:21
 #, kde-format
 msgid "SlackBridge Out Enabled"
 msgstr ""
 
-#: widgets/administratorsettingsdialog/slackbridge/slackbridgewidget.cpp:21
+#: widgets/administratorsettingsdialog/slackbridge/slackbridgewidget.cpp:22
 #, kde-format
 msgid "SlackBridge Out All"
 msgstr ""
 
-#: widgets/administratorsettingsdialog/slackbridge/slackbridgewidget.cpp:24
+#: widgets/administratorsettingsdialog/slackbridge/slackbridgewidget.cpp:25
 #, kde-format
 msgid "Reactions"
 msgstr "Erreakzioak"
@@ -6585,7 +6595,9 @@ msgid "Connection"
 msgstr "Konexioa"
 
 #: widgets/configurenewserver/checknewserverurlwidget.cpp:36
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Server Url:"
+msgctxt "@label:textbox"
 msgid "Server Url:"
 msgstr "Zerbitzariaren URL:"
 
@@ -6607,8 +6619,9 @@ msgstr "Konfiguratu jakinarazpena"
 msgid "Limit to the selected activities:"
 msgstr ""
 
-#: widgets/configurenewserver/configureactivitieswidget.cpp:61
+#: widgets/configurenewserver/configureactivitieswidget.cpp:62
 #, kde-format
+msgctxt "@label:textbox"
 msgid ""
 "If you limit this account to activity, it will be shown in Ruqola only when "
 "you are in those activities. Furthermore, when you switch to an activity it "
@@ -6677,7 +6690,9 @@ msgid "Configure Auto-Translate"
 msgstr "Konfiguratu itzulpen automatikoa"
 
 #: widgets/dialogs/autotranslateconfigurewidget.cpp:37
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Language:"
+msgctxt "@label:textbox"
 msgid "Language:"
 msgstr "Hizkuntza:"
 
@@ -6693,7 +6708,7 @@ msgctxt "@title:window"
 msgid "Channel Info about '%1'"
 msgstr ""
 
-#: widgets/dialogs/channelinfoeditablewidget.cpp:41
+#: widgets/dialogs/channelinfoeditablewidget.cpp:42
 #: widgets/room/messagelistview.cpp:295
 #, kde-format
 msgid "Delete"
@@ -6804,6 +6819,7 @@ msgstr "Inausi"
 
 #: widgets/dialogs/channelinfoprunewidget.cpp:50
 #, kde-format
+msgctxt "@label:textbox"
 msgid "Maximum message age in days (default: 30):"
 msgstr ""
 
@@ -6829,7 +6845,9 @@ msgid "Add Password"
 msgstr "Gehitu pasahitza"
 
 #: widgets/dialogs/channelpasswordwidget.cpp:22
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Channel Password:"
+msgctxt "@label:textbox"
 msgid "Channel Password:"
 msgstr "Kanalaren pasahitza:"
 
@@ -6931,7 +6949,9 @@ msgid "Confirm Password"
 msgstr "Berretsi pasahitza:"
 
 #: widgets/dialogs/confirmpasswordwidget.cpp:23
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "For your security, you must enter your current password to continue"
+msgctxt "@label:textbox"
 msgid "For your security, you must enter your current password to continue"
 msgstr ""
 "Zure segurtasunagatik, zure uneko pasahitza sartu behar duzu jarraitzeko"
@@ -6943,12 +6963,18 @@ msgid "Create Direct Messages - %1"
 msgstr "Sortu zuzeneko mezuak - %1"
 
 #: widgets/dialogs/createdirectmessageswidget.cpp:19
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Too many users selected."
+msgctxt "@label:textbox"
 msgid "Too many users selected."
 msgstr "Erabiltzaile gehiegi aukeratu dira."
 
-#: widgets/dialogs/createdirectmessageswidget.cpp:25
-#, kde-format
+#: widgets/dialogs/createdirectmessageswidget.cpp:26
+#, fuzzy, kde-format
+#| msgid ""
+#| "You are about to create a chat with multiple users. Add the ones you "
+#| "would like to talk, everyone in the same place, using direct messages."
+msgctxt "@label:textbox"
 msgid ""
 "You are about to create a chat with multiple users. Add the ones you would "
 "like to talk, everyone in the same place, using direct messages."
@@ -6956,7 +6982,7 @@ msgstr ""
 "Erabiltzaile anizkoitzak dituen berriketa bat sortzera zoaz. Gehitu hitz "
 "egin nahi duzun horiek, denak leku berean, zuzeneko mezuak erabiliz."
 
-#: widgets/dialogs/createdirectmessageswidget.cpp:33
+#: widgets/dialogs/createdirectmessageswidget.cpp:34
 #: widgets/prunemessages/prunemessageswidget.cpp:66
 #, fuzzy, kde-format
 #| msgid "Select users..."
@@ -7023,7 +7049,7 @@ msgctxt "@info:tooltip"
 msgid "Only invited people can join"
 msgstr "Gonbidatutako jendea bakarrik batu daiteke"
 
-#: widgets/dialogs/createnewchannelwidget.cpp:62
+#: widgets/dialogs/createnewchannelwidget.cpp:60
 #, kde-format
 msgid "Private Room:"
 msgstr "Gela pribatua:"
@@ -7046,21 +7072,34 @@ msgid "Create"
 msgstr "Sortu"
 
 #: widgets/dialogs/createnewdiscussionwidget.cpp:28
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Channel or Group parent"
+msgctxt "@label:textbox"
 msgid "Channel or Group parent"
 msgstr "Guraso kanala edo taldea"
 
 #: widgets/dialogs/createnewdiscussionwidget.cpp:36
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Discussion Name"
+msgctxt "@label:textbox"
 msgid "Discussion Name"
 msgstr "Elkarrizketaren izena"
 
 #: widgets/dialogs/createnewdiscussionwidget.cpp:46
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Invite Users"
+msgctxt "@label:textbox"
 msgid "Invite Users"
 msgstr "Gonbidatu erabiltzaileak"
 
-#: widgets/dialogs/createnewdiscussionwidget.cpp:60
+#: widgets/dialogs/createnewdiscussionwidget.cpp:54
+#, fuzzy, kde-format
+#| msgid "Message"
+msgctxt "@label:textbox"
+msgid "Message"
+msgstr "Mezua"
+
+#: widgets/dialogs/createnewdiscussionwidget.cpp:61
 #, kde-format
 msgid ""
 "Usually a discussion starts with a question, like \"How do I upload a "
@@ -7089,10 +7128,19 @@ msgstr "Bidali"
 
 #: widgets/dialogs/createsoundmessagewizard.cpp:107
 #: widgets/dialogs/createvideomessagewizard.cpp:133
-#: widgets/messagemaximumsizedialog/messagemaximumsizewidget.cpp:23
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Filename:"
+msgctxt "@label:textbox"
 msgid "Filename:"
 msgstr "Fitxategi-izena:"
+
+#: widgets/dialogs/createsoundmessagewizard.cpp:120
+#: widgets/dialogs/createvideomessagewizard.cpp:146
+#, fuzzy, kde-format
+#| msgid "Description:"
+msgctxt "@label:textbox"
+msgid "Description:"
+msgstr "Azalpena:"
 
 #: widgets/dialogs/createvideomessagewizard.cpp:30
 #, kde-format
@@ -7143,7 +7191,9 @@ msgid "Invite Users"
 msgstr "Gonbidatu erabiltzaileak"
 
 #: widgets/dialogs/inviteuserswidget.cpp:41
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Invite Link:"
+msgctxt "@label:textbox"
 msgid "Invite Link:"
 msgstr "Gonbit-esteka:"
 
@@ -7240,7 +7290,9 @@ msgstr "Txostenak"
 
 #: widgets/dialogs/reportmessagewidget.cpp:37
 #: widgets/dialogs/reportuserwidget.cpp:37
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Message:"
+msgctxt "@label:textbox"
 msgid "Message:"
 msgstr "Mezua:"
 
@@ -7267,6 +7319,13 @@ msgstr "\"%1\" kendu nahi duzu?"
 msgctxt "@title:window"
 msgid "Reset Password"
 msgstr "Berrezarri pasahitza"
+
+#: widgets/dialogs/resetpasswordwidget.cpp:23
+#, fuzzy, kde-format
+#| msgid "Email:"
+msgctxt "@label:textbox"
+msgid "Email:"
+msgstr "E-posta:"
 
 #: widgets/dialogs/roomavatarwidget.cpp:31
 #: widgets/myaccount/myaccountprofileconfigureavatarwidget.cpp:100
@@ -7413,7 +7472,9 @@ msgid "Copy Location to Clipboard"
 msgstr "Kopiatu kokalekua arbelera"
 
 #: widgets/dialogs/showimagewidget.cpp:267
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Zoom:"
+msgctxt "@label:textbox"
 msgid "Zoom:"
 msgstr "Zoom:"
 
@@ -7645,8 +7706,9 @@ msgctxt "@title:window"
 msgid "Decode Key"
 msgstr "DeepL API gakoa"
 
-#: widgets/encryption/e2epassworddecodekeywidget.cpp:22
+#: widgets/encryption/e2epassworddecodekeywidget.cpp:23
 #, kde-format
+msgctxt "@label:textbox"
 msgid ""
 "To access your encrypted private groups and direct messages, enter your "
 "encryption password.\n"
@@ -7672,6 +7734,16 @@ msgctxt "@title:window"
 msgid "Export Messages"
 msgstr "Esportatu mezuak"
 
+#: widgets/exportmessages/exportmessageswidget.cpp:24
+#, kde-format
+msgid "From:"
+msgstr "Nork:"
+
+#: widgets/exportmessages/exportmessageswidget.cpp:27
+#, kde-format
+msgid "To:"
+msgstr "Nori:"
+
 #: widgets/exportmessages/exportmessageswidget.cpp:30
 #, kde-format
 msgid "Output Format:"
@@ -7696,6 +7768,7 @@ msgstr "Jarraitu mezuari"
 
 #: widgets/forwardmessage/forwardmessagewidget.cpp:23
 #, kde-format
+msgctxt "@label:textbox"
 msgid "Select at least one channel to forward the message to."
 msgstr ""
 
@@ -7734,13 +7807,15 @@ msgstr "%1 kontua: egunkariak esportatzea burutu da."
 msgid "Directory \"%1\" cannot be added to backup file."
 msgstr "\"%1\" direktorioa ezin da gehitu babeskopia fitxategira."
 
-#: widgets/importexportdata/exportdata/exportdatafinishpage.cpp:37
+#: widgets/importexportdata/exportdata/exportdatafinishpage.cpp:38
 #, kde-format
 msgid "Accounts Exported."
 msgstr "Kontuak esportatu dira."
 
 #: widgets/importexportdata/exportdata/exportdataselectaccountpage.cpp:20
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Select Accounts:"
+msgctxt "@label:textbox"
 msgid "Select Accounts:"
 msgstr "Aukeratu kontuak:"
 
@@ -7770,13 +7845,15 @@ msgstr "Ezin da fitxategia ireki"
 msgid "Import Done."
 msgstr "Inportatzea burutu da."
 
-#: widgets/importexportdata/importdata/importdatafinishpage.cpp:33
+#: widgets/importexportdata/importdata/importdatafinishpage.cpp:34
 #, kde-format
 msgid "Accounts imported."
 msgstr "Kontuak inportatu dira."
 
 #: widgets/importexportdata/importdata/importdataselectaccountpage.cpp:33
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Select Zip file:"
+msgctxt "@label:textbox"
 msgid "Select Zip file:"
 msgstr "Aukeratu ZIP fitxategia:"
 
@@ -7793,6 +7870,7 @@ msgstr "Saio-hastea"
 
 #: widgets/loginwidget/ruqolaloginwidget.cpp:46
 #, kde-format
+msgctxt "@label:textbox"
 msgid ""
 "You have enabled second factor authentication.\n"
 "Please enter the generated code or a backup code."
@@ -7845,6 +7923,11 @@ msgstr ""
 msgctxt "@title:window"
 msgid "Convert Message As Attachment"
 msgstr "Bihurtu mezua eranskin"
+
+#: widgets/messagemaximumsizedialog/messagemaximumsizewidget.cpp:23
+#, kde-format
+msgid "Filename:"
+msgstr "Fitxategi-izena:"
 
 #: widgets/misc/accountsoverviewwidget.cpp:31
 #, kde-format
@@ -8055,8 +8138,9 @@ msgstr "Sartu kodea"
 msgid "Send new code"
 msgstr "Bidali kode berria"
 
-#: widgets/myaccount/myaccount2e2configurewidget.cpp:28
+#: widgets/myaccount/myaccount2e2configurewidget.cpp:29
 #, kde-format
+msgctxt "@label:textbox"
 msgid ""
 "You can now create encrypted private groups and direct messages. You may "
 "also change existing private groups or DMs to encrypted. This is end to end "
@@ -8066,7 +8150,7 @@ msgid ""
 "encryption on."
 msgstr ""
 
-#: widgets/myaccount/myaccount2e2configurewidget.cpp:41
+#: widgets/myaccount/myaccount2e2configurewidget.cpp:42
 #, kde-format
 msgid ""
 "This option will remove your current E2E key and log you out. When you login "
@@ -8087,7 +8171,11 @@ msgid "Activate Two Authentication Factor via TOTP"
 msgstr "Aktibatu bi faktoreko autentifikazioa TOTP bidez"
 
 #: widgets/myaccount/myaccount2fadisabletotpwidget.cpp:27
-#, kde-format
+#, fuzzy, kde-format
+#| msgid ""
+#| "Open your authentication app and enter the code.\n"
+#| "You can also use one of your backup codes."
+msgctxt "@label:textbox"
 msgid ""
 "Open your authentication app and enter the code.\n"
 "You can also use one of your backup codes."
@@ -8096,13 +8184,13 @@ msgstr ""
 "Zure babeskopia kodeetako bat ere erabil dezakezu."
 
 #: widgets/myaccount/myaccount2fadisabletotpwidget.cpp:37
-#: widgets/myaccount/myaccount2fatotpwidget.cpp:52
+#: widgets/myaccount/myaccount2fatotpwidget.cpp:53
 #, kde-format
 msgid "Enter authentication code"
 msgstr "Sartu autentifikazio kodea"
 
 #: widgets/myaccount/myaccount2fadisabletotpwidget.cpp:41
-#: widgets/myaccount/myaccount2fatotpwidget.cpp:56
+#: widgets/myaccount/myaccount2fatotpwidget.cpp:57
 #, kde-format
 msgid "Verify"
 msgstr "Egiaztatu"
@@ -8113,19 +8201,24 @@ msgid "Regenerate Code"
 msgstr "Birsortu kodea"
 
 #: widgets/myaccount/myaccount2fadisabletotpwidget.cpp:67
-#: widgets/myaccount/myaccount2fatotpwidget.cpp:87
+#: widgets/myaccount/myaccount2fatotpwidget.cpp:88
 #, kde-format
 msgid "Invalid two factor code."
 msgstr "Bi faktoreko kode baliogabea."
 
 #: widgets/myaccount/myaccount2fadisabletotpwidget.cpp:67
-#: widgets/myaccount/myaccount2fatotpwidget.cpp:87
+#: widgets/myaccount/myaccount2fatotpwidget.cpp:88
 #, kde-format
 msgid "Check Two Factor Code"
 msgstr "Egiaztatu bi faktoreko kodea"
 
-#: widgets/myaccount/myaccount2fatotpwidget.cpp:35
-#, kde-format
+#: widgets/myaccount/myaccount2fatotpwidget.cpp:36
+#, fuzzy, kde-format
+#| msgid ""
+#| "Scan the QR code. It will display a 6 digit code which you need to enter "
+#| "below.\n"
+#| " If you can't scan the QR code, you may enter code manually instead:"
+msgctxt "@label:textbox"
 msgid ""
 "Scan the QR code. It will display a 6 digit code which you need to enter "
 "below.\n"
@@ -8135,7 +8228,7 @@ msgstr ""
 "du.\n"
 "QR kodea ezin baduzu eskaneatu, horren ordez kodea eskuz sar dezakezu:"
 
-#: widgets/myaccount/myaccount2fatotpwidget.cpp:79
+#: widgets/myaccount/myaccount2fatotpwidget.cpp:80
 #, kde-format
 msgid ""
 "Make sure you have a copy of your codes:\n"
@@ -8148,7 +8241,7 @@ msgstr ""
 "Zure autentifikazio aplikaziorako sarbidea galtzen baduzu, saio-hasteko, "
 "kode horietako bat erabil dezakezu."
 
-#: widgets/myaccount/myaccount2fatotpwidget.cpp:81
+#: widgets/myaccount/myaccount2fatotpwidget.cpp:82
 #, kde-format
 msgid "Backup Codes"
 msgstr "Babeskopia kodeak"
@@ -8302,7 +8395,9 @@ msgid "Enable Auto Away"
 msgstr "Gaitu aldentze automatikoa"
 
 #: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:42
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Offline Email notification:"
+msgctxt "@label:textbox"
 msgid "Offline Email notification:"
 msgstr "Lerroz kanpoko e-posta jakinarazpena:"
 
@@ -8313,7 +8408,9 @@ msgid "Mute Focused Conversations"
 msgstr "%1 elkarrizketara bat da"
 
 #: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:59
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Highlight words:"
+msgctxt "@label:textbox"
 msgid "Highlight words:"
 msgstr "Nabarmendu hitzak:"
 
@@ -8330,12 +8427,16 @@ msgid "Separate each word with ','."
 msgstr "Bereizi hitz bakoitza ',' erabiliz."
 
 #: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:75
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Desktop notification:"
+msgctxt "@label:textbox"
 msgid "Desktop notification:"
 msgstr "Mahaigaineko jakinarazpena:"
 
 #: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:87
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Push notification:"
+msgctxt "@label:textbox"
 msgid "Push notification:"
 msgstr "Bultzatu jakinarazpena:"
 
@@ -8351,6 +8452,7 @@ msgstr ""
 #: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:113
 #, fuzzy, kde-format
 #| msgid "Log View Limit"
+msgctxt "@label:textbox"
 msgid "Idle Time Limit:"
 msgstr "Egunkari ikuspegiaren muga"
 
@@ -8368,18 +8470,21 @@ msgstr ""
 #: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:132
 #, fuzzy, kde-format
 #| msgid "Show New Notifications"
+msgctxt "@label:textbox"
 msgid "New Room Notification:"
 msgstr "Erakutsi jakinarazpen berriak"
 
 #: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:138
 #, fuzzy, kde-format
 #| msgid "Show New Notifications"
+msgctxt "@label:textbox"
 msgid "New Message Notification:"
 msgstr "Erakutsi jakinarazpen berriak"
 
 #: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:148
 #, fuzzy, kde-format
 #| msgid "Notifications"
+msgctxt "@label:textbox"
 msgid "Notifications sound volume:"
 msgstr "Jakinarazpenak"
 
@@ -8452,19 +8557,23 @@ msgid "Change URL for avatar…"
 msgstr "Aldatu abatarraren URL..."
 
 #: widgets/myaccount/myaccountprofileconfigurewidget.cpp:33
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Your administrator has disabled the changing of email."
+msgctxt "@label:textbox"
 msgid "Your administrator has disabled the changing of email."
 msgstr "Zure administratzaileak e-posta aldatzea ezgaitu du."
 
 #: widgets/myaccount/myaccountprofileconfigurewidget.cpp:34
 #, fuzzy, kde-format
 #| msgid "Your administrator has disabled the changing of email."
+msgctxt "@label:textbox"
 msgid "Your administrator has disabled the changing of usernames."
 msgstr "Zure administratzaileak e-posta aldatzea ezgaitu du."
 
 #: widgets/myaccount/myaccountprofileconfigurewidget.cpp:37
 #, fuzzy, kde-format
 #| msgid "Your administrator has disabled the changing of email."
+msgctxt "@label:textbox"
 msgid "Your administrator has disabled the changing of status messages."
 msgstr "Zure administratzaileak e-posta aldatzea ezgaitu du."
 
@@ -8595,17 +8704,22 @@ msgid "Only Remove Attached Files. Keep messages"
 msgstr "Kendu bakarrik atxikitako fitxategiak. Mantendu mezuak"
 
 #: widgets/prunemessages/prunemessageswidget.cpp:38
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Newer than:"
+msgctxt "@label:textbox"
 msgid "Newer than:"
 msgstr "Hau baino berriagoa:"
 
 #: widgets/prunemessages/prunemessageswidget.cpp:51
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Older than:"
+msgctxt "@label:textbox"
 msgid "Older than:"
 msgstr "Hau baino zaharragoa:"
 
 #: widgets/prunemessages/prunemessageswidget.cpp:59
 #, kde-format
+msgctxt "@label:textbox"
 msgid ""
 "Only Prune content from these users (Keep empty to prune everyone's content)"
 msgstr ""
@@ -9555,6 +9669,13 @@ msgstr "&Hurrengo zerbitzaria"
 msgid "&Previous Server"
 msgstr "&Aurreko zerbitzaria"
 
+#: widgets/ruqolamainwindow.cpp:537
+#, fuzzy, kde-format
+#| msgid "Status:"
+msgctxt "@label:textbox"
+msgid "Status:"
+msgstr "Egoera:"
+
 #: widgets/ruqolamainwindow.cpp:550
 #, fuzzy, kde-format
 #| msgid "Previous Channel"
@@ -9725,7 +9846,9 @@ msgid "Search Team"
 msgstr "Bilatu taldea"
 
 #: widgets/teams/searchteamwidget.cpp:20
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Team Name:"
+msgctxt "@label:textbox"
 msgid "Team Name:"
 msgstr "Taldearen izena:"
 
@@ -9795,8 +9918,9 @@ msgctxt "@title:window"
 msgid "Convert Team '%1' to Channel"
 msgstr ""
 
-#: widgets/teams/teamconverttochannelwidget.cpp:21
+#: widgets/teams/teamconverttochannelwidget.cpp:23
 #, kde-format
+msgctxt "@label:textbox"
 msgid ""
 "Select the Team’s Channels you would like to delete, the ones you do not "
 "select will be moved to the Workspace. Notice that public Channels will be "
@@ -9834,6 +9958,7 @@ msgstr ""
 #: widgets/whatsnew/whatsnewcomboboxwidget.cpp:27
 #, fuzzy, kde-format
 #| msgid "Version"
+msgctxt "@label:textbox"
 msgid "Version:"
 msgstr "Bertsioa"
 
@@ -9884,17 +10009,17 @@ msgstr "(Erakutsi informazio gutxiago...)"
 msgid "What's new in Ruqola. %1"
 msgstr "Zer berri «Ruqola»n. %1"
 
-#: widgets/whatsnew/whatsnewwidget.cpp:95
+#: widgets/whatsnew/whatsnewwidget.cpp:97
 #, kde-format
 msgid "Important changes since last version:"
 msgstr "Azken bertsiotik aldaketa garrantzitsuak:"
 
-#: widgets/whatsnew/whatsnewwidget.cpp:100
+#: widgets/whatsnew/whatsnewwidget.cpp:102
 #, kde-format
 msgid "Some of the new features in this release of Ruqola include:"
 msgstr ""
 
-#: widgets/whatsnew/whatsnewwidget.cpp:105
+#: widgets/whatsnew/whatsnewwidget.cpp:107
 #, fuzzy, kde-format
 #| msgid "Bug fixing"
 msgid "Some bug fixing:"
