@@ -46,6 +46,5 @@ Q_SIGNALS:
     void statusMessageChanged(const User &user);
 
 private:
-    Q_DISABLE_COPY(UsersModel)
     QList<User> mUsers;
 };

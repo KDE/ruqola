@@ -39,7 +39,6 @@ protected:
     [[nodiscard]] QList<int> hideColumns() const override;
 
 private:
-    Q_DISABLE_COPY(UsersInRoleModel)
     LIBRUQOLACORE_NO_EXPORT void checkFullList() override;
     Users mUsers;
 };

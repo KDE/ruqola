@@ -36,6 +36,5 @@ public:
 private:
     [[nodiscard]] LIBRUQOLACORE_NO_EXPORT QString displayUserName(const User &user) const;
     [[nodiscard]] LIBRUQOLACORE_NO_EXPORT Utils::AvatarInfo avatarInfo(const User &user) const;
-    Q_DISABLE_COPY(UserCompleterModel)
     QList<User> mUsers;
 };

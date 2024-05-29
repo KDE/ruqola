@@ -41,7 +41,6 @@ public:
     void setIsCheckable(bool isCheckable);
 
 private:
-    Q_DISABLE_COPY(TeamRoomsModel)
     QList<TeamRoom> mTeamRooms;
     QList<QByteArray> mRoomSelected;
     bool mIsCheckable = false;
