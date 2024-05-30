@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-05-29 00:38+0000\n"
+"POT-Creation-Date: 2024-05-30 00:38+0000\n"
 "PO-Revision-Date: 2024-01-02 16:40+0100\n"
 "Last-Translator: Stefan Asserhäll <stefan.asserhall@bredband.net>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
@@ -6064,11 +6064,11 @@ msgstr "Maximal meddelandeålder i privata grupper"
 msgid "Maximum message age in direct messages"
 msgstr "Maximal meddelandeålder i direktmeddelanden"
 
-#: widgets/administratorsettingsdialog/settingswidgetbase.cpp:120
-#: widgets/administratorsettingsdialog/settingswidgetbase.cpp:159
-#: widgets/administratorsettingsdialog/settingswidgetbase.cpp:214
-#: widgets/administratorsettingsdialog/settingswidgetbase.cpp:253
-#: widgets/administratorsettingsdialog/settingswidgetbase.cpp:292
+#: widgets/administratorsettingsdialog/settingswidgetbase.cpp:122
+#: widgets/administratorsettingsdialog/settingswidgetbase.cpp:164
+#: widgets/administratorsettingsdialog/settingswidgetbase.cpp:220
+#: widgets/administratorsettingsdialog/settingswidgetbase.cpp:261
+#: widgets/administratorsettingsdialog/settingswidgetbase.cpp:306
 #, kde-format
 msgid "Apply"
 msgstr "Verkställ"
