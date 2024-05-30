@@ -21,7 +21,9 @@ public:
     [[nodiscard]] QString serverUrl() const;
     void setServerUrl(const QString &serverUrl);
 
-    [[nodiscard]] QUrl generateUrl(RestApiUtil::RestApiUrlType type, const QString &urlExtension = QString(), bool useV1Extension = true);
+    [[nodiscard]] QUrl generateUrl(RestApiUtil::RestApiUrlType type,
+                                   const QString &urlExtension = QString(),
+                                   RestApiUtil::RestApiUrlExtensionType restApiUrlExtensionType = RestApiUtil::RestApiUrlExtensionType::V1);
 
 private:
     QString mServerUrl;

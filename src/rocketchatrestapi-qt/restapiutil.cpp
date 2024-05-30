@@ -592,7 +592,7 @@ QString RestApiUtil::restUrl(RestApiUtil::RestApiUrlType type)
     case RestApiUtil::RestApiUrlType::MethodCallAnon:
         return QStringLiteral("method.callAnon");
     case RestApiUtil::RestApiUrlType::AppsUiInteraction:
-        return QStringLiteral("apps/ui.interaction");
+        return QStringLiteral("ui.interaction");
 
     case RestApiUtil::RestApiUrlType::UsersLogoutOtherClients:
         return QStringLiteral("users.logoutOtherClients");

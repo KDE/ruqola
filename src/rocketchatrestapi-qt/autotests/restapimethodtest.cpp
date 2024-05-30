@@ -374,7 +374,7 @@ void RestApiMethodTest::shouldGenerateUrl()
 
     QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::MethodCall), QUrl(QStringLiteral("http://www.kde.org/api/v1/method.call")));
     QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::MethodCallAnon), QUrl(QStringLiteral("http://www.kde.org/api/v1/method.callAnon")));
-    QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::AppsUiInteraction, QString(), false),
+    QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::AppsUiInteraction, QString(), RestApiUtil::RestApiUrlExtensionType::Apps),
              QUrl(QStringLiteral("http://www.kde.org/api/apps/ui.interaction")));
 
     QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::UsersLogoutOtherClients),
