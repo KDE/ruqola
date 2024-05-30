@@ -94,7 +94,7 @@ QJsonDocument MethodCallJob::json() const
 bool MethodCallJob::MethodCallJobInfo::isValid() const
 {
     // TODO verify if messageObj is empty
-    return !methodName.isEmpty() && !messageObj.isEmpty();
+    return !methodName.isEmpty() /* && !messageObj.isEmpty()*/;
 }
 
 #include "moc_methodcalljob.cpp"

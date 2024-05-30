@@ -7,6 +7,7 @@
 #include "myaccount2e2configurewidget.h"
 #include "connection.h"
 #include "e2e/resetowne2ekeyjob.h"
+#include "misc/methodcalljob.h"
 #include "misc/passwordconfirmwidget.h"
 #include "rocketchataccount.h"
 #include "ruqolawidgets_debug.h"
@@ -69,9 +70,16 @@ void MyAccount2e2ConfigureWidget::slotResetE2EKey()
 {
     // TODO it uses "/api/v1/method.call/e2e.resetOwnE2EKey"
     // => use restapi for calling ddp method
-    auto job = new RocketChatRestApi::ResetOwnE2eKeyJob(this);
+    auto job = new RocketChatRestApi::MethodCallJob(this);
+    RocketChatRestApi::MethodCallJob::MethodCallJobInfo info;
+    info.methodName = QStringLiteral("e2e.resetOwnE2EKey");
+    info.anonymous = false;
+    job->setMethodCallJobInfo(std::move(info));
     mRocketChatAccount->restApi()->initializeRestApiJob(job);
-    connect(job, &RocketChatRestApi::ResetOwnE2eKeyJob::resetE2eKeyDone, this, &MyAccount2e2ConfigureWidget::slotReset2E2KeyDone);
+    // qDebug()<< " mRestApiConnection " << mRestApiConnection->serverUrl();
+    connect(job, &RocketChatRestApi::MethodCallJob::methodCallDone, this, [this](const QJsonObject &replyObject) {
+        qDebug() << " replyObject " << replyObject;
+    });
     if (!job->start()) {
         qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start ResetOwnE2eKeyJob job";
     }
