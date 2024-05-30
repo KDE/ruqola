@@ -28,11 +28,11 @@ GeneralSettingsWidget::GeneralSettingsWidget(RocketChatAccount *account, QWidget
     , mCDNPrefix(new QLineEdit(this))
     , mUnreadCount(new QComboBox(this))
     , mUnreadCountDirectMessages(new QComboBox(this))
+    , mUpdateLatestAvailableVersion(new QLineEdit(this))
     , mEnableUpdateChecker(new QCheckBox(i18n("Enable the Update Checker"), this))
     , mDefaultTimeZone(new QComboBox(this))
     , mSendStatisticsRocketChat(new QCheckBox(i18n("Send Statistics to Rocket.Chat"), this))
     , mMaxRoomMembersDisablingMessageNotifications(new QSpinBox(this))
-    , mUpdateLatestAvailableVersion(new QLineEdit(this))
     , mStreamCastAddress(new QLineEdit(this))
 {
     mEnableFavoriteRooms->setObjectName(QStringLiteral("mEnableFavoriteRooms"));

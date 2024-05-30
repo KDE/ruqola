@@ -33,10 +33,10 @@ private:
     QLineEdit *const mCDNPrefix;
     QComboBox *const mUnreadCount;
     QComboBox *const mUnreadCountDirectMessages;
+    QLineEdit *const mUpdateLatestAvailableVersion;
     QCheckBox *const mEnableUpdateChecker;
     QComboBox *const mDefaultTimeZone;
     QCheckBox *const mSendStatisticsRocketChat;
     QSpinBox *const mMaxRoomMembersDisablingMessageNotifications;
-    QLineEdit *const mUpdateLatestAvailableVersion;
     QLineEdit *const mStreamCastAddress;
 };

@@ -4,7 +4,7 @@
 cmake_minimum_required(VERSION 3.16 FATAL_ERROR)
 set(RUQOLA_VERSION "2.2.40")
 # TODO: update it in each release version
-set(RUQOLA_RELEASE_VERSION "24.05.26")
+set(RUQOLA_RELEASE_VERSION "24.05.29")
 
 project(Ruqola VERSION ${RUQOLA_VERSION})
 set(QT_REQUIRED_VERSION "6.6.0")

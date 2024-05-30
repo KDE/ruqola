@@ -22,15 +22,15 @@ public:
 
 private:
     QCheckBox *const mAllowMessageEditing;
+    QSpinBox *const mBlockMessageEditingAfterMinutes;
     QCheckBox *const mAllowMessageDeleting;
+    QSpinBox *const mBlockMessageDeletingAfterMinutes;
     QCheckBox *const mShowEditedStatus;
     QCheckBox *const mShowDeletedStatus;
     QCheckBox *const mAllowMessagePinning;
     QCheckBox *const mAllowMessageSnippeting;
     QCheckBox *const mAllowConvertingLongMessageAttachment;
     QCheckBox *const mVideoRecorderEnabled;
-    QSpinBox *const mBlockMessageEditingAfterMinutes;
-    QSpinBox *const mBlockMessageDeletingAfterMinutes;
     QSpinBox *const mMaximumAllowedCharactersPerMessage;
     QLineEdit *const mSafePort;
     QCheckBox *const mRemoveEXIFMetadata;
