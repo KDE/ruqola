@@ -137,6 +137,7 @@ void UploadFileJob::slotUploadFinished()
             if (reply->error() != QNetworkReply::NoError) {
                 if (mReply->error() == QNetworkReply::NetworkSessionFailedError) {
                     qCWarning(ROCKETCHATQTRESTAPI_LOG) << metaObject()->className() << "NetworkSessionFailedError. Connection loss?";
+                    reply->deleteLater();
                     deleteLater();
                     return;
                 }
