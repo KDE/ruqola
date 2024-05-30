@@ -617,9 +617,11 @@ QString RestApiUtil::restApiUrlExtensionType(RestApiUrlExtensionType type)
 {
     switch (type) {
     case RestApiUrlExtensionType::V1:
-        return QStringLiteral("/v1");
+        return QStringLiteral("/api/v1/");
     case RestApiUrlExtensionType::Apps:
-        return QStringLiteral("/apps");
+        return QStringLiteral("/api/apps/");
+    case RestApiUtil::RestApiUrlExtensionType::NoExtension:
+        return QStringLiteral("/api/");
     }
     return {};
 }

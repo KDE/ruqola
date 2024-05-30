@@ -13,6 +13,7 @@ namespace RestApiUtil
 {
 
 enum class RestApiUrlExtensionType {
+    NoExtension,
     V1,
     Apps,
 };
