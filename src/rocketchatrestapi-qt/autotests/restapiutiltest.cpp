@@ -36,4 +36,10 @@ void RestApiUtilTest::shouldUseV1Version()
     QCOMPARE(RestApiUtil::apiUri(), QStringLiteral("/api/v1/"));
 }
 
+void RestApiUtilTest::shouldConvertRestApiUrlExtensionType()
+{
+    QCOMPARE(RestApiUtil::restApiUrlExtensionType(RestApiUtil::RestApiUrlExtensionType::V1), QStringLiteral("/v1"));
+    QCOMPARE(RestApiUtil::restApiUrlExtensionType(RestApiUtil::RestApiUrlExtensionType::Apps), QStringLiteral("/apps"));
+}
+
 #include "moc_restapiutiltest.cpp"

@@ -612,3 +612,14 @@ QByteArray RestApiUtil::convertSha256Password(const QString &pwd)
     const QByteArray sha256pw = QCryptographicHash::hash(pwd.toUtf8(), QCryptographicHash::Sha256);
     return sha256pw.toHex();
 }
+
+QString RestApiUtil::restApiUrlExtensionType(RestApiUrlExtensionType type)
+{
+    switch (type) {
+    case RestApiUrlExtensionType::V1:
+        return QStringLiteral("/v1");
+    case RestApiUrlExtensionType::Apps:
+        return QStringLiteral("/apps");
+    }
+    return {};
+}

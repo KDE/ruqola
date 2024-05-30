@@ -19,4 +19,5 @@ private Q_SLOTS:
     void shouldAdaptUrl();
 
     void shouldUseV1Version();
+    void shouldConvertRestApiUrlExtensionType();
 };
