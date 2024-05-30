@@ -382,6 +382,15 @@ void RestApiMethodTest::shouldGenerateUrl()
 
     QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::RoomsMuteUser), QUrl(QStringLiteral("http://www.kde.org/api/v1/rooms.muteUser")));
     QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::RoomsUnmuteUser), QUrl(QStringLiteral("http://www.kde.org/api/v1/rooms.unmuteUser")));
+
+    QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::CategoriesApps, QString(), RestApiUtil::RestApiUrlExtensionType::Apps),
+             QUrl(QStringLiteral("http://www.kde.org/api/apps/categories")));
+
+    QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::FeaturedApps, QString(), RestApiUtil::RestApiUrlExtensionType::Apps),
+             QUrl(QStringLiteral("http://www.kde.org/api/apps/featured-apps")));
+
+    QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::CountApps, QString(), RestApiUtil::RestApiUrlExtensionType::Apps),
+             QUrl(QStringLiteral("http://www.kde.org/api/apps/count")));
 }
 
 #include "moc_restapimethodtest.cpp"

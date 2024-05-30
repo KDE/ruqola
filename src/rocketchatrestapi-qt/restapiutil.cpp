@@ -602,6 +602,13 @@ QString RestApiUtil::restUrl(RestApiUtil::RestApiUrlType type)
         return QStringLiteral("rooms.muteUser");
     case RestApiUtil::RestApiUrlType::RoomsUnmuteUser:
         return QStringLiteral("rooms.unmuteUser");
+
+    case RestApiUtil::RestApiUrlType::FeaturedApps:
+        return QStringLiteral("featured-apps");
+    case RestApiUtil::RestApiUrlType::CategoriesApps:
+        return QStringLiteral("categories");
+    case RestApiUtil::RestApiUrlType::CountApps:
+        return QStringLiteral("count");
     }
     qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Unknown RestApiUtil::RestApiUrlType " << static_cast<int>(type);
     return {};
