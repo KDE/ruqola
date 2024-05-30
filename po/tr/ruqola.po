@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-05-29 03:09+0000\n"
-"PO-Revision-Date: 2024-05-24 06:12+0300\n"
+"POT-Creation-Date: 2024-05-30 02:34+0000\n"
+"PO-Revision-Date: 2024-05-29 13:09+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -5845,11 +5845,11 @@ msgstr "Özel gruplardaki en yüksek ileti yaşı"
 msgid "Maximum message age in direct messages"
 msgstr "Doğrudan iletilerdeki en yüksek ileti yaşı"
 
-#: widgets/administratorsettingsdialog/settingswidgetbase.cpp:120
-#: widgets/administratorsettingsdialog/settingswidgetbase.cpp:159
-#: widgets/administratorsettingsdialog/settingswidgetbase.cpp:214
-#: widgets/administratorsettingsdialog/settingswidgetbase.cpp:253
-#: widgets/administratorsettingsdialog/settingswidgetbase.cpp:292
+#: widgets/administratorsettingsdialog/settingswidgetbase.cpp:122
+#: widgets/administratorsettingsdialog/settingswidgetbase.cpp:164
+#: widgets/administratorsettingsdialog/settingswidgetbase.cpp:220
+#: widgets/administratorsettingsdialog/settingswidgetbase.cpp:261
+#: widgets/administratorsettingsdialog/settingswidgetbase.cpp:306
 #, kde-format
 msgid "Apply"
 msgstr "Uygula"
