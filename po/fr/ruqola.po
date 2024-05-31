@@ -5,8 +5,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-05-30 00:38+0000\n"
-"PO-Revision-Date: 2024-05-27 11:50+0200\n"
+"POT-Creation-Date: 2024-05-31 00:39+0000\n"
+"PO-Revision-Date: 2024-05-29 08:55+0200\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
 "Language-Team: French <French <kde-francophone@kde.org>>\n"
 "Language: fr\n"
@@ -1480,10 +1480,9 @@ msgid "Channel"
 msgstr "Canal"
 
 #: core/roominfo/roominfo.cpp:121
-#, fuzzy, kde-format
-#| msgid "Direct message someone"
+#, kde-format
 msgid "Direct message"
-msgstr "Quelqu'un pour un message direct"
+msgstr "Message direct"
 
 #: core/roominfo/roominfo.cpp:123
 #: widgets/administratordialog/rooms/administratorroomsselectroomtypewidget.cpp:19
@@ -3586,7 +3585,7 @@ msgid "Make Admin"
 msgstr "Passer en mode administrateur"
 
 #: widgets/administratordialog/users/administratoruserswidget.cpp:270
-#: widgets/myaccount/myaccount2e2configurewidget.cpp:20
+#: widgets/myaccount/myaccount2e2configurewidget.cpp:22
 #, kde-format
 msgid "Reset E2E Key"
 msgstr "Ré-initialiser la clé « E2E »"
@@ -4628,12 +4627,12 @@ msgstr "Activer les salons favoris"
 msgid "UTF8 Names Slugify"
 msgstr "Transformation en URL des noms « UTF8 »"
 
-#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:31
+#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:32
 #, kde-format
 msgid "Enable the Update Checker"
 msgstr "Activer le vérificateur de mise à jour"
 
-#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:33
+#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:34
 #, kde-format
 msgid "Send Statistics to Rocket.Chat"
 msgstr "Envoyer des statistiques vers Rocket.Chat"
@@ -5100,37 +5099,37 @@ msgstr "Tracer le filtre de méthode"
 msgid "Allow Message Editing"
 msgstr "Permettre la modification de messages"
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:19
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:20
 #, kde-format
 msgid "Allow Message Deleting"
 msgstr "Permettre la suppression de messages"
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:20
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:22
 #, kde-format
 msgid "Show Edited Status"
 msgstr "Afficher l'état de modification"
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:21
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:23
 #, kde-format
 msgid "Show Deleted Status"
 msgstr "Afficher l'état d'effacement"
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:22
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:24
 #, kde-format
 msgid "Allow Message Pinning"
 msgstr "Permettre l'épinglage de messages"
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:23
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:25
 #, kde-format
 msgid "Allow Message Snippeting"
 msgstr "Permettre le découpage en morceaux de messages"
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:24
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:26
 #, kde-format
 msgid "Allow converting long messages to attachment"
 msgstr "Permettre la conversion de longs messages en une pièce jointe."
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:25
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:27
 #, kde-format
 msgid "Video Recorder Enabled"
 msgstr "Enregistreur vidéo activé"
@@ -8246,7 +8245,7 @@ msgstr "Saisissez le code"
 msgid "Send new code"
 msgstr "Envoyer le nouveau code"
 
-#: widgets/myaccount/myaccount2e2configurewidget.cpp:29
+#: widgets/myaccount/myaccount2e2configurewidget.cpp:30
 #, fuzzy, kde-format
 #| msgid ""
 #| "You can now create encrypted private groups and direct messages. You may "
@@ -8272,7 +8271,7 @@ msgstr ""
 "un endroit sûr. Vous devrez le saisir sur d'autres appareils sur lesquels "
 "vous souhaitez utiliser le chiffrement de bout en bout."
 
-#: widgets/myaccount/myaccount2e2configurewidget.cpp:42
+#: widgets/myaccount/myaccount2e2configurewidget.cpp:43
 #, kde-format
 msgid ""
 "This option will remove your current E2E key and log you out. When you login "

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-05-30 00:38+0000\n"
+"POT-Creation-Date: 2024-05-31 00:39+0000\n"
 "PO-Revision-Date: 2024-05-29 07:16+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
@@ -3567,7 +3567,7 @@ msgid "Make Admin"
 msgstr "Napravi skrbnika"
 
 #: widgets/administratordialog/users/administratoruserswidget.cpp:270
-#: widgets/myaccount/myaccount2e2configurewidget.cpp:20
+#: widgets/myaccount/myaccount2e2configurewidget.cpp:22
 #, kde-format
 msgid "Reset E2E Key"
 msgstr "Ponastavi ključ E2E"
@@ -4593,12 +4593,12 @@ msgstr "Omogoči priljubljene sobe"
 msgid "UTF8 Names Slugify"
 msgstr "UTF8 imena Slugify"
 
-#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:31
+#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:32
 #, kde-format
 msgid "Enable the Update Checker"
 msgstr "Omogoči preverjalnik posodobitev"
 
-#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:33
+#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:34
 #, kde-format
 msgid "Send Statistics to Rocket.Chat"
 msgstr "Pošlji statistike v Rocket.Chat"
@@ -5053,37 +5053,37 @@ msgstr "Filter sledi metod"
 msgid "Allow Message Editing"
 msgstr "Dovoli urejanje sporočila"
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:19
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:20
 #, kde-format
 msgid "Allow Message Deleting"
 msgstr "Dovoli brisanje sporočila"
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:20
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:22
 #, kde-format
 msgid "Show Edited Status"
 msgstr "Prikaži stanje urejanja"
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:21
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:23
 #, kde-format
 msgid "Show Deleted Status"
 msgstr "Prikaži stanja izbrisanega"
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:22
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:24
 #, kde-format
 msgid "Allow Message Pinning"
 msgstr "Dovoli pripenjanje sporočil"
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:23
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:25
 #, kde-format
 msgid "Allow Message Snippeting"
 msgstr "Dovoli fragmentiranje sporočil"
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:24
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:26
 #, kde-format
 msgid "Allow converting long messages to attachment"
 msgstr "Dovoli pretvorbo dolgih sporočil kot prilogo"
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:25
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:27
 #, kde-format
 msgid "Video Recorder Enabled"
 msgstr "Video snemalnik omogočen"
@@ -8139,7 +8139,7 @@ msgstr "Vnesite kodo"
 msgid "Send new code"
 msgstr "Pošlji novo kodo"
 
-#: widgets/myaccount/myaccount2e2configurewidget.cpp:29
+#: widgets/myaccount/myaccount2e2configurewidget.cpp:30
 #, kde-format
 msgctxt "@label:textbox"
 msgid ""
@@ -8157,7 +8157,7 @@ msgstr ""
 "shraniti nekje na varnem. Morali ga boste vnesti za vstop na druge naprave, "
 "ki jih želite uporabiti za šifriranje od začetka do konca."
 
-#: widgets/myaccount/myaccount2e2configurewidget.cpp:42
+#: widgets/myaccount/myaccount2e2configurewidget.cpp:43
 #, kde-format
 msgid ""
 "This option will remove your current E2E key and log you out. When you login "

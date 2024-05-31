@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-05-30 00:38+0000\n"
+"POT-Creation-Date: 2024-05-31 00:39+0000\n"
 "PO-Revision-Date: 2024-05-09 06:59+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
@@ -3663,7 +3663,7 @@ msgid "Make Admin"
 msgstr ""
 
 #: widgets/administratordialog/users/administratoruserswidget.cpp:270
-#: widgets/myaccount/myaccount2e2configurewidget.cpp:20
+#: widgets/myaccount/myaccount2e2configurewidget.cpp:22
 #, kde-format
 msgid "Reset E2E Key"
 msgstr ""
@@ -4660,12 +4660,12 @@ msgstr "刪除聊天室"
 msgid "UTF8 Names Slugify"
 msgstr ""
 
-#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:31
+#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:32
 #, kde-format
 msgid "Enable the Update Checker"
 msgstr "啟用更新檢查工具"
 
-#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:33
+#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:34
 #, kde-format
 msgid "Send Statistics to Rocket.Chat"
 msgstr "傳送統計資料到 Rocket.Chat"
@@ -5111,42 +5111,42 @@ msgstr ""
 msgid "Allow Message Editing"
 msgstr "檢舉訊息"
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:19
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:20
 #, fuzzy, kde-format
 #| msgid "Report Message"
 msgid "Allow Message Deleting"
 msgstr "檢舉訊息"
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:20
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:22
 #, fuzzy, kde-format
 #| msgid "Custom User Status"
 msgid "Show Edited Status"
 msgstr "自訂使用者狀態"
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:21
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:23
 #, kde-format
 msgid "Show Deleted Status"
 msgstr ""
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:22
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:24
 #, fuzzy, kde-format
 #| msgid "Report Message"
 msgid "Allow Message Pinning"
 msgstr "檢舉訊息"
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:23
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:25
 #, fuzzy, kde-format
 #| msgid "Report Message"
 msgid "Allow Message Snippeting"
 msgstr "檢舉訊息"
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:24
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:26
 #, fuzzy, kde-format
 #| msgid "Delete Attachment"
 msgid "Allow converting long messages to attachment"
 msgstr "刪除附件"
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:25
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:27
 #, kde-format
 msgid "Video Recorder Enabled"
 msgstr "已啟用視訊錄製"
@@ -8199,7 +8199,7 @@ msgstr "輸入驗證碼"
 msgid "Send new code"
 msgstr "輸入新的驗證碼"
 
-#: widgets/myaccount/myaccount2e2configurewidget.cpp:29
+#: widgets/myaccount/myaccount2e2configurewidget.cpp:30
 #, kde-format
 msgctxt "@label:textbox"
 msgid ""
@@ -8211,7 +8211,7 @@ msgid ""
 "encryption on."
 msgstr ""
 
-#: widgets/myaccount/myaccount2e2configurewidget.cpp:42
+#: widgets/myaccount/myaccount2e2configurewidget.cpp:43
 #, kde-format
 msgid ""
 "This option will remove your current E2E key and log you out. When you login "
