@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-05-30 02:34+0000\n"
+"POT-Creation-Date: 2024-05-31 02:47+0000\n"
 "PO-Revision-Date: 2023-07-14 22:16+0100\n"
 "Last-Translator: José Nuno Coelho Pires <zepires@gmail.com>\n"
 "Language-Team: Portuguese <kde-i18n-pt@kde.org>\n"
@@ -3636,7 +3636,7 @@ msgid "Make Admin"
 msgstr "Tornar Administrador"
 
 #: widgets/administratordialog/users/administratoruserswidget.cpp:270
-#: widgets/myaccount/myaccount2e2configurewidget.cpp:20
+#: widgets/myaccount/myaccount2e2configurewidget.cpp:21
 #, kde-format
 msgid "Reset E2E Key"
 msgstr "Repor a Chave E2E"
@@ -4722,12 +4722,12 @@ msgstr "Activar as Salas Favoritas"
 msgid "UTF8 Names Slugify"
 msgstr "Limpeza dos Nomes em UTF8"
 
-#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:31
+#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:32
 #, kde-format
 msgid "Enable the Update Checker"
 msgstr "Activar a Verificação de Actualizações"
 
-#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:33
+#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:34
 #, kde-format
 msgid "Send Statistics to Rocket.Chat"
 msgstr "Enviar as Estatísticas para o Rocket.Chat"
@@ -5217,37 +5217,37 @@ msgstr "Filtro do registo de métodos"
 msgid "Allow Message Editing"
 msgstr "Permitir a Edição de Mensagens"
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:19
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:20
 #, kde-format
 msgid "Allow Message Deleting"
 msgstr "Permitir a Remoção de Mensagens"
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:20
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:22
 #, kde-format
 msgid "Show Edited Status"
 msgstr "Mostrar o Estado Editado"
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:21
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:23
 #, kde-format
 msgid "Show Deleted Status"
 msgstr "Mostrar o Estado Removido"
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:22
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:24
 #, kde-format
 msgid "Allow Message Pinning"
 msgstr "Permitir a Fixação de Mensagens"
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:23
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:25
 #, kde-format
 msgid "Allow Message Snippeting"
 msgstr "Permitir os Excertos de Mensagens"
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:24
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:26
 #, kde-format
 msgid "Allow converting long messages to attachment"
 msgstr "Permitir a conversão de mensagens longas para anexos"
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:25
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:27
 #, kde-format
 msgid "Video Recorder Enabled"
 msgstr "Gravador de Vídeo Activo"

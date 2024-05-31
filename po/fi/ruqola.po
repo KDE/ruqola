@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-05-30 02:34+0000\n"
+"POT-Creation-Date: 2024-05-31 02:47+0000\n"
 "PO-Revision-Date: 2023-09-20 18:47+0300\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
@@ -3602,7 +3602,7 @@ msgid "Make Admin"
 msgstr "Tee ylläpitäjäksi"
 
 #: widgets/administratordialog/users/administratoruserswidget.cpp:270
-#: widgets/myaccount/myaccount2e2configurewidget.cpp:20
+#: widgets/myaccount/myaccount2e2configurewidget.cpp:21
 #, kde-format
 msgid "Reset E2E Key"
 msgstr "Palauta E2E-avain"
@@ -4587,12 +4587,12 @@ msgstr "Käytä suosikkihuoneita"
 msgid "UTF8 Names Slugify"
 msgstr ""
 
-#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:31
+#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:32
 #, kde-format
 msgid "Enable the Update Checker"
 msgstr ""
 
-#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:33
+#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:34
 #, kde-format
 msgid "Send Statistics to Rocket.Chat"
 msgstr ""
@@ -5025,38 +5025,38 @@ msgstr ""
 msgid "Allow Message Editing"
 msgstr "Salli viestin muokkaaminen"
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:19
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:20
 #, kde-format
 msgid "Allow Message Deleting"
 msgstr "Salli viestin poistaminen"
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:20
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:22
 #, kde-format
 msgid "Show Edited Status"
 msgstr "Näytä muokkaustila"
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:21
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:23
 #, kde-format
 msgid "Show Deleted Status"
 msgstr "Näytä poistettu-tila"
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:22
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:24
 #, kde-format
 msgid "Allow Message Pinning"
 msgstr "Salli viestin kiinnitys"
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:23
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:25
 #, fuzzy, kde-format
 #| msgid "Follow Message..."
 msgid "Allow Message Snippeting"
 msgstr "Seuraa viestiä…"
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:24
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:26
 #, kde-format
 msgid "Allow converting long messages to attachment"
 msgstr "Salli pitkien viestin muuntaminen liitteiksi"
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:25
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:27
 #, kde-format
 msgid "Video Recorder Enabled"
 msgstr "Videotallennus käytössä"

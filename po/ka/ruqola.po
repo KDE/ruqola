@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-05-30 02:34+0000\n"
+"POT-Creation-Date: 2024-05-31 02:47+0000\n"
 "PO-Revision-Date: 2024-05-24 16:52+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
@@ -3526,7 +3526,7 @@ msgid "Make Admin"
 msgstr "ადმინისტრატორად გახდომა"
 
 #: widgets/administratordialog/users/administratoruserswidget.cpp:270
-#: widgets/myaccount/myaccount2e2configurewidget.cpp:20
+#: widgets/myaccount/myaccount2e2configurewidget.cpp:21
 #, kde-format
 msgid "Reset E2E Key"
 msgstr "E2E გასაღების საწყის მნიშვნელობებზე დაყენება"
@@ -4551,12 +4551,12 @@ msgstr "რჩეული ოთახების ჩართვა"
 msgid "UTF8 Names Slugify"
 msgstr "UTF8 სახელების შეტყუპება"
 
-#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:31
+#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:32
 #, kde-format
 msgid "Enable the Update Checker"
 msgstr "განახლებებზე შემმოწმებლის ჩართვა"
 
-#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:33
+#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:34
 #, kde-format
 msgid "Send Statistics to Rocket.Chat"
 msgstr "სტატისტიკის Rocket.Chat-ზე გაგზავნა"
@@ -5014,37 +5014,37 @@ msgstr "ტრეისის მეთოდის ფილტრი"
 msgid "Allow Message Editing"
 msgstr "შეტყობინების ჩასწორების დაშვება"
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:19
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:20
 #, kde-format
 msgid "Allow Message Deleting"
 msgstr "შეტყობინების წაშლის დაშვება"
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:20
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:22
 #, kde-format
 msgid "Show Edited Status"
 msgstr "ჩასწორებული სტატუსების ჩვენება"
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:21
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:23
 #, kde-format
 msgid "Show Deleted Status"
 msgstr "წაშლილი სტატუსის ჩვენება"
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:22
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:24
 #, kde-format
 msgid "Allow Message Pinning"
 msgstr "შეტყობინების მიჭკარტების დაშვება"
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:23
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:25
 #, kde-format
 msgid "Allow Message Snippeting"
 msgstr "შეტყობინების დანაწილების დაშვება"
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:24
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:26
 #, kde-format
 msgid "Allow converting long messages to attachment"
 msgstr "გრძელი შეტყობინებების მიმაგრებულ ფაილებად მიმაგრებს დაშვება"
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:25
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:27
 #, kde-format
 msgid "Video Recorder Enabled"
 msgstr "ვიდეოს ჩაწერა დაშვებულია"

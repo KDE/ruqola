@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-05-30 02:34+0000\n"
+"POT-Creation-Date: 2024-05-31 02:47+0000\n"
 "PO-Revision-Date: 2024-05-27 11:50+0200\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
 "Language-Team: French <French <kde-francophone@kde.org>>\n"
@@ -3551,7 +3551,7 @@ msgid "Make Admin"
 msgstr "Passer en mode administrateur"
 
 #: widgets/administratordialog/users/administratoruserswidget.cpp:270
-#: widgets/myaccount/myaccount2e2configurewidget.cpp:20
+#: widgets/myaccount/myaccount2e2configurewidget.cpp:21
 #, kde-format
 msgid "Reset E2E Key"
 msgstr "Ré-initialiser la clé « E2E »"
@@ -4594,12 +4594,12 @@ msgstr "Activer les salons favoris"
 msgid "UTF8 Names Slugify"
 msgstr "Transformation en URL des noms « UTF8 »"
 
-#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:31
+#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:32
 #, kde-format
 msgid "Enable the Update Checker"
 msgstr "Activer le vérificateur de mise à jour"
 
-#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:33
+#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:34
 #, kde-format
 msgid "Send Statistics to Rocket.Chat"
 msgstr "Envoyer des statistiques vers Rocket.Chat"
@@ -5066,37 +5066,37 @@ msgstr "Tracer le filtre de méthode"
 msgid "Allow Message Editing"
 msgstr "Permettre la modification de messages"
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:19
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:20
 #, kde-format
 msgid "Allow Message Deleting"
 msgstr "Permettre la suppression de messages"
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:20
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:22
 #, kde-format
 msgid "Show Edited Status"
 msgstr "Afficher l'état de modification"
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:21
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:23
 #, kde-format
 msgid "Show Deleted Status"
 msgstr "Afficher l'état d'effacement"
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:22
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:24
 #, kde-format
 msgid "Allow Message Pinning"
 msgstr "Permettre l'épinglage de messages"
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:23
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:25
 #, kde-format
 msgid "Allow Message Snippeting"
 msgstr "Permettre le découpage en morceaux de messages"
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:24
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:26
 #, kde-format
 msgid "Allow converting long messages to attachment"
 msgstr "Permettre la conversion de longs messages en une pièce jointe."
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:25
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:27
 #, kde-format
 msgid "Video Recorder Enabled"
 msgstr "Enregistreur vidéo activé"
