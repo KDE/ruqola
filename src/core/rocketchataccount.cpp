@@ -644,7 +644,7 @@ DDPClient *RocketChatAccount::ddp()
         connect(mDdp, &DDPClient::added, this, &RocketChatAccount::added);
         connect(mDdp, &DDPClient::removed, this, &RocketChatAccount::removed);
         connect(mDdp, &DDPClient::socketError, this, &RocketChatAccount::socketError);
-        connect(mDdp, &DDPClient::disconnectedByServer, this, &RocketChatAccount::slotReconnectToServer);
+        connect(mDdp, &DDPClient::disconnectedByServer, this, &RocketChatAccount::slotReconnectToDdpServer);
         connect(mDdp, &DDPClient::wsClosedSocketError, this, &RocketChatAccount::wsClosedSocketError);
 
         if (mSettings) {
@@ -2438,6 +2438,17 @@ void RocketChatAccount::slotUsersPresenceDone(const QJsonObject &obj)
         if (user.isValid()) {
             userStatusChanged(user);
         }
+    }
+}
+
+void RocketChatAccount::slotReconnectToDdpServer()
+{
+    if (Ruqola::self()->useRestApiLogin()) {
+        qCDebug(RUQOLA_RECONNECT_LOG) << " Reconnect only ddpclient";
+        mRocketChatBackend->connectDdpClient();
+    } else {
+        // ddp() creates a new DDPClient object if it doesn't exist.
+        ddp()->enqueueLogin();
     }
 }
 
