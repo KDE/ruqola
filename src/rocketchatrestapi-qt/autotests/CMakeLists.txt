@@ -237,3 +237,6 @@ add_rocketchatrestapi_test(moderationreportsbyuseridjobtest.cpp)
 add_rocketchatrestapi_test(moderationdismissuserreportsjobtest.cpp)
 add_rocketchatrestapi_test(moderationreportuserjobtest.cpp)
 add_rocketchatrestapi_test(userslogoutotherclientsjobtest.cpp)
+add_rocketchatrestapi_test(appcountjobtest.cpp)
+add_rocketchatrestapi_test(appcategoriesjobtest.cpp)
+
