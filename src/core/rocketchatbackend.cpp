@@ -307,6 +307,16 @@ void RocketChatBackend::processIncomingMessages(const QJsonArray &messages, bool
     }
 }
 
+void RocketChatBackend::connectDdpClient()
+{
+    auto restApi = mRocketChatAccount->restApi();
+    auto ddp = mRocketChatAccount->ddp();
+    ddp->setServerUrl(restApi->serverUrl());
+    ddp->authenticationManager()->setAuthToken(restApi->authenticationManager()->authToken());
+    ddp->authenticationManager()->login();
+    initializeSubscription(ddp);
+}
+
 void RocketChatBackend::slotLoginStatusChanged()
 {
     if (mRocketChatAccount->loginStatus() == AuthenticationManager::LoggedIn) {
@@ -319,11 +329,7 @@ void RocketChatBackend::slotLoginStatusChanged()
             restApi->setAuthToken(restApi->authenticationManager()->authToken());
             restApi->setUserId(restApi->authenticationManager()->userId());
 
-            auto ddp = mRocketChatAccount->ddp();
-            ddp->setServerUrl(restApi->serverUrl());
-            ddp->authenticationManager()->setAuthToken(restApi->authenticationManager()->authToken());
-            ddp->authenticationManager()->login();
-            initializeSubscription(ddp);
+            connectDdpClient();
         } else {
             // Now that we are logged in the ddp authentication manager has all the information we need
             mRocketChatAccount->settings()->setAuthToken(mRocketChatAccount->ddp()->authenticationManager()->authToken());
