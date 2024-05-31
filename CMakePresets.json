@@ -2,7 +2,7 @@
     "version": 3,
     "configurePresets": [
         {
-            "name": "base-qt6",
+            "name": "base",
             "displayName": "base preset",
             "generator": "Ninja",
             "binaryDir": "${sourceDir}/build-${presetName}",
@@ -10,32 +10,32 @@
             "hidden": true
         },	
         {
-            "name": "dev-qt6",
-            "displayName": "Build against qt6",
-            "binaryDir": "${sourceDir}/build-qt6",
+            "name": "dev",
+            "displayName": "Build against",
+            "binaryDir": "${sourceDir}/build",
             "cacheVariables": {
                 "CMAKE_BUILD_TYPE": "Debug",
                 "BUILD_WITH_QT6": "ON",
                 "CMAKE_EXPORT_COMPILE_COMMANDS": "ON"
             },
             "inherits": [
-                "base-qt6"
+                "base"
             ]
         },
         {
-            "name": "unity-qt6",
-            "displayName": "Build with CMake unity support.(qt6)",
+            "name": "unity",
+            "displayName": "Build with CMake unity support.",
             "cacheVariables": {
                 "CMAKE_BUILD_TYPE": "Debug",
                 "USE_UNITY_CMAKE_SUPPORT": "ON",
                 "BUILD_WITH_QT6": "ON"
             },
             "inherits": [
-                "base-qt6"
+                "base"
             ]
         },
         {
-            "name": "release-qt6",
+            "name": "release",
             "displayName": "Build as release mode.",
             "cacheVariables": {
                 "CMAKE_BUILD_TYPE": "Release",
@@ -43,11 +43,11 @@
 		"BUILD_TESTING": "OFF"
             },
             "inherits": [
-                "base-qt6"
+                "base"
             ]
         },
         {
-            "name": "dev-mold-qt6",
+            "name": "dev-mold",
             "displayName": "Build as debug + using mold linker",
             "cacheVariables": {
                 "CMAKE_BUILD_TYPE": "Debug",
@@ -56,12 +56,12 @@
                 "CMAKE_SHARED_LINKER_FLAGS": "-fuse-ld=mold"
             },
             "inherits": [
-                "base-qt6"
+                "base"
             ]
         },
         {   
-            "name": "asan-qt6",
-            "displayName": "Build with Asan support (qt6).",
+            "name": "asan",
+            "displayName": "Build with Asan support .",
             "cacheVariables": {
                 "CMAKE_BUILD_TYPE": "Debug",
                 "ECM_ENABLE_SANITIZERS" : "'address;undefined'",
@@ -69,12 +69,12 @@
 		"BUILD_WITH_QT6": "ON"
             },  
             "inherits": [
-                "base-qt6"
+                "base"
             ]
         }, 
         {
-            "name": "dev-clang-qt6-asan",
-            "displayName": "dev-clang-qt6-asan",
+            "name": "dev-clang-asan",
+            "displayName": "dev-clang-asan",
             "cacheVariables": {
                 "CMAKE_BUILD_TYPE": "Debug",
                 "CMAKE_EXPORT_COMPILE_COMMANDS": "ON",
@@ -87,12 +87,12 @@
                 "CCACHE_DISABLE": "ON"
             },
             "inherits": [
-                "base-qt6"
+                "base"
             ]
         },
         {       
-            "name": "dev-clang-qt6",
-            "displayName": "dev-clang-qt6",
+            "name": "dev-clang",
+            "displayName": "dev-clang",
             "cacheVariables": {
                 "CMAKE_BUILD_TYPE": "Debug",
                 "CMAKE_EXPORT_COMPILE_COMMANDS": "ON",
@@ -104,7 +104,7 @@
                 "CCACHE_DISABLE": "ON"
             },  
             "inherits": [
-                "base-qt6"
+                "base"
             ]   
         }, 
         {
@@ -122,12 +122,12 @@
                 "CCACHE_DISABLE": "ON"
             },
             "inherits": [
-                "base-qt6"
+                "base"
             ]
         },
         {
-            "name": "clazy-qt6",
-            "displayName": "clazy-qt6",
+            "name": "clazy",
+            "displayName": "clazy",
             "cacheVariables": {
                 "CMAKE_BUILD_TYPE": "Debug",
 		"BUILD_WITH_QT6": "ON"
@@ -137,46 +137,46 @@
                 "CCACHE_DISABLE": "ON"
             },  
             "inherits": [
-                "base-qt6"
+                "base"
             ]
         }
     ],
     "buildPresets": [
         {
-            "name": "dev-clang-qt6-asan",
-            "configurePreset": "dev-clang-qt6-asan"
+            "name": "dev-clang-asan",
+            "configurePreset": "dev-clang-asan"
         },
         {
             "name": "ftime-trace",
             "configurePreset": "ftime-trace"
         },
         {
-            "name": "dev-clang-qt6",
-            "configurePreset": "dev-clang-qt6"
+            "name": "dev-clang",
+            "configurePreset": "dev-clang"
         },
         {   
-            "name": "dev-mold-qt6",
-            "configurePreset": "dev-mold-qt6"
+            "name": "dev-mold",
+            "configurePreset": "dev-mold"
         },
         {
-            "name": "dev-qt6",
-            "configurePreset": "dev-qt6"
+            "name": "dev",
+            "configurePreset": "dev"
         },
         {       
-            "name": "release-qt6",
-            "configurePreset": "release-qt6"
+            "name": "release",
+            "configurePreset": "release"
         },
         {   
-            "name": "asan-qt6",
-            "configurePreset": "asan-qt6"
+            "name": "asan",
+            "configurePreset": "asan"
         },
         {
-            "name": "unity-qt6",
-            "configurePreset": "unity-qt6"
+            "name": "unity",
+            "configurePreset": "unity"
         },
         {
-            "name": "clazy-qt6",
-            "configurePreset": "clazy-qt6",
+            "name": "clazy",
+            "configurePreset": "clazy",
             "environment": {
                 "CLAZY_CHECKS" : "level0,level1,detaching-member,ifndef-define-typo,isempty-vs-count,qrequiredresult-candidates,reserve-candidates,signal-with-return-value,unneeded-cast,function-args-by-ref,function-args-by-value,returning-void-expression,no-ctor-missing-parent-argument,isempty-vs-count,qhash-with-char-pointer-key,raw-environment-function,qproperty-type-mismatch,old-style-connect,qstring-allocations,container-inside-loop,heap-allocated-small-trivial-type,inefficient-qlist,qstring-varargs,level2,detaching-member,heap-allocated-small-trivial-type,isempty-vs-count,qstring-varargs,qvariant-template-instantiation,raw-environment-function,reserve-candidates,signal-with-return-value,thread-with-slots,no-ctor-missing-parent-argument,no-missing-typeinfo,qt6-header-fixes,qt6-qlatin1stringchar-to-u,sanitize-inline-keyword,signal-with-return-value",
                 "CCACHE_DISABLE" : "ON"
