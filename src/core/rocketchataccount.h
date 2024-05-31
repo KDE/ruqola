@@ -667,6 +667,7 @@ private:
     LIBRUQOLACORE_NO_EXPORT void parsePublicSettings();
     LIBRUQOLACORE_NO_EXPORT void licenseGetModules();
     LIBRUQOLACORE_NO_EXPORT void loadSoundFiles();
+    LIBRUQOLACORE_NO_EXPORT void slotReconnectToDdpServer();
 
     AccountRoomSettings *const mAccountRoomSettings;
 

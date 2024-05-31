@@ -44,10 +44,10 @@ public:
     void removeMessageFromLocalDatabase(const QList<QByteArray> &messageIds, const QByteArray &roomId);
 
     void loadPublicSettings(qint64 timeStamp = -1);
+    void connectDdpClient();
 
 private:
     Q_DISABLE_COPY(RocketChatBackend)
-    LIBRUQOLACORE_NO_EXPORT void connectDdpClient();
     LIBRUQOLACORE_NO_EXPORT void slotRemoved(const QJsonObject &object);
     LIBRUQOLACORE_NO_EXPORT void slotAdded(const QJsonObject &object);
     LIBRUQOLACORE_NO_EXPORT void slotChanged(const QJsonObject &object);
