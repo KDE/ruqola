@@ -1,12 +1,11 @@
 /*
-   SPDX-FileCopyrightText: 2023-2024 Laurent Montel <montel.org>
+   SPDX-FileCopyrightText: 2024 Laurent Montel <montel.org>
 
    SPDX-License-Identifier: LGPL-2.0-or-later
 */
 
 #include "appcountjobtest.h"
-#include "moderation/moderationreportsjob.h"
-#include "restapimethod.h"
+#include "apps/appcountjob.h"
 #include "ruqola_restapi_helper.h"
 QTEST_GUILESS_MAIN(AppCountJobTest)
 using namespace RocketChatRestApi;
@@ -17,20 +16,18 @@ AppCountJobTest::AppCountJobTest(QObject *parent)
 
 void AppCountJobTest::shouldHaveDefaultValue()
 {
-    ModerationReportsJob job;
+    AppCountJob job;
     verifyDefaultValue(&job);
     QVERIFY(job.requireHttpAuthentication());
-    QVERIFY(job.messageId().isEmpty());
     QVERIFY(!job.hasQueryParameterSupport());
 }
 
 void AppCountJobTest::shouldGenerateRequest()
 {
-    ModerationReportsJob job;
+    AppCountJob job;
     QNetworkRequest request = QNetworkRequest(QUrl());
-    job.setMessageId(QByteArrayLiteral("foo"));
     verifyAuthentication(&job, request);
-    QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/v1/moderation.reports?msgId=foo")));
+    QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/apps/count")));
 }
 
 #include "moc_appcountjobtest.cpp"
