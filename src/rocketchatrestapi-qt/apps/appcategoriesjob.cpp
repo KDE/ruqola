@@ -53,7 +53,7 @@ void AppCategoriesJob::onGetRequestResponse(const QString &replyErrorString, con
 
 QNetworkRequest AppCategoriesJob::request() const
 {
-    QUrl url = mRestApiMethod->generateUrl(RestApiUtil::RestApiUrlType::CountApps);
+    QUrl url = mRestApiMethod->generateUrl(RestApiUtil::RestApiUrlType::CategoriesApps, QString(), RestApiUtil::RestApiUrlExtensionType::Apps);
     QNetworkRequest request(url);
     addAuthRawHeader(request);
     addRequestAttribute(request, false);
