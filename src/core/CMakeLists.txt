@@ -308,6 +308,9 @@ target_sources(libruqolacore PRIVATE
     model/videoconferencesmodel.cpp
     model/videoconferencesmodel.h
 
+    model/appscategoriesmodel.cpp
+    model/appscategoriesmodel.h
+
 
     notificationinfo.cpp
     notificationinfo.h
