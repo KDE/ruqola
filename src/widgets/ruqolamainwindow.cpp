@@ -332,7 +332,7 @@ void RuqolaMainWindow::updateActions()
     const bool isAdministrator{mCurrentRocketChatAccount->isAdministrator()};
     mAdministrator->setEnabled(isAdministrator);
     mAdministratorServerSettings->setEnabled(isAdministrator);
-    mAdministratorMenu->setVisible(isAdministrator);
+    mAdministrationMenu->setVisible(isAdministrator);
     mShowRocketChatServerInfo->setVisible(hasBannerInfo());
     mRoomAvatar->setChecked(mCurrentRocketChatAccount->ownUserPreferences().showRoomAvatar());
     mRoomFavorite->setChecked(mCurrentRocketChatAccount->ownUserPreferences().showFavorite());
@@ -487,17 +487,17 @@ void RuqolaMainWindow::setupActions()
     connect(mMyAccount, &QAction::triggered, this, &RuqolaMainWindow::slotConfigureMyAccount);
     ac->addAction(QStringLiteral("configure_my_account"), mMyAccount);
 
-    mAdministratorMenu = new KActionMenu(i18n("Administrator"), this);
+    mAdministrationMenu = new KActionMenu(i18n("administration"), this);
     mAdministrator = new QAction(i18nc("@action", "Administrator…"), this);
     ac->addAction(QStringLiteral("administrator_account_settings"), mAdministrator);
     connect(mAdministrator, &QAction::triggered, this, &RuqolaMainWindow::slotAdministrator);
-    mAdministratorMenu->addAction(mAdministrator);
-    ac->addAction(QStringLiteral("administrator"), mAdministratorMenu);
+    mAdministrationMenu->addAction(mAdministrator);
+    ac->addAction(QStringLiteral("administration"), mAdministrationMenu);
 
     mAdministratorServerSettings = new QAction(i18nc("@action", "Server Settings…"), this);
     connect(mAdministratorServerSettings, &QAction::triggered, this, &RuqolaMainWindow::slotAdministratorServerSettings);
     ac->addAction(QStringLiteral("administrator_server_settings"), mAdministratorServerSettings);
-    mAdministratorMenu->addAction(mAdministratorServerSettings);
+    mAdministrationMenu->addAction(mAdministratorServerSettings);
 
     mDirectory = new QAction(i18nc("Action which allows to search room/user/team", "Directory…"), this);
     connect(mDirectory, &QAction::triggered, this, &RuqolaMainWindow::slotDirectory);

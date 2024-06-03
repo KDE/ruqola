@@ -150,7 +150,7 @@ private:
     KToggleFullScreenAction *mShowFullScreenAction = nullptr;
     QToolButton *mNotificationToolButton = nullptr;
     QAction *mShowNotifyHistory = nullptr;
-    KActionMenu *mAdministratorMenu = nullptr;
+    KActionMenu *mAdministrationMenu = nullptr;
     AccountManager *mAccountManager = nullptr;
     QAction *mShowRocketChatServerInfo = nullptr;
     QAction *mRoomAvatar = nullptr;
