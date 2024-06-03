@@ -44,10 +44,11 @@ void AppFeaturedAppsJob::onGetRequestResponse(const QString &replyErrorString, c
     const QJsonObject replyObject = replyJson.object();
     if (replyObject["success"_L1].toBool()) {
         addLoggerInfo(QByteArrayLiteral("AppFeaturedAppsJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
-        Q_EMIT moderationReportInfoDone(replyObject);
+        Q_EMIT appFeaturedAppsDone(replyObject);
     } else {
         emitFailedMessage(replyErrorString, replyObject);
-        addLoggerWarning(QByteArrayLiteral("AppFeaturedAppsJob: Problem when we tried to get app count info : ") + replyJson.toJson(QJsonDocument::Indented));
+        addLoggerWarning(QByteArrayLiteral("AppFeaturedAppsJob: Problem when we tried to get app featured info : ")
+                         + replyJson.toJson(QJsonDocument::Indented));
     }
 }
 

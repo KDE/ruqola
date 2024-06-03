@@ -44,7 +44,7 @@ void AppCategoriesJob::onGetRequestResponse(const QString &replyErrorString, con
     const QJsonObject replyObject = replyJson.object();
     if (replyObject["success"_L1].toBool()) {
         addLoggerInfo(QByteArrayLiteral("AppCategoriesJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
-        Q_EMIT moderationReportInfoDone(replyObject);
+        Q_EMIT appCategoriesDone(replyObject);
     } else {
         emitFailedMessage(replyErrorString, replyObject);
         addLoggerWarning(QByteArrayLiteral("AppCategoriesJob: Problem when we tried to get app count info : ") + replyJson.toJson(QJsonDocument::Indented));
