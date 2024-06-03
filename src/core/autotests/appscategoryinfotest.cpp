@@ -19,3 +19,5 @@ void AppsCategoryInfoTest::shouldHaveDefaultValues()
 
     // TODO
 }
+
+#include "moc_appscategoryinfotest.cpp"
