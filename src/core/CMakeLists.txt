@@ -1,7 +1,6 @@
 # SPDX-FileCopyrightText: 2020-2024 Laurent Montel <montel@kde.org>
 # SPDX-License-Identifier: BSD-3-Clause
-add_library(libruqolacore
-    apps/appscategoryinfo.h apps/appscategoryinfo.cpp)
+add_library(libruqolacore)
 
 target_sources(libruqolacore PRIVATE
     abstractwebsocket.cpp
@@ -540,6 +539,9 @@ target_sources(libruqolacore PRIVATE
 
     soundmanager.h
     soundmanager.cpp
+
+    apps/appscategoryinfo.h
+    apps/appscategoryinfo.cpp
 )
 
 if (HAVE_TEXT_TRANSLATOR)
