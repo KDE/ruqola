@@ -15,6 +15,20 @@ public:
     ~AppsCategoryInfo();
 
     void parseAppsCategoryInfo(const QJsonObject &replyObject);
+    [[nodiscard]] QString title() const;
+    void setTitle(const QString &newTitle);
+
+    [[nodiscard]] bool hidden() const;
+    void setHidden(bool newHidden);
+
+    [[nodiscard]] QString identifier() const;
+    void setIdentifier(const QString &newIdentifier);
+
+private:
+    QString mIdentifier;
+    QString mTitle;
+    // TODO description/createdDate/modifiedDate ?
+    bool mHidden = false;
 };
 
 Q_DECLARE_METATYPE(AppsCategoryInfo)

@@ -6,17 +6,53 @@
 
 #include "appscategoryinfo.h"
 
+#include <QJsonObject>
+using namespace Qt::Literals::StringLiterals;
 AppsCategoryInfo::AppsCategoryInfo() = default;
 
 AppsCategoryInfo::~AppsCategoryInfo() = default;
 
 void AppsCategoryInfo::parseAppsCategoryInfo(const QJsonObject &replyObject)
 {
-    // TODO
+    mTitle = replyObject["title"_L1].toString();
+    mIdentifier = replyObject["id"_L1].toString();
+    mHidden = replyObject["hidden"_L1].toBool(false);
+}
+
+QString AppsCategoryInfo::title() const
+{
+    return mTitle;
+}
+
+void AppsCategoryInfo::setTitle(const QString &newTitle)
+{
+    mTitle = newTitle;
+}
+
+bool AppsCategoryInfo::hidden() const
+{
+    return mHidden;
+}
+
+void AppsCategoryInfo::setHidden(bool newHidden)
+{
+    mHidden = newHidden;
+}
+
+QString AppsCategoryInfo::identifier() const
+{
+    return mIdentifier;
+}
+
+void AppsCategoryInfo::setIdentifier(const QString &newIdentifier)
+{
+    mIdentifier = newIdentifier;
 }
 
 QDebug operator<<(QDebug d, const AppsCategoryInfo &t)
 {
-    // TODO
+    d.space() << "mTitle" << t.title();
+    d.space() << "mHidden" << t.hidden();
+    d.space() << "mIdentifier" << t.identifier();
     return d;
 }
