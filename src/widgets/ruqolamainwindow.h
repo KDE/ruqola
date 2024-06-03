@@ -131,6 +131,7 @@ private:
     QAction *mMyAccount = nullptr;
     QAction *mAdministrator = nullptr;
     QAction *mAdministratorServerSettings = nullptr;
+    QAction *mApplications = nullptr;
     QAction *mCreateDiscussion = nullptr;
     QAction *mCreateTeam = nullptr;
     QAction *mDirectory = nullptr;
