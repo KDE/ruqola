@@ -502,7 +502,7 @@ void RuqolaMainWindow::setupActions()
     mAdministrationMenu->addSeparator();
 
     mApplications = new QAction(i18nc("@action", "Applications…"), this);
-    // connect(mApplications, &QAction::triggered, this, &RuqolaMainWindow::slotAdministratorServerSettings);
+    connect(mApplications, &QAction::triggered, this, &RuqolaMainWindow::slotApplicationsSettings);
     ac->addAction(QStringLiteral("administrator_server_settings"), mApplications);
     mAdministrationMenu->addAction(mApplications);
 
@@ -1160,5 +1160,38 @@ void RuqolaMainWindow::slotExportAccounts()
     ExportDataWizard dlg(this);
     dlg.exec();
 }
-
+#include "apps/appcategoriesjob.h"
+#include "apps/appcountjob.h"
+#include "apps/appfeaturedappsjob.h"
+void RuqolaMainWindow::slotApplicationsSettings()
+{
+#if 0
+    auto job = new RocketChatRestApi::AppCountJob(this);
+    mCurrentRocketChatAccount->restApi()->initializeRestApiJob(job);
+    connect(job, &RocketChatRestApi::AppCountJob::appCountDone, this, [](const QJsonObject &obj) {
+        qDebug() << " obj************ " << obj;
+    });
+    if (!job->start()) {
+        qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start AppCountJob";
+    }
+#endif
+#if 0
+    auto job = new RocketChatRestApi::AppFeaturedAppsJob(this);
+    mCurrentRocketChatAccount->restApi()->initializeRestApiJob(job);
+    connect(job, &RocketChatRestApi::AppFeaturedAppsJob::appFeaturedAppsDone, this, [](const QJsonObject &obj) {
+        qDebug() << " obj************ " << obj;
+    });
+    if (!job->start()) {
+        qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start AppCountJob";
+    }
+#endif
+    auto job = new RocketChatRestApi::AppCategoriesJob(this);
+    mCurrentRocketChatAccount->restApi()->initializeRestApiJob(job);
+    connect(job, &RocketChatRestApi::AppCategoriesJob::appCategoriesDone, this, [](const QJsonObject &obj) {
+        qDebug() << " obj************ " << obj;
+    });
+    if (!job->start()) {
+        qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start appCategories";
+    }
+}
 #include "moc_ruqolamainwindow.cpp"
