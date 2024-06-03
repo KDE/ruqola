@@ -499,6 +499,8 @@ void RuqolaMainWindow::setupActions()
     ac->addAction(QStringLiteral("administrator_server_settings"), mAdministratorServerSettings);
     mAdministrationMenu->addAction(mAdministratorServerSettings);
 
+    mAdministrationMenu->addSeparator();
+
     mDirectory = new QAction(i18nc("Action which allows to search room/user/team", "Directory…"), this);
     connect(mDirectory, &QAction::triggered, this, &RuqolaMainWindow::slotDirectory);
     ac->addAction(QStringLiteral("directory"), mDirectory);
