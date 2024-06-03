@@ -5,7 +5,7 @@
 */
 
 #include "appfeaturedappsjobtest.h"
-#include "apps/appcategoriesjob.h"
+#include "apps/appfeaturedappsjob.h"
 #include "ruqola_restapi_helper.h"
 QTEST_GUILESS_MAIN(AppFeaturedAppsJobTest)
 using namespace RocketChatRestApi;
@@ -16,7 +16,7 @@ AppFeaturedAppsJobTest::AppFeaturedAppsJobTest(QObject *parent)
 
 void AppFeaturedAppsJobTest::shouldHaveDefaultValue()
 {
-    AppCategoriesJob job;
+    AppFeaturedAppsJob job;
     verifyDefaultValue(&job);
     QVERIFY(job.requireHttpAuthentication());
     QVERIFY(!job.hasQueryParameterSupport());
@@ -24,10 +24,10 @@ void AppFeaturedAppsJobTest::shouldHaveDefaultValue()
 
 void AppFeaturedAppsJobTest::shouldGenerateRequest()
 {
-    AppCategoriesJob job;
+    AppFeaturedAppsJob job;
     QNetworkRequest request = QNetworkRequest(QUrl());
     verifyAuthentication(&job, request);
-    QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/apps/categories")));
+    QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/apps/featured-apps")));
 }
 
 #include "moc_appfeaturedappsjobtest.cpp"
