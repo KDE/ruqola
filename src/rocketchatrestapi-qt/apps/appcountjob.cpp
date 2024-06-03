@@ -34,8 +34,7 @@ bool AppCountJob::start()
         return false;
     }
     submitGetRequest();
-
-    addStartRestApiInfo(QByteArrayLiteral("AppCountJob: get report info starting"));
+    addStartRestApiInfo(QByteArrayLiteral("AppCountJob: get app count info starting"));
     return true;
 }
 
@@ -53,7 +52,7 @@ void AppCountJob::onGetRequestResponse(const QString &replyErrorString, const QJ
 
 QNetworkRequest AppCountJob::request() const
 {
-    QUrl url = mRestApiMethod->generateUrl(RestApiUtil::RestApiUrlType::FeaturedApps, QString(), RestApiUtil::RestApiUrlExtensionType::Apps);
+    QUrl url = mRestApiMethod->generateUrl(RestApiUtil::RestApiUrlType::CountApps, QString(), RestApiUtil::RestApiUrlExtensionType::Apps);
     QNetworkRequest request(url);
     addAuthRawHeader(request);
     addRequestAttribute(request, false);
