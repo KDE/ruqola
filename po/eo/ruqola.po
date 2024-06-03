@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-06-01 02:26+0000\n"
-"PO-Revision-Date: 2024-05-26 21:13+0200\n"
+"PO-Revision-Date: 2024-05-30 07:49+0200\n"
 "Last-Translator: Oliver Kellogg <olivermkellogg@gmail.com>\n"
 "Language-Team: Esperanto <kde-i18n-eo.org>\n"
 "Language: eo\n"
@@ -1488,7 +1488,7 @@ msgstr "Rekta"
 #: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:135
 #, kde-format
 msgid "Omnichannel"
-msgstr "Ĉiumkanala"
+msgstr "Omnichannel"
 
 #: core/translatetext/translatetextjob.cpp:31
 #, kde-format
@@ -1508,7 +1508,7 @@ msgstr "Administranto"
 #: core/user.cpp:211
 #, kde-format
 msgid "Bot"
-msgstr "Bot"
+msgstr "Bot (roboto)"
 
 #: core/videoconference/videoconferenceinfo.cpp:286
 #: core/videoconference/videoconferenceinfo.cpp:288
@@ -2681,7 +2681,7 @@ msgstr "Forigi Inviton"
 #: widgets/administratordialog/logs/viewlogplaintextedit.cpp:91
 #, kde-format
 msgid "Save as &File"
-msgstr "Konservi Dosieron"
+msgstr "Konservi kiel &Dosiero"
 
 #: widgets/administratordialog/logs/viewlogplaintextedit.cpp:57
 #: widgets/administratordialog/logs/viewlogplaintextedit.cpp:117
