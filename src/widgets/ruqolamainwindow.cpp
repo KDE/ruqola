@@ -1175,7 +1175,7 @@ void RuqolaMainWindow::slotApplicationsSettings()
         qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start AppCountJob";
     }
 #endif
-#if 0
+#if 1
     auto job = new RocketChatRestApi::AppFeaturedAppsJob(this);
     mCurrentRocketChatAccount->restApi()->initializeRestApiJob(job);
     connect(job, &RocketChatRestApi::AppFeaturedAppsJob::appFeaturedAppsDone, this, [](const QJsonObject &obj) {
@@ -1185,6 +1185,7 @@ void RuqolaMainWindow::slotApplicationsSettings()
         qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start AppCountJob";
     }
 #endif
+#if 0
     auto job = new RocketChatRestApi::AppCategoriesJob(this);
     mCurrentRocketChatAccount->restApi()->initializeRestApiJob(job);
     connect(job, &RocketChatRestApi::AppCategoriesJob::appCategoriesDone, this, [](const QJsonObject &obj) {
@@ -1193,5 +1194,6 @@ void RuqolaMainWindow::slotApplicationsSettings()
     if (!job->start()) {
         qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start appCategories";
     }
+#endif
 }
 #include "moc_ruqolamainwindow.cpp"
