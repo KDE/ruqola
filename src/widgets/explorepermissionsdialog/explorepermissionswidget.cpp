@@ -43,7 +43,7 @@ ExplorePermissionsWidget::ExplorePermissionsWidget(QWidget *parent)
     mainLayout->addWidget(mTreeView);
     mPermissionFilterProxyModel->setSourceModel(mAdminPermissionsModel);
     mTreeView->setModel(mPermissionFilterProxyModel);
-    mTreeView->setColumnHidden(PermissionsModel::RolesRole, true);
+    mTreeView->setColumnHidden(PermissionsModel::Roles, true);
     connect(mSearchLineWidget, &QLineEdit::textChanged, this, &ExplorePermissionsWidget::slotFilterTextChanged);
 
     mOwnRoles->setTextInteractionFlags(Qt::TextBrowserInteraction);

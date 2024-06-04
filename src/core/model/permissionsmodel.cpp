@@ -26,10 +26,10 @@ QVariant PermissionsModel::headerData(int section, Qt::Orientation orientation, 
 {
     if (role == Qt::DisplayRole && orientation == Qt::Horizontal) {
         switch (static_cast<AdminPermissionsRoles>(section)) {
-        case PermissionsModel::IdentifierRole:
+        case PermissionsModel::Identifier:
             return i18n("Name");
-        case PermissionsModel::RolesStrRole:
-        case PermissionsModel::RolesRole:
+        case PermissionsModel::RolesStr:
+        case PermissionsModel::Roles:
             return i18n("Roles");
         }
     }
@@ -74,11 +74,11 @@ QVariant PermissionsModel::data(const QModelIndex &index, int role) const
     const Permission &permissionInfo = mPermissions.at(index.row());
     const int col = index.column();
     switch (col) {
-    case PermissionsModel::IdentifierRole:
+    case PermissionsModel::Identifier:
         return permissionInfo.identifier();
-    case PermissionsModel::RolesRole:
+    case PermissionsModel::Roles:
         return permissionInfo.roles();
-    case PermissionsModel::RolesStrRole:
+    case PermissionsModel::RolesStr:
         return permissionInfo.rolesStr().join(QLatin1Char(','));
     }
     return {};

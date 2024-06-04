@@ -46,7 +46,7 @@ PermissionsWidget::PermissionsWidget(RocketChatAccount *account, QWidget *parent
     mainLayout->addWidget(mTreeView);
     mPermissionFilterProxyModel->setSourceModel(mAdminPermissionsModel);
     mTreeView->setModel(mPermissionFilterProxyModel);
-    mTreeView->setColumnHidden(PermissionsModel::RolesRole, true);
+    mTreeView->setColumnHidden(PermissionsModel::Roles, true);
     connect(mTreeView, &QTreeView::customContextMenuRequested, this, &PermissionsWidget::slotCustomContextMenuRequested);
     connect(mSearchLineWidget, &QLineEdit::textChanged, this, &PermissionsWidget::slotFilterTextChanged);
     connect(mTreeView, &QTreeView::doubleClicked, this, &PermissionsWidget::slotModifyDoubleClickRoles);
@@ -78,7 +78,7 @@ void PermissionsWidget::slotPermissionListAllDone(const QJsonObject &obj)
     p.parsePermissions(obj, {}, mRoleInfo);
     mAdminPermissionsModel->setPermissions(p);
     // qDebug() << "obj" << obj;
-    for (int i : {PermissionsModel::IdentifierRole, PermissionsModel::RolesStrRole}) {
+    for (int i : {PermissionsModel::Identifier, PermissionsModel::RolesStr}) {
         mTreeView->resizeColumnToContents(i);
     }
 }
@@ -108,8 +108,8 @@ void PermissionsWidget::slotModifyDoubleClickRoles(const QModelIndex &index)
 
 void PermissionsWidget::modifyRoles(const QModelIndex &index)
 {
-    const QModelIndex modelIndex = mTreeView->model()->index(index.row(), PermissionsModel::RolesRole);
-    const QString identifier = mTreeView->model()->index(index.row(), PermissionsModel::IdentifierRole).data().toString();
+    const QModelIndex modelIndex = mTreeView->model()->index(index.row(), PermissionsModel::Roles);
+    const QString identifier = mTreeView->model()->index(index.row(), PermissionsModel::Identifier).data().toString();
     slotEditRoles(modelIndex.data().toStringList(), identifier);
 }
 
