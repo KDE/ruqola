@@ -19,17 +19,17 @@ int AppsCategoriesModel::rowCount(const QModelIndex &parent) const
     if (parent.isValid()) {
         return 0; // flat model
     }
-    return mPermissions.count();
+    return mAppsCategories.count();
 }
 
 QVariant AppsCategoriesModel::headerData(int section, Qt::Orientation orientation, int role) const
 {
     if (role == Qt::DisplayRole && orientation == Qt::Horizontal) {
-        switch (static_cast<AdminPermissionsRoles>(section)) {
-        case AppsCategoriesModel::IdentifierRole:
+        switch (static_cast<AppsCategoriesRoles>(section)) {
+        case AppsCategoriesModel::Identifier:
             return i18n("Name");
-        case AppsCategoriesModel::RolesStrRole:
-        case AppsCategoriesModel::RolesRole:
+        case AppsCategoriesModel::Title:
+        case AppsCategoriesModel::Hidden:
             return i18n("Roles");
         }
     }
@@ -43,35 +43,35 @@ int AppsCategoriesModel::columnCount(const QModelIndex &parent) const
     return val;
 }
 
-QList<AppsCategoryInfo> AppsCategoriesModel::permissions() const
+QList<AppsCategoryInfo> AppsCategoriesModel::appsCategories() const
 {
-    return mPermissions;
+    return mAppsCategories;
 }
 
-void AppsCategoriesModel::setPermissions(const QList<AppsCategoryInfo> &newPermissions)
+void AppsCategoriesModel::setAppsCategories(const QList<AppsCategoryInfo> &newPermissions)
 {
-    if (!mPermissions.isEmpty()) {
+    if (!mAppsCategories.isEmpty()) {
         beginResetModel();
-        mPermissions.clear();
+        mAppsCategories.clear();
         endResetModel();
     }
     if (!newPermissions.isEmpty()) {
         beginInsertRows(QModelIndex(), 0, newPermissions.count() - 1);
-        mPermissions = newPermissions;
+        mAppsCategories = newPermissions;
         endInsertRows();
     }
 }
 
 QVariant AppsCategoriesModel::data(const QModelIndex &index, int role) const
 {
-    if (index.row() < 0 || index.row() >= mPermissions.count()) {
+    if (index.row() < 0 || index.row() >= mAppsCategories.count()) {
         return {};
     }
     if (role != Qt::DisplayRole) {
         return {};
     }
 
-    const AppsCategoryInfo &permissionInfo = mPermissions.at(index.row());
+    const AppsCategoryInfo &permissionInfo = mAppsCategories.at(index.row());
     const int col = index.column();
 #if 0
     switch (col) {

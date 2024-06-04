@@ -14,13 +14,13 @@ class LIBRUQOLACORE_EXPORT AppsCategoriesModel : public QAbstractListModel
 {
     Q_OBJECT
 public:
-    enum AdminPermissionsRoles {
-        IdentifierRole,
-        RolesRole,
-        RolesStrRole,
-        LastColumn = RolesStrRole,
+    enum AppsCategoriesRoles {
+        Identifier,
+        Title,
+        Hidden,
+        LastColumn = Hidden,
     };
-    Q_ENUM(AdminPermissionsRoles)
+    Q_ENUM(AppsCategoriesRoles)
 
     explicit AppsCategoriesModel(QObject *parent = nullptr);
     ~AppsCategoriesModel() override;
@@ -30,9 +30,9 @@ public:
     [[nodiscard]] QVariant headerData(int section, Qt::Orientation orientation, int role) const override;
     [[nodiscard]] int columnCount(const QModelIndex &parent = QModelIndex()) const override;
 
-    [[nodiscard]] QList<AppsCategoryInfo> permissions() const;
-    void setPermissions(const QList<AppsCategoryInfo> &newPermissions);
+    [[nodiscard]] QList<AppsCategoryInfo> appsCategories() const;
+    void setAppsCategories(const QList<AppsCategoryInfo> &newPermissions);
 
 private:
-    QList<AppsCategoryInfo> mPermissions;
+    QList<AppsCategoryInfo> mAppsCategories;
 };
