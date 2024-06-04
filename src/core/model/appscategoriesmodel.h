@@ -6,8 +6,8 @@
 
 #pragma once
 
+#include "apps/appscategoryinfo.h"
 #include "libruqolacore_export.h"
-#include "permissions/permissions.h"
 #include <QAbstractListModel>
 
 class LIBRUQOLACORE_EXPORT AppsCategoriesModel : public QAbstractListModel
@@ -30,9 +30,9 @@ public:
     [[nodiscard]] QVariant headerData(int section, Qt::Orientation orientation, int role) const override;
     [[nodiscard]] int columnCount(const QModelIndex &parent = QModelIndex()) const override;
 
-    [[nodiscard]] Permissions permissions() const;
-    void setPermissions(const Permissions &newPermissions);
+    [[nodiscard]] QList<AppsCategoryInfo> permissions() const;
+    void setPermissions(const QList<AppsCategoryInfo> &newPermissions);
 
 private:
-    Permissions mPermissions;
+    QList<AppsCategoryInfo> mPermissions;
 };

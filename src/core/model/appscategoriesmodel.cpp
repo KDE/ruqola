@@ -43,12 +43,12 @@ int AppsCategoriesModel::columnCount(const QModelIndex &parent) const
     return val;
 }
 
-Permissions AppsCategoriesModel::permissions() const
+QList<AppsCategoryInfo> AppsCategoriesModel::permissions() const
 {
     return mPermissions;
 }
 
-void AppsCategoriesModel::setPermissions(const Permissions &newPermissions)
+void AppsCategoriesModel::setPermissions(const QList<AppsCategoryInfo> &newPermissions)
 {
     if (!mPermissions.isEmpty()) {
         beginResetModel();
@@ -71,8 +71,9 @@ QVariant AppsCategoriesModel::data(const QModelIndex &index, int role) const
         return {};
     }
 
-    const Permission &permissionInfo = mPermissions.at(index.row());
+    const AppsCategoryInfo &permissionInfo = mPermissions.at(index.row());
     const int col = index.column();
+#if 0
     switch (col) {
     case AppsCategoriesModel::IdentifierRole:
         return permissionInfo.identifier();
@@ -81,6 +82,7 @@ QVariant AppsCategoriesModel::data(const QModelIndex &index, int role) const
     case AppsCategoriesModel::RolesStrRole:
         return permissionInfo.rolesStr().join(QLatin1Char(','));
     }
+#endif
     return {};
 }
 
