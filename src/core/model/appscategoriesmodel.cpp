@@ -22,20 +22,6 @@ int AppsCategoriesModel::rowCount(const QModelIndex &parent) const
     return mAppsCategories.count();
 }
 
-QVariant AppsCategoriesModel::headerData(int section, Qt::Orientation orientation, int role) const
-{
-    if (role == Qt::DisplayRole && orientation == Qt::Horizontal) {
-        switch (static_cast<AppsCategoriesRoles>(section)) {
-        case AppsCategoriesModel::Identifier:
-            return i18n("Name");
-        case AppsCategoriesModel::Title:
-        case AppsCategoriesModel::Hidden:
-            return i18n("Roles");
-        }
-    }
-    return {};
-}
-
 int AppsCategoriesModel::columnCount(const QModelIndex &parent) const
 {
     Q_UNUSED(parent)
@@ -48,16 +34,16 @@ QList<AppsCategoryInfo> AppsCategoriesModel::appsCategories() const
     return mAppsCategories;
 }
 
-void AppsCategoriesModel::setAppsCategories(const QList<AppsCategoryInfo> &newPermissions)
+void AppsCategoriesModel::setAppsCategories(const QList<AppsCategoryInfo> &appsCategories)
 {
     if (!mAppsCategories.isEmpty()) {
         beginResetModel();
         mAppsCategories.clear();
         endResetModel();
     }
-    if (!newPermissions.isEmpty()) {
-        beginInsertRows(QModelIndex(), 0, newPermissions.count() - 1);
-        mAppsCategories = newPermissions;
+    if (!appsCategories.isEmpty()) {
+        beginInsertRows(QModelIndex(), 0, appsCategories.count() - 1);
+        mAppsCategories = appsCategories;
         endInsertRows();
     }
 }
@@ -71,7 +57,7 @@ QVariant AppsCategoriesModel::data(const QModelIndex &index, int role) const
         return {};
     }
 
-    const AppsCategoryInfo &permissionInfo = mAppsCategories.at(index.row());
+    const AppsCategoryInfo &appsCategoryInfo = mAppsCategories.at(index.row());
     const int col = index.column();
 #if 0
     switch (col) {

@@ -27,11 +27,10 @@ public:
 
     [[nodiscard]] int rowCount(const QModelIndex &parent = QModelIndex()) const override;
     [[nodiscard]] QVariant data(const QModelIndex &index, int role) const override;
-    [[nodiscard]] QVariant headerData(int section, Qt::Orientation orientation, int role) const override;
     [[nodiscard]] int columnCount(const QModelIndex &parent = QModelIndex()) const override;
 
     [[nodiscard]] QList<AppsCategoryInfo> appsCategories() const;
-    void setAppsCategories(const QList<AppsCategoryInfo> &newPermissions);
+    void setAppsCategories(const QList<AppsCategoryInfo> &appsCategories);
 
 private:
     QList<AppsCategoryInfo> mAppsCategories;
