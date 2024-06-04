@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-06-01 00:39+0000\n"
+"POT-Creation-Date: 2024-06-04 00:38+0000\n"
 "PO-Revision-Date: 2024-05-29 09:20+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian\n"
@@ -654,8 +654,9 @@ msgstr "%1 і %2"
 #: core/model/admincustomemojimodel.cpp:34
 #: core/model/admincustomsoundmodel.cpp:30 core/model/adminoauthmodel.cpp:32
 #: core/model/adminrolesmodel.cpp:32 core/model/adminroomsmodel.cpp:30
-#: core/model/adminusersmodel.cpp:108 core/model/directoryroomsmodel.cpp:116
-#: core/model/directoryteamsmodel.cpp:90 core/model/directoryusersmodel.cpp:100
+#: core/model/adminusersmodel.cpp:108 core/model/appscategoriesmodel.cpp:30
+#: core/model/directoryroomsmodel.cpp:116 core/model/directoryteamsmodel.cpp:90
+#: core/model/directoryusersmodel.cpp:100
 #: core/model/moderationreportedmessagemodel.cpp:30
 #: core/model/moderationreportedusermodel.cpp:39
 #: core/model/permissionsmodel.cpp:30
@@ -827,6 +828,14 @@ msgstr "Вимкнено"
 #, kde-format
 msgid "Status"
 msgstr "Стан"
+
+#: core/model/appscategoriesmodel.cpp:33 core/model/permissionsmodel.cpp:33
+#: core/model/rolesmodel.cpp:33
+#: widgets/administratordialog/administratorwidget.cpp:77
+#: widgets/dialogs/channelrolesinfowidget.cpp:21
+#, kde-format
+msgid "Roles"
+msgstr "Ролі"
 
 #: core/model/bannerinfosmodel.cpp:52
 #, kde-format
@@ -1025,13 +1034,6 @@ msgstr "Згадування"
 #, kde-format
 msgid "Nothing"
 msgstr "Нічого"
-
-#: core/model/permissionsmodel.cpp:33 core/model/rolesmodel.cpp:33
-#: widgets/administratordialog/administratorwidget.cpp:77
-#: widgets/dialogs/channelrolesinfowidget.cpp:21
-#, kde-format
-msgid "Roles"
-msgstr "Ролі"
 
 #: core/model/personalaccesstokeninfosmodel.cpp:45
 #, kde-format
@@ -1514,7 +1516,7 @@ msgstr "Не вказано даних перекладача. Це вада п�
 msgid "User"
 msgstr "Користувач"
 
-#: core/user.cpp:209 widgets/ruqolamainwindow.cpp:490
+#: core/user.cpp:209
 #, kde-format
 msgid "Administrator"
 msgstr "Адміністратор"
@@ -6431,7 +6433,7 @@ msgid "Username or Email:"
 msgstr "Користувач або адреса ел. пошти:"
 
 #: widgets/common/authenticationloginwidget.cpp:155
-#: widgets/ruqolamainwindow.cpp:916
+#: widgets/ruqolamainwindow.cpp:923
 #, kde-format
 msgid ""
 "We have sent you an email to confirm your registration.\n"
@@ -6443,7 +6445,7 @@ msgstr ""
 "поверніться сюди і повторіть спробу."
 
 #: widgets/common/authenticationloginwidget.cpp:156
-#: widgets/ruqolamainwindow.cpp:917
+#: widgets/ruqolamainwindow.cpp:924
 #, kde-format
 msgid "Register New User"
 msgstr "Реєстрація нового користувача"
@@ -9635,6 +9637,12 @@ msgctxt "@action"
 msgid "My Account…"
 msgstr "Обліковий запис…"
 
+#: widgets/ruqolamainwindow.cpp:490
+#, fuzzy, kde-format
+#| msgid "Administrator"
+msgid "administration"
+msgstr "Адміністратор"
+
 #: widgets/ruqolamainwindow.cpp:491
 #, kde-format
 msgctxt "@action"
@@ -9647,119 +9655,126 @@ msgctxt "@action"
 msgid "Server Settings…"
 msgstr "Параметри сервера…"
 
-#: widgets/ruqolamainwindow.cpp:502
+#: widgets/ruqolamainwindow.cpp:504
+#, fuzzy, kde-format
+#| msgid "Application ID (iss)"
+msgctxt "@action"
+msgid "Applications…"
+msgstr "Ідентифікатор програми (iss)"
+
+#: widgets/ruqolamainwindow.cpp:509
 #, kde-format
 msgctxt "Action which allows to search room/user/team"
 msgid "Directory…"
 msgstr "Каталог…"
 
-#: widgets/ruqolamainwindow.cpp:523
+#: widgets/ruqolamainwindow.cpp:530
 #, kde-format
 msgid "&Next Server"
 msgstr "&Наступний сервер"
 
-#: widgets/ruqolamainwindow.cpp:528
+#: widgets/ruqolamainwindow.cpp:535
 #, kde-format
 msgid "&Previous Server"
 msgstr "&Попередній сервер"
 
-#: widgets/ruqolamainwindow.cpp:537
+#: widgets/ruqolamainwindow.cpp:544
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Status:"
 msgstr "Стан:"
 
-#: widgets/ruqolamainwindow.cpp:550
+#: widgets/ruqolamainwindow.cpp:557
 #, kde-format
 msgctxt "@action"
 msgid "Previous Selected Channel"
 msgstr "Попередній вибраний канал"
 
-#: widgets/ruqolamainwindow.cpp:557
+#: widgets/ruqolamainwindow.cpp:564
 #, kde-format
 msgctxt "@action"
 msgid "Next Selected Channel"
 msgstr "Наступний вибраний канал"
 
-#: widgets/ruqolamainwindow.cpp:588
+#: widgets/ruqolamainwindow.cpp:595
 #, kde-format
 msgid "Show Notify History"
 msgstr "Показати журнал сповіщень"
 
-#: widgets/ruqolamainwindow.cpp:592
+#: widgets/ruqolamainwindow.cpp:599
 #, kde-format
 msgctxt "@action"
 msgid "Show RocketChat Information"
 msgstr "Показати відомості щодо RocketChat"
 
-#: widgets/ruqolamainwindow.cpp:596
+#: widgets/ruqolamainwindow.cpp:603
 #, kde-format
 msgctxt "@action"
 msgid "Show Room Avatar"
 msgstr "Показувати аватар кімнати"
 
-#: widgets/ruqolamainwindow.cpp:601
+#: widgets/ruqolamainwindow.cpp:608
 #, kde-format
 msgctxt "@action"
 msgid "Show Favorite Room"
 msgstr "Показувати улюблену кімнату"
 
-#: widgets/ruqolamainwindow.cpp:606
+#: widgets/ruqolamainwindow.cpp:613
 #, kde-format
 msgid "What's new"
 msgstr "Що нового?"
 
-#: widgets/ruqolamainwindow.cpp:610
+#: widgets/ruqolamainwindow.cpp:617
 #, kde-format
 msgid "Import Accounts"
 msgstr "Імпортувати облікові записи"
 
-#: widgets/ruqolamainwindow.cpp:614
+#: widgets/ruqolamainwindow.cpp:621
 #, kde-format
 msgid "Export Accounts"
 msgstr "Експортувати облікові записи"
 
-#: widgets/ruqolamainwindow.cpp:631
+#: widgets/ruqolamainwindow.cpp:638
 #, kde-format
 msgctxt "@action"
 msgid "Medium"
 msgstr "Середній"
 
-#: widgets/ruqolamainwindow.cpp:639
+#: widgets/ruqolamainwindow.cpp:646
 #, kde-format
 msgctxt "@action"
 msgid "Condensed"
 msgstr "Стиснений"
 
-#: widgets/ruqolamainwindow.cpp:648
+#: widgets/ruqolamainwindow.cpp:655
 #, kde-format
 msgctxt "@action"
 msgid "Extended"
 msgstr "Розгорнутий"
 
-#: widgets/ruqolamainwindow.cpp:689
+#: widgets/ruqolamainwindow.cpp:696
 #, kde-format
 msgctxt "@title:window"
 msgid "Create Team"
 msgstr "Створення команди"
 
-#: widgets/ruqolamainwindow.cpp:845
+#: widgets/ruqolamainwindow.cpp:852
 #, kde-format
 msgid "Impossible to open log."
 msgstr "Не вдалося відкрити журнал."
 
-#: widgets/ruqolamainwindow.cpp:845
+#: widgets/ruqolamainwindow.cpp:852
 #, kde-format
 msgid "Show Log"
 msgstr "Показати журнал"
 
-#: widgets/ruqolamainwindow.cpp:977
+#: widgets/ruqolamainwindow.cpp:984
 #, kde-format
 msgctxt "@item:inmenu Instant message presence status"
 msgid "Status"
 msgstr "Стан"
 
-#: widgets/ruqolamainwindow.cpp:1065
+#: widgets/ruqolamainwindow.cpp:1072
 #, kde-format
 msgid ""
 "<qt>This will hide the menu bar completely. You can show it again by typing "
@@ -9768,7 +9783,7 @@ msgstr ""
 "<qt>За допомогою цього пункту можна повністю сховати смужку меню. Наказати "
 "програмі знову показувати цю смужку можна клавіатурним скороченням %1.</qt>"
 
-#: widgets/ruqolamainwindow.cpp:1068
+#: widgets/ruqolamainwindow.cpp:1075
 #, kde-format
 msgid "Hide menu bar"
 msgstr "Приховати смужку меню"
