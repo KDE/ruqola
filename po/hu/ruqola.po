@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-06-01 02:26+0000\n"
-"PO-Revision-Date: 2024-06-03 21:43+0200\n"
+"PO-Revision-Date: 2024-06-04 13:48+0200\n"
 "Last-Translator: Kristof Kiszel <ulysses@fsf.hu>\n"
 "Language-Team: Hungarian <kde-l10n-hu@kde.org>\n"
 "Language: hu\n"
@@ -9587,87 +9587,87 @@ msgstr "Szobák keresése"
 #, kde-format
 msgctxt "@title:window"
 msgid "Delete Rooms"
-msgstr ""
+msgstr "Szobák törlése"
 
 #: widgets/threadwidget/threadmessagedialog.cpp:27
 #, kde-format
 msgctxt "@title:window"
 msgid "Thread"
-msgstr ""
+msgstr "Szál"
 
 #: widgets/userfeedback/accountinfosource.cpp:22
 #, kde-format
 msgid "Account information"
-msgstr ""
+msgstr "Fiókinformációk"
 
 #: widgets/userfeedback/accountinfosource.cpp:27
 #, kde-format
 msgid "Return the number of account."
-msgstr ""
+msgstr "Visszaadja a fiókok számát."
 
 #: widgets/whatsnew/whatsnewcomboboxwidget.cpp:27
 #, kde-format
 msgid "Version:"
-msgstr ""
+msgstr "Verzió:"
 
 #: widgets/whatsnew/whatsnewcomboboxwidget.cpp:49
 #, kde-format
 msgid "All Version"
-msgstr ""
+msgstr "Minden verzió"
 
 #: widgets/whatsnew/whatsnewcomboboxwidget.cpp:51
 #, kde-format
 msgid "Version 2.0"
-msgstr ""
+msgstr "2.0-s verzió"
 
 #: widgets/whatsnew/whatsnewcomboboxwidget.cpp:53
 #, kde-format
 msgid "Version 2.1"
-msgstr ""
+msgstr "2.1-es verzió"
 
 #: widgets/whatsnew/whatsnewcomboboxwidget.cpp:55
 #, kde-format
 msgid "Version 2.2"
-msgstr ""
+msgstr "2.2-es verzió"
 
 #: widgets/whatsnew/whatsnewdialog.cpp:25
 #, kde-format
 msgctxt "@title:window"
 msgid "What's new in Ruqola"
-msgstr ""
+msgstr "A Ruqola újdonságai"
 
 #: widgets/whatsnew/whatsnewmessagewidget.cpp:19
 #, kde-format
 msgid "(Show News in Ruqola)"
-msgstr ""
+msgstr "(Hírek megjelenítése a Ruqolában)"
 
 #: widgets/whatsnew/whatsnewmessagewidget.cpp:19
 #, kde-format
 msgid "What's new in Ruqola. %1"
-msgstr ""
+msgstr "A Ruqola újdonságai. %1"
 
 #: widgets/whatsnew/whatsnewwidget.cpp:90
 #, kde-format
 msgid "Important changes since last version:"
-msgstr ""
+msgstr "Fontos változtatások a legutóbbi verzióhoz képest:"
 
 #: widgets/whatsnew/whatsnewwidget.cpp:95
 #, kde-format
 msgid "Some of the new features in this release of Ruqola include:"
-msgstr ""
+msgstr "Néhány új funkció, amelyet a Ruqola ezen kiadása tartalmaz:"
 
 #: widgets/whatsnew/whatsnewwidget.cpp:100
 #, kde-format
 msgid "Some bug fixing:"
-msgstr ""
+msgstr "Néhány hibajavítás:"
 
 #: widgets/whatsnew/whatsnewwidgettranslation.h:14
 msgid "Store Message in Local Database (experimental)"
-msgstr ""
+msgstr "Üzenetek tárolása helyi adatbázisban (kísérleti)"
 
 #: widgets/whatsnew/whatsnewwidgettranslation.h:23
 msgid "Download Server Icon from Server"
-msgstr ""
+msgstr "Kiszolgálóikon letöltése a kiszolgálóról"
 
 #: widgets/whatsnew/whatsnewwidgettranslation.h:24
 msgid "Show Server Error Info in Specific DialogBox"
