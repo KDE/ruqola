@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-06-04 00:38+0000\n"
+"POT-Creation-Date: 2024-06-05 00:38+0000\n"
 "PO-Revision-Date: 2024-05-30 16:29+0100\n"
 "Last-Translator: Steve Allewell <steve.allewell@gmail.com>\n"
 "Language-Team: British English\n"
@@ -649,9 +649,8 @@ msgstr "%1 and %2"
 #: core/model/admincustomemojimodel.cpp:34
 #: core/model/admincustomsoundmodel.cpp:30 core/model/adminoauthmodel.cpp:32
 #: core/model/adminrolesmodel.cpp:32 core/model/adminroomsmodel.cpp:30
-#: core/model/adminusersmodel.cpp:108 core/model/appscategoriesmodel.cpp:30
-#: core/model/directoryroomsmodel.cpp:116 core/model/directoryteamsmodel.cpp:90
-#: core/model/directoryusersmodel.cpp:100
+#: core/model/adminusersmodel.cpp:108 core/model/directoryroomsmodel.cpp:116
+#: core/model/directoryteamsmodel.cpp:90 core/model/directoryusersmodel.cpp:100
 #: core/model/moderationreportedmessagemodel.cpp:30
 #: core/model/moderationreportedusermodel.cpp:39
 #: core/model/permissionsmodel.cpp:30
@@ -823,14 +822,6 @@ msgstr "Disabled"
 #, kde-format
 msgid "Status"
 msgstr "Status"
-
-#: core/model/appscategoriesmodel.cpp:33 core/model/permissionsmodel.cpp:33
-#: core/model/rolesmodel.cpp:33
-#: widgets/administratordialog/administratorwidget.cpp:77
-#: widgets/dialogs/channelrolesinfowidget.cpp:21
-#, kde-format
-msgid "Roles"
-msgstr "Roles"
 
 #: core/model/bannerinfosmodel.cpp:52
 #, kde-format
@@ -1027,6 +1018,13 @@ msgstr "Mentions"
 #, kde-format
 msgid "Nothing"
 msgstr "Nothing"
+
+#: core/model/permissionsmodel.cpp:33 core/model/rolesmodel.cpp:33
+#: widgets/administratordialog/administratorwidget.cpp:77
+#: widgets/dialogs/channelrolesinfowidget.cpp:21
+#, kde-format
+msgid "Roles"
+msgstr "Roles"
 
 #: core/model/personalaccesstokeninfosmodel.cpp:45
 #, kde-format

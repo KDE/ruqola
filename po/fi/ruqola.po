@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-06-04 00:38+0000\n"
+"POT-Creation-Date: 2024-06-05 00:38+0000\n"
 "PO-Revision-Date: 2023-09-20 18:47+0300\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
@@ -665,9 +665,8 @@ msgstr "%1 ja %2"
 #: core/model/admincustomemojimodel.cpp:34
 #: core/model/admincustomsoundmodel.cpp:30 core/model/adminoauthmodel.cpp:32
 #: core/model/adminrolesmodel.cpp:32 core/model/adminroomsmodel.cpp:30
-#: core/model/adminusersmodel.cpp:108 core/model/appscategoriesmodel.cpp:30
-#: core/model/directoryroomsmodel.cpp:116 core/model/directoryteamsmodel.cpp:90
-#: core/model/directoryusersmodel.cpp:100
+#: core/model/adminusersmodel.cpp:108 core/model/directoryroomsmodel.cpp:116
+#: core/model/directoryteamsmodel.cpp:90 core/model/directoryusersmodel.cpp:100
 #: core/model/moderationreportedmessagemodel.cpp:30
 #: core/model/moderationreportedusermodel.cpp:39
 #: core/model/permissionsmodel.cpp:30
@@ -839,14 +838,6 @@ msgstr "Ei käytössä"
 #, kde-format
 msgid "Status"
 msgstr "Tila"
-
-#: core/model/appscategoriesmodel.cpp:33 core/model/permissionsmodel.cpp:33
-#: core/model/rolesmodel.cpp:33
-#: widgets/administratordialog/administratorwidget.cpp:77
-#: widgets/dialogs/channelrolesinfowidget.cpp:21
-#, kde-format
-msgid "Roles"
-msgstr "Roolit"
 
 #: core/model/bannerinfosmodel.cpp:52
 #, kde-format
@@ -1051,6 +1042,13 @@ msgstr "Maininnat"
 #, kde-format
 msgid "Nothing"
 msgstr "Ei mitään"
+
+#: core/model/permissionsmodel.cpp:33 core/model/rolesmodel.cpp:33
+#: widgets/administratordialog/administratorwidget.cpp:77
+#: widgets/dialogs/channelrolesinfowidget.cpp:21
+#, kde-format
+msgid "Roles"
+msgstr "Roolit"
 
 #: core/model/personalaccesstokeninfosmodel.cpp:45
 #, kde-format

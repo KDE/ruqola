@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-06-04 00:38+0000\n"
-"PO-Revision-Date: 2024-05-29 10:52+0200\n"
+"POT-Creation-Date: 2024-06-05 00:38+0000\n"
+"PO-Revision-Date: 2024-06-04 12:17+0200\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
 "Language: nl\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 24.02.2\n"
+"X-Generator: Lokalize 24.05.0\n"
 
 #: apps/main.cpp:62
 #, kde-format
@@ -651,9 +651,8 @@ msgstr "%1 en %2"
 #: core/model/admincustomemojimodel.cpp:34
 #: core/model/admincustomsoundmodel.cpp:30 core/model/adminoauthmodel.cpp:32
 #: core/model/adminrolesmodel.cpp:32 core/model/adminroomsmodel.cpp:30
-#: core/model/adminusersmodel.cpp:108 core/model/appscategoriesmodel.cpp:30
-#: core/model/directoryroomsmodel.cpp:116 core/model/directoryteamsmodel.cpp:90
-#: core/model/directoryusersmodel.cpp:100
+#: core/model/adminusersmodel.cpp:108 core/model/directoryroomsmodel.cpp:116
+#: core/model/directoryteamsmodel.cpp:90 core/model/directoryusersmodel.cpp:100
 #: core/model/moderationreportedmessagemodel.cpp:30
 #: core/model/moderationreportedusermodel.cpp:39
 #: core/model/permissionsmodel.cpp:30
@@ -825,14 +824,6 @@ msgstr "Uitgeschakeld"
 #, kde-format
 msgid "Status"
 msgstr "Status"
-
-#: core/model/appscategoriesmodel.cpp:33 core/model/permissionsmodel.cpp:33
-#: core/model/rolesmodel.cpp:33
-#: widgets/administratordialog/administratorwidget.cpp:77
-#: widgets/dialogs/channelrolesinfowidget.cpp:21
-#, kde-format
-msgid "Roles"
-msgstr "Rollen"
 
 #: core/model/bannerinfosmodel.cpp:52
 #, kde-format
@@ -1029,6 +1020,13 @@ msgstr "Vermeldingen"
 #, kde-format
 msgid "Nothing"
 msgstr "Niets"
+
+#: core/model/permissionsmodel.cpp:33 core/model/rolesmodel.cpp:33
+#: widgets/administratordialog/administratorwidget.cpp:77
+#: widgets/dialogs/channelrolesinfowidget.cpp:21
+#, kde-format
+msgid "Roles"
+msgstr "Rollen"
 
 #: core/model/personalaccesstokeninfosmodel.cpp:45
 #, kde-format
@@ -9574,10 +9572,9 @@ msgid "My Account…"
 msgstr "Mijn account…"
 
 #: widgets/ruqolamainwindow.cpp:490
-#, fuzzy, kde-format
-#| msgid "Administrator"
+#, kde-format
 msgid "administration"
-msgstr "Systeembeheerder"
+msgstr "systeembeheer"
 
 #: widgets/ruqolamainwindow.cpp:491
 #, kde-format
@@ -9592,11 +9589,10 @@ msgid "Server Settings…"
 msgstr "Serverinstellingen…"
 
 #: widgets/ruqolamainwindow.cpp:504
-#, fuzzy, kde-format
-#| msgid "Application ID (iss)"
+#, kde-format
 msgctxt "@action"
 msgid "Applications…"
-msgstr "Toepassing-ID (iss)"
+msgstr "Toepassingen…"
 
 #: widgets/ruqolamainwindow.cpp:509
 #, kde-format

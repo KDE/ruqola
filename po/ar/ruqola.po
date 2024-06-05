@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-06-04 00:38+0000\n"
+"POT-Creation-Date: 2024-06-05 00:38+0000\n"
 "PO-Revision-Date: 2024-02-25 21:19+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
@@ -16,7 +16,6 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
 "&& n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5;\n"
-"X-Generator: Lokalize 23.08.1\n"
 
 #: apps/main.cpp:62
 #, kde-format
@@ -657,9 +656,8 @@ msgstr "%1 و%2"
 #: core/model/admincustomemojimodel.cpp:34
 #: core/model/admincustomsoundmodel.cpp:30 core/model/adminoauthmodel.cpp:32
 #: core/model/adminrolesmodel.cpp:32 core/model/adminroomsmodel.cpp:30
-#: core/model/adminusersmodel.cpp:108 core/model/appscategoriesmodel.cpp:30
-#: core/model/directoryroomsmodel.cpp:116 core/model/directoryteamsmodel.cpp:90
-#: core/model/directoryusersmodel.cpp:100
+#: core/model/adminusersmodel.cpp:108 core/model/directoryroomsmodel.cpp:116
+#: core/model/directoryteamsmodel.cpp:90 core/model/directoryusersmodel.cpp:100
 #: core/model/moderationreportedmessagemodel.cpp:30
 #: core/model/moderationreportedusermodel.cpp:39
 #: core/model/permissionsmodel.cpp:30
@@ -831,14 +829,6 @@ msgstr "معطّل"
 #, kde-format
 msgid "Status"
 msgstr "الحالة"
-
-#: core/model/appscategoriesmodel.cpp:33 core/model/permissionsmodel.cpp:33
-#: core/model/rolesmodel.cpp:33
-#: widgets/administratordialog/administratorwidget.cpp:77
-#: widgets/dialogs/channelrolesinfowidget.cpp:21
-#, kde-format
-msgid "Roles"
-msgstr "الأدوار"
 
 #: core/model/bannerinfosmodel.cpp:52
 #, kde-format
@@ -1039,6 +1029,13 @@ msgstr "الذّكورات"
 #, kde-format
 msgid "Nothing"
 msgstr "لا شيء"
+
+#: core/model/permissionsmodel.cpp:33 core/model/rolesmodel.cpp:33
+#: widgets/administratordialog/administratorwidget.cpp:77
+#: widgets/dialogs/channelrolesinfowidget.cpp:21
+#, kde-format
+msgid "Roles"
+msgstr "الأدوار"
 
 #: core/model/personalaccesstokeninfosmodel.cpp:45
 #, kde-format

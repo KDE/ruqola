@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-06-04 00:38+0000\n"
-"PO-Revision-Date: 2024-05-29 07:16+0200\n"
+"POT-Creation-Date: 2024-06-05 00:38+0000\n"
+"PO-Revision-Date: 2024-06-04 06:48+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
@@ -652,9 +652,8 @@ msgstr "%1 in %2"
 #: core/model/admincustomemojimodel.cpp:34
 #: core/model/admincustomsoundmodel.cpp:30 core/model/adminoauthmodel.cpp:32
 #: core/model/adminrolesmodel.cpp:32 core/model/adminroomsmodel.cpp:30
-#: core/model/adminusersmodel.cpp:108 core/model/appscategoriesmodel.cpp:30
-#: core/model/directoryroomsmodel.cpp:116 core/model/directoryteamsmodel.cpp:90
-#: core/model/directoryusersmodel.cpp:100
+#: core/model/adminusersmodel.cpp:108 core/model/directoryroomsmodel.cpp:116
+#: core/model/directoryteamsmodel.cpp:90 core/model/directoryusersmodel.cpp:100
 #: core/model/moderationreportedmessagemodel.cpp:30
 #: core/model/moderationreportedusermodel.cpp:39
 #: core/model/permissionsmodel.cpp:30
@@ -826,14 +825,6 @@ msgstr "Onemogočeno"
 #, kde-format
 msgid "Status"
 msgstr "Stanje"
-
-#: core/model/appscategoriesmodel.cpp:33 core/model/permissionsmodel.cpp:33
-#: core/model/rolesmodel.cpp:33
-#: widgets/administratordialog/administratorwidget.cpp:77
-#: widgets/dialogs/channelrolesinfowidget.cpp:21
-#, kde-format
-msgid "Roles"
-msgstr "Vloge"
 
 #: core/model/bannerinfosmodel.cpp:52
 #, kde-format
@@ -1032,6 +1023,13 @@ msgstr "Omembe"
 #, kde-format
 msgid "Nothing"
 msgstr "Nič"
+
+#: core/model/permissionsmodel.cpp:33 core/model/rolesmodel.cpp:33
+#: widgets/administratordialog/administratorwidget.cpp:77
+#: widgets/dialogs/channelrolesinfowidget.cpp:21
+#, kde-format
+msgid "Roles"
+msgstr "Vloge"
 
 #: core/model/personalaccesstokeninfosmodel.cpp:45
 #, kde-format
@@ -9563,10 +9561,9 @@ msgid "My Account…"
 msgstr "Moj račun…"
 
 #: widgets/ruqolamainwindow.cpp:490
-#, fuzzy, kde-format
-#| msgid "Administrator"
+#, kde-format
 msgid "administration"
-msgstr "Skrbnik"
+msgstr "skrbništvo"
 
 #: widgets/ruqolamainwindow.cpp:491
 #, kde-format
@@ -9581,11 +9578,10 @@ msgid "Server Settings…"
 msgstr "Nastavitve strežnika…"
 
 #: widgets/ruqolamainwindow.cpp:504
-#, fuzzy, kde-format
-#| msgid "Application ID (iss)"
+#, kde-format
 msgctxt "@action"
 msgid "Applications…"
-msgstr "ID aplikacije (iss)"
+msgstr "Aplikacije…"
 
 #: widgets/ruqolamainwindow.cpp:509
 #, kde-format

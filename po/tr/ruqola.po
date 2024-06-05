@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-06-04 00:38+0000\n"
-"PO-Revision-Date: 2024-05-29 13:09+0300\n"
+"POT-Creation-Date: 2024-06-05 00:38+0000\n"
+"PO-Revision-Date: 2024-06-04 12:08+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -650,9 +650,8 @@ msgstr "%1 ve %2"
 #: core/model/admincustomemojimodel.cpp:34
 #: core/model/admincustomsoundmodel.cpp:30 core/model/adminoauthmodel.cpp:32
 #: core/model/adminrolesmodel.cpp:32 core/model/adminroomsmodel.cpp:30
-#: core/model/adminusersmodel.cpp:108 core/model/appscategoriesmodel.cpp:30
-#: core/model/directoryroomsmodel.cpp:116 core/model/directoryteamsmodel.cpp:90
-#: core/model/directoryusersmodel.cpp:100
+#: core/model/adminusersmodel.cpp:108 core/model/directoryroomsmodel.cpp:116
+#: core/model/directoryteamsmodel.cpp:90 core/model/directoryusersmodel.cpp:100
 #: core/model/moderationreportedmessagemodel.cpp:30
 #: core/model/moderationreportedusermodel.cpp:39
 #: core/model/permissionsmodel.cpp:30
@@ -824,14 +823,6 @@ msgstr "Devre Dışı"
 #, kde-format
 msgid "Status"
 msgstr "Durum"
-
-#: core/model/appscategoriesmodel.cpp:33 core/model/permissionsmodel.cpp:33
-#: core/model/rolesmodel.cpp:33
-#: widgets/administratordialog/administratorwidget.cpp:77
-#: widgets/dialogs/channelrolesinfowidget.cpp:21
-#, kde-format
-msgid "Roles"
-msgstr "Roller"
 
 #: core/model/bannerinfosmodel.cpp:52
 #, kde-format
@@ -1028,6 +1019,13 @@ msgstr "Değinmeler"
 #, kde-format
 msgid "Nothing"
 msgstr "Hiçbir şey"
+
+#: core/model/permissionsmodel.cpp:33 core/model/rolesmodel.cpp:33
+#: widgets/administratordialog/administratorwidget.cpp:77
+#: widgets/dialogs/channelrolesinfowidget.cpp:21
+#, kde-format
+msgid "Roles"
+msgstr "Roller"
 
 #: core/model/personalaccesstokeninfosmodel.cpp:45
 #, kde-format
@@ -9516,10 +9514,9 @@ msgid "My Account…"
 msgstr "Hesabım…"
 
 #: widgets/ruqolamainwindow.cpp:490
-#, fuzzy, kde-format
-#| msgid "Administrator"
+#, kde-format
 msgid "administration"
-msgstr "Yönetici"
+msgstr "Yönetim"
 
 #: widgets/ruqolamainwindow.cpp:491
 #, kde-format
@@ -9534,11 +9531,10 @@ msgid "Server Settings…"
 msgstr "Sunucu Ayarları…"
 
 #: widgets/ruqolamainwindow.cpp:504
-#, fuzzy, kde-format
-#| msgid "Application ID (iss)"
+#, kde-format
 msgctxt "@action"
 msgid "Applications…"
-msgstr "Uygulama Kimliği (iss)"
+msgstr "Uygulamalar…"
 
 #: widgets/ruqolamainwindow.cpp:509
 #, kde-format
