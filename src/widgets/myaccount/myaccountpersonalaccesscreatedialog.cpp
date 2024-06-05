@@ -29,7 +29,7 @@ MyAccountPersonalAccessCreateDialog::MyAccountPersonalAccessCreateDialog(QWidget
     connect(button, &QDialogButtonBox::accepted, this, &MyAccountPersonalAccessCreateDialog::accept);
 
     QPushButton *okButton = button->button(QDialogButtonBox::Ok);
-    okButton->setText(i18n("Create"));
+    okButton->setText(i18nc("@action:button", "Create"));
     okButton->setEnabled(false);
     connect(mCreateWidget, &MyAccountPersonalAccessCreateWidget::updateOkButton, okButton, &QPushButton::setEnabled);
 }

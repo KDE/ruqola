@@ -40,7 +40,7 @@ ReportMessageDialog::ReportMessageDialog(QWidget *parent)
 
     QPushButton *okButton = button->button(QDialogButtonBox::Ok);
     okButton->setEnabled(false);
-    okButton->setText(i18n("Report"));
+    okButton->setText(i18nc("@action:button", "Report"));
     connect(mReportMessageWidget, &ReportMessageWidget::updateOkButton, okButton, &QPushButton::setEnabled);
 }
 
