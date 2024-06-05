@@ -21,7 +21,7 @@ void NotifyAdminsAppsJobTest::shouldHaveDefaultValue()
     verifyDefaultValue(&job);
     QVERIFY(job.requireHttpAuthentication());
     QVERIFY(!job.hasQueryParameterSupport());
-    QVERIFY(job.callId().isEmpty());
+    QVERIFY(!job.info().isValid());
 }
 
 void NotifyAdminsAppsJobTest::shouldGenerateRequest()
@@ -29,15 +29,20 @@ void NotifyAdminsAppsJobTest::shouldGenerateRequest()
     NotifyAdminsAppsJob job;
     QNetworkRequest request = QNetworkRequest(QUrl());
     verifyAuthentication(&job, request);
-    QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/v1/video-conference.cancel")));
+    QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/v1/notify-admins")));
     QCOMPARE(request.header(QNetworkRequest::ContentTypeHeader).toString(), QStringLiteral("application/json"));
 }
 
 void NotifyAdminsAppsJobTest::shouldGenerateJson()
 {
     NotifyAdminsAppsJob job;
-    job.setCallId(QStringLiteral("foo"));
-    QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral(R"({"callId":"foo"})").toLatin1());
+    const NotifyAdminsAppsJob::NotifyAdminsAppsInfo info{QStringLiteral("app1 id"),
+                                                         QStringLiteral("app test"),
+                                                         QStringLiteral("app version"),
+                                                         QStringLiteral("test message")};
+    job.setInfo(info);
+    QCOMPARE(job.json().toJson(QJsonDocument::Compact),
+             QStringLiteral(R"({"appId":"app1 id","appName":"app test","appVersion":"app version","message":"test message"})").toLatin1());
 }
 
 void NotifyAdminsAppsJobTest::shouldNotStarting()
@@ -57,7 +62,11 @@ void NotifyAdminsAppsJobTest::shouldNotStarting()
     QVERIFY(!job.canStart());
     job.setUserId(userId);
     QVERIFY(!job.canStart());
-    job.setCallId(QStringLiteral("bla"));
+    const NotifyAdminsAppsJob::NotifyAdminsAppsInfo info{QStringLiteral("app1 id"),
+                                                         QStringLiteral("app test"),
+                                                         QStringLiteral("app version"),
+                                                         QStringLiteral("test message")};
+    job.setInfo(info);
     QVERIFY(job.canStart());
 }
 

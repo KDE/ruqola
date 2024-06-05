@@ -15,6 +15,13 @@ class LIBROCKETCHATRESTAPI_QT_EXPORT NotifyAdminsAppsJob : public RestApiAbstrac
 {
     Q_OBJECT
 public:
+    struct LIBROCKETCHATRESTAPI_QT_EXPORT NotifyAdminsAppsInfo {
+        QString appId;
+        QString appName;
+        QString appVersion;
+        QString message;
+        [[nodiscard]] bool isValid() const;
+    };
     explicit NotifyAdminsAppsJob(QObject *parent = nullptr);
     ~NotifyAdminsAppsJob() override;
 
@@ -25,8 +32,8 @@ public:
 
     [[nodiscard]] QJsonDocument json() const;
 
-    [[nodiscard]] QString callId() const;
-    void setCallId(const QString &newCallId);
+    [[nodiscard]] NotifyAdminsAppsInfo info() const;
+    void setInfo(const NotifyAdminsAppsInfo &newInfo);
 
 Q_SIGNALS:
     void notifyAdminsAppsDone(const QJsonObject &replyObject);
@@ -35,6 +42,6 @@ private:
     Q_DISABLE_COPY(NotifyAdminsAppsJob)
     LIBROCKETCHATRESTAPI_QT_NO_EXPORT void onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson) override;
 
-    QString mCallId;
+    NotifyAdminsAppsInfo mInfo;
 };
 }

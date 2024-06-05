@@ -44,14 +44,14 @@ void NotifyAdminsAppsJob::onPostRequestResponse(const QString &replyErrorString,
     }
 }
 
-QString NotifyAdminsAppsJob::callId() const
+NotifyAdminsAppsJob::NotifyAdminsAppsInfo NotifyAdminsAppsJob::info() const
 {
-    return mCallId;
+    return mInfo;
 }
 
-void NotifyAdminsAppsJob::setCallId(const QString &newCallId)
+void NotifyAdminsAppsJob::setInfo(const NotifyAdminsAppsInfo &newInfo)
 {
-    mCallId = newCallId;
+    mInfo = newInfo;
 }
 
 bool NotifyAdminsAppsJob::requireHttpAuthentication() const
@@ -64,8 +64,8 @@ bool NotifyAdminsAppsJob::canStart() const
     if (!RestApiAbstractJob::canStart()) {
         return false;
     }
-    if (mCallId.isEmpty()) {
-        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "NotifyAdminsAppsJob: mCallId is invalid";
+    if (!mInfo.isValid()) {
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "NotifyAdminsAppsJob: mInfo is invalid";
         return false;
     }
     return true;
@@ -83,9 +83,17 @@ QNetworkRequest NotifyAdminsAppsJob::request() const
 QJsonDocument NotifyAdminsAppsJob::json() const
 {
     QJsonObject jsonObj;
-    jsonObj["callId"_L1] = mCallId;
+    jsonObj["appId"_L1] = mInfo.appId;
+    jsonObj["appName"_L1] = mInfo.appName;
+    jsonObj["appVersion"_L1] = mInfo.appVersion;
+    jsonObj["message"_L1] = mInfo.message;
     const QJsonDocument postData = QJsonDocument(jsonObj);
     return postData;
+}
+
+bool NotifyAdminsAppsJob::NotifyAdminsAppsInfo::isValid() const
+{
+    return !appId.isEmpty() && !appName.isEmpty() && !appVersion.isEmpty();
 }
 
 #include "moc_notifyadminsappsjob.cpp"
