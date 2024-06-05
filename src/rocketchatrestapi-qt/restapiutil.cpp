@@ -611,6 +611,10 @@ QString RestApiUtil::restUrl(RestApiUtil::RestApiUrlType type)
         return QStringLiteral("count");
     case RestApiUtil::RestApiUrlType::NotifyAdminsApps:
         return QStringLiteral("notify-admins");
+    case RestApiUtil::RestApiUrlType::InstalledApps:
+        return QStringLiteral("installed");
+    case RestApiUtil::RestApiUrlType::MarketplaceApps:
+        return QStringLiteral("marketplace");
     }
     qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Unknown RestApiUtil::RestApiUrlType " << static_cast<int>(type);
     return {};
