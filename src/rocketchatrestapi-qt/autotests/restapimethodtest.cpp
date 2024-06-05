@@ -391,6 +391,8 @@ void RestApiMethodTest::shouldGenerateUrl()
 
     QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::CountApps, QString(), RestApiUtil::RestApiUrlExtensionType::Apps),
              QUrl(QStringLiteral("http://www.kde.org/api/apps/count")));
+    QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::NotifyAdminsApps, QString(), RestApiUtil::RestApiUrlExtensionType::Apps),
+             QUrl(QStringLiteral("http://www.kde.org/api/apps/notify-admins")));
 }
 
 #include "moc_restapimethodtest.cpp"

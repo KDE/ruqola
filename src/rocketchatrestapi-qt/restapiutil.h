@@ -368,6 +368,7 @@ enum class RestApiUrlType {
     FeaturedApps,
     CategoriesApps,
     CountApps,
+    NotifyAdminsApps,
 };
 LIBROCKETCHATRESTAPI_QT_EXPORT QString adaptUrl(const QString &url);
 LIBROCKETCHATRESTAPI_QT_EXPORT QString restUrl(RestApiUtil::RestApiUrlType type);
