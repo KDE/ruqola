@@ -8,11 +8,32 @@
 
 #include "libruqolacore_export.h"
 #include <QDebug>
+#include <QJsonObject>
 class LIBRUQOLACORE_EXPORT AppsMarketPlaceInfo
 {
 public:
     AppsMarketPlaceInfo();
     ~AppsMarketPlaceInfo();
+
+    void parseAppsMarketPlaceInfo(const QJsonObject &replyObject);
+
+    [[nodiscard]] QByteArray appId() const;
+    void setAppId(const QByteArray &newAppId);
+
+    [[nodiscard]] bool isEnterpriseOnly() const;
+    void setIsEnterpriseOnly(bool newIsEnterpriseOnly);
+
+    [[nodiscard]] QString appName() const;
+    void setAppName(const QString &newAppName);
+
+    [[nodiscard]] QStringList categories() const;
+    void setCategories(const QStringList &newCategories);
+
+private:
+    QStringList mCategories;
+    QByteArray mAppId;
+    QString mAppName;
+    bool mIsEnterpriseOnly = false;
 };
 
 Q_DECLARE_METATYPE(AppsMarketPlaceInfo)

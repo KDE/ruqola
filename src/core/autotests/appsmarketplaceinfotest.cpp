@@ -4,11 +4,21 @@
    SPDX-License-Identifier: LGPL-2.0-or-later
 */
 #include "appsmarketplaceinfotest.h"
+#include "apps/appsmarketplaceinfo.h"
 #include <QTest>
 QTEST_GUILESS_MAIN(AppsMarketPlaceInfoTest)
 AppsMarketPlaceInfoTest::AppsMarketPlaceInfoTest(QObject *parent)
     : QObject{parent}
 {
+}
+
+void AppsMarketPlaceInfoTest::shouldHaveDefaultValues()
+{
+    AppsMarketPlaceInfo d;
+    QVERIFY(d.appId().isEmpty());
+    QVERIFY(d.appName().isEmpty());
+    QVERIFY(!d.isEnterpriseOnly());
+    QVERIFY(d.categories().isEmpty());
 }
 
 #include "moc_appsmarketplaceinfotest.cpp"

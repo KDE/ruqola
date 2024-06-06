@@ -13,4 +13,7 @@ class AppsMarketPlaceInfoTest : public QObject
 public:
     explicit AppsMarketPlaceInfoTest(QObject *parent = nullptr);
     ~AppsMarketPlaceInfoTest() override = default;
+
+private Q_SLOTS:
+    void shouldHaveDefaultValues();
 };
