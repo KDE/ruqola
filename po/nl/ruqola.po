@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-06-05 00:38+0000\n"
+"POT-Creation-Date: 2024-06-06 00:39+0000\n"
 "PO-Revision-Date: 2024-06-04 12:17+0200\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
@@ -6868,7 +6868,6 @@ msgid "Override global retention policy"
 msgstr "Globale beleid voor behoud overschrijven"
 
 #: widgets/dialogs/channelinfoprunewidget.cpp:28
-#: widgets/prunemessages/prunemessagesdialog.cpp:42
 #, kde-format
 msgid "Prune"
 msgstr "Rommel verwijderen"
@@ -7106,7 +7105,6 @@ msgid "Create Discussion - %1"
 msgstr "Discussie aanmaken - %1"
 
 #: widgets/dialogs/createnewdiscussiondialog.cpp:42
-#: widgets/myaccount/myaccountpersonalaccesscreatedialog.cpp:32
 #, kde-format
 msgid "Create"
 msgstr "Aanmaken"
@@ -7315,7 +7313,9 @@ msgstr "Bericht rapporteren"
 
 #: widgets/dialogs/reportmessagedialog.cpp:43
 #: widgets/dialogs/reportuserdialog.cpp:43
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Report"
+msgctxt "@action:button"
 msgid "Report"
 msgstr "Rapport"
 
@@ -8328,6 +8328,13 @@ msgctxt "@title:window"
 msgid "Create Personal Token"
 msgstr "Persoonlijk token aanmaken"
 
+#: widgets/myaccount/myaccountpersonalaccesscreatedialog.cpp:32
+#, fuzzy, kde-format
+#| msgid "Create"
+msgctxt "@action:button"
+msgid "Create"
+msgstr "Aanmaken"
+
 #: widgets/myaccount/myaccountpersonalaccesscreatewidget.cpp:16
 #, kde-format
 msgid "Ignore Two Factor Authentication"
@@ -8674,6 +8681,13 @@ msgstr "Sleutels vernieuwen"
 msgctxt "@title:window"
 msgid "Prune Messages"
 msgstr "Berichten opschonen"
+
+#: widgets/prunemessages/prunemessagesdialog.cpp:42
+#, fuzzy, kde-format
+#| msgid "Prune"
+msgctxt "@action:button"
+msgid "Prune"
+msgstr "Rommel verwijderen"
 
 #: widgets/prunemessages/prunemessageswidget.cpp:19
 #, kde-format
@@ -9450,22 +9464,37 @@ msgstr[0] "%1 gebruiker in room (totaal: %2)"
 msgstr[1] "%1 gebruikers in room (totaal: %2)"
 
 #: widgets/ruqolacommandlineoptions.cpp:37
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Return lists of accounts"
+msgctxt "@info:shell"
 msgid "Return lists of accounts"
 msgstr "Lijsten met accounts teruggeven"
 
-#: widgets/ruqolacommandlineoptions.cpp:38
-#, kde-format
+#: widgets/ruqolacommandlineoptions.cpp:39
+#, fuzzy, kde-format
+#| msgid "Start with specific account"
+msgctxt "@info:shell"
 msgid "Start with specific account"
 msgstr "Start met specifiek account"
 
-#: widgets/ruqolacommandlineoptions.cpp:39
-#, kde-format
+#: widgets/ruqolacommandlineoptions.cpp:40
+#, fuzzy, kde-format
+#| msgid "Show Message"
+msgctxt "@info:shell"
 msgid "Show Message"
 msgstr "Bericht tonen"
 
-#: widgets/ruqolacommandlineoptions.cpp:43
-#, kde-format
+#: widgets/ruqolacommandlineoptions.cpp:41
+#, fuzzy, kde-format
+#| msgid "Use RESTAPI for logging."
+msgctxt "@info:shell"
+msgid "Use ddp api for login"
+msgstr "RESTAPI voor loggen gebruiken."
+
+#: widgets/ruqolacommandlineoptions.cpp:44
+#, fuzzy, kde-format
+#| msgid "Lists the available options for user feedback"
+msgctxt "@info:shell"
 msgid "Lists the available options for user feedback"
 msgstr ""
 "Geeft een lijst met de beschikbare opties voor terugkoppeling van gebruiker"

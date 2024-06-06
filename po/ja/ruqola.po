@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-06-05 00:38+0000\n"
+"POT-Creation-Date: 2024-06-06 00:39+0000\n"
 "PO-Revision-Date: 2019-08-04 18:23-0700\n"
 "Last-Translator: Japanese KDE translation team <kde-jp@kde.org>\n"
 "Language-Team: Japanese <kde-jp@kde.org>\n"
@@ -6610,7 +6610,6 @@ msgid "Override global retention policy"
 msgstr ""
 
 #: widgets/dialogs/channelinfoprunewidget.cpp:28
-#: widgets/prunemessages/prunemessagesdialog.cpp:42
 #, kde-format
 msgid "Prune"
 msgstr ""
@@ -6839,7 +6838,6 @@ msgid "Create Discussion - %1"
 msgstr ""
 
 #: widgets/dialogs/createnewdiscussiondialog.cpp:42
-#: widgets/myaccount/myaccountpersonalaccesscreatedialog.cpp:32
 #, kde-format
 msgid "Create"
 msgstr ""
@@ -7046,6 +7044,7 @@ msgstr ""
 #: widgets/dialogs/reportmessagedialog.cpp:43
 #: widgets/dialogs/reportuserdialog.cpp:43
 #, kde-format
+msgctxt "@action:button"
 msgid "Report"
 msgstr ""
 
@@ -8009,6 +8008,12 @@ msgctxt "@title:window"
 msgid "Create Personal Token"
 msgstr ""
 
+#: widgets/myaccount/myaccountpersonalaccesscreatedialog.cpp:32
+#, kde-format
+msgctxt "@action:button"
+msgid "Create"
+msgstr ""
+
 #: widgets/myaccount/myaccountpersonalaccesscreatewidget.cpp:16
 #, kde-format
 msgid "Ignore Two Factor Authentication"
@@ -8343,6 +8348,12 @@ msgstr ""
 #, kde-format
 msgctxt "@title:window"
 msgid "Prune Messages"
+msgstr ""
+
+#: widgets/prunemessages/prunemessagesdialog.cpp:42
+#, kde-format
+msgctxt "@action:button"
+msgid "Prune"
 msgstr ""
 
 #: widgets/prunemessages/prunemessageswidget.cpp:19
@@ -9113,21 +9124,31 @@ msgstr[0] ""
 
 #: widgets/ruqolacommandlineoptions.cpp:37
 #, kde-format
+msgctxt "@info:shell"
 msgid "Return lists of accounts"
-msgstr ""
-
-#: widgets/ruqolacommandlineoptions.cpp:38
-#, kde-format
-msgid "Start with specific account"
 msgstr ""
 
 #: widgets/ruqolacommandlineoptions.cpp:39
 #, kde-format
+msgctxt "@info:shell"
+msgid "Start with specific account"
+msgstr ""
+
+#: widgets/ruqolacommandlineoptions.cpp:40
+#, kde-format
+msgctxt "@info:shell"
 msgid "Show Message"
 msgstr ""
 
-#: widgets/ruqolacommandlineoptions.cpp:43
+#: widgets/ruqolacommandlineoptions.cpp:41
 #, kde-format
+msgctxt "@info:shell"
+msgid "Use ddp api for login"
+msgstr ""
+
+#: widgets/ruqolacommandlineoptions.cpp:44
+#, kde-format
+msgctxt "@info:shell"
 msgid "Lists the available options for user feedback"
 msgstr ""
 

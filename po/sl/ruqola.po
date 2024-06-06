@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-06-05 00:38+0000\n"
+"POT-Creation-Date: 2024-06-06 00:39+0000\n"
 "PO-Revision-Date: 2024-06-04 06:48+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
@@ -6842,7 +6842,6 @@ msgid "Override global retention policy"
 msgstr "Preglasi globalno politiko zadrževanja"
 
 #: widgets/dialogs/channelinfoprunewidget.cpp:28
-#: widgets/prunemessages/prunemessagesdialog.cpp:42
 #, kde-format
 msgid "Prune"
 msgstr "Klešči"
@@ -7084,7 +7083,6 @@ msgid "Create Discussion - %1"
 msgstr "Ustvari razpravo - %1"
 
 #: widgets/dialogs/createnewdiscussiondialog.cpp:42
-#: widgets/myaccount/myaccountpersonalaccesscreatedialog.cpp:32
 #, kde-format
 msgid "Create"
 msgstr "Ustvari"
@@ -7293,7 +7291,9 @@ msgstr "Sporočilo poročila"
 
 #: widgets/dialogs/reportmessagedialog.cpp:43
 #: widgets/dialogs/reportuserdialog.cpp:43
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Report"
+msgctxt "@action:button"
 msgid "Report"
 msgstr "Poročaj"
 
@@ -8313,6 +8313,13 @@ msgctxt "@title:window"
 msgid "Create Personal Token"
 msgstr "Ustvari osebni žeton"
 
+#: widgets/myaccount/myaccountpersonalaccesscreatedialog.cpp:32
+#, fuzzy, kde-format
+#| msgid "Create"
+msgctxt "@action:button"
+msgid "Create"
+msgstr "Ustvari"
+
 #: widgets/myaccount/myaccountpersonalaccesscreatewidget.cpp:16
 #, kde-format
 msgid "Ignore Two Factor Authentication"
@@ -8656,6 +8663,13 @@ msgstr "Osveži tipke"
 msgctxt "@title:window"
 msgid "Prune Messages"
 msgstr "Klešči sporočila"
+
+#: widgets/prunemessages/prunemessagesdialog.cpp:42
+#, fuzzy, kde-format
+#| msgid "Prune"
+msgctxt "@action:button"
+msgid "Prune"
+msgstr "Klešči"
 
 #: widgets/prunemessages/prunemessageswidget.cpp:19
 #, kde-format
@@ -9440,22 +9454,37 @@ msgstr[2] "%1 uporabniki v sobi (skupaj: %2)"
 msgstr[3] "%1 uporabnikov v sobi (skupaj: %2)"
 
 #: widgets/ruqolacommandlineoptions.cpp:37
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Return lists of accounts"
+msgctxt "@info:shell"
 msgid "Return lists of accounts"
 msgstr "Vrni seznam računov"
 
-#: widgets/ruqolacommandlineoptions.cpp:38
-#, kde-format
+#: widgets/ruqolacommandlineoptions.cpp:39
+#, fuzzy, kde-format
+#| msgid "Start with specific account"
+msgctxt "@info:shell"
 msgid "Start with specific account"
 msgstr "Začni z določenim računom"
 
-#: widgets/ruqolacommandlineoptions.cpp:39
-#, kde-format
+#: widgets/ruqolacommandlineoptions.cpp:40
+#, fuzzy, kde-format
+#| msgid "Show Message"
+msgctxt "@info:shell"
 msgid "Show Message"
 msgstr "Prikaži sporočilo"
 
-#: widgets/ruqolacommandlineoptions.cpp:43
-#, kde-format
+#: widgets/ruqolacommandlineoptions.cpp:41
+#, fuzzy, kde-format
+#| msgid "Use RESTAPI for logging."
+msgctxt "@info:shell"
+msgid "Use ddp api for login"
+msgstr "Uporabi RESTAPI za beleženje dnevnika."
+
+#: widgets/ruqolacommandlineoptions.cpp:44
+#, fuzzy, kde-format
+#| msgid "Lists the available options for user feedback"
+msgctxt "@info:shell"
 msgid "Lists the available options for user feedback"
 msgstr "Seznam razpoložljivih možnosti za uporabnikov odziv"
 

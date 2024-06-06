@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-06-05 00:38+0000\n"
+"POT-Creation-Date: 2024-06-06 00:39+0000\n"
 "PO-Revision-Date: 2024-01-02 16:40+0100\n"
 "Last-Translator: Stefan Asserhäll <stefan.asserhall@bredband.net>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
@@ -7037,7 +7037,6 @@ msgid "Override global retention policy"
 msgstr "Överskrid global bibehållandepolicy"
 
 #: widgets/dialogs/channelinfoprunewidget.cpp:28
-#: widgets/prunemessages/prunemessagesdialog.cpp:42
 #, kde-format
 msgid "Prune"
 msgstr "Rensa"
@@ -7291,7 +7290,6 @@ msgid "Create Discussion - %1"
 msgstr "Skapa diskussion: %1"
 
 #: widgets/dialogs/createnewdiscussiondialog.cpp:42
-#: widgets/myaccount/myaccountpersonalaccesscreatedialog.cpp:32
 #, kde-format
 msgid "Create"
 msgstr "Skapa"
@@ -7509,6 +7507,7 @@ msgstr "Rapportera meddelande"
 #: widgets/dialogs/reportuserdialog.cpp:43
 #, fuzzy, kde-format
 #| msgid "Reports"
+msgctxt "@action:button"
 msgid "Report"
 msgstr "Rapporter"
 
@@ -8550,6 +8549,13 @@ msgctxt "@title:window"
 msgid "Create Personal Token"
 msgstr "Skapa personlig symbol"
 
+#: widgets/myaccount/myaccountpersonalaccesscreatedialog.cpp:32
+#, fuzzy, kde-format
+#| msgid "Create"
+msgctxt "@action:button"
+msgid "Create"
+msgstr "Skapa"
+
 #: widgets/myaccount/myaccountpersonalaccesscreatewidget.cpp:16
 #, kde-format
 msgid "Ignore Two Factor Authentication"
@@ -8913,6 +8919,13 @@ msgstr "Uppdatera nycklar"
 msgctxt "@title:window"
 msgid "Prune Messages"
 msgstr "Rensa meddelanden"
+
+#: widgets/prunemessages/prunemessagesdialog.cpp:42
+#, fuzzy, kde-format
+#| msgid "Prune"
+msgctxt "@action:button"
+msgid "Prune"
+msgstr "Rensa"
 
 #: widgets/prunemessages/prunemessageswidget.cpp:19
 #, kde-format
@@ -9742,22 +9755,36 @@ msgstr[0] "%1 användare i rummet (totalt : %2)"
 msgstr[1] "%1 användare i rummet (totalt : %2)"
 
 #: widgets/ruqolacommandlineoptions.cpp:37
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Return lists of accounts"
+msgctxt "@info:shell"
 msgid "Return lists of accounts"
 msgstr "Returnera listor av konton"
 
-#: widgets/ruqolacommandlineoptions.cpp:38
-#, kde-format
+#: widgets/ruqolacommandlineoptions.cpp:39
+#, fuzzy, kde-format
+#| msgid "Start with specific account"
+msgctxt "@info:shell"
 msgid "Start with specific account"
 msgstr "Starta med specifikt konto"
 
-#: widgets/ruqolacommandlineoptions.cpp:39
-#, kde-format
+#: widgets/ruqolacommandlineoptions.cpp:40
+#, fuzzy, kde-format
+#| msgid "Show Message"
+msgctxt "@info:shell"
 msgid "Show Message"
 msgstr "Visa meddelande"
 
-#: widgets/ruqolacommandlineoptions.cpp:43
+#: widgets/ruqolacommandlineoptions.cpp:41
 #, kde-format
+msgctxt "@info:shell"
+msgid "Use ddp api for login"
+msgstr ""
+
+#: widgets/ruqolacommandlineoptions.cpp:44
+#, fuzzy, kde-format
+#| msgid "Lists the available options for user feedback"
+msgctxt "@info:shell"
 msgid "Lists the available options for user feedback"
 msgstr "Listar tillgängliga alternativ för användaråterkoppling"
 

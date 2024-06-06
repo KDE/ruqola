@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-06-05 00:38+0000\n"
+"POT-Creation-Date: 2024-06-06 00:39+0000\n"
 "PO-Revision-Date: 2024-05-09 06:59+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
@@ -6900,7 +6900,6 @@ msgid "Override global retention policy"
 msgstr "覆寫全域保留原則"
 
 #: widgets/dialogs/channelinfoprunewidget.cpp:28
-#: widgets/prunemessages/prunemessagesdialog.cpp:42
 #, kde-format
 msgid "Prune"
 msgstr "剪除"
@@ -7138,7 +7137,6 @@ msgid "Create Discussion - %1"
 msgstr "建立討論區 - %1"
 
 #: widgets/dialogs/createnewdiscussiondialog.cpp:42
-#: widgets/myaccount/myaccountpersonalaccesscreatedialog.cpp:32
 #, kde-format
 msgid "Create"
 msgstr "建立"
@@ -7354,6 +7352,7 @@ msgstr "檢舉訊息"
 #: widgets/dialogs/reportuserdialog.cpp:43
 #, fuzzy, kde-format
 #| msgid "Report a Bug"
+msgctxt "@action:button"
 msgid "Report"
 msgstr "回報臭蟲"
 
@@ -8352,6 +8351,13 @@ msgctxt "@title:window"
 msgid "Create Personal Token"
 msgstr "建立個人權杖"
 
+#: widgets/myaccount/myaccountpersonalaccesscreatedialog.cpp:32
+#, fuzzy, kde-format
+#| msgid "Create"
+msgctxt "@action:button"
+msgid "Create"
+msgstr "建立"
+
 #: widgets/myaccount/myaccountpersonalaccesscreatewidget.cpp:16
 #, kde-format
 msgid "Ignore Two Factor Authentication"
@@ -8705,6 +8711,13 @@ msgstr "重新整理金鑰"
 msgctxt "@title:window"
 msgid "Prune Messages"
 msgstr "剪除訊息"
+
+#: widgets/prunemessages/prunemessagesdialog.cpp:42
+#, fuzzy, kde-format
+#| msgid "Prune"
+msgctxt "@action:button"
+msgid "Prune"
+msgstr "剪除"
 
 #: widgets/prunemessages/prunemessageswidget.cpp:19
 #, kde-format
@@ -9520,22 +9533,36 @@ msgid_plural "%1 Users in room (Total: %2)"
 msgstr[0] "聊天室中有 %1 名使用者 (總共：%2)"
 
 #: widgets/ruqolacommandlineoptions.cpp:37
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Return lists of accounts"
+msgctxt "@info:shell"
 msgid "Return lists of accounts"
 msgstr "回到帳戶列表"
 
-#: widgets/ruqolacommandlineoptions.cpp:38
-#, kde-format
+#: widgets/ruqolacommandlineoptions.cpp:39
+#, fuzzy, kde-format
+#| msgid "Start with specific account"
+msgctxt "@info:shell"
 msgid "Start with specific account"
 msgstr "使用指定帳戶啟動"
 
-#: widgets/ruqolacommandlineoptions.cpp:39
-#, kde-format
+#: widgets/ruqolacommandlineoptions.cpp:40
+#, fuzzy, kde-format
+#| msgid "Show Message"
+msgctxt "@info:shell"
 msgid "Show Message"
 msgstr "顯示訊息"
 
-#: widgets/ruqolacommandlineoptions.cpp:43
+#: widgets/ruqolacommandlineoptions.cpp:41
 #, kde-format
+msgctxt "@info:shell"
+msgid "Use ddp api for login"
+msgstr ""
+
+#: widgets/ruqolacommandlineoptions.cpp:44
+#, fuzzy, kde-format
+#| msgid "Lists the available options for user feedback"
+msgctxt "@info:shell"
 msgid "Lists the available options for user feedback"
 msgstr "列出能用於使用者回饋的選項"
 

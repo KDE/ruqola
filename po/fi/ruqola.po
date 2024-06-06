@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-06-05 00:38+0000\n"
+"POT-Creation-Date: 2024-06-06 00:39+0000\n"
 "PO-Revision-Date: 2023-09-20 18:47+0300\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
@@ -6839,7 +6839,6 @@ msgid "Override global retention policy"
 msgstr "Ohita yleinen säilytyskäytäntö"
 
 #: widgets/dialogs/channelinfoprunewidget.cpp:28
-#: widgets/prunemessages/prunemessagesdialog.cpp:42
 #, kde-format
 msgid "Prune"
 msgstr "Karsi"
@@ -7093,7 +7092,6 @@ msgid "Create Discussion - %1"
 msgstr "Luo keskustelu – %1"
 
 #: widgets/dialogs/createnewdiscussiondialog.cpp:42
-#: widgets/myaccount/myaccountpersonalaccesscreatedialog.cpp:32
 #, kde-format
 msgid "Create"
 msgstr "Luo"
@@ -7310,6 +7308,7 @@ msgstr "Ilmoita viestistä"
 #: widgets/dialogs/reportuserdialog.cpp:43
 #, fuzzy, kde-format
 #| msgid "Report a Bug"
+msgctxt "@action:button"
 msgid "Report"
 msgstr "Ilmoita ohjelmavirheestä"
 
@@ -8340,6 +8339,13 @@ msgctxt "@title:window"
 msgid "Create Personal Token"
 msgstr "Poista huone"
 
+#: widgets/myaccount/myaccountpersonalaccesscreatedialog.cpp:32
+#, fuzzy, kde-format
+#| msgid "Create"
+msgctxt "@action:button"
+msgid "Create"
+msgstr "Luo"
+
 #: widgets/myaccount/myaccountpersonalaccesscreatewidget.cpp:16
 #, kde-format
 msgid "Ignore Two Factor Authentication"
@@ -8699,6 +8705,13 @@ msgstr "Virkistä avaimet"
 msgctxt "@title:window"
 msgid "Prune Messages"
 msgstr "Karsi viestejä"
+
+#: widgets/prunemessages/prunemessagesdialog.cpp:42
+#, fuzzy, kde-format
+#| msgid "Prune"
+msgctxt "@action:button"
+msgid "Prune"
+msgstr "Karsi"
 
 #: widgets/prunemessages/prunemessageswidget.cpp:19
 #, kde-format
@@ -9536,23 +9549,36 @@ msgstr[0] "Yksi käyttäjä huoneessa (yhteensä: %2)"
 msgstr[1] "%1 käyttäjää huoneessa (yhteensä: %2)"
 
 #: widgets/ruqolacommandlineoptions.cpp:37
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Return lists of accounts"
+msgctxt "@info:shell"
 msgid "Return lists of accounts"
 msgstr "Palauta luettelo tileistä"
 
-#: widgets/ruqolacommandlineoptions.cpp:38
-#, kde-format
+#: widgets/ruqolacommandlineoptions.cpp:39
+#, fuzzy, kde-format
+#| msgid "Start with specific account"
+msgctxt "@info:shell"
 msgid "Start with specific account"
 msgstr "Aloita tietyllä tilillä"
 
-#: widgets/ruqolacommandlineoptions.cpp:39
+#: widgets/ruqolacommandlineoptions.cpp:40
 #, fuzzy, kde-format
 #| msgid "Follow Message..."
+msgctxt "@info:shell"
 msgid "Show Message"
 msgstr "Seuraa viestiä…"
 
-#: widgets/ruqolacommandlineoptions.cpp:43
+#: widgets/ruqolacommandlineoptions.cpp:41
 #, kde-format
+msgctxt "@info:shell"
+msgid "Use ddp api for login"
+msgstr ""
+
+#: widgets/ruqolacommandlineoptions.cpp:44
+#, fuzzy, kde-format
+#| msgid "Lists the available options for user feedback"
+msgctxt "@info:shell"
 msgid "Lists the available options for user feedback"
 msgstr "Luettelee eri käyttäjäpalautemahdollisuudet"
 

@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-06-05 00:38+0000\n"
+"POT-Creation-Date: 2024-06-06 00:39+0000\n"
 "PO-Revision-Date: 2024-05-26 12:21+0200\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
@@ -6812,7 +6812,6 @@ msgid "Override global retention policy"
 msgstr ""
 
 #: widgets/dialogs/channelinfoprunewidget.cpp:28
-#: widgets/prunemessages/prunemessagesdialog.cpp:42
 #, kde-format
 msgid "Prune"
 msgstr "Inausi"
@@ -7066,7 +7065,6 @@ msgid "Create Discussion - %1"
 msgstr "Sortu elkarrizketa - %1"
 
 #: widgets/dialogs/createnewdiscussiondialog.cpp:42
-#: widgets/myaccount/myaccountpersonalaccesscreatedialog.cpp:32
 #, kde-format
 msgid "Create"
 msgstr "Sortu"
@@ -7285,6 +7283,7 @@ msgstr "Mezuaren berri ematea"
 #: widgets/dialogs/reportuserdialog.cpp:43
 #, fuzzy, kde-format
 #| msgid "Reports"
+msgctxt "@action:button"
 msgid "Report"
 msgstr "Txostenak"
 
@@ -8306,6 +8305,13 @@ msgctxt "@title:window"
 msgid "Create Personal Token"
 msgstr "Sortu token pertsonala"
 
+#: widgets/myaccount/myaccountpersonalaccesscreatedialog.cpp:32
+#, fuzzy, kde-format
+#| msgid "Create"
+msgctxt "@action:button"
+msgid "Create"
+msgstr "Sortu"
+
 #: widgets/myaccount/myaccountpersonalaccesscreatewidget.cpp:16
 #, kde-format
 msgid "Ignore Two Factor Authentication"
@@ -8677,6 +8683,13 @@ msgstr "Freskatu gaikoak"
 msgctxt "@title:window"
 msgid "Prune Messages"
 msgstr ""
+
+#: widgets/prunemessages/prunemessagesdialog.cpp:42
+#, fuzzy, kde-format
+#| msgid "Prune"
+msgctxt "@action:button"
+msgid "Prune"
+msgstr "Inausi"
 
 #: widgets/prunemessages/prunemessageswidget.cpp:19
 #, kde-format
@@ -9500,22 +9513,34 @@ msgstr[0] "Gelan erabiltzaile %1 (Guztira: %2)"
 msgstr[1] "Gelan %1 erabiltzaile (Guztira: %2)"
 
 #: widgets/ruqolacommandlineoptions.cpp:37
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Return lists of accounts"
+msgctxt "@info:shell"
 msgid "Return lists of accounts"
 msgstr "Itzuli kontuen zerrendak"
 
-#: widgets/ruqolacommandlineoptions.cpp:38
+#: widgets/ruqolacommandlineoptions.cpp:39
 #, kde-format
+msgctxt "@info:shell"
 msgid "Start with specific account"
 msgstr ""
 
-#: widgets/ruqolacommandlineoptions.cpp:39
-#, kde-format
+#: widgets/ruqolacommandlineoptions.cpp:40
+#, fuzzy, kde-format
+#| msgid "Show Message"
+msgctxt "@info:shell"
 msgid "Show Message"
 msgstr "Erakutsi mezua"
 
-#: widgets/ruqolacommandlineoptions.cpp:43
+#: widgets/ruqolacommandlineoptions.cpp:41
 #, kde-format
+msgctxt "@info:shell"
+msgid "Use ddp api for login"
+msgstr ""
+
+#: widgets/ruqolacommandlineoptions.cpp:44
+#, kde-format
+msgctxt "@info:shell"
 msgid "Lists the available options for user feedback"
 msgstr ""
 
