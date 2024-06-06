@@ -490,6 +490,10 @@ target_sources(librocketchatrestapi-qt PRIVATE
     apps/appfeaturedappsjob.h
     apps/notifyadminsappsjob.cpp
     apps/notifyadminsappsjob.h
+    apps/appinstalledjob.cpp
+    apps/appinstalledjob.h
+    apps/appmarketplacejob.cpp
+    apps/appmarketplacejob.h
 )
 
 
