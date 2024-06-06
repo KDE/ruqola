@@ -545,6 +545,9 @@ target_sources(libruqolacore PRIVATE
 
     apps/appscategoryinfo.h
     apps/appscategoryinfo.cpp
+
+    apps/appsmarketplaceinfo.h
+    apps/appsmarketplaceinfo.cpp
 )
 
 if (HAVE_TEXT_TRANSLATOR)
