@@ -330,9 +330,8 @@ void RuqolaMainWindow::updateActions()
     mCreateDiscussion->setEnabled(mCurrentRocketChatAccount->discussionEnabled()
                                   && (mCurrentRocketChatAccount->loginStatus() == AuthenticationManager::LoggedIn));
     const bool isAdministrator{mCurrentRocketChatAccount->isAdministrator()};
-    mAdministrator->setEnabled(isAdministrator);
-    mAdministratorServerSettings->setEnabled(isAdministrator);
-    mAdministrationMenu->setVisible(isAdministrator);
+    mAdministrator->setVisible(isAdministrator);
+    mAdministratorServerSettings->setVisible(isAdministrator);
     mShowRocketChatServerInfo->setVisible(hasBannerInfo());
     mRoomAvatar->setChecked(mCurrentRocketChatAccount->ownUserPreferences().showRoomAvatar());
     mRoomFavorite->setChecked(mCurrentRocketChatAccount->ownUserPreferences().showFavorite());
