@@ -882,6 +882,12 @@ target_sources(libruqolawidgets PRIVATE
 
     forwardmessage/forwardmessageaddchannelcompletionlineedit.h
     forwardmessage/forwardmessageaddchannelcompletionlineedit.cpp
+
+
+    applicationssettingsdialog/applicationssettingsdialog.h
+    applicationssettingsdialog/applicationssettingsdialog.cpp
+    applicationssettingsdialog/applicationssettingswidget.h
+    applicationssettingsdialog/applicationssettingswidget.cpp
 )
 
 if (HAVE_TEXT_AUTOCORRECTION_WIDGETS)
