@@ -19,7 +19,7 @@ int AppsMarketPlaceModel::rowCount(const QModelIndex &parent) const
     if (parent.isValid()) {
         return 0; // flat model
     }
-    return mAppsCategories.count();
+    return mAppsMarketPlaceInfos.count();
 }
 
 int AppsMarketPlaceModel::columnCount(const QModelIndex &parent) const
@@ -29,35 +29,35 @@ int AppsMarketPlaceModel::columnCount(const QModelIndex &parent) const
     return val;
 }
 
-QList<AppsCategoryInfo> AppsMarketPlaceModel::appsCategories() const
+QList<AppsMarketPlaceInfo> AppsMarketPlaceModel::appsCategories() const
 {
-    return mAppsCategories;
+    return mAppsMarketPlaceInfos;
 }
 
-void AppsMarketPlaceModel::setAppsCategories(const QList<AppsCategoryInfo> &appsCategories)
+void AppsMarketPlaceModel::setAppsCategories(const QList<AppsMarketPlaceInfo> &appsCategories)
 {
-    if (!mAppsCategories.isEmpty()) {
+    if (!mAppsMarketPlaceInfos.isEmpty()) {
         beginResetModel();
-        mAppsCategories.clear();
+        mAppsMarketPlaceInfos.clear();
         endResetModel();
     }
     if (!appsCategories.isEmpty()) {
         beginInsertRows(QModelIndex(), 0, appsCategories.count() - 1);
-        mAppsCategories = appsCategories;
+        mAppsMarketPlaceInfos = appsCategories;
         endInsertRows();
     }
 }
 
 QVariant AppsMarketPlaceModel::data(const QModelIndex &index, int role) const
 {
-    if (index.row() < 0 || index.row() >= mAppsCategories.count()) {
+    if (index.row() < 0 || index.row() >= mAppsMarketPlaceInfos.count()) {
         return {};
     }
     if (role != Qt::DisplayRole) {
         return {};
     }
 
-    const AppsCategoryInfo &appsCategoryInfo = mAppsCategories.at(index.row());
+    const AppsMarketPlaceInfo &appsCategoryInfo = mAppsMarketPlaceInfos.at(index.row());
     const int col = index.column();
 #if 0
     switch (col) {

@@ -6,7 +6,7 @@
 
 #pragma once
 
-#include "apps/appscategoryinfo.h"
+#include "apps/appsmarketplaceinfo.h"
 #include "libruqolacore_export.h"
 #include <QAbstractListModel>
 
@@ -15,10 +15,11 @@ class LIBRUQOLACORE_EXPORT AppsMarketPlaceModel : public QAbstractListModel
     Q_OBJECT
 public:
     enum AppsCategoriesRoles {
-        Identifier,
-        Title,
-        Hidden,
-        LastColumn = Hidden,
+        AppName,
+        AppId,
+        Categories,
+        IsEnterpriseOnly,
+        LastColumn = IsEnterpriseOnly,
     };
     Q_ENUM(AppsCategoriesRoles)
 
@@ -29,9 +30,9 @@ public:
     [[nodiscard]] QVariant data(const QModelIndex &index, int role) const override;
     [[nodiscard]] int columnCount(const QModelIndex &parent = QModelIndex()) const override;
 
-    [[nodiscard]] QList<AppsCategoryInfo> appsCategories() const;
-    void setAppsCategories(const QList<AppsCategoryInfo> &appsCategories);
+    [[nodiscard]] QList<AppsMarketPlaceInfo> appsCategories() const;
+    void setAppsCategories(const QList<AppsMarketPlaceInfo> &appsCategories);
 
 private:
-    QList<AppsCategoryInfo> mAppsCategories;
+    QList<AppsMarketPlaceInfo> mAppsMarketPlaceInfos;
 };
