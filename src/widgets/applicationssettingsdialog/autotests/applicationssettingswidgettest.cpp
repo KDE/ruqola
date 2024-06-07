@@ -12,3 +12,5 @@ ApplicationsSettingsWidgetTest::ApplicationsSettingsWidgetTest(QObject *parent)
     : QObject{parent}
 {
 }
+
+#include "moc_applicationssettingswidgettest.cpp"

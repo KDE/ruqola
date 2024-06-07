@@ -8,11 +8,17 @@
 
 #include "libruqolawidgets_private_export.h"
 #include <QDialog>
-
+class ApplicationsSettingsWidget;
+class RocketChatAccount;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT ApplicationsSettingsDialog : public QDialog
 {
     Q_OBJECT
 public:
-    explicit ApplicationsSettingsDialog(QWidget *parent = nullptr);
+    explicit ApplicationsSettingsDialog(RocketChatAccount *account, QWidget *parent = nullptr);
     ~ApplicationsSettingsDialog() override;
+
+private:
+    LIBRUQOLAWIDGETS_NO_EXPORT void readConfig();
+    LIBRUQOLAWIDGETS_NO_EXPORT void writeConfig();
+    ApplicationsSettingsWidget *const mApplicationsSettingsWidget;
 };

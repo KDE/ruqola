@@ -16,6 +16,8 @@ ApplicationsSettingsDialogTest::ApplicationsSettingsDialogTest(QObject *parent)
 
 void ApplicationsSettingsDialogTest::shouldHaveDefaultValues()
 {
-    ApplicationsSettingsDialog d;
+    ApplicationsSettingsDialog d(nullptr);
     // TODO
 }
+
+#include "moc_applicationssettingsdialogtest.cpp"

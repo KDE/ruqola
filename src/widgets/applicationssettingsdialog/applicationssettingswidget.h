@@ -6,12 +6,16 @@
 
 #pragma once
 #include "libruqolawidgets_private_export.h"
+#include "rocketchataccount.h"
 #include <QWidget>
-
+class RocketChatAccount;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT ApplicationsSettingsWidget : public QWidget
 {
     Q_OBJECT
 public:
-    explicit ApplicationsSettingsWidget(QWidget *parent = nullptr);
+    explicit ApplicationsSettingsWidget(RocketChatAccount *account, QWidget *parent = nullptr);
     ~ApplicationsSettingsWidget() override;
+
+private:
+    RocketChatAccount *const mCurrentRocketChatAccount;
 };
