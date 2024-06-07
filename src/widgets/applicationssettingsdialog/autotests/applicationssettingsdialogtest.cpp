@@ -17,4 +17,5 @@ ApplicationsSettingsDialogTest::ApplicationsSettingsDialogTest(QObject *parent)
 void ApplicationsSettingsDialogTest::shouldHaveDefaultValues()
 {
     ApplicationsSettingsDialog d;
+    // TODO
 }
