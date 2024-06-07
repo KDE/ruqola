@@ -310,6 +310,8 @@ target_sources(libruqolacore PRIVATE
 
     model/appscategoriesmodel.cpp
     model/appscategoriesmodel.h
+    model/appsmarketplacemodel.cpp
+    model/appsmarketplacemodel.h
 
 
     notificationinfo.cpp
