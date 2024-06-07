@@ -851,28 +851,6 @@
       <li xml:lang="x-test">xxAllow to reply directly to message from notification (kde features)xx</li>
       <li xml:lang="zh-TW">可以直接從通知回覆訊息（KDE 功能）</li>
       <li>Drag and drop image from ruqola to website or local folder</li>
-      <li xml:lang="ca">Imatges Dnd des del Ruqola a lloc web o carpeta local</li>
-      <li xml:lang="ca-valencia">Imatges Dnd des de Ruqola a lloc web o carpeta local</li>
-      <li xml:lang="en-GB">Dnd image from ruqola to website or local folder</li>
-      <li xml:lang="eo">Dnd bildo de ruqola al retejo aŭ loka dosierujo</li>
-      <li xml:lang="es">Descargar imagen desde ruqola a la web o a una carpeta local</li>
-      <li xml:lang="eu">Dnd irudia ruqola-tik webgunera edo karpeta lokalera</li>
-      <li xml:lang="fi">DND-kuva Ruqolasta sivustolle tai paikalliseen kansioon</li>
-      <li xml:lang="fr">Image « dnd » à partir de ruqola vers le site Internet ou vers un dossier locale</li>
-      <li xml:lang="hu">Képek ejtése fogd és vidd módszerrel Ruqolából weboldalra vagy helyi mappába</li>
-      <li xml:lang="id">Gambar dnd dari ruqola ke situs atau folder lokal</li>
-      <li xml:lang="it">Immagine Non disturbare da ruqola al sito web o alla cartella locale</li>
-      <li xml:lang="ka">DND გამოსახულება ruqola-დან ვებსაიტამდე ან ლოკალურ საქაღალდემდე</li>
-      <li xml:lang="nl">Download afbeelding uit ruqola naar website of lokale map</li>
-      <li xml:lang="pl">Obraz NiePrzeszkadzać z ruqola do strony sieciowej lub miejscowego katalogu</li>
-      <li xml:lang="pt">Arrastamento de imagens do Ruqola para uma página Web ou pasta local</li>
-      <li xml:lang="ru">Перетаскивание изображения из Ruqola на веб-сайт или в локальную папку</li>
-      <li xml:lang="sl">Slika dnd iz ruqole na spletišče ali lokalno mapo</li>
-      <li xml:lang="sv">Dra och släpp bild from Ruqola till webbplats eller lokal katalog</li>
-      <li xml:lang="tr">Roka'dan web sitesine veya yerel klasöre rahatsız etmeyin görseli</li>
-      <li xml:lang="uk">Перетягування і скидання зображення з ruqola на сайт або локальну теку</li>
-      <li xml:lang="x-test">xxDnd image from ruqola to website or local folderxx</li>
-      <li xml:lang="zh-TW">從 Ruqola 拖放影像到網站或本地資料夾中</li>
       <li>Store message in local database so we can search in offline</li>
       <li xml:lang="ca">Emmagatzema el missatge a la base de dades local perquè es pugui cercar fora de línia</li>
       <li xml:lang="ca-valencia">Emmagatzema el missatge en la base de dades local perquè es puga buscar fora de línia</li>
