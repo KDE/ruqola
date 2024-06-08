@@ -54,13 +54,15 @@ ApplicationsSettingsWidget::ApplicationsSettingsWidget(RocketChatAccount *accoun
     }
 #endif
 #if 1
-    auto job = new RocketChatRestApi::AppMarketPlaceJob(this);
-    mCurrentRocketChatAccount->restApi()->initializeRestApiJob(job);
-    connect(job, &RocketChatRestApi::AppMarketPlaceJob::appMarketPlaceDone, this, [](const QJsonObject &obj) {
-        qDebug() << " obj************ " << obj;
-    });
-    if (!job->start()) {
-        qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start AppMarketPlaceJob";
+    if (mCurrentRocketChatAccount) {
+        auto job = new RocketChatRestApi::AppMarketPlaceJob(this);
+        mCurrentRocketChatAccount->restApi()->initializeRestApiJob(job);
+        connect(job, &RocketChatRestApi::AppMarketPlaceJob::appMarketPlaceDone, this, [](const QJsonObject &obj) {
+            qDebug() << " obj************ " << obj;
+        });
+        if (!job->start()) {
+            qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start AppMarketPlaceJob";
+        }
     }
 #endif
 }
