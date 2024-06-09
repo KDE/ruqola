@@ -146,7 +146,7 @@ void ModerationReportedMessageConsoleTreeWidget::slotCustomContextMenuRequested(
             slotDeleteAllMessages(modelIndex);
         });
         menu.addSeparator();
-        menu.addAction(QIcon::fromTheme(QStringLiteral("list-remove")), i18n("Desactivate user"), this, [this, newModelIndex]() {
+        menu.addAction(QIcon::fromTheme(QStringLiteral("list-remove")), i18n("Deactivate user"), this, [this, newModelIndex]() {
             const QModelIndex modelIndex = mModel->index(newModelIndex.row(), ModerationReportedMessageModel::UserId);
             slotDesactivateUser(modelIndex);
         });
@@ -159,7 +159,7 @@ void ModerationReportedMessageConsoleTreeWidget::slotDesactivateUser(const QMode
     if (KMessageBox::questionTwoActions(
             this,
             i18n("User will be unable to log in unless reactivated. All reported messages will be permanently deleted from their respective room."),
-            i18nc("@title:window", "Desactivate User"),
+            i18nc("@title:window", "Deactivate User"),
             KStandardGuiItem::remove(),
             KStandardGuiItem::cancel())
         == KMessageBox::ButtonCode::PrimaryAction) {
