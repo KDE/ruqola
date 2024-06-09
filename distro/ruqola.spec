@@ -1,5 +1,5 @@
 Name:           ruqola
-Version:        2.1.1
+Version:        2.2.0
 Release:        0
 Summary:        Rocket.Chat client for the KDE desktop
 Source0:        %{name}-%{version}.tar.gz
@@ -67,6 +67,8 @@ cmake . -DCMAKE_INSTALL_PREFIX=/usr -DCMAKE_BUILD_TYPE=Release -DBUILD_TESTING=F
 %{_prefix}/share/locale
 
 %changelog
+* Sun 09 Jun 2024 Allen Winter <allen.winter@kdab.com> 2.2.0
+- 2.2.0 release
 * Thu 14 Mar 2024 Allen Winter <allen.winter@kdab.com> 2.1.1
 - 2.1.1 release
 * Mon 12 Feb 2024 Allen Winter <allen.winter@kdab.com> 2.1.0
