@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-06-08 00:39+0000\n"
-"PO-Revision-Date: 2024-06-05 07:23+0200\n"
+"PO-Revision-Date: 2024-06-07 08:51+0200\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
 "Language-Team: French <French <kde-francophone@kde.org>>\n"
 "Language: fr\n"
@@ -7361,8 +7361,7 @@ msgstr "Signaler un message"
 
 #: widgets/dialogs/reportmessagedialog.cpp:43
 #: widgets/dialogs/reportuserdialog.cpp:43
-#, fuzzy, kde-format
-#| msgid "Report"
+#, kde-format
 msgctxt "@action:button"
 msgid "Report"
 msgstr "Signaler"
@@ -8385,8 +8384,7 @@ msgid "Create Personal Token"
 msgstr "Créer un jeton personnel"
 
 #: widgets/myaccount/myaccountpersonalaccesscreatedialog.cpp:32
-#, fuzzy, kde-format
-#| msgid "Create"
+#, kde-format
 msgctxt "@action:button"
 msgid "Create"
 msgstr "Créer"
@@ -8744,11 +8742,10 @@ msgid "Prune Messages"
 msgstr "Limiter les messages"
 
 #: widgets/prunemessages/prunemessagesdialog.cpp:42
-#, fuzzy, kde-format
-#| msgid "Prune"
+#, kde-format
 msgctxt "@action:button"
 msgid "Prune"
-msgstr "Élaguer"
+msgstr "Purger"
 
 #: widgets/prunemessages/prunemessageswidget.cpp:19
 #, kde-format
@@ -9526,36 +9523,31 @@ msgstr[0] "%1 utilisateur(s) dans le salon (Total : %2)"
 msgstr[1] "%1 messages dans le salon (total : %2)"
 
 #: widgets/ruqolacommandlineoptions.cpp:37
-#, fuzzy, kde-format
-#| msgid "Return lists of accounts"
+#, kde-format
 msgctxt "@info:shell"
 msgid "Return lists of accounts"
 msgstr "Renvoyer des listes de comptes"
 
 #: widgets/ruqolacommandlineoptions.cpp:39
-#, fuzzy, kde-format
-#| msgid "Start with specific account"
+#, kde-format
 msgctxt "@info:shell"
 msgid "Start with specific account"
 msgstr "Démarrer avec un compte spécifique"
 
 #: widgets/ruqolacommandlineoptions.cpp:40
-#, fuzzy, kde-format
-#| msgid "Show Message"
+#, kde-format
 msgctxt "@info:shell"
 msgid "Show Message"
 msgstr "Afficher un message"
 
 #: widgets/ruqolacommandlineoptions.cpp:41
-#, fuzzy, kde-format
-#| msgid "Use RESTAPI for logging."
+#, kde-format
 msgctxt "@info:shell"
 msgid "Use ddp api for login"
-msgstr "Utiliser « RESTAPI » pour se connecter."
+msgstr "Utiliser l'API « DDP » pour se connecter."
 
 #: widgets/ruqolacommandlineoptions.cpp:44
-#, fuzzy, kde-format
-#| msgid "Lists the available options for user feedback"
+#, kde-format
 msgctxt "@info:shell"
 msgid "Lists the available options for user feedback"
 msgstr "Liste les options disponibles pour le retour utilisateur"

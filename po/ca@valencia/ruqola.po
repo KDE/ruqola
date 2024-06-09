@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-06-08 00:39+0000\n"
-"PO-Revision-Date: 2024-06-06 12:26+0200\n"
+"PO-Revision-Date: 2024-06-07 10:48+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca@valencia\n"
@@ -2839,8 +2839,7 @@ msgstr "Suprimix tots els missatges"
 
 #: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:149
 #: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:143
-#, fuzzy, kde-format
-#| msgid "Desactivate user"
+#, kde-format
 msgid "Deactivate user"
 msgstr "Desactiva l'usuari"
 
@@ -2856,12 +2855,10 @@ msgstr ""
 
 #: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:162
 #: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:156
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Desactivate User"
+#, kde-format
 msgctxt "@title:window"
 msgid "Deactivate User"
-msgstr "Desactivació d'usuari"
+msgstr "Desactiva l'usuari"
 
 #: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:195
 #, kde-format
@@ -6261,12 +6258,10 @@ msgid "STUN/TURN Servers"
 msgstr "Servidors STUN/TURN"
 
 #: widgets/applicationssettingsdialog/applicationssettingsdialog.cpp:27
-#, fuzzy, kde-format
-#| msgctxt "@action"
-#| msgid "Applications…"
+#, kde-format
 msgctxt "@title:window"
 msgid "Applications"
-msgstr "Aplicacions…"
+msgstr "Aplicacions"
 
 #: widgets/bannerinfodialog/bannerinfodialog.cpp:27
 #, kde-format

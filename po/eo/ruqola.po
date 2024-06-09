@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-06-08 00:39+0000\n"
-"PO-Revision-Date: 2024-06-05 21:43+0200\n"
+"PO-Revision-Date: 2024-06-08 10:47+0200\n"
 "Last-Translator: Oliver Kellogg <olivermkellogg@gmail.com>\n"
 "Language-Team: Esperanto <kde-i18n-eo.org>\n"
 "Language: eo\n"
@@ -2832,8 +2832,7 @@ msgstr "Forigi ĉiujn Mesaĝojn"
 
 #: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:149
 #: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:143
-#, fuzzy, kde-format
-#| msgid "Desactivate user"
+#, kde-format
 msgid "Deactivate user"
 msgstr "Malaktivigi uzanton"
 
@@ -2849,9 +2848,7 @@ msgstr ""
 
 #: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:162
 #: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:156
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Desactivate User"
+#, kde-format
 msgctxt "@title:window"
 msgid "Deactivate User"
 msgstr "Malaktivigi Uzanton"
@@ -6227,12 +6224,10 @@ msgid "STUN/TURN Servers"
 msgstr "STUN/TURN Serviloj"
 
 #: widgets/applicationssettingsdialog/applicationssettingsdialog.cpp:27
-#, fuzzy, kde-format
-#| msgctxt "@action"
-#| msgid "Applications…"
+#, kde-format
 msgctxt "@title:window"
 msgid "Applications"
-msgstr "Aplikaĵoj…"
+msgstr "Aplikaĵoj"
 
 #: widgets/bannerinfodialog/bannerinfodialog.cpp:27
 #, kde-format
@@ -7280,11 +7275,10 @@ msgstr "Raporti Mesaĝon"
 
 #: widgets/dialogs/reportmessagedialog.cpp:43
 #: widgets/dialogs/reportuserdialog.cpp:43
-#, fuzzy, kde-format
-#| msgid "Report"
+#, kde-format
 msgctxt "@action:button"
 msgid "Report"
-msgstr "Raporto"
+msgstr "Raporti"
 
 #: widgets/dialogs/reportmessagewidget.cpp:37
 #: widgets/dialogs/reportuserwidget.cpp:37
@@ -8288,8 +8282,7 @@ msgid "Create Personal Token"
 msgstr "Krei Personan Tokenon"
 
 #: widgets/myaccount/myaccountpersonalaccesscreatedialog.cpp:32
-#, fuzzy, kde-format
-#| msgid "Create"
+#, kde-format
 msgctxt "@action:button"
 msgid "Create"
 msgstr "Krei"
@@ -8637,8 +8630,7 @@ msgid "Prune Messages"
 msgstr "Pritondi Mesaĝojn"
 
 #: widgets/prunemessages/prunemessagesdialog.cpp:42
-#, fuzzy, kde-format
-#| msgid "Prune"
+#, kde-format
 msgctxt "@action:button"
 msgid "Prune"
 msgstr "Stuci"
@@ -9418,36 +9410,31 @@ msgstr[0] "%1 Uzanto en ĉambro (Totalo: %2)"
 msgstr[1] "%1 Uzantoj en ĉambro (Totalo: %2)"
 
 #: widgets/ruqolacommandlineoptions.cpp:37
-#, fuzzy, kde-format
-#| msgid "Return lists of accounts"
+#, kde-format
 msgctxt "@info:shell"
 msgid "Return lists of accounts"
-msgstr "Redoni listojn de kontoj"
+msgstr "Liveri listojn de kontoj"
 
 #: widgets/ruqolacommandlineoptions.cpp:39
-#, fuzzy, kde-format
-#| msgid "Start with specific account"
+#, kde-format
 msgctxt "@info:shell"
 msgid "Start with specific account"
 msgstr "Komenci per specifa konto"
 
 #: widgets/ruqolacommandlineoptions.cpp:40
-#, fuzzy, kde-format
-#| msgid "Show Message"
+#, kde-format
 msgctxt "@info:shell"
 msgid "Show Message"
 msgstr "Montri Mesaĝon"
 
 #: widgets/ruqolacommandlineoptions.cpp:41
-#, fuzzy, kde-format
-#| msgid "Use RESTAPI for logging."
+#, kde-format
 msgctxt "@info:shell"
 msgid "Use ddp api for login"
-msgstr "Uzi RESTAPI por protokolado."
+msgstr "Uzi ddp por ensaluto"
 
 #: widgets/ruqolacommandlineoptions.cpp:44
-#, fuzzy, kde-format
-#| msgid "Lists the available options for user feedback"
+#, kde-format
 msgctxt "@info:shell"
 msgid "Lists the available options for user feedback"
 msgstr "Listigas la disponeblajn elekteblojn por uzant-sugestoj"

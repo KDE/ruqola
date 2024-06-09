@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-06-08 00:39+0000\n"
-"PO-Revision-Date: 2024-06-06 11:18+0300\n"
+"PO-Revision-Date: 2024-06-08 13:05+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -2814,8 +2814,7 @@ msgstr "Tüm İletileri Sil"
 
 #: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:149
 #: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:143
-#, fuzzy, kde-format
-#| msgid "Desactivate user"
+#, kde-format
 msgid "Deactivate user"
 msgstr "Kullanıcıyı Pasifleştir"
 
@@ -2831,9 +2830,7 @@ msgstr ""
 
 #: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:162
 #: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:156
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Desactivate User"
+#, kde-format
 msgctxt "@title:window"
 msgid "Deactivate User"
 msgstr "Kullanıcıyı Pasifleştir"
@@ -6208,12 +6205,10 @@ msgid "STUN/TURN Servers"
 msgstr "STUN/TURN Sunucuları"
 
 #: widgets/applicationssettingsdialog/applicationssettingsdialog.cpp:27
-#, fuzzy, kde-format
-#| msgctxt "@action"
-#| msgid "Applications…"
+#, kde-format
 msgctxt "@title:window"
 msgid "Applications"
-msgstr "Uygulamalar…"
+msgstr "Uygulamalar"
 
 #: widgets/bannerinfodialog/bannerinfodialog.cpp:27
 #, kde-format
