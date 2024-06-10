@@ -31,11 +31,16 @@ public:
 
     [[nodiscard]] bool isValid() const;
 
+    [[nodiscard]] QString documentationUrl() const;
+    void setDocumentationUrl(const QString &newDocumentationUrl);
+
 private:
     QStringList mCategories;
     QByteArray mAppId;
     QString mAppName;
+    QString mDocumentationUrl;
     bool mIsEnterpriseOnly = false;
+    // TODO icon
 };
 
 Q_DECLARE_METATYPE(AppsMarketPlaceInfo)

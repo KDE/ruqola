@@ -61,6 +61,7 @@ ApplicationsSettingsWidget::ApplicationsSettingsWidget(RocketChatAccount *accoun
         connect(job, &RocketChatRestApi::AppMarketPlaceJob::appMarketPlaceDone, this, [](const QJsonArray &replyArray) {
             for (int i = 0; i < replyArray.count(); ++i) {
                 const QJsonObject obj = replyArray.at(i).toObject();
+                qDebug() << " obj" << obj;
                 AppsMarketPlaceInfo info;
                 info.parseAppsMarketPlaceInfo(obj);
                 if (info.isValid()) {
