@@ -5,7 +5,7 @@
 */
 
 #include "appsmarketplaceinfo.h"
-
+using namespace Qt::Literals::StringLiterals;
 AppsMarketPlaceInfo::AppsMarketPlaceInfo() = default;
 
 AppsMarketPlaceInfo::~AppsMarketPlaceInfo() = default;
@@ -21,6 +21,10 @@ QDebug operator<<(QDebug d, const AppsMarketPlaceInfo &t)
 
 void AppsMarketPlaceInfo::parseAppsMarketPlaceInfo(const QJsonObject &replyObject)
 {
+    mAppId = replyObject["appId"_L1].toString().toLatin1();
+    mIsEnterpriseOnly = replyObject["isEnterpriseOnly"_L1].toBool();
+    mAppName = replyObject["name"_L1].toString();
+    // FIXME it's a QStringList mCategories = replyObject["categories"_L1].toString();
     // TODO
 }
 
@@ -62,4 +66,10 @@ QStringList AppsMarketPlaceInfo::categories() const
 void AppsMarketPlaceInfo::setCategories(const QStringList &newCategories)
 {
     mCategories = newCategories;
+}
+
+bool AppsMarketPlaceInfo::isValid() const
+{
+    // TODO
+    return !mAppId.isEmpty();
 }

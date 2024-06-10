@@ -29,6 +29,8 @@ public:
     [[nodiscard]] QStringList categories() const;
     void setCategories(const QStringList &newCategories);
 
+    [[nodiscard]] bool isValid() const;
+
 private:
     QStringList mCategories;
     QByteArray mAppId;

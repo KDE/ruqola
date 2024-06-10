@@ -25,7 +25,7 @@ public:
     [[nodiscard]] QNetworkRequest request() const override;
 
 Q_SIGNALS:
-    void appMarketPlaceDone(const QJsonObject &obj);
+    void appMarketPlaceDone(const QJsonArray &replyArray);
 
 private:
     LIBROCKETCHATRESTAPI_QT_NO_EXPORT void onGetRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson) override;

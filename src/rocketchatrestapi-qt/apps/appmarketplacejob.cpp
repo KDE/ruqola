@@ -8,6 +8,7 @@
 
 #include "restapimethod.h"
 #include "rocketchatqtrestapi_debug.h"
+#include <QJsonArray>
 #include <QJsonDocument>
 #include <QJsonObject>
 #include <QUrlQuery>
@@ -40,6 +41,9 @@ bool AppMarketPlaceJob::start()
 
 void AppMarketPlaceJob::onGetRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
+    const QJsonArray replyArray = replyJson.array();
+    Q_EMIT appMarketPlaceDone(replyArray);
+#if 0
     const QJsonObject replyObject = replyJson.object();
     if (replyObject["success"_L1].toBool()) {
         addLoggerInfo(QByteArrayLiteral("AppMarketPlaceJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
@@ -49,6 +53,7 @@ void AppMarketPlaceJob::onGetRequestResponse(const QString &replyErrorString, co
         addLoggerWarning(QByteArrayLiteral("AppMarketPlaceJob: Problem when we tried to get app marketplace info : ")
                          + replyJson.toJson(QJsonDocument::Indented));
     }
+#endif
 }
 
 QNetworkRequest AppMarketPlaceJob::request() const

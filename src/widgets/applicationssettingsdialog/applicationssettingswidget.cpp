@@ -5,6 +5,7 @@
 */
 
 #include "applicationssettingswidget.h"
+#include "apps/appsmarketplaceinfo.h"
 #include "connection.h"
 #include "rocketchataccount.h"
 #include "ruqolawidgets_debug.h"
@@ -57,8 +58,16 @@ ApplicationsSettingsWidget::ApplicationsSettingsWidget(RocketChatAccount *accoun
     if (mCurrentRocketChatAccount) {
         auto job = new RocketChatRestApi::AppMarketPlaceJob(this);
         mCurrentRocketChatAccount->restApi()->initializeRestApiJob(job);
-        connect(job, &RocketChatRestApi::AppMarketPlaceJob::appMarketPlaceDone, this, [](const QJsonObject &obj) {
-            qDebug() << " obj************ " << obj;
+        connect(job, &RocketChatRestApi::AppMarketPlaceJob::appMarketPlaceDone, this, [](const QJsonArray &replyArray) {
+            for (int i = 0; i < replyArray.count(); ++i) {
+                const QJsonObject obj = replyArray.at(i).toObject();
+                AppsMarketPlaceInfo info;
+                info.parseAppsMarketPlaceInfo(obj);
+                if (info.isValid()) {
+                    qDebug() << " info " << info;
+                }
+            }
+            qDebug() << " obj************ " << replyArray;
         });
         if (!job->start()) {
             qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start AppMarketPlaceJob";
