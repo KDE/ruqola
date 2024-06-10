@@ -68,7 +68,8 @@ ApplicationsSettingsWidget::ApplicationsSettingsWidget(RocketChatAccount *accoun
                     qDebug() << " info " << info;
                 }
             }
-            qDebug() << " obj************ " << replyArray;
+            // qDebug() << " obj************ " << replyArray;
+            qDebug() << " count ***** " << replyArray.count();
         });
         if (!job->start()) {
             qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start AppMarketPlaceJob";
