@@ -19,6 +19,7 @@ void AppsMarketPlaceInfoTest::shouldHaveDefaultValues()
     QVERIFY(d.appName().isEmpty());
     QVERIFY(!d.isEnterpriseOnly());
     QVERIFY(d.categories().isEmpty());
+    QVERIFY(!d.isValid());
 }
 
 #include "moc_appsmarketplaceinfotest.cpp"
