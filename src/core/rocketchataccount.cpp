@@ -25,6 +25,7 @@
 #include "soundmanager.h"
 
 #include "authenticationmanager/restauthenticationmanager.h"
+#include "model/appsmarketplacemodel.h"
 #include "model/autotranslatelanguagesmodel.h"
 #include "model/commandsmodel.h"
 #include "model/commonmessagefilterproxymodel.h"
@@ -42,6 +43,7 @@
 #include "model/usercompletermodel.h"
 #include "model/usersforroommodel.h"
 #include "model/usersmodel.h"
+
 #include "otr/otrmanager.h"
 #include "rocketchatbackend.h"
 #include "rocketchatcache.h"
@@ -132,6 +134,7 @@ RocketChatAccount::RocketChatAccount(const QString &accountFileName, QObject *pa
     , mNotificationPreferences(new NotificationPreferences(this))
     , mE2eKeyManager(new E2eKeyManager(this, this))
     , mSoundManager(new SoundManager(this))
+    , mAppsMarketPlaceModel(new AppsMarketPlaceModel(this))
 {
     qCDebug(RUQOLA_LOG) << " RocketChatAccount::RocketChatAccount(const QString &accountFileName, QObject *parent)" << accountFileName;
     // create an unique file for each account
@@ -2450,6 +2453,11 @@ void RocketChatAccount::slotReconnectToDdpServer()
         // ddp() creates a new DDPClient object if it doesn't exist.
         ddp()->enqueueLogin();
     }
+}
+
+AppsMarketPlaceModel *RocketChatAccount::appsMarketPlaceModel() const
+{
+    return mAppsMarketPlaceModel;
 }
 
 void RocketChatAccount::slotReconnectToServer()
