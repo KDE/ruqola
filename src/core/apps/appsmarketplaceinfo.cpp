@@ -17,6 +17,7 @@ QDebug operator<<(QDebug d, const AppsMarketPlaceInfo &t)
     d << "appName " << t.appName();
     d << "categories " << t.categories();
     d << "documentationUrl " << t.documentationUrl();
+    d << "purchaseType " << t.purchaseType();
     return d;
 }
 
@@ -24,6 +25,12 @@ void AppsMarketPlaceInfo::parseAppsMarketPlaceInfo(const QJsonObject &replyObjec
 {
     mAppId = replyObject["appId"_L1].toString().toLatin1();
     mIsEnterpriseOnly = replyObject["isEnterpriseOnly"_L1].toBool();
+    mPurchaseType = replyObject["purchaseType"_L1].toString();
+    mPrice = replyObject["price"_L1].toInt();
+
+    const QJsonObject latestObj = replyObject["latest"_L1].toObject();
+    // TODO
+
     mAppName = replyObject["name"_L1].toString();
     mDocumentationUrl = replyObject["documentationUrl"_L1].toString();
     // FIXME it's a QStringList mCategories = replyObject["categories"_L1].toString();
@@ -84,4 +91,24 @@ QString AppsMarketPlaceInfo::documentationUrl() const
 void AppsMarketPlaceInfo::setDocumentationUrl(const QString &newDocumentationUrl)
 {
     mDocumentationUrl = newDocumentationUrl;
+}
+
+QString AppsMarketPlaceInfo::purchaseType() const
+{
+    return mPurchaseType;
+}
+
+void AppsMarketPlaceInfo::setPurchaseType(const QString &newPurchaseType)
+{
+    mPurchaseType = newPurchaseType;
+}
+
+int AppsMarketPlaceInfo::price() const
+{
+    return mPrice;
+}
+
+void AppsMarketPlaceInfo::setPrice(int newPrice)
+{
+    mPrice = newPrice;
 }

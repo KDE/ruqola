@@ -20,6 +20,8 @@ void AppsMarketPlaceInfoTest::shouldHaveDefaultValues()
     QVERIFY(!d.isEnterpriseOnly());
     QVERIFY(d.categories().isEmpty());
     QVERIFY(d.documentationUrl().isEmpty());
+    QVERIFY(d.purchaseType().isEmpty());
+    QCOMPARE(d.price(), 0);
     QVERIFY(!d.isValid());
 }
 

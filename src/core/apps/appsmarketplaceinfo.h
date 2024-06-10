@@ -34,11 +34,19 @@ public:
     [[nodiscard]] QString documentationUrl() const;
     void setDocumentationUrl(const QString &newDocumentationUrl);
 
+    [[nodiscard]] QString purchaseType() const;
+    void setPurchaseType(const QString &newPurchaseType);
+
+    [[nodiscard]] int price() const;
+    void setPrice(int newPrice);
+
 private:
     QStringList mCategories;
     QByteArray mAppId;
     QString mAppName;
     QString mDocumentationUrl;
+    QString mPurchaseType;
+    int mPrice = 0;
     bool mIsEnterpriseOnly = false;
     // TODO icon
 };
