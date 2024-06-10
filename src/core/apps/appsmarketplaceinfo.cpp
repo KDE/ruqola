@@ -5,6 +5,8 @@
 */
 
 #include "appsmarketplaceinfo.h"
+
+#include <QJsonArray>
 using namespace Qt::Literals::StringLiterals;
 AppsMarketPlaceInfo::AppsMarketPlaceInfo() = default;
 
@@ -29,7 +31,14 @@ void AppsMarketPlaceInfo::parseAppsMarketPlaceInfo(const QJsonObject &replyObjec
     mPrice = replyObject["price"_L1].toInt();
 
     const QJsonObject latestObj = replyObject["latest"_L1].toObject();
-    // TODO
+    const QJsonArray categoriesArray = latestObj["categories"_L1].toArray();
+
+    QStringList lst;
+    lst.reserve(categoriesArray.count());
+    for (const QJsonValue &current : categoriesArray) {
+        lst.append(current.toString());
+    }
+    mCategories = lst;
 
     mAppName = replyObject["name"_L1].toString();
     mDocumentationUrl = replyObject["documentationUrl"_L1].toString();
