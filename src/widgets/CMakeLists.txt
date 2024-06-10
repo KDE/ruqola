@@ -888,6 +888,9 @@ target_sources(libruqolawidgets PRIVATE
     applicationssettingsdialog/applicationssettingsdialog.cpp
     applicationssettingsdialog/applicationssettingswidget.h
     applicationssettingsdialog/applicationssettingswidget.cpp
+
+    applicationssettingsdialog/applicationssettingslistview.h
+    applicationssettingsdialog/applicationssettingslistview.cpp
 )
 
 if (HAVE_TEXT_AUTOCORRECTION_WIDGETS)
