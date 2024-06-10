@@ -219,7 +219,7 @@
       <li xml:lang="ru">Поддержка автоперевода (если предусмотрен в RC)</li>
       <li xml:lang="sl">Podpira samodejni prevod (kadar ga RC ima)</li>
       <li xml:lang="sv">Stöd automatisk översättning (när RC har det)</li>
-      <li xml:lang="tr">Otomatik çeviri desteği (RC'de varken)</li>
+      <li xml:lang="tr">Kendiliğinden çeviri desteği (RC’de varsa)</li>
       <li xml:lang="uk">Підтримка автоматичного перекладу (якщо її передбачено у RC)</li>
       <li xml:lang="x-test">xxSupport autotranslate (when RC has it)xx</li>
       <li xml:lang="zh-TW">支援自動翻譯（伺服器端 Rocket Chat 有提供的時候）</li>
@@ -1096,7 +1096,7 @@
       <caption xml:lang="ru">Комната разговора в Ruqola</caption>
       <caption xml:lang="sl">Klepetalnica v Ruqoli</caption>
       <caption xml:lang="sv">Chattrum i Ruqola</caption>
-      <caption xml:lang="tr">Roka'da sohbet odası</caption>
+      <caption xml:lang="tr">Roka’da sohbet odası</caption>
       <caption xml:lang="uk">Кімната спілкування у Ruqola</caption>
       <caption xml:lang="x-test">xxChat room in Ruqolaxx</caption>
       <caption xml:lang="zh-TW">Ruqola 中的聊天室</caption>
