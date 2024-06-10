@@ -4,7 +4,7 @@
 cmake_minimum_required(VERSION 3.16 FATAL_ERROR)
 set(RUQOLA_VERSION "2.2.41")
 # TODO: update it in each release version
-set(RUQOLA_RELEASE_VERSION "24.05.29")
+set(RUQOLA_RELEASE_VERSION "24.06.10")
 
 project(Ruqola VERSION ${RUQOLA_VERSION})
 set(QT_REQUIRED_VERSION "6.6.0")
@@ -121,7 +121,7 @@ find_package(KF6 ${KF_MIN_VERSION} REQUIRED COMPONENTS
 
 if (OPTION_USE_PLASMA_ACTIVITIES)
     if (NOT WIN32 AND NOT APPLE)
-       find_package(PlasmaActivities "6.0.0")
+       find_package(PlasmaActivities "6.1.0")
     endif()
 endif()	
 
