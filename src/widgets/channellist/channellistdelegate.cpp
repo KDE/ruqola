@@ -169,6 +169,7 @@ void ChannelListDelegate::paint(QPainter *painter, const QStyleOptionViewItem &o
             painter->setBrush(ColorsAndMessageViewStyle::self().schemeView().foreground(KColorScheme::PositiveText).color());
             break;
         case RoomModel::MentionsInfoType::Normal:
+            painter->setBrush(ColorsAndMessageViewStyle::self().schemeView().foreground(KColorScheme::InactiveText).color());
             break;
         }
         QRect mentionRect =
