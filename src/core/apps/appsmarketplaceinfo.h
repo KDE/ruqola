@@ -40,10 +40,14 @@ public:
     [[nodiscard]] int price() const;
     void setPrice(int newPrice);
 
+    [[nodiscard]] QString description() const;
+    void setDescription(const QString &newDescription);
+
 private:
     QStringList mCategories;
     QByteArray mAppId;
     QString mAppName;
+    QString mDescription;
     QString mDocumentationUrl;
     QString mPurchaseType;
     int mPrice = 0;

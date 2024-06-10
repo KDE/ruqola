@@ -20,6 +20,7 @@ QDebug operator<<(QDebug d, const AppsMarketPlaceInfo &t)
     d << "categories " << t.categories();
     d << "documentationUrl " << t.documentationUrl();
     d << "purchaseType " << t.purchaseType();
+    d << "description " << t.description();
     return d;
 }
 
@@ -40,6 +41,7 @@ void AppsMarketPlaceInfo::parseAppsMarketPlaceInfo(const QJsonObject &replyObjec
     }
     mCategories = lst;
 
+    mDescription = latestObj["description"_L1].toString();
     mAppName = replyObject["name"_L1].toString();
     mDocumentationUrl = replyObject["documentationUrl"_L1].toString();
     // FIXME it's a QStringList mCategories = replyObject["categories"_L1].toString();
@@ -120,4 +122,14 @@ int AppsMarketPlaceInfo::price() const
 void AppsMarketPlaceInfo::setPrice(int newPrice)
 {
     mPrice = newPrice;
+}
+
+QString AppsMarketPlaceInfo::description() const
+{
+    return mDescription;
+}
+
+void AppsMarketPlaceInfo::setDescription(const QString &newDescription)
+{
+    mDescription = newDescription;
 }
