@@ -197,6 +197,13 @@ void MessageUrl::generateImageUrl()
                 mImageBuildUrl += QLatin1Char('/');
             }
             mImageBuildUrl += mImageUrl;
+#if 0
+            QUrl u(url());
+            u = u.adjusted(QUrl::RemoveFilename);
+            u = u.resolved(QUrl(mImageUrl));
+            mImageBuildUrl = u.path();
+            qDebug() << " old url" << mImageBuildUrl << " u " << u;
+#endif
         }
     }
 }
