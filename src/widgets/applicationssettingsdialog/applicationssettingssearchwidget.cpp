@@ -23,6 +23,9 @@ ApplicationsSettingsSearchWidget::ApplicationsSettingsSearchWidget(QWidget *pare
     mainLayout->setContentsMargins({});
     mainLayout->setObjectName("mainLayout"_L1);
 
+    mSearchLineEdit->setObjectName("mSearchLineEdit"_L1);
+    mainLayout->addWidget(mSearchLineEdit);
+
     mApplicationsSettingsComboBox->setObjectName("mApplicationsSettingsComboBox"_L1);
     mainLayout->addWidget(mApplicationsSettingsComboBox);
 
