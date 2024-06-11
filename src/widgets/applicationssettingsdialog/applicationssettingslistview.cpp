@@ -12,3 +12,5 @@ ApplicationsSettingsListView::ApplicationsSettingsListView(QWidget *parent)
 }
 
 ApplicationsSettingsListView::~ApplicationsSettingsListView() = default;
+
+#include "moc_applicationssettingslistview.cpp"
