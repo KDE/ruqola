@@ -9,6 +9,8 @@
 #include "rocketchataccount.h"
 #include <QWidget>
 class RocketChatAccount;
+class ApplicationsSettingsSearchWidget;
+class ApplicationsSettingsListView;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT ApplicationsSettingsWidget : public QWidget
 {
     Q_OBJECT
@@ -18,4 +20,6 @@ public:
 
 private:
     RocketChatAccount *const mCurrentRocketChatAccount;
+    ApplicationsSettingsSearchWidget *const mApplicationsSettingsSearchWidget;
+    ApplicationsSettingsListView *const mApplicationsSettingsListView;
 };

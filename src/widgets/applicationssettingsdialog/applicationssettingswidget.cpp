@@ -5,10 +5,13 @@
 */
 
 #include "applicationssettingswidget.h"
+#include "applicationssettingslistview.h"
+#include "applicationssettingssearchwidget.h"
 #include "apps/appsmarketplaceinfo.h"
 #include "connection.h"
 #include "rocketchataccount.h"
 #include "ruqolawidgets_debug.h"
+
 #include <QVBoxLayout>
 
 #include "apps/appcategoriesjob.h"
@@ -16,14 +19,22 @@
 #include "apps/appfeaturedappsjob.h"
 #include "apps/appmarketplacejob.h"
 
+using namespace Qt::Literals::StringLiterals;
 ApplicationsSettingsWidget::ApplicationsSettingsWidget(RocketChatAccount *account, QWidget *parent)
     : QWidget{parent}
     , mCurrentRocketChatAccount(account)
+    , mApplicationsSettingsSearchWidget(new ApplicationsSettingsSearchWidget(this))
+    , mApplicationsSettingsListView(new ApplicationsSettingsListView(this))
 {
     auto mainLayout = new QVBoxLayout(this);
-    mainLayout->setObjectName(QStringLiteral("mainLayout"));
+    mainLayout->setObjectName("mainLayout"_L1);
     mainLayout->setContentsMargins({});
 
+    mApplicationsSettingsSearchWidget->setObjectName("mApplicationsSettingsSearchWidget"_L1);
+    mainLayout->addWidget(mApplicationsSettingsSearchWidget);
+
+    mApplicationsSettingsListView->setObjectName("mApplicationsSettingsListView"_L1);
+    mainLayout->addWidget(mApplicationsSettingsListView);
 #if 0
     auto job = new RocketChatRestApi::AppCountJob(this);
     mCurrentRocketChatAccount->restApi()->initializeRestApiJob(job);
