@@ -902,6 +902,8 @@ target_sources(libruqolawidgets PRIVATE
     applicationssettingsdialog/applicationssettingscombobox.cpp
     applicationssettingsdialog/applicationssettingspricecombobox.h
     applicationssettingsdialog/applicationssettingspricecombobox.cpp
+    applicationssettingsdialog/applicationssettingsstatuscombobox.h
+    applicationssettingsdialog/applicationssettingsstatuscombobox.cpp
 )
 
 if (HAVE_TEXT_AUTOCORRECTION_WIDGETS)
