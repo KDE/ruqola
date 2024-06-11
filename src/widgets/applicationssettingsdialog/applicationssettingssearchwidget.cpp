@@ -7,6 +7,8 @@
 #include "applicationssettingssearchwidget.h"
 #include "applicationssettingscombobox.h"
 #include "applicationssettingspricecombobox.h"
+#include "applicationssettingsstatuscombobox.h"
+
 #include <QHBoxLayout>
 #include <QLineEdit>
 using namespace Qt::Literals::StringLiterals;
@@ -15,16 +17,20 @@ ApplicationsSettingsSearchWidget::ApplicationsSettingsSearchWidget(QWidget *pare
     , mSearchLineEdit(new QLineEdit(this))
     , mApplicationsSettingsComboBox(new ApplicationsSettingsComboBox(this))
     , mApplicationsSettingsPriceComboBox(new ApplicationsSettingsPriceComboBox(this))
+    , mApplicationsSettingsStatusComboBox(new ApplicationsSettingsStatusComboBox(this))
 {
     auto mainLayout = new QHBoxLayout(this);
     mainLayout->setContentsMargins({});
-    mainLayout->setObjectName({});
+    mainLayout->setObjectName("mainLayout"_L1);
 
     mApplicationsSettingsComboBox->setObjectName("mApplicationsSettingsComboBox"_L1);
     mainLayout->addWidget(mApplicationsSettingsComboBox);
 
     mApplicationsSettingsPriceComboBox->setObjectName("mApplicationsSettingsPriceComboBox"_L1);
     mainLayout->addWidget(mApplicationsSettingsPriceComboBox);
+
+    mApplicationsSettingsStatusComboBox->setObjectName("mApplicationsSettingsStatusComboBox"_L1);
+    mainLayout->addWidget(mApplicationsSettingsStatusComboBox);
     // TODO
 }
 

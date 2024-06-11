@@ -9,6 +9,7 @@
 #include <QWidget>
 class ApplicationsSettingsComboBox;
 class ApplicationsSettingsPriceComboBox;
+class ApplicationsSettingsStatusComboBox;
 class QLineEdit;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT ApplicationsSettingsSearchWidget : public QWidget
 {
@@ -21,4 +22,5 @@ private:
     QLineEdit *const mSearchLineEdit;
     ApplicationsSettingsComboBox *const mApplicationsSettingsComboBox;
     ApplicationsSettingsPriceComboBox *const mApplicationsSettingsPriceComboBox;
+    ApplicationsSettingsStatusComboBox *const mApplicationsSettingsStatusComboBox;
 };

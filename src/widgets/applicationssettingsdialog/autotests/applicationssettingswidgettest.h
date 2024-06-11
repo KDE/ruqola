@@ -14,4 +14,6 @@ class ApplicationsSettingsWidgetTest : public QObject
 public:
     explicit ApplicationsSettingsWidgetTest(QObject *parent = nullptr);
     ~ApplicationsSettingsWidgetTest() override = default;
+private Q_SLOTS:
+    void shouldHaveDefaultValues();
 };

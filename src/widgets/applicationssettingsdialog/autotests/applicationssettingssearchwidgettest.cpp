@@ -5,6 +5,7 @@
 */
 #include "applicationssettingssearchwidgettest.h"
 #include "applicationssettingsdialog/applicationssettingssearchwidget.h"
+#include <QHBoxLayout>
 #include <QTest>
 QTEST_MAIN(ApplicationsSettingsSearchWidgetTest)
 ApplicationsSettingsSearchWidgetTest::ApplicationsSettingsSearchWidgetTest(QObject *parent)
@@ -15,7 +16,9 @@ ApplicationsSettingsSearchWidgetTest::ApplicationsSettingsSearchWidgetTest(QObje
 void ApplicationsSettingsSearchWidgetTest::shouldHaveDefaultValues()
 {
     ApplicationsSettingsSearchWidget d;
-    // TODO
+    auto mainLayout = d.findChild<QHBoxLayout *>(QStringLiteral("mainLayout"));
+    QVERIFY(mainLayout);
+    QCOMPARE(mainLayout->contentsMargins(), QMargins{});
 }
 
 #include "moc_applicationssettingssearchwidgettest.cpp"
