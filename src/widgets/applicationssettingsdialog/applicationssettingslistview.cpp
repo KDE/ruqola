@@ -5,10 +5,20 @@
 */
 
 #include "applicationssettingslistview.h"
+#include "applicationssettingsdelegate.h"
 
 ApplicationsSettingsListView::ApplicationsSettingsListView(QWidget *parent)
-    : QListView(parent)
+    : QTreeView(parent)
+    , mApplicationsSettingsListDelegate(new ApplicationsSettingsDelegate(this))
 {
+    mApplicationsSettingsListDelegate->setObjectName(QStringLiteral("mApplicationsSettingsListDelegate"));
+    setItemDelegate(mApplicationsSettingsListDelegate);
+
+    setHeaderHidden(true);
+    setRootIsDecorated(false);
+    // setUniformRowHeights(true);
+    setItemsExpandable(false);
+    setIndentation(0);
 }
 
 ApplicationsSettingsListView::~ApplicationsSettingsListView() = default;

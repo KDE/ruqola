@@ -6,12 +6,15 @@
 
 #pragma once
 #include "libruqolawidgets_private_export.h"
-#include <QListView>
-
-class LIBRUQOLAWIDGETS_TESTS_EXPORT ApplicationsSettingsListView : public QListView
+#include <QTreeView>
+class ApplicationsSettingsDelegate;
+class LIBRUQOLAWIDGETS_TESTS_EXPORT ApplicationsSettingsListView : public QTreeView
 {
     Q_OBJECT
 public:
     explicit ApplicationsSettingsListView(QWidget *parent = nullptr);
     ~ApplicationsSettingsListView() override;
+
+private:
+    ApplicationsSettingsDelegate *const mApplicationsSettingsListDelegate;
 };
