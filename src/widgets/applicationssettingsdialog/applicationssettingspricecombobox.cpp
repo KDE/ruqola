@@ -12,3 +12,5 @@ ApplicationsSettingsPriceComboBox::ApplicationsSettingsPriceComboBox(QWidget *pa
 }
 
 ApplicationsSettingsPriceComboBox::~ApplicationsSettingsPriceComboBox() = default;
+
+#include "moc_applicationssettingspricecombobox.cpp"

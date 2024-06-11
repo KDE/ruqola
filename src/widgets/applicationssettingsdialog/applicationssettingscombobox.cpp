@@ -12,3 +12,5 @@ ApplicationsSettingsComboBox::ApplicationsSettingsComboBox(QWidget *parent)
 }
 
 ApplicationsSettingsComboBox::~ApplicationsSettingsComboBox() = default;
+
+#include "moc_applicationssettingscombobox.cpp"

@@ -29,3 +29,5 @@ ApplicationsSettingsSearchWidget::ApplicationsSettingsSearchWidget(QWidget *pare
 }
 
 ApplicationsSettingsSearchWidget::~ApplicationsSettingsSearchWidget() = default;
+
+#include "moc_applicationssettingssearchwidget.cpp"

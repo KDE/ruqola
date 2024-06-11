@@ -17,3 +17,5 @@ void ApplicationsSettingsSearchWidgetTest::shouldHaveDefaultValues()
     ApplicationsSettingsSearchWidget d;
     // TODO
 }
+
+#include "moc_applicationssettingssearchwidgettest.cpp"

@@ -12,3 +12,5 @@ ApplicationsSettingsDelegate::ApplicationsSettingsDelegate(QObject *parent)
 }
 
 ApplicationsSettingsDelegate::~ApplicationsSettingsDelegate() = default;
+
+#include "moc_applicationssettingsdelegate.cpp"
