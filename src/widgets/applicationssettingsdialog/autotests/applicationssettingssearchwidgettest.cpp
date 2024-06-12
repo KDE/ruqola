@@ -19,7 +19,7 @@ ApplicationsSettingsSearchWidgetTest::ApplicationsSettingsSearchWidgetTest(QObje
 
 void ApplicationsSettingsSearchWidgetTest::shouldHaveDefaultValues()
 {
-    ApplicationsSettingsSearchWidget d;
+    ApplicationsSettingsSearchWidget d(nullptr);
     auto mainLayout = d.findChild<QHBoxLayout *>(QStringLiteral("mainLayout"));
     QVERIFY(mainLayout);
     QCOMPARE(mainLayout->contentsMargins(), QMargins{});

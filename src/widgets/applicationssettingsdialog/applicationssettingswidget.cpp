@@ -15,7 +15,7 @@ using namespace Qt::Literals::StringLiterals;
 ApplicationsSettingsWidget::ApplicationsSettingsWidget(RocketChatAccount *account, QWidget *parent)
     : QWidget{parent}
     , mCurrentRocketChatAccount(account)
-    , mApplicationsSettingsSearchWidget(new ApplicationsSettingsSearchWidget(this))
+    , mApplicationsSettingsSearchWidget(new ApplicationsSettingsSearchWidget(account, this))
     , mApplicationsSettingsListView(new ApplicationsSettingsListView(account, this))
 {
     auto mainLayout = new QVBoxLayout(this);

@@ -9,10 +9,11 @@
 #include "libruqolawidgets_private_export.h"
 #include <QComboBox>
 
+class RocketChatAccount;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT ApplicationsSettingsComboBox : public QComboBox
 {
     Q_OBJECT
 public:
-    explicit ApplicationsSettingsComboBox(QWidget *parent = nullptr);
+    explicit ApplicationsSettingsComboBox(RocketChatAccount *account, QWidget *parent = nullptr);
     ~ApplicationsSettingsComboBox() override;
 };

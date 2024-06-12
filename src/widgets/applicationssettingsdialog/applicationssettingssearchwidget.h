@@ -6,16 +6,18 @@
 
 #pragma once
 #include "libruqolawidgets_private_export.h"
+#include "rocketchataccount.h"
 #include <QWidget>
 class ApplicationsSettingsComboBox;
 class ApplicationsSettingsPriceComboBox;
 class ApplicationsSettingsStatusComboBox;
 class QLineEdit;
+class RocketChatAccount;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT ApplicationsSettingsSearchWidget : public QWidget
 {
     Q_OBJECT
 public:
-    explicit ApplicationsSettingsSearchWidget(QWidget *parent = nullptr);
+    explicit ApplicationsSettingsSearchWidget(RocketChatAccount *account, QWidget *parent = nullptr);
     ~ApplicationsSettingsSearchWidget() override;
 
 private:

@@ -5,10 +5,14 @@
 */
 
 #include "applicationssettingsaskapplicationwidget.h"
-
+#include <QVBoxLayout>
+using namespace Qt::Literals::StringLiterals;
 ApplicationsSettingsAskApplicationWidget::ApplicationsSettingsAskApplicationWidget(QWidget *parent)
     : QWidget{parent}
 {
+    auto mainLayout = new QVBoxLayout(this);
+    mainLayout->setObjectName("mainLayout"_L1);
+    mainLayout->setContentsMargins({});
 }
 
 ApplicationsSettingsAskApplicationWidget::~ApplicationsSettingsAskApplicationWidget() = default;

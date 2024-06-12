@@ -8,15 +8,16 @@
 #include "applicationssettingscombobox.h"
 #include "applicationssettingspricecombobox.h"
 #include "applicationssettingsstatuscombobox.h"
+#include "rocketchataccount.h"
 
 #include <KLineEditEventHandler>
 #include <QHBoxLayout>
 #include <QLineEdit>
 using namespace Qt::Literals::StringLiterals;
-ApplicationsSettingsSearchWidget::ApplicationsSettingsSearchWidget(QWidget *parent)
+ApplicationsSettingsSearchWidget::ApplicationsSettingsSearchWidget(RocketChatAccount *account, QWidget *parent)
     : QWidget{parent}
     , mSearchLineEdit(new QLineEdit(this))
-    , mApplicationsSettingsComboBox(new ApplicationsSettingsComboBox(this))
+    , mApplicationsSettingsComboBox(new ApplicationsSettingsComboBox(account, this))
     , mApplicationsSettingsPriceComboBox(new ApplicationsSettingsPriceComboBox(this))
     , mApplicationsSettingsStatusComboBox(new ApplicationsSettingsStatusComboBox(this))
 {
@@ -37,7 +38,6 @@ ApplicationsSettingsSearchWidget::ApplicationsSettingsSearchWidget(QWidget *pare
 
     mApplicationsSettingsStatusComboBox->setObjectName("mApplicationsSettingsStatusComboBox"_L1);
     mainLayout->addWidget(mApplicationsSettingsStatusComboBox);
-    // TODO
 }
 
 ApplicationsSettingsSearchWidget::~ApplicationsSettingsSearchWidget() = default;
