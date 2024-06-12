@@ -4,8 +4,12 @@
    SPDX-License-Identifier: LGPL-2.0-or-later
 */
 #include "applicationssettingssearchwidgettest.h"
+#include "applicationssettingsdialog/applicationssettingscombobox.h"
+#include "applicationssettingsdialog/applicationssettingspricecombobox.h"
 #include "applicationssettingsdialog/applicationssettingssearchwidget.h"
+#include "applicationssettingsdialog/applicationssettingsstatuscombobox.h"
 #include <QHBoxLayout>
+#include <QLineEdit>
 #include <QTest>
 QTEST_MAIN(ApplicationsSettingsSearchWidgetTest)
 ApplicationsSettingsSearchWidgetTest::ApplicationsSettingsSearchWidgetTest(QObject *parent)
@@ -19,6 +23,19 @@ void ApplicationsSettingsSearchWidgetTest::shouldHaveDefaultValues()
     auto mainLayout = d.findChild<QHBoxLayout *>(QStringLiteral("mainLayout"));
     QVERIFY(mainLayout);
     QCOMPARE(mainLayout->contentsMargins(), QMargins{});
+
+    auto mSearchLineEdit = d.findChild<QLineEdit *>(QStringLiteral("mSearchLineEdit"));
+    QVERIFY(mSearchLineEdit);
+    QVERIFY(mSearchLineEdit->text().isEmpty());
+
+    auto mApplicationsSettingsComboBox = d.findChild<ApplicationsSettingsComboBox *>(QStringLiteral("mApplicationsSettingsComboBox"));
+    QVERIFY(mApplicationsSettingsComboBox);
+
+    auto mApplicationsSettingsPriceComboBox = d.findChild<ApplicationsSettingsPriceComboBox *>(QStringLiteral("mApplicationsSettingsPriceComboBox"));
+    QVERIFY(mApplicationsSettingsPriceComboBox);
+
+    auto mApplicationsSettingsStatusComboBox = d.findChild<ApplicationsSettingsStatusComboBox *>(QStringLiteral("mApplicationsSettingsStatusComboBox"));
+    QVERIFY(mApplicationsSettingsStatusComboBox);
 }
 
 #include "moc_applicationssettingssearchwidgettest.cpp"
