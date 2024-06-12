@@ -24,7 +24,7 @@ ApplicationsSettingsWidget::ApplicationsSettingsWidget(RocketChatAccount *accoun
     : QWidget{parent}
     , mCurrentRocketChatAccount(account)
     , mApplicationsSettingsSearchWidget(new ApplicationsSettingsSearchWidget(this))
-    , mApplicationsSettingsListView(new ApplicationsSettingsListView(this))
+    , mApplicationsSettingsListView(new ApplicationsSettingsListView(account, this))
 {
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName("mainLayout"_L1);

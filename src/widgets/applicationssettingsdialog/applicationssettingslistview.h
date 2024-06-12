@@ -6,13 +6,15 @@
 
 #pragma once
 #include "libruqolawidgets_private_export.h"
+#include "rocketchataccount.h"
 #include <QTreeView>
 class ApplicationsSettingsDelegate;
+class RocketChatAccount;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT ApplicationsSettingsListView : public QTreeView
 {
     Q_OBJECT
 public:
-    explicit ApplicationsSettingsListView(QWidget *parent = nullptr);
+    explicit ApplicationsSettingsListView(RocketChatAccount *account, QWidget *parent = nullptr);
     ~ApplicationsSettingsListView() override;
 
 private:

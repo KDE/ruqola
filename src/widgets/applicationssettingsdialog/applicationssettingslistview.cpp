@@ -6,8 +6,9 @@
 
 #include "applicationssettingslistview.h"
 #include "applicationssettingsdelegate.h"
+#include "model/appsmarketplacemodel.h"
 
-ApplicationsSettingsListView::ApplicationsSettingsListView(QWidget *parent)
+ApplicationsSettingsListView::ApplicationsSettingsListView(RocketChatAccount *account, QWidget *parent)
     : QTreeView(parent)
     , mApplicationsSettingsListDelegate(new ApplicationsSettingsDelegate(this))
 {
@@ -19,6 +20,7 @@ ApplicationsSettingsListView::ApplicationsSettingsListView(QWidget *parent)
     // setUniformRowHeights(true);
     setItemsExpandable(false);
     setIndentation(0);
+    setModel(account->appsMarketPlaceModel());
 }
 
 ApplicationsSettingsListView::~ApplicationsSettingsListView() = default;
