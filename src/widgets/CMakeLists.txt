@@ -898,8 +898,8 @@ target_sources(libruqolawidgets PRIVATE
     applicationssettingsdialog/applicationssettingsdelegate.h
     applicationssettingsdialog/applicationssettingsdelegate.cpp
 
-    applicationssettingsdialog/applicationssettingscombobox.h
-    applicationssettingsdialog/applicationssettingscombobox.cpp
+    applicationssettingsdialog/applicationssettingscategoriescombobox.h
+    applicationssettingsdialog/applicationssettingscategoriescombobox.cpp
     applicationssettingsdialog/applicationssettingspricecombobox.h
     applicationssettingsdialog/applicationssettingspricecombobox.cpp
     applicationssettingsdialog/applicationssettingsstatuscombobox.h

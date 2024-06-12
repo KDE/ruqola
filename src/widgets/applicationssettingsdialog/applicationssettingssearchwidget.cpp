@@ -5,7 +5,7 @@
 */
 
 #include "applicationssettingssearchwidget.h"
-#include "applicationssettingscombobox.h"
+#include "applicationssettingscategoriescombobox.h"
 #include "applicationssettingspricecombobox.h"
 #include "applicationssettingsstatuscombobox.h"
 #include "rocketchataccount.h"
@@ -17,7 +17,7 @@ using namespace Qt::Literals::StringLiterals;
 ApplicationsSettingsSearchWidget::ApplicationsSettingsSearchWidget(RocketChatAccount *account, QWidget *parent)
     : QWidget{parent}
     , mSearchLineEdit(new QLineEdit(this))
-    , mApplicationsSettingsComboBox(new ApplicationsSettingsComboBox(account, this))
+    , mApplicationsSettingsComboBox(new ApplicationsSettingsCategoriesComboBox(account, this))
     , mApplicationsSettingsPriceComboBox(new ApplicationsSettingsPriceComboBox(this))
     , mApplicationsSettingsStatusComboBox(new ApplicationsSettingsStatusComboBox(this))
 {

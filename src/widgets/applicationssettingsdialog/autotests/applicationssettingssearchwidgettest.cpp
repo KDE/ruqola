@@ -4,7 +4,7 @@
    SPDX-License-Identifier: LGPL-2.0-or-later
 */
 #include "applicationssettingssearchwidgettest.h"
-#include "applicationssettingsdialog/applicationssettingscombobox.h"
+#include "applicationssettingsdialog/applicationssettingscategoriescombobox.h"
 #include "applicationssettingsdialog/applicationssettingspricecombobox.h"
 #include "applicationssettingsdialog/applicationssettingssearchwidget.h"
 #include "applicationssettingsdialog/applicationssettingsstatuscombobox.h"
@@ -28,7 +28,7 @@ void ApplicationsSettingsSearchWidgetTest::shouldHaveDefaultValues()
     QVERIFY(mSearchLineEdit);
     QVERIFY(mSearchLineEdit->text().isEmpty());
 
-    auto mApplicationsSettingsComboBox = d.findChild<ApplicationsSettingsComboBox *>(QStringLiteral("mApplicationsSettingsComboBox"));
+    auto mApplicationsSettingsComboBox = d.findChild<ApplicationsSettingsCategoriesComboBox *>(QStringLiteral("mApplicationsSettingsComboBox"));
     QVERIFY(mApplicationsSettingsComboBox);
 
     auto mApplicationsSettingsPriceComboBox = d.findChild<ApplicationsSettingsPriceComboBox *>(QStringLiteral("mApplicationsSettingsPriceComboBox"));

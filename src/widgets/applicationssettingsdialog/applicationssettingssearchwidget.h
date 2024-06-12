@@ -8,7 +8,7 @@
 #include "libruqolawidgets_private_export.h"
 #include "rocketchataccount.h"
 #include <QWidget>
-class ApplicationsSettingsComboBox;
+class ApplicationsSettingsCategoriesComboBox;
 class ApplicationsSettingsPriceComboBox;
 class ApplicationsSettingsStatusComboBox;
 class QLineEdit;
@@ -22,7 +22,7 @@ public:
 
 private:
     QLineEdit *const mSearchLineEdit;
-    ApplicationsSettingsComboBox *const mApplicationsSettingsComboBox;
+    ApplicationsSettingsCategoriesComboBox *const mApplicationsSettingsComboBox;
     ApplicationsSettingsPriceComboBox *const mApplicationsSettingsPriceComboBox;
     ApplicationsSettingsStatusComboBox *const mApplicationsSettingsStatusComboBox;
 };
