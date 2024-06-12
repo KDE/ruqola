@@ -15,9 +15,13 @@ class LIBRUQOLACORE_EXPORT AppsMarketPlaceModel : public QAbstractListModel
     Q_OBJECT
 public:
     enum AppsCategoriesRoles {
-        AppName,
+        AppName = Qt::UserRole + 1,
         AppId,
         Categories,
+        Price,
+        Description,
+        PurchaseType,
+        DocumentationUrl,
         IsEnterpriseOnly,
         LastColumn = IsEnterpriseOnly,
     };
@@ -28,7 +32,6 @@ public:
 
     [[nodiscard]] int rowCount(const QModelIndex &parent = QModelIndex()) const override;
     [[nodiscard]] QVariant data(const QModelIndex &index, int role) const override;
-    [[nodiscard]] int columnCount(const QModelIndex &parent = QModelIndex()) const override;
 
     [[nodiscard]] QList<AppsMarketPlaceInfo> appsCategories() const;
     void setAppsCategories(const QList<AppsMarketPlaceInfo> &appsCategories);

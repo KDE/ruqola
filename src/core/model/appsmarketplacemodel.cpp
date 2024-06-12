@@ -22,13 +22,6 @@ int AppsMarketPlaceModel::rowCount(const QModelIndex &parent) const
     return mAppsMarketPlaceInfos.count();
 }
 
-int AppsMarketPlaceModel::columnCount(const QModelIndex &parent) const
-{
-    Q_UNUSED(parent)
-    constexpr int val = static_cast<int>(AppsMarketPlaceModel::LastColumn) + 1;
-    return val;
-}
-
 QList<AppsMarketPlaceInfo> AppsMarketPlaceModel::appsCategories() const
 {
     return mAppsMarketPlaceInfos;
@@ -53,22 +46,27 @@ QVariant AppsMarketPlaceModel::data(const QModelIndex &index, int role) const
     if (index.row() < 0 || index.row() >= mAppsMarketPlaceInfos.count()) {
         return {};
     }
-    if (role != Qt::DisplayRole) {
-        return {};
-    }
 
-    const AppsMarketPlaceInfo &appsCategoryInfo = mAppsMarketPlaceInfos.at(index.row());
-    const int col = index.column();
-#if 0
-    switch (col) {
-    case AppsMarketPlaceModel::IdentifierRole:
-        return permissionInfo.identifier();
-    case AppsMarketPlaceModel::RolesRole:
-        return permissionInfo.roles();
-    case AppsMarketPlaceModel::RolesStrRole:
-        return permissionInfo.rolesStr().join(QLatin1Char(','));
+    const AppsMarketPlaceInfo &appsMarketPlaceInfo = mAppsMarketPlaceInfos.at(index.row());
+    switch (role) {
+    case Qt::DisplayRole:
+    case AppsMarketPlaceModel::AppName:
+        return appsMarketPlaceInfo.appName();
+    case AppsMarketPlaceModel::AppId:
+        return appsMarketPlaceInfo.appId();
+    case AppsMarketPlaceModel::Categories:
+        return appsMarketPlaceInfo.categories();
+    case AppsMarketPlaceModel::IsEnterpriseOnly:
+        return appsMarketPlaceInfo.isEnterpriseOnly();
+    case AppsMarketPlaceModel::Price:
+        return appsMarketPlaceInfo.price();
+    case AppsMarketPlaceModel::Description:
+        return appsMarketPlaceInfo.description();
+    case AppsMarketPlaceModel::PurchaseType:
+        return appsMarketPlaceInfo.purchaseType();
+    case AppsMarketPlaceModel::DocumentationUrl:
+        return appsMarketPlaceInfo.documentationUrl();
     }
-#endif
     return {};
 }
 
