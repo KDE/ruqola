@@ -133,3 +133,13 @@ void AppsMarketPlaceInfo::setDescription(const QString &newDescription)
 {
     mDescription = newDescription;
 }
+
+QIcon AppsMarketPlaceInfo::icon() const
+{
+    return mIcon;
+}
+
+void AppsMarketPlaceInfo::setIcon(const QIcon &newIcon)
+{
+    mIcon = newIcon;
+}

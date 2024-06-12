@@ -23,7 +23,7 @@ public:
         PurchaseType,
         DocumentationUrl,
         IsEnterpriseOnly,
-        LastColumn = IsEnterpriseOnly,
+        Icon,
     };
     Q_ENUM(AppsCategoriesRoles)
 
