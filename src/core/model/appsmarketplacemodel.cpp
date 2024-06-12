@@ -67,7 +67,7 @@ QVariant AppsMarketPlaceModel::data(const QModelIndex &index, int role) const
     case AppsMarketPlaceModel::DocumentationUrl:
         return appsMarketPlaceInfo.documentationUrl();
     case AppsMarketPlaceModel::Icon:
-        return appsMarketPlaceInfo.icon();
+        return appsMarketPlaceInfo.pixmap();
     }
     return {};
 }

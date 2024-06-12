@@ -8,8 +8,8 @@
 
 #include "libruqolacore_export.h"
 #include <QDebug>
-#include <QIcon>
 #include <QJsonObject>
+#include <QPixmap>
 class LIBRUQOLACORE_EXPORT AppsMarketPlaceInfo
 {
 public:
@@ -44,8 +44,8 @@ public:
     [[nodiscard]] QString description() const;
     void setDescription(const QString &newDescription);
 
-    [[nodiscard]] QIcon icon() const;
-    void setIcon(const QIcon &newIcon);
+    [[nodiscard]] QPixmap pixmap() const;
+    void setPixmap(const QPixmap &newIcon);
 
 private:
     QStringList mCategories;
@@ -54,7 +54,7 @@ private:
     QString mDescription;
     QString mDocumentationUrl;
     QString mPurchaseType;
-    QIcon mIcon;
+    QPixmap mPixmap;
     int mPrice = 0;
     bool mIsEnterpriseOnly = false;
     // TODO icon

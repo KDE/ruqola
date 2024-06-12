@@ -44,7 +44,7 @@ void AppsMarketPlaceInfo::parseAppsMarketPlaceInfo(const QJsonObject &replyObjec
     mDescription = latestObj["description"_L1].toString();
     mAppName = replyObject["name"_L1].toString();
     mDocumentationUrl = replyObject["documentationUrl"_L1].toString();
-    // FIXME it's a QStringList mCategories = replyObject["categories"_L1].toString();
+    mPixmap.loadFromData(replyObject["iconFileData"_L1].toString().toLatin1());
     // TODO
 }
 
@@ -134,12 +134,12 @@ void AppsMarketPlaceInfo::setDescription(const QString &newDescription)
     mDescription = newDescription;
 }
 
-QIcon AppsMarketPlaceInfo::icon() const
+QPixmap AppsMarketPlaceInfo::pixmap() const
 {
-    return mIcon;
+    return mPixmap;
 }
 
-void AppsMarketPlaceInfo::setIcon(const QIcon &newIcon)
+void AppsMarketPlaceInfo::setPixmap(const QPixmap &newIcon)
 {
-    mIcon = newIcon;
+    mPixmap = newIcon;
 }
