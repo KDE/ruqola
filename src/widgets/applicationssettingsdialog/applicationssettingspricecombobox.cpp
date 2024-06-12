@@ -5,12 +5,21 @@
 */
 
 #include "applicationssettingspricecombobox.h"
-
+#include <KLocalizedString>
 ApplicationsSettingsPriceComboBox::ApplicationsSettingsPriceComboBox(QWidget *parent)
     : QComboBox(parent)
 {
+    addItem(i18n("All Prices"), QString());
+    addItem(i18n("Free Apps"), QStringLiteral("free"));
+    addItem(i18n("Paid Apps"), QStringLiteral("paid"));
+    addItem(i18n("Premium"), QStringLiteral("premium"));
 }
 
 ApplicationsSettingsPriceComboBox::~ApplicationsSettingsPriceComboBox() = default;
+
+QString ApplicationsSettingsPriceComboBox::currentPrice() const
+{
+    return currentData().toString();
+}
 
 #include "moc_applicationssettingspricecombobox.cpp"

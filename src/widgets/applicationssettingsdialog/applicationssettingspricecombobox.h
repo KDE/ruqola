@@ -14,4 +14,6 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT ApplicationsSettingsPriceComboBox : public Q
 public:
     explicit ApplicationsSettingsPriceComboBox(QWidget *parent = nullptr);
     ~ApplicationsSettingsPriceComboBox() override;
+
+    [[nodiscard]] QString currentPrice() const;
 };
