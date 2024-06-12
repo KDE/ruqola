@@ -9,6 +9,7 @@
 ApplicationsSettingsComboBox::ApplicationsSettingsComboBox(QWidget *parent)
     : QComboBox(parent)
 {
+    // Add category model
 }
 
 ApplicationsSettingsComboBox::~ApplicationsSettingsComboBox() = default;
