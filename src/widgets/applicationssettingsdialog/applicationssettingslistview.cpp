@@ -20,7 +20,9 @@ ApplicationsSettingsListView::ApplicationsSettingsListView(RocketChatAccount *ac
     // setUniformRowHeights(true);
     setItemsExpandable(false);
     setIndentation(0);
-    setModel(account->appsMarketPlaceModel());
+    if (account) {
+        setModel(account->appsMarketPlaceModel());
+    }
 }
 
 ApplicationsSettingsListView::~ApplicationsSettingsListView() = default;
