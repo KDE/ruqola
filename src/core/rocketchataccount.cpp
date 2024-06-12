@@ -98,6 +98,7 @@
 #include "plugins/pluginauthentication.h"
 #include "plugins/pluginauthenticationinterface.h"
 
+#include "apps/appmarketplacejob.h"
 #include "away/awaymanager.h"
 #include "customsound/customsoundsmanager.h"
 #include "model/switchchannelhistorymodel.h"
@@ -3216,6 +3217,32 @@ void RocketChatAccount::playNewRoomNotification()
 bool RocketChatAccount::allowCustomStatusMessage() const
 {
     return mRuqolaServerConfig->allowCustomStatusMessage();
+}
+
+void RocketChatAccount::loadAppMarketPlace()
+{
+    auto job = new RocketChatRestApi::AppMarketPlaceJob(this);
+    restApi()->initializeRestApiJob(job);
+    connect(job, &RocketChatRestApi::AppMarketPlaceJob::appMarketPlaceDone, this, [this](const QJsonArray &replyArray) {
+        QList<AppsMarketPlaceInfo> listAppsMarketPlaceInfo;
+        listAppsMarketPlaceInfo.reserve(replyArray.count());
+        for (int i = 0; i < replyArray.count(); ++i) {
+            const QJsonObject obj = replyArray.at(i).toObject();
+            // qDebug() << " obj" << obj;
+            AppsMarketPlaceInfo info;
+            info.parseAppsMarketPlaceInfo(obj);
+            if (info.isValid()) {
+                listAppsMarketPlaceInfo.append(std::move(info));
+                qDebug() << " info " << info;
+            }
+        }
+        // qDebug() << " obj************ " << replyArray;
+        // qDebug() << " count ***** " << replyArray.count();
+        mAppsMarketPlaceModel->setAppsCategories(listAppsMarketPlaceInfo);
+    });
+    if (!job->start()) {
+        qCWarning(RUQOLA_LOG) << "Impossible to start AppMarketPlaceJob";
+    }
 }
 
 #include "moc_rocketchataccount.cpp"

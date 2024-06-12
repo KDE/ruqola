@@ -545,6 +545,8 @@ public:
     [[nodiscard]] bool allowCustomStatusMessage() const;
     [[nodiscard]] AppsMarketPlaceModel *appsMarketPlaceModel() const;
 
+    void loadAppMarketPlace();
+
 Q_SIGNALS:
     void roomRemoved(const QByteArray &roomId);
     void disabledTotpValid(bool checked);
