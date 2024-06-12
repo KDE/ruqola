@@ -14,4 +14,5 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT ApplicationsSettingsStatusComboBox : public 
 public:
     explicit ApplicationsSettingsStatusComboBox(QWidget *parent = nullptr);
     ~ApplicationsSettingsStatusComboBox() override;
+    [[nodiscard]] QString currentStatus() const;
 };

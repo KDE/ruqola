@@ -5,10 +5,19 @@
 */
 
 #include "applicationssettingsstatuscombobox.h"
+#include <KLocalizedString>
 
 ApplicationsSettingsStatusComboBox::ApplicationsSettingsStatusComboBox(QWidget *parent)
     : QComboBox(parent)
 {
+    addItem(i18n("All Status"), QString());
+    addItem(i18n("Enabled"), QStringLiteral("enabled"));
+    addItem(i18n("Disabled"), QStringLiteral("disabled"));
 }
 
 ApplicationsSettingsStatusComboBox::~ApplicationsSettingsStatusComboBox() = default;
+
+QString ApplicationsSettingsStatusComboBox::currentStatus() const
+{
+    return currentData().toString();
+}
