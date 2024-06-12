@@ -18,3 +18,5 @@ void ApplicationsSettingsStatusComboBoxTest::shouldHaveDefaultValues()
     ApplicationsSettingsStatusComboBox d;
     QVERIFY(d.currentStatus().isEmpty());
 }
+
+#include "moc_applicationssettingsstatuscomboboxtest.cpp"

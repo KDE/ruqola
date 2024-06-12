@@ -18,3 +18,5 @@ void ApplicationsSettingsPriceComboBoxTest::shouldHaveDefaultValues()
     ApplicationsSettingsPriceComboBox d;
     QVERIFY(d.currentPrice().isEmpty());
 }
+
+#include "moc_applicationssettingspricecomboboxtest.cpp"

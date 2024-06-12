@@ -21,3 +21,5 @@ QString ApplicationsSettingsStatusComboBox::currentStatus() const
 {
     return currentData().toString();
 }
+
+#include "moc_applicationssettingsstatuscombobox.cpp"
