@@ -9,6 +9,7 @@
 #include "applicationssettingspricecombobox.h"
 #include "applicationssettingsstatuscombobox.h"
 
+#include <KLineEditEventHandler>
 #include <QHBoxLayout>
 #include <QLineEdit>
 using namespace Qt::Literals::StringLiterals;
@@ -25,6 +26,8 @@ ApplicationsSettingsSearchWidget::ApplicationsSettingsSearchWidget(QWidget *pare
 
     mSearchLineEdit->setObjectName("mSearchLineEdit"_L1);
     mainLayout->addWidget(mSearchLineEdit);
+    KLineEditEventHandler::catchReturnKey(mSearchLineEdit);
+    mSearchLineEdit->setClearButtonEnabled(true);
 
     mApplicationsSettingsComboBox->setObjectName("mApplicationsSettingsComboBox"_L1);
     mainLayout->addWidget(mApplicationsSettingsComboBox);
