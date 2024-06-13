@@ -14,4 +14,8 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT ApplicationsSettingsDescriptionDialog : publ
 public:
     explicit ApplicationsSettingsDescriptionDialog(QWidget *parent = nullptr);
     ~ApplicationsSettingsDescriptionDialog() override;
+
+private:
+    void readConfig();
+    void writeConfig();
 };

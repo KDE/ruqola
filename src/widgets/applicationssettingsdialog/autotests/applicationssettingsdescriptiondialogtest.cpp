@@ -17,3 +17,5 @@ void ApplicationsSettingsDescriptionDialogTest::shouldHaveDefaultValues()
     ApplicationsSettingsDescriptionDialog d;
     // TODO
 }
+
+#include "moc_applicationssettingsdescriptiondialogtest.cpp"

@@ -5,10 +5,16 @@
 */
 
 #include "applicationssettingsdescriptionwidget.h"
+#include <QVBoxLayout>
 
 ApplicationsSettingsDescriptionWidget::ApplicationsSettingsDescriptionWidget(QWidget *parent)
     : QWidget{parent}
 {
+    auto mainLayout = new QVBoxLayout(this);
+    mainLayout->setObjectName(QStringLiteral("mainLayout"));
+    mainLayout->setContentsMargins({});
 }
 
 ApplicationsSettingsDescriptionWidget::~ApplicationsSettingsDescriptionWidget() = default;
+
+#include "moc_applicationssettingsdescriptionwidget.cpp"

@@ -57,4 +57,9 @@ void ApplicationsSettingsAskApplicationDialog::writeConfig()
     KWindowConfig::saveWindowSize(windowHandle(), group);
 }
 
+QString ApplicationsSettingsAskApplicationDialog::message() const
+{
+    return mApplicationsSettingsAskApplicationWidget->message();
+}
+
 #include "moc_applicationssettingsaskapplicationdialog.cpp"

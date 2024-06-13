@@ -15,6 +15,8 @@ public:
     explicit ApplicationsSettingsAskApplicationDialog(QWidget *parent = nullptr);
     ~ApplicationsSettingsAskApplicationDialog() override;
 
+    [[nodiscard]] QString message() const;
+
 private:
     void readConfig();
     void writeConfig();
