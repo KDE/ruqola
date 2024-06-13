@@ -5,13 +5,13 @@
 */
 
 #include "notifyadminsappsjob.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "restapimethod.h"
 #include "rocketchatqtrestapi_debug.h"
 
 #include <QJsonDocument>
 #include <QJsonObject>
+using namespace Qt::Literals::StringLiterals;
 using namespace RocketChatRestApi;
 NotifyAdminsAppsJob::NotifyAdminsAppsJob(QObject *parent)
     : RestApiAbstractJob(parent)
@@ -93,7 +93,7 @@ QJsonDocument NotifyAdminsAppsJob::json() const
 
 bool NotifyAdminsAppsJob::NotifyAdminsAppsInfo::isValid() const
 {
-    return !appId.isEmpty() && !appName.isEmpty() && !appVersion.isEmpty();
+    return !appId.isEmpty() && !appName.isEmpty() && !appVersion.isEmpty() && !message.isEmpty();
 }
 
 #include "moc_notifyadminsappsjob.cpp"
