@@ -15,10 +15,9 @@ class LIBRUQOLACORE_EXPORT AppsCategoriesModel : public QAbstractListModel
     Q_OBJECT
 public:
     enum AppsCategoriesRoles {
-        Identifier,
+        Identifier = Qt::UserRole + 1,
         Title,
         Hidden,
-        LastColumn = Hidden,
     };
     Q_ENUM(AppsCategoriesRoles)
 
@@ -27,7 +26,6 @@ public:
 
     [[nodiscard]] int rowCount(const QModelIndex &parent = QModelIndex()) const override;
     [[nodiscard]] QVariant data(const QModelIndex &index, int role) const override;
-    [[nodiscard]] int columnCount(const QModelIndex &parent = QModelIndex()) const override;
 
     [[nodiscard]] QList<AppsCategoryInfo> appsCategories() const;
     void setAppsCategories(const QList<AppsCategoryInfo> &appsCategories);

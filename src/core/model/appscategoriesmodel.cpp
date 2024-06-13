@@ -22,13 +22,6 @@ int AppsCategoriesModel::rowCount(const QModelIndex &parent) const
     return mAppsCategories.count();
 }
 
-int AppsCategoriesModel::columnCount(const QModelIndex &parent) const
-{
-    Q_UNUSED(parent)
-    constexpr int val = static_cast<int>(AppsCategoriesModel::LastColumn) + 1;
-    return val;
-}
-
 QList<AppsCategoryInfo> AppsCategoriesModel::appsCategories() const
 {
     return mAppsCategories;
