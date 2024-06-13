@@ -47,6 +47,9 @@ public:
     [[nodiscard]] QPixmap pixmap() const;
     void setPixmap(const QPixmap &newIcon);
 
+    [[nodiscard]] QString version() const;
+    void setVersion(const QString &newVersion);
+
 private:
     QStringList mCategories;
     QByteArray mAppId;
@@ -54,6 +57,7 @@ private:
     QString mDescription;
     QString mDocumentationUrl;
     QString mPurchaseType;
+    QString mVersion;
     QPixmap mPixmap;
     int mPrice = 0;
     bool mIsEnterpriseOnly = false;

@@ -3263,7 +3263,7 @@ void RocketChatAccount::loadAppMarketPlace()
         listAppsMarketPlaceInfo.reserve(replyArray.count());
         for (int i = 0; i < replyArray.count(); ++i) {
             const QJsonObject obj = replyArray.at(i).toObject();
-            // qDebug() << " obj" << obj;
+            qDebug() << " obj" << obj;
             AppsMarketPlaceInfo info;
             info.parseAppsMarketPlaceInfo(obj);
             if (info.isValid()) {

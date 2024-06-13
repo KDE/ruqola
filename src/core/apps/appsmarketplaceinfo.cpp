@@ -21,6 +21,8 @@ QDebug operator<<(QDebug d, const AppsMarketPlaceInfo &t)
     d << "documentationUrl " << t.documentationUrl();
     d << "purchaseType " << t.purchaseType();
     d << "description " << t.description();
+    d << "price " << t.price();
+    d << "version " << t.version();
     return d;
 }
 
@@ -42,6 +44,7 @@ void AppsMarketPlaceInfo::parseAppsMarketPlaceInfo(const QJsonObject &replyObjec
     mCategories = lst;
 
     mDescription = latestObj["description"_L1].toString();
+    mVersion = latestObj["version"_L1].toString();
     mAppName = replyObject["name"_L1].toString();
     mDocumentationUrl = replyObject["documentationUrl"_L1].toString();
     mPixmap.loadFromData(replyObject["iconFileData"_L1].toString().toLatin1());
@@ -142,4 +145,14 @@ QPixmap AppsMarketPlaceInfo::pixmap() const
 void AppsMarketPlaceInfo::setPixmap(const QPixmap &newIcon)
 {
     mPixmap = newIcon;
+}
+
+QString AppsMarketPlaceInfo::version() const
+{
+    return mVersion;
+}
+
+void AppsMarketPlaceInfo::setVersion(const QString &newVersion)
+{
+    mVersion = newVersion;
 }
