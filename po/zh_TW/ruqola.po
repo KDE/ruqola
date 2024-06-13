@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-06-11 00:39+0000\n"
+"POT-Creation-Date: 2024-06-13 00:38+0000\n"
 "PO-Revision-Date: 2024-05-09 06:59+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
@@ -831,6 +831,7 @@ msgid "Role"
 msgstr "角色"
 
 #: core/model/adminusersmodel.cpp:116 core/model/adminusersmodel.cpp:163
+#: widgets/applicationssettingsdialog/applicationssettingsstatuscombobox.cpp:15
 #: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:277
 #, kde-format
 msgid "Disabled"
@@ -1432,12 +1433,12 @@ msgctxt "We need a space between after </strong>"
 msgid "<strong>%1</strong> are typing..."
 msgstr ""
 
-#: core/rocketchataccount.cpp:3003
+#: core/rocketchataccount.cpp:3004
 #, kde-format
 msgid "Export Messages"
 msgstr "匯出訊息"
 
-#: core/rocketchataccount.cpp:3004
+#: core/rocketchataccount.cpp:3005
 #, kde-format
 msgid "Your email has been queued for sending."
 msgstr ""
@@ -4218,6 +4219,7 @@ msgstr ""
 #: widgets/administratorsettingsdialog/videoconference/videoconferencewidget.cpp:17
 #: widgets/administratorsettingsdialog/videoconference/videoconferencewidget.cpp:21
 #: widgets/administratorsettingsdialog/webrtc/webrtcsettingswidget.cpp:15
+#: widgets/applicationssettingsdialog/applicationssettingsstatuscombobox.cpp:14
 #, kde-format
 msgid "Enabled"
 msgstr "已啟用"
@@ -6284,12 +6286,39 @@ msgstr ""
 msgid "STUN/TURN Servers"
 msgstr ""
 
+#: widgets/applicationssettingsdialog/applicationssettingsaskapplicationdialog.cpp:24
 #: widgets/applicationssettingsdialog/applicationssettingsdialog.cpp:27
 #, fuzzy, kde-format
 #| msgid "Application ID (iss)"
 msgctxt "@title:window"
 msgid "Applications"
 msgstr "應用程式 ID (iss)"
+
+#: widgets/applicationssettingsdialog/applicationssettingspricecombobox.cpp:12
+#, kde-format
+msgid "All Prices"
+msgstr ""
+
+#: widgets/applicationssettingsdialog/applicationssettingspricecombobox.cpp:13
+#, kde-format
+msgid "Free Apps"
+msgstr ""
+
+#: widgets/applicationssettingsdialog/applicationssettingspricecombobox.cpp:14
+#, kde-format
+msgid "Paid Apps"
+msgstr ""
+
+#: widgets/applicationssettingsdialog/applicationssettingspricecombobox.cpp:15
+#, kde-format
+msgid "Premium"
+msgstr ""
+
+#: widgets/applicationssettingsdialog/applicationssettingsstatuscombobox.cpp:13
+#, fuzzy, kde-format
+#| msgid "Status"
+msgid "All Status"
+msgstr "狀態"
 
 #: widgets/bannerinfodialog/bannerinfodialog.cpp:27
 #, fuzzy, kde-format

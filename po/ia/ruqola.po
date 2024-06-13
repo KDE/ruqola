@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-06-11 00:39+0000\n"
+"POT-Creation-Date: 2024-06-13 00:38+0000\n"
 "PO-Revision-Date: 2024-06-07 09:55+0200\n"
 "Last-Translator: giovanni <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
@@ -810,6 +810,7 @@ msgid "Role"
 msgstr "Rolo"
 
 #: core/model/adminusersmodel.cpp:116 core/model/adminusersmodel.cpp:163
+#: widgets/applicationssettingsdialog/applicationssettingsstatuscombobox.cpp:15
 #: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:277
 #, kde-format
 msgid "Disabled"
@@ -1403,12 +1404,12 @@ msgctxt "We need a space between after </strong>"
 msgid "<strong>%1</strong> are typing..."
 msgstr "<strong>%1</strong> es typante..."
 
-#: core/rocketchataccount.cpp:3003
+#: core/rocketchataccount.cpp:3004
 #, kde-format
 msgid "Export Messages"
 msgstr "Exporta Messages "
 
-#: core/rocketchataccount.cpp:3004
+#: core/rocketchataccount.cpp:3005
 #, kde-format
 msgid "Your email has been queued for sending."
 msgstr "Tu e-posta ha essite ponite in cauda pro inviar."
@@ -4088,6 +4089,7 @@ msgstr ""
 #: widgets/administratorsettingsdialog/videoconference/videoconferencewidget.cpp:17
 #: widgets/administratorsettingsdialog/videoconference/videoconferencewidget.cpp:21
 #: widgets/administratorsettingsdialog/webrtc/webrtcsettingswidget.cpp:15
+#: widgets/applicationssettingsdialog/applicationssettingsstatuscombobox.cpp:14
 #, kde-format
 msgid "Enabled"
 msgstr "Habilitate"
@@ -6068,11 +6070,39 @@ msgstr ""
 msgid "STUN/TURN Servers"
 msgstr ""
 
+#: widgets/applicationssettingsdialog/applicationssettingsaskapplicationdialog.cpp:24
 #: widgets/applicationssettingsdialog/applicationssettingsdialog.cpp:27
 #, kde-format
 msgctxt "@title:window"
 msgid "Applications"
 msgstr "Applicationes"
+
+#: widgets/applicationssettingsdialog/applicationssettingspricecombobox.cpp:12
+#, fuzzy, kde-format
+#| msgid "All Files (*)"
+msgid "All Prices"
+msgstr "Omne files (*)"
+
+#: widgets/applicationssettingsdialog/applicationssettingspricecombobox.cpp:13
+#, kde-format
+msgid "Free Apps"
+msgstr ""
+
+#: widgets/applicationssettingsdialog/applicationssettingspricecombobox.cpp:14
+#, kde-format
+msgid "Paid Apps"
+msgstr ""
+
+#: widgets/applicationssettingsdialog/applicationssettingspricecombobox.cpp:15
+#, kde-format
+msgid "Premium"
+msgstr ""
+
+#: widgets/applicationssettingsdialog/applicationssettingsstatuscombobox.cpp:13
+#, fuzzy, kde-format
+#| msgid "Status"
+msgid "All Status"
+msgstr "Stato"
 
 #: widgets/bannerinfodialog/bannerinfodialog.cpp:27
 #, kde-format
@@ -10693,9 +10723,6 @@ msgstr "Assigna url de vista preliminar"
 #~| msgid "Save &As..."
 #~ msgid "Save As..."
 #~ msgstr "Salveguarda como..."
-
-#~ msgid "All Files (*)"
-#~ msgstr "Omne files (*)"
 
 #~ msgid "Translate..."
 #~ msgstr "Traduce..."

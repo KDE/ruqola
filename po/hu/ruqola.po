@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-06-11 00:39+0000\n"
+"POT-Creation-Date: 2024-06-13 00:38+0000\n"
 "PO-Revision-Date: 2024-06-07 13:16+0200\n"
 "Last-Translator: Kristof Kiszel <ulysses@fsf.hu>\n"
 "Language-Team: Hungarian <kde-l10n-hu@kde.org>\n"
@@ -817,6 +817,7 @@ msgid "Role"
 msgstr "Szerep"
 
 #: core/model/adminusersmodel.cpp:116 core/model/adminusersmodel.cpp:163
+#: widgets/applicationssettingsdialog/applicationssettingsstatuscombobox.cpp:15
 #: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:277
 #, kde-format
 msgid "Disabled"
@@ -1410,12 +1411,12 @@ msgctxt "We need a space between after </strong>"
 msgid "<strong>%1</strong> are typing..."
 msgstr "<strong>%1</strong> gépelnek…"
 
-#: core/rocketchataccount.cpp:3003
+#: core/rocketchataccount.cpp:3004
 #, kde-format
 msgid "Export Messages"
 msgstr "Üzenetek exportálása"
 
-#: core/rocketchataccount.cpp:3004
+#: core/rocketchataccount.cpp:3005
 #, kde-format
 msgid "Your email has been queued for sending."
 msgstr "Az e-maile sorba lett állítva a küldéshez."
@@ -4121,6 +4122,7 @@ msgstr "Kimenő hivatkozások elrejtése"
 #: widgets/administratorsettingsdialog/videoconference/videoconferencewidget.cpp:17
 #: widgets/administratorsettingsdialog/videoconference/videoconferencewidget.cpp:21
 #: widgets/administratorsettingsdialog/webrtc/webrtcsettingswidget.cpp:15
+#: widgets/applicationssettingsdialog/applicationssettingsstatuscombobox.cpp:14
 #, kde-format
 msgid "Enabled"
 msgstr "Bekapcsolva"
@@ -6197,12 +6199,39 @@ msgstr ""
 msgid "STUN/TURN Servers"
 msgstr "STUN/TURN-kiszolgálók"
 
+#: widgets/applicationssettingsdialog/applicationssettingsaskapplicationdialog.cpp:24
 #: widgets/applicationssettingsdialog/applicationssettingsdialog.cpp:27
 #, fuzzy, kde-format
 #| msgid "Application not found"
 msgctxt "@title:window"
 msgid "Applications"
 msgstr "Az alkalmazás nem található"
+
+#: widgets/applicationssettingsdialog/applicationssettingspricecombobox.cpp:12
+#, kde-format
+msgid "All Prices"
+msgstr ""
+
+#: widgets/applicationssettingsdialog/applicationssettingspricecombobox.cpp:13
+#, kde-format
+msgid "Free Apps"
+msgstr ""
+
+#: widgets/applicationssettingsdialog/applicationssettingspricecombobox.cpp:14
+#, kde-format
+msgid "Paid Apps"
+msgstr ""
+
+#: widgets/applicationssettingsdialog/applicationssettingspricecombobox.cpp:15
+#, kde-format
+msgid "Premium"
+msgstr ""
+
+#: widgets/applicationssettingsdialog/applicationssettingsstatuscombobox.cpp:13
+#, fuzzy, kde-format
+#| msgid "Status"
+msgid "All Status"
+msgstr "Állapot"
 
 #: widgets/bannerinfodialog/bannerinfodialog.cpp:27
 #, kde-format
