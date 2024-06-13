@@ -5,7 +5,7 @@
 */
 
 #include "applicationssettingsdelegate.h"
-#include "model/appscategoriesmodel.h"
+#include "model/appsmarketplacemodel.h"
 
 ApplicationsSettingsDelegate::ApplicationsSettingsDelegate(QObject *parent)
     : QItemDelegate{parent}
