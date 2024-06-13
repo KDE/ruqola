@@ -8,9 +8,9 @@
 
 #include "apps/appscategoryinfo.h"
 #include "libruqolacore_export.h"
-#include <QAbstractListModel>
+#include <QStandardItemModel>
 
-class LIBRUQOLACORE_EXPORT AppsCategoriesModel : public QAbstractListModel
+class LIBRUQOLACORE_EXPORT AppsCategoriesModel : public QStandardItemModel
 {
     Q_OBJECT
 public:
@@ -24,12 +24,10 @@ public:
     explicit AppsCategoriesModel(QObject *parent = nullptr);
     ~AppsCategoriesModel() override;
 
-    [[nodiscard]] int rowCount(const QModelIndex &parent = QModelIndex()) const override;
-    [[nodiscard]] QVariant data(const QModelIndex &index, int role) const override;
-
     [[nodiscard]] QList<AppsCategoryInfo> appsCategories() const;
     void setAppsCategories(const QList<AppsCategoryInfo> &appsCategories);
 
 private:
+    LIBRUQOLACORE_NO_EXPORT void createItem(const QString &displayStr, const QString &identifier);
     QList<AppsCategoryInfo> mAppsCategories;
 };

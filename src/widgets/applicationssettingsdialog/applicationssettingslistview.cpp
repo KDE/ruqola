@@ -19,6 +19,7 @@ ApplicationsSettingsListView::ApplicationsSettingsListView(RocketChatAccount *ac
     setRootIsDecorated(false);
     // setUniformRowHeights(true);
     setItemsExpandable(false);
+    setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     setIndentation(0);
     if (account) {
         setModel(account->appsMarketPlaceModel());

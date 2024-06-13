@@ -8,18 +8,20 @@
 #include <KLocalizedString>
 
 AppsCategoriesModel::AppsCategoriesModel(QObject *parent)
-    : QAbstractListModel(parent)
+    : QStandardItemModel(parent)
 {
 }
 
 AppsCategoriesModel::~AppsCategoriesModel() = default;
 
-int AppsCategoriesModel::rowCount(const QModelIndex &parent) const
+void AppsCategoriesModel::createItem(const QString &displayStr, const QString &identifier)
 {
-    if (parent.isValid()) {
-        return 0; // flat model
-    }
-    return mAppsCategories.count();
+    auto item = new QStandardItem(displayStr);
+    item->setFlags(Qt::ItemIsUserCheckable | Qt::ItemIsEnabled);
+    item->setData(identifier, Identifier);
+    item->setData(Qt::Unchecked, Qt::CheckStateRole);
+    item->setToolTip(displayStr);
+    appendRow(item);
 }
 
 QList<AppsCategoryInfo> AppsCategoriesModel::appsCategories() const
@@ -29,35 +31,9 @@ QList<AppsCategoryInfo> AppsCategoriesModel::appsCategories() const
 
 void AppsCategoriesModel::setAppsCategories(const QList<AppsCategoryInfo> &appsCategories)
 {
-    if (!mAppsCategories.isEmpty()) {
-        beginResetModel();
-        mAppsCategories.clear();
-        endResetModel();
+    for (const AppsCategoryInfo &info : appsCategories) {
+        createItem(info.title(), info.identifier());
     }
-    if (!appsCategories.isEmpty()) {
-        beginInsertRows(QModelIndex(), 0, appsCategories.count() - 1);
-        mAppsCategories = appsCategories;
-        endInsertRows();
-    }
-}
-
-QVariant AppsCategoriesModel::data(const QModelIndex &index, int role) const
-{
-    if (index.row() < 0 || index.row() >= mAppsCategories.count()) {
-        return {};
-    }
-
-    const AppsCategoryInfo &appsCategoryInfo = mAppsCategories.at(index.row());
-    switch (role) {
-    case AppsCategoriesRoles::Identifier:
-        return appsCategoryInfo.identifier();
-    case Qt::DisplayRole:
-    case AppsCategoriesRoles::Title:
-        return appsCategoryInfo.title();
-    case AppsCategoriesRoles::Hidden:
-        return appsCategoryInfo.hidden();
-    }
-    return {};
 }
 
 #include "moc_appscategoriesmodel.cpp"

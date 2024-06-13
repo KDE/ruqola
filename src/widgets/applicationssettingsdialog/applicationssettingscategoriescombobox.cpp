@@ -15,6 +15,7 @@ ApplicationsSettingsCategoriesComboBox::ApplicationsSettingsCategoriesComboBox(R
     if (account) {
         setModel(account->appsCategoriesModel());
     }
+    setSizeAdjustPolicy(QComboBox::AdjustToContents);
 }
 
 ApplicationsSettingsCategoriesComboBox::~ApplicationsSettingsCategoriesComboBox() = default;

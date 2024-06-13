@@ -47,8 +47,9 @@ QSize ApplicationsSettingsDelegate::sizeHint(const QStyleOptionViewItem &option,
 
 ApplicationsSettingsDelegate::Layout ApplicationsSettingsDelegate::doLayout(const QStyleOptionViewItem &option, const QModelIndex &index) const
 {
+    ApplicationsSettingsDelegate::Layout layout;
     // TODO
-    return {};
+    return layout;
 }
 
 QByteArray ApplicationsSettingsDelegate::cacheIdentifier(const QModelIndex &index) const
