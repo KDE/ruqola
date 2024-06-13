@@ -122,7 +122,7 @@ void MyAccountProfileConfigureWidget::slotDeleteMyAccount()
 {
     if (KMessageBox::ButtonCode::PrimaryAction
         == KMessageBox::questionTwoActions(this,
-                                           i18n("Do you really delete your account ?"),
+                                           i18n("Do you really want to delete your account?"),
                                            i18nc("@title", "Delete my Account"),
                                            KStandardGuiItem::del(),
                                            KStandardGuiItem::cancel())) {
