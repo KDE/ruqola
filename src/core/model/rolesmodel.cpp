@@ -5,12 +5,12 @@
 */
 
 #include "rolesmodel.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "roles/roleinfo.h"
 #include "ruqola_debug.h"
-
 #include <KLocalizedString>
+
+using namespace Qt::Literals::StringLiterals;
 RolesModel::RolesModel(QObject *parent)
     : QStandardItemModel(parent)
 {
