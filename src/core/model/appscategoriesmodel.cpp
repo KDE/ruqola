@@ -46,22 +46,17 @@ QVariant AppsCategoriesModel::data(const QModelIndex &index, int role) const
     if (index.row() < 0 || index.row() >= mAppsCategories.count()) {
         return {};
     }
-    if (role != Qt::DisplayRole) {
-        return {};
-    }
 
     const AppsCategoryInfo &appsCategoryInfo = mAppsCategories.at(index.row());
-    const int col = index.column();
-#if 0
-    switch (col) {
-    case AppsCategoriesModel::IdentifierRole:
-        return permissionInfo.identifier();
-    case AppsCategoriesModel::RolesRole:
-        return permissionInfo.roles();
-    case AppsCategoriesModel::RolesStrRole:
-        return permissionInfo.rolesStr().join(QLatin1Char(','));
+    switch (role) {
+    case AppsCategoriesRoles::Identifier:
+        return appsCategoryInfo.identifier();
+    case Qt::DisplayRole:
+    case AppsCategoriesRoles::Title:
+        return appsCategoryInfo.title();
+    case AppsCategoriesRoles::Hidden:
+        return appsCategoryInfo.hidden();
     }
-#endif
     return {};
 }
 
