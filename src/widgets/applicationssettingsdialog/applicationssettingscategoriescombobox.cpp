@@ -12,6 +12,9 @@ ApplicationsSettingsCategoriesComboBox::ApplicationsSettingsCategoriesComboBox(R
     : QComboBox(parent)
 {
     // Add category model
+    if (account) {
+        setModel(account->appsCategoriesModel());
+    }
 }
 
 ApplicationsSettingsCategoriesComboBox::~ApplicationsSettingsCategoriesComboBox() = default;
