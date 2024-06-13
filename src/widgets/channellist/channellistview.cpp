@@ -44,7 +44,6 @@ ChannelListView::ChannelListView(QWidget *parent)
     setModel(mRoomFilterProxyModel);
     setHeaderHidden(true);
     setRootIsDecorated(false);
-    // setUniformRowHeights(true);
     setItemsExpandable(false);
     setIndentation(0);
 
