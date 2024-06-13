@@ -49,6 +49,11 @@ void AppsCategoryInfo::setIdentifier(const QString &newIdentifier)
     mIdentifier = newIdentifier;
 }
 
+bool AppsCategoryInfo::isValid() const
+{
+    return !mIdentifier.isEmpty();
+}
+
 QDebug operator<<(QDebug d, const AppsCategoryInfo &t)
 {
     d.space() << "mTitle" << t.title();

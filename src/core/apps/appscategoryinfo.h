@@ -24,6 +24,8 @@ public:
     [[nodiscard]] QString identifier() const;
     void setIdentifier(const QString &newIdentifier);
 
+    [[nodiscard]] bool isValid() const;
+
 private:
     QString mIdentifier;
     QString mTitle;

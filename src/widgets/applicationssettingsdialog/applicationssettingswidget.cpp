@@ -29,6 +29,7 @@ ApplicationsSettingsWidget::ApplicationsSettingsWidget(RocketChatAccount *accoun
     mainLayout->addWidget(mApplicationsSettingsListView);
     if (mCurrentRocketChatAccount) {
         mCurrentRocketChatAccount->loadAppMarketPlace();
+        mCurrentRocketChatAccount->loadAppCategories();
     }
 }
 

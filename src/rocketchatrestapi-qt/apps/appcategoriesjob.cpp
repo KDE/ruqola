@@ -8,6 +8,7 @@
 
 #include "restapimethod.h"
 #include "rocketchatqtrestapi_debug.h"
+#include <QJsonArray>
 #include <QJsonDocument>
 #include <QJsonObject>
 #include <QUrlQuery>
@@ -41,6 +42,9 @@ bool AppCategoriesJob::start()
 
 void AppCategoriesJob::onGetRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
+    const QJsonArray replyArray = replyJson.array();
+    Q_EMIT appCategoriesDone(replyArray);
+#if 0
     const QJsonObject replyObject = replyJson.object();
     if (replyObject["success"_L1].toBool()) {
         addLoggerInfo(QByteArrayLiteral("AppCategoriesJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
@@ -49,6 +53,7 @@ void AppCategoriesJob::onGetRequestResponse(const QString &replyErrorString, con
         emitFailedMessage(replyErrorString, replyObject);
         addLoggerWarning(QByteArrayLiteral("AppCategoriesJob: Problem when we tried to get app count info : ") + replyJson.toJson(QJsonDocument::Indented));
     }
+#endif
 }
 
 QNetworkRequest AppCategoriesJob::request() const

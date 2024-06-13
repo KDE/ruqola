@@ -19,6 +19,7 @@ void AppsCategoryInfoTest::shouldHaveDefaultValues()
     QVERIFY(d.identifier().isEmpty());
     QVERIFY(d.title().isEmpty());
     QVERIFY(!d.hidden());
+    QVERIFY(!d.isValid());
 }
 
 #include "moc_appscategoryinfotest.cpp"

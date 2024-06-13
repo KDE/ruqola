@@ -548,6 +548,7 @@ public:
     [[nodiscard]] AppsCategoriesModel *appsCategoriesModel() const;
 
     void loadAppMarketPlace();
+    void loadAppCategories();
 
 Q_SIGNALS:
     void roomRemoved(const QByteArray &roomId);
