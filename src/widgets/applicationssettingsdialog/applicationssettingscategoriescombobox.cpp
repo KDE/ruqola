@@ -5,6 +5,7 @@
 */
 
 #include "applicationssettingscategoriescombobox.h"
+#include "model/appscategoriesmodel.h"
 #include "rocketchataccount.h"
 
 ApplicationsSettingsCategoriesComboBox::ApplicationsSettingsCategoriesComboBox(RocketChatAccount *account, QWidget *parent)

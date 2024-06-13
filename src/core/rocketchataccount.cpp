@@ -7,6 +7,7 @@
 #include "rocketchataccount.h"
 #include "accountroomsettings.h"
 #include "config-ruqola.h"
+#include "model/appscategoriesmodel.h"
 #include "notifications/notificationpreferences.h"
 #include "ruqolautils.h"
 
@@ -136,6 +137,7 @@ RocketChatAccount::RocketChatAccount(const QString &accountFileName, QObject *pa
     , mE2eKeyManager(new E2eKeyManager(this, this))
     , mSoundManager(new SoundManager(this))
     , mAppsMarketPlaceModel(new AppsMarketPlaceModel(this))
+    , mAppsCategoriesModel(new AppsCategoriesModel(this))
 {
     qCDebug(RUQOLA_LOG) << " RocketChatAccount::RocketChatAccount(const QString &accountFileName, QObject *parent)" << accountFileName;
     // create an unique file for each account
@@ -2454,6 +2456,11 @@ void RocketChatAccount::slotReconnectToDdpServer()
         // ddp() creates a new DDPClient object if it doesn't exist.
         ddp()->enqueueLogin();
     }
+}
+
+AppsCategoriesModel *RocketChatAccount::appsCategoriesModel() const
+{
+    return mAppsCategoriesModel;
 }
 
 AppsMarketPlaceModel *RocketChatAccount::appsMarketPlaceModel() const

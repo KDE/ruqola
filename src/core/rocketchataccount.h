@@ -92,6 +92,7 @@ class Connection;
 class NotificationPreferences;
 class SoundManager;
 class AppsMarketPlaceModel;
+class AppsCategoriesModel;
 
 class LIBRUQOLACORE_EXPORT RocketChatAccount : public QObject
 {
@@ -544,6 +545,7 @@ public:
 
     [[nodiscard]] bool allowCustomStatusMessage() const;
     [[nodiscard]] AppsMarketPlaceModel *appsMarketPlaceModel() const;
+    [[nodiscard]] AppsCategoriesModel *appsCategoriesModel() const;
 
     void loadAppMarketPlace();
 
@@ -743,6 +745,7 @@ private:
     E2eKeyManager *const mE2eKeyManager;
     SoundManager *const mSoundManager;
     AppsMarketPlaceModel *const mAppsMarketPlaceModel;
+    AppsCategoriesModel *const mAppsCategoriesModel;
     int mDelayReconnect = 100;
     bool mEditingMode = false;
     bool mMarkUnreadThreadsAsReadOnNextReply = false;
