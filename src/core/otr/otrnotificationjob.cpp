@@ -96,7 +96,7 @@ QString OtrNotificationJob::generateText()
     }
     case Otr::OtrType::Handshake: {
         str = mRocketChatAccount->accountName() + QLatin1Char('\n')
-            + i18n("%1  wants to start OTR. Do you want to accept?", QStringLiteral("test")); // FIXME use correct name
+            + i18n("%1 wants to start OTR. Do you want to accept?", QStringLiteral("test")); // FIXME use correct name
         break;
     }
     case Otr::OtrType::Deny: {
