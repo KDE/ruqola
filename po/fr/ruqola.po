@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-06-13 00:38+0000\n"
+"POT-Creation-Date: 2024-06-14 00:39+0000\n"
 "PO-Revision-Date: 2024-06-08 08:17+0200\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
 "Language-Team: French <French <kde-francophone@kde.org>>\n"
@@ -1388,8 +1388,9 @@ msgid "%1 ended the OTR session."
 msgstr "%1 demande le démarrage de  OTR ». Voulez-vous vraiment l'accepter ?"
 
 #: core/otr/otrnotificationjob.cpp:99
-#, kde-format
-msgid "%1  wants to start OTR. Do you want to accept?."
+#, fuzzy, kde-format
+#| msgid "%1  wants to start OTR. Do you want to accept?."
+msgid "%1 wants to start OTR. Do you want to accept?"
 msgstr "%1 demande le démarrage de  OTR ». Voulez-vous vraiment l'accepter ?"
 
 #: core/otr/otrnotificationjob.cpp:103
@@ -1409,12 +1410,12 @@ msgctxt "We need a space between after </strong>"
 msgid "<strong>%1</strong> are typing..."
 msgstr "<strong>%1</strong>sont en train d'écrire..."
 
-#: core/rocketchataccount.cpp:3004
+#: core/rocketchataccount.cpp:3012
 #, kde-format
 msgid "Export Messages"
 msgstr "Exporter des messages"
 
-#: core/rocketchataccount.cpp:3005
+#: core/rocketchataccount.cpp:3013
 #, kde-format
 msgid "Your email has been queued for sending."
 msgstr "Un courrier électronique a été mis dans la liste d'attente pour envoi."
@@ -6299,11 +6300,22 @@ msgid "STUN/TURN Servers"
 msgstr "Serveurs « STUN / TURN »"
 
 #: widgets/applicationssettingsdialog/applicationssettingsaskapplicationdialog.cpp:24
+#: widgets/applicationssettingsdialog/applicationssettingsdescriptiondialog.cpp:22
 #: widgets/applicationssettingsdialog/applicationssettingsdialog.cpp:27
 #, kde-format
 msgctxt "@title:window"
 msgid "Applications"
 msgstr "Applications"
+
+#: widgets/applicationssettingsdialog/applicationssettingsaskapplicationwidget.cpp:22
+#, kde-format
+msgid "Let your admin know why this app would be useful "
+msgstr ""
+
+#: widgets/applicationssettingsdialog/applicationssettingsaskapplicationwidget.cpp:28
+#, kde-format
+msgid "Message for workspace admin"
+msgstr ""
 
 #: widgets/applicationssettingsdialog/applicationssettingspricecombobox.cpp:12
 #, fuzzy, kde-format
@@ -6354,78 +6366,78 @@ msgctxt "@action"
 msgid "Mark as Read"
 msgstr "Marquer comme lu"
 
-#: widgets/channellist/channellistview.cpp:119
+#: widgets/channellist/channellistview.cpp:118
 #, kde-format
 msgid "Mark As Read"
 msgstr "Marquer comme lu"
 
-#: widgets/channellist/channellistview.cpp:119
+#: widgets/channellist/channellistview.cpp:118
 #, kde-format
 msgid "Mark As Unread"
 msgstr "Marquer comme non lu"
 
-#: widgets/channellist/channellistview.cpp:129
+#: widgets/channellist/channellistview.cpp:128
 #: widgets/room/messagelistview.cpp:288
 #, kde-format
 msgid "Set as Favorite"
 msgstr "Marquer comme favori"
 
-#: widgets/channellist/channellistview.cpp:129
+#: widgets/channellist/channellistview.cpp:128
 #, kde-format
 msgid "Unset as Favorite"
 msgstr "Supprimer de la liste des favoris"
 
-#: widgets/channellist/channellistview.cpp:138
+#: widgets/channellist/channellistview.cpp:137
 #, kde-format
 msgid "Hide Channel"
 msgstr "Masquer le canal"
 
-#: widgets/channellist/channellistview.cpp:155
+#: widgets/channellist/channellistview.cpp:154
 #, kde-format
 msgctxt "@action"
 msgid "Convert to Team"
 msgstr "Convertir en équipe"
 
-#: widgets/channellist/channellistview.cpp:166
+#: widgets/channellist/channellistview.cpp:165
 #, kde-format
 msgctxt "@action"
 msgid "Convert to Channel"
 msgstr "Convertir en un canal"
 
-#: widgets/channellist/channellistview.cpp:178
+#: widgets/channellist/channellistview.cpp:177
 #, kde-format
 msgctxt "@action"
 msgid "Move to Team"
 msgstr "Déplacer vers une équipe"
 
-#: widgets/channellist/channellistview.cpp:195
+#: widgets/channellist/channellistview.cpp:194
 #: widgets/room/channelactionpopupmenu.cpp:75
 #, kde-format
 msgid "Configure Notification…"
 msgstr "Configurer une notification..."
 
-#: widgets/channellist/channellistview.cpp:202
+#: widgets/channellist/channellistview.cpp:201
 #, kde-format
 msgid "Quit Channel"
 msgstr "Quitter un canal"
 
-#: widgets/channellist/channellistview.cpp:245
+#: widgets/channellist/channellistview.cpp:244
 #, kde-format
 msgid "Any team selected."
 msgstr "N'importe quelle équipe sélectionnée."
 
-#: widgets/channellist/channellistview.cpp:245
+#: widgets/channellist/channellistview.cpp:244
 #, kde-format
 msgid "Move To Team"
 msgstr "Déplacer vers une équipe"
 
-#: widgets/channellist/channellistview.cpp:294
+#: widgets/channellist/channellistview.cpp:293
 #, kde-format
 msgid "Are you sure to convert it to team? It can not be undo."
 msgstr ""
 "Voulez-vous vraiment le convertir en une équipe ? Ceci ne peut être annuler."
 
-#: widgets/channellist/channellistview.cpp:295
+#: widgets/channellist/channellistview.cpp:294
 #, kde-format
 msgctxt "@title:window"
 msgid "Convert to Team"

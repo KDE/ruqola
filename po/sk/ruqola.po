@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-06-13 00:38+0000\n"
+"POT-Creation-Date: 2024-06-14 00:39+0000\n"
 "PO-Revision-Date: 2019-07-29 20:25+0200\n"
 "Last-Translator: Roman Paholík <wizzardsk@gmail.com>\n"
 "Language-Team: Slovak <kde-sk@linux.sk>\n"
@@ -1477,7 +1477,7 @@ msgstr ""
 
 #: core/otr/otrnotificationjob.cpp:99
 #, kde-format
-msgid "%1  wants to start OTR. Do you want to accept?."
+msgid "%1 wants to start OTR. Do you want to accept?"
 msgstr ""
 
 #: core/otr/otrnotificationjob.cpp:103
@@ -1497,13 +1497,13 @@ msgctxt "We need a space between after </strong>"
 msgid "<strong>%1</strong> are typing..."
 msgstr ""
 
-#: core/rocketchataccount.cpp:3004
+#: core/rocketchataccount.cpp:3012
 #, fuzzy, kde-format
 #| msgid "Message"
 msgid "Export Messages"
 msgstr "Správa"
 
-#: core/rocketchataccount.cpp:3005
+#: core/rocketchataccount.cpp:3013
 #, kde-format
 msgid "Your email has been queued for sending."
 msgstr ""
@@ -6382,12 +6382,23 @@ msgid "STUN/TURN Servers"
 msgstr ""
 
 #: widgets/applicationssettingsdialog/applicationssettingsaskapplicationdialog.cpp:24
+#: widgets/applicationssettingsdialog/applicationssettingsdescriptiondialog.cpp:22
 #: widgets/applicationssettingsdialog/applicationssettingsdialog.cpp:27
 #, fuzzy, kde-format
 #| msgid "Application not found"
 msgctxt "@title:window"
 msgid "Applications"
 msgstr "Aplikácia nenájdená"
+
+#: widgets/applicationssettingsdialog/applicationssettingsaskapplicationwidget.cpp:22
+#, kde-format
+msgid "Let your admin know why this app would be useful "
+msgstr ""
+
+#: widgets/applicationssettingsdialog/applicationssettingsaskapplicationwidget.cpp:28
+#, kde-format
+msgid "Message for workspace admin"
+msgstr ""
 
 #: widgets/applicationssettingsdialog/applicationssettingspricecombobox.cpp:12
 #, kde-format
@@ -6441,87 +6452,87 @@ msgctxt "@action"
 msgid "Mark as Read"
 msgstr "Súkromné adresy"
 
-#: widgets/channellist/channellistview.cpp:119
+#: widgets/channellist/channellistview.cpp:118
 #, fuzzy, kde-format
 #| msgid "Private Messages"
 msgid "Mark As Read"
 msgstr "Súkromné adresy"
 
-#: widgets/channellist/channellistview.cpp:119
+#: widgets/channellist/channellistview.cpp:118
 #, fuzzy, kde-format
 #| msgid "Private Messages"
 msgid "Mark As Unread"
 msgstr "Súkromné adresy"
 
-#: widgets/channellist/channellistview.cpp:129
+#: widgets/channellist/channellistview.cpp:128
 #: widgets/room/messagelistview.cpp:288
 #, kde-format
 msgid "Set as Favorite"
 msgstr ""
 
-#: widgets/channellist/channellistview.cpp:129
+#: widgets/channellist/channellistview.cpp:128
 #, fuzzy, kde-format
 #| msgid "Favorites"
 msgid "Unset as Favorite"
 msgstr "Obľúbené"
 
-#: widgets/channellist/channellistview.cpp:138
+#: widgets/channellist/channellistview.cpp:137
 #, fuzzy, kde-format
 #| msgid "Leave Channel"
 msgid "Hide Channel"
 msgstr "Opustiť kanál"
 
-#: widgets/channellist/channellistview.cpp:155
+#: widgets/channellist/channellistview.cpp:154
 #, fuzzy, kde-format
 #| msgid "Delete Account"
 msgctxt "@action"
 msgid "Convert to Team"
 msgstr "Odstrániť účet"
 
-#: widgets/channellist/channellistview.cpp:166
+#: widgets/channellist/channellistview.cpp:165
 #, fuzzy, kde-format
 #| msgid "Leave Channel"
 msgctxt "@action"
 msgid "Convert to Channel"
 msgstr "Opustiť kanál"
 
-#: widgets/channellist/channellistview.cpp:178
+#: widgets/channellist/channellistview.cpp:177
 #, fuzzy, kde-format
 #| msgid "Delete Account"
 msgctxt "@action"
 msgid "Move to Team"
 msgstr "Odstrániť účet"
 
-#: widgets/channellist/channellistview.cpp:195
+#: widgets/channellist/channellistview.cpp:194
 #: widgets/room/channelactionpopupmenu.cpp:75
 #, fuzzy, kde-format
 #| msgid "Notifications"
 msgid "Configure Notification…"
 msgstr "Upozornenia"
 
-#: widgets/channellist/channellistview.cpp:202
+#: widgets/channellist/channellistview.cpp:201
 #, fuzzy, kde-format
 #| msgid "Leave Channel"
 msgid "Quit Channel"
 msgstr "Opustiť kanál"
 
-#: widgets/channellist/channellistview.cpp:245
+#: widgets/channellist/channellistview.cpp:244
 #, kde-format
 msgid "Any team selected."
 msgstr ""
 
-#: widgets/channellist/channellistview.cpp:245
+#: widgets/channellist/channellistview.cpp:244
 #, fuzzy, kde-format
 #| msgid "Delete Account"
 msgid "Move To Team"
 msgstr "Odstrániť účet"
 
-#: widgets/channellist/channellistview.cpp:294
+#: widgets/channellist/channellistview.cpp:293
 #, kde-format
 msgid "Are you sure to convert it to team? It can not be undo."
 msgstr ""
 
-#: widgets/channellist/channellistview.cpp:295
+#: widgets/channellist/channellistview.cpp:294
 #, fuzzy, kde-format
 #| msgid "Delete Account"
 msgctxt "@title:window"

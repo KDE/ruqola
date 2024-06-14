@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-06-13 00:38+0000\n"
-"PO-Revision-Date: 2024-06-07 05:34+0200\n"
+"POT-Creation-Date: 2024-06-14 00:39+0000\n"
+"PO-Revision-Date: 2024-06-13 05:24+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -1386,8 +1386,9 @@ msgid "%1 ended the OTR session."
 msgstr "%1 -მა OTR სესია დაასრულა."
 
 #: core/otr/otrnotificationjob.cpp:99
-#, kde-format
-msgid "%1  wants to start OTR. Do you want to accept?."
+#, fuzzy, kde-format
+#| msgid "%1  wants to start OTR. Do you want to accept?."
+msgid "%1 wants to start OTR. Do you want to accept?"
 msgstr "%1-ს   OTR-ის დაწყება უნდა. ეთანხმებით?."
 
 #: core/otr/otrnotificationjob.cpp:103
@@ -1407,12 +1408,12 @@ msgctxt "We need a space between after </strong>"
 msgid "<strong>%1</strong> are typing..."
 msgstr "<strong>%1</strong> კრეფს…"
 
-#: core/rocketchataccount.cpp:3004
+#: core/rocketchataccount.cpp:3012
 #, kde-format
 msgid "Export Messages"
 msgstr "შეტყობინებების გატანა"
 
-#: core/rocketchataccount.cpp:3005
+#: core/rocketchataccount.cpp:3013
 #, kde-format
 msgid "Your email has been queued for sending."
 msgstr "თქვენი ელფოსტა რიგშია გასაგზავნად."
@@ -6220,38 +6221,47 @@ msgid "STUN/TURN Servers"
 msgstr "STUN/TURN სერვერები"
 
 #: widgets/applicationssettingsdialog/applicationssettingsaskapplicationdialog.cpp:24
+#: widgets/applicationssettingsdialog/applicationssettingsdescriptiondialog.cpp:22
 #: widgets/applicationssettingsdialog/applicationssettingsdialog.cpp:27
 #, kde-format
 msgctxt "@title:window"
 msgid "Applications"
 msgstr "აპლიკაციები"
 
+#: widgets/applicationssettingsdialog/applicationssettingsaskapplicationwidget.cpp:22
+#, kde-format
+msgid "Let your admin know why this app would be useful "
+msgstr ""
+
+#: widgets/applicationssettingsdialog/applicationssettingsaskapplicationwidget.cpp:28
+#, kde-format
+msgid "Message for workspace admin"
+msgstr ""
+
 #: widgets/applicationssettingsdialog/applicationssettingspricecombobox.cpp:12
-#, fuzzy, kde-format
-#| msgid "All Files (*)"
+#, kde-format
 msgid "All Prices"
-msgstr "ყველა ფაილი (*)"
+msgstr "ყველა ფასი"
 
 #: widgets/applicationssettingsdialog/applicationssettingspricecombobox.cpp:13
 #, kde-format
 msgid "Free Apps"
-msgstr ""
+msgstr "უფასო აპები"
 
 #: widgets/applicationssettingsdialog/applicationssettingspricecombobox.cpp:14
 #, kde-format
 msgid "Paid Apps"
-msgstr ""
+msgstr "ფასიანი აპები"
 
 #: widgets/applicationssettingsdialog/applicationssettingspricecombobox.cpp:15
 #, kde-format
 msgid "Premium"
-msgstr ""
+msgstr "პრემიუმი"
 
 #: widgets/applicationssettingsdialog/applicationssettingsstatuscombobox.cpp:13
-#, fuzzy, kde-format
-#| msgid "Status"
+#, kde-format
 msgid "All Status"
-msgstr "მდგომარეობა"
+msgstr "ყველა სტატუსი"
 
 #: widgets/bannerinfodialog/bannerinfodialog.cpp:27
 #, kde-format
@@ -6275,78 +6285,78 @@ msgctxt "@action"
 msgid "Mark as Read"
 msgstr "მონიშნე როგორც წაკითხული"
 
-#: widgets/channellist/channellistview.cpp:119
+#: widgets/channellist/channellistview.cpp:118
 #, kde-format
 msgid "Mark As Read"
 msgstr "წაკითხულად მონიშვნა"
 
-#: widgets/channellist/channellistview.cpp:119
+#: widgets/channellist/channellistview.cpp:118
 #, kde-format
 msgid "Mark As Unread"
 msgstr "წაუკითხავად მონიშვნა"
 
-#: widgets/channellist/channellistview.cpp:129
+#: widgets/channellist/channellistview.cpp:128
 #: widgets/room/messagelistview.cpp:288
 #, kde-format
 msgid "Set as Favorite"
 msgstr "რჩეულად მონიშვნა"
 
-#: widgets/channellist/channellistview.cpp:129
+#: widgets/channellist/channellistview.cpp:128
 #, kde-format
 msgid "Unset as Favorite"
 msgstr "რჩეულად მონიშვნის მოხსნა"
 
-#: widgets/channellist/channellistview.cpp:138
+#: widgets/channellist/channellistview.cpp:137
 #, kde-format
 msgid "Hide Channel"
 msgstr "არხის დამალვა"
 
-#: widgets/channellist/channellistview.cpp:155
+#: widgets/channellist/channellistview.cpp:154
 #, kde-format
 msgctxt "@action"
 msgid "Convert to Team"
 msgstr "გუნდად გადაკეთება"
 
-#: widgets/channellist/channellistview.cpp:166
+#: widgets/channellist/channellistview.cpp:165
 #, kde-format
 msgctxt "@action"
 msgid "Convert to Channel"
 msgstr "არხად გადაკეთება"
 
-#: widgets/channellist/channellistview.cpp:178
+#: widgets/channellist/channellistview.cpp:177
 #, kde-format
 msgctxt "@action"
 msgid "Move to Team"
 msgstr "გუნდში გადატანა"
 
-#: widgets/channellist/channellistview.cpp:195
+#: widgets/channellist/channellistview.cpp:194
 #: widgets/room/channelactionpopupmenu.cpp:75
 #, kde-format
 msgid "Configure Notification…"
 msgstr "გაფრთხილების მორგება…"
 
-#: widgets/channellist/channellistview.cpp:202
+#: widgets/channellist/channellistview.cpp:201
 #, kde-format
 msgid "Quit Channel"
 msgstr "არხიდან გასვლა"
 
-#: widgets/channellist/channellistview.cpp:245
+#: widgets/channellist/channellistview.cpp:244
 #, kde-format
 msgid "Any team selected."
 msgstr "ნებისმიერი მონიშნული გუნდი."
 
-#: widgets/channellist/channellistview.cpp:245
+#: widgets/channellist/channellistview.cpp:244
 #, kde-format
 msgid "Move To Team"
 msgstr "გუნდში გადატანა"
 
-#: widgets/channellist/channellistview.cpp:294
+#: widgets/channellist/channellistview.cpp:293
 #, kde-format
 msgid "Are you sure to convert it to team? It can not be undo."
 msgstr ""
 "დარწმუნებული ბრძანდებით, რომ გნებავთ, გუნდად გარდაქმნათ? ქმედება შეუქცევადია."
 
-#: widgets/channellist/channellistview.cpp:295
+#: widgets/channellist/channellistview.cpp:294
 #, kde-format
 msgctxt "@title:window"
 msgid "Convert to Team"
