@@ -13,7 +13,7 @@ ApplicationsSettingsDescriptionWidget::ApplicationsSettingsDescriptionWidget(QWi
     , mTextBrowser(new QTextBrowser(this))
 {
     auto mainLayout = new QVBoxLayout(this);
-    mainLayout->setObjectName(QStringLiteral("mainLayout"));
+    mainLayout->setObjectName("mainLayout"_L1);
     mainLayout->setContentsMargins({});
 
     mTextBrowser->setObjectName("mTextBrowser"_L1);

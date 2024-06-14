@@ -7,6 +7,9 @@
 #include "applicationssettingsdialog/applicationssettingsdescriptionwidget.h"
 
 #include <QTest>
+#include <QTextBrowser>
+#include <QVBoxLayout>
+using namespace Qt::Literals::StringLiterals;
 QTEST_MAIN(ApplicationsSettingsDescriptionWidgetTest)
 ApplicationsSettingsDescriptionWidgetTest::ApplicationsSettingsDescriptionWidgetTest(QObject *parent)
     : QObject{parent}
@@ -16,7 +19,13 @@ ApplicationsSettingsDescriptionWidgetTest::ApplicationsSettingsDescriptionWidget
 void ApplicationsSettingsDescriptionWidgetTest::shouldHaveDefaultValues()
 {
     ApplicationsSettingsDescriptionWidget d;
-    // TODO
+
+    auto mainLayout = d.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
+    QVERIFY(mainLayout);
+    QCOMPARE(mainLayout->contentsMargins(), QMargins{});
+
+    auto mTextBrowser = d.findChild<QTextBrowser *>("mTextBrowser"_L1);
+    QVERIFY(mTextBrowser);
 }
 
 #include "moc_applicationssettingsdescriptionwidgettest.cpp"
