@@ -5,8 +5,10 @@
 */
 #include "appsmarketplaceinfotest.h"
 #include "apps/appsmarketplaceinfo.h"
+#include "ruqola_autotest_helper.h"
 #include <QTest>
-QTEST_GUILESS_MAIN(AppsMarketPlaceInfoTest)
+using namespace Qt::Literals::StringLiterals;
+QTEST_MAIN(AppsMarketPlaceInfoTest)
 AppsMarketPlaceInfoTest::AppsMarketPlaceInfoTest(QObject *parent)
     : QObject{parent}
 {
@@ -25,6 +27,41 @@ void AppsMarketPlaceInfoTest::shouldHaveDefaultValues()
     QVERIFY(d.shortDescription().isEmpty());
     QCOMPARE(d.price(), 0);
     QVERIFY(!d.isValid());
+}
+
+void AppsMarketPlaceInfoTest::shouldLoadAppsMarketPlaceInfo_data()
+{
+    QTest::addColumn<QString>("name");
+    QTest::addColumn<AppsMarketPlaceInfo>("appsmaketplaceinfo");
+
+    QTest::addRow("empty") << QStringLiteral("empty") << AppsMarketPlaceInfo();
+
+    {
+        AppsMarketPlaceInfo appsMarketPlaceInfo;
+        appsMarketPlaceInfo.setAppId(QByteArray("9408b583-2f0e-4987-a341-daa171d761ce"));
+        appsMarketPlaceInfo.setIsEnterpriseOnly(false);
+        appsMarketPlaceInfo.setAppName(""_L1);
+        appsMarketPlaceInfo.setCategories({"Developer Tools"_L1, "Productivity"_L1, "Project Management"_L1});
+        appsMarketPlaceInfo.setDocumentationUrl({});
+        appsMarketPlaceInfo.setPurchaseType("buy"_L1);
+        appsMarketPlaceInfo.setDescription("Turns YouTrack references into links."_L1);
+        appsMarketPlaceInfo.setPrice(0);
+        appsMarketPlaceInfo.setVersion("1.2.1"_L1);
+        appsMarketPlaceInfo.setShortDescription({});
+
+        QTest::addRow("apps1") << QStringLiteral("apps1") << appsMarketPlaceInfo;
+    }
+}
+
+void AppsMarketPlaceInfoTest::shouldLoadAppsMarketPlaceInfo()
+{
+    QFETCH(QString, name);
+    QFETCH(AppsMarketPlaceInfo, appsmaketplaceinfo);
+    const QString originalJsonFile = QLatin1StringView(RUQOLA_DATA_DIR) + "/appsmarketplaceinfo/"_L1 + name + ".json"_L1;
+    const QJsonObject obj = AutoTestHelper::loadJsonObject(originalJsonFile);
+    AppsMarketPlaceInfo m;
+    m.parseAppsMarketPlaceInfo(obj);
+    QCOMPARE(m, appsmaketplaceinfo);
 }
 
 #include "moc_appsmarketplaceinfotest.cpp"

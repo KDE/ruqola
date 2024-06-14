@@ -16,4 +16,6 @@ public:
 
 private Q_SLOTS:
     void shouldHaveDefaultValues();
+    void shouldLoadAppsMarketPlaceInfo_data();
+    void shouldLoadAppsMarketPlaceInfo();
 };
