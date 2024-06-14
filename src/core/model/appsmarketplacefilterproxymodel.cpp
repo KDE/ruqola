@@ -19,4 +19,14 @@ bool AppsMarketPlaceFilterProxyModel::filterAcceptsRow(int source_row, const QMo
     return QSortFilterProxyModel::filterAcceptsColumn(source_row, source_parent);
 }
 
+AppsMarketPlaceFilterProxyModel::FilterInfo AppsMarketPlaceFilterProxyModel::filterInfo() const
+{
+    return mFilterInfo;
+}
+
+void AppsMarketPlaceFilterProxyModel::setFilterInfo(const FilterInfo &newFilterInfo)
+{
+    mFilterInfo = newFilterInfo;
+}
+
 #include "moc_appsmarketplacefilterproxymodel.cpp"
