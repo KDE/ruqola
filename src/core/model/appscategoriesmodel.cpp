@@ -31,6 +31,9 @@ QList<AppsCategoryInfo> AppsCategoriesModel::appsCategories() const
 
 void AppsCategoriesModel::setAppsCategories(const QList<AppsCategoryInfo> &appsCategories)
 {
+    auto item = new QStandardItem(i18n("Categories"));
+    item->setSelectable(false);
+    appendRow(item);
     for (const AppsCategoryInfo &info : appsCategories) {
         createItem(info.title(), info.identifier());
     }
