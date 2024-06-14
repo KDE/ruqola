@@ -6,11 +6,16 @@
 #pragma once
 #include "libruqolawidgets_private_export.h"
 #include <QWidget>
-
+class QTextBrowser;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT ApplicationsSettingsDescriptionWidget : public QWidget
 {
     Q_OBJECT
 public:
     explicit ApplicationsSettingsDescriptionWidget(QWidget *parent = nullptr);
     ~ApplicationsSettingsDescriptionWidget() override;
+
+    void setDescription(const QString &desc);
+
+private:
+    QTextBrowser *const mTextBrowser;
 };

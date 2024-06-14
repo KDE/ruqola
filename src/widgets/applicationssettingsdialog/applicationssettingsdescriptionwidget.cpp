@@ -5,16 +5,26 @@
 */
 
 #include "applicationssettingsdescriptionwidget.h"
+#include <QTextBrowser>
 #include <QVBoxLayout>
-
+using namespace Qt::Literals::StringLiterals;
 ApplicationsSettingsDescriptionWidget::ApplicationsSettingsDescriptionWidget(QWidget *parent)
     : QWidget{parent}
+    , mTextBrowser(new QTextBrowser(this))
 {
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
     mainLayout->setContentsMargins({});
+
+    mTextBrowser->setObjectName("mTextBrowser"_L1);
+    mainLayout->addWidget(mTextBrowser);
 }
 
 ApplicationsSettingsDescriptionWidget::~ApplicationsSettingsDescriptionWidget() = default;
+
+void ApplicationsSettingsDescriptionWidget::setDescription(const QString &desc)
+{
+    mTextBrowser->setText(desc);
+}
 
 #include "moc_applicationssettingsdescriptionwidget.cpp"
