@@ -40,7 +40,7 @@ void AppsMarketPlaceInfoTest::shouldLoadAppsMarketPlaceInfo_data()
         AppsMarketPlaceInfo appsMarketPlaceInfo;
         appsMarketPlaceInfo.setAppId(QByteArray("9408b583-2f0e-4987-a341-daa171d761ce"));
         appsMarketPlaceInfo.setIsEnterpriseOnly(false);
-        appsMarketPlaceInfo.setAppName(""_L1);
+        appsMarketPlaceInfo.setAppName("YouTrack Linker"_L1);
         appsMarketPlaceInfo.setCategories({"Developer Tools"_L1, "Productivity"_L1, "Project Management"_L1});
         appsMarketPlaceInfo.setDocumentationUrl({});
         appsMarketPlaceInfo.setPurchaseType("buy"_L1);
