@@ -31,8 +31,14 @@ ApplicationsSettingsWidget::ApplicationsSettingsWidget(RocketChatAccount *accoun
         mCurrentRocketChatAccount->loadAppMarketPlace();
         mCurrentRocketChatAccount->loadAppCategories();
     }
+    connect(mApplicationsSettingsSearchWidget, &ApplicationsSettingsSearchWidget::filterChanged, this, &ApplicationsSettingsWidget::slotFilterChanged);
 }
 
 ApplicationsSettingsWidget::~ApplicationsSettingsWidget() = default;
+
+void ApplicationsSettingsWidget::slotFilterChanged()
+{
+    // TODO
+}
 
 #include "moc_applicationssettingswidget.cpp"

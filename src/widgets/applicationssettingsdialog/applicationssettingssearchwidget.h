@@ -20,6 +20,9 @@ public:
     explicit ApplicationsSettingsSearchWidget(RocketChatAccount *account, QWidget *parent = nullptr);
     ~ApplicationsSettingsSearchWidget() override;
 
+Q_SIGNALS:
+    void filterChanged();
+
 private:
     QLineEdit *const mSearchLineEdit;
     ApplicationsSettingsCategoriesComboBox *const mApplicationsSettingsComboBox;

@@ -19,6 +19,7 @@ public:
     ~ApplicationsSettingsWidget() override;
 
 private:
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotFilterChanged();
     RocketChatAccount *const mCurrentRocketChatAccount;
     ApplicationsSettingsSearchWidget *const mApplicationsSettingsSearchWidget;
     ApplicationsSettingsListView *const mApplicationsSettingsListView;

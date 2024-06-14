@@ -6,14 +6,18 @@
 
 #include "applicationssettingslistview.h"
 #include "applicationssettingsdelegate.h"
+#include "model/appsmarketplacefilterproxymodel.h"
 #include "model/appsmarketplacemodel.h"
-
+using namespace Qt::Literals::StringLiterals;
 ApplicationsSettingsListView::ApplicationsSettingsListView(RocketChatAccount *account, QWidget *parent)
     : QTreeView(parent)
     , mApplicationsSettingsListDelegate(new ApplicationsSettingsDelegate(this))
+    , mAppsMarketPlaceFilterProxyModel(new AppsMarketPlaceFilterProxyModel(this))
 {
-    mApplicationsSettingsListDelegate->setObjectName(QStringLiteral("mApplicationsSettingsListDelegate"));
+    mApplicationsSettingsListDelegate->setObjectName("mApplicationsSettingsListDelegate"_L1);
     setItemDelegate(mApplicationsSettingsListDelegate);
+
+    mAppsMarketPlaceFilterProxyModel->setObjectName("mAppsMarketPlaceFilterProxyModel"_L1);
 
     setHeaderHidden(true);
     setRootIsDecorated(false);
@@ -22,7 +26,8 @@ ApplicationsSettingsListView::ApplicationsSettingsListView(RocketChatAccount *ac
     setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     setIndentation(0);
     if (account) {
-        setModel(account->appsMarketPlaceModel());
+        mAppsMarketPlaceFilterProxyModel->setSourceModel(account->appsMarketPlaceModel());
+        setModel(mAppsMarketPlaceFilterProxyModel);
     }
 }
 

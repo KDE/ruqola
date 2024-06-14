@@ -10,6 +10,7 @@
 #include <QTreeView>
 class ApplicationsSettingsDelegate;
 class RocketChatAccount;
+class AppsMarketPlaceFilterProxyModel;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT ApplicationsSettingsListView : public QTreeView
 {
     Q_OBJECT
@@ -19,4 +20,5 @@ public:
 
 private:
     ApplicationsSettingsDelegate *const mApplicationsSettingsListDelegate;
+    AppsMarketPlaceFilterProxyModel *const mAppsMarketPlaceFilterProxyModel;
 };
