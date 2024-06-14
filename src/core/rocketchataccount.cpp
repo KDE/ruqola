@@ -3229,6 +3229,10 @@ bool RocketChatAccount::allowCustomStatusMessage() const
 
 void RocketChatAccount::loadAppCategories()
 {
+    if (mAppsCategoriesModel->wasFilled()) {
+        return;
+    }
+
     auto job = new RocketChatRestApi::AppCategoriesJob(this);
     restApi()->initializeRestApiJob(job);
     connect(job, &RocketChatRestApi::AppCategoriesJob::appCategoriesDone, this, [this](const QJsonArray &replyArray) {
@@ -3256,6 +3260,9 @@ void RocketChatAccount::loadAppCategories()
 
 void RocketChatAccount::loadAppMarketPlace()
 {
+    if (mAppsMarketPlaceModel->wasFilled()) {
+        return;
+    }
     auto job = new RocketChatRestApi::AppMarketPlaceJob(this);
     restApi()->initializeRestApiJob(job);
     connect(job, &RocketChatRestApi::AppMarketPlaceJob::appMarketPlaceDone, this, [this](const QJsonArray &replyArray) {
