@@ -21,6 +21,8 @@ void AppsMarketPlaceInfoTest::shouldHaveDefaultValues()
     QVERIFY(d.categories().isEmpty());
     QVERIFY(d.documentationUrl().isEmpty());
     QVERIFY(d.purchaseType().isEmpty());
+    QVERIFY(d.version().isEmpty());
+    QVERIFY(d.shortDescription().isEmpty());
     QCOMPARE(d.price(), 0);
     QVERIFY(!d.isValid());
 }

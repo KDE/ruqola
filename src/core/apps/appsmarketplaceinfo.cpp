@@ -23,6 +23,8 @@ QDebug operator<<(QDebug d, const AppsMarketPlaceInfo &t)
     d << "description " << t.description();
     d << "price " << t.price();
     d << "version " << t.version();
+    d << "shortDescription " << t.shortDescription();
+    d << "pixmap is valid " << !t.pixmap().isNull();
     return d;
 }
 
@@ -44,10 +46,11 @@ void AppsMarketPlaceInfo::parseAppsMarketPlaceInfo(const QJsonObject &replyObjec
     mCategories = lst;
 
     mDescription = latestObj["description"_L1].toString();
+    mShortDescription = latestObj["shortDescription"_L1].toString();
     mVersion = latestObj["version"_L1].toString();
     mAppName = replyObject["name"_L1].toString();
     mDocumentationUrl = replyObject["documentationUrl"_L1].toString();
-    mPixmap.loadFromData(replyObject["iconFileData"_L1].toString().toLatin1());
+    mPixmap.loadFromData(latestObj["iconFileData"_L1].toString().toLatin1());
     // TODO
 }
 
@@ -155,4 +158,22 @@ QString AppsMarketPlaceInfo::version() const
 void AppsMarketPlaceInfo::setVersion(const QString &newVersion)
 {
     mVersion = newVersion;
+}
+
+QString AppsMarketPlaceInfo::shortDescription() const
+{
+    return mShortDescription;
+}
+
+void AppsMarketPlaceInfo::setShortDescription(const QString &newShortDescription)
+{
+    mShortDescription = newShortDescription;
+}
+
+bool AppsMarketPlaceInfo::operator==(const AppsMarketPlaceInfo &other) const
+{
+    return mCategories == other.mCategories && mAppId == other.mAppId && mAppName == other.mAppName && mDescription == other.mDescription
+        && mDocumentationUrl == other.mDocumentationUrl && mPurchaseType == other.mPurchaseType && mVersion == other.mVersion
+        && mShortDescription == other.mShortDescription && mPixmap.isNull() == other.mPixmap.isNull() && mPrice == other.mPrice
+        && mIsEnterpriseOnly == other.mIsEnterpriseOnly;
 }

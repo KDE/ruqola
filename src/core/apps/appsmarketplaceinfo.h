@@ -50,6 +50,11 @@ public:
     [[nodiscard]] QString version() const;
     void setVersion(const QString &newVersion);
 
+    [[nodiscard]] QString shortDescription() const;
+    void setShortDescription(const QString &newShortDescription);
+
+    bool operator==(const AppsMarketPlaceInfo &other) const;
+
 private:
     QStringList mCategories;
     QByteArray mAppId;
@@ -58,6 +63,7 @@ private:
     QString mDocumentationUrl;
     QString mPurchaseType;
     QString mVersion;
+    QString mShortDescription;
     QPixmap mPixmap;
     int mPrice = 0;
     bool mIsEnterpriseOnly = false;
