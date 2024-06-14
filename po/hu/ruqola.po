@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-06-10 02:50+0000\n"
-"PO-Revision-Date: 2024-06-07 13:16+0200\n"
+"PO-Revision-Date: 2024-06-13 23:04+0200\n"
 "Last-Translator: Kristof Kiszel <ulysses@fsf.hu>\n"
 "Language-Team: Hungarian <kde-l10n-hu@kde.org>\n"
 "Language: hu\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 24.02.2\n"
+"X-Generator: Lokalize 24.05.0\n"
 
 #: apps/main.cpp:62
 #, kde-format
@@ -943,27 +943,27 @@ msgstr "Kitűzött üzenetek"
 #: core/model/listmessagesfilterproxymodel.cpp:47
 #, kde-format
 msgid "Mentions Messages"
-msgstr ""
+msgstr "Említést tartalmazó üzenetek"
 
 #: core/model/listmessagesfilterproxymodel.cpp:49
 #, kde-format
 msgid "Threads Messages"
-msgstr ""
+msgstr "Szálüzenetek"
 
 #: core/model/listmessagesfilterproxymodel.cpp:51
 #, kde-format
 msgid "Unread Threads Messages"
-msgstr ""
+msgstr "Olvasatlan szálüzenetek"
 
 #: core/model/messagesmodel.cpp:219
 #, kde-format
 msgid "Edited at %1 by %2"
-msgstr ""
+msgstr "%2 szerkesztette ekkor: %1"
 
 #: core/model/messagesmodel.cpp:361
 #, kde-format
 msgid "Ignored Message"
-msgstr ""
+msgstr "Mellőzött üzenet"
 
 #: core/model/messagesmodel.cpp:370
 #, kde-format
@@ -1067,15 +1067,15 @@ msgstr[1] "%1 említés"
 #, kde-format
 msgid "%1 Group Mention"
 msgid_plural "%1 Group Mentions"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%1 csoportemlítés"
+msgstr[1] "%1 csoportemlítés"
 
 #: core/model/roommodel.cpp:470
 #, kde-format
 msgid "%1 Unread Threaded Message"
 msgid_plural "%1 Unread Threaded Messages"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%1 olvasatlan szálüzenet"
+msgstr[1] "%1 olvasatlan szálüzenet"
 
 #: core/model/roommodel.cpp:474
 #, kde-format
@@ -1087,7 +1087,7 @@ msgstr[1] "%1 olvasatlan üzenet"
 #: core/model/roommodel.cpp:500
 #, kde-format
 msgid "Teams Room"
-msgstr ""
+msgstr "Csapatszoba"
 
 #: core/model/roommodel.cpp:506
 #, kde-format
@@ -1318,12 +1318,12 @@ msgstr "A „felhasználó eltávolította a szobát a csapatból” üzenetek e
 #: core/model/systemmessagesmodel.cpp:64
 #, kde-format
 msgid "Hide \"Removed user from Team\" messages"
-msgstr ""
+msgstr "A „felhasználó eltávolítva a csapatból” üzenetek elrejtése"
 
 #: core/model/systemmessagesmodel.cpp:65
 #, kde-format
 msgid "Hide \"Added user to Team\" messages"
-msgstr ""
+msgstr "A „felhasználó hozzáadva a csapathoz” üzenetek elrejtése"
 
 #: core/model/systemmessagesmodel.cpp:66
 #, kde-format
@@ -1338,12 +1338,12 @@ msgstr "Csatlakozott ehhez a csapathoz"
 #: core/model/teamroomsmodel.cpp:32
 #, kde-format
 msgid "(Autojoin)"
-msgstr ""
+msgstr "(Automatikus csatlakozás)"
 
 #: core/notifications/notification.cpp:81
 #, kde-format
 msgid "%1 has %2 Unread Message"
-msgstr ""
+msgstr "%2 olvasatlan üzenet itt: %1"
 
 #: core/notifications/notifierjob.cpp:27
 #, kde-format
@@ -1391,12 +1391,12 @@ msgstr "%1 befejezte az OTR munkamenetet."
 #: core/otr/otrnotificationjob.cpp:99
 #, kde-format
 msgid "%1  wants to start OTR. Do you want to accept?."
-msgstr ""
+msgstr "%1 OTR-t szeretne indítani. El szeretné fogadni?"
 
 #: core/otr/otrnotificationjob.cpp:103
 #, kde-format
 msgid "%1 denied the OTR session."
-msgstr ""
+msgstr "%1 megtagadta az OTR munkamenetet."
 
 #: core/receivetypingnotificationmanager.cpp:58
 #, kde-format
@@ -1458,7 +1458,7 @@ msgstr "Ön tiltotta ezt a csatornát."
 #: core/room.cpp:1533
 #, kde-format
 msgid "Channel was blocked."
-msgstr ""
+msgstr "A csatornát tiltották."
 
 #: core/roominfo/roominfo.cpp:110
 #, kde-format
@@ -1497,7 +1497,7 @@ msgstr "Összcsatorna"
 #: core/translatetext/translatetextjob.cpp:31
 #, kde-format
 msgid "Missing translator info. It's a bug"
-msgstr ""
+msgstr "Hiányzó fordítóinformációk. Ez egy hiba."
 
 #: core/user.cpp:207
 #, kde-format
@@ -1565,14 +1565,14 @@ msgstr "Google"
 #: plugins/authentication/password/passwordpluginauthentication.cpp:33
 #, kde-format
 msgid "Login/Password"
-msgstr ""
+msgstr "Azonosító/Jelszó"
 
 #: plugins/authentication/personalaccesstoken/personalaccesstokenauthenticationconfigwidget.cpp:33
 #: widgets/common/authenticationloginwidget.cpp:33
 #: widgets/dialogs/serverinfo/serverinfowidget.cpp:44
 #, kde-format
 msgid "Server URL:"
-msgstr ""
+msgstr "Kiszolgáló URL-je:"
 
 #: plugins/authentication/personalaccesstoken/personalaccesstokenauthenticationconfigwidget.cpp:34
 #: widgets/common/authenticationloginwidget.cpp:38
@@ -1626,21 +1626,22 @@ msgstr "Érvénytelen paraméterek"
 #, kde-format
 msgid "The required '%1' param provided does not match any channel"
 msgstr ""
+"A kötelezően megadott „%1” paraméter nem illeszkedik egyetlen csatornára sem"
 
 #: rocketchatrestapi-qt/channels/channeljoinjob.cpp:109
 #, kde-format
 msgid "The room required a password."
-msgstr ""
+msgstr "A szobához jelszó kellett."
 
 #: rocketchatrestapi-qt/channels/channelmembersjob.cpp:49
 #, kde-format
 msgid "Get Members not authorized in this room"
-msgstr ""
+msgstr "A szobában nem hitelesített tagok lekérése"
 
 #: rocketchatrestapi-qt/channels/channelopenjob.cpp:78
 #, kde-format
 msgid "The required channel is not found."
-msgstr ""
+msgstr "A kért csatorna nem található."
 
 #: rocketchatrestapi-qt/channels/channelremovemoderatorjob.cpp:101
 #, kde-format
@@ -1663,13 +1664,13 @@ msgstr "Egy „%1” nevű csatorna már létezik"
 #: rocketchatrestapi-qt/rooms/saveroomsettingsjob.cpp:64
 #, kde-format
 msgid "'%1' is not a valid room name"
-msgstr ""
+msgstr "A(z) „%1” nem érvényes szobanév"
 
 #: rocketchatrestapi-qt/channels/getchannelrolesjob.cpp:80
 #: rocketchatrestapi-qt/groups/getgrouprolesjob.cpp:66
 #, kde-format
 msgid "Extract Roles"
-msgstr ""
+msgstr "Szerepek kibontása"
 
 #: rocketchatrestapi-qt/chat/deletemessagejob.cpp:116
 #, kde-format
@@ -1679,12 +1680,12 @@ msgstr "Az üzenetek törlése nem engedélyezett."
 #: rocketchatrestapi-qt/chat/getmessagejob.cpp:103
 #, kde-format
 msgid "Not allowed to get message %1"
-msgstr ""
+msgstr "A(z) %1 üzenet megkapása nem megengedett"
 
 #: rocketchatrestapi-qt/chat/getmessagejob.cpp:105
 #, kde-format
 msgid "Not allowed to get message %2 in room %1"
-msgstr ""
+msgstr "A(z) %2 üzenet megkapása a(z) %1 szobában nem megengedett"
 
 #: rocketchatrestapi-qt/chat/getthreadmessagesjob.cpp:93
 #, kde-format
@@ -1737,12 +1738,12 @@ msgstr ""
 #: rocketchatrestapi-qt/invite/findorcreateinvitejob.cpp:138
 #, kde-format
 msgid "Generate link is not authorized in this channel."
-msgstr ""
+msgstr "Hivatkozás előállítása nem engedélyezett ezen a csatornán."
 
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:210
 #, kde-format
 msgid "Unauthorized"
-msgstr ""
+msgstr "Nem engedélyezett"
 
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:228
 #, kde-format
@@ -1752,7 +1753,7 @@ msgstr "%1:%2"
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:236
 #, kde-format
 msgid "'%1' is not allowed"
-msgstr ""
+msgstr "„%1” nem engedélyezett"
 
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:238
 #, kde-format
@@ -1762,7 +1763,7 @@ msgstr "Az alkalmazás nem található"
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:241
 #, kde-format
 msgid "There's an archived channel with name '%1'"
-msgstr ""
+msgstr "Egy „%1” nevű archivált csatorna már létezik"
 
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:243
 #, kde-format
@@ -1824,7 +1825,7 @@ msgstr "Az e-mail tartománya tiltólistára van téve"
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:269
 #, kde-format
 msgid "Error trying to send email: %1"
-msgstr ""
+msgstr "Hiba az e-mail küldésének kísérletekor: %1"
 
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:272
 #, kde-format
@@ -1860,7 +1861,7 @@ msgstr "Az importálandó fájl nem található a megadott útvonalon."
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:286
 #, kde-format
 msgid "%1 is not a valid %2"
-msgstr ""
+msgstr "%1 nem érvényes %2"
 
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:288
 #, kde-format
@@ -1924,7 +1925,7 @@ msgstr "Érvénytelen tartomány"
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:311
 #, kde-format
 msgid "Invalid email '%1'"
-msgstr ""
+msgstr "Érvénytelen e-mail-cím: „%1”"
 
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:313
 #, kde-format
@@ -2000,7 +2001,7 @@ msgstr "Érvénytelen szoba"
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:345
 #, kde-format
 msgid "'%1' is not a valid room type."
-msgstr ""
+msgstr "A(z) „%1” nem érvényes szobatípus."
 
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:347
 #, kde-format
@@ -2278,7 +2279,7 @@ msgstr "A felhasználó nem vezető"
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:448
 #, kde-format
 msgid "App user is not allowed to login"
-msgstr ""
+msgstr "Az alkalmazás felhasználóinak nem engedélyezett a bejelentkezés"
 
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:450
 #, kde-format
@@ -2293,7 +2294,7 @@ msgstr "Az üzenet nem található."
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:454
 #, kde-format
 msgid "Two Authentication Password Required"
-msgstr ""
+msgstr "Két hitelesítési jelszó szükséges"
 
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:456
 #, kde-format
@@ -2306,6 +2307,8 @@ msgid ""
 "The required \\\"roomId\\\" or \\\"roomName\\\" param provided does not "
 "match any channel"
 msgstr ""
+"A kötelezően megadott \\\"roomId\\\" vagy \\\"roomName\\\" paraméter nem "
+"illeszkedik egyetlen csatornára sem"
 
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:460
 #, kde-format
@@ -2325,12 +2328,12 @@ msgstr "A megadott jelszó előzőleg használva volt"
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:466
 #, kde-format
 msgid "The maximum number of rooms per guest has been reached."
-msgstr ""
+msgstr "Az egy vendégre jutó szobák legnagyobb száma el lett érve."
 
 #: rocketchatrestapi-qt/role/removeuserfromrolejob.cpp:52
 #, kde-format
 msgid "This user is not in this role."
-msgstr ""
+msgstr "Ez a felhasználó nincs ebben a szerepben."
 
 #: rocketchatrestapi-qt/role/rolecreatejob.cpp:99
 #, kde-format
@@ -2346,16 +2349,17 @@ msgstr "Érvénytelen előfizetés"
 #, kde-format
 msgid "Only groups or direct channels can enable encryption"
 msgstr ""
+"Csak csoportokban vagy közvetlen csatornákon lehet bekapcsolni a titkosítást"
 
 #: rocketchatrestapi-qt/rooms/saveroomsettingsjob.cpp:71
 #, kde-format
 msgid "Room does not have retention policy"
-msgstr ""
+msgstr "A szobának nincs megőrzési házirendje"
 
 #: rocketchatrestapi-qt/subscriptions/markroomasunreadjob.cpp:62
 #, kde-format
 msgid "Unread message not authorized."
-msgstr ""
+msgstr "Olvasatlan üzenet nem engedélyezett."
 
 #: rocketchatrestapi-qt/subscriptions/markroomasunreadjob.cpp:64
 #, kde-format
@@ -2383,11 +2387,13 @@ msgid ""
 "The required \\\"roomId\\\" or \\\"roomName\\\" param provided does not "
 "match any teams"
 msgstr ""
+"A kötelezően megadott \\\"roomId\\\" vagy \\\"roomName\\\" paraméter nem "
+"illeszkedik egyetlen csapatra sem"
 
 #: rocketchatrestapi-qt/users/getavatarjob.cpp:77
 #, kde-format
 msgid "Get Avatar"
-msgstr ""
+msgstr "Profilkép letöltése"
 
 #: rocketchatrestapi-qt/users/registeruserjob.cpp:72
 #, kde-format
@@ -2397,7 +2403,7 @@ msgstr "Érvénytelen e-mail-cím: „%1”."
 #: rocketchatrestapi-qt/users/setavatarjob.cpp:112
 #, kde-format
 msgid "Invalid avatar URL: %1"
-msgstr ""
+msgstr "Érvénytelen profilkép URL: %1"
 
 #: rocketchatrestapi-qt/users/setavatarjob.cpp:116
 #, kde-format
@@ -2422,7 +2428,7 @@ msgstr "Érvénytelen paraméterek"
 #: rocketchatrestapi-qt/users/usersupdatejob.cpp:65
 #, kde-format
 msgid "Error trying to send email %1"
-msgstr ""
+msgstr "Hiba az e-mail küldésének kísérletekor: %1"
 
 #: widgets/administratordialog/administratordialog.cpp:27
 #, kde-format
@@ -2704,7 +2710,7 @@ msgstr "Fájlmentési hiba"
 #: widgets/administratordialog/moderationconsole/administratormoderationconsolewidget.cpp:31
 #, kde-format
 msgid "Reported Messages"
-msgstr ""
+msgstr "Jelentett üzenetek"
 
 #: widgets/administratordialog/moderationconsole/administratormoderationconsolewidget.cpp:34
 #, kde-format
@@ -2763,13 +2769,13 @@ msgstr "Előző hónapban"
 #, kde-format
 msgctxt "@title:window"
 msgid "Show Moderation Report"
-msgstr ""
+msgstr "Moderációs jelentés megjelenítése"
 
 #: widgets/administratordialog/moderationconsole/moderationmessagesdialog.cpp:27
 #, kde-format
 msgctxt "@title:window"
 msgid "Show Moderation Messages"
-msgstr ""
+msgstr "Moderációs üzenetek megjelenítése"
 
 #: widgets/administratordialog/moderationconsole/moderationmessageswidget.cpp:55
 #: widgets/dialogs/searchmessagewidget.cpp:101
@@ -2800,32 +2806,32 @@ msgstr[1] "%1 üzenet a szobában"
 #: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:37
 #, kde-format
 msgid "Search moderation message…"
-msgstr ""
+msgstr "Moderációs üzenetek keresése…"
 
 #: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:61
 #: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:61
 #, kde-format
 msgid "No moderation message found"
-msgstr ""
+msgstr "Nem található moderációs üzenet"
 
 #: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:66
 #: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:66
 #, kde-format
 msgid "%1 moderation message (Total: %2)"
 msgid_plural "%1 moderation messages (Total: %2)"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%1 moderációs üzenet (Összesen: %2)"
+msgstr[1] "%1 moderációs üzenet (Összesen: %2)"
 
 #: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:135
 #, kde-format
 msgid "See messages"
-msgstr ""
+msgstr "Üzenetek megtekintése"
 
 #: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:140
 #: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:137
 #, kde-format
 msgid "Dismiss reports"
-msgstr ""
+msgstr "Jelentések bezárása"
 
 #: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:144
 #, kde-format
@@ -2834,10 +2840,9 @@ msgstr "Összes üzenet törlése"
 
 #: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:149
 #: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:143
-#, fuzzy, kde-format
-#| msgid "Deactivated Users"
+#, kde-format
 msgid "Deactivate user"
-msgstr "Inaktivált felhasználók"
+msgstr "Felhasználó inaktiválása"
 
 #: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:161
 #: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:155
@@ -2846,14 +2851,15 @@ msgid ""
 "User will be unable to log in unless reactivated. All reported messages will "
 "be permanently deleted from their respective room."
 msgstr ""
+"A felhasználó nem fog tudni bejelentkezni, hacsak nem aktiválja újra. Minden "
+"jelentett üzenet véglegesen törlésre kerül a megfelelő szobából."
 
 #: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:162
 #: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:156
-#, fuzzy, kde-format
-#| msgid "Deactivated Users"
+#, kde-format
 msgctxt "@title:window"
 msgid "Deactivate User"
-msgstr "Inaktivált felhasználók"
+msgstr "Felhasználó inaktiválása"
 
 #: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:195
 #, kde-format
@@ -2861,12 +2867,14 @@ msgid ""
 "Are you sure you want to dismiss and delete all reports for this user's "
 "messages? This action cannot be undone."
 msgstr ""
+"Biztosan be szeretné zárni és törölni az összes jelentést a felhasználó "
+"üzeneteivel kapcsolatban? A művelet nem vonható vissza."
 
 #: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:196
 #, kde-format
 msgctxt "@title:window"
 msgid "Dismiss"
-msgstr ""
+msgstr "Bezárás"
 
 #: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:216
 #, kde-format
@@ -2886,7 +2894,7 @@ msgstr "Összes üzenet törlése"
 #: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:132
 #, kde-format
 msgid "See reports"
-msgstr ""
+msgstr "Jelentések megtekintése"
 
 #: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:191
 #, kde-format
@@ -3963,7 +3971,7 @@ msgstr "CAS"
 #: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:132
 #, kde-format
 msgid "Analytics"
-msgstr ""
+msgstr "Analitika"
 
 #: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:17
 #, kde-format
@@ -4171,6 +4179,9 @@ msgid ""
 "login.\n"
 "Note: Attributes are always synced upon account creation anyway."
 msgstr ""
+"Mindig szinkronizálja a külső CAS-felhasználói adatokat az elérhető "
+"attribútumokkal a bejelentkezéskor.\n"
+"Megjegyzés: az attribútumok mindig szinkronizálódnak a fiók létrehozásakor."
 
 #: widgets/administratorsettingsdialog/cas/cassettingswidget.cpp:72
 #, kde-format
@@ -4645,6 +4656,11 @@ msgid ""
 "message from the Rocket.Cat bot,\n"
 "both visible only for administrators."
 msgstr ""
+"Automatikusan figyeli a Rocket.Chat fejlesztőitől származó új frissítéseket "
+"és fontos üzeneteket, és értesítéseket kap, ha elérhetők.\n"
+"Az értesítés új verziónként egyszer jelenik meg kattintható információs "
+"sávként és a Rocket.Cat robottól származó üzenetként,\n"
+"mindkettő csak az adminisztrátorok számára láthatóan."
 
 #: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:105
 #, kde-format
@@ -4753,7 +4769,7 @@ msgstr "Kimenet az IRC-kiszolgálóval való sikeres kapcsolat esetén."
 #: widgets/administratorsettingsdialog/irc/ircwidget.cpp:31
 #, kde-format
 msgid "Login Successful"
-msgstr ""
+msgstr "Sikeres bejelentkezés"
 
 #: widgets/administratorsettingsdialog/ircfederation/ircfederationwidget.cpp:28
 #, kde-format
@@ -5678,27 +5694,27 @@ msgstr "Sebességkorlátozó engedélyezése"
 #: widgets/administratorsettingsdialog/ratelimiter/ratelimiterwidget.cpp:16
 #, kde-format
 msgid "Limit by IP"
-msgstr ""
+msgstr "Korlátozás IP-cím szerint"
 
 #: widgets/administratorsettingsdialog/ratelimiter/ratelimiterwidget.cpp:19
 #, kde-format
 msgid "Limit by User"
-msgstr ""
+msgstr "Korlátozás felhasználó szerint"
 
 #: widgets/administratorsettingsdialog/ratelimiter/ratelimiterwidget.cpp:22
 #, kde-format
 msgid "Limit by Connection"
-msgstr ""
+msgstr "Korlátozás kapcsolat szerint"
 
 #: widgets/administratorsettingsdialog/ratelimiter/ratelimiterwidget.cpp:26
 #, kde-format
 msgid "Limit by User per Method"
-msgstr ""
+msgstr "Korlátozás módszerenkénti felhasználó szerint"
 
 #: widgets/administratorsettingsdialog/ratelimiter/ratelimiterwidget.cpp:29
 #, kde-format
 msgid "Limit by Connection per Method"
-msgstr ""
+msgstr "Korlátozás módszerenkénti kapcsolat szerint"
 
 #: widgets/administratorsettingsdialog/ratelimiter/ratelimiterwidget.cpp:33
 #, kde-format
@@ -6126,7 +6142,7 @@ msgstr ""
 #: widgets/administratorsettingsdialog/videoconference/videoconferencewidget.cpp:100
 #, kde-format
 msgid "Application ID (iss)"
-msgstr ""
+msgstr "Alkalmazásazonosító (iss)"
 
 #: widgets/administratorsettingsdialog/videoconference/videoconferencewidget.cpp:103
 #, kde-format
@@ -6290,7 +6306,7 @@ msgstr "Következő csatorna"
 #: widgets/common/authenticationbutton.cpp:23
 #, kde-format
 msgid "Sign in with %1"
-msgstr ""
+msgstr "Bejelentkezés ezzel: %1"
 
 #: widgets/common/authenticationloginwidget.cpp:25
 #, kde-format
@@ -6314,6 +6330,8 @@ msgid ""
 "We have sent you an email to confirm your registration.\n"
 "If you do not receive an email shortly, please come back and try again."
 msgstr ""
+"Küldtünk Önnek egy e-mailt a regisztrációja megerősítéséhez.\n"
+"Ha nem kap rövidesen e-mailt, akkor térjen vissza, és próbálja meg újra."
 
 #: widgets/common/authenticationloginwidget.cpp:156
 #: widgets/ruqolamainwindow.cpp:917
@@ -6471,7 +6489,7 @@ msgstr ""
 #: widgets/configuredialog/configuregeneralwidget.cpp:23
 #, kde-format
 msgid "Use local dataBase (experimental)"
-msgstr ""
+msgstr "Helyi adatbázis használata (kísérleti)"
 
 #: widgets/configuredialog/configuregeneralwidget.cpp:25
 #, kde-format
@@ -6572,7 +6590,7 @@ msgstr ""
 #: widgets/configurenewserver/configureactivitieswidget.cpp:55
 #, kde-format
 msgid "Limit to the selected activities:"
-msgstr ""
+msgstr "Korlátozás a kijelölt aktivitásokra:"
 
 #: widgets/configurenewserver/configureactivitieswidget.cpp:61
 #, kde-format
@@ -6639,7 +6657,7 @@ msgstr "Fájl törlése"
 #, kde-format
 msgctxt "@title:window"
 msgid "Configure Auto-Translate"
-msgstr ""
+msgstr "Automatikus fordítás beállítása"
 
 #: widgets/dialogs/autotranslateconfigurewidget.cpp:37
 #, kde-format
@@ -7245,7 +7263,7 @@ msgstr "Kép"
 #: widgets/dialogs/roomavatarwidget.cpp:50
 #, kde-format
 msgid "Select Room Avatar"
-msgstr ""
+msgstr "Szoba profilképének kiválasztása"
 
 #: widgets/dialogs/searchmessagedialog.cpp:28
 #, kde-format
@@ -7397,25 +7415,25 @@ msgstr[1] ""
 #, kde-format
 msgctxt "@title:window"
 msgid "Show Mentions Messages - %1"
-msgstr ""
+msgstr "Említést tartalmazó üzenetek megjelenítése - %1"
 
 #: widgets/dialogs/showpinnedmessagesdialog.cpp:23
 #, kde-format
 msgctxt "@title:window"
 msgid "Show Pinned Messages - %1"
-msgstr ""
+msgstr "Kitűzött üzenetek megjelenítése - %1"
 
 #: widgets/dialogs/showstarredmessagesdialog.cpp:22
 #, kde-format
 msgctxt "@title:window"
 msgid "Show Starred Messages - %1"
-msgstr ""
+msgstr "Csillagozott üzenetek megjelenítése - %1"
 
 #: widgets/dialogs/showthreadsdialog.cpp:23
 #, kde-format
 msgctxt "@title:window"
 msgid "Show Threads Messages"
-msgstr ""
+msgstr "Szálüzenetek megjelenítése"
 
 #: widgets/dialogs/showvideodialog.cpp:26
 #, kde-format
@@ -7568,7 +7586,7 @@ msgstr ""
 #, kde-format
 msgctxt "@action"
 msgid "Decrypte Encryption Key"
-msgstr ""
+msgstr "Titkosítási kulcs visszafejtése"
 
 #: widgets/encryption/e2edecodeencryptionkeywidget.cpp:17
 #, kde-format
@@ -7757,27 +7775,33 @@ msgstr ""
 #: widgets/loginwidget/ruqolaloginwidget.cpp:181
 #, kde-format
 msgid "Login Failed: generic error"
-msgstr ""
+msgstr "Sikertelen bejelentkezés: általános hiba"
 
 #: widgets/loginwidget/ruqolaloginwidget.cpp:187
 #, kde-format
 msgid "Login Failed: Login has been temporarily blocked For IP."
 msgstr ""
+"Sikertelen bejelentkezés: a bejelentkezés átmenetileg tiltva lett ennél az "
+"IP-címnél."
 
 #: widgets/loginwidget/ruqolaloginwidget.cpp:193
 #, kde-format
 msgid "Login Failed: Login has been temporarily blocked For User."
 msgstr ""
+"Sikertelen bejelentkezés: a bejelentkezés átmenetileg tiltva lett ennél a "
+"felhasználónál."
 
 #: widgets/loginwidget/ruqolaloginwidget.cpp:199
 #, kde-format
 msgid "Login Failed: User is not activated."
-msgstr ""
+msgstr "Sikertelen bejelentkezés: a felhasználó nincs aktiválva."
 
 #: widgets/loginwidget/ruqolaloginwidget.cpp:205
 #, kde-format
 msgid "Login Failed: App user is not allowed to login."
 msgstr ""
+"Sikertelen bejelentkezés: az alkalmazás felhasználóinak nem engedélyezett a "
+"bejelentkezés."
 
 #: widgets/messagemaximumsizedialog/messagemaximumsizedialog.cpp:18
 #, kde-format
@@ -7803,7 +7827,7 @@ msgstr ""
 #: widgets/misc/accountsoverviewwidget.cpp:39
 #, kde-format
 msgid "Login failed: invalid username or password"
-msgstr ""
+msgstr "Sikertelen bejelentkezés: érvénytelen felhasználónév vagy jelszó"
 
 #: widgets/misc/accountsoverviewwidget.cpp:41
 #, kde-format
@@ -7828,7 +7852,7 @@ msgstr ""
 #: widgets/misc/accountsoverviewwidget.cpp:49
 #, kde-format
 msgid "Login failed: generic error"
-msgstr ""
+msgstr "Sikertelen bejelentkezés: általános hiba"
 
 #: widgets/misc/accountsoverviewwidget.cpp:51
 #, kde-format
@@ -7838,7 +7862,7 @@ msgstr ""
 #: widgets/misc/accountsoverviewwidget.cpp:55
 #, kde-format
 msgid "Login failed: User is not activated."
-msgstr ""
+msgstr "Sikertelen bejelentkezés: a felhasználó nincs aktiválva."
 
 #: widgets/misc/accountsoverviewwidget.cpp:57
 #, kde-format
@@ -7853,7 +7877,7 @@ msgstr "A bejelentkezés átmenetileg tiltva lett ennél a felhasználónál."
 #: widgets/misc/accountsoverviewwidget.cpp:61
 #, kde-format
 msgid "App user is not allowed to login."
-msgstr ""
+msgstr "Az alkalmazás felhasználóinak nem engedélyezett a bejelentkezés."
 
 #: widgets/misc/accountsoverviewwidget.cpp:67
 #, kde-format
@@ -7961,7 +7985,7 @@ msgstr "Jelszó visszaállítása"
 #: widgets/misc/searchwithdelaylineedit.cpp:16
 #, kde-format
 msgid "Search Word…"
-msgstr ""
+msgstr "Szó keresése…"
 
 #: widgets/misc/servermenu.cpp:20
 #, kde-format
@@ -7976,7 +8000,7 @@ msgstr ""
 #: widgets/misc/twoauthenticationpasswordwidget.cpp:25
 #, kde-format
 msgid "Enter code"
-msgstr ""
+msgstr "Írja be a kódot"
 
 #: widgets/misc/twoauthenticationpasswordwidget.cpp:30
 #, kde-format
@@ -8003,6 +8027,13 @@ msgid ""
 "the E2E encryption, Rocket.Chat will not be able to restore access to any "
 "encrypted room that has no member online."
 msgstr ""
+"Ez a beállítás eltávolítja a jelenlegi végpontok közötti titkosítási "
+"kulcsot, és kijelentkezteti Önt. Ha újra bejelentkezik, akkor a Rocket.Chat "
+"új kulcsot fog előállítani Önnek, és visszaállítja a hozzáférését az összes "
+"olyan titkosított szobához, amely egy vagy több elérhető taggal rendelkezik. "
+"A végpontok közötti titkosítás természetéből adódóan a Rocket.Chat nem tudja "
+"visszaállítani a hozzáférést olyan titkosított szobákhoz, amelyek nem "
+"rendelkeznek elérhető taggal."
 
 #: widgets/myaccount/myaccount2faconfigurewidget.cpp:19
 #, kde-format
@@ -8371,7 +8402,7 @@ msgstr "Az adminisztrátora letiltotta az állapotüzenetek megváltoztatását.
 #: widgets/myaccount/myaccountprofileconfigurewidget.cpp:38
 #, kde-format
 msgid "Delete my Account"
-msgstr ""
+msgstr "A fiókom törlése"
 
 #: widgets/myaccount/myaccountprofileconfigurewidget.cpp:39
 #, kde-format
@@ -8381,47 +8412,47 @@ msgstr "Kijelentkezés más bejelentkezett helyekről"
 #: widgets/myaccount/myaccountprofileconfigurewidget.cpp:87
 #, kde-format
 msgid "Status text:"
-msgstr ""
+msgstr "Állapotszöveg:"
 
 #: widgets/myaccount/myaccountprofileconfigurewidget.cpp:125
 #, kde-format
 msgid "Do you really delete your account ?"
-msgstr ""
+msgstr "Biztosan törölni szeretné a fiókját?"
 
 #: widgets/myaccount/myaccountprofileconfigurewidget.cpp:126
 #, kde-format
 msgctxt "@title"
 msgid "Delete my Account"
-msgstr ""
+msgstr "A fiókom törlése"
 
 #: widgets/myaccount/myaccountprofileconfigurewidget.cpp:132
 #: widgets/myaccount/myaccountprofileconfigurewidget.cpp:199
 #, kde-format
 msgid "Current Password"
-msgstr ""
+msgstr "Jelenlegi jelszó"
 
 #: widgets/needupdateversion/needupdateversionwidget.cpp:19
 #, kde-format
 msgctxt "@action"
 msgid "Disable version check"
-msgstr ""
+msgstr "Verzióellenőrzés kikapcsolása"
 
 #: widgets/needupdateversion/needupdateversionwidget.cpp:34
 #, kde-format
 msgid "Your version is older than 6 months, we encourage you to upgrade."
-msgstr ""
+msgstr "Az Ön verziója több, mint 6 hónapos, javasoljuk, hogy frissítsen."
 
 #: widgets/needupdateversion/needupdateversionwidget.cpp:39
 #, kde-format
 msgid ""
 "Your version is older than 1 year, we strongly encourage you to upgrade."
-msgstr ""
+msgstr "Az Ön verziója több, mint 1 éves, erősen ajánljuk, hogy frissítsen."
 
 #: widgets/notificationhistory/notificationhistorydialog.cpp:27
 #, kde-format
 msgctxt "@title:window"
 msgid "Notification"
-msgstr ""
+msgstr "Értesítések"
 
 #: widgets/notificationhistory/notificationhistorylistview.cpp:75
 #: widgets/servererrorinfohistory/servererrorinfomessagehistorylistview.cpp:43
@@ -8432,7 +8463,7 @@ msgstr "Törlés"
 #: widgets/notificationhistory/notificationhistorylistview.cpp:79
 #, kde-format
 msgid "Go to Message"
-msgstr ""
+msgstr "Ugrás az üzenethez"
 
 #: widgets/offlinewidget/offlinewidget.cpp:17
 #, kde-format
@@ -8442,7 +8473,7 @@ msgstr ""
 #: widgets/otr/otrwidget.cpp:19
 #, kde-format
 msgid "Otr Activated"
-msgstr ""
+msgstr "OTR aktiválva"
 
 #: widgets/otr/otrwidget.cpp:20
 #, kde-format
@@ -8454,7 +8485,7 @@ msgstr "OTR befejezése"
 #, kde-format
 msgctxt "@action"
 msgid "Refresh Keys"
-msgstr ""
+msgstr "Kulcsok frissítése"
 
 #: widgets/prunemessages/prunemessagesdialog.cpp:28
 #, kde-format
@@ -8470,32 +8501,32 @@ msgstr "Beleértve"
 #: widgets/prunemessages/prunemessageswidget.cpp:20
 #, kde-format
 msgid "Do not Prune Pinned Messages"
-msgstr ""
+msgstr "Ne törölje a kitűzött üzeneteket"
 
 #: widgets/prunemessages/prunemessageswidget.cpp:21
 #, kde-format
 msgid "Do not Prune Discussion Messages"
-msgstr ""
+msgstr "Ne törölje a megbeszélés üzeneteit"
 
 #: widgets/prunemessages/prunemessageswidget.cpp:22
 #, kde-format
 msgid "Do not Prune Threads"
-msgstr ""
+msgstr "Ne törölje a szálakat"
 
 #: widgets/prunemessages/prunemessageswidget.cpp:23
 #, kde-format
 msgid "Only Remove Attached Files. Keep messages"
-msgstr ""
+msgstr "Csak a csatolt fájlok eltávolítása, az üzenetek megtartása"
 
 #: widgets/prunemessages/prunemessageswidget.cpp:38
 #, kde-format
 msgid "Newer than:"
-msgstr ""
+msgstr "Újabb mint:"
 
 #: widgets/prunemessages/prunemessageswidget.cpp:51
 #, kde-format
 msgid "Older than:"
-msgstr ""
+msgstr "Régebbi mint:"
 
 #: widgets/prunemessages/prunemessageswidget.cpp:59
 #, kde-format
@@ -8512,65 +8543,65 @@ msgstr ""
 #, kde-format
 msgctxt "@title:window"
 msgid "Register User"
-msgstr ""
+msgstr "Felhasználó regisztrálása"
 
 #: widgets/registeruser/registeruserwidget.cpp:18
 #, kde-format
 msgid "Register"
-msgstr ""
+msgstr "Regisztráció"
 
 #: widgets/room/channelactionpopupmenu.cpp:29
 #, kde-format
 msgctxt "@action"
 msgid "Prune Messages…"
-msgstr ""
+msgstr "Üzenetek törlése…"
 
 #: widgets/room/channelactionpopupmenu.cpp:37
 #, kde-format
 msgctxt "@action"
 msgid "Show Mentions…"
-msgstr ""
+msgstr "Említések megjelenítése…"
 
 #: widgets/room/channelactionpopupmenu.cpp:43
 #, kde-format
 msgctxt "@action"
 msgid "Show Pinned Messages…"
-msgstr ""
+msgstr "Kitűzött üzenetek megjelenítése…"
 
 #: widgets/room/channelactionpopupmenu.cpp:49
 #, kde-format
 msgctxt "@action"
 msgid "Show Starred Messages…"
-msgstr ""
+msgstr "Csillagozott üzenetek megjelenítése…"
 
 #: widgets/room/channelactionpopupmenu.cpp:55
 #, kde-format
 msgid "Show File Attachments…"
-msgstr ""
+msgstr "Fájlmellékletek megjelenítése…"
 
 #: widgets/room/channelactionpopupmenu.cpp:61
 #, kde-format
 msgctxt "@action"
 msgid "Show Discussions…"
-msgstr ""
+msgstr "Megbeszélések megjelenítése…"
 
 #: widgets/room/channelactionpopupmenu.cpp:67
 #, kde-format
 msgctxt "@action"
 msgid "Show Threads…"
-msgstr ""
+msgstr "Szálak megjelenítése…"
 
 #: widgets/room/channelactionpopupmenu.cpp:82
 #, kde-format
 msgctxt "@action"
 msgid "Configure Auto-Translate…"
-msgstr ""
+msgstr "Automatikus fordítás beállítása…"
 
 #: widgets/room/channelactionpopupmenu.cpp:90
 #, kde-format
 msgctxt "@action"
 msgid "Invite Users"
-msgstr ""
+msgstr "Felhasználók meghívása"
 
 #: widgets/room/channelactionpopupmenu.cpp:97
 #, kde-format
@@ -8587,13 +8618,13 @@ msgstr "Videocsevegés"
 #, kde-format
 msgctxt "@action"
 msgid "Export Messages…"
-msgstr ""
+msgstr "Üzenetek exportálása…"
 
 #: widgets/room/channelactionpopupmenu.cpp:119
 #, kde-format
 msgctxt "@action"
 msgid "OTR"
-msgstr ""
+msgstr "OTR"
 
 #: widgets/room/channelactionpopupmenu.cpp:126
 #, kde-format
@@ -8605,7 +8636,7 @@ msgstr "Üzenetek titkosítása"
 #, kde-format
 msgctxt "@title:window"
 msgid "Open Attachment?"
-msgstr ""
+msgstr "Melléklet megnyitása?"
 
 #: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:115
 #, kde-kuit-format
@@ -8617,13 +8648,13 @@ msgstr ""
 #, kde-format
 msgctxt "@action:button"
 msgid "&Open With '%1'"
-msgstr ""
+msgstr "Me&gnyitás ezzel: „%1”"
 
 #: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:122
 #, kde-format
 msgctxt "@action:button"
 msgid "Open &With…"
-msgstr ""
+msgstr "Megnyitás &mással…"
 
 #: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:123
 #, kde-format
@@ -8728,7 +8759,7 @@ msgstr ""
 #, kde-format
 msgctxt "@title:window"
 msgid "Message Too Big"
-msgstr ""
+msgstr "Az üzenet túl nagy"
 
 #: widgets/room/messagelinewidget.cpp:244
 #, kde-format
@@ -8743,7 +8774,7 @@ msgstr ""
 #: widgets/room/messagelinewidget.cpp:384
 #, kde-format
 msgid "File selected is too big (Maximum size %1)"
-msgstr ""
+msgstr "A kiválasztott fájl túl nagy (maximális méret: %1)"
 
 #: widgets/room/messagelinewidget.cpp:384
 #, kde-format
@@ -8758,7 +8789,7 @@ msgstr ""
 #: widgets/room/messagelistview.cpp:104
 #, kde-format
 msgid "You have joined a new direct message"
-msgstr ""
+msgstr "Csatlakozott egy új közvetlen üzenethez"
 
 #: widgets/room/messagelistview.cpp:106
 #, kde-format
@@ -8790,13 +8821,13 @@ msgstr "Összes kijelölése"
 #, kde-format
 msgctxt "@action"
 msgid "Mark Message As Unread"
-msgstr ""
+msgstr "Üzenet megjelölése olvasatlanként"
 
 #: widgets/room/messagelistview.cpp:311
 #, kde-format
 msgctxt "@action"
 msgid "Show Full Thread"
-msgstr ""
+msgstr "Teljes szál megjelenítése"
 
 #: widgets/room/messagelistview.cpp:316
 #, kde-format
@@ -8824,18 +8855,18 @@ msgstr "Üzenet továbbítása"
 #: widgets/threadwidget/threadmessagewidget.cpp:117
 #, kde-format
 msgid "Unfollow Message"
-msgstr ""
+msgstr "Üzenet követésének leállítása"
 
 #: widgets/room/messagelistview.cpp:344
 #: widgets/threadwidget/threadmessagewidget.cpp:117
 #, kde-format
 msgid "Follow Message"
-msgstr ""
+msgstr "Üzenet követése"
 
 #: widgets/room/messagelistview.cpp:357
 #, kde-format
 msgid "Copy URL"
-msgstr ""
+msgstr "URL másolása"
 
 #: widgets/room/messagelistview.cpp:404
 #, kde-format
@@ -8847,29 +8878,29 @@ msgstr "Megbeszélés indítása"
 #, kde-format
 msgctxt "@action"
 msgid "Reply in Thread"
-msgstr ""
+msgstr "Válasz szálban"
 
 #: widgets/room/messagelistview.cpp:472
 #, kde-format
 msgid "Show Original Message"
-msgstr ""
+msgstr "Eredeti üzenet megjelenítése"
 
 #: widgets/room/messagelistview.cpp:472
 #, kde-format
 msgid "Translate Message"
-msgstr ""
+msgstr "Üzenet fordítása"
 
 #: widgets/room/messagelistview.cpp:515
 #, kde-format
 msgctxt "@action"
 msgid "View Reports"
-msgstr ""
+msgstr "Jelentések megtekintése"
 
 #: widgets/room/messagelistview.cpp:538
 #, kde-format
 msgctxt "@action"
 msgid "Dismiss Reports"
-msgstr ""
+msgstr "Jelentések bezárása"
 
 #: widgets/room/messagelistview.cpp:583
 #, kde-format
