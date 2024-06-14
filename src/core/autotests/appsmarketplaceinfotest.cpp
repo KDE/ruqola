@@ -57,7 +57,7 @@ void AppsMarketPlaceInfoTest::shouldLoadAppsMarketPlaceInfo_data()
         appsMarketPlaceInfo.setIsEnterpriseOnly(false);
         appsMarketPlaceInfo.setAppName("Jitsi"_L1);
         appsMarketPlaceInfo.setCategories({"Voice & Video"_L1, "Communication"_L1, "Productivity"_L1});
-        appsMarketPlaceInfo.setDocumentationUrl({});
+        appsMarketPlaceInfo.setDocumentationUrl("docs.rocket.chat/use-rocket.chat/rocket.chat-conference-call/conference-call-admin-guide/jitsi-app"_L1);
         appsMarketPlaceInfo.setPurchaseType("buy"_L1);
         appsMarketPlaceInfo.setDescription("Jitsi is a collection"_L1);
         appsMarketPlaceInfo.setPrice(0);

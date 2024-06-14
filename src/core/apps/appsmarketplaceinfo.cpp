@@ -49,7 +49,7 @@ void AppsMarketPlaceInfo::parseAppsMarketPlaceInfo(const QJsonObject &replyObjec
     mShortDescription = latestObj["shortDescription"_L1].toString();
     mVersion = latestObj["version"_L1].toString();
     mAppName = latestObj["name"_L1].toString();
-    mDocumentationUrl = replyObject["documentationUrl"_L1].toString();
+    mDocumentationUrl = latestObj["documentationUrl"_L1].toString();
     mPixmap.loadFromData(latestObj["iconFileData"_L1].toString().toLatin1());
     // TODO
 }
