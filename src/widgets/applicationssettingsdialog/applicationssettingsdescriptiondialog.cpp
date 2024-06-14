@@ -5,6 +5,7 @@
 */
 
 #include "applicationssettingsdescriptiondialog.h"
+#include "applicationssettingsdescriptionwidget.h"
 #include <KConfigGroup>
 #include <KLocalizedString>
 #include <KSharedConfig>
@@ -12,16 +13,21 @@
 #include <QDialogButtonBox>
 #include <QVBoxLayout>
 #include <QWindow>
+using namespace Qt::Literals::StringLiterals;
 namespace
 {
 const char myApplicationsSettingsDescriptionDialogGroupName[] = "ApplicationsSettingsDescriptionDialog";
 }
 ApplicationsSettingsDescriptionDialog::ApplicationsSettingsDescriptionDialog(QWidget *parent)
     : QDialog(parent)
+    , mApplicationsSettingsDescriptionWidget(new ApplicationsSettingsDescriptionWidget(this))
 {
     setWindowTitle(i18nc("@title:window", "Applications"));
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
+
+    mApplicationsSettingsDescriptionWidget->setObjectName("mApplicationsSettingsDescriptionWidget"_L1);
+    mainLayout->addWidget(mApplicationsSettingsDescriptionWidget);
 
     auto button = new QDialogButtonBox(QDialogButtonBox::Close, this);
     button->setObjectName(QStringLiteral("button"));
@@ -49,6 +55,11 @@ void ApplicationsSettingsDescriptionDialog::writeConfig()
 {
     KConfigGroup group(KSharedConfig::openStateConfig(), QLatin1StringView(myApplicationsSettingsDescriptionDialogGroupName));
     KWindowConfig::saveWindowSize(windowHandle(), group);
+}
+
+void ApplicationsSettingsDescriptionDialog::setDescription(const QString &desc)
+{
+    mApplicationsSettingsDescriptionWidget->setDescription(desc);
 }
 
 #include "moc_applicationssettingsdescriptiondialog.cpp"

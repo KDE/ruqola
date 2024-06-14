@@ -21,6 +21,7 @@ public:
 
 private:
     struct Layout {
+        QPixmap appsPixmap;
         // TODO
     };
 
