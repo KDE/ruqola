@@ -17,9 +17,7 @@ WhatsNewMessageWidget::WhatsNewMessageWidget(QWidget *parent)
     setVisible(false);
     setCloseButtonVisible(true);
     setMessageType(Information);
-    setText(i18n("What's new in %2. %1",
-                 QStringLiteral("<a href=\"show_whats_new\">%1</a>").arg(i18n("(Show News in Ruqola)")),
-                 QCoreApplication::applicationName()));
+    setText(i18n("What's new in %2. %1", QStringLiteral("<a href=\"show_whats_new\">%1</a>").arg(i18n("(Show News)")), QCoreApplication::applicationName()));
     setPosition(KMessageWidget::Header);
     connect(this, &KMessageWidget::linkActivated, this, &WhatsNewMessageWidget::slotLinkActivated);
 }
