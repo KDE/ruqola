@@ -5,12 +5,12 @@
 */
 
 #include "whatsnewmessagewidget.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "whatsnewdialog.h"
 #include <KLocalizedString>
 #include <QCoreApplication>
 
+using namespace Qt::Literals::StringLiterals;
 WhatsNewMessageWidget::WhatsNewMessageWidget(QWidget *parent)
     : KMessageWidget(parent)
 {
