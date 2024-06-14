@@ -27,6 +27,8 @@ public:
     [[nodiscard]] QList<AppsCategoryInfo> appsCategories() const;
     void setAppsCategories(const QList<AppsCategoryInfo> &appsCategories);
 
+    [[nodiscard]] bool wasFilled() const;
+
 private:
     LIBRUQOLACORE_NO_EXPORT void createItem(const QString &displayStr, const QString &identifier);
     QList<AppsCategoryInfo> mAppsCategories;

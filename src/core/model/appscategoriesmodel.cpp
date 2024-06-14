@@ -39,4 +39,9 @@ void AppsCategoriesModel::setAppsCategories(const QList<AppsCategoryInfo> &appsC
     }
 }
 
+bool AppsCategoriesModel::wasFilled() const
+{
+    return !mAppsCategories.isEmpty();
+}
+
 #include "moc_appscategoriesmodel.cpp"

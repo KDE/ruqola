@@ -72,4 +72,9 @@ QVariant AppsMarketPlaceModel::data(const QModelIndex &index, int role) const
     return {};
 }
 
+bool AppsMarketPlaceModel::wasFilled() const
+{
+    return !mAppsMarketPlaceInfos.isEmpty();
+}
+
 #include "moc_appsmarketplacemodel.cpp"

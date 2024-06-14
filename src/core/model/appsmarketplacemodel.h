@@ -36,6 +36,8 @@ public:
     [[nodiscard]] QList<AppsMarketPlaceInfo> appsCategories() const;
     void setAppsCategories(const QList<AppsMarketPlaceInfo> &appsCategories);
 
+    [[nodiscard]] bool wasFilled() const;
+
 private:
     QList<AppsMarketPlaceInfo> mAppsMarketPlaceInfos;
 };
