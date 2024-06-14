@@ -51,6 +51,21 @@ void AppsMarketPlaceInfoTest::shouldLoadAppsMarketPlaceInfo_data()
 
         QTest::addRow("apps1") << QStringLiteral("apps1") << appsMarketPlaceInfo;
     }
+    {
+        AppsMarketPlaceInfo appsMarketPlaceInfo;
+        appsMarketPlaceInfo.setAppId(QByteArray("3b387ba9-f57c-44c6-9810-8c0256abd64c"));
+        appsMarketPlaceInfo.setIsEnterpriseOnly(false);
+        appsMarketPlaceInfo.setAppName("Jitsi"_L1);
+        appsMarketPlaceInfo.setCategories({"Voice & Video"_L1, "Communication"_L1, "Productivity"_L1});
+        appsMarketPlaceInfo.setDocumentationUrl({});
+        appsMarketPlaceInfo.setPurchaseType("buy"_L1);
+        appsMarketPlaceInfo.setDescription("Jitsi is a collection"_L1);
+        appsMarketPlaceInfo.setPrice(0);
+        appsMarketPlaceInfo.setVersion("2.1.1"_L1);
+        appsMarketPlaceInfo.setShortDescription("Enjoy a secure and robust video conferencing"_L1);
+
+        QTest::addRow("apps2") << QStringLiteral("apps2") << appsMarketPlaceInfo;
+    }
 }
 
 void AppsMarketPlaceInfoTest::shouldLoadAppsMarketPlaceInfo()
