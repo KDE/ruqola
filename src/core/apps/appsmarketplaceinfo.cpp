@@ -50,8 +50,8 @@ void AppsMarketPlaceInfo::parseAppsMarketPlaceInfo(const QJsonObject &replyObjec
     mVersion = latestObj["version"_L1].toString();
     mAppName = latestObj["name"_L1].toString();
     mDocumentationUrl = latestObj["documentationUrl"_L1].toString();
-    mPixmap.loadFromData(latestObj["iconFileData"_L1].toString().toLatin1());
-    // TODO
+    const QByteArray baImageBase64 = latestObj["iconFileData"_L1].toString().toLatin1();
+    mPixmap.loadFromData(QByteArray::fromBase64(baImageBase64), "PNG");
 }
 
 QByteArray AppsMarketPlaceInfo::appId() const
@@ -174,6 +174,6 @@ bool AppsMarketPlaceInfo::operator==(const AppsMarketPlaceInfo &other) const
 {
     return mCategories == other.mCategories && mAppId == other.mAppId && mAppName == other.mAppName && mDescription == other.mDescription
         && mDocumentationUrl == other.mDocumentationUrl && mPurchaseType == other.mPurchaseType && mVersion == other.mVersion
-        && mShortDescription == other.mShortDescription && mPixmap.isNull() == other.mPixmap.isNull() && mPrice == other.mPrice
+        && mShortDescription == other.mShortDescription /*&& mPixmap.isNull() == other.mPixmap.isNull()*/ && mPrice == other.mPrice
         && mIsEnterpriseOnly == other.mIsEnterpriseOnly;
 }
