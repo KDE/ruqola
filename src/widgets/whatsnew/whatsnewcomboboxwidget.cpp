@@ -56,6 +56,7 @@ QString WhatsNewComboBoxWidget::convertVersionEnumToString(WhatsNewComboBoxWidge
     case Version2_3:
         return i18n("Version 2.3");
     }
+    Q_UNREACHABLE();
     return {};
 }
 
