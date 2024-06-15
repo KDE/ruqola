@@ -67,6 +67,7 @@ ApplicationsSettingsDelegate::Layout ApplicationsSettingsDelegate::doLayout(cons
     }
     layout.appDescription = index.data(AppsMarketPlaceModel::Description).toString();
     layout.appName = index.data(AppsMarketPlaceModel::AppName).toString();
+    layout.premium = index.data(AppsMarketPlaceModel::IsEnterpriseOnly).toBool();
     // TODO premium
     // TODO
     return layout;
