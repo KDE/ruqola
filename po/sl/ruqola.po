@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-06-14 00:39+0000\n"
-"PO-Revision-Date: 2024-06-13 10:17+0200\n"
+"POT-Creation-Date: 2024-06-15 00:38+0000\n"
+"PO-Revision-Date: 2024-06-14 06:31+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
@@ -827,6 +827,11 @@ msgstr "Onemogočeno"
 msgid "Status"
 msgstr "Stanje"
 
+#: core/model/appscategoriesmodel.cpp:34
+#, kde-format
+msgid "Categories"
+msgstr ""
+
 #: core/model/bannerinfosmodel.cpp:52
 #, kde-format
 msgid "link"
@@ -1398,10 +1403,9 @@ msgid "%1 ended the OTR session."
 msgstr "%1 je končal sejo OTR."
 
 #: core/otr/otrnotificationjob.cpp:99
-#, fuzzy, kde-format
-#| msgid "%1  wants to start OTR. Do you want to accept?."
+#, kde-format
 msgid "%1 wants to start OTR. Do you want to accept?"
-msgstr "%1 želi zagnati OTR. Ali želite sprejeti?."
+msgstr "%1 želi zagnati OTR. Ali želite sprejeti?"
 
 #: core/otr/otrnotificationjob.cpp:103
 #, kde-format
@@ -6240,7 +6244,7 @@ msgid "STUN/TURN Servers"
 msgstr "Strežniki STUN/TURN"
 
 #: widgets/applicationssettingsdialog/applicationssettingsaskapplicationdialog.cpp:24
-#: widgets/applicationssettingsdialog/applicationssettingsdescriptiondialog.cpp:22
+#: widgets/applicationssettingsdialog/applicationssettingsdescriptiondialog.cpp:25
 #: widgets/applicationssettingsdialog/applicationssettingsdialog.cpp:27
 #, kde-format
 msgctxt "@title:window"
@@ -6250,12 +6254,12 @@ msgstr "Aplikacije"
 #: widgets/applicationssettingsdialog/applicationssettingsaskapplicationwidget.cpp:22
 #, kde-format
 msgid "Let your admin know why this app would be useful "
-msgstr ""
+msgstr "Razložite svojemu skrbniku, zakaj bi bila ta aplikacija uporabna"
 
 #: widgets/applicationssettingsdialog/applicationssettingsaskapplicationwidget.cpp:28
 #, kde-format
 msgid "Message for workspace admin"
-msgstr ""
+msgstr "Sporočilo za skrbnika delovnega prostora"
 
 #: widgets/applicationssettingsdialog/applicationssettingspricecombobox.cpp:12
 #, kde-format
@@ -9982,14 +9986,16 @@ msgctxt "@title:window"
 msgid "What's new in Ruqola"
 msgstr "Kaj je novega v aplikaciji Ruqola"
 
-#: widgets/whatsnew/whatsnewmessagewidget.cpp:19
-#, kde-format
-msgid "(Show News in Ruqola)"
+#: widgets/whatsnew/whatsnewmessagewidget.cpp:20
+#, fuzzy, kde-format
+#| msgid "(Show News in Ruqola)"
+msgid "(Show News)"
 msgstr "(Pokaži novice v aplikaciji Ruqola)"
 
-#: widgets/whatsnew/whatsnewmessagewidget.cpp:19
-#, kde-format
-msgid "What's new in Ruqola. %1"
+#: widgets/whatsnew/whatsnewmessagewidget.cpp:20
+#, fuzzy, kde-format
+#| msgid "What's new in Ruqola. %1"
+msgid "What's new in %2. %1"
 msgstr "Kaj je novega v aplikaciji Ruqola. %1"
 
 #: widgets/whatsnew/whatsnewwidget.cpp:97

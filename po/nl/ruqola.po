@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-06-14 00:39+0000\n"
-"PO-Revision-Date: 2024-06-13 23:38+0200\n"
+"POT-Creation-Date: 2024-06-15 00:38+0000\n"
+"PO-Revision-Date: 2024-06-14 11:24+0200\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
 "Language: nl\n"
@@ -826,6 +826,11 @@ msgstr "Uitgeschakeld"
 msgid "Status"
 msgstr "Status"
 
+#: core/model/appscategoriesmodel.cpp:34
+#, kde-format
+msgid "Categories"
+msgstr ""
+
 #: core/model/bannerinfosmodel.cpp:52
 #, kde-format
 msgid "link"
@@ -1389,10 +1394,9 @@ msgid "%1 ended the OTR session."
 msgstr "%1 eindigde de OTR-sessie."
 
 #: core/otr/otrnotificationjob.cpp:99
-#, fuzzy, kde-format
-#| msgid "%1  wants to start OTR. Do you want to accept?."
+#, kde-format
 msgid "%1 wants to start OTR. Do you want to accept?"
-msgstr "%1 wil OTR starten. Wilt u het accepteren?."
+msgstr "%1 wil OTR starten. Wilt u het accepteren?"
 
 #: core/otr/otrnotificationjob.cpp:103
 #, kde-format
@@ -6266,7 +6270,7 @@ msgid "STUN/TURN Servers"
 msgstr "STUN/TURN-servers"
 
 #: widgets/applicationssettingsdialog/applicationssettingsaskapplicationdialog.cpp:24
-#: widgets/applicationssettingsdialog/applicationssettingsdescriptiondialog.cpp:22
+#: widgets/applicationssettingsdialog/applicationssettingsdescriptiondialog.cpp:25
 #: widgets/applicationssettingsdialog/applicationssettingsdialog.cpp:27
 #, kde-format
 msgctxt "@title:window"
@@ -6276,12 +6280,12 @@ msgstr "Toepassingen"
 #: widgets/applicationssettingsdialog/applicationssettingsaskapplicationwidget.cpp:22
 #, kde-format
 msgid "Let your admin know why this app would be useful "
-msgstr ""
+msgstr "Laat uw systeembeheerder weten waarom deze toepassing nuttig zou zijn"
 
 #: widgets/applicationssettingsdialog/applicationssettingsaskapplicationwidget.cpp:28
 #, kde-format
 msgid "Message for workspace admin"
-msgstr ""
+msgstr "Bericht voor beheerder van werkruimte"
 
 #: widgets/applicationssettingsdialog/applicationssettingspricecombobox.cpp:12
 #, kde-format
@@ -6291,17 +6295,17 @@ msgstr "Alle prijzen"
 #: widgets/applicationssettingsdialog/applicationssettingspricecombobox.cpp:13
 #, kde-format
 msgid "Free Apps"
-msgstr ""
+msgstr "Vrije toepassingen"
 
 #: widgets/applicationssettingsdialog/applicationssettingspricecombobox.cpp:14
 #, kde-format
 msgid "Paid Apps"
-msgstr ""
+msgstr "Betaalde toepassingen"
 
 #: widgets/applicationssettingsdialog/applicationssettingspricecombobox.cpp:15
 #, kde-format
 msgid "Premium"
-msgstr ""
+msgstr "Eerste klas"
 
 #: widgets/applicationssettingsdialog/applicationssettingsstatuscombobox.cpp:13
 #, kde-format
@@ -9992,14 +9996,16 @@ msgctxt "@title:window"
 msgid "What's new in Ruqola"
 msgstr "Wat is er nieuw in Ruqola"
 
-#: widgets/whatsnew/whatsnewmessagewidget.cpp:19
-#, kde-format
-msgid "(Show News in Ruqola)"
+#: widgets/whatsnew/whatsnewmessagewidget.cpp:20
+#, fuzzy, kde-format
+#| msgid "(Show News in Ruqola)"
+msgid "(Show News)"
 msgstr "(Nieuws in Ruqola tonen)"
 
-#: widgets/whatsnew/whatsnewmessagewidget.cpp:19
-#, kde-format
-msgid "What's new in Ruqola. %1"
+#: widgets/whatsnew/whatsnewmessagewidget.cpp:20
+#, fuzzy, kde-format
+#| msgid "What's new in Ruqola. %1"
+msgid "What's new in %2. %1"
 msgstr "Wat is er nieuw in Ruqola. %1"
 
 #: widgets/whatsnew/whatsnewwidget.cpp:97

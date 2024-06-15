@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-06-14 00:39+0000\n"
-"PO-Revision-Date: 2024-06-13 17:41+0200\n"
+"POT-Creation-Date: 2024-06-15 00:38+0000\n"
+"PO-Revision-Date: 2024-06-14 12:24+0200\n"
 "Last-Translator: giovanni <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
 "Language: ia\n"
@@ -822,6 +822,11 @@ msgstr "Dishabilitate"
 msgid "Status"
 msgstr "Stato"
 
+#: core/model/appscategoriesmodel.cpp:34
+#, kde-format
+msgid "Categories"
+msgstr ""
+
 #: core/model/bannerinfosmodel.cpp:52
 #, kde-format
 msgid "link"
@@ -1383,10 +1388,9 @@ msgid "%1 ended the OTR session."
 msgstr "%1 terminava le session de OTR."
 
 #: core/otr/otrnotificationjob.cpp:99
-#, fuzzy, kde-format
-#| msgid "%1  wants to start OTR. Do you want to accept?."
+#, kde-format
 msgid "%1 wants to start OTR. Do you want to accept?"
-msgstr "%1 vole initiar OTR. Tu vole acceptar?."
+msgstr "%1 vole initiar OTR. Tu vole acceptar?"
 
 #: core/otr/otrnotificationjob.cpp:103
 #, kde-format
@@ -6072,7 +6076,7 @@ msgid "STUN/TURN Servers"
 msgstr ""
 
 #: widgets/applicationssettingsdialog/applicationssettingsaskapplicationdialog.cpp:24
-#: widgets/applicationssettingsdialog/applicationssettingsdescriptiondialog.cpp:22
+#: widgets/applicationssettingsdialog/applicationssettingsdescriptiondialog.cpp:25
 #: widgets/applicationssettingsdialog/applicationssettingsdialog.cpp:27
 #, kde-format
 msgctxt "@title:window"
@@ -9765,15 +9769,17 @@ msgctxt "@title:window"
 msgid "What's new in Ruqola"
 msgstr ""
 
-#: widgets/whatsnew/whatsnewmessagewidget.cpp:19
-#, kde-format
-msgid "(Show News in Ruqola)"
+#: widgets/whatsnew/whatsnewmessagewidget.cpp:20
+#, fuzzy, kde-format
+#| msgid "(Show News in Ruqola)"
+msgid "(Show News)"
 msgstr "(Monstra Novas in Ruqola)"
 
-#: widgets/whatsnew/whatsnewmessagewidget.cpp:19
-#, kde-format
-msgid "What's new in Ruqola. %1"
-msgstr ""
+#: widgets/whatsnew/whatsnewmessagewidget.cpp:20
+#, fuzzy, kde-format
+#| msgid "What's new"
+msgid "What's new in %2. %1"
+msgstr "Que es de novo"
 
 #: widgets/whatsnew/whatsnewwidget.cpp:97
 #, kde-format

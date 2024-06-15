@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-06-14 00:39+0000\n"
-"PO-Revision-Date: 2024-06-13 21:40+0300\n"
+"POT-Creation-Date: 2024-06-15 00:38+0000\n"
+"PO-Revision-Date: 2024-06-14 14:06+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -825,6 +825,11 @@ msgstr "Devre Dışı"
 msgid "Status"
 msgstr "Durum"
 
+#: core/model/appscategoriesmodel.cpp:34
+#, kde-format
+msgid "Categories"
+msgstr ""
+
 #: core/model/bannerinfosmodel.cpp:52
 #, kde-format
 msgid "link"
@@ -1386,8 +1391,7 @@ msgid "%1 ended the OTR session."
 msgstr "%1, Kayıt Dışı oturumunu sonlandırdı."
 
 #: core/otr/otrnotificationjob.cpp:99
-#, fuzzy, kde-format
-#| msgid "%1  wants to start OTR. Do you want to accept?."
+#, kde-format
 msgid "%1 wants to start OTR. Do you want to accept?"
 msgstr "%1, Kayıt Dışı başlatmak istiyor. Kabul ediyor musunuz?"
 
@@ -6208,7 +6212,7 @@ msgid "STUN/TURN Servers"
 msgstr "STUN/TURN Sunucuları"
 
 #: widgets/applicationssettingsdialog/applicationssettingsaskapplicationdialog.cpp:24
-#: widgets/applicationssettingsdialog/applicationssettingsdescriptiondialog.cpp:22
+#: widgets/applicationssettingsdialog/applicationssettingsdescriptiondialog.cpp:25
 #: widgets/applicationssettingsdialog/applicationssettingsdialog.cpp:27
 #, kde-format
 msgctxt "@title:window"
@@ -6218,12 +6222,12 @@ msgstr "Uygulamalar"
 #: widgets/applicationssettingsdialog/applicationssettingsaskapplicationwidget.cpp:22
 #, kde-format
 msgid "Let your admin know why this app would be useful "
-msgstr ""
+msgstr "Yöneticinize bu uygulamanın neden yararlı olabileceğini anlatır"
 
 #: widgets/applicationssettingsdialog/applicationssettingsaskapplicationwidget.cpp:28
 #, kde-format
 msgid "Message for workspace admin"
-msgstr ""
+msgstr "Çalışma alanı yöneticisine ileti"
 
 #: widgets/applicationssettingsdialog/applicationssettingspricecombobox.cpp:12
 #, kde-format
@@ -9934,14 +9938,16 @@ msgctxt "@title:window"
 msgid "What's new in Ruqola"
 msgstr "Roka’da Neler Yeni"
 
-#: widgets/whatsnew/whatsnewmessagewidget.cpp:19
-#, kde-format
-msgid "(Show News in Ruqola)"
+#: widgets/whatsnew/whatsnewmessagewidget.cpp:20
+#, fuzzy, kde-format
+#| msgid "(Show News in Ruqola)"
+msgid "(Show News)"
 msgstr "(Haberleri Roka’da Göster)"
 
-#: widgets/whatsnew/whatsnewmessagewidget.cpp:19
-#, kde-format
-msgid "What's new in Ruqola. %1"
+#: widgets/whatsnew/whatsnewmessagewidget.cpp:20
+#, fuzzy, kde-format
+#| msgid "What's new in Ruqola. %1"
+msgid "What's new in %2. %1"
 msgstr "Roka’da neler yeni. %1"
 
 #: widgets/whatsnew/whatsnewwidget.cpp:97

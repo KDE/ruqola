@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-06-14 00:39+0000\n"
+"POT-Creation-Date: 2024-06-15 00:38+0000\n"
 "PO-Revision-Date: 2024-03-27 23:08+0100\n"
 "Last-Translator: Enol P. <enolp@softastur.org>\n"
 "Language-Team: Asturian <alministradores@softastur.org>\n"
@@ -820,6 +820,11 @@ msgstr ""
 #: widgets/administratorsettingsdialog/enterprise/enterprisesettingswidget.cpp:24
 #, kde-format
 msgid "Status"
+msgstr ""
+
+#: core/model/appscategoriesmodel.cpp:34
+#, kde-format
+msgid "Categories"
 msgstr ""
 
 #: core/model/bannerinfosmodel.cpp:52
@@ -6028,7 +6033,7 @@ msgid "STUN/TURN Servers"
 msgstr ""
 
 #: widgets/applicationssettingsdialog/applicationssettingsaskapplicationdialog.cpp:24
-#: widgets/applicationssettingsdialog/applicationssettingsdescriptiondialog.cpp:22
+#: widgets/applicationssettingsdialog/applicationssettingsdescriptiondialog.cpp:25
 #: widgets/applicationssettingsdialog/applicationssettingsdialog.cpp:27
 #, kde-format
 msgctxt "@title:window"
@@ -9676,14 +9681,14 @@ msgctxt "@title:window"
 msgid "What's new in Ruqola"
 msgstr ""
 
-#: widgets/whatsnew/whatsnewmessagewidget.cpp:19
+#: widgets/whatsnew/whatsnewmessagewidget.cpp:20
 #, kde-format
-msgid "(Show News in Ruqola)"
+msgid "(Show News)"
 msgstr ""
 
-#: widgets/whatsnew/whatsnewmessagewidget.cpp:19
+#: widgets/whatsnew/whatsnewmessagewidget.cpp:20
 #, kde-format
-msgid "What's new in Ruqola. %1"
+msgid "What's new in %2. %1"
 msgstr ""
 
 #: widgets/whatsnew/whatsnewwidget.cpp:97

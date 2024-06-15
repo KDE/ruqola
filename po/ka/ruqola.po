@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-06-14 00:39+0000\n"
-"PO-Revision-Date: 2024-06-13 05:24+0200\n"
+"POT-Creation-Date: 2024-06-15 00:38+0000\n"
+"PO-Revision-Date: 2024-06-14 05:34+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -825,6 +825,11 @@ msgstr "გამორთულია"
 msgid "Status"
 msgstr "მდგომარეობა"
 
+#: core/model/appscategoriesmodel.cpp:34
+#, kde-format
+msgid "Categories"
+msgstr ""
+
 #: core/model/bannerinfosmodel.cpp:52
 #, kde-format
 msgid "link"
@@ -1386,10 +1391,9 @@ msgid "%1 ended the OTR session."
 msgstr "%1 -მა OTR სესია დაასრულა."
 
 #: core/otr/otrnotificationjob.cpp:99
-#, fuzzy, kde-format
-#| msgid "%1  wants to start OTR. Do you want to accept?."
+#, kde-format
 msgid "%1 wants to start OTR. Do you want to accept?"
-msgstr "%1-ს   OTR-ის დაწყება უნდა. ეთანხმებით?."
+msgstr "%1-ს OTR-ის დაწყება უნდა. ეთანხმებით?"
 
 #: core/otr/otrnotificationjob.cpp:103
 #, kde-format
@@ -6221,7 +6225,7 @@ msgid "STUN/TURN Servers"
 msgstr "STUN/TURN სერვერები"
 
 #: widgets/applicationssettingsdialog/applicationssettingsaskapplicationdialog.cpp:24
-#: widgets/applicationssettingsdialog/applicationssettingsdescriptiondialog.cpp:22
+#: widgets/applicationssettingsdialog/applicationssettingsdescriptiondialog.cpp:25
 #: widgets/applicationssettingsdialog/applicationssettingsdialog.cpp:27
 #, kde-format
 msgctxt "@title:window"
@@ -6231,12 +6235,12 @@ msgstr "აპლიკაციები"
 #: widgets/applicationssettingsdialog/applicationssettingsaskapplicationwidget.cpp:22
 #, kde-format
 msgid "Let your admin know why this app would be useful "
-msgstr ""
+msgstr "გააგებინეთ ადმინს, რატომაა ეს აპი სასარგებლო "
 
 #: widgets/applicationssettingsdialog/applicationssettingsaskapplicationwidget.cpp:28
 #, kde-format
 msgid "Message for workspace admin"
-msgstr ""
+msgstr "შეტყობინება სამუშაო სივრცის ადმინისტრატორისთვის"
 
 #: widgets/applicationssettingsdialog/applicationssettingspricecombobox.cpp:12
 #, kde-format
@@ -9934,14 +9938,16 @@ msgctxt "@title:window"
 msgid "What's new in Ruqola"
 msgstr "Ruqola-ის სიახლეები"
 
-#: widgets/whatsnew/whatsnewmessagewidget.cpp:19
-#, kde-format
-msgid "(Show News in Ruqola)"
+#: widgets/whatsnew/whatsnewmessagewidget.cpp:20
+#, fuzzy, kde-format
+#| msgid "(Show News in Ruqola)"
+msgid "(Show News)"
 msgstr "(სიახლეების Ruqola-ში ჩვენება)"
 
-#: widgets/whatsnew/whatsnewmessagewidget.cpp:19
-#, kde-format
-msgid "What's new in Ruqola. %1"
+#: widgets/whatsnew/whatsnewmessagewidget.cpp:20
+#, fuzzy, kde-format
+#| msgid "What's new in Ruqola. %1"
+msgid "What's new in %2. %1"
 msgstr "Ruqola-ის სიახლეები. %1"
 
 #: widgets/whatsnew/whatsnewwidget.cpp:97
