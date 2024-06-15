@@ -23,7 +23,7 @@ public:
         PurchaseType,
         DocumentationUrl,
         IsEnterpriseOnly,
-        Icon,
+        Pixmap,
     };
     Q_ENUM(AppsCategoriesRoles)
 
