@@ -10,6 +10,7 @@
 ApplicationsSettingsStatusComboBox::ApplicationsSettingsStatusComboBox(QWidget *parent)
     : QComboBox(parent)
 {
+    // TODO Convert to enum
     addItem(i18n("All Status"), QString());
     addItem(i18n("Enabled"), QStringLiteral("enabled"));
     addItem(i18n("Disabled"), QStringLiteral("disabled"));

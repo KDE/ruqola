@@ -9,6 +9,7 @@
 ApplicationsSettingsPriceComboBox::ApplicationsSettingsPriceComboBox(QWidget *parent)
     : QComboBox(parent)
 {
+    // TODO Convert to enum
     addItem(i18n("All Prices"), QString());
     addItem(i18n("Free Apps"), QStringLiteral("free"));
     addItem(i18n("Paid Apps"), QStringLiteral("paid"));
