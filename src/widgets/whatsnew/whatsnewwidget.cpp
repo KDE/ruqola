@@ -42,8 +42,8 @@ WhatsNewComboBoxWidget::VersionType WhatsNewWidget::currentVersion() const
 QString WhatsNewWidget::newFeaturesMD5()
 {
     QByteArray str;
-    for (int i = 0; i < numRuqolaNewFeatures2_2; ++i) {
-        str += ruqolaNewFeatures2_2[i].untranslatedText();
+    for (int i = 0; i < numRuqolaNewFeatures2_3; ++i) {
+        str += ruqolaNewFeatures2_3[i].untranslatedText();
     }
     QCryptographicHash md5(QCryptographicHash::Md5);
     md5.addData(str);
@@ -75,13 +75,11 @@ void WhatsNewWidget::slotVersionChanged(WhatsNewComboBoxWidget::VersionType type
         const QString message = generateStartEndHtml(createVersionInformationsV2_2());
         mLabelInfo->setHtml(message);
     } else if (type == WhatsNewComboBoxWidget::Version2_3) {
-        // TODO change to const QString message = generateStartEndHtml(createVersionInformationsV2_3());
-        //
-        const QString message = generateVersionHeader(WhatsNewComboBoxWidget::Version2_3);
+        const QString message = generateStartEndHtml(createVersionInformationsV2_3());
         mLabelInfo->setHtml(message);
     } else if (type == WhatsNewComboBoxWidget::AllVersion) {
         QString message = generateVersionHeader(WhatsNewComboBoxWidget::Version2_3);
-        // TODO message += createVersionInformationsV2_3();
+        message += createVersionInformationsV2_3();
         message += generateVersionHeader(WhatsNewComboBoxWidget::Version2_2);
         message += createVersionInformationsV2_2();
         message += generateVersionHeader(WhatsNewComboBoxWidget::Version2_1);
@@ -178,6 +176,30 @@ QString WhatsNewWidget::createVersionInformationsV2_2() const
         }
         message += QStringLiteral("</ul>");
     }
+    return message;
+}
+
+QString WhatsNewWidget::createVersionInformationsV2_3() const
+{
+    QString message;
+    if (numRuqolaNewFeatures2_3 > 0) {
+        message += featuresChangeStr();
+        message += QStringLiteral("<ul>");
+        for (int i = 0; i < numRuqolaNewFeatures2_3; ++i) {
+            message += QStringLiteral("<li>%1</li>").arg(ruqolaNewFeatures2_3[i].toString());
+        }
+        message += QStringLiteral("</ul>");
+    }
+#if 0
+    if (numRuqolaBugfixing2_3 > 0) {
+        message += bugFixingChangeStr();
+        message += QStringLiteral("<ul>");
+        for (int i = 0; i < numRuqolaBugfixing2_3; ++i) {
+            message += QStringLiteral("<li>%1</li>").arg(ruqolaBugfixing2_3[i].toString());
+        }
+        message += QStringLiteral("</ul>");
+    }
+#endif
     return message;
 }
 

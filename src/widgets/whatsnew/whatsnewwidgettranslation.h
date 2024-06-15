@@ -90,3 +90,9 @@ static const KLazyLocalizedString ruqolaBugfixing2_2[] = {
     kli18n("Fix preview url."),
 };
 static const int numRuqolaBugfixing2_2 = sizeof ruqolaBugfixing2_2 / sizeof *ruqolaBugfixing2_2;
+
+// Version 2.3
+static const KLazyLocalizedString ruqolaNewFeatures2_3[] = {
+    kli18n("Implement Application Market Settings."),
+};
+static const int numRuqolaNewFeatures2_3 = sizeof ruqolaNewFeatures2_3 / sizeof *ruqolaNewFeatures2_3;
