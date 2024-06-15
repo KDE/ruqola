@@ -5,6 +5,7 @@
 */
 
 #include "applicationssettingsdelegate.h"
+#include "common/delegatepaintutil.h"
 #include "config-ruqola.h"
 #include "model/appsmarketplacemodel.h"
 #if USE_SIZEHINT_CACHE_SUPPORT
@@ -20,6 +21,16 @@ ApplicationsSettingsDelegate::~ApplicationsSettingsDelegate() = default;
 
 void ApplicationsSettingsDelegate::paint(QPainter *painter, const QStyleOptionViewItem &option, const QModelIndex &index) const
 {
+    const Layout layout = doLayout(option, index);
+    // Draw the pixmap
+    if (!layout.appPixmap.isNull()) {
+#if USE_ROUNDED_RECT_PIXMAP
+        // TODO DelegatePaintUtil::createClipRoundedRectangle(painter, QRectF(layout.avatarPos, layout.appPixmap.size()), layout.avatarPos, layout.appPixmap);
+#else
+        // TODO painter->drawPixmap(layout.avatarPos, layout.avatarPixmap);
+#endif
+    }
+
     // TODO reimplement it
     QItemDelegate::paint(painter, option, index);
 }
@@ -48,6 +59,15 @@ QSize ApplicationsSettingsDelegate::sizeHint(const QStyleOptionViewItem &option,
 ApplicationsSettingsDelegate::Layout ApplicationsSettingsDelegate::doLayout(const QStyleOptionViewItem &option, const QModelIndex &index) const
 {
     ApplicationsSettingsDelegate::Layout layout;
+    const auto pix = index.data(AppsMarketPlaceModel::Pixmap).value<QPixmap>();
+    if (!pix.isNull()) {
+        // TODO fix size
+        const QPixmap scaledPixmap = pix.scaled(10, 10, Qt::KeepAspectRatio, Qt::SmoothTransformation);
+        layout.appPixmap = scaledPixmap;
+    }
+    layout.appDescription = index.data(AppsMarketPlaceModel::Description).toString();
+    layout.appName = index.data(AppsMarketPlaceModel::AppName).toString();
+    // TODO premium
     // TODO
     return layout;
 }

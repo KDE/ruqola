@@ -21,7 +21,10 @@ public:
 
 private:
     struct Layout {
-        QPixmap appsPixmap;
+        QPixmap appPixmap;
+        QString appName;
+        QString appDescription;
+        bool premium = false;
         // TODO
     };
 
