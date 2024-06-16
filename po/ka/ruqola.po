@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-06-15 00:38+0000\n"
+"POT-Creation-Date: 2024-06-16 00:39+0000\n"
 "PO-Revision-Date: 2024-06-14 05:34+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
@@ -813,7 +813,7 @@ msgid "Role"
 msgstr "როლი"
 
 #: core/model/adminusersmodel.cpp:116 core/model/adminusersmodel.cpp:163
-#: widgets/applicationssettingsdialog/applicationssettingsstatuscombobox.cpp:15
+#: widgets/applicationssettingsdialog/applicationssettingsstatuscombobox.cpp:16
 #: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:277
 #, kde-format
 msgid "Disabled"
@@ -4113,7 +4113,7 @@ msgstr "გარეთ გამავალი ბმულების და
 #: widgets/administratorsettingsdialog/videoconference/videoconferencewidget.cpp:17
 #: widgets/administratorsettingsdialog/videoconference/videoconferencewidget.cpp:21
 #: widgets/administratorsettingsdialog/webrtc/webrtcsettingswidget.cpp:15
-#: widgets/applicationssettingsdialog/applicationssettingsstatuscombobox.cpp:14
+#: widgets/applicationssettingsdialog/applicationssettingsstatuscombobox.cpp:15
 #, kde-format
 msgid "Enabled"
 msgstr "ჩართულია"
@@ -6242,27 +6242,27 @@ msgstr "გააგებინეთ ადმინს, რატომაა
 msgid "Message for workspace admin"
 msgstr "შეტყობინება სამუშაო სივრცის ადმინისტრატორისთვის"
 
-#: widgets/applicationssettingsdialog/applicationssettingspricecombobox.cpp:12
+#: widgets/applicationssettingsdialog/applicationssettingspricecombobox.cpp:13
 #, kde-format
 msgid "All Prices"
 msgstr "ყველა ფასი"
 
-#: widgets/applicationssettingsdialog/applicationssettingspricecombobox.cpp:13
+#: widgets/applicationssettingsdialog/applicationssettingspricecombobox.cpp:14
 #, kde-format
 msgid "Free Apps"
 msgstr "უფასო აპები"
 
-#: widgets/applicationssettingsdialog/applicationssettingspricecombobox.cpp:14
+#: widgets/applicationssettingsdialog/applicationssettingspricecombobox.cpp:15
 #, kde-format
 msgid "Paid Apps"
 msgstr "ფასიანი აპები"
 
-#: widgets/applicationssettingsdialog/applicationssettingspricecombobox.cpp:15
+#: widgets/applicationssettingsdialog/applicationssettingspricecombobox.cpp:16
 #, kde-format
 msgid "Premium"
 msgstr "პრემიუმი"
 
-#: widgets/applicationssettingsdialog/applicationssettingsstatuscombobox.cpp:13
+#: widgets/applicationssettingsdialog/applicationssettingsstatuscombobox.cpp:14
 #, kde-format
 msgid "All Status"
 msgstr "ყველა სტატუსი"
@@ -9950,17 +9950,17 @@ msgstr "(სიახლეების Ruqola-ში ჩვენება)"
 msgid "What's new in %2. %1"
 msgstr "Ruqola-ის სიახლეები. %1"
 
-#: widgets/whatsnew/whatsnewwidget.cpp:97
+#: widgets/whatsnew/whatsnewwidget.cpp:95
 #, kde-format
 msgid "Important changes since last version:"
 msgstr "მნიშვნელოვანი ცვლილებები ბოლო ვერსიის შემდეგ:"
 
-#: widgets/whatsnew/whatsnewwidget.cpp:102
+#: widgets/whatsnew/whatsnewwidget.cpp:100
 #, kde-format
 msgid "Some of the new features in this release of Ruqola include:"
 msgstr "Ruqola-ის ახალ ფუნქციებში შედის:"
 
-#: widgets/whatsnew/whatsnewwidget.cpp:107
+#: widgets/whatsnew/whatsnewwidget.cpp:105
 #, kde-format
 msgid "Some bug fixing:"
 msgstr "გამოსწორდა ზოგიერთი შეცდომა:"
@@ -10159,6 +10159,12 @@ msgstr "ერთზე მეტი ფაილის გაგზავნი
 #: widgets/whatsnew/whatsnewwidgettranslation.h:90
 msgid "Fix preview url."
 msgstr "მინიატურის ბმულის გასწორება."
+
+#: widgets/whatsnew/whatsnewwidgettranslation.h:96
+#, fuzzy
+#| msgid "Implement block actions."
+msgid "Implement Application Market Settings."
+msgstr "დაბლოკვის ქმედებების განხორციელება."
 
 #~ msgid "(Click here for Loading more…"
 #~ msgstr "(მეტის ჩასატვირთად დააწკაპუნეთ…)"

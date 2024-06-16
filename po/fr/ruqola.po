@@ -5,8 +5,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-06-15 00:38+0000\n"
-"PO-Revision-Date: 2024-06-08 08:17+0200\n"
+"POT-Creation-Date: 2024-06-16 00:39+0000\n"
+"PO-Revision-Date: 2024-06-14 09:48+0200\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
 "Language-Team: French <French <kde-francophone@kde.org>>\n"
 "Language: fr\n"
@@ -811,7 +811,7 @@ msgid "Role"
 msgstr "Rôle"
 
 #: core/model/adminusersmodel.cpp:116 core/model/adminusersmodel.cpp:163
-#: widgets/applicationssettingsdialog/applicationssettingsstatuscombobox.cpp:15
+#: widgets/applicationssettingsdialog/applicationssettingsstatuscombobox.cpp:16
 #: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:277
 #, kde-format
 msgid "Disabled"
@@ -4145,7 +4145,7 @@ msgstr "Masquer les liens sortants"
 #: widgets/administratorsettingsdialog/videoconference/videoconferencewidget.cpp:17
 #: widgets/administratorsettingsdialog/videoconference/videoconferencewidget.cpp:21
 #: widgets/administratorsettingsdialog/webrtc/webrtcsettingswidget.cpp:15
-#: widgets/applicationssettingsdialog/applicationssettingsstatuscombobox.cpp:14
+#: widgets/applicationssettingsdialog/applicationssettingsstatuscombobox.cpp:15
 #, kde-format
 msgid "Enabled"
 msgstr "Activé"
@@ -6322,32 +6322,30 @@ msgstr ""
 msgid "Message for workspace admin"
 msgstr ""
 
-#: widgets/applicationssettingsdialog/applicationssettingspricecombobox.cpp:12
-#, fuzzy, kde-format
-#| msgid "All Files (*)"
-msgid "All Prices"
-msgstr "Tous les fichiers (*)"
-
 #: widgets/applicationssettingsdialog/applicationssettingspricecombobox.cpp:13
 #, kde-format
-msgid "Free Apps"
-msgstr ""
+msgid "All Prices"
+msgstr "Tous les prix"
 
 #: widgets/applicationssettingsdialog/applicationssettingspricecombobox.cpp:14
 #, kde-format
-msgid "Paid Apps"
-msgstr ""
+msgid "Free Apps"
+msgstr "Applications gratuites"
 
 #: widgets/applicationssettingsdialog/applicationssettingspricecombobox.cpp:15
 #, kde-format
-msgid "Premium"
-msgstr ""
+msgid "Paid Apps"
+msgstr "Applications payantes"
 
-#: widgets/applicationssettingsdialog/applicationssettingsstatuscombobox.cpp:13
-#, fuzzy, kde-format
-#| msgid "Status"
+#: widgets/applicationssettingsdialog/applicationssettingspricecombobox.cpp:16
+#, kde-format
+msgid "Premium"
+msgstr "Premium"
+
+#: widgets/applicationssettingsdialog/applicationssettingsstatuscombobox.cpp:14
+#, kde-format
 msgid "All Status"
-msgstr "État"
+msgstr "Tous les états"
 
 #: widgets/bannerinfodialog/bannerinfodialog.cpp:27
 #, kde-format
@@ -10062,19 +10060,19 @@ msgstr "(Afficher les nouvelles dans Ruqola...)"
 msgid "What's new in %2. %1"
 msgstr "Quoi de neuf dans Ruqola. %1"
 
-#: widgets/whatsnew/whatsnewwidget.cpp:97
+#: widgets/whatsnew/whatsnewwidget.cpp:95
 #, kde-format
 msgid "Important changes since last version:"
 msgstr "Modifications importantes depuis la dernière version :"
 
-#: widgets/whatsnew/whatsnewwidget.cpp:102
+#: widgets/whatsnew/whatsnewwidget.cpp:100
 #, kde-format
 msgid "Some of the new features in this release of Ruqola include:"
 msgstr ""
 "Certaines des nouvelles fonctionnalités de cette version de Ruqola "
 "comprennent :"
 
-#: widgets/whatsnew/whatsnewwidget.cpp:107
+#: widgets/whatsnew/whatsnewwidget.cpp:105
 #, kde-format
 msgid "Some bug fixing:"
 msgstr "Quelques correction de bogues :"
@@ -10284,6 +10282,12 @@ msgstr "Autoriser l'envoi de fichiers multiples."
 #: widgets/whatsnew/whatsnewwidgettranslation.h:90
 msgid "Fix preview url."
 msgstr "Corriger l'URL d'aperçu"
+
+#: widgets/whatsnew/whatsnewwidgettranslation.h:96
+#, fuzzy
+#| msgid "Implement block actions."
+msgid "Implement Application Market Settings."
+msgstr "Implémenter les actions par bloc."
 
 #, fuzzy
 #~| msgid "(Click here for Loading more...)"

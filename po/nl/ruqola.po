@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-06-15 00:38+0000\n"
-"PO-Revision-Date: 2024-06-14 11:24+0200\n"
+"POT-Creation-Date: 2024-06-16 00:39+0000\n"
+"PO-Revision-Date: 2024-06-15 10:26+0200\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
 "Language: nl\n"
@@ -814,7 +814,7 @@ msgid "Role"
 msgstr "Rol"
 
 #: core/model/adminusersmodel.cpp:116 core/model/adminusersmodel.cpp:163
-#: widgets/applicationssettingsdialog/applicationssettingsstatuscombobox.cpp:15
+#: widgets/applicationssettingsdialog/applicationssettingsstatuscombobox.cpp:16
 #: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:277
 #, kde-format
 msgid "Disabled"
@@ -829,7 +829,7 @@ msgstr "Status"
 #: core/model/appscategoriesmodel.cpp:34
 #, kde-format
 msgid "Categories"
-msgstr ""
+msgstr "Categorieën"
 
 #: core/model/bannerinfosmodel.cpp:52
 #, kde-format
@@ -4130,7 +4130,7 @@ msgstr "Uitgaande koppelingen verbergen"
 #: widgets/administratorsettingsdialog/videoconference/videoconferencewidget.cpp:17
 #: widgets/administratorsettingsdialog/videoconference/videoconferencewidget.cpp:21
 #: widgets/administratorsettingsdialog/webrtc/webrtcsettingswidget.cpp:15
-#: widgets/applicationssettingsdialog/applicationssettingsstatuscombobox.cpp:14
+#: widgets/applicationssettingsdialog/applicationssettingsstatuscombobox.cpp:15
 #, kde-format
 msgid "Enabled"
 msgstr "Ingeschakeld"
@@ -6287,27 +6287,27 @@ msgstr "Laat uw systeembeheerder weten waarom deze toepassing nuttig zou zijn"
 msgid "Message for workspace admin"
 msgstr "Bericht voor beheerder van werkruimte"
 
-#: widgets/applicationssettingsdialog/applicationssettingspricecombobox.cpp:12
+#: widgets/applicationssettingsdialog/applicationssettingspricecombobox.cpp:13
 #, kde-format
 msgid "All Prices"
 msgstr "Alle prijzen"
 
-#: widgets/applicationssettingsdialog/applicationssettingspricecombobox.cpp:13
+#: widgets/applicationssettingsdialog/applicationssettingspricecombobox.cpp:14
 #, kde-format
 msgid "Free Apps"
 msgstr "Vrije toepassingen"
 
-#: widgets/applicationssettingsdialog/applicationssettingspricecombobox.cpp:14
+#: widgets/applicationssettingsdialog/applicationssettingspricecombobox.cpp:15
 #, kde-format
 msgid "Paid Apps"
 msgstr "Betaalde toepassingen"
 
-#: widgets/applicationssettingsdialog/applicationssettingspricecombobox.cpp:15
+#: widgets/applicationssettingsdialog/applicationssettingspricecombobox.cpp:16
 #, kde-format
 msgid "Premium"
 msgstr "Eerste klas"
 
-#: widgets/applicationssettingsdialog/applicationssettingsstatuscombobox.cpp:13
+#: widgets/applicationssettingsdialog/applicationssettingsstatuscombobox.cpp:14
 #, kde-format
 msgid "All Status"
 msgstr "Alle statussen"
@@ -9997,28 +9997,26 @@ msgid "What's new in Ruqola"
 msgstr "Wat is er nieuw in Ruqola"
 
 #: widgets/whatsnew/whatsnewmessagewidget.cpp:20
-#, fuzzy, kde-format
-#| msgid "(Show News in Ruqola)"
+#, kde-format
 msgid "(Show News)"
-msgstr "(Nieuws in Ruqola tonen)"
+msgstr "(Nieuws tonen)"
 
 #: widgets/whatsnew/whatsnewmessagewidget.cpp:20
-#, fuzzy, kde-format
-#| msgid "What's new in Ruqola. %1"
+#, kde-format
 msgid "What's new in %2. %1"
-msgstr "Wat is er nieuw in Ruqola. %1"
+msgstr "Wat is er nieuw in %2. %1"
 
-#: widgets/whatsnew/whatsnewwidget.cpp:97
+#: widgets/whatsnew/whatsnewwidget.cpp:95
 #, kde-format
 msgid "Important changes since last version:"
 msgstr "Belangrijke wijzigingen sinds de laatste versie:"
 
-#: widgets/whatsnew/whatsnewwidget.cpp:102
+#: widgets/whatsnew/whatsnewwidget.cpp:100
 #, kde-format
 msgid "Some of the new features in this release of Ruqola include:"
 msgstr "Enige van de nieuwe functies in deze uitgave van Ruqola omvatten:"
 
-#: widgets/whatsnew/whatsnewwidget.cpp:107
+#: widgets/whatsnew/whatsnewwidget.cpp:105
 #, kde-format
 msgid "Some bug fixing:"
 msgstr "Enig repareren van bugs:"
@@ -10220,6 +10218,12 @@ msgstr "Meerdere bestanden verzenden toestaan."
 #: widgets/whatsnew/whatsnewwidgettranslation.h:90
 msgid "Fix preview url."
 msgstr "Voorbeeld-url repareren."
+
+#: widgets/whatsnew/whatsnewwidgettranslation.h:96
+#, fuzzy
+#| msgid "Implement block actions."
+msgid "Implement Application Market Settings."
+msgstr "Blokkeeracties implementeren."
 
 #~ msgid "(Click here for Loading more…"
 #~ msgstr "(Klik hier om meer te laden…)"

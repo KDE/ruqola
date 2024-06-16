@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-06-15 00:38+0000\n"
+"POT-Creation-Date: 2024-06-16 00:39+0000\n"
 "PO-Revision-Date: 2024-06-14 15:09+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian\n"
@@ -817,7 +817,7 @@ msgid "Role"
 msgstr "Роль"
 
 #: core/model/adminusersmodel.cpp:116 core/model/adminusersmodel.cpp:163
-#: widgets/applicationssettingsdialog/applicationssettingsstatuscombobox.cpp:15
+#: widgets/applicationssettingsdialog/applicationssettingsstatuscombobox.cpp:16
 #: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:277
 #, kde-format
 msgid "Disabled"
@@ -4157,7 +4157,7 @@ msgstr "Приховати вихідні посилання"
 #: widgets/administratorsettingsdialog/videoconference/videoconferencewidget.cpp:17
 #: widgets/administratorsettingsdialog/videoconference/videoconferencewidget.cpp:21
 #: widgets/administratorsettingsdialog/webrtc/webrtcsettingswidget.cpp:15
-#: widgets/applicationssettingsdialog/applicationssettingsstatuscombobox.cpp:14
+#: widgets/applicationssettingsdialog/applicationssettingsstatuscombobox.cpp:15
 #, kde-format
 msgid "Enabled"
 msgstr "Увімкнено"
@@ -6312,27 +6312,27 @@ msgstr "Повідомте вашому адміністратору, чому �
 msgid "Message for workspace admin"
 msgstr "Повідомлення для адміністратора робочого простору"
 
-#: widgets/applicationssettingsdialog/applicationssettingspricecombobox.cpp:12
+#: widgets/applicationssettingsdialog/applicationssettingspricecombobox.cpp:13
 #, kde-format
 msgid "All Prices"
 msgstr "усі ціни"
 
-#: widgets/applicationssettingsdialog/applicationssettingspricecombobox.cpp:13
+#: widgets/applicationssettingsdialog/applicationssettingspricecombobox.cpp:14
 #, kde-format
 msgid "Free Apps"
 msgstr "безкоштовні програми"
 
-#: widgets/applicationssettingsdialog/applicationssettingspricecombobox.cpp:14
+#: widgets/applicationssettingsdialog/applicationssettingspricecombobox.cpp:15
 #, kde-format
 msgid "Paid Apps"
 msgstr "платні програми"
 
-#: widgets/applicationssettingsdialog/applicationssettingspricecombobox.cpp:15
+#: widgets/applicationssettingsdialog/applicationssettingspricecombobox.cpp:16
 #, kde-format
 msgid "Premium"
 msgstr "преміум"
 
-#: widgets/applicationssettingsdialog/applicationssettingsstatuscombobox.cpp:13
+#: widgets/applicationssettingsdialog/applicationssettingsstatuscombobox.cpp:14
 #, kde-format
 msgid "All Status"
 msgstr "усі стани"
@@ -10073,17 +10073,17 @@ msgstr "(Показати новини щодо Ruqola)"
 msgid "What's new in %2. %1"
 msgstr "Що нового у Ruqola. %1"
 
-#: widgets/whatsnew/whatsnewwidget.cpp:97
+#: widgets/whatsnew/whatsnewwidget.cpp:95
 #, kde-format
 msgid "Important changes since last version:"
 msgstr "Важливі зміни з часу випуску попередньої версії:"
 
-#: widgets/whatsnew/whatsnewwidget.cpp:102
+#: widgets/whatsnew/whatsnewwidget.cpp:100
 #, kde-format
 msgid "Some of the new features in this release of Ruqola include:"
 msgstr "Серед нових можливостей у цьому випуску Ruqola:"
 
-#: widgets/whatsnew/whatsnewwidget.cpp:107
+#: widgets/whatsnew/whatsnewwidget.cpp:105
 #, kde-format
 msgid "Some bug fixing:"
 msgstr "Виправлення деяких вад:"
@@ -10286,6 +10286,12 @@ msgstr "Уможливлено надсилання декількох файл�
 #: widgets/whatsnew/whatsnewwidgettranslation.h:90
 msgid "Fix preview url."
 msgstr "Виправлено адресу попереднього перегляду."
+
+#: widgets/whatsnew/whatsnewwidgettranslation.h:96
+#, fuzzy
+#| msgid "Implement block actions."
+msgid "Implement Application Market Settings."
+msgstr "Реалізовано дії з блокування."
 
 #~ msgid "(Click here for Loading more…"
 #~ msgstr "(Натисніть тут, щоб завантажити ще…)"

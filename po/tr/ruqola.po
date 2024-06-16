@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-06-15 00:38+0000\n"
-"PO-Revision-Date: 2024-06-14 14:06+0300\n"
+"POT-Creation-Date: 2024-06-16 00:39+0000\n"
+"PO-Revision-Date: 2024-06-15 13:45+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -813,7 +813,7 @@ msgid "Role"
 msgstr "Rol"
 
 #: core/model/adminusersmodel.cpp:116 core/model/adminusersmodel.cpp:163
-#: widgets/applicationssettingsdialog/applicationssettingsstatuscombobox.cpp:15
+#: widgets/applicationssettingsdialog/applicationssettingsstatuscombobox.cpp:16
 #: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:277
 #, kde-format
 msgid "Disabled"
@@ -828,7 +828,7 @@ msgstr "Durum"
 #: core/model/appscategoriesmodel.cpp:34
 #, kde-format
 msgid "Categories"
-msgstr ""
+msgstr "Kategoriler"
 
 #: core/model/bannerinfosmodel.cpp:52
 #, kde-format
@@ -4099,7 +4099,7 @@ msgstr "Dışarı Giden Bağlantıları Gizle"
 #: widgets/administratorsettingsdialog/videoconference/videoconferencewidget.cpp:17
 #: widgets/administratorsettingsdialog/videoconference/videoconferencewidget.cpp:21
 #: widgets/administratorsettingsdialog/webrtc/webrtcsettingswidget.cpp:15
-#: widgets/applicationssettingsdialog/applicationssettingsstatuscombobox.cpp:14
+#: widgets/applicationssettingsdialog/applicationssettingsstatuscombobox.cpp:15
 #, kde-format
 msgid "Enabled"
 msgstr "Etkin"
@@ -6229,27 +6229,27 @@ msgstr "Yöneticinize bu uygulamanın neden yararlı olabileceğini anlatır"
 msgid "Message for workspace admin"
 msgstr "Çalışma alanı yöneticisine ileti"
 
-#: widgets/applicationssettingsdialog/applicationssettingspricecombobox.cpp:12
+#: widgets/applicationssettingsdialog/applicationssettingspricecombobox.cpp:13
 #, kde-format
 msgid "All Prices"
 msgstr "Tüm Fiyatlar"
 
-#: widgets/applicationssettingsdialog/applicationssettingspricecombobox.cpp:13
+#: widgets/applicationssettingsdialog/applicationssettingspricecombobox.cpp:14
 #, kde-format
 msgid "Free Apps"
 msgstr "Ücretsiz Uygulamalar"
 
-#: widgets/applicationssettingsdialog/applicationssettingspricecombobox.cpp:14
+#: widgets/applicationssettingsdialog/applicationssettingspricecombobox.cpp:15
 #, kde-format
 msgid "Paid Apps"
 msgstr "Ücretli Uygulamalar"
 
-#: widgets/applicationssettingsdialog/applicationssettingspricecombobox.cpp:15
+#: widgets/applicationssettingsdialog/applicationssettingspricecombobox.cpp:16
 #, kde-format
 msgid "Premium"
 msgstr "Premium"
 
-#: widgets/applicationssettingsdialog/applicationssettingsstatuscombobox.cpp:13
+#: widgets/applicationssettingsdialog/applicationssettingsstatuscombobox.cpp:14
 #, kde-format
 msgid "All Status"
 msgstr "Tüm Durumlar"
@@ -9939,28 +9939,26 @@ msgid "What's new in Ruqola"
 msgstr "Roka’da Neler Yeni"
 
 #: widgets/whatsnew/whatsnewmessagewidget.cpp:20
-#, fuzzy, kde-format
-#| msgid "(Show News in Ruqola)"
+#, kde-format
 msgid "(Show News)"
-msgstr "(Haberleri Roka’da Göster)"
+msgstr "(Haberleri Göster)"
 
 #: widgets/whatsnew/whatsnewmessagewidget.cpp:20
-#, fuzzy, kde-format
-#| msgid "What's new in Ruqola. %1"
+#, kde-format
 msgid "What's new in %2. %1"
-msgstr "Roka’da neler yeni. %1"
+msgstr "%2 bünyesinde neler yeni. %1"
 
-#: widgets/whatsnew/whatsnewwidget.cpp:97
+#: widgets/whatsnew/whatsnewwidget.cpp:95
 #, kde-format
 msgid "Important changes since last version:"
 msgstr "Son sürümden bu yana önemli değişiklikler:"
 
-#: widgets/whatsnew/whatsnewwidget.cpp:102
+#: widgets/whatsnew/whatsnewwidget.cpp:100
 #, kde-format
 msgid "Some of the new features in this release of Ruqola include:"
 msgstr "Roka’nın bu sürümündeki yeni özelliklerden bazıları şunlardır:"
 
-#: widgets/whatsnew/whatsnewwidget.cpp:107
+#: widgets/whatsnew/whatsnewwidget.cpp:105
 #, kde-format
 msgid "Some bug fixing:"
 msgstr "Hata düzeltmeler"
@@ -10159,6 +10157,12 @@ msgstr "Birden çok dosya göndermeye izin ver."
 #: widgets/whatsnew/whatsnewwidgettranslation.h:90
 msgid "Fix preview url."
 msgstr "Önizleme URL’sini düzelt."
+
+#: widgets/whatsnew/whatsnewwidgettranslation.h:96
+#, fuzzy
+#| msgid "Implement block actions."
+msgid "Implement Application Market Settings."
+msgstr "Engelleme eylemlerini gerçekle."
 
 #~ msgid "(Click here for Loading more…"
 #~ msgstr "(Daha fazla yüklemek için buraya tıklayın…)"

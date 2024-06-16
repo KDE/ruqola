@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-06-15 00:38+0000\n"
+"POT-Creation-Date: 2024-06-16 00:39+0000\n"
 "PO-Revision-Date: 2024-03-27 23:08+0100\n"
 "Last-Translator: Enol P. <enolp@softastur.org>\n"
 "Language-Team: Asturian <alministradores@softastur.org>\n"
@@ -810,7 +810,7 @@ msgid "Role"
 msgstr ""
 
 #: core/model/adminusersmodel.cpp:116 core/model/adminusersmodel.cpp:163
-#: widgets/applicationssettingsdialog/applicationssettingsstatuscombobox.cpp:15
+#: widgets/applicationssettingsdialog/applicationssettingsstatuscombobox.cpp:16
 #: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:277
 #, kde-format
 msgid "Disabled"
@@ -4053,7 +4053,7 @@ msgstr ""
 #: widgets/administratorsettingsdialog/videoconference/videoconferencewidget.cpp:17
 #: widgets/administratorsettingsdialog/videoconference/videoconferencewidget.cpp:21
 #: widgets/administratorsettingsdialog/webrtc/webrtcsettingswidget.cpp:15
-#: widgets/applicationssettingsdialog/applicationssettingsstatuscombobox.cpp:14
+#: widgets/applicationssettingsdialog/applicationssettingsstatuscombobox.cpp:15
 #, kde-format
 msgid "Enabled"
 msgstr ""
@@ -6050,27 +6050,27 @@ msgstr ""
 msgid "Message for workspace admin"
 msgstr ""
 
-#: widgets/applicationssettingsdialog/applicationssettingspricecombobox.cpp:12
+#: widgets/applicationssettingsdialog/applicationssettingspricecombobox.cpp:13
 #, kde-format
 msgid "All Prices"
 msgstr ""
 
-#: widgets/applicationssettingsdialog/applicationssettingspricecombobox.cpp:13
+#: widgets/applicationssettingsdialog/applicationssettingspricecombobox.cpp:14
 #, kde-format
 msgid "Free Apps"
 msgstr ""
 
-#: widgets/applicationssettingsdialog/applicationssettingspricecombobox.cpp:14
+#: widgets/applicationssettingsdialog/applicationssettingspricecombobox.cpp:15
 #, kde-format
 msgid "Paid Apps"
 msgstr ""
 
-#: widgets/applicationssettingsdialog/applicationssettingspricecombobox.cpp:15
+#: widgets/applicationssettingsdialog/applicationssettingspricecombobox.cpp:16
 #, kde-format
 msgid "Premium"
 msgstr ""
 
-#: widgets/applicationssettingsdialog/applicationssettingsstatuscombobox.cpp:13
+#: widgets/applicationssettingsdialog/applicationssettingsstatuscombobox.cpp:14
 #, kde-format
 msgid "All Status"
 msgstr ""
@@ -9691,17 +9691,17 @@ msgstr ""
 msgid "What's new in %2. %1"
 msgstr ""
 
-#: widgets/whatsnew/whatsnewwidget.cpp:97
+#: widgets/whatsnew/whatsnewwidget.cpp:95
 #, kde-format
 msgid "Important changes since last version:"
 msgstr ""
 
-#: widgets/whatsnew/whatsnewwidget.cpp:102
+#: widgets/whatsnew/whatsnewwidget.cpp:100
 #, kde-format
 msgid "Some of the new features in this release of Ruqola include:"
 msgstr ""
 
-#: widgets/whatsnew/whatsnewwidget.cpp:107
+#: widgets/whatsnew/whatsnewwidget.cpp:105
 #, kde-format
 msgid "Some bug fixing:"
 msgstr ""
@@ -9888,4 +9888,8 @@ msgstr ""
 
 #: widgets/whatsnew/whatsnewwidgettranslation.h:90
 msgid "Fix preview url."
+msgstr ""
+
+#: widgets/whatsnew/whatsnewwidgettranslation.h:96
+msgid "Implement Application Market Settings."
 msgstr ""
