@@ -26,7 +26,20 @@ AppsMarketPlaceFilterProxyModel::FilterInfo AppsMarketPlaceFilterProxyModel::fil
 
 void AppsMarketPlaceFilterProxyModel::setFilterInfo(const FilterInfo &newFilterInfo)
 {
-    mFilterInfo = newFilterInfo;
+    if (mFilterInfo != newFilterInfo) {
+        mFilterInfo = newFilterInfo;
+        invalidateFilter();
+    }
+}
+
+bool AppsMarketPlaceFilterProxyModel::FilterInfo::operator==(const FilterInfo &other) const
+{
+    return categories == other.categories && text == other.text && other.status == status && price == other.price;
+}
+
+bool AppsMarketPlaceFilterProxyModel::FilterInfo::operator!=(const FilterInfo &other) const
+{
+    return !operator==(other);
 }
 
 #include "moc_appsmarketplacefilterproxymodel.cpp"

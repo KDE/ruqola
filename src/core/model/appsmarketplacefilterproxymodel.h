@@ -13,10 +13,12 @@ class LIBRUQOLACORE_EXPORT AppsMarketPlaceFilterProxyModel : public QSortFilterP
     Q_OBJECT
 public:
     struct LIBRUQOLACORE_EXPORT FilterInfo {
-        QString text;
         QStringList categories;
+        QString text;
         QString status;
         QString price;
+        [[nodiscard]] bool operator==(const FilterInfo &other) const;
+        [[nodiscard]] bool operator!=(const FilterInfo &other) const;
     };
 
     explicit AppsMarketPlaceFilterProxyModel(QObject *parent = nullptr);
