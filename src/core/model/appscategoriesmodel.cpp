@@ -46,8 +46,18 @@ bool AppsCategoriesModel::wasFilled() const
 
 QStringList AppsCategoriesModel::categoriesSelected() const
 {
-    // TODO
-    return {};
+    QStringList lst;
+    const int rowCountNb = rowCount();
+    // First one is not a message type
+    for (int i = 0; i < rowCountNb; i++) {
+        QStandardItem *itemModel = item(i);
+        if (itemModel) {
+            if (itemModel->isCheckable() && itemModel->checkState() == Qt::Checked) {
+                lst.append(itemModel->data(Identifier).toString());
+            }
+        }
+    }
+    return lst;
 }
 
 #include "moc_appscategoriesmodel.cpp"
