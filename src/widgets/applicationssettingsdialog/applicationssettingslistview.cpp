@@ -21,7 +21,6 @@ ApplicationsSettingsListView::ApplicationsSettingsListView(RocketChatAccount *ac
 
     setHeaderHidden(true);
     setRootIsDecorated(false);
-    // setUniformRowHeights(true);
     setItemsExpandable(false);
     setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     setIndentation(0);
