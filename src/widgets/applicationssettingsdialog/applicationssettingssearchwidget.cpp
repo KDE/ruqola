@@ -46,4 +46,10 @@ ApplicationsSettingsSearchWidget::ApplicationsSettingsSearchWidget(RocketChatAcc
 
 ApplicationsSettingsSearchWidget::~ApplicationsSettingsSearchWidget() = default;
 
+AppsMarketPlaceFilterProxyModel::FilterInfo ApplicationsSettingsSearchWidget::filterInfo() const
+{
+    AppsMarketPlaceFilterProxyModel::FilterInfo info;
+    return info;
+}
+
 #include "moc_applicationssettingssearchwidget.cpp"

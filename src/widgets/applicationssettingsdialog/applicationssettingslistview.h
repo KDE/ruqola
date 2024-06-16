@@ -6,6 +6,7 @@
 
 #pragma once
 #include "libruqolawidgets_private_export.h"
+#include "model/appsmarketplacefilterproxymodel.h"
 #include "rocketchataccount.h"
 #include <QTreeView>
 class ApplicationsSettingsDelegate;
@@ -17,6 +18,8 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT ApplicationsSettingsListView : public QTreeV
 public:
     explicit ApplicationsSettingsListView(RocketChatAccount *account, QWidget *parent = nullptr);
     ~ApplicationsSettingsListView() override;
+
+    void setFilterInfo(const AppsMarketPlaceFilterProxyModel::FilterInfo &info);
 
 private:
     ApplicationsSettingsDelegate *const mApplicationsSettingsListDelegate;

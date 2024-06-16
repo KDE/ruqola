@@ -33,4 +33,9 @@ ApplicationsSettingsListView::ApplicationsSettingsListView(RocketChatAccount *ac
 
 ApplicationsSettingsListView::~ApplicationsSettingsListView() = default;
 
+void ApplicationsSettingsListView::setFilterInfo(const AppsMarketPlaceFilterProxyModel::FilterInfo &info)
+{
+    mAppsMarketPlaceFilterProxyModel->setFilterInfo(info);
+}
+
 #include "moc_applicationssettingslistview.cpp"

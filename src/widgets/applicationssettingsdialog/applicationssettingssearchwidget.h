@@ -6,6 +6,7 @@
 
 #pragma once
 #include "libruqolawidgets_private_export.h"
+#include "model/appsmarketplacefilterproxymodel.h"
 #include "rocketchataccount.h"
 #include <QWidget>
 class ApplicationsSettingsCategoriesComboBox;
@@ -20,6 +21,7 @@ public:
     explicit ApplicationsSettingsSearchWidget(RocketChatAccount *account, QWidget *parent = nullptr);
     ~ApplicationsSettingsSearchWidget() override;
 
+    [[nodiscard]] AppsMarketPlaceFilterProxyModel::FilterInfo filterInfo() const;
 Q_SIGNALS:
     void filterChanged();
 

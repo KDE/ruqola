@@ -38,7 +38,7 @@ ApplicationsSettingsWidget::~ApplicationsSettingsWidget() = default;
 
 void ApplicationsSettingsWidget::slotFilterChanged()
 {
-    // TODO
+    mApplicationsSettingsListView->setFilterInfo(mApplicationsSettingsSearchWidget->filterInfo());
 }
 
 #include "moc_applicationssettingswidget.cpp"

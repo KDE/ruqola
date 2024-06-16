@@ -6,6 +6,7 @@
 
 #pragma once
 #include "libruqolawidgets_private_export.h"
+#include "model/appsmarketplacefilterproxymodel.h"
 #include "rocketchataccount.h"
 #include <QWidget>
 class RocketChatAccount;
