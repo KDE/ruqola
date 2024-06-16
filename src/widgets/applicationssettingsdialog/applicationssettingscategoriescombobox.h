@@ -16,4 +16,9 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT ApplicationsSettingsCategoriesComboBox : pub
 public:
     explicit ApplicationsSettingsCategoriesComboBox(RocketChatAccount *account, QWidget *parent = nullptr);
     ~ApplicationsSettingsCategoriesComboBox() override;
+
+    [[nodiscard]] QStringList categories() const;
+
+private:
+    RocketChatAccount *const mRocketChatAccount;
 };

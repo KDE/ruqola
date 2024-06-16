@@ -10,12 +10,18 @@
 
 ApplicationsSettingsCategoriesComboBox::ApplicationsSettingsCategoriesComboBox(RocketChatAccount *account, QWidget *parent)
     : QComboBox(parent)
+    , mRocketChatAccount(account)
 {
     // Add category model
     if (account) {
         setModel(account->appsCategoriesModel());
     }
     setSizeAdjustPolicy(QComboBox::AdjustToContents);
+}
+
+QStringList ApplicationsSettingsCategoriesComboBox::categories() const
+{
+    return mRocketChatAccount->appsCategoriesModel()->categoriesSelected();
 }
 
 ApplicationsSettingsCategoriesComboBox::~ApplicationsSettingsCategoriesComboBox() = default;

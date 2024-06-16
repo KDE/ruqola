@@ -44,4 +44,10 @@ bool AppsCategoriesModel::wasFilled() const
     return !mAppsCategories.isEmpty();
 }
 
+QStringList AppsCategoriesModel::categoriesSelected() const
+{
+    // TODO
+    return {};
+}
+
 #include "moc_appscategoriesmodel.cpp"
