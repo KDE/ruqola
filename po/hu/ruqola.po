@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-06-16 00:39+0000\n"
+"POT-Creation-Date: 2024-06-17 00:39+0000\n"
 "PO-Revision-Date: 2024-06-15 22:59+0200\n"
 "Last-Translator: Kristof Kiszel <ulysses@fsf.hu>\n"
 "Language-Team: Hungarian <kde-l10n-hu@kde.org>\n"
@@ -6245,7 +6245,7 @@ msgstr "Az alkalmazás nem található"
 
 #: widgets/applicationssettingsdialog/applicationssettingsaskapplicationwidget.cpp:22
 #, kde-format
-msgid "Let your admin know why this app would be useful "
+msgid "Let your admin know why this app would be useful"
 msgstr ""
 
 #: widgets/applicationssettingsdialog/applicationssettingsaskapplicationwidget.cpp:28

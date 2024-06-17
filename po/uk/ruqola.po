@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-06-16 00:39+0000\n"
-"PO-Revision-Date: 2024-06-14 15:09+0300\n"
+"POT-Creation-Date: 2024-06-17 00:39+0000\n"
+"PO-Revision-Date: 2024-06-16 09:28+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian\n"
 "Language: uk\n"
@@ -832,7 +832,7 @@ msgstr "Стан"
 #: core/model/appscategoriesmodel.cpp:34
 #, kde-format
 msgid "Categories"
-msgstr ""
+msgstr "Категорії"
 
 #: core/model/bannerinfosmodel.cpp:52
 #, kde-format
@@ -6303,8 +6303,9 @@ msgid "Applications"
 msgstr "Програми"
 
 #: widgets/applicationssettingsdialog/applicationssettingsaskapplicationwidget.cpp:22
-#, kde-format
-msgid "Let your admin know why this app would be useful "
+#, fuzzy, kde-format
+#| msgid "Let your admin know why this app would be useful "
+msgid "Let your admin know why this app would be useful"
 msgstr "Повідомте вашому адміністратору, чому ця програма може бути корисною "
 
 #: widgets/applicationssettingsdialog/applicationssettingsaskapplicationwidget.cpp:28
@@ -10062,16 +10063,14 @@ msgid "What's new in Ruqola"
 msgstr "Що нового у Ruqola"
 
 #: widgets/whatsnew/whatsnewmessagewidget.cpp:20
-#, fuzzy, kde-format
-#| msgid "(Show News in Ruqola)"
+#, kde-format
 msgid "(Show News)"
-msgstr "(Показати новини щодо Ruqola)"
+msgstr "(Показати новини)"
 
 #: widgets/whatsnew/whatsnewmessagewidget.cpp:20
-#, fuzzy, kde-format
-#| msgid "What's new in Ruqola. %1"
+#, kde-format
 msgid "What's new in %2. %1"
-msgstr "Що нового у Ruqola. %1"
+msgstr "Що нового у %2. %1"
 
 #: widgets/whatsnew/whatsnewwidget.cpp:95
 #, kde-format
@@ -10288,10 +10287,8 @@ msgid "Fix preview url."
 msgstr "Виправлено адресу попереднього перегляду."
 
 #: widgets/whatsnew/whatsnewwidgettranslation.h:96
-#, fuzzy
-#| msgid "Implement block actions."
 msgid "Implement Application Market Settings."
-msgstr "Реалізовано дії з блокування."
+msgstr "Реалізовано параметри ринку програм."
 
 #~ msgid "(Click here for Loading more…"
 #~ msgstr "(Натисніть тут, щоб завантажити ще…)"

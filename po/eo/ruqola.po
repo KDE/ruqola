@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-06-16 00:39+0000\n"
-"PO-Revision-Date: 2024-06-1510:04+0200\n"
+"POT-Creation-Date: 2024-06-17 00:39+0000\n"
+"PO-Revision-Date: 2024-06-16 06:33+0200\n"
 "Last-Translator: Oliver Kellogg <olivermkellogg@gmail.com>\n"
 "Language-Team: Esperanto <kde-i18n-eo.org>\n"
 "Language: eo\n"
@@ -6239,9 +6239,10 @@ msgid "Applications"
 msgstr "Aplikaĵoj"
 
 #: widgets/applicationssettingsdialog/applicationssettingsaskapplicationwidget.cpp:22
-#, kde-format
-msgid "Let your admin know why this app would be useful "
-msgstr ""
+#, fuzzy, kde-format
+#| msgid "Let your admin know why this app would be useful "
+msgid "Let your admin know why this app would be useful"
+msgstr "Lasu vian admin ekscii kial ĉi apo estus utila "
 
 #: widgets/applicationssettingsdialog/applicationssettingsaskapplicationwidget.cpp:28
 #, kde-format
@@ -10158,7 +10159,5 @@ msgid "Fix preview url."
 msgstr "Ripari antaŭrigardan URL."
 
 #: widgets/whatsnew/whatsnewwidgettranslation.h:96
-#, fuzzy
-#| msgid "Implement block actions."
 msgid "Implement Application Market Settings."
-msgstr "Realigi blokad-agojn."
+msgstr "Realigi Agordojn de Aplikaĵa Merkato."

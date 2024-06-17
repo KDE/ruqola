@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-06-16 00:39+0000\n"
-"PO-Revision-Date: 2024-06-08 17:55+0200\n"
+"POT-Creation-Date: 2024-06-17 00:39+0000\n"
+"PO-Revision-Date: 2024-06-16 17:00+0200\n"
 "Last-Translator: Víctor Rodrigo Córdoba <vrcordoba@gmail.com>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -831,7 +831,7 @@ msgstr "Estado"
 #: core/model/appscategoriesmodel.cpp:34
 #, kde-format
 msgid "Categories"
-msgstr ""
+msgstr "Categorías"
 
 #: core/model/bannerinfosmodel.cpp:52
 #, kde-format
@@ -1394,8 +1394,7 @@ msgid "%1 ended the OTR session."
 msgstr "%1 finalizó la sesión confidencial."
 
 #: core/otr/otrnotificationjob.cpp:99
-#, fuzzy, kde-format
-#| msgid "%1  wants to start OTR. Do you want to accept?."
+#, kde-format
 msgid "%1 wants to start OTR. Do you want to accept?"
 msgstr "%1 quiere comenzar una sesión confidencial, ¿Quiere aceptarla?"
 
@@ -6277,40 +6276,40 @@ msgid "Applications"
 msgstr "Aplicaciones"
 
 #: widgets/applicationssettingsdialog/applicationssettingsaskapplicationwidget.cpp:22
-#, kde-format
-msgid "Let your admin know why this app would be useful "
-msgstr ""
+#, fuzzy, kde-format
+#| msgid "Let your admin know why this app would be useful "
+msgid "Let your admin know why this app would be useful"
+msgstr "Comunicale a tu administrador por qué esta aplicación sería útil"
 
 #: widgets/applicationssettingsdialog/applicationssettingsaskapplicationwidget.cpp:28
 #, kde-format
 msgid "Message for workspace admin"
-msgstr ""
+msgstr "Mensaje para los administradores del espacio de trabajo"
 
 #: widgets/applicationssettingsdialog/applicationssettingspricecombobox.cpp:13
 #, kde-format
 msgid "All Prices"
-msgstr ""
+msgstr "Todos los precios"
 
 #: widgets/applicationssettingsdialog/applicationssettingspricecombobox.cpp:14
 #, kde-format
 msgid "Free Apps"
-msgstr ""
+msgstr "Aplicaciones gratis"
 
 #: widgets/applicationssettingsdialog/applicationssettingspricecombobox.cpp:15
 #, kde-format
 msgid "Paid Apps"
-msgstr ""
+msgstr "Aplicaciones de pago"
 
 #: widgets/applicationssettingsdialog/applicationssettingspricecombobox.cpp:16
 #, kde-format
 msgid "Premium"
-msgstr ""
+msgstr "Prémium"
 
 #: widgets/applicationssettingsdialog/applicationssettingsstatuscombobox.cpp:14
-#, fuzzy, kde-format
-#| msgid "Status"
+#, kde-format
 msgid "All Status"
-msgstr "Estado"
+msgstr "Todos los estados"
 
 #: widgets/bannerinfodialog/bannerinfodialog.cpp:27
 #, kde-format
@@ -10002,16 +10001,14 @@ msgid "What's new in Ruqola"
 msgstr "¿Que hay de nuevo en Ruqola?"
 
 #: widgets/whatsnew/whatsnewmessagewidget.cpp:20
-#, fuzzy, kde-format
-#| msgid "(Show News in Ruqola)"
+#, kde-format
 msgid "(Show News)"
-msgstr "(Mostrar noticias en Ruqola)"
+msgstr "(Mostrar noticias)"
 
 #: widgets/whatsnew/whatsnewmessagewidget.cpp:20
-#, fuzzy, kde-format
-#| msgid "What's new in Ruqola. %1"
+#, kde-format
 msgid "What's new in %2. %1"
-msgstr "¿Que hay de nuevo en Ruqola?. %1"
+msgstr "¿Qué hay de nuevo en %2?. %1"
 
 #: widgets/whatsnew/whatsnewwidget.cpp:95
 #, kde-format
@@ -10226,7 +10223,5 @@ msgid "Fix preview url."
 msgstr "Mejora en la vista preliminar de URLs."
 
 #: widgets/whatsnew/whatsnewwidgettranslation.h:96
-#, fuzzy
-#| msgid "Implement block actions."
 msgid "Implement Application Market Settings."
-msgstr "Implementación de las acciones en bloque."
+msgstr "Implementación de las preferencias del mercado de aplicaciones."

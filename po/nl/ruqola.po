@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-06-16 00:39+0000\n"
-"PO-Revision-Date: 2024-06-15 10:26+0200\n"
+"POT-Creation-Date: 2024-06-17 00:39+0000\n"
+"PO-Revision-Date: 2024-06-16 15:32+0200\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
 "Language: nl\n"
@@ -6278,8 +6278,9 @@ msgid "Applications"
 msgstr "Toepassingen"
 
 #: widgets/applicationssettingsdialog/applicationssettingsaskapplicationwidget.cpp:22
-#, kde-format
-msgid "Let your admin know why this app would be useful "
+#, fuzzy, kde-format
+#| msgid "Let your admin know why this app would be useful "
+msgid "Let your admin know why this app would be useful"
 msgstr "Laat uw systeembeheerder weten waarom deze toepassing nuttig zou zijn"
 
 #: widgets/applicationssettingsdialog/applicationssettingsaskapplicationwidget.cpp:28
@@ -10220,10 +10221,8 @@ msgid "Fix preview url."
 msgstr "Voorbeeld-url repareren."
 
 #: widgets/whatsnew/whatsnewwidgettranslation.h:96
-#, fuzzy
-#| msgid "Implement block actions."
 msgid "Implement Application Market Settings."
-msgstr "Blokkeeracties implementeren."
+msgstr "Instellingen voor markt met toepassingen implementeren."
 
 #~ msgid "(Click here for Loading more…"
 #~ msgstr "(Klik hier om meer te laden…)"

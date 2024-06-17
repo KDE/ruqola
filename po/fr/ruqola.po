@@ -5,8 +5,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-06-16 00:39+0000\n"
-"PO-Revision-Date: 2024-06-14 09:48+0200\n"
+"POT-Creation-Date: 2024-06-17 00:39+0000\n"
+"PO-Revision-Date: 2024-06-15 11:37+0200\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
 "Language-Team: French <French <kde-francophone@kde.org>>\n"
 "Language: fr\n"
@@ -1393,8 +1393,7 @@ msgid "%1 ended the OTR session."
 msgstr "%1 demande le démarrage de  OTR ». Voulez-vous vraiment l'accepter ?"
 
 #: core/otr/otrnotificationjob.cpp:99
-#, fuzzy, kde-format
-#| msgid "%1  wants to start OTR. Do you want to accept?."
+#, kde-format
 msgid "%1 wants to start OTR. Do you want to accept?"
 msgstr "%1 demande le démarrage de  OTR ». Voulez-vous vraiment l'accepter ?"
 
@@ -6313,14 +6312,15 @@ msgid "Applications"
 msgstr "Applications"
 
 #: widgets/applicationssettingsdialog/applicationssettingsaskapplicationwidget.cpp:22
-#, kde-format
-msgid "Let your admin know why this app would be useful "
-msgstr ""
+#, fuzzy, kde-format
+#| msgid "Let your admin know why this app would be useful "
+msgid "Let your admin know why this app would be useful"
+msgstr "Dites à votre administrateur pourquoi cette application serait utile"
 
 #: widgets/applicationssettingsdialog/applicationssettingsaskapplicationwidget.cpp:28
 #, kde-format
 msgid "Message for workspace admin"
-msgstr ""
+msgstr "Message pour l'administrateur de l'espace de travail"
 
 #: widgets/applicationssettingsdialog/applicationssettingspricecombobox.cpp:13
 #, kde-format

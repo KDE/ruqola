@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-06-16 00:39+0000\n"
-"PO-Revision-Date: 2024-06-14 05:34+0200\n"
+"POT-Creation-Date: 2024-06-17 00:39+0000\n"
+"PO-Revision-Date: 2024-06-16 05:53+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -828,7 +828,7 @@ msgstr "მდგომარეობა"
 #: core/model/appscategoriesmodel.cpp:34
 #, kde-format
 msgid "Categories"
-msgstr ""
+msgstr "კატეგორიები"
 
 #: core/model/bannerinfosmodel.cpp:52
 #, kde-format
@@ -6233,8 +6233,9 @@ msgid "Applications"
 msgstr "აპლიკაციები"
 
 #: widgets/applicationssettingsdialog/applicationssettingsaskapplicationwidget.cpp:22
-#, kde-format
-msgid "Let your admin know why this app would be useful "
+#, fuzzy, kde-format
+#| msgid "Let your admin know why this app would be useful "
+msgid "Let your admin know why this app would be useful"
 msgstr "გააგებინეთ ადმინს, რატომაა ეს აპი სასარგებლო "
 
 #: widgets/applicationssettingsdialog/applicationssettingsaskapplicationwidget.cpp:28
@@ -9939,16 +9940,14 @@ msgid "What's new in Ruqola"
 msgstr "Ruqola-ის სიახლეები"
 
 #: widgets/whatsnew/whatsnewmessagewidget.cpp:20
-#, fuzzy, kde-format
-#| msgid "(Show News in Ruqola)"
+#, kde-format
 msgid "(Show News)"
-msgstr "(სიახლეების Ruqola-ში ჩვენება)"
+msgstr "(სიახლეების ჩვენება)"
 
 #: widgets/whatsnew/whatsnewmessagewidget.cpp:20
-#, fuzzy, kde-format
-#| msgid "What's new in Ruqola. %1"
+#, kde-format
 msgid "What's new in %2. %1"
-msgstr "Ruqola-ის სიახლეები. %1"
+msgstr "რა არის ახალი %2.%1-ში"
 
 #: widgets/whatsnew/whatsnewwidget.cpp:95
 #, kde-format
@@ -10161,10 +10160,8 @@ msgid "Fix preview url."
 msgstr "მინიატურის ბმულის გასწორება."
 
 #: widgets/whatsnew/whatsnewwidgettranslation.h:96
-#, fuzzy
-#| msgid "Implement block actions."
 msgid "Implement Application Market Settings."
-msgstr "დაბლოკვის ქმედებების განხორციელება."
+msgstr "აპლიკაციის მაღაზიის მორგების განხორციელება."
 
 #~ msgid "(Click here for Loading more…"
 #~ msgstr "(მეტის ჩასატვირთად დააწკაპუნეთ…)"

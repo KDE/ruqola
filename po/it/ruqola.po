@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-06-16 00:39+0000\n"
-"PO-Revision-Date: 2024-06-04 15:20+0200\n"
+"POT-Creation-Date: 2024-06-17 00:39+0000\n"
+"PO-Revision-Date: 2024-06-16 18:00+0200\n"
 "Last-Translator: Vincenzo Reale <smart2128vr@gmail.com>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
 "Language: it\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 24.05.0\n"
+"X-Generator: Lokalize 24.05.1\n"
 
 #: apps/main.cpp:62
 #, kde-format
@@ -829,7 +829,7 @@ msgstr "Stato"
 #: core/model/appscategoriesmodel.cpp:34
 #, kde-format
 msgid "Categories"
-msgstr ""
+msgstr "Categorie"
 
 #: core/model/bannerinfosmodel.cpp:52
 #, kde-format
@@ -1392,8 +1392,7 @@ msgid "%1 ended the OTR session."
 msgstr "%1 ha terminato la sessione OTR."
 
 #: core/otr/otrnotificationjob.cpp:99
-#, fuzzy, kde-format
-#| msgid "%1  wants to start OTR. Do you want to accept?."
+#, kde-format
 msgid "%1 wants to start OTR. Do you want to accept?"
 msgstr "%1 vuole avviare OTR. Vuoi accettare?"
 
@@ -2845,10 +2844,9 @@ msgstr "Elimina tutti i messaggi"
 
 #: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:149
 #: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:143
-#, fuzzy, kde-format
-#| msgid "Desactivate user"
+#, kde-format
 msgid "Deactivate user"
-msgstr "Disattiva l'utente"
+msgstr "Disattiva utente"
 
 #: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:161
 #: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:155
@@ -2863,12 +2861,10 @@ msgstr ""
 
 #: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:162
 #: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:156
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Desactivate User"
+#, kde-format
 msgctxt "@title:window"
 msgid "Deactivate User"
-msgstr "Disattiva l'utente"
+msgstr "Disattiva utente"
 
 #: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:195
 #, kde-format
@@ -6276,49 +6272,48 @@ msgstr "Server STUN/TURN"
 #: widgets/applicationssettingsdialog/applicationssettingsaskapplicationdialog.cpp:24
 #: widgets/applicationssettingsdialog/applicationssettingsdescriptiondialog.cpp:25
 #: widgets/applicationssettingsdialog/applicationssettingsdialog.cpp:27
-#, fuzzy, kde-format
-#| msgctxt "@action"
-#| msgid "Applications…"
+#, kde-format
 msgctxt "@title:window"
 msgid "Applications"
-msgstr "Applicazioni…"
+msgstr "Applicazioni"
 
 #: widgets/applicationssettingsdialog/applicationssettingsaskapplicationwidget.cpp:22
-#, kde-format
-msgid "Let your admin know why this app would be useful "
+#, fuzzy, kde-format
+#| msgid "Let your admin know why this app would be useful "
+msgid "Let your admin know why this app would be useful"
 msgstr ""
+"Fai sapere al tuo amministratore perché questa applicazione potrebbe essere "
+"utile"
 
 #: widgets/applicationssettingsdialog/applicationssettingsaskapplicationwidget.cpp:28
 #, kde-format
 msgid "Message for workspace admin"
-msgstr ""
+msgstr "Messaggio per l'amministratore dell'area di lavoro"
 
 #: widgets/applicationssettingsdialog/applicationssettingspricecombobox.cpp:13
-#, fuzzy, kde-format
-#| msgid "All Files (*)"
+#, kde-format
 msgid "All Prices"
-msgstr "Tutti i file (*)"
+msgstr "Tutti i prezzi"
 
 #: widgets/applicationssettingsdialog/applicationssettingspricecombobox.cpp:14
 #, kde-format
 msgid "Free Apps"
-msgstr ""
+msgstr "Applicazioni gratuite"
 
 #: widgets/applicationssettingsdialog/applicationssettingspricecombobox.cpp:15
 #, kde-format
 msgid "Paid Apps"
-msgstr ""
+msgstr "Applicazioni a pagamento"
 
 #: widgets/applicationssettingsdialog/applicationssettingspricecombobox.cpp:16
 #, kde-format
 msgid "Premium"
-msgstr ""
+msgstr "Premium"
 
 #: widgets/applicationssettingsdialog/applicationssettingsstatuscombobox.cpp:14
-#, fuzzy, kde-format
-#| msgid "Status"
+#, kde-format
 msgid "All Status"
-msgstr "Stato"
+msgstr "Tutti gli stati"
 
 #: widgets/bannerinfodialog/bannerinfodialog.cpp:27
 #, kde-format
@@ -7369,8 +7364,7 @@ msgstr "Segnala messaggio"
 
 #: widgets/dialogs/reportmessagedialog.cpp:43
 #: widgets/dialogs/reportuserdialog.cpp:43
-#, fuzzy, kde-format
-#| msgid "Report"
+#, kde-format
 msgctxt "@action:button"
 msgid "Report"
 msgstr "Segnalazione"
@@ -8388,8 +8382,7 @@ msgid "Create Personal Token"
 msgstr "Crea il token personale"
 
 #: widgets/myaccount/myaccountpersonalaccesscreatedialog.cpp:32
-#, fuzzy, kde-format
-#| msgid "Create"
+#, kde-format
 msgctxt "@action:button"
 msgid "Create"
 msgstr "Crea"
@@ -8745,8 +8738,7 @@ msgid "Prune Messages"
 msgstr "Elimina messaggi"
 
 #: widgets/prunemessages/prunemessagesdialog.cpp:42
-#, fuzzy, kde-format
-#| msgid "Prune"
+#, kde-format
 msgctxt "@action:button"
 msgid "Prune"
 msgstr "Ripulisci"
@@ -9526,36 +9518,31 @@ msgstr[0] "Un utente nella stanza (totale: %2)"
 msgstr[1] "%1 utenti nella stanza (totali: %2)"
 
 #: widgets/ruqolacommandlineoptions.cpp:37
-#, fuzzy, kde-format
-#| msgid "Return lists of accounts"
+#, kde-format
 msgctxt "@info:shell"
 msgid "Return lists of accounts"
 msgstr "Restituisce elenchi di account"
 
 #: widgets/ruqolacommandlineoptions.cpp:39
-#, fuzzy, kde-format
-#| msgid "Start with specific account"
+#, kde-format
 msgctxt "@info:shell"
 msgid "Start with specific account"
 msgstr "Inizia con un account specifico"
 
 #: widgets/ruqolacommandlineoptions.cpp:40
-#, fuzzy, kde-format
-#| msgid "Show Message"
+#, kde-format
 msgctxt "@info:shell"
 msgid "Show Message"
 msgstr "Mostra messaggio"
 
 #: widgets/ruqolacommandlineoptions.cpp:41
-#, fuzzy, kde-format
-#| msgid "Use RESTAPI for logging."
+#, kde-format
 msgctxt "@info:shell"
 msgid "Use ddp api for login"
-msgstr "Utilizza le API REST per la registrazione."
+msgstr "Utilizza api ddp per l'accesso."
 
 #: widgets/ruqolacommandlineoptions.cpp:44
-#, fuzzy, kde-format
-#| msgid "Lists the available options for user feedback"
+#, kde-format
 msgctxt "@info:shell"
 msgid "Lists the available options for user feedback"
 msgstr "Elenca le opzioni disponibili per le segnalazioni degli utenti"
@@ -10017,16 +10004,14 @@ msgid "What's new in Ruqola"
 msgstr "Cosa c'è di nuovo in Ruqola"
 
 #: widgets/whatsnew/whatsnewmessagewidget.cpp:20
-#, fuzzy, kde-format
-#| msgid "(Show News in Ruqola)"
+#, kde-format
 msgid "(Show News)"
-msgstr "(Mostra le novità in Ruqola)"
+msgstr "(Mostra le novità)"
 
 #: widgets/whatsnew/whatsnewmessagewidget.cpp:20
-#, fuzzy, kde-format
-#| msgid "What's new in Ruqola. %1"
+#, kde-format
 msgid "What's new in %2. %1"
-msgstr "Cosa c'è di nuovo in Ruqola. %1"
+msgstr "Cosa c'è di nuovo %2. %1"
 
 #: widgets/whatsnew/whatsnewwidget.cpp:95
 #, kde-format
@@ -10242,10 +10227,8 @@ msgid "Fix preview url."
 msgstr "Correggi l'URL di anteprima."
 
 #: widgets/whatsnew/whatsnewwidgettranslation.h:96
-#, fuzzy
-#| msgid "Implement block actions."
 msgid "Implement Application Market Settings."
-msgstr "Implementate le azioni di blocco."
+msgstr "Implementa le impostazioni del negozio delle applicazioni."
 
 #~ msgid "(Click here for Loading more…"
 #~ msgstr "(Fai clic qui per caricare altro..."
