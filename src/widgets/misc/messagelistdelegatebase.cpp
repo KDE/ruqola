@@ -202,6 +202,9 @@ void MessageListDelegateBase::setSearchText(const QString &newSearchText)
 QTextDocument *
 MessageListDelegateBase::documentForDelegate(RocketChatAccount *rcAccount, const QByteArray &messageId, const QString &messageStr, int width) const
 {
+    if (messageStr.isEmpty()) {
+        return nullptr;
+    }
     auto it = mDocumentCache.find(messageId);
     if (it != mDocumentCache.end()) {
         auto ret = it->value.get();
@@ -209,9 +212,6 @@ MessageListDelegateBase::documentForDelegate(RocketChatAccount *rcAccount, const
             ret->setTextWidth(width);
         }
         return ret;
-    }
-    if (messageStr.isEmpty()) {
-        return nullptr;
     }
     // Use TextConverter in case it starts with a [](URL) reply marker
     QByteArray needUpdateMessageId; // TODO use it ?
