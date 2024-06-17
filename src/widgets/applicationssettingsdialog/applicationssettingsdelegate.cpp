@@ -68,13 +68,13 @@ ApplicationsSettingsDelegate::Layout ApplicationsSettingsDelegate::doLayout(cons
     layout.appShortDescription = index.data(AppsMarketPlaceModel::ShortDescription).toString();
     layout.appName = index.data(AppsMarketPlaceModel::AppName).toString();
     layout.premium = index.data(AppsMarketPlaceModel::IsEnterpriseOnly).toBool();
-    // TODO
     return layout;
 }
 
 QByteArray ApplicationsSettingsDelegate::cacheIdentifier(const QModelIndex &index) const
 {
-    const QByteArray str = index.data(AppsMarketPlaceModel::AppId).toString().toLatin1();
-    return str;
+    const QByteArray identifier = index.data(AppsMarketPlaceModel::AppId).toByteArray();
+    Q_ASSERT(!identifier.isEmpty());
+    return identifier;
 }
 #include "moc_applicationssettingsdelegate.cpp"
