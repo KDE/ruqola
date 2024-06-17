@@ -33,11 +33,30 @@ void ApplicationsSettingsDelegate::paint(QPainter *painter, const QStyleOptionVi
     // Draw the pixmap
     if (!layout.appPixmap.isNull()) {
 #if USE_ROUNDED_RECT_PIXMAP
-        // TODO DelegatePaintUtil::createClipRoundedRectangle(painter, QRectF(layout.avatarPos, layout.appPixmap.size()), layout.avatarPos, layout.appPixmap);
+        // TODO DelegatePaintUtil::createClipRoundedRectangle(painter, QRectF(layout.appPixmapPos, layout.appPixmap.size()), layout.appPixmapPos,
+        // layout.appPixmap);
 #else
         // TODO painter->drawPixmap(layout.avatarPos, layout.avatarPixmap);
 #endif
     }
+#if 0
+    // Draw Text
+    if (layout.textRect.isValid()) {
+        auto *doc = documentForModelIndex(index, layout.textRect.width());
+        if (doc) {
+            MessageDelegateUtils::drawSelection(doc,
+                                                layout.textRect,
+                                                layout.textRect.top(),
+                                                painter,
+                                                index,
+                                                option,
+                                                mTextSelectionImpl->textSelection(),
+                                                {},
+                                                {},
+                                                false);
+        }
+    }
+#endif
     painter->restore();
 
     // TODO reimplement it
