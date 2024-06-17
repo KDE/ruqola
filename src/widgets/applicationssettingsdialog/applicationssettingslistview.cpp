@@ -32,6 +32,11 @@ ApplicationsSettingsListView::ApplicationsSettingsListView(RocketChatAccount *ac
         mAppsMarketPlaceFilterProxyModel->setSourceModel(mRocketChatAccount->appsMarketPlaceModel());
         setModel(mAppsMarketPlaceFilterProxyModel);
     }
+    connect(mApplicationsSettingsListDelegate, &ApplicationsSettingsDelegate::updateView, this, [this](const QModelIndex &index) {
+        update(index);
+    });
+    // TODO connect(this, &ApplicationsSettingsListView::needToClearSizeHintCache, mApplicationsSettingsListDelegate,
+    // &ApplicationsSettingsDelegate::clearSizeHintCache);
 }
 
 ApplicationsSettingsListView::~ApplicationsSettingsListView() = default;
