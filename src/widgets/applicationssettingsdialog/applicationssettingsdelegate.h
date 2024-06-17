@@ -23,7 +23,7 @@ private:
     struct Layout {
         QPixmap appPixmap;
         QString appName;
-        QString appDescription;
+        QString appShortDescription;
         bool premium = false;
         // TODO
     };

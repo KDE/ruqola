@@ -62,6 +62,8 @@ QVariant AppsMarketPlaceModel::data(const QModelIndex &index, int role) const
         return appsMarketPlaceInfo.price();
     case AppsMarketPlaceModel::Description:
         return appsMarketPlaceInfo.description();
+    case AppsMarketPlaceModel::ShortDescription:
+        return appsMarketPlaceInfo.shortDescription();
     case AppsMarketPlaceModel::PurchaseType:
         return appsMarketPlaceInfo.purchaseType();
     case AppsMarketPlaceModel::DocumentationUrl:

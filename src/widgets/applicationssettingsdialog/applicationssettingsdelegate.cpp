@@ -65,7 +65,7 @@ ApplicationsSettingsDelegate::Layout ApplicationsSettingsDelegate::doLayout(cons
         const QPixmap scaledPixmap = pix.scaled(10, 10, Qt::KeepAspectRatio, Qt::SmoothTransformation);
         layout.appPixmap = scaledPixmap;
     }
-    layout.appDescription = index.data(AppsMarketPlaceModel::Description).toString();
+    layout.appShortDescription = index.data(AppsMarketPlaceModel::ShortDescription).toString();
     layout.appName = index.data(AppsMarketPlaceModel::AppName).toString();
     layout.premium = index.data(AppsMarketPlaceModel::IsEnterpriseOnly).toBool();
     // TODO

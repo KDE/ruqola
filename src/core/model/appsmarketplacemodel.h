@@ -20,6 +20,7 @@ public:
         Categories,
         Price,
         Description,
+        ShortDescription,
         PurchaseType,
         DocumentationUrl,
         IsEnterpriseOnly,
