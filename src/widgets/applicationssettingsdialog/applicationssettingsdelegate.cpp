@@ -11,6 +11,7 @@
 #if USE_SIZEHINT_CACHE_SUPPORT
 #include "ruqola_sizehint_cache_debug.h"
 #endif
+#include <QPainter>
 
 ApplicationsSettingsDelegate::ApplicationsSettingsDelegate(QObject *parent)
     : QItemDelegate{parent}
@@ -21,6 +22,9 @@ ApplicationsSettingsDelegate::~ApplicationsSettingsDelegate() = default;
 
 void ApplicationsSettingsDelegate::paint(QPainter *painter, const QStyleOptionViewItem &option, const QModelIndex &index) const
 {
+    painter->save();
+    drawBackground(painter, option, index);
+
     const Layout layout = doLayout(option, index);
     // Draw the pixmap
     if (!layout.appPixmap.isNull()) {
@@ -30,6 +34,7 @@ void ApplicationsSettingsDelegate::paint(QPainter *painter, const QStyleOptionVi
         // TODO painter->drawPixmap(layout.avatarPos, layout.avatarPixmap);
 #endif
     }
+    painter->restore();
 
     // TODO reimplement it
     QItemDelegate::paint(painter, option, index);
