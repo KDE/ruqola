@@ -24,6 +24,7 @@ public:
 
 private:
     struct Layout {
+        QRect textRect;
         // Pixmap
         QPixmap appPixmap;
         QPointF appPixmapPos;

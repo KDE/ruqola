@@ -8,6 +8,7 @@
 #include "common/delegatepaintutil.h"
 #include "config-ruqola.h"
 #include "delegateutils/messagedelegateutils.h"
+#include "delegateutils/textselectionimpl.h"
 #include "model/appsmarketplacemodel.h"
 #include "rocketchataccount.h"
 #include "textconverter.h"
@@ -40,7 +41,7 @@ void ApplicationsSettingsDelegate::paint(QPainter *painter, const QStyleOptionVi
         painter->drawPixmap(layout.appPixmapPos, layout.appPixmap);
 #endif
     }
-#if 0
+
     // Draw Text
     if (layout.textRect.isValid()) {
         auto *doc = documentForModelIndex(index, layout.textRect.width());
@@ -57,7 +58,6 @@ void ApplicationsSettingsDelegate::paint(QPainter *painter, const QStyleOptionVi
                                                 false);
         }
     }
-#endif
     painter->restore();
 
     // TODO reimplement it
@@ -156,6 +156,7 @@ ApplicationsSettingsDelegate::documentForDelegate(RocketChatAccount *rcAccount, 
 
 RocketChatAccount *ApplicationsSettingsDelegate::rocketChatAccount(const QModelIndex &index) const
 {
+    Q_UNUSED(index);
     return mRocketChatAccount;
 }
 
