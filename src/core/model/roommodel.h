@@ -110,9 +110,9 @@ public:
     void getUnreadAlertFromAccount(bool &hasAlert, int &nbUnread) const;
     void userStatusChanged(const User &user);
 
-    UsersForRoomModel *usersModelForRoom(const QByteArray &roomId) const;
+    [[nodiscard]] UsersForRoomModel *usersModelForRoom(const QByteArray &roomId) const;
 
-    MessagesModel *messageModel(const QByteArray &roomId) const;
+    [[nodiscard]] MessagesModel *messageModel(const QByteArray &roomId) const;
 
     [[nodiscard]] Room *findRoom(const QByteArray &roomID) const;
     void updateSubscriptionRoom(const QJsonObject &room);
@@ -120,7 +120,7 @@ public:
 
     [[nodiscard]] QModelIndex indexForRoomName(const QString &roomName) const;
 
-    static QString sectionName(RoomModel::Section sectionId);
+    [[nodiscard]] static QString sectionName(RoomModel::Section sectionId);
 
     [[nodiscard]] QList<Room *> findRoomNameConstains(const QString &str) const;
 Q_SIGNALS:
