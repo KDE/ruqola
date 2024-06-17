@@ -19,6 +19,8 @@ public:
     explicit RESTAuthenticationManager(Connection *restApiConnection, QObject *parent = nullptr);
     ~RESTAuthenticationManager() override;
 
+    [[nodiscard]] QString authenticationName() const override;
+
 protected:
     void callLoginImpl(const QJsonArray &params, Method method) override;
 

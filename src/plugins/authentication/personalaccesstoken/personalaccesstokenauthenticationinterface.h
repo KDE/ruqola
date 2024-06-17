@@ -15,6 +15,6 @@ public:
     explicit PersonalAccessTokenAuthenticationInterface(QObject *parent = nullptr);
     ~PersonalAccessTokenAuthenticationInterface() override;
 
-    void login() override;
+    [[nodiscard]] bool login() override;
     [[nodiscard]] virtual PluginAuthenticationConfigureWidget *configureWidget(QWidget *parent) override;
 };

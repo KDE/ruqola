@@ -15,7 +15,7 @@ GitLabAuthenticationInterface::GitLabAuthenticationInterface(QObject *parent)
 
 GitLabAuthenticationInterface::~GitLabAuthenticationInterface() = default;
 
-void GitLabAuthenticationInterface::login()
+bool GitLabAuthenticationInterface::login()
 {
     // Login if we don't have valid token.
     auto job = new GitLabAuthenticationJob(this);
@@ -23,6 +23,8 @@ void GitLabAuthenticationInterface::login()
     // connect(job, &GitLabAuthenticationJob::authenticated, this, [this]() {
     //     // TODO
     // });
+    // Async we need to find another method for it but not implement yet => no problem
+    return true;
 }
 
 PluginAuthenticationConfigureWidget *GitLabAuthenticationInterface::configureWidget(QWidget *parent)

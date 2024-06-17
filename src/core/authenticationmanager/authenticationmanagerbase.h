@@ -37,20 +37,20 @@ public:
     [[nodiscard]] AuthenticationManager::LoginStatus loginStatus() const;
     void setLoginStatus(AuthenticationManager::LoginStatus status);
 
-    void loginPassword(const QString &user, const QString &password);
-    void loginLDAP(const QString &user, const QString &password); // TODO: LDAP options?
-    void loginOAuth(const QString &credentialToken, const QString &credentialSecret);
-    void login();
-    void sendOTP(const QString &otp);
+    [[nodiscard]] bool loginPassword(const QString &user, const QString &password);
+    [[nodiscard]] bool loginLDAP(const QString &user, const QString &password); // TODO: LDAP options?
+    [[nodiscard]] bool loginOAuth(const QString &credentialToken, const QString &credentialSecret);
+    [[nodiscard]] bool login();
+    [[nodiscard]] bool sendOTP(const QString &otp);
     void logout();
     void logoutAndCleanup();
-    void loginImpl(const QJsonArray &params);
+    [[nodiscard]] bool loginImpl(const QJsonArray &params);
 
     [[nodiscard]] QString convertMethodEnumToString(AuthenticationManagerBase::Method m);
     void processMethodResponseImpl(const QJsonObject &response, AuthenticationManagerBase::Method method);
 
     virtual void callLoginImpl(const QJsonArray &params, Method method) = 0;
-
+    [[nodiscard]] virtual QString authenticationName() const = 0;
 Q_SIGNALS:
     void loginStatusChanged();
 

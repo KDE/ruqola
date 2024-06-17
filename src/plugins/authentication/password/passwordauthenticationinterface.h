@@ -15,6 +15,6 @@ public:
     explicit PasswordAuthenticationInterface(QObject *parent = nullptr);
     ~PasswordAuthenticationInterface() override;
 
-    void login() override;
+    [[nodiscard]] bool login() override;
     [[nodiscard]] virtual PluginAuthenticationConfigureWidget *configureWidget(QWidget *parent) override;
 };

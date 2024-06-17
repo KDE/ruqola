@@ -21,13 +21,15 @@ PluginAuthenticationConfigureWidget *GitHubAuthenticationInterface::configureWid
     return nullptr;
 }
 
-void GitHubAuthenticationInterface::login()
+bool GitHubAuthenticationInterface::login()
 {
     auto job = new GitHubAuthenticationJob(this);
     job->start();
     // connect(job, &GitHubAuthenticationJob::authenticated, this, [this]() {
     //     // TODO
     // });
+    // Async we need to find another method for it but not implement yet => no problem
+    return true;
 }
 
 #include "moc_githubauthenticationinterface.cpp"

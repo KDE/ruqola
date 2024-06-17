@@ -17,7 +17,7 @@ public:
     explicit PluginAuthenticationInterface(QObject *parent = nullptr);
     ~PluginAuthenticationInterface() override;
 
-    virtual void login() = 0;
+    virtual bool login() = 0;
 
     [[nodiscard]] virtual PluginAuthenticationConfigureWidget *configureWidget(QWidget *parent) = 0;
 

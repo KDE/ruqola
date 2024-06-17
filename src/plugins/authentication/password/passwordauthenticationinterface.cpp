@@ -23,45 +23,62 @@ PasswordAuthenticationInterface::PasswordAuthenticationInterface(QObject *parent
 
 PasswordAuthenticationInterface::~PasswordAuthenticationInterface() = default;
 
-void PasswordAuthenticationInterface::login()
+bool PasswordAuthenticationInterface::login()
 {
     if (!mAccount->settings()->authToken().isEmpty() && !mAccount->settings()->tokenExpired()) {
         if (Ruqola::self()->useRestApiLogin()) {
             mAccount->restApi()->authenticationManager()->setAuthToken(mAccount->settings()->authToken());
-            mAccount->restApi()->authenticationManager()->login();
+            if (!mAccount->restApi()->authenticationManager()->login()) {
+                return false;
+            }
         } else {
             mAccount->ddp()->authenticationManager()->setAuthToken(mAccount->settings()->authToken());
-            mAccount->ddp()->authenticationManager()->login();
+            if (!mAccount->ddp()->authenticationManager()->login()) {
+                return false;
+            }
         }
-        return;
+        return true;
     }
 
     if (!mAccount->settings()->twoFactorAuthenticationCode().isEmpty()) {
         if (Ruqola::self()->useRestApiLogin()) {
-            mAccount->restApi()->authenticationManager()->sendOTP(mAccount->settings()->twoFactorAuthenticationCode());
+            if (!mAccount->restApi()->authenticationManager()->sendOTP(mAccount->settings()->twoFactorAuthenticationCode())) {
+                return false;
+            }
         } else {
-            mAccount->ddp()->authenticationManager()->sendOTP(mAccount->settings()->twoFactorAuthenticationCode());
+            if (!mAccount->ddp()->authenticationManager()->sendOTP(mAccount->settings()->twoFactorAuthenticationCode())) {
+                return false;
+            }
         }
-        return;
+        return true;
     }
 
     if (mAccount->settings()->password().isEmpty()) {
-        return;
+        return false;
     }
 
     if (Ruqola::self()->useRestApiLogin()) {
         if (mAccount->ldapEnabled()) {
-            mAccount->restApi()->authenticationManager()->loginLDAP(mAccount->settings()->userName(), mAccount->settings()->password());
+            if (!mAccount->restApi()->authenticationManager()->loginLDAP(mAccount->settings()->userName(), mAccount->settings()->password())) {
+                return false;
+            }
         } else {
-            mAccount->restApi()->authenticationManager()->loginPassword(mAccount->settings()->userName(), mAccount->settings()->password());
+            if (!mAccount->restApi()->authenticationManager()->loginPassword(mAccount->settings()->userName(), mAccount->settings()->password())) {
+                return false;
+            }
         }
     } else {
         if (mAccount->ldapEnabled()) {
-            mAccount->ddp()->authenticationManager()->loginLDAP(mAccount->settings()->userName(), mAccount->settings()->password());
+            if (!mAccount->ddp()->authenticationManager()->loginLDAP(mAccount->settings()->userName(), mAccount->settings()->password())) {
+                return false;
+            }
         } else {
-            mAccount->ddp()->authenticationManager()->loginPassword(mAccount->settings()->userName(), mAccount->settings()->password());
+            if (!mAccount->ddp()->authenticationManager()->loginPassword(mAccount->settings()->userName(), mAccount->settings()->password())) {
+                return false;
+            }
         }
     }
+    return true;
 }
 
 PluginAuthenticationConfigureWidget *PasswordAuthenticationInterface::configureWidget(QWidget *parent)

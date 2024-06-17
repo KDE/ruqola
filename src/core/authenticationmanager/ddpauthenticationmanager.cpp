@@ -23,6 +23,11 @@ DDPAuthenticationManager::DDPAuthenticationManager(DDPClient *ddpClient, QObject
 
 DDPAuthenticationManager::~DDPAuthenticationManager() = default;
 
+QString DDPAuthenticationManager::authenticationName() const
+{
+    return QStringLiteral("DDP");
+}
+
 void DDPAuthenticationManager::callLoginImpl(const QJsonArray &params, AuthenticationManagerBase::Method method)
 {
     const QString methodName = AuthenticationManagerBase::convertMethodEnumToString(method);

@@ -75,29 +75,30 @@ void AuthenticationManagerBase::setUserId(const QString &newUserId)
     mUserId = newUserId;
 }
 
-void AuthenticationManagerBase::loginPassword(const QString &user, const QString &password)
+bool AuthenticationManagerBase::loginPassword(const QString &user, const QString &password)
 {
-    loginImpl(AuthenticationManagerUtils::login(user, password));
+    return loginImpl(AuthenticationManagerUtils::login(user, password));
 }
 
-void AuthenticationManagerBase::loginLDAP(const QString &user, const QString &password)
+bool AuthenticationManagerBase::loginLDAP(const QString &user, const QString &password)
 {
-    loginImpl(AuthenticationManagerUtils::loginLdap(user, password));
+    return loginImpl(AuthenticationManagerUtils::loginLdap(user, password));
 }
 
-void AuthenticationManagerBase::loginOAuth(const QString &credentialToken, const QString &credentialSecret)
+bool AuthenticationManagerBase::loginOAuth(const QString &credentialToken, const QString &credentialSecret)
 {
-    loginImpl(AuthenticationManagerUtils::loginOAuth(credentialToken, credentialSecret));
+    return loginImpl(AuthenticationManagerUtils::loginOAuth(credentialToken, credentialSecret));
 }
 
-void AuthenticationManagerBase::login()
+bool AuthenticationManagerBase::login()
 {
     if (mAuthToken.isEmpty()) {
-        qCWarning(RUQOLA_AUTHENTICATION_LOG) << "No auth token available, can't login.";
-        return;
+        qCWarning(RUQOLA_AUTHENTICATION_LOG) << "No auth token available, can't login. (" << authenticationName() << ")";
+        return false;
     }
 
     loginImpl(AuthenticationManagerUtils::loginResume(mAuthToken));
+    return true;
 }
 
 QString AuthenticationManagerBase::convertMethodEnumToString(AuthenticationManagerBase::Method m)
@@ -115,15 +116,15 @@ QString AuthenticationManagerBase::convertMethodEnumToString(AuthenticationManag
     return {};
 }
 
-void AuthenticationManagerBase::sendOTP(const QString &otpCode)
+bool AuthenticationManagerBase::sendOTP(const QString &otpCode)
 {
     if (checkGenericError()) {
-        return;
+        return false;
     }
 
     if (mLoginStatus == AuthenticationManager::LoginStatus::LoginOtpAuthOngoing) {
         qCWarning(RUQOLA_AUTHENTICATION_LOG) << Q_FUNC_INFO << "Another OTP authentication is going on.";
-        return;
+        return false;
     }
 
     //    if ((mLoginStatus != LoginStatus::LoginOtpRequired) && (mLoginStatus != LoginStatus::LoginFailedInvalidOtp)) {
@@ -132,6 +133,7 @@ void AuthenticationManagerBase::sendOTP(const QString &otpCode)
     //    }
     callLoginImpl(AuthenticationManagerUtils::sendOTP(otpCode, mLastLoginPayload), Method::SendOtp);
     setLoginStatus(AuthenticationManager::LoginStatus::LoginOtpAuthOngoing);
+    return true;
 }
 
 void AuthenticationManagerBase::logout()
@@ -179,20 +181,20 @@ void AuthenticationManagerBase::logoutAndCleanup()
     setLoginStatus(AuthenticationManager::LoginStatus::LogoutOngoing);
 }
 
-void AuthenticationManagerBase::loginImpl(const QJsonArray &params)
+bool AuthenticationManagerBase::loginImpl(const QJsonArray &params)
 {
     if (checkGenericError()) {
-        return;
+        return false;
     }
 
     if (mLoginStatus == AuthenticationManager::LoginOngoing) {
         qCWarning(RUQOLA_AUTHENTICATION_LOG) << "A login operation is already ongoing, dropping request.";
-        return;
+        return false;
     }
 
     if (mLoginStatus == AuthenticationManager::LoggedIn) {
         qCWarning(RUQOLA_AUTHENTICATION_LOG) << "User is already logged in on this server, ignoring.";
-        return;
+        return false;
     }
 
     // TODO: sanity checks on params
@@ -200,6 +202,7 @@ void AuthenticationManagerBase::loginImpl(const QJsonArray &params)
     mLastLoginPayload = params[0].toObject();
     callLoginImpl(params, Method::Login);
     setLoginStatus(AuthenticationManager::LoginStatus::LoginOngoing);
+    return true;
 }
 
 void AuthenticationManagerBase::processMethodResponseImpl(const QJsonObject &response, AuthenticationManagerBase::Method method)

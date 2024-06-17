@@ -314,8 +314,9 @@ void RocketChatBackend::connectDdpClient()
     auto ddp = mRocketChatAccount->ddp();
     ddp->setServerUrl(restApi->serverUrl());
     ddp->authenticationManager()->setAuthToken(restApi->authenticationManager()->authToken());
-    ddp->authenticationManager()->login();
-    initializeSubscription(ddp);
+    if (ddp->authenticationManager()->login()) {
+        initializeSubscription(ddp);
+    }
 }
 
 void RocketChatBackend::slotLoginStatusChanged()

@@ -20,7 +20,7 @@ PersonalAccessTokenAuthenticationInterface::PersonalAccessTokenAuthenticationInt
 
 PersonalAccessTokenAuthenticationInterface::~PersonalAccessTokenAuthenticationInterface() = default;
 
-void PersonalAccessTokenAuthenticationInterface::login()
+bool PersonalAccessTokenAuthenticationInterface::login()
 {
     qCDebug(RUQOLA_PERSONALACCESSTOKENAUTHENTICATION_PLUGIN_LOG) << " login personal access token";
     // FIXME: expire token!
@@ -34,10 +34,13 @@ void PersonalAccessTokenAuthenticationInterface::login()
 
         // https://developer.rocket.chat/reference/api/realtime-api/method-calls/authentication/login#using-an-authentication-token
         mAccount->ddp()->authenticationManager()->setAuthToken(mAccount->settings()->authToken());
-        mAccount->ddp()->authenticationManager()->login();
-        return;
+        if (!mAccount->ddp()->authenticationManager()->login()) {
+            return false;
+        }
+        return true;
     }
     qCDebug(RUQOLA_PERSONALACCESSTOKENAUTHENTICATION_PLUGIN_LOG) << " authToken is empty !. Can't connect";
+    return false;
 }
 
 PluginAuthenticationConfigureWidget *PersonalAccessTokenAuthenticationInterface::configureWidget(QWidget *parent)

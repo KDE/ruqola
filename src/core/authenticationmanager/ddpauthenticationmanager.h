@@ -21,6 +21,8 @@ public:
     explicit DDPAuthenticationManager(DDPClient *ddpClient, QObject *parent = nullptr);
     ~DDPAuthenticationManager() override;
 
+    [[nodiscard]] QString authenticationName() const override;
+
 protected:
     void callLoginImpl(const QJsonArray &params, AuthenticationManagerBase::Method method) override;
 
