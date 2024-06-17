@@ -19,6 +19,7 @@
 
 ApplicationsSettingsDelegate::ApplicationsSettingsDelegate(RocketChatAccount *account, QTreeView *view, QObject *parent)
     : QItemDelegate{parent}
+    , mRocketChatAccount(account)
 {
 }
 
@@ -33,10 +34,9 @@ void ApplicationsSettingsDelegate::paint(QPainter *painter, const QStyleOptionVi
     // Draw the pixmap
     if (!layout.appPixmap.isNull()) {
 #if USE_ROUNDED_RECT_PIXMAP
-        // TODO DelegatePaintUtil::createClipRoundedRectangle(painter, QRectF(layout.appPixmapPos, layout.appPixmap.size()), layout.appPixmapPos,
-        // layout.appPixmap);
+        DelegatePaintUtil::createClipRoundedRectangle(painter, QRectF(layout.appPixmapPos, layout.appPixmap.size()), layout.appPixmapPos, layout.appPixmap);
 #else
-        // TODO painter->drawPixmap(layout.avatarPos, layout.avatarPixmap);
+        painter->drawPixmap(layout.appPixmapPos, layout.appPixmap);
 #endif
     }
 #if 0
@@ -111,8 +111,7 @@ QTextDocument *ApplicationsSettingsDelegate::documentForModelIndex(const QModelI
     Q_ASSERT(index.isValid());
     const QByteArray appsId = cacheIdentifier(index);
     const QString description = index.data(AppsMarketPlaceModel::Description).toString();
-    // return documentForDelegate(mRocketChatAccount, appsId, description, width);
-    return {};
+    return documentForDelegate(mRocketChatAccount, appsId, description, width);
 }
 
 QTextDocument *

@@ -43,4 +43,5 @@ private:
     // We need to clear it when we resize widget.
     mutable LRUCache<QByteArray, QSize> mSizeHintCache;
     mutable LRUCache<QByteArray, std::unique_ptr<QTextDocument>> mDocumentCache;
+    RocketChatAccount *const mRocketChatAccount;
 };
