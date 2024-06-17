@@ -22,6 +22,8 @@ public:
     void setFilterInfo(const AppsMarketPlaceFilterProxyModel::FilterInfo &info);
 
 private:
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotAskApplication();
+    RocketChatAccount *const mRocketChatAccount;
     ApplicationsSettingsDelegate *const mApplicationsSettingsListDelegate;
     AppsMarketPlaceFilterProxyModel *const mAppsMarketPlaceFilterProxyModel;
 };
