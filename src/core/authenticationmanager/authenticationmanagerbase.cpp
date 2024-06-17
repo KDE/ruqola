@@ -157,20 +157,20 @@ void AuthenticationManagerBase::logout()
     setLoginStatus(AuthenticationManager::LoginStatus::LogoutOngoing);
 }
 
-void AuthenticationManagerBase::logoutAndCleanup()
+bool AuthenticationManagerBase::logoutAndCleanup()
 {
     if (checkGenericError()) {
-        return;
+        return false;
     }
 
     if (mLoginStatus == AuthenticationManager::LoginStatus::LogoutOngoing) {
         qCWarning(RUQOLA_AUTHENTICATION_LOG) << Q_FUNC_INFO << "Another logout operation is ongoing.";
-        return;
+        return false;
     }
 
     if (isLoggedOut()) {
         qCWarning(RUQOLA_AUTHENTICATION_LOG) << Q_FUNC_INFO << "User is already logged out.";
-        return;
+        return false;
     }
 
     // TODO fix parameters! In RC client we use "user"
@@ -178,6 +178,7 @@ void AuthenticationManagerBase::logoutAndCleanup()
 
     callLoginImpl(Utils::strToJsonArray(params), Method::LogoutCleanUp);
     setLoginStatus(AuthenticationManager::LoginStatus::LogoutOngoing);
+    return true;
 }
 
 bool AuthenticationManagerBase::loginImpl(const QJsonArray &params)

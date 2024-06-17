@@ -43,7 +43,7 @@ public:
     [[nodiscard]] bool login();
     [[nodiscard]] bool sendOTP(const QString &otp);
     void logout();
-    void logoutAndCleanup();
+    [[nodiscard]] bool logoutAndCleanup();
     [[nodiscard]] bool loginImpl(const QJsonArray &params);
 
     [[nodiscard]] QString convertMethodEnumToString(AuthenticationManagerBase::Method m);
