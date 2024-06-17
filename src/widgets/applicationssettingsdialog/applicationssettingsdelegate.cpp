@@ -97,6 +97,11 @@ ApplicationsSettingsDelegate::Layout ApplicationsSettingsDelegate::doLayout(cons
     layout.appShortDescription = index.data(AppsMarketPlaceModel::ShortDescription).toString();
     layout.appName = index.data(AppsMarketPlaceModel::AppName).toString();
     layout.premium = index.data(AppsMarketPlaceModel::IsEnterpriseOnly).toBool();
+
+    QRect usableRect = option.rect;
+    layout.textRect = usableRect;
+    // layout.textRect = QRect(textLeft, usableRect.top(), maxWidth, textSize.height() + textVMargin);
+
     return layout;
 }
 
