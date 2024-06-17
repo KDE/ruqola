@@ -11,6 +11,7 @@
 class QTextDocument;
 class RocketChatAccount;
 class AvatarCacheManager;
+class QListView;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT ListDiscussionDelegate : public MessageListDelegateBase
 {
     Q_OBJECT

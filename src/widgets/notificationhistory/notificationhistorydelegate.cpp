@@ -17,6 +17,7 @@
 #include "ruqola_sizehint_cache_debug.h"
 #endif
 #include <QAbstractItemView>
+#include <QListView>
 #include <QPainter>
 #include <QToolTip>
 

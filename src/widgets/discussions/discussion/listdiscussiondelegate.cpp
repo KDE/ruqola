@@ -11,6 +11,7 @@
 #include <KColorScheme>
 #include <KLocalizedString>
 #include <QAbstractItemView>
+#include <QListView>
 #include <QPainter>
 #include <QToolTip>
 

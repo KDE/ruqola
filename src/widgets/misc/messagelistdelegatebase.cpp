@@ -19,7 +19,7 @@
 #include <QMimeData>
 #include <QMouseEvent>
 
-MessageListDelegateBase::MessageListDelegateBase(QListView *view, QObject *parent)
+MessageListDelegateBase::MessageListDelegateBase(QAbstractItemView *view, QObject *parent)
     : QItemDelegate{parent}
     , MessageListTextUi(new TextSelectionImpl, view)
 {

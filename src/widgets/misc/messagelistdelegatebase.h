@@ -12,12 +12,12 @@
 #include <QItemDelegate>
 class QTextDocument;
 class RocketChatAccount;
-class QListView;
+class QAbstractItemView;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT MessageListDelegateBase : public QItemDelegate, public DocumentFactoryInterface, public MessageListTextUi
 {
     Q_OBJECT
 public:
-    explicit MessageListDelegateBase(QListView *view, QObject *parent = nullptr);
+    explicit MessageListDelegateBase(QAbstractItemView *view, QObject *parent = nullptr);
     ~MessageListDelegateBase() override;
 
     void clearCache() override;

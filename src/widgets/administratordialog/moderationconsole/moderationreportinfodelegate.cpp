@@ -12,6 +12,7 @@
 #include "rocketchataccount.h"
 #include "ruqola.h"
 #include <QAbstractItemView>
+#include <QListView>
 #include <QPainter>
 #include <QToolTip>
 

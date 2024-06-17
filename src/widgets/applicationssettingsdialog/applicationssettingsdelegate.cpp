@@ -16,9 +16,10 @@
 #endif
 #include <QPainter>
 #include <QTextDocument>
+#include <QTreeView>
 
 ApplicationsSettingsDelegate::ApplicationsSettingsDelegate(RocketChatAccount *account, QTreeView *view, QObject *parent)
-    : QItemDelegate{parent}
+    : MessageListDelegateBase{view, parent}
     , mRocketChatAccount(account)
 {
 }
@@ -151,6 +152,11 @@ ApplicationsSettingsDelegate::documentForDelegate(RocketChatAccount *rcAccount, 
     auto ret = doc.get();
     mDocumentCache.insert(messageId, std::move(doc));
     return ret;
+}
+
+RocketChatAccount *ApplicationsSettingsDelegate::rocketChatAccount(const QModelIndex &index) const
+{
+    return mRocketChatAccount;
 }
 
 #include "moc_applicationssettingsdelegate.cpp"

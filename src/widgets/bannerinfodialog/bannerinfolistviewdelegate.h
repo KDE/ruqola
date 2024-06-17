@@ -9,6 +9,7 @@
 #include "misc/messagelistdelegatebase.h"
 class QTextDocument;
 class RocketChatAccount;
+class QListView;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT BannerInfoListViewDelegate : public MessageListDelegateBase
 {
     Q_OBJECT

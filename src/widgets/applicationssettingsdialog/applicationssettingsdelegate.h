@@ -7,11 +7,11 @@
 #pragma once
 
 #include "lrucache.h"
-#include <QItemDelegate>
+#include "misc/messagelistdelegatebase.h"
 class QTextDocument;
 class RocketChatAccount;
 class QTreeView;
-class ApplicationsSettingsDelegate : public QItemDelegate
+class ApplicationsSettingsDelegate : public MessageListDelegateBase
 {
     Q_OBJECT
 public:
@@ -44,4 +44,8 @@ private:
     mutable LRUCache<QByteArray, QSize> mSizeHintCache;
     mutable LRUCache<QByteArray, std::unique_ptr<QTextDocument>> mDocumentCache;
     RocketChatAccount *const mRocketChatAccount;
+
+    // MessageListDelegateBase interface
+protected:
+    RocketChatAccount *rocketChatAccount(const QModelIndex &index) const override;
 };
