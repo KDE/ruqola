@@ -16,7 +16,7 @@ PurposeMenuWidget::PurposeMenuWidget(QObject *parent)
     : QObject(parent)
     , mShareMenu(new Purpose::Menu)
 {
-    mShareMenu->setTitle(i18n("Share Text..."));
+    mShareMenu->setTitle(i18n("Share Text…"));
     mShareMenu->setIcon(QIcon::fromTheme(QStringLiteral("document-share")));
     mShareMenu->setObjectName(QStringLiteral("purposesharemenu"));
     connect(mShareMenu, &Purpose::Menu::aboutToShow, this, &PurposeMenuWidget::slotInitializeShareMenu);

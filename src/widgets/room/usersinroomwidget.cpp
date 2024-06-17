@@ -143,7 +143,7 @@ QString UsersInRoomWidget::displayShowMessageInRoom() const
     QString displayMessageStr =
         i18np("%1 User in room (Total: %2)", "%1 Users in room (Total: %2)", mUsersForRoomFilterProxy->numberOfUsers(), mUsersForRoomFilterProxy->total());
     if (!mUsersForRoomFilterProxy->hasFullList()) {
-        displayMessageStr += QStringLiteral(" <a href=\"loadmoreelement\">%1</a>").arg(i18n("(Click here for Loading more...)"));
+        displayMessageStr += QStringLiteral(" <a href=\"loadmoreelement\">%1</a>").arg(i18n("(Click here for Loading more…)"));
     }
     return displayMessageStr;
 }

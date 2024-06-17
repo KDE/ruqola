@@ -28,14 +28,14 @@
      <item>
       <widget class="QPushButton" name="addServer">
        <property name="text">
-        <string>Add...</string>
+        <string>Add…</string>
        </property>
       </widget>
      </item>
      <item>
       <widget class="QPushButton" name="modifyServer">
        <property name="text">
-        <string>Modify...</string>
+        <string>Modify…</string>
        </property>
       </widget>
      </item>
