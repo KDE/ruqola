@@ -245,6 +245,8 @@ void RoomHeaderWidget::setRoom(Room *room)
     if (avatarInfo.isValid()) {
         const QPixmap pix = mAvatarCacheManager->makeRoundedAvatarPixmap(this, avatarInfo, mFavoriteButton->size().height() - 4);
         mRoomIcon->setPixmap(pix);
+    } else {
+        mRoomIcon->setPixmap({});
     }
 }
 
