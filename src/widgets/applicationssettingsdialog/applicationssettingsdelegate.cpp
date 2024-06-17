@@ -93,11 +93,11 @@ ApplicationsSettingsDelegate::Layout ApplicationsSettingsDelegate::doLayout(cons
     ApplicationsSettingsDelegate::Layout layout;
     const auto pix = index.data(AppsMarketPlaceModel::Pixmap).value<QPixmap>();
     const int iconWidth = 40;
+    const int margin = MessageDelegateUtils::basicMargin();
     if (!pix.isNull()) {
         // TODO fix size
         const QPixmap scaledPixmap = pix.scaled(iconWidth, iconWidth, Qt::KeepAspectRatio, Qt::SmoothTransformation);
         layout.appPixmap = scaledPixmap;
-        const qreal margin = MessageDelegateUtils::basicMargin();
         layout.appPixmapPos = QPointF(option.rect.x() + margin, option.rect.top());
     }
     layout.appShortDescription = index.data(AppsMarketPlaceModel::ShortDescription).toString();
@@ -105,14 +105,14 @@ ApplicationsSettingsDelegate::Layout ApplicationsSettingsDelegate::doLayout(cons
     layout.premium = index.data(AppsMarketPlaceModel::IsEnterpriseOnly).toBool();
 
     QRect usableRect = option.rect;
-    const int maxWidth = qMax(iconWidth, option.rect.width() - iconWidth);
+    const int maxWidth = qMax(iconWidth, option.rect.width() - iconWidth - 2 * margin);
 
     qreal baseLine = 0;
 
     auto *doc = documentForModelIndex(index, maxWidth);
     const QSize textSize = MessageDelegateUtils::textSizeHint(doc, &baseLine);
 
-    layout.textRect = QRect(iconWidth, usableRect.top(), maxWidth, textSize.height() /* + textVMargin*/);
+    layout.textRect = QRect(iconWidth + 2 * margin, usableRect.top(), maxWidth, qMax(textSize.height(), iconWidth + margin) /* + textVMargin*/);
 
     return layout;
 }
