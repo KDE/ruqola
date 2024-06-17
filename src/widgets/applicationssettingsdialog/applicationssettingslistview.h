@@ -23,6 +23,7 @@ public:
 
 private:
     LIBRUQOLAWIDGETS_NO_EXPORT void slotAskApplication();
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotShowApplicationDescription();
     RocketChatAccount *const mRocketChatAccount;
     ApplicationsSettingsDelegate *const mApplicationsSettingsListDelegate;
     AppsMarketPlaceFilterProxyModel *const mAppsMarketPlaceFilterProxyModel;

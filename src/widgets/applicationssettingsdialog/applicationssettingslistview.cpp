@@ -7,6 +7,7 @@
 #include "applicationssettingslistview.h"
 #include "applicationssettingsaskapplicationdialog.h"
 #include "applicationssettingsdelegate.h"
+#include "applicationssettingsdescriptiondialog.h"
 #include "model/appsmarketplacefilterproxymodel.h"
 #include "model/appsmarketplacemodel.h"
 #include <QPointer>
@@ -47,6 +48,13 @@ void ApplicationsSettingsListView::slotAskApplication()
         // TODO
     }
     delete dlg;
+}
+
+void ApplicationsSettingsListView::slotShowApplicationDescription()
+{
+    ApplicationsSettingsDescriptionDialog dlg(this);
+    dlg.exec();
+    // TODO
 }
 
 #include "moc_applicationssettingslistview.cpp"
