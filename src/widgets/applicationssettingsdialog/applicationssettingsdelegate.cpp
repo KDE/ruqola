@@ -27,6 +27,8 @@ ApplicationsSettingsDelegate::ApplicationsSettingsDelegate(RocketChatAccount *ac
 
 ApplicationsSettingsDelegate::~ApplicationsSettingsDelegate() = default;
 
+// Use big icon 2 lines
+// Short description + apps name
 void ApplicationsSettingsDelegate::paint(QPainter *painter, const QStyleOptionViewItem &option, const QModelIndex &index) const
 {
     painter->save();
@@ -59,9 +61,6 @@ void ApplicationsSettingsDelegate::paint(QPainter *painter, const QStyleOptionVi
         }
     }
     painter->restore();
-
-    // TODO reimplement it
-    QItemDelegate::paint(painter, option, index);
 }
 
 QSize ApplicationsSettingsDelegate::sizeHint(const QStyleOptionViewItem &option, const QModelIndex &index) const
@@ -76,7 +75,11 @@ QSize ApplicationsSettingsDelegate::sizeHint(const QStyleOptionViewItem &option,
     }
 #endif
 
-    const QSize size = QItemDelegate::sizeHint(option, index) + QSize(0, 4 * option.widget->devicePixelRatioF());
+    // Note: option.rect in this method is huge (as big as the viewport)
+    const ApplicationsSettingsDelegate::Layout layout = doLayout(option, index);
+    // TODO
+
+    const QSize size = {option.rect.width(), layout.textRect.height()};
 #if USE_SIZEHINT_CACHE_SUPPORT
     if (!size.isEmpty()) {
         mSizeHintCache.insert(identifier, size);
@@ -89,18 +92,27 @@ ApplicationsSettingsDelegate::Layout ApplicationsSettingsDelegate::doLayout(cons
 {
     ApplicationsSettingsDelegate::Layout layout;
     const auto pix = index.data(AppsMarketPlaceModel::Pixmap).value<QPixmap>();
+    const int iconWidth = 40;
     if (!pix.isNull()) {
         // TODO fix size
-        const QPixmap scaledPixmap = pix.scaled(10, 10, Qt::KeepAspectRatio, Qt::SmoothTransformation);
+        const QPixmap scaledPixmap = pix.scaled(iconWidth, iconWidth, Qt::KeepAspectRatio, Qt::SmoothTransformation);
         layout.appPixmap = scaledPixmap;
+        const qreal margin = MessageDelegateUtils::basicMargin();
+        layout.appPixmapPos = QPointF(option.rect.x() + margin, option.rect.top());
     }
     layout.appShortDescription = index.data(AppsMarketPlaceModel::ShortDescription).toString();
     layout.appName = index.data(AppsMarketPlaceModel::AppName).toString();
     layout.premium = index.data(AppsMarketPlaceModel::IsEnterpriseOnly).toBool();
 
     QRect usableRect = option.rect;
-    layout.textRect = usableRect;
-    // layout.textRect = QRect(textLeft, usableRect.top(), maxWidth, textSize.height() + textVMargin);
+    const int maxWidth = qMax(iconWidth, option.rect.width() - iconWidth);
+
+    qreal baseLine = 0;
+
+    auto *doc = documentForModelIndex(index, maxWidth);
+    const QSize textSize = MessageDelegateUtils::textSizeHint(doc, &baseLine);
+
+    layout.textRect = QRect(iconWidth, usableRect.top(), maxWidth, textSize.height() /* + textVMargin*/);
 
     return layout;
 }
@@ -116,47 +128,8 @@ QTextDocument *ApplicationsSettingsDelegate::documentForModelIndex(const QModelI
 {
     Q_ASSERT(index.isValid());
     const QByteArray appsId = cacheIdentifier(index);
-    const QString description = index.data(AppsMarketPlaceModel::Description).toString();
-    return documentForDelegate(mRocketChatAccount, appsId, description, width);
-}
-
-QTextDocument *
-ApplicationsSettingsDelegate::documentForDelegate(RocketChatAccount *rcAccount, const QByteArray &messageId, const QString &messageStr, int width) const
-{
-    auto it = mDocumentCache.find(messageId);
-    if (it != mDocumentCache.end()) {
-        auto ret = it->value.get();
-        if (width != -1 && !qFuzzyCompare(ret->textWidth(), width)) {
-            ret->setTextWidth(width);
-        }
-        return ret;
-    }
-    if (messageStr.isEmpty()) {
-        return nullptr;
-    }
-    // Use TextConverter in case it starts with a [](URL) reply marker
-    QByteArray needUpdateMessageId; // TODO use it ?
-    int maximumRecursiveQuotedText = -1;
-    if (rcAccount) {
-        maximumRecursiveQuotedText = rcAccount->ruqolaServerConfig()->messageQuoteChainLimit();
-    }
-    const TextConverter::ConvertMessageTextSettings settings(messageStr,
-                                                             rcAccount ? rcAccount->userName() : QString(),
-                                                             {},
-                                                             rcAccount ? rcAccount->highlightWords() : QStringList(),
-                                                             rcAccount ? rcAccount->emojiManager() : nullptr,
-                                                             rcAccount ? rcAccount->messageCache() : nullptr,
-                                                             {},
-                                                             {},
-                                                             {},
-                                                             maximumRecursiveQuotedText);
-
-    int recursiveIndex = 0;
-    const QString contextString = TextConverter::convertMessageText(settings, needUpdateMessageId, recursiveIndex);
-    auto doc = MessageDelegateUtils::createTextDocument(false, contextString, width);
-    auto ret = doc.get();
-    mDocumentCache.insert(messageId, std::move(doc));
-    return ret;
+    const QString shortDescription = index.data(AppsMarketPlaceModel::ShortDescription).toString();
+    return documentForDelegate(mRocketChatAccount, appsId, shortDescription, width);
 }
 
 RocketChatAccount *ApplicationsSettingsDelegate::rocketChatAccount(const QModelIndex &index) const
