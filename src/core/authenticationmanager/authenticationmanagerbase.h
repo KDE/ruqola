@@ -50,7 +50,7 @@ public:
     void processMethodResponseImpl(const QJsonObject &response, AuthenticationManagerBase::Method method);
 
     virtual void callLoginImpl(const QJsonArray &params, Method method) = 0;
-    [[nodiscard]] virtual QString authenticationName() const = 0;
+    [[nodiscard]] virtual QByteArray authenticationName() const = 0;
 Q_SIGNALS:
     void loginStatusChanged();
 

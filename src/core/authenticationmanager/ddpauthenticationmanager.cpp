@@ -23,9 +23,9 @@ DDPAuthenticationManager::DDPAuthenticationManager(DDPClient *ddpClient, QObject
 
 DDPAuthenticationManager::~DDPAuthenticationManager() = default;
 
-QString DDPAuthenticationManager::authenticationName() const
+QByteArray DDPAuthenticationManager::authenticationName() const
 {
-    return QStringLiteral("DDP");
+    return QByteArrayLiteral("DDP");
 }
 
 void DDPAuthenticationManager::callLoginImpl(const QJsonArray &params, AuthenticationManagerBase::Method method)

@@ -20,9 +20,9 @@ RESTAuthenticationManager::RESTAuthenticationManager(Connection *restApiConnecti
 
 RESTAuthenticationManager::~RESTAuthenticationManager() = default;
 
-QString RESTAuthenticationManager::authenticationName() const
+QByteArray RESTAuthenticationManager::authenticationName() const
 {
-    return QStringLiteral("RESTAPI");
+    return QByteArrayLiteral("RESTAPI");
 }
 
 QJsonObject RESTAuthenticationManager::generateJsonMethod(const QString &method, const QJsonDocument &params, quint64 id)
