@@ -231,7 +231,10 @@ RocketChatAccount::RocketChatAccount(const QString &accountFileName, QObject *pa
     QTimer::singleShot(0, this, &RocketChatAccount::clearModels);
 
 #if HAVE_SOLID
-    connect(Solid::Power::self(), &Solid::Power::resumeFromSuspend, this, &RocketChatAccount::slotReconnectToServer);
+    connect(Solid::Power::self(), &Solid::Power::resumeFromSuspend, this, [this]() {
+        slotReconnectToServer();
+        qCDebug(RUQOLA_RECONNECT_LOG) << "RESUME FROM SUSPEND" << accountName();
+    });
 #endif
 
 #if HAVE_NETWORKMANAGER
@@ -239,7 +242,7 @@ RocketChatAccount::RocketChatAccount(const QString &accountFileName, QObject *pa
         // If there is a new network connection, log out and back. The uni is "/" when the last primary connection
         // was closed. Do not log out to keep the messages visible. Login only if we were logged in at this point.
         if (uni != "/"_L1 && mDdp) {
-            qCDebug(RUQOLA_RECONNECT_LOG) << "Reconnect and logout : " << accountName();
+            qCDebug(RUQOLA_RECONNECT_LOG) << "Logout and reconnect:" << accountName();
             logOut();
             slotReconnectToServer();
         }
@@ -301,6 +304,7 @@ void RocketChatAccount::loadSoundFiles()
 
 void RocketChatAccount::reconnectToServer()
 {
+    qCDebug(RUQOLA_RECONNECT_LOG) << " accountName " << accountName();
     slotReconnectToServer();
 }
 
@@ -359,8 +363,9 @@ void RocketChatAccount::slotNeedToUpdateNotification()
 
 void RocketChatAccount::clearModels()
 {
+    qCDebug(RUQOLA_RECONNECT_LOG) << " account name " << accountName();
     // Clear rooms data and refill it with data in the cache, if there is
-    mRoomModel->reset();
+    mRoomModel->clear();
 
     mMessageQueue->loadCache();
     // Try to send queue message
@@ -690,13 +695,14 @@ AuthenticationManager::LoginStatus RocketChatAccount::loginStatus()
 
 void RocketChatAccount::tryLogin()
 {
-    qCDebug(RUQOLA_LOG) << "Attempting login" << mSettings->userName() << "on" << mSettings->serverUrl();
+    qCDebug(RUQOLA_RECONNECT_LOG) << "Attempting login" << mSettings->userName() << "on" << mSettings->serverUrl();
 
     if (Ruqola::self()->useRestApiLogin()) {
         if (auto interface = defaultAuthenticationInterface()) {
+            qCDebug(RUQOLA_RECONNECT_LOG) << "RESTAPI login " << accountName();
             interface->login();
         } else {
-            qCWarning(RUQOLA_LOG) << "No plugins loaded. Please verify your installation.";
+            qCWarning(RUQOLA_RECONNECT_LOG) << "No plugins loaded. Please verify your installation.";
         }
     } else {
         // ddp() creates a new DDPClient object if it doesn't exist.
@@ -704,11 +710,12 @@ void RocketChatAccount::tryLogin()
     }
 
     // In the meantime, load cache...
-    mRoomModel->reset();
+    mRoomModel->clear();
 }
 
 void RocketChatAccount::logOut()
 {
+    qCDebug(RUQOLA_RECONNECT_LOG) << "logout " << mSettings->userName() << "on" << mSettings->serverUrl();
     mSettings->logout();
     mRoomModel->clear();
     if (Ruqola::self()->useRestApiLogin()) {
@@ -2175,13 +2182,13 @@ bool RocketChatAccount::isMessageDeletable(const Message &message) const
 
 void RocketChatAccount::parseVideoConference(const QJsonArray &contents)
 {
-    qDebug() << " RocketChatAccount::parseVideoConference(const QJsonArray &contents) " << contents;
+    qCDebug(RUQOLA_LOG) << " RocketChatAccount::parseVideoConference(const QJsonArray &contents) " << contents;
     mVideoConferenceManager->parseVideoConference(contents);
 }
 
 void RocketChatAccount::parseOtr(const QJsonArray &contents)
 {
-    qDebug() << " void RocketChatAccount::parseOtr(const QJsonArray &contents)" << contents << " account name" << accountName();
+    qCDebug(RUQOLA_LOG) << " void RocketChatAccount::parseOtr(const QJsonArray &contents)" << contents << " account name" << accountName();
     mOtrManager->parseOtr(contents);
 }
 
@@ -2471,6 +2478,8 @@ AppsMarketPlaceModel *RocketChatAccount::appsMarketPlaceModel() const
 
 void RocketChatAccount::slotReconnectToServer()
 {
+    qCDebug(RUQOLA_RECONNECT_LOG) << "starting single shot timer with" << mDelayReconnect << "ms"
+                                  << " account name " << accountName();
     // Clear auth token otherwise we can't reconnect.
     setAuthToken({});
 
@@ -2665,10 +2674,11 @@ void RocketChatAccount::slotLoginStatusChanged()
 {
     if (loginStatus() == AuthenticationManager::LoggedOut) {
         Q_EMIT logoutDone(accountName());
-        qCDebug(RUQOLA_LOG) << "Successfully logged out!";
+        qCDebug(RUQOLA_RECONNECT_LOG) << "Successfully logged out!";
     } else if (loginStatus() == AuthenticationManager::LoggedIn) {
         // Reset it.
         mDelayReconnect = 100;
+        qCDebug(RUQOLA_RECONNECT_LOG) << "Successfully logged in!";
     } else if (loginStatus() == AuthenticationManager::LoginFailedInvalidUserOrPassword) {
         // clear auth token to refresh it with the next login
         setAuthToken({});
