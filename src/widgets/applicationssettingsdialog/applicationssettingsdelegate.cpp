@@ -17,7 +17,7 @@
 #include <QPainter>
 #include <QTextDocument>
 
-ApplicationsSettingsDelegate::ApplicationsSettingsDelegate(QObject *parent)
+ApplicationsSettingsDelegate::ApplicationsSettingsDelegate(RocketChatAccount *account, QTreeView *view, QObject *parent)
     : QItemDelegate{parent}
 {
 }

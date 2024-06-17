@@ -15,7 +15,7 @@ using namespace Qt::Literals::StringLiterals;
 ApplicationsSettingsListView::ApplicationsSettingsListView(RocketChatAccount *account, QWidget *parent)
     : QTreeView(parent)
     , mRocketChatAccount(account)
-    , mApplicationsSettingsListDelegate(new ApplicationsSettingsDelegate(this))
+    , mApplicationsSettingsListDelegate(new ApplicationsSettingsDelegate(account, this, this))
     , mAppsMarketPlaceFilterProxyModel(new AppsMarketPlaceFilterProxyModel(this))
 {
     mApplicationsSettingsListDelegate->setObjectName("mApplicationsSettingsListDelegate"_L1);

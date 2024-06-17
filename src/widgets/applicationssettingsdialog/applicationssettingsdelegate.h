@@ -10,11 +10,12 @@
 #include <QItemDelegate>
 class QTextDocument;
 class RocketChatAccount;
+class QTreeView;
 class ApplicationsSettingsDelegate : public QItemDelegate
 {
     Q_OBJECT
 public:
-    explicit ApplicationsSettingsDelegate(QObject *parent = nullptr);
+    explicit ApplicationsSettingsDelegate(RocketChatAccount *account, QTreeView *view, QObject *parent = nullptr);
     ~ApplicationsSettingsDelegate() override;
 
     void paint(QPainter *painter, const QStyleOptionViewItem &option, const QModelIndex &index) const override;
