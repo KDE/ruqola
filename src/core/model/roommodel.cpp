@@ -60,12 +60,6 @@ Room *RoomModel::findRoom(const QByteArray &roomID) const
     return nullptr;
 }
 
-// Clear data and refill it with data in the cache, if there is
-void RoomModel::reset()
-{
-    clear();
-}
-
 int RoomModel::rowCount(const QModelIndex &parent) const
 {
     Q_UNUSED(parent)

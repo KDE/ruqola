@@ -91,7 +91,6 @@ public:
     void addRoom(const QByteArray &roomID, const QString &roomName, bool selected = false);
 
     // Clear data and refill it with data in the cache, if there is
-    void reset();
     void clear();
 
     void updateSubscription(const QJsonArray &array);
