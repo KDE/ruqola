@@ -19,7 +19,7 @@
 #include <QTextDocument>
 #include <QTreeView>
 
-ApplicationsSettingsDelegate::ApplicationsSettingsDelegate(RocketChatAccount *account, QTreeView *view, QObject *parent)
+ApplicationsSettingsDelegate::ApplicationsSettingsDelegate(RocketChatAccount *account, QAbstractItemView *view, QObject *parent)
     : MessageListDelegateBase{view, parent}
     , mRocketChatAccount(account)
 {
@@ -136,6 +136,36 @@ RocketChatAccount *ApplicationsSettingsDelegate::rocketChatAccount(const QModelI
 {
     Q_UNUSED(index);
     return mRocketChatAccount;
+}
+
+bool ApplicationsSettingsDelegate::mouseEvent(QEvent *event, const QStyleOptionViewItem &option, const QModelIndex &index)
+{
+    const QEvent::Type eventType = event->type();
+    if (eventType == QEvent::MouseButtonRelease) {
+        auto mev = static_cast<QMouseEvent *>(event);
+        const Layout layout = doLayout(option, index);
+        if (handleMouseEvent(mev, layout.textRect, option, index)) {
+            return true;
+        }
+    } else if (eventType == QEvent::MouseButtonPress || eventType == QEvent::MouseMove || eventType == QEvent::MouseButtonDblClick) {
+        auto mev = static_cast<QMouseEvent *>(event);
+        if (mev->buttons() & Qt::LeftButton) {
+            const Layout layout = doLayout(option, index);
+            if (handleMouseEvent(mev, layout.textRect, option, index)) {
+                return true;
+            }
+        }
+    }
+    return false;
+}
+
+bool ApplicationsSettingsDelegate::maybeStartDrag(QMouseEvent *event, const QStyleOptionViewItem &option, const QModelIndex &index)
+{
+    const Layout layout = doLayout(option, index);
+    if (MessageListDelegateBase::maybeStartDrag(event, layout.textRect, option, index)) {
+        return true;
+    }
+    return false;
 }
 
 #include "moc_applicationssettingsdelegate.cpp"

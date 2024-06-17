@@ -10,10 +10,11 @@
 #include "applicationssettingsdescriptiondialog.h"
 #include "model/appsmarketplacefilterproxymodel.h"
 #include "model/appsmarketplacemodel.h"
+#include <QMouseEvent>
 #include <QPointer>
 using namespace Qt::Literals::StringLiterals;
 ApplicationsSettingsListView::ApplicationsSettingsListView(RocketChatAccount *account, QWidget *parent)
-    : QTreeView(parent)
+    : MessageListViewBase(parent)
     , mRocketChatAccount(account)
     , mApplicationsSettingsListDelegate(new ApplicationsSettingsDelegate(account, this, this))
     , mAppsMarketPlaceFilterProxyModel(new AppsMarketPlaceFilterProxyModel(this))
@@ -23,11 +24,7 @@ ApplicationsSettingsListView::ApplicationsSettingsListView(RocketChatAccount *ac
 
     mAppsMarketPlaceFilterProxyModel->setObjectName("mAppsMarketPlaceFilterProxyModel"_L1);
 
-    setHeaderHidden(true);
-    setRootIsDecorated(false);
-    setItemsExpandable(false);
     setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
-    setIndentation(0);
     if (mRocketChatAccount) {
         mAppsMarketPlaceFilterProxyModel->setSourceModel(mRocketChatAccount->appsMarketPlaceModel());
         setModel(mAppsMarketPlaceFilterProxyModel);
@@ -35,8 +32,10 @@ ApplicationsSettingsListView::ApplicationsSettingsListView(RocketChatAccount *ac
     connect(mApplicationsSettingsListDelegate, &ApplicationsSettingsDelegate::updateView, this, [this](const QModelIndex &index) {
         update(index);
     });
-    // TODO connect(this, &ApplicationsSettingsListView::needToClearSizeHintCache, mApplicationsSettingsListDelegate,
-    // &ApplicationsSettingsDelegate::clearSizeHintCache);
+    connect(this,
+            &ApplicationsSettingsListView::needToClearSizeHintCache,
+            mApplicationsSettingsListDelegate,
+            &ApplicationsSettingsDelegate::clearSizeHintCache);
 }
 
 ApplicationsSettingsListView::~ApplicationsSettingsListView() = default;
@@ -60,6 +59,16 @@ void ApplicationsSettingsListView::slotShowApplicationDescription()
     ApplicationsSettingsDescriptionDialog dlg(this);
     dlg.exec();
     // TODO
+}
+
+bool ApplicationsSettingsListView::maybeStartDrag(QMouseEvent *event, const QStyleOptionViewItem &option, const QModelIndex &index)
+{
+    return mApplicationsSettingsListDelegate->maybeStartDrag(event, option, index);
+}
+
+bool ApplicationsSettingsListView::mouseEvent(QMouseEvent *event, const QStyleOptionViewItem &option, const QModelIndex &index)
+{
+    return mApplicationsSettingsListDelegate->mouseEvent(event, option, index);
 }
 
 #include "moc_applicationssettingslistview.cpp"

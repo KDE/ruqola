@@ -15,12 +15,16 @@ class ApplicationsSettingsDelegate : public MessageListDelegateBase
 {
     Q_OBJECT
 public:
-    explicit ApplicationsSettingsDelegate(RocketChatAccount *account, QTreeView *view, QObject *parent = nullptr);
+    explicit ApplicationsSettingsDelegate(RocketChatAccount *account, QAbstractItemView *view, QObject *parent = nullptr);
     ~ApplicationsSettingsDelegate() override;
 
     void paint(QPainter *painter, const QStyleOptionViewItem &option, const QModelIndex &index) const override;
 
     [[nodiscard]] QSize sizeHint(const QStyleOptionViewItem &option, const QModelIndex &index) const override;
+
+    [[nodiscard]] bool mouseEvent(QEvent *event, const QStyleOptionViewItem &option, const QModelIndex &index);
+
+    [[nodiscard]] bool maybeStartDrag(QMouseEvent *event, const QStyleOptionViewItem &option, const QModelIndex &index);
 
 private:
     struct Layout {
