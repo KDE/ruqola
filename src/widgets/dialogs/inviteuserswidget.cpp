@@ -74,7 +74,7 @@ InviteUsersWidget::InviteUsersWidget(RocketChatAccount *account, QWidget *parent
     mMaxUses->setObjectName(QStringLiteral("mMaxUses"));
     formLayout->addRow(i18n("Max number of uses"), mMaxUses);
 
-    auto generateNewLink = new QPushButton(i18n("Generate New Link"), this);
+    auto generateNewLink = new QPushButton(i18nc("@action:button", "Generate New Link"), this);
     generateNewLink->setObjectName(QStringLiteral("generateNewLink"));
     connect(generateNewLink, &QPushButton::clicked, this, &InviteUsersWidget::slotGenerateNewLink);
     mainLayout->addWidget(generateNewLink);

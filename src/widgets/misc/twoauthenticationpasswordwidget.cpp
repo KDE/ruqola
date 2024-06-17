@@ -27,7 +27,7 @@ TwoAuthenticationPasswordWidget::TwoAuthenticationPasswordWidget(QWidget *parent
         KAuthorized::authorize(QStringLiteral("lineedit_reveal_password")) ? KPassword::RevealMode::OnlyNew : KPassword::RevealMode::Never);
     twoFactorLayout->addWidget(mTwoFactorAuthenticationPasswordLineEdit);
 
-    auto sendNewEmailCode = new QPushButton(i18n("Send new code"), this);
+    auto sendNewEmailCode = new QPushButton(i18nc("@action:button", "Send new code"), this);
     sendNewEmailCode->setObjectName(QStringLiteral("sendNewEmailCode"));
     twoFactorLayout->addWidget(sendNewEmailCode);
     connect(sendNewEmailCode, &QPushButton::clicked, this, &TwoAuthenticationPasswordWidget::slotSendNewEmailCode);

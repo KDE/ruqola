@@ -176,14 +176,14 @@ MyAccountPreferenceConfigureWidget::MyAccountPreferenceConfigureWidget(RocketCha
 
     downloadWidgetLayout->addLayout(downloadLayout);
 
-    auto downloadDataButton = new QPushButton(i18n("Download my Data (HTML)"), this);
+    auto downloadDataButton = new QPushButton(i18nc("@action:button", "Download my Data (HTML)"), this);
     downloadDataButton->setObjectName(QStringLiteral("downloadDataButton"));
     downloadLayout->addWidget(downloadDataButton);
     connect(downloadDataButton, &QPushButton::clicked, this, [this]() {
         downloadData(false);
     });
 
-    auto exportDataButton = new QPushButton(i18n("Export my Data (JSON)"), this);
+    auto exportDataButton = new QPushButton(i18nc("@action:button", "Export my Data (JSON)"), this);
     exportDataButton->setObjectName(QStringLiteral("exportDataButton"));
     downloadLayout->addWidget(exportDataButton);
     connect(exportDataButton, &QPushButton::clicked, this, [this]() {

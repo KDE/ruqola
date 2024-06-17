@@ -35,8 +35,8 @@ MyAccountProfileConfigureWidget::MyAccountProfileConfigureWidget(RocketChatAccou
     , mNickName(new QLineEdit(this))
     , mStatusText(new QLineEdit(this))
     , mStatusTextInfo(new QLabel(i18nc("@label:textbox", "Your administrator has disabled the changing of status messages."), this))
-    , mDeleteMyAccount(new QPushButton(i18n("Delete my Account"), this))
-    , mLogoutFromOtherLocation(new QPushButton(i18n("Logout From Other Logged In Locations"), this))
+    , mDeleteMyAccount(new QPushButton(i18nc("@action:button", "Delete my Account"), this))
+    , mLogoutFromOtherLocation(new QPushButton(i18nc("@action:button", "Logout From Other Logged In Locations"), this))
     , mPasswordConfirmWidget(new PasswordConfirmWidget(this))
     , mRocketChatAccount(account)
 {

@@ -54,7 +54,7 @@ MyAccount2FaTotpWidget::MyAccount2FaTotpWidget(RocketChatAccount *account, QWidg
     KLineEditEventHandler::catchReturnKey(mVerifyQrCode);
     hboxLayout->addWidget(mVerifyQrCode);
 
-    auto verifyButton = new QPushButton(i18n("Verify"), this);
+    auto verifyButton = new QPushButton(i18nc("@action:button", "Verify"), this);
     verifyButton->setObjectName(QStringLiteral("verifyButton"));
     hboxLayout->addWidget(verifyButton);
     verifyButton->setEnabled(false);

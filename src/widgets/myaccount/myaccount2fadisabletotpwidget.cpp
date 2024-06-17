@@ -38,7 +38,7 @@ MyAccount2FaDisableTotpWidget::MyAccount2FaDisableTotpWidget(RocketChatAccount *
     KLineEditEventHandler::catchReturnKey(mDisableCodeLineEdit);
     hboxLayout->addWidget(mDisableCodeLineEdit);
 
-    auto verifyButton = new QPushButton(i18n("Verify"), this);
+    auto verifyButton = new QPushButton(i18nc("@action:button", "Verify"), this);
     verifyButton->setObjectName(QStringLiteral("verifyButton"));
     hboxLayout->addWidget(verifyButton);
     verifyButton->setEnabled(false);
@@ -47,7 +47,7 @@ MyAccount2FaDisableTotpWidget::MyAccount2FaDisableTotpWidget(RocketChatAccount *
         verifyButton->setEnabled(!str.trimmed().isEmpty());
     });
 
-    auto regenerateCode = new QPushButton(i18n("Regenerate Code"), this);
+    auto regenerateCode = new QPushButton(i18nc("@action:button", "Regenerate Code"), this);
     regenerateCode->setObjectName(QStringLiteral("regenerateCode"));
     mainLayout->addWidget(regenerateCode);
     connect(regenerateCode, &QPushButton::clicked, this, &MyAccount2FaDisableTotpWidget::slotRegenerateCode);

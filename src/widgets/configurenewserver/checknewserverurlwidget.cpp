@@ -22,7 +22,7 @@ CheckNewServerUrlWidget::CheckNewServerUrlWidget(QWidget *parent)
     , mServerUrl(new QLineEdit(this))
     , mBusyIndicatorWidget(new KBusyIndicatorWidget(this))
     , mFailedError(new KMessageWidget(this))
-    , mConnectionPushButton(new QPushButton(i18n("Connection"), this))
+    , mConnectionPushButton(new QPushButton(i18nc("@action:button", "Connection"), this))
 {
     auto topLayout = new QVBoxLayout(this);
     topLayout->setObjectName(QStringLiteral("topLayout"));

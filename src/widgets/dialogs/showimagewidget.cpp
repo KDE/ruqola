@@ -280,14 +280,14 @@ ShowImageWidget::ShowImageWidget(RocketChatAccount *account, QWidget *parent)
     zoomLayout->addWidget(mSlider);
     mSlider->setValue(mZoomSpin->value() * 100.0);
 
-    auto resetButton = new QPushButton(i18n("100%"), this);
+    auto resetButton = new QPushButton(i18nc("@action:button", "100%"), this);
     resetButton->setObjectName(QStringLiteral("resetButton"));
     zoomLayout->addWidget(resetButton);
     connect(resetButton, &QPushButton::clicked, this, [this] {
         mImageGraphicsView->setZoom(1.0);
     });
 
-    auto fitToViewButton = new QPushButton(i18n("Fit to View"), this);
+    auto fitToViewButton = new QPushButton(i18nc("@action:button", "Fit to View"), this);
     fitToViewButton->setObjectName(QStringLiteral("fitToViewButton"));
     zoomLayout->addWidget(fitToViewButton);
     connect(fitToViewButton, &QPushButton::clicked, mImageGraphicsView, &ImageGraphicsView::fitToView);

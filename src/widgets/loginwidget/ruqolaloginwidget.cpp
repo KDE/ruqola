@@ -22,7 +22,7 @@
 RuqolaLoginWidget::RuqolaLoginWidget(QWidget *parent)
     : QWidget(parent)
     , mRuqolaLoginStackWidget(new RuqolaLoginStackWidget(this))
-    , mLoginButton(new QPushButton(i18n("Login"), this))
+    , mLoginButton(new QPushButton(i18nc("@action:button", "Login"), this))
     , mBusyIndicatorWidget(new KBusyIndicatorWidget(this))
     , mFailedError(new QLabel(this))
     , mTwoFactorAuthenticationPasswordLineEdit(new TwoAuthenticationPasswordWidget(this))

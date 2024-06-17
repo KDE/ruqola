@@ -22,7 +22,7 @@ AuthenticationLoginWidget::AuthenticationLoginWidget(QWidget *parent)
     , mAccountName(new QLineEdit(this))
     , mUserName(new QLineEdit(this))
     , mPasswordLineEditWidget(new PasswordLineEditWidget(this))
-    , mRegisterAccount(new QPushButton(i18n("Register Account"), this))
+    , mRegisterAccount(new QPushButton(i18nc("@action:button", "Register Account"), this))
 {
     auto mainLayout = new QFormLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));

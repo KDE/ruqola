@@ -19,7 +19,7 @@
 MyAccount2e2ConfigureWidget::MyAccount2e2ConfigureWidget(RocketChatAccount *account, QWidget *parent)
     : QWidget{parent}
     , mPasswordConfirmWidget(new PasswordConfirmWidget(this))
-    , mResetE2eKey(new QPushButton(i18n("Reset E2E Key"), this))
+    , mResetE2eKey(new QPushButton(i18nc("@action:button", "Reset E2E Key"), this))
     , mRocketChatAccount(account)
 {
     auto mainLayout = new QVBoxLayout(this);

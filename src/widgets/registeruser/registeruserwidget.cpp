@@ -15,7 +15,7 @@
 
 RegisterUserWidget::RegisterUserWidget(QWidget *parent)
     : QWidget(parent)
-    , mRegisterButton(new QPushButton(i18n("Register"), this))
+    , mRegisterButton(new QPushButton(i18nc("@action:button", "Register"), this))
     , mUserName(new QLineEdit(this))
     , mEmail(new QLineEdit(this))
     , mPasswordLineEdit(new KPasswordLineEdit(this))
