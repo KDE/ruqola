@@ -97,8 +97,7 @@ bool AuthenticationManagerBase::login()
         return false;
     }
 
-    loginImpl(AuthenticationManagerUtils::loginResume(mAuthToken));
-    return true;
+    return loginImpl(AuthenticationManagerUtils::loginResume(mAuthToken));
 }
 
 QString AuthenticationManagerBase::convertMethodEnumToString(AuthenticationManagerBase::Method m)
