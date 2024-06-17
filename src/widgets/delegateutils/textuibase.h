@@ -12,12 +12,12 @@
 #include <memory>
 
 class TextSelectionImpl;
-class QListView;
+class QAbstractItemView;
 
 class TextUiBase
 {
 public:
-    explicit TextUiBase(TextSelectionImpl *textSelectionImpl, QListView *view);
+    explicit TextUiBase(TextSelectionImpl *textSelectionImpl, QAbstractItemView *view);
     virtual ~TextUiBase();
 
 protected:
@@ -26,5 +26,5 @@ protected:
     virtual void clearCache();
     mutable LRUCache<QByteArray, std::unique_ptr<QTextDocument>> mDocumentCache;
     TextSelectionImpl *const mTextSelectionImpl;
-    QListView *const mListView;
+    QAbstractItemView *const mListView;
 };

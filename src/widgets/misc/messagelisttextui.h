@@ -11,7 +11,7 @@
 class MessageListTextUi : public TextUiBase
 {
 public:
-    explicit MessageListTextUi(TextSelectionImpl *textSelectionImpl, QListView *view);
+    explicit MessageListTextUi(TextSelectionImpl *textSelectionImpl, QAbstractItemView *view);
     ~MessageListTextUi() override;
 
     void clearSizeHintCache();

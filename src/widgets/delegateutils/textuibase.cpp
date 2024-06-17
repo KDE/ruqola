@@ -6,7 +6,7 @@
 
 #include "textuibase.h"
 
-TextUiBase::TextUiBase(TextSelectionImpl *textSelectionImpl, QListView *view)
+TextUiBase::TextUiBase(TextSelectionImpl *textSelectionImpl, QAbstractItemView *view)
     : mTextSelectionImpl(textSelectionImpl)
     , mListView(view)
 {

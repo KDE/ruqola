@@ -6,7 +6,7 @@
 
 #include "messagelisttextui.h"
 
-MessageListTextUi::MessageListTextUi(TextSelectionImpl *textSelectionImpl, QListView *view)
+MessageListTextUi::MessageListTextUi(TextSelectionImpl *textSelectionImpl, QAbstractItemView *view)
     : TextUiBase(textSelectionImpl, view)
 {
 }
