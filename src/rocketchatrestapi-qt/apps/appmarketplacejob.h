@@ -24,10 +24,14 @@ public:
 
     [[nodiscard]] QNetworkRequest request() const override;
 
+    [[nodiscard]] bool isAdminUser() const;
+    void setIsAdminUser(bool newIsAdminUser);
+
 Q_SIGNALS:
     void appMarketPlaceDone(const QJsonArray &replyArray);
 
 private:
     LIBROCKETCHATRESTAPI_QT_NO_EXPORT void onGetRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson) override;
+    bool mIsAdminUser = false;
 };
 }

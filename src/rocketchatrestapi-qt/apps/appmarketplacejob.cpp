@@ -56,9 +56,24 @@ void AppMarketPlaceJob::onGetRequestResponse(const QString &replyErrorString, co
 #endif
 }
 
+bool AppMarketPlaceJob::isAdminUser() const
+{
+    return mIsAdminUser;
+}
+
+void AppMarketPlaceJob::setIsAdminUser(bool newIsAdminUser)
+{
+    mIsAdminUser = newIsAdminUser;
+}
+
 QNetworkRequest AppMarketPlaceJob::request() const
 {
-    const QUrl url = mRestApiMethod->generateUrl(RestApiUtil::RestApiUrlType::MarketplaceApps, QString(), RestApiUtil::RestApiUrlExtensionType::Apps);
+    QUrl url = mRestApiMethod->generateUrl(RestApiUtil::RestApiUrlType::MarketplaceApps, QString(), RestApiUtil::RestApiUrlExtensionType::Apps);
+
+    QUrlQuery queryUrl;
+    queryUrl.addQueryItem(QStringLiteral("isAdminUser"), mIsAdminUser ? QStringLiteral("true") : QStringLiteral("false"));
+    url.setQuery(queryUrl);
+
     QNetworkRequest request(url);
     addAuthRawHeader(request);
     addRequestAttribute(request, false);

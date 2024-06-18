@@ -5,7 +5,7 @@
 */
 
 #include "appmarketplacejobtest.h"
-#include "apps/appcountjob.h"
+#include "apps/appmarketplacejob.h"
 #include "ruqola_restapi_helper.h"
 QTEST_GUILESS_MAIN(AppMarketPlaceJobTest)
 using namespace RocketChatRestApi;
@@ -16,7 +16,7 @@ AppMarketPlaceJobTest::AppMarketPlaceJobTest(QObject *parent)
 
 void AppMarketPlaceJobTest::shouldHaveDefaultValue()
 {
-    AppCountJob job;
+    AppMarketPlaceJob job;
     verifyDefaultValue(&job);
     QVERIFY(job.requireHttpAuthentication());
     QVERIFY(!job.hasQueryParameterSupport());
@@ -24,10 +24,18 @@ void AppMarketPlaceJobTest::shouldHaveDefaultValue()
 
 void AppMarketPlaceJobTest::shouldGenerateRequest()
 {
-    AppCountJob job;
-    QNetworkRequest request = QNetworkRequest(QUrl());
-    verifyAuthentication(&job, request);
-    QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/apps/count")));
+    AppMarketPlaceJob job;
+    {
+        QNetworkRequest request = QNetworkRequest(QUrl());
+        verifyAuthentication(&job, request);
+        QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/apps/marketplace?isAdminUser=false")));
+    }
+    {
+        QNetworkRequest request = QNetworkRequest(QUrl());
+        job.setIsAdminUser(true);
+        verifyAuthentication(&job, request);
+        QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/apps/marketplace?isAdminUser=true")));
+    }
 }
 
 #include "moc_appmarketplacejobtest.cpp"
