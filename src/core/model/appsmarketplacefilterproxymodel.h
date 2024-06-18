@@ -12,11 +12,25 @@ class LIBRUQOLACORE_EXPORT AppsMarketPlaceFilterProxyModel : public QSortFilterP
 {
     Q_OBJECT
 public:
+    enum Status {
+        UnknownStatus,
+    };
+    Q_ENUM(Status);
+    enum Price {
+        UnknownPrice,
+    };
+    Q_ENUM(Price);
+    enum Sorting {
+        UnknownSorting,
+    };
+    Q_ENUM(Sorting);
+
     struct LIBRUQOLACORE_EXPORT FilterInfo {
         QStringList categories;
         QString text;
-        QString status;
-        QString price;
+        Status status = Status::UnknownStatus;
+        Price price = Price::UnknownPrice;
+        Sorting sorting = Sorting::UnknownSorting;
         [[nodiscard]] bool operator==(const FilterInfo &other) const;
         [[nodiscard]] bool operator!=(const FilterInfo &other) const;
     };
