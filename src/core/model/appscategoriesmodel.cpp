@@ -53,7 +53,7 @@ QStringList AppsCategoriesModel::categoriesSelected() const
         QStandardItem *itemModel = item(i);
         if (itemModel) {
             if (itemModel->isCheckable() && itemModel->checkState() == Qt::Checked) {
-                lst.append(itemModel->data(Identifier).toString());
+                lst.append(itemModel->data(Qt::DisplayRole).toString());
             }
         }
     }
