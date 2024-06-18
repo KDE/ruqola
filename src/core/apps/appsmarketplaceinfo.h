@@ -53,7 +53,10 @@ public:
     [[nodiscard]] QString shortDescription() const;
     void setShortDescription(const QString &newShortDescription);
 
-    bool operator==(const AppsMarketPlaceInfo &other) const;
+    [[nodiscard]] bool operator==(const AppsMarketPlaceInfo &other) const;
+
+    [[nodiscard]] qint64 modifiedDate() const;
+    void setModifiedDate(qint64 newModifiedDate);
 
 private:
     QStringList mCategories;
@@ -65,6 +68,7 @@ private:
     QString mVersion;
     QString mShortDescription;
     QPixmap mPixmap;
+    qint64 mModifiedDate = -1;
     int mPrice = 0;
     bool mIsEnterpriseOnly = false;
     // TODO icon

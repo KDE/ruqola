@@ -47,6 +47,7 @@ void AppsMarketPlaceInfoTest::shouldLoadAppsMarketPlaceInfo_data()
         appsMarketPlaceInfo.setDescription("Turns YouTrack references into links."_L1);
         appsMarketPlaceInfo.setPrice(0);
         appsMarketPlaceInfo.setVersion("1.2.1"_L1);
+        appsMarketPlaceInfo.setModifiedDate(1633074321015);
         appsMarketPlaceInfo.setShortDescription({});
 
         QTest::addRow("apps1") << QStringLiteral("apps1") << appsMarketPlaceInfo;
@@ -62,6 +63,7 @@ void AppsMarketPlaceInfoTest::shouldLoadAppsMarketPlaceInfo_data()
         appsMarketPlaceInfo.setDescription("Jitsi is a collection"_L1);
         appsMarketPlaceInfo.setPrice(0);
         appsMarketPlaceInfo.setVersion("2.1.1"_L1);
+        appsMarketPlaceInfo.setModifiedDate(1706210343886);
         appsMarketPlaceInfo.setShortDescription("Enjoy a secure and robust video conferencing"_L1);
 
         QTest::addRow("apps2") << QStringLiteral("apps2") << appsMarketPlaceInfo;

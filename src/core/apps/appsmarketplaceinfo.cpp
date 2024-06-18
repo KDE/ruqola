@@ -5,6 +5,7 @@
 */
 
 #include "appsmarketplaceinfo.h"
+#include "utils.h"
 
 #include <QJsonArray>
 using namespace Qt::Literals::StringLiterals;
@@ -14,17 +15,18 @@ AppsMarketPlaceInfo::~AppsMarketPlaceInfo() = default;
 
 QDebug operator<<(QDebug d, const AppsMarketPlaceInfo &t)
 {
-    d << "appId " << t.appId();
-    d << "isEnterpriseOnly " << t.isEnterpriseOnly();
-    d << "appName " << t.appName();
-    d << "categories " << t.categories();
-    d << "documentationUrl " << t.documentationUrl();
-    d << "purchaseType " << t.purchaseType();
-    d << "description " << t.description();
-    d << "price " << t.price();
-    d << "version " << t.version();
-    d << "shortDescription " << t.shortDescription();
-    d << "pixmap is valid " << !t.pixmap().isNull();
+    d.nospace() << "appId " << t.appId();
+    d.nospace() << "isEnterpriseOnly " << t.isEnterpriseOnly();
+    d.nospace() << "appName " << t.appName();
+    d.nospace() << "categories " << t.categories();
+    d.nospace() << "documentationUrl " << t.documentationUrl();
+    d.nospace() << "purchaseType " << t.purchaseType();
+    d.nospace() << "description " << t.description();
+    d.nospace() << "price " << t.price();
+    d.nospace() << "version " << t.version();
+    d.nospace() << "shortDescription " << t.shortDescription();
+    d.nospace() << "pixmap is valid " << !t.pixmap().isNull();
+    d.nospace() << "modifiedDate " << t.modifiedDate();
     return d;
 }
 
@@ -33,6 +35,8 @@ void AppsMarketPlaceInfo::parseAppsMarketPlaceInfo(const QJsonObject &replyObjec
     mAppId = replyObject["appId"_L1].toString().toLatin1();
     mIsEnterpriseOnly = replyObject["isEnterpriseOnly"_L1].toBool();
     mPurchaseType = replyObject["purchaseType"_L1].toString();
+
+    mModifiedDate = Utils::parseIsoDate("modifiedAt"_L1, replyObject);
     mPrice = replyObject["price"_L1].toInt();
 
     const QJsonObject latestObj = replyObject["latest"_L1].toObject();
@@ -175,5 +179,15 @@ bool AppsMarketPlaceInfo::operator==(const AppsMarketPlaceInfo &other) const
     return mCategories == other.mCategories && mAppId == other.mAppId && mAppName == other.mAppName && mDescription == other.mDescription
         && mDocumentationUrl == other.mDocumentationUrl && mPurchaseType == other.mPurchaseType && mVersion == other.mVersion
         && mShortDescription == other.mShortDescription /*&& mPixmap.isNull() == other.mPixmap.isNull()*/ && mPrice == other.mPrice
-        && mIsEnterpriseOnly == other.mIsEnterpriseOnly;
+        && mIsEnterpriseOnly == other.mIsEnterpriseOnly && mModifiedDate == other.mModifiedDate;
+}
+
+qint64 AppsMarketPlaceInfo::modifiedDate() const
+{
+    return mModifiedDate;
+}
+
+void AppsMarketPlaceInfo::setModifiedDate(qint64 newModifiedDate)
+{
+    mModifiedDate = newModifiedDate;
 }
