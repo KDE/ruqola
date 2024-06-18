@@ -26,21 +26,65 @@ bool AppsMarketPlaceFilterProxyModel::filterAcceptsRow(int source_row, const QMo
         }
     }
     if (!mFilterInfo.categories.isEmpty()) {
-        const QStringList categories = modelIndex.data(AppsMarketPlaceModel::ShortDescription).toStringList();
-        // TODO
+        const QStringList categories = modelIndex.data(AppsMarketPlaceModel::Categories).toStringList();
+        bool found = false;
+        for (const QString &cat : std::as_const(mFilterInfo.categories)) {
+            if (categories.contains(cat)) {
+                found = true;
+            }
+        }
+        if (!found) {
+            return false;
+        }
     }
-    // TODO
     return QSortFilterProxyModel::filterAcceptsColumn(source_row, source_parent);
 }
 
 bool AppsMarketPlaceFilterProxyModel::lessThan(const QModelIndex &left, const QModelIndex &right) const
 {
     if (left.isValid() && right.isValid()) {
-        const QString leftString = sourceModel()->data(left, AppsMarketPlaceModel::AppName).toString();
-        const QString rightString = sourceModel()->data(right, AppsMarketPlaceModel::AppName).toString();
-        return QString::localeAwareCompare(leftString, rightString) < 0;
+        switch (mSorting) {
+        case AtoZ: {
+            const QString leftString = sourceModel()->data(left, AppsMarketPlaceModel::AppName).toString();
+            const QString rightString = sourceModel()->data(right, AppsMarketPlaceModel::AppName).toString();
+            return QString::localeAwareCompare(leftString, rightString) < 0;
+        }
+        case ZtoA: {
+            const QString leftString = sourceModel()->data(left, AppsMarketPlaceModel::AppName).toString();
+            const QString rightString = sourceModel()->data(right, AppsMarketPlaceModel::AppName).toString();
+            return QString::localeAwareCompare(leftString, rightString) > 0;
+        }
+        case LeastRecent: {
+            const qint64 leftDateTime = sourceModel()->data(left, AppsMarketPlaceModel::ModifiedDate).toLongLong();
+            const qint64 rightDateTime = sourceModel()->data(right, AppsMarketPlaceModel::ModifiedDate).toLongLong();
+            // qDebug() << " leftDateTime " << leftDateTime << " rightDateTime " << rightDateTime;
+            return leftDateTime > rightDateTime;
+        }
+        case MostRecent: {
+            const qint64 leftDateTime = sourceModel()->data(left, AppsMarketPlaceModel::ModifiedDate).toLongLong();
+            const qint64 rightDateTime = sourceModel()->data(right, AppsMarketPlaceModel::ModifiedDate).toLongLong();
+            // qDebug() << " leftDateTime " << leftDateTime << " rightDateTime " << rightDateTime;
+            return leftDateTime < rightDateTime;
+        }
+        case UnknownSorting:
+            return QSortFilterProxyModel::lessThan(left, right);
+        }
     } else {
         return false;
+    }
+    return false;
+}
+
+AppsMarketPlaceFilterProxyModel::Sorting AppsMarketPlaceFilterProxyModel::sorting() const
+{
+    return mSorting;
+}
+
+void AppsMarketPlaceFilterProxyModel::setSorting(Sorting newSorting)
+{
+    if (mSorting != newSorting) {
+        mSorting = newSorting;
+        invalidate();
     }
 }
 
@@ -73,7 +117,6 @@ QDebug operator<<(QDebug d, const AppsMarketPlaceFilterProxyModel::FilterInfo &t
     d.space() << "text:" << t.text;
     d.space() << "status:" << t.status;
     d.space() << "price:" << t.price;
-    d.space() << "sorting:" << t.sorting;
     return d;
 }
 

@@ -21,6 +21,10 @@ public:
     };
     Q_ENUM(Price);
     enum Sorting {
+        AtoZ,
+        ZtoA,
+        MostRecent,
+        LeastRecent,
         UnknownSorting,
     };
     Q_ENUM(Sorting);
@@ -30,7 +34,6 @@ public:
         QString text;
         Status status = Status::UnknownStatus;
         Price price = Price::UnknownPrice;
-        Sorting sorting = Sorting::UnknownSorting;
         [[nodiscard]] bool operator==(const FilterInfo &other) const;
         [[nodiscard]] bool operator!=(const FilterInfo &other) const;
     };
@@ -41,12 +44,16 @@ public:
     [[nodiscard]] FilterInfo filterInfo() const;
     void setFilterInfo(const FilterInfo &newFilterInfo);
 
+    [[nodiscard]] Sorting sorting() const;
+    void setSorting(Sorting newSorting);
+
 protected:
     [[nodiscard]] bool filterAcceptsRow(int source_row, const QModelIndex &source_parent) const override;
     [[nodiscard]] bool lessThan(const QModelIndex &left, const QModelIndex &right) const override;
 
 private:
     FilterInfo mFilterInfo;
+    Sorting mSorting = Sorting::UnknownSorting;
 };
 Q_DECLARE_METATYPE(AppsMarketPlaceFilterProxyModel::FilterInfo)
 Q_DECLARE_TYPEINFO(AppsMarketPlaceFilterProxyModel::FilterInfo, Q_RELOCATABLE_TYPE);
