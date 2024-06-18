@@ -23,8 +23,10 @@ public:
     ~ApplicationsSettingsSearchWidget() override;
 
     [[nodiscard]] AppsMarketPlaceFilterProxyModel::FilterInfo filterInfo() const;
+    [[nodiscard]] AppsMarketPlaceFilterProxyModel::Sorting sortingInfo() const;
 Q_SIGNALS:
     void filterChanged();
+    void sortingChanged();
 
 private:
     QLineEdit *const mSearchLineEdit;

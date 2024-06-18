@@ -6,6 +6,7 @@
 
 #pragma once
 #include "libruqolawidgets_private_export.h"
+#include "model/appsmarketplacefilterproxymodel.h"
 #include <QComboBox>
 
 class LIBRUQOLAWIDGETS_TESTS_EXPORT ApplicationsSettingsSortingComboBox : public QComboBox
@@ -15,5 +16,5 @@ public:
     explicit ApplicationsSettingsSortingComboBox(QWidget *parent = nullptr);
     ~ApplicationsSettingsSortingComboBox() override;
 
-    [[nodiscard]] QString currentPrice() const;
+    [[nodiscard]] AppsMarketPlaceFilterProxyModel::Sorting currentSorting() const;
 };

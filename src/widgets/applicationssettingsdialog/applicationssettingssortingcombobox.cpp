@@ -9,18 +9,17 @@
 ApplicationsSettingsSortingComboBox::ApplicationsSettingsSortingComboBox(QWidget *parent)
     : QComboBox(parent)
 {
-    // TODO Convert to enum
-    addItem(i18n("A-Z"), QString());
-    addItem(i18n("Z-A"), QStringLiteral("free"));
-    addItem(i18n("Most recent updated"), QStringLiteral("paid"));
-    addItem(i18n("Least recent updated"), QStringLiteral("premium"));
+    addItem(i18n("A-Z"), QVariant::fromValue(AppsMarketPlaceFilterProxyModel::Sorting::AtoZ));
+    addItem(i18n("Z-A"), QVariant::fromValue(AppsMarketPlaceFilterProxyModel::Sorting::ZtoA));
+    addItem(i18n("Most recent updated"), QVariant::fromValue(AppsMarketPlaceFilterProxyModel::Sorting::MostRecent));
+    addItem(i18n("Least recent updated"), QVariant::fromValue(AppsMarketPlaceFilterProxyModel::Sorting::LeastRecent));
 }
 
 ApplicationsSettingsSortingComboBox::~ApplicationsSettingsSortingComboBox() = default;
 
-QString ApplicationsSettingsSortingComboBox::currentPrice() const
+AppsMarketPlaceFilterProxyModel::Sorting ApplicationsSettingsSortingComboBox::currentSorting() const
 {
-    return currentData().toString();
+    return currentData().value<AppsMarketPlaceFilterProxyModel::Sorting>();
 }
 
 #include "moc_applicationssettingssortingcombobox.cpp"

@@ -21,6 +21,7 @@ public:
     ~ApplicationsSettingsListView() override;
 
     void setFilterInfo(const AppsMarketPlaceFilterProxyModel::FilterInfo &info);
+    void setSorting(AppsMarketPlaceFilterProxyModel::Sorting newSorting);
 
 protected:
     [[nodiscard]] bool maybeStartDrag(QMouseEvent *event, const QStyleOptionViewItem &option, const QModelIndex &index) override;

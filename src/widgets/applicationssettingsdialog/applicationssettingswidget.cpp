@@ -32,6 +32,7 @@ ApplicationsSettingsWidget::ApplicationsSettingsWidget(RocketChatAccount *accoun
         mCurrentRocketChatAccount->loadAppCategories();
     }
     connect(mApplicationsSettingsSearchWidget, &ApplicationsSettingsSearchWidget::filterChanged, this, &ApplicationsSettingsWidget::slotFilterChanged);
+    connect(mApplicationsSettingsSearchWidget, &ApplicationsSettingsSearchWidget::sortingChanged, this, &ApplicationsSettingsWidget::slotSortingChanged);
 }
 
 ApplicationsSettingsWidget::~ApplicationsSettingsWidget() = default;
@@ -39,6 +40,11 @@ ApplicationsSettingsWidget::~ApplicationsSettingsWidget() = default;
 void ApplicationsSettingsWidget::slotFilterChanged()
 {
     mApplicationsSettingsListView->setFilterInfo(mApplicationsSettingsSearchWidget->filterInfo());
+}
+
+void ApplicationsSettingsWidget::slotSortingChanged()
+{
+    mApplicationsSettingsListView->setSorting(mApplicationsSettingsSearchWidget->sortingInfo());
 }
 
 #include "moc_applicationssettingswidget.cpp"

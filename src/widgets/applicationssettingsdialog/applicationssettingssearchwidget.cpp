@@ -52,7 +52,7 @@ ApplicationsSettingsSearchWidget::ApplicationsSettingsSearchWidget(RocketChatAcc
             &ApplicationsSettingsSearchWidget::filterChanged);
     connect(mApplicationsSettingsPriceComboBox, &ApplicationsSettingsPriceComboBox::activated, this, &ApplicationsSettingsSearchWidget::filterChanged);
     connect(mApplicationsSettingsStatusComboBox, &ApplicationsSettingsStatusComboBox::activated, this, &ApplicationsSettingsSearchWidget::filterChanged);
-    connect(mApplicationsSettingsSortingComboBox, &ApplicationsSettingsSortingComboBox::activated, this, &ApplicationsSettingsSearchWidget::filterChanged);
+    connect(mApplicationsSettingsSortingComboBox, &ApplicationsSettingsSortingComboBox::activated, this, &ApplicationsSettingsSearchWidget::sortingChanged);
 }
 
 ApplicationsSettingsSearchWidget::~ApplicationsSettingsSearchWidget() = default;
@@ -63,6 +63,11 @@ AppsMarketPlaceFilterProxyModel::FilterInfo ApplicationsSettingsSearchWidget::fi
     info.text = mSearchLineEdit->text();
     info.categories = mApplicationsSettingsCategoriesComboBox->categories();
     return info;
+}
+
+AppsMarketPlaceFilterProxyModel::Sorting ApplicationsSettingsSearchWidget::sortingInfo() const
+{
+    return mApplicationsSettingsSortingComboBox->currentSorting();
 }
 
 #include "moc_applicationssettingssearchwidget.cpp"

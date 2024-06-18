@@ -45,6 +45,11 @@ void ApplicationsSettingsListView::setFilterInfo(const AppsMarketPlaceFilterProx
     mAppsMarketPlaceFilterProxyModel->setFilterInfo(info);
 }
 
+void ApplicationsSettingsListView::setSorting(AppsMarketPlaceFilterProxyModel::Sorting newSorting)
+{
+    mAppsMarketPlaceFilterProxyModel->setSorting(newSorting);
+}
+
 void ApplicationsSettingsListView::slotAskApplication()
 {
     QPointer<ApplicationsSettingsAskApplicationDialog> dlg = new ApplicationsSettingsAskApplicationDialog(this);
