@@ -3278,6 +3278,7 @@ void RocketChatAccount::loadAppMarketPlace()
         return;
     }
     auto job = new RocketChatRestApi::AppMarketPlaceJob(this);
+    job->setIsAdminUser(isAdministrator());
     restApi()->initializeRestApiJob(job);
     connect(job, &RocketChatRestApi::AppMarketPlaceJob::appMarketPlaceDone, this, [this](const QJsonArray &replyArray) {
         QList<AppsMarketPlaceInfo> listAppsMarketPlaceInfo;
