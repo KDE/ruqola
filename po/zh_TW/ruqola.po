@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-06-17 00:39+0000\n"
+"POT-Creation-Date: 2024-06-18 00:39+0000\n"
 "PO-Revision-Date: 2024-05-09 06:59+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
@@ -912,7 +912,7 @@ msgstr "頻道類型"
 msgid "Belongs To"
 msgstr ""
 
-#: core/model/directoryteamsmodel.cpp:92 core/model/roommodel.cpp:543
+#: core/model/directoryteamsmodel.cpp:92 core/model/roommodel.cpp:537
 #: widgets/administratordialog/administratorwidget.cpp:53
 #: widgets/administratordialog/roles/rolescopecombobox.cpp:13
 #: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:18
@@ -1082,79 +1082,79 @@ msgstr "兩步驟驗證"
 msgid "Last token part"
 msgstr ""
 
-#: core/model/roommodel.cpp:462
+#: core/model/roommodel.cpp:456
 #, kde-format
 msgid "%1 Mention"
 msgid_plural "%1 Mentions"
 msgstr[0] "%1 個提及"
 
-#: core/model/roommodel.cpp:466
+#: core/model/roommodel.cpp:460
 #, kde-format
 msgid "%1 Group Mention"
 msgid_plural "%1 Group Mentions"
 msgstr[0] "%1 個群組提及"
 
-#: core/model/roommodel.cpp:470
+#: core/model/roommodel.cpp:464
 #, kde-format
 msgid "%1 Unread Threaded Message"
 msgid_plural "%1 Unread Threaded Messages"
 msgstr[0] "%1 個未讀的對話串訊息"
 
-#: core/model/roommodel.cpp:474
+#: core/model/roommodel.cpp:468
 #, kde-format
 msgid "%1 Unread Message"
 msgid_plural "%1 Unread Messages"
 msgstr[0] "%1 個未讀訊息"
 
-#: core/model/roommodel.cpp:500
+#: core/model/roommodel.cpp:494
 #, kde-format
 msgid "Teams Room"
 msgstr "團隊聊天室"
 
-#: core/model/roommodel.cpp:506
+#: core/model/roommodel.cpp:500
 #, kde-format
 msgid "Private Room"
 msgstr "私人聊天室"
 
-#: core/model/roommodel.cpp:508
+#: core/model/roommodel.cpp:502
 #, kde-format
 msgid "Discussion Room"
 msgstr "討論室"
 
-#: core/model/roommodel.cpp:512
+#: core/model/roommodel.cpp:506
 #, kde-format
 msgid "Channel Room"
 msgstr "頻道聊天室"
 
-#: core/model/roommodel.cpp:537
+#: core/model/roommodel.cpp:531
 #, kde-format
 msgid "Unread"
 msgstr "未讀"
 
-#: core/model/roommodel.cpp:539
+#: core/model/roommodel.cpp:533
 #, kde-format
 msgid "Favorites"
 msgstr "最愛"
 
-#: core/model/roommodel.cpp:541
+#: core/model/roommodel.cpp:535
 #: widgets/administratordialog/rooms/administratorroomsselectroomtypewidget.cpp:18
 #: widgets/directory/directorytabwidget.cpp:22
 #, kde-format
 msgid "Teams"
 msgstr "團隊"
 
-#: core/model/roommodel.cpp:545
+#: core/model/roommodel.cpp:539
 #: widgets/administratordialog/rooms/administratorroomsselectroomtypewidget.cpp:17
 #, kde-format
 msgid "Discussions"
 msgstr "討論"
 
-#: core/model/roommodel.cpp:547
+#: core/model/roommodel.cpp:541
 #, kde-format
 msgid "Private Messages"
 msgstr "私訊"
 
-#: core/model/roommodel.cpp:549
+#: core/model/roommodel.cpp:543
 #, kde-format
 msgid "Unknown"
 msgstr "未知"
@@ -1438,12 +1438,12 @@ msgctxt "We need a space between after </strong>"
 msgid "<strong>%1</strong> are typing..."
 msgstr ""
 
-#: core/rocketchataccount.cpp:3012
+#: core/rocketchataccount.cpp:3026
 #, kde-format
 msgid "Export Messages"
 msgstr "匯出訊息"
 
-#: core/rocketchataccount.cpp:3013
+#: core/rocketchataccount.cpp:3027
 #, kde-format
 msgid "Your email has been queued for sending."
 msgstr ""
@@ -1631,8 +1631,9 @@ msgid "Personal Access Token"
 msgstr "個人存取權杖 (Personal Access Token)"
 
 #: plugins/textplugin/sharetext/purposemenuwidget.cpp:19
-#, kde-format
-msgid "Share Text..."
+#, fuzzy, kde-format
+#| msgid "Share Text..."
+msgid "Share Text…"
 msgstr "分享文字…"
 
 #: plugins/textplugin/sharetext/purposemenuwidget.cpp:64
@@ -2573,6 +2574,7 @@ msgctxt "@title"
 msgid "Remove Emoji"
 msgstr "移除表情符號"
 
+#. i18n: ectx: property (text), widget (QPushButton, addServer)
 #: widgets/administratordialog/customemoji/administratorcustomemojiwidget.cpp:178
 #: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:141
 #: widgets/administratordialog/customuserstatus/customuserstatustreewidget.cpp:127
@@ -2580,11 +2582,13 @@ msgstr "移除表情符號"
 #: widgets/administratordialog/roles/administratorroleswidget.cpp:101
 #: widgets/administratordialog/roles/usersinrolewidget.cpp:106
 #: widgets/administratordialog/users/administratoruserswidget.cpp:239
+#: widgets/configuredialog/configureaccountserverwidget.ui:31
 #: widgets/myaccount/myaccountpersonalaccesstokentreeview.cpp:35
 #, kde-format
 msgid "Add…"
 msgstr ""
 
+#. i18n: ectx: property (text), widget (QPushButton, modifyServer)
 #: widgets/administratordialog/customemoji/administratorcustomemojiwidget.cpp:181
 #: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:143
 #: widgets/administratordialog/customuserstatus/customuserstatustreewidget.cpp:130
@@ -2593,6 +2597,7 @@ msgstr ""
 #: widgets/administratordialog/roles/administratorroleswidget.cpp:105
 #: widgets/administratordialog/rooms/administratorroomswidget.cpp:63
 #: widgets/administratordialog/users/administratoruserswidget.cpp:246
+#: widgets/configuredialog/configureaccountserverwidget.ui:38
 #, fuzzy, kde-format
 #| msgid "Modify..."
 msgid "Modify…"
@@ -3669,7 +3674,6 @@ msgid "Make Admin"
 msgstr ""
 
 #: widgets/administratordialog/users/administratoruserswidget.cpp:270
-#: widgets/myaccount/myaccount2e2configurewidget.cpp:22
 #, kde-format
 msgid "Reset E2E Key"
 msgstr ""
@@ -6473,7 +6477,9 @@ msgid "Sign in with %1"
 msgstr "用 %1 登入"
 
 #: widgets/common/authenticationloginwidget.cpp:25
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Register Account"
+msgctxt "@action:button"
 msgid "Register Account"
 msgstr "註冊帳戶"
 
@@ -6586,18 +6592,6 @@ msgstr ""
 msgctxt "Move selected account down."
 msgid "Down"
 msgstr ""
-
-#. i18n: ectx: property (text), widget (QPushButton, addServer)
-#: widgets/configuredialog/configureaccountserverwidget.ui:31
-#, kde-format
-msgid "Add..."
-msgstr "新增…"
-
-#. i18n: ectx: property (text), widget (QPushButton, modifyServer)
-#: widgets/configuredialog/configureaccountserverwidget.ui:38
-#, kde-format
-msgid "Modify..."
-msgstr "變更…"
 
 #. i18n: ectx: property (text), widget (QCheckBox, configureCurrentActivity)
 #: widgets/configuredialog/configureaccountserverwidget.ui:93
@@ -6733,7 +6727,9 @@ msgid "Do you want to remove this account '%1'?"
 msgstr "您確定要移除帳戶「%1」嗎？"
 
 #: widgets/configurenewserver/checknewserverurlwidget.cpp:25
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Connection"
+msgctxt "@action:button"
 msgid "Connection"
 msgstr "連線"
 
@@ -6849,8 +6845,9 @@ msgid "Channel Info about '%1'"
 msgstr ""
 
 #: widgets/dialogs/channelinfoeditablewidget.cpp:42
-#: widgets/room/messagelistview.cpp:295
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Delete"
+msgctxt "@action:button"
 msgid "Delete"
 msgstr "刪除"
 
@@ -7340,7 +7337,9 @@ msgid "Max number of uses"
 msgstr "最大使用次數"
 
 #: widgets/dialogs/inviteuserswidget.cpp:77
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Generate New Link"
+msgctxt "@action:button"
 msgid "Generate New Link"
 msgstr "產生新的連結"
 
@@ -7567,6 +7566,8 @@ msgstr[0] "聊天室中有 %1 個附件（總數：%2）"
 #: widgets/dialogs/showlistmessagebasewidget.cpp:107
 #: widgets/discussions/showdiscussionswidget.cpp:99
 #: widgets/misc/searchtreebasewidget.cpp:72
+#: widgets/room/usersinroomflowwidget.cpp:129
+#: widgets/room/usersinroomwidget.cpp:146
 #, fuzzy, kde-format
 #| msgid "(Click here for Loading more...)"
 msgid "(Click here for Loading more…)"
@@ -7597,12 +7598,16 @@ msgid "Zoom:"
 msgstr "縮放："
 
 #: widgets/dialogs/showimagewidget.cpp:283
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "100%"
+msgctxt "@action:button"
 msgid "100%"
 msgstr "100%"
 
 #: widgets/dialogs/showimagewidget.cpp:290
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Fit to View"
+msgctxt "@action:button"
 msgid "Fit to View"
 msgstr "適合檢視大小"
 
@@ -7737,13 +7742,13 @@ msgstr[0] "%1 個團隊（共 %2 個）"
 msgid "Search rooms…"
 msgstr "搜尋房間… (%1)"
 
-#: widgets/discussions/discussion/listdiscussiondelegate.cpp:78
+#: widgets/discussions/discussion/listdiscussiondelegate.cpp:79
 #, kde-format
 msgid "%1 message"
 msgid_plural "%1 messages"
 msgstr[0] "%1 則訊息"
 
-#: widgets/discussions/discussion/listdiscussiondelegate.cpp:81
+#: widgets/discussions/discussion/listdiscussiondelegate.cpp:82
 #, kde-format
 msgid "Open Discussion"
 msgstr "開啟討論區"
@@ -7973,7 +7978,9 @@ msgid "Import Accounts"
 msgstr "匯入帳戶"
 
 #: widgets/loginwidget/ruqolaloginwidget.cpp:25
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Login"
+msgctxt "@action:button"
 msgid "Login"
 msgstr "登入"
 
@@ -8219,7 +8226,9 @@ msgid "Confirm Password:"
 msgstr "確認密碼："
 
 #: widgets/misc/passwordlineeditwidget.cpp:20
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Reset Password"
+msgctxt "@action:button"
 msgid "Reset Password"
 msgstr "重設密碼"
 
@@ -8246,9 +8255,18 @@ msgid "Enter code"
 msgstr "輸入驗證碼"
 
 #: widgets/misc/twoauthenticationpasswordwidget.cpp:30
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Send new code"
+msgctxt "@action:button"
 msgid "Send new code"
 msgstr "輸入新的驗證碼"
+
+#: widgets/myaccount/myaccount2e2configurewidget.cpp:22
+#, fuzzy, kde-format
+#| msgid "Password"
+msgctxt "@action:button"
+msgid "Reset E2E Key"
+msgstr "密碼"
 
 #: widgets/myaccount/myaccount2e2configurewidget.cpp:30
 #, kde-format
@@ -8298,14 +8316,18 @@ msgstr "輸入認證碼"
 
 #: widgets/myaccount/myaccount2fadisabletotpwidget.cpp:41
 #: widgets/myaccount/myaccount2fatotpwidget.cpp:57
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Verify"
+msgctxt "@action:button"
 msgid "Verify"
 msgstr "驗證"
 
 #: widgets/myaccount/myaccount2fadisabletotpwidget.cpp:50
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Regenerate..."
+msgctxt "@action:button"
 msgid "Regenerate Code"
-msgstr ""
+msgstr "重新產生…"
 
 #: widgets/myaccount/myaccount2fadisabletotpwidget.cpp:67
 #: widgets/myaccount/myaccount2fatotpwidget.cpp:88
@@ -8586,11 +8608,13 @@ msgstr "通知"
 
 #: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:179
 #, kde-format
+msgctxt "@action:button"
 msgid "Download my Data (HTML)"
 msgstr ""
 
 #: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:186
 #, kde-format
+msgctxt "@action:button"
 msgid "Export my Data (JSON)"
 msgstr ""
 
@@ -8668,12 +8692,15 @@ msgid "Your administrator has disabled the changing of status messages."
 msgstr ""
 
 #: widgets/myaccount/myaccountprofileconfigurewidget.cpp:38
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Delete my Account"
+msgctxt "@action:button"
 msgid "Delete my Account"
 msgstr "刪除我的帳戶"
 
 #: widgets/myaccount/myaccountprofileconfigurewidget.cpp:39
 #, kde-format
+msgctxt "@action:button"
 msgid "Logout From Other Logged In Locations"
 msgstr ""
 
@@ -8830,7 +8857,9 @@ msgid "Register User"
 msgstr "註冊使用者"
 
 #: widgets/registeruser/registeruserwidget.cpp:18
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Register"
+msgctxt "@action:button"
 msgid "Register"
 msgstr "註冊"
 
@@ -9111,6 +9140,11 @@ msgstr "置頂訊息"
 #, kde-format
 msgid "Remove as Favorite"
 msgstr "移出收藏"
+
+#: widgets/room/messagelistview.cpp:295
+#, kde-format
+msgid "Delete"
+msgstr "刪除"
 
 #: widgets/room/messagelistview.cpp:301
 #, fuzzy, kde-format
@@ -9463,15 +9497,10 @@ msgid "Users"
 msgstr "使用者"
 
 #: widgets/room/usersinroomflowwidget.cpp:123
-#, kde-format
-msgid "(Open External Dialog...)"
+#, fuzzy, kde-format
+#| msgid "(Open External Dialog...)"
+msgid "(Open External Dialog…)"
 msgstr "（開啟外部對話框…）"
-
-#: widgets/room/usersinroomflowwidget.cpp:129
-#: widgets/room/usersinroomwidget.cpp:146
-#, kde-format
-msgid "(Click here for Loading more...)"
-msgstr "(按一下此處載入更多…)"
 
 #: widgets/room/usersinroommenu.cpp:39
 #, kde-format
@@ -10320,6 +10349,15 @@ msgstr ""
 #: widgets/whatsnew/whatsnewwidgettranslation.h:96
 msgid "Implement Application Market Settings."
 msgstr ""
+
+#~ msgid "Add..."
+#~ msgstr "新增…"
+
+#~ msgid "Modify..."
+#~ msgstr "變更…"
+
+#~ msgid "(Click here for Loading more...)"
+#~ msgstr "(按一下此處載入更多…)"
 
 #, fuzzy
 #~| msgid "(Click here for Loading more...)"

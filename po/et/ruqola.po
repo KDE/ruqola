@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-06-17 00:39+0000\n"
+"POT-Creation-Date: 2024-06-18 00:39+0000\n"
 "PO-Revision-Date: 2020-06-13 21:18+0300\n"
 "Last-Translator: Marek Laane <qiilaq69@gmail.com>\n"
 "Language-Team: Estonian <kde-et@lists.linux.ee>\n"
@@ -944,7 +944,7 @@ msgstr "Kanali nimi"
 msgid "Belongs To"
 msgstr ""
 
-#: core/model/directoryteamsmodel.cpp:92 core/model/roommodel.cpp:543
+#: core/model/directoryteamsmodel.cpp:92 core/model/roommodel.cpp:537
 #: widgets/administratordialog/administratorwidget.cpp:53
 #: widgets/administratordialog/roles/rolescopecombobox.cpp:13
 #: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:18
@@ -1126,7 +1126,7 @@ msgstr "Autentimisviis"
 msgid "Last token part"
 msgstr ""
 
-#: core/model/roommodel.cpp:462
+#: core/model/roommodel.cpp:456
 #, fuzzy, kde-format
 #| msgid "Mentions"
 msgid "%1 Mention"
@@ -1134,7 +1134,7 @@ msgid_plural "%1 Mentions"
 msgstr[0] "Mainimised"
 msgstr[1] "Mainimised"
 
-#: core/model/roommodel.cpp:466
+#: core/model/roommodel.cpp:460
 #, fuzzy, kde-format
 #| msgid "Mute Groups Mention:"
 msgid "%1 Group Mention"
@@ -1142,7 +1142,7 @@ msgid_plural "%1 Group Mentions"
 msgstr[0] "Gruppides mainimiste vaigistamine:"
 msgstr[1] "Gruppides mainimiste vaigistamine:"
 
-#: core/model/roommodel.cpp:470
+#: core/model/roommodel.cpp:464
 #, fuzzy, kde-format
 #| msgid "Threads Messages"
 msgid "%1 Unread Threaded Message"
@@ -1150,7 +1150,7 @@ msgid_plural "%1 Unread Threaded Messages"
 msgstr[0] "Lõimesõnumid"
 msgstr[1] "Lõimesõnumid"
 
-#: core/model/roommodel.cpp:474
+#: core/model/roommodel.cpp:468
 #, fuzzy, kde-format
 #| msgid "%1 has %2 Unread Message"
 msgid "%1 Unread Message"
@@ -1158,61 +1158,61 @@ msgid_plural "%1 Unread Messages"
 msgstr[0] "%1 ei ole lugenud %2 sõnumit"
 msgstr[1] "%1 ei ole lugenud %2 sõnumit"
 
-#: core/model/roommodel.cpp:500
+#: core/model/roommodel.cpp:494
 #, fuzzy, kde-format
 #| msgid "Rooms"
 msgid "Teams Room"
 msgstr "Toad"
 
-#: core/model/roommodel.cpp:506
+#: core/model/roommodel.cpp:500
 #, fuzzy, kde-format
 #| msgid "Private Room:"
 msgid "Private Room"
 msgstr "Privaattuba:"
 
-#: core/model/roommodel.cpp:508
+#: core/model/roommodel.cpp:502
 #, fuzzy, kde-format
 #| msgid "Discussion Name"
 msgid "Discussion Room"
 msgstr "Diskussiooni nimi"
 
-#: core/model/roommodel.cpp:512
+#: core/model/roommodel.cpp:506
 #, fuzzy, kde-format
 #| msgctxt "@title:window"
 #| msgid "Channel Info"
 msgid "Channel Room"
 msgstr "Kanali teave"
 
-#: core/model/roommodel.cpp:537
+#: core/model/roommodel.cpp:531
 #, fuzzy, kde-format
 #| msgid "Unread Rooms"
 msgid "Unread"
 msgstr "Lugemata toad"
 
-#: core/model/roommodel.cpp:539
+#: core/model/roommodel.cpp:533
 #, kde-format
 msgid "Favorites"
 msgstr "Lemmikud"
 
-#: core/model/roommodel.cpp:541
+#: core/model/roommodel.cpp:535
 #: widgets/administratordialog/rooms/administratorroomsselectroomtypewidget.cpp:18
 #: widgets/directory/directorytabwidget.cpp:22
 #, kde-format
 msgid "Teams"
 msgstr ""
 
-#: core/model/roommodel.cpp:545
+#: core/model/roommodel.cpp:539
 #: widgets/administratordialog/rooms/administratorroomsselectroomtypewidget.cpp:17
 #, kde-format
 msgid "Discussions"
 msgstr "Diskussioonid"
 
-#: core/model/roommodel.cpp:547
+#: core/model/roommodel.cpp:541
 #, kde-format
 msgid "Private Messages"
 msgstr "Privaatsõnumid"
 
-#: core/model/roommodel.cpp:549
+#: core/model/roommodel.cpp:543
 #, fuzzy, kde-format
 #| msgid "Unknown state"
 msgid "Unknown"
@@ -1525,13 +1525,13 @@ msgctxt "We need a space between after </strong>"
 msgid "<strong>%1</strong> are typing..."
 msgstr "<strong>%1</strong> kirjutavad ..."
 
-#: core/rocketchataccount.cpp:3012
+#: core/rocketchataccount.cpp:3026
 #, fuzzy, kde-format
 #| msgid "Report Message"
 msgid "Export Messages"
 msgstr "Anna sõnumist teada"
 
-#: core/rocketchataccount.cpp:3013
+#: core/rocketchataccount.cpp:3027
 #, kde-format
 msgid "Your email has been queued for sending."
 msgstr ""
@@ -1726,7 +1726,7 @@ msgstr "Diskussioonide otsimine ..."
 #: plugins/textplugin/sharetext/purposemenuwidget.cpp:19
 #, fuzzy, kde-format
 #| msgid "Save As Text..."
-msgid "Share Text..."
+msgid "Share Text…"
 msgstr "Salvesta tekstina ..."
 
 #: plugins/textplugin/sharetext/purposemenuwidget.cpp:64
@@ -2724,6 +2724,7 @@ msgctxt "@title"
 msgid "Remove Emoji"
 msgstr "Eemalda toast"
 
+#. i18n: ectx: property (text), widget (QPushButton, addServer)
 #: widgets/administratordialog/customemoji/administratorcustomemojiwidget.cpp:178
 #: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:141
 #: widgets/administratordialog/customuserstatus/customuserstatustreewidget.cpp:127
@@ -2731,11 +2732,13 @@ msgstr "Eemalda toast"
 #: widgets/administratordialog/roles/administratorroleswidget.cpp:101
 #: widgets/administratordialog/roles/usersinrolewidget.cpp:106
 #: widgets/administratordialog/users/administratoruserswidget.cpp:239
+#: widgets/configuredialog/configureaccountserverwidget.ui:31
 #: widgets/myaccount/myaccountpersonalaccesstokentreeview.cpp:35
 #, kde-format
 msgid "Add…"
 msgstr ""
 
+#. i18n: ectx: property (text), widget (QPushButton, modifyServer)
 #: widgets/administratordialog/customemoji/administratorcustomemojiwidget.cpp:181
 #: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:143
 #: widgets/administratordialog/customuserstatus/customuserstatustreewidget.cpp:130
@@ -2744,6 +2747,7 @@ msgstr ""
 #: widgets/administratordialog/roles/administratorroleswidget.cpp:105
 #: widgets/administratordialog/rooms/administratorroomswidget.cpp:63
 #: widgets/administratordialog/users/administratoruserswidget.cpp:246
+#: widgets/configuredialog/configureaccountserverwidget.ui:38
 #, fuzzy, kde-format
 #| msgid "Modify..."
 msgid "Modify…"
@@ -3835,7 +3839,6 @@ msgid "Make Admin"
 msgstr ""
 
 #: widgets/administratordialog/users/administratoruserswidget.cpp:270
-#: widgets/myaccount/myaccount2e2configurewidget.cpp:22
 #, kde-format
 msgid "Reset E2E Key"
 msgstr ""
@@ -6699,6 +6702,7 @@ msgstr ""
 #, fuzzy, kde-format
 #| msgctxt "@title:window"
 #| msgid "Remove Account"
+msgctxt "@action:button"
 msgid "Register Account"
 msgstr "Konto eemaldamine"
 
@@ -6817,18 +6821,6 @@ msgstr ""
 msgctxt "Move selected account down."
 msgid "Down"
 msgstr ""
-
-#. i18n: ectx: property (text), widget (QPushButton, addServer)
-#: widgets/configuredialog/configureaccountserverwidget.ui:31
-#, kde-format
-msgid "Add..."
-msgstr "Lisa ..."
-
-#. i18n: ectx: property (text), widget (QPushButton, modifyServer)
-#: widgets/configuredialog/configureaccountserverwidget.ui:38
-#, kde-format
-msgid "Modify..."
-msgstr "Muuda ..."
 
 #. i18n: ectx: property (text), widget (QCheckBox, configureCurrentActivity)
 #: widgets/configuredialog/configureaccountserverwidget.ui:93
@@ -6974,6 +6966,7 @@ msgstr "Kas eemaldada konto \"%1\"?"
 #: widgets/configurenewserver/checknewserverurlwidget.cpp:25
 #, fuzzy, kde-format
 #| msgid "Not connected"
+msgctxt "@action:button"
 msgid "Connection"
 msgstr "Pole ühendatud"
 
@@ -7096,8 +7089,9 @@ msgid "Channel Info about '%1'"
 msgstr "Kanali teave '%1' kohta"
 
 #: widgets/dialogs/channelinfoeditablewidget.cpp:42
-#: widgets/room/messagelistview.cpp:295
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Delete"
+msgctxt "@action:button"
 msgid "Delete"
 msgstr "Kustuta"
 
@@ -7616,7 +7610,9 @@ msgid "Max number of uses"
 msgstr "Maks. kasutuskordade arv"
 
 #: widgets/dialogs/inviteuserswidget.cpp:77
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Generate New Link"
+msgctxt "@action:button"
 msgid "Generate New Link"
 msgstr "Uue lingi genereerimine"
 
@@ -7861,6 +7857,8 @@ msgstr[1] "%1 manust toas (kokku: %2)"
 #: widgets/dialogs/showlistmessagebasewidget.cpp:107
 #: widgets/discussions/showdiscussionswidget.cpp:99
 #: widgets/misc/searchtreebasewidget.cpp:72
+#: widgets/room/usersinroomflowwidget.cpp:129
+#: widgets/room/usersinroomwidget.cpp:146
 #, fuzzy, kde-format
 #| msgid "(Click here for Loading more...)"
 msgid "(Click here for Loading more…)"
@@ -7892,11 +7890,13 @@ msgstr "Suurendus:"
 
 #: widgets/dialogs/showimagewidget.cpp:283
 #, kde-format
+msgctxt "@action:button"
 msgid "100%"
 msgstr ""
 
 #: widgets/dialogs/showimagewidget.cpp:290
 #, kde-format
+msgctxt "@action:button"
 msgid "Fit to View"
 msgstr ""
 
@@ -8047,7 +8047,7 @@ msgstr[1] "%1 lõime toas (kokku: %2)"
 msgid "Search rooms…"
 msgstr "Toa otsimine"
 
-#: widgets/discussions/discussion/listdiscussiondelegate.cpp:78
+#: widgets/discussions/discussion/listdiscussiondelegate.cpp:79
 #, fuzzy, kde-format
 #| msgid "1 message"
 #| msgid_plural "%1 messages"
@@ -8056,7 +8056,7 @@ msgid_plural "%1 messages"
 msgstr[0] "1 sõnum"
 msgstr[1] "%1 sõnumit"
 
-#: widgets/discussions/discussion/listdiscussiondelegate.cpp:81
+#: widgets/discussions/discussion/listdiscussiondelegate.cpp:82
 #, kde-format
 msgid "Open Discussion"
 msgstr "Diskussiooni avamine"
@@ -8305,7 +8305,9 @@ msgid "Import Accounts"
 msgstr "Konto"
 
 #: widgets/loginwidget/ruqolaloginwidget.cpp:25
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Login"
+msgctxt "@action:button"
 msgid "Login"
 msgstr "Logi sisse"
 
@@ -8567,6 +8569,7 @@ msgstr "Kanali parool:"
 #: widgets/misc/passwordlineeditwidget.cpp:20
 #, fuzzy, kde-format
 #| msgid "Password"
+msgctxt "@action:button"
 msgid "Reset Password"
 msgstr "Parool"
 
@@ -8597,8 +8600,16 @@ msgstr "Konto nimi"
 #: widgets/misc/twoauthenticationpasswordwidget.cpp:30
 #, fuzzy, kde-format
 #| msgid "Enter account name"
+msgctxt "@action:button"
 msgid "Send new code"
 msgstr "Konto nimi"
+
+#: widgets/myaccount/myaccount2e2configurewidget.cpp:22
+#, fuzzy, kde-format
+#| msgid "Get Avatar"
+msgctxt "@action:button"
+msgid "Reset E2E Key"
+msgstr "Hangi avatar"
 
 #: widgets/myaccount/myaccount2e2configurewidget.cpp:30
 #, kde-format
@@ -8652,11 +8663,13 @@ msgstr "Autentimisviis"
 #: widgets/myaccount/myaccount2fadisabletotpwidget.cpp:41
 #: widgets/myaccount/myaccount2fatotpwidget.cpp:57
 #, kde-format
+msgctxt "@action:button"
 msgid "Verify"
 msgstr ""
 
 #: widgets/myaccount/myaccount2fadisabletotpwidget.cpp:50
 #, kde-format
+msgctxt "@action:button"
 msgid "Regenerate Code"
 msgstr ""
 
@@ -8956,11 +8969,13 @@ msgstr "Märguanded"
 
 #: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:179
 #, kde-format
+msgctxt "@action:button"
 msgid "Download my Data (HTML)"
 msgstr ""
 
 #: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:186
 #, kde-format
+msgctxt "@action:button"
 msgid "Export my Data (JSON)"
 msgstr ""
 
@@ -9044,11 +9059,13 @@ msgstr ""
 #: widgets/myaccount/myaccountprofileconfigurewidget.cpp:38
 #, fuzzy, kde-format
 #| msgid "Delete Account"
+msgctxt "@action:button"
 msgid "Delete my Account"
 msgstr "Konto kustutamine"
 
 #: widgets/myaccount/myaccountprofileconfigurewidget.cpp:39
 #, kde-format
+msgctxt "@action:button"
 msgid "Logout From Other Logged In Locations"
 msgstr ""
 
@@ -9211,6 +9228,7 @@ msgstr "Kutsu kasutajaid"
 #: widgets/registeruser/registeruserwidget.cpp:18
 #, fuzzy, kde-format
 #| msgid "Invite Users"
+msgctxt "@action:button"
 msgid "Register"
 msgstr "Kutsu kasutajaid"
 
@@ -9505,6 +9523,11 @@ msgstr "Kinnista sõnum"
 #, kde-format
 msgid "Remove as Favorite"
 msgstr "Eemalda lemmikute seast"
+
+#: widgets/room/messagelistview.cpp:295
+#, kde-format
+msgid "Delete"
+msgstr "Kustuta"
 
 #: widgets/room/messagelistview.cpp:301
 #, fuzzy, kde-format
@@ -9879,14 +9902,8 @@ msgstr "Kasutajad:"
 
 #: widgets/room/usersinroomflowwidget.cpp:123
 #, kde-format
-msgid "(Open External Dialog...)"
+msgid "(Open External Dialog…)"
 msgstr ""
-
-#: widgets/room/usersinroomflowwidget.cpp:129
-#: widgets/room/usersinroomwidget.cpp:146
-#, kde-format
-msgid "(Click here for Loading more...)"
-msgstr "(Klõpsa siia, et juurde laadida ...)"
 
 #: widgets/room/usersinroommenu.cpp:39
 #, kde-format
@@ -10789,6 +10806,15 @@ msgstr ""
 #: widgets/whatsnew/whatsnewwidgettranslation.h:96
 msgid "Implement Application Market Settings."
 msgstr ""
+
+#~ msgid "Add..."
+#~ msgstr "Lisa ..."
+
+#~ msgid "Modify..."
+#~ msgstr "Muuda ..."
+
+#~ msgid "(Click here for Loading more...)"
+#~ msgstr "(Klõpsa siia, et juurde laadida ...)"
 
 #, fuzzy
 #~| msgid "(Click here for Loading more...)"
