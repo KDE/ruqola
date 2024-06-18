@@ -700,7 +700,10 @@ void RocketChatAccount::tryLogin()
     if (Ruqola::self()->useRestApiLogin()) {
         if (auto interface = defaultAuthenticationInterface()) {
             qCDebug(RUQOLA_RECONNECT_LOG) << "RESTAPI login " << accountName();
-            interface->login();
+            if (!interface->login()) {
+                qCDebug(RUQOLA_RECONNECT_LOG) << "RESTAPI impossible to login " << accountName();
+                return;
+            }
         } else {
             qCWarning(RUQOLA_RECONNECT_LOG) << "No plugins loaded. Please verify your installation.";
         }
