@@ -11,7 +11,6 @@
 #include "delegateutils/textselectionimpl.h"
 #include "model/appsmarketplacemodel.h"
 #include "rocketchataccount.h"
-#include "textconverter.h"
 #if USE_SIZEHINT_CACHE_SUPPORT
 #include "ruqola_sizehint_cache_debug.h"
 #endif
@@ -95,13 +94,10 @@ ApplicationsSettingsDelegate::Layout ApplicationsSettingsDelegate::doLayout(cons
     const int iconWidth = 40;
     const int margin = MessageDelegateUtils::basicMargin();
     if (!pix.isNull()) {
-        // TODO fix size
         const QPixmap scaledPixmap = pix.scaled(iconWidth, iconWidth, Qt::KeepAspectRatio, Qt::SmoothTransformation);
         layout.appPixmap = scaledPixmap;
         layout.appPixmapPos = QPointF(option.rect.x() + margin, option.rect.top());
     }
-    layout.appShortDescription = index.data(AppsMarketPlaceModel::ShortDescription).toString();
-    layout.appName = index.data(AppsMarketPlaceModel::AppName).toString();
     layout.premium = index.data(AppsMarketPlaceModel::IsEnterpriseOnly).toBool();
 
     QRect usableRect = option.rect;

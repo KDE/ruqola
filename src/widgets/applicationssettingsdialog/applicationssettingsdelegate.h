@@ -33,8 +33,6 @@ private:
         QPixmap appPixmap;
         QPointF appPixmapPos;
 
-        QString appName;
-        QString appShortDescription;
         bool premium = false;
         // TODO
     };
