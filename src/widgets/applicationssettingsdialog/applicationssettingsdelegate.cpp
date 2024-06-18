@@ -129,7 +129,14 @@ QTextDocument *ApplicationsSettingsDelegate::documentForModelIndex(const QModelI
     Q_ASSERT(index.isValid());
     const QByteArray appsId = cacheIdentifier(index);
     const QString shortDescription = index.data(AppsMarketPlaceModel::ShortDescription).toString();
-    return documentForDelegate(mRocketChatAccount, appsId, shortDescription, width);
+    const QString appName = index.data(AppsMarketPlaceModel::AppName).toString();
+
+    QString fullDescription = QStringLiteral("*%1*").arg(appName);
+    if (!shortDescription.isEmpty()) {
+        fullDescription += QStringLiteral("\n*%2*").arg(shortDescription);
+    }
+
+    return documentForDelegate(mRocketChatAccount, appsId, fullDescription, width);
 }
 
 RocketChatAccount *ApplicationsSettingsDelegate::rocketChatAccount(const QModelIndex &index) const
