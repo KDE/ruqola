@@ -33,8 +33,9 @@ private:
         QPixmap appPixmap;
         QPointF appPixmapPos;
 
+        QString premiumText;
+        QRectF premiumRect;
         bool premium = false;
-        // TODO
     };
 
     [[nodiscard]] ApplicationsSettingsDelegate::Layout doLayout(const QStyleOptionViewItem &option, const QModelIndex &index) const;

@@ -14,6 +14,8 @@
 #if USE_SIZEHINT_CACHE_SUPPORT
 #include "ruqola_sizehint_cache_debug.h"
 #endif
+#include "colorsandmessageviewstyle.h"
+#include <KLocalizedString>
 #include <QPainter>
 #include <QTextDocument>
 #include <QTreeView>
@@ -33,6 +35,8 @@ void ApplicationsSettingsDelegate::paint(QPainter *painter, const QStyleOptionVi
 {
     painter->save();
     drawBackground(painter, option, index);
+
+    // FIXME painter->drawRect(option.rect);
 
     const Layout layout = doLayout(option, index);
     // Draw the pixmap
@@ -59,6 +63,13 @@ void ApplicationsSettingsDelegate::paint(QPainter *painter, const QStyleOptionVi
                                                 {},
                                                 false);
         }
+    }
+    if (layout.premium) {
+        painter->setBrush(ColorsAndMessageViewStyle::self().schemeView().foreground(KColorScheme::PositiveText).color());
+        painter->setPen(Qt::NoPen);
+        painter->drawRoundedRect(layout.premiumRect.adjusted(-5, 0, 5, 0), 5, 5);
+        painter->setPen(Qt::white);
+        painter->drawText(layout.premiumRect, layout.premiumText);
     }
     painter->restore();
 }
@@ -99,8 +110,12 @@ ApplicationsSettingsDelegate::Layout ApplicationsSettingsDelegate::doLayout(cons
     }
     layout.premium = index.data(AppsMarketPlaceModel::IsEnterpriseOnly).toBool();
 
+    layout.premiumText = i18n("Premium");
+    const QFontMetricsF senderFontMetrics(option.font);
+    const QSizeF premiumTextSize = senderFontMetrics.size(Qt::TextSingleLine, layout.premiumText);
+
     QRect usableRect = option.rect;
-    const int maxWidth = qMax(iconWidth, option.rect.width() - iconWidth - 2 * margin);
+    const int maxWidth = qMax(iconWidth, option.rect.width() - iconWidth - 2 * margin - static_cast<int>(premiumTextSize.width()));
 
     qreal baseLine = 0;
 
@@ -108,6 +123,7 @@ ApplicationsSettingsDelegate::Layout ApplicationsSettingsDelegate::doLayout(cons
     const QSize textSize = MessageDelegateUtils::textSizeHint(doc, &baseLine);
 
     layout.textRect = QRect(iconWidth + 2 * margin, usableRect.top(), maxWidth, qMax(textSize.height(), iconWidth + margin) /* + textVMargin*/);
+    layout.premiumRect = QRectF(layout.textRect.right() - premiumTextSize.width(), option.rect.top(), premiumTextSize.width(), premiumTextSize.height());
 
     return layout;
 }
