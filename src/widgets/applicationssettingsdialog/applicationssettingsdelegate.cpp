@@ -28,6 +28,7 @@ ApplicationsSettingsDelegate::~ApplicationsSettingsDelegate() = default;
 
 // Use big icon 2 lines
 // Short description + apps name
+// Primium
 void ApplicationsSettingsDelegate::paint(QPainter *painter, const QStyleOptionViewItem &option, const QModelIndex &index) const
 {
     painter->save();
@@ -76,8 +77,6 @@ QSize ApplicationsSettingsDelegate::sizeHint(const QStyleOptionViewItem &option,
 
     // Note: option.rect in this method is huge (as big as the viewport)
     const ApplicationsSettingsDelegate::Layout layout = doLayout(option, index);
-    // TODO
-
     const QSize size = {option.rect.width(), layout.textRect.height()};
 #if USE_SIZEHINT_CACHE_SUPPORT
     if (!size.isEmpty()) {
