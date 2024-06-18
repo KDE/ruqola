@@ -43,9 +43,11 @@ public:
 
 protected:
     [[nodiscard]] bool filterAcceptsRow(int source_row, const QModelIndex &source_parent) const override;
+    [[nodiscard]] bool lessThan(const QModelIndex &left, const QModelIndex &right) const override;
 
 private:
     FilterInfo mFilterInfo;
 };
 Q_DECLARE_METATYPE(AppsMarketPlaceFilterProxyModel::FilterInfo)
 Q_DECLARE_TYPEINFO(AppsMarketPlaceFilterProxyModel::FilterInfo, Q_RELOCATABLE_TYPE);
+LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const AppsMarketPlaceFilterProxyModel::FilterInfo &t);
