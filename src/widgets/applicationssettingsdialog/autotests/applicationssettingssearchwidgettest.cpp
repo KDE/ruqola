@@ -7,6 +7,7 @@
 #include "applicationssettingsdialog/applicationssettingscategoriescombobox.h"
 #include "applicationssettingsdialog/applicationssettingspricecombobox.h"
 #include "applicationssettingsdialog/applicationssettingssearchwidget.h"
+#include "applicationssettingsdialog/applicationssettingssortingcombobox.h"
 #include "applicationssettingsdialog/applicationssettingsstatuscombobox.h"
 #include <QHBoxLayout>
 #include <QLineEdit>
@@ -36,6 +37,9 @@ void ApplicationsSettingsSearchWidgetTest::shouldHaveDefaultValues()
 
     auto mApplicationsSettingsStatusComboBox = d.findChild<ApplicationsSettingsStatusComboBox *>(QStringLiteral("mApplicationsSettingsStatusComboBox"));
     QVERIFY(mApplicationsSettingsStatusComboBox);
+
+    auto mApplicationsSettingsSortingComboBox = d.findChild<ApplicationsSettingsSortingComboBox *>(QStringLiteral("mApplicationsSettingsSortingComboBox"));
+    QVERIFY(mApplicationsSettingsSortingComboBox);
 }
 
 #include "moc_applicationssettingssearchwidgettest.cpp"

@@ -14,6 +14,7 @@ class ApplicationsSettingsPriceComboBox;
 class ApplicationsSettingsStatusComboBox;
 class QLineEdit;
 class RocketChatAccount;
+class ApplicationsSettingsSortingComboBox;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT ApplicationsSettingsSearchWidget : public QWidget
 {
     Q_OBJECT
@@ -30,4 +31,5 @@ private:
     ApplicationsSettingsCategoriesComboBox *const mApplicationsSettingsComboBox;
     ApplicationsSettingsPriceComboBox *const mApplicationsSettingsPriceComboBox;
     ApplicationsSettingsStatusComboBox *const mApplicationsSettingsStatusComboBox;
+    ApplicationsSettingsSortingComboBox *const mApplicationsSettingsSortingComboBox;
 };

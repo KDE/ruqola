@@ -7,7 +7,9 @@
 #include "applicationssettingssearchwidget.h"
 #include "applicationssettingscategoriescombobox.h"
 #include "applicationssettingspricecombobox.h"
+#include "applicationssettingssortingcombobox.h"
 #include "applicationssettingsstatuscombobox.h"
+
 #include "rocketchataccount.h"
 
 #include <KLineEditEventHandler>
@@ -20,6 +22,7 @@ ApplicationsSettingsSearchWidget::ApplicationsSettingsSearchWidget(RocketChatAcc
     , mApplicationsSettingsComboBox(new ApplicationsSettingsCategoriesComboBox(account, this))
     , mApplicationsSettingsPriceComboBox(new ApplicationsSettingsPriceComboBox(this))
     , mApplicationsSettingsStatusComboBox(new ApplicationsSettingsStatusComboBox(this))
+    , mApplicationsSettingsSortingComboBox(new ApplicationsSettingsSortingComboBox(this))
 {
     auto mainLayout = new QHBoxLayout(this);
     mainLayout->setContentsMargins({});
@@ -38,10 +41,15 @@ ApplicationsSettingsSearchWidget::ApplicationsSettingsSearchWidget(RocketChatAcc
 
     mApplicationsSettingsStatusComboBox->setObjectName("mApplicationsSettingsStatusComboBox"_L1);
     mainLayout->addWidget(mApplicationsSettingsStatusComboBox);
+
+    mApplicationsSettingsSortingComboBox->setObjectName("mApplicationsSettingsSortingComboBox"_L1);
+    mainLayout->addWidget(mApplicationsSettingsSortingComboBox);
+
     connect(mSearchLineEdit, &QLineEdit::textChanged, this, &ApplicationsSettingsSearchWidget::filterChanged);
     connect(mApplicationsSettingsComboBox, &ApplicationsSettingsCategoriesComboBox::activated, this, &ApplicationsSettingsSearchWidget::filterChanged);
     connect(mApplicationsSettingsPriceComboBox, &ApplicationsSettingsPriceComboBox::activated, this, &ApplicationsSettingsSearchWidget::filterChanged);
     connect(mApplicationsSettingsStatusComboBox, &ApplicationsSettingsStatusComboBox::activated, this, &ApplicationsSettingsSearchWidget::filterChanged);
+    connect(mApplicationsSettingsSortingComboBox, &ApplicationsSettingsSortingComboBox::activated, this, &ApplicationsSettingsSearchWidget::filterChanged);
 }
 
 ApplicationsSettingsSearchWidget::~ApplicationsSettingsSearchWidget() = default;
