@@ -16,7 +16,7 @@ ApplicationsSettingsPriceComboBoxTest::ApplicationsSettingsPriceComboBoxTest(QOb
 void ApplicationsSettingsPriceComboBoxTest::shouldHaveDefaultValues()
 {
     ApplicationsSettingsPriceComboBox d;
-    QVERIFY(d.currentPrice().isEmpty());
+    QCOMPARE(d.currentPrice(), AppsMarketPlaceFilterProxyModel::Price::AllPrice);
 }
 
 #include "moc_applicationssettingspricecomboboxtest.cpp"

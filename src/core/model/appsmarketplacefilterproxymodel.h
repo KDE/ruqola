@@ -17,6 +17,10 @@ public:
     };
     Q_ENUM(Status);
     enum Price {
+        AllPrice,
+        Free,
+        Paid,
+        Premium,
         UnknownPrice,
     };
     Q_ENUM(Price);

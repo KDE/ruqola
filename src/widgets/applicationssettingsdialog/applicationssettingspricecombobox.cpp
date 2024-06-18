@@ -5,22 +5,22 @@
 */
 
 #include "applicationssettingspricecombobox.h"
+
 #include <KLocalizedString>
 ApplicationsSettingsPriceComboBox::ApplicationsSettingsPriceComboBox(QWidget *parent)
     : QComboBox(parent)
 {
-    // TODO Convert to enum
-    addItem(i18n("All Prices"), QString());
-    addItem(i18n("Free Apps"), QStringLiteral("free"));
-    addItem(i18n("Paid Apps"), QStringLiteral("paid"));
-    addItem(i18n("Premium"), QStringLiteral("premium"));
+    addItem(i18n("All Prices"), AppsMarketPlaceFilterProxyModel::Price::AllPrice);
+    addItem(i18n("Free Apps"), AppsMarketPlaceFilterProxyModel::Price::Free);
+    addItem(i18n("Paid Apps"), AppsMarketPlaceFilterProxyModel::Price::Paid);
+    addItem(i18n("Premium"), AppsMarketPlaceFilterProxyModel::Price::Premium);
 }
 
 ApplicationsSettingsPriceComboBox::~ApplicationsSettingsPriceComboBox() = default;
 
-QString ApplicationsSettingsPriceComboBox::currentPrice() const
+AppsMarketPlaceFilterProxyModel::Price ApplicationsSettingsPriceComboBox::currentPrice() const
 {
-    return currentData().toString();
+    return currentData().value<AppsMarketPlaceFilterProxyModel::Price>();
 }
 
 #include "moc_applicationssettingspricecombobox.cpp"
