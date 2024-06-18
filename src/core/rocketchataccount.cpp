@@ -2544,7 +2544,7 @@ void RocketChatAccount::checkLicenses()
         connect(job, &RocketChatRestApi::LicensesInfoJob::licensesInfoDone, this, [this](const QJsonObject &obj) {
             const QJsonObject license = obj["license"_L1].toObject();
             if (!license.isEmpty()) {
-                bool isEnterprise = !license["activeModules"_L1].toArray().isEmpty();
+                const bool isEnterprise = !license["activeModules"_L1].toArray().isEmpty();
                 mRuqolaServerConfig->setHasEnterpriseSupport(isEnterprise);
                 if (isEnterprise) {
                     licenseGetModules();
