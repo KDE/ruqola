@@ -10,6 +10,8 @@
 AppsMarketPlaceFilterProxyModel::AppsMarketPlaceFilterProxyModel(QObject *parent)
     : QSortFilterProxyModel{parent}
 {
+    setFilterCaseSensitivity(Qt::CaseInsensitive);
+    sort(0, Qt::AscendingOrder);
 }
 
 AppsMarketPlaceFilterProxyModel::~AppsMarketPlaceFilterProxyModel() = default;
@@ -33,8 +35,13 @@ bool AppsMarketPlaceFilterProxyModel::filterAcceptsRow(int source_row, const QMo
 
 bool AppsMarketPlaceFilterProxyModel::lessThan(const QModelIndex &left, const QModelIndex &right) const
 {
-    // TODO
-    return QSortFilterProxyModel::lessThan(left, right);
+    if (left.isValid() && right.isValid()) {
+        const QString leftString = sourceModel()->data(left, AppsMarketPlaceModel::AppName).toString();
+        const QString rightString = sourceModel()->data(right, AppsMarketPlaceModel::AppName).toString();
+        return QString::localeAwareCompare(leftString, rightString) < 0;
+    } else {
+        return false;
+    }
 }
 
 AppsMarketPlaceFilterProxyModel::FilterInfo AppsMarketPlaceFilterProxyModel::filterInfo() const
