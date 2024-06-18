@@ -29,8 +29,9 @@ void ApplicationsSettingsSearchWidgetTest::shouldHaveDefaultValues()
     QVERIFY(mSearchLineEdit);
     QVERIFY(mSearchLineEdit->text().isEmpty());
 
-    auto mApplicationsSettingsComboBox = d.findChild<ApplicationsSettingsCategoriesComboBox *>(QStringLiteral("mApplicationsSettingsComboBox"));
-    QVERIFY(mApplicationsSettingsComboBox);
+    auto mApplicationsSettingsCategoriesComboBox =
+        d.findChild<ApplicationsSettingsCategoriesComboBox *>(QStringLiteral("mApplicationsSettingsCategoriesComboBox"));
+    QVERIFY(mApplicationsSettingsCategoriesComboBox);
 
     auto mApplicationsSettingsPriceComboBox = d.findChild<ApplicationsSettingsPriceComboBox *>(QStringLiteral("mApplicationsSettingsPriceComboBox"));
     QVERIFY(mApplicationsSettingsPriceComboBox);

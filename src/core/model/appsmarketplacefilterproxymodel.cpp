@@ -18,7 +18,7 @@ bool AppsMarketPlaceFilterProxyModel::filterAcceptsRow(int source_row, const QMo
 {
     const QModelIndex modelIndex = sourceModel()->index(source_row, 0, source_parent);
     if (!mFilterInfo.text.isEmpty()) {
-        if (!modelIndex.data(AppsMarketPlaceModel::Description).toString().contains(mFilterInfo.text, Qt::CaseInsensitive)
+        if (!modelIndex.data(AppsMarketPlaceModel::ShortDescription).toString().contains(mFilterInfo.text, Qt::CaseInsensitive)
             && !modelIndex.data(AppsMarketPlaceModel::AppName).toString().contains(mFilterInfo.text, Qt::CaseInsensitive)) {
             return false;
         }

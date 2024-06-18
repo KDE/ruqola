@@ -28,7 +28,7 @@ Q_SIGNALS:
 
 private:
     QLineEdit *const mSearchLineEdit;
-    ApplicationsSettingsCategoriesComboBox *const mApplicationsSettingsComboBox;
+    ApplicationsSettingsCategoriesComboBox *const mApplicationsSettingsCategoriesComboBox;
     ApplicationsSettingsPriceComboBox *const mApplicationsSettingsPriceComboBox;
     ApplicationsSettingsStatusComboBox *const mApplicationsSettingsStatusComboBox;
     ApplicationsSettingsSortingComboBox *const mApplicationsSettingsSortingComboBox;

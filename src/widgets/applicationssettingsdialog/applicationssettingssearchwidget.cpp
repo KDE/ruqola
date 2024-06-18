@@ -19,7 +19,7 @@ using namespace Qt::Literals::StringLiterals;
 ApplicationsSettingsSearchWidget::ApplicationsSettingsSearchWidget(RocketChatAccount *account, QWidget *parent)
     : QWidget{parent}
     , mSearchLineEdit(new QLineEdit(this))
-    , mApplicationsSettingsComboBox(new ApplicationsSettingsCategoriesComboBox(account, this))
+    , mApplicationsSettingsCategoriesComboBox(new ApplicationsSettingsCategoriesComboBox(account, this))
     , mApplicationsSettingsPriceComboBox(new ApplicationsSettingsPriceComboBox(this))
     , mApplicationsSettingsStatusComboBox(new ApplicationsSettingsStatusComboBox(this))
     , mApplicationsSettingsSortingComboBox(new ApplicationsSettingsSortingComboBox(this))
@@ -33,8 +33,8 @@ ApplicationsSettingsSearchWidget::ApplicationsSettingsSearchWidget(RocketChatAcc
     KLineEditEventHandler::catchReturnKey(mSearchLineEdit);
     mSearchLineEdit->setClearButtonEnabled(true);
 
-    mApplicationsSettingsComboBox->setObjectName("mApplicationsSettingsComboBox"_L1);
-    mainLayout->addWidget(mApplicationsSettingsComboBox);
+    mApplicationsSettingsCategoriesComboBox->setObjectName("mApplicationsSettingsCategoriesComboBox"_L1);
+    mainLayout->addWidget(mApplicationsSettingsCategoriesComboBox);
 
     mApplicationsSettingsPriceComboBox->setObjectName("mApplicationsSettingsPriceComboBox"_L1);
     mainLayout->addWidget(mApplicationsSettingsPriceComboBox);
@@ -46,7 +46,10 @@ ApplicationsSettingsSearchWidget::ApplicationsSettingsSearchWidget(RocketChatAcc
     mainLayout->addWidget(mApplicationsSettingsSortingComboBox);
 
     connect(mSearchLineEdit, &QLineEdit::textChanged, this, &ApplicationsSettingsSearchWidget::filterChanged);
-    connect(mApplicationsSettingsComboBox, &ApplicationsSettingsCategoriesComboBox::activated, this, &ApplicationsSettingsSearchWidget::filterChanged);
+    connect(mApplicationsSettingsCategoriesComboBox,
+            &ApplicationsSettingsCategoriesComboBox::activated,
+            this,
+            &ApplicationsSettingsSearchWidget::filterChanged);
     connect(mApplicationsSettingsPriceComboBox, &ApplicationsSettingsPriceComboBox::activated, this, &ApplicationsSettingsSearchWidget::filterChanged);
     connect(mApplicationsSettingsStatusComboBox, &ApplicationsSettingsStatusComboBox::activated, this, &ApplicationsSettingsSearchWidget::filterChanged);
     connect(mApplicationsSettingsSortingComboBox, &ApplicationsSettingsSortingComboBox::activated, this, &ApplicationsSettingsSearchWidget::filterChanged);
@@ -57,6 +60,8 @@ ApplicationsSettingsSearchWidget::~ApplicationsSettingsSearchWidget() = default;
 AppsMarketPlaceFilterProxyModel::FilterInfo ApplicationsSettingsSearchWidget::filterInfo() const
 {
     AppsMarketPlaceFilterProxyModel::FilterInfo info;
+    info.text = mSearchLineEdit->text();
+    info.categories = mApplicationsSettingsCategoriesComboBox->categories();
     return info;
 }
 
