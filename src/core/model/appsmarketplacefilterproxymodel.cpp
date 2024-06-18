@@ -23,6 +23,10 @@ bool AppsMarketPlaceFilterProxyModel::filterAcceptsRow(int source_row, const QMo
             return false;
         }
     }
+    if (!mFilterInfo.categories.isEmpty()) {
+        const QStringList categories = modelIndex.data(AppsMarketPlaceModel::ShortDescription).toStringList();
+        // TODO
+    }
     // TODO
     return QSortFilterProxyModel::filterAcceptsColumn(source_row, source_parent);
 }
