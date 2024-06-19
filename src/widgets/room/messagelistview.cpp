@@ -298,7 +298,7 @@ void MessageListView::contextMenuEvent(QContextMenuEvent *event)
         });
     }
 
-    auto selectAllAction = new QAction(i18nc("@action", "Select All"), &menu);
+    auto selectAllAction = new QAction(QIcon::fromTheme(QStringLiteral("edit-select-all")), i18nc("@action", "Select All"), &menu);
     connect(selectAllAction, &QAction::triggered, this, [this, index]() {
         slotSelectAll(index);
     });
