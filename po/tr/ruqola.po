@@ -2814,8 +2814,7 @@ msgstr "Tüm İletileri Sil"
 
 #: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:149
 #: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:143
-#, fuzzy, kde-format
-#| msgid "Desactivate user"
+#, kde-format
 msgid "Deactivate user"
 msgstr "Kullanıcıyı Pasifleştir"
 
@@ -2831,9 +2830,7 @@ msgstr ""
 
 #: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:162
 #: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:156
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Desactivate User"
+#, kde-format
 msgctxt "@title:window"
 msgid "Deactivate User"
 msgstr "Kullanıcıyı Pasifleştir"
@@ -9973,134 +9970,3 @@ msgstr "Birden çok dosya göndermeye izin ver."
 #: widgets/whatsnew/whatsnewwidgettranslation.h:90
 msgid "Fix preview url."
 msgstr "Önizleme URL’sini düzelt."
-
-#~ msgid "(Click here for Loading more…"
-#~ msgstr "(Daha fazla yüklemek için buraya tıklayın…)"
-
-#~ msgid "Droplet"
-#~ msgstr "Damlacık"
-
-#~ msgid "Modify Status..."
-#~ msgstr "Durumu Değiştir…"
-
-#~ msgid "Reply..."
-#~ msgstr "Yanıtla…"
-
-#~ msgid "Add Users In Role..."
-#~ msgstr "Role Kullanıcılar Ekle…"
-
-#~ msgid "Invite..."
-#~ msgstr "Davet et…"
-
-#~ msgid "Configure Notification..."
-#~ msgstr "Bildirimleri Yapılandır…"
-
-#~ msgid "Invite users..."
-#~ msgstr "Kullanıcıları davet et…"
-
-#~ msgid "Search messages..."
-#~ msgstr "İletiler ara…"
-
-#~ msgid "Search channels..."
-#~ msgstr "Kanallar ara…"
-
-#~ msgid "Open..."
-#~ msgstr "Aç…"
-
-#~ msgid "Search rooms..."
-#~ msgstr "Odalar ara…"
-
-#~ msgid "Download Image..."
-#~ msgstr "Görseli İndir…"
-
-#~ msgid "Download Video..."
-#~ msgstr "Videoyu İndir…"
-
-#~ msgid "Download Sound..."
-#~ msgstr "Sesi İndir…"
-
-#~ msgid "Prune Messages..."
-#~ msgstr "İletileri Buda…"
-
-#~ msgid "Configure Auto-Translate..."
-#~ msgstr "Otomatik Çeviriyi Yapılandır…"
-
-#~ msgid "Export Messages..."
-#~ msgstr "İletileri Dışa Aktar…"
-
-#~ msgid "Search Messages..."
-#~ msgstr "İletileri Ara…"
-
-#~ msgid "Add Server..."
-#~ msgstr "Sunucu Ekle…"
-
-#~ msgid "Server Info..."
-#~ msgstr "Sunucu Bilgisi…"
-
-#~ msgid "Create New Channel..."
-#~ msgstr "Yeni Kanal Oluştur…"
-
-#~ msgid "Create Team..."
-#~ msgstr "Takım Oluştur…"
-
-#~ msgid "Register a New User..."
-#~ msgstr "Yeni Bir Kullanıcı Olarak Kaydol…"
-
-#~ msgid "Administrator..."
-#~ msgstr "Yönetici…"
-
-#~ msgid "Search room..."
-#~ msgstr "Oda ara…"
-
-#~ msgid "Hash"
-#~ msgstr "Sağlama"
-
-#~ msgid "Branch"
-#~ msgstr "Dal"
-
-#~ msgid "Tag"
-#~ msgstr "Etiket"
-
-#~ msgid "Author"
-#~ msgstr "Yazar"
-
-#~ msgid "Node Version"
-#~ msgstr "Düğüm Sürümü"
-
-#~ msgid "Arch"
-#~ msgstr "Mimari"
-
-#~ msgid "Room topic changed to: %1 by %2"
-#~ msgstr "Oda konusu, %2 tarafından değiştirildi: %1"
-
-#~ msgid "Server not found: %1"
-#~ msgstr "Sunucu bulunamadı: %1"
-
-#~ msgid "Commit"
-#~ msgstr "İşleme"
-
-#~ msgid "Build Environment"
-#~ msgstr "Yapı Ortamı"
-
-#~ msgid "Account Name:"
-#~ msgstr "Hesap adı:"
-
-#~ msgid "Account name"
-#~ msgstr "Hesap adı"
-
-#~ msgid "File Uploaded:"
-#~ msgstr "Dosya karşıya yüklendi:"
-
-#~ msgid "File Uploaded: %1"
-#~ msgstr "Dosya karşıya yüklendi: %1"
-
-#~ msgid "Authentication Method"
-#~ msgstr "Kimlik Doğrulama Yöntemi"
-
-#~ msgctxt "@title:window"
-#~ msgid "Configure"
-#~ msgstr "Yapılandır"
-
-#~ msgctxt "@title:window"
-#~ msgid "Start a Direct Call"
-#~ msgstr "Bir Doğrudan Arama Başlat"

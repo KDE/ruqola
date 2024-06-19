@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-06-10 02:50+0000\n"
-"PO-Revision-Date: 2024-06-17 23:13+0200\n"
+"PO-Revision-Date: 2024-06-18 22:39+0200\n"
 "Last-Translator: Kristof Kiszel <ulysses@fsf.hu>\n"
 "Language-Team: Hungarian <kde-l10n-hu@kde.org>\n"
 "Language: hu\n"
@@ -3852,7 +3852,7 @@ msgstr "Alapértelmezett szerepek a felhasználóknak"
 #, kde-format
 msgctxt "@title:window"
 msgid "Administrator Server Settings - %1"
-msgstr ""
+msgstr "Adminisztrátori kiszolgálóbeállítások - %1"
 
 #: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:107
 #, kde-format
@@ -4055,6 +4055,8 @@ msgid ""
 "The url where the Piwik resides, be sure to include the trailing slash. "
 "Example: //piwik.rocket.chat/"
 msgstr ""
+"Az URL, ahol a Piwik található, ne feledje a lezáró perjelet. Példa: //piwik."
+"rocket.chat/"
 
 #: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:70
 #, kde-format
@@ -4132,6 +4134,7 @@ msgctxt "@info:tooltip"
 msgid ""
 "The base URL of your external SSO service e.g: https://sso.example.undef/sso/"
 msgstr ""
+"A külső SSO szolgáltatás alap URL-je, például: https://sso.example.undef/sso/"
 
 #: widgets/administratorsettingsdialog/cas/cassettingswidget.cpp:38
 #, kde-format
@@ -4145,6 +4148,8 @@ msgid ""
 "The login URL of your external SSO service e.g: https://sso.example.undef/"
 "sso/login"
 msgstr ""
+"A külső SSO szolgáltatás bejelentkező URL-je, például: https://sso.example."
+"undef/sso/login"
 
 #: widgets/administratorsettingsdialog/cas/cassettingswidget.cpp:46
 #: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:53
@@ -4161,6 +4166,12 @@ msgid ""
 "This may be needed if a user is renamed on CAS, but may also allow people to "
 "take control of Rocket.Chat accounts by renaming their own CAS users."
 msgstr ""
+"Ha engedélyezve van, a Rocket.Chat bízik abban, hogy a CAS-ból származó "
+"bármely felhasználónév ugyanahhoz a felhasználóhoz tartozik a Rocket."
+"Chaten.\n"
+"Erre akkor lehet szükség, ha egy felhasználót átneveznek a CAS-on, de azt is "
+"lehetővé teheti, hogy az emberek átvegyék az irányítást a Rocket.Chat fiókok "
+"felett a saját CAS-felhasználóik átnevezésével."
 
 #: widgets/administratorsettingsdialog/cas/cassettingswidget.cpp:56
 #, kde-format
@@ -4207,6 +4218,18 @@ msgid ""
 "{\"rooms\": \"%team%,%department%\"} would join CAS users on creation to "
 "their team and department channel."
 msgstr ""
+"Használja ezt a JSON bemenetet a belső attribútumok (kulcs) létrehozásához a "
+"külső attribútumokból (érték).\n"
+"A „%”-kal körülvett külső attribútumnevek interpolálva lesznek az érték-"
+"karakterláncokban.<br/>Például, {\"email\":\"%email%\", \"name\":\"%firstname"
+"%, %lastname%\"}\n"
+"Az attribútumtérkép mindig interpolálódik. A CAS 1.0-ban csak a "
+"felhasználónév attribútum érhető el. Az elérhető belső attribútumok: "
+"username, name, email, rooms;\n"
+"a rooms egy vesszővel elválasztott lista a szobákról, amelyekhez a "
+"felhasználó létrehozásakor csatlakozni kell, például a {\"rooms\": \"%team%,"
+"\"department%\"} belépteti a CAS felhasználókat létrehozásuk után a csapatuk "
+"és részlegük csatornájára."
 
 #: widgets/administratorsettingsdialog/conferencecall/conferencecallsettingswidget.cpp:24
 #, kde-format
@@ -4410,6 +4433,8 @@ msgid ""
 "If your workspace is registered and license is provided by Rocket.Chat Cloud "
 "you don't need to manually update the license here."
 msgstr ""
+"Ha a munkaterület regisztrálva van, és a Rocket.Chat Cloud biztosítja a "
+"licencet, nem kell kézzel frissítenie a licencet itt."
 
 #: widgets/administratorsettingsdialog/enterprise/enterprisesettingswidget.cpp:21
 #, kde-format
@@ -4434,7 +4459,7 @@ msgstr "Képek elforgatása feltöltéskor"
 #: widgets/administratorsettingsdialog/fileupload/fileuploadsettingswidget.cpp:23
 #, kde-format
 msgid "Restrict files to rooms' members"
-msgstr ""
+msgstr "Fájlok korlátozása a szobák tagjaira"
 
 #: widgets/administratorsettingsdialog/fileupload/fileuploadsettingswidget.cpp:24
 #, kde-format
@@ -4470,6 +4495,8 @@ msgctxt "@info:tooltip"
 msgid ""
 "Restrict the access of files uploaded on rooms to the rooms' members only"
 msgstr ""
+"A szobákba feltöltött fájlokhoz való hozzáférés korlátozása csak a szobák "
+"tagjai számára"
 
 #: widgets/administratorsettingsdialog/fileupload/fileuploadsettingswidget.cpp:59
 #, kde-format
@@ -4900,6 +4927,11 @@ msgid ""
 "third-party integrations. Use a fully qualified name, such as "
 "cn=Administrator,cn=Users,dc=Example,dc=com."
 msgstr ""
+"Az az LDAP-felhasználó, aki a felhasználók keresését végzi más felhasználók "
+"hitelesítéséhez, amikor bejelentkeznek. Ez általában egy kifejezetten a "
+"harmadik féltől származó integrációkhoz létrehozott szolgáltatási fiók. "
+"Használjon teljes minősített nevet, például cn=Administrator,cn=Users,"
+"dc=Example,dc=com."
 
 #: widgets/administratorsettingsdialog/ldap/ldapsettingswidget.cpp:67
 #, kde-format
