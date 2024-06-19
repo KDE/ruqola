@@ -129,7 +129,7 @@ void ApplicationsSettingsListView::slotAskApplication(const QModelIndex &index)
             info.appVersion = index.data(AppsMarketPlaceModel::AppVersion).toString();
             job->setInfo(info);
             mRocketChatAccount->restApi()->initializeRestApiJob(job);
-            connect(job, &RocketChatRestApi::NotifyAdminsAppsJob::notifyAdminsAppsDone, this, [this](const QJsonObject &obj) {
+            connect(job, &RocketChatRestApi::NotifyAdminsAppsJob::notifyAdminsAppsDone, this, [](const QJsonObject &obj) {
                 qDebug() << " obj " << obj;
             });
             if (!job->start()) {

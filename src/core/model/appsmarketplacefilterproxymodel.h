@@ -13,6 +13,9 @@ class LIBRUQOLACORE_EXPORT AppsMarketPlaceFilterProxyModel : public QSortFilterP
     Q_OBJECT
 public:
     enum Status {
+        AllStatus,
+        Enabled,
+        Disabled,
         UnknownStatus,
     };
     Q_ENUM(Status);

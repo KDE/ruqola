@@ -11,16 +11,16 @@ ApplicationsSettingsStatusComboBox::ApplicationsSettingsStatusComboBox(QWidget *
     : QComboBox(parent)
 {
     // TODO Convert to enum
-    addItem(i18n("All Status"), QString());
-    addItem(i18n("Enabled"), QStringLiteral("enabled"));
-    addItem(i18n("Disabled"), QStringLiteral("disabled"));
+    addItem(i18n("All Status"), AppsMarketPlaceFilterProxyModel::Status::AllStatus);
+    addItem(i18n("Enabled"), AppsMarketPlaceFilterProxyModel::Status::Enabled);
+    addItem(i18n("Disabled"), AppsMarketPlaceFilterProxyModel::Status::Disabled);
 }
 
 ApplicationsSettingsStatusComboBox::~ApplicationsSettingsStatusComboBox() = default;
 
-QString ApplicationsSettingsStatusComboBox::currentStatus() const
+AppsMarketPlaceFilterProxyModel::Status ApplicationsSettingsStatusComboBox::currentStatus() const
 {
-    return currentData().toString();
+    return currentData().value<AppsMarketPlaceFilterProxyModel::Status>();
 }
 
 #include "moc_applicationssettingsstatuscombobox.cpp"

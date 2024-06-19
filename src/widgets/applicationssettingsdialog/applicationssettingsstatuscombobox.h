@@ -6,6 +6,7 @@
 
 #pragma once
 #include "libruqolawidgets_private_export.h"
+#include "model/appsmarketplacefilterproxymodel.h"
 #include <QComboBox>
 
 class LIBRUQOLAWIDGETS_TESTS_EXPORT ApplicationsSettingsStatusComboBox : public QComboBox
@@ -14,5 +15,5 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT ApplicationsSettingsStatusComboBox : public 
 public:
     explicit ApplicationsSettingsStatusComboBox(QWidget *parent = nullptr);
     ~ApplicationsSettingsStatusComboBox() override;
-    [[nodiscard]] QString currentStatus() const;
+    [[nodiscard]] AppsMarketPlaceFilterProxyModel::Status currentStatus() const;
 };
