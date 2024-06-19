@@ -21,7 +21,7 @@ ApplicationsSettingsAskApplicationDialog::ApplicationsSettingsAskApplicationDial
     : QDialog(parent)
     , mApplicationsSettingsAskApplicationWidget(new ApplicationsSettingsAskApplicationWidget(this))
 {
-    setWindowTitle(i18nc("@title:window", "Applications"));
+    setWindowTitle(i18nc("@title:window", "Ask Application"));
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
 
@@ -60,6 +60,11 @@ void ApplicationsSettingsAskApplicationDialog::writeConfig()
 QString ApplicationsSettingsAskApplicationDialog::message() const
 {
     return mApplicationsSettingsAskApplicationWidget->message();
+}
+
+void ApplicationsSettingsAskApplicationDialog::setApplicationName(const QString &appName)
+{
+    mApplicationsSettingsAskApplicationWidget->setApplicationName(appName);
 }
 
 #include "moc_applicationssettingsaskapplicationdialog.cpp"

@@ -17,6 +17,8 @@ public:
 
     [[nodiscard]] QString message() const;
 
+    void setApplicationName(const QString &appName);
+
 private:
     LIBRUQOLAWIDGETS_NO_EXPORT void readConfig();
     LIBRUQOLAWIDGETS_NO_EXPORT void writeConfig();

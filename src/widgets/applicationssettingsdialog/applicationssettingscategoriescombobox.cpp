@@ -19,11 +19,11 @@ ApplicationsSettingsCategoriesComboBox::ApplicationsSettingsCategoriesComboBox(R
     setSizeAdjustPolicy(QComboBox::AdjustToContents);
 }
 
+ApplicationsSettingsCategoriesComboBox::~ApplicationsSettingsCategoriesComboBox() = default;
+
 QStringList ApplicationsSettingsCategoriesComboBox::categories() const
 {
     return mRocketChatAccount->appsCategoriesModel()->categoriesSelected();
 }
-
-ApplicationsSettingsCategoriesComboBox::~ApplicationsSettingsCategoriesComboBox() = default;
 
 #include "moc_applicationssettingscategoriescombobox.cpp"

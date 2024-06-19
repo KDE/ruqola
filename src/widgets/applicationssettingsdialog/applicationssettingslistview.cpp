@@ -8,6 +8,7 @@
 #include "applicationssettingsaskapplicationdialog.h"
 #include "applicationssettingsdelegate.h"
 #include "applicationssettingsdescriptiondialog.h"
+#include "apps/notifyadminsappsjob.h"
 #include "model/appsmarketplacefilterproxymodel.h"
 #include "model/appsmarketplacemodel.h"
 #include <KLocalizedString>
@@ -49,14 +50,14 @@ ApplicationsSettingsListView::~ApplicationsSettingsListView() = default;
 void ApplicationsSettingsListView::slotCustomContextMenuRequested(const QPoint &pos)
 {
     if (model()->rowCount() > 0) {
-        QMenu menu(this);
         const QModelIndex index = indexAt(pos);
         if (index.isValid()) {
-            menu.addAction(i18nc("@action", "Show Description"), this, [this, index]() {
+            QMenu menu(this);
+            menu.addAction(i18nc("@action", "Show Description…"), this, [this, index]() {
                 slotShowApplicationDescription(index);
             });
             menu.addSeparator();
-            menu.addAction(i18nc("@action", "Ask Application"), this, [this, index]() {
+            menu.addAction(i18nc("@action", "Ask Application…"), this, [this, index]() {
                 slotAskApplication(index);
             });
             if (mApplicationsSettingsListDelegate->hasSelection()) {
@@ -73,8 +74,8 @@ void ApplicationsSettingsListView::slotCustomContextMenuRequested(const QPoint &
             menu.addAction(QIcon::fromTheme(QStringLiteral("edit-select-all")), i18nc("@action", "Select All"), this, [this, index]() {
                 slotSelectAll(index);
             });
+            menu.exec(viewport()->mapToGlobal(pos));
         }
-        menu.exec(viewport()->mapToGlobal(pos));
     }
 }
 
@@ -113,7 +114,13 @@ void ApplicationsSettingsListView::setSorting(AppsMarketPlaceFilterProxyModel::S
 void ApplicationsSettingsListView::slotAskApplication(const QModelIndex &index)
 {
     QPointer<ApplicationsSettingsAskApplicationDialog> dlg = new ApplicationsSettingsAskApplicationDialog(this);
+    const QString appName = index.data(AppsMarketPlaceModel::AppName).toString();
+    dlg->setApplicationName(appName);
     if (dlg->exec()) {
+        const QString message = dlg->message();
+        if (mRocketChatAccount) {
+            // TODO ask to sysadmin job
+        }
         // TODO
     }
     delete dlg;
@@ -122,8 +129,9 @@ void ApplicationsSettingsListView::slotAskApplication(const QModelIndex &index)
 void ApplicationsSettingsListView::slotShowApplicationDescription(const QModelIndex &index)
 {
     ApplicationsSettingsDescriptionDialog dlg(this);
+    const QString description = index.data(AppsMarketPlaceModel::FullDescription).toString();
+    dlg.setDescription(description);
     dlg.exec();
-    // TODO
 }
 
 bool ApplicationsSettingsListView::maybeStartDrag(QMouseEvent *event, const QStyleOptionViewItem &option, const QModelIndex &index)

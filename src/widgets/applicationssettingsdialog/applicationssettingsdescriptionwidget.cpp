@@ -18,6 +18,7 @@ ApplicationsSettingsDescriptionWidget::ApplicationsSettingsDescriptionWidget(QWi
 
     mTextBrowser->setObjectName("mTextBrowser"_L1);
     mainLayout->addWidget(mTextBrowser);
+    mTextBrowser->setOpenExternalLinks(true);
 }
 
 ApplicationsSettingsDescriptionWidget::~ApplicationsSettingsDescriptionWidget() = default;
