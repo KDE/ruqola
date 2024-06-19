@@ -27,6 +27,10 @@ void ApplicationsSettingsAskApplicationWidgetTest::shouldHaveDefaultValues()
     QVERIFY(label);
     QVERIFY(!label->text().isEmpty());
 
+    auto mTextAppLabel = d.findChild<QLabel *>(QStringLiteral("mTextAppLabel"));
+    QVERIFY(mTextAppLabel);
+    QVERIFY(mTextAppLabel->text().isEmpty());
+
     auto mMessage = d.findChild<KTextEdit *>(QStringLiteral("mMessage"));
     QVERIFY(mMessage);
     QVERIFY(mMessage->toPlainText().isEmpty());

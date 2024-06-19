@@ -13,11 +13,18 @@
 using namespace Qt::Literals::StringLiterals;
 ApplicationsSettingsAskApplicationWidget::ApplicationsSettingsAskApplicationWidget(QWidget *parent)
     : QWidget{parent}
+    , mTextAppLabel(new QLabel(this))
     , mMessage(new KTextEdit(this))
 {
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName("mainLayout"_L1);
     mainLayout->setContentsMargins({});
+
+    mTextAppLabel->setObjectName("mTextAppLabel"_L1);
+    QFont labFont = mTextAppLabel->font();
+    labFont.setBold(true);
+    mTextAppLabel->setFont(labFont);
+    mainLayout->addWidget(mTextAppLabel);
 
     auto label = new QLabel(i18n("Let your admin know why this app would be useful"), this);
     label->setObjectName("label"_L1);
@@ -28,11 +35,16 @@ ApplicationsSettingsAskApplicationWidget::ApplicationsSettingsAskApplicationWidg
     mMessage->setPlaceholderText(i18n("Message for workspace admin"));
 }
 
+ApplicationsSettingsAskApplicationWidget::~ApplicationsSettingsAskApplicationWidget() = default;
+
 QString ApplicationsSettingsAskApplicationWidget::message() const
 {
     return mMessage->toPlainText();
 }
 
-ApplicationsSettingsAskApplicationWidget::~ApplicationsSettingsAskApplicationWidget() = default;
+void ApplicationsSettingsAskApplicationWidget::setApplicationName(const QString &appName)
+{
+    mTextAppLabel->setText(i18n("Want to use %1", appName));
+}
 
 #include "moc_applicationssettingsaskapplicationwidget.cpp"

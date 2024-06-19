@@ -8,6 +8,7 @@
 #include "libruqolawidgets_private_export.h"
 #include <QWidget>
 class KTextEdit;
+class QLabel;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT ApplicationsSettingsAskApplicationWidget : public QWidget
 {
     Q_OBJECT
@@ -17,6 +18,9 @@ public:
 
     [[nodiscard]] QString message() const;
 
+    void setApplicationName(const QString &appName);
+
 private:
+    QLabel *const mTextAppLabel;
     KTextEdit *const mMessage;
 };
