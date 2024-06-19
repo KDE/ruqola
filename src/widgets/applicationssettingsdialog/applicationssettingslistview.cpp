@@ -52,7 +52,15 @@ void ApplicationsSettingsListView::slotCustomContextMenuRequested(const QPoint &
         QMenu menu(this);
         const QModelIndex index = indexAt(pos);
         if (index.isValid()) {
+            menu.addAction(i18n("Show Description"), this, [this, index]() {
+                slotShowApplicationDescription(index);
+            });
+            menu.addSeparator();
+            menu.addAction(i18n("Ask Application"), this, [this, index]() {
+                slotAskApplication(index);
+            });
             if (mApplicationsSettingsListDelegate->hasSelection()) {
+                menu.addSeparator();
                 auto copyAction = new QAction(QIcon::fromTheme(QStringLiteral("edit-copy")), i18n("Copy Text"), &menu);
                 copyAction->setShortcut(QKeySequence::Copy);
                 connect(copyAction, &QAction::triggered, this, [this, index]() {
@@ -102,7 +110,7 @@ void ApplicationsSettingsListView::setSorting(AppsMarketPlaceFilterProxyModel::S
     mAppsMarketPlaceFilterProxyModel->setSorting(newSorting);
 }
 
-void ApplicationsSettingsListView::slotAskApplication()
+void ApplicationsSettingsListView::slotAskApplication(const QModelIndex &index)
 {
     QPointer<ApplicationsSettingsAskApplicationDialog> dlg = new ApplicationsSettingsAskApplicationDialog(this);
     if (dlg->exec()) {
@@ -111,7 +119,7 @@ void ApplicationsSettingsListView::slotAskApplication()
     delete dlg;
 }
 
-void ApplicationsSettingsListView::slotShowApplicationDescription()
+void ApplicationsSettingsListView::slotShowApplicationDescription(const QModelIndex &index)
 {
     ApplicationsSettingsDescriptionDialog dlg(this);
     dlg.exec();

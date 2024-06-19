@@ -28,8 +28,8 @@ protected:
     [[nodiscard]] bool mouseEvent(QMouseEvent *event, const QStyleOptionViewItem &option, const QModelIndex &index) override;
 
 private:
-    LIBRUQOLAWIDGETS_NO_EXPORT void slotAskApplication();
-    LIBRUQOLAWIDGETS_NO_EXPORT void slotShowApplicationDescription();
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotAskApplication(const QModelIndex &index);
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotShowApplicationDescription(const QModelIndex &index);
     LIBRUQOLAWIDGETS_NO_EXPORT void slotCustomContextMenuRequested(const QPoint &pos);
     LIBRUQOLAWIDGETS_NO_EXPORT void slotSelectAll(const QModelIndex &index);
     [[nodiscard]] LIBRUQOLAWIDGETS_NO_EXPORT QString selectedText(const QModelIndex &index) override;
