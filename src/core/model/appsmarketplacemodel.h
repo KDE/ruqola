@@ -26,6 +26,7 @@ public:
         IsEnterpriseOnly,
         Pixmap,
         ModifiedDate,
+        FullDescription,
     };
     Q_ENUM(AppsCategoriesRoles)
 

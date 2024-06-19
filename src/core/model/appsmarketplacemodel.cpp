@@ -72,6 +72,8 @@ QVariant AppsMarketPlaceModel::data(const QModelIndex &index, int role) const
         return appsMarketPlaceInfo.pixmap();
     case AppsMarketPlaceModel::ModifiedDate:
         return appsMarketPlaceInfo.modifiedDate();
+    case AppsMarketPlaceModel::FullDescription:
+        return appsMarketPlaceInfo.fullDescription();
     }
     return {};
 }
