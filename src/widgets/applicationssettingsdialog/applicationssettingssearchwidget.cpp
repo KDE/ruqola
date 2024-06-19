@@ -63,6 +63,7 @@ AppsMarketPlaceFilterProxyModel::FilterInfo ApplicationsSettingsSearchWidget::fi
     info.text = mSearchLineEdit->text();
     info.categories = mApplicationsSettingsCategoriesComboBox->categories();
     info.price = mApplicationsSettingsPriceComboBox->currentPrice();
+    info.status = mApplicationsSettingsStatusComboBox->currentStatus();
     return info;
 }
 
