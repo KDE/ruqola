@@ -20,7 +20,11 @@ public:
 
     void setApplicationName(const QString &appName);
 
+Q_SIGNALS:
+    void updateOkButton(bool state);
+
 private:
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotUpdateOkButton();
     QLabel *const mTextAppLabel;
     KTextEdit *const mMessage;
 };

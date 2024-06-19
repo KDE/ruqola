@@ -33,6 +33,7 @@ ApplicationsSettingsAskApplicationWidget::ApplicationsSettingsAskApplicationWidg
     mMessage->setObjectName("mMessage"_L1);
     mainLayout->addWidget(mMessage);
     mMessage->setPlaceholderText(i18n("Message for workspace admin"));
+    connect(mMessage, &KTextEdit::textChanged, this, &ApplicationsSettingsAskApplicationWidget::slotUpdateOkButton);
 }
 
 ApplicationsSettingsAskApplicationWidget::~ApplicationsSettingsAskApplicationWidget() = default;
@@ -45,6 +46,11 @@ QString ApplicationsSettingsAskApplicationWidget::message() const
 void ApplicationsSettingsAskApplicationWidget::setApplicationName(const QString &appName)
 {
     mTextAppLabel->setText(i18n("Want to use %1", appName));
+}
+
+void ApplicationsSettingsAskApplicationWidget::slotUpdateOkButton()
+{
+    Q_EMIT updateOkButton(!mMessage->document()->isEmpty());
 }
 
 #include "moc_applicationssettingsaskapplicationwidget.cpp"

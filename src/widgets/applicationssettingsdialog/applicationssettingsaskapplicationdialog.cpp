@@ -10,6 +10,7 @@
 #include <KSharedConfig>
 #include <KWindowConfig>
 #include <QDialogButtonBox>
+#include <QPushButton>
 #include <QVBoxLayout>
 #include <QWindow>
 
@@ -31,8 +32,14 @@ ApplicationsSettingsAskApplicationDialog::ApplicationsSettingsAskApplicationDial
     auto button = new QDialogButtonBox(QDialogButtonBox::Ok | QDialogButtonBox::Cancel, this);
     button->setObjectName(QStringLiteral("button"));
     mainLayout->addWidget(button);
+
+    QPushButton *okButton = button->button(QDialogButtonBox::Ok);
+    okButton->setEnabled(false);
     connect(button, &QDialogButtonBox::rejected, this, &ApplicationsSettingsAskApplicationDialog::reject);
     connect(button, &QDialogButtonBox::accepted, this, &ApplicationsSettingsAskApplicationDialog::accept);
+    connect(mApplicationsSettingsAskApplicationWidget, &ApplicationsSettingsAskApplicationWidget::updateOkButton, this, [okButton](bool state) {
+        okButton->setEnabled(state);
+    });
 
     readConfig();
 }
