@@ -9,8 +9,10 @@
 #include "applicationssettingsdelegate.h"
 #include "applicationssettingsdescriptiondialog.h"
 #include "apps/notifyadminsappsjob.h"
+#include "connection.h"
 #include "model/appsmarketplacefilterproxymodel.h"
 #include "model/appsmarketplacemodel.h"
+#include "ruqolawidgets_debug.h"
 #include <KLocalizedString>
 #include <QMenu>
 #include <QMouseEvent>
@@ -117,11 +119,23 @@ void ApplicationsSettingsListView::slotAskApplication(const QModelIndex &index)
     const QString appName = index.data(AppsMarketPlaceModel::AppName).toString();
     dlg->setApplicationName(appName);
     if (dlg->exec()) {
-        const QString message = dlg->message();
         if (mRocketChatAccount) {
-            // TODO ask to sysadmin job
+            const QString message = dlg->message();
+            auto job = new RocketChatRestApi::NotifyAdminsAppsJob(this);
+            RocketChatRestApi::NotifyAdminsAppsJob::NotifyAdminsAppsInfo info;
+            info.message = message;
+            info.appName = appName;
+            info.appId = index.data(AppsMarketPlaceModel::AppId).toByteArray();
+            info.appVersion = index.data(AppsMarketPlaceModel::AppVersion).toString();
+            job->setInfo(info);
+            mRocketChatAccount->restApi()->initializeRestApiJob(job);
+            connect(job, &RocketChatRestApi::NotifyAdminsAppsJob::notifyAdminsAppsDone, this, [this](const QJsonObject &obj) {
+                qDebug() << " obj " << obj;
+            });
+            if (!job->start()) {
+                qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start NotifyAdminsAppsJob";
+            }
         }
-        // TODO
     }
     delete dlg;
 }
