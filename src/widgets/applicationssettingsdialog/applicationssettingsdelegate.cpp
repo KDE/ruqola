@@ -37,7 +37,6 @@ void ApplicationsSettingsDelegate::paint(QPainter *painter, const QStyleOptionVi
     drawBackground(painter, option, index);
 
     const int margin = MessageDelegateUtils::basicMargin();
-    // ColorsAndMessageViewStyle::self().schemeView().background(KColorScheme::AlternateBackground).color()
     painter->save();
     painter->setPen(Qt::NoPen);
     painter->setBrush(ColorsAndMessageViewStyle::self().schemeView().background(KColorScheme::AlternateBackground).color());
