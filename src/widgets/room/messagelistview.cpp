@@ -284,15 +284,16 @@ void MessageListView::contextMenuEvent(QContextMenuEvent *event)
     QAction *setAsFavoriteAction = nullptr;
     if (mCurrentRocketChatAccount->allowMessageStarringEnabled()) {
         const bool isStarred = index.data(MessagesModel::Starred).toBool();
-        setAsFavoriteAction =
-            new QAction(QIcon::fromTheme(QStringLiteral("favorite")), isStarred ? i18n("Remove as Favorite") : i18n("Set as Favorite"), &menu);
+        setAsFavoriteAction = new QAction(QIcon::fromTheme(QStringLiteral("favorite")),
+                                          isStarred ? i18nc("@action", "Remove as Favorite") : i18nc("@action", "Set as Favorite"),
+                                          &menu);
         connect(setAsFavoriteAction, &QAction::triggered, this, [this, isStarred, index]() {
             slotSetAsFavorite(index, isStarred);
         });
     }
     QAction *deleteAction = nullptr;
     if (index.data(MessagesModel::CanDeleteMessage).toBool()) {
-        deleteAction = new QAction(QIcon::fromTheme(QStringLiteral("edit-delete")), i18n("Delete"), &menu);
+        deleteAction = new QAction(QIcon::fromTheme(QStringLiteral("edit-delete")), i18nc("@action", "Delete"), &menu);
         connect(deleteAction, &QAction::triggered, this, [this, index]() {
             slotDeleteMessage(index);
         });
@@ -313,12 +314,12 @@ void MessageListView::contextMenuEvent(QContextMenuEvent *event)
         slotShowFullThread(index);
     });
 
-    auto editAction = new QAction(QIcon::fromTheme(QStringLiteral("document-edit")), i18n("Edit"), &menu);
+    auto editAction = new QAction(QIcon::fromTheme(QStringLiteral("document-edit")), i18nc("@action", "Edit"), &menu);
     connect(editAction, &QAction::triggered, this, [this, index]() {
         slotEditMessage(index);
     });
 
-    auto quoteAction = new QAction(QIcon::fromTheme(QStringLiteral("format-text-blockquote")), i18n("Quote"), &menu);
+    auto quoteAction = new QAction(QIcon::fromTheme(QStringLiteral("format-text-blockquote")), i18nc("@action", "Quote"), &menu);
     connect(quoteAction, &QAction::triggered, this, [this, index]() {
         slotQuoteMessage(index);
     });
@@ -341,7 +342,7 @@ void MessageListView::contextMenuEvent(QContextMenuEvent *event)
 
     const auto followingToMessageAction =
         new QAction(messageIsFollowing ? QIcon::fromTheme(QStringLiteral("notifications-disabled")) : QIcon::fromTheme(QStringLiteral("notifications")),
-                    messageIsFollowing ? i18n("Unfollow Message") : i18n("Follow Message"),
+                    messageIsFollowing ? i18nc("@action", "Unfollow Message") : i18nc("@action", "Follow Message"),
                     &menu);
     connect(followingToMessageAction, &QAction::triggered, this, [this, index, messageIsFollowing]() {
         slotFollowMessage(index, messageIsFollowing);
@@ -354,7 +355,7 @@ void MessageListView::contextMenuEvent(QContextMenuEvent *event)
         const QString url = mMessageListDelegate->urlAt(options, index, viewport()->mapFromGlobal(event->globalPos()));
         if (url.isEmpty() || url.startsWith(QStringLiteral("ruqola:/")))
             return nullptr;
-        auto action = new QAction(QIcon::fromTheme(QStringLiteral("edit-copy")), i18n("Copy URL"), &menu);
+        auto action = new QAction(QIcon::fromTheme(QStringLiteral("edit-copy")), i18nc("@action", "Copy URL"), &menu);
         connect(action, &QAction::triggered, this, [url]() {
             QGuiApplication::clipboard()->setText(url);
         });
@@ -377,7 +378,7 @@ void MessageListView::contextMenuEvent(QContextMenuEvent *event)
         } else {
             return {};
         }
-        auto action = new QAction(QIcon::fromTheme(QStringLiteral("documentinfo")), i18n("User Info"), &menu);
+        auto action = new QAction(QIcon::fromTheme(QStringLiteral("documentinfo")), i18nc("@action", "User Info"), &menu);
         connect(action, &QAction::triggered, this, [url, this]() {
             slotShowUserInfo(url);
         });
@@ -469,7 +470,7 @@ void MessageListView::contextMenuEvent(QContextMenuEvent *event)
         if (mCurrentRocketChatAccount->hasAutotranslateSupport() || !message->localTranslation().isEmpty()) {
             createSeparator(menu);
             const bool isTranslated = message->showTranslatedMessage();
-            auto translateAction = new QAction(isTranslated ? i18n("Show Original Message") : i18n("Translate Message"), &menu);
+            auto translateAction = new QAction(isTranslated ? i18nc("@action", "Show Original Message") : i18nc("@action", "Translate Message"), &menu);
             connect(translateAction, &QAction::triggered, this, [this, index, isTranslated]() {
                 slotTranslateMessage(index, !isTranslated);
             });
@@ -597,7 +598,7 @@ void MessageListView::contextMenuEvent(QContextMenuEvent *event)
 
 #if HAVE_TEXT_TO_SPEECH
     createSeparator(menu);
-    auto speakAction = menu.addAction(QIcon::fromTheme(QStringLiteral("preferences-desktop-text-to-speech")), i18n("Speak Text"));
+    auto speakAction = menu.addAction(QIcon::fromTheme(QStringLiteral("preferences-desktop-text-to-speech")), i18nc("@action", "Speak Text"));
     connect(speakAction, &QAction::triggered, this, [this, index]() {
         slotTextToSpeech(index);
     });
@@ -605,7 +606,7 @@ void MessageListView::contextMenuEvent(QContextMenuEvent *event)
 
     if (mMode != Mode::Moderation && isNotOwnerOfMessage) {
         createSeparator(menu);
-        auto reportMessageAction = new QAction(QIcon::fromTheme(QStringLiteral("messagebox_warning")), i18n("Report Message"), &menu);
+        auto reportMessageAction = new QAction(QIcon::fromTheme(QStringLiteral("messagebox_warning")), i18nc("@action", "Report Message"), &menu);
         connect(reportMessageAction, &QAction::triggered, this, [this, index]() {
             slotReportMessage(index);
         });

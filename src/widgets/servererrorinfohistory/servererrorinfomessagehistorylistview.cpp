@@ -40,11 +40,14 @@ void ServerErrorInfoMessageHistoryListView::slotCustomContextMenuRequested(const
 {
     if (model()->rowCount() > 0) {
         QMenu menu(this);
-        menu.addAction(QIcon::fromTheme(QStringLiteral("edit-clear-history")), i18n("Clear"), this, &ServerErrorInfoMessageHistoryListView::slotClearList);
+        menu.addAction(QIcon::fromTheme(QStringLiteral("edit-clear-history")),
+                       i18nc("@action", "Clear"),
+                       this,
+                       &ServerErrorInfoMessageHistoryListView::slotClearList);
         const QModelIndex index = indexAt(pos);
         if (index.isValid()) {
             menu.addSeparator();
-            auto copyAction = new QAction(QIcon::fromTheme(QStringLiteral("edit-copy")), i18n("Copy Message"), &menu);
+            auto copyAction = new QAction(QIcon::fromTheme(QStringLiteral("edit-copy")), i18nc("@action", "Copy Message"), &menu);
             copyAction->setShortcut(QKeySequence::Copy);
             connect(copyAction, &QAction::triggered, this, [this, index]() {
                 copyMessageToClipboard(index);
@@ -56,14 +59,14 @@ void ServerErrorInfoMessageHistoryListView::slotCustomContextMenuRequested(const
 
 #if HAVE_TEXT_TO_SPEECH
             menu.addSeparator();
-            auto speakAction = menu.addAction(QIcon::fromTheme(QStringLiteral("preferences-desktop-text-to-speech")), i18n("Speak Text"));
+            auto speakAction = menu.addAction(QIcon::fromTheme(QStringLiteral("preferences-desktop-text-to-speech")), i18nc("@action", "Speak Text"));
             connect(speakAction, &QAction::triggered, this, [this, index]() {
                 slotTextToSpeech(index);
             });
 #endif
 
             menu.addSeparator();
-            menu.addAction(QIcon::fromTheme(QStringLiteral("edit-select-all")), i18n("Select All"), this, [this, index]() {
+            menu.addAction(QIcon::fromTheme(QStringLiteral("edit-select-all")), i18nc("@action", "Select All"), this, [this, index]() {
                 slotSelectAll(index);
             });
         }

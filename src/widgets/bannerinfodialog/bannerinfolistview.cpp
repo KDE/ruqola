@@ -48,11 +48,11 @@ void BannerInfoListView::slotCustomContextMenuRequested(const QPoint &pos)
         if (index.isValid()) {
             QMenu menu(this);
             menu.addSeparator();
-            menu.addAction(QIcon::fromTheme(QStringLiteral("edit-select-all")), i18n("Select All"), this, [this, index]() {
+            menu.addAction(QIcon::fromTheme(QStringLiteral("edit-select-all")), i18nc("@action", "Select All"), this, [this, index]() {
                 slotSelectAll(index);
             });
             menu.addSeparator();
-            auto copyAction = new QAction(QIcon::fromTheme(QStringLiteral("edit-copy")), i18n("Copy Text"), &menu);
+            auto copyAction = new QAction(QIcon::fromTheme(QStringLiteral("edit-copy")), i18nc("@action", "Copy Text"), &menu);
             copyAction->setShortcut(QKeySequence::Copy);
             connect(copyAction, &QAction::triggered, this, [this, index]() {
                 copyMessageToClipboard(index);

@@ -52,16 +52,16 @@ void ApplicationsSettingsListView::slotCustomContextMenuRequested(const QPoint &
         QMenu menu(this);
         const QModelIndex index = indexAt(pos);
         if (index.isValid()) {
-            menu.addAction(i18n("Show Description"), this, [this, index]() {
+            menu.addAction(i18nc("@action", "Show Description"), this, [this, index]() {
                 slotShowApplicationDescription(index);
             });
             menu.addSeparator();
-            menu.addAction(i18n("Ask Application"), this, [this, index]() {
+            menu.addAction(i18nc("@action", "Ask Application"), this, [this, index]() {
                 slotAskApplication(index);
             });
             if (mApplicationsSettingsListDelegate->hasSelection()) {
                 menu.addSeparator();
-                auto copyAction = new QAction(QIcon::fromTheme(QStringLiteral("edit-copy")), i18n("Copy Text"), &menu);
+                auto copyAction = new QAction(QIcon::fromTheme(QStringLiteral("edit-copy")), i18nc("@action", "Copy Text"), &menu);
                 copyAction->setShortcut(QKeySequence::Copy);
                 connect(copyAction, &QAction::triggered, this, [this, index]() {
                     copyMessageToClipboard(index);
@@ -70,7 +70,7 @@ void ApplicationsSettingsListView::slotCustomContextMenuRequested(const QPoint &
                 addTextPlugins(&menu, mApplicationsSettingsListDelegate->selectedText());
             }
             menu.addSeparator();
-            menu.addAction(QIcon::fromTheme(QStringLiteral("edit-select-all")), i18n("Select All"), this, [this, index]() {
+            menu.addAction(QIcon::fromTheme(QStringLiteral("edit-select-all")), i18nc("@action", "Select All"), this, [this, index]() {
                 slotSelectAll(index);
             });
         }
