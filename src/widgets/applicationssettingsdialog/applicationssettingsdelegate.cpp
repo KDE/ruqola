@@ -36,8 +36,14 @@ void ApplicationsSettingsDelegate::paint(QPainter *painter, const QStyleOptionVi
     painter->save();
     drawBackground(painter, option, index);
 
-    // FIXME painter->drawRect(option.rect);
-
+    const int margin = MessageDelegateUtils::basicMargin();
+    // ColorsAndMessageViewStyle::self().schemeView().background(KColorScheme::AlternateBackground).color()
+    painter->save();
+    painter->setPen(Qt::NoPen);
+    painter->setBrush(ColorsAndMessageViewStyle::self().schemeView().background(KColorScheme::AlternateBackground).color());
+    const int offset = static_cast<int>(static_cast<double>(margin) / 2.0);
+    painter->drawRoundedRect(option.rect.adjusted(offset, offset, -offset, 0), 5, 5);
+    painter->restore();
     const Layout layout = doLayout(option, index);
     // Draw the pixmap
     if (!layout.appPixmap.isNull()) {
@@ -88,7 +94,7 @@ QSize ApplicationsSettingsDelegate::sizeHint(const QStyleOptionViewItem &option,
 
     // Note: option.rect in this method is huge (as big as the viewport)
     const ApplicationsSettingsDelegate::Layout layout = doLayout(option, index);
-    const QSize size = {option.rect.width(), layout.textRect.height()};
+    const QSize size = {option.rect.width(), layout.textRect.height() + static_cast<int>(MessageDelegateUtils::basicMargin())};
 #if USE_SIZEHINT_CACHE_SUPPORT
     if (!size.isEmpty()) {
         mSizeHintCache.insert(identifier, size);
@@ -106,14 +112,15 @@ ApplicationsSettingsDelegate::Layout ApplicationsSettingsDelegate::doLayout(cons
     const QSizeF premiumTextSize = senderFontMetrics.size(Qt::TextSingleLine, layout.premiumText);
     const int iconWidth = premiumTextSize.height() * 2;
     const int margin = MessageDelegateUtils::basicMargin();
+    QRect usableRect = option.rect;
+    const int topPos = usableRect.top() + margin;
     if (!pix.isNull()) {
         const QPixmap scaledPixmap = pix.scaled(iconWidth, iconWidth, Qt::KeepAspectRatio, Qt::SmoothTransformation);
         layout.appPixmap = scaledPixmap;
-        layout.appPixmapPos = QPointF(option.rect.x() + margin, option.rect.top());
+        layout.appPixmapPos = QPointF(option.rect.x() + margin, topPos);
     }
     layout.premium = index.data(AppsMarketPlaceModel::IsEnterpriseOnly).toBool();
 
-    QRect usableRect = option.rect;
     const int maxWidth = qMax(iconWidth, option.rect.width() - iconWidth - 2 * margin - static_cast<int>(premiumTextSize.width()));
 
     qreal baseLine = 0;
@@ -121,8 +128,8 @@ ApplicationsSettingsDelegate::Layout ApplicationsSettingsDelegate::doLayout(cons
     auto *doc = documentForModelIndex(index, maxWidth);
     const QSize textSize = MessageDelegateUtils::textSizeHint(doc, &baseLine);
 
-    layout.textRect = QRect(iconWidth + 2 * margin, usableRect.top(), maxWidth, qMax(textSize.height(), iconWidth + margin) /* + textVMargin*/);
-    layout.premiumRect = QRectF(layout.textRect.right() - premiumTextSize.width(), option.rect.top(), premiumTextSize.width(), premiumTextSize.height());
+    layout.textRect = QRect(iconWidth + 2 * margin, topPos, maxWidth, qMax(textSize.height(), iconWidth + margin) /* + textVMargin*/);
+    layout.premiumRect = QRectF(layout.textRect.right() - premiumTextSize.width(), topPos, premiumTextSize.width(), premiumTextSize.height());
 
     return layout;
 }
