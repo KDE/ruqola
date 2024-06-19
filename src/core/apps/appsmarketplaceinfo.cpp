@@ -195,10 +195,19 @@ void AppsMarketPlaceInfo::setModifiedDate(qint64 newModifiedDate)
 
 QString AppsMarketPlaceInfo::applicationInformations() const
 {
-    QString str;
-    str = QStringLiteral("<b>%1</b><br/>").arg(mAppName);
+    QString str = QStringLiteral("<b>%1</b><br/>").arg(mAppName);
     str += mShortDescription + QStringLiteral("<br/><br/>");
 
-    str += QStringLiteral("<b>%1</b><br/>").arg(i18n("Description")) + mDescription;
+    QString newDescription = mDescription;
+    newDescription.replace(QLatin1Char('\n'), QStringLiteral("<br/>"));
+
+    str += QStringLiteral("<b>%1</b><br/>").arg(i18n("Description")) + newDescription + QStringLiteral("<br/><br/>");
+
+    if (!mCategories.isEmpty()) {
+        str += QStringLiteral("<b>%1</b><br/>").arg(i18n("Categories")) + mCategories.join(QLatin1Char(',')) + QStringLiteral("<br/><br/>");
+    }
+    if (!mDocumentationUrl.isEmpty()) {
+        str += QStringLiteral("<b>%1</b><br/>").arg(i18n("Documentation")) + mDocumentationUrl + QStringLiteral("<br/><br/>");
+    }
     return str;
 }

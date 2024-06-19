@@ -17,6 +17,7 @@ public:
     enum AppsCategoriesRoles {
         AppName = Qt::UserRole + 1,
         AppId,
+        AppVersion,
         Categories,
         Price,
         Description,

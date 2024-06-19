@@ -52,6 +52,8 @@ QVariant AppsMarketPlaceModel::data(const QModelIndex &index, int role) const
     case Qt::DisplayRole:
     case AppsMarketPlaceModel::AppName:
         return appsMarketPlaceInfo.appName();
+    case AppsMarketPlaceModel::AppVersion:
+        return appsMarketPlaceInfo.version();
     case AppsMarketPlaceModel::AppId:
         return appsMarketPlaceInfo.appId();
     case AppsMarketPlaceModel::Categories:
