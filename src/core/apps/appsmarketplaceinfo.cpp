@@ -6,6 +6,7 @@
 
 #include "appsmarketplaceinfo.h"
 #include "utils.h"
+#include <KLocalizedString>
 
 #include <QJsonArray>
 using namespace Qt::Literals::StringLiterals;
@@ -194,6 +195,10 @@ void AppsMarketPlaceInfo::setModifiedDate(qint64 newModifiedDate)
 
 QString AppsMarketPlaceInfo::applicationInformations() const
 {
-    // TODO
-    return mDescription;
+    QString str;
+    str = QStringLiteral("<b>%1</b><br/>").arg(mAppName);
+    str += mShortDescription + QStringLiteral("<br/><br/>");
+
+    str += QStringLiteral("<b>%1</b><br/>").arg(i18n("Description")) + mDescription;
+    return str;
 }
