@@ -52,13 +52,13 @@ void ApplicationsSettingsListView::slotCustomContextMenuRequested(const QPoint &
         QMenu menu(this);
         const QModelIndex index = indexAt(pos);
         if (index.isValid()) {
-            auto copyAction = new QAction(QIcon::fromTheme(QStringLiteral("edit-copy")), i18n("Copy Text"), &menu);
-            copyAction->setShortcut(QKeySequence::Copy);
-            connect(copyAction, &QAction::triggered, this, [this, index]() {
-                copyMessageToClipboard(index);
-            });
-            menu.addAction(copyAction);
             if (mApplicationsSettingsListDelegate->hasSelection()) {
+                auto copyAction = new QAction(QIcon::fromTheme(QStringLiteral("edit-copy")), i18n("Copy Text"), &menu);
+                copyAction->setShortcut(QKeySequence::Copy);
+                connect(copyAction, &QAction::triggered, this, [this, index]() {
+                    copyMessageToClipboard(index);
+                });
+                menu.addAction(copyAction);
                 addTextPlugins(&menu, mApplicationsSettingsListDelegate->selectedText());
             }
             menu.addSeparator();
