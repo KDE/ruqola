@@ -101,7 +101,10 @@ ApplicationsSettingsDelegate::Layout ApplicationsSettingsDelegate::doLayout(cons
 {
     ApplicationsSettingsDelegate::Layout layout;
     const auto pix = index.data(AppsMarketPlaceModel::Pixmap).value<QPixmap>();
-    const int iconWidth = 40;
+    layout.premiumText = i18n("Premium");
+    const QFontMetricsF senderFontMetrics(option.font);
+    const QSizeF premiumTextSize = senderFontMetrics.size(Qt::TextSingleLine, layout.premiumText);
+    const int iconWidth = premiumTextSize.height() * 2;
     const int margin = MessageDelegateUtils::basicMargin();
     if (!pix.isNull()) {
         const QPixmap scaledPixmap = pix.scaled(iconWidth, iconWidth, Qt::KeepAspectRatio, Qt::SmoothTransformation);
@@ -109,10 +112,6 @@ ApplicationsSettingsDelegate::Layout ApplicationsSettingsDelegate::doLayout(cons
         layout.appPixmapPos = QPointF(option.rect.x() + margin, option.rect.top());
     }
     layout.premium = index.data(AppsMarketPlaceModel::IsEnterpriseOnly).toBool();
-
-    layout.premiumText = i18n("Premium");
-    const QFontMetricsF senderFontMetrics(option.font);
-    const QSizeF premiumTextSize = senderFontMetrics.size(Qt::TextSingleLine, layout.premiumText);
 
     QRect usableRect = option.rect;
     const int maxWidth = qMax(iconWidth, option.rect.width() - iconWidth - 2 * margin - static_cast<int>(premiumTextSize.width()));
