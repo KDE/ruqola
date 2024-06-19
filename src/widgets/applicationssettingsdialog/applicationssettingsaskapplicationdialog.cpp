@@ -28,7 +28,7 @@ ApplicationsSettingsAskApplicationDialog::ApplicationsSettingsAskApplicationDial
     mApplicationsSettingsAskApplicationWidget->setObjectName(QStringLiteral("mApplicationsSettingsAskApplicationWidget"));
     mainLayout->addWidget(mApplicationsSettingsAskApplicationWidget);
 
-    auto button = new QDialogButtonBox(QDialogButtonBox::Close, this);
+    auto button = new QDialogButtonBox(QDialogButtonBox::Ok | QDialogButtonBox::Cancel, this);
     button->setObjectName(QStringLiteral("button"));
     mainLayout->addWidget(button);
     connect(button, &QDialogButtonBox::rejected, this, &ApplicationsSettingsAskApplicationDialog::reject);
