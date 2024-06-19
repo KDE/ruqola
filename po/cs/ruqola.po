@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-06-18 00:39+0000\n"
+"POT-Creation-Date: 2024-06-19 00:39+0000\n"
 "PO-Revision-Date: 2023-11-14 13:24+0100\n"
 "Last-Translator: Vit Pelcak <vit@pelcak.org>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
@@ -1416,12 +1416,12 @@ msgctxt "We need a space between after </strong>"
 msgid "<strong>%1</strong> are typing..."
 msgstr ""
 
-#: core/rocketchataccount.cpp:3026
+#: core/rocketchataccount.cpp:3029
 #, kde-format
 msgid "Export Messages"
 msgstr "Exportovat zprávy"
 
-#: core/rocketchataccount.cpp:3027
+#: core/rocketchataccount.cpp:3030
 #, kde-format
 msgid "Your email has been queued for sending."
 msgstr ""
@@ -1603,10 +1603,9 @@ msgid "Personal Access Token"
 msgstr ""
 
 #: plugins/textplugin/sharetext/purposemenuwidget.cpp:19
-#, fuzzy, kde-format
-#| msgid "Share Text..."
+#, kde-format
 msgid "Share Text…"
-msgstr "Sdílet text..."
+msgstr ""
 
 #: plugins/textplugin/sharetext/purposemenuwidget.cpp:64
 #, kde-format
@@ -6087,6 +6086,12 @@ msgstr ""
 msgid "Message for workspace admin"
 msgstr ""
 
+#: widgets/applicationssettingsdialog/applicationssettingsdelegate.cpp:113
+#: widgets/applicationssettingsdialog/applicationssettingspricecombobox.cpp:16
+#, kde-format
+msgid "Premium"
+msgstr "Premium"
+
 #: widgets/applicationssettingsdialog/applicationssettingspricecombobox.cpp:13
 #, kde-format
 msgid "All Prices"
@@ -6102,10 +6107,26 @@ msgstr ""
 msgid "Paid Apps"
 msgstr ""
 
-#: widgets/applicationssettingsdialog/applicationssettingspricecombobox.cpp:16
+#: widgets/applicationssettingsdialog/applicationssettingssortingcombobox.cpp:12
 #, kde-format
-msgid "Premium"
-msgstr "Premium"
+msgid "A-Z"
+msgstr ""
+
+#: widgets/applicationssettingsdialog/applicationssettingssortingcombobox.cpp:13
+#, kde-format
+msgid "Z-A"
+msgstr ""
+
+#: widgets/applicationssettingsdialog/applicationssettingssortingcombobox.cpp:14
+#, kde-format
+msgid "Most recent updated"
+msgstr ""
+
+#: widgets/applicationssettingsdialog/applicationssettingssortingcombobox.cpp:15
+#, fuzzy, kde-format
+#| msgid "Last token part"
+msgid "Least recent updated"
+msgstr "Poslední část tokenu"
 
 #: widgets/applicationssettingsdialog/applicationssettingsstatuscombobox.cpp:14
 #, kde-format
@@ -6239,12 +6260,10 @@ msgid "Sign in with %1"
 msgstr ""
 
 #: widgets/common/authenticationloginwidget.cpp:25
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Remove Account"
+#, kde-format
 msgctxt "@action:button"
 msgid "Register Account"
-msgstr "Odstranit účet"
+msgstr ""
 
 #: widgets/common/authenticationloginwidget.cpp:42
 #, kde-format
@@ -6486,11 +6505,10 @@ msgid "Do you want to remove this account '%1'?"
 msgstr "Chcete odstranit tento účet '%1'?"
 
 #: widgets/configurenewserver/checknewserverurlwidget.cpp:25
-#, fuzzy, kde-format
-#| msgid "Connection"
+#, kde-format
 msgctxt "@action:button"
 msgid "Connection"
-msgstr "Spojení"
+msgstr ""
 
 #: widgets/configurenewserver/checknewserverurlwidget.cpp:36
 #, kde-format
@@ -6601,8 +6619,7 @@ msgid "Channel Info about '%1'"
 msgstr "Informace o kanálu '%1'"
 
 #: widgets/dialogs/channelinfoeditablewidget.cpp:42
-#, fuzzy, kde-format
-#| msgid "Delete"
+#, kde-format
 msgctxt "@action:button"
 msgid "Delete"
 msgstr "Smazat"
@@ -7082,11 +7099,10 @@ msgid "Max number of uses"
 msgstr "Maximální počet použití"
 
 #: widgets/dialogs/inviteuserswidget.cpp:77
-#, fuzzy, kde-format
-#| msgid "Generate New Link"
+#, kde-format
 msgctxt "@action:button"
 msgid "Generate New Link"
-msgstr "Generovat nový odkaz"
+msgstr ""
 
 #: widgets/dialogs/inviteuserswidget.cpp:112
 #, kde-format
@@ -7339,18 +7355,16 @@ msgid "Zoom:"
 msgstr ""
 
 #: widgets/dialogs/showimagewidget.cpp:283
-#, fuzzy, kde-format
-#| msgid "100%"
+#, kde-format
 msgctxt "@action:button"
 msgid "100%"
 msgstr "100%"
 
 #: widgets/dialogs/showimagewidget.cpp:290
-#, fuzzy, kde-format
-#| msgid "Fit to View"
+#, kde-format
 msgctxt "@action:button"
 msgid "Fit to View"
-msgstr "Vyplnit pohled"
+msgstr ""
 
 #: widgets/dialogs/showimagewidget.cpp:359
 #: widgets/misc/messageattachmentdownloadandsavejob.cpp:59
@@ -7717,8 +7731,7 @@ msgid "Import Accounts"
 msgstr "Importovat účty"
 
 #: widgets/loginwidget/ruqolaloginwidget.cpp:25
-#, fuzzy, kde-format
-#| msgid "Login"
+#, kde-format
 msgctxt "@action:button"
 msgid "Login"
 msgstr "Přihlášení"
@@ -7952,11 +7965,10 @@ msgid "Confirm Password:"
 msgstr "Potvrdit heslo:"
 
 #: widgets/misc/passwordlineeditwidget.cpp:20
-#, fuzzy, kde-format
-#| msgid "Reset Password"
+#, kde-format
 msgctxt "@action:button"
 msgid "Reset Password"
-msgstr "Obnovit heslo"
+msgstr ""
 
 #: widgets/misc/searchwithdelaylineedit.cpp:16
 #, kde-format
@@ -7979,18 +7991,16 @@ msgid "Enter code"
 msgstr "Zadejte kód"
 
 #: widgets/misc/twoauthenticationpasswordwidget.cpp:30
-#, fuzzy, kde-format
-#| msgid "Send new code"
+#, kde-format
 msgctxt "@action:button"
 msgid "Send new code"
-msgstr "Odeslat nový kód"
+msgstr ""
 
 #: widgets/myaccount/myaccount2e2configurewidget.cpp:22
-#, fuzzy, kde-format
-#| msgid "Reset E2E Key"
+#, kde-format
 msgctxt "@action:button"
 msgid "Reset E2E Key"
-msgstr "Obnovit klíč E2E"
+msgstr ""
 
 #: widgets/myaccount/myaccount2e2configurewidget.cpp:30
 #, kde-format
@@ -8040,8 +8050,7 @@ msgstr ""
 
 #: widgets/myaccount/myaccount2fadisabletotpwidget.cpp:41
 #: widgets/myaccount/myaccount2fatotpwidget.cpp:57
-#, fuzzy, kde-format
-#| msgid "Verify"
+#, kde-format
 msgctxt "@action:button"
 msgid "Verify"
 msgstr "Ověřit"
@@ -8398,11 +8407,10 @@ msgid "Your administrator has disabled the changing of status messages."
 msgstr ""
 
 #: widgets/myaccount/myaccountprofileconfigurewidget.cpp:38
-#, fuzzy, kde-format
-#| msgid "Delete my Account"
+#, kde-format
 msgctxt "@action:button"
 msgid "Delete my Account"
-msgstr "Smazat můj účet"
+msgstr ""
 
 #: widgets/myaccount/myaccountprofileconfigurewidget.cpp:39
 #, kde-format
@@ -8556,11 +8564,10 @@ msgid "Register User"
 msgstr "Registrovat uživatele"
 
 #: widgets/registeruser/registeruserwidget.cpp:18
-#, fuzzy, kde-format
-#| msgid "Register"
+#, kde-format
 msgctxt "@action:button"
 msgid "Register"
-msgstr "Registrovat"
+msgstr ""
 
 #: widgets/room/channelactionpopupmenu.cpp:29
 #, kde-format
@@ -9971,12 +9978,3 @@ msgstr ""
 #: widgets/whatsnew/whatsnewwidgettranslation.h:96
 msgid "Implement Application Market Settings."
 msgstr ""
-
-#~ msgid "Add..."
-#~ msgstr "Přidat..."
-
-#~ msgid "Modify..."
-#~ msgstr "Změnit..."
-
-#~ msgid "(Click here for Loading more...)"
-#~ msgstr "(Kliknutím zde načtete další)"

@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-06-18 00:39+0000\n"
+"POT-Creation-Date: 2024-06-19 00:39+0000\n"
 "PO-Revision-Date: 2019-07-29 20:25+0200\n"
 "Last-Translator: Roman Paholík <wizzardsk@gmail.com>\n"
 "Language-Team: Slovak <kde-sk@linux.sk>\n"
@@ -1502,13 +1502,13 @@ msgctxt "We need a space between after </strong>"
 msgid "<strong>%1</strong> are typing..."
 msgstr ""
 
-#: core/rocketchataccount.cpp:3026
+#: core/rocketchataccount.cpp:3029
 #, fuzzy, kde-format
 #| msgid "Message"
 msgid "Export Messages"
 msgstr "Správa"
 
-#: core/rocketchataccount.cpp:3027
+#: core/rocketchataccount.cpp:3030
 #, kde-format
 msgid "Your email has been queued for sending."
 msgstr ""
@@ -6408,6 +6408,12 @@ msgstr ""
 msgid "Message for workspace admin"
 msgstr ""
 
+#: widgets/applicationssettingsdialog/applicationssettingsdelegate.cpp:113
+#: widgets/applicationssettingsdialog/applicationssettingspricecombobox.cpp:16
+#, kde-format
+msgid "Premium"
+msgstr ""
+
 #: widgets/applicationssettingsdialog/applicationssettingspricecombobox.cpp:13
 #, kde-format
 msgid "All Prices"
@@ -6423,9 +6429,24 @@ msgstr ""
 msgid "Paid Apps"
 msgstr ""
 
-#: widgets/applicationssettingsdialog/applicationssettingspricecombobox.cpp:16
+#: widgets/applicationssettingsdialog/applicationssettingssortingcombobox.cpp:12
 #, kde-format
-msgid "Premium"
+msgid "A-Z"
+msgstr ""
+
+#: widgets/applicationssettingsdialog/applicationssettingssortingcombobox.cpp:13
+#, kde-format
+msgid "Z-A"
+msgstr ""
+
+#: widgets/applicationssettingsdialog/applicationssettingssortingcombobox.cpp:14
+#, kde-format
+msgid "Most recent updated"
+msgstr ""
+
+#: widgets/applicationssettingsdialog/applicationssettingssortingcombobox.cpp:15
+#, kde-format
+msgid "Least recent updated"
 msgstr ""
 
 #: widgets/applicationssettingsdialog/applicationssettingsstatuscombobox.cpp:14

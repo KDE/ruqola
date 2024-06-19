@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-06-18 00:39+0000\n"
-"PO-Revision-Date: 2024-06-17 08:35+0300\n"
+"POT-Creation-Date: 2024-06-19 00:39+0000\n"
+"PO-Revision-Date: 2024-06-18 08:35+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian\n"
 "Language: uk\n"
@@ -1427,12 +1427,12 @@ msgctxt "We need a space between after </strong>"
 msgid "<strong>%1</strong> are typing..."
 msgstr "<strong>%1</strong> вводить текст…"
 
-#: core/rocketchataccount.cpp:3026
+#: core/rocketchataccount.cpp:3029
 #, kde-format
 msgid "Export Messages"
 msgstr "Експортувати повідомлення"
 
-#: core/rocketchataccount.cpp:3027
+#: core/rocketchataccount.cpp:3030
 #, kde-format
 msgid "Your email has been queued for sending."
 msgstr "Вашу електронну пошту додано до черги надсилання."
@@ -1614,8 +1614,7 @@ msgid "Personal Access Token"
 msgstr "Особистий жетон доступу"
 
 #: plugins/textplugin/sharetext/purposemenuwidget.cpp:19
-#, fuzzy, kde-format
-#| msgid "Share Text..."
+#, kde-format
 msgid "Share Text…"
 msgstr "Оприлюднити текст…"
 
@@ -6316,6 +6315,12 @@ msgstr "Повідомте вашому адміністратору, чому �
 msgid "Message for workspace admin"
 msgstr "Повідомлення для адміністратора робочого простору"
 
+#: widgets/applicationssettingsdialog/applicationssettingsdelegate.cpp:113
+#: widgets/applicationssettingsdialog/applicationssettingspricecombobox.cpp:16
+#, kde-format
+msgid "Premium"
+msgstr "преміум"
+
 #: widgets/applicationssettingsdialog/applicationssettingspricecombobox.cpp:13
 #, kde-format
 msgid "All Prices"
@@ -6331,10 +6336,26 @@ msgstr "безкоштовні програми"
 msgid "Paid Apps"
 msgstr "платні програми"
 
-#: widgets/applicationssettingsdialog/applicationssettingspricecombobox.cpp:16
+#: widgets/applicationssettingsdialog/applicationssettingssortingcombobox.cpp:12
 #, kde-format
-msgid "Premium"
-msgstr "преміум"
+msgid "A-Z"
+msgstr ""
+
+#: widgets/applicationssettingsdialog/applicationssettingssortingcombobox.cpp:13
+#, kde-format
+msgid "Z-A"
+msgstr ""
+
+#: widgets/applicationssettingsdialog/applicationssettingssortingcombobox.cpp:14
+#, kde-format
+msgid "Most recent updated"
+msgstr ""
+
+#: widgets/applicationssettingsdialog/applicationssettingssortingcombobox.cpp:15
+#, fuzzy, kde-format
+#| msgid "Last token part"
+msgid "Least recent updated"
+msgstr "Остання частина жетона"
 
 #: widgets/applicationssettingsdialog/applicationssettingsstatuscombobox.cpp:14
 #, kde-format
@@ -6470,8 +6491,7 @@ msgid "Sign in with %1"
 msgstr "Увійти за допомогою %1"
 
 #: widgets/common/authenticationloginwidget.cpp:25
-#, fuzzy, kde-format
-#| msgid "Register Account"
+#, kde-format
 msgctxt "@action:button"
 msgid "Register Account"
 msgstr "Зареєструвати обліковий запис"
@@ -6720,8 +6740,7 @@ msgid "Do you want to remove this account '%1'?"
 msgstr "Хочете вилучити обліковий запис «%1»?"
 
 #: widgets/configurenewserver/checknewserverurlwidget.cpp:25
-#, fuzzy, kde-format
-#| msgid "Connection"
+#, kde-format
 msgctxt "@action:button"
 msgid "Connection"
 msgstr "З'єднання"
@@ -6839,8 +6858,7 @@ msgid "Channel Info about '%1'"
 msgstr "Відомості щодо каналу «%1»"
 
 #: widgets/dialogs/channelinfoeditablewidget.cpp:42
-#, fuzzy, kde-format
-#| msgid "Delete"
+#, kde-format
 msgctxt "@action:button"
 msgid "Delete"
 msgstr "Вилучити"
@@ -7332,8 +7350,7 @@ msgid "Max number of uses"
 msgstr "Максимальна кількість використань"
 
 #: widgets/dialogs/inviteuserswidget.cpp:77
-#, fuzzy, kde-format
-#| msgid "Generate New Link"
+#, kde-format
 msgctxt "@action:button"
 msgid "Generate New Link"
 msgstr "Створити посилання"
@@ -7599,15 +7616,13 @@ msgid "Zoom:"
 msgstr "Масштаб:"
 
 #: widgets/dialogs/showimagewidget.cpp:283
-#, fuzzy, kde-format
-#| msgid "100%"
+#, kde-format
 msgctxt "@action:button"
 msgid "100%"
 msgstr "100%"
 
 #: widgets/dialogs/showimagewidget.cpp:290
-#, fuzzy, kde-format
-#| msgid "Fit to View"
+#, kde-format
 msgctxt "@action:button"
 msgid "Fit to View"
 msgstr "Підібрати за розмірами"
@@ -7998,8 +8013,7 @@ msgid "Import Accounts"
 msgstr "Імпортування облікових записів"
 
 #: widgets/loginwidget/ruqolaloginwidget.cpp:25
-#, fuzzy, kde-format
-#| msgid "Login"
+#, kde-format
 msgctxt "@action:button"
 msgid "Login"
 msgstr "Увійти"
@@ -8238,8 +8252,7 @@ msgid "Confirm Password:"
 msgstr "Підтвердження пароля:"
 
 #: widgets/misc/passwordlineeditwidget.cpp:20
-#, fuzzy, kde-format
-#| msgid "Reset Password"
+#, kde-format
 msgctxt "@action:button"
 msgid "Reset Password"
 msgstr "Скинути пароль"
@@ -8265,15 +8278,13 @@ msgid "Enter code"
 msgstr "Введіть код"
 
 #: widgets/misc/twoauthenticationpasswordwidget.cpp:30
-#, fuzzy, kde-format
-#| msgid "Send new code"
+#, kde-format
 msgctxt "@action:button"
 msgid "Send new code"
 msgstr "Надіслати новий код"
 
 #: widgets/myaccount/myaccount2e2configurewidget.cpp:22
-#, fuzzy, kde-format
-#| msgid "Reset E2E Key"
+#, kde-format
 msgctxt "@action:button"
 msgid "Reset E2E Key"
 msgstr "Скинути ключ E2E"
@@ -8340,15 +8351,13 @@ msgstr "Введіть код розпізнавання"
 
 #: widgets/myaccount/myaccount2fadisabletotpwidget.cpp:41
 #: widgets/myaccount/myaccount2fatotpwidget.cpp:57
-#, fuzzy, kde-format
-#| msgid "Verify"
+#, kde-format
 msgctxt "@action:button"
 msgid "Verify"
 msgstr "Перевірити"
 
 #: widgets/myaccount/myaccount2fadisabletotpwidget.cpp:50
-#, fuzzy, kde-format
-#| msgid "Regenerate Code"
+#, kde-format
 msgctxt "@action:button"
 msgid "Regenerate Code"
 msgstr "Повторно створити код"
@@ -8631,18 +8640,16 @@ msgid "Notifications sound volume:"
 msgstr "Гучність звуку сповіщення:"
 
 #: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:179
-#, fuzzy, kde-format
-#| msgid "Download my Data (HTML)"
+#, kde-format
 msgctxt "@action:button"
 msgid "Download my Data (HTML)"
-msgstr "Отримання ваших даних (HTML)"
+msgstr "Отримати ваші дані (HTML)"
 
 #: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:186
-#, fuzzy, kde-format
-#| msgid "Export my Data (JSON)"
+#, kde-format
 msgctxt "@action:button"
 msgid "Export my Data (JSON)"
-msgstr "Експортування ваших даних (JSON)"
+msgstr "Експортувати ваші дані (JSON)"
 
 #: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:239
 #, kde-format
@@ -8719,15 +8726,13 @@ msgid "Your administrator has disabled the changing of status messages."
 msgstr "Вашим адміністратором було вимкнено зміну повідомлень щодо стану."
 
 #: widgets/myaccount/myaccountprofileconfigurewidget.cpp:38
-#, fuzzy, kde-format
-#| msgid "Delete my Account"
+#, kde-format
 msgctxt "@action:button"
 msgid "Delete my Account"
 msgstr "Вилучити обліковий запис"
 
 #: widgets/myaccount/myaccountprofileconfigurewidget.cpp:39
-#, fuzzy, kde-format
-#| msgid "Logout From Other Logged In Locations"
+#, kde-format
 msgctxt "@action:button"
 msgid "Logout From Other Logged In Locations"
 msgstr "Вийти із інших місць, куди було здійснено вхід"
@@ -8881,8 +8886,7 @@ msgid "Register User"
 msgstr "Реєстрація користувача"
 
 #: widgets/registeruser/registeruserwidget.cpp:18
-#, fuzzy, kde-format
-#| msgid "Register"
+#, kde-format
 msgctxt "@action:button"
 msgid "Register"
 msgstr "Зареєструвати"
@@ -9491,8 +9495,7 @@ msgid "Users"
 msgstr "Користувачі"
 
 #: widgets/room/usersinroomflowwidget.cpp:123
-#, fuzzy, kde-format
-#| msgid "(Open External Dialog...)"
+#, kde-format
 msgid "(Open External Dialog…)"
 msgstr "(Відкрити зовнішнє діалогове вікно…)"
 

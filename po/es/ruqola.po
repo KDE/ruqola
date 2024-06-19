@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-06-18 00:39+0000\n"
+"POT-Creation-Date: 2024-06-19 00:39+0000\n"
 "PO-Revision-Date: 2024-06-17 16:10+0100\n"
 "Last-Translator: Víctor Rodrigo Córdoba <vrcordoba@gmail.com>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
@@ -1415,12 +1415,12 @@ msgctxt "We need a space between after </strong>"
 msgid "<strong>%1</strong> are typing..."
 msgstr "<strong>%1</strong> están escribiendo..."
 
-#: core/rocketchataccount.cpp:3026
+#: core/rocketchataccount.cpp:3029
 #, kde-format
 msgid "Export Messages"
 msgstr "Exportar mensajes"
 
-#: core/rocketchataccount.cpp:3027
+#: core/rocketchataccount.cpp:3030
 #, kde-format
 msgid "Your email has been queued for sending."
 msgstr "Su email se ha encolado para ser enviado."
@@ -6289,6 +6289,12 @@ msgstr "Haga saber a su administrador por qué esta aplicación sería útil"
 msgid "Message for workspace admin"
 msgstr "Mensaje para los administradores del espacio de trabajo"
 
+#: widgets/applicationssettingsdialog/applicationssettingsdelegate.cpp:113
+#: widgets/applicationssettingsdialog/applicationssettingspricecombobox.cpp:16
+#, kde-format
+msgid "Premium"
+msgstr "Prémium"
+
 #: widgets/applicationssettingsdialog/applicationssettingspricecombobox.cpp:13
 #, kde-format
 msgid "All Prices"
@@ -6304,10 +6310,26 @@ msgstr "Aplicaciones gratis"
 msgid "Paid Apps"
 msgstr "Aplicaciones de pago"
 
-#: widgets/applicationssettingsdialog/applicationssettingspricecombobox.cpp:16
+#: widgets/applicationssettingsdialog/applicationssettingssortingcombobox.cpp:12
 #, kde-format
-msgid "Premium"
-msgstr "Prémium"
+msgid "A-Z"
+msgstr ""
+
+#: widgets/applicationssettingsdialog/applicationssettingssortingcombobox.cpp:13
+#, kde-format
+msgid "Z-A"
+msgstr ""
+
+#: widgets/applicationssettingsdialog/applicationssettingssortingcombobox.cpp:14
+#, kde-format
+msgid "Most recent updated"
+msgstr ""
+
+#: widgets/applicationssettingsdialog/applicationssettingssortingcombobox.cpp:15
+#, fuzzy, kde-format
+#| msgid "Last token part"
+msgid "Least recent updated"
+msgstr "Última parte del símbolo"
 
 #: widgets/applicationssettingsdialog/applicationssettingsstatuscombobox.cpp:14
 #, kde-format
