@@ -58,7 +58,7 @@ public:
     [[nodiscard]] qint64 modifiedDate() const;
     void setModifiedDate(qint64 newModifiedDate);
 
-    [[nodiscard]] QString fullDescription() const;
+    [[nodiscard]] QString applicationInformations() const;
 
 private:
     QStringList mCategories;

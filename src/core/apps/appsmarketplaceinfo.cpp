@@ -192,7 +192,7 @@ void AppsMarketPlaceInfo::setModifiedDate(qint64 newModifiedDate)
     mModifiedDate = newModifiedDate;
 }
 
-QString AppsMarketPlaceInfo::fullDescription() const
+QString AppsMarketPlaceInfo::applicationInformations() const
 {
     // TODO
     return mDescription;

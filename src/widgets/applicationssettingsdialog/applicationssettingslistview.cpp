@@ -129,7 +129,7 @@ void ApplicationsSettingsListView::slotAskApplication(const QModelIndex &index)
 void ApplicationsSettingsListView::slotShowApplicationDescription(const QModelIndex &index)
 {
     ApplicationsSettingsDescriptionDialog dlg(this);
-    const QString description = index.data(AppsMarketPlaceModel::FullDescription).toString();
+    const QString description = index.data(AppsMarketPlaceModel::ApplicationInformations).toString();
     dlg.setDescription(description);
     dlg.exec();
 }
