@@ -97,7 +97,7 @@ void NotificationHistoryListView::slotCustomContextMenuRequested(const QPoint &p
             });
 #endif
             menu.addSeparator();
-            menu.addAction(i18n("Select All"), this, [this, index]() {
+            menu.addAction(QIcon::fromTheme(QStringLiteral("edit-select-all")), i18n("Select All"), this, [this, index]() {
                 slotSelectAll(index);
             });
         }
