@@ -83,7 +83,7 @@ QNetworkRequest NotifyAdminsAppsJob::request() const
 QJsonDocument NotifyAdminsAppsJob::json() const
 {
     QJsonObject jsonObj;
-    jsonObj["appId"_L1] = mInfo.appId;
+    jsonObj["appId"_L1] = QString::fromLatin1(mInfo.appId);
     jsonObj["appName"_L1] = mInfo.appName;
     jsonObj["appVersion"_L1] = mInfo.appVersion;
     jsonObj["message"_L1] = mInfo.message;

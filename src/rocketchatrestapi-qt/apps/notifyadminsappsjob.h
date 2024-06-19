@@ -16,7 +16,7 @@ class LIBROCKETCHATRESTAPI_QT_EXPORT NotifyAdminsAppsJob : public RestApiAbstrac
     Q_OBJECT
 public:
     struct LIBROCKETCHATRESTAPI_QT_EXPORT NotifyAdminsAppsInfo {
-        QString appId;
+        QByteArray appId;
         QString appName;
         QString appVersion;
         QString message;

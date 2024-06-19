@@ -36,7 +36,7 @@ void NotifyAdminsAppsJobTest::shouldGenerateRequest()
 void NotifyAdminsAppsJobTest::shouldGenerateJson()
 {
     NotifyAdminsAppsJob job;
-    const NotifyAdminsAppsJob::NotifyAdminsAppsInfo info{QStringLiteral("app1 id"),
+    const NotifyAdminsAppsJob::NotifyAdminsAppsInfo info{QByteArrayLiteral("app1 id"),
                                                          QStringLiteral("app test"),
                                                          QStringLiteral("app version"),
                                                          QStringLiteral("test message")};
@@ -62,7 +62,7 @@ void NotifyAdminsAppsJobTest::shouldNotStarting()
     QVERIFY(!job.canStart());
     job.setUserId(userId);
     QVERIFY(!job.canStart());
-    const NotifyAdminsAppsJob::NotifyAdminsAppsInfo info{QStringLiteral("app1 id"),
+    const NotifyAdminsAppsJob::NotifyAdminsAppsInfo info{QByteArrayLiteral("app1 id"),
                                                          QStringLiteral("app test"),
                                                          QStringLiteral("app version"),
                                                          QStringLiteral("test message")};
