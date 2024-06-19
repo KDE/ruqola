@@ -191,4 +191,14 @@ bool ApplicationsSettingsDelegate::maybeStartDrag(QMouseEvent *event, const QSty
     return false;
 }
 
+QString ApplicationsSettingsDelegate::selectedText() const
+{
+    return mTextSelectionImpl->textSelection()->selectedText(TextSelection::Format::Text);
+}
+
+bool ApplicationsSettingsDelegate::hasSelection() const
+{
+    return mTextSelectionImpl->textSelection()->hasSelection();
+}
+
 #include "moc_applicationssettingsdelegate.cpp"

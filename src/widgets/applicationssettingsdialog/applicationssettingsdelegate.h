@@ -26,6 +26,10 @@ public:
 
     [[nodiscard]] bool maybeStartDrag(QMouseEvent *event, const QStyleOptionViewItem &option, const QModelIndex &index);
 
+    [[nodiscard]] QString selectedText() const;
+
+    [[nodiscard]] bool hasSelection() const;
+
 private:
     struct Layout {
         QRect textRect;
@@ -48,7 +52,6 @@ private:
     mutable LRUCache<QByteArray, std::unique_ptr<QTextDocument>> mDocumentCache;
     RocketChatAccount *const mRocketChatAccount;
 
-    // MessageListDelegateBase interface
 protected:
     RocketChatAccount *rocketChatAccount(const QModelIndex &index) const override;
 };
