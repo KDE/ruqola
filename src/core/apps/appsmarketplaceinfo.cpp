@@ -207,7 +207,8 @@ QString AppsMarketPlaceInfo::applicationInformations() const
         str += QStringLiteral("<b>%1</b><br/>").arg(i18n("Categories")) + mCategories.join(QLatin1Char(',')) + QStringLiteral("<br/><br/>");
     }
     if (!mDocumentationUrl.isEmpty()) {
-        str += QStringLiteral("<b>%1</b><br/>").arg(i18n("Documentation")) + mDocumentationUrl + QStringLiteral("<br/><br/>");
+        str += QStringLiteral("<b>%1</b><br/>").arg(i18n("Documentation")) + QStringLiteral("<a href=\"https://%1\">%1</a>").arg(mDocumentationUrl)
+            + QStringLiteral("<br/><br/>");
     }
     return str;
 }
