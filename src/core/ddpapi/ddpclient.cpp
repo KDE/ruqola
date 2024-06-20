@@ -936,6 +936,7 @@ void DDPClient::onWSclosed()
 {
     const bool normalClose = mWebSocket->closeCode() == QWebSocketProtocol::CloseCodeNormal;
     if (normalClose) {
+        authenticationManager()->setLoginStatus(AuthenticationManager::LoggedOut);
         Q_EMIT disconnectedByServer();
     } else {
         qCWarning(RUQOLA_DDPAPI_LOG) << "WebSocket CLOSED reason:" << mWebSocket->closeReason() << " error: " << mWebSocket->error()
