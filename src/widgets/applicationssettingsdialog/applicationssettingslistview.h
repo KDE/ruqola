@@ -34,6 +34,7 @@ private:
     LIBRUQOLAWIDGETS_NO_EXPORT void slotSelectAll(const QModelIndex &index);
     [[nodiscard]] LIBRUQOLAWIDGETS_NO_EXPORT QString selectedText(const QModelIndex &index) override;
     [[nodiscard]] LIBRUQOLAWIDGETS_NO_EXPORT QString selectedText() const;
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotInstallApplication(const QModelIndex &index);
     RocketChatAccount *const mRocketChatAccount;
     ApplicationsSettingsDelegate *const mApplicationsSettingsListDelegate;
     AppsMarketPlaceFilterProxyModel *const mAppsMarketPlaceFilterProxyModel;

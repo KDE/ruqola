@@ -59,9 +59,17 @@ void ApplicationsSettingsListView::slotCustomContextMenuRequested(const QPoint &
                 slotShowApplicationDescription(index);
             });
             menu.addSeparator();
-            menu.addAction(i18nc("@action", "Ask Application…"), this, [this, index]() {
-                slotAskApplication(index);
-            });
+            if (mRocketChatAccount->isAdministrator()) {
+                menu.addAction(i18nc("@action", "Install"), this, [this, index]() {
+                    slotInstallApplication(index);
+                });
+
+            } else {
+                menu.addAction(i18nc("@action", "Ask Application…"), this, [this, index]() {
+                    slotAskApplication(index);
+                });
+            }
+
             if (mApplicationsSettingsListDelegate->hasSelection()) {
                 menu.addSeparator();
                 auto copyAction = new QAction(QIcon::fromTheme(QStringLiteral("edit-copy")), i18nc("@action", "Copy Text"), &menu);
@@ -111,6 +119,11 @@ void ApplicationsSettingsListView::setFilterInfo(const AppsMarketPlaceFilterProx
 void ApplicationsSettingsListView::setSorting(AppsMarketPlaceFilterProxyModel::Sorting newSorting)
 {
     mAppsMarketPlaceFilterProxyModel->setSorting(newSorting);
+}
+
+void ApplicationsSettingsListView::slotInstallApplication(const QModelIndex &index)
+{
+    // TODO
 }
 
 void ApplicationsSettingsListView::slotAskApplication(const QModelIndex &index)
