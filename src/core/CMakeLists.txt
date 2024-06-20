@@ -554,7 +554,7 @@ target_sources(libruqolacore PRIVATE
     apps/appsmarketplaceinfo.cpp
 )
 
-if (HAVE_TEXT_TRANSLATOR)
+if(HAVE_TEXT_TRANSLATOR)
     target_sources(libruqolacore PRIVATE
         translatetext/translatetextjob.cpp
         translatetext/translatetextjob.h
@@ -563,13 +563,13 @@ if (HAVE_TEXT_TRANSLATOR)
     )
 endif()
 
-if (TARGET Plasma::Activities)
+if(TARGET Plasma::Activities)
     target_sources(libruqolacore PRIVATE
         activities/activitiesmanager.h
         activities/activitiesmanager.cpp
     )
     target_link_libraries(libruqolacore Plasma::Activities)
-    if (BUILD_TESTING)
+    if(BUILD_TESTING)
         add_subdirectory(activities/autotests)
     endif()
 endif()
@@ -577,7 +577,7 @@ endif()
 kconfig_add_kcfg_files(libruqolacore settings/ruqolaglobalconfig.kcfgc)
 
 
-if (UNITY_SUPPORT)
+if(UNITY_SUPPORT)
     target_sources(libruqolacore PRIVATE unityservicemanager.cpp unityservicemanager.h)
     target_link_libraries(libruqolacore Qt::DBus)
 endif()
@@ -661,17 +661,17 @@ ecm_qt_declare_logging_category(libruqolacore_debug_SRCS HEADER ruqola_message_u
 target_sources(libruqolacore PRIVATE ${libruqolacore_debug_SRCS})
 
 ruqola_target_precompile_headers(libruqolacore PUBLIC ../../ruqola_pch.h)
-if (COMPILE_WITH_UNITY_CMAKE_SUPPORT)
+if(COMPILE_WITH_UNITY_CMAKE_SUPPORT)
     set_target_properties(libruqolacore PROPERTIES UNITY_BUILD ON)
 endif()
 
 generate_export_header(libruqolacore BASE_NAME libruqolacore)
 
-if (HAVE_SOLID)
+if(HAVE_SOLID)
     target_link_libraries(libruqolacore KF6::Solid)
 endif()
 
-if (HAVE_NETWORKMANAGER)
+if(HAVE_NETWORKMANAGER)
     target_link_libraries(libruqolacore KF6::NetworkManagerQt)
 endif()
 
@@ -697,30 +697,30 @@ target_link_libraries(libruqolacore
     Qt::Multimedia
 )
 
-if (HAVE_TEXT_TRANSLATOR)
+if(HAVE_TEXT_TRANSLATOR)
     target_link_libraries(libruqolacore
         KF6::TextTranslator
     )
 endif()
 
-if (HAVE_TEXT_AUTOCORRECTION_WIDGETS)
+if(HAVE_TEXT_AUTOCORRECTION_WIDGETS)
     target_link_libraries(libruqolacore
         KF6::TextAutoCorrectionWidgets
     )
 endif()
 
-if (HAVE_TEXT_UTILS)
+if(HAVE_TEXT_UTILS)
     target_link_libraries(libruqolacore
         KF6::TextUtils
     )
 endif()
 
-if (WIN32 OR APPLE)
+if(WIN32 OR APPLE)
     target_link_libraries(libruqolacore KF6::IconThemes)
 endif()
 target_include_directories(libruqolacore PRIVATE ${QTKEYCHAIN_INCLUDE_DIRS})
 
-if (TARGET KF6::TextEmoticonsCore)
+if(TARGET KF6::TextEmoticonsCore)
     target_link_libraries(libruqolacore KF6::TextEmoticonsCore)
 endif()
 
@@ -728,7 +728,7 @@ set_target_properties(libruqolacore
     PROPERTIES OUTPUT_NAME ruqolacore VERSION ${RUQOLA_LIB_VERSION} SOVERSION ${RUQOLA_LIB_SOVERSION}
 )
 
-if (BUILD_TESTING)
+if(BUILD_TESTING)
     add_subdirectory(autotests)
     add_subdirectory(localdatabase/autotests)
 endif()

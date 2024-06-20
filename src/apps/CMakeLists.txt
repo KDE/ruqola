@@ -15,12 +15,12 @@ if(TARGET KF6::IconThemes)
     target_link_libraries(ruqola KF6::IconThemes)
 endif()
 
-if (NOT WIN32 AND NOT APPLE)
+if(NOT WIN32 AND NOT APPLE)
     target_link_libraries(ruqola KF6::DBusAddons)
 endif()
 
 file(GLOB_RECURSE RUQOLA_ICONS "${PROJECT_SOURCE_DIR}/src/icons/*-apps-ruqola.png")
-ecm_add_app_icon(appIcons ICONS "${RUQOLA_ICONS}" )
+ecm_add_app_icon(appIcons ICONS "${RUQOLA_ICONS}")
 target_sources(ruqola PRIVATE ${appIcons})
 
 install(TARGETS ruqola ${KDE_INSTALL_TARGETS_DEFAULT_ARGS})

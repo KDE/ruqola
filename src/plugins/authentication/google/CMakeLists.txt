@@ -17,6 +17,6 @@ target_link_libraries(ruqola_googleauthenticationplugin
     libruqolacore ${o2_LIBRARIES}
     )
 
-if (BUILD_TESTING)
+if(BUILD_TESTING)
     add_subdirectory(autotests)
 endif()

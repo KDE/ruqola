@@ -513,14 +513,14 @@ target_link_libraries(librocketchatrestapi-qt
     Qt::NetworkAuth
     KF6::I18n
 )
-if (COMPILE_WITH_UNITY_CMAKE_SUPPORT)
+if(COMPILE_WITH_UNITY_CMAKE_SUPPORT)
     set_target_properties(librocketchatrestapi-qt PROPERTIES UNITY_BUILD ON)
 endif()
 set_target_properties(librocketchatrestapi-qt
     PROPERTIES OUTPUT_NAME rocketchatrestapi-qt VERSION ${RUQOLA_LIB_VERSION} SOVERSION ${RUQOLA_LIB_SOVERSION}
 )
 
-if (BUILD_TESTING)
+if(BUILD_TESTING)
     add_subdirectory(autotests)
 endif()
 

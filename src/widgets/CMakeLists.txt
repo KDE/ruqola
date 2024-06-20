@@ -2,7 +2,7 @@
 # SPDX-License-Identifier: BSD-3-Clause
 add_library(libruqolawidgets)
 
-if (TARGET KF6::UserFeedbackWidgets)
+if(TARGET KF6::UserFeedbackWidgets)
     target_sources(libruqolawidgets PRIVATE
         userfeedback/userfeedbackmanager.cpp
         userfeedback/ruqolauserfeedbackprovider.cpp
@@ -918,14 +918,14 @@ target_sources(libruqolawidgets PRIVATE
     applicationssettingsdialog/applicationssettingssortingcombobox.h
 )
 
-if (HAVE_TEXT_AUTOCORRECTION_WIDGETS)
+if(HAVE_TEXT_AUTOCORRECTION_WIDGETS)
     target_sources(libruqolawidgets PRIVATE
         configuredialog/configureautocorrectionwidget.h
         configuredialog/configureautocorrectionwidget.cpp
     )
 endif()
 
-if (TARGET Plasma::Activities)
+if(TARGET Plasma::Activities)
     target_sources(libruqolawidgets PRIVATE
         configurenewserver/configureactivitiesdialog.h
         configurenewserver/configureactivitiesdialog.cpp
@@ -935,7 +935,7 @@ if (TARGET Plasma::Activities)
     )
 endif()
 
-if (HAVE_TEXT_TO_SPEECH)
+if(HAVE_TEXT_TO_SPEECH)
     target_sources(libruqolawidgets PRIVATE
         configuredialog/configureaccessibilitywidget.h
         configuredialog/configureaccessibilitywidget.cpp
@@ -971,12 +971,12 @@ ecm_qt_declare_logging_category(libruqolawidgets_debug_SRCS HEADER ruqola_jitsi_
 target_sources(libruqolawidgets PRIVATE ${libruqolawidgets_debug_SRCS})
 
 ruqola_target_precompile_headers(libruqolawidgets PUBLIC ../../ruqola_pch.h)
-if (COMPILE_WITH_UNITY_CMAKE_SUPPORT)
+if(COMPILE_WITH_UNITY_CMAKE_SUPPORT)
     set_target_properties(libruqolawidgets PROPERTIES UNITY_BUILD ON)
 endif()
 generate_export_header(libruqolawidgets BASE_NAME libruqolawidgets)
 
-if (TARGET KF6::UserFeedbackWidgets)
+if(TARGET KF6::UserFeedbackWidgets)
     target_link_libraries(libruqolawidgets KF6::UserFeedbackWidgets)
 endif()
 
@@ -1001,36 +1001,36 @@ target_link_libraries(libruqolawidgets
     libruqolacore
 )
 
-if (HAVE_TEXT_TRANSLATOR)
+if(HAVE_TEXT_TRANSLATOR)
     target_link_libraries(libruqolawidgets
         KF6::TextTranslator
     )
 endif()
 
-if (TARGET KF6::TextEmoticonsWidgets)
+if(TARGET KF6::TextEmoticonsWidgets)
 	target_link_libraries(libruqolawidgets
 		KF6::TextEmoticonsWidgets)
 endif()	
 
-if (HAVE_TEXT_AUTOCORRECTION_WIDGETS)
+if(HAVE_TEXT_AUTOCORRECTION_WIDGETS)
     target_link_libraries(libruqolawidgets
         KF6::TextAutoCorrectionWidgets
     )
 endif()
 
-if (HAVE_TEXT_TO_SPEECH)
+if(HAVE_TEXT_TO_SPEECH)
     target_link_libraries(libruqolawidgets
         KF6::TextEditTextToSpeech
     )
 endif()
 
-if (HAVE_TEXT_CUSTOM_EDITOR)
+if(HAVE_TEXT_CUSTOM_EDITOR)
     target_link_libraries(libruqolawidgets
         KF6::TextCustomEditor
     )
 endif()
 
-if (NOT WIN32 AND NOT APPLE)
+if(NOT WIN32 AND NOT APPLE)
     target_link_libraries(libruqolawidgets KF6::WindowSystem)
 endif()
 
@@ -1038,7 +1038,7 @@ set_target_properties(libruqolawidgets
     PROPERTIES OUTPUT_NAME ruqolawidgets VERSION ${RUQOLA_LIB_VERSION} SOVERSION ${RUQOLA_LIB_SOVERSION}
 )
 
-if (BUILD_TESTING)
+if(BUILD_TESTING)
     add_subdirectory(autotests)
     add_subdirectory(tests)
     add_subdirectory(channellist/autotests)

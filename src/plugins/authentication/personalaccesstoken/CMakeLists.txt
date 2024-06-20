@@ -22,7 +22,7 @@ target_link_libraries(ruqola_personalaccesstokenauthenticationplugin
     qt6keychain
 )
 
-if (BUILD_TESTING)
+if(BUILD_TESTING)
     add_subdirectory(autotests)
     add_subdirectory(tests)
 endif()

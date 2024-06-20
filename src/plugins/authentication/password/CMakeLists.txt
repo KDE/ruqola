@@ -18,6 +18,6 @@ target_link_libraries(ruqola_passwordauthenticationplugin
     libruqolacore libruqolawidgets
 )
 
-if (BUILD_TESTING)
+if(BUILD_TESTING)
     add_subdirectory(autotests)
 endif()

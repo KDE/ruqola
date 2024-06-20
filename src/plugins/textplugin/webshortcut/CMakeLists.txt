@@ -12,7 +12,7 @@ target_sources(ruqola_webshortcuttextplugin PRIVATE
 target_link_libraries(ruqola_webshortcuttextplugin
     libruqolawidgets
 )
-if (BUILD_TESTING)
+if(BUILD_TESTING)
     add_subdirectory(autotests)
 endif()
 

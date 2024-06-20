@@ -46,52 +46,52 @@ option(OPTION_USE_PERSONAL_ACCESS_TOKEN "Activate Personal Access Token Support"
 option(OPTION_USE_PLASMA_ACTIVITIES "Activate plasma activities" ON)
 
 
-if (OPTION_USE_PLASMA_ACTIVITIES)
-    if (NOT WIN32 AND NOT APPLE)
+if(OPTION_USE_PLASMA_ACTIVITIES)
+    if(NOT WIN32 AND NOT APPLE)
        set(OPTION_USE_PLASMA_ACTIVITIES true)
     else()
        set(OPTION_USE_PLASMA_ACTIVITIES false)
     endif()
 endif()    
 
-if (OPTION_USE_PERSONAL_ACCESS_TOKEN)
+if(OPTION_USE_PERSONAL_ACCESS_TOKEN)
     set(USE_PERSONAL_ACCESS_TOKEN true)
 endif()
 
-if (OPTION_USE_ROUNDED_RECT_PIXMAP)
+if(OPTION_USE_ROUNDED_RECT_PIXMAP)
     set(USE_ROUNDED_RECT_PIXMAP true)
 endif()
 
-if (OPTION_USE_SIZEHINT_CACHE_SUPPORT)
+if(OPTION_USE_SIZEHINT_CACHE_SUPPORT)
     set(USE_SIZEHINT_CACHE_SUPPORT true)
 endif()
 
 option(USE_UNITY_CMAKE_SUPPORT "Use UNITY cmake support (speedup compile time)" OFF)
 
 set(COMPILE_WITH_UNITY_CMAKE_SUPPORT false)
-if (USE_UNITY_CMAKE_SUPPORT)
+if(USE_UNITY_CMAKE_SUPPORT)
     set(COMPILE_WITH_UNITY_CMAKE_SUPPORT true)
 endif()
 option(USE_PRECOMPILED_HEADERS "Use precompiled headers" OFF) # Set to OFF when using clazy and such
 set(COMPILE_WITH_CMAKE_PCH_SUPPORT false)
 macro(ruqola_target_precompile_headers)
-    if (USE_PRECOMPILED_HEADERS)
+    if(USE_PRECOMPILED_HEADERS)
         set(COMPILE_WITH_CMAKE_PCH_SUPPORT true)
 
-        if (COMPILE_WITH_CMAKE_PCH_SUPPORT)
+        if(COMPILE_WITH_CMAKE_PCH_SUPPORT)
             target_precompile_headers(${ARGV})
         endif()
     endif()
 endmacro()
 
 option(PLUGINS_AUTHENTICATION_BASED_ON_O2 "Build authentication based on o2 lib (experimental)" OFF)
-if (NOT WIN32 AND NOT APPLE)
+if(NOT WIN32 AND NOT APPLE)
     option(UNITY_SUPPORT "Build unity support" ON)
 else()
     set(UNITY_SUPPORT OFF)
 endif()
 
-if (UNITY_SUPPORT)
+if(UNITY_SUPPORT)
     set(HAVE_UNITY_SUPPORT true)
 endif()
 
@@ -119,13 +119,13 @@ find_package(KF6 ${KF_MIN_VERSION} REQUIRED COMPONENTS
     Codecs # KEmailAddress
 )
 
-if (OPTION_USE_PLASMA_ACTIVITIES)
-    if (NOT WIN32 AND NOT APPLE)
+if(OPTION_USE_PLASMA_ACTIVITIES)
+    if(NOT WIN32 AND NOT APPLE)
        find_package(PlasmaActivities "6.1.0")
     endif()
 endif()	
 
-if (TARGET Plasma::Activities)
+if(TARGET Plasma::Activities)
     set(HAVE_ACTIVITY_SUPPORT TRUE)
 endif()
 
@@ -135,7 +135,7 @@ set_package_properties(KF6TextTranslator PROPERTIES DESCRIPTION
     TYPE OPTIONAL
 )
 
-if (TARGET KF6::TextTranslator)
+if(TARGET KF6::TextTranslator)
     set(HAVE_TEXT_TRANSLATOR TRUE)
 endif()
 
@@ -144,7 +144,7 @@ set_package_properties(KF6TextAutoCorrectionWidgets PROPERTIES DESCRIPTION
     "Add support for text auto correction (ktextaddons)"
     TYPE OPTIONAL
 )
-if (TARGET KF6::TextAutoCorrectionWidgets)
+if(TARGET KF6::TextAutoCorrectionWidgets)
     set(HAVE_TEXT_AUTOCORRECTION_WIDGETS TRUE)
 endif()
 
@@ -153,7 +153,7 @@ set_package_properties(KF6TextEditTextToSpeech PROPERTIES DESCRIPTION
     "Add support for text to speech (ktextaddons)"
     TYPE OPTIONAL
 )
-if (TARGET KF6::TextEditTextToSpeech)
+if(TARGET KF6::TextEditTextToSpeech)
     set(HAVE_TEXT_TO_SPEECH TRUE)
 endif()
 
@@ -163,11 +163,11 @@ set_package_properties(KF6TextEmoticonsWidgets PROPERTIES DESCRIPTION
     TYPE REQUIRED
 )
 
-if (${KF6TextEmoticonsWidgets_VERSION} VERSION_GREATER_EQUAL 1.5.44)
+if(${KF6TextEmoticonsWidgets_VERSION} VERSION_GREATER_EQUAL 1.5.44)
     set(HAVE_TEXTADDONS_TEXTEMOTICON_EXCLUDEEMOTICON_SUPPORT TRUE)
 else()
-    if (${KF6TextEmoticonsWidgets_VERSION} VERSION_GREATER_EQUAL 1.5.3)
-        if (${KF6TextEmoticonsWidgets_VERSION} VERSION_LESS_EQUAL 1.5.30)
+    if(${KF6TextEmoticonsWidgets_VERSION} VERSION_GREATER_EQUAL 1.5.3)
+        if(${KF6TextEmoticonsWidgets_VERSION} VERSION_LESS_EQUAL 1.5.30)
             set(HAVE_TEXTADDONS_TEXTEMOTICON_EXCLUDEEMOTICON_SUPPORT TRUE)
         endif()
     endif()
@@ -179,7 +179,7 @@ set_package_properties(KF6TextUtils PROPERTIES DESCRIPTION
     TYPE OPTIONAL
 )
 
-if (TARGET KF6::TextUtils)
+if(TARGET KF6::TextUtils)
    set(HAVE_TEXT_UTILS TRUE)
 endif()
 
@@ -190,11 +190,11 @@ set_package_properties(KF6TextCustomEditor PROPERTIES DESCRIPTION
     TYPE OPTIONAL
 )
 
-if (TARGET KF6::TextCustomEditor)
+if(TARGET KF6::TextCustomEditor)
    set(HAVE_TEXT_CUSTOM_EDITOR TRUE)
 endif()
 
-if (NOT WIN32 AND NOT APPLE)
+if(NOT WIN32 AND NOT APPLE)
     find_package(KF6DBusAddons ${KF_MIN_VERSION} CONFIG REQUIRED)
 endif()
 
@@ -204,7 +204,7 @@ find_package(KF6Config ${KF_MIN_VERSION} CONFIG REQUIRED)
 find_package(KF6KIO ${KF_MIN_VERSION} CONFIG REQUIRED)
 find_package(KF6Sonnet ${KF_MIN_VERSION} CONFIG REQUIRED)
 find_package(KF6TextWidgets ${KF_MIN_VERSION} CONFIG REQUIRED)
-if (NOT APPLE)
+if(NOT APPLE)
    find_package(KF6Purpose ${KF_MIN_VERSION} CONFIG)
 endif()
 
@@ -230,7 +230,7 @@ set_package_properties(Qt6Keychain PROPERTIES
                                    URL "https://github.com/frankosterfeld/qtkeychain"
                                    TYPE REQUIRED)
 
-if (OPTION_SELENIUMWEBDRIVER_SUPPORT)
+if(OPTION_SELENIUMWEBDRIVER_SUPPORT)
     find_package(SeleniumWebDriverATSPI)
     set_package_properties(SeleniumWebDriverATSPI PROPERTIES PURPOSE "Needed for GUI tests" URL "https://invent.kde.org/sdk/selenium-webdriver-at-spi" TYPE OPTIONAL)
 endif()
@@ -240,12 +240,12 @@ set(HAVE_KUSERFEEDBACK ${KF6UserFeedback_FOUND})
 set_package_properties(KF6UserFeedback PROPERTIES DESCRIPTION "User Feedback lib" TYPE OPTIONAL PURPOSE "Allow to send Telemetry Information (optional).")
 
 find_package(KF6Solid ${KF_MIN_VERSION} CONFIG)
-if (KF6Solid_FOUND)
+if(KF6Solid_FOUND)
 # SolidPower is not built by default, and the only way to find is to
 # check for the header and that it builds
     get_target_property(SOLID_INCLUDE_DIRS KF6::Solid INTERFACE_INCLUDE_DIRECTORIES)
     find_file(SOLID_POWER_FOUND Solid/Power PATHS ${SOLID_INCLUDE_DIRS} NO_DEFAULT_PATH)
-    if (SOLID_POWER_FOUND)
+    if(SOLID_POWER_FOUND)
         message(STATUS "Found Solid Power header at ${SOLID_POWER_FOUND}")
         set(HAVE_SOLID 1)
     else()
@@ -274,16 +274,16 @@ add_definitions(-DQT_NO_CONTEXTLESS_CONNECT)
 if(BUILD_TESTING)
     find_package(Qt6 ${REQUIRED_QT_VERSION} REQUIRED COMPONENTS Test)
     add_definitions(-DBUILD_TESTING)
-endif(BUILD_TESTING)
+endif()
 
-if (PLUGINS_AUTHENTICATION_BASED_ON_O2)
+if(PLUGINS_AUTHENTICATION_BASED_ON_O2)
     find_package(o2)
 endif()
 
 
 add_subdirectory(src)
 
-if (BUILD_TESTING)
+if(BUILD_TESTING)
     add_subdirectory(tests)
 endif()
 
@@ -295,7 +295,7 @@ ecm_qt_install_logging_categories(
         )
 kde_configure_git_pre_commit_hook(CHECKS CLANG_FORMAT)
 ki18n_install(po)
-if (KF6DocTools_FOUND)
+if(KF6DocTools_FOUND)
     kdoctools_install(po)
     add_subdirectory(doc)
 endif()
