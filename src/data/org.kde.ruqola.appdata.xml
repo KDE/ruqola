@@ -863,6 +863,7 @@
       <li xml:lang="nl">Sleep een afbeelding uit ruqola en laat los op een website of lokale map</li>
       <li xml:lang="pl">Przeciągnij i upuść obraz ze strony sieciowej ruqoli do katalogu lokalnego</li>
       <li xml:lang="sl">Povlecite in spustite sliko iz ruqole na spletno mesto ali lokalno mapo</li>
+      <li xml:lang="sv">Dra och släpp bild from ruqola till webbplats eller lokal katalog</li>
       <li xml:lang="tr">Roka’dan web sitesine veya yerel klasöre görsel sürükleyip bırakın</li>
       <li xml:lang="uk">Перетягування і скидання зображення з ruqola на сайт або локальну теку</li>
       <li xml:lang="x-test">xxDrag and drop image from ruqola to website or local folderxx</li>
@@ -1107,13 +1108,13 @@
   <releases>
     <release version="2.2.0" date="2024-06-05"/>
     <release version="2.1.1" date="2024-03-14"/>
-      <artifacts>
-        <artifact type="binary" platform="x86_64-windows-msvc">
-          <location>https://download.kde.org/stable/ruqola/ruqola-2.1.1-windows-cl-msvc2022-x86_64.exe</location>
-	  <checksum type="sha256">37136299cfc32735ed322a221ce0414eeb415224aed7e59a562e5d67ac0e0779</checksum>
-          <size type="download">90766800</size>
-        </artifact>
-      </artifacts>
+    <artifacts>
+      <artifact type="binary" platform="x86_64-windows-msvc">
+        <location>https://download.kde.org/stable/ruqola/ruqola-2.1.1-windows-cl-msvc2022-x86_64.exe</location>
+        <checksum type="sha256">37136299cfc32735ed322a221ce0414eeb415224aed7e59a562e5d67ac0e0779</checksum>
+        <size type="download">90766800</size>
+      </artifact>
+    </artifacts>
     <release version="2.1.0" date="2024-02-09"/>
     <release version="2.0.1" date="2023-10-17"/>
     <release version="2.0.0" date="2023-09-27"/>
