@@ -560,14 +560,14 @@ if(HAVE_TEXT_TRANSLATOR)
         translatetext/translatetextjob.h
         translatetext/translatorenginemanager.cpp
         translatetext/translatorenginemanager.h
-    )
+)
 endif()
 
 if(TARGET Plasma::Activities)
     target_sources(libruqolacore PRIVATE
         activities/activitiesmanager.h
         activities/activitiesmanager.cpp
-    )
+)
     target_link_libraries(libruqolacore Plasma::Activities)
     if(BUILD_TESTING)
         add_subdirectory(activities/autotests)
@@ -700,19 +700,19 @@ target_link_libraries(libruqolacore
 if(HAVE_TEXT_TRANSLATOR)
     target_link_libraries(libruqolacore
         KF6::TextTranslator
-    )
+)
 endif()
 
 if(HAVE_TEXT_AUTOCORRECTION_WIDGETS)
     target_link_libraries(libruqolacore
         KF6::TextAutoCorrectionWidgets
-    )
+)
 endif()
 
 if(HAVE_TEXT_UTILS)
     target_link_libraries(libruqolacore
         KF6::TextUtils
-    )
+)
 endif()
 
 if(WIN32 OR APPLE)

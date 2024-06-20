@@ -262,7 +262,7 @@ set_package_properties(KF6NetworkManagerQt PROPERTIES DESCRIPTION "Network manag
 include_directories(${CMAKE_CURRENT_BINARY_DIR})
 ecm_set_disabled_deprecation_versions(QT 6.5
     KF 6.4.0
-    )
+)
 
 set(RUQOLA_LIB_VERSION "${RUQOLA_VERSION}")
 set(RUQOLA_LIB_SOVERSION "0")
@@ -292,7 +292,7 @@ ecm_qt_install_logging_categories(
         EXPORT RUQOLA
         FILE ruqola.categories
         DESTINATION ${KDE_INSTALL_LOGGINGCATEGORIESDIR}
-        )
+)
 kde_configure_git_pre_commit_hook(CHECKS CLANG_FORMAT)
 ki18n_install(po)
 if(KF6DocTools_FOUND)

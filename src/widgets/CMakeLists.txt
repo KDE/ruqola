@@ -10,7 +10,7 @@ if(TARGET KF6::UserFeedbackWidgets)
         userfeedback/ruqolauserfeedbackprovider.h
         userfeedback/accountinfosource.h
         userfeedback/userfeedbackmanager.h
-    )
+)
 endif()
 
 
@@ -922,7 +922,7 @@ if(HAVE_TEXT_AUTOCORRECTION_WIDGETS)
     target_sources(libruqolawidgets PRIVATE
         configuredialog/configureautocorrectionwidget.h
         configuredialog/configureautocorrectionwidget.cpp
-    )
+)
 endif()
 
 if(TARGET Plasma::Activities)
@@ -932,14 +932,14 @@ if(TARGET Plasma::Activities)
 
         configurenewserver/configureactivitieswidget.h
         configurenewserver/configureactivitieswidget.cpp
-    )
+)
 endif()
 
 if(HAVE_TEXT_TO_SPEECH)
     target_sources(libruqolawidgets PRIVATE
         configuredialog/configureaccessibilitywidget.h
         configuredialog/configureaccessibilitywidget.cpp
-    )
+)
 endif()
 
 ki18n_wrap_ui(libruqolawidgets
@@ -1004,7 +1004,7 @@ target_link_libraries(libruqolawidgets
 if(HAVE_TEXT_TRANSLATOR)
     target_link_libraries(libruqolawidgets
         KF6::TextTranslator
-    )
+)
 endif()
 
 if(TARGET KF6::TextEmoticonsWidgets)
@@ -1015,19 +1015,19 @@ endif()
 if(HAVE_TEXT_AUTOCORRECTION_WIDGETS)
     target_link_libraries(libruqolawidgets
         KF6::TextAutoCorrectionWidgets
-    )
+)
 endif()
 
 if(HAVE_TEXT_TO_SPEECH)
     target_link_libraries(libruqolawidgets
         KF6::TextEditTextToSpeech
-    )
+)
 endif()
 
 if(HAVE_TEXT_CUSTOM_EDITOR)
     target_link_libraries(libruqolawidgets
         KF6::TextCustomEditor
-    )
+)
 endif()
 
 if(NOT WIN32 AND NOT APPLE)
