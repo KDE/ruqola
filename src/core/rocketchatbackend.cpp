@@ -8,6 +8,7 @@
  */
 
 #include "rocketchatbackend.h"
+#include "ruqola_authentication_debug.h"
 #include "ruqola_reconnect_core_debug.h"
 using namespace Qt::Literals::StringLiterals;
 
@@ -314,8 +315,11 @@ void RocketChatBackend::connectDdpClient()
     auto ddp = mRocketChatAccount->ddp();
     ddp->setServerUrl(restApi->serverUrl());
     ddp->authenticationManager()->setAuthToken(restApi->authenticationManager()->authToken());
-    if (ddp->authenticationManager()->login()) {
+    if (ddp->authenticationManager()->loginPassword(mRocketChatAccount->settings()->userName(), mRocketChatAccount->settings()->password())) {
+        qCDebug(RUQOLA_AUTHENTICATION_LOG) << " login ok" << mRocketChatAccount->accountName() << mRocketChatAccount->userName();
         initializeSubscription(ddp);
+    } else {
+        qCWarning(RUQOLA_AUTHENTICATION_LOG) << " impossible to reconnect" << mRocketChatAccount->accountName() << mRocketChatAccount->userName();
     }
 }
 
