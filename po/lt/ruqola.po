@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-06-19 00:39+0000\n"
+"POT-Creation-Date: 2024-06-20 00:39+0000\n"
 "PO-Revision-Date: 2024-02-03 02:20+0200\n"
 "Last-Translator: Moo\n"
 "Language-Team: none\n"
@@ -172,6 +172,24 @@ msgstr ""
 #, kde-format
 msgid "The following accounts are available:"
 msgstr "Yra prieinamos šios paskyros:"
+
+#: core/apps/appsmarketplaceinfo.cpp:204 core/model/adminrolesmodel.cpp:40
+#: widgets/administratorsettingsdialog/ircfederation/ircfederationwidget.cpp:50
+#, fuzzy, kde-format
+#| msgid "Description:"
+msgid "Description"
+msgstr "Aprašas:"
+
+#: core/apps/appsmarketplaceinfo.cpp:207 core/model/appscategoriesmodel.cpp:34
+#, kde-format
+msgid "Categories"
+msgstr ""
+
+#: core/apps/appsmarketplaceinfo.cpp:210
+#, fuzzy, kde-format
+#| msgid "Authentication Method"
+msgid "Documentation"
+msgstr "Tapatybės nustatymo metodas"
 
 #: core/bannerinfo/bannerinfo.cpp:47
 #, kde-format
@@ -792,13 +810,6 @@ msgstr "Pridėti naudotojus"
 msgid "Two Factors Authentication"
 msgstr "Tapatybės nustatymo metodas"
 
-#: core/model/adminrolesmodel.cpp:40
-#: widgets/administratorsettingsdialog/ircfederation/ircfederationwidget.cpp:50
-#, fuzzy, kde-format
-#| msgid "Description:"
-msgid "Description"
-msgstr "Aprašas:"
-
 #: core/model/adminroomsmodel.cpp:32
 #, fuzzy, kde-format
 #| msgid "Encrypted Message"
@@ -864,11 +875,6 @@ msgstr ""
 #| msgid "Status Text:"
 msgid "Status"
 msgstr "Būsenos tekstas:"
-
-#: core/model/appscategoriesmodel.cpp:34
-#, kde-format
-msgid "Categories"
-msgstr ""
 
 #: core/model/bannerinfosmodel.cpp:52
 #, fuzzy, kde-format
@@ -3068,31 +3074,36 @@ msgstr "Pranešti apie klaidą"
 
 #: widgets/administratordialog/moderationconsole/moderationreportinfolistview.cpp:76
 #: widgets/notificationhistory/notificationhistorylistview.cpp:83
-#: widgets/room/messagelistview.cpp:271
-#: widgets/servererrorinfohistory/servererrorinfomessagehistorylistview.cpp:47
+#: widgets/servererrorinfohistory/servererrorinfomessagehistorylistview.cpp:50
 #, fuzzy, kde-format
 #| msgid "Copy link"
+msgctxt "@action"
 msgid "Copy Message"
 msgstr "Kopijuoti nuorodą"
 
 #: widgets/administratordialog/moderationconsole/moderationreportinfolistview.cpp:87
 #: widgets/discussions/discussionlistview.cpp:68
 #: widgets/notificationhistory/notificationhistorylistview.cpp:94
-#: widgets/room/messagelistview.cpp:600
-#: widgets/servererrorinfohistory/servererrorinfomessagehistorylistview.cpp:59
+#: widgets/room/messagelistview.cpp:601
+#: widgets/servererrorinfohistory/servererrorinfomessagehistorylistview.cpp:62
 #, fuzzy, kde-format
 #| msgid "Status Text:"
+msgctxt "@action"
 msgid "Speak Text"
 msgstr "Būsenos tekstas:"
 
 #: widgets/administratordialog/moderationconsole/moderationreportinfolistview.cpp:93
+#: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:76
 #: widgets/bannerinfodialog/bannerinfolistview.cpp:51
 #: widgets/discussions/discussionlistview.cpp:74
 #: widgets/notificationhistory/notificationhistorylistview.cpp:100
-#: widgets/servererrorinfohistory/servererrorinfomessagehistorylistview.cpp:66
-#, kde-format
+#: widgets/room/messagelistview.cpp:302
+#: widgets/servererrorinfohistory/servererrorinfomessagehistorylistview.cpp:69
+#, fuzzy, kde-format
+#| msgid "Save Image"
+msgctxt "@action"
 msgid "Select All"
-msgstr ""
+msgstr "Įrašyti paveikslą"
 
 #: widgets/administratordialog/moderationconsole/moderationreportinfowidget.cpp:37
 #: widgets/bannerinfodialog/bannerinfolistsearchlinewidget.cpp:24
@@ -6418,7 +6429,34 @@ msgstr ""
 msgid "STUN/TURN Servers"
 msgstr ""
 
-#: widgets/applicationssettingsdialog/applicationssettingsaskapplicationdialog.cpp:24
+#: widgets/applicationssettingsdialog/applicationssettingsaskapplicationdialog.cpp:25
+#, fuzzy, kde-format
+#| msgid "Application not found"
+msgctxt "@title:window"
+msgid "Ask Application"
+msgstr "Programa nerasta"
+
+#: widgets/applicationssettingsdialog/applicationssettingsaskapplicationwidget.cpp:29
+#, kde-format
+msgid "Let your admin know why this app would be useful"
+msgstr ""
+
+#: widgets/applicationssettingsdialog/applicationssettingsaskapplicationwidget.cpp:35
+#, kde-format
+msgid "Message for workspace admin"
+msgstr ""
+
+#: widgets/applicationssettingsdialog/applicationssettingsaskapplicationwidget.cpp:48
+#, kde-format
+msgid "Want to use %1"
+msgstr ""
+
+#: widgets/applicationssettingsdialog/applicationssettingsdelegate.cpp:109
+#: widgets/applicationssettingsdialog/applicationssettingspricecombobox.cpp:16
+#, kde-format
+msgid "Premium"
+msgstr ""
+
 #: widgets/applicationssettingsdialog/applicationssettingsdescriptiondialog.cpp:25
 #: widgets/applicationssettingsdialog/applicationssettingsdialog.cpp:27
 #, fuzzy, kde-format
@@ -6427,21 +6465,27 @@ msgctxt "@title:window"
 msgid "Applications"
 msgstr "Programa nerasta"
 
-#: widgets/applicationssettingsdialog/applicationssettingsaskapplicationwidget.cpp:22
-#, kde-format
-msgid "Let your admin know why this app would be useful"
-msgstr ""
+#: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:58
+#, fuzzy, kde-format
+#| msgid "Rocket.Chat Login"
+msgctxt "@action"
+msgid "Show Description…"
+msgstr "Rocket.Chat prisijungimas"
 
-#: widgets/applicationssettingsdialog/applicationssettingsaskapplicationwidget.cpp:28
-#, kde-format
-msgid "Message for workspace admin"
-msgstr ""
+#: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:62
+#, fuzzy, kde-format
+#| msgid "Application not found"
+msgctxt "@action"
+msgid "Ask Application…"
+msgstr "Programa nerasta"
 
-#: widgets/applicationssettingsdialog/applicationssettingsdelegate.cpp:113
-#: widgets/applicationssettingsdialog/applicationssettingspricecombobox.cpp:16
-#, kde-format
-msgid "Premium"
-msgstr ""
+#: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:67
+#: widgets/bannerinfodialog/bannerinfolistview.cpp:55
+#, fuzzy, kde-format
+#| msgid "Status Text:"
+msgctxt "@action"
+msgid "Copy Text"
+msgstr "Būsenos tekstas:"
 
 #: widgets/applicationssettingsdialog/applicationssettingspricecombobox.cpp:13
 #, kde-format
@@ -6498,12 +6542,6 @@ msgstr "Informacija apie kanalą"
 msgid "Show Unread"
 msgstr "Gijos"
 
-#: widgets/bannerinfodialog/bannerinfolistview.cpp:55
-#, fuzzy, kde-format
-#| msgid "Status Text:"
-msgid "Copy Text"
-msgstr "Būsenos tekstas:"
-
 #: widgets/bannerinfodialog/bannermessagewidget.cpp:23
 #, fuzzy, kde-format
 #| msgid "No Messages found"
@@ -6524,14 +6562,13 @@ msgid "Mark As Unread"
 msgstr "Nerasta jokių žinučių"
 
 #: widgets/channellist/channellistview.cpp:128
-#: widgets/room/messagelistview.cpp:288
 #, kde-format
-msgid "Set as Favorite"
+msgid "Unset as Favorite"
 msgstr ""
 
 #: widgets/channellist/channellistview.cpp:128
 #, kde-format
-msgid "Unset as Favorite"
+msgid "Set as Favorite"
 msgstr ""
 
 #: widgets/channellist/channellistview.cpp:137
@@ -9030,15 +9067,19 @@ msgid "Notification"
 msgstr ""
 
 #: widgets/notificationhistory/notificationhistorylistview.cpp:75
-#: widgets/servererrorinfohistory/servererrorinfomessagehistorylistview.cpp:43
+#: widgets/servererrorinfohistory/servererrorinfomessagehistorylistview.cpp:44
 #, kde-format
+msgctxt "@action"
 msgid "Clear"
 msgstr ""
 
 #: widgets/notificationhistory/notificationhistorylistview.cpp:79
-#, kde-format
+#: widgets/room/messagelistview.cpp:584
+#, fuzzy, kde-format
+#| msgid "Encrypted Message"
+msgctxt "@action"
 msgid "Go to Message"
-msgstr ""
+msgstr "Šifruota žinutė"
 
 #: widgets/offlinewidget/offlinewidget.cpp:17
 #, kde-format
@@ -9282,13 +9323,13 @@ msgid "Link Preview"
 msgstr ""
 
 #: widgets/room/delegate/messagelistdelegate.cpp:420
-#: widgets/room/messagelistview.cpp:380 widgets/room/usersinroommenu.cpp:105
+#: widgets/room/usersinroommenu.cpp:105
 #, kde-format
 msgid "User Info"
 msgstr ""
 
 #: widgets/room/delegate/messagelistdelegate.cpp:429
-#: widgets/room/messagelistview.cpp:388
+#: widgets/room/messagelistview.cpp:389
 #, fuzzy, kde-format
 #| msgid "Encrypted Conversation"
 msgctxt "@action"
@@ -9418,6 +9459,12 @@ msgstr "Ištrinti žinutę"
 msgid "Start of conversation"
 msgstr "Šifruotas pokalbis"
 
+#: widgets/room/messagelistview.cpp:271
+#, fuzzy, kde-format
+#| msgid "Copy link"
+msgid "Copy Message"
+msgstr "Kopijuoti nuorodą"
+
 #: widgets/room/messagelistview.cpp:279
 #, kde-format
 msgid "Unpin Message"
@@ -9429,142 +9476,158 @@ msgid "Pin Message"
 msgstr ""
 
 #: widgets/room/messagelistview.cpp:288
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Remove"
+msgctxt "@action"
 msgid "Remove as Favorite"
-msgstr ""
+msgstr "Šalinti"
 
-#: widgets/room/messagelistview.cpp:295
-#, kde-format
+#: widgets/room/messagelistview.cpp:288
+#, fuzzy, kde-format
+#| msgid "Delete Room"
+msgctxt "@action"
+msgid "Set as Favorite"
+msgstr "Ištrinti kambarį"
+
+#: widgets/room/messagelistview.cpp:296
+#, fuzzy, kde-format
+#| msgid "Delete"
+msgctxt "@action"
 msgid "Delete"
 msgstr "Ištrinti"
 
-#: widgets/room/messagelistview.cpp:301
-#, fuzzy, kde-format
-#| msgid "Save Image"
-msgctxt "@action"
-msgid "Select All"
-msgstr "Įrašyti paveikslą"
-
-#: widgets/room/messagelistview.cpp:306
+#: widgets/room/messagelistview.cpp:307
 #, fuzzy, kde-format
 #| msgid "No Messages found"
 msgctxt "@action"
 msgid "Mark Message As Unread"
 msgstr "Nerasta jokių žinučių"
 
-#: widgets/room/messagelistview.cpp:311
+#: widgets/room/messagelistview.cpp:312
 #, fuzzy, kde-format
 #| msgid "Show Threads..."
 msgctxt "@action"
 msgid "Show Full Thread"
 msgstr "Rodyti gijas..."
 
-#: widgets/room/messagelistview.cpp:316
-#, kde-format
+#: widgets/room/messagelistview.cpp:317
+#, fuzzy, kde-format
+#| msgid "Edit"
+msgctxt "@action"
 msgid "Edit"
 msgstr "Taisyti"
 
-#: widgets/room/messagelistview.cpp:321
+#: widgets/room/messagelistview.cpp:322
 #, kde-format
+msgctxt "@action"
 msgid "Quote"
 msgstr ""
 
-#: widgets/room/messagelistview.cpp:326
+#: widgets/room/messagelistview.cpp:327
 #, fuzzy, kde-format
 #| msgid "Copy link"
 msgctxt "@action"
 msgid "Copy Link To Message"
 msgstr "Kopijuoti nuorodą"
 
-#: widgets/room/messagelistview.cpp:331
+#: widgets/room/messagelistview.cpp:332
 #, fuzzy, kde-format
 #| msgid "Encrypted Message"
 msgctxt "@action"
 msgid "Forward Message"
 msgstr "Šifruota žinutė"
 
-#: widgets/room/messagelistview.cpp:344
-#: widgets/threadwidget/threadmessagewidget.cpp:117
+#: widgets/room/messagelistview.cpp:345
 #, fuzzy, kde-format
 #| msgid "Encrypted Message"
+msgctxt "@action"
 msgid "Unfollow Message"
 msgstr "Šifruota žinutė"
 
-#: widgets/room/messagelistview.cpp:344
-#: widgets/threadwidget/threadmessagewidget.cpp:117
+#: widgets/room/messagelistview.cpp:345
 #, fuzzy, kde-format
 #| msgid "Encrypted Message"
+msgctxt "@action"
 msgid "Follow Message"
 msgstr "Šifruota žinutė"
 
-#: widgets/room/messagelistview.cpp:357
+#: widgets/room/messagelistview.cpp:358
 #, kde-format
+msgctxt "@action"
 msgid "Copy URL"
 msgstr ""
 
-#: widgets/room/messagelistview.cpp:404
+#: widgets/room/messagelistview.cpp:381
+#, fuzzy, kde-format
+#| msgctxt "@title:window"
+#| msgid "Server Info"
+msgctxt "@action"
+msgid "User Info"
+msgstr "Informacija apie serverį"
+
+#: widgets/room/messagelistview.cpp:405
 #, fuzzy, kde-format
 #| msgid "Open Discussion"
 msgctxt "@action"
 msgid "Start a Discussion"
 msgstr "Atverti diskusiją"
 
-#: widgets/room/messagelistview.cpp:411
+#: widgets/room/messagelistview.cpp:412
 #, fuzzy, kde-format
 #| msgid "Copy link"
 msgctxt "@action"
 msgid "Reply in Thread"
 msgstr "Kopijuoti nuorodą"
 
-#: widgets/room/messagelistview.cpp:472
-#, kde-format
+#: widgets/room/messagelistview.cpp:473
+#, fuzzy, kde-format
+#| msgid "Encrypted Message"
+msgctxt "@action"
 msgid "Show Original Message"
-msgstr ""
+msgstr "Šifruota žinutė"
 
-#: widgets/room/messagelistview.cpp:472
-#, kde-format
+#: widgets/room/messagelistview.cpp:473
+#, fuzzy, kde-format
+#| msgid "(Last Message: %1)"
+msgctxt "@action"
 msgid "Translate Message"
-msgstr ""
+msgstr "(Paskutinė žinutė: %1)"
 
-#: widgets/room/messagelistview.cpp:515
+#: widgets/room/messagelistview.cpp:516
 #, fuzzy, kde-format
 #| msgid "Report a Bug"
 msgctxt "@action"
 msgid "View Reports"
 msgstr "Pranešti apie klaidą"
 
-#: widgets/room/messagelistview.cpp:538
+#: widgets/room/messagelistview.cpp:539
 #, fuzzy, kde-format
 #| msgid "Report a Bug"
 msgctxt "@action"
 msgid "Dismiss Reports"
 msgstr "Pranešti apie klaidą"
 
-#: widgets/room/messagelistview.cpp:583
+#: widgets/room/messagelistview.cpp:609
 #, fuzzy, kde-format
-#| msgid "Encrypted Message"
+#| msgid "1 message"
+#| msgid_plural "%1 messages"
 msgctxt "@action"
-msgid "Go to Message"
-msgstr "Šifruota žinutė"
-
-#: widgets/room/messagelistview.cpp:608
-#, kde-format
 msgid "Report Message"
-msgstr ""
+msgstr "1 žinutė"
 
-#: widgets/room/messagelistview.cpp:803
+#: widgets/room/messagelistview.cpp:804
 #, kde-format
 msgid "Do you want to delete this message?"
 msgstr "Ar norite ištrinti šią žinutę?"
 
-#: widgets/room/messagelistview.cpp:804
+#: widgets/room/messagelistview.cpp:805
 #, fuzzy, kde-format
 #| msgid "Delete Message"
 msgctxt "@title"
 msgid "Delete Message"
 msgstr "Ištrinti žinutę"
 
-#: widgets/room/messagelistview.cpp:953
+#: widgets/room/messagelistview.cpp:954
 #, fuzzy, kde-format
 #| msgid "Auto-Translate"
 msgid "Translator Error"
@@ -10422,6 +10485,18 @@ msgstr "Ištrinti kambarį"
 msgctxt "@title:window"
 msgid "Thread"
 msgstr "Gijos"
+
+#: widgets/threadwidget/threadmessagewidget.cpp:117
+#, fuzzy, kde-format
+#| msgid "Encrypted Message"
+msgid "Follow Message"
+msgstr "Šifruota žinutė"
+
+#: widgets/threadwidget/threadmessagewidget.cpp:117
+#, fuzzy, kde-format
+#| msgid "Encrypted Message"
+msgid "Unfollow Message"
+msgstr "Šifruota žinutė"
 
 #: widgets/userfeedback/accountinfosource.cpp:22
 #, kde-format
