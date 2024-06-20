@@ -315,7 +315,8 @@ void RocketChatBackend::connectDdpClient()
     auto ddp = mRocketChatAccount->ddp();
     ddp->setServerUrl(restApi->serverUrl());
     ddp->authenticationManager()->setAuthToken(restApi->authenticationManager()->authToken());
-    if (ddp->authenticationManager()->loginPassword(mRocketChatAccount->settings()->userName(), mRocketChatAccount->settings()->password())) {
+    // if (ddp->authenticationManager()->loginPassword(mRocketChatAccount->settings()->userName(), mRocketChatAccount->settings()->password())) {
+    if (ddp->authenticationManager()->login()) {
         qCDebug(RUQOLA_AUTHENTICATION_LOG) << " login ok" << mRocketChatAccount->accountName() << mRocketChatAccount->userName();
         initializeSubscription(ddp);
     } else {
