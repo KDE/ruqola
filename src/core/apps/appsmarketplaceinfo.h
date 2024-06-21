@@ -60,6 +60,9 @@ public:
 
     [[nodiscard]] QString applicationInformations() const;
 
+    [[nodiscard]] bool isPaid() const;
+    void setIsPaid(bool newIsPaid);
+
 private:
     QStringList mCategories;
     QByteArray mAppId;
@@ -73,6 +76,7 @@ private:
     qint64 mModifiedDate = -1;
     int mPrice = 0;
     bool mIsEnterpriseOnly = false;
+    bool mIsPaid = false;
     // TODO icon
 };
 

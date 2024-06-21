@@ -28,6 +28,7 @@ QDebug operator<<(QDebug d, const AppsMarketPlaceInfo &t)
     d.nospace() << "shortDescription " << t.shortDescription();
     d.nospace() << "pixmap is valid " << !t.pixmap().isNull();
     d.nospace() << "modifiedDate " << t.modifiedDate();
+    d.nospace() << "isPaid " << t.isPaid();
     return d;
 }
 
@@ -38,6 +39,9 @@ void AppsMarketPlaceInfo::parseAppsMarketPlaceInfo(const QJsonObject &replyObjec
     mPurchaseType = replyObject["purchaseType"_L1].toString();
 
     mModifiedDate = Utils::parseIsoDate("modifiedAt"_L1, replyObject);
+
+    mIsPaid = replyObject.contains("pricingPlans"_L1);
+    // TODO implement plans support
     mPrice = replyObject["price"_L1].toInt();
 
     const QJsonObject latestObj = replyObject["latest"_L1].toObject();
@@ -180,7 +184,7 @@ bool AppsMarketPlaceInfo::operator==(const AppsMarketPlaceInfo &other) const
     return mCategories == other.mCategories && mAppId == other.mAppId && mAppName == other.mAppName && mDescription == other.mDescription
         && mDocumentationUrl == other.mDocumentationUrl && mPurchaseType == other.mPurchaseType && mVersion == other.mVersion
         && mShortDescription == other.mShortDescription /*&& mPixmap.isNull() == other.mPixmap.isNull()*/ && mPrice == other.mPrice
-        && mIsEnterpriseOnly == other.mIsEnterpriseOnly && mModifiedDate == other.mModifiedDate;
+        && mIsEnterpriseOnly == other.mIsEnterpriseOnly && mModifiedDate == other.mModifiedDate && mIsPaid == other.mIsPaid;
 }
 
 qint64 AppsMarketPlaceInfo::modifiedDate() const
@@ -212,4 +216,14 @@ QString AppsMarketPlaceInfo::applicationInformations() const
             + QStringLiteral("<br/><br/>");
     }
     return str;
+}
+
+bool AppsMarketPlaceInfo::isPaid() const
+{
+    return mIsPaid;
+}
+
+void AppsMarketPlaceInfo::setIsPaid(bool newIsPaid)
+{
+    mIsPaid = newIsPaid;
 }

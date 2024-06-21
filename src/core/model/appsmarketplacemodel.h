@@ -20,6 +20,7 @@ public:
         AppVersion,
         Categories,
         Price,
+        HasPricingPlans,
         Description,
         ShortDescription,
         PurchaseType,

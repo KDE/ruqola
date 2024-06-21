@@ -41,18 +41,24 @@ bool AppsMarketPlaceFilterProxyModel::filterAcceptsRow(int source_row, const QMo
     case Price::AllPrice:
     case Price::UnknownPrice:
         break;
-    case Price::Free:
-        // TODO
+    case Price::Free: {
+        if (modelIndex.data(AppsMarketPlaceModel::HasPricingPlans).toBool()) {
+            return false;
+        }
         break;
-    case Price::Paid:
-        // TODO
+    }
+    case Price::Paid: {
+        if (!modelIndex.data(AppsMarketPlaceModel::HasPricingPlans).toBool()) {
+            return false;
+        }
         break;
+    }
     case Price::Premium: {
         const bool isEnterpriseOnly = modelIndex.data(AppsMarketPlaceModel::IsEnterpriseOnly).toBool();
         if (!isEnterpriseOnly) {
             return false;
+            break;
         }
-        break;
     }
     }
 

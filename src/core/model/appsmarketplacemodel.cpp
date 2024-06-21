@@ -76,6 +76,8 @@ QVariant AppsMarketPlaceModel::data(const QModelIndex &index, int role) const
         return appsMarketPlaceInfo.modifiedDate();
     case AppsMarketPlaceModel::ApplicationInformations:
         return appsMarketPlaceInfo.applicationInformations();
+    case AppsMarketPlaceModel::HasPricingPlans:
+        return appsMarketPlaceInfo.isPaid();
     }
     return {};
 }
