@@ -13,6 +13,18 @@
 class LIBRUQOLACORE_EXPORT AppsMarketPlaceInfo
 {
 public:
+    struct LIBRUQOLACORE_EXPORT PricePlan {
+        enum Strategy {
+            Unknown,
+            Monthly,
+            // More ?
+        };
+
+        int price = -1;
+        int trialDays = -1;
+        Strategy strategy = Strategy::Unknown;
+        bool enabled = false;
+    };
     AppsMarketPlaceInfo();
     ~AppsMarketPlaceInfo();
 
@@ -63,7 +75,11 @@ public:
     [[nodiscard]] bool isPaid() const;
     void setIsPaid(bool newIsPaid);
 
+    [[nodiscard]] QList<PricePlan> pricePlan() const;
+    void setPricePlan(const QList<PricePlan> &newPricePlan);
+
 private:
+    QList<PricePlan> mPricePlan;
     QStringList mCategories;
     QByteArray mAppId;
     QString mAppName;
@@ -83,3 +99,4 @@ private:
 Q_DECLARE_METATYPE(AppsMarketPlaceInfo)
 Q_DECLARE_TYPEINFO(AppsMarketPlaceInfo, Q_RELOCATABLE_TYPE);
 LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const AppsMarketPlaceInfo &t);
+LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const AppsMarketPlaceInfo::PricePlan &t);

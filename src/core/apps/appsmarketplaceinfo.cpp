@@ -29,6 +29,16 @@ QDebug operator<<(QDebug d, const AppsMarketPlaceInfo &t)
     d.nospace() << "pixmap is valid " << !t.pixmap().isNull();
     d.nospace() << "modifiedDate " << t.modifiedDate();
     d.nospace() << "isPaid " << t.isPaid();
+    d.nospace() << "pricePlan " << t.pricePlan();
+    return d;
+}
+
+QDebug operator<<(QDebug d, const AppsMarketPlaceInfo::PricePlan &t)
+{
+    d.nospace() << "price " << t.price;
+    d.nospace() << "trialDays " << t.trialDays;
+    d.nospace() << "enabled " << t.enabled;
+    d.nospace() << "strategy " << t.strategy;
     return d;
 }
 
@@ -226,4 +236,14 @@ bool AppsMarketPlaceInfo::isPaid() const
 void AppsMarketPlaceInfo::setIsPaid(bool newIsPaid)
 {
     mIsPaid = newIsPaid;
+}
+
+QList<AppsMarketPlaceInfo::PricePlan> AppsMarketPlaceInfo::pricePlan() const
+{
+    return mPricePlan;
+}
+
+void AppsMarketPlaceInfo::setPricePlan(const QList<PricePlan> &newPricePlan)
+{
+    mPricePlan = newPricePlan;
 }
