@@ -32,6 +32,6 @@ public:
     [[nodiscard]] QStringList categoriesSelected() const;
 
 private:
-    LIBRUQOLACORE_NO_EXPORT void createItem(const QString &displayStr, const QString &identifier);
+    LIBRUQOLACORE_NO_EXPORT void createItem(const QString &displayStr, const QByteArray &identifier);
     QList<AppsCategoryInfo> mAppsCategories;
 };

@@ -21,13 +21,13 @@ public:
     [[nodiscard]] bool hidden() const;
     void setHidden(bool newHidden);
 
-    [[nodiscard]] QString identifier() const;
-    void setIdentifier(const QString &newIdentifier);
+    [[nodiscard]] QByteArray identifier() const;
+    void setIdentifier(const QByteArray &newIdentifier);
 
     [[nodiscard]] bool isValid() const;
 
 private:
-    QString mIdentifier;
+    QByteArray mIdentifier;
     QString mTitle;
     // TODO description/createdDate/modifiedDate ?
     bool mHidden = false;

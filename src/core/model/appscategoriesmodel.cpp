@@ -14,7 +14,7 @@ AppsCategoriesModel::AppsCategoriesModel(QObject *parent)
 
 AppsCategoriesModel::~AppsCategoriesModel() = default;
 
-void AppsCategoriesModel::createItem(const QString &displayStr, const QString &identifier)
+void AppsCategoriesModel::createItem(const QString &displayStr, const QByteArray &identifier)
 {
     auto item = new QStandardItem(displayStr);
     item->setFlags(Qt::ItemIsUserCheckable | Qt::ItemIsEnabled);

@@ -15,7 +15,7 @@ AppsCategoryInfo::~AppsCategoryInfo() = default;
 void AppsCategoryInfo::parseAppsCategoryInfo(const QJsonObject &replyObject)
 {
     mTitle = replyObject["title"_L1].toString();
-    mIdentifier = replyObject["id"_L1].toString();
+    mIdentifier = replyObject["id"_L1].toString().toLatin1();
     mHidden = replyObject["hidden"_L1].toBool(false);
 }
 
@@ -39,12 +39,12 @@ void AppsCategoryInfo::setHidden(bool newHidden)
     mHidden = newHidden;
 }
 
-QString AppsCategoryInfo::identifier() const
+QByteArray AppsCategoryInfo::identifier() const
 {
     return mIdentifier;
 }
 
-void AppsCategoryInfo::setIdentifier(const QString &newIdentifier)
+void AppsCategoryInfo::setIdentifier(const QByteArray &newIdentifier)
 {
     mIdentifier = newIdentifier;
 }
