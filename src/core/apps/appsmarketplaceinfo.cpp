@@ -243,14 +243,17 @@ QString AppsMarketPlaceInfo::applicationInformations() const
 
     str += QStringLiteral("<b>%1</b><br/>").arg(i18n("Description")) + newDescription + QStringLiteral("<br/><br/>");
 
+    str += QStringLiteral("<b>%1</b><br/>").arg(i18n("Version")) + mVersion + QStringLiteral("<br/><br/>");
+
     if (!mCategories.isEmpty()) {
-        str += QStringLiteral("<b>%1</b><br/>").arg(i18n("Categories")) + mCategories.join(QLatin1Char(',')) + QStringLiteral("<br/><br/>");
+        str += QStringLiteral("<b>%1</b><br/>").arg(i18n("Categories")) + mCategories.join(QStringLiteral(", ")) + QStringLiteral("<br/><br/>");
     }
     if (!mDocumentationUrl.isEmpty()) {
         const QString url = mDocumentationUrl.startsWith(QStringLiteral("http")) ? mDocumentationUrl : QStringLiteral("https://%1").arg(mDocumentationUrl);
         str += QStringLiteral("<b>%1</b><br/>").arg(i18n("Documentation")) + QStringLiteral("<a href=\"%2\">%1</a>").arg(mDocumentationUrl, url)
             + QStringLiteral("<br/><br/>");
     }
+
     return str;
 }
 
