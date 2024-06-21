@@ -9,10 +9,10 @@
 ApplicationsSettingsSortingComboBox::ApplicationsSettingsSortingComboBox(QWidget *parent)
     : QComboBox(parent)
 {
-    addItem(i18n("A-Z"), QVariant::fromValue(AppsMarketPlaceFilterProxyModel::Sorting::AtoZ));
-    addItem(i18n("Z-A"), QVariant::fromValue(AppsMarketPlaceFilterProxyModel::Sorting::ZtoA));
-    addItem(i18n("Most recent updated"), QVariant::fromValue(AppsMarketPlaceFilterProxyModel::Sorting::MostRecent));
-    addItem(i18n("Least recent updated"), QVariant::fromValue(AppsMarketPlaceFilterProxyModel::Sorting::LeastRecent));
+    addItem(i18n("A-Z"), AppsMarketPlaceFilterProxyModel::Sorting::AtoZ);
+    addItem(i18n("Z-A"), AppsMarketPlaceFilterProxyModel::Sorting::ZtoA);
+    addItem(i18n("Most recent updated"), AppsMarketPlaceFilterProxyModel::Sorting::MostRecent);
+    addItem(i18n("Least recent updated"), AppsMarketPlaceFilterProxyModel::Sorting::LeastRecent);
 }
 
 ApplicationsSettingsSortingComboBox::~ApplicationsSettingsSortingComboBox() = default;
