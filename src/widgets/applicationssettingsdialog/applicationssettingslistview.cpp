@@ -59,11 +59,11 @@ void ApplicationsSettingsListView::slotCustomContextMenuRequested(const QPoint &
                 slotShowApplicationDescription(index);
             });
             menu.addSeparator();
+            // TODO show it when we can install it.
             if (mRocketChatAccount->isAdministrator()) {
                 menu.addAction(i18nc("@action", "Install"), this, [this, index]() {
                     slotInstallApplication(index);
                 });
-
             } else {
                 menu.addAction(i18nc("@action", "Ask Application…"), this, [this, index]() {
                     slotAskApplication(index);
