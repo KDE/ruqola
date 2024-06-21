@@ -37,6 +37,25 @@ bool AppsMarketPlaceFilterProxyModel::filterAcceptsRow(int source_row, const QMo
             return false;
         }
     }
+    switch (mFilterInfo.price) {
+    case Price::AllPrice:
+    case Price::UnknownPrice:
+        break;
+    case Price::Free:
+        // TODO
+        break;
+    case Price::Paid:
+        // TODO
+        break;
+    case Price::Premium: {
+        const bool isEnterpriseOnly = modelIndex.data(AppsMarketPlaceModel::IsEnterpriseOnly).toBool();
+        if (!isEnterpriseOnly) {
+            return false;
+        }
+        break;
+    }
+    }
+
     return QSortFilterProxyModel::filterAcceptsColumn(source_row, source_parent);
 }
 
