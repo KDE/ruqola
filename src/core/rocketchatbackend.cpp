@@ -99,6 +99,7 @@ void rooms_parsing(const QJsonObject &root, RocketChatAccount *account)
 
 void getsubscription_parsing(const QJsonObject &root, RocketChatAccount *account)
 {
+    // qCDebug(RUQOLA_MESSAGE_LOG) << " getsubscription_parsing " << root;
     const QJsonObject obj = root.value("result"_L1).toObject();
     RoomModel *model = account->roomModel();
 
