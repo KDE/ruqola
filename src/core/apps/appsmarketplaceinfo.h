@@ -22,6 +22,7 @@ public:
             // More ?
         };
 
+        [[nodiscard]] Strategy convertStringToStrategy(const QString &str) const;
         int price = -1;
         int trialDays = -1;
         Strategy strategy = Strategy::Unknown;
@@ -75,12 +76,12 @@ public:
     [[nodiscard]] QString applicationInformations() const;
 
     [[nodiscard]] bool isPaid() const;
-    void setIsPaid(bool newIsPaid);
 
     [[nodiscard]] QList<PricePlan> pricePlan() const;
     void setPricePlan(const QList<PricePlan> &newPricePlan);
 
 private:
+    LIBRUQOLACORE_NO_EXPORT void parsePrincingPlan(const QJsonArray &array);
     QList<PricePlan> mPricePlan;
     QStringList mCategories;
     QByteArray mAppId;
@@ -94,8 +95,6 @@ private:
     qint64 mModifiedDate = -1;
     int mPrice = 0;
     bool mIsEnterpriseOnly = false;
-    bool mIsPaid = false;
-    // TODO icon
 };
 
 Q_DECLARE_METATYPE(AppsMarketPlaceInfo)

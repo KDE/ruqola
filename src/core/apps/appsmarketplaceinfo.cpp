@@ -42,9 +42,30 @@ QDebug operator<<(QDebug d, const AppsMarketPlaceInfo::PricePlan &t)
     return d;
 }
 
+void AppsMarketPlaceInfo::parsePrincingPlan(const QJsonArray &array)
+{
+    mPricePlan.clear();
+    for (const QJsonValue &current : array) {
+        PricePlan price;
+        price.price = current["price"_L1].toInt();
+        price.trialDays = current["trialDays"_L1].toInt();
+        price.enabled = current["enabled"_L1].toBool();
+        price.strategy = price.convertStringToStrategy(current["strategy"_L1].toString());
+        mPricePlan.append(price);
+    }
+}
+
 bool AppsMarketPlaceInfo::PricePlan::operator==(const AppsMarketPlaceInfo::PricePlan &other) const
 {
     return price == other.price && trialDays == other.trialDays && strategy == other.strategy && enabled == other.enabled;
+}
+
+AppsMarketPlaceInfo::PricePlan::Strategy AppsMarketPlaceInfo::PricePlan::convertStringToStrategy(const QString &str) const
+{
+    if (str == "monthly"_L1) {
+        return AppsMarketPlaceInfo::PricePlan::Strategy::Monthly;
+    }
+    return AppsMarketPlaceInfo::PricePlan::Strategy::Unknown;
 }
 
 void AppsMarketPlaceInfo::parseAppsMarketPlaceInfo(const QJsonObject &replyObject)
@@ -55,7 +76,7 @@ void AppsMarketPlaceInfo::parseAppsMarketPlaceInfo(const QJsonObject &replyObjec
 
     mModifiedDate = Utils::parseIsoDate("modifiedAt"_L1, replyObject);
 
-    mIsPaid = replyObject.contains("pricingPlans"_L1);
+    parsePrincingPlan(replyObject["pricingPlans"_L1].toArray());
     // TODO implement plans support
     mPrice = replyObject["price"_L1].toInt();
 
@@ -199,7 +220,7 @@ bool AppsMarketPlaceInfo::operator==(const AppsMarketPlaceInfo &other) const
     return mCategories == other.mCategories && mAppId == other.mAppId && mAppName == other.mAppName && mDescription == other.mDescription
         && mDocumentationUrl == other.mDocumentationUrl && mPurchaseType == other.mPurchaseType && mVersion == other.mVersion
         && mShortDescription == other.mShortDescription /*&& mPixmap.isNull() == other.mPixmap.isNull()*/ && mPrice == other.mPrice
-        && mIsEnterpriseOnly == other.mIsEnterpriseOnly && mModifiedDate == other.mModifiedDate && mIsPaid == other.mIsPaid && mPricePlan == other.mPricePlan;
+        && mIsEnterpriseOnly == other.mIsEnterpriseOnly && mModifiedDate == other.mModifiedDate && mPricePlan == other.mPricePlan;
 }
 
 qint64 AppsMarketPlaceInfo::modifiedDate() const
@@ -235,12 +256,7 @@ QString AppsMarketPlaceInfo::applicationInformations() const
 
 bool AppsMarketPlaceInfo::isPaid() const
 {
-    return mIsPaid;
-}
-
-void AppsMarketPlaceInfo::setIsPaid(bool newIsPaid)
-{
-    mIsPaid = newIsPaid;
+    return !mPricePlan.isEmpty();
 }
 
 QList<AppsMarketPlaceInfo::PricePlan> AppsMarketPlaceInfo::pricePlan() const
