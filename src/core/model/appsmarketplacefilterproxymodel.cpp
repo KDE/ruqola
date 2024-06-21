@@ -62,6 +62,15 @@ bool AppsMarketPlaceFilterProxyModel::filterAcceptsRow(int source_row, const QMo
     }
     }
 
+    // TODO
+    switch (mFilterInfo.status) {
+    case Status::AllStatus:
+    case Status::Enabled:
+    case Status::Disabled:
+    case Status::UnknownStatus:
+        break;
+    }
+
     return QSortFilterProxyModel::filterAcceptsColumn(source_row, source_parent);
 }
 
