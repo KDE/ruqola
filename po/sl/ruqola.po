@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-06-20 00:39+0000\n"
-"PO-Revision-Date: 2024-06-19 08:57+0200\n"
+"POT-Creation-Date: 2024-06-21 00:38+0000\n"
+"PO-Revision-Date: 2024-06-20 06:26+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
@@ -175,11 +175,10 @@ msgstr "Opis"
 msgid "Categories"
 msgstr "Katagorije"
 
-#: core/apps/appsmarketplaceinfo.cpp:210
-#, fuzzy, kde-format
-#| msgid "Authentication"
+#: core/apps/appsmarketplaceinfo.cpp:211
+#, kde-format
 msgid "Documentation"
-msgstr "Avtentikacija"
+msgstr "Dokumentacija"
 
 #: core/bannerinfo/bannerinfo.cpp:47
 #, kde-format
@@ -2936,8 +2935,7 @@ msgstr "Odpusti vsa poročila"
 #: widgets/administratordialog/moderationconsole/moderationreportinfolistview.cpp:76
 #: widgets/notificationhistory/notificationhistorylistview.cpp:83
 #: widgets/servererrorinfohistory/servererrorinfomessagehistorylistview.cpp:50
-#, fuzzy, kde-format
-#| msgid "Copy Message"
+#, kde-format
 msgctxt "@action"
 msgid "Copy Message"
 msgstr "Kopiraj sporočilo"
@@ -2947,14 +2945,13 @@ msgstr "Kopiraj sporočilo"
 #: widgets/notificationhistory/notificationhistorylistview.cpp:94
 #: widgets/room/messagelistview.cpp:601
 #: widgets/servererrorinfohistory/servererrorinfomessagehistorylistview.cpp:62
-#, fuzzy, kde-format
-#| msgid "Speak Text"
+#, kde-format
 msgctxt "@action"
 msgid "Speak Text"
 msgstr "Govori besedilo"
 
 #: widgets/administratordialog/moderationconsole/moderationreportinfolistview.cpp:93
-#: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:76
+#: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:84
 #: widgets/bannerinfodialog/bannerinfolistview.cpp:51
 #: widgets/discussions/discussionlistview.cpp:74
 #: widgets/notificationhistory/notificationhistorylistview.cpp:100
@@ -6259,12 +6256,10 @@ msgid "STUN/TURN Servers"
 msgstr "Strežniki STUN/TURN"
 
 #: widgets/applicationssettingsdialog/applicationssettingsaskapplicationdialog.cpp:25
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Applications"
+#, kde-format
 msgctxt "@title:window"
 msgid "Ask Application"
-msgstr "Aplikacije"
+msgstr "Vprašaj aplikacijo"
 
 #: widgets/applicationssettingsdialog/applicationssettingsaskapplicationwidget.cpp:29
 #, kde-format
@@ -6279,7 +6274,7 @@ msgstr "Sporočilo za skrbnika delovnega prostora"
 #: widgets/applicationssettingsdialog/applicationssettingsaskapplicationwidget.cpp:48
 #, kde-format
 msgid "Want to use %1"
-msgstr ""
+msgstr "Želi uporabiti %1"
 
 #: widgets/applicationssettingsdialog/applicationssettingsdelegate.cpp:109
 #: widgets/applicationssettingsdialog/applicationssettingspricecombobox.cpp:16
@@ -6295,25 +6290,26 @@ msgid "Applications"
 msgstr "Aplikacije"
 
 #: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:58
-#, fuzzy, kde-format
-#| msgctxt "@action"
-#| msgid "Show Mentions…"
+#, kde-format
 msgctxt "@action"
 msgid "Show Description…"
-msgstr "Pokaži omembe…"
+msgstr "Pokaži opis…"
 
-#: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:62
-#, fuzzy, kde-format
-#| msgctxt "@action"
-#| msgid "Applications…"
+#: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:63
+#, kde-format
+msgctxt "@action"
+msgid "Install"
+msgstr ""
+
+#: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:68
+#, kde-format
 msgctxt "@action"
 msgid "Ask Application…"
-msgstr "Aplikacije…"
+msgstr "Vprašaj aplikacijo…"
 
-#: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:67
+#: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:75
 #: widgets/bannerinfodialog/bannerinfolistview.cpp:55
-#, fuzzy, kde-format
-#| msgid "Copy Text"
+#, kde-format
 msgctxt "@action"
 msgid "Copy Text"
 msgstr "Kopiraj besedilo"
@@ -7808,9 +7804,11 @@ msgstr ""
 
 #: widgets/encryption/e2edecodeencryptionkeyfailedwidget.cpp:19
 #: widgets/encryption/e2edecodeencryptionkeywidget.cpp:19
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@action"
+#| msgid "Decrypte Encryption Key"
 msgctxt "@action"
-msgid "Decrypte Encryption Key"
+msgid "Decrypt Encryption Key"
 msgstr "Dešifriraj ključ šifriranja"
 
 #: widgets/encryption/e2edecodeencryptionkeywidget.cpp:17
@@ -8708,8 +8706,9 @@ msgid "Status text:"
 msgstr "Besedilo stanja:"
 
 #: widgets/myaccount/myaccountprofileconfigurewidget.cpp:125
-#, kde-format
-msgid "Do you really delete your account ?"
+#, fuzzy, kde-format
+#| msgid "Do you really delete your account ?"
+msgid "Do you really want to delete your account?"
 msgstr "Ali res želite izbrisati svoj račun?"
 
 #: widgets/myaccount/myaccountprofileconfigurewidget.cpp:126
@@ -8751,8 +8750,7 @@ msgstr "Obvestilo"
 
 #: widgets/notificationhistory/notificationhistorylistview.cpp:75
 #: widgets/servererrorinfohistory/servererrorinfomessagehistorylistview.cpp:44
-#, fuzzy, kde-format
-#| msgid "Clear"
+#, kde-format
 msgctxt "@action"
 msgid "Clear"
 msgstr "Počisti"
@@ -9127,22 +9125,19 @@ msgid "Pin Message"
 msgstr "Pripni sporočilo"
 
 #: widgets/room/messagelistview.cpp:288
-#, fuzzy, kde-format
-#| msgid "Remove as Favorite"
+#, kde-format
 msgctxt "@action"
 msgid "Remove as Favorite"
 msgstr "Odstrani iz priljubljenih"
 
 #: widgets/room/messagelistview.cpp:288
-#, fuzzy, kde-format
-#| msgid "Set as Favorite"
+#, kde-format
 msgctxt "@action"
 msgid "Set as Favorite"
 msgstr "Nastavi kot priljubljeno"
 
 #: widgets/room/messagelistview.cpp:296
-#, fuzzy, kde-format
-#| msgid "Delete"
+#, kde-format
 msgctxt "@action"
 msgid "Delete"
 msgstr "Izbriši"
@@ -9160,15 +9155,13 @@ msgid "Show Full Thread"
 msgstr "Pokaži polno nit"
 
 #: widgets/room/messagelistview.cpp:317
-#, fuzzy, kde-format
-#| msgid "Edit"
+#, kde-format
 msgctxt "@action"
 msgid "Edit"
 msgstr "Uredi"
 
 #: widgets/room/messagelistview.cpp:322
-#, fuzzy, kde-format
-#| msgid "Quote"
+#, kde-format
 msgctxt "@action"
 msgid "Quote"
 msgstr "Citiraj"
@@ -9186,32 +9179,28 @@ msgid "Forward Message"
 msgstr "Posreduj sporočilo"
 
 #: widgets/room/messagelistview.cpp:345
-#, fuzzy, kde-format
-#| msgid "Unfollow Message"
+#, kde-format
 msgctxt "@action"
 msgid "Unfollow Message"
 msgstr "Ne sledi sporočilu"
 
 #: widgets/room/messagelistview.cpp:345
-#, fuzzy, kde-format
-#| msgid "Follow Message"
+#, kde-format
 msgctxt "@action"
 msgid "Follow Message"
 msgstr "Sledi sporočilu"
 
 #: widgets/room/messagelistview.cpp:358
-#, fuzzy, kde-format
-#| msgid "Copy URL"
+#, kde-format
 msgctxt "@action"
 msgid "Copy URL"
 msgstr "Kopiraj URL"
 
 #: widgets/room/messagelistview.cpp:381
-#, fuzzy, kde-format
-#| msgid "User Info"
+#, kde-format
 msgctxt "@action"
 msgid "User Info"
-msgstr "Podatki o uporabniku"
+msgstr "Informacije o uporabniku"
 
 #: widgets/room/messagelistview.cpp:405
 #, kde-format
@@ -9226,15 +9215,13 @@ msgid "Reply in Thread"
 msgstr "Odgovori v niti"
 
 #: widgets/room/messagelistview.cpp:473
-#, fuzzy, kde-format
-#| msgid "Show Original Message"
+#, kde-format
 msgctxt "@action"
 msgid "Show Original Message"
 msgstr "Pokaži izvirno sporočilo"
 
 #: widgets/room/messagelistview.cpp:473
-#, fuzzy, kde-format
-#| msgid "Translate Message"
+#, kde-format
 msgctxt "@action"
 msgid "Translate Message"
 msgstr "Prevedi sporočilo"
@@ -9252,11 +9239,10 @@ msgid "Dismiss Reports"
 msgstr "Odpusti poročila"
 
 #: widgets/room/messagelistview.cpp:609
-#, fuzzy, kde-format
-#| msgid "Report Message"
+#, kde-format
 msgctxt "@action"
 msgid "Report Message"
-msgstr "Sporočilo s poročilom"
+msgstr "Poročaj sporočilo"
 
 #: widgets/room/messagelistview.cpp:804
 #, kde-format

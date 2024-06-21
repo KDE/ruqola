@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-06-20 00:39+0000\n"
+"POT-Creation-Date: 2024-06-21 00:38+0000\n"
 "PO-Revision-Date: 2024-06-19 23:49+0200\n"
 "Last-Translator: Oliver Kellogg <olivermkellogg@gmail.com>\n"
 "Language-Team: Esperanto <kde-i18n-eo.org>\n"
@@ -173,7 +173,7 @@ msgstr "Priskribo"
 msgid "Categories"
 msgstr "Kategorioj"
 
-#: core/apps/appsmarketplaceinfo.cpp:210
+#: core/apps/appsmarketplaceinfo.cpp:211
 #, fuzzy, kde-format
 #| msgid "Authentication"
 msgid "Documentation"
@@ -2943,7 +2943,7 @@ msgid "Speak Text"
 msgstr "Paroli Tekston"
 
 #: widgets/administratordialog/moderationconsole/moderationreportinfolistview.cpp:93
-#: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:76
+#: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:84
 #: widgets/bannerinfodialog/bannerinfolistview.cpp:51
 #: widgets/discussions/discussionlistview.cpp:74
 #: widgets/notificationhistory/notificationhistorylistview.cpp:100
@@ -6289,7 +6289,13 @@ msgctxt "@action"
 msgid "Show Description…"
 msgstr "Montri Menciojn…"
 
-#: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:62
+#: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:63
+#, kde-format
+msgctxt "@action"
+msgid "Install"
+msgstr ""
+
+#: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:68
 #, fuzzy, kde-format
 #| msgctxt "@action"
 #| msgid "Applications…"
@@ -6297,7 +6303,7 @@ msgctxt "@action"
 msgid "Ask Application…"
 msgstr "Aplikaĵoj…"
 
-#: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:67
+#: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:75
 #: widgets/bannerinfodialog/bannerinfolistview.cpp:55
 #, fuzzy, kde-format
 #| msgid "Copy Text"
@@ -7776,9 +7782,11 @@ msgstr ""
 
 #: widgets/encryption/e2edecodeencryptionkeyfailedwidget.cpp:19
 #: widgets/encryption/e2edecodeencryptionkeywidget.cpp:19
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@action"
+#| msgid "Decrypte Encryption Key"
 msgctxt "@action"
-msgid "Decrypte Encryption Key"
+msgid "Decrypt Encryption Key"
 msgstr "Malĉifri Ĉifradan Ŝlosilon"
 
 #: widgets/encryption/e2edecodeencryptionkeywidget.cpp:17
@@ -8670,8 +8678,9 @@ msgid "Status text:"
 msgstr "Statusa teksto:"
 
 #: widgets/myaccount/myaccountprofileconfigurewidget.cpp:125
-#, kde-format
-msgid "Do you really delete your account ?"
+#, fuzzy, kde-format
+#| msgid "Do you really delete your account ?"
+msgid "Do you really want to delete your account?"
 msgstr "Ĉu vi vere forigas vian konton?"
 
 #: widgets/myaccount/myaccountprofileconfigurewidget.cpp:126

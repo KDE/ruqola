@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-06-20 00:39+0000\n"
-"PO-Revision-Date: 2024-06-19 11:40+0300\n"
+"POT-Creation-Date: 2024-06-21 00:38+0000\n"
+"PO-Revision-Date: 2024-06-20 13:14+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -173,11 +173,10 @@ msgstr "Açıklama"
 msgid "Categories"
 msgstr "Kategoriler"
 
-#: core/apps/appsmarketplaceinfo.cpp:210
-#, fuzzy, kde-format
-#| msgid "Authentication"
+#: core/apps/appsmarketplaceinfo.cpp:211
+#, kde-format
 msgid "Documentation"
-msgstr "Kimlik Doğrulama"
+msgstr "Belgelendirme"
 
 #: core/bannerinfo/bannerinfo.cpp:47
 #, kde-format
@@ -2905,8 +2904,7 @@ msgstr "Tüm Raporları Yok Say"
 #: widgets/administratordialog/moderationconsole/moderationreportinfolistview.cpp:76
 #: widgets/notificationhistory/notificationhistorylistview.cpp:83
 #: widgets/servererrorinfohistory/servererrorinfomessagehistorylistview.cpp:50
-#, fuzzy, kde-format
-#| msgid "Copy Message"
+#, kde-format
 msgctxt "@action"
 msgid "Copy Message"
 msgstr "İletiyi Kopyala"
@@ -2916,14 +2914,13 @@ msgstr "İletiyi Kopyala"
 #: widgets/notificationhistory/notificationhistorylistview.cpp:94
 #: widgets/room/messagelistview.cpp:601
 #: widgets/servererrorinfohistory/servererrorinfomessagehistorylistview.cpp:62
-#, fuzzy, kde-format
-#| msgid "Speak Text"
+#, kde-format
 msgctxt "@action"
 msgid "Speak Text"
 msgstr "Metni Konuş"
 
 #: widgets/administratordialog/moderationconsole/moderationreportinfolistview.cpp:93
-#: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:76
+#: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:84
 #: widgets/bannerinfodialog/bannerinfolistview.cpp:51
 #: widgets/discussions/discussionlistview.cpp:74
 #: widgets/notificationhistory/notificationhistorylistview.cpp:100
@@ -6227,12 +6224,10 @@ msgid "STUN/TURN Servers"
 msgstr "STUN/TURN Sunucuları"
 
 #: widgets/applicationssettingsdialog/applicationssettingsaskapplicationdialog.cpp:25
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Applications"
+#, kde-format
 msgctxt "@title:window"
 msgid "Ask Application"
-msgstr "Uygulamalar"
+msgstr "Uygulamaya Sor"
 
 #: widgets/applicationssettingsdialog/applicationssettingsaskapplicationwidget.cpp:29
 #, kde-format
@@ -6247,7 +6242,7 @@ msgstr "Çalışma alanı yöneticisine ileti"
 #: widgets/applicationssettingsdialog/applicationssettingsaskapplicationwidget.cpp:48
 #, kde-format
 msgid "Want to use %1"
-msgstr ""
+msgstr "%1 kullanmak istiyor"
 
 #: widgets/applicationssettingsdialog/applicationssettingsdelegate.cpp:109
 #: widgets/applicationssettingsdialog/applicationssettingspricecombobox.cpp:16
@@ -6263,25 +6258,26 @@ msgid "Applications"
 msgstr "Uygulamalar"
 
 #: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:58
-#, fuzzy, kde-format
-#| msgctxt "@action"
-#| msgid "Show Mentions…"
+#, kde-format
 msgctxt "@action"
 msgid "Show Description…"
-msgstr "Değinmeleri Göster…"
+msgstr "Açıklamayı Göster…"
 
-#: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:62
-#, fuzzy, kde-format
-#| msgctxt "@action"
-#| msgid "Applications…"
+#: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:63
+#, kde-format
+msgctxt "@action"
+msgid "Install"
+msgstr ""
+
+#: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:68
+#, kde-format
 msgctxt "@action"
 msgid "Ask Application…"
-msgstr "Uygulamalar…"
+msgstr "Uygulamaya Sor…"
 
-#: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:67
+#: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:75
 #: widgets/bannerinfodialog/bannerinfolistview.cpp:55
-#, fuzzy, kde-format
-#| msgid "Copy Text"
+#, kde-format
 msgctxt "@action"
 msgid "Copy Text"
 msgstr "Metni Kopyala"
@@ -7761,9 +7757,11 @@ msgstr ""
 
 #: widgets/encryption/e2edecodeencryptionkeyfailedwidget.cpp:19
 #: widgets/encryption/e2edecodeencryptionkeywidget.cpp:19
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@action"
+#| msgid "Decrypte Encryption Key"
 msgctxt "@action"
-msgid "Decrypte Encryption Key"
+msgid "Decrypt Encryption Key"
 msgstr "Şifreleme Anahtarının Kodunu Çöz"
 
 #: widgets/encryption/e2edecodeencryptionkeywidget.cpp:17
@@ -8668,8 +8666,9 @@ msgid "Status text:"
 msgstr "Durum metni:"
 
 #: widgets/myaccount/myaccountprofileconfigurewidget.cpp:125
-#, kde-format
-msgid "Do you really delete your account ?"
+#, fuzzy, kde-format
+#| msgid "Do you really delete your account ?"
+msgid "Do you really want to delete your account?"
 msgstr "Hesabınızı silmeyi gerçekten istiyor musunuz?"
 
 #: widgets/myaccount/myaccountprofileconfigurewidget.cpp:126
@@ -8711,8 +8710,7 @@ msgstr "Bildirim"
 
 #: widgets/notificationhistory/notificationhistorylistview.cpp:75
 #: widgets/servererrorinfohistory/servererrorinfomessagehistorylistview.cpp:44
-#, fuzzy, kde-format
-#| msgid "Clear"
+#, kde-format
 msgctxt "@action"
 msgid "Clear"
 msgstr "Temizle"
@@ -9084,22 +9082,19 @@ msgid "Pin Message"
 msgstr "İletiyi Sabitle"
 
 #: widgets/room/messagelistview.cpp:288
-#, fuzzy, kde-format
-#| msgid "Remove as Favorite"
+#, kde-format
 msgctxt "@action"
 msgid "Remove as Favorite"
 msgstr "Sık Kullanılanlardan Kaldır"
 
 #: widgets/room/messagelistview.cpp:288
-#, fuzzy, kde-format
-#| msgid "Set as Favorite"
+#, kde-format
 msgctxt "@action"
 msgid "Set as Favorite"
 msgstr "Sık Kullanılan Olarak Ayarla"
 
 #: widgets/room/messagelistview.cpp:296
-#, fuzzy, kde-format
-#| msgid "Delete"
+#, kde-format
 msgctxt "@action"
 msgid "Delete"
 msgstr "Sil"
@@ -9117,15 +9112,13 @@ msgid "Show Full Thread"
 msgstr "Tüm İlmeği Göster"
 
 #: widgets/room/messagelistview.cpp:317
-#, fuzzy, kde-format
-#| msgid "Edit"
+#, kde-format
 msgctxt "@action"
 msgid "Edit"
 msgstr "Düzenle"
 
 #: widgets/room/messagelistview.cpp:322
-#, fuzzy, kde-format
-#| msgid "Quote"
+#, kde-format
 msgctxt "@action"
 msgid "Quote"
 msgstr "Alıntı"
@@ -9143,29 +9136,25 @@ msgid "Forward Message"
 msgstr "İletiyi İlet"
 
 #: widgets/room/messagelistview.cpp:345
-#, fuzzy, kde-format
-#| msgid "Unfollow Message"
+#, kde-format
 msgctxt "@action"
 msgid "Unfollow Message"
 msgstr "İletiyi Takipten Çıkar"
 
 #: widgets/room/messagelistview.cpp:345
-#, fuzzy, kde-format
-#| msgid "Follow Message"
+#, kde-format
 msgctxt "@action"
 msgid "Follow Message"
 msgstr "İletiyi Takip Et"
 
 #: widgets/room/messagelistview.cpp:358
-#, fuzzy, kde-format
-#| msgid "Copy URL"
+#, kde-format
 msgctxt "@action"
 msgid "Copy URL"
 msgstr "URL’yi Kopyala"
 
 #: widgets/room/messagelistview.cpp:381
-#, fuzzy, kde-format
-#| msgid "User Info"
+#, kde-format
 msgctxt "@action"
 msgid "User Info"
 msgstr "Kullanıcı Bilgisi"
@@ -9183,15 +9172,13 @@ msgid "Reply in Thread"
 msgstr "İlmekte Yanıtla"
 
 #: widgets/room/messagelistview.cpp:473
-#, fuzzy, kde-format
-#| msgid "Show Original Message"
+#, kde-format
 msgctxt "@action"
 msgid "Show Original Message"
 msgstr "Özgün İletiyi Göster"
 
 #: widgets/room/messagelistview.cpp:473
-#, fuzzy, kde-format
-#| msgid "Translate Message"
+#, kde-format
 msgctxt "@action"
 msgid "Translate Message"
 msgstr "İletiyi Çevir"
@@ -9209,8 +9196,7 @@ msgid "Dismiss Reports"
 msgstr "Raporları Göz Ardı Et"
 
 #: widgets/room/messagelistview.cpp:609
-#, fuzzy, kde-format
-#| msgid "Report Message"
+#, kde-format
 msgctxt "@action"
 msgid "Report Message"
 msgstr "İletiyi Bildir"

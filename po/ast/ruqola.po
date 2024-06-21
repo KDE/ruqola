@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-06-20 00:39+0000\n"
+"POT-Creation-Date: 2024-06-21 00:38+0000\n"
 "PO-Revision-Date: 2024-03-27 23:08+0100\n"
 "Last-Translator: Enol P. <enolp@softastur.org>\n"
 "Language-Team: Asturian <alministradores@softastur.org>\n"
@@ -172,7 +172,7 @@ msgstr ""
 msgid "Categories"
 msgstr ""
 
-#: core/apps/appsmarketplaceinfo.cpp:210
+#: core/apps/appsmarketplaceinfo.cpp:211
 #, kde-format
 msgid "Documentation"
 msgstr ""
@@ -2896,7 +2896,7 @@ msgid "Speak Text"
 msgstr ""
 
 #: widgets/administratordialog/moderationconsole/moderationreportinfolistview.cpp:93
-#: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:76
+#: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:84
 #: widgets/bannerinfodialog/bannerinfolistview.cpp:51
 #: widgets/discussions/discussionlistview.cpp:74
 #: widgets/notificationhistory/notificationhistorylistview.cpp:100
@@ -6084,13 +6084,19 @@ msgctxt "@action"
 msgid "Show Description…"
 msgstr ""
 
-#: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:62
+#: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:63
+#, kde-format
+msgctxt "@action"
+msgid "Install"
+msgstr ""
+
+#: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:68
 #, kde-format
 msgctxt "@action"
 msgid "Ask Application…"
 msgstr ""
 
-#: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:67
+#: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:75
 #: widgets/bannerinfodialog/bannerinfolistview.cpp:55
 #, kde-format
 msgctxt "@action"
@@ -7551,7 +7557,7 @@ msgstr ""
 #: widgets/encryption/e2edecodeencryptionkeywidget.cpp:19
 #, kde-format
 msgctxt "@action"
-msgid "Decrypte Encryption Key"
+msgid "Decrypt Encryption Key"
 msgstr ""
 
 #: widgets/encryption/e2edecodeencryptionkeywidget.cpp:17
@@ -8413,7 +8419,7 @@ msgstr ""
 
 #: widgets/myaccount/myaccountprofileconfigurewidget.cpp:125
 #, kde-format
-msgid "Do you really delete your account ?"
+msgid "Do you really want to delete your account?"
 msgstr ""
 
 #: widgets/myaccount/myaccountprofileconfigurewidget.cpp:126

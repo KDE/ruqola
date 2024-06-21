@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-06-20 00:39+0000\n"
-"PO-Revision-Date: 2024-06-19 05:39+0200\n"
+"POT-Creation-Date: 2024-06-21 00:38+0000\n"
+"PO-Revision-Date: 2024-06-20 05:28+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -173,11 +173,10 @@ msgstr "აღწერა"
 msgid "Categories"
 msgstr "კატეგორიები"
 
-#: core/apps/appsmarketplaceinfo.cpp:210
-#, fuzzy, kde-format
-#| msgid "Authentication"
+#: core/apps/appsmarketplaceinfo.cpp:211
+#, kde-format
 msgid "Documentation"
-msgstr "ავთენტიკაცია"
+msgstr "დოკუმენტაცია"
 
 #: core/bannerinfo/bannerinfo.cpp:47
 #, kde-format
@@ -2921,8 +2920,7 @@ msgstr "ყველა ანგარიშის გაუქმება"
 #: widgets/administratordialog/moderationconsole/moderationreportinfolistview.cpp:76
 #: widgets/notificationhistory/notificationhistorylistview.cpp:83
 #: widgets/servererrorinfohistory/servererrorinfomessagehistorylistview.cpp:50
-#, fuzzy, kde-format
-#| msgid "Copy Message"
+#, kde-format
 msgctxt "@action"
 msgid "Copy Message"
 msgstr "შეტყობინების კოპირება"
@@ -2932,14 +2930,13 @@ msgstr "შეტყობინების კოპირება"
 #: widgets/notificationhistory/notificationhistorylistview.cpp:94
 #: widgets/room/messagelistview.cpp:601
 #: widgets/servererrorinfohistory/servererrorinfomessagehistorylistview.cpp:62
-#, fuzzy, kde-format
-#| msgid "Speak Text"
+#, kde-format
 msgctxt "@action"
 msgid "Speak Text"
 msgstr "ტექსტის წაკითხვა"
 
 #: widgets/administratordialog/moderationconsole/moderationreportinfolistview.cpp:93
-#: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:76
+#: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:84
 #: widgets/bannerinfodialog/bannerinfolistview.cpp:51
 #: widgets/discussions/discussionlistview.cpp:74
 #: widgets/notificationhistory/notificationhistorylistview.cpp:100
@@ -6240,12 +6237,10 @@ msgid "STUN/TURN Servers"
 msgstr "STUN/TURN სერვერები"
 
 #: widgets/applicationssettingsdialog/applicationssettingsaskapplicationdialog.cpp:25
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Applications"
+#, kde-format
 msgctxt "@title:window"
 msgid "Ask Application"
-msgstr "აპლიკაციები"
+msgstr "აპლიკაციისთვის კითხვა"
 
 #: widgets/applicationssettingsdialog/applicationssettingsaskapplicationwidget.cpp:29
 #, kde-format
@@ -6260,7 +6255,7 @@ msgstr "შეტყობინება სამუშაო სივრც�
 #: widgets/applicationssettingsdialog/applicationssettingsaskapplicationwidget.cpp:48
 #, kde-format
 msgid "Want to use %1"
-msgstr ""
+msgstr "უნდა, გამოიყენოს %1"
 
 #: widgets/applicationssettingsdialog/applicationssettingsdelegate.cpp:109
 #: widgets/applicationssettingsdialog/applicationssettingspricecombobox.cpp:16
@@ -6276,25 +6271,26 @@ msgid "Applications"
 msgstr "აპლიკაციები"
 
 #: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:58
-#, fuzzy, kde-format
-#| msgctxt "@action"
-#| msgid "Show Mentions…"
+#, kde-format
 msgctxt "@action"
 msgid "Show Description…"
-msgstr "ხსენებების ჩვენება…"
+msgstr "აღწერის ჩვენება…"
 
-#: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:62
-#, fuzzy, kde-format
-#| msgctxt "@action"
-#| msgid "Applications…"
+#: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:63
+#, kde-format
+msgctxt "@action"
+msgid "Install"
+msgstr ""
+
+#: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:68
+#, kde-format
 msgctxt "@action"
 msgid "Ask Application…"
-msgstr "აპლიკაციები…"
+msgstr "აპლიკაციისთვის კითხვა…"
 
-#: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:67
+#: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:75
 #: widgets/bannerinfodialog/bannerinfolistview.cpp:55
-#, fuzzy, kde-format
-#| msgid "Copy Text"
+#, kde-format
 msgctxt "@action"
 msgid "Copy Text"
 msgstr "ტექსტის კოპირება"
@@ -7771,9 +7767,11 @@ msgstr ""
 
 #: widgets/encryption/e2edecodeencryptionkeyfailedwidget.cpp:19
 #: widgets/encryption/e2edecodeencryptionkeywidget.cpp:19
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@action"
+#| msgid "Decrypte Encryption Key"
 msgctxt "@action"
-msgid "Decrypte Encryption Key"
+msgid "Decrypt Encryption Key"
 msgstr "დაშიფვრის გასაღების გაშიფვრა"
 
 #: widgets/encryption/e2edecodeencryptionkeywidget.cpp:17
@@ -8670,8 +8668,9 @@ msgid "Status text:"
 msgstr "სტატუსის ტექსტი:"
 
 #: widgets/myaccount/myaccountprofileconfigurewidget.cpp:125
-#, kde-format
-msgid "Do you really delete your account ?"
+#, fuzzy, kde-format
+#| msgid "Do you really delete your account ?"
+msgid "Do you really want to delete your account?"
 msgstr "მართლა გნებავთ თქვენი ანგარიშის წაშლა?"
 
 #: widgets/myaccount/myaccountprofileconfigurewidget.cpp:126
@@ -8711,11 +8710,10 @@ msgstr "შეტყობინება"
 
 #: widgets/notificationhistory/notificationhistorylistview.cpp:75
 #: widgets/servererrorinfohistory/servererrorinfomessagehistorylistview.cpp:44
-#, fuzzy, kde-format
-#| msgid "Clear"
+#, kde-format
 msgctxt "@action"
 msgid "Clear"
-msgstr "გაწმენდა"
+msgstr "გასუფთავება"
 
 #: widgets/notificationhistory/notificationhistorylistview.cpp:79
 #: widgets/room/messagelistview.cpp:584
@@ -9083,22 +9081,19 @@ msgid "Pin Message"
 msgstr "შეტყობინების ამაგრება"
 
 #: widgets/room/messagelistview.cpp:288
-#, fuzzy, kde-format
-#| msgid "Remove as Favorite"
+#, kde-format
 msgctxt "@action"
 msgid "Remove as Favorite"
 msgstr "რჩეულებიდან წაშლა"
 
 #: widgets/room/messagelistview.cpp:288
-#, fuzzy, kde-format
-#| msgid "Set as Favorite"
+#, kde-format
 msgctxt "@action"
 msgid "Set as Favorite"
 msgstr "რჩეულად მონიშვნა"
 
 #: widgets/room/messagelistview.cpp:296
-#, fuzzy, kde-format
-#| msgid "Delete"
+#, kde-format
 msgctxt "@action"
 msgid "Delete"
 msgstr "წაშლა"
@@ -9116,15 +9111,13 @@ msgid "Show Full Thread"
 msgstr "სრული ნაკადის ჩვენება"
 
 #: widgets/room/messagelistview.cpp:317
-#, fuzzy, kde-format
-#| msgid "Edit"
+#, kde-format
 msgctxt "@action"
 msgid "Edit"
-msgstr "რედაქტირება"
+msgstr "ჩასწორება"
 
 #: widgets/room/messagelistview.cpp:322
-#, fuzzy, kde-format
-#| msgid "Quote"
+#, kde-format
 msgctxt "@action"
 msgid "Quote"
 msgstr "ციტატა"
@@ -9142,32 +9135,28 @@ msgid "Forward Message"
 msgstr "შეტყობინების გადაგზავნა"
 
 #: widgets/room/messagelistview.cpp:345
-#, fuzzy, kde-format
-#| msgid "Unfollow Message"
+#, kde-format
 msgctxt "@action"
 msgid "Unfollow Message"
 msgstr "შეტყობინების მიყოლის გაუქმება"
 
 #: widgets/room/messagelistview.cpp:345
-#, fuzzy, kde-format
-#| msgid "Follow Message"
+#, kde-format
 msgctxt "@action"
 msgid "Follow Message"
 msgstr "შეტყობინების მიყოლა"
 
 #: widgets/room/messagelistview.cpp:358
-#, fuzzy, kde-format
-#| msgid "Copy URL"
+#, kde-format
 msgctxt "@action"
 msgid "Copy URL"
 msgstr "URL-ის კოპირება"
 
 #: widgets/room/messagelistview.cpp:381
-#, fuzzy, kde-format
-#| msgid "User Info"
+#, kde-format
 msgctxt "@action"
 msgid "User Info"
-msgstr "ინფორმაცია მომხმარებელზე"
+msgstr "მომხმარებლის ინფორმაცია"
 
 #: widgets/room/messagelistview.cpp:405
 #, kde-format
@@ -9182,15 +9171,13 @@ msgid "Reply in Thread"
 msgstr "ნაკადში პასუხი"
 
 #: widgets/room/messagelistview.cpp:473
-#, fuzzy, kde-format
-#| msgid "Show Original Message"
+#, kde-format
 msgctxt "@action"
 msgid "Show Original Message"
-msgstr "ორიგინალური შეტყობინების ჩვენება"
+msgstr "ორიგინალი შეტყობინების ჩვენება"
 
 #: widgets/room/messagelistview.cpp:473
-#, fuzzy, kde-format
-#| msgid "Translate Message"
+#, kde-format
 msgctxt "@action"
 msgid "Translate Message"
 msgstr "შეტყობინების თარგმნა"
@@ -9208,11 +9195,10 @@ msgid "Dismiss Reports"
 msgstr "ანგარიშების გაუქმება"
 
 #: widgets/room/messagelistview.cpp:609
-#, fuzzy, kde-format
-#| msgid "Report Message"
+#, kde-format
 msgctxt "@action"
 msgid "Report Message"
-msgstr "შეტყობინების შესახებ ანგარიშის გაგზავნა"
+msgstr "ანგარიში შეტყობინების შესახებ"
 
 #: widgets/room/messagelistview.cpp:804
 #, kde-format

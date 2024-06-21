@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-06-20 00:39+0000\n"
+"POT-Creation-Date: 2024-06-21 00:38+0000\n"
 "PO-Revision-Date: 2020-06-13 21:18+0300\n"
 "Last-Translator: Marek Laane <qiilaq69@gmail.com>\n"
 "Language-Team: Estonian <kde-et@lists.linux.ee>\n"
@@ -184,7 +184,7 @@ msgstr "Kirjeldus"
 msgid "Categories"
 msgstr ""
 
-#: core/apps/appsmarketplaceinfo.cpp:210
+#: core/apps/appsmarketplaceinfo.cpp:211
 #, fuzzy, kde-format
 #| msgid "Authentication Method"
 msgid "Documentation"
@@ -3138,7 +3138,7 @@ msgid "Speak Text"
 msgstr "Kõnele teksti"
 
 #: widgets/administratordialog/moderationconsole/moderationreportinfolistview.cpp:93
-#: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:76
+#: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:84
 #: widgets/bannerinfodialog/bannerinfolistview.cpp:51
 #: widgets/discussions/discussionlistview.cpp:74
 #: widgets/notificationhistory/notificationhistorylistview.cpp:100
@@ -6567,14 +6567,20 @@ msgctxt "@action"
 msgid "Show Description…"
 msgstr "Näita mainimisi ..."
 
-#: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:62
+#: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:63
+#, kde-format
+msgctxt "@action"
+msgid "Install"
+msgstr ""
+
+#: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:68
 #, fuzzy, kde-format
 #| msgid "Application not found"
 msgctxt "@action"
 msgid "Ask Application…"
 msgstr "Rakendust ei leitud"
 
-#: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:67
+#: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:75
 #: widgets/bannerinfodialog/bannerinfolistview.cpp:55
 #, fuzzy, kde-format
 #| msgid "Speak Text"
@@ -8177,7 +8183,7 @@ msgstr ""
 #, fuzzy, kde-format
 #| msgid "Encrypted:"
 msgctxt "@action"
-msgid "Decrypte Encryption Key"
+msgid "Decrypt Encryption Key"
 msgstr "Krüptitud:"
 
 #: widgets/encryption/e2edecodeencryptionkeywidget.cpp:17
@@ -9137,7 +9143,7 @@ msgstr "Oleku tekst:"
 #: widgets/myaccount/myaccountprofileconfigurewidget.cpp:125
 #, fuzzy, kde-format
 #| msgid "Do you want to delete '%1' account?"
-msgid "Do you really delete your account ?"
+msgid "Do you really want to delete your account?"
 msgstr "Kas tõesti kustutada '%1' konto?"
 
 #: widgets/myaccount/myaccountprofileconfigurewidget.cpp:126
