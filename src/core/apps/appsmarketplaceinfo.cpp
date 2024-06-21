@@ -42,6 +42,11 @@ QDebug operator<<(QDebug d, const AppsMarketPlaceInfo::PricePlan &t)
     return d;
 }
 
+bool AppsMarketPlaceInfo::PricePlan::operator==(const AppsMarketPlaceInfo::PricePlan &other) const
+{
+    return price == other.price && trialDays == other.trialDays && strategy == other.strategy && enabled == other.enabled;
+}
+
 void AppsMarketPlaceInfo::parseAppsMarketPlaceInfo(const QJsonObject &replyObject)
 {
     mAppId = replyObject["appId"_L1].toString().toLatin1();
@@ -194,7 +199,7 @@ bool AppsMarketPlaceInfo::operator==(const AppsMarketPlaceInfo &other) const
     return mCategories == other.mCategories && mAppId == other.mAppId && mAppName == other.mAppName && mDescription == other.mDescription
         && mDocumentationUrl == other.mDocumentationUrl && mPurchaseType == other.mPurchaseType && mVersion == other.mVersion
         && mShortDescription == other.mShortDescription /*&& mPixmap.isNull() == other.mPixmap.isNull()*/ && mPrice == other.mPrice
-        && mIsEnterpriseOnly == other.mIsEnterpriseOnly && mModifiedDate == other.mModifiedDate && mIsPaid == other.mIsPaid;
+        && mIsEnterpriseOnly == other.mIsEnterpriseOnly && mModifiedDate == other.mModifiedDate && mIsPaid == other.mIsPaid && mPricePlan == other.mPricePlan;
 }
 
 qint64 AppsMarketPlaceInfo::modifiedDate() const

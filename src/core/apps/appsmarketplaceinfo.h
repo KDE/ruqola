@@ -14,6 +14,8 @@ class LIBRUQOLACORE_EXPORT AppsMarketPlaceInfo
 {
 public:
     struct LIBRUQOLACORE_EXPORT PricePlan {
+        [[nodiscard]] bool operator==(const PricePlan &other) const;
+
         enum Strategy {
             Unknown,
             Monthly,
