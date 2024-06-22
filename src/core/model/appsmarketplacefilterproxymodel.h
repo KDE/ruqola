@@ -60,7 +60,7 @@ protected:
 
 private:
     FilterInfo mFilterInfo;
-    Sorting mSorting = Sorting::UnknownSorting;
+    Sorting mSorting = Sorting::AtoZ;
 };
 Q_DECLARE_METATYPE(AppsMarketPlaceFilterProxyModel::FilterInfo)
 Q_DECLARE_TYPEINFO(AppsMarketPlaceFilterProxyModel::FilterInfo, Q_RELOCATABLE_TYPE);
