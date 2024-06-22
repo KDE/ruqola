@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-06-21 00:38+0000\n"
-"PO-Revision-Date: 2024-06-20 16:30+0200\n"
+"POT-Creation-Date: 2024-06-22 00:39+0000\n"
+"PO-Revision-Date: 2024-06-21 13:41+0200\n"
 "Last-Translator: Vit Pelcak <vpelcak@suse.cz>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
 "Language: cs\n"
@@ -161,18 +161,24 @@ msgstr ""
 msgid "The following accounts are available:"
 msgstr "K dispozici jsou následující účty:"
 
-#: core/apps/appsmarketplaceinfo.cpp:204 core/model/adminrolesmodel.cpp:40
+#: core/apps/appsmarketplaceinfo.cpp:244 core/model/adminrolesmodel.cpp:40
 #: widgets/administratorsettingsdialog/ircfederation/ircfederationwidget.cpp:50
 #, kde-format
 msgid "Description"
 msgstr "Popis"
 
-#: core/apps/appsmarketplaceinfo.cpp:207 core/model/appscategoriesmodel.cpp:34
+#: core/apps/appsmarketplaceinfo.cpp:246
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:163
+#, kde-format
+msgid "Version"
+msgstr "Verze"
+
+#: core/apps/appsmarketplaceinfo.cpp:249 core/model/appscategoriesmodel.cpp:34
 #, kde-format
 msgid "Categories"
 msgstr "Kategorie"
 
-#: core/apps/appsmarketplaceinfo.cpp:211
+#: core/apps/appsmarketplaceinfo.cpp:253
 #, kde-format
 msgid "Documentation"
 msgstr "Dokumentace"
@@ -3271,11 +3277,6 @@ msgstr ""
 msgid "Read Receipts"
 msgstr ""
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:163
-#, kde-format
-msgid "Version"
-msgstr "Verze"
-
 #: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:164
 #, kde-format
 msgid "Deployment ID"
@@ -6117,11 +6118,11 @@ msgctxt "@action"
 msgid "Show Description…"
 msgstr "Zobrazit popis…"
 
-#: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:63
+#: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:64
 #, kde-format
 msgctxt "@action"
 msgid "Install"
-msgstr ""
+msgstr "Nainstalovat"
 
 #: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:68
 #, kde-format
@@ -7597,11 +7598,10 @@ msgstr ""
 
 #: widgets/encryption/e2edecodeencryptionkeyfailedwidget.cpp:19
 #: widgets/encryption/e2edecodeencryptionkeywidget.cpp:19
-#, fuzzy, kde-format
-#| msgid "Encryption"
+#, kde-format
 msgctxt "@action"
 msgid "Decrypt Encryption Key"
-msgstr "Šifrování"
+msgstr "Dešifrovat šifrovací klíč"
 
 #: widgets/encryption/e2edecodeencryptionkeywidget.cpp:17
 #, kde-format
@@ -8464,10 +8464,9 @@ msgid "Status text:"
 msgstr "Text stavu:"
 
 #: widgets/myaccount/myaccountprofileconfigurewidget.cpp:125
-#, fuzzy, kde-format
-#| msgid "Do you really delete your account ?"
+#, kde-format
 msgid "Do you really want to delete your account?"
-msgstr "Přejete si opravdu smazat váš účet?"
+msgstr "Opravdu si přejete smazat váš účet?"
 
 #: widgets/myaccount/myaccountprofileconfigurewidget.cpp:126
 #, kde-format

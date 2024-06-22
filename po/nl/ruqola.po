@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-06-21 00:38+0000\n"
-"PO-Revision-Date: 2024-06-20 13:44+0200\n"
+"POT-Creation-Date: 2024-06-22 00:39+0000\n"
+"PO-Revision-Date: 2024-06-21 09:38+0200\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
 "Language: nl\n"
@@ -161,18 +161,24 @@ msgstr "Optimalisatie, ondersteuning voor windows/mac gerepareerd"
 msgid "The following accounts are available:"
 msgstr "De volgende accounts zijn beschikbaar:"
 
-#: core/apps/appsmarketplaceinfo.cpp:204 core/model/adminrolesmodel.cpp:40
+#: core/apps/appsmarketplaceinfo.cpp:244 core/model/adminrolesmodel.cpp:40
 #: widgets/administratorsettingsdialog/ircfederation/ircfederationwidget.cpp:50
 #, kde-format
 msgid "Description"
 msgstr "Beschrijving"
 
-#: core/apps/appsmarketplaceinfo.cpp:207 core/model/appscategoriesmodel.cpp:34
+#: core/apps/appsmarketplaceinfo.cpp:246
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:163
+#, kde-format
+msgid "Version"
+msgstr "Versie"
+
+#: core/apps/appsmarketplaceinfo.cpp:249 core/model/appscategoriesmodel.cpp:34
 #, kde-format
 msgid "Categories"
 msgstr "Categorieën"
 
-#: core/apps/appsmarketplaceinfo.cpp:211
+#: core/apps/appsmarketplaceinfo.cpp:253
 #, kde-format
 msgid "Documentation"
 msgstr "Documentatie"
@@ -3291,11 +3297,6 @@ msgstr "Dashboard met engagementen"
 msgid "Read Receipts"
 msgstr "Recepten lezen"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:163
-#, kde-format
-msgid "Version"
-msgstr "Versie"
-
 #: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:164
 #, kde-format
 msgid "Deployment ID"
@@ -6321,11 +6322,11 @@ msgctxt "@action"
 msgid "Show Description…"
 msgstr "Beschrijving tonen…"
 
-#: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:63
+#: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:64
 #, kde-format
 msgctxt "@action"
 msgid "Install"
-msgstr ""
+msgstr "Installeren"
 
 #: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:68
 #, kde-format
@@ -7816,9 +7817,7 @@ msgstr ""
 
 #: widgets/encryption/e2edecodeencryptionkeyfailedwidget.cpp:19
 #: widgets/encryption/e2edecodeencryptionkeywidget.cpp:19
-#, fuzzy, kde-format
-#| msgctxt "@action"
-#| msgid "Decrypte Encryption Key"
+#, kde-format
 msgctxt "@action"
 msgid "Decrypt Encryption Key"
 msgstr "Sleutel voor versleutelen ontcijferen"
@@ -8724,8 +8723,7 @@ msgid "Status text:"
 msgstr "Statustekst:"
 
 #: widgets/myaccount/myaccountprofileconfigurewidget.cpp:125
-#, fuzzy, kde-format
-#| msgid "Do you really delete your account ?"
+#, kde-format
 msgid "Do you really want to delete your account?"
 msgstr "Wilt u uw account verwijderen?"
 

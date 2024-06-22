@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-06-21 00:38+0000\n"
-"PO-Revision-Date: 2024-06-20 11:12+0200\n"
+"POT-Creation-Date: 2024-06-22 00:39+0000\n"
+"PO-Revision-Date: 2024-06-21 10:43+0200\n"
 "Last-Translator: giovanni <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
 "Language: ia\n"
@@ -161,18 +161,24 @@ msgstr "Optimistion, corrige supporto de windows/mac"
 msgid "The following accounts are available:"
 msgstr "Le sequente contos es disponibile:"
 
-#: core/apps/appsmarketplaceinfo.cpp:204 core/model/adminrolesmodel.cpp:40
+#: core/apps/appsmarketplaceinfo.cpp:244 core/model/adminrolesmodel.cpp:40
 #: widgets/administratorsettingsdialog/ircfederation/ircfederationwidget.cpp:50
 #, kde-format
 msgid "Description"
 msgstr "Description"
 
-#: core/apps/appsmarketplaceinfo.cpp:207 core/model/appscategoriesmodel.cpp:34
+#: core/apps/appsmarketplaceinfo.cpp:246
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:163
+#, kde-format
+msgid "Version"
+msgstr "Version"
+
+#: core/apps/appsmarketplaceinfo.cpp:249 core/model/appscategoriesmodel.cpp:34
 #, kde-format
 msgid "Categories"
 msgstr "Categorias"
 
-#: core/apps/appsmarketplaceinfo.cpp:211
+#: core/apps/appsmarketplaceinfo.cpp:253
 #, kde-format
 msgid "Documentation"
 msgstr "Documentation"
@@ -3272,11 +3278,6 @@ msgstr "Pannello de instrumentos de ingagiamento"
 msgid "Read Receipts"
 msgstr "Lege  receptas"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:163
-#, kde-format
-msgid "Version"
-msgstr "Version"
-
 #: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:164
 #, kde-format
 msgid "Deployment ID"
@@ -6127,7 +6128,7 @@ msgctxt "@action"
 msgid "Show Description…"
 msgstr "Monstra Description..."
 
-#: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:63
+#: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:64
 #, kde-format
 msgctxt "@action"
 msgid "Install"
@@ -7608,12 +7609,10 @@ msgstr ""
 
 #: widgets/encryption/e2edecodeencryptionkeyfailedwidget.cpp:19
 #: widgets/encryption/e2edecodeencryptionkeywidget.cpp:19
-#, fuzzy, kde-format
-#| msgctxt "@action"
-#| msgid "Decrypte Encryption Key"
+#, kde-format
 msgctxt "@action"
 msgid "Decrypt Encryption Key"
-msgstr "Decrypta Clave de Encryption"
+msgstr "Decrypta Clave de Cryptation"
 
 #: widgets/encryption/e2edecodeencryptionkeywidget.cpp:17
 #, kde-format
@@ -8499,8 +8498,7 @@ msgid "Status text:"
 msgstr "Texto de stato:"
 
 #: widgets/myaccount/myaccountprofileconfigurewidget.cpp:125
-#, fuzzy, kde-format
-#| msgid "Do you really delete your account ?"
+#, kde-format
 msgid "Do you really want to delete your account?"
 msgstr "Tu vermente vole deler tu conto?"
 

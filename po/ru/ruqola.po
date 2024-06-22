@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-06-21 00:38+0000\n"
+"POT-Creation-Date: 2024-06-22 00:39+0000\n"
 "PO-Revision-Date: 2023-11-24 12:18+0300\n"
 "Last-Translator: Olesya Gerasimenko <translation-team@basealt.ru>\n"
 "Language-Team: Basealt Translation Team\n"
@@ -180,18 +180,24 @@ msgstr "Оптимизация, исправление поддержки Window
 msgid "The following accounts are available:"
 msgstr "Доступны следующие учётные записи:"
 
-#: core/apps/appsmarketplaceinfo.cpp:204 core/model/adminrolesmodel.cpp:40
+#: core/apps/appsmarketplaceinfo.cpp:244 core/model/adminrolesmodel.cpp:40
 #: widgets/administratorsettingsdialog/ircfederation/ircfederationwidget.cpp:50
 #, kde-format
 msgid "Description"
 msgstr "Описание"
 
-#: core/apps/appsmarketplaceinfo.cpp:207 core/model/appscategoriesmodel.cpp:34
+#: core/apps/appsmarketplaceinfo.cpp:246
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:163
+#, kde-format
+msgid "Version"
+msgstr "Версия"
+
+#: core/apps/appsmarketplaceinfo.cpp:249 core/model/appscategoriesmodel.cpp:34
 #, kde-format
 msgid "Categories"
 msgstr ""
 
-#: core/apps/appsmarketplaceinfo.cpp:211
+#: core/apps/appsmarketplaceinfo.cpp:253
 #, fuzzy, kde-format
 #| msgid "Authentication"
 msgid "Documentation"
@@ -3383,11 +3389,6 @@ msgstr "Панель мониторинга вовлечённости"
 msgid "Read Receipts"
 msgstr "Подтверждения прочтения"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:163
-#, kde-format
-msgid "Version"
-msgstr "Версия"
-
 #: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:164
 #, kde-format
 msgid "Deployment ID"
@@ -6560,7 +6561,7 @@ msgctxt "@action"
 msgid "Show Description…"
 msgstr "Показать упоминания…"
 
-#: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:63
+#: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:64
 #, kde-format
 msgctxt "@action"
 msgid "Install"

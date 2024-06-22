@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-06-21 00:38+0000\n"
+"POT-Creation-Date: 2024-06-22 00:39+0000\n"
 "PO-Revision-Date: 2024-02-03 02:20+0200\n"
 "Last-Translator: Moo\n"
 "Language-Team: none\n"
@@ -173,19 +173,26 @@ msgstr ""
 msgid "The following accounts are available:"
 msgstr "Yra prieinamos šios paskyros:"
 
-#: core/apps/appsmarketplaceinfo.cpp:204 core/model/adminrolesmodel.cpp:40
+#: core/apps/appsmarketplaceinfo.cpp:244 core/model/adminrolesmodel.cpp:40
 #: widgets/administratorsettingsdialog/ircfederation/ircfederationwidget.cpp:50
 #, fuzzy, kde-format
 #| msgid "Description:"
 msgid "Description"
 msgstr "Aprašas:"
 
-#: core/apps/appsmarketplaceinfo.cpp:207 core/model/appscategoriesmodel.cpp:34
+#: core/apps/appsmarketplaceinfo.cpp:246
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:163
+#, fuzzy, kde-format
+#| msgid "Server Version:"
+msgid "Version"
+msgstr "Serverio versija:"
+
+#: core/apps/appsmarketplaceinfo.cpp:249 core/model/appscategoriesmodel.cpp:34
 #, kde-format
 msgid "Categories"
 msgstr ""
 
-#: core/apps/appsmarketplaceinfo.cpp:211
+#: core/apps/appsmarketplaceinfo.cpp:253
 #, fuzzy, kde-format
 #| msgid "Authentication Method"
 msgid "Documentation"
@@ -3475,12 +3482,6 @@ msgstr ""
 msgid "Read Receipts"
 msgstr ""
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:163
-#, fuzzy, kde-format
-#| msgid "Server Version:"
-msgid "Version"
-msgstr "Serverio versija:"
-
 #: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:164
 #, kde-format
 msgid "Deployment ID"
@@ -6472,7 +6473,7 @@ msgctxt "@action"
 msgid "Show Description…"
 msgstr "Rocket.Chat prisijungimas"
 
-#: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:63
+#: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:64
 #, kde-format
 msgctxt "@action"
 msgid "Install"

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-06-21 00:38+0000\n"
+"POT-Creation-Date: 2024-06-22 00:39+0000\n"
 "PO-Revision-Date: 2024-06-16 10:03+0200\n"
 "Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>\n"
 "Language-Team: Polish <kde-i18n-doc@kde.org>\n"
@@ -162,18 +162,24 @@ msgstr "Optymalizacje, naprawa obsługi Windowsa/macOSa"
 msgid "The following accounts are available:"
 msgstr "Następujące konta są dostępne:"
 
-#: core/apps/appsmarketplaceinfo.cpp:204 core/model/adminrolesmodel.cpp:40
+#: core/apps/appsmarketplaceinfo.cpp:244 core/model/adminrolesmodel.cpp:40
 #: widgets/administratorsettingsdialog/ircfederation/ircfederationwidget.cpp:50
 #, kde-format
 msgid "Description"
 msgstr "Opis"
 
-#: core/apps/appsmarketplaceinfo.cpp:207 core/model/appscategoriesmodel.cpp:34
+#: core/apps/appsmarketplaceinfo.cpp:246
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:163
+#, kde-format
+msgid "Version"
+msgstr "Wersja"
+
+#: core/apps/appsmarketplaceinfo.cpp:249 core/model/appscategoriesmodel.cpp:34
 #, kde-format
 msgid "Categories"
 msgstr "Kategorie"
 
-#: core/apps/appsmarketplaceinfo.cpp:211
+#: core/apps/appsmarketplaceinfo.cpp:253
 #, fuzzy, kde-format
 #| msgid "Authentication"
 msgid "Documentation"
@@ -3296,11 +3302,6 @@ msgstr "Deska zaangażowania"
 msgid "Read Receipts"
 msgstr "Odczytuj powiadomienia"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:163
-#, kde-format
-msgid "Version"
-msgstr "Wersja"
-
 #: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:164
 #, kde-format
 msgid "Deployment ID"
@@ -6323,7 +6324,7 @@ msgctxt "@action"
 msgid "Show Description…"
 msgstr "Pokaż wzmianki…"
 
-#: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:63
+#: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:64
 #, kde-format
 msgctxt "@action"
 msgid "Install"

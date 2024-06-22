@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-06-21 00:38+0000\n"
-"PO-Revision-Date: 2024-06-20 09:18+0300\n"
+"POT-Creation-Date: 2024-06-22 00:39+0000\n"
+"PO-Revision-Date: 2024-06-21 08:36+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian\n"
 "Language: uk\n"
@@ -166,18 +166,24 @@ msgstr "Оптимізація, виправлення підтримки Window
 msgid "The following accounts are available:"
 msgstr "Доступні такі облікові записи:"
 
-#: core/apps/appsmarketplaceinfo.cpp:204 core/model/adminrolesmodel.cpp:40
+#: core/apps/appsmarketplaceinfo.cpp:244 core/model/adminrolesmodel.cpp:40
 #: widgets/administratorsettingsdialog/ircfederation/ircfederationwidget.cpp:50
 #, kde-format
 msgid "Description"
 msgstr "Опис"
 
-#: core/apps/appsmarketplaceinfo.cpp:207 core/model/appscategoriesmodel.cpp:34
+#: core/apps/appsmarketplaceinfo.cpp:246
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:163
+#, kde-format
+msgid "Version"
+msgstr "Версія"
+
+#: core/apps/appsmarketplaceinfo.cpp:249 core/model/appscategoriesmodel.cpp:34
 #, kde-format
 msgid "Categories"
 msgstr "Категорії"
 
-#: core/apps/appsmarketplaceinfo.cpp:211
+#: core/apps/appsmarketplaceinfo.cpp:253
 #, kde-format
 msgid "Documentation"
 msgstr "Документація"
@@ -3314,11 +3320,6 @@ msgstr "Панель залученості"
 msgid "Read Receipts"
 msgstr "Підтвердження прочитання"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:163
-#, kde-format
-msgid "Version"
-msgstr "Версія"
-
 #: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:164
 #, kde-format
 msgid "Deployment ID"
@@ -6346,11 +6347,11 @@ msgctxt "@action"
 msgid "Show Description…"
 msgstr "Показати опис…"
 
-#: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:63
+#: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:64
 #, kde-format
 msgctxt "@action"
 msgid "Install"
-msgstr ""
+msgstr "Встановити"
 
 #: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:68
 #, kde-format
@@ -7872,9 +7873,7 @@ msgstr ""
 
 #: widgets/encryption/e2edecodeencryptionkeyfailedwidget.cpp:19
 #: widgets/encryption/e2edecodeencryptionkeywidget.cpp:19
-#, fuzzy, kde-format
-#| msgctxt "@action"
-#| msgid "Decrypte Encryption Key"
+#, kde-format
 msgctxt "@action"
 msgid "Decrypt Encryption Key"
 msgstr "Розшифрувати ключ шифрування"
@@ -8782,10 +8781,9 @@ msgid "Status text:"
 msgstr "Текст стану:"
 
 #: widgets/myaccount/myaccountprofileconfigurewidget.cpp:125
-#, fuzzy, kde-format
-#| msgid "Do you really delete your account ?"
+#, kde-format
 msgid "Do you really want to delete your account?"
-msgstr "Ви справді хочете вилучити свій обліковий запис:"
+msgstr "Ви справді хочете вилучити свій обліковий запис?"
 
 #: widgets/myaccount/myaccountprofileconfigurewidget.cpp:126
 #, kde-format

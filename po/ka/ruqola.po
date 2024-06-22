@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-06-21 00:38+0000\n"
-"PO-Revision-Date: 2024-06-20 05:28+0200\n"
+"POT-Creation-Date: 2024-06-22 00:39+0000\n"
+"PO-Revision-Date: 2024-06-21 06:00+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -162,18 +162,24 @@ msgstr "ოპტიმიზაცია, Windows/Mac-ის მხარდა
 msgid "The following accounts are available:"
 msgstr "ხელმისაწვდომია შემდეგი ანგარიშები:"
 
-#: core/apps/appsmarketplaceinfo.cpp:204 core/model/adminrolesmodel.cpp:40
+#: core/apps/appsmarketplaceinfo.cpp:244 core/model/adminrolesmodel.cpp:40
 #: widgets/administratorsettingsdialog/ircfederation/ircfederationwidget.cpp:50
 #, kde-format
 msgid "Description"
 msgstr "აღწერა"
 
-#: core/apps/appsmarketplaceinfo.cpp:207 core/model/appscategoriesmodel.cpp:34
+#: core/apps/appsmarketplaceinfo.cpp:246
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:163
+#, kde-format
+msgid "Version"
+msgstr "ვერსია"
+
+#: core/apps/appsmarketplaceinfo.cpp:249 core/model/appscategoriesmodel.cpp:34
 #, kde-format
 msgid "Categories"
 msgstr "კატეგორიები"
 
-#: core/apps/appsmarketplaceinfo.cpp:211
+#: core/apps/appsmarketplaceinfo.cpp:253
 #, kde-format
 msgid "Documentation"
 msgstr "დოკუმენტაცია"
@@ -3278,11 +3284,6 @@ msgstr "ჩართულობის დაფა"
 msgid "Read Receipts"
 msgstr "წაკითხულობის ანგარიშები"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:163
-#, kde-format
-msgid "Version"
-msgstr "ვერსია"
-
 #: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:164
 #, kde-format
 msgid "Deployment ID"
@@ -6276,11 +6277,11 @@ msgctxt "@action"
 msgid "Show Description…"
 msgstr "აღწერის ჩვენება…"
 
-#: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:63
+#: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:64
 #, kde-format
 msgctxt "@action"
 msgid "Install"
-msgstr ""
+msgstr "დაყენება"
 
 #: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:68
 #, kde-format
@@ -7767,9 +7768,7 @@ msgstr ""
 
 #: widgets/encryption/e2edecodeencryptionkeyfailedwidget.cpp:19
 #: widgets/encryption/e2edecodeencryptionkeywidget.cpp:19
-#, fuzzy, kde-format
-#| msgctxt "@action"
-#| msgid "Decrypte Encryption Key"
+#, kde-format
 msgctxt "@action"
 msgid "Decrypt Encryption Key"
 msgstr "დაშიფვრის გასაღების გაშიფვრა"
@@ -8668,8 +8667,7 @@ msgid "Status text:"
 msgstr "სტატუსის ტექსტი:"
 
 #: widgets/myaccount/myaccountprofileconfigurewidget.cpp:125
-#, fuzzy, kde-format
-#| msgid "Do you really delete your account ?"
+#, kde-format
 msgid "Do you really want to delete your account?"
 msgstr "მართლა გნებავთ თქვენი ანგარიშის წაშლა?"
 

@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-06-21 00:38+0000\n"
-"PO-Revision-Date: 2024-06-19 17:37+0200\n"
+"POT-Creation-Date: 2024-06-22 00:39+0000\n"
+"PO-Revision-Date: 2024-06-21 08:19+0200\n"
 "Last-Translator: Stefan Asserhäll <stefan.asserhall@gmail.com>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
 "Language: sv\n"
@@ -161,22 +161,27 @@ msgstr "Optimering, rätta stöd för Windows/Mac"
 msgid "The following accounts are available:"
 msgstr "Följande konton är tillgängliga:"
 
-#: core/apps/appsmarketplaceinfo.cpp:204 core/model/adminrolesmodel.cpp:40
+#: core/apps/appsmarketplaceinfo.cpp:244 core/model/adminrolesmodel.cpp:40
 #: widgets/administratorsettingsdialog/ircfederation/ircfederationwidget.cpp:50
 #, kde-format
 msgid "Description"
 msgstr "Beskrivning"
 
-#: core/apps/appsmarketplaceinfo.cpp:207 core/model/appscategoriesmodel.cpp:34
+#: core/apps/appsmarketplaceinfo.cpp:246
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:163
+#, kde-format
+msgid "Version"
+msgstr "Version"
+
+#: core/apps/appsmarketplaceinfo.cpp:249 core/model/appscategoriesmodel.cpp:34
 #, kde-format
 msgid "Categories"
 msgstr "Kategorier"
 
-#: core/apps/appsmarketplaceinfo.cpp:211
-#, fuzzy, kde-format
-#| msgid "Authentication"
+#: core/apps/appsmarketplaceinfo.cpp:253
+#, kde-format
 msgid "Documentation"
-msgstr "Behörighetskontroll"
+msgstr "Dokumentation"
 
 #: core/bannerinfo/bannerinfo.cpp:47
 #, kde-format
@@ -2912,8 +2917,7 @@ msgstr "Avfärda alla rapporter"
 #: widgets/administratordialog/moderationconsole/moderationreportinfolistview.cpp:76
 #: widgets/notificationhistory/notificationhistorylistview.cpp:83
 #: widgets/servererrorinfohistory/servererrorinfomessagehistorylistview.cpp:50
-#, fuzzy, kde-format
-#| msgid "Copy Message"
+#, kde-format
 msgctxt "@action"
 msgid "Copy Message"
 msgstr "Kopiera meddelande"
@@ -2923,8 +2927,7 @@ msgstr "Kopiera meddelande"
 #: widgets/notificationhistory/notificationhistorylistview.cpp:94
 #: widgets/room/messagelistview.cpp:601
 #: widgets/servererrorinfohistory/servererrorinfomessagehistorylistview.cpp:62
-#, fuzzy, kde-format
-#| msgid "Speak Text"
+#, kde-format
 msgctxt "@action"
 msgid "Speak Text"
 msgstr "Läs upp text"
@@ -3271,11 +3274,6 @@ msgstr "Engagemangsinstrumentpanel"
 #, kde-format
 msgid "Read Receipts"
 msgstr "Läsbekräftelser"
-
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:163
-#, kde-format
-msgid "Version"
-msgstr "Version"
 
 #: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:164
 #, kde-format
@@ -6242,12 +6240,10 @@ msgid "STUN/TURN Servers"
 msgstr "STUN/TURN-servrar"
 
 #: widgets/applicationssettingsdialog/applicationssettingsaskapplicationdialog.cpp:25
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Applications"
+#, kde-format
 msgctxt "@title:window"
 msgid "Ask Application"
-msgstr "Program"
+msgstr "Fråga program"
 
 #: widgets/applicationssettingsdialog/applicationssettingsaskapplicationwidget.cpp:29
 #, kde-format
@@ -6262,7 +6258,7 @@ msgstr "Meddelande till administratörer av arbetsytan"
 #: widgets/applicationssettingsdialog/applicationssettingsaskapplicationwidget.cpp:48
 #, kde-format
 msgid "Want to use %1"
-msgstr ""
+msgstr "Vill använda %1"
 
 #: widgets/applicationssettingsdialog/applicationssettingsdelegate.cpp:109
 #: widgets/applicationssettingsdialog/applicationssettingspricecombobox.cpp:16
@@ -6278,31 +6274,26 @@ msgid "Applications"
 msgstr "Program"
 
 #: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:58
-#, fuzzy, kde-format
-#| msgctxt "@action"
-#| msgid "Show Mentions…"
+#, kde-format
 msgctxt "@action"
 msgid "Show Description…"
-msgstr "Visa omnämnanden…"
+msgstr "Visa beskrivning…"
 
-#: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:63
+#: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:64
 #, kde-format
 msgctxt "@action"
 msgid "Install"
-msgstr ""
+msgstr "Installera"
 
 #: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:68
-#, fuzzy, kde-format
-#| msgctxt "@action"
-#| msgid "Applications…"
+#, kde-format
 msgctxt "@action"
 msgid "Ask Application…"
-msgstr "Program…"
+msgstr "Fråga program…"
 
 #: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:75
 #: widgets/bannerinfodialog/bannerinfolistview.cpp:55
-#, fuzzy, kde-format
-#| msgid "Copy Text"
+#, kde-format
 msgctxt "@action"
 msgid "Copy Text"
 msgstr "Kopiera text"
@@ -6325,23 +6316,22 @@ msgstr "Betalda program"
 #: widgets/applicationssettingsdialog/applicationssettingssortingcombobox.cpp:12
 #, kde-format
 msgid "A-Z"
-msgstr ""
+msgstr "A-Z"
 
 #: widgets/applicationssettingsdialog/applicationssettingssortingcombobox.cpp:13
 #, kde-format
 msgid "Z-A"
-msgstr ""
+msgstr "Z-A"
 
 #: widgets/applicationssettingsdialog/applicationssettingssortingcombobox.cpp:14
 #, kde-format
 msgid "Most recent updated"
-msgstr ""
+msgstr "Senast uppdaterade"
 
 #: widgets/applicationssettingsdialog/applicationssettingssortingcombobox.cpp:15
-#, fuzzy, kde-format
-#| msgid "Last token part"
+#, kde-format
 msgid "Least recent updated"
-msgstr "Sista symboldel"
+msgstr "Tidigast uppdaterade"
 
 #: widgets/applicationssettingsdialog/applicationssettingsstatuscombobox.cpp:14
 #, kde-format
@@ -7781,9 +7771,7 @@ msgstr ""
 
 #: widgets/encryption/e2edecodeencryptionkeyfailedwidget.cpp:19
 #: widgets/encryption/e2edecodeencryptionkeywidget.cpp:19
-#, fuzzy, kde-format
-#| msgctxt "@action"
-#| msgid "Decrypte Encryption Key"
+#, kde-format
 msgctxt "@action"
 msgid "Decrypt Encryption Key"
 msgstr "Avkoda krypteringsnyckel"
@@ -8680,8 +8668,7 @@ msgid "Status text:"
 msgstr "Statustext:"
 
 #: widgets/myaccount/myaccountprofileconfigurewidget.cpp:125
-#, fuzzy, kde-format
-#| msgid "Do you really delete your account ?"
+#, kde-format
 msgid "Do you really want to delete your account?"
 msgstr "Vill du ta verkligen ta bort ditt konto?"
 
@@ -8722,8 +8709,7 @@ msgstr "Underrättelse"
 
 #: widgets/notificationhistory/notificationhistorylistview.cpp:75
 #: widgets/servererrorinfohistory/servererrorinfomessagehistorylistview.cpp:44
-#, fuzzy, kde-format
-#| msgid "Clear"
+#, kde-format
 msgctxt "@action"
 msgid "Clear"
 msgstr "Töm"
@@ -9094,22 +9080,19 @@ msgid "Pin Message"
 msgstr "Sätt upp meddelande"
 
 #: widgets/room/messagelistview.cpp:288
-#, fuzzy, kde-format
-#| msgid "Remove as Favorite"
+#, kde-format
 msgctxt "@action"
 msgid "Remove as Favorite"
 msgstr "Ta bort som favoriter"
 
 #: widgets/room/messagelistview.cpp:288
-#, fuzzy, kde-format
-#| msgid "Set as Favorite"
+#, kde-format
 msgctxt "@action"
 msgid "Set as Favorite"
-msgstr "Ange som favoriter"
+msgstr "Gör till favorit"
 
 #: widgets/room/messagelistview.cpp:296
-#, fuzzy, kde-format
-#| msgid "Delete"
+#, kde-format
 msgctxt "@action"
 msgid "Delete"
 msgstr "Ta bort"
@@ -9127,15 +9110,13 @@ msgid "Show Full Thread"
 msgstr "Visa hela tråden"
 
 #: widgets/room/messagelistview.cpp:317
-#, fuzzy, kde-format
-#| msgid "Edit"
+#, kde-format
 msgctxt "@action"
 msgid "Edit"
 msgstr "Redigera"
 
 #: widgets/room/messagelistview.cpp:322
-#, fuzzy, kde-format
-#| msgid "Quote"
+#, kde-format
 msgctxt "@action"
 msgid "Quote"
 msgstr "Citat"
@@ -9153,29 +9134,25 @@ msgid "Forward Message"
 msgstr "Vidarebefordra meddelande"
 
 #: widgets/room/messagelistview.cpp:345
-#, fuzzy, kde-format
-#| msgid "Unfollow Message"
+#, kde-format
 msgctxt "@action"
 msgid "Unfollow Message"
 msgstr "Följ inte meddelande längre"
 
 #: widgets/room/messagelistview.cpp:345
-#, fuzzy, kde-format
-#| msgid "Follow Message"
+#, kde-format
 msgctxt "@action"
 msgid "Follow Message"
 msgstr "Följ meddelande"
 
 #: widgets/room/messagelistview.cpp:358
-#, fuzzy, kde-format
-#| msgid "Copy URL"
+#, kde-format
 msgctxt "@action"
 msgid "Copy URL"
 msgstr "Kopiera webbadress"
 
 #: widgets/room/messagelistview.cpp:381
-#, fuzzy, kde-format
-#| msgid "User Info"
+#, kde-format
 msgctxt "@action"
 msgid "User Info"
 msgstr "Användarinformation"
@@ -9193,15 +9170,13 @@ msgid "Reply in Thread"
 msgstr "Svara på tråd"
 
 #: widgets/room/messagelistview.cpp:473
-#, fuzzy, kde-format
-#| msgid "Show Original Message"
+#, kde-format
 msgctxt "@action"
 msgid "Show Original Message"
 msgstr "Visa originalmeddelande"
 
 #: widgets/room/messagelistview.cpp:473
-#, fuzzy, kde-format
-#| msgid "Translate Message"
+#, kde-format
 msgctxt "@action"
 msgid "Translate Message"
 msgstr "Översätt meddelande"
@@ -9219,8 +9194,7 @@ msgid "Dismiss Reports"
 msgstr "Avfärda rapporter"
 
 #: widgets/room/messagelistview.cpp:609
-#, fuzzy, kde-format
-#| msgid "Report Message"
+#, kde-format
 msgctxt "@action"
 msgid "Report Message"
 msgstr "Rapportera meddelande"
