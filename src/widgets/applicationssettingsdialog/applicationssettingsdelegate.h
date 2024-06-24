@@ -32,11 +32,14 @@ public:
 
 private:
     struct Layout {
+        // Text
         QRect textRect;
+
         // Pixmap
         QPixmap appPixmap;
         QPointF appPixmapPos;
 
+        // Premium
         QString premiumText;
         QRectF premiumRect;
         bool premium = false;
