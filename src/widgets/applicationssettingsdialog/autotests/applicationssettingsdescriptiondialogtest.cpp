@@ -30,6 +30,7 @@ void ApplicationsSettingsDescriptionDialogTest::shouldHaveDefaultValues()
     auto mApplicationsSettingsDescriptionWidget =
         d.findChild<ApplicationsSettingsDescriptionWidget *>(QStringLiteral("mApplicationsSettingsDescriptionWidget"));
     QVERIFY(mApplicationsSettingsDescriptionWidget);
+    QCOMPARE(button->standardButtons(), QDialogButtonBox::Close);
 }
 
 #include "moc_applicationssettingsdescriptiondialogtest.cpp"
