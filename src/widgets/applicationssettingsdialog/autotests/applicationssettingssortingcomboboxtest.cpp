@@ -16,5 +16,5 @@ ApplicationsSettingsSortingComboBoxTest::ApplicationsSettingsSortingComboBoxTest
 void ApplicationsSettingsSortingComboBoxTest::shouldHaveDefaultValues()
 {
     ApplicationsSettingsSortingComboBox d;
-    QCOMPARE(d.currentSorting(), AppsMarketPlaceFilterProxyModel::Sorting::UnknownSorting);
+    QCOMPARE(d.currentSorting(), AppsMarketPlaceFilterProxyModel::Sorting::AtoZ);
 }
