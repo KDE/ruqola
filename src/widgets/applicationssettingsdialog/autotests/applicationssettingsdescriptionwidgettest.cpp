@@ -26,6 +26,7 @@ void ApplicationsSettingsDescriptionWidgetTest::shouldHaveDefaultValues()
 
     auto mTextBrowser = d.findChild<QTextBrowser *>("mTextBrowser"_L1);
     QVERIFY(mTextBrowser);
+    QVERIFY(mTextBrowser->openExternalLinks());
 }
 
 #include "moc_applicationssettingsdescriptionwidgettest.cpp"
