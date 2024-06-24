@@ -181,7 +181,7 @@ public:
 
     void roomFiles(const QByteArray &roomId, Room::RoomType channelType = Room::RoomType::Unknown);
     void addUserToRoom(const QByteArray &username, const QByteArray &roomId, Room::RoomType channelType);
-    void messageSearch(const QString &pattern, const QByteArray &rid, bool userRegularExpression = false);
+    void messageSearch(const QString &pattern, const QByteArray &rid, bool userRegularExpression = false, int offset = 0);
     [[nodiscard]] InputTextManager *inputTextManager() const;
 
     [[nodiscard]] InputTextManager *inputThreadMessageTextManager() const;

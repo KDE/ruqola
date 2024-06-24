@@ -43,8 +43,10 @@ private:
     LIBRUQOLAWIDGETS_NO_EXPORT void slotClearedMessages();
     LIBRUQOLAWIDGETS_NO_EXPORT void updateLabel();
     LIBRUQOLAWIDGETS_NO_EXPORT void slotSearchMessages(const QString &str);
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotLoadHistory();
     [[nodiscard]] LIBRUQOLAWIDGETS_NO_EXPORT QString displayShowSearch() const;
     QByteArray mRoomId;
+    int mOffset = 0;
     QLabel *const mSearchLabel;
     SearchMessageWithDelayLineEdit *const mSearchLineEdit;
     MessageListView *const mResultListWidget;

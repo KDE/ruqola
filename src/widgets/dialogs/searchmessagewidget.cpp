@@ -58,6 +58,7 @@ SearchMessageWidget::SearchMessageWidget(RocketChatAccount *account, QWidget *pa
     mainLayout->addWidget(mResultListWidget);
     connect(mSearchLineEdit, &QLineEdit::returnPressed, this, &SearchMessageWidget::slotSearchLineMessagesEnterPressed);
     connect(mResultListWidget, &MessageListView::goToMessageRequested, this, &SearchMessageWidget::goToMessageRequested);
+    connect(mResultListWidget, &MessageListView::loadHistoryRequested, this, &SearchMessageWidget::slotLoadHistory);
 }
 
 SearchMessageWidget::~SearchMessageWidget()
@@ -65,6 +66,13 @@ SearchMessageWidget::~SearchMessageWidget()
     if (mCurrentRocketChatAccount) {
         mCurrentRocketChatAccount->clearSearchModel();
     }
+}
+
+void SearchMessageWidget::slotLoadHistory()
+{
+    qDebug() << " load more history";
+    mCurrentRocketChatAccount->messageSearch(mSearchLineEdit->text(), mRoomId, true, mOffset);
+    mOffset += 50;
 }
 
 void SearchMessageWidget::slotClearedMessages()

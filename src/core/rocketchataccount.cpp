@@ -1335,13 +1335,13 @@ void RocketChatAccount::clearSearchModel()
     mSearchMessageModel->clearModel();
 }
 
-void RocketChatAccount::messageSearch(const QString &pattern, const QByteArray &rid, bool userRegularExpression)
+void RocketChatAccount::messageSearch(const QString &pattern, const QByteArray &rid, bool userRegularExpression, int offset)
 {
     if (pattern.isEmpty()) {
         clearSearchModel();
     } else {
         mSearchMessageModel->setLoadCommonMessagesInProgress(true);
-        restApi()->searchMessages(rid, pattern, userRegularExpression);
+        restApi()->searchMessages(rid, pattern, userRegularExpression, offset);
     }
 }
 
@@ -1359,6 +1359,7 @@ void RocketChatAccount::slotSearchMessages(const QJsonObject &obj)
 {
     mSearchMessageModel->setLoadCommonMessagesInProgress(false);
     mSearchMessageModel->parse(obj);
+    qDebug() << " obj " << obj;
 }
 
 void RocketChatAccount::starMessage(const QByteArray &messageId, bool starred)
