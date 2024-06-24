@@ -117,7 +117,9 @@ QNetworkRequest SearchMessageJob::request() const
     if (mCount != -1) {
         queryUrl.addQueryItem(QStringLiteral("count"), QString::number(mCount));
     }
-    queryUrl.addQueryItem(QStringLiteral("offset"), QString::number(mOffset));
+    if (mOffset != -1) {
+        queryUrl.addQueryItem(QStringLiteral("offset"), QString::number(mOffset));
+    }
     url.setQuery(queryUrl);
     QNetworkRequest request(url);
     addAuthRawHeader(request);

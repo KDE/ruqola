@@ -51,7 +51,7 @@ private:
     QString mRoomId;
     QString mSearchText;
     bool mUseRegularExpression = false;
-    int mOffset = 0;
+    int mOffset = -1;
     int mCount = -1;
 };
 }
