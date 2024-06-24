@@ -94,7 +94,7 @@ public:
     void filesInRoom(const QByteArray &roomId, const QString &type, int offset = 0, int count = 50);
     void addUserInChannel(const QByteArray &roomId, const QByteArray &userId);
 
-    void searchMessages(const QByteArray &roomId, const QString &pattern, bool useRegularExpression = false);
+    void searchMessages(const QByteArray &roomId, const QString &pattern, bool useRegularExpression = false, int offset = 0);
     void markRoomAsRead(const QByteArray &roomId);
     void getRooms();
     void markAsFavorite(const QByteArray &roomId, bool favorite);

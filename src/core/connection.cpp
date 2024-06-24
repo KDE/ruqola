@@ -781,11 +781,13 @@ void Connection::addUserInGroup(const QByteArray &roomId, const QByteArray &user
     }
 }
 
-void Connection::searchMessages(const QByteArray &roomId, const QString &pattern, bool useRegularExpression)
+void Connection::searchMessages(const QByteArray &roomId, const QString &pattern, bool useRegularExpression, int offset)
 {
     auto job = new SearchMessageJob(this);
     job->setRoomId(QString::fromLatin1(roomId));
     job->setSearchText(pattern);
+    job->setCount(50);
+    job->setOffset(offset);
     job->setUseRegularExpression(useRegularExpression);
     initializeRestApiJob(job);
     connect(job, &SearchMessageJob::searchMessageDone, this, &Connection::searchMessageDone);
