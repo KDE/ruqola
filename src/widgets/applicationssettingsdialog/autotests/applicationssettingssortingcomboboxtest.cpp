@@ -18,3 +18,5 @@ void ApplicationsSettingsSortingComboBoxTest::shouldHaveDefaultValues()
     ApplicationsSettingsSortingComboBox d;
     QCOMPARE(d.currentSorting(), AppsMarketPlaceFilterProxyModel::Sorting::AtoZ);
 }
+
+#include "moc_applicationssettingssortingcomboboxtest.cpp"
