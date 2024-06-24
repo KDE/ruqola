@@ -15,6 +15,7 @@ class QLabel;
 class CommonMessageFilterProxyModel;
 class RocketChatAccount;
 class Room;
+class CommonMessagesModel;
 
 namespace TextEditTextToSpeech
 {
@@ -45,6 +46,10 @@ private:
     LIBRUQOLAWIDGETS_NO_EXPORT void slotSearchMessages(const QString &str);
     LIBRUQOLAWIDGETS_NO_EXPORT void slotLoadHistory();
     [[nodiscard]] LIBRUQOLAWIDGETS_NO_EXPORT QString displayShowSearch() const;
+
+    CommonMessagesModel *mSearchMessageModel = nullptr;
+    CommonMessageFilterProxyModel *mSearchMessageFilterProxyModel = nullptr;
+
     QByteArray mRoomId;
     int mOffset = 0;
     QLabel *const mSearchLabel;

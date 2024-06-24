@@ -6,6 +6,7 @@
 
 #include "searchmessagewidget.h"
 #include "model/commonmessagefilterproxymodel.h"
+#include "model/commonmessagesmodel.h"
 #include "rocketchataccount.h"
 #include "room/messagelistview.h"
 #include "searchmessagewithdelaylineedit.h"
@@ -31,6 +32,9 @@ SearchMessageWidget::SearchMessageWidget(RocketChatAccount *account, QWidget *pa
     , mTextToSpeechWidget(new TextEditTextToSpeech::TextToSpeechContainerWidget(this))
 #endif
 {
+    mSearchMessageModel = new CommonMessagesModel(account, this);
+    mSearchMessageFilterProxyModel = new CommonMessageFilterProxyModel(mSearchMessageModel, this);
+
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
     mainLayout->setContentsMargins({});

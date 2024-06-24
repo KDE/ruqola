@@ -1345,6 +1345,12 @@ void RocketChatAccount::messageSearch(const QString &pattern, const QByteArray &
     }
 }
 
+void RocketChatAccount::slotSearchMessages(const QJsonObject &obj)
+{
+    mSearchMessageModel->setLoadCommonMessagesInProgress(false);
+    mSearchMessageModel->parse(obj);
+}
+
 InputTextManager *RocketChatAccount::inputTextManager() const
 {
     return mInputTextManager;
@@ -1353,13 +1359,6 @@ InputTextManager *RocketChatAccount::inputTextManager() const
 InputTextManager *RocketChatAccount::inputThreadMessageTextManager() const
 {
     return mInputThreadMessageTextManager;
-}
-
-void RocketChatAccount::slotSearchMessages(const QJsonObject &obj)
-{
-    mSearchMessageModel->setLoadCommonMessagesInProgress(false);
-    mSearchMessageModel->parse(obj);
-    qDebug() << " obj " << obj;
 }
 
 void RocketChatAccount::starMessage(const QByteArray &messageId, bool starred)
