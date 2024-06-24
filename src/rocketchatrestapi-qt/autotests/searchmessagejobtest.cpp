@@ -6,7 +6,6 @@
 
 #include "searchmessagejobtest.h"
 #include "chat/searchmessagejob.h"
-#include "restapimethod.h"
 #include "ruqola_restapi_helper.h"
 QTEST_GUILESS_MAIN(searchMessageJobTest)
 using namespace RocketChatRestApi;
@@ -26,6 +25,7 @@ void searchMessageJobTest::shouldHaveDefaultValue()
     QVERIFY(!job.hasQueryParameterSupport());
     QVERIFY(!job.useRegularExpression());
     QVERIFY(!job.requireTwoFactorAuthentication());
+    QCOMPARE(!job.offset(), 0);
 }
 
 void searchMessageJobTest::shouldGenerateRequest()

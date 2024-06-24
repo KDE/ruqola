@@ -38,6 +38,9 @@ public:
     [[nodiscard]] bool useRegularExpression() const;
     void setUseRegularExpression(bool useRegularExpression);
 
+    [[nodiscard]] int offset() const;
+    void setOffset(int newOffset);
+
 Q_SIGNALS:
     void searchMessageDone(const QJsonObject &obj);
 
@@ -48,6 +51,7 @@ private:
     QString mRoomId;
     QString mSearchText;
     bool mUseRegularExpression = false;
+    int mOffset = 0;
     int mCount = -1;
 };
 }

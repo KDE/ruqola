@@ -98,6 +98,16 @@ QString SearchMessageJob::convertSearchText() const
     return mSearchText;
 }
 
+int SearchMessageJob::offset() const
+{
+    return mOffset;
+}
+
+void SearchMessageJob::setOffset(int newOffset)
+{
+    mOffset = newOffset;
+}
+
 QNetworkRequest SearchMessageJob::request() const
 {
     QUrl url = mRestApiMethod->generateUrl(RestApiUtil::RestApiUrlType::ChatSearch);
@@ -107,6 +117,7 @@ QNetworkRequest SearchMessageJob::request() const
     if (mCount != -1) {
         queryUrl.addQueryItem(QStringLiteral("count"), QString::number(mCount));
     }
+    queryUrl.addQueryItem(QStringLiteral("offset"), QString::number(mOffset));
     url.setQuery(queryUrl);
     QNetworkRequest request(url);
     addAuthRawHeader(request);
