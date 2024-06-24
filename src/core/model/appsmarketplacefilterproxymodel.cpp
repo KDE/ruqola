@@ -11,6 +11,7 @@ AppsMarketPlaceFilterProxyModel::AppsMarketPlaceFilterProxyModel(QObject *parent
     : QSortFilterProxyModel{parent}
 {
     setFilterCaseSensitivity(Qt::CaseInsensitive);
+    sort(0, Qt::AscendingOrder);
 }
 
 AppsMarketPlaceFilterProxyModel::~AppsMarketPlaceFilterProxyModel() = default;
