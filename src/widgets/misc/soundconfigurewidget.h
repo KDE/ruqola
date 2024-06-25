@@ -9,7 +9,6 @@
 #include <QWidget>
 class ConfigureSoundComboBox;
 class QToolButton;
-class QAbstractItemModel;
 class NotificationDesktopSoundPreferenceModel;
 class RocketChatAccount;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT SoundConfigureWidget : public QWidget

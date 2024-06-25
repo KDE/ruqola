@@ -14,7 +14,6 @@ class QCheckBox;
 class Room;
 class QComboBox;
 class RocketChatAccount;
-class QToolButton;
 class SoundConfigureWidget;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT ConfigureNotificationWidget : public QWidget
 {

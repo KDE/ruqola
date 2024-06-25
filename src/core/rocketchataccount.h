@@ -62,8 +62,6 @@ class FilesForRoomModel;
 class InputTextManager;
 class PluginAuthenticationInterface;
 class Room;
-class CommonMessagesModel;
-class CommonMessageFilterProxyModel;
 class ReceiveTypingNotificationManager;
 class EmoticonModel;
 class DiscussionsFilterProxyModel;

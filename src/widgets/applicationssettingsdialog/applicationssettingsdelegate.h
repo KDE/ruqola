@@ -10,7 +10,6 @@
 #include "misc/messagelistdelegatebase.h"
 class QTextDocument;
 class RocketChatAccount;
-class QTreeView;
 class ApplicationsSettingsDelegate : public MessageListDelegateBase
 {
     Q_OBJECT
