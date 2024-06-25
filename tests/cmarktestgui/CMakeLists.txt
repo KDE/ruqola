@@ -8,6 +8,7 @@ target_link_libraries(cmarktestgui
     Qt::Widgets
     Qt::Gui
     cmark::cmark
+    libruqolawidgets
 )
 set_target_properties(cmarktestgui PROPERTIES DISABLE_PRECOMPILE_HEADERS ON)
 

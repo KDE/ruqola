@@ -5,6 +5,8 @@
 */
 
 #include "cmarktestgui.h"
+#include "messages/message.h"
+#include "textconverter.h"
 #include <QApplication>
 #include <QPushButton>
 #include <QTextEdit>
@@ -21,7 +23,10 @@ CMarkTestGui::CMarkTestGui(QWidget *parent)
     auto pushButton = new QPushButton(QStringLiteral("Generate Html code"), this);
     mainLayout->addWidget(pushButton);
     connect(pushButton, &QPushButton::clicked, this, [this]() {
-        // TODO
+        const TextConverter::ConvertMessageTextSettings settings(mTextEdit->toPlainText(), QStringLiteral("foo"), {}, {}, nullptr, nullptr, {}, {});
+        QByteArray needUpdateMessageId;
+        int recursiveIndex = 0;
+        mTextEditResult->setHtml(TextConverter::convertMessageText(settings, needUpdateMessageId, recursiveIndex));
     });
     mTextEditResult->setReadOnly(true);
     mainLayout->addWidget(mTextEditResult);
