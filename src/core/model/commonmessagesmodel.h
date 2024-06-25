@@ -16,7 +16,7 @@ class LIBRUQOLACORE_EXPORT CommonMessagesModel : public MessagesModel
 public:
     explicit CommonMessagesModel(RocketChatAccount *account = nullptr, QObject *parent = nullptr);
     ~CommonMessagesModel() override;
-    void parse(const QJsonObject &obj);
+    void parse(const QJsonObject &obj, bool clearMessages = true);
 
     void setLoadCommonMessagesInProgress(bool loadSearchMessageInProgress);
     [[nodiscard]] bool loadCommonMessagesInProgress() const;

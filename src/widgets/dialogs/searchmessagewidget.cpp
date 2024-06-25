@@ -97,7 +97,7 @@ void SearchMessageWidget::messageSearch(const QString &pattern, const QByteArray
 void SearchMessageWidget::slotSearchMessagesDone(const QJsonObject &obj)
 {
     mSearchMessageModel->setLoadCommonMessagesInProgress(false);
-    mSearchMessageModel->parse(obj);
+    mSearchMessageModel->parse(obj, false);
 }
 
 void SearchMessageWidget::searchMessages(const QByteArray &roomId, const QString &pattern, bool useRegularExpression, int offset)

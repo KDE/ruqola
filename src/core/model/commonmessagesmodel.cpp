@@ -30,9 +30,11 @@ QList<Message> CommonMessagesModel::extractMessages(const QJsonObject &obj)
     return messages.listMessages();
 }
 
-void CommonMessagesModel::parse(const QJsonObject &obj)
+void CommonMessagesModel::parse(const QJsonObject &obj, bool clearMessages)
 {
-    clear();
+    if (clearMessages) {
+        clear();
+    }
     const QList<Message> messages = extractMessages(obj);
     addMessages(messages);
     setStringNotFound(rowCount() == 0);
