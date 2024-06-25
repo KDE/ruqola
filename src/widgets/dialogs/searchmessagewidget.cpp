@@ -73,7 +73,6 @@ SearchMessageWidget::~SearchMessageWidget()
 
 void SearchMessageWidget::slotLoadHistory()
 {
-    qDebug() << " load more history";
     mCurrentRocketChatAccount->messageSearch(mSearchLineEdit->text(), mRoomId, true, mOffset);
     mOffset += 50;
 }
