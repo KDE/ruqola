@@ -55,6 +55,7 @@ private:
 
     QByteArray mRoomId;
     int mOffset = 0;
+    bool mMessageIsEmpty = false;
     QLabel *const mSearchLabel;
     SearchMessageWithDelayLineEdit *const mSearchLineEdit;
     MessageListView *const mResultListWidget;

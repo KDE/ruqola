@@ -84,6 +84,7 @@ SearchMessageWidget::~SearchMessageWidget()
 void SearchMessageWidget::clearSearchModel()
 {
     mSearchMessageModel->clearModel();
+    mMessageIsEmpty = false;
 }
 
 void SearchMessageWidget::messageSearch(const QString &pattern, const QByteArray &rid, bool userRegularExpression, int offset)
@@ -91,15 +92,17 @@ void SearchMessageWidget::messageSearch(const QString &pattern, const QByteArray
     if (pattern.isEmpty()) {
         clearSearchModel();
     } else {
-        mSearchMessageModel->setLoadCommonMessagesInProgress(true);
-        searchMessages(rid, pattern, userRegularExpression, offset);
+        if (!mMessageIsEmpty) {
+            mSearchMessageModel->setLoadCommonMessagesInProgress(true);
+            searchMessages(rid, pattern, userRegularExpression, offset);
+        }
     }
 }
 
 void SearchMessageWidget::slotSearchMessagesDone(const QJsonObject &obj)
 {
     mSearchMessageModel->setLoadCommonMessagesInProgress(false);
-    mSearchMessageModel->parse(obj, false, true);
+    mMessageIsEmpty = mSearchMessageModel->parse(obj, false, true);
 }
 
 void SearchMessageWidget::searchMessages(const QByteArray &roomId, const QString &pattern, bool useRegularExpression, int offset)
