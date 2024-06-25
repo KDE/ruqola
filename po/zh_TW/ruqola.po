@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-06-22 00:39+0000\n"
+"POT-Creation-Date: 2024-06-25 00:38+0000\n"
 "PO-Revision-Date: 2024-06-20 03:08+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
@@ -2770,7 +2770,7 @@ msgid "Show Moderation Messages"
 msgstr "顯示站務訊息"
 
 #: widgets/administratordialog/moderationconsole/moderationmessageswidget.cpp:55
-#: widgets/dialogs/searchmessagewidget.cpp:101
+#: widgets/dialogs/searchmessagewidget.cpp:113
 #: widgets/dialogs/showlistmessagebasewidget.cpp:97
 #: widgets/discussions/showdiscussionswidget.cpp:88
 #: widgets/room/usersinroomwidget.cpp:135
@@ -2779,7 +2779,7 @@ msgid "Loading…"
 msgstr "載入中…"
 
 #: widgets/administratordialog/moderationconsole/moderationmessageswidget.cpp:57
-#: widgets/dialogs/searchmessagewidget.cpp:105
+#: widgets/dialogs/searchmessagewidget.cpp:117
 #: widgets/dialogs/showlistmessagebasewidget.cpp:99
 #: widgets/room/usersinroomwidget.cpp:137
 #, kde-format
@@ -2787,7 +2787,7 @@ msgid "No Message found"
 msgstr "找不到訊息"
 
 #: widgets/administratordialog/moderationconsole/moderationmessageswidget.cpp:63
-#: widgets/dialogs/searchmessagewidget.cpp:111
+#: widgets/dialogs/searchmessagewidget.cpp:123
 #, fuzzy, kde-format
 #| msgid "%1 Message in room (Total: %2)"
 #| msgid_plural "%1 Messages in room (Total: %2)"
@@ -7479,7 +7479,7 @@ msgctxt "@title:window"
 msgid "Search Messages in '%1' (%2)"
 msgstr "在「%1」中搜尋訊息（%2）"
 
-#: widgets/dialogs/searchmessagewidget.cpp:39
+#: widgets/dialogs/searchmessagewidget.cpp:43
 #, kde-format
 msgid "Search messages"
 msgstr "搜尋訊息"
