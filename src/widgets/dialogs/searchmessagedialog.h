@@ -10,7 +10,6 @@
 
 #include <QDialog>
 class SearchMessageWidget;
-class CommonMessageFilterProxyModel;
 class RocketChatAccount;
 class Room;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT SearchMessageDialog : public QDialog
