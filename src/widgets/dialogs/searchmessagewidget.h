@@ -47,8 +47,8 @@ private:
     LIBRUQOLAWIDGETS_NO_EXPORT void slotLoadHistory();
     [[nodiscard]] LIBRUQOLAWIDGETS_NO_EXPORT QString displayShowSearch() const;
 
-    CommonMessagesModel *mSearchMessageModel = nullptr;
-    CommonMessageFilterProxyModel *mSearchMessageFilterProxyModel = nullptr;
+    CommonMessagesModel *const mSearchMessageModel;
+    CommonMessageFilterProxyModel *const mSearchMessageFilterProxyModel;
 
     QByteArray mRoomId;
     int mOffset = 0;

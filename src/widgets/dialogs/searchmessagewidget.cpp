@@ -24,6 +24,8 @@
 
 SearchMessageWidget::SearchMessageWidget(RocketChatAccount *account, QWidget *parent)
     : QWidget(parent)
+    , mSearchMessageModel(new CommonMessagesModel(account, this))
+    , mSearchMessageFilterProxyModel(new CommonMessageFilterProxyModel(mSearchMessageModel, this))
     , mSearchLabel(new QLabel(this))
     , mSearchLineEdit(new SearchMessageWithDelayLineEdit(account, this))
     , mResultListWidget(new MessageListView(account, MessageListView::Mode::Viewing, this))
@@ -32,9 +34,6 @@ SearchMessageWidget::SearchMessageWidget(RocketChatAccount *account, QWidget *pa
     , mTextToSpeechWidget(new TextEditTextToSpeech::TextToSpeechContainerWidget(this))
 #endif
 {
-    mSearchMessageModel = new CommonMessagesModel(account, this);
-    mSearchMessageFilterProxyModel = new CommonMessageFilterProxyModel(mSearchMessageModel, this);
-
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
     mainLayout->setContentsMargins({});
