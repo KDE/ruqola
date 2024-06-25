@@ -18,4 +18,5 @@ public:
 private:
     QTextEdit *const mTextEdit;
     QTextEdit *const mTextEditResult;
+    QTextEdit *const mTextEditResultCMark;
 };

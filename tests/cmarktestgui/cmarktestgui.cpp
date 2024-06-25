@@ -8,6 +8,7 @@
 #include "messages/message.h"
 #include "textconverter.h"
 #include <QApplication>
+#include <QLabel>
 #include <QPushButton>
 #include <QTextEdit>
 #include <QVBoxLayout>
@@ -15,6 +16,7 @@ CMarkTestGui::CMarkTestGui(QWidget *parent)
     : QWidget{parent}
     , mTextEdit(new QTextEdit(this))
     , mTextEditResult(new QTextEdit(this))
+    , mTextEditResultCMark(new QTextEdit(this))
 {
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setContentsMargins({});
@@ -27,9 +29,16 @@ CMarkTestGui::CMarkTestGui(QWidget *parent)
         QByteArray needUpdateMessageId;
         int recursiveIndex = 0;
         mTextEditResult->setHtml(TextConverter::convertMessageText(settings, needUpdateMessageId, recursiveIndex));
+        mTextEditResultCMark->setHtml(QStringLiteral("Not implemented yet"));
     });
     mTextEditResult->setReadOnly(true);
+    auto label = new QLabel(QStringLiteral("Convert with TextConverter"), this);
+    mainLayout->addWidget(label);
     mainLayout->addWidget(mTextEditResult);
+
+    label = new QLabel(QStringLiteral("Convert with CMark"), this);
+    mainLayout->addWidget(label);
+    mainLayout->addWidget(mTextEditResultCMark);
 }
 
 CMarkTestGui::~CMarkTestGui()
