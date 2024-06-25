@@ -410,6 +410,7 @@ const char *addHighlighter(const char *str, const TextConverter::ConvertMessageT
 
     iterateOverRegions(QString::fromUtf8(str), QStringLiteral("```"), addCodeChunk, addNonCodeChunk);
 
+    qDebug() << " *************************************richText " << richText;
     return richText.toUtf8().constData();
 }
 
@@ -523,7 +524,7 @@ QString TextConverterCMark::convertMessageText(const TextConverter::ConvertMessa
         }
     }
 
-    qDebug() << "settings.str  " << settings.str;
+    // qDebug() << "settings.str  " << settings.str;
     char *html = convertMessageTextCMark(settings);
 
     return "<qt>"_L1 + QString::fromUtf8(html) + "</qt>"_L1;
