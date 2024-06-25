@@ -44,9 +44,9 @@ ModerationMessagesWidget::ModerationMessagesWidget(RocketChatAccount *account, Q
 
 ModerationMessagesWidget::~ModerationMessagesWidget()
 {
-    if (mCurrentRocketChatAccount) {
-        mCurrentRocketChatAccount->clearSearchModel();
-    }
+    // if (mCurrentRocketChatAccount) {
+    //     mCurrentRocketChatAccount->clearSearchModel();
+    // }
 }
 
 void ModerationMessagesWidget::updateLabel()
