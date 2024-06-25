@@ -191,9 +191,6 @@ RocketChatAccount::RocketChatAccount(const QString &accountFileName, QObject *pa
     mUserCompleterFilterModelProxy = new UserCompleterFilterProxyModel(this);
     mUserCompleterFilterModelProxy->setSourceModel(mUserCompleterModel);
 
-    mSearchMessageModel = new CommonMessagesModel(this, this);
-    mSearchMessageFilterProxyModel = new CommonMessageFilterProxyModel(mSearchMessageModel, this);
-
     mFilesModelForRoom = new FilesForRoomModel(this, this);
     mFilesModelForRoom->setObjectName(QStringLiteral("filesmodelforrooms"));
     mFilesForRoomFilterProxyModel = new FilesForRoomFilterProxyModel(mFilesModelForRoom, this);
@@ -529,7 +526,6 @@ Connection *RocketChatAccount::restApi()
         connect(mRestApi, &Connection::channelFilesDone, this, &RocketChatAccount::slotChannelFilesDone);
         connect(mRestApi, &Connection::channelRolesDone, this, &RocketChatAccount::slotChannelGroupRolesDone);
         connect(mRestApi, &Connection::groupRolesDone, this, &RocketChatAccount::slotChannelGroupRolesDone);
-        connect(mRestApi, &Connection::searchMessageDone, this, &RocketChatAccount::slotSearchMessages);
         connect(mRestApi, &Connection::failed, this, &RocketChatAccount::slotJobFailed);
         connect(mRestApi, &Connection::getThreadMessagesDone, this, &RocketChatAccount::slotGetThreadMessagesDone);
         connect(mRestApi, &Connection::getDiscussionsDone, this, &RocketChatAccount::slotGetDiscussionsListDone);
@@ -1330,27 +1326,6 @@ void RocketChatAccount::addUserToRoom(const QByteArray &userId, const QByteArray
     }
 }
 
-void RocketChatAccount::clearSearchModel()
-{
-    mSearchMessageModel->clearModel();
-}
-
-void RocketChatAccount::messageSearch(const QString &pattern, const QByteArray &rid, bool userRegularExpression, int offset)
-{
-    if (pattern.isEmpty()) {
-        clearSearchModel();
-    } else {
-        mSearchMessageModel->setLoadCommonMessagesInProgress(true);
-        restApi()->searchMessages(rid, pattern, userRegularExpression, offset);
-    }
-}
-
-void RocketChatAccount::slotSearchMessages(const QJsonObject &obj)
-{
-    mSearchMessageModel->setLoadCommonMessagesInProgress(false);
-    mSearchMessageModel->parse(obj);
-}
-
 InputTextManager *RocketChatAccount::inputTextManager() const
 {
     return mInputTextManager;
@@ -1478,16 +1453,6 @@ void RocketChatAccount::setDefaultAuthentication(AuthenticationManager::AuthMeth
     } else {
         qCWarning(RUQOLA_LOG) << "No interface defined for  " << type;
     }
-}
-
-CommonMessageFilterProxyModel *RocketChatAccount::searchMessageFilterProxyModel() const
-{
-    return mSearchMessageFilterProxyModel;
-}
-
-CommonMessagesModel *RocketChatAccount::searchMessageModel() const
-{
-    return mSearchMessageModel;
 }
 
 void RocketChatAccount::initializeAuthenticationPlugins()

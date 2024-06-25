@@ -181,7 +181,6 @@ public:
 
     void roomFiles(const QByteArray &roomId, Room::RoomType channelType = Room::RoomType::Unknown);
     void addUserToRoom(const QByteArray &username, const QByteArray &roomId, Room::RoomType channelType);
-    void messageSearch(const QString &pattern, const QByteArray &rid, bool userRegularExpression = false, int offset = 0);
     [[nodiscard]] InputTextManager *inputTextManager() const;
 
     [[nodiscard]] InputTextManager *inputThreadMessageTextManager() const;
@@ -191,7 +190,6 @@ public:
     void blockUser(const QString &userId, bool block);
     void deleteFileMessage(const QByteArray &roomId, const QByteArray &fileId, Room::RoomType channelType);
     void openDocumentation();
-    void clearSearchModel();
     void reactOnMessage(const QByteArray &messageId, const QString &emoji, bool shouldReact);
     void ignoreUser(const QByteArray &rid, const QByteArray &userId, bool ignore);
     void channelInfo(const QByteArray &roomId);
@@ -235,7 +233,6 @@ public:
 
     void setShowRoomAvatar(bool checked);
 
-    CommonMessageFilterProxyModel *searchMessageFilterProxyModel() const;
     FilesForRoomFilterProxyModel *filesForRoomFilterProxyModel() const;
     ReceiveTypingNotificationManager *receiveTypingNotificationManager() const;
     UserCompleterFilterProxyModel *userCompleterFilterProxyModel() const;
@@ -310,8 +307,6 @@ public:
     void insertCompleterUsers();
 
     PluginAuthenticationInterface *defaultAuthenticationInterface() const;
-
-    [[nodiscard]] CommonMessagesModel *searchMessageModel() const;
 
     void updateUser(const QJsonObject &object);
 
@@ -631,7 +626,6 @@ private:
     LIBRUQOLACORE_NO_EXPORT void slotReconnectToServer();
 
     LIBRUQOLACORE_NO_EXPORT void loadEmoji(const QJsonObject &obj);
-    LIBRUQOLACORE_NO_EXPORT void slotSearchMessages(const QJsonObject &obj);
     LIBRUQOLACORE_NO_EXPORT void slotNeedToUpdateNotification();
     LIBRUQOLACORE_NO_EXPORT void loadSettings(const QString &accountFileName);
     LIBRUQOLACORE_NO_EXPORT void clearModels();
@@ -705,8 +699,6 @@ private:
 
     InputTextManager *const mInputThreadMessageTextManager;
 
-    CommonMessagesModel *mSearchMessageModel = nullptr;
-    CommonMessageFilterProxyModel *mSearchMessageFilterProxyModel = nullptr;
     ReceiveTypingNotificationManager *const mReceiveTypingNotificationManager;
     ServerConfigInfo *mServerConfigInfo = nullptr;
     FilesForRoomModel *mFilesModelForRoom = nullptr;

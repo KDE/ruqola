@@ -22,7 +22,6 @@ public:
 
     void setRoomId(const QByteArray &roomId);
 
-    void setModel(CommonMessageFilterProxyModel *model);
     void setRoom(Room *room);
 Q_SIGNALS:
     void goToMessageRequested(const QByteArray &messageId, const QString &messageDateTimeUtc);

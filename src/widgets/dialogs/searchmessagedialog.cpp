@@ -65,11 +65,6 @@ void SearchMessageDialog::writeConfig()
     KWindowConfig::saveWindowSize(windowHandle(), group);
 }
 
-void SearchMessageDialog::setModel(CommonMessageFilterProxyModel *model)
-{
-    mSearchMessageWidget->setModel(model);
-}
-
 void SearchMessageDialog::setRoom(Room *room)
 {
     mSearchMessageWidget->setRoom(room);

@@ -94,7 +94,6 @@ public:
     void filesInRoom(const QByteArray &roomId, const QString &type, int offset = 0, int count = 50);
     void addUserInChannel(const QByteArray &roomId, const QByteArray &userId);
 
-    void searchMessages(const QByteArray &roomId, const QString &pattern, bool useRegularExpression = false, int offset = 0);
     void markRoomAsRead(const QByteArray &roomId);
     void getRooms();
     void markAsFavorite(const QByteArray &roomId, bool favorite);
@@ -208,7 +207,6 @@ Q_SIGNALS:
     void channelFilesDone(const QJsonObject &obj, const RocketChatRestApi::ChannelGroupBaseJob::ChannelGroupInfo &channelInfo);
     void channelMembersDone(const QJsonObject &obj, const RocketChatRestApi::ChannelGroupBaseJob::ChannelGroupInfo &channelInfo);
     void syncThreadMessagesDone(const QJsonObject &obj, const QString &threadMessageId);
-    void searchMessageDone(const QJsonObject &obj);
     void getRoomsDone(const QJsonObject &obj);
     void userInfoDone(const QJsonObject &obj);
     void channelRolesDone(const QJsonObject &obj, const RocketChatRestApi::ChannelGroupBaseJob::ChannelGroupInfo &channelInfo);

@@ -5,10 +5,13 @@
 */
 
 #include "searchmessagewidget.h"
+#include "chat/searchmessagejob.h"
+#include "connection.h"
 #include "model/commonmessagefilterproxymodel.h"
 #include "model/commonmessagesmodel.h"
 #include "rocketchataccount.h"
 #include "room/messagelistview.h"
+#include "ruqolawidgets_debug.h"
 #include "searchmessagewithdelaylineedit.h"
 #include <KLineEditEventHandler>
 #include <KLocalizedString>
@@ -62,33 +65,73 @@ SearchMessageWidget::SearchMessageWidget(RocketChatAccount *account, QWidget *pa
     connect(mSearchLineEdit, &QLineEdit::returnPressed, this, &SearchMessageWidget::slotSearchLineMessagesEnterPressed);
     connect(mResultListWidget, &MessageListView::goToMessageRequested, this, &SearchMessageWidget::goToMessageRequested);
     connect(mResultListWidget, &MessageListView::loadHistoryRequested, this, &SearchMessageWidget::slotLoadHistory);
+
+    mResultListWidget->setModel(mSearchMessageFilterProxyModel);
+    connect(mSearchMessageFilterProxyModel, &CommonMessageFilterProxyModel::stringNotFoundChanged, this, &SearchMessageWidget::updateLabel);
+    connect(mSearchMessageFilterProxyModel, &CommonMessageFilterProxyModel::loadingInProgressChanged, this, &SearchMessageWidget::updateLabel);
+    updateLabel();
 }
 
 SearchMessageWidget::~SearchMessageWidget()
 {
     if (mCurrentRocketChatAccount) {
-        mCurrentRocketChatAccount->clearSearchModel();
-        mSearchMessageModel->clearModel();
+        clearSearchModel();
+    }
+}
+
+void SearchMessageWidget::clearSearchModel()
+{
+    mSearchMessageModel->clearModel();
+}
+
+void SearchMessageWidget::messageSearch(const QString &pattern, const QByteArray &rid, bool userRegularExpression, int offset)
+{
+    if (pattern.isEmpty()) {
+        clearSearchModel();
+    } else {
+        mSearchMessageModel->setLoadCommonMessagesInProgress(true);
+        searchMessages(rid, pattern, userRegularExpression, offset);
+    }
+}
+
+void SearchMessageWidget::slotSearchMessagesDone(const QJsonObject &obj)
+{
+    mSearchMessageModel->setLoadCommonMessagesInProgress(false);
+    mSearchMessageModel->parse(obj);
+}
+
+void SearchMessageWidget::searchMessages(const QByteArray &roomId, const QString &pattern, bool useRegularExpression, int offset)
+{
+    auto job = new RocketChatRestApi::SearchMessageJob(this);
+    job->setRoomId(QString::fromLatin1(roomId));
+    job->setSearchText(pattern);
+    job->setCount(50);
+    job->setOffset(offset);
+    job->setUseRegularExpression(useRegularExpression);
+    mCurrentRocketChatAccount->restApi()->initializeRestApiJob(job);
+    connect(job, &RocketChatRestApi::SearchMessageJob::searchMessageDone, this, &SearchMessageWidget::slotSearchMessagesDone);
+    if (!job->start()) {
+        qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start searchMessages job";
     }
 }
 
 void SearchMessageWidget::slotLoadHistory()
 {
-    mCurrentRocketChatAccount->messageSearch(mSearchLineEdit->text(), mRoomId, true, mOffset);
+    messageSearch(mSearchLineEdit->text(), mRoomId, true, mOffset);
     mOffset += 50;
 }
 
 void SearchMessageWidget::slotClearedMessages()
 {
-    mModel->clearModel();
+    mSearchMessageFilterProxyModel->clearModel();
     updateLabel();
 }
 
 void SearchMessageWidget::slotSearchMessages(const QString &str)
 {
-    mModel->setSearchText(str);
+    mSearchMessageFilterProxyModel->setSearchText(str);
     mSearchLineEdit->addCompletionItem(str);
-    mCurrentRocketChatAccount->messageSearch(str, mRoomId, true);
+    messageSearch(str, mRoomId, true);
 }
 
 void SearchMessageWidget::slotSearchLineMessagesEnterPressed()
@@ -108,33 +151,24 @@ void SearchMessageWidget::setRoomId(const QByteArray &roomId)
 
 void SearchMessageWidget::updateLabel()
 {
-    if (mModel->loadCommonMessagesInProgress()) {
+    if (mSearchMessageFilterProxyModel->loadCommonMessagesInProgress()) {
         mSearchLabel->setText(i18n("Loading…"));
-    } else if (mSearchLineEdit->text().isEmpty() && mModel->rowCount() == 0) {
+    } else if (mSearchLineEdit->text().isEmpty() && mSearchMessageFilterProxyModel->rowCount() == 0) {
         mSearchLabel->clear();
     } else {
-        mSearchLabel->setText(mModel->rowCount() == 0 ? i18n("No Message found") : displayShowSearch());
+        mSearchLabel->setText(mSearchMessageFilterProxyModel->rowCount() == 0 ? i18n("No Message found") : displayShowSearch());
     }
 }
 
 QString SearchMessageWidget::displayShowSearch() const
 {
-    const QString displayMessageStr = i18np("%1 Message in room", "%1 Messages in room", mModel->rowCount());
+    const QString displayMessageStr = i18np("%1 Message in room", "%1 Messages in room", mSearchMessageFilterProxyModel->rowCount());
     return displayMessageStr;
 }
 
 RocketChatAccount *SearchMessageWidget::currentRocketChatAccount() const
 {
     return mCurrentRocketChatAccount;
-}
-
-void SearchMessageWidget::setModel(CommonMessageFilterProxyModel *model)
-{
-    mResultListWidget->setModel(model);
-    mModel = model;
-    connect(mModel, &CommonMessageFilterProxyModel::stringNotFoundChanged, this, &SearchMessageWidget::updateLabel);
-    connect(mModel, &CommonMessageFilterProxyModel::loadingInProgressChanged, this, &SearchMessageWidget::updateLabel);
-    updateLabel();
 }
 
 void SearchMessageWidget::setRoom(Room *room)

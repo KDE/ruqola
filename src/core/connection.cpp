@@ -42,7 +42,6 @@
 #include "chat/postmessagejob.h"
 #include "chat/reactonmessagejob.h"
 #include "chat/reportmessagejob.h"
-#include "chat/searchmessagejob.h"
 #include "chat/sendmessagejob.h"
 #include "chat/starmessagejob.h"
 #include "chat/syncthreadmessagesjob.h"
@@ -778,21 +777,6 @@ void Connection::addUserInGroup(const QByteArray &roomId, const QByteArray &user
     job->setInviteUserId(QString::fromLatin1(userId));
     if (!job->start()) {
         qCWarning(RUQOLA_LOG) << "Impossible to start addUserInGroup job";
-    }
-}
-
-void Connection::searchMessages(const QByteArray &roomId, const QString &pattern, bool useRegularExpression, int offset)
-{
-    auto job = new SearchMessageJob(this);
-    job->setRoomId(QString::fromLatin1(roomId));
-    job->setSearchText(pattern);
-    job->setCount(50);
-    job->setOffset(offset);
-    job->setUseRegularExpression(useRegularExpression);
-    initializeRestApiJob(job);
-    connect(job, &SearchMessageJob::searchMessageDone, this, &Connection::searchMessageDone);
-    if (!job->start()) {
-        qCWarning(RUQOLA_LOG) << "Impossible to start searchMessages job";
     }
 }
 

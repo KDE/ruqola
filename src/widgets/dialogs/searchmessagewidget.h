@@ -32,7 +32,6 @@ public:
     [[nodiscard]] QByteArray roomId() const;
     void setRoomId(const QByteArray &roomId);
 
-    void setModel(CommonMessageFilterProxyModel *model);
     void setRoom(Room *room);
     [[nodiscard]] RocketChatAccount *currentRocketChatAccount() const;
 
@@ -46,6 +45,10 @@ private:
     LIBRUQOLAWIDGETS_NO_EXPORT void slotSearchMessages(const QString &str);
     LIBRUQOLAWIDGETS_NO_EXPORT void slotLoadHistory();
     [[nodiscard]] LIBRUQOLAWIDGETS_NO_EXPORT QString displayShowSearch() const;
+    LIBRUQOLAWIDGETS_NO_EXPORT void clearSearchModel();
+    LIBRUQOLAWIDGETS_NO_EXPORT void messageSearch(const QString &pattern, const QByteArray &rid, bool userRegularExpression, int offset = -1);
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotSearchMessagesDone(const QJsonObject &obj);
+    LIBRUQOLAWIDGETS_NO_EXPORT void searchMessages(const QByteArray &roomId, const QString &pattern, bool useRegularExpression, int offset = -1);
 
     CommonMessagesModel *const mSearchMessageModel;
     CommonMessageFilterProxyModel *const mSearchMessageFilterProxyModel;
@@ -55,7 +58,6 @@ private:
     QLabel *const mSearchLabel;
     SearchMessageWithDelayLineEdit *const mSearchLineEdit;
     MessageListView *const mResultListWidget;
-    CommonMessageFilterProxyModel *mModel = nullptr;
     RocketChatAccount *const mCurrentRocketChatAccount;
     TextEditTextToSpeech::TextToSpeechContainerWidget *const mTextToSpeechWidget = nullptr;
 };

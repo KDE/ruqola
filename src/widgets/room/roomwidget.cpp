@@ -431,7 +431,6 @@ void RoomWidget::slotSearchMessages()
     SearchMessageDialog dlg(mCurrentRocketChatAccount, this);
     dlg.setRoomId(mRoomWidgetBase->roomId());
     dlg.setRoom(mRoom);
-    dlg.setModel(mCurrentRocketChatAccount->searchMessageFilterProxyModel());
     connect(&dlg, &SearchMessageDialog::goToMessageRequested, this, &RoomWidget::slotGotoMessage);
     dlg.exec();
 }
