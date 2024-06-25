@@ -588,6 +588,9 @@ if(UNITY_SUPPORT)
     target_link_libraries(libruqolacore Qt::DBus)
 endif()
 
+if(TARGET cmark::cmark)
+    target_link_libraries(libruqolacore cmark::cmark)
+endif()
 
 ecm_qt_declare_logging_category(libruqolacore_debug_SRCS HEADER ruqola_debug.h IDENTIFIER RUQOLA_LOG
     CATEGORY_NAME org.kde.ruqola DESCRIPTION "ruqola" EXPORT RUQOLA)

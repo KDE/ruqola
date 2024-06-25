@@ -318,12 +318,23 @@ QString generateRichText(const QString &str,
     return newStr;
 }
 }
+#include "cmark.h"
+
+char *TextConverterCMark::convertMessageTextCMark(const QString &str)
+{
+    char *html = cmark_markdown_to_html(str.toUtf8().constData(), str.length(), CMARK_OPT_DEFAULT);
+    return html;
+}
 
 QString TextConverterCMark::convertMessageText(const TextConverter::ConvertMessageTextSettings &settings, QByteArray &needUpdateMessageId, int &recusiveIndex)
 {
     if (!settings.emojiManager) {
         qCWarning(RUQOLA_TEXTTOHTML_LOG) << "Emojimanager is null";
     }
+    qDebug() << "settings.str  " << settings.str;
+    char *html = convertMessageTextCMark(settings.str);
+
+    return QString::fromUtf8(html);
 
     QString quotedMessage;
 
