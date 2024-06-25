@@ -20,7 +20,7 @@ class MessageCache;
 namespace TextConverterCMark
 {
 extern "C" {
-[[nodiscard]] LIBRUQOLACORE_EXPORT char *convertMessageTextCMark(const QString &str);
+[[nodiscard]] LIBRUQOLACORE_EXPORT char *convertMessageTextCMark(const TextConverter::ConvertMessageTextSettings &settings);
 }
 [[nodiscard]] LIBRUQOLACORE_EXPORT QString convertMessageText(const TextConverter::ConvertMessageTextSettings &settings,
                                                               QByteArray &needUpdateMessageId,
