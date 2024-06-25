@@ -7,11 +7,15 @@
 #pragma once
 
 #include <QWidget>
-
+class QTextEdit;
 class CMarkTestGui : public QWidget
 {
     Q_OBJECT
 public:
     explicit CMarkTestGui(QWidget *parent = nullptr);
     ~CMarkTestGui() override;
+
+private:
+    QTextEdit *const mTextEdit;
+    QTextEdit *const mTextEditResult;
 };
