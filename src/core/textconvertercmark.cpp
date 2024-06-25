@@ -319,7 +319,7 @@ QString generateRichText(const QString &str,
 }
 }
 
-QString TextConverterCMark::convertMessageText(const ConvertMessageTextSettings &settings, QByteArray &needUpdateMessageId, int &recusiveIndex)
+QString TextConverterCMark::convertMessageText(const TextConverter::ConvertMessageTextSettings &settings, QByteArray &needUpdateMessageId, int &recusiveIndex)
 {
     if (!settings.emojiManager) {
         qCWarning(RUQOLA_TEXTTOHTML_LOG) << "Emojimanager is null";
@@ -341,18 +341,18 @@ QString TextConverterCMark::convertMessageText(const ConvertMessageTextSettings 
             return msg.messageId() == messageId;
         });
         if (it != settings.allMessages.cend()) {
-            const ConvertMessageTextSettings newSetting(QLatin1Char('@') + (*it).username() + QStringLiteral(": ") + (*it).text(),
-                                                        settings.userName,
-                                                        settings.allMessages,
-                                                        settings.highlightWords,
-                                                        settings.emojiManager,
-                                                        settings.messageCache,
-                                                        (*it).mentions(),
-                                                        (*it).channels(),
-                                                        settings.searchedText,
-                                                        settings.maximumRecursiveQuotedText);
+            const TextConverter::ConvertMessageTextSettings newSetting(QLatin1Char('@') + (*it).username() + QStringLiteral(": ") + (*it).text(),
+                                                                       settings.userName,
+                                                                       settings.allMessages,
+                                                                       settings.highlightWords,
+                                                                       settings.emojiManager,
+                                                                       settings.messageCache,
+                                                                       (*it).mentions(),
+                                                                       (*it).channels(),
+                                                                       settings.searchedText,
+                                                                       settings.maximumRecursiveQuotedText);
             recusiveIndex++;
-            const QString text = convertMessageText(newSetting, needUpdateMessageId, recusiveIndex);
+            const QString text = TextConverterCMark::convertMessageText(newSetting, needUpdateMessageId, recusiveIndex);
             Utils::QuotedRichTextInfo info;
             info.url = url;
             info.richText = text;
@@ -364,18 +364,18 @@ QString TextConverterCMark::convertMessageText(const ConvertMessageTextSettings 
                 // TODO allow to reload index when we loaded message
                 Message *msg = settings.messageCache->messageForId(messageId);
                 if (msg) {
-                    const ConvertMessageTextSettings newSetting(msg->text(),
-                                                                settings.userName,
-                                                                settings.allMessages,
-                                                                settings.highlightWords,
-                                                                settings.emojiManager,
-                                                                settings.messageCache,
-                                                                msg->mentions(),
-                                                                msg->channels(),
-                                                                settings.searchedText,
-                                                                settings.maximumRecursiveQuotedText);
+                    const TextConverter::ConvertMessageTextSettings newSetting(msg->text(),
+                                                                               settings.userName,
+                                                                               settings.allMessages,
+                                                                               settings.highlightWords,
+                                                                               settings.emojiManager,
+                                                                               settings.messageCache,
+                                                                               msg->mentions(),
+                                                                               msg->channels(),
+                                                                               settings.searchedText,
+                                                                               settings.maximumRecursiveQuotedText);
                     recusiveIndex++;
-                    const QString text = convertMessageText(newSetting, needUpdateMessageId, recusiveIndex);
+                    const QString text = TextConverterCMark::convertMessageText(newSetting, needUpdateMessageId, recusiveIndex);
                     Utils::QuotedRichTextInfo info;
                     info.url = url;
                     info.richText = text;
