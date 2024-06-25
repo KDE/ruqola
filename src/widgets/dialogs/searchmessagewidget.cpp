@@ -25,6 +25,8 @@
 #include <TextEditTextToSpeech/TextToSpeechContainerWidget>
 #endif
 
+constexpr int numberOfElment = 20;
+
 SearchMessageWidget::SearchMessageWidget(RocketChatAccount *account, QWidget *parent)
     : QWidget(parent)
     , mSearchMessageModel(new CommonMessagesModel(account, this))
@@ -105,7 +107,7 @@ void SearchMessageWidget::searchMessages(const QByteArray &roomId, const QString
     auto job = new RocketChatRestApi::SearchMessageJob(this);
     job->setRoomId(QString::fromLatin1(roomId));
     job->setSearchText(pattern);
-    job->setCount(50);
+    job->setCount(numberOfElment);
     job->setOffset(offset);
     job->setUseRegularExpression(useRegularExpression);
     mCurrentRocketChatAccount->restApi()->initializeRestApiJob(job);
@@ -118,7 +120,7 @@ void SearchMessageWidget::searchMessages(const QByteArray &roomId, const QString
 void SearchMessageWidget::slotLoadHistory()
 {
     messageSearch(mSearchLineEdit->text(), mRoomId, true, mOffset);
-    mOffset += 50;
+    mOffset += numberOfElment;
 }
 
 void SearchMessageWidget::slotClearedMessages()
