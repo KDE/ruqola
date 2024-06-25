@@ -68,6 +68,7 @@ SearchMessageWidget::~SearchMessageWidget()
 {
     if (mCurrentRocketChatAccount) {
         mCurrentRocketChatAccount->clearSearchModel();
+        mSearchMessageModel->clearModel();
     }
 }
 
