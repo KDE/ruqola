@@ -166,3 +166,6 @@ if(HAVE_TEXT_TRANSLATOR)
 endif()
 
 add_ruqola_test(appsmarketplaceinfotest.cpp)
+if(TARGET cmark::cmark)
+    add_ruqola_test(textconvertercmarktest.cpp)
+endif()
