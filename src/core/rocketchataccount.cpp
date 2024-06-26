@@ -29,7 +29,6 @@
 #include "model/appsmarketplacemodel.h"
 #include "model/autotranslatelanguagesmodel.h"
 #include "model/commandsmodel.h"
-#include "model/commonmessagefilterproxymodel.h"
 #include "model/commonmessagesmodel.h"
 #include "model/discussionsfilterproxymodel.h"
 #include "model/discussionsmodel.h"
