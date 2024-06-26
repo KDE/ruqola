@@ -42,18 +42,18 @@ WhatsNewComboBoxWidget::WhatsNewComboBoxWidget(QWidget *parent)
 
 WhatsNewComboBoxWidget::~WhatsNewComboBoxWidget() = default;
 
-QString WhatsNewComboBoxWidget::convertVersionEnumToString(WhatsNewComboBoxWidget::VersionType type)
+QString WhatsNewComboBoxWidget::convertVersionEnumToString(WhatsNewUtils::VersionType type)
 {
     switch (type) {
-    case AllVersion:
+    case WhatsNewUtils::AllVersion:
         return i18n("All Version");
-    case Version2_0:
+    case WhatsNewUtils::Version2_0:
         return i18n("Version 2.0");
-    case Version2_1:
+    case WhatsNewUtils::Version2_1:
         return i18n("Version 2.1");
-    case Version2_2:
+    case WhatsNewUtils::Version2_2:
         return i18n("Version 2.2");
-    case Version2_3:
+    case WhatsNewUtils::Version2_3:
         return i18n("Version 2.3");
     }
     Q_UNREACHABLE();
@@ -62,12 +62,12 @@ QString WhatsNewComboBoxWidget::convertVersionEnumToString(WhatsNewComboBoxWidge
 
 void WhatsNewComboBoxWidget::fillCombobox()
 {
-    for (int i = AllVersion; i <= LastVersion; ++i) {
-        mVersionComboBox->addItem(convertVersionEnumToString(static_cast<VersionType>(i)), i);
+    for (int i = WhatsNewUtils::AllVersion; i <= WhatsNewUtils::LastVersion; ++i) {
+        mVersionComboBox->addItem(convertVersionEnumToString(static_cast<WhatsNewUtils::VersionType>(i)), i);
     }
 }
 
-void WhatsNewComboBoxWidget::initializeVersion(WhatsNewComboBoxWidget::VersionType type)
+void WhatsNewComboBoxWidget::initializeVersion(WhatsNewUtils::VersionType type)
 {
     const int index = mVersionComboBox->findData(type);
     if (index != -1) {
@@ -77,7 +77,7 @@ void WhatsNewComboBoxWidget::initializeVersion(WhatsNewComboBoxWidget::VersionTy
 
 void WhatsNewComboBoxWidget::slotCurrentIndexChanged(int index)
 {
-    const VersionType type = mVersionComboBox->itemData(index).value<VersionType>();
+    const WhatsNewUtils::VersionType type = mVersionComboBox->itemData(index).value<WhatsNewUtils::VersionType>();
     Q_EMIT versionChanged(type);
 }
 

@@ -4,6 +4,7 @@
    SPDX-License-Identifier: LGPL-2.0-or-later
 */
 #include "whatsnewwidget.h"
+#include "whatsnewutils.h"
 #include "whatsnewwidgettranslation.h"
 
 #include <QCryptographicHash>
@@ -33,9 +34,9 @@ WhatsNewWidget::WhatsNewWidget(QWidget *parent)
 
 WhatsNewWidget::~WhatsNewWidget() = default;
 
-WhatsNewComboBoxWidget::VersionType WhatsNewWidget::currentVersion() const
+WhatsNewUtils::VersionType WhatsNewWidget::currentVersion() const
 {
-    return WhatsNewComboBoxWidget::LastVersion;
+    return WhatsNewUtils::LastVersion;
 }
 
 // static
@@ -63,28 +64,28 @@ QString WhatsNewWidget::generateStartEndHtml(const QString &str) const
     return message;
 }
 
-void WhatsNewWidget::slotVersionChanged(WhatsNewComboBoxWidget::VersionType type)
+void WhatsNewWidget::slotVersionChanged(WhatsNewUtils::VersionType type)
 {
-    if (type == WhatsNewComboBoxWidget::Version2_0) {
+    if (type == WhatsNewUtils::Version2_0) {
         const QString message = generateStartEndHtml(createVersionInformationsV2_0());
         mLabelInfo->setHtml(message);
-    } else if (type == WhatsNewComboBoxWidget::Version2_1) {
+    } else if (type == WhatsNewUtils::Version2_1) {
         const QString message = generateStartEndHtml(createVersionInformationsV2_1());
         mLabelInfo->setHtml(message);
-    } else if (type == WhatsNewComboBoxWidget::Version2_2) {
+    } else if (type == WhatsNewUtils::Version2_2) {
         const QString message = generateStartEndHtml(createVersionInformationsV2_2());
         mLabelInfo->setHtml(message);
-    } else if (type == WhatsNewComboBoxWidget::Version2_3) {
+    } else if (type == WhatsNewUtils::Version2_3) {
         const QString message = generateStartEndHtml(createVersionInformationsV2_3());
         mLabelInfo->setHtml(message);
-    } else if (type == WhatsNewComboBoxWidget::AllVersion) {
-        QString message = generateVersionHeader(WhatsNewComboBoxWidget::Version2_3);
+    } else if (type == WhatsNewUtils::AllVersion) {
+        QString message = generateVersionHeader(WhatsNewUtils::Version2_3);
         message += createVersionInformationsV2_3();
-        message += generateVersionHeader(WhatsNewComboBoxWidget::Version2_2);
+        message += generateVersionHeader(WhatsNewUtils::Version2_2);
         message += createVersionInformationsV2_2();
-        message += generateVersionHeader(WhatsNewComboBoxWidget::Version2_1);
+        message += generateVersionHeader(WhatsNewUtils::Version2_1);
         message += createVersionInformationsV2_1();
-        message += generateVersionHeader(WhatsNewComboBoxWidget::Version2_0);
+        message += generateVersionHeader(WhatsNewUtils::Version2_0);
         message += createVersionInformationsV2_0();
         mLabelInfo->setHtml(generateStartEndHtml(message));
     }
@@ -203,16 +204,16 @@ QString WhatsNewWidget::createVersionInformationsV2_3() const
     return message;
 }
 
-QString WhatsNewWidget::generateVersionHeader(WhatsNewComboBoxWidget::VersionType type) const
+QString WhatsNewWidget::generateVersionHeader(WhatsNewUtils::VersionType type) const
 {
     switch (type) {
-    case WhatsNewComboBoxWidget::VersionType::AllVersion:
+    case WhatsNewUtils::VersionType::AllVersion:
         return {};
-    case WhatsNewComboBoxWidget::VersionType::Version2_0:
-    case WhatsNewComboBoxWidget::VersionType::Version2_1:
-    case WhatsNewComboBoxWidget::VersionType::Version2_2:
-    case WhatsNewComboBoxWidget::VersionType::Version2_3:
-        return QStringLiteral("<h1><i> %1 </i></h1><hr/><br>").arg(WhatsNewComboBoxWidget::convertVersionEnumToString(type));
+    case WhatsNewUtils::VersionType::Version2_0:
+    case WhatsNewUtils::VersionType::Version2_1:
+    case WhatsNewUtils::VersionType::Version2_2:
+    case WhatsNewUtils::VersionType::Version2_3:
+        return QStringLiteral("<h1><i> %1 </i></h1><hr/><br>").arg(WhatsNewUtils::convertVersionEnumToString(type));
     }
     return {};
 }

@@ -44,9 +44,9 @@ void WhatsNewComboBoxWidgetTest::shouldHaveDefaultValues()
 void WhatsNewComboBoxWidgetTest::shouldInitializeComboBox()
 {
     WhatsNewComboBoxWidget w;
-    w.initializeVersion(WhatsNewComboBoxWidget::Version2_0);
+    w.initializeVersion(WhatsNewUtils::Version2_0);
     auto mVersionComboBox = w.findChild<QComboBox *>(QStringLiteral("mVersionComboBox"));
-    QCOMPARE(mVersionComboBox->currentData(), WhatsNewComboBoxWidget::Version2_0);
+    QCOMPARE(mVersionComboBox->currentData(), WhatsNewUtils::Version2_0);
 }
 
 void WhatsNewComboBoxWidgetTest::shouldEmitVersionChanged()
@@ -55,15 +55,15 @@ void WhatsNewComboBoxWidgetTest::shouldEmitVersionChanged()
     QSignalSpy versionChanged(&w, &WhatsNewComboBoxWidget::versionChanged);
 
     auto mVersionComboBox = w.findChild<QComboBox *>(QStringLiteral("mVersionComboBox"));
-    mVersionComboBox->setCurrentIndex(mVersionComboBox->findData(WhatsNewComboBoxWidget::AllVersion));
+    mVersionComboBox->setCurrentIndex(mVersionComboBox->findData(WhatsNewUtils::AllVersion));
     QCOMPARE(versionChanged.count(), 0);
 
     // Same => not emitted.
-    mVersionComboBox->setCurrentIndex(mVersionComboBox->findData(WhatsNewComboBoxWidget::AllVersion));
+    mVersionComboBox->setCurrentIndex(mVersionComboBox->findData(WhatsNewUtils::AllVersion));
     QCOMPARE(versionChanged.count(), 0);
 
     // Different => emitted.
-    mVersionComboBox->setCurrentIndex(mVersionComboBox->findData(WhatsNewComboBoxWidget::Version2_0));
+    mVersionComboBox->setCurrentIndex(mVersionComboBox->findData(WhatsNewUtils::Version2_0));
     QCOMPARE(versionChanged.count(), 1);
 }
 
