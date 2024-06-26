@@ -100,12 +100,15 @@ set(KTEXTADDONS_MIN_VERSION "1.5.4")
 set(KLLMWIDGETS_VERSION "0.1.0")
 set(QT6KEYCHAIN_LIB_VERSION "0.14.2")
 
-find_package(cmark "0.31.0")
-set_package_properties(cmark PROPERTIES DESCRIPTION
-    "Allow to generate html from markdown"
-    TYPE OPTIONAL
-)
+option(TEXT_CONVERTER_CMARK_SUPPORT "Build support text converter with cmark (experimental)" OFF)
 
+if(TEXT_CONVERTER_CMARK_SUPPORT)
+   find_package(cmark "0.31.0")
+   set_package_properties(cmark PROPERTIES DESCRIPTION
+       "Allow to generate html from markdown"
+       TYPE OPTIONAL
+   )
+endif()
 
 find_package(Qt6 ${REQUIRED_QT_VERSION} REQUIRED COMPONENTS Core Gui Widgets WebSockets Network NetworkAuth MultimediaWidgets Sql)
 
