@@ -46,7 +46,7 @@ DirectoryDialog::~DirectoryDialog()
     writeConfig();
 }
 
-void DirectoryDialog::fillTabs()
+void DirectoryDialog::fill()
 {
     mDirectoryTabWidget->fillTabs();
 }

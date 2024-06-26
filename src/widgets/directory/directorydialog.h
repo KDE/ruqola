@@ -18,7 +18,7 @@ public:
     explicit DirectoryDialog(RocketChatAccount *account, DirectoryWidget::DirectoryType type, QWidget *parent = nullptr);
     ~DirectoryDialog() override;
 
-    void fillTabs();
+    void fill();
 
 private:
     LIBRUQOLAWIDGETS_NO_EXPORT void readConfig();
