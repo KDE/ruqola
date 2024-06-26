@@ -433,6 +433,7 @@ char *TextConverterCMark::convertMessageTextCMark(const TextConverter::ConvertMe
         } else if ((cmark_node_get_type(node) == CMARK_NODE_CODE)) {
             const char *literal = cmark_node_get_literal(node);
             std::cout << " NODE_CODE**********************" << literal << std::endl;
+            cmark_node_set_literal(node, addHighlighter(literal, settings));
         } else if ((cmark_node_get_type(node) == CMARK_NODE_CODE_BLOCK)) {
             const char *literal = cmark_node_get_literal(node);
             std::cout << " NODE_BLOCK_QUOTE**********************" << literal << std::endl;
