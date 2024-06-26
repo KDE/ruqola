@@ -433,6 +433,15 @@ char *TextConverterCMark::convertMessageTextCMark(const TextConverter::ConvertMe
             QString ccc = QString::fromUtf8(addHighlighter(literal, settings));
             qDebug() << " ccc " << ccc;
             cmark_node *docCCC = cmark_parse_document(ccc.toUtf8().constData(), ccc.length(), CMARK_OPT_DEFAULT);
+            cmark_iter *iter = cmark_iter_new(docCCC);
+            cmark_event_type ev_type;
+
+            while ((ev_type = cmark_iter_next(iter)) != CMARK_EVENT_DONE) {
+                cmark_node *node = cmark_iter_get_node(iter);
+                std::cout << "SSSSSSSSSSSSSSSSss " << cmark_node_get_type_string(node) << std::endl;
+            }
+
+            qDebug() << " ccc.length() " << ccc.length();
             std::cout << " docCCC " << docCCC << std::endl;
             cmark_node_replace(node, docCCC);
             // cmark_node_set_literal(node, addHighlighter(literal, settings));
@@ -440,14 +449,34 @@ char *TextConverterCMark::convertMessageTextCMark(const TextConverter::ConvertMe
             const char *literal = cmark_node_get_literal(node);
             std::cout << " NODE_CODE**********************" << literal << std::endl;
             QString ccc = QString::fromUtf8(addHighlighter(literal, settings));
+            qDebug() << " ccc.length() " << ccc.length();
             cmark_node *docCCC = cmark_parse_document(ccc.toUtf8().constData(), ccc.length(), CMARK_OPT_DEFAULT);
+
+            cmark_iter *iter = cmark_iter_new(docCCC);
+            cmark_event_type ev_type;
+
+            while ((ev_type = cmark_iter_next(iter)) != CMARK_EVENT_DONE) {
+                cmark_node *node = cmark_iter_get_node(iter);
+                std::cout << "SSSSSSSSSSSSSSSSss " << cmark_node_get_type_string(node) << std::endl;
+            }
+
             cmark_node_replace(node, docCCC);
             // cmark_node_set_literal(node, addHighlighter(literal, settings));
         } else if ((cmark_node_get_type(node) == CMARK_NODE_CODE_BLOCK)) {
             const char *literal = cmark_node_get_literal(node);
             std::cout << " NODE_BLOCK_QUOTE**********************" << literal << std::endl;
             QString ccc = QString::fromUtf8(addHighlighter(literal, settings));
+            qDebug() << " ccc.length() " << ccc.length();
             cmark_node *docCCC = cmark_parse_document(ccc.toUtf8().constData(), ccc.length(), CMARK_OPT_DEFAULT);
+
+            cmark_iter *iter = cmark_iter_new(docCCC);
+            cmark_event_type ev_type;
+
+            while ((ev_type = cmark_iter_next(iter)) != CMARK_EVENT_DONE) {
+                cmark_node *node = cmark_iter_get_node(iter);
+                std::cout << "SSSSSSSSSSSSSSSSss " << cmark_node_get_type_string(node) << std::endl;
+            }
+
             cmark_node_replace(node, docCCC);
             // cmark_node_set_literal(node, addHighlighter(literal, settings));
         }
