@@ -20,7 +20,7 @@ DirectoryDialogTest::DirectoryDialogTest(QObject *parent)
 
 void DirectoryDialogTest::shouldHaveDefaultValues()
 {
-    DirectoryDialog d(nullptr, DirectoryDialog::DirectoryType::All);
+    DirectoryDialog d(nullptr);
     QVERIFY(!d.windowTitle().isEmpty());
 
     auto mainLayout = d.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));

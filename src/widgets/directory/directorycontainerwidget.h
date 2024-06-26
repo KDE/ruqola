@@ -6,12 +6,20 @@
 
 #pragma once
 
+#include "directorywidget.h"
+#include "libruqolawidgets_private_export.h"
 #include <QWidget>
-
-class DirectoryContainerWidget : public QWidget
+class RocketChatAccount;
+class DirectoryStackedWidget;
+class LIBRUQOLAWIDGETS_TESTS_EXPORT DirectoryContainerWidget : public QWidget
 {
     Q_OBJECT
 public:
-    explicit DirectoryContainerWidget(QWidget *parent = nullptr);
+    explicit DirectoryContainerWidget(RocketChatAccount *account, DirectoryWidget::DirectoryType type, QWidget *parent = nullptr);
     ~DirectoryContainerWidget() override;
+
+    void fill();
+
+private:
+    DirectoryStackedWidget *const mDirectoryStackedWidget;
 };

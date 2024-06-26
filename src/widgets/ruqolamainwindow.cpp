@@ -947,7 +947,7 @@ void RuqolaMainWindow::slotAdministratorServerSettings()
 
 void RuqolaMainWindow::slotDirectory()
 {
-    auto dlg = new DirectoryDialog(mCurrentRocketChatAccount, DirectoryDialog::DirectoryType::All, this);
+    auto dlg = new DirectoryDialog(mCurrentRocketChatAccount, this);
     dlg->fillTabs();
     dlg->show();
 }

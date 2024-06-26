@@ -5,13 +5,38 @@
 */
 
 #include "directorycontainerwidget.h"
+#include "directorystackedwidget.h"
+#include "rocketchataccount.h"
 #include <QVBoxLayout>
-DirectoryContainerWidget::DirectoryContainerWidget(QWidget *parent)
+
+DirectoryContainerWidget::DirectoryContainerWidget(RocketChatAccount *account, DirectoryWidget::DirectoryType type, QWidget *parent)
     : QWidget{parent}
+    , mDirectoryStackedWidget(new DirectoryStackedWidget(account, type, this))
 {
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setContentsMargins({});
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
+
+    mDirectoryStackedWidget->setObjectName(QStringLiteral("mDirectoryStackedWidget"));
+    mainLayout->addWidget(mDirectoryStackedWidget);
+
+    if (type == DirectoryWidget::DirectoryType::Room || type == DirectoryWidget::DirectoryType::Team) {
+        if (account && !account->hasPermission(QStringLiteral("view-c-room"))) {
+            mDirectoryStackedWidget->setIsAutorized(false);
+        }
+    }
+    if (type == DirectoryWidget::DirectoryType::User) {
+        if (account && (!account->hasPermission(QStringLiteral("view-outside-room")) || !account->hasPermission(QStringLiteral("view-d-room")))) {
+            mDirectoryStackedWidget->setIsAutorized(false);
+        }
+    }
 }
 
 DirectoryContainerWidget::~DirectoryContainerWidget() = default;
+
+void DirectoryContainerWidget::fill()
+{
+    mDirectoryStackedWidget->fillDirectory();
+}
+
+#include "moc_directorycontainerwidget.cpp"
