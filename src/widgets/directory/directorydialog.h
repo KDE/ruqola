@@ -15,13 +15,14 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT DirectoryDialog : public QDialog
     Q_OBJECT
 public:
     enum DirectoryType {
+        All, // Temporary
         Room,
         User,
         Teams,
     };
     Q_ENUM(DirectoryType)
 
-    explicit DirectoryDialog(RocketChatAccount *account, QWidget *parent = nullptr);
+    explicit DirectoryDialog(RocketChatAccount *account, DirectoryType type, QWidget *parent = nullptr);
     ~DirectoryDialog() override;
 
     void fillTabs();

@@ -20,7 +20,7 @@ namespace
 {
 const char myDirectoryDialog[] = "DirectoryDialog";
 }
-DirectoryDialog::DirectoryDialog(RocketChatAccount *account, QWidget *parent)
+DirectoryDialog::DirectoryDialog(RocketChatAccount *account, DirectoryType type, QWidget *parent)
     : QDialog(parent)
     , mDirectoryTabWidget(new DirectoryTabWidget(account, this))
 {
