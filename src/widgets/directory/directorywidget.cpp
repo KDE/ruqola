@@ -30,22 +30,22 @@ DirectoryWidget::DirectoryWidget(RocketChatAccount *account, DirectoryType type,
     , mType(type)
 {
     switch (mType) {
-    case Room:
+    case DirectoryType::Room:
         mSearchLineEdit->setPlaceholderText(i18n("Search channels…"));
         mModel = new DirectoryRoomsModel(this);
         mProxyModelModel = new DirectoryRoomsProxyModel(mModel, this);
         break;
-    case User:
+    case DirectoryType::User:
         mSearchLineEdit->setPlaceholderText(i18n("Search users…"));
         mModel = new DirectoryUsersModel(this);
         mProxyModelModel = new DirectoryUsersProxyModel(mModel, this);
         break;
-    case Team:
+    case DirectoryType::Team:
         mSearchLineEdit->setPlaceholderText(i18n("Search teams…"));
         mModel = new DirectoryTeamsModel(this);
         mProxyModelModel = new DirectoryTeamsProxyModel(mModel, this);
         break;
-    case Unknown:
+    case DirectoryType::Unknown:
         break;
     }
     mTreeView->setModel(mProxyModelModel);
@@ -77,7 +77,7 @@ void DirectoryWidget::slotCustomContextMenuRequested(const QPoint &pos)
 void DirectoryWidget::slotOpen(const QModelIndex &index)
 {
     switch (mType) {
-    case Room: {
+    case DirectoryType::Room: {
         QModelIndex modelIndex = mModel->index(index.row(), DirectoryRoomsModel::Identifier);
         const QByteArray channelId = modelIndex.data().toByteArray();
         modelIndex = mModel->index(index.row(), DirectoryRoomsModel::ChannelType);
@@ -89,7 +89,7 @@ void DirectoryWidget::slotOpen(const QModelIndex &index)
         }
         break;
     }
-    case User: {
+    case DirectoryType::User: {
         const QModelIndex modelIndex = mModel->index(index.row(), DirectoryUsersModel::UserName);
         const QString userId = modelIndex.data().toString();
         // mRocketChatAccount->openDirectChannel(userId);
@@ -97,13 +97,13 @@ void DirectoryWidget::slotOpen(const QModelIndex &index)
         mRocketChatAccount->ddp()->openDirectChannel(userId);
         break;
     }
-    case Team: {
+    case DirectoryType::Team: {
         const QModelIndex modelIndex = mModel->index(index.row(), DirectoryTeamsModel::RoomIdentifier);
         const QString roomId = QString::fromLatin1(modelIndex.data().toByteArray());
         mRocketChatAccount->openChannel(roomId, RocketChatAccount::ChannelTypeInfo::RoomId);
         break;
     }
-    case Unknown:
+    case DirectoryType::Unknown:
         break;
     }
 }
@@ -112,16 +112,16 @@ void DirectoryWidget::slotLoadElements(int offset, int count, const QString &sea
 {
     RocketChatRestApi::DirectoryJob::DirectoryInfo info;
     switch (mType) {
-    case Room:
+    case DirectoryType::Room:
         info.searchType = RocketChatRestApi::DirectoryJob::Rooms;
         break;
-    case User:
+    case DirectoryType::User:
         info.searchType = RocketChatRestApi::DirectoryJob::Users;
         break;
-    case Team:
+    case DirectoryType::Team:
         info.searchType = RocketChatRestApi::DirectoryJob::Teams;
         break;
-    case Unknown:
+    case DirectoryType::Unknown:
         qCWarning(RUQOLAWIDGETS_LOG) << "Invalid type it's a bug";
         return;
     }
@@ -162,13 +162,13 @@ void DirectoryWidget::updateLabel()
 QString DirectoryWidget::noFoundInfo() const
 {
     switch (mType) {
-    case Room:
+    case DirectoryType::Room:
         return i18n("No Room found");
-    case User:
+    case DirectoryType::User:
         return i18n("No User found");
-    case Team:
+    case DirectoryType::Team:
         return i18n("No Team found");
-    case Unknown:
+    case DirectoryType::Unknown:
         return {};
     }
     return {};
@@ -178,16 +178,16 @@ QString DirectoryWidget::displayShowMessageInRoom() const
 {
     QString displayMessageStr;
     switch (mType) {
-    case Room:
+    case DirectoryType::Room:
         displayMessageStr = i18np("%1 room (Total: %2)", "%1 rooms (Total: %2)", mModel->rowCount(), mModel->total());
         break;
-    case User:
+    case DirectoryType::User:
         displayMessageStr = i18np("%1 user (Total: %2)", "%1 users (Total: %2)", mModel->rowCount(), mModel->total());
         break;
-    case Team:
+    case DirectoryType::Team:
         displayMessageStr = i18np("%1 team (Total: %2)", "%1 teams (Total: %2)", mModel->rowCount(), mModel->total());
         break;
-    case Unknown:
+    case DirectoryType::Unknown:
         break;
     }
     if (!mModel->hasFullList()) {
@@ -199,16 +199,16 @@ QString DirectoryWidget::displayShowMessageInRoom() const
 void DirectoryWidget::fillDirectory()
 {
     switch (mType) {
-    case Room:
+    case DirectoryType::Room:
         mSearchLineEdit->setPlaceholderText(i18n("Search rooms…"));
         break;
-    case User:
+    case DirectoryType::User:
         mSearchLineEdit->setPlaceholderText(i18n("Search users…"));
         break;
-    case Team:
+    case DirectoryType::Team:
         mSearchLineEdit->setPlaceholderText(i18n("Search teams…"));
         break;
-    case Unknown:
+    case DirectoryType::Unknown:
         qCWarning(RUQOLAWIDGETS_LOG) << "Invalid type it's a bug";
         return;
     }

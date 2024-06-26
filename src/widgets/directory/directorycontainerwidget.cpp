@@ -34,7 +34,7 @@ DirectoryContainerWidget::DirectoryContainerWidget(RocketChatAccount *account, D
         }
         break;
     }
-    case DirectoryWidget::Unknown:
+    case DirectoryWidget::DirectoryType::Unknown:
         break;
     }
 }

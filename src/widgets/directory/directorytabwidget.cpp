@@ -10,9 +10,9 @@
 
 DirectoryTabWidget::DirectoryTabWidget(RocketChatAccount *account, QWidget *parent)
     : QTabWidget(parent)
-    , mRooms(new DirectoryStackedWidget(account, DirectoryWidget::Room, this))
-    , mUsers(new DirectoryStackedWidget(account, DirectoryWidget::User, this))
-    , mTeams(new DirectoryStackedWidget(account, DirectoryWidget::Team, this))
+    , mRooms(new DirectoryStackedWidget(account, DirectoryWidget::DirectoryType::Room, this))
+    , mUsers(new DirectoryStackedWidget(account, DirectoryWidget::DirectoryType::User, this))
+    , mTeams(new DirectoryStackedWidget(account, DirectoryWidget::DirectoryType::Team, this))
 {
     mRooms->setObjectName(QStringLiteral("mRooms"));
     mUsers->setObjectName(QStringLiteral("mUsers"));

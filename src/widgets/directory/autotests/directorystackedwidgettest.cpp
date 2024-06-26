@@ -18,7 +18,7 @@ DirectoryStackedWidgetTest::DirectoryStackedWidgetTest(QObject *parent)
 
 void DirectoryStackedWidgetTest::shouldHaveDefaultValues()
 {
-    DirectoryStackedWidget w(nullptr, DirectoryWidget::Unknown);
+    DirectoryStackedWidget w(nullptr, DirectoryWidget::DirectoryType::Unknown);
 
     auto mDirectoryWidget = w.findChild<DirectoryWidget *>(QStringLiteral("mDirectoryWidget"));
     QVERIFY(mDirectoryWidget);

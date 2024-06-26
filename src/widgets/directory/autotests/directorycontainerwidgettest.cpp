@@ -16,6 +16,6 @@ DirectoryContainerWidgetTest::DirectoryContainerWidgetTest(QObject *parent)
 
 void DirectoryContainerWidgetTest::shouldHaveDefaultValues()
 {
-    DirectoryContainerWidget w(nullptr, DirectoryWidget::Room);
+    DirectoryContainerWidget w(nullptr, DirectoryWidget::DirectoryType::Room);
     // TODO
 }

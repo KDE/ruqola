@@ -21,17 +21,17 @@ void DirectoryTabWidgetTest::shouldHaveDefaultValues()
 
     auto tab = qobject_cast<DirectoryStackedWidget *>(w.widget(0));
     QCOMPARE(tab->objectName(), QStringLiteral("mRooms"));
-    QCOMPARE(tab->directoryWidget()->type(), DirectoryWidget::Room);
+    QCOMPARE(tab->directoryWidget()->type(), DirectoryWidget::DirectoryType::Room);
     QVERIFY(tab);
 
     tab = qobject_cast<DirectoryStackedWidget *>(w.widget(1));
     QCOMPARE(tab->objectName(), QStringLiteral("mUsers"));
-    QCOMPARE(tab->directoryWidget()->type(), DirectoryWidget::User);
+    QCOMPARE(tab->directoryWidget()->type(), DirectoryWidget::DirectoryType::User);
     QVERIFY(tab);
 
     tab = qobject_cast<DirectoryStackedWidget *>(w.widget(2));
     QCOMPARE(tab->objectName(), QStringLiteral("mTeams"));
-    QCOMPARE(tab->directoryWidget()->type(), DirectoryWidget::Team);
+    QCOMPARE(tab->directoryWidget()->type(), DirectoryWidget::DirectoryType::Team);
     QVERIFY(tab);
 }
 
