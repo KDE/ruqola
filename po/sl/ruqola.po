@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-06-25 00:38+0000\n"
+"POT-Creation-Date: 2024-06-26 00:39+0000\n"
 "PO-Revision-Date: 2024-06-21 07:08+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
@@ -1435,12 +1435,12 @@ msgctxt "We need a space between after </strong>"
 msgid "<strong>%1</strong> are typing..."
 msgstr "<strong>%1</strong> tipkajo…"
 
-#: core/rocketchataccount.cpp:3029
+#: core/rocketchataccount.cpp:2994
 #, kde-format
 msgid "Export Messages"
 msgstr "Izvozi sporočila"
 
-#: core/rocketchataccount.cpp:3030
+#: core/rocketchataccount.cpp:2995
 #, kde-format
 msgid "Your email has been queued for sending."
 msgstr "Vaša e-pošta je čakala v čakalni vrsti za pošiljanje."
@@ -2798,7 +2798,7 @@ msgid "Show Moderation Messages"
 msgstr "Pokaži sporočila moderiranja"
 
 #: widgets/administratordialog/moderationconsole/moderationmessageswidget.cpp:55
-#: widgets/dialogs/searchmessagewidget.cpp:113
+#: widgets/dialogs/searchmessagewidget.cpp:160
 #: widgets/dialogs/showlistmessagebasewidget.cpp:97
 #: widgets/discussions/showdiscussionswidget.cpp:88
 #: widgets/room/usersinroomwidget.cpp:135
@@ -2807,7 +2807,7 @@ msgid "Loading…"
 msgstr "Nalaganje…"
 
 #: widgets/administratordialog/moderationconsole/moderationmessageswidget.cpp:57
-#: widgets/dialogs/searchmessagewidget.cpp:117
+#: widgets/dialogs/searchmessagewidget.cpp:164
 #: widgets/dialogs/showlistmessagebasewidget.cpp:99
 #: widgets/room/usersinroomwidget.cpp:137
 #, kde-format
@@ -2815,7 +2815,7 @@ msgid "No Message found"
 msgstr "Ni zadetkov med sporočili"
 
 #: widgets/administratordialog/moderationconsole/moderationmessageswidget.cpp:63
-#: widgets/dialogs/searchmessagewidget.cpp:123
+#: widgets/dialogs/searchmessagewidget.cpp:170
 #, kde-format
 msgid "%1 Message in room"
 msgid_plural "%1 Messages in room"
@@ -3943,7 +3943,7 @@ msgid "Password"
 msgstr "Geslo"
 
 #: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:115
-#: widgets/room/roomwidget.cpp:447
+#: widgets/room/roomwidget.cpp:446
 #, kde-format
 msgid "Video Conference"
 msgstr "Video konferenca"
@@ -7469,13 +7469,13 @@ msgctxt "@title:window"
 msgid "Search Messages"
 msgstr "Išči sporočila"
 
-#: widgets/dialogs/searchmessagedialog.cpp:78
+#: widgets/dialogs/searchmessagedialog.cpp:73
 #, kde-format
 msgctxt "@title:window"
 msgid "Search Messages in '%1' (%2)"
 msgstr "Iskanje sporočil v '%1' (%2)"
 
-#: widgets/dialogs/searchmessagewidget.cpp:43
+#: widgets/dialogs/searchmessagewidget.cpp:47
 #, kde-format
 msgid "Search messages"
 msgstr "Išči sporočila"
@@ -9437,7 +9437,7 @@ msgctxt "@title:window"
 msgid "Remove History"
 msgstr "Odstrani zgodovino"
 
-#: widgets/room/roomwidget.cpp:447
+#: widgets/room/roomwidget.cpp:446
 #, kde-format
 msgid ""
 "A workspace admin needs to install and configure a conference call apps."

@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-06-25 00:38+0000\n"
+"POT-Creation-Date: 2024-06-26 00:39+0000\n"
 "PO-Revision-Date: 2024-06-21 10:14+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
@@ -1427,12 +1427,12 @@ msgctxt "We need a space between after </strong>"
 msgid "<strong>%1</strong> are typing..."
 msgstr "<strong>%1</strong> estan escrivint..."
 
-#: core/rocketchataccount.cpp:3029
+#: core/rocketchataccount.cpp:2994
 #, kde-format
 msgid "Export Messages"
 msgstr "Exporta missatges"
 
-#: core/rocketchataccount.cpp:3030
+#: core/rocketchataccount.cpp:2995
 #, kde-format
 msgid "Your email has been queued for sending."
 msgstr "El correu s'ha posat a la cua per a enviar."
@@ -2797,7 +2797,7 @@ msgid "Show Moderation Messages"
 msgstr "Mostra els missatges de moderació"
 
 #: widgets/administratordialog/moderationconsole/moderationmessageswidget.cpp:55
-#: widgets/dialogs/searchmessagewidget.cpp:113
+#: widgets/dialogs/searchmessagewidget.cpp:160
 #: widgets/dialogs/showlistmessagebasewidget.cpp:97
 #: widgets/discussions/showdiscussionswidget.cpp:88
 #: widgets/room/usersinroomwidget.cpp:135
@@ -2806,7 +2806,7 @@ msgid "Loading…"
 msgstr "S'està carregant…"
 
 #: widgets/administratordialog/moderationconsole/moderationmessageswidget.cpp:57
-#: widgets/dialogs/searchmessagewidget.cpp:117
+#: widgets/dialogs/searchmessagewidget.cpp:164
 #: widgets/dialogs/showlistmessagebasewidget.cpp:99
 #: widgets/room/usersinroomwidget.cpp:137
 #, kde-format
@@ -2814,7 +2814,7 @@ msgid "No Message found"
 msgstr "No s'ha trobat el missatge"
 
 #: widgets/administratordialog/moderationconsole/moderationmessageswidget.cpp:63
-#: widgets/dialogs/searchmessagewidget.cpp:123
+#: widgets/dialogs/searchmessagewidget.cpp:170
 #, kde-format
 msgid "%1 Message in room"
 msgid_plural "%1 Messages in room"
@@ -3937,7 +3937,7 @@ msgid "Password"
 msgstr "Contrasenya"
 
 #: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:115
-#: widgets/room/roomwidget.cpp:447
+#: widgets/room/roomwidget.cpp:446
 #, kde-format
 msgid "Video Conference"
 msgstr "Conferència de vídeo"
@@ -7485,13 +7485,13 @@ msgctxt "@title:window"
 msgid "Search Messages"
 msgstr "Cerca missatges"
 
-#: widgets/dialogs/searchmessagedialog.cpp:78
+#: widgets/dialogs/searchmessagedialog.cpp:73
 #, kde-format
 msgctxt "@title:window"
 msgid "Search Messages in '%1' (%2)"
 msgstr "Cerca missatges a «%1» (%2)"
 
-#: widgets/dialogs/searchmessagewidget.cpp:43
+#: widgets/dialogs/searchmessagewidget.cpp:47
 #, kde-format
 msgid "Search messages"
 msgstr "Cerca missatges"
@@ -9452,7 +9452,7 @@ msgctxt "@title:window"
 msgid "Remove History"
 msgstr "Elimina l'historial"
 
-#: widgets/room/roomwidget.cpp:447
+#: widgets/room/roomwidget.cpp:446
 #, kde-format
 msgid ""
 "A workspace admin needs to install and configure a conference call apps."
