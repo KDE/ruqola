@@ -5,7 +5,6 @@
 */
 
 #include "rocketchataccounttest.h"
-#include "model/commonmessagefilterproxymodel.h"
 #include "model/commonmessagesmodel.h"
 #include "model/discussionsfilterproxymodel.h"
 #include "model/discussionsmodel.h"
