@@ -945,6 +945,27 @@ void RuqolaMainWindow::slotAdministratorServerSettings()
     dlg.exec();
 }
 
+void RuqolaMainWindow::slotJoinRoom()
+{
+    auto dlg = new DirectoryDialog(mCurrentRocketChatAccount, DirectoryWidget::DirectoryType::Room, this);
+    dlg->fillTabs();
+    dlg->show();
+}
+
+void RuqolaMainWindow::slotJoinTeam()
+{
+    auto dlg = new DirectoryDialog(mCurrentRocketChatAccount, DirectoryWidget::DirectoryType::Team, this);
+    dlg->fillTabs();
+    dlg->show();
+}
+
+void RuqolaMainWindow::slotOpenPrivateChannel()
+{
+    auto dlg = new DirectoryDialog(mCurrentRocketChatAccount, DirectoryWidget::DirectoryType::User, this);
+    dlg->fillTabs();
+    dlg->show();
+}
+
 void RuqolaMainWindow::slotDirectory()
 {
     auto dlg = new DirectoryDialog(mCurrentRocketChatAccount, DirectoryWidget::DirectoryType::Room, this);

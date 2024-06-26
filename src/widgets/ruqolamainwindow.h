@@ -113,6 +113,9 @@ private:
     LIBRUQOLAWIDGETS_NO_EXPORT void slotExportAccounts();
     LIBRUQOLAWIDGETS_NO_EXPORT void slotMessageStyleChanged();
     LIBRUQOLAWIDGETS_NO_EXPORT void slotApplicationsSettings();
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotJoinTeam();
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotOpenPrivateChannel();
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotJoinRoom();
 
     bool mReallyClose{false};
 
