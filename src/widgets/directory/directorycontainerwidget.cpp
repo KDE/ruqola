@@ -20,15 +20,22 @@ DirectoryContainerWidget::DirectoryContainerWidget(RocketChatAccount *account, D
     mDirectoryStackedWidget->setObjectName(QStringLiteral("mDirectoryStackedWidget"));
     mainLayout->addWidget(mDirectoryStackedWidget);
 
-    if (type == DirectoryWidget::DirectoryType::Room || type == DirectoryWidget::DirectoryType::Team) {
+    switch (type) {
+    case DirectoryWidget::DirectoryType::Room:
+    case DirectoryWidget::DirectoryType::Team: {
         if (account && !account->hasPermission(QStringLiteral("view-c-room"))) {
             mDirectoryStackedWidget->setIsAutorized(false);
         }
+        break;
     }
-    if (type == DirectoryWidget::DirectoryType::User) {
+    case DirectoryWidget::DirectoryType::User: {
         if (account && (!account->hasPermission(QStringLiteral("view-outside-room")) || !account->hasPermission(QStringLiteral("view-d-room")))) {
             mDirectoryStackedWidget->setIsAutorized(false);
         }
+        break;
+    }
+    case DirectoryWidget::Unknown:
+        break;
     }
 }
 
