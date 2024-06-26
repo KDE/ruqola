@@ -486,6 +486,9 @@ target_sources(libruqolawidgets PRIVATE
     directory/directorynotauthorizedwidget.cpp
     directory/directorynotauthorizedwidget.h
 
+    directory/directorycontainerwidget.h
+    directory/directorycontainerwidget.cpp
+
     exportmessages/exportmessagesdialog.cpp
     exportmessages/exportmessagesdialog.h
     exportmessages/exportmessageswidget.cpp
