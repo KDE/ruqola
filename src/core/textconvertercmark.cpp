@@ -429,19 +429,31 @@ char *TextConverterCMark::convertMessageTextCMark(const TextConverter::ConvertMe
             const char *literal = cmark_node_get_literal(node);
             std::cout << " LITERAL**********************" << literal << std::endl;
             // std::cout << " " <<  cmark_node_set_literal(node, "sss") << std::endl;
-            cmark_node_set_literal(node, addHighlighter(literal, settings));
+            std::cout << "CVVVVVVVVVVVVVVVVVV " << addHighlighter(literal, settings) << std::endl;
+            QString ccc = QString::fromUtf8(addHighlighter(literal, settings));
+            qDebug() << " ccc " << ccc;
+            cmark_node *docCCC = cmark_parse_document(ccc.toUtf8().constData(), ccc.length(), CMARK_OPT_DEFAULT);
+            std::cout << " docCCC " << docCCC << std::endl;
+            cmark_node_replace(node, docCCC);
+            // cmark_node_set_literal(node, addHighlighter(literal, settings));
         } else if ((cmark_node_get_type(node) == CMARK_NODE_CODE)) {
             const char *literal = cmark_node_get_literal(node);
             std::cout << " NODE_CODE**********************" << literal << std::endl;
-            cmark_node_set_literal(node, addHighlighter(literal, settings));
+            QString ccc = QString::fromUtf8(addHighlighter(literal, settings));
+            cmark_node *docCCC = cmark_parse_document(ccc.toUtf8().constData(), ccc.length(), CMARK_OPT_DEFAULT);
+            cmark_node_replace(node, docCCC);
+            // cmark_node_set_literal(node, addHighlighter(literal, settings));
         } else if ((cmark_node_get_type(node) == CMARK_NODE_CODE_BLOCK)) {
             const char *literal = cmark_node_get_literal(node);
             std::cout << " NODE_BLOCK_QUOTE**********************" << literal << std::endl;
-            cmark_node_set_literal(node, addHighlighter(literal, settings));
+            QString ccc = QString::fromUtf8(addHighlighter(literal, settings));
+            cmark_node *docCCC = cmark_parse_document(ccc.toUtf8().constData(), ccc.length(), CMARK_OPT_DEFAULT);
+            cmark_node_replace(node, docCCC);
+            // cmark_node_set_literal(node, addHighlighter(literal, settings));
         }
     }
 
-    char *html = cmark_render_html(doc, CMARK_OPT_DEFAULT);
+    char *html = cmark_render_html(doc, CMARK_OPT_DEFAULT | CMARK_OPT_UNSAFE);
     std::cout << " result " << html << std::endl;
 
     cmark_mem *allocator = cmark_get_default_mem_allocator();
