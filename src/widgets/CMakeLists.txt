@@ -1,8 +1,6 @@
 # SPDX-FileCopyrightText: 2020-2024 Laurent Montel <montel@kde.org>
 # SPDX-License-Identifier: BSD-3-Clause
-add_library(libruqolawidgets
-    whatsnew/whatsnewutils.h whatsnew/whatsnewutils.cpp
-    whatsnew/whatsnewinfo.h whatsnew/whatsnewinfo.cpp)
+add_library(libruqolawidgets)
 
 if(TARGET KF6::UserFeedbackWidgets)
     target_sources(libruqolawidgets PRIVATE
@@ -820,6 +818,13 @@ target_sources(libruqolawidgets PRIVATE
     whatsnew/whatsnewcomboboxwidget.cpp
 
     whatsnew/whatsnewwidgettranslation.h
+
+    whatsnew/whatsnewtranslation.h
+    whatsnew/whatsnewtranslation.cpp
+    whatsnew/whatsnewutils.h
+    whatsnew/whatsnewutils.cpp
+    whatsnew/whatsnewinfo.h
+    whatsnew/whatsnewinfo.cpp
 
     explorepermissionsdialog/explorepermissionsdialog.h
     explorepermissionsdialog/explorepermissionsdialog.cpp
