@@ -817,8 +817,6 @@ target_sources(libruqolawidgets PRIVATE
     whatsnew/whatsnewcomboboxwidget.h
     whatsnew/whatsnewcomboboxwidget.cpp
 
-    whatsnew/whatsnewwidgettranslation.h
-
     whatsnew/whatsnewtranslation.h
     whatsnew/whatsnewtranslation.cpp
     whatsnew/whatsnewinfo.h

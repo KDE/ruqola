@@ -6,7 +6,11 @@
 
 #pragma once
 #include "whatsnewinfo.h"
+#include <KLazyLocalizedString>
+
 namespace WhatsNewTranslations
 {
 [[nodiscard]] QList<WhatsNewInfo> createWhatsNewInfo();
+[[nodiscard]] QList<KLazyLocalizedString> lastNewFeatures();
+[[nodiscard]] QString newFeaturesMD5();
 }

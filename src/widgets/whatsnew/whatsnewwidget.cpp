@@ -5,9 +5,7 @@
 */
 #include "whatsnewwidget.h"
 #include "whatsnew/whatsnewtranslation.h"
-#include "whatsnewwidgettranslation.h"
 
-#include <QCryptographicHash>
 #include <QTextBrowser>
 #include <QVBoxLayout>
 
@@ -41,7 +39,7 @@ void WhatsNewWidget::fillComboBox()
     mWhatsNewComboBoxWidget->addVersion(i18n("All Version"), -1);
     int index = 0;
     for (const WhatsNewInfo &info : std::as_const(mWhatsNewInfo)) {
-        mWhatsNewComboBoxWidget->addVersion(info.version(), index);
+        mWhatsNewComboBoxWidget->addVersion(i18n("Version %1", info.version()), index);
         index++;
     }
 }
@@ -54,18 +52,6 @@ void WhatsNewWidget::fillTranslations()
 int WhatsNewWidget::currentVersion() const
 {
     return mWhatsNewInfo.count() - 1;
-}
-
-// static
-QString WhatsNewWidget::newFeaturesMD5()
-{
-    QByteArray str;
-    for (int i = 0; i < numRuqolaNewFeatures2_3; ++i) {
-        str += ruqolaNewFeatures2_3[i].untranslatedText();
-    }
-    QCryptographicHash md5(QCryptographicHash::Md5);
-    md5.addData(str);
-    return QLatin1StringView(md5.result().toBase64());
 }
 
 void WhatsNewWidget::updateInformations()
@@ -85,9 +71,11 @@ void WhatsNewWidget::slotVersionChanged(int type)
 {
     if (type == -1) { // All
         QString message;
+        int index = 0;
         for (const WhatsNewInfo &info : std::as_const(mWhatsNewInfo)) {
+            message += generateVersionHeader(index);
             message += createVersionInformation(info);
-            message += generateVersionHeader(type);
+            index++;
         }
         mLabelInfo->setHtml(generateStartEndHtml(message));
     } else {
@@ -146,7 +134,7 @@ QString WhatsNewWidget::createVersionInformation(const WhatsNewInfo &info)
 QString WhatsNewWidget::generateVersionHeader(int type) const
 {
     if (type != -1) {
-        return QStringLiteral("<h1><i> %1 </i></h1><hr/><br>").arg(mWhatsNewInfo.at(type).version());
+        return QStringLiteral("<h1><i> Version %1 </i></h1><hr/><br>").arg(mWhatsNewInfo.at(type).version());
     }
     return {};
 }

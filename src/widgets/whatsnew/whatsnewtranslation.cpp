@@ -4,7 +4,28 @@
    SPDX-License-Identifier: LGPL-2.0-or-later
 */
 #include "whatsnewtranslation.h"
+#include <KLazyLocalizedString>
 #include <KLocalizedString>
+#include <QCryptographicHash>
+
+QString WhatsNewTranslations::newFeaturesMD5()
+{
+    QByteArray str;
+    for (const KLazyLocalizedString &l : lastNewFeatures()) {
+        str += l.untranslatedText();
+    }
+    QCryptographicHash md5(QCryptographicHash::Md5);
+    md5.addData(str);
+    return QLatin1StringView(md5.result().toBase64());
+}
+
+QList<KLazyLocalizedString> WhatsNewTranslations::lastNewFeatures()
+{
+    const QList<KLazyLocalizedString> info{
+        kli18n("Implement Application Market Settings."),
+    };
+    return info;
+}
 
 QList<WhatsNewInfo> WhatsNewTranslations::createWhatsNewInfo()
 {
@@ -76,9 +97,11 @@ QList<WhatsNewInfo> WhatsNewTranslations::createWhatsNewInfo()
     }
     {
         WhatsNewInfo info;
-        info.setNewFeatures({
-            i18n("Implement Application Market Settings."),
-        });
+        QStringList lst;
+        for (const KLazyLocalizedString &l : lastNewFeatures()) {
+            lst += l.toString();
+        }
+        info.setNewFeatures(lst);
         info.setVersion(QStringLiteral("2.3"));
         listInfo.append(std::move(info));
     }

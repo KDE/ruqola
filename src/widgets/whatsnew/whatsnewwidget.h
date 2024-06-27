@@ -16,7 +16,6 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT WhatsNewWidget : public QWidget
 public:
     explicit WhatsNewWidget(QWidget *parent = nullptr);
     ~WhatsNewWidget() override;
-    [[nodiscard]] static QString newFeaturesMD5();
 
     void updateInformations();
 
