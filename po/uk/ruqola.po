@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-06-26 00:39+0000\n"
+"POT-Creation-Date: 2024-06-27 00:38+0000\n"
 "PO-Revision-Date: 2024-06-21 08:36+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian\n"
@@ -1438,12 +1438,12 @@ msgctxt "We need a space between after </strong>"
 msgid "<strong>%1</strong> are typing..."
 msgstr "<strong>%1</strong> вводить текст…"
 
-#: core/rocketchataccount.cpp:2994
+#: core/rocketchataccount.cpp:2993
 #, kde-format
 msgid "Export Messages"
 msgstr "Експортувати повідомлення"
 
-#: core/rocketchataccount.cpp:2995
+#: core/rocketchataccount.cpp:2994
 #, kde-format
 msgid "Your email has been queued for sending."
 msgstr "Вашу електронну пошту додано до черги надсилання."
@@ -9924,13 +9924,13 @@ msgstr "Не вдалося відкрити журнал."
 msgid "Show Log"
 msgstr "Показати журнал"
 
-#: widgets/ruqolamainwindow.cpp:984
+#: widgets/ruqolamainwindow.cpp:1005
 #, kde-format
 msgctxt "@item:inmenu Instant message presence status"
 msgid "Status"
 msgstr "Стан"
 
-#: widgets/ruqolamainwindow.cpp:1072
+#: widgets/ruqolamainwindow.cpp:1093
 #, kde-format
 msgid ""
 "<qt>This will hide the menu bar completely. You can show it again by typing "
@@ -9939,7 +9939,7 @@ msgstr ""
 "<qt>За допомогою цього пункту можна повністю сховати смужку меню. Наказати "
 "програмі знову показувати цю смужку можна клавіатурним скороченням %1.</qt>"
 
-#: widgets/ruqolamainwindow.cpp:1075
+#: widgets/ruqolamainwindow.cpp:1096
 #, kde-format
 msgid "Hide menu bar"
 msgstr "Приховати смужку меню"
@@ -10130,26 +10130,31 @@ msgid "Version:"
 msgstr "Версія:"
 
 #: widgets/whatsnew/whatsnewcomboboxwidget.cpp:49
+#: widgets/whatsnew/whatsnewutils.cpp:13
 #, kde-format
 msgid "All Version"
 msgstr "Усі версії"
 
 #: widgets/whatsnew/whatsnewcomboboxwidget.cpp:51
+#: widgets/whatsnew/whatsnewutils.cpp:15
 #, kde-format
 msgid "Version 2.0"
 msgstr "Версія 2.0"
 
 #: widgets/whatsnew/whatsnewcomboboxwidget.cpp:53
+#: widgets/whatsnew/whatsnewutils.cpp:17
 #, kde-format
 msgid "Version 2.1"
 msgstr "Версія 2.1"
 
 #: widgets/whatsnew/whatsnewcomboboxwidget.cpp:55
+#: widgets/whatsnew/whatsnewutils.cpp:19
 #, kde-format
 msgid "Version 2.2"
 msgstr "Версія 2.2"
 
 #: widgets/whatsnew/whatsnewcomboboxwidget.cpp:57
+#: widgets/whatsnew/whatsnewutils.cpp:21
 #, kde-format
 msgid "Version 2.3"
 msgstr "Версія 2.3"
@@ -10170,17 +10175,17 @@ msgstr "(Показати новини)"
 msgid "What's new in %2. %1"
 msgstr "Що нового у %2. %1"
 
-#: widgets/whatsnew/whatsnewwidget.cpp:95
+#: widgets/whatsnew/whatsnewwidget.cpp:96
 #, kde-format
 msgid "Important changes since last version:"
 msgstr "Важливі зміни з часу випуску попередньої версії:"
 
-#: widgets/whatsnew/whatsnewwidget.cpp:100
+#: widgets/whatsnew/whatsnewwidget.cpp:101
 #, kde-format
 msgid "Some of the new features in this release of Ruqola include:"
 msgstr "Серед нових можливостей у цьому випуску Ruqola:"
 
-#: widgets/whatsnew/whatsnewwidget.cpp:105
+#: widgets/whatsnew/whatsnewwidget.cpp:106
 #, kde-format
 msgid "Some bug fixing:"
 msgstr "Виправлення деяких вад:"

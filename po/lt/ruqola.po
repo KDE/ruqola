@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-06-26 00:39+0000\n"
+"POT-Creation-Date: 2024-06-27 00:38+0000\n"
 "PO-Revision-Date: 2024-02-03 02:20+0200\n"
 "Last-Translator: Moo\n"
 "Language-Team: none\n"
@@ -1522,13 +1522,13 @@ msgctxt "We need a space between after </strong>"
 msgid "<strong>%1</strong> are typing..."
 msgstr "<strong>%1</strong> rašo..."
 
-#: core/rocketchataccount.cpp:2994
+#: core/rocketchataccount.cpp:2993
 #, fuzzy, kde-format
 #| msgid "Encrypted Message"
 msgid "Export Messages"
 msgstr "Šifruota žinutė"
 
-#: core/rocketchataccount.cpp:2995
+#: core/rocketchataccount.cpp:2994
 #, kde-format
 msgid "Your email has been queued for sending."
 msgstr ""
@@ -10296,21 +10296,21 @@ msgstr ""
 msgid "Show Log"
 msgstr "Ieškoti naudotojo..."
 
-#: widgets/ruqolamainwindow.cpp:984
+#: widgets/ruqolamainwindow.cpp:1005
 #, fuzzy, kde-format
 #| msgid "Status Text:"
 msgctxt "@item:inmenu Instant message presence status"
 msgid "Status"
 msgstr "Būsenos tekstas:"
 
-#: widgets/ruqolamainwindow.cpp:1072
+#: widgets/ruqolamainwindow.cpp:1093
 #, kde-format
 msgid ""
 "<qt>This will hide the menu bar completely. You can show it again by typing "
 "%1.</qt>"
 msgstr ""
 
-#: widgets/ruqolamainwindow.cpp:1075
+#: widgets/ruqolamainwindow.cpp:1096
 #, kde-format
 msgid "Hide menu bar"
 msgstr ""
@@ -10524,30 +10524,35 @@ msgid "Version:"
 msgstr "Serverio versija:"
 
 #: widgets/whatsnew/whatsnewcomboboxwidget.cpp:49
+#: widgets/whatsnew/whatsnewutils.cpp:13
 #, fuzzy, kde-format
 #| msgid "Server Version:"
 msgid "All Version"
 msgstr "Serverio versija:"
 
 #: widgets/whatsnew/whatsnewcomboboxwidget.cpp:51
+#: widgets/whatsnew/whatsnewutils.cpp:15
 #, fuzzy, kde-format
 #| msgid "Server Version:"
 msgid "Version 2.0"
 msgstr "Serverio versija:"
 
 #: widgets/whatsnew/whatsnewcomboboxwidget.cpp:53
+#: widgets/whatsnew/whatsnewutils.cpp:17
 #, fuzzy, kde-format
 #| msgid "Server Version:"
 msgid "Version 2.1"
 msgstr "Serverio versija:"
 
 #: widgets/whatsnew/whatsnewcomboboxwidget.cpp:55
+#: widgets/whatsnew/whatsnewutils.cpp:19
 #, fuzzy, kde-format
 #| msgid "Server Version:"
 msgid "Version 2.2"
 msgstr "Serverio versija:"
 
 #: widgets/whatsnew/whatsnewcomboboxwidget.cpp:57
+#: widgets/whatsnew/whatsnewutils.cpp:21
 #, fuzzy, kde-format
 #| msgid "Server Version:"
 msgid "Version 2.3"
@@ -10570,17 +10575,17 @@ msgstr "Informacija apie serverį..."
 msgid "What's new in %2. %1"
 msgstr ""
 
-#: widgets/whatsnew/whatsnewwidget.cpp:95
+#: widgets/whatsnew/whatsnewwidget.cpp:96
 #, kde-format
 msgid "Important changes since last version:"
 msgstr ""
 
-#: widgets/whatsnew/whatsnewwidget.cpp:100
+#: widgets/whatsnew/whatsnewwidget.cpp:101
 #, kde-format
 msgid "Some of the new features in this release of Ruqola include:"
 msgstr ""
 
-#: widgets/whatsnew/whatsnewwidget.cpp:105
+#: widgets/whatsnew/whatsnewwidget.cpp:106
 #, fuzzy, kde-format
 #| msgid "Bug fixing"
 msgid "Some bug fixing:"

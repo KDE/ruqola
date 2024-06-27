@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-06-26 00:39+0000\n"
+"POT-Creation-Date: 2024-06-27 00:38+0000\n"
 "PO-Revision-Date: 2023-07-14 22:16+0100\n"
 "Last-Translator: José Nuno Coelho Pires <zepires@gmail.com>\n"
 "Language-Team: Portuguese <kde-i18n-pt@kde.org>\n"
@@ -1488,12 +1488,12 @@ msgctxt "We need a space between after </strong>"
 msgid "<strong>%1</strong> are typing..."
 msgstr "<strong>%1</strong> estão a escrever..."
 
-#: core/rocketchataccount.cpp:2994
+#: core/rocketchataccount.cpp:2993
 #, kde-format
 msgid "Export Messages"
 msgstr "Exportar as Mensagens"
 
-#: core/rocketchataccount.cpp:2995
+#: core/rocketchataccount.cpp:2994
 #, kde-format
 msgid "Your email has been queued for sending."
 msgstr "O seu e-mail está em espera para ser enviado."
@@ -10360,13 +10360,13 @@ msgstr "Não é possível abrir o registo."
 msgid "Show Log"
 msgstr "Mostrar o Registo"
 
-#: widgets/ruqolamainwindow.cpp:984
+#: widgets/ruqolamainwindow.cpp:1005
 #, kde-format
 msgctxt "@item:inmenu Instant message presence status"
 msgid "Status"
 msgstr "Estado"
 
-#: widgets/ruqolamainwindow.cpp:1072
+#: widgets/ruqolamainwindow.cpp:1093
 #, kde-format
 msgid ""
 "<qt>This will hide the menu bar completely. You can show it again by typing "
@@ -10375,7 +10375,7 @@ msgstr ""
 "<qt>Isto irá esconder a barra do menu por completo. Podê-la-á mostrar de "
 "novo se escrever %1.</qt>"
 
-#: widgets/ruqolamainwindow.cpp:1075
+#: widgets/ruqolamainwindow.cpp:1096
 #, kde-format
 msgid "Hide menu bar"
 msgstr "Esconder o menu"
@@ -10575,30 +10575,35 @@ msgid "Version:"
 msgstr "Versão"
 
 #: widgets/whatsnew/whatsnewcomboboxwidget.cpp:49
+#: widgets/whatsnew/whatsnewutils.cpp:13
 #, fuzzy, kde-format
 #| msgid "Version"
 msgid "All Version"
 msgstr "Versão"
 
 #: widgets/whatsnew/whatsnewcomboboxwidget.cpp:51
+#: widgets/whatsnew/whatsnewutils.cpp:15
 #, fuzzy, kde-format
 #| msgid "Version"
 msgid "Version 2.0"
 msgstr "Versão"
 
 #: widgets/whatsnew/whatsnewcomboboxwidget.cpp:53
+#: widgets/whatsnew/whatsnewutils.cpp:17
 #, fuzzy, kde-format
 #| msgid "Version"
 msgid "Version 2.1"
 msgstr "Versão"
 
 #: widgets/whatsnew/whatsnewcomboboxwidget.cpp:55
+#: widgets/whatsnew/whatsnewutils.cpp:19
 #, fuzzy, kde-format
 #| msgid "Version"
 msgid "Version 2.2"
 msgstr "Versão"
 
 #: widgets/whatsnew/whatsnewcomboboxwidget.cpp:57
+#: widgets/whatsnew/whatsnewutils.cpp:21
 #, fuzzy, kde-format
 #| msgid "Version"
 msgid "Version 2.3"
@@ -10622,17 +10627,17 @@ msgstr "(Mostrar as Notícias no Ruqola)"
 msgid "What's new in %2. %1"
 msgstr "Novidades no Ruqola. %1"
 
-#: widgets/whatsnew/whatsnewwidget.cpp:95
+#: widgets/whatsnew/whatsnewwidget.cpp:96
 #, kde-format
 msgid "Important changes since last version:"
 msgstr "Modificações importantes desde a última versão:"
 
-#: widgets/whatsnew/whatsnewwidget.cpp:100
+#: widgets/whatsnew/whatsnewwidget.cpp:101
 #, kde-format
 msgid "Some of the new features in this release of Ruqola include:"
 msgstr "Algumas das novas funcionalidades nesta versão do Ruqola incluem:"
 
-#: widgets/whatsnew/whatsnewwidget.cpp:105
+#: widgets/whatsnew/whatsnewwidget.cpp:106
 #, kde-format
 msgid "Some bug fixing:"
 msgstr "Algumas correcções de erros:"

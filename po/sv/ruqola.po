@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-06-26 00:39+0000\n"
+"POT-Creation-Date: 2024-06-27 00:38+0000\n"
 "PO-Revision-Date: 2024-06-21 08:19+0200\n"
 "Last-Translator: Stefan Asserhäll <stefan.asserhall@gmail.com>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
@@ -1422,12 +1422,12 @@ msgctxt "We need a space between after </strong>"
 msgid "<strong>%1</strong> are typing..."
 msgstr "<strong>%1</strong> skriver ..."
 
-#: core/rocketchataccount.cpp:2994
+#: core/rocketchataccount.cpp:2993
 #, kde-format
 msgid "Export Messages"
 msgstr "Exportera meddelanden"
 
-#: core/rocketchataccount.cpp:2995
+#: core/rocketchataccount.cpp:2994
 #, kde-format
 msgid "Your email has been queued for sending."
 msgstr "Brevet har köats för att skickas."
@@ -9802,13 +9802,13 @@ msgstr "Omöjligt att öppna logg."
 msgid "Show Log"
 msgstr "Visa logg"
 
-#: widgets/ruqolamainwindow.cpp:984
+#: widgets/ruqolamainwindow.cpp:1005
 #, kde-format
 msgctxt "@item:inmenu Instant message presence status"
 msgid "Status"
 msgstr "Status"
 
-#: widgets/ruqolamainwindow.cpp:1072
+#: widgets/ruqolamainwindow.cpp:1093
 #, kde-format
 msgid ""
 "<qt>This will hide the menu bar completely. You can show it again by typing "
@@ -9817,7 +9817,7 @@ msgstr ""
 "<qt>Det här döljer menyraden fullständigt. Du kan visa den igen genom att "
 "skriva %1.</qt>"
 
-#: widgets/ruqolamainwindow.cpp:1075
+#: widgets/ruqolamainwindow.cpp:1096
 #, kde-format
 msgid "Hide menu bar"
 msgstr "Dölj menyrad"
@@ -10007,26 +10007,31 @@ msgid "Version:"
 msgstr "Version:"
 
 #: widgets/whatsnew/whatsnewcomboboxwidget.cpp:49
+#: widgets/whatsnew/whatsnewutils.cpp:13
 #, kde-format
 msgid "All Version"
 msgstr "Alla versioner"
 
 #: widgets/whatsnew/whatsnewcomboboxwidget.cpp:51
+#: widgets/whatsnew/whatsnewutils.cpp:15
 #, kde-format
 msgid "Version 2.0"
 msgstr "Version 2.0"
 
 #: widgets/whatsnew/whatsnewcomboboxwidget.cpp:53
+#: widgets/whatsnew/whatsnewutils.cpp:17
 #, kde-format
 msgid "Version 2.1"
 msgstr "Version 2.1"
 
 #: widgets/whatsnew/whatsnewcomboboxwidget.cpp:55
+#: widgets/whatsnew/whatsnewutils.cpp:19
 #, kde-format
 msgid "Version 2.2"
 msgstr "Version 2.2"
 
 #: widgets/whatsnew/whatsnewcomboboxwidget.cpp:57
+#: widgets/whatsnew/whatsnewutils.cpp:21
 #, kde-format
 msgid "Version 2.3"
 msgstr "Version 2.3"
@@ -10047,17 +10052,17 @@ msgstr "(Visa nyheter)"
 msgid "What's new in %2. %1"
 msgstr "Vad är nytt i %2. %1"
 
-#: widgets/whatsnew/whatsnewwidget.cpp:95
+#: widgets/whatsnew/whatsnewwidget.cpp:96
 #, kde-format
 msgid "Important changes since last version:"
 msgstr "Viktiga ändringar sedan föregående version:"
 
-#: widgets/whatsnew/whatsnewwidget.cpp:100
+#: widgets/whatsnew/whatsnewwidget.cpp:101
 #, kde-format
 msgid "Some of the new features in this release of Ruqola include:"
 msgstr "Vissa av de nya funktionerna i den här utgåvan av Ruqola omfattar:"
 
-#: widgets/whatsnew/whatsnewwidget.cpp:105
+#: widgets/whatsnew/whatsnewwidget.cpp:106
 #, kde-format
 msgid "Some bug fixing:"
 msgstr "En del felrättning:"
