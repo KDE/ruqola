@@ -5,8 +5,11 @@
 */
 #include "whatsnewtranslationbase.h"
 #include <KLazyLocalizedString>
-#include <KLocalizedString>
 #include <QCryptographicHash>
+
+WhatsNewTranslationsBase::WhatsNewTranslationsBase() = default;
+
+WhatsNewTranslationsBase::~WhatsNewTranslationsBase() = default;
 
 QString WhatsNewTranslationsBase::newFeaturesMD5()
 {
@@ -18,7 +21,3 @@ QString WhatsNewTranslationsBase::newFeaturesMD5()
     md5.addData(str);
     return QLatin1StringView(md5.result().toBase64());
 }
-
-WhatsNewTranslationsBase::WhatsNewTranslationsBase() = default;
-
-WhatsNewTranslationsBase::~WhatsNewTranslationsBase() = default;
