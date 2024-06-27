@@ -17,6 +17,9 @@ QString WhatsNewTranslationsBase::newFeaturesMD5()
     for (const KLazyLocalizedString &l : lastNewFeatures()) {
         str += l.untranslatedText();
     }
+    if (str.isEmpty()) {
+        return {};
+    }
     QCryptographicHash md5(QCryptographicHash::Md5);
     md5.addData(str);
     return QLatin1StringView(md5.result().toBase64());
