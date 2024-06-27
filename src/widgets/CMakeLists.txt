@@ -1,6 +1,7 @@
 # SPDX-FileCopyrightText: 2020-2024 Laurent Montel <montel@kde.org>
 # SPDX-License-Identifier: BSD-3-Clause
-add_library(libruqolawidgets)
+add_library(libruqolawidgets
+    whatsnew/whatsnewtranslations.h whatsnew/whatsnewtranslations.cpp)
 
 if(TARGET KF6::UserFeedbackWidgets)
     target_sources(libruqolawidgets PRIVATE
@@ -817,8 +818,8 @@ target_sources(libruqolawidgets PRIVATE
     whatsnew/whatsnewcomboboxwidget.h
     whatsnew/whatsnewcomboboxwidget.cpp
 
-    whatsnew/whatsnewtranslation.h
-    whatsnew/whatsnewtranslation.cpp
+    whatsnew/whatsnewtranslationbase.h
+    whatsnew/whatsnewtranslationbase.cpp
     whatsnew/whatsnewinfo.h
     whatsnew/whatsnewinfo.cpp
 

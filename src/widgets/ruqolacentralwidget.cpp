@@ -13,8 +13,7 @@
 #include "servererrorinfohistory/servererrorinfomessagewidget.h"
 #include "servererrorinfohistorymanager.h"
 #include "whatsnew/whatsnewmessagewidget.h"
-#include "whatsnew/whatsnewtranslation.h"
-#include "whatsnew/whatsnewwidget.h"
+#include "whatsnew/whatsnewtranslations.h"
 #include <KLocalizedString>
 #include <QStackedWidget>
 #include <QVBoxLayout>
@@ -30,7 +29,8 @@ RuqolaCentralWidget::RuqolaCentralWidget(QWidget *parent)
     mMainLayout->setObjectName(QStringLiteral("mainlayout"));
     mMainLayout->setSpacing(0);
 
-    const QString newFeaturesMD5 = WhatsNewTranslations::newFeaturesMD5();
+    WhatsNewTranslations translations;
+    const QString newFeaturesMD5 = translations.newFeaturesMD5();
     const bool hasNewFeature = (RuqolaGlobalConfig::self()->previousNewFeaturesMD5() != newFeaturesMD5);
     if (hasNewFeature) {
         auto whatsNewMessageWidget = new WhatsNewMessageWidget(this);
