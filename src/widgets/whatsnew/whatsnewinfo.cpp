@@ -39,3 +39,11 @@ void WhatsNewInfo::setBugFixings(const QStringList &newBugFixings)
 {
     mBugFixings = newBugFixings;
 }
+
+QDebug operator<<(QDebug d, const WhatsNewInfo &t)
+{
+    d.space() << "changes" << t.changes();
+    d.space() << "bugFixings" << t.bugFixings();
+    d.space() << "newFeatures" << t.newFeatures();
+    return d;
+}

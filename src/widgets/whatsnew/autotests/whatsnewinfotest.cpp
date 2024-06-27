@@ -20,3 +20,5 @@ void WhatsNewInfoTest::shouldHaveDefaultValues()
     QVERIFY(t.newFeatures().isEmpty());
     QVERIFY(t.bugFixings().isEmpty());
 }
+
+#include "moc_whatsnewinfotest.cpp"

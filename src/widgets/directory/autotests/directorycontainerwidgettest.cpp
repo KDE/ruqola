@@ -23,3 +23,5 @@ void DirectoryContainerWidgetTest::shouldHaveDefaultValues()
 
     // TODO
 }
+
+#include "moc_directorycontainerwidgettest.cpp"

@@ -5,8 +5,8 @@
 */
 #pragma once
 #include "libruqolawidgets_export.h"
+#include <QDebug>
 #include <QStringList>
-
 class LIBRUQOLAWIDGETS_EXPORT WhatsNewInfo
 {
 public:
@@ -27,3 +27,6 @@ private:
     QStringList mNewFeatures;
     QStringList mBugFixings;
 };
+Q_DECLARE_METATYPE(WhatsNewInfo)
+Q_DECLARE_TYPEINFO(WhatsNewInfo, Q_RELOCATABLE_TYPE);
+LIBRUQOLAWIDGETS_EXPORT QDebug operator<<(QDebug d, const WhatsNewInfo &t);
