@@ -106,6 +106,38 @@ QString WhatsNewWidget::bugFixingChangeStr() const
     return QStringLiteral("<b>") + i18n("Some bug fixing:") + QStringLiteral("</b>");
 }
 
+QString WhatsNewWidget::createVersionInformation(const WhatsNewInfo &info)
+{
+    QString message;
+    if (!info.changes().isEmpty()) {
+        message += importantChangeStr();
+        message += QStringLiteral("<ul>");
+        for (int i = 0, total = info.changes().count(); i < total; ++i) {
+            message += QStringLiteral("<li>%1</li>").arg(info.changes().at(i));
+        }
+        message += QStringLiteral("</ul>");
+    }
+
+    if (!info.newFeatures().isEmpty()) {
+        message += featuresChangeStr();
+        message += QStringLiteral("<ul>");
+        for (int i = 0, total = info.newFeatures().count(); i < total; ++i) {
+            message += QStringLiteral("<li>%1</li>").arg(info.newFeatures().at(i));
+        }
+        message += QStringLiteral("</ul>");
+    }
+
+    if (!info.bugFixings().isEmpty()) {
+        message += bugFixingChangeStr();
+        message += QStringLiteral("<ul>");
+        for (int i = 0, total = info.bugFixings().count(); i < total; ++i) {
+            message += QStringLiteral("<li>%1</li>").arg(info.bugFixings().at(i));
+        }
+        message += QStringLiteral("</ul>");
+    }
+    return message;
+}
+
 QString WhatsNewWidget::createVersionInformationsV2_0() const
 {
     QString message;

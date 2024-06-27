@@ -7,6 +7,7 @@
 #pragma once
 #include "libruqolawidgets_private_export.h"
 #include "whatsnewcomboboxwidget.h"
+#include "whatsnewinfo.h"
 #include "whatsnewutils.h"
 #include <QWidget>
 class QTextBrowser;
@@ -32,6 +33,7 @@ private:
     [[nodiscard]] LIBRUQOLAWIDGETS_NO_EXPORT QString bugFixingChangeStr() const;
     [[nodiscard]] LIBRUQOLAWIDGETS_NO_EXPORT QString createVersionInformationsV2_3() const;
     LIBRUQOLAWIDGETS_NO_EXPORT void slotVersionChanged(WhatsNewUtils::VersionType type);
+    [[nodiscard]] LIBRUQOLAWIDGETS_NO_EXPORT QString createVersionInformation(const WhatsNewInfo &info);
     QTextBrowser *const mLabelInfo;
     WhatsNewComboBoxWidget *const mWhatsNewComboBoxWidget;
 };

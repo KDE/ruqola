@@ -22,7 +22,11 @@ public:
     [[nodiscard]] QStringList bugFixings() const;
     void setBugFixings(const QStringList &newBugFixings);
 
+    [[nodiscard]] QString version() const;
+    void setVersion(const QString &newVersion);
+
 private:
+    QString mVersion;
     QStringList mChanges;
     QStringList mNewFeatures;
     QStringList mBugFixings;

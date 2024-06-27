@@ -40,10 +40,21 @@ void WhatsNewInfo::setBugFixings(const QStringList &newBugFixings)
     mBugFixings = newBugFixings;
 }
 
+QString WhatsNewInfo::version() const
+{
+    return mVersion;
+}
+
+void WhatsNewInfo::setVersion(const QString &newVersion)
+{
+    mVersion = newVersion;
+}
+
 QDebug operator<<(QDebug d, const WhatsNewInfo &t)
 {
-    d.space() << "changes" << t.changes();
+    d.space() << "version" << t.version();
     d.space() << "bugFixings" << t.bugFixings();
+    d.space() << "newFeatures" << t.newFeatures();
     d.space() << "newFeatures" << t.newFeatures();
     return d;
 }
