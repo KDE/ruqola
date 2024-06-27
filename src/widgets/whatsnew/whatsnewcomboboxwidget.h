@@ -19,8 +19,6 @@ public:
 
     void initializeVersion(WhatsNewUtils::VersionType type);
 
-    [[nodiscard]] static QString convertVersionEnumToString(WhatsNewUtils::VersionType type);
-
 Q_SIGNALS:
     void versionChanged(WhatsNewUtils::VersionType type);
 

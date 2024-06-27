@@ -42,28 +42,10 @@ WhatsNewComboBoxWidget::WhatsNewComboBoxWidget(QWidget *parent)
 
 WhatsNewComboBoxWidget::~WhatsNewComboBoxWidget() = default;
 
-QString WhatsNewComboBoxWidget::convertVersionEnumToString(WhatsNewUtils::VersionType type)
-{
-    switch (type) {
-    case WhatsNewUtils::AllVersion:
-        return i18n("All Version");
-    case WhatsNewUtils::Version2_0:
-        return i18n("Version 2.0");
-    case WhatsNewUtils::Version2_1:
-        return i18n("Version 2.1");
-    case WhatsNewUtils::Version2_2:
-        return i18n("Version 2.2");
-    case WhatsNewUtils::Version2_3:
-        return i18n("Version 2.3");
-    }
-    Q_UNREACHABLE();
-    return {};
-}
-
 void WhatsNewComboBoxWidget::fillCombobox()
 {
     for (int i = WhatsNewUtils::AllVersion; i <= WhatsNewUtils::LastVersion; ++i) {
-        mVersionComboBox->addItem(convertVersionEnumToString(static_cast<WhatsNewUtils::VersionType>(i)), i);
+        mVersionComboBox->addItem(WhatsNewUtils::convertVersionEnumToString(static_cast<WhatsNewUtils::VersionType>(i)), i);
     }
 }
 
