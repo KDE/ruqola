@@ -8,7 +8,6 @@
 #include "libruqolawidgets_private_export.h"
 #include "whatsnewcomboboxwidget.h"
 #include "whatsnewinfo.h"
-#include "whatsnewutils.h"
 #include <QWidget>
 class QTextBrowser;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT WhatsNewWidget : public QWidget
@@ -22,18 +21,18 @@ public:
     void updateInformations();
 
 private:
-    [[nodiscard]] LIBRUQOLAWIDGETS_NO_EXPORT QString generateVersionHeader(WhatsNewUtils::VersionType type) const;
-    [[nodiscard]] LIBRUQOLAWIDGETS_NO_EXPORT QString createVersionInformationsV2_0() const;
-    [[nodiscard]] LIBRUQOLAWIDGETS_NO_EXPORT QString createVersionInformationsV2_1() const;
-    [[nodiscard]] LIBRUQOLAWIDGETS_NO_EXPORT QString createVersionInformationsV2_2() const;
-    [[nodiscard]] LIBRUQOLAWIDGETS_NO_EXPORT WhatsNewUtils::VersionType currentVersion() const;
+    [[nodiscard]] LIBRUQOLAWIDGETS_NO_EXPORT int currentVersion() const;
     [[nodiscard]] LIBRUQOLAWIDGETS_NO_EXPORT QString generateStartEndHtml(const QString &str) const;
     [[nodiscard]] LIBRUQOLAWIDGETS_NO_EXPORT QString importantChangeStr() const;
     [[nodiscard]] LIBRUQOLAWIDGETS_NO_EXPORT QString featuresChangeStr() const;
     [[nodiscard]] LIBRUQOLAWIDGETS_NO_EXPORT QString bugFixingChangeStr() const;
-    [[nodiscard]] LIBRUQOLAWIDGETS_NO_EXPORT QString createVersionInformationsV2_3() const;
-    LIBRUQOLAWIDGETS_NO_EXPORT void slotVersionChanged(WhatsNewUtils::VersionType type);
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotVersionChanged(int i);
     [[nodiscard]] LIBRUQOLAWIDGETS_NO_EXPORT QString createVersionInformation(const WhatsNewInfo &info);
+    LIBRUQOLAWIDGETS_NO_EXPORT void fillTranslations();
+    [[nodiscard]] LIBRUQOLAWIDGETS_NO_EXPORT QString generateVersionHeader(int type) const;
+    LIBRUQOLAWIDGETS_NO_EXPORT void fillComboBox();
+
+    QList<WhatsNewInfo> mWhatsNewInfo;
     QTextBrowser *const mLabelInfo;
     WhatsNewComboBoxWidget *const mWhatsNewComboBoxWidget;
 };

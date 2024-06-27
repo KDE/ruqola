@@ -7,7 +7,6 @@
 #pragma once
 
 #include "libruqolawidgets_private_export.h"
-#include "whatsnewutils.h"
 #include <QWidget>
 class QComboBox;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT WhatsNewComboBoxWidget : public QWidget
@@ -17,13 +16,14 @@ public:
     explicit WhatsNewComboBoxWidget(QWidget *parent = nullptr);
     ~WhatsNewComboBoxWidget() override;
 
-    void initializeVersion(WhatsNewUtils::VersionType type);
+    void addVersion(const QString &name, int identifier);
+
+    void initializeVersion(int type);
 
 Q_SIGNALS:
-    void versionChanged(WhatsNewUtils::VersionType type);
+    void versionChanged(int type);
 
 private:
-    LIBRUQOLAWIDGETS_NO_EXPORT void fillCombobox();
     LIBRUQOLAWIDGETS_NO_EXPORT void slotCurrentIndexChanged(int index);
     QComboBox *const mVersionComboBox;
 };

@@ -4,6 +4,7 @@
    SPDX-License-Identifier: LGPL-2.0-or-later
 */
 #include "whatsnewwidget.h"
+#include "whatsnew/whatsnewtranslation.h"
 #include "whatsnewutils.h"
 #include "whatsnewwidgettranslation.h"
 
@@ -30,13 +31,30 @@ WhatsNewWidget::WhatsNewWidget(QWidget *parent)
     connect(mWhatsNewComboBoxWidget, &WhatsNewComboBoxWidget::versionChanged, this, &WhatsNewWidget::slotVersionChanged);
     mWhatsNewComboBoxWidget->initializeVersion(currentVersion());
     mainLayout->addWidget(mLabelInfo);
+    fillTranslations();
+    fillComboBox();
 }
 
 WhatsNewWidget::~WhatsNewWidget() = default;
 
-WhatsNewUtils::VersionType WhatsNewWidget::currentVersion() const
+void WhatsNewWidget::fillComboBox()
 {
-    return WhatsNewUtils::LastVersion;
+    mWhatsNewComboBoxWidget->addVersion(i18n("All Version"), -1);
+    int index = 0;
+    for (const WhatsNewInfo &info : std::as_const(mWhatsNewInfo)) {
+        mWhatsNewComboBoxWidget->addVersion(info.version(), index);
+        index++;
+    }
+}
+
+void WhatsNewWidget::fillTranslations()
+{
+    mWhatsNewInfo = WhatsNewTranslations::createWhatsNewInfo();
+}
+
+int WhatsNewWidget::currentVersion() const
+{
+    return mWhatsNewInfo.count() - 1;
 }
 
 // static
@@ -64,30 +82,18 @@ QString WhatsNewWidget::generateStartEndHtml(const QString &str) const
     return message;
 }
 
-void WhatsNewWidget::slotVersionChanged(WhatsNewUtils::VersionType type)
+void WhatsNewWidget::slotVersionChanged(int type)
 {
-    if (type == WhatsNewUtils::Version2_0) {
-        const QString message = generateStartEndHtml(createVersionInformationsV2_0());
-        mLabelInfo->setHtml(message);
-    } else if (type == WhatsNewUtils::Version2_1) {
-        const QString message = generateStartEndHtml(createVersionInformationsV2_1());
-        mLabelInfo->setHtml(message);
-    } else if (type == WhatsNewUtils::Version2_2) {
-        const QString message = generateStartEndHtml(createVersionInformationsV2_2());
-        mLabelInfo->setHtml(message);
-    } else if (type == WhatsNewUtils::Version2_3) {
-        const QString message = generateStartEndHtml(createVersionInformationsV2_3());
-        mLabelInfo->setHtml(message);
-    } else if (type == WhatsNewUtils::AllVersion) {
-        QString message = generateVersionHeader(WhatsNewUtils::Version2_3);
-        message += createVersionInformationsV2_3();
-        message += generateVersionHeader(WhatsNewUtils::Version2_2);
-        message += createVersionInformationsV2_2();
-        message += generateVersionHeader(WhatsNewUtils::Version2_1);
-        message += createVersionInformationsV2_1();
-        message += generateVersionHeader(WhatsNewUtils::Version2_0);
-        message += createVersionInformationsV2_0();
+    if (type == -1) { // All
+        QString message;
+        for (const WhatsNewInfo &info : std::as_const(mWhatsNewInfo)) {
+            message += createVersionInformation(info);
+            message += generateVersionHeader(type);
+        }
         mLabelInfo->setHtml(generateStartEndHtml(message));
+    } else {
+        const QString message = generateStartEndHtml(createVersionInformation(mWhatsNewInfo.at(type)));
+        mLabelInfo->setHtml(message);
     }
 }
 
@@ -138,114 +144,10 @@ QString WhatsNewWidget::createVersionInformation(const WhatsNewInfo &info)
     return message;
 }
 
-QString WhatsNewWidget::createVersionInformationsV2_0() const
+QString WhatsNewWidget::generateVersionHeader(int type) const
 {
-    QString message;
-    if (numRuqolaChanges2_0 > 0) {
-        message += importantChangeStr();
-        message += QStringLiteral("<ul>");
-        for (int i = 0; i < numRuqolaChanges2_0; ++i) {
-            message += QStringLiteral("<li>%1</li>").arg(ruqolaChangesV2_0[i].toString());
-        }
-        message += QStringLiteral("</ul>");
-    }
-    if (numRuqolaNewFeatures2_0 > 0) {
-        message += featuresChangeStr();
-        message += QStringLiteral("<ul>");
-        for (int i = 0; i < numRuqolaNewFeatures2_0; ++i) {
-            message += QStringLiteral("<li>%1</li>").arg(ruqolaNewFeatures2_0[i].toString());
-        }
-        message += QStringLiteral("</ul>");
-    }
-    if (numRuqolaBugfixing2_0 > 0) {
-        message += bugFixingChangeStr();
-        message += QStringLiteral("<ul>");
-        for (int i = 0; i < numRuqolaBugfixing2_0; ++i) {
-            message += QStringLiteral("<li>%1</li>").arg(ruqolaBugfixing2_0[i].toString());
-        }
-        message += QStringLiteral("</ul>");
-    }
-    return message;
-}
-
-QString WhatsNewWidget::createVersionInformationsV2_1() const
-{
-    QString message;
-    if (numRuqolaNewFeatures2_1 > 0) {
-        message += featuresChangeStr();
-        message += QStringLiteral("<ul>");
-        for (int i = 0; i < numRuqolaNewFeatures2_1; ++i) {
-            message += QStringLiteral("<li>%1</li>").arg(ruqolaNewFeatures2_1[i].toString());
-        }
-        message += QStringLiteral("</ul>");
-    }
-    if (numRuqolaBugfixing2_1 > 0) {
-        message += bugFixingChangeStr();
-        message += QStringLiteral("<ul>");
-        for (int i = 0; i < numRuqolaBugfixing2_1; ++i) {
-            message += QStringLiteral("<li>%1</li>").arg(ruqolaBugfixing2_1[i].toString());
-        }
-        message += QStringLiteral("</ul>");
-    }
-    return message;
-}
-
-QString WhatsNewWidget::createVersionInformationsV2_2() const
-{
-    QString message;
-    if (numRuqolaNewFeatures2_2 > 0) {
-        message += featuresChangeStr();
-        message += QStringLiteral("<ul>");
-        for (int i = 0; i < numRuqolaNewFeatures2_2; ++i) {
-            message += QStringLiteral("<li>%1</li>").arg(ruqolaNewFeatures2_2[i].toString());
-        }
-        message += QStringLiteral("</ul>");
-    }
-    if (numRuqolaBugfixing2_2 > 0) {
-        message += bugFixingChangeStr();
-        message += QStringLiteral("<ul>");
-        for (int i = 0; i < numRuqolaBugfixing2_2; ++i) {
-            message += QStringLiteral("<li>%1</li>").arg(ruqolaBugfixing2_2[i].toString());
-        }
-        message += QStringLiteral("</ul>");
-    }
-    return message;
-}
-
-QString WhatsNewWidget::createVersionInformationsV2_3() const
-{
-    QString message;
-    if (numRuqolaNewFeatures2_3 > 0) {
-        message += featuresChangeStr();
-        message += QStringLiteral("<ul>");
-        for (int i = 0; i < numRuqolaNewFeatures2_3; ++i) {
-            message += QStringLiteral("<li>%1</li>").arg(ruqolaNewFeatures2_3[i].toString());
-        }
-        message += QStringLiteral("</ul>");
-    }
-#if 0
-    if (numRuqolaBugfixing2_3 > 0) {
-        message += bugFixingChangeStr();
-        message += QStringLiteral("<ul>");
-        for (int i = 0; i < numRuqolaBugfixing2_3; ++i) {
-            message += QStringLiteral("<li>%1</li>").arg(ruqolaBugfixing2_3[i].toString());
-        }
-        message += QStringLiteral("</ul>");
-    }
-#endif
-    return message;
-}
-
-QString WhatsNewWidget::generateVersionHeader(WhatsNewUtils::VersionType type) const
-{
-    switch (type) {
-    case WhatsNewUtils::VersionType::AllVersion:
-        return {};
-    case WhatsNewUtils::VersionType::Version2_0:
-    case WhatsNewUtils::VersionType::Version2_1:
-    case WhatsNewUtils::VersionType::Version2_2:
-    case WhatsNewUtils::VersionType::Version2_3:
-        return QStringLiteral("<h1><i> %1 </i></h1><hr/><br>").arg(WhatsNewUtils::convertVersionEnumToString(type));
+    if (type != -1) {
+        return QStringLiteral("<h1><i> %1 </i></h1><hr/><br>").arg(mWhatsNewInfo.at(type).version());
     }
     return {};
 }

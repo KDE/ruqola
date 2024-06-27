@@ -36,22 +36,19 @@ WhatsNewComboBoxWidget::WhatsNewComboBoxWidget(QWidget *parent)
     separator->setObjectName(QStringLiteral("separator"));
     mainLayout->addWidget(separator);
 
-    fillCombobox();
     connect(mVersionComboBox, &QComboBox::currentIndexChanged, this, &WhatsNewComboBoxWidget::slotCurrentIndexChanged);
+}
+
+void WhatsNewComboBoxWidget::addVersion(const QString &name, int identifier)
+{
+    mVersionComboBox->addItem(name, identifier);
 }
 
 WhatsNewComboBoxWidget::~WhatsNewComboBoxWidget() = default;
 
-void WhatsNewComboBoxWidget::fillCombobox()
+void WhatsNewComboBoxWidget::initializeVersion(int identifier)
 {
-    for (int i = WhatsNewUtils::AllVersion; i <= WhatsNewUtils::LastVersion; ++i) {
-        mVersionComboBox->addItem(WhatsNewUtils::convertVersionEnumToString(static_cast<WhatsNewUtils::VersionType>(i)), i);
-    }
-}
-
-void WhatsNewComboBoxWidget::initializeVersion(WhatsNewUtils::VersionType type)
-{
-    const int index = mVersionComboBox->findData(type);
+    const int index = mVersionComboBox->findData(identifier);
     if (index != -1) {
         mVersionComboBox->setCurrentIndex(index);
     }
@@ -59,7 +56,7 @@ void WhatsNewComboBoxWidget::initializeVersion(WhatsNewUtils::VersionType type)
 
 void WhatsNewComboBoxWidget::slotCurrentIndexChanged(int index)
 {
-    const WhatsNewUtils::VersionType type = mVersionComboBox->itemData(index).value<WhatsNewUtils::VersionType>();
+    const int type = mVersionComboBox->itemData(index).toInt();
     Q_EMIT versionChanged(type);
 }
 

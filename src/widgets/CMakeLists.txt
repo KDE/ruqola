@@ -821,8 +821,6 @@ target_sources(libruqolawidgets PRIVATE
 
     whatsnew/whatsnewtranslation.h
     whatsnew/whatsnewtranslation.cpp
-    whatsnew/whatsnewutils.h
-    whatsnew/whatsnewutils.cpp
     whatsnew/whatsnewinfo.h
     whatsnew/whatsnewinfo.cpp
 
