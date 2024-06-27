@@ -26,10 +26,10 @@ WhatsNewWidget::WhatsNewWidget(QWidget *parent)
     mLabelInfo->setOpenExternalLinks(true);
     mLabelInfo->setTextInteractionFlags(Qt::TextSelectableByMouse | Qt::LinksAccessibleByMouse);
     connect(mWhatsNewComboBoxWidget, &WhatsNewComboBoxWidget::versionChanged, this, &WhatsNewWidget::slotVersionChanged);
-    mWhatsNewComboBoxWidget->initializeVersion(currentVersion());
     mainLayout->addWidget(mLabelInfo);
     fillTranslations();
     fillComboBox();
+    mWhatsNewComboBoxWidget->initializeVersion(currentVersion());
 }
 
 WhatsNewWidget::~WhatsNewWidget() = default;
