@@ -12,7 +12,6 @@ ApplicationsSettingsCategoriesComboBox::ApplicationsSettingsCategoriesComboBox(R
     : QComboBox(parent)
     , mRocketChatAccount(account)
 {
-    // Add category model
     if (account) {
         setModel(account->appsCategoriesModel());
     }
