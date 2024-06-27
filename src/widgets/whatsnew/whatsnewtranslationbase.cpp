@@ -11,7 +11,7 @@ WhatsNewTranslationsBase::WhatsNewTranslationsBase() = default;
 
 WhatsNewTranslationsBase::~WhatsNewTranslationsBase() = default;
 
-QString WhatsNewTranslationsBase::newFeaturesMD5()
+QString WhatsNewTranslationsBase::newFeaturesMD5() const
 {
     QByteArray str;
     for (const KLazyLocalizedString &l : lastNewFeatures()) {

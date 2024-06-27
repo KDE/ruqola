@@ -14,6 +14,8 @@ public:
     WhatsNewTranslationsBase();
     virtual ~WhatsNewTranslationsBase();
     [[nodiscard]] virtual QList<WhatsNewInfo> createWhatsNewInfo() const = 0;
+    [[nodiscard]] QString newFeaturesMD5() const;
+
+private:
     [[nodiscard]] virtual QList<KLazyLocalizedString> lastNewFeatures() const = 0;
-    [[nodiscard]] QString newFeaturesMD5();
 };
