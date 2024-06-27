@@ -5,7 +5,6 @@
 */
 #include "whatsnewwidget.h"
 #include "whatsnew/whatsnewtranslation.h"
-#include "whatsnewutils.h"
 #include "whatsnewwidgettranslation.h"
 
 #include <QCryptographicHash>
