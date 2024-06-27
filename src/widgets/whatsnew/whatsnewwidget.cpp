@@ -62,9 +62,7 @@ void WhatsNewWidget::updateInformations()
 
 QString WhatsNewWidget::generateStartEndHtml(const QString &str) const
 {
-    QString message = QStringLiteral("<qt>");
-    message += str;
-    message += QStringLiteral("</qt>");
+    const QString message = QStringLiteral("<qt>") + str + QStringLiteral("</qt>");
     return message;
 }
 
