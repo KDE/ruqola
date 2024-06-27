@@ -507,7 +507,7 @@ void RuqolaMainWindow::setupActions()
     mAdministrationMenu->addAction(mApplications);
 
     mDirectory = new QAction(i18nc("Action which allows to search room/user/team", "Directory…"), this);
-    connect(mDirectory, &QAction::triggered, this, &RuqolaMainWindow::slotDirectory);
+    connect(mDirectory, &QAction::triggered, this, &RuqolaMainWindow::slotJoinRoom);
     ac->addAction(QStringLiteral("directory"), mDirectory);
 
     // Actions to navigate through the different pages
@@ -962,13 +962,6 @@ void RuqolaMainWindow::slotJoinTeam()
 void RuqolaMainWindow::slotOpenPrivateChannel()
 {
     auto dlg = new DirectoryDialog(mCurrentRocketChatAccount, DirectoryWidget::DirectoryType::User, this);
-    dlg->fill();
-    dlg->show();
-}
-
-void RuqolaMainWindow::slotDirectory()
-{
-    auto dlg = new DirectoryDialog(mCurrentRocketChatAccount, DirectoryWidget::DirectoryType::Room, this);
     dlg->fill();
     dlg->show();
 }

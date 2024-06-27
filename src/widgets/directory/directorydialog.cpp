@@ -5,6 +5,7 @@
 */
 
 #include "directorydialog.h"
+#include "directorycontainerwidget.h"
 #include "directorytabwidget.h"
 #include "rocketchataccount.h"
 
@@ -22,14 +23,14 @@ const char myDirectoryDialog[] = "DirectoryDialog";
 }
 DirectoryDialog::DirectoryDialog(RocketChatAccount *account, DirectoryWidget::DirectoryType type, QWidget *parent)
     : QDialog(parent)
-    , mDirectoryTabWidget(new DirectoryTabWidget(account, this))
+    , mDirectoryContainerWidget(new DirectoryContainerWidget(account, type, this))
 {
     setWindowTitle(i18nc("@title:window", "Directory - %1", account ? account->accountName() : QStringLiteral("account")));
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
 
-    mDirectoryTabWidget->setObjectName(QStringLiteral("mDirectoryTabWidget"));
-    mainLayout->addWidget(mDirectoryTabWidget);
+    mDirectoryContainerWidget->setObjectName(QStringLiteral("mDirectoryTabWidget"));
+    mainLayout->addWidget(mDirectoryContainerWidget);
 
     auto button = new QDialogButtonBox(QDialogButtonBox::Close, this);
     button->setObjectName(QStringLiteral("button"));
@@ -48,7 +49,7 @@ DirectoryDialog::~DirectoryDialog()
 
 void DirectoryDialog::fill()
 {
-    mDirectoryTabWidget->fillTabs();
+    mDirectoryContainerWidget->fill();
 }
 
 void DirectoryDialog::readConfig()

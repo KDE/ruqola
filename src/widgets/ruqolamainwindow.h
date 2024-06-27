@@ -87,7 +87,6 @@ private:
     LIBRUQOLAWIDGETS_NO_EXPORT void slotCreateDiscussion();
     LIBRUQOLAWIDGETS_NO_EXPORT void slotCreateTeam();
     LIBRUQOLAWIDGETS_NO_EXPORT void slotPermissionChanged();
-    LIBRUQOLAWIDGETS_NO_EXPORT void slotDirectory();
     LIBRUQOLAWIDGETS_NO_EXPORT void showNextView();
     LIBRUQOLAWIDGETS_NO_EXPORT void showPreviousView();
     LIBRUQOLAWIDGETS_NO_EXPORT void slotHistorySwitchChannel(const QByteArray &identifier);

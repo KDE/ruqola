@@ -9,7 +9,7 @@
 
 #include "directorywidget.h"
 #include "libruqolawidgets_private_export.h"
-class DirectoryTabWidget;
+class DirectoryContainerWidget;
 class RocketChatAccount;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT DirectoryDialog : public QDialog
 {
@@ -23,5 +23,5 @@ public:
 private:
     LIBRUQOLAWIDGETS_NO_EXPORT void readConfig();
     LIBRUQOLAWIDGETS_NO_EXPORT void writeConfig();
-    DirectoryTabWidget *const mDirectoryTabWidget;
+    DirectoryContainerWidget *const mDirectoryContainerWidget;
 };
