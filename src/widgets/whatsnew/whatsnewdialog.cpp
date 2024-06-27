@@ -11,6 +11,7 @@
 #include <KLocalizedString>
 #include <KSharedConfig>
 #include <KWindowConfig>
+#include <QCoreApplication>
 #include <QDialogButtonBox>
 #include <QVBoxLayout>
 #include <QWindow>
@@ -22,7 +23,7 @@ WhatsNewDialog::WhatsNewDialog(QWidget *parent)
     : QDialog(parent)
     , mWhatsNewWidget(new WhatsNewWidget(this))
 {
-    setWindowTitle(i18nc("@title:window", "What's new in Ruqola"));
+    setWindowTitle(i18nc("@title:window", "What's new in %1", QCoreApplication::applicationName()));
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
 
