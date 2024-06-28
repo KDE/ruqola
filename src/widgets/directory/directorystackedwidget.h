@@ -27,6 +27,11 @@ public:
 
     [[nodiscard]] DirectoryNotAuthorizedWidget *directoryNotAutorizedWidget() const;
 
+    void slotJoin();
+
+Q_SIGNALS:
+    void updateJoinButton(bool status);
+
 private:
     DirectoryWidget *const mDirectoryWidget;
     DirectoryNotAuthorizedWidget *const mDirectoryNotAutorizedWidget;

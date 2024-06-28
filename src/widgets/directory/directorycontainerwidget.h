@@ -20,6 +20,11 @@ public:
 
     void fill();
 
+    void slotJoin();
+
+Q_SIGNALS:
+    void updateJoinButton(bool status);
+
 private:
     DirectoryStackedWidget *const mDirectoryStackedWidget;
 };

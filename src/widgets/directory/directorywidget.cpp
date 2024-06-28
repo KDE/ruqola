@@ -49,6 +49,11 @@ DirectoryWidget::DirectoryWidget(RocketChatAccount *account, DirectoryType type,
         break;
     }
     mTreeView->setModel(mProxyModelModel);
+
+    connect(mTreeView->selectionModel(), &QItemSelectionModel::selectionChanged, this, [this](const QItemSelection &selected, const QItemSelection &) {
+        Q_EMIT updateJoinButton(!selected.isEmpty());
+    });
+
     connect(mTreeView, &QTreeView::activated, this, [this](const QModelIndex &index) {
         if (index.isValid()) {
             const QModelIndex i = mProxyModelModel->mapToSource(index);
@@ -226,6 +231,14 @@ void DirectoryWidget::showEvent(QShowEvent *event)
 DirectoryWidget::DirectoryType DirectoryWidget::type() const
 {
     return mType;
+}
+
+void DirectoryWidget::slotJoin()
+{
+    const QModelIndex initialIndex = mTreeView->selectionModel()->currentIndex();
+    if (initialIndex.isValid()) {
+        slotOpen(initialIndex);
+    }
 }
 
 #include "moc_directorywidget.cpp"

@@ -37,6 +37,8 @@ DirectoryContainerWidget::DirectoryContainerWidget(RocketChatAccount *account, D
     case DirectoryWidget::DirectoryType::Unknown:
         break;
     }
+
+    connect(mDirectoryStackedWidget, &DirectoryStackedWidget::updateJoinButton, this, &DirectoryContainerWidget::updateJoinButton);
 }
 
 DirectoryContainerWidget::~DirectoryContainerWidget() = default;
@@ -44,6 +46,11 @@ DirectoryContainerWidget::~DirectoryContainerWidget() = default;
 void DirectoryContainerWidget::fill()
 {
     mDirectoryStackedWidget->fillDirectory();
+}
+
+void DirectoryContainerWidget::slotJoin()
+{
+    mDirectoryStackedWidget->slotJoin();
 }
 
 #include "moc_directorycontainerwidget.cpp"

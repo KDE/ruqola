@@ -13,6 +13,7 @@
 #include <KSharedConfig>
 #include <KWindowConfig>
 #include <QDialogButtonBox>
+#include <QPushButton>
 #include <QVBoxLayout>
 #include <QWindow>
 
@@ -51,6 +52,24 @@ DirectoryDialog::DirectoryDialog(RocketChatAccount *account, DirectoryWidget::Di
     connect(button, &QDialogButtonBox::rejected, this, &DirectoryDialog::reject);
     connect(button, &QDialogButtonBox::accepted, this, &DirectoryDialog::accept);
 
+    auto openButton = new QPushButton(this);
+    button->addButton(openButton, QDialogButtonBox::ActionRole);
+    openButton->setEnabled(false);
+    switch (type) {
+    case DirectoryWidget::DirectoryType::Room:
+    case DirectoryWidget::DirectoryType::Team:
+        openButton->setText(i18nc("@action:button", "Open"));
+        break;
+    case DirectoryWidget::DirectoryType::User:
+        openButton->setText(i18nc("@action:button", "Open Private Message"));
+        break;
+    case DirectoryWidget::DirectoryType::Unknown:
+        Q_UNREACHABLE();
+        break;
+    }
+    connect(openButton, &QPushButton::clicked, mDirectoryContainerWidget, &DirectoryContainerWidget::slotJoin);
+
+    connect(mDirectoryContainerWidget, &DirectoryContainerWidget::updateJoinButton, openButton, &QPushButton::setEnabled);
     readConfig();
     setAttribute(Qt::WA_DeleteOnClose);
 }

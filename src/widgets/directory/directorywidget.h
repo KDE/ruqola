@@ -28,6 +28,10 @@ public:
 
     [[nodiscard]] DirectoryType type() const;
 
+    void slotJoin();
+Q_SIGNALS:
+    void updateJoinButton(bool status);
+
 protected:
     void showEvent(QShowEvent *event) override;
     void updateLabel() override;

@@ -20,6 +20,9 @@ public:
 
     void fill();
 
+Q_SIGNALS:
+    void updateJoinButton(bool status);
+
 private:
     LIBRUQOLAWIDGETS_NO_EXPORT void readConfig();
     LIBRUQOLAWIDGETS_NO_EXPORT void writeConfig();

@@ -18,6 +18,7 @@ DirectoryStackedWidget::DirectoryStackedWidget(RocketChatAccount *account, Direc
     addWidget(mDirectoryWidget);
     addWidget(mDirectoryNotAutorizedWidget);
     setCurrentWidget(mDirectoryWidget);
+    connect(mDirectoryWidget, &DirectoryWidget::updateJoinButton, this, &DirectoryStackedWidget::updateJoinButton);
 }
 
 DirectoryStackedWidget::~DirectoryStackedWidget() = default;
@@ -40,6 +41,11 @@ void DirectoryStackedWidget::fillDirectory()
     if (mIsAutorized) {
         mDirectoryWidget->fillDirectory();
     }
+}
+
+void DirectoryStackedWidget::slotJoin()
+{
+    mDirectoryWidget->slotJoin();
 }
 
 DirectoryWidget *DirectoryStackedWidget::directoryWidget() const
