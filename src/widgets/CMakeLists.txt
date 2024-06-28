@@ -476,8 +476,6 @@ target_sources(libruqolawidgets PRIVATE
     discussions/discussion/listdiscussiondelegate.h
     directory/directorydialog.cpp
     directory/directorydialog.h
-    directory/directorytabwidget.cpp
-    directory/directorytabwidget.h
     directory/directorywidget.cpp
     directory/directorywidget.h
 

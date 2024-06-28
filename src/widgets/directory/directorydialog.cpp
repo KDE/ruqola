@@ -6,7 +6,6 @@
 
 #include "directorydialog.h"
 #include "directorycontainerwidget.h"
-#include "directorytabwidget.h"
 #include "rocketchataccount.h"
 
 #include <KConfigGroup>
@@ -29,7 +28,7 @@ DirectoryDialog::DirectoryDialog(RocketChatAccount *account, DirectoryWidget::Di
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
 
-    mDirectoryContainerWidget->setObjectName(QStringLiteral("mDirectoryTabWidget"));
+    mDirectoryContainerWidget->setObjectName(QStringLiteral("mDirectoryContainerWidget"));
     mainLayout->addWidget(mDirectoryContainerWidget);
 
     auto button = new QDialogButtonBox(QDialogButtonBox::Close, this);
