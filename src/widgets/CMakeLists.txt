@@ -1007,6 +1007,7 @@ target_link_libraries(libruqolawidgets
     KF6::Codecs
     librocketchatrestapi-qt
     libruqolacore
+    KF6::IconWidgets
 )
 
 if(HAVE_TEXT_TRANSLATOR)
