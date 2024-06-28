@@ -24,7 +24,21 @@ DirectoryDialog::DirectoryDialog(RocketChatAccount *account, DirectoryWidget::Di
     : QDialog(parent)
     , mDirectoryContainerWidget(new DirectoryContainerWidget(account, type, this))
 {
-    setWindowTitle(i18nc("@title:window", "Directory - %1", account ? account->accountName() : QStringLiteral("account")));
+    switch (type) {
+    case DirectoryWidget::DirectoryType::Room:
+        setWindowTitle(i18nc("@title:window", "Join Room - %1", account ? account->accountName() : QStringLiteral("account")));
+        break;
+    case DirectoryWidget::DirectoryType::User:
+        setWindowTitle(i18nc("@title:window", "Open Private Conversation - %1", account ? account->accountName() : QStringLiteral("account")));
+        break;
+    case DirectoryWidget::DirectoryType::Team:
+        setWindowTitle(i18nc("@title:window", "Join Team - %1", account ? account->accountName() : QStringLiteral("account")));
+        break;
+    case DirectoryWidget::DirectoryType::Unknown:
+        Q_UNREACHABLE();
+        break;
+    }
+
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
 
