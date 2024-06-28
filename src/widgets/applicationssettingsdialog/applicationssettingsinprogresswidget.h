@@ -6,10 +6,9 @@
 
 #pragma once
 #include "libruqolawidgets_private_export.h"
-#include <KPixmapSequence>
 #include <QWidget>
 class QLabel;
-class QTimer;
+class QProgressBar;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT ApplicationsSettingsInProgressWidget : public QWidget
 {
     Q_OBJECT
@@ -18,11 +17,6 @@ public:
     ~ApplicationsSettingsInProgressWidget() override;
 
 private:
-    LIBRUQOLAWIDGETS_NO_EXPORT void slotTimerDone();
-    LIBRUQOLAWIDGETS_NO_EXPORT void startAnimation();
-    LIBRUQOLAWIDGETS_NO_EXPORT void stopAnimation();
-    int mProgressCount = 0;
-    KPixmapSequence mProgressPix;
     QLabel *const mLabel;
-    QTimer *const mProgressTimer;
+    QProgressBar *const mProgressBar;
 };
