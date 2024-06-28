@@ -34,9 +34,10 @@ ApplicationsSettingsWidget::ApplicationsSettingsWidget(RocketChatAccount *accoun
     mStackedWidget->addWidget(mApplicationsSettingsInProgressWidget);
 
     auto widgetLayout = new QVBoxLayout(mWidgetListView);
-    widgetLayout->setObjectName("mainLayout"_L1);
+    widgetLayout->setObjectName("widgetLayout"_L1);
     widgetLayout->setContentsMargins({});
 
+    mWidgetListView->setObjectName("mWidgetListView"_L1);
     mStackedWidget->addWidget(mWidgetListView);
 
     mApplicationsSettingsSearchWidget->setObjectName("mApplicationsSettingsSearchWidget"_L1);
