@@ -16,3 +16,5 @@ ApplicationsSettingsInProgressWidget::ApplicationsSettingsInProgressWidget(QWidg
 }
 
 ApplicationsSettingsInProgressWidget::~ApplicationsSettingsInProgressWidget() = default;
+
+#include "moc_applicationssettingsinprogresswidget.cpp"
