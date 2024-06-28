@@ -58,7 +58,7 @@ DirectoryDialog::DirectoryDialog(RocketChatAccount *account, DirectoryWidget::Di
     switch (type) {
     case DirectoryWidget::DirectoryType::Room:
     case DirectoryWidget::DirectoryType::Team:
-        openButton->setText(i18nc("@action:button", "Open"));
+        openButton->setText(i18nc("@action:button", "Join"));
         break;
     case DirectoryWidget::DirectoryType::User:
         openButton->setText(i18nc("@action:button", "Open Private Message"));
