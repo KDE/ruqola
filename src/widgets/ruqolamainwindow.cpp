@@ -506,9 +506,17 @@ void RuqolaMainWindow::setupActions()
     ac->addAction(QStringLiteral("administrator_server_settings"), mApplications);
     mAdministrationMenu->addAction(mApplications);
 
-    mDirectory = new QAction(i18nc("Action which allows to search room/user/team", "Directory…"), this);
-    connect(mDirectory, &QAction::triggered, this, &RuqolaMainWindow::slotJoinRoom);
-    ac->addAction(QStringLiteral("directory"), mDirectory);
+    mJoinRoom = new QAction(i18nc("Action which allows to search room", "Join Room…"), this);
+    connect(mJoinRoom, &QAction::triggered, this, &RuqolaMainWindow::slotJoinRoom);
+    ac->addAction(QStringLiteral("join_room"), mJoinRoom);
+
+    mJoinTeam = new QAction(i18nc("Action which allows to search team", "Join Team…"), this);
+    connect(mJoinTeam, &QAction::triggered, this, &RuqolaMainWindow::slotJoinTeam);
+    ac->addAction(QStringLiteral("join_team"), mJoinTeam);
+
+    mOpenPrivateConversation = new QAction(i18nc("Action which allows to open private conversation (direct user)", "Open Private Conversation…"), this);
+    connect(mOpenPrivateConversation, &QAction::triggered, this, &RuqolaMainWindow::slotOpenPrivateChannel);
+    ac->addAction(QStringLiteral("open_private_conversation"), mOpenPrivateConversation);
 
     // Actions to navigate through the different pages
     QList<QKeySequence> nextShortcut;
@@ -876,7 +884,9 @@ void RuqolaMainWindow::slotLoginPageActivated(bool loginPageActivated)
     mContainerStatusInfo->setEnabled(!loginPageActivated);
     mCreateDiscussion->setEnabled(!loginPageActivated);
     mCreateTeam->setEnabled(!loginPageActivated && canCreateTeams());
-    mDirectory->setEnabled(!loginPageActivated);
+    mJoinRoom->setEnabled(!loginPageActivated);
+    mOpenPrivateConversation->setEnabled(!loginPageActivated);
+    mJoinTeam->setEnabled(!loginPageActivated);
     mNextUnreadChannel->setEnabled(!loginPageActivated);
     mShowLog->setEnabled(!loginPageActivated);
     mShowRocketChatServerInfo->setVisible(!loginPageActivated && hasBannerInfo());

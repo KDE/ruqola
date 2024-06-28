@@ -1,5 +1,5 @@
 <!DOCTYPE gui SYSTEM "kpartgui.dtd">
-<gui name="ruqola" version="51">
+<gui name="ruqola" version="52">
  <MenuBar>
   <Menu name="file" >
    <Action name="add_server" />
@@ -14,13 +14,15 @@
    <Separator/>
    <Action name="administration" />
    <Separator/>
-   <Action name="directory" />
-   <Separator/>
    <Action name="logout" />
    <Separator/>
   </Menu>
   <Menu name="channel" >
    <text>Channel</text>
+   <Action name="join_room" />
+   <Action name="join_team" />
+   <Action name="open_private_conversation" />
+   <Separator/>
    <Action name="next_unread_channel" />
    <Separator/>
    <Action name="create_new_channel" />

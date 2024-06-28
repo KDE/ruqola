@@ -137,7 +137,9 @@ private:
     QAction *mApplications = nullptr;
     QAction *mCreateDiscussion = nullptr;
     QAction *mCreateTeam = nullptr;
-    QAction *mDirectory = nullptr;
+    QAction *mJoinRoom = nullptr;
+    QAction *mJoinTeam = nullptr;
+    QAction *mOpenPrivateConversation = nullptr;
     QAction *mNextTab = nullptr;
     QAction *mPreviewTab = nullptr;
     ServerMenu *mServerMenu = nullptr;
