@@ -543,6 +543,7 @@ public:
     void loadAppMarketPlace();
     void loadAppCategories();
 
+    [[nodiscard]] bool appMarketPlaceLoaded() const;
 Q_SIGNALS:
     void roomRemoved(const QByteArray &roomId);
     void disabledTotpValid(bool checked);
@@ -611,6 +612,7 @@ Q_SIGNALS:
     void updateMessageFailed(const QString &str);
     void wsClosedSocketError();
     void activitiesChanged();
+    void appsMarkPlaceLoadDone();
 
 private:
     Q_DISABLE_COPY(RocketChatAccount)

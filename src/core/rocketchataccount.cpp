@@ -3208,6 +3208,11 @@ bool RocketChatAccount::allowCustomStatusMessage() const
     return mRuqolaServerConfig->allowCustomStatusMessage();
 }
 
+bool RocketChatAccount::appMarketPlaceLoaded() const
+{
+    return mAppsMarketPlaceModel->wasFilled();
+}
+
 void RocketChatAccount::loadAppCategories()
 {
     if (mAppsCategoriesModel->wasFilled()) {
@@ -3242,6 +3247,7 @@ void RocketChatAccount::loadAppCategories()
 void RocketChatAccount::loadAppMarketPlace()
 {
     if (mAppsMarketPlaceModel->wasFilled()) {
+        Q_EMIT appsMarkPlaceLoadDone();
         return;
     }
     auto job = new RocketChatRestApi::AppMarketPlaceJob(this);
@@ -3263,6 +3269,7 @@ void RocketChatAccount::loadAppMarketPlace()
         // qDebug() << " obj************ " << replyArray;
         // qDebug() << " count ***** " << replyArray.count();
         mAppsMarketPlaceModel->setAppsCategories(listAppsMarketPlaceInfo);
+        Q_EMIT appsMarkPlaceLoadDone();
     });
     if (!job->start()) {
         qCWarning(RUQOLA_LOG) << "Impossible to start AppMarketPlaceJob";

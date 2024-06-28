@@ -11,6 +11,8 @@
 class RocketChatAccount;
 class ApplicationsSettingsSearchWidget;
 class ApplicationsSettingsListView;
+class QStackedWidget;
+class ApplicationsSettingsInProgressWidget;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT ApplicationsSettingsWidget : public QWidget
 {
     Q_OBJECT
@@ -24,4 +26,7 @@ private:
     RocketChatAccount *const mCurrentRocketChatAccount;
     ApplicationsSettingsSearchWidget *const mApplicationsSettingsSearchWidget;
     ApplicationsSettingsListView *const mApplicationsSettingsListView;
+    ApplicationsSettingsInProgressWidget *const mApplicationsSettingsInProgressWidget;
+    QStackedWidget *const mStackedWidget;
+    QWidget *const mWidgetListView;
 };
