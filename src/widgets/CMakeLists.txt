@@ -1,7 +1,6 @@
 # SPDX-FileCopyrightText: 2020-2024 Laurent Montel <montel@kde.org>
 # SPDX-License-Identifier: BSD-3-Clause
-add_library(libruqolawidgets
-    whatsnew/whatsnewtranslations.h whatsnew/whatsnewtranslations.cpp)
+add_library(libruqolawidgets)
 
 if(TARGET KF6::UserFeedbackWidgets)
     target_sources(libruqolawidgets PRIVATE
@@ -820,6 +819,8 @@ target_sources(libruqolawidgets PRIVATE
     whatsnew/whatsnewtranslationbase.cpp
     whatsnew/whatsnewinfo.h
     whatsnew/whatsnewinfo.cpp
+    whatsnew/whatsnewtranslations.h
+    whatsnew/whatsnewtranslations.cpp
 
     explorepermissionsdialog/explorepermissionsdialog.h
     explorepermissionsdialog/explorepermissionsdialog.cpp
@@ -921,6 +922,8 @@ target_sources(libruqolawidgets PRIVATE
     applicationssettingsdialog/applicationssettingsdescriptionwidget.cpp
     applicationssettingsdialog/applicationssettingssortingcombobox.cpp
     applicationssettingsdialog/applicationssettingssortingcombobox.h
+    applicationssettingsdialog/applicationssettingsinprogresswidget.h
+    applicationssettingsdialog/applicationssettingsinprogresswidget.cpp
 )
 
 if(HAVE_TEXT_AUTOCORRECTION_WIDGETS)
