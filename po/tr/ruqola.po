@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-06-28 00:38+0000\n"
-"PO-Revision-Date: 2024-06-22 00:50+0300\n"
+"POT-Creation-Date: 2024-06-29 00:39+0000\n"
+"PO-Revision-Date: 2024-06-28 14:09+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -908,7 +908,6 @@ msgstr "Sahibi"
 #: widgets/administratordialog/administratorwidget.cpp:53
 #: widgets/administratordialog/roles/rolescopecombobox.cpp:13
 #: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:18
-#: widgets/directory/directorytabwidget.cpp:20
 #, kde-format
 msgid "Rooms"
 msgstr "Odalar"
@@ -1129,7 +1128,6 @@ msgstr "Sık Kullanılanlar"
 
 #: core/model/roommodel.cpp:535
 #: widgets/administratordialog/rooms/administratorroomsselectroomtypewidget.cpp:18
-#: widgets/directory/directorytabwidget.cpp:22
 #, kde-format
 msgid "Teams"
 msgstr "Takımlar"
@@ -1489,7 +1487,7 @@ msgid "Public Team"
 msgstr "Genel Takım"
 
 #. i18n: ectx: Menu (channel)
-#: core/roominfo/roominfo.cpp:118 widgets/ruqolaui.rc:23
+#: core/roominfo/roominfo.cpp:118 widgets/ruqolaui.rc:21
 #, kde-format
 msgid "Channel"
 msgstr "Kanal"
@@ -2449,7 +2447,6 @@ msgstr "Özel Emojiler"
 
 #: widgets/administratordialog/administratorwidget.cpp:65
 #: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:19
-#: widgets/directory/directorytabwidget.cpp:21
 #, kde-format
 msgid "Users"
 msgstr "Kullanıcılar"
@@ -3085,7 +3082,7 @@ msgstr "Roldeki Kullanıcılar"
 #: widgets/administratordialog/users/administratoruserswidget.cpp:48
 #: widgets/dialogs/addusersinroomwidget.cpp:23
 #: widgets/directory/directorywidget.cpp:39
-#: widgets/directory/directorywidget.cpp:206
+#: widgets/directory/directorywidget.cpp:211
 #: widgets/room/usersinroomwidget.cpp:40
 #, kde-format
 msgid "Search users…"
@@ -3117,7 +3114,7 @@ msgstr "Kullanıcı bulunamadı"
 
 #: widgets/administratordialog/roles/usersinrolewidget.cpp:124
 #: widgets/administratordialog/users/administratoruserswidget.cpp:301
-#: widgets/directory/directorywidget.cpp:185
+#: widgets/directory/directorywidget.cpp:190
 #, kde-format
 msgid "%1 user (Total: %2)"
 msgid_plural "%1 users (Total: %2)"
@@ -3219,7 +3216,7 @@ msgid "No room found"
 msgstr "Oda bulunamadı"
 
 #: widgets/administratordialog/rooms/administratorroomswidget.cpp:81
-#: widgets/directory/directorywidget.cpp:182
+#: widgets/directory/directorywidget.cpp:187
 #, kde-format
 msgid "%1 room (Total: %2)"
 msgid_plural "%1 rooms (Total: %2)"
@@ -6258,6 +6255,11 @@ msgctxt "@title:window"
 msgid "Applications"
 msgstr "Uygulamalar"
 
+#: widgets/applicationssettingsdialog/applicationssettingsinprogresswidget.cpp:15
+#, kde-format
+msgid "Loading in progress..."
+msgstr ""
+
 #: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:58
 #, kde-format
 msgctxt "@action"
@@ -6461,7 +6463,7 @@ msgid "Username or Email:"
 msgstr "Kullanıcı adı veya e-posta:"
 
 #: widgets/common/authenticationloginwidget.cpp:155
-#: widgets/ruqolamainwindow.cpp:923
+#: widgets/ruqolamainwindow.cpp:933
 #, kde-format
 msgid ""
 "We have sent you an email to confirm your registration.\n"
@@ -6471,7 +6473,7 @@ msgstr ""
 "Kısa bir süre içinde bir e-posta almazsanız yeniden deneyin."
 
 #: widgets/common/authenticationloginwidget.cpp:156
-#: widgets/ruqolamainwindow.cpp:924
+#: widgets/ruqolamainwindow.cpp:934
 #, kde-format
 msgid "Register New User"
 msgstr "Yeni Kullanıcı Kaydet"
@@ -7631,11 +7633,40 @@ msgstr "Görseli Karşıya Yükle"
 msgid "File Name:"
 msgstr "Dosya adı:"
 
-#: widgets/directory/directorydialog.cpp:28
+#: widgets/directory/directorydialog.cpp:30
 #, kde-format
 msgctxt "@title:window"
-msgid "Directory - %1"
-msgstr "Dizin — %1"
+msgid "Join Room - %1"
+msgstr ""
+
+#: widgets/directory/directorydialog.cpp:33
+#, fuzzy, kde-format
+#| msgctxt "@action"
+#| msgid "Start a Private Conversation"
+msgctxt "@title:window"
+msgid "Open Private Conversation - %1"
+msgstr "Özel Bir Konuşma Başlat"
+
+#: widgets/directory/directorydialog.cpp:36
+#, fuzzy, kde-format
+#| msgid "Joined this Team"
+msgctxt "@title:window"
+msgid "Join Team - %1"
+msgstr "Bu takıma katıldı"
+
+#: widgets/directory/directorydialog.cpp:61
+#, fuzzy, kde-format
+#| msgid "Join"
+msgctxt "@action:button"
+msgid "Join"
+msgstr "Katıl"
+
+#: widgets/directory/directorydialog.cpp:64
+#, fuzzy, kde-format
+#| msgid "Private Messages"
+msgctxt "@action:button"
+msgid "Open Private Message"
+msgstr "Özel İletiler"
 
 #: widgets/directory/directorynotauthorizedwidget.cpp:19
 #, kde-format
@@ -7648,39 +7679,39 @@ msgid "Search channels…"
 msgstr "Kanallar ara…"
 
 #: widgets/directory/directorywidget.cpp:44
-#: widgets/directory/directorywidget.cpp:209
+#: widgets/directory/directorywidget.cpp:214
 #, kde-format
 msgid "Search teams…"
 msgstr "Takımlar ara…"
 
-#: widgets/directory/directorywidget.cpp:70
+#: widgets/directory/directorywidget.cpp:75
 #, kde-format
 msgid "Open…"
 msgstr "Aç…"
 
-#: widgets/directory/directorywidget.cpp:166
+#: widgets/directory/directorywidget.cpp:171
 #, kde-format
 msgid "No Room found"
 msgstr "Oda bulunamadı"
 
-#: widgets/directory/directorywidget.cpp:168
+#: widgets/directory/directorywidget.cpp:173
 #, kde-format
 msgid "No User found"
 msgstr "Kullanıcı bulunamadı"
 
-#: widgets/directory/directorywidget.cpp:170
+#: widgets/directory/directorywidget.cpp:175
 #, kde-format
 msgid "No Team found"
 msgstr "Takım bulunamadı"
 
-#: widgets/directory/directorywidget.cpp:188
+#: widgets/directory/directorywidget.cpp:193
 #, kde-format
 msgid "%1 team (Total: %2)"
 msgid_plural "%1 teams (Total: %2)"
 msgstr[0] "%1 takım (Toplam: %2)"
 msgstr[1] "%1 takım (Toplam: %2)"
 
-#: widgets/directory/directorywidget.cpp:203
+#: widgets/directory/directorywidget.cpp:208
 #: widgets/misc/joinedchannelcompletionlineeditbase.cpp:25
 #: widgets/teams/addteamroomcompletionlineedit.cpp:32
 #, kde-format
@@ -9698,117 +9729,132 @@ msgstr "Uygulamalar…"
 
 #: widgets/ruqolamainwindow.cpp:509
 #, kde-format
-msgctxt "Action which allows to search room/user/team"
-msgid "Directory…"
-msgstr "Dizin…"
+msgctxt "Action which allows to search room"
+msgid "Join Room…"
+msgstr ""
 
-#: widgets/ruqolamainwindow.cpp:530
+#: widgets/ruqolamainwindow.cpp:513
+#, fuzzy, kde-format
+#| msgid "Joined this Team"
+msgctxt "Action which allows to search team"
+msgid "Join Team…"
+msgstr "Bu takıma katıldı"
+
+#: widgets/ruqolamainwindow.cpp:517
+#, fuzzy, kde-format
+#| msgctxt "@action"
+#| msgid "Start a Private Conversation"
+msgctxt "Action which allows to open private conversation (direct user)"
+msgid "Open Private Conversation…"
+msgstr "Özel Bir Konuşma Başlat"
+
+#: widgets/ruqolamainwindow.cpp:538
 #, kde-format
 msgid "&Next Server"
 msgstr "&Sonraki Sunucu"
 
-#: widgets/ruqolamainwindow.cpp:535
+#: widgets/ruqolamainwindow.cpp:543
 #, kde-format
 msgid "&Previous Server"
 msgstr "&Önceki Sunucu"
 
-#: widgets/ruqolamainwindow.cpp:544
+#: widgets/ruqolamainwindow.cpp:552
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Status:"
 msgstr "Durum:"
 
-#: widgets/ruqolamainwindow.cpp:557
+#: widgets/ruqolamainwindow.cpp:565
 #, kde-format
 msgctxt "@action"
 msgid "Previous Selected Channel"
 msgstr "Önceki Seçili Kanal"
 
-#: widgets/ruqolamainwindow.cpp:564
+#: widgets/ruqolamainwindow.cpp:572
 #, kde-format
 msgctxt "@action"
 msgid "Next Selected Channel"
 msgstr "Sonraki Seçili Kanal"
 
-#: widgets/ruqolamainwindow.cpp:595
+#: widgets/ruqolamainwindow.cpp:603
 #, kde-format
 msgid "Show Notify History"
 msgstr "Bildiri Geçmişini Göster"
 
-#: widgets/ruqolamainwindow.cpp:599
+#: widgets/ruqolamainwindow.cpp:607
 #, kde-format
 msgctxt "@action"
 msgid "Show RocketChat Information"
 msgstr "Rocket.Chat Bilgisini Göster"
 
-#: widgets/ruqolamainwindow.cpp:603
+#: widgets/ruqolamainwindow.cpp:611
 #, kde-format
 msgctxt "@action"
 msgid "Show Room Avatar"
 msgstr "Oda Avatarını Göster"
 
-#: widgets/ruqolamainwindow.cpp:608
+#: widgets/ruqolamainwindow.cpp:616
 #, kde-format
 msgctxt "@action"
 msgid "Show Favorite Room"
 msgstr "Sık Kullanılan Odayı Göster"
 
-#: widgets/ruqolamainwindow.cpp:613
+#: widgets/ruqolamainwindow.cpp:621
 #, kde-format
 msgid "What's new"
 msgstr "Neler yeni"
 
-#: widgets/ruqolamainwindow.cpp:617
+#: widgets/ruqolamainwindow.cpp:625
 #, kde-format
 msgid "Import Accounts"
 msgstr "Hesaplar İçe Aktar"
 
-#: widgets/ruqolamainwindow.cpp:621
+#: widgets/ruqolamainwindow.cpp:629
 #, kde-format
 msgid "Export Accounts"
 msgstr "Hesapları Dışa Aktar"
 
-#: widgets/ruqolamainwindow.cpp:638
+#: widgets/ruqolamainwindow.cpp:646
 #, kde-format
 msgctxt "@action"
 msgid "Medium"
 msgstr "Orta"
 
-#: widgets/ruqolamainwindow.cpp:646
+#: widgets/ruqolamainwindow.cpp:654
 #, kde-format
 msgctxt "@action"
 msgid "Condensed"
 msgstr "Sıkıştırılmış"
 
-#: widgets/ruqolamainwindow.cpp:655
+#: widgets/ruqolamainwindow.cpp:663
 #, kde-format
 msgctxt "@action"
 msgid "Extended"
 msgstr "Genişletilmiş"
 
-#: widgets/ruqolamainwindow.cpp:696
+#: widgets/ruqolamainwindow.cpp:704
 #, kde-format
 msgctxt "@title:window"
 msgid "Create Team"
 msgstr "Takım Oluştur"
 
-#: widgets/ruqolamainwindow.cpp:852
+#: widgets/ruqolamainwindow.cpp:860
 #, kde-format
 msgid "Impossible to open log."
 msgstr "Günlüğü açmak olanaksız."
 
-#: widgets/ruqolamainwindow.cpp:852
+#: widgets/ruqolamainwindow.cpp:860
 #, kde-format
 msgid "Show Log"
 msgstr "Günlüğü Göster"
 
-#: widgets/ruqolamainwindow.cpp:998
+#: widgets/ruqolamainwindow.cpp:1008
 #, kde-format
 msgctxt "@item:inmenu Instant message presence status"
 msgid "Status"
 msgstr "Durum"
 
-#: widgets/ruqolamainwindow.cpp:1086
+#: widgets/ruqolamainwindow.cpp:1096
 #, kde-format
 msgid ""
 "<qt>This will hide the menu bar completely. You can show it again by typing "
@@ -9817,43 +9863,43 @@ msgstr ""
 "<qt>Bu, menü çubuğunu tümüyle gizleyecektir. %1 ile yeniden "
 "gösterebilirsiniz.</qt>"
 
-#: widgets/ruqolamainwindow.cpp:1089
+#: widgets/ruqolamainwindow.cpp:1099
 #, kde-format
 msgid "Hide menu bar"
 msgstr "Menü Çubuğunu Gizle"
 
 #. i18n: ectx: Menu (windows)
-#: widgets/ruqolaui.rc:32
+#: widgets/ruqolaui.rc:34
 #, kde-format
 msgid "&Window"
 msgstr "&Pencere"
 
 #. i18n: ectx: Menu (Tools)
-#: widgets/ruqolaui.rc:37
+#: widgets/ruqolaui.rc:39
 #, kde-format
 msgid "Tools"
 msgstr "Araçlar"
 
 #. i18n: ectx: Menu (settings)
-#: widgets/ruqolaui.rc:53
+#: widgets/ruqolaui.rc:55
 #, kde-format
 msgid "&Settings"
 msgstr "Ayar&lar"
 
 #. i18n: ectx: Menu (view)
-#: widgets/ruqolaui.rc:57
+#: widgets/ruqolaui.rc:59
 #, kde-format
 msgid "View"
 msgstr "Görünüm"
 
 #. i18n: ectx: Menu (help)
-#: widgets/ruqolaui.rc:78
+#: widgets/ruqolaui.rc:80
 #, kde-format
 msgid "&Help"
 msgstr "&Yardım"
 
 #. i18n: ectx: ToolBar (mainToolBar)
-#: widgets/ruqolaui.rc:83
+#: widgets/ruqolaui.rc:85
 #, kde-format
 msgid "Main Toolbar"
 msgstr "Ana Araç Çubuğu"
@@ -10007,11 +10053,10 @@ msgid "Version:"
 msgstr "Sürüm:"
 
 #: widgets/whatsnew/whatsnewdialog.cpp:26
-#, fuzzy, kde-format
-#| msgid "What's new in %2. %1"
+#, kde-format
 msgctxt "@title:window"
 msgid "What's new in %1"
-msgstr "%2 bünyesinde neler yeni. %1"
+msgstr "Neler Yeni: %1"
 
 #: widgets/whatsnew/whatsnewmessagewidget.cpp:20
 #, kde-format
@@ -10272,10 +10317,9 @@ msgid "All Version"
 msgstr "Tüm Sürümler"
 
 #: widgets/whatsnew/whatsnewwidget.cpp:42
-#, fuzzy, kde-format
-#| msgid "Version 2.1"
+#, kde-format
 msgid "Version %1"
-msgstr "Sürüm 2.1"
+msgstr "Sürüm %1"
 
 #: widgets/whatsnew/whatsnewwidget.cpp:88
 #, kde-format
@@ -10291,6 +10335,14 @@ msgstr "Roka’nın bu sürümündeki yeni özelliklerden bazıları şunlardır
 #, kde-format
 msgid "Some bug fixing:"
 msgstr "Hata düzeltmeler"
+
+#~ msgctxt "@title:window"
+#~ msgid "Directory - %1"
+#~ msgstr "Dizin — %1"
+
+#~ msgctxt "Action which allows to search room/user/team"
+#~ msgid "Directory…"
+#~ msgstr "Dizin…"
 
 #~ msgid "Version 2.0"
 #~ msgstr "Sürüm 2.0"

@@ -5,8 +5,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-06-28 00:38+0000\n"
-"PO-Revision-Date: 2024-06-16 11:13+0200\n"
+"POT-Creation-Date: 2024-06-29 00:39+0000\n"
+"PO-Revision-Date: 2024-06-26 20:39+0200\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
 "Language-Team: French <French <kde-francophone@kde.org>>\n"
 "Language: fr\n"
@@ -178,10 +178,9 @@ msgid "Categories"
 msgstr "Catégories"
 
 #: core/apps/appsmarketplaceinfo.cpp:253
-#, fuzzy, kde-format
-#| msgid "Authentication"
+#, kde-format
 msgid "Documentation"
-msgstr "Authentification"
+msgstr "Documentation"
 
 #: core/bannerinfo/bannerinfo.cpp:47
 #, kde-format
@@ -907,7 +906,6 @@ msgstr "Appartient à"
 #: widgets/administratordialog/administratorwidget.cpp:53
 #: widgets/administratordialog/roles/rolescopecombobox.cpp:13
 #: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:18
-#: widgets/directory/directorytabwidget.cpp:20
 #, kde-format
 msgid "Rooms"
 msgstr "Salons"
@@ -1129,7 +1127,6 @@ msgstr "Favoris"
 
 #: core/model/roommodel.cpp:535
 #: widgets/administratordialog/rooms/administratorroomsselectroomtypewidget.cpp:18
-#: widgets/directory/directorytabwidget.cpp:22
 #, kde-format
 msgid "Teams"
 msgstr "Équipes"
@@ -1492,7 +1489,7 @@ msgid "Public Team"
 msgstr "Équipe publique"
 
 #. i18n: ectx: Menu (channel)
-#: core/roominfo/roominfo.cpp:118 widgets/ruqolaui.rc:23
+#: core/roominfo/roominfo.cpp:118 widgets/ruqolaui.rc:21
 #, kde-format
 msgid "Channel"
 msgstr "Canal"
@@ -1615,8 +1612,7 @@ msgid "Personal Access Token"
 msgstr "Jeton d'accès personnel"
 
 #: plugins/textplugin/sharetext/purposemenuwidget.cpp:19
-#, fuzzy, kde-format
-#| msgid "Share Text..."
+#, kde-format
 msgid "Share Text…"
 msgstr "Partager du texte..."
 
@@ -2487,7 +2483,6 @@ msgstr "Émoticônes personnalisées"
 
 #: widgets/administratordialog/administratorwidget.cpp:65
 #: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:19
-#: widgets/directory/directorytabwidget.cpp:21
 #, kde-format
 msgid "Users"
 msgstr "Utilisateurs"
@@ -2952,19 +2947,17 @@ msgstr "Rejeter tous les rapports"
 #: widgets/administratordialog/moderationconsole/moderationreportinfolistview.cpp:76
 #: widgets/notificationhistory/notificationhistorylistview.cpp:83
 #: widgets/servererrorinfohistory/servererrorinfomessagehistorylistview.cpp:50
-#, fuzzy, kde-format
-#| msgid "Copy Message"
+#, kde-format
 msgctxt "@action"
 msgid "Copy Message"
-msgstr "Copier le message"
+msgstr "Copier un message"
 
 #: widgets/administratordialog/moderationconsole/moderationreportinfolistview.cpp:87
 #: widgets/discussions/discussionlistview.cpp:68
 #: widgets/notificationhistory/notificationhistorylistview.cpp:94
 #: widgets/room/messagelistview.cpp:601
 #: widgets/servererrorinfohistory/servererrorinfomessagehistorylistview.cpp:62
-#, fuzzy, kde-format
-#| msgid "Speak Text"
+#, kde-format
 msgctxt "@action"
 msgid "Speak Text"
 msgstr "Énoncer le texte"
@@ -3129,7 +3122,7 @@ msgstr "Utilisateurs dans un rôle"
 #: widgets/administratordialog/users/administratoruserswidget.cpp:48
 #: widgets/dialogs/addusersinroomwidget.cpp:23
 #: widgets/directory/directorywidget.cpp:39
-#: widgets/directory/directorywidget.cpp:206
+#: widgets/directory/directorywidget.cpp:211
 #: widgets/room/usersinroomwidget.cpp:40
 #, kde-format
 msgid "Search users…"
@@ -3161,7 +3154,7 @@ msgstr "Aucun utilisateur trouvé"
 
 #: widgets/administratordialog/roles/usersinrolewidget.cpp:124
 #: widgets/administratordialog/users/administratoruserswidget.cpp:301
-#: widgets/directory/directorywidget.cpp:185
+#: widgets/directory/directorywidget.cpp:190
 #, kde-format
 msgid "%1 user (Total: %2)"
 msgid_plural "%1 users (Total: %2)"
@@ -3263,7 +3256,7 @@ msgid "No room found"
 msgstr "Aucun salon trouvé"
 
 #: widgets/administratordialog/rooms/administratorroomswidget.cpp:81
-#: widgets/directory/directorywidget.cpp:182
+#: widgets/directory/directorywidget.cpp:187
 #, kde-format
 msgid "%1 room (Total: %2)"
 msgid_plural "%1 rooms (Total: %2)"
@@ -6321,18 +6314,17 @@ msgid "STUN/TURN Servers"
 msgstr "Serveurs « STUN / TURN »"
 
 #: widgets/applicationssettingsdialog/applicationssettingsaskapplicationdialog.cpp:25
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Applications"
+#, kde-format
 msgctxt "@title:window"
 msgid "Ask Application"
-msgstr "Applications"
+msgstr "Demander à l'application"
 
 #: widgets/applicationssettingsdialog/applicationssettingsaskapplicationwidget.cpp:29
-#, fuzzy, kde-format
-#| msgid "Let your admin know why this app would be useful "
+#, kde-format
 msgid "Let your admin know why this app would be useful"
-msgstr "Dites à votre administrateur pourquoi cette application serait utile"
+msgstr ""
+"Veuillez informer votre administrateur pourquoi cette application serait "
+"utile"
 
 #: widgets/applicationssettingsdialog/applicationssettingsaskapplicationwidget.cpp:35
 #, kde-format
@@ -6342,7 +6334,7 @@ msgstr "Message pour l'administrateur de l'espace de travail"
 #: widgets/applicationssettingsdialog/applicationssettingsaskapplicationwidget.cpp:48
 #, kde-format
 msgid "Want to use %1"
-msgstr ""
+msgstr "Vous voulez utiliser %1"
 
 #: widgets/applicationssettingsdialog/applicationssettingsdelegate.cpp:109
 #: widgets/applicationssettingsdialog/applicationssettingspricecombobox.cpp:16
@@ -6357,32 +6349,32 @@ msgctxt "@title:window"
 msgid "Applications"
 msgstr "Applications"
 
+#: widgets/applicationssettingsdialog/applicationssettingsinprogresswidget.cpp:15
+#, kde-format
+msgid "Loading in progress..."
+msgstr ""
+
 #: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:58
-#, fuzzy, kde-format
-#| msgctxt "@action"
-#| msgid "Show Mentions…"
+#, kde-format
 msgctxt "@action"
 msgid "Show Description…"
-msgstr "Afficher les citations..."
+msgstr "Afficher une description..."
 
 #: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:64
 #, kde-format
 msgctxt "@action"
 msgid "Install"
-msgstr ""
+msgstr "Installer"
 
 #: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:68
-#, fuzzy, kde-format
-#| msgctxt "@action"
-#| msgid "Applications…"
+#, kde-format
 msgctxt "@action"
 msgid "Ask Application…"
-msgstr "Applications…"
+msgstr "Demander à une application..."
 
 #: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:75
 #: widgets/bannerinfodialog/bannerinfolistview.cpp:55
-#, fuzzy, kde-format
-#| msgid "Copy Text"
+#, kde-format
 msgctxt "@action"
 msgid "Copy Text"
 msgstr "Copier le texte"
@@ -6405,23 +6397,22 @@ msgstr "Applications payantes"
 #: widgets/applicationssettingsdialog/applicationssettingssortingcombobox.cpp:12
 #, kde-format
 msgid "A-Z"
-msgstr ""
+msgstr "A - Z"
 
 #: widgets/applicationssettingsdialog/applicationssettingssortingcombobox.cpp:13
 #, kde-format
 msgid "Z-A"
-msgstr ""
+msgstr "Z - A"
 
 #: widgets/applicationssettingsdialog/applicationssettingssortingcombobox.cpp:14
 #, kde-format
 msgid "Most recent updated"
-msgstr ""
+msgstr "Le plus récemment mis à jour"
 
 #: widgets/applicationssettingsdialog/applicationssettingssortingcombobox.cpp:15
-#, fuzzy, kde-format
-#| msgid "Last token part"
+#, kde-format
 msgid "Least recent updated"
-msgstr "Dernière partie du jeton"
+msgstr "Le moins récemment mis à jour"
 
 #: widgets/applicationssettingsdialog/applicationssettingsstatuscombobox.cpp:14
 #, kde-format
@@ -6550,8 +6541,7 @@ msgid "Sign in with %1"
 msgstr "Se connecter avec %1"
 
 #: widgets/common/authenticationloginwidget.cpp:25
-#, fuzzy, kde-format
-#| msgid "Register Account"
+#, kde-format
 msgctxt "@action:button"
 msgid "Register Account"
 msgstr "Enregistrer un compte"
@@ -6567,7 +6557,7 @@ msgid "Username or Email:"
 msgstr "Nom d'utilisateur ou courriel :"
 
 #: widgets/common/authenticationloginwidget.cpp:155
-#: widgets/ruqolamainwindow.cpp:923
+#: widgets/ruqolamainwindow.cpp:933
 #, kde-format
 msgid ""
 "We have sent you an email to confirm your registration.\n"
@@ -6578,7 +6568,7 @@ msgstr ""
 "essayer."
 
 #: widgets/common/authenticationloginwidget.cpp:156
-#: widgets/ruqolamainwindow.cpp:924
+#: widgets/ruqolamainwindow.cpp:934
 #, kde-format
 msgid "Register New User"
 msgstr "Enregistrer un nouvel utilisateur"
@@ -6799,11 +6789,10 @@ msgid "Do you want to remove this account '%1'?"
 msgstr "Voulez-vous vraiment supprimer ce compte « %1 » ?"
 
 #: widgets/configurenewserver/checknewserverurlwidget.cpp:25
-#, fuzzy, kde-format
-#| msgid "Connection"
+#, kde-format
 msgctxt "@action:button"
 msgid "Connection"
-msgstr "Connexion"
+msgstr "Se connecter"
 
 #: widgets/configurenewserver/checknewserverurlwidget.cpp:36
 #, kde-format
@@ -6918,8 +6907,7 @@ msgid "Channel Info about '%1'"
 msgstr "Informations sur le canal à propos de « %1 »"
 
 #: widgets/dialogs/channelinfoeditablewidget.cpp:42
-#, fuzzy, kde-format
-#| msgid "Delete"
+#, kde-format
 msgctxt "@action:button"
 msgid "Delete"
 msgstr "Supprimer"
@@ -7406,8 +7394,7 @@ msgid "Max number of uses"
 msgstr "Nombre maximal d'utilisations"
 
 #: widgets/dialogs/inviteuserswidget.cpp:77
-#, fuzzy, kde-format
-#| msgid "Generate New Link"
+#, kde-format
 msgctxt "@action:button"
 msgid "Generate New Link"
 msgstr "Générer un nouveau lien"
@@ -7661,15 +7648,13 @@ msgid "Zoom:"
 msgstr "Zoom :"
 
 #: widgets/dialogs/showimagewidget.cpp:283
-#, fuzzy, kde-format
-#| msgid "100%"
+#, kde-format
 msgctxt "@action:button"
 msgid "100%"
 msgstr "100 %"
 
 #: widgets/dialogs/showimagewidget.cpp:290
-#, fuzzy, kde-format
-#| msgid "Fit to View"
+#, kde-format
 msgctxt "@action:button"
 msgid "Fit to View"
 msgstr "Adapter à l'affichage"
@@ -7746,11 +7731,39 @@ msgstr "Envoyer une image"
 msgid "File Name:"
 msgstr "Nom du fichier :"
 
-#: widgets/directory/directorydialog.cpp:28
+#: widgets/directory/directorydialog.cpp:30
 #, kde-format
 msgctxt "@title:window"
-msgid "Directory - %1"
-msgstr "Dossier - %1"
+msgid "Join Room - %1"
+msgstr ""
+
+#: widgets/directory/directorydialog.cpp:33
+#, fuzzy, kde-format
+#| msgid "Open Conversation with \"%1\"?"
+msgctxt "@title:window"
+msgid "Open Private Conversation - %1"
+msgstr "Ouvrir une conversation avec « %1 » ?"
+
+#: widgets/directory/directorydialog.cpp:36
+#, fuzzy, kde-format
+#| msgid "Joined this Team"
+msgctxt "@title:window"
+msgid "Join Team - %1"
+msgstr "A rejoint ce groupe"
+
+#: widgets/directory/directorydialog.cpp:61
+#, fuzzy, kde-format
+#| msgid "Join"
+msgctxt "@action:button"
+msgid "Join"
+msgstr "Rejoindre"
+
+#: widgets/directory/directorydialog.cpp:64
+#, fuzzy, kde-format
+#| msgid "Private Messages"
+msgctxt "@action:button"
+msgid "Open Private Message"
+msgstr "Messages privés"
 
 #: widgets/directory/directorynotauthorizedwidget.cpp:19
 #, kde-format
@@ -7763,39 +7776,39 @@ msgid "Search channels…"
 msgstr "Rechercher des canaux..."
 
 #: widgets/directory/directorywidget.cpp:44
-#: widgets/directory/directorywidget.cpp:209
+#: widgets/directory/directorywidget.cpp:214
 #, kde-format
 msgid "Search teams…"
 msgstr "Rechercher des équipes..."
 
-#: widgets/directory/directorywidget.cpp:70
+#: widgets/directory/directorywidget.cpp:75
 #, kde-format
 msgid "Open…"
 msgstr "Ouvrir…"
 
-#: widgets/directory/directorywidget.cpp:166
+#: widgets/directory/directorywidget.cpp:171
 #, kde-format
 msgid "No Room found"
 msgstr "Aucun salon trouvé"
 
-#: widgets/directory/directorywidget.cpp:168
+#: widgets/directory/directorywidget.cpp:173
 #, kde-format
 msgid "No User found"
 msgstr "Aucun utilisateur trouvé"
 
-#: widgets/directory/directorywidget.cpp:170
+#: widgets/directory/directorywidget.cpp:175
 #, kde-format
 msgid "No Team found"
 msgstr "Aucune équipe trouvée"
 
-#: widgets/directory/directorywidget.cpp:188
+#: widgets/directory/directorywidget.cpp:193
 #, kde-format
 msgid "%1 team (Total: %2)"
 msgid_plural "%1 teams (Total: %2)"
 msgstr[0] "Équipe %1 (Total : %2)"
 msgstr[1] "%1 équipes (Total : %2)"
 
-#: widgets/directory/directorywidget.cpp:203
+#: widgets/directory/directorywidget.cpp:208
 #: widgets/misc/joinedchannelcompletionlineeditbase.cpp:25
 #: widgets/teams/addteamroomcompletionlineedit.cpp:32
 #, kde-format
@@ -7875,9 +7888,7 @@ msgstr ""
 
 #: widgets/encryption/e2edecodeencryptionkeyfailedwidget.cpp:19
 #: widgets/encryption/e2edecodeencryptionkeywidget.cpp:19
-#, fuzzy, kde-format
-#| msgctxt "@action"
-#| msgid "Decrypte Encryption Key"
+#, kde-format
 msgctxt "@action"
 msgid "Decrypt Encryption Key"
 msgstr "Déchiffrer la clé de chiffrement"
@@ -8055,11 +8066,10 @@ msgid "Import Accounts"
 msgstr "Importer des comptes"
 
 #: widgets/loginwidget/ruqolaloginwidget.cpp:25
-#, fuzzy, kde-format
-#| msgid "Login"
+#, kde-format
 msgctxt "@action:button"
 msgid "Login"
-msgstr "Connexion"
+msgstr "Se connecter"
 
 #: widgets/loginwidget/ruqolaloginwidget.cpp:46
 #, kde-format
@@ -8300,8 +8310,7 @@ msgid "Confirm Password:"
 msgstr "Confirmer le mot de passe :"
 
 #: widgets/misc/passwordlineeditwidget.cpp:20
-#, fuzzy, kde-format
-#| msgid "Reset Password"
+#, kde-format
 msgctxt "@action:button"
 msgid "Reset Password"
 msgstr "Ré-initialiser le mot de passe"
@@ -8327,15 +8336,13 @@ msgid "Enter code"
 msgstr "Saisissez le code"
 
 #: widgets/misc/twoauthenticationpasswordwidget.cpp:30
-#, fuzzy, kde-format
-#| msgid "Send new code"
+#, kde-format
 msgctxt "@action:button"
 msgid "Send new code"
-msgstr "Envoyer le nouveau code"
+msgstr "Envoyer un nouveau code"
 
 #: widgets/myaccount/myaccount2e2configurewidget.cpp:22
-#, fuzzy, kde-format
-#| msgid "Reset E2E Key"
+#, kde-format
 msgctxt "@action:button"
 msgid "Reset E2E Key"
 msgstr "Ré-initialiser la clé « E2E »"
@@ -8403,18 +8410,16 @@ msgstr "Saisissez un code d'authentification"
 
 #: widgets/myaccount/myaccount2fadisabletotpwidget.cpp:41
 #: widgets/myaccount/myaccount2fatotpwidget.cpp:57
-#, fuzzy, kde-format
-#| msgid "Verify"
+#, kde-format
 msgctxt "@action:button"
 msgid "Verify"
 msgstr "Vérifier"
 
 #: widgets/myaccount/myaccount2fadisabletotpwidget.cpp:50
-#, fuzzy, kde-format
-#| msgid "Regenerate Code"
+#, kde-format
 msgctxt "@action:button"
 msgid "Regenerate Code"
-msgstr "Re-générer un code"
+msgstr "Générer un code à nouveau"
 
 #: widgets/myaccount/myaccount2fadisabletotpwidget.cpp:67
 #: widgets/myaccount/myaccount2fatotpwidget.cpp:88
@@ -8693,15 +8698,13 @@ msgid "Notifications sound volume:"
 msgstr "Volume sonore des notifications :"
 
 #: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:179
-#, fuzzy, kde-format
-#| msgid "Download my Data (HTML)"
+#, kde-format
 msgctxt "@action:button"
 msgid "Download my Data (HTML)"
 msgstr "Télécharger mes données (HTML)"
 
 #: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:186
-#, fuzzy, kde-format
-#| msgid "Export my Data (JSON)"
+#, kde-format
 msgctxt "@action:button"
 msgid "Export my Data (JSON)"
 msgstr "Exporter mes données (JSON)"
@@ -8783,18 +8786,16 @@ msgid "Your administrator has disabled the changing of status messages."
 msgstr "Votre administrateur a désactivé la modification des messages d'état."
 
 #: widgets/myaccount/myaccountprofileconfigurewidget.cpp:38
-#, fuzzy, kde-format
-#| msgid "Delete my Account"
+#, kde-format
 msgctxt "@action:button"
 msgid "Delete my Account"
 msgstr "Supprimer mon compte"
 
 #: widgets/myaccount/myaccountprofileconfigurewidget.cpp:39
-#, fuzzy, kde-format
-#| msgid "Logout From Other Logged In Locations"
+#, kde-format
 msgctxt "@action:button"
 msgid "Logout From Other Logged In Locations"
-msgstr "Se déconnecter des autres emplacements de connexion."
+msgstr "Se déconnecter des autres emplacements de connexion"
 
 #: widgets/myaccount/myaccountprofileconfigurewidget.cpp:87
 #, kde-format
@@ -8802,8 +8803,7 @@ msgid "Status text:"
 msgstr "Texte d'état :"
 
 #: widgets/myaccount/myaccountprofileconfigurewidget.cpp:125
-#, fuzzy, kde-format
-#| msgid "Do you really delete your account ?"
+#, kde-format
 msgid "Do you really want to delete your account?"
 msgstr "Voulez-vous vraiment supprimer votre compte ?"
 
@@ -8848,8 +8848,7 @@ msgstr "Notification"
 
 #: widgets/notificationhistory/notificationhistorylistview.cpp:75
 #: widgets/servererrorinfohistory/servererrorinfomessagehistorylistview.cpp:44
-#, fuzzy, kde-format
-#| msgid "Clear"
+#, kde-format
 msgctxt "@action"
 msgid "Clear"
 msgstr "Effacer"
@@ -8953,8 +8952,7 @@ msgid "Register User"
 msgstr "Enregistrer un utilisateur"
 
 #: widgets/registeruser/registeruserwidget.cpp:18
-#, fuzzy, kde-format
-#| msgid "Register"
+#, kde-format
 msgctxt "@action:button"
 msgid "Register"
 msgstr "Enregistrer"
@@ -9222,22 +9220,19 @@ msgid "Pin Message"
 msgstr "Agrafer le message"
 
 #: widgets/room/messagelistview.cpp:288
-#, fuzzy, kde-format
-#| msgid "Remove as Favorite"
+#, kde-format
 msgctxt "@action"
 msgid "Remove as Favorite"
-msgstr "Supprimer des favoris"
+msgstr "Supprimer des signets"
 
 #: widgets/room/messagelistview.cpp:288
-#, fuzzy, kde-format
-#| msgid "Set as Favorite"
+#, kde-format
 msgctxt "@action"
 msgid "Set as Favorite"
-msgstr "Marquer comme favori"
+msgstr "Marquer comme signet"
 
 #: widgets/room/messagelistview.cpp:296
-#, fuzzy, kde-format
-#| msgid "Delete"
+#, kde-format
 msgctxt "@action"
 msgid "Delete"
 msgstr "Supprimer"
@@ -9255,18 +9250,16 @@ msgid "Show Full Thread"
 msgstr "Chercher le fil complet de discussions"
 
 #: widgets/room/messagelistview.cpp:317
-#, fuzzy, kde-format
-#| msgid "Edit"
+#, kde-format
 msgctxt "@action"
 msgid "Edit"
 msgstr "Modifier"
 
 #: widgets/room/messagelistview.cpp:322
-#, fuzzy, kde-format
-#| msgid "Quote"
+#, kde-format
 msgctxt "@action"
 msgid "Quote"
-msgstr "Déclaration"
+msgstr "Citer"
 
 #: widgets/room/messagelistview.cpp:327
 #, kde-format
@@ -9281,29 +9274,25 @@ msgid "Forward Message"
 msgstr "Transférer un message"
 
 #: widgets/room/messagelistview.cpp:345
-#, fuzzy, kde-format
-#| msgid "Unfollow Message"
+#, kde-format
 msgctxt "@action"
 msgid "Unfollow Message"
 msgstr "Ne plus suivre un message"
 
 #: widgets/room/messagelistview.cpp:345
-#, fuzzy, kde-format
-#| msgid "Follow Message"
+#, kde-format
 msgctxt "@action"
 msgid "Follow Message"
 msgstr "Suivre un message"
 
 #: widgets/room/messagelistview.cpp:358
-#, fuzzy, kde-format
-#| msgid "Copy URL"
+#, kde-format
 msgctxt "@action"
 msgid "Copy URL"
-msgstr "Copier l'URL"
+msgstr "Copier une URL"
 
 #: widgets/room/messagelistview.cpp:381
-#, fuzzy, kde-format
-#| msgid "User Info"
+#, kde-format
 msgctxt "@action"
 msgid "User Info"
 msgstr "Informations sur l'utilisateur"
@@ -9321,18 +9310,16 @@ msgid "Reply in Thread"
 msgstr "Répondre dans le fil de discussions"
 
 #: widgets/room/messagelistview.cpp:473
-#, fuzzy, kde-format
-#| msgid "Show Original Message"
+#, kde-format
 msgctxt "@action"
 msgid "Show Original Message"
 msgstr "Afficher le message original"
 
 #: widgets/room/messagelistview.cpp:473
-#, fuzzy, kde-format
-#| msgid "Translate Message"
+#, kde-format
 msgctxt "@action"
 msgid "Translate Message"
-msgstr "Traduire le message"
+msgstr "Traduire un message"
 
 #: widgets/room/messagelistview.cpp:516
 #, kde-format
@@ -9347,11 +9334,10 @@ msgid "Dismiss Reports"
 msgstr "Rejeter les rapports"
 
 #: widgets/room/messagelistview.cpp:609
-#, fuzzy, kde-format
-#| msgid "Report Message"
+#, kde-format
 msgctxt "@action"
 msgid "Report Message"
-msgstr "Signaler le message"
+msgstr "Signaler un message"
 
 #: widgets/room/messagelistview.cpp:804
 #, kde-format
@@ -9583,8 +9569,7 @@ msgid "Users"
 msgstr "Utilisateurs"
 
 #: widgets/room/usersinroomflowwidget.cpp:123
-#, fuzzy, kde-format
-#| msgid "(Open External Dialog...)"
+#, kde-format
 msgid "(Open External Dialog…)"
 msgstr "(Ouvrir une boîte de dialogue externe...)"
 
@@ -9853,117 +9838,132 @@ msgstr "Applications…"
 
 #: widgets/ruqolamainwindow.cpp:509
 #, kde-format
-msgctxt "Action which allows to search room/user/team"
-msgid "Directory…"
-msgstr "Dossier..."
+msgctxt "Action which allows to search room"
+msgid "Join Room…"
+msgstr ""
 
-#: widgets/ruqolamainwindow.cpp:530
+#: widgets/ruqolamainwindow.cpp:513
+#, fuzzy, kde-format
+#| msgid "Joined this Team"
+msgctxt "Action which allows to search team"
+msgid "Join Team…"
+msgstr "A rejoint ce groupe"
+
+#: widgets/ruqolamainwindow.cpp:517
+#, fuzzy, kde-format
+#| msgctxt "@action"
+#| msgid "Start a Private Conversation"
+msgctxt "Action which allows to open private conversation (direct user)"
+msgid "Open Private Conversation…"
+msgstr "Démarrer une conversation privée"
+
+#: widgets/ruqolamainwindow.cpp:538
 #, kde-format
 msgid "&Next Server"
 msgstr "&Nouveau serveur"
 
-#: widgets/ruqolamainwindow.cpp:535
+#: widgets/ruqolamainwindow.cpp:543
 #, kde-format
 msgid "&Previous Server"
 msgstr "Serveur &précédent"
 
-#: widgets/ruqolamainwindow.cpp:544
+#: widgets/ruqolamainwindow.cpp:552
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Status:"
 msgstr "État :"
 
-#: widgets/ruqolamainwindow.cpp:557
+#: widgets/ruqolamainwindow.cpp:565
 #, kde-format
 msgctxt "@action"
 msgid "Previous Selected Channel"
 msgstr "Canal précédent sélectionné"
 
-#: widgets/ruqolamainwindow.cpp:564
+#: widgets/ruqolamainwindow.cpp:572
 #, kde-format
 msgctxt "@action"
 msgid "Next Selected Channel"
 msgstr "Canal suivant sélectionné"
 
-#: widgets/ruqolamainwindow.cpp:595
+#: widgets/ruqolamainwindow.cpp:603
 #, kde-format
 msgid "Show Notify History"
 msgstr "Afficher l'historique des notifications"
 
-#: widgets/ruqolamainwindow.cpp:599
+#: widgets/ruqolamainwindow.cpp:607
 #, kde-format
 msgctxt "@action"
 msgid "Show RocketChat Information"
 msgstr "Afficher les informations sur RocketChat"
 
-#: widgets/ruqolamainwindow.cpp:603
+#: widgets/ruqolamainwindow.cpp:611
 #, kde-format
 msgctxt "@action"
 msgid "Show Room Avatar"
 msgstr "Afficher un avatar pour le salon"
 
-#: widgets/ruqolamainwindow.cpp:608
+#: widgets/ruqolamainwindow.cpp:616
 #, kde-format
 msgctxt "@action"
 msgid "Show Favorite Room"
 msgstr "Afficher le salon préféré"
 
-#: widgets/ruqolamainwindow.cpp:613
+#: widgets/ruqolamainwindow.cpp:621
 #, kde-format
 msgid "What's new"
 msgstr "Quoi de neuf"
 
-#: widgets/ruqolamainwindow.cpp:617
+#: widgets/ruqolamainwindow.cpp:625
 #, kde-format
 msgid "Import Accounts"
 msgstr "Importer des comptes"
 
-#: widgets/ruqolamainwindow.cpp:621
+#: widgets/ruqolamainwindow.cpp:629
 #, kde-format
 msgid "Export Accounts"
 msgstr "Exporter des comptes"
 
-#: widgets/ruqolamainwindow.cpp:638
+#: widgets/ruqolamainwindow.cpp:646
 #, kde-format
 msgctxt "@action"
 msgid "Medium"
 msgstr "Moyen"
 
-#: widgets/ruqolamainwindow.cpp:646
+#: widgets/ruqolamainwindow.cpp:654
 #, kde-format
 msgctxt "@action"
 msgid "Condensed"
 msgstr "Condensé"
 
-#: widgets/ruqolamainwindow.cpp:655
+#: widgets/ruqolamainwindow.cpp:663
 #, kde-format
 msgctxt "@action"
 msgid "Extended"
 msgstr "Détaillé"
 
-#: widgets/ruqolamainwindow.cpp:696
+#: widgets/ruqolamainwindow.cpp:704
 #, kde-format
 msgctxt "@title:window"
 msgid "Create Team"
 msgstr "Créer une équipe"
 
-#: widgets/ruqolamainwindow.cpp:852
+#: widgets/ruqolamainwindow.cpp:860
 #, kde-format
 msgid "Impossible to open log."
 msgstr "Impossible d'ouvrir un journal."
 
-#: widgets/ruqolamainwindow.cpp:852
+#: widgets/ruqolamainwindow.cpp:860
 #, kde-format
 msgid "Show Log"
 msgstr "Afficher un journal"
 
-#: widgets/ruqolamainwindow.cpp:998
+#: widgets/ruqolamainwindow.cpp:1008
 #, kde-format
 msgctxt "@item:inmenu Instant message presence status"
 msgid "Status"
 msgstr "État"
 
-#: widgets/ruqolamainwindow.cpp:1086
+#: widgets/ruqolamainwindow.cpp:1096
 #, kde-format
 msgid ""
 "<qt>This will hide the menu bar completely. You can show it again by typing "
@@ -9972,43 +9972,43 @@ msgstr ""
 "<qt>Ceci masquera totalement la barre de menus. Vous pouvez l'afficher à "
 "nouveau en saisissant %1.</qt>"
 
-#: widgets/ruqolamainwindow.cpp:1089
+#: widgets/ruqolamainwindow.cpp:1099
 #, kde-format
 msgid "Hide menu bar"
 msgstr "Masquer la barre de menus"
 
 #. i18n: ectx: Menu (windows)
-#: widgets/ruqolaui.rc:32
+#: widgets/ruqolaui.rc:34
 #, kde-format
 msgid "&Window"
 msgstr "&Fenêtre"
 
 #. i18n: ectx: Menu (Tools)
-#: widgets/ruqolaui.rc:37
+#: widgets/ruqolaui.rc:39
 #, kde-format
 msgid "Tools"
 msgstr "Outils"
 
 #. i18n: ectx: Menu (settings)
-#: widgets/ruqolaui.rc:53
+#: widgets/ruqolaui.rc:55
 #, kde-format
 msgid "&Settings"
 msgstr "Confi&guration"
 
 #. i18n: ectx: Menu (view)
-#: widgets/ruqolaui.rc:57
+#: widgets/ruqolaui.rc:59
 #, kde-format
 msgid "View"
 msgstr "Affichage"
 
 #. i18n: ectx: Menu (help)
-#: widgets/ruqolaui.rc:78
+#: widgets/ruqolaui.rc:80
 #, kde-format
 msgid "&Help"
 msgstr "&Aide"
 
 #. i18n: ectx: ToolBar (mainToolBar)
-#: widgets/ruqolaui.rc:83
+#: widgets/ruqolaui.rc:85
 #, kde-format
 msgid "Main Toolbar"
 msgstr "Barre principale d'outils"
@@ -10180,10 +10180,8 @@ msgid "What's new in %2. %1"
 msgstr "Quoi de neuf dans %2. %1"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:17
-#, fuzzy
-#| msgid "Implement block actions."
 msgid "Implement Application Market Settings."
-msgstr "Implémenter les actions par bloc."
+msgstr "Implémenter la configuration fournie par l'application."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:27
 #, kde-format
@@ -10462,6 +10460,14 @@ msgstr ""
 #, kde-format
 msgid "Some bug fixing:"
 msgstr "Quelques correction de bogues :"
+
+#~ msgctxt "@title:window"
+#~ msgid "Directory - %1"
+#~ msgstr "Dossier - %1"
+
+#~ msgctxt "Action which allows to search room/user/team"
+#~ msgid "Directory…"
+#~ msgstr "Dossier..."
 
 #~ msgid "Version 2.0"
 #~ msgstr "Version 2.0"
@@ -11610,9 +11616,6 @@ msgstr "Quelques correction de bogues :"
 
 #~ msgid "Do you want to open this channel: \"%1\"?"
 #~ msgstr "Voulez-vous vraiment ouvrir ce canal : « %1 » ?"
-
-#~ msgid "Open Conversation with \"%1\"?"
-#~ msgstr "Ouvrir une conversation avec « %1 » ?"
 
 #~ msgid "Enter Password..."
 #~ msgstr "Saisissez le mot de passe..."
