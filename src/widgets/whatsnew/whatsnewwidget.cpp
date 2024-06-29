@@ -70,11 +70,10 @@ void WhatsNewWidget::slotVersionChanged(int type)
 {
     if (type == -1) { // All
         QString message;
-        int index = 0;
-        for (const WhatsNewInfo &info : std::as_const(mWhatsNewInfo)) {
-            message += generateVersionHeader(index);
+        for (int i = mWhatsNewInfo.count() - 1; i >= 0; i--) {
+            const WhatsNewInfo &info = mWhatsNewInfo.at(i);
+            message += generateVersionHeader(i);
             message += createVersionInformation(info);
-            index++;
         }
         mLabelInfo->setHtml(generateStartEndHtml(message));
     } else {
