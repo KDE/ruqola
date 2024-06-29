@@ -34,3 +34,5 @@ void ApplicationsSettingsInProgressWidgetTest::shouldHaveDefaultValues()
     QCOMPARE(mProgressBar->minimum(), 0);
     QCOMPARE(mProgressBar->maximum(), 0);
 }
+
+#include "moc_applicationssettingsinprogresswidgettest.cpp"
