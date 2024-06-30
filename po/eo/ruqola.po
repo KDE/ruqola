@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-06-29 00:39+0000\n"
-"PO-Revision-Date: 2024-06-28 16:51+0200\n"
+"POT-Creation-Date: 2024-06-30 00:39+0000\n"
+"PO-Revision-Date: 2024-06-29 10:05+0200\n"
 "Last-Translator: Oliver Kellogg <olivermkellogg@gmail.com>\n"
 "Language-Team: Esperanto <kde-i18n-eo.org>\n"
 "Language: eo\n"
@@ -6277,7 +6277,7 @@ msgstr "Aplikaĵoj"
 #: widgets/applicationssettingsdialog/applicationssettingsinprogresswidget.cpp:15
 #, kde-format
 msgid "Loading in progress..."
-msgstr ""
+msgstr "Ŝargado en progreso..."
 
 #: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:58
 #, kde-format
@@ -7652,36 +7652,31 @@ msgstr "Dosiernomo:"
 #, kde-format
 msgctxt "@title:window"
 msgid "Join Room - %1"
-msgstr ""
+msgstr "Aliĝi al Ĉambro - %1"
 
 #: widgets/directory/directorydialog.cpp:33
-#, fuzzy, kde-format
-#| msgctxt "@action"
-#| msgid "Start a Private Conversation"
+#, kde-format
 msgctxt "@title:window"
 msgid "Open Private Conversation - %1"
-msgstr "Komenci Privatan Konversacion"
+msgstr "Malfermi Privatan Konversacion - %1"
 
 #: widgets/directory/directorydialog.cpp:36
-#, fuzzy, kde-format
-#| msgid "Joined this Team"
+#, kde-format
 msgctxt "@title:window"
 msgid "Join Team - %1"
-msgstr "Aliĝis al ĉi tiu Teamo"
+msgstr "Aliĝi al Teamo - %1"
 
 #: widgets/directory/directorydialog.cpp:61
-#, fuzzy, kde-format
-#| msgid "Join"
+#, kde-format
 msgctxt "@action:button"
 msgid "Join"
-msgstr "Kuniĝo"
+msgstr "Aliĝi"
 
 #: widgets/directory/directorydialog.cpp:64
-#, fuzzy, kde-format
-#| msgid "Private Messages"
+#, kde-format
 msgctxt "@action:button"
 msgid "Open Private Message"
-msgstr "Privataj Mesaĝoj"
+msgstr "Malfermi Privatan Mesaĝon"
 
 #: widgets/directory/directorynotauthorizedwidget.cpp:19
 #, kde-format
@@ -9731,22 +9726,19 @@ msgstr "Aplikaĵoj…"
 #, kde-format
 msgctxt "Action which allows to search room"
 msgid "Join Room…"
-msgstr ""
+msgstr "Aliĝi al Ĉambro…"
 
 #: widgets/ruqolamainwindow.cpp:513
-#, fuzzy, kde-format
-#| msgid "Joined this Team"
+#, kde-format
 msgctxt "Action which allows to search team"
 msgid "Join Team…"
-msgstr "Aliĝis al ĉi tiu Teamo"
+msgstr "Aliĝi al Teamo…"
 
 #: widgets/ruqolamainwindow.cpp:517
-#, fuzzy, kde-format
-#| msgctxt "@action"
-#| msgid "Start a Private Conversation"
+#, kde-format
 msgctxt "Action which allows to open private conversation (direct user)"
 msgid "Open Private Conversation…"
-msgstr "Komenci Privatan Konversacion"
+msgstr "Malfermi Privatan Konversacion…"
 
 #: widgets/ruqolamainwindow.cpp:538
 #, kde-format
@@ -10320,25 +10312,17 @@ msgstr "Ĉiuj Versioj"
 msgid "Version %1"
 msgstr "Versio %1"
 
-#: widgets/whatsnew/whatsnewwidget.cpp:88
+#: widgets/whatsnew/whatsnewwidget.cpp:87
 #, kde-format
 msgid "Important changes since last version:"
 msgstr "Gravaj ŝanĝoj ekde la lasta versio:"
 
-#: widgets/whatsnew/whatsnewwidget.cpp:93
+#: widgets/whatsnew/whatsnewwidget.cpp:92
 #, kde-format
 msgid "Some of the new features in this release of Ruqola include:"
 msgstr "Kelkaj el la novaj funkcioj en ĉi tiu eldono de Ruqola inkluzivas:"
 
-#: widgets/whatsnew/whatsnewwidget.cpp:98
+#: widgets/whatsnew/whatsnewwidget.cpp:97
 #, kde-format
 msgid "Some bug fixing:"
 msgstr "Iu eraro korekto:"
-
-#~ msgctxt "@title:window"
-#~ msgid "Directory - %1"
-#~ msgstr "Dosierujo - %1"
-
-#~ msgctxt "Action which allows to search room/user/team"
-#~ msgid "Directory…"
-#~ msgstr "Dosierujo…"

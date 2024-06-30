@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-06-29 00:39+0000\n"
+"POT-Creation-Date: 2024-06-30 00:39+0000\n"
 "PO-Revision-Date: 2024-06-25 10:54+0200\n"
 "Last-Translator: Vit Pelcak <vpelcak@suse.cz>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
@@ -10107,17 +10107,17 @@ msgstr ""
 msgid "Version %1"
 msgstr "Verze 2.1"
 
-#: widgets/whatsnew/whatsnewwidget.cpp:88
+#: widgets/whatsnew/whatsnewwidget.cpp:87
 #, kde-format
 msgid "Important changes since last version:"
 msgstr "Důležité změny od poslední verze:"
 
-#: widgets/whatsnew/whatsnewwidget.cpp:93
+#: widgets/whatsnew/whatsnewwidget.cpp:92
 #, kde-format
 msgid "Some of the new features in this release of Ruqola include:"
 msgstr "Některé nové vlastnosti tohoto vydání Ruqola zahrnují:"
 
-#: widgets/whatsnew/whatsnewwidget.cpp:98
+#: widgets/whatsnew/whatsnewwidget.cpp:97
 #, kde-format
 msgid "Some bug fixing:"
 msgstr ""

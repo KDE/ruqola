@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-06-29 00:39+0000\n"
-"PO-Revision-Date: 2024-06-22 12:44+0100\n"
+"POT-Creation-Date: 2024-06-30 00:39+0000\n"
+"PO-Revision-Date: 2024-06-29 11:32+0100\n"
 "Last-Translator: Steve Allewell <steve.allewell@gmail.com>\n"
 "Language-Team: British English\n"
 "Language: en_GB\n"
@@ -6267,7 +6267,7 @@ msgstr "Applications"
 #: widgets/applicationssettingsdialog/applicationssettingsinprogresswidget.cpp:15
 #, kde-format
 msgid "Loading in progress..."
-msgstr ""
+msgstr "Loading in progress..."
 
 #: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:58
 #, kde-format
@@ -7643,35 +7643,31 @@ msgstr "File Name:"
 #, kde-format
 msgctxt "@title:window"
 msgid "Join Room - %1"
-msgstr ""
+msgstr "Join Room - %1"
 
 #: widgets/directory/directorydialog.cpp:33
-#, fuzzy, kde-format
-#| msgid "Open Conversation with \"%1\"?"
+#, kde-format
 msgctxt "@title:window"
 msgid "Open Private Conversation - %1"
-msgstr "Open Conversation with \"%1\"?"
+msgstr "Open Private Conversation - %1"
 
 #: widgets/directory/directorydialog.cpp:36
-#, fuzzy, kde-format
-#| msgid "Joined this Team"
+#, kde-format
 msgctxt "@title:window"
 msgid "Join Team - %1"
-msgstr "Joined this Team"
+msgstr "Join Team - %1"
 
 #: widgets/directory/directorydialog.cpp:61
-#, fuzzy, kde-format
-#| msgid "Join"
+#, kde-format
 msgctxt "@action:button"
 msgid "Join"
 msgstr "Join"
 
 #: widgets/directory/directorydialog.cpp:64
-#, fuzzy, kde-format
-#| msgid "Private Messages"
+#, kde-format
 msgctxt "@action:button"
 msgid "Open Private Message"
-msgstr "Private Messages"
+msgstr "Open Private Message"
 
 #: widgets/directory/directorynotauthorizedwidget.cpp:19
 #, kde-format
@@ -9720,22 +9716,19 @@ msgstr "Applications…"
 #, kde-format
 msgctxt "Action which allows to search room"
 msgid "Join Room…"
-msgstr ""
+msgstr "Join Room…"
 
 #: widgets/ruqolamainwindow.cpp:513
-#, fuzzy, kde-format
-#| msgid "Joined this Team"
+#, kde-format
 msgctxt "Action which allows to search team"
 msgid "Join Team…"
-msgstr "Joined this Team"
+msgstr "Join Team…"
 
 #: widgets/ruqolamainwindow.cpp:517
-#, fuzzy, kde-format
-#| msgctxt "@action"
-#| msgid "Start a Private Conversation"
+#, kde-format
 msgctxt "Action which allows to open private conversation (direct user)"
 msgid "Open Private Conversation…"
-msgstr "Start a Private Conversation"
+msgstr "Open Private Conversation…"
 
 #: widgets/ruqolamainwindow.cpp:538
 #, kde-format
@@ -10043,11 +10036,10 @@ msgid "Version:"
 msgstr "Version:"
 
 #: widgets/whatsnew/whatsnewdialog.cpp:26
-#, fuzzy, kde-format
-#| msgid "What's new in %2. %1"
+#, kde-format
 msgctxt "@title:window"
 msgid "What's new in %1"
-msgstr "What's new in %2. %1"
+msgstr "What's new in %1"
 
 #: widgets/whatsnew/whatsnewmessagewidget.cpp:20
 #, kde-format
@@ -10305,22 +10297,21 @@ msgid "All Version"
 msgstr "All Version"
 
 #: widgets/whatsnew/whatsnewwidget.cpp:42
-#, fuzzy, kde-format
-#| msgid "Version 2.1"
+#, kde-format
 msgid "Version %1"
-msgstr "Version 2.1"
+msgstr "Version %1"
 
-#: widgets/whatsnew/whatsnewwidget.cpp:88
+#: widgets/whatsnew/whatsnewwidget.cpp:87
 #, kde-format
 msgid "Important changes since last version:"
 msgstr "Important changes since last version:"
 
-#: widgets/whatsnew/whatsnewwidget.cpp:93
+#: widgets/whatsnew/whatsnewwidget.cpp:92
 #, kde-format
 msgid "Some of the new features in this release of Ruqola include:"
 msgstr "Some of the new features in this release of Ruqola include:"
 
-#: widgets/whatsnew/whatsnewwidget.cpp:98
+#: widgets/whatsnew/whatsnewwidget.cpp:97
 #, kde-format
 msgid "Some bug fixing:"
 msgstr "Some bug fixing:"
