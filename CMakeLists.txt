@@ -48,9 +48,9 @@ option(OPTION_USE_PLASMA_ACTIVITIES "Activate plasma activities" ON)
 
 if(OPTION_USE_PLASMA_ACTIVITIES)
     if(NOT WIN32 AND NOT APPLE)
-       set(OPTION_USE_PLASMA_ACTIVITIES true)
+        set(OPTION_USE_PLASMA_ACTIVITIES true)
     else()
-       set(OPTION_USE_PLASMA_ACTIVITIES false)
+        set(OPTION_USE_PLASMA_ACTIVITIES false)
     endif()
 endif()    
 
@@ -103,11 +103,11 @@ set(QT6KEYCHAIN_LIB_VERSION "0.14.2")
 option(TEXT_CONVERTER_CMARK_SUPPORT "Build support text converter with cmark (experimental)" OFF)
 
 if(TEXT_CONVERTER_CMARK_SUPPORT)
-   find_package(cmark "0.31.0")
-   set_package_properties(cmark PROPERTIES DESCRIPTION
-       "Allow to generate html from markdown"
-       TYPE OPTIONAL
-   )
+    find_package(cmark "0.31.0")
+    set_package_properties(cmark PROPERTIES DESCRIPTION
+        "Allow to generate html from markdown"
+        TYPE OPTIONAL
+    )
 endif()
 
 find_package(Qt6 ${REQUIRED_QT_VERSION} REQUIRED COMPONENTS Core Gui Widgets WebSockets Network NetworkAuth MultimediaWidgets Sql)
@@ -129,7 +129,7 @@ find_package(KF6 ${KF_MIN_VERSION} REQUIRED COMPONENTS
 
 if(OPTION_USE_PLASMA_ACTIVITIES)
     if(NOT WIN32 AND NOT APPLE)
-       find_package(PlasmaActivities "6.1.0")
+        find_package(PlasmaActivities "6.1.0")
     endif()
 endif()	
 
@@ -188,7 +188,7 @@ set_package_properties(KF6TextUtils PROPERTIES DESCRIPTION
 )
 
 if(TARGET KF6::TextUtils)
-   set(HAVE_TEXT_UTILS TRUE)
+    set(HAVE_TEXT_UTILS TRUE)
 endif()
 
 
@@ -199,7 +199,7 @@ set_package_properties(KF6TextCustomEditor PROPERTIES DESCRIPTION
 )
 
 if(TARGET KF6::TextCustomEditor)
-   set(HAVE_TEXT_CUSTOM_EDITOR TRUE)
+    set(HAVE_TEXT_CUSTOM_EDITOR TRUE)
 endif()
 
 if(NOT WIN32 AND NOT APPLE)
@@ -213,7 +213,7 @@ find_package(KF6KIO ${KF_MIN_VERSION} CONFIG REQUIRED)
 find_package(KF6Sonnet ${KF_MIN_VERSION} CONFIG REQUIRED)
 find_package(KF6TextWidgets ${KF_MIN_VERSION} CONFIG REQUIRED)
 if(NOT APPLE)
-   find_package(KF6Purpose ${KF_MIN_VERSION} CONFIG)
+    find_package(KF6Purpose ${KF_MIN_VERSION} CONFIG)
 endif()
 
 find_package(KF6DocTools ${KF_MIN_VERSION})
@@ -227,16 +227,16 @@ set_package_properties(KLLMWidgets PROPERTIES
     TYPE OPTIONAL
     PURPOSE "Required for building IA plugins support"
     DESCRIPTION "Use local IA plugin"
-    URL https://invent.kde.org/utilities/alpaka 
+    URL https://invent.kde.org/utilities/alpaka
 )
 
 find_package(KF6StatusNotifierItem ${KF_MIN_VERSION} REQUIRED)
 
 find_package(Qt6Keychain ${QT6KEYCHAIN_LIB_VERSION} CONFIG)
 set_package_properties(Qt6Keychain PROPERTIES
-                                   DESCRIPTION "Provides support for secure credentials storage"
-                                   URL "https://github.com/frankosterfeld/qtkeychain"
-                                   TYPE REQUIRED)
+    DESCRIPTION "Provides support for secure credentials storage"
+    URL "https://github.com/frankosterfeld/qtkeychain"
+    TYPE REQUIRED)
 
 if(OPTION_SELENIUMWEBDRIVER_SUPPORT)
     find_package(SeleniumWebDriverATSPI)
@@ -249,8 +249,8 @@ set_package_properties(KF6UserFeedback PROPERTIES DESCRIPTION "User Feedback lib
 
 find_package(KF6Solid ${KF_MIN_VERSION} CONFIG)
 if(KF6Solid_FOUND)
-# SolidPower is not built by default, and the only way to find is to
-# check for the header and that it builds
+    # SolidPower is not built by default, and the only way to find is to
+    # check for the header and that it builds
     get_target_property(SOLID_INCLUDE_DIRS KF6::Solid INTERFACE_INCLUDE_DIRECTORIES)
     find_file(SOLID_POWER_FOUND Solid/Power PATHS ${SOLID_INCLUDE_DIRS} NO_DEFAULT_PATH)
     if(SOLID_POWER_FOUND)
@@ -297,9 +297,9 @@ endif()
 
 
 ecm_qt_install_logging_categories(
-        EXPORT RUQOLA
-        FILE ruqola.categories
-        DESTINATION ${KDE_INSTALL_LOGGINGCATEGORIESDIR}
+    EXPORT RUQOLA
+    FILE ruqola.categories
+    DESTINATION ${KDE_INSTALL_LOGGINGCATEGORIESDIR}
 )
 kde_configure_git_pre_commit_hook(CHECKS CLANG_FORMAT)
 ki18n_install(po)
