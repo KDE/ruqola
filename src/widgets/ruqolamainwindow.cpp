@@ -99,7 +99,7 @@
 namespace
 {
 static const char myRuqolaMainWindowGroupName[] = "RuqolaMainWindow";
-const int ruqolaVersion = 1;
+const int ruqolaVersion = 2;
 }
 
 RuqolaMainWindow::RuqolaMainWindow(QWidget *parent)
