@@ -55,6 +55,6 @@ QDebug operator<<(QDebug d, const WhatsNewInfo &t)
     d.space() << "version" << t.version();
     d.space() << "bugFixings" << t.bugFixings();
     d.space() << "newFeatures" << t.newFeatures();
-    d.space() << "newFeatures" << t.newFeatures();
+    d.space() << "changes" << t.changes();
     return d;
 }
