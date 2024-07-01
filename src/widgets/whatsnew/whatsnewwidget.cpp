@@ -46,7 +46,7 @@ void WhatsNewWidget::fillComboBox()
 
 void WhatsNewWidget::fillTranslations()
 {
-    WhatsNewTranslations translations;
+    const WhatsNewTranslations translations;
     mWhatsNewInfo = translations.createWhatsNewInfo();
 }
 
