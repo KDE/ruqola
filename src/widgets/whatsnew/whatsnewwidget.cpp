@@ -9,6 +9,11 @@
 #include <QTextBrowser>
 #include <QVBoxLayout>
 
+namespace
+{
+constexpr int allVersion = -1;
+}
+
 WhatsNewWidget::WhatsNewWidget(QWidget *parent)
     : QWidget{parent}
     , mLabelInfo(new QTextBrowser(this))
@@ -36,7 +41,7 @@ WhatsNewWidget::~WhatsNewWidget() = default;
 
 void WhatsNewWidget::fillComboBox()
 {
-    mWhatsNewComboBoxWidget->addVersion(i18n("All Version"), -1);
+    mWhatsNewComboBoxWidget->addVersion(i18n("All Version"), allVersion);
     int index = 0;
     for (const WhatsNewInfo &info : std::as_const(mWhatsNewInfo)) {
         mWhatsNewComboBoxWidget->addVersion(i18n("Version %1", info.version()), index);
@@ -68,7 +73,7 @@ QString WhatsNewWidget::generateStartEndHtml(const QString &str) const
 
 void WhatsNewWidget::slotVersionChanged(int type)
 {
-    if (type == -1) { // All
+    if (type == allVersion) { // All
         QString message;
         for (int i = mWhatsNewInfo.count() - 1; i >= 0; i--) {
             const WhatsNewInfo &info = mWhatsNewInfo.at(i);
@@ -131,7 +136,7 @@ QString WhatsNewWidget::createVersionInformation(const WhatsNewInfo &info)
 
 QString WhatsNewWidget::generateVersionHeader(int type) const
 {
-    if (type != -1) {
+    if (type != allVersion) {
         return QStringLiteral("<h1><i> Version %1 </i></h1><hr/><br>").arg(mWhatsNewInfo.at(type).version());
     }
     return {};
