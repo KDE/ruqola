@@ -843,7 +843,7 @@ void RuqolaMainWindow::slotShowServerInfo()
 
 void RuqolaMainWindow::slotShowLog()
 {
-    auto *room = mMainWidget->room();
+    auto room = mMainWidget->room();
     if (room) {
         QTemporaryFile tempFile(QDir::tempPath() + QStringLiteral("/XXXXXX.log.txt"));
         tempFile.setAutoRemove(false);

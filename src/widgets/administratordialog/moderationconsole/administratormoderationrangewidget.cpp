@@ -71,7 +71,7 @@ void AdministratorModerationRangeWidget::slotRangeChanged()
 
 void AdministratorModerationRangeWidget::initializeMenu()
 {
-    auto *menu = new QMenu(mFilterDate);
+    auto menu = new QMenu(mFilterDate);
     auto todayAction = new QAction(i18nc("@action", "Today"), menu);
     menu->addAction(todayAction);
     connect(todayAction, &QAction::triggered, this, [this]() {
