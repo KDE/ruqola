@@ -89,7 +89,7 @@ void PermissionsWidget::slotCustomContextMenuRequested(const QPoint &pos)
     if (mRocketChatAccount->hasPermission(QStringLiteral("access-permissions"))) {
         if (index.isValid()) {
             QMenu menu(this);
-            menu.addAction(QIcon::fromTheme(QStringLiteral("document-edit")), i18n("Modify…"), this, [this, index]() {
+            menu.addAction(QIcon::fromTheme(QStringLiteral("document-edit")), i18nc("@action", "Modify…"), this, [this, index]() {
                 modifyRoles(index);
             });
             menu.exec(mTreeView->viewport()->mapToGlobal(pos));

@@ -132,21 +132,21 @@ void ModerationReportedMessageConsoleTreeWidget::slotCustomContextMenuRequested(
     if (index.isValid()) {
         QMenu menu(this);
         const QModelIndex newModelIndex = mProxyModelModel->mapToSource(index);
-        menu.addAction(QIcon::fromTheme(QStringLiteral("visibility")), i18n("See messages"), this, [this, newModelIndex]() {
+        menu.addAction(QIcon::fromTheme(QStringLiteral("visibility")), i18nc("@action", "See messages"), this, [this, newModelIndex]() {
             slotShowMessages(newModelIndex);
         });
         menu.addSeparator();
 
-        menu.addAction(QIcon::fromTheme(QStringLiteral("list-remove")), i18n("Dismiss reports"), this, [this, newModelIndex]() {
+        menu.addAction(QIcon::fromTheme(QStringLiteral("list-remove")), i18nc("@action", "Dismiss reports"), this, [this, newModelIndex]() {
             const QModelIndex modelIndex = mModel->index(newModelIndex.row(), ModerationReportedMessageModel::UserId);
             slotDismissReport(modelIndex);
         });
-        menu.addAction(QIcon::fromTheme(QStringLiteral("edit-delete")), i18n("Delete all Messages"), this, [this, newModelIndex]() {
+        menu.addAction(QIcon::fromTheme(QStringLiteral("edit-delete")), i18nc("@action", "Delete all Messages"), this, [this, newModelIndex]() {
             const QModelIndex modelIndex = mModel->index(newModelIndex.row(), ModerationReportedMessageModel::UserId);
             slotDeleteAllMessages(modelIndex);
         });
         menu.addSeparator();
-        menu.addAction(QIcon::fromTheme(QStringLiteral("list-remove")), i18n("Deactivate user"), this, [this, newModelIndex]() {
+        menu.addAction(QIcon::fromTheme(QStringLiteral("list-remove")), i18nc("@action", "Deactivate user"), this, [this, newModelIndex]() {
             const QModelIndex modelIndex = mModel->index(newModelIndex.row(), ModerationReportedMessageModel::UserId);
             slotDesactivateUser(modelIndex);
         });

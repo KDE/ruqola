@@ -72,7 +72,7 @@ void DirectoryWidget::slotCustomContextMenuRequested(const QPoint &pos)
     const QModelIndex index = mTreeView->indexAt(pos);
     if (index.isValid()) {
         const QModelIndex i = mProxyModelModel->mapToSource(index);
-        menu.addAction(i18n("Open…"), this, [this, i]() {
+        menu.addAction(i18nc("@action", "Open…"), this, [this, i]() {
             slotOpen(i);
         });
     }

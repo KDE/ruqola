@@ -93,7 +93,7 @@ void MyAccountManageDeviceConfigureWidget::slotCustomContextMenuRequested(const 
     if (index.isValid()) {
         QMenu menu(this);
         const QModelIndex newModelIndex = mProxyModelModel->mapToSource(index);
-        menu.addAction(QIcon::fromTheme(QStringLiteral("list-remove")), i18n("Disconnect"), this, [this, newModelIndex]() {
+        menu.addAction(QIcon::fromTheme(QStringLiteral("list-remove")), i18nc("@action", "Disconnect"), this, [this, newModelIndex]() {
             const QModelIndex modelIndex = mModel->index(newModelIndex.row(), DeviceInfoModel::Identifier);
             slotDisconnectDevice(modelIndex);
         });

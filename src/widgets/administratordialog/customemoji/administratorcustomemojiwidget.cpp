@@ -175,15 +175,15 @@ void AdministratorCustomEmojiWidget::slotCustomContextMenuRequested(const QPoint
 {
     QMenu menu(this);
     const QModelIndex index = mTreeView->indexAt(pos);
-    menu.addAction(QIcon::fromTheme(QStringLiteral("list-add")), i18n("Add…"), this, &AdministratorCustomEmojiWidget::slotAddCustomEmoji);
+    menu.addAction(QIcon::fromTheme(QStringLiteral("list-add")), i18nc("@action", "Add…"), this, &AdministratorCustomEmojiWidget::slotAddCustomEmoji);
     if (index.isValid()) {
         const QModelIndex newModelIndex = mProxyModelModel->mapToSource(index);
-        menu.addAction(QIcon::fromTheme(QStringLiteral("document-edit")), i18n("Modify…"), this, [this, newModelIndex]() {
+        menu.addAction(QIcon::fromTheme(QStringLiteral("document-edit")), i18nc("@action", "Modify…"), this, [this, newModelIndex]() {
             const QModelIndex modelIndex = mModel->index(newModelIndex.row(), AdminCustomEmojiModel::Identifier);
             slotModifyCustomEmoji(modelIndex);
         });
         menu.addSeparator();
-        menu.addAction(QIcon::fromTheme(QStringLiteral("list-remove")), i18n("Remove"), this, [this, newModelIndex]() {
+        menu.addAction(QIcon::fromTheme(QStringLiteral("list-remove")), i18nc("@action", "Remove"), this, [this, newModelIndex]() {
             const QModelIndex modelIndex = mModel->index(newModelIndex.row(), AdminCustomEmojiModel::Identifier);
             slotRemoveCustomEmoji(modelIndex);
         });

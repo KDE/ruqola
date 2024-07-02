@@ -129,18 +129,18 @@ void ModerationReportedUserConsoleTreeWidget::slotCustomContextMenuRequested(con
     if (index.isValid()) {
         QMenu menu(this);
         const QModelIndex newModelIndex = mProxyModelModel->mapToSource(index);
-        menu.addAction(QIcon::fromTheme(QStringLiteral("visibility")), i18n("See reports"), this, [this, newModelIndex]() {
+        menu.addAction(QIcon::fromTheme(QStringLiteral("visibility")), i18nc("@action", "See reports"), this, [this, newModelIndex]() {
             slotShowReports(newModelIndex);
         });
         menu.addSeparator();
 
-        menu.addAction(QIcon::fromTheme(QStringLiteral("list-remove")), i18n("Dismiss reports"), this, [this, newModelIndex]() {
+        menu.addAction(QIcon::fromTheme(QStringLiteral("list-remove")), i18nc("@action", "Dismiss reports"), this, [this, newModelIndex]() {
             const QModelIndex modelIndex = mModel->index(newModelIndex.row(), ModerationReportedUserModel::Identifier);
             slotDismissReport(modelIndex);
         });
 
         menu.addSeparator();
-        menu.addAction(QIcon::fromTheme(QStringLiteral("list-remove")), i18n("Deactivate user"), this, [this, newModelIndex]() {
+        menu.addAction(QIcon::fromTheme(QStringLiteral("list-remove")), i18nc("@action", "Deactivate user"), this, [this, newModelIndex]() {
             const QModelIndex modelIndex = mModel->index(newModelIndex.row(), ModerationReportedUserModel::UserName);
             slotDesactivateUser(modelIndex);
         });

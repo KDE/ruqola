@@ -46,13 +46,13 @@ void OauthTreeView::slotCustomContextMenuRequested(const QPoint &pos)
 {
     const QModelIndex index = indexAt(pos);
     QMenu menu(this);
-    menu.addAction(QIcon::fromTheme(QStringLiteral("list-add")), i18n("Add…"), this, &OauthTreeView::addClicked);
+    menu.addAction(QIcon::fromTheme(QStringLiteral("list-add")), i18nc("@action", "Add…"), this, &OauthTreeView::addClicked);
     if (index.isValid()) {
-        menu.addAction(QIcon::fromTheme(QStringLiteral("document-edit")), i18n("Modify…"), this, [this, index]() {
+        menu.addAction(QIcon::fromTheme(QStringLiteral("document-edit")), i18nc("@action", "Modify…"), this, [this, index]() {
             editClicked(index);
         });
         menu.addSeparator();
-        menu.addAction(QIcon::fromTheme(QStringLiteral("list-remove")), i18n("Remove"), this, [this, index]() {
+        menu.addAction(QIcon::fromTheme(QStringLiteral("list-remove")), i18nc("@action", "Remove"), this, [this, index]() {
             const QModelIndex modelIndex = model()->index(index.row(), AdminOauthModel::Identifier);
             removeClicked(modelIndex.data().toString());
         });

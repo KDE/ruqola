@@ -103,11 +103,11 @@ void UsersInRoleWidget::slotRemoveUsersFromRoleDone(const QJsonObject &replyObje
 void UsersInRoleWidget::slotCustomContextMenuRequested(const QPoint &pos)
 {
     QMenu menu(this);
-    menu.addAction(QIcon::fromTheme(QStringLiteral("list-add")), i18n("Add…"), this, &UsersInRoleWidget::slotAddUser);
+    menu.addAction(QIcon::fromTheme(QStringLiteral("list-add")), i18nc("@action", "Add…"), this, &UsersInRoleWidget::slotAddUser);
     const QModelIndex index = mTreeView->indexAt(pos);
     if (index.isValid()) {
         menu.addSeparator();
-        menu.addAction(QIcon::fromTheme(QStringLiteral("list-remove")), i18n("Remove"), this, [this, index]() {
+        menu.addAction(QIcon::fromTheme(QStringLiteral("list-remove")), i18nc("@action", "Remove"), this, [this, index]() {
             slotRemoveUser(index);
         });
     }

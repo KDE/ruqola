@@ -28,11 +28,11 @@ RoomAvatarWidget::~RoomAvatarWidget() = default;
 void RoomAvatarWidget::contextMenuEvent(QContextMenuEvent *event)
 {
     QMenu menu;
-    menu.addAction(i18n("Change Picture…"), this, &RoomAvatarWidget::slotChangeImage);
+    menu.addAction(i18nc("@action", "Change Picture…"), this, &RoomAvatarWidget::slotChangeImage);
     menu.addSeparator();
-    menu.addAction(i18n("Reset Avatar"), this, &RoomAvatarWidget::slotResetAvatar);
+    menu.addAction(i18nc("@action", "Reset Avatar"), this, &RoomAvatarWidget::slotResetAvatar);
     menu.addSeparator();
-    menu.addAction(QIcon::fromTheme(QStringLiteral("dialog-cancel")), i18n("Cancel"), this, &RoomAvatarWidget::slotCancel);
+    menu.addAction(QIcon::fromTheme(QStringLiteral("dialog-cancel")), i18nc("@action", "Cancel"), this, &RoomAvatarWidget::slotCancel);
     menu.exec(event->globalPos());
 }
 

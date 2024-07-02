@@ -114,20 +114,20 @@ void TeamChannelsWidget::slotCustomContextMenuRequested(const QPoint &pos)
     if (mRoom->hasPermission(QStringLiteral("add-team-channel"))) {
         menu.addAction(i18n("Add Existing Room"), this, &TeamChannelsWidget::slotAddExistingRoom);
         menu.addSeparator();
-        menu.addAction(QIcon::fromTheme(QStringLiteral("irc-join-channel")), i18n("Create Room"), this, &TeamChannelsWidget::slotCreateRoom);
+        menu.addAction(QIcon::fromTheme(QStringLiteral("irc-join-channel")), i18nc("@action", "Create Room"), this, &TeamChannelsWidget::slotCreateRoom);
     }
     if (index.isValid()) {
         if (mRoom->hasPermission(QStringLiteral("edit-team-channel"))) {
             menu.addSeparator();
             const bool autojoin = index.data(TeamRoomsModel::AutoJoin).toBool();
-            menu.addAction(autojoin ? i18n("Remove Autojoin") : i18n("Add Autojoin"), this, [this, index, autojoin]() {
+            menu.addAction(autojoin ? i18nc("@action", "Remove Autojoin") : i18nc("@action", "Add Autojoin"), this, [this, index, autojoin]() {
                 const QByteArray roomId = index.data(TeamRoomsModel::Identifier).toByteArray();
                 updateAutojoin(roomId, autojoin);
             });
         }
         if (mRoom->hasPermission(QStringLiteral("remove-team-channel"))) {
             menu.addSeparator();
-            menu.addAction(QIcon::fromTheme(QStringLiteral("dialog-cancel")), i18n("Remove from Team"), this, [this, index]() {
+            menu.addAction(QIcon::fromTheme(QStringLiteral("dialog-cancel")), i18nc("@action", "Remove from Team"), this, [this, index]() {
                 const QByteArray roomId = index.data(TeamRoomsModel::Identifier).toByteArray();
                 removeRoomFromTeam(roomId);
             });
