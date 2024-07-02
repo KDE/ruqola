@@ -10,7 +10,6 @@
 ApplicationsSettingsStatusComboBox::ApplicationsSettingsStatusComboBox(QWidget *parent)
     : QComboBox(parent)
 {
-    // TODO Convert to enum
     addItem(i18n("All Status"), AppsMarketPlaceFilterProxyModel::Status::AllStatus);
     addItem(i18n("Enabled"), AppsMarketPlaceFilterProxyModel::Status::Enabled);
     addItem(i18n("Disabled"), AppsMarketPlaceFilterProxyModel::Status::Disabled);
