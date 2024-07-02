@@ -30,6 +30,7 @@ QDebug operator<<(QDebug d, const AppsMarketPlaceInfo &t)
     d.nospace() << "modifiedDate " << t.modifiedDate();
     d.nospace() << "isPaid " << t.isPaid();
     d.nospace() << "pricePlan " << t.pricePlan();
+    d.nospace() << "isPrivate " << t.isPrivate();
     return d;
 }
 
@@ -55,6 +56,16 @@ void AppsMarketPlaceInfo::parsePrincingPlan(const QJsonArray &array)
     }
 }
 
+bool AppsMarketPlaceInfo::isPrivate() const
+{
+    return mIsPrivate;
+}
+
+void AppsMarketPlaceInfo::setIsPrivate(bool newIsPrivate)
+{
+    mIsPrivate = newIsPrivate;
+}
+
 bool AppsMarketPlaceInfo::PricePlan::operator==(const AppsMarketPlaceInfo::PricePlan &other) const
 {
     return price == other.price && trialDays == other.trialDays && strategy == other.strategy && enabled == other.enabled;
@@ -70,6 +81,7 @@ AppsMarketPlaceInfo::PricePlan::Strategy AppsMarketPlaceInfo::PricePlan::convert
 
 void AppsMarketPlaceInfo::parseAppsMarketPlaceInfo(const QJsonObject &replyObject)
 {
+    qDebug() << " replyObject " << replyObject;
     mAppId = replyObject["appId"_L1].toString().toLatin1();
     mIsEnterpriseOnly = replyObject["isEnterpriseOnly"_L1].toBool();
     mPurchaseType = replyObject["purchaseType"_L1].toString();

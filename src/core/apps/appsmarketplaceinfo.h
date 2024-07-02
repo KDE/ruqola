@@ -80,6 +80,9 @@ public:
     [[nodiscard]] QList<PricePlan> pricePlan() const;
     void setPricePlan(const QList<PricePlan> &newPricePlan);
 
+    [[nodiscard]] bool isPrivate() const;
+    void setIsPrivate(bool newIsPrivate);
+
 private:
     LIBRUQOLACORE_NO_EXPORT void parsePrincingPlan(const QJsonArray &array);
     QList<PricePlan> mPricePlan;
@@ -94,6 +97,7 @@ private:
     QPixmap mPixmap;
     qint64 mModifiedDate = -1;
     int mPrice = 0;
+    bool mIsPrivate = false;
     bool mIsEnterpriseOnly = false;
 };
 
