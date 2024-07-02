@@ -31,17 +31,17 @@ DirectoryWidget::DirectoryWidget(RocketChatAccount *account, DirectoryType type,
 {
     switch (mType) {
     case DirectoryType::Room:
-        mSearchLineEdit->setPlaceholderText(i18n("Search channels…"));
+        mSearchLineEdit->setPlaceholderText(i18nc("Placeholder", "Search rooms…"));
         mModel = new DirectoryRoomsModel(this);
         mProxyModelModel = new DirectoryRoomsProxyModel(mModel, this);
         break;
     case DirectoryType::User:
-        mSearchLineEdit->setPlaceholderText(i18n("Search users…"));
+        mSearchLineEdit->setPlaceholderText(i18nc("Placeholder", "Search users…"));
         mModel = new DirectoryUsersModel(this);
         mProxyModelModel = new DirectoryUsersProxyModel(mModel, this);
         break;
     case DirectoryType::Team:
-        mSearchLineEdit->setPlaceholderText(i18n("Search teams…"));
+        mSearchLineEdit->setPlaceholderText(i18nc("Placeholder", "Search teams…"));
         mModel = new DirectoryTeamsModel(this);
         mProxyModelModel = new DirectoryTeamsProxyModel(mModel, this);
         break;
@@ -72,7 +72,19 @@ void DirectoryWidget::slotCustomContextMenuRequested(const QPoint &pos)
     const QModelIndex index = mTreeView->indexAt(pos);
     if (index.isValid()) {
         const QModelIndex i = mProxyModelModel->mapToSource(index);
-        menu.addAction(i18nc("@action", "Open…"), this, [this, i]() {
+        QString actionName;
+        switch (mType) {
+        case DirectoryType::Room:
+        case DirectoryType::Team:
+            actionName = i18nc("@action", "Join…");
+            break;
+        case DirectoryType::User:
+            actionName = i18nc("@action", "Open Private Messages…");
+            break;
+        case DirectoryType::Unknown:
+            break;
+        }
+        menu.addAction(actionName, this, [this, i]() {
             slotOpen(i);
         });
     }
@@ -199,24 +211,6 @@ QString DirectoryWidget::displayShowMessageInRoom() const
         displayMessageStr += clickableStr();
     }
     return displayMessageStr;
-}
-
-void DirectoryWidget::fillDirectory()
-{
-    switch (mType) {
-    case DirectoryType::Room:
-        mSearchLineEdit->setPlaceholderText(i18n("Search rooms…"));
-        break;
-    case DirectoryType::User:
-        mSearchLineEdit->setPlaceholderText(i18n("Search users…"));
-        break;
-    case DirectoryType::Team:
-        mSearchLineEdit->setPlaceholderText(i18n("Search teams…"));
-        break;
-    case DirectoryType::Unknown:
-        qCWarning(RUQOLAWIDGETS_LOG) << "Invalid type it's a bug";
-        return;
-    }
 }
 
 void DirectoryWidget::showEvent(QShowEvent *event)

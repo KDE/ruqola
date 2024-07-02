@@ -18,8 +18,6 @@ public:
     explicit DirectoryDialog(RocketChatAccount *account, DirectoryWidget::DirectoryType type, QWidget *parent = nullptr);
     ~DirectoryDialog() override;
 
-    void fill();
-
 Q_SIGNALS:
     void updateJoinButton(bool status);
 

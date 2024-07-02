@@ -958,21 +958,18 @@ void RuqolaMainWindow::slotAdministratorServerSettings()
 void RuqolaMainWindow::slotJoinRoom()
 {
     auto dlg = new DirectoryDialog(mCurrentRocketChatAccount, DirectoryWidget::DirectoryType::Room, this);
-    dlg->fill();
     dlg->show();
 }
 
 void RuqolaMainWindow::slotJoinTeam()
 {
     auto dlg = new DirectoryDialog(mCurrentRocketChatAccount, DirectoryWidget::DirectoryType::Team, this);
-    dlg->fill();
     dlg->show();
 }
 
 void RuqolaMainWindow::slotOpenPrivateChannel()
 {
     auto dlg = new DirectoryDialog(mCurrentRocketChatAccount, DirectoryWidget::DirectoryType::User, this);
-    dlg->fill();
     dlg->show();
 }
 

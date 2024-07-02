@@ -36,13 +36,6 @@ void DirectoryStackedWidget::setIsAutorized(bool newIsAutorized)
     }
 }
 
-void DirectoryStackedWidget::fillDirectory()
-{
-    if (mIsAutorized) {
-        mDirectoryWidget->fillDirectory();
-    }
-}
-
 void DirectoryStackedWidget::slotJoin()
 {
     mDirectoryWidget->slotJoin();

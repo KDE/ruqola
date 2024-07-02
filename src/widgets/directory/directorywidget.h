@@ -24,8 +24,6 @@ public:
     explicit DirectoryWidget(RocketChatAccount *account, DirectoryType type, QWidget *parent = nullptr);
     ~DirectoryWidget() override;
 
-    void fillDirectory();
-
     [[nodiscard]] DirectoryType type() const;
 
     void slotJoin();

@@ -21,8 +21,6 @@ public:
     [[nodiscard]] bool isAutorized() const;
     void setIsAutorized(bool newIsAutorized);
 
-    void fillDirectory();
-
     [[nodiscard]] DirectoryWidget *directoryWidget() const;
 
     [[nodiscard]] DirectoryNotAuthorizedWidget *directoryNotAutorizedWidget() const;

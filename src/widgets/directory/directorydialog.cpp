@@ -79,11 +79,6 @@ DirectoryDialog::~DirectoryDialog()
     writeConfig();
 }
 
-void DirectoryDialog::fill()
-{
-    mDirectoryContainerWidget->fill();
-}
-
 void DirectoryDialog::readConfig()
 {
     create(); // ensure a window is created

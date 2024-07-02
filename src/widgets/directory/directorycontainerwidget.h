@@ -18,7 +18,7 @@ public:
     explicit DirectoryContainerWidget(RocketChatAccount *account, DirectoryWidget::DirectoryType type, QWidget *parent = nullptr);
     ~DirectoryContainerWidget() override;
 
-    void fill();
+    void initialize();
 
     void slotJoin();
 

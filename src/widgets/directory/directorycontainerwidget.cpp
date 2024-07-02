@@ -43,11 +43,6 @@ DirectoryContainerWidget::DirectoryContainerWidget(RocketChatAccount *account, D
 
 DirectoryContainerWidget::~DirectoryContainerWidget() = default;
 
-void DirectoryContainerWidget::fill()
-{
-    mDirectoryStackedWidget->fillDirectory();
-}
-
 void DirectoryContainerWidget::slotJoin()
 {
     mDirectoryStackedWidget->slotJoin();
