@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-06-10 02:50+0000\n"
-"PO-Revision-Date: 2024-06-08 08:17+0200\n"
+"PO-Revision-Date: 2024-06-30 15:30+0200\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
 "Language-Team: French <French <kde-francophone@kde.org>>\n"
 "Language: fr\n"
@@ -238,7 +238,7 @@ msgstr "Masquer le salon"
 #: core/commands/command.cpp:95
 #, kde-format
 msgid "Invite one user to join this channel"
-msgstr "Inviter un utilisateur rejoindre ce canal"
+msgstr "Inviter un utilisateur à rejoindre ce canal"
 
 #: core/commands/command.cpp:97
 #, kde-format
@@ -463,7 +463,7 @@ msgstr "%2 a changé la confidentialité du salon en %1"
 #: core/messages/message.cpp:694
 #, kde-format
 msgid "Click to join to video"
-msgstr "Cliquez pour rejoindre en vidéo"
+msgstr "Cliquez pour se rejoindre en vidéo"
 
 #: core/messages/message.cpp:697
 #, kde-format
@@ -613,7 +613,7 @@ msgstr "Le salon a refusé la réaction de %1"
 #: core/messages/message.cpp:758
 #, kde-format
 msgid "%1 joined this Team"
-msgstr "%1 a rejoint ce groupe"
+msgstr "%1 a rejoint cette équipe"
 
 #: core/messages/message.cpp:760
 #, kde-format
@@ -1336,7 +1336,7 @@ msgstr "A rejoint ce groupe"
 #: core/model/teamroomsmodel.cpp:32
 #, kde-format
 msgid "(Autojoin)"
-msgstr "(Connexion automatique)"
+msgstr "(Rejoindre automatiquement)"
 
 #: core/notifications/notification.cpp:81
 #, kde-format
@@ -1633,7 +1633,7 @@ msgstr ""
 #: rocketchatrestapi-qt/channels/channeljoinjob.cpp:109
 #, kde-format
 msgid "The room required a password."
-msgstr "La salle a requis un mot de passe."
+msgstr "Le salon nécessite un mot de passe."
 
 #: rocketchatrestapi-qt/channels/channelmembersjob.cpp:49
 #, kde-format
@@ -6739,7 +6739,7 @@ msgstr "Informations sur le canal"
 #: widgets/dialogs/attachment/listattachmentdelegate.cpp:95
 #, kde-format
 msgid "Save Attachment"
-msgstr "Enregistrer la pièce jointe"
+msgstr "Enregistrer une pièce jointe"
 
 #: widgets/dialogs/attachment/listattachmentdelegate.cpp:106
 #, kde-format
@@ -9728,7 +9728,7 @@ msgstr "Nom de l'équipe :"
 #: widgets/teams/teamchannelscombobox.cpp:20
 #, kde-format
 msgid "Autojoin"
-msgstr "Connexion automatique"
+msgstr "Rejoindre automatiquement"
 
 #: widgets/teams/teamchannelsdialog.cpp:24
 #, kde-format
@@ -9755,12 +9755,12 @@ msgstr "Créer un domaine"
 #: widgets/teams/teamchannelswidget.cpp:123
 #, kde-format
 msgid "Remove Autojoin"
-msgstr "Supprimer la connexion automatique"
+msgstr "Supprimer la rejointe automatique"
 
 #: widgets/teams/teamchannelswidget.cpp:123
 #, kde-format
 msgid "Add Autojoin"
-msgstr "Ajouter la connexion automatique"
+msgstr "Ajouter la possibilité d'une rejointe automatique"
 
 #: widgets/teams/teamchannelswidget.cpp:130
 #, kde-format
