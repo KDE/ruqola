@@ -5,8 +5,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-06-30 00:39+0000\n"
-"PO-Revision-Date: 2024-06-29 17:41+0200\n"
+"POT-Creation-Date: 2024-07-02 00:38+0000\n"
+"PO-Revision-Date: 2024-06-30 15:30+0200\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
 "Language-Team: French <French <kde-francophone@kde.org>>\n"
 "Language: fr\n"
@@ -260,7 +260,7 @@ msgstr "Masquer le salon"
 #: core/commands/command.cpp:95
 #, kde-format
 msgid "Invite one user to join this channel"
-msgstr "Inviter un utilisateur rejoindre ce canal"
+msgstr "Inviter un utilisateur à rejoindre ce canal"
 
 #: core/commands/command.cpp:97
 #, kde-format
@@ -485,7 +485,7 @@ msgstr "%2 a changé la confidentialité du salon en %1"
 #: core/messages/message.cpp:694
 #, kde-format
 msgid "Click to join to video"
-msgstr "Cliquez pour rejoindre en vidéo"
+msgstr "Cliquez pour se rejoindre en vidéo"
 
 #: core/messages/message.cpp:697
 #, kde-format
@@ -635,7 +635,7 @@ msgstr "Le salon a refusé la réaction de %1"
 #: core/messages/message.cpp:758
 #, kde-format
 msgid "%1 joined this Team"
-msgstr "%1 a rejoint ce groupe"
+msgstr "%1 a rejoint cette équipe"
 
 #: core/messages/message.cpp:760
 #, kde-format
@@ -1351,7 +1351,7 @@ msgstr "A rejoint ce groupe"
 #: core/model/teamroomsmodel.cpp:32
 #, kde-format
 msgid "(Autojoin)"
-msgstr "(Connexion automatique)"
+msgstr "(Rejoindre automatiquement)"
 
 #: core/notifications/notification.cpp:81
 #, kde-format
@@ -1647,7 +1647,7 @@ msgstr ""
 #: rocketchatrestapi-qt/channels/channeljoinjob.cpp:109
 #, kde-format
 msgid "The room required a password."
-msgstr "La salle a requis un mot de passe."
+msgstr "Le salon nécessite un mot de passe."
 
 #: rocketchatrestapi-qt/channels/channelmembersjob.cpp:49
 #, kde-format
@@ -6352,7 +6352,7 @@ msgstr "Applications"
 #: widgets/applicationssettingsdialog/applicationssettingsinprogresswidget.cpp:15
 #, kde-format
 msgid "Loading in progress..."
-msgstr ""
+msgstr "Chargement en cours..."
 
 #: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:58
 #, kde-format
@@ -6869,7 +6869,7 @@ msgstr "Informations sur le canal"
 #: widgets/dialogs/attachment/listattachmentdelegate.cpp:95
 #, kde-format
 msgid "Save Attachment"
-msgstr "Enregistrer la pièce jointe"
+msgstr "Enregistrer une pièce jointe"
 
 #: widgets/dialogs/attachment/listattachmentdelegate.cpp:106
 #, kde-format
@@ -7735,35 +7735,31 @@ msgstr "Nom du fichier :"
 #, kde-format
 msgctxt "@title:window"
 msgid "Join Room - %1"
-msgstr ""
+msgstr "Rejoindre un salon - %1"
 
 #: widgets/directory/directorydialog.cpp:33
-#, fuzzy, kde-format
-#| msgid "Open Conversation with \"%1\"?"
+#, kde-format
 msgctxt "@title:window"
 msgid "Open Private Conversation - %1"
-msgstr "Ouvrir une conversation avec « %1 » ?"
+msgstr "Ouvrir une conversation privée - %1"
 
 #: widgets/directory/directorydialog.cpp:36
-#, fuzzy, kde-format
-#| msgid "Joined this Team"
+#, kde-format
 msgctxt "@title:window"
 msgid "Join Team - %1"
-msgstr "A rejoint ce groupe"
+msgstr "Rejoindre l'équipe - %1"
 
 #: widgets/directory/directorydialog.cpp:61
-#, fuzzy, kde-format
-#| msgid "Join"
+#, kde-format
 msgctxt "@action:button"
 msgid "Join"
 msgstr "Rejoindre"
 
 #: widgets/directory/directorydialog.cpp:64
-#, fuzzy, kde-format
-#| msgid "Private Messages"
+#, kde-format
 msgctxt "@action:button"
 msgid "Open Private Message"
-msgstr "Messages privés"
+msgstr "Ouvrir un message privé"
 
 #: widgets/directory/directorynotauthorizedwidget.cpp:19
 #, kde-format
@@ -9840,22 +9836,19 @@ msgstr "Applications…"
 #, kde-format
 msgctxt "Action which allows to search room"
 msgid "Join Room…"
-msgstr ""
+msgstr "Rejoindre un salon..."
 
 #: widgets/ruqolamainwindow.cpp:513
-#, fuzzy, kde-format
-#| msgid "Joined this Team"
+#, kde-format
 msgctxt "Action which allows to search team"
 msgid "Join Team…"
-msgstr "A rejoint ce groupe"
+msgstr "Rejoindre une équipe …"
 
 #: widgets/ruqolamainwindow.cpp:517
-#, fuzzy, kde-format
-#| msgctxt "@action"
-#| msgid "Start a Private Conversation"
+#, kde-format
 msgctxt "Action which allows to open private conversation (direct user)"
 msgid "Open Private Conversation…"
-msgstr "Démarrer une conversation privée"
+msgstr "Ouvrir une conversation privée..."
 
 #: widgets/ruqolamainwindow.cpp:538
 #, kde-format
@@ -10044,7 +10037,7 @@ msgstr "Nom de l'équipe :"
 #: widgets/teams/teamchannelscombobox.cpp:20
 #, kde-format
 msgid "Autojoin"
-msgstr "Connexion automatique"
+msgstr "Rejoindre automatiquement"
 
 #: widgets/teams/teamchannelsdialog.cpp:24
 #, kde-format
@@ -10071,12 +10064,12 @@ msgstr "Créer un domaine"
 #: widgets/teams/teamchannelswidget.cpp:123
 #, kde-format
 msgid "Remove Autojoin"
-msgstr "Supprimer la connexion automatique"
+msgstr "Supprimer la rejointe automatique"
 
 #: widgets/teams/teamchannelswidget.cpp:123
 #, kde-format
 msgid "Add Autojoin"
-msgstr "Ajouter la connexion automatique"
+msgstr "Ajouter la possibilité d'une rejointe automatique"
 
 #: widgets/teams/teamchannelswidget.cpp:130
 #, kde-format
@@ -10432,29 +10425,29 @@ msgstr "Autoriser l'envoi de fichiers multiples."
 msgid "Fix preview url."
 msgstr "Corriger l'URL d'aperçu"
 
-#: widgets/whatsnew/whatsnewwidget.cpp:39
+#: widgets/whatsnew/whatsnewwidget.cpp:44
 #, kde-format
 msgid "All Version"
 msgstr "Toutes les versions"
 
-#: widgets/whatsnew/whatsnewwidget.cpp:42
+#: widgets/whatsnew/whatsnewwidget.cpp:47
 #, kde-format
 msgid "Version %1"
 msgstr "Version %1"
 
-#: widgets/whatsnew/whatsnewwidget.cpp:87
+#: widgets/whatsnew/whatsnewwidget.cpp:92
 #, kde-format
 msgid "Important changes since last version:"
 msgstr "Modifications importantes depuis la dernière version :"
 
-#: widgets/whatsnew/whatsnewwidget.cpp:92
+#: widgets/whatsnew/whatsnewwidget.cpp:97
 #, kde-format
 msgid "Some of the new features in this release of Ruqola include:"
 msgstr ""
 "Certaines des nouvelles fonctionnalités de cette version de Ruqola "
 "comprennent :"
 
-#: widgets/whatsnew/whatsnewwidget.cpp:97
+#: widgets/whatsnew/whatsnewwidget.cpp:102
 #, kde-format
 msgid "Some bug fixing:"
 msgstr "Quelques correction de bogues :"
