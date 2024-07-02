@@ -83,7 +83,7 @@ void AvatarImage::changeImage()
 void AvatarImage::changeUrl()
 {
     bool ok = false;
-    const QString url = QInputDialog::getText(this, i18n("Change Url"), i18n("Define Avatar Url:"), QLineEdit::Normal, {}, &ok);
+    const QString url = QInputDialog::getText(this, i18nc("@title:window", "Change Url"), i18n("Define Avatar Url:"), QLineEdit::Normal, {}, &ok);
     if (ok && !url.isEmpty()) {
         mRocketChatAccount->setAvatarUrl(url);
     }
