@@ -3244,6 +3244,11 @@ void RocketChatAccount::loadAppCategories()
     }
 }
 
+void RocketChatAccount::loadInstalledApps()
+{
+    // TODO
+}
+
 void RocketChatAccount::loadAppMarketPlace()
 {
     if (mAppsMarketPlaceModel->wasFilled()) {

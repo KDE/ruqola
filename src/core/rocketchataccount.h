@@ -542,6 +542,7 @@ public:
 
     void loadAppMarketPlace();
     void loadAppCategories();
+    void loadInstalledApps();
 
     [[nodiscard]] bool appMarketPlaceLoaded() const;
 Q_SIGNALS:
