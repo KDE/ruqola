@@ -1,7 +1,6 @@
 # SPDX-FileCopyrightText: 2020-2024 Laurent Montel <montel@kde.org>
 # SPDX-License-Identifier: BSD-3-Clause
-add_library(libruqolawidgets
-    applicationssettingsdialog/applicationssettingsinstalledcombobox.h applicationssettingsdialog/applicationssettingsinstalledcombobox.cpp)
+add_library(libruqolawidgets)
 
 if(TARGET KF6::UserFeedbackWidgets)
     target_sources(libruqolawidgets PRIVATE
@@ -925,6 +924,9 @@ target_sources(libruqolawidgets PRIVATE
     applicationssettingsdialog/applicationssettingssortingcombobox.h
     applicationssettingsdialog/applicationssettingsinprogresswidget.h
     applicationssettingsdialog/applicationssettingsinprogresswidget.cpp
+
+    applicationssettingsdialog/applicationssettingsinstalledcombobox.h
+    applicationssettingsdialog/applicationssettingsinstalledcombobox.cpp
 )
 
 if(HAVE_TEXT_AUTOCORRECTION_WIDGETS)
