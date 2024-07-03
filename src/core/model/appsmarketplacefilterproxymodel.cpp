@@ -137,7 +137,7 @@ void AppsMarketPlaceFilterProxyModel::setFilterInfo(const FilterInfo &newFilterI
 
 bool AppsMarketPlaceFilterProxyModel::FilterInfo::operator==(const FilterInfo &other) const
 {
-    return categories == other.categories && text == other.text && other.status == status && price == other.price;
+    return categories == other.categories && text == other.text && other.status == status && price == other.price && installedApps == other.installedApps;
 }
 
 bool AppsMarketPlaceFilterProxyModel::FilterInfo::operator!=(const FilterInfo &other) const
@@ -151,6 +151,7 @@ QDebug operator<<(QDebug d, const AppsMarketPlaceFilterProxyModel::FilterInfo &t
     d.space() << "text:" << t.text;
     d.space() << "status:" << t.status;
     d.space() << "price:" << t.price;
+    d.space() << "installedApps:" << t.installedApps;
     return d;
 }
 

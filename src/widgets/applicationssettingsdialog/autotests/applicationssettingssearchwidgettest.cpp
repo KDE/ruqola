@@ -5,6 +5,7 @@
 */
 #include "applicationssettingssearchwidgettest.h"
 #include "applicationssettingsdialog/applicationssettingscategoriescombobox.h"
+#include "applicationssettingsdialog/applicationssettingsinstalledcombobox.h"
 #include "applicationssettingsdialog/applicationssettingspricecombobox.h"
 #include "applicationssettingsdialog/applicationssettingssearchwidget.h"
 #include "applicationssettingsdialog/applicationssettingssortingcombobox.h"
@@ -41,6 +42,10 @@ void ApplicationsSettingsSearchWidgetTest::shouldHaveDefaultValues()
 
     auto mApplicationsSettingsSortingComboBox = d.findChild<ApplicationsSettingsSortingComboBox *>(QStringLiteral("mApplicationsSettingsSortingComboBox"));
     QVERIFY(mApplicationsSettingsSortingComboBox);
+
+    auto mApplicationsSettingsInstalledComboBox =
+        d.findChild<ApplicationsSettingsInstalledComboBox *>(QStringLiteral("mApplicationsSettingsInstalledComboBox"));
+    QVERIFY(mApplicationsSettingsInstalledComboBox);
 }
 
 #include "moc_applicationssettingssearchwidgettest.cpp"
