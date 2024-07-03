@@ -21,3 +21,5 @@ void ApplicationsSettingsInstalledComboBoxTest::shouldHaveDefaultValues()
     ApplicationsSettingsInstalledComboBox d;
     // TODO
 }
+
+#include "moc_applicationssettingsinstalledcomboboxtest.cpp"

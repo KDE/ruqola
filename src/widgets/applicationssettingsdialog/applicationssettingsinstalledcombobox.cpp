@@ -13,3 +13,5 @@ ApplicationsSettingsInstalledComboBox::ApplicationsSettingsInstalledComboBox(QWi
 }
 
 ApplicationsSettingsInstalledComboBox::~ApplicationsSettingsInstalledComboBox() = default;
+
+#include "moc_applicationssettingsinstalledcombobox.cpp"
