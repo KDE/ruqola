@@ -19,6 +19,7 @@ public:
         UnknownStatus,
     };
     Q_ENUM(Status);
+
     enum Price {
         AllPrice,
         Free,
@@ -27,6 +28,7 @@ public:
         UnknownPrice,
     };
     Q_ENUM(Price);
+
     enum Sorting {
         AtoZ,
         ZtoA,
@@ -35,6 +37,13 @@ public:
         UnknownSorting,
     };
     Q_ENUM(Sorting);
+
+    enum InstalledApps {
+        AnyInfoApps,
+        PrivateApps,
+        AllInstalledApps,
+    };
+    Q_ENUM(InstalledApps);
 
     struct LIBRUQOLACORE_EXPORT FilterInfo {
         QStringList categories;
