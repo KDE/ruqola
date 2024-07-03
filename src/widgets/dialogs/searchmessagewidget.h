@@ -49,6 +49,7 @@ private:
     LIBRUQOLAWIDGETS_NO_EXPORT void messageSearch(const QString &pattern, const QByteArray &rid, bool userRegularExpression, int offset = -1);
     LIBRUQOLAWIDGETS_NO_EXPORT void slotSearchMessagesDone(const QJsonObject &obj);
     LIBRUQOLAWIDGETS_NO_EXPORT void searchMessages(const QByteArray &roomId, const QString &pattern, bool useRegularExpression, int offset = -1);
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotSearchMessagesFailed();
 
     CommonMessagesModel *const mSearchMessageModel;
     CommonMessageFilterProxyModel *const mSearchMessageFilterProxyModel;

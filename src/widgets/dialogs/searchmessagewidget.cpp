@@ -115,9 +115,16 @@ void SearchMessageWidget::searchMessages(const QByteArray &roomId, const QString
     job->setUseRegularExpression(useRegularExpression);
     mCurrentRocketChatAccount->restApi()->initializeRestApiJob(job);
     connect(job, &RocketChatRestApi::SearchMessageJob::searchMessageDone, this, &SearchMessageWidget::slotSearchMessagesDone);
+    connect(job, &RocketChatRestApi::SearchMessageJob::failed, this, &SearchMessageWidget::slotSearchMessagesFailed);
     if (!job->start()) {
         qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start searchMessages job";
     }
+}
+
+void SearchMessageWidget::slotSearchMessagesFailed()
+{
+    mSearchMessageModel->setLoadCommonMessagesInProgress(false);
+    updateLabel();
 }
 
 void SearchMessageWidget::slotLoadHistory()
