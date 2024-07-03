@@ -8,6 +8,7 @@
 
 #include "restapimethod.h"
 #include "rocketchatqtrestapi_debug.h"
+#include <QJsonArray>
 #include <QJsonDocument>
 #include <QJsonObject>
 #include <QUrlQuery>
@@ -40,6 +41,10 @@ bool AppInstalledJob::start()
 
 void AppInstalledJob::onGetRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
+    // qDebug() << " replyJson " << replyJson;
+    const QJsonArray replyArray = replyJson.object()["apps"_L1].toArray();
+    Q_EMIT appInstalledDone(replyArray);
+#if 0
     const QJsonObject replyObject = replyJson.object();
     if (replyObject["success"_L1].toBool()) {
         addLoggerInfo(QByteArrayLiteral("AppInstalledJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
@@ -48,6 +53,7 @@ void AppInstalledJob::onGetRequestResponse(const QString &replyErrorString, cons
         emitFailedMessage(replyErrorString, replyObject);
         addLoggerWarning(QByteArrayLiteral("AppInstalledJob: Problem when we tried to get app installed info : ") + replyJson.toJson(QJsonDocument::Indented));
     }
+#endif
 }
 
 QNetworkRequest AppInstalledJob::request() const
