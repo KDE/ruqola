@@ -62,7 +62,7 @@ MyAccountPreferenceConfigureWidget::MyAccountPreferenceConfigureWidget(RocketCha
 
     mHighlightWords->setObjectName(QStringLiteral("mHighlightWords"));
     KLineEditEventHandler::catchReturnKey(mHighlightWords);
-    mHighlightWords->setPlaceholderText(i18n("Use \',\' for separating words"));
+    mHighlightWords->setPlaceholderText(i18nc("@info:placeholder", "Use \',\' for separating words"));
     mHighlightWords->setToolTip(i18nc("@info:tooltip", "Separate each word with \',\'."));
     connect(mHighlightWords, &QLineEdit::textEdited, this, &MyAccountPreferenceConfigureWidget::setWasChanged);
 

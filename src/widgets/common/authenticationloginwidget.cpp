@@ -39,7 +39,7 @@ AuthenticationLoginWidget::AuthenticationLoginWidget(QWidget *parent)
 
     mUserName->setObjectName(QStringLiteral("mUserName"));
     mUserName->setClearButtonEnabled(true);
-    mUserName->setPlaceholderText(i18n("Username or email"));
+    mUserName->setPlaceholderText(i18nc("@info:placeholder", "Username or email"));
     KLineEditEventHandler::catchReturnKey(mUserName);
     mainLayout->addRow(i18n("Username or Email:"), mUserName);
 

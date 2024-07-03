@@ -33,7 +33,7 @@ UsersInRoleWidget::UsersInRoleWidget(RocketChatAccount *account, QWidget *parent
 
     mProxyModelModel = new SearchTreeBaseFilterProxyModel(mModel, this);
     mProxyModelModel->setObjectName(QStringLiteral("mAdminUsersProxyModel"));
-    mSearchLineEdit->setPlaceholderText(i18n("Search users…"));
+    mSearchLineEdit->setPlaceholderText(i18nc("@info:placeholder", "Search users…"));
     mTreeView->setModel(mProxyModelModel);
     hideColumns();
     connectModel();

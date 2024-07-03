@@ -35,7 +35,7 @@ ExplorePermissionsWidget::ExplorePermissionsWidget(QWidget *parent)
 
     mOwnRoles->setObjectName(QStringLiteral("mOwnRoles"));
     mSearchLineWidget->setObjectName(QStringLiteral("mSearchLineWidget"));
-    mSearchLineWidget->setPlaceholderText(i18n("Search permissions…"));
+    mSearchLineWidget->setPlaceholderText(i18nc("@info:placeholder", "Search permissions…"));
     KLineEditEventHandler::catchReturnKey(mSearchLineWidget);
     mSearchLineWidget->setClearButtonEnabled(true);
     mainLayout->addWidget(mSearchLineWidget);

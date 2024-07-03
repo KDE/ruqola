@@ -34,7 +34,7 @@ MyAccount2FaDisableTotpWidget::MyAccount2FaDisableTotpWidget(RocketChatAccount *
     mainLayout->addLayout(hboxLayout);
 
     mDisableCodeLineEdit->setObjectName(QStringLiteral("mDisableCodeLineEdit"));
-    mDisableCodeLineEdit->setPlaceholderText(i18n("Enter authentication code"));
+    mDisableCodeLineEdit->setPlaceholderText(i18nc("@info:placeholder", "Enter authentication code"));
     KLineEditEventHandler::catchReturnKey(mDisableCodeLineEdit);
     hboxLayout->addWidget(mDisableCodeLineEdit);
 

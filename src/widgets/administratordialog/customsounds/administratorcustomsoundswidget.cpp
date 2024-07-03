@@ -25,7 +25,7 @@ AdministratorCustomSoundsWidget::AdministratorCustomSoundsWidget(RocketChatAccou
 {
     mModel = new AdminCustomSoundModel(this);
     mModel->setObjectName(QStringLiteral("mAdminCustomSoundModel"));
-    mSearchLineEdit->setPlaceholderText(i18n("Search Custom Sounds"));
+    mSearchLineEdit->setPlaceholderText(i18nc("@info:placeholder", "Search Custom Sounds"));
 
     mProxyModelModel = new SearchTreeBaseFilterProxyModel(mModel, this);
     mProxyModelModel->setObjectName(QStringLiteral("mCustomSoundProxyModel"));

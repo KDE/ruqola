@@ -53,7 +53,7 @@ ChannelListWidget::ChannelListWidget(QWidget *parent)
     mSearchRoomLineEdit->addAction(QIcon::fromTheme(QStringLiteral("view-filter")), QLineEdit::LeadingPosition);
     mSearchRoomLineEdit->setObjectName(QStringLiteral("mSearchRoom"));
     const auto shortcut = QKeySequence(Qt::CTRL | Qt::Key_K);
-    mSearchRoomLineEdit->setPlaceholderText(i18n("Filter channels (%1)", shortcut.toString(QKeySequence::NativeText)));
+    mSearchRoomLineEdit->setPlaceholderText(i18nc("@info:placeholder", "Filter channels (%1)", shortcut.toString(QKeySequence::NativeText)));
     mSearchRoomLineEdit->setClearButtonEnabled(true);
     mSearchRoomLineEdit->installEventFilter(this);
     mSearchRoomLineEdit->setProperty("_breeze_borders_sides", QVariant::fromValue(QFlags{Qt::TopEdge}));

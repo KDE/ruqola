@@ -34,7 +34,7 @@ ShowAttachmentWidget::ShowAttachmentWidget(RocketChatAccount *account, QWidget *
     mSearchAttachmentFileLineEdit->setObjectName(QStringLiteral("mSearchAttachmentFileLineEdit"));
     mSearchAttachmentFileLineEdit->setClearButtonEnabled(true);
     KLineEditEventHandler::catchReturnKey(mSearchAttachmentFileLineEdit);
-    mSearchAttachmentFileLineEdit->setPlaceholderText(i18n("Search attachments…"));
+    mSearchAttachmentFileLineEdit->setPlaceholderText(i18nc("@info:placeholder", "Search attachments…"));
     connect(mSearchAttachmentFileLineEdit, &QLineEdit::textChanged, this, &ShowAttachmentWidget::slotSearchMessageTextChanged);
     searchAttachmentLayout->addWidget(mSearchAttachmentFileLineEdit);
 

@@ -32,7 +32,7 @@ ApplicationsSettingsAskApplicationWidget::ApplicationsSettingsAskApplicationWidg
 
     mMessage->setObjectName("mMessage"_L1);
     mainLayout->addWidget(mMessage);
-    mMessage->setPlaceholderText(i18n("Message for workspace admin"));
+    mMessage->setPlaceholderText(i18nc("@info:placeholder", "Message for workspace admin"));
     connect(mMessage, &KTextEdit::textChanged, this, &ApplicationsSettingsAskApplicationWidget::slotUpdateOkButton);
 }
 

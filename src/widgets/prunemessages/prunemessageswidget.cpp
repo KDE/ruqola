@@ -63,7 +63,7 @@ PruneMessagesWidget::PruneMessagesWidget(RocketChatAccount *account, QWidget *pa
     mainLayout->addWidget(usersLabel);
 
     mUsers->setObjectName(QStringLiteral("mUsers"));
-    mUsers->setPlaceholderText(i18n("Select users…"));
+    mUsers->setPlaceholderText(i18nc("@info:placeholder", "Select users…"));
     mainLayout->addWidget(mUsers);
 
     mInclusive->setObjectName(QStringLiteral("mInclusive"));

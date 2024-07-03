@@ -22,7 +22,7 @@ TwoAuthenticationPasswordWidget::TwoAuthenticationPasswordWidget(QWidget *parent
     twoFactorLayout->setContentsMargins({});
 
     mTwoFactorAuthenticationPasswordLineEdit->setObjectName(QStringLiteral("mTwoFactorAuthenticationPasswordLineEdit"));
-    mTwoFactorAuthenticationPasswordLineEdit->lineEdit()->setPlaceholderText(i18n("Enter code"));
+    mTwoFactorAuthenticationPasswordLineEdit->lineEdit()->setPlaceholderText(i18nc("@info:placeholder", "Enter code"));
     mTwoFactorAuthenticationPasswordLineEdit->setRevealPasswordMode(
         KAuthorized::authorize(QStringLiteral("lineedit_reveal_password")) ? KPassword::RevealMode::OnlyNew : KPassword::RevealMode::Never);
     twoFactorLayout->addWidget(mTwoFactorAuthenticationPasswordLineEdit);

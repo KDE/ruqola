@@ -40,7 +40,7 @@ ServerErrorInfoMessageHistoryWidget::ServerErrorInfoMessageHistoryWidget(QWidget
     searchLayout->setContentsMargins({});
 
     mSearchLineEdit->setObjectName(QStringLiteral("mSearchLineEdit"));
-    mSearchLineEdit->setPlaceholderText(i18n("Search…"));
+    mSearchLineEdit->setPlaceholderText(i18nc("@info:placeholder", "Search…"));
     searchLayout->addWidget(mSearchLineEdit);
     mSearchLineEdit->setClearButtonEnabled(true);
     KLineEditEventHandler::catchReturnKey(mSearchLineEdit);

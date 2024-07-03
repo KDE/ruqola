@@ -22,7 +22,7 @@ ChannelSearchWidget::ChannelSearchWidget(RocketChatAccount *account, QWidget *pa
     mainLayout->addWidget(mStackedWidget);
     mStackedWidget->setObjectName(QStringLiteral("mStackedWidget"));
     mChannelSearchNameLineEdit->setObjectName(QStringLiteral("mChannelSearchNameLineEdit"));
-    mChannelSearchNameLineEdit->setPlaceholderText(i18n("Select a channel"));
+    mChannelSearchNameLineEdit->setPlaceholderText(i18nc("@info:placeholder", "Select a channel"));
     mStackedWidget->addWidget(mChannelSearchNameLineEdit);
 
     mChannelSearchLineResult->setObjectName(QStringLiteral("mChannelSearchLineResult"));

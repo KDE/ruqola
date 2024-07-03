@@ -48,7 +48,7 @@ CreateNewDiscussionWidget::CreateNewDiscussionWidget(RocketChatAccount *account,
     mainLayout->addWidget(usersLabel);
 
     mUsers->setObjectName(QStringLiteral("mUsers"));
-    mUsers->setPlaceholderText(i18n("Invite users…"));
+    mUsers->setPlaceholderText(i18nc("@info:placeholder", "Invite users…"));
     mainLayout->addWidget(mUsers);
 
     auto messageLabel = new QLabel(i18nc("@label:textbox", "Message"), this);
@@ -58,7 +58,7 @@ CreateNewDiscussionWidget::CreateNewDiscussionWidget(RocketChatAccount *account,
     mMessageTextEdit->setAcceptRichText(false);
     mMessageTextEdit->setTabChangesFocus(true);
     mMessageTextEdit->setObjectName(QStringLiteral("mMessageTextEdit"));
-    mMessageTextEdit->setPlaceholderText(i18n("Usually a discussion starts with a question, like \"How do I upload a picture?\""));
+    mMessageTextEdit->setPlaceholderText(i18nc("@info:placeholder", "Usually a discussion starts with a question, like \"How do I upload a picture?\""));
     mainLayout->addWidget(mMessageTextEdit);
 }
 

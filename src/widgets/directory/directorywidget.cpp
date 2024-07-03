@@ -31,17 +31,17 @@ DirectoryWidget::DirectoryWidget(RocketChatAccount *account, DirectoryType type,
 {
     switch (mType) {
     case DirectoryType::Room:
-        mSearchLineEdit->setPlaceholderText(i18nc("Placeholder", "Search rooms…"));
+        mSearchLineEdit->setPlaceholderText(i18nc("@info:placeholder", "Search rooms…"));
         mModel = new DirectoryRoomsModel(this);
         mProxyModelModel = new DirectoryRoomsProxyModel(mModel, this);
         break;
     case DirectoryType::User:
-        mSearchLineEdit->setPlaceholderText(i18nc("Placeholder", "Search users…"));
+        mSearchLineEdit->setPlaceholderText(i18nc("@info:placeholder", "Search users…"));
         mModel = new DirectoryUsersModel(this);
         mProxyModelModel = new DirectoryUsersProxyModel(mModel, this);
         break;
     case DirectoryType::Team:
-        mSearchLineEdit->setPlaceholderText(i18nc("Placeholder", "Search teams…"));
+        mSearchLineEdit->setPlaceholderText(i18nc("@info:placeholder", "Search teams…"));
         mModel = new DirectoryTeamsModel(this);
         mProxyModelModel = new DirectoryTeamsProxyModel(mModel, this);
         break;

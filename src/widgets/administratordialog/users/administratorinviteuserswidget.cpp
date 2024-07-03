@@ -22,7 +22,7 @@ AdministratorInviteUsersWidget::AdministratorInviteUsersWidget(QWidget *parent)
     label->setObjectName(QStringLiteral("label"));
 
     mListEmails->setObjectName(QStringLiteral("mListEmails"));
-    mListEmails->setPlaceholderText(i18n("Use ',' for separate emails"));
+    mListEmails->setPlaceholderText(i18nc("@info:placeholder", "Use ',' for separate emails"));
 
     mainLayout->addWidget(label);
     mainLayout->addWidget(mListEmails);

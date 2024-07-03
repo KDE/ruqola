@@ -36,7 +36,7 @@ ShowDiscussionsWidget::ShowDiscussionsWidget(RocketChatAccount *account, QWidget
     mSearchDiscussionLineEdit->setObjectName(QStringLiteral("mSearchDiscussionLineEdit"));
     mSearchDiscussionLineEdit->setClearButtonEnabled(true);
     KLineEditEventHandler::catchReturnKey(mSearchDiscussionLineEdit);
-    mSearchDiscussionLineEdit->setPlaceholderText(i18n("Search discussion…"));
+    mSearchDiscussionLineEdit->setPlaceholderText(i18nc("@info:placeholder", "Search discussion…"));
     connect(mSearchDiscussionLineEdit, &QLineEdit::textChanged, this, &ShowDiscussionsWidget::slotSearchMessageTextChanged);
     mainLayout->addWidget(mSearchDiscussionLineEdit);
 

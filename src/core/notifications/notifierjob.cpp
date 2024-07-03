@@ -39,7 +39,7 @@ void NotifierJob::start()
         connect(notification, &KNotification::closed, this, &NotifierJob::deleteLater);
 
         std::unique_ptr<KNotificationReplyAction> replyAction(new KNotificationReplyAction(i18n("Reply")));
-        replyAction->setPlaceholderText(i18n("Reply…"));
+        replyAction->setPlaceholderText(i18nc("@info:placeholder", "Reply…"));
         QObject::connect(replyAction.get(), &KNotificationReplyAction::replied, this, [this](const QString &text) {
             // qDebug() << " mInfo " << mInfo;
             Q_EMIT sendReply(text, mInfo.roomId(), mInfo.tmId());

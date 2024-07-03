@@ -40,7 +40,7 @@ ReportMessageWidget::ReportMessageWidget(QWidget *parent)
 
     mMessageLineEdit->setObjectName(QStringLiteral("mMessageLineEdit"));
     mMessageLineEdit->setAcceptRichText(false);
-    mMessageLineEdit->setPlaceholderText(i18n("Why you signal this message?"));
+    mMessageLineEdit->setPlaceholderText(i18nc("@info:placeholder", "Why you signal this message?"));
     messageLayout->addWidget(mMessageLineEdit);
     connect(mMessageLineEdit, &KTextEdit::textChanged, this, [this]() {
         Q_EMIT updateOkButton(!mMessageLineEdit->toPlainText().trimmed().isEmpty());
