@@ -71,6 +71,20 @@ bool AppsMarketPlaceFilterProxyModel::filterAcceptsRow(int source_row, const QMo
         break;
     }
 
+    // TODO
+    switch (mFilterInfo.installedApps) {
+    case InstalledApps::AllInstalledApps:
+        break;
+    case InstalledApps::AnyInfoApps:
+        break;
+    case InstalledApps::PrivateApps:
+        const bool isPrivate = modelIndex.data(AppsMarketPlaceModel::PrivateApps).toBool();
+        if (!isPrivate) {
+            return false;
+        }
+        break;
+    }
+
     return QSortFilterProxyModel::filterAcceptsColumn(source_row, source_parent);
 }
 
