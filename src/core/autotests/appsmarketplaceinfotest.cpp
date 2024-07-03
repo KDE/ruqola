@@ -28,6 +28,8 @@ void AppsMarketPlaceInfoTest::shouldHaveDefaultValues()
     QCOMPARE(d.price(), 0);
     QVERIFY(!d.isValid());
     QVERIFY(!d.isPrivate());
+    // 03/07/2024: size: 256
+    QCOMPARE(sizeof(AppsMarketPlaceInfo), 256);
 }
 
 void AppsMarketPlaceInfoTest::shouldLoadAppsMarketPlaceInfo_data()
