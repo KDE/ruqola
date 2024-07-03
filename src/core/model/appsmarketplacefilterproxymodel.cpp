@@ -71,9 +71,9 @@ bool AppsMarketPlaceFilterProxyModel::filterAcceptsRow(int source_row, const QMo
         break;
     }
 
-    // TODO
     switch (mFilterInfo.installedApps) {
     case InstalledApps::AllInstalledApps:
+        // TODO verify if apps is installed.
         break;
     case InstalledApps::AnyInfoApps:
         break;
