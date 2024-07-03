@@ -29,6 +29,7 @@ public:
         Pixmap,
         ModifiedDate,
         ApplicationInformations,
+        PrivateApps,
     };
     Q_ENUM(AppsCategoriesRoles)
 
