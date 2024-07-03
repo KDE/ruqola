@@ -6,6 +6,7 @@
 
 #include "rocketchataccount.h"
 #include "accountroomsettings.h"
+#include "apps/appinstalledjob.h"
 #include "config-ruqola.h"
 #include "model/appscategoriesmodel.h"
 #include "notifications/notificationpreferences.h"
@@ -3246,7 +3247,15 @@ void RocketChatAccount::loadAppCategories()
 
 void RocketChatAccount::loadInstalledApps()
 {
-    // TODO
+    auto job = new RocketChatRestApi::AppInstalledJob(this);
+    restApi()->initializeRestApiJob(job);
+    connect(job, &RocketChatRestApi::AppInstalledJob::appInstalledDone, this, [this](const QJsonArray &replyArray) {
+        qDebug() << "DD replyArray " << replyArray;
+        // TODO implement it.
+    });
+    if (!job->start()) {
+        qCWarning(RUQOLA_LOG) << "Impossible to start AppInstalledJob";
+    }
 }
 
 void RocketChatAccount::loadAppMarketPlace()
