@@ -79,6 +79,10 @@ AppsMarketPlaceInfo::PricePlan::Strategy AppsMarketPlaceInfo::PricePlan::convert
     return AppsMarketPlaceInfo::PricePlan::Strategy::Unknown;
 }
 
+void AppsMarketPlaceInfo::parseInstalledApps(const QJsonObject &replyObject)
+{
+}
+
 void AppsMarketPlaceInfo::parseAppsMarketPlaceInfo(const QJsonObject &replyObject)
 {
     qDebug() << " replyObject " << replyObject;

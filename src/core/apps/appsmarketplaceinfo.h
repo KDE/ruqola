@@ -83,6 +83,8 @@ public:
     [[nodiscard]] bool isPrivate() const;
     void setIsPrivate(bool newIsPrivate);
 
+    void parseInstalledApps(const QJsonObject &replyObject);
+
 private:
     LIBRUQOLACORE_NO_EXPORT void parsePrincingPlan(const QJsonArray &array);
     QList<PricePlan> mPricePlan;
