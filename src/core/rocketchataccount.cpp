@@ -3225,7 +3225,7 @@ void RocketChatAccount::loadAppCategories()
     connect(job, &RocketChatRestApi::AppCategoriesJob::appCategoriesDone, this, [this](const QJsonArray &replyArray) {
         QList<AppsCategoryInfo> appsCategoryInfoList;
         appsCategoryInfoList.reserve(replyArray.count());
-        qDebug() << " array" << replyArray;
+        // qDebug() << " array" << replyArray;
         for (int i = 0; i < replyArray.count(); ++i) {
             const QJsonObject obj = replyArray.at(i).toObject();
             // qDebug() << " obj" << obj;
@@ -3233,11 +3233,9 @@ void RocketChatAccount::loadAppCategories()
             info.parseAppsCategoryInfo(obj);
             if (info.isValid()) {
                 appsCategoryInfoList.append(std::move(info));
-                qDebug() << " info " << info;
+                // qDebug() << " info " << info;
             }
         }
-        // qDebug() << " obj************ " << replyArray;
-        // qDebug() << " count ***** " << replyArray.count();
         mAppsCategoriesModel->setAppsCategories(appsCategoryInfoList);
     });
     if (!job->start()) {
@@ -3285,8 +3283,6 @@ void RocketChatAccount::loadAppMarketPlace()
                 // qDebug() << " info " << info;
             }
         }
-        // qDebug() << " obj************ " << replyArray;
-        // qDebug() << " count ***** " << replyArray.count();
         mAppsMarketPlaceModel->setAppsCategories(listAppsMarketPlaceInfo);
         Q_EMIT appsMarkPlaceLoadDone();
     });
