@@ -26,7 +26,7 @@ ApplicationsSettingsAskApplicationWidget::ApplicationsSettingsAskApplicationWidg
     mTextAppLabel->setFont(labFont);
     mainLayout->addWidget(mTextAppLabel);
 
-    auto label = new QLabel(i18n("Let your admin know why this app would be useful"), this);
+    auto label = new QLabel(i18nc("@label:textbox", "Let your admin know why this app would be useful"), this);
     label->setObjectName("label"_L1);
     mainLayout->addWidget(label);
 
