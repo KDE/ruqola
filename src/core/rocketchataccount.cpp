@@ -962,15 +962,15 @@ void RocketChatAccount::membersInRoom(const QByteArray &roomId, Room::RoomType c
 
 void RocketChatAccount::updateUserInRoom(const QJsonObject &roomData)
 {
-    const QByteArray roomId = roomData.value(QStringLiteral("_id")).toString().toLatin1();
+    const QByteArray roomId = roomData.value("_id"_L1).toString().toLatin1();
     UsersForRoomModel *usersModelForRoom = roomModel()->usersModelForRoom(roomId);
     if (usersModelForRoom) {
-        const int numberOfUsers = roomData.value(QStringLiteral("usersCount")).toInt();
+        const int numberOfUsers = roomData.value("usersCount"_L1).toInt();
         if (usersModelForRoom->total() != numberOfUsers) {
             if (!usersModelForRoom->loadMoreUsersInProgress()) {
                 usersModelForRoom->clear();
                 usersModelForRoom->setLoadMoreUsersInProgress(true);
-                const QString channelType = roomData.value(QStringLiteral("t")).toString();
+                const QString channelType = roomData.value("t"_L1).toString();
                 restApi()->membersInRoom(roomId, channelType, 0, qMin(50, usersModelForRoom->offset()));
             }
         }

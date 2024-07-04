@@ -846,7 +846,7 @@ void DDPClient::onTextMessageReceived(const QString &message)
             qCDebug(RUQOLA_DDPAPI_LOG) << mRocketChatAccount->accountName() << "REMOVED element" << response;
             Q_EMIT removed(root);
         } else if (messageType == QLatin1StringView("nosub")) {
-            const QString id = root.value(QStringLiteral("id")).toString();
+            const QString id = root.value("id"_L1).toString();
             qCDebug(RUQOLA_DDPAPI_LOG) << mRocketChatAccount->accountName() << "Unsubscribe element" << message << id;
             const QJsonObject errorObj = root["error"_L1].toObject();
             if (!errorObj.isEmpty()) {
@@ -858,7 +858,7 @@ void DDPClient::onTextMessageReceived(const QString &message)
             }
         } else {
             // The very first message we receive is {"server_id":"0"}, can't find it in the spec, just ignore it.
-            if (messageType.isEmpty() && !root.value(QStringLiteral("server_id")).isUndefined()) {
+            if (messageType.isEmpty() && !root.value("server_id"_L1).isUndefined()) {
                 return;
             }
             qWarning() << mRocketChatAccount->accountName() << "received something unhandled:" << messageType << message;

@@ -11,10 +11,10 @@ TeamInfo::TeamInfo() = default;
 
 void TeamInfo::parseTeamInfo(const QJsonObject &replyObject)
 {
-    mTeamId = replyObject.value(QStringLiteral("teamId")).toString().toLatin1();
-    mMainTeam = replyObject.value(QStringLiteral("teamMain")).toBool(false);
-    mAutoJoin = replyObject.value(QStringLiteral("teamDefault")).toBool(false);
-    mRoomsCount = replyObject.value(QStringLiteral("roomsCount")).toInt(0);
+    mTeamId = replyObject.value("teamId"_L1).toString().toLatin1();
+    mMainTeam = replyObject.value("teamMain"_L1).toBool(false);
+    mAutoJoin = replyObject.value("teamDefault"_L1).toBool(false);
+    mRoomsCount = replyObject.value("roomsCount"_L1).toInt(0);
     //    if (isValid()) {
     //        // TODO add specific debug category ?
     //        qDebug() << " END team info " << *this;

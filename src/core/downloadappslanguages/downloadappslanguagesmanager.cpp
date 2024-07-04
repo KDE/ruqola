@@ -12,7 +12,7 @@
 #include <QFileInfo>
 #include <QStandardPaths>
 #include <QTextStream>
-
+using namespace Qt::Literals::StringLiterals;
 DownloadAppsLanguagesManager::DownloadAppsLanguagesManager(QObject *parent)
     : QObject(parent)
 {
@@ -113,7 +113,7 @@ QString DownloadAppsLanguagesManager::translatedString(const QString &language, 
             const QMap<QString, QMap<QString, QString>> mapLangId = info.languageMap();
             QMap<QString, QString> mapId = mapLangId.value(language);
             if (mapId.isEmpty()) {
-                mapId = mapLangId.value(QStringLiteral("en"));
+                mapId = mapLangId.value("en"_L1);
                 if (mapId.isEmpty()) {
                     return {};
                 }

@@ -5,7 +5,7 @@
 */
 
 #include "servicepassword.h"
-
+using namespace Qt::Literals::StringLiterals;
 ServicePassword::ServicePassword() = default;
 
 ServicePassword::~ServicePassword() = default;
@@ -17,17 +17,17 @@ bool ServicePassword::operator==(const ServicePassword &other) const
 
 void ServicePassword::parseService(const QJsonObject &replyObject)
 {
-    const QJsonObject email2faJson = replyObject.value(QStringLiteral("email2fa")).toObject();
+    const QJsonObject email2faJson = replyObject.value("email2fa"_L1).toObject();
     if (!email2faJson.isEmpty()) {
-        mEmail2faEnabled = email2faJson.value(QStringLiteral("enabled")).toBool();
+        mEmail2faEnabled = email2faJson.value("enabled"_L1).toBool();
     }
-    const QJsonObject passwordJson = replyObject.value(QStringLiteral("password")).toObject();
+    const QJsonObject passwordJson = replyObject.value("password"_L1).toObject();
     if (!passwordJson.isEmpty()) {
-        mPassword = passwordJson.value(QStringLiteral("bcrypt")).toString();
+        mPassword = passwordJson.value("bcrypt"_L1).toString();
     }
-    const QJsonObject totpJson = replyObject.value(QStringLiteral("totp")).toObject();
+    const QJsonObject totpJson = replyObject.value("totp"_L1).toObject();
     if (!totpJson.isEmpty()) {
-        mTotp = totpJson.value(QStringLiteral("enabled")).toBool();
+        mTotp = totpJson.value("enabled"_L1).toBool();
     }
 }
 
