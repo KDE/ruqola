@@ -38,7 +38,6 @@ AdministratorSettingsDialog::AdministratorSettingsDialog(RocketChatAccount *acco
     button->setObjectName(QStringLiteral("button"));
     mainLayout->addWidget(button);
     connect(button, &QDialogButtonBox::rejected, this, &AdministratorSettingsDialog::reject);
-    connect(button, &QDialogButtonBox::accepted, this, &AdministratorSettingsDialog::accept);
 
     readConfig();
 }

@@ -34,7 +34,6 @@ WhatsNewDialog::WhatsNewDialog(QWidget *parent)
     button->setObjectName(QStringLiteral("button"));
     mainLayout->addWidget(button);
     connect(button, &QDialogButtonBox::rejected, this, &WhatsNewDialog::reject);
-    connect(button, &QDialogButtonBox::accepted, this, &WhatsNewDialog::accept);
     readConfig();
 }
 

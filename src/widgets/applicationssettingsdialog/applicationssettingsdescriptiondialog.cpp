@@ -33,7 +33,6 @@ ApplicationsSettingsDescriptionDialog::ApplicationsSettingsDescriptionDialog(QWi
     button->setObjectName(QStringLiteral("button"));
     mainLayout->addWidget(button);
     connect(button, &QDialogButtonBox::rejected, this, &ApplicationsSettingsDescriptionDialog::reject);
-    connect(button, &QDialogButtonBox::accepted, this, &ApplicationsSettingsDescriptionDialog::accept);
     readConfig();
 }
 

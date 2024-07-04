@@ -32,7 +32,6 @@ TeamChannelsDialog::TeamChannelsDialog(RocketChatAccount *account, QWidget *pare
     button->setObjectName(QStringLiteral("button"));
     mainLayout->addWidget(button);
     connect(button, &QDialogButtonBox::rejected, this, &TeamChannelsDialog::reject);
-    connect(button, &QDialogButtonBox::accepted, this, &TeamChannelsDialog::accept);
     readConfig();
 }
 

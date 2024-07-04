@@ -24,7 +24,6 @@ E2eCopyPasswordDialog::E2eCopyPasswordDialog(QWidget *parent)
 
     auto buttonBox = new QDialogButtonBox(QDialogButtonBox::Close, this);
     buttonBox->setObjectName(QStringLiteral("button"));
-    connect(buttonBox, &QDialogButtonBox::accepted, this, &E2eCopyPasswordDialog::accept);
     connect(buttonBox, &QDialogButtonBox::rejected, this, &E2eCopyPasswordDialog::reject);
     mainLayout->addWidget(buttonBox);
 }

@@ -25,7 +25,6 @@ ConferenceInfoDialog::ConferenceInfoDialog(RocketChatAccount *account, QWidget *
     button->setObjectName(QStringLiteral("button"));
     mainLayout->addWidget(button);
     connect(button, &QDialogButtonBox::rejected, this, &ConferenceInfoDialog::accept);
-    connect(button, &QDialogButtonBox::accepted, this, &ConferenceInfoDialog::reject);
 }
 
 ConferenceInfoDialog::~ConferenceInfoDialog() = default;

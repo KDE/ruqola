@@ -35,7 +35,6 @@ BannerInfoDialog::BannerInfoDialog(RocketChatAccount *account, QWidget *parent)
     button->setObjectName(QStringLiteral("button"));
     mainLayout->addWidget(button);
     connect(button, &QDialogButtonBox::rejected, this, &BannerInfoDialog::reject);
-    connect(button, &QDialogButtonBox::accepted, this, &BannerInfoDialog::accept);
 
     readConfig();
 }

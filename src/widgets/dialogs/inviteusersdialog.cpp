@@ -33,7 +33,6 @@ InviteUsersDialog::InviteUsersDialog(RocketChatAccount *account, QWidget *parent
     auto buttonBox = new QDialogButtonBox(QDialogButtonBox::Close, this);
     buttonBox->setObjectName(QStringLiteral("button"));
     connect(buttonBox, &QDialogButtonBox::rejected, this, &InviteUsersDialog::reject);
-    connect(buttonBox, &QDialogButtonBox::accepted, this, &InviteUsersDialog::accept);
     mainLayout->addWidget(buttonBox);
     readConfig();
 }

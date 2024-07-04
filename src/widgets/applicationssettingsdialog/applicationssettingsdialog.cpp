@@ -35,7 +35,6 @@ ApplicationsSettingsDialog::ApplicationsSettingsDialog(RocketChatAccount *accoun
     button->setObjectName(QStringLiteral("button"));
     mainLayout->addWidget(button);
     connect(button, &QDialogButtonBox::rejected, this, &ApplicationsSettingsDialog::reject);
-    connect(button, &QDialogButtonBox::accepted, this, &ApplicationsSettingsDialog::accept);
 
     readConfig();
 }

@@ -32,7 +32,6 @@ ExplorePermissionsDialog::ExplorePermissionsDialog(QWidget *parent)
     button->setObjectName(QStringLiteral("button"));
     mainLayout->addWidget(button);
     connect(button, &QDialogButtonBox::rejected, this, &ExplorePermissionsDialog::reject);
-    connect(button, &QDialogButtonBox::accepted, this, &ExplorePermissionsDialog::accept);
 
     readConfig();
 }

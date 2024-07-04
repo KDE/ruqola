@@ -33,7 +33,6 @@ ServerErrorInfoMessageHistoryDialog::ServerErrorInfoMessageHistoryDialog(QWidget
     button->setObjectName(QStringLiteral("button"));
     mainLayout->addWidget(button);
     connect(button, &QDialogButtonBox::rejected, this, &ServerErrorInfoMessageHistoryDialog::reject);
-    connect(button, &QDialogButtonBox::accepted, this, &ServerErrorInfoMessageHistoryDialog::accept);
     readConfig();
 }
 

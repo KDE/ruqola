@@ -34,7 +34,6 @@ UserInRoleEditDialog::UserInRoleEditDialog(RocketChatAccount *account, QWidget *
     button->setObjectName(QStringLiteral("button"));
     mainLayout->addWidget(button);
     connect(button, &QDialogButtonBox::rejected, this, &UserInRoleEditDialog::reject);
-    connect(button, &QDialogButtonBox::accepted, this, &UserInRoleEditDialog::accept);
     readConfig();
 }
 

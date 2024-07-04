@@ -36,7 +36,6 @@ NotificationHistoryDialog::NotificationHistoryDialog(QWidget *parent)
     button->setObjectName(QStringLiteral("button"));
     mainLayout->addWidget(button);
     connect(button, &QDialogButtonBox::rejected, this, &NotificationHistoryDialog::reject);
-    connect(button, &QDialogButtonBox::accepted, this, &NotificationHistoryDialog::accept);
     readConfig();
 }
 

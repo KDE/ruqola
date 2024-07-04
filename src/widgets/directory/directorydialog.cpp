@@ -50,7 +50,6 @@ DirectoryDialog::DirectoryDialog(RocketChatAccount *account, DirectoryWidget::Di
     button->setObjectName(QStringLiteral("button"));
     mainLayout->addWidget(button);
     connect(button, &QDialogButtonBox::rejected, this, &DirectoryDialog::reject);
-    connect(button, &QDialogButtonBox::accepted, this, &DirectoryDialog::accept);
 
     auto openButton = new QPushButton(this);
     button->addButton(openButton, QDialogButtonBox::ActionRole);

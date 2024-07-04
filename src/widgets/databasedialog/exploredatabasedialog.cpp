@@ -33,7 +33,6 @@ ExploreDatabaseDialog::ExploreDatabaseDialog(RocketChatAccount *account, QWidget
     button->setObjectName(QStringLiteral("button"));
     mainLayout->addWidget(button);
     connect(button, &QDialogButtonBox::rejected, this, &ExploreDatabaseDialog::reject);
-    connect(button, &QDialogButtonBox::accepted, this, &ExploreDatabaseDialog::accept);
 
     readConfig();
 }
