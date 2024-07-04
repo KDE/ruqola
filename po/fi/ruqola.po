@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-07-03 00:39+0000\n"
+"POT-Creation-Date: 2024-07-04 00:38+0000\n"
 "PO-Revision-Date: 2023-09-20 18:47+0300\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
@@ -175,24 +175,24 @@ msgstr "Optimointi, Windows/Mac-tuen korjaus"
 msgid "The following accounts are available:"
 msgstr "Käytettävissä ovat seuraavat tilit:"
 
-#: core/apps/appsmarketplaceinfo.cpp:256 core/model/adminrolesmodel.cpp:40
+#: core/apps/appsmarketplaceinfo.cpp:260 core/model/adminrolesmodel.cpp:40
 #: widgets/administratorsettingsdialog/ircfederation/ircfederationwidget.cpp:50
 #, kde-format
 msgid "Description"
 msgstr "Kuvaus"
 
-#: core/apps/appsmarketplaceinfo.cpp:258
+#: core/apps/appsmarketplaceinfo.cpp:262
 #: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:163
 #, kde-format
 msgid "Version"
 msgstr "Versio"
 
-#: core/apps/appsmarketplaceinfo.cpp:261 core/model/appscategoriesmodel.cpp:34
+#: core/apps/appsmarketplaceinfo.cpp:265 core/model/appscategoriesmodel.cpp:34
 #, kde-format
 msgid "Categories"
 msgstr ""
 
-#: core/apps/appsmarketplaceinfo.cpp:265
+#: core/apps/appsmarketplaceinfo.cpp:269
 #, fuzzy, kde-format
 #| msgid "Authentication"
 msgid "Documentation"
@@ -1404,6 +1404,7 @@ msgstr "Vastaa"
 #: core/notifications/notifierjob.cpp:42
 #, fuzzy, kde-format
 #| msgid "Reply"
+msgctxt "@info:placeholder"
 msgid "Reply…"
 msgstr "Vastaa"
 
@@ -1454,12 +1455,12 @@ msgctxt "We need a space between after </strong>"
 msgid "<strong>%1</strong> are typing..."
 msgstr "<strong>%1</strong> kirjoittavat…"
 
-#: core/rocketchataccount.cpp:2993
+#: core/rocketchataccount.cpp:2994
 #, kde-format
 msgid "Export Messages"
 msgstr "Vie viestejä"
 
-#: core/rocketchataccount.cpp:2994
+#: core/rocketchataccount.cpp:2995
 #, kde-format
 msgid "Your email has been queued for sending."
 msgstr "Sähköposti on viety jonoon lähetystä varten."
@@ -2583,7 +2584,9 @@ msgid "File:"
 msgstr "Tiedosto:"
 
 #: widgets/administratordialog/customemoji/administratorcustomemojiwidget.cpp:32
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Search custom emojis"
+msgctxt "@info:placeholder"
 msgid "Search custom emojis"
 msgstr "Etsi mukautettuja emojeja"
 
@@ -2658,7 +2661,9 @@ msgid "Create New Sound"
 msgstr "Luo uusi ääni"
 
 #: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:28
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Search Custom Sounds"
+msgctxt "@info:placeholder"
 msgid "Search Custom Sounds"
 msgstr "Etsi mukautettuja ääniä"
 
@@ -2725,6 +2730,7 @@ msgstr "Poista mukautettu käyttäjätila"
 #: widgets/administratordialog/invites/administratorinviteswidget.cpp:39
 #, fuzzy, kde-format
 #| msgid "Search invite..."
+msgctxt "@info:placeholder"
 msgid "Search invite…"
 msgstr "Etsi kutsua…"
 
@@ -2844,7 +2850,7 @@ msgid "Show Moderation Messages"
 msgstr "Näytä mainintaviestit – %1"
 
 #: widgets/administratordialog/moderationconsole/moderationmessageswidget.cpp:55
-#: widgets/dialogs/searchmessagewidget.cpp:160
+#: widgets/dialogs/searchmessagewidget.cpp:167
 #: widgets/dialogs/showlistmessagebasewidget.cpp:97
 #: widgets/discussions/showdiscussionswidget.cpp:88
 #: widgets/room/usersinroomwidget.cpp:135
@@ -2854,7 +2860,7 @@ msgid "Loading…"
 msgstr "Ladataan…"
 
 #: widgets/administratordialog/moderationconsole/moderationmessageswidget.cpp:57
-#: widgets/dialogs/searchmessagewidget.cpp:164
+#: widgets/dialogs/searchmessagewidget.cpp:171
 #: widgets/dialogs/showlistmessagebasewidget.cpp:99
 #: widgets/room/usersinroomwidget.cpp:137
 #, kde-format
@@ -2862,7 +2868,7 @@ msgid "No Message found"
 msgstr "Viestejä ei löytynyt"
 
 #: widgets/administratordialog/moderationconsole/moderationmessageswidget.cpp:63
-#: widgets/dialogs/searchmessagewidget.cpp:170
+#: widgets/dialogs/searchmessagewidget.cpp:177
 #, kde-format
 msgid "%1 Message in room"
 msgid_plural "%1 Messages in room"
@@ -2873,6 +2879,7 @@ msgstr[1] "Huoneessa on %1 viestiä"
 #: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:37
 #, fuzzy, kde-format
 #| msgid "Search messages..."
+msgctxt "@info:placeholder"
 msgid "Search moderation message…"
 msgstr "Etsi viestejä…"
 
@@ -3027,6 +3034,7 @@ msgstr "Valitse kaikki"
 #: widgets/servererrorinfohistory/servererrorinfomessagehistorywidget.cpp:43
 #, fuzzy, kde-format
 #| msgid "Search"
+msgctxt "@info:placeholder"
 msgid "Search…"
 msgstr "Etsi"
 
@@ -3071,6 +3079,7 @@ msgstr ""
 #: widgets/administratordialog/oauth/administratoroauthwidget.cpp:37
 #, fuzzy, kde-format
 #| msgid "Search Oauth apps..."
+msgctxt "@info:placeholder"
 msgid "Search Oauth apps…"
 msgstr "Etsi OAuth-sovelluksia…"
 
@@ -3103,12 +3112,14 @@ msgstr "Roolit:"
 #: widgets/explorepermissionsdialog/explorepermissionswidget.cpp:38
 #, fuzzy, kde-format
 #| msgid "Search permissions..."
+msgctxt "@info:placeholder"
 msgid "Search permissions…"
 msgstr "Etsi käyttöoikeuksia…"
 
 #: widgets/administratordialog/roles/administratorroleswidget.cpp:46
 #, fuzzy, kde-format
 #| msgid "Search roles..."
+msgctxt "@info:placeholder"
 msgid "Search roles…"
 msgstr "Etsi rooleja…"
 
@@ -3178,9 +3189,11 @@ msgstr "Roolin käyttäjät"
 #: widgets/administratordialog/roles/usersinrolewidget.cpp:36
 #: widgets/administratordialog/users/administratoruserswidget.cpp:48
 #: widgets/dialogs/addusersinroomwidget.cpp:23
+#: widgets/directory/directorywidget.cpp:39
 #: widgets/room/usersinroomwidget.cpp:40
 #, fuzzy, kde-format
 #| msgid "Search Users..."
+msgctxt "@info:placeholder"
 msgid "Search users…"
 msgstr "Etsi käyttäjiä…"
 
@@ -3245,6 +3258,7 @@ msgstr "Muokkaa huonetta"
 
 #: widgets/administratordialog/rooms/administratorroomseditwidget.cpp:23
 #: widgets/administratordialog/rooms/administratorroomsselectroomtypewidget.cpp:16
+#: widgets/applicationssettingsdialog/applicationssettingsinstalledcombobox.cpp:14
 #, kde-format
 msgid "Private"
 msgstr "Yksityinen"
@@ -3309,7 +3323,9 @@ msgid "Public"
 msgstr "Julkinen"
 
 #: widgets/administratordialog/rooms/administratorroomswidget.cpp:42
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Search rooms"
+msgctxt "@info:placeholder"
 msgid "Search rooms"
 msgstr "Etsi huoneita"
 
@@ -3645,7 +3661,9 @@ msgid "Emails:"
 msgstr "Sähköpostit:"
 
 #: widgets/administratordialog/users/administratorinviteuserswidget.cpp:25
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Use ',' for separate emails"
+msgctxt "@info:placeholder"
 msgid "Use ',' for separate emails"
 msgstr "Erota sähköpostit pilkuin (”,”)"
 
@@ -6282,6 +6300,7 @@ msgstr ""
 
 #: widgets/applicationssettingsdialog/applicationssettingsaskapplicationwidget.cpp:35
 #, kde-format
+msgctxt "@info:placeholder"
 msgid "Message for workspace admin"
 msgstr ""
 
@@ -6307,6 +6326,19 @@ msgstr "Sovellustunniste (iss)"
 #: widgets/applicationssettingsdialog/applicationssettingsinprogresswidget.cpp:15
 #, kde-format
 msgid "Loading in progress..."
+msgstr ""
+
+#: widgets/applicationssettingsdialog/applicationssettingsinstalledcombobox.cpp:13
+#: widgets/dialogs/showattachmentcombobox.cpp:19
+#: widgets/room/usersinroomcombobox.cpp:20
+#: widgets/teams/teamchannelscombobox.cpp:19
+#, kde-format
+msgid "All"
+msgstr "Kaikki"
+
+#: widgets/applicationssettingsdialog/applicationssettingsinstalledcombobox.cpp:15
+#, kde-format
+msgid "Installed"
 msgstr ""
 
 #: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:58
@@ -6481,6 +6513,7 @@ msgstr "Muunna ryhmäksi"
 #: widgets/channellist/channellistwidget.cpp:56
 #, fuzzy, kde-format
 #| msgid "Filter channels (CTRL + K)"
+msgctxt "@info:placeholder"
 msgid "Filter channels (%1)"
 msgstr "Suodata kanavia (Ctrl+K)"
 
@@ -6520,7 +6553,9 @@ msgid "Register Account"
 msgstr "Poista tili"
 
 #: widgets/common/authenticationloginwidget.cpp:42
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Username or email"
+msgctxt "@info:placeholder"
 msgid "Username or email"
 msgstr "Käyttäjätunnus tai sähköposti"
 
@@ -7067,7 +7102,9 @@ msgid "Clear"
 msgstr "Tyhjennä"
 
 #: widgets/dialogs/channelsearchwidget.cpp:25
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Select a channel"
+msgctxt "@info:placeholder"
 msgid "Select a channel"
 msgstr "Valitse kanava"
 
@@ -7172,6 +7209,7 @@ msgstr ""
 #: widgets/prunemessages/prunemessageswidget.cpp:66
 #, fuzzy, kde-format
 #| msgid "Select users..."
+msgctxt "@info:placeholder"
 msgid "Select users…"
 msgstr "Valitse käyttäjiä…"
 
@@ -7190,6 +7228,7 @@ msgstr "Aihe:"
 #: widgets/dialogs/createnewdiscussionwidget.cpp:51
 #, fuzzy, kde-format
 #| msgid "Invite Users"
+msgctxt "@info:placeholder"
 msgid "Invite users…"
 msgstr "Kutsu käyttäjiä"
 
@@ -7285,7 +7324,11 @@ msgid "Message"
 msgstr "Viesti"
 
 #: widgets/dialogs/createnewdiscussionwidget.cpp:61
-#, kde-format
+#, fuzzy, kde-format
+#| msgid ""
+#| "Usually a discussion starts with a question, like \"How do I upload a "
+#| "picture?\""
+msgctxt "@info:placeholder"
 msgid ""
 "Usually a discussion starts with a question, like \"How do I upload a "
 "picture?\""
@@ -7483,7 +7526,9 @@ msgid "Message:"
 msgstr "Viesti:"
 
 #: widgets/dialogs/reportmessagewidget.cpp:43
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Why you signal this message?"
+msgctxt "@info:placeholder"
 msgid "Why you signal this message?"
 msgstr "Miksi ilmoitat tästä viestistä?`"
 
@@ -7497,6 +7542,7 @@ msgstr "Ilmoita viestistä"
 #: widgets/dialogs/reportuserwidget.cpp:43
 #, fuzzy, kde-format
 #| msgid "Do you want to remove \"%1\"?"
+msgctxt "@info:placeholder"
 msgid "Why do you want to report?"
 msgstr "Haluatko poistaa kohteen ”%1”?"
 
@@ -7563,7 +7609,9 @@ msgid "Search Messages in '%1' (%2)"
 msgstr "Etsi viestejä: ”%1” (%2)"
 
 #: widgets/dialogs/searchmessagewidget.cpp:47
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Search messages"
+msgctxt "@info:placeholder"
 msgid "Search messages"
 msgstr "Etsi viestejä"
 
@@ -7582,13 +7630,6 @@ msgstr "Palvelinversio:"
 #, kde-format
 msgid "License:"
 msgstr "Lisenssi:"
-
-#: widgets/dialogs/showattachmentcombobox.cpp:19
-#: widgets/room/usersinroomcombobox.cpp:20
-#: widgets/teams/teamchannelscombobox.cpp:19
-#, kde-format
-msgid "All"
-msgstr "Kaikki"
 
 #: widgets/dialogs/showattachmentcombobox.cpp:20
 #, kde-format
@@ -7624,6 +7665,7 @@ msgstr "Näytä liitteet – %1"
 #: widgets/dialogs/showattachmentwidget.cpp:37
 #, fuzzy, kde-format
 #| msgid "Search attachments..."
+msgctxt "@info:placeholder"
 msgid "Search attachments…"
 msgstr "Etsi liitteitä…"
 
@@ -7697,6 +7739,7 @@ msgstr "Tallenna kuva"
 #: widgets/dialogs/showlistmessagebasewidget.cpp:39
 #, fuzzy, kde-format
 #| msgid "Search messages"
+msgctxt "@info:placeholder"
 msgid "Search messages…"
 msgstr "Etsi viestejä"
 
@@ -7804,21 +7847,14 @@ msgstr "Sinua ei ole valtuutettu näkemään tätä sivua."
 #: widgets/directory/directorywidget.cpp:34
 #, fuzzy, kde-format
 #| msgid "Search rooms"
-msgctxt "Placeholder"
+msgctxt "@info:placeholder"
 msgid "Search rooms…"
 msgstr "Etsi huoneita"
-
-#: widgets/directory/directorywidget.cpp:39
-#, fuzzy, kde-format
-#| msgid "Search Users..."
-msgctxt "Placeholder"
-msgid "Search users…"
-msgstr "Etsi käyttäjiä…"
 
 #: widgets/directory/directorywidget.cpp:44
 #, fuzzy, kde-format
 #| msgid "Search Threads..."
-msgctxt "Placeholder"
+msgctxt "@info:placeholder"
 msgid "Search teams…"
 msgstr "Etsi säikeitä…"
 
@@ -7879,6 +7915,7 @@ msgstr "Näytä keskustelut – %1"
 #: widgets/discussions/showdiscussionswidget.cpp:39
 #, fuzzy, kde-format
 #| msgid "Search discussion..."
+msgctxt "@info:placeholder"
 msgid "Search discussion…"
 msgstr "Etsi keskustelua…"
 
@@ -8385,7 +8422,9 @@ msgid "Filter Account…"
 msgstr "Suodata tilejä…"
 
 #: widgets/misc/twoauthenticationpasswordwidget.cpp:25
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Enter code"
+msgctxt "@info:placeholder"
 msgid "Enter code"
 msgstr "Anna koodi"
 
@@ -8450,7 +8489,9 @@ msgstr ""
 
 #: widgets/myaccount/myaccount2fadisabletotpwidget.cpp:37
 #: widgets/myaccount/myaccount2fatotpwidget.cpp:53
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Enter authentication code"
+msgctxt "@info:placeholder"
 msgid "Enter authentication code"
 msgstr "Syötä todennuskoodi"
 
@@ -8548,6 +8589,7 @@ msgstr "Hallinnoi laitetta"
 #: widgets/myaccount/myaccountmanagedeviceconfigurewidget.cpp:29
 #, fuzzy, kde-format
 #| msgid "Search device..."
+msgctxt "@info:placeholder"
 msgid "Search device…"
 msgstr "Etsi laitetta…"
 
@@ -8592,6 +8634,7 @@ msgstr "Sivuuta kahden tekijän todennus"
 #: widgets/myaccount/myaccountpersonalaccesstokenconfigurewidget.cpp:47
 #, fuzzy, kde-format
 #| msgid "Search Personal Access Token..."
+msgctxt "@info:placeholder"
 msgid "Search Personal Access Token…"
 msgstr "Etsi henkilökohtaista pääsymerkkiä…"
 
@@ -8696,7 +8739,9 @@ msgid "Highlight words:"
 msgstr "Korosta sanoja:"
 
 #: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:65
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Use ',' for separating words"
+msgctxt "@info:placeholder"
 msgid "Use ',' for separating words"
 msgstr "Erota sanat pilkuin (”,”)"
 
@@ -10228,6 +10273,7 @@ msgstr "Ryhmäkanavat"
 #: widgets/teams/teamselectdeletedroomwidget.cpp:32
 #, fuzzy, kde-format
 #| msgid "Search rooms"
+msgctxt "@info:placeholder"
 msgid "Search room…"
 msgstr "Etsi huoneita"
 
@@ -10636,6 +10682,18 @@ msgstr "Joitakin tämän Ruqola-julkaisua uusia ominaisuuksia ovat:"
 #, kde-format
 msgid "Some bug fixing:"
 msgstr "Joitakin virheenkorjauksia:"
+
+#, fuzzy
+#~| msgid "Search rooms"
+#~ msgctxt "Placeholder"
+#~ msgid "Search rooms…"
+#~ msgstr "Etsi huoneita"
+
+#, fuzzy
+#~| msgid "Search Users..."
+#~ msgctxt "Placeholder"
+#~ msgid "Search users…"
+#~ msgstr "Etsi käyttäjiä…"
 
 #~ msgid "Cancel"
 #~ msgstr "Peru"

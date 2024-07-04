@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-07-03 00:39+0000\n"
+"POT-Creation-Date: 2024-07-04 00:38+0000\n"
 "PO-Revision-Date: 2024-06-30 10:59+0200\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
@@ -164,24 +164,24 @@ msgstr "Optimizazioa, Windows/Mac euskarria konpontzea"
 msgid "The following accounts are available:"
 msgstr "Ondoko kontuak erabilgarri daude:"
 
-#: core/apps/appsmarketplaceinfo.cpp:256 core/model/adminrolesmodel.cpp:40
+#: core/apps/appsmarketplaceinfo.cpp:260 core/model/adminrolesmodel.cpp:40
 #: widgets/administratorsettingsdialog/ircfederation/ircfederationwidget.cpp:50
 #, kde-format
 msgid "Description"
 msgstr "Deskribapena"
 
-#: core/apps/appsmarketplaceinfo.cpp:258
+#: core/apps/appsmarketplaceinfo.cpp:262
 #: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:163
 #, kde-format
 msgid "Version"
 msgstr "Bertsioa"
 
-#: core/apps/appsmarketplaceinfo.cpp:261 core/model/appscategoriesmodel.cpp:34
+#: core/apps/appsmarketplaceinfo.cpp:265 core/model/appscategoriesmodel.cpp:34
 #, kde-format
 msgid "Categories"
 msgstr ""
 
-#: core/apps/appsmarketplaceinfo.cpp:265
+#: core/apps/appsmarketplaceinfo.cpp:269
 #, fuzzy, kde-format
 #| msgid "Authentication"
 msgid "Documentation"
@@ -1377,7 +1377,9 @@ msgid "Reply"
 msgstr "Erantzun"
 
 #: core/notifications/notifierjob.cpp:42
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Reply…"
+msgctxt "@info:placeholder"
 msgid "Reply…"
 msgstr "Erantzun..."
 
@@ -1426,12 +1428,12 @@ msgctxt "We need a space between after </strong>"
 msgid "<strong>%1</strong> are typing..."
 msgstr "<strong>%1</strong> tekleatzen ari dira..."
 
-#: core/rocketchataccount.cpp:2993
+#: core/rocketchataccount.cpp:2994
 #, kde-format
 msgid "Export Messages"
 msgstr "Esportatu mezuak"
 
-#: core/rocketchataccount.cpp:2994
+#: core/rocketchataccount.cpp:2995
 #, kde-format
 msgid "Your email has been queued for sending."
 msgstr "Zure e-posta bidaltzeko ilaran ipini da."
@@ -2545,7 +2547,9 @@ msgid "File:"
 msgstr "Fitxategia:"
 
 #: widgets/administratordialog/customemoji/administratorcustomemojiwidget.cpp:32
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Search custom emojis"
+msgctxt "@info:placeholder"
 msgid "Search custom emojis"
 msgstr "Bilatu neurrira ipinitako «Emoji»ak"
 
@@ -2620,7 +2624,9 @@ msgid "Create New Sound"
 msgstr "Sortu soinu berria"
 
 #: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:28
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Search Custom Sounds"
+msgctxt "@info:placeholder"
 msgid "Search Custom Sounds"
 msgstr "Bilatu neurrira ipinitako soinuak"
 
@@ -2685,7 +2691,9 @@ msgid "Remove Custom User Status"
 msgstr "Kendu neurrira ipinitako Erabiltzaile-egoera"
 
 #: widgets/administratordialog/invites/administratorinviteswidget.cpp:39
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Search invite…"
+msgctxt "@info:placeholder"
 msgid "Search invite…"
 msgstr "Bilatu gonbita..."
 
@@ -2794,7 +2802,7 @@ msgid "Show Moderation Messages"
 msgstr "Erakutsi moderatze-mezuak"
 
 #: widgets/administratordialog/moderationconsole/moderationmessageswidget.cpp:55
-#: widgets/dialogs/searchmessagewidget.cpp:160
+#: widgets/dialogs/searchmessagewidget.cpp:167
 #: widgets/dialogs/showlistmessagebasewidget.cpp:97
 #: widgets/discussions/showdiscussionswidget.cpp:88
 #: widgets/room/usersinroomwidget.cpp:135
@@ -2803,7 +2811,7 @@ msgid "Loading…"
 msgstr "Zamatzen..."
 
 #: widgets/administratordialog/moderationconsole/moderationmessageswidget.cpp:57
-#: widgets/dialogs/searchmessagewidget.cpp:164
+#: widgets/dialogs/searchmessagewidget.cpp:171
 #: widgets/dialogs/showlistmessagebasewidget.cpp:99
 #: widgets/room/usersinroomwidget.cpp:137
 #, kde-format
@@ -2811,7 +2819,7 @@ msgid "No Message found"
 msgstr "Ez da mezurik aurkitu"
 
 #: widgets/administratordialog/moderationconsole/moderationmessageswidget.cpp:63
-#: widgets/dialogs/searchmessagewidget.cpp:170
+#: widgets/dialogs/searchmessagewidget.cpp:177
 #, kde-format
 msgid "%1 Message in room"
 msgid_plural "%1 Messages in room"
@@ -2820,7 +2828,9 @@ msgstr[1] "Gelan %1 mezu"
 
 #: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:37
 #: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:37
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Search moderation message…"
+msgctxt "@info:placeholder"
 msgid "Search moderation message…"
 msgstr "Bilatu moderatzeko mezua..."
 
@@ -2972,7 +2982,9 @@ msgstr "Hautatu guztia"
 #: widgets/bannerinfodialog/bannerinfolistsearchlinewidget.cpp:24
 #: widgets/notificationhistory/notificationhistorywidget.cpp:45
 #: widgets/servererrorinfohistory/servererrorinfomessagehistorywidget.cpp:43
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Search…"
+msgctxt "@info:placeholder"
 msgid "Search…"
 msgstr "Bilatu..."
 
@@ -3015,7 +3027,9 @@ msgid "Access Token URL:"
 msgstr "Sarbide tokenaren URL:"
 
 #: widgets/administratordialog/oauth/administratoroauthwidget.cpp:37
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Search Oauth apps…"
+msgctxt "@info:placeholder"
 msgid "Search Oauth apps…"
 msgstr "Bilatu Oauth aplikazioak..."
 
@@ -3045,12 +3059,16 @@ msgstr "Eginkizunak:"
 
 #: widgets/administratordialog/permissions/permissionswidget.cpp:41
 #: widgets/explorepermissionsdialog/explorepermissionswidget.cpp:38
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Search permissions…"
+msgctxt "@info:placeholder"
 msgid "Search permissions…"
 msgstr "Bilatu baimenak..."
 
 #: widgets/administratordialog/roles/administratorroleswidget.cpp:46
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Search roles…"
+msgctxt "@info:placeholder"
 msgid "Search roles…"
 msgstr "Bilatu eginkizunak..."
 
@@ -3118,8 +3136,11 @@ msgstr "Eginkizuneko erabiltzaileak"
 #: widgets/administratordialog/roles/usersinrolewidget.cpp:36
 #: widgets/administratordialog/users/administratoruserswidget.cpp:48
 #: widgets/dialogs/addusersinroomwidget.cpp:23
+#: widgets/directory/directorywidget.cpp:39
 #: widgets/room/usersinroomwidget.cpp:40
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Search users…"
+msgctxt "@info:placeholder"
 msgid "Search users…"
 msgstr "Bilatu erabiltzaileak..."
 
@@ -3183,6 +3204,7 @@ msgstr "Editatu gela"
 
 #: widgets/administratordialog/rooms/administratorroomseditwidget.cpp:23
 #: widgets/administratordialog/rooms/administratorroomsselectroomtypewidget.cpp:16
+#: widgets/applicationssettingsdialog/applicationssettingsinstalledcombobox.cpp:14
 #, kde-format
 msgid "Private"
 msgstr "Pribatua"
@@ -3247,7 +3269,9 @@ msgid "Public"
 msgstr "Publikoa"
 
 #: widgets/administratordialog/rooms/administratorroomswidget.cpp:42
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Search rooms"
+msgctxt "@info:placeholder"
 msgid "Search rooms"
 msgstr "Bilatu gelak"
 
@@ -3578,7 +3602,9 @@ msgid "Emails:"
 msgstr "E-postak:"
 
 #: widgets/administratordialog/users/administratorinviteuserswidget.cpp:25
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Use ',' for separate emails"
+msgctxt "@info:placeholder"
 msgid "Use ',' for separate emails"
 msgstr "Erabili ',' e-postak bereizteko"
 
@@ -6267,6 +6293,7 @@ msgstr ""
 
 #: widgets/applicationssettingsdialog/applicationssettingsaskapplicationwidget.cpp:35
 #, kde-format
+msgctxt "@info:placeholder"
 msgid "Message for workspace admin"
 msgstr ""
 
@@ -6292,6 +6319,19 @@ msgstr "Aplikazioa ID (iss)"
 #: widgets/applicationssettingsdialog/applicationssettingsinprogresswidget.cpp:15
 #, kde-format
 msgid "Loading in progress..."
+msgstr ""
+
+#: widgets/applicationssettingsdialog/applicationssettingsinstalledcombobox.cpp:13
+#: widgets/dialogs/showattachmentcombobox.cpp:19
+#: widgets/room/usersinroomcombobox.cpp:20
+#: widgets/teams/teamchannelscombobox.cpp:19
+#, kde-format
+msgid "All"
+msgstr "Guztiak"
+
+#: widgets/applicationssettingsdialog/applicationssettingsinstalledcombobox.cpp:15
+#, kde-format
+msgid "Installed"
 msgstr ""
 
 #: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:58
@@ -6465,6 +6505,7 @@ msgstr "Bihurtu talde"
 #: widgets/channellist/channellistwidget.cpp:56
 #, fuzzy, kde-format
 #| msgid "Filter channels (CTRL + K)"
+msgctxt "@info:placeholder"
 msgid "Filter channels (%1)"
 msgstr "Iragazi kanalak (KTRL + K)"
 
@@ -6502,7 +6543,9 @@ msgid "Register Account"
 msgstr "Erregistratu kontua"
 
 #: widgets/common/authenticationloginwidget.cpp:42
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Username or email"
+msgctxt "@info:placeholder"
 msgid "Username or email"
 msgstr "Erabiltzaile-izena edo e-posta"
 
@@ -7049,7 +7092,9 @@ msgid "Clear"
 msgstr "Garbitu"
 
 #: widgets/dialogs/channelsearchwidget.cpp:25
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Select a channel"
+msgctxt "@info:placeholder"
 msgid "Select a channel"
 msgstr "Aukeratu kanal bat"
 
@@ -7152,7 +7197,9 @@ msgstr ""
 
 #: widgets/dialogs/createdirectmessageswidget.cpp:34
 #: widgets/prunemessages/prunemessageswidget.cpp:66
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Select users…"
+msgctxt "@info:placeholder"
 msgid "Select users…"
 msgstr "Hautatu erabiltzaileak..."
 
@@ -7171,6 +7218,7 @@ msgstr "Gaia:"
 #: widgets/dialogs/createnewdiscussionwidget.cpp:51
 #, fuzzy, kde-format
 #| msgid "Invite Users"
+msgctxt "@info:placeholder"
 msgid "Invite users…"
 msgstr "Gonbidatu erabiltzaileak"
 
@@ -7266,7 +7314,11 @@ msgid "Message"
 msgstr "Mezua"
 
 #: widgets/dialogs/createnewdiscussionwidget.cpp:61
-#, kde-format
+#, fuzzy, kde-format
+#| msgid ""
+#| "Usually a discussion starts with a question, like \"How do I upload a "
+#| "picture?\""
+msgctxt "@info:placeholder"
 msgid ""
 "Usually a discussion starts with a question, like \"How do I upload a "
 "picture?\""
@@ -7466,9 +7518,11 @@ msgid "Message:"
 msgstr "Mezua:"
 
 #: widgets/dialogs/reportmessagewidget.cpp:43
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Only you can see this message"
+msgctxt "@info:placeholder"
 msgid "Why you signal this message?"
-msgstr ""
+msgstr "Zuk bakarrik ikus dezakezu mezu hau"
 
 #: widgets/dialogs/reportuserdialog.cpp:26
 #, fuzzy, kde-format
@@ -7480,6 +7534,7 @@ msgstr "Berri emandako mezua"
 #: widgets/dialogs/reportuserwidget.cpp:43
 #, fuzzy, kde-format
 #| msgid "Do you want to remove \"%1\"?"
+msgctxt "@info:placeholder"
 msgid "Why do you want to report?"
 msgstr "\"%1\" kendu nahi duzu?"
 
@@ -7544,7 +7599,9 @@ msgid "Search Messages in '%1' (%2)"
 msgstr "Bilatu mezuak '%1'(e)an (%2)"
 
 #: widgets/dialogs/searchmessagewidget.cpp:47
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Search messages"
+msgctxt "@info:placeholder"
 msgid "Search messages"
 msgstr "Bilatu mezuak"
 
@@ -7563,13 +7620,6 @@ msgstr "Zerbitzariaren bertsioa:"
 #, kde-format
 msgid "License:"
 msgstr "Lizentzia:"
-
-#: widgets/dialogs/showattachmentcombobox.cpp:19
-#: widgets/room/usersinroomcombobox.cpp:20
-#: widgets/teams/teamchannelscombobox.cpp:19
-#, kde-format
-msgid "All"
-msgstr "Guztiak"
 
 #: widgets/dialogs/showattachmentcombobox.cpp:20
 #, kde-format
@@ -7605,6 +7655,7 @@ msgstr "Erakutsi eranskinak - %1"
 #: widgets/dialogs/showattachmentwidget.cpp:37
 #, fuzzy, kde-format
 #| msgid "Search attachments..."
+msgctxt "@info:placeholder"
 msgid "Search attachments…"
 msgstr "Bilatu eranskinak..."
 
@@ -7678,6 +7729,7 @@ msgstr "Gorde irudia"
 #: widgets/dialogs/showlistmessagebasewidget.cpp:39
 #, fuzzy, kde-format
 #| msgid "Search messages"
+msgctxt "@info:placeholder"
 msgid "Search messages…"
 msgstr "Bilatu mezuak"
 
@@ -7785,21 +7837,14 @@ msgstr "Ez duzu orrialde hau ikusteko baimenik."
 #: widgets/directory/directorywidget.cpp:34
 #, fuzzy, kde-format
 #| msgid "Search rooms"
-msgctxt "Placeholder"
+msgctxt "@info:placeholder"
 msgid "Search rooms…"
 msgstr "Bilatu gelak"
-
-#: widgets/directory/directorywidget.cpp:39
-#, fuzzy, kde-format
-#| msgid "Search users…"
-msgctxt "Placeholder"
-msgid "Search users…"
-msgstr "Bilatu erabiltzaileak..."
 
 #: widgets/directory/directorywidget.cpp:44
 #, fuzzy, kde-format
 #| msgid "Search teams..."
-msgctxt "Placeholder"
+msgctxt "@info:placeholder"
 msgid "Search teams…"
 msgstr "Bilatu taldeak..."
 
@@ -7861,6 +7906,7 @@ msgstr "Erakutsi elkarrizketak - %1"
 #: widgets/discussions/showdiscussionswidget.cpp:39
 #, fuzzy, kde-format
 #| msgid "Search discussion..."
+msgctxt "@info:placeholder"
 msgid "Search discussion…"
 msgstr "Bilatu elkarrizketa..."
 
@@ -8359,7 +8405,9 @@ msgid "Filter Account…"
 msgstr "Iragazi kontua..."
 
 #: widgets/misc/twoauthenticationpasswordwidget.cpp:25
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Enter code"
+msgctxt "@info:placeholder"
 msgid "Enter code"
 msgstr "Sartu kodea"
 
@@ -8424,7 +8472,9 @@ msgstr ""
 
 #: widgets/myaccount/myaccount2fadisabletotpwidget.cpp:37
 #: widgets/myaccount/myaccount2fatotpwidget.cpp:53
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Enter authentication code"
+msgctxt "@info:placeholder"
 msgid "Enter authentication code"
 msgstr "Sartu autentifikazio kodea"
 
@@ -8523,6 +8573,7 @@ msgstr "Kudeatu gailua"
 #: widgets/myaccount/myaccountmanagedeviceconfigurewidget.cpp:29
 #, fuzzy, kde-format
 #| msgid "Search device..."
+msgctxt "@info:placeholder"
 msgid "Search device…"
 msgstr "Bilatu gailua..."
 
@@ -8566,6 +8617,7 @@ msgstr "Ezikusi bi faktoreko kautotzea"
 #: widgets/myaccount/myaccountpersonalaccesstokenconfigurewidget.cpp:47
 #, fuzzy, kde-format
 #| msgid "Search Personal Access Token..."
+msgctxt "@info:placeholder"
 msgid "Search Personal Access Token…"
 msgstr "Bilatu sarbide pertsonaleko tokena..."
 
@@ -8668,7 +8720,9 @@ msgid "Highlight words:"
 msgstr "Nabarmendu hitzak:"
 
 #: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:65
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Use ',' for separating words"
+msgctxt "@info:placeholder"
 msgid "Use ',' for separating words"
 msgstr "Erabili ',' hitzak bereizteko"
 
@@ -10115,7 +10169,9 @@ msgstr "Talde kanalak"
 
 #: widgets/teams/teamchannelswidget.cpp:61
 #: widgets/teams/teamselectdeletedroomwidget.cpp:32
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Search room…"
+msgctxt "@info:placeholder"
 msgid "Search room…"
 msgstr "Bilatu gela..."
 
@@ -10515,6 +10571,18 @@ msgstr ""
 #| msgid "Bug fixing"
 msgid "Some bug fixing:"
 msgstr "Akatsak konpontzea"
+
+#, fuzzy
+#~| msgid "Search rooms"
+#~ msgctxt "Placeholder"
+#~ msgid "Search rooms…"
+#~ msgstr "Bilatu gelak"
+
+#, fuzzy
+#~| msgid "Search users…"
+#~ msgctxt "Placeholder"
+#~ msgid "Search users…"
+#~ msgstr "Bilatu erabiltzaileak..."
 
 #~ msgid "Cancel"
 #~ msgstr "Utzi"

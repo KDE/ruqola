@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-07-03 00:39+0000\n"
+"POT-Creation-Date: 2024-07-04 00:38+0000\n"
 "PO-Revision-Date: 2019-07-29 20:25+0200\n"
 "Last-Translator: Roman Paholík <wizzardsk@gmail.com>\n"
 "Language-Team: Slovak <kde-sk@linux.sk>\n"
@@ -164,25 +164,25 @@ msgstr ""
 msgid "The following accounts are available:"
 msgstr ""
 
-#: core/apps/appsmarketplaceinfo.cpp:256 core/model/adminrolesmodel.cpp:40
+#: core/apps/appsmarketplaceinfo.cpp:260 core/model/adminrolesmodel.cpp:40
 #: widgets/administratorsettingsdialog/ircfederation/ircfederationwidget.cpp:50
 #, kde-format
 msgid "Description"
 msgstr "Popis"
 
-#: core/apps/appsmarketplaceinfo.cpp:258
+#: core/apps/appsmarketplaceinfo.cpp:262
 #: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:163
 #, fuzzy, kde-format
 #| msgid "Version %1"
 msgid "Version"
 msgstr "Verzia %1"
 
-#: core/apps/appsmarketplaceinfo.cpp:261 core/model/appscategoriesmodel.cpp:34
+#: core/apps/appsmarketplaceinfo.cpp:265 core/model/appscategoriesmodel.cpp:34
 #, kde-format
 msgid "Categories"
 msgstr ""
 
-#: core/apps/appsmarketplaceinfo.cpp:265
+#: core/apps/appsmarketplaceinfo.cpp:269
 #, fuzzy, kde-format
 #| msgid "Authentication Method"
 msgid "Documentation"
@@ -1465,6 +1465,7 @@ msgstr "Odpovedať"
 #: core/notifications/notifierjob.cpp:42
 #, fuzzy, kde-format
 #| msgid "Reply"
+msgctxt "@info:placeholder"
 msgid "Reply…"
 msgstr "Odpovedať"
 
@@ -1512,13 +1513,13 @@ msgctxt "We need a space between after </strong>"
 msgid "<strong>%1</strong> are typing..."
 msgstr ""
 
-#: core/rocketchataccount.cpp:2993
+#: core/rocketchataccount.cpp:2994
 #, fuzzy, kde-format
 #| msgid "Message"
 msgid "Export Messages"
 msgstr "Správa"
 
-#: core/rocketchataccount.cpp:2994
+#: core/rocketchataccount.cpp:2995
 #, kde-format
 msgid "Your email has been queued for sending."
 msgstr ""
@@ -2642,6 +2643,7 @@ msgstr ""
 #: widgets/administratordialog/customemoji/administratorcustomemojiwidget.cpp:32
 #, fuzzy, kde-format
 #| msgid "Status:"
+msgctxt "@info:placeholder"
 msgid "Search custom emojis"
 msgstr "Stav:"
 
@@ -2722,6 +2724,7 @@ msgstr "Stav:"
 #: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:28
 #, fuzzy, kde-format
 #| msgid "Status:"
+msgctxt "@info:placeholder"
 msgid "Search Custom Sounds"
 msgstr "Stav:"
 
@@ -2794,6 +2797,7 @@ msgstr "Stav:"
 #: widgets/administratordialog/invites/administratorinviteswidget.cpp:39
 #, fuzzy, kde-format
 #| msgid "Search File..."
+msgctxt "@info:placeholder"
 msgid "Search invite…"
 msgstr "Hľadať súbor..."
 
@@ -2909,7 +2913,7 @@ msgid "Show Moderation Messages"
 msgstr "Súkromné adresy"
 
 #: widgets/administratordialog/moderationconsole/moderationmessageswidget.cpp:55
-#: widgets/dialogs/searchmessagewidget.cpp:160
+#: widgets/dialogs/searchmessagewidget.cpp:167
 #: widgets/dialogs/showlistmessagebasewidget.cpp:97
 #: widgets/discussions/showdiscussionswidget.cpp:88
 #: widgets/room/usersinroomwidget.cpp:135
@@ -2918,7 +2922,7 @@ msgid "Loading…"
 msgstr ""
 
 #: widgets/administratordialog/moderationconsole/moderationmessageswidget.cpp:57
-#: widgets/dialogs/searchmessagewidget.cpp:164
+#: widgets/dialogs/searchmessagewidget.cpp:171
 #: widgets/dialogs/showlistmessagebasewidget.cpp:99
 #: widgets/room/usersinroomwidget.cpp:137
 #, fuzzy, kde-format
@@ -2927,7 +2931,7 @@ msgid "No Message found"
 msgstr "Súkromné adresy"
 
 #: widgets/administratordialog/moderationconsole/moderationmessageswidget.cpp:63
-#: widgets/dialogs/searchmessagewidget.cpp:170
+#: widgets/dialogs/searchmessagewidget.cpp:177
 #, kde-format
 msgid "%1 Message in room"
 msgid_plural "%1 Messages in room"
@@ -2939,6 +2943,7 @@ msgstr[2] ""
 #: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:37
 #, fuzzy, kde-format
 #| msgid "Search File..."
+msgctxt "@info:placeholder"
 msgid "Search moderation message…"
 msgstr "Hľadať súbor..."
 
@@ -3092,6 +3097,7 @@ msgstr "Vybrať súbor..."
 #: widgets/servererrorinfohistory/servererrorinfomessagehistorywidget.cpp:43
 #, fuzzy, kde-format
 #| msgid "Search File..."
+msgctxt "@info:placeholder"
 msgid "Search…"
 msgstr "Hľadať súbor..."
 
@@ -3139,6 +3145,7 @@ msgstr ""
 #: widgets/administratordialog/oauth/administratoroauthwidget.cpp:37
 #, fuzzy, kde-format
 #| msgid "Search File..."
+msgctxt "@info:placeholder"
 msgid "Search Oauth apps…"
 msgstr "Hľadať súbor..."
 
@@ -3172,12 +3179,14 @@ msgstr "Súkromné:"
 #: widgets/explorepermissionsdialog/explorepermissionswidget.cpp:38
 #, fuzzy, kde-format
 #| msgid "Search File..."
+msgctxt "@info:placeholder"
 msgid "Search permissions…"
 msgstr "Hľadať súbor..."
 
 #: widgets/administratordialog/roles/administratorroleswidget.cpp:46
 #, fuzzy, kde-format
 #| msgid "Search File..."
+msgctxt "@info:placeholder"
 msgid "Search roles…"
 msgstr "Hľadať súbor..."
 
@@ -3250,9 +3259,11 @@ msgstr "Informácie o serveri"
 #: widgets/administratordialog/roles/usersinrolewidget.cpp:36
 #: widgets/administratordialog/users/administratoruserswidget.cpp:48
 #: widgets/dialogs/addusersinroomwidget.cpp:23
+#: widgets/directory/directorywidget.cpp:39
 #: widgets/room/usersinroomwidget.cpp:40
 #, fuzzy, kde-format
 #| msgid "Search File..."
+msgctxt "@info:placeholder"
 msgid "Search users…"
 msgstr "Hľadať súbor..."
 
@@ -3323,6 +3334,7 @@ msgstr "Stav:"
 
 #: widgets/administratordialog/rooms/administratorroomseditwidget.cpp:23
 #: widgets/administratordialog/rooms/administratorroomsselectroomtypewidget.cpp:16
+#: widgets/applicationssettingsdialog/applicationssettingsinstalledcombobox.cpp:14
 #, fuzzy, kde-format
 #| msgid "Private:"
 msgid "Private"
@@ -3387,6 +3399,7 @@ msgstr ""
 #: widgets/administratordialog/rooms/administratorroomswidget.cpp:42
 #, fuzzy, kde-format
 #| msgid "Search File..."
+msgctxt "@info:placeholder"
 msgid "Search rooms"
 msgstr "Hľadať súbor..."
 
@@ -3753,6 +3766,7 @@ msgstr "wizzardsk@gmail.com"
 
 #: widgets/administratordialog/users/administratorinviteuserswidget.cpp:25
 #, kde-format
+msgctxt "@info:placeholder"
 msgid "Use ',' for separate emails"
 msgstr ""
 
@@ -6443,6 +6457,7 @@ msgstr ""
 
 #: widgets/applicationssettingsdialog/applicationssettingsaskapplicationwidget.cpp:35
 #, kde-format
+msgctxt "@info:placeholder"
 msgid "Message for workspace admin"
 msgstr ""
 
@@ -6468,6 +6483,19 @@ msgstr "Aplikácia nenájdená"
 #: widgets/applicationssettingsdialog/applicationssettingsinprogresswidget.cpp:15
 #, kde-format
 msgid "Loading in progress..."
+msgstr ""
+
+#: widgets/applicationssettingsdialog/applicationssettingsinstalledcombobox.cpp:13
+#: widgets/dialogs/showattachmentcombobox.cpp:19
+#: widgets/room/usersinroomcombobox.cpp:20
+#: widgets/teams/teamchannelscombobox.cpp:19
+#, kde-format
+msgid "All"
+msgstr ""
+
+#: widgets/applicationssettingsdialog/applicationssettingsinstalledcombobox.cpp:15
+#, kde-format
+msgid "Installed"
 msgstr ""
 
 #: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:58
@@ -6648,6 +6676,7 @@ msgstr "Odstrániť účet"
 #: widgets/channellist/channellistwidget.cpp:56
 #, fuzzy, kde-format
 #| msgid "Leave Channel"
+msgctxt "@info:placeholder"
 msgid "Filter channels (%1)"
 msgstr "Opustiť kanál"
 
@@ -6687,6 +6716,7 @@ msgstr "Odstrániť účet"
 #: widgets/common/authenticationloginwidget.cpp:42
 #, fuzzy, kde-format
 #| msgid "User name: %1"
+msgctxt "@info:placeholder"
 msgid "Username or email"
 msgstr "Meno používateľa: %1"
 
@@ -7263,6 +7293,7 @@ msgstr ""
 #: widgets/dialogs/channelsearchwidget.cpp:25
 #, fuzzy, kde-format
 #| msgid "Leave Channel"
+msgctxt "@info:placeholder"
 msgid "Select a channel"
 msgstr "Opustiť kanál"
 
@@ -7363,6 +7394,7 @@ msgstr ""
 #: widgets/prunemessages/prunemessageswidget.cpp:66
 #, fuzzy, kde-format
 #| msgid "Search File..."
+msgctxt "@info:placeholder"
 msgid "Select users…"
 msgstr "Hľadať súbor..."
 
@@ -7382,6 +7414,7 @@ msgstr ""
 #: widgets/dialogs/createnewdiscussionwidget.cpp:51
 #, fuzzy, kde-format
 #| msgid "Enter Username"
+msgctxt "@info:placeholder"
 msgid "Invite users…"
 msgstr "Zadajte užívateľské meno"
 
@@ -7473,6 +7506,7 @@ msgstr "Správa"
 
 #: widgets/dialogs/createnewdiscussionwidget.cpp:61
 #, kde-format
+msgctxt "@info:placeholder"
 msgid ""
 "Usually a discussion starts with a question, like \"How do I upload a "
 "picture?\""
@@ -7683,9 +7717,11 @@ msgid "Message:"
 msgstr "Správa:"
 
 #: widgets/dialogs/reportmessagewidget.cpp:43
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Private Messages"
+msgctxt "@info:placeholder"
 msgid "Why you signal this message?"
-msgstr ""
+msgstr "Súkromné adresy"
 
 #: widgets/dialogs/reportuserdialog.cpp:26
 #, fuzzy, kde-format
@@ -7696,6 +7732,7 @@ msgstr "Správa"
 
 #: widgets/dialogs/reportuserwidget.cpp:43
 #, kde-format
+msgctxt "@info:placeholder"
 msgid "Why do you want to report?"
 msgstr ""
 
@@ -7767,6 +7804,7 @@ msgstr "Hľadať súbor..."
 #: widgets/dialogs/searchmessagewidget.cpp:47
 #, fuzzy, kde-format
 #| msgid "Search File..."
+msgctxt "@info:placeholder"
 msgid "Search messages"
 msgstr "Hľadať súbor..."
 
@@ -7788,13 +7826,6 @@ msgstr "URL serveru:"
 #| msgid "License"
 msgid "License:"
 msgstr "Licencia"
-
-#: widgets/dialogs/showattachmentcombobox.cpp:19
-#: widgets/room/usersinroomcombobox.cpp:20
-#: widgets/teams/teamchannelscombobox.cpp:19
-#, kde-format
-msgid "All"
-msgstr ""
 
 #: widgets/dialogs/showattachmentcombobox.cpp:20
 #, fuzzy, kde-format
@@ -7834,6 +7865,7 @@ msgstr "Prílohy"
 #: widgets/dialogs/showattachmentwidget.cpp:37
 #, fuzzy, kde-format
 #| msgid "Attachments"
+msgctxt "@info:placeholder"
 msgid "Search attachments…"
 msgstr "Prílohy"
 
@@ -7906,6 +7938,7 @@ msgstr "Obrázok"
 #: widgets/dialogs/showlistmessagebasewidget.cpp:39
 #, fuzzy, kde-format
 #| msgid "Search File..."
+msgctxt "@info:placeholder"
 msgid "Search messages…"
 msgstr "Hľadať súbor..."
 
@@ -8020,21 +8053,14 @@ msgstr ""
 #: widgets/directory/directorywidget.cpp:34
 #, fuzzy, kde-format
 #| msgid "Search File..."
-msgctxt "Placeholder"
+msgctxt "@info:placeholder"
 msgid "Search rooms…"
-msgstr "Hľadať súbor..."
-
-#: widgets/directory/directorywidget.cpp:39
-#, fuzzy, kde-format
-#| msgid "Search File..."
-msgctxt "Placeholder"
-msgid "Search users…"
 msgstr "Hľadať súbor..."
 
 #: widgets/directory/directorywidget.cpp:44
 #, fuzzy, kde-format
 #| msgid "Search File..."
-msgctxt "Placeholder"
+msgctxt "@info:placeholder"
 msgid "Search teams…"
 msgstr "Hľadať súbor..."
 
@@ -8103,6 +8129,7 @@ msgstr "Hľadať súbor..."
 #: widgets/discussions/showdiscussionswidget.cpp:39
 #, fuzzy, kde-format
 #| msgid "Search File..."
+msgctxt "@info:placeholder"
 msgid "Search discussion…"
 msgstr "Hľadať súbor..."
 
@@ -8621,6 +8648,7 @@ msgstr "Pridať účet"
 #: widgets/misc/twoauthenticationpasswordwidget.cpp:25
 #, fuzzy, kde-format
 #| msgid "Enter Account Name"
+msgctxt "@info:placeholder"
 msgid "Enter code"
 msgstr "Zadať názov účtu"
 
@@ -8684,6 +8712,7 @@ msgstr ""
 #: widgets/myaccount/myaccount2fatotpwidget.cpp:53
 #, fuzzy, kde-format
 #| msgid "Authentication Method"
+msgctxt "@info:placeholder"
 msgid "Enter authentication code"
 msgstr "Autentifikačná metóda"
 
@@ -8774,6 +8803,7 @@ msgstr "Hľadať súbor..."
 #: widgets/myaccount/myaccountmanagedeviceconfigurewidget.cpp:29
 #, fuzzy, kde-format
 #| msgid "Search File..."
+msgctxt "@info:placeholder"
 msgid "Search device…"
 msgstr "Hľadať súbor..."
 
@@ -8821,6 +8851,7 @@ msgstr "Autentifikačná metóda"
 #: widgets/myaccount/myaccountpersonalaccesstokenconfigurewidget.cpp:47
 #, fuzzy, kde-format
 #| msgid "Search File..."
+msgctxt "@info:placeholder"
 msgid "Search Personal Access Token…"
 msgstr "Hľadať súbor..."
 
@@ -8928,6 +8959,7 @@ msgstr ""
 
 #: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:65
 #, kde-format
+msgctxt "@info:placeholder"
 msgid "Use ',' for separating words"
 msgstr ""
 
@@ -10468,6 +10500,7 @@ msgstr "Opustiť kanál"
 #: widgets/teams/teamselectdeletedroomwidget.cpp:32
 #, fuzzy, kde-format
 #| msgid "Search File..."
+msgctxt "@info:placeholder"
 msgid "Search room…"
 msgstr "Hľadať súbor..."
 
@@ -10872,6 +10905,18 @@ msgstr ""
 #, kde-format
 msgid "Some bug fixing:"
 msgstr ""
+
+#, fuzzy
+#~| msgid "Search File..."
+#~ msgctxt "Placeholder"
+#~ msgid "Search rooms…"
+#~ msgstr "Hľadať súbor..."
+
+#, fuzzy
+#~| msgid "Search File..."
+#~ msgctxt "Placeholder"
+#~ msgid "Search users…"
+#~ msgstr "Hľadať súbor..."
 
 #, fuzzy
 #~| msgid "Leave Channel"

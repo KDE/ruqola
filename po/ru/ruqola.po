@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-07-03 00:39+0000\n"
+"POT-Creation-Date: 2024-07-04 00:38+0000\n"
 "PO-Revision-Date: 2023-11-24 12:18+0300\n"
 "Last-Translator: Olesya Gerasimenko <translation-team@basealt.ru>\n"
 "Language-Team: Basealt Translation Team\n"
@@ -180,24 +180,24 @@ msgstr "Оптимизация, исправление поддержки Window
 msgid "The following accounts are available:"
 msgstr "Доступны следующие учётные записи:"
 
-#: core/apps/appsmarketplaceinfo.cpp:256 core/model/adminrolesmodel.cpp:40
+#: core/apps/appsmarketplaceinfo.cpp:260 core/model/adminrolesmodel.cpp:40
 #: widgets/administratorsettingsdialog/ircfederation/ircfederationwidget.cpp:50
 #, kde-format
 msgid "Description"
 msgstr "Описание"
 
-#: core/apps/appsmarketplaceinfo.cpp:258
+#: core/apps/appsmarketplaceinfo.cpp:262
 #: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:163
 #, kde-format
 msgid "Version"
 msgstr "Версия"
 
-#: core/apps/appsmarketplaceinfo.cpp:261 core/model/appscategoriesmodel.cpp:34
+#: core/apps/appsmarketplaceinfo.cpp:265 core/model/appscategoriesmodel.cpp:34
 #, kde-format
 msgid "Categories"
 msgstr ""
 
-#: core/apps/appsmarketplaceinfo.cpp:265
+#: core/apps/appsmarketplaceinfo.cpp:269
 #, fuzzy, kde-format
 #| msgid "Authentication"
 msgid "Documentation"
@@ -1420,6 +1420,7 @@ msgstr "Ответить"
 #: core/notifications/notifierjob.cpp:42
 #, fuzzy, kde-format
 #| msgid "Reply"
+msgctxt "@info:placeholder"
 msgid "Reply…"
 msgstr "Ответить"
 
@@ -1470,12 +1471,12 @@ msgctxt "We need a space between after </strong>"
 msgid "<strong>%1</strong> are typing..."
 msgstr "<strong>%1</strong> печатают..."
 
-#: core/rocketchataccount.cpp:2993
+#: core/rocketchataccount.cpp:2994
 #, kde-format
 msgid "Export Messages"
 msgstr "Экспорт сообщений"
 
-#: core/rocketchataccount.cpp:2994
+#: core/rocketchataccount.cpp:2995
 #, kde-format
 msgid "Your email has been queued for sending."
 msgstr "Электронное письмо помещено в очередь для отправки."
@@ -2611,7 +2612,9 @@ msgid "File:"
 msgstr "Файл:"
 
 #: widgets/administratordialog/customemoji/administratorcustomemojiwidget.cpp:32
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Search custom emojis"
+msgctxt "@info:placeholder"
 msgid "Search custom emojis"
 msgstr "Поиск нестандартных смайликов"
 
@@ -2687,7 +2690,9 @@ msgid "Create New Sound"
 msgstr "Создание нового звука"
 
 #: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:28
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Search Custom Sounds"
+msgctxt "@info:placeholder"
 msgid "Search Custom Sounds"
 msgstr "Поиск нестандартных звуков"
 
@@ -2756,6 +2761,7 @@ msgstr "Удаление нестандартного статуса польз�
 #: widgets/administratordialog/invites/administratorinviteswidget.cpp:39
 #, fuzzy, kde-format
 #| msgid "Search invite..."
+msgctxt "@info:placeholder"
 msgid "Search invite…"
 msgstr "Поиск приглашения…"
 
@@ -2866,7 +2872,7 @@ msgid "Show Moderation Messages"
 msgstr "Показ сообщений с упоминаниями — %1"
 
 #: widgets/administratordialog/moderationconsole/moderationmessageswidget.cpp:55
-#: widgets/dialogs/searchmessagewidget.cpp:160
+#: widgets/dialogs/searchmessagewidget.cpp:167
 #: widgets/dialogs/showlistmessagebasewidget.cpp:97
 #: widgets/discussions/showdiscussionswidget.cpp:88
 #: widgets/room/usersinroomwidget.cpp:135
@@ -2876,7 +2882,7 @@ msgid "Loading…"
 msgstr "Загрузка..."
 
 #: widgets/administratordialog/moderationconsole/moderationmessageswidget.cpp:57
-#: widgets/dialogs/searchmessagewidget.cpp:164
+#: widgets/dialogs/searchmessagewidget.cpp:171
 #: widgets/dialogs/showlistmessagebasewidget.cpp:99
 #: widgets/room/usersinroomwidget.cpp:137
 #, kde-format
@@ -2884,7 +2890,7 @@ msgid "No Message found"
 msgstr "Сообщений не найдено"
 
 #: widgets/administratordialog/moderationconsole/moderationmessageswidget.cpp:63
-#: widgets/dialogs/searchmessagewidget.cpp:170
+#: widgets/dialogs/searchmessagewidget.cpp:177
 #, kde-format
 msgid "%1 Message in room"
 msgid_plural "%1 Messages in room"
@@ -2896,6 +2902,7 @@ msgstr[3] "%1 сообщение в комнате"
 #: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:37
 #: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:37
 #, fuzzy, kde-format
+msgctxt "@info:placeholder"
 msgid "Search moderation message…"
 msgstr "Поиск сообщений..."
 
@@ -3043,6 +3050,7 @@ msgstr "Выбрать все"
 #: widgets/servererrorinfohistory/servererrorinfomessagehistorywidget.cpp:43
 #, fuzzy, kde-format
 #| msgid "Search"
+msgctxt "@info:placeholder"
 msgid "Search…"
 msgstr "Поиск"
 
@@ -3087,6 +3095,7 @@ msgstr "Адрес маркера доступа:"
 #: widgets/administratordialog/oauth/administratoroauthwidget.cpp:37
 #, fuzzy, kde-format
 #| msgid "Search Oauth apps..."
+msgctxt "@info:placeholder"
 msgid "Search Oauth apps…"
 msgstr "Поиск приложений Oauth…"
 
@@ -3118,12 +3127,14 @@ msgstr "Роли:"
 #: widgets/explorepermissionsdialog/explorepermissionswidget.cpp:38
 #, fuzzy, kde-format
 #| msgid "Search permissions..."
+msgctxt "@info:placeholder"
 msgid "Search permissions…"
 msgstr "Поиск прав доступа…"
 
 #: widgets/administratordialog/roles/administratorroleswidget.cpp:46
 #, fuzzy, kde-format
 #| msgid "Search roles..."
+msgctxt "@info:placeholder"
 msgid "Search roles…"
 msgstr "Поиск ролей…"
 
@@ -3192,8 +3203,10 @@ msgstr "Пользователи в роли"
 #: widgets/administratordialog/roles/usersinrolewidget.cpp:36
 #: widgets/administratordialog/users/administratoruserswidget.cpp:48
 #: widgets/dialogs/addusersinroomwidget.cpp:23
+#: widgets/directory/directorywidget.cpp:39
 #: widgets/room/usersinroomwidget.cpp:40
 #, fuzzy, kde-format
+msgctxt "@info:placeholder"
 msgid "Search users…"
 msgstr "Добавить пользователей"
 
@@ -3259,6 +3272,7 @@ msgstr "Изменение комнаты"
 
 #: widgets/administratordialog/rooms/administratorroomseditwidget.cpp:23
 #: widgets/administratordialog/rooms/administratorroomsselectroomtypewidget.cpp:16
+#: widgets/applicationssettingsdialog/applicationssettingsinstalledcombobox.cpp:14
 #, kde-format
 msgid "Private"
 msgstr "Закрытая"
@@ -3323,7 +3337,9 @@ msgid "Public"
 msgstr "Открытая"
 
 #: widgets/administratordialog/rooms/administratorroomswidget.cpp:42
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Search rooms"
+msgctxt "@info:placeholder"
 msgid "Search rooms"
 msgstr "Поиск комнат"
 
@@ -3656,7 +3672,9 @@ msgid "Emails:"
 msgstr "Адреса эл. почты:"
 
 #: widgets/administratordialog/users/administratorinviteuserswidget.cpp:25
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Use ',' for separate emails"
+msgctxt "@info:placeholder"
 msgid "Use ',' for separate emails"
 msgstr "Используйте «,» для разделения адресов электронной почты"
 
@@ -6562,6 +6580,7 @@ msgstr ""
 
 #: widgets/applicationssettingsdialog/applicationssettingsaskapplicationwidget.cpp:35
 #, kde-format
+msgctxt "@info:placeholder"
 msgid "Message for workspace admin"
 msgstr ""
 
@@ -6587,6 +6606,19 @@ msgstr "Идентификатор приложения (iss)"
 #: widgets/applicationssettingsdialog/applicationssettingsinprogresswidget.cpp:15
 #, kde-format
 msgid "Loading in progress..."
+msgstr ""
+
+#: widgets/applicationssettingsdialog/applicationssettingsinstalledcombobox.cpp:13
+#: widgets/dialogs/showattachmentcombobox.cpp:19
+#: widgets/room/usersinroomcombobox.cpp:20
+#: widgets/teams/teamchannelscombobox.cpp:19
+#, kde-format
+msgid "All"
+msgstr "Все"
+
+#: widgets/applicationssettingsdialog/applicationssettingsinstalledcombobox.cpp:15
+#, kde-format
+msgid "Installed"
 msgstr ""
 
 #: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:58
@@ -6760,6 +6792,7 @@ msgstr "Преобразовать в команду"
 #: widgets/channellist/channellistwidget.cpp:56
 #, fuzzy, kde-format
 #| msgid "Filter channels (CTRL + K)"
+msgctxt "@info:placeholder"
 msgid "Filter channels (%1)"
 msgstr "Фильтровать каналы (CTRL + K)"
 
@@ -6799,7 +6832,9 @@ msgid "Register Account"
 msgstr "Удаление учётной записи"
 
 #: widgets/common/authenticationloginwidget.cpp:42
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Username or email"
+msgctxt "@info:placeholder"
 msgid "Username or email"
 msgstr "Имя пользователя или адрес эл. почты"
 
@@ -7352,7 +7387,9 @@ msgid "Clear"
 msgstr "Очистить"
 
 #: widgets/dialogs/channelsearchwidget.cpp:25
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Select a channel"
+msgctxt "@info:placeholder"
 msgid "Select a channel"
 msgstr "Выберите канал"
 
@@ -7458,6 +7495,7 @@ msgstr ""
 #: widgets/prunemessages/prunemessageswidget.cpp:66
 #, fuzzy, kde-format
 #| msgid "Select users..."
+msgctxt "@info:placeholder"
 msgid "Select users…"
 msgstr "Выбрать пользователей…"
 
@@ -7476,6 +7514,7 @@ msgstr "Тема:"
 #: widgets/dialogs/createnewdiscussionwidget.cpp:51
 #, fuzzy, kde-format
 #| msgid "Invite Users"
+msgctxt "@info:placeholder"
 msgid "Invite users…"
 msgstr "Пригласить пользователей"
 
@@ -7571,7 +7610,11 @@ msgid "Message"
 msgstr "Сообщение"
 
 #: widgets/dialogs/createnewdiscussionwidget.cpp:61
-#, kde-format
+#, fuzzy, kde-format
+#| msgid ""
+#| "Usually a discussion starts with a question, like \"How do I upload a "
+#| "picture?\""
+msgctxt "@info:placeholder"
 msgid ""
 "Usually a discussion starts with a question, like \"How do I upload a "
 "picture?\""
@@ -7776,7 +7819,9 @@ msgid "Message:"
 msgstr "Сообщение:"
 
 #: widgets/dialogs/reportmessagewidget.cpp:43
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Why you signal this message?"
+msgctxt "@info:placeholder"
 msgid "Why you signal this message?"
 msgstr "Почему вы жалуетесь на это сообщение?"
 
@@ -7789,6 +7834,7 @@ msgstr "Пожаловаться на сообщение"
 #: widgets/dialogs/reportuserwidget.cpp:43
 #, fuzzy, kde-format
 #| msgid "Do you want to remove \"%1\"?"
+msgctxt "@info:placeholder"
 msgid "Why do you want to report?"
 msgstr "Удалить «%1»?"
 
@@ -7855,7 +7901,9 @@ msgid "Search Messages in '%1' (%2)"
 msgstr "Поиск сообщений в «%1» (%2)"
 
 #: widgets/dialogs/searchmessagewidget.cpp:47
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Search messages"
+msgctxt "@info:placeholder"
 msgid "Search messages"
 msgstr "Поиск сообщений"
 
@@ -7874,13 +7922,6 @@ msgstr "Версия сервера:"
 #, kde-format
 msgid "License:"
 msgstr "Лицензия:"
-
-#: widgets/dialogs/showattachmentcombobox.cpp:19
-#: widgets/room/usersinroomcombobox.cpp:20
-#: widgets/teams/teamchannelscombobox.cpp:19
-#, kde-format
-msgid "All"
-msgstr "Все"
 
 #: widgets/dialogs/showattachmentcombobox.cpp:20
 #, kde-format
@@ -7916,6 +7957,7 @@ msgstr "Показ вложений — %1"
 #: widgets/dialogs/showattachmentwidget.cpp:37
 #, fuzzy, kde-format
 #| msgid "Search attachments..."
+msgctxt "@info:placeholder"
 msgid "Search attachments…"
 msgstr "Поиск вложений…"
 
@@ -7991,6 +8033,7 @@ msgstr "Сохранить изображение"
 #: widgets/dialogs/showlistmessagebasewidget.cpp:39
 #, fuzzy, kde-format
 #| msgid "Search messages"
+msgctxt "@info:placeholder"
 msgid "Search messages…"
 msgstr "Поиск сообщений"
 
@@ -8100,19 +8143,13 @@ msgstr "Недостаточно прав для просмотра этой с�
 #: widgets/directory/directorywidget.cpp:34
 #, fuzzy, kde-format
 #| msgid "Search rooms"
-msgctxt "Placeholder"
+msgctxt "@info:placeholder"
 msgid "Search rooms…"
 msgstr "Поиск комнат"
 
-#: widgets/directory/directorywidget.cpp:39
-#, fuzzy, kde-format
-msgctxt "Placeholder"
-msgid "Search users…"
-msgstr "Добавить пользователей"
-
 #: widgets/directory/directorywidget.cpp:44
 #, fuzzy, kde-format
-msgctxt "Placeholder"
+msgctxt "@info:placeholder"
 msgid "Search teams…"
 msgstr "Архивировать комнату"
 
@@ -8177,6 +8214,7 @@ msgstr "Показ обсуждений — %1"
 #: widgets/discussions/showdiscussionswidget.cpp:39
 #, fuzzy, kde-format
 #| msgid "Search discussion..."
+msgctxt "@info:placeholder"
 msgid "Search discussion…"
 msgstr "Поиск в обсуждении…"
 
@@ -8686,7 +8724,9 @@ msgid "Filter Account…"
 msgstr "Фильтр учётных записей…"
 
 #: widgets/misc/twoauthenticationpasswordwidget.cpp:25
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Enter code"
+msgctxt "@info:placeholder"
 msgid "Enter code"
 msgstr "Введите код"
 
@@ -8771,7 +8811,9 @@ msgstr ""
 
 #: widgets/myaccount/myaccount2fadisabletotpwidget.cpp:37
 #: widgets/myaccount/myaccount2fatotpwidget.cpp:53
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Enter authentication code"
+msgctxt "@info:placeholder"
 msgid "Enter authentication code"
 msgstr "Введите код аутентификации"
 
@@ -8871,6 +8913,7 @@ msgstr "Управление устройством"
 #: widgets/myaccount/myaccountmanagedeviceconfigurewidget.cpp:29
 #, fuzzy, kde-format
 #| msgid "Search device..."
+msgctxt "@info:placeholder"
 msgid "Search device…"
 msgstr "Поиск устройства…"
 
@@ -8916,6 +8959,7 @@ msgstr "Игнорировать двухфакторную аутентифик
 #: widgets/myaccount/myaccountpersonalaccesstokenconfigurewidget.cpp:47
 #, fuzzy, kde-format
 #| msgid "Search Personal Access Token..."
+msgctxt "@info:placeholder"
 msgid "Search Personal Access Token…"
 msgstr "Поиск личного маркера доступа…"
 
@@ -9019,7 +9063,9 @@ msgid "Highlight words:"
 msgstr "Выделение слов:"
 
 #: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:65
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Use ',' for separating words"
+msgctxt "@info:placeholder"
 msgid "Use ',' for separating words"
 msgstr "Используйте «,» для разделения слов"
 
@@ -10548,6 +10594,7 @@ msgstr "Каналы команды"
 #: widgets/teams/teamselectdeletedroomwidget.cpp:32
 #, fuzzy, kde-format
 #| msgid "Search rooms"
+msgctxt "@info:placeholder"
 msgid "Search room…"
 msgstr "Поиск комнат"
 
@@ -10954,6 +11001,17 @@ msgstr "Некоторые из новых возможностей в этой 
 #, kde-format
 msgid "Some bug fixing:"
 msgstr "Исправление некоторых ошибок:"
+
+#, fuzzy
+#~| msgid "Search rooms"
+#~ msgctxt "Placeholder"
+#~ msgid "Search rooms…"
+#~ msgstr "Поиск комнат"
+
+#, fuzzy
+#~ msgctxt "Placeholder"
+#~ msgid "Search users…"
+#~ msgstr "Добавить пользователей"
 
 #~ msgid "Cancel"
 #~ msgstr "Отмена"
