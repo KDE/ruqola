@@ -448,7 +448,7 @@ char *TextConverterCMark::convertMessageTextCMark(const TextConverter::ConvertMe
         } else if ((cmark_node_get_type(node) == CMARK_NODE_CODE)) {
             const char *literal = cmark_node_get_literal(node);
             std::cout << " NODE_CODE**********************" << literal << std::endl;
-            QString ccc = QString::fromUtf8(addHighlighter(literal, settings));
+            const QString ccc = QString::fromUtf8(addHighlighter(literal, settings));
             qDebug() << " ccc.length() " << ccc.length();
             cmark_node *docCCC = cmark_parse_document(ccc.toUtf8().constData(), ccc.length(), CMARK_OPT_DEFAULT);
 
