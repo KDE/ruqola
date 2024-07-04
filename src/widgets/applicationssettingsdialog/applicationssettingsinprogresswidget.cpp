@@ -12,7 +12,7 @@
 using namespace Qt::Literals::StringLiterals;
 ApplicationsSettingsInProgressWidget::ApplicationsSettingsInProgressWidget(QWidget *parent)
     : QWidget{parent}
-    , mLabel(new QLabel(i18nc("@label:textbox", "Loading in progress..."), this))
+    , mLabel(new QLabel(i18nc("@label:textbox", "Loading in progress…"), this))
     , mProgressBar(new QProgressBar(this))
 {
     auto mainLayout = new QHBoxLayout(this);
