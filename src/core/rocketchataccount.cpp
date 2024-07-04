@@ -3224,9 +3224,10 @@ void RocketChatAccount::loadAppCategories()
     restApi()->initializeRestApiJob(job);
     connect(job, &RocketChatRestApi::AppCategoriesJob::appCategoriesDone, this, [this](const QJsonArray &replyArray) {
         QList<AppsCategoryInfo> appsCategoryInfoList;
-        appsCategoryInfoList.reserve(replyArray.count());
+        const auto replyArrayCount{replyArray.count()};
+        appsCategoryInfoList.reserve(replyArrayCount);
         // qDebug() << " array" << replyArray;
-        for (int i = 0; i < replyArray.count(); ++i) {
+        for (int i = 0; i < replyArrayCount; ++i) {
             const QJsonObject obj = replyArray.at(i).toObject();
             // qDebug() << " obj" << obj;
             AppsCategoryInfo info;
@@ -3272,8 +3273,9 @@ void RocketChatAccount::loadAppMarketPlace()
     restApi()->initializeRestApiJob(job);
     connect(job, &RocketChatRestApi::AppMarketPlaceJob::appMarketPlaceDone, this, [this](const QJsonArray &replyArray) {
         QList<AppsMarketPlaceInfo> listAppsMarketPlaceInfo;
-        listAppsMarketPlaceInfo.reserve(replyArray.count());
-        for (int i = 0; i < replyArray.count(); ++i) {
+        const auto replyArrayCount{replyArray.count()};
+        listAppsMarketPlaceInfo.reserve(replyArrayCount);
+        for (int i = 0; i < replyArrayCount; ++i) {
             const QJsonObject obj = replyArray.at(i).toObject();
             // qDebug() << " obj" << obj;
             AppsMarketPlaceInfo info;
