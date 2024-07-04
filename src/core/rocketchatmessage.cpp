@@ -5,7 +5,6 @@
 */
 
 #include "rocketchatmessage.h"
-#include "ruqola_debug.h"
 #include "utils.h"
 
 #include <QCryptographicHash>
