@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-07-04 00:38+0000\n"
+"POT-Creation-Date: 2024-07-05 00:38+0000\n"
 "PO-Revision-Date: 2024-06-29 11:32+0100\n"
 "Last-Translator: Steve Allewell <steve.allewell@gmail.com>\n"
 "Language-Team: British English\n"
@@ -6305,7 +6305,9 @@ msgid "Ask Application"
 msgstr "Ask Application"
 
 #: widgets/applicationssettingsdialog/applicationssettingsaskapplicationwidget.cpp:29
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Let your admin know why this app would be useful"
+msgctxt "@label:textbox"
 msgid "Let your admin know why this app would be useful"
 msgstr "Let your admin know why this app would be useful"
 
@@ -6335,8 +6337,10 @@ msgid "Applications"
 msgstr "Applications"
 
 #: widgets/applicationssettingsdialog/applicationssettingsinprogresswidget.cpp:15
-#, kde-format
-msgid "Loading in progress..."
+#, fuzzy, kde-format
+#| msgid "Loading in progress..."
+msgctxt "@label:textbox"
+msgid "Loading in progress…"
 msgstr "Loading in progress..."
 
 #: widgets/applicationssettingsdialog/applicationssettingsinstalledcombobox.cpp:13
@@ -7772,13 +7776,13 @@ msgctxt "@title:window"
 msgid "Join Team - %1"
 msgstr "Join Team - %1"
 
-#: widgets/directory/directorydialog.cpp:61
+#: widgets/directory/directorydialog.cpp:60
 #, kde-format
 msgctxt "@action:button"
 msgid "Join"
 msgstr "Join"
 
-#: widgets/directory/directorydialog.cpp:64
+#: widgets/directory/directorydialog.cpp:63
 #, kde-format
 msgctxt "@action:button"
 msgid "Open Private Message"
