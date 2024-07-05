@@ -326,6 +326,10 @@ QString AppsMarketPlaceInfo::applicationInformations() const
             QStringLiteral("<b>%1</b><br/>").arg(i18n("Support")) + QStringLiteral("<a href=\"%2\">%1</a>").arg(mSupport, url) + QStringLiteral("<br/><br/>");
     }
 
+    if (!mPrivacyPolicySummary.isEmpty()) {
+        str += QStringLiteral("<b>%1</b><br/>").arg(i18n("Privacy Summary")) + mPrivacyPolicySummary + QStringLiteral("<br/><br/>");
+    }
+
     return str;
 }
 
