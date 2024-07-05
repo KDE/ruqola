@@ -91,6 +91,9 @@ public:
     [[nodiscard]] QString homePage() const;
     void setHomePage(const QString &newHomePage);
 
+    [[nodiscard]] QString privacyPolicySummary() const;
+    void setPrivacyPolicySummary(const QString &newPrivacyPolicySummary);
+
 private:
     LIBRUQOLACORE_NO_EXPORT void parsePrincingPlan(const QJsonArray &array);
     LIBRUQOLACORE_NO_EXPORT void parseAuthor(const QJsonObject &authorObject);
@@ -106,6 +109,7 @@ private:
     QString mSupport;
     QString mHomePage;
     QPixmap mPixmap;
+    QString mPrivacyPolicySummary;
     qint64 mModifiedDate = -1;
     int mPrice = 0;
     bool mIsPrivate = false;

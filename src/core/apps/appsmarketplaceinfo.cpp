@@ -33,6 +33,7 @@ QDebug operator<<(QDebug d, const AppsMarketPlaceInfo &t)
     d.nospace() << "isPrivate " << t.isPrivate();
     d.nospace() << "support " << t.support();
     d.nospace() << "homePage " << t.homePage();
+    d.nospace() << "privacyPolicySummary " << t.privacyPolicySummary();
     return d;
 }
 
@@ -111,6 +112,16 @@ void AppsMarketPlaceInfo::parseAuthor(const QJsonObject &authorObject)
     mSupport = authorObject["support"_L1].toString();
 }
 
+QString AppsMarketPlaceInfo::privacyPolicySummary() const
+{
+    return mPrivacyPolicySummary;
+}
+
+void AppsMarketPlaceInfo::setPrivacyPolicySummary(const QString &newPrivacyPolicySummary)
+{
+    mPrivacyPolicySummary = newPrivacyPolicySummary;
+}
+
 void AppsMarketPlaceInfo::parseAppsMarketPlaceInfo(const QJsonObject &replyObject)
 {
     qDebug() << " replyObject " << replyObject;
@@ -143,6 +154,8 @@ void AppsMarketPlaceInfo::parseAppsMarketPlaceInfo(const QJsonObject &replyObjec
     mDocumentationUrl = latestObj["documentationUrl"_L1].toString();
     const QByteArray baImageBase64 = latestObj["iconFileData"_L1].toString().toLatin1();
     mPixmap.loadFromData(QByteArray::fromBase64(baImageBase64), "PNG");
+
+    mPrivacyPolicySummary = latestObj["privacyPolicySummary"_L1].toString();
 }
 
 QByteArray AppsMarketPlaceInfo::appId() const
@@ -267,7 +280,7 @@ bool AppsMarketPlaceInfo::operator==(const AppsMarketPlaceInfo &other) const
         && mDocumentationUrl == other.mDocumentationUrl && mPurchaseType == other.mPurchaseType && mVersion == other.mVersion
         && mShortDescription == other.mShortDescription /*&& mPixmap.isNull() == other.mPixmap.isNull()*/ && mPrice == other.mPrice
         && mIsEnterpriseOnly == other.mIsEnterpriseOnly && mModifiedDate == other.mModifiedDate && mPricePlan == other.mPricePlan
-        && mHomePage == other.homePage() && mSupport == other.support();
+        && mHomePage == other.mHomePage && mSupport == other.mSupport && mPrivacyPolicySummary == other.mPrivacyPolicySummary;
 }
 
 qint64 AppsMarketPlaceInfo::modifiedDate() const

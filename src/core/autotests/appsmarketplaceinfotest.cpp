@@ -32,7 +32,7 @@ void AppsMarketPlaceInfoTest::shouldHaveDefaultValues()
     QVERIFY(d.support().isEmpty());
 
     // 03/07/2024: size: 256
-    QCOMPARE(sizeof(AppsMarketPlaceInfo), 304);
+    QCOMPARE(sizeof(AppsMarketPlaceInfo), 328);
 }
 
 void AppsMarketPlaceInfoTest::shouldLoadAppsMarketPlaceInfo_data()
@@ -75,6 +75,8 @@ void AppsMarketPlaceInfoTest::shouldLoadAppsMarketPlaceInfo_data()
         appsMarketPlaceInfo.setShortDescription("Enjoy a secure and robust video conferencing"_L1);
         appsMarketPlaceInfo.setHomePage("https://github.com/RocketChat/Rocket.Chat"_L1);
         appsMarketPlaceInfo.setSupport("support@rocket.chat"_L1);
+        appsMarketPlaceInfo.setPrivacyPolicySummary(
+            "We use your data to provide and improve the Service. By using the Service, you agree to the collection and use of information in accordance with this policy. Unless otherwise defined in this Privacy Policy, the terms used in this Privacy Policy have the same meanings as in our Terms and Conditions.\n"_L1);
 
         QTest::addRow("apps2") << QStringLiteral("apps2") << appsMarketPlaceInfo;
     }
