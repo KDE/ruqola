@@ -85,8 +85,15 @@ public:
 
     void parseInstalledApps(const QJsonObject &replyObject);
 
+    [[nodiscard]] QString support() const;
+    void setSupport(const QString &newSupport);
+
+    [[nodiscard]] QString homePage() const;
+    void setHomePage(const QString &newHomePage);
+
 private:
     LIBRUQOLACORE_NO_EXPORT void parsePrincingPlan(const QJsonArray &array);
+    LIBRUQOLACORE_NO_EXPORT void parseAuthor(const QJsonObject &authorObject);
     QList<PricePlan> mPricePlan;
     QStringList mCategories;
     QByteArray mAppId;
@@ -96,6 +103,8 @@ private:
     QString mPurchaseType;
     QString mVersion;
     QString mShortDescription;
+    QString mSupport;
+    QString mHomePage;
     QPixmap mPixmap;
     qint64 mModifiedDate = -1;
     int mPrice = 0;

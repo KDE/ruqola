@@ -31,6 +31,8 @@ QDebug operator<<(QDebug d, const AppsMarketPlaceInfo &t)
     d.nospace() << "isPaid " << t.isPaid();
     d.nospace() << "pricePlan " << t.pricePlan();
     d.nospace() << "isPrivate " << t.isPrivate();
+    d.nospace() << "support " << t.support();
+    d.nospace() << "homePage " << t.homePage();
     return d;
 }
 
@@ -54,6 +56,26 @@ void AppsMarketPlaceInfo::parsePrincingPlan(const QJsonArray &array)
         price.strategy = price.convertStringToStrategy(current["strategy"_L1].toString());
         mPricePlan.append(price);
     }
+}
+
+QString AppsMarketPlaceInfo::homePage() const
+{
+    return mHomePage;
+}
+
+void AppsMarketPlaceInfo::setHomePage(const QString &newHomePage)
+{
+    mHomePage = newHomePage;
+}
+
+QString AppsMarketPlaceInfo::support() const
+{
+    return mSupport;
+}
+
+void AppsMarketPlaceInfo::setSupport(const QString &newSupport)
+{
+    mSupport = newSupport;
 }
 
 bool AppsMarketPlaceInfo::isPrivate() const
@@ -83,6 +105,12 @@ void AppsMarketPlaceInfo::parseInstalledApps(const QJsonObject &replyObject)
 {
 }
 
+void AppsMarketPlaceInfo::parseAuthor(const QJsonObject &authorObject)
+{
+    mHomePage = authorObject["homepage"_L1].toString();
+    mSupport = authorObject["support"_L1].toString();
+}
+
 void AppsMarketPlaceInfo::parseAppsMarketPlaceInfo(const QJsonObject &replyObject)
 {
     qDebug() << " replyObject " << replyObject;
@@ -105,6 +133,8 @@ void AppsMarketPlaceInfo::parseAppsMarketPlaceInfo(const QJsonObject &replyObjec
         lst.append(current.toString());
     }
     mCategories = lst;
+
+    parseAuthor(latestObj["author"_L1].toObject());
 
     mDescription = latestObj["description"_L1].toString();
     mShortDescription = latestObj["shortDescription"_L1].toString();
@@ -236,7 +266,8 @@ bool AppsMarketPlaceInfo::operator==(const AppsMarketPlaceInfo &other) const
     return mCategories == other.mCategories && mAppId == other.mAppId && mAppName == other.mAppName && mDescription == other.mDescription
         && mDocumentationUrl == other.mDocumentationUrl && mPurchaseType == other.mPurchaseType && mVersion == other.mVersion
         && mShortDescription == other.mShortDescription /*&& mPixmap.isNull() == other.mPixmap.isNull()*/ && mPrice == other.mPrice
-        && mIsEnterpriseOnly == other.mIsEnterpriseOnly && mModifiedDate == other.mModifiedDate && mPricePlan == other.mPricePlan;
+        && mIsEnterpriseOnly == other.mIsEnterpriseOnly && mModifiedDate == other.mModifiedDate && mPricePlan == other.mPricePlan
+        && mHomePage == other.homePage() && mSupport == other.support();
 }
 
 qint64 AppsMarketPlaceInfo::modifiedDate() const

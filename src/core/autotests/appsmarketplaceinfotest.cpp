@@ -28,8 +28,11 @@ void AppsMarketPlaceInfoTest::shouldHaveDefaultValues()
     QCOMPARE(d.price(), 0);
     QVERIFY(!d.isValid());
     QVERIFY(!d.isPrivate());
+    QVERIFY(d.homePage().isEmpty());
+    QVERIFY(d.support().isEmpty());
+
     // 03/07/2024: size: 256
-    QCOMPARE(sizeof(AppsMarketPlaceInfo), 256);
+    QCOMPARE(sizeof(AppsMarketPlaceInfo), 304);
 }
 
 void AppsMarketPlaceInfoTest::shouldLoadAppsMarketPlaceInfo_data()
@@ -52,6 +55,8 @@ void AppsMarketPlaceInfoTest::shouldLoadAppsMarketPlaceInfo_data()
         appsMarketPlaceInfo.setVersion("1.2.1"_L1);
         appsMarketPlaceInfo.setModifiedDate(1633074321015);
         appsMarketPlaceInfo.setShortDescription({});
+        appsMarketPlaceInfo.setHomePage("https://github.com/zakhar-petrov"_L1);
+        appsMarketPlaceInfo.setSupport("https://github.com/zakhar-petrov/rocketchat-youtrack-linker/issues"_L1);
 
         QTest::addRow("apps1") << QStringLiteral("apps1") << appsMarketPlaceInfo;
     }
@@ -68,6 +73,8 @@ void AppsMarketPlaceInfoTest::shouldLoadAppsMarketPlaceInfo_data()
         appsMarketPlaceInfo.setVersion("2.1.1"_L1);
         appsMarketPlaceInfo.setModifiedDate(1706210343886);
         appsMarketPlaceInfo.setShortDescription("Enjoy a secure and robust video conferencing"_L1);
+        appsMarketPlaceInfo.setHomePage("https://github.com/RocketChat/Rocket.Chat"_L1);
+        appsMarketPlaceInfo.setSupport("support@rocket.chat"_L1);
 
         QTest::addRow("apps2") << QStringLiteral("apps2") << appsMarketPlaceInfo;
     }
