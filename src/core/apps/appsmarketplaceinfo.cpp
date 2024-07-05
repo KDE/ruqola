@@ -301,6 +301,18 @@ QString AppsMarketPlaceInfo::applicationInformations() const
             + QStringLiteral("<br/><br/>");
     }
 
+    if (!mHomePage.isEmpty()) {
+        const QString url = mHomePage.startsWith(QStringLiteral("http")) ? mHomePage : QStringLiteral("https://%1").arg(mHomePage);
+        str +=
+            QStringLiteral("<b>%1</b><br/>").arg(i18n("Homepage")) + QStringLiteral("<a href=\"%2\">%1</a>").arg(mHomePage, url) + QStringLiteral("<br/><br/>");
+    }
+
+    if (!mSupport.isEmpty()) {
+        const QString url = mSupport.startsWith(QStringLiteral("http")) ? mSupport : QStringLiteral("mailto://%1").arg(mSupport);
+        str +=
+            QStringLiteral("<b>%1</b><br/>").arg(i18n("Support")) + QStringLiteral("<a href=\"%2\">%1</a>").arg(mSupport, url) + QStringLiteral("<br/><br/>");
+    }
+
     return str;
 }
 
