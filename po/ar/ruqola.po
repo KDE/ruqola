@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-07-05 00:38+0000\n"
+"POT-Creation-Date: 2024-07-06 00:38+0000\n"
 "PO-Revision-Date: 2024-02-25 21:19+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
@@ -170,28 +170,45 @@ msgstr ""
 msgid "The following accounts are available:"
 msgstr ""
 
-#: core/apps/appsmarketplaceinfo.cpp:260 core/model/adminrolesmodel.cpp:40
+#: core/apps/appsmarketplaceinfo.cpp:304 core/model/adminrolesmodel.cpp:40
 #: widgets/administratorsettingsdialog/ircfederation/ircfederationwidget.cpp:50
 #, kde-format
 msgid "Description"
 msgstr "الوصف"
 
-#: core/apps/appsmarketplaceinfo.cpp:262
+#: core/apps/appsmarketplaceinfo.cpp:306
 #: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:163
 #, kde-format
 msgid "Version"
 msgstr "الإصدارة"
 
-#: core/apps/appsmarketplaceinfo.cpp:265 core/model/appscategoriesmodel.cpp:34
+#: core/apps/appsmarketplaceinfo.cpp:309 core/model/appscategoriesmodel.cpp:34
 #, kde-format
 msgid "Categories"
 msgstr ""
 
-#: core/apps/appsmarketplaceinfo.cpp:269
+#: core/apps/appsmarketplaceinfo.cpp:313
 #, fuzzy, kde-format
 #| msgid "Authentication"
 msgid "Documentation"
 msgstr "الاستيثاق"
+
+#: core/apps/appsmarketplaceinfo.cpp:320
+#, kde-format
+msgid "Homepage"
+msgstr ""
+
+#: core/apps/appsmarketplaceinfo.cpp:326
+#, fuzzy, kde-format
+#| msgid "Reports"
+msgid "Support"
+msgstr "التّقارير"
+
+#: core/apps/appsmarketplaceinfo.cpp:330
+#, fuzzy, kde-format
+#| msgid "Privacy"
+msgid "Privacy Summary"
+msgstr "الخصوصية"
 
 #: core/bannerinfo/bannerinfo.cpp:47
 #, kde-format

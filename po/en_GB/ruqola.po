@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-07-05 00:38+0000\n"
-"PO-Revision-Date: 2024-06-29 11:32+0100\n"
+"POT-Creation-Date: 2024-07-06 00:38+0000\n"
+"PO-Revision-Date: 2024-07-05 13:59+0100\n"
 "Last-Translator: Steve Allewell <steve.allewell@gmail.com>\n"
 "Language-Team: British English\n"
 "Language: en_GB\n"
@@ -161,27 +161,45 @@ msgstr "Optimisation, fix windows/mac support"
 msgid "The following accounts are available:"
 msgstr "The following accounts are available:"
 
-#: core/apps/appsmarketplaceinfo.cpp:260 core/model/adminrolesmodel.cpp:40
+#: core/apps/appsmarketplaceinfo.cpp:304 core/model/adminrolesmodel.cpp:40
 #: widgets/administratorsettingsdialog/ircfederation/ircfederationwidget.cpp:50
 #, kde-format
 msgid "Description"
 msgstr "Description"
 
-#: core/apps/appsmarketplaceinfo.cpp:262
+#: core/apps/appsmarketplaceinfo.cpp:306
 #: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:163
 #, kde-format
 msgid "Version"
 msgstr "Version"
 
-#: core/apps/appsmarketplaceinfo.cpp:265 core/model/appscategoriesmodel.cpp:34
+#: core/apps/appsmarketplaceinfo.cpp:309 core/model/appscategoriesmodel.cpp:34
 #, kde-format
 msgid "Categories"
 msgstr "Categories"
 
-#: core/apps/appsmarketplaceinfo.cpp:269
+#: core/apps/appsmarketplaceinfo.cpp:313
 #, kde-format
 msgid "Documentation"
 msgstr "Documentation"
+
+#: core/apps/appsmarketplaceinfo.cpp:320
+#, kde-format
+msgid "Homepage"
+msgstr ""
+
+#: core/apps/appsmarketplaceinfo.cpp:326
+#, fuzzy, kde-format
+#| msgctxt "@action:button"
+#| msgid "Report"
+msgid "Support"
+msgstr "Report"
+
+#: core/apps/appsmarketplaceinfo.cpp:330
+#, fuzzy, kde-format
+#| msgid "Privacy"
+msgid "Privacy Summary"
+msgstr "Privacy"
 
 #: core/bannerinfo/bannerinfo.cpp:47
 #, kde-format
@@ -1371,8 +1389,7 @@ msgid "Reply"
 msgstr "Reply"
 
 #: core/notifications/notifierjob.cpp:42
-#, fuzzy, kde-format
-#| msgid "Reply…"
+#, kde-format
 msgctxt "@info:placeholder"
 msgid "Reply…"
 msgstr "Reply…"
@@ -2535,8 +2552,7 @@ msgid "File:"
 msgstr "File:"
 
 #: widgets/administratordialog/customemoji/administratorcustomemojiwidget.cpp:32
-#, fuzzy, kde-format
-#| msgid "Search custom emojis"
+#, kde-format
 msgctxt "@info:placeholder"
 msgid "Search custom emojis"
 msgstr "Search custom emojis"
@@ -2572,8 +2588,7 @@ msgstr "Remove Emoji"
 #: widgets/administratordialog/roles/usersinrolewidget.cpp:106
 #: widgets/administratordialog/users/administratoruserswidget.cpp:239
 #: widgets/myaccount/myaccountpersonalaccesstokentreeview.cpp:35
-#, fuzzy, kde-format
-#| msgid "Add…"
+#, kde-format
 msgctxt "@action"
 msgid "Add…"
 msgstr "Add…"
@@ -2585,8 +2600,7 @@ msgstr "Add…"
 #: widgets/administratordialog/permissions/permissionswidget.cpp:92
 #: widgets/administratordialog/roles/administratorroleswidget.cpp:105
 #: widgets/administratordialog/users/administratoruserswidget.cpp:246
-#, fuzzy, kde-format
-#| msgid "Modify…"
+#, kde-format
 msgctxt "@action"
 msgid "Modify…"
 msgstr "Modify…"
@@ -2600,8 +2614,7 @@ msgstr "Modify…"
 #: widgets/administratordialog/roles/usersinrolewidget.cpp:110
 #: widgets/administratordialog/users/administratoruserswidget.cpp:283
 #: widgets/myaccount/myaccountpersonalaccesstokentreeview.cpp:42
-#, fuzzy, kde-format
-#| msgid "Remove"
+#, kde-format
 msgctxt "@action"
 msgid "Remove"
 msgstr "Remove"
@@ -2613,8 +2626,7 @@ msgid "Create New Sound"
 msgstr "Create New Sound"
 
 #: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:28
-#, fuzzy, kde-format
-#| msgid "Search Custom Sounds"
+#, kde-format
 msgctxt "@info:placeholder"
 msgid "Search Custom Sounds"
 msgstr "Search Custom Sounds"
@@ -2680,8 +2692,7 @@ msgid "Remove Custom User Status"
 msgstr "Remove Custom User Status"
 
 #: widgets/administratordialog/invites/administratorinviteswidget.cpp:39
-#, fuzzy, kde-format
-#| msgid "Search invite…"
+#, kde-format
 msgctxt "@info:placeholder"
 msgid "Search invite…"
 msgstr "Search invite…"
@@ -2815,8 +2826,7 @@ msgstr[1] "%1 Messages in room"
 
 #: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:37
 #: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:37
-#, fuzzy, kde-format
-#| msgid "Search moderation message…"
+#, kde-format
 msgctxt "@info:placeholder"
 msgid "Search moderation message…"
 msgstr "Search moderation message…"
@@ -2836,31 +2846,27 @@ msgstr[0] "%1 moderation message (Total: %2)"
 msgstr[1] "%1 moderation messages (Total: %2)"
 
 #: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:135
-#, fuzzy, kde-format
-#| msgid "See messages"
+#, kde-format
 msgctxt "@action"
 msgid "See messages"
 msgstr "See messages"
 
 #: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:140
 #: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:137
-#, fuzzy, kde-format
-#| msgid "Dismiss reports"
+#, kde-format
 msgctxt "@action"
 msgid "Dismiss reports"
 msgstr "Dismiss reports"
 
 #: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:144
-#, fuzzy, kde-format
-#| msgid "Delete all Messages"
+#, kde-format
 msgctxt "@action"
 msgid "Delete all Messages"
 msgstr "Delete all Messages"
 
 #: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:149
 #: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:143
-#, fuzzy, kde-format
-#| msgid "Deactivate user"
+#, kde-format
 msgctxt "@action"
 msgid "Deactivate user"
 msgstr "Deactivate user"
@@ -2917,8 +2923,7 @@ msgid "Delete All Messages"
 msgstr "Delete All Messages"
 
 #: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:132
-#, fuzzy, kde-format
-#| msgid "See reports"
+#, kde-format
 msgctxt "@action"
 msgid "See reports"
 msgstr "See reports"
@@ -2970,8 +2975,7 @@ msgstr "Select All"
 #: widgets/bannerinfodialog/bannerinfolistsearchlinewidget.cpp:24
 #: widgets/notificationhistory/notificationhistorywidget.cpp:45
 #: widgets/servererrorinfohistory/servererrorinfomessagehistorywidget.cpp:43
-#, fuzzy, kde-format
-#| msgid "Search…"
+#, kde-format
 msgctxt "@info:placeholder"
 msgid "Search…"
 msgstr "Search…"
@@ -3015,8 +3019,7 @@ msgid "Access Token URL:"
 msgstr "Access Token URL:"
 
 #: widgets/administratordialog/oauth/administratoroauthwidget.cpp:37
-#, fuzzy, kde-format
-#| msgid "Search Oauth apps…"
+#, kde-format
 msgctxt "@info:placeholder"
 msgid "Search Oauth apps…"
 msgstr "Search Oauth apps…"
@@ -3046,22 +3049,19 @@ msgstr "Roles:"
 
 #: widgets/administratordialog/permissions/permissionswidget.cpp:41
 #: widgets/explorepermissionsdialog/explorepermissionswidget.cpp:38
-#, fuzzy, kde-format
-#| msgid "Search permissions…"
+#, kde-format
 msgctxt "@info:placeholder"
 msgid "Search permissions…"
 msgstr "Search permissions…"
 
 #: widgets/administratordialog/roles/administratorroleswidget.cpp:46
-#, fuzzy, kde-format
-#| msgid "Search roles…"
+#, kde-format
 msgctxt "@info:placeholder"
 msgid "Search roles…"
 msgstr "Search roles…"
 
 #: widgets/administratordialog/roles/administratorroleswidget.cpp:112
-#, fuzzy, kde-format
-#| msgid "Add Users In Role…"
+#, kde-format
 msgctxt "@action"
 msgid "Add Users In Role…"
 msgstr "Add Users In Role…"
@@ -3125,8 +3125,7 @@ msgstr "Users in Role"
 #: widgets/dialogs/addusersinroomwidget.cpp:23
 #: widgets/directory/directorywidget.cpp:39
 #: widgets/room/usersinroomwidget.cpp:40
-#, fuzzy, kde-format
-#| msgid "Search users…"
+#, kde-format
 msgctxt "@info:placeholder"
 msgid "Search users…"
 msgstr "Search users…"
@@ -3250,8 +3249,7 @@ msgid "Public"
 msgstr "Public"
 
 #: widgets/administratordialog/rooms/administratorroomswidget.cpp:42
-#, fuzzy, kde-format
-#| msgid "Search rooms"
+#, kde-format
 msgctxt "@info:placeholder"
 msgid "Search rooms"
 msgstr "Search rooms"
@@ -3296,8 +3294,7 @@ msgid "Refresh"
 msgstr "Refresh"
 
 #: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:69
-#, fuzzy, kde-format
-#| msgid "Copy"
+#, kde-format
 msgctxt "@action"
 msgid "Copy"
 msgstr "Copy"
@@ -3581,8 +3578,7 @@ msgid "Emails:"
 msgstr "Emails:"
 
 #: widgets/administratordialog/users/administratorinviteuserswidget.cpp:25
-#, fuzzy, kde-format
-#| msgid "Use ',' for separate emails"
+#, kde-format
 msgctxt "@info:placeholder"
 msgid "Use ',' for separate emails"
 msgstr "Use ',' for separate emails"
@@ -3593,50 +3589,43 @@ msgid "Do you want to remove this user?"
 msgstr "Do you want to remove this user?"
 
 #: widgets/administratordialog/users/administratoruserswidget.cpp:233
-#, fuzzy, kde-format
-#| msgid "Invite…"
+#, kde-format
 msgctxt "@action"
 msgid "Invite…"
 msgstr "Invite…"
 
 #: widgets/administratordialog/users/administratoruserswidget.cpp:255
-#, fuzzy, kde-format
-#| msgid "Deactivate"
+#, kde-format
 msgctxt "@action"
 msgid "Deactivate"
 msgstr "Deactivate"
 
 #: widgets/administratordialog/users/administratoruserswidget.cpp:255
-#, fuzzy, kde-format
-#| msgid "Active"
+#, kde-format
 msgctxt "@action"
 msgid "Active"
 msgstr "Active"
 
 #: widgets/administratordialog/users/administratoruserswidget.cpp:264
-#, fuzzy, kde-format
-#| msgid "Remove Admin"
+#, kde-format
 msgctxt "@action"
 msgid "Remove Admin"
 msgstr "Remove Admin"
 
 #: widgets/administratordialog/users/administratoruserswidget.cpp:264
-#, fuzzy, kde-format
-#| msgid "Make Admin"
+#, kde-format
 msgctxt "@action"
 msgid "Make Admin"
 msgstr "Make Admin"
 
 #: widgets/administratordialog/users/administratoruserswidget.cpp:270
-#, fuzzy, kde-format
-#| msgid "Reset E2E Key"
+#, kde-format
 msgctxt "@action"
 msgid "Reset E2E Key"
 msgstr "Reset E2E Key"
 
 #: widgets/administratordialog/users/administratoruserswidget.cpp:276
-#, fuzzy, kde-format
-#| msgid "Reset Totp"
+#, kde-format
 msgctxt "@action"
 msgid "Reset Totp"
 msgstr "Reset Totp"
@@ -6305,15 +6294,13 @@ msgid "Ask Application"
 msgstr "Ask Application"
 
 #: widgets/applicationssettingsdialog/applicationssettingsaskapplicationwidget.cpp:29
-#, fuzzy, kde-format
-#| msgid "Let your admin know why this app would be useful"
+#, kde-format
 msgctxt "@label:textbox"
 msgid "Let your admin know why this app would be useful"
 msgstr "Let your admin know why this app would be useful"
 
 #: widgets/applicationssettingsdialog/applicationssettingsaskapplicationwidget.cpp:35
-#, fuzzy, kde-format
-#| msgid "Message for workspace admin"
+#, kde-format
 msgctxt "@info:placeholder"
 msgid "Message for workspace admin"
 msgstr "Message for workspace admin"
@@ -6337,11 +6324,10 @@ msgid "Applications"
 msgstr "Applications"
 
 #: widgets/applicationssettingsdialog/applicationssettingsinprogresswidget.cpp:15
-#, fuzzy, kde-format
-#| msgid "Loading in progress..."
+#, kde-format
 msgctxt "@label:textbox"
 msgid "Loading in progress…"
-msgstr "Loading in progress..."
+msgstr "Loading in progress…"
 
 #: widgets/applicationssettingsdialog/applicationssettingsinstalledcombobox.cpp:13
 #: widgets/dialogs/showattachmentcombobox.cpp:19
@@ -6352,11 +6338,9 @@ msgid "All"
 msgstr "All"
 
 #: widgets/applicationssettingsdialog/applicationssettingsinstalledcombobox.cpp:15
-#, fuzzy, kde-format
-#| msgctxt "@action"
-#| msgid "Install"
+#, kde-format
 msgid "Installed"
-msgstr "Install"
+msgstr "Installed"
 
 #: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:58
 #, kde-format
@@ -6516,8 +6500,7 @@ msgid "Convert to Team"
 msgstr "Convert to Team"
 
 #: widgets/channellist/channellistwidget.cpp:56
-#, fuzzy, kde-format
-#| msgid "Filter channels (%1)"
+#, kde-format
 msgctxt "@info:placeholder"
 msgid "Filter channels (%1)"
 msgstr "Filter channels (%1)"
@@ -6552,8 +6535,7 @@ msgid "Register Account"
 msgstr "Register Account"
 
 #: widgets/common/authenticationloginwidget.cpp:42
-#, fuzzy, kde-format
-#| msgid "Username or email"
+#, kde-format
 msgctxt "@info:placeholder"
 msgid "Username or email"
 msgstr "Username or email"
@@ -7086,8 +7068,7 @@ msgid "Clear"
 msgstr "Clear"
 
 #: widgets/dialogs/channelsearchwidget.cpp:25
-#, fuzzy, kde-format
-#| msgid "Select a channel"
+#, kde-format
 msgctxt "@info:placeholder"
 msgid "Select a channel"
 msgstr "Select a channel"
@@ -7183,8 +7164,7 @@ msgstr ""
 
 #: widgets/dialogs/createdirectmessageswidget.cpp:34
 #: widgets/prunemessages/prunemessageswidget.cpp:66
-#, fuzzy, kde-format
-#| msgid "Select users…"
+#, kde-format
 msgctxt "@info:placeholder"
 msgid "Select users…"
 msgstr "Select users…"
@@ -7202,8 +7182,7 @@ msgstr "Topic:"
 
 #: widgets/dialogs/createnewchannelwidget.cpp:41
 #: widgets/dialogs/createnewdiscussionwidget.cpp:51
-#, fuzzy, kde-format
-#| msgid "Invite users…"
+#, kde-format
 msgctxt "@info:placeholder"
 msgid "Invite users…"
 msgstr "Invite users…"
@@ -7291,10 +7270,7 @@ msgid "Message"
 msgstr "Message"
 
 #: widgets/dialogs/createnewdiscussionwidget.cpp:61
-#, fuzzy, kde-format
-#| msgid ""
-#| "Usually a discussion starts with a question, like \"How do I upload a "
-#| "picture?\""
+#, kde-format
 msgctxt "@info:placeholder"
 msgid ""
 "Usually a discussion starts with a question, like \"How do I upload a "
@@ -7488,8 +7464,7 @@ msgid "Message:"
 msgstr "Message:"
 
 #: widgets/dialogs/reportmessagewidget.cpp:43
-#, fuzzy, kde-format
-#| msgid "Why you signal this message?"
+#, kde-format
 msgctxt "@info:placeholder"
 msgid "Why you signal this message?"
 msgstr "Why you signal this message?"
@@ -7501,8 +7476,7 @@ msgid "Report User"
 msgstr "Report User"
 
 #: widgets/dialogs/reportuserwidget.cpp:43
-#, fuzzy, kde-format
-#| msgid "Why do you want to report?"
+#, kde-format
 msgctxt "@info:placeholder"
 msgid "Why do you want to report?"
 msgstr "Why do you want to report?"
@@ -7521,16 +7495,14 @@ msgstr "Email:"
 
 #: widgets/dialogs/roomavatarwidget.cpp:31
 #: widgets/myaccount/myaccountprofileconfigureavatarwidget.cpp:100
-#, fuzzy, kde-format
-#| msgid "Change Picture…"
+#, kde-format
 msgctxt "@action"
 msgid "Change Picture…"
 msgstr "Change Picture…"
 
 #: widgets/dialogs/roomavatarwidget.cpp:33
 #: widgets/myaccount/myaccountprofileconfigureavatarwidget.cpp:103
-#, fuzzy, kde-format
-#| msgid "Reset Avatar"
+#, kde-format
 msgctxt "@action"
 msgid "Reset Avatar"
 msgstr "Reset Avatar"
@@ -7567,8 +7539,7 @@ msgid "Search Messages in '%1' (%2)"
 msgstr "Search Messages in '%1' (%2)"
 
 #: widgets/dialogs/searchmessagewidget.cpp:47
-#, fuzzy, kde-format
-#| msgid "Search messages"
+#, kde-format
 msgctxt "@info:placeholder"
 msgid "Search messages"
 msgstr "Search messages"
@@ -7621,8 +7592,7 @@ msgid "Show Attachments - %1"
 msgstr "Show Attachments - %1"
 
 #: widgets/dialogs/showattachmentwidget.cpp:37
-#, fuzzy, kde-format
-#| msgid "Search attachments…"
+#, kde-format
 msgctxt "@info:placeholder"
 msgid "Search attachments…"
 msgstr "Search attachments…"
@@ -7691,8 +7661,7 @@ msgid "Save Image"
 msgstr "Save Image"
 
 #: widgets/dialogs/showlistmessagebasewidget.cpp:39
-#, fuzzy, kde-format
-#| msgid "Search messages…"
+#, kde-format
 msgctxt "@info:placeholder"
 msgid "Search messages…"
 msgstr "Search messages…"
@@ -7794,34 +7763,28 @@ msgid "You are not authorized to view this page."
 msgstr "You are not authorised to view this page."
 
 #: widgets/directory/directorywidget.cpp:34
-#, fuzzy, kde-format
-#| msgid "Search rooms…"
+#, kde-format
 msgctxt "@info:placeholder"
 msgid "Search rooms…"
 msgstr "Search rooms…"
 
 #: widgets/directory/directorywidget.cpp:44
-#, fuzzy, kde-format
-#| msgid "Search teams…"
+#, kde-format
 msgctxt "@info:placeholder"
 msgid "Search teams…"
 msgstr "Search teams…"
 
 #: widgets/directory/directorywidget.cpp:79
-#, fuzzy, kde-format
-#| msgctxt "Action which allows to search room"
-#| msgid "Join Room…"
+#, kde-format
 msgctxt "@action"
 msgid "Join…"
-msgstr "Join Room…"
+msgstr "Join…"
 
 #: widgets/directory/directorywidget.cpp:82
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Open Private Message"
+#, kde-format
 msgctxt "@action"
 msgid "Open Private Messages…"
-msgstr "Open Private Message"
+msgstr "Open Private Messages…"
 
 #: widgets/directory/directorywidget.cpp:183
 #, kde-format
@@ -7864,8 +7827,7 @@ msgid "Show Discussions - %1"
 msgstr "Show Discussions - %1"
 
 #: widgets/discussions/showdiscussionswidget.cpp:39
-#, fuzzy, kde-format
-#| msgid "Search discussion…"
+#, kde-format
 msgctxt "@info:placeholder"
 msgid "Search discussion…"
 msgstr "Search discussion…"
@@ -8357,8 +8319,7 @@ msgid "Filter Account…"
 msgstr "Filter Account…"
 
 #: widgets/misc/twoauthenticationpasswordwidget.cpp:25
-#, fuzzy, kde-format
-#| msgid "Enter code"
+#, kde-format
 msgctxt "@info:placeholder"
 msgid "Enter code"
 msgstr "Enter code"
@@ -8430,8 +8391,7 @@ msgstr ""
 
 #: widgets/myaccount/myaccount2fadisabletotpwidget.cpp:37
 #: widgets/myaccount/myaccount2fatotpwidget.cpp:53
-#, fuzzy, kde-format
-#| msgid "Enter authentication code"
+#, kde-format
 msgctxt "@info:placeholder"
 msgid "Enter authentication code"
 msgstr "Enter authentication code"
@@ -8523,8 +8483,7 @@ msgid "Manage Device"
 msgstr "Manage Device"
 
 #: widgets/myaccount/myaccountmanagedeviceconfigurewidget.cpp:29
-#, fuzzy, kde-format
-#| msgid "Search device…"
+#, kde-format
 msgctxt "@info:placeholder"
 msgid "Search device…"
 msgstr "Search device…"
@@ -8542,8 +8501,7 @@ msgstr[0] "%1 device (Total: %2)"
 msgstr[1] "%1 devices (Total: %2)"
 
 #: widgets/myaccount/myaccountmanagedeviceconfigurewidget.cpp:96
-#, fuzzy, kde-format
-#| msgid "Disconnect"
+#, kde-format
 msgctxt "@action"
 msgid "Disconnect"
 msgstr "Disconnect"
@@ -8566,8 +8524,7 @@ msgid "Ignore Two Factor Authentication"
 msgstr "Ignore Two Factor Authentication"
 
 #: widgets/myaccount/myaccountpersonalaccesstokenconfigurewidget.cpp:47
-#, fuzzy, kde-format
-#| msgid "Search Personal Access Token…"
+#, kde-format
 msgctxt "@info:placeholder"
 msgid "Search Personal Access Token…"
 msgstr "Search Personal Access Token…"
@@ -8603,8 +8560,7 @@ msgid "Personal Token Regenerated"
 msgstr "Personal Token Regenerated"
 
 #: widgets/myaccount/myaccountpersonalaccesstokentreeview.cpp:37
-#, fuzzy, kde-format
-#| msgid "Regenerate…"
+#, kde-format
 msgctxt "@action"
 msgid "Regenerate…"
 msgstr "Regenerate…"
@@ -8668,8 +8624,7 @@ msgid "Highlight words:"
 msgstr "Highlight words:"
 
 #: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:65
-#, fuzzy, kde-format
-#| msgid "Use ',' for separating words"
+#, kde-format
 msgctxt "@info:placeholder"
 msgid "Use ',' for separating words"
 msgstr "Use ',' for separating words"
@@ -8783,8 +8738,7 @@ msgid "Select Image"
 msgstr "Select Image"
 
 #: widgets/myaccount/myaccountprofileconfigureavatarwidget.cpp:86
-#, fuzzy, kde-format
-#| msgid "Change Url"
+#, kde-format
 msgctxt "@title:window"
 msgid "Change Url"
 msgstr "Change URL"
@@ -8795,8 +8749,7 @@ msgid "Define Avatar Url:"
 msgstr "Define Avatar URL:"
 
 #: widgets/myaccount/myaccountprofileconfigureavatarwidget.cpp:101
-#, fuzzy, kde-format
-#| msgid "Change URL for avatar…"
+#, kde-format
 msgctxt "@action"
 msgid "Change URL for avatar…"
 msgstr "Change URL for avatar…"
@@ -10072,8 +10025,7 @@ msgstr "Team Channels"
 
 #: widgets/teams/teamchannelswidget.cpp:61
 #: widgets/teams/teamselectdeletedroomwidget.cpp:32
-#, fuzzy, kde-format
-#| msgid "Search room…"
+#, kde-format
 msgctxt "@info:placeholder"
 msgid "Search room…"
 msgstr "Search room…"
@@ -10084,29 +10036,25 @@ msgid "Add Existing Room"
 msgstr "Add Existing Room"
 
 #: widgets/teams/teamchannelswidget.cpp:117
-#, fuzzy, kde-format
-#| msgid "Create Room"
+#, kde-format
 msgctxt "@action"
 msgid "Create Room"
 msgstr "Create Room"
 
 #: widgets/teams/teamchannelswidget.cpp:123
-#, fuzzy, kde-format
-#| msgid "Remove Autojoin"
+#, kde-format
 msgctxt "@action"
 msgid "Remove Autojoin"
 msgstr "Remove Autojoin"
 
 #: widgets/teams/teamchannelswidget.cpp:123
-#, fuzzy, kde-format
-#| msgid "Add Autojoin"
+#, kde-format
 msgctxt "@action"
 msgid "Add Autojoin"
 msgstr "Add Autojoin"
 
 #: widgets/teams/teamchannelswidget.cpp:130
-#, fuzzy, kde-format
-#| msgid "Remove from Team"
+#, kde-format
 msgctxt "@action"
 msgid "Remove from Team"
 msgstr "Remove from Team"

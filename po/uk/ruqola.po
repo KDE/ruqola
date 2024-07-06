@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-07-05 00:38+0000\n"
-"PO-Revision-Date: 2024-07-04 21:27+0300\n"
+"POT-Creation-Date: 2024-07-06 00:38+0000\n"
+"PO-Revision-Date: 2024-07-05 13:20+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian\n"
 "Language: uk\n"
@@ -166,27 +166,45 @@ msgstr "Оптимізація, виправлення підтримки Window
 msgid "The following accounts are available:"
 msgstr "Доступні такі облікові записи:"
 
-#: core/apps/appsmarketplaceinfo.cpp:260 core/model/adminrolesmodel.cpp:40
+#: core/apps/appsmarketplaceinfo.cpp:304 core/model/adminrolesmodel.cpp:40
 #: widgets/administratorsettingsdialog/ircfederation/ircfederationwidget.cpp:50
 #, kde-format
 msgid "Description"
 msgstr "Опис"
 
-#: core/apps/appsmarketplaceinfo.cpp:262
+#: core/apps/appsmarketplaceinfo.cpp:306
 #: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:163
 #, kde-format
 msgid "Version"
 msgstr "Версія"
 
-#: core/apps/appsmarketplaceinfo.cpp:265 core/model/appscategoriesmodel.cpp:34
+#: core/apps/appsmarketplaceinfo.cpp:309 core/model/appscategoriesmodel.cpp:34
 #, kde-format
 msgid "Categories"
 msgstr "Категорії"
 
-#: core/apps/appsmarketplaceinfo.cpp:269
+#: core/apps/appsmarketplaceinfo.cpp:313
 #, kde-format
 msgid "Documentation"
 msgstr "Документація"
+
+#: core/apps/appsmarketplaceinfo.cpp:320
+#, kde-format
+msgid "Homepage"
+msgstr ""
+
+#: core/apps/appsmarketplaceinfo.cpp:326
+#, fuzzy, kde-format
+#| msgctxt "@action:button"
+#| msgid "Report"
+msgid "Support"
+msgstr "Поскаржитися"
+
+#: core/apps/appsmarketplaceinfo.cpp:330
+#, fuzzy, kde-format
+#| msgid "Privacy"
+msgid "Privacy Summary"
+msgstr "Конфіденційність"
 
 #: core/bannerinfo/bannerinfo.cpp:47
 #, kde-format
@@ -6350,8 +6368,7 @@ msgid "Ask Application"
 msgstr "Запит до програми"
 
 #: widgets/applicationssettingsdialog/applicationssettingsaskapplicationwidget.cpp:29
-#, fuzzy, kde-format
-#| msgid "Let your admin know why this app would be useful"
+#, kde-format
 msgctxt "@label:textbox"
 msgid "Let your admin know why this app would be useful"
 msgstr "Повідомте вашому адміністратору, чому ця програма може бути корисною"
@@ -6381,8 +6398,7 @@ msgid "Applications"
 msgstr "Програми"
 
 #: widgets/applicationssettingsdialog/applicationssettingsinprogresswidget.cpp:15
-#, fuzzy, kde-format
-#| msgid "Loading in progress..."
+#, kde-format
 msgctxt "@label:textbox"
 msgid "Loading in progress…"
 msgstr "Триває завантаження…"

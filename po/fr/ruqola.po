@@ -5,8 +5,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-07-05 00:38+0000\n"
-"PO-Revision-Date: 2024-06-30 15:30+0200\n"
+"POT-Creation-Date: 2024-07-06 00:38+0000\n"
+"PO-Revision-Date: 2024-07-04 09:55+0200\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
 "Language-Team: French <French <kde-francophone@kde.org>>\n"
 "Language: fr\n"
@@ -160,27 +160,45 @@ msgstr "Optimisation, prise en charge des corrections sous Windows / macOS"
 msgid "The following accounts are available:"
 msgstr "Les comptes suivants sont disponibles :"
 
-#: core/apps/appsmarketplaceinfo.cpp:260 core/model/adminrolesmodel.cpp:40
+#: core/apps/appsmarketplaceinfo.cpp:304 core/model/adminrolesmodel.cpp:40
 #: widgets/administratorsettingsdialog/ircfederation/ircfederationwidget.cpp:50
 #, kde-format
 msgid "Description"
 msgstr "Description"
 
-#: core/apps/appsmarketplaceinfo.cpp:262
+#: core/apps/appsmarketplaceinfo.cpp:306
 #: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:163
 #, kde-format
 msgid "Version"
 msgstr "Version"
 
-#: core/apps/appsmarketplaceinfo.cpp:265 core/model/appscategoriesmodel.cpp:34
+#: core/apps/appsmarketplaceinfo.cpp:309 core/model/appscategoriesmodel.cpp:34
 #, kde-format
 msgid "Categories"
 msgstr "Catégories"
 
-#: core/apps/appsmarketplaceinfo.cpp:269
+#: core/apps/appsmarketplaceinfo.cpp:313
 #, kde-format
 msgid "Documentation"
 msgstr "Documentation"
+
+#: core/apps/appsmarketplaceinfo.cpp:320
+#, kde-format
+msgid "Homepage"
+msgstr ""
+
+#: core/apps/appsmarketplaceinfo.cpp:326
+#, fuzzy, kde-format
+#| msgctxt "@action:button"
+#| msgid "Report"
+msgid "Support"
+msgstr "Signaler"
+
+#: core/apps/appsmarketplaceinfo.cpp:330
+#, fuzzy, kde-format
+#| msgid "Privacy"
+msgid "Privacy Summary"
+msgstr "Confidentialité"
 
 #: core/bannerinfo/bannerinfo.cpp:47
 #, kde-format
@@ -2595,8 +2613,7 @@ msgstr "Supprimer une émoticône"
 #: widgets/administratordialog/roles/usersinrolewidget.cpp:106
 #: widgets/administratordialog/users/administratoruserswidget.cpp:239
 #: widgets/myaccount/myaccountpersonalaccesstokentreeview.cpp:35
-#, fuzzy, kde-format
-#| msgid "Add…"
+#, kde-format
 msgctxt "@action"
 msgid "Add…"
 msgstr "Ajouter..."
@@ -2608,8 +2625,7 @@ msgstr "Ajouter..."
 #: widgets/administratordialog/permissions/permissionswidget.cpp:92
 #: widgets/administratordialog/roles/administratorroleswidget.cpp:105
 #: widgets/administratordialog/users/administratoruserswidget.cpp:246
-#, fuzzy, kde-format
-#| msgid "Modify…"
+#, kde-format
 msgctxt "@action"
 msgid "Modify…"
 msgstr "Modifier…"
@@ -2623,8 +2639,7 @@ msgstr "Modifier…"
 #: widgets/administratordialog/roles/usersinrolewidget.cpp:110
 #: widgets/administratordialog/users/administratoruserswidget.cpp:283
 #: widgets/myaccount/myaccountpersonalaccesstokentreeview.cpp:42
-#, fuzzy, kde-format
-#| msgid "Remove"
+#, kde-format
 msgctxt "@action"
 msgid "Remove"
 msgstr "Supprimer"
@@ -2859,31 +2874,27 @@ msgstr[0] "Message de modération %1 (Total : %2)"
 msgstr[1] "%1 messages de modération (Total : %2)"
 
 #: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:135
-#, fuzzy, kde-format
-#| msgid "See messages"
+#, kde-format
 msgctxt "@action"
 msgid "See messages"
-msgstr "Afficher des messages"
+msgstr "Consulter les messages"
 
 #: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:140
 #: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:137
-#, fuzzy, kde-format
-#| msgid "Dismiss reports"
+#, kde-format
 msgctxt "@action"
 msgid "Dismiss reports"
 msgstr "Rejeter les rapports"
 
 #: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:144
-#, fuzzy, kde-format
-#| msgid "Delete all Messages"
+#, kde-format
 msgctxt "@action"
 msgid "Delete all Messages"
 msgstr "Supprimer tous les messages"
 
 #: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:149
 #: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:143
-#, fuzzy, kde-format
-#| msgid "Deactivate user"
+#, kde-format
 msgctxt "@action"
 msgid "Deactivate user"
 msgstr "Désactiver un utilisateur"
@@ -2941,11 +2952,10 @@ msgid "Delete All Messages"
 msgstr "Supprimer tous les messages"
 
 #: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:132
-#, fuzzy, kde-format
-#| msgid "See reports"
+#, kde-format
 msgctxt "@action"
 msgid "See reports"
-msgstr "Afficher les rapports"
+msgstr "Consulter les rapports"
 
 #: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:191
 #, kde-format
@@ -3085,8 +3095,7 @@ msgid "Search roles…"
 msgstr "Rechercher des rôles..."
 
 #: widgets/administratordialog/roles/administratorroleswidget.cpp:112
-#, fuzzy, kde-format
-#| msgid "Add Users In Role…"
+#, kde-format
 msgctxt "@action"
 msgid "Add Users In Role…"
 msgstr "Ajouter des utilisateurs dans un rôle..."
@@ -3321,8 +3330,7 @@ msgid "Refresh"
 msgstr "Rafraîchir"
 
 #: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:69
-#, fuzzy, kde-format
-#| msgid "Copy"
+#, kde-format
 msgctxt "@action"
 msgid "Copy"
 msgstr "Copier"
@@ -3619,50 +3627,43 @@ msgid "Do you want to remove this user?"
 msgstr "Voulez-vous vraiment supprimer cet utilisateur ?"
 
 #: widgets/administratordialog/users/administratoruserswidget.cpp:233
-#, fuzzy, kde-format
-#| msgid "Invite…"
+#, kde-format
 msgctxt "@action"
 msgid "Invite…"
 msgstr "Inviter…"
 
 #: widgets/administratordialog/users/administratoruserswidget.cpp:255
-#, fuzzy, kde-format
-#| msgid "Deactivate"
+#, kde-format
 msgctxt "@action"
 msgid "Deactivate"
 msgstr "Désactiver"
 
 #: widgets/administratordialog/users/administratoruserswidget.cpp:255
-#, fuzzy, kde-format
-#| msgid "Active"
+#, kde-format
 msgctxt "@action"
 msgid "Active"
 msgstr "Actif"
 
 #: widgets/administratordialog/users/administratoruserswidget.cpp:264
-#, fuzzy, kde-format
-#| msgid "Remove Admin"
+#, kde-format
 msgctxt "@action"
 msgid "Remove Admin"
 msgstr "Supprimer un administrateur"
 
 #: widgets/administratordialog/users/administratoruserswidget.cpp:264
-#, fuzzy, kde-format
-#| msgid "Make Admin"
+#, kde-format
 msgctxt "@action"
 msgid "Make Admin"
-msgstr "Passer en mode administrateur"
+msgstr "Basculer en mode administrateur"
 
 #: widgets/administratordialog/users/administratoruserswidget.cpp:270
-#, fuzzy, kde-format
-#| msgid "Reset E2E Key"
+#, kde-format
 msgctxt "@action"
 msgid "Reset E2E Key"
 msgstr "Ré-initialiser la clé « E2E »"
 
 #: widgets/administratordialog/users/administratoruserswidget.cpp:276
-#, fuzzy, kde-format
-#| msgid "Reset Totp"
+#, kde-format
 msgctxt "@action"
 msgid "Reset Totp"
 msgstr "Ré-initialiser « TOTP »"
@@ -7613,16 +7614,14 @@ msgstr "Courriel :"
 
 #: widgets/dialogs/roomavatarwidget.cpp:31
 #: widgets/myaccount/myaccountprofileconfigureavatarwidget.cpp:100
-#, fuzzy, kde-format
-#| msgid "Change Picture…"
+#, kde-format
 msgctxt "@action"
 msgid "Change Picture…"
 msgstr "Changer d'image…"
 
 #: widgets/dialogs/roomavatarwidget.cpp:33
 #: widgets/myaccount/myaccountprofileconfigureavatarwidget.cpp:103
-#, fuzzy, kde-format
-#| msgid "Reset Avatar"
+#, kde-format
 msgctxt "@action"
 msgid "Reset Avatar"
 msgstr "Ré-initialiser un avatar"
@@ -7900,20 +7899,16 @@ msgid "Search teams…"
 msgstr "Rechercher des équipes..."
 
 #: widgets/directory/directorywidget.cpp:79
-#, fuzzy, kde-format
-#| msgctxt "Action which allows to search room"
-#| msgid "Join Room…"
+#, kde-format
 msgctxt "@action"
 msgid "Join…"
-msgstr "Rejoindre un salon..."
+msgstr "Rejoindre..."
 
 #: widgets/directory/directorywidget.cpp:82
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Open Private Message"
+#, kde-format
 msgctxt "@action"
 msgid "Open Private Messages…"
-msgstr "Ouvrir un message privé"
+msgstr "Ouvrir des messages privés..."
 
 #: widgets/directory/directorywidget.cpp:183
 #, kde-format
@@ -8649,8 +8644,7 @@ msgstr[0] "Périphérique %1 (Total : %2)"
 msgstr[1] "%1 périphériques (Total : %2)"
 
 #: widgets/myaccount/myaccountmanagedeviceconfigurewidget.cpp:96
-#, fuzzy, kde-format
-#| msgid "Disconnect"
+#, kde-format
 msgctxt "@action"
 msgid "Disconnect"
 msgstr "Se déconnecter"
@@ -8711,8 +8705,7 @@ msgid "Personal Token Regenerated"
 msgstr "Jeton personnel ré-généré"
 
 #: widgets/myaccount/myaccountpersonalaccesstokentreeview.cpp:37
-#, fuzzy, kde-format
-#| msgid "Regenerate…"
+#, kde-format
 msgctxt "@action"
 msgid "Regenerate…"
 msgstr "Re-générer..."
@@ -8896,8 +8889,7 @@ msgid "Select Image"
 msgstr "Sélectionner une image"
 
 #: widgets/myaccount/myaccountprofileconfigureavatarwidget.cpp:86
-#, fuzzy, kde-format
-#| msgid "Change Url"
+#, kde-format
 msgctxt "@title:window"
 msgid "Change Url"
 msgstr "Changer d'« URL »"
@@ -8908,8 +8900,7 @@ msgid "Define Avatar Url:"
 msgstr "Définir une « URL » d'avatar :"
 
 #: widgets/myaccount/myaccountprofileconfigureavatarwidget.cpp:101
-#, fuzzy, kde-format
-#| msgid "Change URL for avatar…"
+#, kde-format
 msgctxt "@action"
 msgid "Change URL for avatar…"
 msgstr "Modifier une URL d'avatar..."
@@ -10204,29 +10195,25 @@ msgid "Add Existing Room"
 msgstr "Ajouter un salon existant"
 
 #: widgets/teams/teamchannelswidget.cpp:117
-#, fuzzy, kde-format
-#| msgid "Create Room"
+#, kde-format
 msgctxt "@action"
 msgid "Create Room"
-msgstr "Créer un domaine"
+msgstr "Créer un salon"
 
 #: widgets/teams/teamchannelswidget.cpp:123
-#, fuzzy, kde-format
-#| msgid "Remove Autojoin"
+#, kde-format
 msgctxt "@action"
 msgid "Remove Autojoin"
-msgstr "Supprimer la rejointe automatique"
+msgstr "Supprimer le mode de connexion automatique"
 
 #: widgets/teams/teamchannelswidget.cpp:123
-#, fuzzy, kde-format
-#| msgid "Add Autojoin"
+#, kde-format
 msgctxt "@action"
 msgid "Add Autojoin"
-msgstr "Ajouter la possibilité d'une rejointe automatique"
+msgstr "Ajouter le mode de connexion automatique"
 
 #: widgets/teams/teamchannelswidget.cpp:130
-#, fuzzy, kde-format
-#| msgid "Remove from Team"
+#, kde-format
 msgctxt "@action"
 msgid "Remove from Team"
 msgstr "Supprimer de l'équipe"

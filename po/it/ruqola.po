@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-07-05 00:38+0000\n"
+"POT-Creation-Date: 2024-07-06 00:38+0000\n"
 "PO-Revision-Date: 2024-06-21 20:45+0200\n"
 "Last-Translator: Vincenzo Reale <smart2128vr@gmail.com>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
@@ -162,27 +162,45 @@ msgstr "Ottimizzazione, correzione supporto windows/mac"
 msgid "The following accounts are available:"
 msgstr "Sono disponibili i seguenti account:"
 
-#: core/apps/appsmarketplaceinfo.cpp:260 core/model/adminrolesmodel.cpp:40
+#: core/apps/appsmarketplaceinfo.cpp:304 core/model/adminrolesmodel.cpp:40
 #: widgets/administratorsettingsdialog/ircfederation/ircfederationwidget.cpp:50
 #, kde-format
 msgid "Description"
 msgstr "Descrizione"
 
-#: core/apps/appsmarketplaceinfo.cpp:262
+#: core/apps/appsmarketplaceinfo.cpp:306
 #: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:163
 #, kde-format
 msgid "Version"
 msgstr "Versione"
 
-#: core/apps/appsmarketplaceinfo.cpp:265 core/model/appscategoriesmodel.cpp:34
+#: core/apps/appsmarketplaceinfo.cpp:309 core/model/appscategoriesmodel.cpp:34
 #, kde-format
 msgid "Categories"
 msgstr "Categorie"
 
-#: core/apps/appsmarketplaceinfo.cpp:269
+#: core/apps/appsmarketplaceinfo.cpp:313
 #, kde-format
 msgid "Documentation"
 msgstr "Documentazione"
+
+#: core/apps/appsmarketplaceinfo.cpp:320
+#, kde-format
+msgid "Homepage"
+msgstr ""
+
+#: core/apps/appsmarketplaceinfo.cpp:326
+#, fuzzy, kde-format
+#| msgctxt "@action:button"
+#| msgid "Report"
+msgid "Support"
+msgstr "Segnalazione"
+
+#: core/apps/appsmarketplaceinfo.cpp:330
+#, fuzzy, kde-format
+#| msgid "Privacy"
+msgid "Privacy Summary"
+msgstr "Riservatezza"
 
 #: core/bannerinfo/bannerinfo.cpp:47
 #, kde-format

@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-07-05 00:38+0000\n"
-"PO-Revision-Date: 2024-07-04 05:59+0200\n"
+"POT-Creation-Date: 2024-07-06 00:38+0000\n"
+"PO-Revision-Date: 2024-07-05 05:37+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -162,27 +162,45 @@ msgstr "ოპტიმიზაცია, Windows/Mac-ის მხარდა
 msgid "The following accounts are available:"
 msgstr "ხელმისაწვდომია შემდეგი ანგარიშები:"
 
-#: core/apps/appsmarketplaceinfo.cpp:260 core/model/adminrolesmodel.cpp:40
+#: core/apps/appsmarketplaceinfo.cpp:304 core/model/adminrolesmodel.cpp:40
 #: widgets/administratorsettingsdialog/ircfederation/ircfederationwidget.cpp:50
 #, kde-format
 msgid "Description"
 msgstr "აღწერა"
 
-#: core/apps/appsmarketplaceinfo.cpp:262
+#: core/apps/appsmarketplaceinfo.cpp:306
 #: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:163
 #, kde-format
 msgid "Version"
 msgstr "ვერსია"
 
-#: core/apps/appsmarketplaceinfo.cpp:265 core/model/appscategoriesmodel.cpp:34
+#: core/apps/appsmarketplaceinfo.cpp:309 core/model/appscategoriesmodel.cpp:34
 #, kde-format
 msgid "Categories"
 msgstr "კატეგორიები"
 
-#: core/apps/appsmarketplaceinfo.cpp:269
+#: core/apps/appsmarketplaceinfo.cpp:313
 #, kde-format
 msgid "Documentation"
 msgstr "დოკუმენტაცია"
+
+#: core/apps/appsmarketplaceinfo.cpp:320
+#, kde-format
+msgid "Homepage"
+msgstr ""
+
+#: core/apps/appsmarketplaceinfo.cpp:326
+#, fuzzy, kde-format
+#| msgctxt "@action:button"
+#| msgid "Report"
+msgid "Support"
+msgstr "ანგარიში"
+
+#: core/apps/appsmarketplaceinfo.cpp:330
+#, fuzzy, kde-format
+#| msgid "Privacy"
+msgid "Privacy Summary"
+msgstr "პირადი ინფორმაცია"
 
 #: core/bannerinfo/bannerinfo.cpp:47
 #, kde-format
@@ -6280,8 +6298,7 @@ msgid "Ask Application"
 msgstr "აპლიკაციისთვის კითხვა"
 
 #: widgets/applicationssettingsdialog/applicationssettingsaskapplicationwidget.cpp:29
-#, fuzzy, kde-format
-#| msgid "Let your admin know why this app would be useful"
+#, kde-format
 msgctxt "@label:textbox"
 msgid "Let your admin know why this app would be useful"
 msgstr "გააგებინეთ ადმინს, რატომაა ეს აპი სასარგებლო"
@@ -6311,11 +6328,10 @@ msgid "Applications"
 msgstr "აპლიკაციები"
 
 #: widgets/applicationssettingsdialog/applicationssettingsinprogresswidget.cpp:15
-#, fuzzy, kde-format
-#| msgid "Loading in progress..."
+#, kde-format
 msgctxt "@label:textbox"
 msgid "Loading in progress…"
-msgstr "მიმდინარეობს ჩატვირთვა..."
+msgstr "მიმდინარეობს ჩატვირთვა…"
 
 #: widgets/applicationssettingsdialog/applicationssettingsinstalledcombobox.cpp:13
 #: widgets/dialogs/showattachmentcombobox.cpp:19
