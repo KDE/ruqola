@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-07-06 00:38+0000\n"
-"PO-Revision-Date: 2024-07-05 14:06+0300\n"
+"PO-Revision-Date: 2024-07-07 00:34+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -187,20 +187,17 @@ msgstr "Belgelendirme"
 #: core/apps/appsmarketplaceinfo.cpp:320
 #, kde-format
 msgid "Homepage"
-msgstr ""
+msgstr "Ana Sayfa"
 
 #: core/apps/appsmarketplaceinfo.cpp:326
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Report"
+#, kde-format
 msgid "Support"
-msgstr "Bildir"
+msgstr "Destek"
 
 #: core/apps/appsmarketplaceinfo.cpp:330
-#, fuzzy, kde-format
-#| msgid "Privacy"
+#, kde-format
 msgid "Privacy Summary"
-msgstr "Gizlilik"
+msgstr "Gizlilik Özeti"
 
 #: core/bannerinfo/bannerinfo.cpp:47
 #, kde-format

@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-07-06 00:38+0000\n"
-"PO-Revision-Date: 2024-07-05 05:37+0200\n"
+"PO-Revision-Date: 2024-07-06 06:34+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -187,20 +187,17 @@ msgstr "დოკუმენტაცია"
 #: core/apps/appsmarketplaceinfo.cpp:320
 #, kde-format
 msgid "Homepage"
-msgstr ""
+msgstr "საწყისი გვერდი"
 
 #: core/apps/appsmarketplaceinfo.cpp:326
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Report"
+#, kde-format
 msgid "Support"
 msgstr "ანგარიში"
 
 #: core/apps/appsmarketplaceinfo.cpp:330
-#, fuzzy, kde-format
-#| msgid "Privacy"
+#, kde-format
 msgid "Privacy Summary"
-msgstr "პირადი ინფორმაცია"
+msgstr "კონფიდენციალობის შეჯამება"
 
 #: core/bannerinfo/bannerinfo.cpp:47
 #, kde-format

@@ -187,20 +187,17 @@ msgstr "Dokumentado"
 #: core/apps/appsmarketplaceinfo.cpp:320
 #, kde-format
 msgid "Homepage"
-msgstr ""
+msgstr "Hejmpaĝo"
 
 #: core/apps/appsmarketplaceinfo.cpp:326
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Report"
+#, kde-format
 msgid "Support"
-msgstr "Raporti"
+msgstr "Subteno"
 
 #: core/apps/appsmarketplaceinfo.cpp:330
-#, fuzzy, kde-format
-#| msgid "Privacy"
+#, kde-format
 msgid "Privacy Summary"
-msgstr "Privateco"
+msgstr "Resumo de Privateco"
 
 #: core/bannerinfo/bannerinfo.cpp:47
 #, kde-format
@@ -6304,8 +6301,7 @@ msgid "Ask Application"
 msgstr "Demandi Aplikaĵon"
 
 #: widgets/applicationssettingsdialog/applicationssettingsaskapplicationwidget.cpp:29
-#, fuzzy, kde-format
-#| msgid "Let your admin know why this app would be useful"
+#, kde-format
 msgctxt "@label:textbox"
 msgid "Let your admin know why this app would be useful"
 msgstr "Lasu vian admin ekscii kial ĉi apo estus utila"
@@ -6335,11 +6331,10 @@ msgid "Applications"
 msgstr "Aplikaĵoj"
 
 #: widgets/applicationssettingsdialog/applicationssettingsinprogresswidget.cpp:15
-#, fuzzy, kde-format
-#| msgid "Loading in progress..."
+#, kde-format
 msgctxt "@label:textbox"
 msgid "Loading in progress…"
-msgstr "Ŝargado en progreso..."
+msgstr "Ŝargado en progreso…"
 
 #: widgets/applicationssettingsdialog/applicationssettingsinstalledcombobox.cpp:13
 #: widgets/dialogs/showattachmentcombobox.cpp:19

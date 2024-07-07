@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-07-06 00:38+0000\n"
-"PO-Revision-Date: 2024-07-05 04:32+0200\n"
+"PO-Revision-Date: 2024-07-06 19:53+0200\n"
 "Last-Translator: Stefan Asserhäll <stefan.asserhall@gmail.com>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
 "Language: sv\n"
@@ -186,20 +186,17 @@ msgstr "Dokumentation"
 #: core/apps/appsmarketplaceinfo.cpp:320
 #, kde-format
 msgid "Homepage"
-msgstr ""
+msgstr "Hemsida"
 
 #: core/apps/appsmarketplaceinfo.cpp:326
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Report"
+#, kde-format
 msgid "Support"
-msgstr "Rapportera"
+msgstr "Support"
 
 #: core/apps/appsmarketplaceinfo.cpp:330
-#, fuzzy, kde-format
-#| msgid "Privacy"
+#, kde-format
 msgid "Privacy Summary"
-msgstr "Integritet"
+msgstr "Integritetssammanfattning"
 
 #: core/bannerinfo/bannerinfo.cpp:47
 #, kde-format

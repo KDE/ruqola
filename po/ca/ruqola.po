@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-07-06 00:38+0000\n"
-"PO-Revision-Date: 2024-07-05 09:35+0200\n"
+"PO-Revision-Date: 2024-07-06 08:22+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca\n"
@@ -190,20 +190,17 @@ msgstr "Documentació"
 #: core/apps/appsmarketplaceinfo.cpp:320
 #, kde-format
 msgid "Homepage"
-msgstr ""
+msgstr "Pàgina web"
 
 #: core/apps/appsmarketplaceinfo.cpp:326
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Report"
+#, kde-format
 msgid "Support"
-msgstr "Informa"
+msgstr "Assistència"
 
 #: core/apps/appsmarketplaceinfo.cpp:330
-#, fuzzy, kde-format
-#| msgid "Privacy"
+#, kde-format
 msgid "Privacy Summary"
-msgstr "Privadesa"
+msgstr "Resum de privadesa"
 
 #: core/bannerinfo/bannerinfo.cpp:47
 #, kde-format
