@@ -3130,18 +3130,6 @@ void RocketChatAccount::totpVerify(const QJsonObject &obj)
     }
 }
 
-void RocketChatAccount::setOauthAppAdded(const QJsonObject &obj)
-{
-    // TODO return error
-    Q_EMIT oauthAppAdded(obj);
-}
-
-void RocketChatAccount::setOauthAppUpdated(const QJsonObject &obj)
-{
-    // TODO return error
-    Q_EMIT oauthAppUpdated(obj);
-}
-
 bool RocketChatAccount::hasLicense(const QString &name)
 {
     return mLicensesManager.hasLicense(name);

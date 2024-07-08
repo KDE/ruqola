@@ -191,8 +191,6 @@ public:
     quint64 validateTempToken2fa(const QString &code);
     quint64 regenerateCodes2fa(const QString &code);
     quint64 deleteOAuthApp(const QString &appId);
-    quint64 addOAuthApp(const QString &name, bool active, const QString &redirectUrl);
-    quint64 updateOAuthApp(const QString &name, bool active, const QString &redirectUrl);
     quint64 setAdminStatus(const QByteArray &userId, bool admin);
     quint64 openRoom(const QByteArray &roomId);
     quint64 bannerDismiss(const QByteArray &bannerId);

@@ -68,19 +68,14 @@ void OauthTreeView::removeClicked(const QString &identifier)
                                            i18nc("@title:window", "Remove OAuth"),
                                            KStandardGuiItem::remove(),
                                            KStandardGuiItem::cancel())) {
-        if (mRocketChatAccount->ruqolaServerConfig()->hasAtLeastVersion(5, 4, 0)) {
-            auto job = new RocketChatRestApi::OauthAppsDeleteJob(this);
-            job->setIdentifier(identifier);
-            mRocketChatAccount->restApi()->initializeRestApiJob(job);
-            connect(job, &RocketChatRestApi::OauthAppsDeleteJob::oauthAppsDeleteDone, this, [this, identifier]() {
-                Q_EMIT removeOauth(identifier);
-            });
-            if (!job->start()) {
-                qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start OauthAppsDeleteJob job";
-            }
-        } else {
-            mRocketChatAccount->ddp()->deleteOAuthApp(identifier);
+        auto job = new RocketChatRestApi::OauthAppsDeleteJob(this);
+        job->setIdentifier(identifier);
+        mRocketChatAccount->restApi()->initializeRestApiJob(job);
+        connect(job, &RocketChatRestApi::OauthAppsDeleteJob::oauthAppsDeleteDone, this, [this, identifier]() {
             Q_EMIT removeOauth(identifier);
+        });
+        if (!job->start()) {
+            qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start OauthAppsDeleteJob job";
         }
     }
 }
@@ -90,20 +85,16 @@ void OauthTreeView::addClicked()
     QPointer<AdministratorOauthCreateDialog> dlg = new AdministratorOauthCreateDialog(this);
     if (dlg->exec()) {
         const AdministratorOauthCreateWidget::OauthCreateInfo info = dlg->oauthInfo();
-        if (mRocketChatAccount->ruqolaServerConfig()->hasAtLeastVersion(5, 4, 0)) {
-            RocketChatRestApi::OauthAppsCreateJob::OauthAppsCreateInfo oauthInfo;
-            oauthInfo.active = info.active;
-            oauthInfo.redirectUri = info.redirectUrl;
-            oauthInfo.name = info.applicationName;
-            auto job = new RocketChatRestApi::OauthAppsCreateJob(this);
-            job->setOauthAppsCreateInfo(std::move(oauthInfo));
-            mRocketChatAccount->restApi()->initializeRestApiJob(job);
-            connect(job, &RocketChatRestApi::OauthAppsCreateJob::oauthAppsCreateDone, this, &OauthTreeView::oauthAdded);
-            if (!job->start()) {
-                qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start OauthAppsCreateJob job";
-            }
-        } else {
-            mRocketChatAccount->ddp()->addOAuthApp(info.applicationName, info.active, info.redirectUrl);
+        RocketChatRestApi::OauthAppsCreateJob::OauthAppsCreateInfo oauthInfo;
+        oauthInfo.active = info.active;
+        oauthInfo.redirectUri = info.redirectUrl;
+        oauthInfo.name = info.applicationName;
+        auto job = new RocketChatRestApi::OauthAppsCreateJob(this);
+        job->setOauthAppsCreateInfo(std::move(oauthInfo));
+        mRocketChatAccount->restApi()->initializeRestApiJob(job);
+        connect(job, &RocketChatRestApi::OauthAppsCreateJob::oauthAppsCreateDone, this, &OauthTreeView::oauthAdded);
+        if (!job->start()) {
+            qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start OauthAppsCreateJob job";
         }
     }
     delete dlg;
@@ -126,21 +117,17 @@ void OauthTreeView::editClicked(const QModelIndex &index)
         if (dlg->exec()) {
             info = dlg->oauthInfo();
             if (info.isValid()) {
-                if (mRocketChatAccount->ruqolaServerConfig()->hasAtLeastVersion(5, 4, 0)) {
-                    RocketChatRestApi::OauthAppsUpdateJob::OauthAppsUpdateInfo oauthInfo;
-                    oauthInfo.active = info.active;
-                    oauthInfo.redirectUri = info.redirectUrl;
-                    oauthInfo.name = info.applicationName;
-                    oauthInfo.appId = applicationId;
-                    auto job = new RocketChatRestApi::OauthAppsUpdateJob(this);
-                    job->setOauthAppsUpdateInfo(std::move(oauthInfo));
-                    mRocketChatAccount->restApi()->initializeRestApiJob(job);
-                    connect(job, &RocketChatRestApi::OauthAppsUpdateJob::oauthAppsUpdateDone, this, &OauthTreeView::oauthUpdated);
-                    if (!job->start()) {
-                        qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start OauthAppsUpdateJob job";
-                    }
-                } else {
-                    mRocketChatAccount->ddp()->updateOAuthApp(info.applicationName, info.active, info.redirectUrl);
+                RocketChatRestApi::OauthAppsUpdateJob::OauthAppsUpdateInfo oauthInfo;
+                oauthInfo.active = info.active;
+                oauthInfo.redirectUri = info.redirectUrl;
+                oauthInfo.name = info.applicationName;
+                oauthInfo.appId = applicationId;
+                auto job = new RocketChatRestApi::OauthAppsUpdateJob(this);
+                job->setOauthAppsUpdateInfo(std::move(oauthInfo));
+                mRocketChatAccount->restApi()->initializeRestApiJob(job);
+                connect(job, &RocketChatRestApi::OauthAppsUpdateJob::oauthAppsUpdateDone, this, &OauthTreeView::oauthUpdated);
+                if (!job->start()) {
+                    qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start OauthAppsUpdateJob job";
                 }
             }
         }

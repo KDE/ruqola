@@ -52,11 +52,6 @@ AdministratorOauthWidget::AdministratorOauthWidget(RocketChatAccount *account, Q
     mOauthTreeWidget->setColumnHidden(AdminOauthModel::AdminOauthRoles::RedirectUri, true);
     mOauthTreeWidget->setColumnHidden(AdminOauthModel::AdminOauthRoles::CreatedAt, true);
     mOauthTreeWidget->setColumnHidden(AdminOauthModel::AdminOauthRoles::Identifier, true);
-
-    if (mRocketChatAccount && !mRocketChatAccount->ruqolaServerConfig()->hasAtLeastVersion(5, 4, 0)) {
-        connect(mRocketChatAccount, &RocketChatAccount::oauthAppAdded, this, &AdministratorOauthWidget::slotOauthAppAdded);
-        connect(mRocketChatAccount, &RocketChatAccount::oauthAppUpdated, this, &AdministratorOauthWidget::slotOauthAppUpdated);
-    }
 }
 
 AdministratorOauthWidget::~AdministratorOauthWidget() = default;
@@ -74,22 +69,14 @@ void AdministratorOauthWidget::initialize()
 void AdministratorOauthWidget::slotOauthAppAdded(const QJsonObject &obj)
 {
     OauthInfo info;
-    bool useRestApi = false;
-    if (mRocketChatAccount->ruqolaServerConfig()->hasAtLeastVersion(5, 4, 0)) {
-        useRestApi = true;
-    }
-    info.parseOauthInfo(std::move(obj), useRestApi);
+    info.parseOauthInfo(std::move(obj), true);
     mAdminOauthModel->addMoreOauth(info);
 }
 
 void AdministratorOauthWidget::slotOauthAppUpdated(const QJsonObject &obj)
 {
     OauthInfo info;
-    bool useRestApi = false;
-    if (mRocketChatAccount->ruqolaServerConfig()->hasAtLeastVersion(5, 4, 0)) {
-        useRestApi = true;
-    }
-    info.parseOauthInfo(std::move(obj), useRestApi);
+    info.parseOauthInfo(std::move(obj), true);
     mAdminOauthModel->removeOauth(info.identifier());
     mAdminOauthModel->addMoreOauth(info);
 }

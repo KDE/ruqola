@@ -198,10 +198,8 @@ MyAccountPreferenceConfigureWidget::MyAccountPreferenceConfigureWidget(RocketCha
     }
     initComboboxValues();
     if (mRocketChatAccount) {
-        if (!mRocketChatAccount->ruqolaServerConfig()->hasAtLeastVersion(5, 4, 0)) {
-            mReceiveLoginDetectionEmails->setVisible(false);
-        } else if (!mRocketChatAccount->ruqolaServerConfig()->deviceManagementEnableLoginEmails()
-                   || !mRocketChatAccount->ruqolaServerConfig()->deviceManagementAllowLoginEmailpreference()) {
+        if (!mRocketChatAccount->ruqolaServerConfig()->deviceManagementEnableLoginEmails()
+            || !mRocketChatAccount->ruqolaServerConfig()->deviceManagementAllowLoginEmailpreference()) {
             mReceiveLoginDetectionEmails->setVisible(false);
         }
         connect(mRocketChatAccount, &RocketChatAccount::ownUserPreferencesChanged, this, &MyAccountPreferenceConfigureWidget::load);
@@ -317,12 +315,10 @@ void MyAccountPreferenceConfigureWidget::save()
         info.newMessageNotification = mSoundNewMessageNotification->identifier();
         info.newRoomNotification = mSoundNewRoomNotification->identifier();
         if (mRocketChatAccount) {
-            if (mRocketChatAccount->ruqolaServerConfig()->hasAtLeastVersion(5, 4, 0)) {
-                if (mRocketChatAccount->ruqolaServerConfig()->deviceManagementEnableLoginEmails()
-                    && mRocketChatAccount->ruqolaServerConfig()->deviceManagementAllowLoginEmailpreference()) {
-                    info.receiveLoginDetectionEmail =
-                        RocketChatRestApi::UsersSetPreferencesJob::UsersSetPreferencesInfo::convertToState(mReceiveLoginDetectionEmails->isChecked());
-                }
+            if (mRocketChatAccount->ruqolaServerConfig()->deviceManagementEnableLoginEmails()
+                && mRocketChatAccount->ruqolaServerConfig()->deviceManagementAllowLoginEmailpreference()) {
+                info.receiveLoginDetectionEmail =
+                    RocketChatRestApi::UsersSetPreferencesJob::UsersSetPreferencesInfo::convertToState(mReceiveLoginDetectionEmails->isChecked());
             }
         }
         mRocketChatAccount->setUserPreferences(info);

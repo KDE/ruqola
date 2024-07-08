@@ -102,25 +102,6 @@ void delete_oauth_app(const QJsonObject &root, RocketChatAccount *account)
     qDebug() << "delete_oauth_app root " << root;
 }
 
-void update_oauth_app(const QJsonObject &root, RocketChatAccount *account)
-{
-    if (account->ruqolaLogger()) {
-        account->ruqolaLogger()->dataReceived(QByteArrayLiteral("Update Oauth App:") + QJsonDocument(root).toJson());
-    }
-    const QJsonObject obj = root.value("result"_L1).toObject();
-    account->setOauthAppUpdated(obj);
-    qDebug() << "update_oauth_app root " << root;
-}
-
-void add_oauth_app(const QJsonObject &root, RocketChatAccount *account)
-{
-    if (account->ruqolaLogger()) {
-        account->ruqolaLogger()->dataReceived(QByteArrayLiteral("Add Oauth App:") + QJsonDocument(root).toJson());
-    }
-    const QJsonObject obj = root.value("result"_L1).toObject();
-    account->setOauthAppAdded(obj);
-}
-
 void admin_status(const QJsonObject &root, RocketChatAccount *account)
 {
     qDebug() << " root " << root;
@@ -537,22 +518,6 @@ quint64 DDPClient::streamNotifyUserOtrAcknowledge(const QByteArray &roomId, cons
     const RocketChatMessage::RocketChatMessageResult result = mRocketChatMessage->streamNotifyUserOtrAcknowledge(roomId, userId, publicKey, mUid);
     qDebug() << "streamNotifyUserOtrAcknowledge result " << result;
     return method(result, otr_end, DDPClient::Persistent);
-}
-
-// not used when RC > 5.4.0
-// Remove it when we not support it.
-quint64 DDPClient::addOAuthApp(const QString &name, bool active, const QString &redirectUrl)
-{
-    const RocketChatMessage::RocketChatMessageResult result = mRocketChatMessage->addOAuthApp(name, active, redirectUrl, mUid);
-    return method(result, add_oauth_app, DDPClient::Persistent);
-}
-
-// not used when RC > 5.4.0
-// Remove it when we not support it.
-quint64 DDPClient::updateOAuthApp(const QString &name, bool active, const QString &redirectUrl)
-{
-    const RocketChatMessage::RocketChatMessageResult result = mRocketChatMessage->updateOAuthApp(name, active, redirectUrl, mUid);
-    return method(result, update_oauth_app, DDPClient::Persistent);
 }
 
 quint64 DDPClient::blockUser(const QString &rid, const QString &userId)

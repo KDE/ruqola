@@ -471,11 +471,6 @@ public:
 
     [[nodiscard]] const QStringList &searchListCompletion() const;
     void setSearchListCompletion(const QStringList &newSearchListCompletion);
-
-    void setOauthAppAdded(const QJsonObject &obj);
-
-    void setOauthAppUpdated(const QJsonObject &obj);
-
     [[nodiscard]] SwitchChannelHistoryModel *switchChannelHistoryModel() const;
 
     [[nodiscard]] bool twoFactorAuthenticationEnforcePasswordFallback() const;
@@ -604,8 +599,6 @@ Q_SIGNALS:
                                  ParseRocketChatUrlUtils::RoomIdType roomType,
                                  ParseRocketChatUrlUtils::ChannelType channelType);
 
-    void oauthAppAdded(const QJsonObject &obj);
-    void oauthAppUpdated(const QJsonObject &obj);
     void needUpdateMessageView();
     void publicSettingLoaded(const QJsonObject &obj);
     void bannerInfoChanged();
