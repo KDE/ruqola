@@ -19,6 +19,9 @@ public:
 
     [[nodiscard]] QStringList categories() const;
 
+Q_SIGNALS:
+    void categoriesChanged();
+
 private:
     RocketChatAccount *const mRocketChatAccount;
 };

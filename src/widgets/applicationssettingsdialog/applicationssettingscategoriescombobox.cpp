@@ -14,6 +14,7 @@ ApplicationsSettingsCategoriesComboBox::ApplicationsSettingsCategoriesComboBox(R
 {
     if (account) {
         setModel(account->appsCategoriesModel());
+        connect(account->appsCategoriesModel(), &AppsCategoriesModel::itemChanged, this, &ApplicationsSettingsCategoriesComboBox::categoriesChanged);
     }
     setSizeAdjustPolicy(QComboBox::AdjustToContents);
 }

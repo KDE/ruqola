@@ -52,7 +52,7 @@ ApplicationsSettingsSearchWidget::ApplicationsSettingsSearchWidget(RocketChatAcc
 
     connect(mSearchLineEdit, &QLineEdit::textChanged, this, &ApplicationsSettingsSearchWidget::filterChanged);
     connect(mApplicationsSettingsCategoriesComboBox,
-            &ApplicationsSettingsCategoriesComboBox::activated,
+            &ApplicationsSettingsCategoriesComboBox::categoriesChanged,
             this,
             &ApplicationsSettingsSearchWidget::filterChanged);
     connect(mApplicationsSettingsPriceComboBox, &ApplicationsSettingsPriceComboBox::activated, this, &ApplicationsSettingsSearchWidget::filterChanged);
