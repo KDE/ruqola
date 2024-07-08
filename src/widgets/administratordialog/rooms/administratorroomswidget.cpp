@@ -60,11 +60,11 @@ void AdministratorRoomsWidget::slotCustomContextMenuRequested(const QPoint &pos)
     const QModelIndex parentIndex = mTreeView->indexAt(pos);
     if (parentIndex.isValid()) {
         const QModelIndex index = mProxyModelModel->mapToSource(parentIndex);
-        menu.addAction(QIcon::fromTheme(QStringLiteral("document-edit")), i18n("Modify…"), this, [this, index]() {
+        menu.addAction(QIcon::fromTheme(QStringLiteral("document-edit")), i18nc("@action", "Modify…"), this, [this, index]() {
             slotModifyRoom(index);
         });
         menu.addSeparator();
-        menu.addAction(QIcon::fromTheme(QStringLiteral("list-remove")), i18n("Remove"), this, [this, index]() {
+        menu.addAction(QIcon::fromTheme(QStringLiteral("list-remove")), i18nc("@action", "Remove"), this, [this, index]() {
             slotRemoveRoom(index);
         });
     }

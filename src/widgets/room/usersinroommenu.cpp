@@ -102,7 +102,7 @@ void UsersInRoomMenu::slotCustomContextMenuRequested(const QPoint &pos)
     if (!menu.isEmpty()) {
         menu.addSeparator();
     }
-    auto userInfoAction = new QAction(QIcon::fromTheme(QStringLiteral("documentinfo")), i18n("User Info"), &menu);
+    auto userInfoAction = new QAction(QIcon::fromTheme(QStringLiteral("documentinfo")), i18nc("@action", "User Info"), &menu);
     connect(userInfoAction, &QAction::triggered, this, &UsersInRoomMenu::slotUserInfo);
     menu.addAction(userInfoAction);
     if ((isAdministrator || canManageUsersInRoom) && !isAdirectChannel) {
@@ -111,7 +111,7 @@ void UsersInRoomMenu::slotCustomContextMenuRequested(const QPoint &pos)
         }
         if (isAdministrator || mRoom->hasPermission(QStringLiteral("set-owner"))) {
             const bool hasOwnerRole = mRoom->userHasOwnerRole(mUserId);
-            auto removeAsOwner = new QAction(hasOwnerRole ? i18n("Remove as Owner") : i18n("Add as Owner"), &menu);
+            auto removeAsOwner = new QAction(hasOwnerRole ? i18nc("@action", "Remove as Owner") : i18nc("@action", "Add as Owner"), &menu);
             connect(removeAsOwner, &QAction::triggered, this, [this, hasOwnerRole, account]() {
                 account->changeRoles(mRoom->roomId(),
                                      QString::fromLatin1(mUserId),
@@ -124,7 +124,7 @@ void UsersInRoomMenu::slotCustomContextMenuRequested(const QPoint &pos)
 
         if (isAdministrator || mRoom->hasPermission(QStringLiteral("set-leader"))) {
             const bool hasLeaderRole = mRoom->userHasLeaderRole(mUserId);
-            auto removeAsLeader = new QAction(hasLeaderRole ? i18n("Remove as Leader") : i18n("Add as Leader"), &menu);
+            auto removeAsLeader = new QAction(hasLeaderRole ? i18nc("@action", "Remove as Leader") : i18nc("@action", "Add as Leader"), &menu);
             connect(removeAsLeader, &QAction::triggered, this, [this, hasLeaderRole, account]() {
                 account->changeRoles(mRoom->roomId(),
                                      QString::fromLatin1(mUserId),
@@ -136,7 +136,7 @@ void UsersInRoomMenu::slotCustomContextMenuRequested(const QPoint &pos)
 
         if (isAdministrator || mRoom->hasPermission(QStringLiteral("set-moderator"))) {
             const bool hasModeratorRole = mRoom->userHasModeratorRole(mUserId);
-            auto removeAsModerator = new QAction(hasModeratorRole ? i18n("Remove as Moderator") : i18n("Add as Moderator"), &menu);
+            auto removeAsModerator = new QAction(hasModeratorRole ? i18nc("@action", "Remove as Moderator") : i18nc("@action", "Add as Moderator"), &menu);
             connect(removeAsModerator, &QAction::triggered, this, [this, hasModeratorRole, account]() {
                 account->changeRoles(mRoom->roomId(),
                                      QString::fromLatin1(mUserId),

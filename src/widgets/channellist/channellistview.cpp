@@ -115,7 +115,7 @@ void ChannelListView::contextMenuEvent(QContextMenuEvent *event)
     const auto roomType = index.data(RoomModel::RoomType).value<Room::RoomType>();
 
     const bool isUnRead = index.data(RoomModel::RoomAlert).toBool();
-    const QString actionMarkAsText = isUnRead ? i18n("Mark As Read") : i18n("Mark As Unread");
+    const QString actionMarkAsText = isUnRead ? i18nc("@action", "Mark As Read") : i18nc("@action", "Mark As Unread");
     auto markAsChannel = new QAction(actionMarkAsText, &menu);
     connect(markAsChannel, &QAction::triggered, this, [this, index, isUnRead]() {
         if (index.isValid()) {
@@ -125,7 +125,7 @@ void ChannelListView::contextMenuEvent(QContextMenuEvent *event)
     menu.addAction(markAsChannel);
 
     const bool isFavorite = index.data(RoomModel::RoomFavorite).toBool();
-    const QString actionFavoriteText = isFavorite ? i18n("Unset as Favorite") : i18n("Set as Favorite");
+    const QString actionFavoriteText = isFavorite ? i18nc("@action", "Unset as Favorite") : i18nc("@action", "Set as Favorite");
     auto favoriteAction = new QAction(QIcon::fromTheme(QStringLiteral("favorite")), actionFavoriteText, &menu);
     connect(favoriteAction, &QAction::triggered, this, [this, index, isFavorite]() {
         if (index.isValid()) {
@@ -134,7 +134,7 @@ void ChannelListView::contextMenuEvent(QContextMenuEvent *event)
     });
     menu.addAction(favoriteAction);
 
-    auto hideChannel = new QAction(QIcon::fromTheme(QStringLiteral("hide_table_row")), i18n("Hide Channel"), &menu);
+    auto hideChannel = new QAction(QIcon::fromTheme(QStringLiteral("hide_table_row")), i18nc("@action", "Hide Channel"), &menu);
     connect(hideChannel, &QAction::triggered, this, [this, index, roomType]() {
         if (index.isValid()) {
             slotHideChannel(index, roomType);
@@ -191,14 +191,14 @@ void ChannelListView::contextMenuEvent(QContextMenuEvent *event)
         if (room) {
             menu.addSeparator();
             auto configureNotificationChannel =
-                new QAction(QIcon::fromTheme(QStringLiteral("preferences-desktop-notification")), i18n("Configure Notification…"), &menu);
+                new QAction(QIcon::fromTheme(QStringLiteral("preferences-desktop-notification")), i18nc("@action", "Configure Notification…"), &menu);
             connect(configureNotificationChannel, &QAction::triggered, this, [this, room]() {
                 slotConfigureNotification(room);
             });
             menu.addAction(configureNotificationChannel);
         }
         menu.addSeparator();
-        auto quitChannel = new QAction(QIcon::fromTheme(QStringLiteral("dialog-close")), i18n("Quit Channel"), &menu);
+        auto quitChannel = new QAction(QIcon::fromTheme(QStringLiteral("dialog-close")), i18nc("@action", "Quit Channel"), &menu);
         connect(quitChannel, &QAction::triggered, this, [this, index, roomType]() {
             if (index.isValid()) {
                 slotLeaveChannel(index, roomType);

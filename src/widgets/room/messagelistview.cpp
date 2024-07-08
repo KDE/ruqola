@@ -268,7 +268,7 @@ void MessageListView::contextMenuEvent(QContextMenuEvent *event)
     mMessageListDelegate->attachmentContextMenu(options, index, info, &menu);
     const bool isNotOwnerOfMessage = (index.data(MessagesModel::UserId).toByteArray() != mCurrentRocketChatAccount->userId());
 
-    auto copyAction = new QAction(QIcon::fromTheme(QStringLiteral("edit-copy")), i18n("Copy Message"), &menu);
+    auto copyAction = new QAction(QIcon::fromTheme(QStringLiteral("edit-copy")), i18nc("@action", "Copy Message"), &menu);
     copyAction->setShortcut(QKeySequence::Copy);
     connect(copyAction, &QAction::triggered, this, [this, index]() {
         copyMessageToClipboard(index);
@@ -276,7 +276,8 @@ void MessageListView::contextMenuEvent(QContextMenuEvent *event)
     QAction *setPinnedMessage = nullptr;
     if (mCurrentRocketChatAccount->allowMessagePinningEnabled() && mRoom && mRoom->allowToPinMessage()) {
         const bool isPinned = index.data(MessagesModel::Pinned).toBool();
-        setPinnedMessage = new QAction(QIcon::fromTheme(QStringLiteral("pin")), isPinned ? i18n("Unpin Message") : i18n("Pin Message"), &menu);
+        setPinnedMessage =
+            new QAction(QIcon::fromTheme(QStringLiteral("pin")), isPinned ? i18nc("@action", "Unpin Message") : i18nc("@action", "Pin Message"), &menu);
         connect(setPinnedMessage, &QAction::triggered, this, [this, isPinned, index]() {
             slotSetPinnedMessage(index, isPinned);
         });
