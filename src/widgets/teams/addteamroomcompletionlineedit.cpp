@@ -29,7 +29,7 @@ AddTeamRoomCompletionLineEdit::AddTeamRoomCompletionLineEdit(RocketChatAccount *
     , mSearchTimer(new QTimer(this))
     , mRocketChatAccount(account)
 {
-    setPlaceholderText(i18n("Search rooms…"));
+    setPlaceholderText(i18nc("@info:placeholder", "Search rooms…"));
     setCompletionModel(mTeamRoomCompleterModel);
     connect(this, &AddTeamRoomCompletionLineEdit::complete, this, &AddTeamRoomCompletionLineEdit::slotComplete);
 
