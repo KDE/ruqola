@@ -94,9 +94,13 @@ public:
     [[nodiscard]] QString privacyPolicySummary() const;
     void setPrivacyPolicySummary(const QString &newPrivacyPolicySummary);
 
+    [[nodiscard]] int requested() const;
+    void setRequested(int newRequested);
+
 private:
     LIBRUQOLACORE_NO_EXPORT void parsePrincingPlan(const QJsonArray &array);
     LIBRUQOLACORE_NO_EXPORT void parseAuthor(const QJsonObject &authorObject);
+    LIBRUQOLACORE_NO_EXPORT void parseAppRequestStats(const QJsonObject &replyObject);
     QList<PricePlan> mPricePlan;
     QStringList mCategories;
     QByteArray mAppId;
@@ -112,6 +116,7 @@ private:
     QString mPrivacyPolicySummary;
     qint64 mModifiedDate = -1;
     int mPrice = 0;
+    int mRequested = 0;
     bool mIsPrivate = false;
     bool mIsEnterpriseOnly = false;
 };

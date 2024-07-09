@@ -30,9 +30,10 @@ void AppsMarketPlaceInfoTest::shouldHaveDefaultValues()
     QVERIFY(!d.isPrivate());
     QVERIFY(d.homePage().isEmpty());
     QVERIFY(d.support().isEmpty());
+    QCOMPARE(d.requested(), 0);
 
     // 03/07/2024: size: 256
-    QCOMPARE(sizeof(AppsMarketPlaceInfo), 328);
+    QCOMPARE(sizeof(AppsMarketPlaceInfo), 336);
 }
 
 void AppsMarketPlaceInfoTest::shouldLoadAppsMarketPlaceInfo_data()
@@ -79,6 +80,24 @@ void AppsMarketPlaceInfoTest::shouldLoadAppsMarketPlaceInfo_data()
             "We use your data to provide and improve the Service. By using the Service, you agree to the collection and use of information in accordance with this policy. Unless otherwise defined in this Privacy Policy, the terms used in this Privacy Policy have the same meanings as in our Terms and Conditions.\n"_L1);
 
         QTest::addRow("apps2") << QStringLiteral("apps2") << appsMarketPlaceInfo;
+    }
+
+    {
+        AppsMarketPlaceInfo appsMarketPlaceInfo;
+        appsMarketPlaceInfo.setAppId(QByteArray("6acc91d8-f7db-4c1f-91df-7fd8f84d716c"));
+        appsMarketPlaceInfo.setIsEnterpriseOnly(false);
+        appsMarketPlaceInfo.setAppName("InStatus Notifier"_L1);
+        appsMarketPlaceInfo.setCategories({"Bots"_L1, "Developer Tools"_L1});
+        appsMarketPlaceInfo.setPurchaseType("buy"_L1);
+        appsMarketPlaceInfo.setDescription("Get alerts from InStatus. Run\n"_L1);
+        appsMarketPlaceInfo.setPrice(0);
+        appsMarketPlaceInfo.setVersion("1.0.0"_L1);
+        appsMarketPlaceInfo.setModifiedDate(1655134588065);
+        appsMarketPlaceInfo.setHomePage("https://github.com/murtaza98/Instatus-RocketChat-App"_L1);
+        appsMarketPlaceInfo.setSupport("https://github.com/murtaza98/Instatus-RocketChat-App/issues"_L1);
+        appsMarketPlaceInfo.setPrivacyPolicySummary("The app doesn't transfer any data to an external server outside your Rocket.Chat instance."_L1);
+
+        QTest::addRow("apps3-requested") << QStringLiteral("apps3-requested") << appsMarketPlaceInfo;
     }
 }
 

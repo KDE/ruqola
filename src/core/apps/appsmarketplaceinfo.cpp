@@ -34,6 +34,7 @@ QDebug operator<<(QDebug d, const AppsMarketPlaceInfo &t)
     d.nospace() << "support " << t.support();
     d.nospace() << "homePage " << t.homePage();
     d.nospace() << "privacyPolicySummary " << t.privacyPolicySummary();
+    d.nospace() << "requested " << t.requested();
     return d;
 }
 
@@ -106,6 +107,22 @@ void AppsMarketPlaceInfo::parseInstalledApps(const QJsonObject &replyObject)
 {
 }
 
+void AppsMarketPlaceInfo::parseAppRequestStats(const QJsonObject &replyObject)
+{
+    // "appRequestStats":{"appId":"ebb7f05b-ea65-4565-880b-8c2360f14500","totalSeen":1}
+    mRequested = replyObject["totalSeen"_L1].toInt();
+}
+
+int AppsMarketPlaceInfo::requested() const
+{
+    return mRequested;
+}
+
+void AppsMarketPlaceInfo::setRequested(int newRequested)
+{
+    mRequested = newRequested;
+}
+
 void AppsMarketPlaceInfo::parseAuthor(const QJsonObject &authorObject)
 {
     mHomePage = authorObject["homepage"_L1].toString();
@@ -156,6 +173,7 @@ void AppsMarketPlaceInfo::parseAppsMarketPlaceInfo(const QJsonObject &replyObjec
     mPixmap.loadFromData(QByteArray::fromBase64(baImageBase64), "PNG");
 
     mPrivacyPolicySummary = latestObj["privacyPolicySummary"_L1].toString();
+    parseAppRequestStats(replyObject["appRequestStats"_L1].toObject());
 }
 
 QByteArray AppsMarketPlaceInfo::appId() const
