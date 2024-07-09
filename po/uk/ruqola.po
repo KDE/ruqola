@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-07-06 00:38+0000\n"
+"POT-Creation-Date: 2024-07-09 00:38+0000\n"
 "PO-Revision-Date: 2024-07-06 10:46+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian\n"
@@ -358,8 +358,8 @@ msgstr "Немає"
 #: widgets/dialogs/createsoundmessagewidget.cpp:138
 #: widgets/dialogs/playsoundwidget.cpp:122
 #: widgets/dialogs/showvideowidget.cpp:122
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:260
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:268
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:258
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:266
 #, kde-format
 msgid "Default"
 msgstr "Типовий"
@@ -848,7 +848,7 @@ msgstr "Роль"
 
 #: core/model/adminusersmodel.cpp:116 core/model/adminusersmodel.cpp:163
 #: widgets/applicationssettingsdialog/applicationssettingsstatuscombobox.cpp:15
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:277
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:275
 #, kde-format
 msgid "Disabled"
 msgstr "Вимкнено"
@@ -1039,19 +1039,19 @@ msgstr[2] "%1 секунд"
 msgstr[3] "%1 секунда"
 
 #: core/model/notificationpreferencemodel.cpp:51
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:246
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:244
 #, kde-format
 msgid "All Messages"
 msgstr "Всі повідомлення"
 
 #: core/model/notificationpreferencemodel.cpp:57
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:248
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:246
 #, kde-format
 msgid "Mentions"
 msgstr "Згадування"
 
 #: core/model/notificationpreferencemodel.cpp:63
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:250
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:248
 #, kde-format
 msgid "Nothing"
 msgstr "Нічого"
@@ -2620,6 +2620,7 @@ msgstr "Додати…"
 #: widgets/administratordialog/oauth/oauthtreeview.cpp:51
 #: widgets/administratordialog/permissions/permissionswidget.cpp:92
 #: widgets/administratordialog/roles/administratorroleswidget.cpp:105
+#: widgets/administratordialog/rooms/administratorroomswidget.cpp:63
 #: widgets/administratordialog/users/administratoruserswidget.cpp:246
 #, kde-format
 msgctxt "@action"
@@ -2633,6 +2634,7 @@ msgstr "Змінити…"
 #: widgets/administratordialog/oauth/oauthtreeview.cpp:55
 #: widgets/administratordialog/roles/administratorroleswidget.cpp:120
 #: widgets/administratordialog/roles/usersinrolewidget.cpp:110
+#: widgets/administratordialog/rooms/administratorroomswidget.cpp:67
 #: widgets/administratordialog/users/administratoruserswidget.cpp:283
 #: widgets/myaccount/myaccountpersonalaccesstokentreeview.cpp:42
 #, kde-format
@@ -2973,6 +2975,7 @@ msgstr "Відкинути усі скарги"
 
 #: widgets/administratordialog/moderationconsole/moderationreportinfolistview.cpp:76
 #: widgets/notificationhistory/notificationhistorylistview.cpp:83
+#: widgets/room/messagelistview.cpp:271
 #: widgets/servererrorinfohistory/servererrorinfomessagehistorylistview.cpp:50
 #, kde-format
 msgctxt "@action"
@@ -2982,7 +2985,7 @@ msgstr "Копіювати повідомлення"
 #: widgets/administratordialog/moderationconsole/moderationreportinfolistview.cpp:87
 #: widgets/discussions/discussionlistview.cpp:68
 #: widgets/notificationhistory/notificationhistorylistview.cpp:94
-#: widgets/room/messagelistview.cpp:601
+#: widgets/room/messagelistview.cpp:602
 #: widgets/servererrorinfohistory/servererrorinfomessagehistorylistview.cpp:62
 #, kde-format
 msgctxt "@action"
@@ -2994,7 +2997,7 @@ msgstr "Декламувати текст"
 #: widgets/bannerinfodialog/bannerinfolistview.cpp:51
 #: widgets/discussions/discussionlistview.cpp:74
 #: widgets/notificationhistory/notificationhistorylistview.cpp:100
-#: widgets/room/messagelistview.cpp:302
+#: widgets/room/messagelistview.cpp:303
 #: widgets/servererrorinfohistory/servererrorinfomessagehistorylistview.cpp:69
 #, kde-format
 msgctxt "@action"
@@ -3285,20 +3288,6 @@ msgstr "Відкрите"
 msgctxt "@info:placeholder"
 msgid "Search rooms"
 msgstr "Пошук кімнат"
-
-#. i18n: ectx: property (text), widget (QPushButton, modifyServer)
-#: widgets/administratordialog/rooms/administratorroomswidget.cpp:63
-#: widgets/configuredialog/configureaccountserverwidget.ui:38
-#, kde-format
-msgid "Modify…"
-msgstr "Змінити…"
-
-#. i18n: ectx: property (text), widget (QPushButton, removeServer)
-#: widgets/administratordialog/rooms/administratorroomswidget.cpp:67
-#: widgets/configuredialog/configureaccountserverwidget.ui:45
-#, kde-format
-msgid "Remove"
-msgstr "Вилучити"
 
 #: widgets/administratordialog/rooms/administratorroomswidget.cpp:76
 #, kde-format
@@ -6496,27 +6485,37 @@ msgid "Mark as Read"
 msgstr "Позначити як прочитане"
 
 #: widgets/channellist/channellistview.cpp:118
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Mark As Read"
+msgctxt "@action"
 msgid "Mark As Read"
 msgstr "Позначити як непрочитане"
 
 #: widgets/channellist/channellistview.cpp:118
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Mark As Unread"
+msgctxt "@action"
 msgid "Mark As Unread"
 msgstr "Позначити як непрочитане"
 
 #: widgets/channellist/channellistview.cpp:128
+#: widgets/room/messagelistview.cpp:289
 #, kde-format
-msgid "Unset as Favorite"
-msgstr "Скасувати позначення улюбленим"
-
-#: widgets/channellist/channellistview.cpp:128
-#, kde-format
+msgctxt "@action"
 msgid "Set as Favorite"
 msgstr "Зробити улюбленим"
 
+#: widgets/channellist/channellistview.cpp:128
+#, fuzzy, kde-format
+#| msgid "Unset as Favorite"
+msgctxt "@action"
+msgid "Unset as Favorite"
+msgstr "Скасувати позначення улюбленим"
+
 #: widgets/channellist/channellistview.cpp:137
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Hide Channel"
+msgctxt "@action"
 msgid "Hide Channel"
 msgstr "Приховати канал"
 
@@ -6539,13 +6538,16 @@ msgid "Move to Team"
 msgstr "Пересунути до команди"
 
 #: widgets/channellist/channellistview.cpp:194
-#: widgets/room/channelactionpopupmenu.cpp:75
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Configure Notification…"
+msgctxt "@action"
 msgid "Configure Notification…"
 msgstr "Налаштувати сповіщення…"
 
 #: widgets/channellist/channellistview.cpp:201
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Quit Channel"
+msgctxt "@action"
 msgid "Quit Channel"
 msgstr "Вийти з каналу"
 
@@ -6725,6 +6727,18 @@ msgstr "Нижче"
 #, kde-format
 msgid "Add…"
 msgstr "Додати…"
+
+#. i18n: ectx: property (text), widget (QPushButton, modifyServer)
+#: widgets/configuredialog/configureaccountserverwidget.ui:38
+#, kde-format
+msgid "Modify…"
+msgstr "Змінити…"
+
+#. i18n: ectx: property (text), widget (QPushButton, removeServer)
+#: widgets/configuredialog/configureaccountserverwidget.ui:45
+#, kde-format
+msgid "Remove"
+msgstr "Вилучити"
 
 #. i18n: ectx: property (text), widget (QCheckBox, configureCurrentActivity)
 #: widgets/configuredialog/configureaccountserverwidget.ui:93
@@ -7862,6 +7876,8 @@ msgid "You are not authorized to view this page."
 msgstr "Вас не уповноважено на перегляд цієї сторінки."
 
 #: widgets/directory/directorywidget.cpp:34
+#: widgets/misc/joinedchannelcompletionlineeditbase.cpp:25
+#: widgets/teams/addteamroomcompletionlineedit.cpp:32
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Search rooms…"
@@ -8331,12 +8347,6 @@ msgctxt "@action"
 msgid "Decrease Font"
 msgstr "Зменшити розмір шрифту"
 
-#: widgets/misc/joinedchannelcompletionlineeditbase.cpp:25
-#: widgets/teams/addteamroomcompletionlineedit.cpp:32
-#, kde-format
-msgid "Search rooms…"
-msgstr "Шукати кімнати…"
-
 #: widgets/misc/messageattachmentdownloadandsavejob.cpp:62
 #, kde-format
 msgid "Save Video"
@@ -8415,7 +8425,9 @@ msgid "Reset Password"
 msgstr "Скинути пароль"
 
 #: widgets/misc/searchwithdelaylineedit.cpp:16
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Search Word…"
+msgctxt "@info:placeholder"
 msgid "Search Word…"
 msgstr "Шукати слово…"
 
@@ -8815,7 +8827,7 @@ msgctxt "@action:button"
 msgid "Export my Data (JSON)"
 msgstr "Експортувати ваші дані (JSON)"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:239
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:237
 #, kde-format
 msgid ""
 "Your data file will be generated. A link to download it will be sent to your "
@@ -8824,28 +8836,28 @@ msgstr ""
 "Буде створено файл даних. На вашу адресу електронної пошти буде надіслано "
 "посилання на його отримання, коли його формування буде завершено."
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:240
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:238
 #, kde-format
 msgid "Download File Requested"
 msgstr "Отримати потрібний файл"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:259
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:267
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:257
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:265
 #, kde-format
 msgid "Default (%1)"
 msgstr "Типовий (%1)"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:275
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:273
 #, kde-format
 msgid "Default (Every Mention/DM)"
 msgstr "Типовий (усі згадки/БП)"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:276
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:274
 #, kde-format
 msgid "Every Mention/DM"
 msgstr "Усі згадки/БП"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:280
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:278
 #, kde-format
 msgid "Your Rocket.Chat administrator has disabled email notifications"
 msgstr ""
@@ -8957,7 +8969,7 @@ msgid "Clear"
 msgstr "Спорожнити"
 
 #: widgets/notificationhistory/notificationhistorylistview.cpp:79
-#: widgets/room/messagelistview.cpp:584
+#: widgets/room/messagelistview.cpp:585
 #, kde-format
 msgctxt "@action"
 msgid "Go to Message"
@@ -9101,6 +9113,11 @@ msgctxt "@action"
 msgid "Show Threads…"
 msgstr "Показати гілки…"
 
+#: widgets/room/channelactionpopupmenu.cpp:75
+#, kde-format
+msgid "Configure Notification…"
+msgstr "Налаштувати сповіщення…"
+
 #: widgets/room/channelactionpopupmenu.cpp:82
 #, kde-format
 msgctxt "@action"
@@ -9189,13 +9206,12 @@ msgid "Link Preview"
 msgstr "Перегляд посилань"
 
 #: widgets/room/delegate/messagelistdelegate.cpp:420
-#: widgets/room/usersinroommenu.cpp:105
 #, kde-format
 msgid "User Info"
 msgstr "Інформація про користувача"
 
 #: widgets/room/delegate/messagelistdelegate.cpp:429
-#: widgets/room/messagelistview.cpp:389
+#: widgets/room/messagelistview.cpp:390
 #, kde-format
 msgctxt "@action"
 msgid "Start a Private Conversation"
@@ -9310,153 +9326,146 @@ msgstr "Ви долучилися до нового безпосередньог
 msgid "Start of conversation"
 msgstr "Початок спілкування"
 
-#: widgets/room/messagelistview.cpp:271
-#, kde-format
-msgid "Copy Message"
-msgstr "Копіювати повідомлення"
-
-#: widgets/room/messagelistview.cpp:279
-#, kde-format
+#: widgets/room/messagelistview.cpp:280
+#, fuzzy, kde-format
+#| msgid "Unpin Message"
+msgctxt "@action"
 msgid "Unpin Message"
 msgstr "Відшпилити повідомлення"
 
-#: widgets/room/messagelistview.cpp:279
-#, kde-format
+#: widgets/room/messagelistview.cpp:280
+#, fuzzy, kde-format
+#| msgid "Pin Message"
+msgctxt "@action"
 msgid "Pin Message"
 msgstr "Пришпилити повідомлення"
 
-#: widgets/room/messagelistview.cpp:288
+#: widgets/room/messagelistview.cpp:289
 #, kde-format
 msgctxt "@action"
 msgid "Remove as Favorite"
 msgstr "Вилучити з улюблених"
 
-#: widgets/room/messagelistview.cpp:288
-#, kde-format
-msgctxt "@action"
-msgid "Set as Favorite"
-msgstr "Зробити улюбленим"
-
-#: widgets/room/messagelistview.cpp:296
+#: widgets/room/messagelistview.cpp:297
 #, kde-format
 msgctxt "@action"
 msgid "Delete"
 msgstr "Вилучити"
 
-#: widgets/room/messagelistview.cpp:307
+#: widgets/room/messagelistview.cpp:308
 #, kde-format
 msgctxt "@action"
 msgid "Mark Message As Unread"
 msgstr "Позначити повідомлення як непрочитане"
 
-#: widgets/room/messagelistview.cpp:312
+#: widgets/room/messagelistview.cpp:313
 #, kde-format
 msgctxt "@action"
 msgid "Show Full Thread"
 msgstr "Показати усю гілку"
 
-#: widgets/room/messagelistview.cpp:317
+#: widgets/room/messagelistview.cpp:318
 #, kde-format
 msgctxt "@action"
 msgid "Edit"
 msgstr "Змінити"
 
-#: widgets/room/messagelistview.cpp:322
+#: widgets/room/messagelistview.cpp:323
 #, kde-format
 msgctxt "@action"
 msgid "Quote"
 msgstr "Цитувати"
 
-#: widgets/room/messagelistview.cpp:327
+#: widgets/room/messagelistview.cpp:328
 #, kde-format
 msgctxt "@action"
 msgid "Copy Link To Message"
 msgstr "Копіювати посилання на повідомлення"
 
-#: widgets/room/messagelistview.cpp:332
+#: widgets/room/messagelistview.cpp:333
 #, kde-format
 msgctxt "@action"
 msgid "Forward Message"
 msgstr "Переспрямувати повідомлення"
 
-#: widgets/room/messagelistview.cpp:345
+#: widgets/room/messagelistview.cpp:346
 #, kde-format
 msgctxt "@action"
 msgid "Unfollow Message"
 msgstr "Не стежити за повідомленням"
 
-#: widgets/room/messagelistview.cpp:345
+#: widgets/room/messagelistview.cpp:346
 #, kde-format
 msgctxt "@action"
 msgid "Follow Message"
 msgstr "Стежити за повідомленням"
 
-#: widgets/room/messagelistview.cpp:358
+#: widgets/room/messagelistview.cpp:359
 #, kde-format
 msgctxt "@action"
 msgid "Copy URL"
 msgstr "Копіювати адресу"
 
-#: widgets/room/messagelistview.cpp:381
+#: widgets/room/messagelistview.cpp:382 widgets/room/usersinroommenu.cpp:105
 #, kde-format
 msgctxt "@action"
 msgid "User Info"
 msgstr "Інформація про користувача"
 
-#: widgets/room/messagelistview.cpp:405
+#: widgets/room/messagelistview.cpp:406
 #, kde-format
 msgctxt "@action"
 msgid "Start a Discussion"
 msgstr "Розпочати обговорення"
 
-#: widgets/room/messagelistview.cpp:412
+#: widgets/room/messagelistview.cpp:413
 #, kde-format
 msgctxt "@action"
 msgid "Reply in Thread"
 msgstr "Відповісти до потоку"
 
-#: widgets/room/messagelistview.cpp:473
+#: widgets/room/messagelistview.cpp:474
 #, kde-format
 msgctxt "@action"
 msgid "Show Original Message"
 msgstr "Показати початкове повідомлення"
 
-#: widgets/room/messagelistview.cpp:473
+#: widgets/room/messagelistview.cpp:474
 #, kde-format
 msgctxt "@action"
 msgid "Translate Message"
 msgstr "Переклад повідомлення"
 
-#: widgets/room/messagelistview.cpp:516
+#: widgets/room/messagelistview.cpp:517
 #, kde-format
 msgctxt "@action"
 msgid "View Reports"
 msgstr "Переглянути скарги"
 
-#: widgets/room/messagelistview.cpp:539
+#: widgets/room/messagelistview.cpp:540
 #, kde-format
 msgctxt "@action"
 msgid "Dismiss Reports"
 msgstr "Відкинути скарги"
 
-#: widgets/room/messagelistview.cpp:609
+#: widgets/room/messagelistview.cpp:610
 #, kde-format
 msgctxt "@action"
 msgid "Report Message"
 msgstr "Поскаржитися на повідомлення"
 
-#: widgets/room/messagelistview.cpp:804
+#: widgets/room/messagelistview.cpp:805
 #, kde-format
 msgid "Do you want to delete this message?"
 msgstr "Хочете вилучити це повідомлення?"
 
-#: widgets/room/messagelistview.cpp:805
+#: widgets/room/messagelistview.cpp:806
 #, kde-format
 msgctxt "@title"
 msgid "Delete Message"
 msgstr "Вилучення повідомлення"
 
-#: widgets/room/messagelistview.cpp:954
+#: widgets/room/messagelistview.cpp:955
 #, kde-format
 msgid "Translator Error"
 msgstr "Помилка під час перекладу"
@@ -9715,32 +9724,44 @@ msgid "Start Conversation"
 msgstr "Почати спілкування"
 
 #: widgets/room/usersinroommenu.cpp:114
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Remove as Owner"
+msgctxt "@action"
 msgid "Remove as Owner"
 msgstr "Вилучити як власника"
 
 #: widgets/room/usersinroommenu.cpp:114
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Add as Owner"
+msgctxt "@action"
 msgid "Add as Owner"
 msgstr "Додати як власника"
 
 #: widgets/room/usersinroommenu.cpp:127
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Remove as Leader"
+msgctxt "@action"
 msgid "Remove as Leader"
 msgstr "Вилучити як лідера"
 
 #: widgets/room/usersinroommenu.cpp:127
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Add as Leader"
+msgctxt "@action"
 msgid "Add as Leader"
 msgstr "Додати як лідера"
 
 #: widgets/room/usersinroommenu.cpp:139
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Remove as Moderator"
+msgctxt "@action"
 msgid "Remove as Moderator"
 msgstr "Вилучити як модератора"
 
 #: widgets/room/usersinroommenu.cpp:139
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Add as Moderator"
+msgctxt "@action"
 msgid "Add as Moderator"
 msgstr "Додати як модератора"
 
@@ -10554,6 +10575,15 @@ msgstr "Серед нових можливостей у цьому випуск�
 #, kde-format
 msgid "Some bug fixing:"
 msgstr "Виправлення деяких вад:"
+
+#~ msgid "Set as Favorite"
+#~ msgstr "Зробити улюбленим"
+
+#~ msgid "Search rooms…"
+#~ msgstr "Шукати кімнати…"
+
+#~ msgid "Copy Message"
+#~ msgstr "Копіювати повідомлення"
 
 #~| msgid "Search rooms…"
 #~ msgctxt "Placeholder"

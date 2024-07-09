@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-07-06 00:38+0000\n"
+"POT-Creation-Date: 2024-07-09 00:38+0000\n"
 "PO-Revision-Date: 2024-06-19 22:06+0200\n"
 "Last-Translator: Kristof Kiszel <ulysses@fsf.hu>\n"
 "Language-Team: Hungarian <kde-l10n-hu@kde.org>\n"
@@ -360,8 +360,8 @@ msgstr "Nincs"
 #: widgets/dialogs/createsoundmessagewidget.cpp:138
 #: widgets/dialogs/playsoundwidget.cpp:122
 #: widgets/dialogs/showvideowidget.cpp:122
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:260
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:268
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:258
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:266
 #, kde-format
 msgid "Default"
 msgstr "Alapértelmezett"
@@ -851,7 +851,7 @@ msgstr "Szerep"
 
 #: core/model/adminusersmodel.cpp:116 core/model/adminusersmodel.cpp:163
 #: widgets/applicationssettingsdialog/applicationssettingsstatuscombobox.cpp:15
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:277
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:275
 #, kde-format
 msgid "Disabled"
 msgstr "Letiltva"
@@ -1040,19 +1040,19 @@ msgstr[0] "1 másodperc"
 msgstr[1] "%1 másodperc"
 
 #: core/model/notificationpreferencemodel.cpp:51
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:246
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:244
 #, kde-format
 msgid "All Messages"
 msgstr "Minden üzenet"
 
 #: core/model/notificationpreferencemodel.cpp:57
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:248
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:246
 #, kde-format
 msgid "Mentions"
 msgstr "Említések"
 
 #: core/model/notificationpreferencemodel.cpp:63
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:250
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:248
 #, kde-format
 msgid "Nothing"
 msgstr "Semmi"
@@ -2617,6 +2617,7 @@ msgstr "Hozzáadás…"
 #: widgets/administratordialog/oauth/oauthtreeview.cpp:51
 #: widgets/administratordialog/permissions/permissionswidget.cpp:92
 #: widgets/administratordialog/roles/administratorroleswidget.cpp:105
+#: widgets/administratordialog/rooms/administratorroomswidget.cpp:63
 #: widgets/administratordialog/users/administratoruserswidget.cpp:246
 #, fuzzy, kde-format
 #| msgid "Modify…"
@@ -2631,6 +2632,7 @@ msgstr "Módosítás…"
 #: widgets/administratordialog/oauth/oauthtreeview.cpp:55
 #: widgets/administratordialog/roles/administratorroleswidget.cpp:120
 #: widgets/administratordialog/roles/usersinrolewidget.cpp:110
+#: widgets/administratordialog/rooms/administratorroomswidget.cpp:67
 #: widgets/administratordialog/users/administratoruserswidget.cpp:283
 #: widgets/myaccount/myaccountpersonalaccesstokentreeview.cpp:42
 #, fuzzy, kde-format
@@ -2970,6 +2972,7 @@ msgstr "Összes jelentés bezárása"
 
 #: widgets/administratordialog/moderationconsole/moderationreportinfolistview.cpp:76
 #: widgets/notificationhistory/notificationhistorylistview.cpp:83
+#: widgets/room/messagelistview.cpp:271
 #: widgets/servererrorinfohistory/servererrorinfomessagehistorylistview.cpp:50
 #, fuzzy, kde-format
 #| msgid "Copy Message"
@@ -2980,7 +2983,7 @@ msgstr "Üzenet másolása"
 #: widgets/administratordialog/moderationconsole/moderationreportinfolistview.cpp:87
 #: widgets/discussions/discussionlistview.cpp:68
 #: widgets/notificationhistory/notificationhistorylistview.cpp:94
-#: widgets/room/messagelistview.cpp:601
+#: widgets/room/messagelistview.cpp:602
 #: widgets/servererrorinfohistory/servererrorinfomessagehistorylistview.cpp:62
 #, fuzzy, kde-format
 #| msgid "Speak Text"
@@ -2993,7 +2996,7 @@ msgstr "Szöveg felolvasása"
 #: widgets/bannerinfodialog/bannerinfolistview.cpp:51
 #: widgets/discussions/discussionlistview.cpp:74
 #: widgets/notificationhistory/notificationhistorylistview.cpp:100
-#: widgets/room/messagelistview.cpp:302
+#: widgets/room/messagelistview.cpp:303
 #: widgets/servererrorinfohistory/servererrorinfomessagehistorylistview.cpp:69
 #, kde-format
 msgctxt "@action"
@@ -3298,20 +3301,6 @@ msgstr "Nyilvános"
 msgctxt "@info:placeholder"
 msgid "Search rooms"
 msgstr "Szobák keresése"
-
-#. i18n: ectx: property (text), widget (QPushButton, modifyServer)
-#: widgets/administratordialog/rooms/administratorroomswidget.cpp:63
-#: widgets/configuredialog/configureaccountserverwidget.ui:38
-#, kde-format
-msgid "Modify…"
-msgstr "Módosítás…"
-
-#. i18n: ectx: property (text), widget (QPushButton, removeServer)
-#: widgets/administratordialog/rooms/administratorroomswidget.cpp:67
-#: widgets/configuredialog/configureaccountserverwidget.ui:45
-#, kde-format
-msgid "Remove"
-msgstr "Eltávolítás"
 
 #: widgets/administratordialog/rooms/administratorroomswidget.cpp:76
 #, kde-format
@@ -6531,27 +6520,38 @@ msgid "Mark as Read"
 msgstr "Megjelölés olvasottként"
 
 #: widgets/channellist/channellistview.cpp:118
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Mark As Read"
+msgctxt "@action"
 msgid "Mark As Read"
 msgstr "Megjelölés olvasottként"
 
 #: widgets/channellist/channellistview.cpp:118
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Mark As Unread"
+msgctxt "@action"
 msgid "Mark As Unread"
 msgstr "Megjelölés olvasatlanként"
 
 #: widgets/channellist/channellistview.cpp:128
-#, kde-format
-msgid "Unset as Favorite"
-msgstr "Kedvenc beállítás megszüntetése"
-
-#: widgets/channellist/channellistview.cpp:128
-#, kde-format
+#: widgets/room/messagelistview.cpp:289
+#, fuzzy, kde-format
+#| msgid "Set as Favorite"
+msgctxt "@action"
 msgid "Set as Favorite"
 msgstr "Beállítás kedvencként"
 
+#: widgets/channellist/channellistview.cpp:128
+#, fuzzy, kde-format
+#| msgid "Unset as Favorite"
+msgctxt "@action"
+msgid "Unset as Favorite"
+msgstr "Kedvenc beállítás megszüntetése"
+
 #: widgets/channellist/channellistview.cpp:137
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Hide Channel"
+msgctxt "@action"
 msgid "Hide Channel"
 msgstr "Csatorna elrejtése"
 
@@ -6574,13 +6574,16 @@ msgid "Move to Team"
 msgstr "Áthelyezés csapatba"
 
 #: widgets/channellist/channellistview.cpp:194
-#: widgets/room/channelactionpopupmenu.cpp:75
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Configure Notification…"
+msgctxt "@action"
 msgid "Configure Notification…"
 msgstr "Értesítések beállítása…"
 
 #: widgets/channellist/channellistview.cpp:201
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Quit Channel"
+msgctxt "@action"
 msgid "Quit Channel"
 msgstr "Kilépés a csatornából"
 
@@ -6759,6 +6762,18 @@ msgstr "Le"
 #, kde-format
 msgid "Add…"
 msgstr "Hozzáadás…"
+
+#. i18n: ectx: property (text), widget (QPushButton, modifyServer)
+#: widgets/configuredialog/configureaccountserverwidget.ui:38
+#, kde-format
+msgid "Modify…"
+msgstr "Módosítás…"
+
+#. i18n: ectx: property (text), widget (QPushButton, removeServer)
+#: widgets/configuredialog/configureaccountserverwidget.ui:45
+#, kde-format
+msgid "Remove"
+msgstr "Eltávolítás"
 
 #. i18n: ectx: property (text), widget (QCheckBox, configureCurrentActivity)
 #: widgets/configuredialog/configureaccountserverwidget.ui:93
@@ -7911,6 +7926,8 @@ msgid "You are not authorized to view this page."
 msgstr "Ön nincs felhatalmazva ennek az oldalnak a megtekintésére."
 
 #: widgets/directory/directorywidget.cpp:34
+#: widgets/misc/joinedchannelcompletionlineeditbase.cpp:25
+#: widgets/teams/addteamroomcompletionlineedit.cpp:32
 #, fuzzy, kde-format
 #| msgid "Search rooms…"
 msgctxt "@info:placeholder"
@@ -8385,12 +8402,6 @@ msgctxt "@action"
 msgid "Decrease Font"
 msgstr "Betűméret csökkentése"
 
-#: widgets/misc/joinedchannelcompletionlineeditbase.cpp:25
-#: widgets/teams/addteamroomcompletionlineedit.cpp:32
-#, kde-format
-msgid "Search rooms…"
-msgstr "Szobák keresése…"
-
 #: widgets/misc/messageattachmentdownloadandsavejob.cpp:62
 #, kde-format
 msgid "Save Video"
@@ -8470,7 +8481,9 @@ msgid "Reset Password"
 msgstr "Jelszó visszaállítása"
 
 #: widgets/misc/searchwithdelaylineedit.cpp:16
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Search Word…"
+msgctxt "@info:placeholder"
 msgid "Search Word…"
 msgstr "Szó keresése…"
 
@@ -8885,7 +8898,7 @@ msgctxt "@action:button"
 msgid "Export my Data (JSON)"
 msgstr "Saját adataim exportálása (JSON)"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:239
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:237
 #, kde-format
 msgid ""
 "Your data file will be generated. A link to download it will be sent to your "
@@ -8894,28 +8907,28 @@ msgstr ""
 "Az adatfájlja létrejön. A letöltéshez szükséges hivatkozást elküldjük az Ön "
 "e-mail címére, amint elkészült."
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:240
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:238
 #, kde-format
 msgid "Download File Requested"
 msgstr "Fájl letöltése kérve"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:259
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:267
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:257
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:265
 #, kde-format
 msgid "Default (%1)"
 msgstr "Alapértelmezett (%1)"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:275
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:273
 #, kde-format
 msgid "Default (Every Mention/DM)"
 msgstr "Alapértelmezett (Minden említés/közvetlen üzenet)"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:276
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:274
 #, kde-format
 msgid "Every Mention/DM"
 msgstr "Minden említés vagy közvetlen üzenet"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:280
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:278
 #, kde-format
 msgid "Your Rocket.Chat administrator has disabled email notifications"
 msgstr "A Rocket.Chat adminisztrátora letiltotta az e-mail-értesítéseket"
@@ -9031,7 +9044,7 @@ msgid "Clear"
 msgstr "Törlés"
 
 #: widgets/notificationhistory/notificationhistorylistview.cpp:79
-#: widgets/room/messagelistview.cpp:584
+#: widgets/room/messagelistview.cpp:585
 #, kde-format
 msgctxt "@action"
 msgid "Go to Message"
@@ -9177,6 +9190,11 @@ msgctxt "@action"
 msgid "Show Threads…"
 msgstr "Szálak megjelenítése…"
 
+#: widgets/room/channelactionpopupmenu.cpp:75
+#, kde-format
+msgid "Configure Notification…"
+msgstr "Értesítések beállítása…"
+
 #: widgets/room/channelactionpopupmenu.cpp:82
 #, kde-format
 msgctxt "@action"
@@ -9265,13 +9283,12 @@ msgid "Link Preview"
 msgstr "Hivatkozás előnézete"
 
 #: widgets/room/delegate/messagelistdelegate.cpp:420
-#: widgets/room/usersinroommenu.cpp:105
 #, kde-format
 msgid "User Info"
 msgstr "Felhasználó-információk"
 
 #: widgets/room/delegate/messagelistdelegate.cpp:429
-#: widgets/room/messagelistview.cpp:389
+#: widgets/room/messagelistview.cpp:390
 #, kde-format
 msgctxt "@action"
 msgid "Start a Private Conversation"
@@ -9382,165 +9399,157 @@ msgstr "Csatlakozott egy új közvetlen üzenethez"
 msgid "Start of conversation"
 msgstr "Beszélgetés kezdete"
 
-#: widgets/room/messagelistview.cpp:271
-#, kde-format
-msgid "Copy Message"
-msgstr "Üzenet másolása"
-
-#: widgets/room/messagelistview.cpp:279
-#, kde-format
+#: widgets/room/messagelistview.cpp:280
+#, fuzzy, kde-format
+#| msgid "Unpin Message"
+msgctxt "@action"
 msgid "Unpin Message"
 msgstr "Üzenet kitűzésének megszüntetése"
 
-#: widgets/room/messagelistview.cpp:279
-#, kde-format
+#: widgets/room/messagelistview.cpp:280
+#, fuzzy, kde-format
+#| msgid "Pin Message"
+msgctxt "@action"
 msgid "Pin Message"
 msgstr "Üzenet kitűzése"
 
-#: widgets/room/messagelistview.cpp:288
+#: widgets/room/messagelistview.cpp:289
 #, fuzzy, kde-format
 #| msgid "Remove as Favorite"
 msgctxt "@action"
 msgid "Remove as Favorite"
 msgstr "Eltávolítás a kedvencekből"
 
-#: widgets/room/messagelistview.cpp:288
-#, fuzzy, kde-format
-#| msgid "Set as Favorite"
-msgctxt "@action"
-msgid "Set as Favorite"
-msgstr "Beállítás kedvencként"
-
-#: widgets/room/messagelistview.cpp:296
+#: widgets/room/messagelistview.cpp:297
 #, fuzzy, kde-format
 #| msgid "Delete"
 msgctxt "@action"
 msgid "Delete"
 msgstr "Törlés"
 
-#: widgets/room/messagelistview.cpp:307
+#: widgets/room/messagelistview.cpp:308
 #, kde-format
 msgctxt "@action"
 msgid "Mark Message As Unread"
 msgstr "Üzenet megjelölése olvasatlanként"
 
-#: widgets/room/messagelistview.cpp:312
+#: widgets/room/messagelistview.cpp:313
 #, kde-format
 msgctxt "@action"
 msgid "Show Full Thread"
 msgstr "Teljes szál megjelenítése"
 
-#: widgets/room/messagelistview.cpp:317
+#: widgets/room/messagelistview.cpp:318
 #, fuzzy, kde-format
 #| msgid "Edit"
 msgctxt "@action"
 msgid "Edit"
 msgstr "Szerkesztés"
 
-#: widgets/room/messagelistview.cpp:322
+#: widgets/room/messagelistview.cpp:323
 #, fuzzy, kde-format
 #| msgid "Quote"
 msgctxt "@action"
 msgid "Quote"
 msgstr "Idézet"
 
-#: widgets/room/messagelistview.cpp:327
+#: widgets/room/messagelistview.cpp:328
 #, kde-format
 msgctxt "@action"
 msgid "Copy Link To Message"
 msgstr "Üzenet hivatkozásának másolása"
 
-#: widgets/room/messagelistview.cpp:332
+#: widgets/room/messagelistview.cpp:333
 #, kde-format
 msgctxt "@action"
 msgid "Forward Message"
 msgstr "Üzenet továbbítása"
 
-#: widgets/room/messagelistview.cpp:345
+#: widgets/room/messagelistview.cpp:346
 #, fuzzy, kde-format
 #| msgid "Unfollow Message"
 msgctxt "@action"
 msgid "Unfollow Message"
 msgstr "Üzenet követésének leállítása"
 
-#: widgets/room/messagelistview.cpp:345
+#: widgets/room/messagelistview.cpp:346
 #, fuzzy, kde-format
 #| msgid "Follow Message"
 msgctxt "@action"
 msgid "Follow Message"
 msgstr "Üzenet követése"
 
-#: widgets/room/messagelistview.cpp:358
+#: widgets/room/messagelistview.cpp:359
 #, fuzzy, kde-format
 #| msgid "Copy URL"
 msgctxt "@action"
 msgid "Copy URL"
 msgstr "URL másolása"
 
-#: widgets/room/messagelistview.cpp:381
+#: widgets/room/messagelistview.cpp:382 widgets/room/usersinroommenu.cpp:105
 #, fuzzy, kde-format
 #| msgid "User Info"
 msgctxt "@action"
 msgid "User Info"
 msgstr "Felhasználó-információk"
 
-#: widgets/room/messagelistview.cpp:405
+#: widgets/room/messagelistview.cpp:406
 #, kde-format
 msgctxt "@action"
 msgid "Start a Discussion"
 msgstr "Megbeszélés indítása"
 
-#: widgets/room/messagelistview.cpp:412
+#: widgets/room/messagelistview.cpp:413
 #, kde-format
 msgctxt "@action"
 msgid "Reply in Thread"
 msgstr "Válasz szálban"
 
-#: widgets/room/messagelistview.cpp:473
+#: widgets/room/messagelistview.cpp:474
 #, fuzzy, kde-format
 #| msgid "Show Original Message"
 msgctxt "@action"
 msgid "Show Original Message"
 msgstr "Eredeti üzenet megjelenítése"
 
-#: widgets/room/messagelistview.cpp:473
+#: widgets/room/messagelistview.cpp:474
 #, fuzzy, kde-format
 #| msgid "Translate Message"
 msgctxt "@action"
 msgid "Translate Message"
 msgstr "Üzenet fordítása"
 
-#: widgets/room/messagelistview.cpp:516
+#: widgets/room/messagelistview.cpp:517
 #, kde-format
 msgctxt "@action"
 msgid "View Reports"
 msgstr "Jelentések megtekintése"
 
-#: widgets/room/messagelistview.cpp:539
+#: widgets/room/messagelistview.cpp:540
 #, kde-format
 msgctxt "@action"
 msgid "Dismiss Reports"
 msgstr "Jelentések eltüntetése"
 
-#: widgets/room/messagelistview.cpp:609
+#: widgets/room/messagelistview.cpp:610
 #, fuzzy, kde-format
 #| msgid "Report Message"
 msgctxt "@action"
 msgid "Report Message"
 msgstr "Üzenet jelentése"
 
-#: widgets/room/messagelistview.cpp:804
+#: widgets/room/messagelistview.cpp:805
 #, kde-format
 msgid "Do you want to delete this message?"
 msgstr "Szeretné törölni ezt az üzenetet?"
 
-#: widgets/room/messagelistview.cpp:805
+#: widgets/room/messagelistview.cpp:806
 #, kde-format
 msgctxt "@title"
 msgid "Delete Message"
 msgstr "Üzenet törlése"
 
-#: widgets/room/messagelistview.cpp:954
+#: widgets/room/messagelistview.cpp:955
 #, kde-format
 msgid "Translator Error"
 msgstr "Fordítóhiba"
@@ -9798,32 +9807,44 @@ msgid "Start Conversation"
 msgstr "Beszélgetés indítása"
 
 #: widgets/room/usersinroommenu.cpp:114
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Remove as Owner"
+msgctxt "@action"
 msgid "Remove as Owner"
 msgstr "Eltávolítás tulajdonosként"
 
 #: widgets/room/usersinroommenu.cpp:114
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Add as Owner"
+msgctxt "@action"
 msgid "Add as Owner"
 msgstr "Hozzáadás tulajdonosként"
 
 #: widgets/room/usersinroommenu.cpp:127
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Remove as Leader"
+msgctxt "@action"
 msgid "Remove as Leader"
 msgstr "Eltávolítás vezetőként"
 
 #: widgets/room/usersinroommenu.cpp:127
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Add as Leader"
+msgctxt "@action"
 msgid "Add as Leader"
 msgstr "Hozzáadás vezetőként"
 
 #: widgets/room/usersinroommenu.cpp:139
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Remove as Moderator"
+msgctxt "@action"
 msgid "Remove as Moderator"
 msgstr "Eltávolítás moderátorként"
 
 #: widgets/room/usersinroommenu.cpp:139
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Add as Moderator"
+msgctxt "@action"
 msgid "Add as Moderator"
 msgstr "Hozzáadás moderátorként"
 
@@ -10652,6 +10673,15 @@ msgstr "Néhány új funkció, amelyet a Ruqola ezen kiadása tartalmaz:"
 #, kde-format
 msgid "Some bug fixing:"
 msgstr "Néhány hibajavítás:"
+
+#~ msgid "Set as Favorite"
+#~ msgstr "Beállítás kedvencként"
+
+#~ msgid "Search rooms…"
+#~ msgstr "Szobák keresése…"
+
+#~ msgid "Copy Message"
+#~ msgstr "Üzenet másolása"
 
 #, fuzzy
 #~| msgid "Search rooms…"

@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-07-06 00:38+0000\n"
+"POT-Creation-Date: 2024-07-09 00:38+0000\n"
 "PO-Revision-Date: 2024-06-20 03:08+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
@@ -360,8 +360,8 @@ msgstr "無"
 #: widgets/dialogs/createsoundmessagewidget.cpp:138
 #: widgets/dialogs/playsoundwidget.cpp:122
 #: widgets/dialogs/showvideowidget.cpp:122
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:260
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:268
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:258
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:266
 #, kde-format
 msgid "Default"
 msgstr "預設"
@@ -849,7 +849,7 @@ msgstr "角色"
 
 #: core/model/adminusersmodel.cpp:116 core/model/adminusersmodel.cpp:163
 #: widgets/applicationssettingsdialog/applicationssettingsstatuscombobox.cpp:15
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:277
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:275
 #, kde-format
 msgid "Disabled"
 msgstr "已停用"
@@ -1037,19 +1037,19 @@ msgid_plural "%1 seconds"
 msgstr[0] "%1 秒"
 
 #: core/model/notificationpreferencemodel.cpp:51
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:246
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:244
 #, kde-format
 msgid "All Messages"
 msgstr "所有訊息"
 
 #: core/model/notificationpreferencemodel.cpp:57
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:248
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:246
 #, kde-format
 msgid "Mentions"
 msgstr "提及"
 
 #: core/model/notificationpreferencemodel.cpp:63
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:250
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:248
 #, kde-format
 msgid "Nothing"
 msgstr "無"
@@ -2580,6 +2580,7 @@ msgstr "新增…"
 #: widgets/administratordialog/oauth/oauthtreeview.cpp:51
 #: widgets/administratordialog/permissions/permissionswidget.cpp:92
 #: widgets/administratordialog/roles/administratorroleswidget.cpp:105
+#: widgets/administratordialog/rooms/administratorroomswidget.cpp:63
 #: widgets/administratordialog/users/administratoruserswidget.cpp:246
 #, fuzzy, kde-format
 #| msgid "Modify…"
@@ -2594,6 +2595,7 @@ msgstr "變更…"
 #: widgets/administratordialog/oauth/oauthtreeview.cpp:55
 #: widgets/administratordialog/roles/administratorroleswidget.cpp:120
 #: widgets/administratordialog/roles/usersinrolewidget.cpp:110
+#: widgets/administratordialog/rooms/administratorroomswidget.cpp:67
 #: widgets/administratordialog/users/administratoruserswidget.cpp:283
 #: widgets/myaccount/myaccountpersonalaccesstokentreeview.cpp:42
 #, fuzzy, kde-format
@@ -2930,6 +2932,7 @@ msgstr "忽略所有檢舉"
 
 #: widgets/administratordialog/moderationconsole/moderationreportinfolistview.cpp:76
 #: widgets/notificationhistory/notificationhistorylistview.cpp:83
+#: widgets/room/messagelistview.cpp:271
 #: widgets/servererrorinfohistory/servererrorinfomessagehistorylistview.cpp:50
 #, fuzzy, kde-format
 #| msgid "Copy Message"
@@ -2940,7 +2943,7 @@ msgstr "複製訊息"
 #: widgets/administratordialog/moderationconsole/moderationreportinfolistview.cpp:87
 #: widgets/discussions/discussionlistview.cpp:68
 #: widgets/notificationhistory/notificationhistorylistview.cpp:94
-#: widgets/room/messagelistview.cpp:601
+#: widgets/room/messagelistview.cpp:602
 #: widgets/servererrorinfohistory/servererrorinfomessagehistorylistview.cpp:62
 #, fuzzy, kde-format
 #| msgid "Speak Text"
@@ -2953,7 +2956,7 @@ msgstr "唸出文字"
 #: widgets/bannerinfodialog/bannerinfolistview.cpp:51
 #: widgets/discussions/discussionlistview.cpp:74
 #: widgets/notificationhistory/notificationhistorylistview.cpp:100
-#: widgets/room/messagelistview.cpp:302
+#: widgets/room/messagelistview.cpp:303
 #: widgets/servererrorinfohistory/servererrorinfomessagehistorylistview.cpp:69
 #, fuzzy, kde-format
 #| msgid "Select All"
@@ -3267,20 +3270,6 @@ msgstr "公開"
 msgctxt "@info:placeholder"
 msgid "Search rooms"
 msgstr "搜尋聊天室"
-
-#. i18n: ectx: property (text), widget (QPushButton, modifyServer)
-#: widgets/administratordialog/rooms/administratorroomswidget.cpp:63
-#: widgets/configuredialog/configureaccountserverwidget.ui:38
-#, kde-format
-msgid "Modify…"
-msgstr "變更…"
-
-#. i18n: ectx: property (text), widget (QPushButton, removeServer)
-#: widgets/administratordialog/rooms/administratorroomswidget.cpp:67
-#: widgets/configuredialog/configureaccountserverwidget.ui:45
-#, kde-format
-msgid "Remove"
-msgstr "移除"
 
 #: widgets/administratordialog/rooms/administratorroomswidget.cpp:76
 #, kde-format
@@ -6449,27 +6438,38 @@ msgid "Mark as Read"
 msgstr "標記為已讀"
 
 #: widgets/channellist/channellistview.cpp:118
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Mark As Read"
+msgctxt "@action"
 msgid "Mark As Read"
 msgstr "標記為已讀"
 
 #: widgets/channellist/channellistview.cpp:118
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Mark As Unread"
+msgctxt "@action"
 msgid "Mark As Unread"
 msgstr "標記為未讀"
 
 #: widgets/channellist/channellistview.cpp:128
-#, kde-format
-msgid "Unset as Favorite"
-msgstr "取消收藏"
-
-#: widgets/channellist/channellistview.cpp:128
-#, kde-format
+#: widgets/room/messagelistview.cpp:289
+#, fuzzy, kde-format
+#| msgid "Set as Favorite"
+msgctxt "@action"
 msgid "Set as Favorite"
 msgstr "收藏"
 
+#: widgets/channellist/channellistview.cpp:128
+#, fuzzy, kde-format
+#| msgid "Unset as Favorite"
+msgctxt "@action"
+msgid "Unset as Favorite"
+msgstr "取消收藏"
+
 #: widgets/channellist/channellistview.cpp:137
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Hide Channel"
+msgctxt "@action"
 msgid "Hide Channel"
 msgstr "隱藏頻道"
 
@@ -6495,14 +6495,16 @@ msgid "Move to Team"
 msgstr "移動到團隊"
 
 #: widgets/channellist/channellistview.cpp:194
-#: widgets/room/channelactionpopupmenu.cpp:75
 #, fuzzy, kde-format
 #| msgid "Configure Notification"
+msgctxt "@action"
 msgid "Configure Notification…"
 msgstr "設定通知"
 
 #: widgets/channellist/channellistview.cpp:201
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Quit Channel"
+msgctxt "@action"
 msgid "Quit Channel"
 msgstr "離開頻道"
 
@@ -6684,6 +6686,18 @@ msgstr ""
 #, kde-format
 msgid "Add…"
 msgstr "新增…"
+
+#. i18n: ectx: property (text), widget (QPushButton, modifyServer)
+#: widgets/configuredialog/configureaccountserverwidget.ui:38
+#, kde-format
+msgid "Modify…"
+msgstr "變更…"
+
+#. i18n: ectx: property (text), widget (QPushButton, removeServer)
+#: widgets/configuredialog/configureaccountserverwidget.ui:45
+#, kde-format
+msgid "Remove"
+msgstr "移除"
 
 #. i18n: ectx: property (text), widget (QCheckBox, configureCurrentActivity)
 #: widgets/configuredialog/configureaccountserverwidget.ui:93
@@ -7831,6 +7845,8 @@ msgid "You are not authorized to view this page."
 msgstr ""
 
 #: widgets/directory/directorywidget.cpp:34
+#: widgets/misc/joinedchannelcompletionlineeditbase.cpp:25
+#: widgets/teams/addteamroomcompletionlineedit.cpp:32
 #, fuzzy, kde-format
 #| msgid "Search Room... (%1)"
 msgctxt "@info:placeholder"
@@ -8288,13 +8304,6 @@ msgctxt "@action"
 msgid "Decrease Font"
 msgstr "縮小字型"
 
-#: widgets/misc/joinedchannelcompletionlineeditbase.cpp:25
-#: widgets/teams/addteamroomcompletionlineedit.cpp:32
-#, fuzzy, kde-format
-#| msgid "Search Room... (%1)"
-msgid "Search rooms…"
-msgstr "搜尋房間… (%1)"
-
 #: widgets/misc/messageattachmentdownloadandsavejob.cpp:62
 #, kde-format
 msgid "Save Video"
@@ -8382,6 +8391,7 @@ msgstr "重設密碼"
 #: widgets/misc/searchwithdelaylineedit.cpp:16
 #, fuzzy, kde-format
 #| msgid "Search Word..."
+msgctxt "@info:placeholder"
 msgid "Search Word…"
 msgstr "搜尋單字"
 
@@ -8773,36 +8783,36 @@ msgctxt "@action:button"
 msgid "Export my Data (JSON)"
 msgstr ""
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:239
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:237
 #, kde-format
 msgid ""
 "Your data file will be generated. A link to download it will be sent to your "
 "email address when ready."
 msgstr ""
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:240
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:238
 #, kde-format
 msgid "Download File Requested"
 msgstr ""
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:259
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:267
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:257
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:265
 #, kde-format
 msgid "Default (%1)"
 msgstr "預設（%1）"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:275
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:273
 #, kde-format
 msgid "Default (Every Mention/DM)"
 msgstr ""
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:276
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:274
 #, fuzzy, kde-format
 #| msgid "Mentions"
 msgid "Every Mention/DM"
 msgstr "提及"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:280
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:278
 #, kde-format
 msgid "Your Rocket.Chat administrator has disabled email notifications"
 msgstr ""
@@ -8918,7 +8928,7 @@ msgid "Clear"
 msgstr "清除"
 
 #: widgets/notificationhistory/notificationhistorylistview.cpp:79
-#: widgets/room/messagelistview.cpp:584
+#: widgets/room/messagelistview.cpp:585
 #, fuzzy, kde-format
 #| msgid "Go to Message"
 msgctxt "@action"
@@ -9074,6 +9084,12 @@ msgctxt "@action"
 msgid "Show Threads…"
 msgstr "顯示對話串…"
 
+#: widgets/room/channelactionpopupmenu.cpp:75
+#, fuzzy, kde-format
+#| msgid "Configure Notification"
+msgid "Configure Notification…"
+msgstr "設定通知"
+
 #: widgets/room/channelactionpopupmenu.cpp:82
 #, fuzzy, kde-format
 #| msgid "Configure Auto-Translate…"
@@ -9170,13 +9186,12 @@ msgid "Link Preview"
 msgstr "連結預覽"
 
 #: widgets/room/delegate/messagelistdelegate.cpp:420
-#: widgets/room/usersinroommenu.cpp:105
 #, kde-format
 msgid "User Info"
 msgstr "使用者資訊"
 
 #: widgets/room/delegate/messagelistdelegate.cpp:429
-#: widgets/room/messagelistview.cpp:389
+#: widgets/room/messagelistview.cpp:390
 #, fuzzy, kde-format
 #| msgid "Start a Private Conversation"
 msgctxt "@action"
@@ -9290,172 +9305,164 @@ msgstr "您已加入新的私訊"
 msgid "Start of conversation"
 msgstr "對話開頭"
 
-#: widgets/room/messagelistview.cpp:271
-#, kde-format
-msgid "Copy Message"
-msgstr "複製訊息"
-
-#: widgets/room/messagelistview.cpp:279
-#, kde-format
+#: widgets/room/messagelistview.cpp:280
+#, fuzzy, kde-format
+#| msgid "Unpin Message"
+msgctxt "@action"
 msgid "Unpin Message"
 msgstr "取消訊息置頂"
 
-#: widgets/room/messagelistview.cpp:279
-#, kde-format
+#: widgets/room/messagelistview.cpp:280
+#, fuzzy, kde-format
+#| msgid "Pin Message"
+msgctxt "@action"
 msgid "Pin Message"
 msgstr "置頂訊息"
 
-#: widgets/room/messagelistview.cpp:288
+#: widgets/room/messagelistview.cpp:289
 #, fuzzy, kde-format
 #| msgid "Remove as Favorite"
 msgctxt "@action"
 msgid "Remove as Favorite"
 msgstr "移出收藏"
 
-#: widgets/room/messagelistview.cpp:288
-#, fuzzy, kde-format
-#| msgid "Set as Favorite"
-msgctxt "@action"
-msgid "Set as Favorite"
-msgstr "收藏"
-
-#: widgets/room/messagelistview.cpp:296
+#: widgets/room/messagelistview.cpp:297
 #, fuzzy, kde-format
 #| msgid "Delete"
 msgctxt "@action"
 msgid "Delete"
 msgstr "刪除"
 
-#: widgets/room/messagelistview.cpp:307
+#: widgets/room/messagelistview.cpp:308
 #, fuzzy, kde-format
 #| msgid "Mark Message As Unread"
 msgctxt "@action"
 msgid "Mark Message As Unread"
 msgstr "將訊息標記為未讀"
 
-#: widgets/room/messagelistview.cpp:312
+#: widgets/room/messagelistview.cpp:313
 #, fuzzy, kde-format
 #| msgid "Show Full Thread"
 msgctxt "@action"
 msgid "Show Full Thread"
 msgstr "顯示完整對話串"
 
-#: widgets/room/messagelistview.cpp:317
+#: widgets/room/messagelistview.cpp:318
 #, fuzzy, kde-format
 #| msgid "Edit"
 msgctxt "@action"
 msgid "Edit"
 msgstr "編輯"
 
-#: widgets/room/messagelistview.cpp:322
+#: widgets/room/messagelistview.cpp:323
 #, kde-format
 msgctxt "@action"
 msgid "Quote"
 msgstr ""
 
-#: widgets/room/messagelistview.cpp:327
+#: widgets/room/messagelistview.cpp:328
 #, fuzzy, kde-format
 #| msgid "Copy Link To Message"
 msgctxt "@action"
 msgid "Copy Link To Message"
 msgstr "複製訊息連結"
 
-#: widgets/room/messagelistview.cpp:332
+#: widgets/room/messagelistview.cpp:333
 #, fuzzy, kde-format
 #| msgid "Forward Message"
 msgctxt "@action"
 msgid "Forward Message"
 msgstr "轉寄訊息"
 
-#: widgets/room/messagelistview.cpp:345
+#: widgets/room/messagelistview.cpp:346
 #, fuzzy, kde-format
 #| msgid "Unfollow Message"
 msgctxt "@action"
 msgid "Unfollow Message"
 msgstr "取消跟隨訊息"
 
-#: widgets/room/messagelistview.cpp:345
+#: widgets/room/messagelistview.cpp:346
 #, fuzzy, kde-format
 #| msgid "Follow Message"
 msgctxt "@action"
 msgid "Follow Message"
 msgstr "跟隨訊息"
 
-#: widgets/room/messagelistview.cpp:358
+#: widgets/room/messagelistview.cpp:359
 #, fuzzy, kde-format
 #| msgid "Copy URL"
 msgctxt "@action"
 msgid "Copy URL"
 msgstr "複製網址"
 
-#: widgets/room/messagelistview.cpp:381
+#: widgets/room/messagelistview.cpp:382 widgets/room/usersinroommenu.cpp:105
 #, fuzzy, kde-format
 #| msgid "User Info"
 msgctxt "@action"
 msgid "User Info"
 msgstr "使用者資訊"
 
-#: widgets/room/messagelistview.cpp:405
+#: widgets/room/messagelistview.cpp:406
 #, fuzzy, kde-format
 #| msgid "Start a Discussion"
 msgctxt "@action"
 msgid "Start a Discussion"
 msgstr "開始討論"
 
-#: widgets/room/messagelistview.cpp:412
+#: widgets/room/messagelistview.cpp:413
 #, fuzzy, kde-format
 #| msgid "Reply in Thread"
 msgctxt "@action"
 msgid "Reply in Thread"
 msgstr "在對話串中回覆"
 
-#: widgets/room/messagelistview.cpp:473
+#: widgets/room/messagelistview.cpp:474
 #, fuzzy, kde-format
 #| msgid "Show Original Message"
 msgctxt "@action"
 msgid "Show Original Message"
 msgstr "顯示原始訊息"
 
-#: widgets/room/messagelistview.cpp:473
+#: widgets/room/messagelistview.cpp:474
 #, fuzzy, kde-format
 #| msgid "Translate Message"
 msgctxt "@action"
 msgid "Translate Message"
 msgstr "翻譯訊息"
 
-#: widgets/room/messagelistview.cpp:516
+#: widgets/room/messagelistview.cpp:517
 #, fuzzy, kde-format
 #| msgid "View Reports"
 msgctxt "@action"
 msgid "View Reports"
 msgstr "檢視檢舉"
 
-#: widgets/room/messagelistview.cpp:539
+#: widgets/room/messagelistview.cpp:540
 #, fuzzy, kde-format
 #| msgid "Dismiss reports"
 msgctxt "@action"
 msgid "Dismiss Reports"
 msgstr "忽略檢舉"
 
-#: widgets/room/messagelistview.cpp:609
+#: widgets/room/messagelistview.cpp:610
 #, fuzzy, kde-format
 #| msgid "Report Message"
 msgctxt "@action"
 msgid "Report Message"
 msgstr "檢舉訊息"
 
-#: widgets/room/messagelistview.cpp:804
+#: widgets/room/messagelistview.cpp:805
 #, kde-format
 msgid "Do you want to delete this message?"
 msgstr "您確定要刪除此則訊息嗎？"
 
-#: widgets/room/messagelistview.cpp:805
+#: widgets/room/messagelistview.cpp:806
 #, kde-format
 msgctxt "@title"
 msgid "Delete Message"
 msgstr "刪除訊息"
 
-#: widgets/room/messagelistview.cpp:954
+#: widgets/room/messagelistview.cpp:955
 #, kde-format
 msgid "Translator Error"
 msgstr "翻譯工具錯誤"
@@ -9720,32 +9727,44 @@ msgid "Start Conversation"
 msgstr "開始對話"
 
 #: widgets/room/usersinroommenu.cpp:114
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Remove as Owner"
+msgctxt "@action"
 msgid "Remove as Owner"
 msgstr "從擁有者中移除"
 
 #: widgets/room/usersinroommenu.cpp:114
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Add as Owner"
+msgctxt "@action"
 msgid "Add as Owner"
 msgstr "加入擁有者"
 
 #: widgets/room/usersinroommenu.cpp:127
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Remove as Leader"
+msgctxt "@action"
 msgid "Remove as Leader"
 msgstr "從領導者中移除"
 
 #: widgets/room/usersinroommenu.cpp:127
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Add as Leader"
+msgctxt "@action"
 msgid "Add as Leader"
 msgstr "加入領導者"
 
 #: widgets/room/usersinroommenu.cpp:139
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Remove as Moderator"
+msgctxt "@action"
 msgid "Remove as Moderator"
 msgstr "從 Mod 中移除"
 
 #: widgets/room/usersinroommenu.cpp:139
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Add as Moderator"
+msgctxt "@action"
 msgid "Add as Moderator"
 msgstr "加入 Mod"
 
@@ -10550,6 +10569,17 @@ msgstr "在這一版的 Ruqola 中包含了一些新功能："
 #, kde-format
 msgid "Some bug fixing:"
 msgstr "一些錯誤修正："
+
+#~ msgid "Set as Favorite"
+#~ msgstr "收藏"
+
+#, fuzzy
+#~| msgid "Search Room... (%1)"
+#~ msgid "Search rooms…"
+#~ msgstr "搜尋房間… (%1)"
+
+#~ msgid "Copy Message"
+#~ msgstr "複製訊息"
 
 #, fuzzy
 #~| msgid "Search Room... (%1)"

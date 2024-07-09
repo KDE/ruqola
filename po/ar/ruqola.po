@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-07-06 00:38+0000\n"
+"POT-Creation-Date: 2024-07-09 00:38+0000\n"
 "PO-Revision-Date: 2024-02-25 21:19+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
@@ -365,8 +365,8 @@ msgstr "لا شيء"
 #: widgets/dialogs/createsoundmessagewidget.cpp:138
 #: widgets/dialogs/playsoundwidget.cpp:122
 #: widgets/dialogs/showvideowidget.cpp:122
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:260
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:268
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:258
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:266
 #, kde-format
 msgid "Default"
 msgstr "المبدئيّ"
@@ -853,7 +853,7 @@ msgstr "الدّور"
 
 #: core/model/adminusersmodel.cpp:116 core/model/adminusersmodel.cpp:163
 #: widgets/applicationssettingsdialog/applicationssettingsstatuscombobox.cpp:15
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:277
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:275
 #, kde-format
 msgid "Disabled"
 msgstr "معطّل"
@@ -1046,19 +1046,19 @@ msgstr[4] "%1 ثانية"
 msgstr[5] "%1 ثانية"
 
 #: core/model/notificationpreferencemodel.cpp:51
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:246
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:244
 #, kde-format
 msgid "All Messages"
 msgstr "كل الرسائل"
 
 #: core/model/notificationpreferencemodel.cpp:57
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:248
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:246
 #, kde-format
 msgid "Mentions"
 msgstr "الذّكورات"
 
 #: core/model/notificationpreferencemodel.cpp:63
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:250
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:248
 #, kde-format
 msgid "Nothing"
 msgstr "لا شيء"
@@ -2611,6 +2611,7 @@ msgstr ""
 #: widgets/administratordialog/oauth/oauthtreeview.cpp:51
 #: widgets/administratordialog/permissions/permissionswidget.cpp:92
 #: widgets/administratordialog/roles/administratorroleswidget.cpp:105
+#: widgets/administratordialog/rooms/administratorroomswidget.cpp:63
 #: widgets/administratordialog/users/administratoruserswidget.cpp:246
 #, fuzzy, kde-format
 #| msgid "Modify..."
@@ -2625,6 +2626,7 @@ msgstr "عدّل..."
 #: widgets/administratordialog/oauth/oauthtreeview.cpp:55
 #: widgets/administratordialog/roles/administratorroleswidget.cpp:120
 #: widgets/administratordialog/roles/usersinrolewidget.cpp:110
+#: widgets/administratordialog/rooms/administratorroomswidget.cpp:67
 #: widgets/administratordialog/users/administratoruserswidget.cpp:283
 #: widgets/myaccount/myaccountpersonalaccesstokentreeview.cpp:42
 #, fuzzy, kde-format
@@ -2980,6 +2982,7 @@ msgstr ""
 
 #: widgets/administratordialog/moderationconsole/moderationreportinfolistview.cpp:76
 #: widgets/notificationhistory/notificationhistorylistview.cpp:83
+#: widgets/room/messagelistview.cpp:271
 #: widgets/servererrorinfohistory/servererrorinfomessagehistorylistview.cpp:50
 #, fuzzy, kde-format
 #| msgid "Copy Message"
@@ -2990,7 +2993,7 @@ msgstr "انسخ الرِّسالة"
 #: widgets/administratordialog/moderationconsole/moderationreportinfolistview.cpp:87
 #: widgets/discussions/discussionlistview.cpp:68
 #: widgets/notificationhistory/notificationhistorylistview.cpp:94
-#: widgets/room/messagelistview.cpp:601
+#: widgets/room/messagelistview.cpp:602
 #: widgets/servererrorinfohistory/servererrorinfomessagehistorylistview.cpp:62
 #, fuzzy, kde-format
 #| msgid "Speak Text"
@@ -3003,7 +3006,7 @@ msgstr "انطق النّصّ"
 #: widgets/bannerinfodialog/bannerinfolistview.cpp:51
 #: widgets/discussions/discussionlistview.cpp:74
 #: widgets/notificationhistory/notificationhistorylistview.cpp:100
-#: widgets/room/messagelistview.cpp:302
+#: widgets/room/messagelistview.cpp:303
 #: widgets/servererrorinfohistory/servererrorinfomessagehistorylistview.cpp:69
 #, fuzzy, kde-format
 #| msgid "Select All"
@@ -3307,21 +3310,6 @@ msgstr "عام"
 msgctxt "@info:placeholder"
 msgid "Search rooms"
 msgstr "ابحث في المستخدمين..."
-
-#. i18n: ectx: property (text), widget (QPushButton, modifyServer)
-#: widgets/administratordialog/rooms/administratorroomswidget.cpp:63
-#: widgets/configuredialog/configureaccountserverwidget.ui:38
-#, fuzzy, kde-format
-#| msgid "Modify..."
-msgid "Modify…"
-msgstr "عدّل..."
-
-#. i18n: ectx: property (text), widget (QPushButton, removeServer)
-#: widgets/administratordialog/rooms/administratorroomswidget.cpp:67
-#: widgets/configuredialog/configureaccountserverwidget.ui:45
-#, kde-format
-msgid "Remove"
-msgstr "أزل"
 
 #: widgets/administratordialog/rooms/administratorroomswidget.cpp:76
 #, kde-format
@@ -6352,27 +6340,38 @@ msgid "Mark as Read"
 msgstr "علّم كمقروءة"
 
 #: widgets/channellist/channellistview.cpp:118
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Mark As Read"
+msgctxt "@action"
 msgid "Mark As Read"
 msgstr "علّمها كمقروءة"
 
 #: widgets/channellist/channellistview.cpp:118
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Mark As Unread"
+msgctxt "@action"
 msgid "Mark As Unread"
 msgstr "علّم كَغَير مقروءة"
 
 #: widgets/channellist/channellistview.cpp:128
-#, kde-format
-msgid "Unset as Favorite"
-msgstr ""
+#: widgets/room/messagelistview.cpp:289
+#, fuzzy, kde-format
+#| msgid "Favorite"
+msgctxt "@action"
+msgid "Set as Favorite"
+msgstr "المفضّلة"
 
 #: widgets/channellist/channellistview.cpp:128
-#, kde-format
-msgid "Set as Favorite"
-msgstr ""
+#, fuzzy, kde-format
+#| msgid "Favorite"
+msgctxt "@action"
+msgid "Unset as Favorite"
+msgstr "المفضّلة"
 
 #: widgets/channellist/channellistview.cpp:137
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Hide Channel"
+msgctxt "@action"
 msgid "Hide Channel"
 msgstr "أخف القناة"
 
@@ -6396,16 +6395,18 @@ msgid "Move to Team"
 msgstr ""
 
 #: widgets/channellist/channellistview.cpp:194
-#: widgets/room/channelactionpopupmenu.cpp:75
 #, fuzzy, kde-format
 #| msgid "Disable Notifications"
+msgctxt "@action"
 msgid "Configure Notification…"
 msgstr "عطّل الإشعارات"
 
 #: widgets/channellist/channellistview.cpp:201
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Hide Channel"
+msgctxt "@action"
 msgid "Quit Channel"
-msgstr ""
+msgstr "أخف القناة"
 
 #: widgets/channellist/channellistview.cpp:244
 #, kde-format
@@ -6583,6 +6584,19 @@ msgstr "لأسفل"
 #, kde-format
 msgid "Add…"
 msgstr ""
+
+#. i18n: ectx: property (text), widget (QPushButton, modifyServer)
+#: widgets/configuredialog/configureaccountserverwidget.ui:38
+#, fuzzy, kde-format
+#| msgid "Modify..."
+msgid "Modify…"
+msgstr "عدّل..."
+
+#. i18n: ectx: property (text), widget (QPushButton, removeServer)
+#: widgets/configuredialog/configureaccountserverwidget.ui:45
+#, kde-format
+msgid "Remove"
+msgstr "أزل"
 
 #. i18n: ectx: property (text), widget (QCheckBox, configureCurrentActivity)
 #: widgets/configuredialog/configureaccountserverwidget.ui:93
@@ -7743,6 +7757,8 @@ msgid "You are not authorized to view this page."
 msgstr ""
 
 #: widgets/directory/directorywidget.cpp:34
+#: widgets/misc/joinedchannelcompletionlineeditbase.cpp:25
+#: widgets/teams/addteamroomcompletionlineedit.cpp:32
 #, fuzzy, kde-format
 #| msgid "Search users..."
 msgctxt "@info:placeholder"
@@ -8205,13 +8221,6 @@ msgctxt "@action"
 msgid "Decrease Font"
 msgstr ""
 
-#: widgets/misc/joinedchannelcompletionlineeditbase.cpp:25
-#: widgets/teams/addteamroomcompletionlineedit.cpp:32
-#, fuzzy, kde-format
-#| msgid "Search users..."
-msgid "Search rooms…"
-msgstr "ابحث في المستخدمين..."
-
 #: widgets/misc/messageattachmentdownloadandsavejob.cpp:62
 #, kde-format
 msgid "Save Video"
@@ -8291,9 +8300,11 @@ msgid "Reset Password"
 msgstr "كلمة السرّ الجديدة:"
 
 #: widgets/misc/searchwithdelaylineedit.cpp:16
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Search users..."
+msgctxt "@info:placeholder"
 msgid "Search Word…"
-msgstr ""
+msgstr "ابحث في المستخدمين..."
 
 #: widgets/misc/servermenu.cpp:20
 #, kde-format
@@ -8685,35 +8696,35 @@ msgctxt "@action:button"
 msgid "Export my Data (JSON)"
 msgstr ""
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:239
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:237
 #, kde-format
 msgid ""
 "Your data file will be generated. A link to download it will be sent to your "
 "email address when ready."
 msgstr ""
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:240
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:238
 #, kde-format
 msgid "Download File Requested"
 msgstr ""
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:259
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:267
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:257
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:265
 #, kde-format
 msgid "Default (%1)"
 msgstr "المبدئيّ (%1)"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:275
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:273
 #, kde-format
 msgid "Default (Every Mention/DM)"
 msgstr ""
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:276
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:274
 #, kde-format
 msgid "Every Mention/DM"
 msgstr ""
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:280
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:278
 #, kde-format
 msgid "Your Rocket.Chat administrator has disabled email notifications"
 msgstr ""
@@ -8827,7 +8838,7 @@ msgid "Clear"
 msgstr "امسح"
 
 #: widgets/notificationhistory/notificationhistorylistview.cpp:79
-#: widgets/room/messagelistview.cpp:584
+#: widgets/room/messagelistview.cpp:585
 #, fuzzy, kde-format
 #| msgid "Total Messages"
 msgctxt "@action"
@@ -8982,6 +8993,12 @@ msgctxt "@action"
 msgid "Show Threads…"
 msgstr "الذّكورات"
 
+#: widgets/room/channelactionpopupmenu.cpp:75
+#, fuzzy, kde-format
+#| msgid "Disable Notifications"
+msgid "Configure Notification…"
+msgstr "عطّل الإشعارات"
+
 #: widgets/room/channelactionpopupmenu.cpp:82
 #, fuzzy, kde-format
 #| msgid "Disable Notifications"
@@ -9078,13 +9095,12 @@ msgid "Link Preview"
 msgstr "معاينة الوصلة"
 
 #: widgets/room/delegate/messagelistdelegate.cpp:420
-#: widgets/room/usersinroommenu.cpp:105
 #, kde-format
 msgid "User Info"
 msgstr "معلومات المستخدم"
 
 #: widgets/room/delegate/messagelistdelegate.cpp:429
-#: widgets/room/messagelistview.cpp:389
+#: widgets/room/messagelistview.cpp:390
 #, kde-format
 msgctxt "@action"
 msgid "Start a Private Conversation"
@@ -9205,170 +9221,162 @@ msgstr ""
 msgid "Start of conversation"
 msgstr ""
 
-#: widgets/room/messagelistview.cpp:271
-#, kde-format
-msgid "Copy Message"
+#: widgets/room/messagelistview.cpp:280
+#, fuzzy, kde-format
+#| msgid "Copy Message"
+msgctxt "@action"
+msgid "Unpin Message"
 msgstr "انسخ الرِّسالة"
 
-#: widgets/room/messagelistview.cpp:279
-#, kde-format
-msgid "Unpin Message"
-msgstr ""
-
-#: widgets/room/messagelistview.cpp:279
-#, kde-format
+#: widgets/room/messagelistview.cpp:280
+#, fuzzy, kde-format
+#| msgid "Send Message"
+msgctxt "@action"
 msgid "Pin Message"
-msgstr ""
+msgstr "أرسل رسالة"
 
-#: widgets/room/messagelistview.cpp:288
+#: widgets/room/messagelistview.cpp:289
 #, fuzzy, kde-format
 #| msgid "Favorite"
 msgctxt "@action"
 msgid "Remove as Favorite"
 msgstr "المفضّلة"
 
-#: widgets/room/messagelistview.cpp:288
-#, fuzzy, kde-format
-#| msgid "Favorite"
-msgctxt "@action"
-msgid "Set as Favorite"
-msgstr "المفضّلة"
-
-#: widgets/room/messagelistview.cpp:296
+#: widgets/room/messagelistview.cpp:297
 #, fuzzy, kde-format
 #| msgid "Delete"
 msgctxt "@action"
 msgid "Delete"
 msgstr "احذف"
 
-#: widgets/room/messagelistview.cpp:307
+#: widgets/room/messagelistview.cpp:308
 #, fuzzy, kde-format
 #| msgid "Mark Message As Unread"
 msgctxt "@action"
 msgid "Mark Message As Unread"
 msgstr "علّم الرسالة كَغَير مقروءة"
 
-#: widgets/room/messagelistview.cpp:312
+#: widgets/room/messagelistview.cpp:313
 #, kde-format
 msgctxt "@action"
 msgid "Show Full Thread"
 msgstr ""
 
-#: widgets/room/messagelistview.cpp:317
+#: widgets/room/messagelistview.cpp:318
 #, fuzzy, kde-format
 #| msgid "Edit"
 msgctxt "@action"
 msgid "Edit"
 msgstr "حرّر"
 
-#: widgets/room/messagelistview.cpp:322
+#: widgets/room/messagelistview.cpp:323
 #, fuzzy, kde-format
 #| msgid "Quote"
 msgctxt "@action"
 msgid "Quote"
 msgstr "اقتباس"
 
-#: widgets/room/messagelistview.cpp:327
+#: widgets/room/messagelistview.cpp:328
 #, fuzzy, kde-format
 #| msgid "Copy Message"
 msgctxt "@action"
 msgid "Copy Link To Message"
 msgstr "انسخ الرِّسالة"
 
-#: widgets/room/messagelistview.cpp:332
+#: widgets/room/messagelistview.cpp:333
 #, fuzzy, kde-format
 #| msgid "Forward Message"
 msgctxt "@action"
 msgid "Forward Message"
 msgstr "تمرير الرسالة"
 
-#: widgets/room/messagelistview.cpp:345
+#: widgets/room/messagelistview.cpp:346
 #, fuzzy, kde-format
 #| msgid "All Messages"
 msgctxt "@action"
 msgid "Unfollow Message"
 msgstr "كل الرسائل"
 
-#: widgets/room/messagelistview.cpp:345
+#: widgets/room/messagelistview.cpp:346
 #, fuzzy, kde-format
 #| msgid "All Messages"
 msgctxt "@action"
 msgid "Follow Message"
 msgstr "كل الرسائل"
 
-#: widgets/room/messagelistview.cpp:358
+#: widgets/room/messagelistview.cpp:359
 #, fuzzy, kde-format
 #| msgid "Copy URL"
 msgctxt "@action"
 msgid "Copy URL"
 msgstr "انسخ المسار"
 
-#: widgets/room/messagelistview.cpp:381
+#: widgets/room/messagelistview.cpp:382 widgets/room/usersinroommenu.cpp:105
 #, fuzzy, kde-format
 #| msgid "User Info"
 msgctxt "@action"
 msgid "User Info"
 msgstr "معلومات المستخدم"
 
-#: widgets/room/messagelistview.cpp:405
+#: widgets/room/messagelistview.cpp:406
 #, kde-format
 msgctxt "@action"
 msgid "Start a Discussion"
 msgstr ""
 
-#: widgets/room/messagelistview.cpp:412
+#: widgets/room/messagelistview.cpp:413
 #, kde-format
 msgctxt "@action"
 msgid "Reply in Thread"
 msgstr ""
 
-#: widgets/room/messagelistview.cpp:473
+#: widgets/room/messagelistview.cpp:474
 #, fuzzy, kde-format
 #| msgid "Show Original Message"
 msgctxt "@action"
 msgid "Show Original Message"
 msgstr "أظهر الرسالة الأصلية"
 
-#: widgets/room/messagelistview.cpp:473
+#: widgets/room/messagelistview.cpp:474
 #, fuzzy, kde-format
 #| msgid "Last Message"
 msgctxt "@action"
 msgid "Translate Message"
 msgstr "آخر رسالة"
 
-#: widgets/room/messagelistview.cpp:516
+#: widgets/room/messagelistview.cpp:517
 #, fuzzy, kde-format
 #| msgid "Reports"
 msgctxt "@action"
 msgid "View Reports"
 msgstr "التّقارير"
 
-#: widgets/room/messagelistview.cpp:539
+#: widgets/room/messagelistview.cpp:540
 #, fuzzy, kde-format
 #| msgid "Reports"
 msgctxt "@action"
 msgid "Dismiss Reports"
 msgstr "التّقارير"
 
-#: widgets/room/messagelistview.cpp:609
+#: widgets/room/messagelistview.cpp:610
 #, fuzzy, kde-format
 #| msgid "Report Message"
 msgctxt "@action"
 msgid "Report Message"
 msgstr "بلّغ عن الرسالة"
 
-#: widgets/room/messagelistview.cpp:804
+#: widgets/room/messagelistview.cpp:805
 #, kde-format
 msgid "Do you want to delete this message?"
 msgstr ""
 
-#: widgets/room/messagelistview.cpp:805
+#: widgets/room/messagelistview.cpp:806
 #, kde-format
 msgctxt "@title"
 msgid "Delete Message"
 msgstr "احذف الرّسالة"
 
-#: widgets/room/messagelistview.cpp:954
+#: widgets/room/messagelistview.cpp:955
 #, kde-format
 msgid "Translator Error"
 msgstr ""
@@ -9639,34 +9647,45 @@ msgid "Start Conversation"
 msgstr ""
 
 #: widgets/room/usersinroommenu.cpp:114
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Favorite"
+msgctxt "@action"
 msgid "Remove as Owner"
-msgstr ""
+msgstr "المفضّلة"
 
 #: widgets/room/usersinroommenu.cpp:114
 #, kde-format
+msgctxt "@action"
 msgid "Add as Owner"
 msgstr ""
 
 #: widgets/room/usersinroommenu.cpp:127
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Favorite"
+msgctxt "@action"
 msgid "Remove as Leader"
-msgstr ""
+msgstr "المفضّلة"
 
 #: widgets/room/usersinroommenu.cpp:127
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Leader"
+msgctxt "@action"
 msgid "Add as Leader"
-msgstr ""
+msgstr "ليدر"
 
 #: widgets/room/usersinroommenu.cpp:139
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Favorite"
+msgctxt "@action"
 msgid "Remove as Moderator"
-msgstr ""
+msgstr "المفضّلة"
 
 #: widgets/room/usersinroommenu.cpp:139
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Moderator"
+msgctxt "@action"
 msgid "Add as Moderator"
-msgstr ""
+msgstr "الوسيط"
 
 #: widgets/room/usersinroommenu.cpp:150
 #, fuzzy, kde-format
@@ -10502,6 +10521,14 @@ msgstr ""
 #, kde-format
 msgid "Some bug fixing:"
 msgstr ""
+
+#, fuzzy
+#~| msgid "Search users..."
+#~ msgid "Search rooms…"
+#~ msgstr "ابحث في المستخدمين..."
+
+#~ msgid "Copy Message"
+#~ msgstr "انسخ الرِّسالة"
 
 #, fuzzy
 #~| msgid "Search users..."
