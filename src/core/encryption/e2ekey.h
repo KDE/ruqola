@@ -21,6 +21,9 @@ public:
     [[nodiscard]] QString binaryPrivateKey() const;
     void setBinaryPrivateKey(const QString &newBinaryPrivateKey);
 
+    [[nodiscard]] QString publicKey() const;
+    void setPublicKey(const QString &newPublicKey);
+
 private:
     QString mBinaryPrivateKey;
     QString mPublicKey;

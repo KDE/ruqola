@@ -29,8 +29,19 @@ void E2eKey::setBinaryPrivateKey(const QString &newBinaryPrivateKey)
     mBinaryPrivateKey = newBinaryPrivateKey;
 }
 
+QString E2eKey::publicKey() const
+{
+    return mPublicKey;
+}
+
+void E2eKey::setPublicKey(const QString &newPublicKey)
+{
+    mPublicKey = newPublicKey;
+}
+
 QDebug operator<<(QDebug d, const E2eKey &t)
 {
-    // TODO
+    d << " mBinaryPrivateKey " << t.binaryPrivateKey();
+    d << " mPublicKey " << t.publicKey();
     return d;
 }
