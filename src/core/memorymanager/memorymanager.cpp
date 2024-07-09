@@ -12,3 +12,8 @@ MemoryManager::MemoryManager(QObject *parent)
 }
 
 MemoryManager::~MemoryManager() = default;
+
+// TODO: test if a room has a big history and we don't go in => clean history
+// TODO: clean application market model
+
+#include "moc_memorymanager.cpp"

@@ -5,10 +5,10 @@
 */
 
 #pragma once
-
+#include "libruqolacore_export.h"
 #include <QObject>
 
-class MemoryManager : public QObject
+class LIBRUQOLACORE_EXPORT MemoryManager : public QObject
 {
     Q_OBJECT
 public:
