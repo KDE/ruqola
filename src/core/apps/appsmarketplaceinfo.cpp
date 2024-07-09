@@ -298,7 +298,7 @@ bool AppsMarketPlaceInfo::operator==(const AppsMarketPlaceInfo &other) const
         && mDocumentationUrl == other.mDocumentationUrl && mPurchaseType == other.mPurchaseType && mVersion == other.mVersion
         && mShortDescription == other.mShortDescription /*&& mPixmap.isNull() == other.mPixmap.isNull()*/ && mPrice == other.mPrice
         && mIsEnterpriseOnly == other.mIsEnterpriseOnly && mModifiedDate == other.mModifiedDate && mPricePlan == other.mPricePlan
-        && mHomePage == other.mHomePage && mSupport == other.mSupport && mPrivacyPolicySummary == other.mPrivacyPolicySummary;
+        && mHomePage == other.mHomePage && mSupport == other.mSupport && mPrivacyPolicySummary == other.mPrivacyPolicySummary && mRequested == other.mRequested;
 }
 
 qint64 AppsMarketPlaceInfo::modifiedDate() const

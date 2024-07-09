@@ -96,6 +96,7 @@ void AppsMarketPlaceInfoTest::shouldLoadAppsMarketPlaceInfo_data()
         appsMarketPlaceInfo.setHomePage("https://github.com/murtaza98/Instatus-RocketChat-App"_L1);
         appsMarketPlaceInfo.setSupport("https://github.com/murtaza98/Instatus-RocketChat-App/issues"_L1);
         appsMarketPlaceInfo.setPrivacyPolicySummary("The app doesn't transfer any data to an external server outside your Rocket.Chat instance."_L1);
+        appsMarketPlaceInfo.setRequested(1);
 
         QTest::addRow("apps3-requested") << QStringLiteral("apps3-requested") << appsMarketPlaceInfo;
     }
