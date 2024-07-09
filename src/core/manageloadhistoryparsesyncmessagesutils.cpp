@@ -53,7 +53,7 @@ void ManageLoadHistoryParseSyncMessagesUtils::parse(const QJsonObject &obj)
         const QJsonObject o = updatedArray.at(i).toObject();
         Message m;
         m.parseMessage(o, true, mRocketChatAccount ? mRocketChatAccount->emojiManager() : nullptr);
-        updatedMessages.append(m);
+        updatedMessages.append(std::move(m));
     }
     mUpdatesMessages = std::move(updatedMessages);
 }

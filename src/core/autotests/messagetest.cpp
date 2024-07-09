@@ -530,13 +530,13 @@ void MessageTest::shouldSerializeData()
             Reaction a;
             a.setUserNames({QStringLiteral("bla"), QStringLiteral("foo")});
             a.setReactionName(QStringLiteral(":)"));
-            reacts.append(a);
+            reacts.append(std::move(a));
         }
         {
             Reaction a;
             a.setUserNames({QStringLiteral("bli"), QStringLiteral("aa")});
             a.setReactionName(QStringLiteral(":foo:"));
-            reacts.append(a);
+            reacts.append(std::move(a));
         }
 
         Reactions reactions;

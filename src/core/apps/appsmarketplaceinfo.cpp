@@ -55,7 +55,7 @@ void AppsMarketPlaceInfo::parsePrincingPlan(const QJsonArray &array)
         price.trialDays = current["trialDays"_L1].toInt();
         price.enabled = current["enabled"_L1].toBool();
         price.strategy = price.convertStringToStrategy(current["strategy"_L1].toString());
-        mPricePlan.append(price);
+        mPricePlan.append(std::move(price));
     }
 }
 
