@@ -552,6 +552,9 @@ target_sources(libruqolacore PRIVATE
 
     apps/appsmarketplaceinfo.h
     apps/appsmarketplaceinfo.cpp
+
+    memorymanager/memorymanager.h
+    memorymanager/memorymanager.cpp
 )
 
 if(TARGET cmark::cmark)
