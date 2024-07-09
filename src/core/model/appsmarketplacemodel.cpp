@@ -80,6 +80,8 @@ QVariant AppsMarketPlaceModel::data(const QModelIndex &index, int role) const
         return appsMarketPlaceInfo.isPaid();
     case AppsMarketPlaceModel::PrivateApps:
         return appsMarketPlaceInfo.isPrivate();
+    case AppsMarketPlaceModel::RequestedApps:
+        return appsMarketPlaceInfo.requested();
     }
     return {};
 }
