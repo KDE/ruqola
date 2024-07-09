@@ -653,7 +653,7 @@ void DDPClient::unsubscribe(quint64 registerId)
         if (account->ruqolaLogger()) {
             account->ruqolaLogger()->dataReceived(QByteArrayLiteral("Unsubscribe Method:") + QJsonDocument(root).toJson());
         } else {
-            qDebug() << " Unsubscribe Method" << root;
+            // qDebug() << " Unsubscribe Method" << root;
             qCDebug(RUQOLA_DDPAPI_LOG) << " Unsubscribe Method" << root;
         }
     };
