@@ -27,7 +27,10 @@ void E2eKeyManager::fetchMyKeys()
 {
     auto job = new RocketChatRestApi::FetchMyKeysJob(this);
     mAccount->restApi()->initializeRestApiJob(job);
-    connect(job, &RocketChatRestApi::FetchMyKeysJob::fetchMyKeysDone, this, &E2eKeyManager::fetchMyKeysDone);
+    connect(job, &RocketChatRestApi::FetchMyKeysJob::fetchMyKeysDone, this, [this](const QJsonObject &json) {
+        qDebug() << " RocketChatRestApi::FetchMyKeysJob result " << json;
+        Q_EMIT fetchMyKeysDone(json);
+    });
     if (!job->start()) {
         qCDebug(RUQOLA_ENCRYPTION_LOG) << "Impossible to start fetchmykeys job";
     }
