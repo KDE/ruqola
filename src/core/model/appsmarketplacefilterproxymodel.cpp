@@ -135,7 +135,10 @@ bool AppsMarketPlaceFilterProxyModel::requested() const
 
 void AppsMarketPlaceFilterProxyModel::setRequested(bool newRequested)
 {
-    mRequested = newRequested;
+    if (mRequested != newRequested) {
+        mRequested = newRequested;
+        invalidateFilter();
+    }
 }
 
 AppsMarketPlaceFilterProxyModel::Sorting AppsMarketPlaceFilterProxyModel::sorting() const
