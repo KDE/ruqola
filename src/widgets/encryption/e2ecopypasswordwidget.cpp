@@ -26,7 +26,9 @@ E2eCopyPasswordWidget::E2eCopyPasswordWidget(QWidget *parent)
              "any browser you've entered it on. Remember to store your password before dismissing this message.<br/><br/>Your password is: <span "
              "style=\"font-weight: bold;\">%1</span>",
              randomPassword));
+    label->setWordWrap(true);
     mainLayout->addWidget(label);
+    mainLayout->addStretch(1);
 }
 
 E2eCopyPasswordWidget::~E2eCopyPasswordWidget() = default;

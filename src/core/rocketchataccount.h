@@ -609,6 +609,7 @@ Q_SIGNALS:
     void wsClosedSocketError();
     void activitiesChanged();
     void appsMarkPlaceLoadDone();
+    void needToSaveE2EPassword();
 
 private:
     Q_DISABLE_COPY(RocketChatAccount)

@@ -5,6 +5,8 @@
 */
 
 #include "roomwidget.h"
+#include "encryption/e2ecopypassworddialog.h"
+#include "encryption/e2edecodeencryptionkeywidget.h"
 using namespace Qt::Literals::StringLiterals;
 
 #include "accountroomsettings.h"
@@ -177,6 +179,24 @@ void RoomWidget::createOtrWidget()
     connect(mOtrWidget, &OtrWidget::refreshKeys, this, &RoomWidget::slotRefreshOtrKeys);
     // After mUsersInRoomFlowWidget
     mRoomWidgetLayout->insertWidget(1, mOtrWidget);
+}
+
+void RoomWidget::createE2eDecodeEncryptionKeyWidget()
+{
+    mE2eDecodeEncryptionKeyWidget = new E2eDecodeEncryptionKeyWidget(this);
+    mE2eDecodeEncryptionKeyWidget->setObjectName(QStringLiteral("mE2eDecodeEncryptionKeyWidget"));
+    connect(mE2eDecodeEncryptionKeyWidget, &E2eDecodeEncryptionKeyWidget::decodeEncrytionKey, this, &RoomWidget::slotDecodeEncrytionKey);
+    // After mUsersInRoomFlowWidget
+    mRoomWidgetLayout->insertWidget(1, mE2eDecodeEncryptionKeyWidget);
+}
+
+void RoomWidget::slotDecodeEncrytionKey()
+{
+    QPointer<E2eCopyPasswordDialog> dlg = new E2eCopyPasswordDialog(this);
+    if (dlg->exec()) {
+        // TODO
+    }
+    delete dlg;
 }
 
 void RoomWidget::slotLoadHistory()
@@ -854,6 +874,7 @@ void RoomWidget::setCurrentRocketChatAccount(RocketChatAccount *account)
         disconnect(mCurrentRocketChatAccount, &RocketChatAccount::displayReconnectWidget, this, &RoomWidget::slotDisplayReconnectWidget);
         disconnect(mCurrentRocketChatAccount, &RocketChatAccount::loginStatusChanged, this, &RoomWidget::slotLoginStatusChanged);
         disconnect(mCurrentRocketChatAccount, &RocketChatAccount::needUpdateMessageView, this, &RoomWidget::updateListView);
+        disconnect(mCurrentRocketChatAccount, &RocketChatAccount::needToSaveE2EPassword, this, &RoomWidget::createE2eDecodeEncryptionKeyWidget);
     }
 
     mCurrentRocketChatAccount = account;
@@ -862,6 +883,12 @@ void RoomWidget::setCurrentRocketChatAccount(RocketChatAccount *account)
     connect(mCurrentRocketChatAccount, &RocketChatAccount::displayReconnectWidget, this, &RoomWidget::slotDisplayReconnectWidget);
     connect(mCurrentRocketChatAccount, &RocketChatAccount::loginStatusChanged, this, &RoomWidget::slotLoginStatusChanged);
     connect(mCurrentRocketChatAccount, &RocketChatAccount::needUpdateMessageView, this, &RoomWidget::updateListView);
+    connect(mCurrentRocketChatAccount, &RocketChatAccount::needToSaveE2EPassword, this, [this]() {
+        if (!mE2eDecodeEncryptionKeyWidget) {
+            createE2eDecodeEncryptionKeyWidget();
+        }
+        mE2eDecodeEncryptionKeyWidget->animatedShow();
+    });
     // TODO verify if we need to show or not reconnect widget
     mRoomHeaderWidget->setCurrentRocketChatAccount(account);
     mUsersInRoomFlowWidget->setCurrentRocketChatAccount(account);
