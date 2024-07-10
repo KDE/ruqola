@@ -124,7 +124,7 @@ QSize ListAttachmentDelegate::sizeHint(const QStyleOptionViewItem &option, const
     const Layout layout = doLayout(option, index);
 
     const int contentsHeight = layout.timeStampY + option.fontMetrics.height() - option.rect.y();
-    return {option.rect.width(), contentsHeight};
+    return {0, contentsHeight};
 }
 
 ListAttachmentDelegate::Layout ListAttachmentDelegate::doLayout(const QStyleOptionViewItem &option, const QModelIndex &index) const
@@ -151,8 +151,8 @@ ListAttachmentDelegate::Layout ListAttachmentDelegate::doLayout(const QStyleOpti
     usableRect.setLeft(layout.mimetypeHeight);
 
     const int iconSize = layout.mimetypeHeight;
-    layout.downloadAttachmentRect = QRect(option.rect.width() - iconSize, option.rect.y(), iconSize, iconSize);
-    layout.deleteAttachmentRect = QRect(option.rect.width() - 2 * iconSize - DelegatePaintUtil::margin(), option.rect.y(), iconSize, iconSize);
+    layout.downloadAttachmentRect = QRect(option.rect.right() - iconSize, option.rect.y(), iconSize, iconSize);
+    layout.deleteAttachmentRect = QRect(layout.downloadAttachmentRect.left() - iconSize - DelegatePaintUtil::margin(), option.rect.y(), iconSize, iconSize);
     return layout;
 }
 
