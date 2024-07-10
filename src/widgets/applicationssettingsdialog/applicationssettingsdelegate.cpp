@@ -134,6 +134,10 @@ ApplicationsSettingsDelegate::Layout ApplicationsSettingsDelegate::doLayout(cons
     layout.textRect = QRect(iconWidth + 2 * margin, topPos, maxWidth, qMax(textSize.height(), iconWidth + margin) /* + textVMargin*/);
     layout.premiumRect = QRectF(layout.textRect.right() - premiumTextSize.width(), topPos, premiumTextSize.width(), premiumTextSize.height());
 
+    const int requested = index.data(AppsMarketPlaceModel::RequestedApps).toInt();
+    layout.requested = requested > 0;
+    layout.requestedText = layout.requested ? i18np("%1 request", "%1 requests", requested) : QString();
+
     return layout;
 }
 
