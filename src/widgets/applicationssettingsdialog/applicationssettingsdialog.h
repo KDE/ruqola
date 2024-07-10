@@ -6,6 +6,7 @@
 
 #pragma once
 
+#include "applicationssettingssearchwidget.h"
 #include "libruqolawidgets_private_export.h"
 #include <QDialog>
 class ApplicationsSettingsWidget;
@@ -16,6 +17,8 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT ApplicationsSettingsDialog : public QDialog
 public:
     explicit ApplicationsSettingsDialog(RocketChatAccount *account, QWidget *parent = nullptr);
     ~ApplicationsSettingsDialog() override;
+
+    void setFeature(ApplicationsSettingsSearchWidget::Feature feature);
 
 private:
     LIBRUQOLAWIDGETS_NO_EXPORT void readConfig();

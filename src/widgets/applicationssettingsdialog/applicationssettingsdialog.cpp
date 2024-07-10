@@ -44,6 +44,11 @@ ApplicationsSettingsDialog::~ApplicationsSettingsDialog()
     writeConfig();
 }
 
+void ApplicationsSettingsDialog::setFeature(ApplicationsSettingsSearchWidget::Feature feature)
+{
+    mApplicationsSettingsWidget->setFeature(feature);
+}
+
 void ApplicationsSettingsDialog::readConfig()
 {
     create(); // ensure a window is created

@@ -1185,6 +1185,7 @@ void RuqolaMainWindow::slotExportAccounts()
 void RuqolaMainWindow::slotApplicationsSettings()
 {
     ApplicationsSettingsDialog dlg(mCurrentRocketChatAccount, this);
+    // dlg.setFeature(ApplicationsSettingsSearchWidget::Requested);
     dlg.exec();
 }
 #include "moc_ruqolamainwindow.cpp"
