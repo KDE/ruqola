@@ -28,7 +28,7 @@ void E2eKeyManager::fetchMyKeys()
     auto job = new RocketChatRestApi::FetchMyKeysJob(this);
     mAccount->restApi()->initializeRestApiJob(job);
     connect(job, &RocketChatRestApi::FetchMyKeysJob::fetchMyKeysDone, this, [this](const QJsonObject &json) {
-        qDebug() << " RocketChatRestApi::FetchMyKeysJob result " << json;
+        qDebug() << " RocketChatRestApi::FetchMyKeysJob result " << json << "account name: " << mAccount->accountName();
         Q_EMIT fetchMyKeysDone(json);
     });
     if (!job->start()) {

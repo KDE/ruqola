@@ -279,6 +279,7 @@ RocketChatAccount::RocketChatAccount(const QString &accountFileName, QObject *pa
     mPreviewUrlCacheManager->setCachePath(ManagerDataPaths::self()->path(ManagerDataPaths::PreviewUrl, accountName()));
     setDefaultAuthentication(mSettings->authMethodType());
     mNotificationPreferences->setCustomSoundManager(mCustomSoundManager);
+    connect(mE2eKeyManager, &E2eKeyManager::fetchMyKeysDone, this, &RocketChatAccount::slotFetchMyKeysDone);
 }
 
 RocketChatAccount::~RocketChatAccount()
@@ -2502,6 +2503,10 @@ void RocketChatAccount::initializeAccount()
     customUsersStatus();
     slotLoadRoles();
     checkLicenses();
+    qDebug() << "encryptionEnabled()  " << encryptionEnabled() << " account name " << accountName();
+    if (encryptionEnabled()) {
+        mE2eKeyManager->fetchMyKeys();
+    }
 
     Q_EMIT accountInitialized();
 }
@@ -3284,6 +3289,12 @@ void RocketChatAccount::loadAppMarketPlace()
     if (!job->start()) {
         qCWarning(RUQOLA_LOG) << "Impossible to start AppMarketPlaceJob";
     }
+}
+
+void RocketChatAccount::slotFetchMyKeysDone(const QJsonObject &obj)
+{
+    qDebug() << " obj " << obj;
+    // TODO verify if we must decode it
 }
 
 #include "moc_rocketchataccount.cpp"
