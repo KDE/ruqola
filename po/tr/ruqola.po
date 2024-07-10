@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-07-09 00:38+0000\n"
-"PO-Revision-Date: 2024-07-07 00:34+0300\n"
+"POT-Creation-Date: 2024-07-10 00:39+0000\n"
+"PO-Revision-Date: 2024-07-10 00:37+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -162,39 +162,39 @@ msgstr "Eniyileme, Windows/Mac desteğini onarma"
 msgid "The following accounts are available:"
 msgstr "Aşağıdaki hesaplar kullanılabilir:"
 
-#: core/apps/appsmarketplaceinfo.cpp:304 core/model/adminrolesmodel.cpp:40
+#: core/apps/appsmarketplaceinfo.cpp:322 core/model/adminrolesmodel.cpp:40
 #: widgets/administratorsettingsdialog/ircfederation/ircfederationwidget.cpp:50
 #, kde-format
 msgid "Description"
 msgstr "Açıklama"
 
-#: core/apps/appsmarketplaceinfo.cpp:306
+#: core/apps/appsmarketplaceinfo.cpp:324
 #: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:163
 #, kde-format
 msgid "Version"
 msgstr "Sürüm"
 
-#: core/apps/appsmarketplaceinfo.cpp:309 core/model/appscategoriesmodel.cpp:34
+#: core/apps/appsmarketplaceinfo.cpp:327 core/model/appscategoriesmodel.cpp:34
 #, kde-format
 msgid "Categories"
 msgstr "Kategoriler"
 
-#: core/apps/appsmarketplaceinfo.cpp:313
+#: core/apps/appsmarketplaceinfo.cpp:331
 #, kde-format
 msgid "Documentation"
 msgstr "Belgelendirme"
 
-#: core/apps/appsmarketplaceinfo.cpp:320
+#: core/apps/appsmarketplaceinfo.cpp:338
 #, kde-format
 msgid "Homepage"
 msgstr "Ana Sayfa"
 
-#: core/apps/appsmarketplaceinfo.cpp:326
+#: core/apps/appsmarketplaceinfo.cpp:344
 #, kde-format
 msgid "Support"
 msgstr "Destek"
 
-#: core/apps/appsmarketplaceinfo.cpp:330
+#: core/apps/appsmarketplaceinfo.cpp:348
 #, kde-format
 msgid "Privacy Summary"
 msgstr "Gizlilik Özeti"
@@ -6402,15 +6402,13 @@ msgid "Mark as Read"
 msgstr "Okundu Olarak İmle"
 
 #: widgets/channellist/channellistview.cpp:118
-#, fuzzy, kde-format
-#| msgid "Mark As Read"
+#, kde-format
 msgctxt "@action"
 msgid "Mark As Read"
 msgstr "Okundu Olarak İmle"
 
 #: widgets/channellist/channellistview.cpp:118
-#, fuzzy, kde-format
-#| msgid "Mark As Unread"
+#, kde-format
 msgctxt "@action"
 msgid "Mark As Unread"
 msgstr "Okunmadı Olarak İmle"
@@ -6423,15 +6421,13 @@ msgid "Set as Favorite"
 msgstr "Sık Kullanılan Olarak Ayarla"
 
 #: widgets/channellist/channellistview.cpp:128
-#, fuzzy, kde-format
-#| msgid "Unset as Favorite"
+#, kde-format
 msgctxt "@action"
 msgid "Unset as Favorite"
 msgstr "Sık Kullanılanlardan Kaldır"
 
 #: widgets/channellist/channellistview.cpp:137
-#, fuzzy, kde-format
-#| msgid "Hide Channel"
+#, kde-format
 msgctxt "@action"
 msgid "Hide Channel"
 msgstr "Kanalı Gizle"
@@ -6455,15 +6451,13 @@ msgid "Move to Team"
 msgstr "Takıma Taşı"
 
 #: widgets/channellist/channellistview.cpp:194
-#, fuzzy, kde-format
-#| msgid "Configure Notification…"
+#, kde-format
 msgctxt "@action"
 msgid "Configure Notification…"
 msgstr "Bildirimi Yapılandır…"
 
 #: widgets/channellist/channellistview.cpp:201
-#, fuzzy, kde-format
-#| msgid "Quit Channel"
+#, kde-format
 msgctxt "@action"
 msgid "Quit Channel"
 msgstr "Kanaldan Çık"
@@ -8313,11 +8307,10 @@ msgid "Reset Password"
 msgstr "Parolayı Sıfırla"
 
 #: widgets/misc/searchwithdelaylineedit.cpp:16
-#, fuzzy, kde-format
-#| msgid "Search Word…"
+#, kde-format
 msgctxt "@info:placeholder"
 msgid "Search Word…"
-msgstr "Sözcük Ara…"
+msgstr "Sözcük ara…"
 
 #: widgets/misc/servermenu.cpp:20
 #, kde-format
@@ -9209,15 +9202,13 @@ msgid "Start of conversation"
 msgstr "Konuşma başlangıcı"
 
 #: widgets/room/messagelistview.cpp:280
-#, fuzzy, kde-format
-#| msgid "Unpin Message"
+#, kde-format
 msgctxt "@action"
 msgid "Unpin Message"
 msgstr "İletiyi Sabitleme"
 
 #: widgets/room/messagelistview.cpp:280
-#, fuzzy, kde-format
-#| msgid "Pin Message"
+#, kde-format
 msgctxt "@action"
 msgid "Pin Message"
 msgstr "İletiyi Sabitle"
@@ -9604,43 +9595,37 @@ msgid "Start Conversation"
 msgstr "Konuşma Başlat"
 
 #: widgets/room/usersinroommenu.cpp:114
-#, fuzzy, kde-format
-#| msgid "Remove as Owner"
+#, kde-format
 msgctxt "@action"
 msgid "Remove as Owner"
 msgstr "Sahiplikten Çıkar"
 
 #: widgets/room/usersinroommenu.cpp:114
-#, fuzzy, kde-format
-#| msgid "Add as Owner"
+#, kde-format
 msgctxt "@action"
 msgid "Add as Owner"
 msgstr "Sahip Olarak Ekle"
 
 #: widgets/room/usersinroommenu.cpp:127
-#, fuzzy, kde-format
-#| msgid "Remove as Leader"
+#, kde-format
 msgctxt "@action"
 msgid "Remove as Leader"
 msgstr "Liderlikten Çıkar"
 
 #: widgets/room/usersinroommenu.cpp:127
-#, fuzzy, kde-format
-#| msgid "Add as Leader"
+#, kde-format
 msgctxt "@action"
 msgid "Add as Leader"
 msgstr "Lider Olarak Ekle"
 
 #: widgets/room/usersinroommenu.cpp:139
-#, fuzzy, kde-format
-#| msgid "Remove as Moderator"
+#, kde-format
 msgctxt "@action"
 msgid "Remove as Moderator"
 msgstr "Moderatörlükten Çıkar"
 
 #: widgets/room/usersinroommenu.cpp:139
-#, fuzzy, kde-format
-#| msgid "Add as Moderator"
+#, kde-format
 msgctxt "@action"
 msgid "Add as Moderator"
 msgstr "Moderatör Olarak Ekle"
