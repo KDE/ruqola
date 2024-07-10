@@ -22,6 +22,7 @@ public:
 
     [[nodiscard]] bool needToDecodeEncryptionKey() const;
 
+    [[nodiscard]] QString generateRandomPassword() const;
 Q_SIGNALS:
     void needDecodeEncryptionKey();
     void failedDecodeEncryptionKey();

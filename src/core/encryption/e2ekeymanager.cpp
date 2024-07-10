@@ -23,6 +23,12 @@ void E2eKeyManager::decodeEncryptionKey()
     // TODO
 }
 
+QString E2eKeyManager::generateRandomPassword() const
+{
+    // TODO
+    return {};
+}
+
 void E2eKeyManager::fetchMyKeys()
 {
     auto job = new RocketChatRestApi::FetchMyKeysJob(this);
