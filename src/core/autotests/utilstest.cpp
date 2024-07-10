@@ -84,6 +84,8 @@ void UtilsTest::shouldConvertTextWithUrl_data()
                "ideas: <a href='https://www.kde.com/pages/viewpage.action?pageId=11111'>https://www.kde.com/pages/viewpage.action?pageId=11111.</a>\r\n "
                "[~vvvv] can");
 #endif
+    // Test [foo](http://www.kde.org_!!)
+    QTest::newRow("[foo](http://www.kde.org!!)") << QStringLiteral("[foo](http://www.kde.org!!)") << QStringLiteral("<a href='http://www.kde.org!!'>foo</a>");
 }
 
 void UtilsTest::shouldConvertTextWithUrl()
