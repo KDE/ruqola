@@ -540,6 +540,8 @@ public:
     void loadInstalledApps();
 
     [[nodiscard]] bool appMarketPlaceLoaded() const;
+    [[nodiscard]] E2eKeyManager *e2eKeyManager() const;
+
 Q_SIGNALS:
     void roomRemoved(const QByteArray &roomId);
     void disabledTotpValid(bool checked);

@@ -2438,6 +2438,11 @@ void RocketChatAccount::slotReconnectToDdpServer()
     }
 }
 
+E2eKeyManager *RocketChatAccount::e2eKeyManager() const
+{
+    return mE2eKeyManager;
+}
+
 AppsCategoriesModel *RocketChatAccount::appsCategoriesModel() const
 {
     return mAppsCategoriesModel;
