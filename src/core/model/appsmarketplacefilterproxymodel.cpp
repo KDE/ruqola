@@ -19,6 +19,11 @@ AppsMarketPlaceFilterProxyModel::~AppsMarketPlaceFilterProxyModel() = default;
 bool AppsMarketPlaceFilterProxyModel::filterAcceptsRow(int source_row, const QModelIndex &source_parent) const
 {
     const QModelIndex modelIndex = sourceModel()->index(source_row, 0, source_parent);
+    if (mRequested) {
+        if (!modelIndex.data(AppsMarketPlaceModel::RequestedApps).toBool()) {
+            return false;
+        }
+    }
     if (!mFilterInfo.text.isEmpty()) {
         if (!modelIndex.data(AppsMarketPlaceModel::ShortDescription).toString().contains(mFilterInfo.text, Qt::CaseInsensitive)
             && !modelIndex.data(AppsMarketPlaceModel::AppName).toString().contains(mFilterInfo.text, Qt::CaseInsensitive)) {
@@ -121,6 +126,16 @@ bool AppsMarketPlaceFilterProxyModel::lessThan(const QModelIndex &left, const QM
         return false;
     }
     return false;
+}
+
+bool AppsMarketPlaceFilterProxyModel::requested() const
+{
+    return mRequested;
+}
+
+void AppsMarketPlaceFilterProxyModel::setRequested(bool newRequested)
+{
+    mRequested = newRequested;
 }
 
 AppsMarketPlaceFilterProxyModel::Sorting AppsMarketPlaceFilterProxyModel::sorting() const

@@ -13,6 +13,13 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT ApplicationsSettingsAskApplicationWidget : p
 {
     Q_OBJECT
 public:
+    enum Feature {
+        None,
+        Installed,
+        Requested,
+    };
+    Q_ENUM(Feature)
+
     explicit ApplicationsSettingsAskApplicationWidget(QWidget *parent = nullptr);
     ~ApplicationsSettingsAskApplicationWidget() override;
 
