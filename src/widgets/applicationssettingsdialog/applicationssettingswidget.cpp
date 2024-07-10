@@ -7,7 +7,6 @@
 #include "applicationssettingswidget.h"
 #include "applicationssettingsinprogresswidget.h"
 #include "applicationssettingslistview.h"
-#include "applicationssettingssearchwidget.h"
 #include "rocketchataccount.h"
 
 #include <QStackedWidget>
@@ -62,6 +61,11 @@ ApplicationsSettingsWidget::ApplicationsSettingsWidget(RocketChatAccount *accoun
     }
     connect(mApplicationsSettingsSearchWidget, &ApplicationsSettingsSearchWidget::filterChanged, this, &ApplicationsSettingsWidget::slotFilterChanged);
     connect(mApplicationsSettingsSearchWidget, &ApplicationsSettingsSearchWidget::sortingChanged, this, &ApplicationsSettingsWidget::slotSortingChanged);
+}
+
+void ApplicationsSettingsWidget::setFeature(ApplicationsSettingsSearchWidget::Feature feature)
+{
+    mApplicationsSettingsSearchWidget->setFeature(feature);
 }
 
 ApplicationsSettingsWidget::~ApplicationsSettingsWidget() = default;

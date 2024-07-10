@@ -20,11 +20,21 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT ApplicationsSettingsSearchWidget : public QW
 {
     Q_OBJECT
 public:
+    enum Feature {
+        None,
+        Installed,
+        Requested,
+    };
+    Q_ENUM(Feature)
+
     explicit ApplicationsSettingsSearchWidget(RocketChatAccount *account, QWidget *parent = nullptr);
     ~ApplicationsSettingsSearchWidget() override;
 
     [[nodiscard]] AppsMarketPlaceFilterProxyModel::FilterInfo filterInfo() const;
     [[nodiscard]] AppsMarketPlaceFilterProxyModel::Sorting sortingInfo() const;
+
+    void setFeature(ApplicationsSettingsSearchWidget::Feature feature);
+
 Q_SIGNALS:
     void filterChanged();
     void sortingChanged();

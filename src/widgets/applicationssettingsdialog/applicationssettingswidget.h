@@ -5,11 +5,11 @@
 */
 
 #pragma once
+#include "applicationssettingssearchwidget.h"
 #include "libruqolawidgets_private_export.h"
 #include "rocketchataccount.h"
 #include <QWidget>
 class RocketChatAccount;
-class ApplicationsSettingsSearchWidget;
 class ApplicationsSettingsListView;
 class QStackedWidget;
 class ApplicationsSettingsInProgressWidget;
@@ -19,6 +19,8 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT ApplicationsSettingsWidget : public QWidget
 public:
     explicit ApplicationsSettingsWidget(RocketChatAccount *account, QWidget *parent = nullptr);
     ~ApplicationsSettingsWidget() override;
+
+    void setFeature(ApplicationsSettingsSearchWidget::Feature feature);
 
 private:
     LIBRUQOLAWIDGETS_NO_EXPORT void slotFilterChanged();

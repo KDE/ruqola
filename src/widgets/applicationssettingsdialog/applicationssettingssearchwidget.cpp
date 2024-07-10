@@ -78,4 +78,19 @@ AppsMarketPlaceFilterProxyModel::Sorting ApplicationsSettingsSearchWidget::sorti
     return mApplicationsSettingsSortingComboBox->currentSorting();
 }
 
+void ApplicationsSettingsSearchWidget::setFeature(Feature feature)
+{
+    switch (feature) {
+    case Feature::None:
+        mApplicationsSettingsInstalledComboBox->setVisible(true); // ??? true ??
+        break;
+    case Feature::Installed:
+        mApplicationsSettingsInstalledComboBox->setVisible(true);
+        break;
+    case Feature::Requested:
+        mApplicationsSettingsInstalledComboBox->setVisible(false);
+        break;
+    }
+}
+
 #include "moc_applicationssettingssearchwidget.cpp"
