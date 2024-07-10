@@ -2901,6 +2901,9 @@ void RocketChatAccount::updateUserData(const QJsonArray &contents)
                 ownUserPreferences.setMuteFocusedConversations(updateJson.value(key).toBool());
                 mOwnUser.setOwnUserPreferences(ownUserPreferences);
                 Q_EMIT ownUserPreferencesChanged();
+            } else if (key == "e2e.private_key"_L1) {
+                // TODO update private key!!!!!
+                qDebug() << " e2e.private_key changed !!! " << updateJson.value(key).toString();
             } else {
                 const static QRegularExpression bannerRegularExpression(QStringLiteral("banners.(.*).read"));
                 QRegularExpressionMatch rmatch;
