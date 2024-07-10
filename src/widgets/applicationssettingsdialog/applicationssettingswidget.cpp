@@ -66,6 +66,9 @@ ApplicationsSettingsWidget::ApplicationsSettingsWidget(RocketChatAccount *accoun
 void ApplicationsSettingsWidget::setFeature(ApplicationsSettingsSearchWidget::Feature feature)
 {
     mApplicationsSettingsSearchWidget->setFeature(feature);
+    if (feature == ApplicationsSettingsSearchWidget::Feature::Requested) {
+        mApplicationsSettingsListView->setRequested(true);
+    }
 }
 
 ApplicationsSettingsWidget::~ApplicationsSettingsWidget() = default;

@@ -23,6 +23,8 @@ public:
     void setFilterInfo(const AppsMarketPlaceFilterProxyModel::FilterInfo &info);
     void setSorting(AppsMarketPlaceFilterProxyModel::Sorting newSorting);
 
+    void setRequested(bool requested);
+
 protected:
     [[nodiscard]] bool maybeStartDrag(QMouseEvent *event, const QStyleOptionViewItem &option, const QModelIndex &index) override;
     [[nodiscard]] bool mouseEvent(QMouseEvent *event, const QStyleOptionViewItem &option, const QModelIndex &index) override;

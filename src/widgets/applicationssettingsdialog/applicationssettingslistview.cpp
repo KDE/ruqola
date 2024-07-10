@@ -121,6 +121,11 @@ void ApplicationsSettingsListView::setSorting(AppsMarketPlaceFilterProxyModel::S
     mAppsMarketPlaceFilterProxyModel->setSorting(newSorting);
 }
 
+void ApplicationsSettingsListView::setRequested(bool requested)
+{
+    mAppsMarketPlaceFilterProxyModel->setRequested(requested);
+}
+
 void ApplicationsSettingsListView::slotInstallApplication(const QModelIndex &index)
 {
     // TODO
