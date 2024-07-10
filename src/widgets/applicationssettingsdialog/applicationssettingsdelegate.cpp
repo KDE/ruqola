@@ -76,6 +76,9 @@ void ApplicationsSettingsDelegate::paint(QPainter *painter, const QStyleOptionVi
         painter->setPen(Qt::white);
         painter->drawText(layout.premiumRect, layout.premiumText);
     }
+    if (layout.requested) {
+        // TODO
+    }
     painter->restore();
 }
 
@@ -105,20 +108,21 @@ QSize ApplicationsSettingsDelegate::sizeHint(const QStyleOptionViewItem &option,
 ApplicationsSettingsDelegate::Layout ApplicationsSettingsDelegate::doLayout(const QStyleOptionViewItem &option, const QModelIndex &index) const
 {
     ApplicationsSettingsDelegate::Layout layout;
-    const auto pix = index.data(AppsMarketPlaceModel::Pixmap).value<QPixmap>();
-    layout.premiumText = i18n("Premium");
+    layout.premium = index.data(AppsMarketPlaceModel::IsEnterpriseOnly).toBool();
+    layout.premiumText = layout.premium ? i18n("Premium") : QString();
     const QFontMetricsF senderFontMetrics(option.font);
     const QSizeF premiumTextSize = senderFontMetrics.size(Qt::TextSingleLine, layout.premiumText);
     const int iconWidth = premiumTextSize.height() * 2;
     const int margin = MessageDelegateUtils::basicMargin();
     QRect usableRect = option.rect;
     const int topPos = usableRect.top() + margin;
+
+    const auto pix = index.data(AppsMarketPlaceModel::Pixmap).value<QPixmap>();
     if (!pix.isNull()) {
         const QPixmap scaledPixmap = pix.scaled(iconWidth, iconWidth, Qt::KeepAspectRatio, Qt::SmoothTransformation);
         layout.appPixmap = scaledPixmap;
         layout.appPixmapPos = QPointF(option.rect.x() + margin, topPos);
     }
-    layout.premium = index.data(AppsMarketPlaceModel::IsEnterpriseOnly).toBool();
 
     const int maxWidth = qMax(iconWidth, option.rect.width() - iconWidth - 2 * margin - static_cast<int>(premiumTextSize.width()));
 

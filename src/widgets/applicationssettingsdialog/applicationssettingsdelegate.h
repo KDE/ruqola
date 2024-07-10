@@ -42,6 +42,11 @@ private:
         QString premiumText;
         QRectF premiumRect;
         bool premium = false;
+
+        // Requested
+        QString requestedText;
+        QRectF requestedRect;
+        bool requested = false;
     };
 
     [[nodiscard]] ApplicationsSettingsDelegate::Layout doLayout(const QStyleOptionViewItem &option, const QModelIndex &index) const;
