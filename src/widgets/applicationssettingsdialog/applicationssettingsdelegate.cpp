@@ -20,6 +20,10 @@
 #include <QTextDocument>
 #include <QTreeView>
 
+namespace
+{
+constexpr uint bordermargin = 5;
+}
 ApplicationsSettingsDelegate::ApplicationsSettingsDelegate(RocketChatAccount *account, QAbstractItemView *view, QObject *parent)
     : MessageListDelegateBase{view, parent}
     , mRocketChatAccount(account)
@@ -72,12 +76,16 @@ void ApplicationsSettingsDelegate::paint(QPainter *painter, const QStyleOptionVi
     if (layout.premium) {
         painter->setBrush(ColorsAndMessageViewStyle::self().schemeView().foreground(KColorScheme::PositiveText).color());
         painter->setPen(Qt::NoPen);
-        painter->drawRoundedRect(layout.premiumRect.adjusted(-5, 0, 5, 0), 5, 5);
+        painter->drawRoundedRect(layout.premiumRect.adjusted(-5, 0, 5, 0), bordermargin, bordermargin);
         painter->setPen(Qt::white);
         painter->drawText(layout.premiumRect, layout.premiumText);
     }
     if (layout.requested) {
-        // TODO
+        painter->setBrush(ColorsAndMessageViewStyle::self().schemeView().foreground(KColorScheme::NeutralText).color());
+        painter->setPen(Qt::NoPen);
+        painter->drawRoundedRect(layout.requestedRect.adjusted(-5, 0, 5, 0), bordermargin, bordermargin);
+        painter->setPen(Qt::white);
+        painter->drawText(layout.requestedRect, layout.requestedText);
     }
     painter->restore();
 }
@@ -132,12 +140,16 @@ ApplicationsSettingsDelegate::Layout ApplicationsSettingsDelegate::doLayout(cons
     const QSize textSize = MessageDelegateUtils::textSizeHint(doc, &baseLine);
 
     layout.textRect = QRect(iconWidth + 2 * margin, topPos, maxWidth, qMax(textSize.height(), iconWidth + margin) /* + textVMargin*/);
-    layout.premiumRect = QRectF(layout.textRect.right() - premiumTextSize.width(), topPos, premiumTextSize.width(), premiumTextSize.height());
+    layout.premiumRect = QRectF(usableRect.right() - premiumTextSize.width() - 2 * margin, topPos, premiumTextSize.width(), premiumTextSize.height());
 
     const int requested = index.data(AppsMarketPlaceModel::RequestedApps).toInt();
     layout.requested = requested > 0;
     layout.requestedText = layout.requested ? i18np("%1 request", "%1 requests", requested) : QString();
-
+    const QSizeF requestedTextSize = senderFontMetrics.size(Qt::TextSingleLine, layout.requestedText);
+    layout.requestedRect = QRectF(usableRect.right() - premiumTextSize.width() - requestedTextSize.width() - 2 * margin,
+                                  topPos,
+                                  requestedTextSize.width(),
+                                  requestedTextSize.height());
     return layout;
 }
 
