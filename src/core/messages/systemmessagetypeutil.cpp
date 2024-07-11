@@ -5,6 +5,7 @@
 */
 
 #include "systemmessagetypeutil.h"
+#include "ruqola_debug.h"
 
 using namespace SystemMessageTypeUtil;
 using namespace Qt::Literals::StringLiterals;
@@ -100,6 +101,7 @@ SystemMessageType SystemMessageTypeUtil::systemMessageTypeFromString(const QStri
     } else if (str == "videoconf"_L1) {
         return VideoConf;
     } else {
+        qCWarning(RUQOLA_LOG) << " Unknown message type " << str;
         return Unknown;
     }
 }
