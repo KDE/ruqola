@@ -8,6 +8,7 @@
 #include "encryption/e2ecopypassworddialog.h"
 #include "encryption/e2edecodeencryptionkeyfailedwidget.h"
 #include "encryption/e2edecodeencryptionkeywidget.h"
+#include "encryption/e2epassworddecodekeydialog.h"
 #include "encryption/e2esaveencryptionkeywidget.h"
 using namespace Qt::Literals::StringLiterals;
 
@@ -204,7 +205,11 @@ void RoomWidget::createE2eDecodeEncryptionKeyFailedWidget()
 
 void RoomWidget::slotDecodeEncryptionKey()
 {
-    // TODO
+    QPointer<E2ePasswordDecodeKeyDialog> dlg = new E2ePasswordDecodeKeyDialog(this);
+    if (dlg->exec()) {
+        // TODO we saved it => don't ask it again
+    }
+    delete dlg;
 }
 
 // TODO use it
