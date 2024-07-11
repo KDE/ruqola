@@ -44,6 +44,7 @@ option(OPTION_USE_SIZEHINT_CACHE_SUPPORT "Add sizehint cache" ON)
 option(OPTION_USE_ROUNDED_RECT_PIXMAP "Show avatar in a rounded rect" ON)
 option(OPTION_USE_PERSONAL_ACCESS_TOKEN "Activate Personal Access Token Support" ON)
 option(OPTION_USE_PLASMA_ACTIVITIES "Activate plasma activities" ON)
+option(OPTION_USE_E2E_SUPPORT "E2E support (experimental)" OFF)
 
 
 if(OPTION_USE_PLASMA_ACTIVITIES)
@@ -53,6 +54,10 @@ if(OPTION_USE_PLASMA_ACTIVITIES)
         set(OPTION_USE_PLASMA_ACTIVITIES false)
     endif()
 endif()    
+
+if(OPTION_USE_E2E_SUPPORT)
+    set(USE_E2E_SUPPORT true)
+endif()
 
 if(OPTION_USE_PERSONAL_ACCESS_TOKEN)
     set(USE_PERSONAL_ACCESS_TOKEN true)

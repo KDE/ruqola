@@ -610,6 +610,7 @@ Q_SIGNALS:
     void activitiesChanged();
     void appsMarkPlaceLoadDone();
     void needToSaveE2EPassword();
+    void needToDecryptE2EPassword();
 
 private:
     Q_DISABLE_COPY(RocketChatAccount)

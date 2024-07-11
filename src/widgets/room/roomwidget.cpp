@@ -907,6 +907,7 @@ void RoomWidget::setCurrentRocketChatAccount(RocketChatAccount *account)
         disconnect(mCurrentRocketChatAccount, &RocketChatAccount::loginStatusChanged, this, &RoomWidget::slotLoginStatusChanged);
         disconnect(mCurrentRocketChatAccount, &RocketChatAccount::needUpdateMessageView, this, &RoomWidget::updateListView);
         disconnect(mCurrentRocketChatAccount, &RocketChatAccount::needToSaveE2EPassword, this, &RoomWidget::createE2eSaveEncryptionKeyWidget);
+        disconnect(mCurrentRocketChatAccount, &RocketChatAccount::needToDecryptE2EPassword, this, &RoomWidget::createE2eDecodeEncryptionKeyWidget);
     }
 
     mCurrentRocketChatAccount = account;
@@ -921,6 +922,13 @@ void RoomWidget::setCurrentRocketChatAccount(RocketChatAccount *account)
         }
         mE2eSaveEncryptionKeyWidget->animatedShow();
     });
+    connect(mCurrentRocketChatAccount, &RocketChatAccount::needToDecryptE2EPassword, this, [this]() {
+        if (!mE2eDecodeEncryptionKeyWidget) {
+            createE2eDecodeEncryptionKeyWidget();
+        }
+        mE2eDecodeEncryptionKeyWidget->animatedShow();
+    });
+
     // TODO verify if we need to show or not reconnect widget
     mRoomHeaderWidget->setCurrentRocketChatAccount(account);
     mUsersInRoomFlowWidget->setCurrentRocketChatAccount(account);

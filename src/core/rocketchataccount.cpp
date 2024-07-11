@@ -3298,8 +3298,11 @@ void RocketChatAccount::slotFetchMyKeysDone(const QJsonObject &obj)
 {
     qDebug() << " obj " << obj;
     // TODO reactivate it when we will have full support
-    // Q_EMIT needToSaveE2EPassword();
+#ifdef USE_E2E_SUPPORT
+    Q_EMIT needToSaveE2EPassword();
+    Q_EMIT needToDecryptE2EPassword();
     // TODO verify if we must decode it
+#endif
 }
 
 #include "moc_rocketchataccount.cpp"
