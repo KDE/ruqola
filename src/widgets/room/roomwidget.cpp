@@ -208,6 +208,8 @@ void RoomWidget::slotDecodeEncryptionKey()
     QPointer<E2ePasswordDecodeKeyDialog> dlg = new E2ePasswordDecodeKeyDialog(this);
     if (dlg->exec()) {
         // TODO we saved it => don't ask it again
+        const QString password = dlg->password();
+        // TODO generate private key
     }
     delete dlg;
 }
