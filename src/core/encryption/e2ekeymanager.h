@@ -17,6 +17,8 @@ public:
         Unknown = 0,
         NeedToDecryptKey,
         NeedToGenerateKey,
+        KeyDecrypted,
+        DecryptionPostponned,
     };
     Q_ENUM(Status)
     explicit E2eKeyManager(RocketChatAccount *account, QObject *parent = nullptr);
