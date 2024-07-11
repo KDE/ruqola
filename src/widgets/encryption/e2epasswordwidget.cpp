@@ -5,10 +5,15 @@
 */
 
 #include "e2epasswordwidget.h"
+#include <QVBoxLayout>
 
 E2ePasswordWidget::E2ePasswordWidget(QWidget *parent)
     : QWidget{parent}
 {
+    auto mainLayout = new QVBoxLayout(this);
+    mainLayout->setObjectName(QStringLiteral("mainLayout"));
+
+    // TODO
 }
 
 E2ePasswordWidget::~E2ePasswordWidget() = default;
