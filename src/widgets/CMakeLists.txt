@@ -882,6 +882,9 @@ target_sources(libruqolawidgets PRIVATE
     encryption/e2epassworddecodekeywidget.h
     encryption/e2epassworddecodekeywidget.cpp
 
+    encryption/e2epassworddialog.h
+    encryption/e2epassworddialog.cpp
+
     forwardmessage/forwardmessagedialog.h
     forwardmessage/forwardmessagedialog.cpp
 
