@@ -9,6 +9,7 @@
 #include "rocketchataccount.h"
 #include <KLocalizedString>
 #include <QLabel>
+#include <QToolButton>
 #include <QVBoxLayout>
 using namespace Qt::Literals::StringLiterals;
 E2eCopyPasswordWidget::E2eCopyPasswordWidget(RocketChatAccount *account, QWidget *parent)
@@ -32,6 +33,12 @@ E2eCopyPasswordWidget::E2eCopyPasswordWidget(RocketChatAccount *account, QWidget
     label->setWordWrap(true);
     mainLayout->addWidget(label);
 
+    auto passwordLayout = new QHBoxLayout;
+    passwordLayout->setObjectName("passwordLayout"_L1);
+    passwordLayout->setContentsMargins({});
+
+    mainLayout->addLayout(passwordLayout);
+
     auto passwordLabel = new QLabel(this);
     passwordLabel->setObjectName("passwordLabel"_L1);
     passwordLabel->setTextFormat(Qt::RichText);
@@ -42,7 +49,15 @@ E2eCopyPasswordWidget::E2eCopyPasswordWidget(RocketChatAccount *account, QWidget
     passwordLabel->setFont(labFont);
     passwordLabel->setText(randomPassword);
 
-    mainLayout->addWidget(passwordLabel);
+    passwordLayout->addWidget(passwordLabel);
+
+    auto copyToolButton = new QToolButton(this);
+    copyToolButton->setObjectName("copyToolButton"_L1);
+    passwordLayout->addWidget(copyToolButton);
+    copyToolButton->setAutoRaise(true);
+    connect(copyToolButton, &QToolButton::clicked, this, [this, randomPassword]() {
+        // TODO copy
+    });
 
     mainLayout->addStretch(1);
 }

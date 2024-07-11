@@ -6,8 +6,10 @@
 
 #include "e2ecopypasswordwidgettest.h"
 #include "encryption/e2ecopypasswordwidget.h"
+#include <QHBoxLayout>
 #include <QLabel>
 #include <QTest>
+#include <QToolButton>
 #include <QVBoxLayout>
 QTEST_MAIN(E2eCopyPasswordWidgetTest)
 using namespace Qt::Literals::StringLiterals;
@@ -33,6 +35,13 @@ void E2eCopyPasswordWidgetTest::shouldHaveDefaultValues()
     QVERIFY(passwordLabel);
     QCOMPARE(passwordLabel->textFormat(), Qt::RichText);
     QCOMPARE(passwordLabel->textInteractionFlags(), Qt::TextBrowserInteraction);
+
+    auto passwordLayout = w.findChild<QHBoxLayout *>("passwordLayout"_L1);
+    QCOMPARE(passwordLayout->contentsMargins(), QMargins{});
+
+    auto copyToolButton = w.findChild<QToolButton *>("copyToolButton"_L1);
+    QVERIFY(copyToolButton);
+    QVERIFY(copyToolButton->autoRaise());
 }
 
 #include "moc_e2ecopypasswordwidgettest.cpp"
