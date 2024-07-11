@@ -17,7 +17,7 @@ E2eCopyPasswordWidgetTest::E2eCopyPasswordWidgetTest(QObject *parent)
 
 void E2eCopyPasswordWidgetTest::shouldHaveDefaultValues()
 {
-    E2eCopyPasswordWidget w;
+    E2eCopyPasswordWidget w(nullptr);
 
     auto mainLayout = w.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
     QVERIFY(mainLayout);
