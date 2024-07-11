@@ -42,6 +42,7 @@ void E2eCopyPasswordWidgetTest::shouldHaveDefaultValues()
     auto copyToolButton = w.findChild<QToolButton *>("copyToolButton"_L1);
     QVERIFY(copyToolButton);
     QVERIFY(copyToolButton->autoRaise());
+    QVERIFY(!copyToolButton->toolTip().isEmpty());
 }
 
 #include "moc_e2ecopypasswordwidgettest.cpp"

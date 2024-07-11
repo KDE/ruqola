@@ -8,6 +8,8 @@
 #include "encryption/e2ekeymanager.h"
 #include "rocketchataccount.h"
 #include <KLocalizedString>
+#include <QApplication>
+#include <QClipboard>
 #include <QLabel>
 #include <QToolButton>
 #include <QVBoxLayout>
@@ -55,9 +57,14 @@ E2eCopyPasswordWidget::E2eCopyPasswordWidget(RocketChatAccount *account, QWidget
     copyToolButton->setObjectName("copyToolButton"_L1);
     passwordLayout->addWidget(copyToolButton);
     copyToolButton->setAutoRaise(true);
-    connect(copyToolButton, &QToolButton::clicked, this, [this, randomPassword]() {
-        // TODO copy
+    copyToolButton->setToolTip(i18n("Copy password"));
+    copyToolButton->setIcon(QIcon::fromTheme("password-copy"_L1));
+    connect(copyToolButton, &QToolButton::clicked, this, [randomPassword]() {
+        QClipboard *clip = QApplication::clipboard();
+        clip->setText(randomPassword, QClipboard::Clipboard);
+        clip->setText(randomPassword, QClipboard::Selection);
     });
+    passwordLayout->addStretch(1);
 
     mainLayout->addStretch(1);
 }
