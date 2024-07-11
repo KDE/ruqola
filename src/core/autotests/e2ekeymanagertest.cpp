@@ -16,7 +16,7 @@ E2eKeyManagerTest::E2eKeyManagerTest(QObject *parent)
 void E2eKeyManagerTest::shouldHaveDefaultValues()
 {
     E2eKeyManager m(nullptr);
-    // TODO
+    QCOMPARE(m.status(), E2eKeyManager::Status::Unknown);
 }
 
 #include "moc_e2ekeymanagertest.cpp"

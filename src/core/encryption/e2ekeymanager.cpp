@@ -37,6 +37,16 @@ QString E2eKeyManager::generateRandomPassword() const
     return randomStr;
 }
 
+E2eKeyManager::Status E2eKeyManager::status() const
+{
+    return mStatus;
+}
+
+void E2eKeyManager::setStatus(Status newStatus)
+{
+    mStatus = newStatus;
+}
+
 void E2eKeyManager::fetchMyKeys()
 {
     auto job = new RocketChatRestApi::FetchMyKeysJob(this);
@@ -50,16 +60,16 @@ void E2eKeyManager::fetchMyKeys()
     }
 }
 
-bool E2eKeyManager::needToDecodeEncryptionKey() const
+E2eKeyManager::Status E2eKeyManager::needToDecodeEncryptionKey() const
 {
     if (!mAccount) {
-        return false;
+        return Status::Unknown;
     }
     if (mAccount->encryptionEnabled()) {
         // TODO check if we have decoded key stored.
-        return true;
+        return Status::NeedToGenerateKey;
     }
-    return false;
+    return Status::Unknown;
 }
 
 #include "moc_e2ekeymanager.cpp"

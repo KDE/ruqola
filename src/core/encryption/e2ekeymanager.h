@@ -13,6 +13,12 @@ class LIBRUQOLACORE_EXPORT E2eKeyManager : public QObject
 {
     Q_OBJECT
 public:
+    enum Status {
+        Unknown = 0,
+        NeedToDecryptKey,
+        NeedToGenerateKey,
+    };
+    Q_ENUM(Status)
     explicit E2eKeyManager(RocketChatAccount *account, QObject *parent = nullptr);
     ~E2eKeyManager() override;
 
@@ -20,14 +26,19 @@ public:
 
     void fetchMyKeys();
 
-    [[nodiscard]] bool needToDecodeEncryptionKey() const;
+    [[nodiscard]] E2eKeyManager::Status needToDecodeEncryptionKey() const;
 
     [[nodiscard]] QString generateRandomPassword() const;
+
+    [[nodiscard]] Status status() const;
+    void setStatus(Status newStatus);
+
 Q_SIGNALS:
     void needDecodeEncryptionKey();
     void failedDecodeEncryptionKey();
     void fetchMyKeysDone(const QJsonObject &replyObject);
 
 private:
+    Status mStatus = Status::Unknown;
     RocketChatAccount *const mAccount;
 };
