@@ -25,8 +25,16 @@ void E2eKeyManager::decodeEncryptionKey()
 
 QString E2eKeyManager::generateRandomPassword() const
 {
-    // TODO
-    return {};
+    QString randomStr;
+    for (int i = 0; i < 15; i++) {
+        const int d = rand() % 200; // Generate a random ASCII value between 0 and 199
+        if (d >= 33 && d <= 123) {
+            randomStr.append(QLatin1Char(static_cast<char>(d))); // Convert the ASCII value to a character for valid range
+        } else {
+            randomStr.append(QString::number(d % 10)); // Keep the last digit for numbers outside the valid range
+        }
+    }
+    return randomStr;
 }
 
 void E2eKeyManager::fetchMyKeys()
