@@ -22,7 +22,6 @@ void Message::parseMessage(const QJsonObject &o, bool restApi, EmojiManager *emo
 {
     const QByteArray roomId = o.value("rid"_L1).toString().toLatin1();
 
-    // t ? I can't find it.
     const QString type = o.value("t"_L1).toString();
 
     mMessageId = o.value("_id"_L1).toString().toLatin1();
@@ -105,6 +104,8 @@ void Message::parseMessage(const QJsonObject &o, bool restApi, EmojiManager *emo
         if (type == "videoconf"_L1) {
             mMessageType = VideoConference;
             // qDebug() << " VIDEO " << o;
+        } else if (type == "e2e"_L1) {
+            qDebug() << " encrypted message !!!!" << mText;
         } else {
             mSystemMessageType = SystemMessageTypeUtil::systemMessageTypeFromString(type);
             mMessageType = System;
