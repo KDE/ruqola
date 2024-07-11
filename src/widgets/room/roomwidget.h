@@ -24,6 +24,7 @@ class ReconnectInfoWidget;
 class OtrWidget;
 class OffLineWidget;
 class PluginTextMessageWidget;
+class E2eSaveEncryptionKeyWidget;
 class E2eDecodeEncryptionKeyWidget;
 class E2eDecodeEncryptionKeyFailedWidget;
 namespace TextEditTextToSpeech
@@ -109,10 +110,11 @@ private:
     LIBRUQOLAWIDGETS_NO_EXPORT void createOffLineWidget();
     LIBRUQOLAWIDGETS_NO_EXPORT void createRoomReconnectInfoWidget();
     LIBRUQOLAWIDGETS_NO_EXPORT void createPluginTextMessateWidget();
-    LIBRUQOLAWIDGETS_NO_EXPORT void createE2eDecodeEncryptionKeyWidget();
+    LIBRUQOLAWIDGETS_NO_EXPORT void createE2eSaveEncryptionKeyWidget();
     LIBRUQOLAWIDGETS_NO_EXPORT void slotGenerateNewPassword();
     LIBRUQOLAWIDGETS_NO_EXPORT void createE2eDecodeEncryptionKeyFailedWidget();
     LIBRUQOLAWIDGETS_NO_EXPORT void slotDecodeEncryptionKey();
+    LIBRUQOLAWIDGETS_NO_EXPORT void createE2eDecodeEncryptionKeyWidget();
 
     Room::RoomType mRoomType = Room::RoomType::Unknown;
 
@@ -129,6 +131,7 @@ private:
     TextEditTextToSpeech::TextToSpeechContainerWidget *const mTextToSpeechWidget = nullptr;
     QPointer<RocketChatAccount> mCurrentRocketChatAccount;
     QVBoxLayout *mRoomWidgetLayout = nullptr;
-    E2eDecodeEncryptionKeyWidget *mE2eDecodeEncryptionKeyWidget = nullptr;
+    E2eSaveEncryptionKeyWidget *mE2eSaveEncryptionKeyWidget = nullptr;
     E2eDecodeEncryptionKeyFailedWidget *mE2eDecodeEncryptionKeyFailedWidget = nullptr;
+    E2eDecodeEncryptionKeyWidget *mE2eDecodeEncryptionKeyWidget = nullptr;
 };

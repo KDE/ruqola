@@ -25,7 +25,7 @@ void E2eCopyPasswordDialogTest::shouldHaveDefaultValues()
 
     auto buttonBox = d.findChild<QDialogButtonBox *>(QStringLiteral("button"));
     QVERIFY(buttonBox);
-    QCOMPARE(buttonBox->standardButtons(), QDialogButtonBox::StandardButtons{QDialogButtonBox::Close});
+    QCOMPARE(buttonBox->standardButtons(), QDialogButtonBox::StandardButtons{QDialogButtonBox::Cancel | QDialogButtonBox::Ok});
 
     auto mE2eCopyPasswordWidget = d.findChild<E2eCopyPasswordWidget *>(QStringLiteral("mE2eCopyPasswordWidget"));
     QVERIFY(mE2eCopyPasswordWidget);

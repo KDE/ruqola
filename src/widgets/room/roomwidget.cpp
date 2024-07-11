@@ -8,6 +8,7 @@
 #include "encryption/e2ecopypassworddialog.h"
 #include "encryption/e2edecodeencryptionkeyfailedwidget.h"
 #include "encryption/e2edecodeencryptionkeywidget.h"
+#include "encryption/e2esaveencryptionkeywidget.h"
 using namespace Qt::Literals::StringLiterals;
 
 #include "accountroomsettings.h"
@@ -182,13 +183,13 @@ void RoomWidget::createOtrWidget()
     mRoomWidgetLayout->insertWidget(1, mOtrWidget);
 }
 
-void RoomWidget::createE2eDecodeEncryptionKeyWidget()
+void RoomWidget::createE2eSaveEncryptionKeyWidget()
 {
-    mE2eDecodeEncryptionKeyWidget = new E2eDecodeEncryptionKeyWidget(this);
-    mE2eDecodeEncryptionKeyWidget->setObjectName(QStringLiteral("mE2eDecodeEncryptionKeyWidget"));
-    connect(mE2eDecodeEncryptionKeyWidget, &E2eDecodeEncryptionKeyWidget::saveEncrytionKey, this, &RoomWidget::slotGenerateNewPassword);
+    mE2eSaveEncryptionKeyWidget = new E2eSaveEncryptionKeyWidget(this);
+    mE2eSaveEncryptionKeyWidget->setObjectName(QStringLiteral("mE2eDecodeEncryptionKeyWidget"));
+    connect(mE2eSaveEncryptionKeyWidget, &E2eSaveEncryptionKeyWidget::saveEncrytionKey, this, &RoomWidget::slotGenerateNewPassword);
     // After mUsersInRoomFlowWidget
-    mRoomWidgetLayout->insertWidget(1, mE2eDecodeEncryptionKeyWidget);
+    mRoomWidgetLayout->insertWidget(1, mE2eSaveEncryptionKeyWidget);
 }
 
 // TODO use it
@@ -204,6 +205,16 @@ void RoomWidget::createE2eDecodeEncryptionKeyFailedWidget()
 void RoomWidget::slotDecodeEncryptionKey()
 {
     // TODO
+}
+
+// TODO use it
+void RoomWidget::createE2eDecodeEncryptionKeyWidget()
+{
+    mE2eDecodeEncryptionKeyWidget = new E2eDecodeEncryptionKeyWidget(this);
+    mE2eDecodeEncryptionKeyWidget->setObjectName(QStringLiteral("mE2eDecodeEncryptionKeyWidget"));
+    connect(mE2eDecodeEncryptionKeyWidget, &E2eDecodeEncryptionKeyWidget::decodeEncrytionKey, this, &RoomWidget::slotDecodeEncryptionKey);
+    // After mUsersInRoomFlowWidget
+    mRoomWidgetLayout->insertWidget(1, mE2eDecodeEncryptionKeyWidget);
 }
 
 void RoomWidget::slotGenerateNewPassword()
@@ -890,7 +901,7 @@ void RoomWidget::setCurrentRocketChatAccount(RocketChatAccount *account)
         disconnect(mCurrentRocketChatAccount, &RocketChatAccount::displayReconnectWidget, this, &RoomWidget::slotDisplayReconnectWidget);
         disconnect(mCurrentRocketChatAccount, &RocketChatAccount::loginStatusChanged, this, &RoomWidget::slotLoginStatusChanged);
         disconnect(mCurrentRocketChatAccount, &RocketChatAccount::needUpdateMessageView, this, &RoomWidget::updateListView);
-        disconnect(mCurrentRocketChatAccount, &RocketChatAccount::needToSaveE2EPassword, this, &RoomWidget::createE2eDecodeEncryptionKeyWidget);
+        disconnect(mCurrentRocketChatAccount, &RocketChatAccount::needToSaveE2EPassword, this, &RoomWidget::createE2eSaveEncryptionKeyWidget);
     }
 
     mCurrentRocketChatAccount = account;
@@ -900,10 +911,10 @@ void RoomWidget::setCurrentRocketChatAccount(RocketChatAccount *account)
     connect(mCurrentRocketChatAccount, &RocketChatAccount::loginStatusChanged, this, &RoomWidget::slotLoginStatusChanged);
     connect(mCurrentRocketChatAccount, &RocketChatAccount::needUpdateMessageView, this, &RoomWidget::updateListView);
     connect(mCurrentRocketChatAccount, &RocketChatAccount::needToSaveE2EPassword, this, [this]() {
-        if (!mE2eDecodeEncryptionKeyWidget) {
-            createE2eDecodeEncryptionKeyWidget();
+        if (!mE2eSaveEncryptionKeyWidget) {
+            createE2eSaveEncryptionKeyWidget();
         }
-        mE2eDecodeEncryptionKeyWidget->animatedShow();
+        mE2eSaveEncryptionKeyWidget->animatedShow();
     });
     // TODO verify if we need to show or not reconnect widget
     mRoomHeaderWidget->setCurrentRocketChatAccount(account);

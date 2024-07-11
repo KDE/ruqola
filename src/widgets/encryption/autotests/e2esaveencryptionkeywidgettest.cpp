@@ -4,20 +4,20 @@
   SPDX-License-Identifier: GPL-2.0-or-later
 */
 
-#include "e2edecodeencryptionkeywidgettest.h"
-#include "encryption/e2edecodeencryptionkeywidget.h"
+#include "e2esaveencryptionkeywidgettest.h"
+#include "encryption/e2esaveencryptionkeywidget.h"
 #include <QAction>
 #include <QSignalSpy>
 #include <QTest>
-QTEST_MAIN(E2eDecodeEncryptionKeyWidgetTest)
-E2eDecodeEncryptionKeyWidgetTest::E2eDecodeEncryptionKeyWidgetTest(QObject *parent)
+QTEST_MAIN(E2eSaveEncryptionKeyWidgetTest)
+E2eSaveEncryptionKeyWidgetTest::E2eSaveEncryptionKeyWidgetTest(QObject *parent)
     : QObject{parent}
 {
 }
 
-void E2eDecodeEncryptionKeyWidgetTest::shouldHaveDefaultValues()
+void E2eSaveEncryptionKeyWidgetTest::shouldHaveDefaultValues()
 {
-    E2eDecodeEncryptionKeyWidget w;
+    E2eSaveEncryptionKeyWidget w;
     w.show();
     QCOMPARE(w.messageType(), KMessageWidget::Information);
     QCOMPARE(w.position(), KMessageWidget::Header);
@@ -28,13 +28,13 @@ void E2eDecodeEncryptionKeyWidgetTest::shouldHaveDefaultValues()
     QVERIFY(decodeEncryptionKeyAction);
 }
 
-void E2eDecodeEncryptionKeyWidgetTest::shouldEmitSaveSignal()
+void E2eSaveEncryptionKeyWidgetTest::shouldEmitSaveSignal()
 {
-    E2eDecodeEncryptionKeyWidget w;
-    QSignalSpy saveSignal(&w, &E2eDecodeEncryptionKeyWidget::decodeEncrytionKey);
+    E2eSaveEncryptionKeyWidget w;
+    QSignalSpy saveSignal(&w, &E2eSaveEncryptionKeyWidget::saveEncrytionKey);
     auto decodeEncryptionKeyAction = w.findChild<QAction *>(QStringLiteral("decodeEncryptionKeyAction"));
     decodeEncryptionKeyAction->trigger();
     QCOMPARE(saveSignal.count(), 1);
 }
 
-#include "moc_e2edecodeencryptionkeywidgettest.cpp"
+#include "moc_e2esaveencryptionkeywidgettest.cpp"

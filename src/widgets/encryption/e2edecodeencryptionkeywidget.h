@@ -16,5 +16,5 @@ public:
     ~E2eDecodeEncryptionKeyWidget() override;
 
 Q_SIGNALS:
-    void saveEncrytionKey();
+    void decodeEncrytionKey();
 };

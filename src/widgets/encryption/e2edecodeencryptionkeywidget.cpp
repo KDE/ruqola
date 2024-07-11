@@ -14,12 +14,12 @@ E2eDecodeEncryptionKeyWidget::E2eDecodeEncryptionKeyWidget(QWidget *parent)
     setCloseButtonVisible(false);
     setMessageType(Information);
     setPosition(KMessageWidget::Header);
-    setText(i18n("Save your encryption password. Click here to view and copy your password."));
+    setText(i18n("Click here to enter your e2e password."));
 
-    auto saveEncryptionKeyAction = new QAction(i18nc("@action", "Save Encryption Key"), this);
-    saveEncryptionKeyAction->setObjectName(QStringLiteral("decodeEncryptionKeyAction"));
-    connect(saveEncryptionKeyAction, &QAction::triggered, this, &E2eDecodeEncryptionKeyWidget::saveEncrytionKey);
-    addAction(saveEncryptionKeyAction);
+    auto decodeEncryptionKeyAction = new QAction(i18nc("@action", "Decode Encryption Key"), this);
+    decodeEncryptionKeyAction->setObjectName(QStringLiteral("decodeEncryptionKeyAction"));
+    connect(decodeEncryptionKeyAction, &QAction::triggered, this, &E2eDecodeEncryptionKeyWidget::decodeEncrytionKey);
+    addAction(decodeEncryptionKeyAction);
 }
 
 E2eDecodeEncryptionKeyWidget::~E2eDecodeEncryptionKeyWidget() = default;

@@ -862,8 +862,10 @@ target_sources(libruqolawidgets PRIVATE
     needupdateversion/needupdateversionutils.h
     needupdateversion/needupdateversionutils.cpp
 
-    encryption/e2edecodeencryptionkeywidget.h
+    encryption/e2esaveencryptionkeywidget.h
+    encryption/e2esaveencryptionkeywidget.cpp
     encryption/e2edecodeencryptionkeywidget.cpp
+    encryption/e2edecodeencryptionkeywidget.h
 
     encryption/e2ecopypassworddialog.h
     encryption/e2ecopypassworddialog.cpp

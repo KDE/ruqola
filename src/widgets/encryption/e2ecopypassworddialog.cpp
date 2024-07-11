@@ -21,9 +21,10 @@ E2eCopyPasswordDialog::E2eCopyPasswordDialog(RocketChatAccount *account, QWidget
     mE2eCopyPasswordWidget->setObjectName(QStringLiteral("mE2eCopyPasswordWidget"));
     mainLayout->addWidget(mE2eCopyPasswordWidget);
 
-    auto buttonBox = new QDialogButtonBox(QDialogButtonBox::Close, this);
+    auto buttonBox = new QDialogButtonBox(QDialogButtonBox::Cancel | QDialogButtonBox::Ok, this);
     buttonBox->setObjectName(QStringLiteral("button"));
     connect(buttonBox, &QDialogButtonBox::rejected, this, &E2eCopyPasswordDialog::reject);
+    connect(buttonBox, &QDialogButtonBox::accepted, this, &E2eCopyPasswordDialog::accept);
     mainLayout->addWidget(buttonBox);
 }
 
