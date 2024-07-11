@@ -29,3 +29,5 @@ E2ePasswordDialog::E2ePasswordDialog(QWidget *parent)
 }
 
 E2ePasswordDialog::~E2ePasswordDialog() = default;
+
+#include "moc_e2epassworddialog.cpp"
