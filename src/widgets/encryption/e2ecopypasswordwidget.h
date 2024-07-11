@@ -8,11 +8,11 @@
 #include "libruqolawidgets_private_export.h"
 
 #include <QWidget>
-
+class RocketChatAccount;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT E2eCopyPasswordWidget : public QWidget
 {
     Q_OBJECT
 public:
-    explicit E2eCopyPasswordWidget(QWidget *parent = nullptr);
+    explicit E2eCopyPasswordWidget(RocketChatAccount *account, QWidget *parent = nullptr);
     ~E2eCopyPasswordWidget() override;
 };

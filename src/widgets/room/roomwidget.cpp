@@ -192,7 +192,7 @@ void RoomWidget::createE2eDecodeEncryptionKeyWidget()
 
 void RoomWidget::slotDecodeEncrytionKey()
 {
-    QPointer<E2eCopyPasswordDialog> dlg = new E2eCopyPasswordDialog(this);
+    QPointer<E2eCopyPasswordDialog> dlg = new E2eCopyPasswordDialog(mCurrentRocketChatAccount, this);
     if (dlg->exec()) {
         // TODO
     }

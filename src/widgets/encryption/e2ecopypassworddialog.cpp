@@ -10,10 +10,9 @@
 #include <QDialogButtonBox>
 #include <QVBoxLayout>
 
-E2eCopyPasswordDialog::E2eCopyPasswordDialog(QWidget *parent)
+E2eCopyPasswordDialog::E2eCopyPasswordDialog(RocketChatAccount *account, QWidget *parent)
     : QDialog(parent)
-    , mE2eCopyPasswordWidget(new E2eCopyPasswordWidget(this))
-
+    , mE2eCopyPasswordWidget(new E2eCopyPasswordWidget(account, this))
 {
     setWindowTitle(i18nc("@title:window", "Copy Password"));
     auto mainLayout = new QVBoxLayout(this);
