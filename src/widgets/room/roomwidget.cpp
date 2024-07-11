@@ -210,7 +210,7 @@ void RoomWidget::slotGenerateNewPassword()
 {
     QPointer<E2eCopyPasswordDialog> dlg = new E2eCopyPasswordDialog(mCurrentRocketChatAccount, this);
     if (dlg->exec()) {
-        // TODO
+        // TODO we saved it => don't ask it again
     }
     delete dlg;
 }
