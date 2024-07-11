@@ -53,11 +53,17 @@ void E2eKeyManager::fetchMyKeys()
     mAccount->restApi()->initializeRestApiJob(job);
     connect(job, &RocketChatRestApi::FetchMyKeysJob::fetchMyKeysDone, this, [this](const QJsonObject &json) {
         qDebug() << " RocketChatRestApi::FetchMyKeysJob result " << json << "account name: " << mAccount->accountName();
+        verifyExistingKey(json);
         Q_EMIT fetchMyKeysDone(json);
     });
     if (!job->start()) {
         qCDebug(RUQOLA_ENCRYPTION_LOG) << "Impossible to start fetchmykeys job";
     }
+}
+
+void E2eKeyManager::verifyExistingKey(const QJsonObject &json)
+{
+    // TODO
 }
 
 E2eKeyManager::Status E2eKeyManager::needToDecodeEncryptionKey() const
