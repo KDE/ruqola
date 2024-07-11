@@ -6,6 +6,7 @@
 
 #include "roomwidget.h"
 #include "encryption/e2ecopypassworddialog.h"
+#include "encryption/e2edecodeencryptionkeyfailedwidget.h"
 #include "encryption/e2edecodeencryptionkeywidget.h"
 using namespace Qt::Literals::StringLiterals;
 
@@ -185,12 +186,27 @@ void RoomWidget::createE2eDecodeEncryptionKeyWidget()
 {
     mE2eDecodeEncryptionKeyWidget = new E2eDecodeEncryptionKeyWidget(this);
     mE2eDecodeEncryptionKeyWidget->setObjectName(QStringLiteral("mE2eDecodeEncryptionKeyWidget"));
-    connect(mE2eDecodeEncryptionKeyWidget, &E2eDecodeEncryptionKeyWidget::decodeEncrytionKey, this, &RoomWidget::slotDecodeEncrytionKey);
+    connect(mE2eDecodeEncryptionKeyWidget, &E2eDecodeEncryptionKeyWidget::saveEncrytionKey, this, &RoomWidget::slotGenerateNewPassword);
     // After mUsersInRoomFlowWidget
     mRoomWidgetLayout->insertWidget(1, mE2eDecodeEncryptionKeyWidget);
 }
 
-void RoomWidget::slotDecodeEncrytionKey()
+// TODO use it
+void RoomWidget::createE2eDecodeEncryptionKeyFailedWidget()
+{
+    mE2eDecodeEncryptionKeyFailedWidget = new E2eDecodeEncryptionKeyFailedWidget(this);
+    mE2eDecodeEncryptionKeyFailedWidget->setObjectName(QStringLiteral("mE2eDecodeEncryptionKeyFailedWidget"));
+    connect(mE2eDecodeEncryptionKeyFailedWidget, &E2eDecodeEncryptionKeyFailedWidget::decodeEncrytionKey, this, &RoomWidget::slotDecodeEncryptionKey);
+    // After mUsersInRoomFlowWidget
+    mRoomWidgetLayout->insertWidget(1, mE2eDecodeEncryptionKeyFailedWidget);
+}
+
+void RoomWidget::slotDecodeEncryptionKey()
+{
+    // TODO
+}
+
+void RoomWidget::slotGenerateNewPassword()
 {
     QPointer<E2eCopyPasswordDialog> dlg = new E2eCopyPasswordDialog(mCurrentRocketChatAccount, this);
     if (dlg->exec()) {
