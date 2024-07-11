@@ -21,7 +21,7 @@ E2ePasswordDecodeKeyDialog::E2ePasswordDecodeKeyDialog(QWidget *parent)
     mE2ePasswordDecodeKeyWidget->setObjectName(QStringLiteral("mE2ePasswordDecodeKeyWidget"));
     mainLayout->addWidget(mE2ePasswordDecodeKeyWidget);
 
-    auto buttonBox = new QDialogButtonBox(QDialogButtonBox::Close, this);
+    auto buttonBox = new QDialogButtonBox(QDialogButtonBox::Ok | QDialogButtonBox::Cancel, this);
     buttonBox->setObjectName(QStringLiteral("button"));
     connect(buttonBox, &QDialogButtonBox::accepted, this, &E2ePasswordDecodeKeyDialog::accept);
     connect(buttonBox, &QDialogButtonBox::rejected, this, &E2ePasswordDecodeKeyDialog::reject);
