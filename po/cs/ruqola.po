@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-07-10 00:39+0000\n"
+"POT-Creation-Date: 2024-07-11 00:38+0000\n"
 "PO-Revision-Date: 2024-07-09 16:27+0200\n"
 "Last-Translator: Vit Pelcak <vit@pelcak.org>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
@@ -1440,12 +1440,12 @@ msgctxt "We need a space between after </strong>"
 msgid "<strong>%1</strong> are typing..."
 msgstr "<strong>%1</strong> píší…"
 
-#: core/rocketchataccount.cpp:2994
+#: core/rocketchataccount.cpp:3007
 #, kde-format
 msgid "Export Messages"
 msgstr "Exportovat zprávy"
 
-#: core/rocketchataccount.cpp:2995
+#: core/rocketchataccount.cpp:3008
 #, kde-format
 msgid "Your email has been queued for sending."
 msgstr ""
@@ -3944,7 +3944,7 @@ msgid "Password"
 msgstr "Heslo"
 
 #: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:115
-#: widgets/room/roomwidget.cpp:446
+#: widgets/room/roomwidget.cpp:466
 #, kde-format
 msgid "Video Conference"
 msgstr "Video konference"
@@ -6141,11 +6141,19 @@ msgstr ""
 msgid "Want to use %1"
 msgstr ""
 
-#: widgets/applicationssettingsdialog/applicationssettingsdelegate.cpp:109
+#: widgets/applicationssettingsdialog/applicationssettingsdelegate.cpp:120
 #: widgets/applicationssettingsdialog/applicationssettingspricecombobox.cpp:16
 #, kde-format
 msgid "Premium"
 msgstr "Premium"
+
+#: widgets/applicationssettingsdialog/applicationssettingsdelegate.cpp:147
+#, kde-format
+msgid "%1 request"
+msgid_plural "%1 requests"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
 
 #: widgets/applicationssettingsdialog/applicationssettingsdescriptiondialog.cpp:25
 #: widgets/applicationssettingsdialog/applicationssettingsdialog.cpp:27
@@ -9300,18 +9308,18 @@ msgid "Reply in Thread for Message: '%1'"
 msgstr ""
 
 # power-off message
-#: widgets/room/roomwidget.cpp:276
+#: widgets/room/roomwidget.cpp:296
 #, kde-format
 msgid "Do you want really remove history?"
 msgstr "Opravdu si přejete odstranit historii?"
 
-#: widgets/room/roomwidget.cpp:277
+#: widgets/room/roomwidget.cpp:297
 #, kde-format
 msgctxt "@title:window"
 msgid "Remove History"
 msgstr "Odstranit historii"
 
-#: widgets/room/roomwidget.cpp:446
+#: widgets/room/roomwidget.cpp:466
 #, kde-format
 msgid ""
 "A workspace admin needs to install and configure a conference call apps."
