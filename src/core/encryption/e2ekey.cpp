@@ -14,9 +14,9 @@ E2eKey::~E2eKey() = default;
 void E2eKey::parseKeyInfo(const QJsonObject &replyObject)
 {
     const QJsonObject publicKey = replyObject["public_key"_L1].toObject();
-
+    // TODO split ? publicKey.
     const QJsonObject privateKey = replyObject["private_key"_L1].toObject();
-    // TODO
+    setBinaryPrivateKey(privateKey["$binary"_L1].toString());
 }
 
 QString E2eKey::binaryPrivateKey() const
