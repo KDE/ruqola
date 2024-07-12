@@ -57,6 +57,7 @@ endif()
 
 if(OPTION_USE_E2E_SUPPORT)
     set(USE_E2E_SUPPORT true)
+    find_package(OpenSSL REQUIRED COMPONENTS Crypto)
 endif()
 
 if(OPTION_USE_PERSONAL_ACCESS_TOKEN)

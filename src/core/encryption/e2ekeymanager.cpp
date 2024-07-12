@@ -9,7 +9,7 @@
 #include "e2e/fetchmykeysjob.h"
 #include "rocketchataccount.h"
 #include "ruqola_encryption_debug.h"
-
+// https://docs.rocket.chat/docs/end-to-end-encryption-specifications
 E2eKeyManager::E2eKeyManager(RocketChatAccount *account, QObject *parent)
     : QObject{parent}
     , mAccount(account)

@@ -537,8 +537,6 @@ target_sources(libruqolacore PRIVATE
     previewurlcachemanager.h
     previewurlcachemanager.cpp
 
-    encryption/encryptionutils.h
-    encryption/encryptionutils.cpp
     encryption/e2ekeymanager.cpp
     encryption/e2ekeymanager.h
     encryption/e2ekey.h
@@ -556,6 +554,13 @@ target_sources(libruqolacore PRIVATE
     memorymanager/memorymanager.h
     memorymanager/memorymanager.cpp
 )
+
+if(USE_E2E_SUPPORT)
+    target_sources(libruqolacore PRIVATE
+        encryption/encryptionutils.h
+        encryption/encryptionutils.cpp
+    )
+endif()
 
 if(TARGET cmark::cmark)
     target_sources(libruqolacore PRIVATE
@@ -593,6 +598,10 @@ endif()
 
 if(TARGET cmark::cmark)
     target_link_libraries(libruqolacore cmark::cmark)
+endif()
+
+if(USE_E2E_SUPPORT)
+    target_link_libraries(libruqolacore OpenSSL::Crypto)
 endif()
 
 ecm_qt_declare_logging_category(libruqolacore_debug_SRCS HEADER ruqola_debug.h IDENTIFIER RUQOLA_LOG

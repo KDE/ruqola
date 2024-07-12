@@ -5,15 +5,15 @@
 */
 #pragma once
 #include "libruqola_private_export.h"
-#include <QObject>
-
-class LIBRUQOLACORE_TESTS_EXPORT EncryptionUtils : public QObject
+#include <QString>
+extern "C" {
+#include <openssl/bn.h>
+#include <openssl/pem.h>
+#include <openssl/rsa.h>
+}
+namespace EncryptionUtils
 {
-    Q_OBJECT
-public:
-    explicit EncryptionUtils(QObject *parent = nullptr);
-    ~EncryptionUtils() override;
-
-    void generateGlobalKey();
-    void decodeMessage();
+[[nodiscard]] LIBRUQOLACORE_TESTS_EXPORT QByteArray exportJWKKey(RSA *rsaKey);
+LIBRUQOLACORE_TESTS_EXPORT void generateRSAKey();
+[[nodiscard]] LIBRUQOLACORE_TESTS_EXPORT QString encodePrivateKey(const QString &privateKey, const QString &password);
 };
