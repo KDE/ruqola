@@ -47,7 +47,8 @@ void EncryptionUtils::generateRSAKey()
     int ret = 0;
     RSA *rsa = nullptr;
     BIGNUM *bne = nullptr;
-    BIO *bp_public = nullptr, *bp_private = nullptr;
+    BIO *bp_public = nullptr;
+    BIO *bp_private = nullptr;
 
     int bits = 2048;
     unsigned long e = RSA_F4; // équivalent à 0x10001
@@ -89,5 +90,11 @@ void EncryptionUtils::generateRSAKey()
 
 QString EncryptionUtils::encodePrivateKey(const QString &privateKey, const QString &password)
 {
+    return {};
+}
+
+QString EncryptionUtils::deriveKey()
+{
+    // TODO
     return {};
 }
