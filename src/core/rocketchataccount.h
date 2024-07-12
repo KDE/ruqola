@@ -668,7 +668,7 @@ private:
     LIBRUQOLACORE_NO_EXPORT void licenseGetModules();
     LIBRUQOLACORE_NO_EXPORT void loadSoundFiles();
     LIBRUQOLACORE_NO_EXPORT void slotReconnectToDdpServer();
-    LIBRUQOLACORE_NO_EXPORT void slotFetchMyKeysDone(const QJsonObject &obj);
+    LIBRUQOLACORE_NO_EXPORT void slotVerifyKeysDone();
 
     AccountRoomSettings *const mAccountRoomSettings;
 

@@ -279,7 +279,7 @@ RocketChatAccount::RocketChatAccount(const QString &accountFileName, QObject *pa
     mPreviewUrlCacheManager->setCachePath(ManagerDataPaths::self()->path(ManagerDataPaths::PreviewUrl, accountName()));
     setDefaultAuthentication(mSettings->authMethodType());
     mNotificationPreferences->setCustomSoundManager(mCustomSoundManager);
-    connect(mE2eKeyManager, &E2eKeyManager::fetchMyKeysDone, this, &RocketChatAccount::slotFetchMyKeysDone);
+    connect(mE2eKeyManager, &E2eKeyManager::verifyKeyDone, this, &RocketChatAccount::slotVerifyKeysDone);
 }
 
 RocketChatAccount::~RocketChatAccount()
@@ -3294,9 +3294,8 @@ void RocketChatAccount::loadAppMarketPlace()
     }
 }
 
-void RocketChatAccount::slotFetchMyKeysDone(const QJsonObject &obj)
+void RocketChatAccount::slotVerifyKeysDone()
 {
-    qDebug() << " obj " << obj;
     // TODO reactivate it when we will have full support
 #ifdef USE_E2E_SUPPORT
     Q_EMIT needToSaveE2EPassword();

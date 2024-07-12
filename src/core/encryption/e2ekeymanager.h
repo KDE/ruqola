@@ -38,7 +38,7 @@ public:
 Q_SIGNALS:
     void needDecodeEncryptionKey();
     void failedDecodeEncryptionKey();
-    void fetchMyKeysDone(const QJsonObject &replyObject);
+    void verifyKeyDone();
 
 private:
     LIBRUQOLACORE_NO_EXPORT void verifyExistingKey(const QJsonObject &json);
