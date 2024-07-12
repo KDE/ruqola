@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-07-11 00:38+0000\n"
+"POT-Creation-Date: 2024-07-12 00:39+0000\n"
 "PO-Revision-Date: 2023-05-10 20:24+0200\n"
 "Last-Translator: Frederik Schwarzer <schwarzer@kde.org>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
@@ -447,7 +447,7 @@ msgstr ""
 msgid "(Last Message: %1)"
 msgstr "(Letzte Nachricht: %1)"
 
-#: core/messages/block.cpp:128 core/messages/message.cpp:766
+#: core/messages/block.cpp:128 core/messages/message.cpp:767
 #: core/model/notificationhistorymodel.cpp:63
 #: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:128
 #, fuzzy, kde-format
@@ -455,252 +455,252 @@ msgstr "(Letzte Nachricht: %1)"
 msgid "Conference Call"
 msgstr "Vorliebe"
 
-#: core/messages/message.cpp:662
+#: core/messages/message.cpp:663
 #, kde-format
 msgid "%1 has joined the channel"
 msgstr "%1 hat den Kanal betreten"
 
-#: core/messages/message.cpp:664
+#: core/messages/message.cpp:665
 #, kde-format
 msgid "%1 has left the channel"
 msgstr "%1 hat den Kanal verlassen"
 
-#: core/messages/message.cpp:666
+#: core/messages/message.cpp:667
 #, fuzzy, kde-format
 #| msgid "%1 has joined the channel"
 msgid "%1 left this Team"
 msgstr "%1 hat den Kanal betreten"
 
-#: core/messages/message.cpp:669
+#: core/messages/message.cpp:670
 #, kde-format
 msgid "Topic was cleared by: %1"
 msgstr "Thema wurde gelöscht von: %1"
 
-#: core/messages/message.cpp:671
+#: core/messages/message.cpp:672
 #, kde-format
 msgid "%2 changed topic to: <i>%1</i>"
 msgstr "%2 ändert das Thema zu: <i>%1</i>"
 
-#: core/messages/message.cpp:674
+#: core/messages/message.cpp:675
 #, kde-format
 msgid "%2 added %1 to the conversation"
 msgstr ""
 
-#: core/messages/message.cpp:676
+#: core/messages/message.cpp:677
 #, kde-format
 msgid "%2 changed room name to <a href=\"ruqola:/room/%1\">#%1</a>"
 msgstr "%2 ändert den Raumnamen zu: <a href=\"ruqola:/room/%1\">#%1</a>"
 
-#: core/messages/message.cpp:678
+#: core/messages/message.cpp:679
 #, kde-format
 msgid "%2 removed user %1"
 msgstr "%2 entfernter den Benutzer %1"
 
-#: core/messages/message.cpp:681
+#: core/messages/message.cpp:682
 #, kde-format
 msgid "Description was cleared by %1"
 msgstr "Die Beschreibung wurde durch %1 gelöscht"
 
-#: core/messages/message.cpp:683
+#: core/messages/message.cpp:684
 #, kde-format
 msgid "%2 changed room description to %1"
 msgstr "%2 ändert die Raumbeschreibung zu %1"
 
-#: core/messages/message.cpp:687
+#: core/messages/message.cpp:688
 #, kde-format
 msgid "Announcement was cleared by %1"
 msgstr "Die Ankündigung wurde durch %1 gelöscht"
 
-#: core/messages/message.cpp:689
+#: core/messages/message.cpp:690
 #, kde-format
 msgid "%2 changed room announcement to %1"
 msgstr "%2 ändert die Raumankündigung zu %1"
 
-#: core/messages/message.cpp:692
+#: core/messages/message.cpp:693
 #, kde-format
 msgid "%2 changed room privacy to %1"
 msgstr ""
 
-#: core/messages/message.cpp:694
+#: core/messages/message.cpp:695
 #, kde-format
 msgid "Click to join to video"
 msgstr ""
 
-#: core/messages/message.cpp:697
+#: core/messages/message.cpp:698
 #, kde-format
 msgid "Message Deleted"
 msgstr "Nachricht gelöscht"
 
-#: core/messages/message.cpp:699
+#: core/messages/message.cpp:700
 #, kde-format
 msgid "Message Pinned"
 msgstr "Nachricht angeheftet"
 
-#: core/messages/message.cpp:701
+#: core/messages/message.cpp:702
 #, kde-format
 msgid "Encrypted Message"
 msgstr "Verschlüsselte Nachricht"
 
-#: core/messages/message.cpp:703
+#: core/messages/message.cpp:704
 #, fuzzy, kde-format
 #| msgid "%1 was muted"
 msgid "%1 was unmuted by %2"
 msgstr "%1 wurde stummgeschaltet"
 
-#: core/messages/message.cpp:705
+#: core/messages/message.cpp:706
 #, fuzzy, kde-format
 #| msgid "%1 was muted"
 msgid "%1 was muted by %2"
 msgstr "%1 wurde stummgeschaltet"
 
-#: core/messages/message.cpp:707
+#: core/messages/message.cpp:708
 #, kde-format
 msgid "Role '%3' was added to %1 by %2"
 msgstr ""
 
-#: core/messages/message.cpp:709
+#: core/messages/message.cpp:710
 #, kde-format
 msgid "Role '%3' was removed to %1 by %2"
 msgstr ""
 
 #. i18n("Encrypted message: %1", mText);
-#: core/messages/message.cpp:713
+#: core/messages/message.cpp:714
 #, kde-format
 msgid ""
 "This message is end-to-end encrypted. To view it, you must enter your "
 "encryption key in your account settings."
 msgstr ""
 
-#: core/messages/message.cpp:715
+#: core/messages/message.cpp:716
 #, kde-format
 msgid "Discussion created about \"%1\""
 msgstr ""
 
-#: core/messages/message.cpp:717
+#: core/messages/message.cpp:718
 #, kde-format
 msgid "%1 has joined the conversation"
 msgstr ""
 
-#: core/messages/message.cpp:719
+#: core/messages/message.cpp:720
 #, kde-format
 msgid "This room has been archived by %1"
 msgstr "Dieser Raum wurde von %1 archiviert"
 
-#: core/messages/message.cpp:721
+#: core/messages/message.cpp:722
 #, kde-format
 msgid "This room has been unarchived by %1"
 msgstr ""
 
-#: core/messages/message.cpp:724 core/messages/message.cpp:771
+#: core/messages/message.cpp:725 core/messages/message.cpp:772
 #, kde-format
 msgid "Unknown action!"
 msgstr "Unbekannte Aktion"
 
-#: core/messages/message.cpp:728
+#: core/messages/message.cpp:729
 #, kde-format
 msgid "Welcome %1!"
 msgstr "Willkommen %1"
 
-#: core/messages/message.cpp:730
+#: core/messages/message.cpp:731
 #, kde-format
 msgid "Room avatar changed by %1"
 msgstr "Raum-Avatar geändert von %1"
 
-#: core/messages/message.cpp:732
+#: core/messages/message.cpp:733
 #, fuzzy, kde-format
 #| msgid "This room has been archived by %1"
 msgid "This room's encryption has been enabled by %1"
 msgstr "Dieser Raum wurde von %1 archiviert"
 
-#: core/messages/message.cpp:734
+#: core/messages/message.cpp:735
 #, fuzzy, kde-format
 #| msgid "This room has been archived by %1"
 msgid "This room's encryption has been disabled by %1"
 msgstr "Dieser Raum wurde von %1 archiviert"
 
-#: core/messages/message.cpp:736
+#: core/messages/message.cpp:737
 #, fuzzy, kde-format
 #| msgid "Room avatar changed by %1"
 msgid "Room set as Read Only by  %1"
 msgstr "Raum-Avatar geändert von %1"
 
-#: core/messages/message.cpp:738
+#: core/messages/message.cpp:739
 #, kde-format
 msgid "Room added writing permission by %1"
 msgstr ""
 
-#: core/messages/message.cpp:740
+#: core/messages/message.cpp:741
 #, fuzzy, kde-format
 #| msgid "Remove from Team"
 msgid "%1 added @%2 to this Team"
 msgstr "Vom Team entfernen"
 
-#: core/messages/message.cpp:742
+#: core/messages/message.cpp:743
 #, fuzzy, kde-format
 #| msgid "Remove from Team"
 msgid "%1 removed @%2 from this Team"
 msgstr "Vom Team entfernen"
 
-#: core/messages/message.cpp:744
+#: core/messages/message.cpp:745
 #, fuzzy, kde-format
 #| msgid "Convert to Team"
 msgid "%1 converted #%2 to a Team"
 msgstr "Umwandeln in Team"
 
-#: core/messages/message.cpp:746
+#: core/messages/message.cpp:747
 #, fuzzy, kde-format
 #| msgctxt "@title:window"
 #| msgid "Create Channel"
 msgid "%1 converted #%2 to a Channel"
 msgstr "Kanal erstellen"
 
-#: core/messages/message.cpp:748
+#: core/messages/message.cpp:749
 #, fuzzy, kde-format
 #| msgid "Remove from Team"
 msgid "%1 removed #%2 from this Team"
 msgstr "Vom Team entfernen"
 
-#: core/messages/message.cpp:750
+#: core/messages/message.cpp:751
 #, fuzzy, kde-format
 #| msgid "Delete"
 msgid "%1 deleted #%2"
 msgstr "Löschen"
 
-#: core/messages/message.cpp:752
+#: core/messages/message.cpp:753
 #, fuzzy, kde-format
 #| msgid "Remove from Team"
 msgid "%1 added #%2 to this Team"
 msgstr "Vom Team entfernen"
 
-#: core/messages/message.cpp:754
+#: core/messages/message.cpp:755
 #, fuzzy, kde-format
 #| msgid "Room avatar changed by %1"
 msgid "Room allowed reacting by %1"
 msgstr "Raum-Avatar geändert von %1"
 
-#: core/messages/message.cpp:756
+#: core/messages/message.cpp:757
 #, kde-format
 msgid "Room disallowed reacting by %1"
 msgstr ""
 
-#: core/messages/message.cpp:758
+#: core/messages/message.cpp:759
 #, fuzzy, kde-format
 #| msgid "%1 has joined the channel"
 msgid "%1 joined this Team"
 msgstr "%1 hat den Kanal betreten"
 
-#: core/messages/message.cpp:760
+#: core/messages/message.cpp:761
 #, fuzzy, kde-format
 #| msgid "%1 has joined the channel"
 msgid "%1 has joined OTR chat."
 msgstr "%1 hat den Kanal betreten"
 
-#: core/messages/message.cpp:762
+#: core/messages/message.cpp:763
 #, kde-format
 msgid "%1 key refreshed successfully"
 msgstr ""
 
-#: core/messages/message.cpp:764
+#: core/messages/message.cpp:765
 #, kde-format
 msgid "%1 has requested key refresh."
 msgstr ""
@@ -4191,7 +4191,7 @@ msgid "Password"
 msgstr "Passwort"
 
 #: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:115
-#: widgets/room/roomwidget.cpp:466
+#: widgets/room/roomwidget.cpp:500
 #, fuzzy, kde-format
 #| msgid "Preference"
 msgid "Video Conference"
@@ -8205,14 +8205,14 @@ msgid_plural "%1 Discussions in room (Total: %2)"
 msgstr[0] "%1 Diskussion im Raum (Gesamt: %2)"
 msgstr[1] "%1 Diskussionen im Raum (Gesamt: %2)"
 
-#: widgets/encryption/e2ecopypassworddialog.cpp:18
+#: widgets/encryption/e2ecopypassworddialog.cpp:17
 #, fuzzy, kde-format
 #| msgid "Password"
 msgctxt "@title:window"
 msgid "Copy Password"
 msgstr "Passwort"
 
-#: widgets/encryption/e2ecopypasswordwidget.cpp:23
+#: widgets/encryption/e2ecopypasswordwidget.cpp:31
 #, kde-format
 msgid ""
 "Create secure private rooms and direct messages with end-to-end encryption."
@@ -8220,9 +8220,14 @@ msgid ""
 "messages won't be saved on the server. You'll need to enter it on other "
 "devices to use e2e encryption.<br/><br/>Change your password anytime from "
 "any browser you've entered it on. Remember to store your password before "
-"dismissing this message.<br/><br/>Your password is: <span style=\"font-"
-"weight: bold;\">%1</span>"
+"dismissing this message.<br/><br/>Your password is:"
 msgstr ""
+
+#: widgets/encryption/e2ecopypasswordwidget.cpp:60
+#, fuzzy, kde-format
+#| msgid "Password"
+msgid "Copy password"
+msgstr "Passwort"
 
 #: widgets/encryption/e2edecodeencryptionkeyfailedwidget.cpp:17
 #, kde-format
@@ -8232,7 +8237,6 @@ msgid ""
 msgstr ""
 
 #: widgets/encryption/e2edecodeencryptionkeyfailedwidget.cpp:19
-#: widgets/encryption/e2edecodeencryptionkeywidget.cpp:19
 #, fuzzy, kde-format
 #| msgid "Encrypted:"
 msgctxt "@action"
@@ -8240,10 +8244,17 @@ msgid "Decrypt Encryption Key"
 msgstr "Verschlüsselt:"
 
 #: widgets/encryption/e2edecodeencryptionkeywidget.cpp:17
-#, kde-format
-msgid ""
-"Save your encryption password. Click here to view and copy your password."
-msgstr ""
+#, fuzzy, kde-format
+#| msgid "Enter your password"
+msgid "Click here to enter your e2e password."
+msgstr "Geben Sie Ihr Passwort ein"
+
+#: widgets/encryption/e2edecodeencryptionkeywidget.cpp:19
+#, fuzzy, kde-format
+#| msgid "Encrypted:"
+msgctxt "@action"
+msgid "Decode Encryption Key"
+msgstr "Verschlüsselt:"
 
 #: widgets/encryption/e2epassworddecodekeydialog.cpp:17
 #, kde-format
@@ -8260,6 +8271,19 @@ msgid ""
 "You need to enter this password to encode/decode your messages on every "
 "client you use, since the key is not stored on the server."
 msgstr ""
+
+#: widgets/encryption/e2esaveencryptionkeywidget.cpp:17
+#, kde-format
+msgid ""
+"Save your encryption password. Click here to view and copy your password."
+msgstr ""
+
+#: widgets/encryption/e2esaveencryptionkeywidget.cpp:19
+#, fuzzy, kde-format
+#| msgid "Encrypted:"
+msgctxt "@action"
+msgid "Save Encryption Key"
+msgstr "Verschlüsselt:"
 
 #: widgets/explorepermissionsdialog/explorepermissionsdialog.cpp:24
 #, fuzzy, kde-format
@@ -9974,19 +9998,19 @@ msgstr ""
 msgid "Reply in Thread for Message: '%1'"
 msgstr "Nachricht"
 
-#: widgets/room/roomwidget.cpp:296
+#: widgets/room/roomwidget.cpp:330
 #, kde-format
 msgid "Do you want really remove history?"
 msgstr "Möchten Sie den Verlauf wirklich öffnen?"
 
-#: widgets/room/roomwidget.cpp:297
+#: widgets/room/roomwidget.cpp:331
 #, fuzzy, kde-format
 #| msgid "Remove History"
 msgctxt "@title:window"
 msgid "Remove History"
 msgstr "Verlauf löschen"
 
-#: widgets/room/roomwidget.cpp:466
+#: widgets/room/roomwidget.cpp:500
 #, kde-format
 msgid ""
 "A workspace admin needs to install and configure a conference call apps."
@@ -11823,9 +11847,6 @@ msgstr "Fehlerkorrekturen"
 
 #~ msgid "Enter your username"
 #~ msgstr "Geben Sie Ihren Benutzernamen ein"
-
-#~ msgid "Enter your password"
-#~ msgstr "Geben Sie Ihr Passwort ein"
 
 #~ msgid "(By %1 persons)"
 #~ msgstr "(Von %1 Personen)"

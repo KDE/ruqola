@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-07-11 00:38+0000\n"
-"PO-Revision-Date: 2024-07-10 00:37+0300\n"
+"POT-Creation-Date: 2024-07-12 00:39+0000\n"
+"PO-Revision-Date: 2024-07-11 14:55+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -427,120 +427,120 @@ msgstr "Zil Sesi"
 msgid "(Last Message: %1)"
 msgstr "(Son İleti: %1)"
 
-#: core/messages/block.cpp:128 core/messages/message.cpp:766
+#: core/messages/block.cpp:128 core/messages/message.cpp:767
 #: core/model/notificationhistorymodel.cpp:63
 #: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:128
 #, kde-format
 msgid "Conference Call"
 msgstr "Video Konferans"
 
-#: core/messages/message.cpp:662
+#: core/messages/message.cpp:663
 #, kde-format
 msgid "%1 has joined the channel"
 msgstr "%1, kanala katıldı"
 
-#: core/messages/message.cpp:664
+#: core/messages/message.cpp:665
 #, kde-format
 msgid "%1 has left the channel"
 msgstr "%1, kanaldan ayrıldı"
 
-#: core/messages/message.cpp:666
+#: core/messages/message.cpp:667
 #, kde-format
 msgid "%1 left this Team"
 msgstr "%1, bu takımdan ayrıldı"
 
-#: core/messages/message.cpp:669
+#: core/messages/message.cpp:670
 #, kde-format
 msgid "Topic was cleared by: %1"
 msgstr "Konuyu silen: %1"
 
-#: core/messages/message.cpp:671
+#: core/messages/message.cpp:672
 #, kde-format
 msgid "%2 changed topic to: <i>%1</i>"
 msgstr "%2, konuyu değiştirdi: <i>%1</i>"
 
-#: core/messages/message.cpp:674
+#: core/messages/message.cpp:675
 #, kde-format
 msgid "%2 added %1 to the conversation"
 msgstr "%2, %1 kişisini konuşmaya ekledi"
 
-#: core/messages/message.cpp:676
+#: core/messages/message.cpp:677
 #, kde-format
 msgid "%2 changed room name to <a href=\"ruqola:/room/%1\">#%1</a>"
 msgstr "%2, oda adını <a href=\"ruqola:/room/%1\">#%1</a> olarak değiştirdi"
 
-#: core/messages/message.cpp:678
+#: core/messages/message.cpp:679
 #, kde-format
 msgid "%2 removed user %1"
 msgstr "%2, %1 kişisini çıkardı"
 
-#: core/messages/message.cpp:681
+#: core/messages/message.cpp:682
 #, kde-format
 msgid "Description was cleared by %1"
 msgstr "Açıklama, %1 tarafından silindi"
 
-#: core/messages/message.cpp:683
+#: core/messages/message.cpp:684
 #, kde-format
 msgid "%2 changed room description to %1"
 msgstr "%2, oda açıklamasını %1 olarak değiştirdi"
 
-#: core/messages/message.cpp:687
+#: core/messages/message.cpp:688
 #, kde-format
 msgid "Announcement was cleared by %1"
 msgstr "Duyuru, %1 tarafından silindi"
 
-#: core/messages/message.cpp:689
+#: core/messages/message.cpp:690
 #, kde-format
 msgid "%2 changed room announcement to %1"
 msgstr "%2, oda açıklamasını %1 olarak değiştirdi"
 
-#: core/messages/message.cpp:692
+#: core/messages/message.cpp:693
 #, kde-format
 msgid "%2 changed room privacy to %1"
 msgstr "%2, oda gizliliğini %1 olarak değiştirdi"
 
-#: core/messages/message.cpp:694
+#: core/messages/message.cpp:695
 #, kde-format
 msgid "Click to join to video"
 msgstr "Videoya katılmak için tıklayın"
 
-#: core/messages/message.cpp:697
+#: core/messages/message.cpp:698
 #, kde-format
 msgid "Message Deleted"
 msgstr "İleti Silindi"
 
-#: core/messages/message.cpp:699
+#: core/messages/message.cpp:700
 #, kde-format
 msgid "Message Pinned"
 msgstr "İleti Sabitlendi"
 
-#: core/messages/message.cpp:701
+#: core/messages/message.cpp:702
 #, kde-format
 msgid "Encrypted Message"
 msgstr "Şifreli İleti"
 
-#: core/messages/message.cpp:703
+#: core/messages/message.cpp:704
 #, kde-format
 msgid "%1 was unmuted by %2"
 msgstr "%1 kişisinin sesi, %2 tarafından açıldı"
 
-#: core/messages/message.cpp:705
+#: core/messages/message.cpp:706
 #, kde-format
 msgid "%1 was muted by %2"
 msgstr "%1, %2 tarafından sessize alındı"
 
-#: core/messages/message.cpp:707
+#: core/messages/message.cpp:708
 #, kde-format
 msgid "Role '%3' was added to %1 by %2"
 msgstr "“%3” rolü, %2 tarafından %1 kişisine eklendi"
 
-#: core/messages/message.cpp:709
+#: core/messages/message.cpp:710
 #, kde-format
 msgid "Role '%3' was removed to %1 by %2"
 msgstr "“%3” rolü, %2 tarafından %1 kişisinden kaldırıldı"
 
 #. i18n("Encrypted message: %1", mText);
-#: core/messages/message.cpp:713
+#: core/messages/message.cpp:714
 #, kde-format
 msgid ""
 "This message is end-to-end encrypted. To view it, you must enter your "
@@ -549,122 +549,122 @@ msgstr ""
 "Bu ileti, uçtan uca şifreli. Görüntülemek için, hesap ayarlarında şifre "
 "çözme anahtarını girmeniz gerekiyor."
 
-#: core/messages/message.cpp:715
+#: core/messages/message.cpp:716
 #, kde-format
 msgid "Discussion created about \"%1\""
 msgstr "“%1” üzerine bir tartışma oluşturuldu"
 
-#: core/messages/message.cpp:717
+#: core/messages/message.cpp:718
 #, kde-format
 msgid "%1 has joined the conversation"
 msgstr "%1, konuşmaya katıldı"
 
-#: core/messages/message.cpp:719
+#: core/messages/message.cpp:720
 #, kde-format
 msgid "This room has been archived by %1"
 msgstr "Bu oda, %1 tarafından arşivlendi"
 
-#: core/messages/message.cpp:721
+#: core/messages/message.cpp:722
 #, kde-format
 msgid "This room has been unarchived by %1"
 msgstr "Bu oda, %1 tarafından arşivden çıkarıldı"
 
-#: core/messages/message.cpp:724 core/messages/message.cpp:771
+#: core/messages/message.cpp:725 core/messages/message.cpp:772
 #, kde-format
 msgid "Unknown action!"
 msgstr "Bilinmeyen eylem!"
 
-#: core/messages/message.cpp:728
+#: core/messages/message.cpp:729
 #, kde-format
 msgid "Welcome %1!"
 msgstr "%1, hoş geldiniz!"
 
-#: core/messages/message.cpp:730
+#: core/messages/message.cpp:731
 #, kde-format
 msgid "Room avatar changed by %1"
 msgstr "Oda avatarı, %1 tarafından değiştirildi"
 
-#: core/messages/message.cpp:732
+#: core/messages/message.cpp:733
 #, kde-format
 msgid "This room's encryption has been enabled by %1"
 msgstr "Bu odanın şifrelemesi, %1 tarafından etkinleştirildi"
 
-#: core/messages/message.cpp:734
+#: core/messages/message.cpp:735
 #, kde-format
 msgid "This room's encryption has been disabled by %1"
 msgstr "Bu odanın şifrelemesi, %1 tarafından devre dışı bırakıldı"
 
-#: core/messages/message.cpp:736
+#: core/messages/message.cpp:737
 #, kde-format
 msgid "Room set as Read Only by  %1"
 msgstr "Oda, %1 tarafından saltokunur yapıldı"
 
-#: core/messages/message.cpp:738
+#: core/messages/message.cpp:739
 #, kde-format
 msgid "Room added writing permission by %1"
 msgstr "Odaya, %1 tarafından yazma izinleri eklendi"
 
-#: core/messages/message.cpp:740
+#: core/messages/message.cpp:741
 #, kde-format
 msgid "%1 added @%2 to this Team"
 msgstr "%1, @%2 kişisini bu takıma ekledi"
 
-#: core/messages/message.cpp:742
+#: core/messages/message.cpp:743
 #, kde-format
 msgid "%1 removed @%2 from this Team"
 msgstr "%1, @%2 kişisini bu takımdan çıkardı"
 
-#: core/messages/message.cpp:744
+#: core/messages/message.cpp:745
 #, kde-format
 msgid "%1 converted #%2 to a Team"
 msgstr "%1, #%2 kanalını bir takıma dönüştürdü"
 
-#: core/messages/message.cpp:746
+#: core/messages/message.cpp:747
 #, kde-format
 msgid "%1 converted #%2 to a Channel"
 msgstr "%1, #%2 takımını bir kanala dönüştürdü"
 
-#: core/messages/message.cpp:748
+#: core/messages/message.cpp:749
 #, kde-format
 msgid "%1 removed #%2 from this Team"
 msgstr "%1, #%2 odasını bu takımdan çıkardı"
 
-#: core/messages/message.cpp:750
+#: core/messages/message.cpp:751
 #, kde-format
 msgid "%1 deleted #%2"
 msgstr "#%2, %1 tarafından silindi"
 
-#: core/messages/message.cpp:752
+#: core/messages/message.cpp:753
 #, kde-format
 msgid "%1 added #%2 to this Team"
 msgstr "%1, #%2 odasını bu takıma ekledi"
 
-#: core/messages/message.cpp:754
+#: core/messages/message.cpp:755
 #, kde-format
 msgid "Room allowed reacting by %1"
 msgstr "%1 tarafından odaya tepki izni verildi"
 
-#: core/messages/message.cpp:756
+#: core/messages/message.cpp:757
 #, kde-format
 msgid "Room disallowed reacting by %1"
 msgstr "%1 tarafından odaya tepki izni kaldırıldı"
 
-#: core/messages/message.cpp:758
+#: core/messages/message.cpp:759
 #, kde-format
 msgid "%1 joined this Team"
 msgstr "%1, bu takıma katıldı"
 
-#: core/messages/message.cpp:760
+#: core/messages/message.cpp:761
 #, kde-format
 msgid "%1 has joined OTR chat."
 msgstr "%1, kayıt dışı sohbete katıldı."
 
-#: core/messages/message.cpp:762
+#: core/messages/message.cpp:763
 #, kde-format
 msgid "%1 key refreshed successfully"
 msgstr "%1 anahtar başarıyla yenilendi"
 
-#: core/messages/message.cpp:764
+#: core/messages/message.cpp:765
 #, kde-format
 msgid "%1 has requested key refresh."
 msgstr "%1, anahtar yenilemesi istedi."
@@ -3950,7 +3950,7 @@ msgid "Password"
 msgstr "Parola"
 
 #: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:115
-#: widgets/room/roomwidget.cpp:466
+#: widgets/room/roomwidget.cpp:500
 #, kde-format
 msgid "Video Conference"
 msgstr "Video Konferans"
@@ -6297,8 +6297,8 @@ msgstr "Premium"
 #, kde-format
 msgid "%1 request"
 msgid_plural "%1 requests"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%1 istek"
+msgstr[1] "%1 istek"
 
 #: widgets/applicationssettingsdialog/applicationssettingsdescriptiondialog.cpp:25
 #: widgets/applicationssettingsdialog/applicationssettingsdialog.cpp:27
@@ -7852,22 +7852,29 @@ msgid_plural "%1 Discussions in room (Total: %2)"
 msgstr[0] "Odada %1 tartışma (Toplam: %2)"
 msgstr[1] "Odada %1 tartışma (Toplam: %2)"
 
-#: widgets/encryption/e2ecopypassworddialog.cpp:18
+#: widgets/encryption/e2ecopypassworddialog.cpp:17
 #, kde-format
 msgctxt "@title:window"
 msgid "Copy Password"
 msgstr "Parolayı Kopyala"
 
-#: widgets/encryption/e2ecopypasswordwidget.cpp:23
-#, kde-format
+#: widgets/encryption/e2ecopypasswordwidget.cpp:31
+#, fuzzy, kde-format
+#| msgid ""
+#| "Create secure private rooms and direct messages with end-to-end "
+#| "encryption.<br/><br/>Save your password securely, as the key to encode/"
+#| "decode your messages won't be saved on the server. You'll need to enter "
+#| "it on other devices to use e2e encryption.<br/><br/>Change your password "
+#| "anytime from any browser you've entered it on. Remember to store your "
+#| "password before dismissing this message.<br/><br/>Your password is: <span "
+#| "style=\"font-weight: bold;\">%1</span>"
 msgid ""
 "Create secure private rooms and direct messages with end-to-end encryption."
 "<br/><br/>Save your password securely, as the key to encode/decode your "
 "messages won't be saved on the server. You'll need to enter it on other "
 "devices to use e2e encryption.<br/><br/>Change your password anytime from "
 "any browser you've entered it on. Remember to store your password before "
-"dismissing this message.<br/><br/>Your password is: <span style=\"font-"
-"weight: bold;\">%1</span>"
+"dismissing this message.<br/><br/>Your password is:"
 msgstr ""
 "Uçtan uca şifrelemeyle güvenli özel odalar ve doğrudan iletiler oluşturun."
 "<br/><br/>İletilerinizi kodlama/şifrelerini çözme anahtarı sunucuya "
@@ -7876,6 +7883,13 @@ msgstr ""
 "<br/><br/>Parolanızı, girdiğiniz herhangi bir tarayıcıdan istediğiniz zaman "
 "değiştirin. Bu iletiyi kapatmadan önce parolanızı kaydetmeyi unutmayın.<br/"
 "><br/>Parolanız: <span style=\"font-weight: bold;\">%1</span>"
+
+#: widgets/encryption/e2ecopypasswordwidget.cpp:60
+#, fuzzy, kde-format
+#| msgctxt "@title:window"
+#| msgid "Copy Password"
+msgid "Copy password"
+msgstr "Parolayı Kopyala"
 
 #: widgets/encryption/e2edecodeencryptionkeyfailedwidget.cpp:17
 #, kde-format
@@ -7887,7 +7901,6 @@ msgstr ""
 "yanlış gibi görünüyor."
 
 #: widgets/encryption/e2edecodeencryptionkeyfailedwidget.cpp:19
-#: widgets/encryption/e2edecodeencryptionkeywidget.cpp:19
 #, kde-format
 msgctxt "@action"
 msgid "Decrypt Encryption Key"
@@ -7895,11 +7908,16 @@ msgstr "Şifreleme Anahtarının Şifresini Çöz"
 
 #: widgets/encryption/e2edecodeencryptionkeywidget.cpp:17
 #, kde-format
-msgid ""
-"Save your encryption password. Click here to view and copy your password."
+msgid "Click here to enter your e2e password."
 msgstr ""
-"Şifreleme parolanızı kaydedin. Parolanızı görüntüleyip kopyalamak için "
-"buraya tıklayın."
+
+#: widgets/encryption/e2edecodeencryptionkeywidget.cpp:19
+#, fuzzy, kde-format
+#| msgctxt "@action"
+#| msgid "Decrypt Encryption Key"
+msgctxt "@action"
+msgid "Decode Encryption Key"
+msgstr "Şifreleme Anahtarının Şifresini Çöz"
 
 #: widgets/encryption/e2epassworddecodekeydialog.cpp:17
 #, kde-format
@@ -7920,6 +7938,22 @@ msgstr ""
 "parolanızı girin.\n"
 "Anahtar sunucuda depolanmadığından dolayı, iletilerinizi kodlamak/kodunu "
 "çözmek için kullandığınız her istemcide bu parolayı girmek zorundasınız."
+
+#: widgets/encryption/e2esaveencryptionkeywidget.cpp:17
+#, kde-format
+msgid ""
+"Save your encryption password. Click here to view and copy your password."
+msgstr ""
+"Şifreleme parolanızı kaydedin. Parolanızı görüntüleyip kopyalamak için "
+"buraya tıklayın."
+
+#: widgets/encryption/e2esaveencryptionkeywidget.cpp:19
+#, fuzzy, kde-format
+#| msgctxt "@action"
+#| msgid "Decrypt Encryption Key"
+msgctxt "@action"
+msgid "Save Encryption Key"
+msgstr "Şifreleme Anahtarının Şifresini Çöz"
 
 #: widgets/explorepermissionsdialog/explorepermissionsdialog.cpp:24
 #, kde-format
@@ -9509,18 +9543,18 @@ msgstr "Bir ilmekte yanıtlanıyor"
 msgid "Reply in Thread for Message: '%1'"
 msgstr "Şu İletiyi İlmekte Yanıtla: “%1”"
 
-#: widgets/room/roomwidget.cpp:296
+#: widgets/room/roomwidget.cpp:330
 #, kde-format
 msgid "Do you want really remove history?"
 msgstr "Geçmişi kaldırmayı gerçekten istiyor musunuz?"
 
-#: widgets/room/roomwidget.cpp:297
+#: widgets/room/roomwidget.cpp:331
 #, kde-format
 msgctxt "@title:window"
 msgid "Remove History"
 msgstr "Geçmişi Kaldır"
 
-#: widgets/room/roomwidget.cpp:466
+#: widgets/room/roomwidget.cpp:500
 #, kde-format
 msgid ""
 "A workspace admin needs to install and configure a conference call apps."

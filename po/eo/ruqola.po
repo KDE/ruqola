@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-07-11 00:38+0000\n"
+"POT-Creation-Date: 2024-07-12 00:39+0000\n"
 "PO-Revision-Date: 2024-07-04 21:35+0200\n"
 "Last-Translator: Oliver Kellogg <olivermkellogg@gmail.com>\n"
 "Language-Team: Esperanto <kde-i18n-doc@kde.org>\n"
@@ -427,120 +427,120 @@ msgstr "Sonoriltono"
 msgid "(Last Message: %1)"
 msgstr "(Lasta Mesaĝo: %1)"
 
-#: core/messages/block.cpp:128 core/messages/message.cpp:766
+#: core/messages/block.cpp:128 core/messages/message.cpp:767
 #: core/model/notificationhistorymodel.cpp:63
 #: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:128
 #, kde-format
 msgid "Conference Call"
 msgstr "Konferencovoko"
 
-#: core/messages/message.cpp:662
+#: core/messages/message.cpp:663
 #, kde-format
 msgid "%1 has joined the channel"
 msgstr "%1 aliĝis al la kanalo"
 
-#: core/messages/message.cpp:664
+#: core/messages/message.cpp:665
 #, kde-format
 msgid "%1 has left the channel"
 msgstr "%1 forlasis la kanalon"
 
-#: core/messages/message.cpp:666
+#: core/messages/message.cpp:667
 #, kde-format
 msgid "%1 left this Team"
 msgstr "%1 forlasis ĉi tiun teamon"
 
-#: core/messages/message.cpp:669
+#: core/messages/message.cpp:670
 #, kde-format
 msgid "Topic was cleared by: %1"
 msgstr "Temo estis viŝita de: %1"
 
-#: core/messages/message.cpp:671
+#: core/messages/message.cpp:672
 #, kde-format
 msgid "%2 changed topic to: <i>%1</i>"
 msgstr "%2 ŝanĝis temon al: <i>%1</i>"
 
-#: core/messages/message.cpp:674
+#: core/messages/message.cpp:675
 #, kde-format
 msgid "%2 added %1 to the conversation"
 msgstr "%2 aldonis %1 al la konversacio"
 
-#: core/messages/message.cpp:676
+#: core/messages/message.cpp:677
 #, kde-format
 msgid "%2 changed room name to <a href=\"ruqola:/room/%1\">#%1</a>"
 msgstr "%2 ŝanĝis ĉambronomon al <a href=\"ruqola:/room/%1\">#%1</a>"
 
-#: core/messages/message.cpp:678
+#: core/messages/message.cpp:679
 #, kde-format
 msgid "%2 removed user %1"
 msgstr "%2 forigis uzanton %1"
 
-#: core/messages/message.cpp:681
+#: core/messages/message.cpp:682
 #, kde-format
 msgid "Description was cleared by %1"
 msgstr "Priskribo estis forigita de %1"
 
-#: core/messages/message.cpp:683
+#: core/messages/message.cpp:684
 #, kde-format
 msgid "%2 changed room description to %1"
 msgstr "%2 ŝanĝis ĉambropriskribon al %1"
 
-#: core/messages/message.cpp:687
+#: core/messages/message.cpp:688
 #, kde-format
 msgid "Announcement was cleared by %1"
 msgstr "Anonco estis forigita de %1"
 
-#: core/messages/message.cpp:689
+#: core/messages/message.cpp:690
 #, kde-format
 msgid "%2 changed room announcement to %1"
 msgstr "%2 ŝanĝis ĉambranoncon al %1"
 
-#: core/messages/message.cpp:692
+#: core/messages/message.cpp:693
 #, kde-format
 msgid "%2 changed room privacy to %1"
 msgstr "%2 ŝanĝis la privatecon de la ĉambro al %1"
 
-#: core/messages/message.cpp:694
+#: core/messages/message.cpp:695
 #, kde-format
 msgid "Click to join to video"
 msgstr "Klaku por aliĝi al video"
 
-#: core/messages/message.cpp:697
+#: core/messages/message.cpp:698
 #, kde-format
 msgid "Message Deleted"
 msgstr "Mesaĝo Forigita"
 
-#: core/messages/message.cpp:699
+#: core/messages/message.cpp:700
 #, kde-format
 msgid "Message Pinned"
 msgstr "Mesaĝo Alpinglita"
 
-#: core/messages/message.cpp:701
+#: core/messages/message.cpp:702
 #, kde-format
 msgid "Encrypted Message"
 msgstr "Ĉifrita Mesaĝo"
 
-#: core/messages/message.cpp:703
+#: core/messages/message.cpp:704
 #, kde-format
 msgid "%1 was unmuted by %2"
 msgstr "%1 estis mallaŭtigita de %2"
 
-#: core/messages/message.cpp:705
+#: core/messages/message.cpp:706
 #, kde-format
 msgid "%1 was muted by %2"
 msgstr "%1 estis silentigita de %2"
 
-#: core/messages/message.cpp:707
+#: core/messages/message.cpp:708
 #, kde-format
 msgid "Role '%3' was added to %1 by %2"
 msgstr "Rolo '%3' estis aldonita al %1 de %2"
 
-#: core/messages/message.cpp:709
+#: core/messages/message.cpp:710
 #, kde-format
 msgid "Role '%3' was removed to %1 by %2"
 msgstr "Rolo '%3' estis forigita al %1 de %2"
 
 #. i18n("Encrypted message: %1", mText);
-#: core/messages/message.cpp:713
+#: core/messages/message.cpp:714
 #, kde-format
 msgid ""
 "This message is end-to-end encrypted. To view it, you must enter your "
@@ -549,122 +549,122 @@ msgstr ""
 "Ĉi tiu mesaĝo estas fin-al-fine ĉifrita. Por vidi ĝin, vi devas enigi vian "
 "ĉifradan ŝlosilon en la agordojn de via konto."
 
-#: core/messages/message.cpp:715
+#: core/messages/message.cpp:716
 #, kde-format
 msgid "Discussion created about \"%1\""
 msgstr "Diskuto kreita pri \"%1\""
 
-#: core/messages/message.cpp:717
+#: core/messages/message.cpp:718
 #, kde-format
 msgid "%1 has joined the conversation"
 msgstr "%1 aliĝis al la konversacio"
 
-#: core/messages/message.cpp:719
+#: core/messages/message.cpp:720
 #, kde-format
 msgid "This room has been archived by %1"
 msgstr "Ĉi tiu ĉambro estis arkivita de %1"
 
-#: core/messages/message.cpp:721
+#: core/messages/message.cpp:722
 #, kde-format
 msgid "This room has been unarchived by %1"
 msgstr "Ĉi tiu ĉambro estis malarkivita de %1"
 
-#: core/messages/message.cpp:724 core/messages/message.cpp:771
+#: core/messages/message.cpp:725 core/messages/message.cpp:772
 #, kde-format
 msgid "Unknown action!"
 msgstr "Nekonata ago!"
 
-#: core/messages/message.cpp:728
+#: core/messages/message.cpp:729
 #, kde-format
 msgid "Welcome %1!"
 msgstr "Bonvenon %1!"
 
-#: core/messages/message.cpp:730
+#: core/messages/message.cpp:731
 #, kde-format
 msgid "Room avatar changed by %1"
 msgstr "Ĉambravataro ŝanĝita de %1"
 
-#: core/messages/message.cpp:732
+#: core/messages/message.cpp:733
 #, kde-format
 msgid "This room's encryption has been enabled by %1"
 msgstr "La ĉifrado de ĉi tiu ĉambro estis ebligita de %1"
 
-#: core/messages/message.cpp:734
+#: core/messages/message.cpp:735
 #, kde-format
 msgid "This room's encryption has been disabled by %1"
 msgstr "La ĉifrado de ĉi tiu ĉambro estis malŝaltita de %1"
 
-#: core/messages/message.cpp:736
+#: core/messages/message.cpp:737
 #, kde-format
 msgid "Room set as Read Only by  %1"
 msgstr "Ĉambro agordita kiel Nur Lego de %1"
 
-#: core/messages/message.cpp:738
+#: core/messages/message.cpp:739
 #, kde-format
 msgid "Room added writing permission by %1"
 msgstr "Ĉambro aldonis skribpermeson de %1"
 
-#: core/messages/message.cpp:740
+#: core/messages/message.cpp:741
 #, kde-format
 msgid "%1 added @%2 to this Team"
 msgstr "%1 aldonis @%2 al ĉi tiu Teamo"
 
-#: core/messages/message.cpp:742
+#: core/messages/message.cpp:743
 #, kde-format
 msgid "%1 removed @%2 from this Team"
 msgstr "%1 forigis @%2 de ĉi tiu Teamo"
 
-#: core/messages/message.cpp:744
+#: core/messages/message.cpp:745
 #, kde-format
 msgid "%1 converted #%2 to a Team"
 msgstr "%1 konvertis #%2 al Teamo"
 
-#: core/messages/message.cpp:746
+#: core/messages/message.cpp:747
 #, kde-format
 msgid "%1 converted #%2 to a Channel"
 msgstr "%1 konvertis #%2 al Kanalo"
 
-#: core/messages/message.cpp:748
+#: core/messages/message.cpp:749
 #, kde-format
 msgid "%1 removed #%2 from this Team"
 msgstr "%1 forigis #%2 el ĉi tiu teamo"
 
-#: core/messages/message.cpp:750
+#: core/messages/message.cpp:751
 #, kde-format
 msgid "%1 deleted #%2"
 msgstr "%1 forigis #%2"
 
-#: core/messages/message.cpp:752
+#: core/messages/message.cpp:753
 #, kde-format
 msgid "%1 added #%2 to this Team"
 msgstr "%1 aldonis #%2 al ĉi tiu teamo"
 
-#: core/messages/message.cpp:754
+#: core/messages/message.cpp:755
 #, kde-format
 msgid "Room allowed reacting by %1"
 msgstr "Ĉambro permesis reagi de %1"
 
-#: core/messages/message.cpp:756
+#: core/messages/message.cpp:757
 #, kde-format
 msgid "Room disallowed reacting by %1"
 msgstr "Ĉambro malpermesita reagado de %1"
 
-#: core/messages/message.cpp:758
+#: core/messages/message.cpp:759
 #, kde-format
 msgid "%1 joined this Team"
 msgstr "%1 aliĝis al ĉi tiu Teamo"
 
-#: core/messages/message.cpp:760
+#: core/messages/message.cpp:761
 #, kde-format
 msgid "%1 has joined OTR chat."
 msgstr "%1 aliĝis al OTR-babilejo."
 
-#: core/messages/message.cpp:762
+#: core/messages/message.cpp:763
 #, kde-format
 msgid "%1 key refreshed successfully"
 msgstr "%1 ŝlosilo refreŝiĝis sukcese"
 
-#: core/messages/message.cpp:764
+#: core/messages/message.cpp:765
 #, kde-format
 msgid "%1 has requested key refresh."
 msgstr "%1 petis ŝlosilan refreŝigon."
@@ -3966,7 +3966,7 @@ msgid "Password"
 msgstr "Pasvorto"
 
 #: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:115
-#: widgets/room/roomwidget.cpp:466
+#: widgets/room/roomwidget.cpp:500
 #, kde-format
 msgid "Video Conference"
 msgstr "Videokonferenco"
@@ -7873,22 +7873,29 @@ msgid_plural "%1 Discussions in room (Total: %2)"
 msgstr[0] "%1 Diskuto en ĉambro (Totalo: %2)"
 msgstr[1] "%1 Diskutoj en ĉambro (Totalo: %2"
 
-#: widgets/encryption/e2ecopypassworddialog.cpp:18
+#: widgets/encryption/e2ecopypassworddialog.cpp:17
 #, kde-format
 msgctxt "@title:window"
 msgid "Copy Password"
 msgstr "Kopii Pasvorton"
 
-#: widgets/encryption/e2ecopypasswordwidget.cpp:23
-#, kde-format
+#: widgets/encryption/e2ecopypasswordwidget.cpp:31
+#, fuzzy, kde-format
+#| msgid ""
+#| "Create secure private rooms and direct messages with end-to-end "
+#| "encryption.<br/><br/>Save your password securely, as the key to encode/"
+#| "decode your messages won't be saved on the server. You'll need to enter "
+#| "it on other devices to use e2e encryption.<br/><br/>Change your password "
+#| "anytime from any browser you've entered it on. Remember to store your "
+#| "password before dismissing this message.<br/><br/>Your password is: <span "
+#| "style=\"font-weight: bold;\">%1</span>"
 msgid ""
 "Create secure private rooms and direct messages with end-to-end encryption."
 "<br/><br/>Save your password securely, as the key to encode/decode your "
 "messages won't be saved on the server. You'll need to enter it on other "
 "devices to use e2e encryption.<br/><br/>Change your password anytime from "
 "any browser you've entered it on. Remember to store your password before "
-"dismissing this message.<br/><br/>Your password is: <span style=\"font-"
-"weight: bold;\">%1</span>"
+"dismissing this message.<br/><br/>Your password is:"
 msgstr ""
 "Kreu sekurajn privatajn ĉambrojn kaj rektajn mesaĝojn per fin-al-fina "
 "ĉifrado.<br/><br/>Konservu vian pasvorton sekure, ĉar la ŝlosilo por kodi/"
@@ -7897,6 +7904,13 @@ msgstr ""
 "ajn de ajna retumilo, per kiu vi enigis ĝin. Memoru konservi vian pasvorton "
 "antaŭ ol forĵeti ĉi tiun mesaĝon.<br/><br/>Via pasvorto estas: <span style="
 "\"font-weight: bold;\">%1</span>"
+
+#: widgets/encryption/e2ecopypasswordwidget.cpp:60
+#, fuzzy, kde-format
+#| msgctxt "@title:window"
+#| msgid "Copy Password"
+msgid "Copy password"
+msgstr "Kopii Pasvorton"
 
 #: widgets/encryption/e2edecodeencryptionkeyfailedwidget.cpp:17
 #, kde-format
@@ -7908,7 +7922,6 @@ msgstr ""
 "ŝajnas malĝusta."
 
 #: widgets/encryption/e2edecodeencryptionkeyfailedwidget.cpp:19
-#: widgets/encryption/e2edecodeencryptionkeywidget.cpp:19
 #, kde-format
 msgctxt "@action"
 msgid "Decrypt Encryption Key"
@@ -7916,11 +7929,16 @@ msgstr "Malĉifri Ĉifradan Ŝlosilon"
 
 #: widgets/encryption/e2edecodeencryptionkeywidget.cpp:17
 #, kde-format
-msgid ""
-"Save your encryption password. Click here to view and copy your password."
+msgid "Click here to enter your e2e password."
 msgstr ""
-"Konservu vian ĉifradan pasvorton. Klaku ĉi tie por vidi kaj kopii vian "
-"pasvorton."
+
+#: widgets/encryption/e2edecodeencryptionkeywidget.cpp:19
+#, fuzzy, kde-format
+#| msgctxt "@action"
+#| msgid "Decrypt Encryption Key"
+msgctxt "@action"
+msgid "Decode Encryption Key"
+msgstr "Malĉifri Ĉifradan Ŝlosilon"
 
 #: widgets/encryption/e2epassworddecodekeydialog.cpp:17
 #, kde-format
@@ -7941,6 +7959,22 @@ msgstr ""
 "ĉifradan pasvorton.\n"
 "Vi devas enigi ĉi tiun pasvorton por kodi/malkodi viajn mesaĝojn en ĉiu "
 "kliento, kiun vi uzas, ĉar la ŝlosilo ne estas konservita en la servilo."
+
+#: widgets/encryption/e2esaveencryptionkeywidget.cpp:17
+#, kde-format
+msgid ""
+"Save your encryption password. Click here to view and copy your password."
+msgstr ""
+"Konservu vian ĉifradan pasvorton. Klaku ĉi tie por vidi kaj kopii vian "
+"pasvorton."
+
+#: widgets/encryption/e2esaveencryptionkeywidget.cpp:19
+#, fuzzy, kde-format
+#| msgctxt "@action"
+#| msgid "Decrypt Encryption Key"
+msgctxt "@action"
+msgid "Save Encryption Key"
+msgstr "Malĉifri Ĉifradan Ŝlosilon"
 
 #: widgets/explorepermissionsdialog/explorepermissionsdialog.cpp:24
 #, kde-format
@@ -9518,18 +9552,18 @@ msgstr "Respondante en fadeno"
 msgid "Reply in Thread for Message: '%1'"
 msgstr "Respondi en Fadeno por Mesaĝo: '%1'"
 
-#: widgets/room/roomwidget.cpp:296
+#: widgets/room/roomwidget.cpp:330
 #, kde-format
 msgid "Do you want really remove history?"
 msgstr "Ĉu vi vere volas forigi la historion?"
 
-#: widgets/room/roomwidget.cpp:297
+#: widgets/room/roomwidget.cpp:331
 #, kde-format
 msgctxt "@title:window"
 msgid "Remove History"
 msgstr "Forigi Historion"
 
-#: widgets/room/roomwidget.cpp:466
+#: widgets/room/roomwidget.cpp:500
 #, kde-format
 msgid ""
 "A workspace admin needs to install and configure a conference call apps."
