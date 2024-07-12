@@ -13,11 +13,19 @@ extern "C" {
 }
 namespace EncryptionUtils
 {
+struct EncryptionInfo {
+    QByteArray vector;
+    QByteArray encryptedData;
+};
+
 [[nodiscard]] LIBRUQOLACORE_TESTS_EXPORT QByteArray exportJWKKey(RSA *rsaKey);
 LIBRUQOLACORE_TESTS_EXPORT void generateRSAKey();
 [[nodiscard]] LIBRUQOLACORE_TESTS_EXPORT QString encodePrivateKey(const QString &privateKey, const QString &password);
 [[nodiscard]] LIBRUQOLACORE_TESTS_EXPORT QString deriveKey();
 [[nodiscard]] LIBRUQOLACORE_TESTS_EXPORT QString getMasterKey(const QString &password);
+[[nodiscard]] LIBRUQOLACORE_TESTS_EXPORT QByteArray encryptAES_CBC(const QByteArray &data, const QByteArray &key, const QByteArray &iv);
+[[nodiscard]] LIBRUQOLACORE_TESTS_EXPORT QByteArray deriveKey(const QByteArray &keyData, const QByteArray &salt, int iterations);
 
-void importRawKey();
+LIBRUQOLACORE_TESTS_EXPORT QByteArray importRawKey(const QByteArray &keyData, const QByteArray &salt, int iterations);
+LIBRUQOLACORE_TESTS_EXPORT EncryptionUtils::EncryptionInfo splitVectorAndEcryptedData(const QByteArray &cipherText);
 };

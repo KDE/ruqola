@@ -101,10 +101,76 @@ QString EncryptionUtils::deriveKey()
 
 QString EncryptionUtils::getMasterKey(const QString &password)
 {
+    if (password.isEmpty()) {
+        return {};
+    }
+    // TODO
     return {};
 }
 
-void EncryptionUtils::importRawKey()
+// crypto.subtle.importKey('raw', keyData, { name: 'PBKDF2' }, false, keyUsages);
+QByteArray EncryptionUtils::importRawKey(const QByteArray &keyData, const QByteArray &salt, int iterations)
 {
     // TODO
+    QByteArray iv;
+    QByteArray plainText;
+
+    const QByteArray key = deriveKey(keyData, salt, iterations);
+    const QByteArray cipherText = encryptAES_CBC(plainText, key, iv);
+    return cipherText;
+}
+
+QByteArray EncryptionUtils::encryptAES_CBC(const QByteArray &data, const QByteArray &key, const QByteArray &iv)
+{
+    EVP_CIPHER_CTX *ctx;
+    int len;
+    int ciphertext_len;
+    unsigned char ciphertext[128];
+
+    if (!(ctx = EVP_CIPHER_CTX_new()))
+        return {};
+
+    if (1
+        != EVP_EncryptInit_ex(ctx,
+                              EVP_aes_256_cbc(),
+                              NULL,
+                              reinterpret_cast<const unsigned char *>(key.data()),
+                              reinterpret_cast<const unsigned char *>(iv.data())))
+        return {};
+
+    if (1 != EVP_EncryptUpdate(ctx, ciphertext, &len, reinterpret_cast<const unsigned char *>(data.data()), data.size()))
+        return {};
+    ciphertext_len = len;
+
+    if (1 != EVP_EncryptFinal_ex(ctx, ciphertext + len, &len))
+        return {};
+    ciphertext_len += len;
+
+    EVP_CIPHER_CTX_free(ctx);
+
+    return QByteArray(reinterpret_cast<char *>(ciphertext), ciphertext_len);
+}
+
+QByteArray EncryptionUtils::deriveKey(const QByteArray &keyData, const QByteArray &salt, int iterations)
+{
+    unsigned char key[32]; // 256-bit key
+    if (!PKCS5_PBKDF2_HMAC(keyData.data(),
+                           keyData.size(),
+                           reinterpret_cast<const unsigned char *>(salt.data()),
+                           salt.size(),
+                           iterations,
+                           EVP_sha256(),
+                           32,
+                           key)) {
+        return {};
+    }
+    return QByteArray(reinterpret_cast<char *>(key), 32);
+}
+
+EncryptionUtils::EncryptionInfo EncryptionUtils::splitVectorAndEcryptedData(const QByteArray &cipherText)
+{
+    EncryptionUtils::EncryptionInfo info;
+    info.vector = cipherText.left(16);
+    info.encryptedData = cipherText.last(16);
+    return info;
 }
