@@ -74,6 +74,7 @@ E2eKeyManager::Status E2eKeyManager::needToDecodeEncryptionKey() const
     }
     if (mAccount->encryptionEnabled()) {
         // TODO check if we have decoded key stored.
+        // TODO check NeedToDecryptKey
         return Status::NeedToGenerateKey;
     }
     return Status::Unknown;
