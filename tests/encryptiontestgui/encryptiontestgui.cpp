@@ -15,7 +15,6 @@ EncryptionTestGui::EncryptionTestGui(QWidget *parent)
     : QWidget{parent}
     , mTextEdit(new QTextEdit(this))
     , mTextEditResult(new QTextEdit(this))
-    , mTextEditResultCMark(new QTextEdit(this))
 {
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setContentsMargins({});
@@ -26,6 +25,7 @@ EncryptionTestGui::EncryptionTestGui(QWidget *parent)
     connect(pushButton, &QPushButton::clicked, this, [this]() {
         EncryptionUtils::generateRSAKey();
     });
+
     mTextEditResult->setReadOnly(true);
     auto label = new QLabel(QStringLiteral("Decode"), this);
     mainLayout->addWidget(label);
