@@ -98,3 +98,13 @@ QString EncryptionUtils::deriveKey()
     // TODO
     return {};
 }
+
+QString EncryptionUtils::getMasterKey(const QString &password)
+{
+    return {};
+}
+
+void EncryptionUtils::importRawKey()
+{
+    // TODO
+}
