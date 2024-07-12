@@ -5,6 +5,7 @@
 */
 
 #include "encryptiontestgui.h"
+#include "encryption/encryptionutils.h"
 #include <QApplication>
 #include <QLabel>
 #include <QPushButton>
@@ -22,7 +23,9 @@ EncryptionTestGui::EncryptionTestGui(QWidget *parent)
 
     auto pushButton = new QPushButton(QStringLiteral("Decode"), this);
     mainLayout->addWidget(pushButton);
-    connect(pushButton, &QPushButton::clicked, this, [this]() {});
+    connect(pushButton, &QPushButton::clicked, this, [this]() {
+        EncryptionUtils::generateRSAKey();
+    });
     mTextEditResult->setReadOnly(true);
     auto label = new QLabel(QStringLiteral("Decode"), this);
     mainLayout->addWidget(label);

@@ -7,6 +7,7 @@ target_sources(encryptiontestgui PRIVATE encryptiontestgui.h encryptiontestgui.c
 target_link_libraries(encryptiontestgui
     Qt::Widgets
     Qt::Gui
+    libruqolacore
 )
 set_target_properties(encryptiontestgui PROPERTIES DISABLE_PRECOMPILE_HEADERS ON)
 
