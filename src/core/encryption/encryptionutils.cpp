@@ -179,3 +179,9 @@ QByteArray EncryptionUtils::joinVectorAndEcryptedData(const EncryptionUtils::Enc
 {
     return info.vector + info.encryptedData;
 }
+
+QVector<uint8_t> EncryptionUtils::toArrayBuffer(const QByteArray &ba)
+{
+    const QVector<uint8_t> byteVector(ba.constBegin(), ba.constEnd());
+    return byteVector;
+}
