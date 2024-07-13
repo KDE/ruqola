@@ -174,3 +174,8 @@ EncryptionUtils::EncryptionInfo EncryptionUtils::splitVectorAndEcryptedData(cons
     info.encryptedData = cipherText.last(16);
     return info;
 }
+
+QByteArray EncryptionUtils::joinVectorAndEcryptedData(const EncryptionUtils::EncryptionInfo &info)
+{
+    return info.vector + info.encryptedData;
+}
