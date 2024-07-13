@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-07-12 00:39+0000\n"
-"PO-Revision-Date: 2024-07-04 21:35+0200\n"
+"PO-Revision-Date: 2024-07-12 22:08+0200\n"
 "Last-Translator: Oliver Kellogg <olivermkellogg@gmail.com>\n"
 "Language-Team: Esperanto <kde-i18n-doc@kde.org>\n"
 "Language: eo\n"
@@ -6316,8 +6316,8 @@ msgstr "Premio"
 #, kde-format
 msgid "%1 request"
 msgid_plural "%1 requests"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%1 alpeto"
+msgstr[1] "%1 alpetoj"
 
 #: widgets/applicationssettingsdialog/applicationssettingsdescriptiondialog.cpp:25
 #: widgets/applicationssettingsdialog/applicationssettingsdialog.cpp:27
@@ -6428,15 +6428,13 @@ msgid "Mark as Read"
 msgstr "Marki kiel Legita"
 
 #: widgets/channellist/channellistview.cpp:118
-#, fuzzy, kde-format
-#| msgid "Mark As Read"
+#, kde-format
 msgctxt "@action"
 msgid "Mark As Read"
 msgstr "Marki Kiel Legita"
 
 #: widgets/channellist/channellistview.cpp:118
-#, fuzzy, kde-format
-#| msgid "Mark As Unread"
+#, kde-format
 msgctxt "@action"
 msgid "Mark As Unread"
 msgstr "Marki Kiel Nelegita"
@@ -6449,15 +6447,13 @@ msgid "Set as Favorite"
 msgstr "Agordi kiel Plej ŝatatan"
 
 #: widgets/channellist/channellistview.cpp:128
-#, fuzzy, kde-format
-#| msgid "Unset as Favorite"
+#, kde-format
 msgctxt "@action"
 msgid "Unset as Favorite"
 msgstr "Malŝalti kiel Favorita"
 
 #: widgets/channellist/channellistview.cpp:137
-#, fuzzy, kde-format
-#| msgid "Hide Channel"
+#, kde-format
 msgctxt "@action"
 msgid "Hide Channel"
 msgstr "Kaŝi Kanalon"
@@ -6481,15 +6477,13 @@ msgid "Move to Team"
 msgstr "Movi al Teamo"
 
 #: widgets/channellist/channellistview.cpp:194
-#, fuzzy, kde-format
-#| msgid "Configure Notification…"
+#, kde-format
 msgctxt "@action"
 msgid "Configure Notification…"
 msgstr "Agordi Sciigon…"
 
 #: widgets/channellist/channellistview.cpp:201
-#, fuzzy, kde-format
-#| msgid "Quit Channel"
+#, kde-format
 msgctxt "@action"
 msgid "Quit Channel"
 msgstr "Forlasi Kanalon"
@@ -7906,11 +7900,9 @@ msgstr ""
 "\"font-weight: bold;\">%1</span>"
 
 #: widgets/encryption/e2ecopypasswordwidget.cpp:60
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Copy Password"
+#, kde-format
 msgid "Copy password"
-msgstr "Kopii Pasvorton"
+msgstr "Kopii pasvorton"
 
 #: widgets/encryption/e2edecodeencryptionkeyfailedwidget.cpp:17
 #, kde-format
@@ -7930,21 +7922,19 @@ msgstr "Malĉifri Ĉifradan Ŝlosilon"
 #: widgets/encryption/e2edecodeencryptionkeywidget.cpp:17
 #, kde-format
 msgid "Click here to enter your e2e password."
-msgstr ""
+msgstr "Klaku tie ĉi por enigi vian e2e-pasvorton."
 
 #: widgets/encryption/e2edecodeencryptionkeywidget.cpp:19
-#, fuzzy, kde-format
-#| msgctxt "@action"
-#| msgid "Decrypt Encryption Key"
+#, kde-format
 msgctxt "@action"
 msgid "Decode Encryption Key"
-msgstr "Malĉifri Ĉifradan Ŝlosilon"
+msgstr "Malkodi Ĉifradan Ŝlosilon"
 
 #: widgets/encryption/e2epassworddecodekeydialog.cpp:17
 #, kde-format
 msgctxt "@title:window"
 msgid "Decode Key"
-msgstr "Malĉifri Ŝlosilon"
+msgstr "Malkodi Ŝlosilon"
 
 #: widgets/encryption/e2epassworddecodekeywidget.cpp:23
 #, kde-format
@@ -7969,12 +7959,10 @@ msgstr ""
 "pasvorton."
 
 #: widgets/encryption/e2esaveencryptionkeywidget.cpp:19
-#, fuzzy, kde-format
-#| msgctxt "@action"
-#| msgid "Decrypt Encryption Key"
+#, kde-format
 msgctxt "@action"
 msgid "Save Encryption Key"
-msgstr "Malĉifri Ĉifradan Ŝlosilon"
+msgstr "Konservi Ĉifradan Ŝlosilon"
 
 #: widgets/explorepermissionsdialog/explorepermissionsdialog.cpp:24
 #, kde-format
@@ -8362,8 +8350,7 @@ msgid "Reset Password"
 msgstr "Restarigi Pasvorton"
 
 #: widgets/misc/searchwithdelaylineedit.cpp:16
-#, fuzzy, kde-format
-#| msgid "Search Word…"
+#, kde-format
 msgctxt "@info:placeholder"
 msgid "Search Word…"
 msgstr "Serĉu Vorton…"
@@ -9250,15 +9237,13 @@ msgid "Start of conversation"
 msgstr "Komenco de konversacio"
 
 #: widgets/room/messagelistview.cpp:280
-#, fuzzy, kde-format
-#| msgid "Unpin Message"
+#, kde-format
 msgctxt "@action"
 msgid "Unpin Message"
 msgstr "Malfiksi Mesaĝon"
 
 #: widgets/room/messagelistview.cpp:280
-#, fuzzy, kde-format
-#| msgid "Pin Message"
+#, kde-format
 msgctxt "@action"
 msgid "Pin Message"
 msgstr "Pin Mesaĝo"
@@ -9645,43 +9630,37 @@ msgid "Start Conversation"
 msgstr "Komenci Konversacion"
 
 #: widgets/room/usersinroommenu.cpp:114
-#, fuzzy, kde-format
-#| msgid "Remove as Owner"
+#, kde-format
 msgctxt "@action"
 msgid "Remove as Owner"
 msgstr "Forigi kiel Posedanto"
 
 #: widgets/room/usersinroommenu.cpp:114
-#, fuzzy, kde-format
-#| msgid "Add as Owner"
+#, kde-format
 msgctxt "@action"
 msgid "Add as Owner"
 msgstr "Aldoni kiel Posedanto"
 
 #: widgets/room/usersinroommenu.cpp:127
-#, fuzzy, kde-format
-#| msgid "Remove as Leader"
+#, kde-format
 msgctxt "@action"
 msgid "Remove as Leader"
 msgstr "Forigi kiel Gvidanto"
 
 #: widgets/room/usersinroommenu.cpp:127
-#, fuzzy, kde-format
-#| msgid "Add as Leader"
+#, kde-format
 msgctxt "@action"
 msgid "Add as Leader"
 msgstr "Aldoni kiel Ĉefo"
 
 #: widgets/room/usersinroommenu.cpp:139
-#, fuzzy, kde-format
-#| msgid "Remove as Moderator"
+#, kde-format
 msgctxt "@action"
 msgid "Remove as Moderator"
 msgstr "Forigi kiel Moderiganto"
 
 #: widgets/room/usersinroommenu.cpp:139
-#, fuzzy, kde-format
-#| msgid "Add as Moderator"
+#, kde-format
 msgctxt "@action"
 msgid "Add as Moderator"
 msgstr "Aldoni kiel Moderiganto"
@@ -10488,12 +10467,3 @@ msgstr "Kelkaj el la novaj funkcioj en ĉi tiu eldono de Ruqola inkluzivas:"
 #, kde-format
 msgid "Some bug fixing:"
 msgstr "Iu eraro korekto:"
-
-#~ msgid "Set as Favorite"
-#~ msgstr "Agordi kiel Plej ŝatatan"
-
-#~ msgid "Search rooms…"
-#~ msgstr "Serĉi ĉambrojn…"
-
-#~ msgid "Copy Message"
-#~ msgstr "Kopii Mesaĝon"

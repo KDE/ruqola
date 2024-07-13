@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-07-12 00:39+0000\n"
-"PO-Revision-Date: 2024-07-09 16:27+0200\n"
+"PO-Revision-Date: 2024-07-12 11:48+0200\n"
 "Last-Translator: Vit Pelcak <vit@pelcak.org>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
 "Language: cs\n"
@@ -6151,9 +6151,9 @@ msgstr "Premium"
 #, kde-format
 msgid "%1 request"
 msgid_plural "%1 requests"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "%1 požadavek"
+msgstr[1] "%1 požadavky"
+msgstr[2] "%1 požadavků"
 
 #: widgets/applicationssettingsdialog/applicationssettingsdescriptiondialog.cpp:25
 #: widgets/applicationssettingsdialog/applicationssettingsdialog.cpp:27
@@ -7720,9 +7720,7 @@ msgid ""
 msgstr ""
 
 #: widgets/encryption/e2ecopypasswordwidget.cpp:60
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Copy Password"
+#, kde-format
 msgid "Copy password"
 msgstr "Kopírovat heslo"
 
@@ -7742,12 +7740,10 @@ msgstr "Dešifrovat šifrovací klíč"
 #: widgets/encryption/e2edecodeencryptionkeywidget.cpp:17
 #, kde-format
 msgid "Click here to enter your e2e password."
-msgstr ""
+msgstr "Prosím, zadejte své heslo e2e."
 
 #: widgets/encryption/e2edecodeencryptionkeywidget.cpp:19
-#, fuzzy, kde-format
-#| msgctxt "@action"
-#| msgid "Decrypt Encryption Key"
+#, kde-format
 msgctxt "@action"
 msgid "Decode Encryption Key"
 msgstr "Dešifrovat šifrovací klíč"
@@ -7775,12 +7771,10 @@ msgid ""
 msgstr ""
 
 #: widgets/encryption/e2esaveencryptionkeywidget.cpp:19
-#, fuzzy, kde-format
-#| msgctxt "@action"
-#| msgid "Decrypt Encryption Key"
+#, kde-format
 msgctxt "@action"
 msgid "Save Encryption Key"
-msgstr "Dešifrovat šifrovací klíč"
+msgstr "Uložit šifrovací klíč"
 
 #: widgets/explorepermissionsdialog/explorepermissionsdialog.cpp:24
 #, kde-format

@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-07-12 00:39+0000\n"
-"PO-Revision-Date: 2024-07-11 12:52+0300\n"
+"PO-Revision-Date: 2024-07-12 08:35+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian\n"
 "Language: uk\n"
@@ -7975,15 +7975,7 @@ msgid "Copy Password"
 msgstr "Копіювати пароль"
 
 #: widgets/encryption/e2ecopypasswordwidget.cpp:31
-#, fuzzy, kde-format
-#| msgid ""
-#| "Create secure private rooms and direct messages with end-to-end "
-#| "encryption.<br/><br/>Save your password securely, as the key to encode/"
-#| "decode your messages won't be saved on the server. You'll need to enter "
-#| "it on other devices to use e2e encryption.<br/><br/>Change your password "
-#| "anytime from any browser you've entered it on. Remember to store your "
-#| "password before dismissing this message.<br/><br/>Your password is: <span "
-#| "style=\"font-weight: bold;\">%1</span>"
+#, kde-format
 msgid ""
 "Create secure private rooms and direct messages with end-to-end encryption."
 "<br/><br/>Save your password securely, as the key to encode/decode your "
@@ -7998,13 +7990,10 @@ msgstr ""
 "сервері. Вам потрібно буде ввести його на інших пристроях, щоб скористатися "
 "міжвузловим шифруванням.<br/><br/>Будь-коли змінюйте ваш пароль за допомогою "
 "будь-якого браузера, у якому ви його вводите. Не забудьте зберегти ваш "
-"пароль до того, як закриєте це повідомлення.<br/><br/>Ваш пароль: <span "
-"style=\"font-weight: bold;\">%1</span>"
+"пароль до того, як закриєте це повідомлення.<br/><br/>Ваш пароль:"
 
 #: widgets/encryption/e2ecopypasswordwidget.cpp:60
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Copy Password"
+#, kde-format
 msgid "Copy password"
 msgstr "Копіювати пароль"
 
@@ -8024,15 +8013,12 @@ msgid "Decrypt Encryption Key"
 msgstr "Розшифрувати ключ шифрування"
 
 #: widgets/encryption/e2edecodeencryptionkeywidget.cpp:17
-#, fuzzy, kde-format
-#| msgid "Enter your password"
+#, kde-format
 msgid "Click here to enter your e2e password."
-msgstr "Введіть пароль"
+msgstr "Натисніть тут, щоб ввести ваш пароль e2e."
 
 #: widgets/encryption/e2edecodeencryptionkeywidget.cpp:19
-#, fuzzy, kde-format
-#| msgctxt "@action"
-#| msgid "Decrypt Encryption Key"
+#, kde-format
 msgctxt "@action"
 msgid "Decode Encryption Key"
 msgstr "Розшифрувати ключ шифрування"
@@ -8067,12 +8053,10 @@ msgstr ""
 "ваш пароль."
 
 #: widgets/encryption/e2esaveencryptionkeywidget.cpp:19
-#, fuzzy, kde-format
-#| msgctxt "@action"
-#| msgid "Decrypt Encryption Key"
+#, kde-format
 msgctxt "@action"
 msgid "Save Encryption Key"
-msgstr "Розшифрувати ключ шифрування"
+msgstr "Зберегти ключ шифрування"
 
 #: widgets/explorepermissionsdialog/explorepermissionsdialog.cpp:24
 #, kde-format

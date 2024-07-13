@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-07-12 00:39+0000\n"
-"PO-Revision-Date: 2024-07-11 05:49+0200\n"
+"PO-Revision-Date: 2024-07-12 05:01+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -7868,15 +7868,7 @@ msgid "Copy Password"
 msgstr "პაროლის კოპირება"
 
 #: widgets/encryption/e2ecopypasswordwidget.cpp:31
-#, fuzzy, kde-format
-#| msgid ""
-#| "Create secure private rooms and direct messages with end-to-end "
-#| "encryption.<br/><br/>Save your password securely, as the key to encode/"
-#| "decode your messages won't be saved on the server. You'll need to enter "
-#| "it on other devices to use e2e encryption.<br/><br/>Change your password "
-#| "anytime from any browser you've entered it on. Remember to store your "
-#| "password before dismissing this message.<br/><br/>Your password is: <span "
-#| "style=\"font-weight: bold;\">%1</span>"
+#, kde-format
 msgid ""
 "Create secure private rooms and direct messages with end-to-end encryption."
 "<br/><br/>Save your password securely, as the key to encode/decode your "
@@ -7891,13 +7883,10 @@ msgstr ""
 "დაგჭირდებათ, ეს პაროლი სხვა მოწყობილობებზეც შეიყვანოთ, სადაც გამჭოლი "
 "დაშიფვრის გამოყენებას მოისურვებთ.<br/><br/>შეცვალეთ თქვენი პაროლი ნებისმიერ "
 "დროს ნებისმიერი ბრაუზერიდან, სადაც ის შეგიყვანიათ. დაიმახსოვრეთ, რომ თქვენი "
-"პაროლი ამ შეტყობინების დახურვამდე უნდა შეინახოთ.<br/><br/>თქვენი პაროლია: "
-"<span style=\"font-weight: bold;\">%1</span>"
+"პაროლი ამ შეტყობინების დახურვამდე უნდა შეინახოთ.<br/><br/>თქვენი პაროლია:"
 
 #: widgets/encryption/e2ecopypasswordwidget.cpp:60
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Copy Password"
+#, kde-format
 msgid "Copy password"
 msgstr "პაროლის კოპირება"
 
@@ -7919,12 +7908,10 @@ msgstr "დაშიფვრის გასაღების გაშიფ�
 #: widgets/encryption/e2edecodeencryptionkeywidget.cpp:17
 #, kde-format
 msgid "Click here to enter your e2e password."
-msgstr ""
+msgstr "დააწკაპუნეთ აქ თქვენი 2e2 პაროლის შესაყვანად."
 
 #: widgets/encryption/e2edecodeencryptionkeywidget.cpp:19
-#, fuzzy, kde-format
-#| msgctxt "@action"
-#| msgid "Decrypt Encryption Key"
+#, kde-format
 msgctxt "@action"
 msgid "Decode Encryption Key"
 msgstr "დაშიფვრის გასაღების გაშიფვრა"
@@ -7958,9 +7945,7 @@ msgstr ""
 "თქვენი პაროლი."
 
 #: widgets/encryption/e2esaveencryptionkeywidget.cpp:19
-#, fuzzy, kde-format
-#| msgctxt "@action"
-#| msgid "Decrypt Encryption Key"
+#, kde-format
 msgctxt "@action"
 msgid "Save Encryption Key"
 msgstr "დაშიფვრის გასაღების გაშიფვრა"

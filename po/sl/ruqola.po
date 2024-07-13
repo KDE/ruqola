@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-07-12 00:39+0000\n"
-"PO-Revision-Date: 2024-07-11 06:06+0200\n"
+"PO-Revision-Date: 2024-07-12 06:58+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
@@ -7908,15 +7908,7 @@ msgid "Copy Password"
 msgstr "Kopiraj geslo"
 
 #: widgets/encryption/e2ecopypasswordwidget.cpp:31
-#, fuzzy, kde-format
-#| msgid ""
-#| "Create secure private rooms and direct messages with end-to-end "
-#| "encryption.<br/><br/>Save your password securely, as the key to encode/"
-#| "decode your messages won't be saved on the server. You'll need to enter "
-#| "it on other devices to use e2e encryption.<br/><br/>Change your password "
-#| "anytime from any browser you've entered it on. Remember to store your "
-#| "password before dismissing this message.<br/><br/>Your password is: <span "
-#| "style=\"font-weight: bold;\">%1</span>"
+#, kde-format
 msgid ""
 "Create secure private rooms and direct messages with end-to-end encryption."
 "<br/><br/>Save your password securely, as the key to encode/decode your "
@@ -7930,13 +7922,10 @@ msgstr ""
 "vaših sporočil ne bo shranjen na strežniku. Za uporabo šifriranja e2e ga "
 "boste morali vnesti v drugih napravah.<br/><br/>Geslo lahko kadar koli "
 "spremenite v katerem koli brskalniku, v katerem ste ga vnesli. Ne pozabite "
-"shraniti svojega gesla, preden opustite to sporočilo.<br/><br/>Vaše geslo "
-"je: <span style=\"font-weight: bold;\">%1</span>"
+"shraniti svojega gesla, preden opustite to sporočilo.<br/><br/>Vaše geslo je:"
 
 #: widgets/encryption/e2ecopypasswordwidget.cpp:60
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Copy Password"
+#, kde-format
 msgid "Copy password"
 msgstr "Kopiraj geslo"
 
@@ -7958,15 +7947,13 @@ msgstr "Dešifriraj ključ šifriranja"
 #: widgets/encryption/e2edecodeencryptionkeywidget.cpp:17
 #, kde-format
 msgid "Click here to enter your e2e password."
-msgstr ""
+msgstr "Kliknite sem, da vnesete vaše geslo e2e."
 
 #: widgets/encryption/e2edecodeencryptionkeywidget.cpp:19
-#, fuzzy, kde-format
-#| msgctxt "@action"
-#| msgid "Decrypt Encryption Key"
+#, kde-format
 msgctxt "@action"
 msgid "Decode Encryption Key"
-msgstr "Dešifriraj ključ šifriranja"
+msgstr "Dekodiraj ključ šifriranja"
 
 #: widgets/encryption/e2epassworddecodekeydialog.cpp:17
 #, kde-format
@@ -7997,12 +7984,10 @@ msgstr ""
 "gesla."
 
 #: widgets/encryption/e2esaveencryptionkeywidget.cpp:19
-#, fuzzy, kde-format
-#| msgctxt "@action"
-#| msgid "Decrypt Encryption Key"
+#, kde-format
 msgctxt "@action"
 msgid "Save Encryption Key"
-msgstr "Dešifriraj ključ šifriranja"
+msgstr "Shrani ključ šifriranja"
 
 #: widgets/explorepermissionsdialog/explorepermissionsdialog.cpp:24
 #, kde-format
