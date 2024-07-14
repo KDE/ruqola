@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-07-12 00:39+0000\n"
-"PO-Revision-Date: 2024-07-12 22:08+0200\n"
+"PO-Revision-Date: 2024-07-13 10:51+0200\n"
 "Last-Translator: Oliver Kellogg <olivermkellogg@gmail.com>\n"
 "Language-Team: Esperanto <kde-i18n-doc@kde.org>\n"
 "Language: eo\n"
@@ -7874,15 +7874,7 @@ msgid "Copy Password"
 msgstr "Kopii Pasvorton"
 
 #: widgets/encryption/e2ecopypasswordwidget.cpp:31
-#, fuzzy, kde-format
-#| msgid ""
-#| "Create secure private rooms and direct messages with end-to-end "
-#| "encryption.<br/><br/>Save your password securely, as the key to encode/"
-#| "decode your messages won't be saved on the server. You'll need to enter "
-#| "it on other devices to use e2e encryption.<br/><br/>Change your password "
-#| "anytime from any browser you've entered it on. Remember to store your "
-#| "password before dismissing this message.<br/><br/>Your password is: <span "
-#| "style=\"font-weight: bold;\">%1</span>"
+#, kde-format
 msgid ""
 "Create secure private rooms and direct messages with end-to-end encryption."
 "<br/><br/>Save your password securely, as the key to encode/decode your "
@@ -7896,8 +7888,7 @@ msgstr ""
 "malkodi viajn mesaĝojn ne estos konservita en la servilo. Vi devos enigi ĝin "
 "en aliaj aparatoj por uzi ĉifradon e2e.<br/><br/>Ŝanĝu vian pasvorton iam "
 "ajn de ajna retumilo, per kiu vi enigis ĝin. Memoru konservi vian pasvorton "
-"antaŭ ol forĵeti ĉi tiun mesaĝon.<br/><br/>Via pasvorto estas: <span style="
-"\"font-weight: bold;\">%1</span>"
+"antaŭ ol forĵeti ĉi tiun mesaĝon.<br/><br/>Via pasvorto estas:"
 
 #: widgets/encryption/e2ecopypasswordwidget.cpp:60
 #, kde-format
