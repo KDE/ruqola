@@ -16,3 +16,5 @@ void EncryptionUtilsTest::shouldHaveDefaultValues()
 {
     // TODO
 }
+
+#include "moc_encryptionutilstest.cpp"
