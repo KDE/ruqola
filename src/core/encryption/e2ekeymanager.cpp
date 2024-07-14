@@ -65,6 +65,7 @@ void E2eKeyManager::fetchMyKeys()
 void E2eKeyManager::verifyExistingKey(const QJsonObject &json)
 {
     // TODO
+    // return status value
 }
 
 E2eKeyManager::Status E2eKeyManager::needToDecodeEncryptionKey() const
@@ -77,7 +78,7 @@ E2eKeyManager::Status E2eKeyManager::needToDecodeEncryptionKey() const
         // TODO check NeedToDecryptKey
         return Status::NeedToGenerateKey;
     }
-    return Status::Unknown;
+    return mStatus;
 }
 
 #include "moc_e2ekeymanager.cpp"
