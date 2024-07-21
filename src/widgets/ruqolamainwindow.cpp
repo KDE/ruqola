@@ -503,7 +503,7 @@ void RuqolaMainWindow::setupActions()
 
     mApplications = new QAction(i18nc("@action", "Applications…"), this);
     connect(mApplications, &QAction::triggered, this, &RuqolaMainWindow::slotApplicationsSettings);
-    ac->addAction(QStringLiteral("administrator_server_settings"), mApplications);
+    ac->addAction(QStringLiteral("applications_settings"), mApplications);
     mAdministrationMenu->addAction(mApplications);
 
     mJoinRoom = new QAction(i18nc("Action which allows to search room", "Join Room…"), this);
