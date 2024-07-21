@@ -30,4 +30,6 @@ LIBRUQOLACORE_TESTS_EXPORT void generateRSAKey();
 [[nodiscard]] LIBRUQOLACORE_TESTS_EXPORT EncryptionUtils::EncryptionInfo splitVectorAndEcryptedData(const QByteArray &cipherText);
 [[nodiscard]] LIBRUQOLACORE_TESTS_EXPORT QByteArray joinVectorAndEcryptedData(const EncryptionUtils::EncryptionInfo &info);
 [[nodiscard]] LIBRUQOLACORE_TESTS_EXPORT QVector<uint8_t> toArrayBuffer(const QByteArray &ba);
+LIBRUQOLACORE_TESTS_EXPORT void importRSAKey();
+LIBRUQOLACORE_TESTS_EXPORT void importAESKey();
 };

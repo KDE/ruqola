@@ -185,3 +185,13 @@ QVector<uint8_t> EncryptionUtils::toArrayBuffer(const QByteArray &ba)
     const QVector<uint8_t> byteVector(ba.constBegin(), ba.constEnd());
     return byteVector;
 }
+
+void EncryptionUtils::importRSAKey()
+{
+    // TODO
+}
+
+void EncryptionUtils::importAESKey()
+{
+    // TODO
+}
