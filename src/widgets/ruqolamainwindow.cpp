@@ -1188,4 +1188,11 @@ void RuqolaMainWindow::slotApplicationsSettings()
     // dlg.setFeature(ApplicationsSettingsSearchWidget::Requested);
     dlg.exec();
 }
+
+void RuqolaMainWindow::slotApplicationsRequestedSettings()
+{
+    ApplicationsSettingsDialog dlg(mCurrentRocketChatAccount, this);
+    dlg.setFeature(ApplicationsSettingsSearchWidget::Requested);
+    dlg.exec();
+}
 #include "moc_ruqolamainwindow.cpp"
