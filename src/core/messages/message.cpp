@@ -105,8 +105,9 @@ void Message::parseMessage(const QJsonObject &o, bool restApi, EmojiManager *emo
             mMessageType = VideoConference;
             // qDebug() << " VIDEO " << o;
         } else if (type == "e2e"_L1) {
+            mSystemMessageType = SystemMessageTypeUtil::systemMessageTypeFromString(type);
+            mMessageType = System;
             qDebug() << " encrypted message !!!!" << mText;
-            mMessageType = EncryptedMessage;
         } else {
             mSystemMessageType = SystemMessageTypeUtil::systemMessageTypeFromString(type);
             mMessageType = System;

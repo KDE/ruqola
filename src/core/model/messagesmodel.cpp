@@ -353,8 +353,6 @@ QString MessagesModel::convertedText(const Message &message, const QString &sear
 {
     if (message.messageType() == Message::System) {
         return message.systemMessageText();
-    } else if (message.messageType() == Message::EncryptedMessage) {
-        return i18n("This message is end-to-end encrypted. To view it, you must enter your encryption key in your account settings.");
     } else {
         QStringList highlightWords;
         if (mRoom) {
