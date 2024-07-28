@@ -339,6 +339,7 @@ void RuqolaMainWindow::updateActions()
     mCreateNewChannel->setEnabled(canCreateChannels());
     mCreateDirectMessages->setEnabled(canCreateDirectMessages());
     mCreateTeam->setEnabled(canCreateTeams());
+    mRequestedApplications->setVisible(isAdministrator);
 }
 
 bool RuqolaMainWindow::canCreateChannels() const
