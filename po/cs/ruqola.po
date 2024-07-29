@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-07-22 00:39+0000\n"
+"POT-Creation-Date: 2024-07-29 00:39+0000\n"
 "PO-Revision-Date: 2024-07-12 11:48+0200\n"
 "Last-Translator: Vit Pelcak <vit@pelcak.org>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
@@ -6392,7 +6392,7 @@ msgid "Username or Email:"
 msgstr "Uživatelské jméno nebo e-mail:"
 
 #: widgets/common/authenticationloginwidget.cpp:155
-#: widgets/ruqolamainwindow.cpp:933
+#: widgets/ruqolamainwindow.cpp:939
 #, kde-format
 msgid ""
 "We have sent you an email to confirm your registration.\n"
@@ -6400,7 +6400,7 @@ msgid ""
 msgstr ""
 
 #: widgets/common/authenticationloginwidget.cpp:156
-#: widgets/ruqolamainwindow.cpp:934
+#: widgets/ruqolamainwindow.cpp:940
 #, kde-format
 msgid "Register New User"
 msgstr "Registrovat nového uživatele"
@@ -9535,244 +9535,252 @@ msgstr "Zobrazit nová upozornění"
 msgid "Show New Notifications"
 msgstr "Zobrazit nová upozornění"
 
-#: widgets/ruqolamainwindow.cpp:396
+#: widgets/ruqolamainwindow.cpp:397
 #, kde-format
 msgctxt "@action"
 msgid "Add Server…"
 msgstr "Přidat server…"
 
-#: widgets/ruqolamainwindow.cpp:401
+#: widgets/ruqolamainwindow.cpp:402
 #, kde-format
 msgctxt "@action"
 msgid "Server Info…"
 msgstr "Informace o serveru…"
 
-#: widgets/ruqolamainwindow.cpp:405
+#: widgets/ruqolamainwindow.cpp:406
 #, kde-format
 msgctxt "@action"
 msgid "Logout Current Server"
 msgstr ""
 
-#: widgets/ruqolamainwindow.cpp:409
+#: widgets/ruqolamainwindow.cpp:410
 #, kde-format
 msgctxt "@action"
 msgid "Jump to Next Unread Channel"
 msgstr ""
 
-#: widgets/ruqolamainwindow.cpp:414
+#: widgets/ruqolamainwindow.cpp:415
 #, kde-format
 msgid "Create New Channel…"
 msgstr "Vytvořit nový kanál…"
 
-#: widgets/ruqolamainwindow.cpp:418
+#: widgets/ruqolamainwindow.cpp:419
 #, kde-format
 msgid "Create Direct Messages…"
 msgstr "Vytvořit přímou zprávu…"
 
-#: widgets/ruqolamainwindow.cpp:422
+#: widgets/ruqolamainwindow.cpp:423
 #, kde-format
 msgid "Create Discussion…"
 msgstr "Vytvořit diskuzi…"
 
-#: widgets/ruqolamainwindow.cpp:426
+#: widgets/ruqolamainwindow.cpp:427
 #, kde-format
 msgid "Create Team…"
 msgstr "Vytvořit tým…"
 
-#: widgets/ruqolamainwindow.cpp:434
+#: widgets/ruqolamainwindow.cpp:435
 #, kde-format
 msgctxt "@action"
 msgid "Unread on Top"
 msgstr ""
 
-#: widgets/ruqolamainwindow.cpp:442
+#: widgets/ruqolamainwindow.cpp:443
 #, kde-format
 msgctxt "@action"
 msgid "By Last Message"
 msgstr ""
 
-#: widgets/ruqolamainwindow.cpp:448
+#: widgets/ruqolamainwindow.cpp:449
 #, kde-format
 msgctxt "@action"
 msgid "Alphabetically"
 msgstr "Podle abecedy"
 
-#: widgets/ruqolamainwindow.cpp:454
+#: widgets/ruqolamainwindow.cpp:455
 #, kde-format
 msgid "Show Channel Log"
 msgstr "Zobrazit záznam kanálu"
 
-#: widgets/ruqolamainwindow.cpp:458
+#: widgets/ruqolamainwindow.cpp:459
 #, kde-format
 msgid "Show Server Errors"
 msgstr ""
 
-#: widgets/ruqolamainwindow.cpp:477
+#: widgets/ruqolamainwindow.cpp:478
 #, kde-format
 msgctxt "@action"
 msgid "Mark All Channels as Read"
 msgstr ""
 
-#: widgets/ruqolamainwindow.cpp:482
+#: widgets/ruqolamainwindow.cpp:483
 #, kde-format
 msgctxt "@action"
 msgid "Register a New User…"
 msgstr "Registrovat nového uživatele…"
 
-#: widgets/ruqolamainwindow.cpp:486
+#: widgets/ruqolamainwindow.cpp:487
 #, kde-format
 msgctxt "@action"
 msgid "My Account…"
 msgstr "Můj účet…"
 
-#: widgets/ruqolamainwindow.cpp:490
+#: widgets/ruqolamainwindow.cpp:491
 #, kde-format
 msgid "administration"
 msgstr "správa"
 
-#: widgets/ruqolamainwindow.cpp:491
+#: widgets/ruqolamainwindow.cpp:492
 #, kde-format
 msgctxt "@action"
 msgid "Administrator…"
 msgstr "Administrátor…"
 
-#: widgets/ruqolamainwindow.cpp:497
+#: widgets/ruqolamainwindow.cpp:498
 #, kde-format
 msgctxt "@action"
 msgid "Server Settings…"
 msgstr "Nastavení serveru…"
 
-#: widgets/ruqolamainwindow.cpp:504
+#: widgets/ruqolamainwindow.cpp:505
 #, kde-format
 msgctxt "@action"
 msgid "Applications…"
 msgstr "Aplikace…"
 
-#: widgets/ruqolamainwindow.cpp:509
+#: widgets/ruqolamainwindow.cpp:510
+#, fuzzy, kde-format
+#| msgctxt "@action"
+#| msgid "Applications…"
+msgctxt "@action"
+msgid "Requested Applications…"
+msgstr "Aplikace…"
+
+#: widgets/ruqolamainwindow.cpp:515
 #, kde-format
 msgctxt "Action which allows to search room"
 msgid "Join Room…"
 msgstr "Připojit se do místnosti…"
 
-#: widgets/ruqolamainwindow.cpp:513
+#: widgets/ruqolamainwindow.cpp:519
 #, kde-format
 msgctxt "Action which allows to search team"
 msgid "Join Team…"
 msgstr "Připojit s k týmu…"
 
-#: widgets/ruqolamainwindow.cpp:517
+#: widgets/ruqolamainwindow.cpp:523
 #, kde-format
 msgctxt "Action which allows to open private conversation (direct user)"
 msgid "Open Private Conversation…"
 msgstr "Začít soukromou konverzaci…"
 
-#: widgets/ruqolamainwindow.cpp:538
+#: widgets/ruqolamainwindow.cpp:544
 #, kde-format
 msgid "&Next Server"
 msgstr "&Následující server"
 
-#: widgets/ruqolamainwindow.cpp:543
+#: widgets/ruqolamainwindow.cpp:549
 #, kde-format
 msgid "&Previous Server"
 msgstr "&Předchozí server"
 
-#: widgets/ruqolamainwindow.cpp:552
+#: widgets/ruqolamainwindow.cpp:558
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Status:"
 msgstr "Stav:"
 
-#: widgets/ruqolamainwindow.cpp:565
+#: widgets/ruqolamainwindow.cpp:571
 #, kde-format
 msgctxt "@action"
 msgid "Previous Selected Channel"
 msgstr ""
 
-#: widgets/ruqolamainwindow.cpp:572
+#: widgets/ruqolamainwindow.cpp:578
 #, kde-format
 msgctxt "@action"
 msgid "Next Selected Channel"
 msgstr ""
 
-#: widgets/ruqolamainwindow.cpp:603
+#: widgets/ruqolamainwindow.cpp:609
 #, kde-format
 msgid "Show Notify History"
 msgstr ""
 
-#: widgets/ruqolamainwindow.cpp:607
+#: widgets/ruqolamainwindow.cpp:613
 #, kde-format
 msgctxt "@action"
 msgid "Show RocketChat Information"
 msgstr ""
 
-#: widgets/ruqolamainwindow.cpp:611
+#: widgets/ruqolamainwindow.cpp:617
 #, kde-format
 msgctxt "@action"
 msgid "Show Room Avatar"
 msgstr ""
 
-#: widgets/ruqolamainwindow.cpp:616
+#: widgets/ruqolamainwindow.cpp:622
 #, kde-format
 msgctxt "@action"
 msgid "Show Favorite Room"
 msgstr ""
 
-#: widgets/ruqolamainwindow.cpp:621
+#: widgets/ruqolamainwindow.cpp:627
 #, kde-format
 msgid "What's new"
 msgstr "Co je nového"
 
-#: widgets/ruqolamainwindow.cpp:625
+#: widgets/ruqolamainwindow.cpp:631
 #, kde-format
 msgid "Import Accounts"
 msgstr "Importovat účty"
 
-#: widgets/ruqolamainwindow.cpp:629
+#: widgets/ruqolamainwindow.cpp:635
 #, kde-format
 msgid "Export Accounts"
 msgstr "Exportovat účty"
 
-#: widgets/ruqolamainwindow.cpp:646
+#: widgets/ruqolamainwindow.cpp:652
 #, kde-format
 msgctxt "@action"
 msgid "Medium"
 msgstr "Střední"
 
-#: widgets/ruqolamainwindow.cpp:654
+#: widgets/ruqolamainwindow.cpp:660
 #, kde-format
 msgctxt "@action"
 msgid "Condensed"
 msgstr "Zúžené"
 
-#: widgets/ruqolamainwindow.cpp:663
+#: widgets/ruqolamainwindow.cpp:669
 #, kde-format
 msgctxt "@action"
 msgid "Extended"
 msgstr "Rozšířené"
 
-#: widgets/ruqolamainwindow.cpp:704
+#: widgets/ruqolamainwindow.cpp:710
 #, kde-format
 msgctxt "@title:window"
 msgid "Create Team"
 msgstr "Vytvořit tým"
 
-#: widgets/ruqolamainwindow.cpp:860
+#: widgets/ruqolamainwindow.cpp:866
 #, kde-format
 msgid "Impossible to open log."
 msgstr ""
 
-#: widgets/ruqolamainwindow.cpp:860
+#: widgets/ruqolamainwindow.cpp:866
 #, kde-format
 msgid "Show Log"
 msgstr "Zobrazit záznamy"
 
-#: widgets/ruqolamainwindow.cpp:1005
+#: widgets/ruqolamainwindow.cpp:1011
 #, kde-format
 msgctxt "@item:inmenu Instant message presence status"
 msgid "Status"
 msgstr "Stav"
 
-#: widgets/ruqolamainwindow.cpp:1093
+#: widgets/ruqolamainwindow.cpp:1099
 #, kde-format
 msgid ""
 "<qt>This will hide the menu bar completely. You can show it again by typing "
@@ -9781,7 +9789,7 @@ msgstr ""
 "<qt>Toto úplně skryje panel nabídky. Můžete ji opětovně zobrazit pomocí %1.</"
 "qt>"
 
-#: widgets/ruqolamainwindow.cpp:1096
+#: widgets/ruqolamainwindow.cpp:1102
 #, kde-format
 msgid "Hide menu bar"
 msgstr "Skrýt nabídku"
