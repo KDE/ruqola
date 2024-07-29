@@ -863,7 +863,7 @@ void RuqolaMainWindow::slotShowLog()
                 job->setDeleteTemporaryFile(true);
                 job->start();
             } else {
-                KMessageBox::information(this, i18n("Impossible to open log."), i18n("Show Log"));
+                KMessageBox::information(this, i18n("Impossible to open log."), i18nc("@title:window", "Show Log"));
             }
         }
     }
@@ -1099,7 +1099,7 @@ void RuqolaMainWindow::slotToggleMenubar(bool dontShowWarning)
                                          i18n("<qt>This will hide the menu bar completely."
                                               " You can show it again by typing %1.</qt>",
                                               accel),
-                                         i18n("Hide menu bar"),
+                                         i18nc("@title:window", "Hide menu bar"),
                                          QStringLiteral("HideMenuBarWarning"));
             }
             menuBar()->hide();

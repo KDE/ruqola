@@ -86,7 +86,7 @@ ChannelInfoEditableWidget::ChannelInfoEditableWidget(Room *room, RocketChatAccou
     mArchive->setEnabled(canArchiveOrUnarchive);
     connect(mArchive, &QCheckBox::clicked, this, [this](bool checked) {
         const QString text = checked ? i18n("Do you want to archive this room?") : i18n("Do you want to unarchive this room?");
-        const QString title = checked ? i18n("Archive Channel") : i18n("Unarchive Channel");
+        const QString title = checked ? i18nc("@title", "Archive Channel") : i18nc("@title", "Unarchive Channel");
         if (KMessageBox::ButtonCode::PrimaryAction == KMessageBox::questionTwoActions(this, text, title, KStandardGuiItem::ok(), KStandardGuiItem::cancel())) {
             // mRocketChatAccount->changeChannelSettings(mRoom->roomId(), RocketChatAccount::Archive, checked, mRoom->channelType());
         }

@@ -235,7 +235,7 @@ void MyAccountPreferenceConfigureWidget::slotUserRequestDataDownloadDone()
 {
     KMessageBox::information(this,
                              i18n("Your data file will be generated. A link to download it will be sent to your email address when ready."),
-                             i18n("Download File Requested"));
+                             i18nc("@title:window", "Download File Requested"));
 }
 
 QString MyAccountPreferenceConfigureWidget::desktopPushNotificationI18n(const QString &value) const

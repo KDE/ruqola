@@ -85,7 +85,7 @@ void MyAccount2FaTotpWidget::slotTotpValid(const QStringList &listCodes)
 
 void MyAccount2FaTotpWidget::slotTotpInvalid()
 {
-    KMessageBox::error(this, i18n("Invalid two factor code."), i18n("Check Two Factor Code"));
+    KMessageBox::error(this, i18n("Invalid two factor code."), i18nc("@title:window", "Check Two Factor Code"));
 }
 
 void MyAccount2FaTotpWidget::slotVerify()

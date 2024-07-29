@@ -497,7 +497,9 @@ void RoomWidget::slotCallRequested()
     auto job = new RocketChatRestApi::VideoConferenceCapabilitiesJob(this);
     mCurrentRocketChatAccount->restApi()->initializeRestApiJob(job);
     connect(job, &RocketChatRestApi::VideoConferenceCapabilitiesJob::noVideoConferenceProviderApps, this, [this] {
-        KMessageBox::information(this, i18n("A workspace admin needs to install and configure a conference call apps."), i18n("Video Conference"));
+        KMessageBox::information(this,
+                                 i18n("A workspace admin needs to install and configure a conference call apps."),
+                                 i18nc("@title:window", "Video Conference"));
     });
     connect(job, &RocketChatRestApi::VideoConferenceCapabilitiesJob::videoConferenceCapabilitiesDone, this, [this](const QJsonObject &obj) {
         // qDebug() << "obj  " << obj;

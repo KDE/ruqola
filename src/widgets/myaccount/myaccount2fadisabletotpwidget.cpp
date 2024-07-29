@@ -64,7 +64,7 @@ void MyAccount2FaDisableTotpWidget::slotTotpInvalid(bool check)
     if (check) {
         Q_EMIT hide2FaDisableTotpWidget();
     } else {
-        KMessageBox::error(this, i18n("Invalid two factor code."), i18n("Check Two Factor Code"));
+        KMessageBox::error(this, i18n("Invalid two factor code."), i18nc("@title:window", "Check Two Factor Code"));
     }
 }
 
