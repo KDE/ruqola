@@ -195,3 +195,8 @@ void EncryptionUtils::importAESKey()
 {
     // TODO
 }
+
+bool EncryptionUtils::EncryptionInfo::operator==(const EncryptionUtils::EncryptionInfo &other) const
+{
+    return other.vector == vector && other.encryptedData == encryptedData;
+}

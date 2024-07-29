@@ -13,9 +13,10 @@ extern "C" {
 }
 namespace EncryptionUtils
 {
-struct EncryptionInfo {
+struct LIBRUQOLACORE_TESTS_EXPORT EncryptionInfo {
     QByteArray vector;
     QByteArray encryptedData;
+    [[nodiscard]] bool operator==(const EncryptionInfo &other) const;
 };
 
 [[nodiscard]] LIBRUQOLACORE_TESTS_EXPORT QByteArray exportJWKKey(RSA *rsaKey);
