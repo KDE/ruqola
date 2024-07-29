@@ -170,8 +170,11 @@ QByteArray EncryptionUtils::deriveKey(const QByteArray &keyData, const QByteArra
 EncryptionUtils::EncryptionInfo EncryptionUtils::splitVectorAndEcryptedData(const QByteArray &cipherText)
 {
     EncryptionUtils::EncryptionInfo info;
-    info.vector = cipherText.left(16);
-    info.encryptedData = cipherText.last(16);
+    if (!cipherText.isEmpty()) {
+        // TODO add more check
+        info.vector = cipherText.left(16);
+        info.encryptedData = cipherText.last(16);
+    }
     return info;
 }
 
