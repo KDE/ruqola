@@ -59,7 +59,7 @@ ApplicationsSettingsSearchWidget::ApplicationsSettingsSearchWidget(RocketChatAcc
     connect(mApplicationsSettingsPriceComboBox, &ApplicationsSettingsPriceComboBox::activated, this, &ApplicationsSettingsSearchWidget::filterChanged);
     connect(mApplicationsSettingsStatusComboBox, &ApplicationsSettingsStatusComboBox::activated, this, &ApplicationsSettingsSearchWidget::filterChanged);
     connect(mApplicationsSettingsSortingComboBox, &ApplicationsSettingsSortingComboBox::activated, this, &ApplicationsSettingsSearchWidget::sortingChanged);
-    connect(mApplicationsSettingsInstalledComboBox, &ApplicationsSettingsInstalledComboBox::activated, this, &ApplicationsSettingsSearchWidget::sortingChanged);
+    connect(mApplicationsSettingsInstalledComboBox, &ApplicationsSettingsInstalledComboBox::activated, this, &ApplicationsSettingsSearchWidget::filterChanged);
 }
 
 ApplicationsSettingsSearchWidget::~ApplicationsSettingsSearchWidget() = default;
@@ -71,6 +71,7 @@ AppsMarketPlaceFilterProxyModel::FilterInfo ApplicationsSettingsSearchWidget::fi
     info.categories = mApplicationsSettingsCategoriesComboBox->categories();
     info.price = mApplicationsSettingsPriceComboBox->currentPrice();
     info.status = mApplicationsSettingsStatusComboBox->currentStatus();
+    info.installedApps = mApplicationsSettingsInstalledComboBox->currentInstalledStatus();
     return info;
 }
 

@@ -50,7 +50,7 @@ public:
         QString text;
         Status status = Status::UnknownStatus;
         Price price = Price::UnknownPrice;
-        InstalledApps installedApps = InstalledApps::AllInstalledApps;
+        InstalledApps installedApps = InstalledApps::AnyInfoApps;
         [[nodiscard]] bool operator==(const FilterInfo &other) const;
         [[nodiscard]] bool operator!=(const FilterInfo &other) const;
     };
