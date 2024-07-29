@@ -16,5 +16,10 @@ public:
     ~EncryptionUtilsTest() override = default;
 
 private Q_SLOTS:
-    void shouldHaveDefaultValues();
+    void shouldExportJWKKey();
+
+    void shouldSplitVectorAndEcryptedData_data();
+    void shouldSplitVectorAndEcryptedData();
+    void shouldJoinVectorAndEcryptedData_data();
+    void shouldJoinVectorAndEcryptedData();
 };
