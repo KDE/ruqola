@@ -14,6 +14,7 @@
 #include "rocketchataccount.h"
 
 #include <KLineEditEventHandler>
+#include <KLocalizedString>
 #include <QHBoxLayout>
 #include <QLineEdit>
 using namespace Qt::Literals::StringLiterals;
@@ -83,12 +84,15 @@ void ApplicationsSettingsSearchWidget::setFeature(Feature feature)
     switch (feature) {
     case Feature::None:
         mApplicationsSettingsInstalledComboBox->setVisible(true); // ??? true ??
+        mSearchLineEdit->setPlaceholderText(i18nc("@info:placeholder", "Search Applications"));
         break;
     case Feature::Installed:
         mApplicationsSettingsInstalledComboBox->setVisible(true);
+        mSearchLineEdit->setPlaceholderText(i18nc("@info:placeholder", "Search Installed Applications"));
         break;
     case Feature::Requested:
         mApplicationsSettingsInstalledComboBox->setVisible(false);
+        mSearchLineEdit->setPlaceholderText(i18nc("@info:placeholder", "Search Requested Applications"));
         break;
     }
 }
