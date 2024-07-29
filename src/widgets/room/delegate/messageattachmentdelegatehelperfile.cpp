@@ -157,7 +157,7 @@ void MessageAttachmentDelegateHelperFile::handleDownloadClicked(const QString &l
     const UserChoice choice = askUser(url, offer, widget);
     switch (choice) {
     case UserChoice::Save: {
-        const QString file = DelegateUtil::querySaveFileName(widget, i18n("Save File"), url);
+        const QString file = DelegateUtil::querySaveFileName(widget, i18nc("@title:window", "Save File"), url);
         if (!file.isEmpty()) {
             const QUrl fileUrl = QUrl::fromLocalFile(file);
             mRocketChatAccount->downloadFile(link, fileUrl);
