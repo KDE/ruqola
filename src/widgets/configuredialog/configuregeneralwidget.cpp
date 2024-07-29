@@ -12,17 +12,17 @@
 
 ConfigureGeneralWidget::ConfigureGeneralWidget(QWidget *parent)
     : QWidget(parent)
-    , mSetOnlineForAllAccount(new QCheckBox(i18n("Set accounts online on startup"), this))
-    , mShowImageByDefault(new QCheckBox(i18n("Show images by default"), this))
-    , mShowPreviewUrlByDefault(new QCheckBox(i18n("Show preview url by default"), this))
-    , mMarkAsReadOnTextClicked(new QCheckBox(i18n("Mark room as read when clicking to write a reply"), this))
-    , mEnableSystemTray(new QCheckBox(i18n("Enable system tray icon"), this))
-    , mEnableLogging(new QCheckBox(i18n("Enable logging"), this))
-    , mShowHoverHightLights(new QCheckBox(i18n("Show hover highlights"), this))
-    , mAnimateGif(new QCheckBox(i18n("Animate Gif Image"), this))
-    , mStoreMessageInDataBase(new QCheckBox(i18n("Use local dataBase (experimental)"), this))
+    , mSetOnlineForAllAccount(new QCheckBox(i18nc("@option:check", "Set accounts online on startup"), this))
+    , mShowImageByDefault(new QCheckBox(i18nc("@option:check", "Show images by default"), this))
+    , mShowPreviewUrlByDefault(new QCheckBox(i18nc("@option:check", "Show preview url by default"), this))
+    , mMarkAsReadOnTextClicked(new QCheckBox(i18nc("@option:check", "Mark room as read when clicking to write a reply"), this))
+    , mEnableSystemTray(new QCheckBox(i18nc("@option:check", "Enable system tray icon"), this))
+    , mEnableLogging(new QCheckBox(i18nc("@option:check", "Enable logging"), this))
+    , mShowHoverHightLights(new QCheckBox(i18nc("@option:check", "Show hover highlights"), this))
+    , mAnimateGif(new QCheckBox(i18nc("@option:check", "Animate Gif Image"), this))
+    , mStoreMessageInDataBase(new QCheckBox(i18nc("@option:check", "Use local dataBase (experimental)"), this))
 #if HAVE_ACTIVITY_SUPPORT
-    , mEnabledActivitySupport(new QCheckBox(i18n("Enable Plasma Activities"), this))
+    , mEnabledActivitySupport(new QCheckBox(i18nc("@option:check", "Enable Plasma Activities"), this))
 #endif
 {
     auto mainLayout = new QVBoxLayout(this);

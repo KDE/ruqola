@@ -12,12 +12,12 @@
 
 LayoutSettingsWidget::LayoutSettingsWidget(RocketChatAccount *account, QWidget *parent)
     : SettingsWidgetBase(account, parent)
-    , mDisplayRoles(new QCheckBox(i18n("Display Roles"), this))
-    , mUseRealName(new QCheckBox(i18n("Use Real Name"), this))
-    , mUseFullNameGenerateDefaultAvatar(new QCheckBox(i18n("Use Full Name Initials to Generate Default Avatar"), this))
-    , mAllowSpecialCharactersRoomNames(new QCheckBox(i18n("Allow Special Characters in Room Names"), this))
-    , mMergePrivateGroupsWithChannels(new QCheckBox(i18n("Merge Private Groups with Channels"), this))
-    , mGroupChannelsByType(new QCheckBox(i18n("Group channels by type"), this))
+    , mDisplayRoles(new QCheckBox(i18nc("@option:check", "Display Roles"), this))
+    , mUseRealName(new QCheckBox(i18nc("@option:check", "Use Real Name"), this))
+    , mUseFullNameGenerateDefaultAvatar(new QCheckBox(i18nc("@option:check", "Use Full Name Initials to Generate Default Avatar"), this))
+    , mAllowSpecialCharactersRoomNames(new QCheckBox(i18nc("@option:check", "Allow Special Characters in Room Names"), this))
+    , mMergePrivateGroupsWithChannels(new QCheckBox(i18nc("@option:check", "Merge Private Groups with Channels"), this))
+    , mGroupChannelsByType(new QCheckBox(i18nc("@option:check", "Group channels by type"), this))
     , mNumberUsersAutocompletion(new QSpinBox(this))
 {
     mDisplayRoles->setObjectName(QStringLiteral("mDisplayRoles"));

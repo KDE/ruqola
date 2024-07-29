@@ -16,7 +16,7 @@ RoleEditWidget::RoleEditWidget(QWidget *parent)
     : QWidget{parent}
     , mName(new QLineEdit(this))
     , mDescription(new QLineEdit(this))
-    , mTwoFactor(new QCheckBox(i18n("Use Two Factor Authentication"), this))
+    , mTwoFactor(new QCheckBox(i18nc("@option:check", "Use Two Factor Authentication"), this))
     , mRoleScopeComboBox(new RoleScopeComboBox(this))
 {
     auto mainLayout = new QFormLayout(this);

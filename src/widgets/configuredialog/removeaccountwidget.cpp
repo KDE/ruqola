@@ -12,7 +12,7 @@
 
 RemoveAccountWidget::RemoveAccountWidget(QWidget *parent)
     : QWidget{parent}
-    , mRemoveLogs(new QCheckBox(i18n("Remove logs stored on disk"), this))
+    , mRemoveLogs(new QCheckBox(i18nc("@option:check", "Remove logs stored on disk"), this))
     , mInfo(new QLabel(this))
 {
     auto mainLayout = new QVBoxLayout(this);

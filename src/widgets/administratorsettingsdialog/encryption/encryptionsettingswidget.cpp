@@ -13,10 +13,10 @@
 
 EncryptionSettingsWidget::EncryptionSettingsWidget(RocketChatAccount *account, QWidget *parent)
     : SettingsWidgetBase{account, parent}
-    , mEnableE2E(new QCheckBox(i18n("Enabled E2E encryption"), this))
-    , mEnableEncryptionDirectRoomsByDefault(new QCheckBox(i18n("Enable encryption for Direct Rooms by default"), this))
-    , mEnableEncryptionPrivateRoomsByDefault(new QCheckBox(i18n("Enable encryption for Private Rooms by default"), this))
-    , mEnableOtr(new QCheckBox(i18n("Enable OTR"), this))
+    , mEnableE2E(new QCheckBox(i18nc("@option:check", "Enabled E2E encryption"), this))
+    , mEnableEncryptionDirectRoomsByDefault(new QCheckBox(i18nc("@option:check", "Enable encryption for Direct Rooms by default"), this))
+    , mEnableEncryptionPrivateRoomsByDefault(new QCheckBox(i18nc("@option:check", "Enable encryption for Private Rooms by default"), this))
+    , mEnableOtr(new QCheckBox(i18nc("@option:check", "Enable OTR"), this))
 {
     mEnableE2E->setObjectName(QStringLiteral("mEnableE2E"));
     mEnableE2E->setToolTip(

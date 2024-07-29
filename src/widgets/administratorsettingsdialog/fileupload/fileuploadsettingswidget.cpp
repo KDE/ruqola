@@ -16,12 +16,12 @@
 
 FileUploadSettingsWidget::FileUploadSettingsWidget(RocketChatAccount *account, QWidget *parent)
     : SettingsWidgetBase{account, parent}
-    , mFileUploadsEnabled(new QCheckBox(i18n("Enabled File Upload"), this))
+    , mFileUploadsEnabled(new QCheckBox(i18nc("@option:check", "Enabled File Upload"), this))
     , mMaximumFileUploadSize(new QSpinBox(this))
-    , mProtectUploadedFiles(new QCheckBox(i18n("Protect Uploaded Files"), this))
-    , mRotateImagesUpload(new QCheckBox(i18n("Rotate images on upload"), this))
-    , mRestrictFilesToRooms(new QCheckBox(i18n("Restrict files to rooms' members"), this))
-    , mFileUploadsEnabledDirectMessages(new QCheckBox(i18n("File Uploads Enabled in Direct Messages"), this))
+    , mProtectUploadedFiles(new QCheckBox(i18nc("@option:check", "Protect Uploaded Files"), this))
+    , mRotateImagesUpload(new QCheckBox(i18nc("@option:check", "Rotate images on upload"), this))
+    , mRestrictFilesToRooms(new QCheckBox(i18nc("@option:check", "Restrict files to rooms' members"), this))
+    , mFileUploadsEnabledDirectMessages(new QCheckBox(i18nc("@option:check", "File Uploads Enabled in Direct Messages"), this))
     , mAcceptedMediaTypes(new QLineEdit(this))
     , mBlockedMediaTypes(new QLineEdit(this))
     , mFileUploadJsonWebTokenSecret(new QLineEdit(this))

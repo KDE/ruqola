@@ -12,7 +12,7 @@
 
 AdministratorOauthCreateWidget::AdministratorOauthCreateWidget(QWidget *parent)
     : QWidget{parent}
-    , mActiveCheckBox(new QCheckBox(i18n("Active"), this))
+    , mActiveCheckBox(new QCheckBox(i18nc("@option:check", "Active"), this))
     , mApplicationName(new QLineEdit(this))
     , mRedirectUrl(new QLineEdit(this))
 {

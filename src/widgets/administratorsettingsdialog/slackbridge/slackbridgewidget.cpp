@@ -15,14 +15,14 @@
 
 SlackBridgeWidget::SlackBridgeWidget(RocketChatAccount *account, QWidget *parent)
     : SettingsWidgetBase(account, parent)
-    , mEnabled(new QCheckBox(i18n("Enabled"), this))
+    , mEnabled(new QCheckBox(i18nc("@option:check", "Enabled"), this))
     , mAPITokens(new QPlainTextEdit(this))
-    , mFileUpload(new QCheckBox(i18n("File Upload"), this))
-    , mSlackBridgeOutEnabled(new QCheckBox(i18n("SlackBridge Out Enabled"), this))
-    , mSlackBridgeOutAll(new QCheckBox(i18n("SlackBridge Out All"), this))
+    , mFileUpload(new QCheckBox(i18nc("@option:check", "File Upload"), this))
+    , mSlackBridgeOutEnabled(new QCheckBox(i18nc("@option:check", "SlackBridge Out Enabled"), this))
+    , mSlackBridgeOutAll(new QCheckBox(i18nc("@option:check", "SlackBridge Out All"), this))
     , mAliasFormat(new QLineEdit(this))
     , mExcludeBots(new QLineEdit(this))
-    , mReactions(new QCheckBox(i18n("Reactions"), this))
+    , mReactions(new QCheckBox(i18nc("@option:check", "Reactions"), this))
 {
     mEnabled->setObjectName(QStringLiteral("mEnabled"));
     mEnabled->setToolTip(i18nc("@info:tooltip", "Enable Rocket.Chat to communicate directly with Slack."));

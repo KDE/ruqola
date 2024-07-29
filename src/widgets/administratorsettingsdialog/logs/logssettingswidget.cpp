@@ -19,9 +19,9 @@ LogsSettingsWidget::LogsSettingsWidget(RocketChatAccount *account, QWidget *pare
     , mLogExceptionsChannel(new QLineEdit(this))
     , mLogLevel(new QComboBox(this))
     , mLogViewLimit(new QSpinBox(this))
-    , mTraceMethodCalls(new QCheckBox(i18n("Trace method calls"), this))
+    , mTraceMethodCalls(new QCheckBox(i18nc("@option:check", "Trace method calls"), this))
     , mTraceMethodFilter(new QLineEdit(this))
-    , mTraceSubscriptionCalls(new QCheckBox(i18n("Trace subscription calls"), this))
+    , mTraceSubscriptionCalls(new QCheckBox(i18nc("@option:check", "Trace subscription calls"), this))
     , mTraceSubscriptionFilter(new QLineEdit(this))
 {
     mLogExceptionsChannel->setObjectName(QStringLiteral("mLogExceptionsChannel"));

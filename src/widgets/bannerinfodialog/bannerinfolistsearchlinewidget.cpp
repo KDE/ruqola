@@ -14,7 +14,7 @@
 BannerInfoListSearchLineWidget::BannerInfoListSearchLineWidget(QWidget *parent)
     : QWidget{parent}
     , mSearchLineEdit(new QLineEdit(this))
-    , mOnlyUnReadCheckBox(new QCheckBox(i18n("Show Unread"), this))
+    , mOnlyUnReadCheckBox(new QCheckBox(i18nc("@option:check", "Show Unread"), this))
 {
     auto mainLayout = new QHBoxLayout(this);
     mainLayout->setContentsMargins({});

@@ -13,7 +13,7 @@
 
 UserDataDownloadWidget::UserDataDownloadWidget(RocketChatAccount *account, QWidget *parent)
     : SettingsWidgetBase(account, parent)
-    , mUserDataDownloadEnabled(new QCheckBox(i18n("Enable User Data Download"), this))
+    , mUserDataDownloadEnabled(new QCheckBox(i18nc("@option:check", "Enable User Data Download"), this))
     , mSystemPathExportedFiles(new QLineEdit(this))
     , mSystemPathCompressedFile(new QLineEdit(this))
     , mProcessingFrequency(new QSpinBox(this))
