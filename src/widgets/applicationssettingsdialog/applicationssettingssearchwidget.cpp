@@ -88,7 +88,7 @@ void ApplicationsSettingsSearchWidget::setFeature(Feature feature)
         mSearchLineEdit->setPlaceholderText(i18nc("@info:placeholder", "Search Applications"));
         break;
     case Feature::Installed:
-        mApplicationsSettingsInstalledComboBox->setVisible(true);
+        mApplicationsSettingsInstalledComboBox->setVisible(false);
         mSearchLineEdit->setPlaceholderText(i18nc("@info:placeholder", "Search Installed Applications"));
         break;
     case Feature::Requested:
