@@ -10,7 +10,6 @@
 #include <QWidget>
 #include <TextEmoticonsCore/UnicodeEmoticon>
 
-class QLineEdit;
 class KListWidgetSearchLine;
 
 class UnicodeEmoticonListWidgetItem : public QListWidgetItem
