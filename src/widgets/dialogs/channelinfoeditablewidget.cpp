@@ -261,7 +261,8 @@ void ChannelInfoEditableWidget::updateEditableChannelInfo()
 
 void ChannelInfoEditableWidget::joinCodeChanged()
 {
-    mPasswordLineEdit->lineEdit()->setPlaceholderText(mRoom->joinCodeRequired() ? i18n("This room has a password") : i18n("Add password"));
+    mPasswordLineEdit->lineEdit()->setPlaceholderText(mRoom->joinCodeRequired() ? i18nc("@info:placeholder", "This room has a password")
+                                                                                : i18nc("@info:placeholder", "Add password"));
 }
 
 void ChannelInfoEditableWidget::connectEditableWidget()
