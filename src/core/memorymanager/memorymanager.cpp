@@ -5,13 +5,25 @@
 */
 
 #include "memorymanager.h"
+#include <QTimer>
+#include <chrono>
+using namespace std::chrono_literals;
 
 MemoryManager::MemoryManager(QObject *parent)
     : QObject{parent}
+    , mClearApplicationSettingsModel(new QTimer(this))
 {
+    connect(mClearApplicationSettingsModel, &QTimer::timeout, this, &MemoryManager::ClearApplicationSettingsModelRequested);
 }
 
 MemoryManager::~MemoryManager() = default;
+
+void MemoryManager::startClearApplicationSettingsModelTimer()
+{
+    // 30 minutes seems ok.
+    mClearApplicationSettingsModel->start(30min);
+    // TODO
+}
 
 // TODO: test if a room has a big history and we don't go in => clean history
 // TODO: clean application market model
