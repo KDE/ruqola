@@ -117,6 +117,7 @@ private:
     LIBRUQOLAWIDGETS_NO_EXPORT void slotJoinRoom();
     LIBRUQOLAWIDGETS_NO_EXPORT void slotApplicationsRequestedSettings();
     LIBRUQOLAWIDGETS_NO_EXPORT void slotApplicationsInstalledSettings();
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotClearRoomHistory();
 
     bool mReallyClose{false};
 
@@ -176,4 +177,5 @@ private:
     QAction *mRoomListDisplayCondensed = nullptr;
     QAction *mRoomListDisplayExtended = nullptr;
     QWidget *mContainerStatusInfo = nullptr;
+    QAction *mClearRoomHistory = nullptr;
 };
