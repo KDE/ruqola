@@ -128,6 +128,7 @@ void ApplicationsSettingsListView::setRequested(bool requested)
 
 void ApplicationsSettingsListView::slotInstallApplication(const QModelIndex &index)
 {
+    qCWarning(RUQOLAWIDGETS_LOG) << "ApplicationsSettingsListView::slotInstallApplication not implemented yet.";
     // TODO
 }
 
