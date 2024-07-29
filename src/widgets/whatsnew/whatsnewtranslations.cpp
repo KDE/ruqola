@@ -14,7 +14,7 @@ WhatsNewTranslations::~WhatsNewTranslations() = default;
 QList<KLazyLocalizedString> WhatsNewTranslations::lastNewFeatures() const
 {
     const QList<KLazyLocalizedString> info{
-        kli18n("Implement Application Market Settings."),
+        kli18n("Implement Rocket.Chat Marketplace."),
     };
     return info;
 }
