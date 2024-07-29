@@ -512,6 +512,11 @@ void RuqolaMainWindow::setupActions()
     ac->addAction(QStringLiteral("applications_requested_settings"), mRequestedApplications);
     mAdministrationMenu->addAction(mRequestedApplications);
 
+    mInstalledApplications = new QAction(i18nc("@action", "Installed Applications…"), this);
+    connect(mInstalledApplications, &QAction::triggered, this, &RuqolaMainWindow::slotApplicationsInstalledSettings);
+    ac->addAction(QStringLiteral("applications_requested_settings"), mInstalledApplications);
+    mAdministrationMenu->addAction(mInstalledApplications);
+
     mJoinRoom = new QAction(i18nc("Action which allows to search room", "Join Room…"), this);
     connect(mJoinRoom, &QAction::triggered, this, &RuqolaMainWindow::slotJoinRoom);
     ac->addAction(QStringLiteral("join_room"), mJoinRoom);
@@ -1201,4 +1206,12 @@ void RuqolaMainWindow::slotApplicationsRequestedSettings()
     dlg.setFeature(ApplicationsSettingsSearchWidget::Requested);
     dlg.exec();
 }
+
+void RuqolaMainWindow::slotApplicationsInstalledSettings()
+{
+    ApplicationsSettingsDialog dlg(mCurrentRocketChatAccount, this);
+    dlg.setFeature(ApplicationsSettingsSearchWidget::Installed);
+    dlg.exec();
+}
+
 #include "moc_ruqolamainwindow.cpp"

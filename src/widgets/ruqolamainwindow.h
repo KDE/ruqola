@@ -116,6 +116,7 @@ private:
     LIBRUQOLAWIDGETS_NO_EXPORT void slotOpenPrivateChannel();
     LIBRUQOLAWIDGETS_NO_EXPORT void slotJoinRoom();
     LIBRUQOLAWIDGETS_NO_EXPORT void slotApplicationsRequestedSettings();
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotApplicationsInstalledSettings();
 
     bool mReallyClose{false};
 
@@ -137,6 +138,7 @@ private:
     QAction *mAdministratorServerSettings = nullptr;
     QAction *mApplications = nullptr;
     QAction *mRequestedApplications = nullptr;
+    QAction *mInstalledApplications = nullptr;
     QAction *mCreateDiscussion = nullptr;
     QAction *mCreateTeam = nullptr;
     QAction *mJoinRoom = nullptr;
