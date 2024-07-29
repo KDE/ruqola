@@ -582,7 +582,7 @@ void RuqolaMainWindow::setupActions()
 
         act = new QAction(i18nc("@action", "Next Selected Channel"), this);
         ac->addAction(QStringLiteral("next_channel"), act);
-        QKeyCombination combinationKeys(Qt::CTRL | Qt::SHIFT, Qt::Key_Tab);
+        const QKeyCombination combinationKeys(Qt::CTRL | Qt::SHIFT, Qt::Key_Tab);
         ac->setDefaultShortcut(act, combinationKeys);
         connect(act, &QAction::triggered, this, &RuqolaMainWindow::redoSwitchChannel);
         listActions.append(act);
