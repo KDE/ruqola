@@ -45,6 +45,8 @@ public:
 
     [[nodiscard]] bool wasFilled() const;
 
+    void clear();
+
 private:
     QList<AppsMarketPlaceInfo> mAppsMarketPlaceInfos;
 };

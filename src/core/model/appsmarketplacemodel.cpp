@@ -91,4 +91,9 @@ bool AppsMarketPlaceModel::wasFilled() const
     return !mAppsMarketPlaceInfos.isEmpty();
 }
 
+void AppsMarketPlaceModel::clear()
+{
+    mAppsMarketPlaceInfos.clear();
+}
+
 #include "moc_appsmarketplacemodel.cpp"
