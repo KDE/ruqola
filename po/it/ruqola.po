@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-07-29 00:39+0000\n"
+"POT-Creation-Date: 2024-07-30 00:41+0000\n"
 "PO-Revision-Date: 2024-07-15 10:13+0200\n"
 "Last-Translator: Vincenzo Reale <smart2128vr@gmail.com>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
@@ -348,8 +348,6 @@ msgstr "Nessuno"
 #: core/customsound/customsoundsmanager.cpp:33
 #: core/model/notificationdesktopdurationpreferencemodel.cpp:48
 #: core/model/notificationpreferencemodel.cpp:45
-#: widgets/administratordialog/rooms/administratordirectroomseditwidget.cpp:16
-#: widgets/administratordialog/rooms/administratorroomseditwidget.cpp:20
 #: widgets/dialogs/createsoundmessagewidget.cpp:96
 #: widgets/dialogs/createsoundmessagewidget.cpp:138
 #: widgets/dialogs/playsoundwidget.cpp:122
@@ -765,8 +763,6 @@ msgid "Redirect Url"
 msgstr "Url di redirezione"
 
 #: core/model/adminoauthmodel.cpp:40 core/model/adminusersmodel.cpp:163
-#: widgets/administratordialog/oauth/administratoroauthcreatewidget.cpp:15
-#: widgets/administratordialog/oauth/administratoroautheditwidget.cpp:15
 #, kde-format
 msgid "Active"
 msgstr "Attivo"
@@ -922,7 +918,6 @@ msgstr "Appartiene a"
 #: core/model/directoryteamsmodel.cpp:92 core/model/roommodel.cpp:537
 #: widgets/administratordialog/administratorwidget.cpp:53
 #: widgets/administratordialog/roles/rolescopecombobox.cpp:13
-#: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:18
 #, kde-format
 msgid "Rooms"
 msgstr "Stanze"
@@ -1142,13 +1137,11 @@ msgid "Favorites"
 msgstr "Preferiti"
 
 #: core/model/roommodel.cpp:535
-#: widgets/administratordialog/rooms/administratorroomsselectroomtypewidget.cpp:18
 #, kde-format
 msgid "Teams"
 msgstr "Squadre"
 
 #: core/model/roommodel.cpp:539
-#: widgets/administratordialog/rooms/administratorroomsselectroomtypewidget.cpp:17
 #, kde-format
 msgid "Discussions"
 msgstr "Discussioni"
@@ -1514,7 +1507,6 @@ msgid "Direct message"
 msgstr "Messaggio diretto"
 
 #: core/roominfo/roominfo.cpp:123
-#: widgets/administratordialog/rooms/administratorroomsselectroomtypewidget.cpp:19
 #: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:135
 #, kde-format
 msgid "Omnichannel"
@@ -2484,7 +2476,6 @@ msgid "Custom Emojis"
 msgstr "Emoji personalizzate"
 
 #: widgets/administratordialog/administratorwidget.cpp:65
-#: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:19
 #, kde-format
 msgid "Users"
 msgstr "Utenti"
@@ -2998,6 +2989,14 @@ msgctxt "@title:window"
 msgid "Add Oauth Apps"
 msgstr "Aggiungi applicazioni OAuth"
 
+#: widgets/administratordialog/oauth/administratoroauthcreatewidget.cpp:15
+#: widgets/administratordialog/oauth/administratoroautheditwidget.cpp:15
+#, fuzzy, kde-format
+#| msgid "Active"
+msgctxt "@option:check"
+msgid "Active"
+msgstr "Attivo"
+
 #: widgets/administratordialog/oauth/administratoroauthcreatewidget.cpp:30
 #: widgets/administratordialog/oauth/administratoroautheditwidget.cpp:34
 #, kde-format
@@ -3102,7 +3101,9 @@ msgid "Edit Role"
 msgstr "Modifica ruolo"
 
 #: widgets/administratordialog/roles/roleeditwidget.cpp:19
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Use Two Factor Authentication"
+msgctxt "@option:check"
 msgid "Use Two Factor Authentication"
 msgstr "Usa l'autenticazione a due fattori"
 
@@ -3175,16 +3176,27 @@ msgid_plural "%1 users (Total: %2)"
 msgstr[0] "Un utente (totali: %2)"
 msgstr[1] "%1 utenti (totali: %2)"
 
+#: widgets/administratordialog/rooms/administratordirectroomseditwidget.cpp:16
+#: widgets/administratordialog/rooms/administratorroomseditwidget.cpp:20
+#, fuzzy, kde-format
+#| msgid "Default"
+msgctxt "@option:check"
+msgid "Default"
+msgstr "Predefinito"
+
 #: widgets/administratordialog/rooms/administratordirectroomseditwidget.cpp:17
 #: widgets/administratordialog/rooms/administratorroomseditwidget.cpp:21
-#: widgets/room/roomheaderwidget.cpp:50
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Favorite"
+msgctxt "@option:check"
 msgid "Favorite"
 msgstr "Preferito"
 
 #: widgets/administratordialog/rooms/administratordirectroomseditwidget.cpp:18
 #: widgets/administratordialog/rooms/administratorroomseditwidget.cpp:22
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Featured"
+msgctxt "@option:check"
 msgid "Featured"
 msgstr "In primo piano"
 
@@ -3202,18 +3214,23 @@ msgstr "Modifica stanza"
 
 #: widgets/administratordialog/rooms/administratorroomseditwidget.cpp:23
 #: widgets/administratordialog/rooms/administratorroomsselectroomtypewidget.cpp:16
-#: widgets/applicationssettingsdialog/applicationssettingsinstalledcombobox.cpp:14
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Private"
+msgctxt "@option:check"
 msgid "Private"
 msgstr "Privato"
 
 #: widgets/administratordialog/rooms/administratorroomseditwidget.cpp:24
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Read-Only"
+msgctxt "@option:check"
 msgid "Read-Only"
 msgstr "Sola lettura"
 
 #: widgets/administratordialog/rooms/administratorroomseditwidget.cpp:25
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Archived"
+msgctxt "@option:check"
 msgid "Archived"
 msgstr "Archiviato"
 
@@ -3251,14 +3268,39 @@ msgid "Just invited people can access this channel."
 msgstr "Solo le persone invitate possono accedere a questo canale."
 
 #: widgets/administratordialog/rooms/administratorroomsselectroomtypewidget.cpp:14
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Direct"
+msgctxt "@option:check"
 msgid "Direct"
 msgstr "Diretto"
 
 #: widgets/administratordialog/rooms/administratorroomsselectroomtypewidget.cpp:15
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Public"
+msgctxt "@option:check"
 msgid "Public"
 msgstr "Pubblico"
+
+#: widgets/administratordialog/rooms/administratorroomsselectroomtypewidget.cpp:17
+#, fuzzy, kde-format
+#| msgid "Discussions"
+msgctxt "@option:check"
+msgid "Discussions"
+msgstr "Discussioni"
+
+#: widgets/administratordialog/rooms/administratorroomsselectroomtypewidget.cpp:18
+#, fuzzy, kde-format
+#| msgid "Teams"
+msgctxt "@option:check"
+msgid "Teams"
+msgstr "Squadre"
+
+#: widgets/administratordialog/rooms/administratorroomsselectroomtypewidget.cpp:19
+#, fuzzy, kde-format
+#| msgid "Omnichannel"
+msgctxt "@option:check"
+msgid "Omnichannel"
+msgstr "Omnicanale"
 
 #: widgets/administratordialog/rooms/administratorroomswidget.cpp:42
 #, kde-format
@@ -3490,28 +3532,37 @@ msgid "Edit User"
 msgstr "Modifica utente"
 
 #: widgets/administratordialog/users/administratoradduserwidget.cpp:27
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Join Default Channels"
+msgctxt "@option:check"
 msgid "Join Default Channels"
 msgstr "Unisciti ai canali predefiniti"
 
 #: widgets/administratordialog/users/administratoradduserwidget.cpp:28
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Send Welcome Email"
+msgctxt "@option:check"
 msgid "Send Welcome Email"
 msgstr "Invia messaggio di benvenuto"
 
 #: widgets/administratordialog/users/administratoradduserwidget.cpp:29
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Require Password Change"
+msgctxt "@option:check"
 msgid "Require Password Change"
 msgstr "Richiedi la modifica della password"
 
 #: widgets/administratordialog/users/administratoradduserwidget.cpp:30
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Set random password and send by email"
+msgctxt "@option:check"
 msgid "Set random password and send by email"
 msgstr "Imposta una password casuale e inviala tramite email"
 
 #: widgets/administratordialog/users/administratoradduserwidget.cpp:31
-#: widgets/dialogs/directchannelinfowidget.cpp:161
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Verified"
+msgctxt "@option:check"
 msgid "Verified"
 msgstr "Verificato"
 
@@ -3686,139 +3737,193 @@ msgid "Reset TOTP"
 msgstr "Ripristina TOTP"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:17
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Allow Name Change"
+msgctxt "@option:check"
 msgid "Allow Name Change"
 msgstr "Consenti cambio nome"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:18
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Allow Custom Status Message"
+msgctxt "@option:check"
 msgid "Allow Custom Status Message"
 msgstr "Consenti messaggio di stato personalizzato"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:19
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Allow User Profile Change"
+msgctxt "@option:check"
 msgid "Allow User Profile Change"
 msgstr "Consenti cambio del profilo utente"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:20
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Allow User Avatar Change"
+msgctxt "@option:check"
 msgid "Allow User Avatar Change"
 msgstr "Consenti cambio dell'avatar dell'utente"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:21
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Allow Email Change"
+msgctxt "@option:check"
 msgid "Allow Email Change"
 msgstr "Consenti cambio dell'indirizzo di posta"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:22
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Allow Password Change"
+msgctxt "@option:check"
 msgid "Allow Password Change"
 msgstr "Consenti cambio della password"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:23
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Allow Email Notifications"
+msgctxt "@option:check"
 msgid "Allow Email Notifications"
 msgstr "Consenti notifiche dei messaggi di posta"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:24
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:27
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Allow Users to Delete Own Account"
+msgctxt "@option:check"
 msgid "Allow Users to Delete Own Account"
 msgstr "Consenti agli utenti di eliminare il proprio account"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:25
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Allow Anonymous Write"
+msgctxt "@option:check"
 msgid "Allow Anonymous Write"
 msgstr "Consenti la scrittura anonima"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:26
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Allow Anonymous Read"
+msgctxt "@option:check"
 msgid "Allow Anonymous Read"
 msgstr "Consenti lettura anonima"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:28
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Allow Password Change for OAuth Users"
+msgctxt "@option:check"
 msgid "Allow Password Change for OAuth Users"
 msgstr "Consenti la modifica della password per gli utenti OAuth"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:29
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Allow Feature Preview"
+msgctxt "@option:check"
 msgid "Allow Feature Preview"
 msgstr "Consenti anteprima delle funzionalità"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:31
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Allow Invisible status option"
+msgctxt "@option:check"
 msgid "Allow Invisible status option"
 msgstr "Consenti l'opzione di stato Invisibile"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:32
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Forget User Session on Window Close"
+msgctxt "@option:check"
 msgid "Forget User Session on Window Close"
 msgstr "Dimentica la sessione utente alla chiusura della finestra"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:33
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Enable collect log in data"
+msgctxt "@option:check"
 msgid "Enable collect log in data"
 msgstr "Abilita la raccolta dei dati di accesso"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:34
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Block Failed Login Attempts by Username"
+msgctxt "@option:check"
 msgid "Block Failed Login Attempts by Username"
 msgstr "Blocca i tentativi di accesso non riusciti per nome utente"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:38
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Send Email to User when User is Activated"
+msgctxt "@option:check"
 msgid "Send Email to User when User is Activated"
 msgstr "Invia email all'utente quando l'utente è attivato"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:39
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Send Email to User when User is Deactivated"
+msgctxt "@option:check"
 msgid "Send Email to User when User is Deactivated"
 msgstr "Invia email all'utente quando l'utente è disattivato"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:40
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Require Name For Signup"
+msgctxt "@option:check"
 msgid "Require Name For Signup"
 msgstr "Richiedi nome per la registrazione"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:41
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Require Password Confirmation"
+msgctxt "@option:check"
 msgid "Require Password Confirmation"
 msgstr "Richiedi la conferma della password"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:42
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Only Allow Verified Users to Login"
+msgctxt "@option:check"
 msgid "Only Allow Verified Users to Login"
 msgstr "Consenti solo agli utenti verificati di accedere"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:43
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Mark Email for External Accounts Verified"
+msgctxt "@option:check"
 msgid "Mark Email for External Accounts Verified"
 msgstr ""
 "Contrassegna il messaggio di posta per gli account esterni come verificato"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:44
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Manually Approve New Users"
+msgctxt "@option:check"
 msgid "Manually Approve New Users"
 msgstr "Approva manualmente i nuovi utenti"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:49
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Use Default Blocked Domains List"
+msgctxt "@option:check"
 msgid "Use Default Blocked Domains List"
 msgstr "Utilizza l'elenco dei domini bloccati predefinito"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:50
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Use DNS Domain Check"
+msgctxt "@option:check"
 msgid "Use DNS Domain Check"
 msgstr "Usa il controllo del dominio DNS"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:51
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Registration with Authentication Services"
+msgctxt "@option:check"
 msgid "Registration with Authentication Services"
 msgstr "Registrazione con servizi di autenticazione"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:54
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Password Reset"
+msgctxt "@option:check"
 msgid "Password Reset"
 msgstr "Ripristino della password"
 
@@ -3952,7 +4057,6 @@ msgid "Message"
 msgstr "Messaggio"
 
 #: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:110
-#: widgets/administratorsettingsdialog/slackbridge/slackbridgewidget.cpp:20
 #, kde-format
 msgid "File Upload"
 msgstr "Caricamento file"
@@ -3980,7 +4084,6 @@ msgid "Password"
 msgstr "Password"
 
 #: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:115
-#: widgets/room/roomwidget.cpp:500
 #, kde-format
 msgid "Video Conference"
 msgstr "Videoconferenza"
@@ -4058,24 +4161,46 @@ msgid "Analytics"
 msgstr "Analisi"
 
 #: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:17
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Messages"
+msgctxt "@option:check"
 msgid "Messages"
 msgstr "Messaggi"
+
+#: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:18
+#, fuzzy, kde-format
+#| msgid "Rooms"
+msgctxt "@option:check"
+msgid "Rooms"
+msgstr "Stanze"
+
+#: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:19
+#, fuzzy, kde-format
+#| msgid "Users"
+msgctxt "@option:check"
+msgid "Users"
+msgstr "Utenti"
 
 #: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:20
 #: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:22
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:52
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Enable"
+msgctxt "@option:check"
 msgid "Enable"
 msgstr "Abilita"
 
 #: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:26
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Prepend Domain"
+msgctxt "@option:check"
 msgid "Prepend Domain"
 msgstr "Anteponi il dominio"
 
 #: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:27
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "All Subdomains"
+msgctxt "@option:check"
 msgid "All Subdomains"
 msgstr "Tutti i sotto-domini"
 
@@ -4185,23 +4310,30 @@ msgstr "Nascondi i collegamenti in uscita"
 #: widgets/administratorsettingsdialog/videoconference/videoconferencewidget.cpp:17
 #: widgets/administratorsettingsdialog/videoconference/videoconferencewidget.cpp:21
 #: widgets/administratorsettingsdialog/webrtc/webrtcsettingswidget.cpp:15
-#: widgets/applicationssettingsdialog/applicationssettingsstatuscombobox.cpp:14
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Enabled"
+msgctxt "@option:check"
 msgid "Enabled"
 msgstr "Abilitato"
 
 #: widgets/administratorsettingsdialog/cas/cassettingswidget.cpp:24
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Trust CAS Username"
+msgctxt "@option:check"
 msgid "Trust CAS Username"
 msgstr "Fidati dei nomi utente CAS"
 
 #: widgets/administratorsettingsdialog/cas/cassettingswidget.cpp:25
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Allow user creation"
+msgctxt "@option:check"
 msgid "Allow user creation"
 msgstr "Consenti la creazione di utenti"
 
 #: widgets/administratorsettingsdialog/cas/cassettingswidget.cpp:26
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Always Sync User Data"
+msgctxt "@option:check"
 msgid "Always Sync User Data"
 msgstr "Sincronizza sempre i dati utente"
 
@@ -4319,27 +4451,37 @@ msgid "Default Provider"
 msgstr "Fornitore predefinito"
 
 #: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:22
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "IgnoreTLS"
+msgctxt "@option:check"
 msgid "IgnoreTLS"
 msgstr "IgnoreTLS"
 
 #: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:26
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Show Message in Email Notification"
+msgctxt "@option:check"
 msgid "Show Message in Email Notification"
 msgstr "Mostra messaggio nella notifica di posta"
 
 #: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:27
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Add Sender to Reply-To"
+msgctxt "@option:check"
 msgid "Add Sender to Reply-To"
 msgstr "Aggiungi mittente a Reply-To"
 
 #: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:28
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Enable Direct Reply"
+msgctxt "@option:check"
 msgid "Enable Direct Reply"
 msgstr "Abilita risposta diretta"
 
 #: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:29
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Debug Direct Reply"
+msgctxt "@option:check"
 msgid "Debug Direct Reply"
 msgstr "Debug della risposta diretta"
 
@@ -4468,22 +4610,30 @@ msgid "Password Changed"
 msgstr "Password modificata"
 
 #: widgets/administratorsettingsdialog/encryption/encryptionsettingswidget.cpp:16
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Enabled E2E encryption"
+msgctxt "@option:check"
 msgid "Enabled E2E encryption"
 msgstr "Abilita cifratura E2E"
 
 #: widgets/administratorsettingsdialog/encryption/encryptionsettingswidget.cpp:17
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Enable encryption for Direct Rooms by default"
+msgctxt "@option:check"
 msgid "Enable encryption for Direct Rooms by default"
 msgstr "Abilita la cifratura per le stanze dirette in modo predefinito"
 
 #: widgets/administratorsettingsdialog/encryption/encryptionsettingswidget.cpp:18
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Enable encryption for Private Rooms by default"
+msgctxt "@option:check"
 msgid "Enable encryption for Private Rooms by default"
 msgstr "Abilita la cifratura per le stanze private in modo predefinito"
 
 #: widgets/administratorsettingsdialog/encryption/encryptionsettingswidget.cpp:19
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Enable OTR"
+msgctxt "@option:check"
 msgid "Enable OTR"
 msgstr "Abilita OTR"
 
@@ -4523,27 +4673,37 @@ msgid "Enterprise License"
 msgstr "Licenza aziendale"
 
 #: widgets/administratorsettingsdialog/fileupload/fileuploadsettingswidget.cpp:19
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Enabled File Upload"
+msgctxt "@option:check"
 msgid "Enabled File Upload"
 msgstr "Caricamento file abilitato"
 
 #: widgets/administratorsettingsdialog/fileupload/fileuploadsettingswidget.cpp:21
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Protect Uploaded Files"
+msgctxt "@option:check"
 msgid "Protect Uploaded Files"
 msgstr "Proteggi i file caricati"
 
 #: widgets/administratorsettingsdialog/fileupload/fileuploadsettingswidget.cpp:22
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Rotate images on upload"
+msgctxt "@option:check"
 msgid "Rotate images on upload"
 msgstr "Ruota l'immagine al caricamento"
 
 #: widgets/administratorsettingsdialog/fileupload/fileuploadsettingswidget.cpp:23
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Restrict files to rooms' members"
+msgctxt "@option:check"
 msgid "Restrict files to rooms' members"
 msgstr "Limita i file ai membri delle stanze"
 
 #: widgets/administratorsettingsdialog/fileupload/fileuploadsettingswidget.cpp:24
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "File Uploads Enabled in Direct Messages"
+msgctxt "@option:check"
 msgid "File Uploads Enabled in Direct Messages"
 msgstr "Caricamenti di file abilitati nei messaggi diretti"
 
@@ -4649,22 +4809,30 @@ msgid "Storage Type"
 msgstr "Tipo di archiviazione"
 
 #: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:20
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Enable Favorite Rooms"
+msgctxt "@option:check"
 msgid "Enable Favorite Rooms"
 msgstr "Elimina stanze preferite"
 
 #: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:25
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "UTF8 Names Slugify"
+msgctxt "@option:check"
 msgid "UTF8 Names Slugify"
 msgstr "Converti i nomi UTF8"
 
 #: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:32
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Enable the Update Checker"
+msgctxt "@option:check"
 msgid "Enable the Update Checker"
 msgstr "Abilita il controllo degli aggiornamenti"
 
 #: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:34
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Send Statistics to Rocket.Chat"
+msgctxt "@option:check"
 msgid "Send Statistics to Rocket.Chat"
 msgstr "Invia statistiche a Rocket.Chat"
 
@@ -4926,32 +5094,44 @@ msgid "Peer Password"
 msgstr "Password della controparte"
 
 #: widgets/administratorsettingsdialog/layout/layoutsettingswidget.cpp:15
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Display Roles"
+msgctxt "@option:check"
 msgid "Display Roles"
 msgstr "Visualizza ruoli"
 
 #: widgets/administratorsettingsdialog/layout/layoutsettingswidget.cpp:16
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Use Real Name"
+msgctxt "@option:check"
 msgid "Use Real Name"
 msgstr "Usa il nome effettivo"
 
 #: widgets/administratorsettingsdialog/layout/layoutsettingswidget.cpp:17
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Use Full Name Initials to Generate Default Avatar"
+msgctxt "@option:check"
 msgid "Use Full Name Initials to Generate Default Avatar"
 msgstr "Usa le iniziali del nome completo per generare un avatar predefinito"
 
 #: widgets/administratorsettingsdialog/layout/layoutsettingswidget.cpp:18
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Allow Special Characters in Room Names"
+msgctxt "@option:check"
 msgid "Allow Special Characters in Room Names"
 msgstr "Consenti caratteri speciali nei nomi delle stanze"
 
 #: widgets/administratorsettingsdialog/layout/layoutsettingswidget.cpp:19
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Merge Private Groups with Channels"
+msgctxt "@option:check"
 msgid "Merge Private Groups with Channels"
 msgstr "Unisci i gruppi privati con i canali"
 
 #: widgets/administratorsettingsdialog/layout/layoutsettingswidget.cpp:20
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Group channels by type"
+msgctxt "@option:check"
 msgid "Group channels by type"
 msgstr "Raggruppa i canali per tipo"
 
@@ -4961,12 +5141,16 @@ msgid "Number of users' autocomplete suggestions"
 msgstr "Numero di suggerimenti di completamento automatico degli utenti"
 
 #: widgets/administratorsettingsdialog/ldap/ldapsettingswidget.cpp:19
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "LDAP Enabled"
+msgctxt "@option:check"
 msgid "LDAP Enabled"
 msgstr "LDAP abilitato"
 
 #: widgets/administratorsettingsdialog/ldap/ldapsettingswidget.cpp:22
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Reconnect"
+msgctxt "@option:check"
 msgid "Reconnect"
 msgstr "Riconnetti"
 
@@ -5054,12 +5238,16 @@ msgid "Idle Timeout (ms)"
 msgstr "Timeout di inattività (ms)"
 
 #: widgets/administratorsettingsdialog/logs/logssettingswidget.cpp:22
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Trace method calls"
+msgctxt "@option:check"
 msgid "Trace method calls"
 msgstr "Chiamate metodo di tracciamento"
 
 #: widgets/administratorsettingsdialog/logs/logssettingswidget.cpp:24
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Trace subscription calls"
+msgctxt "@option:check"
 msgid "Trace subscription calls"
 msgstr "Traccia le chiamate di sottoscrizione"
 
@@ -5121,67 +5309,93 @@ msgid "Trace method filter"
 msgstr "Filtro del metodo di tracciamento"
 
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:18
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Allow Message Editing"
+msgctxt "@option:check"
 msgid "Allow Message Editing"
 msgstr "Consenti la modifica dei messaggi"
 
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:20
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Allow Message Deleting"
+msgctxt "@option:check"
 msgid "Allow Message Deleting"
 msgstr "Consenti l'eliminazione dei messaggi"
 
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:22
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Show Edited Status"
+msgctxt "@option:check"
 msgid "Show Edited Status"
 msgstr "Mostra stato Modificato"
 
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:23
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Show Deleted Status"
+msgctxt "@option:check"
 msgid "Show Deleted Status"
 msgstr "Mostra stato Eliminato"
 
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:24
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Allow Message Pinning"
+msgctxt "@option:check"
 msgid "Allow Message Pinning"
 msgstr "Consenti di appuntare i messaggi"
 
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:25
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Allow Message Snippeting"
+msgctxt "@option:check"
 msgid "Allow Message Snippeting"
 msgstr "Consenti i frammenti dei messaggi"
 
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:26
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Allow converting long messages to attachment"
+msgctxt "@option:check"
 msgid "Allow converting long messages to attachment"
 msgstr "Consenti la conversione di messaggi lunghi in allegati"
 
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:27
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Video Recorder Enabled"
+msgctxt "@option:check"
 msgid "Video Recorder Enabled"
 msgstr "Registratore video abilitato"
 
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:30
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Remove EXIF metadata from supported files"
+msgctxt "@option:check"
 msgid "Remove EXIF metadata from supported files"
 msgstr "Rimuovi i metadati EXIF dai file supportati"
 
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:31
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Enable image thumbnails to save bandwidth"
+msgctxt "@option:check"
 msgid "Enable image thumbnails to save bandwidth"
 msgstr "Abilita le miniature delle immagini per risparmiare banda"
 
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:34
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Audio Recorder Enabled"
+msgctxt "@option:check"
 msgid "Audio Recorder Enabled"
 msgstr "Registratore audio abilitato"
 
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:36
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Enable Auto-Translate"
+msgctxt "@option:check"
 msgid "Enable Auto-Translate"
 msgstr "Abilita la traduzione automatica"
 
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:45
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Embed Link Previews"
+msgctxt "@option:check"
 msgid "Embed Link Previews"
 msgstr "Incorpora le anteprime dei collegamenti"
 
@@ -5357,7 +5571,6 @@ msgid "Audio Message Bit Rate"
 msgstr "Bit rate dei messaggi audio"
 
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:162
-#: widgets/dialogs/autotranslateconfigurewidget.cpp:20
 #, kde-format
 msgid "Auto-Translate"
 msgstr "Traduzione automatica"
@@ -5408,12 +5621,16 @@ msgid "Embed Cache Expiration Days"
 msgstr "Giorni di scadenza della cache incorporata"
 
 #: widgets/administratorsettingsdialog/mobile/mobilesettingswidget.cpp:16
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Allow Save Media to Gallery"
+msgctxt "@option:check"
 msgid "Allow Save Media to Gallery"
 msgstr "Consenti il salvataggio dei file multimediali nella galleria"
 
 #: widgets/administratorsettingsdialog/mobile/mobilesettingswidget.cpp:17
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Force screen lock"
+msgctxt "@option:check"
 msgid "Force screen lock"
 msgstr "Forza il blocco dello schermo"
 
@@ -5448,42 +5665,58 @@ msgid "Force Screen Lock After"
 msgstr "Forza il blocco schermo dopo"
 
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:16
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Sign in with Apple"
+msgctxt "@option:check"
 msgid "Sign in with Apple"
 msgstr "Accedi con Apple"
 
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:20
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Twitter Login"
+msgctxt "@option:check"
 msgid "Twitter Login"
 msgstr "Accesso Twitter"
 
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:24
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "LinkedIn Login"
+msgctxt "@option:check"
 msgid "LinkedIn Login"
 msgstr "Accesso LinkedIn"
 
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:30
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Meteor Login"
+msgctxt "@option:check"
 msgid "Meteor Login"
 msgstr "Accesso Meteor"
 
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:34
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Facebook Login"
+msgctxt "@option:check"
 msgid "Facebook Login"
 msgstr "Accesso Facebook"
 
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:38
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Github Login"
+msgctxt "@option:check"
 msgid "Github Login"
 msgstr "Accesso GitHub"
 
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:42
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Tokenpass Login"
+msgctxt "@option:check"
 msgid "Tokenpass Login"
 msgstr "Accesso Tokenpass"
 
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:47
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Google Login"
+msgctxt "@option:check"
 msgid "Google Login"
 msgstr "Accesso Google"
 
@@ -5671,37 +5904,51 @@ msgid "Google Secret"
 msgstr "Segreto Google"
 
 #: widgets/administratorsettingsdialog/password/passwordsettingswidget.cpp:17
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Enable Password History"
+msgctxt "@option:check"
 msgid "Enable Password History"
 msgstr "Abilita cronologia delle password"
 
 #: widgets/administratorsettingsdialog/password/passwordsettingswidget.cpp:19
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Enable Password Policy"
+msgctxt "@option:check"
 msgid "Enable Password Policy"
 msgstr "Abilita politica delle password"
 
 #: widgets/administratorsettingsdialog/password/passwordsettingswidget.cpp:22
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Forbid Repeating Characters"
+msgctxt "@option:check"
 msgid "Forbid Repeating Characters"
 msgstr "Vieta i caratteri ripetuti"
 
 #: widgets/administratorsettingsdialog/password/passwordsettingswidget.cpp:24
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "At Least One Lowercase"
+msgctxt "@option:check"
 msgid "At Least One Lowercase"
 msgstr "Almeno una minuscola"
 
 #: widgets/administratorsettingsdialog/password/passwordsettingswidget.cpp:25
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "At Least One Uppercase"
+msgctxt "@option:check"
 msgid "At Least One Uppercase"
 msgstr "Almeno una maiuscola"
 
 #: widgets/administratorsettingsdialog/password/passwordsettingswidget.cpp:26
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "At Least One Number"
+msgctxt "@option:check"
 msgid "At Least One Number"
 msgstr "Almeno un numero"
 
 #: widgets/administratorsettingsdialog/password/passwordsettingswidget.cpp:27
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "At Least One Symbol"
+msgctxt "@option:check"
 msgid "At Least One Symbol"
 msgstr "Almeno un simbolo"
 
@@ -5818,32 +6065,44 @@ msgid "Enforce that a password contain at least one special character."
 msgstr "Imponi che una password contenga almeno un carattere speciale."
 
 #: widgets/administratorsettingsdialog/ratelimiter/ratelimiterwidget.cpp:15
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Enable Rate Limiter"
+msgctxt "@option:check"
 msgid "Enable Rate Limiter"
 msgstr "Abilita limitatore di frequenza"
 
 #: widgets/administratorsettingsdialog/ratelimiter/ratelimiterwidget.cpp:16
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Limit by IP"
+msgctxt "@option:check"
 msgid "Limit by IP"
 msgstr "Limita per IP"
 
 #: widgets/administratorsettingsdialog/ratelimiter/ratelimiterwidget.cpp:19
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Limit by User"
+msgctxt "@option:check"
 msgid "Limit by User"
 msgstr "Limita per utente"
 
 #: widgets/administratorsettingsdialog/ratelimiter/ratelimiterwidget.cpp:22
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Limit by Connection"
+msgctxt "@option:check"
 msgid "Limit by Connection"
 msgstr "Limita per connessione"
 
 #: widgets/administratorsettingsdialog/ratelimiter/ratelimiterwidget.cpp:26
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Limit by User per Method"
+msgctxt "@option:check"
 msgid "Limit by User per Method"
 msgstr "Limita per utente per metodo"
 
 #: widgets/administratorsettingsdialog/ratelimiter/ratelimiterwidget.cpp:29
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Limit by Connection per Method"
+msgctxt "@option:check"
 msgid "Limit by Connection per Method"
 msgstr "Limita per connessione per metodo"
 
@@ -5884,42 +6143,58 @@ msgid "Limit by User: interval time"
 msgstr "Limite per utente: tempo di intervallo"
 
 #: widgets/administratorsettingsdialog/retentionpolicy/retentionpolicysettingswidget.cpp:20
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Use Advanced Retention Policy configuration"
+msgctxt "@option:check"
 msgid "Use Advanced Retention Policy configuration"
 msgstr "Utilizza la configurazione dei criteri di conservazione avanzati"
 
 #: widgets/administratorsettingsdialog/retentionpolicy/retentionpolicysettingswidget.cpp:21
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Do not prune Threads"
+msgctxt "@option:check"
 msgid "Do not prune Threads"
 msgstr "Non eliminare le conversazioni"
 
 #: widgets/administratorsettingsdialog/retentionpolicy/retentionpolicysettingswidget.cpp:22
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Do not prune Discussion message"
+msgctxt "@option:check"
 msgid "Do not prune Discussion message"
 msgstr "Non eliminare il messaggio di discussione"
 
 #: widgets/administratorsettingsdialog/retentionpolicy/retentionpolicysettingswidget.cpp:23
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Do not prune pinned messages"
+msgctxt "@option:check"
 msgid "Do not prune pinned messages"
 msgstr "Non eliminare i messaggi appuntati"
 
 #: widgets/administratorsettingsdialog/retentionpolicy/retentionpolicysettingswidget.cpp:24
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Only delete files"
+msgctxt "@option:check"
 msgid "Only delete files"
 msgstr "Soli i file eliminati"
 
 #: widgets/administratorsettingsdialog/retentionpolicy/retentionpolicysettingswidget.cpp:25
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Applies to channels"
+msgctxt "@option:check"
 msgid "Applies to channels"
 msgstr "Si applica ai canali"
 
 #: widgets/administratorsettingsdialog/retentionpolicy/retentionpolicysettingswidget.cpp:27
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Applies to private groups"
+msgctxt "@option:check"
 msgid "Applies to private groups"
 msgstr "Si applica ai gruppi privati"
 
 #: widgets/administratorsettingsdialog/retentionpolicy/retentionpolicysettingswidget.cpp:29
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Applies to direct messages"
+msgctxt "@option:check"
 msgid "Applies to direct messages"
 msgstr "Si applica ai messaggi diretti"
 
@@ -5987,18 +6262,31 @@ msgstr "Durata massima del messaggio nei messaggi diretti"
 msgid "Apply"
 msgstr "Applica"
 
+#: widgets/administratorsettingsdialog/slackbridge/slackbridgewidget.cpp:20
+#, fuzzy, kde-format
+#| msgid "File Upload"
+msgctxt "@option:check"
+msgid "File Upload"
+msgstr "Caricamento file"
+
 #: widgets/administratorsettingsdialog/slackbridge/slackbridgewidget.cpp:21
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "SlackBridge Out Enabled"
+msgctxt "@option:check"
 msgid "SlackBridge Out Enabled"
 msgstr "Slack Bridge Out abilitato"
 
 #: widgets/administratorsettingsdialog/slackbridge/slackbridgewidget.cpp:22
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "SlackBridge Out All"
+msgctxt "@option:check"
 msgid "SlackBridge Out All"
 msgstr "Slack Bridge Out tutto"
 
 #: widgets/administratorsettingsdialog/slackbridge/slackbridgewidget.cpp:25
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Reactions"
+msgctxt "@option:check"
 msgid "Reactions"
 msgstr "Reazioni"
 
@@ -6058,42 +6346,58 @@ msgid "Exclude Bots"
 msgstr "Escludi bot"
 
 #: widgets/administratorsettingsdialog/troubleshoot/troubleshootsettingswidget.cpp:14
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Disable Notifications"
+msgctxt "@option:check"
 msgid "Disable Notifications"
 msgstr "Disabilita le notifiche"
 
 #: widgets/administratorsettingsdialog/troubleshoot/troubleshootsettingswidget.cpp:15
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Disable Presence Broadcast"
+msgctxt "@option:check"
 msgid "Disable Presence Broadcast"
 msgstr "Disabilita la trasmissione della presenza"
 
 #: widgets/administratorsettingsdialog/troubleshoot/troubleshootsettingswidget.cpp:16
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Disable Instance Broadcast"
+msgctxt "@option:check"
 msgid "Disable Instance Broadcast"
 msgstr "Disabilita la trasmissione dell'istanza"
 
 #: widgets/administratorsettingsdialog/troubleshoot/troubleshootsettingswidget.cpp:17
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Disable Sessions Monitor"
+msgctxt "@option:check"
 msgid "Disable Sessions Monitor"
 msgstr "Disabilita il monitoraggio delle sessioni"
 
 #: widgets/administratorsettingsdialog/troubleshoot/troubleshootsettingswidget.cpp:18
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Disable Livechat Activity Monitor"
+msgctxt "@option:check"
 msgid "Disable Livechat Activity Monitor"
 msgstr "Disabilita il monitoraggio dell'attività di Livechat"
 
 #: widgets/administratorsettingsdialog/troubleshoot/troubleshootsettingswidget.cpp:19
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Disable Statistics Generator"
+msgctxt "@option:check"
 msgid "Disable Statistics Generator"
 msgstr "Disabilita il generatore delle statistiche"
 
 #: widgets/administratorsettingsdialog/troubleshoot/troubleshootsettingswidget.cpp:20
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Disable Data Exporter Processor"
+msgctxt "@option:check"
 msgid "Disable Data Exporter Processor"
 msgstr "Disabilita Processore Esportatore Dati"
 
 #: widgets/administratorsettingsdialog/troubleshoot/troubleshootsettingswidget.cpp:21
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Disable Workspace Sync"
+msgctxt "@option:check"
 msgid "Disable Workspace Sync"
 msgstr "Disabilita la sincronizzazione dell'area di lavoro"
 
@@ -6170,7 +6474,9 @@ msgstr ""
 "enterprise!"
 
 #: widgets/administratorsettingsdialog/userdatadownload/userdatadownloadwidget.cpp:16
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Enable User Data Download"
+msgctxt "@option:check"
 msgid "Enable User Data Download"
 msgstr "Abilita lo scaricamento dei dati utente"
 
@@ -6196,37 +6502,51 @@ msgstr "Limite di messaggi per richiesta"
 
 #: widgets/administratorsettingsdialog/videoconference/videoconferencewidget.cpp:20
 #: widgets/administratorsettingsdialog/videoconference/videoconferencewidget.cpp:27
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Always Open in New Window"
+msgctxt "@option:check"
 msgid "Always Open in New Window"
 msgstr "Apri sempre in una nuova finestra"
 
 #: widgets/administratorsettingsdialog/videoconference/videoconferencewidget.cpp:25
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Enable room name hash"
+msgctxt "@option:check"
 msgid "Enable room name hash"
 msgstr "Abilita hash del nome della stanza"
 
 #: widgets/administratorsettingsdialog/videoconference/videoconferencewidget.cpp:26
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Use SSL"
+msgctxt "@option:check"
 msgid "Use SSL"
 msgstr "Usa SSL"
 
 #: widgets/administratorsettingsdialog/videoconference/videoconferencewidget.cpp:28
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Enable in Channels"
+msgctxt "@option:check"
 msgid "Enable in Channels"
 msgstr "Abilita in Canali"
 
 #: widgets/administratorsettingsdialog/videoconference/videoconferencewidget.cpp:29
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Enable for Teams"
+msgctxt "@option:check"
 msgid "Enable for Teams"
 msgstr "Abilita per Squadre"
 
 #: widgets/administratorsettingsdialog/videoconference/videoconferencewidget.cpp:31
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Enable JWT auth"
+msgctxt "@option:check"
 msgid "Enable JWT auth"
 msgstr "Abilita autenticazione JWT"
 
 #: widgets/administratorsettingsdialog/videoconference/videoconferencewidget.cpp:34
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Limit token to Jitsi Room"
+msgctxt "@option:check"
 msgid "Limit token to Jitsi Room"
 msgstr "Limita token alla stanza Jitsi"
 
@@ -6287,22 +6607,30 @@ msgid "Application Secret"
 msgstr "Segreto applicazione"
 
 #: widgets/administratorsettingsdialog/webdav/webdavsettingswidget.cpp:13
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Webdav Integration Enabled"
+msgctxt "@option:check"
 msgid "Webdav Integration Enabled"
 msgstr "Integrazione Webdav abilitata"
 
 #: widgets/administratorsettingsdialog/webrtc/webrtcsettingswidget.cpp:16
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Enable for Public Channels"
+msgctxt "@option:check"
 msgid "Enable for Public Channels"
 msgstr "Abilita per i canali pubblici"
 
 #: widgets/administratorsettingsdialog/webrtc/webrtcsettingswidget.cpp:17
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Enable for Private Channels"
+msgctxt "@option:check"
 msgid "Enable for Private Channels"
 msgstr "Abilita per i canali privati"
 
 #: widgets/administratorsettingsdialog/webrtc/webrtcsettingswidget.cpp:18
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Enable for Direct Messages"
+msgctxt "@option:check"
 msgid "Enable for Direct Messages"
 msgstr "Abilita per i messaggi diretti"
 
@@ -6381,6 +6709,11 @@ msgstr "Caricamento in corso…"
 msgid "All"
 msgstr "Tutti"
 
+#: widgets/applicationssettingsdialog/applicationssettingsinstalledcombobox.cpp:14
+#, kde-format
+msgid "Private"
+msgstr "Privato"
+
 #: widgets/applicationssettingsdialog/applicationssettingsinstalledcombobox.cpp:15
 #, kde-format
 msgid "Installed"
@@ -6426,6 +6759,30 @@ msgstr "Applicazioni gratuite"
 msgid "Paid Apps"
 msgstr "Applicazioni a pagamento"
 
+#: widgets/applicationssettingsdialog/applicationssettingssearchwidget.cpp:88
+#, fuzzy, kde-format
+#| msgctxt "@title:window"
+#| msgid "Applications"
+msgctxt "@info:placeholder"
+msgid "Search Applications"
+msgstr "Applicazioni"
+
+#: widgets/applicationssettingsdialog/applicationssettingssearchwidget.cpp:92
+#, fuzzy, kde-format
+#| msgctxt "@action"
+#| msgid "Applications…"
+msgctxt "@info:placeholder"
+msgid "Search Installed Applications"
+msgstr "Applicazioni…"
+
+#: widgets/applicationssettingsdialog/applicationssettingssearchwidget.cpp:96
+#, fuzzy, kde-format
+#| msgctxt "@action"
+#| msgid "Applications…"
+msgctxt "@info:placeholder"
+msgid "Search Requested Applications"
+msgstr "Applicazioni…"
+
 #: widgets/applicationssettingsdialog/applicationssettingssortingcombobox.cpp:12
 #, kde-format
 msgid "A-Z"
@@ -6451,6 +6808,11 @@ msgstr "Aggiornati meno recentemente"
 msgid "All Status"
 msgstr "Tutti gli stati"
 
+#: widgets/applicationssettingsdialog/applicationssettingsstatuscombobox.cpp:14
+#, kde-format
+msgid "Enabled"
+msgstr "Abilitato"
+
 #: widgets/bannerinfodialog/bannerinfodialog.cpp:27
 #, kde-format
 msgctxt "@title:window"
@@ -6458,7 +6820,9 @@ msgid "Banner Information"
 msgstr "Informazioni sul banner"
 
 #: widgets/bannerinfodialog/bannerinfolistsearchlinewidget.cpp:17
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Show Unread"
+msgctxt "@option:check"
 msgid "Show Unread"
 msgstr "Mostra non letti"
 
@@ -6597,7 +6961,7 @@ msgid "Username or Email:"
 msgstr "Nome utente o indirizzo di posta:"
 
 #: widgets/common/authenticationloginwidget.cpp:155
-#: widgets/ruqolamainwindow.cpp:939
+#: widgets/ruqolamainwindow.cpp:948
 #, kde-format
 msgid ""
 "We have sent you an email to confirm your registration.\n"
@@ -6607,7 +6971,7 @@ msgstr ""
 "Se non lo ricevi a breve, torna indietro e riprova."
 
 #: widgets/common/authenticationloginwidget.cpp:156
-#: widgets/ruqolamainwindow.cpp:940
+#: widgets/ruqolamainwindow.cpp:949
 #, kde-format
 msgid "Register New User"
 msgstr "Registra nuovo utente"
@@ -6629,7 +6993,9 @@ msgid "Start a Call"
 msgstr "Avvia una chiamata"
 
 #: widgets/conferencecalldialog/conferencecalldialog.cpp:26
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Start"
+msgctxt "@action:button"
 msgid "Start"
 msgstr "Avvia"
 
@@ -6721,58 +7087,80 @@ msgid "Configure Accounts in Current Activity"
 msgstr "Configura account nell'attività attuale"
 
 #: widgets/configuredialog/configurefontwidget.cpp:17
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "&Use custom fonts"
+msgctxt "@option:check"
 msgid "&Use custom fonts"
 msgstr "&Usa caratteri personalizzati"
 
 #: widgets/configuredialog/configuregeneralwidget.cpp:15
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Set accounts online on startup"
+msgctxt "@option:check"
 msgid "Set accounts online on startup"
 msgstr "Imposta gli account come in linea all'avvio"
 
 #: widgets/configuredialog/configuregeneralwidget.cpp:16
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Show images by default"
+msgctxt "@option:check"
 msgid "Show images by default"
 msgstr "Mostra le immagini in modo predefinito"
 
 #: widgets/configuredialog/configuregeneralwidget.cpp:17
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Show preview url by default"
+msgctxt "@option:check"
 msgid "Show preview url by default"
 msgstr "Mostra l'URL dell'anteprima in modo predefinito"
 
 #: widgets/configuredialog/configuregeneralwidget.cpp:18
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Mark room as read when clicking to write a reply"
+msgctxt "@option:check"
 msgid "Mark room as read when clicking to write a reply"
 msgstr ""
 "Marca la stanza come già letta quando fai clic per scrivere una risposta"
 
 #: widgets/configuredialog/configuregeneralwidget.cpp:19
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Enable system tray icon"
+msgctxt "@option:check"
 msgid "Enable system tray icon"
 msgstr "Abilita icona nel vassoio di sistema"
 
 #: widgets/configuredialog/configuregeneralwidget.cpp:20
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Enable logging"
+msgctxt "@option:check"
 msgid "Enable logging"
 msgstr "Abilita il registro"
 
 #: widgets/configuredialog/configuregeneralwidget.cpp:21
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Show hover highlights"
+msgctxt "@option:check"
 msgid "Show hover highlights"
 msgstr "Mostra le evidenziazioni al passaggio del mouse"
 
 #: widgets/configuredialog/configuregeneralwidget.cpp:22
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Animate Gif Image"
+msgctxt "@option:check"
 msgid "Animate Gif Image"
 msgstr "Immagine Gif animata"
 
 #: widgets/configuredialog/configuregeneralwidget.cpp:23
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Use local dataBase (experimental)"
+msgctxt "@option:check"
 msgid "Use local dataBase (experimental)"
 msgstr "Usa la banca dati locale (sperimentale)"
 
 #: widgets/configuredialog/configuregeneralwidget.cpp:25
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Enable Plasma Activities"
+msgctxt "@option:check"
 msgid "Enable Plasma Activities"
 msgstr "Abilita le attività di Plasma"
 
@@ -6837,7 +7225,9 @@ msgid "Remove Account"
 msgstr "Rimuovi account"
 
 #: widgets/configuredialog/removeaccountwidget.cpp:15
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Remove logs stored on disk"
+msgctxt "@option:check"
 msgid "Remove logs stored on disk"
 msgstr "Rimuovi i log archiviati su disco"
 
@@ -6870,7 +7260,9 @@ msgid "Configure Activities"
 msgstr "Configura le attività"
 
 #: widgets/configurenewserver/configureactivitieswidget.cpp:55
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Limit to the selected activities:"
+msgctxt "@option:check"
 msgid "Limit to the selected activities:"
 msgstr "Limita alle attività selezionate:"
 
@@ -6924,7 +7316,9 @@ msgid "Channel Info"
 msgstr "Informazioni sul canale"
 
 #: widgets/dialogs/attachment/listattachmentdelegate.cpp:95
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Save Attachment"
+msgctxt "@title:window"
 msgid "Save Attachment"
 msgstr "Salva allegato"
 
@@ -6944,6 +7338,13 @@ msgstr "Elimina file"
 msgctxt "@title:window"
 msgid "Configure Auto-Translate"
 msgstr "Configura la traduzione automatica"
+
+#: widgets/dialogs/autotranslateconfigurewidget.cpp:20
+#, fuzzy, kde-format
+#| msgid "Auto-Translate"
+msgctxt "@option:check"
+msgid "Auto-Translate"
+msgstr "Traduzione automatica"
 
 #: widgets/dialogs/autotranslateconfigurewidget.cpp:37
 #, kde-format
@@ -6990,12 +7391,16 @@ msgid "Do you want to unarchive this room?"
 msgstr "Vuoi togliere dall'archivio questa stanza?"
 
 #: widgets/dialogs/channelinfoeditablewidget.cpp:89
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Archive Channel"
+msgctxt "@title"
 msgid "Archive Channel"
 msgstr "Archivia canale"
 
 #: widgets/dialogs/channelinfoeditablewidget.cpp:89
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Unarchive Channel"
+msgctxt "@title"
 msgid "Unarchive Channel"
 msgstr "Togli canale dall'archivio"
 
@@ -7037,32 +7442,44 @@ msgid "Delete Room"
 msgstr "Elimina stanza"
 
 #: widgets/dialogs/channelinfoeditablewidget.cpp:264
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "This room has a password"
+msgctxt "@info:placeholder"
 msgid "This room has a password"
 msgstr "Questa stanza ha una password"
 
-#: widgets/dialogs/channelinfoeditablewidget.cpp:264
-#, kde-format
+#: widgets/dialogs/channelinfoeditablewidget.cpp:265
+#, fuzzy, kde-format
+#| msgid "Add password"
+msgctxt "@info:placeholder"
 msgid "Add password"
 msgstr "Aggiungi password"
 
 #: widgets/dialogs/channelinfoprunewidget.cpp:19
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Exclude pinned messages"
+msgctxt "@option:check"
 msgid "Exclude pinned messages"
 msgstr "Escludi i messaggi appuntati"
 
 #: widgets/dialogs/channelinfoprunewidget.cpp:20
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Prune files only, keep messages"
+msgctxt "@option:check"
 msgid "Prune files only, keep messages"
 msgstr "Ripulisci solo i file, tieni i messaggi"
 
 #: widgets/dialogs/channelinfoprunewidget.cpp:21
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Automatically prune old messages"
+msgctxt "@option:check"
 msgid "Automatically prune old messages"
 msgstr "Ripulisci automaticamente i vecchi messaggi"
 
 #: widgets/dialogs/channelinfoprunewidget.cpp:22
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Override global retention policy"
+msgctxt "@option:check"
 msgid "Override global retention policy"
 msgstr "Ignora la politica di conservazione globale"
 
@@ -7144,22 +7561,30 @@ msgid "Configure Notification"
 msgstr "Configura le notifiche"
 
 #: widgets/dialogs/configurenotificationwidget.cpp:26
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Disable Notification"
+msgctxt "@option:check"
 msgid "Disable Notification"
 msgstr "Disabilita le notifiche"
 
 #: widgets/dialogs/configurenotificationwidget.cpp:27
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Hide Unread Room Status"
+msgctxt "@option:check"
 msgid "Hide Unread Room Status"
 msgstr "Nascondi lo stato non letto della stanza"
 
 #: widgets/dialogs/configurenotificationwidget.cpp:28
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Mute %1 and %2 mentions"
+msgctxt "@option:check"
 msgid "Mute %1 and %2 mentions"
 msgstr "Silenzia le menzioni di %1 e %2"
 
 #: widgets/dialogs/configurenotificationwidget.cpp:29
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Show badge for mentions"
+msgctxt "@option:check"
 msgid "Show badge for mentions"
 msgstr "Mostra l'emblema per le menzioni"
 
@@ -7407,6 +7832,11 @@ msgstr "Creato il:"
 #, kde-format
 msgid "Last Login:"
 msgstr "Ultimo accesso:"
+
+#: widgets/dialogs/directchannelinfowidget.cpp:161
+#, kde-format
+msgid "Verified"
+msgstr "Verificato"
 
 #: widgets/dialogs/directchannelinfowidget.cpp:161
 #, kde-format
@@ -8460,12 +8890,16 @@ msgstr ""
 "membri in linea."
 
 #: widgets/myaccount/myaccount2faconfigurewidget.cpp:19
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Activate Two Authentication Factor via Email"
+msgctxt "@option:check"
 msgid "Activate Two Authentication Factor via Email"
 msgstr "Attiva l'autenticazione a due fattori via posta elettronica"
 
 #: widgets/myaccount/myaccount2faconfigurewidget.cpp:20
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Activate Two Authentication Factor via TOTP"
+msgctxt "@option:check"
 msgid "Activate Two Authentication Factor via TOTP"
 msgstr "Attiva l'autenticazione a due fattori tramite TOTP"
 
@@ -8507,7 +8941,9 @@ msgstr "Codice a due fattori non valido."
 
 #: widgets/myaccount/myaccount2fadisabletotpwidget.cpp:67
 #: widgets/myaccount/myaccount2fatotpwidget.cpp:88
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Check Two Factor Code"
+msgctxt "@title:window"
 msgid "Check Two Factor Code"
 msgstr "Verifica il codice a due fattori"
 
@@ -8610,7 +9046,9 @@ msgid "Create"
 msgstr "Crea"
 
 #: widgets/myaccount/myaccountpersonalaccesscreatewidget.cpp:16
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Ignore Two Factor Authentication"
+msgctxt "@option:check"
 msgid "Ignore Two Factor Authentication"
 msgstr "Ignora l'autenticazione a due fattori"
 
@@ -8641,7 +9079,9 @@ msgid "Personal Token removed."
 msgstr "Token personale rimosso."
 
 #: widgets/myaccount/myaccountpersonalaccesstokenconfigurewidget.cpp:165
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Remove Personal Token"
+msgctxt "@title:window"
 msgid "Remove Personal Token"
 msgstr "Rimuovi il token personale"
 
@@ -8668,32 +9108,44 @@ msgid "Remove Token"
 msgstr "Rimuovi token"
 
 #: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:35
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Receive login detection emails"
+msgctxt "@option:check"
 msgid "Receive login detection emails"
 msgstr "Ricevi messaggio di posta di rilevamento dell'accesso"
 
 #: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:36
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Use Emojis"
+msgctxt "@option:check"
 msgid "Use Emojis"
 msgstr "Utilizza gli Emoji"
 
 #: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:37
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Convert Ascii to Emoji"
+msgctxt "@option:check"
 msgid "Convert Ascii to Emoji"
 msgstr "Converti ASCII in Emoji"
 
 #: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:38
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Hide roles"
+msgctxt "@option:check"
 msgid "Hide roles"
 msgstr "Nascondi i ruoli"
 
 #: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:39
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Display avatars"
+msgctxt "@option:check"
 msgid "Display avatars"
 msgstr "Visualizza gli avatar"
 
 #: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:40
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Enable Auto Away"
+msgctxt "@option:check"
 msgid "Enable Auto Away"
 msgstr "Abilita assenza automatica"
 
@@ -8704,7 +9156,9 @@ msgid "Offline Email notification:"
 msgstr "Notifiche di posta elettronica non in linea:"
 
 #: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:46
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Mute Focused Conversations"
+msgctxt "@option:check"
 msgid "Mute Focused Conversations"
 msgstr "Silenzia tutte le conversazioni attive"
 
@@ -8801,7 +9255,9 @@ msgstr ""
 "inviato al tuo indirizzo di posta quando sarà pronto."
 
 #: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:238
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Download File Requested"
+msgctxt "@title:window"
 msgid "Download File Requested"
 msgstr "Scaricamento file richiesto"
 
@@ -8978,27 +9434,37 @@ msgid "Prune"
 msgstr "Ripulisci"
 
 #: widgets/prunemessages/prunemessageswidget.cpp:19
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Inclusive"
+msgctxt "@option:check"
 msgid "Inclusive"
 msgstr "Inclusivo"
 
 #: widgets/prunemessages/prunemessageswidget.cpp:20
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Do not Prune Pinned Messages"
+msgctxt "@option:check"
 msgid "Do not Prune Pinned Messages"
 msgstr "Non eliminare i messaggi appuntati"
 
 #: widgets/prunemessages/prunemessageswidget.cpp:21
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Do not Prune Discussion Messages"
+msgctxt "@option:check"
 msgid "Do not Prune Discussion Messages"
 msgstr "Non eliminare i messaggi di discussione"
 
 #: widgets/prunemessages/prunemessageswidget.cpp:22
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Do not Prune Threads"
+msgctxt "@option:check"
 msgid "Do not Prune Threads"
 msgstr "Non eliminare le conversazioni"
 
 #: widgets/prunemessages/prunemessageswidget.cpp:23
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Only Remove Attached Files. Keep messages"
+msgctxt "@option:check"
 msgid "Only Remove Attached Files. Keep messages"
 msgstr "Elimina solo i file allegati, mantieni i messaggi"
 
@@ -9158,7 +9624,9 @@ msgid "Save &As…"
 msgstr "S&alva come…"
 
 #: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:160
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Save File"
+msgctxt "@title:window"
 msgid "Save File"
 msgstr "Salva file"
 
@@ -9265,17 +9733,19 @@ msgstr "Messaggio %1 nella conversazione"
 msgid "Message %1"
 msgstr "Messaggio %1"
 
-#: widgets/room/messagelinewidget.cpp:384
+#: widgets/room/messagelinewidget.cpp:385
 #, kde-format
 msgid "File selected is too big (Maximum size %1)"
 msgstr "Il file selezionato è troppo grande (dimensione massima %1)"
 
-#: widgets/room/messagelinewidget.cpp:384
-#, kde-format
+#: widgets/room/messagelinewidget.cpp:386
+#, fuzzy, kde-format
+#| msgid "File upload"
+msgctxt "@title:window"
 msgid "File upload"
 msgstr "File caricato"
 
-#: widgets/room/messagelinewidget.cpp:389
+#: widgets/room/messagelinewidget.cpp:391
 #, kde-format
 msgid "Server doesn't authorized this file (invalid mimetype)"
 msgstr "Il server non ha autorizzato questo file (tipo MIME non valido)"
@@ -9510,6 +9980,11 @@ msgctxt "@info:tooltip"
 msgid "Favorite"
 msgstr "Preferito"
 
+#: widgets/room/roomheaderwidget.cpp:50
+#, kde-format
+msgid "Favorite"
+msgstr "Preferito"
+
 #: widgets/room/roomheaderwidget.cpp:66
 #, kde-format
 msgctxt "@info:tooltip"
@@ -9602,13 +10077,20 @@ msgctxt "@title:window"
 msgid "Remove History"
 msgstr "Rimuovi cronologia"
 
-#: widgets/room/roomwidget.cpp:500
+#: widgets/room/roomwidget.cpp:501
 #, kde-format
 msgid ""
 "A workspace admin needs to install and configure a conference call apps."
 msgstr ""
 "Un amministratore dell'area di lavoro deve installare e configurare "
 "un'applicazione per chiamate in conferenza."
+
+#: widgets/room/roomwidget.cpp:502
+#, fuzzy, kde-format
+#| msgid "Video Conference"
+msgctxt "@title:window"
+msgid "Video Conference"
+msgstr "Videoconferenza"
 
 #: widgets/room/uploadfileprogressstatuswidget.cpp:31
 #, kde-format
@@ -9921,130 +10403,146 @@ msgid "Requested Applications…"
 msgstr "Applicazioni…"
 
 #: widgets/ruqolamainwindow.cpp:515
+#, fuzzy, kde-format
+#| msgctxt "@action"
+#| msgid "Applications…"
+msgctxt "@action"
+msgid "Installed Applications…"
+msgstr "Applicazioni…"
+
+#: widgets/ruqolamainwindow.cpp:520
 #, kde-format
 msgctxt "Action which allows to search room"
 msgid "Join Room…"
 msgstr "Unisciti alla stanza..."
 
-#: widgets/ruqolamainwindow.cpp:519
+#: widgets/ruqolamainwindow.cpp:524
 #, kde-format
 msgctxt "Action which allows to search team"
 msgid "Join Team…"
 msgstr "Unisciti alla squadra…"
 
-#: widgets/ruqolamainwindow.cpp:523
+#: widgets/ruqolamainwindow.cpp:528
 #, kde-format
 msgctxt "Action which allows to open private conversation (direct user)"
 msgid "Open Private Conversation…"
 msgstr "Apri conversazione privata..."
 
-#: widgets/ruqolamainwindow.cpp:544
+#: widgets/ruqolamainwindow.cpp:549
 #, kde-format
 msgid "&Next Server"
 msgstr "Ser&ver successivo"
 
-#: widgets/ruqolamainwindow.cpp:549
+#: widgets/ruqolamainwindow.cpp:554
 #, kde-format
 msgid "&Previous Server"
 msgstr "Server &precedente"
 
-#: widgets/ruqolamainwindow.cpp:558
+#: widgets/ruqolamainwindow.cpp:563
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Status:"
 msgstr "Stato:"
 
-#: widgets/ruqolamainwindow.cpp:571
+#: widgets/ruqolamainwindow.cpp:576
 #, kde-format
 msgctxt "@action"
 msgid "Previous Selected Channel"
 msgstr "Canale selezionato precedente"
 
-#: widgets/ruqolamainwindow.cpp:578
+#: widgets/ruqolamainwindow.cpp:583
 #, kde-format
 msgctxt "@action"
 msgid "Next Selected Channel"
 msgstr "Canale selezionato successivo"
 
-#: widgets/ruqolamainwindow.cpp:609
+#: widgets/ruqolamainwindow.cpp:614
 #, kde-format
 msgid "Show Notify History"
 msgstr "Mostra cronologia delle notifiche"
 
-#: widgets/ruqolamainwindow.cpp:613
+#: widgets/ruqolamainwindow.cpp:618
 #, kde-format
 msgctxt "@action"
 msgid "Show RocketChat Information"
 msgstr "Mostra informazioni Rocket.Chat"
 
-#: widgets/ruqolamainwindow.cpp:617
+#: widgets/ruqolamainwindow.cpp:622
 #, kde-format
 msgctxt "@action"
 msgid "Show Room Avatar"
 msgstr "Mostra avatar della stanza"
 
-#: widgets/ruqolamainwindow.cpp:622
+#: widgets/ruqolamainwindow.cpp:627
 #, kde-format
 msgctxt "@action"
 msgid "Show Favorite Room"
 msgstr "Mostra la stanza preferita"
 
-#: widgets/ruqolamainwindow.cpp:627
+#: widgets/ruqolamainwindow.cpp:632
 #, kde-format
 msgid "What's new"
 msgstr "Cosa c'è di nuovo"
 
-#: widgets/ruqolamainwindow.cpp:631
+#: widgets/ruqolamainwindow.cpp:636
 #, kde-format
 msgid "Import Accounts"
 msgstr "Importa account"
 
-#: widgets/ruqolamainwindow.cpp:635
+#: widgets/ruqolamainwindow.cpp:640
 #, kde-format
 msgid "Export Accounts"
 msgstr "Esporta account"
 
-#: widgets/ruqolamainwindow.cpp:652
+#: widgets/ruqolamainwindow.cpp:657
 #, kde-format
 msgctxt "@action"
 msgid "Medium"
 msgstr "Medio"
 
-#: widgets/ruqolamainwindow.cpp:660
+#: widgets/ruqolamainwindow.cpp:665
 #, kde-format
 msgctxt "@action"
 msgid "Condensed"
 msgstr "Condensato"
 
-#: widgets/ruqolamainwindow.cpp:669
+#: widgets/ruqolamainwindow.cpp:674
 #, kde-format
 msgctxt "@action"
 msgid "Extended"
 msgstr "Esteso"
 
-#: widgets/ruqolamainwindow.cpp:710
+#: widgets/ruqolamainwindow.cpp:682
+#, fuzzy, kde-format
+#| msgid "Password History"
+msgid "Clear history"
+msgstr "Cronologia delle password"
+
+#: widgets/ruqolamainwindow.cpp:719
 #, kde-format
 msgctxt "@title:window"
 msgid "Create Team"
 msgstr "Crea squadra"
 
-#: widgets/ruqolamainwindow.cpp:866
+#: widgets/ruqolamainwindow.cpp:875
 #, kde-format
 msgid "Impossible to open log."
 msgstr "Impossibile aprire il registro."
 
-#: widgets/ruqolamainwindow.cpp:866
-#, kde-format
+#: widgets/ruqolamainwindow.cpp:875
+#, fuzzy, kde-format
+#| msgid "Show Log"
+msgctxt "@title:window"
 msgid "Show Log"
 msgstr "Mostra il registro"
 
-#: widgets/ruqolamainwindow.cpp:1011
+#: widgets/ruqolamainwindow.cpp:1020
 #, kde-format
 msgctxt "@item:inmenu Instant message presence status"
 msgid "Status"
 msgstr "Stato"
 
-#: widgets/ruqolamainwindow.cpp:1099
+#: widgets/ruqolamainwindow.cpp:1108
 #, kde-format
 msgid ""
 "<qt>This will hide the menu bar completely. You can show it again by typing "
@@ -10053,8 +10551,10 @@ msgstr ""
 "<qt>Questo nasconderà completamente la barra dei menu. Potrai mostrarla "
 "nuovamente digitando %1.</qt>"
 
-#: widgets/ruqolamainwindow.cpp:1102
-#, kde-format
+#: widgets/ruqolamainwindow.cpp:1111
+#, fuzzy, kde-format
+#| msgid "Hide menu bar"
+msgctxt "@title:window"
 msgid "Hide menu bar"
 msgstr "Nascondi la barra dei menu"
 
@@ -10265,7 +10765,9 @@ msgid "What's new in %2. %1"
 msgstr "Cosa c'è di nuovo %2. %1"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:17
-msgid "Implement Application Market Settings."
+#, fuzzy
+#| msgid "Implement Application Market Settings."
+msgid "Implement Rocket.Chat Marketplace."
 msgstr "Implementa le impostazioni del negozio delle applicazioni."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:27
