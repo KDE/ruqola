@@ -38,8 +38,16 @@ void EncryptionUtilsTest::shouldJoinVectorAndEcryptedData_data()
     QTest::addColumn<EncryptionUtils::EncryptionInfo>("encryptionInfo");
     QTest::addColumn<QByteArray>("encryptedData");
 
-    EncryptionUtils::EncryptionInfo info;
-    QTest::addRow("empty") << info << QByteArray();
+    {
+        EncryptionUtils::EncryptionInfo info;
+        QTest::addRow("empty") << info << QByteArray();
+    }
+    {
+        EncryptionUtils::EncryptionInfo info;
+        info.encryptedData = "blafoo-z";
+        info.vector = "AAAPPLLLAPPPAPAPPAPA";
+        QTest::addRow("test1") << info << QByteArray(info.vector + info.encryptedData);
+    }
 }
 
 void EncryptionUtilsTest::shouldJoinVectorAndEcryptedData()
