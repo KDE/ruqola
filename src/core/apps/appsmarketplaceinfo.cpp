@@ -35,6 +35,7 @@ QDebug operator<<(QDebug d, const AppsMarketPlaceInfo &t)
     d.nospace() << "homePage " << t.homePage();
     d.nospace() << "privacyPolicySummary " << t.privacyPolicySummary();
     d.nospace() << "requested " << t.requested();
+    d.nospace() << "installed " << t.installed();
     return d;
 }
 
@@ -111,6 +112,16 @@ void AppsMarketPlaceInfo::parseAppRequestStats(const QJsonObject &replyObject)
 {
     // "appRequestStats":{"appId":"ebb7f05b-ea65-4565-880b-8c2360f14500","totalSeen":1}
     mRequested = replyObject["totalSeen"_L1].toInt();
+}
+
+bool AppsMarketPlaceInfo::installed() const
+{
+    return mInstalled;
+}
+
+void AppsMarketPlaceInfo::setInstalled(bool newInstalled)
+{
+    mInstalled = newInstalled;
 }
 
 int AppsMarketPlaceInfo::requested() const
@@ -300,7 +311,8 @@ bool AppsMarketPlaceInfo::operator==(const AppsMarketPlaceInfo &other) const
         && mDocumentationUrl == other.mDocumentationUrl && mPurchaseType == other.mPurchaseType && mVersion == other.mVersion
         && mShortDescription == other.mShortDescription /*&& mPixmap.isNull() == other.mPixmap.isNull()*/ && mPrice == other.mPrice
         && mIsEnterpriseOnly == other.mIsEnterpriseOnly && mModifiedDate == other.mModifiedDate && mPricePlan == other.mPricePlan
-        && mHomePage == other.mHomePage && mSupport == other.mSupport && mPrivacyPolicySummary == other.mPrivacyPolicySummary && mRequested == other.mRequested;
+        && mHomePage == other.mHomePage && mSupport == other.mSupport && mPrivacyPolicySummary == other.mPrivacyPolicySummary && mRequested == other.mRequested
+        && mInstalled == other.mInstalled;
 }
 
 qint64 AppsMarketPlaceInfo::modifiedDate() const
