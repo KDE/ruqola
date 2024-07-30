@@ -99,25 +99,39 @@ QString EncryptionUtils::deriveKey()
     return {};
 }
 
-QString EncryptionUtils::getMasterKey(const QString &password)
+QString EncryptionUtils::getMasterKey(const QString &password, const QString &userId)
 {
     if (password.isEmpty()) {
         return {};
     }
+#if 0
+    async getMasterKey(password: string): Promise<void | CryptoKey> {
+            if (password == null) {
+                    alert('You should provide a password');
+            }
+
+            // First, create a PBKDF2 "key" containing the password
+            let baseKey;
+            try {
+                    baseKey = await importRawKey(toArrayBuffer(password));
+            } catch (error) {
+                    this.setState(E2EEState.ERROR);
+                    return this.error('Error creating a key based on user password: ', error);
+            }
+
+            // Derive a key from the password
+            try {
+                    return await deriveKey(toArrayBuffer(Meteor.userId()), baseKey);
+            } catch (error) {
+                    this.setState(E2EEState.ERROR);
+                    return this.error('Error deriving baseKey: ', error);
+            }
+    }
+
+#endif
+
     // TODO
     return {};
-}
-
-// crypto.subtle.importKey('raw', keyData, { name: 'PBKDF2' }, false, keyUsages);
-QByteArray EncryptionUtils::importRawKey(const QByteArray &keyData, const QByteArray &salt, int iterations)
-{
-    // TODO
-    QByteArray iv;
-    QByteArray plainText;
-
-    const QByteArray key = deriveKey(keyData, salt, iterations);
-    const QByteArray cipherText = encryptAES_CBC(plainText, key, iv);
-    return cipherText;
 }
 
 QByteArray EncryptionUtils::encryptAES_CBC(const QByteArray &data, const QByteArray &key, const QByteArray &iv)
@@ -189,14 +203,45 @@ QVector<uint8_t> EncryptionUtils::toArrayBuffer(const QByteArray &ba)
     return byteVector;
 }
 
+// return crypto.subtle.importKey(
+//         'jwk',
+//         keyData,
+//         {
+//                 name: 'RSA-OAEP',
+//                 modulusLength: 2048,
+//                 publicExponent: new Uint8Array([0x01, 0x00, 0x01]),
+//                 hash: { name: 'SHA-256' },
+//         },
+//         true,
+//         keyUsages,
+// );
 void EncryptionUtils::importRSAKey()
 {
     // TODO
 }
 
+// return crypto.subtle.importKey('jwk', keyData, { name: 'AES-CBC' }, true, keyUsages);
 void EncryptionUtils::importAESKey()
 {
     // TODO
+}
+
+// crypto.subtle.importKey('raw', keyData, { name: 'PBKDF2' }, false, keyUsages);
+QByteArray EncryptionUtils::importRawKey(const QByteArray &keyData, const QByteArray &salt, int iterations)
+{
+    // TODO
+    QByteArray iv;
+    QByteArray plainText;
+
+    const QByteArray key = deriveKey(keyData, salt, iterations);
+    const QByteArray cipherText = encryptAES_CBC(plainText, key, iv);
+    return cipherText;
+}
+
+bool EncryptionUtils::EncryptionInfo::isValid() const
+{
+    // TODO
+    return false;
 }
 
 bool EncryptionUtils::EncryptionInfo::operator==(const EncryptionUtils::EncryptionInfo &other) const
