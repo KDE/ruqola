@@ -24,7 +24,14 @@ MemoryManager::~MemoryManager() = default;
 
 void MemoryManager::startClearApplicationSettingsModelTimer()
 {
+    qCDebug(RUQOLA_MEMORY_MANAGEMENT_LOG) << "Start clear application timer";
     mClearApplicationSettingsModel->start(15min);
+}
+
+void MemoryManager::stopClearApplicationSettingsModelTimer()
+{
+    qCDebug(RUQOLA_MEMORY_MANAGEMENT_LOG) << "Stop clear application timer";
+    mClearApplicationSettingsModel->stop();
 }
 
 // TODO: test if a room has a big history and we don't go in => clean history

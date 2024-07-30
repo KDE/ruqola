@@ -16,6 +16,7 @@ public:
     ~MemoryManager() override;
 
     void startClearApplicationSettingsModelTimer();
+    void stopClearApplicationSettingsModelTimer();
 
 Q_SIGNALS:
     void clearApplicationSettingsModelRequested();
