@@ -8,6 +8,7 @@
 #include "accountroomsettings.h"
 #include "apps/appinstalledjob.h"
 #include "config-ruqola.h"
+#include "memorymanager/memorymanager.h"
 #include "model/appscategoriesmodel.h"
 #include "notifications/notificationpreferences.h"
 #include "ruqolautils.h"
@@ -139,6 +140,7 @@ RocketChatAccount::RocketChatAccount(const QString &accountFileName, QObject *pa
     , mSoundManager(new SoundManager(this))
     , mAppsMarketPlaceModel(new AppsMarketPlaceModel(this))
     , mAppsCategoriesModel(new AppsCategoriesModel(this))
+    , mMemoryManager(new MemoryManager(this))
 {
     qCDebug(RUQOLA_LOG) << " RocketChatAccount::RocketChatAccount(const QString &accountFileName, QObject *parent)" << accountFileName;
     // create an unique file for each account
@@ -3302,6 +3304,11 @@ void RocketChatAccount::slotVerifyKeysDone()
     Q_EMIT needToDecryptE2EPassword();
     // TODO verify if we must decode it
 #endif
+}
+
+MemoryManager *RocketChatAccount::memoryManager() const
+{
+    return mMemoryManager;
 }
 
 #include "moc_rocketchataccount.cpp"
