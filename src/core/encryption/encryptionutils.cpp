@@ -93,8 +93,10 @@ QString EncryptionUtils::encodePrivateKey(const QString &privateKey, const QStri
     return {};
 }
 
-QString EncryptionUtils::deriveKey()
+QString EncryptionUtils::deriveKey(const QVector<uint8_t> &, const QByteArray &ba)
 {
+    const int iterations = 1000;
+    const QByteArray hash = "SHA-256";
     // TODO
     return {};
 }
@@ -102,8 +104,20 @@ QString EncryptionUtils::deriveKey()
 QString EncryptionUtils::getMasterKey(const QString &password, const QString &userId)
 {
     if (password.isEmpty()) {
+        qCWarning(RUQOLA_ENCRYPTION_LOG) << "Password can't be null. It's a bug";
         return {};
     }
+
+#if 0
+    // First, create a PBKDF2 "key" containing the password
+    const QByteArray baseKey = importRawKey(toArrayBuffer(password.toUtf8()));
+    if (baseKey.isEmpty()) {
+        qCWarning(RUQOLA_ENCRYPTION_LOG) << "Problem during import raw key";
+        return {};
+    }
+    // Derive a key from the password
+    return deriveKey(toArrayBuffer(userId.toLatin1()), baseKey);
+#endif
 #if 0
     async getMasterKey(password: string): Promise<void | CryptoKey> {
             if (password == null) {
@@ -240,8 +254,7 @@ QByteArray EncryptionUtils::importRawKey(const QByteArray &keyData, const QByteA
 
 bool EncryptionUtils::EncryptionInfo::isValid() const
 {
-    // TODO
-    return false;
+    return !vector.isEmpty() && !encryptedData.isEmpty();
 }
 
 bool EncryptionUtils::EncryptionInfo::operator==(const EncryptionUtils::EncryptionInfo &other) const
