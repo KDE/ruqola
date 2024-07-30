@@ -13,7 +13,7 @@ MemoryManager::MemoryManager(QObject *parent)
     : QObject{parent}
     , mClearApplicationSettingsModel(new QTimer(this))
 {
-    connect(mClearApplicationSettingsModel, &QTimer::timeout, this, &MemoryManager::ClearApplicationSettingsModelRequested);
+    connect(mClearApplicationSettingsModel, &QTimer::timeout, this, &MemoryManager::clearApplicationSettingsModelRequested);
 }
 
 MemoryManager::~MemoryManager() = default;

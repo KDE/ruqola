@@ -18,7 +18,7 @@ public:
     void startClearApplicationSettingsModelTimer();
 
 Q_SIGNALS:
-    void ClearApplicationSettingsModelRequested();
+    void clearApplicationSettingsModelRequested();
 
 private:
     QTimer *const mClearApplicationSettingsModel;
