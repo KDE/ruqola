@@ -174,6 +174,8 @@ void AppsMarketPlaceInfo::parseAppsMarketPlaceInfo(const QJsonObject &replyObjec
 
     mPrivacyPolicySummary = latestObj["privacyPolicySummary"_L1].toString();
     parseAppRequestStats(replyObject["appRequestStats"_L1].toObject());
+
+    // TODO qDebug() << " XXXXXXXXXX " << replyObject["status"_L1].toString();
 }
 
 QByteArray AppsMarketPlaceInfo::appId() const
