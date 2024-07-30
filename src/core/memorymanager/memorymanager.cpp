@@ -5,6 +5,7 @@
 */
 
 #include "memorymanager.h"
+#include "ruqola_memory_management_debug.h"
 #include <QTimer>
 #include <chrono>
 using namespace std::chrono_literals;
@@ -13,19 +14,19 @@ MemoryManager::MemoryManager(QObject *parent)
     : QObject{parent}
     , mClearApplicationSettingsModel(new QTimer(this))
 {
-    connect(mClearApplicationSettingsModel, &QTimer::timeout, this, &MemoryManager::clearApplicationSettingsModelRequested);
+    connect(mClearApplicationSettingsModel, &QTimer::timeout, this, [this]() {
+        qCDebug(RUQOLA_MEMORY_MANAGEMENT_LOG) << "clear Application settings model";
+        Q_EMIT clearApplicationSettingsModelRequested();
+    });
 }
 
 MemoryManager::~MemoryManager() = default;
 
 void MemoryManager::startClearApplicationSettingsModelTimer()
 {
-    // 30 minutes seems ok.
-    mClearApplicationSettingsModel->start(30min);
-    // TODO
+    mClearApplicationSettingsModel->start(15min);
 }
 
 // TODO: test if a room has a big history and we don't go in => clean history
-// TODO: clean application market model
 
 #include "moc_memorymanager.cpp"
