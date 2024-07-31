@@ -82,6 +82,8 @@ QVariant AppsMarketPlaceModel::data(const QModelIndex &index, int role) const
         return appsMarketPlaceInfo.isPrivate();
     case AppsMarketPlaceModel::RequestedApps:
         return appsMarketPlaceInfo.requested();
+    case AppsMarketPlaceModel::InstalledApps:
+        return appsMarketPlaceInfo.installed();
     }
     return {};
 }

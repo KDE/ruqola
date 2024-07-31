@@ -31,6 +31,7 @@ public:
         ApplicationInformations,
         PrivateApps,
         RequestedApps,
+        InstalledApps,
     };
     Q_ENUM(AppsCategoriesRoles)
 
