@@ -282,6 +282,7 @@ RocketChatAccount::RocketChatAccount(const QString &accountFileName, QObject *pa
     setDefaultAuthentication(mSettings->authMethodType());
     mNotificationPreferences->setCustomSoundManager(mCustomSoundManager);
     connect(mE2eKeyManager, &E2eKeyManager::verifyKeyDone, this, &RocketChatAccount::slotVerifyKeysDone);
+    connect(mMemoryManager, &MemoryManager::clearApplicationSettingsModelRequested, mAppsMarketPlaceModel, &AppsMarketPlaceModel::clear);
 }
 
 RocketChatAccount::~RocketChatAccount()
