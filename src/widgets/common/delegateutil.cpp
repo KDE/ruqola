@@ -60,7 +60,7 @@ void DelegateUtil::saveFile(QWidget *parentWidget, const QString &filePath, cons
         }
         QFile sourceFile(filePath);
         if (!sourceFile.copy(file)) {
-            KMessageBox::error(parentWidget, sourceFile.errorString(), i18n("Error saving file"));
+            KMessageBox::error(parentWidget, sourceFile.errorString(), i18nc("@title:window", "Error saving file"));
         }
     }
 }

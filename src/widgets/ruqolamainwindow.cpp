@@ -946,7 +946,7 @@ void RuqolaMainWindow::slotRegisterUserSuccessed()
     KMessageBox::information(
         this,
         i18n("We have sent you an email to confirm your registration.\nIf you do not receive an email shortly, please come back and try again."),
-        i18n("Register New User"));
+        i18nc("@title:window", "Register New User"));
 }
 
 void RuqolaMainWindow::slotConfigureMyAccount()

@@ -952,7 +952,7 @@ void MessageListView::slotTranslate(const QString &from, const QString &to, cons
                 job->deleteLater();
             });
             connect(job, &TranslateTextJob::translateFailed, this, [this, job](const QString &errorMessage) {
-                KMessageBox::error(this, errorMessage, i18n("Translator Error"));
+                KMessageBox::error(this, errorMessage, i18nc("@title:window", "Translator Error"));
                 job->deleteLater();
             });
             job->translate();

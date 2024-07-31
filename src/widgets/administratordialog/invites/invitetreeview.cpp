@@ -49,7 +49,7 @@ void InviteTreeView::removeClicked(const QByteArray &identifier)
     if (KMessageBox::PrimaryAction
         == KMessageBox::warningTwoActions(this,
                                           i18n("Are you sure that you want to delete this invite?"),
-                                          i18n("Remove Invite"),
+                                          i18nc("@title:window", "Remove Invite"),
                                           KStandardGuiItem::del(),
                                           KStandardGuiItem::cancel())) {
         Q_EMIT removeInvite(identifier);

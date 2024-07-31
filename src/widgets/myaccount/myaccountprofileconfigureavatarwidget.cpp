@@ -73,7 +73,7 @@ void AvatarImage::changeImage()
         filter += "*."_L1 + QString::fromLatin1(ba);
     }
     filter = QStringLiteral("%1 (%2)").arg(i18n("Image"), filter);
-    const QUrl url = QFileDialog::getOpenFileUrl(this, i18n("Select Image"), {}, filter);
+    const QUrl url = QFileDialog::getOpenFileUrl(this, i18nc("@title:window", "Select Image"), {}, filter);
     if (!url.isEmpty()) {
         mRocketChatAccount->setImageUrl(url);
         setCurrentIconPath(url.toLocalFile());
