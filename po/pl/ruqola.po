@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-07-30 00:41+0000\n"
+"POT-Creation-Date: 2024-07-31 00:40+0000\n"
 "PO-Revision-Date: 2024-07-13 09:01+0200\n"
 "Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>\n"
 "Language-Team: Polish <kde-i18n-doc@kde.org>\n"
@@ -162,39 +162,39 @@ msgstr "Optymalizacje, naprawa obsługi Windowsa/macOSa"
 msgid "The following accounts are available:"
 msgstr "Następujące konta są dostępne:"
 
-#: core/apps/appsmarketplaceinfo.cpp:322 core/model/adminrolesmodel.cpp:40
+#: core/apps/appsmarketplaceinfo.cpp:336 core/model/adminrolesmodel.cpp:40
 #: widgets/administratorsettingsdialog/ircfederation/ircfederationwidget.cpp:50
 #, kde-format
 msgid "Description"
 msgstr "Opis"
 
-#: core/apps/appsmarketplaceinfo.cpp:324
+#: core/apps/appsmarketplaceinfo.cpp:338
 #: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:163
 #, kde-format
 msgid "Version"
 msgstr "Wersja"
 
-#: core/apps/appsmarketplaceinfo.cpp:327 core/model/appscategoriesmodel.cpp:34
+#: core/apps/appsmarketplaceinfo.cpp:341 core/model/appscategoriesmodel.cpp:34
 #, kde-format
 msgid "Categories"
 msgstr "Kategorie"
 
-#: core/apps/appsmarketplaceinfo.cpp:331
+#: core/apps/appsmarketplaceinfo.cpp:345
 #, kde-format
 msgid "Documentation"
 msgstr "Dokumentacja"
 
-#: core/apps/appsmarketplaceinfo.cpp:338
+#: core/apps/appsmarketplaceinfo.cpp:352
 #, kde-format
 msgid "Homepage"
 msgstr "Strona domowa"
 
-#: core/apps/appsmarketplaceinfo.cpp:344
+#: core/apps/appsmarketplaceinfo.cpp:358
 #, kde-format
 msgid "Support"
 msgstr "Wsparcie"
 
-#: core/apps/appsmarketplaceinfo.cpp:348
+#: core/apps/appsmarketplaceinfo.cpp:362
 #, kde-format
 msgid "Privacy Summary"
 msgstr "Podsumowanie prywatności"
@@ -1436,12 +1436,12 @@ msgctxt "We need a space between after </strong>"
 msgid "<strong>%1</strong> are typing..."
 msgstr "<strong>%1</strong> pisze..."
 
-#: core/rocketchataccount.cpp:3007
+#: core/rocketchataccount.cpp:3009
 #, kde-format
 msgid "Export Messages"
 msgstr "Wyeksportuj wiadomości"
 
-#: core/rocketchataccount.cpp:3008
+#: core/rocketchataccount.cpp:3010
 #, kde-format
 msgid "Your email has been queued for sending."
 msgstr "Twój e-mail oczekuje w kolejce na wysłanie"
@@ -2964,7 +2964,7 @@ msgid "Speak Text"
 msgstr "Wypowiedz tekst"
 
 #: widgets/administratordialog/moderationconsole/moderationreportinfolistview.cpp:93
-#: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:84
+#: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:83
 #: widgets/bannerinfodialog/bannerinfolistview.cpp:51
 #: widgets/discussions/discussionlistview.cpp:74
 #: widgets/notificationhistory/notificationhistorylistview.cpp:100
@@ -6717,19 +6717,19 @@ msgctxt "@action"
 msgid "Show Description…"
 msgstr "Pokaż opis…"
 
-#: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:64
+#: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:63
 #, kde-format
 msgctxt "@action"
 msgid "Install"
 msgstr "Wgraj"
 
-#: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:68
+#: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:67
 #, kde-format
 msgctxt "@action"
 msgid "Ask Application…"
 msgstr "Zapytaj aplikację…"
 
-#: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:75
+#: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:74
 #: widgets/bannerinfodialog/bannerinfolistview.cpp:55
 #, kde-format
 msgctxt "@action"
