@@ -95,6 +95,10 @@ QList<WhatsNewInfo> WhatsNewTranslations::createWhatsNewInfo() const
         }
         info.setNewFeatures(lst);
         info.setVersion(QStringLiteral("2.3"));
+        info.setBugFixings({
+            i18n("Clean market application model after 30 minutes (reduce memory footprint)."),
+        });
+
         listInfo.append(std::move(info));
     }
     return listInfo;
