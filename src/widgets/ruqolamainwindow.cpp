@@ -915,6 +915,10 @@ void RuqolaMainWindow::slotLoginPageActivated(bool loginPageActivated)
     mRoomListDisplayExtended->setEnabled(!loginPageActivated);
     mClearRoomHistory->setEnabled(!loginPageActivated);
 
+    mApplications->setEnabled(!loginPageActivated);
+    mRequestedApplications->setEnabled(!loginPageActivated);
+    mInstalledApplications->setEnabled(!loginPageActivated);
+
     mRoomFavorite->setEnabled(!loginPageActivated);
     if (mContextStatusMenu) {
         mContextStatusMenu->menuAction()->setVisible(!loginPageActivated);
