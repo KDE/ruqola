@@ -1221,7 +1221,10 @@ void RuqolaMainWindow::slotApplicationsInstalledSettings()
 
 void RuqolaMainWindow::slotClearRoomHistory()
 {
-    // TODO
+    auto room = mMainWidget->room();
+    if (room) {
+        room->clearHistory();
+    }
 }
 
 #include "moc_ruqolamainwindow.cpp"

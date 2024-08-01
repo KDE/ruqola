@@ -1652,4 +1652,11 @@ QIcon Room::icon() const
     return {};
 }
 
+void Room::clearHistory()
+{
+    if (mMessageModel) {
+        mMessageModel->clearHistory();
+    }
+}
+
 #include "moc_room.cpp"
