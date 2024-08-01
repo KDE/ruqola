@@ -1277,7 +1277,7 @@ QDebug operator<<(QDebug d, const Message &t)
 QString Message::dateTime() const
 {
     const QDateTime currentDate = QDateTime::fromMSecsSinceEpoch(timeStamp());
-    return currentDate.toString();
+    return QLocale().toString(currentDate);
 }
 
 bool Message::messageStateValue(MessageState type) const
