@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-06-10 02:50+0000\n"
-"PO-Revision-Date: 2024-07-11 08:45+0200\n"
+"PO-Revision-Date: 2024-07-31 12:45+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca\n"
@@ -19,7 +19,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Accelerator-Marker: &\n"
-"X-Generator: Lokalize 22.12.3\n"
+"X-Generator: Lokalize 24.05.2\n"
 
 #: apps/main.cpp:62
 #, kde-format
@@ -2851,7 +2851,7 @@ msgid ""
 "be permanently deleted from their respective room."
 msgstr ""
 "L'usuari no podrà iniciar sessió tret que es reactivi. Tots els missatges "
-"informats s'eliminaran permanentment de la sala respectiva."
+"informats se suprimiran permanentment de la sala respectiva."
 
 #: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:162
 #: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:156
@@ -4018,7 +4018,7 @@ msgid ""
 "leave, delete)."
 msgstr ""
 "Segueix els esdeveniments personalitzats relacionats amb les accions sobre "
-"un canal o grup (crear, sortir, eliminar)."
+"un canal o grup (crear, sortir, suprimir)."
 
 #: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:46
 #, kde-format
