@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-07-31 00:40+0000\n"
+"POT-Creation-Date: 2024-08-01 00:40+0000\n"
 "PO-Revision-Date: 2019-07-29 20:25+0200\n"
 "Last-Translator: Roman Paholík <wizzardsk@gmail.com>\n"
 "Language-Team: Slovak <kde-sk@linux.sk>\n"
@@ -1523,13 +1523,13 @@ msgctxt "We need a space between after </strong>"
 msgid "<strong>%1</strong> are typing..."
 msgstr ""
 
-#: core/rocketchataccount.cpp:3009
+#: core/rocketchataccount.cpp:3010
 #, fuzzy, kde-format
 #| msgid "Message"
 msgid "Export Messages"
 msgstr "Správa"
 
-#: core/rocketchataccount.cpp:3010
+#: core/rocketchataccount.cpp:3011
 #, kde-format
 msgid "Your email has been queued for sending."
 msgstr ""
@@ -2819,6 +2819,7 @@ msgstr ""
 #: widgets/administratordialog/invites/invitetreeview.cpp:52
 #, fuzzy, kde-format
 #| msgid "Delete Account"
+msgctxt "@title:window"
 msgid "Remove Invite"
 msgstr "Odstrániť účet"
 
@@ -2841,6 +2842,7 @@ msgstr ""
 #: widgets/administratordialog/logs/viewlogplaintextedit.cpp:121
 #, fuzzy, kde-format
 #| msgid "Search File..."
+msgctxt "@title:window"
 msgid "Save File Error"
 msgstr "Hľadať súbor..."
 
@@ -3896,6 +3898,7 @@ msgstr ""
 #: widgets/administratordialog/users/administratoruserswidget.cpp:383
 #, fuzzy, kde-format
 #| msgid "Password:"
+msgctxt "@title:window"
 msgid "Reset E2E"
 msgstr "Heslo:"
 
@@ -3907,6 +3910,7 @@ msgid ""
 msgstr ""
 
 #: widgets/administratordialog/users/administratoruserswidget.cpp:397
+#: widgets/administratordialog/users/administratoruserswidget.cpp:428
 #, fuzzy, kde-format
 #| msgid "Password:"
 msgctxt "@title:window"
@@ -3917,12 +3921,6 @@ msgstr "Heslo:"
 #, kde-format
 msgid "TOTP key for %1 has been reset"
 msgstr ""
-
-#: widgets/administratordialog/users/administratoruserswidget.cpp:428
-#, fuzzy, kde-format
-#| msgid "Password:"
-msgid "Reset TOTP"
-msgstr "Heslo:"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:17
 #, fuzzy, kde-format
@@ -6919,6 +6917,7 @@ msgstr ""
 #: widgets/channellist/channellistview.cpp:244
 #, fuzzy, kde-format
 #| msgid "Delete Account"
+msgctxt "@title:window"
 msgid "Move To Team"
 msgstr "Odstrániť účet"
 
@@ -6964,6 +6963,7 @@ msgstr "Opustiť kanál"
 
 #: widgets/common/authenticationbutton.cpp:23
 #, kde-format
+msgctxt "@action:button"
 msgid "Sign in with %1"
 msgstr ""
 
@@ -6999,11 +6999,13 @@ msgstr ""
 #: widgets/ruqolamainwindow.cpp:949
 #, fuzzy, kde-format
 #| msgid "Enter Username"
+msgctxt "@title:window"
 msgid "Register New User"
 msgstr "Zadajte užívateľské meno"
 
 #: widgets/common/delegateutil.cpp:63
 #, kde-format
+msgctxt "@title:window"
 msgid "Error saving file"
 msgstr ""
 
@@ -7783,9 +7785,12 @@ msgid "Create Discussion - %1"
 msgstr "Hľadať súbor..."
 
 #: widgets/dialogs/createnewdiscussiondialog.cpp:42
-#, kde-format
+#: widgets/myaccount/myaccountpersonalaccesscreatedialog.cpp:32
+#, fuzzy, kde-format
+#| msgid "Leave Channel"
+msgctxt "@action:button"
 msgid "Create"
-msgstr ""
+msgstr "Opustiť kanál"
 
 #: widgets/dialogs/createnewdiscussionwidget.cpp:28
 #, kde-format
@@ -7838,6 +7843,7 @@ msgstr "Správa"
 #: widgets/dialogs/createsoundmessagewizard.cpp:27
 #: widgets/dialogs/createvideomessagewizard.cpp:35
 #, kde-format
+msgctxt "@action:button"
 msgid "Send"
 msgstr ""
 
@@ -8099,6 +8105,7 @@ msgstr "Obrázok"
 #: widgets/dialogs/roomavatarwidget.cpp:50
 #, fuzzy, kde-format
 #| msgid "Password:"
+msgctxt "@title:window"
 msgid "Select Room Avatar"
 msgstr "Heslo:"
 
@@ -9100,6 +9107,7 @@ msgstr ""
 #: widgets/myaccount/myaccount2fatotpwidget.cpp:82
 #, fuzzy, kde-format
 #| msgid "Block user"
+msgctxt "@title:window"
 msgid "Backup Codes"
 msgstr "Blokovať používateľa"
 
@@ -9172,13 +9180,6 @@ msgctxt "@title:window"
 msgid "Create Personal Token"
 msgstr "Odstrániť účet"
 
-#: widgets/myaccount/myaccountpersonalaccesscreatedialog.cpp:32
-#, fuzzy, kde-format
-#| msgid "Leave Channel"
-msgctxt "@action:button"
-msgid "Create"
-msgstr "Opustiť kanál"
-
 #: widgets/myaccount/myaccountpersonalaccesscreatewidget.cpp:16
 #, fuzzy, kde-format
 #| msgid "Authentication Method"
@@ -9204,6 +9205,7 @@ msgstr ""
 #: widgets/myaccount/myaccountpersonalaccesstokenconfigurewidget.cpp:130
 #, fuzzy, kde-format
 #| msgid "Search File..."
+msgctxt "@title:window"
 msgid "Personal Token Created"
 msgstr "Hľadať súbor..."
 
@@ -9221,9 +9223,11 @@ msgid "Remove Personal Token"
 msgstr "Odstrániť účet"
 
 #: widgets/myaccount/myaccountpersonalaccesstokenconfigurewidget.cpp:204
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Search File..."
+msgctxt "@title:window"
 msgid "Personal Token Regenerated"
-msgstr ""
+msgstr "Hľadať súbor..."
 
 #: widgets/myaccount/myaccountpersonalaccesstokentreeview.cpp:37
 #, kde-format
@@ -9421,6 +9425,7 @@ msgstr ""
 #: widgets/myaccount/myaccountprofileconfigureavatarwidget.cpp:76
 #, fuzzy, kde-format
 #| msgid "Image"
+msgctxt "@title:window"
 msgid "Select Image"
 msgstr "Obrázok"
 
@@ -10090,6 +10095,7 @@ msgstr "Zmazať správu"
 #: widgets/room/messagelistview.cpp:955
 #, fuzzy, kde-format
 #| msgid "Translation"
+msgctxt "@title:window"
 msgid "Translator Error"
 msgstr "Preklad"
 
@@ -11277,6 +11283,12 @@ msgstr ""
 msgid "Fix preview url."
 msgstr ""
 
+#: widgets/whatsnew/whatsnewtranslations.cpp:99
+#, kde-format
+msgid ""
+"Clean market application model after 30 minutes (reduce memory footprint)."
+msgstr ""
+
 #: widgets/whatsnew/whatsnewwidget.cpp:44
 #, fuzzy, kde-format
 #| msgid "Version %1"
@@ -11303,6 +11315,11 @@ msgstr ""
 #, kde-format
 msgid "Some bug fixing:"
 msgstr ""
+
+#, fuzzy
+#~| msgid "Password:"
+#~ msgid "Reset TOTP"
+#~ msgstr "Heslo:"
 
 #, fuzzy
 #~| msgid "Search File..."

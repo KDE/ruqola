@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-07-31 00:40+0000\n"
+"POT-Creation-Date: 2024-08-01 00:40+0000\n"
 "PO-Revision-Date: 2023-11-24 12:18+0300\n"
 "Last-Translator: Olesya Gerasimenko <translation-team@basealt.ru>\n"
 "Language-Team: Basealt Translation Team\n"
@@ -1480,12 +1480,12 @@ msgctxt "We need a space between after </strong>"
 msgid "<strong>%1</strong> are typing..."
 msgstr "<strong>%1</strong> печатают..."
 
-#: core/rocketchataccount.cpp:3009
+#: core/rocketchataccount.cpp:3010
 #, kde-format
 msgid "Export Messages"
 msgstr "Экспорт сообщений"
 
-#: core/rocketchataccount.cpp:3010
+#: core/rocketchataccount.cpp:3011
 #, kde-format
 msgid "Your email has been queued for sending."
 msgstr "Электронное письмо помещено в очередь для отправки."
@@ -2780,7 +2780,9 @@ msgid "Are you sure that you want to delete this invite?"
 msgstr "Удалить это приглашение?"
 
 #: widgets/administratordialog/invites/invitetreeview.cpp:52
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Remove Invite"
+msgctxt "@title:window"
 msgid "Remove Invite"
 msgstr "Удалить приглашение"
 
@@ -2802,7 +2804,9 @@ msgstr ""
 
 #: widgets/administratordialog/logs/viewlogplaintextedit.cpp:61
 #: widgets/administratordialog/logs/viewlogplaintextedit.cpp:121
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Save File Error"
+msgctxt "@title:window"
 msgid "Save File Error"
 msgstr "Ошибка сохранения файла"
 
@@ -3816,7 +3820,9 @@ msgid "E2E key for %1 has been reset."
 msgstr "Ключ сквозного шифрования для %1 сброшен."
 
 #: widgets/administratordialog/users/administratoruserswidget.cpp:383
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Reset E2E"
+msgctxt "@title:window"
 msgid "Reset E2E"
 msgstr "Сбросить сквозное шифрование"
 
@@ -3831,6 +3837,7 @@ msgstr ""
 "двухфакторную аутентификацию."
 
 #: widgets/administratordialog/users/administratoruserswidget.cpp:397
+#: widgets/administratordialog/users/administratoruserswidget.cpp:428
 #, fuzzy, kde-format
 msgctxt "@title:window"
 msgid "Reset TOTP"
@@ -3840,11 +3847,6 @@ msgstr "Сбросить TOTP"
 #, kde-format
 msgid "TOTP key for %1 has been reset"
 msgstr "Ключ TOTP для %1 сброшен"
-
-#: widgets/administratordialog/users/administratoruserswidget.cpp:428
-#, kde-format
-msgid "Reset TOTP"
-msgstr "Сбросить TOTP"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:17
 #, fuzzy, kde-format
@@ -7162,7 +7164,9 @@ msgid "Any team selected."
 msgstr "Любая выбранная команда."
 
 #: widgets/channellist/channellistview.cpp:244
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Move To Team"
+msgctxt "@title:window"
 msgid "Move To Team"
 msgstr "Переместить в команду"
 
@@ -7208,6 +7212,7 @@ msgstr "Следующий канал"
 #: widgets/common/authenticationbutton.cpp:23
 #, fuzzy, kde-format
 #| msgid "Sign in with Apple"
+msgctxt "@action:button"
 msgid "Sign in with %1"
 msgstr "Войти с помощью данных Apple"
 
@@ -7243,12 +7248,16 @@ msgstr ""
 
 #: widgets/common/authenticationloginwidget.cpp:156
 #: widgets/ruqolamainwindow.cpp:949
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Register New User"
+msgctxt "@title:window"
 msgid "Register New User"
 msgstr "Зарегистрировать нового пользователя"
 
 #: widgets/common/delegateutil.cpp:63
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Error saving file"
+msgctxt "@title:window"
 msgid "Error saving file"
 msgstr "Ошибка при сохранении файла"
 
@@ -8035,7 +8044,10 @@ msgid "Create Discussion - %1"
 msgstr "Создание обсуждения — %1"
 
 #: widgets/dialogs/createnewdiscussiondialog.cpp:42
-#, kde-format
+#: widgets/myaccount/myaccountpersonalaccesscreatedialog.cpp:32
+#, fuzzy, kde-format
+#| msgid "Create"
+msgctxt "@action:button"
 msgid "Create"
 msgstr "Создать"
 
@@ -8094,7 +8106,9 @@ msgstr "Создание аудиосообщения"
 
 #: widgets/dialogs/createsoundmessagewizard.cpp:27
 #: widgets/dialogs/createvideomessagewizard.cpp:35
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Send"
+msgctxt "@action:button"
 msgid "Send"
 msgstr "Отправить"
 
@@ -8347,7 +8361,9 @@ msgid "Image"
 msgstr "Изображение"
 
 #: widgets/dialogs/roomavatarwidget.cpp:50
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Select Room Avatar"
+msgctxt "@title:window"
 msgid "Select Room Avatar"
 msgstr "Выбор аватара комнаты"
 
@@ -9363,7 +9379,9 @@ msgstr ""
 "воспользоваться одним из этих кодов для входа."
 
 #: widgets/myaccount/myaccount2fatotpwidget.cpp:82
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Backup Codes"
+msgctxt "@title:window"
 msgid "Backup Codes"
 msgstr "Резервные коды"
 
@@ -9432,13 +9450,6 @@ msgctxt "@title:window"
 msgid "Create Personal Token"
 msgstr "Создание личного маркера"
 
-#: widgets/myaccount/myaccountpersonalaccesscreatedialog.cpp:32
-#, fuzzy, kde-format
-#| msgid "Create"
-msgctxt "@action:button"
-msgid "Create"
-msgstr "Создать"
-
 #: widgets/myaccount/myaccountpersonalaccesscreatewidget.cpp:16
 #, fuzzy, kde-format
 #| msgid "Ignore Two Factor Authentication"
@@ -9464,7 +9475,9 @@ msgstr ""
 "<br><b>Маркер:</b> %1<br><b>Ваш идентификатор пользователя:</b> %2</qt>"
 
 #: widgets/myaccount/myaccountpersonalaccesstokenconfigurewidget.cpp:130
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Personal Token Created"
+msgctxt "@title:window"
 msgid "Personal Token Created"
 msgstr "Личный маркер создан"
 
@@ -9481,7 +9494,9 @@ msgid "Remove Personal Token"
 msgstr "Удалить личный маркер"
 
 #: widgets/myaccount/myaccountpersonalaccesstokenconfigurewidget.cpp:204
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Personal Token Regenerated"
+msgctxt "@title:window"
 msgid "Personal Token Regenerated"
 msgstr "Личный маркер пересоздан"
 
@@ -9691,7 +9706,9 @@ msgid "Your Rocket.Chat administrator has disabled email notifications"
 msgstr ""
 
 #: widgets/myaccount/myaccountprofileconfigureavatarwidget.cpp:76
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Select Image"
+msgctxt "@title:window"
 msgid "Select Image"
 msgstr "Выбор изображения"
 
@@ -10363,7 +10380,9 @@ msgid "Delete Message"
 msgstr "Удаление сообщения"
 
 #: widgets/room/messagelistview.cpp:955
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Translator Error"
+msgctxt "@title:window"
 msgid "Translator Error"
 msgstr "Ошибка переводчика"
 
@@ -11543,6 +11562,12 @@ msgstr ""
 msgid "Fix preview url."
 msgstr ""
 
+#: widgets/whatsnew/whatsnewtranslations.cpp:99
+#, kde-format
+msgid ""
+"Clean market application model after 30 minutes (reduce memory footprint)."
+msgstr ""
+
 #: widgets/whatsnew/whatsnewwidget.cpp:44
 #, kde-format
 msgid "All Version"
@@ -11567,6 +11592,12 @@ msgstr "Некоторые из новых возможностей в этой 
 #, kde-format
 msgid "Some bug fixing:"
 msgstr "Исправление некоторых ошибок:"
+
+#~ msgid "Reset TOTP"
+#~ msgstr "Сбросить TOTP"
+
+#~ msgid "Create"
+#~ msgstr "Создать"
 
 #~ msgid "Set as Favorite"
 #~ msgstr "Добавить в избранное"

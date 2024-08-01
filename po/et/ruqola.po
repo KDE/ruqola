@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-07-31 00:40+0000\n"
+"POT-Creation-Date: 2024-08-01 00:40+0000\n"
 "PO-Revision-Date: 2020-06-13 21:18+0300\n"
 "Last-Translator: Marek Laane <qiilaq69@gmail.com>\n"
 "Language-Team: Estonian <kde-et@lists.linux.ee>\n"
@@ -1546,13 +1546,13 @@ msgctxt "We need a space between after </strong>"
 msgid "<strong>%1</strong> are typing..."
 msgstr "<strong>%1</strong> kirjutavad ..."
 
-#: core/rocketchataccount.cpp:3009
+#: core/rocketchataccount.cpp:3010
 #, fuzzy, kde-format
 #| msgid "Report Message"
 msgid "Export Messages"
 msgstr "Anna sõnumist teada"
 
-#: core/rocketchataccount.cpp:3010
+#: core/rocketchataccount.cpp:3011
 #, kde-format
 msgid "Your email has been queued for sending."
 msgstr ""
@@ -2886,6 +2886,7 @@ msgstr "Kas tõesti kustutada see tuba?"
 #: widgets/administratordialog/invites/invitetreeview.cpp:52
 #, fuzzy, kde-format
 #| msgid "Remove as Favorite"
+msgctxt "@title:window"
 msgid "Remove Invite"
 msgstr "Eemalda lemmikute seast"
 
@@ -2908,6 +2909,7 @@ msgstr ""
 #: widgets/administratordialog/logs/viewlogplaintextedit.cpp:121
 #, fuzzy, kde-format
 #| msgid "Save File"
+msgctxt "@title:window"
 msgid "Save File Error"
 msgstr "Faili salvestamine"
 
@@ -3976,6 +3978,7 @@ msgstr ""
 #: widgets/administratordialog/users/administratoruserswidget.cpp:383
 #, fuzzy, kde-format
 #| msgid "Get Avatar"
+msgctxt "@title:window"
 msgid "Reset E2E"
 msgstr "Hangi avatar"
 
@@ -3987,6 +3990,7 @@ msgid ""
 msgstr ""
 
 #: widgets/administratordialog/users/administratoruserswidget.cpp:397
+#: widgets/administratordialog/users/administratoruserswidget.cpp:428
 #, fuzzy, kde-format
 #| msgid "Get Avatar"
 msgctxt "@title:window"
@@ -3997,12 +4001,6 @@ msgstr "Hangi avatar"
 #, kde-format
 msgid "TOTP key for %1 has been reset"
 msgstr ""
-
-#: widgets/administratordialog/users/administratoruserswidget.cpp:428
-#, fuzzy, kde-format
-#| msgid "Get Avatar"
-msgid "Reset TOTP"
-msgstr "Hangi avatar"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:17
 #, fuzzy, kde-format
@@ -7048,6 +7046,7 @@ msgstr ""
 #: widgets/channellist/channellistview.cpp:244
 #, fuzzy, kde-format
 #| msgid "Remove from Room"
+msgctxt "@title:window"
 msgid "Move To Team"
 msgstr "Eemalda toast"
 
@@ -7093,6 +7092,7 @@ msgstr "Kanali loomine"
 
 #: widgets/common/authenticationbutton.cpp:23
 #, kde-format
+msgctxt "@action:button"
 msgid "Sign in with %1"
 msgstr ""
 
@@ -7129,11 +7129,14 @@ msgstr ""
 #: widgets/ruqolamainwindow.cpp:949
 #, fuzzy, kde-format
 #| msgid "Invite Users"
+msgctxt "@title:window"
 msgid "Register New User"
 msgstr "Kutsu kasutajaid"
 
 #: widgets/common/delegateutil.cpp:63
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Error saving file"
+msgctxt "@title:window"
 msgid "Error saving file"
 msgstr "Tõrge faili salvestamisel"
 
@@ -7914,7 +7917,10 @@ msgid "Create Discussion - %1"
 msgstr "Diskussiooni loomine"
 
 #: widgets/dialogs/createnewdiscussiondialog.cpp:42
-#, kde-format
+#: widgets/myaccount/myaccountpersonalaccesscreatedialog.cpp:32
+#, fuzzy, kde-format
+#| msgid "Create"
+msgctxt "@action:button"
 msgid "Create"
 msgstr "Loo"
 
@@ -7971,6 +7977,7 @@ msgstr "Videosõnumi loomine"
 #: widgets/dialogs/createsoundmessagewizard.cpp:27
 #: widgets/dialogs/createvideomessagewizard.cpp:35
 #, kde-format
+msgctxt "@action:button"
 msgid "Send"
 msgstr ""
 
@@ -8227,6 +8234,7 @@ msgstr "Pilt"
 #: widgets/dialogs/roomavatarwidget.cpp:50
 #, fuzzy, kde-format
 #| msgid "Get Avatar"
+msgctxt "@title:window"
 msgid "Select Room Avatar"
 msgstr "Hangi avatar"
 
@@ -9242,6 +9250,7 @@ msgstr ""
 #: widgets/myaccount/myaccount2fatotpwidget.cpp:82
 #, fuzzy, kde-format
 #| msgid "Block User"
+msgctxt "@title:window"
 msgid "Backup Codes"
 msgstr "Blokeeri kasutaja"
 
@@ -9315,13 +9324,6 @@ msgctxt "@title:window"
 msgid "Create Personal Token"
 msgstr "Eemalda toast"
 
-#: widgets/myaccount/myaccountpersonalaccesscreatedialog.cpp:32
-#, fuzzy, kde-format
-#| msgid "Create"
-msgctxt "@action:button"
-msgid "Create"
-msgstr "Loo"
-
 #: widgets/myaccount/myaccountpersonalaccesscreatewidget.cpp:16
 #, fuzzy, kde-format
 #| msgid "Authentication Method"
@@ -9347,6 +9349,7 @@ msgstr ""
 #: widgets/myaccount/myaccountpersonalaccesstokenconfigurewidget.cpp:130
 #, fuzzy, kde-format
 #| msgid "Search Discussions..."
+msgctxt "@title:window"
 msgid "Personal Token Created"
 msgstr "Diskussioonide otsimine ..."
 
@@ -9364,9 +9367,11 @@ msgid "Remove Personal Token"
 msgstr "Eemalda toast"
 
 #: widgets/myaccount/myaccountpersonalaccesstokenconfigurewidget.cpp:204
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Search Discussions..."
+msgctxt "@title:window"
 msgid "Personal Token Regenerated"
-msgstr ""
+msgstr "Diskussioonide otsimine ..."
 
 #: widgets/myaccount/myaccountpersonalaccesstokentreeview.cpp:37
 #, kde-format
@@ -9568,6 +9573,7 @@ msgstr ""
 #: widgets/myaccount/myaccountprofileconfigureavatarwidget.cpp:76
 #, fuzzy, kde-format
 #| msgid "Save Image"
+msgctxt "@title:window"
 msgid "Select Image"
 msgstr "Pildi salvestamine"
 
@@ -10244,6 +10250,7 @@ msgstr "Sõnumi kustutamine"
 #: widgets/room/messagelistview.cpp:955
 #, fuzzy, kde-format
 #| msgid "Translation"
+msgctxt "@title:window"
 msgid "Translator Error"
 msgstr "Tõlge"
 
@@ -11448,6 +11455,12 @@ msgstr ""
 msgid "Fix preview url."
 msgstr ""
 
+#: widgets/whatsnew/whatsnewtranslations.cpp:99
+#, kde-format
+msgid ""
+"Clean market application model after 30 minutes (reduce memory footprint)."
+msgstr ""
+
 #: widgets/whatsnew/whatsnewwidget.cpp:44
 #, fuzzy, kde-format
 #| msgid "Version %1"
@@ -11475,6 +11488,14 @@ msgstr ""
 #| msgid "Bug fixing"
 msgid "Some bug fixing:"
 msgstr "Vigade parandamine"
+
+#, fuzzy
+#~| msgid "Get Avatar"
+#~ msgid "Reset TOTP"
+#~ msgstr "Hangi avatar"
+
+#~ msgid "Create"
+#~ msgstr "Loo"
 
 #~ msgid "Set as Favorite"
 #~ msgstr "Määra lemmikuks"

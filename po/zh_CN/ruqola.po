@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-07-31 00:40+0000\n"
+"POT-Creation-Date: 2024-08-01 00:40+0000\n"
 "PO-Revision-Date: 2024-04-22 15:59\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
@@ -1421,12 +1421,12 @@ msgctxt "We need a space between after </strong>"
 msgid "<strong>%1</strong> are typing..."
 msgstr ""
 
-#: core/rocketchataccount.cpp:3009
+#: core/rocketchataccount.cpp:3010
 #, kde-format
 msgid "Export Messages"
 msgstr ""
 
-#: core/rocketchataccount.cpp:3010
+#: core/rocketchataccount.cpp:3011
 #, kde-format
 msgid "Your email has been queued for sending."
 msgstr ""
@@ -2659,6 +2659,7 @@ msgstr ""
 
 #: widgets/administratordialog/invites/invitetreeview.cpp:52
 #, kde-format
+msgctxt "@title:window"
 msgid "Remove Invite"
 msgstr ""
 
@@ -2679,6 +2680,7 @@ msgstr ""
 #: widgets/administratordialog/logs/viewlogplaintextedit.cpp:61
 #: widgets/administratordialog/logs/viewlogplaintextedit.cpp:121
 #, kde-format
+msgctxt "@title:window"
 msgid "Save File Error"
 msgstr ""
 
@@ -3622,6 +3624,7 @@ msgstr ""
 
 #: widgets/administratordialog/users/administratoruserswidget.cpp:383
 #, kde-format
+msgctxt "@title:window"
 msgid "Reset E2E"
 msgstr ""
 
@@ -3633,6 +3636,7 @@ msgid ""
 msgstr ""
 
 #: widgets/administratordialog/users/administratoruserswidget.cpp:397
+#: widgets/administratordialog/users/administratoruserswidget.cpp:428
 #, kde-format
 msgctxt "@title:window"
 msgid "Reset TOTP"
@@ -3641,11 +3645,6 @@ msgstr ""
 #: widgets/administratordialog/users/administratoruserswidget.cpp:428
 #, kde-format
 msgid "TOTP key for %1 has been reset"
-msgstr ""
-
-#: widgets/administratordialog/users/administratoruserswidget.cpp:428
-#, kde-format
-msgid "Reset TOTP"
 msgstr ""
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:17
@@ -6491,6 +6490,7 @@ msgstr ""
 
 #: widgets/channellist/channellistview.cpp:244
 #, kde-format
+msgctxt "@title:window"
 msgid "Move To Team"
 msgstr ""
 
@@ -6531,6 +6531,7 @@ msgstr ""
 
 #: widgets/common/authenticationbutton.cpp:23
 #, kde-format
+msgctxt "@action:button"
 msgid "Sign in with %1"
 msgstr ""
 
@@ -6562,11 +6563,13 @@ msgstr ""
 #: widgets/common/authenticationloginwidget.cpp:156
 #: widgets/ruqolamainwindow.cpp:949
 #, kde-format
+msgctxt "@title:window"
 msgid "Register New User"
 msgstr ""
 
 #: widgets/common/delegateutil.cpp:63
 #, kde-format
+msgctxt "@title:window"
 msgid "Error saving file"
 msgstr ""
 
@@ -7280,7 +7283,9 @@ msgid "Create Discussion - %1"
 msgstr ""
 
 #: widgets/dialogs/createnewdiscussiondialog.cpp:42
+#: widgets/myaccount/myaccountpersonalaccesscreatedialog.cpp:32
 #, kde-format
+msgctxt "@action:button"
 msgid "Create"
 msgstr ""
 
@@ -7331,6 +7336,7 @@ msgstr ""
 #: widgets/dialogs/createsoundmessagewizard.cpp:27
 #: widgets/dialogs/createvideomessagewizard.cpp:35
 #, kde-format
+msgctxt "@action:button"
 msgid "Send"
 msgstr ""
 
@@ -7564,6 +7570,7 @@ msgstr ""
 
 #: widgets/dialogs/roomavatarwidget.cpp:50
 #, kde-format
+msgctxt "@title:window"
 msgid "Select Room Avatar"
 msgstr ""
 
@@ -8468,6 +8475,7 @@ msgstr ""
 
 #: widgets/myaccount/myaccount2fatotpwidget.cpp:82
 #, kde-format
+msgctxt "@title:window"
 msgid "Backup Codes"
 msgstr ""
 
@@ -8531,12 +8539,6 @@ msgctxt "@title:window"
 msgid "Create Personal Token"
 msgstr ""
 
-#: widgets/myaccount/myaccountpersonalaccesscreatedialog.cpp:32
-#, kde-format
-msgctxt "@action:button"
-msgid "Create"
-msgstr ""
-
 #: widgets/myaccount/myaccountpersonalaccesscreatewidget.cpp:16
 #, kde-format
 msgctxt "@option:check"
@@ -8559,6 +8561,7 @@ msgstr ""
 
 #: widgets/myaccount/myaccountpersonalaccesstokenconfigurewidget.cpp:130
 #, kde-format
+msgctxt "@title:window"
 msgid "Personal Token Created"
 msgstr ""
 
@@ -8575,6 +8578,7 @@ msgstr ""
 
 #: widgets/myaccount/myaccountpersonalaccesstokenconfigurewidget.cpp:204
 #, kde-format
+msgctxt "@title:window"
 msgid "Personal Token Regenerated"
 msgstr ""
 
@@ -8758,6 +8762,7 @@ msgstr ""
 
 #: widgets/myaccount/myaccountprofileconfigureavatarwidget.cpp:76
 #, kde-format
+msgctxt "@title:window"
 msgid "Select Image"
 msgstr ""
 
@@ -9356,6 +9361,7 @@ msgstr ""
 
 #: widgets/room/messagelistview.cpp:955
 #, kde-format
+msgctxt "@title:window"
 msgid "Translator Error"
 msgstr ""
 
@@ -10434,6 +10440,12 @@ msgstr ""
 #: widgets/whatsnew/whatsnewtranslations.cpp:85
 #, kde-format
 msgid "Fix preview url."
+msgstr ""
+
+#: widgets/whatsnew/whatsnewtranslations.cpp:99
+#, kde-format
+msgid ""
+"Clean market application model after 30 minutes (reduce memory footprint)."
 msgstr ""
 
 #: widgets/whatsnew/whatsnewwidget.cpp:44

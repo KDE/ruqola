@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-07-31 00:40+0000\n"
-"PO-Revision-Date: 2024-07-30 09:59+0200\n"
+"POT-Creation-Date: 2024-08-01 00:40+0000\n"
+"PO-Revision-Date: 2024-07-31 12:45+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca\n"
@@ -1433,12 +1433,12 @@ msgctxt "We need a space between after </strong>"
 msgid "<strong>%1</strong> are typing..."
 msgstr "<strong>%1</strong> estan escrivint..."
 
-#: core/rocketchataccount.cpp:3009
+#: core/rocketchataccount.cpp:3010
 #, kde-format
 msgid "Export Messages"
 msgstr "Exporta missatges"
 
-#: core/rocketchataccount.cpp:3010
+#: core/rocketchataccount.cpp:3011
 #, kde-format
 msgid "Your email has been queued for sending."
 msgstr "El correu s'ha posat a la cua per a enviar."
@@ -2703,7 +2703,9 @@ msgid "Are you sure that you want to delete this invite?"
 msgstr "Esteu segur que voleu suprimir aquesta invitació?"
 
 #: widgets/administratordialog/invites/invitetreeview.cpp:52
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Remove Invite"
+msgctxt "@title:window"
 msgid "Remove Invite"
 msgstr "Elimina la invitació"
 
@@ -2725,7 +2727,9 @@ msgstr ""
 
 #: widgets/administratordialog/logs/viewlogplaintextedit.cpp:61
 #: widgets/administratordialog/logs/viewlogplaintextedit.cpp:121
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Save File Error"
+msgctxt "@title:window"
 msgid "Save File Error"
 msgstr "Error en desar el fitxer"
 
@@ -2879,7 +2883,7 @@ msgid ""
 "be permanently deleted from their respective room."
 msgstr ""
 "L'usuari no podrà iniciar sessió tret que es reactivi. Tots els missatges "
-"informats s'eliminaran permanentment de la sala respectiva."
+"informats se suprimiran permanentment de la sala respectiva."
 
 #: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:162
 #: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:156
@@ -3688,7 +3692,9 @@ msgid "E2E key for %1 has been reset."
 msgstr "S'ha reiniciat la clau E2E per a %1."
 
 #: widgets/administratordialog/users/administratoruserswidget.cpp:383
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Reset E2E"
+msgctxt "@title:window"
 msgid "Reset E2E"
 msgstr "Reinicia E2E"
 
@@ -3702,6 +3708,7 @@ msgstr ""
 "l'usuari podrà tornar a establir els dos factors una altra vegada."
 
 #: widgets/administratordialog/users/administratoruserswidget.cpp:397
+#: widgets/administratordialog/users/administratoruserswidget.cpp:428
 #, kde-format
 msgctxt "@title:window"
 msgid "Reset TOTP"
@@ -3711,11 +3718,6 @@ msgstr "Reinicia el TOTP"
 #, kde-format
 msgid "TOTP key for %1 has been reset"
 msgstr "S'ha reiniciat la clau TOTP per a %1"
-
-#: widgets/administratordialog/users/administratoruserswidget.cpp:428
-#, kde-format
-msgid "Reset TOTP"
-msgstr "Reinicia el TOTP"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:17
 #, kde-format
@@ -4171,7 +4173,7 @@ msgid ""
 "leave, delete)."
 msgstr ""
 "Segueix els esdeveniments personalitzats relacionats amb les accions sobre "
-"un canal o grup (crear, sortir, eliminar)."
+"un canal o grup (crear, sortir, suprimir)."
 
 #: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:46
 #, kde-format
@@ -6735,7 +6737,9 @@ msgid "Any team selected."
 msgstr "Qualsevol equip seleccionat."
 
 #: widgets/channellist/channellistview.cpp:244
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Move To Team"
+msgctxt "@title:window"
 msgid "Move To Team"
 msgstr "Mou a un equip"
 
@@ -6775,7 +6779,9 @@ msgid "Next Channel"
 msgstr "Canal següent"
 
 #: widgets/common/authenticationbutton.cpp:23
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Sign in with %1"
+msgctxt "@action:button"
 msgid "Sign in with %1"
 msgstr "Inicia la sessió amb %1"
 
@@ -6808,12 +6814,16 @@ msgstr ""
 
 #: widgets/common/authenticationloginwidget.cpp:156
 #: widgets/ruqolamainwindow.cpp:949
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Register New User"
+msgctxt "@title:window"
 msgid "Register New User"
 msgstr "Registra un usuari nou"
 
 #: widgets/common/delegateutil.cpp:63
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Error saving file"
+msgctxt "@title:window"
 msgid "Error saving file"
 msgstr "Error en desar el fitxer"
 
@@ -7539,7 +7549,9 @@ msgid "Create Discussion - %1"
 msgstr "Crea un debat - %1"
 
 #: widgets/dialogs/createnewdiscussiondialog.cpp:42
+#: widgets/myaccount/myaccountpersonalaccesscreatedialog.cpp:32
 #, kde-format
+msgctxt "@action:button"
 msgid "Create"
 msgstr "Crea"
 
@@ -7591,7 +7603,9 @@ msgstr "Crea un missatge de so"
 
 #: widgets/dialogs/createsoundmessagewizard.cpp:27
 #: widgets/dialogs/createvideomessagewizard.cpp:35
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Send"
+msgctxt "@action:button"
 msgid "Send"
 msgstr "Envia"
 
@@ -7825,7 +7839,9 @@ msgid "Image"
 msgstr "Imatge"
 
 #: widgets/dialogs/roomavatarwidget.cpp:50
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Select Room Avatar"
+msgctxt "@title:window"
 msgid "Select Room Avatar"
 msgstr "Selecciona l'avatar de la sala"
 
@@ -8783,7 +8799,9 @@ msgstr ""
 "codis per a iniciar la sessió."
 
 #: widgets/myaccount/myaccount2fatotpwidget.cpp:82
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Backup Codes"
+msgctxt "@title:window"
 msgid "Backup Codes"
 msgstr "Còpia de seguretat dels codis"
 
@@ -8848,12 +8866,6 @@ msgctxt "@title:window"
 msgid "Create Personal Token"
 msgstr "Creació d'un testimoni personal"
 
-#: widgets/myaccount/myaccountpersonalaccesscreatedialog.cpp:32
-#, kde-format
-msgctxt "@action:button"
-msgid "Create"
-msgstr "Crea"
-
 #: widgets/myaccount/myaccountpersonalaccesscreatewidget.cpp:16
 #, kde-format
 msgctxt "@option:check"
@@ -8877,7 +8889,9 @@ msgstr ""
 "<br><b>Testimoni:</b> %1<br><b>El vostre ID d'usuari:</b> %2</qt>"
 
 #: widgets/myaccount/myaccountpersonalaccesstokenconfigurewidget.cpp:130
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Personal Token Created"
+msgctxt "@title:window"
 msgid "Personal Token Created"
 msgstr "S'ha creat el testimoni personal"
 
@@ -8893,7 +8907,9 @@ msgid "Remove Personal Token"
 msgstr "Elimina el testimoni personal"
 
 #: widgets/myaccount/myaccountpersonalaccesstokenconfigurewidget.cpp:204
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Personal Token Regenerated"
+msgctxt "@title:window"
 msgid "Personal Token Regenerated"
 msgstr "S'ha regenerat el testimoni personal"
 
@@ -9084,7 +9100,9 @@ msgstr ""
 "electrònic"
 
 #: widgets/myaccount/myaccountprofileconfigureavatarwidget.cpp:76
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Select Image"
+msgctxt "@title:window"
 msgid "Select Image"
 msgstr "Selecció d'imatge"
 
@@ -9689,7 +9707,9 @@ msgid "Delete Message"
 msgstr "Supressió de missatge"
 
 #: widgets/room/messagelistview.cpp:955
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Translator Error"
+msgctxt "@title:window"
 msgid "Translator Error"
 msgstr "Error del traductor"
 
@@ -10793,6 +10813,12 @@ msgstr "Permet enviar diversos fitxers."
 msgid "Fix preview url."
 msgstr "Corregeix l'URL de la vista prèvia."
 
+#: widgets/whatsnew/whatsnewtranslations.cpp:99
+#, kde-format
+msgid ""
+"Clean market application model after 30 minutes (reduce memory footprint)."
+msgstr ""
+
 #: widgets/whatsnew/whatsnewwidget.cpp:44
 #, kde-format
 msgid "All Version"
@@ -10818,6 +10844,12 @@ msgstr ""
 #, kde-format
 msgid "Some bug fixing:"
 msgstr "Correcció d'errors:"
+
+#~ msgid "Reset TOTP"
+#~ msgstr "Reinicia el TOTP"
+
+#~ msgid "Create"
+#~ msgstr "Crea"
 
 #~ msgid "Set as Favorite"
 #~ msgstr "Estableix com a preferit"

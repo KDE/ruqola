@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-07-31 00:40+0000\n"
+"POT-Creation-Date: 2024-08-01 00:40+0000\n"
 "PO-Revision-Date: 2024-02-03 02:20+0200\n"
 "Last-Translator: Moo\n"
 "Language-Team: none\n"
@@ -1530,13 +1530,13 @@ msgctxt "We need a space between after </strong>"
 msgid "<strong>%1</strong> are typing..."
 msgstr "<strong>%1</strong> rašo..."
 
-#: core/rocketchataccount.cpp:3009
+#: core/rocketchataccount.cpp:3010
 #, fuzzy, kde-format
 #| msgid "Encrypted Message"
 msgid "Export Messages"
 msgstr "Šifruota žinutė"
 
-#: core/rocketchataccount.cpp:3010
+#: core/rocketchataccount.cpp:3011
 #, kde-format
 msgid "Your email has been queued for sending."
 msgstr ""
@@ -2839,6 +2839,7 @@ msgstr "Ar norite ištrinti šį kambarį?"
 #: widgets/administratordialog/invites/invitetreeview.cpp:52
 #, fuzzy, kde-format
 #| msgid "Remove"
+msgctxt "@title:window"
 msgid "Remove Invite"
 msgstr "Šalinti"
 
@@ -2861,6 +2862,7 @@ msgstr ""
 #: widgets/administratordialog/logs/viewlogplaintextedit.cpp:121
 #, fuzzy, kde-format
 #| msgid "Save File"
+msgctxt "@title:window"
 msgid "Save File Error"
 msgstr "Įrašyti failą"
 
@@ -3923,6 +3925,7 @@ msgstr ""
 #: widgets/administratordialog/users/administratoruserswidget.cpp:383
 #, fuzzy, kde-format
 #| msgid "Password"
+msgctxt "@title:window"
 msgid "Reset E2E"
 msgstr "Slaptažodis"
 
@@ -3934,6 +3937,7 @@ msgid ""
 msgstr ""
 
 #: widgets/administratordialog/users/administratoruserswidget.cpp:397
+#: widgets/administratordialog/users/administratoruserswidget.cpp:428
 #, fuzzy, kde-format
 #| msgid "Password"
 msgctxt "@title:window"
@@ -3944,12 +3948,6 @@ msgstr "Slaptažodis"
 #, kde-format
 msgid "TOTP key for %1 has been reset"
 msgstr ""
-
-#: widgets/administratordialog/users/administratoruserswidget.cpp:428
-#, fuzzy, kde-format
-#| msgid "Password"
-msgid "Reset TOTP"
-msgstr "Slaptažodis"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:17
 #, fuzzy, kde-format
@@ -6958,6 +6956,7 @@ msgstr ""
 #: widgets/channellist/channellistview.cpp:244
 #, fuzzy, kde-format
 #| msgid "Remove from Room"
+msgctxt "@title:window"
 msgid "Move To Team"
 msgstr "Šalinti iš kambario"
 
@@ -7003,6 +7002,7 @@ msgstr "Sukurti kanalą"
 
 #: widgets/common/authenticationbutton.cpp:23
 #, kde-format
+msgctxt "@action:button"
 msgid "Sign in with %1"
 msgstr ""
 
@@ -7039,11 +7039,14 @@ msgstr ""
 #: widgets/ruqolamainwindow.cpp:949
 #, fuzzy, kde-format
 #| msgid "List of Users"
+msgctxt "@title:window"
 msgid "Register New User"
 msgstr "Naudotojų sąrašas"
 
 #: widgets/common/delegateutil.cpp:63
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Error saving file"
+msgctxt "@title:window"
 msgid "Error saving file"
 msgstr "Klaida įrašant failą"
 
@@ -7817,7 +7820,10 @@ msgid "Create Discussion - %1"
 msgstr "Sukurti diskusiją"
 
 #: widgets/dialogs/createnewdiscussiondialog.cpp:42
-#, kde-format
+#: widgets/myaccount/myaccountpersonalaccesscreatedialog.cpp:32
+#, fuzzy, kde-format
+#| msgid "Create"
+msgctxt "@action:button"
 msgid "Create"
 msgstr "Sukurti"
 
@@ -7872,6 +7878,7 @@ msgstr "Ištrinti žinutę"
 #: widgets/dialogs/createsoundmessagewizard.cpp:27
 #: widgets/dialogs/createvideomessagewizard.cpp:35
 #, kde-format
+msgctxt "@action:button"
 msgid "Send"
 msgstr ""
 
@@ -8130,6 +8137,7 @@ msgstr "Paveikslas"
 #: widgets/dialogs/roomavatarwidget.cpp:50
 #, fuzzy, kde-format
 #| msgid "Password"
+msgctxt "@title:window"
 msgid "Select Room Avatar"
 msgstr "Slaptažodis"
 
@@ -9136,6 +9144,7 @@ msgstr ""
 #: widgets/myaccount/myaccount2fatotpwidget.cpp:82
 #, fuzzy, kde-format
 #| msgid "Block User"
+msgctxt "@title:window"
 msgid "Backup Codes"
 msgstr "Užblokuoti naudotoją"
 
@@ -9209,13 +9218,6 @@ msgctxt "@title:window"
 msgid "Create Personal Token"
 msgstr "Šalinti iš kambario"
 
-#: widgets/myaccount/myaccountpersonalaccesscreatedialog.cpp:32
-#, fuzzy, kde-format
-#| msgid "Create"
-msgctxt "@action:button"
-msgid "Create"
-msgstr "Sukurti"
-
 #: widgets/myaccount/myaccountpersonalaccesscreatewidget.cpp:16
 #, fuzzy, kde-format
 #| msgid "Authentication Method"
@@ -9241,6 +9243,7 @@ msgstr ""
 #: widgets/myaccount/myaccountpersonalaccesstokenconfigurewidget.cpp:130
 #, fuzzy, kde-format
 #| msgid "Search Messages..."
+msgctxt "@title:window"
 msgid "Personal Token Created"
 msgstr "Ieškoti žinučių..."
 
@@ -9258,9 +9261,11 @@ msgid "Remove Personal Token"
 msgstr "Šalinti iš kambario"
 
 #: widgets/myaccount/myaccountpersonalaccesstokenconfigurewidget.cpp:204
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Search Messages..."
+msgctxt "@title:window"
 msgid "Personal Token Regenerated"
-msgstr ""
+msgstr "Ieškoti žinučių..."
 
 #: widgets/myaccount/myaccountpersonalaccesstokentreeview.cpp:37
 #, kde-format
@@ -9457,6 +9462,7 @@ msgstr ""
 #: widgets/myaccount/myaccountprofileconfigureavatarwidget.cpp:76
 #, fuzzy, kde-format
 #| msgid "Save Image"
+msgctxt "@title:window"
 msgid "Select Image"
 msgstr "Įrašyti paveikslą"
 
@@ -10130,6 +10136,7 @@ msgstr "Ištrinti žinutę"
 #: widgets/room/messagelistview.cpp:955
 #, fuzzy, kde-format
 #| msgid "Auto-Translate"
+msgctxt "@title:window"
 msgid "Translator Error"
 msgstr "Automatiškai versti"
 
@@ -11333,6 +11340,12 @@ msgstr ""
 msgid "Fix preview url."
 msgstr ""
 
+#: widgets/whatsnew/whatsnewtranslations.cpp:99
+#, kde-format
+msgid ""
+"Clean market application model after 30 minutes (reduce memory footprint)."
+msgstr ""
+
 #: widgets/whatsnew/whatsnewwidget.cpp:44
 #, fuzzy, kde-format
 #| msgid "Server Version:"
@@ -11360,6 +11373,14 @@ msgstr ""
 #| msgid "Bug fixing"
 msgid "Some bug fixing:"
 msgstr "Klaidų pataisymai"
+
+#, fuzzy
+#~| msgid "Password"
+#~ msgid "Reset TOTP"
+#~ msgstr "Slaptažodis"
+
+#~ msgid "Create"
+#~ msgstr "Sukurti"
 
 #, fuzzy
 #~| msgid "Search Messages..."
