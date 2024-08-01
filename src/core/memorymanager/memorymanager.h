@@ -20,7 +20,9 @@ public:
 
 Q_SIGNALS:
     void clearApplicationSettingsModelRequested();
+    void cleanRoomHistoryRequested();
 
 private:
     QTimer *const mClearApplicationSettingsModel;
+    QTimer *const mClearRoomsHistory;
 };

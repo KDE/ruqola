@@ -672,6 +672,7 @@ private:
     LIBRUQOLACORE_NO_EXPORT void loadSoundFiles();
     LIBRUQOLACORE_NO_EXPORT void slotReconnectToDdpServer();
     LIBRUQOLACORE_NO_EXPORT void slotVerifyKeysDone();
+    LIBRUQOLACORE_NO_EXPORT void slotCleanRoomHistory();
 
     AccountRoomSettings *const mAccountRoomSettings;
 

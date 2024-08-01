@@ -13,11 +13,20 @@ using namespace std::chrono_literals;
 MemoryManager::MemoryManager(QObject *parent)
     : QObject{parent}
     , mClearApplicationSettingsModel(new QTimer(this))
+    , mClearRoomsHistory(new QTimer(this))
 {
     connect(mClearApplicationSettingsModel, &QTimer::timeout, this, [this]() {
-        qCDebug(RUQOLA_MEMORY_MANAGEMENT_LOG) << "clear Application settings model";
+        qCDebug(RUQOLA_MEMORY_MANAGEMENT_LOG) << "Clear Application settings model";
         Q_EMIT clearApplicationSettingsModelRequested();
     });
+
+    mClearRoomsHistory->setInterval(30ms);
+    connect(mClearRoomsHistory, &QTimer::timeout, this, [this]() {
+        qCDebug(RUQOLA_MEMORY_MANAGEMENT_LOG) << "Clean room history";
+        // TODO check clear room
+        Q_EMIT cleanRoomHistoryRequested();
+    });
+    mClearRoomsHistory->start();
 }
 
 MemoryManager::~MemoryManager() = default;

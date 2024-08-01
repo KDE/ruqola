@@ -283,6 +283,7 @@ RocketChatAccount::RocketChatAccount(const QString &accountFileName, QObject *pa
     mNotificationPreferences->setCustomSoundManager(mCustomSoundManager);
     connect(mE2eKeyManager, &E2eKeyManager::verifyKeyDone, this, &RocketChatAccount::slotVerifyKeysDone);
     connect(mMemoryManager, &MemoryManager::clearApplicationSettingsModelRequested, mAppsMarketPlaceModel, &AppsMarketPlaceModel::clear);
+    connect(mMemoryManager, &MemoryManager::cleanRoomHistoryRequested, this, &RocketChatAccount::slotCleanRoomHistory);
 }
 
 RocketChatAccount::~RocketChatAccount()
@@ -3310,6 +3311,12 @@ void RocketChatAccount::slotVerifyKeysDone()
 MemoryManager *RocketChatAccount::memoryManager() const
 {
     return mMemoryManager;
+}
+
+void RocketChatAccount::slotCleanRoomHistory()
+{
+    // TODO
+    qDebug() << " void RocketChatAccount::slotCleanRoomHistory() not implement yet";
 }
 
 #include "moc_rocketchataccount.cpp"
