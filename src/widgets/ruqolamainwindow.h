@@ -29,6 +29,8 @@ class KToggleFullScreenAction;
 class QToolButton;
 class KActionMenu;
 class AccountManager;
+class MessageStyleLayoutMenu;
+class ChangeFontSizeMenu;
 class LIBRUQOLAWIDGETS_EXPORT RuqolaMainWindow : public KXmlGuiWindow
 {
     Q_OBJECT
@@ -178,4 +180,6 @@ private:
     QAction *mRoomListDisplayExtended = nullptr;
     QWidget *mContainerStatusInfo = nullptr;
     QAction *mClearRoomHistory = nullptr;
+    MessageStyleLayoutMenu *mMessageStyleAction = nullptr;
+    ChangeFontSizeMenu *mChangeFontSizeAction = nullptr;
 };

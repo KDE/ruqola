@@ -641,13 +641,13 @@ void RuqolaMainWindow::setupActions()
     connect(mExportAccountsAction, &QAction::triggered, this, &RuqolaMainWindow::slotExportAccounts);
     ac->addAction(QStringLiteral("export_accounts"), mExportAccountsAction);
 
-    auto messageStyleAction = new MessageStyleLayoutMenu(this);
-    ac->addAction(QStringLiteral("message_style"), messageStyleAction);
-    connect(messageStyleAction, &MessageStyleLayoutMenu::styleChanged, this, &RuqolaMainWindow::slotMessageStyleChanged);
+    mMessageStyleAction = new MessageStyleLayoutMenu(this);
+    ac->addAction(QStringLiteral("message_style"), mMessageStyleAction);
+    connect(mMessageStyleAction, &MessageStyleLayoutMenu::styleChanged, this, &RuqolaMainWindow::slotMessageStyleChanged);
 
-    auto changeFontSizeAction = new ChangeFontSizeMenu(this);
-    ac->addAction(QStringLiteral("change_font_size"), changeFontSizeAction);
-    connect(changeFontSizeAction, &ChangeFontSizeMenu::fontChanged, this, [] {
+    mChangeFontSizeAction = new ChangeFontSizeMenu(this);
+    ac->addAction(QStringLiteral("change_font_size"), mChangeFontSizeAction);
+    connect(mChangeFontSizeAction, &ChangeFontSizeMenu::fontChanged, this, [] {
         Q_EMIT ColorsAndMessageViewStyle::self().needUpdateFontSize();
     });
 
@@ -929,6 +929,9 @@ void RuqolaMainWindow::slotLoginPageActivated(bool loginPageActivated)
     if (mShowPermissions) {
         mShowPermissions->setEnabled(!loginPageActivated);
     }
+    mAdministrationMenu->setEnabled(!loginPageActivated);
+    mMessageStyleAction->setEnabled(!loginPageActivated);
+    mChangeFontSizeAction->setEnabled(!loginPageActivated);
 }
 
 void RuqolaMainWindow::slotConfigureNotifications()
