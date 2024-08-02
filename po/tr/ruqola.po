@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-08-01 00:40+0000\n"
-"PO-Revision-Date: 2024-07-30 20:42+0300\n"
+"POT-Creation-Date: 2024-08-02 00:40+0000\n"
+"PO-Revision-Date: 2024-08-01 13:22+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 24.07.70\n"
+"X-Generator: Lokalize 24.11.70\n"
 
 #: apps/main.cpp:62
 #, kde-format
@@ -1429,12 +1429,12 @@ msgctxt "We need a space between after </strong>"
 msgid "<strong>%1</strong> are typing..."
 msgstr "<strong>%1</strong> yazıyor…"
 
-#: core/rocketchataccount.cpp:3010
+#: core/rocketchataccount.cpp:3011
 #, kde-format
 msgid "Export Messages"
 msgstr "İletileri Dışa Aktar"
 
-#: core/rocketchataccount.cpp:3011
+#: core/rocketchataccount.cpp:3012
 #, kde-format
 msgid "Your email has been queued for sending."
 msgstr "E-postanız, gönderme için kuyruğa eklendi."
@@ -2679,8 +2679,7 @@ msgid "Are you sure that you want to delete this invite?"
 msgstr "Bu daveti silmek istediğinizden emin misiniz?"
 
 #: widgets/administratordialog/invites/invitetreeview.cpp:52
-#, fuzzy, kde-format
-#| msgid "Remove Invite"
+#, kde-format
 msgctxt "@title:window"
 msgid "Remove Invite"
 msgstr "Daveti Kaldır"
@@ -2703,11 +2702,10 @@ msgstr ""
 
 #: widgets/administratordialog/logs/viewlogplaintextedit.cpp:61
 #: widgets/administratordialog/logs/viewlogplaintextedit.cpp:121
-#, fuzzy, kde-format
-#| msgid "Save File Error"
+#, kde-format
 msgctxt "@title:window"
 msgid "Save File Error"
-msgstr "Dosyayı Kaydet Hatası"
+msgstr "Dosya Kaydetme Hatası"
 
 #: widgets/administratordialog/moderationconsole/administratormoderationconsolewidget.cpp:31
 #, kde-format
@@ -3666,8 +3664,7 @@ msgid "E2E key for %1 has been reset."
 msgstr "%1 için olan Uçtan Uca Şifreleme anahtarı sıfırlandı."
 
 #: widgets/administratordialog/users/administratoruserswidget.cpp:383
-#, fuzzy, kde-format
-#| msgid "Reset E2E"
+#, kde-format
 msgctxt "@title:window"
 msgid "Reset E2E"
 msgstr "Uçtan Uca Şifreleme’yi Sıfırla"
@@ -6683,8 +6680,7 @@ msgid "Any team selected."
 msgstr "Herhangi bir takım seçili."
 
 #: widgets/channellist/channellistview.cpp:244
-#, fuzzy, kde-format
-#| msgid "Move To Team"
+#, kde-format
 msgctxt "@title:window"
 msgid "Move To Team"
 msgstr "Takıma Taşı"
@@ -6726,8 +6722,7 @@ msgid "Next Channel"
 msgstr "Sonraki Kanal"
 
 #: widgets/common/authenticationbutton.cpp:23
-#, fuzzy, kde-format
-#| msgid "Sign in with %1"
+#, kde-format
 msgctxt "@action:button"
 msgid "Sign in with %1"
 msgstr "%1 ile Giriş Yap"
@@ -6750,7 +6745,7 @@ msgid "Username or Email:"
 msgstr "Kullanıcı adı veya e-posta:"
 
 #: widgets/common/authenticationloginwidget.cpp:155
-#: widgets/ruqolamainwindow.cpp:948
+#: widgets/ruqolamainwindow.cpp:953
 #, kde-format
 msgid ""
 "We have sent you an email to confirm your registration.\n"
@@ -6760,19 +6755,17 @@ msgstr ""
 "Kısa bir süre içinde bir e-posta almazsanız yeniden deneyin."
 
 #: widgets/common/authenticationloginwidget.cpp:156
-#: widgets/ruqolamainwindow.cpp:949
-#, fuzzy, kde-format
-#| msgid "Register New User"
+#: widgets/ruqolamainwindow.cpp:954
+#, kde-format
 msgctxt "@title:window"
 msgid "Register New User"
 msgstr "Yeni Kullanıcı Kaydet"
 
 #: widgets/common/delegateutil.cpp:63
-#, fuzzy, kde-format
-#| msgid "Error saving file"
+#, kde-format
 msgctxt "@title:window"
 msgid "Error saving file"
-msgstr "Dosya kaydedilirken hata"
+msgstr "Dosya Kaydedilirken Hata"
 
 #: widgets/common/userandchannelcompletiondelegate.cpp:93
 #, kde-format
@@ -7548,8 +7541,7 @@ msgstr "Ses İletisi Oluştur"
 
 #: widgets/dialogs/createsoundmessagewizard.cpp:27
 #: widgets/dialogs/createvideomessagewizard.cpp:35
-#, fuzzy, kde-format
-#| msgid "Send"
+#, kde-format
 msgctxt "@action:button"
 msgid "Send"
 msgstr "Gönder"
@@ -7786,11 +7778,10 @@ msgid "Image"
 msgstr "Görsel"
 
 #: widgets/dialogs/roomavatarwidget.cpp:50
-#, fuzzy, kde-format
-#| msgid "Select Room Avatar"
+#, kde-format
 msgctxt "@title:window"
 msgid "Select Room Avatar"
-msgstr "Oda Avatarı Seç"
+msgstr "Oda Avatarını Seç"
 
 #: widgets/dialogs/searchmessagedialog.cpp:28
 #, kde-format
@@ -8743,8 +8734,7 @@ msgstr ""
 "bu kodlardan birini kullanabilirsiniz."
 
 #: widgets/myaccount/myaccount2fatotpwidget.cpp:82
-#, fuzzy, kde-format
-#| msgid "Backup Codes"
+#, kde-format
 msgctxt "@title:window"
 msgid "Backup Codes"
 msgstr "Yedek Kodlar"
@@ -8834,8 +8824,7 @@ msgstr ""
 "%2</qt>"
 
 #: widgets/myaccount/myaccountpersonalaccesstokenconfigurewidget.cpp:130
-#, fuzzy, kde-format
-#| msgid "Personal Token Created"
+#, kde-format
 msgctxt "@title:window"
 msgid "Personal Token Created"
 msgstr "Kişisel Jeton Oluşturuldu"
@@ -8852,8 +8841,7 @@ msgid "Remove Personal Token"
 msgstr "Kişisel Jetonu Kaldır"
 
 #: widgets/myaccount/myaccountpersonalaccesstokenconfigurewidget.cpp:204
-#, fuzzy, kde-format
-#| msgid "Personal Token Regenerated"
+#, kde-format
 msgctxt "@title:window"
 msgid "Personal Token Regenerated"
 msgstr "Kişisel Jeton Yeniden Üretildi"
@@ -9041,8 +9029,7 @@ msgid "Your Rocket.Chat administrator has disabled email notifications"
 msgstr "Rocket.Chat yöneticiniz, e-posta bildirimlerini devre dışı bıraktı"
 
 #: widgets/myaccount/myaccountprofileconfigureavatarwidget.cpp:76
-#, fuzzy, kde-format
-#| msgid "Select Image"
+#, kde-format
 msgctxt "@title:window"
 msgid "Select Image"
 msgstr "Görsel Seç"
@@ -9648,8 +9635,7 @@ msgid "Delete Message"
 msgstr "İleti Sil"
 
 #: widgets/room/messagelistview.cpp:955
-#, fuzzy, kde-format
-#| msgid "Translator Error"
+#, kde-format
 msgctxt "@title:window"
 msgid "Translator Error"
 msgstr "Çevirmen Hatası"
@@ -10281,13 +10267,13 @@ msgctxt "@title:window"
 msgid "Show Log"
 msgstr "Günlüğü Göster"
 
-#: widgets/ruqolamainwindow.cpp:1020
+#: widgets/ruqolamainwindow.cpp:1025
 #, kde-format
 msgctxt "@item:inmenu Instant message presence status"
 msgid "Status"
 msgstr "Durum"
 
-#: widgets/ruqolamainwindow.cpp:1108
+#: widgets/ruqolamainwindow.cpp:1113
 #, kde-format
 msgid ""
 "<qt>This will hide the menu bar completely. You can show it again by typing "
@@ -10296,44 +10282,44 @@ msgstr ""
 "<qt>Bu, menü çubuğunu tümüyle gizleyecektir. %1 ile yeniden "
 "gösterebilirsiniz.</qt>"
 
-#: widgets/ruqolamainwindow.cpp:1111
+#: widgets/ruqolamainwindow.cpp:1116
 #, kde-format
 msgctxt "@title:window"
 msgid "Hide menu bar"
 msgstr "Menü Çubuğunu Gizle"
 
 #. i18n: ectx: Menu (windows)
-#: widgets/ruqolaui.rc:34
+#: widgets/ruqolaui.rc:36
 #, kde-format
 msgid "&Window"
 msgstr "&Pencere"
 
 #. i18n: ectx: Menu (Tools)
-#: widgets/ruqolaui.rc:39
+#: widgets/ruqolaui.rc:41
 #, kde-format
 msgid "Tools"
 msgstr "Araçlar"
 
 #. i18n: ectx: Menu (settings)
-#: widgets/ruqolaui.rc:55
+#: widgets/ruqolaui.rc:57
 #, kde-format
 msgid "&Settings"
 msgstr "Ayar&lar"
 
 #. i18n: ectx: Menu (view)
-#: widgets/ruqolaui.rc:59
+#: widgets/ruqolaui.rc:61
 #, kde-format
 msgid "View"
 msgstr "Görünüm"
 
 #. i18n: ectx: Menu (help)
-#: widgets/ruqolaui.rc:80
+#: widgets/ruqolaui.rc:82
 #, kde-format
 msgid "&Help"
 msgstr "&Yardım"
 
 #. i18n: ectx: ToolBar (mainToolBar)
-#: widgets/ruqolaui.rc:85
+#: widgets/ruqolaui.rc:87
 #, kde-format
 msgid "Main Toolbar"
 msgstr "Ana Araç Çubuğu"
@@ -10511,105 +10497,111 @@ msgstr "%2 bünyesinde neler yeni. %1"
 msgid "Implement Rocket.Chat Marketplace."
 msgstr "Rocket.Chat marketini gerçekle."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:27
+#: widgets/whatsnew/whatsnewtranslations.cpp:18
+#, fuzzy
+#| msgid "Allow to send multi files."
+msgid "Allow to clean room history."
+msgstr "Birden çok dosya göndermeye izin ver."
+
+#: widgets/whatsnew/whatsnewtranslations.cpp:28
 #, kde-format
 msgid "Store Message in Local Database (experimental)"
 msgstr "İletileri Yerel Veritabanında Depola (Deneysel)"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:29
+#: widgets/whatsnew/whatsnewtranslations.cpp:30
 #, kde-format
 msgid "Download Server Icon from Server"
 msgstr "Sunucu Simgesini Sunucudan İndir"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:30
+#: widgets/whatsnew/whatsnewtranslations.cpp:31
 #, kde-format
 msgid "Show Server Error Info in Specific DialogBox"
 msgstr "Belirli İletişim Kutularında Sunucu Hatası Bilgilerini Göster"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:31
+#: widgets/whatsnew/whatsnewtranslations.cpp:32
 #, kde-format
 msgid "Allow to Copy Image in Clipboard"
 msgstr "Panodaki Görseli Kopyalamaya İzin Ver"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:32
+#: widgets/whatsnew/whatsnewtranslations.cpp:33
 #, kde-format
 msgid "Improve debug support (Allow to show current account permissions)"
 msgstr ""
 "Hata ayıklama desteğini iyileştir (Geçerli hesap izinlerini göstermeye izin "
 "ver)"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:33
+#: widgets/whatsnew/whatsnewtranslations.cpp:34
 #, kde-format
 msgid "Add support for quoted text (text which starts by '>')"
 msgstr "Alıntı metinler için destek ekle (‘>’ ile başlayan metinler)"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:34
+#: widgets/whatsnew/whatsnewtranslations.cpp:35
 #, kde-format
 msgid "Show leader/moderator/owner in channel info."
 msgstr "Kanal bilgisinde lider/moderatör/sahip bilgisini göster"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:35
+#: widgets/whatsnew/whatsnewtranslations.cpp:36
 #, kde-format
 msgid "Video/Sound Message support (kf6 only)."
 msgstr "Video/Ses İletisi desteği (yalnızca KF6)."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:36
+#: widgets/whatsnew/whatsnewtranslations.cpp:37
 #, kde-format
 msgid "Import/Export Accounts."
 msgstr "Hesaplar İçe/Dışa Aktar"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:38
+#: widgets/whatsnew/whatsnewtranslations.cpp:39
 #, kde-format
 msgid "Fix avatar support"
 msgstr "Avatar desteğini onar"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:39
+#: widgets/whatsnew/whatsnewtranslations.cpp:40
 #, kde-format
 msgid "Fix emoji support (use new ktextaddons/textemoticons)"
 msgstr ""
 "Emoji desteğini düzelt (yeni ktextaddons/textemoticons kitaplığını kullan)"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:40
+#: widgets/whatsnew/whatsnewtranslations.cpp:41
 #, kde-format
 msgid "Fix animated gif in reactions"
 msgstr "Tepkilerdeki canlandırmalı GIF’leri onar"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:41
+#: widgets/whatsnew/whatsnewtranslations.cpp:42
 #, kde-format
 msgid "Fix kf6 support"
 msgstr "KF6 desteğini onar"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:47
+#: widgets/whatsnew/whatsnewtranslations.cpp:48
 #, kde-format
 msgid "Add Moderation Console (Administration, RC server 6.2)"
 msgstr "Moderasyon Konsolu Ekle (yönetim, RC sunucusu, sürüm 6.2)"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:47
+#: widgets/whatsnew/whatsnewtranslations.cpp:48
 #, kde-format
 msgid "Implement message style"
 msgstr "İleti biçemi seçimini gerçekle"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:47
+#: widgets/whatsnew/whatsnewtranslations.cpp:48
 #, kde-format
 msgid "Implement Url Preview"
 msgstr "URL önizlemesini gerçekle"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:49
+#: widgets/whatsnew/whatsnewtranslations.cpp:50
 #, kde-format
 msgid "Fix markdown support (header + check mark)"
 msgstr "Markdown desteğini onar (başlık ve onay kutusu)"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:50
+#: widgets/whatsnew/whatsnewtranslations.cpp:51
 #, kde-format
 msgid "Fix mem leak"
 msgstr "Bellek sızıntısını onar"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:51
+#: widgets/whatsnew/whatsnewtranslations.cpp:52
 #, kde-format
 msgid "Cache message size (optimization)"
 msgstr "Önbellek iletisi boyutu (eniyileme)"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:52
+#: widgets/whatsnew/whatsnewtranslations.cpp:53
 #, kde-format
 msgid ""
 "Improve select room or user in message line edit (show icon, inform if user "
@@ -10618,7 +10610,7 @@ msgstr ""
 "Oda veya ileti satırı düzenlerken kullanıcı seçmeyi iyileştir (simgeyi "
 "göster, kullanıcı kanaldaysa bildir)"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:53
+#: widgets/whatsnew/whatsnewtranslations.cpp:54
 #, kde-format
 msgid ""
 "Fix show commands in message line edit (Hide action when room doesn't "
@@ -10627,42 +10619,42 @@ msgstr ""
 "İleti satırı düzenlemesinde komutları göstermeyi onar (Oda desteklemiyrosa "
 "eylemi gizle)."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:54
+#: widgets/whatsnew/whatsnewtranslations.cpp:55
 #, kde-format
 msgid "Fix download sound/video file when it's not in cache."
 msgstr "Önbellekte değilken ses/video indirme sorununu çöz."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:55
+#: widgets/whatsnew/whatsnewtranslations.cpp:56
 #, kde-format
 msgid "Fix list of authentication method."
 msgstr "Kimlik doğrulama yöntemi listesini düzelt."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:56
+#: widgets/whatsnew/whatsnewtranslations.cpp:57
 #, kde-format
 msgid "Fix show avatar url."
 msgstr "Avatar gösterme URL’sini onar"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:64
+#: widgets/whatsnew/whatsnewtranslations.cpp:65
 #, kde-format
 msgid "Allow to increase/decrease font (CTRL++/CTRL+-)"
 msgstr "Yazıtipi büyüklüğünü artırmaya/azaltmaya izin ver (KONTROL++/-)"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:65
+#: widgets/whatsnew/whatsnewtranslations.cpp:66
 #, kde-format
 msgid "Add channel list style (Condensed/Medium/Extended)"
 msgstr "Kanal listesi biçemi ekle (Sıkıştırılmış/Orta/Genişletilmiş)"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:66
+#: widgets/whatsnew/whatsnewtranslations.cpp:67
 #, kde-format
 msgid "Add forward message"
 msgstr "Yönlendirilecek ileti ekle"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:67
+#: widgets/whatsnew/whatsnewtranslations.cpp:68
 #, kde-format
 msgid "Improve mentions support."
 msgstr "Değinme desteğini iyileştir."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:68
+#: widgets/whatsnew/whatsnewtranslations.cpp:69
 #, kde-format
 msgid ""
 "Add support for deep linking <a href=\"https://developer.rocket.chat/getting-"
@@ -10671,12 +10663,12 @@ msgstr ""
 "<a href=\"https://developer.rocket.chat/getting-started/deep-linking\">Derin "
 "Bağlantılama</a> desteği eklendi."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:69
+#: widgets/whatsnew/whatsnewtranslations.cpp:70
 #, kde-format
 msgid "Implement block actions."
 msgstr "Engelleme eylemlerini gerçekle."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:70
+#: widgets/whatsnew/whatsnewtranslations.cpp:71
 #, kde-format
 msgid ""
 "Implement personal token authentication. <a href=\"https://bugs.kde.org/"
@@ -10685,76 +10677,78 @@ msgstr ""
 "Kişisel jeton kullanımını gerçekle. <a href=\"https://bugs.kde.org/show_bug."
 "cgi?id=481400\">481400 numaralı kayıt</a>"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:71
+#: widgets/whatsnew/whatsnewtranslations.cpp:72
 #, kde-format
 msgid "Add Plasma Activities Support"
 msgstr "Plasma Etkinlikler desteği eklendi"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:72
+#: widgets/whatsnew/whatsnewtranslations.cpp:73
 #, kde-format
 msgid "Add Report User Support"
 msgstr "Kullanıcıyı Bildirme Desteği Ekle"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:73
+#: widgets/whatsnew/whatsnewtranslations.cpp:74
 #, kde-format
 msgid "Implement Channel Sound Notification."
 msgstr "Kanal sesli bildirimi gerçeklendi."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:74
+#: widgets/whatsnew/whatsnewtranslations.cpp:75
 #, kde-format
 msgid "Implement New Room Sound Notification."
 msgstr "Yeni oda sesi bildirimi gerçeklendi."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:75
+#: widgets/whatsnew/whatsnewtranslations.cpp:76
 #, kde-format
 msgid "Implement Sorted/Unsorted markdown list."
 msgstr "Sıralı/sırasız Markdown listeleri gerçeklendi."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:78
+#: widgets/whatsnew/whatsnewtranslations.cpp:79
 #, kde-format
 msgid "Fix dark mode support."
 msgstr "Koyu kip desteği onarıldı."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:79
+#: widgets/whatsnew/whatsnewtranslations.cpp:80
 #, kde-format
 msgid "Fix jitsi support."
 msgstr "Jitsi desteği onarıldı."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:80
+#: widgets/whatsnew/whatsnewtranslations.cpp:81
 #, kde-format
 msgid "Fix translate message in direct channel."
 msgstr "Doğrudan kanaldaki ileti çevirmeyi onar."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:81
+#: widgets/whatsnew/whatsnewtranslations.cpp:82
 #, kde-format
 msgid "Don't show @here/@all as user."
 msgstr "Kullanıcı olarak @burada/@tümü gösterme."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:82
+#: widgets/whatsnew/whatsnewtranslations.cpp:83
 #, kde-format
 msgid "Reduce memory footprint."
 msgstr "Bellek kullanımını azalt."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:83
+#: widgets/whatsnew/whatsnewtranslations.cpp:84
 #, kde-format
 msgid "Use RESTAPI for logging."
 msgstr "Günlükleme için RESTAPI kullan."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:84
+#: widgets/whatsnew/whatsnewtranslations.cpp:85
 #, kde-format
 msgid "Allow to send multi files."
 msgstr "Birden çok dosya göndermeye izin ver."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:85
+#: widgets/whatsnew/whatsnewtranslations.cpp:86
 #, kde-format
 msgid "Fix preview url."
 msgstr "Önizleme URL’sini düzelt."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:99
+#: widgets/whatsnew/whatsnewtranslations.cpp:100
 #, kde-format
 msgid ""
 "Clean market application model after 30 minutes (reduce memory footprint)."
 msgstr ""
+"Mağaza uygulama modelini 30 dakikadan sonra kapatın (bellek ayak izini "
+"azaltır)."
 
 #: widgets/whatsnew/whatsnewwidget.cpp:44
 #, kde-format
