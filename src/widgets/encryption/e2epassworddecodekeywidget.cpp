@@ -5,6 +5,7 @@
 */
 
 #include "e2epassworddecodekeywidget.h"
+#include <KAuthorized>
 #include <KLocalizedString>
 #include <KPasswordLineEdit>
 #include <QLabel>
@@ -17,6 +18,9 @@ E2ePasswordDecodeKeyWidget::E2ePasswordDecodeKeyWidget(QWidget *parent)
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
     mainLayout->setContentsMargins({});
+
+    mPassword->setRevealPasswordMode(KAuthorized::authorize(QStringLiteral("lineedit_reveal_password")) ? KPassword::RevealMode::OnlyNew
+                                                                                                        : KPassword::RevealMode::Never);
 
     auto label =
         new QLabel(i18nc("@label:textbox",
