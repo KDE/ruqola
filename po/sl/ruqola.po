@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-08-02 00:40+0000\n"
-"PO-Revision-Date: 2024-08-01 07:03+0200\n"
+"POT-Creation-Date: 2024-08-03 00:39+0000\n"
+"PO-Revision-Date: 2024-08-02 05:23+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
@@ -6780,7 +6780,7 @@ msgid "Username or Email:"
 msgstr "Uporabniško ime ali naslov e-pošte:"
 
 #: widgets/common/authenticationloginwidget.cpp:155
-#: widgets/ruqolamainwindow.cpp:953
+#: widgets/ruqolamainwindow.cpp:956
 #, kde-format
 msgid ""
 "We have sent you an email to confirm your registration.\n"
@@ -6790,7 +6790,7 @@ msgstr ""
 "Če ne prejmete e-pošte v kratkem, se vrnite in poskusite znova."
 
 #: widgets/common/authenticationloginwidget.cpp:156
-#: widgets/ruqolamainwindow.cpp:954
+#: widgets/ruqolamainwindow.cpp:957
 #, kde-format
 msgctxt "@title:window"
 msgid "Register New User"
@@ -8212,7 +8212,7 @@ msgctxt "@title:window"
 msgid "Decode Key"
 msgstr "Dekodiraj ključ"
 
-#: widgets/encryption/e2epassworddecodekeywidget.cpp:23
+#: widgets/encryption/e2epassworddecodekeywidget.cpp:27
 #, kde-format
 msgctxt "@label:textbox"
 msgid ""
@@ -10315,13 +10315,13 @@ msgctxt "@title:window"
 msgid "Show Log"
 msgstr "Prikaži dnevnik"
 
-#: widgets/ruqolamainwindow.cpp:1025
+#: widgets/ruqolamainwindow.cpp:1028
 #, kde-format
 msgctxt "@item:inmenu Instant message presence status"
 msgid "Status"
 msgstr "Stanje"
 
-#: widgets/ruqolamainwindow.cpp:1113
+#: widgets/ruqolamainwindow.cpp:1116
 #, kde-format
 msgid ""
 "<qt>This will hide the menu bar completely. You can show it again by typing "
@@ -10330,7 +10330,7 @@ msgstr ""
 "<qt>To bo skrilo v celoti skrilo menijsko vrstico. Lahko jo spet prikažete, "
 "če vtipkate %1.</qt>"
 
-#: widgets/ruqolamainwindow.cpp:1116
+#: widgets/ruqolamainwindow.cpp:1119
 #, kde-format
 msgctxt "@title:window"
 msgid "Hide menu bar"
@@ -10547,10 +10547,8 @@ msgid "Implement Rocket.Chat Marketplace."
 msgstr "Izvedi trg Rocket.Chat."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:18
-#, fuzzy
-#| msgid "Allow to send multi files."
 msgid "Allow to clean room history."
-msgstr "Dovoli pošiljanje več datotek."
+msgstr "Dovoli čiščenje zgodovine sobe."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:28
 #, kde-format

@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-08-02 00:40+0000\n"
-"PO-Revision-Date: 2024-08-01 05:53+0200\n"
+"POT-Creation-Date: 2024-08-03 00:39+0000\n"
+"PO-Revision-Date: 2024-08-02 05:50+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -6758,7 +6758,7 @@ msgid "Username or Email:"
 msgstr "მომხმარებელი ან ელფოსტა:"
 
 #: widgets/common/authenticationloginwidget.cpp:155
-#: widgets/ruqolamainwindow.cpp:953
+#: widgets/ruqolamainwindow.cpp:956
 #, kde-format
 msgid ""
 "We have sent you an email to confirm your registration.\n"
@@ -6768,7 +6768,7 @@ msgstr ""
 "თუ ელფოსტას მალევე არ მიიღებთ, მობრძანდით და თავიდან სცადეთ გეთაყვა."
 
 #: widgets/common/authenticationloginwidget.cpp:156
-#: widgets/ruqolamainwindow.cpp:954
+#: widgets/ruqolamainwindow.cpp:957
 #, kde-format
 msgctxt "@title:window"
 msgid "Register New User"
@@ -8173,7 +8173,7 @@ msgctxt "@title:window"
 msgid "Decode Key"
 msgstr "გასაღების გაშიფვრა"
 
-#: widgets/encryption/e2epassworddecodekeywidget.cpp:23
+#: widgets/encryption/e2epassworddecodekeywidget.cpp:27
 #, kde-format
 msgctxt "@label:textbox"
 msgid ""
@@ -10265,13 +10265,13 @@ msgctxt "@title:window"
 msgid "Show Log"
 msgstr "ჟურნალის ჩვენება"
 
-#: widgets/ruqolamainwindow.cpp:1025
+#: widgets/ruqolamainwindow.cpp:1028
 #, kde-format
 msgctxt "@item:inmenu Instant message presence status"
 msgid "Status"
 msgstr "სტატუსი"
 
-#: widgets/ruqolamainwindow.cpp:1113
+#: widgets/ruqolamainwindow.cpp:1116
 #, kde-format
 msgid ""
 "<qt>This will hide the menu bar completely. You can show it again by typing "
@@ -10280,7 +10280,7 @@ msgstr ""
 "<qt>მენიუს ზოლი მთლიანად დაიმალება. მისი თავიდან საჩვენებლად დააწექით: %1.</"
 "qt>"
 
-#: widgets/ruqolamainwindow.cpp:1116
+#: widgets/ruqolamainwindow.cpp:1119
 #, kde-format
 msgctxt "@title:window"
 msgid "Hide menu bar"
@@ -10497,10 +10497,8 @@ msgid "Implement Rocket.Chat Marketplace."
 msgstr "Rocket.Chat-ის მაღაზიის განხორციელება."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:18
-#, fuzzy
-#| msgid "Allow to send multi files."
 msgid "Allow to clean room history."
-msgstr "ერთზე მეტი ფაილის გაგზავნის დაშვება."
+msgstr "ოთახის ისტორიის გასუფთავების დაშვება."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:28
 #, kde-format

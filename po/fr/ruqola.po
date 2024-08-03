@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-08-02 00:40+0000\n"
+"POT-Creation-Date: 2024-08-03 00:39+0000\n"
 "PO-Revision-Date: 2024-07-14 22:00+0200\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
 "Language-Team: French <French <kde-francophone@kde.org>>\n"
@@ -7002,7 +7002,7 @@ msgid "Username or Email:"
 msgstr "Nom d'utilisateur ou courriel :"
 
 #: widgets/common/authenticationloginwidget.cpp:155
-#: widgets/ruqolamainwindow.cpp:953
+#: widgets/ruqolamainwindow.cpp:956
 #, kde-format
 msgid ""
 "We have sent you an email to confirm your registration.\n"
@@ -7013,7 +7013,7 @@ msgstr ""
 "essayer."
 
 #: widgets/common/authenticationloginwidget.cpp:156
-#: widgets/ruqolamainwindow.cpp:954
+#: widgets/ruqolamainwindow.cpp:957
 #, fuzzy, kde-format
 #| msgid "Register New User"
 msgctxt "@title:window"
@@ -8458,7 +8458,7 @@ msgctxt "@title:window"
 msgid "Decode Key"
 msgstr "Décoder la clé"
 
-#: widgets/encryption/e2epassworddecodekeywidget.cpp:23
+#: widgets/encryption/e2epassworddecodekeywidget.cpp:27
 #, kde-format
 msgctxt "@label:textbox"
 msgid ""
@@ -10603,13 +10603,13 @@ msgctxt "@title:window"
 msgid "Show Log"
 msgstr "Afficher un journal"
 
-#: widgets/ruqolamainwindow.cpp:1025
+#: widgets/ruqolamainwindow.cpp:1028
 #, kde-format
 msgctxt "@item:inmenu Instant message presence status"
 msgid "Status"
 msgstr "État"
 
-#: widgets/ruqolamainwindow.cpp:1113
+#: widgets/ruqolamainwindow.cpp:1116
 #, kde-format
 msgid ""
 "<qt>This will hide the menu bar completely. You can show it again by typing "
@@ -10618,7 +10618,7 @@ msgstr ""
 "<qt>Ceci masquera totalement la barre de menus. Vous pouvez l'afficher à "
 "nouveau en saisissant %1.</qt>"
 
-#: widgets/ruqolamainwindow.cpp:1116
+#: widgets/ruqolamainwindow.cpp:1119
 #, fuzzy, kde-format
 #| msgid "Hide menu bar"
 msgctxt "@title:window"

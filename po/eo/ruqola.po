@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-08-02 00:40+0000\n"
-"PO-Revision-Date: 2024-07-30 21:06+0200\n"
+"POT-Creation-Date: 2024-08-03 00:39+0000\n"
+"PO-Revision-Date: 2024-08-02 22:29+0200\n"
 "Last-Translator: Oliver Kellogg <olivermkellogg@gmail.com>\n"
 "Language-Team: Esperanto <kde-i18n-doc@kde.org>\n"
 "Language: eo\n"
@@ -2697,8 +2697,7 @@ msgid "Are you sure that you want to delete this invite?"
 msgstr "Ĉu vi certas, ke vi volas forigi ĉi tiun inviton?"
 
 #: widgets/administratordialog/invites/invitetreeview.cpp:52
-#, fuzzy, kde-format
-#| msgid "Remove Invite"
+#, kde-format
 msgctxt "@title:window"
 msgid "Remove Invite"
 msgstr "Forigi Inviton"
@@ -2721,8 +2720,7 @@ msgstr ""
 
 #: widgets/administratordialog/logs/viewlogplaintextedit.cpp:61
 #: widgets/administratordialog/logs/viewlogplaintextedit.cpp:121
-#, fuzzy, kde-format
-#| msgid "Save File Error"
+#, kde-format
 msgctxt "@title:window"
 msgid "Save File Error"
 msgstr "Dosier-Konserva Eraro"
@@ -3685,8 +3683,7 @@ msgid "E2E key for %1 has been reset."
 msgstr "E2E-ŝlosilo por %1 estis rekomencigita."
 
 #: widgets/administratordialog/users/administratoruserswidget.cpp:383
-#, fuzzy, kde-format
-#| msgid "Reset E2E"
+#, kde-format
 msgctxt "@title:window"
 msgid "Reset E2E"
 msgstr "Restarigi E2E"
@@ -6570,28 +6567,22 @@ msgid "Paid Apps"
 msgstr "Pagataj Apoj"
 
 #: widgets/applicationssettingsdialog/applicationssettingssearchwidget.cpp:88
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Applications"
+#, kde-format
 msgctxt "@info:placeholder"
 msgid "Search Applications"
-msgstr "Aplikaĵoj"
+msgstr "Serĉi Aplikaĵojn"
 
 #: widgets/applicationssettingsdialog/applicationssettingssearchwidget.cpp:92
-#, fuzzy, kde-format
-#| msgctxt "@action"
-#| msgid "Applications…"
+#, kde-format
 msgctxt "@info:placeholder"
 msgid "Search Installed Applications"
-msgstr "Aplikaĵoj…"
+msgstr "Serĉi Instalitajn Aplikaĵojn"
 
 #: widgets/applicationssettingsdialog/applicationssettingssearchwidget.cpp:96
-#, fuzzy, kde-format
-#| msgctxt "@action"
-#| msgid "Applications…"
+#, kde-format
 msgctxt "@info:placeholder"
 msgid "Search Requested Applications"
-msgstr "Aplikaĵoj…"
+msgstr "Serĉi Alpetitajn Aplikaĵojn"
 
 #: widgets/applicationssettingsdialog/applicationssettingssortingcombobox.cpp:12
 #, kde-format
@@ -6708,8 +6699,7 @@ msgid "Any team selected."
 msgstr "Ajna teamo elektita."
 
 #: widgets/channellist/channellistview.cpp:244
-#, fuzzy, kde-format
-#| msgid "Move To Team"
+#, kde-format
 msgctxt "@title:window"
 msgid "Move To Team"
 msgstr "Movi al Teamo"
@@ -6750,8 +6740,7 @@ msgid "Next Channel"
 msgstr "Sekva Kanalo"
 
 #: widgets/common/authenticationbutton.cpp:23
-#, fuzzy, kde-format
-#| msgid "Sign in with %1"
+#, kde-format
 msgctxt "@action:button"
 msgid "Sign in with %1"
 msgstr "Ensaluti kun %1"
@@ -6774,7 +6763,7 @@ msgid "Username or Email:"
 msgstr "Uzantnomo aŭ Retpoŝto:"
 
 #: widgets/common/authenticationloginwidget.cpp:155
-#: widgets/ruqolamainwindow.cpp:953
+#: widgets/ruqolamainwindow.cpp:956
 #, kde-format
 msgid ""
 "We have sent you an email to confirm your registration.\n"
@@ -6784,16 +6773,14 @@ msgstr ""
 "Se vi ne ricevas retmesaĝon baldaŭ, bonvolu reveni kaj provi denove."
 
 #: widgets/common/authenticationloginwidget.cpp:156
-#: widgets/ruqolamainwindow.cpp:954
-#, fuzzy, kde-format
-#| msgid "Register New User"
+#: widgets/ruqolamainwindow.cpp:957
+#, kde-format
 msgctxt "@title:window"
 msgid "Register New User"
 msgstr "Registri Novan Uzanton"
 
 #: widgets/common/delegateutil.cpp:63
-#, fuzzy, kde-format
-#| msgid "Error saving file"
+#, kde-format
 msgctxt "@title:window"
 msgid "Error saving file"
 msgstr "Eraro dum konservado de dosiero"
@@ -7571,8 +7558,7 @@ msgstr "Krei Sonan Mesaĝon"
 
 #: widgets/dialogs/createsoundmessagewizard.cpp:27
 #: widgets/dialogs/createvideomessagewizard.cpp:35
-#, fuzzy, kde-format
-#| msgid "Send"
+#, kde-format
 msgctxt "@action:button"
 msgid "Send"
 msgstr "Sendi"
@@ -7807,8 +7793,7 @@ msgid "Image"
 msgstr "Bildo"
 
 #: widgets/dialogs/roomavatarwidget.cpp:50
-#, fuzzy, kde-format
-#| msgid "Select Room Avatar"
+#, kde-format
 msgctxt "@title:window"
 msgid "Select Room Avatar"
 msgstr "Elekti Ĉambro-Avataron"
@@ -8193,7 +8178,7 @@ msgctxt "@title:window"
 msgid "Decode Key"
 msgstr "Malkodi Ŝlosilon"
 
-#: widgets/encryption/e2epassworddecodekeywidget.cpp:23
+#: widgets/encryption/e2epassworddecodekeywidget.cpp:27
 #, kde-format
 msgctxt "@label:textbox"
 msgid ""
@@ -8752,8 +8737,7 @@ msgstr ""
 "kodoj por ensaluti."
 
 #: widgets/myaccount/myaccount2fatotpwidget.cpp:82
-#, fuzzy, kde-format
-#| msgid "Backup Codes"
+#, kde-format
 msgctxt "@title:window"
 msgid "Backup Codes"
 msgstr "Rezervaj Kodoj"
@@ -8842,8 +8826,7 @@ msgstr ""
 "<br><b>Signo:</b> %1<br><b>Via uzantidentigilo:</b> %2 </ qt >"
 
 #: widgets/myaccount/myaccountpersonalaccesstokenconfigurewidget.cpp:130
-#, fuzzy, kde-format
-#| msgid "Personal Token Created"
+#, kde-format
 msgctxt "@title:window"
 msgid "Personal Token Created"
 msgstr "Persona Ĵetono Kreita"
@@ -8860,8 +8843,7 @@ msgid "Remove Personal Token"
 msgstr "Forigi Personan Ĵetonon"
 
 #: widgets/myaccount/myaccountpersonalaccesstokenconfigurewidget.cpp:204
-#, fuzzy, kde-format
-#| msgid "Personal Token Regenerated"
+#, kde-format
 msgctxt "@title:window"
 msgid "Personal Token Regenerated"
 msgstr "Persona Ĵetono Regenerita"
@@ -9048,8 +9030,7 @@ msgid "Your Rocket.Chat administrator has disabled email notifications"
 msgstr "Via administranto de Rocket.Chat malŝaltis retpoŝtajn sciigojn."
 
 #: widgets/myaccount/myaccountprofileconfigureavatarwidget.cpp:76
-#, fuzzy, kde-format
-#| msgid "Select Image"
+#, kde-format
 msgctxt "@title:window"
 msgid "Select Image"
 msgstr "Elekti Bildon"
@@ -9653,8 +9634,7 @@ msgid "Delete Message"
 msgstr "Forigi mesaĝon"
 
 #: widgets/room/messagelistview.cpp:955
-#, fuzzy, kde-format
-#| msgid "Translator Error"
+#, kde-format
 msgctxt "@title:window"
 msgid "Translator Error"
 msgstr "Eraro de tradukisto"
@@ -10151,20 +10131,16 @@ msgid "Applications…"
 msgstr "Aplikaĵoj…"
 
 #: widgets/ruqolamainwindow.cpp:510
-#, fuzzy, kde-format
-#| msgctxt "@action"
-#| msgid "Applications…"
+#, kde-format
 msgctxt "@action"
 msgid "Requested Applications…"
-msgstr "Aplikaĵoj…"
+msgstr "Alpetitaj Aplikaĵoj…"
 
 #: widgets/ruqolamainwindow.cpp:515
-#, fuzzy, kde-format
-#| msgctxt "@action"
-#| msgid "Applications…"
+#, kde-format
 msgctxt "@action"
 msgid "Installed Applications…"
-msgstr "Aplikaĵoj…"
+msgstr "Instalitaj Aplikaĵoj…"
 
 #: widgets/ruqolamainwindow.cpp:520
 #, kde-format
@@ -10269,10 +10245,9 @@ msgid "Extended"
 msgstr "Etendita"
 
 #: widgets/ruqolamainwindow.cpp:682
-#, fuzzy, kde-format
-#| msgid "Password History"
+#, kde-format
 msgid "Clear history"
-msgstr "Pasvorto Historio"
+msgstr "Viŝi historion"
 
 #: widgets/ruqolamainwindow.cpp:719
 #, kde-format
@@ -10291,13 +10266,13 @@ msgctxt "@title:window"
 msgid "Show Log"
 msgstr "Montri Protokolon"
 
-#: widgets/ruqolamainwindow.cpp:1025
+#: widgets/ruqolamainwindow.cpp:1028
 #, kde-format
 msgctxt "@item:inmenu Instant message presence status"
 msgid "Status"
 msgstr "Statuso"
 
-#: widgets/ruqolamainwindow.cpp:1113
+#: widgets/ruqolamainwindow.cpp:1116
 #, kde-format
 msgid ""
 "<qt>This will hide the menu bar completely. You can show it again by typing "
@@ -10306,7 +10281,7 @@ msgstr ""
 "<qt>Ĉi tio tute kaŝos la menubreton. Vi povas montri ĝin denove tajpante %1."
 "</qt>"
 
-#: widgets/ruqolamainwindow.cpp:1116
+#: widgets/ruqolamainwindow.cpp:1119
 #, kde-format
 msgctxt "@title:window"
 msgid "Hide menu bar"
@@ -10519,16 +10494,12 @@ msgid "What's new in %2. %1"
 msgstr "Kio estas nova en %2. %1"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:17
-#, fuzzy
-#| msgid "Implement Application Market Settings."
 msgid "Implement Rocket.Chat Marketplace."
-msgstr "Realigi Agordojn de Aplikaĵa Merkato."
+msgstr "Realigi Rocket.Chat-Merkaton."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:18
-#, fuzzy
-#| msgid "Allow to send multi files."
 msgid "Allow to clean room history."
-msgstr "Permesi sendi plurajn dosierojn."
+msgstr "Permesi purigi ĉambran historion."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:28
 #, kde-format
@@ -10771,7 +10742,7 @@ msgstr "Ripari antaŭrigardan URL."
 #, kde-format
 msgid ""
 "Clean market application model after 30 minutes (reduce memory footprint)."
-msgstr ""
+msgstr "Viŝi merkatan aplikaĵmodelon post 30 minutoj (redukti memorbezonon)."
 
 #: widgets/whatsnew/whatsnewwidget.cpp:44
 #, kde-format
@@ -10797,9 +10768,3 @@ msgstr "Kelkaj el la novaj funkcioj en ĉi tiu eldono de Ruqola inkluzivas:"
 #, kde-format
 msgid "Some bug fixing:"
 msgstr "Iu eraro korekto:"
-
-#~ msgid "Reset TOTP"
-#~ msgstr "Restarigi TOTP"
-
-#~ msgid "Create"
-#~ msgstr "Krei"

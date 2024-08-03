@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-08-02 00:40+0000\n"
-"PO-Revision-Date: 2024-08-01 07:26+0200\n"
+"POT-Creation-Date: 2024-08-03 00:39+0000\n"
+"PO-Revision-Date: 2024-08-02 08:02+0200\n"
 "Last-Translator: Stefan Asserhäll <stefan.asserhall@gmail.com>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
 "Language: sv\n"
@@ -6760,7 +6760,7 @@ msgid "Username or Email:"
 msgstr "Användarnamn eller e-post:"
 
 #: widgets/common/authenticationloginwidget.cpp:155
-#: widgets/ruqolamainwindow.cpp:953
+#: widgets/ruqolamainwindow.cpp:956
 #, kde-format
 msgid ""
 "We have sent you an email to confirm your registration.\n"
@@ -6770,7 +6770,7 @@ msgstr ""
 "Om du inte tar emot det inom kort, kom tillbaka och försök igen."
 
 #: widgets/common/authenticationloginwidget.cpp:156
-#: widgets/ruqolamainwindow.cpp:954
+#: widgets/ruqolamainwindow.cpp:957
 #, kde-format
 msgctxt "@title:window"
 msgid "Register New User"
@@ -8177,7 +8177,7 @@ msgctxt "@title:window"
 msgid "Decode Key"
 msgstr "Avkodningsnyckel"
 
-#: widgets/encryption/e2epassworddecodekeywidget.cpp:23
+#: widgets/encryption/e2epassworddecodekeywidget.cpp:27
 #, kde-format
 msgctxt "@label:textbox"
 msgid ""
@@ -10267,13 +10267,13 @@ msgctxt "@title:window"
 msgid "Show Log"
 msgstr "Visa logg"
 
-#: widgets/ruqolamainwindow.cpp:1025
+#: widgets/ruqolamainwindow.cpp:1028
 #, kde-format
 msgctxt "@item:inmenu Instant message presence status"
 msgid "Status"
 msgstr "Status"
 
-#: widgets/ruqolamainwindow.cpp:1113
+#: widgets/ruqolamainwindow.cpp:1116
 #, kde-format
 msgid ""
 "<qt>This will hide the menu bar completely. You can show it again by typing "
@@ -10282,7 +10282,7 @@ msgstr ""
 "<qt>Det här döljer menyraden fullständigt. Du kan visa den igen genom att "
 "skriva %1.</qt>"
 
-#: widgets/ruqolamainwindow.cpp:1116
+#: widgets/ruqolamainwindow.cpp:1119
 #, kde-format
 msgctxt "@title:window"
 msgid "Hide menu bar"
@@ -10498,10 +10498,8 @@ msgid "Implement Rocket.Chat Marketplace."
 msgstr "Implementera Rocket Chat marknadsplats."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:18
-#, fuzzy
-#| msgid "Allow to send multi files."
 msgid "Allow to clean room history."
-msgstr "Tillåt att flera filer skickas."
+msgstr "Tillåt att rumshistorik rensas."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:28
 #, kde-format

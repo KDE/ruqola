@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-08-02 00:40+0000\n"
-"PO-Revision-Date: 2024-08-01 13:09+0200\n"
+"POT-Creation-Date: 2024-08-03 00:39+0000\n"
+"PO-Revision-Date: 2024-08-02 12:51+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca\n"
@@ -6798,7 +6798,7 @@ msgid "Username or Email:"
 msgstr "Nom d'usuari o correu:"
 
 #: widgets/common/authenticationloginwidget.cpp:155
-#: widgets/ruqolamainwindow.cpp:953
+#: widgets/ruqolamainwindow.cpp:956
 #, kde-format
 msgid ""
 "We have sent you an email to confirm your registration.\n"
@@ -6808,7 +6808,7 @@ msgstr ""
 "Si no rebeu un correu ben aviat, torneu i intenteu-ho de nou."
 
 #: widgets/common/authenticationloginwidget.cpp:156
-#: widgets/ruqolamainwindow.cpp:954
+#: widgets/ruqolamainwindow.cpp:957
 #, kde-format
 msgctxt "@title:window"
 msgid "Register New User"
@@ -8217,7 +8217,7 @@ msgctxt "@title:window"
 msgid "Decode Key"
 msgstr "Descodificació de clau"
 
-#: widgets/encryption/e2epassworddecodekeywidget.cpp:23
+#: widgets/encryption/e2epassworddecodekeywidget.cpp:27
 #, kde-format
 msgctxt "@label:textbox"
 msgid ""
@@ -10326,13 +10326,13 @@ msgctxt "@title:window"
 msgid "Show Log"
 msgstr "Mostra el registre"
 
-#: widgets/ruqolamainwindow.cpp:1025
+#: widgets/ruqolamainwindow.cpp:1028
 #, kde-format
 msgctxt "@item:inmenu Instant message presence status"
 msgid "Status"
 msgstr "Estat"
 
-#: widgets/ruqolamainwindow.cpp:1113
+#: widgets/ruqolamainwindow.cpp:1116
 #, kde-format
 msgid ""
 "<qt>This will hide the menu bar completely. You can show it again by typing "
@@ -10341,11 +10341,11 @@ msgstr ""
 "<qt>Això ocultarà completament la barra de menús. La podeu tornar a mostrar "
 "prement %1.</qt>"
 
-#: widgets/ruqolamainwindow.cpp:1116
+#: widgets/ruqolamainwindow.cpp:1119
 #, kde-format
 msgctxt "@title:window"
 msgid "Hide menu bar"
-msgstr "Oculta la barra de menús"
+msgstr "Ocultació de la barra de menús"
 
 #. i18n: ectx: Menu (windows)
 #: widgets/ruqolaui.rc:36
@@ -10558,10 +10558,8 @@ msgid "Implement Rocket.Chat Marketplace."
 msgstr "Implementa el mercat d'aplicacions Rocket.Chat."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:18
-#, fuzzy
-#| msgid "Allow to send multi files."
 msgid "Allow to clean room history."
-msgstr "Permet enviar diversos fitxers."
+msgstr "Permet netejar l'historial de les sales."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:28
 #, kde-format
