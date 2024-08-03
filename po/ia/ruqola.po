@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-06-10 02:50+0000\n"
-"PO-Revision-Date: 2024-06-20 14:01+0200\n"
+"PO-Revision-Date: 2024-08-02 09:53+0200\n"
 "Last-Translator: giovanni <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
 "Language: ia\n"
@@ -3650,7 +3650,7 @@ msgstr "Permitte vista preliminar de characterictica"
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:31
 #, kde-format
 msgid "Allow Invisible status option"
-msgstr ""
+msgstr "Permitte option de Stato de invisibile"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:32
 #, kde-format
@@ -3675,7 +3675,7 @@ msgstr ""
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:39
 #, kde-format
 msgid "Send Email to User when User is Deactivated"
-msgstr ""
+msgstr "Invia message de E-posta a Usator quando Usator es Deactivate"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:40
 #, kde-format
@@ -3715,7 +3715,7 @@ msgstr ""
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:51
 #, kde-format
 msgid "Registration with Authentication Services"
-msgstr ""
+msgstr "Registration con  servicios de authentication"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:54
 #, kde-format
@@ -4074,7 +4074,7 @@ msgstr "Habilitate"
 #: widgets/administratorsettingsdialog/cas/cassettingswidget.cpp:24
 #, kde-format
 msgid "Trust CAS Username"
-msgstr ""
+msgstr "Nomine de Usator de CAS fidate "
 
 #: widgets/administratorsettingsdialog/cas/cassettingswidget.cpp:25
 #, kde-format
@@ -4196,7 +4196,7 @@ msgstr "Habilita Responsa directe"
 #: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:29
 #, kde-format
 msgid "Debug Direct Reply"
-msgstr ""
+msgstr "Cribra Responsa Directe"
 
 #: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:44
 #, kde-format
@@ -4753,12 +4753,12 @@ msgstr ""
 #: widgets/administratorsettingsdialog/layout/layoutsettingswidget.cpp:18
 #, kde-format
 msgid "Allow Special Characters in Room Names"
-msgstr ""
+msgstr "Permitte Characteres special ibn nomines de sala"
 
 #: widgets/administratorsettingsdialog/layout/layoutsettingswidget.cpp:19
 #, kde-format
 msgid "Merge Private Groups with Channels"
-msgstr ""
+msgstr "Fusiona Gruppos Private con Canales"
 
 #: widgets/administratorsettingsdialog/layout/layoutsettingswidget.cpp:20
 #, kde-format
@@ -4856,7 +4856,7 @@ msgstr ""
 #: widgets/administratorsettingsdialog/logs/logssettingswidget.cpp:22
 #, kde-format
 msgid "Trace method calls"
-msgstr ""
+msgstr "Tracia appellos de methodo"
 
 #: widgets/administratorsettingsdialog/logs/logssettingswidget.cpp:24
 #, kde-format
@@ -4934,7 +4934,7 @@ msgstr "Monstra Stat Modificate"
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:23
 #, kde-format
 msgid "Show Deleted Status"
-msgstr ""
+msgstr "Monstra Stato Delite"
 
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:24
 #, kde-format
@@ -4944,7 +4944,7 @@ msgstr "Permitte Message appunctate"
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:25
 #, kde-format
 msgid "Allow Message Snippeting"
-msgstr ""
+msgstr "Permitte Modificationes (Snippetting) de Message"
 
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:26
 #, kde-format
@@ -4979,7 +4979,7 @@ msgstr "Habilita Auto-Traduction"
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:45
 #, kde-format
 msgid "Embed Link Previews"
-msgstr ""
+msgstr "Incorpora Vistas preliminar de ligamine"
 
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:53
 #, kde-format
@@ -5224,12 +5224,12 @@ msgstr ""
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:20
 #, kde-format
 msgid "Twitter Login"
-msgstr ""
+msgstr "Accesso de Twitter"
 
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:24
 #, kde-format
 msgid "LinkedIn Login"
-msgstr ""
+msgstr "Accesso de LinkedIn"
 
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:30
 #, kde-format
@@ -5239,7 +5239,7 @@ msgstr "Accesso de Meteor:"
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:34
 #, kde-format
 msgid "Facebook Login"
-msgstr ""
+msgstr "Accesso de Facebook"
 
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:38
 #, kde-format
@@ -5825,7 +5825,7 @@ msgstr ""
 #: widgets/administratorsettingsdialog/troubleshoot/troubleshootsettingswidget.cpp:17
 #, kde-format
 msgid "Disable Sessions Monitor"
-msgstr ""
+msgstr "Dishabilita monitor de sessiones"
 
 #: widgets/administratorsettingsdialog/troubleshoot/troubleshootsettingswidget.cpp:18
 #, kde-format
@@ -5845,7 +5845,7 @@ msgstr ""
 #: widgets/administratorsettingsdialog/troubleshoot/troubleshootsettingswidget.cpp:21
 #, kde-format
 msgid "Disable Workspace Sync"
-msgstr ""
+msgstr "Dishabilita  Sync de Spatio de Labor"
 
 #: widgets/administratorsettingsdialog/troubleshoot/troubleshootsettingswidget.cpp:26
 #, kde-format
@@ -6465,6 +6465,9 @@ msgid ""
 "you are in those activities. Furthermore, when you switch to an activity it "
 "should not be available in, it will automatically be hidden."
 msgstr ""
+"Si tu limita iste conto a activitate, il essera monstrate in Ruqola solmente "
+"quando tu es in ille activitates. In ultra, quando tu passa a un activitate "
+"il non deberea esser disponibile, il essera celate automaticamente."
 
 #: widgets/configurenewserver/createnewserverdialog.cpp:29
 #, kde-format
@@ -8071,7 +8074,7 @@ msgstr "Remove  Indicio Personal"
 #: widgets/myaccount/myaccountpersonalaccesstokenconfigurewidget.cpp:204
 #, kde-format
 msgid "Personal Token Regenerated"
-msgstr ""
+msgstr "Indicio Personal Regenerate"
 
 #: widgets/myaccount/myaccountpersonalaccesstokentreeview.cpp:37
 #, kde-format
