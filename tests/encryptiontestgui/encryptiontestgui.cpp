@@ -22,7 +22,7 @@ EncryptionTestGui::EncryptionTestGui(QWidget *parent)
 
     auto pushButton = new QPushButton(QStringLiteral("Decode"), this);
     mainLayout->addWidget(pushButton);
-    connect(pushButton, &QPushButton::clicked, this, [this]() {
+    connect(pushButton, &QPushButton::clicked, this, []() {
         EncryptionUtils::generateRSAKey();
     });
 

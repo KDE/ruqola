@@ -38,6 +38,10 @@ Dependencies:
     #'require':
     #'sdk/selenium-webdriver-at-spi': '@latest-kf6'
 
+- 'on': ['Linux']
+  'require':
+    'plasma/plasma-activities': '@latest-kf6'
+
 - 'on': ['Linux', 'FreeBSD']
   'require':
     'frameworks/kdbusaddons': '@latest-kf6'

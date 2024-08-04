@@ -138,6 +138,8 @@ public:
 
     [[nodiscard]] Message threadMessage(const QByteArray &threadMessageId) const;
 
+    void clearHistory();
+
 private:
     LIBRUQOLACORE_NO_EXPORT void slotFileDownloaded(const QString &filePath, const QUrl &cacheImageUrl);
     /**

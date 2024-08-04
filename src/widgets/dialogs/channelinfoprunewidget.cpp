@@ -16,10 +16,10 @@
 
 ChannelInfoPruneWidget::ChannelInfoPruneWidget(QWidget *parent)
     : QWidget(parent)
-    , mExcludePinnedMessages(new QCheckBox(i18n("Exclude pinned messages"), this))
-    , mPruneFileOnlyKeepMessages(new QCheckBox(i18n("Prune files only, keep messages"), this))
-    , mAutomaticPruneOldMessages(new QCheckBox(i18n("Automatically prune old messages"), this))
-    , mOverrideGlobalRetentionPolicy(new QCheckBox(i18n("Override global retention policy"), this))
+    , mExcludePinnedMessages(new QCheckBox(i18nc("@option:check", "Exclude pinned messages"), this))
+    , mPruneFileOnlyKeepMessages(new QCheckBox(i18nc("@option:check", "Prune files only, keep messages"), this))
+    , mAutomaticPruneOldMessages(new QCheckBox(i18nc("@option:check", "Automatically prune old messages"), this))
+    , mOverrideGlobalRetentionPolicy(new QCheckBox(i18nc("@option:check", "Override global retention policy"), this))
     , mMaximumAgeInDay(new QSpinBox(this))
 {
     auto mainLayout = new QVBoxLayout(this);

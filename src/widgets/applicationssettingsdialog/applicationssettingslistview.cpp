@@ -59,7 +59,6 @@ void ApplicationsSettingsListView::slotCustomContextMenuRequested(const QPoint &
                 slotShowApplicationDescription(index);
             });
             menu.addSeparator();
-            // TODO show it when we can install it.
             if (mRocketChatAccount->isAdministrator()) {
                 menu.addAction(i18nc("@action", "Install"), this, [this, index]() {
                     slotInstallApplication(index);
@@ -128,6 +127,7 @@ void ApplicationsSettingsListView::setRequested(bool requested)
 
 void ApplicationsSettingsListView::slotInstallApplication(const QModelIndex &index)
 {
+    qCWarning(RUQOLAWIDGETS_LOG) << "ApplicationsSettingsListView::slotInstallApplication not implemented yet.";
     // TODO
 }
 

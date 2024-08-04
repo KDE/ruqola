@@ -14,7 +14,7 @@
 
 ConfigureFontWidget::ConfigureFontWidget(QWidget *parent)
     : QWidget(parent)
-    , mCustomFontCheck(new QCheckBox(i18n("&Use custom fonts"), this))
+    , mCustomFontCheck(new QCheckBox(i18nc("@option:check", "&Use custom fonts"), this))
     , mFontChooser(new KFontChooser(KFontChooser::DisplayFrame, this))
 {
     mFontChooser->setMinVisibleItems(4);

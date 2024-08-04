@@ -31,6 +31,7 @@ public:
         ApplicationInformations,
         PrivateApps,
         RequestedApps,
+        InstalledApps,
     };
     Q_ENUM(AppsCategoriesRoles)
 
@@ -44,6 +45,8 @@ public:
     void setAppsCategories(const QList<AppsMarketPlaceInfo> &appsCategories);
 
     [[nodiscard]] bool wasFilled() const;
+
+    void clear();
 
 private:
     QList<AppsMarketPlaceInfo> mAppsMarketPlaceInfos;

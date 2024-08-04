@@ -11,12 +11,12 @@
 
 AdministratorRoomsSelectRoomTypeWidget::AdministratorRoomsSelectRoomTypeWidget(QWidget *parent)
     : QWidget(parent)
-    , mDirectRooms(new QCheckBox(i18n("Direct"), this))
-    , mPublicRooms(new QCheckBox(i18n("Public"), this))
-    , mPrivateRooms(new QCheckBox(i18n("Private"), this))
-    , mDiscussionRooms(new QCheckBox(i18n("Discussions"), this))
-    , mTeamRooms(new QCheckBox(i18n("Teams"), this))
-    , mOmniChannel(new QCheckBox(i18n("Omnichannel"), this))
+    , mDirectRooms(new QCheckBox(i18nc("@option:check", "Direct"), this))
+    , mPublicRooms(new QCheckBox(i18nc("@option:check", "Public"), this))
+    , mPrivateRooms(new QCheckBox(i18nc("@option:check", "Private"), this))
+    , mDiscussionRooms(new QCheckBox(i18nc("@option:check", "Discussions"), this))
+    , mTeamRooms(new QCheckBox(i18nc("@option:check", "Teams"), this))
+    , mOmniChannel(new QCheckBox(i18nc("@option:check", "Omnichannel"), this))
 {
     auto mainLayout = new QHBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));

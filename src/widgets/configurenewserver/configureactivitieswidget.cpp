@@ -52,7 +52,7 @@ public:
 ConfigureActivitiesWidget::ConfigureActivitiesWidget(QWidget *parent)
     : QWidget{parent}
     , mListView(new QListView(this))
-    , mEnableActivitiesSupport(new QCheckBox(i18n("Limit to the selected activities:"), this))
+    , mEnableActivitiesSupport(new QCheckBox(i18nc("@option:check", "Limit to the selected activities:"), this))
 {
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName("mainLayout"_L1);

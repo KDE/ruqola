@@ -92,7 +92,7 @@ bool ListAttachmentDelegate::editorEvent(QEvent *event, QAbstractItemModel *mode
 
         if (layout.downloadAttachmentRect.contains(mev->pos())) {
             auto parentWidget = const_cast<QWidget *>(option.widget);
-            const QString fileName = DelegateUtil::querySaveFileName(parentWidget, i18n("Save Attachment"), QUrl(file->url()));
+            const QString fileName = DelegateUtil::querySaveFileName(parentWidget, i18nc("@title:window", "Save Attachment"), QUrl(file->url()));
 
             if (!fileName.isEmpty()) {
                 mRocketChatAccount->downloadFile(file->url(), QUrl::fromLocalFile(fileName));

@@ -47,7 +47,7 @@ void RoomAvatarWidget::slotChangeImage()
         filter += "*."_L1 + QString::fromLatin1(ba);
     }
     filter = QStringLiteral("%1 (%2)").arg(i18n("Image"), filter);
-    const QString fileName = QFileDialog::getOpenFileName(this, i18n("Select Room Avatar"), QString(), filter);
+    const QString fileName = QFileDialog::getOpenFileName(this, i18nc("@title:window", "Select Room Avatar"), QString(), filter);
     if (!fileName.isEmpty()) {
         mRoomAvatarPath = fileName;
         const QIcon img(mRoomAvatarPath);

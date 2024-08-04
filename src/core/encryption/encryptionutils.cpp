@@ -93,31 +93,59 @@ QString EncryptionUtils::encodePrivateKey(const QString &privateKey, const QStri
     return {};
 }
 
-QString EncryptionUtils::deriveKey()
+QString EncryptionUtils::deriveKey(const QVector<uint8_t> &, const QByteArray &ba)
 {
+    const int iterations = 1000;
+    const QByteArray hash = "SHA-256";
     // TODO
     return {};
 }
 
-QString EncryptionUtils::getMasterKey(const QString &password)
+QString EncryptionUtils::getMasterKey(const QString &password, const QString &userId)
 {
     if (password.isEmpty()) {
+        qCWarning(RUQOLA_ENCRYPTION_LOG) << "Password can't be null. It's a bug";
         return {};
     }
+
+#if 0
+    // First, create a PBKDF2 "key" containing the password
+    const QByteArray baseKey = importRawKey(toArrayBuffer(password.toUtf8()));
+    if (baseKey.isEmpty()) {
+        qCWarning(RUQOLA_ENCRYPTION_LOG) << "Problem during import raw key";
+        return {};
+    }
+    // Derive a key from the password
+    return deriveKey(toArrayBuffer(userId.toLatin1()), baseKey);
+#endif
+#if 0
+    async getMasterKey(password: string): Promise<void | CryptoKey> {
+            if (password == null) {
+                    alert('You should provide a password');
+            }
+
+            // First, create a PBKDF2 "key" containing the password
+            let baseKey;
+            try {
+                    baseKey = await importRawKey(toArrayBuffer(password));
+            } catch (error) {
+                    this.setState(E2EEState.ERROR);
+                    return this.error('Error creating a key based on user password: ', error);
+            }
+
+            // Derive a key from the password
+            try {
+                    return await deriveKey(toArrayBuffer(Meteor.userId()), baseKey);
+            } catch (error) {
+                    this.setState(E2EEState.ERROR);
+                    return this.error('Error deriving baseKey: ', error);
+            }
+    }
+
+#endif
+
     // TODO
     return {};
-}
-
-// crypto.subtle.importKey('raw', keyData, { name: 'PBKDF2' }, false, keyUsages);
-QByteArray EncryptionUtils::importRawKey(const QByteArray &keyData, const QByteArray &salt, int iterations)
-{
-    // TODO
-    QByteArray iv;
-    QByteArray plainText;
-
-    const QByteArray key = deriveKey(keyData, salt, iterations);
-    const QByteArray cipherText = encryptAES_CBC(plainText, key, iv);
-    return cipherText;
 }
 
 QByteArray EncryptionUtils::encryptAES_CBC(const QByteArray &data, const QByteArray &key, const QByteArray &iv)
@@ -170,8 +198,11 @@ QByteArray EncryptionUtils::deriveKey(const QByteArray &keyData, const QByteArra
 EncryptionUtils::EncryptionInfo EncryptionUtils::splitVectorAndEcryptedData(const QByteArray &cipherText)
 {
     EncryptionUtils::EncryptionInfo info;
-    info.vector = cipherText.left(16);
-    info.encryptedData = cipherText.last(16);
+    if (!cipherText.isEmpty()) {
+        // TODO add more check
+        info.vector = cipherText.left(16);
+        info.encryptedData = cipherText.last(16);
+    }
     return info;
 }
 
@@ -186,12 +217,47 @@ QVector<uint8_t> EncryptionUtils::toArrayBuffer(const QByteArray &ba)
     return byteVector;
 }
 
+// return crypto.subtle.importKey(
+//         'jwk',
+//         keyData,
+//         {
+//                 name: 'RSA-OAEP',
+//                 modulusLength: 2048,
+//                 publicExponent: new Uint8Array([0x01, 0x00, 0x01]),
+//                 hash: { name: 'SHA-256' },
+//         },
+//         true,
+//         keyUsages,
+// );
 void EncryptionUtils::importRSAKey()
 {
     // TODO
 }
 
+// return crypto.subtle.importKey('jwk', keyData, { name: 'AES-CBC' }, true, keyUsages);
 void EncryptionUtils::importAESKey()
 {
     // TODO
+}
+
+// crypto.subtle.importKey('raw', keyData, { name: 'PBKDF2' }, false, keyUsages);
+QByteArray EncryptionUtils::importRawKey(const QByteArray &keyData, const QByteArray &salt, int iterations)
+{
+    // TODO
+    QByteArray iv;
+    QByteArray plainText;
+
+    const QByteArray key = deriveKey(keyData, salt, iterations);
+    const QByteArray cipherText = encryptAES_CBC(plainText, key, iv);
+    return cipherText;
+}
+
+bool EncryptionUtils::EncryptionInfo::isValid() const
+{
+    return !vector.isEmpty() && !encryptedData.isEmpty();
+}
+
+bool EncryptionUtils::EncryptionInfo::operator==(const EncryptionUtils::EncryptionInfo &other) const
+{
+    return other.vector == vector && other.encryptedData == encryptedData;
 }

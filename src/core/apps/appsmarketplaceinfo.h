@@ -97,6 +97,9 @@ public:
     [[nodiscard]] int requested() const;
     void setRequested(int newRequested);
 
+    [[nodiscard]] bool installed() const;
+    void setInstalled(bool newInstalled);
+
 private:
     LIBRUQOLACORE_NO_EXPORT void parsePrincingPlan(const QJsonArray &array);
     LIBRUQOLACORE_NO_EXPORT void parseAuthor(const QJsonObject &authorObject);
@@ -119,6 +122,7 @@ private:
     int mRequested = 0;
     bool mIsPrivate = false;
     bool mIsEnterpriseOnly = false;
+    bool mInstalled = false;
 };
 
 Q_DECLARE_METATYPE(AppsMarketPlaceInfo)

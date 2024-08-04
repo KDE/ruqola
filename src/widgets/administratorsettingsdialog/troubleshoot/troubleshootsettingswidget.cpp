@@ -11,14 +11,14 @@
 
 TroubleshootSettingsWidget::TroubleshootSettingsWidget(RocketChatAccount *account, QWidget *parent)
     : SettingsWidgetBase(account, parent)
-    , mDisableNotifications(new QCheckBox(i18n("Disable Notifications"), this))
-    , mDisablePresenceBroadcast(new QCheckBox(i18n("Disable Presence Broadcast"), this))
-    , mDisableInstanceBroadcast(new QCheckBox(i18n("Disable Instance Broadcast"), this))
-    , mDisableSessionsMonitor(new QCheckBox(i18n("Disable Sessions Monitor"), this))
-    , mDisableLivechatActivityMonitor(new QCheckBox(i18n("Disable Livechat Activity Monitor"), this))
-    , mDisableStatisticsGenerator(new QCheckBox(i18n("Disable Statistics Generator"), this))
-    , mDisableDataExporterProcessor(new QCheckBox(i18n("Disable Data Exporter Processor"), this))
-    , mDisableWorkspaceSync(new QCheckBox(i18n("Disable Workspace Sync"), this))
+    , mDisableNotifications(new QCheckBox(i18nc("@option:check", "Disable Notifications"), this))
+    , mDisablePresenceBroadcast(new QCheckBox(i18nc("@option:check", "Disable Presence Broadcast"), this))
+    , mDisableInstanceBroadcast(new QCheckBox(i18nc("@option:check", "Disable Instance Broadcast"), this))
+    , mDisableSessionsMonitor(new QCheckBox(i18nc("@option:check", "Disable Sessions Monitor"), this))
+    , mDisableLivechatActivityMonitor(new QCheckBox(i18nc("@option:check", "Disable Livechat Activity Monitor"), this))
+    , mDisableStatisticsGenerator(new QCheckBox(i18nc("@option:check", "Disable Statistics Generator"), this))
+    , mDisableDataExporterProcessor(new QCheckBox(i18nc("@option:check", "Disable Data Exporter Processor"), this))
+    , mDisableWorkspaceSync(new QCheckBox(i18nc("@option:check", "Disable Workspace Sync"), this))
 {
     mDisableNotifications->setObjectName(QStringLiteral("mDisableNotifications"));
     mMainLayout->addWidget(mDisableNotifications);

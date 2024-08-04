@@ -13,9 +13,9 @@
 AdministratorDirectRoomsEditWidget::AdministratorDirectRoomsEditWidget(QWidget *parent)
     : AdministratorRoomsEditBaseWidget{parent}
     , mLineEdit(new QLineEdit(this))
-    , mDefaultCheckBox(new QCheckBox(i18n("Default"), this))
-    , mFavoriteCheckBox(new QCheckBox(i18n("Favorite"), this))
-    , mFeaturedCheckBox(new QCheckBox(i18n("Featured"), this))
+    , mDefaultCheckBox(new QCheckBox(i18nc("@option:check", "Default"), this))
+    , mFavoriteCheckBox(new QCheckBox(i18nc("@option:check", "Favorite"), this))
+    , mFeaturedCheckBox(new QCheckBox(i18nc("@option:check", "Featured"), this))
 {
     auto mainLayout = new QFormLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));

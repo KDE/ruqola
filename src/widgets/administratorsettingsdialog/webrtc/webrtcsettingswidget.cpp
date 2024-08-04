@@ -12,10 +12,10 @@
 
 WebRtcSettingsWidget::WebRtcSettingsWidget(RocketChatAccount *account, QWidget *parent)
     : SettingsWidgetBase(account, parent)
-    , mEnabled(new QCheckBox(i18n("Enabled"), this))
-    , mEnablePublicChannels(new QCheckBox(i18n("Enable for Public Channels"), this))
-    , mEnablePrivateChannels(new QCheckBox(i18n("Enable for Private Channels"), this))
-    , mEnableDirectMessages(new QCheckBox(i18n("Enable for Direct Messages"), this))
+    , mEnabled(new QCheckBox(i18nc("@option:check", "Enabled"), this))
+    , mEnablePublicChannels(new QCheckBox(i18nc("@option:check", "Enable for Public Channels"), this))
+    , mEnablePrivateChannels(new QCheckBox(i18nc("@option:check", "Enable for Private Channels"), this))
+    , mEnableDirectMessages(new QCheckBox(i18nc("@option:check", "Enable for Direct Messages"), this))
     , mServer(new QLineEdit(this))
 {
     mEnabled->setObjectName(QStringLiteral("mEnabled"));

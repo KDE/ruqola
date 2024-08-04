@@ -32,18 +32,18 @@ MyAccountPreferenceConfigureWidget::MyAccountPreferenceConfigureWidget(RocketCha
     , mDesktopNotification(new QComboBox(this))
     , mEmailNotification(new QComboBox(this))
     , mPushNotification(new QComboBox(this))
-    , mReceiveLoginDetectionEmails(new QCheckBox(i18n("Receive login detection emails"), this))
-    , mUseEmojis(new QCheckBox(i18n("Use Emojis"), this))
-    , mConvertAsciiEmoji(new QCheckBox(i18n("Convert Ascii to Emoji"), this))
-    , mHideRoles(new QCheckBox(i18n("Hide roles"), this))
-    , mDisplayAvatars(new QCheckBox(i18n("Display avatars"), this))
-    , mAutomaticAway(new QCheckBox(i18n("Enable Auto Away"), this))
+    , mReceiveLoginDetectionEmails(new QCheckBox(i18nc("@option:check", "Receive login detection emails"), this))
+    , mUseEmojis(new QCheckBox(i18nc("@option:check", "Use Emojis"), this))
+    , mConvertAsciiEmoji(new QCheckBox(i18nc("@option:check", "Convert Ascii to Emoji"), this))
+    , mHideRoles(new QCheckBox(i18nc("@option:check", "Hide roles"), this))
+    , mDisplayAvatars(new QCheckBox(i18nc("@option:check", "Display avatars"), this))
+    , mAutomaticAway(new QCheckBox(i18nc("@option:check", "Enable Auto Away"), this))
     , mIdleTimeLimit(new QSpinBox(this))
     , mEmailNotificationLabel(new QLabel(i18nc("@label:textbox", "Offline Email notification:"), this))
     , mSoundNewRoomNotification(new SoundConfigureWidget(account, this))
     , mSoundNewMessageNotification(new SoundConfigureWidget(account, this))
     , mSoundModel(new NotificationDesktopSoundPreferenceModel(this))
-    , mMuteFocusedConversations(new QCheckBox(i18n("Mute Focused Conversations"), this))
+    , mMuteFocusedConversations(new QCheckBox(i18nc("@option:check", "Mute Focused Conversations"), this))
     , mNotificationsSoundVolume(new QSpinBox(this))
     , mRocketChatAccount(account)
 {
@@ -235,7 +235,7 @@ void MyAccountPreferenceConfigureWidget::slotUserRequestDataDownloadDone()
 {
     KMessageBox::information(this,
                              i18n("Your data file will be generated. A link to download it will be sent to your email address when ready."),
-                             i18n("Download File Requested"));
+                             i18nc("@title:window", "Download File Requested"));
 }
 
 QString MyAccountPreferenceConfigureWidget::desktopPushNotificationI18n(const QString &value) const

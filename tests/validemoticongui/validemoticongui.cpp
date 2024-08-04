@@ -16,10 +16,8 @@
 #include <QJsonDocument>
 #include <QJsonObject>
 #include <QLabel>
-#include <QLineEdit>
 #include <QListWidget>
 #include <QPlainTextEdit>
-#include <QPushButton>
 #include <QRegularExpression>
 #include <QStandardPaths>
 #include <QVBoxLayout>

@@ -13,9 +13,7 @@
 #include <QString>
 #include <QStringList>
 
-class EmojiManager;
 class Message;
-class MessageCache;
 
 namespace TextConverterCMark
 {

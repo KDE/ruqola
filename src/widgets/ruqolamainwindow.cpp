@@ -339,6 +339,7 @@ void RuqolaMainWindow::updateActions()
     mCreateNewChannel->setEnabled(canCreateChannels());
     mCreateDirectMessages->setEnabled(canCreateDirectMessages());
     mCreateTeam->setEnabled(canCreateTeams());
+    mRequestedApplications->setVisible(isAdministrator);
 }
 
 bool RuqolaMainWindow::canCreateChannels() const
@@ -506,6 +507,16 @@ void RuqolaMainWindow::setupActions()
     ac->addAction(QStringLiteral("applications_settings"), mApplications);
     mAdministrationMenu->addAction(mApplications);
 
+    mRequestedApplications = new QAction(i18nc("@action", "Requested Applications…"), this);
+    connect(mRequestedApplications, &QAction::triggered, this, &RuqolaMainWindow::slotApplicationsRequestedSettings);
+    ac->addAction(QStringLiteral("applications_requested_settings"), mRequestedApplications);
+    mAdministrationMenu->addAction(mRequestedApplications);
+
+    mInstalledApplications = new QAction(i18nc("@action", "Installed Applications…"), this);
+    connect(mInstalledApplications, &QAction::triggered, this, &RuqolaMainWindow::slotApplicationsInstalledSettings);
+    ac->addAction(QStringLiteral("applications_requested_settings"), mInstalledApplications);
+    mAdministrationMenu->addAction(mInstalledApplications);
+
     mJoinRoom = new QAction(i18nc("Action which allows to search room", "Join Room…"), this);
     connect(mJoinRoom, &QAction::triggered, this, &RuqolaMainWindow::slotJoinRoom);
     ac->addAction(QStringLiteral("join_room"), mJoinRoom);
@@ -571,7 +582,7 @@ void RuqolaMainWindow::setupActions()
 
         act = new QAction(i18nc("@action", "Next Selected Channel"), this);
         ac->addAction(QStringLiteral("next_channel"), act);
-        QKeyCombination combinationKeys(Qt::CTRL | Qt::SHIFT, Qt::Key_Tab);
+        const QKeyCombination combinationKeys(Qt::CTRL | Qt::SHIFT, Qt::Key_Tab);
         ac->setDefaultShortcut(act, combinationKeys);
         connect(act, &QAction::triggered, this, &RuqolaMainWindow::redoSwitchChannel);
         listActions.append(act);
@@ -630,13 +641,13 @@ void RuqolaMainWindow::setupActions()
     connect(mExportAccountsAction, &QAction::triggered, this, &RuqolaMainWindow::slotExportAccounts);
     ac->addAction(QStringLiteral("export_accounts"), mExportAccountsAction);
 
-    auto messageStyleAction = new MessageStyleLayoutMenu(this);
-    ac->addAction(QStringLiteral("message_style"), messageStyleAction);
-    connect(messageStyleAction, &MessageStyleLayoutMenu::styleChanged, this, &RuqolaMainWindow::slotMessageStyleChanged);
+    mMessageStyleAction = new MessageStyleLayoutMenu(this);
+    ac->addAction(QStringLiteral("message_style"), mMessageStyleAction);
+    connect(mMessageStyleAction, &MessageStyleLayoutMenu::styleChanged, this, &RuqolaMainWindow::slotMessageStyleChanged);
 
-    auto changeFontSizeAction = new ChangeFontSizeMenu(this);
-    ac->addAction(QStringLiteral("change_font_size"), changeFontSizeAction);
-    connect(changeFontSizeAction, &ChangeFontSizeMenu::fontChanged, this, [] {
+    mChangeFontSizeAction = new ChangeFontSizeMenu(this);
+    ac->addAction(QStringLiteral("change_font_size"), mChangeFontSizeAction);
+    connect(mChangeFontSizeAction, &ChangeFontSizeMenu::fontChanged, this, [] {
         Q_EMIT ColorsAndMessageViewStyle::self().needUpdateFontSize();
     });
 
@@ -667,6 +678,10 @@ void RuqolaMainWindow::setupActions()
     });
     roomListDisplay->addAction(mRoomListDisplayExtended);
     ac->addAction(QStringLiteral("room_list_display_extended"), mRoomListDisplayExtended);
+
+    mClearRoomHistory = new QAction(i18n("Clear history"), this);
+    connect(mClearRoomHistory, &QAction::triggered, this, &RuqolaMainWindow::slotClearRoomHistory);
+    ac->addAction(QStringLiteral("clear_room_history"), mClearRoomHistory);
 }
 
 void RuqolaMainWindow::slotMessageStyleChanged()
@@ -857,7 +872,7 @@ void RuqolaMainWindow::slotShowLog()
                 job->setDeleteTemporaryFile(true);
                 job->start();
             } else {
-                KMessageBox::information(this, i18n("Impossible to open log."), i18n("Show Log"));
+                KMessageBox::information(this, i18n("Impossible to open log."), i18nc("@title:window", "Show Log"));
             }
         }
     }
@@ -898,6 +913,11 @@ void RuqolaMainWindow::slotLoginPageActivated(bool loginPageActivated)
     mRoomListDisplayMedium->setEnabled(!loginPageActivated);
     mRoomListDisplayCondensed->setEnabled(!loginPageActivated);
     mRoomListDisplayExtended->setEnabled(!loginPageActivated);
+    mClearRoomHistory->setEnabled(!loginPageActivated);
+
+    mApplications->setEnabled(!loginPageActivated);
+    mRequestedApplications->setEnabled(!loginPageActivated);
+    mInstalledApplications->setEnabled(!loginPageActivated);
 
     mRoomFavorite->setEnabled(!loginPageActivated);
     if (mContextStatusMenu) {
@@ -909,6 +929,9 @@ void RuqolaMainWindow::slotLoginPageActivated(bool loginPageActivated)
     if (mShowPermissions) {
         mShowPermissions->setEnabled(!loginPageActivated);
     }
+    mAdministrationMenu->setEnabled(!loginPageActivated);
+    mMessageStyleAction->setEnabled(!loginPageActivated);
+    mChangeFontSizeAction->setEnabled(!loginPageActivated);
 }
 
 void RuqolaMainWindow::slotConfigureNotifications()
@@ -931,7 +954,7 @@ void RuqolaMainWindow::slotRegisterUserSuccessed()
     KMessageBox::information(
         this,
         i18n("We have sent you an email to confirm your registration.\nIf you do not receive an email shortly, please come back and try again."),
-        i18n("Register New User"));
+        i18nc("@title:window", "Register New User"));
 }
 
 void RuqolaMainWindow::slotConfigureMyAccount()
@@ -1093,7 +1116,7 @@ void RuqolaMainWindow::slotToggleMenubar(bool dontShowWarning)
                                          i18n("<qt>This will hide the menu bar completely."
                                               " You can show it again by typing %1.</qt>",
                                               accel),
-                                         i18n("Hide menu bar"),
+                                         i18nc("@title:window", "Hide menu bar"),
                                          QStringLiteral("HideMenuBarWarning"));
             }
             menuBar()->hide();
@@ -1185,7 +1208,7 @@ void RuqolaMainWindow::slotExportAccounts()
 void RuqolaMainWindow::slotApplicationsSettings()
 {
     ApplicationsSettingsDialog dlg(mCurrentRocketChatAccount, this);
-    // dlg.setFeature(ApplicationsSettingsSearchWidget::Requested);
+    dlg.setFeature(ApplicationsSettingsSearchWidget::None);
     dlg.exec();
 }
 
@@ -1195,4 +1218,20 @@ void RuqolaMainWindow::slotApplicationsRequestedSettings()
     dlg.setFeature(ApplicationsSettingsSearchWidget::Requested);
     dlg.exec();
 }
+
+void RuqolaMainWindow::slotApplicationsInstalledSettings()
+{
+    ApplicationsSettingsDialog dlg(mCurrentRocketChatAccount, this);
+    dlg.setFeature(ApplicationsSettingsSearchWidget::Installed);
+    dlg.exec();
+}
+
+void RuqolaMainWindow::slotClearRoomHistory()
+{
+    auto room = mMainWidget->room();
+    if (room) {
+        room->clearHistory();
+    }
+}
+
 #include "moc_ruqolamainwindow.cpp"

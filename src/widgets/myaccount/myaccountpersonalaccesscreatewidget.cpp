@@ -13,7 +13,7 @@
 
 MyAccountPersonalAccessCreateWidget::MyAccountPersonalAccessCreateWidget(QWidget *parent)
     : QWidget{parent}
-    , mBypassTwoFactor(new QCheckBox(i18n("Ignore Two Factor Authentication"), this))
+    , mBypassTwoFactor(new QCheckBox(i18nc("@option:check", "Ignore Two Factor Authentication"), this))
     , mTokenName(new QLineEdit(this))
 {
     auto formLayout = new QFormLayout(this);

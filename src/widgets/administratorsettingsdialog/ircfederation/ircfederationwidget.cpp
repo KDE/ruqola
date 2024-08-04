@@ -14,7 +14,7 @@
 
 IrcFederationWidget::IrcFederationWidget(RocketChatAccount *account, QWidget *parent)
     : SettingsWidgetBase(account, parent)
-    , mEnabled(new QCheckBox(i18n("Enabled"), this))
+    , mEnabled(new QCheckBox(i18nc("@option:check", "Enabled"), this))
     , mProtocol(new QComboBox(this))
     , mHost(new QLineEdit(this))
     , mPort(new QSpinBox(this))

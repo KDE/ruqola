@@ -381,7 +381,9 @@ void MessageLineWidget::slotSendFile()
                 const QFileInfo info(result.fileUrl.toLocalFile());
                 const qint64 maximumFileSize = mCurrentRocketChatAccount->ruqolaServerConfig()->fileMaxFileSize();
                 if (info.size() > maximumFileSize) {
-                    KMessageBox::error(this, i18n("File selected is too big (Maximum size %1)", KIO::convertSize(maximumFileSize)), i18n("File upload"));
+                    KMessageBox::error(this,
+                                       i18n("File selected is too big (Maximum size %1)", KIO::convertSize(maximumFileSize)),
+                                       i18nc("@title:window", "File upload"));
                     delete dlg;
                     return;
                 }

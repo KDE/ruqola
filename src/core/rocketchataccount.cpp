@@ -8,6 +8,7 @@
 #include "accountroomsettings.h"
 #include "apps/appinstalledjob.h"
 #include "config-ruqola.h"
+#include "memorymanager/memorymanager.h"
 #include "model/appscategoriesmodel.h"
 #include "notifications/notificationpreferences.h"
 #include "ruqolautils.h"
@@ -139,6 +140,7 @@ RocketChatAccount::RocketChatAccount(const QString &accountFileName, QObject *pa
     , mSoundManager(new SoundManager(this))
     , mAppsMarketPlaceModel(new AppsMarketPlaceModel(this))
     , mAppsCategoriesModel(new AppsCategoriesModel(this))
+    , mMemoryManager(new MemoryManager(this))
 {
     qCDebug(RUQOLA_LOG) << " RocketChatAccount::RocketChatAccount(const QString &accountFileName, QObject *parent)" << accountFileName;
     // create an unique file for each account
@@ -280,6 +282,8 @@ RocketChatAccount::RocketChatAccount(const QString &accountFileName, QObject *pa
     setDefaultAuthentication(mSettings->authMethodType());
     mNotificationPreferences->setCustomSoundManager(mCustomSoundManager);
     connect(mE2eKeyManager, &E2eKeyManager::verifyKeyDone, this, &RocketChatAccount::slotVerifyKeysDone);
+    connect(mMemoryManager, &MemoryManager::clearApplicationSettingsModelRequested, mAppsMarketPlaceModel, &AppsMarketPlaceModel::clear);
+    connect(mMemoryManager, &MemoryManager::cleanRoomHistoryRequested, this, &RocketChatAccount::slotCleanRoomHistory);
 }
 
 RocketChatAccount::~RocketChatAccount()
@@ -3252,7 +3256,7 @@ void RocketChatAccount::loadInstalledApps()
     connect(job, &RocketChatRestApi::AppInstalledJob::appInstalledDone, this, [this](const QJsonArray &replyArray) {
         for (int i = 0; i < replyArray.count(); ++i) {
             const QJsonObject obj = replyArray.at(i).toObject();
-            qDebug() << " obj" << obj;
+            qDebug() << "RocketChatAccount::loadInstalledApps obj" << obj;
             // TODO
         }
         // qDebug() << "DD replyArray " << replyArray;
@@ -3302,6 +3306,17 @@ void RocketChatAccount::slotVerifyKeysDone()
     Q_EMIT needToDecryptE2EPassword();
     // TODO verify if we must decode it
 #endif
+}
+
+MemoryManager *RocketChatAccount::memoryManager() const
+{
+    return mMemoryManager;
+}
+
+void RocketChatAccount::slotCleanRoomHistory()
+{
+    // TODO
+    qDebug() << " void RocketChatAccount::slotCleanRoomHistory() not implement yet";
 }
 
 #include "moc_rocketchataccount.cpp"

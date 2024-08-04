@@ -380,7 +380,7 @@ void AdministratorUsersWidget::slotResetE2EKey(const QModelIndex &index)
         const QModelIndex modelIndexUserName = mModel->index(index.row(), AdminUsersModel::UserName);
         const QString userName = modelIndexUserName.data().toString();
         connect(job, &RocketChatRestApi::ResetE2EKeyJob::resetE2EKeyDone, this, [this, userName]() {
-            KMessageBox::information(this, i18n("E2E key for %1 has been reset.", userName), i18n("Reset E2E"));
+            KMessageBox::information(this, i18n("E2E key for %1 has been reset.", userName), i18nc("@title:window", "Reset E2E"));
         });
         if (!job->start()) {
             qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start ResetE2EKeyJob job";
@@ -425,7 +425,7 @@ void AdministratorUsersWidget::slotResetTOTPKey(const QModelIndex &index)
         const QString userName = modelIndexUserName.data().toString();
 
         connect(job, &RocketChatRestApi::ResetTOTPJob::resetTOTPDone, this, [this, userName]() {
-            KMessageBox::information(this, i18n("TOTP key for %1 has been reset", userName), i18n("Reset TOTP"));
+            KMessageBox::information(this, i18n("TOTP key for %1 has been reset", userName), i18nc("@title:window", "Reset TOTP"));
         });
         if (!job->start()) {
             qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start ResetTOTPJob job";

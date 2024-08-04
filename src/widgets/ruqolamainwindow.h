@@ -29,6 +29,8 @@ class KToggleFullScreenAction;
 class QToolButton;
 class KActionMenu;
 class AccountManager;
+class MessageStyleLayoutMenu;
+class ChangeFontSizeMenu;
 class LIBRUQOLAWIDGETS_EXPORT RuqolaMainWindow : public KXmlGuiWindow
 {
     Q_OBJECT
@@ -116,6 +118,8 @@ private:
     LIBRUQOLAWIDGETS_NO_EXPORT void slotOpenPrivateChannel();
     LIBRUQOLAWIDGETS_NO_EXPORT void slotJoinRoom();
     LIBRUQOLAWIDGETS_NO_EXPORT void slotApplicationsRequestedSettings();
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotApplicationsInstalledSettings();
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotClearRoomHistory();
 
     bool mReallyClose{false};
 
@@ -136,6 +140,8 @@ private:
     QAction *mAdministrator = nullptr;
     QAction *mAdministratorServerSettings = nullptr;
     QAction *mApplications = nullptr;
+    QAction *mRequestedApplications = nullptr;
+    QAction *mInstalledApplications = nullptr;
     QAction *mCreateDiscussion = nullptr;
     QAction *mCreateTeam = nullptr;
     QAction *mJoinRoom = nullptr;
@@ -173,4 +179,7 @@ private:
     QAction *mRoomListDisplayCondensed = nullptr;
     QAction *mRoomListDisplayExtended = nullptr;
     QWidget *mContainerStatusInfo = nullptr;
+    QAction *mClearRoomHistory = nullptr;
+    MessageStyleLayoutMenu *mMessageStyleAction = nullptr;
+    ChangeFontSizeMenu *mChangeFontSizeAction = nullptr;
 };

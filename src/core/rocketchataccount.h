@@ -91,6 +91,7 @@ class NotificationPreferences;
 class SoundManager;
 class AppsMarketPlaceModel;
 class AppsCategoriesModel;
+class MemoryManager;
 
 class LIBRUQOLACORE_EXPORT RocketChatAccount : public QObject
 {
@@ -542,6 +543,8 @@ public:
     [[nodiscard]] bool appMarketPlaceLoaded() const;
     [[nodiscard]] E2eKeyManager *e2eKeyManager() const;
 
+    [[nodiscard]] MemoryManager *memoryManager() const;
+
 Q_SIGNALS:
     void roomRemoved(const QByteArray &roomId);
     void disabledTotpValid(bool checked);
@@ -669,6 +672,7 @@ private:
     LIBRUQOLACORE_NO_EXPORT void loadSoundFiles();
     LIBRUQOLACORE_NO_EXPORT void slotReconnectToDdpServer();
     LIBRUQOLACORE_NO_EXPORT void slotVerifyKeysDone();
+    LIBRUQOLACORE_NO_EXPORT void slotCleanRoomHistory();
 
     AccountRoomSettings *const mAccountRoomSettings;
 
@@ -738,6 +742,7 @@ private:
     SoundManager *const mSoundManager;
     AppsMarketPlaceModel *const mAppsMarketPlaceModel;
     AppsCategoriesModel *const mAppsCategoriesModel;
+    MemoryManager *const mMemoryManager;
     int mDelayReconnect = 100;
     bool mEditingMode = false;
     bool mMarkUnreadThreadsAsReadOnNextReply = false;

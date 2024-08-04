@@ -77,9 +77,13 @@ bool AppsMarketPlaceFilterProxyModel::filterAcceptsRow(int source_row, const QMo
     }
 
     switch (mFilterInfo.installedApps) {
-    case InstalledApps::AllInstalledApps:
-        // TODO verify if apps is installed.
+    case InstalledApps::AllInstalledApps: {
+        const bool isInstalled = modelIndex.data(AppsMarketPlaceModel::InstalledApps).toBool();
+        if (!isInstalled) {
+            return false;
+        }
         break;
+    }
     case InstalledApps::AnyInfoApps:
         break;
     case InstalledApps::PrivateApps:

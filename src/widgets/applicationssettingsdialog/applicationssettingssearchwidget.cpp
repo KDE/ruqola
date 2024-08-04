@@ -14,6 +14,7 @@
 #include "rocketchataccount.h"
 
 #include <KLineEditEventHandler>
+#include <KLocalizedString>
 #include <QHBoxLayout>
 #include <QLineEdit>
 using namespace Qt::Literals::StringLiterals;
@@ -58,7 +59,7 @@ ApplicationsSettingsSearchWidget::ApplicationsSettingsSearchWidget(RocketChatAcc
     connect(mApplicationsSettingsPriceComboBox, &ApplicationsSettingsPriceComboBox::activated, this, &ApplicationsSettingsSearchWidget::filterChanged);
     connect(mApplicationsSettingsStatusComboBox, &ApplicationsSettingsStatusComboBox::activated, this, &ApplicationsSettingsSearchWidget::filterChanged);
     connect(mApplicationsSettingsSortingComboBox, &ApplicationsSettingsSortingComboBox::activated, this, &ApplicationsSettingsSearchWidget::sortingChanged);
-    connect(mApplicationsSettingsInstalledComboBox, &ApplicationsSettingsInstalledComboBox::activated, this, &ApplicationsSettingsSearchWidget::sortingChanged);
+    connect(mApplicationsSettingsInstalledComboBox, &ApplicationsSettingsInstalledComboBox::activated, this, &ApplicationsSettingsSearchWidget::filterChanged);
 }
 
 ApplicationsSettingsSearchWidget::~ApplicationsSettingsSearchWidget() = default;
@@ -70,6 +71,7 @@ AppsMarketPlaceFilterProxyModel::FilterInfo ApplicationsSettingsSearchWidget::fi
     info.categories = mApplicationsSettingsCategoriesComboBox->categories();
     info.price = mApplicationsSettingsPriceComboBox->currentPrice();
     info.status = mApplicationsSettingsStatusComboBox->currentStatus();
+    info.installedApps = mApplicationsSettingsInstalledComboBox->currentInstalledStatus();
     return info;
 }
 
@@ -83,12 +85,15 @@ void ApplicationsSettingsSearchWidget::setFeature(Feature feature)
     switch (feature) {
     case Feature::None:
         mApplicationsSettingsInstalledComboBox->setVisible(true); // ??? true ??
+        mSearchLineEdit->setPlaceholderText(i18nc("@info:placeholder", "Search Applications"));
         break;
     case Feature::Installed:
-        mApplicationsSettingsInstalledComboBox->setVisible(true);
+        mApplicationsSettingsInstalledComboBox->setVisible(false);
+        mSearchLineEdit->setPlaceholderText(i18nc("@info:placeholder", "Search Installed Applications"));
         break;
     case Feature::Requested:
         mApplicationsSettingsInstalledComboBox->setVisible(false);
+        mSearchLineEdit->setPlaceholderText(i18nc("@info:placeholder", "Search Requested Applications"));
         break;
     }
 }

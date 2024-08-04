@@ -646,4 +646,16 @@ void MessagesModel::setSearchText(const QString &searchText)
     mSearchText = searchText;
 }
 
+void MessagesModel::clearHistory()
+{
+    if (rowCount() != 0) {
+        const auto elementSize = (mAllMessages.size() - 50);
+        if (elementSize > 0) {
+            beginResetModel();
+            mAllMessages.remove(0, elementSize);
+            endResetModel();
+        }
+    }
+}
+
 #include "moc_messagesmodel.cpp"

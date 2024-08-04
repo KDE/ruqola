@@ -12,21 +12,21 @@
 
 RateLimiterWidget::RateLimiterWidget(RocketChatAccount *account, QWidget *parent)
     : SettingsWidgetBase{account, parent}
-    , mEnableRateLimiter(new QCheckBox(i18n("Enable Rate Limiter"), this))
-    , mLimitByIP(new QCheckBox(i18n("Limit by IP"), this))
+    , mEnableRateLimiter(new QCheckBox(i18nc("@option:check", "Enable Rate Limiter"), this))
+    , mLimitByIP(new QCheckBox(i18nc("@option:check", "Limit by IP"), this))
     , mLimiteByIpRequestsAllowed(new QSpinBox(this))
     , mLimiteByIpIntervalTime(new QSpinBox(this))
-    , mLimitByUser(new QCheckBox(i18n("Limit by User"), this))
+    , mLimitByUser(new QCheckBox(i18nc("@option:check", "Limit by User"), this))
     , mLimiteByUserRequestsAllowed(new QSpinBox(this))
     , mLimiteByUserIntervalTime(new QSpinBox(this))
-    , mLimitByConnection(new QCheckBox(i18n("Limit by Connection"), this))
+    , mLimitByConnection(new QCheckBox(i18nc("@option:check", "Limit by Connection"), this))
     , mLimiteByConnectionRequestsAllowed(new QSpinBox(this))
     , mLimiteByConnectionIntervalTime(new QSpinBox(this))
 
-    , mLimitByUserPerMethod(new QCheckBox(i18n("Limit by User per Method"), this))
+    , mLimitByUserPerMethod(new QCheckBox(i18nc("@option:check", "Limit by User per Method"), this))
     , mLimiteByUserRequestsAllowedPerMethod(new QSpinBox(this))
     , mLimiteByUserIntervalTimePerMethod(new QSpinBox(this))
-    , mLimitByConnectionPerMethod(new QCheckBox(i18n("Limit by Connection per Method"), this))
+    , mLimitByConnectionPerMethod(new QCheckBox(i18nc("@option:check", "Limit by Connection per Method"), this))
     , mLimiteByConnectionRequestsAllowedPerMethod(new QSpinBox(this))
     , mLimiteByConnectionIntervalTimePerMethod(new QSpinBox(this))
 {

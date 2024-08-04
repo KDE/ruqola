@@ -79,13 +79,13 @@ void MyAccount2FaTotpWidget::slotTotpValid(const QStringList &listCodes)
         this,
         i18n("Make sure you have a copy of your codes:\n%1\nIf you lose access to your authenticator app, you can use one of these codes to log in.",
              listCodes.join(QLatin1Char('\n'))),
-        i18n("Backup Codes"));
+        i18nc("@title:window", "Backup Codes"));
     setVisible(false); // Hide it.
 }
 
 void MyAccount2FaTotpWidget::slotTotpInvalid()
 {
-    KMessageBox::error(this, i18n("Invalid two factor code."), i18n("Check Two Factor Code"));
+    KMessageBox::error(this, i18n("Invalid two factor code."), i18nc("@title:window", "Check Two Factor Code"));
 }
 
 void MyAccount2FaTotpWidget::slotVerify()

@@ -23,7 +23,7 @@ ConferenceCallDialog::ConferenceCallDialog(QWidget *parent)
 
     auto button = new QDialogButtonBox(QDialogButtonBox::Ok | QDialogButtonBox::Cancel, this);
     button->setObjectName(QStringLiteral("button"));
-    button->button(QDialogButtonBox::Ok)->setText(i18n("Start"));
+    button->button(QDialogButtonBox::Ok)->setText(i18nc("@action:button", "Start"));
     mainLayout->addWidget(button);
     connect(button, &QDialogButtonBox::rejected, this, &ConferenceCallDialog::reject);
     connect(button, &QDialogButtonBox::accepted, this, &ConferenceCallDialog::accept);

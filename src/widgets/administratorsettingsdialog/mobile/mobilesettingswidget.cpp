@@ -13,8 +13,8 @@
 
 MobileSettingsWidget::MobileSettingsWidget(RocketChatAccount *account, QWidget *parent)
     : SettingsWidgetBase(account, parent)
-    , mAllowSaveMediaGallery(new QCheckBox(i18n("Allow Save Media to Gallery"), this))
-    , mForceScreenLock(new QCheckBox(i18n("Force screen lock"), this))
+    , mAllowSaveMediaGallery(new QCheckBox(i18nc("@option:check", "Allow Save Media to Gallery"), this))
+    , mForceScreenLock(new QCheckBox(i18nc("@option:check", "Force screen lock"), this))
     , mForceScreenLockAfter(new QSpinBox(this))
 {
     mAllowSaveMediaGallery->setObjectName(QStringLiteral("mAllowSaveMediaGallery"));

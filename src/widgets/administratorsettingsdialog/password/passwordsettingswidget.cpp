@@ -14,17 +14,17 @@
 
 PasswordSettingsWidget::PasswordSettingsWidget(RocketChatAccount *account, QWidget *parent)
     : SettingsWidgetBase(account, parent)
-    , mEnablePasswordHistory(new QCheckBox(i18n("Enable Password History"), this))
+    , mEnablePasswordHistory(new QCheckBox(i18nc("@option:check", "Enable Password History"), this))
     , mPasswordHistoryLength(new QSpinBox(this))
-    , mEnablePasswordPolicy(new QCheckBox(i18n("Enable Password Policy"), this))
+    , mEnablePasswordPolicy(new QCheckBox(i18nc("@option:check", "Enable Password Policy"), this))
     , mMinimumLength(new QSpinBox(this))
     , mMaximumLength(new QSpinBox(this))
-    , mForbidRepeatingCharacters(new QCheckBox(i18n("Forbid Repeating Characters"), this))
+    , mForbidRepeatingCharacters(new QCheckBox(i18nc("@option:check", "Forbid Repeating Characters"), this))
     , mMaxRepeatingCharacters(new QSpinBox(this))
-    , mAtLeastOneLowercase(new QCheckBox(i18n("At Least One Lowercase"), this))
-    , mAtLeastOneUppercase(new QCheckBox(i18n("At Least One Uppercase"), this))
-    , mAtLeastOneNumber(new QCheckBox(i18n("At Least One Number"), this))
-    , mAtLeastOneSymbol(new QCheckBox(i18n("At Least One Symbol"), this))
+    , mAtLeastOneLowercase(new QCheckBox(i18nc("@option:check", "At Least One Lowercase"), this))
+    , mAtLeastOneUppercase(new QCheckBox(i18nc("@option:check", "At Least One Uppercase"), this))
+    , mAtLeastOneNumber(new QCheckBox(i18nc("@option:check", "At Least One Number"), this))
+    , mAtLeastOneSymbol(new QCheckBox(i18nc("@option:check", "At Least One Symbol"), this))
 {
     auto historyLabel = createBoldLabel(i18n("Password History"));
     historyLabel->setObjectName(QStringLiteral("historyLabel"));

@@ -7,6 +7,7 @@
 #include "applicationssettingswidget.h"
 #include "applicationssettingsinprogresswidget.h"
 #include "applicationssettingslistview.h"
+#include "memorymanager/memorymanager.h"
 #include "rocketchataccount.h"
 
 #include <QStackedWidget>
@@ -45,6 +46,7 @@ ApplicationsSettingsWidget::ApplicationsSettingsWidget(RocketChatAccount *accoun
     mApplicationsSettingsListView->setObjectName("mApplicationsSettingsListView"_L1);
     widgetLayout->addWidget(mApplicationsSettingsListView);
     if (mCurrentRocketChatAccount) {
+        mCurrentRocketChatAccount->memoryManager()->stopClearApplicationSettingsModelTimer();
         mCurrentRocketChatAccount->loadAppMarketPlace();
         mCurrentRocketChatAccount->loadAppCategories();
         mCurrentRocketChatAccount->loadInstalledApps();
@@ -71,7 +73,12 @@ void ApplicationsSettingsWidget::setFeature(ApplicationsSettingsSearchWidget::Fe
     }
 }
 
-ApplicationsSettingsWidget::~ApplicationsSettingsWidget() = default;
+ApplicationsSettingsWidget::~ApplicationsSettingsWidget()
+{
+    if (mCurrentRocketChatAccount) {
+        mCurrentRocketChatAccount->memoryManager()->startClearApplicationSettingsModelTimer();
+    }
+}
 
 void ApplicationsSettingsWidget::slotFilterChanged()
 {

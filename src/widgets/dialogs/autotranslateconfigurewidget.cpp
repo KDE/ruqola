@@ -17,7 +17,7 @@
 
 AutoTranslateConfigureWidget::AutoTranslateConfigureWidget(RocketChatAccount *account, QWidget *parent)
     : QWidget(parent)
-    , mAutoTranslate(new QCheckBox(i18n("Auto-Translate"), this))
+    , mAutoTranslate(new QCheckBox(i18nc("@option:check", "Auto-Translate"), this))
     , mLanguageComboBox(new QComboBox(this))
     , mRocketChatAccount(account)
 {

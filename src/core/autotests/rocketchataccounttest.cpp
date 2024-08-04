@@ -66,6 +66,7 @@ void RocketChatAccountTest::shouldHaveDefaultValue()
     QVERIFY(w.notificationPreferences());
     QVERIFY(w.appsMarketPlaceModel());
     QVERIFY(w.e2eKeyManager());
+    QVERIFY(w.memoryManager());
 }
 
 #include "moc_rocketchataccounttest.cpp"
