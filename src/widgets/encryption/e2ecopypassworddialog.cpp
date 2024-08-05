@@ -8,6 +8,7 @@
 #include "e2ecopypasswordwidget.h"
 #include <KLocalizedString>
 #include <QDialogButtonBox>
+#include <QPushButton>
 #include <QVBoxLayout>
 
 E2eCopyPasswordDialog::E2eCopyPasswordDialog(RocketChatAccount *account, QWidget *parent)
@@ -26,6 +27,11 @@ E2eCopyPasswordDialog::E2eCopyPasswordDialog(RocketChatAccount *account, QWidget
     connect(buttonBox, &QDialogButtonBox::rejected, this, &E2eCopyPasswordDialog::reject);
     connect(buttonBox, &QDialogButtonBox::accepted, this, &E2eCopyPasswordDialog::accept);
     mainLayout->addWidget(buttonBox);
+    QPushButton *okButton = buttonBox->button(QDialogButtonBox::Ok);
+    okButton->setText(i18nc("@action:button", "I saved my Password"));
+
+    QPushButton *cancelButton = buttonBox->button(QDialogButtonBox::Cancel);
+    cancelButton->setText(i18nc("@action:button", "Do it later"));
 }
 
 E2eCopyPasswordDialog::~E2eCopyPasswordDialog() = default;
