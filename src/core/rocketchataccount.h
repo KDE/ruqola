@@ -673,6 +673,7 @@ private:
     LIBRUQOLACORE_NO_EXPORT void slotReconnectToDdpServer();
     LIBRUQOLACORE_NO_EXPORT void slotVerifyKeysDone();
     LIBRUQOLACORE_NO_EXPORT void slotCleanRoomHistory();
+    LIBRUQOLACORE_NO_EXPORT void slotDDpLoginStatusChanged();
 
     AccountRoomSettings *const mAccountRoomSettings;
 
