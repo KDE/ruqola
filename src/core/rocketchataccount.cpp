@@ -682,15 +682,11 @@ AuthenticationManager::LoginStatus RocketChatAccount::loginStatus()
             if (mRestApi->authenticationManager()) {
                 return mRestApi->authenticationManager()->loginStatus();
             }
-        } else {
-            return AuthenticationManager::LoggedOut;
         }
     } else {
         // TODO: DDP API should exist as soon as the hostname is known
         if (mDdp) {
             return ddp()->authenticationManager()->loginStatus();
-        } else {
-            return AuthenticationManager::LoggedOut;
         }
     }
     return AuthenticationManager::LoggedOut;
