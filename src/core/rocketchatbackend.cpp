@@ -638,6 +638,10 @@ void RocketChatBackend::slotChanged(const QJsonObject &object)
             }
             mRocketChatAccount->parseVideoConference(contents);
             qCDebug(RUQOLA_LOG) << "stream-notify-user : message event " << eventname << " contents " << contents;
+        } else if (eventname.endsWith("/force_logout"_L1)) {
+            qDebug() << " FORCE LOGOUT!!!!";
+            mRocketChatAccount->logOut();
+            qCDebug(RUQOLA_LOG) << "stream-notify-user : message event " << eventname << " contents " << contents;
         } else {
             if (mRocketChatAccount->ruqolaLogger()) {
                 QJsonDocument d;
