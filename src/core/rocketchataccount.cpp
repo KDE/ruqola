@@ -649,7 +649,9 @@ DDPClient *RocketChatAccount::ddp()
 {
     if (!mDdp) {
         mDdp = new DDPClient(this, this);
-        if (!Ruqola::self()->useRestApiLogin()) {
+        if (Ruqola::self()->useRestApiLogin()) {
+            connect(mDdp->authenticationManager(), &DDPAuthenticationManager::loginStatusChanged, this, &RocketChatAccount::slotDDpLoginStatusChanged);
+        } else {
             connect(mDdp->authenticationManager(), &DDPAuthenticationManager::loginStatusChanged, this, &RocketChatAccount::slotLoginStatusChanged);
         }
         connect(mDdp, &DDPClient::connectedChanged, this, &RocketChatAccount::connectedChanged);
@@ -2654,6 +2656,19 @@ void RocketChatAccount::markMessageAsUnReadFrom(const QByteArray &messageId)
 void RocketChatAccount::markRoomAsUnRead(const QByteArray &roomId)
 {
     restApi()->markRoomAsUnRead(roomId);
+}
+
+void RocketChatAccount::slotDDpLoginStatusChanged()
+{
+    if (mRestApi && mDdp) {
+        if (mDdp->authenticationManager()->loginStatus() == AuthenticationManager::LoggedOut) {
+            // qDebug() << " CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC login rest" <<
+            // mRestApi->authenticationManager()->loginStatus(); qDebug() << " CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC login ddp"
+            // << mDdp->authenticationManager()->loginStatus();
+            mRestApi->authenticationManager()->setLoginStatus(mDdp->authenticationManager()->loginStatus());
+        }
+    }
+    slotLoginStatusChanged();
 }
 
 void RocketChatAccount::slotLoginStatusChanged()
