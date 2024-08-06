@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-06-10 02:50+0000\n"
-"PO-Revision-Date: 2024-06-20 03:08+0900\n"
+"PO-Revision-Date: 2024-08-06 05:33+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
 "Language: zh_TW\n"
@@ -1824,7 +1824,7 @@ msgstr ""
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:272
 #, kde-format
 msgid "'%1' is already in use :("
-msgstr ""
+msgstr "「%1」已被使用 :("
 
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:274
 #, kde-format
@@ -1839,12 +1839,12 @@ msgstr ""
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:278
 #, kde-format
 msgid "Failed to extract import file."
-msgstr ""
+msgstr "解開匯入檔時失敗。"
 
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:280
 #, kde-format
 msgid "Imported file seems to be empty."
-msgstr ""
+msgstr "匯入的檔案看起來是空的。"
 
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:282
 #, kde-format
@@ -4229,10 +4229,9 @@ msgstr ""
 "定外部屬性。\n"
 
 #: widgets/administratorsettingsdialog/conferencecall/conferencecallsettingswidget.cpp:24
-#, fuzzy, kde-format
-#| msgid "Delete Room"
+#, kde-format
 msgid "Default Provider"
-msgstr "刪除聊天室"
+msgstr "預設提供者"
 
 #: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:22
 #, fuzzy, kde-format
@@ -5960,12 +5959,12 @@ msgstr ""
 #: widgets/administratorsettingsdialog/troubleshoot/troubleshootsettingswidget.cpp:17
 #, kde-format
 msgid "Disable Sessions Monitor"
-msgstr ""
+msgstr "停用工作階段監控"
 
 #: widgets/administratorsettingsdialog/troubleshoot/troubleshootsettingswidget.cpp:18
 #, kde-format
 msgid "Disable Livechat Activity Monitor"
-msgstr ""
+msgstr "停用即時聊天活動監控"
 
 #: widgets/administratorsettingsdialog/troubleshoot/troubleshootsettingswidget.cpp:19
 #, kde-format
@@ -6363,7 +6362,7 @@ msgstr "不在頻道中"
 #, kde-format
 msgctxt "@title:window"
 msgid "Start a Call"
-msgstr ""
+msgstr "開始通話"
 
 #: widgets/conferencecalldialog/conferencecalldialog.cpp:26
 #, kde-format
@@ -6407,10 +6406,9 @@ msgid "Conference Call Information"
 msgstr "會議通話資訊"
 
 #: widgets/conferencecalldialog/conferenceinfowidget.cpp:44
-#, fuzzy, kde-format
-#| msgid "Server Url:"
+#, kde-format
 msgid "Meeting URL:"
-msgstr "伺服器網址："
+msgstr "會議網址："
 
 #: widgets/conferencecalldialog/conferenceinfowidget.cpp:45
 #, kde-format
@@ -6418,10 +6416,9 @@ msgid "Provider:"
 msgstr "提供者："
 
 #: widgets/configuredialog/accountservertreewidget.cpp:205
-#, fuzzy, kde-format
-#| msgid "Configure Activities"
+#, kde-format
 msgid "Display Account in Current Activity"
-msgstr "設定活動"
+msgstr "在目前活動中顯示帳戶"
 
 #: widgets/configuredialog/configureaccountserverwidget.cpp:29
 #, kde-format
@@ -6449,10 +6446,9 @@ msgstr "變更…"
 
 #. i18n: ectx: property (text), widget (QCheckBox, configureCurrentActivity)
 #: widgets/configuredialog/configureaccountserverwidget.ui:93
-#, fuzzy, kde-format
-#| msgid "Configure Activities"
+#, kde-format
 msgid "Configure Accounts in Current Activity"
-msgstr "設定活動"
+msgstr "設定目前活動中的帳戶"
 
 #: widgets/configuredialog/configurefontwidget.cpp:17
 #, kde-format
@@ -6604,7 +6600,7 @@ msgstr "設定活動"
 #: widgets/configurenewserver/configureactivitieswidget.cpp:55
 #, kde-format
 msgid "Limit to the selected activities:"
-msgstr ""
+msgstr "限制於所選活動："
 
 #: widgets/configurenewserver/configureactivitieswidget.cpp:61
 #, kde-format
@@ -6613,6 +6609,8 @@ msgid ""
 "you are in those activities. Furthermore, when you switch to an activity it "
 "should not be available in, it will automatically be hidden."
 msgstr ""
+"若限制此帳戶於特定活動，則僅當使用者處於該活動中時，帳戶才會在 Ruqola 中顯"
+"示。此外，當您切換到其他非指定活動時，帳戶會自動隱藏。"
 
 #: widgets/configurenewserver/createnewserverdialog.cpp:29
 #, kde-format
@@ -6621,8 +6619,7 @@ msgid "Add Server"
 msgstr "新增伺服器"
 
 #: widgets/configurenewserver/createnewserverdialog.cpp:49
-#, fuzzy, kde-format
-#| msgid "Configure Activities"
+#, kde-format
 msgctxt "@action:button"
 msgid "Configure Activities"
 msgstr "設定活動"
