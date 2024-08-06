@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-08-03 00:39+0000\n"
+"POT-Creation-Date: 2024-08-06 00:39+0000\n"
 "PO-Revision-Date: 2023-11-24 12:18+0300\n"
 "Last-Translator: Olesya Gerasimenko <translation-team@basealt.ru>\n"
 "Language-Team: Basealt Translation Team\n"
@@ -1480,12 +1480,12 @@ msgctxt "We need a space between after </strong>"
 msgid "<strong>%1</strong> are typing..."
 msgstr "<strong>%1</strong> печатают..."
 
-#: core/rocketchataccount.cpp:3011
+#: core/rocketchataccount.cpp:3022
 #, kde-format
 msgid "Export Messages"
 msgstr "Экспорт сообщений"
 
-#: core/rocketchataccount.cpp:3012
+#: core/rocketchataccount.cpp:3023
 #, kde-format
 msgid "Your email has been queued for sending."
 msgstr "Электронное письмо помещено в очередь для отправки."
@@ -8713,12 +8713,25 @@ msgstr[1] "%1 обсуждения в комнате (всего: %2)"
 msgstr[2] "%1 обсуждений в комнате (всего: %2)"
 msgstr[3] "%1 обсуждение в комнате (всего: %2)"
 
-#: widgets/encryption/e2ecopypassworddialog.cpp:17
+#: widgets/encryption/e2ecopypassworddialog.cpp:18
 #, fuzzy, kde-format
 #| msgid "Password"
 msgctxt "@title:window"
 msgid "Copy Password"
 msgstr "Пароль"
+
+#: widgets/encryption/e2ecopypassworddialog.cpp:31
+#, fuzzy, kde-format
+#| msgid "Invalid Password"
+msgctxt "@action:button"
+msgid "I saved my Password"
+msgstr "Неверный пароль"
+
+#: widgets/encryption/e2ecopypassworddialog.cpp:34
+#, kde-format
+msgctxt "@action:button"
+msgid "Do it later"
+msgstr ""
 
 #: widgets/encryption/e2ecopypasswordwidget.cpp:31
 #, kde-format

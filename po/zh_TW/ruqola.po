@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-08-03 00:39+0000\n"
-"PO-Revision-Date: 2024-06-20 03:08+0900\n"
+"POT-Creation-Date: 2024-08-06 00:39+0000\n"
+"PO-Revision-Date: 2024-08-06 05:33+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
 "Language: zh_TW\n"
@@ -191,7 +191,7 @@ msgstr "認證"
 #: core/apps/appsmarketplaceinfo.cpp:352
 #, kde-format
 msgid "Homepage"
-msgstr ""
+msgstr "首頁"
 
 #: core/apps/appsmarketplaceinfo.cpp:358
 #, fuzzy, kde-format
@@ -1433,12 +1433,12 @@ msgctxt "We need a space between after </strong>"
 msgid "<strong>%1</strong> are typing..."
 msgstr ""
 
-#: core/rocketchataccount.cpp:3011
+#: core/rocketchataccount.cpp:3022
 #, kde-format
 msgid "Export Messages"
 msgstr "匯出訊息"
 
-#: core/rocketchataccount.cpp:3012
+#: core/rocketchataccount.cpp:3023
 #, kde-format
 msgid "Your email has been queued for sending."
 msgstr ""
@@ -1849,7 +1849,7 @@ msgstr ""
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:272
 #, kde-format
 msgid "'%1' is already in use :("
-msgstr ""
+msgstr "「%1」已被使用 :("
 
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:274
 #, kde-format
@@ -1864,12 +1864,12 @@ msgstr ""
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:278
 #, kde-format
 msgid "Failed to extract import file."
-msgstr ""
+msgstr "解開匯入檔時失敗。"
 
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:280
 #, kde-format
 msgid "Imported file seems to be empty."
-msgstr ""
+msgstr "匯入的檔案看起來是空的。"
 
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:282
 #, kde-format
@@ -4452,10 +4452,9 @@ msgstr ""
 "定外部屬性。\n"
 
 #: widgets/administratorsettingsdialog/conferencecall/conferencecallsettingswidget.cpp:24
-#, fuzzy, kde-format
-#| msgid "Delete Room"
+#, kde-format
 msgid "Default Provider"
-msgstr "刪除聊天室"
+msgstr "預設提供者"
 
 #: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:22
 #, fuzzy, kde-format
@@ -6317,17 +6316,16 @@ msgid "Disable Instance Broadcast"
 msgstr ""
 
 #: widgets/administratorsettingsdialog/troubleshoot/troubleshootsettingswidget.cpp:17
-#, fuzzy, kde-format
-#| msgid "Disable Statistics Generator"
+#, kde-format
 msgctxt "@option:check"
 msgid "Disable Sessions Monitor"
-msgstr "停用統計資料產生器"
+msgstr "停用工作階段監控"
 
 #: widgets/administratorsettingsdialog/troubleshoot/troubleshootsettingswidget.cpp:18
 #, kde-format
 msgctxt "@option:check"
 msgid "Disable Livechat Activity Monitor"
-msgstr ""
+msgstr "停用即時聊天活動監控"
 
 #: widgets/administratorsettingsdialog/troubleshoot/troubleshootsettingswidget.cpp:19
 #, fuzzy, kde-format
@@ -6681,12 +6679,12 @@ msgstr ""
 #: widgets/applicationssettingsdialog/applicationssettingspricecombobox.cpp:14
 #, kde-format
 msgid "Free Apps"
-msgstr ""
+msgstr "免費應用程式"
 
 #: widgets/applicationssettingsdialog/applicationssettingspricecombobox.cpp:15
 #, kde-format
 msgid "Paid Apps"
-msgstr ""
+msgstr "付費應用程式"
 
 #: widgets/applicationssettingsdialog/applicationssettingssearchwidget.cpp:88
 #, fuzzy, kde-format
@@ -6714,22 +6712,22 @@ msgstr "應用程式…"
 #: widgets/applicationssettingsdialog/applicationssettingssortingcombobox.cpp:12
 #, kde-format
 msgid "A-Z"
-msgstr ""
+msgstr "A 到 Z"
 
 #: widgets/applicationssettingsdialog/applicationssettingssortingcombobox.cpp:13
 #, kde-format
 msgid "Z-A"
-msgstr ""
+msgstr "Z 到 A"
 
 #: widgets/applicationssettingsdialog/applicationssettingssortingcombobox.cpp:14
 #, kde-format
 msgid "Most recent updated"
-msgstr ""
+msgstr "最近更新"
 
 #: widgets/applicationssettingsdialog/applicationssettingssortingcombobox.cpp:15
 #, kde-format
 msgid "Least recent updated"
-msgstr ""
+msgstr "最久以前更新"
 
 #: widgets/applicationssettingsdialog/applicationssettingsstatuscombobox.cpp:13
 #, fuzzy, kde-format
@@ -6943,11 +6941,10 @@ msgstr "不在頻道中"
 #, kde-format
 msgctxt "@title:window"
 msgid "Start a Call"
-msgstr ""
+msgstr "開始通話"
 
 #: widgets/conferencecalldialog/conferencecalldialog.cpp:26
-#, fuzzy, kde-format
-#| msgid "Start"
+#, kde-format
 msgctxt "@action:button"
 msgid "Start"
 msgstr "開始"
@@ -6989,10 +6986,9 @@ msgid "Conference Call Information"
 msgstr "會議通話資訊"
 
 #: widgets/conferencecalldialog/conferenceinfowidget.cpp:44
-#, fuzzy, kde-format
-#| msgid "Server Url:"
+#, kde-format
 msgid "Meeting URL:"
-msgstr "伺服器網址："
+msgstr "會議網址："
 
 #: widgets/conferencecalldialog/conferenceinfowidget.cpp:45
 #, kde-format
@@ -7000,10 +6996,9 @@ msgid "Provider:"
 msgstr "提供者："
 
 #: widgets/configuredialog/accountservertreewidget.cpp:205
-#, fuzzy, kde-format
-#| msgid "Configure Activities"
+#, kde-format
 msgid "Display Account in Current Activity"
-msgstr "設定活動"
+msgstr "在目前活動中顯示帳戶"
 
 #: widgets/configuredialog/configureaccountserverwidget.cpp:29
 #, kde-format
@@ -7037,10 +7032,9 @@ msgstr "移除"
 
 #. i18n: ectx: property (text), widget (QCheckBox, configureCurrentActivity)
 #: widgets/configuredialog/configureaccountserverwidget.ui:93
-#, fuzzy, kde-format
-#| msgid "Configure Activities"
+#, kde-format
 msgid "Configure Accounts in Current Activity"
-msgstr "設定活動"
+msgstr "設定目前活動中的帳戶"
 
 #: widgets/configuredialog/configurefontwidget.cpp:17
 #, fuzzy, kde-format
@@ -7111,8 +7105,7 @@ msgid "Use local dataBase (experimental)"
 msgstr "將訊息儲存在本地資料庫（實驗性）"
 
 #: widgets/configuredialog/configuregeneralwidget.cpp:25
-#, fuzzy, kde-format
-#| msgid "Enable Plasma Activities"
+#, kde-format
 msgctxt "@option:check"
 msgid "Enable Plasma Activities"
 msgstr "啟用 Plasma 活動"
@@ -7218,7 +7211,7 @@ msgstr "設定活動"
 #, kde-format
 msgctxt "@option:check"
 msgid "Limit to the selected activities:"
-msgstr ""
+msgstr "限制於所選活動："
 
 #: widgets/configurenewserver/configureactivitieswidget.cpp:62
 #, kde-format
@@ -7228,6 +7221,8 @@ msgid ""
 "you are in those activities. Furthermore, when you switch to an activity it "
 "should not be available in, it will automatically be hidden."
 msgstr ""
+"若限制此帳戶於特定活動，則僅當使用者處於該活動中時，帳戶才會在 Ruqola 中顯"
+"示。此外，當您切換到其他非指定活動時，帳戶會自動隱藏。"
 
 #: widgets/configurenewserver/createnewserverdialog.cpp:29
 #, kde-format
@@ -7236,8 +7231,7 @@ msgid "Add Server"
 msgstr "新增伺服器"
 
 #: widgets/configurenewserver/createnewserverdialog.cpp:49
-#, fuzzy, kde-format
-#| msgid "Configure Activities"
+#, kde-format
 msgctxt "@action:button"
 msgid "Configure Activities"
 msgstr "設定活動"
@@ -8332,11 +8326,24 @@ msgid "%1 Discussion in room (Total: %2)"
 msgid_plural "%1 Discussions in room (Total: %2)"
 msgstr[0] "聊天室中有 %1 個討論區 (總計：%2)"
 
-#: widgets/encryption/e2ecopypassworddialog.cpp:17
+#: widgets/encryption/e2ecopypassworddialog.cpp:18
 #, kde-format
 msgctxt "@title:window"
 msgid "Copy Password"
 msgstr "複製密碼"
+
+#: widgets/encryption/e2ecopypassworddialog.cpp:31
+#, fuzzy, kde-format
+#| msgid "Invalid Password"
+msgctxt "@action:button"
+msgid "I saved my Password"
+msgstr "不正確的密碼"
+
+#: widgets/encryption/e2ecopypassworddialog.cpp:34
+#, kde-format
+msgctxt "@action:button"
+msgid "Do it later"
+msgstr ""
 
 #: widgets/encryption/e2ecopypasswordwidget.cpp:31
 #, kde-format
