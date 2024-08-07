@@ -914,6 +914,15 @@ void RoomWidget::setCurrentRocketChatAccount(RocketChatAccount *account)
         disconnect(mCurrentRocketChatAccount, &RocketChatAccount::needToDecryptE2EPassword, this, &RoomWidget::createE2eDecodeEncryptionKeyWidget);
     }
 
+    // Hide them
+    if (mE2eSaveEncryptionKeyWidget) {
+        mE2eSaveEncryptionKeyWidget->animatedHide();
+    }
+
+    if (mE2eDecodeEncryptionKeyWidget) {
+        mE2eDecodeEncryptionKeyWidget->animatedHide();
+    }
+
     mCurrentRocketChatAccount = account;
     mRoomWidgetBase->setCurrentRocketChatAccount(account);
     connect(mCurrentRocketChatAccount, &RocketChatAccount::openThreadRequested, this, &RoomWidget::slotOpenThreadRequested);
