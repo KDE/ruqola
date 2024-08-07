@@ -105,13 +105,13 @@ RoomWidget::RoomWidget(QWidget *parent)
 
     connect(mRoomWidgetBase, &RoomWidgetBase::errorMessage, this, [this](const QString &message) {
         if (!mPluginTextMessageWidget) {
-            createPluginTextMessateWidget();
+            createPluginTextMessageWidget();
         }
         mPluginTextMessageWidget->slotShareError(message);
     });
     connect(mRoomWidgetBase, &RoomWidgetBase::successMessage, this, [this](const QString &message) {
         if (!mPluginTextMessageWidget) {
-            createPluginTextMessateWidget();
+            createPluginTextMessageWidget();
         }
         mPluginTextMessageWidget->slotShareSuccess(message);
     });
@@ -147,7 +147,7 @@ RoomWidget::~RoomWidget()
     delete mRoom;
 }
 
-void RoomWidget::createPluginTextMessateWidget()
+void RoomWidget::createPluginTextMessageWidget()
 {
     mPluginTextMessageWidget = new PluginTextMessageWidget(this);
     mPluginTextMessageWidget->setObjectName(QStringLiteral("mPluginTextMessageWidget"));

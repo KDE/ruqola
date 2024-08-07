@@ -109,7 +109,7 @@ private:
     LIBRUQOLAWIDGETS_NO_EXPORT void createOtrWidget();
     LIBRUQOLAWIDGETS_NO_EXPORT void createOffLineWidget();
     LIBRUQOLAWIDGETS_NO_EXPORT void createRoomReconnectInfoWidget();
-    LIBRUQOLAWIDGETS_NO_EXPORT void createPluginTextMessateWidget();
+    LIBRUQOLAWIDGETS_NO_EXPORT void createPluginTextMessageWidget();
     LIBRUQOLAWIDGETS_NO_EXPORT void createE2eSaveEncryptionKeyWidget();
     LIBRUQOLAWIDGETS_NO_EXPORT void slotGenerateNewPassword();
     LIBRUQOLAWIDGETS_NO_EXPORT void createE2eDecodeEncryptionKeyFailedWidget();
