@@ -6,11 +6,15 @@
 
 #include "textconverter.h"
 #include "colorsandmessageviewstyle.h"
+#include "config-ruqola.h"
 #include "emoticons/emojimanager.h"
 #include "messagecache.h"
 #include "messages/message.h"
 #include "ruqola_texttohtml_debug.h"
 #include "utils.h"
+#if USE_CMARK_RENDERING_TEXT
+#include "textconvertercmark.h"
+#endif
 
 #include "ktexttohtmlfork/ruqolaktexttohtml.h"
 #include "syntaxhighlightingmanager.h"
@@ -321,6 +325,9 @@ QString generateRichText(const QString &str,
 
 QString TextConverter::convertMessageText(const ConvertMessageTextSettings &settings, QByteArray &needUpdateMessageId, int &recusiveIndex)
 {
+#if USE_CMARK_RENDERING_TEXT
+    return TextConverterCMark::convertMessageText(settings, needUpdateMessageId, recusiveIndex);
+#else
     if (!settings.emojiManager) {
         qCWarning(RUQOLA_TEXTTOHTML_LOG) << "Emojimanager is null";
     }
@@ -480,4 +487,5 @@ QString TextConverter::convertMessageText(const ConvertMessageTextSettings &sett
     iterateOverRegions(str, QStringLiteral("```"), addCodeChunk, addNonCodeChunk);
 
     return "<qt>"_L1 + quotedMessage + richText + "</qt>"_L1;
+#endif
 }

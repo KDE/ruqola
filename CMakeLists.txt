@@ -114,6 +114,9 @@ if(TEXT_CONVERTER_CMARK_SUPPORT)
         "Allow to generate html from markdown"
         TYPE OPTIONAL
     )
+    if(TARGET cmark::cmark)
+	set(USE_CMARK_RENDERING_TEXT true)
+    endif()
 endif()
 
 find_package(Qt6 ${REQUIRED_QT_VERSION} REQUIRED COMPONENTS Core Gui Widgets WebSockets Network NetworkAuth MultimediaWidgets Sql)
