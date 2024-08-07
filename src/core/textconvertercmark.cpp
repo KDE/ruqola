@@ -319,258 +319,8 @@ QString generateRichText(const QString &str,
 }
 }
 
-const char *addHighlighter(const char *str, const TextConverter::ConvertMessageTextSettings &settings)
+QString addHighlighter(const QString &str, const TextConverter::ConvertMessageTextSettings &settings)
 {
-    QString richText;
-    QTextStream richTextStream(&richText);
-    const QColor codeBackgroundColor = ColorsAndMessageViewStyle::self().schemeView().background(KColorScheme::AlternateBackground).color();
-    const auto codeBorderColor = ColorsAndMessageViewStyle::self().schemeView().foreground(KColorScheme::InactiveText).color().name();
-
-    QString highlighted;
-    QTextStream stream(&highlighted);
-    TextHighlighter highlighter(&stream);
-    const auto useHighlighter = SyntaxHighlightingManager::self()->syntaxHighlightingInitialized();
-
-    if (useHighlighter) {
-        auto &repo = SyntaxHighlightingManager::self()->repo();
-        const auto theme = (codeBackgroundColor.lightness() < 128) ? repo.defaultTheme(KSyntaxHighlighting::Repository::DarkTheme)
-                                                                   : repo.defaultTheme(KSyntaxHighlighting::Repository::LightTheme);
-        // qDebug() << " theme .n am" << theme.name();
-        highlighter.setTheme(theme);
-    }
-    auto highlight = [&](const QString &codeBlock) {
-        if (!useHighlighter) {
-            return codeBlock;
-        }
-        stream.reset();
-        stream.seek(0);
-        highlighted.clear();
-        highlighter.highlight(codeBlock);
-        return highlighted;
-    };
-
-    auto addCodeChunk = [&](QString chunk) {
-        const auto language = [&]() {
-            const auto newline = chunk.indexOf(QLatin1Char('\n'));
-            if (newline == -1) {
-                return QString();
-            }
-            return chunk.left(newline);
-        }();
-
-        auto definition = SyntaxHighlightingManager::self()->def(language);
-        if (definition.isValid()) {
-            chunk.remove(0, language.size() + 1);
-        } else {
-            definition = SyntaxHighlightingManager::self()->defaultDef();
-        }
-
-        highlighter.setDefinition(std::move(definition));
-        // Qt's support for borders is limited to tables, so we have to jump through some hoops...
-        richTextStream << "<table><tr><td style='background-color:"_L1 << codeBackgroundColor.name() << "; padding: 5px; border: 1px solid "_L1
-                       << codeBorderColor << "'>"_L1 << highlight(chunk) << "</td></tr></table>"_L1;
-    };
-
-    auto addInlineCodeChunk = [&](const QString &chunk) {
-        richTextStream << "<code style='background-color:"_L1 << codeBackgroundColor.name() << "'>"_L1 << chunk.toHtmlEscaped() << "</code>"_L1;
-    };
-
-    auto addTextChunk = [&](const QString &chunk) {
-        auto htmlChunk = generateRichText(chunk, settings.userName, settings.highlightWords, settings.mentions, settings.channels, settings.searchedText);
-        if (settings.emojiManager) {
-            settings.emojiManager->replaceEmojis(&htmlChunk);
-        }
-        richTextStream << htmlChunk;
-    };
-    auto addInlineQuoteCodeChunk = [&](const QString &chunk) {
-        auto htmlChunk = generateRichText(chunk, settings.userName, settings.highlightWords, settings.mentions, settings.channels, settings.searchedText);
-        if (settings.emojiManager) {
-            settings.emojiManager->replaceEmojis(&htmlChunk);
-        }
-        richTextStream << "<code style='background-color:"_L1 << codeBackgroundColor.name() << "'>"_L1 << htmlChunk << "</code>"_L1;
-    };
-
-    auto addInlineQuoteCodeNewLineChunk = [&]() {
-        richTextStream << "<br />"_L1;
-    };
-
-    auto addInlineQuoteChunk = [&](const QString &chunk) {
-        iterateOverEndLineRegions(chunk, QStringLiteral(">"), addInlineQuoteCodeChunk, addTextChunk, addInlineQuoteCodeNewLineChunk);
-    };
-    auto addNonCodeChunk = [&](QString chunk) {
-        chunk = chunk.trimmed();
-        if (chunk.isEmpty()) {
-            return;
-        }
-
-        richTextStream << "<div>"_L1;
-        iterateOverRegions(chunk, QStringLiteral("`"), addInlineCodeChunk, addInlineQuoteChunk);
-        richTextStream << "</div>"_L1;
-    };
-
-    iterateOverRegions(QString::fromUtf8(str), QStringLiteral("```"), addCodeChunk, addNonCodeChunk);
-
-    qDebug() << " *************************************richText " << richText;
-    return richText.toUtf8().constData();
-}
-
-#include "cmark.h"
-#include <iostream>
-char *TextConverterCMark::convertMessageTextCMark(const TextConverter::ConvertMessageTextSettings &settings)
-{
-    cmark_node *doc = cmark_parse_document(settings.str.toUtf8().constData(), settings.str.length(), CMARK_OPT_DEFAULT);
-    cmark_iter *iter = cmark_iter_new(doc);
-    cmark_event_type ev_type;
-
-    while ((ev_type = cmark_iter_next(iter)) != CMARK_EVENT_DONE) {
-        cmark_node *node = cmark_iter_get_node(iter);
-        std::cout << "1 " << cmark_node_get_type_string(node) << std::endl;
-        if ((cmark_node_get_type(node) == CMARK_NODE_TEXT)) {
-            const char *literal = cmark_node_get_literal(node);
-            std::cout << " LITERAL**********************" << literal << std::endl;
-            // std::cout << " " <<  cmark_node_set_literal(node, "sss") << std::endl;
-            std::cout << "CVVVVVVVVVVVVVVVVVV " << addHighlighter(literal, settings) << std::endl;
-            QString ccc = QString::fromUtf8(addHighlighter(literal, settings));
-            qDebug() << " ccc " << ccc;
-            cmark_node *docCCC = cmark_parse_document(ccc.toUtf8().constData(), ccc.length(), CMARK_OPT_DEFAULT);
-            cmark_iter *iter = cmark_iter_new(docCCC);
-            cmark_event_type ev_type;
-
-            while ((ev_type = cmark_iter_next(iter)) != CMARK_EVENT_DONE) {
-                cmark_node *node = cmark_iter_get_node(iter);
-                std::cout << "SSSSSSSSSSSSSSSSss " << cmark_node_get_type_string(node) << std::endl;
-            }
-
-            qDebug() << " ccc.length() " << ccc.length();
-            std::cout << " docCCC " << docCCC << std::endl;
-            cmark_node_replace(node, docCCC);
-            // cmark_node_set_literal(node, addHighlighter(literal, settings));
-        } else if ((cmark_node_get_type(node) == CMARK_NODE_CODE)) {
-            const char *literal = cmark_node_get_literal(node);
-            std::cout << " NODE_CODE**********************" << literal << std::endl;
-            const QString ccc = QString::fromUtf8(addHighlighter(literal, settings));
-            qDebug() << " ccc.length() " << ccc.length();
-            cmark_node *docCCC = cmark_parse_document(ccc.toUtf8().constData(), ccc.length(), CMARK_OPT_DEFAULT);
-
-            cmark_iter *iter = cmark_iter_new(docCCC);
-            cmark_event_type ev_type;
-
-            while ((ev_type = cmark_iter_next(iter)) != CMARK_EVENT_DONE) {
-                cmark_node *node = cmark_iter_get_node(iter);
-                std::cout << "SSSSSSSSSSSSSSSSss " << cmark_node_get_type_string(node) << std::endl;
-            }
-
-            cmark_node_replace(node, docCCC);
-            // cmark_node_set_literal(node, addHighlighter(literal, settings));
-        } else if ((cmark_node_get_type(node) == CMARK_NODE_CODE_BLOCK)) {
-            const char *literal = cmark_node_get_literal(node);
-            std::cout << " NODE_BLOCK_QUOTE**********************" << literal << std::endl;
-            QString ccc = QString::fromUtf8(addHighlighter(literal, settings));
-            qDebug() << " ccc.length() " << ccc.length();
-            cmark_node *docCCC = cmark_parse_document(ccc.toUtf8().constData(), ccc.length(), CMARK_OPT_DEFAULT);
-
-            cmark_iter *iter = cmark_iter_new(docCCC);
-            cmark_event_type ev_type;
-
-            while ((ev_type = cmark_iter_next(iter)) != CMARK_EVENT_DONE) {
-                cmark_node *node = cmark_iter_get_node(iter);
-                std::cout << "SSSSSSSSSSSSSSSSss " << cmark_node_get_type_string(node) << std::endl;
-            }
-
-            cmark_node_replace(node, docCCC);
-            // cmark_node_set_literal(node, addHighlighter(literal, settings));
-        }
-    }
-
-    char *html = cmark_render_html(doc, CMARK_OPT_DEFAULT | CMARK_OPT_UNSAFE);
-    std::cout << " result " << html << std::endl;
-
-    cmark_mem *allocator = cmark_get_default_mem_allocator();
-
-    // allocator->free(html);
-    cmark_iter_free(iter);
-    cmark_node_free(doc);
-
-    // char *html = cmark_markdown_to_html(str.toUtf8().constData(), str.length(), CMARK_OPT_DEFAULT);
-    return html;
-}
-
-QString TextConverterCMark::convertMessageText(const TextConverter::ConvertMessageTextSettings &settings, QByteArray &needUpdateMessageId, int &recusiveIndex)
-{
-    if (!settings.emojiManager) {
-        qCWarning(RUQOLA_TEXTTOHTML_LOG) << "Emojimanager is null";
-    }
-
-    QString quotedMessage;
-
-    QString str = settings.str;
-    // TODO we need to look at room name too as we can have it when we use "direct reply"
-    if (str.contains("[ ](http"_L1)
-        && (settings.maximumRecursiveQuotedText == -1 || (settings.maximumRecursiveQuotedText > recusiveIndex))) { // ## is there a better way?
-        const int startPos = str.indexOf(QLatin1Char('('));
-        const int endPos = str.indexOf(QLatin1Char(')'));
-        const QString url = str.mid(startPos + 1, endPos - startPos - 1);
-        // URL example https://HOSTNAME/channel/all?msg=3BR34NSG5x7ZfBa22
-        const QByteArray messageId = url.mid(url.indexOf("msg="_L1) + 4).toLatin1();
-        // qCDebug(RUQOLA_TEXTTOHTML_LOG) << "Extracted messageId" << messageId;
-        auto it = std::find_if(settings.allMessages.cbegin(), settings.allMessages.cend(), [messageId](const Message &msg) {
-            return msg.messageId() == messageId;
-        });
-        if (it != settings.allMessages.cend()) {
-            const TextConverter::ConvertMessageTextSettings newSetting(QLatin1Char('@') + (*it).username() + QStringLiteral(": ") + (*it).text(),
-                                                                       settings.userName,
-                                                                       settings.allMessages,
-                                                                       settings.highlightWords,
-                                                                       settings.emojiManager,
-                                                                       settings.messageCache,
-                                                                       (*it).mentions(),
-                                                                       (*it).channels(),
-                                                                       settings.searchedText,
-                                                                       settings.maximumRecursiveQuotedText);
-            recusiveIndex++;
-            const QString text = TextConverterCMark::convertMessageText(newSetting, needUpdateMessageId, recusiveIndex);
-            Utils::QuotedRichTextInfo info;
-            info.url = url;
-            info.richText = text;
-            info.displayTime = (*it).dateTime();
-            quotedMessage = Utils::formatQuotedRichText(std::move(info));
-            str = str.left(startPos - 3) + str.mid(endPos + 1);
-        } else {
-            if (settings.messageCache) {
-                // TODO allow to reload index when we loaded message
-                Message *msg = settings.messageCache->messageForId(messageId);
-                if (msg) {
-                    const TextConverter::ConvertMessageTextSettings newSetting(msg->text(),
-                                                                               settings.userName,
-                                                                               settings.allMessages,
-                                                                               settings.highlightWords,
-                                                                               settings.emojiManager,
-                                                                               settings.messageCache,
-                                                                               msg->mentions(),
-                                                                               msg->channels(),
-                                                                               settings.searchedText,
-                                                                               settings.maximumRecursiveQuotedText);
-                    recusiveIndex++;
-                    const QString text = TextConverterCMark::convertMessageText(newSetting, needUpdateMessageId, recusiveIndex);
-                    Utils::QuotedRichTextInfo info;
-                    info.url = url;
-                    info.richText = text;
-                    info.displayTime = msg->dateTime();
-                    quotedMessage = Utils::formatQuotedRichText(std::move(info));
-                    str = str.left(startPos - 3) + str.mid(endPos + 1);
-                } else {
-                    qCDebug(RUQOLA_TEXTTOHTML_LOG) << "Quoted message" << messageId << "not found"; // could be a very old one
-                    needUpdateMessageId = messageId;
-                }
-            }
-        }
-    }
-
-    // qDebug() << "settings.str  " << settings.str;
-    char *html = convertMessageTextCMark(settings);
-
-    return "<qt>"_L1 + QString::fromUtf8(html) + "</qt>"_L1;
-
     QString richText;
     QTextStream richTextStream(&richText);
     const QColor codeBackgroundColor = ColorsAndMessageViewStyle::self().schemeView().background(KColorScheme::AlternateBackground).color();
@@ -660,5 +410,122 @@ QString TextConverterCMark::convertMessageText(const TextConverter::ConvertMessa
 
     iterateOverRegions(str, QStringLiteral("```"), addCodeChunk, addNonCodeChunk);
 
-    return "<qt>"_L1 + quotedMessage + richText + "</qt>"_L1;
+    qDebug() << " *************************************richText " << richText;
+    return richText;
+}
+
+#include "cmark.h"
+#include <iostream>
+char *TextConverterCMark::convertMessageTextCMark(const TextConverter::ConvertMessageTextSettings &settings)
+{
+    cmark_node *doc = cmark_parse_document(settings.str.toUtf8().constData(), settings.str.length(), CMARK_OPT_DEFAULT);
+    cmark_iter *iter = cmark_iter_new(doc);
+    cmark_event_type ev_type;
+
+    while ((ev_type = cmark_iter_next(iter)) != CMARK_EVENT_DONE) {
+        cmark_node *node = cmark_iter_get_node(iter);
+        std::cout << "1 " << cmark_node_get_type_string(node) << std::endl;
+        if ((cmark_node_get_type(node) == CMARK_NODE_TEXT)) {
+        } else if ((cmark_node_get_type(node) == CMARK_NODE_CODE)) {
+        } else if ((cmark_node_get_type(node) == CMARK_NODE_CODE_BLOCK)) {
+            const char *literal = cmark_node_get_literal(node);
+            const QString f = QStringLiteral("```") + QString::fromUtf8(literal) + QStringLiteral("```");
+            const QString ccc = addHighlighter(f, settings);
+            cmark_node *p = cmark_node_new(CMARK_NODE_PARAGRAPH);
+
+            cmark_node *fff = cmark_node_new(CMARK_NODE_HTML_INLINE);
+            cmark_node_set_literal(fff, ccc.toUtf8().constData());
+            cmark_node_prepend_child(p, fff);
+
+            cmark_node_replace(node, p);
+        }
+    }
+
+    char *html = cmark_render_html(doc, CMARK_OPT_DEFAULT | CMARK_OPT_UNSAFE);
+    /// std::cout << " result " << html << std::endl;
+
+    cmark_iter_free(iter);
+    cmark_node_free(doc);
+    return html;
+}
+
+QString TextConverterCMark::convertMessageText(const TextConverter::ConvertMessageTextSettings &settings, QByteArray &needUpdateMessageId, int &recusiveIndex)
+{
+    if (!settings.emojiManager) {
+        qCWarning(RUQOLA_TEXTTOHTML_LOG) << "Emojimanager is null";
+    }
+
+    QString quotedMessage;
+
+    QString str = settings.str;
+    // TODO we need to look at room name too as we can have it when we use "direct reply"
+    if (str.contains("[ ](http"_L1)
+        && (settings.maximumRecursiveQuotedText == -1 || (settings.maximumRecursiveQuotedText > recusiveIndex))) { // ## is there a better way?
+        const int startPos = str.indexOf(QLatin1Char('('));
+        const int endPos = str.indexOf(QLatin1Char(')'));
+        const QString url = str.mid(startPos + 1, endPos - startPos - 1);
+        // URL example https://HOSTNAME/channel/all?msg=3BR34NSG5x7ZfBa22
+        const QByteArray messageId = url.mid(url.indexOf("msg="_L1) + 4).toLatin1();
+        // qCDebug(RUQOLA_TEXTTOHTML_LOG) << "Extracted messageId" << messageId;
+        auto it = std::find_if(settings.allMessages.cbegin(), settings.allMessages.cend(), [messageId](const Message &msg) {
+            return msg.messageId() == messageId;
+        });
+        if (it != settings.allMessages.cend()) {
+            const TextConverter::ConvertMessageTextSettings newSetting(QLatin1Char('@') + (*it).username() + QStringLiteral(": ") + (*it).text(),
+                                                                       settings.userName,
+                                                                       settings.allMessages,
+                                                                       settings.highlightWords,
+                                                                       settings.emojiManager,
+                                                                       settings.messageCache,
+                                                                       (*it).mentions(),
+                                                                       (*it).channels(),
+                                                                       settings.searchedText,
+                                                                       settings.maximumRecursiveQuotedText);
+            recusiveIndex++;
+            const QString text = TextConverterCMark::convertMessageText(newSetting, needUpdateMessageId, recusiveIndex);
+            Utils::QuotedRichTextInfo info;
+            info.url = url;
+            info.richText = text;
+            info.displayTime = (*it).dateTime();
+            quotedMessage = Utils::formatQuotedRichText(std::move(info));
+            str = str.left(startPos - 3) + str.mid(endPos + 1);
+        } else {
+            if (settings.messageCache) {
+                // TODO allow to reload index when we loaded message
+                Message *msg = settings.messageCache->messageForId(messageId);
+                if (msg) {
+                    const TextConverter::ConvertMessageTextSettings newSetting(msg->text(),
+                                                                               settings.userName,
+                                                                               settings.allMessages,
+                                                                               settings.highlightWords,
+                                                                               settings.emojiManager,
+                                                                               settings.messageCache,
+                                                                               msg->mentions(),
+                                                                               msg->channels(),
+                                                                               settings.searchedText,
+                                                                               settings.maximumRecursiveQuotedText);
+                    recusiveIndex++;
+                    const QString text = TextConverterCMark::convertMessageText(newSetting, needUpdateMessageId, recusiveIndex);
+                    Utils::QuotedRichTextInfo info;
+                    info.url = url;
+                    info.richText = text;
+                    info.displayTime = msg->dateTime();
+                    quotedMessage = Utils::formatQuotedRichText(std::move(info));
+                    str = str.left(startPos - 3) + str.mid(endPos + 1);
+                } else {
+                    qCDebug(RUQOLA_TEXTTOHTML_LOG) << "Quoted message" << messageId << "not found"; // could be a very old one
+                    needUpdateMessageId = messageId;
+                }
+            }
+        }
+    }
+
+    // qDebug() << "settings.str  " << settings.str;
+    char *html = convertMessageTextCMark(settings);
+    const QString result = QString::fromUtf8(html);
+    cmark_mem *allocator = cmark_get_default_mem_allocator();
+
+    allocator->free(html);
+
+    return "<qt>"_L1 + result + "</qt>"_L1;
 }
