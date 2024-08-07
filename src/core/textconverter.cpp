@@ -328,6 +328,12 @@ QString TextConverter::convertMessageText(const ConvertMessageTextSettings &sett
 #if USE_CMARK_RENDERING_TEXT
     return TextConverter::convertMessageTextCMark(settings, needUpdateMessageId, recusiveIndex);
 #else
+    return TextConverter::convertMessageTextRuqola(settings, needUpdateMessageId, recusiveIndex);
+#endif
+}
+
+QString TextConverter::convertMessageTextRuqola(const ConvertMessageTextSettings &settings, QByteArray &needUpdateMessageId, int &recusiveIndex)
+{
     if (!settings.emojiManager) {
         qCWarning(RUQOLA_TEXTTOHTML_LOG) << "Emojimanager is null";
     }
@@ -487,7 +493,6 @@ QString TextConverter::convertMessageText(const ConvertMessageTextSettings &sett
     iterateOverRegions(str, QStringLiteral("```"), addCodeChunk, addNonCodeChunk);
 
     return "<qt>"_L1 + quotedMessage + richText + "</qt>"_L1;
-#endif
 }
 
 #if USE_CMARK_RENDERING_TEXT

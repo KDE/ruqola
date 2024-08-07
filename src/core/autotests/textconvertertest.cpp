@@ -141,7 +141,7 @@ void TextConverterTest::shouldConvertText()
     QByteArray needUpdateMessageId;
     const TextConverter::ConvertMessageTextSettings settings(input, QString(), {}, {}, nullptr, nullptr, {}, {});
     int recursiveIndex = 0;
-    QCOMPARE(TextConverter::convertMessageText(settings, needUpdateMessageId, recursiveIndex),
+    QCOMPARE(TextConverter::convertMessageTextRuqola(settings, needUpdateMessageId, recursiveIndex),
              output); // TODO add autotests for highlightwords
 }
 
@@ -195,7 +195,7 @@ void TextConverterTest::shouldHighlightWords()
     QByteArray needUpdateMessageId;
     int recursiveIndex = 0;
     const TextConverter::ConvertMessageTextSettings settings(input, username, {}, highlightWords, nullptr, nullptr, {}, {});
-    QCOMPARE(TextConverter::convertMessageText(settings, needUpdateMessageId, recursiveIndex), output);
+    QCOMPARE(TextConverter::convertMessageTextRuqola(settings, needUpdateMessageId, recursiveIndex), output);
 }
 
 void TextConverterTest::shouldHighlightText_data()
@@ -227,7 +227,7 @@ void TextConverterTest::shouldHighlightText()
     QByteArray needUpdateMessageId;
     int recursiveIndex = 0;
     const TextConverter::ConvertMessageTextSettings settings(input, username, {}, {}, nullptr, nullptr, {}, {});
-    QCOMPARE(TextConverter::convertMessageText(settings, needUpdateMessageId, recursiveIndex), output);
+    QCOMPARE(TextConverter::convertMessageTextRuqola(settings, needUpdateMessageId, recursiveIndex), output);
 }
 
 void TextConverterTest::shouldConvertTextWithEmoji_data()
@@ -370,7 +370,7 @@ void TextConverterTest::shouldConvertTextWithEmoji()
     QByteArray needUpdateMessageId;
     int recursiveIndex = 0;
     const TextConverter::ConvertMessageTextSettings settings(input, QString(), {}, {}, &manager, nullptr, {}, {});
-    auto actualOutput = TextConverter::convertMessageText(settings, needUpdateMessageId, recursiveIndex);
+    auto actualOutput = TextConverter::convertMessageTextRuqola(settings, needUpdateMessageId, recursiveIndex);
     if (QLatin1StringView(QTest::currentDataTag()) == "quotedcode7"_L1) {
         // remove additional highlighting of the ':)' symbols within the <code> block
         // the text color is syntax highlighting theme dependent, so hard for us to check
@@ -429,7 +429,7 @@ void TextConverterTest::shouldShowChannels()
     QByteArray needUpdateMessageId;
     int recursiveIndex = 0;
     const TextConverter::ConvertMessageTextSettings settings(input, {}, {}, {}, nullptr, nullptr, mentions, channels);
-    QCOMPARE(TextConverter::convertMessageText(settings, needUpdateMessageId, recursiveIndex), output);
+    QCOMPARE(TextConverter::convertMessageTextRuqola(settings, needUpdateMessageId, recursiveIndex), output);
 }
 
 void TextConverterTest::shouldShowUsers()
@@ -445,7 +445,7 @@ void TextConverterTest::shouldShowUsers()
     QByteArray needUpdateMessageId;
     int recursiveIndex = 0;
     const TextConverter::ConvertMessageTextSettings settings(input, {}, {}, {}, nullptr, nullptr, mentions, channels);
-    QCOMPARE(TextConverter::convertMessageText(settings, needUpdateMessageId, recursiveIndex), output);
+    QCOMPARE(TextConverter::convertMessageTextRuqola(settings, needUpdateMessageId, recursiveIndex), output);
 }
 
 void TextConverterTest::shouldShowUsers_data()
@@ -528,7 +528,7 @@ void TextConverterTest::shouldShowSearchedText()
     QByteArray needUpdateMessageId;
     int recursiveIndex = 0;
     const TextConverter::ConvertMessageTextSettings settings(input, username, {}, highlightWords, nullptr, nullptr, {}, {}, searchedText);
-    QCOMPARE(TextConverter::convertMessageText(settings, needUpdateMessageId, recursiveIndex), output);
+    QCOMPARE(TextConverter::convertMessageTextRuqola(settings, needUpdateMessageId, recursiveIndex), output);
 }
 
 #include "moc_textconvertertest.cpp"
