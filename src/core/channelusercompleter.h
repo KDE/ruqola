@@ -61,12 +61,16 @@ public:
 
     void setAvatarInfo(const Utils::AvatarInfo &newAvatarInfo);
 
+    [[nodiscard]] QString fName() const;
+    void setFName(const QString &newFName);
+
 private:
     LIBRUQOLACORE_NO_EXPORT void createAvatarInfo();
     Utils::AvatarInfo mAvatarInfo;
     QIcon mStatusIcon;
     QString mDescription;
     QString mName;
+    QString mFName;
     QString mUserName;
     QString mAvatarTag;
     QByteArray mIdentifier;

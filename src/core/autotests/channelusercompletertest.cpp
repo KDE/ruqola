@@ -18,6 +18,7 @@ void ChannelUserCompleterTest::shouldHaveDefaultValues()
     ChannelUserCompleter w;
     QVERIFY(w.description().isEmpty());
     QVERIFY(w.name().isEmpty());
+    QVERIFY(w.fName().isEmpty());
     QVERIFY(w.userName().isEmpty());
     QVERIFY(w.avatarTag().isEmpty());
     QCOMPARE(w.type(), ChannelUserCompleter::ChannelUserCompleterType::Unknown);
