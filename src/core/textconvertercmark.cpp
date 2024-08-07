@@ -426,17 +426,15 @@ char *TextConverterCMark::convertMessageTextCMark(const TextConverter::ConvertMe
     while ((ev_type = cmark_iter_next(iter)) != CMARK_EVENT_DONE) {
         cmark_node *node = cmark_iter_get_node(iter);
         std::cout << "1 " << cmark_node_get_type_string(node) << std::endl;
-        if ((cmark_node_get_type(node) == CMARK_NODE_TEXT)) {
-        } else if ((cmark_node_get_type(node) == CMARK_NODE_CODE)) {
-        } else if ((cmark_node_get_type(node) == CMARK_NODE_CODE_BLOCK)) {
+        if ((cmark_node_get_type(node) == CMARK_NODE_CODE_BLOCK)) {
             const char *literal = cmark_node_get_literal(node);
-            const QString f = QStringLiteral("```") + QString::fromUtf8(literal) + QStringLiteral("```");
-            const QString ccc = addHighlighter(f, settings);
+            const QString stringHtml = QStringLiteral("```") + QString::fromUtf8(literal) + QStringLiteral("```");
+            const QString highligherStr = addHighlighter(stringHtml, settings);
             cmark_node *p = cmark_node_new(CMARK_NODE_PARAGRAPH);
 
-            cmark_node *fff = cmark_node_new(CMARK_NODE_HTML_INLINE);
-            cmark_node_set_literal(fff, ccc.toUtf8().constData());
-            cmark_node_prepend_child(p, fff);
+            cmark_node *htmlInline = cmark_node_new(CMARK_NODE_HTML_INLINE);
+            cmark_node_set_literal(htmlInline, highligherStr.toUtf8().constData());
+            cmark_node_prepend_child(p, htmlInline);
 
             cmark_node_replace(node, p);
         }
