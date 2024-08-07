@@ -19,7 +19,10 @@
 #include <KSyntaxHighlighting/Repository>
 #include <KSyntaxHighlighting/Theme>
 
+#include "cmark.h"
 #include <KColorScheme>
+#include <iostream>
+
 using namespace Qt::Literals::StringLiterals;
 namespace
 {
@@ -414,8 +417,6 @@ QString addHighlighter(const QString &str, const TextConverter::ConvertMessageTe
     return richText;
 }
 
-#include "cmark.h"
-#include <iostream>
 char *TextConverterCMark::convertMessageTextCMark(const TextConverter::ConvertMessageTextSettings &settings)
 {
     cmark_node *doc = cmark_parse_document(settings.str.toUtf8().constData(), settings.str.length(), CMARK_OPT_DEFAULT);
