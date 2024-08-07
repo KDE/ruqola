@@ -7,7 +7,6 @@
 #include "cmarktestgui.h"
 #include "messages/message.h"
 #include "textconverter.h"
-#include "textconvertercmark.h"
 #include <QApplication>
 #include <QLabel>
 #include <QPushButton>
@@ -30,7 +29,7 @@ CMarkTestGui::CMarkTestGui(QWidget *parent)
         QByteArray needUpdateMessageId;
         int recursiveIndex = 0;
         mTextEditResult->setHtml(TextConverter::convertMessageText(settings, needUpdateMessageId, recursiveIndex));
-        mTextEditResultCMark->setHtml(TextConverterCMark::convertMessageText(settings, needUpdateMessageId, recursiveIndex));
+        mTextEditResultCMark->setHtml(TextConverter::convertMessageTextCMark(settings, needUpdateMessageId, recursiveIndex));
     });
     mTextEditResult->setReadOnly(true);
     auto label = new QLabel(QStringLiteral("Convert with TextConverter"), this);

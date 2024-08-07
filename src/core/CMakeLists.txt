@@ -562,12 +562,6 @@ if(USE_E2E_SUPPORT)
     )
 endif()
 
-if(TARGET cmark::cmark)
-    target_sources(libruqolacore PRIVATE
-        textconvertercmark.h textconvertercmark.cpp
-    )
-endif()
-
 if(HAVE_TEXT_TRANSLATOR)
     target_sources(libruqolacore PRIVATE
         translatetext/translatetextjob.cpp
