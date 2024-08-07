@@ -97,7 +97,7 @@ Q_SIGNALS:
     void repaintNeeded(const QModelIndex &index);
 
 private:
-    void selectWord(const QModelIndex &index, int charPos, QTextDocument *doc);
+    LIBRUQOLAWIDGETS_NO_EXPORT void selectWord(const QModelIndex &index, int charPos, QTextDocument *doc);
     struct OrderedPositions {
         int fromRow;
         int fromCharPos;
@@ -117,15 +117,15 @@ private:
         int toCharPos = 0;
     };
 
-    [[nodiscard]] OrderedPositions orderedPositions() const;
-    void selectionText(const OrderedPositions ordered,
-                       Format format,
-                       int row,
-                       const QModelIndex &index,
-                       QTextDocument *doc,
-                       QString &str,
-                       const MessageAttachment &att = {},
-                       const MessageUrl &messageUrl = {}) const;
+    [[nodiscard]] LIBRUQOLAWIDGETS_NO_EXPORT OrderedPositions orderedPositions() const;
+    LIBRUQOLAWIDGETS_NO_EXPORT void selectionText(const OrderedPositions ordered,
+                                                  Format format,
+                                                  int row,
+                                                  const QModelIndex &index,
+                                                  QTextDocument *doc,
+                                                  QString &str,
+                                                  const MessageAttachment &att = {},
+                                                  const MessageUrl &messageUrl = {}) const;
 
     QPersistentModelIndex mStartIndex;
     QPersistentModelIndex mEndIndex;

@@ -39,12 +39,16 @@ Q_SIGNALS:
     void updateView(const QModelIndex &index);
 
 protected:
-    [[nodiscard]] QTextDocument *documentForIndex(const QModelIndex &index) const override;
-    [[nodiscard]] QSize textSizeHint(const QModelIndex &index, int maxWidth, const QStyleOptionViewItem &option, qreal *pBaseLine) const;
+    [[nodiscard]] LIBRUQOLAWIDGETS_NO_EXPORT QTextDocument *documentForIndex(const QModelIndex &index) const override;
+    [[nodiscard]] LIBRUQOLAWIDGETS_NO_EXPORT QSize textSizeHint(const QModelIndex &index,
+                                                                int maxWidth,
+                                                                const QStyleOptionViewItem &option,
+                                                                qreal *pBaseLine) const;
 
     virtual QTextDocument *documentForModelIndex(const QModelIndex &index, int width) const = 0;
     [[nodiscard]] virtual RocketChatAccount *rocketChatAccount(const QModelIndex &index) const = 0;
-    [[nodiscard]] QTextDocument *documentForDelegate(RocketChatAccount *rcAccount, const QByteArray &messageId, const QString &messageStr, int width) const;
+    [[nodiscard]] LIBRUQOLAWIDGETS_NO_EXPORT QTextDocument *
+    documentForDelegate(RocketChatAccount *rcAccount, const QByteArray &messageId, const QString &messageStr, int width) const;
 
     QString mSearchText;
 };
