@@ -62,8 +62,8 @@ extern "C" {
 [[nodiscard]] LIBRUQOLACORE_EXPORT QString convertMessageTextCMark(const TextConverter::ConvertMessageTextSettings &settings,
                                                                    QByteArray &needUpdateMessageId,
                                                                    int &recusiveIndex);
+#endif
 [[nodiscard]] LIBRUQOLACORE_EXPORT QString convertMessageTextRuqola(const ConvertMessageTextSettings &settings,
                                                                     QByteArray &needUpdateMessageId,
                                                                     int &recusiveIndex);
-#endif
 }
