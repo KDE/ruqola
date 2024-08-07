@@ -600,6 +600,9 @@ char *TextConverter::convertMessageTextCMark(const TextConverter::ConvertMessage
     cmark_iter *iter = cmark_iter_new(doc);
     cmark_event_type ev_type;
 
+    char *beforehtml = cmark_render_html(doc, CMARK_OPT_DEFAULT | CMARK_OPT_UNSAFE);
+    std::cout << " beforehtml " << beforehtml << std::endl;
+
     while ((ev_type = cmark_iter_next(iter)) != CMARK_EVENT_DONE) {
         cmark_node *node = cmark_iter_get_node(iter);
         std::cout << "1 " << cmark_node_get_type_string(node) << std::endl;
@@ -611,14 +614,49 @@ char *TextConverter::convertMessageTextCMark(const TextConverter::ConvertMessage
 
             cmark_node *htmlInline = cmark_node_new(CMARK_NODE_HTML_INLINE);
             cmark_node_set_literal(htmlInline, highligherStr.toUtf8().constData());
-            cmark_node_prepend_child(p, htmlInline);
+            cmark_node_append_child(p, htmlInline);
 
             cmark_node_replace(node, p);
+        } else if (cmark_node_get_type(node) == CMARK_NODE_EMPH) {
+            // TODO ???
+            cmark_node *j = cmark_node_first_child(node);
+            if (cmark_node_get_type(j) == CMARK_NODE_TEXT) {
+                qDebug() << " TEST **********" << cmark_node_get_literal(j);
+                cmark_node *p = cmark_node_new(CMARK_NODE_STRONG);
+                cmark_node *htmlInline = cmark_node_new(CMARK_NODE_TEXT);
+                qDebug() << " ddd " << cmark_node_get_literal(node);
+                cmark_node_set_literal(htmlInline, cmark_node_get_literal(j));
+                cmark_node_append_child(p, htmlInline);
+
+                // cmark_node_set_literal(p, cmark_node_get_literal(node));
+                cmark_node_replace(node, p);
+            }
         }
+
+        /*} /*else if (cmark_node_get_type(node) == CMARK_NODE_TEXT) {
+            const char *literal = cmark_node_get_literal(node);
+            const QString stringHtml = QString::fromUtf8(literal);
+            const QString highligherStr = addHighlighter(stringHtml, settings);
+            qDebug() << "highligherStr **** " << highligherStr;
+            cmark_node *p = cmark_node_new(CMARK_NODE_PARAGRAPH);
+            cmark_node *htmlInline = cmark_node_new(CMARK_NODE_HTML_INLINE);
+            cmark_node_set_literal(htmlInline, highligherStr.toUtf8().constData());
+            cmark_node_append_child(p, htmlInline);
+
+            cmark_node_replace(cmark_node_parent(node), p);
+
+            // We need to replace parent
+            // cmark_node_append_child(node, htmlInline);
+            // free node
+            // cmark_node_free(node);
+
+            char *tmphtml = cmark_render_html(doc, CMARK_OPT_DEFAULT | CMARK_OPT_UNSAFE);
+            std::cout << " tmphtml " << tmphtml << std::endl;
+        }*/
     }
 
     char *html = cmark_render_html(doc, CMARK_OPT_DEFAULT | CMARK_OPT_UNSAFE);
-    /// std::cout << " result " << html << std::endl;
+    std::cout << " result " << html << std::endl;
 
     cmark_iter_free(iter);
     cmark_node_free(doc);
