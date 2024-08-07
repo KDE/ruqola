@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-06-10 02:50+0000\n"
-"PO-Revision-Date: 2024-08-03 20:28+0200\n"
+"PO-Revision-Date: 2024-08-06 13:04+0200\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
 "Language: eu\n"
@@ -2400,7 +2400,7 @@ msgstr "Abatararen URL baliogabea: %1"
 #: rocketchatrestapi-qt/users/setavatarjob.cpp:116
 #, kde-format
 msgid "Error while handling avatar setting from a URL \"%1\" for %2"
-msgstr ""
+msgstr "Errorea %2(e)rentzako abatararen ezarpenak \"%1\" URLtik maneiatzean"
 
 #: rocketchatrestapi-qt/users/setstatusjob.cpp:138
 #, kde-format
@@ -3550,6 +3550,12 @@ msgid ""
 "E2E encryption, Rocket.Chat will not be able to restore access to any "
 "encrypted room that has no member online."
 msgstr ""
+"Uneko E2E gakoa berrezartzeak erabiltzailearen saioa itxiko du. "
+"Erabiltzaileak saioa berriz hasten duenean, Rocket.Chat-ek gako berri bat "
+"sortuko du eta lerroan erabiltzaile bat edo gehiago duen gela zifratuetarako "
+"erabiltzailearen sarbidea lehengoratuko du. E2E zifratzearen izaera dela "
+"eta, Rocket.Chat-ek ezingo du lehengoratu lerroan erabiltzailerik ez duen "
+"zifratutako geletarako sarbidea."
 
 #: widgets/administratordialog/users/administratoruserswidget.cpp:351
 #, kde-format
@@ -3573,6 +3579,8 @@ msgid ""
 "Reset the current Two Factor TOTP will log out the user. The user will be "
 "able to set the Two Factor again later."
 msgstr ""
+"Uneko Bi faktoreko TOTP berrezartzeak erabiltzailearen saioa itxiko du. "
+"Erabiltzaileak beranduago Bi faktorekoa berriz ezarri ahal izango du."
 
 #: widgets/administratordialog/users/administratoruserswidget.cpp:397
 #, kde-format
@@ -3647,10 +3655,9 @@ msgid "Allow Password Change for OAuth Users"
 msgstr "Baimendu OAuth erabiltzaileetarako pasahitz aldaketa"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:29
-#, fuzzy, kde-format
-#| msgid "Allow user creation"
+#, kde-format
 msgid "Allow Feature Preview"
-msgstr "Baimendu erabiltzaile sorrera"
+msgstr "Baimendu ezaugarriaren aurreikuspegia"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:31
 #, kde-format
@@ -3700,7 +3707,7 @@ msgstr "Saioa hastea egiaztatutako erabiltzaileei bakarrik baimendu"
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:43
 #, kde-format
 msgid "Mark Email for External Accounts Verified"
-msgstr ""
+msgstr "Markatu kanpoko kontuetarako e-posta egiaztatu gisa"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:44
 #, kde-format
@@ -3766,7 +3773,7 @@ msgstr "Ziurtatu ezaugarri hori erabiltzeko SMTP ezarpen zuzenak dituzula"
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:178
 #, kde-format
 msgid "Default Username Prefix Suggestion"
-msgstr ""
+msgstr "Erabiltzaile-izen aurrizki iradokizuna"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:181
 #, kde-format
@@ -4151,12 +4158,17 @@ msgid ""
 "This may be needed if a user is renamed on CAS, but may also allow people to "
 "take control of Rocket.Chat accounts by renaming their own CAS users."
 msgstr ""
+"Gaituta dagoenean, Rocket.Chat fidatuko da CAS-eko erabiltzaile-izen oro "
+"Rocket.Chat-eko erabiltzaile berari dagokiola.\n"
+"Baliteke, CAS-en erabiltzaile bat berrizendatzen bada, hau behar izatea, "
+"baina, jendeari, beraien CAS erabiltzaileak berrizendatuta Rocket.Chat "
+"kontuen kontrola hartzeko aukera eman diezaioke."
 
 #: widgets/administratorsettingsdialog/cas/cassettingswidget.cpp:56
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Allow CAS User creation from data provided by the CAS ticket."
-msgstr ""
+msgstr "Baimendu, CAS tiketak emaniko datuetatik, CAS erabiltzailea sortzea."
 
 #: widgets/administratorsettingsdialog/cas/cassettingswidget.cpp:60
 #, kde-format
@@ -4171,6 +4183,9 @@ msgid ""
 "login.\n"
 "Note: Attributes are always synced upon account creation anyway."
 msgstr ""
+"Sinkronizatu beti CAS erabiltzailearen kanpoko datuak erabilgarri dauden "
+"atributuetan saioa hastean.\n"
+"Oharra: Dena den, kontuak sortzean atributuak beti sinkronizatzen dira."
 
 #: widgets/administratorsettingsdialog/cas/cassettingswidget.cpp:72
 #, kde-format
@@ -4270,6 +4285,13 @@ msgid ""
 "exclusively for access by Rocket.Chat\n"
 "and is not read/processed \"in parallel\" by humans."
 msgstr ""
+"[Adi!] \"Zuzeneko erantzuna\" gaituta badago, Rocket.Chat-ek, konfiguratuta "
+"dagoen e-posta postontzia kontrolatuko du.\n"
+"Irakurri gabeko e-posta guztiak eskuratu, irakurritako gisa markatu eta "
+"prozesatzen dira.\n"
+"\"Zuzeneko erantzuna\" aktibatu beharko litzateke, bakarrik, erabilitako "
+"postontzia Rocket.Chat-ek bakarrik atzituko badu\n"
+"eta ez badu pertsona batek irakurri/prozesatuko."
 
 #: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:102
 #, kde-format
@@ -4646,6 +4668,12 @@ msgid ""
 "message from the Rocket.Cat bot,\n"
 "both visible only for administrators."
 msgstr ""
+"Automatikoki egiaztatzen du Rocket.Chat garatzaileen eguneratze berriak  / "
+"mezu garrantzitsuak dauden eta jakinarazpenak jasotzen ditu erabilgarri "
+"daudenean.\n"
+"Jakinarazpena, bertsio berri bakoitzeko, behin agertzen da iragarki-banda "
+"klikagarri bat bezala eta Rocket.Chat bot-aren mezu gisa,\n"
+"biak administratzailearentzako bakarrik ikusgai."
 
 #: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:105
 #, kde-format
@@ -5123,7 +5151,7 @@ msgstr "Ezabatu mezu guztiak"
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:107
 #, kde-format
 msgid "Remove Link Between User and Messages"
-msgstr "Kendu erabiltzaile eta mezuen arteko esteka"
+msgstr "Kendu erabiltzailearen eta mezuen arteko esteka"
 
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:110
 #, kde-format
@@ -5136,6 +5164,14 @@ msgid ""
 "between user and messages: This option will assign all messages and files of "
 "the user to Rocket.Chat bot and Direct Messages are going to be deleted."
 msgstr ""
+"Zehaztu kontua ezabatu duten erabiltzaileen mezuekin zer egin. Mantendu "
+"mezuak eta erabiltzaile-izena: Erabiltzailearen mezu eta fitxategien "
+"historia Zuzeneko mezuetatik ezabatuko dira eta beste geletan mantenduko "
+"dira. Ezabatu mezu guztiak: Erabiltzailearen mezu eta fitxategi guztiak datu-"
+"basetik ezabatuko dira eta ezingo da aurrerantzean erabiltzailea aurkitu. "
+"Kendu erabiltzailearen eta mezuen arteko esteka: Aukera horrek "
+"erabiltzailearen mezu eta fitxategi guztiak Rocket.Chat bot-ari esleituko "
+"dizkio eta Zuzeneko mezuak ezabatu egingo dira."
 
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:114
 #, kde-format
@@ -5252,6 +5288,8 @@ msgid ""
 "Whether embedded link previews are enabled or not when a user posts a link "
 "to a website."
 msgstr ""
+"Erabiltzaile batek webgune baterako estekaren posta bidaltzen duenean "
+"txertatutako esteken aurreikuspegiak gaituta dauden edo ez."
 
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:193
 #, kde-format
@@ -5912,12 +5950,12 @@ msgstr "Ezgaitu jakinarazpenak"
 #: widgets/administratorsettingsdialog/troubleshoot/troubleshootsettingswidget.cpp:15
 #, kde-format
 msgid "Disable Presence Broadcast"
-msgstr ""
+msgstr "Ezgaitu presentzia igorpena"
 
 #: widgets/administratorsettingsdialog/troubleshoot/troubleshootsettingswidget.cpp:16
 #, kde-format
 msgid "Disable Instance Broadcast"
-msgstr ""
+msgstr "Ezgaitu instantzia igorpena"
 
 #: widgets/administratorsettingsdialog/troubleshoot/troubleshootsettingswidget.cpp:17
 #, kde-format
@@ -5950,6 +5988,9 @@ msgid ""
 "This setting completely disables the notifications system; sounds, desktop "
 "notifications, mobile notifications, and emails will stop!"
 msgstr ""
+"Ezarpen honek jakinarazpenen sistema erabat ezgaitzen du; soinuak, "
+"mahaigaineko jakinarazpenak, mugikorreko jakinarazpenak, eta e-postak "
+"geldituko dira!"
 
 #: widgets/administratorsettingsdialog/troubleshoot/troubleshootsettingswidget.cpp:32
 #, kde-format
@@ -5958,6 +5999,9 @@ msgid ""
 "users to their clients keeping all the users with their presence status from "
 "the first load!"
 msgstr ""
+"Ezarpen honek, instantzia guztiei, haien bezeroei erabiltzaileen egoera "
+"aldaketak bidaltzea eragozten die, erabiltzaile guztiak aurreneko zamako "
+"presentzia egoerarekin mantenduz!"
 
 #: widgets/administratorsettingsdialog/troubleshoot/troubleshootsettingswidget.cpp:39
 #: widgets/administratorsettingsdialog/troubleshoot/troubleshootsettingswidget.cpp:45
@@ -5966,6 +6010,9 @@ msgid ""
 "This setting prevents the Rocket.Chat instances from sending events to the "
 "other instances, it may cause syncing problems and misbehavior!"
 msgstr ""
+"Ezarpen honek, Rocket.Chat instantziek beste instantzia batzuetara gertaerak "
+"bidaltzea eragozten du, sinkronizatzeko arazoak eta jokabide okerrak sor "
+"ditzake!"
 
 #: widgets/administratorsettingsdialog/troubleshoot/troubleshootsettingswidget.cpp:51
 #, kde-format
@@ -5973,6 +6020,8 @@ msgid ""
 "This setting stops the processing of livechat visitor sessions causing the "
 "statistics to stop working correctly!"
 msgstr ""
+"Ezarpen honek livechat bisitarien saioak prozesatzea geldiarazten du, "
+"estatistikak behar bezala ibiltzeari uztea eraginez!"
 
 #: widgets/administratorsettingsdialog/troubleshoot/troubleshootsettingswidget.cpp:57
 #, kde-format
@@ -7453,10 +7502,9 @@ msgid "You are not authorized to view this page."
 msgstr "Ez duzu orrialde hau ikusteko baimenik."
 
 #: widgets/directory/directorywidget.cpp:34
-#, fuzzy, kde-format
-#| msgid "Search Channels"
+#, kde-format
 msgid "Search channels…"
-msgstr "Bilatu kanalak"
+msgstr "Bilatu kanalak..."
 
 #: widgets/directory/directorywidget.cpp:44
 #: widgets/directory/directorywidget.cpp:209
@@ -7467,7 +7515,7 @@ msgstr "Bilatu taldeak..."
 #: widgets/directory/directorywidget.cpp:70
 #, kde-format
 msgid "Open…"
-msgstr ""
+msgstr "Ireki…"
 
 #: widgets/directory/directorywidget.cpp:166
 #, kde-format
@@ -7562,11 +7610,10 @@ msgstr ""
 
 #: widgets/encryption/e2edecodeencryptionkeyfailedwidget.cpp:19
 #: widgets/encryption/e2edecodeencryptionkeywidget.cpp:19
-#, fuzzy, kde-format
-#| msgid "Encryption"
+#, kde-format
 msgctxt "@action"
 msgid "Decrypte Encryption Key"
-msgstr "Zifratzea"
+msgstr "Deszifratu zifratzeko gakoa"
 
 #: widgets/encryption/e2edecodeencryptionkeywidget.cpp:17
 #, kde-format
@@ -9391,9 +9438,7 @@ msgid "Server Settings…"
 msgstr "Zerbitzariaren ezarpenak..."
 
 #: widgets/ruqolamainwindow.cpp:502
-#, fuzzy, kde-format
-#| msgctxt "Action which allows to search room/user/team"
-#| msgid "Directory..."
+#, kde-format
 msgctxt "Action which allows to search room/user/team"
 msgid "Directory…"
 msgstr "Direktorioa..."
@@ -9690,34 +9735,30 @@ msgid "All Version"
 msgstr "Bertsio denak"
 
 #: widgets/whatsnew/whatsnewcomboboxwidget.cpp:51
-#, fuzzy, kde-format
-#| msgid "Version"
+#, kde-format
 msgid "Version 2.0"
-msgstr "Bertsioa"
+msgstr "2.0 bertsioa"
 
 #: widgets/whatsnew/whatsnewcomboboxwidget.cpp:53
-#, fuzzy, kde-format
-#| msgid "Version"
+#, kde-format
 msgid "Version 2.1"
-msgstr "Bertsioa"
+msgstr "2.1 bertsioa"
 
 #: widgets/whatsnew/whatsnewcomboboxwidget.cpp:55
-#, fuzzy, kde-format
-#| msgid "Version"
+#, kde-format
 msgid "Version 2.2"
-msgstr "Bertsioa"
+msgstr "2.2 bertsioa"
 
 #: widgets/whatsnew/whatsnewdialog.cpp:25
 #, kde-format
 msgctxt "@title:window"
 msgid "What's new in Ruqola"
-msgstr ""
+msgstr "Zer berri Ruqolan"
 
 #: widgets/whatsnew/whatsnewmessagewidget.cpp:19
-#, fuzzy, kde-format
-#| msgid "(Show Less Info...)"
+#, kde-format
 msgid "(Show News in Ruqola)"
-msgstr "(Erakutsi informazio gutxiago...)"
+msgstr "(Berriak Ruqolan erakutsi)"
 
 #: widgets/whatsnew/whatsnewmessagewidget.cpp:19
 #, kde-format
