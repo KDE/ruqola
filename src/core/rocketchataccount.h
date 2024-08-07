@@ -545,6 +545,12 @@ public:
 
     [[nodiscard]] MemoryManager *memoryManager() const;
 
+    [[nodiscard]] bool e2EPasswordMustBeSave() const;
+    void setE2EPasswordMustBeSave(bool newE2EPasswordMustBeSave);
+
+    [[nodiscard]] bool e2EPasswordMustBeDecrypt() const;
+    void setE2EPasswordMustBeDecrypt(bool newE2EPasswordMustBeDecrypt);
+
 Q_SIGNALS:
     void roomRemoved(const QByteArray &roomId);
     void disabledTotpValid(bool checked);
@@ -747,4 +753,6 @@ private:
     int mDelayReconnect = 100;
     bool mEditingMode = false;
     bool mMarkUnreadThreadsAsReadOnNextReply = false;
+    bool mE2EPasswordMustBeSave = false;
+    bool mE2EPasswordMustBeDecrypt = false;
 };

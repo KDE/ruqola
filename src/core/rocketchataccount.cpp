@@ -2667,6 +2667,26 @@ void RocketChatAccount::slotDDpLoginStatusChanged()
     slotLoginStatusChanged();
 }
 
+bool RocketChatAccount::e2EPasswordMustBeDecrypt() const
+{
+    return mE2EPasswordMustBeDecrypt;
+}
+
+void RocketChatAccount::setE2EPasswordMustBeDecrypt(bool newE2EPasswordMustBeDecrypt)
+{
+    mE2EPasswordMustBeDecrypt = newE2EPasswordMustBeDecrypt;
+}
+
+bool RocketChatAccount::e2EPasswordMustBeSave() const
+{
+    return mE2EPasswordMustBeSave;
+}
+
+void RocketChatAccount::setE2EPasswordMustBeSave(bool newE2EPasswordMustBeSave)
+{
+    mE2EPasswordMustBeSave = newE2EPasswordMustBeSave;
+}
+
 void RocketChatAccount::slotLoginStatusChanged()
 {
     if (loginStatus() == AuthenticationManager::LoggedOut) {

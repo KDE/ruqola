@@ -913,34 +913,46 @@ void RoomWidget::setCurrentRocketChatAccount(RocketChatAccount *account)
         disconnect(mCurrentRocketChatAccount, &RocketChatAccount::needToSaveE2EPassword, this, &RoomWidget::createE2eSaveEncryptionKeyWidget);
         disconnect(mCurrentRocketChatAccount, &RocketChatAccount::needToDecryptE2EPassword, this, &RoomWidget::createE2eDecodeEncryptionKeyWidget);
     }
-
-    // Hide them
-    if (mE2eSaveEncryptionKeyWidget) {
-        mE2eSaveEncryptionKeyWidget->animatedHide();
-    }
-
-    if (mE2eDecodeEncryptionKeyWidget) {
-        mE2eDecodeEncryptionKeyWidget->animatedHide();
-    }
-
     mCurrentRocketChatAccount = account;
     mRoomWidgetBase->setCurrentRocketChatAccount(account);
+
     connect(mCurrentRocketChatAccount, &RocketChatAccount::openThreadRequested, this, &RoomWidget::slotOpenThreadRequested);
     connect(mCurrentRocketChatAccount, &RocketChatAccount::displayReconnectWidget, this, &RoomWidget::slotDisplayReconnectWidget);
     connect(mCurrentRocketChatAccount, &RocketChatAccount::loginStatusChanged, this, &RoomWidget::slotLoginStatusChanged);
     connect(mCurrentRocketChatAccount, &RocketChatAccount::needUpdateMessageView, this, &RoomWidget::updateListView);
-    connect(mCurrentRocketChatAccount, &RocketChatAccount::needToSaveE2EPassword, this, [this]() {
-        if (!mE2eSaveEncryptionKeyWidget) {
-            createE2eSaveEncryptionKeyWidget();
-        }
-        mE2eSaveEncryptionKeyWidget->animatedShow();
-    });
-    connect(mCurrentRocketChatAccount, &RocketChatAccount::needToDecryptE2EPassword, this, [this]() {
+
+    auto showE2eDecodeEncryptionKeyWidget = [this] {
         if (!mE2eDecodeEncryptionKeyWidget) {
             createE2eDecodeEncryptionKeyWidget();
         }
         mE2eDecodeEncryptionKeyWidget->animatedShow();
+    };
+
+    auto showE2eSaveEncryptionKeyWidget = [this] {
+        if (!mE2eSaveEncryptionKeyWidget) {
+            createE2eSaveEncryptionKeyWidget();
+        }
+        mE2eSaveEncryptionKeyWidget->animatedShow();
+    };
+
+    connect(mCurrentRocketChatAccount, &RocketChatAccount::needToSaveE2EPassword, this, [showE2eSaveEncryptionKeyWidget]() {
+        showE2eSaveEncryptionKeyWidget();
     });
+    connect(mCurrentRocketChatAccount, &RocketChatAccount::needToDecryptE2EPassword, this, [showE2eDecodeEncryptionKeyWidget]() {
+        showE2eDecodeEncryptionKeyWidget();
+    });
+    // Hide them
+    if (mE2eSaveEncryptionKeyWidget && !mCurrentRocketChatAccount->e2EPasswordMustBeSave()) {
+        mE2eSaveEncryptionKeyWidget->animatedHide();
+    } else if (mCurrentRocketChatAccount->e2EPasswordMustBeSave()) {
+        showE2eSaveEncryptionKeyWidget();
+    }
+
+    if (mE2eDecodeEncryptionKeyWidget && !mCurrentRocketChatAccount->e2EPasswordMustBeDecrypt()) {
+        mE2eDecodeEncryptionKeyWidget->animatedHide();
+    } else if (mCurrentRocketChatAccount->e2EPasswordMustBeDecrypt()) {
+        showE2eDecodeEncryptionKeyWidget();
+    }
 
     // TODO verify if we need to show or not reconnect widget
     mRoomHeaderWidget->setCurrentRocketChatAccount(account);
