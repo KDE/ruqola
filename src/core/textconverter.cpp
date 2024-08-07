@@ -325,11 +325,14 @@ QString generateRichText(const QString &str,
 
 QString TextConverter::convertMessageText(const ConvertMessageTextSettings &settings, QByteArray &needUpdateMessageId, int &recusiveIndex)
 {
+#if 0
 #if USE_CMARK_RENDERING_TEXT
     return TextConverter::convertMessageTextCMark(settings, needUpdateMessageId, recusiveIndex);
 #else
     return TextConverter::convertMessageTextRuqola(settings, needUpdateMessageId, recusiveIndex);
 #endif
+#endif
+    return TextConverter::convertMessageTextRuqola(settings, needUpdateMessageId, recusiveIndex);
 }
 
 QString TextConverter::convertMessageTextRuqola(const ConvertMessageTextSettings &settings, QByteArray &needUpdateMessageId, int &recusiveIndex)
