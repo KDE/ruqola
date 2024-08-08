@@ -20,7 +20,7 @@ Reactions::Reactions()
 Reactions::Reactions(const Reactions &other)
     : QSharedData(other)
 {
-    qCDebug(RUQOLA_MESSAGE_MEMORY_LOG) << " ModerationMessage(const ModerationMessage &other) created " << this;
+    qCDebug(RUQOLA_MESSAGE_MEMORY_LOG) << " Reactions(const Reactions &other) created " << this;
     mReactions = other.reactions();
 }
 
