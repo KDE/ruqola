@@ -39,7 +39,7 @@ public:
     [[nodiscard]] const QList<CustomSoundInfo> &customSoundInfos() const;
     void setCustomSoundInfos(const QList<CustomSoundInfo> &newCustomSoundInfos);
 
-    [[nodiscard]] CustomSoundInfo takeAt(int index);
+    CustomSoundInfo takeAt(int index);
 
 private:
     LIBRUQOLACORE_NO_EXPORT void parseListCustomSound(const QJsonObject &obj);

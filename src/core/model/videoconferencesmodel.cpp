@@ -107,6 +107,9 @@ QVariant VideoConferencesModel::data(const QModelIndex &index, int role) const
 
     const VideoConferenceInfo &file = mVideoConferenceInfos.at(index.row());
     switch (role) {
+    // TODO
+    default:
+        break;
     }
     return {};
 }
