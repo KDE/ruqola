@@ -201,7 +201,7 @@ QString generateRichText(const QString &str,
                 continue;
             }
 
-            const QString wordName = word.toString();
+            QString wordName = word.toString();
 
             auto it = std::find_if(channels.cbegin(), channels.cend(), [wordName](const auto &channel) {
                 return channel.name == wordName;
@@ -211,9 +211,12 @@ QString generateRichText(const QString &str,
                 roomIdentifier = wordName.toLatin1();
             } else {
                 roomIdentifier = (*it).identifier;
+                if (!(*it).fname.isEmpty()) {
+                    wordName = (*it).fname;
+                }
             }
             newStr.replace(QLatin1Char('#') + word.toString(),
-                           QStringLiteral("<a href=\'ruqola:/room/%2\'>#%1</a>").arg(word, QString::fromLatin1(roomIdentifier)));
+                           QStringLiteral("<a href=\'ruqola:/room/%2\'>#%1</a>").arg(wordName, QString::fromLatin1(roomIdentifier)));
         }
     }
 
