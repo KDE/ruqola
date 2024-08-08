@@ -142,9 +142,14 @@ void SearchMessageWidget::slotClearedMessages()
 
 void SearchMessageWidget::slotSearchMessages(const QString &str)
 {
-    mSearchMessageFilterProxyModel->setSearchText(str);
-    mSearchLineEdit->addCompletionItem(str);
-    messageSearch(str, mRoomId, true);
+    if (mSearchText != str) {
+        mSearchText = str;
+        clearSearchModel();
+        mSearchMessageFilterProxyModel->setSearchText(str);
+        mSearchLineEdit->addCompletionItem(str);
+        messageSearch(str, mRoomId, true);
+        mOffset = numberOfElment;
+    }
 }
 
 void SearchMessageWidget::slotSearchLineMessagesEnterPressed()

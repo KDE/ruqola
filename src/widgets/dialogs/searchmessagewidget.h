@@ -54,6 +54,7 @@ private:
     CommonMessagesModel *const mSearchMessageModel;
     CommonMessageFilterProxyModel *const mSearchMessageFilterProxyModel;
 
+    QString mSearchText;
     QByteArray mRoomId;
     int mOffset = 0;
     bool mMessageIsEmpty = false;
