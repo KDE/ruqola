@@ -164,7 +164,7 @@ QString generateRichText(const QString &str,
                          const QString &username,
                          const QStringList &highlightWords,
                          const QMap<QString, QByteArray> &mentions,
-                         const QMap<QString, QByteArray> &channels,
+                         const QList<Message::ChannelInfo> &channels,
                          const QString &searchedText)
 {
     QString newStr = markdownToRichText(str);
@@ -200,9 +200,17 @@ QString generateRichText(const QString &str,
             if (inAnUrl) {
                 continue;
             }
-            QByteArray roomIdentifier = channels.value(word.toString());
-            if (roomIdentifier.isEmpty()) {
-                roomIdentifier = word.toString().toLatin1();
+
+            const QString wordName = word.toString();
+
+            auto it = std::find_if(channels.cbegin(), channels.cend(), [wordName](const auto &channel) {
+                return channel.name == wordName;
+            });
+            QByteArray roomIdentifier;
+            if (it == channels.cend()) {
+                roomIdentifier = wordName.toLatin1();
+            } else {
+                roomIdentifier = (*it).identifier;
             }
             newStr.replace(QLatin1Char('#') + word.toString(),
                            QStringLiteral("<a href=\'ruqola:/room/%2\'>#%1</a>").arg(word, QString::fromLatin1(roomIdentifier)));

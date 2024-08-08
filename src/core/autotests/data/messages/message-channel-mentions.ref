@@ -4,11 +4,11 @@
     "channels": [
         {
             "_id": "BZFmWzbBLE2Pf",
-            "channel": "ruqola"
+            "name": "ruqola"
         },
         {
             "_id": "syoyFr6RtyeY6",
-            "channel": "ruqola5"
+            "name": "ruqola5"
         }
     ],
     "editedAt": -1,

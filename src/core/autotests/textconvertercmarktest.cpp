@@ -385,31 +385,47 @@ void TextConverterCMarkTest::shouldShowChannels_data()
     QTest::addColumn<QString>("input");
     QTest::addColumn<QString>("output");
     QTest::addColumn<QMap<QString, QByteArray>>("mentions");
-    QTest::addColumn<QMap<QString, QByteArray>>("channels");
+    QTest::addColumn<QList<Message::ChannelInfo>>("channels");
 
     {
         QMap<QString, QByteArray> mentions;
-        QMap<QString, QByteArray> channels;
+        QList<Message::ChannelInfo> channels;
         QTest::newRow("empty") << QString() << QString() << mentions << channels;
     }
     {
         QMap<QString, QByteArray> mentions;
-        QMap<QString, QByteArray> channels;
-        channels.insert(QStringLiteral("foo"), QByteArrayLiteral("idd"));
+        QList<Message::ChannelInfo> channels;
+        Message::ChannelInfo info;
+        info.name = QStringLiteral("foo");
+        info.identifier = QByteArrayLiteral("idd");
+        channels.append(std::move(info));
         QTest::newRow("word#") << QStringLiteral("#foo") << QStringLiteral("<div><a href='ruqola:/room/idd'>#foo</a></div>") << mentions << channels;
     }
     {
         QMap<QString, QByteArray> mentions;
-        QMap<QString, QByteArray> channels;
-        channels.insert(QStringLiteral("bla"), QByteArrayLiteral("idd"));
+        QList<Message::ChannelInfo> channels;
+        Message::ChannelInfo info;
+        info.name = QStringLiteral("bla");
+        info.identifier = QByteArrayLiteral("idd");
+        channels.append(std::move(info));
         QTest::newRow("not existing room") << QStringLiteral("#foo") << QStringLiteral("<div><a href='ruqola:/room/foo'>#foo</a></div>") << mentions
                                            << channels;
     }
     {
         QMap<QString, QByteArray> mentions;
-        QMap<QString, QByteArray> channels;
-        channels.insert(QStringLiteral("bli"), QByteArrayLiteral("112"));
-        channels.insert(QStringLiteral("oss"), QByteArrayLiteral("kli"));
+        QList<Message::ChannelInfo> channels;
+        {
+            Message::ChannelInfo info;
+            info.name = QStringLiteral("bli");
+            info.identifier = QByteArrayLiteral("112");
+            channels.append(std::move(info));
+        }
+        {
+            Message::ChannelInfo info;
+            info.name = QStringLiteral("oss");
+            info.identifier = QByteArrayLiteral("kli");
+            channels.append(std::move(info));
+        }
         QTest::newRow("multi channel") << QStringLiteral("foo #bli blass #oss")
                                        << QStringLiteral("<div>foo <a href='ruqola:/room/112'>#bli</a> blass <a href='ruqola:/room/kli'>#oss</a></div>")
                                        << mentions << channels;
@@ -419,7 +435,7 @@ void TextConverterCMarkTest::shouldShowChannels_data()
 void TextConverterCMarkTest::shouldShowChannels()
 {
     using mapMentions = QMap<QString, QByteArray>;
-    using mapChannels = QMap<QString, QByteArray>;
+    using mapChannels = QList<Message::ChannelInfo>;
     QFETCH(QString, input);
     QFETCH(QString, output);
     QFETCH(mapMentions, mentions);
@@ -435,7 +451,7 @@ void TextConverterCMarkTest::shouldShowChannels()
 void TextConverterCMarkTest::shouldShowUsers()
 {
     using mapMentions = QMap<QString, QByteArray>;
-    using mapChannels = QMap<QString, QByteArray>;
+    using mapChannels = QList<Message::ChannelInfo>;
     QFETCH(QString, input);
     QFETCH(QString, output);
     QFETCH(mapMentions, mentions);
@@ -453,18 +469,22 @@ void TextConverterCMarkTest::shouldShowUsers_data()
     QTest::addColumn<QString>("input");
     QTest::addColumn<QString>("output");
     QTest::addColumn<QMap<QString, QByteArray>>("mentions");
-    QTest::addColumn<QMap<QString, QByteArray>>("channels");
+    QTest::addColumn<QList<Message::ChannelInfo>>("channels");
 
     {
         QMap<QString, QByteArray> mentions;
-        QMap<QString, QByteArray> channels;
+        QList<Message::ChannelInfo> channels;
         QTest::newRow("empty") << QString() << QString() << mentions << channels;
     }
     {
         QMap<QString, QByteArray> mentions;
         mentions.insert(QStringLiteral("kde"), QByteArrayLiteral("bb"));
-        QMap<QString, QByteArray> channels;
-        channels.insert(QStringLiteral("foo"), QByteArrayLiteral("idd"));
+        QList<Message::ChannelInfo> channels;
+        Message::ChannelInfo info;
+        info.name = QStringLiteral("foo");
+        info.identifier = QByteArrayLiteral("idd");
+        channels.append(std::move(info));
+
         QTest::newRow("channel-user1") << QStringLiteral("#foo @kde")
                                        << QStringLiteral("<div><a href='ruqola:/room/idd'>#foo</a> <a href='ruqola:/user/bb'>@kde</a></div>") << mentions
                                        << channels;
@@ -473,8 +493,11 @@ void TextConverterCMarkTest::shouldShowUsers_data()
     {
         QMap<QString, QByteArray> mentions;
         mentions.insert(QStringLiteral("kde1"), QByteArrayLiteral("bb"));
-        QMap<QString, QByteArray> channels;
-        channels.insert(QStringLiteral("foo2"), QByteArrayLiteral("idd"));
+        QList<Message::ChannelInfo> channels;
+        Message::ChannelInfo info;
+        info.name = QStringLiteral("foo2");
+        info.identifier = QByteArrayLiteral("idd");
+        channels.append(std::move(info));
         QTest::newRow("channel-user-unknown") << QStringLiteral("#foo @kde")
                                               << QStringLiteral("<div><a href='ruqola:/room/foo'>#foo</a> <a href='ruqola:/user/kde'>@kde</a></div>")
                                               << mentions << channels;

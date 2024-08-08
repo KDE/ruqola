@@ -55,6 +55,13 @@ public:
     Q_FLAGS(MessageState MessageStates)
     Q_DECLARE_FLAGS(MessageStates, MessageState)
 
+    struct ChannelInfo {
+        QString fname;
+        QString name;
+        QByteArray identifier;
+        [[nodiscard]] bool operator==(const ChannelInfo &other) const;
+    };
+
     [[nodiscard]] QByteArray roomId() const;
     void setRoomId(const QByteArray &roomId);
 
@@ -204,8 +211,8 @@ public:
     [[nodiscard]] bool isEditingMode() const;
     void setIsEditingMode(bool isEditingMode);
 
-    const QMap<QString, QByteArray> &channels() const;
-    void setChannels(const QMap<QString, QByteArray> &newChannels);
+    const QList<ChannelInfo> &channels() const;
+    void setChannels(const QList<ChannelInfo> &newChannels);
 
     [[nodiscard]] bool hoverHighlight() const;
     void setHoverHighlight(bool newShowReactionIcon);
@@ -272,7 +279,7 @@ private:
     QMap<QString, QByteArray> mMentions;
 
     // Channels Name/identifier
-    QMap<QString, QByteArray> mChannels;
+    QList<ChannelInfo> mChannels;
 
     // Users which replies to thread
     QList<QByteArray> mReplies;
@@ -320,3 +327,5 @@ private:
     MessageStates mMessageStates = MessageStates(MessageState::Groupable | MessageState::Translated);
 };
 LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const Message &t);
+LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const Message::ChannelInfo &t);
+Q_DECLARE_TYPEINFO(Message::ChannelInfo, Q_RELOCATABLE_TYPE);

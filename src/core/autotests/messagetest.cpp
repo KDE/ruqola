@@ -31,7 +31,7 @@ void MessageTest::shouldHaveDefaultValues()
     QCOMPARE(m.discussionCount(), 0);
     QVERIFY(!m.privateMessage());
     // 14/03/2024 => size 816
-    QCOMPARE(sizeof(Message), 496);
+    QCOMPARE(sizeof(Message), 512);
     QCOMPARE(m.messageStates(), Message::MessageStates(Message::MessageState::Groupable | Message::MessageState::Translated));
 }
 
@@ -560,11 +560,28 @@ void MessageTest::shouldSerializeData()
         input.setMentions(mentions);
 
         // Channels
-        QMap<QString, QByteArray> channels;
-        channels.insert(QStringLiteral("channel1"), QByteArrayLiteral("foo-1"));
-        channels.insert(QStringLiteral("channel2"), QByteArrayLiteral("foo-2"));
-        channels.insert(QStringLiteral("channel3"), QByteArrayLiteral("foo-3"));
-        channels.insert(QStringLiteral("channel4"), QByteArrayLiteral("foo-4"));
+        QList<Message::ChannelInfo> channels;
+        {
+            Message::ChannelInfo info;
+            info.fname = QStringLiteral("fnamechannel1");
+            info.name = QStringLiteral("channel1");
+            info.identifier = QByteArrayLiteral("foo-1");
+            channels.append(std::move(info));
+        }
+        {
+            Message::ChannelInfo info;
+            info.fname = QStringLiteral("fnamechannel2");
+            info.name = QStringLiteral("channel2");
+            info.identifier = QByteArrayLiteral("foo-2");
+            channels.append(std::move(info));
+        }
+        {
+            Message::ChannelInfo info;
+            info.fname = QStringLiteral("fnamechannel3");
+            info.name = QStringLiteral("channel3");
+            info.identifier = QByteArrayLiteral("foo-3");
+            channels.append(std::move(info));
+        }
         input.setChannels(channels);
 
         // Starred

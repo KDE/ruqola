@@ -8,6 +8,7 @@
 
 #include "config-ruqola.h"
 #include "libruqolacore_export.h"
+#include "messages/message.h"
 #include <QList>
 #include <QMap>
 #include <QString>
@@ -27,7 +28,7 @@ struct LIBRUQOLACORE_EXPORT ConvertMessageTextSettings {
                                EmojiManager *_emojiManager,
                                MessageCache *_messageCache,
                                const QMap<QString, QByteArray> &_mentions,
-                               const QMap<QString, QByteArray> &_channels,
+                               const QList<Message::ChannelInfo> &_channels,
                                const QString &_searchedText = {},
                                int _maximumRecursiveQuotedText = -1)
         : str(_str)
@@ -49,7 +50,7 @@ struct LIBRUQOLACORE_EXPORT ConvertMessageTextSettings {
     EmojiManager *const emojiManager;
     MessageCache *const messageCache;
     const QMap<QString, QByteArray> mentions;
-    const QMap<QString, QByteArray> channels;
+    const QList<Message::ChannelInfo> channels;
     const QString searchedText;
     int maximumRecursiveQuotedText = -1;
 };
