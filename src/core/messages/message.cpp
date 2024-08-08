@@ -1034,7 +1034,7 @@ Message Message::deserialize(const QJsonObject &o, EmojiManager *emojiManager)
     for (int i = 0, total = repliesArray.count(); i < total; ++i) {
         replies.append(repliesArray.at(i).toString().toLatin1());
     }
-    message.setReplies(replies);
+    message.setReplies(std::move(replies));
 
     QMap<QString, QByteArray> mentions;
     const QJsonArray mentionsArray = o.value("mentions"_L1).toArray();
@@ -1042,7 +1042,7 @@ Message Message::deserialize(const QJsonObject &o, EmojiManager *emojiManager)
         const QJsonObject mention = mentionsArray.at(i).toObject();
         mentions.insert(mention.value("username"_L1).toString(), mention.value("_id"_L1).toString().toLatin1());
     }
-    message.setMentions(mentions);
+    message.setMentions(std::move(mentions));
 
     QMap<QString, QByteArray> channels;
     const QJsonArray channelsArray = o.value("channels"_L1).toArray();
@@ -1050,7 +1050,7 @@ Message Message::deserialize(const QJsonObject &o, EmojiManager *emojiManager)
         const QJsonObject channel = channelsArray.at(i).toObject();
         channels.insert(channel.value("channel"_L1).toString(), channel.value("_id"_L1).toString().toLatin1());
     }
-    message.setChannels(channels);
+    message.setChannels(std::move(channels));
 
     const QJsonArray blocksArray = o.value("blocks"_L1).toArray();
     for (int i = 0, total = blocksArray.count(); i < total; ++i) {
