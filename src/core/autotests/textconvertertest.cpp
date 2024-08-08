@@ -414,6 +414,16 @@ void TextConverterTest::shouldShowChannels_data()
     {
         QMap<QString, QByteArray> mentions;
         QList<Message::ChannelInfo> channels;
+        Message::ChannelInfo info;
+        info.name = QStringLiteral("bla");
+        info.fname = QStringLiteral("FNAME");
+        info.identifier = QByteArrayLiteral("idd");
+        channels.append(std::move(info));
+        QTest::newRow("use fname") << QStringLiteral("#bla") << QStringLiteral("<div><a href='ruqola:/room/idd'>#FNAME</a></div>") << mentions << channels;
+    }
+    {
+        QMap<QString, QByteArray> mentions;
+        QList<Message::ChannelInfo> channels;
         {
             Message::ChannelInfo info;
             info.name = QStringLiteral("bli");
