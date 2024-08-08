@@ -99,6 +99,7 @@ QList<WhatsNewInfo> WhatsNewTranslations::createWhatsNewInfo() const
         info.setBugFixings({
             i18n("Clean market application model after 30 minutes (reduce memory footprint)."),
             i18n("Fix show discussion name in completion."),
+            i18n("Fix duplicated messages in search message dialog."),
         });
 
         listInfo.append(std::move(info));
