@@ -55,7 +55,7 @@ public:
     Q_FLAGS(MessageState MessageStates)
     Q_DECLARE_FLAGS(MessageStates, MessageState)
 
-    struct ChannelInfo {
+    struct LIBRUQOLACORE_EXPORT ChannelInfo {
         QString fname;
         QString name;
         QByteArray identifier;
