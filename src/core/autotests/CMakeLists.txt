@@ -56,7 +56,6 @@ add_ruqola_test(authenticationinfotest.cpp)
 add_ruqola_test(commonmessagesmodeltest.cpp)
 add_ruqola_test(commonmessagefilterproxymodeltest.cpp)
 add_ruqola_test(accountmanagertest.cpp)
-
 add_ruqola_test(rocketchataccountmodeltest.cpp)
 add_ruqola_test(ruqolatest.cpp)
 add_ruqola_test(managerdatapathstest.cpp)
@@ -172,3 +171,5 @@ endif()
 if(USE_E2E_SUPPORT)
     add_ruqola_test(encryptionutilstest.cpp)
 endif()
+
+add_ruqola_test(channelstest.cpp)
