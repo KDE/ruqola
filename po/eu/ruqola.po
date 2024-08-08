@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-08-06 00:39+0000\n"
+"POT-Creation-Date: 2024-08-08 00:39+0000\n"
 "PO-Revision-Date: 2024-08-06 13:00+0200\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
@@ -1446,12 +1446,12 @@ msgctxt "We need a space between after </strong>"
 msgid "<strong>%1</strong> are typing..."
 msgstr "<strong>%1</strong> tekleatzen ari dira..."
 
-#: core/rocketchataccount.cpp:3022
+#: core/rocketchataccount.cpp:3042
 #, kde-format
 msgid "Export Messages"
 msgstr "Esportatu mezuak"
 
-#: core/rocketchataccount.cpp:3023
+#: core/rocketchataccount.cpp:3043
 #, kde-format
 msgid "Your email has been queued for sending."
 msgstr "Zure e-posta bidaltzeko ilaran ipini da."
@@ -8207,7 +8207,7 @@ msgctxt "@title:window"
 msgid "Decode Key"
 msgstr "Gakoa deskodetu"
 
-#: widgets/encryption/e2epassworddecodekeywidget.cpp:27
+#: widgets/encryption/e2epassworddecodekeywidget.cpp:29
 #, kde-format
 msgctxt "@label:textbox"
 msgid ""
