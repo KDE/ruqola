@@ -24,15 +24,15 @@ public:
         [[nodiscard]] bool operator==(const ChannelInfo &other) const;
     };
 
-    void setChannels(const QList<ChannelInfo> &reactions);
+    void setChannels(const QList<ChannelInfo> &channels);
     [[nodiscard]] QList<ChannelInfo> channels() const;
 
     void parseChannels(const QJsonArray &array);
 
     [[nodiscard]] bool operator==(const Channels &other) const;
 
-    [[nodiscard]] static QJsonObject serialize(const Channels &reactions);
-    [[nodiscard]] static Channels *deserialize(const QJsonObject &o);
+    [[nodiscard]] static QJsonArray serialize(const Channels &channels);
+    [[nodiscard]] static Channels *deserialize(const QJsonArray &o);
 
     [[nodiscard]] bool isEmpty() const;
 

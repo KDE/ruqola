@@ -362,15 +362,13 @@ void Message::setRole(const QString &role)
 
 void Message::parseChannels(const QJsonArray &channels)
 {
-    mChannels.clear();
-    for (int i = 0, total = channels.size(); i < total; ++i) {
-        const QJsonObject channel = channels.at(i).toObject();
-        ChannelInfo info;
-        info.name = channel.value("name"_L1).toString();
-        info.fname = channel.value("fname"_L1).toString();
-        info.identifier = channel.value("_id"_L1).toString().toLatin1();
-
-        mChannels.append(std::move(info));
+    if (!channels.isEmpty()) {
+        if (!mChannels) {
+            mChannels = new Channels;
+        } else {
+            mChannels.reset(new Channels);
+        }
+        mChannels->parseChannels(channels);
     }
 }
 
@@ -423,14 +421,21 @@ void Message::setHoverHighlight(bool newShowReactionIcon)
     assignMessageStateValue(HoverHighlight, newShowReactionIcon);
 }
 
-const QList<Message::ChannelInfo> &Message::channels() const
+const Channels *Message::channels() const
 {
-    return mChannels;
+    if (mChannels) {
+        return mChannels.data();
+    }
+    return nullptr;
 }
 
-void Message::setChannels(const QList<ChannelInfo> &newChannels)
+void Message::setChannels(const Channels &channels)
 {
-    mChannels = newChannels;
+    if (!mChannels) {
+        mChannels = new Channels(channels);
+    } else {
+        mChannels.reset(new Channels(channels));
+    }
 }
 
 void Message::parseBlocks(const QJsonArray &blocks)
@@ -586,12 +591,25 @@ bool Message::operator==(const Message &other) const
         && (discussionLastMessage() == other.discussionLastMessage()) && (discussionRoomId() == other.discussionRoomId())
         && (threadMessageId() == other.threadMessageId()) && (showTranslatedMessage() == other.showTranslatedMessage()) && (mReplies == other.replies())
         && (mEmoji == other.emoji()) && (pendingMessage() == other.pendingMessage()) && (showIgnoredMessage() == other.showIgnoredMessage())
-        && (mChannels == other.channels()) && (localTranslation() == other.localTranslation()) && (mBlocks == other.blocks())
-        && (mDisplayTime == other.mDisplayTime) && (privateMessage() == other.privateMessage());
+        && (localTranslation() == other.localTranslation()) && (mBlocks == other.blocks()) && (mDisplayTime == other.mDisplayTime)
+        && (privateMessage() == other.privateMessage());
     if (!result) {
         return false;
     }
-    // compare reactions
+    // compare channels
+    if (channels() && other.channels()) {
+        if (*channels() == (*other.channels())) {
+            result = true;
+        } else {
+            return false;
+        }
+    } else if (!channels() && !other.channels()) {
+        result = true;
+    } else {
+        return false;
+    }
+
+    // compare messagePinned
     if (messagePinned() && other.messagePinned()) {
         if (*messagePinned() == (*other.messagePinned())) {
             result = true;
@@ -1049,17 +1067,12 @@ Message Message::deserialize(const QJsonObject &o, EmojiManager *emojiManager)
     }
     message.setMentions(std::move(mentions));
 
-    QList<ChannelInfo> channels;
-    const QJsonArray channelsArray = o.value("channels"_L1).toArray();
-    for (int i = 0, total = channelsArray.count(); i < total; ++i) {
-        const QJsonObject channel = channelsArray.at(i).toObject();
-        ChannelInfo info;
-        info.name = channel.value("name"_L1).toString();
-        info.fname = channel.value("fname"_L1).toString();
-        info.identifier = channel.value("_id"_L1).toString().toLatin1();
-        channels.append(std::move(info));
+    if (o.contains("channels"_L1)) {
+        const QJsonArray channelsArray = o.value("channels"_L1).toArray();
+        Channels *channels = Channels::deserialize(channelsArray);
+        message.setChannels(*channels);
+        delete channels;
     }
-    message.setChannels(std::move(channels));
 
     const QJsonArray blocksArray = o.value("blocks"_L1).toArray();
     for (int i = 0, total = blocksArray.count(); i < total; ++i) {
@@ -1146,19 +1159,10 @@ QByteArray Message::serialize(const Message &message, bool toBinary)
     }
 
     // Channels
-    if (!message.channels().isEmpty()) {
-        QJsonArray array;
-        for (const ChannelInfo &info : message.channels()) {
-            QJsonObject channel;
-            channel.insert("_id"_L1, QString::fromLatin1(info.identifier));
-            channel.insert("name"_L1, info.name);
-            if (!info.fname.isEmpty()) {
-                channel.insert("fname"_L1, info.fname);
-            }
-            array.append(std::move(channel));
-        }
-        o["channels"_L1] = array;
+    if (message.channels() && !message.channels()->isEmpty()) {
+        o["channels"_L1] = Channels::serialize(*message.channels());
     }
+
     // Urls
     if (!message.mUrls.isEmpty()) {
         QJsonArray array;
@@ -1315,19 +1319,6 @@ void Message::assignMessageStateValue(MessageState type, bool status)
     } else {
         mMessageStates &= ~type;
     }
-}
-
-QDebug operator<<(QDebug d, const Message::ChannelInfo &t)
-{
-    d.space() << "fname:" << t.fname;
-    d.space() << "name:" << t.name;
-    d.space() << "identifier:" << t.identifier;
-    return d;
-}
-
-bool Message::ChannelInfo::operator==(const ChannelInfo &other) const
-{
-    return other.fname == fname && other.identifier == identifier && other.name == name;
 }
 
 #include "moc_message.cpp"

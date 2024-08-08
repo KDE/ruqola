@@ -164,7 +164,7 @@ QString generateRichText(const QString &str,
                          const QString &username,
                          const QStringList &highlightWords,
                          const QMap<QString, QByteArray> &mentions,
-                         const QList<Message::ChannelInfo> &channels,
+                         const Channels *const channels,
                          const QString &searchedText)
 {
     QString newStr = markdownToRichText(str);
@@ -202,18 +202,21 @@ QString generateRichText(const QString &str,
             }
 
             QString wordName = word.toString();
-
-            auto it = std::find_if(channels.cbegin(), channels.cend(), [wordName](const auto &channel) {
-                return channel.name == wordName;
-            });
             QByteArray roomIdentifier;
-            if (it == channels.cend()) {
-                roomIdentifier = wordName.toLatin1();
-            } else {
-                roomIdentifier = (*it).identifier;
-                if (!(*it).fname.isEmpty()) {
-                    wordName = (*it).fname;
+            if (channels) {
+                auto it = std::find_if(channels->channels().cbegin(), channels->channels().cend(), [wordName](const auto &channel) {
+                    return channel.name == wordName;
+                });
+                if (it == channels->channels().cend()) {
+                    roomIdentifier = wordName.toLatin1();
+                } else {
+                    roomIdentifier = (*it).identifier;
+                    if (!(*it).fname.isEmpty()) {
+                        wordName = (*it).fname;
+                    }
                 }
+            } else {
+                roomIdentifier = wordName.toLatin1();
             }
             newStr.replace(QLatin1Char('#') + word.toString(),
                            QStringLiteral("<a href=\'ruqola:/room/%2\'>#%1</a>").arg(wordName, QString::fromLatin1(roomIdentifier)));

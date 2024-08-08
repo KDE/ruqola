@@ -29,9 +29,9 @@ Channels::~Channels()
     qCDebug(RUQOLA_MESSAGE_MEMORY_LOG) << " Channels deleted " << this;
 }
 
-void Channels::setChannels(const QList<ChannelInfo> &reactions)
+void Channels::setChannels(const QList<ChannelInfo> &channels)
 {
-    mChannels = reactions;
+    mChannels = channels;
 }
 
 QList<Channels::ChannelInfo> Channels::channels() const
@@ -66,12 +66,11 @@ QDebug operator<<(QDebug d, const Channels &t)
     return d;
 }
 
-QJsonObject Channels::serialize(const Channels &channels)
+QJsonArray Channels::serialize(const Channels &channels)
 {
-    QJsonObject obj;
+    QJsonArray array;
     // Channels
     if (!channels.isEmpty()) {
-        QJsonArray array;
         for (const ChannelInfo &info : channels.channels()) {
             QJsonObject channel;
             channel.insert("_id"_L1, QString::fromLatin1(info.identifier));
@@ -81,15 +80,13 @@ QJsonObject Channels::serialize(const Channels &channels)
             }
             array.append(std::move(channel));
         }
-        obj["channels"_L1] = array;
     }
-    return obj;
+    return array;
 }
 
-Channels *Channels::deserialize(const QJsonObject &o)
+Channels *Channels::deserialize(const QJsonArray &channelsArray)
 {
     QList<ChannelInfo> channels;
-    const QJsonArray channelsArray = o.value("channels"_L1).toArray();
     for (int i = 0, total = channelsArray.count(); i < total; ++i) {
         const QJsonObject channel = channelsArray.at(i).toObject();
         ChannelInfo info;
