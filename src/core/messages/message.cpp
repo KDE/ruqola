@@ -364,8 +364,8 @@ void Message::parseChannels(const QJsonArray &channels)
 {
     mChannels.clear();
     for (int i = 0, total = channels.size(); i < total; ++i) {
-        const QJsonObject mention = channels.at(i).toObject();
-        mChannels.insert(mention.value("name"_L1).toString(), mention.value("_id"_L1).toString().toLatin1());
+        const QJsonObject channel = channels.at(i).toObject();
+        mChannels.insert(channel.value("name"_L1).toString(), channel.value("_id"_L1).toString().toLatin1());
     }
 }
 
