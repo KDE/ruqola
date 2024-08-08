@@ -106,7 +106,7 @@ set(KTEXTADDONS_MIN_VERSION "1.5.4")
 set(KLLMWIDGETS_VERSION "0.1.0")
 set(QT6KEYCHAIN_LIB_VERSION "0.14.2")
 
-option(TEXT_CONVERTER_CMARK_SUPPORT "Build support text converter with cmark (experimental)" OFF)
+option(TEXT_CONVERTER_CMARK_SUPPORT "Build support text converter with cmark-gfm (experimental)" OFF)
 
 if(TEXT_CONVERTER_CMARK_SUPPORT)
     find_package(cmark-gfm "0.29.0")
