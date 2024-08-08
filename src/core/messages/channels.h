@@ -27,7 +27,7 @@ public:
     void setChannels(const QList<ChannelInfo> &reactions);
     [[nodiscard]] QList<ChannelInfo> channels() const;
 
-    void parseChannels(const QJsonObject &array);
+    void parseChannels(const QJsonArray &array);
 
     [[nodiscard]] bool operator==(const Channels &other) const;
 

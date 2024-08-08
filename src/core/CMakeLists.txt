@@ -136,6 +136,9 @@ target_sources(libruqolacore PRIVATE
     messages/reaction.h
     messages/reactions.cpp
     messages/reactions.h
+    messages/channels.cpp
+    messages/channels.h
+
     model/accountschannelsmodel.cpp
     model/accountschannelsmodel.h
     model/admincustomemojimodel.cpp
