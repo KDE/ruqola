@@ -85,6 +85,7 @@ void SearchMessageWidget::clearSearchModel()
 {
     mSearchMessageModel->clearModel();
     mMessageIsEmpty = false;
+    mOffset = -1;
 }
 
 void SearchMessageWidget::messageSearch(const QString &pattern, const QByteArray &rid, bool userRegularExpression, int offset)
