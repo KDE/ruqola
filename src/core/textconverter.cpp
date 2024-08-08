@@ -11,8 +11,8 @@
 #include "messages/message.h"
 #include "ruqola_texttohtml_debug.h"
 #include "utils.h"
-#if USE_CMARK_RENDERING_TEXT
-#include "cmark.h"
+#if USE_CMARK_GFM_RENDERING_TEXT
+#include "cmark-gfm.h"
 #include <iostream>
 #endif
 
@@ -337,7 +337,7 @@ QString generateRichText(const QString &str,
 QString TextConverter::convertMessageText(const ConvertMessageTextSettings &settings, QByteArray &needUpdateMessageId, int &recusiveIndex)
 {
 #if 0
-#if USE_CMARK_RENDERING_TEXT
+#if USE_CMARK_GFM_RENDERING_TEXT
     return TextConverter::convertMessageTextCMark(settings, needUpdateMessageId, recusiveIndex);
 #else
     return TextConverter::convertMessageTextRuqola(settings, needUpdateMessageId, recusiveIndex);
@@ -509,7 +509,7 @@ QString TextConverter::convertMessageTextRuqola(const ConvertMessageTextSettings
     return "<qt>"_L1 + quotedMessage + richText + "</qt>"_L1;
 }
 
-#if USE_CMARK_RENDERING_TEXT
+#if USE_CMARK_GFM_RENDERING_TEXT
 QString addHighlighter(const QString &str, const TextConverter::ConvertMessageTextSettings &settings)
 {
     QString richText;
@@ -611,7 +611,7 @@ char *TextConverter::convertMessageTextCMark(const TextConverter::ConvertMessage
     cmark_iter *iter = cmark_iter_new(doc);
     cmark_event_type ev_type;
 
-    char *beforehtml = cmark_render_html(doc, CMARK_OPT_DEFAULT | CMARK_OPT_UNSAFE);
+    char *beforehtml = cmark_render_html(doc, CMARK_OPT_DEFAULT | CMARK_OPT_UNSAFE, NULL);
     std::cout << " beforehtml " << beforehtml << std::endl;
 
     while ((ev_type = cmark_iter_next(iter)) != CMARK_EVENT_DONE) {
@@ -666,7 +666,7 @@ char *TextConverter::convertMessageTextCMark(const TextConverter::ConvertMessage
         }*/
     }
 
-    char *html = cmark_render_html(doc, CMARK_OPT_DEFAULT | CMARK_OPT_UNSAFE);
+    char *html = cmark_render_html(doc, CMARK_OPT_DEFAULT | CMARK_OPT_UNSAFE, NULL);
     std::cout << " result " << html << std::endl;
 
     cmark_iter_free(iter);

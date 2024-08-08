@@ -590,6 +590,10 @@ if(UNITY_SUPPORT)
     target_link_libraries(libruqolacore Qt::DBus)
 endif()
 
+if(TARGET cmark-gfm::cmark-gfm)
+    target_link_libraries(libruqolacore cmark-gfm::libcmark-gfm)
+endif()
+
 if(TARGET cmark::cmark)
     target_link_libraries(libruqolacore cmark::cmark)
 endif()

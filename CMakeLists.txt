@@ -109,13 +109,13 @@ set(QT6KEYCHAIN_LIB_VERSION "0.14.2")
 option(TEXT_CONVERTER_CMARK_SUPPORT "Build support text converter with cmark (experimental)" OFF)
 
 if(TEXT_CONVERTER_CMARK_SUPPORT)
-    find_package(cmark "0.31.0")
-    set_package_properties(cmark PROPERTIES DESCRIPTION
-        "Allow to generate html from markdown"
+    find_package(cmark-gfm "0.29.0")
+    set_package_properties(cmark-gfm PROPERTIES DESCRIPTION
+        "Allow to generate html from markdown (cmark-gfm)"
         TYPE OPTIONAL
     )
-    if(TARGET cmark::cmark)
-	set(USE_CMARK_RENDERING_TEXT true)
+    if(TARGET cmark-gfm::cmark-gfm)
+        set(USE_CMARK_GFM_RENDERING_TEXT true)
     endif()
 endif()
 
