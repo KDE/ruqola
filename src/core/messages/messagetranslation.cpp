@@ -25,7 +25,7 @@ MessageTranslation::MessageTranslation(const MessageTranslation &other)
 
 MessageTranslation::~MessageTranslation()
 {
-    qCDebug(RUQOLA_MESSAGE_MEMORY_LOG) << " ModerationMessage deleted " << this;
+    qCDebug(RUQOLA_MESSAGE_MEMORY_LOG) << " MessageTranslation deleted " << this;
 }
 
 QDebug operator<<(QDebug d, const MessageTranslation &t)
