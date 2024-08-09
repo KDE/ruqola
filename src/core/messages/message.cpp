@@ -370,6 +370,8 @@ void Message::parseChannels(const QJsonArray &channels)
             mChannels.reset(new Channels);
         }
         mChannels->parseChannels(channels);
+    } else {
+        mChannels.reset();
     }
 }
 
@@ -458,6 +460,8 @@ void Message::parseBlocks(const QJsonArray &blocks)
             mBlocks.reset(new Blocks);
         }
         mBlocks->parseBlocks(blocks);
+    } else {
+        mBlocks.reset();
     }
 }
 
@@ -513,8 +517,9 @@ void Message::parseUrls(const QJsonArray &urls)
             mUrls.reset(new MessageUrls);
         }
         mUrls->parseMessageUrls(urls, mMessageId);
+    } else {
+        mUrls.reset();
     }
-    // TODO clear ???
 }
 
 const Reactions *Message::reactions() const
