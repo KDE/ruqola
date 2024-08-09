@@ -48,7 +48,6 @@ int main(int argc, char *argv[])
     QApplication app(argc, argv);
     app.setWindowIcon(QIcon::fromTheme(QStringLiteral("ruqola")));
 
-    KCrash::initialize();
 #if HAVE_STYLE_MANAGER
     KStyleManager::initStyle();
 #else // !HAVE_STYLE_MANAGER
@@ -84,6 +83,7 @@ int main(int argc, char *argv[])
 
     KAboutData::setApplicationData(aboutData);
 
+    KCrash::initialize();
     QCommandLineParser parser;
     RuqolaCommandLineParser commandLineParser(&parser);
 
