@@ -337,14 +337,16 @@ void MessageListDelegate::removeMessageCache(const Message *message)
     removeSizeHintCache(messageId);
     mHelperText->removeMessageCache(messageId);
 
-    const auto attachments{message->attachments()};
-    for (const auto &attachment : attachments) {
-        const QByteArray attachmentId = attachment.attachmentId();
-        mHelperAttachmentImage->removeMessageCache(attachmentId);
-        mHelperAttachmentFile->removeMessageCache(attachmentId);
-        mHelperAttachmentVideo->removeMessageCache(attachmentId);
-        mHelperAttachmentSound->removeMessageCache(attachmentId);
-        mHelperAttachmentText->removeMessageCache(attachmentId);
+    if (message->attachments()) {
+        const auto attachments{message->attachments()->messageAttachments()};
+        for (const auto &attachment : attachments) {
+            const QByteArray attachmentId = attachment.attachmentId();
+            mHelperAttachmentImage->removeMessageCache(attachmentId);
+            mHelperAttachmentFile->removeMessageCache(attachmentId);
+            mHelperAttachmentVideo->removeMessageCache(attachmentId);
+            mHelperAttachmentSound->removeMessageCache(attachmentId);
+            mHelperAttachmentText->removeMessageCache(attachmentId);
+        }
     }
     if (mPreviewEmbed) {
         const auto messageUrls{message->urls()};
@@ -381,15 +383,17 @@ QString MessageListDelegate::urlAt(const QStyleOptionViewItem &option, const QMo
     if (url.isEmpty()) {
         const Message *message = index.data(MessagesModel::MessagePointer).value<Message *>();
         Q_ASSERT(message);
-        const auto attachments = message->attachments();
-        int i = 0;
-        for (const MessageAttachment &msgAttach : attachments) {
-            MessageAttachmentDelegateHelperBase *helper = attachmentsHelper(msgAttach);
-            url = helper->urlAt(option, msgAttach, layout.attachmentsRectList.at(i), pos);
-            if (!url.isEmpty()) {
-                return url;
+        if (message->attachments()) {
+            const auto attachments = message->attachments()->messageAttachments();
+            int i = 0;
+            for (const MessageAttachment &msgAttach : attachments) {
+                MessageAttachmentDelegateHelperBase *helper = attachmentsHelper(msgAttach);
+                url = helper->urlAt(option, msgAttach, layout.attachmentsRectList.at(i), pos);
+                if (!url.isEmpty()) {
+                    return url;
+                }
+                i++;
             }
-            i++;
         }
 
         if (mPreviewEmbed) {
@@ -453,14 +457,16 @@ void MessageListDelegate::attachmentContextMenu(const QStyleOptionViewItem &opti
         return;
     }
     const MessageListLayoutBase::Layout layout = doLayout(option, index);
-    const auto attachments = message->attachments();
-    int i = 0;
-    for (const MessageAttachment &msgAttach : attachments) {
-        MessageAttachmentDelegateHelperBase *helper = attachmentsHelper(msgAttach);
-        if (helper->contextMenu(info.pos, info.globalPos, msgAttach, layout.attachmentsRectList.at(i), option, menu)) {
-            return;
+    if (message->attachments()) {
+        const auto attachments = message->attachments()->messageAttachments();
+        int i = 0;
+        for (const MessageAttachment &msgAttach : attachments) {
+            MessageAttachmentDelegateHelperBase *helper = attachmentsHelper(msgAttach);
+            if (helper->contextMenu(info.pos, info.globalPos, msgAttach, layout.attachmentsRectList.at(i), option, menu)) {
+                return;
+            }
+            ++i;
         }
-        ++i;
     }
 }
 
@@ -591,11 +597,12 @@ void MessageListDelegate::paint(QPainter *painter, const QStyleOptionViewItem &o
     }
 
     // Attachments
-    const auto attachments = message->attachments();
-    int i = 0;
-    for (const MessageAttachment &att : attachments) {
-        const MessageAttachmentDelegateHelperBase *helper = attachmentsHelper(att);
-        if (helper) {
+    if (message->attachments()) {
+        const auto attachments = message->attachments()->messageAttachments();
+        int i = 0;
+        for (const MessageAttachment &att : attachments) {
+            const MessageAttachmentDelegateHelperBase *helper = attachmentsHelper(att);
+            if (helper) {
 #if 0
             painter->save();
             painter->setPen(QPen(Qt::green));
@@ -603,8 +610,9 @@ void MessageListDelegate::paint(QPainter *painter, const QStyleOptionViewItem &o
             painter->restore();
 #endif
             helper->draw(att, painter, layout.attachmentsRectList.at(i), index, option);
-        }
+            }
         ++i;
+        }
     }
     // Blocks
 
@@ -805,14 +813,16 @@ bool MessageListDelegate::mouseEvent(QEvent *event, const QStyleOptionViewItem &
             return true;
         }
 
-        const auto attachments = message->attachments();
-        int i = 0;
-        for (const MessageAttachment &att : attachments) {
-            MessageAttachmentDelegateHelperBase *helper = attachmentsHelper(att);
-            if (helper && helper->handleMouseEvent(att, mev, layout.attachmentsRectList.at(i), option, index)) {
-                return true;
+        if (message->attachments()) {
+            const auto attachments = message->attachments()->messageAttachments();
+            int i = 0;
+            for (const MessageAttachment &att : attachments) {
+                MessageAttachmentDelegateHelperBase *helper = attachmentsHelper(att);
+                if (helper && helper->handleMouseEvent(att, mev, layout.attachmentsRectList.at(i), option, index)) {
+                    return true;
+                }
+                ++i;
             }
-            ++i;
         }
 
         if (message->blocks()) {
@@ -845,14 +855,16 @@ bool MessageListDelegate::mouseEvent(QEvent *event, const QStyleOptionViewItem &
             }
 
             const Message *message = index.data(MessagesModel::MessagePointer).value<Message *>();
-            const auto attachments = message->attachments();
-            int i = 0;
-            for (const MessageAttachment &att : attachments) {
-                MessageAttachmentDelegateHelperBase *helper = attachmentsHelper(att);
-                if (helper && helper->handleMouseEvent(att, mev, layout.attachmentsRectList.at(i), option, index)) {
-                    return true;
+            if (message->attachments()) {
+                const auto attachments = message->attachments()->messageAttachments();
+                int i = 0;
+                for (const MessageAttachment &att : attachments) {
+                    MessageAttachmentDelegateHelperBase *helper = attachmentsHelper(att);
+                    if (helper && helper->handleMouseEvent(att, mev, layout.attachmentsRectList.at(i), option, index)) {
+                        return true;
+                    }
+                    ++i;
                 }
-                ++i;
             }
             if (mPreviewEmbed) {
                 const auto messageUrls = message->urls();
@@ -878,14 +890,16 @@ bool MessageListDelegate::maybeStartDrag(QMouseEvent *event, const QStyleOptionV
 
     const Message *message = index.data(MessagesModel::MessagePointer).value<Message *>();
     {
-        const auto attachments = message->attachments();
-        int i = 0;
-        for (const MessageAttachment &att : attachments) {
-            MessageAttachmentDelegateHelperBase *helper = attachmentsHelper(att);
-            if (helper && helper->maybeStartDrag(att, event, layout.attachmentsRectList.at(i), option, index)) {
-                return true;
+        if (message->attachments()) {
+            const auto attachments = message->attachments()->messageAttachments();
+            int i = 0;
+            for (const MessageAttachment &att : attachments) {
+                MessageAttachmentDelegateHelperBase *helper = attachmentsHelper(att);
+                if (helper && helper->maybeStartDrag(att, event, layout.attachmentsRectList.at(i), option, index)) {
+                    return true;
+                }
+                ++i;
             }
-            ++i;
         }
     }
     {
@@ -961,17 +975,19 @@ bool MessageListDelegate::helpEvent(QHelpEvent *helpEvent, QAbstractItemView *vi
             return true;
         }
         // Attachments
-        const auto attachments = message->attachments();
-        int i = 0;
-        for (const MessageAttachment &att : attachments) {
-            MessageAttachmentDelegateHelperBase *helper = attachmentsHelper(att);
-            if (helper) {
-                if (layout.attachmentsRectList.at(i).contains(helpEventPos)
-                    && helper->handleHelpEvent(helpEvent, layout.attachmentsRectList.at(i), att, option)) {
-                    return true;
+        if (message->attachments()) {
+            const auto attachments = message->attachments()->messageAttachments();
+            int i = 0;
+            for (const MessageAttachment &att : attachments) {
+                MessageAttachmentDelegateHelperBase *helper = attachmentsHelper(att);
+                if (helper) {
+                    if (layout.attachmentsRectList.at(i).contains(helpEventPos)
+                        && helper->handleHelpEvent(helpEvent, layout.attachmentsRectList.at(i), att, option)) {
+                        return true;
+                    }
                 }
+                ++i;
             }
-            ++i;
         }
 
         // Block

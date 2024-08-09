@@ -86,12 +86,13 @@ void MessageListLayoutBase::generateAttachmentBlockAndUrlPreviewLayout(MessageLi
                                                                        const QStyleOptionViewItem &option,
                                                                        const QModelIndex &index) const
 {
-    if (message->attachments().isEmpty() && (!message->blocks() || (message->blocks() && message->blocks()->isEmpty())) && message->urls().isEmpty()) {
+    if ((!message->attachments() || (message->attachments() && message->attachments()->messageAttachments().isEmpty()))
+        && (!message->blocks() || (message->blocks() && message->blocks()->isEmpty())) && message->urls().isEmpty()) {
         layout.reactionsY = attachmentsY;
     } else {
         int topAttachment = attachmentsY;
-        if (!message->attachments().isEmpty()) {
-            const auto attachments = message->attachments();
+        if (message->attachments() && !message->attachments()->messageAttachments().isEmpty()) {
+            const auto attachments = message->attachments()->messageAttachments();
             QSize attachmentsSize;
             // TODO add spacing between attachment
             for (const MessageAttachment &msgAttach : attachments) {

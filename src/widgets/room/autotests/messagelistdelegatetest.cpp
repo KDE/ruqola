@@ -46,7 +46,13 @@ void MessageListDelegateTest::layoutChecks_data()
     message.setMessageType(Message::NormalText);
     MessageAttachment msgAttach = testAttachment();
     msgAttach.setAttachmentType(MessageAttachment::Image);
-    message.setAttachments({msgAttach});
+
+    MessageAttachments attachments;
+    QList<MessageAttachment> attachmentInfos;
+    attachmentInfos.append(msgAttach);
+    attachments.setMessageAttachments(attachmentInfos);
+
+    message.setAttachments(attachments);
 
     QTest::newRow("attachment_no_text_no_date") << message << false;
     QTest::newRow("attachment_no_text_with_date") << message << true;
@@ -106,7 +112,7 @@ void MessageListDelegateTest::layoutChecks()
     QVERIFY(option.rect.contains(layout.usableRect));
     // FIXME: reactivate
     // QVERIFY(option.rect.contains(layout.senderRect.toRect()));
-    if (message.attachments().isEmpty()) {
+    if (!message.attachments()) {
         QVERIFY(layout.attachmentsRect.isNull());
     } else {
         QVERIFY(sizeHint.height() > layout.senderRect.height() + 1);
@@ -121,7 +127,7 @@ void MessageListDelegateTest::layoutChecks()
         QCOMPARE(layout.usableRect.left(), layout.textRect.left());
         QVERIFY(layout.textRect.top() >= layout.usableRect.top());
         QVERIFY(!layout.senderRect.intersects(layout.textRect));
-        if (!message.attachments().isEmpty()) {
+        if (message.attachments() && !message.attachments()->isEmpty()) {
             QCOMPARE(layout.attachmentsRect.top(), layout.textRect.y() + layout.textRect.height());
         }
     }

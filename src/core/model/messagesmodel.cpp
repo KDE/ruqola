@@ -220,10 +220,12 @@ QVariant MessagesModel::data(const QModelIndex &index, int role) const
     }
     case MessagesModel::Attachments: {
         QVariantList lst;
-        lst.reserve(message.attachments().count());
-        const auto attaches = message.attachments();
-        for (const MessageAttachment &att : attaches) {
-            lst.append(QVariant::fromValue(att));
+        if (message.attachments()) {
+            lst.reserve(message.attachments()->messageAttachments().count());
+            const auto attaches = message.attachments()->messageAttachments();
+            for (const MessageAttachment &att : attaches) {
+                lst.append(QVariant::fromValue(att));
+            }
         }
         return lst;
     }
@@ -385,19 +387,25 @@ bool MessagesModel::setData(const QModelIndex &index, const QVariant &value, int
     switch (role) {
     case MessagesModel::DisplayAttachment: {
         const auto visibility = value.value<AttachmentAndUrlPreviewVisibility>();
-        auto attachments = message.attachments();
-        for (int i = 0, total = attachments.count(); i < total; ++i) {
-            const MessageAttachment att = attachments.at(i);
-            if (att.attachmentId() == visibility.elementId) {
-                MessageAttachment changeAttachment = attachments.takeAt(i);
-                changeAttachment.setShowAttachment(visibility.show);
-                attachments.insert(i, changeAttachment);
-                break;
+        if (message.attachments()) {
+            auto attachments = message.attachments()->messageAttachments();
+            for (int i = 0, total = attachments.count(); i < total; ++i) {
+                const MessageAttachment att = attachments.at(i);
+                if (att.attachmentId() == visibility.elementId) {
+                    MessageAttachment changeAttachment = attachments.takeAt(i);
+                    changeAttachment.setShowAttachment(visibility.show);
+                    attachments.insert(i, changeAttachment);
+                    break;
+                }
             }
+            MessageAttachments d;
+            d.setMessageAttachments(attachments);
+            message.setAttachments(d);
+            Q_EMIT dataChanged(index, index, {MessagesModel::DisplayAttachment});
+            return true;
+        } else {
+            return false;
         }
-        message.setAttachments(attachments);
-        Q_EMIT dataChanged(index, index, {MessagesModel::DisplayAttachment});
-        return true;
     }
     case MessagesModel::DisplayUrlPreview: {
         const auto visibility = value.value<AttachmentAndUrlPreviewVisibility>();
@@ -524,8 +532,8 @@ void MessagesModel::slotFileDownloaded(const QString &filePath, const QUrl &cach
             != msgAttachments.end();
     };
     auto it = std::find_if(mAllMessages.begin(), mAllMessages.end(), [&](const Message &msg) {
-        if (!msg.attachments().isEmpty()) {
-            return matchesFilePath(msg.attachments());
+        if (msg.attachments() && !msg.attachments()->messageAttachments().isEmpty()) {
+            return matchesFilePath(msg.attachments()->messageAttachments());
         }
         auto *emojiManager = mRocketChatAccount->emojiManager();
         if (auto reactionsMessages = msg.reactions()) {

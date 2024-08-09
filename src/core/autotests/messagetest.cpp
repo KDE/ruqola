@@ -27,11 +27,11 @@ void MessageTest::shouldHaveDefaultValues()
     QVERIFY(!m.hoverHighlight());
     QVERIFY(m.localTranslation().isEmpty());
     QVERIFY(!m.blocks());
-    QVERIFY(m.attachments().isEmpty());
+    QVERIFY(!m.attachments());
     QCOMPARE(m.discussionCount(), 0);
     QVERIFY(!m.privateMessage());
     // 14/03/2024 => size 816
-    QCOMPARE(sizeof(Message), 480);
+    QCOMPARE(sizeof(Message), 464);
     QCOMPARE(m.messageStates(), Message::MessageStates(Message::MessageState::Groupable | Message::MessageState::Translated));
 }
 
@@ -61,7 +61,13 @@ void MessageTest::shouldParseMessage_data()
         att.setTitle(QStringLiteral("dd.pdf"));
         att.setAttachmentType(MessageAttachment::File);
         att.generateTitle();
-        firstMessageRef.setAttachments({att});
+
+        MessageAttachments attachments;
+        QList<MessageAttachment> attachmentInfos;
+        attachmentInfos.append(att);
+        attachments.setMessageAttachments(attachmentInfos);
+
+        firstMessageRef.setAttachments(attachments);
         QTest::addRow("first") << QStringLiteral("first") << firstMessageRef;
     }
     {
@@ -148,7 +154,13 @@ void MessageTest::shouldParseMessage_data()
         attImage.setAttachmentType(MessageAttachment::Image);
         attImage.setAttachmentSize(1829038);
         attImage.generateTitle();
-        imageMessageRef.setAttachments({attImage});
+
+        MessageAttachments attachments;
+        QList<MessageAttachment> attachmentInfos;
+        attachmentInfos.append(attImage);
+        attachments.setMessageAttachments(attachmentInfos);
+
+        imageMessageRef.setAttachments(attachments);
 
         QTest::addRow("image") << QStringLiteral("image") << imageMessageRef;
         // TODO add Mentions
@@ -177,8 +189,14 @@ void MessageTest::shouldParseMessage_data()
         attVideo.setAttachmentSize(1055736);
         attVideo.setAttachmentType(MessageAttachment::Video);
         attVideo.generateTitle();
+
+        MessageAttachments attachments;
+        QList<MessageAttachment> attachmentInfos;
+        attachmentInfos.append(attVideo);
+        attachments.setMessageAttachments(attachmentInfos);
+
         // Add video size/video type etc.
-        videoMessageRef.setAttachments({attVideo});
+        videoMessageRef.setAttachments(attachments);
 
         QTest::addRow("video") << QStringLiteral("video") << videoMessageRef;
     }
@@ -205,8 +223,14 @@ void MessageTest::shouldParseMessage_data()
         attAudio.setAttachmentType(MessageAttachment::Audio);
         attAudio.setAttachmentSize(59217);
         attAudio.generateTitle();
+
+        MessageAttachments attachments;
+        QList<MessageAttachment> attachmentInfos;
+        attachmentInfos.append(attAudio);
+        attachments.setMessageAttachments(attachmentInfos);
+
         // Add video size/video type etc.
-        audioMessageRef.setAttachments({attAudio});
+        audioMessageRef.setAttachments(attachments);
 
         QTest::addRow("audio") << QStringLiteral("audio") << audioMessageRef;
     }
@@ -295,8 +319,14 @@ void MessageTest::shouldParseMessage_data()
         fileAttachment.setDescription(QStringLiteral("description"));
         fileAttachment.setAttachmentType(MessageAttachment::File);
         fileAttachment.generateTitle();
+
+        MessageAttachments attachments;
+        QList<MessageAttachment> attachmentInfos;
+        attachmentInfos.append(fileAttachment);
+        attachments.setMessageAttachments(attachmentInfos);
+
         // Add video size/video type etc.
-        messageAttachmentFileRef.setAttachments({fileAttachment});
+        messageAttachmentFileRef.setAttachments(attachments);
 
         QTest::addRow("messageattachmentfile") << QStringLiteral("messageattachmentfile") << messageAttachmentFileRef;
     }
@@ -403,7 +433,13 @@ void MessageTest::shouldSerializeData()
         attachment2.setLink(QStringLiteral("foo7"));
         attachment2.generateTitle();
         lstAttachement.append(std::move(attachment2));
-        input.setAttachments(lstAttachement);
+
+        MessageAttachments attachments;
+        QList<MessageAttachment> attachmentInfos;
+        attachmentInfos.append(lstAttachement);
+        attachments.setMessageAttachments(attachmentInfos);
+
+        input.setAttachments(attachments);
 
         QList<MessageUrl> lstUrls;
         MessageUrl url1;
@@ -421,6 +457,7 @@ void MessageTest::shouldSerializeData()
         input.setUrls(lstUrls);
 
         const QByteArray ba = Message::serialize(input);
+        qDebug() << " ba " << ba;
         // Message output = Message::fromJSon(QJsonObject(QJsonDocument::fromBinaryData(ba).object()));
         const Message output = Message::deserialize(QCborValue::fromCbor(ba).toMap().toJsonObject());
         QCOMPARE(input, output);
@@ -503,7 +540,12 @@ void MessageTest::shouldSerializeData()
             attachment2.generateTitle();
             lstAttachement.append(std::move(attachment2));
         }
-        input.setAttachments(lstAttachement);
+        MessageAttachments attachments;
+        QList<MessageAttachment> attachmentInfos;
+        attachmentInfos.append(lstAttachement);
+        attachments.setMessageAttachments(attachmentInfos);
+
+        input.setAttachments(attachments);
         // Urls
         QList<MessageUrl> lstUrls;
 #if 0 // TODO FIXME

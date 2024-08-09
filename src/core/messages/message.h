@@ -11,6 +11,7 @@
 #include "channels.h"
 #include "libruqolacore_export.h"
 #include "messageattachment.h"
+#include "messageattachments.h"
 #include "messageextra.h"
 #include "messagepinned.h"
 #include "messagestarred.h"
@@ -129,8 +130,8 @@ public:
     [[nodiscard]] MessageType messageType() const;
     void setMessageType(Message::MessageType messageType);
 
-    [[nodiscard]] QList<MessageAttachment> attachments() const;
-    void setAttachments(const QList<MessageAttachment> &attachments);
+    [[nodiscard]] const MessageAttachments *attachments() const;
+    void setAttachments(const MessageAttachments &attachments);
 
     [[nodiscard]] QList<MessageUrl> urls() const;
     void setUrls(const QList<MessageUrl> &urls);
@@ -259,7 +260,7 @@ private:
     QSharedDataPointer<MessageTranslation> mMessageTranslation;
 
     // Message Object Fields
-    QList<MessageAttachment> mAttachments;
+    QSharedDataPointer<MessageAttachments> mAttachments;
 
     // Message urls object
     QList<MessageUrl> mUrls;

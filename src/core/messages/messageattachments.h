@@ -16,10 +16,10 @@ public:
     MessageAttachments();
     ~MessageAttachments();
 
-    void setMessageAttachments(const QList<MessageAttachment> &reactions);
+    void setMessageAttachments(const QList<MessageAttachment> &attachements);
     [[nodiscard]] QList<MessageAttachment> messageAttachments() const;
 
-    void parseMessageAttachments(const QJsonObject &array);
+    void parseMessageAttachments(const QJsonArray &attachments, const QByteArray &messageId);
 
     [[nodiscard]] bool operator==(const MessageAttachments &other) const;
 

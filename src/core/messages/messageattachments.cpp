@@ -29,9 +29,9 @@ MessageAttachments::~MessageAttachments()
     qCDebug(RUQOLA_MESSAGE_MEMORY_LOG) << " MessageAttachments deleted " << this;
 }
 
-void MessageAttachments::setMessageAttachments(const QList<MessageAttachment> &blocks)
+void MessageAttachments::setMessageAttachments(const QList<MessageAttachment> &attachements)
 {
-    mMessageAttachments = blocks;
+    mMessageAttachments = attachements;
 }
 
 QList<MessageAttachment> MessageAttachments::messageAttachments() const
@@ -39,14 +39,24 @@ QList<MessageAttachment> MessageAttachments::messageAttachments() const
     return mMessageAttachments;
 }
 
-void MessageAttachments::parseMessageAttachments(const QJsonObject &reactsr)
+void MessageAttachments::parseMessageAttachments(const QJsonArray &attachments, const QByteArray &messageId)
 {
     mMessageAttachments.clear();
+    // qDebug() << " void Message::parseAttachment(const QJsonObject &attachments)"<<attachments;
+    for (int i = 0; i < attachments.size(); i++) {
+        const QJsonObject attachment = attachments.at(i).toObject();
+        MessageAttachment messageAttachement;
+        messageAttachement.parseAttachment(attachment);
+        messageAttachement.setAttachmentId(MessageAttachments::generateUniqueId(messageId, i));
+        if (messageAttachement.isValid()) {
+            mMessageAttachments.append(messageAttachement);
+        }
+    }
 }
 
 bool MessageAttachments::operator==(const MessageAttachments &other) const
 {
-    return mMessageAttachments == other.messageAttachments();
+    return mMessageAttachments == other.mMessageAttachments;
 }
 
 QDebug operator<<(QDebug d, const MessageAttachments &t)
@@ -68,12 +78,15 @@ QJsonArray MessageAttachments::serialize(const MessageAttachments &attachments)
 
 MessageAttachments *MessageAttachments::deserialize(const QJsonArray &attachmentsArray, const QByteArray &messageId)
 {
+    qDebug() << " MessageAttachments::deserialize ******** " << attachmentsArray;
     QList<MessageAttachment> attachmentInfo;
     for (int i = 0; i < attachmentsArray.count(); ++i) {
         const QJsonObject attachment = attachmentsArray.at(i).toObject();
         MessageAttachment att = MessageAttachment::deserialize(attachment);
         att.setAttachmentId(MessageAttachments::generateUniqueId(messageId, i));
+        qDebug() << " cccccccccccccccccccccccccccccc5555";
         if (att.isValid()) {
+            qDebug() << " cccccccccccccccccccccccccccccc5555 is balue";
             attachmentInfo.append(std::move(att));
         }
     }

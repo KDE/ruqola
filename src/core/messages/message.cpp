@@ -391,10 +391,13 @@ void Message::setBlocks(const Blocks &newBlocks)
 
 QString Message::originalMessageOrAttachmentDescription() const
 {
-    if (attachments().empty()) {
+    if (!attachments()) {
         return text();
     }
-    return attachments().constFirst().description();
+    if (attachments()->isEmpty()) {
+        return text();
+    }
+    return attachments()->messageAttachments().constFirst().description();
 }
 
 MessageExtra *Message::messageExtra()
@@ -564,18 +567,13 @@ void Message::setMentions(const QMap<QString, QByteArray> &mentions)
 
 void Message::parseAttachment(const QJsonArray &attachments)
 {
-    mAttachments.clear();
     if (!attachments.isEmpty()) {
-        // qDebug() << " void Message::parseAttachment(const QJsonObject &attachments)"<<attachments;
-        for (int i = 0; i < attachments.size(); i++) {
-            const QJsonObject attachment = attachments.at(i).toObject();
-            MessageAttachment messageAttachement;
-            messageAttachement.parseAttachment(attachment);
-            messageAttachement.setAttachmentId(Message::generateUniqueId(messageId(), i));
-            if (messageAttachement.isValid()) {
-                mAttachments.append(messageAttachement);
-            }
+        if (!mAttachments) {
+            mAttachments = new MessageAttachments;
+        } else {
+            mAttachments.reset(new MessageAttachments);
         }
+        mAttachments->parseMessageAttachments(attachments, messageId());
     }
 }
 
@@ -585,14 +583,27 @@ bool Message::operator==(const Message &other) const
         && (mUsername == other.username()) && (mName == other.name()) && (mUserId == other.userId()) && (mUpdatedAt == other.updatedAt())
         && (mEditedAt == other.editedAt()) && (mEditedByUsername == other.editedByUsername()) && (mAlias == other.alias()) && (mAvatar == other.avatar())
         && (mSystemMessageType == other.systemMessageType()) && (groupable() == other.groupable()) && (parseUrls() == other.parseUrls())
-        && (mUrls == other.urls()) && (mAttachments == other.attachments()) && (mMentions == other.mentions()) && (mRole == other.role())
-        && (unread() == other.unread()) && (mMessageStarred == other.messageStarred()) && (threadCount() == other.threadCount())
-        && (threadLastMessage() == other.threadLastMessage()) && (discussionCount() == other.discussionCount())
-        && (discussionLastMessage() == other.discussionLastMessage()) && (discussionRoomId() == other.discussionRoomId())
-        && (threadMessageId() == other.threadMessageId()) && (showTranslatedMessage() == other.showTranslatedMessage()) && (mReplies == other.replies())
-        && (mEmoji == other.emoji()) && (pendingMessage() == other.pendingMessage()) && (showIgnoredMessage() == other.showIgnoredMessage())
+        && (mUrls == other.urls()) && (mMentions == other.mentions()) && (mRole == other.role()) && (unread() == other.unread())
+        && (mMessageStarred == other.messageStarred()) && (threadCount() == other.threadCount()) && (threadLastMessage() == other.threadLastMessage())
+        && (discussionCount() == other.discussionCount()) && (discussionLastMessage() == other.discussionLastMessage())
+        && (discussionRoomId() == other.discussionRoomId()) && (threadMessageId() == other.threadMessageId())
+        && (showTranslatedMessage() == other.showTranslatedMessage()) && (mReplies == other.replies()) && (mEmoji == other.emoji())
+        && (pendingMessage() == other.pendingMessage()) && (showIgnoredMessage() == other.showIgnoredMessage())
         && (localTranslation() == other.localTranslation()) && (mDisplayTime == other.mDisplayTime) && (privateMessage() == other.privateMessage());
     if (!result) {
+        return false;
+    }
+
+    // compare attachments
+    if (attachments() && other.attachments()) {
+        if (*attachments() == (*other.attachments())) {
+            result = true;
+        } else {
+            return false;
+        }
+    } else if (!attachments() && !other.attachments()) {
+        result = true;
+    } else {
         return false;
     }
 
@@ -815,14 +826,21 @@ void Message::setMessageType(MessageType messageType)
     mMessageType = messageType;
 }
 
-QList<MessageAttachment> Message::attachments() const
+const MessageAttachments *Message::attachments() const
 {
-    return mAttachments;
+    if (mAttachments) {
+        return mAttachments.data();
+    }
+    return nullptr;
 }
 
-void Message::setAttachments(const QList<MessageAttachment> &attachments)
+void Message::setAttachments(const MessageAttachments &attachment)
 {
-    mAttachments = attachments;
+    if (!mAttachments) {
+        mAttachments = new MessageAttachments(attachment);
+    } else {
+        mAttachments.reset(new MessageAttachments(attachment));
+    }
 }
 
 QList<MessageUrl> Message::urls() const
@@ -1039,15 +1057,14 @@ Message Message::deserialize(const QJsonObject &o, EmojiManager *emojiManager)
     message.mSystemMessageType = SystemMessageTypeUtil::systemMessageTypeFromString(o["type"_L1].toString());
     message.mEmoji = o["emoji"_L1].toString();
     message.mMessageType = o["messageType"_L1].toVariant().value<MessageType>();
-    const QJsonArray attachmentsArray = o.value("attachments"_L1).toArray();
-    for (int i = 0; i < attachmentsArray.count(); ++i) {
-        const QJsonObject attachment = attachmentsArray.at(i).toObject();
-        MessageAttachment att = MessageAttachment::deserialize(attachment);
-        att.setAttachmentId(Message::generateUniqueId(message.messageId(), i));
-        if (att.isValid()) {
-            message.mAttachments.append(std::move(att));
-        }
+
+    if (o.contains("attachments"_L1)) {
+        const QJsonArray attachmentsArray = o.value("attachments"_L1).toArray();
+        MessageAttachments *attachments = MessageAttachments::deserialize(attachmentsArray, message.messageId());
+        message.setAttachments(*attachments);
+        delete attachments;
     }
+
     const QJsonArray urlsArray = o.value("urls"_L1).toArray();
     for (int i = 0; i < urlsArray.count(); ++i) {
         const QJsonObject urlObj = urlsArray.at(i).toObject();
@@ -1149,13 +1166,9 @@ QByteArray Message::serialize(const Message &message, bool toBinary)
     o["messageType"_L1] = QJsonValue::fromVariant(QVariant::fromValue<Message::MessageType>(message.mMessageType));
 
     // Attachments
-    if (!message.mAttachments.isEmpty()) {
-        QJsonArray array;
-        const int nbAttachment = message.mAttachments.count();
-        for (int i = 0; i < nbAttachment; ++i) {
-            array.append(MessageAttachment::serialize(message.mAttachments.at(i)));
-        }
-        o["attachments"_L1] = array;
+    if (message.attachments() && !message.attachments()->isEmpty()) {
+        o["attachments"_L1] = MessageAttachments::serialize(*message.attachments());
+        qDebug() << " *********sdfsdfsqqdsfsqfdqsfdqsf********" << MessageAttachments::serialize(*message.attachments());
     }
 
     // Mentions
@@ -1255,8 +1268,8 @@ QDebug operator<<(QDebug d, const Message &t)
     d.space() << "mAvatar:" << t.avatar();
     d.space() << "mGroupable:" << t.groupable();
     d.space() << "mParseUrls:" << t.parseUrls();
-    for (int i = 0, total = t.attachments().count(); i < total; ++i) {
-        d.space() << "Attachment:" << t.attachments().at(i);
+    if (t.attachments()) {
+        d.space() << "Attachment:" << *t.attachments();
     }
     for (int i = 0, total = t.urls().count(); i < total; ++i) {
         d.space() << "Urls:" << t.urls().at(i);

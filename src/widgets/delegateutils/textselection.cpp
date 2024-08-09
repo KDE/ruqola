@@ -96,16 +96,18 @@ QString TextSelection::selectedText(Format format) const
         }
         const Message *message = index.data(MessagesModel::MessagePointer).value<Message *>();
         if (message) {
-            const auto attachments = message->attachments();
-            for (const auto &att : attachments) {
-                for (auto factory : std::as_const(mAttachmentFactories)) {
-                    doc = factory->documentForAttachement(att);
-                    if (doc) {
-                        if (!str.endsWith(QLatin1Char('\n'))) {
-                            str += QLatin1Char('\n');
+            if (message->attachments()) {
+                const auto attachments = message->attachments()->messageAttachments();
+                for (const auto &att : attachments) {
+                    for (auto factory : std::as_const(mAttachmentFactories)) {
+                        doc = factory->documentForAttachement(att);
+                        if (doc) {
+                            if (!str.endsWith(QLatin1Char('\n'))) {
+                                str += QLatin1Char('\n');
+                            }
+                            selectionText(ordered, format, row, index, doc, str, att);
+                            break;
                         }
-                        selectionText(ordered, format, row, index, doc, str, att);
-                        break;
                     }
                 }
             }
@@ -399,16 +401,18 @@ void TextSelection::selectMessage(const QModelIndex &index)
     }
     const Message *message = index.data(MessagesModel::MessagePointer).value<Message *>();
     if (message) {
-        const auto attachments = message->attachments();
-        for (const auto &att : attachments) {
-            for (auto factory : std::as_const(mAttachmentFactories)) {
-                doc = factory->documentForAttachement(att);
-                if (doc) {
-                    AttachmentSelection selection;
-                    selection.attachment = att;
-                    selection.fromCharPos = 0;
-                    selection.toCharPos = doc->characterCount() - 1;
-                    mAttachmentSelection.append(std::move(selection));
+        if (message->attachments()) {
+            const auto attachments = message->attachments()->messageAttachments();
+            for (const auto &att : attachments) {
+                for (auto factory : std::as_const(mAttachmentFactories)) {
+                    doc = factory->documentForAttachement(att);
+                    if (doc) {
+                        AttachmentSelection selection;
+                        selection.attachment = att;
+                        selection.fromCharPos = 0;
+                        selection.toCharPos = doc->characterCount() - 1;
+                        mAttachmentSelection.append(std::move(selection));
+                    }
                 }
             }
         }
