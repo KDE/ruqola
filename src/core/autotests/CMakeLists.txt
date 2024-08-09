@@ -173,3 +173,5 @@ if(USE_E2E_SUPPORT)
 endif()
 
 add_ruqola_test(channelstest.cpp)
+add_ruqola_test(blockstest.cpp)
+add_ruqola_test(messageurlstest.cpp)
