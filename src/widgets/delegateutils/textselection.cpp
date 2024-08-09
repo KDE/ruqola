@@ -112,15 +112,17 @@ QString TextSelection::selectedText(Format format) const
                 }
             }
 
-            const auto messageUrls = message->urls();
-            for (const auto &url : messageUrls) {
-                doc = mMessageUrlHelperFactory->documentForUrlPreview(url);
-                if (doc) {
-                    if (!str.endsWith(QLatin1Char('\n'))) {
-                        str += QLatin1Char('\n');
+            if (message->urls()) {
+                const auto messageUrls = message->urls()->messageUrls();
+                for (const auto &url : messageUrls) {
+                    doc = mMessageUrlHelperFactory->documentForUrlPreview(url);
+                    if (doc) {
+                        if (!str.endsWith(QLatin1Char('\n'))) {
+                            str += QLatin1Char('\n');
+                        }
+                        selectionText(ordered, format, row, index, doc, str, {}, url);
+                        break;
                     }
-                    selectionText(ordered, format, row, index, doc, str, {}, url);
-                    break;
                 }
             }
         }
@@ -416,16 +418,18 @@ void TextSelection::selectMessage(const QModelIndex &index)
                 }
             }
         }
-        const auto urls = message->urls();
-        for (const auto &url : urls) {
-            if (url.hasHtmlDescription()) {
-                QTextDocument *doc = mMessageUrlHelperFactory->documentForUrlPreview(url);
-                if (doc) {
-                    MessageUrlSelection selection;
-                    selection.fromCharPos = 0;
-                    selection.toCharPos = doc->characterCount() - 1;
-                    selection.messageUrl = url;
-                    mMessageUrlSelection.append(std::move(selection));
+        if (message->urls()) {
+            const auto urls = message->urls()->messageUrls();
+            for (const auto &url : urls) {
+                if (url.hasHtmlDescription()) {
+                    QTextDocument *doc = mMessageUrlHelperFactory->documentForUrlPreview(url);
+                    if (doc) {
+                        MessageUrlSelection selection;
+                        selection.fromCharPos = 0;
+                        selection.toCharPos = doc->characterCount() - 1;
+                        selection.messageUrl = url;
+                        mMessageUrlSelection.append(std::move(selection));
+                    }
                 }
             }
         }

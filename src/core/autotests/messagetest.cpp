@@ -31,7 +31,7 @@ void MessageTest::shouldHaveDefaultValues()
     QCOMPARE(m.discussionCount(), 0);
     QVERIFY(!m.privateMessage());
     // 14/03/2024 => size 816
-    QCOMPARE(sizeof(Message), 464);
+    QCOMPARE(sizeof(Message), 448);
     QCOMPARE(m.messageStates(), Message::MessageStates(Message::MessageState::Groupable | Message::MessageState::Translated));
 }
 
@@ -95,7 +95,9 @@ void MessageTest::shouldParseMessage_data()
         url.setImageWidth(200);
         url.setImageHeight(200);
         url.generateMessageUrlInfo();
-        urlMessageRef.setUrls({url});
+        MessageUrls u;
+        u.setMessageUrls({url});
+        urlMessageRef.setUrls(u);
 
         QTest::addRow("url") << QStringLiteral("url") << urlMessageRef;
     }
@@ -125,7 +127,9 @@ void MessageTest::shouldParseMessage_data()
         url.setImageHeight(600);
         url.setUrlId(QByteArrayLiteral("yZPPxBQ79M9jG5hS6_0"));
         url.generateMessageUrlInfo();
-        urlMessageRef.setUrls({url});
+        MessageUrls u;
+        u.setMessageUrls({url});
+        urlMessageRef.setUrls(u);
         QTest::addRow("url1") << QStringLiteral("url1") << urlMessageRef;
     }
     {
@@ -454,7 +458,10 @@ void MessageTest::shouldSerializeData()
         url2.generateMessageUrlInfo();
         url2.setUrlId(QByteArrayLiteral("ff_1"));
         lstUrls.append(std::move(url2));
-        input.setUrls(lstUrls);
+
+        MessageUrls u;
+        u.setMessageUrls(lstUrls);
+        input.setUrls(u);
 
         const QByteArray ba = Message::serialize(input);
         qDebug() << " ba " << ba;
@@ -564,7 +571,10 @@ void MessageTest::shouldSerializeData()
             lstUrls.append(std::move(url2));
         }
 #endif
-        input.setUrls(lstUrls);
+
+        MessageUrls u;
+        u.setMessageUrls(lstUrls);
+        input.setUrls(u);
 
         // Reactions
         QList<Reaction> reacts;

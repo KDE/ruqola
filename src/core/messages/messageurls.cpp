@@ -6,6 +6,7 @@
 
 #include "messageurls.h"
 
+#include "messageutils.h"
 #include "ruqola_message_memory_debug.h"
 #include <QJsonArray>
 #include <QJsonObject>
@@ -42,15 +43,13 @@ QList<MessageUrl> MessageUrls::messageUrls() const
 void MessageUrls::parseMessageUrls(const QJsonArray &urls, const QByteArray &messageId)
 {
     mMessageUrls.clear();
-    if (!urls.isEmpty()) {
-        for (int i = 0; i < urls.size(); i++) {
-            const QJsonObject url = urls.at(i).toObject();
-            MessageUrl messageUrl;
-            messageUrl.setUrlId(MessageUrls::generateUniqueId(messageId, i));
-            messageUrl.parseUrl(url);
-            if (!messageUrl.isEmpty()) {
-                mMessageUrls.append(messageUrl);
-            }
+    for (int i = 0; i < urls.size(); i++) {
+        const QJsonObject url = urls.at(i).toObject();
+        MessageUrl messageUrl;
+        messageUrl.setUrlId(MessageUtils::generateUniqueId(messageId, i));
+        messageUrl.parseUrl(url);
+        if (!messageUrl.isEmpty()) {
+            mMessageUrls.append(messageUrl);
         }
     }
 }
@@ -68,25 +67,33 @@ QDebug operator<<(QDebug d, const MessageUrls &t)
     return d;
 }
 
-QJsonObject MessageUrls::serialize(const MessageUrls &blocks)
+QJsonArray MessageUrls::serialize(const MessageUrls &urls)
 {
-    QJsonObject obj;
-    // TODO
-    return obj;
+    QJsonArray urlArray;
+    for (const auto &urlInfo : urls.messageUrls()) {
+        urlArray.append(MessageUrl::serialize(urlInfo));
+    }
+    return urlArray;
 }
 
-MessageUrls *MessageUrls::deserialize(const QJsonObject &o)
+MessageUrls *MessageUrls::deserialize(const QJsonArray &urlsArray, const QByteArray &messageId)
 {
-    // TODO
-    return {};
+    QList<MessageUrl> urls;
+    for (int i = 0; i < urlsArray.count(); ++i) {
+        const QJsonObject urlObj = urlsArray.at(i).toObject();
+        MessageUrl url = MessageUrl::deserialize(urlObj);
+        url.setUrlId(MessageUtils::generateUniqueId(messageId, i));
+        if (!url.isEmpty()) {
+            urls.append(std::move(url));
+        }
+    }
+
+    auto final = new MessageUrls;
+    final->setMessageUrls(urls);
+    return final;
 }
 
 bool MessageUrls::isEmpty() const
 {
     return mMessageUrls.isEmpty();
-}
-
-QByteArray MessageUrls::generateUniqueId(const QByteArray &messageId, int index)
-{
-    return messageId + QByteArray("_") + QByteArray::number(index);
 }

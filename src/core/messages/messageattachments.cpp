@@ -5,6 +5,7 @@
 */
 
 #include "messageattachments.h"
+#include "messageutils.h"
 
 #include "ruqola_message_memory_debug.h"
 #include <QJsonArray>
@@ -47,7 +48,7 @@ void MessageAttachments::parseMessageAttachments(const QJsonArray &attachments, 
         const QJsonObject attachment = attachments.at(i).toObject();
         MessageAttachment messageAttachement;
         messageAttachement.parseAttachment(attachment);
-        messageAttachement.setAttachmentId(MessageAttachments::generateUniqueId(messageId, i));
+        messageAttachement.setAttachmentId(MessageUtils::generateUniqueId(messageId, i));
         if (messageAttachement.isValid()) {
             mMessageAttachments.append(messageAttachement);
         }
@@ -78,26 +79,18 @@ QJsonArray MessageAttachments::serialize(const MessageAttachments &attachments)
 
 MessageAttachments *MessageAttachments::deserialize(const QJsonArray &attachmentsArray, const QByteArray &messageId)
 {
-    qDebug() << " MessageAttachments::deserialize ******** " << attachmentsArray;
     QList<MessageAttachment> attachmentInfo;
     for (int i = 0; i < attachmentsArray.count(); ++i) {
         const QJsonObject attachment = attachmentsArray.at(i).toObject();
         MessageAttachment att = MessageAttachment::deserialize(attachment);
-        att.setAttachmentId(MessageAttachments::generateUniqueId(messageId, i));
-        qDebug() << " cccccccccccccccccccccccccccccc5555";
+        att.setAttachmentId(MessageUtils::generateUniqueId(messageId, i));
         if (att.isValid()) {
-            qDebug() << " cccccccccccccccccccccccccccccc5555 is balue";
             attachmentInfo.append(std::move(att));
         }
     }
     auto final = new MessageAttachments;
     final->setMessageAttachments(attachmentInfo);
     return final;
-}
-
-QByteArray MessageAttachments::generateUniqueId(const QByteArray &messageId, int index)
-{
-    return messageId + QByteArray("_") + QByteArray::number(index);
 }
 
 bool MessageAttachments::isEmpty() const

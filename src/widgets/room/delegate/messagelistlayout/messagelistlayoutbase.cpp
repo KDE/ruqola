@@ -87,7 +87,8 @@ void MessageListLayoutBase::generateAttachmentBlockAndUrlPreviewLayout(MessageLi
                                                                        const QModelIndex &index) const
 {
     if ((!message->attachments() || (message->attachments() && message->attachments()->messageAttachments().isEmpty()))
-        && (!message->blocks() || (message->blocks() && message->blocks()->isEmpty())) && message->urls().isEmpty()) {
+        && (!message->blocks() || (message->blocks() && message->blocks()->isEmpty()))
+        && (!message->urls() || (message->urls() && message->urls()->isEmpty()))) {
         layout.reactionsY = attachmentsY;
     } else {
         int topAttachment = attachmentsY;
@@ -131,8 +132,8 @@ void MessageListLayoutBase::generateAttachmentBlockAndUrlPreviewLayout(MessageLi
             layout.blocksRect = QRect(textLeft, topBlock, blocksSize.width(), blocksSize.height());
         }
         if (mRocketChatAccount && mRocketChatAccount->previewEmbed()) {
-            if (!message->urls().isEmpty()) {
-                const auto urls = message->urls();
+            if (message->urls() && !message->urls()->isEmpty()) {
+                const auto urls = message->urls()->messageUrls();
                 QSize urlsPreviewSize;
                 int topUrlPreview = topBlock;
                 for (const MessageUrl &url : urls) {

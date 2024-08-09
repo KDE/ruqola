@@ -5,6 +5,7 @@
 */
 
 #include "message.h"
+#include "messageutils.h"
 #include "ruqola_debug.h"
 #include <KLocalizedString>
 #include <QCborValue>
@@ -505,19 +506,15 @@ void Message::parseMentions(const QJsonArray &mentions)
 
 void Message::parseUrls(const QJsonArray &urls)
 {
-    mUrls.clear();
     if (!urls.isEmpty()) {
-        qCDebug(RUQOLA_LOG) << " void Message::urls(const QJsonObject &attachments)" << urls;
-        for (int i = 0; i < urls.size(); i++) {
-            const QJsonObject url = urls.at(i).toObject();
-            MessageUrl messageUrl;
-            messageUrl.setUrlId(Message::generateUniqueId(mMessageId, i));
-            messageUrl.parseUrl(url);
-            if (!messageUrl.isEmpty()) {
-                mUrls.append(messageUrl);
-            }
+        if (!mUrls) {
+            mUrls = new MessageUrls;
+        } else {
+            mUrls.reset(new MessageUrls);
         }
+        mUrls->parseMessageUrls(urls, mMessageId);
     }
+    // TODO clear ???
 }
 
 const Reactions *Message::reactions() const
@@ -583,14 +580,26 @@ bool Message::operator==(const Message &other) const
         && (mUsername == other.username()) && (mName == other.name()) && (mUserId == other.userId()) && (mUpdatedAt == other.updatedAt())
         && (mEditedAt == other.editedAt()) && (mEditedByUsername == other.editedByUsername()) && (mAlias == other.alias()) && (mAvatar == other.avatar())
         && (mSystemMessageType == other.systemMessageType()) && (groupable() == other.groupable()) && (parseUrls() == other.parseUrls())
-        && (mUrls == other.urls()) && (mMentions == other.mentions()) && (mRole == other.role()) && (unread() == other.unread())
-        && (mMessageStarred == other.messageStarred()) && (threadCount() == other.threadCount()) && (threadLastMessage() == other.threadLastMessage())
-        && (discussionCount() == other.discussionCount()) && (discussionLastMessage() == other.discussionLastMessage())
-        && (discussionRoomId() == other.discussionRoomId()) && (threadMessageId() == other.threadMessageId())
-        && (showTranslatedMessage() == other.showTranslatedMessage()) && (mReplies == other.replies()) && (mEmoji == other.emoji())
-        && (pendingMessage() == other.pendingMessage()) && (showIgnoredMessage() == other.showIgnoredMessage())
+        && (mMentions == other.mentions()) && (mRole == other.role()) && (unread() == other.unread()) && (mMessageStarred == other.messageStarred())
+        && (threadCount() == other.threadCount()) && (threadLastMessage() == other.threadLastMessage()) && (discussionCount() == other.discussionCount())
+        && (discussionLastMessage() == other.discussionLastMessage()) && (discussionRoomId() == other.discussionRoomId())
+        && (threadMessageId() == other.threadMessageId()) && (showTranslatedMessage() == other.showTranslatedMessage()) && (mReplies == other.replies())
+        && (mEmoji == other.emoji()) && (pendingMessage() == other.pendingMessage()) && (showIgnoredMessage() == other.showIgnoredMessage())
         && (localTranslation() == other.localTranslation()) && (mDisplayTime == other.mDisplayTime) && (privateMessage() == other.privateMessage());
     if (!result) {
+        return false;
+    }
+
+    // compare urls
+    if (urls() && other.urls()) {
+        if (*urls() == (*other.urls())) {
+            result = true;
+        } else {
+            return false;
+        }
+    } else if (!urls() && !other.urls()) {
+        result = true;
+    } else {
         return false;
     }
 
@@ -843,14 +852,25 @@ void Message::setAttachments(const MessageAttachments &attachment)
     }
 }
 
-QList<MessageUrl> Message::urls() const
+const MessageUrls *Message::urls() const
 {
-    return mUrls;
+    if (mUrls) {
+        return mUrls.data();
+    }
+    return nullptr;
 }
 
-void Message::setUrls(const QList<MessageUrl> &urls)
+void Message::setUrls(const MessageUrls &urls)
 {
-    mUrls = urls;
+    if (urls.isEmpty()) {
+        mUrls.reset();
+        return;
+    }
+    if (!mUrls) {
+        mUrls = new MessageUrls(urls);
+    } else {
+        mUrls.reset(new MessageUrls(urls));
+    }
 }
 
 QString Message::alias() const
@@ -993,11 +1013,6 @@ void Message::setGroupable(bool groupable)
     assignMessageStateValue(Groupable, groupable);
 }
 
-QByteArray Message::generateUniqueId(const QByteArray &messageId, int index)
-{
-    return messageId + QByteArray("_") + QByteArray::number(index);
-}
-
 Utils::AvatarInfo Message::avatarInfo() const
 {
     Utils::AvatarInfo info; // Optimize ???
@@ -1065,15 +1080,13 @@ Message Message::deserialize(const QJsonObject &o, EmojiManager *emojiManager)
         delete attachments;
     }
 
-    const QJsonArray urlsArray = o.value("urls"_L1).toArray();
-    for (int i = 0; i < urlsArray.count(); ++i) {
-        const QJsonObject urlObj = urlsArray.at(i).toObject();
-        MessageUrl url = MessageUrl::deserialize(urlObj);
-        url.setUrlId(Message::generateUniqueId(message.messageId(), i));
-        if (!url.isEmpty()) {
-            message.mUrls.append(std::move(url));
-        }
+    if (o.contains("urls"_L1)) {
+        const QJsonArray urlsArray = o.value("urls"_L1).toArray();
+        MessageUrls *urls = MessageUrls::deserialize(urlsArray, message.messageId());
+        message.setUrls(*urls);
+        delete urls;
     }
+
     if (o.contains("reactions"_L1)) {
         const QJsonObject reactionsArray = o.value("reactions"_L1).toObject();
         Reactions *reaction = Reactions::deserialize(reactionsArray, emojiManager);
@@ -1168,7 +1181,6 @@ QByteArray Message::serialize(const Message &message, bool toBinary)
     // Attachments
     if (message.attachments() && !message.attachments()->isEmpty()) {
         o["attachments"_L1] = MessageAttachments::serialize(*message.attachments());
-        qDebug() << " *********sdfsdfsqqdsfsqfdqsfdqsf********" << MessageAttachments::serialize(*message.attachments());
     }
 
     // Mentions
@@ -1191,13 +1203,8 @@ QByteArray Message::serialize(const Message &message, bool toBinary)
     }
 
     // Urls
-    if (!message.mUrls.isEmpty()) {
-        QJsonArray array;
-        const int nbUrls = message.mUrls.count();
-        for (int i = 0; i < nbUrls; ++i) {
-            array.append(MessageUrl::serialize(message.mUrls.at(i)));
-        }
-        o["urls"_L1] = array;
+    if (message.urls() && !message.urls()->isEmpty()) {
+        o["urls"_L1] = MessageUrls::serialize(*message.urls());
     }
 
     if (message.reactions() && !message.reactions()->isEmpty()) {
@@ -1271,8 +1278,9 @@ QDebug operator<<(QDebug d, const Message &t)
     if (t.attachments()) {
         d.space() << "Attachment:" << *t.attachments();
     }
-    for (int i = 0, total = t.urls().count(); i < total; ++i) {
-        d.space() << "Urls:" << t.urls().at(i);
+
+    if (t.urls()) {
+        d.space() << "Urls:" << *t.urls();
     }
     d.space() << "Mentions:" << t.mentions();
     d.space() << "mMessageType:" << t.messageType();

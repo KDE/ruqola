@@ -349,9 +349,11 @@ void MessageListDelegate::removeMessageCache(const Message *message)
         }
     }
     if (mPreviewEmbed) {
-        const auto messageUrls{message->urls()};
-        for (const auto &url : messageUrls) {
-            mHelperUrlPreview->removeMessageCache(url.urlId());
+        if (message->urls()) {
+            const auto messageUrls{message->urls()->messageUrls()};
+            for (const auto &url : messageUrls) {
+                mHelperUrlPreview->removeMessageCache(url.urlId());
+            }
         }
     }
 }
@@ -397,14 +399,16 @@ QString MessageListDelegate::urlAt(const QStyleOptionViewItem &option, const QMo
         }
 
         if (mPreviewEmbed) {
-            const auto urlsMessage = message->urls();
-            int messageUrlIndex = 0;
-            for (const MessageUrl &messageUrl : urlsMessage) {
-                url = mHelperUrlPreview->urlAt(option, messageUrl, layout.messageUrlsRectList.at(messageUrlIndex), pos);
-                if (!url.isEmpty()) {
-                    return url;
+            if (message->urls()) {
+                const auto urlsMessage = message->urls()->messageUrls();
+                int messageUrlIndex = 0;
+                for (const MessageUrl &messageUrl : urlsMessage) {
+                    url = mHelperUrlPreview->urlAt(option, messageUrl, layout.messageUrlsRectList.at(messageUrlIndex), pos);
+                    if (!url.isEmpty()) {
+                        return url;
+                    }
+                    messageUrlIndex++;
                 }
-                messageUrlIndex++;
             }
         }
     }
@@ -636,14 +640,16 @@ void MessageListDelegate::paint(QPainter *painter, const QStyleOptionViewItem &o
 
     if (mPreviewEmbed) {
         // Preview Url
-        const QList<MessageUrl> messageUrls = message->urls();
-        int messageUrlIndex = 0;
-        for (const MessageUrl &messageUrl : messageUrls) {
-            if (messageUrl.hasPreviewUrl()) {
-                // qDebug() << "messageUrl  " << messageUrl;
-                mHelperUrlPreview.get()->draw(messageUrl, painter, layout.messageUrlsRectList.at(messageUrlIndex), index, option);
+        if (message->urls()) {
+            const QList<MessageUrl> messageUrls = message->urls()->messageUrls();
+            int messageUrlIndex = 0;
+            for (const MessageUrl &messageUrl : messageUrls) {
+                if (messageUrl.hasPreviewUrl()) {
+                    // qDebug() << "messageUrl  " << messageUrl;
+                    mHelperUrlPreview.get()->draw(messageUrl, painter, layout.messageUrlsRectList.at(messageUrlIndex), index, option);
+                }
+                ++messageUrlIndex;
             }
-            ++messageUrlIndex;
         }
     }
 
@@ -837,13 +843,15 @@ bool MessageListDelegate::mouseEvent(QEvent *event, const QStyleOptionViewItem &
             }
         }
         if (mPreviewEmbed) {
-            const auto messageUrls = message->urls();
-            int messageUrlsIndex = 0;
-            for (const MessageUrl &url : messageUrls) {
-                if (mHelperUrlPreview->handleMouseEvent(url, mev, layout.messageUrlsRectList.at(messageUrlsIndex), option, index)) {
-                    return true;
+            if (message->urls()) {
+                const auto messageUrls = message->urls()->messageUrls();
+                int messageUrlsIndex = 0;
+                for (const MessageUrl &url : messageUrls) {
+                    if (mHelperUrlPreview->handleMouseEvent(url, mev, layout.messageUrlsRectList.at(messageUrlsIndex), option, index)) {
+                        return true;
+                    }
+                    ++messageUrlsIndex;
                 }
-                ++messageUrlsIndex;
             }
         }
     } else if (eventType == QEvent::MouseButtonPress || eventType == QEvent::MouseMove || eventType == QEvent::MouseButtonDblClick) {
@@ -867,13 +875,15 @@ bool MessageListDelegate::mouseEvent(QEvent *event, const QStyleOptionViewItem &
                 }
             }
             if (mPreviewEmbed) {
-                const auto messageUrls = message->urls();
-                int messageUrlsIndex = 0;
-                for (const MessageUrl &url : messageUrls) {
-                    if (mHelperUrlPreview->handleMouseEvent(url, mev, layout.messageUrlsRectList.at(messageUrlsIndex), option, index)) {
-                        return true;
+                if (message->urls()) {
+                    const auto messageUrls = message->urls()->messageUrls();
+                    int messageUrlsIndex = 0;
+                    for (const MessageUrl &url : messageUrls) {
+                        if (mHelperUrlPreview->handleMouseEvent(url, mev, layout.messageUrlsRectList.at(messageUrlsIndex), option, index)) {
+                            return true;
+                        }
+                        ++messageUrlsIndex;
                     }
-                    ++messageUrlsIndex;
                 }
             }
         }
@@ -904,13 +914,15 @@ bool MessageListDelegate::maybeStartDrag(QMouseEvent *event, const QStyleOptionV
     }
     {
         if (mPreviewEmbed) {
-            const auto urls = message->urls();
-            int i = 0;
-            for (const MessageUrl &url : urls) {
-                if (mHelperUrlPreview->maybeStartDrag(url, event, layout.messageUrlsRectList.at(i), option, index)) {
-                    return true;
+            if (message->urls()) {
+                const auto urls = message->urls()->messageUrls();
+                int i = 0;
+                for (const MessageUrl &url : urls) {
+                    if (mHelperUrlPreview->maybeStartDrag(url, event, layout.messageUrlsRectList.at(i), option, index)) {
+                        return true;
+                    }
+                    ++i;
                 }
-                ++i;
             }
         }
     }
@@ -1008,14 +1020,16 @@ bool MessageListDelegate::helpEvent(QHelpEvent *helpEvent, QAbstractItemView *vi
 
         if (mPreviewEmbed) {
             // messageurls
-            const auto messageUrls = message->urls();
-            int messageUrlsIndex = 0;
-            for (const MessageUrl &url : messageUrls) {
-                if (layout.messageUrlsRectList.at(messageUrlsIndex).contains(helpEventPos)
-                    && mHelperUrlPreview->handleHelpEvent(helpEvent, layout.messageUrlsRectList.at(messageUrlsIndex), url, option)) {
-                    return true;
+            if (message->urls()) {
+                const auto messageUrls = message->urls()->messageUrls();
+                int messageUrlsIndex = 0;
+                for (const MessageUrl &url : messageUrls) {
+                    if (layout.messageUrlsRectList.at(messageUrlsIndex).contains(helpEventPos)
+                        && mHelperUrlPreview->handleHelpEvent(helpEvent, layout.messageUrlsRectList.at(messageUrlsIndex), url, option)) {
+                        return true;
+                    }
+                    ++messageUrlsIndex;
                 }
-                ++messageUrlsIndex;
             }
         }
         if (layout.timeStampRect.contains(helpEvent->pos())) {

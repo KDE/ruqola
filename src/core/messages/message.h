@@ -6,17 +6,16 @@
 
 #pragma once
 
-#include "block.h"
 #include "blocks.h"
 #include "channels.h"
 #include "libruqolacore_export.h"
-#include "messageattachment.h"
 #include "messageattachments.h"
 #include "messageextra.h"
 #include "messagepinned.h"
 #include "messagestarred.h"
 #include "messagetranslation.h"
 #include "messageurl.h"
+#include "messageurls.h"
 #include "moderation/moderationmessage.h"
 #include "reactions.h"
 #include "systemmessagetypeutil.h"
@@ -133,8 +132,8 @@ public:
     [[nodiscard]] const MessageAttachments *attachments() const;
     void setAttachments(const MessageAttachments &attachments);
 
-    [[nodiscard]] QList<MessageUrl> urls() const;
-    void setUrls(const QList<MessageUrl> &urls);
+    [[nodiscard]] const MessageUrls *urls() const;
+    void setUrls(const MessageUrls &urls);
 
     [[nodiscard]] QMap<QString, QByteArray> mentions() const;
     void setMentions(const QMap<QString, QByteArray> &mentions);
@@ -235,7 +234,6 @@ public:
     void setMessageStates(const MessageStates &newMessageStates);
 
 private:
-    [[nodiscard]] LIBRUQOLACORE_NO_EXPORT static QByteArray generateUniqueId(const QByteArray &messageId, int index);
     LIBRUQOLACORE_NO_EXPORT void parseMentions(const QJsonArray &mentions);
     LIBRUQOLACORE_NO_EXPORT void parseAttachment(const QJsonArray &attachments);
     LIBRUQOLACORE_NO_EXPORT void parseUrls(const QJsonArray &urls);
@@ -263,7 +261,7 @@ private:
     QSharedDataPointer<MessageAttachments> mAttachments;
 
     // Message urls object
-    QList<MessageUrl> mUrls;
+    QSharedDataPointer<MessageUrls> mUrls;
 
     // Block
     QSharedDataPointer<Blocks> mBlocks;

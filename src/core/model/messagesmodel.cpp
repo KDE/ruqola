@@ -231,10 +231,12 @@ QVariant MessagesModel::data(const QModelIndex &index, int role) const
     }
     case MessagesModel::Urls: {
         QVariantList lst;
-        lst.reserve(message.urls().count());
-        const auto urls = message.urls();
-        for (const MessageUrl &url : urls) {
-            lst.append(QVariant::fromValue(url));
+        if (message.urls()) {
+            lst.reserve(message.urls()->messageUrls().count());
+            const auto urls = message.urls()->messageUrls();
+            for (const MessageUrl &url : urls) {
+                lst.append(QVariant::fromValue(url));
+            }
         }
         return lst;
     }
@@ -409,19 +411,25 @@ bool MessagesModel::setData(const QModelIndex &index, const QVariant &value, int
     }
     case MessagesModel::DisplayUrlPreview: {
         const auto visibility = value.value<AttachmentAndUrlPreviewVisibility>();
-        auto urls = message.urls();
-        for (int i = 0, total = urls.count(); i < total; ++i) {
-            const MessageUrl att = urls.at(i);
-            if (att.urlId() == visibility.elementId) {
-                MessageUrl changeUrlPreview = urls.takeAt(i);
-                changeUrlPreview.setShowPreview(visibility.show);
-                urls.insert(i, changeUrlPreview);
-                break;
+        if (message.urls()) {
+            auto urls = message.urls()->messageUrls();
+            for (int i = 0, total = urls.count(); i < total; ++i) {
+                const MessageUrl att = urls.at(i);
+                if (att.urlId() == visibility.elementId) {
+                    MessageUrl changeUrlPreview = urls.takeAt(i);
+                    changeUrlPreview.setShowPreview(visibility.show);
+                    urls.insert(i, changeUrlPreview);
+                    break;
+                }
             }
+            MessageUrls d;
+            d.setMessageUrls(urls);
+            message.setUrls(d);
+            Q_EMIT dataChanged(index, index, {MessagesModel::DisplayUrlPreview});
+            return true;
+        } else {
+            return false;
         }
-        message.setUrls(urls);
-        Q_EMIT dataChanged(index, index, {MessagesModel::DisplayUrlPreview});
-        return true;
     }
     case MessagesModel::ShowTranslatedMessage:
         message.setShowTranslatedMessage(value.toBool());

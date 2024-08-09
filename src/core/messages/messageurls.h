@@ -23,13 +23,12 @@ public:
 
     [[nodiscard]] bool operator==(const MessageUrls &other) const;
 
-    [[nodiscard]] static QJsonObject serialize(const MessageUrls &urls);
-    [[nodiscard]] static MessageUrls *deserialize(const QJsonObject &o);
+    [[nodiscard]] static QJsonArray serialize(const MessageUrls &urls);
+    [[nodiscard]] static MessageUrls *deserialize(const QJsonArray &o, const QByteArray &messageId);
 
     [[nodiscard]] bool isEmpty() const;
 
 private:
-    [[nodiscard]] LIBRUQOLACORE_NO_EXPORT static QByteArray generateUniqueId(const QByteArray &messageId, int index);
     QList<MessageUrl> mMessageUrls;
 };
 Q_DECLARE_METATYPE(MessageUrls)
