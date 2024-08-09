@@ -401,6 +401,27 @@ void MessageListView::contextMenuEvent(QContextMenuEvent *event)
         return listActions;
     }();
 
+    auto threadInfoActions = [&]() -> QList<QAction *> {
+        QList<QAction *> listActions;
+        if (mCurrentRocketChatAccount->threadsEnabled()) {
+            const QString threadMessageId = index.data(MessagesModel::ThreadMessageId).toString();
+            const int threadMessageCount = index.data(MessagesModel::ThreadCount).toInt();
+            if (!threadMessageId.isEmpty() || threadMessageCount > 0) {
+                auto separator = new QAction(&menu);
+                separator->setSeparator(true);
+                listActions.append(separator);
+                listActions.append(showFullThreadAction);
+            }
+            if (!listActions.isEmpty()) {
+                auto separator = new QAction(&menu);
+                separator->setSeparator(true);
+                listActions.append(separator);
+            }
+        }
+
+        return listActions;
+    }();
+
     switch (mMode) {
     case Mode::Editing: {
         auto startDiscussion = new QAction(i18nc("@action", "Start a Discussion"), &menu);
@@ -408,22 +429,18 @@ void MessageListView::contextMenuEvent(QContextMenuEvent *event)
             slotStartDiscussion(index);
         });
         menu.addAction(startDiscussion);
-        menu.addSeparator();
-        if (mCurrentRocketChatAccount->threadsEnabled()) {
+        if (!threadInfoActions.isEmpty()) {
+            menu.addSeparator();
             auto replyInThreadAction = new QAction(i18nc("@action", "Reply in Thread"), &menu);
             connect(replyInThreadAction, &QAction::triggered, this, [this, index]() {
                 slotReplyInThread(index);
             });
             menu.addAction(replyInThreadAction);
-
-            const QString threadMessageId = index.data(MessagesModel::ThreadMessageId).toString();
-            const int threadMessageCount = index.data(MessagesModel::ThreadCount).toInt();
-            if (!threadMessageId.isEmpty() || threadMessageCount > 0) {
-                menu.addSeparator();
-                menu.addAction(showFullThreadAction);
-            }
         }
-        menu.addSeparator();
+        for (auto action : threadInfoActions) {
+            menu.addAction(action);
+        }
+
         menu.addAction(quoteAction);
         menu.addSeparator();
         if (setPinnedMessage) {
@@ -565,6 +582,14 @@ void MessageListView::contextMenuEvent(QContextMenuEvent *event)
             menu.addAction(setAsFavoriteAction);
             menu.addSeparator();
         }
+
+        if (!threadInfoActions.isEmpty()) {
+            menu.addSeparator();
+            for (auto action : threadInfoActions) {
+                menu.addAction(action);
+            }
+        }
+
         menu.addAction(copyAction);
         if (copyUrlAction) {
             menu.addAction(copyUrlAction);
