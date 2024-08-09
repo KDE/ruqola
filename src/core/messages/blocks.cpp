@@ -65,17 +65,13 @@ QDebug operator<<(QDebug d, const Blocks &t)
     return d;
 }
 
-QJsonObject Blocks::serialize(const Blocks &blocks)
+QJsonArray Blocks::serialize(const Blocks &blocks)
 {
-    QJsonObject obj;
     QJsonArray blockArray;
-    const int nBlocks = blocks.count();
-    for (int i = 0; i < nBlocks; ++i) {
-        blockArray.append(Block::serialize(blocks.at(i)));
+    for (const auto &blockInfo : blocks.blocks()) {
+        blockArray.append(Block::serialize(blockInfo));
     }
-    obj["blocks"_L1] = blockArray;
-    // TODO
-    return obj;
+    return blockArray;
 }
 
 Blocks *Blocks::deserialize(const QJsonObject &o)

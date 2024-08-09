@@ -23,7 +23,7 @@ public:
 
     [[nodiscard]] bool operator==(const Blocks &other) const;
 
-    [[nodiscard]] static QJsonObject serialize(const Blocks &reactions);
+    [[nodiscard]] static QJsonArray serialize(const Blocks &reactions);
     [[nodiscard]] static Blocks *deserialize(const QJsonObject &o);
 
     [[nodiscard]] bool isEmpty() const;
