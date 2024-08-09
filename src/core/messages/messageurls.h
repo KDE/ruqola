@@ -29,6 +29,7 @@ public:
     [[nodiscard]] bool isEmpty() const;
 
 private:
+    [[nodiscard]] LIBRUQOLACORE_NO_EXPORT static QByteArray generateUniqueId(const QByteArray &messageId, int index);
     QList<MessageUrl> mMessageUrls;
 };
 Q_DECLARE_METATYPE(MessageUrls)
