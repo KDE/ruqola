@@ -70,16 +70,14 @@ QJsonArray Channels::serialize(const Channels &channels)
 {
     QJsonArray array;
     // Channels
-    if (!channels.isEmpty()) {
-        for (const ChannelInfo &info : channels.channels()) {
-            QJsonObject channel;
-            channel.insert("_id"_L1, QString::fromLatin1(info.identifier));
-            channel.insert("name"_L1, info.name);
-            if (!info.fname.isEmpty()) {
-                channel.insert("fname"_L1, info.fname);
-            }
-            array.append(std::move(channel));
+    for (const ChannelInfo &info : channels.channels()) {
+        QJsonObject channel;
+        channel.insert("_id"_L1, QString::fromLatin1(info.identifier));
+        channel.insert("name"_L1, info.name);
+        if (!info.fname.isEmpty()) {
+            channel.insert("fname"_L1, info.fname);
         }
+        array.append(std::move(channel));
     }
     return array;
 }
