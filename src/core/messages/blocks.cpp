@@ -74,15 +74,16 @@ QJsonArray Blocks::serialize(const Blocks &blocks)
     return blockArray;
 }
 
-Blocks *Blocks::deserialize(const QJsonObject &o)
+Blocks *Blocks::deserialize(const QJsonArray &blocksArray)
 {
-    const QJsonArray blocksArray = o.value("blocks"_L1).toArray();
+    QList<Block> blocks;
     for (int i = 0, total = blocksArray.count(); i < total; ++i) {
         const Block block = Block::deserialize(blocksArray.at(i).toObject());
-        // TODO message.mBlocks.append(std::move(block));
+        blocks.append(std::move(block));
     }
-    // TODO
-    return {};
+    auto final = new Blocks;
+    final->setBlocks(blocks);
+    return final;
 }
 
 bool Blocks::isEmpty() const

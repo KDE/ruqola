@@ -138,6 +138,8 @@ target_sources(libruqolacore PRIVATE
     messages/reactions.h
     messages/channels.cpp
     messages/channels.h
+    messages/blocks.cpp
+    messages/blocks.h
 
     model/accountschannelsmodel.cpp
     model/accountschannelsmodel.h
