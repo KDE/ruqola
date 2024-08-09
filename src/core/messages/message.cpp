@@ -1274,7 +1274,9 @@ QDebug operator<<(QDebug d, const Message &t)
     d.space() << "mEmoji" << t.emoji();
     d.space() << "mPendingMessage" << t.pendingMessage();
     d.space() << "mShowIgnoredMessage" << t.showIgnoredMessage();
-    d.space() << "mChannels" << t.channels();
+    if (t.channels()) {
+        d.space() << "mChannels" << *t.channels();
+    }
     d.space() << "mLocalTranslation" << t.localTranslation();
     d.space() << "mDiscussionRoomId" << t.discussionRoomId();
     d.space() << "mDiscussionCount" << t.discussionCount();

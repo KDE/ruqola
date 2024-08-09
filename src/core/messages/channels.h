@@ -41,4 +41,5 @@ private:
 };
 Q_DECLARE_METATYPE(Channels)
 Q_DECLARE_TYPEINFO(Channels::ChannelInfo, Q_RELOCATABLE_TYPE);
+LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const Channels &t);
 LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const Channels::ChannelInfo &t);
