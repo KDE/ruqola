@@ -6,8 +6,8 @@
 
 #pragma once
 
-#include "block.h"
 #include "libruqolacore_export.h"
+#include "messageattachment.h"
 #include <QList>
 class LIBRUQOLACORE_EXPORT MessageAttachments : public QSharedData
 {
@@ -16,20 +16,21 @@ public:
     MessageAttachments();
     ~MessageAttachments();
 
-    void setMessageAttachments(const QList<Block> &reactions);
-    [[nodiscard]] QList<Block> blocks() const;
+    void setMessageAttachments(const QList<MessageAttachment> &reactions);
+    [[nodiscard]] QList<MessageAttachment> messageAttachments() const;
 
     void parseMessageAttachments(const QJsonObject &array);
 
     [[nodiscard]] bool operator==(const MessageAttachments &other) const;
 
-    [[nodiscard]] static QJsonObject serialize(const MessageAttachments &reactions);
-    [[nodiscard]] static MessageAttachments *deserialize(const QJsonObject &o);
+    [[nodiscard]] static QJsonArray serialize(const MessageAttachments &attachments);
+    [[nodiscard]] static MessageAttachments *deserialize(const QJsonArray &o, const QByteArray &messageId);
 
     [[nodiscard]] bool isEmpty() const;
 
 private:
-    QList<Block> mMessageAttachments;
+    [[nodiscard]] LIBRUQOLACORE_NO_EXPORT static QByteArray generateUniqueId(const QByteArray &messageId, int index);
+    QList<MessageAttachment> mMessageAttachments;
 };
 Q_DECLARE_METATYPE(MessageAttachments)
 LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const MessageAttachments &t);

@@ -21,7 +21,7 @@ MessageUrls::MessageUrls(const MessageUrls &other)
     : QSharedData(other)
 {
     qCDebug(RUQOLA_MESSAGE_MEMORY_LOG) << " MessageUrls(const MessageUrls &other) created " << this;
-    mMessageUrls = other.blocks();
+    mMessageUrls = other.messageUrls();
 }
 
 MessageUrls::~MessageUrls()
@@ -29,30 +29,41 @@ MessageUrls::~MessageUrls()
     qCDebug(RUQOLA_MESSAGE_MEMORY_LOG) << " MessageUrls deleted " << this;
 }
 
-void MessageUrls::setMessageUrls(const QList<Block> &blocks)
+void MessageUrls::setMessageUrls(const QList<MessageUrl> &messageUrls)
 {
-    mMessageUrls = blocks;
+    mMessageUrls = messageUrls;
 }
 
-QList<Block> MessageUrls::blocks() const
+QList<MessageUrl> MessageUrls::messageUrls() const
 {
     return mMessageUrls;
 }
 
-void MessageUrls::parseMessageUrls(const QJsonObject &reactsr)
+void MessageUrls::parseMessageUrls(const QJsonArray &urls, const QByteArray &messageId)
 {
     mMessageUrls.clear();
+    if (!urls.isEmpty()) {
+        for (int i = 0; i < urls.size(); i++) {
+            const QJsonObject url = urls.at(i).toObject();
+            MessageUrl messageUrl;
+            messageUrl.setUrlId(MessageUrls::generateUniqueId(messageId, i));
+            messageUrl.parseUrl(url);
+            if (!messageUrl.isEmpty()) {
+                mMessageUrls.append(messageUrl);
+            }
+        }
+    }
 }
 
 bool MessageUrls::operator==(const MessageUrls &other) const
 {
-    return mMessageUrls == other.blocks();
+    return mMessageUrls == other.messageUrls();
 }
 
 QDebug operator<<(QDebug d, const MessageUrls &t)
 {
-    for (int i = 0; i < t.blocks().count(); i++) {
-        d.space() << t.blocks().at(i) << "\n";
+    for (int i = 0; i < t.messageUrls().count(); i++) {
+        d.space() << t.messageUrls().at(i) << "\n";
     }
     return d;
 }
@@ -73,4 +84,9 @@ MessageUrls *MessageUrls::deserialize(const QJsonObject &o)
 bool MessageUrls::isEmpty() const
 {
     return mMessageUrls.isEmpty();
+}
+
+QByteArray MessageUrls::generateUniqueId(const QByteArray &messageId, int index)
+{
+    return messageId + QByteArray("_") + QByteArray::number(index);
 }

@@ -6,8 +6,8 @@
 
 #pragma once
 
-#include "block.h"
 #include "libruqolacore_export.h"
+#include "messageurl.h"
 #include <QList>
 class LIBRUQOLACORE_EXPORT MessageUrls : public QSharedData
 {
@@ -16,20 +16,20 @@ public:
     MessageUrls();
     ~MessageUrls();
 
-    void setMessageUrls(const QList<Block> &reactions);
-    [[nodiscard]] QList<Block> blocks() const;
+    void setMessageUrls(const QList<MessageUrl> &messageUrls);
+    [[nodiscard]] QList<MessageUrl> messageUrls() const;
 
-    void parseMessageUrls(const QJsonObject &array);
+    void parseMessageUrls(const QJsonArray &urls, const QByteArray &messageId);
 
     [[nodiscard]] bool operator==(const MessageUrls &other) const;
 
-    [[nodiscard]] static QJsonObject serialize(const MessageUrls &reactions);
+    [[nodiscard]] static QJsonObject serialize(const MessageUrls &urls);
     [[nodiscard]] static MessageUrls *deserialize(const QJsonObject &o);
 
     [[nodiscard]] bool isEmpty() const;
 
 private:
-    QList<Block> mMessageUrls;
+    QList<MessageUrl> mMessageUrls;
 };
 Q_DECLARE_METATYPE(MessageUrls)
 LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const MessageUrls &t);
