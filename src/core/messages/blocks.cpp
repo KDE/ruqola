@@ -39,6 +39,19 @@ QList<Block> Blocks::blocks() const
     return mBlocks;
 }
 
+void Blocks::setVideoConferenceInfo(const VideoConferenceInfo &info)
+{
+    auto it = std::find_if(mBlocks.cbegin(), mBlocks.cend(), [info](const auto &block) {
+        return block.blockId() == info.blockId();
+    });
+    if (it != mBlocks.cend()) {
+        mBlocks.removeAll(*it);
+        Block b(*it);
+        b.setVideoConferenceInfo(info);
+        mBlocks.append(b);
+    }
+}
+
 void Blocks::parseBlocks(const QJsonArray &blocks)
 {
     mBlocks.clear();

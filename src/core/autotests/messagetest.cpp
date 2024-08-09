@@ -26,12 +26,12 @@ void MessageTest::shouldHaveDefaultValues()
     QVERIFY(!m.isEditingMode());
     QVERIFY(!m.hoverHighlight());
     QVERIFY(m.localTranslation().isEmpty());
-    QVERIFY(m.blocks().isEmpty());
+    QVERIFY(!m.blocks());
     QVERIFY(m.attachments().isEmpty());
     QCOMPARE(m.discussionCount(), 0);
     QVERIFY(!m.privateMessage());
     // 14/03/2024 => size 816
-    QCOMPARE(sizeof(Message), 496);
+    QCOMPARE(sizeof(Message), 480);
     QCOMPARE(m.messageStates(), Message::MessageStates(Message::MessageState::Groupable | Message::MessageState::Translated));
 }
 
@@ -598,21 +598,23 @@ void MessageTest::shouldSerializeData()
         input.setMessagePinned(pinned);
 
         // Blocks
-        QList<Block> blocks;
+        Blocks blocks;
+        QList<Block> blockInfos;
         {
             Block b;
             b.setBlockId(QStringLiteral("block-id1"));
             b.setAppId(QStringLiteral("appid-1"));
             b.setBlockType(Block::VideoConf);
-            blocks.append(b);
+            blockInfos.append(b);
         }
         {
             Block b;
             b.setBlockId(QStringLiteral("block-id2"));
             b.setAppId(QStringLiteral("appid-2"));
             b.setBlockType(Block::VideoConf);
-            blocks.append(b);
+            blockInfos.append(b);
         }
+        blocks.setBlocks(blockInfos);
         input.setBlocks(blocks);
 
         // Replies

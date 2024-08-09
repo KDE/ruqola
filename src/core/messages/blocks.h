@@ -28,6 +28,8 @@ public:
 
     [[nodiscard]] bool isEmpty() const;
 
+    void setVideoConferenceInfo(const VideoConferenceInfo &info);
+
 private:
     QList<Block> mBlocks;
 };

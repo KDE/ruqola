@@ -212,10 +212,12 @@ void RocketChatBackend::updateVideoConferenceInfo(const Message &m)
 {
     // Update video conf info
     if (m.messageType() == Message::MessageType::VideoConference) {
-        const auto blocks{m.blocks()};
-        for (const auto &b : blocks) {
-            if (!b.callId().isEmpty()) {
-                mRocketChatAccount->videoConferenceMessageInfoManager()->addCallId(b.callId());
+        if (m.blocks()) {
+            const auto blocks{m.blocks()};
+            for (const auto &b : blocks->blocks()) {
+                if (!b.callId().isEmpty()) {
+                    mRocketChatAccount->videoConferenceMessageInfoManager()->addCallId(b.callId());
+                }
             }
         }
     }

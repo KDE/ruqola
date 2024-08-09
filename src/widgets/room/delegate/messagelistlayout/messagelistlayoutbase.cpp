@@ -86,7 +86,7 @@ void MessageListLayoutBase::generateAttachmentBlockAndUrlPreviewLayout(MessageLi
                                                                        const QStyleOptionViewItem &option,
                                                                        const QModelIndex &index) const
 {
-    if (message->attachments().isEmpty() && message->blocks().isEmpty() && message->urls().isEmpty()) {
+    if (message->attachments().isEmpty() && (!message->blocks() || (message->blocks() && message->blocks()->isEmpty())) && message->urls().isEmpty()) {
         layout.reactionsY = attachmentsY;
     } else {
         int topAttachment = attachmentsY;
@@ -110,8 +110,8 @@ void MessageListLayoutBase::generateAttachmentBlockAndUrlPreviewLayout(MessageLi
             layout.attachmentsRect = QRect(textLeft, attachmentsY, attachmentsSize.width(), attachmentsSize.height());
         }
         int topBlock = topAttachment;
-        if (!message->blocks().isEmpty()) {
-            const auto blocks = message->blocks();
+        if (message->blocks() && !message->blocks()->blocks().isEmpty()) {
+            const auto blocks = message->blocks()->blocks();
             QSize blocksSize;
             for (const Block &block : blocks) {
                 const MessageBlockDelegateHelperBase *helper = delegate->blocksHelper(block);

@@ -7,6 +7,7 @@
 #pragma once
 
 #include "block.h"
+#include "blocks.h"
 #include "channels.h"
 #include "libruqolacore_export.h"
 #include "messageattachment.h"
@@ -216,8 +217,8 @@ public:
 
     [[nodiscard]] QString originalMessageOrAttachmentDescription() const;
 
-    [[nodiscard]] QList<Block> blocks() const;
-    void setBlocks(const QList<Block> &newBlocks);
+    [[nodiscard]] const Blocks *blocks() const;
+    void setBlocks(const Blocks &newBlocks);
 
     [[nodiscard]] QString dateTime() const;
 
@@ -264,7 +265,7 @@ private:
     QList<MessageUrl> mUrls;
 
     // Block
-    QList<Block> mBlocks;
+    QSharedDataPointer<Blocks> mBlocks;
 
     // Reactions
     QSharedDataPointer<Reactions> mReactions;

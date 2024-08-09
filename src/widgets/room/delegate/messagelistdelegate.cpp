@@ -608,20 +608,22 @@ void MessageListDelegate::paint(QPainter *painter, const QStyleOptionViewItem &o
     }
     // Blocks
 
-    const auto blocks = message->blocks();
-    int blockIndex = 0;
-    for (const Block &block : blocks) {
-        const MessageBlockDelegateHelperBase *helper = blocksHelper(block);
-        if (helper) {
+    if (message->blocks()) {
+        const auto blocks = message->blocks()->blocks();
+        int blockIndex = 0;
+        for (const Block &block : blocks) {
+            const MessageBlockDelegateHelperBase *helper = blocksHelper(block);
+            if (helper) {
 #if 0
-            painter->save();
-            painter->setPen(QPen(Qt::red));
-            painter->drawRect(layout.blocksRectList.at(blockIndex));
-            painter->restore();
+                painter->save();
+                painter->setPen(QPen(Qt::red));
+                painter->drawRect(layout.blocksRectList.at(blockIndex));
+                painter->restore();
 #endif
-            helper->draw(block, painter, layout.blocksRectList.at(blockIndex), index, option);
+                helper->draw(block, painter, layout.blocksRectList.at(blockIndex), index, option);
+            }
+            ++blockIndex;
         }
-        ++blockIndex;
     }
 
     if (mPreviewEmbed) {
@@ -813,14 +815,16 @@ bool MessageListDelegate::mouseEvent(QEvent *event, const QStyleOptionViewItem &
             ++i;
         }
 
-        const auto blocks = message->blocks();
-        int blockIndex = 0;
-        for (const Block &block : blocks) {
-            MessageBlockDelegateHelperBase *helper = blocksHelper(block);
-            if (helper && helper->handleMouseEvent(block, mev, layout.blocksRectList.at(blockIndex), option, index)) {
-                return true;
+        if (message->blocks()) {
+            const auto blocks = message->blocks()->blocks();
+            int blockIndex = 0;
+            for (const Block &block : blocks) {
+                MessageBlockDelegateHelperBase *helper = blocksHelper(block);
+                if (helper && helper->handleMouseEvent(block, mev, layout.blocksRectList.at(blockIndex), option, index)) {
+                    return true;
+                }
+                ++blockIndex;
             }
-            ++blockIndex;
         }
         if (mPreviewEmbed) {
             const auto messageUrls = message->urls();
@@ -971,17 +975,19 @@ bool MessageListDelegate::helpEvent(QHelpEvent *helpEvent, QAbstractItemView *vi
         }
 
         // Block
-        const auto blocks = message->blocks();
-        int blockIndex = 0;
-        for (const Block &block : blocks) {
-            MessageBlockDelegateHelperBase *helper = blocksHelper(block);
-            if (helper) {
-                if (layout.blocksRectList.at(blockIndex).contains(helpEventPos)
-                    && helper->handleHelpEvent(helpEvent, layout.blocksRectList.at(blockIndex), block, option)) {
-                    return true;
+        if (message->blocks()) {
+            const auto blocks = message->blocks()->blocks();
+            int blockIndex = 0;
+            for (const Block &block : blocks) {
+                MessageBlockDelegateHelperBase *helper = blocksHelper(block);
+                if (helper) {
+                    if (layout.blocksRectList.at(blockIndex).contains(helpEventPos)
+                        && helper->handleHelpEvent(helpEvent, layout.blocksRectList.at(blockIndex), block, option)) {
+                        return true;
+                    }
                 }
+                ++blockIndex;
             }
-            ++blockIndex;
         }
 
         if (mPreviewEmbed) {

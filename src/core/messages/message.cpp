@@ -372,14 +372,21 @@ void Message::parseChannels(const QJsonArray &channels)
     }
 }
 
-QList<Block> Message::blocks() const
+const Blocks *Message::blocks() const
 {
-    return mBlocks;
+    if (mBlocks) {
+        return mBlocks.data();
+    }
+    return nullptr;
 }
 
-void Message::setBlocks(const QList<Block> &newBlocks)
+void Message::setBlocks(const Blocks &newBlocks)
 {
-    mBlocks = newBlocks;
+    if (!mBlocks) {
+        mBlocks = new Blocks(newBlocks);
+    } else {
+        mBlocks.reset(new Blocks(newBlocks));
+    }
 }
 
 QString Message::originalMessageOrAttachmentDescription() const
@@ -440,14 +447,13 @@ void Message::setChannels(const Channels &channels)
 
 void Message::parseBlocks(const QJsonArray &blocks)
 {
-    mBlocks.clear();
-    for (int i = 0, total = blocks.count(); i < total; ++i) {
-        const QJsonObject blockObject = blocks.at(i).toObject();
-        Block b;
-        b.parseBlock(blockObject);
-        if (b.isValid()) {
-            mBlocks.append(std::move(b));
+    if (!blocks.isEmpty()) {
+        if (!mBlocks) {
+            mBlocks = new Blocks;
+        } else {
+            mBlocks.reset(new Blocks);
         }
+        mBlocks->parseBlocks(blocks);
     }
 }
 
@@ -480,14 +486,8 @@ void Message::setModerationMessage(const ModerationMessage &newModerationMessage
 
 void Message::setVideoConferenceInfo(const VideoConferenceInfo &info)
 {
-    auto it = std::find_if(mBlocks.cbegin(), mBlocks.cend(), [info](const auto &block) {
-        return block.blockId() == info.blockId();
-    });
-    if (it != mBlocks.cend()) {
-        mBlocks.removeAll(*it);
-        Block b(*it);
-        b.setVideoConferenceInfo(info);
-        mBlocks.append(b);
+    if (mBlocks) {
+        mBlocks->setVideoConferenceInfo(info);
     }
 }
 
@@ -591,11 +591,24 @@ bool Message::operator==(const Message &other) const
         && (discussionLastMessage() == other.discussionLastMessage()) && (discussionRoomId() == other.discussionRoomId())
         && (threadMessageId() == other.threadMessageId()) && (showTranslatedMessage() == other.showTranslatedMessage()) && (mReplies == other.replies())
         && (mEmoji == other.emoji()) && (pendingMessage() == other.pendingMessage()) && (showIgnoredMessage() == other.showIgnoredMessage())
-        && (localTranslation() == other.localTranslation()) && (mBlocks == other.blocks()) && (mDisplayTime == other.mDisplayTime)
-        && (privateMessage() == other.privateMessage());
+        && (localTranslation() == other.localTranslation()) && (mDisplayTime == other.mDisplayTime) && (privateMessage() == other.privateMessage());
     if (!result) {
         return false;
     }
+
+    // compare blocks
+    if (blocks() && other.blocks()) {
+        if (*blocks() == (*other.blocks())) {
+            result = true;
+        } else {
+            return false;
+        }
+    } else if (!blocks() && !other.blocks()) {
+        result = true;
+    } else {
+        return false;
+    }
+
     // compare channels
     if (channels() && other.channels()) {
         if (*channels() == (*other.channels())) {
@@ -1046,7 +1059,7 @@ Message Message::deserialize(const QJsonObject &o, EmojiManager *emojiManager)
     }
     if (o.contains("reactions"_L1)) {
         const QJsonObject reactionsArray = o.value("reactions"_L1).toObject();
-        Reactions *reaction = Reactions::deserialize(reactionsArray);
+        Reactions *reaction = Reactions::deserialize(reactionsArray, emojiManager);
         message.setReactions(*reaction);
         delete reaction;
     }
@@ -1074,10 +1087,11 @@ Message Message::deserialize(const QJsonObject &o, EmojiManager *emojiManager)
         delete channels;
     }
 
-    const QJsonArray blocksArray = o.value("blocks"_L1).toArray();
-    for (int i = 0, total = blocksArray.count(); i < total; ++i) {
-        const Block block = Block::deserialize(blocksArray.at(i).toObject());
-        message.mBlocks.append(std::move(block));
+    if (o.contains("blocks"_L1)) {
+        const QJsonArray blocksArray = o.value("blocks"_L1).toArray();
+        Blocks *blocks = Blocks::deserialize(blocksArray);
+        message.setBlocks(*blocks);
+        delete blocks;
     }
 
     if (o.contains("localTransation"_L1)) {
@@ -1201,14 +1215,11 @@ QByteArray Message::serialize(const Message &message, bool toBinary)
         o["replies"_L1] = QJsonArray::fromStringList(serialize);
     }
 
-    if (!message.mBlocks.isEmpty()) {
-        QJsonArray blockArray;
-        const int nBlocks = message.mBlocks.count();
-        for (int i = 0; i < nBlocks; ++i) {
-            blockArray.append(Block::serialize(message.mBlocks.at(i)));
-        }
-        o["blocks"_L1] = blockArray;
+    // Blocks
+    if (message.blocks() && !message.blocks()->isEmpty()) {
+        o["blocks"_L1] = Blocks::serialize(*message.blocks());
     }
+
     if (!message.localTranslation().isEmpty()) {
         o["localTransation"_L1] = message.localTranslation();
     }
@@ -1285,8 +1296,8 @@ QDebug operator<<(QDebug d, const Message &t)
         d.space() << "moderationMessage" << *t.moderationMessage();
     }
 
-    for (int i = 0, total = t.blocks().count(); i < total; ++i) {
-        d.space() << "block:" << t.blocks().at(i);
+    if (t.blocks()) {
+        d.space() << "block" << *t.blocks();
     }
 
     d.space() << "mPrivateMessage" << t.privateMessage();
