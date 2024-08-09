@@ -19,7 +19,7 @@ public:
     void setBlocks(const QList<Block> &reactions);
     [[nodiscard]] QList<Block> blocks() const;
 
-    void parseBlocks(const QJsonObject &array);
+    void parseBlocks(const QJsonArray &array);
 
     [[nodiscard]] bool operator==(const Blocks &other) const;
 

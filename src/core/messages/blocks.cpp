@@ -39,9 +39,17 @@ QList<Block> Blocks::blocks() const
     return mBlocks;
 }
 
-void Blocks::parseBlocks(const QJsonObject &reactsr)
+void Blocks::parseBlocks(const QJsonArray &blocks)
 {
     mBlocks.clear();
+    for (int i = 0, total = blocks.count(); i < total; ++i) {
+        const QJsonObject blockObject = blocks.at(i).toObject();
+        Block b;
+        b.parseBlock(blockObject);
+        if (b.isValid()) {
+            mBlocks.append(std::move(b));
+        }
+    }
 }
 
 bool Blocks::operator==(const Blocks &other) const
@@ -60,12 +68,23 @@ QDebug operator<<(QDebug d, const Blocks &t)
 QJsonObject Blocks::serialize(const Blocks &blocks)
 {
     QJsonObject obj;
+    QJsonArray blockArray;
+    const int nBlocks = blocks.count();
+    for (int i = 0; i < nBlocks; ++i) {
+        blockArray.append(Block::serialize(blocks.at(i)));
+    }
+    obj["blocks"_L1] = blockArray;
     // TODO
     return obj;
 }
 
 Blocks *Blocks::deserialize(const QJsonObject &o)
 {
+    const QJsonArray blocksArray = o.value("blocks"_L1).toArray();
+    for (int i = 0, total = blocksArray.count(); i < total; ++i) {
+        const Block block = Block::deserialize(blocksArray.at(i).toObject());
+        // TODO message.mBlocks.append(std::move(block));
+    }
     // TODO
     return {};
 }
