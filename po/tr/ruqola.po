@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-06-10 02:50+0000\n"
-"PO-Revision-Date: 2024-07-30 20:39+0300\n"
+"PO-Revision-Date: 2024-08-09 14:05+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 24.07.70\n"
+"X-Generator: Lokalize 24.11.70\n"
 
 #: apps/main.cpp:62
 #, kde-format
@@ -9774,23 +9774,23 @@ msgstr "Roka’nın bu sürümündeki yeni özelliklerden bazıları şunlardır
 #: widgets/whatsnew/whatsnewwidget.cpp:100
 #, kde-format
 msgid "Some bug fixing:"
-msgstr "Hata düzeltmeler"
+msgstr "Hata düzeltmeleri"
 
 #: widgets/whatsnew/whatsnewwidgettranslation.h:14
 msgid "Store Message in Local Database (experimental)"
-msgstr "İletileri Yerel Veritabanında Depola (Deneysel)"
+msgstr "İletileri yerel veritabanında depola (deneysel)"
 
 #: widgets/whatsnew/whatsnewwidgettranslation.h:23
 msgid "Download Server Icon from Server"
-msgstr "Sunucu Simgesini Sunucudan İndir"
+msgstr "Sunucu simgesini sunucudan indir"
 
 #: widgets/whatsnew/whatsnewwidgettranslation.h:24
 msgid "Show Server Error Info in Specific DialogBox"
-msgstr "Belirli İletişim Kutularında Sunucu Hatası Bilgilerini Göster"
+msgstr "Belirli iletişim kutularında sunucu hatası bilgilerini göster"
 
 #: widgets/whatsnew/whatsnewwidgettranslation.h:25
 msgid "Allow to Copy Image in Clipboard"
-msgstr "Panodaki Görseli Kopyalamaya İzin Ver"
+msgstr "Panodaki görseli kopyalamaya izin ver"
 
 #: widgets/whatsnew/whatsnewwidgettranslation.h:26
 msgid "Improve debug support (Allow to show current account permissions)"
@@ -9808,11 +9808,11 @@ msgstr "Kanal bilgisinde lider/moderatör/sahip bilgisini göster"
 
 #: widgets/whatsnew/whatsnewwidgettranslation.h:29
 msgid "Video/Sound Message support (kf6 only)."
-msgstr "Video/Ses İletisi desteği (yalnızca KF6)."
+msgstr "Video/Ses iletisi desteği (yalnızca KF6)"
 
 #: widgets/whatsnew/whatsnewwidgettranslation.h:30
 msgid "Import/Export Accounts."
-msgstr "Hesaplar İçe/Dışa Aktar"
+msgstr "Hesapları içe/dışa aktar"
 
 #: widgets/whatsnew/whatsnewwidgettranslation.h:36
 msgid "Fix avatar support"
@@ -9833,7 +9833,7 @@ msgstr "KF6 desteğini onar"
 
 #: widgets/whatsnew/whatsnewwidgettranslation.h:46
 msgid "Add Moderation Console (Administration, RC server 6.2)"
-msgstr "Moderasyon Konsolu Ekle (yönetim, RC sunucusu, sürüm 6.2)"
+msgstr "Moderasyon konsolu ekle (yönetim, RC sunucusu, sürüm 6.2)"
 
 #: widgets/whatsnew/whatsnewwidgettranslation.h:47
 msgid "Implement message style"
@@ -9868,16 +9868,16 @@ msgid ""
 "Fix show commands in message line edit (Hide action when room doesn't "
 "support it)."
 msgstr ""
-"İleti satırı düzenlemesinde komutları göstermeyi onar (Oda desteklemiyrosa "
-"eylemi gizle)."
+"İleti satırı düzenlemesinde komutları göstermeyi onar (Oda desteklemiyorsa "
+"eylemi gizle)"
 
 #: widgets/whatsnew/whatsnewwidgettranslation.h:59
 msgid "Fix download sound/video file when it's not in cache."
-msgstr "Önbellekte değilken ses/video indirme sorununu çöz."
+msgstr "Önbellekte değilken ses/video indirme sorununu çöz"
 
 #: widgets/whatsnew/whatsnewwidgettranslation.h:60
 msgid "Fix list of authentication method."
-msgstr "Kimlik doğrulama yöntemi listesini düzelt."
+msgstr "Kimlik doğrulama yöntemi listesini düzelt"
 
 #: widgets/whatsnew/whatsnewwidgettranslation.h:61
 msgid "Fix show avatar url."
@@ -9897,7 +9897,7 @@ msgstr "Yönlendirilecek ileti ekle"
 
 #: widgets/whatsnew/whatsnewwidgettranslation.h:70
 msgid "Improve mentions support."
-msgstr "Değinme desteğini iyileştir."
+msgstr "Değinme desteğini iyileştir"
 
 #: widgets/whatsnew/whatsnewwidgettranslation.h:71
 msgid ""
@@ -9905,68 +9905,68 @@ msgid ""
 "started/deep-linking\">Deep Linking</a>."
 msgstr ""
 "<a href=\"https://developer.rocket.chat/getting-started/deep-linking\">Derin "
-"Bağlantılama</a> desteği eklendi."
+"Bağlantılama</a> desteği ekle"
 
 #: widgets/whatsnew/whatsnewwidgettranslation.h:72
 msgid "Implement block actions."
-msgstr "Engelleme eylemlerini gerçekle."
+msgstr "Engelleme eylemlerini gerçekle"
 
 #: widgets/whatsnew/whatsnewwidgettranslation.h:73
 msgid ""
 "Implement personal token authentication. <a href=\"https://bugs.kde.org/"
 "show_bug.cgi?id=481400\">Bug 481400</a>"
 msgstr ""
-"Kişisel jeton kullanımını gerçekle. <a href=\"https://bugs.kde.org/show_bug."
+"Kişisel jeton kullanımını gerçekle — <a href=\"https://bugs.kde.org/show_bug."
 "cgi?id=481400\">481400 numaralı kayıt</a>"
 
 #: widgets/whatsnew/whatsnewwidgettranslation.h:74
 msgid "Add Plasma Activities Support"
-msgstr "Plasma Etkinlikler desteği eklendi"
+msgstr "Plasma Etkinlikler desteği ekle"
 
 #: widgets/whatsnew/whatsnewwidgettranslation.h:75
 msgid "Add Report User Support"
-msgstr "Kullanıcıyı Bildirme Desteği Ekle"
+msgstr "Kullanıcıyı bildirme desteği ekle"
 
 #: widgets/whatsnew/whatsnewwidgettranslation.h:76
 msgid "Implement Channel Sound Notification."
-msgstr "Kanal sesli bildirimi gerçeklendi."
+msgstr "Kanal sesli bildirimini gerçekle"
 
 #: widgets/whatsnew/whatsnewwidgettranslation.h:77
 msgid "Implement New Room Sound Notification."
-msgstr "Yeni oda sesi bildirimi gerçeklendi."
+msgstr "Yeni oda sesi bildirimini gerçekle"
 
 #: widgets/whatsnew/whatsnewwidgettranslation.h:78
 msgid "Implement Sorted/Unsorted markdown list."
-msgstr "Sıralı/sırasız Markdown listeleri gerçeklendi."
+msgstr "Sıralı/sırasız Markdown listelerini gerçekle"
 
 #: widgets/whatsnew/whatsnewwidgettranslation.h:83
 msgid "Fix dark mode support."
-msgstr "Koyu kip desteği onarıldı."
+msgstr "Koyu kip desteğini onar"
 
 #: widgets/whatsnew/whatsnewwidgettranslation.h:84
 msgid "Fix jitsi support."
-msgstr "Jitsi desteği onarıldı."
+msgstr "Jitsi desteğini onar"
 
 #: widgets/whatsnew/whatsnewwidgettranslation.h:85
 msgid "Fix translate message in direct channel."
-msgstr "Doğrudan kanaldaki ileti çevirmeyi onar."
+msgstr "Doğrudan kanaldaki ileti çevirmeyi onar"
 
 #: widgets/whatsnew/whatsnewwidgettranslation.h:86
 msgid "Don't show @here/@all as user."
-msgstr "Kullanıcı olarak @burada/@tümü gösterme."
+msgstr "Kullanıcı olarak @burada/@tümü gösterme"
 
 #: widgets/whatsnew/whatsnewwidgettranslation.h:87
 msgid "Reduce memory footprint."
-msgstr "Bellek kullanımını azalt."
+msgstr "Bellek kullanımını azalt"
 
 #: widgets/whatsnew/whatsnewwidgettranslation.h:88
 msgid "Use RESTAPI for logging."
-msgstr "Günlükleme için RESTAPI kullan."
+msgstr "Günlükleme için RESTAPI kullan"
 
 #: widgets/whatsnew/whatsnewwidgettranslation.h:89
 msgid "Allow to send multi files."
-msgstr "Birden çok dosya göndermeye izin ver."
+msgstr "Birden çok dosya göndermeye izin ver"
 
 #: widgets/whatsnew/whatsnewwidgettranslation.h:90
 msgid "Fix preview url."
-msgstr "Önizleme URL’sini düzelt."
+msgstr "Önizleme URL’sini düzelt"
