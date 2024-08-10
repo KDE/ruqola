@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-08-09 00:39+0000\n"
+"POT-Creation-Date: 2024-08-10 00:41+0000\n"
 "PO-Revision-Date: 2024-08-06 13:00+0200\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
@@ -20,141 +20,141 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Lokalize 24.05.2\n"
 
-#: apps/main.cpp:62
+#: apps/main.cpp:61
 #, kde-format
 msgid "Ruqola"
 msgstr "Ruqola"
 
-#: apps/main.cpp:64
+#: apps/main.cpp:63
 #, kde-format
 msgid "Rocket Chat Client"
 msgstr "Rocket berriketa bezeroa"
 
-#: apps/main.cpp:66
+#: apps/main.cpp:65
 #, kde-format
 msgid "Copyright © 2020-2024 Ruqola authors"
 msgstr "Copyright © 2020-2024 «Ruqola»ren egileak"
 
-#: apps/main.cpp:68
+#: apps/main.cpp:67
 #, kde-format
 msgctxt "@info:credit"
 msgid "Laurent Montel"
 msgstr "Laurent Montel"
 
-#: apps/main.cpp:68
+#: apps/main.cpp:67
 #, kde-format
 msgid "Maintainer"
 msgstr "Arduraduna"
 
-#: apps/main.cpp:69
+#: apps/main.cpp:68
 #, kde-format
 msgctxt "@info:credit"
 msgid "Riccardo Iaconelli"
 msgstr "Riccardo Iaconelli"
 
-#: apps/main.cpp:69
+#: apps/main.cpp:68
 #, kde-format
 msgid "Original Author"
 msgstr "Jatorrizko egilea"
 
-#: apps/main.cpp:73
+#: apps/main.cpp:72
 #, kde-format
 msgctxt "@info:credit"
 msgid "David Faure"
 msgstr "David Faure"
 
-#: apps/main.cpp:73
+#: apps/main.cpp:72
 #, kde-format
 msgid "Bug fixing, delegates etc."
 msgstr "Akatsak konpontzea, ordezkariak etab."
 
-#: apps/main.cpp:74
+#: apps/main.cpp:73
 #, kde-format
 msgctxt "@info:credit"
 msgid "Kevin Funk"
 msgstr "Kevin Funk"
 
-#: apps/main.cpp:74 apps/main.cpp:75 apps/main.cpp:76 apps/main.cpp:78
-#: apps/main.cpp:79
+#: apps/main.cpp:73 apps/main.cpp:74 apps/main.cpp:75 apps/main.cpp:77
+#: apps/main.cpp:78
 #, kde-format
 msgid "Bug fixing"
 msgstr "Akatsak konpontzea"
 
-#: apps/main.cpp:75
+#: apps/main.cpp:74
 #, kde-format
 msgctxt "@info:credit"
 msgid "Olivier JG"
 msgstr "Olivier JG"
 
-#: apps/main.cpp:76
+#: apps/main.cpp:75
 #, kde-format
 msgctxt "@info:credit"
 msgid "Milian Wolff"
 msgstr "Milian Wolff"
 
-#: apps/main.cpp:77
+#: apps/main.cpp:76
 #, kde-format
 msgctxt "@info:credit"
 msgid "Till Adam"
 msgstr "Till Adam"
 
-#: apps/main.cpp:77
+#: apps/main.cpp:76
 #, kde-format
 msgid "Windows compile bug fixing"
 msgstr "Windows-erako konpilatzeko akatsak konpontzea"
 
-#: apps/main.cpp:78
+#: apps/main.cpp:77
 #, kde-format
 msgctxt "@info:credit"
 msgid "Shantanu Tushar"
 msgstr "Shantanu Tushar"
 
-#: apps/main.cpp:79
+#: apps/main.cpp:78
 #, kde-format
 msgctxt "@info:credit"
 msgid "Alessandro Ambrosano"
 msgstr "Alessandro Ambrosano"
 
-#: apps/main.cpp:80
+#: apps/main.cpp:79
 #, kde-format
 msgctxt "@info:credit"
 msgid "Hannah von Reth"
 msgstr "Hannah von Reth"
 
-#: apps/main.cpp:80
+#: apps/main.cpp:79
 #, kde-format
 msgid "Bug fixing for Windows/Mac"
 msgstr "Windows/Mac-erako akatsak konpontzea"
 
-#: apps/main.cpp:81
+#: apps/main.cpp:80
 #, kde-format
 msgctxt "@info:credit"
 msgid "Allen Winter"
 msgstr "Allen Winter"
 
-#: apps/main.cpp:81
+#: apps/main.cpp:80
 #, kde-format
 msgid "Packaging"
 msgstr "Paketatzea"
 
-#: apps/main.cpp:82
+#: apps/main.cpp:81
 #, kde-format
 msgctxt "@info:credit"
 msgid "Waqar Ahmed"
 msgstr "Waqar Ahmed"
 
-#: apps/main.cpp:82
+#: apps/main.cpp:81
 #, kde-format
 msgid "Bug fixing (compile, network crash...)"
 msgstr "Akatsak konpontzea (konpilatzea, sareko kraskadura...)"
 
-#: apps/main.cpp:83
+#: apps/main.cpp:82
 #, kde-format
 msgctxt "@info:credit"
 msgid "Nicolas Fella"
 msgstr "Nicolas Fella"
 
-#: apps/main.cpp:83
+#: apps/main.cpp:82
 #, kde-format
 msgid "Optimization, fix windows/mac support"
 msgstr "Optimizazioa, Windows/Mac euskarria konpontzea"
@@ -442,120 +442,120 @@ msgstr "Txirrin-hotsa"
 msgid "(Last Message: %1)"
 msgstr "(Azken mezua: %1)"
 
-#: core/messages/block.cpp:128 core/messages/message.cpp:792
+#: core/messages/block.cpp:128 core/messages/message.cpp:830
 #: core/model/notificationhistorymodel.cpp:63
 #: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:128
 #, kde-format
 msgid "Conference Call"
 msgstr "Biltzar deia"
 
-#: core/messages/message.cpp:688
+#: core/messages/message.cpp:726
 #, kde-format
 msgid "%1 has joined the channel"
 msgstr "%1 kanalera batu da"
 
-#: core/messages/message.cpp:690
+#: core/messages/message.cpp:728
 #, kde-format
 msgid "%1 has left the channel"
 msgstr "%1(e) kanala utzi du"
 
-#: core/messages/message.cpp:692
+#: core/messages/message.cpp:730
 #, kde-format
 msgid "%1 left this Team"
 msgstr "%1(e) talde hau utzi du"
 
-#: core/messages/message.cpp:695
+#: core/messages/message.cpp:733
 #, kde-format
 msgid "Topic was cleared by: %1"
 msgstr "Honek gaia garbitu du: %1"
 
-#: core/messages/message.cpp:697
+#: core/messages/message.cpp:735
 #, kde-format
 msgid "%2 changed topic to: <i>%1</i>"
 msgstr "%2(e)k gaiak honetara aldatu du: <i>%1</i>"
 
-#: core/messages/message.cpp:700
+#: core/messages/message.cpp:738
 #, kde-format
 msgid "%2 added %1 to the conversation"
 msgstr "%2(e) %1 gehitu du elkarrizketara"
 
-#: core/messages/message.cpp:702
+#: core/messages/message.cpp:740
 #, kde-format
 msgid "%2 changed room name to <a href=\"ruqola:/room/%1\">#%1</a>"
 msgstr "%2(e)k gelako izena <a href=\"ruqola:/room/%1\">#%1</a>(e)ra aldatu du"
 
-#: core/messages/message.cpp:704
+#: core/messages/message.cpp:742
 #, kde-format
 msgid "%2 removed user %1"
 msgstr "%2(e) %1 erabiltzailea atera du"
 
-#: core/messages/message.cpp:707
+#: core/messages/message.cpp:745
 #, kde-format
 msgid "Description was cleared by %1"
 msgstr "%1(e)k deskribapena hustu du"
 
-#: core/messages/message.cpp:709
+#: core/messages/message.cpp:747
 #, kde-format
 msgid "%2 changed room description to %1"
 msgstr "%2(e)k gelaren deskribapena %1(e)ra aldatu du"
 
-#: core/messages/message.cpp:713
+#: core/messages/message.cpp:751
 #, kde-format
 msgid "Announcement was cleared by %1"
 msgstr "%1(e)k iragarpenak hustu du"
 
-#: core/messages/message.cpp:715
+#: core/messages/message.cpp:753
 #, kde-format
 msgid "%2 changed room announcement to %1"
 msgstr "%2(e)k gelako iragarpena %1(e)ra aldatu du"
 
-#: core/messages/message.cpp:718
+#: core/messages/message.cpp:756
 #, kde-format
 msgid "%2 changed room privacy to %1"
 msgstr "%2(e)k gelaren pribatutasuna %1(e)r aldatu du"
 
-#: core/messages/message.cpp:720
+#: core/messages/message.cpp:758
 #, kde-format
 msgid "Click to join to video"
 msgstr "Egin klik bideoan sartzeko."
 
-#: core/messages/message.cpp:723
+#: core/messages/message.cpp:761
 #, kde-format
 msgid "Message Deleted"
 msgstr "Mezua ezabatu da"
 
-#: core/messages/message.cpp:725
+#: core/messages/message.cpp:763
 #, kde-format
 msgid "Message Pinned"
 msgstr "Mezua iltzatu da"
 
-#: core/messages/message.cpp:727
+#: core/messages/message.cpp:765
 #, kde-format
 msgid "Encrypted Message"
 msgstr "Zifratutako mezua"
 
-#: core/messages/message.cpp:729
+#: core/messages/message.cpp:767
 #, kde-format
 msgid "%1 was unmuted by %2"
 msgstr "%1 %2(e)k ozendu du"
 
-#: core/messages/message.cpp:731
+#: core/messages/message.cpp:769
 #, kde-format
 msgid "%1 was muted by %2"
 msgstr "%1 %2(e)k isilarazi du"
 
-#: core/messages/message.cpp:733
+#: core/messages/message.cpp:771
 #, kde-format
 msgid "Role '%3' was added to %1 by %2"
 msgstr "'%3' eginkizuna gehitu dio %1(e)ri %2(e)k"
 
-#: core/messages/message.cpp:735
+#: core/messages/message.cpp:773
 #, kde-format
 msgid "Role '%3' was removed to %1 by %2"
 msgstr "'%3' eginkizuna kendu dio %1(e)ri %2(e)k"
 
 #. i18n("Encrypted message: %1", mText);
-#: core/messages/message.cpp:739
+#: core/messages/message.cpp:777
 #, kde-format
 msgid ""
 "This message is end-to-end encrypted. To view it, you must enter your "
@@ -564,122 +564,122 @@ msgstr ""
 "Mezu hau muturretik muturrera zifratuta dago. Hura ikusteko, zure kontuaren "
 "ezarpenetan zure zifratzeko gakoa sartu behar duzu."
 
-#: core/messages/message.cpp:741
+#: core/messages/message.cpp:779
 #, kde-format
 msgid "Discussion created about \"%1\""
 msgstr "\"%1\"(e)ri buruzko elkarrizketa sortu da"
 
-#: core/messages/message.cpp:743
+#: core/messages/message.cpp:781
 #, kde-format
 msgid "%1 has joined the conversation"
 msgstr "%1 elkarrizketara bat da"
 
-#: core/messages/message.cpp:745
+#: core/messages/message.cpp:783
 #, kde-format
 msgid "This room has been archived by %1"
 msgstr "Gela hau %1(e)k artxibatu du"
 
-#: core/messages/message.cpp:747
+#: core/messages/message.cpp:785
 #, kde-format
 msgid "This room has been unarchived by %1"
 msgstr "Gela hau artxibotik atera du %1(e)k"
 
-#: core/messages/message.cpp:750 core/messages/message.cpp:797
+#: core/messages/message.cpp:788 core/messages/message.cpp:835
 #, kde-format
 msgid "Unknown action!"
 msgstr "Ekintza ezezaguna!"
 
-#: core/messages/message.cpp:754
+#: core/messages/message.cpp:792
 #, kde-format
 msgid "Welcome %1!"
 msgstr "Ongi etorri %1!"
 
-#: core/messages/message.cpp:756
+#: core/messages/message.cpp:794
 #, kde-format
 msgid "Room avatar changed by %1"
 msgstr "Gelako abatara aldatu du %1(e)k"
 
-#: core/messages/message.cpp:758
+#: core/messages/message.cpp:796
 #, kde-format
 msgid "This room's encryption has been enabled by %1"
 msgstr "Gela honetako zifratzea gaitu du %1(e)k"
 
-#: core/messages/message.cpp:760
+#: core/messages/message.cpp:798
 #, kde-format
 msgid "This room's encryption has been disabled by %1"
 msgstr "Gela honetako zifratzea ezgaitu du %1(e)k"
 
-#: core/messages/message.cpp:762
+#: core/messages/message.cpp:800
 #, kde-format
 msgid "Room set as Read Only by  %1"
 msgstr "Gela «Irakurtzeko soilik» gisa ezarri du %1(e)k"
 
-#: core/messages/message.cpp:764
+#: core/messages/message.cpp:802
 #, kde-format
 msgid "Room added writing permission by %1"
 msgstr "Gelara idazteko baimena gehitu du %1(e)k"
 
-#: core/messages/message.cpp:766
+#: core/messages/message.cpp:804
 #, kde-format
 msgid "%1 added @%2 to this Team"
 msgstr "%1(e)k @%2 taldera gehitu du"
 
-#: core/messages/message.cpp:768
+#: core/messages/message.cpp:806
 #, kde-format
 msgid "%1 removed @%2 from this Team"
 msgstr "%1(e)k @%2 talde honetatik kendu du"
 
-#: core/messages/message.cpp:770
+#: core/messages/message.cpp:808
 #, kde-format
 msgid "%1 converted #%2 to a Team"
 msgstr "%1(e)k #%2 talde bihurtu du"
 
-#: core/messages/message.cpp:772
+#: core/messages/message.cpp:810
 #, kde-format
 msgid "%1 converted #%2 to a Channel"
 msgstr "%1(e)k #%2 kanal bihurtu du"
 
-#: core/messages/message.cpp:774
+#: core/messages/message.cpp:812
 #, kde-format
 msgid "%1 removed #%2 from this Team"
 msgstr "%1(e)k #%2 talde honetatik kendu du"
 
-#: core/messages/message.cpp:776
+#: core/messages/message.cpp:814
 #, kde-format
 msgid "%1 deleted #%2"
 msgstr "%1(e)k #%2 ezabatu du"
 
-#: core/messages/message.cpp:778
+#: core/messages/message.cpp:816
 #, kde-format
 msgid "%1 added #%2 to this Team"
 msgstr "%1(e)k #%2 talde honetara gehitu du"
 
-#: core/messages/message.cpp:780
+#: core/messages/message.cpp:818
 #, kde-format
 msgid "Room allowed reacting by %1"
 msgstr "%1(e)k gelan erreakzionatzeko aukera eman du"
 
-#: core/messages/message.cpp:782
+#: core/messages/message.cpp:820
 #, kde-format
 msgid "Room disallowed reacting by %1"
 msgstr "%1(e)k gelan erreakzionatzeko aukera kendu du"
 
-#: core/messages/message.cpp:784
+#: core/messages/message.cpp:822
 #, kde-format
 msgid "%1 joined this Team"
 msgstr "%1 talde honetara batu da"
 
-#: core/messages/message.cpp:786
+#: core/messages/message.cpp:824
 #, kde-format
 msgid "%1 has joined OTR chat."
 msgstr "%1 OTR berriketara batu da."
 
-#: core/messages/message.cpp:788
+#: core/messages/message.cpp:826
 #, kde-format
 msgid "%1 key refreshed successfully"
 msgstr "%1 gakoa ondo freskatu da"
 
-#: core/messages/message.cpp:790
+#: core/messages/message.cpp:828
 #, kde-format
 msgid "%1 has requested key refresh."
 msgstr "%1(e)k gakoa freskatzea eskatu du."
@@ -998,12 +998,12 @@ msgstr "Irakurri gabeko harietako mezuak"
 msgid "Edited at %1 by %2"
 msgstr "%1(e)an %2(e)k editatua"
 
-#: core/model/messagesmodel.cpp:361
+#: core/model/messagesmodel.cpp:365
 #, kde-format
 msgid "Ignored Message"
 msgstr "Ezikusitako mezua"
 
-#: core/model/messagesmodel.cpp:370
+#: core/model/messagesmodel.cpp:374
 #, kde-format
 msgid "Only you can see this message"
 msgstr "Zuk bakarrik ikus dezakezu mezu hau"
@@ -2967,7 +2967,7 @@ msgstr "Kopiatu mezua"
 #: widgets/administratordialog/moderationconsole/moderationreportinfolistview.cpp:87
 #: widgets/discussions/discussionlistview.cpp:68
 #: widgets/notificationhistory/notificationhistorylistview.cpp:94
-#: widgets/room/messagelistview.cpp:602
+#: widgets/room/messagelistview.cpp:627
 #: widgets/servererrorinfohistory/servererrorinfomessagehistorylistview.cpp:62
 #, kde-format
 msgctxt "@action"
@@ -9169,7 +9169,7 @@ msgid "Clear"
 msgstr "Garbitu"
 
 #: widgets/notificationhistory/notificationhistorylistview.cpp:79
-#: widgets/room/messagelistview.cpp:585
+#: widgets/room/messagelistview.cpp:610
 #, kde-format
 msgctxt "@action"
 msgid "Go to Message"
@@ -9411,48 +9411,48 @@ msgstr "Elkartu"
 msgid "Link Preview"
 msgstr "Estekaren aurreikuspegia"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:420
+#: widgets/room/delegate/messagelistdelegate.cpp:428
 #, kde-format
 msgid "User Info"
 msgstr "Erabiltzailearen informazioa"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:429
+#: widgets/room/delegate/messagelistdelegate.cpp:437
 #: widgets/room/messagelistview.cpp:390
 #, kde-format
 msgctxt "@action"
 msgid "Start a Private Conversation"
 msgstr "Hasi elkarrizketa pribatu bat"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:647
+#: widgets/room/delegate/messagelistdelegate.cpp:663
 #, kde-format
 msgid "1 reply"
 msgid_plural "%1 replies"
 msgstr[0] "Erantzun 1"
 msgstr[1] "%1 erantzun"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:657
+#: widgets/room/delegate/messagelistdelegate.cpp:673
 #, kde-format
 msgid "1 message"
 msgid_plural "%1 messages"
 msgstr[0] "Mezua 1"
 msgstr[1] "%1 mezu"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:657
+#: widgets/room/delegate/messagelistdelegate.cpp:673
 #, kde-format
 msgid "No message yet"
 msgstr "Oraindik mezurik ez"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:945
+#: widgets/room/delegate/messagelistdelegate.cpp:975
 #, kde-format
 msgid "Following"
 msgstr "Jarraitzen"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:949
+#: widgets/room/delegate/messagelistdelegate.cpp:979
 #, kde-format
 msgid "Message has been pinned"
 msgstr "Mezua iltzatu dute"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:953
+#: widgets/room/delegate/messagelistdelegate.cpp:983
 #, kde-format
 msgid "Message has been starred"
 msgstr "Mezuari izarri markatu diote"
@@ -9613,60 +9613,60 @@ msgctxt "@action"
 msgid "User Info"
 msgstr "Erabiltzailearen informazioa"
 
-#: widgets/room/messagelistview.cpp:406
+#: widgets/room/messagelistview.cpp:427
 #, kde-format
 msgctxt "@action"
 msgid "Start a Discussion"
 msgstr "Hasi elkarrizketa bat"
 
-#: widgets/room/messagelistview.cpp:413
+#: widgets/room/messagelistview.cpp:434
 #, kde-format
 msgctxt "@action"
 msgid "Reply in Thread"
 msgstr "Erantzun harian"
 
-#: widgets/room/messagelistview.cpp:474
+#: widgets/room/messagelistview.cpp:491
 #, kde-format
 msgctxt "@action"
 msgid "Show Original Message"
 msgstr "Erakutsi jatorrizko mezua"
 
-#: widgets/room/messagelistview.cpp:474
+#: widgets/room/messagelistview.cpp:491
 #, kde-format
 msgctxt "@action"
 msgid "Translate Message"
 msgstr "Itzuli mezua"
 
-#: widgets/room/messagelistview.cpp:517
+#: widgets/room/messagelistview.cpp:534
 #, kde-format
 msgctxt "@action"
 msgid "View Reports"
 msgstr "Ikusi txostenak"
 
-#: widgets/room/messagelistview.cpp:540
+#: widgets/room/messagelistview.cpp:557
 #, kde-format
 msgctxt "@action"
 msgid "Dismiss Reports"
 msgstr "Txostenak baztertu"
 
-#: widgets/room/messagelistview.cpp:610
+#: widgets/room/messagelistview.cpp:635
 #, kde-format
 msgctxt "@action"
 msgid "Report Message"
 msgstr "Eman mezuaren berri"
 
-#: widgets/room/messagelistview.cpp:805
+#: widgets/room/messagelistview.cpp:830
 #, kde-format
 msgid "Do you want to delete this message?"
 msgstr "Mezu hori ezabatu nahi duzu?"
 
-#: widgets/room/messagelistview.cpp:806
+#: widgets/room/messagelistview.cpp:831
 #, kde-format
 msgctxt "@title"
 msgid "Delete Message"
 msgstr "Ezabatu mezua"
 
-#: widgets/room/messagelistview.cpp:955
+#: widgets/room/messagelistview.cpp:980
 #, kde-format
 msgctxt "@title:window"
 msgid "Translator Error"

@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-08-09 00:39+0000\n"
+"POT-Creation-Date: 2024-08-10 00:41+0000\n"
 "PO-Revision-Date: 2019-07-29 20:25+0200\n"
 "Last-Translator: Roman Paholík <wizzardsk@gmail.com>\n"
 "Language-Team: Slovak <kde-sk@linux.sk>\n"
@@ -15,146 +15,146 @@ msgstr ""
 "X-Generator: Lokalize 18.12.3\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
 
-#: apps/main.cpp:62
+#: apps/main.cpp:61
 #, kde-format
 msgid "Ruqola"
 msgstr "Ruqola"
 
-#: apps/main.cpp:64
+#: apps/main.cpp:63
 #, kde-format
 msgid "Rocket Chat Client"
 msgstr "Chatovací klient Rocket"
 
-#: apps/main.cpp:66
+#: apps/main.cpp:65
 #, fuzzy, kde-format
 #| msgid "Copyright © 2017-2019 Ruqola authors"
 msgid "Copyright © 2020-2024 Ruqola authors"
 msgstr "Copyright © 2017-2019 Autori Ruqola"
 
-#: apps/main.cpp:68
+#: apps/main.cpp:67
 #, fuzzy, kde-format
 #| msgid "Laurent Montel"
 msgctxt "@info:credit"
 msgid "Laurent Montel"
 msgstr "Laurent Montel"
 
-#: apps/main.cpp:68
+#: apps/main.cpp:67
 #, kde-format
 msgid "Maintainer"
 msgstr "Správca"
 
-#: apps/main.cpp:69
+#: apps/main.cpp:68
 #, fuzzy, kde-format
 #| msgid "Riccardo Iaconelli"
 msgctxt "@info:credit"
 msgid "Riccardo Iaconelli"
 msgstr "Riccardo Iaconelli"
 
-#: apps/main.cpp:69
+#: apps/main.cpp:68
 #, fuzzy, kde-format
 #| msgid "Original author"
 msgid "Original Author"
 msgstr "Pôvodný autor"
 
-#: apps/main.cpp:73
+#: apps/main.cpp:72
 #, fuzzy, kde-format
 #| msgid "David Faure"
 msgctxt "@info:credit"
 msgid "David Faure"
 msgstr "David Faure"
 
-#: apps/main.cpp:73
+#: apps/main.cpp:72
 #, kde-format
 msgid "Bug fixing, delegates etc."
 msgstr ""
 
-#: apps/main.cpp:74
+#: apps/main.cpp:73
 #, kde-format
 msgctxt "@info:credit"
 msgid "Kevin Funk"
 msgstr ""
 
-#: apps/main.cpp:74 apps/main.cpp:75 apps/main.cpp:76 apps/main.cpp:78
-#: apps/main.cpp:79
+#: apps/main.cpp:73 apps/main.cpp:74 apps/main.cpp:75 apps/main.cpp:77
+#: apps/main.cpp:78
 #, kde-format
 msgid "Bug fixing"
 msgstr ""
 
-#: apps/main.cpp:75
+#: apps/main.cpp:74
 #, kde-format
 msgctxt "@info:credit"
 msgid "Olivier JG"
 msgstr ""
 
-#: apps/main.cpp:76
+#: apps/main.cpp:75
 #, kde-format
 msgctxt "@info:credit"
 msgid "Milian Wolff"
 msgstr ""
 
-#: apps/main.cpp:77
+#: apps/main.cpp:76
 #, kde-format
 msgctxt "@info:credit"
 msgid "Till Adam"
 msgstr ""
 
-#: apps/main.cpp:77
+#: apps/main.cpp:76
 #, kde-format
 msgid "Windows compile bug fixing"
 msgstr ""
 
-#: apps/main.cpp:78
+#: apps/main.cpp:77
 #, kde-format
 msgctxt "@info:credit"
 msgid "Shantanu Tushar"
 msgstr ""
 
-#: apps/main.cpp:79
+#: apps/main.cpp:78
 #, kde-format
 msgctxt "@info:credit"
 msgid "Alessandro Ambrosano"
 msgstr ""
 
-#: apps/main.cpp:80
+#: apps/main.cpp:79
 #, kde-format
 msgctxt "@info:credit"
 msgid "Hannah von Reth"
 msgstr ""
 
-#: apps/main.cpp:80
+#: apps/main.cpp:79
 #, kde-format
 msgid "Bug fixing for Windows/Mac"
 msgstr ""
 
-#: apps/main.cpp:81
+#: apps/main.cpp:80
 #, kde-format
 msgctxt "@info:credit"
 msgid "Allen Winter"
 msgstr ""
 
-#: apps/main.cpp:81
+#: apps/main.cpp:80
 #, kde-format
 msgid "Packaging"
 msgstr ""
 
-#: apps/main.cpp:82
+#: apps/main.cpp:81
 #, kde-format
 msgctxt "@info:credit"
 msgid "Waqar Ahmed"
 msgstr ""
 
-#: apps/main.cpp:82
+#: apps/main.cpp:81
 #, kde-format
 msgid "Bug fixing (compile, network crash...)"
 msgstr ""
 
-#: apps/main.cpp:83
+#: apps/main.cpp:82
 #, kde-format
 msgctxt "@info:credit"
 msgid "Nicolas Fella"
 msgstr ""
 
-#: apps/main.cpp:83
+#: apps/main.cpp:82
 #, kde-format
 msgid "Optimization, fix windows/mac support"
 msgstr ""
@@ -444,251 +444,251 @@ msgstr ""
 msgid "(Last Message: %1)"
 msgstr "(Posledná správa: %1)"
 
-#: core/messages/block.cpp:128 core/messages/message.cpp:792
+#: core/messages/block.cpp:128 core/messages/message.cpp:830
 #: core/model/notificationhistorymodel.cpp:63
 #: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:128
 #, kde-format
 msgid "Conference Call"
 msgstr ""
 
-#: core/messages/message.cpp:688
+#: core/messages/message.cpp:726
 #, kde-format
 msgid "%1 has joined the channel"
 msgstr ""
 
-#: core/messages/message.cpp:690
+#: core/messages/message.cpp:728
 #, kde-format
 msgid "%1 has left the channel"
 msgstr ""
 
-#: core/messages/message.cpp:692
+#: core/messages/message.cpp:730
 #, fuzzy, kde-format
 #| msgid "Delete Account"
 msgid "%1 left this Team"
 msgstr "Odstrániť účet"
 
-#: core/messages/message.cpp:695
+#: core/messages/message.cpp:733
 #, kde-format
 msgid "Topic was cleared by: %1"
 msgstr ""
 
-#: core/messages/message.cpp:697
+#: core/messages/message.cpp:735
 #, kde-format
 msgid "%2 changed topic to: <i>%1</i>"
 msgstr ""
 
-#: core/messages/message.cpp:700
+#: core/messages/message.cpp:738
 #, kde-format
 msgid "%2 added %1 to the conversation"
 msgstr ""
 
-#: core/messages/message.cpp:702
+#: core/messages/message.cpp:740
 #, kde-format
 msgid "%2 changed room name to <a href=\"ruqola:/room/%1\">#%1</a>"
 msgstr ""
 
-#: core/messages/message.cpp:704
+#: core/messages/message.cpp:742
 #, kde-format
 msgid "%2 removed user %1"
 msgstr ""
 
-#: core/messages/message.cpp:707
+#: core/messages/message.cpp:745
 #, kde-format
 msgid "Description was cleared by %1"
 msgstr ""
 
-#: core/messages/message.cpp:709
+#: core/messages/message.cpp:747
 #, kde-format
 msgid "%2 changed room description to %1"
 msgstr ""
 
-#: core/messages/message.cpp:713
+#: core/messages/message.cpp:751
 #, kde-format
 msgid "Announcement was cleared by %1"
 msgstr ""
 
-#: core/messages/message.cpp:715
+#: core/messages/message.cpp:753
 #, kde-format
 msgid "%2 changed room announcement to %1"
 msgstr ""
 
-#: core/messages/message.cpp:718
+#: core/messages/message.cpp:756
 #, kde-format
 msgid "%2 changed room privacy to %1"
 msgstr ""
 
-#: core/messages/message.cpp:720
+#: core/messages/message.cpp:758
 #, kde-format
 msgid "Click to join to video"
 msgstr ""
 
-#: core/messages/message.cpp:723
+#: core/messages/message.cpp:761
 #, kde-format
 msgid "Message Deleted"
 msgstr ""
 
-#: core/messages/message.cpp:725
+#: core/messages/message.cpp:763
 #, kde-format
 msgid "Message Pinned"
 msgstr ""
 
-#: core/messages/message.cpp:727
+#: core/messages/message.cpp:765
 #, kde-format
 msgid "Encrypted Message"
 msgstr "Zašifrovaná správa"
 
-#: core/messages/message.cpp:729
+#: core/messages/message.cpp:767
 #, kde-format
 msgid "%1 was unmuted by %2"
 msgstr ""
 
-#: core/messages/message.cpp:731
+#: core/messages/message.cpp:769
 #, kde-format
 msgid "%1 was muted by %2"
 msgstr ""
 
-#: core/messages/message.cpp:733
+#: core/messages/message.cpp:771
 #, kde-format
 msgid "Role '%3' was added to %1 by %2"
 msgstr ""
 
-#: core/messages/message.cpp:735
+#: core/messages/message.cpp:773
 #, kde-format
 msgid "Role '%3' was removed to %1 by %2"
 msgstr ""
 
 #. i18n("Encrypted message: %1", mText);
-#: core/messages/message.cpp:739
+#: core/messages/message.cpp:777
 #, kde-format
 msgid ""
 "This message is end-to-end encrypted. To view it, you must enter your "
 "encryption key in your account settings."
 msgstr ""
 
-#: core/messages/message.cpp:741
+#: core/messages/message.cpp:779
 #, kde-format
 msgid "Discussion created about \"%1\""
 msgstr ""
 
-#: core/messages/message.cpp:743
+#: core/messages/message.cpp:781
 #, kde-format
 msgid "%1 has joined the conversation"
 msgstr ""
 
-#: core/messages/message.cpp:745
+#: core/messages/message.cpp:783
 #, kde-format
 msgid "This room has been archived by %1"
 msgstr ""
 
-#: core/messages/message.cpp:747
+#: core/messages/message.cpp:785
 #, kde-format
 msgid "This room has been unarchived by %1"
 msgstr ""
 
-#: core/messages/message.cpp:750 core/messages/message.cpp:797
+#: core/messages/message.cpp:788 core/messages/message.cpp:835
 #, kde-format
 msgid "Unknown action!"
 msgstr ""
 
-#: core/messages/message.cpp:754
+#: core/messages/message.cpp:792
 #, kde-format
 msgid "Welcome %1!"
 msgstr ""
 
-#: core/messages/message.cpp:756
+#: core/messages/message.cpp:794
 #, kde-format
 msgid "Room avatar changed by %1"
 msgstr ""
 
-#: core/messages/message.cpp:758
+#: core/messages/message.cpp:796
 #, kde-format
 msgid "This room's encryption has been enabled by %1"
 msgstr ""
 
-#: core/messages/message.cpp:760
+#: core/messages/message.cpp:798
 #, kde-format
 msgid "This room's encryption has been disabled by %1"
 msgstr ""
 
-#: core/messages/message.cpp:762
+#: core/messages/message.cpp:800
 #, kde-format
 msgid "Room set as Read Only by  %1"
 msgstr ""
 
-#: core/messages/message.cpp:764
+#: core/messages/message.cpp:802
 #, kde-format
 msgid "Room added writing permission by %1"
 msgstr ""
 
-#: core/messages/message.cpp:766
+#: core/messages/message.cpp:804
 #, fuzzy, kde-format
 #| msgid "Delete Account"
 msgid "%1 added @%2 to this Team"
 msgstr "Odstrániť účet"
 
-#: core/messages/message.cpp:768
+#: core/messages/message.cpp:806
 #, fuzzy, kde-format
 #| msgid "Delete Account"
 msgid "%1 removed @%2 from this Team"
 msgstr "Odstrániť účet"
 
-#: core/messages/message.cpp:770
+#: core/messages/message.cpp:808
 #, fuzzy, kde-format
 #| msgid "Delete Account"
 msgid "%1 converted #%2 to a Team"
 msgstr "Odstrániť účet"
 
-#: core/messages/message.cpp:772
+#: core/messages/message.cpp:810
 #, fuzzy, kde-format
 #| msgid "Leave Channel"
 msgid "%1 converted #%2 to a Channel"
 msgstr "Opustiť kanál"
 
-#: core/messages/message.cpp:774
+#: core/messages/message.cpp:812
 #, fuzzy, kde-format
 #| msgid "Delete Account"
 msgid "%1 removed #%2 from this Team"
 msgstr "Odstrániť účet"
 
-#: core/messages/message.cpp:776
+#: core/messages/message.cpp:814
 #, fuzzy, kde-format
 #| msgid "Delete"
 msgid "%1 deleted #%2"
 msgstr "Vymazať"
 
-#: core/messages/message.cpp:778
+#: core/messages/message.cpp:816
 #, fuzzy, kde-format
 #| msgid "Delete Account"
 msgid "%1 added #%2 to this Team"
 msgstr "Odstrániť účet"
 
-#: core/messages/message.cpp:780
+#: core/messages/message.cpp:818
 #, kde-format
 msgid "Room allowed reacting by %1"
 msgstr ""
 
-#: core/messages/message.cpp:782
+#: core/messages/message.cpp:820
 #, kde-format
 msgid "Room disallowed reacting by %1"
 msgstr ""
 
-#: core/messages/message.cpp:784
+#: core/messages/message.cpp:822
 #, fuzzy, kde-format
 #| msgid "Delete Account"
 msgid "%1 joined this Team"
 msgstr "Odstrániť účet"
 
-#: core/messages/message.cpp:786
+#: core/messages/message.cpp:824
 #, kde-format
 msgid "%1 has joined OTR chat."
 msgstr ""
 
-#: core/messages/message.cpp:788
+#: core/messages/message.cpp:826
 #, kde-format
 msgid "%1 key refreshed successfully"
 msgstr ""
 
-#: core/messages/message.cpp:790
+#: core/messages/message.cpp:828
 #, kde-format
 msgid "%1 has requested key refresh."
 msgstr ""
@@ -1033,12 +1033,12 @@ msgstr "Súkromné adresy"
 msgid "Edited at %1 by %2"
 msgstr ""
 
-#: core/model/messagesmodel.cpp:361
+#: core/model/messagesmodel.cpp:365
 #, kde-format
 msgid "Ignored Message"
 msgstr ""
 
-#: core/model/messagesmodel.cpp:370
+#: core/model/messagesmodel.cpp:374
 #, kde-format
 msgid "Only you can see this message"
 msgstr ""
@@ -3083,7 +3083,7 @@ msgstr "Správa"
 #: widgets/administratordialog/moderationconsole/moderationreportinfolistview.cpp:87
 #: widgets/discussions/discussionlistview.cpp:68
 #: widgets/notificationhistory/notificationhistorylistview.cpp:94
-#: widgets/room/messagelistview.cpp:602
+#: widgets/room/messagelistview.cpp:627
 #: widgets/servererrorinfohistory/servererrorinfomessagehistorylistview.cpp:62
 #, fuzzy, kde-format
 #| msgid "Status:"
@@ -9550,7 +9550,7 @@ msgid "Clear"
 msgstr ""
 
 #: widgets/notificationhistory/notificationhistorylistview.cpp:79
-#: widgets/room/messagelistview.cpp:585
+#: widgets/room/messagelistview.cpp:610
 #, fuzzy, kde-format
 #| msgid "Message"
 msgctxt "@action"
@@ -9813,12 +9813,12 @@ msgstr ""
 msgid "Link Preview"
 msgstr ""
 
-#: widgets/room/delegate/messagelistdelegate.cpp:420
+#: widgets/room/delegate/messagelistdelegate.cpp:428
 #, kde-format
 msgid "User Info"
 msgstr "Informácie o užívateľovi"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:429
+#: widgets/room/delegate/messagelistdelegate.cpp:437
 #: widgets/room/messagelistview.cpp:390
 #, fuzzy, kde-format
 #| msgid "Conversation"
@@ -9826,7 +9826,7 @@ msgctxt "@action"
 msgid "Start a Private Conversation"
 msgstr "Konverzácia"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:647
+#: widgets/room/delegate/messagelistdelegate.cpp:663
 #, kde-format
 msgid "1 reply"
 msgid_plural "%1 replies"
@@ -9834,7 +9834,7 @@ msgstr[0] "1 odpoveď"
 msgstr[1] "%1 odpovede"
 msgstr[2] "%1 odpovedí"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:657
+#: widgets/room/delegate/messagelistdelegate.cpp:673
 #, kde-format
 msgid "1 message"
 msgid_plural "%1 messages"
@@ -9842,24 +9842,24 @@ msgstr[0] "1 správa"
 msgstr[1] "%1 správy"
 msgstr[2] "%1 správ"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:657
+#: widgets/room/delegate/messagelistdelegate.cpp:673
 #, fuzzy, kde-format
 #| msgid "1 message"
 #| msgid_plural "%1 messages"
 msgid "No message yet"
 msgstr "1 správa"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:945
+#: widgets/room/delegate/messagelistdelegate.cpp:975
 #, kde-format
 msgid "Following"
 msgstr ""
 
-#: widgets/room/delegate/messagelistdelegate.cpp:949
+#: widgets/room/delegate/messagelistdelegate.cpp:979
 #, kde-format
 msgid "Message has been pinned"
 msgstr ""
 
-#: widgets/room/delegate/messagelistdelegate.cpp:953
+#: widgets/room/delegate/messagelistdelegate.cpp:983
 #, fuzzy, kde-format
 #| msgid "Private Messages"
 msgid "Message has been starred"
@@ -10044,68 +10044,68 @@ msgctxt "@action"
 msgid "User Info"
 msgstr "Informácie o užívateľovi"
 
-#: widgets/room/messagelistview.cpp:406
+#: widgets/room/messagelistview.cpp:427
 #, fuzzy, kde-format
 #| msgid "Search File..."
 msgctxt "@action"
 msgid "Start a Discussion"
 msgstr "Hľadať súbor..."
 
-#: widgets/room/messagelistview.cpp:413
+#: widgets/room/messagelistview.cpp:434
 #, fuzzy, kde-format
 #| msgid "Message"
 msgctxt "@action"
 msgid "Reply in Thread"
 msgstr "Správa"
 
-#: widgets/room/messagelistview.cpp:474
+#: widgets/room/messagelistview.cpp:491
 #, fuzzy, kde-format
 #| msgid "Private Messages"
 msgctxt "@action"
 msgid "Show Original Message"
 msgstr "Súkromné adresy"
 
-#: widgets/room/messagelistview.cpp:474
+#: widgets/room/messagelistview.cpp:491
 #, fuzzy, kde-format
 #| msgid "Private Messages"
 msgctxt "@action"
 msgid "Translate Message"
 msgstr "Súkromné adresy"
 
-#: widgets/room/messagelistview.cpp:517
+#: widgets/room/messagelistview.cpp:534
 #, fuzzy, kde-format
 #| msgid "Report a Bug"
 msgctxt "@action"
 msgid "View Reports"
 msgstr "Nahlásiť chybu"
 
-#: widgets/room/messagelistview.cpp:540
+#: widgets/room/messagelistview.cpp:557
 #, fuzzy, kde-format
 #| msgid "Report a Bug"
 msgctxt "@action"
 msgid "Dismiss Reports"
 msgstr "Nahlásiť chybu"
 
-#: widgets/room/messagelistview.cpp:610
+#: widgets/room/messagelistview.cpp:635
 #, fuzzy, kde-format
 #| msgid "Message"
 msgctxt "@action"
 msgid "Report Message"
 msgstr "Správa"
 
-#: widgets/room/messagelistview.cpp:805
+#: widgets/room/messagelistview.cpp:830
 #, kde-format
 msgid "Do you want to delete this message?"
 msgstr ""
 
-#: widgets/room/messagelistview.cpp:806
+#: widgets/room/messagelistview.cpp:831
 #, fuzzy, kde-format
 #| msgid "Delete Message"
 msgctxt "@title"
 msgid "Delete Message"
 msgstr "Zmazať správu"
 
-#: widgets/room/messagelistview.cpp:955
+#: widgets/room/messagelistview.cpp:980
 #, fuzzy, kde-format
 #| msgid "Translation"
 msgctxt "@title:window"
