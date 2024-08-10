@@ -5,7 +5,6 @@
 */
 
 #include "message.h"
-#include "messageutils.h"
 #include "ruqola_debug.h"
 #include <KLocalizedString>
 #include <QCborValue>
