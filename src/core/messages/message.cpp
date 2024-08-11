@@ -121,7 +121,7 @@ void Message::parseMessage(const QJsonObject &o, bool restApi, EmojiManager *emo
     parseMentions(o.value("mentions"_L1).toArray());
 
     parseAttachment(o.value("attachments"_L1).toArray());
-    parseUrls(o.value("urls"_L1).toArray());
+    parseMessageUrls(o.value("urls"_L1).toArray());
     parseReactions(o.value("reactions"_L1).toObject(), emojiManager);
     parseChannels(o.value("channels"_L1).toArray());
     // TODO unread element
@@ -511,7 +511,7 @@ void Message::parseMentions(const QJsonArray &mentions)
     }
 }
 
-void Message::parseUrls(const QJsonArray &urls)
+void Message::parseMessageUrls(const QJsonArray &urls)
 {
     if (!urls.isEmpty()) {
         if (!mUrls) {

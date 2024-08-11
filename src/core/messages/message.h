@@ -235,7 +235,7 @@ public:
 private:
     LIBRUQOLACORE_NO_EXPORT void parseMentions(const QJsonArray &mentions);
     LIBRUQOLACORE_NO_EXPORT void parseAttachment(const QJsonArray &attachments);
-    LIBRUQOLACORE_NO_EXPORT void parseUrls(const QJsonArray &urls);
+    LIBRUQOLACORE_NO_EXPORT void parseMessageUrls(const QJsonArray &urls);
     LIBRUQOLACORE_NO_EXPORT void parseReactions(const QJsonObject &mentions, EmojiManager *emojiManager);
     LIBRUQOLACORE_NO_EXPORT void parseChannels(const QJsonArray &channels);
     LIBRUQOLACORE_NO_EXPORT void parseBlocks(const QJsonArray &blocks);
