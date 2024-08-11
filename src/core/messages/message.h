@@ -241,7 +241,7 @@ private:
     LIBRUQOLACORE_NO_EXPORT void parseBlocks(const QJsonArray &blocks);
     LIBRUQOLACORE_NO_EXPORT void assignMessageStateValue(MessageState type, bool status);
     [[nodiscard]] LIBRUQOLACORE_NO_EXPORT bool messageStateValue(MessageState type) const;
-    [[nodiscard]] MessageExtra *messageExtra();
+    [[nodiscard]] LIBRUQOLACORE_NO_EXPORT MessageExtra *messageExtra();
 
     // Moderation Message Info
     QSharedDataPointer<ModerationMessage> mModerationMessage;
