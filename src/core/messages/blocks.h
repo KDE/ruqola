@@ -16,7 +16,7 @@ public:
     Blocks();
     ~Blocks();
 
-    void setBlocks(const QList<Block> &reactions);
+    void setBlocks(const QList<Block> &blocks);
     [[nodiscard]] QList<Block> blocks() const;
 
     void parseBlocks(const QJsonArray &array);
