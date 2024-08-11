@@ -92,10 +92,14 @@ void Message::parseMessage(const QJsonObject &o, bool restApi, EmojiManager *emo
     }
 
     // Translation
-    MessageTranslation translation;
-    translation.parse(o);
-    if (!translation.isEmpty()) {
-        setMessageTranslation(translation);
+    if (o.contains("translations"_L1)) {
+        MessageTranslation translation;
+        translation.parse(o);
+        if (!translation.isEmpty()) {
+            setMessageTranslation(translation);
+        }
+    } else {
+        mMessageTranslation.reset();
     }
     assignMessageStateValue(Private, o.value("private"_L1).toBool(false));
 
