@@ -14,7 +14,6 @@
 #include "messagepinned.h"
 #include "messagestarred.h"
 #include "messagetranslation.h"
-#include "messageurl.h"
 #include "messageurls.h"
 #include "moderation/moderationmessage.h"
 #include "reactions.h"
