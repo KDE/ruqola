@@ -283,7 +283,7 @@ set_package_properties(KF6NetworkManagerQt PROPERTIES DESCRIPTION "Network manag
 
 include_directories(${CMAKE_CURRENT_BINARY_DIR})
 ecm_set_disabled_deprecation_versions(QT 6.5
-    KF 6.4.0
+    KF 6.5.0
 )
 
 set(RUQOLA_LIB_VERSION "${RUQOLA_VERSION}")
