@@ -39,10 +39,16 @@ void Replies::setReplies(const QList<QByteArray> &replies)
     mReplies = replies;
 }
 
-void Replies::parseReplies(const QJsonArray &channels)
+void Replies::parseReplies(const QJsonArray &replieArray)
 {
     mReplies.clear();
-    // TODO
+    QList<QByteArray> lst;
+    const auto nbReplieArrayCount{replieArray.count()};
+    lst.reserve(nbReplieArrayCount);
+    for (auto i = 0; i < nbReplieArrayCount; ++i) {
+        lst.append(replieArray.at(i).toVariant().toString().toLatin1());
+    }
+    mReplies = lst;
 }
 
 bool Replies::operator==(const Replies &other) const
@@ -56,19 +62,25 @@ QDebug operator<<(QDebug d, const Replies &t)
     return d;
 }
 
-QJsonArray Replies::serialize(const Replies &channels)
+QJsonArray Replies::serialize(const Replies &replies)
 {
     QJsonArray array;
-    // Replies
-    // TODO
-    return array;
+    QStringList serialize;
+    for (const QByteArray &i : replies.replies()) {
+        serialize << QString::fromLatin1(i);
+    }
+    return QJsonArray::fromStringList(serialize);
 }
 
-Replies *Replies::deserialize(const QJsonArray &channelsArray)
+Replies *Replies::deserialize(const QJsonArray &repliesArray)
 {
-    // TODO
+    QList<QByteArray> replies;
+    replies.reserve(repliesArray.count());
+    for (int i = 0, total = repliesArray.count(); i < total; ++i) {
+        replies.append(repliesArray.at(i).toString().toLatin1());
+    }
     auto final = new Replies;
-    // TODO final->setReplies(channels);
+    final->setReplies(replies);
     return final;
 }
 
