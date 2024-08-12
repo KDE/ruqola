@@ -48,19 +48,19 @@ void RocketChatAccountSettings::initializeSettings(const QString &accountFileNam
     mSetting = new QSettings(accountFileName, QSettings::IniFormat);
     qCDebug(RUQOLA_LOG) << "accountFileName " << accountFileName;
 
-    mServerUrl = mSetting->value(QStringLiteral("serverURL"), QStringLiteral("open.rocket.chat")).toString();
-    mUserName = mSetting->value(QStringLiteral("username")).toString();
-    mUserId = mSetting->value(QStringLiteral("userID")).toByteArray();
-    mAuthToken = mSetting->value(QStringLiteral("authToken")).toString();
-    mExpireToken = mSetting->value(QStringLiteral("expireToken")).toLongLong();
-    mAccountName = mSetting->value(QStringLiteral("accountName")).toString();
-    mActivities = mSetting->value(QStringLiteral("activities")).toStringList();
-    mUseLdap = mSetting->value(QStringLiteral("useLdap")).toBool();
-    mAccountEnabled = mSetting->value(QStringLiteral("enabled"), true).toBool();
-    mActivityEnabled = mSetting->value(QStringLiteral("ActivityEnabled"), false).toBool();
-    mDisplayName = mSetting->value(QStringLiteral("displayName")).toString();
-    mLastCheckedPreviewUrlCacheDate = mSetting->value(QStringLiteral("lastCheckedPreviewUrlDate")).toDate();
-    mAuthMethodType = mSetting->value(QStringLiteral("authenticationMethodType"), AuthenticationManager::AuthMethodType::Password)
+    mServerUrl = mSetting->value(QLatin1StringView("serverURL"), QLatin1StringView("open.rocket.chat")).toString();
+    mUserName = mSetting->value(QLatin1StringView("username")).toString();
+    mUserId = mSetting->value(QLatin1StringView("userID")).toByteArray();
+    mAuthToken = mSetting->value(QLatin1StringView("authToken")).toString();
+    mExpireToken = mSetting->value(QLatin1StringView("expireToken")).toLongLong();
+    mAccountName = mSetting->value(QLatin1StringView("accountName")).toString();
+    mActivities = mSetting->value(QLatin1StringView("activities")).toStringList();
+    mUseLdap = mSetting->value(QLatin1StringView("useLdap")).toBool();
+    mAccountEnabled = mSetting->value(QLatin1StringView("enabled"), true).toBool();
+    mActivityEnabled = mSetting->value(QLatin1StringView("ActivityEnabled"), false).toBool();
+    mDisplayName = mSetting->value(QLatin1StringView("displayName")).toString();
+    mLastCheckedPreviewUrlCacheDate = mSetting->value(QLatin1StringView("lastCheckedPreviewUrlDate")).toDate();
+    mAuthMethodType = mSetting->value(QLatin1StringView("authenticationMethodType"), AuthenticationManager::AuthMethodType::Password)
                           .value<AuthenticationManager::AuthMethodType>();
 
     // Password is ok when we use Password authentication method.
@@ -137,7 +137,7 @@ void RocketChatAccountSettings::setAuthMethodType(const AuthenticationManager::A
 {
     if (mAuthMethodType != newAuthMethodType) {
         mAuthMethodType = newAuthMethodType;
-        mSetting->setValue(QStringLiteral("authenticationMethodType"), mAuthMethodType);
+        mSetting->setValue(QLatin1StringView("authenticationMethodType"), mAuthMethodType);
         mSetting->sync();
     }
 }
@@ -151,7 +151,7 @@ void RocketChatAccountSettings::setLastCheckedPreviewUrlCacheDate(const QDate &n
 {
     if (mLastCheckedPreviewUrlCacheDate != newLastCheckedPreviewUrlCacheDate) {
         mLastCheckedPreviewUrlCacheDate = newLastCheckedPreviewUrlCacheDate;
-        mSetting->setValue(QStringLiteral("lastCheckedPreviewUrlDate"), mLastCheckedPreviewUrlCacheDate);
+        mSetting->setValue(QLatin1StringView("lastCheckedPreviewUrlDate"), mLastCheckedPreviewUrlCacheDate);
         mSetting->sync();
     }
 }
@@ -168,7 +168,7 @@ void RocketChatAccountSettings::setDisplayName(const QString &displayName)
 {
     if (mDisplayName != displayName) {
         mDisplayName = displayName;
-        mSetting->setValue(QStringLiteral("displayName"), mDisplayName);
+        mSetting->setValue(QLatin1StringView("displayName"), mDisplayName);
         mSetting->sync();
         Q_EMIT displayNameChanged();
     }
@@ -183,7 +183,7 @@ void RocketChatAccountSettings::setAccountEnabled(bool enabled)
 {
     if (mAccountEnabled != enabled) {
         mAccountEnabled = enabled;
-        mSetting->setValue(QStringLiteral("enabled"), mAccountEnabled);
+        mSetting->setValue(QLatin1StringView("enabled"), mAccountEnabled);
         mSetting->sync();
         Q_EMIT enableAccountChanged();
     }
@@ -191,13 +191,13 @@ void RocketChatAccountSettings::setAccountEnabled(bool enabled)
 
 QByteArray RocketChatAccountSettings::lastSelectedRoom() const
 {
-    return mSetting->value(QStringLiteral("SelectedRoom")).toByteArray();
+    return mSetting->value(QLatin1StringView("SelectedRoom")).toByteArray();
 }
 
 void RocketChatAccountSettings::setLastSelectedRoom(const QByteArray &roomId)
 {
     if (!roomId.isEmpty()) {
-        mSetting->setValue(QStringLiteral("SelectedRoom"), roomId);
+        mSetting->setValue(QLatin1StringView("SelectedRoom"), roomId);
     }
 }
 
@@ -210,7 +210,7 @@ void RocketChatAccountSettings::setExpireToken(qint64 expireToken)
 {
     if (mExpireToken != expireToken) {
         mExpireToken = expireToken;
-        mSetting->setValue(QStringLiteral("expireToken"), mExpireToken);
+        mSetting->setValue(QLatin1StringView("expireToken"), mExpireToken);
         mSetting->sync();
     }
 }
@@ -229,7 +229,7 @@ void RocketChatAccountSettings::setUserId(const QByteArray &userId)
 {
     // Don't use if( m_userID != userID) as we need to Q_EMIT userIDChanged
     mUserId = userId;
-    mSetting->setValue(QStringLiteral("userID"), userId);
+    mSetting->setValue(QLatin1StringView("userID"), userId);
     mSetting->sync();
     Q_EMIT userIdChanged();
 }
@@ -244,14 +244,14 @@ void RocketChatAccountSettings::setAuthToken(const QString &authToken)
     if (mAuthToken != authToken) {
         qCDebug(RUQOLA_LOG) << "Setting token to" << authToken;
         mAuthToken = authToken;
-        mSetting->setValue(QStringLiteral("authToken"), authToken);
+        mSetting->setValue(QLatin1StringView("authToken"), authToken);
     }
 }
 
 void RocketChatAccountSettings::logout()
 {
-    mSetting->setValue(QStringLiteral("authToken"), QString());
-    mSetting->setValue(QStringLiteral("expireToken"), -1);
+    mSetting->setValue(QLatin1StringView("authToken"), QString());
+    mSetting->setValue(QLatin1StringView("expireToken"), -1);
     mSetting->sync();
     mAuthToken.clear();
     mUserId.clear();
@@ -299,7 +299,7 @@ void RocketChatAccountSettings::setUserName(const QString &userName)
 {
     if (mUserName != userName) {
         mUserName = userName;
-        mSetting->setValue(QStringLiteral("username"), mUserName);
+        mSetting->setValue(QLatin1StringView("username"), mUserName);
         mSetting->sync();
         Q_EMIT userNameChanged();
     }
@@ -317,7 +317,7 @@ void RocketChatAccountSettings::setAccountName(const QString &accountName)
     }
 
     initializeSettings(ManagerDataPaths::self()->accountConfigFileName(accountName));
-    mSetting->setValue(QStringLiteral("accountName"), accountName);
+    mSetting->setValue(QLatin1StringView("accountName"), accountName);
     mSetting->sync();
     mAccountName = accountName;
     Q_EMIT accountNameChanged();
@@ -334,7 +334,7 @@ void RocketChatAccountSettings::setServerUrl(const QString &serverUrl)
         return;
     }
 
-    mSetting->setValue(QStringLiteral("serverURL"), serverUrl);
+    mSetting->setValue(QLatin1StringView("serverURL"), serverUrl);
     mSetting->sync();
     mServerUrl = serverUrl;
     Q_EMIT serverURLChanged();
