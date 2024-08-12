@@ -47,7 +47,7 @@ bool AppsMarketPlaceFilterProxyModel::filterAcceptsRow(int source_row, const QMo
     case Price::UnknownPrice:
         break;
     case Price::Free: {
-        if (modelIndex.data(AppsMarketPlaceModel::HasPricingPlans).toBool()) {
+        if (modelIndex.data(AppsMarketPlaceModel::HasPricingPlans).toBool() || modelIndex.data(AppsMarketPlaceModel::IsEnterpriseOnly).toBool()) {
             return false;
         }
         break;
