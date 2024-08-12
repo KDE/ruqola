@@ -843,8 +843,8 @@ bool MessageListDelegate::mouseEvent(QEvent *event, const QStyleOptionViewItem &
             }
         }
         if (mPreviewEmbed) {
-            if (message->urls()) {
-                const auto messageUrls = message->urls()->messageUrls();
+            if (auto urls = message->urls()) {
+                const auto messageUrls = urls->messageUrls();
                 int messageUrlsIndex = 0;
                 for (const MessageUrl &url : messageUrls) {
                     if (mHelperUrlPreview->handleMouseEvent(url, mev, layout.messageUrlsRectList.at(messageUrlsIndex), option, index)) {
@@ -863,8 +863,8 @@ bool MessageListDelegate::mouseEvent(QEvent *event, const QStyleOptionViewItem &
             }
 
             const Message *message = index.data(MessagesModel::MessagePointer).value<Message *>();
-            if (message->attachments()) {
-                const auto attachments = message->attachments()->messageAttachments();
+            if (auto messageAttachments = message->attachments()) {
+                const auto attachments = messageAttachments->messageAttachments();
                 int i = 0;
                 for (const MessageAttachment &att : attachments) {
                     MessageAttachmentDelegateHelperBase *helper = attachmentsHelper(att);
@@ -875,8 +875,8 @@ bool MessageListDelegate::mouseEvent(QEvent *event, const QStyleOptionViewItem &
                 }
             }
             if (mPreviewEmbed) {
-                if (message->urls()) {
-                    const auto messageUrls = message->urls()->messageUrls();
+                if (auto urls = message->urls()) {
+                    const auto messageUrls = urls->messageUrls();
                     int messageUrlsIndex = 0;
                     for (const MessageUrl &url : messageUrls) {
                         if (mHelperUrlPreview->handleMouseEvent(url, mev, layout.messageUrlsRectList.at(messageUrlsIndex), option, index)) {
@@ -914,8 +914,8 @@ bool MessageListDelegate::maybeStartDrag(QMouseEvent *event, const QStyleOptionV
     }
     {
         if (mPreviewEmbed) {
-            if (message->urls()) {
-                const auto urls = message->urls()->messageUrls();
+            if (auto messageUrls = message->urls()) {
+                const auto urls = messageUrls->messageUrls();
                 int i = 0;
                 for (const MessageUrl &url : urls) {
                     if (mHelperUrlPreview->maybeStartDrag(url, event, layout.messageUrlsRectList.at(i), option, index)) {
