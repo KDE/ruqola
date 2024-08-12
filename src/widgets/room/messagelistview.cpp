@@ -430,14 +430,12 @@ void MessageListView::contextMenuEvent(QContextMenuEvent *event)
             slotStartDiscussion(index);
         });
         menu.addAction(startDiscussion);
-        if (!threadInfoActions.isEmpty()) {
-            menu.addSeparator();
-            auto replyInThreadAction = new QAction(i18nc("@action", "Reply in Thread"), &menu);
-            connect(replyInThreadAction, &QAction::triggered, this, [this, index]() {
-                slotReplyInThread(index);
-            });
-            menu.addAction(replyInThreadAction);
-        }
+        menu.addSeparator();
+        auto replyInThreadAction = new QAction(i18nc("@action", "Reply in Thread"), &menu);
+        connect(replyInThreadAction, &QAction::triggered, this, [this, index]() {
+            slotReplyInThread(index);
+        });
+        menu.addAction(replyInThreadAction);
         for (auto action : threadInfoActions) {
             menu.addAction(action);
         }
