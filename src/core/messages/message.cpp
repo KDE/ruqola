@@ -12,9 +12,7 @@
 #include <QJsonArray>
 #include <QJsonDocument>
 using namespace Qt::Literals::StringLiterals;
-Message::Message()
-{
-}
+Message::Message() = default;
 
 Message::~Message() = default;
 
@@ -51,8 +49,6 @@ void Message::parseMessage(const QJsonObject &o, bool restApi, EmojiManager *emo
         }
     }
 
-    parseReplies(o.value("replies"_L1).toArray());
-
     const auto userObject = o.value("u"_L1).toObject();
     mUsername = userObject.value("username"_L1).toString();
     mName = userObject.value("name"_L1).toString();
@@ -78,10 +74,12 @@ void Message::parseMessage(const QJsonObject &o, bool restApi, EmojiManager *emo
     mEmoji = o.value("emoji"_L1).toString();
     mMessageStarred.parse(o);
 
-    MessagePinned pinned;
-    pinned.parse(o);
-    if (pinned.isValid()) {
-        setMessagePinned(pinned);
+    if (o.contains("pinned"_L1)) {
+        MessagePinned pinned;
+        pinned.parse(o);
+        if (pinned.isValid()) {
+            setMessagePinned(pinned);
+        }
     }
 
     // Translation
@@ -117,6 +115,7 @@ void Message::parseMessage(const QJsonObject &o, bool restApi, EmojiManager *emo
     parseMessageUrls(o.value("urls"_L1).toArray());
     parseReactions(o.value("reactions"_L1).toObject(), emojiManager);
     parseChannels(o.value("channels"_L1).toArray());
+    parseReplies(o.value("replies"_L1).toArray());
     // TODO unread element
 }
 
