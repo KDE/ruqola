@@ -17,6 +17,7 @@
 #include "messageurls.h"
 #include "moderation/moderationmessage.h"
 #include "reactions.h"
+#include "replies.h"
 #include "systemmessagetypeutil.h"
 #include "utils.h"
 #include <QColor>
@@ -187,8 +188,8 @@ public:
     [[nodiscard]] QString name() const;
     void setName(const QString &name);
 
-    [[nodiscard]] QList<QByteArray> replies() const;
-    void setReplies(const QList<QByteArray> &replies);
+    [[nodiscard]] const Replies *replies() const;
+    void setReplies(const Replies &newReplies);
 
     [[nodiscard]] QString emoji() const;
     void setEmoji(const QString &emoji);
@@ -240,6 +241,7 @@ private:
     LIBRUQOLACORE_NO_EXPORT void parseChannels(const QJsonArray &channels);
     LIBRUQOLACORE_NO_EXPORT void parseBlocks(const QJsonArray &blocks);
     LIBRUQOLACORE_NO_EXPORT void assignMessageStateValue(MessageState type, bool status);
+    LIBRUQOLACORE_NO_EXPORT void parseReplies(const QJsonArray &replies);
     [[nodiscard]] LIBRUQOLACORE_NO_EXPORT bool messageStateValue(MessageState type) const;
     [[nodiscard]] LIBRUQOLACORE_NO_EXPORT MessageExtra *messageExtra();
 
@@ -275,7 +277,7 @@ private:
     QSharedDataPointer<Channels> mChannels;
 
     // Users which replies to thread
-    QList<QByteArray> mReplies;
+    QSharedDataPointer<Replies> mReplies;
 
     // role used when we add/remove role. It will displaying in messagesystem
     QString mRole;

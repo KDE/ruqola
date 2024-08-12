@@ -56,12 +56,6 @@ bool Replies::operator==(const Replies &other) const
     return mReplies == other.replies();
 }
 
-QDebug operator<<(QDebug d, const Replies &t)
-{
-    d.space() << t.replies() << "\n";
-    return d;
-}
-
 QJsonArray Replies::serialize(const Replies &replies)
 {
     QJsonArray array;
@@ -87,4 +81,10 @@ Replies *Replies::deserialize(const QJsonArray &repliesArray)
 bool Replies::isEmpty() const
 {
     return mReplies.isEmpty();
+}
+
+QDebug operator<<(QDebug d, const Replies &t)
+{
+    d.space() << t.replies() << "\n";
+    return d;
 }

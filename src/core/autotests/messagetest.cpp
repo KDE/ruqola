@@ -31,7 +31,7 @@ void MessageTest::shouldHaveDefaultValues()
     QCOMPARE(m.discussionCount(), 0);
     QVERIFY(!m.privateMessage());
     // 14/03/2024 => size 816
-    QCOMPARE(sizeof(Message), 448);
+    QCOMPARE(sizeof(Message), 432);
     QCOMPARE(m.messageStates(), Message::MessageStates(Message::MessageState::Groupable | Message::MessageState::Translated));
 }
 
@@ -670,7 +670,10 @@ void MessageTest::shouldSerializeData()
         input.setBlocks(blocks);
 
         // Replies
-        input.setReplies({QByteArrayLiteral("reply1"), QByteArrayLiteral("reply2")});
+        Replies replies;
+        const QList<QByteArray> bareplies({QByteArrayLiteral("reply1"), QByteArrayLiteral("reply2")});
+        replies.setReplies(bareplies);
+        input.setReplies(replies);
 
         // Discussion
         input.setDiscussionRoomId(QByteArrayLiteral("discussion1"));

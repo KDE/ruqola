@@ -51,14 +51,7 @@ void Message::parseMessage(const QJsonObject &o, bool restApi, EmojiManager *emo
         }
     }
 
-    QList<QByteArray> lst;
-    const QJsonArray replieArray = o.value("replies"_L1).toArray();
-    const auto nbReplieArrayCount{replieArray.count()};
-    lst.reserve(nbReplieArrayCount);
-    for (auto i = 0; i < nbReplieArrayCount; ++i) {
-        lst.append(replieArray.at(i).toVariant().toString().toLatin1());
-    }
-    mReplies = lst;
+    parseReplies(o.value("replies"_L1).toArray());
 
     const auto userObject = o.value("u"_L1).toObject();
     mUsername = userObject.value("username"_L1).toString();
@@ -179,14 +172,21 @@ void Message::setEmoji(const QString &emoji)
     mEmoji = emoji;
 }
 
-QList<QByteArray> Message::replies() const
+const Replies *Message::replies() const
 {
-    return mReplies;
+    if (mReplies) {
+        return mReplies.data();
+    }
+    return nullptr;
 }
 
-void Message::setReplies(const QList<QByteArray> &replies)
+void Message::setReplies(const Replies &replies)
 {
-    mReplies = replies;
+    if (!mReplies) {
+        mReplies = new Replies(replies);
+    } else {
+        mReplies.reset(new Replies(replies));
+    }
 }
 
 QString Message::name() const
@@ -454,6 +454,20 @@ void Message::setChannels(const Channels &channels)
     }
 }
 
+void Message::parseReplies(const QJsonArray &replies)
+{
+    if (!replies.isEmpty()) {
+        if (!mReplies) {
+            mReplies = new Replies;
+        } else {
+            mReplies.reset(new Replies);
+        }
+        mReplies->parseReplies(replies);
+    } else {
+        mReplies.reset();
+    }
+}
+
 void Message::parseBlocks(const QJsonArray &blocks)
 {
     if (!blocks.isEmpty()) {
@@ -591,10 +605,23 @@ bool Message::operator==(const Message &other) const
         && (mMentions == other.mentions()) && (mRole == other.role()) && (unread() == other.unread()) && (mMessageStarred == other.messageStarred())
         && (threadCount() == other.threadCount()) && (threadLastMessage() == other.threadLastMessage()) && (discussionCount() == other.discussionCount())
         && (discussionLastMessage() == other.discussionLastMessage()) && (discussionRoomId() == other.discussionRoomId())
-        && (threadMessageId() == other.threadMessageId()) && (showTranslatedMessage() == other.showTranslatedMessage()) && (mReplies == other.replies())
-        && (mEmoji == other.emoji()) && (pendingMessage() == other.pendingMessage()) && (showIgnoredMessage() == other.showIgnoredMessage())
+        && (threadMessageId() == other.threadMessageId()) && (showTranslatedMessage() == other.showTranslatedMessage()) && (mEmoji == other.emoji())
+        && (pendingMessage() == other.pendingMessage()) && (showIgnoredMessage() == other.showIgnoredMessage())
         && (localTranslation() == other.localTranslation()) && (mDisplayTime == other.mDisplayTime) && (privateMessage() == other.privateMessage());
     if (!result) {
+        return false;
+    }
+
+    // compare urls
+    if (replies() && other.replies()) {
+        if (*replies() == (*other.replies())) {
+            result = true;
+        } else {
+            return false;
+        }
+    } else if (!replies() && !other.replies()) {
+        result = true;
+    } else {
         return false;
     }
 
@@ -1102,13 +1129,12 @@ Message Message::deserialize(const QJsonObject &o, EmojiManager *emojiManager)
         delete reaction;
     }
 
-    const QJsonArray repliesArray = o.value("replies"_L1).toArray();
-    QList<QByteArray> replies;
-    replies.reserve(repliesArray.count());
-    for (int i = 0, total = repliesArray.count(); i < total; ++i) {
-        replies.append(repliesArray.at(i).toString().toLatin1());
+    if (o.contains("replies"_L1)) {
+        const QJsonArray repliesArray = o.value("replies"_L1).toArray();
+        Replies *replies = Replies::deserialize(repliesArray);
+        message.setReplies(*replies);
+        delete replies;
     }
-    message.setReplies(std::move(replies));
 
     QMap<QString, QByteArray> mentions;
     const QJsonArray mentionsArray = o.value("mentions"_L1).toArray();
@@ -1235,12 +1261,8 @@ QByteArray Message::serialize(const Message &message, bool toBinary)
     if (!message.threadMessageId().isEmpty()) {
         o["tmid"_L1] = QString::fromLatin1(message.threadMessageId());
     }
-    if (!message.mReplies.isEmpty()) {
-        QStringList serialize;
-        for (const QByteArray &i : std::as_const(message.mReplies)) {
-            serialize << QString::fromLatin1(i);
-        }
-        o["replies"_L1] = QJsonArray::fromStringList(serialize);
+    if (message.replies() && !message.replies()->isEmpty()) {
+        o["replies"_L1] = Replies::serialize(*message.replies());
     }
 
     // Blocks
@@ -1310,7 +1332,9 @@ QDebug operator<<(QDebug d, const Message &t)
         d.space() << "messagetranslation" << *t.messageTranslation();
     }
     d.space() << "mShowOriginalMessage" << t.showTranslatedMessage();
-    d.space() << "mReplies" << t.replies();
+    if (t.replies()) {
+        d.space() << "mReplies" << *t.replies();
+    }
     d.space() << "mEmoji" << t.emoji();
     d.space() << "mPendingMessage" << t.pendingMessage();
     d.space() << "mShowIgnoredMessage" << t.showIgnoredMessage();

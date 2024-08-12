@@ -33,3 +33,4 @@ private:
     QList<QByteArray> mReplies;
 };
 Q_DECLARE_METATYPE(Replies)
+LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const Replies &t);

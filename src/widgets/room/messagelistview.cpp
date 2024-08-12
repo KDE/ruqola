@@ -338,8 +338,9 @@ void MessageListView::contextMenuEvent(QContextMenuEvent *event)
     const Message *message = index.data(MessagesModel::MessagePointer).value<Message *>();
 
     const QString threadMessageId = index.data(MessagesModel::ThreadMessageId).toString();
-    const bool messageIsFollowing = threadMessageId.isEmpty() ? message->replies().contains(mCurrentRocketChatAccount->userId())
-                                                              : index.data(MessagesModel::ThreadMessageFollowed).toBool();
+    const bool messageIsFollowing = threadMessageId.isEmpty()
+        ? (message->replies() && message->replies()->replies().contains(mCurrentRocketChatAccount->userId()))
+        : index.data(MessagesModel::ThreadMessageFollowed).toBool();
 
     const auto followingToMessageAction =
         new QAction(messageIsFollowing ? QIcon::fromTheme(QStringLiteral("notifications-disabled")) : QIcon::fromTheme(QStringLiteral("notifications")),
@@ -796,8 +797,9 @@ void MessageListView::slotShowFullThread(const QModelIndex &index)
     const Message *message = index.data(MessagesModel::MessagePointer).value<Message *>();
     const QByteArray threadMessageId = message->threadMessageId();
     QString threadMessagePreview = index.data(MessagesModel::ThreadMessagePreview).toString();
-    const bool threadIsFollowing = threadMessageId.isEmpty() ? message->replies().contains(mCurrentRocketChatAccount->userId())
-                                                             : index.data(MessagesModel::ThreadMessageFollowed).toBool();
+    const bool threadIsFollowing = threadMessageId.isEmpty()
+        ? (message->replies() && message->replies()->replies().contains(mCurrentRocketChatAccount->userId()))
+        : index.data(MessagesModel::ThreadMessageFollowed).toBool();
     QByteArray messageId = threadMessageId;
     if (threadMessageId.isEmpty()) {
         messageId = message->messageId();

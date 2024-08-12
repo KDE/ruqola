@@ -84,7 +84,7 @@ MessageListLayoutBase::Layout MessageListCompactLayout::doLayout(const QStyleOpt
     }
 
     const int followingIconX = textLeft;
-    layout.messageIsFollowing = mRocketChatAccount && message->replies().contains(mRocketChatAccount->userId());
+    layout.messageIsFollowing = mRocketChatAccount && message->replies() && message->replies()->replies().contains(mRocketChatAccount->userId());
     // Following icon
     if (layout.messageIsFollowing) {
         textLeft += iconSizeMargin;
