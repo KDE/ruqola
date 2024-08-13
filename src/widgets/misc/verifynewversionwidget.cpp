@@ -7,7 +7,9 @@
 #include "verifynewversionwidget.h"
 #include <KLocalizedString>
 #include <QAction>
-
+#include <QDesktopServices>
+#include <QUrl>
+using namespace Qt::Literals::StringLiterals;
 VerifyNewVersionWidget::VerifyNewVersionWidget(QObject *parent)
     : QObject{parent}
 {
@@ -17,7 +19,9 @@ VerifyNewVersionWidget::~VerifyNewVersionWidget() = default;
 
 bool VerifyNewVersionWidget::canVerifyNewVersion() const
 {
-    // TODO
+#if defined(Q_OS_WIN) || defined(Q_OS_MACOS)
+    return true;
+#endif
     return false;
 }
 
@@ -33,7 +37,14 @@ QAction *VerifyNewVersionWidget::verifyNewVersionAction()
 
 void VerifyNewVersionWidget::slotVerifyNewVersion()
 {
-    // TODO
+#if defined(Q_OS_WIN)
+    QDesktopServices::openUrl(QUrl("https://cdn.kde.org/ci-builds/network/ruqola/master/windows/"_L1));
+#endif
+
+#if defined(Q_OS_MACOS)
+    QDesktopServices::openUrl(QUrl("https://cdn.kde.org/ci-builds/network/ruqola/master/macos-arm64/"_L1));
+#endif
+    // Linux we keep distro doing it.
 }
 
 #include "moc_verifynewversionwidget.cpp"
