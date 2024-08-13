@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-08-12 00:39+0000\n"
+"POT-Creation-Date: 2024-08-13 00:39+0000\n"
 "PO-Revision-Date: 2024-06-19 22:06+0200\n"
 "Last-Translator: Kristof Kiszel <ulysses@fsf.hu>\n"
 "Language-Team: Hungarian <kde-l10n-hu@kde.org>\n"
@@ -431,121 +431,121 @@ msgstr "Csengőhang"
 msgid "(Last Message: %1)"
 msgstr "(Utolsó üzenet: %1)"
 
-#: core/messages/block.cpp:128 core/messages/message.cpp:833
+#: core/messages/block.cpp:128 core/messages/message.cpp:859
 #: core/model/notificationhistorymodel.cpp:63
 #: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:128
 #, kde-format
 msgid "Conference Call"
 msgstr "Konferenciahívás"
 
-#: core/messages/message.cpp:729
+#: core/messages/message.cpp:755
 #, kde-format
 msgid "%1 has joined the channel"
 msgstr "%1 csatlakozott a csatornához."
 
-#: core/messages/message.cpp:731
+#: core/messages/message.cpp:757
 #, kde-format
 msgid "%1 has left the channel"
 msgstr "%1 elhagyta a csatornát."
 
-#: core/messages/message.cpp:733
+#: core/messages/message.cpp:759
 #, kde-format
 msgid "%1 left this Team"
 msgstr "%1 elhagyta ezt a csapatot"
 
-#: core/messages/message.cpp:736
+#: core/messages/message.cpp:762
 #, kde-format
 msgid "Topic was cleared by: %1"
 msgstr "%1 törölte a témát."
 
-#: core/messages/message.cpp:738
+#: core/messages/message.cpp:764
 #, kde-format
 msgid "%2 changed topic to: <i>%1</i>"
 msgstr "%2 megváltoztatta a témát erre: <i>%1</i>"
 
-#: core/messages/message.cpp:741
+#: core/messages/message.cpp:767
 #, kde-format
 msgid "%2 added %1 to the conversation"
 msgstr "%2 hozzáadta a beszélgetéshez őt: %1"
 
-#: core/messages/message.cpp:743
+#: core/messages/message.cpp:769
 #, kde-format
 msgid "%2 changed room name to <a href=\"ruqola:/room/%1\">#%1</a>"
 msgstr ""
 "%2 megváltoztatta a szoba nevét erre: <a href=\"ruqola:/room/%1\">#%1</a>"
 
-#: core/messages/message.cpp:745
+#: core/messages/message.cpp:771
 #, kde-format
 msgid "%2 removed user %1"
 msgstr "%2 eltávolította őt: %1"
 
-#: core/messages/message.cpp:748
+#: core/messages/message.cpp:774
 #, kde-format
 msgid "Description was cleared by %1"
 msgstr "%1 törölte a leírást"
 
-#: core/messages/message.cpp:750
+#: core/messages/message.cpp:776
 #, kde-format
 msgid "%2 changed room description to %1"
 msgstr "%2 megváltoztatta a szoba leírását erre: %1"
 
-#: core/messages/message.cpp:754
+#: core/messages/message.cpp:780
 #, kde-format
 msgid "Announcement was cleared by %1"
 msgstr "%1 törölte a közleményt"
 
-#: core/messages/message.cpp:756
+#: core/messages/message.cpp:782
 #, kde-format
 msgid "%2 changed room announcement to %1"
 msgstr "%2 megváltoztatta a szoba közleményét erre: %1"
 
-#: core/messages/message.cpp:759
+#: core/messages/message.cpp:785
 #, kde-format
 msgid "%2 changed room privacy to %1"
 msgstr "%2 megváltoztatta a szoba adatvédelmét erre: %1"
 
-#: core/messages/message.cpp:761
+#: core/messages/message.cpp:787
 #, kde-format
 msgid "Click to join to video"
 msgstr "Kattintson a videóhoz való csatlakozáshoz"
 
-#: core/messages/message.cpp:764
+#: core/messages/message.cpp:790
 #, kde-format
 msgid "Message Deleted"
 msgstr "Üzenet törölve"
 
-#: core/messages/message.cpp:766
+#: core/messages/message.cpp:792
 #, kde-format
 msgid "Message Pinned"
 msgstr "Üzenet kitűzve"
 
-#: core/messages/message.cpp:768
+#: core/messages/message.cpp:794
 #, kde-format
 msgid "Encrypted Message"
 msgstr "Titkosított üzenet"
 
-#: core/messages/message.cpp:770
+#: core/messages/message.cpp:796
 #, kde-format
 msgid "%1 was unmuted by %2"
 msgstr "%2 feloldotta %1 némítását"
 
-#: core/messages/message.cpp:772
+#: core/messages/message.cpp:798
 #, kde-format
 msgid "%1 was muted by %2"
 msgstr "%2 némította őt: %1"
 
-#: core/messages/message.cpp:774
+#: core/messages/message.cpp:800
 #, kde-format
 msgid "Role '%3' was added to %1 by %2"
 msgstr "%2 hozzáadta a(z) „%3” szerepet a következőhöz: %1"
 
-#: core/messages/message.cpp:776
+#: core/messages/message.cpp:802
 #, kde-format
 msgid "Role '%3' was removed to %1 by %2"
 msgstr "%2 elvette a(z) „%3” szerepet a következőtől: %1"
 
 #. i18n("Encrypted message: %1", mText);
-#: core/messages/message.cpp:780
+#: core/messages/message.cpp:806
 #, kde-format
 msgid ""
 "This message is end-to-end encrypted. To view it, you must enter your "
@@ -554,122 +554,122 @@ msgstr ""
 "Ez az üzenet végpontok között titkosított. A megtekintéséhez meg kell adnia "
 "a titkosítási kulcsot a fiók beállításaiban."
 
-#: core/messages/message.cpp:782
+#: core/messages/message.cpp:808
 #, kde-format
 msgid "Discussion created about \"%1\""
 msgstr "Beszélgetés létrehozva erről: „%1”"
 
-#: core/messages/message.cpp:784
+#: core/messages/message.cpp:810
 #, kde-format
 msgid "%1 has joined the conversation"
 msgstr "%1 csatlakozott a beszélgetéshez"
 
-#: core/messages/message.cpp:786
+#: core/messages/message.cpp:812
 #, kde-format
 msgid "This room has been archived by %1"
 msgstr "%1 archiválta ezt a szobát"
 
-#: core/messages/message.cpp:788
+#: core/messages/message.cpp:814
 #, kde-format
 msgid "This room has been unarchived by %1"
 msgstr "%1 megszüntette a szoba archiválását"
 
-#: core/messages/message.cpp:791 core/messages/message.cpp:838
+#: core/messages/message.cpp:817 core/messages/message.cpp:864
 #, kde-format
 msgid "Unknown action!"
 msgstr "Ismeretlen művelet."
 
-#: core/messages/message.cpp:795
+#: core/messages/message.cpp:821
 #, kde-format
 msgid "Welcome %1!"
 msgstr "Üdvözöljük, %1!"
 
-#: core/messages/message.cpp:797
+#: core/messages/message.cpp:823
 #, kde-format
 msgid "Room avatar changed by %1"
 msgstr "%1 megváltoztatta a szoba profilképét"
 
-#: core/messages/message.cpp:799
+#: core/messages/message.cpp:825
 #, kde-format
 msgid "This room's encryption has been enabled by %1"
 msgstr "Ennek a szobának a titkosítását %1 engedélyezte"
 
-#: core/messages/message.cpp:801
+#: core/messages/message.cpp:827
 #, kde-format
 msgid "This room's encryption has been disabled by %1"
 msgstr "Ennek a szobának a titkosítását %1 letiltotta"
 
-#: core/messages/message.cpp:803
+#: core/messages/message.cpp:829
 #, kde-format
 msgid "Room set as Read Only by  %1"
 msgstr "%1 csak olvashatóra állította a szobát"
 
-#: core/messages/message.cpp:805
+#: core/messages/message.cpp:831
 #, kde-format
 msgid "Room added writing permission by %1"
 msgstr "%1 hozzáadta az írási jogosultságot a szobához"
 
-#: core/messages/message.cpp:807
+#: core/messages/message.cpp:833
 #, kde-format
 msgid "%1 added @%2 to this Team"
 msgstr "@%2 hozzáadva ehhez a csapathoz %1 által"
 
-#: core/messages/message.cpp:809
+#: core/messages/message.cpp:835
 #, kde-format
 msgid "%1 removed @%2 from this Team"
 msgstr "@%2 eltávolítva ebből a csapatból %1 által"
 
-#: core/messages/message.cpp:811
+#: core/messages/message.cpp:837
 #, kde-format
 msgid "%1 converted #%2 to a Team"
 msgstr "#%2 átalakítva csapatra %1 által"
 
-#: core/messages/message.cpp:813
+#: core/messages/message.cpp:839
 #, kde-format
 msgid "%1 converted #%2 to a Channel"
 msgstr "#%2 átalakítva csatornára %1 által"
 
-#: core/messages/message.cpp:815
+#: core/messages/message.cpp:841
 #, kde-format
 msgid "%1 removed #%2 from this Team"
 msgstr "#%2 eltávolítva ebből a csapatból %1 által"
 
-#: core/messages/message.cpp:817
+#: core/messages/message.cpp:843
 #, kde-format
 msgid "%1 deleted #%2"
 msgstr "%1 törölte ezt: #%2"
 
-#: core/messages/message.cpp:819
+#: core/messages/message.cpp:845
 #, kde-format
 msgid "%1 added #%2 to this Team"
 msgstr "#%2 hozzáadva ehhez a csapathoz %1 által"
 
-#: core/messages/message.cpp:821
+#: core/messages/message.cpp:847
 #, kde-format
 msgid "Room allowed reacting by %1"
 msgstr "%1 engedélyezte a szoba reagálásait"
 
-#: core/messages/message.cpp:823
+#: core/messages/message.cpp:849
 #, kde-format
 msgid "Room disallowed reacting by %1"
 msgstr "%1 letiltotta a szoba reagálásait"
 
-#: core/messages/message.cpp:825
+#: core/messages/message.cpp:851
 #, kde-format
 msgid "%1 joined this Team"
 msgstr "%1 csatlakozott ehhez a csapathoz"
 
-#: core/messages/message.cpp:827
+#: core/messages/message.cpp:853
 #, kde-format
 msgid "%1 has joined OTR chat."
 msgstr "%1 csatlakozott az OTR-csevegéshez."
 
-#: core/messages/message.cpp:829
+#: core/messages/message.cpp:855
 #, kde-format
 msgid "%1 key refreshed successfully"
 msgstr "%1 kulcsa sikeresen frissítve"
 
-#: core/messages/message.cpp:831
+#: core/messages/message.cpp:857
 #, kde-format
 msgid "%1 has requested key refresh."
 msgstr "%1 kulcsfrissítést kért."
@@ -2978,7 +2978,7 @@ msgstr "Üzenet másolása"
 #: widgets/administratordialog/moderationconsole/moderationreportinfolistview.cpp:87
 #: widgets/discussions/discussionlistview.cpp:68
 #: widgets/notificationhistory/notificationhistorylistview.cpp:94
-#: widgets/room/messagelistview.cpp:627
+#: widgets/room/messagelistview.cpp:626
 #: widgets/servererrorinfohistory/servererrorinfomessagehistorylistview.cpp:62
 #, fuzzy, kde-format
 #| msgid "Speak Text"
@@ -9569,7 +9569,7 @@ msgid "Clear"
 msgstr "Törlés"
 
 #: widgets/notificationhistory/notificationhistorylistview.cpp:79
-#: widgets/room/messagelistview.cpp:610
+#: widgets/room/messagelistview.cpp:609
 #, kde-format
 msgctxt "@action"
 msgid "Go to Message"
@@ -9825,7 +9825,7 @@ msgid "User Info"
 msgstr "Felhasználó-információk"
 
 #: widgets/room/delegate/messagelistdelegate.cpp:437
-#: widgets/room/messagelistview.cpp:390
+#: widgets/room/messagelistview.cpp:391
 #, kde-format
 msgctxt "@action"
 msgid "Start a Private Conversation"
@@ -10004,35 +10004,35 @@ msgctxt "@action"
 msgid "Forward Message"
 msgstr "Üzenet továbbítása"
 
-#: widgets/room/messagelistview.cpp:346
+#: widgets/room/messagelistview.cpp:347
 #, fuzzy, kde-format
 #| msgid "Unfollow Message"
 msgctxt "@action"
 msgid "Unfollow Message"
 msgstr "Üzenet követésének leállítása"
 
-#: widgets/room/messagelistview.cpp:346
+#: widgets/room/messagelistview.cpp:347
 #, fuzzy, kde-format
 #| msgid "Follow Message"
 msgctxt "@action"
 msgid "Follow Message"
 msgstr "Üzenet követése"
 
-#: widgets/room/messagelistview.cpp:359
+#: widgets/room/messagelistview.cpp:360
 #, fuzzy, kde-format
 #| msgid "Copy URL"
 msgctxt "@action"
 msgid "Copy URL"
 msgstr "URL másolása"
 
-#: widgets/room/messagelistview.cpp:382 widgets/room/usersinroommenu.cpp:105
+#: widgets/room/messagelistview.cpp:383 widgets/room/usersinroommenu.cpp:105
 #, fuzzy, kde-format
 #| msgid "User Info"
 msgctxt "@action"
 msgid "User Info"
 msgstr "Felhasználó-információk"
 
-#: widgets/room/messagelistview.cpp:427
+#: widgets/room/messagelistview.cpp:428
 #, kde-format
 msgctxt "@action"
 msgid "Start a Discussion"
@@ -10044,33 +10044,33 @@ msgctxt "@action"
 msgid "Reply in Thread"
 msgstr "Válasz szálban"
 
-#: widgets/room/messagelistview.cpp:491
+#: widgets/room/messagelistview.cpp:490
 #, fuzzy, kde-format
 #| msgid "Show Original Message"
 msgctxt "@action"
 msgid "Show Original Message"
 msgstr "Eredeti üzenet megjelenítése"
 
-#: widgets/room/messagelistview.cpp:491
+#: widgets/room/messagelistview.cpp:490
 #, fuzzy, kde-format
 #| msgid "Translate Message"
 msgctxt "@action"
 msgid "Translate Message"
 msgstr "Üzenet fordítása"
 
-#: widgets/room/messagelistview.cpp:534
+#: widgets/room/messagelistview.cpp:533
 #, kde-format
 msgctxt "@action"
 msgid "View Reports"
 msgstr "Jelentések megtekintése"
 
-#: widgets/room/messagelistview.cpp:557
+#: widgets/room/messagelistview.cpp:556
 #, kde-format
 msgctxt "@action"
 msgid "Dismiss Reports"
 msgstr "Jelentések eltüntetése"
 
-#: widgets/room/messagelistview.cpp:635
+#: widgets/room/messagelistview.cpp:634
 #, fuzzy, kde-format
 #| msgid "Report Message"
 msgctxt "@action"
