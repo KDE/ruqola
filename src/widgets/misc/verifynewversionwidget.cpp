@@ -12,3 +12,11 @@ VerifyNewVersionWidget::VerifyNewVersionWidget(QObject *parent)
 }
 
 VerifyNewVersionWidget::~VerifyNewVersionWidget() = default;
+
+bool VerifyNewVersionWidget::canVerifyNewVersion() const
+{
+    // TODO
+    return false;
+}
+
+#include "moc_verifynewversionwidget.cpp"

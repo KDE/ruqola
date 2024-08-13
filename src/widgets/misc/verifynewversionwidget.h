@@ -14,4 +14,6 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT VerifyNewVersionWidget : public QObject
 public:
     explicit VerifyNewVersionWidget(QObject *parent = nullptr);
     ~VerifyNewVersionWidget() override;
+
+    [[nodiscard]] bool canVerifyNewVersion() const;
 };
