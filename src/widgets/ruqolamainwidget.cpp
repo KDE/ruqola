@@ -28,7 +28,7 @@ namespace
 {
 static const char myRuqolaMainWidgetGroupName[] = "RuqolaMainWidget";
 }
-
+// #define NEED_DEBUG_OBSOLETEVERSION 1
 RuqolaMainWidget::RuqolaMainWidget(QWidget *parent)
     : QWidget(parent)
     , mSplitter(new QSplitter(this))
@@ -78,7 +78,11 @@ RuqolaMainWidget::RuqolaMainWidget(QWidget *parent)
     KConfigGroup group(KSharedConfig::openConfig(), QLatin1StringView(myRuqolaMainWidgetGroupName));
     mSplitter->restoreState(group.readEntry("SplitterSizes", QByteArray()));
     if (NeedUpdateVersionUtils::checkVersion()) {
+#ifdef NEED_DEBUG_OBSOLETEVERSION
+        const auto status = NeedUpdateVersionUtils::ObsoleteVersion::OlderThan6Months;
+#else
         const auto status = NeedUpdateVersionUtils::obsoleteVersionStatus(QLatin1StringView(RUQOLA_RELEASE_VERSION), QDate::currentDate());
+#endif
         if (status != NeedUpdateVersionUtils::ObsoleteVersion::NotObsoleteYet) {
             auto needUpdateVersionWidget = new NeedUpdateVersionWidget(this);
             needUpdateVersionWidget->setObjectName(QStringLiteral("needUpdateVersionWidget"));
