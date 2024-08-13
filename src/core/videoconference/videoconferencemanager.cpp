@@ -13,7 +13,6 @@ using namespace Qt::Literals::StringLiterals;
 #include "ruqolautils.h"
 #include "video-conference/videoconferencejoinjob.h"
 #include "videoconferencenotificationjob.h"
-#include <QDesktopServices>
 #include <QJsonObject>
 VideoConferenceManager::VideoConferenceManager(RocketChatAccount *account, QObject *parent)
     : QObject{parent}

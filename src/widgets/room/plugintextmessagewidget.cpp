@@ -6,7 +6,6 @@
 
 #include "plugintextmessagewidget.h"
 #include "ruqolautils.h"
-#include <QDesktopServices>
 #include <QUrl>
 
 PluginTextMessageWidget::PluginTextMessageWidget(QWidget *parent)

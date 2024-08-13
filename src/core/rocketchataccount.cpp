@@ -83,7 +83,6 @@
 
 #include <KLocalizedString>
 #include <KNotification>
-#include <QDesktopServices>
 #include <QJsonArray>
 #include <QTimer>
 #include <TextEmoticonsCore/EmojiModel>

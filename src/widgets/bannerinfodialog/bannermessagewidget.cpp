@@ -8,7 +8,6 @@
 #include "ruqolawidgets_debug.h"
 #include <KLocalizedString>
 #include <QAction>
-#include <QDesktopServices>
 #include <QUrl>
 
 BannerMessageWidget::BannerMessageWidget(QWidget *parent)

@@ -8,7 +8,6 @@
 
 #include "ruqolautils.h"
 #include <KLocalizedString>
-#include <QDesktopServices>
 #include <QTextDocument>
 using namespace Qt::Literals::StringLiterals;
 

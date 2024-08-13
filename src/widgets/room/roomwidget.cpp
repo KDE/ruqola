@@ -57,7 +57,6 @@ using namespace Qt::Literals::StringLiterals;
 #include <KMessageBox>
 
 #include "ruqolautils.h"
-#include <QDesktopServices>
 #include <QDragEnterEvent>
 #include <QDropEvent>
 #include <QMimeData>
@@ -78,7 +77,6 @@ RoomWidget::RoomWidget(QWidget *parent)
     , mRoomHeaderWidget(new RoomHeaderWidget(this))
     , mUsersInRoomFlowWidget(new UsersInRoomFlowWidget(this))
     , mRoomCounterInfoWidget(new RoomCounterInfoWidget(this))
-
 #if HAVE_TEXT_TO_SPEECH
     , mTextToSpeechWidget(new TextEditTextToSpeech::TextToSpeechContainerWidget(this))
 #endif
