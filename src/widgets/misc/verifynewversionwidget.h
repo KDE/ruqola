@@ -7,7 +7,7 @@
 #pragma once
 #include "libruqolawidgets_private_export.h"
 #include <QObject>
-
+class QAction;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT VerifyNewVersionWidget : public QObject
 {
     Q_OBJECT
@@ -16,4 +16,10 @@ public:
     ~VerifyNewVersionWidget() override;
 
     [[nodiscard]] bool canVerifyNewVersion() const;
+
+    [[nodiscard]] QAction *verifyNewVersionAction();
+
+private:
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotVerifyNewVersion();
+    QAction *mVerifyNewVersionAction = nullptr;
 };

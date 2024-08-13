@@ -5,6 +5,8 @@
 */
 
 #include "verifynewversionwidget.h"
+#include <KLocalizedString>
+#include <QAction>
 
 VerifyNewVersionWidget::VerifyNewVersionWidget(QObject *parent)
     : QObject{parent}
@@ -17,6 +19,21 @@ bool VerifyNewVersionWidget::canVerifyNewVersion() const
 {
     // TODO
     return false;
+}
+
+QAction *VerifyNewVersionWidget::verifyNewVersionAction()
+{
+    if (!mVerifyNewVersionAction) {
+        // TODO add icon
+        mVerifyNewVersionAction = new QAction(i18n("Check New Version"), this);
+        connect(mVerifyNewVersionAction, &QAction::triggered, this, &VerifyNewVersionWidget::slotVerifyNewVersion);
+    }
+    return mVerifyNewVersionAction;
+}
+
+void VerifyNewVersionWidget::slotVerifyNewVersion()
+{
+    // TODO
 }
 
 #include "moc_verifynewversionwidget.cpp"
