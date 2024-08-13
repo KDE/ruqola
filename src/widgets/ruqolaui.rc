@@ -1,5 +1,5 @@
 <!DOCTYPE gui SYSTEM "kpartgui.dtd">
-<gui name="ruqola" version="53">
+<gui name="ruqola" version="54">
  <MenuBar>
   <Menu name="file" >
    <Action name="add_server" />
@@ -81,6 +81,8 @@
   <Menu name="help">
    <text>&amp;Help</text>
    <Action name="whatsnew_ruqola" />
+   <Separator/>
+   <Action name="verify_check_version" />
    <Separator/>
   </Menu>
  </MenuBar>

@@ -88,6 +88,9 @@
 #if !defined(Q_OS_WIN) && !defined(Q_OS_MACOS)
 #include <KWindowSystem>
 #endif
+#if defined(Q_OS_WIN) || defined(Q_OS_MACOS)
+#include "misc/verifynewversionwidget.h"
+#endif
 
 #if HAVE_KUSERFEEDBACK
 #include "userfeedback/userfeedbackmanager.h"
@@ -107,6 +110,10 @@ RuqolaMainWindow::RuqolaMainWindow(QWidget *parent)
     , mMainWidget(new RuqolaCentralWidget(this))
     , mStatusProxyModel(new StatusModelFilterProxyModel(this))
     , mSwitchChannelTreeManager(new SwitchChannelTreeViewManager(this))
+#if defined(Q_OS_WIN) || defined(Q_OS_MACOS)
+    , mVerifyNewVersionWidget(new VerifyNewVersionWidget(this))
+#endif
+
 {
     mMainWidget->setObjectName(QStringLiteral("mMainWidget"));
     connect(mMainWidget, &RuqolaCentralWidget::loginPageActivated, this, &RuqolaMainWindow::slotLoginPageActivated);
@@ -628,6 +635,10 @@ void RuqolaMainWindow::setupActions()
     mRoomFavorite->setCheckable(true);
     connect(mRoomFavorite, &QAction::triggered, this, &RuqolaMainWindow::slotShowFavoriteRoom);
     ac->addAction(QStringLiteral("room_favorite"), mRoomFavorite);
+#if defined(Q_OS_WIN) || defined(Q_OS_MACOS)
+    auto verifyNewVersionAction = mVerifyNewVersionWidget->verifyNewVersionAction();
+    ac->addAction(QStringLiteral("verify_check_version"), verifyNewVersionAction);
+#endif
 
     auto showWhatsNewAction = new QAction(QIcon::fromTheme(QStringLiteral("ruqola")), i18n("What's new"), this);
     ac->addAction(QStringLiteral("whatsnew_ruqola"), showWhatsNewAction);

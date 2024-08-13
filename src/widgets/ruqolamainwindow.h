@@ -30,6 +30,9 @@ class KActionMenu;
 class AccountManager;
 class MessageStyleLayoutMenu;
 class ChangeFontSizeMenu;
+#if defined(Q_OS_WIN) || defined(Q_OS_MACOS)
+class VerifyNewVersionWidget;
+#endif
 class LIBRUQOLAWIDGETS_EXPORT RuqolaMainWindow : public KXmlGuiWindow
 {
     Q_OBJECT
@@ -181,4 +184,7 @@ private:
     QAction *mClearRoomHistory = nullptr;
     MessageStyleLayoutMenu *mMessageStyleAction = nullptr;
     ChangeFontSizeMenu *mChangeFontSizeAction = nullptr;
+#if defined(Q_OS_WIN) || defined(Q_OS_MACOS)
+    VerifyNewVersionWidget *const mVerifyNewVersionWidget;
+#endif
 };

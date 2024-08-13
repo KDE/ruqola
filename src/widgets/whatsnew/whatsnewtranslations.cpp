@@ -16,6 +16,7 @@ QList<KLazyLocalizedString> WhatsNewTranslations::lastNewFeatures() const
     const QList<KLazyLocalizedString> info{
         kli18n("Implement Rocket.Chat Marketplace."),
         kli18n("Allow to clean room history."),
+        kli18n("Allow to check new version."),
     };
     return info;
 }
