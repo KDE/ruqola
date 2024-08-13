@@ -12,7 +12,7 @@
 
 #include <QRegularExpression>
 #include <QUrl>
-
+using namespace Qt::Literals::StringLiterals;
 NeedUpdateVersionUtils::ObsoleteVersion NeedUpdateVersionUtils::obsoleteVersionStatus(const QString &str, const QDate &currentDate)
 {
     static QRegularExpression regular{QStringLiteral("\\((.*)\\)")};
