@@ -11,6 +11,7 @@
 #include <KSharedConfig>
 
 #include <QRegularExpression>
+#include <QUrl>
 
 NeedUpdateVersionUtils::ObsoleteVersion NeedUpdateVersionUtils::obsoleteVersionStatus(const QString &str, const QDate &currentDate)
 {
@@ -64,4 +65,24 @@ bool NeedUpdateVersionUtils::checkVersion()
     KSharedConfig::Ptr config = KSharedConfig::openConfig();
     KConfigGroup group(config, QStringLiteral("Check Version"));
     return group.readEntry("checkerVersionEnabled", true);
+}
+
+QUrl NeedUpdateVersionUtils::newVersionUrl()
+{
+#if defined(Q_OS_WIN)
+    return QUrl("https://cdn.kde.org/ci-builds/network/ruqola/master/windows/"_L1);
+#endif
+
+#if defined(Q_OS_MACOS)
+    return QUrl("https://cdn.kde.org/ci-builds/network/ruqola/master/macos-arm64/"_L1);
+#endif
+    return {};
+}
+
+bool NeedUpdateVersionUtils::canVerifyNewVersion()
+{
+#if defined(Q_OS_WIN) || defined(Q_OS_MACOS)
+    return true;
+#endif
+    return false;
 }

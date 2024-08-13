@@ -23,4 +23,5 @@ public:
 
 private:
     LIBRUQOLAWIDGETS_NO_EXPORT void slotDisableVersionCheck();
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotCheckNewVersion();
 };

@@ -6,10 +6,13 @@
 */
 
 #include "needupdateversionwidget.h"
+#include "needupdateversionutils.h"
 #include "ruqolawidgets_debug.h"
 #include <KLocalizedString>
 #include <QAction>
-
+#include <QDesktopServices>
+#include <QUrl>
+using namespace Qt::Literals::StringLiterals;
 NeedUpdateVersionWidget::NeedUpdateVersionWidget(QWidget *parent)
     : KMessageWidget(parent)
 {
@@ -19,6 +22,11 @@ NeedUpdateVersionWidget::NeedUpdateVersionWidget(QWidget *parent)
     auto action = new QAction(i18nc("@action", "Disable version check"), this);
     addAction(action);
     connect(action, &QAction::triggered, this, &NeedUpdateVersionWidget::slotDisableVersionCheck);
+    if (NeedUpdateVersionUtils::canVerifyNewVersion()) {
+        action = new QAction(i18nc("@action", "Check new Version"), this);
+        addAction(action);
+        connect(action, &QAction::triggered, this, &NeedUpdateVersionWidget::slotCheckNewVersion);
+    }
 }
 
 NeedUpdateVersionWidget::~NeedUpdateVersionWidget() = default;
@@ -49,6 +57,15 @@ void NeedUpdateVersionWidget::slotDisableVersionCheck()
 {
     NeedUpdateVersionUtils::disableCheckVersion();
     animatedHide();
+}
+
+void NeedUpdateVersionWidget::slotCheckNewVersion()
+{
+    const QUrl url = NeedUpdateVersionUtils::newVersionUrl();
+    if (!url.isEmpty()) {
+        QDesktopServices::openUrl(url);
+        animatedHide();
+    }
 }
 
 #include "moc_needupdateversionwidget.cpp"

@@ -21,5 +21,7 @@ enum class LIBRUQOLAWIDGETS_TESTS_EXPORT ObsoleteVersion {
 void disableCheckVersion();
 [[nodiscard]] LIBRUQOLAWIDGETS_TESTS_EXPORT bool checkVersion();
 [[nodiscard]] LIBRUQOLAWIDGETS_TESTS_EXPORT NeedUpdateVersionUtils::ObsoleteVersion obsoleteVersionStatus(const QString &str, const QDate &currentDate);
+[[nodiscard]] LIBRUQOLAWIDGETS_TESTS_EXPORT QUrl newVersionUrl();
+[[nodiscard]] LIBRUQOLAWIDGETS_TESTS_EXPORT bool canVerifyNewVersion();
 };
 Q_DECLARE_METATYPE(NeedUpdateVersionUtils::ObsoleteVersion)
