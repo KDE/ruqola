@@ -6,7 +6,6 @@
 
 #pragma once
 
-#include "authenticationmanager.h"
 #include "channelgroupbasejob.h"
 #include "config-ruqola.h"
 #include "libruqolawidgets_export.h"
