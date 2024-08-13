@@ -558,6 +558,9 @@ target_sources(libruqolawidgets PRIVATE
     misc/configuresoundcombobox.h
     misc/configuresoundcombobox.cpp
 
+    misc/verifynewversionwidget.h
+    misc/verifynewversionwidget.cpp
+
     myaccount/myaccount2e2configurewidget.cpp
     myaccount/myaccount2e2configurewidget.h
     myaccount/myaccount2faconfigurewidget.cpp
