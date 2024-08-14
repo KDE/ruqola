@@ -163,7 +163,7 @@ void AppsMarketPlaceInfo::setPrivacyPolicySummary(const QString &newPrivacyPolic
 
 void AppsMarketPlaceInfo::parseAppsMarketPlaceInfo(const QJsonObject &replyObject)
 {
-    qDebug() << " replyObject " << replyObject;
+    // qDebug() << " replyObject " << replyObject;
     mAppId = replyObject["appId"_L1].toString().toLatin1();
     mIsEnterpriseOnly = replyObject["isEnterpriseOnly"_L1].toBool();
     mPurchaseType = replyObject["purchaseType"_L1].toString();

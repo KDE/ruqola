@@ -3287,6 +3287,9 @@ void RocketChatAccount::loadInstalledApps()
         for (int i = 0; i < replyArray.count(); ++i) {
             const QJsonObject obj = replyArray.at(i).toObject();
             qDebug() << "RocketChatAccount::loadInstalledApps obj" << obj;
+            AppsMarketPlaceInfo info;
+            info.parseAppsMarketPlaceInfo(obj);
+            qDebug() << "installed " << info;
             // TODO
         }
         // qDebug() << "DD replyArray " << replyArray;
