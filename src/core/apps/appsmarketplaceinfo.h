@@ -100,6 +100,9 @@ public:
     [[nodiscard]] bool installed() const;
     void setInstalled(bool newInstalled);
 
+    [[nodiscard]] bool migrated() const;
+    void setMigrated(bool newMigrated);
+
 private:
     LIBRUQOLACORE_NO_EXPORT void parsePrincingPlan(const QJsonArray &array);
     LIBRUQOLACORE_NO_EXPORT void parseAuthor(const QJsonObject &authorObject);
@@ -123,6 +126,7 @@ private:
     bool mIsPrivate = false;
     bool mIsEnterpriseOnly = false;
     bool mInstalled = false;
+    bool mMigrated = false;
 };
 
 Q_DECLARE_METATYPE(AppsMarketPlaceInfo)
