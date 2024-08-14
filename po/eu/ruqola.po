@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-08-13 00:39+0000\n"
+"POT-Creation-Date: 2024-08-14 00:39+0000\n"
 "PO-Revision-Date: 2024-08-06 13:00+0200\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
@@ -1446,12 +1446,12 @@ msgctxt "We need a space between after </strong>"
 msgid "<strong>%1</strong> are typing..."
 msgstr "<strong>%1</strong> tekleatzen ari dira..."
 
-#: core/rocketchataccount.cpp:3042
+#: core/rocketchataccount.cpp:3041
 #, kde-format
 msgid "Export Messages"
 msgstr "Esportatu mezuak"
 
-#: core/rocketchataccount.cpp:3043
+#: core/rocketchataccount.cpp:3042
 #, kde-format
 msgid "Your email has been queued for sending."
 msgstr "Zure e-posta bidaltzeko ilaran ipini da."
@@ -6646,7 +6646,7 @@ msgctxt "@option:check"
 msgid "Show Unread"
 msgstr "Erakutsi irakurri gabeak"
 
-#: widgets/bannerinfodialog/bannermessagewidget.cpp:23
+#: widgets/bannerinfodialog/bannermessagewidget.cpp:22
 #, kde-format
 msgctxt "@action"
 msgid "Mark as Read"
@@ -6783,7 +6783,7 @@ msgid "Username or Email:"
 msgstr "Erabiltzaile-izena edo e-posta:"
 
 #: widgets/common/authenticationloginwidget.cpp:155
-#: widgets/ruqolamainwindow.cpp:956
+#: widgets/ruqolamainwindow.cpp:967
 #, kde-format
 msgid ""
 "We have sent you an email to confirm your registration.\n"
@@ -6794,7 +6794,7 @@ msgstr ""
 "berriro."
 
 #: widgets/common/authenticationloginwidget.cpp:156
-#: widgets/ruqolamainwindow.cpp:957
+#: widgets/ruqolamainwindow.cpp:968
 #, kde-format
 msgctxt "@title:window"
 msgid "Register New User"
@@ -8654,6 +8654,12 @@ msgctxt "@action:button"
 msgid "Send new code"
 msgstr "Bidali kode berria"
 
+#: widgets/misc/verifynewversionwidget.cpp:30
+#, fuzzy, kde-format
+#| msgid "Node Version"
+msgid "Check New Version"
+msgstr "Nodoaren bertsioa"
+
 #: widgets/myaccount/myaccount2e2configurewidget.cpp:22
 #, kde-format
 msgctxt "@action:button"
@@ -9134,20 +9140,27 @@ msgstr "Ezabatu nire kontua"
 msgid "Current Password"
 msgstr "Uneko pasahitza"
 
-#: widgets/needupdateversion/needupdateversionwidget.cpp:19
+#: widgets/needupdateversion/needupdateversionwidget.cpp:22
 #, kde-format
 msgctxt "@action"
 msgid "Disable version check"
 msgstr "Ezgaitu bertsioa egiaztatzea"
 
-#: widgets/needupdateversion/needupdateversionwidget.cpp:34
+#: widgets/needupdateversion/needupdateversionwidget.cpp:26
+#, fuzzy, kde-format
+#| msgid "Node Version"
+msgctxt "@action"
+msgid "Check new Version"
+msgstr "Nodoaren bertsioa"
+
+#: widgets/needupdateversion/needupdateversionwidget.cpp:42
 #, kde-format
 msgid "Your version is older than 6 months, we encourage you to upgrade."
 msgstr ""
 "Zure bertsio 6 hilabete baino zaharragoa da, biziki animatzen zaitugu "
 "bertsio-berritzera."
 
-#: widgets/needupdateversion/needupdateversionwidget.cpp:39
+#: widgets/needupdateversion/needupdateversionwidget.cpp:47
 #, kde-format
 msgid ""
 "Your version is older than 1 year, we strongly encourage you to upgrade."
@@ -9734,12 +9747,12 @@ msgstr "(Markatu irakurritako gisa)"
 msgid "(Jump to first Unread)"
 msgstr "(Jauzi irakurri gabeko lehenengora)"
 
-#: widgets/room/roomheaderlabel.cpp:69
+#: widgets/room/roomheaderlabel.cpp:68
 #, kde-format
 msgid "(Show More Info…)"
 msgstr "(Erakutsi informazio gehiago...)"
 
-#: widgets/room/roomheaderlabel.cpp:101
+#: widgets/room/roomheaderlabel.cpp:100
 #, kde-format
 msgid "(Show Less Info…)"
 msgstr "(Erakutsi informazio gutxiago...)"
@@ -9836,18 +9849,18 @@ msgstr "Hari batean erantzutea"
 msgid "Reply in Thread for Message: '%1'"
 msgstr "Erantzun harian mezuari: '%1'"
 
-#: widgets/room/roomwidget.cpp:330
+#: widgets/room/roomwidget.cpp:328
 #, kde-format
 msgid "Do you want really remove history?"
 msgstr "Historia benetan kendu nahi duzu?"
 
-#: widgets/room/roomwidget.cpp:331
+#: widgets/room/roomwidget.cpp:329
 #, kde-format
 msgctxt "@title:window"
 msgid "Remove History"
 msgstr "Kendu historia"
 
-#: widgets/room/roomwidget.cpp:501
+#: widgets/room/roomwidget.cpp:499
 #, kde-format
 msgid ""
 "A workspace admin needs to install and configure a conference call apps."
@@ -9855,7 +9868,7 @@ msgstr ""
 "Langunearen administratzaile batek konferentzia aplikazio bat instalatu eta "
 "konfiguratu behar du."
 
-#: widgets/room/roomwidget.cpp:502
+#: widgets/room/roomwidget.cpp:500
 #, kde-format
 msgctxt "@title:window"
 msgid "Video Conference"
@@ -10040,273 +10053,273 @@ msgid "Lists the available options for user feedback"
 msgstr ""
 "Erabiltzailearen atzera-elikadurarako aukera erabilgarriak zerrendatzen ditu"
 
-#: widgets/ruqolamainwindow.cpp:215
+#: widgets/ruqolamainwindow.cpp:222
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Show New Notifications"
 msgstr "Erakutsi jakinarazpen berriak"
 
-#: widgets/ruqolamainwindow.cpp:217
+#: widgets/ruqolamainwindow.cpp:224
 #, kde-format
 msgid "Show New Notifications"
 msgstr "Erakutsi jakinarazpen berriak"
 
-#: widgets/ruqolamainwindow.cpp:397
+#: widgets/ruqolamainwindow.cpp:404
 #, kde-format
 msgctxt "@action"
 msgid "Add Server…"
 msgstr "Gehitu zerbitzaria..."
 
-#: widgets/ruqolamainwindow.cpp:402
+#: widgets/ruqolamainwindow.cpp:409
 #, kde-format
 msgctxt "@action"
 msgid "Server Info…"
 msgstr "Zerbitzariaren informazioa..."
 
-#: widgets/ruqolamainwindow.cpp:406
+#: widgets/ruqolamainwindow.cpp:413
 #, kde-format
 msgctxt "@action"
 msgid "Logout Current Server"
 msgstr "Saio-itxi uneko zerbitzarian"
 
-#: widgets/ruqolamainwindow.cpp:410
+#: widgets/ruqolamainwindow.cpp:417
 #, kde-format
 msgctxt "@action"
 msgid "Jump to Next Unread Channel"
 msgstr "Jauzi irakurri gabeko hurrengo kanalera"
 
-#: widgets/ruqolamainwindow.cpp:415
+#: widgets/ruqolamainwindow.cpp:422
 #, kde-format
 msgid "Create New Channel…"
 msgstr "Sortu kanal berria..."
 
-#: widgets/ruqolamainwindow.cpp:419
+#: widgets/ruqolamainwindow.cpp:426
 #, kde-format
 msgid "Create Direct Messages…"
 msgstr "Sortu zuzeneko mezuak..."
 
-#: widgets/ruqolamainwindow.cpp:423
+#: widgets/ruqolamainwindow.cpp:430
 #, kde-format
 msgid "Create Discussion…"
 msgstr "Sortu elkarrizketa..."
 
-#: widgets/ruqolamainwindow.cpp:427
+#: widgets/ruqolamainwindow.cpp:434
 #, kde-format
 msgid "Create Team…"
 msgstr "Sortu taldea..."
 
-#: widgets/ruqolamainwindow.cpp:435
+#: widgets/ruqolamainwindow.cpp:442
 #, kde-format
 msgctxt "@action"
 msgid "Unread on Top"
 msgstr "Irakurri gabea goran"
 
-#: widgets/ruqolamainwindow.cpp:443
+#: widgets/ruqolamainwindow.cpp:450
 #, kde-format
 msgctxt "@action"
 msgid "By Last Message"
 msgstr "Azken mezuaren arabera"
 
-#: widgets/ruqolamainwindow.cpp:449
+#: widgets/ruqolamainwindow.cpp:456
 #, kde-format
 msgctxt "@action"
 msgid "Alphabetically"
 msgstr "Alfabetikoki"
 
-#: widgets/ruqolamainwindow.cpp:455
+#: widgets/ruqolamainwindow.cpp:462
 #, kde-format
 msgid "Show Channel Log"
 msgstr "Erakutsi kanalaren egunkaria"
 
-#: widgets/ruqolamainwindow.cpp:459
+#: widgets/ruqolamainwindow.cpp:466
 #, kde-format
 msgid "Show Server Errors"
 msgstr "Erakutsi zerbitzariaren erroreak"
 
-#: widgets/ruqolamainwindow.cpp:478
+#: widgets/ruqolamainwindow.cpp:485
 #, kde-format
 msgctxt "@action"
 msgid "Mark All Channels as Read"
 msgstr "Markatu kanal denak irakurrita gisa"
 
-#: widgets/ruqolamainwindow.cpp:483
+#: widgets/ruqolamainwindow.cpp:490
 #, kde-format
 msgctxt "@action"
 msgid "Register a New User…"
 msgstr "Erregistratu erabiltzaile berri bat..."
 
-#: widgets/ruqolamainwindow.cpp:487
+#: widgets/ruqolamainwindow.cpp:494
 #, kde-format
 msgctxt "@action"
 msgid "My Account…"
 msgstr "Nire kontua..."
 
-#: widgets/ruqolamainwindow.cpp:491
+#: widgets/ruqolamainwindow.cpp:498
 #, kde-format
 msgid "administration"
 msgstr "Administrazioa"
 
-#: widgets/ruqolamainwindow.cpp:492
+#: widgets/ruqolamainwindow.cpp:499
 #, kde-format
 msgctxt "@action"
 msgid "Administrator…"
 msgstr "Administratzailea..."
 
-#: widgets/ruqolamainwindow.cpp:498
+#: widgets/ruqolamainwindow.cpp:505
 #, kde-format
 msgctxt "@action"
 msgid "Server Settings…"
 msgstr "Zerbitzariaren ezarpenak..."
 
-#: widgets/ruqolamainwindow.cpp:505
+#: widgets/ruqolamainwindow.cpp:512
 #, kde-format
 msgctxt "@action"
 msgid "Applications…"
 msgstr "Aplikazioak..."
 
-#: widgets/ruqolamainwindow.cpp:510
+#: widgets/ruqolamainwindow.cpp:517
 #, kde-format
 msgctxt "@action"
 msgid "Requested Applications…"
 msgstr "Eskatutako aplikazioak..."
 
-#: widgets/ruqolamainwindow.cpp:515
+#: widgets/ruqolamainwindow.cpp:522
 #, kde-format
 msgctxt "@action"
 msgid "Installed Applications…"
 msgstr "Instalatutako aplikazioak..."
 
-#: widgets/ruqolamainwindow.cpp:520
+#: widgets/ruqolamainwindow.cpp:527
 #, kde-format
 msgctxt "Action which allows to search room"
 msgid "Join Room…"
 msgstr "Batu gelara..."
 
-#: widgets/ruqolamainwindow.cpp:524
+#: widgets/ruqolamainwindow.cpp:531
 #, kde-format
 msgctxt "Action which allows to search team"
 msgid "Join Team…"
 msgstr "Batu taldera..."
 
-#: widgets/ruqolamainwindow.cpp:528
+#: widgets/ruqolamainwindow.cpp:535
 #, kde-format
 msgctxt "Action which allows to open private conversation (direct user)"
 msgid "Open Private Conversation…"
 msgstr "Ireki elkarrizketa pribatua..."
 
-#: widgets/ruqolamainwindow.cpp:549
+#: widgets/ruqolamainwindow.cpp:556
 #, kde-format
 msgid "&Next Server"
 msgstr "&Hurrengo zerbitzaria"
 
-#: widgets/ruqolamainwindow.cpp:554
+#: widgets/ruqolamainwindow.cpp:561
 #, kde-format
 msgid "&Previous Server"
 msgstr "&Aurreko zerbitzaria"
 
-#: widgets/ruqolamainwindow.cpp:563
+#: widgets/ruqolamainwindow.cpp:570
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Status:"
 msgstr "Egoera:"
 
-#: widgets/ruqolamainwindow.cpp:576
+#: widgets/ruqolamainwindow.cpp:583
 #, kde-format
 msgctxt "@action"
 msgid "Previous Selected Channel"
 msgstr "Hautatutako aurreko kanala"
 
-#: widgets/ruqolamainwindow.cpp:583
+#: widgets/ruqolamainwindow.cpp:590
 #, kde-format
 msgctxt "@action"
 msgid "Next Selected Channel"
 msgstr "Hautatutako hurrengo kanala"
 
-#: widgets/ruqolamainwindow.cpp:614
+#: widgets/ruqolamainwindow.cpp:621
 #, kde-format
 msgid "Show Notify History"
 msgstr "Erakutsi jakinarazpenen historia"
 
-#: widgets/ruqolamainwindow.cpp:618
+#: widgets/ruqolamainwindow.cpp:625
 #, kde-format
 msgctxt "@action"
 msgid "Show RocketChat Information"
 msgstr "Erakutsi RocketChat-eko informazioa"
 
-#: widgets/ruqolamainwindow.cpp:622
+#: widgets/ruqolamainwindow.cpp:629
 #, kde-format
 msgctxt "@action"
 msgid "Show Room Avatar"
 msgstr "Erakutsi gelaren abatara"
 
-#: widgets/ruqolamainwindow.cpp:627
+#: widgets/ruqolamainwindow.cpp:634
 #, kde-format
 msgctxt "@action"
 msgid "Show Favorite Room"
 msgstr "Erakutsi gogoko gela"
 
-#: widgets/ruqolamainwindow.cpp:632
+#: widgets/ruqolamainwindow.cpp:643
 #, kde-format
 msgid "What's new"
 msgstr "Zer berri"
 
-#: widgets/ruqolamainwindow.cpp:636
+#: widgets/ruqolamainwindow.cpp:647
 #, kde-format
 msgid "Import Accounts"
 msgstr "Inportatu kontuak"
 
-#: widgets/ruqolamainwindow.cpp:640
+#: widgets/ruqolamainwindow.cpp:651
 #, kde-format
 msgid "Export Accounts"
 msgstr "Esportatu kontuak"
 
-#: widgets/ruqolamainwindow.cpp:657
+#: widgets/ruqolamainwindow.cpp:668
 #, kde-format
 msgctxt "@action"
 msgid "Medium"
 msgstr "Ertaina"
 
-#: widgets/ruqolamainwindow.cpp:665
+#: widgets/ruqolamainwindow.cpp:676
 #, kde-format
 msgctxt "@action"
 msgid "Condensed"
 msgstr "Trinkoa"
 
-#: widgets/ruqolamainwindow.cpp:674
+#: widgets/ruqolamainwindow.cpp:685
 #, kde-format
 msgctxt "@action"
 msgid "Extended"
 msgstr "Hedatua"
 
-#: widgets/ruqolamainwindow.cpp:682
+#: widgets/ruqolamainwindow.cpp:693
 #, kde-format
 msgid "Clear history"
 msgstr "Garbitu historia"
 
-#: widgets/ruqolamainwindow.cpp:719
+#: widgets/ruqolamainwindow.cpp:730
 #, kde-format
 msgctxt "@title:window"
 msgid "Create Team"
 msgstr "Sortu taldea"
 
-#: widgets/ruqolamainwindow.cpp:875
+#: widgets/ruqolamainwindow.cpp:886
 #, kde-format
 msgid "Impossible to open log."
 msgstr "Egunkaria irekitzea ezinezkoa da."
 
-#: widgets/ruqolamainwindow.cpp:875
+#: widgets/ruqolamainwindow.cpp:886
 #, kde-format
 msgctxt "@title:window"
 msgid "Show Log"
 msgstr "Erakutsi egunkaria"
 
-#: widgets/ruqolamainwindow.cpp:1028
+#: widgets/ruqolamainwindow.cpp:1039
 #, kde-format
 msgctxt "@item:inmenu Instant message presence status"
 msgid "Status"
 msgstr "Egoera"
 
-#: widgets/ruqolamainwindow.cpp:1116
+#: widgets/ruqolamainwindow.cpp:1127
 #, kde-format
 msgid ""
 "<qt>This will hide the menu bar completely. You can show it again by typing "
@@ -10315,7 +10328,7 @@ msgstr ""
 "<qt>Honek menu-barra erabat ezkutatutako du. %1 tekleatuz berriz erakuts "
 "dezakezu.</qt>"
 
-#: widgets/ruqolamainwindow.cpp:1119
+#: widgets/ruqolamainwindow.cpp:1130
 #, kde-format
 msgctxt "@title:window"
 msgid "Hide menu bar"
@@ -10352,7 +10365,7 @@ msgid "&Help"
 msgstr "&Laguntza"
 
 #. i18n: ectx: ToolBar (mainToolBar)
-#: widgets/ruqolaui.rc:87
+#: widgets/ruqolaui.rc:89
 #, kde-format
 msgid "Main Toolbar"
 msgstr "Tresna-barra nagusia"
@@ -10535,103 +10548,109 @@ msgstr "Rocket.Chat-en merkatu-plaza inplementatzea."
 msgid "Allow to clean room history."
 msgstr "Gelaren historia garbitzeko aukera ematen du."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:28
+#: widgets/whatsnew/whatsnewtranslations.cpp:19
+#, fuzzy
+#| msgid "Allow to clean room history."
+msgid "Allow to check new version."
+msgstr "Gelaren historia garbitzeko aukera ematen du."
+
+#: widgets/whatsnew/whatsnewtranslations.cpp:29
 #, kde-format
 msgid "Store Message in Local Database (experimental)"
 msgstr "Mezua datu-base lokalean gordetzea (esperimentala)"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:30
+#: widgets/whatsnew/whatsnewtranslations.cpp:31
 #, kde-format
 msgid "Download Server Icon from Server"
 msgstr "Zerbitzariaren ikonoa zerbitzaritik zama-jaistea"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:31
+#: widgets/whatsnew/whatsnewtranslations.cpp:32
 #, kde-format
 msgid "Show Server Error Info in Specific DialogBox"
 msgstr "Erakutsi zerbitzariaren informazioa elkarrizketa-koadro jakin batean"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:32
+#: widgets/whatsnew/whatsnewtranslations.cpp:33
 #, kde-format
 msgid "Allow to Copy Image in Clipboard"
 msgstr "Baimendu irudia arbelera kopiatzea"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:33
+#: widgets/whatsnew/whatsnewtranslations.cpp:34
 #, kde-format
 msgid "Improve debug support (Allow to show current account permissions)"
 msgstr ""
 "Arazteko euskarria hobetzea (uneko kontuaren baimenak erakusten uzten du)"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:34
+#: widgets/whatsnew/whatsnewtranslations.cpp:35
 #, kde-format
 msgid "Add support for quoted text (text which starts by '>')"
 msgstr "Aipu-testurako euskarria gehitzea ('>' bidez hasten den testua)"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:35
+#: widgets/whatsnew/whatsnewtranslations.cpp:36
 #, kde-format
 msgid "Show leader/moderator/owner in channel info."
 msgstr "Kanalaren informazioan buruzagia/moderatzailea/jabea erakustea."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:36
+#: widgets/whatsnew/whatsnewtranslations.cpp:37
 #, kde-format
 msgid "Video/Sound Message support (kf6 only)."
 msgstr "Bideo/soinu mezuetarako euskarria (kf6 bakarrik)."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:37
+#: widgets/whatsnew/whatsnewtranslations.cpp:38
 #, kde-format
 msgid "Import/Export Accounts."
 msgstr "Kontuak inportatzea/esportatzea."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:39
+#: widgets/whatsnew/whatsnewtranslations.cpp:40
 #, kde-format
 msgid "Fix avatar support"
 msgstr "Abatararen euskarria konpontzea"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:40
+#: widgets/whatsnew/whatsnewtranslations.cpp:41
 #, kde-format
 msgid "Fix emoji support (use new ktextaddons/textemoticons)"
 msgstr "Emoji euskarria (ktextaddons/textemoticons berria erabili) konpontzea"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:41
+#: widgets/whatsnew/whatsnewtranslations.cpp:42
 #, kde-format
 msgid "Fix animated gif in reactions"
 msgstr "Erreakzioetan GIF animazioak konpontzea"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:42
+#: widgets/whatsnew/whatsnewtranslations.cpp:43
 #, kde-format
 msgid "Fix kf6 support"
 msgstr "kf6-ren euskarria konpontzea"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:48
+#: widgets/whatsnew/whatsnewtranslations.cpp:49
 #, kde-format
 msgid "Add Moderation Console (Administration, RC server 6.2)"
 msgstr "Moderatzeko kontsola (administrazioa, RC zerbitzaria 6.2) gehitzea"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:48
+#: widgets/whatsnew/whatsnewtranslations.cpp:49
 #, kde-format
 msgid "Implement message style"
 msgstr "Mezuaren estiloa inplementatzea"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:48
+#: widgets/whatsnew/whatsnewtranslations.cpp:49
 #, kde-format
 msgid "Implement Url Preview"
 msgstr "URL aurreikuspegia inplementatzea"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:50
+#: widgets/whatsnew/whatsnewtranslations.cpp:51
 #, kde-format
 msgid "Fix markdown support (header + check mark)"
 msgstr "Markdown-erako euskarria konpontzea (goiburua + egiaztapen marka)"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:51
+#: widgets/whatsnew/whatsnewtranslations.cpp:52
 #, kde-format
 msgid "Fix mem leak"
 msgstr "Memoria ihesa konpontzea"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:52
+#: widgets/whatsnew/whatsnewtranslations.cpp:53
 #, kde-format
 msgid "Cache message size (optimization)"
 msgstr "Mezuaren cache-neurria (optimizazioa)"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:53
+#: widgets/whatsnew/whatsnewtranslations.cpp:54
 #, kde-format
 msgid ""
 "Improve select room or user in message line edit (show icon, inform if user "
@@ -10640,7 +10659,7 @@ msgstr ""
 "Mezu-lerroaren edizioan gela edo erabiltzailea hautatzea hobetzea (ikonoa "
 "erakutsi, erabiltzailea kanalean dagoen informatzea)"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:54
+#: widgets/whatsnew/whatsnewtranslations.cpp:55
 #, kde-format
 msgid ""
 "Fix show commands in message line edit (Hide action when room doesn't "
@@ -10649,42 +10668,42 @@ msgstr ""
 "Mezu-lerroaren edizioan komandoak erakustea konpontzea (ezkutatu ekintza "
 "gelak onartzen ez duenean)."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:55
+#: widgets/whatsnew/whatsnewtranslations.cpp:56
 #, kde-format
 msgid "Fix download sound/video file when it's not in cache."
 msgstr "Zama-jaitsi soinu/bideo fitxategia cachean ez dagoenean konpontzea."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:56
+#: widgets/whatsnew/whatsnewtranslations.cpp:57
 #, kde-format
 msgid "Fix list of authentication method."
 msgstr "Autentifikazio metodoen zerrenda konpontzea."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:57
+#: widgets/whatsnew/whatsnewtranslations.cpp:58
 #, kde-format
 msgid "Fix show avatar url."
 msgstr "Erakutsi abatararen URLa konpontzea."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:65
+#: widgets/whatsnew/whatsnewtranslations.cpp:66
 #, kde-format
 msgid "Allow to increase/decrease font (CTRL++/CTRL+-)"
 msgstr "Letra-tipoa handitzeko/txikitzeko aukera ematea (KTRL++/KTRL--)v"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:66
+#: widgets/whatsnew/whatsnewtranslations.cpp:67
 #, kde-format
 msgid "Add channel list style (Condensed/Medium/Extended)"
 msgstr "Kanal zerrendaren estiloa (trinkoa/ertaina/hedatua) gehitzea"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:67
+#: widgets/whatsnew/whatsnewtranslations.cpp:68
 #, kde-format
 msgid "Add forward message"
 msgstr "Mezua birbidaltzea gehitzea"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:68
+#: widgets/whatsnew/whatsnewtranslations.cpp:69
 #, kde-format
 msgid "Improve mentions support."
 msgstr "Aipamenen euskarria hobetzea."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:69
+#: widgets/whatsnew/whatsnewtranslations.cpp:70
 #, kde-format
 msgid ""
 "Add support for deep linking <a href=\"https://developer.rocket.chat/getting-"
@@ -10693,12 +10712,12 @@ msgstr ""
 "Gehitu sakoneran estekatzeko euskarria <a href=\"https://developer.rocket."
 "chat/getting-started/deep-linking\">Sakoneran estekatu</a>."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:70
+#: widgets/whatsnew/whatsnewtranslations.cpp:71
 #, kde-format
 msgid "Implement block actions."
 msgstr "Bloke-ekintzak inplementatzea."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:71
+#: widgets/whatsnew/whatsnewtranslations.cpp:72
 #, kde-format
 msgid ""
 "Implement personal token authentication. <a href=\"https://bugs.kde.org/"
@@ -10707,72 +10726,72 @@ msgstr ""
 "Token pertsonalaren autentifikazioa inplementatzea <a href=\"https://bugs."
 "kde.org/show_bug.cgi?id=481400\">481400 akatsa</a>"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:72
+#: widgets/whatsnew/whatsnewtranslations.cpp:73
 #, kde-format
 msgid "Add Plasma Activities Support"
 msgstr "Plasma Jardueren euskarria gehitzea"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:73
+#: widgets/whatsnew/whatsnewtranslations.cpp:74
 #, kde-format
 msgid "Add Report User Support"
 msgstr "Gehitu erabiltzailearen berri emateko euskarria"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:74
+#: widgets/whatsnew/whatsnewtranslations.cpp:75
 #, kde-format
 msgid "Implement Channel Sound Notification."
 msgstr "Kanalaren soinu-jakinarazpena inplementatzea."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:75
+#: widgets/whatsnew/whatsnewtranslations.cpp:76
 #, kde-format
 msgid "Implement New Room Sound Notification."
 msgstr "Gela berriaren soinu-jakinarazpena inplementatzea."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:76
+#: widgets/whatsnew/whatsnewtranslations.cpp:77
 #, kde-format
 msgid "Implement Sorted/Unsorted markdown list."
 msgstr "Ordenatutako/ordenatu gabeko markdown zerrenda inplementatzea."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:79
+#: widgets/whatsnew/whatsnewtranslations.cpp:80
 #, kde-format
 msgid "Fix dark mode support."
 msgstr "Gai ilunaren euskarria konpontzea."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:80
+#: widgets/whatsnew/whatsnewtranslations.cpp:81
 #, kde-format
 msgid "Fix jitsi support."
 msgstr "Jitsi euskarria konpontzea."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:81
+#: widgets/whatsnew/whatsnewtranslations.cpp:82
 #, kde-format
 msgid "Fix translate message in direct channel."
 msgstr "Zuzeneko kanaleko mezua zuzentzea."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:82
+#: widgets/whatsnew/whatsnewtranslations.cpp:83
 #, kde-format
 msgid "Don't show @here/@all as user."
 msgstr "@here/@all erabiltzaile gisa ez erakustea."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:83
+#: widgets/whatsnew/whatsnewtranslations.cpp:84
 #, kde-format
 msgid "Reduce memory footprint."
 msgstr "Memoria-aztarna murriztu."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:84
+#: widgets/whatsnew/whatsnewtranslations.cpp:85
 #, kde-format
 msgid "Use RESTAPI for logging."
 msgstr "Erabili RESTAPI erregistratzeko."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:85
+#: widgets/whatsnew/whatsnewtranslations.cpp:86
 #, kde-format
 msgid "Allow to send multi files."
 msgstr "Fitxategi anizkoitzak bidaltzeko aukera ematen du."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:86
+#: widgets/whatsnew/whatsnewtranslations.cpp:87
 #, kde-format
 msgid "Fix preview url."
 msgstr "Konponketa URL aurreikuspegian."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:100
+#: widgets/whatsnew/whatsnewtranslations.cpp:101
 #, kde-format
 msgid ""
 "Clean market application model after 30 minutes (reduce memory footprint)."
@@ -10780,12 +10799,12 @@ msgstr ""
 "Garbitu merkatuko aplikazio eredua 30 minutu igarotakoan (memoria-aztarna "
 "murriztu)"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:101
+#: widgets/whatsnew/whatsnewtranslations.cpp:102
 #, kde-format
 msgid "Fix show discussion name in completion."
 msgstr ""
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:102
+#: widgets/whatsnew/whatsnewtranslations.cpp:103
 #, fuzzy, kde-format
 #| msgid "Fix translate message in direct channel."
 msgid "Fix duplicated messages in search message dialog."
@@ -10985,9 +11004,6 @@ msgstr "Akatsak konponketa batzuk:"
 
 #~ msgid "Author"
 #~ msgstr "Egilea"
-
-#~ msgid "Node Version"
-#~ msgstr "Nodoaren bertsioa"
 
 #~ msgid "Arch"
 #~ msgstr "Arkitektura"
