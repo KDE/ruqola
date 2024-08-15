@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-06-10 02:50+0000\n"
-"PO-Revision-Date: 2024-08-06 13:04+0200\n"
+"PO-Revision-Date: 2024-08-14 11:24+0200\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
 "Language: eu\n"
@@ -345,7 +345,7 @@ msgstr "Bip"
 #: core/customsound/customsoundsmanager.cpp:67
 #, kde-format
 msgid "Chelle"
-msgstr ""
+msgstr "Chelle"
 
 #: core/customsound/customsoundsmanager.cpp:75
 #, kde-format
@@ -4207,6 +4207,18 @@ msgid ""
 "{\"rooms\": \"%team%,%department%\"} would join CAS users on creation to "
 "their team and department channel."
 msgstr ""
+"Erabili sarrerako JSON hau kanpoko atributuetatik (balioa) barneko "
+"atributuak (gakoa) eraikitzeko.\n"
+"'%' bidez inguratutako kanpoko atributuak balio-kateetan tartekatukodira.<br/"
+">Adibidez,  {\"email\":\"%email%\", \"name\":\"%firstname%, %lastname%\"}\n"
+"Atributuen mapa beti tartekatzen da. CAS 1.0ren kasuan username "
+"(erabiltzaile-izena) atributua bakarrik dago erabilgarri. Barneko atributu "
+"erabilgarriak dira: username (erabiltzaile-izena), name (izena), email (e-"
+"posta), rooms (gelak);\n"
+"rooms (gelak) koma bidez bereizitako gela-zerrenda bat da, erabiltzaile bat "
+"sortzean haietara batuko da, adib: {\"rooms\": \"%team%,%department%\"} CAS "
+"erabiltzaileak sortzean haien talde eta departamentu kanaletara batuko "
+"lituzke."
 
 #: widgets/administratorsettingsdialog/conferencecall/conferencecallsettingswidget.cpp:24
 #, kde-format
@@ -6030,6 +6042,10 @@ msgid ""
 "outdated until someone clicks on the refresh button and may cause other "
 "missing information around the system!"
 msgstr ""
+"Ezarpen honek estatistika guztiak prozesatzea geldiarazten du, norbaitek "
+"berritzeko botoia sakatu arte informazio orria eguneratu gabe egotea "
+"eragiten duelarik eta systemaren inguruko beste informazio batzuk galtzea "
+"ere eragin dezake!"
 
 #: widgets/administratorsettingsdialog/troubleshoot/troubleshootsettingswidget.cpp:64
 #, kde-format
@@ -6084,7 +6100,7 @@ msgstr "Ireki beti leiho berrian"
 #: widgets/administratorsettingsdialog/videoconference/videoconferencewidget.cpp:25
 #, kde-format
 msgid "Enable room name hash"
-msgstr ""
+msgstr "Gaitu gela izenaren «hash»"
 
 #: widgets/administratorsettingsdialog/videoconference/videoconferencewidget.cpp:26
 #, kde-format
@@ -7598,6 +7614,13 @@ msgid ""
 "dismissing this message.<br/><br/>Your password is: <span style=\"font-"
 "weight: bold;\">%1</span>"
 msgstr ""
+"Sortu gela pribatu seguruak eta muturren artean zifratutako zuzeneko mezuak. "
+"<br/><br/>Gorde zure pasahitza era seguruan, zure mezuak kodetzeko/"
+"deskodetzeko gakoa ez baita zerbitzarian gordeko. e2e zifratzea erabiltzeko "
+"beste gailu batzuetan sartu beharko duzu.<br/><br/>Aldatu zure pasahitza "
+"nahi duzunean hura sartu duzun edozein nabigatzailetik. Mezu hau baztertu "
+"aurretik gogoratu zure pasahitza gordetzeaz.<br/><br/>Zure pasahitza: <span "
+"style=\"font-weight: bold;\">%1</span>"
 
 #: widgets/encryption/e2edecodeencryptionkeyfailedwidget.cpp:17
 #, kde-format
@@ -8047,6 +8070,12 @@ msgid ""
 "You will be required to enter it on other devices you wish to use e2e "
 "encryption on."
 msgstr ""
+"Orain, zifratutako talde pribatuak eta zuzeneko mezuak sortu ditzakezu. "
+"Dauden talde pribatuak edo DMak zifratura ere alda ditzakezu. Hau muturren "
+"arteko zifratzea da, beraz, zure mezuak kodetzeko/deskodetzeko gakoa ez da "
+"zerbitzarian gordeko. Horregatik, pasahitza leku seguru batean gorde behar "
+"duzu. e2e zifratzea erabili nahi duzun beste gailu batzuetan hura sartzea "
+"eskatuko zaizu."
 
 #: widgets/myaccount/myaccount2e2configurewidget.cpp:41
 #, kde-format
@@ -8057,6 +8086,12 @@ msgid ""
 "the E2E encryption, Rocket.Chat will not be able to restore access to any "
 "encrypted room that has no member online."
 msgstr ""
+"Aukera honek uneko zure E2E gakoa kendu eta zure saioa itxiko du. Saioa "
+"berriz hasten duzunean, Rocket.Chat-ek gako berri bat sortuko dizu eta "
+"lerroan erabiltzaile bat edo gehiago duen zifratutako geletarako zure "
+"sarbidea lehengoratuko du. E2E zifratzearen izaera dela eta, Rocket.Chat-ek "
+"ezingo du lehengoratu lerroan erabiltzailerik ez duen zifratutako geletarako "
+"sarbidea."
 
 #: widgets/myaccount/myaccount2faconfigurewidget.cpp:19
 #, kde-format
@@ -9951,7 +9986,7 @@ msgstr "Jitsi euskarria konpontzea."
 
 #: widgets/whatsnew/whatsnewwidgettranslation.h:85
 msgid "Fix translate message in direct channel."
-msgstr "Zuzeneko kanaleko mezua zuzentzea."
+msgstr "Zuzeneko kanaleko mezua konpontzea."
 
 #: widgets/whatsnew/whatsnewwidgettranslation.h:86
 msgid "Don't show @here/@all as user."
@@ -9971,7 +10006,7 @@ msgstr "Fitxategi anizkoitzak bidaltzeko aukera ematen du."
 
 #: widgets/whatsnew/whatsnewwidgettranslation.h:90
 msgid "Fix preview url."
-msgstr "Konponketa URL aurreikuspegian."
+msgstr "URL aurreikuspegia konpontzea."
 
 #, fuzzy
 #~| msgid "(Click here for Loading more...)"
