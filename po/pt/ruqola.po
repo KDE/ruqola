@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-08-14 00:39+0000\n"
+"POT-Creation-Date: 2024-08-15 00:39+0000\n"
 "PO-Revision-Date: 2023-07-14 22:16+0100\n"
 "Last-Translator: José Nuno Coelho Pires <zepires@gmail.com>\n"
 "Language-Team: Portuguese <kde-i18n-pt@kde.org>\n"
@@ -205,41 +205,41 @@ msgstr "Optimização, correcção do suporte para Windows/Mac"
 msgid "The following accounts are available:"
 msgstr "Estão disponíveis as seguintes contas:"
 
-#: core/apps/appsmarketplaceinfo.cpp:336 core/model/adminrolesmodel.cpp:40
+#: core/apps/appsmarketplaceinfo.cpp:347 core/model/adminrolesmodel.cpp:40
 #: widgets/administratorsettingsdialog/ircfederation/ircfederationwidget.cpp:50
 #, kde-format
 msgid "Description"
 msgstr "Descrição"
 
-#: core/apps/appsmarketplaceinfo.cpp:338
+#: core/apps/appsmarketplaceinfo.cpp:349
 #: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:163
 #, kde-format
 msgid "Version"
 msgstr "Versão"
 
-#: core/apps/appsmarketplaceinfo.cpp:341 core/model/appscategoriesmodel.cpp:34
+#: core/apps/appsmarketplaceinfo.cpp:352 core/model/appscategoriesmodel.cpp:34
 #, kde-format
 msgid "Categories"
 msgstr ""
 
-#: core/apps/appsmarketplaceinfo.cpp:345
+#: core/apps/appsmarketplaceinfo.cpp:356
 #, fuzzy, kde-format
 #| msgid "Authentication"
 msgid "Documentation"
 msgstr "Autenticação"
 
-#: core/apps/appsmarketplaceinfo.cpp:352
+#: core/apps/appsmarketplaceinfo.cpp:363
 #, kde-format
 msgid "Homepage"
 msgstr ""
 
-#: core/apps/appsmarketplaceinfo.cpp:358
+#: core/apps/appsmarketplaceinfo.cpp:369
 #, fuzzy, kde-format
 #| msgid "Reporting"
 msgid "Support"
 msgstr "Relatórios"
 
-#: core/apps/appsmarketplaceinfo.cpp:362
+#: core/apps/appsmarketplaceinfo.cpp:373
 #, fuzzy, kde-format
 #| msgid "Privacy"
 msgid "Privacy Summary"

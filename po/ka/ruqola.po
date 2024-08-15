@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-08-14 00:39+0000\n"
-"PO-Revision-Date: 2024-08-10 05:56+0200\n"
+"POT-Creation-Date: 2024-08-15 00:39+0000\n"
+"PO-Revision-Date: 2024-08-14 05:38+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -162,39 +162,39 @@ msgstr "ოპტიმიზაცია, Windows/Mac-ის მხარდა
 msgid "The following accounts are available:"
 msgstr "ხელმისაწვდომია შემდეგი ანგარიშები:"
 
-#: core/apps/appsmarketplaceinfo.cpp:336 core/model/adminrolesmodel.cpp:40
+#: core/apps/appsmarketplaceinfo.cpp:347 core/model/adminrolesmodel.cpp:40
 #: widgets/administratorsettingsdialog/ircfederation/ircfederationwidget.cpp:50
 #, kde-format
 msgid "Description"
 msgstr "აღწერა"
 
-#: core/apps/appsmarketplaceinfo.cpp:338
+#: core/apps/appsmarketplaceinfo.cpp:349
 #: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:163
 #, kde-format
 msgid "Version"
 msgstr "ვერსია"
 
-#: core/apps/appsmarketplaceinfo.cpp:341 core/model/appscategoriesmodel.cpp:34
+#: core/apps/appsmarketplaceinfo.cpp:352 core/model/appscategoriesmodel.cpp:34
 #, kde-format
 msgid "Categories"
 msgstr "კატეგორიები"
 
-#: core/apps/appsmarketplaceinfo.cpp:345
+#: core/apps/appsmarketplaceinfo.cpp:356
 #, kde-format
 msgid "Documentation"
 msgstr "დოკუმენტაცია"
 
-#: core/apps/appsmarketplaceinfo.cpp:352
+#: core/apps/appsmarketplaceinfo.cpp:363
 #, kde-format
 msgid "Homepage"
 msgstr "საწყისი გვერდი"
 
-#: core/apps/appsmarketplaceinfo.cpp:358
+#: core/apps/appsmarketplaceinfo.cpp:369
 #, kde-format
 msgid "Support"
 msgstr "ანგარიში"
 
-#: core/apps/appsmarketplaceinfo.cpp:362
+#: core/apps/appsmarketplaceinfo.cpp:373
 #, kde-format
 msgid "Privacy Summary"
 msgstr "კონფიდენციალობის შეჯამება"
@@ -8627,10 +8627,9 @@ msgid "Send new code"
 msgstr "ახალი კოდის გაგზავნა"
 
 #: widgets/misc/verifynewversionwidget.cpp:30
-#, fuzzy, kde-format
-#| msgid "Node Version"
+#, kde-format
 msgid "Check New Version"
-msgstr "კვანძის ვერსია"
+msgstr "ახალი ვერსიის შემოწმება"
 
 #: widgets/myaccount/myaccount2e2configurewidget.cpp:22
 #, kde-format
@@ -9129,11 +9128,10 @@ msgid "Disable version check"
 msgstr "ვერსიის შემოწმების გათიშვა"
 
 #: widgets/needupdateversion/needupdateversionwidget.cpp:26
-#, fuzzy, kde-format
-#| msgid "Node Version"
+#, kde-format
 msgctxt "@action"
 msgid "Check new Version"
-msgstr "კვანძის ვერსია"
+msgstr "ახალი ვერსიის შემოწმება"
 
 #: widgets/needupdateversion/needupdateversionwidget.cpp:42
 #, kde-format
@@ -10526,10 +10524,8 @@ msgid "Allow to clean room history."
 msgstr "ოთახის ისტორიის გასუფთავების დაშვება."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:19
-#, fuzzy
-#| msgid "Allow to clean room history."
 msgid "Allow to check new version."
-msgstr "ოთახის ისტორიის გასუფთავების დაშვება."
+msgstr "ახალი ვერსიის შემოწმების დაშვება."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:29
 #, kde-format

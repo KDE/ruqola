@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-08-14 00:39+0000\n"
-"PO-Revision-Date: 2024-08-09 23:04+0200\n"
+"POT-Creation-Date: 2024-08-15 00:39+0000\n"
+"PO-Revision-Date: 2024-08-14 11:18+0200\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
 "Language: nl\n"
@@ -161,39 +161,39 @@ msgstr "Optimalisatie, ondersteuning voor windows/mac gerepareerd"
 msgid "The following accounts are available:"
 msgstr "De volgende accounts zijn beschikbaar:"
 
-#: core/apps/appsmarketplaceinfo.cpp:336 core/model/adminrolesmodel.cpp:40
+#: core/apps/appsmarketplaceinfo.cpp:347 core/model/adminrolesmodel.cpp:40
 #: widgets/administratorsettingsdialog/ircfederation/ircfederationwidget.cpp:50
 #, kde-format
 msgid "Description"
 msgstr "Beschrijving"
 
-#: core/apps/appsmarketplaceinfo.cpp:338
+#: core/apps/appsmarketplaceinfo.cpp:349
 #: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:163
 #, kde-format
 msgid "Version"
 msgstr "Versie"
 
-#: core/apps/appsmarketplaceinfo.cpp:341 core/model/appscategoriesmodel.cpp:34
+#: core/apps/appsmarketplaceinfo.cpp:352 core/model/appscategoriesmodel.cpp:34
 #, kde-format
 msgid "Categories"
 msgstr "Categorieën"
 
-#: core/apps/appsmarketplaceinfo.cpp:345
+#: core/apps/appsmarketplaceinfo.cpp:356
 #, kde-format
 msgid "Documentation"
 msgstr "Documentatie"
 
-#: core/apps/appsmarketplaceinfo.cpp:352
+#: core/apps/appsmarketplaceinfo.cpp:363
 #, kde-format
 msgid "Homepage"
 msgstr "Homepagina"
 
-#: core/apps/appsmarketplaceinfo.cpp:358
+#: core/apps/appsmarketplaceinfo.cpp:369
 #, kde-format
 msgid "Support"
 msgstr "Ondersteuning"
 
-#: core/apps/appsmarketplaceinfo.cpp:362
+#: core/apps/appsmarketplaceinfo.cpp:373
 #, kde-format
 msgid "Privacy Summary"
 msgstr "Samenvatting van privacy"
@@ -8681,10 +8681,9 @@ msgid "Send new code"
 msgstr "Nieuwe code sturen"
 
 #: widgets/misc/verifynewversionwidget.cpp:30
-#, fuzzy, kde-format
-#| msgid "Node Version"
+#, kde-format
 msgid "Check New Version"
-msgstr "Versie van node"
+msgstr "Op nieuwe versie controleren"
 
 #: widgets/myaccount/myaccount2e2configurewidget.cpp:22
 #, kde-format
@@ -9186,11 +9185,10 @@ msgid "Disable version check"
 msgstr "Controleren op versie uitschakelen"
 
 #: widgets/needupdateversion/needupdateversionwidget.cpp:26
-#, fuzzy, kde-format
-#| msgid "Server Version:"
+#, kde-format
 msgctxt "@action"
 msgid "Check new Version"
-msgstr "Server-versie:"
+msgstr "Op nieuwe versie controleren"
 
 #: widgets/needupdateversion/needupdateversionwidget.cpp:42
 #, kde-format
@@ -10585,10 +10583,8 @@ msgid "Allow to clean room history."
 msgstr "Toestaan de geschiedenis van de room te wissen."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:19
-#, fuzzy
-#| msgid "Allow to clean room history."
 msgid "Allow to check new version."
-msgstr "Toestaan de geschiedenis van de room te wissen."
+msgstr "Toestaan op nieuwe versie te controleren."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:29
 #, kde-format

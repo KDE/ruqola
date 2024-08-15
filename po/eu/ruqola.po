@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-08-14 00:39+0000\n"
-"PO-Revision-Date: 2024-08-06 13:00+0200\n"
+"POT-Creation-Date: 2024-08-15 00:39+0000\n"
+"PO-Revision-Date: 2024-08-14 11:22+0200\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
 "Language: eu\n"
@@ -164,39 +164,39 @@ msgstr "Optimizazioa, Windows/Mac euskarria konpontzea"
 msgid "The following accounts are available:"
 msgstr "Ondoko kontuak erabilgarri daude:"
 
-#: core/apps/appsmarketplaceinfo.cpp:336 core/model/adminrolesmodel.cpp:40
+#: core/apps/appsmarketplaceinfo.cpp:347 core/model/adminrolesmodel.cpp:40
 #: widgets/administratorsettingsdialog/ircfederation/ircfederationwidget.cpp:50
 #, kde-format
 msgid "Description"
 msgstr "Deskribapena"
 
-#: core/apps/appsmarketplaceinfo.cpp:338
+#: core/apps/appsmarketplaceinfo.cpp:349
 #: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:163
 #, kde-format
 msgid "Version"
 msgstr "Bertsioa"
 
-#: core/apps/appsmarketplaceinfo.cpp:341 core/model/appscategoriesmodel.cpp:34
+#: core/apps/appsmarketplaceinfo.cpp:352 core/model/appscategoriesmodel.cpp:34
 #, kde-format
 msgid "Categories"
 msgstr "Kategoriak"
 
-#: core/apps/appsmarketplaceinfo.cpp:345
+#: core/apps/appsmarketplaceinfo.cpp:356
 #, kde-format
 msgid "Documentation"
 msgstr "Dokumentazioa"
 
-#: core/apps/appsmarketplaceinfo.cpp:352
+#: core/apps/appsmarketplaceinfo.cpp:363
 #, kde-format
 msgid "Homepage"
 msgstr "Orri-nagusia"
 
-#: core/apps/appsmarketplaceinfo.cpp:358
+#: core/apps/appsmarketplaceinfo.cpp:369
 #, kde-format
 msgid "Support"
 msgstr "Euskarria"
 
-#: core/apps/appsmarketplaceinfo.cpp:362
+#: core/apps/appsmarketplaceinfo.cpp:373
 #, kde-format
 msgid "Privacy Summary"
 msgstr "Pribatutasun laburpena"
@@ -392,7 +392,7 @@ msgstr "Bip"
 #: core/customsound/customsoundsmanager.cpp:67
 #, kde-format
 msgid "Chelle"
-msgstr ""
+msgstr "Chelle"
 
 # RocketChat-en soinuak:
 #
@@ -4380,6 +4380,18 @@ msgid ""
 "{\"rooms\": \"%team%,%department%\"} would join CAS users on creation to "
 "their team and department channel."
 msgstr ""
+"Erabili sarrerako JSON hau kanpoko atributuetatik (balioa) barneko "
+"atributuak (gakoa) eraikitzeko.\n"
+"'%' bidez inguratutako kanpoko atributuak balio-kateetan tartekatukodira.<br/"
+">Adibidez,  {\"email\":\"%email%\", \"name\":\"%firstname%, %lastname%\"}\n"
+"Atributuen mapa beti tartekatzen da. CAS 1.0ren kasuan username "
+"(erabiltzaile-izena) atributua bakarrik dago erabilgarri. Barneko atributu "
+"erabilgarriak dira: username (erabiltzaile-izena), name (izena), email (e-"
+"posta), rooms (gelak);\n"
+"rooms (gelak) koma bidez bereizitako gela-zerrenda bat da, erabiltzaile bat "
+"sortzean haietara batuko da, adib: {\"rooms\": \"%team%,%department%\"} CAS "
+"erabiltzaileak sortzean haien talde eta departamentu kanaletara batuko "
+"lituzke."
 
 #: widgets/administratorsettingsdialog/conferencecall/conferencecallsettingswidget.cpp:24
 #, kde-format
@@ -6291,6 +6303,10 @@ msgid ""
 "outdated until someone clicks on the refresh button and may cause other "
 "missing information around the system!"
 msgstr ""
+"Ezarpen honek estatistika guztiak prozesatzea geldiarazten du, norbaitek "
+"berritzeko botoia sakatu arte informazio orria eguneratu gabe egotea "
+"eragiten duelarik eta systemaren inguruko beste informazio batzuk galtzea "
+"ere eragin dezake!"
 
 #: widgets/administratorsettingsdialog/troubleshoot/troubleshootsettingswidget.cpp:64
 #, kde-format
@@ -6345,11 +6361,10 @@ msgid "Always Open in New Window"
 msgstr "Ireki beti leiho berrian"
 
 #: widgets/administratorsettingsdialog/videoconference/videoconferencewidget.cpp:25
-#, fuzzy, kde-format
-#| msgid "Enable for Teams"
+#, kde-format
 msgctxt "@option:check"
 msgid "Enable room name hash"
-msgstr "Gaitu taldeetarako"
+msgstr "Gaitu gela izenaren «hash»"
 
 #: widgets/administratorsettingsdialog/videoconference/videoconferencewidget.cpp:26
 #, kde-format
@@ -8169,6 +8184,12 @@ msgid ""
 "any browser you've entered it on. Remember to store your password before "
 "dismissing this message.<br/><br/>Your password is:"
 msgstr ""
+"Sortu gela pribatu seguruak eta muturren artean zifratutako zuzeneko mezuak. "
+"<br/><br/>Gorde zure pasahitza era seguruan, zure mezuak kodetzeko/"
+"deskodetzeko gakoa ez baita zerbitzarian gordeko. e2e zifratzea erabiltzeko "
+"beste gailu batzuetan sartu beharko duzu.<br/><br/>Aldatu zure pasahitza "
+"nahi duzunean hura sartu duzun edozein nabigatzailetik. Mezu hau baztertu "
+"aurretik gogoratu zure pasahitza gordetzeaz.<br/><br/>Zure pasahitza:"
 
 #: widgets/encryption/e2ecopypasswordwidget.cpp:60
 #, kde-format
@@ -8655,10 +8676,9 @@ msgid "Send new code"
 msgstr "Bidali kode berria"
 
 #: widgets/misc/verifynewversionwidget.cpp:30
-#, fuzzy, kde-format
-#| msgid "Node Version"
+#, kde-format
 msgid "Check New Version"
-msgstr "Nodoaren bertsioa"
+msgstr "Egiaztatu bertsio berririk dagoen"
 
 #: widgets/myaccount/myaccount2e2configurewidget.cpp:22
 #, kde-format
@@ -8677,6 +8697,12 @@ msgid ""
 "You will be required to enter it on other devices you wish to use e2e "
 "encryption on."
 msgstr ""
+"Orain, zifratutako talde pribatuak eta zuzeneko mezuak sortu ditzakezu. "
+"Dauden talde pribatuak edo DMak zifratura ere alda ditzakezu. Hau muturren "
+"arteko zifratzea da, beraz, zure mezuak kodetzeko/deskodetzeko gakoa ez da "
+"zerbitzarian gordeko. Horregatik, pasahitza leku seguru batean gorde behar "
+"duzu. e2e zifratzea erabili nahi duzun beste gailu batzuetan hura sartzea "
+"eskatuko zaizu."
 
 #: widgets/myaccount/myaccount2e2configurewidget.cpp:43
 #, kde-format
@@ -8687,6 +8713,12 @@ msgid ""
 "the E2E encryption, Rocket.Chat will not be able to restore access to any "
 "encrypted room that has no member online."
 msgstr ""
+"Aukera honek uneko zure E2E gakoa kendu eta zure saioa itxiko du. Saioa "
+"berriz hasten duzunean, Rocket.Chat-ek gako berri bat sortuko dizu eta "
+"lerroan erabiltzaile bat edo gehiago duen zifratutako geletarako zure "
+"sarbidea lehengoratuko du. E2E zifratzearen izaera dela eta, Rocket.Chat-ek "
+"ezingo du lehengoratu lerroan erabiltzailerik ez duen zifratutako geletarako "
+"sarbidea."
 
 #: widgets/myaccount/myaccount2faconfigurewidget.cpp:19
 #, kde-format
@@ -9147,11 +9179,10 @@ msgid "Disable version check"
 msgstr "Ezgaitu bertsioa egiaztatzea"
 
 #: widgets/needupdateversion/needupdateversionwidget.cpp:26
-#, fuzzy, kde-format
-#| msgid "Node Version"
+#, kde-format
 msgctxt "@action"
 msgid "Check new Version"
-msgstr "Nodoaren bertsioa"
+msgstr "Egiaztatu bertsio berririk dagoen"
 
 #: widgets/needupdateversion/needupdateversionwidget.cpp:42
 #, kde-format
@@ -10549,10 +10580,8 @@ msgid "Allow to clean room history."
 msgstr "Gelaren historia garbitzeko aukera ematen du."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:19
-#, fuzzy
-#| msgid "Allow to clean room history."
 msgid "Allow to check new version."
-msgstr "Gelaren historia garbitzeko aukera ematen du."
+msgstr "Bertsio berria egiaztatzeko aukera ematen du."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:29
 #, kde-format
@@ -10764,7 +10793,7 @@ msgstr "Jitsi euskarria konpontzea."
 #: widgets/whatsnew/whatsnewtranslations.cpp:82
 #, kde-format
 msgid "Fix translate message in direct channel."
-msgstr "Zuzeneko kanaleko mezua zuzentzea."
+msgstr "Zuzeneko kanaleko mezua konpontzea."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:83
 #, kde-format
@@ -10789,7 +10818,7 @@ msgstr "Fitxategi anizkoitzak bidaltzeko aukera ematen du."
 #: widgets/whatsnew/whatsnewtranslations.cpp:87
 #, kde-format
 msgid "Fix preview url."
-msgstr "Konponketa URL aurreikuspegian."
+msgstr "URL aurreikuspegia konpontzea."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:101
 #, kde-format
@@ -10802,13 +10831,12 @@ msgstr ""
 #: widgets/whatsnew/whatsnewtranslations.cpp:102
 #, kde-format
 msgid "Fix show discussion name in completion."
-msgstr ""
+msgstr "Erakutsi elkarrizketa-izena osatzean konpontzea."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:103
-#, fuzzy, kde-format
-#| msgid "Fix translate message in direct channel."
+#, kde-format
 msgid "Fix duplicated messages in search message dialog."
-msgstr "Zuzeneko kanaleko mezua zuzentzea."
+msgstr "Mezua bilatu elkarrizketa-koadroan bikoiztutako mezuak konpontzea."
 
 #: widgets/whatsnew/whatsnewwidget.cpp:44
 #, kde-format
