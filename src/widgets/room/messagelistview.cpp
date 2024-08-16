@@ -623,7 +623,7 @@ void MessageListView::contextMenuEvent(QContextMenuEvent *event)
 
 #if HAVE_TEXT_TO_SPEECH
     createSeparator(menu);
-    auto speakAction = menu.addAction(QIcon::fromTheme(QStringLiteral("preferences-desktop-text-to-speech")), i18nc("@action", "Speak Text"));
+    auto speakAction = menu.addAction(QIcon::fromTheme(QStringLiteral("text-speak-symbolic")), i18nc("@action", "Speak Text"));
     connect(speakAction, &QAction::triggered, this, [this, index]() {
         slotTextToSpeech(index);
     });
