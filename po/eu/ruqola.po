@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-08-15 00:39+0000\n"
-"PO-Revision-Date: 2024-08-14 11:22+0200\n"
+"PO-Revision-Date: 2024-08-15 20:34+0200\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
 "Language: eu\n"
@@ -7956,7 +7956,7 @@ msgstr "Zooma:"
 #, kde-format
 msgctxt "@action:button"
 msgid "100%"
-msgstr "&percnt;100"
+msgstr "% 100"
 
 #: widgets/dialogs/showimagewidget.cpp:290
 #, kde-format
