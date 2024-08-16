@@ -82,7 +82,7 @@ ConfigureSettingsDialog::ConfigureSettingsDialog(QWidget *parent)
 #if HAVE_TEXT_AUTOCORRECTION_WIDGETS
     const QString autoCorrectionPageName = i18nc("@title AutoCorrection page name", "AutoCorrection");
     mConfigureAutoCorrectionWidgetPage = new KPageWidgetItem(mConfigureAutoCorrectionWidget, autoCorrectionPageName);
-    // TODO add icon mConfigureAutoCorrectionWidgetPage->setIcon(QIcon::fromTheme(QStringLiteral("font")));
+    mConfigureAutoCorrectionWidgetPage->setIcon(QIcon::fromTheme(QStringLiteral("autocorrection-symbolic")));
     addPage(mConfigureAutoCorrectionWidgetPage);
 #endif
 

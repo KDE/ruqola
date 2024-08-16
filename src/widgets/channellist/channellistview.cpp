@@ -116,7 +116,7 @@ void ChannelListView::contextMenuEvent(QContextMenuEvent *event)
 
     const bool isUnRead = index.data(RoomModel::RoomAlert).toBool();
     const QString actionMarkAsText = isUnRead ? i18nc("@action", "Mark As Read") : i18nc("@action", "Mark As Unread");
-    auto markAsChannel = new QAction(actionMarkAsText, &menu);
+    auto markAsChannel = new QAction(QIcon::fromTheme(QStringLiteral("checkmark-symbolic")), actionMarkAsText, &menu);
     connect(markAsChannel, &QAction::triggered, this, [this, index, isUnRead]() {
         if (index.isValid()) {
             slotMarkAsChannel(index, isUnRead);
@@ -191,7 +191,7 @@ void ChannelListView::contextMenuEvent(QContextMenuEvent *event)
         if (room) {
             menu.addSeparator();
             auto configureNotificationChannel =
-                new QAction(QIcon::fromTheme(QStringLiteral("preferences-desktop-notification")), i18nc("@action", "Configure Notification…"), &menu);
+                new QAction(QIcon::fromTheme(QStringLiteral("notifications-symbolic")), i18nc("@action", "Configure Notification…"), &menu);
             connect(configureNotificationChannel, &QAction::triggered, this, [this, room]() {
                 slotConfigureNotification(room);
             });
