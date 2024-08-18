@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-08-15 00:39+0000\n"
-"PO-Revision-Date: 2024-08-10 12:45+0200\n"
+"PO-Revision-Date: 2024-08-17 09:47+0200\n"
 "Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>\n"
 "Language-Team: Polish <kde-i18n-doc@kde.org>\n"
 "Language: pl\n"
@@ -8682,10 +8682,9 @@ msgid "Send new code"
 msgstr "Wyślij nowy kod"
 
 #: widgets/misc/verifynewversionwidget.cpp:30
-#, fuzzy, kde-format
-#| msgid "Node Version"
+#, kde-format
 msgid "Check New Version"
-msgstr "Wersja węzła"
+msgstr "Sprawdź, czy jest nowa wersja"
 
 #: widgets/myaccount/myaccount2e2configurewidget.cpp:22
 #, kde-format
@@ -9187,11 +9186,10 @@ msgid "Disable version check"
 msgstr "Wyłącz sprawdzenie wersji"
 
 #: widgets/needupdateversion/needupdateversionwidget.cpp:26
-#, fuzzy, kde-format
-#| msgid "Server Version:"
+#, kde-format
 msgctxt "@action"
 msgid "Check new Version"
-msgstr "Wersja serwera:"
+msgstr "Sprawdź, czy jest nowa wersja"
 
 #: widgets/needupdateversion/needupdateversionwidget.cpp:42
 #, kde-format
@@ -10589,10 +10587,8 @@ msgid "Allow to clean room history."
 msgstr "Zezwól na czyszczenie historii pokoju."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:19
-#, fuzzy
-#| msgid "Allow to clean room history."
 msgid "Allow to check new version."
-msgstr "Zezwól na czyszczenie historii pokoju."
+msgstr "Zezwól na sprawdzanie, czy jest nowa wersja."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:29
 #, kde-format
