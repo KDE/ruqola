@@ -27,6 +27,7 @@ void ModerationReportInfo::parseModerationReportInfo(const QJsonObject &o)
     mDescription = o["description"_L1].toString();
     setTimeStamp(Utils::parseIsoDate(QStringLiteral("ts"), o));
     parseRoom(o["room"_L1].toObject());
+    // TODO use User !
     parseReportedBy(o["reportedBy"_L1].toObject());
     // TODO add more
     //{"reports":[{"_id":"6523e2465d66533fd6f85856","description":"test message report\n","reportedBy":{"_id":"H7Q9djXQ4zD9T2","username":"bla","name":"foo",
