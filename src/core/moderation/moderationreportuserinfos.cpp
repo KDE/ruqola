@@ -25,8 +25,7 @@ QDebug operator<<(QDebug d, const ModerationReportUserInfos &t)
 
 bool ModerationReportUserInfos::operator==(const ModerationReportUserInfos &other) const
 {
-    // TODO
-    return false;
+    return mUser == other.mUser && mOffset == other.mOffset && mTotal == other.mTotal && mModerationReportUserInfosList == other.mModerationReportUserInfosList;
 }
 
 QList<ModerationReportUserInfo> ModerationReportUserInfos::moderationReportUserInfosList() const
