@@ -15,6 +15,14 @@ public:
     ModerationReportUserInfo();
     ~ModerationReportUserInfo();
     [[nodiscard]] bool operator==(const ModerationReportUserInfo &other) const;
+
+    void parseModerationReportUserInfo(const QJsonObject &o);
+
+    [[nodiscard]] QString description() const;
+    void setDescription(const QString &newDescription);
+
+private:
+    QString mDescription;
 };
 
 Q_DECLARE_METATYPE(ModerationReportUserInfo)

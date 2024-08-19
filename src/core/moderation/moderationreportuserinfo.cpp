@@ -12,12 +12,26 @@ ModerationReportUserInfo::~ModerationReportUserInfo() = default;
 
 bool ModerationReportUserInfo::operator==(const ModerationReportUserInfo &other) const
 {
+    return other.description() == mDescription;
+}
+
+void ModerationReportUserInfo::parseModerationReportUserInfo(const QJsonObject &o)
+{
     // TODO
-    return false;
+}
+
+QString ModerationReportUserInfo::description() const
+{
+    return mDescription;
+}
+
+void ModerationReportUserInfo::setDescription(const QString &newDescription)
+{
+    mDescription = newDescription;
 }
 
 QDebug operator<<(QDebug d, const ModerationReportUserInfo &t)
 {
-    // TODO
+    d << "description: " << t.description();
     return d;
 }
