@@ -15,6 +15,8 @@ public:
     ModerationReportUserInfos();
     ~ModerationReportUserInfos();
 
+    [[nodiscard]] bool operator==(const ModerationReportUserInfos &other) const;
+
     [[nodiscard]] QList<ModerationReportUserInfo> moderationReportUserInfosList() const;
     void setModerationReportUserInfosList(const QList<ModerationReportUserInfo> &newModerationReportUserInfosList);
 
@@ -23,6 +25,9 @@ public:
 
     [[nodiscard]] int total() const;
     void setTotal(int newTotal);
+
+    [[nodiscard]] User user() const;
+    void setUser(const User &newUser);
 
 private:
     QList<ModerationReportUserInfo> mModerationReportUserInfosList;

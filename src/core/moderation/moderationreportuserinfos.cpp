@@ -12,8 +12,21 @@ ModerationReportUserInfos::~ModerationReportUserInfos() = default;
 
 QDebug operator<<(QDebug d, const ModerationReportUserInfos &t)
 {
-    // TODO
+    d.space() << "total" << t.total();
+    d.space() << "offset" << t.offset();
+#if 0
+    d.space() << "ModerationReportUserInfos" << t.ModerationReportedUserInfosCount() << "\n";
+    for (int i = 0, total = t.ModerationReportedUserInfosList().count(); i < total; ++i) {
+        d << t.ModerationReportedUserInfosList().at(i) << "\n";
+    }
+#endif
     return d;
+}
+
+bool ModerationReportUserInfos::operator==(const ModerationReportUserInfos &other) const
+{
+    // TODO
+    return false;
 }
 
 QList<ModerationReportUserInfo> ModerationReportUserInfos::moderationReportUserInfosList() const
@@ -44,4 +57,14 @@ int ModerationReportUserInfos::total() const
 void ModerationReportUserInfos::setTotal(int newTotal)
 {
     mTotal = newTotal;
+}
+
+User ModerationReportUserInfos::user() const
+{
+    return mUser;
+}
+
+void ModerationReportUserInfos::setUser(const User &newUser)
+{
+    mUser = newUser;
 }
