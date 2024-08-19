@@ -15,6 +15,7 @@
 #include "model/searchtreebasefilterproxymodel.h"
 #include "moderation/moderationdismissuserreportsjob.h"
 #include "moderation/moderationreportsbyuseridjob.h"
+#include "moderation/moderationreportuserinfos.h"
 #include "moderation/moderationuserreportsjob.h"
 
 #include "rocketchataccount.h"
@@ -177,7 +178,10 @@ void ModerationReportedUserConsoleTreeWidget::slotDesactivateUser(const QModelIn
 
 void ModerationReportedUserConsoleTreeWidget::slotShowReportedMessages(const QJsonObject &obj)
 {
-    qDebug() << "ModerationReportedUserConsoleTreeWidget::slotShowReportedMessages obj " << obj;
+    ModerationReportUserInfos moderationReportUserInfos;
+    moderationReportUserInfos.parseModerationReportUserInfos(obj);
+
+    qDebug() << "ModerationReportedUserConsoleTreeWidget::slotShowReportedMessages obj " << obj << moderationReportUserInfos;
     // TODO FIX  parser reports/user
     mCommonMessagesModel->parse(obj);
     ModerationMessagesDialog dlg(mRocketChatAccount, this);
