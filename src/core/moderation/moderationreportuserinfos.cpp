@@ -5,7 +5,9 @@
 */
 
 #include "moderationreportuserinfos.h"
-
+#include "ruqola_debug.h"
+#include <QJsonArray>
+using namespace Qt::Literals::StringLiterals;
 ModerationReportUserInfos::ModerationReportUserInfos() = default;
 
 ModerationReportUserInfos::~ModerationReportUserInfos() = default;
@@ -14,18 +16,18 @@ QDebug operator<<(QDebug d, const ModerationReportUserInfos &t)
 {
     d.space() << "total" << t.total();
     d.space() << "offset" << t.offset();
-#if 0
-    d.space() << "ModerationReportUserInfos" << t.ModerationReportedUserInfosCount() << "\n";
-    for (int i = 0, total = t.ModerationReportedUserInfosList().count(); i < total; ++i) {
-        d << t.ModerationReportedUserInfosList().at(i) << "\n";
+    d.space() << "moderationReportUserInfosCount" << t.moderationReportUserInfosCount();
+    d.space() << "user" << t.user();
+    for (int i = 0, total = t.moderationReportUserInfosList().count(); i < total; ++i) {
+        d << t.moderationReportUserInfosList().at(i) << "\n";
     }
-#endif
     return d;
 }
 
 bool ModerationReportUserInfos::operator==(const ModerationReportUserInfos &other) const
 {
-    return mUser == other.mUser && mOffset == other.mOffset && mTotal == other.mTotal && mModerationReportUserInfosList == other.mModerationReportUserInfosList;
+    return mUser == other.mUser && mOffset == other.mOffset && mTotal == other.mTotal && mModerationReportUserInfosList == other.mModerationReportUserInfosList
+        && mModerationReportUserInfosCount == other.mModerationReportUserInfosCount;
 }
 
 QList<ModerationReportUserInfo> ModerationReportUserInfos::moderationReportUserInfosList() const
@@ -66,4 +68,41 @@ User ModerationReportUserInfos::user() const
 void ModerationReportUserInfos::setUser(const User &newUser)
 {
     mUser = newUser;
+}
+
+int ModerationReportUserInfos::moderationReportUserInfosCount() const
+{
+    return mModerationReportUserInfosCount;
+}
+
+void ModerationReportUserInfos::setModerationReportUserInfosCount(int newModerationReportUserInfosCount)
+{
+    mModerationReportUserInfosCount = newModerationReportUserInfosCount;
+}
+
+void ModerationReportUserInfos::parseModerationReportUserInfos(const QJsonObject &moderationReportedUserInfosObj)
+{
+    mModerationReportUserInfosList.clear();
+    // qDebug() << " ModerationReportedUserInfosObj " << ModerationReportedUserInfosObj;
+    mModerationReportUserInfosCount = moderationReportedUserInfosObj["count"_L1].toInt();
+    mOffset = moderationReportedUserInfosObj["offset"_L1].toInt();
+    mTotal = moderationReportedUserInfosObj["total"_L1].toInt();
+    mModerationReportUserInfosList.reserve(mModerationReportUserInfosCount);
+    parseModerationReportUserInfosObj(moderationReportedUserInfosObj);
+}
+
+void ModerationReportUserInfos::parseModerationReportUserInfosObj(const QJsonObject &ModerationReportedUserInfosObj)
+{
+    const QJsonArray moderationsArray = ModerationReportedUserInfosObj["reports"_L1].toArray();
+    for (const QJsonValue &current : moderationsArray) {
+        if (current.type() == QJsonValue::Object) {
+            const QJsonObject moderationObject = current.toObject();
+            ModerationReportUserInfo m;
+            // TODO isValid ?
+            m.parseModerationReportUserInfo(moderationObject);
+            mModerationReportUserInfosList.append(std::move(m));
+        } else {
+            qCWarning(RUQOLA_LOG) << "Problem when parsing ModerationReportUserInfos" << current;
+        }
+    }
 }

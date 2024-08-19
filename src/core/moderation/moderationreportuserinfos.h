@@ -29,11 +29,18 @@ public:
     [[nodiscard]] User user() const;
     void setUser(const User &newUser);
 
+    [[nodiscard]] int moderationReportUserInfosCount() const;
+    void setModerationReportUserInfosCount(int newModerationReportUserInfosCount);
+
+    void parseModerationReportUserInfos(const QJsonObject &moderationReportedUserInfosObj);
+
 private:
+    LIBRUQOLACORE_NO_EXPORT void parseModerationReportUserInfosObj(const QJsonObject &ModerationReportedUserInfosObj);
     QList<ModerationReportUserInfo> mModerationReportUserInfosList;
     User mUser;
     int mOffset = 0;
     int mTotal = 0;
+    int mModerationReportUserInfosCount = 0;
 };
 Q_DECLARE_METATYPE(ModerationReportUserInfos)
 LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const ModerationReportUserInfos &t);
