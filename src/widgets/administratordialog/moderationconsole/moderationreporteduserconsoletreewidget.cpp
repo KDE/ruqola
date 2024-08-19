@@ -152,7 +152,7 @@ void ModerationReportedUserConsoleTreeWidget::slotDesactivateUser(const QModelIn
 {
     if (KMessageBox::questionTwoActions(
             this,
-            i18n("User will be unable to log in unless reactivated. All reported messages will be permanently deleted from their respective room."),
+            i18n("User will be unable to log in unless reactivated.\nAll reported messages will be permanently deleted from their respective room."),
             i18nc("@title:window", "Deactivate User"),
             KStandardGuiItem::remove(),
             KStandardGuiItem::cancel())
