@@ -37,16 +37,28 @@ void ModerationReportUserInfoTest::shouldLoadReportUserInfo_data()
     }
     {
         ModerationReportUserInfo moderationReportUserInfo;
-#if 0
-    moderationReportInfo.setDescription(QStringLiteral("test report 22222"));
-    moderationReportInfo.setReportIdentifier(QByteArrayLiteral("65278f64533fd6f8588e"));
-    moderationReportInfo.setTimeStamp(1697091428125);
-    moderationReportInfo.setRoomId(QByteArrayLiteral("xxib9aFXMGN3o"));
-    moderationReportInfo.setUserId(QByteArrayLiteral("H7Q9djXQ4iShzD9T2"));
-    moderationReportInfo.setUserName(QStringLiteral("bla"));
+        User reportedUser;
+        reportedUser.setName("test1"_L1);
+        reportedUser.setUserName("test1"_L1);
+        reportedUser.setStatus(User::PresenceStatus::Unknown);
+        reportedUser.setUserId(QByteArrayLiteral("tXCejybNBEvjHcJ6F"));
+        User::UserEmailsInfo info;
+        info.email = "foo@kde.org"_L1;
+        reportedUser.setUserEmailsInfo(info);
+        reportedUser.setCreatedAt(QDateTime(QDate(2024, 01, 31), QTime(12, 40, 12, 917), Qt::UTC));
+        moderationReportUserInfo.setReportedUser(reportedUser);
+        User reportedBy;
+        reportedBy.setName("bla"_L1);
+        reportedBy.setUserName("doo"_L1);
+        reportedBy.setStatus(User::PresenceStatus::Unknown);
+        reportedBy.setUserId(QByteArrayLiteral("H7Q9djXQ4iSD9T2"));
+        reportedBy.setCreatedAt(QDateTime(QDate(2018, 03, 13), QTime(16, 11, 51, 761), Qt::UTC));
 
-#endif
-    QTest::addRow("test1") << QStringLiteral("test1") << moderationReportUserInfo;
+        moderationReportUserInfo.setReportedBy(reportedBy);
+        moderationReportUserInfo.setDescription("test signal user (only test :) )"_L1);
+        moderationReportUserInfo.setReportId(QByteArrayLiteral("663608573b610aa5d35b3b"));
+
+        QTest::addRow("test1") << QStringLiteral("test1") << moderationReportUserInfo;
     }
 }
 
