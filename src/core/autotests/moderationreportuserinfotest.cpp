@@ -27,9 +27,16 @@ void ModerationReportUserInfoTest::shouldLoadReportUserInfo_data()
     QTest::addColumn<QString>("name");
     QTest::addColumn<ModerationReportUserInfo>("reportuserinfo");
 
-    QTest::addRow("empty") << QStringLiteral("empty") << ModerationReportUserInfo();
-
-    ModerationReportUserInfo moderationReportUserInfo;
+    {
+        ModerationReportUserInfo moderationReportUserInfo;
+        User user;
+        user.setStatus(User::PresenceStatus::Unknown);
+        moderationReportUserInfo.setReportedUser(user);
+        moderationReportUserInfo.setReportedBy(user);
+        QTest::addRow("empty") << QStringLiteral("empty") << moderationReportUserInfo;
+    }
+    {
+        ModerationReportUserInfo moderationReportUserInfo;
 #if 0
     moderationReportInfo.setDescription(QStringLiteral("test report 22222"));
     moderationReportInfo.setReportIdentifier(QByteArrayLiteral("65278f64533fd6f8588e"));
@@ -40,6 +47,7 @@ void ModerationReportUserInfoTest::shouldLoadReportUserInfo_data()
 
 #endif
     QTest::addRow("test1") << QStringLiteral("test1") << moderationReportUserInfo;
+    }
 }
 
 void ModerationReportUserInfoTest::shouldLoadReportUserInfo()
