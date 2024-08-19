@@ -15,3 +15,33 @@ QDebug operator<<(QDebug d, const ModerationReportUserInfos &t)
     // TODO
     return d;
 }
+
+QList<ModerationReportUserInfo> ModerationReportUserInfos::moderationReportUserInfosList() const
+{
+    return mModerationReportUserInfosList;
+}
+
+void ModerationReportUserInfos::setModerationReportUserInfosList(const QList<ModerationReportUserInfo> &newModerationReportUserInfosList)
+{
+    mModerationReportUserInfosList = newModerationReportUserInfosList;
+}
+
+int ModerationReportUserInfos::offset() const
+{
+    return mOffset;
+}
+
+void ModerationReportUserInfos::setOffset(int newOffset)
+{
+    mOffset = newOffset;
+}
+
+int ModerationReportUserInfos::total() const
+{
+    return mTotal;
+}
+
+void ModerationReportUserInfos::setTotal(int newTotal)
+{
+    mTotal = newTotal;
+}
