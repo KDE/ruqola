@@ -313,11 +313,6 @@ target_sources(libruqolacore PRIVATE
     model/moderationreportinfofilterproxymodel.cpp
     model/moderationreportinfofilterproxymodel.h
 
-
-    moderation/moderationreportuserinfo.h
-    moderation/moderationreportuserinfo.cpp
-
-
     model/sortfilterproxymodelbase.h
     model/sortfilterproxymodelbase.cpp
 
@@ -553,6 +548,13 @@ target_sources(libruqolacore PRIVATE
     moderation/moderationreporteduserinfo.cpp
     moderation/moderationreporteduserinfos.cpp
     moderation/moderationreporteduserinfos.h
+
+    moderation/moderationreportuserinfo.h
+    moderation/moderationreportuserinfo.cpp
+
+    moderation/moderationreportuserinfos.h
+    moderation/moderationreportuserinfos.cpp
+
 
     previewurlcachemanager.h
     previewurlcachemanager.cpp
