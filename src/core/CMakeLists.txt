@@ -306,15 +306,21 @@ target_sources(libruqolacore PRIVATE
 
 
 
-    model/sortfilterproxymodelbase.h
-    model/sortfilterproxymodelbase.cpp
-
     model/moderationmessagesmodel.h
     model/moderationmessagesmodel.cpp
     model/moderationreportinfomodel.cpp
     model/moderationreportinfomodel.h
     model/moderationreportinfofilterproxymodel.cpp
     model/moderationreportinfofilterproxymodel.h
+
+
+    moderation/moderationreportuserinfo.h
+    moderation/moderationreportuserinfo.cpp
+
+
+    model/sortfilterproxymodelbase.h
+    model/sortfilterproxymodelbase.cpp
+
 
     model/joinedchannelmodel.h
     model/joinedchannelmodel.cpp
