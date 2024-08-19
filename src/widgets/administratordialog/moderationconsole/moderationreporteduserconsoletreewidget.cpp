@@ -183,6 +183,9 @@ void ModerationReportedUserConsoleTreeWidget::slotShowReportedMessages(const QJs
 
     qDebug() << "ModerationReportedUserConsoleTreeWidget::slotShowReportedMessages obj " << obj << moderationReportUserInfos;
     // TODO FIX  parser reports/user
+
+    // TODO create specific dialogbox
+
     mCommonMessagesModel->parse(obj);
     ModerationMessagesDialog dlg(mRocketChatAccount, this);
     dlg.setModel(mCommonMessageFilterProxyModel);
