@@ -17,3 +17,5 @@ void VerifyNewVersionWidgetTest::shouldHaveDefaultValues()
     VerifyNewVersionWidget w;
     // TODO
 }
+
+#include "moc_verifynewversionwidgettest.cpp"
