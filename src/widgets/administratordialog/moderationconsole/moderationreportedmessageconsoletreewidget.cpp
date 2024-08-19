@@ -181,7 +181,7 @@ void ModerationReportedMessageConsoleTreeWidget::slotDesactivateUser(const QMode
 
 void ModerationReportedMessageConsoleTreeWidget::slotShowReportedMessages(const QJsonObject &obj)
 {
-    qDebug() << " obj " << obj;
+    qDebug() << "ModerationReportedMessageConsoleTreeWidget::slotShowReportedMessages obj " << obj;
     // Fix parse user/messages (message ok here)
     mCommonMessagesModel->parse(obj);
     ModerationMessagesDialog dlg(mRocketChatAccount, this);
