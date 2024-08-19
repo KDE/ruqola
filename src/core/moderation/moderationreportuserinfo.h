@@ -6,6 +6,7 @@
 
 #pragma once
 #include "libruqolacore_export.h"
+#include "user.h"
 #include <QDebug>
 #include <QJsonObject>
 
@@ -21,9 +22,22 @@ public:
     [[nodiscard]] QString description() const;
     void setDescription(const QString &newDescription);
 
+    [[nodiscard]] QByteArray reportId() const;
+    void setReportId(const QByteArray &newReportId);
+
+    [[nodiscard]] User reportedBy() const;
+    void setReportedBy(const User &newReportedBy);
+
+    [[nodiscard]] User reportedUser() const;
+    void setReportedUser(const User &newReportedUser);
+
 private:
+    User mReportedBy;
+    User mReportedUser;
     QString mDescription;
+    QByteArray mReportId;
 };
 
 Q_DECLARE_METATYPE(ModerationReportUserInfo)
+Q_DECLARE_TYPEINFO(ModerationReportUserInfo, Q_RELOCATABLE_TYPE);
 LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const ModerationReportUserInfo &t);

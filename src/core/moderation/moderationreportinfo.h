@@ -50,4 +50,5 @@ private:
     qint64 mTimeStamp = -1;
 };
 Q_DECLARE_METATYPE(ModerationReportInfo)
+Q_DECLARE_TYPEINFO(ModerationReportInfo, Q_RELOCATABLE_TYPE);
 LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const ModerationReportInfo &t);
