@@ -24,7 +24,7 @@ public:
     [[nodiscard]] int total() const;
     void setTotal(int newTotal);
 
-    [[nodiscard]] int ModerationReportedUserInfosCount() const;
+    [[nodiscard]] int moderationReportedUserInfosCount() const;
     void setModerationReportedUserInfosCount(int newModerationReportedUserInfosCount);
 
     [[nodiscard]] const QList<ModerationReportedUserInfo> &ModerationReportedUserInfosList() const;

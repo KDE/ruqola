@@ -18,7 +18,7 @@ QDebug operator<<(QDebug d, const ModerationReportedUserInfos &t)
 {
     d.space() << "total" << t.total();
     d.space() << "offset" << t.offset();
-    d.space() << "ModerationReportedUserInfosCount" << t.ModerationReportedUserInfosCount() << "\n";
+    d.space() << "ModerationReportedUserInfosCount" << t.moderationReportedUserInfosCount() << "\n";
     for (int i = 0, total = t.ModerationReportedUserInfosList().count(); i < total; ++i) {
         d << t.ModerationReportedUserInfosList().at(i) << "\n";
     }
@@ -45,7 +45,7 @@ void ModerationReportedUserInfos::setTotal(int newTotal)
     mTotal = newTotal;
 }
 
-int ModerationReportedUserInfos::ModerationReportedUserInfosCount() const
+int ModerationReportedUserInfos::moderationReportedUserInfosCount() const
 {
     return mModerationReportedUserInfosCount;
 }
