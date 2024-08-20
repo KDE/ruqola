@@ -210,6 +210,8 @@ target_sources(libruqolawidgets PRIVATE
 
     administratordialog/moderationconsole/moderationusersdialog.cpp
     administratordialog/moderationconsole/moderationusersdialog.h
+    administratordialog/moderationconsole/moderationuserswidget.cpp
+    administratordialog/moderationconsole/moderationuserswidget.h
 
     administratordialog/moderationconsole/moderationmessageinfodialog.h
     administratordialog/moderationconsole/moderationmessageinfodialog.cpp
