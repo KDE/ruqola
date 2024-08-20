@@ -17,6 +17,7 @@ QList<KLazyLocalizedString> WhatsNewTranslations::lastNewFeatures() const
         kli18n("Implement Rocket.Chat Marketplace."),
         kli18n("Allow to clean room history."),
         kli18n("Allow to check new version."),
+        kli18n("Implement moderation (administrator mode)."),
     };
     return info;
 }
