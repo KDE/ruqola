@@ -5,7 +5,7 @@
 */
 
 #include "moderationusersdialog.h"
-#include "moderationmessageswidget.h"
+#include "moderationuserswidget.h"
 #include "rocketchataccount.h"
 
 #include <KConfigGroup>
@@ -22,15 +22,15 @@ static const char myModerationUsersDialogGroupName[] = "ModerationUsersDialog";
 }
 ModerationUsersDialog::ModerationUsersDialog(RocketChatAccount *account, QWidget *parent)
     : QDialog(parent)
-    , mModerationMessagesWidget(new ModerationMessagesWidget(account, this))
+    , mModerationUsersWidget(new ModerationUsersWidget(account, this))
 {
-    setWindowTitle(i18nc("@title:window", "Show Moderation Messages"));
+    setWindowTitle(i18nc("@title:window", "Show Moderation Users"));
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
 
-    mModerationMessagesWidget->setObjectName(QStringLiteral("mModerationMessagesWidget"));
-    mainLayout->addWidget(mModerationMessagesWidget);
-    connect(mModerationMessagesWidget, &ModerationMessagesWidget::goToMessageRequested, this, &ModerationUsersDialog::goToMessageRequested);
+    mModerationUsersWidget->setObjectName(QStringLiteral("mModerationUsersWidget"));
+    mainLayout->addWidget(mModerationUsersWidget);
+    connect(mModerationUsersWidget, &ModerationUsersWidget::goToMessageRequested, this, &ModerationUsersDialog::goToMessageRequested);
 
     auto button = new QDialogButtonBox(QDialogButtonBox::Close, this);
     button->setObjectName(QStringLiteral("button"));
@@ -61,7 +61,7 @@ void ModerationUsersDialog::writeConfig()
 
 void ModerationUsersDialog::setModel(CommonMessageFilterProxyModel *model)
 {
-    mModerationMessagesWidget->setModel(model);
+    mModerationUsersWidget->setModel(model);
 }
 
 #include "moc_moderationusersdialog.cpp"

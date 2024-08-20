@@ -9,7 +9,7 @@
 #include "libruqolawidgets_private_export.h"
 
 #include <QDialog>
-class ModerationMessagesWidget;
+class ModerationUsersWidget;
 class CommonMessageFilterProxyModel;
 class RocketChatAccount;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT ModerationUsersDialog : public QDialog
@@ -27,5 +27,5 @@ private:
     LIBRUQOLAWIDGETS_NO_EXPORT void readConfig();
     LIBRUQOLAWIDGETS_NO_EXPORT void writeConfig();
 
-    ModerationMessagesWidget *const mModerationMessagesWidget;
+    ModerationUsersWidget *const mModerationUsersWidget;
 };
