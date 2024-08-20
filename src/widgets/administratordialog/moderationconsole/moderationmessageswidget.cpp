@@ -42,12 +42,7 @@ ModerationMessagesWidget::ModerationMessagesWidget(RocketChatAccount *account, Q
     connect(mResultListWidget, &MessageListView::goToMessageRequested, this, &ModerationMessagesWidget::goToMessageRequested);
 }
 
-ModerationMessagesWidget::~ModerationMessagesWidget()
-{
-    // if (mCurrentRocketChatAccount) {
-    //     mCurrentRocketChatAccount->clearSearchModel();
-    // }
-}
+ModerationMessagesWidget::~ModerationMessagesWidget() = default;
 
 void ModerationMessagesWidget::updateLabel()
 {

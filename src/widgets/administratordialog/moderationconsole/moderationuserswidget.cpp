@@ -9,15 +9,10 @@
 #include <KLocalizedString>
 #include <QVBoxLayout>
 
-#include "config-ruqola.h"
-
-#if HAVE_TEXT_TO_SPEECH
-#include <TextEditTextToSpeech/TextToSpeechContainerWidget>
-#endif
-
 ModerationUsersWidget::ModerationUsersWidget(RocketChatAccount *account, QWidget *parent)
     : QWidget(parent)
     , mCurrentRocketChatAccount(account)
+// TODO add list ? or QTextDocument
 {
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
