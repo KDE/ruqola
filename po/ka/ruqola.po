@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-08-15 00:39+0000\n"
+"POT-Creation-Date: 2024-08-20 00:40+0000\n"
 "PO-Revision-Date: 2024-08-14 05:38+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
@@ -2787,6 +2787,7 @@ msgid "Show Moderation Report"
 msgstr "მოდერაციის ანგარიშის ჩვენება"
 
 #: widgets/administratordialog/moderationconsole/moderationmessagesdialog.cpp:27
+#: widgets/administratordialog/moderationconsole/moderationusersdialog.cpp:27
 #, kde-format
 msgctxt "@title:window"
 msgid "Show Moderation Messages"
@@ -2818,20 +2819,20 @@ msgstr[0] "ოთახში %1 შეტყობინებაა"
 msgstr[1] "ოთახში %1 შეტყობინებაა"
 
 #: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:37
-#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:37
+#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:38
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Search moderation message…"
 msgstr "მოდერაციის შეტყობინების ძებნა…"
 
 #: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:61
-#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:61
+#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:62
 #, kde-format
 msgid "No moderation message found"
 msgstr "მოდერაციის შეტყობინებების გარეშე"
 
 #: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:66
-#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:66
+#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:67
 #, kde-format
 msgid "%1 moderation message (Total: %2)"
 msgid_plural "%1 moderation messages (Total: %2)"
@@ -2845,7 +2846,7 @@ msgid "See messages"
 msgstr "შეტყობინებების ნახვა"
 
 #: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:140
-#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:137
+#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:138
 #, kde-format
 msgctxt "@action"
 msgid "Dismiss reports"
@@ -2858,24 +2859,27 @@ msgid "Delete all Messages"
 msgstr "ყველა შეტყობინების წაშლა"
 
 #: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:149
-#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:143
+#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:144
 #, kde-format
 msgctxt "@action"
 msgid "Deactivate user"
 msgstr "მომხმარებლის დეაქტივაცია"
 
 #: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:161
-#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:155
-#, kde-format
+#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:156
+#, fuzzy, kde-format
+#| msgid ""
+#| "User will be unable to log in unless reactivated. All reported messages "
+#| "will be permanently deleted from their respective room."
 msgid ""
-"User will be unable to log in unless reactivated. All reported messages will "
-"be permanently deleted from their respective room."
+"User will be unable to log in unless reactivated.\n"
+"All reported messages will be permanently deleted from their respective room."
 msgstr ""
 "მომხმარებელი ვერ შევა, სანამ თავიდან არ გაააქტიურებთ. ყველა შეტყობინება "
 "სამუდამოდ წაიშლება მათი ოთახიდან."
 
 #: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:162
-#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:156
+#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:157
 #, kde-format
 msgctxt "@title:window"
 msgid "Deactivate User"
@@ -2916,19 +2920,19 @@ msgctxt "@title:window"
 msgid "Delete All Messages"
 msgstr "ყველა შეტყობინების წაშლა"
 
-#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:132
+#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:133
 #, kde-format
 msgctxt "@action"
 msgid "See reports"
 msgstr "ანგარიშების ნახვა"
 
-#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:191
+#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:198
 #, kde-format
 msgid ""
 "All reports will be deleted and the reported messages won't be affected."
 msgstr "ყველა ანგარიში წაიშლება და დასახელებული შეტყობინებები არ შეიცვლება."
 
-#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:192
+#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:199
 #, kde-format
 msgctxt "@title:window"
 msgid "Dismiss All Reports"

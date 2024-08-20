@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-08-15 00:39+0000\n"
+"POT-Creation-Date: 2024-08-20 00:40+0000\n"
 "PO-Revision-Date: 2024-08-10 03:10+0200\n"
 "Last-Translator: Vincenzo Reale <smart2128vr@gmail.com>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
@@ -2796,6 +2796,7 @@ msgid "Show Moderation Report"
 msgstr "Mostra rapporto di moderazione"
 
 #: widgets/administratordialog/moderationconsole/moderationmessagesdialog.cpp:27
+#: widgets/administratordialog/moderationconsole/moderationusersdialog.cpp:27
 #, kde-format
 msgctxt "@title:window"
 msgid "Show Moderation Messages"
@@ -2827,20 +2828,20 @@ msgstr[0] "Un messaggio nella stanza"
 msgstr[1] "%1 messaggi nella stanza"
 
 #: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:37
-#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:37
+#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:38
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Search moderation message…"
 msgstr "Cerca messaggio di moderazione…"
 
 #: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:61
-#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:61
+#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:62
 #, kde-format
 msgid "No moderation message found"
 msgstr "Nessun messaggio di moderazione trovato"
 
 #: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:66
-#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:66
+#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:67
 #, kde-format
 msgid "%1 moderation message (Total: %2)"
 msgid_plural "%1 moderation messages (Total: %2)"
@@ -2854,7 +2855,7 @@ msgid "See messages"
 msgstr "Vedi i messaggi"
 
 #: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:140
-#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:137
+#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:138
 #, kde-format
 msgctxt "@action"
 msgid "Dismiss reports"
@@ -2867,25 +2868,28 @@ msgid "Delete all Messages"
 msgstr "Elimina tutti i messaggi"
 
 #: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:149
-#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:143
+#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:144
 #, kde-format
 msgctxt "@action"
 msgid "Deactivate user"
 msgstr "Disattiva utente"
 
 #: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:161
-#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:155
-#, kde-format
+#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:156
+#, fuzzy, kde-format
+#| msgid ""
+#| "User will be unable to log in unless reactivated. All reported messages "
+#| "will be permanently deleted from their respective room."
 msgid ""
-"User will be unable to log in unless reactivated. All reported messages will "
-"be permanently deleted from their respective room."
+"User will be unable to log in unless reactivated.\n"
+"All reported messages will be permanently deleted from their respective room."
 msgstr ""
 "L'utente non sarà in grado di accedere a meno che non venga riattivato. "
 "Tutti i messaggi segnalati saranno eliminati definitivamente dalle "
 "rispettive stanze."
 
 #: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:162
-#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:156
+#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:157
 #, kde-format
 msgctxt "@title:window"
 msgid "Deactivate User"
@@ -2925,13 +2929,13 @@ msgctxt "@title:window"
 msgid "Delete All Messages"
 msgstr "Elimina tutti i messaggi"
 
-#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:132
+#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:133
 #, kde-format
 msgctxt "@action"
 msgid "See reports"
 msgstr "Visualizza le segnalazioni"
 
-#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:191
+#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:198
 #, kde-format
 msgid ""
 "All reports will be deleted and the reported messages won't be affected."
@@ -2939,7 +2943,7 @@ msgstr ""
 "Tutte le segnalazioni saranno eliminate e i messaggi segnalati non saranno "
 "interessati."
 
-#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:192
+#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:199
 #, kde-format
 msgctxt "@title:window"
 msgid "Dismiss All Reports"

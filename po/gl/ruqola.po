@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-08-15 00:39+0000\n"
-"PO-Revision-Date: 2024-08-10 09:09+0200\n"
+"POT-Creation-Date: 2024-08-20 00:40+0000\n"
+"PO-Revision-Date: 2024-08-19 15:40+0200\n"
 "Last-Translator: Adrián Chaves (Gallaecio) <adrian@chaves.io>\n"
 "Language-Team: Proxecto Trasno (proxecto@trasno.gal)\n"
 "Language: gl\n"
@@ -2794,6 +2794,7 @@ msgid "Show Moderation Report"
 msgstr "Amosar o informe de moderación"
 
 #: widgets/administratordialog/moderationconsole/moderationmessagesdialog.cpp:27
+#: widgets/administratordialog/moderationconsole/moderationusersdialog.cpp:27
 #, kde-format
 msgctxt "@title:window"
 msgid "Show Moderation Messages"
@@ -2825,20 +2826,20 @@ msgstr[0] "%1 mensaxe na sala."
 msgstr[1] "%1 mensaxes na sala."
 
 #: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:37
-#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:37
+#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:38
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Search moderation message…"
 msgstr "Buscar na mensaxe de moderación…"
 
 #: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:61
-#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:61
+#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:62
 #, kde-format
 msgid "No moderation message found"
 msgstr "Non se atopou ningunha mensaxe de moderación."
 
 #: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:66
-#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:66
+#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:67
 #, kde-format
 msgid "%1 moderation message (Total: %2)"
 msgid_plural "%1 moderation messages (Total: %2)"
@@ -2852,7 +2853,7 @@ msgid "See messages"
 msgstr "Ver as mensaxes"
 
 #: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:140
-#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:137
+#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:138
 #, kde-format
 msgctxt "@action"
 msgid "Dismiss reports"
@@ -2865,25 +2866,28 @@ msgid "Delete all Messages"
 msgstr "Eliminar todas as mensaxes"
 
 #: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:149
-#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:143
+#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:144
 #, kde-format
 msgctxt "@action"
 msgid "Deactivate user"
 msgstr "Desactivar a persoa usuaria"
 
 #: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:161
-#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:155
-#, kde-format
+#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:156
+#, fuzzy, kde-format
+#| msgid ""
+#| "User will be unable to log in unless reactivated. All reported messages "
+#| "will be permanently deleted from their respective room."
 msgid ""
-"User will be unable to log in unless reactivated. All reported messages will "
-"be permanently deleted from their respective room."
+"User will be unable to log in unless reactivated.\n"
+"All reported messages will be permanently deleted from their respective room."
 msgstr ""
 "A persoa usuaria non poderá acceder a menos que se reactive. Todas as "
 "mensaxes das que se informou eliminaranse permanentemente da sala "
 "correspondente."
 
 #: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:162
-#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:156
+#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:157
 #, kde-format
 msgctxt "@title:window"
 msgid "Deactivate User"
@@ -2923,13 +2927,13 @@ msgctxt "@title:window"
 msgid "Delete All Messages"
 msgstr "Eliminar todas as mensaxes"
 
-#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:132
+#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:133
 #, kde-format
 msgctxt "@action"
 msgid "See reports"
 msgstr "Ver os informes"
 
-#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:191
+#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:198
 #, kde-format
 msgid ""
 "All reports will be deleted and the reported messages won't be affected."
@@ -2937,7 +2941,7 @@ msgstr ""
 "Eliminaranse todos os informes e as mensaxes das que se informou non se "
 "verán afectadas."
 
-#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:192
+#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:199
 #, kde-format
 msgctxt "@title:window"
 msgid "Dismiss All Reports"
@@ -8675,7 +8679,7 @@ msgstr "Enviar un novo código"
 #: widgets/misc/verifynewversionwidget.cpp:30
 #, kde-format
 msgid "Check New Version"
-msgstr ""
+msgstr "Comprobar se hai unha nova versión"
 
 #: widgets/myaccount/myaccount2e2configurewidget.cpp:22
 #, kde-format
@@ -9182,7 +9186,7 @@ msgstr "Desactivar a comprobación da versión"
 #, kde-format
 msgctxt "@action"
 msgid "Check new Version"
-msgstr ""
+msgstr "Comprobar se hai unha nova versión"
 
 #: widgets/needupdateversion/needupdateversionwidget.cpp:42
 #, kde-format
@@ -10574,10 +10578,8 @@ msgid "Allow to clean room history."
 msgstr "Permitir borrar o historial das salas."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:19
-#, fuzzy
-#| msgid "Allow to clean room history."
 msgid "Allow to check new version."
-msgstr "Permitir borrar o historial das salas."
+msgstr "Permitir comprobar se hai unha nova versión."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:29
 #, kde-format
