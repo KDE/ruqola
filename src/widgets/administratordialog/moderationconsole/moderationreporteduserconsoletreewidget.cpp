@@ -6,6 +6,7 @@
 
 #include "moderationreporteduserconsoletreewidget.h"
 #include "administratordialog/moderationconsole/moderationmessagesdialog.h"
+#include "administratordialog/moderationconsole/moderationusersdialog.h"
 #include "connection.h"
 #include "misc/searchwithdelaylineedit.h"
 #include "model/commonmessagefilterproxymodel.h"
@@ -184,12 +185,14 @@ void ModerationReportedUserConsoleTreeWidget::slotShowReportedMessages(const QJs
     qDebug() << "ModerationReportedUserConsoleTreeWidget::slotShowReportedMessages obj " << obj << moderationReportUserInfos;
     // TODO FIX  parser reports/user
 
+    ModerationUsersDialog dlg(mRocketChatAccount, this);
+    dlg.exec();
+
     // TODO create specific dialogbox
 
-    mCommonMessagesModel->parse(obj);
-    ModerationMessagesDialog dlg(mRocketChatAccount, this);
-    dlg.setModel(mCommonMessageFilterProxyModel);
-    dlg.exec();
+    // mCommonMessagesModel->parse(obj);
+    // ModerationMessagesDialog dlg(mRocketChatAccount, this);
+    // dlg.setModel(mCommonMessageFilterProxyModel);
 }
 
 void ModerationReportedUserConsoleTreeWidget::slotDismissReport(const QModelIndex &index)

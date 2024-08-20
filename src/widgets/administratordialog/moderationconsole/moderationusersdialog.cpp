@@ -30,7 +30,6 @@ ModerationUsersDialog::ModerationUsersDialog(RocketChatAccount *account, QWidget
 
     mModerationUsersWidget->setObjectName(QStringLiteral("mModerationUsersWidget"));
     mainLayout->addWidget(mModerationUsersWidget);
-    connect(mModerationUsersWidget, &ModerationUsersWidget::goToMessageRequested, this, &ModerationUsersDialog::goToMessageRequested);
 
     auto button = new QDialogButtonBox(QDialogButtonBox::Close, this);
     button->setObjectName(QStringLiteral("button"));
@@ -57,11 +56,6 @@ void ModerationUsersDialog::writeConfig()
 {
     KConfigGroup group(KSharedConfig::openStateConfig(), QLatin1StringView(myModerationUsersDialogGroupName));
     KWindowConfig::saveWindowSize(windowHandle(), group);
-}
-
-void ModerationUsersDialog::setModel(CommonMessageFilterProxyModel *model)
-{
-    mModerationUsersWidget->setModel(model);
 }
 
 #include "moc_moderationusersdialog.cpp"

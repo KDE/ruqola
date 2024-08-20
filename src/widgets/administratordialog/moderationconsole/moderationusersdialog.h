@@ -19,10 +19,6 @@ public:
     explicit ModerationUsersDialog(RocketChatAccount *account, QWidget *parent = nullptr);
     ~ModerationUsersDialog() override;
 
-    void setModel(CommonMessageFilterProxyModel *model);
-Q_SIGNALS:
-    void goToMessageRequested(const QByteArray &messageId, const QString &messageDateTimeUtc);
-
 private:
     LIBRUQOLAWIDGETS_NO_EXPORT void readConfig();
     LIBRUQOLAWIDGETS_NO_EXPORT void writeConfig();
