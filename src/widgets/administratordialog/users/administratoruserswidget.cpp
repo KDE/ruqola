@@ -272,7 +272,7 @@ void AdministratorUsersWidget::slotCustomContextMenuRequested(const QPoint &pos)
                 slotResetE2EKey(modelIndex);
             });
         }
-        if (mRocketChatAccount->hasPermission(QStringLiteral("edit-other-user-totp"))) {
+        if (mRocketChatAccount->hasPermission(QStringLiteral("edit-other-user-totp")) && mRocketChatAccount->twoFactorAuthenticationEnabled()) {
             menu.addAction(i18nc("@action", "Reset Totp"), this, [this, newModelIndex]() {
                 const QModelIndex modelIndex = mModel->index(newModelIndex.row(), AdminUsersModel::UserId);
                 slotResetTOTPKey(modelIndex);
