@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-08-20 00:40+0000\n"
-"PO-Revision-Date: 2024-08-14 19:22+0300\n"
+"POT-Creation-Date: 2024-08-21 00:47+0000\n"
+"PO-Revision-Date: 2024-08-20 09:40+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
 "Language: uk\n"
@@ -2812,13 +2812,12 @@ msgid "Show Moderation Report"
 msgstr "Показ звіту з модерування"
 
 #: widgets/administratordialog/moderationconsole/moderationmessagesdialog.cpp:27
-#: widgets/administratordialog/moderationconsole/moderationusersdialog.cpp:27
 #, kde-format
 msgctxt "@title:window"
 msgid "Show Moderation Messages"
 msgstr "Показ повідомлень модерування"
 
-#: widgets/administratordialog/moderationconsole/moderationmessageswidget.cpp:55
+#: widgets/administratordialog/moderationconsole/moderationmessageswidget.cpp:50
 #: widgets/dialogs/searchmessagewidget.cpp:173
 #: widgets/dialogs/showlistmessagebasewidget.cpp:97
 #: widgets/discussions/showdiscussionswidget.cpp:88
@@ -2827,7 +2826,7 @@ msgstr "Показ повідомлень модерування"
 msgid "Loading…"
 msgstr "Завантаження…"
 
-#: widgets/administratordialog/moderationconsole/moderationmessageswidget.cpp:57
+#: widgets/administratordialog/moderationconsole/moderationmessageswidget.cpp:52
 #: widgets/dialogs/searchmessagewidget.cpp:177
 #: widgets/dialogs/showlistmessagebasewidget.cpp:99
 #: widgets/room/usersinroomwidget.cpp:137
@@ -2835,7 +2834,7 @@ msgstr "Завантаження…"
 msgid "No Message found"
 msgstr "Відповідного повідомлення не знайдено"
 
-#: widgets/administratordialog/moderationconsole/moderationmessageswidget.cpp:63
+#: widgets/administratordialog/moderationconsole/moderationmessageswidget.cpp:58
 #: widgets/dialogs/searchmessagewidget.cpp:183
 #, kde-format
 msgid "%1 Message in room"
@@ -2846,20 +2845,20 @@ msgstr[2] "%1 повідомлень у кімнаті"
 msgstr[3] "Одне повідомлення у кімнаті"
 
 #: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:37
-#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:38
+#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:39
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Search moderation message…"
 msgstr "Шукати повідомлення для модерації…"
 
 #: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:61
-#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:62
+#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:63
 #, kde-format
 msgid "No moderation message found"
 msgstr "Не знайдено повідомлення для модерації"
 
 #: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:66
-#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:67
+#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:68
 #, kde-format
 msgid "%1 moderation message (Total: %2)"
 msgid_plural "%1 moderation messages (Total: %2)"
@@ -2875,7 +2874,7 @@ msgid "See messages"
 msgstr "Переглянути повідомлення"
 
 #: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:140
-#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:138
+#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:139
 #, kde-format
 msgctxt "@action"
 msgid "Dismiss reports"
@@ -2888,28 +2887,25 @@ msgid "Delete all Messages"
 msgstr "Вилучити усі повідомлення"
 
 #: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:149
-#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:144
+#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:145
 #, kde-format
 msgctxt "@action"
 msgid "Deactivate user"
 msgstr "Деактивувати користувача"
 
 #: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:161
-#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:156
-#, fuzzy, kde-format
-#| msgid ""
-#| "User will be unable to log in unless reactivated. All reported messages "
-#| "will be permanently deleted from their respective room."
+#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:157
+#, kde-format
 msgid ""
 "User will be unable to log in unless reactivated.\n"
 "All reported messages will be permanently deleted from their respective room."
 msgstr ""
 "Користувач не зможе увійти до системи, якщо обліковий запис не буде повторно "
-"активовано. Усі повідомлення зі скаргами буде остаточно вилучено з "
-"відповідної кімнати."
+"активовано.\n"
+"Усі повідомлення зі скаргами буде остаточно вилучено з відповідної кімнати."
 
 #: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:162
-#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:157
+#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:158
 #, kde-format
 msgctxt "@title:window"
 msgid "Deactivate User"
@@ -2950,13 +2946,13 @@ msgctxt "@title:window"
 msgid "Delete All Messages"
 msgstr "Вилучення усіх повідомлень"
 
-#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:133
+#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:134
 #, kde-format
 msgctxt "@action"
 msgid "See reports"
 msgstr "Переглянути скарги"
 
-#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:198
+#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:201
 #, kde-format
 msgid ""
 "All reports will be deleted and the reported messages won't be affected."
@@ -2964,7 +2960,7 @@ msgstr ""
 "Усі скарги буде вилучено, а усі повідомлення зі скаргами лишаться "
 "недоторканими."
 
-#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:199
+#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:202
 #, kde-format
 msgctxt "@title:window"
 msgid "Dismiss All Reports"
@@ -3009,6 +3005,14 @@ msgstr "Вибрати все"
 msgctxt "@info:placeholder"
 msgid "Search…"
 msgstr "Шукати…"
+
+#: widgets/administratordialog/moderationconsole/moderationusersdialog.cpp:27
+#, fuzzy, kde-format
+#| msgctxt "@title:window"
+#| msgid "Show Moderation Messages"
+msgctxt "@title:window"
+msgid "Show Moderation Users"
+msgstr "Показ повідомлень модерування"
 
 #: widgets/administratordialog/oauth/administratoroauthcreatedialog.cpp:25
 #, kde-format
@@ -10656,106 +10660,110 @@ msgstr "Уможливлено очищення журналу кімнати."
 msgid "Allow to check new version."
 msgstr "Уможливити пошук нової версії."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:29
+#: widgets/whatsnew/whatsnewtranslations.cpp:20
+msgid "Implement moderation (administrator mode)."
+msgstr ""
+
+#: widgets/whatsnew/whatsnewtranslations.cpp:30
 #, kde-format
 msgid "Store Message in Local Database (experimental)"
 msgstr ""
 "Зберігати повідомлення у локальній базі даних (експериментальна можливість)"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:31
+#: widgets/whatsnew/whatsnewtranslations.cpp:32
 #, kde-format
 msgid "Download Server Icon from Server"
 msgstr "Отримувати піктограму сервера з сервера"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:32
+#: widgets/whatsnew/whatsnewtranslations.cpp:33
 #, kde-format
 msgid "Show Server Error Info in Specific DialogBox"
 msgstr "Показувати дані помилки сервера у відповідному вікні"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:33
+#: widgets/whatsnew/whatsnewtranslations.cpp:34
 #, kde-format
 msgid "Allow to Copy Image in Clipboard"
 msgstr "Дозволити копіювання зображення до буфера"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:34
+#: widgets/whatsnew/whatsnewtranslations.cpp:35
 #, kde-format
 msgid "Improve debug support (Allow to show current account permissions)"
 msgstr ""
 "Удосконалено підтримку діагностики (уможливлено показ поточних права доступу "
 "облікового запису)"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:35
+#: widgets/whatsnew/whatsnewtranslations.cpp:36
 #, kde-format
 msgid "Add support for quoted text (text which starts by '>')"
 msgstr "Додано підтримку цитованого тексту (тексту, який починається з «>»)"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:36
+#: widgets/whatsnew/whatsnewtranslations.cpp:37
 #, kde-format
 msgid "Show leader/moderator/owner in channel info."
 msgstr "Показувати лідера, модератора та власника у даних каналу."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:37
+#: widgets/whatsnew/whatsnewtranslations.cpp:38
 #, kde-format
 msgid "Video/Sound Message support (kf6 only)."
 msgstr "Підтримка звукових та відеоповідомлень (лише kf6)."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:38
+#: widgets/whatsnew/whatsnewtranslations.cpp:39
 #, kde-format
 msgid "Import/Export Accounts."
 msgstr "Імпортувати/Експортувати облікові записи."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:40
+#: widgets/whatsnew/whatsnewtranslations.cpp:41
 #, kde-format
 msgid "Fix avatar support"
 msgstr "Виправлено підтримку аватарів"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:41
+#: widgets/whatsnew/whatsnewtranslations.cpp:42
 #, kde-format
 msgid "Fix emoji support (use new ktextaddons/textemoticons)"
 msgstr ""
 "Виправлено підтримку емоційок (використано нові ktextaddons/textemoticons)"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:42
+#: widgets/whatsnew/whatsnewtranslations.cpp:43
 #, kde-format
 msgid "Fix animated gif in reactions"
 msgstr "Виправлено анімований gif у реакціях"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:43
+#: widgets/whatsnew/whatsnewtranslations.cpp:44
 #, kde-format
 msgid "Fix kf6 support"
 msgstr "Виправлено підтримку kf6"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:49
+#: widgets/whatsnew/whatsnewtranslations.cpp:50
 #, kde-format
 msgid "Add Moderation Console (Administration, RC server 6.2)"
 msgstr "Додано консоль модерування (адміністрування, сервер RC 6.2)"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:49
+#: widgets/whatsnew/whatsnewtranslations.cpp:50
 #, kde-format
 msgid "Implement message style"
 msgstr "Реалізовано стиль повідомлень"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:49
+#: widgets/whatsnew/whatsnewtranslations.cpp:50
 #, kde-format
 msgid "Implement Url Preview"
 msgstr "Реалізовано попередній перегляд адрес"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:51
+#: widgets/whatsnew/whatsnewtranslations.cpp:52
 #, kde-format
 msgid "Fix markdown support (header + check mark)"
 msgstr "Виправлено підтримку markdown (заголовок + позначка)"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:52
+#: widgets/whatsnew/whatsnewtranslations.cpp:53
 #, kde-format
 msgid "Fix mem leak"
 msgstr "Виправлено виток пам'яті"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:53
+#: widgets/whatsnew/whatsnewtranslations.cpp:54
 #, kde-format
 msgid "Cache message size (optimization)"
 msgstr "Реалізовано кешування розміру повідомлень (оптимізація)"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:54
+#: widgets/whatsnew/whatsnewtranslations.cpp:55
 #, kde-format
 msgid ""
 "Improve select room or user in message line edit (show icon, inform if user "
@@ -10765,7 +10773,7 @@ msgstr ""
 "повідомлення (показ піктограми, інформування про те, що користувач присутній "
 "на каналі)"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:55
+#: widgets/whatsnew/whatsnewtranslations.cpp:56
 #, kde-format
 msgid ""
 "Fix show commands in message line edit (Hide action when room doesn't "
@@ -10774,44 +10782,44 @@ msgstr ""
 "Виправлено показ команд у рядку редагування повідомлень (приховування дій, "
 "підтримки яких у кімнаті не передбачено)."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:56
+#: widgets/whatsnew/whatsnewtranslations.cpp:57
 #, kde-format
 msgid "Fix download sound/video file when it's not in cache."
 msgstr ""
 "Виправити отриманий файл звукових даних або відео, коли він не перебуває у "
 "кеші."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:57
+#: widgets/whatsnew/whatsnewtranslations.cpp:58
 #, kde-format
 msgid "Fix list of authentication method."
 msgstr "Виправлено список способів розпізнавання."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:58
+#: widgets/whatsnew/whatsnewtranslations.cpp:59
 #, kde-format
 msgid "Fix show avatar url."
 msgstr "Виправлено показ адреси аватару."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:66
+#: widgets/whatsnew/whatsnewtranslations.cpp:67
 #, kde-format
 msgid "Allow to increase/decrease font (CTRL++/CTRL+-)"
 msgstr "Дозволити збільшення або зменшення розміру шрифту (CTRL++/CTRL+-)"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:67
+#: widgets/whatsnew/whatsnewtranslations.cpp:68
 #, kde-format
 msgid "Add channel list style (Condensed/Medium/Extended)"
 msgstr "Додати стиль списку каналу (стиснений/середній/розгорнутий)"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:68
+#: widgets/whatsnew/whatsnewtranslations.cpp:69
 #, kde-format
 msgid "Add forward message"
 msgstr "Додати переспрямування повідомлення"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:69
+#: widgets/whatsnew/whatsnewtranslations.cpp:70
 #, kde-format
 msgid "Improve mentions support."
 msgstr "Удосконалено підтримку згадок."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:70
+#: widgets/whatsnew/whatsnewtranslations.cpp:71
 #, kde-format
 msgid ""
 "Add support for deep linking <a href=\"https://developer.rocket.chat/getting-"
@@ -10820,12 +10828,12 @@ msgstr ""
 "Додано підтримку <a href=\"https://developer.rocket.chat/getting-started/"
 "deep-linking\">глибокого пов'язування</a>."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:71
+#: widgets/whatsnew/whatsnewtranslations.cpp:72
 #, kde-format
 msgid "Implement block actions."
 msgstr "Реалізовано дії з блокування."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:72
+#: widgets/whatsnew/whatsnewtranslations.cpp:73
 #, kde-format
 msgid ""
 "Implement personal token authentication. <a href=\"https://bugs.kde.org/"
@@ -10834,84 +10842,84 @@ msgstr ""
 "Реалізовано розпізнавання за особистим жетоном. <a href=\"https://bugs.kde."
 "org/show_bug.cgi?id=481400\">Вада 481400</a>"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:73
+#: widgets/whatsnew/whatsnewtranslations.cpp:74
 #, kde-format
 msgid "Add Plasma Activities Support"
 msgstr "Додано підтримку просторів дій Плазми"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:74
+#: widgets/whatsnew/whatsnewtranslations.cpp:75
 #, kde-format
 msgid "Add Report User Support"
 msgstr "Додано підтримку скарг на користувача"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:75
+#: widgets/whatsnew/whatsnewtranslations.cpp:76
 #, kde-format
 msgid "Implement Channel Sound Notification."
 msgstr "Реалізовано звукові сповіщення щодо дій на каналі."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:76
+#: widgets/whatsnew/whatsnewtranslations.cpp:77
 #, kde-format
 msgid "Implement New Room Sound Notification."
 msgstr "Реалізовано нове звукове сповіщення щодо кімнати."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:77
+#: widgets/whatsnew/whatsnewtranslations.cpp:78
 #, kde-format
 msgid "Implement Sorted/Unsorted markdown list."
 msgstr "Реалізовано упорядковані і неупорядковані списки Markdown."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:80
+#: widgets/whatsnew/whatsnewtranslations.cpp:81
 #, kde-format
 msgid "Fix dark mode support."
 msgstr "Виправлено підтримку темного режиму."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:81
+#: widgets/whatsnew/whatsnewtranslations.cpp:82
 #, kde-format
 msgid "Fix jitsi support."
 msgstr "Виправлено підтримку jitsi."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:82
+#: widgets/whatsnew/whatsnewtranslations.cpp:83
 #, kde-format
 msgid "Fix translate message in direct channel."
 msgstr "Виправлено переклад повідомлень у безпосередньому каналі."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:83
+#: widgets/whatsnew/whatsnewtranslations.cpp:84
 #, kde-format
 msgid "Don't show @here/@all as user."
 msgstr "Вимкнено показ @here/@all як користувача."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:84
+#: widgets/whatsnew/whatsnewtranslations.cpp:85
 #, kde-format
 msgid "Reduce memory footprint."
 msgstr "Зменшити споживання пам'яті."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:85
+#: widgets/whatsnew/whatsnewtranslations.cpp:86
 #, kde-format
 msgid "Use RESTAPI for logging."
 msgstr "Використати RESTAPI для ведення журналу."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:86
+#: widgets/whatsnew/whatsnewtranslations.cpp:87
 #, kde-format
 msgid "Allow to send multi files."
 msgstr "Уможливлено надсилання декількох файлів одночасно."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:87
+#: widgets/whatsnew/whatsnewtranslations.cpp:88
 #, kde-format
 msgid "Fix preview url."
 msgstr "Виправлено адресу попереднього перегляду."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:101
+#: widgets/whatsnew/whatsnewtranslations.cpp:102
 #, kde-format
 msgid ""
 "Clean market application model after 30 minutes (reduce memory footprint)."
 msgstr ""
 "Спорожнити модель ринку програм за 30 хвилин (зменшує використання пам'яті)."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:102
+#: widgets/whatsnew/whatsnewtranslations.cpp:103
 #, kde-format
 msgid "Fix show discussion name in completion."
 msgstr "Виправлено показ назви обговорення при доповненні."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:103
+#: widgets/whatsnew/whatsnewtranslations.cpp:104
 #, kde-format
 msgid "Fix duplicated messages in search message dialog."
 msgstr "Виправлено дублювання повідомлень у вікні пошуку повідомлень."

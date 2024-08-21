@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-08-20 00:40+0000\n"
-"PO-Revision-Date: 2024-08-14 14:30+0300\n"
+"POT-Creation-Date: 2024-08-21 00:47+0000\n"
+"PO-Revision-Date: 2024-08-20 09:32+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -2772,13 +2772,12 @@ msgid "Show Moderation Report"
 msgstr "Moderasyon Raporunu Göster"
 
 #: widgets/administratordialog/moderationconsole/moderationmessagesdialog.cpp:27
-#: widgets/administratordialog/moderationconsole/moderationusersdialog.cpp:27
 #, kde-format
 msgctxt "@title:window"
 msgid "Show Moderation Messages"
 msgstr "Moderasyon İletilerini Göster"
 
-#: widgets/administratordialog/moderationconsole/moderationmessageswidget.cpp:55
+#: widgets/administratordialog/moderationconsole/moderationmessageswidget.cpp:50
 #: widgets/dialogs/searchmessagewidget.cpp:173
 #: widgets/dialogs/showlistmessagebasewidget.cpp:97
 #: widgets/discussions/showdiscussionswidget.cpp:88
@@ -2787,7 +2786,7 @@ msgstr "Moderasyon İletilerini Göster"
 msgid "Loading…"
 msgstr "Yükleniyor…"
 
-#: widgets/administratordialog/moderationconsole/moderationmessageswidget.cpp:57
+#: widgets/administratordialog/moderationconsole/moderationmessageswidget.cpp:52
 #: widgets/dialogs/searchmessagewidget.cpp:177
 #: widgets/dialogs/showlistmessagebasewidget.cpp:99
 #: widgets/room/usersinroomwidget.cpp:137
@@ -2795,7 +2794,7 @@ msgstr "Yükleniyor…"
 msgid "No Message found"
 msgstr "İleti bulunamadı"
 
-#: widgets/administratordialog/moderationconsole/moderationmessageswidget.cpp:63
+#: widgets/administratordialog/moderationconsole/moderationmessageswidget.cpp:58
 #: widgets/dialogs/searchmessagewidget.cpp:183
 #, kde-format
 msgid "%1 Message in room"
@@ -2804,20 +2803,20 @@ msgstr[0] "Odada %1 ileti"
 msgstr[1] "Odada %1 ileti"
 
 #: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:37
-#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:38
+#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:39
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Search moderation message…"
 msgstr "Moderasyon iletisi ara…"
 
 #: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:61
-#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:62
+#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:63
 #, kde-format
 msgid "No moderation message found"
 msgstr "Moderasyon iletisi bulunamadı"
 
 #: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:66
-#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:67
+#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:68
 #, kde-format
 msgid "%1 moderation message (Total: %2)"
 msgid_plural "%1 moderation messages (Total: %2)"
@@ -2831,7 +2830,7 @@ msgid "See messages"
 msgstr "İletileri Gör"
 
 #: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:140
-#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:138
+#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:139
 #, kde-format
 msgctxt "@action"
 msgid "Dismiss reports"
@@ -2844,27 +2843,24 @@ msgid "Delete all Messages"
 msgstr "Tüm İletileri Sil"
 
 #: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:149
-#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:144
+#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:145
 #, kde-format
 msgctxt "@action"
 msgid "Deactivate user"
 msgstr "Kullanıcıyı Pasifleştir"
 
 #: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:161
-#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:156
-#, fuzzy, kde-format
-#| msgid ""
-#| "User will be unable to log in unless reactivated. All reported messages "
-#| "will be permanently deleted from their respective room."
+#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:157
+#, kde-format
 msgid ""
 "User will be unable to log in unless reactivated.\n"
 "All reported messages will be permanently deleted from their respective room."
 msgstr ""
-"Yeniden etkinleştirilmediği sürece kullanıcı yeniden oturum açamaz. Tüm "
-"raporlanan iletiler, ilgili odalarından kalıcı olarak silinecektir."
+"Yeniden etkinleştirilmediği sürece kullanıcı yeniden oturum açamaz.\n"
+"Tüm raporlanan iletiler, ilgili odalarından kalıcı olarak silinecektir."
 
 #: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:162
-#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:157
+#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:158
 #, kde-format
 msgctxt "@title:window"
 msgid "Deactivate User"
@@ -2904,19 +2900,19 @@ msgctxt "@title:window"
 msgid "Delete All Messages"
 msgstr "Tüm İletileri Sil"
 
-#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:133
+#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:134
 #, kde-format
 msgctxt "@action"
 msgid "See reports"
 msgstr "Raporları Gör"
 
-#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:198
+#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:201
 #, kde-format
 msgid ""
 "All reports will be deleted and the reported messages won't be affected."
 msgstr "Tüm raporlar silinecek ve raporlanan iletiler etkilenmeyecek."
 
-#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:199
+#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:202
 #, kde-format
 msgctxt "@title:window"
 msgid "Dismiss All Reports"
@@ -2961,6 +2957,14 @@ msgstr "Tümünü Seç"
 msgctxt "@info:placeholder"
 msgid "Search…"
 msgstr "Ara…"
+
+#: widgets/administratordialog/moderationconsole/moderationusersdialog.cpp:27
+#, fuzzy, kde-format
+#| msgctxt "@title:window"
+#| msgid "Show Moderation Messages"
+msgctxt "@title:window"
+msgid "Show Moderation Users"
+msgstr "Moderasyon İletilerini Göster"
 
 #: widgets/administratordialog/oauth/administratoroauthcreatedialog.cpp:25
 #, kde-format
@@ -10532,105 +10536,109 @@ msgstr "Oda geçmişini temizlemeye izin ver"
 msgid "Allow to check new version."
 msgstr "Yeni sürümleri denetlemeye izin verin."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:29
+#: widgets/whatsnew/whatsnewtranslations.cpp:20
+msgid "Implement moderation (administrator mode)."
+msgstr ""
+
+#: widgets/whatsnew/whatsnewtranslations.cpp:30
 #, kde-format
 msgid "Store Message in Local Database (experimental)"
 msgstr "İletileri yerel veritabanında depola (deneysel)"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:31
+#: widgets/whatsnew/whatsnewtranslations.cpp:32
 #, kde-format
 msgid "Download Server Icon from Server"
 msgstr "Sunucu simgesini sunucudan indir"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:32
+#: widgets/whatsnew/whatsnewtranslations.cpp:33
 #, kde-format
 msgid "Show Server Error Info in Specific DialogBox"
 msgstr "Belirli iletişim kutularında sunucu hatası bilgilerini göster"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:33
+#: widgets/whatsnew/whatsnewtranslations.cpp:34
 #, kde-format
 msgid "Allow to Copy Image in Clipboard"
 msgstr "Panodaki görseli kopyalamaya izin ver"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:34
+#: widgets/whatsnew/whatsnewtranslations.cpp:35
 #, kde-format
 msgid "Improve debug support (Allow to show current account permissions)"
 msgstr ""
 "Hata ayıklama desteğini iyileştir (Geçerli hesap izinlerini göstermeye izin "
 "ver)"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:35
+#: widgets/whatsnew/whatsnewtranslations.cpp:36
 #, kde-format
 msgid "Add support for quoted text (text which starts by '>')"
 msgstr "Alıntı metinler için destek ekle (‘>’ ile başlayan metinler)"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:36
+#: widgets/whatsnew/whatsnewtranslations.cpp:37
 #, kde-format
 msgid "Show leader/moderator/owner in channel info."
 msgstr "Kanal bilgisinde lider/moderatör/sahip bilgisini göster"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:37
+#: widgets/whatsnew/whatsnewtranslations.cpp:38
 #, kde-format
 msgid "Video/Sound Message support (kf6 only)."
 msgstr "Video/Ses iletisi desteği (yalnızca KF6)"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:38
+#: widgets/whatsnew/whatsnewtranslations.cpp:39
 #, kde-format
 msgid "Import/Export Accounts."
 msgstr "Hesapları içe/dışa aktar"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:40
+#: widgets/whatsnew/whatsnewtranslations.cpp:41
 #, kde-format
 msgid "Fix avatar support"
 msgstr "Avatar desteğini onar"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:41
+#: widgets/whatsnew/whatsnewtranslations.cpp:42
 #, kde-format
 msgid "Fix emoji support (use new ktextaddons/textemoticons)"
 msgstr ""
 "Emoji desteğini düzelt (yeni ktextaddons/textemoticons kitaplığını kullan)"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:42
+#: widgets/whatsnew/whatsnewtranslations.cpp:43
 #, kde-format
 msgid "Fix animated gif in reactions"
 msgstr "Tepkilerdeki canlandırmalı GIF’leri onar"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:43
+#: widgets/whatsnew/whatsnewtranslations.cpp:44
 #, kde-format
 msgid "Fix kf6 support"
 msgstr "KF6 desteğini onar"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:49
+#: widgets/whatsnew/whatsnewtranslations.cpp:50
 #, kde-format
 msgid "Add Moderation Console (Administration, RC server 6.2)"
 msgstr "Moderasyon konsolu ekle (yönetim, RC sunucusu, sürüm 6.2)"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:49
+#: widgets/whatsnew/whatsnewtranslations.cpp:50
 #, kde-format
 msgid "Implement message style"
 msgstr "İleti biçemi seçimini gerçekle"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:49
+#: widgets/whatsnew/whatsnewtranslations.cpp:50
 #, kde-format
 msgid "Implement Url Preview"
 msgstr "URL önizlemesini gerçekle"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:51
+#: widgets/whatsnew/whatsnewtranslations.cpp:52
 #, kde-format
 msgid "Fix markdown support (header + check mark)"
 msgstr "Markdown desteğini onar (başlık ve onay kutusu)"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:52
+#: widgets/whatsnew/whatsnewtranslations.cpp:53
 #, kde-format
 msgid "Fix mem leak"
 msgstr "Bellek sızıntısını onar"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:53
+#: widgets/whatsnew/whatsnewtranslations.cpp:54
 #, kde-format
 msgid "Cache message size (optimization)"
 msgstr "Önbellek iletisi boyutu (eniyileme)"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:54
+#: widgets/whatsnew/whatsnewtranslations.cpp:55
 #, kde-format
 msgid ""
 "Improve select room or user in message line edit (show icon, inform if user "
@@ -10639,7 +10647,7 @@ msgstr ""
 "Oda veya ileti satırı düzenlerken kullanıcı seçmeyi iyileştir (simgeyi "
 "göster, kullanıcı kanaldaysa bildir)"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:55
+#: widgets/whatsnew/whatsnewtranslations.cpp:56
 #, kde-format
 msgid ""
 "Fix show commands in message line edit (Hide action when room doesn't "
@@ -10648,42 +10656,42 @@ msgstr ""
 "İleti satırı düzenlemesinde komutları göstermeyi onar (Oda desteklemiyorsa "
 "eylemi gizle)"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:56
+#: widgets/whatsnew/whatsnewtranslations.cpp:57
 #, kde-format
 msgid "Fix download sound/video file when it's not in cache."
 msgstr "Önbellekte değilken ses/video indirme sorununu çöz"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:57
+#: widgets/whatsnew/whatsnewtranslations.cpp:58
 #, kde-format
 msgid "Fix list of authentication method."
 msgstr "Kimlik doğrulama yöntemi listesini düzelt"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:58
+#: widgets/whatsnew/whatsnewtranslations.cpp:59
 #, kde-format
 msgid "Fix show avatar url."
 msgstr "Avatar gösterme URL’sini onar"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:66
+#: widgets/whatsnew/whatsnewtranslations.cpp:67
 #, kde-format
 msgid "Allow to increase/decrease font (CTRL++/CTRL+-)"
 msgstr "Yazıtipi büyüklüğünü artırmaya/azaltmaya izin ver (KONTROL++/-)"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:67
+#: widgets/whatsnew/whatsnewtranslations.cpp:68
 #, kde-format
 msgid "Add channel list style (Condensed/Medium/Extended)"
 msgstr "Kanal listesi biçemi ekle (Sıkıştırılmış/Orta/Genişletilmiş)"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:68
+#: widgets/whatsnew/whatsnewtranslations.cpp:69
 #, kde-format
 msgid "Add forward message"
 msgstr "Yönlendirilecek ileti ekle"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:69
+#: widgets/whatsnew/whatsnewtranslations.cpp:70
 #, kde-format
 msgid "Improve mentions support."
 msgstr "Değinme desteğini iyileştir"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:70
+#: widgets/whatsnew/whatsnewtranslations.cpp:71
 #, kde-format
 msgid ""
 "Add support for deep linking <a href=\"https://developer.rocket.chat/getting-"
@@ -10692,12 +10700,12 @@ msgstr ""
 "<a href=\"https://developer.rocket.chat/getting-started/deep-linking\">Derin "
 "Bağlantılama</a> desteği ekle"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:71
+#: widgets/whatsnew/whatsnewtranslations.cpp:72
 #, kde-format
 msgid "Implement block actions."
 msgstr "Engelleme eylemlerini gerçekle"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:72
+#: widgets/whatsnew/whatsnewtranslations.cpp:73
 #, kde-format
 msgid ""
 "Implement personal token authentication. <a href=\"https://bugs.kde.org/"
@@ -10706,84 +10714,84 @@ msgstr ""
 "Kişisel jeton kullanımını gerçekle — <a href=\"https://bugs.kde.org/show_bug."
 "cgi?id=481400\">481400 numaralı kayıt</a>"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:73
+#: widgets/whatsnew/whatsnewtranslations.cpp:74
 #, kde-format
 msgid "Add Plasma Activities Support"
 msgstr "Plasma Etkinlikler desteği ekle"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:74
+#: widgets/whatsnew/whatsnewtranslations.cpp:75
 #, kde-format
 msgid "Add Report User Support"
 msgstr "Kullanıcıyı bildirme desteği ekle"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:75
+#: widgets/whatsnew/whatsnewtranslations.cpp:76
 #, kde-format
 msgid "Implement Channel Sound Notification."
 msgstr "Kanal sesli bildirimini gerçekle"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:76
+#: widgets/whatsnew/whatsnewtranslations.cpp:77
 #, kde-format
 msgid "Implement New Room Sound Notification."
 msgstr "Yeni oda sesi bildirimini gerçekle"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:77
+#: widgets/whatsnew/whatsnewtranslations.cpp:78
 #, kde-format
 msgid "Implement Sorted/Unsorted markdown list."
 msgstr "Sıralı/sırasız Markdown listelerini gerçekle"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:80
+#: widgets/whatsnew/whatsnewtranslations.cpp:81
 #, kde-format
 msgid "Fix dark mode support."
 msgstr "Koyu kip desteğini onar"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:81
+#: widgets/whatsnew/whatsnewtranslations.cpp:82
 #, kde-format
 msgid "Fix jitsi support."
 msgstr "Jitsi desteğini onar"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:82
+#: widgets/whatsnew/whatsnewtranslations.cpp:83
 #, kde-format
 msgid "Fix translate message in direct channel."
 msgstr "Doğrudan kanaldaki ileti çevirmeyi onar"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:83
+#: widgets/whatsnew/whatsnewtranslations.cpp:84
 #, kde-format
 msgid "Don't show @here/@all as user."
 msgstr "Kullanıcı olarak @burada/@tümü gösterme"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:84
+#: widgets/whatsnew/whatsnewtranslations.cpp:85
 #, kde-format
 msgid "Reduce memory footprint."
 msgstr "Bellek kullanımını azalt"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:85
+#: widgets/whatsnew/whatsnewtranslations.cpp:86
 #, kde-format
 msgid "Use RESTAPI for logging."
 msgstr "Günlükleme için RESTAPI kullan"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:86
+#: widgets/whatsnew/whatsnewtranslations.cpp:87
 #, kde-format
 msgid "Allow to send multi files."
 msgstr "Birden çok dosya göndermeye izin ver"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:87
+#: widgets/whatsnew/whatsnewtranslations.cpp:88
 #, kde-format
 msgid "Fix preview url."
 msgstr "Önizleme URL’sini düzelt"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:101
+#: widgets/whatsnew/whatsnewtranslations.cpp:102
 #, kde-format
 msgid ""
 "Clean market application model after 30 minutes (reduce memory footprint)."
 msgstr ""
 "Mağaza uygulama modelini 30 dakikadan sonra kapat (bellek ayak izini azaltır)"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:102
+#: widgets/whatsnew/whatsnewtranslations.cpp:103
 #, kde-format
 msgid "Fix show discussion name in completion."
 msgstr "Tamamlamada tartışma adını göstermeyi düzelt"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:103
+#: widgets/whatsnew/whatsnewtranslations.cpp:104
 #, kde-format
 msgid "Fix duplicated messages in search message dialog."
 msgstr "İleti arama iletişim kutusundaki yinelenen iletileri onar"
