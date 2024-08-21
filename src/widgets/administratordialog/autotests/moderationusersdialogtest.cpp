@@ -4,8 +4,8 @@
    SPDX-License-Identifier: LGPL-2.0-or-later
 */
 #include "moderationusersdialogtest.h"
-#include "administratordialog/moderationconsole/moderationmessagesdialog.h"
-#include "administratordialog/moderationconsole/moderationmessageswidget.h"
+#include "administratordialog/moderationconsole/moderationusersdialog.h"
+#include "administratordialog/moderationconsole/moderationuserswidget.h"
 #include <QDialogButtonBox>
 #include <QStandardPaths>
 #include <QTest>
@@ -19,14 +19,14 @@ ModerationUsersDialogTest::ModerationUsersDialogTest(QObject *parent)
 
 void ModerationUsersDialogTest::shouldHaveDefaultValues()
 {
-    ModerationMessagesDialog d(nullptr);
+    ModerationUsersDialog d(nullptr);
     QVERIFY(!d.windowTitle().isEmpty());
 
     auto mainLayout = d.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
     QVERIFY(mainLayout);
 
-    auto mModerationMessagesWidget = d.findChild<ModerationMessagesWidget *>(QStringLiteral("mModerationMessagesWidget"));
-    QVERIFY(mModerationMessagesWidget);
+    auto mModerationUsersWidget = d.findChild<ModerationUsersWidget *>(QStringLiteral("mModerationUsersWidget"));
+    QVERIFY(mModerationUsersWidget);
 
     auto button = d.findChild<QDialogButtonBox *>(QStringLiteral("button"));
     QVERIFY(button);

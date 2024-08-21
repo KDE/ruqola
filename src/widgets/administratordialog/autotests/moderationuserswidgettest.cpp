@@ -5,7 +5,7 @@
 */
 
 #include "moderationuserswidgettest.h"
-#include "administratordialog/moderationconsole/moderationmessageswidget.h"
+#include "administratordialog/moderationconsole/moderationuserswidget.h"
 #include <QTest>
 
 QTEST_MAIN(ModerationUsersWidgetTest)
@@ -16,7 +16,7 @@ ModerationUsersWidgetTest::ModerationUsersWidgetTest(QObject *parent)
 
 void ModerationUsersWidgetTest::shouldHaveDefaultValues()
 {
-    ModerationMessagesWidget w(nullptr);
+    ModerationUsersWidget w(nullptr);
     // TODO
 }
 
