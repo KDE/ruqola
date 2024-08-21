@@ -12,6 +12,7 @@
 #include <QDebug>
 #include <QJsonDocument>
 #include <QJsonObject>
+#include <QRandomGenerator>
 
 using namespace Qt::Literals::StringLiterals;
 QByteArray EncryptionUtils::exportJWKKey(RSA *rsaKey)
@@ -178,6 +179,13 @@ QByteArray EncryptionUtils::encryptAES_CBC(const QByteArray &data, const QByteAr
     EVP_CIPHER_CTX_free(ctx);
 
     return QByteArray(reinterpret_cast<char *>(ciphertext), ciphertext_len);
+}
+
+QByteArray EncryptionUtils::generateRandomIV(int size)
+{
+    QByteArray iv(size, 0);
+    // TODO QRandomGenerator::global()->generate(reinterpret_cast<quint8*>(iv.data()), size);
+    return iv;
 }
 
 QByteArray EncryptionUtils::deriveKey(const QByteArray &keyData, const QByteArray &salt, int iterations)

@@ -27,7 +27,7 @@ LIBRUQOLACORE_TESTS_EXPORT void generateRSAKey();
 [[nodiscard]] LIBRUQOLACORE_TESTS_EXPORT QString getMasterKey(const QString &password, const QString &userId);
 [[nodiscard]] LIBRUQOLACORE_TESTS_EXPORT QByteArray encryptAES_CBC(const QByteArray &data, const QByteArray &key, const QByteArray &iv);
 [[nodiscard]] LIBRUQOLACORE_TESTS_EXPORT QByteArray deriveKey(const QByteArray &keyData, const QByteArray &salt, int iterations);
-
+[[nodiscard]] LIBRUQOLACORE_TESTS_EXPORT QByteArray generateRandomIV(int size);
 [[nodiscard]] LIBRUQOLACORE_TESTS_EXPORT EncryptionUtils::EncryptionInfo splitVectorAndEcryptedData(const QByteArray &cipherText);
 [[nodiscard]] LIBRUQOLACORE_TESTS_EXPORT QByteArray joinVectorAndEcryptedData(const EncryptionUtils::EncryptionInfo &info);
 [[nodiscard]] LIBRUQOLACORE_TESTS_EXPORT QVector<uint8_t> toArrayBuffer(const QByteArray &ba);
