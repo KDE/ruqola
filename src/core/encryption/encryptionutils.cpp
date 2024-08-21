@@ -88,8 +88,9 @@ void EncryptionUtils::generateRSAKey()
     BN_free(bne);
 }
 
-QString EncryptionUtils::encodePrivateKey(const QString &privateKey, const QString &password)
+QString EncryptionUtils::encodePrivateKey(const QString &privateKey, const QString &password, const QString &userId)
 {
+    const QString masterKey = getMasterKey(password, userId);
     return {};
 }
 
