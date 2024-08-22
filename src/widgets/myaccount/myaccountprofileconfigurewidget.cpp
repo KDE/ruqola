@@ -198,6 +198,8 @@ void MyAccountProfileConfigureWidget::save()
         updateInfo.newPassword = mPasswordConfirmWidget->password(); // Not encrypt it ???!
         QPointer<KPasswordDialog> dlg = new KPasswordDialog(this);
         dlg->setPrompt(i18n("Current Password"));
+        dlg->setRevealPasswordMode(KAuthorized::authorize(QStringLiteral("lineedit_reveal_password")) ? KPassword::RevealMode::OnlyNew
+                                                                                                      : KPassword::RevealMode::Never);
         if (dlg->exec()) {
             updateInfo.currentPassword = Utils::convertSha256Password(dlg->password());
         } else {
