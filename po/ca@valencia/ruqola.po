@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-06-10 02:50+0000\n"
-"PO-Revision-Date: 2024-08-02 12:46+0200\n"
+"PO-Revision-Date: 2024-08-21 10:37+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca@valencia\n"
@@ -2774,7 +2774,7 @@ msgstr "Mostra l'informe de moderació"
 #, kde-format
 msgctxt "@title:window"
 msgid "Show Moderation Messages"
-msgstr "Mostra els missatges de moderació"
+msgstr "Mostra la moderació de missatges"
 
 #: widgets/administratordialog/moderationconsole/moderationmessageswidget.cpp:55
 #: widgets/dialogs/searchmessagewidget.cpp:101
