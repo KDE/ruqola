@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-08-21 00:47+0000\n"
-"PO-Revision-Date: 2024-08-20 09:38+0200\n"
+"PO-Revision-Date: 2024-08-21 10:37+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca\n"
@@ -2799,7 +2799,7 @@ msgstr "Mostra l'informe de moderació"
 #, kde-format
 msgctxt "@title:window"
 msgid "Show Moderation Messages"
-msgstr "Mostra els missatges de moderació"
+msgstr "Mostra la moderació de missatges"
 
 #: widgets/administratordialog/moderationconsole/moderationmessageswidget.cpp:50
 #: widgets/dialogs/searchmessagewidget.cpp:173
@@ -2986,12 +2986,10 @@ msgid "Search…"
 msgstr "Cerca…"
 
 #: widgets/administratordialog/moderationconsole/moderationusersdialog.cpp:27
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Show Moderation Messages"
+#, kde-format
 msgctxt "@title:window"
 msgid "Show Moderation Users"
-msgstr "Mostra els missatges de moderació"
+msgstr "Mostra la moderació d'usuaris"
 
 #: widgets/administratordialog/oauth/administratoroauthcreatedialog.cpp:25
 #, kde-format
@@ -10599,7 +10597,7 @@ msgstr "Permet comprovar si hi ha una versió nova."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:20
 msgid "Implement moderation (administrator mode)."
-msgstr ""
+msgstr "Implementa la moderació (mode d'administrador)."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:30
 #, kde-format

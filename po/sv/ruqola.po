@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-08-21 00:47+0000\n"
-"PO-Revision-Date: 2024-08-20 07:16+0200\n"
+"PO-Revision-Date: 2024-08-21 08:12+0200\n"
 "Last-Translator: Stefan Asserhäll <stefan.asserhall@gmail.com>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
 "Language: sv\n"
@@ -2967,12 +2967,10 @@ msgid "Search…"
 msgstr "Sök…"
 
 #: widgets/administratordialog/moderationconsole/moderationusersdialog.cpp:27
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Show Moderation Messages"
+#, kde-format
 msgctxt "@title:window"
 msgid "Show Moderation Users"
-msgstr "Visa modereringsmeddelanden"
+msgstr "Visa modereringsanvändare"
 
 #: widgets/administratordialog/oauth/administratoroauthcreatedialog.cpp:25
 #, kde-format
@@ -10539,7 +10537,7 @@ msgstr "Tillåt att kontrollera ny version."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:20
 msgid "Implement moderation (administrator mode)."
-msgstr ""
+msgstr "Implementera moderering (administratörsläge)."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:30
 #, kde-format

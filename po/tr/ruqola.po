@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-08-21 00:47+0000\n"
-"PO-Revision-Date: 2024-08-20 09:32+0300\n"
+"PO-Revision-Date: 2024-08-21 11:54+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -2959,12 +2959,10 @@ msgid "Search…"
 msgstr "Ara…"
 
 #: widgets/administratordialog/moderationconsole/moderationusersdialog.cpp:27
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Show Moderation Messages"
+#, kde-format
 msgctxt "@title:window"
 msgid "Show Moderation Users"
-msgstr "Moderasyon İletilerini Göster"
+msgstr "Moderasyon Kullanıcılarını Göster"
 
 #: widgets/administratordialog/oauth/administratoroauthcreatedialog.cpp:25
 #, kde-format
@@ -10538,7 +10536,7 @@ msgstr "Yeni sürümleri denetlemeye izin verin."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:20
 msgid "Implement moderation (administrator mode)."
-msgstr ""
+msgstr "Moderasyonu gerçekle (yönetim kipi)"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:30
 #, kde-format

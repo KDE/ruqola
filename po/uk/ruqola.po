@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-08-21 00:47+0000\n"
-"PO-Revision-Date: 2024-08-20 09:40+0300\n"
+"PO-Revision-Date: 2024-08-21 16:41+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
 "Language: uk\n"
@@ -3007,12 +3007,10 @@ msgid "Search…"
 msgstr "Шукати…"
 
 #: widgets/administratordialog/moderationconsole/moderationusersdialog.cpp:27
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Show Moderation Messages"
+#, kde-format
 msgctxt "@title:window"
 msgid "Show Moderation Users"
-msgstr "Показ повідомлень модерування"
+msgstr "Показ користувачів модерування"
 
 #: widgets/administratordialog/oauth/administratoroauthcreatedialog.cpp:25
 #, kde-format
@@ -10662,7 +10660,7 @@ msgstr "Уможливити пошук нової версії."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:20
 msgid "Implement moderation (administrator mode)."
-msgstr ""
+msgstr "Реалізовано модерацію (режим адміністратора)."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:30
 #, kde-format

@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-08-21 00:47+0000\n"
-"PO-Revision-Date: 2024-08-15 20:34+0200\n"
+"PO-Revision-Date: 2024-08-21 12:30+0200\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
 "Language: eu\n"
@@ -2886,16 +2886,13 @@ msgstr "Desaktibatu erabiltzailea"
 
 #: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:161
 #: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:157
-#, fuzzy, kde-format
-#| msgid ""
-#| "User will be unable to log in unless reactivated. All reported messages "
-#| "will be permanently deleted from their respective room."
+#, kde-format
 msgid ""
 "User will be unable to log in unless reactivated.\n"
 "All reported messages will be permanently deleted from their respective room."
 msgstr ""
-"Berraktibatu ezean erabiltzaileak ezingo du saiorik hasi. Berri emandako "
-"mezu guztiak haien geletatik betiko ezabatuko dira."
+"Berraktibatu ezean erabiltzaileak ezingo du saioan sartu.\n"
+"Berri emandako mezu guztiak haien geletatik betiko ezabatuko dira."
 
 #: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:162
 #: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:158
@@ -2999,12 +2996,10 @@ msgid "Search…"
 msgstr "Bilatu..."
 
 #: widgets/administratordialog/moderationconsole/moderationusersdialog.cpp:27
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Show Moderation Messages"
+#, kde-format
 msgctxt "@title:window"
 msgid "Show Moderation Users"
-msgstr "Erakutsi moderatze-mezuak"
+msgstr "Erakutsi moderazio erabiltzaileak"
 
 #: widgets/administratordialog/oauth/administratoroauthcreatedialog.cpp:25
 #, kde-format
@@ -10596,7 +10591,7 @@ msgstr "Bertsio berria egiaztatzeko aukera ematen du."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:20
 msgid "Implement moderation (administrator mode)."
-msgstr ""
+msgstr "Moderazioa egin (administratzaile modua)."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:30
 #, kde-format

@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-08-21 00:47+0000\n"
-"PO-Revision-Date: 2024-08-09 12:20+0200\n"
+"PO-Revision-Date: 2024-08-21 10:37+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca@valencia\n"
@@ -2799,7 +2799,7 @@ msgstr "Mostra l'informe de moderació"
 #, kde-format
 msgctxt "@title:window"
 msgid "Show Moderation Messages"
-msgstr "Mostra els missatges de moderació"
+msgstr "Mostra la moderació de missatges"
 
 #: widgets/administratordialog/moderationconsole/moderationmessageswidget.cpp:50
 #: widgets/dialogs/searchmessagewidget.cpp:173
@@ -2875,16 +2875,14 @@ msgstr "Desactiva l'usuari"
 
 #: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:161
 #: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:157
-#, fuzzy, kde-format
-#| msgid ""
-#| "User will be unable to log in unless reactivated. All reported messages "
-#| "will be permanently deleted from their respective room."
+#, kde-format
 msgid ""
 "User will be unable to log in unless reactivated.\n"
 "All reported messages will be permanently deleted from their respective room."
 msgstr ""
-"L'usuari no podrà iniciar sessió tret que es reactive. Tots els missatges "
-"informats se suprimiran permanentment de la sala respectiva."
+"L'usuari no podrà iniciar sessió tret que es reactive.\n"
+"Tots els missatges informats se suprimiran permanentment de la sala "
+"respectiva."
 
 #: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:162
 #: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:158
@@ -2988,12 +2986,10 @@ msgid "Search…"
 msgstr "Busca…"
 
 #: widgets/administratordialog/moderationconsole/moderationusersdialog.cpp:27
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Show Moderation Messages"
+#, kde-format
 msgctxt "@title:window"
 msgid "Show Moderation Users"
-msgstr "Mostra els missatges de moderació"
+msgstr "Mostra la moderació d'usuaris"
 
 #: widgets/administratordialog/oauth/administratoroauthcreatedialog.cpp:25
 #, kde-format
@@ -8696,7 +8692,7 @@ msgstr "Envia un codi nou"
 #: widgets/misc/verifynewversionwidget.cpp:30
 #, kde-format
 msgid "Check New Version"
-msgstr ""
+msgstr "Comprova si hi ha una versió nova"
 
 #: widgets/myaccount/myaccount2e2configurewidget.cpp:22
 #, kde-format
@@ -9200,7 +9196,7 @@ msgstr "Desactiva la comprovació de la versió"
 #, kde-format
 msgctxt "@action"
 msgid "Check new Version"
-msgstr ""
+msgstr "Comprova si hi ha una versió nova"
 
 #: widgets/needupdateversion/needupdateversionwidget.cpp:42
 #, kde-format
@@ -10596,14 +10592,12 @@ msgid "Allow to clean room history."
 msgstr "Permet netejar l'historial de les sales."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:19
-#, fuzzy
-#| msgid "Allow to clean room history."
 msgid "Allow to check new version."
-msgstr "Permet netejar l'historial de les sales."
+msgstr "Permet comprovar si hi ha una versió nova."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:20
 msgid "Implement moderation (administrator mode)."
-msgstr ""
+msgstr "Implementa la moderació (mode administrador)."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:30
 #, kde-format

@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-08-21 00:47+0000\n"
-"PO-Revision-Date: 2024-08-20 06:04+0200\n"
+"PO-Revision-Date: 2024-08-21 05:08+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -2975,12 +2975,10 @@ msgid "Search…"
 msgstr "ძებნა…"
 
 #: widgets/administratordialog/moderationconsole/moderationusersdialog.cpp:27
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Show Moderation Messages"
+#, kde-format
 msgctxt "@title:window"
 msgid "Show Moderation Users"
-msgstr "მოდერაციის შეტყობინებების ჩვენება"
+msgstr "მოდერაციის მომხმარებლების ჩვენება"
 
 #: widgets/administratordialog/oauth/administratoroauthcreatedialog.cpp:25
 #, kde-format
@@ -10537,7 +10535,7 @@ msgstr "ახალი ვერსიის შემოწმების დ
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:20
 msgid "Implement moderation (administrator mode)."
-msgstr ""
+msgstr "მოდერაციის ფუნქციონალი (ადმინისტრატორის რეჟიმი)."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:30
 #, kde-format
