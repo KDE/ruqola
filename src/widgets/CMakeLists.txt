@@ -278,6 +278,8 @@ target_sources(libruqolawidgets PRIVATE
 
     common/userandchannelcompletiondelegate.h
     common/userandchannelcompletiondelegate.cpp
+    common/teamroomcompletiondelegate.cpp
+    common/teamroomcompletiondelegate.h
 
     configuredialog/accountservertreewidget.cpp
     configuredialog/accountservertreewidget.h

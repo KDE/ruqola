@@ -5,6 +5,7 @@
 */
 
 #include "teamroomcompletermodel.h"
+#include "utils.h"
 #include <QModelIndex>
 
 TeamRoomCompleterModel::TeamRoomCompleterModel(QObject *parent)
@@ -51,9 +52,18 @@ QVariant TeamRoomCompleterModel::data(const QModelIndex &index, int role) const
         return room.name();
     case TeamId:
         return room.identifier();
+    case AvatarInfo:
+        return QVariant::fromValue(avatarInfo(room));
     }
 
     return {};
 }
 
+Utils::AvatarInfo TeamRoomCompleterModel::avatarInfo(const TeamRoomCompleter &room) const
+{
+    Utils::AvatarInfo info;
+    info.avatarType = Utils::AvatarType::Room;
+    info.identifier = QString::fromLatin1(room.identifier());
+    return info;
+}
 #include "moc_teamroomcompletermodel.cpp"

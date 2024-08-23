@@ -8,6 +8,7 @@
 
 #include "libruqolacore_export.h"
 #include "teams/teamroomcompleter.h"
+#include "utils.h"
 #include <QAbstractListModel>
 
 class LIBRUQOLACORE_EXPORT TeamRoomCompleterModel : public QAbstractListModel
@@ -18,6 +19,7 @@ public:
     enum TeamRoomCompleterRoles {
         TeamName = Qt::UserRole + 1,
         TeamId,
+        AvatarInfo,
     };
     Q_ENUM(TeamRoomCompleterRoles)
 
@@ -31,6 +33,7 @@ public:
     void setRooms(const QList<TeamRoomCompleter> &rooms);
 
 private:
+    [[nodiscard]] LIBRUQOLACORE_NO_EXPORT Utils::AvatarInfo avatarInfo(const TeamRoomCompleter &room) const;
     Q_DISABLE_COPY(TeamRoomCompleterModel)
     QList<TeamRoomCompleter> mRooms;
 };

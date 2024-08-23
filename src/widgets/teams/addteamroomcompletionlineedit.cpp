@@ -5,6 +5,8 @@
 */
 
 #include "addteamroomcompletionlineedit.h"
+#include "common/teamroomcompletiondelegate.h"
+
 using namespace Qt::Literals::StringLiterals;
 
 #include "common/completionlistview.h"
@@ -31,6 +33,11 @@ AddTeamRoomCompletionLineEdit::AddTeamRoomCompletionLineEdit(RocketChatAccount *
 {
     setPlaceholderText(i18nc("@info:placeholder", "Search rooms…"));
     setCompletionModel(mTeamRoomCompleterModel);
+
+    auto teamRoomCompletionDelegate = new TeamRoomCompletionDelegate(mCompletionListView);
+    teamRoomCompletionDelegate->setRocketChatAccount(account);
+    mCompletionListView->setItemDelegate(teamRoomCompletionDelegate);
+
     connect(this, &AddTeamRoomCompletionLineEdit::complete, this, &AddTeamRoomCompletionLineEdit::slotComplete);
 
     connect(mSearchTimer, &QTimer::timeout, this, &AddTeamRoomCompletionLineEdit::slotSearchTimerFired);
