@@ -117,6 +117,7 @@ void ExportAccountJob::exportLogs(const ImportExportUtils::AccountImportExportIn
 
 void ExportAccountJob::exportDatabase(const ImportExportUtils::AccountImportExportInfo &info)
 {
+    qDebug() << " ExportAccountJob::exportDatabase not implemented";
     // TODO
 }
 
