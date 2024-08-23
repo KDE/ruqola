@@ -26,9 +26,9 @@ Q_SIGNALS:
     void newRoomName(const ChannelSearchNameLineEdit::ChannelCompletionInfo &userInfo);
 
 private:
-    void slotTextChanged(const QString &text);
-    void slotComplete(const QModelIndex &index);
-    void slotSearchDone(const QJsonObject &obj);
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotTextChanged(const QString &text);
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotComplete(const QModelIndex &index);
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotSearchDone(const QJsonObject &obj);
     ChannelCompleterFilterProxyModel *const mChannelCompleterFilterProxyModel;
     InputCompleterModel *const mChannelCompleterModel;
     RocketChatAccount *const mRocketChatAccount;
