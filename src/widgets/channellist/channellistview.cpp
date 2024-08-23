@@ -160,10 +160,18 @@ void ChannelListView::contextMenuEvent(QContextMenuEvent *event)
                         menu.addAction(convertToTeam);
                     }
                 } else {
-                    if (room->hasPermission(QStringLiteral("convert-team"))) {
+                    if (room->hasPermission("edit-team-channel"_L1)) {
                         menu.addSeparator();
                         auto convertToChanne = new QAction(i18nc("@action", "Convert to Channel"), &menu);
                         connect(convertToChanne, &QAction::triggered, this, [this, index]() {
+                            if (KMessageBox::questionTwoActions(this,
+                                                                i18n("Do you want to convert team to channel?"),
+                                                                i18nc("@title:window", "Convert To Channel"),
+                                                                KStandardGuiItem::ok(),
+                                                                KStandardGuiItem::cancel())
+                                == KMessageBox::ButtonCode::SecondaryAction) {
+                                return;
+                            }
                             if (index.isValid()) {
                                 slotConvertToChannel(index);
                             }
