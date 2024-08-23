@@ -121,7 +121,7 @@ MyAccountPreferenceConfigureWidget::MyAccountPreferenceConfigureWidget(RocketCha
 
     createLayout(idleTimeLimitLabel, mIdleTimeLimit, mainLayout);
 
-    QWidget *soundWidget = new QWidget;
+    QWidget *soundWidget = new QWidget(this);
     soundWidget->setObjectName(QStringLiteral("soundWidget"));
     auto soundWidgetLayout = new QVBoxLayout(soundWidget);
     soundWidgetLayout->setObjectName(QStringLiteral("soundWidgetLayout"));
@@ -162,7 +162,7 @@ MyAccountPreferenceConfigureWidget::MyAccountPreferenceConfigureWidget(RocketCha
 
     mainLayout->addWidget(soundWidget);
 
-    QWidget *downloadWidget = new QWidget;
+    QWidget *downloadWidget = new QWidget(this);
     downloadWidget->setObjectName(QStringLiteral("downloadWidget"));
     auto downloadWidgetLayout = new QVBoxLayout(downloadWidget);
     downloadWidgetLayout->setObjectName(QStringLiteral("downloadWidgetLayout"));

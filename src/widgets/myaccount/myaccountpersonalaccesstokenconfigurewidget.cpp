@@ -5,7 +5,6 @@
 */
 
 #include "myaccountpersonalaccesstokenconfigurewidget.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "connection.h"
 #include "model/personalaccesstokeninfosfilterproxymodel.h"
@@ -27,6 +26,7 @@ using namespace Qt::Literals::StringLiterals;
 #include <KMessageBox>
 #include <QLineEdit>
 #include <QVBoxLayout>
+using namespace Qt::Literals::StringLiterals;
 
 MyAccountPersonalAccessTokenConfigureWidget::MyAccountPersonalAccessTokenConfigureWidget(RocketChatAccount *account, QWidget *parent)
     : QWidget{parent}
@@ -35,7 +35,6 @@ MyAccountPersonalAccessTokenConfigureWidget::MyAccountPersonalAccessTokenConfigu
     , mPersonalAccessTokenTreeView(new MyAccountPersonalAccessTokenTreeView(this))
     , mPersonalAccessTokenModel(new PersonalAccessTokenInfosModel(this))
     , mPersonalAccessTokenFilterProxyModel(new PersonalAccessTokenInfosFilterProxyModel(this))
-
 {
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
