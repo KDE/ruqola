@@ -102,6 +102,7 @@ QList<WhatsNewInfo> WhatsNewTranslations::createWhatsNewInfo() const
             i18n("Clean market application model after 30 minutes (reduce memory footprint)."),
             i18n("Fix show discussion name in completion."),
             i18n("Fix duplicated messages in search message dialog."),
+            i18n("Add delegate in search rooms in team dialog."),
         });
 
         listInfo.append(std::move(info));
