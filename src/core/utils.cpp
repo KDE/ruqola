@@ -76,6 +76,23 @@ QString Utils::presenceStatusToString(User::PresenceStatus status)
     return {};
 }
 
+QString Utils::i18nFromPresenceStatus(User::PresenceStatus status)
+{
+    switch (status) {
+    case User::PresenceStatus::Online:
+        return i18n("Online");
+    case User::PresenceStatus::Busy:
+        return i18n("Busy");
+    case User::PresenceStatus::Away:
+        return i18n("Away");
+    case User::PresenceStatus::Offline:
+        return i18n("Offline");
+    case User::PresenceStatus::Unknown:
+        return {};
+    }
+    return {};
+}
+
 QString Utils::iconFromPresenceStatus(User::PresenceStatus status)
 {
     switch (status) {

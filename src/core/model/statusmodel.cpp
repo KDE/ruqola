@@ -56,19 +56,11 @@ void StatusModel::setCurrentPresenceStatus(User::PresenceStatus status)
 
 QString StatusModel::textFromPresenceStatus(User::PresenceStatus status) const
 {
-    switch (status) {
-    case User::PresenceStatus::Online:
-        return i18n("Online");
-    case User::PresenceStatus::Busy:
-        return i18n("Busy");
-    case User::PresenceStatus::Away:
-        return i18n("Away");
-    case User::PresenceStatus::Offline:
-        return i18n("Offline");
-    case User::PresenceStatus::Unknown:
+    const QString statusStr = Utils::i18nFromPresenceStatus(status);
+    if (statusStr.isEmpty()) {
         return i18n("Modify Status…");
     }
-    return {};
+    return statusStr;
 }
 
 QIcon StatusModel::iconFromPresenceStatus(User::PresenceStatus status) const

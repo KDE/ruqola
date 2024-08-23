@@ -25,6 +25,7 @@ struct LIBRUQOLACORE_EXPORT QuotedRichTextInfo {
 [[nodiscard]] LIBRUQOLACORE_TESTS_EXPORT QUrl generateServerUrl(const QString &url);
 [[nodiscard]] LIBRUQOLACORE_EXPORT QString presenceStatusToString(User::PresenceStatus status);
 [[nodiscard]] LIBRUQOLACORE_TESTS_EXPORT User::PresenceStatus presenceStatusFromString(const QString &status);
+[[nodiscard]] LIBRUQOLACORE_EXPORT QString i18nFromPresenceStatus(User::PresenceStatus status);
 [[nodiscard]] LIBRUQOLACORE_EXPORT QString formatQuotedRichText(const QuotedRichTextInfo &info);
 [[nodiscard]] LIBRUQOLACORE_TESTS_EXPORT QString extractRoomUserFromUrl(QString url);
 [[nodiscard]] LIBRUQOLACORE_TESTS_EXPORT QString userIdFromDirectChannel(const QString &rid, const QString &userId);

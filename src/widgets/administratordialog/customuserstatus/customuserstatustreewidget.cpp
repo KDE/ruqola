@@ -59,7 +59,7 @@ void CustomUserStatusTreeWidget::initialize()
         auto item = new CustomUserStatusTreeWidgetItem(this);
         item->setUserStatus(status);
         item->setText(CustomUserStatusTreeWidget::Name, status.name());
-        item->setText(CustomUserStatusTreeWidget::Presence, Utils::presenceStatusToString(status.statusType()));
+        item->setText(CustomUserStatusTreeWidget::Presence, Utils::i18nFromPresenceStatus(status.statusType()));
     }
     setSortingEnabled(true);
     header()->setSortIndicatorShown(true);
