@@ -6,7 +6,6 @@
 
 #include "myaccount2e2configurewidget.h"
 #include "connection.h"
-#include "e2e/resetowne2ekeyjob.h"
 #include "misc/methodcalljob.h"
 #include "misc/passwordconfirmwidget.h"
 #include "rocketchataccount.h"
