@@ -56,19 +56,15 @@ void UserCompletionDelegate::paint(QPainter *painter, const QStyleOptionViewItem
     QFontMetrics fontMetrics(boldFont);
     const QString name = index.data(UserCompleterModel::DisplayName).toString();
     const QString userName = index.data(UserCompleterModel::UserName).toString();
-    int nameWidth = -1;
     const int defaultCharHeight = option.rect.y() + fontMetrics.ascent();
     if (name.isEmpty()) {
-        // nameWidth = fontMetrics.horizontalAdvance(userName);
         painter->drawText(xPos + margin, defaultCharHeight, userName);
     } else {
-        nameWidth = fontMetrics.horizontalAdvance(name);
+        int nameWidth = fontMetrics.horizontalAdvance(name);
         painter->drawText(xPos + margin, defaultCharHeight, name);
         xPos += nameWidth;
         if (!userName.isEmpty()) {
             painter->setFont(oldFont);
-            // fontMetrics = QFontMetrics(oldFont);
-            // nameWidth = fontMetrics.horizontalAdvance(userName);
             painter->drawText(xPos + margin * 2, defaultCharHeight, userName);
         }
     }
