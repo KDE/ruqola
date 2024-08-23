@@ -73,6 +73,7 @@ RoomHeaderWidget::RoomHeaderWidget(QWidget *parent)
     headerLayout->addWidget(mEncryptedButton, 0, Qt::AlignTop);
     connect(mEncryptedButton, &QToolButton::clicked, this, &RoomHeaderWidget::encryptedChanged);
 
+    mRoomIcon->setMargin(1);
     headerLayout->addWidget(mRoomIcon, 0, Qt::AlignTop);
 
     auto infoLayout = new QVBoxLayout;
