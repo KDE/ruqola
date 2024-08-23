@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-08-21 00:47+0000\n"
+"POT-Creation-Date: 2024-08-23 00:39+0000\n"
 "PO-Revision-Date: 2024-02-03 02:20+0200\n"
 "Last-Translator: Moo\n"
 "Language-Team: none\n"
@@ -9549,21 +9549,21 @@ msgstr ""
 msgid "Status text:"
 msgstr "Būsenos tekstas:"
 
-#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:125
+#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:126
 #, fuzzy, kde-format
 #| msgid "Do you want to delete '%1' account?"
 msgid "Do you really want to delete your account?"
 msgstr "Ar norite ištrinti paskyrą \"%1\"?"
 
-#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:126
+#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:127
 #, fuzzy, kde-format
 #| msgid "Delete Account"
 msgctxt "@title"
 msgid "Delete my Account"
 msgstr "Ištrinti paskyrą"
 
-#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:132
-#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:199
+#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:133
+#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:200
 #, fuzzy, kde-format
 #| msgid "Password"
 msgid "Current Password"

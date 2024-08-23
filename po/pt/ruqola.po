@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-08-21 00:47+0000\n"
+"POT-Creation-Date: 2024-08-23 00:39+0000\n"
 "PO-Revision-Date: 2023-07-14 22:16+0100\n"
 "Last-Translator: José Nuno Coelho Pires <zepires@gmail.com>\n"
 "Language-Team: Portuguese <kde-i18n-pt@kde.org>\n"
@@ -9805,20 +9805,20 @@ msgstr "Encerrar as Outras Sessões Iniciadas"
 msgid "Status text:"
 msgstr "Texto do estado:"
 
-#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:125
+#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:126
 #, fuzzy, kde-format
 #| msgid "Do you really delete your account ?"
 msgid "Do you really want to delete your account?"
 msgstr "Deseja realmente apagar a sua conta ?"
 
-#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:126
+#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:127
 #, kde-format
 msgctxt "@title"
 msgid "Delete my Account"
 msgstr "Apagar a Minha Conta"
 
-#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:132
-#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:199
+#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:133
+#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:200
 #, kde-format
 msgid "Current Password"
 msgstr "Senha Actual"

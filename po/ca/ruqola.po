@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-08-21 00:47+0000\n"
+"POT-Creation-Date: 2024-08-23 00:39+0000\n"
 "PO-Revision-Date: 2024-08-21 10:37+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
@@ -9169,19 +9169,19 @@ msgstr "Desconnecta des d'altres ubicacions connectades"
 msgid "Status text:"
 msgstr "Text de l'estat:"
 
-#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:125
+#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:126
 #, kde-format
 msgid "Do you really want to delete your account?"
 msgstr "Voleu suprimir el vostre compte?"
 
-#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:126
+#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:127
 #, kde-format
 msgctxt "@title"
 msgid "Delete my Account"
 msgstr "Supressió del meu compte"
 
-#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:132
-#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:199
+#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:133
+#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:200
 #, kde-format
 msgid "Current Password"
 msgstr "Contrasenya actual"
