@@ -42,6 +42,7 @@ public:
 
 private:
     [[nodiscard]] LIBRUQOLACORE_NO_EXPORT QString expireInvitation(const InviteInfo &inviteInfo) const;
+    [[nodiscard]] LIBRUQOLACORE_NO_EXPORT QString maxUses(int uses) const;
     LIBRUQOLACORE_NO_EXPORT void clear();
     QList<InviteInfo> mAdminInvites;
 };

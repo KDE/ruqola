@@ -102,11 +102,19 @@ QVariant AdminInviteModel::data(const QModelIndex &index, int role) const
     case AdminInviteModel::Uses:
         return inviteInfo.uses();
     case AdminInviteModel::MaxUses:
-        return inviteInfo.maxUses();
+        return maxUses(inviteInfo.maxUses());
     case AdminInviteModel::Expire:
         return expireInvitation(inviteInfo);
     }
     return {};
+}
+
+QString AdminInviteModel::maxUses(int uses) const
+{
+    if (uses == 0) {
+        return i18n("Unlimited");
+    }
+    return QString::number(uses);
 }
 
 QString AdminInviteModel::expireInvitation(const InviteInfo &inviteInfo) const
