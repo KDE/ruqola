@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-08-23 00:39+0000\n"
+"POT-Creation-Date: 2024-08-24 00:39+0000\n"
 "PO-Revision-Date: 2024-08-21 12:30+0200\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
@@ -1172,30 +1172,7 @@ msgstr "Mezu pribatua"
 msgid "Unknown"
 msgstr "Ezezaguna"
 
-#: core/model/statusmodel.cpp:61 core/utils.cpp:431
-#, kde-format
-msgid "Online"
-msgstr "Lerroan"
-
-#: core/model/statusmodel.cpp:63 core/utils.cpp:433
-#: widgets/room/usersinroomcombobox.cpp:24
-#, kde-format
-msgid "Busy"
-msgstr "Lanpetuta"
-
-#: core/model/statusmodel.cpp:65 core/utils.cpp:435
-#: widgets/room/usersinroomcombobox.cpp:23
-#, kde-format
-msgid "Away"
-msgstr "Aldendua"
-
-#: core/model/statusmodel.cpp:67 core/model/usersmodel.cpp:73
-#: core/utils.cpp:437
-#, kde-format
-msgid "Offline"
-msgstr "Lerroz kanpo"
-
-#: core/model/statusmodel.cpp:69
+#: core/model/statusmodel.cpp:61
 #, kde-format
 msgid "Modify Status…"
 msgstr "Aldatu egoera..."
@@ -1375,6 +1352,11 @@ msgstr "Talde honetara batu da"
 msgid "(Autojoin)"
 msgstr "(automatikoki batu)"
 
+#: core/model/usersmodel.cpp:73 core/utils.cpp:89 core/utils.cpp:454
+#, kde-format
+msgid "Offline"
+msgstr "Lerroz kanpo"
+
 #: core/notifications/notification.cpp:81
 #, kde-format
 msgid "%1 has %2 Unread Message"
@@ -1547,6 +1529,21 @@ msgstr "Administratzailea"
 #, kde-format
 msgid "Bot"
 msgstr "Bota"
+
+#: core/utils.cpp:83 core/utils.cpp:448
+#, kde-format
+msgid "Online"
+msgstr "Lerroan"
+
+#: core/utils.cpp:85 core/utils.cpp:450 widgets/room/usersinroomcombobox.cpp:24
+#, kde-format
+msgid "Busy"
+msgstr "Lanpetuta"
+
+#: core/utils.cpp:87 core/utils.cpp:452 widgets/room/usersinroomcombobox.cpp:23
+#, kde-format
+msgid "Away"
+msgstr "Aldendua"
 
 #: core/videoconference/videoconferenceinfo.cpp:286
 #: core/videoconference/videoconferenceinfo.cpp:288
@@ -6716,41 +6713,55 @@ msgctxt "@action"
 msgid "Convert to Channel"
 msgstr "Bihurtu kanal"
 
-#: widgets/channellist/channellistview.cpp:177
+#: widgets/channellist/channellistview.cpp:168
+#, fuzzy, kde-format
+#| msgid "Do you want to convert this big text as attachment?"
+msgid "Do you want to convert team to channel?"
+msgstr "Testu handi hau eranskin bihurtu nahi duzu?"
+
+#: widgets/channellist/channellistview.cpp:169
+#, fuzzy, kde-format
+#| msgctxt "@action"
+#| msgid "Convert to Channel"
+msgctxt "@title:window"
+msgid "Convert To Channel"
+msgstr "Bihurtu kanal"
+
+#: widgets/channellist/channellistview.cpp:185
 #, kde-format
 msgctxt "@action"
 msgid "Move to Team"
 msgstr "Mugitu taldera"
 
-#: widgets/channellist/channellistview.cpp:194
+#: widgets/channellist/channellistview.cpp:202
 #, kde-format
 msgctxt "@action"
 msgid "Configure Notification…"
 msgstr "Konfiguratu jakinarazpena..."
 
-#: widgets/channellist/channellistview.cpp:201
+#: widgets/channellist/channellistview.cpp:209
 #, kde-format
 msgctxt "@action"
 msgid "Quit Channel"
 msgstr "Irten kanaletik"
 
-#: widgets/channellist/channellistview.cpp:244
+#: widgets/channellist/channellistview.cpp:252
 #, kde-format
 msgid "Any team selected."
 msgstr "Hautatutako talde oro."
 
-#: widgets/channellist/channellistview.cpp:244
+#: widgets/channellist/channellistview.cpp:252
 #, kde-format
 msgctxt "@title:window"
 msgid "Move To Team"
 msgstr "Mugitu taldera"
 
-#: widgets/channellist/channellistview.cpp:293
+#: widgets/channellist/channellistview.cpp:301
 #, kde-format
 msgid "Are you sure to convert it to team? It can not be undo."
 msgstr "Ziur zaude talde bihurtu nahi duzula? Ezin da desegin."
 
-#: widgets/channellist/channellistview.cpp:294
+#: widgets/channellist/channellistview.cpp:302
 #, kde-format
 msgctxt "@title:window"
 msgid "Convert to Team"
@@ -8080,7 +8091,7 @@ msgstr "Ez duzu orrialde hau ikusteko baimenik."
 
 #: widgets/directory/directorywidget.cpp:34
 #: widgets/misc/joinedchannelcompletionlineeditbase.cpp:25
-#: widgets/teams/addteamroomcompletionlineedit.cpp:32
+#: widgets/teams/addteamroomcompletionlineedit.cpp:34
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Search rooms…"
@@ -8346,7 +8357,7 @@ msgstr "%1 kontua: cachea esportatzea burutu da."
 msgid "Account %1: export logs done."
 msgstr "%1 kontua: egunkariak esportatzea burutu da."
 
-#: widgets/importexportdata/exportdata/exportaccountjob.cpp:140
+#: widgets/importexportdata/exportdata/exportaccountjob.cpp:141
 #, kde-format
 msgid "Directory \"%1\" cannot be added to backup file."
 msgstr "\"%1\" direktorioa ezin da gehitu babeskopia fitxategira."
@@ -8686,13 +8697,13 @@ msgstr "Bidali kode berria"
 msgid "Check New Version"
 msgstr "Egiaztatu bertsio berririk dagoen"
 
-#: widgets/myaccount/myaccount2e2configurewidget.cpp:22
+#: widgets/myaccount/myaccount2e2configurewidget.cpp:21
 #, kde-format
 msgctxt "@action:button"
 msgid "Reset E2E Key"
 msgstr "Berrezarri E2E gakoa"
 
-#: widgets/myaccount/myaccount2e2configurewidget.cpp:30
+#: widgets/myaccount/myaccount2e2configurewidget.cpp:29
 #, kde-format
 msgctxt "@label:textbox"
 msgid ""
@@ -8710,7 +8721,7 @@ msgstr ""
 "duzu. e2e zifratzea erabili nahi duzun beste gailu batzuetan hura sartzea "
 "eskatuko zaizu."
 
-#: widgets/myaccount/myaccount2e2configurewidget.cpp:43
+#: widgets/myaccount/myaccount2e2configurewidget.cpp:42
 #, kde-format
 msgid ""
 "This option will remove your current E2E key and log you out. When you login "
@@ -8879,14 +8890,14 @@ msgctxt "@option:check"
 msgid "Ignore Two Factor Authentication"
 msgstr "Ezikusi bi faktoreko kautotzea"
 
-#: widgets/myaccount/myaccountpersonalaccesstokenconfigurewidget.cpp:47
+#: widgets/myaccount/myaccountpersonalaccesstokenconfigurewidget.cpp:46
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Search Personal Access Token…"
 msgstr "Bilatu sarbide pertsonaleko tokena..."
 
-#: widgets/myaccount/myaccountpersonalaccesstokenconfigurewidget.cpp:125
-#: widgets/myaccount/myaccountpersonalaccesstokenconfigurewidget.cpp:199
+#: widgets/myaccount/myaccountpersonalaccesstokenconfigurewidget.cpp:124
+#: widgets/myaccount/myaccountpersonalaccesstokenconfigurewidget.cpp:198
 #, kde-format
 msgid ""
 "<qt>Please save your token carefully as you will no longer be able to view "
@@ -8895,24 +8906,24 @@ msgstr ""
 "<qt>Mesedez, gorde zure tokena kontuz, ondoren ez baituzu hura ikusteko "
 "aukera izango.<br><b>Tokena:</b> %1<br><b>Zure erabiltzaile ID:</b> %2</qt>"
 
-#: widgets/myaccount/myaccountpersonalaccesstokenconfigurewidget.cpp:130
+#: widgets/myaccount/myaccountpersonalaccesstokenconfigurewidget.cpp:129
 #, kde-format
 msgctxt "@title:window"
 msgid "Personal Token Created"
 msgstr "Token pertsonala sortu da"
 
-#: widgets/myaccount/myaccountpersonalaccesstokenconfigurewidget.cpp:165
+#: widgets/myaccount/myaccountpersonalaccesstokenconfigurewidget.cpp:164
 #, kde-format
 msgid "Personal Token removed."
 msgstr "Token pertsonala kendu da."
 
-#: widgets/myaccount/myaccountpersonalaccesstokenconfigurewidget.cpp:165
+#: widgets/myaccount/myaccountpersonalaccesstokenconfigurewidget.cpp:164
 #, kde-format
 msgctxt "@title:window"
 msgid "Remove Personal Token"
 msgstr "Kendu token pertsonala"
 
-#: widgets/myaccount/myaccountpersonalaccesstokenconfigurewidget.cpp:204
+#: widgets/myaccount/myaccountpersonalaccesstokenconfigurewidget.cpp:203
 #, kde-format
 msgctxt "@title:window"
 msgid "Personal Token Regenerated"
@@ -9811,62 +9822,62 @@ msgctxt "@info:tooltip"
 msgid "E2E Enabled"
 msgstr "E2E gaituta"
 
-#: widgets/room/roomheaderwidget.cpp:112
+#: widgets/room/roomheaderwidget.cpp:113
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Call"
 msgstr "Deitu"
 
-#: widgets/room/roomheaderwidget.cpp:114
+#: widgets/room/roomheaderwidget.cpp:115
 #, kde-format
 msgid "Call"
 msgstr "Deitu"
 
-#: widgets/room/roomheaderwidget.cpp:123
+#: widgets/room/roomheaderwidget.cpp:124
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Channel's Information"
 msgstr "Kanalaren informazioa"
 
-#: widgets/room/roomheaderwidget.cpp:125 widgets/room/roomheaderwidget.cpp:232
+#: widgets/room/roomheaderwidget.cpp:126 widgets/room/roomheaderwidget.cpp:233
 #, kde-format
 msgid "Channel's Information"
 msgstr "Kanalaren informazioa"
 
-#: widgets/room/roomheaderwidget.cpp:134
+#: widgets/room/roomheaderwidget.cpp:135
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Team Channels"
 msgstr "Taldearen kanalak"
 
-#: widgets/room/roomheaderwidget.cpp:136
+#: widgets/room/roomheaderwidget.cpp:137
 #, kde-format
 msgid "Team Channels"
 msgstr "Taldearen kanalak"
 
-#: widgets/room/roomheaderwidget.cpp:146
+#: widgets/room/roomheaderwidget.cpp:147
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Show List of Users"
 msgstr "Erakutsi erabiltzaileen zerrenda"
 
-#: widgets/room/roomheaderwidget.cpp:148
+#: widgets/room/roomheaderwidget.cpp:149
 #, kde-format
 msgid "Show List of Users"
 msgstr "Erakutsi erabiltzaileen zerrenda"
 
-#: widgets/room/roomheaderwidget.cpp:159
+#: widgets/room/roomheaderwidget.cpp:160
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Search Messages…"
 msgstr "Bilatu mezuak..."
 
-#: widgets/room/roomheaderwidget.cpp:161
+#: widgets/room/roomheaderwidget.cpp:162
 #, kde-format
 msgid "Search Messages…"
 msgstr "Bilatu mezuak..."
 
-#: widgets/room/roomheaderwidget.cpp:232
+#: widgets/room/roomheaderwidget.cpp:233
 #, kde-format
 msgid "Team's Information"
 msgstr "Taldearen informazioa"
@@ -10846,6 +10857,12 @@ msgstr "Erakutsi elkarrizketa-izena osatzean konpontzea."
 #: widgets/whatsnew/whatsnewtranslations.cpp:104
 #, kde-format
 msgid "Fix duplicated messages in search message dialog."
+msgstr "Mezua bilatu elkarrizketa-koadroan bikoiztutako mezuak konpontzea."
+
+#: widgets/whatsnew/whatsnewtranslations.cpp:105
+#, fuzzy, kde-format
+#| msgid "Fix duplicated messages in search message dialog."
+msgid "Add delegate in search rooms in team dialog."
 msgstr "Mezua bilatu elkarrizketa-koadroan bikoiztutako mezuak konpontzea."
 
 #: widgets/whatsnew/whatsnewwidget.cpp:44

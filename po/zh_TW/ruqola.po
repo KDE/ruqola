@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-08-23 00:39+0000\n"
+"POT-Creation-Date: 2024-08-24 00:39+0000\n"
 "PO-Revision-Date: 2024-08-06 05:33+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
@@ -1155,30 +1155,7 @@ msgstr "私訊"
 msgid "Unknown"
 msgstr "未知"
 
-#: core/model/statusmodel.cpp:61 core/utils.cpp:431
-#, kde-format
-msgid "Online"
-msgstr "線上"
-
-#: core/model/statusmodel.cpp:63 core/utils.cpp:433
-#: widgets/room/usersinroomcombobox.cpp:24
-#, kde-format
-msgid "Busy"
-msgstr "忙碌"
-
-#: core/model/statusmodel.cpp:65 core/utils.cpp:435
-#: widgets/room/usersinroomcombobox.cpp:23
-#, kde-format
-msgid "Away"
-msgstr "離席"
-
-#: core/model/statusmodel.cpp:67 core/model/usersmodel.cpp:73
-#: core/utils.cpp:437
-#, kde-format
-msgid "Offline"
-msgstr "離線"
-
-#: core/model/statusmodel.cpp:69
+#: core/model/statusmodel.cpp:61
 #, kde-format
 msgid "Modify Status…"
 msgstr "修改狀態…"
@@ -1361,6 +1338,11 @@ msgstr "已加入此團隊"
 msgid "(Autojoin)"
 msgstr "（自動加入）"
 
+#: core/model/usersmodel.cpp:73 core/utils.cpp:89 core/utils.cpp:454
+#, kde-format
+msgid "Offline"
+msgstr "離線"
+
 #: core/notifications/notification.cpp:81
 #, kde-format
 msgid "%1 has %2 Unread Message"
@@ -1536,6 +1518,21 @@ msgstr "管理員"
 #, kde-format
 msgid "Bot"
 msgstr "機器人"
+
+#: core/utils.cpp:83 core/utils.cpp:448
+#, kde-format
+msgid "Online"
+msgstr "線上"
+
+#: core/utils.cpp:85 core/utils.cpp:450 widgets/room/usersinroomcombobox.cpp:24
+#, kde-format
+msgid "Busy"
+msgstr "忙碌"
+
+#: core/utils.cpp:87 core/utils.cpp:452 widgets/room/usersinroomcombobox.cpp:23
+#, kde-format
+msgid "Away"
+msgstr "離席"
 
 #: core/videoconference/videoconferenceinfo.cpp:286
 #: core/videoconference/videoconferenceinfo.cpp:288
@@ -6819,45 +6816,58 @@ msgctxt "@action"
 msgid "Convert to Channel"
 msgstr "轉換為頻道"
 
-#: widgets/channellist/channellistview.cpp:177
+#: widgets/channellist/channellistview.cpp:168
+#, fuzzy, kde-format
+#| msgid "Do you want to delete this attachment?"
+msgid "Do you want to convert team to channel?"
+msgstr "您確定要刪除此附件嗎？"
+
+#: widgets/channellist/channellistview.cpp:169
+#, fuzzy, kde-format
+#| msgid "Convert to Channel"
+msgctxt "@title:window"
+msgid "Convert To Channel"
+msgstr "轉換為頻道"
+
+#: widgets/channellist/channellistview.cpp:185
 #, fuzzy, kde-format
 #| msgid "Move to Team"
 msgctxt "@action"
 msgid "Move to Team"
 msgstr "移動到團隊"
 
-#: widgets/channellist/channellistview.cpp:194
+#: widgets/channellist/channellistview.cpp:202
 #, fuzzy, kde-format
 #| msgid "Configure Notification"
 msgctxt "@action"
 msgid "Configure Notification…"
 msgstr "設定通知"
 
-#: widgets/channellist/channellistview.cpp:201
+#: widgets/channellist/channellistview.cpp:209
 #, fuzzy, kde-format
 #| msgid "Quit Channel"
 msgctxt "@action"
 msgid "Quit Channel"
 msgstr "離開頻道"
 
-#: widgets/channellist/channellistview.cpp:244
+#: widgets/channellist/channellistview.cpp:252
 #, kde-format
 msgid "Any team selected."
 msgstr "任何選取的團隊。"
 
-#: widgets/channellist/channellistview.cpp:244
+#: widgets/channellist/channellistview.cpp:252
 #, fuzzy, kde-format
 #| msgid "Move To Team"
 msgctxt "@title:window"
 msgid "Move To Team"
 msgstr "移動到團隊"
 
-#: widgets/channellist/channellistview.cpp:293
+#: widgets/channellist/channellistview.cpp:301
 #, kde-format
 msgid "Are you sure to convert it to team? It can not be undo."
 msgstr "您確定要將它轉換為團隊？這個動作無法復原。"
 
-#: widgets/channellist/channellistview.cpp:294
+#: widgets/channellist/channellistview.cpp:302
 #, kde-format
 msgctxt "@title:window"
 msgid "Convert to Team"
@@ -8250,7 +8260,7 @@ msgstr ""
 
 #: widgets/directory/directorywidget.cpp:34
 #: widgets/misc/joinedchannelcompletionlineeditbase.cpp:25
-#: widgets/teams/addteamroomcompletionlineedit.cpp:32
+#: widgets/teams/addteamroomcompletionlineedit.cpp:34
 #, fuzzy, kde-format
 #| msgid "Search Room... (%1)"
 msgctxt "@info:placeholder"
@@ -8513,7 +8523,7 @@ msgstr "帳戶 %1：已匯出快取。"
 msgid "Account %1: export logs done."
 msgstr "帳戶 %1：已匯出紀錄。"
 
-#: widgets/importexportdata/exportdata/exportaccountjob.cpp:140
+#: widgets/importexportdata/exportdata/exportaccountjob.cpp:141
 #, kde-format
 msgid "Directory \"%1\" cannot be added to backup file."
 msgstr "目錄 \"%1\" 無法加入備份檔。"
@@ -8867,14 +8877,14 @@ msgstr "輸入新的驗證碼"
 msgid "Check New Version"
 msgstr "Node 版本"
 
-#: widgets/myaccount/myaccount2e2configurewidget.cpp:22
+#: widgets/myaccount/myaccount2e2configurewidget.cpp:21
 #, fuzzy, kde-format
 #| msgid "Password"
 msgctxt "@action:button"
 msgid "Reset E2E Key"
 msgstr "密碼"
 
-#: widgets/myaccount/myaccount2e2configurewidget.cpp:30
+#: widgets/myaccount/myaccount2e2configurewidget.cpp:29
 #, kde-format
 msgctxt "@label:textbox"
 msgid ""
@@ -8886,7 +8896,7 @@ msgid ""
 "encryption on."
 msgstr ""
 
-#: widgets/myaccount/myaccount2e2configurewidget.cpp:43
+#: widgets/myaccount/myaccount2e2configurewidget.cpp:42
 #, kde-format
 msgid ""
 "This option will remove your current E2E key and log you out. When you login "
@@ -9048,41 +9058,41 @@ msgctxt "@option:check"
 msgid "Ignore Two Factor Authentication"
 msgstr "忽略兩步驟驗證"
 
-#: widgets/myaccount/myaccountpersonalaccesstokenconfigurewidget.cpp:47
+#: widgets/myaccount/myaccountpersonalaccesstokenconfigurewidget.cpp:46
 #, fuzzy, kde-format
 #| msgid "Search Personal Access Token..."
 msgctxt "@info:placeholder"
 msgid "Search Personal Access Token…"
 msgstr "搜尋個人存取權杖…"
 
-#: widgets/myaccount/myaccountpersonalaccesstokenconfigurewidget.cpp:125
-#: widgets/myaccount/myaccountpersonalaccesstokenconfigurewidget.cpp:199
+#: widgets/myaccount/myaccountpersonalaccesstokenconfigurewidget.cpp:124
+#: widgets/myaccount/myaccountpersonalaccesstokenconfigurewidget.cpp:198
 #, kde-format
 msgid ""
 "<qt>Please save your token carefully as you will no longer be able to view "
 "it afterwards.<br><b>Token:</b> %1<br><b>Your user Id:</b> %2</qt>"
 msgstr ""
 
-#: widgets/myaccount/myaccountpersonalaccesstokenconfigurewidget.cpp:130
+#: widgets/myaccount/myaccountpersonalaccesstokenconfigurewidget.cpp:129
 #, fuzzy, kde-format
 #| msgid "Personal Token Created"
 msgctxt "@title:window"
 msgid "Personal Token Created"
 msgstr "已建立個人權杖"
 
-#: widgets/myaccount/myaccountpersonalaccesstokenconfigurewidget.cpp:165
+#: widgets/myaccount/myaccountpersonalaccesstokenconfigurewidget.cpp:164
 #, kde-format
 msgid "Personal Token removed."
 msgstr "已移除個人權杖。"
 
-#: widgets/myaccount/myaccountpersonalaccesstokenconfigurewidget.cpp:165
+#: widgets/myaccount/myaccountpersonalaccesstokenconfigurewidget.cpp:164
 #, fuzzy, kde-format
 #| msgid "Remove Personal Token"
 msgctxt "@title:window"
 msgid "Remove Personal Token"
 msgstr "移除個人權杖"
 
-#: widgets/myaccount/myaccountpersonalaccesstokenconfigurewidget.cpp:204
+#: widgets/myaccount/myaccountpersonalaccesstokenconfigurewidget.cpp:203
 #, fuzzy, kde-format
 #| msgid "Personal Token Regenerated"
 msgctxt "@title:window"
@@ -10051,66 +10061,66 @@ msgctxt "@info:tooltip"
 msgid "E2E Enabled"
 msgstr "已啟用"
 
-#: widgets/room/roomheaderwidget.cpp:112
+#: widgets/room/roomheaderwidget.cpp:113
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Call"
 msgstr ""
 
-#: widgets/room/roomheaderwidget.cpp:114
+#: widgets/room/roomheaderwidget.cpp:115
 #, kde-format
 msgid "Call"
 msgstr ""
 
-#: widgets/room/roomheaderwidget.cpp:123
+#: widgets/room/roomheaderwidget.cpp:124
 #, fuzzy, kde-format
 #| msgid "Channel's Information"
 msgctxt "@info:tooltip"
 msgid "Channel's Information"
 msgstr "頻道資訊"
 
-#: widgets/room/roomheaderwidget.cpp:125 widgets/room/roomheaderwidget.cpp:232
+#: widgets/room/roomheaderwidget.cpp:126 widgets/room/roomheaderwidget.cpp:233
 #, kde-format
 msgid "Channel's Information"
 msgstr "頻道資訊"
 
-#: widgets/room/roomheaderwidget.cpp:134
+#: widgets/room/roomheaderwidget.cpp:135
 #, fuzzy, kde-format
 #| msgid "Team Channels"
 msgctxt "@info:tooltip"
 msgid "Team Channels"
 msgstr "團隊頻道"
 
-#: widgets/room/roomheaderwidget.cpp:136
+#: widgets/room/roomheaderwidget.cpp:137
 #, kde-format
 msgid "Team Channels"
 msgstr "團隊頻道"
 
-#: widgets/room/roomheaderwidget.cpp:146
+#: widgets/room/roomheaderwidget.cpp:147
 #, fuzzy, kde-format
 #| msgid "Show List of Users"
 msgctxt "@info:tooltip"
 msgid "Show List of Users"
 msgstr "顯示使用者清單"
 
-#: widgets/room/roomheaderwidget.cpp:148
+#: widgets/room/roomheaderwidget.cpp:149
 #, kde-format
 msgid "Show List of Users"
 msgstr "顯示使用者清單"
 
-#: widgets/room/roomheaderwidget.cpp:159
+#: widgets/room/roomheaderwidget.cpp:160
 #, fuzzy, kde-format
 #| msgid "Search Messages…"
 msgctxt "@info:tooltip"
 msgid "Search Messages…"
 msgstr "搜尋訊息…"
 
-#: widgets/room/roomheaderwidget.cpp:161
+#: widgets/room/roomheaderwidget.cpp:162
 #, kde-format
 msgid "Search Messages…"
 msgstr "搜尋訊息…"
 
-#: widgets/room/roomheaderwidget.cpp:232
+#: widgets/room/roomheaderwidget.cpp:233
 #, kde-format
 msgid "Team's Information"
 msgstr "團隊資訊"
@@ -11105,6 +11115,12 @@ msgstr ""
 #, fuzzy, kde-format
 #| msgid "Fix translate message in direct channel."
 msgid "Fix duplicated messages in search message dialog."
+msgstr "修正私訊頻道中的翻譯訊息。"
+
+#: widgets/whatsnew/whatsnewtranslations.cpp:105
+#, fuzzy, kde-format
+#| msgid "Fix translate message in direct channel."
+msgid "Add delegate in search rooms in team dialog."
 msgstr "修正私訊頻道中的翻譯訊息。"
 
 #: widgets/whatsnew/whatsnewwidget.cpp:44

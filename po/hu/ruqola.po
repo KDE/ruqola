@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-08-23 00:39+0000\n"
+"POT-Creation-Date: 2024-08-24 00:39+0000\n"
 "PO-Revision-Date: 2024-06-19 22:06+0200\n"
 "Last-Translator: Kristof Kiszel <ulysses@fsf.hu>\n"
 "Language-Team: Hungarian <kde-l10n-hu@kde.org>\n"
@@ -1162,30 +1162,7 @@ msgstr "Személyes üzenetek"
 msgid "Unknown"
 msgstr "Ismeretlen"
 
-#: core/model/statusmodel.cpp:61 core/utils.cpp:431
-#, kde-format
-msgid "Online"
-msgstr "Elérhető"
-
-#: core/model/statusmodel.cpp:63 core/utils.cpp:433
-#: widgets/room/usersinroomcombobox.cpp:24
-#, kde-format
-msgid "Busy"
-msgstr "Elfoglalt"
-
-#: core/model/statusmodel.cpp:65 core/utils.cpp:435
-#: widgets/room/usersinroomcombobox.cpp:23
-#, kde-format
-msgid "Away"
-msgstr "Távol"
-
-#: core/model/statusmodel.cpp:67 core/model/usersmodel.cpp:73
-#: core/utils.cpp:437
-#, kde-format
-msgid "Offline"
-msgstr "Kilépett"
-
-#: core/model/statusmodel.cpp:69
+#: core/model/statusmodel.cpp:61
 #, kde-format
 msgid "Modify Status…"
 msgstr "Állapot módosítása…"
@@ -1365,6 +1342,11 @@ msgstr "Csatlakozott ehhez a csapathoz"
 msgid "(Autojoin)"
 msgstr "(Automatikus csatlakozás)"
 
+#: core/model/usersmodel.cpp:73 core/utils.cpp:89 core/utils.cpp:454
+#, kde-format
+msgid "Offline"
+msgstr "Kilépett"
+
 #: core/notifications/notification.cpp:81
 #, kde-format
 msgid "%1 has %2 Unread Message"
@@ -1539,6 +1521,21 @@ msgstr "Adminisztrátor"
 #, kde-format
 msgid "Bot"
 msgstr "Robot"
+
+#: core/utils.cpp:83 core/utils.cpp:448
+#, kde-format
+msgid "Online"
+msgstr "Elérhető"
+
+#: core/utils.cpp:85 core/utils.cpp:450 widgets/room/usersinroomcombobox.cpp:24
+#, kde-format
+msgid "Busy"
+msgstr "Elfoglalt"
+
+#: core/utils.cpp:87 core/utils.cpp:452 widgets/room/usersinroomcombobox.cpp:23
+#, kde-format
+msgid "Away"
+msgstr "Távol"
 
 #: core/videoconference/videoconferenceinfo.cpp:286
 #: core/videoconference/videoconferenceinfo.cpp:288
@@ -6948,44 +6945,58 @@ msgctxt "@action"
 msgid "Convert to Channel"
 msgstr "Átalakítás csatornára"
 
-#: widgets/channellist/channellistview.cpp:177
+#: widgets/channellist/channellistview.cpp:168
+#, fuzzy, kde-format
+#| msgid "Do you want to convert this big text as attachment?"
+msgid "Do you want to convert team to channel?"
+msgstr "Szeretné átalakítani ezt a nagy szöveget mellékletté?"
+
+#: widgets/channellist/channellistview.cpp:169
+#, fuzzy, kde-format
+#| msgctxt "@action"
+#| msgid "Convert to Channel"
+msgctxt "@title:window"
+msgid "Convert To Channel"
+msgstr "Átalakítás csatornára"
+
+#: widgets/channellist/channellistview.cpp:185
 #, kde-format
 msgctxt "@action"
 msgid "Move to Team"
 msgstr "Áthelyezés csapatba"
 
-#: widgets/channellist/channellistview.cpp:194
+#: widgets/channellist/channellistview.cpp:202
 #, fuzzy, kde-format
 #| msgid "Configure Notification…"
 msgctxt "@action"
 msgid "Configure Notification…"
 msgstr "Értesítések beállítása…"
 
-#: widgets/channellist/channellistview.cpp:201
+#: widgets/channellist/channellistview.cpp:209
 #, fuzzy, kde-format
 #| msgid "Quit Channel"
 msgctxt "@action"
 msgid "Quit Channel"
 msgstr "Kilépés a csatornából"
 
-#: widgets/channellist/channellistview.cpp:244
+#: widgets/channellist/channellistview.cpp:252
 #, kde-format
 msgid "Any team selected."
 msgstr "Bármelyik kiválasztott csapat."
 
-#: widgets/channellist/channellistview.cpp:244
+#: widgets/channellist/channellistview.cpp:252
 #, fuzzy, kde-format
 #| msgid "Move To Team"
 msgctxt "@title:window"
 msgid "Move To Team"
 msgstr "Áthelyezés csapatba"
 
-#: widgets/channellist/channellistview.cpp:293
+#: widgets/channellist/channellistview.cpp:301
 #, kde-format
 msgid "Are you sure to convert it to team? It can not be undo."
 msgstr "Biztosan átalakítja csapattá? Nem visszavonható."
 
-#: widgets/channellist/channellistview.cpp:294
+#: widgets/channellist/channellistview.cpp:302
 #, kde-format
 msgctxt "@title:window"
 msgid "Convert to Team"
@@ -8389,7 +8400,7 @@ msgstr "Ön nincs felhatalmazva ennek az oldalnak a megtekintésére."
 
 #: widgets/directory/directorywidget.cpp:34
 #: widgets/misc/joinedchannelcompletionlineeditbase.cpp:25
-#: widgets/teams/addteamroomcompletionlineedit.cpp:32
+#: widgets/teams/addteamroomcompletionlineedit.cpp:34
 #, fuzzy, kde-format
 #| msgid "Search rooms…"
 msgctxt "@info:placeholder"
@@ -8680,7 +8691,7 @@ msgstr "%1 fiók: gyorsítótár exportálása kész."
 msgid "Account %1: export logs done."
 msgstr "%1 fiók: naplók exportálása kész."
 
-#: widgets/importexportdata/exportdata/exportaccountjob.cpp:140
+#: widgets/importexportdata/exportdata/exportaccountjob.cpp:141
 #, kde-format
 msgid "Directory \"%1\" cannot be added to backup file."
 msgstr "A(z) „%1” mappa nem adható hozzá a biztonsági mentés fájlhoz."
@@ -9025,14 +9036,14 @@ msgstr "Új kód küldése"
 msgid "Check New Version"
 msgstr ""
 
-#: widgets/myaccount/myaccount2e2configurewidget.cpp:22
+#: widgets/myaccount/myaccount2e2configurewidget.cpp:21
 #, fuzzy, kde-format
 #| msgid "Reset E2E Key"
 msgctxt "@action:button"
 msgid "Reset E2E Key"
 msgstr "Végpontok közötti titkosítási kulcs visszaállítása"
 
-#: widgets/myaccount/myaccount2e2configurewidget.cpp:30
+#: widgets/myaccount/myaccount2e2configurewidget.cpp:29
 #, kde-format
 msgctxt "@label:textbox"
 msgid ""
@@ -9050,7 +9061,7 @@ msgstr ""
 "kell tárolnia, és a többi eszközön is meg kell adnia, ahol végpontok közötti "
 "titkosítást szeretne használni."
 
-#: widgets/myaccount/myaccount2e2configurewidget.cpp:43
+#: widgets/myaccount/myaccount2e2configurewidget.cpp:42
 #, kde-format
 msgid ""
 "This option will remove your current E2E key and log you out. When you login "
@@ -9232,15 +9243,15 @@ msgctxt "@option:check"
 msgid "Ignore Two Factor Authentication"
 msgstr "Kétfaktoros hitelesítés mellőzése"
 
-#: widgets/myaccount/myaccountpersonalaccesstokenconfigurewidget.cpp:47
+#: widgets/myaccount/myaccountpersonalaccesstokenconfigurewidget.cpp:46
 #, fuzzy, kde-format
 #| msgid "Search Personal Access Token…"
 msgctxt "@info:placeholder"
 msgid "Search Personal Access Token…"
 msgstr "Személyes hozzáférési token keresése…"
 
-#: widgets/myaccount/myaccountpersonalaccesstokenconfigurewidget.cpp:125
-#: widgets/myaccount/myaccountpersonalaccesstokenconfigurewidget.cpp:199
+#: widgets/myaccount/myaccountpersonalaccesstokenconfigurewidget.cpp:124
+#: widgets/myaccount/myaccountpersonalaccesstokenconfigurewidget.cpp:198
 #, kde-format
 msgid ""
 "<qt>Please save your token carefully as you will no longer be able to view "
@@ -9250,26 +9261,26 @@ msgstr ""
 "megtekinteni azt.<br><b>Token:</b> %1<br><b>Az Ön felhasználó-azonosítója:</"
 "b> %2</qt>"
 
-#: widgets/myaccount/myaccountpersonalaccesstokenconfigurewidget.cpp:130
+#: widgets/myaccount/myaccountpersonalaccesstokenconfigurewidget.cpp:129
 #, fuzzy, kde-format
 #| msgid "Personal Token Created"
 msgctxt "@title:window"
 msgid "Personal Token Created"
 msgstr "Személyes token létrehozva"
 
-#: widgets/myaccount/myaccountpersonalaccesstokenconfigurewidget.cpp:165
+#: widgets/myaccount/myaccountpersonalaccesstokenconfigurewidget.cpp:164
 #, kde-format
 msgid "Personal Token removed."
 msgstr "Személyes token eltávolítva."
 
-#: widgets/myaccount/myaccountpersonalaccesstokenconfigurewidget.cpp:165
+#: widgets/myaccount/myaccountpersonalaccesstokenconfigurewidget.cpp:164
 #, fuzzy, kde-format
 #| msgid "Remove Personal Token"
 msgctxt "@title:window"
 msgid "Remove Personal Token"
 msgstr "Személyes token eltávolítása"
 
-#: widgets/myaccount/myaccountpersonalaccesstokenconfigurewidget.cpp:204
+#: widgets/myaccount/myaccountpersonalaccesstokenconfigurewidget.cpp:203
 #, fuzzy, kde-format
 #| msgid "Personal Token Regenerated"
 msgctxt "@title:window"
@@ -10206,62 +10217,62 @@ msgctxt "@info:tooltip"
 msgid "E2E Enabled"
 msgstr "Végpontok közötti titkosítás engedélyezve"
 
-#: widgets/room/roomheaderwidget.cpp:112
+#: widgets/room/roomheaderwidget.cpp:113
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Call"
 msgstr "Hívás"
 
-#: widgets/room/roomheaderwidget.cpp:114
+#: widgets/room/roomheaderwidget.cpp:115
 #, kde-format
 msgid "Call"
 msgstr "Hívás"
 
-#: widgets/room/roomheaderwidget.cpp:123
+#: widgets/room/roomheaderwidget.cpp:124
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Channel's Information"
 msgstr "Csatornainformációk"
 
-#: widgets/room/roomheaderwidget.cpp:125 widgets/room/roomheaderwidget.cpp:232
+#: widgets/room/roomheaderwidget.cpp:126 widgets/room/roomheaderwidget.cpp:233
 #, kde-format
 msgid "Channel's Information"
 msgstr "Csatornainformációk"
 
-#: widgets/room/roomheaderwidget.cpp:134
+#: widgets/room/roomheaderwidget.cpp:135
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Team Channels"
 msgstr "Csapatcsatornák"
 
-#: widgets/room/roomheaderwidget.cpp:136
+#: widgets/room/roomheaderwidget.cpp:137
 #, kde-format
 msgid "Team Channels"
 msgstr "Csapatcsatornák"
 
-#: widgets/room/roomheaderwidget.cpp:146
+#: widgets/room/roomheaderwidget.cpp:147
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Show List of Users"
 msgstr "Felhasználók listájának megjelenítése"
 
-#: widgets/room/roomheaderwidget.cpp:148
+#: widgets/room/roomheaderwidget.cpp:149
 #, kde-format
 msgid "Show List of Users"
 msgstr "Felhasználók listájának megjelenítése"
 
-#: widgets/room/roomheaderwidget.cpp:159
+#: widgets/room/roomheaderwidget.cpp:160
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Search Messages…"
 msgstr "Üzenetek keresése…"
 
-#: widgets/room/roomheaderwidget.cpp:161
+#: widgets/room/roomheaderwidget.cpp:162
 #, kde-format
 msgid "Search Messages…"
 msgstr "Üzenetek keresése…"
 
-#: widgets/room/roomheaderwidget.cpp:232
+#: widgets/room/roomheaderwidget.cpp:233
 #, kde-format
 msgid "Team's Information"
 msgstr "Csapatinformációk"
@@ -11278,6 +11289,12 @@ msgstr ""
 #, fuzzy, kde-format
 #| msgid "Fix translate message in direct channel."
 msgid "Fix duplicated messages in search message dialog."
+msgstr "Üzenet fordítása a közvetlen csatornában javítva."
+
+#: widgets/whatsnew/whatsnewtranslations.cpp:105
+#, fuzzy, kde-format
+#| msgid "Fix translate message in direct channel."
+msgid "Add delegate in search rooms in team dialog."
 msgstr "Üzenet fordítása a közvetlen csatornában javítva."
 
 #: widgets/whatsnew/whatsnewwidget.cpp:44
