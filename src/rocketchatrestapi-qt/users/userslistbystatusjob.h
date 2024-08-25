@@ -15,7 +15,6 @@ class LIBROCKETCHATRESTAPI_QT_EXPORT UsersListByStatusJob : public RestApiAbstra
 {
     Q_OBJECT
 public:
-    // TODO userId or Username
     explicit UsersListByStatusJob(QObject *parent = nullptr);
     ~UsersListByStatusJob() override;
 
