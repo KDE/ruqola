@@ -29,12 +29,12 @@ bool UsersListByStatusJob::requireHttpAuthentication() const
 bool UsersListByStatusJob::start()
 {
     if (!canStart()) {
-        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start userspresence job";
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start UsersListByStatus job";
         deleteLater();
         return false;
     }
     submitGetRequest();
-    addStartRestApiInfo(QByteArrayLiteral("UsersListByStatusJob: Ask info about me"));
+    addStartRestApiInfo(QByteArrayLiteral("UsersListByStatusJob: ask list of user "));
     return true;
 }
 
