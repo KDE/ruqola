@@ -1,0 +1,34 @@
+/*
+   SPDX-FileCopyrightText: 2019-2024 Laurent Montel <montel@kde.org>
+
+   SPDX-License-Identifier: LGPL-2.0-or-later
+*/
+
+#include "userslistbystatusjobtest.h"
+#include "restapimethod.h"
+#include "ruqola_restapi_helper.h"
+#include "users/userspresencejob.h"
+QTEST_GUILESS_MAIN(UsersListByStatusJobTest)
+using namespace RocketChatRestApi;
+UsersListByStatusJobTest::UsersListByStatusJobTest(QObject *parent)
+    : QObject(parent)
+{
+}
+
+void UsersListByStatusJobTest::shouldHaveDefaultValue()
+{
+    UsersPresenceJob job;
+    verifyDefaultValue(&job);
+    QVERIFY(job.requireHttpAuthentication());
+    QVERIFY(!job.hasQueryParameterSupport());
+}
+
+void UsersListByStatusJobTest::shouldGenerateRequest()
+{
+    UsersPresenceJob job;
+    QNetworkRequest request = QNetworkRequest(QUrl());
+    verifyAuthentication(&job, request);
+    QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/v1/users.presence")));
+}
+
+#include "moc_userslistbystatusjobtest.cpp"
