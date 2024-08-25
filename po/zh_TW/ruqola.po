@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-08-24 00:39+0000\n"
+"POT-Creation-Date: 2024-08-25 00:39+0000\n"
 "PO-Revision-Date: 2024-08-06 05:33+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
@@ -743,10 +743,15 @@ msgstr "使用期限"
 
 #: core/model/admininvitemodel.cpp:115
 #, kde-format
+msgid "Unlimited"
+msgstr ""
+
+#: core/model/admininvitemodel.cpp:123
+#, kde-format
 msgid "Expire in %1 days"
 msgstr "將在 %1 天內過期"
 
-#: core/model/admininvitemodel.cpp:117
+#: core/model/admininvitemodel.cpp:125
 #, kde-format
 msgid "Expired"
 msgstr "已過期"

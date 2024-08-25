@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-08-24 00:39+0000\n"
+"POT-Creation-Date: 2024-08-25 00:39+0000\n"
 "PO-Revision-Date: 2024-08-21 10:37+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
@@ -742,10 +742,15 @@ msgstr "Venciment"
 
 #: core/model/admininvitemodel.cpp:115
 #, kde-format
+msgid "Unlimited"
+msgstr ""
+
+#: core/model/admininvitemodel.cpp:123
+#, kde-format
 msgid "Expire in %1 days"
 msgstr "Venç en %1 dies"
 
-#: core/model/admininvitemodel.cpp:117
+#: core/model/admininvitemodel.cpp:125
 #, kde-format
 msgid "Expired"
 msgstr "Vençut"
