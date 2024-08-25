@@ -371,6 +371,9 @@ enum class RestApiUrlType {
     NotifyAdminsApps,
     InstalledApps,
     MarketplaceApps,
+
+    // users.listByStatus
+    UsersListByStatus,
 };
 LIBROCKETCHATRESTAPI_QT_EXPORT QString adaptUrl(const QString &url);
 LIBROCKETCHATRESTAPI_QT_EXPORT QString restUrl(RestApiUtil::RestApiUrlType type);

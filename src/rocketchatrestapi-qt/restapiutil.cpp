@@ -615,6 +615,9 @@ QString RestApiUtil::restUrl(RestApiUtil::RestApiUrlType type)
         return QStringLiteral("installed");
     case RestApiUtil::RestApiUrlType::MarketplaceApps:
         return QStringLiteral("marketplace");
+
+    case RestApiUtil::RestApiUrlType::UsersListByStatus:
+        return QStringLiteral("users.listByStatus");
     }
     qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Unknown RestApiUtil::RestApiUrlType " << static_cast<int>(type);
     return {};
