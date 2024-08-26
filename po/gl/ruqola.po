@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-08-25 00:39+0000\n"
-"PO-Revision-Date: 2024-08-22 09:13+0200\n"
+"PO-Revision-Date: 2024-08-25 15:51+0200\n"
 "Last-Translator: Adrián Chaves (Gallaecio) <adrian@chaves.io>\n"
 "Language-Team: Proxecto Trasno (proxecto@trasno.gal)\n"
 "Language: gl\n"
@@ -738,7 +738,7 @@ msgstr "Caducidade"
 #: core/model/admininvitemodel.cpp:115
 #, kde-format
 msgid "Unlimited"
-msgstr ""
+msgstr "Sen límite"
 
 #: core/model/admininvitemodel.cpp:123
 #, kde-format
@@ -6716,15 +6716,12 @@ msgid "Convert to Channel"
 msgstr "Converter nunha canle"
 
 #: widgets/channellist/channellistview.cpp:168
-#, fuzzy, kde-format
-#| msgid "Do you want to convert this big text as attachment?"
+#, kde-format
 msgid "Do you want to convert team to channel?"
-msgstr "Quere converter este texto longo nun anexo?"
+msgstr "Quere converter o equipo nunha canle?"
 
 #: widgets/channellist/channellistview.cpp:169
-#, fuzzy, kde-format
-#| msgctxt "@action"
-#| msgid "Convert to Channel"
+#, kde-format
 msgctxt "@title:window"
 msgid "Convert To Channel"
 msgstr "Converter nunha canle"
@@ -10867,10 +10864,9 @@ msgid "Fix duplicated messages in search message dialog."
 msgstr "Corrixir as mensaxes duplicadas no diálogo de busca de mensaxes."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:105
-#, fuzzy, kde-format
-#| msgid "Fix duplicated messages in search message dialog."
+#, kde-format
 msgid "Add delegate in search rooms in team dialog."
-msgstr "Corrixir as mensaxes duplicadas no diálogo de busca de mensaxes."
+msgstr "Engadir unha delegación nas salas de busca do diálogo de equipo."
 
 #: widgets/whatsnew/whatsnewwidget.cpp:44
 #, kde-format
