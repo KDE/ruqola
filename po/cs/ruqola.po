@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-08-25 00:39+0000\n"
-"PO-Revision-Date: 2024-08-14 15:45+0200\n"
+"PO-Revision-Date: 2024-08-27 13:52+0200\n"
 "Last-Translator: Vit Pelcak <vit@pelcak.org>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
 "Language: cs\n"
@@ -738,7 +738,7 @@ msgstr "Vypršení"
 #: core/model/admininvitemodel.cpp:115
 #, kde-format
 msgid "Unlimited"
-msgstr ""
+msgstr "Bez omezení"
 
 #: core/model/admininvitemodel.cpp:123
 #, kde-format
@@ -6520,18 +6520,15 @@ msgid "Convert to Channel"
 msgstr ""
 
 #: widgets/channellist/channellistview.cpp:168
-#, fuzzy, kde-format
-#| msgid "Do you want to remove this emoji?"
+#, kde-format
 msgid "Do you want to convert team to channel?"
-msgstr "Chcete odstranit tento emotikon?"
+msgstr "Přejete si převést tým na kanál?"
 
 #: widgets/channellist/channellistview.cpp:169
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Convert Team to Channel"
+#, kde-format
 msgctxt "@title:window"
 msgid "Convert To Channel"
-msgstr "Převést tým na kanál"
+msgstr "Převést na kanál"
 
 #: widgets/channellist/channellistview.cpp:185
 #, kde-format

@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-08-25 00:39+0000\n"
-"PO-Revision-Date: 2024-08-15 04:24+0200\n"
+"PO-Revision-Date: 2024-08-26 00:16+0200\n"
 "Last-Translator: Vincenzo Reale <smart2128vr@gmail.com>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
 "Language: it\n"
@@ -740,7 +740,7 @@ msgstr "Scadenza"
 #: core/model/admininvitemodel.cpp:115
 #, kde-format
 msgid "Unlimited"
-msgstr ""
+msgstr "Illimitato"
 
 #: core/model/admininvitemodel.cpp:123
 #, kde-format
@@ -2877,15 +2877,12 @@ msgstr "Disattiva utente"
 
 #: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:161
 #: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:157
-#, fuzzy, kde-format
-#| msgid ""
-#| "User will be unable to log in unless reactivated. All reported messages "
-#| "will be permanently deleted from their respective room."
+#, kde-format
 msgid ""
 "User will be unable to log in unless reactivated.\n"
 "All reported messages will be permanently deleted from their respective room."
 msgstr ""
-"L'utente non sarà in grado di accedere a meno che non venga riattivato. "
+"L'utente non sarà in grado di accedere a meno che non venga riattivato.\n"
 "Tutti i messaggi segnalati saranno eliminati definitivamente dalle "
 "rispettive stanze."
 
@@ -2991,12 +2988,10 @@ msgid "Search…"
 msgstr "Cerca…"
 
 #: widgets/administratordialog/moderationconsole/moderationusersdialog.cpp:27
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Show Moderation Messages"
+#, kde-format
 msgctxt "@title:window"
 msgid "Show Moderation Users"
-msgstr "Mostra messaggi di moderazione"
+msgstr "Mostra utenti moderati"
 
 #: widgets/administratordialog/oauth/administratoroauthcreatedialog.cpp:25
 #, kde-format
@@ -6730,18 +6725,15 @@ msgid "Convert to Channel"
 msgstr "Convert in canale"
 
 #: widgets/channellist/channellistview.cpp:168
-#, fuzzy, kde-format
-#| msgid "Do you want to open this channel: \"%1\"?"
+#, kde-format
 msgid "Do you want to convert team to channel?"
-msgstr "Vuoi aprire questo canale: «%1»?"
+msgstr "Vuoi convertire la squadra in canale?"
 
 #: widgets/channellist/channellistview.cpp:169
-#, fuzzy, kde-format
-#| msgctxt "@action"
-#| msgid "Convert to Channel"
+#, kde-format
 msgctxt "@title:window"
 msgid "Convert To Channel"
-msgstr "Convert in canale"
+msgstr "Converti in canale"
 
 #: widgets/channellist/channellistview.cpp:185
 #, kde-format
@@ -10620,7 +10612,7 @@ msgstr "Consenti di verificare una nuova versione."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:20
 msgid "Implement moderation (administrator mode)."
-msgstr ""
+msgstr "Implementa la moderazione (modalità amministratore)."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:30
 #, kde-format
@@ -10883,10 +10875,11 @@ msgid "Fix duplicated messages in search message dialog."
 msgstr "Correggi i messaggi duplicati nella finestra di ricerca dei messaggi."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:105
-#, fuzzy, kde-format
-#| msgid "Fix duplicated messages in search message dialog."
+#, kde-format
 msgid "Add delegate in search rooms in team dialog."
-msgstr "Correggi i messaggi duplicati nella finestra di ricerca dei messaggi."
+msgstr ""
+"Aggiungi delegato nelle stanze di ricerca nella finestra di dialogo della "
+"squadra."
 
 #: widgets/whatsnew/whatsnewwidget.cpp:44
 #, kde-format
