@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-08-25 00:39+0000\n"
-"PO-Revision-Date: 2024-08-21 12:30+0200\n"
+"PO-Revision-Date: 2024-08-30 18:26+0200\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
 "Language: eu\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 24.05.2\n"
+"X-Generator: Lokalize 24.08.0\n"
 
 #: apps/main.cpp:61
 #, kde-format
@@ -756,7 +756,7 @@ msgstr "Iraungitze-data"
 #: core/model/admininvitemodel.cpp:115
 #, kde-format
 msgid "Unlimited"
-msgstr ""
+msgstr "Mugagabea"
 
 #: core/model/admininvitemodel.cpp:123
 #, kde-format
@@ -6719,15 +6719,12 @@ msgid "Convert to Channel"
 msgstr "Bihurtu kanal"
 
 #: widgets/channellist/channellistview.cpp:168
-#, fuzzy, kde-format
-#| msgid "Do you want to convert this big text as attachment?"
+#, kde-format
 msgid "Do you want to convert team to channel?"
-msgstr "Testu handi hau eranskin bihurtu nahi duzu?"
+msgstr "Taldea kanal bihurtu nahi duzu?"
 
 #: widgets/channellist/channellistview.cpp:169
-#, fuzzy, kde-format
-#| msgctxt "@action"
-#| msgid "Convert to Channel"
+#, kde-format
 msgctxt "@title:window"
 msgid "Convert To Channel"
 msgstr "Bihurtu kanal"
@@ -10865,10 +10862,9 @@ msgid "Fix duplicated messages in search message dialog."
 msgstr "Mezua bilatu elkarrizketa-koadroan bikoiztutako mezuak konpontzea."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:105
-#, fuzzy, kde-format
-#| msgid "Fix duplicated messages in search message dialog."
+#, kde-format
 msgid "Add delegate in search rooms in team dialog."
-msgstr "Mezua bilatu elkarrizketa-koadroan bikoiztutako mezuak konpontzea."
+msgstr "Gehitu ordezkaria bilaketa-geletan taldeko elkarrizketa-koadroan."
 
 #: widgets/whatsnew/whatsnewwidget.cpp:44
 #, kde-format
