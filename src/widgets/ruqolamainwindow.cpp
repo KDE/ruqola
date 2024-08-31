@@ -5,18 +5,18 @@
 */
 
 #include "ruqolamainwindow.h"
+#include "accountmanager.h"
+#include "administratordialog/administratordialog.h"
+#include "administratorsettingsdialog/administratorsettingsdialog.h"
 #include "applicationssettingsdialog/applicationssettingsdialog.h"
 #include "databasedialog/exploredatabasedialog.h"
 #include "explorepermissionsdialog/explorepermissionsdialog.h"
+#include "kcolorscheme_version.h"
 #include "misc/changefontsizemenu.h"
 #include "notificationhistorymanager.h"
 #include "rocketchaturlutils.h"
 #include "ruqolaglobalconfig.h"
 #include "ruqolawidgets_debug.h"
-
-#include "accountmanager.h"
-#include "administratordialog/administratordialog.h"
-#include "administratorsettingsdialog/administratorsettingsdialog.h"
 #include "servererrorinfohistory/servererrorinfomessagehistorydialog.h"
 
 #include "bannerinfodialog/bannerinfodialog.h"
@@ -610,8 +610,11 @@ void RuqolaMainWindow::setupActions()
             disconnect(mHamburgerMenu, &KHamburgerMenu::aboutToShowMenu, this, nullptr);
         });
     }
-
+#if KCOLORSCHEME_VERSION < QT_VERSION_CHECK(6, 6, 0)
     auto manager = new KColorSchemeManager(this);
+#else
+    auto manager = KColorSchemeManager::instance();
+#endif
     ac->addAction(QStringLiteral("colorscheme_menu"), KColorSchemeMenu::createMenu(manager, this));
 
     mShowFullScreenAction = KStandardAction::fullScreen(nullptr, nullptr, this, ac);
