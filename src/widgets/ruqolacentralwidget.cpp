@@ -12,6 +12,7 @@
 #include "servererrorinfo.h"
 #include "servererrorinfohistory/servererrorinfomessagewidget.h"
 #include "servererrorinfohistorymanager.h"
+#include "welcome/welcomewidget.h"
 #include "whatsnew/whatsnewmessagewidget.h"
 #include "whatsnew/whatsnewtranslations.h"
 #include <KLocalizedString>
@@ -23,6 +24,7 @@ RuqolaCentralWidget::RuqolaCentralWidget(QWidget *parent)
     , mStackedWidget(new QStackedWidget(this))
     , mRuqolaMainWidget(new RuqolaMainWidget(this))
     , mRuqolaLoginWidget(new RuqolaLoginWidget(this))
+    , mRuqolaWelcomeWidget(new WelcomeWidget(this))
     , mMainLayout(new QVBoxLayout(this))
 {
     mMainLayout->setContentsMargins({});
@@ -50,6 +52,9 @@ RuqolaCentralWidget::RuqolaCentralWidget(QWidget *parent)
 
     mRuqolaLoginWidget->setObjectName(QStringLiteral("mRuqolaLoginWidget"));
     mStackedWidget->addWidget(mRuqolaLoginWidget);
+
+    mRuqolaWelcomeWidget->setObjectName(QStringLiteral("mRuqolaWelcomeWidget"));
+    mStackedWidget->addWidget(mRuqolaWelcomeWidget);
 
     mStackedWidget->setCurrentWidget(mRuqolaLoginWidget);
     mRuqolaLoginWidget->forceLoginFocus();

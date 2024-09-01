@@ -18,6 +18,7 @@ class RocketChatAccount;
 class ServerErrorInfoMessageWidget;
 class Room;
 class QVBoxLayout;
+class WelcomeWidget;
 
 class LIBRUQOLAWIDGETS_TESTS_EXPORT RuqolaCentralWidget : public QWidget
 {
@@ -46,6 +47,7 @@ private:
     RuqolaMainWidget *const mRuqolaMainWidget;
     RuqolaLoginWidget *const mRuqolaLoginWidget;
     ServerErrorInfoMessageWidget *mServerErrorInfoMessageWidget = nullptr;
+    WelcomeWidget *const mRuqolaWelcomeWidget;
     QVBoxLayout *const mMainLayout;
     QPointer<RocketChatAccount> mCurrentRocketChatAccount;
 };
