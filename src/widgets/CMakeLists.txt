@@ -939,6 +939,10 @@ target_sources(libruqolawidgets PRIVATE
 
     applicationssettingsdialog/applicationssettingsinstalledcombobox.h
     applicationssettingsdialog/applicationssettingsinstalledcombobox.cpp
+
+
+    welcome/welcomewidget.h
+    welcome/welcomewidget.cpp
 )
 
 if(HAVE_TEXT_AUTOCORRECTION_WIDGETS)
@@ -1099,6 +1103,7 @@ if(BUILD_TESTING)
     add_subdirectory(configurenewserver/autotests)
     add_subdirectory(encryption/autotests)
     add_subdirectory(forwardmessage/autotests)
+    add_subdirectory(welcome/autotests)
     add_subdirectory(applicationssettingsdialog/autotests)
 endif()
 
