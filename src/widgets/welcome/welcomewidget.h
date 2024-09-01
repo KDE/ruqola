@@ -14,4 +14,7 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT WelcomeWidget : public QWidget
 public:
     explicit WelcomeWidget(QWidget *parent = nullptr);
     ~WelcomeWidget() override;
+
+Q_SIGNALS:
+    void createNewAccount();
 };
