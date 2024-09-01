@@ -167,12 +167,9 @@ void CreateVideoMessageWidget::setCamera(const QCameraDevice &cameraDevice)
         mMediaRecorder->setOutputLocation(QUrl::fromLocalFile(mTemporaryFile->fileName()));
         // qDebug() << " store " << mTemporaryFile->fileName();
         mCaptureSession.setRecorder(mMediaRecorder.data());
-        connect(mMediaRecorder.data(), &QMediaRecorder::recorderStateChanged, this,
-                &CreateVideoMessageWidget::updateRecorderState);
-        connect(mMediaRecorder.data(), &QMediaRecorder::durationChanged, this,
-                &CreateVideoMessageWidget::updateRecordTime);
-        connect(mMediaRecorder.data(), &QMediaRecorder::errorChanged, this,
-                &CreateVideoMessageWidget::displayRecorderError);
+        connect(mMediaRecorder.data(), &QMediaRecorder::recorderStateChanged, this, &CreateVideoMessageWidget::updateRecorderState);
+        connect(mMediaRecorder.data(), &QMediaRecorder::durationChanged, this, &CreateVideoMessageWidget::updateRecordTime);
+        connect(mMediaRecorder.data(), &QMediaRecorder::errorChanged, this, &CreateVideoMessageWidget::displayRecorderError);
     }
     mCaptureSession.setVideoOutput(mVideoWidget);
     updateCameraActive(mCamera->isActive());

@@ -27,7 +27,7 @@ UsersInRoomMenu::~UsersInRoomMenu() = default;
 
 void UsersInRoomMenu::slotOpenConversation()
 {
-    Q_EMIT Ruqola::self()->rocketChatAccount()->openLinkRequested(RoomUtil::generateUserLink(mUserName));
+    Q_EMIT Ruqola::self() -> rocketChatAccount()->openLinkRequested(RoomUtil::generateUserLink(mUserName));
 }
 
 void UsersInRoomMenu::slotBlockUser()

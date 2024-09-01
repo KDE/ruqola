@@ -30,7 +30,6 @@ void ImportDataFinishPageTest::shouldHaveDefaultValues()
     QVERIFY(mInfos);
     QVERIFY(mInfos->text().isEmpty());
 
-
     auto mMessageWidget = w.findChild<KMessageWidget *>(QStringLiteral("mMessageWidget"));
     QVERIFY(mMessageWidget);
     QVERIFY(!mMessageWidget->isCloseButtonVisible());

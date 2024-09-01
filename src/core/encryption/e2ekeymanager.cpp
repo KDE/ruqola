@@ -56,7 +56,6 @@ void E2eKeyManager::fetchMyKeys()
         qDebug() << " RocketChatRestApi::FetchMyKeysJob result " << json << "account name: " << mAccount->accountName();
         verifyExistingKey(json);
         Q_EMIT verifyKeyDone();
-
     });
     if (!job->start()) {
         qCDebug(RUQOLA_ENCRYPTION_LOG) << "Impossible to start fetchmykeys job";

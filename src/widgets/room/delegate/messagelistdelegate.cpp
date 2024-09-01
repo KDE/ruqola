@@ -608,14 +608,14 @@ void MessageListDelegate::paint(QPainter *painter, const QStyleOptionViewItem &o
             const MessageAttachmentDelegateHelperBase *helper = attachmentsHelper(att);
             if (helper) {
 #if 0
-            painter->save();
-            painter->setPen(QPen(Qt::green));
-            painter->drawRect(layout.attachmentsRectList.at(i));
-            painter->restore();
+                painter->save();
+                painter->setPen(QPen(Qt::green));
+                painter->drawRect(layout.attachmentsRectList.at(i));
+                painter->restore();
 #endif
-            helper->draw(att, painter, layout.attachmentsRectList.at(i), index, option);
+                helper->draw(att, painter, layout.attachmentsRectList.at(i), index, option);
             }
-        ++i;
+            ++i;
         }
     }
     // Blocks

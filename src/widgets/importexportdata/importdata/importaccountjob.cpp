@@ -163,7 +163,7 @@ void ImportAccountJob::importAccount(QString accountName)
                         qCWarning(RUQOLA_IMPORT_EXPORT_ACCOUNTS_LOG) << "Impossible to copy logs directory ";
                     }
                 } else {
-                    qCWarning(RUQOLA_IMPORT_EXPORT_ACCOUNTS_LOG) <<" Missing import file ? " << lst;
+                    qCWarning(RUQOLA_IMPORT_EXPORT_ACCOUNTS_LOG) << " Missing import file ? " << lst;
                 }
             }
         }
