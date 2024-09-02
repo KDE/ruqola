@@ -5,7 +5,6 @@
 */
 
 #include "accountmanager.h"
-#include "customsound/customsoundsmanager.h"
 #include "localdatabase/localdatabaseutils.h"
 #include "managerdatapaths.h"
 #include "notificationhistorymanager.h"
