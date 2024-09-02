@@ -21,6 +21,8 @@ WelcomeWidget::WelcomeWidget(QWidget *parent)
     auto addAccountButton = new QPushButton(i18nc("@action:button", "Add Account…"), this);
     addAccountButton->setObjectName("addAccountButton"_L1);
     addAccountButton->setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Fixed);
+    connect(addAccountButton, &QPushButton::clicked, this, &WelcomeWidget::createNewAccount);
+    mainLayout->addWidget(addAccountButton);
 
     mainLayout->addStretch(1);
 }
