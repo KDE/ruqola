@@ -909,7 +909,12 @@ bool AccountManager::isEmpty() const
 
 void AccountManager::addAccount(RocketChatAccount *account)
 {
+    const bool wasEmpty = isEmpty();
     mRocketChatAccountModel->insertAccount(account);
+    const QString accountName = account->accountName();
+    if (wasEmpty) {
+        setCurrentAccount(accountName);
+    }
 }
 
 void AccountManager::selectAccount(const QString &accountName)
