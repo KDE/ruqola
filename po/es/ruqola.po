@@ -1,17 +1,15 @@
-# Spanish translations for ruqola.po package.
-# Copyright (C) 2019 This file is copyright:
+# Translation of ruqola to Spanish
 # This file is distributed under the same license as the ruqola package.
 #
+# SPDX-FileCopyrightText: 2019 Manuel Alcaraz <manuelalcarazzam@gmail.com>
 # SPDX-FileCopyrightText: 2019, 2020, 2021, 2022, 2023, 2024 Eloy Cuadra <ecuadra@eloihr.net>
-# Automatically generated, 2019.
-# Manuel Alcaraz <manuelalcarazzam@gmail.com>, 2019.
-# Víctor Rodrigo Córdoba <vrcordoba@gmail.com>, 2020, 2021, 2022, 2023, 2024, %Y.
+# SPDX-FileCopyrightText: 2020, 2021, 2022, 2023, 2024 Víctor Rodrigo Córdoba <vrcordoba@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-09-01 00:39+0000\n"
-"PO-Revision-Date: 2024-08-10 18:32+0200\n"
+"POT-Creation-Date: 2024-09-02 00:38+0000\n"
+"PO-Revision-Date: 2024-08-31 16:53+0200\n"
 "Last-Translator: Víctor Rodrigo Córdoba <vrcordoba@gmail.com>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -742,7 +740,7 @@ msgstr "Expiración"
 #: core/model/admininvitemodel.cpp:115
 #, kde-format
 msgid "Unlimited"
-msgstr ""
+msgstr "Ilimitado"
 
 #: core/model/admininvitemodel.cpp:123
 #, kde-format
@@ -2878,16 +2876,14 @@ msgstr "Desactivar usuario"
 
 #: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:161
 #: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:157
-#, fuzzy, kde-format
-#| msgid ""
-#| "User will be unable to log in unless reactivated. All reported messages "
-#| "will be permanently deleted from their respective room."
+#, kde-format
 msgid ""
 "User will be unable to log in unless reactivated.\n"
 "All reported messages will be permanently deleted from their respective room."
 msgstr ""
-"El usuario no podrá registrarse a no ser que se reactive. Todos los mensajes "
-"reportados serán borrados permanentemente de las salas respectivas."
+"El usuario no podrá registrarse a no ser que se reactive.\n"
+"Todos los mensajes reportados serán borrados permanentemente de las salas "
+"respectivas."
 
 #: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:162
 #: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:158
@@ -2992,12 +2988,10 @@ msgid "Search…"
 msgstr "Buscar..."
 
 #: widgets/administratordialog/moderationconsole/moderationusersdialog.cpp:27
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Show Moderation Messages"
+#, kde-format
 msgctxt "@title:window"
 msgid "Show Moderation Users"
-msgstr "Mostrar mensajes de moderación"
+msgstr "Mostrar usuarios de moderación"
 
 #: widgets/administratordialog/oauth/administratoroauthcreatedialog.cpp:25
 #, kde-format
@@ -6726,15 +6720,12 @@ msgid "Convert to Channel"
 msgstr "Convertir en canal"
 
 #: widgets/channellist/channellistview.cpp:168
-#, fuzzy, kde-format
-#| msgid "Do you want to convert this big text as attachment?"
+#, kde-format
 msgid "Do you want to convert team to channel?"
-msgstr "¿Desea convertir este texto grande en un adjunto?"
+msgstr "¿Desea convertir el euipo en canal?"
 
 #: widgets/channellist/channellistview.cpp:169
-#, fuzzy, kde-format
-#| msgctxt "@action"
-#| msgid "Convert to Channel"
+#, kde-format
 msgctxt "@title:window"
 msgid "Convert To Channel"
 msgstr "Convertir en canal"
@@ -7610,7 +7601,7 @@ msgstr ""
 "publico una imagen?"
 
 #: widgets/dialogs/createsoundmessagewidget.cpp:157
-#: widgets/dialogs/createvideomessagewidget.cpp:251
+#: widgets/dialogs/createvideomessagewidget.cpp:248
 #, kde-format
 msgid "Recorded %1 sec"
 msgstr "%1 segundos grabados"
@@ -8711,7 +8702,7 @@ msgstr "Enviar nuevo código"
 #: widgets/misc/verifynewversionwidget.cpp:30
 #, kde-format
 msgid "Check New Version"
-msgstr ""
+msgstr "Comprobar nueva versión"
 
 #: widgets/myaccount/myaccount2e2configurewidget.cpp:21
 #, kde-format
@@ -9216,7 +9207,7 @@ msgstr "Desactivar comprobación de versión"
 #, kde-format
 msgctxt "@action"
 msgid "Check new Version"
-msgstr ""
+msgstr "Comprobar nueva versión"
 
 #: widgets/needupdateversion/needupdateversionwidget.cpp:42
 #, kde-format
@@ -10612,14 +10603,12 @@ msgid "Allow to clean room history."
 msgstr "Permitir borrar el histórico de salas."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:19
-#, fuzzy
-#| msgid "Allow to clean room history."
 msgid "Allow to check new version."
-msgstr "Permitir borrar el histórico de salas."
+msgstr "Permitir comprobar nueva versión."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:20
 msgid "Implement moderation (administrator mode)."
-msgstr ""
+msgstr "Moderación implementada (modo administrador)."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:30
 #, kde-format
@@ -10881,11 +10870,9 @@ msgstr ""
 "Mejora en los mensajes duplicados en el diálogo de búsqueda de mensajes."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:105
-#, fuzzy, kde-format
-#| msgid "Fix duplicated messages in search message dialog."
+#, kde-format
 msgid "Add delegate in search rooms in team dialog."
-msgstr ""
-"Mejora en los mensajes duplicados en el diálogo de búsqueda de mensajes."
+msgstr "Añadir delegado en las salas de búsqueda en el diálogo de equipo."
 
 #: widgets/whatsnew/whatsnewwidget.cpp:44
 #, kde-format
