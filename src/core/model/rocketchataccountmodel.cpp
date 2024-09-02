@@ -68,6 +68,11 @@ RocketChatAccount *RocketChatAccountModel::account(const QString &accountName) c
     return nullptr;
 }
 
+bool RocketChatAccountModel::isEmpty() const
+{
+    return mRocketChatAccount.isEmpty();
+}
+
 int RocketChatAccountModel::accountNumber() const
 {
     return mRocketChatAccount.count();

@@ -117,6 +117,7 @@ RuqolaMainWindow::RuqolaMainWindow(QWidget *parent)
 {
     mMainWidget->setObjectName(QStringLiteral("mMainWidget"));
     connect(mMainWidget, &RuqolaCentralWidget::loginPageActivated, this, &RuqolaMainWindow::slotLoginPageActivated);
+    connect(mMainWidget, &RuqolaCentralWidget::createNewAccount, this, &RuqolaMainWindow::slotAddServer);
     setCentralWidget(mMainWidget);
     setupActions();
     setupStatusBar();
@@ -243,59 +244,62 @@ void RuqolaMainWindow::slotAccountChanged()
         disconnect(mCurrentRocketChatAccount->receiveTypingNotificationManager(), nullptr, this, nullptr);
     }
     mCurrentRocketChatAccount = Ruqola::self()->rocketChatAccount();
-    connect(mCurrentRocketChatAccount->receiveTypingNotificationManager(),
-            &ReceiveTypingNotificationManager::notificationChanged,
-            this,
-            &RuqolaMainWindow::slotTypingNotificationChanged);
-    connect(mCurrentRocketChatAccount->receiveTypingNotificationManager(),
-            &ReceiveTypingNotificationManager::clearNotification,
-            this,
-            &RuqolaMainWindow::slotClearNotification);
-    connect(mCurrentRocketChatAccount, &RocketChatAccount::missingChannelPassword, this, &RuqolaMainWindow::slotMissingChannelPassword);
-    connect(mCurrentRocketChatAccount, &RocketChatAccount::publicSettingChanged, this, &RuqolaMainWindow::updateActions);
-    connect(mCurrentRocketChatAccount, &RocketChatAccount::serverVersionChanged, this, [this]() {
-        slotPermissionChanged();
-        updateActions();
-    });
-    connect(mCurrentRocketChatAccount, &RocketChatAccount::ownInfoChanged, this, [this]() {
-        updateActions();
-        slotPermissionChanged();
-    });
-    connect(mCurrentRocketChatAccount, &RocketChatAccount::ownUserUiPreferencesChanged, this, [this]() {
-        updateActions();
-    });
-    connect(mCurrentRocketChatAccount, &RocketChatAccount::raiseWindow, this, &RuqolaMainWindow::slotRaiseWindow);
-    connect(mCurrentRocketChatAccount, &RocketChatAccount::permissionChanged, this, &RuqolaMainWindow::slotPermissionChanged);
-    connect(mCurrentRocketChatAccount, &RocketChatAccount::registerUserSuccess, this, &RuqolaMainWindow::slotRegisterUserSuccessed);
-    connect(mCurrentRocketChatAccount,
-            &RocketChatAccount::userStatusUpdated,
-            this,
-            [this](User::PresenceStatus status, const QString &customText, const QString &accountName) {
-                if (mCurrentRocketChatAccount->accountName() == accountName) {
-                    mStatusComboBox->blockSignals(true);
-                    mStatusComboBox->setStatus(status, customText);
-                    mStatusComboBox->blockSignals(false);
-                }
-            });
-    connect(mCurrentRocketChatAccount, &RocketChatAccount::customStatusChanged, this, &RuqolaMainWindow::slotUpdateCustomUserStatus);
-    connect(mCurrentRocketChatAccount, &RocketChatAccount::privateSettingsChanged, this, &RuqolaMainWindow::slotPrivateSettingsChanged);
-    connect(mCurrentRocketChatAccount, &RocketChatAccount::publicSettingChanged, this, &RuqolaMainWindow::slotPrivateSettingsChanged);
-
+    if (mCurrentRocketChatAccount) {
+        connect(mCurrentRocketChatAccount->receiveTypingNotificationManager(),
+                &ReceiveTypingNotificationManager::notificationChanged,
+                this,
+                &RuqolaMainWindow::slotTypingNotificationChanged);
+        connect(mCurrentRocketChatAccount->receiveTypingNotificationManager(),
+                &ReceiveTypingNotificationManager::clearNotification,
+                this,
+                &RuqolaMainWindow::slotClearNotification);
+        connect(mCurrentRocketChatAccount, &RocketChatAccount::missingChannelPassword, this, &RuqolaMainWindow::slotMissingChannelPassword);
+        connect(mCurrentRocketChatAccount, &RocketChatAccount::publicSettingChanged, this, &RuqolaMainWindow::updateActions);
+        connect(mCurrentRocketChatAccount, &RocketChatAccount::serverVersionChanged, this, [this]() {
+            slotPermissionChanged();
+            updateActions();
+        });
+        connect(mCurrentRocketChatAccount, &RocketChatAccount::ownInfoChanged, this, [this]() {
+            updateActions();
+            slotPermissionChanged();
+        });
+        connect(mCurrentRocketChatAccount, &RocketChatAccount::ownUserUiPreferencesChanged, this, [this]() {
+            updateActions();
+        });
+        connect(mCurrentRocketChatAccount, &RocketChatAccount::raiseWindow, this, &RuqolaMainWindow::slotRaiseWindow);
+        connect(mCurrentRocketChatAccount, &RocketChatAccount::permissionChanged, this, &RuqolaMainWindow::slotPermissionChanged);
+        connect(mCurrentRocketChatAccount, &RocketChatAccount::registerUserSuccess, this, &RuqolaMainWindow::slotRegisterUserSuccessed);
+        connect(mCurrentRocketChatAccount,
+                &RocketChatAccount::userStatusUpdated,
+                this,
+                [this](User::PresenceStatus status, const QString &customText, const QString &accountName) {
+                    if (mCurrentRocketChatAccount->accountName() == accountName) {
+                        mStatusComboBox->blockSignals(true);
+                        mStatusComboBox->setStatus(status, customText);
+                        mStatusComboBox->blockSignals(false);
+                    }
+                });
+        connect(mCurrentRocketChatAccount, &RocketChatAccount::customStatusChanged, this, &RuqolaMainWindow::slotUpdateCustomUserStatus);
+        connect(mCurrentRocketChatAccount, &RocketChatAccount::privateSettingsChanged, this, &RuqolaMainWindow::slotPrivateSettingsChanged);
+        connect(mCurrentRocketChatAccount, &RocketChatAccount::publicSettingChanged, this, &RuqolaMainWindow::slotPrivateSettingsChanged);
+    }
     updateActions();
     slotClearNotification(); // Clear notification when we switch too.
-    mMainWidget->setCurrentRocketChatAccount(mCurrentRocketChatAccount);
-    mSwitchChannelTreeManager->setCurrentRocketChatAccount(mCurrentRocketChatAccount);
+    if (mCurrentRocketChatAccount) {
+        mMainWidget->setCurrentRocketChatAccount(mCurrentRocketChatAccount);
+        mSwitchChannelTreeManager->setCurrentRocketChatAccount(mCurrentRocketChatAccount);
 
-    mStatusComboBox->blockSignals(true);
-    mStatusProxyModel->setSourceModel(mCurrentRocketChatAccount->statusModel());
-    slotPrivateSettingsChanged();
-    mStatusComboBox->setModel(mStatusProxyModel);
+        mStatusComboBox->blockSignals(true);
+        mStatusProxyModel->setSourceModel(mCurrentRocketChatAccount->statusModel());
+        slotPrivateSettingsChanged();
+        mStatusComboBox->setModel(mStatusProxyModel);
 
-    slotUpdateCustomUserStatus();
-    mStatusComboBox->setStatus(mCurrentRocketChatAccount->presenceStatus());
-    mStatusComboBox->blockSignals(false);
+        slotUpdateCustomUserStatus();
+        mStatusComboBox->setStatus(mCurrentRocketChatAccount->presenceStatus());
+        mStatusComboBox->blockSignals(false);
 
-    slotUpdateStatusMenu();
+        slotUpdateStatusMenu();
+    }
 }
 
 void RuqolaMainWindow::slotPrivateSettingsChanged()
@@ -324,25 +328,27 @@ void RuqolaMainWindow::slotPermissionChanged()
 
 void RuqolaMainWindow::updateActions()
 {
-    mUnreadOnTop->setChecked(mCurrentRocketChatAccount->ownUserPreferences().showUnread());
-    const auto roomListSortOrder = mCurrentRocketChatAccount->ownUserPreferences().roomListSortOrder();
+    mUnreadOnTop->setChecked(mCurrentRocketChatAccount && mCurrentRocketChatAccount->ownUserPreferences().showUnread());
+    const auto roomListSortOrder =
+        mCurrentRocketChatAccount ? mCurrentRocketChatAccount->ownUserPreferences().roomListSortOrder() : OwnUserPreferences::RoomListSortOrder::Unknown;
     mRoomListSortByLastMessage->setChecked(roomListSortOrder == OwnUserPreferences::RoomListSortOrder::ByLastMessage);
     mRoomListSortAlphabetically->setChecked(roomListSortOrder == OwnUserPreferences::RoomListSortOrder::Alphabetically);
 
-    const auto roomListDisplay = mCurrentRocketChatAccount->ownUserPreferences().roomListDisplay();
+    const auto roomListDisplay =
+        mCurrentRocketChatAccount ? mCurrentRocketChatAccount->ownUserPreferences().roomListDisplay() : OwnUserPreferences::RoomListDisplay::Unknown;
     mRoomListDisplayMedium->setChecked(roomListDisplay == OwnUserPreferences::RoomListDisplay::Medium);
     mRoomListDisplayCondensed->setChecked(roomListDisplay == OwnUserPreferences::RoomListDisplay::Condensed);
     mRoomListDisplayExtended->setChecked(roomListDisplay == OwnUserPreferences::RoomListDisplay::Extended);
 
-    mRegisterNewUser->setVisible(mCurrentRocketChatAccount->registrationFormEnabled());
-    mCreateDiscussion->setEnabled(mCurrentRocketChatAccount->discussionEnabled()
+    mRegisterNewUser->setVisible(mCurrentRocketChatAccount && mCurrentRocketChatAccount->registrationFormEnabled());
+    mCreateDiscussion->setEnabled(mCurrentRocketChatAccount && mCurrentRocketChatAccount->discussionEnabled()
                                   && (mCurrentRocketChatAccount->loginStatus() == AuthenticationManager::LoggedIn));
-    const bool isAdministrator{mCurrentRocketChatAccount->isAdministrator()};
+    const bool isAdministrator{mCurrentRocketChatAccount && mCurrentRocketChatAccount->isAdministrator()};
     mAdministrator->setVisible(isAdministrator);
     mAdministratorServerSettings->setVisible(isAdministrator);
     mShowRocketChatServerInfo->setVisible(hasBannerInfo());
-    mRoomAvatar->setChecked(mCurrentRocketChatAccount->ownUserPreferences().showRoomAvatar());
-    mRoomFavorite->setChecked(mCurrentRocketChatAccount->ownUserPreferences().showFavorite());
+    mRoomAvatar->setChecked(mCurrentRocketChatAccount && mCurrentRocketChatAccount->ownUserPreferences().showRoomAvatar());
+    mRoomFavorite->setChecked(mCurrentRocketChatAccount && mCurrentRocketChatAccount->ownUserPreferences().showFavorite());
     mCreateNewChannel->setEnabled(canCreateChannels());
     mCreateDirectMessages->setEnabled(canCreateDirectMessages());
     mCreateTeam->setEnabled(canCreateTeams());

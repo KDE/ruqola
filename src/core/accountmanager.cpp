@@ -800,16 +800,6 @@ void AccountManager::loadAccount()
         }
     }
 
-    // New account => empty list.
-    if (lstAccounts.isEmpty()) {
-        qCDebug(RUQOLA_LOG) << "Empty list. Create a default rocketchataccount";
-        auto account = new RocketChatAccount();
-        if (account->accountEnabled()) {
-            connectToAccount(account);
-        }
-        lstAccounts.append(account);
-    }
-
     mRocketChatAccountModel->setAccounts(lstAccounts);
 
     QSettings settings;
@@ -912,6 +902,11 @@ QStringList AccountManager::accountsName() const
     return mRocketChatAccountModel->accountsName();
 }
 
+bool AccountManager::isEmpty() const
+{
+    return mRocketChatAccountModel->isEmpty();
+}
+
 void AccountManager::addAccount(RocketChatAccount *account)
 {
     mRocketChatAccountModel->insertAccount(account);
@@ -923,6 +918,7 @@ void AccountManager::selectAccount(const QString &accountName)
     if (account) {
         mCurrentAccount = account;
     } else {
+        mCurrentAccount = nullptr;
         qCWarning(RUQOLA_LOG) << "AccountName " << accountName << " is not found on system.";
     }
 }

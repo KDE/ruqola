@@ -35,6 +35,7 @@ public:
 Q_SIGNALS:
     void channelSelected();
     void loginPageActivated(bool showLoginPage);
+    void createNewAccount();
 
 private:
     LIBRUQOLAWIDGETS_NO_EXPORT void slotLoginStatusChanged();

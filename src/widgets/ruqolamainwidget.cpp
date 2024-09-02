@@ -163,18 +163,19 @@ void RuqolaMainWidget::setCurrentRocketChatAccount(RocketChatAccount *account)
         disconnect(mCurrentRocketChatAccount, &RocketChatAccount::bannerInfoChanged, this, &RuqolaMainWidget::updateBannerInfo);
     }
     mCurrentRocketChatAccount = account;
-    connect(mCurrentRocketChatAccount, &RocketChatAccount::bannerInfoChanged, this, &RuqolaMainWidget::updateBannerInfo);
-    mChannelList->setCurrentRocketChatAccount(account);
-    mRoomWidget->setCurrentRocketChatAccount(account);
-    mStackedRoomWidget->setCurrentWidget(mEmptyRoomWidget);
+    if (mCurrentRocketChatAccount) {
+        connect(mCurrentRocketChatAccount, &RocketChatAccount::bannerInfoChanged, this, &RuqolaMainWidget::updateBannerInfo);
+        mChannelList->setCurrentRocketChatAccount(account);
+        mRoomWidget->setCurrentRocketChatAccount(account);
+        mStackedRoomWidget->setCurrentWidget(mEmptyRoomWidget);
 
-    // This is for switching between already-loaded accounts
-    // On startup it's too early
-    if (previousRocketChatAccount) {
-        mChannelList->channelListView()->selectChannelRequested(mCurrentRocketChatAccount->settings()->lastSelectedRoom(), QByteArray());
+        // This is for switching between already-loaded accounts
+        // On startup it's too early
+        if (previousRocketChatAccount) {
+            mChannelList->channelListView()->selectChannelRequested(mCurrentRocketChatAccount->settings()->lastSelectedRoom(), QByteArray());
+        }
+        updateBannerInfo();
     }
-
-    updateBannerInfo();
 }
 
 void RuqolaMainWidget::slotMarkBannerAsRead(const QByteArray &identifier)

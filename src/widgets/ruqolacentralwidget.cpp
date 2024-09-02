@@ -5,8 +5,10 @@
 */
 
 #include "ruqolacentralwidget.h"
+#include "accountmanager.h"
 #include "loginwidget/ruqolaloginwidget.h"
 #include "rocketchataccount.h"
+#include "ruqola.h"
 #include "ruqolaglobalconfig.h"
 #include "ruqolamainwidget.h"
 #include "servererrorinfo.h"
@@ -55,11 +57,15 @@ RuqolaCentralWidget::RuqolaCentralWidget(QWidget *parent)
 
     mRuqolaWelcomeWidget->setObjectName(QStringLiteral("mRuqolaWelcomeWidget"));
     mStackedWidget->addWidget(mRuqolaWelcomeWidget);
+    connect(mRuqolaWelcomeWidget, &WelcomeWidget::createNewAccount, this, &RuqolaCentralWidget::createNewAccount);
 
     mStackedWidget->setCurrentWidget(mRuqolaLoginWidget);
     mRuqolaLoginWidget->forceLoginFocus();
     connect(mRuqolaMainWidget, &RuqolaMainWidget::channelSelected, this, &RuqolaCentralWidget::channelSelected);
     connect(ServerErrorInfoHistoryManager::self(), &ServerErrorInfoHistoryManager::newServerErrorInfo, this, &RuqolaCentralWidget::slotNewErrorInfo);
+    if (Ruqola::self()->accountManager()->isEmpty()) {
+        mStackedWidget->setCurrentWidget(mRuqolaWelcomeWidget);
+    }
 }
 
 RuqolaCentralWidget::~RuqolaCentralWidget() = default;
@@ -121,12 +127,14 @@ void RuqolaCentralWidget::setCurrentRocketChatAccount(RocketChatAccount *account
         disconnect(mCurrentRocketChatAccount, nullptr, this, nullptr);
     }
     mCurrentRocketChatAccount = account;
-    connect(mCurrentRocketChatAccount, &RocketChatAccount::loginStatusChanged, this, &RuqolaCentralWidget::slotLoginStatusChanged);
-    connect(mCurrentRocketChatAccount, &RocketChatAccount::socketError, this, &RuqolaCentralWidget::slotSocketError);
-    connect(mCurrentRocketChatAccount, &RocketChatAccount::jobFailed, this, &RuqolaCentralWidget::slotJobFailedInfo);
-    mRuqolaMainWidget->setCurrentRocketChatAccount(mCurrentRocketChatAccount);
-    // Check if account is connected or not.
-    slotLoginStatusChanged();
+    if (mCurrentRocketChatAccount) {
+        connect(mCurrentRocketChatAccount, &RocketChatAccount::loginStatusChanged, this, &RuqolaCentralWidget::slotLoginStatusChanged);
+        connect(mCurrentRocketChatAccount, &RocketChatAccount::socketError, this, &RuqolaCentralWidget::slotSocketError);
+        connect(mCurrentRocketChatAccount, &RocketChatAccount::jobFailed, this, &RuqolaCentralWidget::slotJobFailedInfo);
+        mRuqolaMainWidget->setCurrentRocketChatAccount(mCurrentRocketChatAccount);
+        // Check if account is connected or not.
+        slotLoginStatusChanged();
+    }
 }
 
 void RuqolaCentralWidget::slotLoginStatusChanged()

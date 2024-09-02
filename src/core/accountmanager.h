@@ -87,6 +87,8 @@ public:
     void modifyAccount(const AccountManagerInfo &info);
     [[nodiscard]] QStringList accountsName() const;
 
+    [[nodiscard]] bool isEmpty() const;
+
     [[nodiscard]] int accountNumber() const;
     [[nodiscard]] bool showMessage(const ParseRocketChatUrlUtils::ParsingInfo &parseInfo);
     [[nodiscard]] RocketChatAccount *accountFromName(const QString &accountName);

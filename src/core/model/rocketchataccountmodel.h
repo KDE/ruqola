@@ -45,6 +45,7 @@ public:
     [[nodiscard]] QStringList accountsName() const;
 
     [[nodiscard]] RocketChatAccount *accountFromServerUrl(const QString &serverUrl) const;
+    [[nodiscard]] bool isEmpty() const;
 Q_SIGNALS:
     void accountNumberChanged();
 
