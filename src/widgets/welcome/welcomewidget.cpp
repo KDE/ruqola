@@ -18,7 +18,7 @@ WelcomeWidget::WelcomeWidget(QWidget *parent)
     mainLayout->setContentsMargins({});
     mainLayout->addStretch(1);
 
-    auto addAccountButton = new QPushButton(i18nc("@action:button", "Add Account…"));
+    auto addAccountButton = new QPushButton(i18nc("@action:button", "Add Account…"), this);
     addAccountButton->setObjectName("addAccountButton"_L1);
     addAccountButton->setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Fixed);
 

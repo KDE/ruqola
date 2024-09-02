@@ -6,6 +6,7 @@
 #include "welcomewidgettest.h"
 #include "welcome/welcomewidget.h"
 #include <QHBoxLayout>
+#include <QPushButton>
 #include <QTest>
 using namespace Qt::Literals::StringLiterals;
 QTEST_MAIN(WelcomeWidgetTest)
@@ -20,7 +21,12 @@ void WelcomeWidgetTest::shouldHaveDefaultValues()
     auto mainLayout = w.findChild<QHBoxLayout *>("mainLayout"_L1);
     QVERIFY(mainLayout);
     QCOMPARE(mainLayout->contentsMargins(), QMargins{});
-    // TODO
+
+    auto addAccountButton = w.findChild<QPushButton *>("addAccountButton"_L1);
+    QVERIFY(addAccountButton);
+    const QSizePolicy p = QSizePolicy(QSizePolicy::Fixed, QSizePolicy::Fixed);
+    QCOMPARE(addAccountButton->sizePolicy(), p);
+    QVERIFY(!addAccountButton->text().isEmpty());
 }
 
 #include "moc_welcomewidgettest.cpp"
