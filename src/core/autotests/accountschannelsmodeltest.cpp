@@ -32,15 +32,15 @@ void AccountsChannelsModelTest::accountsAndChannels()
     AccountsChannelsModel model;
     QAbstractItemModelTester tester(&model, QAbstractItemModelTester::FailureReportingMode::QtTest);
 
-    QCOMPARE(model.rowCount(), 1); // Ruqola creates one account by default
+    QCOMPARE(model.rowCount(), 0); // Ruqola creates one account by default
     QCOMPARE(model.data(model.index(1, 0)).toString(), QString());
     QCOMPARE(model.rowCount(model.index(1, 0)), 0);
 
     const auto newAcctName = QStringLiteral("Test Account");
     const auto acct = new RocketChatAccount;
     Ruqola::self()->accountManager()->addAccount(acct);
-    const auto newAcctIndex = model.index(1, 0);
-    QCOMPARE(model.rowCount(), 2);
+    const auto newAcctIndex = model.index(0, 0);
+    QCOMPARE(model.rowCount(), 1);
     QVERIFY(!model.hasChildren(newAcctIndex));
     QCOMPARE(model.data(newAcctIndex).toString(), QString());
     acct->setAccountName(newAcctName);
@@ -60,7 +60,7 @@ void AccountsChannelsModelTest::accountsAndChannels()
     // TODO: RoomsModel currently has no API for removing rooms
 
     Ruqola::self()->accountManager()->removeAccount(newAcctName);
-    QCOMPARE(model.rowCount(), 1); // Only the default account remains
+    QCOMPARE(model.rowCount(), 0); // Only the default account remains
 }
 
 #include "moc_accountschannelsmodeltest.cpp"

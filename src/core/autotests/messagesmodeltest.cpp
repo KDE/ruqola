@@ -5,6 +5,7 @@
 */
 
 #include "messagesmodeltest.h"
+#include "accountmanager.h"
 #include "model/messagesmodel.h"
 #include "rocketchataccount.h"
 #include "ruqola.h"
@@ -23,6 +24,9 @@ void MessagesModelTest::initTestCase()
 {
     QStandardPaths::setTestModeEnabled(true);
     auto *rcAccount = Ruqola::self()->rocketChatAccount();
+    QVERIFY(!rcAccount);
+    Ruqola::self()->accountManager()->addAccount(new RocketChatAccount());
+    rcAccount = Ruqola::self()->rocketChatAccount();
     QVERIFY(rcAccount);
     rcAccount->settings()->setUserId(QByteArrayLiteral("userid1"));
 }

@@ -24,7 +24,7 @@ void AccountManagerTest::shouldHaveDefaultValue()
     QVERIFY(w.rocketChatAccountProxyModel());
     QCOMPARE(w.rocketChatAccountProxyModel()->sourceModel(), w.rocketChatAccountModel());
 
-    QVERIFY(w.account());
+    QVERIFY(!w.account());
 }
 
 void AccountManagerTest::shouldAddAccount()
@@ -34,8 +34,7 @@ void AccountManagerTest::shouldAddAccount()
         auto c = new RocketChatAccount();
         w.addAccount(c);
     }
-    // We have a default account when we load account
-    QCOMPARE(w.rocketChatAccountModel()->rowCount(), 11);
+    QCOMPARE(w.rocketChatAccountModel()->rowCount(), 10);
 }
 
 void AccountManagerTest::shouldReturnAccountFromAccountName()
