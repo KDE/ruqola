@@ -26,3 +26,5 @@ WelcomeWidget::WelcomeWidget(QWidget *parent)
 }
 
 WelcomeWidget::~WelcomeWidget() = default;
+
+#include "moc_welcomewidget.cpp"
