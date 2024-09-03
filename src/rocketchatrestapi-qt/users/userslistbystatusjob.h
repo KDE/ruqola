@@ -15,7 +15,13 @@ class LIBROCKETCHATRESTAPI_QT_EXPORT UsersListByStatusJob : public RestApiAbstra
 {
     Q_OBJECT
 public:
-    struct UsersListByStatusJobInfo {
+    enum Status {
+        Unknown = 0,
+        Desactivated = 1,
+        Activated = 2,
+    };
+    struct LIBROCKETCHATRESTAPI_QT_EXPORT UsersListByStatusJobInfo {
+        Status status = Unknown;
         bool hasLoggedIn = false;
         int count = 0;
     };
