@@ -15,6 +15,10 @@ class LIBROCKETCHATRESTAPI_QT_EXPORT UsersListByStatusJob : public RestApiAbstra
 {
     Q_OBJECT
 public:
+    struct UsersListByStatusJobInfo {
+        bool hasLoggedIn = false;
+        int count = 0;
+    };
     explicit UsersListByStatusJob(QObject *parent = nullptr);
     ~UsersListByStatusJob() override;
 

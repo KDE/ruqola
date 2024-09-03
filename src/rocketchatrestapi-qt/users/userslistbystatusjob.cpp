@@ -25,7 +25,7 @@ bool UsersListByStatusJob::requireHttpAuthentication() const
 }
 
 // TODO implement void initialUrlParameters(QUrlQuery &urlQuery) const
-// https://<foo>/api/v1/users.listByStatus?count=25&offset=0&searchTerm=&sort=%7B%20%22name%22%3A%201%20%7D
+// https://<foo>/api/v1/users.listByStatus?count=1&hasLoggedIn=false&status=deactivated&type=user
 bool UsersListByStatusJob::start()
 {
     if (!canStart()) {
