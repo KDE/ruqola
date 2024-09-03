@@ -7,7 +7,9 @@
 #include "welcome/welcomewidget.h"
 #include <QHBoxLayout>
 #include <QPushButton>
+#include <QSignalSpy>
 #include <QTest>
+#include <qtestmouse.h>
 using namespace Qt::Literals::StringLiterals;
 QTEST_MAIN(WelcomeWidgetTest)
 WelcomeWidgetTest::WelcomeWidgetTest(QObject *parent)
@@ -27,6 +29,18 @@ void WelcomeWidgetTest::shouldHaveDefaultValues()
     const QSizePolicy p = QSizePolicy(QSizePolicy::Fixed, QSizePolicy::Fixed);
     QCOMPARE(addAccountButton->sizePolicy(), p);
     QVERIFY(!addAccountButton->text().isEmpty());
+}
+
+void WelcomeWidgetTest::shouldEmitSignal()
+{
+    WelcomeWidget w;
+
+    auto addAccountButton = w.findChild<QPushButton *>("addAccountButton"_L1);
+    QVERIFY(addAccountButton);
+
+    QSignalSpy createNewAccountSignal(&w, &WelcomeWidget::createNewAccount);
+    QTest::mouseClick(addAccountButton, Qt::LeftButton);
+    QCOMPARE(createNewAccountSignal.count(), 1);
 }
 
 #include "moc_welcomewidgettest.cpp"
