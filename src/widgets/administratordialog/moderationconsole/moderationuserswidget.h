@@ -9,9 +9,10 @@
 #include <QWidget>
 
 #include "libruqolawidgets_private_export.h"
+#include "moderation/moderationreportuserinfos.h"
 class QLabel;
 class RocketChatAccount;
-
+class QTextBrowser;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT ModerationUsersWidget : public QWidget
 {
     Q_OBJECT
@@ -19,6 +20,9 @@ public:
     explicit ModerationUsersWidget(RocketChatAccount *account, QWidget *parent = nullptr);
     ~ModerationUsersWidget() override;
 
+    void setModerationReportUserInfos(const ModerationReportUserInfos &infos);
+
 private:
+    QTextBrowser *const mTextBrowser;
     RocketChatAccount *const mCurrentRocketChatAccount;
 };

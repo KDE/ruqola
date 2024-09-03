@@ -43,6 +43,11 @@ ModerationUsersDialog::~ModerationUsersDialog()
     writeConfig();
 }
 
+void ModerationUsersDialog::setModerationReportUserInfos(const ModerationReportUserInfos &infos)
+{
+    mModerationUsersWidget->setModerationReportUserInfos(infos);
+}
+
 void ModerationUsersDialog::readConfig()
 {
     create(); // ensure a window is created
