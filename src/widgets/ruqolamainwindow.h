@@ -73,7 +73,7 @@ private:
     LIBRUQOLAWIDGETS_NO_EXPORT void updateActions();
     LIBRUQOLAWIDGETS_NO_EXPORT void slotMissingChannelPassword(const RocketChatRestApi::ChannelGroupBaseJob::ChannelGroupInfo &channelInfo);
     LIBRUQOLAWIDGETS_NO_EXPORT void slotClearAccountAlerts();
-    LIBRUQOLAWIDGETS_NO_EXPORT void slotLoginPageActivated(bool loginPageActivated);
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotDisableActions(bool loginPageActivated);
     LIBRUQOLAWIDGETS_NO_EXPORT void slotConfigureNotifications();
     LIBRUQOLAWIDGETS_NO_EXPORT void slotRaiseWindow();
     LIBRUQOLAWIDGETS_NO_EXPORT void slotRegisterNewUser();

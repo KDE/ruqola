@@ -116,7 +116,7 @@ RuqolaMainWindow::RuqolaMainWindow(QWidget *parent)
 
 {
     mMainWidget->setObjectName(QStringLiteral("mMainWidget"));
-    connect(mMainWidget, &RuqolaCentralWidget::loginPageActivated, this, &RuqolaMainWindow::slotLoginPageActivated);
+    connect(mMainWidget, &RuqolaCentralWidget::loginPageActivated, this, &RuqolaMainWindow::slotDisableActions);
     connect(mMainWidget, &RuqolaCentralWidget::createNewAccount, this, &RuqolaMainWindow::slotAddServer);
     setCentralWidget(mMainWidget);
     setupActions();
@@ -912,7 +912,7 @@ void RuqolaMainWindow::slotMissingChannelPassword(const RocketChatRestApi::Chann
     delete dlg;
 }
 
-void RuqolaMainWindow::slotLoginPageActivated(bool loginPageActivated)
+void RuqolaMainWindow::slotDisableActions(bool loginPageActivated)
 {
     mCreateNewChannel->setEnabled(!loginPageActivated && canCreateChannels());
     mCreateDirectMessages->setEnabled(!loginPageActivated && canCreateDirectMessages());
