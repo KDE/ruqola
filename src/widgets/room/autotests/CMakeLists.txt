@@ -10,7 +10,7 @@ macro(add_ruqolaroom_test _source)
     set_target_properties(${_name} PROPERTIES DISABLE_PRECOMPILE_HEADERS ON)
 endmacro()
 
-add_ruqolaroom_test(roomwidgettest.cpp)
+add_ruqolaroom_test(roomwidgettest.cpp testdata.cpp)
 add_ruqolaroom_test(roomheaderwidgettest.cpp)
 add_ruqolaroom_test(messagetextedittest.cpp)
 add_ruqolaroom_test(messagelinewidgettest.cpp)

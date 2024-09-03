@@ -19,6 +19,7 @@
 #include "room/usersinroomflowwidget.h"
 
 #include "ruqola.h"
+#include "testdata.h"
 
 #include <QStackedWidget>
 #include <QStandardPaths>
@@ -29,6 +30,7 @@ QTEST_MAIN(RoomWidgetTest)
 RoomWidgetTest::RoomWidgetTest(QObject *parent)
     : QObject(parent)
 {
+    initTestAccount();
     QStandardPaths::setTestModeEnabled(true);
 }
 
