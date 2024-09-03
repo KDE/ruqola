@@ -52,7 +52,7 @@ void UsersListByStatusJob::onGetRequestResponse(const QString &replyErrorString,
 
 QNetworkRequest UsersListByStatusJob::request() const
 {
-    QUrl url = mRestApiMethod->generateUrl(RestApiUtil::RestApiUrlType::UsersPresence);
+    QUrl url = mRestApiMethod->generateUrl(RestApiUtil::RestApiUrlType::UsersListByStatus);
 
     QNetworkRequest request(url);
     addAuthRawHeader(request);

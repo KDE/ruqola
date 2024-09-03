@@ -5,9 +5,8 @@
 */
 
 #include "userslistbystatusjobtest.h"
-#include "restapimethod.h"
 #include "ruqola_restapi_helper.h"
-#include "users/userspresencejob.h"
+#include "users/userslistbystatusjob.h"
 QTEST_GUILESS_MAIN(UsersListByStatusJobTest)
 using namespace RocketChatRestApi;
 UsersListByStatusJobTest::UsersListByStatusJobTest(QObject *parent)
@@ -17,7 +16,7 @@ UsersListByStatusJobTest::UsersListByStatusJobTest(QObject *parent)
 
 void UsersListByStatusJobTest::shouldHaveDefaultValue()
 {
-    UsersPresenceJob job;
+    UsersListByStatusJob job;
     verifyDefaultValue(&job);
     QVERIFY(job.requireHttpAuthentication());
     QVERIFY(!job.hasQueryParameterSupport());
@@ -25,10 +24,10 @@ void UsersListByStatusJobTest::shouldHaveDefaultValue()
 
 void UsersListByStatusJobTest::shouldGenerateRequest()
 {
-    UsersPresenceJob job;
+    UsersListByStatusJob job;
     QNetworkRequest request = QNetworkRequest(QUrl());
     verifyAuthentication(&job, request);
-    QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/v1/users.presence")));
+    QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/v1/users.listByStatus")));
 }
 
 #include "moc_userslistbystatusjobtest.cpp"
