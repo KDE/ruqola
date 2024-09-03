@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-09-02 00:38+0000\n"
+"POT-Creation-Date: 2024-09-03 00:39+0000\n"
 "PO-Revision-Date: 2024-08-31 16:53+0200\n"
 "Last-Translator: Víctor Rodrigo Córdoba <vrcordoba@gmail.com>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
@@ -6818,7 +6818,7 @@ msgid "Username or Email:"
 msgstr "Nombre del usuario o correo electrónico:"
 
 #: widgets/common/authenticationloginwidget.cpp:155
-#: widgets/ruqolamainwindow.cpp:970
+#: widgets/ruqolamainwindow.cpp:976
 #, kde-format
 msgid ""
 "We have sent you an email to confirm your registration.\n"
@@ -6828,7 +6828,7 @@ msgstr ""
 "Si no recibe un correo en un periodo corto, por favor, pruebe de nuevo."
 
 #: widgets/common/authenticationloginwidget.cpp:156
-#: widgets/ruqolamainwindow.cpp:971
+#: widgets/ruqolamainwindow.cpp:977
 #, kde-format
 msgctxt "@title:window"
 msgid "Register New User"
@@ -10107,273 +10107,273 @@ msgctxt "@info:shell"
 msgid "Lists the available options for user feedback"
 msgstr "Mostrar las opciones disponibles para comentarios de usuario"
 
-#: widgets/ruqolamainwindow.cpp:222
+#: widgets/ruqolamainwindow.cpp:223
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Show New Notifications"
 msgstr "Mostrar nuevas notificaciones"
 
-#: widgets/ruqolamainwindow.cpp:224
+#: widgets/ruqolamainwindow.cpp:225
 #, kde-format
 msgid "Show New Notifications"
 msgstr "Mostrar nuevas notificaciones"
 
-#: widgets/ruqolamainwindow.cpp:404
+#: widgets/ruqolamainwindow.cpp:410
 #, kde-format
 msgctxt "@action"
 msgid "Add Server…"
 msgstr "Añadir servidor..."
 
-#: widgets/ruqolamainwindow.cpp:409
+#: widgets/ruqolamainwindow.cpp:415
 #, kde-format
 msgctxt "@action"
 msgid "Server Info…"
 msgstr "Información del servidor..."
 
-#: widgets/ruqolamainwindow.cpp:413
+#: widgets/ruqolamainwindow.cpp:419
 #, kde-format
 msgctxt "@action"
 msgid "Logout Current Server"
 msgstr "Cerrar servidor actual"
 
-#: widgets/ruqolamainwindow.cpp:417
+#: widgets/ruqolamainwindow.cpp:423
 #, kde-format
 msgctxt "@action"
 msgid "Jump to Next Unread Channel"
 msgstr "Saltar al siguiente canal no leido"
 
-#: widgets/ruqolamainwindow.cpp:422
+#: widgets/ruqolamainwindow.cpp:428
 #, kde-format
 msgid "Create New Channel…"
 msgstr "Crear un nuevo canal..."
 
-#: widgets/ruqolamainwindow.cpp:426
+#: widgets/ruqolamainwindow.cpp:432
 #, kde-format
 msgid "Create Direct Messages…"
 msgstr "Crear mensajes directos..."
 
-#: widgets/ruqolamainwindow.cpp:430
+#: widgets/ruqolamainwindow.cpp:436
 #, kde-format
 msgid "Create Discussion…"
 msgstr "Crear discusión..."
 
-#: widgets/ruqolamainwindow.cpp:434
+#: widgets/ruqolamainwindow.cpp:440
 #, kde-format
 msgid "Create Team…"
 msgstr "Crear equipo..."
 
-#: widgets/ruqolamainwindow.cpp:442
+#: widgets/ruqolamainwindow.cpp:448
 #, kde-format
 msgctxt "@action"
 msgid "Unread on Top"
 msgstr "No leídos arriba"
 
-#: widgets/ruqolamainwindow.cpp:450
+#: widgets/ruqolamainwindow.cpp:456
 #, kde-format
 msgctxt "@action"
 msgid "By Last Message"
 msgstr "Por último mensaje"
 
-#: widgets/ruqolamainwindow.cpp:456
+#: widgets/ruqolamainwindow.cpp:462
 #, kde-format
 msgctxt "@action"
 msgid "Alphabetically"
 msgstr "Alfabéticamente"
 
-#: widgets/ruqolamainwindow.cpp:462
+#: widgets/ruqolamainwindow.cpp:468
 #, kde-format
 msgid "Show Channel Log"
 msgstr "Mostrar log del canal"
 
-#: widgets/ruqolamainwindow.cpp:466
+#: widgets/ruqolamainwindow.cpp:472
 #, kde-format
 msgid "Show Server Errors"
 msgstr "Mostrar errores de servidor"
 
-#: widgets/ruqolamainwindow.cpp:485
+#: widgets/ruqolamainwindow.cpp:491
 #, kde-format
 msgctxt "@action"
 msgid "Mark All Channels as Read"
 msgstr "Marcar todos los canales como leídos"
 
-#: widgets/ruqolamainwindow.cpp:490
+#: widgets/ruqolamainwindow.cpp:496
 #, kde-format
 msgctxt "@action"
 msgid "Register a New User…"
 msgstr "Registrar un nuevo usuario..."
 
-#: widgets/ruqolamainwindow.cpp:494
+#: widgets/ruqolamainwindow.cpp:500
 #, kde-format
 msgctxt "@action"
 msgid "My Account…"
 msgstr "Mi cuenta..."
 
-#: widgets/ruqolamainwindow.cpp:498
+#: widgets/ruqolamainwindow.cpp:504
 #, kde-format
 msgid "administration"
 msgstr "Administración"
 
-#: widgets/ruqolamainwindow.cpp:499
+#: widgets/ruqolamainwindow.cpp:505
 #, kde-format
 msgctxt "@action"
 msgid "Administrator…"
 msgstr "Administrador..."
 
-#: widgets/ruqolamainwindow.cpp:505
+#: widgets/ruqolamainwindow.cpp:511
 #, kde-format
 msgctxt "@action"
 msgid "Server Settings…"
 msgstr "Preferencias del servidor..."
 
-#: widgets/ruqolamainwindow.cpp:512
+#: widgets/ruqolamainwindow.cpp:518
 #, kde-format
 msgctxt "@action"
 msgid "Applications…"
 msgstr "Aplicaciones..."
 
-#: widgets/ruqolamainwindow.cpp:517
+#: widgets/ruqolamainwindow.cpp:523
 #, kde-format
 msgctxt "@action"
 msgid "Requested Applications…"
 msgstr "Aplicaciones pedidas..."
 
-#: widgets/ruqolamainwindow.cpp:522
+#: widgets/ruqolamainwindow.cpp:528
 #, kde-format
 msgctxt "@action"
 msgid "Installed Applications…"
 msgstr "Aplicaciones instaladas..."
 
-#: widgets/ruqolamainwindow.cpp:527
+#: widgets/ruqolamainwindow.cpp:533
 #, kde-format
 msgctxt "Action which allows to search room"
 msgid "Join Room…"
 msgstr "Unirse a la sala..."
 
-#: widgets/ruqolamainwindow.cpp:531
+#: widgets/ruqolamainwindow.cpp:537
 #, kde-format
 msgctxt "Action which allows to search team"
 msgid "Join Team…"
 msgstr "Unirse al equipo..."
 
-#: widgets/ruqolamainwindow.cpp:535
+#: widgets/ruqolamainwindow.cpp:541
 #, kde-format
 msgctxt "Action which allows to open private conversation (direct user)"
 msgid "Open Private Conversation…"
 msgstr "Abrir conversación privada..."
 
-#: widgets/ruqolamainwindow.cpp:556
+#: widgets/ruqolamainwindow.cpp:562
 #, kde-format
 msgid "&Next Server"
 msgstr "Siguie&nte Servidor"
 
-#: widgets/ruqolamainwindow.cpp:561
+#: widgets/ruqolamainwindow.cpp:567
 #, kde-format
 msgid "&Previous Server"
 msgstr "Servidor &previo"
 
-#: widgets/ruqolamainwindow.cpp:570
+#: widgets/ruqolamainwindow.cpp:576
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Status:"
 msgstr "Estado:"
 
-#: widgets/ruqolamainwindow.cpp:583
+#: widgets/ruqolamainwindow.cpp:589
 #, kde-format
 msgctxt "@action"
 msgid "Previous Selected Channel"
 msgstr "Previo canal seleccionado"
 
-#: widgets/ruqolamainwindow.cpp:590
+#: widgets/ruqolamainwindow.cpp:596
 #, kde-format
 msgctxt "@action"
 msgid "Next Selected Channel"
 msgstr "Siguiente canal seleccionado"
 
-#: widgets/ruqolamainwindow.cpp:624
+#: widgets/ruqolamainwindow.cpp:630
 #, kde-format
 msgid "Show Notify History"
 msgstr "Mostrar histórico de notificaciones"
 
-#: widgets/ruqolamainwindow.cpp:628
+#: widgets/ruqolamainwindow.cpp:634
 #, kde-format
 msgctxt "@action"
 msgid "Show RocketChat Information"
 msgstr "Mostrar información de RocketChat"
 
-#: widgets/ruqolamainwindow.cpp:632
+#: widgets/ruqolamainwindow.cpp:638
 #, kde-format
 msgctxt "@action"
 msgid "Show Room Avatar"
 msgstr "Mostrar avatar de la sala"
 
-#: widgets/ruqolamainwindow.cpp:637
+#: widgets/ruqolamainwindow.cpp:643
 #, kde-format
 msgctxt "@action"
 msgid "Show Favorite Room"
 msgstr "Mostrar sala favorita"
 
-#: widgets/ruqolamainwindow.cpp:646
+#: widgets/ruqolamainwindow.cpp:652
 #, kde-format
 msgid "What's new"
 msgstr "¿Qué hay de nuevo?"
 
-#: widgets/ruqolamainwindow.cpp:650
+#: widgets/ruqolamainwindow.cpp:656
 #, kde-format
 msgid "Import Accounts"
 msgstr "Importar cuentas"
 
-#: widgets/ruqolamainwindow.cpp:654
+#: widgets/ruqolamainwindow.cpp:660
 #, kde-format
 msgid "Export Accounts"
 msgstr "Exportar cuentas"
 
-#: widgets/ruqolamainwindow.cpp:671
+#: widgets/ruqolamainwindow.cpp:677
 #, kde-format
 msgctxt "@action"
 msgid "Medium"
 msgstr "Medio"
 
-#: widgets/ruqolamainwindow.cpp:679
+#: widgets/ruqolamainwindow.cpp:685
 #, kde-format
 msgctxt "@action"
 msgid "Condensed"
 msgstr "Condensado"
 
-#: widgets/ruqolamainwindow.cpp:688
+#: widgets/ruqolamainwindow.cpp:694
 #, kde-format
 msgctxt "@action"
 msgid "Extended"
 msgstr "Extendido"
 
-#: widgets/ruqolamainwindow.cpp:696
+#: widgets/ruqolamainwindow.cpp:702
 #, kde-format
 msgid "Clear history"
 msgstr "Limpiar histórico"
 
-#: widgets/ruqolamainwindow.cpp:733
+#: widgets/ruqolamainwindow.cpp:739
 #, kde-format
 msgctxt "@title:window"
 msgid "Create Team"
 msgstr "Crear equipo"
 
-#: widgets/ruqolamainwindow.cpp:889
+#: widgets/ruqolamainwindow.cpp:895
 #, kde-format
 msgid "Impossible to open log."
 msgstr "No se pudo abrir los registros."
 
-#: widgets/ruqolamainwindow.cpp:889
+#: widgets/ruqolamainwindow.cpp:895
 #, kde-format
 msgctxt "@title:window"
 msgid "Show Log"
 msgstr "Mostrar registros"
 
-#: widgets/ruqolamainwindow.cpp:1042
+#: widgets/ruqolamainwindow.cpp:1048
 #, kde-format
 msgctxt "@item:inmenu Instant message presence status"
 msgid "Status"
 msgstr "Estado"
 
-#: widgets/ruqolamainwindow.cpp:1130
+#: widgets/ruqolamainwindow.cpp:1136
 #, kde-format
 msgid ""
 "<qt>This will hide the menu bar completely. You can show it again by typing "
@@ -10382,7 +10382,7 @@ msgstr ""
 "<qt>Esto ocultará la barra de menús completamente. Puede mostrarla de nuevo "
 "pulsando %1.</qt>"
 
-#: widgets/ruqolamainwindow.cpp:1133
+#: widgets/ruqolamainwindow.cpp:1139
 #, kde-format
 msgctxt "@title:window"
 msgid "Hide menu bar"
@@ -10572,6 +10572,14 @@ msgstr "Información de la cuenta"
 msgid "Return the number of account."
 msgstr "Devolver el número de cuenta"
 
+#: widgets/welcome/welcomewidget.cpp:21
+#, fuzzy, kde-format
+#| msgctxt "@action"
+#| msgid "My Account…"
+msgctxt "@action:button"
+msgid "Add Account…"
+msgstr "Mi cuenta..."
+
 #: widgets/whatsnew/whatsnewcomboboxwidget.cpp:27
 #, kde-format
 msgctxt "@label:textbox"
@@ -10610,104 +10618,110 @@ msgstr "Permitir comprobar nueva versión."
 msgid "Implement moderation (administrator mode)."
 msgstr "Moderación implementada (modo administrador)."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:30
+#: widgets/whatsnew/whatsnewtranslations.cpp:21
+#, fuzzy
+#| msgid "Hide \"Welcome\" messages"
+msgid "Add welcome page."
+msgstr "Ocultar mensajes «Bienvenido»"
+
+#: widgets/whatsnew/whatsnewtranslations.cpp:31
 #, kde-format
 msgid "Store Message in Local Database (experimental)"
 msgstr "Almacenaje de mensajes en base de datos local (experimental)"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:32
+#: widgets/whatsnew/whatsnewtranslations.cpp:33
 #, kde-format
 msgid "Download Server Icon from Server"
 msgstr "Descarga del icono de servidor desde el servidor"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:33
+#: widgets/whatsnew/whatsnewtranslations.cpp:34
 #, kde-format
 msgid "Show Server Error Info in Specific DialogBox"
 msgstr "Muestra de información de error del servidor en un diálogo específico"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:34
+#: widgets/whatsnew/whatsnewtranslations.cpp:35
 #, kde-format
 msgid "Allow to Copy Image in Clipboard"
 msgstr "Permite copiar imagen al portapapeles"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:35
+#: widgets/whatsnew/whatsnewtranslations.cpp:36
 #, kde-format
 msgid "Improve debug support (Allow to show current account permissions)"
 msgstr ""
 "Mejora de la depuración (Permite mostrar los permisos actuales de la cuenta)"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:36
+#: widgets/whatsnew/whatsnewtranslations.cpp:37
 #, kde-format
 msgid "Add support for quoted text (text which starts by '>')"
 msgstr "Soporte añadido para texto citado (texto que comienza por «>»)"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:37
+#: widgets/whatsnew/whatsnewtranslations.cpp:38
 #, kde-format
 msgid "Show leader/moderator/owner in channel info."
 msgstr "Muestra del líder/moderador/propietario en la información del canal."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:38
+#: widgets/whatsnew/whatsnewtranslations.cpp:39
 #, kde-format
 msgid "Video/Sound Message support (kf6 only)."
 msgstr "Soporte para mensajes de audio/vídeo (solo en kf6)."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:39
+#: widgets/whatsnew/whatsnewtranslations.cpp:40
 #, kde-format
 msgid "Import/Export Accounts."
 msgstr "Importación/Exportación de cuentas."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:41
+#: widgets/whatsnew/whatsnewtranslations.cpp:42
 #, kde-format
 msgid "Fix avatar support"
 msgstr "Corrección del soporte de avatares"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:42
+#: widgets/whatsnew/whatsnewtranslations.cpp:43
 #, kde-format
 msgid "Fix emoji support (use new ktextaddons/textemoticons)"
 msgstr ""
 "Corrección del soporte de emoticonos (usa el nuevo ktextaddons/textemoticons)"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:43
+#: widgets/whatsnew/whatsnewtranslations.cpp:44
 #, kde-format
 msgid "Fix animated gif in reactions"
 msgstr "Corrección de los gif animados en las reacciones"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:44
+#: widgets/whatsnew/whatsnewtranslations.cpp:45
 #, kde-format
 msgid "Fix kf6 support"
 msgstr "Corrección del soporte de kf6"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:50
+#: widgets/whatsnew/whatsnewtranslations.cpp:51
 #, kde-format
 msgid "Add Moderation Console (Administration, RC server 6.2)"
 msgstr "Añade consola de moderación (Administración, RC server 6.2)"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:50
+#: widgets/whatsnew/whatsnewtranslations.cpp:51
 #, kde-format
 msgid "Implement message style"
 msgstr "Implementación del estilo del mensaje"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:50
+#: widgets/whatsnew/whatsnewtranslations.cpp:51
 #, kde-format
 msgid "Implement Url Preview"
 msgstr "Implementación de la vista previa de URL"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:52
+#: widgets/whatsnew/whatsnewtranslations.cpp:53
 #, kde-format
 msgid "Fix markdown support (header + check mark)"
 msgstr "Corrección del soporte de markdown (marcas de cabecera y verificación)"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:53
+#: widgets/whatsnew/whatsnewtranslations.cpp:54
 #, kde-format
 msgid "Fix mem leak"
 msgstr "Reducción del uso de memoria"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:54
+#: widgets/whatsnew/whatsnewtranslations.cpp:55
 #, kde-format
 msgid "Cache message size (optimization)"
 msgstr "Almacenaje del tamaño del mensaje (optimización)"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:55
+#: widgets/whatsnew/whatsnewtranslations.cpp:56
 #, kde-format
 msgid ""
 "Improve select room or user in message line edit (show icon, inform if user "
@@ -10716,7 +10730,7 @@ msgstr ""
 "Mejora en la selección de sala o usuario en edición en línea del mensaje "
 "(muestra icono, informa si el usuario se encuentra en el canal)"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:56
+#: widgets/whatsnew/whatsnewtranslations.cpp:57
 #, kde-format
 msgid ""
 "Fix show commands in message line edit (Hide action when room doesn't "
@@ -10725,44 +10739,44 @@ msgstr ""
 "Mejora en las órdenes de muestra en la edición de mensajes en línea "
 "(Ocultación de la acción cuando la sala no la admite)."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:57
+#: widgets/whatsnew/whatsnewtranslations.cpp:58
 #, kde-format
 msgid "Fix download sound/video file when it's not in cache."
 msgstr ""
 "Mejora en la descarga de archivos de audio/vídeo cuando no se encuentran en "
 "caché."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:58
+#: widgets/whatsnew/whatsnewtranslations.cpp:59
 #, kde-format
 msgid "Fix list of authentication method."
 msgstr "Mejora en el listado de los métodos de autenticación."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:59
+#: widgets/whatsnew/whatsnewtranslations.cpp:60
 #, kde-format
 msgid "Fix show avatar url."
 msgstr "Corrección al mostrar la URL del avatar."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:67
+#: widgets/whatsnew/whatsnewtranslations.cpp:68
 #, kde-format
 msgid "Allow to increase/decrease font (CTRL++/CTRL+-)"
 msgstr "Permitir aumentar/disminuir tipo de letra (Ctrl++/Ctrl+-)"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:68
+#: widgets/whatsnew/whatsnewtranslations.cpp:69
 #, kde-format
 msgid "Add channel list style (Condensed/Medium/Extended)"
 msgstr "Añade estilo en la lista de canales (Condensado/Medio/Extendido)"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:69
+#: widgets/whatsnew/whatsnewtranslations.cpp:70
 #, kde-format
 msgid "Add forward message"
 msgstr "Añade redirección de mensajes"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:70
+#: widgets/whatsnew/whatsnewtranslations.cpp:71
 #, kde-format
 msgid "Improve mentions support."
 msgstr "Mejora en el soporte de menciones."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:71
+#: widgets/whatsnew/whatsnewtranslations.cpp:72
 #, kde-format
 msgid ""
 "Add support for deep linking <a href=\"https://developer.rocket.chat/getting-"
@@ -10771,12 +10785,12 @@ msgstr ""
 "Añade implementación para enlace profundo <a href=\"https://developer.rocket."
 "chat/getting-started/deep-linking\">Enlace profundo</a>."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:72
+#: widgets/whatsnew/whatsnewtranslations.cpp:73
 #, kde-format
 msgid "Implement block actions."
 msgstr "Implementación de las acciones en bloque."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:73
+#: widgets/whatsnew/whatsnewtranslations.cpp:74
 #, kde-format
 msgid ""
 "Implement personal token authentication. <a href=\"https://bugs.kde.org/"
@@ -10785,72 +10799,72 @@ msgstr ""
 "Implementación de los token de autenticación personal.<a href=\"https://bugs."
 "kde.org/show_bug.cgi?id=481400\">Bug 481400</a>"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:74
+#: widgets/whatsnew/whatsnewtranslations.cpp:75
 #, kde-format
 msgid "Add Plasma Activities Support"
 msgstr "Añade soporte para actividades de Plasma"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:75
+#: widgets/whatsnew/whatsnewtranslations.cpp:76
 #, kde-format
 msgid "Add Report User Support"
 msgstr "Añade soporte para reportar usuarios"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:76
+#: widgets/whatsnew/whatsnewtranslations.cpp:77
 #, kde-format
 msgid "Implement Channel Sound Notification."
 msgstr "Implementación de la notificación de sonido del canal."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:77
+#: widgets/whatsnew/whatsnewtranslations.cpp:78
 #, kde-format
 msgid "Implement New Room Sound Notification."
 msgstr "Implementación de la notificación de sonido de nueva sala."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:78
+#: widgets/whatsnew/whatsnewtranslations.cpp:79
 #, kde-format
 msgid "Implement Sorted/Unsorted markdown list."
 msgstr "Implementar lista ordenada/desordenada Markdown."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:81
+#: widgets/whatsnew/whatsnewtranslations.cpp:82
 #, kde-format
 msgid "Fix dark mode support."
 msgstr "Mejora en el soporte del modo oscuro."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:82
+#: widgets/whatsnew/whatsnewtranslations.cpp:83
 #, kde-format
 msgid "Fix jitsi support."
 msgstr "Mejora en el soporte de jitsi."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:83
+#: widgets/whatsnew/whatsnewtranslations.cpp:84
 #, kde-format
 msgid "Fix translate message in direct channel."
 msgstr "Mejora en la traducción de mensajes en los canales directos."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:84
+#: widgets/whatsnew/whatsnewtranslations.cpp:85
 #, kde-format
 msgid "Don't show @here/@all as user."
 msgstr "No muestra @here/@all como usuario."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:85
+#: widgets/whatsnew/whatsnewtranslations.cpp:86
 #, kde-format
 msgid "Reduce memory footprint."
 msgstr "Reducción del consumo de memoria."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:86
+#: widgets/whatsnew/whatsnewtranslations.cpp:87
 #, kde-format
 msgid "Use RESTAPI for logging."
 msgstr "Uso de RESTAPI para los registros."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:87
+#: widgets/whatsnew/whatsnewtranslations.cpp:88
 #, kde-format
 msgid "Allow to send multi files."
 msgstr "Permitir el envío de múltiples archivos."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:88
+#: widgets/whatsnew/whatsnewtranslations.cpp:89
 #, kde-format
 msgid "Fix preview url."
 msgstr "Mejora en la vista preliminar de URLs."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:102
+#: widgets/whatsnew/whatsnewtranslations.cpp:103
 #, kde-format
 msgid ""
 "Clean market application model after 30 minutes (reduce memory footprint)."
@@ -10858,18 +10872,18 @@ msgstr ""
 "Limpiar el modelo de aplicaciones de mercado tras 30 minutos (reducir uso de "
 "memoria)"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:103
+#: widgets/whatsnew/whatsnewtranslations.cpp:104
 #, kde-format
 msgid "Fix show discussion name in completion."
 msgstr "Arreglo del nombre «mostrar discusión» al completar."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:104
+#: widgets/whatsnew/whatsnewtranslations.cpp:105
 #, kde-format
 msgid "Fix duplicated messages in search message dialog."
 msgstr ""
 "Mejora en los mensajes duplicados en el diálogo de búsqueda de mensajes."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:105
+#: widgets/whatsnew/whatsnewtranslations.cpp:106
 #, kde-format
 msgid "Add delegate in search rooms in team dialog."
 msgstr "Añadir delegado en las salas de búsqueda en el diálogo de equipo."
