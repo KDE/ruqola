@@ -7,6 +7,7 @@
 #include "testdata.h"
 using namespace Qt::Literals::StringLiterals;
 
+#include "accountmanager.h"
 #include "managerdatapaths.h"
 #include "rocketchataccount.h"
 #include "ruqola.h"
@@ -19,6 +20,7 @@ using namespace Qt::Literals::StringLiterals;
 void initTestAccount()
 {
     QStandardPaths::setTestModeEnabled(true);
+    Ruqola::self()->accountManager()->addAccount(new RocketChatAccount());
     Ruqola::self()->rocketChatAccount()->setAccountName(QStringLiteral("accountName"));
 }
 
