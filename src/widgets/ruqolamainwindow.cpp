@@ -283,6 +283,9 @@ void RuqolaMainWindow::slotAccountChanged()
         connect(mCurrentRocketChatAccount, &RocketChatAccount::privateSettingsChanged, this, &RuqolaMainWindow::slotPrivateSettingsChanged);
         connect(mCurrentRocketChatAccount, &RocketChatAccount::publicSettingChanged, this, &RuqolaMainWindow::slotPrivateSettingsChanged);
     }
+    if (!mCurrentRocketChatAccount) {
+        slotDisableActions(true);
+    }
     updateActions();
     slotClearNotification(); // Clear notification when we switch too.
     if (mCurrentRocketChatAccount) {
