@@ -37,6 +37,14 @@ void ModerationReportUserInfosTest::shouldLoadReportUserInfos_data()
         moderationReportUserInfos.setUser(user);
         QTest::addRow("empty") << QStringLiteral("empty") << moderationReportUserInfos;
     }
+
+    {
+        ModerationReportUserInfos moderationReportUserInfos;
+        User user;
+        user.setStatus(User::PresenceStatus::Unknown);
+        moderationReportUserInfos.setUser(user);
+        QTest::addRow("test1") << QStringLiteral("test1") << moderationReportUserInfos;
+    }
 }
 
 void ModerationReportUserInfosTest::shouldLoadReportUserInfos()
