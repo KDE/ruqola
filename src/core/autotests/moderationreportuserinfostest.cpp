@@ -55,10 +55,39 @@ void ModerationReportUserInfosTest::shouldLoadReportUserInfos_data()
         user.setRequirePasswordChange(false);
 
         moderationReportUserInfos.setUser(user);
+
+        QList<ModerationReportUserInfo> lstUserInfo;
+        {
+            ModerationReportUserInfo info;
+            info.setDescription("Test report user in ruqola"_L1);
+            info.setReportId("6638bf943b610b8aa5d35b3f");
+            User reportedUser;
+            reportedUser.setUserId("sddf5454");
+            reportedUser.setName("kde2"_L1);
+            reportedUser.setUserName("kde2"_L1);
+            reportedUser.setStatus(User::PresenceStatus::Unknown);
+            info.setReportedUser(reportedUser);
+
+            lstUserInfo.append(std::move(info));
+        }
+        {
+            ModerationReportUserInfo info;
+            info.setDescription("test only !"_L1);
+            info.setReportId("66361aa93b610b8aa5d35b3c");
+            User reportedUser;
+            reportedUser.setUserId("sddf5454");
+            reportedUser.setName("kde2"_L1);
+            reportedUser.setUserName("kde2"_L1);
+            reportedUser.setStatus(User::PresenceStatus::Unknown);
+            info.setReportedUser(reportedUser);
+            lstUserInfo.append(std::move(info));
+        }
+
+        moderationReportUserInfos.setModerationReportUserInfosList(std::move(lstUserInfo));
 #if 0
         Actual   (m)              :  CreatedAt  QDateTime(2024-01-31 16:08:42.339 UTC Qt::UTC)  Last Login  QDateTime(Invalid)
-           description:  "Test report user in ruqola" reportId:  "6638bf943b610b8aa5d35b3f" reportedUser  Name  "kde2"  UserId  "sddf5454"  Status  User::PresenceStatus::Unknown  UserName  "kde2"  UtcOffset  0  StatusText  ""  roles  QList()  CreatedAt  QDateTime(2024-01-31 16:08:42.339 UTC Qt::UTC)  Last Login  QDateTime(Invalid)  userEmailsInfo  email  "foo@kde.org" verified  true  active  true  mRequirePasswordChange  false  mBio  ""  mNickName  "" reportedBy  Name  "bli bli"  UserId  "H7Q9djXQ4iShzD9T2"  Status  User::PresenceStatus::Unknown  UserName  "blu"  UtcOffset  0  StatusText  ""  roles  QList()  CreatedAt  QDateTime(2018-03-13 16:11:51.761 UTC Qt::UTC)  Last Login  QDateTime(Invalid)  userEmailsInfo  email  "" verified  false  active  true  mRequirePasswordChange  false  mBio  ""  mNickName  ""
-      description:  "test only !" reportId:  "66361aa93b610b8aa5d35b3c" reportedUser  Name  "kde2"  UserId  "sddf5454"  Status  User::PresenceStatus::Unknown  UserName  "kde2"  UtcOffset  0  StatusText  ""  roles  QList()  CreatedAt  QDateTime(2024-01-31 16:08:42.339 UTC Qt::UTC)  Last Login  QDateTime(Invalid)  userEmailsInfo  email  "foo@kde.org" verified  true  active  true  mRequirePasswordChange  false  mBio  ""  mNickName  "" reportedBy  Name  "bli bli"  UserId  "H7Q9djXQ4iShzD9T2"  Status  User::PresenceStatus::Unknown  UserName  "blu"  UtcOffset  0  StatusText  ""  roles  QList()  CreatedAt  QDateTime(2018-03-13 16:11:51.761 UTC Qt::UTC)  Last Login  QDateTime(Invalid)  userEmailsInfo  email  "" verified  false  active  true  mRequirePasswordChange  false  mBio  ""  mNickName  ""
+      reportedUser CreatedAt  QDateTime(2024-01-31 16:08:42.339 UTC Qt::UTC)  Last Login  QDateTime(Invalid)  userEmailsInfo  email  "foo@kde.org" verified  true  active  true  mRequirePasswordChange  false  mBio  ""  mNickName  "" reportedBy  Name  "bli bli"  UserId  "H7Q9djXQ4iShzD9T2"  Status  User::PresenceStatus::Unknown  UserName  "blu"  UtcOffset  0  StatusText  ""  roles  QList()  CreatedAt  QDateTime(2018-03-13 16:11:51.761 UTC Qt::UTC)  Last Login  QDateTime(Invalid)  userEmailsInfo  email  "" verified  false  active  true  mRequirePasswordChange  false  mBio  ""  mNickName  ""
+      reportedUser  CreatedAt  QDateTime(2024-01-31 16:08:42.339 UTC Qt::UTC)  Last Login  QDateTime(Invalid)  userEmailsInfo  email  "foo@kde.org" verified  true  active  true  mRequirePasswordChange  false  mBio  ""  mNickName  "" reportedBy  Name  "bli bli"  UserId  "H7Q9djXQ4iShzD9T2"  Status  User::PresenceStatus::Unknown  UserName  "blu"  UtcOffset  0  StatusText  ""  roles  QList()  CreatedAt  QDateTime(2018-03-13 16:11:51.761 UTC Qt::UTC)  Last Login  QDateTime(Invalid)  userEmailsInfo  email  "" verified  false  active  true  mRequirePasswordChange  false  mBio  ""  mNickName  ""
 
 #endif
         QTest::addRow("test1") << QStringLiteral("test1") << moderationReportUserInfos;
