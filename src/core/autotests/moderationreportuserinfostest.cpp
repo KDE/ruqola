@@ -44,7 +44,12 @@ void ModerationReportUserInfosTest::shouldLoadReportUserInfos_data()
         moderationReportUserInfos.setModerationReportUserInfosCount(2);
         User user;
         user.setStatus(User::PresenceStatus::Unknown);
+        user.setName("kde2"_L1);
+        user.setUserId("sddf5454");
+        user.setUserName("kde2"_L1);
+        user.setRoles({"user"_L1}, {});
         moderationReportUserInfos.setUser(user);
+
         QTest::addRow("test1") << QStringLiteral("test1") << moderationReportUserInfos;
     }
 }
