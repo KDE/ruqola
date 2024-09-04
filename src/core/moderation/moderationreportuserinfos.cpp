@@ -88,6 +88,7 @@ void ModerationReportUserInfos::parseModerationReportUserInfos(const QJsonObject
     mOffset = moderationReportedUserInfosObj["offset"_L1].toInt();
     mTotal = moderationReportedUserInfosObj["total"_L1].toInt();
     mModerationReportUserInfosList.reserve(mModerationReportUserInfosCount);
+    mUser.parseUserRestApi(moderationReportedUserInfosObj["user"_L1].toObject(), {});
     parseModerationReportUserInfosObj(moderationReportedUserInfosObj);
 }
 
