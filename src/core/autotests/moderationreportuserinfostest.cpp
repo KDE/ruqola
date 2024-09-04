@@ -40,6 +40,8 @@ void ModerationReportUserInfosTest::shouldLoadReportUserInfos_data()
 
     {
         ModerationReportUserInfos moderationReportUserInfos;
+        moderationReportUserInfos.setTotal(2);
+        moderationReportUserInfos.setModerationReportUserInfosCount(2);
         User user;
         user.setStatus(User::PresenceStatus::Unknown);
         moderationReportUserInfos.setUser(user);
