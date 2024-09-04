@@ -27,11 +27,13 @@ ModerationUsersWidget::~ModerationUsersWidget() = default;
 
 void ModerationUsersWidget::setModerationReportUserInfos(const ModerationReportUserInfos &infos)
 {
+    // TODO add user icons !
     const QColor codeBackgroundColor = ColorsAndMessageViewStyle::self().schemeView().background(KColorScheme::NegativeBackground).color();
     QString html;
     const User user = infos.user();
     if (!infos.user().userEmailsInfo().email.isEmpty()) {
-        html = QStringLiteral("<div><b>") + i18n("Email:") + QStringLiteral("</b>") + QStringLiteral(" %1").arg(infos.user().userEmailsInfo().email)
+        html += QStringLiteral("<div><b>") + QStringLiteral("%1 (@%2)").arg(user.name(), user.userName()) + QStringLiteral("</div>");
+        html += QStringLiteral("<div><b>") + i18n("Email:") + QStringLiteral("</b>") + QStringLiteral(" %1").arg(infos.user().userEmailsInfo().email)
             + QStringLiteral("</div>");
         html += QStringLiteral("<br/>");
     }
@@ -45,11 +47,13 @@ void ModerationUsersWidget::setModerationReportUserInfos(const ModerationReportU
     const QList<ModerationReportUserInfo> moderationReportUserInfosList = infos.moderationReportUserInfosList();
     int i = 1;
     for (const auto &info : moderationReportUserInfosList) {
-        html += QStringLiteral("<div style='background-color:") + codeBackgroundColor.name() + "'>"_L1 + i18n("Report #%1", i) + QStringLiteral("</div>");
+        html +=
+            QStringLiteral("<div><a style='background-color:") + codeBackgroundColor.name() + "'>"_L1 + i18n("Report #%1", i) + QStringLiteral("</a></div>");
         html += QStringLiteral("<div>") + info.description() + QStringLiteral("</div>");
+        QLocale l;
+        const QString createAtDisplayDateTime = l.toString(QDateTime::fromMSecsSinceEpoch(info.timeStamp()), QLocale::ShortFormat);
+        html += QStringLiteral("<div><i>") + info.reportedBy().userName() + QLatin1Char(' ') + createAtDisplayDateTime + QStringLiteral("</i></div>");
         html += QStringLiteral("<br/>");
-        // TODO add user + date
-        // TODO
         ++i;
     }
 
