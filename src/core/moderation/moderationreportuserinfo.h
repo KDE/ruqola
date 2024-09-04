@@ -31,11 +31,15 @@ public:
     [[nodiscard]] User reportedUser() const;
     void setReportedUser(const User &newReportedUser);
 
+    [[nodiscard]] qint64 timeStamp() const;
+    void setTimeStamp(qint64 newTimeStamp);
+
 private:
     User mReportedBy;
     User mReportedUser;
     QString mDescription;
     QByteArray mReportId;
+    qint64 mTimeStamp = -1;
 };
 
 Q_DECLARE_METATYPE(ModerationReportUserInfo)

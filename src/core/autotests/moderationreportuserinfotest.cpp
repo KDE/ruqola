@@ -57,6 +57,7 @@ void ModerationReportUserInfoTest::shouldLoadReportUserInfo_data()
         moderationReportUserInfo.setReportedBy(reportedBy);
         moderationReportUserInfo.setDescription("test signal user (only test :) )"_L1);
         moderationReportUserInfo.setReportId(QByteArrayLiteral("663608573b610aa5d35b3b"));
+        moderationReportUserInfo.setTimeStamp(1714817111681);
 
         QTest::addRow("test1") << QStringLiteral("test1") << moderationReportUserInfo;
     }
