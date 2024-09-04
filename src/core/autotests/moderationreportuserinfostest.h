@@ -16,4 +16,6 @@ public:
     ~ModerationReportUserInfosTest() override = default;
 private Q_SLOTS:
     void shouldHaveDefaultValues();
+    void shouldLoadReportUserInfos();
+    void shouldLoadReportUserInfos_data();
 };
