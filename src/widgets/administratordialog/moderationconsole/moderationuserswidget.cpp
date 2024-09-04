@@ -28,10 +28,21 @@ ModerationUsersWidget::~ModerationUsersWidget() = default;
 void ModerationUsersWidget::setModerationReportUserInfos(const ModerationReportUserInfos &infos)
 {
     QString html;
-    if (mCurrentRocketChatAccount) {
-        qDebug() << " infos.user().userEmailsInfo() " << infos.user().userEmailsInfo();
-        html = infos.user().userEmailsInfo().email;
+    const User user = infos.user();
+    if (!infos.user().userEmailsInfo().email.isEmpty()) {
+        html = QStringLiteral("<div>") + i18n("Email: %1", infos.user().userEmailsInfo().email) + QStringLiteral("</div>");
     }
+
+    if (!infos.user().roles().join(", "_L1).isEmpty()) {
+        html += QStringLiteral("<div>") + i18n("Roles: %2", infos.user().roles().join(", "_L1)) + QStringLiteral("</div>");
+    }
+
+    const QList<ModerationReportUserInfo> moderationReportUserInfosList = infos.moderationReportUserInfosList();
+    for (const auto &info : moderationReportUserInfosList) {
+        // TODO
+    }
+
+    qDebug() << " infos.user().userEmailsInfo() " << infos.user().userEmailsInfo();
     qDebug() << " html" << html;
     mTextBrowser->setHtml(html);
     // TODO generate infos
