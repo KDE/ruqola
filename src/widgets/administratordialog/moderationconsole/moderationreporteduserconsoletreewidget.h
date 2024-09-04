@@ -30,7 +30,7 @@ Q_SIGNALS:
     void refreshList();
 
 private:
-    LIBRUQOLAWIDGETS_NO_EXPORT void slotShowReportedMessages(const QJsonObject &obj);
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotShowReportedUsers(const QJsonObject &obj);
     LIBRUQOLAWIDGETS_NO_EXPORT void slotDismissReport(const QModelIndex &index);
     LIBRUQOLAWIDGETS_NO_EXPORT void slotShowReports(const QModelIndex &newModelIndex);
     LIBRUQOLAWIDGETS_NO_EXPORT void slotDesactivateUser(const QModelIndex &index);

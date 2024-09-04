@@ -27,6 +27,13 @@ ModerationUsersWidget::~ModerationUsersWidget() = default;
 
 void ModerationUsersWidget::setModerationReportUserInfos(const ModerationReportUserInfos &infos)
 {
+    QString html;
+    if (mCurrentRocketChatAccount) {
+        qDebug() << " infos.user().userEmailsInfo() " << infos.user().userEmailsInfo();
+        html = infos.user().userEmailsInfo().email;
+    }
+    qDebug() << " html" << html;
+    mTextBrowser->setHtml(html);
     // TODO generate infos
 }
 

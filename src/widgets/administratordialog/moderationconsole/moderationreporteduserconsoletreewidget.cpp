@@ -119,7 +119,7 @@ void ModerationReportedUserConsoleTreeWidget::slotShowReports(const QModelIndex 
     connect(job,
             &RocketChatRestApi::ModerationReportsByUserIdJob::moderationReportsByUserIdDone,
             this,
-            &ModerationReportedUserConsoleTreeWidget::slotShowReportedMessages);
+            &ModerationReportedUserConsoleTreeWidget::slotShowReportedUsers);
     if (!job->start()) {
         qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start ModerationReportsByUsersJob job";
     }
@@ -177,12 +177,12 @@ void ModerationReportedUserConsoleTreeWidget::slotDesactivateUser(const QModelIn
     }
 }
 
-void ModerationReportedUserConsoleTreeWidget::slotShowReportedMessages(const QJsonObject &obj)
+void ModerationReportedUserConsoleTreeWidget::slotShowReportedUsers(const QJsonObject &obj)
 {
     ModerationReportUserInfos moderationReportUserInfos;
     moderationReportUserInfos.parseModerationReportUserInfos(obj);
 
-    qDebug() << "ModerationReportedUserConsoleTreeWidget::slotShowReportedMessages obj " << obj << moderationReportUserInfos;
+    qDebug() << "ModerationReportedUserConsoleTreeWidget::slotShowReportedUsers obj " << obj << moderationReportUserInfos;
     ModerationUsersDialog dlg(mRocketChatAccount, this);
     dlg.setModerationReportUserInfos(moderationReportUserInfos);
     dlg.exec();
