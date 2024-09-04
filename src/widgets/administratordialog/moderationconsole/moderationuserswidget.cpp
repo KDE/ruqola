@@ -5,6 +5,7 @@
 */
 
 #include "moderationuserswidget.h"
+#include "colorsandmessageviewstyle.h"
 #include "rocketchataccount.h"
 #include <KLocalizedString>
 #include <QTextBrowser>
@@ -14,7 +15,6 @@ ModerationUsersWidget::ModerationUsersWidget(RocketChatAccount *account, QWidget
     : QWidget(parent)
     , mTextBrowser(new QTextBrowser(this))
     , mCurrentRocketChatAccount(account)
-// TODO add list ? or QTextDocument
 {
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
@@ -27,25 +27,33 @@ ModerationUsersWidget::~ModerationUsersWidget() = default;
 
 void ModerationUsersWidget::setModerationReportUserInfos(const ModerationReportUserInfos &infos)
 {
+    const QColor codeBackgroundColor = ColorsAndMessageViewStyle::self().schemeView().background(KColorScheme::NegativeBackground).color();
     QString html;
     const User user = infos.user();
     if (!infos.user().userEmailsInfo().email.isEmpty()) {
-        html = QStringLiteral("<div>") + i18n("Email: %1", infos.user().userEmailsInfo().email) + QStringLiteral("</div>");
+        html = QStringLiteral("<div><b>") + i18n("Email:") + QStringLiteral("</b>") + QStringLiteral(" %1").arg(infos.user().userEmailsInfo().email)
+            + QStringLiteral("</div>");
+        html += QStringLiteral("<br/>");
     }
 
-    if (!infos.user().roles().join(", "_L1).isEmpty()) {
-        html += QStringLiteral("<div>") + i18n("Roles: %2", infos.user().roles().join(", "_L1)) + QStringLiteral("</div>");
+    if (!user.roles().isEmpty()) {
+        html += QStringLiteral("<div><b>") + i18n("Roles:") + QStringLiteral("</b>") + QStringLiteral(" %1").arg(infos.user().roles().join(", "_L1))
+            + QStringLiteral("</div>");
+        html += QStringLiteral("<br/>");
     }
 
     const QList<ModerationReportUserInfo> moderationReportUserInfosList = infos.moderationReportUserInfosList();
+    int i = 1;
     for (const auto &info : moderationReportUserInfosList) {
+        html += QStringLiteral("<div style='background-color:") + codeBackgroundColor.name() + "'>"_L1 + i18n("Report #%1", i) + QStringLiteral("</div>");
+        html += QStringLiteral("<div>") + info.description() + QStringLiteral("</div>");
+        html += QStringLiteral("<br/>");
+        // TODO add user + date
         // TODO
+        ++i;
     }
 
-    qDebug() << " infos.user().userEmailsInfo() " << infos.user().userEmailsInfo();
-    qDebug() << " html" << html;
     mTextBrowser->setHtml(html);
-    // TODO generate infos
 }
 
 #include "moc_moderationuserswidget.cpp"
