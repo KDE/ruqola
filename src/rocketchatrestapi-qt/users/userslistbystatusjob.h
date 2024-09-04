@@ -15,15 +15,25 @@ class LIBROCKETCHATRESTAPI_QT_EXPORT UsersListByStatusJob : public RestApiAbstra
 {
     Q_OBJECT
 public:
-    enum Status {
+    enum class Status {
         Unknown = 0,
         Desactivated = 1,
         Activated = 2,
     };
+    Q_ENUM(Status)
+
+    enum class StatusType {
+        Unknown = 0,
+        User = 1,
+    };
+    Q_ENUM(StatusType)
+
     struct LIBROCKETCHATRESTAPI_QT_EXPORT UsersListByStatusJobInfo {
-        Status status = Unknown;
+        Status status = Status::Unknown;
+        StatusType type = StatusType::Unknown;
         bool hasLoggedIn = false;
         int count = 0;
+        [[nodiscard]] bool isValid() const;
     };
     explicit UsersListByStatusJob(QObject *parent = nullptr);
     ~UsersListByStatusJob() override;
@@ -36,11 +46,17 @@ public:
 
     [[nodiscard]] QNetworkRequest request() const override;
 
+    [[nodiscard]] UsersListByStatusJobInfo usersListByStatusJobInfo() const;
+    void setUsersListByStatusJobInfo(const UsersListByStatusJobInfo &newUsersListByStatusJobInfo);
+
 Q_SIGNALS:
     void usersPresenceDone(const QJsonObject &obj);
 
 private:
     Q_DISABLE_COPY(UsersListByStatusJob)
     LIBROCKETCHATRESTAPI_QT_NO_EXPORT void onGetRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson) override;
+    UsersListByStatusJobInfo mUsersListByStatusJobInfo;
 };
 }
+Q_DECLARE_TYPEINFO(RocketChatRestApi::UsersListByStatusJob::UsersListByStatusJobInfo, Q_RELOCATABLE_TYPE);
+LIBROCKETCHATRESTAPI_QT_EXPORT QDebug operator<<(QDebug d, const RocketChatRestApi::UsersListByStatusJob::UsersListByStatusJobInfo &t);

@@ -50,6 +50,16 @@ void UsersListByStatusJob::onGetRequestResponse(const QString &replyErrorString,
     }
 }
 
+UsersListByStatusJob::UsersListByStatusJobInfo UsersListByStatusJob::usersListByStatusJobInfo() const
+{
+    return mUsersListByStatusJobInfo;
+}
+
+void UsersListByStatusJob::setUsersListByStatusJobInfo(const UsersListByStatusJobInfo &newUsersListByStatusJobInfo)
+{
+    mUsersListByStatusJobInfo = newUsersListByStatusJobInfo;
+}
+
 QNetworkRequest UsersListByStatusJob::request() const
 {
     QUrl url = mRestApiMethod->generateUrl(RestApiUtil::RestApiUrlType::UsersListByStatus);
@@ -67,6 +77,20 @@ bool UsersListByStatusJob::canStart() const
         return false;
     }
     return true;
+}
+
+bool UsersListByStatusJob::UsersListByStatusJobInfo::isValid() const
+{
+    return status != Status::Unknown && type != StatusType::Unknown;
+}
+
+QDebug operator<<(QDebug d, const RocketChatRestApi::UsersListByStatusJob::UsersListByStatusJobInfo &t)
+{
+    d << "status " << t.status;
+    d << "type " << t.type;
+    d << "hasLoggedIn " << t.hasLoggedIn;
+    d << "count " << t.count;
+    return d;
 }
 
 #include "moc_userslistbystatusjob.cpp"
