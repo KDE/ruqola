@@ -53,7 +53,11 @@ void ModerationReportUserInfosTest::shouldLoadReportUserInfos_data()
         userEmailInfo.verified = true;
         user.setUserEmailsInfo(userEmailInfo);
         user.setRequirePasswordChange(false);
-
+        QDateTime createdTime;
+        createdTime.setDate(QDate(2024, 01, 31));
+        createdTime.setTime(QTime(16, 8, 42, 339));
+        createdTime.setTimeZone(QTimeZone::UTC);
+        user.setCreatedAt(createdTime);
         moderationReportUserInfos.setUser(user);
 
         QList<ModerationReportUserInfo> lstUserInfo;
@@ -66,7 +70,32 @@ void ModerationReportUserInfosTest::shouldLoadReportUserInfos_data()
             reportedUser.setName("kde2"_L1);
             reportedUser.setUserName("kde2"_L1);
             reportedUser.setStatus(User::PresenceStatus::Unknown);
+
+            User::UserEmailsInfo userEmailInfo;
+            userEmailInfo.email = "foo@kde.org"_L1;
+            userEmailInfo.verified = true;
+            reportedUser.setUserEmailsInfo(userEmailInfo);
+
+            QDateTime createdTime;
+            createdTime.setDate(QDate(2024, 01, 31));
+            createdTime.setTime(QTime(16, 8, 42, 339));
+            createdTime.setTimeZone(QTimeZone::UTC);
+            reportedUser.setCreatedAt(createdTime);
             info.setReportedUser(reportedUser);
+
+            User reportedBy;
+            reportedBy.setName("bli bli"_L1);
+            reportedBy.setUserName("blu"_L1);
+            reportedBy.setStatus(User::PresenceStatus::Unknown);
+            reportedBy.setUserId("H7Q9djXQ4iShzD9T2");
+
+            QDateTime createdTimeBy;
+            createdTimeBy.setDate(QDate(2018, 03, 13));
+            createdTimeBy.setTime(QTime(16, 11, 51, 761));
+            createdTimeBy.setTimeZone(QTimeZone::UTC);
+            reportedBy.setCreatedAt(createdTimeBy);
+            info.setReportedBy(reportedBy);
+            info.setTimeStamp(1714995092465);
 
             lstUserInfo.append(std::move(info));
         }
@@ -75,19 +104,42 @@ void ModerationReportUserInfosTest::shouldLoadReportUserInfos_data()
             info.setDescription("test only !"_L1);
             info.setReportId("66361aa93b610b8aa5d35b3c");
             User reportedUser;
+            QDateTime createdTime;
+            createdTime.setDate(QDate(2024, 01, 31));
+            createdTime.setTime(QTime(16, 8, 42, 339));
+            createdTime.setTimeZone(QTimeZone::UTC);
+            reportedUser.setCreatedAt(createdTime);
             reportedUser.setUserId("sddf5454");
             reportedUser.setName("kde2"_L1);
             reportedUser.setUserName("kde2"_L1);
             reportedUser.setStatus(User::PresenceStatus::Unknown);
+            User::UserEmailsInfo userEmailInfo;
+            userEmailInfo.email = "foo@kde.org"_L1;
+            userEmailInfo.verified = true;
+            reportedUser.setUserEmailsInfo(userEmailInfo);
+
             info.setReportedUser(reportedUser);
+
+            User reportedBy;
+            reportedBy.setName("bli bli"_L1);
+            reportedBy.setUserName("blu"_L1);
+            reportedBy.setStatus(User::PresenceStatus::Unknown);
+            reportedBy.setUserId("H7Q9djXQ4iShzD9T2");
+
+            QDateTime createdTimeBy;
+            createdTimeBy.setDate(QDate(2018, 03, 13));
+            createdTimeBy.setTime(QTime(16, 11, 51, 761));
+            createdTimeBy.setTimeZone(QTimeZone::UTC);
+            reportedBy.setCreatedAt(createdTimeBy);
+            info.setReportedBy(reportedBy);
+            info.setTimeStamp(1714821801128);
             lstUserInfo.append(std::move(info));
         }
 
         moderationReportUserInfos.setModerationReportUserInfosList(std::move(lstUserInfo));
 #if 0
-        Actual   (m)              :  CreatedAt  QDateTime(2024-01-31 16:08:42.339 UTC Qt::UTC)  Last Login  QDateTime(Invalid)
-      reportedUser CreatedAt  QDateTime(2024-01-31 16:08:42.339 UTC Qt::UTC)  Last Login  QDateTime(Invalid)  userEmailsInfo  email  "foo@kde.org" verified  true  active  true  mRequirePasswordChange  false  mBio  ""  mNickName  "" reportedBy  Name  "bli bli"  UserId  "H7Q9djXQ4iShzD9T2"  Status  User::PresenceStatus::Unknown  UserName  "blu"  UtcOffset  0  StatusText  ""  roles  QList()  CreatedAt  QDateTime(2018-03-13 16:11:51.761 UTC Qt::UTC)  Last Login  QDateTime(Invalid)  userEmailsInfo  email  "" verified  false  active  true  mRequirePasswordChange  false  mBio  ""  mNickName  ""
-      reportedUser  CreatedAt  QDateTime(2024-01-31 16:08:42.339 UTC Qt::UTC)  Last Login  QDateTime(Invalid)  userEmailsInfo  email  "foo@kde.org" verified  true  active  true  mRequirePasswordChange  false  mBio  ""  mNickName  "" reportedBy  Name  "bli bli"  UserId  "H7Q9djXQ4iShzD9T2"  Status  User::PresenceStatus::Unknown  UserName  "blu"  UtcOffset  0  StatusText  ""  roles  QList()  CreatedAt  QDateTime(2018-03-13 16:11:51.761 UTC Qt::UTC)  Last Login  QDateTime(Invalid)  userEmailsInfo  email  "" verified  false  active  true  mRequirePasswordChange  false  mBio  ""  mNickName  ""
+      reportedUser    userEmailsInfo  email  "" verified  false  active  true  mRequirePasswordChange  false  mBio  ""  mNickName  ""
+      reportedUser   userEmailsInfo  email  "" verified  false  active  true  mRequirePasswordChange  false  mBio  ""  mNickName  ""
 
 #endif
         QTest::addRow("test1") << QStringLiteral("test1") << moderationReportUserInfos;
