@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-09-04 00:39+0000\n"
-"PO-Revision-Date: 2024-08-25 14:29+0200\n"
+"POT-Creation-Date: 2024-09-05 00:39+0000\n"
+"PO-Revision-Date: 2024-09-03 12:05+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca@valencia\n"
@@ -2993,6 +2993,29 @@ msgctxt "@title:window"
 msgid "Show Moderation Users"
 msgstr "Mostra la moderació d'usuaris"
 
+#: widgets/administratordialog/moderationconsole/moderationuserswidget.cpp:36
+#: widgets/administratordialog/users/administratoradduserwidget.cpp:62
+#: widgets/dialogs/directchannelinfowidget.cpp:166
+#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:74
+#: widgets/registeruser/registeruserwidget.cpp:33
+#, kde-format
+msgid "Email:"
+msgstr "Correu electrònic:"
+
+#: widgets/administratordialog/moderationconsole/moderationuserswidget.cpp:42
+#: widgets/administratordialog/users/administratoradduserwidget.cpp:71
+#: widgets/dialogs/directchannelinfowidget.cpp:141
+#, kde-format
+msgid "Roles:"
+msgstr "Rols:"
+
+#: widgets/administratordialog/moderationconsole/moderationuserswidget.cpp:51
+#, fuzzy, kde-format
+#| msgctxt "@action:button"
+#| msgid "Report"
+msgid "Report #%1"
+msgstr "Informa"
+
 #: widgets/administratordialog/oauth/administratoroauthcreatedialog.cpp:25
 #, kde-format
 msgctxt "@title:window"
@@ -3572,14 +3595,6 @@ msgstr "Nom d'usuari:"
 msgid "Status Message:"
 msgstr "Missatge d'estat:"
 
-#: widgets/administratordialog/users/administratoradduserwidget.cpp:62
-#: widgets/dialogs/directchannelinfowidget.cpp:166
-#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:74
-#: widgets/registeruser/registeruserwidget.cpp:33
-#, kde-format
-msgid "Email:"
-msgstr "Correu electrònic:"
-
 #: widgets/administratordialog/users/administratoradduserwidget.cpp:64
 #: widgets/common/authenticationloginwidget.cpp:47
 #: widgets/dialogs/channelinfoeditablewidget.cpp:77
@@ -3599,12 +3614,6 @@ msgstr "Biografia:"
 #, kde-format
 msgid "Nickname:"
 msgstr "Sobrenom:"
-
-#: widgets/administratordialog/users/administratoradduserwidget.cpp:71
-#: widgets/dialogs/directchannelinfowidget.cpp:141
-#, kde-format
-msgid "Roles:"
-msgstr "Rols:"
 
 #: widgets/administratordialog/users/administratorinviteusersdialog.cpp:18
 #, kde-format
@@ -10575,12 +10584,10 @@ msgid "Return the number of account."
 msgstr "Retorna el nombre de comptes."
 
 #: widgets/welcome/welcomewidget.cpp:21
-#, fuzzy, kde-format
-#| msgctxt "@action"
-#| msgid "My Account…"
+#, kde-format
 msgctxt "@action:button"
 msgid "Add Account…"
-msgstr "El meu compte…"
+msgstr "Afig un compte…"
 
 #: widgets/whatsnew/whatsnewcomboboxwidget.cpp:27
 #, kde-format
@@ -10621,10 +10628,8 @@ msgid "Implement moderation (administrator mode)."
 msgstr "Implementa la moderació (mode administrador)."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:21
-#, fuzzy
-#| msgid "Hide \"Welcome\" messages"
 msgid "Add welcome page."
-msgstr "Oculta els missatges de «Benvinguda»"
+msgstr "Afig la pàgina de benvinguda."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:31
 #, kde-format

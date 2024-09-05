@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-09-04 00:39+0000\n"
+"POT-Creation-Date: 2024-09-05 00:39+0000\n"
 "PO-Revision-Date: 2019-07-29 20:25+0200\n"
 "Last-Translator: Roman Paholík <wizzardsk@gmail.com>\n"
 "Language-Team: Slovak <kde-sk@linux.sk>\n"
@@ -3123,6 +3123,28 @@ msgctxt "@title:window"
 msgid "Show Moderation Users"
 msgstr "Súkromné adresy"
 
+#: widgets/administratordialog/moderationconsole/moderationuserswidget.cpp:36
+#: widgets/administratordialog/users/administratoradduserwidget.cpp:62
+#: widgets/dialogs/directchannelinfowidget.cpp:166
+#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:74
+#: widgets/registeruser/registeruserwidget.cpp:33
+#, kde-format
+msgid "Email:"
+msgstr ""
+
+#: widgets/administratordialog/moderationconsole/moderationuserswidget.cpp:42
+#: widgets/administratordialog/users/administratoradduserwidget.cpp:71
+#: widgets/dialogs/directchannelinfowidget.cpp:141
+#, kde-format
+msgid "Roles:"
+msgstr ""
+
+#: widgets/administratordialog/moderationconsole/moderationuserswidget.cpp:51
+#, fuzzy, kde-format
+#| msgid "Report a Bug"
+msgid "Report #%1"
+msgstr "Nahlásiť chybu"
+
 #: widgets/administratordialog/oauth/administratoroauthcreatedialog.cpp:25
 #, fuzzy, kde-format
 #| msgid "Search File..."
@@ -3773,14 +3795,6 @@ msgstr "Meno používateľa: %1"
 msgid "Status Message:"
 msgstr "1 správa"
 
-#: widgets/administratordialog/users/administratoradduserwidget.cpp:62
-#: widgets/dialogs/directchannelinfowidget.cpp:166
-#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:74
-#: widgets/registeruser/registeruserwidget.cpp:33
-#, kde-format
-msgid "Email:"
-msgstr ""
-
 #: widgets/administratordialog/users/administratoradduserwidget.cpp:64
 #: widgets/common/authenticationloginwidget.cpp:47
 #: widgets/dialogs/channelinfoeditablewidget.cpp:77
@@ -3801,12 +3815,6 @@ msgstr ""
 #| msgid "Name:"
 msgid "Nickname:"
 msgstr "Názov:"
-
-#: widgets/administratordialog/users/administratoradduserwidget.cpp:71
-#: widgets/dialogs/directchannelinfowidget.cpp:141
-#, kde-format
-msgid "Roles:"
-msgstr ""
 
 #: widgets/administratordialog/users/administratorinviteusersdialog.cpp:18
 #, kde-format

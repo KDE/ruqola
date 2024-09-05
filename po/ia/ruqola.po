@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-09-04 00:39+0000\n"
+"POT-Creation-Date: 2024-09-05 00:39+0000\n"
 "PO-Revision-Date: 2024-09-03 14:24+0200\n"
 "Last-Translator: giovanni <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
@@ -2976,6 +2976,29 @@ msgctxt "@title:window"
 msgid "Show Moderation Users"
 msgstr "Monstra Usatores de Moderation"
 
+#: widgets/administratordialog/moderationconsole/moderationuserswidget.cpp:36
+#: widgets/administratordialog/users/administratoradduserwidget.cpp:62
+#: widgets/dialogs/directchannelinfowidget.cpp:166
+#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:74
+#: widgets/registeruser/registeruserwidget.cpp:33
+#, kde-format
+msgid "Email:"
+msgstr "E-posta:"
+
+#: widgets/administratordialog/moderationconsole/moderationuserswidget.cpp:42
+#: widgets/administratordialog/users/administratoradduserwidget.cpp:71
+#: widgets/dialogs/directchannelinfowidget.cpp:141
+#, kde-format
+msgid "Roles:"
+msgstr "Rolos:"
+
+#: widgets/administratordialog/moderationconsole/moderationuserswidget.cpp:51
+#, fuzzy, kde-format
+#| msgctxt "@action:button"
+#| msgid "Report"
+msgid "Report #%1"
+msgstr "Reporta"
+
 #: widgets/administratordialog/oauth/administratoroauthcreatedialog.cpp:25
 #, kde-format
 msgctxt "@title:window"
@@ -3555,14 +3578,6 @@ msgstr "Nomine de usator:"
 msgid "Status Message:"
 msgstr "Message de stato:"
 
-#: widgets/administratordialog/users/administratoradduserwidget.cpp:62
-#: widgets/dialogs/directchannelinfowidget.cpp:166
-#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:74
-#: widgets/registeruser/registeruserwidget.cpp:33
-#, kde-format
-msgid "Email:"
-msgstr "E-posta:"
-
 #: widgets/administratordialog/users/administratoradduserwidget.cpp:64
 #: widgets/common/authenticationloginwidget.cpp:47
 #: widgets/dialogs/channelinfoeditablewidget.cpp:77
@@ -3582,12 +3597,6 @@ msgstr "Bio:"
 #, kde-format
 msgid "Nickname:"
 msgstr "Pseudonymo:"
-
-#: widgets/administratordialog/users/administratoradduserwidget.cpp:71
-#: widgets/dialogs/directchannelinfowidget.cpp:141
-#, kde-format
-msgid "Roles:"
-msgstr "Rolos:"
 
 #: widgets/administratordialog/users/administratorinviteusersdialog.cpp:18
 #, kde-format

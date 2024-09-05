@@ -5,8 +5,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-09-04 00:39+0000\n"
-"PO-Revision-Date: 2024-08-26 10:43+0200\n"
+"POT-Creation-Date: 2024-09-05 00:39+0000\n"
+"PO-Revision-Date: 2024-09-03 21:18+0200\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
 "Language-Team: French <French <kde-francophone@kde.org>>\n"
 "Language: fr\n"
@@ -2344,7 +2344,7 @@ msgstr ""
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:460
 #, kde-format
 msgid "A role with this name already exists"
-msgstr "Un role avec ce nom existe déjà"
+msgstr "Un rôle avec ce nom existe déjà"
 
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:462
 #, kde-format
@@ -3007,6 +3007,29 @@ msgctxt "@title:window"
 msgid "Show Moderation Users"
 msgstr "Afficher les utilisateurs en charge de modération"
 
+#: widgets/administratordialog/moderationconsole/moderationuserswidget.cpp:36
+#: widgets/administratordialog/users/administratoradduserwidget.cpp:62
+#: widgets/dialogs/directchannelinfowidget.cpp:166
+#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:74
+#: widgets/registeruser/registeruserwidget.cpp:33
+#, kde-format
+msgid "Email:"
+msgstr "Courriel :"
+
+#: widgets/administratordialog/moderationconsole/moderationuserswidget.cpp:42
+#: widgets/administratordialog/users/administratoradduserwidget.cpp:71
+#: widgets/dialogs/directchannelinfowidget.cpp:141
+#, kde-format
+msgid "Roles:"
+msgstr "Rôles :"
+
+#: widgets/administratordialog/moderationconsole/moderationuserswidget.cpp:51
+#, fuzzy, kde-format
+#| msgctxt "@action:button"
+#| msgid "Report"
+msgid "Report #%1"
+msgstr "Signaler"
+
 #: widgets/administratordialog/oauth/administratoroauthcreatedialog.cpp:25
 #, kde-format
 msgctxt "@title:window"
@@ -3586,14 +3609,6 @@ msgstr "Nom d'utilisateur :"
 msgid "Status Message:"
 msgstr "Message d'état :"
 
-#: widgets/administratordialog/users/administratoradduserwidget.cpp:62
-#: widgets/dialogs/directchannelinfowidget.cpp:166
-#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:74
-#: widgets/registeruser/registeruserwidget.cpp:33
-#, kde-format
-msgid "Email:"
-msgstr "Courriel :"
-
 #: widgets/administratordialog/users/administratoradduserwidget.cpp:64
 #: widgets/common/authenticationloginwidget.cpp:47
 #: widgets/dialogs/channelinfoeditablewidget.cpp:77
@@ -3613,12 +3628,6 @@ msgstr "Bio :"
 #, kde-format
 msgid "Nickname:"
 msgstr "Pseudonyme :"
-
-#: widgets/administratordialog/users/administratoradduserwidget.cpp:71
-#: widgets/dialogs/directchannelinfowidget.cpp:141
-#, kde-format
-msgid "Roles:"
-msgstr "Rôles :"
 
 #: widgets/administratordialog/users/administratorinviteusersdialog.cpp:18
 #, kde-format
@@ -4076,7 +4085,7 @@ msgstr "IRC"
 #: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:118
 #, kde-format
 msgid "Webdav"
-msgstr "Webdav"
+msgstr "WebDAV"
 
 #: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:119
 #, kde-format
@@ -6503,7 +6512,7 @@ msgstr "Secret de l'application"
 #, kde-format
 msgctxt "@option:check"
 msgid "Webdav Integration Enabled"
-msgstr "Intégration de Webdav activée"
+msgstr "Intégration de WebDAV activée"
 
 #: widgets/administratorsettingsdialog/webrtc/webrtcsettingswidget.cpp:16
 #, kde-format
@@ -7149,7 +7158,7 @@ msgstr "Configurer les activités"
 #, kde-format
 msgctxt "@option:check"
 msgid "Limit to the selected activities:"
-msgstr "uSe limiter aux activités sélectionnées :"
+msgstr "Se limiter aux activités sélectionnées :"
 
 #: widgets/configurenewserver/configureactivitieswidget.cpp:62
 #, kde-format
