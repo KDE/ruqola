@@ -11,6 +11,7 @@ using namespace Qt::Literals::StringLiterals;
 #include "rocketchatqtrestapi_debug.h"
 #include <QJsonDocument>
 #include <QJsonObject>
+#include <QUrlQuery>
 using namespace RocketChatRestApi;
 UsersListByStatusJob::UsersListByStatusJob(QObject *parent)
     : RestApiAbstractJob(parent)
@@ -64,6 +65,12 @@ QNetworkRequest UsersListByStatusJob::request() const
 {
     QUrl url = mRestApiMethod->generateUrl(RestApiUtil::RestApiUrlType::UsersListByStatus);
 
+    QUrlQuery queryUrl;
+    queryUrl.addQueryItem(QStringLiteral("hasLoggedIn"), mUsersListByStatusJobInfo.hasLoggedIn ? QStringLiteral("true") : QStringLiteral("false"));
+    queryUrl.addQueryItem(QStringLiteral("status"), mUsersListByStatusJobInfo.statusToString());
+    queryUrl.addQueryItem(QStringLiteral("type"), mUsersListByStatusJobInfo.typeToString());
+    url.setQuery(queryUrl);
+
     QNetworkRequest request(url);
     addAuthRawHeader(request);
     addRequestAttribute(request, false);
@@ -76,12 +83,40 @@ bool UsersListByStatusJob::canStart() const
     if (!RestApiAbstractJob::canStart()) {
         return false;
     }
+    if (!mUsersListByStatusJobInfo.isValid()) {
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "mUsersListByStatusJobInfo is not valid";
+        return false;
+    }
     return true;
 }
 
 bool UsersListByStatusJob::UsersListByStatusJobInfo::isValid() const
 {
     return status != Status::Unknown && type != StatusType::Unknown;
+}
+
+QString UsersListByStatusJob::UsersListByStatusJobInfo::statusToString() const
+{
+    switch (status) {
+    case Status::Unknown:
+        break;
+    case Status::Desactivated:
+        return "deactivated"_L1;
+    case Status::Activated:
+        return "active"_L1;
+    }
+    return {};
+}
+
+QString UsersListByStatusJob::UsersListByStatusJobInfo::typeToString() const
+{
+    switch (type) {
+    case StatusType::Unknown:
+        break;
+    case StatusType::User:
+        return "user"_L1;
+    }
+    return {};
 }
 
 QDebug operator<<(QDebug d, const RocketChatRestApi::UsersListByStatusJob::UsersListByStatusJobInfo &t)

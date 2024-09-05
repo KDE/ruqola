@@ -30,4 +30,14 @@ void UsersListByStatusJobTest::shouldGenerateRequest()
     QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/v1/users.listByStatus")));
 }
 
+void UsersListByStatusJobTest::shouldUsersListByStatusJobInfoValue()
+{
+    UsersListByStatusJob::UsersListByStatusJobInfo info;
+    QCOMPARE(info.status, RocketChatRestApi::UsersListByStatusJob::Status::Unknown);
+    QCOMPARE(info.type, RocketChatRestApi::UsersListByStatusJob::StatusType::Unknown);
+    QVERIFY(!info.hasLoggedIn);
+    QCOMPARE(info.count, 0);
+    QVERIFY(!info.isValid());
+}
+
 #include "moc_userslistbystatusjobtest.cpp"
