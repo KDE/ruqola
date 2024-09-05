@@ -57,6 +57,7 @@ MessageListDelegate::MessageListDelegate(RocketChatAccount *account, QListView *
     , mFollowingIcon(QIcon::fromTheme(QStringLiteral("notifications")))
     , mPinIcon(QIcon::fromTheme(QStringLiteral("pin")))
     , mTranslatedIcon(QIcon::fromTheme(QStringLiteral("languages"))) // TODO use another icon for it. But kde doesn't correct icon perhaps flags ?
+    , mReplyInThreadIcon(QIcon::fromTheme(QStringLiteral("view-conversation-balloon-symbolic")))
     , mListView(view)
     , mTextSelectionImpl(new TextSelectionImpl)
     , mHelperText(new MessageDelegateHelperText(account, view, mTextSelectionImpl))
@@ -682,6 +683,7 @@ void MessageListDelegate::paint(QPainter *painter, const QStyleOptionViewItem &o
     // debug painter->drawRect(option.rect.adjusted(0, 0, -1, -1));
     if (!isSystemMessage(message) && message->hoverHighlight() && mEmojiMenuEnabled) {
         mAddReactionIcon.paint(painter, layout.addReactionRect, Qt::AlignCenter);
+        mReplyInThreadIcon.paint(painter, layout.replyToThreadRect, Qt::AlignCenter);
     }
 
     painter->restore();
@@ -761,17 +763,22 @@ bool MessageListDelegate::mouseEvent(QEvent *event, const QStyleOptionViewItem &
 
         const MessageListLayoutBase::Layout layout = doLayout(option, index);
 
-        if (layout.addReactionRect.contains(mev->pos()) && !isSystemMessage(message) && mEmojiMenuEnabled) {
-            auto mEmoticonMenuWidget = new EmoticonMenuWidget(mListView);
-            mEmoticonMenuWidget->setWindowFlag(Qt::Popup);
-            mEmoticonMenuWidget->setCurrentRocketChatAccount(mRocketChatAccount);
-            mEmoticonMenuWidget->forceLineEditFocus();
-            positionPopup(mev->globalPosition().toPoint(), mListView, mEmoticonMenuWidget);
-            mEmoticonMenuWidget->show();
-            connect(mEmoticonMenuWidget, &EmoticonMenuWidget::insertEmojiIdentifier, this, [this, message](const QString &id) {
-                mRocketChatAccount->reactOnMessage(message->messageId(), id, true /*add*/);
-            });
-            return true;
+        if (!isSystemMessage(message) && mEmojiMenuEnabled) {
+            if (layout.addReactionRect.contains(mev->pos())) {
+                auto mEmoticonMenuWidget = new EmoticonMenuWidget(mListView);
+                mEmoticonMenuWidget->setWindowFlag(Qt::Popup);
+                mEmoticonMenuWidget->setCurrentRocketChatAccount(mRocketChatAccount);
+                mEmoticonMenuWidget->forceLineEditFocus();
+                positionPopup(mev->globalPosition().toPoint(), mListView, mEmoticonMenuWidget);
+                mEmoticonMenuWidget->show();
+                connect(mEmoticonMenuWidget, &EmoticonMenuWidget::insertEmojiIdentifier, this, [this, message](const QString &id) {
+                    mRocketChatAccount->reactOnMessage(message->messageId(), id, true /*add*/);
+                });
+                return true;
+            } else if (layout.replyToThreadRect.contains(mev->pos())) {
+                Q_EMIT replyToThread(message->messageId(), message->text());
+                return true;
+            }
         }
 
         if (auto react = message->reactions()) {
@@ -972,15 +979,23 @@ bool MessageListDelegate::helpEvent(QHelpEvent *helpEvent, QAbstractItemView *vi
             return true;
         }
         if (layout.followingIconRect.contains(helpEventPos)) {
-            QToolTip::showText(helpEvent->globalPos(), i18n("Following"), view);
+            QToolTip::showText(helpEvent->globalPos(), i18nc("@info:tooltip", "Following"), view);
             return true;
         }
         if (layout.pinIconRect.contains(helpEventPos)) {
-            QToolTip::showText(helpEvent->globalPos(), i18n("Message has been pinned"), view);
+            QToolTip::showText(helpEvent->globalPos(), i18nc("@info:tooltip", "Message has been pinned"), view);
             return true;
         }
         if (layout.favoriteIconRect.contains(helpEventPos)) {
-            QToolTip::showText(helpEvent->globalPos(), i18n("Message has been starred"), view);
+            QToolTip::showText(helpEvent->globalPos(), i18nc("@info:tooltip", "Message has been starred"), view);
+            return true;
+        }
+        if (layout.replyToThreadRect.contains(helpEventPos)) {
+            QToolTip::showText(helpEvent->globalPos(), i18nc("@info:tooltip", "Reply in Thread"), view);
+            return true;
+        }
+        if (layout.addReactionRect.contains(helpEventPos)) {
+            QToolTip::showText(helpEvent->globalPos(), i18nc("@info:tooltip", "Add reaction"), view);
             return true;
         }
         if (layout.textRect.contains(helpEvent->pos()) && mHelperText->handleHelpEvent(helpEvent, layout.textRect, index)) {

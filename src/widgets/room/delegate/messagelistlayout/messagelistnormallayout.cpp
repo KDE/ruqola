@@ -198,6 +198,7 @@ MessageListLayoutBase::Layout MessageListNormalLayout::doLayout(const QStyleOpti
     }
 
     layout.addReactionRect = QRect(textLeft + textSize.width() + margin, layout.textRect.y(), iconSize, iconSize);
+    layout.replyToThreadRect = QRect(textLeft + textSize.width() + 2 * margin + iconSize, layout.textRect.y(), iconSize, iconSize);
     if (layout.sameSenderAsPreviousMessage) {
         layout.addReactionRect.moveTop(layout.textRect.y());
     }

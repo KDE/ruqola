@@ -113,6 +113,7 @@ Q_SIGNALS:
     void showUserInfo(const QString &userName);
     void startPrivateConversation(const QString &userName);
     void updateView();
+    void replyToThread(const QByteArray &messageId, const QString &threadPreview);
 
 private:
     void slotUpdateColors();
@@ -139,6 +140,7 @@ private:
     const QIcon mFollowingIcon;
     const QIcon mPinIcon;
     const QIcon mTranslatedIcon;
+    const QIcon mReplyInThreadIcon;
     QColor mEditColorMode;
     QColor mThreadedMessageBackgroundColor;
     QColor mOpenDiscussionColorMode;

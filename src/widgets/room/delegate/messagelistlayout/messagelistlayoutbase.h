@@ -55,6 +55,9 @@ public:
 
         // add-reaction button and timestamp
         QRect addReactionRect;
+
+        QRect replyToThreadRect;
+
         QString timeStampText;
         QPoint timeStampPos;
         QRect timeStampRect;
