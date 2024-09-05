@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-06-10 02:50+0000\n"
-"PO-Revision-Date: 2024-06-30 15:30+0200\n"
+"PO-Revision-Date: 2024-09-03 21:18+0200\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
 "Language-Team: French <French <kde-francophone@kde.org>>\n"
 "Language: fr\n"
@@ -2321,7 +2321,7 @@ msgstr ""
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:460
 #, kde-format
 msgid "A role with this name already exists"
-msgstr "Un role avec ce nom existe déjà"
+msgstr "Un rôle avec ce nom existe déjà"
 
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:462
 #, kde-format
@@ -3931,7 +3931,7 @@ msgstr "IRC"
 #: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:118
 #, kde-format
 msgid "Webdav"
-msgstr "Webdav"
+msgstr "WebDAV"
 
 #: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:119
 #, kde-format
@@ -6241,7 +6241,7 @@ msgstr "Secret de l'application"
 #: widgets/administratorsettingsdialog/webdav/webdavsettingswidget.cpp:13
 #, kde-format
 msgid "Webdav Integration Enabled"
-msgstr "Activation de l'intégration de Webdav"
+msgstr "Activation de l'intégration de WebDAV"
 
 #: widgets/administratorsettingsdialog/webrtc/webrtcsettingswidget.cpp:16
 #, kde-format
