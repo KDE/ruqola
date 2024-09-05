@@ -27,7 +27,7 @@ void UsersListByStatusJobTest::shouldGenerateRequest()
     UsersListByStatusJob job;
     QNetworkRequest request = QNetworkRequest(QUrl());
     verifyAuthentication(&job, request);
-    QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/v1/users.listByStatus")));
+    QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/v1/users.listByStatus?hasLoggedIn=false&status&type")));
 }
 
 void UsersListByStatusJobTest::shouldUsersListByStatusJobInfoValue()
