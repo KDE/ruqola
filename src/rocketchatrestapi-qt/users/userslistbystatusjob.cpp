@@ -69,6 +69,7 @@ QNetworkRequest UsersListByStatusJob::request() const
     queryUrl.addQueryItem(QStringLiteral("hasLoggedIn"), mUsersListByStatusJobInfo.hasLoggedIn ? QStringLiteral("true") : QStringLiteral("false"));
     queryUrl.addQueryItem(QStringLiteral("status"), mUsersListByStatusJobInfo.statusToString());
     queryUrl.addQueryItem(QStringLiteral("type"), mUsersListByStatusJobInfo.typeToString());
+    queryUrl.addQueryItem(QStringLiteral("count"), QString::number(mUsersListByStatusJobInfo.count));
     url.setQuery(queryUrl);
 
     QNetworkRequest request(url);

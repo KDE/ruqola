@@ -27,7 +27,15 @@ void UsersListByStatusJobTest::shouldGenerateRequest()
     UsersListByStatusJob job;
     QNetworkRequest request = QNetworkRequest(QUrl());
     verifyAuthentication(&job, request);
-    QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/v1/users.listByStatus?hasLoggedIn=false&status&type")));
+    QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/v1/users.listByStatus?hasLoggedIn=false&status&type&count=0")));
+
+    UsersListByStatusJob::UsersListByStatusJobInfo info;
+    info.count = 2;
+    info.status = RocketChatRestApi::UsersListByStatusJob::Status::Activated;
+    info.type = RocketChatRestApi::UsersListByStatusJob::StatusType::User;
+    job.setUsersListByStatusJobInfo(info);
+    verifyAuthentication(&job, request);
+    QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/v1/users.listByStatus?hasLoggedIn=false&status=active&type=user&count=2")));
 }
 
 void UsersListByStatusJobTest::shouldUsersListByStatusJobInfoValue()
