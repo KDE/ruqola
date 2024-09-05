@@ -33,6 +33,7 @@ void ModerationUsersWidget::setModerationReportUserInfos(const ModerationReportU
     const User user = infos.user();
     if (!infos.user().userEmailsInfo().email.isEmpty()) {
         html += QStringLiteral("<div><b>") + QStringLiteral("%1 (@%2)").arg(user.name(), user.userName()) + QStringLiteral("</div>");
+        html += QStringLiteral("<br/>");
         html += QStringLiteral("<div><b>") + i18n("Email:") + QStringLiteral("</b>") + QStringLiteral(" %1").arg(infos.user().userEmailsInfo().email)
             + QStringLiteral("</div>");
         html += QStringLiteral("<br/>");
