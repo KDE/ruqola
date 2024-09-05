@@ -28,10 +28,16 @@ SearchTreeBaseWidget::SearchTreeBaseWidget(RocketChatAccount *account, QWidget *
 
     mSearchLayout = new QVBoxLayout;
     mainLayout->addLayout(mSearchLayout);
+
+    mSearchLineLayout = new QHBoxLayout;
+    mSearchLineLayout->setContentsMargins({});
+
     mSearchLineEdit->setObjectName(QStringLiteral("mSearchLineEdit"));
-    mSearchLayout->addWidget(mSearchLineEdit);
+    mSearchLineLayout->addWidget(mSearchLineEdit);
     mSearchLineEdit->setDelayMs(500ms);
     KLineEditEventHandler::catchReturnKey(mSearchLineEdit);
+
+    mSearchLayout->addLayout(mSearchLineLayout);
 
     mLabelResultSearch->setObjectName(QStringLiteral("mLabelResultSearch"));
     mSearchLayout->addWidget(mLabelResultSearch);

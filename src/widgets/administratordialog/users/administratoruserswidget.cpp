@@ -5,6 +5,7 @@
 */
 
 #include "administratoruserswidget.h"
+#include "misc/rolescombobox.h"
 using namespace Qt::Literals::StringLiterals;
 
 #include "administratoradduserdialog.h"
@@ -32,9 +33,11 @@ using namespace Qt::Literals::StringLiterals;
 #include <QMenu>
 #include <QPointer>
 #include <QTreeView>
+#include <QVBoxLayout>
 
 AdministratorUsersWidget::AdministratorUsersWidget(RocketChatAccount *account, QWidget *parent)
     : SearchTreeBaseWidget(account, parent)
+    , mRolesComboBox(new RolesComboBox(this))
 {
     auto adminUsersModel = new AdminUsersModel(this);
     adminUsersModel->setObjectName(QStringLiteral("mAdminUsersModel"));
@@ -47,6 +50,10 @@ AdministratorUsersWidget::AdministratorUsersWidget(RocketChatAccount *account, Q
     mProxyModelModel->setObjectName(QStringLiteral("mAdminUsersProxyModel"));
     mSearchLineEdit->setPlaceholderText(i18nc("@info:placeholder", "Search users…"));
     mTreeView->setModel(mProxyModelModel);
+
+    mRolesComboBox->setObjectName("mRolesComboBox"_L1);
+    mSearchLineLayout->addWidget(mRolesComboBox);
+
     connect(mTreeView, &QTreeView::doubleClicked, this, &AdministratorUsersWidget::slotModifyDoubleClickUser);
     hideColumns();
     connectModel();

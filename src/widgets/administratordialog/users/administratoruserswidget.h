@@ -9,6 +9,7 @@
 #include "misc/searchtreebasewidget.h"
 
 #include "libruqolawidgets_private_export.h"
+class RolesComboBox;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT AdministratorUsersWidget : public SearchTreeBaseWidget
 {
     Q_OBJECT
@@ -42,4 +43,5 @@ private:
     LIBRUQOLAWIDGETS_NO_EXPORT void slotChangeAdmin(const QModelIndex &index, bool adminStatus);
     LIBRUQOLAWIDGETS_NO_EXPORT void slotInviteUsers();
     [[nodiscard]] LIBRUQOLAWIDGETS_NO_EXPORT QString displayShowMessageInRoom() const;
+    RolesComboBox *const mRolesComboBox;
 };

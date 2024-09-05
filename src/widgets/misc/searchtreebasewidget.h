@@ -12,6 +12,7 @@ class SearchWithDelayLineEdit;
 class QTreeView;
 class CustomBaseModel;
 class QVBoxLayout;
+class QHBoxLayout;
 class SearchTreeBaseFilterProxyModel;
 class RocketChatAccount;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT SearchTreeBaseWidget : public QWidget
@@ -43,6 +44,7 @@ protected:
     CustomBaseModel *mModel = nullptr;
     SearchTreeBaseFilterProxyModel *mProxyModelModel = nullptr;
     QVBoxLayout *mSearchLayout = nullptr;
+    QHBoxLayout *mSearchLineLayout = nullptr;
     RocketChatAccount *const mRocketChatAccount;
 
 private:
