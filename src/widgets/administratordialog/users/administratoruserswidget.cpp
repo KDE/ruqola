@@ -317,6 +317,7 @@ QString AdministratorUsersWidget::displayShowMessageInRoom() const
 
 void AdministratorUsersWidget::slotLoadElements(int offset, int count, const QString &searchName)
 {
+    // TODO uses roles !
     auto job = new RocketChatRestApi::UsersListJob(this);
     RocketChatRestApi::QueryParameters parameters;
     QMap<QString, RocketChatRestApi::QueryParameters::SortOrder> map;
