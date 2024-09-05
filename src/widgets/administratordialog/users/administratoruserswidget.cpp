@@ -53,6 +53,9 @@ AdministratorUsersWidget::AdministratorUsersWidget(RocketChatAccount *account, Q
 
     mRolesComboBox->setObjectName("mRolesComboBox"_L1);
     mSearchLineLayout->addWidget(mRolesComboBox);
+    if (account) {
+        mRolesComboBox->setRolesInfo(account->roleInfo());
+    }
 
     connect(mTreeView, &QTreeView::doubleClicked, this, &AdministratorUsersWidget::slotModifyDoubleClickUser);
     hideColumns();
