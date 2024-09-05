@@ -67,8 +67,19 @@ QNetworkRequest UsersListByStatusJob::request() const
 
     QUrlQuery queryUrl;
     queryUrl.addQueryItem(QStringLiteral("hasLoggedIn"), mUsersListByStatusJobInfo.hasLoggedIn ? QStringLiteral("true") : QStringLiteral("false"));
-    queryUrl.addQueryItem(QStringLiteral("status"), mUsersListByStatusJobInfo.statusToString());
-    queryUrl.addQueryItem(QStringLiteral("type"), mUsersListByStatusJobInfo.typeToString());
+    const QString statusStr = mUsersListByStatusJobInfo.statusToString();
+    if (!statusStr.isEmpty()) {
+        queryUrl.addQueryItem(QStringLiteral("status"), statusStr);
+    }
+    const QString typeStr = mUsersListByStatusJobInfo.typeToString();
+    if (!typeStr.isEmpty()) {
+        queryUrl.addQueryItem(QStringLiteral("type"), mUsersListByStatusJobInfo.typeToString());
+    }
+    if (!mUsersListByStatusJobInfo.roles.isEmpty()) {
+        for (const auto &str : std::as_const(mUsersListByStatusJobInfo.roles)) {
+            queryUrl.addQueryItem(QStringLiteral("roles[]"), str);
+        }
+    }
     queryUrl.addQueryItem(QStringLiteral("count"), QString::number(mUsersListByStatusJobInfo.count));
     url.setQuery(queryUrl);
 
@@ -126,6 +137,7 @@ QDebug operator<<(QDebug d, const RocketChatRestApi::UsersListByStatusJob::Users
     d << "type " << t.type;
     d << "hasLoggedIn " << t.hasLoggedIn;
     d << "count " << t.count;
+    d << "roles " << t.roles;
     return d;
 }
 

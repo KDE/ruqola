@@ -31,6 +31,7 @@ public:
     struct LIBROCKETCHATRESTAPI_QT_EXPORT UsersListByStatusJobInfo {
         Status status = Status::Unknown;
         StatusType type = StatusType::Unknown;
+        QStringList roles;
         bool hasLoggedIn = false;
         int count = 0;
         [[nodiscard]] bool isValid() const;
