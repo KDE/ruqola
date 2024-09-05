@@ -81,6 +81,7 @@ QNetworkRequest UsersListByStatusJob::request() const
         }
     }
     queryUrl.addQueryItem(QStringLiteral("count"), QString::number(mUsersListByStatusJobInfo.count));
+    addQueryParameter(queryUrl);
     url.setQuery(queryUrl);
 
     QNetworkRequest request(url);
