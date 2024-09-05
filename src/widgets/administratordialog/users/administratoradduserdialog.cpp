@@ -50,9 +50,9 @@ void AdministratorAddUserDialog::setUser(const User &user)
     mAdministratorWidget->setUser(user);
 }
 
-void AdministratorAddUserDialog::setRoleInfo(const QList<RoleInfo> &info)
+void AdministratorAddUserDialog::setRolesInfo(const QList<RoleInfo> &info)
 {
-    mAdministratorWidget->setRoleInfo(info);
+    mAdministratorWidget->setRolesInfo(info);
 }
 
 #include "moc_administratoradduserdialog.cpp"

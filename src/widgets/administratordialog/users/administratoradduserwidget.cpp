@@ -117,7 +117,7 @@ RocketChatRestApi::UpdateUserInfo AdministratorAddUserWidget::updateInfo() const
     return info;
 }
 
-void AdministratorAddUserWidget::setRoleInfo(const QList<RoleInfo> &info)
+void AdministratorAddUserWidget::setRolesInfo(const QList<RoleInfo> &info)
 {
     mRolesComboBox->setRolesInfo(info);
 }

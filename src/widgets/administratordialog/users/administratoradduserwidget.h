@@ -37,7 +37,7 @@ public:
     void setUser(const User &user);
 
     [[nodiscard]] RocketChatRestApi::UpdateUserInfo updateInfo() const;
-    void setRoleInfo(const QList<RoleInfo> &info);
+    void setRolesInfo(const QList<RoleInfo> &info);
 Q_SIGNALS:
     void updateButtonOk(bool b);
 
