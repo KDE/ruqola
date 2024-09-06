@@ -6,7 +6,6 @@
 
 #include "administratoruserswidget.h"
 #include "misc/rolescombobox.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "administratoradduserdialog.h"
 #include "administratorinviteusersdialog.h"
@@ -35,6 +34,7 @@ using namespace Qt::Literals::StringLiterals;
 #include <QPointer>
 #include <QTreeView>
 #include <QVBoxLayout>
+using namespace Qt::Literals::StringLiterals;
 
 AdministratorUsersWidget::AdministratorUsersWidget(RocketChatAccount *account, QWidget *parent)
     : SearchTreeBaseWidget(account, parent)
@@ -323,7 +323,14 @@ void AdministratorUsersWidget::slotLoadElements(int offset, int count, const QSt
     const QStringList roles = mRolesComboBox->roles();
     if (!roles.isEmpty()) { }
 
-    auto job = new RocketChatRestApi::UsersListJob(this);
+    auto job = new RocketChatRestApi::UsersListByStatusJob(this);
+    /*
+    RocketChatRestApi::UsersListByStatusJob::UsersListByStatusJobInfo info;
+    info.count = count;
+    info.hasLoggedIn = false;
+    info.status =
+    job->setUsersListByStatusJobInfo(info);
+    */
     RocketChatRestApi::QueryParameters parameters;
     QMap<QString, RocketChatRestApi::QueryParameters::SortOrder> map;
     map.insert(QStringLiteral("name"), RocketChatRestApi::QueryParameters::SortOrder::Ascendant);
@@ -339,12 +346,12 @@ void AdministratorUsersWidget::slotLoadElements(int offset, int count, const QSt
 
     mRocketChatAccount->restApi()->initializeRestApiJob(job);
     if (offset != -1) {
-        connect(job, &RocketChatRestApi::UsersListJob::userListDone, this, &AdministratorUsersWidget::slotLoadMoreElementDone);
+        connect(job, &RocketChatRestApi::UsersListByStatusJob::usersListByStatusDone, this, &AdministratorUsersWidget::slotLoadMoreElementDone);
     } else {
-        connect(job, &RocketChatRestApi::UsersListJob::userListDone, this, &AdministratorUsersWidget::slotSearchDone);
+        connect(job, &RocketChatRestApi::UsersListByStatusJob::usersListByStatusDone, this, &AdministratorUsersWidget::slotSearchDone);
     }
     if (!job->start()) {
-        qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start UsersListJob job";
+        qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start UsersListByStatusJob job";
     }
 }
 
