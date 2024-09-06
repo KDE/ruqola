@@ -80,21 +80,17 @@ void AdministratorUsersWidget::slotInviteUsers()
 {
     QPointer<AdministratorInviteUsersDialog> dlg = new AdministratorInviteUsersDialog(this);
     if (dlg->exec()) {
-        if (mRocketChatAccount->ruqolaServerConfig()->hasAtLeastVersion(6, 0, 0)) {
-            const QStringList emails = dlg->emails();
-            if (!emails.isEmpty()) {
-                auto job = new RocketChatRestApi::SendInvitationEmailJob(this);
-                job->setEmails(emails);
-                mRocketChatAccount->restApi()->initializeRestApiJob(job);
-                connect(job, &RocketChatRestApi::SendInvitationEmailJob::sendInvitationEmailsDone, this, []() {
-                    qDebug() << " Emails send";
-                });
-                if (!job->start()) {
-                    qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start SendInvitationEmailJob job";
-                }
+        const QStringList emails = dlg->emails();
+        if (!emails.isEmpty()) {
+            auto job = new RocketChatRestApi::SendInvitationEmailJob(this);
+            job->setEmails(emails);
+            mRocketChatAccount->restApi()->initializeRestApiJob(job);
+            connect(job, &RocketChatRestApi::SendInvitationEmailJob::sendInvitationEmailsDone, this, []() {
+                qDebug() << " Emails send";
+            });
+            if (!job->start()) {
+                qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start SendInvitationEmailJob job";
             }
-        } else {
-            qWarning() << " Your RC server is too old for supporting it. Need RC 6.0.0 !";
         }
     }
     delete dlg;
