@@ -66,7 +66,10 @@ QNetworkRequest UsersListByStatusJob::request() const
     QUrl url = mRestApiMethod->generateUrl(RestApiUtil::RestApiUrlType::UsersListByStatus);
 
     QUrlQuery queryUrl;
-    queryUrl.addQueryItem(QStringLiteral("hasLoggedIn"), mUsersListByStatusJobInfo.hasLoggedIn ? QStringLiteral("true") : QStringLiteral("false"));
+    const QString loggedStr = mUsersListByStatusJobInfo.loggedInToString();
+    if (!loggedStr.isEmpty()) {
+        queryUrl.addQueryItem(QStringLiteral("hasLoggedIn"), loggedStr);
+    }
     const QString statusStr = mUsersListByStatusJobInfo.statusToString();
     if (!statusStr.isEmpty()) {
         queryUrl.addQueryItem(QStringLiteral("status"), statusStr);
@@ -132,6 +135,19 @@ QString UsersListByStatusJob::UsersListByStatusJobInfo::typeToString() const
         break;
     case StatusType::User:
         return "user"_L1;
+    }
+    return {};
+}
+
+QString UsersListByStatusJob::UsersListByStatusJobInfo::loggedInToString() const
+{
+    switch (hasLoggedIn) {
+    case LoggedStatus::Unknown:
+        break;
+    case LoggedStatus::Logged:
+        return "true"_L1;
+    case LoggedStatus::NotLogged:
+        return "false"_L1;
     }
     return {};
 }

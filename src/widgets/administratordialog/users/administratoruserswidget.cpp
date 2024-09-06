@@ -326,7 +326,6 @@ void AdministratorUsersWidget::slotLoadElements(int offset, int count, const QSt
     auto job = new RocketChatRestApi::UsersListByStatusJob(this);
     RocketChatRestApi::UsersListByStatusJob::UsersListByStatusJobInfo info;
     const QStringList roles = mRolesComboBox->roles();
-    info.hasLoggedIn = true;
     if (!roles.isEmpty()) {
         info.roles = roles;
     }

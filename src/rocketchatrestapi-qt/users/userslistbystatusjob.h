@@ -28,14 +28,22 @@ public:
     };
     Q_ENUM(StatusType)
 
+    enum class LoggedStatus {
+        Unknown,
+        Logged,
+        NotLogged,
+    };
+    Q_ENUM(LoggedStatus)
+
     struct LIBROCKETCHATRESTAPI_QT_EXPORT UsersListByStatusJobInfo {
         Status status = Status::Unknown;
         StatusType type = StatusType::Unknown;
         QStringList roles;
-        bool hasLoggedIn = false;
+        LoggedStatus hasLoggedIn = LoggedStatus::Unknown;
         [[nodiscard]] bool isValid() const;
         [[nodiscard]] QString statusToString() const;
         [[nodiscard]] QString typeToString() const;
+        [[nodiscard]] QString loggedInToString() const;
     };
     explicit UsersListByStatusJob(QObject *parent = nullptr);
     ~UsersListByStatusJob() override;
