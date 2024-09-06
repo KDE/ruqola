@@ -72,7 +72,7 @@ void AdministratorUsersWidget::slotTextChanged(const QString &str)
 
 void AdministratorUsersWidget::slotRolesChanged()
 {
-    // TODO
+    slotLoadElements();
 }
 
 void AdministratorUsersWidget::slotInviteUsers()
@@ -323,19 +323,14 @@ QString AdministratorUsersWidget::displayShowUsers() const
 
 void AdministratorUsersWidget::slotLoadElements(int offset, int count, const QString &searchName)
 {
-    // TODO uses roles !
-    // TODO update search when we change roles.
-    const QStringList roles = mRolesComboBox->roles();
-    if (!roles.isEmpty()) { }
-
     auto job = new RocketChatRestApi::UsersListByStatusJob(this);
-    /*
     RocketChatRestApi::UsersListByStatusJob::UsersListByStatusJobInfo info;
-    info.count = count;
-    info.hasLoggedIn = false;
-    info.status =
+    const QStringList roles = mRolesComboBox->roles();
+    info.hasLoggedIn = true;
+    if (!roles.isEmpty()) {
+        info.roles = roles;
+    }
     job->setUsersListByStatusJobInfo(info);
-    */
     RocketChatRestApi::QueryParameters parameters;
     QMap<QString, RocketChatRestApi::QueryParameters::SortOrder> map;
     map.insert(QStringLiteral("name"), RocketChatRestApi::QueryParameters::SortOrder::Ascendant);
