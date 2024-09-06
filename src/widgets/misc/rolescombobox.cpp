@@ -12,6 +12,7 @@ RolesComboBox::RolesComboBox(QWidget *parent)
     , mRolesModel(new RolesModel(this))
 {
     setModel(mRolesModel);
+    connect(mRolesModel, &RolesModel::itemChanged, this, &RolesComboBox::rolesChanged);
 }
 
 RolesComboBox::~RolesComboBox() = default;

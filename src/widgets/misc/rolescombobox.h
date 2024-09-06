@@ -21,6 +21,9 @@ public:
 
     void setRolesInfo(const QList<RoleInfo> &roleInfo);
 
+Q_SIGNALS:
+    void rolesChanged();
+
 private:
     RolesModel *const mRolesModel;
 };
