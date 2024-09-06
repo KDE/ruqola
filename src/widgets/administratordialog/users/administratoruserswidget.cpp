@@ -329,6 +329,9 @@ void AdministratorUsersWidget::slotLoadElements(int offset, int count, const QSt
     if (!roles.isEmpty()) {
         info.roles = roles;
     }
+    if (!searchName.isEmpty()) {
+        info.searchName = searchName;
+    }
     job->setUsersListByStatusJobInfo(info);
     RocketChatRestApi::QueryParameters parameters;
     QMap<QString, RocketChatRestApi::QueryParameters::SortOrder> map;
@@ -340,7 +343,6 @@ void AdministratorUsersWidget::slotLoadElements(int offset, int count, const QSt
     if (count != -1) {
         parameters.setCount(count);
     }
-    parameters.setSearchString(searchName);
     job->setQueryParameters(parameters);
 
     mRocketChatAccount->restApi()->initializeRestApiJob(job);
