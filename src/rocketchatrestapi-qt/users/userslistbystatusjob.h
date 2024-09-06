@@ -33,7 +33,6 @@ public:
         StatusType type = StatusType::Unknown;
         QStringList roles;
         bool hasLoggedIn = false;
-        int count = 0;
         [[nodiscard]] bool isValid() const;
         [[nodiscard]] QString statusToString() const;
         [[nodiscard]] QString typeToString() const;

@@ -80,7 +80,6 @@ QNetworkRequest UsersListByStatusJob::request() const
             queryUrl.addQueryItem(QStringLiteral("roles[]"), str);
         }
     }
-    queryUrl.addQueryItem(QStringLiteral("count"), QString::number(mUsersListByStatusJobInfo.count));
     addQueryParameter(queryUrl);
     url.setQuery(queryUrl);
 
@@ -137,7 +136,6 @@ QDebug operator<<(QDebug d, const RocketChatRestApi::UsersListByStatusJob::Users
     d << "status " << t.status;
     d << "type " << t.type;
     d << "hasLoggedIn " << t.hasLoggedIn;
-    d << "count " << t.count;
     d << "roles " << t.roles;
     return d;
 }
