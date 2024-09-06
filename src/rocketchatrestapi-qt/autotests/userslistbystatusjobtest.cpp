@@ -19,7 +19,7 @@ void UsersListByStatusJobTest::shouldHaveDefaultValue()
     UsersListByStatusJob job;
     verifyDefaultValue(&job);
     QVERIFY(job.requireHttpAuthentication());
-    QVERIFY(!job.hasQueryParameterSupport());
+    QVERIFY(job.hasQueryParameterSupport());
 }
 
 void UsersListByStatusJobTest::shouldGenerateRequest()

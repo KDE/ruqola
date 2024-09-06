@@ -51,6 +51,8 @@ public:
     [[nodiscard]] UsersListByStatusJobInfo usersListByStatusJobInfo() const;
     void setUsersListByStatusJobInfo(const UsersListByStatusJobInfo &newUsersListByStatusJobInfo);
 
+    [[nodiscard]] bool hasQueryParameterSupport() const override;
+
 Q_SIGNALS:
     void usersListByStatusDone(const QJsonObject &obj);
 
