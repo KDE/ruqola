@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-09-05 00:39+0000\n"
+"POT-Creation-Date: 2024-09-06 00:39+0000\n"
 "PO-Revision-Date: 2024-08-06 05:33+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
@@ -2559,7 +2559,7 @@ msgstr "移除表情符號"
 #: widgets/administratordialog/oauth/oauthtreeview.cpp:49
 #: widgets/administratordialog/roles/administratorroleswidget.cpp:101
 #: widgets/administratordialog/roles/usersinrolewidget.cpp:106
-#: widgets/administratordialog/users/administratoruserswidget.cpp:239
+#: widgets/administratordialog/users/administratoruserswidget.cpp:250
 #: widgets/myaccount/myaccountpersonalaccesstokentreeview.cpp:35
 #, fuzzy, kde-format
 #| msgid "Add…"
@@ -2574,7 +2574,7 @@ msgstr "新增…"
 #: widgets/administratordialog/permissions/permissionswidget.cpp:92
 #: widgets/administratordialog/roles/administratorroleswidget.cpp:105
 #: widgets/administratordialog/rooms/administratorroomswidget.cpp:63
-#: widgets/administratordialog/users/administratoruserswidget.cpp:246
+#: widgets/administratordialog/users/administratoruserswidget.cpp:257
 #, fuzzy, kde-format
 #| msgid "Modify…"
 msgctxt "@action"
@@ -2589,7 +2589,7 @@ msgstr "變更…"
 #: widgets/administratordialog/roles/administratorroleswidget.cpp:120
 #: widgets/administratordialog/roles/usersinrolewidget.cpp:110
 #: widgets/administratordialog/rooms/administratorroomswidget.cpp:67
-#: widgets/administratordialog/users/administratoruserswidget.cpp:283
+#: widgets/administratordialog/users/administratoruserswidget.cpp:294
 #: widgets/myaccount/myaccountpersonalaccesstokentreeview.cpp:42
 #, fuzzy, kde-format
 #| msgid "Remove"
@@ -2929,7 +2929,7 @@ msgstr "忽略所有檢舉"
 
 #: widgets/administratordialog/moderationconsole/moderationreportinfolistview.cpp:76
 #: widgets/notificationhistory/notificationhistorylistview.cpp:83
-#: widgets/room/messagelistview.cpp:271
+#: widgets/room/messagelistview.cpp:272
 #: widgets/servererrorinfohistory/servererrorinfomessagehistorylistview.cpp:50
 #, fuzzy, kde-format
 #| msgid "Copy Message"
@@ -2940,7 +2940,7 @@ msgstr "複製訊息"
 #: widgets/administratordialog/moderationconsole/moderationreportinfolistview.cpp:87
 #: widgets/discussions/discussionlistview.cpp:68
 #: widgets/notificationhistory/notificationhistorylistview.cpp:94
-#: widgets/room/messagelistview.cpp:626
+#: widgets/room/messagelistview.cpp:627
 #: widgets/servererrorinfohistory/servererrorinfomessagehistorylistview.cpp:62
 #, fuzzy, kde-format
 #| msgid "Speak Text"
@@ -2953,7 +2953,7 @@ msgstr "唸出文字"
 #: widgets/bannerinfodialog/bannerinfolistview.cpp:51
 #: widgets/discussions/discussionlistview.cpp:74
 #: widgets/notificationhistory/notificationhistorylistview.cpp:100
-#: widgets/room/messagelistview.cpp:303
+#: widgets/room/messagelistview.cpp:304
 #: widgets/servererrorinfohistory/servererrorinfomessagehistorylistview.cpp:69
 #, fuzzy, kde-format
 #| msgid "Select All"
@@ -2979,7 +2979,7 @@ msgctxt "@title:window"
 msgid "Show Moderation Users"
 msgstr "顯示站務訊息"
 
-#: widgets/administratordialog/moderationconsole/moderationuserswidget.cpp:36
+#: widgets/administratordialog/moderationconsole/moderationuserswidget.cpp:37
 #: widgets/administratordialog/users/administratoradduserwidget.cpp:62
 #: widgets/dialogs/directchannelinfowidget.cpp:166
 #: widgets/myaccount/myaccountprofileconfigurewidget.cpp:74
@@ -2988,14 +2988,14 @@ msgstr "顯示站務訊息"
 msgid "Email:"
 msgstr "電子郵件："
 
-#: widgets/administratordialog/moderationconsole/moderationuserswidget.cpp:42
+#: widgets/administratordialog/moderationconsole/moderationuserswidget.cpp:43
 #: widgets/administratordialog/users/administratoradduserwidget.cpp:71
 #: widgets/dialogs/directchannelinfowidget.cpp:141
 #, kde-format
 msgid "Roles:"
 msgstr ""
 
-#: widgets/administratordialog/moderationconsole/moderationuserswidget.cpp:51
+#: widgets/administratordialog/moderationconsole/moderationuserswidget.cpp:52
 #, fuzzy, kde-format
 #| msgid "Report a Bug"
 msgid "Report #%1"
@@ -3168,7 +3168,7 @@ msgid "Users in Role"
 msgstr "自訂使用者狀態"
 
 #: widgets/administratordialog/roles/usersinrolewidget.cpp:36
-#: widgets/administratordialog/users/administratoruserswidget.cpp:48
+#: widgets/administratordialog/users/administratoruserswidget.cpp:52
 #: widgets/dialogs/addusersinroomwidget.cpp:23
 #: widgets/directory/directorywidget.cpp:39
 #: widgets/room/usersinroomwidget.cpp:40
@@ -3192,7 +3192,7 @@ msgid "Do you want to remove this user \"%1\"?"
 msgstr "您確定要取消封存此聊天室嗎？"
 
 #: widgets/administratordialog/roles/usersinrolewidget.cpp:81
-#: widgets/administratordialog/users/administratoruserswidget.cpp:182
+#: widgets/administratordialog/users/administratoruserswidget.cpp:193
 #, fuzzy, kde-format
 #| msgid "Load Recent History"
 msgctxt "@title:window"
@@ -3200,13 +3200,13 @@ msgid "Remove User"
 msgstr "載入最近記錄"
 
 #: widgets/administratordialog/roles/usersinrolewidget.cpp:119
-#: widgets/administratordialog/users/administratoruserswidget.cpp:296
+#: widgets/administratordialog/users/administratoruserswidget.cpp:307
 #, kde-format
 msgid "No user found"
 msgstr "找不到使用者"
 
 #: widgets/administratordialog/roles/usersinrolewidget.cpp:124
-#: widgets/administratordialog/users/administratoruserswidget.cpp:301
+#: widgets/administratordialog/users/administratoruserswidget.cpp:312
 #: widgets/directory/directorywidget.cpp:202
 #, kde-format
 msgid "%1 user (Total: %2)"
@@ -3695,62 +3695,62 @@ msgctxt "@info:placeholder"
 msgid "Use ',' for separate emails"
 msgstr ""
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:181
+#: widgets/administratordialog/users/administratoruserswidget.cpp:192
 #, fuzzy, kde-format
 #| msgid "Do you want to unarchive this room?"
 msgid "Do you want to remove this user?"
 msgstr "您確定要取消封存此聊天室嗎？"
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:233
+#: widgets/administratordialog/users/administratoruserswidget.cpp:244
 #, fuzzy, kde-format
 #| msgid "Invites"
 msgctxt "@action"
 msgid "Invite…"
 msgstr "邀請"
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:255
+#: widgets/administratordialog/users/administratoruserswidget.cpp:266
 #, fuzzy, kde-format
 #| msgid "Add Users"
 msgctxt "@action"
 msgid "Deactivate"
 msgstr "加入使用者"
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:255
+#: widgets/administratordialog/users/administratoruserswidget.cpp:266
 #, fuzzy, kde-format
 #| msgid "Active"
 msgctxt "@action"
 msgid "Active"
 msgstr "作用中"
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:264
+#: widgets/administratordialog/users/administratoruserswidget.cpp:275
 #, fuzzy, kde-format
 #| msgid "Remove"
 msgctxt "@action"
 msgid "Remove Admin"
 msgstr "移除"
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:264
+#: widgets/administratordialog/users/administratoruserswidget.cpp:275
 #, fuzzy, kde-format
 #| msgid "Remove"
 msgctxt "@action"
 msgid "Make Admin"
 msgstr "移除"
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:270
+#: widgets/administratordialog/users/administratoruserswidget.cpp:281
 #, fuzzy, kde-format
 #| msgid "Password"
 msgctxt "@action"
 msgid "Reset E2E Key"
 msgstr "密碼"
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:276
+#: widgets/administratordialog/users/administratoruserswidget.cpp:287
 #, fuzzy, kde-format
 #| msgid "Password"
 msgctxt "@action"
 msgid "Reset Totp"
 msgstr "密碼"
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:347
+#: widgets/administratordialog/users/administratoruserswidget.cpp:363
 #, kde-format
 msgid ""
 "Reset the current E2E key will log out the user. When the user login again, "
@@ -3760,41 +3760,41 @@ msgid ""
 "encrypted room that has no member online."
 msgstr ""
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:351
+#: widgets/administratordialog/users/administratoruserswidget.cpp:367
 #, fuzzy, kde-format
 #| msgid "Password"
 msgctxt "@title:window"
 msgid "Reset E2E key"
 msgstr "密碼"
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:383
+#: widgets/administratordialog/users/administratoruserswidget.cpp:399
 #, kde-format
 msgid "E2E key for %1 has been reset."
 msgstr ""
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:383
+#: widgets/administratordialog/users/administratoruserswidget.cpp:399
 #, fuzzy, kde-format
 #| msgid "Password"
 msgctxt "@title:window"
 msgid "Reset E2E"
 msgstr "密碼"
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:396
+#: widgets/administratordialog/users/administratoruserswidget.cpp:412
 #, kde-format
 msgid ""
 "Reset the current Two Factor TOTP will log out the user. The user will be "
 "able to set the Two Factor again later."
 msgstr ""
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:397
-#: widgets/administratordialog/users/administratoruserswidget.cpp:428
+#: widgets/administratordialog/users/administratoruserswidget.cpp:413
+#: widgets/administratordialog/users/administratoruserswidget.cpp:444
 #, fuzzy, kde-format
 #| msgid "Password"
 msgctxt "@title:window"
 msgid "Reset TOTP"
 msgstr "密碼"
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:428
+#: widgets/administratordialog/users/administratoruserswidget.cpp:444
 #, kde-format
 msgid "TOTP key for %1 has been reset"
 msgstr ""
@@ -6794,7 +6794,7 @@ msgid "Mark As Unread"
 msgstr "標記為未讀"
 
 #: widgets/channellist/channellistview.cpp:128
-#: widgets/room/messagelistview.cpp:289
+#: widgets/room/messagelistview.cpp:290
 #, fuzzy, kde-format
 #| msgid "Set as Favorite"
 msgctxt "@action"
@@ -8112,7 +8112,7 @@ msgstr[0] "聊天室中有 %1 個附件（總數：%2）"
 #: widgets/dialogs/showattachmentwidget.cpp:100
 #: widgets/dialogs/showlistmessagebasewidget.cpp:107
 #: widgets/discussions/showdiscussionswidget.cpp:99
-#: widgets/misc/searchtreebasewidget.cpp:72
+#: widgets/misc/searchtreebasewidget.cpp:78
 #: widgets/room/usersinroomflowwidget.cpp:129
 #: widgets/room/usersinroomwidget.cpp:146
 #, fuzzy, kde-format
@@ -9427,7 +9427,7 @@ msgid "Clear"
 msgstr "清除"
 
 #: widgets/notificationhistory/notificationhistorylistview.cpp:79
-#: widgets/room/messagelistview.cpp:609
+#: widgets/room/messagelistview.cpp:610
 #, fuzzy, kde-format
 #| msgid "Go to Message"
 msgctxt "@action"
@@ -9694,51 +9694,70 @@ msgstr "加入"
 msgid "Link Preview"
 msgstr "連結預覽"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:428
+#: widgets/room/delegate/messagelistdelegate.cpp:429
 #, kde-format
 msgid "User Info"
 msgstr "使用者資訊"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:437
-#: widgets/room/messagelistview.cpp:391
+#: widgets/room/delegate/messagelistdelegate.cpp:438
+#: widgets/room/messagelistview.cpp:392
 #, fuzzy, kde-format
 #| msgid "Start a Private Conversation"
 msgctxt "@action"
 msgid "Start a Private Conversation"
 msgstr "開始私人對話"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:663
+#: widgets/room/delegate/messagelistdelegate.cpp:664
 #, kde-format
 msgid "1 reply"
 msgid_plural "%1 replies"
 msgstr[0] "%1 則回覆"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:673
+#: widgets/room/delegate/messagelistdelegate.cpp:674
 #, kde-format
 msgid "1 message"
 msgid_plural "%1 messages"
 msgstr[0] "%1 則訊息"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:673
+#: widgets/room/delegate/messagelistdelegate.cpp:674
 #, kde-format
 msgid "No message yet"
 msgstr "尚無訊息"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:975
-#, kde-format
+#: widgets/room/delegate/messagelistdelegate.cpp:982
+#, fuzzy, kde-format
+#| msgid "Follow Message"
+msgctxt "@info:tooltip"
 msgid "Following"
-msgstr ""
+msgstr "跟隨訊息"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:979
-#, kde-format
+#: widgets/room/delegate/messagelistdelegate.cpp:986
+#, fuzzy, kde-format
+#| msgid "Message has been pinned"
+msgctxt "@info:tooltip"
 msgid "Message has been pinned"
 msgstr "訊息已置頂"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:983
+#: widgets/room/delegate/messagelistdelegate.cpp:990
 #, fuzzy, kde-format
 #| msgid "No Messages found"
+msgctxt "@info:tooltip"
 msgid "Message has been starred"
 msgstr "找不到訊息"
+
+#: widgets/room/delegate/messagelistdelegate.cpp:994
+#, fuzzy, kde-format
+#| msgid "Reply in Thread"
+msgctxt "@info:tooltip"
+msgid "Reply in Thread"
+msgstr "在對話串中回覆"
+
+#: widgets/room/delegate/messagelistdelegate.cpp:998
+#, fuzzy, kde-format
+#| msgid "Add Emoticon"
+msgctxt "@info:tooltip"
+msgid "Add reaction"
+msgstr "新增表情符號"
 
 #: widgets/room/messagelinewidget.cpp:64
 #, kde-format
@@ -9806,174 +9825,174 @@ msgstr "檔案上傳"
 msgid "Server doesn't authorized this file (invalid mimetype)"
 msgstr "伺服器未授權此檔案（無效的 MIME 類型）"
 
-#: widgets/room/messagelistview.cpp:104
+#: widgets/room/messagelistview.cpp:105
 #, kde-format
 msgid "You have joined a new direct message"
 msgstr "您已加入新的私訊"
 
-#: widgets/room/messagelistview.cpp:106
+#: widgets/room/messagelistview.cpp:107
 #, kde-format
 msgid "Start of conversation"
 msgstr "對話開頭"
 
-#: widgets/room/messagelistview.cpp:280
+#: widgets/room/messagelistview.cpp:281
 #, fuzzy, kde-format
 #| msgid "Unpin Message"
 msgctxt "@action"
 msgid "Unpin Message"
 msgstr "取消訊息置頂"
 
-#: widgets/room/messagelistview.cpp:280
+#: widgets/room/messagelistview.cpp:281
 #, fuzzy, kde-format
 #| msgid "Pin Message"
 msgctxt "@action"
 msgid "Pin Message"
 msgstr "置頂訊息"
 
-#: widgets/room/messagelistview.cpp:289
+#: widgets/room/messagelistview.cpp:290
 #, fuzzy, kde-format
 #| msgid "Remove as Favorite"
 msgctxt "@action"
 msgid "Remove as Favorite"
 msgstr "移出收藏"
 
-#: widgets/room/messagelistview.cpp:297
+#: widgets/room/messagelistview.cpp:298
 #, fuzzy, kde-format
 #| msgid "Delete"
 msgctxt "@action"
 msgid "Delete"
 msgstr "刪除"
 
-#: widgets/room/messagelistview.cpp:308
+#: widgets/room/messagelistview.cpp:309
 #, fuzzy, kde-format
 #| msgid "Mark Message As Unread"
 msgctxt "@action"
 msgid "Mark Message As Unread"
 msgstr "將訊息標記為未讀"
 
-#: widgets/room/messagelistview.cpp:313
+#: widgets/room/messagelistview.cpp:314
 #, fuzzy, kde-format
 #| msgid "Show Full Thread"
 msgctxt "@action"
 msgid "Show Full Thread"
 msgstr "顯示完整對話串"
 
-#: widgets/room/messagelistview.cpp:318
+#: widgets/room/messagelistview.cpp:319
 #, fuzzy, kde-format
 #| msgid "Edit"
 msgctxt "@action"
 msgid "Edit"
 msgstr "編輯"
 
-#: widgets/room/messagelistview.cpp:323
+#: widgets/room/messagelistview.cpp:324
 #, kde-format
 msgctxt "@action"
 msgid "Quote"
 msgstr ""
 
-#: widgets/room/messagelistview.cpp:328
+#: widgets/room/messagelistview.cpp:329
 #, fuzzy, kde-format
 #| msgid "Copy Link To Message"
 msgctxt "@action"
 msgid "Copy Link To Message"
 msgstr "複製訊息連結"
 
-#: widgets/room/messagelistview.cpp:333
+#: widgets/room/messagelistview.cpp:334
 #, fuzzy, kde-format
 #| msgid "Forward Message"
 msgctxt "@action"
 msgid "Forward Message"
 msgstr "轉寄訊息"
 
-#: widgets/room/messagelistview.cpp:347
+#: widgets/room/messagelistview.cpp:348
 #, fuzzy, kde-format
 #| msgid "Unfollow Message"
 msgctxt "@action"
 msgid "Unfollow Message"
 msgstr "取消跟隨訊息"
 
-#: widgets/room/messagelistview.cpp:347
+#: widgets/room/messagelistview.cpp:348
 #, fuzzy, kde-format
 #| msgid "Follow Message"
 msgctxt "@action"
 msgid "Follow Message"
 msgstr "跟隨訊息"
 
-#: widgets/room/messagelistview.cpp:360
+#: widgets/room/messagelistview.cpp:361
 #, fuzzy, kde-format
 #| msgid "Copy URL"
 msgctxt "@action"
 msgid "Copy URL"
 msgstr "複製網址"
 
-#: widgets/room/messagelistview.cpp:383 widgets/room/usersinroommenu.cpp:105
+#: widgets/room/messagelistview.cpp:384 widgets/room/usersinroommenu.cpp:105
 #, fuzzy, kde-format
 #| msgid "User Info"
 msgctxt "@action"
 msgid "User Info"
 msgstr "使用者資訊"
 
-#: widgets/room/messagelistview.cpp:428
+#: widgets/room/messagelistview.cpp:429
 #, fuzzy, kde-format
 #| msgid "Start a Discussion"
 msgctxt "@action"
 msgid "Start a Discussion"
 msgstr "開始討論"
 
-#: widgets/room/messagelistview.cpp:434
+#: widgets/room/messagelistview.cpp:435
 #, fuzzy, kde-format
 #| msgid "Reply in Thread"
 msgctxt "@action"
 msgid "Reply in Thread"
 msgstr "在對話串中回覆"
 
-#: widgets/room/messagelistview.cpp:490
+#: widgets/room/messagelistview.cpp:491
 #, fuzzy, kde-format
 #| msgid "Show Original Message"
 msgctxt "@action"
 msgid "Show Original Message"
 msgstr "顯示原始訊息"
 
-#: widgets/room/messagelistview.cpp:490
+#: widgets/room/messagelistview.cpp:491
 #, fuzzy, kde-format
 #| msgid "Translate Message"
 msgctxt "@action"
 msgid "Translate Message"
 msgstr "翻譯訊息"
 
-#: widgets/room/messagelistview.cpp:533
+#: widgets/room/messagelistview.cpp:534
 #, fuzzy, kde-format
 #| msgid "View Reports"
 msgctxt "@action"
 msgid "View Reports"
 msgstr "檢視檢舉"
 
-#: widgets/room/messagelistview.cpp:556
+#: widgets/room/messagelistview.cpp:557
 #, fuzzy, kde-format
 #| msgid "Dismiss reports"
 msgctxt "@action"
 msgid "Dismiss Reports"
 msgstr "忽略檢舉"
 
-#: widgets/room/messagelistview.cpp:634
+#: widgets/room/messagelistview.cpp:635
 #, fuzzy, kde-format
 #| msgid "Report Message"
 msgctxt "@action"
 msgid "Report Message"
 msgstr "檢舉訊息"
 
-#: widgets/room/messagelistview.cpp:830
+#: widgets/room/messagelistview.cpp:831
 #, kde-format
 msgid "Do you want to delete this message?"
 msgstr "您確定要刪除此則訊息嗎？"
 
-#: widgets/room/messagelistview.cpp:831
+#: widgets/room/messagelistview.cpp:832
 #, kde-format
 msgctxt "@title"
 msgid "Delete Message"
 msgstr "刪除訊息"
 
-#: widgets/room/messagelistview.cpp:980
+#: widgets/room/messagelistview.cpp:981
 #, fuzzy, kde-format
 #| msgid "Translator Error"
 msgctxt "@title:window"

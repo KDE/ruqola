@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-09-05 00:39+0000\n"
+"POT-Creation-Date: 2024-09-06 00:39+0000\n"
 "PO-Revision-Date: 2024-09-03 16:05+0200\n"
 "Last-Translator: Stefan Asserhäll <stefan.asserhall@gmail.com>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
@@ -2567,7 +2567,7 @@ msgstr "Ta bort emoji"
 #: widgets/administratordialog/oauth/oauthtreeview.cpp:49
 #: widgets/administratordialog/roles/administratorroleswidget.cpp:101
 #: widgets/administratordialog/roles/usersinrolewidget.cpp:106
-#: widgets/administratordialog/users/administratoruserswidget.cpp:239
+#: widgets/administratordialog/users/administratoruserswidget.cpp:250
 #: widgets/myaccount/myaccountpersonalaccesstokentreeview.cpp:35
 #, kde-format
 msgctxt "@action"
@@ -2581,7 +2581,7 @@ msgstr "Lägg till…"
 #: widgets/administratordialog/permissions/permissionswidget.cpp:92
 #: widgets/administratordialog/roles/administratorroleswidget.cpp:105
 #: widgets/administratordialog/rooms/administratorroomswidget.cpp:63
-#: widgets/administratordialog/users/administratoruserswidget.cpp:246
+#: widgets/administratordialog/users/administratoruserswidget.cpp:257
 #, kde-format
 msgctxt "@action"
 msgid "Modify…"
@@ -2595,7 +2595,7 @@ msgstr "Ändra…"
 #: widgets/administratordialog/roles/administratorroleswidget.cpp:120
 #: widgets/administratordialog/roles/usersinrolewidget.cpp:110
 #: widgets/administratordialog/rooms/administratorroomswidget.cpp:67
-#: widgets/administratordialog/users/administratoruserswidget.cpp:283
+#: widgets/administratordialog/users/administratoruserswidget.cpp:294
 #: widgets/myaccount/myaccountpersonalaccesstokentreeview.cpp:42
 #, kde-format
 msgctxt "@action"
@@ -2930,7 +2930,7 @@ msgstr "Avfärda alla rapporter"
 
 #: widgets/administratordialog/moderationconsole/moderationreportinfolistview.cpp:76
 #: widgets/notificationhistory/notificationhistorylistview.cpp:83
-#: widgets/room/messagelistview.cpp:271
+#: widgets/room/messagelistview.cpp:272
 #: widgets/servererrorinfohistory/servererrorinfomessagehistorylistview.cpp:50
 #, kde-format
 msgctxt "@action"
@@ -2940,7 +2940,7 @@ msgstr "Kopiera meddelande"
 #: widgets/administratordialog/moderationconsole/moderationreportinfolistview.cpp:87
 #: widgets/discussions/discussionlistview.cpp:68
 #: widgets/notificationhistory/notificationhistorylistview.cpp:94
-#: widgets/room/messagelistview.cpp:626
+#: widgets/room/messagelistview.cpp:627
 #: widgets/servererrorinfohistory/servererrorinfomessagehistorylistview.cpp:62
 #, kde-format
 msgctxt "@action"
@@ -2952,7 +2952,7 @@ msgstr "Läs upp text"
 #: widgets/bannerinfodialog/bannerinfolistview.cpp:51
 #: widgets/discussions/discussionlistview.cpp:74
 #: widgets/notificationhistory/notificationhistorylistview.cpp:100
-#: widgets/room/messagelistview.cpp:303
+#: widgets/room/messagelistview.cpp:304
 #: widgets/servererrorinfohistory/servererrorinfomessagehistorylistview.cpp:69
 #, kde-format
 msgctxt "@action"
@@ -2974,7 +2974,7 @@ msgctxt "@title:window"
 msgid "Show Moderation Users"
 msgstr "Visa modereringsanvändare"
 
-#: widgets/administratordialog/moderationconsole/moderationuserswidget.cpp:36
+#: widgets/administratordialog/moderationconsole/moderationuserswidget.cpp:37
 #: widgets/administratordialog/users/administratoradduserwidget.cpp:62
 #: widgets/dialogs/directchannelinfowidget.cpp:166
 #: widgets/myaccount/myaccountprofileconfigurewidget.cpp:74
@@ -2983,14 +2983,14 @@ msgstr "Visa modereringsanvändare"
 msgid "Email:"
 msgstr "E-post:"
 
-#: widgets/administratordialog/moderationconsole/moderationuserswidget.cpp:42
+#: widgets/administratordialog/moderationconsole/moderationuserswidget.cpp:43
 #: widgets/administratordialog/users/administratoradduserwidget.cpp:71
 #: widgets/dialogs/directchannelinfowidget.cpp:141
 #, kde-format
 msgid "Roles:"
 msgstr "Roller:"
 
-#: widgets/administratordialog/moderationconsole/moderationuserswidget.cpp:51
+#: widgets/administratordialog/moderationconsole/moderationuserswidget.cpp:52
 #, fuzzy, kde-format
 #| msgctxt "@action:button"
 #| msgid "Report"
@@ -3146,7 +3146,7 @@ msgid "Users in Role"
 msgstr "Användare i roll"
 
 #: widgets/administratordialog/roles/usersinrolewidget.cpp:36
-#: widgets/administratordialog/users/administratoruserswidget.cpp:48
+#: widgets/administratordialog/users/administratoruserswidget.cpp:52
 #: widgets/dialogs/addusersinroomwidget.cpp:23
 #: widgets/directory/directorywidget.cpp:39
 #: widgets/room/usersinroomwidget.cpp:40
@@ -3167,20 +3167,20 @@ msgid "Do you want to remove this user \"%1\"?"
 msgstr "Vill du ta bort användaren \"%1\"?"
 
 #: widgets/administratordialog/roles/usersinrolewidget.cpp:81
-#: widgets/administratordialog/users/administratoruserswidget.cpp:182
+#: widgets/administratordialog/users/administratoruserswidget.cpp:193
 #, kde-format
 msgctxt "@title:window"
 msgid "Remove User"
 msgstr "Ta bort användare"
 
 #: widgets/administratordialog/roles/usersinrolewidget.cpp:119
-#: widgets/administratordialog/users/administratoruserswidget.cpp:296
+#: widgets/administratordialog/users/administratoruserswidget.cpp:307
 #, kde-format
 msgid "No user found"
 msgstr "Ingen användare hittades"
 
 #: widgets/administratordialog/roles/usersinrolewidget.cpp:124
-#: widgets/administratordialog/users/administratoruserswidget.cpp:301
+#: widgets/administratordialog/users/administratoruserswidget.cpp:312
 #: widgets/directory/directorywidget.cpp:202
 #, kde-format
 msgid "%1 user (Total: %2)"
@@ -3614,54 +3614,54 @@ msgctxt "@info:placeholder"
 msgid "Use ',' for separate emails"
 msgstr "Använd ',' för att separera e-post"
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:181
+#: widgets/administratordialog/users/administratoruserswidget.cpp:192
 #, kde-format
 msgid "Do you want to remove this user?"
 msgstr "Vill du ta bort användaren?"
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:233
+#: widgets/administratordialog/users/administratoruserswidget.cpp:244
 #, kde-format
 msgctxt "@action"
 msgid "Invite…"
 msgstr "Bjud in…"
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:255
+#: widgets/administratordialog/users/administratoruserswidget.cpp:266
 #, kde-format
 msgctxt "@action"
 msgid "Deactivate"
 msgstr "Inaktivera"
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:255
+#: widgets/administratordialog/users/administratoruserswidget.cpp:266
 #, kde-format
 msgctxt "@action"
 msgid "Active"
 msgstr "Aktiv"
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:264
+#: widgets/administratordialog/users/administratoruserswidget.cpp:275
 #, kde-format
 msgctxt "@action"
 msgid "Remove Admin"
 msgstr "Ta bort administratör"
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:264
+#: widgets/administratordialog/users/administratoruserswidget.cpp:275
 #, kde-format
 msgctxt "@action"
 msgid "Make Admin"
 msgstr "Skapa administratör"
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:270
+#: widgets/administratordialog/users/administratoruserswidget.cpp:281
 #, kde-format
 msgctxt "@action"
 msgid "Reset E2E Key"
 msgstr "Nollställ E2E-nyckel"
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:276
+#: widgets/administratordialog/users/administratoruserswidget.cpp:287
 #, kde-format
 msgctxt "@action"
 msgid "Reset Totp"
 msgstr "Nollställ Totp"
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:347
+#: widgets/administratordialog/users/administratoruserswidget.cpp:363
 #, kde-format
 msgid ""
 "Reset the current E2E key will log out the user. When the user login again, "
@@ -3677,24 +3677,24 @@ msgstr ""
 "Chat återställa åtkomst till ett eventuellt krypterat rum inte har några "
 "medlemmar uppkopplade."
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:351
+#: widgets/administratordialog/users/administratoruserswidget.cpp:367
 #, kde-format
 msgctxt "@title:window"
 msgid "Reset E2E key"
 msgstr "Nollställ E2E-nyckel"
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:383
+#: widgets/administratordialog/users/administratoruserswidget.cpp:399
 #, kde-format
 msgid "E2E key for %1 has been reset."
 msgstr "E2E-nyckel för %1 har nollställts."
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:383
+#: widgets/administratordialog/users/administratoruserswidget.cpp:399
 #, kde-format
 msgctxt "@title:window"
 msgid "Reset E2E"
 msgstr "Nollställ E2E"
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:396
+#: widgets/administratordialog/users/administratoruserswidget.cpp:412
 #, kde-format
 msgid ""
 "Reset the current Two Factor TOTP will log out the user. The user will be "
@@ -3703,14 +3703,14 @@ msgstr ""
 "Nollställning av den nuvarande tvåfaktorskoden TOTP loggar ut användaren. "
 "Användaren kommer att kunna ange tvåfaktorskod senare igen."
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:397
-#: widgets/administratordialog/users/administratoruserswidget.cpp:428
+#: widgets/administratordialog/users/administratoruserswidget.cpp:413
+#: widgets/administratordialog/users/administratoruserswidget.cpp:444
 #, kde-format
 msgctxt "@title:window"
 msgid "Reset TOTP"
 msgstr "Nollställ TOTP"
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:428
+#: widgets/administratordialog/users/administratoruserswidget.cpp:444
 #, kde-format
 msgid "TOTP key for %1 has been reset"
 msgstr "TOTP-nyckel för %1 har nollställts"
@@ -6659,7 +6659,7 @@ msgid "Mark As Unread"
 msgstr "Markera som oläst"
 
 #: widgets/channellist/channellistview.cpp:128
-#: widgets/room/messagelistview.cpp:289
+#: widgets/room/messagelistview.cpp:290
 #, kde-format
 msgctxt "@action"
 msgid "Set as Favorite"
@@ -7911,7 +7911,7 @@ msgstr[1] "%1 bilagor i rummet (totalt: %2)"
 #: widgets/dialogs/showattachmentwidget.cpp:100
 #: widgets/dialogs/showlistmessagebasewidget.cpp:107
 #: widgets/discussions/showdiscussionswidget.cpp:99
-#: widgets/misc/searchtreebasewidget.cpp:72
+#: widgets/misc/searchtreebasewidget.cpp:78
 #: widgets/room/usersinroomflowwidget.cpp:129
 #: widgets/room/usersinroomwidget.cpp:146
 #, kde-format
@@ -9189,7 +9189,7 @@ msgid "Clear"
 msgstr "Töm"
 
 #: widgets/notificationhistory/notificationhistorylistview.cpp:79
-#: widgets/room/messagelistview.cpp:609
+#: widgets/room/messagelistview.cpp:610
 #, kde-format
 msgctxt "@action"
 msgid "Go to Message"
@@ -9431,51 +9431,72 @@ msgstr "Gå med"
 msgid "Link Preview"
 msgstr "Länkförhandsgranskning"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:428
+#: widgets/room/delegate/messagelistdelegate.cpp:429
 #, kde-format
 msgid "User Info"
 msgstr "Användarinformation"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:437
-#: widgets/room/messagelistview.cpp:391
+#: widgets/room/delegate/messagelistdelegate.cpp:438
+#: widgets/room/messagelistview.cpp:392
 #, kde-format
 msgctxt "@action"
 msgid "Start a Private Conversation"
 msgstr "Starta ett privat samtal"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:663
+#: widgets/room/delegate/messagelistdelegate.cpp:664
 #, kde-format
 msgid "1 reply"
 msgid_plural "%1 replies"
 msgstr[0] "1 svar"
 msgstr[1] "%1 svar"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:673
+#: widgets/room/delegate/messagelistdelegate.cpp:674
 #, kde-format
 msgid "1 message"
 msgid_plural "%1 messages"
 msgstr[0] "1 meddelande"
 msgstr[1] "%1 meddelanden"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:673
+#: widgets/room/delegate/messagelistdelegate.cpp:674
 #, kde-format
 msgid "No message yet"
 msgstr "Inget meddelande ännu"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:975
-#, kde-format
+#: widgets/room/delegate/messagelistdelegate.cpp:982
+#, fuzzy, kde-format
+#| msgid "Following"
+msgctxt "@info:tooltip"
 msgid "Following"
 msgstr "Följer"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:979
-#, kde-format
+#: widgets/room/delegate/messagelistdelegate.cpp:986
+#, fuzzy, kde-format
+#| msgid "Message has been pinned"
+msgctxt "@info:tooltip"
 msgid "Message has been pinned"
 msgstr "Meddelandet är uppsatt"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:983
-#, kde-format
+#: widgets/room/delegate/messagelistdelegate.cpp:990
+#, fuzzy, kde-format
+#| msgid "Message has been starred"
+msgctxt "@info:tooltip"
 msgid "Message has been starred"
 msgstr "Meddelande är stjärnmärkt"
+
+#: widgets/room/delegate/messagelistdelegate.cpp:994
+#, fuzzy, kde-format
+#| msgctxt "@action"
+#| msgid "Reply in Thread"
+msgctxt "@info:tooltip"
+msgid "Reply in Thread"
+msgstr "Svara på tråd"
+
+#: widgets/room/delegate/messagelistdelegate.cpp:998
+#, fuzzy, kde-format
+#| msgid "Add Emoticon"
+msgctxt "@info:tooltip"
+msgid "Add reaction"
+msgstr "Lägg till smilis"
 
 #: widgets/room/messagelinewidget.cpp:64
 #, kde-format
@@ -9539,154 +9560,154 @@ msgstr "Filuppladdning"
 msgid "Server doesn't authorized this file (invalid mimetype)"
 msgstr "Servern ger inte behörighet för filen (ogiltig Mime-typ)"
 
-#: widgets/room/messagelistview.cpp:104
+#: widgets/room/messagelistview.cpp:105
 #, kde-format
 msgid "You have joined a new direct message"
 msgstr "Du har gått med i ett nytt direktmeddelande"
 
-#: widgets/room/messagelistview.cpp:106
+#: widgets/room/messagelistview.cpp:107
 #, kde-format
 msgid "Start of conversation"
 msgstr "Samtalets början"
 
-#: widgets/room/messagelistview.cpp:280
+#: widgets/room/messagelistview.cpp:281
 #, kde-format
 msgctxt "@action"
 msgid "Unpin Message"
 msgstr "Ta ner meddelande"
 
-#: widgets/room/messagelistview.cpp:280
+#: widgets/room/messagelistview.cpp:281
 #, kde-format
 msgctxt "@action"
 msgid "Pin Message"
 msgstr "Sätt upp meddelande"
 
-#: widgets/room/messagelistview.cpp:289
+#: widgets/room/messagelistview.cpp:290
 #, kde-format
 msgctxt "@action"
 msgid "Remove as Favorite"
 msgstr "Ta bort som favoriter"
 
-#: widgets/room/messagelistview.cpp:297
+#: widgets/room/messagelistview.cpp:298
 #, kde-format
 msgctxt "@action"
 msgid "Delete"
 msgstr "Ta bort"
 
-#: widgets/room/messagelistview.cpp:308
+#: widgets/room/messagelistview.cpp:309
 #, kde-format
 msgctxt "@action"
 msgid "Mark Message As Unread"
 msgstr "Markera meddelande som oläst"
 
-#: widgets/room/messagelistview.cpp:313
+#: widgets/room/messagelistview.cpp:314
 #, kde-format
 msgctxt "@action"
 msgid "Show Full Thread"
 msgstr "Visa hela tråden"
 
-#: widgets/room/messagelistview.cpp:318
+#: widgets/room/messagelistview.cpp:319
 #, kde-format
 msgctxt "@action"
 msgid "Edit"
 msgstr "Redigera"
 
-#: widgets/room/messagelistview.cpp:323
+#: widgets/room/messagelistview.cpp:324
 #, kde-format
 msgctxt "@action"
 msgid "Quote"
 msgstr "Citat"
 
-#: widgets/room/messagelistview.cpp:328
+#: widgets/room/messagelistview.cpp:329
 #, kde-format
 msgctxt "@action"
 msgid "Copy Link To Message"
 msgstr "Kopiera länk till meddelande"
 
-#: widgets/room/messagelistview.cpp:333
+#: widgets/room/messagelistview.cpp:334
 #, kde-format
 msgctxt "@action"
 msgid "Forward Message"
 msgstr "Vidarebefordra meddelande"
 
-#: widgets/room/messagelistview.cpp:347
+#: widgets/room/messagelistview.cpp:348
 #, kde-format
 msgctxt "@action"
 msgid "Unfollow Message"
 msgstr "Följ inte meddelande längre"
 
-#: widgets/room/messagelistview.cpp:347
+#: widgets/room/messagelistview.cpp:348
 #, kde-format
 msgctxt "@action"
 msgid "Follow Message"
 msgstr "Följ meddelande"
 
-#: widgets/room/messagelistview.cpp:360
+#: widgets/room/messagelistview.cpp:361
 #, kde-format
 msgctxt "@action"
 msgid "Copy URL"
 msgstr "Kopiera webbadress"
 
-#: widgets/room/messagelistview.cpp:383 widgets/room/usersinroommenu.cpp:105
+#: widgets/room/messagelistview.cpp:384 widgets/room/usersinroommenu.cpp:105
 #, kde-format
 msgctxt "@action"
 msgid "User Info"
 msgstr "Användarinformation"
 
-#: widgets/room/messagelistview.cpp:428
+#: widgets/room/messagelistview.cpp:429
 #, kde-format
 msgctxt "@action"
 msgid "Start a Discussion"
 msgstr "Starta en diskussion"
 
-#: widgets/room/messagelistview.cpp:434
+#: widgets/room/messagelistview.cpp:435
 #, kde-format
 msgctxt "@action"
 msgid "Reply in Thread"
 msgstr "Svara på tråd"
 
-#: widgets/room/messagelistview.cpp:490
+#: widgets/room/messagelistview.cpp:491
 #, kde-format
 msgctxt "@action"
 msgid "Show Original Message"
 msgstr "Visa originalmeddelande"
 
-#: widgets/room/messagelistview.cpp:490
+#: widgets/room/messagelistview.cpp:491
 #, kde-format
 msgctxt "@action"
 msgid "Translate Message"
 msgstr "Översätt meddelande"
 
-#: widgets/room/messagelistview.cpp:533
+#: widgets/room/messagelistview.cpp:534
 #, kde-format
 msgctxt "@action"
 msgid "View Reports"
 msgstr "Visa rapporter"
 
-#: widgets/room/messagelistview.cpp:556
+#: widgets/room/messagelistview.cpp:557
 #, kde-format
 msgctxt "@action"
 msgid "Dismiss Reports"
 msgstr "Avfärda rapporter"
 
-#: widgets/room/messagelistview.cpp:634
+#: widgets/room/messagelistview.cpp:635
 #, kde-format
 msgctxt "@action"
 msgid "Report Message"
 msgstr "Rapportera meddelande"
 
-#: widgets/room/messagelistview.cpp:830
+#: widgets/room/messagelistview.cpp:831
 #, kde-format
 msgid "Do you want to delete this message?"
 msgstr "Vill du ta bort meddelandet?"
 
-#: widgets/room/messagelistview.cpp:831
+#: widgets/room/messagelistview.cpp:832
 #, kde-format
 msgctxt "@title"
 msgid "Delete Message"
 msgstr "Ta bort meddelande"
 
-#: widgets/room/messagelistview.cpp:980
+#: widgets/room/messagelistview.cpp:981
 #, kde-format
 msgctxt "@title:window"
 msgid "Translator Error"
