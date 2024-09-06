@@ -851,14 +851,7 @@ void RocketChatBackend::subscribeRegistration()
         params.append(QJsonValue(QStringLiteral("%1/%2").arg(userId, QStringLiteral("force_logout"))));
         mRocketChatAccount->ddp()->subscribe(QStringLiteral("stream-notify-user"), params);
     }
-    {
-        const QJsonArray params{QJsonValue(QStringLiteral("updateAvatar"))};
-        mRocketChatAccount->ddp()->subscribe(QStringLiteral("stream-notify-logged"), params);
-    }
-    { // Verify as in RC we don't have it
-        const QJsonArray params{QJsonValue(QStringLiteral("roles-change"))};
-        mRocketChatAccount->ddp()->subscribe(QStringLiteral("stream-notify-logged"), params);
-    }
+
     //    { // Verify as in RC we don't have it
     //        const QJsonArray params{QJsonValue(QStringLiteral("video-conference"))};
     //        mRocketChatAccount->ddp()->subscribe(QStringLiteral("stream-notify-all"), params);
@@ -907,6 +900,7 @@ void RocketChatBackend::subscribeRegistration()
         const QJsonArray params{QJsonValue(QStringLiteral("roles-change"))};
         mRocketChatAccount->ddp()->subscribe(QStringLiteral("stream-notify-logged"), params);
     }
+
     // stream-notify-logged
     {
         const QJsonArray params{QJsonValue(QStringLiteral("updateAvatar"))};
