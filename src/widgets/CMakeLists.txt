@@ -105,6 +105,8 @@ target_sources(libruqolawidgets PRIVATE
     administratordialog/users/administratorinviteusersdialog.cpp
     administratordialog/users/administratorinviteuserswidget.h
     administratordialog/users/administratorinviteuserswidget.cpp
+    administratordialog/users/administratoruserstabwidget.cpp
+    administratordialog/users/administratoruserstabwidget.h
 
     administratorsettingsdialog/administratorsettingsdialog.cpp
     administratorsettingsdialog/administratorsettingsdialog.h
