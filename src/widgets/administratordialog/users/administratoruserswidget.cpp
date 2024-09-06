@@ -309,10 +309,10 @@ void AdministratorUsersWidget::slotCustomContextMenuRequested(const QPoint &pos)
 
 void AdministratorUsersWidget::updateLabel()
 {
-    mLabelResultSearch->setText(mModel->total() == 0 ? i18n("No user found") : displayShowMessageInRoom());
+    mLabelResultSearch->setText(mModel->total() == 0 ? i18n("No user found") : displayShowUsers());
 }
 
-QString AdministratorUsersWidget::displayShowMessageInRoom() const
+QString AdministratorUsersWidget::displayShowUsers() const
 {
     QString displayMessageStr = i18np("%1 user (Total: %2)", "%1 users (Total: %2)", mModel->rowCount(), mModel->total());
     if (!mModel->hasFullList()) {

@@ -42,7 +42,7 @@ private:
     LIBRUQOLAWIDGETS_NO_EXPORT void slotResetTOTPKey(const QModelIndex &index);
     LIBRUQOLAWIDGETS_NO_EXPORT void slotChangeAdmin(const QModelIndex &index, bool adminStatus);
     LIBRUQOLAWIDGETS_NO_EXPORT void slotInviteUsers();
-    [[nodiscard]] LIBRUQOLAWIDGETS_NO_EXPORT QString displayShowMessageInRoom() const;
+    [[nodiscard]] LIBRUQOLAWIDGETS_NO_EXPORT QString displayShowUsers() const;
     LIBRUQOLAWIDGETS_NO_EXPORT void slotRolesChanged();
     RolesComboBox *const mRolesComboBox;
 };
