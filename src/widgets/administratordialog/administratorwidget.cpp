@@ -29,7 +29,7 @@ AdministratorWidget::AdministratorWidget(RocketChatAccount *account, QWidget *pa
     , mAdministratorCustomUserStatusWidget(new AdministratorCustomUserStatusWidget(account, this))
     , mAdministratorCustomSoundsWidget(new AdministratorCustomSoundsWidget(account, this))
     , mAdministratorServerInfoWidget(new AdministratorServerInfoWidget(account, this))
-    , mAdministratorUsersWidget(new AdministratorUsersWidget(account, this))
+    , mAdministratorUsersWidget(new AdministratorUsersWidget(AdministratorUsersWidget::All, account, this))
     , mAdministratorInvitesWidget(new AdministratorInvitesWidget(account, this))
     , mAdministratorCustomEmojiWidget(new AdministratorCustomEmojiWidget(account, this))
     , mViewLogWidget(new ViewLogWidget(account, this))

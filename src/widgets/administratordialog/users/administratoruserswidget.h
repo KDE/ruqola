@@ -19,7 +19,7 @@ public:
         Pending,
     };
 
-    explicit AdministratorUsersWidget(RocketChatAccount *account, QWidget *parent = nullptr);
+    explicit AdministratorUsersWidget(AdministratorUsersWidget::UsersType type, RocketChatAccount *account, QWidget *parent = nullptr);
     ~AdministratorUsersWidget() override;
 
 protected:
@@ -49,6 +49,6 @@ private:
     LIBRUQOLAWIDGETS_NO_EXPORT void slotInviteUsers();
     [[nodiscard]] LIBRUQOLAWIDGETS_NO_EXPORT QString displayShowUsers() const;
     LIBRUQOLAWIDGETS_NO_EXPORT void slotRolesChanged();
-    UsersType mUserType = All;
     RolesComboBox *const mRolesComboBox;
+    const UsersType mUserType;
 };

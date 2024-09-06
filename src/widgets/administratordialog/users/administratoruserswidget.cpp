@@ -35,9 +35,10 @@
 #include <QVBoxLayout>
 using namespace Qt::Literals::StringLiterals;
 
-AdministratorUsersWidget::AdministratorUsersWidget(RocketChatAccount *account, QWidget *parent)
+AdministratorUsersWidget::AdministratorUsersWidget(AdministratorUsersWidget::UsersType type, RocketChatAccount *account, QWidget *parent)
     : SearchTreeBaseWidget(account, parent)
     , mRolesComboBox(new RolesComboBox(this))
+    , mUserType(type)
 {
     auto adminUsersModel = new AdminUsersModel(this);
     adminUsersModel->setObjectName(QStringLiteral("mAdminUsersModel"));
