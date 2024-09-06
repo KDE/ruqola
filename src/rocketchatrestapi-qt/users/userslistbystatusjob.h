@@ -40,6 +40,7 @@ public:
         StatusType type = StatusType::Unknown;
         QStringList roles;
         LoggedStatus hasLoggedIn = LoggedStatus::Unknown;
+        QString searchName;
         [[nodiscard]] bool isValid() const;
         [[nodiscard]] QString statusToString() const;
         [[nodiscard]] QString typeToString() const;

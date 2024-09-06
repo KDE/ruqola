@@ -25,8 +25,6 @@ bool UsersListByStatusJob::requireHttpAuthentication() const
     return true;
 }
 
-// TODO implement void initialUrlParameters(QUrlQuery &urlQuery) const
-// https://<foo>/api/v1/users.listByStatus?count=1&hasLoggedIn=false&status=deactivated&type=user
 bool UsersListByStatusJob::start()
 {
     if (!canStart()) {
@@ -76,12 +74,15 @@ QNetworkRequest UsersListByStatusJob::request() const
     }
     const QString typeStr = mUsersListByStatusJobInfo.typeToString();
     if (!typeStr.isEmpty()) {
-        queryUrl.addQueryItem(QStringLiteral("type"), mUsersListByStatusJobInfo.typeToString());
+        queryUrl.addQueryItem(QStringLiteral("type"), typeStr);
     }
     if (!mUsersListByStatusJobInfo.roles.isEmpty()) {
         for (const auto &str : std::as_const(mUsersListByStatusJobInfo.roles)) {
             queryUrl.addQueryItem(QStringLiteral("roles[]"), str);
         }
+    }
+    if (!mUsersListByStatusJobInfo.searchName.isEmpty()) {
+        queryUrl.addQueryItem(QStringLiteral("searchTerm"), mUsersListByStatusJobInfo.searchName);
     }
     addQueryParameter(queryUrl);
     url.setQuery(queryUrl);
@@ -158,6 +159,7 @@ QDebug operator<<(QDebug d, const RocketChatRestApi::UsersListByStatusJob::Users
     d << "type " << t.type;
     d << "hasLoggedIn " << t.hasLoggedIn;
     d << "roles " << t.roles;
+    d << "searchName " << t.searchName;
     return d;
 }
 

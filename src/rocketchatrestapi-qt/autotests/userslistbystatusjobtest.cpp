@@ -68,6 +68,20 @@ void UsersListByStatusJobTest::shouldGenerateRequest()
         QCOMPARE(request.url(),
                  QUrl(QStringLiteral("http://www.kde.org/api/v1/users.listByStatus?hasLoggedIn=true&status=deactivated&type=user&roles[]=user&roles[]=admin")));
     }
+
+    {
+        UsersListByStatusJob::UsersListByStatusJobInfo info;
+        info.status = RocketChatRestApi::UsersListByStatusJob::Status::Desactivated;
+        info.type = RocketChatRestApi::UsersListByStatusJob::StatusType::User;
+        info.hasLoggedIn = RocketChatRestApi::UsersListByStatusJob::LoggedStatus::Logged;
+        info.roles = {"user"_L1, "admin"_L1};
+        info.searchName = "gla"_L1;
+        job.setUsersListByStatusJobInfo(info);
+        verifyAuthentication(&job, request);
+        QCOMPARE(request.url(),
+                 QUrl(QStringLiteral(
+                     "http://www.kde.org/api/v1/users.listByStatus?hasLoggedIn=true&status=deactivated&type=user&roles[]=user&roles[]=admin&searchTerm=gla")));
+    }
 }
 
 void UsersListByStatusJobTest::shouldUsersListByStatusJobInfoValue()
@@ -76,6 +90,8 @@ void UsersListByStatusJobTest::shouldUsersListByStatusJobInfoValue()
     QCOMPARE(info.status, RocketChatRestApi::UsersListByStatusJob::Status::Unknown);
     QCOMPARE(info.type, RocketChatRestApi::UsersListByStatusJob::StatusType::Unknown);
     QCOMPARE(info.hasLoggedIn, RocketChatRestApi::UsersListByStatusJob::LoggedStatus::Unknown);
+    QVERIFY(info.roles.isEmpty());
+    QVERIFY(info.searchName.isEmpty());
     QVERIFY(info.isValid());
 }
 
