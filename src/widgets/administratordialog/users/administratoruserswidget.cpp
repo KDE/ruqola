@@ -24,7 +24,6 @@
 #include "users/userinfojob.h"
 #include "users/userscreatejob.h"
 #include "users/userslistbystatusjob.h"
-#include "users/userslistjob.h"
 #include "users/usersupdatejob.h"
 #include "utils.h"
 #include <KLocalizedString>
