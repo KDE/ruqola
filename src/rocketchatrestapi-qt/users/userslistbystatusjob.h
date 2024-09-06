@@ -53,7 +53,7 @@ public:
     void setUsersListByStatusJobInfo(const UsersListByStatusJobInfo &newUsersListByStatusJobInfo);
 
 Q_SIGNALS:
-    void usersPresenceDone(const QJsonObject &obj);
+    void usersListByStatusDone(const QJsonObject &obj);
 
 private:
     Q_DISABLE_COPY(UsersListByStatusJob)
