@@ -43,5 +43,6 @@ private:
     LIBRUQOLAWIDGETS_NO_EXPORT void slotChangeAdmin(const QModelIndex &index, bool adminStatus);
     LIBRUQOLAWIDGETS_NO_EXPORT void slotInviteUsers();
     [[nodiscard]] LIBRUQOLAWIDGETS_NO_EXPORT QString displayShowMessageInRoom() const;
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotRolesChanged();
     RolesComboBox *const mRolesComboBox;
 };

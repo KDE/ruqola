@@ -58,6 +58,7 @@ AdministratorUsersWidget::AdministratorUsersWidget(RocketChatAccount *account, Q
     }
 
     connect(mTreeView, &QTreeView::doubleClicked, this, &AdministratorUsersWidget::slotModifyDoubleClickUser);
+    connect(mRolesComboBox, &RolesComboBox::rolesChanged, this, &AdministratorUsersWidget::slotRolesChanged);
     hideColumns();
     connectModel();
 }
@@ -67,6 +68,11 @@ AdministratorUsersWidget::~AdministratorUsersWidget() = default;
 void AdministratorUsersWidget::slotTextChanged(const QString &str)
 {
     mProxyModelModel->setFilterString(str);
+}
+
+void AdministratorUsersWidget::slotRolesChanged()
+{
+    // TODO
 }
 
 void AdministratorUsersWidget::slotInviteUsers()
