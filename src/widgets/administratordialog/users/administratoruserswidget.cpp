@@ -329,6 +329,12 @@ void AdministratorUsersWidget::slotLoadElements(int offset, int count, const QSt
     if (!searchName.isEmpty()) {
         info.searchName = searchName;
     }
+
+    if (mUserType == Pending) {
+        info.hasLoggedIn = RocketChatRestApi::UsersListByStatusJob::LoggedStatus::NotLogged;
+        info.type = RocketChatRestApi::UsersListByStatusJob::StatusType::User;
+    }
+
     job->setUsersListByStatusJobInfo(info);
     RocketChatRestApi::QueryParameters parameters;
     QMap<QString, RocketChatRestApi::QueryParameters::SortOrder> map;
