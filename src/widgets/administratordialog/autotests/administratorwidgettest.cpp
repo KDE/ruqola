@@ -17,7 +17,7 @@
 #include "administratordialog/roles/administratorroleswidget.h"
 #include "administratordialog/rooms/administratorroomswidget.h"
 #include "administratordialog/serverinfo/administratorserverinfowidget.h"
-#include "administratordialog/users/administratoruserswidget.h"
+#include "administratordialog/users/administratoruserstabwidget.h"
 
 #include <QTabWidget>
 #include <QTest>
@@ -52,7 +52,7 @@ void AdministratorWidgetTest::shouldHaveDefaultValues()
     auto mAdministratorServerInfoWidget = w.findChild<AdministratorServerInfoWidget *>(QStringLiteral("mAdministratorServerInfoWidget"));
     QVERIFY(mAdministratorServerInfoWidget);
 
-    auto mAdministratorUsersWidget = w.findChild<AdministratorUsersWidget *>(QStringLiteral("mAdministratorUsersWidget"));
+    auto mAdministratorUsersWidget = w.findChild<AdministratorUsersTabWidget *>(QStringLiteral("mAdministratorUsersWidget"));
     QVERIFY(mAdministratorUsersWidget);
 
     auto mAdministratorInvitesWidget = w.findChild<AdministratorInvitesWidget *>(QStringLiteral("mAdministratorInvitesWidget"));

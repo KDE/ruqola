@@ -17,6 +17,8 @@ public:
     explicit AdministratorUsersTabWidget(RocketChatAccount *account, QWidget *parent = nullptr);
     ~AdministratorUsersTabWidget() override;
 
+    void initialize();
+
 private:
     QTabWidget *const mTabWidget;
     AdministratorUsersWidget *const mAllUsers;

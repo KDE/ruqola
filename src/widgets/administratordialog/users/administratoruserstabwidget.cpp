@@ -32,4 +32,10 @@ AdministratorUsersTabWidget::AdministratorUsersTabWidget(RocketChatAccount *acco
 
 AdministratorUsersTabWidget::~AdministratorUsersTabWidget() = default;
 
+void AdministratorUsersTabWidget::initialize()
+{
+    mAllUsers->initialize();
+    mPendingUsers->initialize();
+}
+
 #include "moc_administratoruserstabwidget.cpp"

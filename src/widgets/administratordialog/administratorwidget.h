@@ -14,7 +14,7 @@ class AdministratorRoomsWidget;
 class AdministratorCustomUserStatusWidget;
 class AdministratorCustomSoundsWidget;
 class AdministratorServerInfoWidget;
-class AdministratorUsersWidget;
+class AdministratorUsersTabWidget;
 class AdministratorInvitesWidget;
 class ViewLogWidget;
 class AdministratorCustomEmojiWidget;
@@ -39,7 +39,7 @@ private:
     AdministratorCustomUserStatusWidget *const mAdministratorCustomUserStatusWidget;
     AdministratorCustomSoundsWidget *const mAdministratorCustomSoundsWidget;
     AdministratorServerInfoWidget *const mAdministratorServerInfoWidget;
-    AdministratorUsersWidget *const mAdministratorUsersWidget;
+    AdministratorUsersTabWidget *const mAdministratorUsersWidget;
     AdministratorInvitesWidget *const mAdministratorInvitesWidget;
     AdministratorCustomEmojiWidget *const mAdministratorCustomEmojiWidget;
     ViewLogWidget *const mViewLogWidget;

@@ -10,6 +10,7 @@
 #include "administratordialog/oauth/administratoroauthwidget.h"
 #include "administratordialog/permissions/permissionswidget.h"
 #include "administratordialog/roles/administratorroleswidget.h"
+#include "administratordialog/users/administratoruserstabwidget.h"
 #include "customemoji/administratorcustomemojiwidget.h"
 #include "customsounds/administratorcustomsoundswidget.h"
 #include "customuserstatus/administratorcustomuserstatuswidget.h"
@@ -17,7 +18,6 @@
 #include "rocketchataccount.h"
 #include "rooms/administratorroomswidget.h"
 #include "serverinfo/administratorserverinfowidget.h"
-#include "users/administratoruserswidget.h"
 #include <KLocalizedString>
 #include <QTabWidget>
 #include <QVBoxLayout>
@@ -29,7 +29,7 @@ AdministratorWidget::AdministratorWidget(RocketChatAccount *account, QWidget *pa
     , mAdministratorCustomUserStatusWidget(new AdministratorCustomUserStatusWidget(account, this))
     , mAdministratorCustomSoundsWidget(new AdministratorCustomSoundsWidget(account, this))
     , mAdministratorServerInfoWidget(new AdministratorServerInfoWidget(account, this))
-    , mAdministratorUsersWidget(new AdministratorUsersWidget(AdministratorUsersWidget::All, account, this))
+    , mAdministratorUsersWidget(new AdministratorUsersTabWidget(account, this))
     , mAdministratorInvitesWidget(new AdministratorInvitesWidget(account, this))
     , mAdministratorCustomEmojiWidget(new AdministratorCustomEmojiWidget(account, this))
     , mViewLogWidget(new ViewLogWidget(account, this))
