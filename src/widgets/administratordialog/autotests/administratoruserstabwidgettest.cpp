@@ -7,6 +7,7 @@
 #include "administratoruserstabwidgettest.h"
 #include "administratordialog/users/administratoruserstabwidget.h"
 #include "administratordialog/users/administratoruserswidget.h"
+#include <QTabWidget>
 #include <QTest>
 #include <QVBoxLayout>
 using namespace Qt::Literals::StringLiterals;
@@ -28,6 +29,9 @@ void AdministratorUsersTabWidgetTest::shouldHaveDefaultValues()
 
     auto mPendingUsers = w.findChild<AdministratorUsersWidget *>("mPendingUsers"_L1);
     QVERIFY(mPendingUsers);
+
+    auto mTabWidget = w.findChild<QTabWidget *>("mTabWidget"_L1);
+    QVERIFY(mTabWidget);
 }
 
 #include "moc_administratoruserstabwidgettest.cpp"
