@@ -9,7 +9,7 @@
 #include <KLocalizedString>
 #include <QTabWidget>
 #include <QVBoxLayout>
-
+using namespace Qt::Literals::StringLiterals;
 AdministratorUsersTabWidget::AdministratorUsersTabWidget(RocketChatAccount *account, QWidget *parent)
     : QWidget{parent}
     , mTabWidget(new QTabWidget(this))
@@ -23,8 +23,11 @@ AdministratorUsersTabWidget::AdministratorUsersTabWidget(RocketChatAccount *acco
     mTabWidget->setObjectName(QStringLiteral("mTabWidget"));
     mainLayout->addWidget(mTabWidget);
 
+    mAllUsers->setObjectName("mAllUsers"_L1);
+    mPendingUsers->setObjectName("mPendingUsers"_L1);
+
     mTabWidget->addTab(mAllUsers, i18n("All"));
-    mTabWidget->addTab(mAllUsers, i18n("Pending"));
+    mTabWidget->addTab(mPendingUsers, i18n("Pending"));
 }
 
 AdministratorUsersTabWidget::~AdministratorUsersTabWidget() = default;
