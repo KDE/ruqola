@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-09-06 00:39+0000\n"
-"PO-Revision-Date: 2024-09-05 12:20+0200\n"
+"POT-Creation-Date: 2024-09-07 00:39+0000\n"
+"PO-Revision-Date: 2024-09-06 11:39+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca\n"
@@ -2586,7 +2586,7 @@ msgstr "Eliminació d'emoji"
 #: widgets/administratordialog/oauth/oauthtreeview.cpp:49
 #: widgets/administratordialog/roles/administratorroleswidget.cpp:101
 #: widgets/administratordialog/roles/usersinrolewidget.cpp:106
-#: widgets/administratordialog/users/administratoruserswidget.cpp:250
+#: widgets/administratordialog/users/administratoruserswidget.cpp:252
 #: widgets/myaccount/myaccountpersonalaccesstokentreeview.cpp:35
 #, kde-format
 msgctxt "@action"
@@ -2600,7 +2600,7 @@ msgstr "Afegeix…"
 #: widgets/administratordialog/permissions/permissionswidget.cpp:92
 #: widgets/administratordialog/roles/administratorroleswidget.cpp:105
 #: widgets/administratordialog/rooms/administratorroomswidget.cpp:63
-#: widgets/administratordialog/users/administratoruserswidget.cpp:257
+#: widgets/administratordialog/users/administratoruserswidget.cpp:259
 #, kde-format
 msgctxt "@action"
 msgid "Modify…"
@@ -2614,7 +2614,7 @@ msgstr "Modifica…"
 #: widgets/administratordialog/roles/administratorroleswidget.cpp:120
 #: widgets/administratordialog/roles/usersinrolewidget.cpp:110
 #: widgets/administratordialog/rooms/administratorroomswidget.cpp:67
-#: widgets/administratordialog/users/administratoruserswidget.cpp:294
+#: widgets/administratordialog/users/administratoruserswidget.cpp:296
 #: widgets/myaccount/myaccountpersonalaccesstokentreeview.cpp:42
 #, kde-format
 msgctxt "@action"
@@ -3184,20 +3184,20 @@ msgid "Do you want to remove this user \"%1\"?"
 msgstr "Voleu eliminar aquest usuari «%1»?"
 
 #: widgets/administratordialog/roles/usersinrolewidget.cpp:81
-#: widgets/administratordialog/users/administratoruserswidget.cpp:193
+#: widgets/administratordialog/users/administratoruserswidget.cpp:195
 #, kde-format
 msgctxt "@title:window"
 msgid "Remove User"
 msgstr "Elimina l'usuari"
 
 #: widgets/administratordialog/roles/usersinrolewidget.cpp:119
-#: widgets/administratordialog/users/administratoruserswidget.cpp:307
+#: widgets/administratordialog/users/administratoruserswidget.cpp:309
 #, kde-format
 msgid "No user found"
 msgstr "No s'ha trobat cap usuari"
 
 #: widgets/administratordialog/roles/usersinrolewidget.cpp:124
-#: widgets/administratordialog/users/administratoruserswidget.cpp:312
+#: widgets/administratordialog/users/administratoruserswidget.cpp:314
 #: widgets/directory/directorywidget.cpp:202
 #, kde-format
 msgid "%1 user (Total: %2)"
@@ -3631,54 +3631,68 @@ msgctxt "@info:placeholder"
 msgid "Use ',' for separate emails"
 msgstr "Usa «,» per a separar els correus"
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:192
+#: widgets/administratordialog/users/administratoruserstabwidget.cpp:26
+#: widgets/applicationssettingsdialog/applicationssettingsinstalledcombobox.cpp:13
+#: widgets/dialogs/showattachmentcombobox.cpp:19
+#: widgets/room/usersinroomcombobox.cpp:20
+#: widgets/teams/teamchannelscombobox.cpp:19
+#, kde-format
+msgid "All"
+msgstr "Tot"
+
+#: widgets/administratordialog/users/administratoruserstabwidget.cpp:27
+#, kde-format
+msgid "Pending"
+msgstr ""
+
+#: widgets/administratordialog/users/administratoruserswidget.cpp:194
 #, kde-format
 msgid "Do you want to remove this user?"
 msgstr "Voleu eliminar aquest usuari?"
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:244
+#: widgets/administratordialog/users/administratoruserswidget.cpp:246
 #, kde-format
 msgctxt "@action"
 msgid "Invite…"
 msgstr "Invita…"
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:266
+#: widgets/administratordialog/users/administratoruserswidget.cpp:268
 #, kde-format
 msgctxt "@action"
 msgid "Deactivate"
 msgstr "Desactiva"
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:266
+#: widgets/administratordialog/users/administratoruserswidget.cpp:268
 #, kde-format
 msgctxt "@action"
 msgid "Active"
 msgstr "Actiu"
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:275
+#: widgets/administratordialog/users/administratoruserswidget.cpp:277
 #, kde-format
 msgctxt "@action"
 msgid "Remove Admin"
 msgstr "Elimina l'administrador"
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:275
+#: widgets/administratordialog/users/administratoruserswidget.cpp:277
 #, kde-format
 msgctxt "@action"
 msgid "Make Admin"
 msgstr "Fes-te administrador"
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:281
+#: widgets/administratordialog/users/administratoruserswidget.cpp:283
 #, kde-format
 msgctxt "@action"
 msgid "Reset E2E Key"
 msgstr "Reinicia la clau E2E"
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:287
+#: widgets/administratordialog/users/administratoruserswidget.cpp:289
 #, kde-format
 msgctxt "@action"
 msgid "Reset Totp"
 msgstr "Reinicia el TOTP"
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:363
+#: widgets/administratordialog/users/administratoruserswidget.cpp:374
 #, kde-format
 msgid ""
 "Reset the current E2E key will log out the user. When the user login again, "
@@ -3694,24 +3708,24 @@ msgstr ""
 "restaurar l'accés a les sales encriptades que no tinguin cap membre "
 "connectat."
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:367
+#: widgets/administratordialog/users/administratoruserswidget.cpp:378
 #, kde-format
 msgctxt "@title:window"
 msgid "Reset E2E key"
 msgstr "Reinicia la clau E2E"
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:399
+#: widgets/administratordialog/users/administratoruserswidget.cpp:410
 #, kde-format
 msgid "E2E key for %1 has been reset."
 msgstr "S'ha reiniciat la clau E2E per a %1."
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:399
+#: widgets/administratordialog/users/administratoruserswidget.cpp:410
 #, kde-format
 msgctxt "@title:window"
 msgid "Reset E2E"
 msgstr "Reinicia E2E"
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:412
+#: widgets/administratordialog/users/administratoruserswidget.cpp:423
 #, kde-format
 msgid ""
 "Reset the current Two Factor TOTP will log out the user. The user will be "
@@ -3720,14 +3734,14 @@ msgstr ""
 "Reiniciar el TOTP de dos factors actual desconnectarà l'usuari. Després, "
 "l'usuari podrà tornar a establir els dos factors una altra vegada."
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:413
-#: widgets/administratordialog/users/administratoruserswidget.cpp:444
+#: widgets/administratordialog/users/administratoruserswidget.cpp:424
+#: widgets/administratordialog/users/administratoruserswidget.cpp:455
 #, kde-format
 msgctxt "@title:window"
 msgid "Reset TOTP"
 msgstr "Reinicia el TOTP"
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:444
+#: widgets/administratordialog/users/administratoruserswidget.cpp:455
 #, kde-format
 msgid "TOTP key for %1 has been reset"
 msgstr "S'ha reiniciat la clau TOTP per a %1"
@@ -6558,14 +6572,6 @@ msgstr "Aplicacions"
 msgctxt "@label:textbox"
 msgid "Loading in progress…"
 msgstr "La càrrega es troba en curs…"
-
-#: widgets/applicationssettingsdialog/applicationssettingsinstalledcombobox.cpp:13
-#: widgets/dialogs/showattachmentcombobox.cpp:19
-#: widgets/room/usersinroomcombobox.cpp:20
-#: widgets/teams/teamchannelscombobox.cpp:19
-#, kde-format
-msgid "All"
-msgstr "Tot"
 
 #: widgets/applicationssettingsdialog/applicationssettingsinstalledcombobox.cpp:14
 #, kde-format
@@ -9520,40 +9526,34 @@ msgid "No message yet"
 msgstr "Encara no hi ha cap missatge"
 
 #: widgets/room/delegate/messagelistdelegate.cpp:982
-#, fuzzy, kde-format
-#| msgid "Following"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Following"
-msgstr "Següent"
+msgstr "S'està seguint"
 
 #: widgets/room/delegate/messagelistdelegate.cpp:986
-#, fuzzy, kde-format
-#| msgid "Message has been pinned"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Message has been pinned"
 msgstr "El missatge s'ha fixat"
 
 #: widgets/room/delegate/messagelistdelegate.cpp:990
-#, fuzzy, kde-format
-#| msgid "Message has been starred"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Message has been starred"
 msgstr "El missatge s'ha destacat"
 
 #: widgets/room/delegate/messagelistdelegate.cpp:994
-#, fuzzy, kde-format
-#| msgctxt "@action"
-#| msgid "Reply in Thread"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Reply in Thread"
 msgstr "Resposta al fil"
 
 #: widgets/room/delegate/messagelistdelegate.cpp:998
-#, fuzzy, kde-format
-#| msgid "Add Emoticon"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Add reaction"
-msgstr "Afegeix una emoticona"
+msgstr "Afegeix una reacció"
 
 #: widgets/room/messagelinewidget.cpp:64
 #, kde-format

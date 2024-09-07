@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-09-06 00:39+0000\n"
+"POT-Creation-Date: 2024-09-07 00:39+0000\n"
 "PO-Revision-Date: 2024-08-06 05:33+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
@@ -2559,7 +2559,7 @@ msgstr "移除表情符號"
 #: widgets/administratordialog/oauth/oauthtreeview.cpp:49
 #: widgets/administratordialog/roles/administratorroleswidget.cpp:101
 #: widgets/administratordialog/roles/usersinrolewidget.cpp:106
-#: widgets/administratordialog/users/administratoruserswidget.cpp:250
+#: widgets/administratordialog/users/administratoruserswidget.cpp:252
 #: widgets/myaccount/myaccountpersonalaccesstokentreeview.cpp:35
 #, fuzzy, kde-format
 #| msgid "Add…"
@@ -2574,7 +2574,7 @@ msgstr "新增…"
 #: widgets/administratordialog/permissions/permissionswidget.cpp:92
 #: widgets/administratordialog/roles/administratorroleswidget.cpp:105
 #: widgets/administratordialog/rooms/administratorroomswidget.cpp:63
-#: widgets/administratordialog/users/administratoruserswidget.cpp:257
+#: widgets/administratordialog/users/administratoruserswidget.cpp:259
 #, fuzzy, kde-format
 #| msgid "Modify…"
 msgctxt "@action"
@@ -2589,7 +2589,7 @@ msgstr "變更…"
 #: widgets/administratordialog/roles/administratorroleswidget.cpp:120
 #: widgets/administratordialog/roles/usersinrolewidget.cpp:110
 #: widgets/administratordialog/rooms/administratorroomswidget.cpp:67
-#: widgets/administratordialog/users/administratoruserswidget.cpp:294
+#: widgets/administratordialog/users/administratoruserswidget.cpp:296
 #: widgets/myaccount/myaccountpersonalaccesstokentreeview.cpp:42
 #, fuzzy, kde-format
 #| msgid "Remove"
@@ -3192,7 +3192,7 @@ msgid "Do you want to remove this user \"%1\"?"
 msgstr "您確定要取消封存此聊天室嗎？"
 
 #: widgets/administratordialog/roles/usersinrolewidget.cpp:81
-#: widgets/administratordialog/users/administratoruserswidget.cpp:193
+#: widgets/administratordialog/users/administratoruserswidget.cpp:195
 #, fuzzy, kde-format
 #| msgid "Load Recent History"
 msgctxt "@title:window"
@@ -3200,13 +3200,13 @@ msgid "Remove User"
 msgstr "載入最近記錄"
 
 #: widgets/administratordialog/roles/usersinrolewidget.cpp:119
-#: widgets/administratordialog/users/administratoruserswidget.cpp:307
+#: widgets/administratordialog/users/administratoruserswidget.cpp:309
 #, kde-format
 msgid "No user found"
 msgstr "找不到使用者"
 
 #: widgets/administratordialog/roles/usersinrolewidget.cpp:124
-#: widgets/administratordialog/users/administratoruserswidget.cpp:312
+#: widgets/administratordialog/users/administratoruserswidget.cpp:314
 #: widgets/directory/directorywidget.cpp:202
 #, kde-format
 msgid "%1 user (Total: %2)"
@@ -3695,62 +3695,76 @@ msgctxt "@info:placeholder"
 msgid "Use ',' for separate emails"
 msgstr ""
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:192
+#: widgets/administratordialog/users/administratoruserstabwidget.cpp:26
+#: widgets/applicationssettingsdialog/applicationssettingsinstalledcombobox.cpp:13
+#: widgets/dialogs/showattachmentcombobox.cpp:19
+#: widgets/room/usersinroomcombobox.cpp:20
+#: widgets/teams/teamchannelscombobox.cpp:19
+#, kde-format
+msgid "All"
+msgstr "全部"
+
+#: widgets/administratordialog/users/administratoruserstabwidget.cpp:27
+#, kde-format
+msgid "Pending"
+msgstr ""
+
+#: widgets/administratordialog/users/administratoruserswidget.cpp:194
 #, fuzzy, kde-format
 #| msgid "Do you want to unarchive this room?"
 msgid "Do you want to remove this user?"
 msgstr "您確定要取消封存此聊天室嗎？"
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:244
+#: widgets/administratordialog/users/administratoruserswidget.cpp:246
 #, fuzzy, kde-format
 #| msgid "Invites"
 msgctxt "@action"
 msgid "Invite…"
 msgstr "邀請"
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:266
+#: widgets/administratordialog/users/administratoruserswidget.cpp:268
 #, fuzzy, kde-format
 #| msgid "Add Users"
 msgctxt "@action"
 msgid "Deactivate"
 msgstr "加入使用者"
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:266
+#: widgets/administratordialog/users/administratoruserswidget.cpp:268
 #, fuzzy, kde-format
 #| msgid "Active"
 msgctxt "@action"
 msgid "Active"
 msgstr "作用中"
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:275
+#: widgets/administratordialog/users/administratoruserswidget.cpp:277
 #, fuzzy, kde-format
 #| msgid "Remove"
 msgctxt "@action"
 msgid "Remove Admin"
 msgstr "移除"
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:275
+#: widgets/administratordialog/users/administratoruserswidget.cpp:277
 #, fuzzy, kde-format
 #| msgid "Remove"
 msgctxt "@action"
 msgid "Make Admin"
 msgstr "移除"
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:281
+#: widgets/administratordialog/users/administratoruserswidget.cpp:283
 #, fuzzy, kde-format
 #| msgid "Password"
 msgctxt "@action"
 msgid "Reset E2E Key"
 msgstr "密碼"
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:287
+#: widgets/administratordialog/users/administratoruserswidget.cpp:289
 #, fuzzy, kde-format
 #| msgid "Password"
 msgctxt "@action"
 msgid "Reset Totp"
 msgstr "密碼"
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:363
+#: widgets/administratordialog/users/administratoruserswidget.cpp:374
 #, kde-format
 msgid ""
 "Reset the current E2E key will log out the user. When the user login again, "
@@ -3760,41 +3774,41 @@ msgid ""
 "encrypted room that has no member online."
 msgstr ""
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:367
+#: widgets/administratordialog/users/administratoruserswidget.cpp:378
 #, fuzzy, kde-format
 #| msgid "Password"
 msgctxt "@title:window"
 msgid "Reset E2E key"
 msgstr "密碼"
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:399
+#: widgets/administratordialog/users/administratoruserswidget.cpp:410
 #, kde-format
 msgid "E2E key for %1 has been reset."
 msgstr ""
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:399
+#: widgets/administratordialog/users/administratoruserswidget.cpp:410
 #, fuzzy, kde-format
 #| msgid "Password"
 msgctxt "@title:window"
 msgid "Reset E2E"
 msgstr "密碼"
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:412
+#: widgets/administratordialog/users/administratoruserswidget.cpp:423
 #, kde-format
 msgid ""
 "Reset the current Two Factor TOTP will log out the user. The user will be "
 "able to set the Two Factor again later."
 msgstr ""
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:413
-#: widgets/administratordialog/users/administratoruserswidget.cpp:444
+#: widgets/administratordialog/users/administratoruserswidget.cpp:424
+#: widgets/administratordialog/users/administratoruserswidget.cpp:455
 #, fuzzy, kde-format
 #| msgid "Password"
 msgctxt "@title:window"
 msgid "Reset TOTP"
 msgstr "密碼"
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:444
+#: widgets/administratordialog/users/administratoruserswidget.cpp:455
 #, kde-format
 msgid "TOTP key for %1 has been reset"
 msgstr ""
@@ -6641,14 +6655,6 @@ msgstr "應用程式 ID (iss)"
 msgctxt "@label:textbox"
 msgid "Loading in progress…"
 msgstr "載入中…"
-
-#: widgets/applicationssettingsdialog/applicationssettingsinstalledcombobox.cpp:13
-#: widgets/dialogs/showattachmentcombobox.cpp:19
-#: widgets/room/usersinroomcombobox.cpp:20
-#: widgets/teams/teamchannelscombobox.cpp:19
-#, kde-format
-msgid "All"
-msgstr "全部"
 
 #: widgets/applicationssettingsdialog/applicationssettingsinstalledcombobox.cpp:14
 #, kde-format

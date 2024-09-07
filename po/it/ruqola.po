@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-09-06 00:39+0000\n"
+"POT-Creation-Date: 2024-09-07 00:39+0000\n"
 "PO-Revision-Date: 2024-08-26 00:16+0200\n"
 "Last-Translator: Vincenzo Reale <smart2128vr@gmail.com>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
@@ -2586,7 +2586,7 @@ msgstr "Rimuovi emoji"
 #: widgets/administratordialog/oauth/oauthtreeview.cpp:49
 #: widgets/administratordialog/roles/administratorroleswidget.cpp:101
 #: widgets/administratordialog/roles/usersinrolewidget.cpp:106
-#: widgets/administratordialog/users/administratoruserswidget.cpp:250
+#: widgets/administratordialog/users/administratoruserswidget.cpp:252
 #: widgets/myaccount/myaccountpersonalaccesstokentreeview.cpp:35
 #, kde-format
 msgctxt "@action"
@@ -2600,7 +2600,7 @@ msgstr "Aggiungi..."
 #: widgets/administratordialog/permissions/permissionswidget.cpp:92
 #: widgets/administratordialog/roles/administratorroleswidget.cpp:105
 #: widgets/administratordialog/rooms/administratorroomswidget.cpp:63
-#: widgets/administratordialog/users/administratoruserswidget.cpp:257
+#: widgets/administratordialog/users/administratoruserswidget.cpp:259
 #, kde-format
 msgctxt "@action"
 msgid "Modify…"
@@ -2614,7 +2614,7 @@ msgstr "Modifica…"
 #: widgets/administratordialog/roles/administratorroleswidget.cpp:120
 #: widgets/administratordialog/roles/usersinrolewidget.cpp:110
 #: widgets/administratordialog/rooms/administratorroomswidget.cpp:67
-#: widgets/administratordialog/users/administratoruserswidget.cpp:294
+#: widgets/administratordialog/users/administratoruserswidget.cpp:296
 #: widgets/myaccount/myaccountpersonalaccesstokentreeview.cpp:42
 #, kde-format
 msgctxt "@action"
@@ -3186,20 +3186,20 @@ msgid "Do you want to remove this user \"%1\"?"
 msgstr "Vuoi rimuovere l'utente «%1»?"
 
 #: widgets/administratordialog/roles/usersinrolewidget.cpp:81
-#: widgets/administratordialog/users/administratoruserswidget.cpp:193
+#: widgets/administratordialog/users/administratoruserswidget.cpp:195
 #, kde-format
 msgctxt "@title:window"
 msgid "Remove User"
 msgstr "Rimuovi utente"
 
 #: widgets/administratordialog/roles/usersinrolewidget.cpp:119
-#: widgets/administratordialog/users/administratoruserswidget.cpp:307
+#: widgets/administratordialog/users/administratoruserswidget.cpp:309
 #, kde-format
 msgid "No user found"
 msgstr "Nessun utente trovato"
 
 #: widgets/administratordialog/roles/usersinrolewidget.cpp:124
-#: widgets/administratordialog/users/administratoruserswidget.cpp:312
+#: widgets/administratordialog/users/administratoruserswidget.cpp:314
 #: widgets/directory/directorywidget.cpp:202
 #, kde-format
 msgid "%1 user (Total: %2)"
@@ -3633,54 +3633,68 @@ msgctxt "@info:placeholder"
 msgid "Use ',' for separate emails"
 msgstr "Usa «;» per separare gli indirizzi di posta"
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:192
+#: widgets/administratordialog/users/administratoruserstabwidget.cpp:26
+#: widgets/applicationssettingsdialog/applicationssettingsinstalledcombobox.cpp:13
+#: widgets/dialogs/showattachmentcombobox.cpp:19
+#: widgets/room/usersinroomcombobox.cpp:20
+#: widgets/teams/teamchannelscombobox.cpp:19
+#, kde-format
+msgid "All"
+msgstr "Tutti"
+
+#: widgets/administratordialog/users/administratoruserstabwidget.cpp:27
+#, kde-format
+msgid "Pending"
+msgstr ""
+
+#: widgets/administratordialog/users/administratoruserswidget.cpp:194
 #, kde-format
 msgid "Do you want to remove this user?"
 msgstr "Vuoi rimuovere questo utente?"
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:244
+#: widgets/administratordialog/users/administratoruserswidget.cpp:246
 #, kde-format
 msgctxt "@action"
 msgid "Invite…"
 msgstr "Invita…"
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:266
+#: widgets/administratordialog/users/administratoruserswidget.cpp:268
 #, kde-format
 msgctxt "@action"
 msgid "Deactivate"
 msgstr "Disattiva"
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:266
+#: widgets/administratordialog/users/administratoruserswidget.cpp:268
 #, kde-format
 msgctxt "@action"
 msgid "Active"
 msgstr "Attivo"
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:275
+#: widgets/administratordialog/users/administratoruserswidget.cpp:277
 #, kde-format
 msgctxt "@action"
 msgid "Remove Admin"
 msgstr "Rimuovi amministratore"
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:275
+#: widgets/administratordialog/users/administratoruserswidget.cpp:277
 #, kde-format
 msgctxt "@action"
 msgid "Make Admin"
 msgstr "Rendi amministratore"
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:281
+#: widgets/administratordialog/users/administratoruserswidget.cpp:283
 #, kde-format
 msgctxt "@action"
 msgid "Reset E2E Key"
 msgstr "Ripristina la chiave E2E"
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:287
+#: widgets/administratordialog/users/administratoruserswidget.cpp:289
 #, kde-format
 msgctxt "@action"
 msgid "Reset Totp"
 msgstr "Ripristina Totp"
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:363
+#: widgets/administratordialog/users/administratoruserswidget.cpp:374
 #, kde-format
 msgid ""
 "Reset the current E2E key will log out the user. When the user login again, "
@@ -3696,24 +3710,24 @@ msgstr ""
 "Chat non sarà in grado di ripristinare l'accesso a qualsiasi stanza cifrata "
 "che non abbia membri in linea."
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:367
+#: widgets/administratordialog/users/administratoruserswidget.cpp:378
 #, kde-format
 msgctxt "@title:window"
 msgid "Reset E2E key"
 msgstr "Ripristina la chiave E2E"
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:399
+#: widgets/administratordialog/users/administratoruserswidget.cpp:410
 #, kde-format
 msgid "E2E key for %1 has been reset."
 msgstr "La chiave E2E per %1 è stata ripristinata."
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:399
+#: widgets/administratordialog/users/administratoruserswidget.cpp:410
 #, kde-format
 msgctxt "@title:window"
 msgid "Reset E2E"
 msgstr "Ripristina E2E"
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:412
+#: widgets/administratordialog/users/administratoruserswidget.cpp:423
 #, kde-format
 msgid ""
 "Reset the current Two Factor TOTP will log out the user. The user will be "
@@ -3722,14 +3736,14 @@ msgstr ""
 "Il ripristino dell'attuale TOTP a due fattori disconnetterà l'utente. "
 "L'utente potrà impostare nuovamente il doppio fattore in seguito."
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:413
-#: widgets/administratordialog/users/administratoruserswidget.cpp:444
+#: widgets/administratordialog/users/administratoruserswidget.cpp:424
+#: widgets/administratordialog/users/administratoruserswidget.cpp:455
 #, kde-format
 msgctxt "@title:window"
 msgid "Reset TOTP"
 msgstr "Ripristina TOTP"
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:444
+#: widgets/administratordialog/users/administratoruserswidget.cpp:455
 #, kde-format
 msgid "TOTP key for %1 has been reset"
 msgstr "La chiave TOTP per %1 è stata ripristinata"
@@ -6565,14 +6579,6 @@ msgstr "Applicazioni"
 msgctxt "@label:textbox"
 msgid "Loading in progress…"
 msgstr "Caricamento in corso…"
-
-#: widgets/applicationssettingsdialog/applicationssettingsinstalledcombobox.cpp:13
-#: widgets/dialogs/showattachmentcombobox.cpp:19
-#: widgets/room/usersinroomcombobox.cpp:20
-#: widgets/teams/teamchannelscombobox.cpp:19
-#, kde-format
-msgid "All"
-msgstr "Tutti"
 
 #: widgets/applicationssettingsdialog/applicationssettingsinstalledcombobox.cpp:14
 #, kde-format
