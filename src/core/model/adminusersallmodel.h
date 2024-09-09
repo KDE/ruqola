@@ -6,15 +6,15 @@
 
 #pragma once
 
-#include "directoryusersmodel.h"
+#include "adminusersbasemodel.h"
 
 #include "libruqolacore_export.h"
 
-class LIBRUQOLACORE_EXPORT AdminUsersModel : public DirectoryUsersModel
+class LIBRUQOLACORE_EXPORT AdminUsersAllModel : public AdminUsersBaseModel
 {
     Q_OBJECT
 public:
-    enum AdminUsersRoles {
+    enum AdminUsersAllRoles {
         Name,
         UserName,
         Email,
@@ -27,22 +27,16 @@ public:
         RegistrationStatus,
         LastColumn = RegistrationStatus,
     };
-    Q_ENUM(AdminUsersRoles)
+    Q_ENUM(AdminUsersAllRoles)
 
-    explicit AdminUsersModel(QObject *parent = nullptr);
-    ~AdminUsersModel() override;
+    explicit AdminUsersAllModel(QObject *parent = nullptr);
+    ~AdminUsersAllModel() override;
 
     [[nodiscard]] QVariant data(const QModelIndex &index, int role) const override;
     [[nodiscard]] QVariant headerData(int section, Qt::Orientation orientation, int role) const override;
     [[nodiscard]] int columnCount(const QModelIndex &parent = QModelIndex()) const override;
     [[nodiscard]] QList<int> hideColumns() const override;
     [[nodiscard]] bool setData(const QModelIndex &index, const QVariant &value, int role) override;
-
-protected:
-    [[nodiscard]] LIBRUQOLACORE_NO_EXPORT Users::ParseType parseType() const override;
-    LIBRUQOLACORE_NO_EXPORT void removeElement(const QByteArray &identifier) override;
-    LIBRUQOLACORE_NO_EXPORT void updateElement(const QJsonObject &obj) override;
-    LIBRUQOLACORE_NO_EXPORT void insertElement(const QJsonObject &obj) override;
 
 private:
     [[nodiscard]] LIBRUQOLACORE_NO_EXPORT QString createRegistrationStatus(const User &user) const;

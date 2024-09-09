@@ -171,8 +171,12 @@ target_sources(libruqolacore PRIVATE
     model/adminroomsfilterproxymodel.h
     model/adminroomsmodel.cpp
     model/adminroomsmodel.h
-    model/adminusersmodel.cpp
-    model/adminusersmodel.h
+    model/adminusersallmodel.cpp
+    model/adminusersallmodel.h
+    model/adminuserspendingmodel.cpp
+    model/adminuserspendingmodel.h
+    model/adminusersbasemodel.h
+    model/adminusersbasemodel.cpp
     model/autotranslatelanguagesmodel.cpp
     model/autotranslatelanguagesmodel.h
     model/bannerinfosmodel.cpp

@@ -13,7 +13,8 @@
 #include "dialogs/confirmpassworddialog.h"
 #include "invite/sendinvitationemailjob.h"
 #include "misc/searchwithdelaylineedit.h"
-#include "model/adminusersmodel.h"
+#include "model/adminusersallmodel.h"
+#include "model/adminuserspendingmodel.h"
 #include "model/searchtreebasefilterproxymodel.h"
 #include "rocketchataccount.h"
 #include "ruqolawidgets_debug.h"
@@ -40,7 +41,13 @@ AdministratorUsersWidget::AdministratorUsersWidget(AdministratorUsersWidget::Use
     , mRolesComboBox(new RolesComboBox(this))
     , mUserType(type)
 {
-    auto adminUsersModel = new AdminUsersModel(this);
+    AdminUsersBaseModel *adminUsersModel = nullptr;
+    if (type == AdministratorUsersWidget::All) {
+        adminUsersModel = new AdminUsersAllModel(this);
+    } else {
+        adminUsersModel = new AdminUsersPendingModel(this);
+    }
+
     adminUsersModel->setObjectName("mAdminUsersModel"_L1);
     if (account) {
         adminUsersModel->setRoles(account->roleInfo());
@@ -122,7 +129,7 @@ void AdministratorUsersWidget::slotModifyDoubleClickUser(const QModelIndex &inde
 {
     if (index.isValid()) {
         const QModelIndex newModelIndex = mProxyModelModel->mapToSource(index);
-        const QModelIndex modelIndex = mModel->index(newModelIndex.row(), AdminUsersModel::UserId);
+        const QModelIndex modelIndex = mModel->index(newModelIndex.row(), AdminUsersAllModel::UserId);
         slotModifyUser(modelIndex);
     }
 }
@@ -219,7 +226,7 @@ void AdministratorUsersWidget::slotDeleteUserDone(const QByteArray &userId)
 void AdministratorUsersWidget::slotActivateUser(const QModelIndex &index, bool activateUser)
 {
     auto job = new RocketChatRestApi::SetUserActiveStatusJob(this);
-    const QModelIndex modelIndex = mModel->index(index.row(), AdminUsersModel::UserId);
+    const QModelIndex modelIndex = mModel->index(index.row(), AdminUsersAllModel::UserId);
     const QByteArray userId = modelIndex.data().toByteArray();
     job->setActivate(!activateUser);
     job->setActivateUserId(userId);
@@ -236,7 +243,7 @@ void AdministratorUsersWidget::slotSetUserActiveStatus(const QJsonObject &replyO
 {
     const QJsonObject userObj = replyObject["user"_L1].toObject();
     const bool active = userObj["active"_L1].toBool();
-    mModel->setData(modelIndex, active, AdminUsersModel::ActiveUser);
+    mModel->setData(modelIndex, active, AdminUsersAllModel::ActiveUser);
 }
 
 void AdministratorUsersWidget::slotCustomContextMenuRequested(const QPoint &pos)
@@ -257,13 +264,13 @@ void AdministratorUsersWidget::slotCustomContextMenuRequested(const QPoint &pos)
 
         if (mRocketChatAccount->hasPermission(QStringLiteral("edit-other-user-info"))) {
             menu.addAction(QIcon::fromTheme(QStringLiteral("document-edit")), i18nc("@action", "Modify…"), this, [this, newModelIndex]() {
-                const QModelIndex modelIndex = mModel->index(newModelIndex.row(), AdminUsersModel::UserId);
+                const QModelIndex modelIndex = mModel->index(newModelIndex.row(), AdminUsersAllModel::UserId);
                 slotModifyUser(modelIndex);
             });
             menu.addSeparator();
         }
         if (mRocketChatAccount->hasPermission(QStringLiteral("edit-other-user-active-status"))) {
-            const QModelIndex modelIndex = mModel->index(newModelIndex.row(), AdminUsersModel::ActiveUser);
+            const QModelIndex modelIndex = mModel->index(newModelIndex.row(), AdminUsersAllModel::ActiveUser);
             const bool activateUser = modelIndex.data().toBool();
             menu.addAction(activateUser ? i18nc("@action", "Deactivate") : i18nc("@action", "Active"), this, [this, newModelIndex, activateUser]() {
                 slotActivateUser(newModelIndex, activateUser);
@@ -271,30 +278,30 @@ void AdministratorUsersWidget::slotCustomContextMenuRequested(const QPoint &pos)
             menu.addSeparator();
         }
         if (mRocketChatAccount->hasPermission(QStringLiteral("assign-admin-role"))) {
-            const QModelIndex administratorIndex = mModel->index(newModelIndex.row(), AdminUsersModel::Administrator);
+            const QModelIndex administratorIndex = mModel->index(newModelIndex.row(), AdminUsersAllModel::Administrator);
             const bool isAdministrator = administratorIndex.data().toBool();
 
             menu.addAction(isAdministrator ? i18nc("@action", "Remove Admin") : i18nc("@action", "Make Admin"), this, [this, newModelIndex, isAdministrator]() {
-                const QModelIndex modelIndex = mModel->index(newModelIndex.row(), AdminUsersModel::UserId);
+                const QModelIndex modelIndex = mModel->index(newModelIndex.row(), AdminUsersAllModel::UserId);
                 slotChangeAdmin(modelIndex, !isAdministrator);
             });
         }
         if (mRocketChatAccount->hasPermission(QStringLiteral("edit-other-user-e2ee"))) {
             menu.addAction(i18nc("@action", "Reset E2E Key"), this, [this, newModelIndex]() {
-                const QModelIndex modelIndex = mModel->index(newModelIndex.row(), AdminUsersModel::UserId);
+                const QModelIndex modelIndex = mModel->index(newModelIndex.row(), AdminUsersAllModel::UserId);
                 slotResetE2EKey(modelIndex);
             });
         }
         if (mRocketChatAccount->hasPermission(QStringLiteral("edit-other-user-totp")) && mRocketChatAccount->twoFactorAuthenticationEnabled()) {
             menu.addAction(i18nc("@action", "Reset Totp"), this, [this, newModelIndex]() {
-                const QModelIndex modelIndex = mModel->index(newModelIndex.row(), AdminUsersModel::UserId);
+                const QModelIndex modelIndex = mModel->index(newModelIndex.row(), AdminUsersAllModel::UserId);
                 slotResetTOTPKey(modelIndex);
             });
         }
         if (mRocketChatAccount->hasPermission(QStringLiteral("delete-user"))) {
             menu.addSeparator();
             menu.addAction(QIcon::fromTheme(QStringLiteral("list-remove")), i18nc("@action", "Remove"), this, [this, newModelIndex]() {
-                const QModelIndex i = mModel->index(newModelIndex.row(), AdminUsersModel::UserId);
+                const QModelIndex i = mModel->index(newModelIndex.row(), AdminUsersAllModel::UserId);
                 slotRemoveUser(i);
             });
         }
@@ -361,7 +368,7 @@ void AdministratorUsersWidget::slotLoadElements(int offset, int count, const QSt
 
 void AdministratorUsersWidget::slotChangeAdmin(const QModelIndex &index, bool adminStatus)
 {
-    const QModelIndex modelIndex = mModel->index(index.row(), AdminUsersModel::UserId);
+    const QModelIndex modelIndex = mModel->index(index.row(), AdminUsersAllModel::UserId);
     const QByteArray userId = modelIndex.data().toByteArray();
     mRocketChatAccount->ddp()->setAdminStatus(userId, adminStatus);
 }
@@ -394,7 +401,7 @@ void AdministratorUsersWidget::slotResetE2EKey(const QModelIndex &index)
         }
 
         auto job = new RocketChatRestApi::ResetE2EKeyJob(this);
-        const QModelIndex modelIndex = mModel->index(index.row(), AdminUsersModel::UserId);
+        const QModelIndex modelIndex = mModel->index(index.row(), AdminUsersAllModel::UserId);
         const QByteArray userId = modelIndex.data().toByteArray();
         job->setResetUserId(userId);
 
@@ -404,7 +411,7 @@ void AdministratorUsersWidget::slotResetE2EKey(const QModelIndex &index)
         }
         mRocketChatAccount->restApi()->initializeRestApiJob(job);
 
-        const QModelIndex modelIndexUserName = mModel->index(index.row(), AdminUsersModel::UserName);
+        const QModelIndex modelIndexUserName = mModel->index(index.row(), AdminUsersAllModel::UserName);
         const QString userName = modelIndexUserName.data().toString();
         connect(job, &RocketChatRestApi::ResetE2EKeyJob::resetE2EKeyDone, this, [this, userName]() {
             KMessageBox::information(this, i18n("E2E key for %1 has been reset.", userName), i18nc("@title:window", "Reset E2E"));
@@ -439,7 +446,7 @@ void AdministratorUsersWidget::slotResetTOTPKey(const QModelIndex &index)
             }
         }
         auto job = new RocketChatRestApi::ResetTOTPJob(this);
-        const QModelIndex modelIndex = mModel->index(index.row(), AdminUsersModel::UserId);
+        const QModelIndex modelIndex = mModel->index(index.row(), AdminUsersAllModel::UserId);
         const QByteArray userId = modelIndex.data().toByteArray();
         job->setResetUserId(userId);
 
@@ -448,7 +455,7 @@ void AdministratorUsersWidget::slotResetTOTPKey(const QModelIndex &index)
             job->setAuthCode(QString::fromLatin1(Utils::convertSha256Password(password)));
         }
         mRocketChatAccount->restApi()->initializeRestApiJob(job);
-        const QModelIndex modelIndexUserName = mModel->index(index.row(), AdminUsersModel::UserName);
+        const QModelIndex modelIndexUserName = mModel->index(index.row(), AdminUsersAllModel::UserName);
         const QString userName = modelIndexUserName.data().toString();
 
         connect(job, &RocketChatRestApi::ResetTOTPJob::resetTOTPDone, this, [this, userName]() {

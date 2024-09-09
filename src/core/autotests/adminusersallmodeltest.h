@@ -8,12 +8,12 @@
 
 #include <QObject>
 
-class AdminUsersModelTest : public QObject
+class AdminUsersAllModelTest : public QObject
 {
     Q_OBJECT
 public:
-    explicit AdminUsersModelTest(QObject *parent = nullptr);
-    ~AdminUsersModelTest() override = default;
+    explicit AdminUsersAllModelTest(QObject *parent = nullptr);
+    ~AdminUsersAllModelTest() override = default;
 private Q_SLOTS:
     void shouldHaveDefaultValues();
 };
