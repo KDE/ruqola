@@ -56,7 +56,7 @@ bool User::operator==(const User &other) const
     return (mName == other.name()) && (mUserId == other.userId()) && (mStatus == other.status()) && (mUserName == other.userName())
         && (mUtcOffset == other.utcOffset()) && (mStatusText == other.statusText()) && (mRoles == other.roles()) && (mCreatedAt == other.createdAt())
         && (mLastLogin == other.lastLogin()) && (mActive == other.active()) && (mRequirePasswordChange == other.requirePasswordChange())
-        && (mBio == other.bio()) && (mNickName == other.nickName());
+        && (mBio == other.bio()) && (mNickName == other.nickName()) && (mType == other.type());
 }
 
 bool User::operator!=(const User &other) const
@@ -122,6 +122,7 @@ QDebug operator<<(QDebug d, const User &t)
     d << " mRequirePasswordChange " << t.requirePasswordChange();
     d << " mBio " << t.bio();
     d << " mNickName " << t.nickName();
+    d << " mType " << t.type();
     return d;
 }
 
@@ -137,6 +138,7 @@ void User::parseUserRestApi(const QJsonObject &object, const QList<RoleInfo> &ro
     setActive(object.value("active"_L1).toBool(true)); // By default it's active
     setBio(object.value("bio"_L1).toString());
     setNickName(object.value("nickname"_L1).toString());
+    setType(object.value("type"_L1).toString());
     const QJsonArray rolesArray = object.value("roles"_L1).toArray();
     QStringList roles;
     const int total = rolesArray.size();
@@ -242,6 +244,9 @@ QJsonObject User::serialize(const User &user)
     o["statusText"_L1] = user.statusText();
     o["bio"_L1] = user.bio();
     o["nickname"_L1] = user.nickName();
+    if (!user.type().isEmpty()) {
+        o["type"_L1] = user.type();
+    }
 
     // Add status/utcoffset/active
 
@@ -261,6 +266,9 @@ User User::deserialize(const QJsonObject &o)
     user.setActive(o.value("active"_L1).toBool(true)); // By default it's active
     user.setBio(o.value("bio"_L1).toString());
     user.setNickName(o.value("nickname"_L1).toString());
+    if (!user.type().isEmpty()) {
+        user.setType(o.value("type"_L1).toString());
+    }
     // TODO
     return {};
 }
@@ -273,6 +281,16 @@ QString User::nickName() const
 void User::setNickName(const QString &newNickName)
 {
     mNickName = newNickName;
+}
+
+QString User::type() const
+{
+    return mType;
+}
+
+void User::setType(const QString &newType)
+{
+    mType = newType;
 }
 
 void User::setRoles(const QStringList &roles, const QList<RoleInfo> &roleInfo)

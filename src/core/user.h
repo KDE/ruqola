@@ -106,6 +106,9 @@ public:
     [[nodiscard]] QString nickName() const;
     void setNickName(const QString &newNickName);
 
+    [[nodiscard]] QString type() const;
+    void setType(const QString &newType);
+
 private:
     UserEmailsInfo mUserEmailsInfo;
     QDateTime mCreatedAt;
@@ -118,6 +121,7 @@ private:
     QString mStatusText;
     QString mBio;
     QString mNickName;
+    QString mType;
     QStringList mRoles;
     QStringList mI18nRoles;
     double mUtcOffset = 0.0;
