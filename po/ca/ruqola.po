@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-09-08 00:39+0000\n"
-"PO-Revision-Date: 2024-09-07 10:59+0200\n"
+"PO-Revision-Date: 2024-09-08 11:29+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca\n"
@@ -10651,10 +10651,9 @@ msgid "Add welcome page."
 msgstr "Afegeix la pàgina de benvinguda."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:22
-#, fuzzy
-#| msgid "Implement moderation (administrator mode)."
 msgid "Implement pending users info (administrator mode)."
-msgstr "Implementa la moderació (mode d'administrador)."
+msgstr ""
+"Implementa la informació sobre els usuaris pendents (mode d'administrador)."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:32
 #, kde-format

@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-09-08 00:39+0000\n"
-"PO-Revision-Date: 2024-09-07 08:02+0200\n"
+"PO-Revision-Date: 2024-09-08 09:10+0200\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
 "Language: eu\n"
@@ -10645,10 +10645,10 @@ msgid "Add welcome page."
 msgstr "Gehitu ongietorri orria."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:22
-#, fuzzy
-#| msgid "Implement moderation (administrator mode)."
 msgid "Implement pending users info (administrator mode)."
-msgstr "Moderazioa egin (administratzaile modua)."
+msgstr ""
+"Inplementatu egiteko dagoen erabiltzaileen informazioa (administratzaile "
+"modua)."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:32
 #, kde-format

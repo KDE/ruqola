@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-09-08 00:39+0000\n"
-"PO-Revision-Date: 2024-09-07 14:41+0200\n"
+"PO-Revision-Date: 2024-09-08 15:05+0200\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
 "Language: nl\n"
@@ -10648,10 +10648,9 @@ msgid "Add welcome page."
 msgstr "Welkomstpagina toevoegen."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:22
-#, fuzzy
-#| msgid "Implement moderation (administrator mode)."
 msgid "Implement pending users info (administrator mode)."
-msgstr "Moderatie implementeren (modus systeembeheerder)."
+msgstr ""
+"Informatie van wachtende gebruikers implementeren (modus systeembeheerder)."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:32
 #, kde-format

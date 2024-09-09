@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-09-08 00:39+0000\n"
-"PO-Revision-Date: 2024-09-06 23:26+0300\n"
+"PO-Revision-Date: 2024-09-08 09:21+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
 "Language: uk\n"
@@ -3668,7 +3668,7 @@ msgstr "Усі"
 #: widgets/administratordialog/users/administratoruserstabwidget.cpp:30
 #, kde-format
 msgid "Pending"
-msgstr ""
+msgstr "У черзі"
 
 #: widgets/administratordialog/users/administratoruserswidget.cpp:194
 #, kde-format
@@ -10714,10 +10714,9 @@ msgid "Add welcome page."
 msgstr "Додано сторінку вітання."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:22
-#, fuzzy
-#| msgid "Implement moderation (administrator mode)."
 msgid "Implement pending users info (administrator mode)."
-msgstr "Реалізовано модерацію (режим адміністратора)."
+msgstr ""
+"Реалізовано показ даних щодо користувачів у черзі (режим адміністратора)."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:32
 #, kde-format
