@@ -36,6 +36,7 @@ CMarkTestGui::CMarkTestGui(QWidget *parent)
     mainLayout->addWidget(label);
     mainLayout->addWidget(mTextEditResult);
 
+    mTextEditResultCMark->setReadOnly(true);
     label = new QLabel(QStringLiteral("Convert with CMark"), this);
     mainLayout->addWidget(label);
     mainLayout->addWidget(mTextEditResultCMark);
