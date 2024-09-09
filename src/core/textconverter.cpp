@@ -600,7 +600,6 @@ QString addHighlighter(const QString &str, const TextConverter::ConvertMessageTe
         // DISABLE for the momemt richTextStream << "<div>"_L1;
         iterateOverRegions(chunk, QStringLiteral("`"), addInlineCodeChunk, addInlineQuoteChunk);
         // DISABLE for the momemt richTextStream << "</div>"_L1;
-
     };
 
     iterateOverRegions(str, QStringLiteral("```"), addCodeChunk, addNonCodeChunk);
