@@ -41,14 +41,14 @@ AdministratorUsersWidget::AdministratorUsersWidget(AdministratorUsersWidget::Use
     , mUserType(type)
 {
     auto adminUsersModel = new AdminUsersModel(this);
-    adminUsersModel->setObjectName(QStringLiteral("mAdminUsersModel"));
+    adminUsersModel->setObjectName("mAdminUsersModel"_L1);
     if (account) {
         adminUsersModel->setRoles(account->roleInfo());
     }
     mModel = adminUsersModel;
 
     mProxyModelModel = new SearchTreeBaseFilterProxyModel(mModel, this);
-    mProxyModelModel->setObjectName(QStringLiteral("mAdminUsersProxyModel"));
+    mProxyModelModel->setObjectName("mAdminUsersProxyModel"_L1);
     mSearchLineEdit->setPlaceholderText(i18nc("@info:placeholder", "Search users…"));
     mTreeView->setModel(mProxyModelModel);
 
