@@ -185,6 +185,7 @@ void UserTest::shouldParseRestApiJson_data()
         expected.setUserName(QStringLiteral("username"));
         expected.setUtcOffset(0);
         expected.setRoles({QStringLiteral("user")}, {});
+        expected.setType("user"_L1);
         QDateTime createdTime;
         createdTime.setDate(QDate(2020, 10, 04));
         createdTime.setTime(QTime(22, 48, 01, 903));
@@ -200,6 +201,7 @@ void UserTest::shouldParseRestApiJson_data()
         expected.setUserId(QByteArrayLiteral("XQZAk3998f9hSNwh"));
         expected.setUserName(QStringLiteral("steffen"));
         expected.setUtcOffset(2);
+        expected.setType("user"_L1);
         expected.setRoles({QStringLiteral("user"), QStringLiteral("admin")}, {});
         QDateTime createdTime;
         createdTime.setTimeZone(QTimeZone::UTC);
