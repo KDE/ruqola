@@ -597,9 +597,10 @@ QString addHighlighter(const QString &str, const TextConverter::ConvertMessageTe
             return;
         }
 
-        richTextStream << "<div>"_L1;
+        // DISABLE for the momemt richTextStream << "<div>"_L1;
         iterateOverRegions(chunk, QStringLiteral("`"), addInlineCodeChunk, addInlineQuoteChunk);
-        richTextStream << "</div>"_L1;
+        // DISABLE for the momemt richTextStream << "</div>"_L1;
+
     };
 
     iterateOverRegions(str, QStringLiteral("```"), addCodeChunk, addNonCodeChunk);
@@ -620,7 +621,8 @@ char *TextConverter::convertMessageTextCMark(const TextConverter::ConvertMessage
     while ((ev_type = cmark_iter_next(iter)) != CMARK_EVENT_DONE) {
         cmark_node *node = cmark_iter_get_node(iter);
         std::cout << "1 " << cmark_node_get_type_string(node) << std::endl;
-        if ((cmark_node_get_type(node) == CMARK_NODE_CODE_BLOCK)) {
+        switch (cmark_node_get_type(node)) {
+        case CMARK_NODE_CODE_BLOCK: {
             const char *literal = cmark_node_get_literal(node);
             const QString stringHtml = QStringLiteral("```") + QString::fromUtf8(literal) + QStringLiteral("```");
             const QString highligherStr = addHighlighter(stringHtml, settings);
@@ -631,6 +633,24 @@ char *TextConverter::convertMessageTextCMark(const TextConverter::ConvertMessage
             cmark_node_append_child(p, htmlInline);
 
             cmark_node_replace(node, p);
+            break;
+        }
+        case CMARK_NODE_TEXT: {
+            const char *literal = cmark_node_get_literal(node);
+            qDebug() << " QString::fromUtf8(literal) " << QString::fromUtf8(literal);
+            const QString convertedString = addHighlighter(QString::fromUtf8(literal), settings);
+            qDebug() << " convert text " << convertedString;
+            cmark_node *p = cmark_node_new(CMARK_NODE_PARAGRAPH);
+
+            cmark_node *htmlInline = cmark_node_new(CMARK_NODE_HTML_INLINE);
+            cmark_node_set_literal(htmlInline, convertedString.toUtf8().constData());
+
+            cmark_node_replace(node, htmlInline);
+            break;
+        }
+
+        default:
+            break;
         }
     }
 
