@@ -7,7 +7,7 @@ target_sources(cmarktestgui PRIVATE cmarktestgui.h cmarktestgui.cpp)
 target_link_libraries(cmarktestgui
     Qt::Widgets
     Qt::Gui
-    cmark-gfm::libcmark-gfm
+    cmark-rc::libcmark-rc
     libruqolawidgets
 )
 set_target_properties(cmarktestgui PROPERTIES DISABLE_PRECOMPILE_HEADERS ON)

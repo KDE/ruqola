@@ -616,8 +616,8 @@ if(UNITY_SUPPORT)
     target_link_libraries(libruqolacore Qt::DBus)
 endif()
 
-if(TARGET cmark-gfm::cmark-gfm)
-    target_link_libraries(libruqolacore cmark-gfm::libcmark-gfm)
+if(TARGET cmark-rc::cmark-rc)
+    target_link_libraries(libruqolacore cmark-rc::libcmark-rc)
 endif()
 
 if(USE_E2E_SUPPORT)

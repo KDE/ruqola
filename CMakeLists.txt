@@ -106,16 +106,16 @@ set(KTEXTADDONS_MIN_VERSION "1.5.4")
 set(KLLMWIDGETS_VERSION "0.1.0")
 set(QT6KEYCHAIN_LIB_VERSION "0.14.2")
 
-option(TEXT_CONVERTER_CMARK_SUPPORT "Build support text converter with cmark-gfm (experimental)" OFF)
+option(TEXT_CONVERTER_CMARK_SUPPORT "Build support text converter with cmark-rc (experimental)" OFF)
 
 if(TEXT_CONVERTER_CMARK_SUPPORT)
-    find_package(cmark-gfm "0.29.0")
-    set_package_properties(cmark-gfm PROPERTIES DESCRIPTION
-        "Allow to generate html from markdown (cmark-gfm)"
+    find_package(cmark-rc "0.31.0")
+    set_package_properties(cmark-rc PROPERTIES DESCRIPTION
+        "Allow to generate html from markdown (cmark-rc)"
         TYPE OPTIONAL
     )
-    if(TARGET cmark-gfm::cmark-gfm)
-        set(USE_CMARK_GFM_RENDERING_TEXT true)
+    if(TARGET cmark-rc::cmark-rc)
+        set(USE_CMARK_RC_RENDERING_TEXT true)
     endif()
 endif()
 

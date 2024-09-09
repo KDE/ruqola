@@ -165,7 +165,7 @@ if(HAVE_TEXT_TRANSLATOR)
 endif()
 
 add_ruqola_test(appsmarketplaceinfotest.cpp)
-if(TARGET cmark-gfm::cmark-gfm)
+if(TARGET cmark-rc::cmark-rc)
     add_ruqola_test(textconvertercmarktest.cpp)
 endif()
 if(USE_E2E_SUPPORT)
