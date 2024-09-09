@@ -5,12 +5,12 @@
 */
 
 #include "adminusersmodel.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "ruqola_debug.h"
 #include "utils.h"
 #include <KLocalizedString>
 
+using namespace Qt::Literals::StringLiterals;
 AdminUsersModel::AdminUsersModel(QObject *parent)
     : DirectoryUsersModel(parent)
 {
@@ -100,6 +100,20 @@ bool AdminUsersModel::setData(const QModelIndex &id, const QVariant &value, int 
     return false;
 }
 
+QString AdminUsersModel::createRegistrationStatus(const User &user) const
+{
+    const bool lastLoginIsValid = user.lastLogin().isValid();
+    const QStringList usersExcludedFromPending = {"bot"_L1, "app"_L1};
+    if (!lastLoginIsValid && !usersExcludedFromPending.contains(user.type())) {
+        return i18n("Pending");
+    } else if (user.active() && lastLoginIsValid) {
+        return i18n("Active");
+    } else if (!user.active() && lastLoginIsValid) {
+        return i18n("Deactivated");
+    }
+    return {};
+}
+
 QVariant AdminUsersModel::headerData(int section, Qt::Orientation orientation, int role) const
 {
     if (role == Qt::DisplayRole && orientation == Qt::Horizontal) {
@@ -116,6 +130,8 @@ QVariant AdminUsersModel::headerData(int section, Qt::Orientation orientation, i
             return i18n("Disabled");
         case AdminUsersModel::Status:
             return i18n("Status");
+        case AdminUsersModel::RegistrationStatus:
+            return i18n("Registration status");
         case AdminUsersModel::UserId:
         case AdminUsersModel::ActiveUser:
         case AdminUsersRoles::Administrator:
@@ -167,6 +183,8 @@ QVariant AdminUsersModel::data(const QModelIndex &index, int role) const
         return user.userId();
     case AdminUsersRoles::Administrator:
         return user.roles().contains(QStringLiteral("admin"));
+    case AdminUsersRoles::RegistrationStatus:
+        return createRegistrationStatus(user);
     }
     return {};
 }

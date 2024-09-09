@@ -89,22 +89,6 @@ QVariant DirectoryUsersModel::data(const QModelIndex &index, int role) const
         return user.userId();
     case DirectoryUsersModel::UserName:
         return user.userName();
-    case DirectoryUsersModel::RegistrationStatus:
-        return createRegistrationStatus(user);
-    }
-    return {};
-}
-
-QString DirectoryUsersModel::createRegistrationStatus(const User &user) const
-{
-    const bool lastLoginIsValid = user.lastLogin().isValid();
-    const QStringList usersExcludedFromPending = {"bot"_L1, "app"_L1};
-    if (!lastLoginIsValid && !usersExcludedFromPending.contains(user.type())) {
-        return i18n("Pending");
-    } else if (user.active() && lastLoginIsValid) {
-        return i18n("Active");
-    } else if (!user.active() && lastLoginIsValid) {
-        return i18n("Deactivated");
     }
     return {};
 }
@@ -119,8 +103,6 @@ QVariant DirectoryUsersModel::headerData(int section, Qt::Orientation orientatio
             return i18n("Emails");
         case DirectoryUsersModel::JoinAt:
             return i18n("Join At");
-        case DirectoryUsersModel::RegistrationStatus:
-            return i18n("Registration status");
         case DirectoryUsersModel::JoinAtDateTime:
         case DirectoryUsersModel::UserId:
         case DirectoryUsersModel::UserName:

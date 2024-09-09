@@ -22,7 +22,6 @@ public:
         UserId,
         JoinAtDateTime,
         UserName,
-        RegistrationStatus,
         LastColumn = UserName,
     };
     Q_ENUM(DirectoryUsersRoles)
@@ -47,7 +46,4 @@ protected:
     Users mUsers;
     QList<RoleInfo> mRoleInfo;
     void checkFullList() override;
-
-private:
-    [[nodiscard]] LIBRUQOLACORE_NO_EXPORT QString createRegistrationStatus(const User &user) const;
 };

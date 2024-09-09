@@ -24,7 +24,8 @@ public:
         ActiveUserDisplay,
         ActiveUser,
         Administrator,
-        LastColumn = Administrator,
+        RegistrationStatus,
+        LastColumn = RegistrationStatus,
     };
     Q_ENUM(AdminUsersRoles)
 
@@ -42,4 +43,7 @@ protected:
     LIBRUQOLACORE_NO_EXPORT void removeElement(const QByteArray &identifier) override;
     LIBRUQOLACORE_NO_EXPORT void updateElement(const QJsonObject &obj) override;
     LIBRUQOLACORE_NO_EXPORT void insertElement(const QJsonObject &obj) override;
+
+private:
+    [[nodiscard]] LIBRUQOLACORE_NO_EXPORT QString createRegistrationStatus(const User &user) const;
 };
