@@ -12,7 +12,7 @@
 #include "ruqola_texttohtml_debug.h"
 #include "utils.h"
 #if USE_CMARK_RC_RENDERING_TEXT
-#include "cmark-rc.h"
+#include "cmark.h"
 #include <iostream>
 #endif
 
@@ -614,7 +614,7 @@ char *TextConverter::convertMessageTextCMark(const TextConverter::ConvertMessage
     cmark_iter *iter = cmark_iter_new(doc);
     cmark_event_type ev_type;
 
-    char *beforehtml = cmark_render_html(doc, CMARK_OPT_DEFAULT | CMARK_OPT_UNSAFE, NULL);
+    char *beforehtml = cmark_render_html(doc, CMARK_OPT_DEFAULT | CMARK_OPT_UNSAFE);
     std::cout << " beforehtml " << beforehtml << std::endl;
 
     while ((ev_type = cmark_iter_next(iter)) != CMARK_EVENT_DONE) {
@@ -669,7 +669,7 @@ char *TextConverter::convertMessageTextCMark(const TextConverter::ConvertMessage
         }*/
     }
 
-    char *html = cmark_render_html(doc, CMARK_OPT_DEFAULT | CMARK_OPT_UNSAFE, NULL);
+    char *html = cmark_render_html(doc, CMARK_OPT_DEFAULT | CMARK_OPT_UNSAFE);
     std::cout << " result " << html << std::endl;
 
     cmark_iter_free(iter);

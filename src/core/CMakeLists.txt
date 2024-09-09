@@ -617,7 +617,7 @@ if(UNITY_SUPPORT)
 endif()
 
 if(TARGET cmark-rc::cmark-rc)
-    target_link_libraries(libruqolacore cmark-rc::libcmark-rc)
+    target_link_libraries(libruqolacore cmark-rc::cmark-rc)
 endif()
 
 if(USE_E2E_SUPPORT)
