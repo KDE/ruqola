@@ -639,8 +639,6 @@ char *TextConverter::convertMessageTextCMark(const TextConverter::ConvertMessage
             qDebug() << " QString::fromUtf8(literal) " << QString::fromUtf8(literal);
             const QString convertedString = addHighlighter(QString::fromUtf8(literal), settings);
             qDebug() << " convert text " << convertedString;
-            cmark_node *p = cmark_node_new(CMARK_NODE_PARAGRAPH);
-
             cmark_node *htmlInline = cmark_node_new(CMARK_NODE_HTML_INLINE);
             cmark_node_set_literal(htmlInline, convertedString.toUtf8().constData());
 
