@@ -12,7 +12,7 @@
 #include "ruqola_texttohtml_debug.h"
 #include "utils.h"
 #if USE_CMARK_RC_RENDERING_TEXT
-#include "cmark.h"
+#include "cmark-rc.h"
 #include <iostream>
 #endif
 
