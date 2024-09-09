@@ -16,6 +16,7 @@
 #include "notificationhistorymanager.h"
 #include "rocketchaturlutils.h"
 #include "ruqolaglobalconfig.h"
+#include "ruqolalogger.h"
 #include "ruqolawidgets_debug.h"
 #include "servererrorinfohistory/servererrorinfomessagehistorydialog.h"
 
@@ -481,14 +482,26 @@ void RuqolaMainWindow::setupActions()
         ac->addAction(QStringLiteral("debug_menu"), mMenuDebug);
         auto menu = new QMenu(this);
         mMenuDebug->setMenu(menu);
-        mShowDatabaseMessages = new QAction(QStringLiteral("Show Database Messages"), this);
+        mShowDatabaseMessages = new QAction(QStringLiteral("Show Database Messages…"), this);
         connect(mShowDatabaseMessages, &QAction::triggered, this, &RuqolaMainWindow::slotShowDatabaseMessages);
         ac->addAction(QStringLiteral("show_database_messages"), mShowDatabaseMessages);
         menu->addAction(mShowDatabaseMessages);
-        mShowPermissions = new QAction(QStringLiteral("Show Permissions"), this);
+        menu->addSeparator();
+        mShowPermissions = new QAction(QStringLiteral("Show Permissions…"), this);
         connect(mShowPermissions, &QAction::triggered, this, &RuqolaMainWindow::slotShowPermissions);
         ac->addAction(QStringLiteral("show_permissions"), mShowPermissions);
         menu->addAction(mShowPermissions);
+        menu->addSeparator();
+        mShowLogsFile = new QAction(QStringLiteral("Show Ruqola Logs…"), this);
+        connect(mShowLogsFile, &QAction::triggered, this, &RuqolaMainWindow::slotShowLogsFile);
+        ac->addAction(QStringLiteral("show_ruqola_logs"), mShowLogsFile);
+        menu->addAction(mShowLogsFile);
+
+        menu->addSeparator();
+        mShowRestApiLogsFile = new QAction(QStringLiteral("Show Ruqola Logs…"), this);
+        connect(mShowRestApiLogsFile, &QAction::triggered, this, &RuqolaMainWindow::slotShowRestApiLogsFile);
+        ac->addAction(QStringLiteral("show_ruqola_restapi_logs"), mShowRestApiLogsFile);
+        menu->addAction(mShowRestApiLogsFile);
     }
 
     mClearAlerts = new QAction(i18nc("@action", "Mark All Channels as Read"), this);
@@ -955,6 +968,12 @@ void RuqolaMainWindow::slotDisableActions(bool loginPageActivated)
     mAdministrationMenu->setEnabled(!loginPageActivated);
     mMessageStyleAction->setEnabled(!loginPageActivated);
     mChangeFontSizeAction->setEnabled(!loginPageActivated);
+    if (mShowLogsFile) {
+        mShowLogsFile->setEnabled(mCurrentRocketChatAccount && mCurrentRocketChatAccount->ruqolaLogger());
+    }
+    if (mShowRestApiLogsFile) {
+        mShowRestApiLogsFile->setEnabled(mCurrentRocketChatAccount && mCurrentRocketChatAccount->ruqolaLogger());
+    }
 }
 
 void RuqolaMainWindow::slotConfigureNotifications()
@@ -1255,6 +1274,22 @@ void RuqolaMainWindow::slotClearRoomHistory()
     if (room) {
         room->clearHistory();
     }
+}
+
+void RuqolaMainWindow::slotShowLogsFile()
+{
+    auto job = new KIO::OpenUrlJob(QUrl::fromLocalFile(mCurrentRocketChatAccount->ruqolaLogger()->loggerFilePath()), this);
+    job->setUiDelegate(KIO::createDefaultJobUiDelegate(KJobUiDelegate::AutoHandlingEnabled, this));
+    job->setDeleteTemporaryFile(true);
+    job->start();
+}
+
+void RuqolaMainWindow::slotShowRestApiLogsFile()
+{
+    auto job = new KIO::OpenUrlJob(QUrl::fromLocalFile(mCurrentRocketChatAccount->ruqolaLogger()->restApiLoggerFilePath()), this);
+    job->setUiDelegate(KIO::createDefaultJobUiDelegate(KJobUiDelegate::AutoHandlingEnabled, this));
+    job->setDeleteTemporaryFile(true);
+    job->start();
 }
 
 #include "moc_ruqolamainwindow.cpp"

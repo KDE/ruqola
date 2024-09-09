@@ -6,10 +6,10 @@
 
 #pragma once
 #include "abstractlogger.h"
-
+#include "libruqolacore_export.h"
 #include <QFile>
 
-class RuqolaLogger : public RocketChatRestApi::AbstractLogger
+class LIBRUQOLACORE_EXPORT RuqolaLogger : public RocketChatRestApi::AbstractLogger
 {
 public:
     explicit RuqolaLogger(const QString &accountName = QString());
@@ -17,6 +17,9 @@ public:
     void dataSent(const QByteArray &data) override;
     void dataSent(DataType type, const QByteArray &label, const QByteArray &data) override;
     void dataReceived(const QByteArray &data) override;
+
+    [[nodiscard]] QString loggerFilePath() const;
+    [[nodiscard]] QString restApiLoggerFilePath() const;
 
 private:
     Q_DISABLE_COPY(RuqolaLogger)

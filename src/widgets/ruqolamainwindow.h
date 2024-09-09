@@ -122,6 +122,8 @@ private:
     LIBRUQOLAWIDGETS_NO_EXPORT void slotApplicationsRequestedSettings();
     LIBRUQOLAWIDGETS_NO_EXPORT void slotApplicationsInstalledSettings();
     LIBRUQOLAWIDGETS_NO_EXPORT void slotClearRoomHistory();
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotShowLogsFile();
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotShowRestApiLogsFile();
 
     bool mReallyClose{false};
 
@@ -173,6 +175,8 @@ private:
     QAction *mShowDatabaseMessages = nullptr;
     QAction *mMenuDebug = nullptr;
     QAction *mShowPermissions = nullptr;
+    QAction *mShowLogsFile = nullptr;
+    QAction *mShowRestApiLogsFile = nullptr;
 
     QAction *mImportAccountsAction = nullptr;
     QAction *mExportAccountsAction = nullptr;

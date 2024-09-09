@@ -30,14 +30,24 @@ RuqolaLogger::RuqolaLogger(const QString &accountName)
     }
 
     // No convert to qCDebug as we want to see this info.
-    qDebug() << "Log in file: " << QFileInfo(mLoggerFile.fileName()).absoluteFilePath();
-    qDebug() << "Log send RESTAPI in file: " << QFileInfo(mRestApiLogFile.fileName()).absoluteFilePath();
+    qDebug() << "Log in file: " << loggerFilePath();
+    qDebug() << "Log send RESTAPI in file: " << restApiLoggerFilePath();
 }
 
 RuqolaLogger::~RuqolaLogger()
 {
     mLoggerFile.close();
     mRestApiLogFile.close();
+}
+
+QString RuqolaLogger::loggerFilePath() const
+{
+    return QFileInfo(mLoggerFile.fileName()).absoluteFilePath();
+}
+
+QString RuqolaLogger::restApiLoggerFilePath() const
+{
+    return QFileInfo(mRestApiLogFile.fileName()).absoluteFilePath();
 }
 
 void RuqolaLogger::dataSent(DataType type, const QByteArray &label, const QByteArray &data)
