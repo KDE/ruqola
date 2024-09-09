@@ -631,20 +631,6 @@ char *TextConverter::convertMessageTextCMark(const TextConverter::ConvertMessage
             cmark_node_append_child(p, htmlInline);
 
             cmark_node_replace(node, p);
-        } else if (cmark_node_get_type(node) == CMARK_NODE_EMPH) {
-            // TODO ???
-            cmark_node *j = cmark_node_first_child(node);
-            if (cmark_node_get_type(j) == CMARK_NODE_TEXT) {
-                qDebug() << " TEST **********" << cmark_node_get_literal(j);
-                cmark_node *p = cmark_node_new(CMARK_NODE_STRONG);
-                cmark_node *htmlInline = cmark_node_new(CMARK_NODE_TEXT);
-                qDebug() << " ddd " << cmark_node_get_literal(node);
-                cmark_node_set_literal(htmlInline, cmark_node_get_literal(j));
-                cmark_node_append_child(p, htmlInline);
-
-                // cmark_node_set_literal(p, cmark_node_get_literal(node));
-                cmark_node_replace(node, p);
-            }
         }
 
         /*} /*else if (cmark_node_get_type(node) == CMARK_NODE_TEXT) {
