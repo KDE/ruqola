@@ -632,27 +632,6 @@ char *TextConverter::convertMessageTextCMark(const TextConverter::ConvertMessage
 
             cmark_node_replace(node, p);
         }
-
-        /*} /*else if (cmark_node_get_type(node) == CMARK_NODE_TEXT) {
-            const char *literal = cmark_node_get_literal(node);
-            const QString stringHtml = QString::fromUtf8(literal);
-            const QString highligherStr = addHighlighter(stringHtml, settings);
-            qDebug() << "highligherStr **** " << highligherStr;
-            cmark_node *p = cmark_node_new(CMARK_NODE_PARAGRAPH);
-            cmark_node *htmlInline = cmark_node_new(CMARK_NODE_HTML_INLINE);
-            cmark_node_set_literal(htmlInline, highligherStr.toUtf8().constData());
-            cmark_node_append_child(p, htmlInline);
-
-            cmark_node_replace(cmark_node_parent(node), p);
-
-            // We need to replace parent
-            // cmark_node_append_child(node, htmlInline);
-            // free node
-            // cmark_node_free(node);
-
-            char *tmphtml = cmark_render_html(doc, CMARK_OPT_DEFAULT | CMARK_OPT_UNSAFE);
-            std::cout << " tmphtml " << tmphtml << std::endl;
-        }*/
     }
 
     char *html = cmark_render_html(doc, CMARK_OPT_DEFAULT | CMARK_OPT_UNSAFE);
