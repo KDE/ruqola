@@ -5,7 +5,6 @@
 */
 
 #include "sendinvitationemailjob.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "restapimethod.h"
 #include "rocketchatqtrestapi_debug.h"
@@ -13,6 +12,7 @@ using namespace Qt::Literals::StringLiterals;
 #include <QJsonArray>
 #include <QJsonDocument>
 #include <QJsonObject>
+using namespace Qt::Literals::StringLiterals;
 using namespace RocketChatRestApi;
 SendInvitationEmailJob::SendInvitationEmailJob(QObject *parent)
     : RestApiAbstractJob(parent)
