@@ -52,7 +52,7 @@ void AdministratorUsersPendingActionDelegate::drawFocus(QPainter *painter, const
 
 QStyleOptionButton AdministratorUsersPendingActionDelegate::buttonOption(const QStyleOptionViewItem &option, const QModelIndex &index) const
 {
-    const QString label = index.data(AdminUsersPendingModel::PendingActionButtonText).toString();
+    const QString label = index.model()->index(index.row(), AdminUsersPendingModel::PendingActionButtonText).data().toString();
     QStyleOptionButton buttonOpt;
     QRect buttonRect = option.rect;
     const int height = option.rect.height();
