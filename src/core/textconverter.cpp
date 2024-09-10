@@ -13,6 +13,7 @@
 #include "utils.h"
 #if USE_CMARK_RC_RENDERING_TEXT
 #include "cmark-rc.h"
+#include "ruqola_texttohtml_cmark_debug.h"
 #include <iostream>
 #endif
 
@@ -340,7 +341,7 @@ QString generateRichText(const QString &str,
 
 QString TextConverter::convertMessageText(const ConvertMessageTextSettings &settings, QByteArray &needUpdateMessageId, int &recusiveIndex)
 {
-#if 0
+#if 1
 #if USE_CMARK_RC_RENDERING_TEXT
     return TextConverter::convertMessageTextCMark(settings, needUpdateMessageId, recusiveIndex);
 #else
@@ -522,17 +523,17 @@ QString markdownToRichTextCMark(const QString &markDown)
         return {};
     }
 
-    qCDebug(RUQOLA_TEXTTOHTML_LOG) << "BEFORE markdownToRichText " << markDown;
+    qCDebug(RUQOLA_TEXTTOHTML_CMARK_LOG) << "BEFORE markdownToRichText " << markDown;
     QString str = markDown;
 
     const RuqolaKTextToHTML::Options convertFlags = RuqolaKTextToHTML::HighlightText | RuqolaKTextToHTML::ConvertPhoneNumbers;
     str = RuqolaKTextToHTML::convertToHtml(str, convertFlags);
-    qCDebug(RUQOLA_TEXTTOHTML_LOG) << " AFTER convertToHtml " << str;
+    qCDebug(RUQOLA_TEXTTOHTML_CMARK_LOG) << " AFTER convertToHtml " << str;
     // substitute "[example.com](<a href="...">...</a>)" style urls
     str = Utils::convertTextWithUrl(str);
     // Substiture "- [ ] foo" and "- [x] foo" to checkmark
     str = Utils::convertTextWithCheckMark(str);
-    qCDebug(RUQOLA_TEXTTOHTML_LOG) << " AFTER convertTextWithUrl " << str;
+    qCDebug(RUQOLA_TEXTTOHTML_CMARK_LOG) << " AFTER convertTextWithUrl " << str;
 
     return str;
 }
@@ -729,7 +730,6 @@ void iterateOverRegionsCmark(const QString &str, const QString &regionMarker, In
             break;
         }
 
-        // Fix me in cmark-rc => we remove space it's not good
         const auto codeBlock = str.mid(startIndex + markerSize, endIndex - startIndex - markerSize).trimmed();
 
         outsideRegion(str.mid(startFrom, startIndex - startFrom));
@@ -820,6 +820,7 @@ QString addHighlighter(const QString &str, const TextConverter::ConvertMessageTe
         iterateOverEndLineRegions(chunk, QStringLiteral(">"), addInlineQuoteCodeChunk, addTextChunk, addInlineQuoteCodeNewLineChunk);
     };
     auto addNonCodeChunk = [&](QString chunk) {
+        qDebug() << " chunk " << chunk;
         // chunk = chunk.trimmed();
         if (chunk.isEmpty()) {
             return;
@@ -832,29 +833,31 @@ QString addHighlighter(const QString &str, const TextConverter::ConvertMessageTe
 
     iterateOverRegionsCmark(str, QStringLiteral("```"), addCodeChunk, addNonCodeChunk);
 
-    qDebug() << " *************************************richText " << richText;
+    qCDebug(RUQOLA_TEXTTOHTML_CMARK_LOG) << " richText generated: " << richText;
     return richText;
 }
 
 #define DEBUG_CMARK_RC
 char *TextConverter::convertMessageTextCMark(const TextConverter::ConvertMessageTextSettings &settings)
 {
-    cmark_node *doc = cmark_parse_document(settings.str.toUtf8().constData(), settings.str.length(), CMARK_OPT_DEFAULT);
+    const QByteArray ba = settings.str.toUtf8();
+    cmark_node *doc = cmark_parse_document(ba.constData(), ba.length(), CMARK_OPT_DEFAULT);
     cmark_iter *iter = cmark_iter_new(doc);
     cmark_event_type ev_type;
 #ifdef DEBUG_CMARK_RC
     char *beforehtml = cmark_render_html(doc, CMARK_OPT_DEFAULT | CMARK_OPT_UNSAFE);
-    std::cout << " beforehtml " << beforehtml << std::endl;
+    qCDebug(RUQOLA_TEXTTOHTML_CMARK_LOG) << " beforehtml " << beforehtml;
     delete beforehtml;
 #endif
 
     while ((ev_type = cmark_iter_next(iter)) != CMARK_EVENT_DONE) {
         cmark_node *node = cmark_iter_get_node(iter);
-        std::cout << "1 " << cmark_node_get_type_string(node) << std::endl;
+        qCDebug(RUQOLA_TEXTTOHTML_CMARK_LOG) << "type element " << cmark_node_get_type_string(node);
         switch (cmark_node_get_type(node)) {
         case CMARK_NODE_CODE_BLOCK: {
             const char *literal = cmark_node_get_literal(node);
             const QString stringHtml = QStringLiteral("```") + QString::fromUtf8(literal) + QStringLiteral("```");
+            qDebug() << " stringHtml " << stringHtml;
             const QString highligherStr = addHighlighter(stringHtml, settings);
             cmark_node *p = cmark_node_new(CMARK_NODE_PARAGRAPH);
 
@@ -867,10 +870,11 @@ char *TextConverter::convertMessageTextCMark(const TextConverter::ConvertMessage
         }
         case CMARK_NODE_TEXT: {
             const char *literal = cmark_node_get_literal(node);
-            qDebug() << " QString::fromUtf8(literal) " << QString::fromUtf8(literal);
-            // FIXME don't use addHighlighter reimplement code.
+            qDebug() << " literal" << literal;
+            qCDebug(RUQOLA_TEXTTOHTML_CMARK_LOG) << "CMARK_NODE_TEXT: QString::fromUtf8(literal) " << QString::fromUtf8(literal);
+
             const QString convertedString = addHighlighter(QString::fromUtf8(literal), settings);
-            qDebug() << " convert text " << convertedString;
+            qCDebug(RUQOLA_TEXTTOHTML_CMARK_LOG) << "CMARK_NODE_TEXT: convert text " << convertedString;
             cmark_node *htmlInline = cmark_node_new(CMARK_NODE_HTML_INLINE);
             cmark_node_set_literal(htmlInline, convertedString.toUtf8().constData());
 
@@ -880,10 +884,10 @@ char *TextConverter::convertMessageTextCMark(const TextConverter::ConvertMessage
         case CMARK_NODE_DOCUMENT:
         case CMARK_NODE_CODE: {
             const char *literal = cmark_node_get_literal(node);
-            qDebug() << " QString::fromUtf8(literal) code" << QString::fromUtf8(literal);
+            qCDebug(RUQOLA_TEXTTOHTML_CMARK_LOG) << "CMARK_NODE_CODE:  QString::fromUtf8(literal) code" << QString::fromUtf8(literal);
             const QString stringHtml = QStringLiteral("`") + QString::fromUtf8(literal) + QStringLiteral("`");
             const QString convertedString = addHighlighter(stringHtml, settings);
-            qDebug() << " convert text " << convertedString;
+            qCDebug(RUQOLA_TEXTTOHTML_CMARK_LOG) << "CMARK_NODE_CODE:  convert text " << convertedString;
             cmark_node *htmlInline = cmark_node_new(CMARK_NODE_HTML_INLINE);
             cmark_node_set_literal(htmlInline, convertedString.toUtf8().constData());
 
@@ -901,7 +905,7 @@ char *TextConverter::convertMessageTextCMark(const TextConverter::ConvertMessage
     }
 
     char *html = cmark_render_html(doc, CMARK_OPT_DEFAULT | CMARK_OPT_UNSAFE);
-    std::cout << " result " << html << std::endl;
+    qCDebug(RUQOLA_TEXTTOHTML_CMARK_LOG) << " generated html: " << html;
 
     cmark_iter_free(iter);
     cmark_node_free(doc);
