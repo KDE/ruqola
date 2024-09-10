@@ -5,7 +5,6 @@
 */
 #include "administratoruserspendingactiondelegate.h"
 #include "model/adminuserspendingmodel.h"
-#include <KLocalizedString>
 #include <QApplication>
 #include <QEvent>
 #include <QMouseEvent>
