@@ -17,6 +17,11 @@ public:
 
     void paint(QPainter *painter, const QStyleOptionViewItem &option, const QModelIndex &index) const override;
 
+    QWidget *createEditor(QWidget *, const QStyleOptionViewItem &, const QModelIndex &) const override;
+    bool editorEvent(QEvent *event, QAbstractItemModel *model, const QStyleOptionViewItem &option, const QModelIndex &index) override;
 Q_SIGNALS:
     void pendingActionActivated();
+
+private:
+    [[nodiscard]] QStyleOptionButton buttonOption(const QStyleOptionViewItem &option) const;
 };
