@@ -28,8 +28,6 @@ void AdministratorUsersPendingActionDelegate::paint(QPainter *painter, const QSt
     QApplication::style()->drawPrimitive(QStyle::PE_PanelItemViewItem, &opt, painter);
 
     painter->save();
-    // painter->translate(option.rect.topLeft());
-
     QStyleOptionButton buttonOpt = buttonOption(option);
     painter->setRenderHint(QPainter::Antialiasing);
     QApplication::style()->drawControl(QStyle::CE_PushButton, &buttonOpt, painter);
@@ -53,12 +51,11 @@ void AdministratorUsersPendingActionDelegate::drawFocus(QPainter *painter, const
 
 QStyleOptionButton AdministratorUsersPendingActionDelegate::buttonOption(const QStyleOptionViewItem &option) const
 {
-    const QString label = i18n("Retrieval Options");
+    const QString label = i18n("Retrieval Options"); // TODO fix i18n
     QStyleOptionButton buttonOpt;
     QRect buttonRect = option.rect;
     const int height = option.rect.height();
-    const int width = 22 + option.fontMetrics.boundingRect(label).width() + 40; // icon size + label size + arrow and padding
-    buttonRect.setTop(0);
+    const int width = 22 + option.fontMetrics.boundingRect(label).width() + 40;
     buttonRect.setHeight(height);
     buttonRect.setLeft(option.rect.right() - width);
     buttonRect.setWidth(width);
