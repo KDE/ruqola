@@ -23,8 +23,12 @@ void AdministratorUsersPendingActionDelegate::paint(QPainter *painter, const QSt
         return;
     }
 
+    QStyleOptionViewItem opt(option);
+    opt.showDecorationSelected = true;
+    QApplication::style()->drawPrimitive(QStyle::PE_PanelItemViewItem, &opt, painter);
+
     painter->save();
-    painter->translate(option.rect.topLeft());
+    // painter->translate(option.rect.topLeft());
 
     QStyleOptionButton buttonOpt = buttonOption(option);
     painter->setRenderHint(QPainter::Antialiasing);
@@ -52,7 +56,7 @@ QStyleOptionButton AdministratorUsersPendingActionDelegate::buttonOption(const Q
     const QString label = i18n("Retrieval Options");
     QStyleOptionButton buttonOpt;
     QRect buttonRect = option.rect;
-    const int height = option.rect.height() / 2;
+    const int height = option.rect.height();
     const int width = 22 + option.fontMetrics.boundingRect(label).width() + 40; // icon size + label size + arrow and padding
     buttonRect.setTop(0);
     buttonRect.setHeight(height);
@@ -112,7 +116,7 @@ bool AdministratorUsersPendingActionDelegate::editorEvent(QEvent *event,
 
 QSize AdministratorUsersPendingActionDelegate::sizeHint(const QStyleOptionViewItem &option, const QModelIndex &) const
 {
-    const int textHeight = option.fontMetrics.height() + qMax(option.fontMetrics.height(), 16); // height of text + icon/text + padding either side
+    const int textHeight = option.fontMetrics.height() + qMax(option.fontMetrics.height(), 16); // height of text
 
     return {1, textHeight}; // any width,the view will give us the whole thing in list mode
 }
