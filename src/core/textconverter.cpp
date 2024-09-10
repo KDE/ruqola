@@ -856,16 +856,19 @@ char *TextConverter::convertMessageTextCMark(const TextConverter::ConvertMessage
         switch (cmark_node_get_type(node)) {
         case CMARK_NODE_CODE_BLOCK: {
             const char *literal = cmark_node_get_literal(node);
-            const QString stringHtml = QStringLiteral("```") + QString::fromUtf8(literal) + QStringLiteral("```");
-            qDebug() << " stringHtml " << stringHtml;
-            const QString highligherStr = addHighlighter(stringHtml, settings);
-            cmark_node *p = cmark_node_new(CMARK_NODE_PARAGRAPH);
+            const QString str = QString::fromUtf8(literal);
+            if (!str.isEmpty()) {
+                const QString stringHtml = QStringLiteral("```") + QString::fromUtf8(literal) + QStringLiteral("```");
+                qDebug() << " stringHtml " << stringHtml;
+                const QString highligherStr = addHighlighter(stringHtml, settings);
+                cmark_node *p = cmark_node_new(CMARK_NODE_PARAGRAPH);
 
-            cmark_node *htmlInline = cmark_node_new(CMARK_NODE_HTML_INLINE);
-            cmark_node_set_literal(htmlInline, highligherStr.toUtf8().constData());
-            cmark_node_append_child(p, htmlInline);
+                cmark_node *htmlInline = cmark_node_new(CMARK_NODE_HTML_INLINE);
+                cmark_node_set_literal(htmlInline, highligherStr.toUtf8().constData());
+                cmark_node_append_child(p, htmlInline);
 
-            cmark_node_replace(node, p);
+                cmark_node_replace(node, p);
+            }
             break;
         }
         case CMARK_NODE_TEXT: {
@@ -873,28 +876,35 @@ char *TextConverter::convertMessageTextCMark(const TextConverter::ConvertMessage
             qDebug() << " literal" << literal;
             qCDebug(RUQOLA_TEXTTOHTML_CMARK_LOG) << "CMARK_NODE_TEXT: QString::fromUtf8(literal) " << QString::fromUtf8(literal);
 
-            const QString convertedString = addHighlighter(QString::fromUtf8(literal), settings);
-            qCDebug(RUQOLA_TEXTTOHTML_CMARK_LOG) << "CMARK_NODE_TEXT: convert text " << convertedString;
-            cmark_node *htmlInline = cmark_node_new(CMARK_NODE_HTML_INLINE);
-            cmark_node_set_literal(htmlInline, convertedString.toUtf8().constData());
+            const QString str = QString::fromUtf8(literal);
+            if (!str.isEmpty()) {
+                const QString convertedString = addHighlighter(QString::fromUtf8(literal), settings);
+                qCDebug(RUQOLA_TEXTTOHTML_CMARK_LOG) << "CMARK_NODE_TEXT: convert text " << convertedString;
+                cmark_node *htmlInline = cmark_node_new(CMARK_NODE_HTML_INLINE);
+                cmark_node_set_literal(htmlInline, convertedString.toUtf8().constData());
 
-            cmark_node_replace(node, htmlInline);
+                cmark_node_replace(node, htmlInline);
+            }
             break;
         }
         case CMARK_NODE_DOCUMENT:
         case CMARK_NODE_CODE: {
             const char *literal = cmark_node_get_literal(node);
             qCDebug(RUQOLA_TEXTTOHTML_CMARK_LOG) << "CMARK_NODE_CODE:  QString::fromUtf8(literal) code" << QString::fromUtf8(literal);
-            const QString stringHtml = QStringLiteral("`") + QString::fromUtf8(literal) + QStringLiteral("`");
-            const QString convertedString = addHighlighter(stringHtml, settings);
-            qCDebug(RUQOLA_TEXTTOHTML_CMARK_LOG) << "CMARK_NODE_CODE:  convert text " << convertedString;
-            cmark_node *htmlInline = cmark_node_new(CMARK_NODE_HTML_INLINE);
-            cmark_node_set_literal(htmlInline, convertedString.toUtf8().constData());
+            const QString str = QString::fromUtf8(literal);
+            if (!str.isEmpty()) {
+                const QString stringHtml = QStringLiteral("`") + str + QStringLiteral("`");
+                const QString convertedString = addHighlighter(stringHtml, settings);
+                qCDebug(RUQOLA_TEXTTOHTML_CMARK_LOG) << "CMARK_NODE_CODE:  convert text " << convertedString;
+                cmark_node *htmlInline = cmark_node_new(CMARK_NODE_HTML_INLINE);
+                cmark_node_set_literal(htmlInline, convertedString.toUtf8().constData());
 
-            cmark_node_replace(node, htmlInline);
+                cmark_node_replace(node, htmlInline);
+            }
             break;
         }
         case CMARK_NODE_BLOCK_QUOTE: {
+            qDebug() << "CMARK_NODE_BLOCK_QUOTE************************* ";
             // TODO
             break;
         }
