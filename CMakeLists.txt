@@ -2,9 +2,9 @@
 # SPDX-License-Identifier: BSD-3-Clause
 
 cmake_minimum_required(VERSION 3.16 FATAL_ERROR)
-set(RUQOLA_VERSION "2.2.80")
+set(RUQOLA_VERSION "2.2.81")
 # TODO: update it in each release version
-set(RUQOLA_RELEASE_VERSION "24.09.05") # yy.MM.dd
+set(RUQOLA_RELEASE_VERSION "24.09.10") # yy.MM.dd
 
 project(Ruqola VERSION ${RUQOLA_VERSION})
 set(QT_REQUIRED_VERSION "6.6.0")
