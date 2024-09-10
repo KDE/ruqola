@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-06-10 02:50+0000\n"
-"PO-Revision-Date: 2024-08-02 09:53+0200\n"
+"PO-Revision-Date: 2024-09-09 12:32+0200\n"
 "Last-Translator: giovanni <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
 "Language: ia\n"
@@ -2181,7 +2181,7 @@ msgstr "Un indicio (token) con iste nomine ja existe"
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:415
 #, kde-format
 msgid "Token does not exists"
-msgstr "Indicio (token) nonn existe"
+msgstr "Indicio (token) non existe"
 
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:418
 #, kde-format
