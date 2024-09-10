@@ -877,6 +877,7 @@ char *TextConverter::convertMessageTextCMark(const TextConverter::ConvertMessage
             cmark_node_replace(node, htmlInline);
             break;
         }
+        case CMARK_NODE_DOCUMENT:
         case CMARK_NODE_CODE: {
             const char *literal = cmark_node_get_literal(node);
             qDebug() << " QString::fromUtf8(literal) code" << QString::fromUtf8(literal);
