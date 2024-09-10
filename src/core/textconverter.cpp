@@ -639,6 +639,7 @@ char *TextConverter::convertMessageTextCMark(const TextConverter::ConvertMessage
         case CMARK_NODE_TEXT: {
             const char *literal = cmark_node_get_literal(node);
             qDebug() << " QString::fromUtf8(literal) " << QString::fromUtf8(literal);
+            // FIXME don't use addHighlighter reimplement code.
             const QString convertedString = addHighlighter(QString::fromUtf8(literal), settings);
             qDebug() << " convert text " << convertedString;
             cmark_node *htmlInline = cmark_node_new(CMARK_NODE_HTML_INLINE);
