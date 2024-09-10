@@ -23,10 +23,28 @@ void AdministratorUsersPendingActionDelegate::paint(QPainter *painter, const QSt
         return;
     }
 
+    painter->save();
+    painter->translate(option.rect.topLeft());
+
     QStyleOptionButton buttonOpt = buttonOption(option);
     painter->setRenderHint(QPainter::Antialiasing);
     QApplication::style()->drawControl(QStyle::CE_PushButton, &buttonOpt, painter);
-    // TODO
+
+    painter->restore();
+    drawFocus(painter, option, option.rect);
+}
+
+void AdministratorUsersPendingActionDelegate::drawFocus(QPainter *painter, const QStyleOptionViewItem &option, const QRect &rect) const
+{
+    if (option.state & QStyle::State_HasFocus) {
+        QStyleOptionFocusRect o;
+        o.QStyleOption::operator=(option);
+        o.rect = rect;
+        o.state |= QStyle::State_KeyboardFocusChange;
+        QPalette::ColorGroup cg = (option.state & QStyle::State_Enabled) ? QPalette::Normal : QPalette::Disabled;
+        o.backgroundColor = option.palette.color(cg, (option.state & QStyle::State_Selected) ? QPalette::Highlight : QPalette::Window);
+        QApplication::style()->drawPrimitive(QStyle::PE_FrameFocusRect, &o, painter);
+    }
 }
 
 QStyleOptionButton AdministratorUsersPendingActionDelegate::buttonOption(const QStyleOptionViewItem &option) const
@@ -90,6 +108,13 @@ bool AdministratorUsersPendingActionDelegate::editorEvent(QEvent *event,
         }
     }
     return false;
+}
+
+QSize AdministratorUsersPendingActionDelegate::sizeHint(const QStyleOptionViewItem &option, const QModelIndex &) const
+{
+    const int textHeight = option.fontMetrics.height() + qMax(option.fontMetrics.height(), 16); // height of text + icon/text + padding either side
+
+    return {1, textHeight}; // any width,the view will give us the whole thing in list mode
 }
 
 #include "moc_administratoruserspendingactiondelegate.cpp"

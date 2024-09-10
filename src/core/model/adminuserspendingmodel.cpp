@@ -41,6 +41,7 @@ bool AdminUsersPendingModel::setData(const QModelIndex &id, const QVariant &valu
     case AdminUsersPendingRoles::UserId:
     case AdminUsersPendingRoles::ActiveUserDisplay:
     case AdminUsersPendingRoles::Administrator:
+    case AdminUsersPendingRoles::PendingActionButton:
         return false;
     }
     return false;
@@ -67,11 +68,12 @@ QVariant AdminUsersPendingModel::headerData(int section, Qt::Orientation orienta
             return i18n("Disabled");
         case AdminUsersPendingModel::Status:
             return i18n("Status");
-        case AdminUsersPendingModel::PendingAction:
+        case AdminUsersPendingModel::PendingActionInfo:
             return i18n("Pending action");
         case AdminUsersPendingModel::UserId:
         case AdminUsersPendingModel::ActiveUser:
         case AdminUsersPendingRoles::Administrator:
+        case AdminUsersPendingRoles::PendingActionButton:
             return {};
         }
     }
@@ -120,8 +122,10 @@ QVariant AdminUsersPendingModel::data(const QModelIndex &index, int role) const
         return user.userId();
     case AdminUsersPendingRoles::Administrator:
         return user.roles().contains(QStringLiteral("admin"));
-    case AdminUsersPendingRoles::PendingAction:
+    case AdminUsersPendingRoles::PendingActionInfo:
         return createPendingAction(user);
+    case AdminUsersPendingRoles::PendingActionButton:
+        return {};
     }
     return {};
 }

@@ -24,8 +24,9 @@ public:
         ActiveUserDisplay,
         ActiveUser,
         Administrator,
-        PendingAction,
-        LastColumn = PendingAction,
+        PendingActionInfo,
+        PendingActionButton,
+        LastColumn = PendingActionButton,
     };
     Q_ENUM(AdminUsersPendingRoles)
 

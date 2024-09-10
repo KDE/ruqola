@@ -9,6 +9,7 @@
 
 #include "administratoradduserdialog.h"
 #include "administratorinviteusersdialog.h"
+#include "administratoruserspendingactiondelegate.h"
 #include "connection.h"
 #include "dialogs/confirmpassworddialog.h"
 #include "invite/sendinvitationemailjob.h"
@@ -46,6 +47,7 @@ AdministratorUsersWidget::AdministratorUsersWidget(AdministratorUsersWidget::Use
         adminUsersModel = new AdminUsersAllModel(this);
     } else {
         adminUsersModel = new AdminUsersPendingModel(this);
+        mTreeView->setItemDelegateForColumn(AdminUsersPendingModel::PendingActionButton, new AdministratorUsersPendingActionDelegate(this));
     }
 
     adminUsersModel->setObjectName("mAdminUsersModel"_L1);

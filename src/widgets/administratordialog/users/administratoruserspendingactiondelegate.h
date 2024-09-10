@@ -19,9 +19,11 @@ public:
 
     QWidget *createEditor(QWidget *, const QStyleOptionViewItem &, const QModelIndex &) const override;
     bool editorEvent(QEvent *event, QAbstractItemModel *model, const QStyleOptionViewItem &option, const QModelIndex &index) override;
+    QSize sizeHint(const QStyleOptionViewItem &option, const QModelIndex &) const override;
 Q_SIGNALS:
     void pendingActionActivated();
 
 private:
     [[nodiscard]] QStyleOptionButton buttonOption(const QStyleOptionViewItem &option) const;
+    void drawFocus(QPainter *painter, const QStyleOptionViewItem &option, const QRect &rect) const;
 };
