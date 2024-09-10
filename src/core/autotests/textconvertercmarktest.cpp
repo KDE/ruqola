@@ -238,7 +238,7 @@ void TextConverterCMarkTest::shouldConvertTextWithEmoji_data()
     QTest::newRow("bold") << QStringLiteral("*foo*") << QStringLiteral("<p><strong>foo</strong></p>\n") << QStringLiteral("www.kde.org");
     QTest::newRow("italic") << QStringLiteral("_foo_") << QStringLiteral("<p><em>foo</em></p>\n") << QStringLiteral("www.kde.org");
     // TODO error
-    QTest::newRow("italic2") << QStringLiteral("_personal: theming related tasks_") << QStringLiteral("<p><i>personal: theming related tasks</i></p>\n")
+    QTest::newRow("italic2") << QStringLiteral("_personal: theming related tasks_") << QStringLiteral("<p><em>personal: theming related tasks</em></p>\n")
                              << QStringLiteral("www.kde.org");
     QTest::newRow("simpletext") << QStringLiteral("foo") << QStringLiteral("<p>foo</p>\n") << QStringLiteral("www.kde.org");
     QTest::newRow("customemojiwithmanager") << QStringLiteral(":foo:") << QStringLiteral("<p>:foo:</p>\n") << QStringLiteral("www.kde.org");
