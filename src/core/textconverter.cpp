@@ -616,6 +616,7 @@ char *TextConverter::convertMessageTextCMark(const TextConverter::ConvertMessage
 
     char *beforehtml = cmark_render_html(doc, CMARK_OPT_DEFAULT | CMARK_OPT_UNSAFE);
     std::cout << " beforehtml " << beforehtml << std::endl;
+    delete beforehtml;
 
     while ((ev_type = cmark_iter_next(iter)) != CMARK_EVENT_DONE) {
         cmark_node *node = cmark_iter_get_node(iter);
