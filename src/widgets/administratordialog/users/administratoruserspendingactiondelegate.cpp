@@ -97,11 +97,6 @@ bool AdministratorUsersPendingActionDelegate::editorEvent(QEvent *event,
             return false;
         case QEvent::MouseButtonRelease: {
             Q_EMIT pendingActionActivated();
-            /*
-            QPoint pos = buttonOpt.rect.bottomLeft() + option.rect.topLeft();
-            const QString ident = index.data(Akonadi::AgentInstanceModel::InstanceIdentifierRole).toString();
-            Q_EMIT optionsClicked(ident, pos);
-            */
             return true;
         }
         default:
@@ -113,7 +108,7 @@ bool AdministratorUsersPendingActionDelegate::editorEvent(QEvent *event,
 
 QSize AdministratorUsersPendingActionDelegate::sizeHint(const QStyleOptionViewItem &option, const QModelIndex &) const
 {
-    const int textHeight = option.fontMetrics.height() + qMax(option.fontMetrics.height(), 16); // height of text
+    const int textHeight = option.fontMetrics.height() + qMax(option.fontMetrics.height() / 2, 12); // height of text
 
     return {1, textHeight}; // any width,the view will give us the whole thing in list mode
 }

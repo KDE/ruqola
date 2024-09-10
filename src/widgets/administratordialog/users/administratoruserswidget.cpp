@@ -47,7 +47,11 @@ AdministratorUsersWidget::AdministratorUsersWidget(AdministratorUsersWidget::Use
         adminUsersModel = new AdminUsersAllModel(this);
     } else {
         adminUsersModel = new AdminUsersPendingModel(this);
-        mTreeView->setItemDelegateForColumn(AdminUsersPendingModel::PendingActionButton, new AdministratorUsersPendingActionDelegate(this));
+        auto delegate = new AdministratorUsersPendingActionDelegate(this);
+        connect(delegate, &AdministratorUsersPendingActionDelegate::pendingActionActivated, this, [this]() {
+            // TODO
+        });
+        mTreeView->setItemDelegateForColumn(AdminUsersPendingModel::PendingActionButton, delegate);
     }
 
     adminUsersModel->setObjectName("mAdminUsersModel"_L1);
