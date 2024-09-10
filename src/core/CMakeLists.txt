@@ -650,6 +650,9 @@ ecm_qt_declare_logging_category(libruqolacore_debug_SRCS HEADER ruqola_away_debu
     CATEGORY_NAME org.kde.ruqola.away DESCRIPTION "ruqola away manager" EXPORT RUQOLA)
 ecm_qt_declare_logging_category(libruqolacore_debug_SRCS HEADER ruqola_texttohtml_debug.h IDENTIFIER RUQOLA_TEXTTOHTML_LOG
     CATEGORY_NAME org.kde.ruqola.texttohtml DESCRIPTION "ruqola text to html support" EXPORT RUQOLA)
+ecm_qt_declare_logging_category(libruqolacore_debug_SRCS HEADER ruqola_texttohtml_cmark_debug.h IDENTIFIER RUQOLA_TEXTTOHTML_CMARK_LOG
+    CATEGORY_NAME org.kde.ruqola.texttohtml.cmark DESCRIPTION "ruqola text to html support (cmark-rc lib)" EXPORT RUQOLA)
+
 ecm_qt_declare_logging_category(libruqolacore_debug_SRCS HEADER ruqola_specialwarning_debug.h IDENTIFIER RUQOLA_SPECIALWARNING_LOG
     CATEGORY_NAME org.kde.ruqola.specialwarning DESCRIPTION "ruqola special warning" EXPORT RUQOLA)
 
