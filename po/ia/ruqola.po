@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-09-08 00:39+0000\n"
-"PO-Revision-Date: 2024-09-06 10:35+0200\n"
+"POT-Creation-Date: 2024-09-10 00:39+0000\n"
+"PO-Revision-Date: 2024-09-09 12:24+0200\n"
 "Last-Translator: giovanni <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
 "Language: ia\n"
@@ -682,8 +682,10 @@ msgstr "%1 e %2"
 #: core/model/admincustomemojimodel.cpp:34
 #: core/model/admincustomsoundmodel.cpp:30 core/model/adminoauthmodel.cpp:32
 #: core/model/adminrolesmodel.cpp:32 core/model/adminroomsmodel.cpp:30
-#: core/model/adminusersmodel.cpp:108 core/model/directoryroomsmodel.cpp:116
-#: core/model/directoryteamsmodel.cpp:90 core/model/directoryusersmodel.cpp:100
+#: core/model/adminusersallmodel.cpp:68
+#: core/model/adminuserspendingmodel.cpp:59
+#: core/model/directoryroomsmodel.cpp:116 core/model/directoryteamsmodel.cpp:90
+#: core/model/directoryusersmodel.cpp:101
 #: core/model/moderationreportedmessagemodel.cpp:30
 #: core/model/moderationreportedusermodel.cpp:39
 #: core/model/permissionsmodel.cpp:30
@@ -763,7 +765,9 @@ msgstr "Secreto de cliente"
 msgid "Redirect Url"
 msgstr "Redirige Url"
 
-#: core/model/adminoauthmodel.cpp:40 core/model/adminusersmodel.cpp:163
+#: core/model/adminoauthmodel.cpp:40 core/model/adminusersallmodel.cpp:56
+#: core/model/adminusersallmodel.cpp:125
+#: core/model/adminuserspendingmodel.cpp:116
 #, kde-format
 msgid "Active"
 msgstr "Activa"
@@ -823,35 +827,77 @@ msgstr "Sala predefinite"
 msgid "Type"
 msgstr "Typo"
 
-#: core/model/adminusersmodel.cpp:110
+#: core/model/adminusersallmodel.cpp:54
+#: widgets/administratordialog/users/administratoruserstabwidget.cpp:30
+#, kde-format
+msgid "Pending"
+msgstr ""
+
+#: core/model/adminusersallmodel.cpp:58
+#, fuzzy, kde-format
+#| msgctxt "@action"
+#| msgid "Deactivate"
+msgid "Deactivated"
+msgstr "Deactivate"
+
+#: core/model/adminusersallmodel.cpp:70
+#: core/model/adminuserspendingmodel.cpp:61
 #, kde-format
 msgid "UserName"
 msgstr "Nomine de usator"
 
-#: core/model/adminusersmodel.cpp:112
+#: core/model/adminusersallmodel.cpp:72
+#: core/model/adminuserspendingmodel.cpp:63
 #: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:125
 #: widgets/dialogs/configurenotificationwidget.cpp:117
 #, kde-format
 msgid "Email"
 msgstr "E-posta"
 
-#: core/model/adminusersmodel.cpp:114
+#: core/model/adminusersallmodel.cpp:74
+#: core/model/adminuserspendingmodel.cpp:65
 #, kde-format
 msgid "Role"
 msgstr "Rolo"
 
-#: core/model/adminusersmodel.cpp:116 core/model/adminusersmodel.cpp:163
+#: core/model/adminusersallmodel.cpp:76 core/model/adminusersallmodel.cpp:125
+#: core/model/adminuserspendingmodel.cpp:67
+#: core/model/adminuserspendingmodel.cpp:116
 #: widgets/applicationssettingsdialog/applicationssettingsstatuscombobox.cpp:15
 #: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:275
 #, kde-format
 msgid "Disabled"
 msgstr "Dishabilitate"
 
-#: core/model/adminusersmodel.cpp:118
+#: core/model/adminusersallmodel.cpp:78
+#: core/model/adminuserspendingmodel.cpp:69
 #: widgets/administratorsettingsdialog/enterprise/enterprisesettingswidget.cpp:24
 #, kde-format
 msgid "Status"
 msgstr "Stato"
+
+#: core/model/adminusersallmodel.cpp:80
+#, fuzzy, kde-format
+#| msgid "Registration"
+msgid "Registration status"
+msgstr "Registration"
+
+#: core/model/adminuserspendingmodel.cpp:51
+#, kde-format
+msgid "User first log in"
+msgstr ""
+
+#: core/model/adminuserspendingmodel.cpp:51
+#, fuzzy, kde-format
+#| msgid "Authentication"
+msgid "Activation"
+msgstr "Authentication"
+
+#: core/model/adminuserspendingmodel.cpp:71
+#, fuzzy, kde-format
+#| msgid "Unknown action!"
+msgid "Pending action"
+msgstr "Action incognite!"
 
 #: core/model/bannerinfosmodel.cpp:52
 #, kde-format
@@ -923,12 +969,12 @@ msgstr ""
 msgid "Rooms"
 msgstr "Salas"
 
-#: core/model/directoryusersmodel.cpp:102 core/model/usersinrolemodel.cpp:88
+#: core/model/directoryusersmodel.cpp:103 core/model/usersinrolemodel.cpp:88
 #, kde-format
 msgid "Emails"
 msgstr "Messages de e-posta"
 
-#: core/model/directoryusersmodel.cpp:104
+#: core/model/directoryusersmodel.cpp:105
 #, kde-format
 msgid "Join At"
 msgstr "Uni a"
@@ -1500,17 +1546,17 @@ msgstr "Omnicanal"
 msgid "Missing translator info. It's a bug"
 msgstr "Mancante information de traductor. Il es un bug"
 
-#: core/user.cpp:207
+#: core/user.cpp:209
 #, kde-format
 msgid "User"
 msgstr "Usator"
 
-#: core/user.cpp:209
+#: core/user.cpp:211
 #, kde-format
 msgid "Administrator"
 msgstr "Administrator"
 
-#: core/user.cpp:211
+#: core/user.cpp:213
 #, kde-format
 msgid "Bot"
 msgstr "Bot(Robot)"
@@ -2204,7 +2250,7 @@ msgstr "Un indicio (token) con iste nomine ja existe"
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:415
 #, kde-format
 msgid "Token does not exists"
-msgstr "Indicio (token) nonn existe"
+msgstr "Indicio (token) non existe"
 
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:418
 #, kde-format
@@ -2580,7 +2626,7 @@ msgstr "Remove Emoji"
 #: widgets/administratordialog/oauth/oauthtreeview.cpp:49
 #: widgets/administratordialog/roles/administratorroleswidget.cpp:101
 #: widgets/administratordialog/roles/usersinrolewidget.cpp:106
-#: widgets/administratordialog/users/administratoruserswidget.cpp:252
+#: widgets/administratordialog/users/administratoruserswidget.cpp:259
 #: widgets/myaccount/myaccountpersonalaccesstokentreeview.cpp:35
 #, kde-format
 msgctxt "@action"
@@ -2594,7 +2640,7 @@ msgstr "Adde…"
 #: widgets/administratordialog/permissions/permissionswidget.cpp:92
 #: widgets/administratordialog/roles/administratorroleswidget.cpp:105
 #: widgets/administratordialog/rooms/administratorroomswidget.cpp:63
-#: widgets/administratordialog/users/administratoruserswidget.cpp:259
+#: widgets/administratordialog/users/administratoruserswidget.cpp:266
 #, kde-format
 msgctxt "@action"
 msgid "Modify…"
@@ -2608,7 +2654,7 @@ msgstr "Modifica…"
 #: widgets/administratordialog/roles/administratorroleswidget.cpp:120
 #: widgets/administratordialog/roles/usersinrolewidget.cpp:110
 #: widgets/administratordialog/rooms/administratorroomswidget.cpp:67
-#: widgets/administratordialog/users/administratoruserswidget.cpp:296
+#: widgets/administratordialog/users/administratoruserswidget.cpp:303
 #: widgets/myaccount/myaccountpersonalaccesstokentreeview.cpp:42
 #, kde-format
 msgctxt "@action"
@@ -3146,7 +3192,7 @@ msgid "Users in Role"
 msgstr "Usatores in Rolo"
 
 #: widgets/administratordialog/roles/usersinrolewidget.cpp:36
-#: widgets/administratordialog/users/administratoruserswidget.cpp:52
+#: widgets/administratordialog/users/administratoruserswidget.cpp:59
 #: widgets/dialogs/addusersinroomwidget.cpp:23
 #: widgets/directory/directorywidget.cpp:39
 #: widgets/room/usersinroomwidget.cpp:40
@@ -3167,20 +3213,20 @@ msgid "Do you want to remove this user \"%1\"?"
 msgstr "Tu vole remover iste usator \"%1\"?"
 
 #: widgets/administratordialog/roles/usersinrolewidget.cpp:81
-#: widgets/administratordialog/users/administratoruserswidget.cpp:195
+#: widgets/administratordialog/users/administratoruserswidget.cpp:202
 #, kde-format
 msgctxt "@title:window"
 msgid "Remove User"
 msgstr "Remove Usator"
 
 #: widgets/administratordialog/roles/usersinrolewidget.cpp:119
-#: widgets/administratordialog/users/administratoruserswidget.cpp:309
+#: widgets/administratordialog/users/administratoruserswidget.cpp:316
 #, kde-format
 msgid "No user found"
 msgstr "Nulle  Usator trovate"
 
 #: widgets/administratordialog/roles/usersinrolewidget.cpp:124
-#: widgets/administratordialog/users/administratoruserswidget.cpp:314
+#: widgets/administratordialog/users/administratoruserswidget.cpp:321
 #: widgets/directory/directorywidget.cpp:202
 #, kde-format
 msgid "%1 user (Total: %2)"
@@ -3623,59 +3669,54 @@ msgstr "Usa ',' per separar e-postas"
 msgid "All"
 msgstr "Omne"
 
-#: widgets/administratordialog/users/administratoruserstabwidget.cpp:30
-#, kde-format
-msgid "Pending"
-msgstr ""
-
-#: widgets/administratordialog/users/administratoruserswidget.cpp:194
+#: widgets/administratordialog/users/administratoruserswidget.cpp:201
 #, kde-format
 msgid "Do you want to remove this user?"
 msgstr "Tu vole remover iste usator?"
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:246
+#: widgets/administratordialog/users/administratoruserswidget.cpp:253
 #, kde-format
 msgctxt "@action"
 msgid "Invite…"
 msgstr "Invita..."
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:268
+#: widgets/administratordialog/users/administratoruserswidget.cpp:275
 #, kde-format
 msgctxt "@action"
 msgid "Deactivate"
 msgstr "Deactivate"
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:268
+#: widgets/administratordialog/users/administratoruserswidget.cpp:275
 #, kde-format
 msgctxt "@action"
 msgid "Active"
 msgstr "Activa"
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:277
+#: widgets/administratordialog/users/administratoruserswidget.cpp:284
 #, kde-format
 msgctxt "@action"
 msgid "Remove Admin"
 msgstr "Remove Admin"
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:277
+#: widgets/administratordialog/users/administratoruserswidget.cpp:284
 #, kde-format
 msgctxt "@action"
 msgid "Make Admin"
 msgstr "Face Admin"
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:283
+#: widgets/administratordialog/users/administratoruserswidget.cpp:290
 #, kde-format
 msgctxt "@action"
 msgid "Reset E2E Key"
 msgstr "Refixa Clave E2E"
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:289
+#: widgets/administratordialog/users/administratoruserswidget.cpp:296
 #, kde-format
 msgctxt "@action"
 msgid "Reset Totp"
 msgstr "Refixa Totp"
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:374
+#: widgets/administratordialog/users/administratoruserswidget.cpp:381
 #, kde-format
 msgid ""
 "Reset the current E2E key will log out the user. When the user login again, "
@@ -3690,24 +3731,24 @@ msgstr ""
 "membros in linea. Debite al natura del cryptation E2E, Rocket.Chat non "
 "potera restabilir accesso a ulle sala cryptate que non ha membros in linea."
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:378
+#: widgets/administratordialog/users/administratoruserswidget.cpp:385
 #, kde-format
 msgctxt "@title:window"
 msgid "Reset E2E key"
 msgstr "Refixa Clave E2E"
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:410
+#: widgets/administratordialog/users/administratoruserswidget.cpp:417
 #, kde-format
 msgid "E2E key for %1 has been reset."
 msgstr "Clave E2E per %1 ha essite refixate."
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:410
+#: widgets/administratordialog/users/administratoruserswidget.cpp:417
 #, kde-format
 msgctxt "@title:window"
 msgid "Reset E2E"
 msgstr "Refixa E2E"
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:423
+#: widgets/administratordialog/users/administratoruserswidget.cpp:430
 #, kde-format
 msgid ""
 "Reset the current Two Factor TOTP will log out the user. The user will be "
@@ -3716,14 +3757,14 @@ msgstr ""
 "Refixar le TOTPDuo Factor currente claudera session de usator (log out). Le "
 "usator fixara de novo le Duo Factor postea."
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:424
-#: widgets/administratordialog/users/administratoruserswidget.cpp:455
+#: widgets/administratordialog/users/administratoruserswidget.cpp:431
+#: widgets/administratordialog/users/administratoruserswidget.cpp:462
 #, kde-format
 msgctxt "@title:window"
 msgid "Reset TOTP"
 msgstr "Refixa TOTP"
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:455
+#: widgets/administratordialog/users/administratoruserswidget.cpp:462
 #, kde-format
 msgid "TOTP key for %1 has been reset"
 msgstr "Clave TOTP per %1 ha essite refixate"
@@ -6640,7 +6681,7 @@ msgid "Username or Email:"
 msgstr "Nomine de usator o E-Posta:"
 
 #: widgets/common/authenticationloginwidget.cpp:155
-#: widgets/ruqolamainwindow.cpp:979
+#: widgets/ruqolamainwindow.cpp:998
 #, kde-format
 msgid ""
 "We have sent you an email to confirm your registration.\n"
@@ -6651,7 +6692,7 @@ msgstr ""
 "novemente."
 
 #: widgets/common/authenticationloginwidget.cpp:156
-#: widgets/ruqolamainwindow.cpp:980
+#: widgets/ruqolamainwindow.cpp:999
 #, kde-format
 msgctxt "@title:window"
 msgid "Register New User"
@@ -9910,273 +9951,273 @@ msgctxt "@info:shell"
 msgid "Lists the available options for user feedback"
 msgstr "Lista le optiones disponibile per responsa de usator"
 
-#: widgets/ruqolamainwindow.cpp:223
+#: widgets/ruqolamainwindow.cpp:224
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Show New Notifications"
 msgstr "Monsta nove notificationes"
 
-#: widgets/ruqolamainwindow.cpp:225
+#: widgets/ruqolamainwindow.cpp:226
 #, kde-format
 msgid "Show New Notifications"
 msgstr "Monsta nove notificationes"
 
-#: widgets/ruqolamainwindow.cpp:413
+#: widgets/ruqolamainwindow.cpp:414
 #, kde-format
 msgctxt "@action"
 msgid "Add Server…"
 msgstr "Adde Servitor…"
 
-#: widgets/ruqolamainwindow.cpp:418
+#: widgets/ruqolamainwindow.cpp:419
 #, kde-format
 msgctxt "@action"
 msgid "Server Info…"
 msgstr "Info de servitor…"
 
-#: widgets/ruqolamainwindow.cpp:422
+#: widgets/ruqolamainwindow.cpp:423
 #, kde-format
 msgctxt "@action"
 msgid "Logout Current Server"
 msgstr "Claude session de servitor currente"
 
-#: widgets/ruqolamainwindow.cpp:426
+#: widgets/ruqolamainwindow.cpp:427
 #, kde-format
 msgctxt "@action"
 msgid "Jump to Next Unread Channel"
 msgstr "Salta a proxime canal non legite"
 
-#: widgets/ruqolamainwindow.cpp:431
+#: widgets/ruqolamainwindow.cpp:432
 #, kde-format
 msgid "Create New Channel…"
 msgstr "Crea Nove Canal..."
 
-#: widgets/ruqolamainwindow.cpp:435
+#: widgets/ruqolamainwindow.cpp:436
 #, kde-format
 msgid "Create Direct Messages…"
 msgstr "Crea message directe..."
 
-#: widgets/ruqolamainwindow.cpp:439
+#: widgets/ruqolamainwindow.cpp:440
 #, kde-format
 msgid "Create Discussion…"
 msgstr "Crea discussion..."
 
-#: widgets/ruqolamainwindow.cpp:443
+#: widgets/ruqolamainwindow.cpp:444
 #, kde-format
 msgid "Create Team…"
 msgstr "Crea equipa…"
 
-#: widgets/ruqolamainwindow.cpp:451
+#: widgets/ruqolamainwindow.cpp:452
 #, kde-format
 msgctxt "@action"
 msgid "Unread on Top"
 msgstr "Non legite in alto"
 
-#: widgets/ruqolamainwindow.cpp:459
+#: widgets/ruqolamainwindow.cpp:460
 #, kde-format
 msgctxt "@action"
 msgid "By Last Message"
 msgstr "Per Ultime message"
 
-#: widgets/ruqolamainwindow.cpp:465
+#: widgets/ruqolamainwindow.cpp:466
 #, kde-format
 msgctxt "@action"
 msgid "Alphabetically"
 msgstr "Alphabeticamente"
 
-#: widgets/ruqolamainwindow.cpp:471
+#: widgets/ruqolamainwindow.cpp:472
 #, kde-format
 msgid "Show Channel Log"
 msgstr "Monstra registro de canal"
 
-#: widgets/ruqolamainwindow.cpp:475
+#: widgets/ruqolamainwindow.cpp:476
 #, kde-format
 msgid "Show Server Errors"
 msgstr "Monstra errores de servitor"
 
-#: widgets/ruqolamainwindow.cpp:494
+#: widgets/ruqolamainwindow.cpp:507
 #, kde-format
 msgctxt "@action"
 msgid "Mark All Channels as Read"
 msgstr "Marca omnes canales como legite"
 
-#: widgets/ruqolamainwindow.cpp:499
+#: widgets/ruqolamainwindow.cpp:512
 #, kde-format
 msgctxt "@action"
 msgid "Register a New User…"
 msgstr "Registra un nove usator..."
 
-#: widgets/ruqolamainwindow.cpp:503
+#: widgets/ruqolamainwindow.cpp:516
 #, kde-format
 msgctxt "@action"
 msgid "My Account…"
 msgstr "Mi conto ..."
 
-#: widgets/ruqolamainwindow.cpp:507
+#: widgets/ruqolamainwindow.cpp:520
 #, kde-format
 msgid "administration"
 msgstr "administration"
 
-#: widgets/ruqolamainwindow.cpp:508
+#: widgets/ruqolamainwindow.cpp:521
 #, kde-format
 msgctxt "@action"
 msgid "Administrator…"
 msgstr "Administrator…"
 
-#: widgets/ruqolamainwindow.cpp:514
+#: widgets/ruqolamainwindow.cpp:527
 #, kde-format
 msgctxt "@action"
 msgid "Server Settings…"
 msgstr "Preferentias de servitor..."
 
-#: widgets/ruqolamainwindow.cpp:521
+#: widgets/ruqolamainwindow.cpp:534
 #, kde-format
 msgctxt "@action"
 msgid "Applications…"
 msgstr "Applicationes…"
 
-#: widgets/ruqolamainwindow.cpp:526
+#: widgets/ruqolamainwindow.cpp:539
 #, kde-format
 msgctxt "@action"
 msgid "Requested Applications…"
 msgstr "Applicationes Requirite..."
 
-#: widgets/ruqolamainwindow.cpp:531
+#: widgets/ruqolamainwindow.cpp:544
 #, kde-format
 msgctxt "@action"
 msgid "Installed Applications…"
 msgstr "Applicationes installate …"
 
-#: widgets/ruqolamainwindow.cpp:536
+#: widgets/ruqolamainwindow.cpp:549
 #, kde-format
 msgctxt "Action which allows to search room"
 msgid "Join Room…"
 msgstr "Uni te a Sala ..."
 
-#: widgets/ruqolamainwindow.cpp:540
+#: widgets/ruqolamainwindow.cpp:553
 #, kde-format
 msgctxt "Action which allows to search team"
 msgid "Join Team…"
 msgstr "Uni te a Equipa..."
 
-#: widgets/ruqolamainwindow.cpp:544
+#: widgets/ruqolamainwindow.cpp:557
 #, kde-format
 msgctxt "Action which allows to open private conversation (direct user)"
 msgid "Open Private Conversation…"
 msgstr "Aperi Conversation Private ..."
 
-#: widgets/ruqolamainwindow.cpp:565
+#: widgets/ruqolamainwindow.cpp:578
 #, kde-format
 msgid "&Next Server"
 msgstr "Pro&xime Servitor"
 
-#: widgets/ruqolamainwindow.cpp:570
+#: widgets/ruqolamainwindow.cpp:583
 #, kde-format
 msgid "&Previous Server"
 msgstr "&Previe Servitor"
 
-#: widgets/ruqolamainwindow.cpp:579
+#: widgets/ruqolamainwindow.cpp:592
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Status:"
 msgstr "Stato:"
 
-#: widgets/ruqolamainwindow.cpp:592
+#: widgets/ruqolamainwindow.cpp:605
 #, kde-format
 msgctxt "@action"
 msgid "Previous Selected Channel"
 msgstr "Previe Canale seligite"
 
-#: widgets/ruqolamainwindow.cpp:599
+#: widgets/ruqolamainwindow.cpp:612
 #, kde-format
 msgctxt "@action"
 msgid "Next Selected Channel"
 msgstr "Proxime Canale seligite"
 
-#: widgets/ruqolamainwindow.cpp:633
+#: widgets/ruqolamainwindow.cpp:646
 #, kde-format
 msgid "Show Notify History"
 msgstr "Monsta chronologia de  notificationes"
 
-#: widgets/ruqolamainwindow.cpp:637
+#: widgets/ruqolamainwindow.cpp:650
 #, kde-format
 msgctxt "@action"
 msgid "Show RocketChat Information"
 msgstr "Monstra Information de RocketChat"
 
-#: widgets/ruqolamainwindow.cpp:641
+#: widgets/ruqolamainwindow.cpp:654
 #, kde-format
 msgctxt "@action"
 msgid "Show Room Avatar"
 msgstr "Monstra avatar de sala"
 
-#: widgets/ruqolamainwindow.cpp:646
+#: widgets/ruqolamainwindow.cpp:659
 #, kde-format
 msgctxt "@action"
 msgid "Show Favorite Room"
 msgstr "Monstra Sala Favorite"
 
-#: widgets/ruqolamainwindow.cpp:655
+#: widgets/ruqolamainwindow.cpp:668
 #, kde-format
 msgid "What's new"
 msgstr "Que es de novo"
 
-#: widgets/ruqolamainwindow.cpp:659
+#: widgets/ruqolamainwindow.cpp:672
 #, kde-format
 msgid "Import Accounts"
 msgstr "Importa Contos"
 
-#: widgets/ruqolamainwindow.cpp:663
+#: widgets/ruqolamainwindow.cpp:676
 #, kde-format
 msgid "Export Accounts"
 msgstr "Exporta Contos"
 
-#: widgets/ruqolamainwindow.cpp:680
+#: widgets/ruqolamainwindow.cpp:693
 #, kde-format
 msgctxt "@action"
 msgid "Medium"
 msgstr "Medie"
 
-#: widgets/ruqolamainwindow.cpp:688
+#: widgets/ruqolamainwindow.cpp:701
 #, kde-format
 msgctxt "@action"
 msgid "Condensed"
 msgstr "Condensate"
 
-#: widgets/ruqolamainwindow.cpp:697
+#: widgets/ruqolamainwindow.cpp:710
 #, kde-format
 msgctxt "@action"
 msgid "Extended"
 msgstr "Extendite"
 
-#: widgets/ruqolamainwindow.cpp:705
+#: widgets/ruqolamainwindow.cpp:718
 #, kde-format
 msgid "Clear history"
 msgstr "Netta historia"
 
-#: widgets/ruqolamainwindow.cpp:742
+#: widgets/ruqolamainwindow.cpp:755
 #, kde-format
 msgctxt "@title:window"
 msgid "Create Team"
 msgstr "Crea equipa"
 
-#: widgets/ruqolamainwindow.cpp:898
+#: widgets/ruqolamainwindow.cpp:911
 #, kde-format
 msgid "Impossible to open log."
 msgstr ""
 
-#: widgets/ruqolamainwindow.cpp:898
+#: widgets/ruqolamainwindow.cpp:911
 #, kde-format
 msgctxt "@title:window"
 msgid "Show Log"
 msgstr "Monstra registro"
 
-#: widgets/ruqolamainwindow.cpp:1051
+#: widgets/ruqolamainwindow.cpp:1070
 #, kde-format
 msgctxt "@item:inmenu Instant message presence status"
 msgid "Status"
 msgstr "Stato"
 
-#: widgets/ruqolamainwindow.cpp:1139
+#: widgets/ruqolamainwindow.cpp:1158
 #, kde-format
 msgid ""
 "<qt>This will hide the menu bar completely. You can show it again by typing "
@@ -10185,7 +10226,7 @@ msgstr ""
 "<qt>Isto celera completemente le barra de menu. Tu pote monstrar lo de nove "
 "per typar %1.</qt>"
 
-#: widgets/ruqolamainwindow.cpp:1142
+#: widgets/ruqolamainwindow.cpp:1161
 #, kde-format
 msgctxt "@title:window"
 msgid "Hide menu bar"
