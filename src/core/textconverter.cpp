@@ -80,6 +80,7 @@ void iterateOverRegions(const QString &str, const QString &regionMarker, InRegio
             break;
         }
 
+        // Fix me in cmark-rc => we remove space it's not good
         const auto codeBlock = str.mid(startIndex + markerSize, endIndex - startIndex - markerSize).trimmed();
 
         outsideRegion(str.mid(startFrom, startIndex - startFrom));
