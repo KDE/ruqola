@@ -4,6 +4,7 @@
    SPDX-License-Identifier: LGPL-2.0-or-later
 */
 #include "administratoruserspendingactiondelegate.h"
+#include "model/adminuserspendingmodel.h"
 #include <KLocalizedString>
 #include <QApplication>
 #include <QEvent>
@@ -28,7 +29,7 @@ void AdministratorUsersPendingActionDelegate::paint(QPainter *painter, const QSt
     QApplication::style()->drawPrimitive(QStyle::PE_PanelItemViewItem, &opt, painter);
 
     painter->save();
-    QStyleOptionButton buttonOpt = buttonOption(option);
+    QStyleOptionButton buttonOpt = buttonOption(option, index);
     painter->setRenderHint(QPainter::Antialiasing);
     QApplication::style()->drawControl(QStyle::CE_PushButton, &buttonOpt, painter);
 
@@ -49,9 +50,9 @@ void AdministratorUsersPendingActionDelegate::drawFocus(QPainter *painter, const
     }
 }
 
-QStyleOptionButton AdministratorUsersPendingActionDelegate::buttonOption(const QStyleOptionViewItem &option) const
+QStyleOptionButton AdministratorUsersPendingActionDelegate::buttonOption(const QStyleOptionViewItem &option, const QModelIndex &index) const
 {
-    const QString label = i18n("Retrieval Options"); // TODO fix i18n
+    const QString label = index.data(AdminUsersPendingModel::PendingActionButtonText).toString();
     QStyleOptionButton buttonOpt;
     QRect buttonRect = option.rect;
     const int height = option.rect.height();
@@ -89,7 +90,7 @@ bool AdministratorUsersPendingActionDelegate::editorEvent(QEvent *event,
     auto me = static_cast<QMouseEvent *>(event);
     const QPoint mousePos = me->pos() - option.rect.topLeft();
 
-    QStyleOptionButton buttonOpt = buttonOption(option);
+    QStyleOptionButton buttonOpt = buttonOption(option, index);
 
     if (buttonOpt.rect.contains(mousePos)) {
         switch (event->type()) {

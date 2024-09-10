@@ -26,7 +26,8 @@ public:
         Administrator,
         PendingActionInfo,
         PendingActionButton,
-        LastColumn = PendingActionButton,
+        PendingActionButtonText,
+        LastColumn = PendingActionButtonText,
     };
     Q_ENUM(AdminUsersPendingRoles)
 
@@ -41,4 +42,5 @@ public:
 
 private:
     [[nodiscard]] LIBRUQOLACORE_NO_EXPORT QString createPendingAction(const User &user) const;
+    [[nodiscard]] LIBRUQOLACORE_NO_EXPORT QString createPendingButtonText(const User &user) const;
 };

@@ -42,6 +42,7 @@ bool AdminUsersPendingModel::setData(const QModelIndex &id, const QVariant &valu
     case AdminUsersPendingRoles::ActiveUserDisplay:
     case AdminUsersPendingRoles::Administrator:
     case AdminUsersPendingRoles::PendingActionButton:
+    case AdminUsersPendingModel::PendingActionButtonText:
         return false;
     }
     return false;
@@ -50,6 +51,11 @@ bool AdminUsersPendingModel::setData(const QModelIndex &id, const QVariant &valu
 QString AdminUsersPendingModel::createPendingAction(const User &user) const
 {
     return user.active() ? i18n("User first log in") : i18n("Activation");
+}
+
+QString AdminUsersPendingModel::createPendingButtonText(const User &user) const
+{
+    return user.active() ? i18n("Resend Welcome Email") : i18n("Activate");
 }
 
 QVariant AdminUsersPendingModel::headerData(int section, Qt::Orientation orientation, int role) const
@@ -74,6 +80,7 @@ QVariant AdminUsersPendingModel::headerData(int section, Qt::Orientation orienta
         case AdminUsersPendingModel::ActiveUser:
         case AdminUsersPendingRoles::Administrator:
         case AdminUsersPendingRoles::PendingActionButton:
+        case AdminUsersPendingModel::PendingActionButtonText:
             return {};
         }
     }
@@ -89,7 +96,11 @@ int AdminUsersPendingModel::columnCount(const QModelIndex &parent) const
 
 QList<int> AdminUsersPendingModel::hideColumns() const
 {
-    return {AdminUsersPendingRoles::UserId, AdminUsersPendingRoles::ActiveUser, AdminUsersPendingRoles::Administrator, AdminUsersPendingRoles::Status};
+    return {AdminUsersPendingRoles::UserId,
+            AdminUsersPendingRoles::ActiveUser,
+            AdminUsersPendingRoles::Administrator,
+            AdminUsersPendingRoles::Status,
+            AdminUsersPendingModel::PendingActionButtonText};
 }
 
 QVariant AdminUsersPendingModel::data(const QModelIndex &index, int role) const
@@ -126,6 +137,8 @@ QVariant AdminUsersPendingModel::data(const QModelIndex &index, int role) const
         return createPendingAction(user);
     case AdminUsersPendingRoles::PendingActionButton:
         return {};
+    case AdminUsersPendingModel::PendingActionButtonText:
+        return createPendingButtonText(user);
     }
     return {};
 }

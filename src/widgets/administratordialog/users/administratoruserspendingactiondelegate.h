@@ -24,6 +24,6 @@ Q_SIGNALS:
     void pendingActionActivated();
 
 private:
-    [[nodiscard]] QStyleOptionButton buttonOption(const QStyleOptionViewItem &option) const;
+    [[nodiscard]] QStyleOptionButton buttonOption(const QStyleOptionViewItem &option, const QModelIndex &index) const;
     void drawFocus(QPainter *painter, const QStyleOptionViewItem &option, const QRect &rect) const;
 };
