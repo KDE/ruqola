@@ -89,14 +89,14 @@ bool AdministratorUsersPendingActionDelegate::editorEvent(QEvent *event,
     auto me = static_cast<QMouseEvent *>(event);
     const QPoint mousePos = me->pos() - option.rect.topLeft();
 
-    QStyleOptionButton buttonOpt = buttonOption(option, index);
+    const QStyleOptionButton buttonOpt = buttonOption(option, index);
 
     if (buttonOpt.rect.contains(mousePos)) {
         switch (event->type()) {
         case QEvent::MouseButtonPress:
             return false;
         case QEvent::MouseButtonRelease: {
-            Q_EMIT pendingActionActivated();
+            Q_EMIT pendingActionActivated(index);
             return true;
         }
         default:

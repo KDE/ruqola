@@ -21,7 +21,7 @@ public:
     bool editorEvent(QEvent *event, QAbstractItemModel *model, const QStyleOptionViewItem &option, const QModelIndex &index) override;
     QSize sizeHint(const QStyleOptionViewItem &option, const QModelIndex &) const override;
 Q_SIGNALS:
-    void pendingActionActivated();
+    void pendingActionActivated(const QModelIndex &index);
 
 private:
     [[nodiscard]] QStyleOptionButton buttonOption(const QStyleOptionViewItem &option, const QModelIndex &index) const;

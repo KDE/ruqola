@@ -48,7 +48,7 @@ AdministratorUsersWidget::AdministratorUsersWidget(AdministratorUsersWidget::Use
     } else {
         adminUsersModel = new AdminUsersPendingModel(this);
         auto delegate = new AdministratorUsersPendingActionDelegate(this);
-        connect(delegate, &AdministratorUsersPendingActionDelegate::pendingActionActivated, this, [this]() {
+        connect(delegate, &AdministratorUsersPendingActionDelegate::pendingActionActivated, this, [this](const QModelIndex &index) {
             // TODO
         });
         mTreeView->setItemDelegateForColumn(AdminUsersPendingModel::PendingActionButton, delegate);
