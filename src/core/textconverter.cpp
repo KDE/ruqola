@@ -341,7 +341,7 @@ QString generateRichText(const QString &str,
 
 QString TextConverter::convertMessageText(const ConvertMessageTextSettings &settings, QByteArray &needUpdateMessageId, int &recusiveIndex)
 {
-#if 0
+#if 1
 #if USE_CMARK_RC_RENDERING_TEXT
     return TextConverter::convertMessageTextCMark(settings, needUpdateMessageId, recusiveIndex);
 #else
@@ -820,8 +820,6 @@ QString addHighlighter(const QString &str, const TextConverter::ConvertMessageTe
         iterateOverEndLineRegions(chunk, QStringLiteral(">"), addInlineQuoteCodeChunk, addTextChunk, addInlineQuoteCodeNewLineChunk);
     };
     auto addNonCodeChunk = [&](QString chunk) {
-        qDebug() << " chunk " << chunk;
-        // chunk = chunk.trimmed();
         if (chunk.isEmpty()) {
             return;
         }
@@ -838,11 +836,11 @@ QString addHighlighter(const QString &str, const TextConverter::ConvertMessageTe
 }
 
 #define DEBUG_CMARK_RC
-char *TextConverter::convertMessageTextCMark(const TextConverter::ConvertMessageTextSettings &newSettings)
+char *TextConverter::convertMessageTextCMark(const TextConverter::ConvertMessageTextSettings &newSettings, const QString &quotedMessage)
 {
     // Need to escaped text (avoid to interprete html code)
     const TextConverter::ConvertMessageTextSettings settings{
-        newSettings.str.toHtmlEscaped(),
+        quotedMessage + newSettings.str.toHtmlEscaped(),
         newSettings.userName,
         newSettings.allMessages,
         newSettings.highlightWords,
@@ -1008,9 +1006,23 @@ QString TextConverter::convertMessageTextCMark(const TextConverter::ConvertMessa
         }
     }
 
+    // Need to escaped text (avoid to interprete html code)
+    const TextConverter::ConvertMessageTextSettings newsettings{
+        str,
+        settings.userName,
+        settings.allMessages,
+        settings.highlightWords,
+        settings.emojiManager,
+        settings.messageCache,
+        settings.mentions,
+        settings.channels,
+        settings.searchedText,
+        settings.maximumRecursiveQuotedText,
+    };
     // qDebug() << "settings.str  " << settings.str;
-    char *html = convertMessageTextCMark(settings);
+    char *html = convertMessageTextCMark(newsettings, quotedMessage);
     const QString result = QString::fromUtf8(html);
+    // qDebug() << " RESUILT ************ " << result;
     cmark_mem *allocator = cmark_get_default_mem_allocator();
 
     allocator->free(html);

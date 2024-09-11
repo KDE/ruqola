@@ -58,7 +58,7 @@ struct LIBRUQOLACORE_EXPORT ConvertMessageTextSettings {
 [[nodiscard]] LIBRUQOLACORE_EXPORT QString convertMessageText(const ConvertMessageTextSettings &settings, QByteArray &needUpdateMessageId, int &recusiveIndex);
 #if USE_CMARK_RC_RENDERING_TEXT
 extern "C" {
-[[nodiscard]] LIBRUQOLACORE_EXPORT char *convertMessageTextCMark(const TextConverter::ConvertMessageTextSettings &settings);
+[[nodiscard]] LIBRUQOLACORE_EXPORT char *convertMessageTextCMark(const TextConverter::ConvertMessageTextSettings &settings, const QString &quotedMessage = {});
 }
 [[nodiscard]] LIBRUQOLACORE_EXPORT QString convertMessageTextCMark(const TextConverter::ConvertMessageTextSettings &settings,
                                                                    QByteArray &needUpdateMessageId,

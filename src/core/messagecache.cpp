@@ -42,6 +42,7 @@ ThreadMessageModel *MessageCache::threadMessageModel(const QByteArray &threadMes
 
 Message *MessageCache::messageForId(const QByteArray &messageId)
 {
+    qDebug() << " mMessages********** " << mMessages.count();
     Message *cachedMessage = mMessages.object(messageId);
     if (cachedMessage) {
         return cachedMessage;
