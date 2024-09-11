@@ -26,6 +26,7 @@
 #include "users/userinfojob.h"
 #include "users/userscreatejob.h"
 #include "users/userslistbystatusjob.h"
+#include "users/userssendwelcomeemailjob.h"
 #include "users/usersupdatejob.h"
 #include "utils.h"
 #include <KLocalizedString>
@@ -49,7 +50,12 @@ AdministratorUsersWidget::AdministratorUsersWidget(AdministratorUsersWidget::Use
         adminUsersModel = new AdminUsersPendingModel(this);
         auto delegate = new AdministratorUsersPendingActionDelegate(this);
         connect(delegate, &AdministratorUsersPendingActionDelegate::pendingActionActivated, this, [this](const QModelIndex &index) {
-            // TODO
+            const bool isActive = index.model()->index(index.row(), AdminUsersPendingModel::ActiveUser).data().toBool();
+            if (isActive) {
+                resendWelcomeEmail(index);
+            } else {
+                activateUser(index);
+            }
         });
         mTreeView->setItemDelegateForColumn(AdminUsersPendingModel::PendingActionButton, delegate);
     }
@@ -471,6 +477,27 @@ void AdministratorUsersWidget::slotResetTOTPKey(const QModelIndex &index)
             qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start ResetTOTPJob job";
         }
     }
+}
+
+void AdministratorUsersWidget::resendWelcomeEmail(const QModelIndex &index)
+{
+    const QString email = mModel->index(index.row(), AdminUsersAllModel::Email).data().toString();
+    qDebug() << " email " << email;
+
+    auto job = new RocketChatRestApi::UsersSendWelcomeEmailJob(this);
+    job->setEmail(email);
+    mRocketChatAccount->restApi()->initializeRestApiJob(job);
+    connect(job, &RocketChatRestApi::UsersSendWelcomeEmailJob::sendWelcomeEmailDone, this, [this]() {
+        qDebug() << " email send !!!";
+    });
+    if (!job->start()) {
+        qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start UsersSendWelcomeEmailJob job";
+    }
+}
+
+void AdministratorUsersWidget::activateUser(const QModelIndex &index)
+{
+    slotActivateUser(index, true);
 }
 
 #include "moc_administratoruserswidget.cpp"

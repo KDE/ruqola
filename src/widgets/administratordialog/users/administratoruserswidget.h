@@ -49,6 +49,8 @@ private:
     LIBRUQOLAWIDGETS_NO_EXPORT void slotInviteUsers();
     [[nodiscard]] LIBRUQOLAWIDGETS_NO_EXPORT QString displayShowUsers() const;
     LIBRUQOLAWIDGETS_NO_EXPORT void slotRolesChanged();
+    LIBRUQOLAWIDGETS_NO_EXPORT void resendWelcomeEmail(const QModelIndex &index);
+    LIBRUQOLAWIDGETS_NO_EXPORT void activateUser(const QModelIndex &index);
     RolesComboBox *const mRolesComboBox;
     const UsersType mUserType;
 };
