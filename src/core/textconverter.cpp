@@ -869,10 +869,14 @@ char *TextConverter::convertMessageTextCMark(const TextConverter::ConvertMessage
         switch (cmark_node_get_type(node)) {
         case CMARK_NODE_CODE_BLOCK: {
             const char *literal = cmark_node_get_literal(node);
-            const QString str = QString::fromUtf8(literal);
+            QString str = QString::fromUtf8(literal);
             if (!str.isEmpty()) {
-                const QString stringHtml = QStringLiteral("```") + QString::fromUtf8(literal) + QStringLiteral("```");
-                qDebug() << " stringHtml " << stringHtml;
+                // For code we must have escaped str
+                str.replace(QStringLiteral("&gt;"), QStringLiteral(">"));
+                str.replace(QStringLiteral("&lt;"), QStringLiteral("<"));
+                str.replace(QStringLiteral("&quot;"), QStringLiteral("\""));
+                const QString stringHtml = QStringLiteral("```") + str + QStringLiteral("```");
+                // qDebug() << " stringHtml " << stringHtml;
                 const QString highligherStr = addHighlighter(stringHtml, settings);
                 cmark_node *p = cmark_node_new(CMARK_NODE_PARAGRAPH);
 
@@ -904,8 +908,12 @@ char *TextConverter::convertMessageTextCMark(const TextConverter::ConvertMessage
         case CMARK_NODE_CODE: {
             const char *literal = cmark_node_get_literal(node);
             qCDebug(RUQOLA_TEXTTOHTML_CMARK_LOG) << "CMARK_NODE_CODE:  QString::fromUtf8(literal) code" << QString::fromUtf8(literal);
-            const QString str = QString::fromUtf8(literal);
+            QString str = QString::fromUtf8(literal);
             if (!str.isEmpty()) {
+                // For code we must have escaped str
+                str.replace(QStringLiteral("&gt;"), QStringLiteral(">"));
+                str.replace(QStringLiteral("&lt;"), QStringLiteral("<"));
+                str.replace(QStringLiteral("&quot;"), QStringLiteral("\""));
                 const QString stringHtml = QStringLiteral("`") + str + QStringLiteral("`");
                 const QString convertedString = addHighlighter(stringHtml, settings);
                 qCDebug(RUQOLA_TEXTTOHTML_CMARK_LOG) << "CMARK_NODE_CODE:  convert text " << convertedString;
