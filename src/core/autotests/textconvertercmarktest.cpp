@@ -55,7 +55,7 @@ void TextConverterCMarkTest::shouldConvertText_data()
 {
     QTest::addColumn<QString>("input");
     QTest::addColumn<QString>("output");
-#if 1
+
     QTest::newRow("empty") << QString() << QString();
     QTest::newRow("simpletext") << QStringLiteral("foo") << QStringLiteral("<p>foo</p>\n");
     QTest::newRow("customemojiwithoutmanager") << QStringLiteral(":foo:") << QStringLiteral("<p>:foo:</p>\n");
@@ -109,9 +109,7 @@ void TextConverterCMarkTest::shouldConvertText_data()
     QTest::newRow("quote<") << QStringLiteral("`inside quotes: <<....` this is outside the quotes <<.")
                             << QStringLiteral(
                                    "<p><code style='background-color:$BGCOLOR$'>inside quotes: &lt;&lt;....</code> this is outside the quotes &lt;&lt;.</p>\n");
-#endif
     QTest::newRow("quotedtext1") << QStringLiteral("> toto") << QStringLiteral("<p><code style='background-color:$BGCOLOR$'>toto</code></p>\n");
-#if 1
     QTest::newRow("quotedtext2") << QStringLiteral("bla \n> toto")
                                  << QStringLiteral("<p>bla<br />\n<code style='background-color:$BGCOLOR$'>toto</code></p>\n");
 
@@ -126,7 +124,6 @@ void TextConverterCMarkTest::shouldConvertText_data()
                                         "style='background-color:$BGCOLOR$'></code><strong>bla</strong></p>\n");
 
     QTest::newRow("noquotedtext") << QStringLiteral("bla > toto") << QStringLiteral("<p>bla &gt; toto</p>\n");
-#endif
 }
 
 void TextConverterCMarkTest::shouldConvertText()
