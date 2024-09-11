@@ -914,7 +914,7 @@ char *TextConverter::convertMessageTextCMark(const TextConverter::ConvertMessage
         }
     }
 
-    char *html = cmark_render_html(doc, CMARK_OPT_DEFAULT | CMARK_OPT_UNSAFE);
+    char *html = cmark_render_html(doc, CMARK_OPT_DEFAULT | CMARK_OPT_UNSAFE | CMARK_OPT_HARDBREAKS);
     qCDebug(RUQOLA_TEXTTOHTML_CMARK_LOG) << " generated html: " << html;
 
     cmark_iter_free(iter);
