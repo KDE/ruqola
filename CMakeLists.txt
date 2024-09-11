@@ -109,14 +109,14 @@ set(QT6KEYCHAIN_LIB_VERSION "0.14.2")
 option(TEXT_CONVERTER_CMARK_SUPPORT "Build support text converter with cmark-rc (experimental)" OFF)
 
 if(TEXT_CONVERTER_CMARK_SUPPORT)
-    find_package(cmark-rc "0.31.0")
-    set_package_properties(cmark-rc PROPERTIES DESCRIPTION
-        "Allow to generate html from markdown (cmark-rc)"
-        TYPE OPTIONAL
-    )
-    if(TARGET cmark-rc::cmark-rc)
+    # find_package(cmark-rc "0.31.0")
+    # set_package_properties(cmark-rc PROPERTIES DESCRIPTION
+    #     "Allow to generate html from markdown (cmark-rc)"
+    #     TYPE OPTIONAL
+    # )
+    # if(TARGET cmark-rc::cmark-rc)
         set(USE_CMARK_RC_RENDERING_TEXT true)
-    endif()
+    # endif()
 endif()
 
 find_package(Qt6 ${REQUIRED_QT_VERSION} REQUIRED COMPONENTS Core Gui Widgets WebSockets Network NetworkAuth MultimediaWidgets Sql)
