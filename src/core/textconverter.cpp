@@ -341,7 +341,7 @@ QString generateRichText(const QString &str,
 
 QString TextConverter::convertMessageText(const ConvertMessageTextSettings &settings, QByteArray &needUpdateMessageId, int &recusiveIndex)
 {
-#if 1
+#if 0
 #if USE_CMARK_RC_RENDERING_TEXT
     return TextConverter::convertMessageTextCMark(settings, needUpdateMessageId, recusiveIndex);
 #else
