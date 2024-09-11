@@ -14,7 +14,6 @@
 #if USE_CMARK_RC_RENDERING_TEXT
 #include "cmark-rc.h"
 #include "ruqola_texttohtml_cmark_debug.h"
-#include <iostream>
 #endif
 
 #include "ktexttohtmlfork/ruqolaktexttohtml.h"
@@ -341,12 +340,10 @@ QString generateRichText(const QString &str,
 
 QString TextConverter::convertMessageText(const ConvertMessageTextSettings &settings, QByteArray &needUpdateMessageId, int &recusiveIndex)
 {
-#if 1
 #if USE_CMARK_RC_RENDERING_TEXT
     return TextConverter::convertMessageTextCMark(settings, needUpdateMessageId, recusiveIndex);
 #else
     return TextConverter::convertMessageTextRuqola(settings, needUpdateMessageId, recusiveIndex);
-#endif
 #endif
     return TextConverter::convertMessageTextRuqola(settings, needUpdateMessageId, recusiveIndex);
 }
