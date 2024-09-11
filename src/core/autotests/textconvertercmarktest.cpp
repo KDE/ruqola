@@ -105,7 +105,7 @@ void TextConverterCMarkTest::shouldConvertText_data()
         << QStringLiteral("foo `bla` bar `asdf` test")
         << QStringLiteral("<p>foo <code style='background-color:$BGCOLOR$'>bla</code> bar <code style='background-color:$BGCOLOR$'>asdf</code> test</p>\n");
     QTest::newRow("`code \\` escaped`") << QStringLiteral("foo `bla\\` bar \\`asdf` test")
-                                        << QStringLiteral("<p>foo <code style='background-color:$BGCOLOR$'>bla\\` bar \\`asdf</code> test</p>\n");
+                                        << QStringLiteral("<p>foo `bla\\` bar <code style='background-color:$BGCOLOR$'>asdf</code> test</p>\n");
     QTest::newRow("quote<") << QStringLiteral("`inside quotes: <<....` this is outside the quotes <<.")
                             << QStringLiteral(
                                    "<p><code style='background-color:$BGCOLOR$'>inside quotes: &lt;&lt;....</code> this is outside the quotes &lt;&lt;.</p>\n");
@@ -133,8 +133,7 @@ void TextConverterCMarkTest::shouldConvertText()
 
     output = prepareExpectedOutput(output);
 
-    QEXPECT_FAIL("multi star", "Bug in KF5", Continue);
-    QEXPECT_FAIL("Remove <br/>", "Bug in KF5", Continue);
+    QEXPECT_FAIL("Remove <br/>", "Bug in KF6", Continue);
 
     QByteArray needUpdateMessageId;
     const TextConverter::ConvertMessageTextSettings settings(input, QString(), {}, {}, nullptr, nullptr, {}, {});
