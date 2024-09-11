@@ -845,7 +845,7 @@ char *TextConverter::convertMessageTextCMark(const TextConverter::ConvertMessage
     cmark_iter *iter = cmark_iter_new(doc);
     cmark_event_type ev_type;
 #ifdef DEBUG_CMARK_RC
-    char *beforehtml = cmark_render_html(doc, CMARK_OPT_DEFAULT | CMARK_OPT_UNSAFE);
+    char *beforehtml = cmark_render_html(doc, CMARK_OPT_DEFAULT | CMARK_OPT_UNSAFE | CMARK_OPT_HARDBREAKS);
     qCDebug(RUQOLA_TEXTTOHTML_CMARK_LOG) << " beforehtml " << beforehtml;
     delete beforehtml;
 #endif
