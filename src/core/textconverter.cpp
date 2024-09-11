@@ -924,12 +924,6 @@ char *TextConverter::convertMessageTextCMark(const TextConverter::ConvertMessage
             }
             break;
         }
-        case CMARK_NODE_BLOCK_QUOTE: {
-            qDebug() << "CMARK_NODE_BLOCK_QUOTE************************* ";
-            // TODO
-            break;
-        }
-
         default:
             break;
         }
