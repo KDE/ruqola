@@ -20,6 +20,7 @@ QList<KLazyLocalizedString> WhatsNewTranslations::lastNewFeatures() const
         kli18n("Implement moderation (administrator mode)."),
         kli18n("Add welcome page."),
         kli18n("Implement pending users info (administrator mode)."),
+        kli18n("Use cmark-rc (https://github.com/dfaure/cmark-rc) for markdown support."),
     };
     return info;
 }
