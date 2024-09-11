@@ -245,6 +245,7 @@ void AdministratorUsersWidget::slotActivateUser(const QModelIndex &index, bool a
     mRocketChatAccount->restApi()->initializeRestApiJob(job);
     connect(job, &RocketChatRestApi::SetUserActiveStatusJob::setUserActiveStatusDone, this, [this, modelIndex](const QJsonObject &replyObject) {
         slotSetUserActiveStatus(replyObject, modelIndex);
+        slotLoadElements();
     });
     if (!job->start()) {
         qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start SetUserActiveStatusJob job";
@@ -482,13 +483,11 @@ void AdministratorUsersWidget::slotResetTOTPKey(const QModelIndex &index)
 void AdministratorUsersWidget::resendWelcomeEmail(const QModelIndex &index)
 {
     const QString email = mModel->index(index.row(), AdminUsersAllModel::Email).data().toString();
-    qDebug() << " email " << email;
-
     auto job = new RocketChatRestApi::UsersSendWelcomeEmailJob(this);
     job->setEmail(email);
     mRocketChatAccount->restApi()->initializeRestApiJob(job);
-    connect(job, &RocketChatRestApi::UsersSendWelcomeEmailJob::sendWelcomeEmailDone, this, [this]() {
-        qDebug() << " email send !!!";
+    connect(job, &RocketChatRestApi::UsersSendWelcomeEmailJob::sendWelcomeEmailDone, this, []() {
+        qDebug(RUQOLAWIDGETS_LOG) << " email sent !!!";
     });
     if (!job->start()) {
         qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start UsersSendWelcomeEmailJob job";
@@ -497,7 +496,8 @@ void AdministratorUsersWidget::resendWelcomeEmail(const QModelIndex &index)
 
 void AdministratorUsersWidget::activateUser(const QModelIndex &index)
 {
-    slotActivateUser(index, true);
+    // Use false here as slotActivateUser revert activate value => we need to use "false" to activate it :)
+    slotActivateUser(index, false);
 }
 
 #include "moc_administratoruserswidget.cpp"
