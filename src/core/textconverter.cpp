@@ -838,8 +838,21 @@ QString addHighlighter(const QString &str, const TextConverter::ConvertMessageTe
 }
 
 #define DEBUG_CMARK_RC
-char *TextConverter::convertMessageTextCMark(const TextConverter::ConvertMessageTextSettings &settings)
+char *TextConverter::convertMessageTextCMark(const TextConverter::ConvertMessageTextSettings &newSettings)
 {
+    // Need to escaped text (avoid to interprete html code)
+    const TextConverter::ConvertMessageTextSettings settings{
+        newSettings.str.toHtmlEscaped(),
+        newSettings.userName,
+        newSettings.allMessages,
+        newSettings.highlightWords,
+        newSettings.emojiManager,
+        newSettings.messageCache,
+        newSettings.mentions,
+        newSettings.channels,
+        newSettings.searchedText,
+        newSettings.maximumRecursiveQuotedText,
+    };
     const QByteArray ba = settings.str.toUtf8();
     cmark_node *doc = cmark_parse_document(ba.constData(), ba.length(), CMARK_OPT_DEFAULT);
     cmark_iter *iter = cmark_iter_new(doc);
