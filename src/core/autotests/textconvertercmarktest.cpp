@@ -70,7 +70,6 @@ void TextConverterCMarkTest::shouldConvertText_data()
     QTest::newRow("multi star2") << QStringLiteral("***bla***") << QStringLiteral("<p><strong><strong>bla</strong></strong></p>\n");
     QTest::newRow("multi star3") << QStringLiteral("***bla ******") << QStringLiteral("<p>***bla ******</p>\n");
     QTest::newRow("Remove <br/>") << QStringLiteral("foo<br />") << QStringLiteral("<p>foo</p>\n");
-
     QTest::newRow("0.6.3") << QStringLiteral("0.6.3") << QStringLiteral("<p>0.6.3</p>\n");
     // Bug 391520
     QTest::newRow("multi-line") << QStringLiteral("These are the options:\n- a\n- b")
@@ -114,16 +113,17 @@ void TextConverterCMarkTest::shouldConvertText_data()
     QTest::newRow("quotedtext1") << QStringLiteral("> toto") << QStringLiteral("<p><code style='background-color:$BGCOLOR$'>toto</code></p>\n");
 #if 1
     QTest::newRow("quotedtext2") << QStringLiteral("bla \n> toto")
-                                 << QStringLiteral("<p>bla <br />\n<code style='background-color:$BGCOLOR$'>toto</code></p>\n");
+                                 << QStringLiteral("<p>bla<br />\n<code style='background-color:$BGCOLOR$'>toto</code></p>\n");
 
     QTest::newRow("quotedtext3")
         << QStringLiteral("bla \n> toto \n> bla")
-        << QStringLiteral("<p>bla <br />\n<code style='background-color:$BGCOLOR$'>toto</code><br /><code style='background-color:$BGCOLOR$'>bla</code></p>\n");
+        << QStringLiteral(
+               "<p>bla<br />\n<code style='background-color:$BGCOLOR$'>toto</code><br />\n<code style='background-color:$BGCOLOR$'>bla</code></p>\n");
 
     QTest::newRow("quotedtext4") << QStringLiteral("bla \n> toto \n> *bla*")
                                  << QStringLiteral(
-                                        "<p>bla <br />\n<code style='background-color:$BGCOLOR$'>toto</code><br /><code "
-                                        "style='background-color:$BGCOLOR$'><strong>bla</strong></code></p>\n");
+                                        "<p>bla<br />\n<code style='background-color:$BGCOLOR$'>toto</code><br />\n<code "
+                                        "style='background-color:$BGCOLOR$'></code><strong>bla</strong></p>\n");
 
     QTest::newRow("noquotedtext") << QStringLiteral("bla > toto") << QStringLiteral("<p>bla &gt; toto</p>\n");
 #endif
@@ -236,7 +236,7 @@ void TextConverterCMarkTest::shouldConvertTextWithEmoji_data()
     QTest::addColumn<QString>("input");
     QTest::addColumn<QString>("output");
     QTest::addColumn<QString>("serverUrl");
-#if 1
+
     QTest::newRow("empty") << QString() << QString() << QStringLiteral("www.kde.org");
     QTest::newRow("bold") << QStringLiteral("*foo*") << QStringLiteral("<p><strong>foo</strong></p>\n") << QStringLiteral("www.kde.org");
     QTest::newRow("italic") << QStringLiteral("_foo_") << QStringLiteral("<p><em>foo</em></p>\n") << QStringLiteral("www.kde.org");
@@ -288,10 +288,11 @@ void TextConverterCMarkTest::shouldConvertTextWithEmoji_data()
                                         "<p>bla</p>\n<p><table><tr><td style='background-color:$BGCOLOR$; padding: 5px; border: 1px solid "
                                         "$BORDERCOLOR$'><code>foo</code></td></tr></table></p>\n<p>blub</p>\n")
                                  << QStringLiteral("www.kde.org");
-    QTest::newRow("quotedcode2") << QStringLiteral("bla\n```foo```bli")
+
+    QTest::newRow("quotedcode2") << QStringLiteral("bla\n```\nfoo\n```\nbli")
                                  << QStringLiteral(
-                                        "<p>bla</p>\n<table><tr><td style='background-color:$BGCOLOR$; padding: 5px; border: 1px solid "
-                                        "$BORDERCOLOR$'><code>foo</code></td></tr></table><p>bli</p>\n")
+                                        "<p>bla</p>\n<p><table><tr><td style='background-color:$BGCOLOR$; padding: 5px; border: 1px solid "
+                                        "$BORDERCOLOR$'><code>foo</code></td></tr></table></p>\n<p>bli</p>\n")
                                  << QStringLiteral("www.kde.org");
     QTest::newRow("quotedcode3") << QStringLiteral("bla\n```\nfoo\n```")
                                  << QStringLiteral(
@@ -309,7 +310,7 @@ void TextConverterCMarkTest::shouldConvertTextWithEmoji_data()
                                         "<p>bla</p>\n<p><table><tr><td style='background-color:$BGCOLOR$; padding: 5px; border: 1px solid "
                                         "$BORDERCOLOR$'><code>foo</code></td></tr></table></p>\n<p>ff</p>\n")
                                  << QStringLiteral("www.kde.org");
-#endif
+
     QTest::newRow("quotedcode6") << QStringLiteral("*foo*\n```\nfoo\n```\n*bar*\n```\nblub\n```\n*asdf*")
                                  << QStringLiteral(
                                         "<p><strong>foo</strong></p>\n<p><table><tr><td style='background-color:$BGCOLOR$; padding: 5px; border: 1px solid "
@@ -317,7 +318,6 @@ void TextConverterCMarkTest::shouldConvertTextWithEmoji_data()
                                         "style='background-color:$BGCOLOR$; padding: 5px; border: "
                                         "1px solid $BORDERCOLOR$'><code>blub</code></td></tr></table></p>\n<p><strong>asdf</strong></p>\n")
                                  << QStringLiteral("www.kde.org");
-#if 1
     QTest::newRow("quotedcode7") << QStringLiteral(":)\n```\n:)\n```\n:)")
                                  << QStringLiteral(
                                         "<p>%1</p>\n<p><table><tr><td style='background-color:$BGCOLOR$; padding: 5px; border: 1px solid "
@@ -355,7 +355,6 @@ void TextConverterCMarkTest::shouldConvertTextWithEmoji_data()
     QTest::newRow("url-with-emoji") << QStringLiteral("https://www.kde.org/:x:/bla.html")
                                     << QStringLiteral("<p>%1 <code style='background-color:$BGCOLOR$'>:)</code> %1</p>\n").arg(smileyText)
                                     << QStringLiteral("www.kde.org");
-#endif
 }
 
 void TextConverterCMarkTest::shouldConvertTextWithEmoji()
