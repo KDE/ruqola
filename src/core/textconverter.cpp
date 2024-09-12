@@ -345,7 +345,6 @@ QString TextConverter::convertMessageText(const ConvertMessageTextSettings &sett
 #else
     return TextConverter::convertMessageTextRuqola(settings, needUpdateMessageId, recusiveIndex);
 #endif
-    return TextConverter::convertMessageTextRuqola(settings, needUpdateMessageId, recusiveIndex);
 }
 
 QString TextConverter::convertMessageTextRuqola(const ConvertMessageTextSettings &settings, QByteArray &needUpdateMessageId, int &recusiveIndex)
