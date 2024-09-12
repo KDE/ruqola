@@ -832,6 +832,15 @@ QString addHighlighter(const QString &str, const TextConverter::ConvertMessageTe
 }
 
 #define DEBUG_CMARK_RC
+
+void convertHtmlChar(QString &str)
+{
+    str.replace(QStringLiteral("&gt;"), QStringLiteral(">"));
+    str.replace(QStringLiteral("&lt;"), QStringLiteral("<"));
+    str.replace(QStringLiteral("&quot;"), QStringLiteral("\""));
+    str.replace(QStringLiteral("&amp;"), QStringLiteral("&"));
+}
+
 char *TextConverter::convertMessageTextCMark(const TextConverter::ConvertMessageTextSettings &newSettings, const QString &quotedMessage)
 {
     // Need to escaped text (avoid to interprete html code)
@@ -865,10 +874,7 @@ char *TextConverter::convertMessageTextCMark(const TextConverter::ConvertMessage
             const char *literal = cmark_node_get_literal(node);
             QString str = QString::fromUtf8(literal);
             if (!str.isEmpty()) {
-                // For code we must have escaped str
-                str.replace(QStringLiteral("&gt;"), QStringLiteral(">"));
-                str.replace(QStringLiteral("&lt;"), QStringLiteral("<"));
-                str.replace(QStringLiteral("&quot;"), QStringLiteral("\""));
+                convertHtmlChar(str);
                 const QString stringHtml = QStringLiteral("```") + str + QStringLiteral("```");
                 // qDebug() << " stringHtml " << stringHtml;
                 const QString highligherStr = addHighlighter(stringHtml, settings);
@@ -904,10 +910,7 @@ char *TextConverter::convertMessageTextCMark(const TextConverter::ConvertMessage
             qCDebug(RUQOLA_TEXTTOHTML_CMARK_LOG) << "CMARK_NODE_CODE:  QString::fromUtf8(literal) code" << QString::fromUtf8(literal);
             QString str = QString::fromUtf8(literal);
             if (!str.isEmpty()) {
-                // For code we must have escaped str
-                str.replace(QStringLiteral("&gt;"), QStringLiteral(">"));
-                str.replace(QStringLiteral("&lt;"), QStringLiteral("<"));
-                str.replace(QStringLiteral("&quot;"), QStringLiteral("\""));
+                convertHtmlChar(str);
                 const QString stringHtml = QStringLiteral("`") + str + QStringLiteral("`");
                 const QString convertedString = addHighlighter(stringHtml, settings);
                 qCDebug(RUQOLA_TEXTTOHTML_CMARK_LOG) << "CMARK_NODE_CODE:  convert text " << convertedString;
