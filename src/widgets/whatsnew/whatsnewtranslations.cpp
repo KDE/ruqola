@@ -21,6 +21,7 @@ QList<KLazyLocalizedString> WhatsNewTranslations::lastNewFeatures() const
         kli18n("Add welcome page."),
         kli18n("Implement pending users info (administrator mode)."),
         kli18n("Use cmark-rc (https://github.com/dfaure/cmark-rc) for markdown support."),
+        kli18n("Delete oldest files from some cache directories (file-upload and media) so it doesn't grow forever."),
     };
     return info;
 }

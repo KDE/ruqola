@@ -11,8 +11,12 @@
 #include "ruqola_debug.h"
 #include <QDateTime>
 #include <QDir>
+#include <QDirIterator>
 #include <QSettings>
+#include <QTimer>
 #include <QUrlQuery>
+
+using namespace std::chrono_literals;
 
 RocketChatCache::RocketChatCache(RocketChatAccount *account, QObject *parent)
     : QObject(parent)
@@ -21,6 +25,11 @@ RocketChatCache::RocketChatCache(RocketChatAccount *account, QObject *parent)
 {
     connect(mAvatarManager, &AvatarManager::insertAvatarUrl, this, &RocketChatCache::insertAvatarUrl);
     loadAvatarCache();
+
+    auto cleanupTimer = new QTimer(this);
+    cleanupTimer->setInterval(1h);
+    connect(cleanupTimer, &QTimer::timeout, this, &RocketChatCache::cleanupCache);
+    cleanupCache();
 }
 
 RocketChatCache::~RocketChatCache()
@@ -79,6 +88,37 @@ void RocketChatCache::loadAvatarCache()
         mAvatarUrl[key] = QUrl(settings.value(key).toString());
     }
     settings.endGroup();
+}
+
+void RocketChatCache::cleanupCache()
+{
+    const QString cachePath = ManagerDataPaths::self()->path(ManagerDataPaths::Cache, mAccount->accountName());
+    cleanupCacheDirectory(cachePath + QLatin1String("/file-upload"));
+    cleanupCacheDirectory(cachePath + QLatin1String("/media"));
+}
+
+void RocketChatCache::cleanupCacheDirectory(const QString &directory)
+{
+    qCDebug(RUQOLA_LOG) << "Checking cache directory" << directory;
+    const QDate today = QDate::currentDate();
+    QDirIterator it(directory, {}, QDir::Files | QDir::NoDotAndDotDot, QDirIterator::Subdirectories);
+    while (it.hasNext()) {
+        QFileInfo fileInfo(it.next());
+        if (fileInfo.lastModified().date().daysTo(today) > 365) { // at least one year old
+            qCInfo(RUQOLA_LOG) << "Deleting" << fileInfo.absoluteFilePath();
+            QFile::remove(fileInfo.absoluteFilePath());
+        }
+    }
+    // Clean up empty directories
+    QDirIterator dirit(directory, {}, QDir::Dirs | QDir::NoDotAndDotDot, QDirIterator::Subdirectories);
+    while (dirit.hasNext()) {
+        const QString path = dirit.next();
+        QDir dir(path);
+        if (dir.isEmpty()) {
+            qCInfo(RUQOLA_LOG) << "Deleting empty dir" << path;
+            QDir().rmdir(path);
+        }
+    }
 }
 
 void RocketChatCache::downloadFile(const QString &url, const QUrl &localFile)

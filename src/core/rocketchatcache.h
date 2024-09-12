@@ -56,6 +56,9 @@ private:
     LIBRUQOLACORE_NO_EXPORT void slotDataDownloaded(const QUrl &url, const QUrl &localFileUrl);
     LIBRUQOLACORE_NO_EXPORT void removeAvatar(const QString &avatarIdentifier);
     LIBRUQOLACORE_NO_EXPORT void loadAvatarCache();
+    LIBRUQOLACORE_NO_EXPORT void cleanupCache();
+    LIBRUQOLACORE_NO_EXPORT void cleanupCacheDirectory(const QString &directory);
+
     QHash<QString, QUrl> mAvatarUrl;
     QSet<QString> mFileInDownload;
     RocketChatAccount *const mAccount;
