@@ -11,7 +11,6 @@
 #include <QDialog>
 
 class ModerationUsersWidget;
-class CommonMessageFilterProxyModel;
 class RocketChatAccount;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT ModerationUsersDialog : public QDialog
 {
