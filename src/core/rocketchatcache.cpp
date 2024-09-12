@@ -93,8 +93,8 @@ void RocketChatCache::loadAvatarCache()
 void RocketChatCache::cleanupCache()
 {
     const QString cachePath = ManagerDataPaths::self()->path(ManagerDataPaths::Cache, mAccount->accountName());
-    cleanupCacheDirectory(cachePath + QLatin1String("/file-upload"));
-    cleanupCacheDirectory(cachePath + QLatin1String("/media"));
+    cleanupCacheDirectory(cachePath + QLatin1StringView("/file-upload"));
+    cleanupCacheDirectory(cachePath + QLatin1StringView("/media"));
 }
 
 void RocketChatCache::cleanupCacheDirectory(const QString &directory)
