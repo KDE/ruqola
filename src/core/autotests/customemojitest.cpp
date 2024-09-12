@@ -114,7 +114,7 @@ void CustomEmojiTest::shouldParseEmoji()
 {
     QFETCH(QString, name);
     QFETCH(CustomEmoji, expectedEmoji);
-    const QString originalJsonFile = QLatin1String(RUQOLA_DATA_DIR) + QLatin1String("/json/restapi/") + name + QLatin1String(".json");
+    const QString originalJsonFile = QLatin1StringView(RUQOLA_DATA_DIR) + QLatin1StringView("/json/restapi/") + name + QLatin1StringView(".json");
     const QJsonObject obj = AutoTestHelper::loadJsonObject(originalJsonFile);
     CustomEmoji originalEmoji;
     originalEmoji.parseEmoji(obj);

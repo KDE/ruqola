@@ -66,9 +66,9 @@ void CustomSoundInfo::setDefaultSound(bool newDefaultSound)
 QString CustomSoundInfo::generateUrl() const
 {
     if (mDefaultSound) {
-        return QLatin1String("/sounds/%1.%2").arg(QString::fromLatin1(mIdentifier), mExtension);
+        return QLatin1StringView("/sounds/%1.%2").arg(QString::fromLatin1(mIdentifier), mExtension);
     } else {
-        return QLatin1String("/custom-sounds/%1.%2").arg(QString::fromLatin1(mIdentifier), mExtension);
+        return QLatin1StringView("/custom-sounds/%1.%2").arg(QString::fromLatin1(mIdentifier), mExtension);
     }
 }
 

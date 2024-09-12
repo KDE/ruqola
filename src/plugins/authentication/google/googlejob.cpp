@@ -37,7 +37,7 @@ GoogleJob::GoogleJob(QObject *parent)
     mO2Google->setScope(QStringLiteral("email"));
 
     // Create a store object for writing the received tokens
-    O0SettingsStore *store = new O0SettingsStore(QLatin1String(O2_ENCRYPTION_KEY), this);
+    O0SettingsStore *store = new O0SettingsStore(QLatin1StringView(O2_ENCRYPTION_KEY), this);
     store->setGroupKey(QStringLiteral("Google"));
     mO2Google->setStore(store);
 
