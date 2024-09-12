@@ -895,7 +895,7 @@ char *TextConverter::convertMessageTextCMark(const TextConverter::ConvertMessage
 
             const QString str = QString::fromUtf8(literal);
             if (!str.isEmpty()) {
-                const QString convertedString = addHighlighter(QString::fromUtf8(literal), settings);
+                const QString convertedString = addHighlighter(str, settings);
                 qCDebug(RUQOLA_TEXTTOHTML_CMARK_LOG) << "CMARK_NODE_TEXT: convert text " << convertedString;
                 cmark_node *htmlInline = cmark_node_new(CMARK_NODE_HTML_INLINE);
                 cmark_node_set_literal(htmlInline, convertedString.toUtf8().constData());
