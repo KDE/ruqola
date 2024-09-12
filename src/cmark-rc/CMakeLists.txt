@@ -42,6 +42,7 @@ add_library(cmark-rc
   blocks.c
   buffer.c
   cmark.c
+  cmark-rc.h
   cmark_ctype.c
   commonmark.c
   houdini_href_e.c
