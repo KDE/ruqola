@@ -820,9 +820,7 @@ QString addHighlighter(const QString &str, const TextConverter::ConvertMessageTe
             return;
         }
 
-        // richTextStream << "<div>"_L1;
         iterateOverRegionsCmark(chunk, QStringLiteral("`"), addInlineCodeChunk, addInlineQuoteChunk);
-        // richTextStream << "</div>"_L1;
     };
 
     iterateOverRegionsCmark(str, QStringLiteral("```"), addCodeChunk, addNonCodeChunk);
