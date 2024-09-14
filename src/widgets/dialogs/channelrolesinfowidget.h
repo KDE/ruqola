@@ -20,6 +20,6 @@ public:
     void setRoom(Room *room);
 
 private:
-    void generateInfo(const QString &label, const QStringList &list);
+    LIBRUQOLAWIDGETS_NO_EXPORT void generateInfo(const QString &label, const QStringList &list);
     QFormLayout *const mFormLayout;
 };
