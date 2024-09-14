@@ -47,14 +47,14 @@ void OtrManager::slotAcceptOtr(const Otr &t)
 void OtrManager::slotRejectOtr(const Otr &t)
 {
     // TODO add reject method.
-    qCDebug(RUQOLA_LOG) << " Otr rejected!";
+    qCDebug(RUQOLA_LOG) << " Otr rejected!" << t;
 }
 
 void OtrManager::slotAcknowLedgeOtr(const Otr &t)
 {
     // TODO add slotAcknowLedgeOtr method.
     mOtrList.append(t);
-    qCDebug(RUQOLA_LOG) << "AcknowLedge Otr!";
+    qCDebug(RUQOLA_LOG) << "AcknowLedge Otr!" << t;
 }
 
 void OtrManager::slotEndOtr(const Otr &t)

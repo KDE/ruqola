@@ -3283,7 +3283,7 @@ void RocketChatAccount::loadInstalledApps()
 {
     auto job = new RocketChatRestApi::AppInstalledJob(this);
     restApi()->initializeRestApiJob(job);
-    connect(job, &RocketChatRestApi::AppInstalledJob::appInstalledDone, this, [this](const QJsonArray &replyArray) {
+    connect(job, &RocketChatRestApi::AppInstalledJob::appInstalledDone, this, [](const QJsonArray &replyArray) {
         for (int i = 0; i < replyArray.count(); ++i) {
             const QJsonObject obj = replyArray.at(i).toObject();
             qDebug() << "RocketChatAccount::loadInstalledApps obj" << obj;

@@ -77,10 +77,11 @@ void MessageCache::slotGetMessageDone(const QJsonObject &obj, const QByteArray &
     Q_ASSERT(!msgObject.isEmpty());
     auto message = new Message;
     message->parseMessage(msgObject, true, nullptr);
-    Q_ASSERT(messageId == message->messageId());
-    mMessages.insert(message->messageId(), message);
+    const QByteArray msgId = message->messageId();
+    Q_ASSERT(messageId == msgId);
+    mMessages.insert(msgId, message);
     mMessageJobs.remove(messageId);
-    Q_EMIT messageLoaded(message->messageId());
+    Q_EMIT messageLoaded(msgId);
 }
 
 bool MessageCache::startJob(RocketChatRestApi::RestApiAbstractJob *job)
