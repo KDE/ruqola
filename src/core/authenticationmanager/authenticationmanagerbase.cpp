@@ -9,7 +9,7 @@
 #include "ruqola_authentication_debug.h"
 #include "utils.h"
 #define sl(x) QStringLiteral(x)
-
+using namespace Qt::Literals::StringLiterals;
 AuthenticationManagerBase::AuthenticationManagerBase(QObject *parent)
     : QObject{parent}
 {
@@ -210,16 +210,16 @@ void AuthenticationManagerBase::processMethodResponseImpl(const QJsonObject &res
     switch (method) {
     case Method::Login: // intentional fall-through
     case Method::SendOtp:
-        if (response.contains(sl("result"))) {
-            const QJsonObject result = response[sl("result")].toObject();
-            mAuthToken = result[sl("token")].toString();
-            mUserId = result[sl("id")].toString();
-            mTokenExpires = result[sl("tokenExpires")].toObject()[sl("$date")].toDouble();
+        if (response.contains("result"_L1)) {
+            const QJsonObject result = response["result"_L1].toObject();
+            mAuthToken = result["token"_L1].toString();
+            mUserId = result["id"_L1].toString();
+            mTokenExpires = result["tokenExpires"_L1].toObject()[sl("$date")].toDouble();
             setLoginStatus(AuthenticationManager::LoggedIn);
         }
 
-        if (response.contains(sl("error"))) {
-            const QJsonValue errorCode = response[sl("error")].toObject()[sl("error")];
+        if (response.contains("error"_L1)) {
+            const QJsonValue errorCode = response["error"_L1].toObject()[sl("error")];
             qCWarning(RUQOLA_AUTHENTICATION_LOG) << "Login Error: " << response;
             // TODO: to be more user friendly, there would need to be more context
             // in case of a 403 error, as it may be received in different cases:
@@ -262,7 +262,7 @@ void AuthenticationManagerBase::processMethodResponseImpl(const QJsonObject &res
         // being logged in. That is being taken care of in DDPAuthenticationManager::logout.
         // Printing any error message that may come up just in case, and preventing any other
         // operations by switching to GenericError state.
-        if (response.contains(sl("error"))) {
+        if (response.contains("error"_L1)) {
             qCWarning(RUQOLA_AUTHENTICATION_LOG) << "Error while logging out. Server response:" << response;
             setLoginStatus(AuthenticationManager::GenericError);
             return;
@@ -273,8 +273,8 @@ void AuthenticationManagerBase::processMethodResponseImpl(const QJsonObject &res
 
     case Method::LogoutCleanUp:
         // Maybe the clean up request payload is corrupted
-        if (response.contains(sl("error"))) {
-            const QJsonValue errorCode = response[sl("error")].toObject()[sl("error")];
+        if (response.contains("error"_L1)) {
+            const QJsonValue errorCode = response["error"_L1].toObject()[sl("error")];
             qCWarning(RUQOLA_AUTHENTICATION_LOG) << "Couldn't clean up on logout. Server response:" << response << " error code " << errorCode;
             // If we get here we're likely getting something wrong from the UI.
             // Need to prevent any further operation from now on.
