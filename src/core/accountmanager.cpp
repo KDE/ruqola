@@ -22,6 +22,7 @@
 #include <QDirIterator>
 #include <QSettings>
 #include <TextEmoticonsCore/EmojiModelManager>
+using namespace Qt::Literals::StringLiterals;
 AccountManager::AccountManager(QObject *parent)
     : QObject(parent)
     , mRocketChatAccountModel(new RocketChatAccountModel(this))
@@ -803,7 +804,7 @@ void AccountManager::loadAccount()
     mRocketChatAccountModel->setAccounts(lstAccounts);
 
     QSettings settings;
-    const QString previousAccount = settings.value(QLatin1StringView("currentAccount"), QString()).toString();
+    const QString previousAccount = settings.value("currentAccount"_L1, QString()).toString();
     if (previousAccount.isEmpty()) {
         // Use first one
         mCurrentAccount = mRocketChatAccountModel->account(0);
@@ -934,7 +935,7 @@ void AccountManager::setCurrentAccount(const QString &accountName)
     if (account) {
         if (mCurrentAccount != account) {
             QSettings settings;
-            settings.setValue(QLatin1StringView("currentAccount"), accountName);
+            settings.setValue("currentAccount"_L1, accountName);
             settings.sync();
             mCurrentAccount = account;
             Q_EMIT currentAccountChanged();

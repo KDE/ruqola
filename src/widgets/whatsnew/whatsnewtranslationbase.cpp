@@ -6,7 +6,7 @@
 #include "whatsnewtranslationbase.h"
 #include <KLazyLocalizedString>
 #include <QCryptographicHash>
-
+using namespace Qt::Literals::StringLiterals;
 WhatsNewTranslationsBase::WhatsNewTranslationsBase() = default;
 
 WhatsNewTranslationsBase::~WhatsNewTranslationsBase() = default;

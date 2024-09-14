@@ -172,17 +172,16 @@ bool KTextToHTMLHelper::atUrl() const
     const auto segment = QStringView(mText).mid(mPos);
     return segment.startsWith("http://"_L1) || segment.startsWith("https://"_L1) || segment.startsWith("vnc://"_L1) || segment.startsWith("fish://"_L1)
         || segment.startsWith("ftp://"_L1) || segment.startsWith("ftps://"_L1) || segment.startsWith("sftp://"_L1) || segment.startsWith("smb://"_L1)
-        || segment.startsWith(QLatin1StringView("mailto:")) || segment.startsWith("www."_L1) || segment.startsWith("ftp."_L1)
-        || segment.startsWith(QLatin1StringView("file://")) || segment.startsWith("news:"_L1) || segment.startsWith("tel:"_L1) || segment.startsWith("xmpp:"_L1)
-        || segment.startsWith("irc://"_L1) || segment.startsWith("ircs://"_L1);
+        || segment.startsWith("mailto:"_L1) || segment.startsWith("www."_L1) || segment.startsWith("ftp."_L1) || segment.startsWith("file://"_L1)
+        || segment.startsWith("news:"_L1) || segment.startsWith("tel:"_L1) || segment.startsWith("xmpp:"_L1) || segment.startsWith("irc://"_L1)
+        || segment.startsWith("ircs://"_L1);
 }
 
 bool KTextToHTMLHelper::isEmptyUrl(const QString &url) const
 {
-    return url.isEmpty() || url == QLatin1StringView("http://") || url == "https://"_L1 || url == "fish://"_L1 || url == QLatin1StringView("ftp://")
-        || url == "ftps://"_L1 || url == "sftp://"_L1 || url == QLatin1StringView("smb://") || url == QLatin1StringView("vnc://") || url == "mailto"_L1
-        || url == "mailto:"_L1 || url == QLatin1StringView("www") || url == QLatin1StringView("ftp") || url == "news:"_L1 || url == "news://"_L1
-        || url == QLatin1StringView("tel") || url == QLatin1StringView("tel:") || url == "xmpp:"_L1 || url == "irc://"_L1 || url == "ircs://"_L1;
+    return url.isEmpty() || url == "http://"_L1 || url == "https://"_L1 || url == "fish://"_L1 || url == "ftp://"_L1 || url == "ftps://"_L1
+        || url == "sftp://"_L1 || url == "smb://"_L1 || url == "vnc://"_L1 || url == "mailto"_L1 || url == "mailto:"_L1 || url == "www"_L1 || url == "ftp"_L1
+        || url == "news:"_L1 || url == "news://"_L1 || url == "tel"_L1 || url == "tel:"_L1 || url == "xmpp:"_L1 || url == "irc://"_L1 || url == "ircs://"_L1;
 }
 
 QString KTextToHTMLHelper::getUrl(bool *badurl)

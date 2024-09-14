@@ -17,7 +17,7 @@
 #include <QUrlQuery>
 
 using namespace std::chrono_literals;
-
+using namespace Qt::Literals::StringLiterals;
 RocketChatCache::RocketChatCache(RocketChatAccount *account, QObject *parent)
     : QObject(parent)
     , mAccount(account)
@@ -93,8 +93,8 @@ void RocketChatCache::loadAvatarCache()
 void RocketChatCache::cleanupCache()
 {
     const QString cachePath = ManagerDataPaths::self()->path(ManagerDataPaths::Cache, mAccount->accountName());
-    cleanupCacheDirectory(cachePath + QLatin1StringView("/file-upload"));
-    cleanupCacheDirectory(cachePath + QLatin1StringView("/media"));
+    cleanupCacheDirectory(cachePath + "/file-upload"_L1);
+    cleanupCacheDirectory(cachePath + "/media"_L1);
 }
 
 void RocketChatCache::cleanupCacheDirectory(const QString &directory)

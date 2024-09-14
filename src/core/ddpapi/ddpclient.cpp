@@ -759,13 +759,13 @@ void DDPClient::onTextMessageReceived(const QString &message)
     if (!response.isNull() && response.isObject()) {
         QJsonObject root = response.object();
 
-        const QString messageType = root.value(QLatin1StringView("msg")).toString();
+        const QString messageType = root.value("msg"_L1).toString();
 
-        if (messageType == QLatin1StringView("updated")) {
+        if (messageType == "updated"_L1) {
             // nothing to do.
             qCDebug(RUQOLA_DDPAPI_LOG) << mRocketChatAccount->accountName() << " message updated ! not implemented yet" << response;
-        } else if (messageType == QLatin1StringView("result")) {
-            quint64 id = root.value(QLatin1StringView("id")).toString().toULongLong();
+        } else if (messageType == "result"_L1) {
+            quint64 id = root.value("id"_L1).toString().toULongLong();
 
             // Checking first if any of the new DDPManager claimed the result,
             // otherwise defaulting to old behaviour.

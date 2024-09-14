@@ -17,6 +17,7 @@
 #include <QStandardPaths>
 #include <qt6keychain/keychain.h>
 using namespace QKeychain;
+using namespace Qt::Literals::StringLiterals;
 
 RocketChatAccountSettings::RocketChatAccountSettings(const QString &accountFileName, QObject *parent)
     : QObject(parent)
