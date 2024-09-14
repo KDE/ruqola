@@ -864,7 +864,7 @@ char *TextConverter::convertMessageTextCMark(const TextConverter::ConvertMessage
     delete beforehtml;
 #endif
 
-    while ((ev_type = cmark_iter_next(iter)) != CMARK_EVENT_DONE) {
+    while (cmark_iter_next(iter) != CMARK_EVENT_DONE) {
         cmark_node *node = cmark_iter_get_node(iter);
         qCDebug(RUQOLA_TEXTTOHTML_CMARK_LOG) << "type element " << cmark_node_get_type_string(node);
         switch (cmark_node_get_type(node)) {

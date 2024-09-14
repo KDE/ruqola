@@ -132,9 +132,8 @@ void MessageListDelegateTest::layoutChecks()
         }
     }
 
-    const int bottom = layout.usableRect.y() + layout.usableRect.height();
-
 #if 0 // Need to reactivate it
+    const int bottom = layout.usableRect.y() + layout.usableRect.height();
     // Avatar
     QCOMPARE(qRound(layout.avatarPixmap.height() / layout.avatarPixmap.devicePixelRatioF()), layout.senderRect.height());
     QCOMPARE(layout.avatarPixmap.devicePixelRatioF(), fakeWidget.devicePixelRatioF());
