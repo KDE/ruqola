@@ -29,7 +29,6 @@ RocketChatCache::RocketChatCache(RocketChatAccount *account, QObject *parent)
     auto cleanupTimer = new QTimer(this);
     cleanupTimer->setInterval(1h);
     connect(cleanupTimer, &QTimer::timeout, this, &RocketChatCache::cleanupCache);
-    cleanupCache();
 }
 
 RocketChatCache::~RocketChatCache()
