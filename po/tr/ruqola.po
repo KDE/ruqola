@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-09-13 00:39+0000\n"
-"PO-Revision-Date: 2024-09-12 13:23+0300\n"
+"PO-Revision-Date: 2024-09-13 12:28+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -10649,6 +10649,8 @@ msgid ""
 "Delete oldest files from some cache directories (file-upload and media) so "
 "it doesn't grow forever."
 msgstr ""
+"Kimi önbellek dizinlerinden en eski dosyaları (dosya ve ortam yüklemeleri) "
+"silin ki sürekli olarak yer kaplamasın."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:34
 #, kde-format

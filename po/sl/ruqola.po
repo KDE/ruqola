@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-09-13 00:39+0000\n"
-"PO-Revision-Date: 2024-09-12 07:42+0200\n"
+"PO-Revision-Date: 2024-09-13 11:24+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
@@ -10698,6 +10698,8 @@ msgid ""
 "Delete oldest files from some cache directories (file-upload and media) so "
 "it doesn't grow forever."
 msgstr ""
+"Izbriši najstarejše datoteke iz nekaterih imenikov predpomnilnika (nalaganje "
+"datotek in predstavnost), da ne bodo večno rasle."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:34
 #, kde-format

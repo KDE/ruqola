@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-09-13 00:39+0000\n"
-"PO-Revision-Date: 2024-09-12 17:23+0200\n"
+"PO-Revision-Date: 2024-09-13 08:25+0200\n"
 "Last-Translator: Stefan Asserhäll <stefan.asserhall@gmail.com>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
 "Language: sv\n"
@@ -10650,6 +10650,8 @@ msgid ""
 "Delete oldest files from some cache directories (file-upload and media) so "
 "it doesn't grow forever."
 msgstr ""
+"Ta bort äldsta filer från vissa cachekataloger (filuppladdning och media) så "
+"att de inte växer för alltid."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:34
 #, kde-format
