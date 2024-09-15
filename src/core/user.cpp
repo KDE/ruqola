@@ -247,10 +247,9 @@ QJsonObject User::serialize(const User &user)
     if (!user.type().isEmpty()) {
         o["type"_L1] = user.type();
     }
-
-    // Add status/utcoffset/active
-
-    // TODO
+    o["active"_L1] = user.active();
+    o["status"_L1] = Utils::presenceStatusToString(user.status());
+    o["utcOffset"_L1] = user.utcOffset();
     return o;
 }
 
