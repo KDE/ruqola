@@ -269,8 +269,7 @@ User User::deserialize(const QJsonObject &o)
     if (!user.type().isEmpty()) {
         user.setType(o.value("type"_L1).toString());
     }
-    // TODO
-    return {};
+    return user;
 }
 
 QString User::nickName() const
