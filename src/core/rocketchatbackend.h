@@ -62,5 +62,5 @@ private:
 
     QList<User> mUsers;
     QList<File> mFiles;
-    RocketChatAccount *mRocketChatAccount = nullptr;
+    RocketChatAccount *const mRocketChatAccount;
 };
