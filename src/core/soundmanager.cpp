@@ -15,7 +15,8 @@ SoundManager::SoundManager(QObject *parent)
     , mAudioOutput(new QAudioOutput(this))
 {
     // Initialize
-    mAudioOutput->setVolume(50.0 / 100.0);
+    constexpr float volume = 50.0 / 100.0;
+    mAudioOutput->setVolume(volume);
 }
 
 SoundManager::~SoundManager() = default;
