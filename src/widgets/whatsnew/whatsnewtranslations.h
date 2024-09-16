@@ -5,9 +5,10 @@
 */
 #pragma once
 
+#include "libruqolawidgets_private_export.h"
 #include "whatsnewtranslationbase.h"
 
-class WhatsNewTranslations : public WhatsNewTranslationsBase
+class LIBRUQOLAWIDGETS_TESTS_EXPORT WhatsNewTranslations : public WhatsNewTranslationsBase
 {
 public:
     WhatsNewTranslations();

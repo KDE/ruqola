@@ -10,6 +10,7 @@
 #include "servererrorinfohistory/servererrorinfomessagewidget.h"
 #endif
 #include "whatsnew/whatsnewmessagewidget.h"
+#include "whatsnew/whatsnewtranslations.h"
 
 #include <QStackedWidget>
 #include <QStandardPaths>
@@ -38,7 +39,10 @@ void RuqolaCentralWidgetTest::shouldHaveDefaultValues()
     QVERIFY(mServerErrorInfoMessageWidget);
 #endif
     auto whatsNewMessageWidget = w.findChild<WhatsNewMessageWidget *>(QStringLiteral("whatsNewMessageWidget"));
-    QVERIFY(whatsNewMessageWidget);
+    if (WhatsNewTranslations().lastNewFeatures().isEmpty())
+        QVERIFY(!whatsNewMessageWidget);
+    else
+        QVERIFY(whatsNewMessageWidget);
 }
 
 #include "moc_ruqolacentralwidgettest.cpp"
