@@ -13,16 +13,7 @@ WhatsNewTranslations::~WhatsNewTranslations() = default;
 // Use by newFeaturesMD5
 QList<KLazyLocalizedString> WhatsNewTranslations::lastNewFeatures() const
 {
-    const QList<KLazyLocalizedString> info{
-        kli18n("Implement Rocket.Chat Marketplace."),
-        kli18n("Allow to clean room history."),
-        kli18n("Allow to check new version."),
-        kli18n("Implement moderation (administrator mode)."),
-        kli18n("Add welcome page."),
-        kli18n("Implement pending users info (administrator mode)."),
-        kli18n("Use cmark-rc (https://github.com/dfaure/cmark-rc) for markdown support."),
-        kli18n("Delete oldest files from some cache directories (file-upload and media) so it doesn't grow forever."),
-    };
+    const QList<KLazyLocalizedString> info{};
     return info;
 }
 
@@ -96,11 +87,16 @@ QList<WhatsNewInfo> WhatsNewTranslations::createWhatsNewInfo() const
     }
     {
         WhatsNewInfo info;
-        QStringList lst;
-        for (const KLazyLocalizedString &l : lastNewFeatures()) {
-            lst += l.toString();
-        }
-        info.setNewFeatures(lst);
+        info.setNewFeatures({
+            i18n("Implement Rocket.Chat Marketplace."),
+            i18n("Allow to clean room history."),
+            i18n("Allow to check new version."),
+            i18n("Implement moderation (administrator mode)."),
+            i18n("Add welcome page."),
+            i18n("Implement pending users info (administrator mode)."),
+            i18n("Use cmark-rc (https://github.com/dfaure/cmark-rc) for markdown support."),
+            i18n("Delete oldest files from some cache directories (file-upload and media) so it doesn't grow forever."),
+        });
         info.setVersion(QStringLiteral("2.3"));
         info.setBugFixings({
             i18n("Clean market application model after 30 minutes (reduce memory footprint)."),
@@ -108,6 +104,19 @@ QList<WhatsNewInfo> WhatsNewTranslations::createWhatsNewInfo() const
             i18n("Fix duplicated messages in search message dialog."),
             i18n("Add delegate in search rooms in team dialog."),
         });
+
+        listInfo.append(std::move(info));
+    }
+    {
+        WhatsNewInfo info;
+        QStringList lst;
+        for (const KLazyLocalizedString &l : lastNewFeatures()) {
+            lst += l.toString();
+        }
+        info.setNewFeatures(lst);
+        info.setVersion(QStringLiteral("2.4"));
+        // info.setBugFixings({
+        // });
 
         listInfo.append(std::move(info));
     }
