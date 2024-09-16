@@ -74,7 +74,8 @@ QString RocketChatCache::fileCachePath(const QUrl &url, ManagerDataPaths::PathTy
 
 void RocketChatCache::slotDataDownloaded(const QUrl &url, const QUrl &localFileUrl)
 {
-    mFileInDownload.remove(url.path());
+    mFileInDownload.remove(url);
+    // TODO emit the complete QUrl rather than just the path
     Q_EMIT fileDownloaded(url.path(), localFileUrl);
 }
 
@@ -194,11 +195,11 @@ void RocketChatCache::downloadAvatarFromServer(const Utils::AvatarInfo &info)
 
 void RocketChatCache::downloadFileFromServer(const QString &filename, bool needAuthentication, ManagerDataPaths::PathType type)
 {
-    if (!mFileInDownload.contains(filename)) {
-        mFileInDownload.insert(filename);
-        const QUrl downloadUrl = mAccount->urlForLink(filename);
+    const QUrl downloadUrl = mAccount->urlForLink(filename);
+    if (!mFileInDownload.contains(downloadUrl)) {
+        mFileInDownload.insert(downloadUrl);
         const QUrl destFileUrl = QUrl::fromLocalFile(fileCachePath(downloadUrl, type));
-        mAccount->restApi()->downloadFile(mAccount->urlForLink(filename), destFileUrl, "text/plain", needAuthentication);
+        mAccount->restApi()->downloadFile(downloadUrl, destFileUrl, "text/plain", needAuthentication);
         // this will call slotDataDownloaded
     }
 }

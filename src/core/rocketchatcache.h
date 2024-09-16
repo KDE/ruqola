@@ -60,7 +60,8 @@ private:
     LIBRUQOLACORE_NO_EXPORT void cleanupCacheDirectory(const QString &directory);
 
     QHash<QString, QUrl> mAvatarUrl;
-    QSet<QString> mFileInDownload;
+    QSet<QUrl> mFileInDownload;
     RocketChatAccount *const mAccount;
     AvatarManager *const mAvatarManager;
+    QString mAccountServerHost;
 };
