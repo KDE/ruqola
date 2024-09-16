@@ -22,6 +22,7 @@ RocketChatCache::RocketChatCache(RocketChatAccount *account, QObject *parent)
     : QObject(parent)
     , mAccount(account)
     , mAvatarManager(new AvatarManager(mAccount, this))
+    , mAccountServerHost(Utils::generateServerUrl(account->serverUrl()).host())
 {
     connect(mAvatarManager, &AvatarManager::insertAvatarUrl, this, &RocketChatCache::insertAvatarUrl);
     loadAvatarCache();
@@ -60,11 +61,15 @@ bool RocketChatCache::fileInCache(const QUrl &url)
 QString RocketChatCache::fileCachePath(const QUrl &url, ManagerDataPaths::PathType type)
 {
     QString cachePath = ManagerDataPaths::self()->path(type, mAccount->accountName());
-    QString urlPath = url.path();
-    if (type == ManagerDataPaths::PathType::PreviewUrl) {
-        urlPath = urlPath.replace(QLatin1Char('/'), QLatin1Char('_'));
+    QString relativePathInCache = url.path();
+    const QString host = url.host();
+    if (!host.isEmpty() && host != mAccountServerHost) {
+        relativePathInCache.prepend(host + QLatin1Char('/'));
     }
-    cachePath += QLatin1Char('/') + urlPath;
+    if (type == ManagerDataPaths::PathType::PreviewUrl) {
+        relativePathInCache = relativePathInCache.replace(QLatin1Char('/'), QLatin1Char('_'));
+    }
+    cachePath += QLatin1Char('/') + relativePathInCache;
     if (url.hasQuery()) {
         const QUrlQuery query(url);
         cachePath += query.queryItemValue(QStringLiteral("etag"));
@@ -159,6 +164,8 @@ QUrl RocketChatCache::avatarUrlFromLocalCache(const QString &url)
 
 QUrl RocketChatCache::urlFromLocalCache(const QString &url, bool needAuthentication, ManagerDataPaths::PathType type)
 {
+    if (url.isEmpty())
+        return {};
     const QString cachePath = fileCachePath(QUrl(url), type);
     if (QFileInfo::exists(cachePath)) {
         // QML wants a QUrl here. The widgets code would be simpler with just a QString path.
