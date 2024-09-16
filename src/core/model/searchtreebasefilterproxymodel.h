@@ -12,9 +12,19 @@ class LIBRUQOLACORE_EXPORT SearchTreeBaseFilterProxyModel : public QSortFilterPr
 {
     Q_OBJECT
 public:
+    using SortFunction = std::function<bool(const QModelIndex &, const QModelIndex &, bool &)>;
+
     explicit SearchTreeBaseFilterProxyModel(QAbstractListModel *model = nullptr, QObject *parent = nullptr);
     ~SearchTreeBaseFilterProxyModel() override;
 
     void setFilterString(const QString &string);
     void clearFilter();
+
+    void setSortFunction(SortFunction fn);
+
+protected:
+    [[nodiscard]] bool lessThan(const QModelIndex &source_left, const QModelIndex &source_right) const override;
+
+private:
+    SortFunction mSortFunction;
 };

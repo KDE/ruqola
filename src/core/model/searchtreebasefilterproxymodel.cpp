@@ -26,4 +26,21 @@ void SearchTreeBaseFilterProxyModel::clearFilter()
     setFilterFixedString(QString());
 }
 
+bool SearchTreeBaseFilterProxyModel::lessThan(const QModelIndex &source_left, const QModelIndex &source_right) const
+{
+    if (mSortFunction) {
+        bool useDefaultLessThan = false;
+        const bool result = mSortFunction(source_left, source_right, useDefaultLessThan);
+        if (!useDefaultLessThan) {
+            return result;
+        }
+    }
+    return QSortFilterProxyModel::lessThan(source_left, source_right);
+}
+
+void SearchTreeBaseFilterProxyModel::setSortFunction(SortFunction fn)
+{
+    mSortFunction = std::move(fn);
+}
+
 #include "moc_searchtreebasefilterproxymodel.cpp"

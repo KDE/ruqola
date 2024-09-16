@@ -70,6 +70,20 @@ AdministratorUsersWidget::AdministratorUsersWidget(AdministratorUsersWidget::Use
     mProxyModelModel->setObjectName("mAdminUsersProxyModel"_L1);
     mSearchLineEdit->setPlaceholderText(i18nc("@info:placeholder", "Search users…"));
     mTreeView->setModel(mProxyModelModel);
+    if (type == AdministratorUsersWidget::Pending) {
+        auto funct = [this](const QModelIndex &left, const QModelIndex &right, bool &useDefaultLessThan) {
+            const int leftColumn{left.column()};
+            if (leftColumn == AdminUsersPendingModel::PendingActionButton) {
+                const QString leftMessageModelIndex = mModel->index(left.row(), AdminUsersPendingModel::PendingActionInfo).data().toString();
+                const QString rightMessageModelIndex = mModel->index(right.row(), AdminUsersPendingModel::PendingActionInfo).data().toString();
+                useDefaultLessThan = false;
+                return leftMessageModelIndex < rightMessageModelIndex;
+            }
+            useDefaultLessThan = true;
+            return false;
+        };
+        mProxyModelModel->setSortFunction(funct);
+    }
 
     mRolesComboBox->setObjectName("mRolesComboBox"_L1);
     mSearchLineLayout->addWidget(mRolesComboBox);
