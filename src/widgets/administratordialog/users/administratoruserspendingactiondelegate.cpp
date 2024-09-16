@@ -105,11 +105,12 @@ bool AdministratorUsersPendingActionDelegate::editorEvent(QEvent *event,
     return false;
 }
 
-QSize AdministratorUsersPendingActionDelegate::sizeHint(const QStyleOptionViewItem &option, const QModelIndex &) const
+QSize AdministratorUsersPendingActionDelegate::sizeHint(const QStyleOptionViewItem &option, const QModelIndex &index) const
 {
     const int textHeight = option.fontMetrics.height() + qMax(option.fontMetrics.height() / 2, 12); // height of text
-
-    return {1, textHeight}; // any width,the view will give us the whole thing in list mode
+    const QString label = index.model()->index(index.row(), AdminUsersPendingModel::PendingActionButtonText).data().toString();
+    const int width = 22 + option.fontMetrics.boundingRect(label).width() + 40;
+    return {width, textHeight}; // any width,the view will give us the whole thing in list mode
 }
 
 #include "moc_administratoruserspendingactiondelegate.cpp"
