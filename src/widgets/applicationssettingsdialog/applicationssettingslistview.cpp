@@ -55,7 +55,7 @@ void ApplicationsSettingsListView::slotCustomContextMenuRequested(const QPoint &
         const QModelIndex index = indexAt(pos);
         if (index.isValid()) {
             QMenu menu(this);
-            menu.addAction(i18nc("@action", "Show Description…"), this, [this, index]() {
+            menu.addAction(QIcon::fromTheme(QStringLiteral("description-symbolic")), i18nc("@action", "Show Description…"), this, [this, index]() {
                 slotShowApplicationDescription(index);
             });
             menu.addSeparator();
