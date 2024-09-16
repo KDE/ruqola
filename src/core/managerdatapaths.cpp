@@ -55,8 +55,10 @@ QString ManagerDataPaths::path(ManagerDataPaths::PathType type, const QString &a
     case CustomSound:
         path += QStringLiteral("/CustomSound");
         break;
-    case Config:
     case Cache:
+        path += QStringLiteral("/MainCache");
+        break;
+    case Config:
         break;
     }
     if (!subdirectory.isEmpty()) {
