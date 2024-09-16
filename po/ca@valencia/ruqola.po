@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-09-13 00:39+0000\n"
-"PO-Revision-Date: 2024-09-07 10:59+0200\n"
+"PO-Revision-Date: 2024-09-14 13:14+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca@valencia\n"
@@ -841,11 +841,9 @@ msgid "Pending"
 msgstr "Pendent"
 
 #: core/model/adminusersallmodel.cpp:58
-#, fuzzy, kde-format
-#| msgctxt "@action"
-#| msgid "Deactivate"
+#, kde-format
 msgid "Deactivated"
-msgstr "Desactiva"
+msgstr "Desactivat"
 
 #: core/model/adminusersallmodel.cpp:70
 #: core/model/adminuserspendingmodel.cpp:68
@@ -884,42 +882,34 @@ msgid "Status"
 msgstr "Estat"
 
 #: core/model/adminusersallmodel.cpp:80
-#, fuzzy, kde-format
-#| msgid "Registration"
+#, kde-format
 msgid "Registration status"
-msgstr "Registre"
+msgstr "Estat de registre"
 
 #: core/model/adminuserspendingmodel.cpp:53
-#, fuzzy, kde-format
-#| msgctxt "@info:shell"
-#| msgid "Use ddp api for login"
+#, kde-format
 msgid "User first log in"
-msgstr "Utilitza l'API DDP per a iniciar sessió"
+msgstr "Primer inici de sessió de l'usuari"
 
 #: core/model/adminuserspendingmodel.cpp:53
-#, fuzzy, kde-format
-#| msgid "Authentication"
+#, kde-format
 msgid "Activation"
-msgstr "Autenticació"
+msgstr "Activació"
 
 #: core/model/adminuserspendingmodel.cpp:58
-#, fuzzy, kde-format
-#| msgctxt "@option:check"
-#| msgid "Send Welcome Email"
+#, kde-format
 msgid "Resend Welcome Email"
-msgstr "Envia un correu de benvinguda"
+msgstr "Torna a enviar el correu de benvinguda"
 
 #: core/model/adminuserspendingmodel.cpp:58
-#, fuzzy, kde-format
-#| msgid "Active"
+#, kde-format
 msgid "Activate"
-msgstr "Actiu"
+msgstr "Activa"
 
 #: core/model/adminuserspendingmodel.cpp:78
-#, fuzzy, kde-format
-#| msgid "Pending"
+#, kde-format
 msgid "Pending action"
-msgstr "Pendent"
+msgstr "Acció pendent"
 
 #: core/model/bannerinfosmodel.cpp:52
 #, kde-format
@@ -10707,20 +10697,23 @@ msgid "Add welcome page."
 msgstr "Afig la pàgina de benvinguda."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:22
-#, fuzzy
-#| msgid "Implement moderation (administrator mode)."
 msgid "Implement pending users info (administrator mode)."
-msgstr "Implementa la moderació (mode administrador)."
+msgstr ""
+"Implementa la informació sobre els usuaris pendents (mode administrador)."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:23
 msgid "Use cmark-rc (https://github.com/dfaure/cmark-rc) for markdown support."
 msgstr ""
+"Utilitza «cmark-rc» (https://github.com/dfaure/cmark-rc) per a implementar "
+"Markdown."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:24
 msgid ""
 "Delete oldest files from some cache directories (file-upload and media) so "
 "it doesn't grow forever."
 msgstr ""
+"Suprimix els fitxers més antics d'alguns directoris de la memòria cau («file-"
+"upload» i «media») perquè no cresca per sempre."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:34
 #, kde-format

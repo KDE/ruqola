@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-09-13 00:39+0000\n"
-"PO-Revision-Date: 2024-09-08 12:28+0200\n"
+"PO-Revision-Date: 2024-09-13 18:33+0200\n"
 "Last-Translator: Vincenzo Reale <smart2128vr@gmail.com>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
 "Language: it\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 24.08.0\n"
+"X-Generator: Lokalize 24.08.1\n"
 
 #: apps/main.cpp:61
 #, kde-format
@@ -838,11 +838,9 @@ msgid "Pending"
 msgstr "In attesa"
 
 #: core/model/adminusersallmodel.cpp:58
-#, fuzzy, kde-format
-#| msgctxt "@action"
-#| msgid "Deactivate"
+#, kde-format
 msgid "Deactivated"
-msgstr "Disattiva"
+msgstr "Disattivatato"
 
 #: core/model/adminusersallmodel.cpp:70
 #: core/model/adminuserspendingmodel.cpp:68
@@ -881,42 +879,34 @@ msgid "Status"
 msgstr "Stato"
 
 #: core/model/adminusersallmodel.cpp:80
-#, fuzzy, kde-format
-#| msgid "Registration"
+#, kde-format
 msgid "Registration status"
-msgstr "Registrazione"
+msgstr "Stato della registrazione"
 
 #: core/model/adminuserspendingmodel.cpp:53
-#, fuzzy, kde-format
-#| msgctxt "@info:shell"
-#| msgid "Use ddp api for login"
+#, kde-format
 msgid "User first log in"
-msgstr "Utilizza api ddp per l'accesso."
+msgstr "Primo accesso dell'utente"
 
 #: core/model/adminuserspendingmodel.cpp:53
-#, fuzzy, kde-format
-#| msgid "Authentication"
+#, kde-format
 msgid "Activation"
-msgstr "Autenticazione"
+msgstr "Attivazione"
 
 #: core/model/adminuserspendingmodel.cpp:58
-#, fuzzy, kde-format
-#| msgctxt "@option:check"
-#| msgid "Send Welcome Email"
+#, kde-format
 msgid "Resend Welcome Email"
-msgstr "Invia messaggio di benvenuto"
+msgstr "Invia nuovamente il messaggio di benvenuto"
 
 #: core/model/adminuserspendingmodel.cpp:58
-#, fuzzy, kde-format
-#| msgid "Active"
+#, kde-format
 msgid "Activate"
-msgstr "Attivo"
+msgstr "Attiva"
 
 #: core/model/adminuserspendingmodel.cpp:78
-#, fuzzy, kde-format
-#| msgid "Unknown action!"
+#, kde-format
 msgid "Pending action"
-msgstr "Azione sconosciuta."
+msgstr "Azione in sospeso"
 
 #: core/model/bannerinfosmodel.cpp:52
 #, kde-format
@@ -10716,12 +10706,16 @@ msgstr ""
 #: widgets/whatsnew/whatsnewtranslations.cpp:23
 msgid "Use cmark-rc (https://github.com/dfaure/cmark-rc) for markdown support."
 msgstr ""
+"Utilizza cmark-rc (https://github.com/dfaure/cmark-rc) per il supporto "
+"markdown."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:24
 msgid ""
 "Delete oldest files from some cache directories (file-upload and media) so "
 "it doesn't grow forever."
 msgstr ""
+"Elimina i file più vecchi da alcune cartelle della cache (file-upload e "
+"media) in modo che non crescano all'infinito."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:34
 #, kde-format
