@@ -47,7 +47,6 @@ public:
     void setTwoFactorAuthenticationCode(const QString &twoFactorAuthenticationCode);
 
     void logout();
-    [[nodiscard]] QString cacheBasePath();
 
     [[nodiscard]] QString password() const;
     void setPassword(const QString &password);
@@ -102,7 +101,6 @@ private:
     QString mServerUrl;
     QString mAccountName;
     QString mDisplayName;
-    QString mCachePath;
     QString mUserName;
     QString mPassword;
     QStringList mActivities;

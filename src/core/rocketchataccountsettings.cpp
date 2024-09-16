@@ -341,21 +341,6 @@ void RocketChatAccountSettings::setServerUrl(const QString &serverUrl)
     Q_EMIT serverURLChanged();
 }
 
-QString RocketChatAccountSettings::cacheBasePath()
-{
-    if (mServerUrl.isEmpty()) {
-        return {};
-    }
-    if (mCachePath.isEmpty()) {
-        mCachePath = ManagerDataPaths::self()->path(ManagerDataPaths::Cache, mAccountName);
-        QDir dir;
-        if (!dir.mkpath(mCachePath)) {
-            qCWarning(RUQOLA_LOG) << "Impossible to create cache directory" << mCachePath;
-        }
-    }
-    return mCachePath;
-}
-
 void RocketChatAccountSettings::removeSettings()
 {
     // Delete password
