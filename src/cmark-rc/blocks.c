@@ -1281,7 +1281,7 @@ cmark_node *cmark_parser_finish(cmark_parser *parser)
 
     cmark_strbuf_free(&parser->curline);
 
-#if CMARK_DEBUG_NODES
+#ifdef CMARK_DEBUG_NODES
     if (cmark_node_check(parser->root, stderr)) {
         abort();
     }
