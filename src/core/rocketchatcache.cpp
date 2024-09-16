@@ -294,7 +294,7 @@ void RocketChatCache::insertAvatarUrl(const QString &userIdentifier, const QUrl 
 {
     mAvatarUrl.insert(userIdentifier, url);
     if (!url.isEmpty() && !fileInCache(url)) {
-        mAccount->restApi()->downloadFile(url, QUrl::fromLocalFile(fileCachePath(url)), {});
+        mAccount->restApi()->downloadFile(url, QUrl::fromLocalFile(fileCachePath(url)), "image/png");
         // this will call slotDataDownloaded
     }
 }
