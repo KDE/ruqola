@@ -566,7 +566,8 @@ void MessagesModel::slotFileDownloaded(const QString &filePath, const QUrl &cach
         const QModelIndex idx = createIndex(std::distance(mAllMessages.begin(), it), 0);
         Q_EMIT dataChanged(idx, idx);
     } else {
-        qCWarning(RUQOLA_LOG) << "Attachment not found:" << filePath;
+        // Not necessarily a problem. The signal is emitted for CustomSounds or avatars, not just for attachments.
+        // qCDebug(RUQOLA_LOG) << "Attachment not found:" << filePath << "in" << mRoom->name() << "which has" << mAllMessages.count() << "messages";
     }
 }
 
