@@ -8,7 +8,6 @@
 #include "libruqolacore_export.h"
 #include "permission.h"
 #include <QList>
-class RoleInfo;
 class LIBRUQOLACORE_EXPORT Permissions
 {
 public:
