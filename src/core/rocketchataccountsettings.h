@@ -79,6 +79,9 @@ public:
     [[nodiscard]] bool activityEnabled() const;
     void setActivityEnabled(bool newActivityEnabled);
 
+    [[nodiscard]] int cacheVersion() const;
+    void setCacheVersion(int newVersion);
+
 Q_SIGNALS:
     void serverURLChanged();
     void userNameChanged();

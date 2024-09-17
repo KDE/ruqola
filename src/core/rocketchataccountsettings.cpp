@@ -112,6 +112,17 @@ void RocketChatAccountSettings::setActivityEnabled(bool newActivityEnabled)
     Q_EMIT activitiesChanged();
 }
 
+int RocketChatAccountSettings::cacheVersion() const
+{
+    return mSetting->value(QLatin1StringView("cacheVersion"), 0).toInt();
+}
+
+void RocketChatAccountSettings::setCacheVersion(int newVersion)
+{
+    mSetting->setValue(QLatin1StringView("cacheVersion"), newVersion);
+    mSetting->sync();
+}
+
 QStringList RocketChatAccountSettings::activities() const
 {
     return mActivities;

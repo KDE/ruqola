@@ -8,6 +8,7 @@
 #include "avatarmanager.h"
 #include "connection.h"
 #include "rocketchataccount.h"
+#include "rocketchataccountsettings.h"
 #include "ruqola_debug.h"
 #include <QDateTime>
 #include <QDir>
@@ -31,6 +32,8 @@ RocketChatCache::RocketChatCache(RocketChatAccount *account, QObject *parent)
     auto cleanupTimer = new QTimer(this);
     cleanupTimer->setInterval(1h);
     connect(cleanupTimer, &QTimer::timeout, this, &RocketChatCache::cleanupCache);
+
+    handleMigration();
 }
 
 RocketChatCache::~RocketChatCache()
@@ -124,6 +127,15 @@ void RocketChatCache::cleanupCacheDirectory(const QString &directory)
             qCInfo(RUQOLA_LOG) << "Deleting empty dir" << path;
             QDir().rmdir(path);
         }
+    }
+}
+
+void RocketChatCache::handleMigration()
+{
+    const int version = mAccount->settings()->cacheVersion();
+    if (version == 0) {
+        removeCache();
+        mAccount->settings()->setCacheVersion(1);
     }
 }
 

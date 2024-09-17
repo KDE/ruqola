@@ -59,6 +59,7 @@ private:
     LIBRUQOLACORE_NO_EXPORT void loadAvatarCache();
     LIBRUQOLACORE_NO_EXPORT void cleanupCache();
     LIBRUQOLACORE_NO_EXPORT void cleanupCacheDirectory(const QString &directory);
+    void handleMigration();
 
     QHash<QString, QUrl> mAvatarUrl;
     QSet<QUrl> mFileInDownload;
