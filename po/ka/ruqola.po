@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-09-13 00:39+0000\n"
+"POT-Creation-Date: 2024-09-17 00:39+0000\n"
 "PO-Revision-Date: 2024-09-13 05:19+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
@@ -2628,7 +2628,7 @@ msgstr "Emoji-ის წაშლა"
 #: widgets/administratordialog/oauth/oauthtreeview.cpp:49
 #: widgets/administratordialog/roles/administratorroleswidget.cpp:101
 #: widgets/administratordialog/roles/usersinrolewidget.cpp:106
-#: widgets/administratordialog/users/administratoruserswidget.cpp:272
+#: widgets/administratordialog/users/administratoruserswidget.cpp:286
 #: widgets/myaccount/myaccountpersonalaccesstokentreeview.cpp:35
 #, kde-format
 msgctxt "@action"
@@ -2642,7 +2642,7 @@ msgstr "დამატება…"
 #: widgets/administratordialog/permissions/permissionswidget.cpp:92
 #: widgets/administratordialog/roles/administratorroleswidget.cpp:105
 #: widgets/administratordialog/rooms/administratorroomswidget.cpp:63
-#: widgets/administratordialog/users/administratoruserswidget.cpp:279
+#: widgets/administratordialog/users/administratoruserswidget.cpp:293
 #, kde-format
 msgctxt "@action"
 msgid "Modify…"
@@ -2656,7 +2656,7 @@ msgstr "შეცვლა…"
 #: widgets/administratordialog/roles/administratorroleswidget.cpp:120
 #: widgets/administratordialog/roles/usersinrolewidget.cpp:110
 #: widgets/administratordialog/rooms/administratorroomswidget.cpp:67
-#: widgets/administratordialog/users/administratoruserswidget.cpp:316
+#: widgets/administratordialog/users/administratoruserswidget.cpp:330
 #: widgets/myaccount/myaccountpersonalaccesstokentreeview.cpp:42
 #, kde-format
 msgctxt "@action"
@@ -3224,20 +3224,20 @@ msgid "Do you want to remove this user \"%1\"?"
 msgstr "გნებავთ წაშალოთ ეს მომხმარებელი \"%1\"?"
 
 #: widgets/administratordialog/roles/usersinrolewidget.cpp:81
-#: widgets/administratordialog/users/administratoruserswidget.cpp:214
+#: widgets/administratordialog/users/administratoruserswidget.cpp:228
 #, kde-format
 msgctxt "@title:window"
 msgid "Remove User"
 msgstr "მომხმარებლის წაშლა"
 
 #: widgets/administratordialog/roles/usersinrolewidget.cpp:119
-#: widgets/administratordialog/users/administratoruserswidget.cpp:329
+#: widgets/administratordialog/users/administratoruserswidget.cpp:343
 #, kde-format
 msgid "No user found"
 msgstr "ვერ ვიპოვე მომხმარებელი"
 
 #: widgets/administratordialog/roles/usersinrolewidget.cpp:124
-#: widgets/administratordialog/users/administratoruserswidget.cpp:334
+#: widgets/administratordialog/users/administratoruserswidget.cpp:348
 #: widgets/directory/directorywidget.cpp:202
 #, kde-format
 msgid "%1 user (Total: %2)"
@@ -3680,54 +3680,54 @@ msgstr "ელფოსტების დასაშორებლად ',' 
 msgid "All"
 msgstr "&ყველა"
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:213
+#: widgets/administratordialog/users/administratoruserswidget.cpp:227
 #, kde-format
 msgid "Do you want to remove this user?"
 msgstr "გნებავთ წაშალოთ ეს მომხმარებელი?"
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:266
+#: widgets/administratordialog/users/administratoruserswidget.cpp:280
 #, kde-format
 msgctxt "@action"
 msgid "Invite…"
 msgstr "მოწვევა…"
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:288
+#: widgets/administratordialog/users/administratoruserswidget.cpp:302
 #, kde-format
 msgctxt "@action"
 msgid "Deactivate"
 msgstr "დეაქტივაცია"
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:288
+#: widgets/administratordialog/users/administratoruserswidget.cpp:302
 #, kde-format
 msgctxt "@action"
 msgid "Active"
 msgstr "აქტიური"
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:297
+#: widgets/administratordialog/users/administratoruserswidget.cpp:311
 #, kde-format
 msgctxt "@action"
 msgid "Remove Admin"
 msgstr "ადმინისტრატორის წაშლა"
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:297
+#: widgets/administratordialog/users/administratoruserswidget.cpp:311
 #, kde-format
 msgctxt "@action"
 msgid "Make Admin"
 msgstr "ადმინისტრატორად გახდომა"
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:303
+#: widgets/administratordialog/users/administratoruserswidget.cpp:317
 #, kde-format
 msgctxt "@action"
 msgid "Reset E2E Key"
 msgstr "E2E გასაღების ჩამოყრა"
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:309
+#: widgets/administratordialog/users/administratoruserswidget.cpp:323
 #, kde-format
 msgctxt "@action"
 msgid "Reset Totp"
 msgstr "Totp-ის ჩამოყრა"
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:394
+#: widgets/administratordialog/users/administratoruserswidget.cpp:408
 #, kde-format
 msgid ""
 "Reset the current E2E key will log out the user. When the user login again, "
@@ -3742,24 +3742,24 @@ msgstr ""
 "წევრი ჰყავს ხაზზე. E2E დაშიფვრის ბუნების გამო, Rocket.Chat-ს არ შეუძლია "
 "აღადგინოს წვდომა დაშიფრულ არხებთან, რომლებსაც ხაზზე მყოფი წევრები არ გააჩნია."
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:398
+#: widgets/administratordialog/users/administratoruserswidget.cpp:412
 #, kde-format
 msgctxt "@title:window"
 msgid "Reset E2E key"
 msgstr "E2E გასაღების ჩამოყრა"
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:430
+#: widgets/administratordialog/users/administratoruserswidget.cpp:444
 #, kde-format
 msgid "E2E key for %1 has been reset."
 msgstr "%1-ის გამჭოლი გასაღები საწყის მნიშვნელობაზე დაბრუნდა."
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:430
+#: widgets/administratordialog/users/administratoruserswidget.cpp:444
 #, kde-format
 msgctxt "@title:window"
 msgid "Reset E2E"
 msgstr "E2E-ის ჩამოყრა"
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:443
+#: widgets/administratordialog/users/administratoruserswidget.cpp:457
 #, kde-format
 msgid ""
 "Reset the current Two Factor TOTP will log out the user. The user will be "
@@ -3768,14 +3768,14 @@ msgstr ""
 "მიმდინარე ორფაქტორიანი TOTP-ის ჩამოყრა მომხმარებელს სისტემიდან გააგდებს. ამ "
 "მომხმარებელს მოგვიანებით შეეძლება, 2 ფაქტორი ისევ ჩართოს."
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:444
-#: widgets/administratordialog/users/administratoruserswidget.cpp:475
+#: widgets/administratordialog/users/administratoruserswidget.cpp:458
+#: widgets/administratordialog/users/administratoruserswidget.cpp:489
 #, kde-format
 msgctxt "@title:window"
 msgid "Reset TOTP"
 msgstr "TOTP-ის ჩამოყრა"
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:475
+#: widgets/administratordialog/users/administratoruserswidget.cpp:489
 #, kde-format
 msgid "TOTP key for %1 has been reset"
 msgstr "TOTP გასაღები %1-თვის საწყის მნიშვნელობაზე დაბრუნდა"
@@ -10614,144 +10614,105 @@ msgstr "(სიახლეების ჩვენება)"
 msgid "What's new in %2. %1"
 msgstr "რა არის ახალი %2.%1-ში"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:17
-msgid "Implement Rocket.Chat Marketplace."
-msgstr "Rocket.Chat-ის მაღაზიის განხორციელება."
-
-#: widgets/whatsnew/whatsnewtranslations.cpp:18
-msgid "Allow to clean room history."
-msgstr "ოთახის ისტორიის გასუფთავების დაშვება."
-
-#: widgets/whatsnew/whatsnewtranslations.cpp:19
-msgid "Allow to check new version."
-msgstr "ახალი ვერსიის შემოწმების დაშვება."
-
-#: widgets/whatsnew/whatsnewtranslations.cpp:20
-msgid "Implement moderation (administrator mode)."
-msgstr "მოდერაციის ფუნქციონალი (ადმინისტრატორის რეჟიმი)."
-
-#: widgets/whatsnew/whatsnewtranslations.cpp:21
-msgid "Add welcome page."
-msgstr "მისალმების გვერდის დამატება."
-
-#: widgets/whatsnew/whatsnewtranslations.cpp:22
-msgid "Implement pending users info (administrator mode)."
-msgstr ""
-"დარჩენილი მომხმარებლების ინფორმაციის ფუნქციონალი (ადმინისტრატორის რეჟიმი)."
-
-#: widgets/whatsnew/whatsnewtranslations.cpp:23
-msgid "Use cmark-rc (https://github.com/dfaure/cmark-rc) for markdown support."
-msgstr ""
-"მარკდაუნის მხარდაჭერისთვის cmark-rc-ის (https://github.com/dfaure/cmark-rc) "
-"გამოყენება."
-
-#: widgets/whatsnew/whatsnewtranslations.cpp:24
-msgid ""
-"Delete oldest files from some cache directories (file-upload and media) so "
-"it doesn't grow forever."
-msgstr ""
-"ზოგიერთი კეშის საქაღალდიდან(file-upload და media) უძველესი ფაილების წაშლა, "
-"რომ ისინი სულ არ იზრდებოდეს."
-
-#: widgets/whatsnew/whatsnewtranslations.cpp:34
+#: widgets/whatsnew/whatsnewtranslations.cpp:25
 #, kde-format
 msgid "Store Message in Local Database (experimental)"
 msgstr "შეტყობინების ლოკალურ ბაზაში შენახვა (საცდელი)"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:36
+#: widgets/whatsnew/whatsnewtranslations.cpp:27
 #, kde-format
 msgid "Download Server Icon from Server"
 msgstr "სერვერის ხატულის სერვერიდან გადმოწერა"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:37
+#: widgets/whatsnew/whatsnewtranslations.cpp:28
 #, kde-format
 msgid "Show Server Error Info in Specific DialogBox"
 msgstr "სერვერის შეცდომის ინფორმაციის ჩვენება მითითებულ ფანჯარაში"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:38
+#: widgets/whatsnew/whatsnewtranslations.cpp:29
 #, kde-format
 msgid "Allow to Copy Image in Clipboard"
 msgstr "გამოსახულების ბუფერში კოპირების დაშვება"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:39
+#: widgets/whatsnew/whatsnewtranslations.cpp:30
 #, kde-format
 msgid "Improve debug support (Allow to show current account permissions)"
 msgstr ""
 "გამართვის მხარდაჭერის გაუმჯობესება (მიმდინარე ანგარიშის წვდომების ჩვენების "
 "დაშვება)"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:40
+#: widgets/whatsnew/whatsnewtranslations.cpp:31
 #, kde-format
 msgid "Add support for quoted text (text which starts by '>')"
 msgstr ""
 "ციტირებული ტექსტის (ტექსტის, რომელიც '>'-ით იწყება) მხარდაჭერის დამატება"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:41
+#: widgets/whatsnew/whatsnewtranslations.cpp:32
 #, kde-format
 msgid "Show leader/moderator/owner in channel info."
 msgstr "არხის ინფორმაციაში ლიდერის/მოდერატორის/მფლობელის ჩვენება."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:42
+#: widgets/whatsnew/whatsnewtranslations.cpp:33
 #, kde-format
 msgid "Video/Sound Message support (kf6 only)."
 msgstr "ვიდეო/ხმოვანი შეტყობინების მხარდაჭერა (მხოლოდ kf6)."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:43
+#: widgets/whatsnew/whatsnewtranslations.cpp:34
 #, kde-format
 msgid "Import/Export Accounts."
 msgstr "ანგარიშების გატანა/შემოტანა."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:45
+#: widgets/whatsnew/whatsnewtranslations.cpp:36
 #, kde-format
 msgid "Fix avatar support"
 msgstr "ავატარის მხარდაჭერის გასწორება"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:46
+#: widgets/whatsnew/whatsnewtranslations.cpp:37
 #, kde-format
 msgid "Fix emoji support (use new ktextaddons/textemoticons)"
 msgstr "ემოჯის მხარდაჭერის გასწორება (იყენებს ახალ ktextaddon/textemoticon)"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:47
+#: widgets/whatsnew/whatsnewtranslations.cpp:38
 #, kde-format
 msgid "Fix animated gif in reactions"
 msgstr "რეაქციებში ანიმირებული GIF-ების მხარდაჭერის გასწორება"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:48
+#: widgets/whatsnew/whatsnewtranslations.cpp:39
 #, kde-format
 msgid "Fix kf6 support"
 msgstr "KF6-ის მხარდაჭერის გასწორება"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:54
+#: widgets/whatsnew/whatsnewtranslations.cpp:45
 #, kde-format
 msgid "Add Moderation Console (Administration, RC server 6.2)"
 msgstr "მოდერაცის კონსოლის დამატება (ადმინისტრაცია, RC სერვერი 6.2)"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:54
+#: widgets/whatsnew/whatsnewtranslations.cpp:45
 #, kde-format
 msgid "Implement message style"
 msgstr "შეტყობინებების სტილის განხორციელება"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:54
+#: widgets/whatsnew/whatsnewtranslations.cpp:45
 #, kde-format
 msgid "Implement Url Preview"
 msgstr "ბმულის მინიატურის განხორციელება"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:56
+#: widgets/whatsnew/whatsnewtranslations.cpp:47
 #, kde-format
 msgid "Fix markdown support (header + check mark)"
 msgstr "Markdown-ის მხარდაჭერის გაუქმება (თავსართი + თოლია)"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:57
+#: widgets/whatsnew/whatsnewtranslations.cpp:48
 #, kde-format
 msgid "Fix mem leak"
 msgstr "გასწორდა მეხსიერების გაჟონვა"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:58
+#: widgets/whatsnew/whatsnewtranslations.cpp:49
 #, kde-format
 msgid "Cache message size (optimization)"
 msgstr "კეშის შეტყობინების ზომა (ოპტიმიზაცია)"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:59
+#: widgets/whatsnew/whatsnewtranslations.cpp:50
 #, kde-format
 msgid ""
 "Improve select room or user in message line edit (show icon, inform if user "
@@ -10760,7 +10721,7 @@ msgstr ""
 "ოთახის არჩევის ან მომხმარებლის ხაზის ჩასწორების გაუმჯობესება (ხატულის "
 "ჩვენება, მომხმარებლის შეტყობინება, თუ მომხმარებელი არხზეა)"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:60
+#: widgets/whatsnew/whatsnewtranslations.cpp:51
 #, kde-format
 msgid ""
 "Fix show commands in message line edit (Hide action when room doesn't "
@@ -10769,42 +10730,42 @@ msgstr ""
 "გასწორდა ბრძანებების ჩვენება შეტყობინების ხაზის ჩასწორებისას (ქმედების "
 "დამალვა, როცა ოთახს მისი მხარდაჭერა არ აქვს)."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:61
+#: widgets/whatsnew/whatsnewtranslations.cpp:52
 #, kde-format
 msgid "Fix download sound/video file when it's not in cache."
 msgstr "ხმის/ვიდეოს ფაილის გადმოწერის გასწორება, როცა ის კეშში არაა."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:62
+#: widgets/whatsnew/whatsnewtranslations.cpp:53
 #, kde-format
 msgid "Fix list of authentication method."
 msgstr "ავთენტიკაციის მეთოდების სიის გასწორება."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:63
+#: widgets/whatsnew/whatsnewtranslations.cpp:54
 #, kde-format
 msgid "Fix show avatar url."
 msgstr "საჩვენებელი ავატარის ბმულის გასწორება."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:71
+#: widgets/whatsnew/whatsnewtranslations.cpp:62
 #, kde-format
 msgid "Allow to increase/decrease font (CTRL++/CTRL+-)"
 msgstr "ფონტის გადიდება/დაპატარავების (CTRL++/CTRL+-) დაშვება"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:72
+#: widgets/whatsnew/whatsnewtranslations.cpp:63
 #, kde-format
 msgid "Add channel list style (Condensed/Medium/Extended)"
 msgstr "არხების სიის სტილის დამატება (შესქელებული/საშაუალო/გაფართოებული)"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:73
+#: widgets/whatsnew/whatsnewtranslations.cpp:64
 #, kde-format
 msgid "Add forward message"
 msgstr "შეტყობინების გადაგზავნის დამატება"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:74
+#: widgets/whatsnew/whatsnewtranslations.cpp:65
 #, kde-format
 msgid "Improve mentions support."
 msgstr "ხსენებების მხარდაჭერის გაუმჯობესება."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:75
+#: widgets/whatsnew/whatsnewtranslations.cpp:66
 #, kde-format
 msgid ""
 "Add support for deep linking <a href=\"https://developer.rocket.chat/getting-"
@@ -10813,12 +10774,12 @@ msgstr ""
 "დაემატა ღრმა მიბმის მხარდაჭერა <a href=\"https://developer.rocket.chat/"
 "getting-started/deep-linking\">ღრმა მიბმა</a>."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:76
+#: widgets/whatsnew/whatsnewtranslations.cpp:67
 #, kde-format
 msgid "Implement block actions."
 msgstr "დაბლოკვის ქმედებების განხორციელება."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:77
+#: widgets/whatsnew/whatsnewtranslations.cpp:68
 #, kde-format
 msgid ""
 "Implement personal token authentication. <a href=\"https://bugs.kde.org/"
@@ -10827,72 +10788,119 @@ msgstr ""
 "პირადი კოდით ავთენტიკაციის განხორციელება. <a href=\"https://bugs.kde.org/"
 "show_bug.cgi?id=481400\">Bug 481400</a>"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:78
+#: widgets/whatsnew/whatsnewtranslations.cpp:69
 #, kde-format
 msgid "Add Plasma Activities Support"
 msgstr "Plasma-ის აქტივობების მხარდაჭერის დამატება"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:79
+#: widgets/whatsnew/whatsnewtranslations.cpp:70
 #, kde-format
 msgid "Add Report User Support"
 msgstr "მომხმარებლის დარეპორტების მხარდაჭერის დამატება"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:80
+#: widgets/whatsnew/whatsnewtranslations.cpp:71
 #, kde-format
 msgid "Implement Channel Sound Notification."
 msgstr "არხის ხმოვანი შეტყობინების ჩართვა."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:81
+#: widgets/whatsnew/whatsnewtranslations.cpp:72
 #, kde-format
 msgid "Implement New Room Sound Notification."
 msgstr "ახალი ოთახის ხმის გაფრთხილების განხორციელება."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:82
+#: widgets/whatsnew/whatsnewtranslations.cpp:73
 #, kde-format
 msgid "Implement Sorted/Unsorted markdown list."
 msgstr "დალაგებული/დაულაგებელი მარკდაუნის სიის განხორციელება."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:85
+#: widgets/whatsnew/whatsnewtranslations.cpp:76
 #, kde-format
 msgid "Fix dark mode support."
 msgstr "ბნელი რეჟიმის მხარდაჭერის გასწორება."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:86
+#: widgets/whatsnew/whatsnewtranslations.cpp:77
 #, kde-format
 msgid "Fix jitsi support."
 msgstr "JITSI-ის მხარდაჭერის გასწორება."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:87
+#: widgets/whatsnew/whatsnewtranslations.cpp:78
 #, kde-format
 msgid "Fix translate message in direct channel."
 msgstr "პირდაპირ არხში შეტყობინების თარგმნის გასწორება."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:88
+#: widgets/whatsnew/whatsnewtranslations.cpp:79
 #, kde-format
 msgid "Don't show @here/@all as user."
 msgstr "მომხმარებლისთვის @here/@all ნაჩვენები არ იქნება."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:89
+#: widgets/whatsnew/whatsnewtranslations.cpp:80
 #, kde-format
 msgid "Reduce memory footprint."
 msgstr "მეხსიერებაში კვალის შემცირება."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:90
+#: widgets/whatsnew/whatsnewtranslations.cpp:81
 #, kde-format
 msgid "Use RESTAPI for logging."
 msgstr "ჟურნალისთვის RESTAPI-ის გამოყენება."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:91
+#: widgets/whatsnew/whatsnewtranslations.cpp:82
 #, kde-format
 msgid "Allow to send multi files."
 msgstr "ერთზე მეტი ფაილის გაგზავნის დაშვება."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:92
+#: widgets/whatsnew/whatsnewtranslations.cpp:83
 #, kde-format
 msgid "Fix preview url."
 msgstr "მინიატურის ბმულის გასწორება."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:106
+#: widgets/whatsnew/whatsnewtranslations.cpp:91
+#, kde-format
+msgid "Implement Rocket.Chat Marketplace."
+msgstr "Rocket.Chat-ის მაღაზიის განხორციელება."
+
+#: widgets/whatsnew/whatsnewtranslations.cpp:92
+#, kde-format
+msgid "Allow to clean room history."
+msgstr "ოთახის ისტორიის გასუფთავების დაშვება."
+
+#: widgets/whatsnew/whatsnewtranslations.cpp:93
+#, kde-format
+msgid "Allow to check new version."
+msgstr "ახალი ვერსიის შემოწმების დაშვება."
+
+#: widgets/whatsnew/whatsnewtranslations.cpp:94
+#, kde-format
+msgid "Implement moderation (administrator mode)."
+msgstr "მოდერაციის ფუნქციონალი (ადმინისტრატორის რეჟიმი)."
+
+#: widgets/whatsnew/whatsnewtranslations.cpp:95
+#, kde-format
+msgid "Add welcome page."
+msgstr "მისალმების გვერდის დამატება."
+
+#: widgets/whatsnew/whatsnewtranslations.cpp:96
+#, kde-format
+msgid "Implement pending users info (administrator mode)."
+msgstr ""
+"დარჩენილი მომხმარებლების ინფორმაციის ფუნქციონალი (ადმინისტრატორის რეჟიმი)."
+
+#: widgets/whatsnew/whatsnewtranslations.cpp:97
+#, kde-format
+msgid "Use cmark-rc (https://github.com/dfaure/cmark-rc) for markdown support."
+msgstr ""
+"მარკდაუნის მხარდაჭერისთვის cmark-rc-ის (https://github.com/dfaure/cmark-rc) "
+"გამოყენება."
+
+#: widgets/whatsnew/whatsnewtranslations.cpp:98
+#, kde-format
+msgid ""
+"Delete oldest files from some cache directories (file-upload and media) so "
+"it doesn't grow forever."
+msgstr ""
+"ზოგიერთი კეშის საქაღალდიდან(file-upload და media) უძველესი ფაილების წაშლა, "
+"რომ ისინი სულ არ იზრდებოდეს."
+
+#: widgets/whatsnew/whatsnewtranslations.cpp:102
 #, kde-format
 msgid ""
 "Clean market application model after 30 minutes (reduce memory footprint)."
@@ -10900,17 +10908,17 @@ msgstr ""
 "მარკეტის აპლიკაციის მოდელის გასუფთავება 30 წუთის შემდეგ (ამცირებს დახარჯული "
 "მეხსიერების სიდიდეს)."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:107
+#: widgets/whatsnew/whatsnewtranslations.cpp:103
 #, kde-format
 msgid "Fix show discussion name in completion."
 msgstr "დასრულებისას კამათის სახელის ჩვენების გასწორება."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:108
+#: widgets/whatsnew/whatsnewtranslations.cpp:104
 #, kde-format
 msgid "Fix duplicated messages in search message dialog."
 msgstr "გასწორდა გამეორებული შეტყობინებები ძებნის შეტყობინების დიალოგში."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:109
+#: widgets/whatsnew/whatsnewtranslations.cpp:105
 #, kde-format
 msgid "Add delegate in search rooms in team dialog."
 msgstr "დაამატეთ დელეგატი საძებნ ოთახებში გუნდის დიალოგში."
