@@ -42,6 +42,7 @@ public:
     [[nodiscard]] QUrl previewUrlFromLocalCache(const QString &url);
     [[nodiscard]] QUrl avatarUrlFromLocalCache(const QString &url);
     [[nodiscard]] QUrl soundUrlFromLocalCache(const QString &url);
+    void removeCache();
 
 Q_SIGNALS:
     void fileDownloaded(const QString &filePath, const QUrl &cacheImageUrl);

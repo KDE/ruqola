@@ -321,6 +321,7 @@ Room::TeamRoomInfo RocketChatAccount::roomFromTeamId(const QByteArray &teamId) c
 void RocketChatAccount::removeSettings()
 {
     mSettings->removeSettings();
+    mCache->removeCache();
 }
 
 void RocketChatAccount::loadSettings(const QString &accountFileName)

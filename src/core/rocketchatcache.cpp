@@ -13,6 +13,7 @@
 #include <QDir>
 #include <QDirIterator>
 #include <QSettings>
+#include <QStandardPaths>
 #include <QTimer>
 #include <QUrlQuery>
 
@@ -181,6 +182,19 @@ QUrl RocketChatCache::soundUrlFromLocalCache(const QString &url)
     const QUrl soundUrl = urlFromLocalCache(url, false, ManagerDataPaths::CustomSound);
     // qDebug() << "soundUrlFromLocalCache  " << previewUrl;
     return soundUrl;
+}
+
+void RocketChatCache::removeCache()
+{
+    const QString storeCachePath =
+        QStandardPaths::writableLocation(QStandardPaths::CacheLocation) + QLatin1Char('/') + mAccount->accountName() + QLatin1Char('/');
+    QDir dir(storeCachePath);
+    if (dir.exists()) {
+        qDebug() << "Deleting old cache dir" << storeCachePath;
+        if (!dir.removeRecursively()) {
+            qCWarning(RUQOLA_LOG) << "Impossible to delete cache dir:" << storeCachePath;
+        }
+    }
 }
 
 QUrl RocketChatCache::previewUrlFromLocalCache(const QString &url)
