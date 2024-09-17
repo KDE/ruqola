@@ -20,6 +20,7 @@ using namespace Qt::Literals::StringLiterals;
 #include "model/usersmodel.h"
 #include "receivetypingnotificationmanager.h"
 #include "rocketchataccount.h"
+#include "rocketchataccountsettings.h"
 #include "ruqola.h"
 #include "ruqola_debug.h"
 #include "ruqola_message_debug.h"

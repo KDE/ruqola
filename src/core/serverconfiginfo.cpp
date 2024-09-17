@@ -6,6 +6,7 @@
 
 #include "serverconfiginfo.h"
 #include "rocketchataccount.h"
+#include "rocketchataccountsettings.h"
 #include "ruqolaserverconfig.h"
 
 ServerConfigInfo::ServerConfigInfo(RocketChatAccount *account, QObject *parent)

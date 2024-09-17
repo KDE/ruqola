@@ -10,6 +10,7 @@
 #include "notificationhistorymanager.h"
 #include "notifications/notifierjob.h"
 #include "rocketchataccount.h"
+#include "rocketchataccountsettings.h"
 #include "ruqola_debug.h"
 #include "ruqola_sound_debug.h"
 #include "ruqolaglobalconfig.h"

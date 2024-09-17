@@ -11,6 +11,7 @@
 #include "memorymanager/memorymanager.h"
 #include "model/appscategoriesmodel.h"
 #include "notifications/notificationpreferences.h"
+#include "rocketchataccountsettings.h"
 #include "ruqolautils.h"
 
 #include "attachments/fileattachments.h"

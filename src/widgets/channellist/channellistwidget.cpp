@@ -14,6 +14,7 @@ using namespace Qt::Literals::StringLiterals;
 
 #include "accountmanager.h"
 #include "rocketchataccount.h"
+#include "rocketchataccountsettings.h"
 #include "ruqola.h"
 #include "ruqolautils.h"
 

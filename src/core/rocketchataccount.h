@@ -28,7 +28,7 @@
 #include "ownuser/ownuserpreferences.h"
 #include "parserocketchaturlutils.h"
 #include "permissions/permissionmanager.h"
-#include "rocketchataccountsettings.h"
+
 #include "roles/rolesmanager.h"
 #include "room.h"
 #include "rooms/roomscleanhistoryjob.h"
@@ -88,6 +88,7 @@ class PreviewUrlCacheManager;
 class E2eKeyManager;
 class Connection;
 class NotificationPreferences;
+class RocketChatAccountSettings;
 class SoundManager;
 class AppsMarketPlaceModel;
 class AppsCategoriesModel;

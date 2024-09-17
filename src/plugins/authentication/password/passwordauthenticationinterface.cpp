@@ -8,6 +8,7 @@
 #include "common/authenticationloginwidget.h"
 #include "config-ruqola.h"
 #include "rocketchataccount.h"
+#include "rocketchataccountsettings.h"
 
 #include "authenticationmanager/ddpauthenticationmanager.h"
 #include "authenticationmanager/restauthenticationmanager.h"

@@ -8,6 +8,7 @@
 #include "accountmanager.h"
 #include "model/messagesmodel.h"
 #include "rocketchataccount.h"
+#include "rocketchataccountsettings.h"
 #include "ruqola.h"
 #include "test_model_helpers.h"
 #include <QStandardPaths>
