@@ -29,7 +29,6 @@ Q_SIGNALS:
     void fetchMyKeysDone(const QJsonObject &replyObject);
 
 private:
-    Q_DISABLE_COPY(FetchMyKeysJob)
     LIBROCKETCHATRESTAPI_QT_NO_EXPORT void onGetRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson) override;
 };
 }

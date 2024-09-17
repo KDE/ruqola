@@ -32,7 +32,6 @@ Q_SIGNALS:
     void openDmDone();
 
 private:
-    Q_DISABLE_COPY(OpenDmJob)
     LIBROCKETCHATRESTAPI_QT_NO_EXPORT void onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson) override;
     QString mDirectUserId;
 };

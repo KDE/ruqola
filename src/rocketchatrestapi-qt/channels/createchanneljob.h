@@ -38,7 +38,6 @@ protected:
     [[nodiscard]] QString errorMessage(const QString &str, const QJsonObject &detail) override;
 
 private:
-    Q_DISABLE_COPY(CreateChannelJob)
     LIBROCKETCHATRESTAPI_QT_NO_EXPORT void onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson) override;
     CreateChannelTeamInfo mCreateChannelInfo;
 };

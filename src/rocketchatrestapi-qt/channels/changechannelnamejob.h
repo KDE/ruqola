@@ -34,7 +34,6 @@ Q_SIGNALS:
     void changeNameDone();
 
 private:
-    Q_DISABLE_COPY(ChangeChannelNameJob)
     LIBROCKETCHATRESTAPI_QT_NO_EXPORT void onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson) override;
     QString mName;
     QString mRoomId;

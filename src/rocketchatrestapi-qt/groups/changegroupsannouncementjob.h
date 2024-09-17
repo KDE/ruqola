@@ -31,8 +31,7 @@ Q_SIGNALS:
     void changeGroupsAnnouncement();
 
 private:
-    Q_DISABLE_COPY(ChangeGroupsAnnouncementJob)
-    void onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson) override;
+    LIBROCKETCHATRESTAPI_QT_NO_EXPORT void onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson) override;
     QString mAnnouncement;
 };
 }

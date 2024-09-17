@@ -42,8 +42,7 @@ Q_SIGNALS:
     void getThreadsDone(const QJsonObject &obj, const QString &roomId);
 
 private:
-    Q_DISABLE_COPY(GetThreadsJob)
-    void onGetRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson) override;
+    LIBROCKETCHATRESTAPI_QT_NO_EXPORT void onGetRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson) override;
     TheadSearchType mSearchType = TheadSearchType::All;
     QString mRoomId;
 };

@@ -32,8 +32,7 @@ Q_SIGNALS:
     void addOwnerDone();
 
 private:
-    Q_DISABLE_COPY(ChannelAddOwnerJob)
-    void onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson) override;
+    LIBROCKETCHATRESTAPI_QT_NO_EXPORT void onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson) override;
     QString mAddownerUserId;
 };
 }

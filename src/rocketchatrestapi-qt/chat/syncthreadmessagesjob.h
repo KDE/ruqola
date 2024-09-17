@@ -37,8 +37,7 @@ Q_SIGNALS:
     void syncThreadMessagesDone(const QJsonObject &obj, const QString &threadMessageId);
 
 private:
-    Q_DISABLE_COPY(SyncThreadMessagesJob)
-    void onGetRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson) override;
+    LIBROCKETCHATRESTAPI_QT_NO_EXPORT void onGetRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson) override;
     QString mThreadMessageId;
     QString mTimeStamp;
 };

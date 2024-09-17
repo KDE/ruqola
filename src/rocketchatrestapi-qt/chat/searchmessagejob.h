@@ -45,7 +45,6 @@ Q_SIGNALS:
     void searchMessageDone(const QJsonObject &obj);
 
 private:
-    Q_DISABLE_COPY(SearchMessageJob)
     LIBROCKETCHATRESTAPI_QT_NO_EXPORT void onGetRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson) override;
     [[nodiscard]] LIBROCKETCHATRESTAPI_QT_NO_EXPORT QString convertSearchText() const;
     QString mRoomId;

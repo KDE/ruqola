@@ -45,7 +45,7 @@ Q_SIGNALS:
 
 private:
     Q_DISABLE_COPY(TwitterAuthJob)
-    void onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson) override;
+    LIBROCKETCHATRESTAPI_QT_NO_EXPORT void onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson) override;
     QString mAccessToken;
     QString mSecret;
     QString mAppSecret;

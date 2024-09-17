@@ -32,7 +32,6 @@ Q_SIGNALS:
     void oauthAppsDeleteDone();
 
 private:
-    Q_DISABLE_COPY(OauthAppsDeleteJob)
     LIBROCKETCHATRESTAPI_QT_NO_EXPORT void onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson) override;
     QString mIdentifier;
 };

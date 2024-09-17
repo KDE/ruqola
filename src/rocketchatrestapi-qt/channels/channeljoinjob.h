@@ -37,7 +37,6 @@ Q_SIGNALS:
     void openArchivedRoom(const ChannelGroupBaseJob::ChannelGroupInfo &channelInfo);
 
 private:
-    Q_DISABLE_COPY(ChannelJoinJob)
     LIBROCKETCHATRESTAPI_QT_NO_EXPORT void onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson) override;
     QString mJoinCode;
 };

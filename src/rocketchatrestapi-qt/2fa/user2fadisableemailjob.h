@@ -26,7 +26,7 @@ public:
     [[nodiscard]] bool requireTwoFactorAuthentication() const override;
 
 protected:
-    void onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson) override;
+    LIBROCKETCHATRESTAPI_QT_NO_EXPORT void onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson) override;
 
 Q_SIGNALS:
     void disableEmailDone();

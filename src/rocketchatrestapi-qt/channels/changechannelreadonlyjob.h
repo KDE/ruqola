@@ -35,8 +35,7 @@ Q_SIGNALS:
     void changeReadonlyDone();
 
 private:
-    Q_DISABLE_COPY(ChangeChannelReadonlyJob)
-    void onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson) override;
+    LIBROCKETCHATRESTAPI_QT_NO_EXPORT void onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson) override;
     QString mRoomId;
     bool mReadOnly = false;
 };

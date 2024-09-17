@@ -28,7 +28,6 @@ Q_SIGNALS:
     void deleteGroupsDone(const QString &identifier);
 
 private:
-    Q_DISABLE_COPY(GroupsDeleteJob)
     LIBROCKETCHATRESTAPI_QT_NO_EXPORT void onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson) override;
 };
 }

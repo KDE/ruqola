@@ -28,7 +28,7 @@ public:
     void setUsernameOrEmail(const QString &usernameOrEmail);
 
 protected:
-    void onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson) override;
+    LIBROCKETCHATRESTAPI_QT_NO_EXPORT void onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson) override;
 
 Q_SIGNALS:
     void sendEmailCodeDone();

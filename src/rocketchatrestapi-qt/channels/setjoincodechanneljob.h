@@ -32,8 +32,7 @@ Q_SIGNALS:
     void setJoinCodeDone();
 
 private:
-    Q_DISABLE_COPY(SetJoinCodeChannelJob)
-    void onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson) override;
+    LIBROCKETCHATRESTAPI_QT_NO_EXPORT void onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson) override;
     QString mJoinCode;
 };
 }

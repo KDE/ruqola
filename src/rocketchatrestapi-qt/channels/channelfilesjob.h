@@ -38,7 +38,6 @@ Q_SIGNALS:
     void channelFilesDone(const QJsonObject &replyObjectj, const ChannelGroupBaseJob::ChannelGroupInfo &channelInfo);
 
 private:
-    Q_DISABLE_COPY(ChannelFilesJob)
     LIBROCKETCHATRESTAPI_QT_NO_EXPORT void onGetRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson) override;
     ChannelType mChannelType = Unknown;
 };

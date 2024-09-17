@@ -30,7 +30,6 @@ Q_SIGNALS:
     void groupOpenDone(const QJsonObject &obj, const ChannelGroupBaseJob::ChannelGroupInfo &channelInfo);
 
 private:
-    Q_DISABLE_COPY(GroupOpenJob)
     LIBROCKETCHATRESTAPI_QT_NO_EXPORT void onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson) override;
 };
 }

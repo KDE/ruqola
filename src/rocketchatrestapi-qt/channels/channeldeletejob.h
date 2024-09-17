@@ -29,7 +29,6 @@ Q_SIGNALS:
     void deletechannelDone(const QString &identifier);
 
 private:
-    Q_DISABLE_COPY(ChannelDeleteJob)
     LIBROCKETCHATRESTAPI_QT_NO_EXPORT void onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson) override;
 };
 }

@@ -36,8 +36,7 @@ protected:
     [[nodiscard]] QString errorMessage(const QString &str, const QJsonObject &details) override;
 
 private:
-    Q_DISABLE_COPY(DeleteMessageJob)
-    void onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson) override;
+    LIBROCKETCHATRESTAPI_QT_NO_EXPORT void onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson) override;
     QByteArray mRoomId;
     QByteArray mMessageId;
 };

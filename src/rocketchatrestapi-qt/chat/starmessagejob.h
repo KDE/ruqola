@@ -36,8 +36,7 @@ Q_SIGNALS:
     void messageStarred();
 
 private:
-    Q_DISABLE_COPY(StarMessageJob)
-    void onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson) override;
+    LIBROCKETCHATRESTAPI_QT_NO_EXPORT void onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson) override;
     QByteArray mMessageId;
     bool mStarMessage = true;
 };

@@ -32,7 +32,6 @@ Q_SIGNALS:
     void listInviteDone(const QJsonDocument &obj);
 
 private:
-    Q_DISABLE_COPY(ListInviteJob)
     LIBROCKETCHATRESTAPI_QT_NO_EXPORT void onGetRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson) override;
 };
 }

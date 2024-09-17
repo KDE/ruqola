@@ -32,8 +32,7 @@ Q_SIGNALS:
     void groupRemoveOwnerDone();
 
 private:
-    Q_DISABLE_COPY(GroupRemoveOwnerJob)
-    void onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson) override;
+    LIBROCKETCHATRESTAPI_QT_NO_EXPORT void onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson) override;
     QString mRemoveUserId;
 };
 }

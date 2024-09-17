@@ -40,8 +40,7 @@ Q_SIGNALS:
     void reactOnMessageDone();
 
 private:
-    Q_DISABLE_COPY(ReactOnMessageJob)
-    void onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson) override;
+    LIBROCKETCHATRESTAPI_QT_NO_EXPORT void onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson) override;
     QByteArray mMessageId;
     QString mEmoji;
     bool mAddReact = true;

@@ -31,7 +31,6 @@ Q_SIGNALS:
     void channelGetCountersDone(const QJsonObject &obj, const ChannelGroupBaseJob::ChannelGroupInfo &channelInfo);
 
 private:
-    Q_DISABLE_COPY(ChannelGetCountersJob)
     LIBROCKETCHATRESTAPI_QT_NO_EXPORT void onGetRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson) override;
 };
 }

@@ -38,8 +38,7 @@ Q_SIGNALS:
     void ignoreUserDone(const QJsonObject &obj, const QByteArray &roomId);
 
 private:
-    Q_DISABLE_COPY(IgnoreUserJob)
-    void onGetRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson) override;
+    LIBROCKETCHATRESTAPI_QT_NO_EXPORT void onGetRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson) override;
     QByteArray mRoomId;
     QByteArray mIgnoreUserId;
     bool mIgnore = true;

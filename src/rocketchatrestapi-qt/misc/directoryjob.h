@@ -47,7 +47,6 @@ Q_SIGNALS:
     void directoryDone(const QJsonObject &obj);
 
 private:
-    Q_DISABLE_COPY(DirectoryJob)
     LIBROCKETCHATRESTAPI_QT_NO_EXPORT void initialQueryParameters();
     LIBROCKETCHATRESTAPI_QT_NO_EXPORT void onGetRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson) override;
     DirectoryInfo mDirectoryInfo;

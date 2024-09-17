@@ -51,7 +51,6 @@ Q_SIGNALS:
     void findOrCreateInviteDone(const RocketChatRestApi::FindOrCreateInviteJob::InviteUsersInfo &info);
 
 private:
-    Q_DISABLE_COPY(FindOrCreateInviteJob)
     LIBROCKETCHATRESTAPI_QT_NO_EXPORT void onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson) override;
     QByteArray mRoomId;
     int mMaxUses = 20;

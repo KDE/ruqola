@@ -39,7 +39,6 @@ Q_SIGNALS:
     void updateGroupKeyDone();
 
 private:
-    Q_DISABLE_COPY(UpdateGroupKeyJob)
     LIBROCKETCHATRESTAPI_QT_NO_EXPORT void onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson) override;
     UpdateGroupKeyInfo mUpdateGroupInfo;
 };

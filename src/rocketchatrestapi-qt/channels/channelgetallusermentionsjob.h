@@ -35,8 +35,7 @@ Q_SIGNALS:
     void channelGetAllUserMentionsDone(const QJsonObject &obj, const QString &roomId);
 
 private:
-    Q_DISABLE_COPY(ChannelGetAllUserMentionsJob)
-    void onGetRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson) override;
+    LIBROCKETCHATRESTAPI_QT_NO_EXPORT void onGetRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson) override;
     QString mRoomId;
 };
 }

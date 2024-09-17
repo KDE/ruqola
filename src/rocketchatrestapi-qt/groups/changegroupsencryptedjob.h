@@ -32,8 +32,7 @@ Q_SIGNALS:
     void changeEncryptedDone();
 
 private:
-    Q_DISABLE_COPY(ChangeGroupsEncryptedJob)
-    void onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson) override;
+    LIBROCKETCHATRESTAPI_QT_NO_EXPORT void onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson) override;
     bool mEncrypted = false;
 };
 }

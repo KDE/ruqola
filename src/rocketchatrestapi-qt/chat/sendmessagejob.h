@@ -37,8 +37,7 @@ Q_SIGNALS:
     void sendMessageDone();
 
 private:
-    Q_DISABLE_COPY(SendMessageJob)
-    void onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson) override;
+    LIBROCKETCHATRESTAPI_QT_NO_EXPORT void onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson) override;
     SendMessageArguments mSendMessageArguments;
 };
 }

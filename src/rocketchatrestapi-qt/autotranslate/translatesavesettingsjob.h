@@ -43,7 +43,7 @@ Q_SIGNALS:
 
 private:
     Q_DISABLE_COPY(TranslateSaveSettingsJob)
-    void onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson) override;
+    LIBROCKETCHATRESTAPI_QT_NO_EXPORT void onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson) override;
     QString mRoomId;
     QString mLanguage;
     TranslateSaveSettingsJob::SettingType mType = Undefined;

@@ -48,7 +48,7 @@ protected:
 
 private:
     Q_DISABLE_COPY(SetStatusJob)
-    void onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson) override;
+    LIBROCKETCHATRESTAPI_QT_NO_EXPORT void onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson) override;
     QString mStatusUserId;
     QString mStatusMessage;
     StatusType mStatus = Unknown;

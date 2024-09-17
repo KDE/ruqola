@@ -49,7 +49,6 @@ Q_SIGNALS:
     void channelHistoryDone(const QJsonObject &obj, const RocketChatRestApi::ChannelGroupBaseJob::ChannelGroupInfo &channelInfo);
 
 private:
-    Q_DISABLE_COPY(ChannelHistoryJob)
     LIBROCKETCHATRESTAPI_QT_NO_EXPORT void onGetRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson) override;
     ChannelHistoryInfo mChannelHistoryInfo;
 };

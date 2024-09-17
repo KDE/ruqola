@@ -40,7 +40,6 @@ Q_SIGNALS:
     void oauthAppsUpdateDone(const QJsonObject &replyObject);
 
 private:
-    Q_DISABLE_COPY(OauthAppsUpdateJob)
     LIBROCKETCHATRESTAPI_QT_NO_EXPORT void onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson) override;
     OauthAppsUpdateInfo mOauthAppsUpdateInfo;
 };

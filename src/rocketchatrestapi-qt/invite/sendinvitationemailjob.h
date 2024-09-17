@@ -31,7 +31,6 @@ Q_SIGNALS:
     void sendInvitationEmailsDone();
 
 private:
-    Q_DISABLE_COPY(SendInvitationEmailJob)
     LIBROCKETCHATRESTAPI_QT_NO_EXPORT void onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson) override;
     QStringList mEmails;
 };

@@ -29,7 +29,6 @@ Q_SIGNALS:
     void leaveChannelDone();
 
 private:
-    Q_DISABLE_COPY(LeaveChannelJob)
-    void onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson) override;
+    LIBROCKETCHATRESTAPI_QT_NO_EXPORT void onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson) override;
 };
 }

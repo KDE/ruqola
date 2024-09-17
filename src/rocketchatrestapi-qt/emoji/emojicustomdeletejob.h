@@ -32,7 +32,6 @@ Q_SIGNALS:
     void emojiCustomDeleteDone();
 
 private:
-    Q_DISABLE_COPY(EmojiCustomDeleteJob)
     LIBROCKETCHATRESTAPI_QT_NO_EXPORT void onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson) override;
     QByteArray mEmojiId;
 };

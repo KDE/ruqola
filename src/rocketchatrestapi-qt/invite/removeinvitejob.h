@@ -35,7 +35,6 @@ Q_SIGNALS:
     void removeInviteDone(const QByteArray &identifier);
 
 private:
-    Q_DISABLE_COPY(RemoveInviteJob)
     LIBROCKETCHATRESTAPI_QT_NO_EXPORT void slotRemoveInviteFinished();
     QByteArray mIdentifier;
 };

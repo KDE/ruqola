@@ -28,7 +28,6 @@ Q_SIGNALS:
     void licensesInfoDone(const QJsonObject &obj);
 
 private:
-    Q_DISABLE_COPY(LicensesInfoJob)
     LIBROCKETCHATRESTAPI_QT_NO_EXPORT void onGetRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson) override;
 };
 }

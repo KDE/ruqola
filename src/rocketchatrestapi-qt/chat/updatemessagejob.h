@@ -38,8 +38,7 @@ Q_SIGNALS:
     void updateMessageFailed(const QString &str);
 
 private:
-    Q_DISABLE_COPY(UpdateMessageJob)
-    void onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson) override;
+    LIBROCKETCHATRESTAPI_QT_NO_EXPORT void onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson) override;
     QByteArray mRoomId;
     QByteArray mMessageId;
     QString mUpdatedText;

@@ -38,7 +38,6 @@ Q_SIGNALS:
     void createUserStatusDone();
 
 private:
-    Q_DISABLE_COPY(CustomUserStatusCreateJob)
     LIBROCKETCHATRESTAPI_QT_NO_EXPORT void onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson) override;
     StatusCreateInfo mStatusCreateInfo;
 };
