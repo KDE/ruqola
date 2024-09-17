@@ -20,7 +20,7 @@ MemoryManager::MemoryManager(QObject *parent)
         Q_EMIT clearApplicationSettingsModelRequested();
     });
 
-    mClearRoomsHistory->setInterval(30min);
+    mClearRoomsHistory->setInterval(1h);
     connect(mClearRoomsHistory, &QTimer::timeout, this, [this]() {
         qCDebug(RUQOLA_MEMORY_MANAGEMENT_LOG) << "Clean room history";
         // TODO check clear room
