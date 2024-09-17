@@ -7,6 +7,7 @@
 #include "accountschannelsmodel.h"
 
 #include "accountmanager.h"
+#include "model/roommodel.h"
 #include "rocketchataccount.h"
 #include "rocketchataccountfilterproxymodel.h"
 #include "rocketchataccountmodel.h"

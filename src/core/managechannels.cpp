@@ -10,7 +10,9 @@
 #include "channels/channeljoinjob.h"
 #include "channels/channelopenjob.h"
 #include "connection.h"
+#include "ddpapi/ddpclient.h"
 #include "groups/groupopenjob.h"
+#include "model/roommodel.h"
 #include "ruqola.h"
 #include "ruqola_debug.h"
 

@@ -5,14 +5,14 @@
 */
 
 #include "administratoruserswidget.h"
-#include "misc/rolescombobox.h"
-
 #include "administratoradduserdialog.h"
 #include "administratorinviteusersdialog.h"
 #include "administratoruserspendingactiondelegate.h"
 #include "connection.h"
+#include "ddpapi/ddpclient.h"
 #include "dialogs/confirmpassworddialog.h"
 #include "invite/sendinvitationemailjob.h"
+#include "misc/rolescombobox.h"
 #include "misc/searchwithdelaylineedit.h"
 #include "model/adminusersallmodel.h"
 #include "model/adminuserspendingmodel.h"

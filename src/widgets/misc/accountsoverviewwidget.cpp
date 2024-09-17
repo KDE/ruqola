@@ -8,7 +8,9 @@
 #include "accountsoverviewwidget.h"
 
 #include "accountmanager.h"
+#include "ddpapi/ddpclient.h"
 #include "model/rocketchataccountmodel.h"
+#include "model/roommodel.h"
 #include "rocketchataccount.h"
 #include "ruqola.h"
 

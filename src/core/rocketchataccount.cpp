@@ -8,8 +8,10 @@
 #include "accountroomsettings.h"
 #include "apps/appinstalledjob.h"
 #include "config-ruqola.h"
+#include "ddpapi/ddpclient.h"
 #include "memorymanager/memorymanager.h"
 #include "model/appscategoriesmodel.h"
+#include "model/roommodel.h"
 #include "notifications/notificationpreferences.h"
 #include "rocketchataccountsettings.h"
 #include "ruqolautils.h"
@@ -26,6 +28,7 @@
 #include "managerdatapaths.h"
 #include "messagequeue.h"
 #include "previewurlcachemanager.h"
+#include "serverconfiginfo.h"
 #include "soundmanager.h"
 
 #include "authenticationmanager/restauthenticationmanager.h"

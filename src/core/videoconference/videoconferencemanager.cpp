@@ -8,6 +8,7 @@
 using namespace Qt::Literals::StringLiterals;
 
 #include "connection.h"
+#include "ddpapi/ddpclient.h"
 #include "rocketchataccount.h"
 #include "ruqola_videoconference_core_debug.h"
 #include "ruqolautils.h"

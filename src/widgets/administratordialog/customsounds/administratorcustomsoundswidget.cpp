@@ -8,6 +8,7 @@
 #include "administratorcustomsoundscreatedialog.h"
 #include "connection.h"
 #include "custom/customsoundslistjob.h"
+#include "ddpapi/ddpclient.h"
 #include "misc/searchwithdelaylineedit.h"
 #include "model/admincustomsoundmodel.h"
 #include "model/searchtreebasefilterproxymodel.h"

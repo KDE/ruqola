@@ -16,13 +16,11 @@
 #include "custom/customuserstatusupdatejob.h"
 #include "customusers/customuserstatuses.h"
 
-#include "ddpapi/ddpclient.h"
 #include "inputtextmanager.h"
 #include "libruqolacore_export.h"
 #include "licenses/licensesmanager.h"
 #include "messages/message.h"
 #include "model/listmessagesmodel.h"
-#include "model/roommodel.h"
 #include "notificationinfo.h"
 #include "ownuser/ownuser.h"
 #include "ownuser/ownuserpreferences.h"
@@ -34,7 +32,6 @@
 #include "rooms/roomscleanhistoryjob.h"
 #include "rooms/roomsexportjob.h"
 #include "ruqolaserverconfig.h"
-#include "serverconfiginfo.h"
 #include "users/registeruserjob.h"
 #include "users/userssetpreferencesjob.h"
 #include "users/usersupdateownbasicinfojob.h"
@@ -50,7 +47,6 @@ class DDPClient;
 class MessageQueue;
 class RocketChatBackend;
 class RuqolaLogger;
-class RuqolaServerConfig;
 class UserCompleterModel;
 class UserCompleterFilterProxyModel;
 class StatusModel;
@@ -67,7 +63,6 @@ class EmoticonModel;
 class DiscussionsFilterProxyModel;
 class DiscussionsModel;
 class ThreadMessageModel;
-class ListMessagesModel;
 class ListMessagesFilterProxyModel;
 class AutotranslateLanguagesModel;
 class CommandsModel;
@@ -93,6 +88,7 @@ class SoundManager;
 class AppsMarketPlaceModel;
 class AppsCategoriesModel;
 class MemoryManager;
+class ServerConfigInfo;
 
 class LIBRUQOLACORE_EXPORT RocketChatAccount : public QObject
 {

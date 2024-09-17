@@ -5,6 +5,7 @@
 */
 
 #include "discussionlistview.h"
+#include "ddpapi/ddpclient.h"
 #include "discussion/listdiscussiondelegate.h"
 #include "model/discussionsmodel.h"
 #include "rocketchataccount.h"

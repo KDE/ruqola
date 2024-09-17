@@ -8,6 +8,7 @@
 #include "common/completionlistview.h"
 #include "joinedchannelcompletiondelegate.h"
 #include "model/joinedchannelmodel.h"
+#include "model/roommodel.h"
 #include "rocketchataccount.h"
 #include "room.h"
 #include <KLocalizedString>

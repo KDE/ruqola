@@ -9,6 +9,7 @@ using namespace Qt::Literals::StringLiterals;
 
 #include "chat/syncmessagesjob.h"
 #include "connection.h"
+#include "ddpapi/ddpclient.h"
 #include "localdatabase/localdatabasemanager.h"
 #include "manageloadhistoryparsesyncmessagesutils.h"
 #include "model/messagesmodel.h"

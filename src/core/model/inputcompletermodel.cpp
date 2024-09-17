@@ -7,6 +7,7 @@
 #include "inputcompletermodel.h"
 using namespace Qt::Literals::StringLiterals;
 
+#include "model/roommodel.h"
 #include "rocketchataccount.h"
 #include <KLocalizedString>
 

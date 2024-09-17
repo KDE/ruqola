@@ -8,6 +8,7 @@
 #include "bannerinfodialog/bannermessagewidget.h"
 #include "channellist/channellistview.h"
 #include "config-ruqola.h"
+#include "ddpapi/ddpclient.h"
 #include "model/switchchannelhistorymodel.h"
 #include "needupdateversion/needupdateversionwidget.h"
 #include "rocketchataccount.h"

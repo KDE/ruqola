@@ -7,7 +7,9 @@
 #include "channellistwidget.h"
 using namespace Qt::Literals::StringLiterals;
 
+#include "ddpapi/ddpclient.h"
 #include "model/roomfilterproxymodel.h"
+#include "model/roommodel.h"
 #include "rocketchaturlutils.h"
 #include "ruqola_jitsi_debug.h"
 #include "ruqolawidgets_debug.h"

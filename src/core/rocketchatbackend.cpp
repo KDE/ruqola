@@ -17,6 +17,7 @@ using namespace Qt::Literals::StringLiterals;
 #include "connection.h"
 #include "ddpapi/ddpclient.h"
 #include "model/messagesmodel.h"
+#include "model/roommodel.h"
 #include "model/usersmodel.h"
 #include "receivetypingnotificationmanager.h"
 #include "rocketchataccount.h"

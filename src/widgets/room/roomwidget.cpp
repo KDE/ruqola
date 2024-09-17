@@ -15,6 +15,7 @@ using namespace Qt::Literals::StringLiterals;
 #include "accountroomsettings.h"
 #include "conferencecalldialog/conferencecalldialog.h"
 #include "connection.h"
+#include "ddpapi/ddpclient.h"
 #include "dialogs/addusersinroomdialog.h"
 #include "dialogs/autotranslateconfiguredialog.h"
 #include "dialogs/channelinfodialog.h"
