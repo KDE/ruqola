@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-09-13 00:39+0000\n"
+"POT-Creation-Date: 2024-09-17 02:36+0000\n"
 "PO-Revision-Date: 2024-02-03 02:20+0200\n"
 "Last-Translator: Moo\n"
 "Language-Team: none\n"
@@ -946,9 +946,9 @@ msgstr ""
 
 #: core/model/adminuserspendingmodel.cpp:58
 #, fuzzy, kde-format
-#| msgid "User is not activated"
+#| msgid "Add Users"
 msgid "Activate"
-msgstr "Naudotojas nėra aktyvuotas"
+msgstr "Pridėti naudotojus"
 
 #: core/model/adminuserspendingmodel.cpp:78
 #, fuzzy, kde-format
@@ -2761,7 +2761,7 @@ msgstr "Šalinti iš kambario"
 #: widgets/administratordialog/oauth/oauthtreeview.cpp:49
 #: widgets/administratordialog/roles/administratorroleswidget.cpp:101
 #: widgets/administratordialog/roles/usersinrolewidget.cpp:106
-#: widgets/administratordialog/users/administratoruserswidget.cpp:272
+#: widgets/administratordialog/users/administratoruserswidget.cpp:286
 #: widgets/myaccount/myaccountpersonalaccesstokentreeview.cpp:35
 #, kde-format
 msgctxt "@action"
@@ -2775,7 +2775,7 @@ msgstr ""
 #: widgets/administratordialog/permissions/permissionswidget.cpp:92
 #: widgets/administratordialog/roles/administratorroleswidget.cpp:105
 #: widgets/administratordialog/rooms/administratorroomswidget.cpp:63
-#: widgets/administratordialog/users/administratoruserswidget.cpp:279
+#: widgets/administratordialog/users/administratoruserswidget.cpp:293
 #, kde-format
 msgctxt "@action"
 msgid "Modify…"
@@ -2789,7 +2789,7 @@ msgstr ""
 #: widgets/administratordialog/roles/administratorroleswidget.cpp:120
 #: widgets/administratordialog/roles/usersinrolewidget.cpp:110
 #: widgets/administratordialog/rooms/administratorroomswidget.cpp:67
-#: widgets/administratordialog/users/administratoruserswidget.cpp:316
+#: widgets/administratordialog/users/administratoruserswidget.cpp:330
 #: widgets/myaccount/myaccountpersonalaccesstokentreeview.cpp:42
 #, fuzzy, kde-format
 #| msgid "Remove"
@@ -3417,7 +3417,7 @@ msgid "Do you want to remove this user \"%1\"?"
 msgstr "Ar norite nepaisyti šio naudotojo?"
 
 #: widgets/administratordialog/roles/usersinrolewidget.cpp:81
-#: widgets/administratordialog/users/administratoruserswidget.cpp:214
+#: widgets/administratordialog/users/administratoruserswidget.cpp:228
 #, fuzzy, kde-format
 #| msgid "Remove"
 msgctxt "@title:window"
@@ -3425,14 +3425,14 @@ msgid "Remove User"
 msgstr "Šalinti"
 
 #: widgets/administratordialog/roles/usersinrolewidget.cpp:119
-#: widgets/administratordialog/users/administratoruserswidget.cpp:329
+#: widgets/administratordialog/users/administratoruserswidget.cpp:343
 #, fuzzy, kde-format
 #| msgid "No Messages found"
 msgid "No user found"
 msgstr "Nerasta jokių žinučių"
 
 #: widgets/administratordialog/roles/usersinrolewidget.cpp:124
-#: widgets/administratordialog/users/administratoruserswidget.cpp:334
+#: widgets/administratordialog/users/administratoruserswidget.cpp:348
 #: widgets/directory/directorywidget.cpp:202
 #, kde-format
 msgid "%1 user (Total: %2)"
@@ -3538,12 +3538,10 @@ msgid "Just invited people can access this channel."
 msgstr "Gali rašyti tik įgalioti asmenys."
 
 #: widgets/administratordialog/rooms/administratorroomsselectroomtypewidget.cpp:14
-#, fuzzy, kde-format
-#| msgid "1 message"
-#| msgid_plural "%1 messages"
+#, kde-format
 msgctxt "@option:check"
 msgid "Direct"
-msgstr "1 žinutė"
+msgstr ""
 
 #: widgets/administratordialog/rooms/administratorroomsselectroomtypewidget.cpp:15
 #, kde-format
@@ -3927,62 +3925,62 @@ msgstr ""
 msgid "All"
 msgstr ""
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:213
+#: widgets/administratordialog/users/administratoruserswidget.cpp:227
 #, fuzzy, kde-format
 #| msgid "Do you want to ignore this user?"
 msgid "Do you want to remove this user?"
 msgstr "Ar norite nepaisyti šio naudotojo?"
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:266
+#: widgets/administratordialog/users/administratoruserswidget.cpp:280
 #, fuzzy, kde-format
 #| msgid "Search User..."
 msgctxt "@action"
 msgid "Invite…"
 msgstr "Ieškoti naudotojo..."
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:288
+#: widgets/administratordialog/users/administratoruserswidget.cpp:302
 #, fuzzy, kde-format
 #| msgid "Add Users"
 msgctxt "@action"
 msgid "Deactivate"
 msgstr "Pridėti naudotojus"
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:288
+#: widgets/administratordialog/users/administratoruserswidget.cpp:302
 #, fuzzy, kde-format
 #| msgid "User is not activated"
 msgctxt "@action"
 msgid "Active"
 msgstr "Naudotojas nėra aktyvuotas"
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:297
+#: widgets/administratordialog/users/administratoruserswidget.cpp:311
 #, fuzzy, kde-format
 #| msgid "Remove from Room"
 msgctxt "@action"
 msgid "Remove Admin"
 msgstr "Šalinti iš kambario"
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:297
+#: widgets/administratordialog/users/administratoruserswidget.cpp:311
 #, fuzzy, kde-format
 #| msgid "Remove from Room"
 msgctxt "@action"
 msgid "Make Admin"
 msgstr "Šalinti iš kambario"
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:303
+#: widgets/administratordialog/users/administratoruserswidget.cpp:317
 #, fuzzy, kde-format
 #| msgid "Password"
 msgctxt "@action"
 msgid "Reset E2E Key"
 msgstr "Slaptažodis"
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:309
+#: widgets/administratordialog/users/administratoruserswidget.cpp:323
 #, fuzzy, kde-format
 #| msgid "Password"
 msgctxt "@action"
 msgid "Reset Totp"
 msgstr "Slaptažodis"
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:394
+#: widgets/administratordialog/users/administratoruserswidget.cpp:408
 #, kde-format
 msgid ""
 "Reset the current E2E key will log out the user. When the user login again, "
@@ -3992,41 +3990,41 @@ msgid ""
 "encrypted room that has no member online."
 msgstr ""
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:398
+#: widgets/administratordialog/users/administratoruserswidget.cpp:412
 #, fuzzy, kde-format
 #| msgid "Password"
 msgctxt "@title:window"
 msgid "Reset E2E key"
 msgstr "Slaptažodis"
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:430
+#: widgets/administratordialog/users/administratoruserswidget.cpp:444
 #, kde-format
 msgid "E2E key for %1 has been reset."
 msgstr ""
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:430
+#: widgets/administratordialog/users/administratoruserswidget.cpp:444
 #, fuzzy, kde-format
 #| msgid "Password"
 msgctxt "@title:window"
 msgid "Reset E2E"
 msgstr "Slaptažodis"
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:443
+#: widgets/administratordialog/users/administratoruserswidget.cpp:457
 #, kde-format
 msgid ""
 "Reset the current Two Factor TOTP will log out the user. The user will be "
 "able to set the Two Factor again later."
 msgstr ""
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:444
-#: widgets/administratordialog/users/administratoruserswidget.cpp:475
+#: widgets/administratordialog/users/administratoruserswidget.cpp:458
+#: widgets/administratordialog/users/administratoruserswidget.cpp:489
 #, fuzzy, kde-format
 #| msgid "Password"
 msgctxt "@title:window"
 msgid "Reset TOTP"
 msgstr "Slaptažodis"
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:475
+#: widgets/administratordialog/users/administratoruserswidget.cpp:489
 #, kde-format
 msgid "TOTP key for %1 has been reset"
 msgstr ""
@@ -6878,24 +6876,22 @@ msgstr ""
 
 #: widgets/applicationssettingsdialog/applicationssettingssearchwidget.cpp:88
 #, fuzzy, kde-format
-#| msgid "Application not found"
+#| msgid "Search Messages..."
 msgctxt "@info:placeholder"
 msgid "Search Applications"
-msgstr "Programa nerasta"
+msgstr "Ieškoti žinučių..."
 
 #: widgets/applicationssettingsdialog/applicationssettingssearchwidget.cpp:92
-#, fuzzy, kde-format
-#| msgid "Application not found"
+#, kde-format
 msgctxt "@info:placeholder"
 msgid "Search Installed Applications"
-msgstr "Programa nerasta"
+msgstr ""
 
 #: widgets/applicationssettingsdialog/applicationssettingssearchwidget.cpp:96
-#, fuzzy, kde-format
-#| msgid "Application not found"
+#, kde-format
 msgctxt "@info:placeholder"
 msgid "Search Requested Applications"
-msgstr "Programa nerasta"
+msgstr ""
 
 #: widgets/applicationssettingsdialog/applicationssettingssortingcombobox.cpp:12
 #, kde-format
@@ -8505,11 +8501,10 @@ msgid "Search teams…"
 msgstr "Ieškoti žinučių..."
 
 #: widgets/directory/directorywidget.cpp:79
-#, fuzzy, kde-format
-#| msgid "Remove from Room"
+#, kde-format
 msgctxt "@action"
 msgid "Join…"
-msgstr "Šalinti iš kambario"
+msgstr ""
 
 #: widgets/directory/directorywidget.cpp:82
 #, fuzzy, kde-format
@@ -10018,11 +10013,10 @@ msgstr "Kopijuoti nuorodą"
 
 #: widgets/room/delegate/messagelistdelegate.cpp:998
 #, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Add Account"
+#| msgid "Description:"
 msgctxt "@info:tooltip"
 msgid "Add reaction"
-msgstr "Pridėti paskyrą"
+msgstr "Aprašas:"
 
 #: widgets/room/messagelinewidget.cpp:64
 #, fuzzy, kde-format
@@ -10824,18 +10818,16 @@ msgid "Applications…"
 msgstr "Programa nerasta"
 
 #: widgets/ruqolamainwindow.cpp:539
-#, fuzzy, kde-format
-#| msgid "Application not found"
+#, kde-format
 msgctxt "@action"
 msgid "Requested Applications…"
-msgstr "Programa nerasta"
+msgstr ""
 
 #: widgets/ruqolamainwindow.cpp:544
-#, fuzzy, kde-format
-#| msgid "Application not found"
+#, kde-format
 msgctxt "@action"
 msgid "Installed Applications…"
-msgstr "Programa nerasta"
+msgstr ""
 
 #: widgets/ruqolamainwindow.cpp:549
 #, kde-format
@@ -11529,10 +11521,9 @@ msgid "Fix duplicated messages in search message dialog."
 msgstr "Išeiti iš kanalo"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:109
-#, fuzzy, kde-format
-#| msgid "Leave Channel"
+#, kde-format
 msgid "Add delegate in search rooms in team dialog."
-msgstr "Išeiti iš kanalo"
+msgstr ""
 
 #: widgets/whatsnew/whatsnewwidget.cpp:44
 #, fuzzy, kde-format
@@ -11567,31 +11558,6 @@ msgstr "Klaidų pataisymai"
 #~ msgid "Reset TOTP"
 #~ msgstr "Slaptažodis"
 
-#~ msgid "Create"
-#~ msgstr "Sukurti"
-
-#, fuzzy
-#~| msgid "Search Messages..."
-#~ msgid "Search rooms…"
-#~ msgstr "Ieškoti žinučių..."
-
-#, fuzzy
-#~| msgid "Copy link"
-#~ msgid "Copy Message"
-#~ msgstr "Kopijuoti nuorodą"
-
-#, fuzzy
-#~| msgid "Search Messages..."
-#~ msgctxt "Placeholder"
-#~ msgid "Search rooms…"
-#~ msgstr "Ieškoti žinučių..."
-
-#, fuzzy
-#~| msgid "Search Messages..."
-#~ msgctxt "Placeholder"
-#~ msgid "Search users…"
-#~ msgstr "Ieškoti žinučių..."
-
 #, fuzzy
 #~| msgid "Search User..."
 #~ msgid "Search channels…"
@@ -11605,11 +11571,6 @@ msgstr "Klaidų pataisymai"
 #, fuzzy
 #~| msgid "Server Version:"
 #~ msgid "Version 2.2"
-#~ msgstr "Serverio versija:"
-
-#, fuzzy
-#~| msgid "Server Version:"
-#~ msgid "Version 2.3"
 #~ msgstr "Serverio versija:"
 
 #, fuzzy

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-09-13 00:39+0000\n"
+"POT-Creation-Date: 2024-09-17 02:36+0000\n"
 "PO-Revision-Date: 2024-02-25 21:19+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
@@ -2647,7 +2647,7 @@ msgstr ""
 #: widgets/administratordialog/oauth/oauthtreeview.cpp:49
 #: widgets/administratordialog/roles/administratorroleswidget.cpp:101
 #: widgets/administratordialog/roles/usersinrolewidget.cpp:106
-#: widgets/administratordialog/users/administratoruserswidget.cpp:272
+#: widgets/administratordialog/users/administratoruserswidget.cpp:286
 #: widgets/myaccount/myaccountpersonalaccesstokentreeview.cpp:35
 #, kde-format
 msgctxt "@action"
@@ -2661,7 +2661,7 @@ msgstr ""
 #: widgets/administratordialog/permissions/permissionswidget.cpp:92
 #: widgets/administratordialog/roles/administratorroleswidget.cpp:105
 #: widgets/administratordialog/rooms/administratorroomswidget.cpp:63
-#: widgets/administratordialog/users/administratoruserswidget.cpp:279
+#: widgets/administratordialog/users/administratoruserswidget.cpp:293
 #, fuzzy, kde-format
 #| msgid "Modify..."
 msgctxt "@action"
@@ -2676,7 +2676,7 @@ msgstr "عدّل..."
 #: widgets/administratordialog/roles/administratorroleswidget.cpp:120
 #: widgets/administratordialog/roles/usersinrolewidget.cpp:110
 #: widgets/administratordialog/rooms/administratorroomswidget.cpp:67
-#: widgets/administratordialog/users/administratoruserswidget.cpp:316
+#: widgets/administratordialog/users/administratoruserswidget.cpp:330
 #: widgets/myaccount/myaccountpersonalaccesstokentreeview.cpp:42
 #, fuzzy, kde-format
 #| msgid "Remove"
@@ -2774,10 +2774,11 @@ msgstr ""
 
 #: widgets/administratordialog/invites/invitetreeview.cpp:52
 #, fuzzy, kde-format
-#| msgid "Favorite"
+#| msgctxt "@title:window"
+#| msgid "Remove Account"
 msgctxt "@title:window"
 msgid "Remove Invite"
-msgstr "المفضّلة"
+msgstr "أزل الحساب"
 
 #: widgets/administratordialog/logs/viewlogplaintextedit.cpp:35
 #: widgets/administratordialog/logs/viewlogplaintextedit.cpp:91
@@ -3285,20 +3286,20 @@ msgid "Do you want to remove this user \"%1\"?"
 msgstr ""
 
 #: widgets/administratordialog/roles/usersinrolewidget.cpp:81
-#: widgets/administratordialog/users/administratoruserswidget.cpp:214
+#: widgets/administratordialog/users/administratoruserswidget.cpp:228
 #, kde-format
 msgctxt "@title:window"
 msgid "Remove User"
 msgstr ""
 
 #: widgets/administratordialog/roles/usersinrolewidget.cpp:119
-#: widgets/administratordialog/users/administratoruserswidget.cpp:329
+#: widgets/administratordialog/users/administratoruserswidget.cpp:343
 #, kde-format
 msgid "No user found"
 msgstr "لم يعثر على أي مستخدم"
 
 #: widgets/administratordialog/roles/usersinrolewidget.cpp:124
-#: widgets/administratordialog/users/administratoruserswidget.cpp:334
+#: widgets/administratordialog/users/administratoruserswidget.cpp:348
 #: widgets/directory/directorywidget.cpp:202
 #, kde-format
 msgid "%1 user (Total: %2)"
@@ -3688,10 +3689,10 @@ msgstr ""
 
 #: widgets/administratordialog/users/administratoradduserwidget.cpp:29
 #, fuzzy, kde-format
-#| msgid "New Password:"
+#| msgid "Current Password"
 msgctxt "@option:check"
 msgid "Require Password Change"
-msgstr "كلمة السرّ الجديدة:"
+msgstr "كلمة السرّ الحاليّة"
 
 #: widgets/administratordialog/users/administratoradduserwidget.cpp:30
 #, kde-format
@@ -3768,33 +3769,33 @@ msgstr ""
 msgid "All"
 msgstr "الكلّ"
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:213
+#: widgets/administratordialog/users/administratoruserswidget.cpp:227
 #, kde-format
 msgid "Do you want to remove this user?"
 msgstr ""
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:266
+#: widgets/administratordialog/users/administratoruserswidget.cpp:280
 #, fuzzy, kde-format
 #| msgid "Invites"
 msgctxt "@action"
 msgid "Invite…"
 msgstr "الدعوات"
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:288
+#: widgets/administratordialog/users/administratoruserswidget.cpp:302
 #, fuzzy, kde-format
 #| msgid "Deactivate"
 msgctxt "@action"
 msgid "Deactivate"
 msgstr "تعطيل"
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:288
+#: widgets/administratordialog/users/administratoruserswidget.cpp:302
 #, fuzzy, kde-format
 #| msgid "Active"
 msgctxt "@action"
 msgid "Active"
 msgstr "نشط"
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:297
+#: widgets/administratordialog/users/administratoruserswidget.cpp:311
 #, fuzzy, kde-format
 #| msgctxt "@title"
 #| msgid "Remove Room"
@@ -3802,25 +3803,25 @@ msgctxt "@action"
 msgid "Remove Admin"
 msgstr "أزل الغرفة"
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:297
+#: widgets/administratordialog/users/administratoruserswidget.cpp:311
 #, kde-format
 msgctxt "@action"
 msgid "Make Admin"
 msgstr ""
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:303
+#: widgets/administratordialog/users/administratoruserswidget.cpp:317
 #, kde-format
 msgctxt "@action"
 msgid "Reset E2E Key"
 msgstr ""
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:309
+#: widgets/administratordialog/users/administratoruserswidget.cpp:323
 #, kde-format
 msgctxt "@action"
 msgid "Reset Totp"
 msgstr ""
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:394
+#: widgets/administratordialog/users/administratoruserswidget.cpp:408
 #, kde-format
 msgid ""
 "Reset the current E2E key will log out the user. When the user login again, "
@@ -3830,38 +3831,38 @@ msgid ""
 "encrypted room that has no member online."
 msgstr ""
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:398
+#: widgets/administratordialog/users/administratoruserswidget.cpp:412
 #, kde-format
 msgctxt "@title:window"
 msgid "Reset E2E key"
 msgstr ""
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:430
+#: widgets/administratordialog/users/administratoruserswidget.cpp:444
 #, kde-format
 msgid "E2E key for %1 has been reset."
 msgstr ""
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:430
+#: widgets/administratordialog/users/administratoruserswidget.cpp:444
 #, kde-format
 msgctxt "@title:window"
 msgid "Reset E2E"
 msgstr ""
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:443
+#: widgets/administratordialog/users/administratoruserswidget.cpp:457
 #, kde-format
 msgid ""
 "Reset the current Two Factor TOTP will log out the user. The user will be "
 "able to set the Two Factor again later."
 msgstr ""
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:444
-#: widgets/administratordialog/users/administratoruserswidget.cpp:475
+#: widgets/administratordialog/users/administratoruserswidget.cpp:458
+#: widgets/administratordialog/users/administratoruserswidget.cpp:489
 #, kde-format
 msgctxt "@title:window"
 msgid "Reset TOTP"
 msgstr ""
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:475
+#: widgets/administratordialog/users/administratoruserswidget.cpp:489
 #, kde-format
 msgid "TOTP key for %1 has been reset"
 msgstr ""
@@ -3905,11 +3906,10 @@ msgstr ""
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:23
 #, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Notification"
+#| msgid "Notifications"
 msgctxt "@option:check"
 msgid "Allow Email Notifications"
-msgstr "الإخطار"
+msgstr "الإخطارات"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:24
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:27
@@ -6096,11 +6096,10 @@ msgid "Only delete files"
 msgstr "احذف الملفّ"
 
 #: widgets/administratorsettingsdialog/retentionpolicy/retentionpolicysettingswidget.cpp:25
-#, fuzzy, kde-format
-#| msgid "Search messages"
+#, kde-format
 msgctxt "@option:check"
 msgid "Applies to channels"
-msgstr "ابحث في الرسائل"
+msgstr ""
 
 #: widgets/administratorsettingsdialog/retentionpolicy/retentionpolicysettingswidget.cpp:27
 #, kde-format
@@ -6110,11 +6109,11 @@ msgstr ""
 
 #: widgets/administratorsettingsdialog/retentionpolicy/retentionpolicysettingswidget.cpp:29
 #, fuzzy, kde-format
-#| msgctxt "@title"
-#| msgid "Delete Message"
+#| msgctxt "@title:window"
+#| msgid "Search Messages"
 msgctxt "@option:check"
 msgid "Applies to direct messages"
-msgstr "احذف الرّسالة"
+msgstr "ابحث في الرسائل"
 
 #: widgets/administratorsettingsdialog/retentionpolicy/retentionpolicysettingswidget.cpp:38
 #, kde-format
@@ -6524,11 +6523,10 @@ msgid "STUN/TURN Servers"
 msgstr ""
 
 #: widgets/applicationssettingsdialog/applicationssettingsaskapplicationdialog.cpp:25
-#, fuzzy, kde-format
-#| msgid "Notifications"
+#, kde-format
 msgctxt "@title:window"
 msgid "Ask Application"
-msgstr "الإخطارات"
+msgstr ""
 
 #: widgets/applicationssettingsdialog/applicationssettingsaskapplicationwidget.cpp:29
 #, kde-format
@@ -6603,11 +6601,10 @@ msgid "Install"
 msgstr ""
 
 #: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:67
-#, fuzzy, kde-format
-#| msgid "Notifications"
+#, kde-format
 msgctxt "@action"
 msgid "Ask Application…"
-msgstr "الإخطارات"
+msgstr ""
 
 #: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:74
 #: widgets/bannerinfodialog/bannerinfolistview.cpp:55
@@ -6634,24 +6631,22 @@ msgstr ""
 
 #: widgets/applicationssettingsdialog/applicationssettingssearchwidget.cpp:88
 #, fuzzy, kde-format
-#| msgid "Notifications"
+#| msgid "Permissions"
 msgctxt "@info:placeholder"
 msgid "Search Applications"
-msgstr "الإخطارات"
+msgstr "التّصاريح"
 
 #: widgets/applicationssettingsdialog/applicationssettingssearchwidget.cpp:92
-#, fuzzy, kde-format
-#| msgid "Notifications"
+#, kde-format
 msgctxt "@info:placeholder"
 msgid "Search Installed Applications"
-msgstr "الإخطارات"
+msgstr ""
 
 #: widgets/applicationssettingsdialog/applicationssettingssearchwidget.cpp:96
-#, fuzzy, kde-format
-#| msgid "Notifications"
+#, kde-format
 msgctxt "@info:placeholder"
 msgid "Search Requested Applications"
-msgstr "الإخطارات"
+msgstr ""
 
 #: widgets/applicationssettingsdialog/applicationssettingssortingcombobox.cpp:12
 #, kde-format
@@ -6792,12 +6787,10 @@ msgid "Any team selected."
 msgstr ""
 
 #: widgets/channellist/channellistview.cpp:252
-#, fuzzy, kde-format
-#| msgctxt "@title"
-#| msgid "Remove Room"
+#, kde-format
 msgctxt "@title:window"
 msgid "Move To Team"
-msgstr "أزل الغرفة"
+msgstr ""
 
 #: widgets/channellist/channellistview.cpp:301
 #, kde-format
@@ -7347,18 +7340,17 @@ msgstr ""
 
 #: widgets/dialogs/channelinfoeditablewidget.cpp:265
 #, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Copy Password"
+#| msgid "Invalid password"
 msgctxt "@info:placeholder"
 msgid "Add password"
-msgstr "انسخ كلمة المرور"
+msgstr "كلمة السر غير صحيحة"
 
 #: widgets/dialogs/channelinfoprunewidget.cpp:19
 #, fuzzy, kde-format
-#| msgid "Search messages"
+#| msgid "Show Message"
 msgctxt "@option:check"
 msgid "Exclude pinned messages"
-msgstr "ابحث في الرسائل"
+msgstr "أظهر الرّسالة"
 
 #: widgets/dialogs/channelinfoprunewidget.cpp:20
 #, kde-format
@@ -8219,17 +8211,17 @@ msgstr "ابحث في الرسائل"
 
 #: widgets/directory/directorywidget.cpp:79
 #, fuzzy, kde-format
-#| msgid "Created at"
+#| msgid "Join"
 msgctxt "@action"
 msgid "Join…"
-msgstr "أُنشئ في"
+msgstr "انضم"
 
 #: widgets/directory/directorywidget.cpp:82
 #, fuzzy, kde-format
-#| msgid "Encrypted Message"
+#| msgid "Report Message"
 msgctxt "@action"
 msgid "Open Private Messages…"
-msgstr "رسالة معمّاة"
+msgstr "بلّغ عن الرسالة"
 
 #: widgets/directory/directorywidget.cpp:183
 #, kde-format
@@ -8783,10 +8775,10 @@ msgstr "كلمة السرّ الجديدة:"
 
 #: widgets/misc/searchwithdelaylineedit.cpp:16
 #, fuzzy, kde-format
-#| msgid "Search users..."
+#| msgid "Search..."
 msgctxt "@info:placeholder"
 msgid "Search Word…"
-msgstr "ابحث في المستخدمين..."
+msgstr "ابحث..."
 
 #: widgets/misc/servermenu.cpp:20
 #, kde-format
@@ -9015,12 +9007,10 @@ msgid ""
 msgstr ""
 
 #: widgets/myaccount/myaccountpersonalaccesstokenconfigurewidget.cpp:129
-#, fuzzy, kde-format
-#| msgctxt "@title"
-#| msgid "Remove Room"
+#, kde-format
 msgctxt "@title:window"
 msgid "Personal Token Created"
-msgstr "أزل الغرفة"
+msgstr ""
 
 #: widgets/myaccount/myaccountpersonalaccesstokenconfigurewidget.cpp:164
 #, kde-format
@@ -9028,12 +9018,10 @@ msgid "Personal Token removed."
 msgstr ""
 
 #: widgets/myaccount/myaccountpersonalaccesstokenconfigurewidget.cpp:164
-#, fuzzy, kde-format
-#| msgctxt "@title"
-#| msgid "Remove Room"
+#, kde-format
 msgctxt "@title:window"
 msgid "Remove Personal Token"
-msgstr "أزل الغرفة"
+msgstr ""
 
 #: widgets/myaccount/myaccountpersonalaccesstokenconfigurewidget.cpp:203
 #, kde-format
@@ -9653,11 +9641,10 @@ msgid "No message yet"
 msgstr ""
 
 #: widgets/room/delegate/messagelistdelegate.cpp:982
-#, fuzzy, kde-format
-#| msgid "All Messages"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Following"
-msgstr "كل الرسائل"
+msgstr ""
 
 #: widgets/room/delegate/messagelistdelegate.cpp:986
 #, fuzzy, kde-format
@@ -9681,10 +9668,11 @@ msgstr ""
 
 #: widgets/room/delegate/messagelistdelegate.cpp:998
 #, fuzzy, kde-format
-#| msgid "Mentions"
+#| msgctxt "@title AutoCorrection page name"
+#| msgid "AutoCorrection"
 msgctxt "@info:tooltip"
 msgid "Add reaction"
-msgstr "الذّكورات"
+msgstr "التّصحيح الآليّ"
 
 #: widgets/room/messagelinewidget.cpp:64
 #, kde-format
@@ -9831,17 +9819,17 @@ msgstr "تمرير الرسالة"
 
 #: widgets/room/messagelistview.cpp:348
 #, fuzzy, kde-format
-#| msgid "All Messages"
+#| msgid "Show Message"
 msgctxt "@action"
 msgid "Unfollow Message"
-msgstr "كل الرسائل"
+msgstr "أظهر الرّسالة"
 
 #: widgets/room/messagelistview.cpp:348
 #, fuzzy, kde-format
-#| msgid "All Messages"
+#| msgid "Show Message"
 msgctxt "@action"
 msgid "Follow Message"
-msgstr "كل الرسائل"
+msgstr "أظهر الرّسالة"
 
 #: widgets/room/messagelistview.cpp:361
 #, fuzzy, kde-format
@@ -10201,11 +10189,10 @@ msgid "Start Conversation"
 msgstr ""
 
 #: widgets/room/usersinroommenu.cpp:114
-#, fuzzy, kde-format
-#| msgid "Favorite"
+#, kde-format
 msgctxt "@action"
 msgid "Remove as Owner"
-msgstr "المفضّلة"
+msgstr ""
 
 #: widgets/room/usersinroommenu.cpp:114
 #, kde-format
@@ -10214,11 +10201,10 @@ msgid "Add as Owner"
 msgstr ""
 
 #: widgets/room/usersinroommenu.cpp:127
-#, fuzzy, kde-format
-#| msgid "Favorite"
+#, kde-format
 msgctxt "@action"
 msgid "Remove as Leader"
-msgstr "المفضّلة"
+msgstr ""
 
 #: widgets/room/usersinroommenu.cpp:127
 #, fuzzy, kde-format
@@ -10229,10 +10215,10 @@ msgstr "ليدر"
 
 #: widgets/room/usersinroommenu.cpp:139
 #, fuzzy, kde-format
-#| msgid "Favorite"
+#| msgid "Moderator"
 msgctxt "@action"
 msgid "Remove as Moderator"
-msgstr "المفضّلة"
+msgstr "الوسيط"
 
 #: widgets/room/usersinroommenu.cpp:139
 #, fuzzy, kde-format
@@ -10460,18 +10446,16 @@ msgid "Applications…"
 msgstr ""
 
 #: widgets/ruqolamainwindow.cpp:539
-#, fuzzy, kde-format
-#| msgid "Notifications"
+#, kde-format
 msgctxt "@action"
 msgid "Requested Applications…"
-msgstr "الإخطارات"
+msgstr ""
 
 #: widgets/ruqolamainwindow.cpp:544
-#, fuzzy, kde-format
-#| msgid "Notifications"
+#, kde-format
 msgctxt "@action"
 msgid "Installed Applications…"
-msgstr "الإخطارات"
+msgstr ""
 
 #: widgets/ruqolamainwindow.cpp:549
 #, kde-format
@@ -11157,28 +11141,11 @@ msgstr ""
 msgid "Some bug fixing:"
 msgstr ""
 
-#~ msgid "Create"
-#~ msgstr "أنشئ"
+#~ msgid "Add..."
+#~ msgstr "أضف..."
 
-#, fuzzy
-#~| msgid "Search users..."
-#~ msgid "Search rooms…"
-#~ msgstr "ابحث في المستخدمين..."
-
-#~ msgid "Copy Message"
-#~ msgstr "انسخ الرِّسالة"
-
-#, fuzzy
-#~| msgid "Search users..."
-#~ msgctxt "Placeholder"
-#~ msgid "Search rooms…"
-#~ msgstr "ابحث في المستخدمين..."
-
-#, fuzzy
-#~| msgid "Search users..."
-#~ msgctxt "Placeholder"
-#~ msgid "Search users…"
-#~ msgstr "ابحث في المستخدمين..."
+#~ msgid "Modify..."
+#~ msgstr "عدّل..."
 
 #~ msgid "Cancel"
 #~ msgstr "ألغِ"
@@ -11199,20 +11166,6 @@ msgstr ""
 
 #~ msgid "Version 2.2"
 #~ msgstr "الإصدارة 2.2"
-
-#, fuzzy
-#~| msgid "Version 2.0"
-#~ msgid "Version 2.3"
-#~ msgstr "الإصدارة 2.0"
-
-#~ msgid "Select All"
-#~ msgstr "حدّد الكلّ"
-
-#~ msgid "Add..."
-#~ msgstr "أضف..."
-
-#~ msgid "Modify..."
-#~ msgstr "عدّل..."
 
 #~ msgid "Droplet"
 #~ msgstr "قطرة"
