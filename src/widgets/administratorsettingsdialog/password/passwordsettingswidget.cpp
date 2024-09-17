@@ -120,7 +120,7 @@ void PasswordSettingsWidget::updateSettingsStatus(bool enabled)
 void PasswordSettingsWidget::initialize(const QMap<QString, QVariant> &mapSettings)
 {
     initializeWidget(mEnablePasswordHistory, mapSettings, false);
-    initializeWidget(mPasswordHistoryLength, mapSettings, 7);
+    initializeWidget(mPasswordHistoryLength, mapSettings, 5);
     initializeWidget(mEnablePasswordPolicy, mapSettings, true);
     initializeWidget(mMinimumLength, mapSettings, 7);
     initializeWidget(mMaximumLength, mapSettings, -1);
