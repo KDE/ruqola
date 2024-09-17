@@ -9,8 +9,6 @@
 #include "authenticationinfo.h"
 #include "config-ruqola.h"
 #include "libruqolacore_export.h"
-#include "model/rocketchataccountfilterproxymodel.h"
-#include "model/rocketchataccountmodel.h"
 #include "parserocketchaturlutils.h"
 
 #include <QIcon>
@@ -19,6 +17,8 @@ class RocketChatAccount;
 #if HAVE_ACTIVITY_SUPPORT
 class ActivitiesManager;
 #endif
+class RocketChatAccountModel;
+class RocketChatAccountFilterProxyModel;
 class LIBRUQOLACORE_EXPORT AccountManager : public QObject
 {
     Q_OBJECT

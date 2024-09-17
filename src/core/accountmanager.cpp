@@ -7,14 +7,18 @@
 #include "accountmanager.h"
 #include "localdatabase/localdatabaseutils.h"
 #include "managerdatapaths.h"
+#include "model/rocketchataccountfilterproxymodel.h"
+#include "model/rocketchataccountmodel.h"
 #include "notificationhistorymanager.h"
 #include "notifications/notifierjob.h"
 #include "rocketchataccount.h"
 #include "rocketchataccountsettings.h"
 #include "ruqola_debug.h"
+
 #include "ruqola_sound_debug.h"
 #include "ruqolaglobalconfig.h"
 #include "utils.h"
+
 #if HAVE_ACTIVITY_SUPPORT
 #include "activities/activitiesmanager.h"
 #endif

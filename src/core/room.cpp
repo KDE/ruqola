@@ -16,8 +16,8 @@ using namespace Qt::Literals::StringLiterals;
 #include "textconverter.h"
 
 #include <KLocalizedString>
-
 #include <QCborValue>
+#include <QIcon>
 #include <QJsonArray>
 #include <QJsonDocument>
 

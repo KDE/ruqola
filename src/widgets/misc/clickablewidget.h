@@ -8,7 +8,6 @@
 
 #include "libruqolawidgets_private_export.h"
 #include <QLabel>
-#include <QWidget>
 
 class LIBRUQOLAWIDGETS_TESTS_EXPORT ClickableLabel : public QLabel
 {

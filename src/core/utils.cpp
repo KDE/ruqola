@@ -13,6 +13,7 @@
 #include <KColorScheme>
 #include <QCryptographicHash>
 #include <QDateTime>
+#include <QIcon>
 #include <QJsonDocument>
 #include <QRegularExpression>
 

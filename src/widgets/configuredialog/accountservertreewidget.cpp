@@ -7,6 +7,7 @@
 #include "accountservertreewidget.h"
 #include "activities/activitiesmanager.h"
 #include "configurenewserver/createnewserverdialog.h"
+#include "model/rocketchataccountfilterproxymodel.h"
 #include "model/rocketchataccountmodel.h"
 #include "rocketchataccount.h"
 #include "ruqola.h"

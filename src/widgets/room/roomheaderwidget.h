@@ -9,12 +9,11 @@
 #include <QWidget>
 
 #include "libruqolawidgets_private_export.h"
-#include "model/roommodel.h"
+#include "room.h"
 class QLabel;
 class QToolButton;
 class ChannelActionPopupMenu;
 class RocketChatAccount;
-class Room;
 class TeamNameLabel;
 class RoomHeaderLabel;
 class AvatarCacheManager;

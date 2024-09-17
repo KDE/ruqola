@@ -12,9 +12,7 @@
 #include "roomheaderwidget.h"
 #include <QPointer>
 #include <QVBoxLayout>
-#include <QWidget>
 
-class RoomHeaderWidget;
 class RocketChatAccount;
 class UsersInRoomFlowWidget;
 class RoomCounterInfoWidget;

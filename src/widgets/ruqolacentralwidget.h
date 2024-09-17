@@ -16,7 +16,6 @@ class RuqolaMainWidget;
 class RuqolaLoginWidget;
 class RocketChatAccount;
 class ServerErrorInfoMessageWidget;
-class Room;
 class QVBoxLayout;
 class WelcomeWidget;
 

@@ -7,8 +7,10 @@
 #include "inputtextmanager.h"
 #include "model/commandsmodelfilterproxymodel.h"
 #include "model/emoticonfilterproxymodel.h"
+#include "model/inputcompletermodel.h"
 #include "ownuser/ownuserpreferences.h"
 #include "rocketchataccount.h"
+
 #include "ruqola_completion_debug.h"
 
 InputTextManager::InputTextManager(RocketChatAccount *account, QObject *parent)

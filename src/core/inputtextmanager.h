@@ -8,14 +8,13 @@
 
 #include <QObject>
 
-#include "model/inputcompletermodel.h"
-
 #include "libruqolacore_export.h"
 
 class QAbstractItemModel;
 class RocketChatAccount;
 class CommandsModelFilterProxyModel;
 class EmoticonFilterProxyModel;
+class InputCompleterModel;
 class LIBRUQOLACORE_EXPORT InputTextManager : public QObject
 {
     Q_OBJECT

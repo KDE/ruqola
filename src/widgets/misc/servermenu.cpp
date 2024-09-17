@@ -6,6 +6,7 @@
 
 #include "servermenu.h"
 #include "accountmanager.h"
+#include "model/rocketchataccountfilterproxymodel.h"
 #include "model/rocketchataccountmodel.h"
 #include "rocketchataccount.h"
 #include "ruqola.h"

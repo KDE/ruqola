@@ -6,10 +6,8 @@
 
 #pragma once
 
-#include <QDialog>
-class QWidget;
-
 #include "libruqolawidgets_private_export.h"
+#include <QDialog>
 class UsersInRoomWidget;
 class RocketChatAccount;
 class Room;

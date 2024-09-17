@@ -8,7 +8,6 @@
 
 #include "libruqolawidgets_private_export.h"
 #include <QPushButton>
-#include <QWidget>
 class RocketChatAccount;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT AvatarImage : public QPushButton
 {

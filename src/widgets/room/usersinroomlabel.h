@@ -9,7 +9,6 @@
 #include "libruqolawidgets_private_export.h"
 #include <QLabel>
 #include <QPointer>
-#include <QWidget>
 class Room;
 class UsersInRoomMenu;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT UserLabel : public QLabel

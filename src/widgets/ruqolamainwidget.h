@@ -13,11 +13,9 @@
 #include <QStackedWidget>
 #include <QWidget>
 class QVBoxLayout;
-class ChannelListWidget;
 class RoomWidget;
 class QSplitter;
 class RocketChatAccount;
-class Room;
 class BannerMessageWidget;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT RuqolaMainWidget : public QWidget
 {

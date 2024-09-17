@@ -10,7 +10,6 @@
 #include "libruqolawidgets_private_export.h"
 #include "uploadfilejob.h"
 #include <QPointer>
-#include <QWidget>
 
 class MessageTextEdit;
 class QToolButton;
