@@ -38,7 +38,7 @@ void UsersInRoomFlowWidget::setRoom(Room *room)
     if (mRoom) {
         auto sourceModel = mUsersForRoomFilterProxyModel->sourceModel();
         if (sourceModel) {
-            auto usersForRoomModel = qobject_cast<UsersForRoomModel *>(mUsersForRoomFilterProxyModel->sourceModel());
+            auto usersForRoomModel = qobject_cast<UsersForRoomModel *>(sourceModel);
             disconnect(usersForRoomModel,
                        &UsersForRoomModel::hasFullListChanged,
                        mUsersForRoomFilterProxyModel,
