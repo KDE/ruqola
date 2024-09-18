@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-09-17 00:39+0000\n"
+"POT-Creation-Date: 2024-09-18 00:40+0000\n"
 "PO-Revision-Date: 2024-09-13 12:28+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
@@ -992,17 +992,17 @@ msgstr "Şurada Katıl"
 msgid "Custom"
 msgstr "Özel"
 
-#: core/model/inputcompletermodel.cpp:39
+#: core/model/inputcompletermodel.cpp:40
 #, kde-format
 msgid "Notify all in this room"
 msgstr "Odadaki herkesi haberdar et"
 
-#: core/model/inputcompletermodel.cpp:47
+#: core/model/inputcompletermodel.cpp:48
 #, kde-format
 msgid "No result found."
 msgstr "Sonuç bulunamadı."
 
-#: core/model/inputcompletermodel.cpp:56
+#: core/model/inputcompletermodel.cpp:57
 #, kde-format
 msgid "Notify active users in this room"
 msgstr "Odadaki etkin herkesi haberdar et"
@@ -1391,7 +1391,7 @@ msgstr "Bu takıma katıldı"
 msgid "(Autojoin)"
 msgstr "(Otomatik Katılma)"
 
-#: core/model/usersmodel.cpp:73 core/utils.cpp:89 core/utils.cpp:454
+#: core/model/usersmodel.cpp:73 core/utils.cpp:90 core/utils.cpp:455
 #, kde-format
 msgid "Offline"
 msgstr "Çevrimdışı"
@@ -1467,12 +1467,12 @@ msgctxt "We need a space between after </strong>"
 msgid "<strong>%1</strong> are typing..."
 msgstr "<strong>%1</strong> yazıyor…"
 
-#: core/rocketchataccount.cpp:3041
+#: core/rocketchataccount.cpp:3046
 #, kde-format
 msgid "Export Messages"
 msgstr "İletileri Dışa Aktar"
 
-#: core/rocketchataccount.cpp:3042
+#: core/rocketchataccount.cpp:3047
 #, kde-format
 msgid "Your email has been queued for sending."
 msgstr "E-postanız, gönderme için kuyruğa eklendi."
@@ -1569,17 +1569,17 @@ msgstr "Yönetici"
 msgid "Bot"
 msgstr "Bot"
 
-#: core/utils.cpp:83 core/utils.cpp:448
+#: core/utils.cpp:84 core/utils.cpp:449
 #, kde-format
 msgid "Online"
 msgstr "Çevrimiçi"
 
-#: core/utils.cpp:85 core/utils.cpp:450 widgets/room/usersinroomcombobox.cpp:24
+#: core/utils.cpp:86 core/utils.cpp:451 widgets/room/usersinroomcombobox.cpp:24
 #, kde-format
 msgid "Busy"
 msgstr "Meşgul"
 
-#: core/utils.cpp:87 core/utils.cpp:452 widgets/room/usersinroomcombobox.cpp:23
+#: core/utils.cpp:88 core/utils.cpp:453 widgets/room/usersinroomcombobox.cpp:23
 #, kde-format
 msgid "Away"
 msgstr "Uzakta"
@@ -2608,7 +2608,7 @@ msgid "Remove Emoji"
 msgstr "Emojiyi Kaldır"
 
 #: widgets/administratordialog/customemoji/administratorcustomemojiwidget.cpp:178
-#: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:141
+#: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:142
 #: widgets/administratordialog/customuserstatus/customuserstatustreewidget.cpp:127
 #: widgets/administratordialog/oauth/oauthtreeview.cpp:49
 #: widgets/administratordialog/roles/administratorroleswidget.cpp:101
@@ -2621,7 +2621,7 @@ msgid "Add…"
 msgstr "Ekle…"
 
 #: widgets/administratordialog/customemoji/administratorcustomemojiwidget.cpp:181
-#: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:143
+#: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:144
 #: widgets/administratordialog/customuserstatus/customuserstatustreewidget.cpp:130
 #: widgets/administratordialog/oauth/oauthtreeview.cpp:51
 #: widgets/administratordialog/permissions/permissionswidget.cpp:92
@@ -2634,7 +2634,7 @@ msgid "Modify…"
 msgstr "Değiştir…"
 
 #: widgets/administratordialog/customemoji/administratorcustomemojiwidget.cpp:186
-#: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:147
+#: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:148
 #: widgets/administratordialog/customuserstatus/customuserstatustreewidget.cpp:132
 #: widgets/administratordialog/invites/invitetreeview.cpp:39
 #: widgets/administratordialog/oauth/oauthtreeview.cpp:55
@@ -2654,30 +2654,30 @@ msgctxt "@title:window"
 msgid "Create New Sound"
 msgstr "Yeni Ses Oluştur"
 
-#: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:28
+#: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:29
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Search Custom Sounds"
 msgstr "Özel sesleri ara…"
 
-#: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:60
+#: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:61
 #, kde-format
 msgid "No custom sound found"
 msgstr "Özel ses bulunamadı"
 
-#: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:65
+#: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:66
 #, kde-format
 msgid "%1 custom sound (Total: %2)"
 msgid_plural "%1 custom sounds (Total: %2)"
 msgstr[0] "%1 özel ses (Toplam: %2)"
 msgstr[1] "%1 özel ses (Toplam: %2)"
 
-#: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:126
+#: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:127
 #, kde-format
 msgid "Do you want to remove this sound?"
 msgstr "Bu sesi kaldırmak istiyor musunuz?"
 
-#: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:127
+#: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:128
 #, kde-format
 msgctxt "@title"
 msgid "Remove Custom Sound"
@@ -2981,7 +2981,7 @@ msgid "Copy Message"
 msgstr "İletiyi Kopyala"
 
 #: widgets/administratordialog/moderationconsole/moderationreportinfolistview.cpp:87
-#: widgets/discussions/discussionlistview.cpp:68
+#: widgets/discussions/discussionlistview.cpp:69
 #: widgets/notificationhistory/notificationhistorylistview.cpp:94
 #: widgets/room/messagelistview.cpp:627
 #: widgets/servererrorinfohistory/servererrorinfomessagehistorylistview.cpp:62
@@ -2993,7 +2993,7 @@ msgstr "Metni Konuş"
 #: widgets/administratordialog/moderationconsole/moderationreportinfolistview.cpp:93
 #: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:83
 #: widgets/bannerinfodialog/bannerinfolistview.cpp:51
-#: widgets/discussions/discussionlistview.cpp:74
+#: widgets/discussions/discussionlistview.cpp:75
 #: widgets/notificationhistory/notificationhistorylistview.cpp:100
 #: widgets/room/messagelistview.cpp:304
 #: widgets/servererrorinfohistory/servererrorinfomessagehistorylistview.cpp:69
@@ -3189,7 +3189,7 @@ msgstr "Roldeki Kullanıcılar"
 #: widgets/administratordialog/roles/usersinrolewidget.cpp:36
 #: widgets/administratordialog/users/administratoruserswidget.cpp:71
 #: widgets/dialogs/addusersinroomwidget.cpp:23
-#: widgets/directory/directorywidget.cpp:39
+#: widgets/directory/directorywidget.cpp:40
 #: widgets/room/usersinroomwidget.cpp:40
 #, kde-format
 msgctxt "@info:placeholder"
@@ -3222,7 +3222,7 @@ msgstr "Kullanıcı bulunamadı"
 
 #: widgets/administratordialog/roles/usersinrolewidget.cpp:124
 #: widgets/administratordialog/users/administratoruserswidget.cpp:348
-#: widgets/directory/directorywidget.cpp:202
+#: widgets/directory/directorywidget.cpp:203
 #, kde-format
 msgid "%1 user (Total: %2)"
 msgid_plural "%1 users (Total: %2)"
@@ -3356,7 +3356,7 @@ msgid "No room found"
 msgstr "Oda bulunamadı"
 
 #: widgets/administratordialog/rooms/administratorroomswidget.cpp:81
-#: widgets/directory/directorywidget.cpp:199
+#: widgets/directory/directorywidget.cpp:200
 #, kde-format
 msgid "%1 room (Total: %2)"
 msgid_plural "%1 rooms (Total: %2)"
@@ -6775,25 +6775,25 @@ msgctxt "@title:window"
 msgid "Convert to Team"
 msgstr "Takıma Dönüştür"
 
-#: widgets/channellist/channellistwidget.cpp:56
+#: widgets/channellist/channellistwidget.cpp:59
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Filter channels (%1)"
 msgstr "Kanalları süz… (%1)"
 
-#: widgets/channellist/channellistwidget.cpp:66
+#: widgets/channellist/channellistwidget.cpp:69
 #, kde-format
 msgctxt "@action"
 msgid "Search Channels"
 msgstr "Kanalları Ara"
 
-#: widgets/channellist/channellistwidget.cpp:73
+#: widgets/channellist/channellistwidget.cpp:76
 #, kde-format
 msgctxt "@action"
 msgid "Previous Channel"
 msgstr "Önceki Kanal"
 
-#: widgets/channellist/channellistwidget.cpp:81
+#: widgets/channellist/channellistwidget.cpp:84
 #, kde-format
 msgctxt "@action"
 msgid "Next Channel"
@@ -6908,7 +6908,7 @@ msgstr "Toplantı URL’si:"
 msgid "Provider:"
 msgstr "Sağlayıcı:"
 
-#: widgets/configuredialog/accountservertreewidget.cpp:205
+#: widgets/configuredialog/accountservertreewidget.cpp:206
 #, kde-format
 msgid "Display Account in Current Activity"
 msgstr "Geçerli Etkinlikte Hesabı Görüntüle"
@@ -8097,48 +8097,48 @@ msgstr "Özel İletiyi Aç"
 msgid "You are not authorized to view this page."
 msgstr "Bu sayfayı görüntüleme yetkiniz yok."
 
-#: widgets/directory/directorywidget.cpp:34
-#: widgets/misc/joinedchannelcompletionlineeditbase.cpp:25
+#: widgets/directory/directorywidget.cpp:35
+#: widgets/misc/joinedchannelcompletionlineeditbase.cpp:26
 #: widgets/teams/addteamroomcompletionlineedit.cpp:34
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Search rooms…"
 msgstr "Odalar ara…"
 
-#: widgets/directory/directorywidget.cpp:44
+#: widgets/directory/directorywidget.cpp:45
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Search teams…"
 msgstr "Takımlar ara…"
 
-#: widgets/directory/directorywidget.cpp:79
+#: widgets/directory/directorywidget.cpp:80
 #, kde-format
 msgctxt "@action"
 msgid "Join…"
 msgstr "Odaya Katıl…"
 
-#: widgets/directory/directorywidget.cpp:82
+#: widgets/directory/directorywidget.cpp:83
 #, kde-format
 msgctxt "@action"
 msgid "Open Private Messages…"
 msgstr "Özel İletileri Aç…"
 
-#: widgets/directory/directorywidget.cpp:183
+#: widgets/directory/directorywidget.cpp:184
 #, kde-format
 msgid "No Room found"
 msgstr "Oda bulunamadı"
 
-#: widgets/directory/directorywidget.cpp:185
+#: widgets/directory/directorywidget.cpp:186
 #, kde-format
 msgid "No User found"
 msgstr "Kullanıcı bulunamadı"
 
-#: widgets/directory/directorywidget.cpp:187
+#: widgets/directory/directorywidget.cpp:188
 #, kde-format
 msgid "No Team found"
 msgstr "Takım bulunamadı"
 
-#: widgets/directory/directorywidget.cpp:205
+#: widgets/directory/directorywidget.cpp:206
 #, kde-format
 msgid "%1 team (Total: %2)"
 msgid_plural "%1 teams (Total: %2)"
@@ -8447,7 +8447,7 @@ msgid "Login Failed: invalid username or password"
 msgstr "Oturum açma başarısız: Geçersiz kullanıcı adı veya parola"
 
 #: widgets/loginwidget/ruqolaloginwidget.cpp:165
-#: widgets/misc/accountsoverviewwidget.cpp:53
+#: widgets/misc/accountsoverviewwidget.cpp:56
 #, kde-format
 msgid "Login failed: Invalid OTP code."
 msgstr "Oturum açma başarısız: Geçersiz tek kerelik parola."
@@ -8498,84 +8498,84 @@ msgstr "İletiyi Eke Dönüştür"
 msgid "Filename:"
 msgstr "Dosya adı:"
 
-#: widgets/misc/accountsoverviewwidget.cpp:31
+#: widgets/misc/accountsoverviewwidget.cpp:34
 #, kde-format
 msgid "Not connected"
 msgstr "Bağlı değil"
 
-#: widgets/misc/accountsoverviewwidget.cpp:35
+#: widgets/misc/accountsoverviewwidget.cpp:38
 #, kde-format
 msgid "Connecting"
 msgstr "Bağlanıyor"
 
-#: widgets/misc/accountsoverviewwidget.cpp:37
+#: widgets/misc/accountsoverviewwidget.cpp:40
 #, kde-format
 msgid "Login OTP code required"
 msgstr "Oturum açma için tek kerelik parola gerekiyor"
 
-#: widgets/misc/accountsoverviewwidget.cpp:39
+#: widgets/misc/accountsoverviewwidget.cpp:42
 #, kde-format
 msgid "Login failed: invalid username or password"
 msgstr "Oturum açma başarısız: Geçersiz kullanıcı adı veya parola"
 
-#: widgets/misc/accountsoverviewwidget.cpp:41
+#: widgets/misc/accountsoverviewwidget.cpp:44
 #, kde-format
 msgid "Logging in"
 msgstr "Oturum açılıyor"
 
-#: widgets/misc/accountsoverviewwidget.cpp:43
+#: widgets/misc/accountsoverviewwidget.cpp:46
 #, kde-format
 msgid "Logged in"
 msgstr "Oturum açıldı"
 
-#: widgets/misc/accountsoverviewwidget.cpp:45
+#: widgets/misc/accountsoverviewwidget.cpp:48
 #, kde-format
 msgid "Logged out"
 msgstr "Oturum kapatıldı"
 
-#: widgets/misc/accountsoverviewwidget.cpp:47
+#: widgets/misc/accountsoverviewwidget.cpp:50
 #, kde-format
 msgid "Failed to login due to plugin problem"
 msgstr "Eklenti sorunu dolayısıyla oturum açılamadı"
 
-#: widgets/misc/accountsoverviewwidget.cpp:49
+#: widgets/misc/accountsoverviewwidget.cpp:52
 #, kde-format
 msgid "Login failed: generic error"
 msgstr "Oturum açma başarısız: Genel hata"
 
-#: widgets/misc/accountsoverviewwidget.cpp:51
+#: widgets/misc/accountsoverviewwidget.cpp:54
 #, kde-format
 msgid "A one-time password is required to complete the login procedure."
 msgstr ""
 "Oturum açma prosedürlerini tamamlamak için bir adet tek kerelik parola "
 "gerekiyor."
 
-#: widgets/misc/accountsoverviewwidget.cpp:55
+#: widgets/misc/accountsoverviewwidget.cpp:58
 #, kde-format
 msgid "Login failed: User is not activated."
 msgstr "Oturum açma başarısız: Kullanıcı etkinleştirilmemiş."
 
-#: widgets/misc/accountsoverviewwidget.cpp:57
+#: widgets/misc/accountsoverviewwidget.cpp:60
 #, kde-format
 msgid "Login has been temporarily blocked For IP."
 msgstr "Bu IP için oturum açma geçici olarak engellendi."
 
-#: widgets/misc/accountsoverviewwidget.cpp:59
+#: widgets/misc/accountsoverviewwidget.cpp:62
 #, kde-format
 msgid "Login has been temporarily blocked For User."
 msgstr "Bu kullanıcı için oturum açma geçici olarak engellendi."
 
-#: widgets/misc/accountsoverviewwidget.cpp:61
+#: widgets/misc/accountsoverviewwidget.cpp:64
 #, kde-format
 msgid "App user is not allowed to login."
 msgstr "Uygulama kullanıcısının oturum açmasına izin verilmiyor."
 
-#: widgets/misc/accountsoverviewwidget.cpp:67
+#: widgets/misc/accountsoverviewwidget.cpp:70
 #, kde-format
 msgid "Unknown state"
 msgstr "Bilinmeyen durum"
 
-#: widgets/misc/accountsoverviewwidget.cpp:81
+#: widgets/misc/accountsoverviewwidget.cpp:84
 #, kde-format
 msgid "(Unnamed)"
 msgstr "(Adsız)"
@@ -8680,7 +8680,7 @@ msgctxt "@info:placeholder"
 msgid "Search Word…"
 msgstr "Sözcük ara…"
 
-#: widgets/misc/servermenu.cpp:20
+#: widgets/misc/servermenu.cpp:21
 #, kde-format
 msgid "Server"
 msgstr "Sunucu"
@@ -9920,18 +9920,18 @@ msgstr "Bir dizide yanıtlanıyor"
 msgid "Reply in Thread for Message: '%1'"
 msgstr "Şu İletiyi Dizide Yanıtla: “%1”"
 
-#: widgets/room/roomwidget.cpp:328
+#: widgets/room/roomwidget.cpp:329
 #, kde-format
 msgid "Do you want really remove history?"
 msgstr "Geçmişi kaldırmayı gerçekten istiyor musunuz?"
 
-#: widgets/room/roomwidget.cpp:329
+#: widgets/room/roomwidget.cpp:330
 #, kde-format
 msgctxt "@title:window"
 msgid "Remove History"
 msgstr "Geçmişi Kaldır"
 
-#: widgets/room/roomwidget.cpp:499
+#: widgets/room/roomwidget.cpp:500
 #, kde-format
 msgid ""
 "A workspace admin needs to install and configure a conference call apps."
@@ -9939,7 +9939,7 @@ msgstr ""
 "Bir çalışma alanı yöneticisinin bir konferans araması uygulaması kurması ve "
 "yapılandırması gerekir."
 
-#: widgets/room/roomwidget.cpp:500
+#: widgets/room/roomwidget.cpp:501
 #, kde-format
 msgctxt "@title:window"
 msgid "Video Conference"

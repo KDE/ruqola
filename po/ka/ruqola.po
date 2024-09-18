@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-09-17 00:39+0000\n"
+"POT-Creation-Date: 2024-09-18 00:40+0000\n"
 "PO-Revision-Date: 2024-09-13 05:19+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
@@ -992,17 +992,17 @@ msgstr "ჩართვის დრო"
 msgid "Custom"
 msgstr "ხელით მითითებული"
 
-#: core/model/inputcompletermodel.cpp:39
+#: core/model/inputcompletermodel.cpp:40
 #, kde-format
 msgid "Notify all in this room"
 msgstr "ვინც ამ ოთახშია, ყველას გაფრთხილება"
 
-#: core/model/inputcompletermodel.cpp:47
+#: core/model/inputcompletermodel.cpp:48
 #, kde-format
 msgid "No result found."
 msgstr "შედეგი ვერ ვიპოვე."
 
-#: core/model/inputcompletermodel.cpp:56
+#: core/model/inputcompletermodel.cpp:57
 #, kde-format
 msgid "Notify active users in this room"
 msgstr "ამ ოთახში მყოფი აქტიური მომხმარებლების გაფრთხილება"
@@ -1391,7 +1391,7 @@ msgstr "შეუერთდა ამ გუნდს"
 msgid "(Autojoin)"
 msgstr "(ავტომატური შეერთება)"
 
-#: core/model/usersmodel.cpp:73 core/utils.cpp:89 core/utils.cpp:454
+#: core/model/usersmodel.cpp:73 core/utils.cpp:90 core/utils.cpp:455
 #, kde-format
 msgid "Offline"
 msgstr "გათიშული"
@@ -1467,12 +1467,12 @@ msgctxt "We need a space between after </strong>"
 msgid "<strong>%1</strong> are typing..."
 msgstr "<strong>%1</strong> კრეფს…"
 
-#: core/rocketchataccount.cpp:3041
+#: core/rocketchataccount.cpp:3046
 #, kde-format
 msgid "Export Messages"
 msgstr "შეტყობინებების გატანა"
 
-#: core/rocketchataccount.cpp:3042
+#: core/rocketchataccount.cpp:3047
 #, kde-format
 msgid "Your email has been queued for sending."
 msgstr "თქვენი ელფოსტა რიგშია გასაგზავნად."
@@ -1569,17 +1569,17 @@ msgstr "ადმინისტრატორი"
 msgid "Bot"
 msgstr "ბოტი"
 
-#: core/utils.cpp:83 core/utils.cpp:448
+#: core/utils.cpp:84 core/utils.cpp:449
 #, kde-format
 msgid "Online"
 msgstr "ონლაინ"
 
-#: core/utils.cpp:85 core/utils.cpp:450 widgets/room/usersinroomcombobox.cpp:24
+#: core/utils.cpp:86 core/utils.cpp:451 widgets/room/usersinroomcombobox.cpp:24
 #, kde-format
 msgid "Busy"
 msgstr "დაკავებული"
 
-#: core/utils.cpp:87 core/utils.cpp:452 widgets/room/usersinroomcombobox.cpp:23
+#: core/utils.cpp:88 core/utils.cpp:453 widgets/room/usersinroomcombobox.cpp:23
 #, kde-format
 msgid "Away"
 msgstr "გასული"
@@ -2623,7 +2623,7 @@ msgid "Remove Emoji"
 msgstr "Emoji-ის წაშლა"
 
 #: widgets/administratordialog/customemoji/administratorcustomemojiwidget.cpp:178
-#: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:141
+#: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:142
 #: widgets/administratordialog/customuserstatus/customuserstatustreewidget.cpp:127
 #: widgets/administratordialog/oauth/oauthtreeview.cpp:49
 #: widgets/administratordialog/roles/administratorroleswidget.cpp:101
@@ -2636,7 +2636,7 @@ msgid "Add…"
 msgstr "დამატება…"
 
 #: widgets/administratordialog/customemoji/administratorcustomemojiwidget.cpp:181
-#: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:143
+#: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:144
 #: widgets/administratordialog/customuserstatus/customuserstatustreewidget.cpp:130
 #: widgets/administratordialog/oauth/oauthtreeview.cpp:51
 #: widgets/administratordialog/permissions/permissionswidget.cpp:92
@@ -2649,7 +2649,7 @@ msgid "Modify…"
 msgstr "შეცვლა…"
 
 #: widgets/administratordialog/customemoji/administratorcustomemojiwidget.cpp:186
-#: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:147
+#: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:148
 #: widgets/administratordialog/customuserstatus/customuserstatustreewidget.cpp:132
 #: widgets/administratordialog/invites/invitetreeview.cpp:39
 #: widgets/administratordialog/oauth/oauthtreeview.cpp:55
@@ -2669,30 +2669,30 @@ msgctxt "@title:window"
 msgid "Create New Sound"
 msgstr "ახალი ხმის შექმნა"
 
-#: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:28
+#: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:29
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Search Custom Sounds"
 msgstr "მორგებული ხმების ძებნა"
 
-#: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:60
+#: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:61
 #, kde-format
 msgid "No custom sound found"
 msgstr "მორგებული ხმები ვერ ვიპოვე"
 
-#: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:65
+#: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:66
 #, kde-format
 msgid "%1 custom sound (Total: %2)"
 msgid_plural "%1 custom sounds (Total: %2)"
 msgstr[0] "%1 მორგებული ხმა (სულ: %2)"
 msgstr[1] "%1 custom sounds (Total: %2)"
 
-#: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:126
+#: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:127
 #, kde-format
 msgid "Do you want to remove this sound?"
 msgstr "გნებავთ, წაშალოთ ეს ხმა?"
 
-#: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:127
+#: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:128
 #, kde-format
 msgctxt "@title"
 msgid "Remove Custom Sound"
@@ -2997,7 +2997,7 @@ msgid "Copy Message"
 msgstr "შეტყობინების კოპირება"
 
 #: widgets/administratordialog/moderationconsole/moderationreportinfolistview.cpp:87
-#: widgets/discussions/discussionlistview.cpp:68
+#: widgets/discussions/discussionlistview.cpp:69
 #: widgets/notificationhistory/notificationhistorylistview.cpp:94
 #: widgets/room/messagelistview.cpp:627
 #: widgets/servererrorinfohistory/servererrorinfomessagehistorylistview.cpp:62
@@ -3009,7 +3009,7 @@ msgstr "ტექსტის წაკითხვა"
 #: widgets/administratordialog/moderationconsole/moderationreportinfolistview.cpp:93
 #: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:83
 #: widgets/bannerinfodialog/bannerinfolistview.cpp:51
-#: widgets/discussions/discussionlistview.cpp:74
+#: widgets/discussions/discussionlistview.cpp:75
 #: widgets/notificationhistory/notificationhistorylistview.cpp:100
 #: widgets/room/messagelistview.cpp:304
 #: widgets/servererrorinfohistory/servererrorinfomessagehistorylistview.cpp:69
@@ -3205,7 +3205,7 @@ msgstr "მომხმარებლები როლში"
 #: widgets/administratordialog/roles/usersinrolewidget.cpp:36
 #: widgets/administratordialog/users/administratoruserswidget.cpp:71
 #: widgets/dialogs/addusersinroomwidget.cpp:23
-#: widgets/directory/directorywidget.cpp:39
+#: widgets/directory/directorywidget.cpp:40
 #: widgets/room/usersinroomwidget.cpp:40
 #, kde-format
 msgctxt "@info:placeholder"
@@ -3238,7 +3238,7 @@ msgstr "ვერ ვიპოვე მომხმარებელი"
 
 #: widgets/administratordialog/roles/usersinrolewidget.cpp:124
 #: widgets/administratordialog/users/administratoruserswidget.cpp:348
-#: widgets/directory/directorywidget.cpp:202
+#: widgets/directory/directorywidget.cpp:203
 #, kde-format
 msgid "%1 user (Total: %2)"
 msgid_plural "%1 users (Total: %2)"
@@ -3372,7 +3372,7 @@ msgid "No room found"
 msgstr "ოთახი ვერ ვიპოვე"
 
 #: widgets/administratordialog/rooms/administratorroomswidget.cpp:81
-#: widgets/directory/directorywidget.cpp:199
+#: widgets/directory/directorywidget.cpp:200
 #, kde-format
 msgid "%1 room (Total: %2)"
 msgid_plural "%1 rooms (Total: %2)"
@@ -6788,25 +6788,25 @@ msgctxt "@title:window"
 msgid "Convert to Team"
 msgstr "გუნდად გადაკეთება"
 
-#: widgets/channellist/channellistwidget.cpp:56
+#: widgets/channellist/channellistwidget.cpp:59
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Filter channels (%1)"
 msgstr "არხების გაფილტვრა (%1)"
 
-#: widgets/channellist/channellistwidget.cpp:66
+#: widgets/channellist/channellistwidget.cpp:69
 #, kde-format
 msgctxt "@action"
 msgid "Search Channels"
 msgstr "არხების ძებნა"
 
-#: widgets/channellist/channellistwidget.cpp:73
+#: widgets/channellist/channellistwidget.cpp:76
 #, kde-format
 msgctxt "@action"
 msgid "Previous Channel"
 msgstr "წინა არხი"
 
-#: widgets/channellist/channellistwidget.cpp:81
+#: widgets/channellist/channellistwidget.cpp:84
 #, kde-format
 msgctxt "@action"
 msgid "Next Channel"
@@ -6921,7 +6921,7 @@ msgstr "შეხვედრის URL:"
 msgid "Provider:"
 msgstr "მომწოდებელი:"
 
-#: widgets/configuredialog/accountservertreewidget.cpp:205
+#: widgets/configuredialog/accountservertreewidget.cpp:206
 #, kde-format
 msgid "Display Account in Current Activity"
 msgstr "ანგარიშის ჩვენება მიმდინარე აქტივობაში"
@@ -8106,48 +8106,48 @@ msgstr "პირადი შეტყობინების გახსნ�
 msgid "You are not authorized to view this page."
 msgstr "ამ გვერდის ნახვის უფლება არ გაგაჩნიათ."
 
-#: widgets/directory/directorywidget.cpp:34
-#: widgets/misc/joinedchannelcompletionlineeditbase.cpp:25
+#: widgets/directory/directorywidget.cpp:35
+#: widgets/misc/joinedchannelcompletionlineeditbase.cpp:26
 #: widgets/teams/addteamroomcompletionlineedit.cpp:34
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Search rooms…"
 msgstr "ოთახების ძებნა…"
 
-#: widgets/directory/directorywidget.cpp:44
+#: widgets/directory/directorywidget.cpp:45
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Search teams…"
 msgstr "გუნდების ძებნა…"
 
-#: widgets/directory/directorywidget.cpp:79
+#: widgets/directory/directorywidget.cpp:80
 #, kde-format
 msgctxt "@action"
 msgid "Join…"
 msgstr "მიერთება…"
 
-#: widgets/directory/directorywidget.cpp:82
+#: widgets/directory/directorywidget.cpp:83
 #, kde-format
 msgctxt "@action"
 msgid "Open Private Messages…"
 msgstr "პირადი შეტყობინებების გახსნა…"
 
-#: widgets/directory/directorywidget.cpp:183
+#: widgets/directory/directorywidget.cpp:184
 #, kde-format
 msgid "No Room found"
 msgstr "ოთახი ვერ ვიპოვე"
 
-#: widgets/directory/directorywidget.cpp:185
+#: widgets/directory/directorywidget.cpp:186
 #, kde-format
 msgid "No User found"
 msgstr "მომხმარებელი ვერ ვიპოვე"
 
-#: widgets/directory/directorywidget.cpp:187
+#: widgets/directory/directorywidget.cpp:188
 #, kde-format
 msgid "No Team found"
 msgstr "გუნდივერ ვიპოვე"
 
-#: widgets/directory/directorywidget.cpp:205
+#: widgets/directory/directorywidget.cpp:206
 #, kde-format
 msgid "%1 team (Total: %2)"
 msgid_plural "%1 teams (Total: %2)"
@@ -8456,7 +8456,7 @@ msgid "Login Failed: invalid username or password"
 msgstr "შესვლის შეცდომა: მომხმარებელი ან პაროლი არასწორია"
 
 #: widgets/loginwidget/ruqolaloginwidget.cpp:165
-#: widgets/misc/accountsoverviewwidget.cpp:53
+#: widgets/misc/accountsoverviewwidget.cpp:56
 #, kde-format
 msgid "Login failed: Invalid OTP code."
 msgstr "შესვლის შეცდომა: OTP კოდი არასწორია."
@@ -8502,82 +8502,82 @@ msgstr "შეტყობინების მიმაგრებულ ფ�
 msgid "Filename:"
 msgstr "ფაილის სახელი:"
 
-#: widgets/misc/accountsoverviewwidget.cpp:31
+#: widgets/misc/accountsoverviewwidget.cpp:34
 #, kde-format
 msgid "Not connected"
 msgstr "არაა დაკავშირებული"
 
-#: widgets/misc/accountsoverviewwidget.cpp:35
+#: widgets/misc/accountsoverviewwidget.cpp:38
 #, kde-format
 msgid "Connecting"
 msgstr "დაკავშირება"
 
-#: widgets/misc/accountsoverviewwidget.cpp:37
+#: widgets/misc/accountsoverviewwidget.cpp:40
 #, kde-format
 msgid "Login OTP code required"
 msgstr "შესვლის OTP კოდი აუცილებელია"
 
-#: widgets/misc/accountsoverviewwidget.cpp:39
+#: widgets/misc/accountsoverviewwidget.cpp:42
 #, kde-format
 msgid "Login failed: invalid username or password"
 msgstr "შესვლის შეცდომა: მომხმარებელი ან პაროლი არასწორია"
 
-#: widgets/misc/accountsoverviewwidget.cpp:41
+#: widgets/misc/accountsoverviewwidget.cpp:44
 #, kde-format
 msgid "Logging in"
 msgstr "შესვლა"
 
-#: widgets/misc/accountsoverviewwidget.cpp:43
+#: widgets/misc/accountsoverviewwidget.cpp:46
 #, kde-format
 msgid "Logged in"
 msgstr "შესული"
 
-#: widgets/misc/accountsoverviewwidget.cpp:45
+#: widgets/misc/accountsoverviewwidget.cpp:48
 #, kde-format
 msgid "Logged out"
 msgstr "გამოხვედით"
 
-#: widgets/misc/accountsoverviewwidget.cpp:47
+#: widgets/misc/accountsoverviewwidget.cpp:50
 #, kde-format
 msgid "Failed to login due to plugin problem"
 msgstr "პრობლემური დამატების გამო შესვლა შეუძლებელია"
 
-#: widgets/misc/accountsoverviewwidget.cpp:49
+#: widgets/misc/accountsoverviewwidget.cpp:52
 #, kde-format
 msgid "Login failed: generic error"
 msgstr "შესვლა ვერ მოხერხდა: ზოგადი შეცდომა"
 
-#: widgets/misc/accountsoverviewwidget.cpp:51
+#: widgets/misc/accountsoverviewwidget.cpp:54
 #, kde-format
 msgid "A one-time password is required to complete the login procedure."
 msgstr "შესვლის პროცედურის დასასრულებლად საჭიროა ერთჯერადი პაროლი."
 
-#: widgets/misc/accountsoverviewwidget.cpp:55
+#: widgets/misc/accountsoverviewwidget.cpp:58
 #, kde-format
 msgid "Login failed: User is not activated."
 msgstr "შესვლის შეცდომა: მომხმარებელი გააქტიურებული არაა."
 
-#: widgets/misc/accountsoverviewwidget.cpp:57
+#: widgets/misc/accountsoverviewwidget.cpp:60
 #, kde-format
 msgid "Login has been temporarily blocked For IP."
 msgstr "ამ IP-დან შემოსვლა დროებით დაბლოკილია."
 
-#: widgets/misc/accountsoverviewwidget.cpp:59
+#: widgets/misc/accountsoverviewwidget.cpp:62
 #, kde-format
 msgid "Login has been temporarily blocked For User."
 msgstr "ამ მომხმარებლით შემოსვლა დროებით დაბლოკილია."
 
-#: widgets/misc/accountsoverviewwidget.cpp:61
+#: widgets/misc/accountsoverviewwidget.cpp:64
 #, kde-format
 msgid "App user is not allowed to login."
 msgstr "აპის მომხმარებელს შესვლის უფლება არ აქვს."
 
-#: widgets/misc/accountsoverviewwidget.cpp:67
+#: widgets/misc/accountsoverviewwidget.cpp:70
 #, kde-format
 msgid "Unknown state"
 msgstr "უცნობი მდგომარეობა"
 
-#: widgets/misc/accountsoverviewwidget.cpp:81
+#: widgets/misc/accountsoverviewwidget.cpp:84
 #, kde-format
 msgid "(Unnamed)"
 msgstr "(უსახელო)"
@@ -8682,7 +8682,7 @@ msgctxt "@info:placeholder"
 msgid "Search Word…"
 msgstr "სიტყვის მოძებნა…"
 
-#: widgets/misc/servermenu.cpp:20
+#: widgets/misc/servermenu.cpp:21
 #, kde-format
 msgid "Server"
 msgstr "სერვერი"
@@ -9918,18 +9918,18 @@ msgstr "ნაკადში პასუხი"
 msgid "Reply in Thread for Message: '%1'"
 msgstr "ნაკადში პასუხი შეტყობინებაზე: '%1'"
 
-#: widgets/room/roomwidget.cpp:328
+#: widgets/room/roomwidget.cpp:329
 #, kde-format
 msgid "Do you want really remove history?"
 msgstr "მართლა გნებავთ ისტორიის წაშლა?"
 
-#: widgets/room/roomwidget.cpp:329
+#: widgets/room/roomwidget.cpp:330
 #, kde-format
 msgctxt "@title:window"
 msgid "Remove History"
 msgstr "ისტორიის წაშლა"
 
-#: widgets/room/roomwidget.cpp:499
+#: widgets/room/roomwidget.cpp:500
 #, kde-format
 msgid ""
 "A workspace admin needs to install and configure a conference call apps."
@@ -9937,7 +9937,7 @@ msgstr ""
 "სამუშაო სივრცის ადმინისტრატორმა საკონფერენციო ზარის აპები უნდა დააყენოს და "
 "მოირგოს."
 
-#: widgets/room/roomwidget.cpp:500
+#: widgets/room/roomwidget.cpp:501
 #, kde-format
 msgctxt "@title:window"
 msgid "Video Conference"

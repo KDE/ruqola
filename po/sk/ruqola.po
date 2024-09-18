@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-09-17 00:39+0000\n"
+"POT-Creation-Date: 2024-09-18 00:40+0000\n"
 "PO-Revision-Date: 2019-07-29 20:25+0200\n"
 "Last-Translator: Roman Paholík <wizzardsk@gmail.com>\n"
 "Language-Team: Slovak <kde-sk@linux.sk>\n"
@@ -1043,18 +1043,18 @@ msgstr ""
 msgid "Custom"
 msgstr "Stav:"
 
-#: core/model/inputcompletermodel.cpp:39
+#: core/model/inputcompletermodel.cpp:40
 #, kde-format
 msgid "Notify all in this room"
 msgstr ""
 
-#: core/model/inputcompletermodel.cpp:47
+#: core/model/inputcompletermodel.cpp:48
 #, fuzzy, kde-format
 #| msgid "Private Messages"
 msgid "No result found."
 msgstr "Súkromné adresy"
 
-#: core/model/inputcompletermodel.cpp:56
+#: core/model/inputcompletermodel.cpp:57
 #, kde-format
 msgid "Notify active users in this room"
 msgstr ""
@@ -1487,7 +1487,7 @@ msgstr "Odstrániť účet"
 msgid "(Autojoin)"
 msgstr ""
 
-#: core/model/usersmodel.cpp:73 core/utils.cpp:89 core/utils.cpp:454
+#: core/model/usersmodel.cpp:73 core/utils.cpp:90 core/utils.cpp:455
 #, kde-format
 msgid "Offline"
 msgstr "Nepripojený"
@@ -1566,13 +1566,13 @@ msgctxt "We need a space between after </strong>"
 msgid "<strong>%1</strong> are typing..."
 msgstr ""
 
-#: core/rocketchataccount.cpp:3041
+#: core/rocketchataccount.cpp:3046
 #, fuzzy, kde-format
 #| msgid "Message"
 msgid "Export Messages"
 msgstr "Správa"
 
-#: core/rocketchataccount.cpp:3042
+#: core/rocketchataccount.cpp:3047
 #, kde-format
 msgid "Your email has been queued for sending."
 msgstr ""
@@ -1677,17 +1677,17 @@ msgstr ""
 msgid "Bot"
 msgstr ""
 
-#: core/utils.cpp:83 core/utils.cpp:448
+#: core/utils.cpp:84 core/utils.cpp:449
 #, kde-format
 msgid "Online"
 msgstr "Pripojený"
 
-#: core/utils.cpp:85 core/utils.cpp:450 widgets/room/usersinroomcombobox.cpp:24
+#: core/utils.cpp:86 core/utils.cpp:451 widgets/room/usersinroomcombobox.cpp:24
 #, kde-format
 msgid "Busy"
 msgstr "Zaneprázdnený"
 
-#: core/utils.cpp:87 core/utils.cpp:452 widgets/room/usersinroomcombobox.cpp:23
+#: core/utils.cpp:88 core/utils.cpp:453 widgets/room/usersinroomcombobox.cpp:23
 #, kde-format
 msgid "Away"
 msgstr "Neprítomný"
@@ -2740,7 +2740,7 @@ msgid "Remove Emoji"
 msgstr "Odstrániť účet"
 
 #: widgets/administratordialog/customemoji/administratorcustomemojiwidget.cpp:178
-#: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:141
+#: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:142
 #: widgets/administratordialog/customuserstatus/customuserstatustreewidget.cpp:127
 #: widgets/administratordialog/oauth/oauthtreeview.cpp:49
 #: widgets/administratordialog/roles/administratorroleswidget.cpp:101
@@ -2753,7 +2753,7 @@ msgid "Add…"
 msgstr ""
 
 #: widgets/administratordialog/customemoji/administratorcustomemojiwidget.cpp:181
-#: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:143
+#: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:144
 #: widgets/administratordialog/customuserstatus/customuserstatustreewidget.cpp:130
 #: widgets/administratordialog/oauth/oauthtreeview.cpp:51
 #: widgets/administratordialog/permissions/permissionswidget.cpp:92
@@ -2767,7 +2767,7 @@ msgid "Modify…"
 msgstr "Stav:"
 
 #: widgets/administratordialog/customemoji/administratorcustomemojiwidget.cpp:186
-#: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:147
+#: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:148
 #: widgets/administratordialog/customuserstatus/customuserstatustreewidget.cpp:132
 #: widgets/administratordialog/invites/invitetreeview.cpp:39
 #: widgets/administratordialog/oauth/oauthtreeview.cpp:55
@@ -2789,20 +2789,20 @@ msgctxt "@title:window"
 msgid "Create New Sound"
 msgstr "Stav:"
 
-#: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:28
+#: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:29
 #, fuzzy, kde-format
 #| msgid "Status:"
 msgctxt "@info:placeholder"
 msgid "Search Custom Sounds"
 msgstr "Stav:"
 
-#: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:60
+#: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:61
 #, fuzzy, kde-format
 #| msgid "Private Messages"
 msgid "No custom sound found"
 msgstr "Súkromné adresy"
 
-#: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:65
+#: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:66
 #, kde-format
 msgid "%1 custom sound (Total: %2)"
 msgid_plural "%1 custom sounds (Total: %2)"
@@ -2810,12 +2810,12 @@ msgstr[0] ""
 msgstr[1] ""
 msgstr[2] ""
 
-#: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:126
+#: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:127
 #, kde-format
 msgid "Do you want to remove this sound?"
 msgstr ""
 
-#: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:127
+#: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:128
 #, fuzzy, kde-format
 #| msgid "Delete Account"
 msgctxt "@title"
@@ -3139,7 +3139,7 @@ msgid "Copy Message"
 msgstr "Správa"
 
 #: widgets/administratordialog/moderationconsole/moderationreportinfolistview.cpp:87
-#: widgets/discussions/discussionlistview.cpp:68
+#: widgets/discussions/discussionlistview.cpp:69
 #: widgets/notificationhistory/notificationhistorylistview.cpp:94
 #: widgets/room/messagelistview.cpp:627
 #: widgets/servererrorinfohistory/servererrorinfomessagehistorylistview.cpp:62
@@ -3152,7 +3152,7 @@ msgstr "Stav:"
 #: widgets/administratordialog/moderationconsole/moderationreportinfolistview.cpp:93
 #: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:83
 #: widgets/bannerinfodialog/bannerinfolistview.cpp:51
-#: widgets/discussions/discussionlistview.cpp:74
+#: widgets/discussions/discussionlistview.cpp:75
 #: widgets/notificationhistory/notificationhistorylistview.cpp:100
 #: widgets/room/messagelistview.cpp:304
 #: widgets/servererrorinfohistory/servererrorinfomessagehistorylistview.cpp:69
@@ -3368,7 +3368,7 @@ msgstr "Informácie o serveri"
 #: widgets/administratordialog/roles/usersinrolewidget.cpp:36
 #: widgets/administratordialog/users/administratoruserswidget.cpp:71
 #: widgets/dialogs/addusersinroomwidget.cpp:23
-#: widgets/directory/directorywidget.cpp:39
+#: widgets/directory/directorywidget.cpp:40
 #: widgets/room/usersinroomwidget.cpp:40
 #, fuzzy, kde-format
 #| msgid "Search File..."
@@ -3405,7 +3405,7 @@ msgstr "Súkromné adresy"
 
 #: widgets/administratordialog/roles/usersinrolewidget.cpp:124
 #: widgets/administratordialog/users/administratoruserswidget.cpp:348
-#: widgets/directory/directorywidget.cpp:202
+#: widgets/directory/directorywidget.cpp:203
 #, kde-format
 msgid "%1 user (Total: %2)"
 msgid_plural "%1 users (Total: %2)"
@@ -3555,7 +3555,7 @@ msgid "No room found"
 msgstr "Súkromné adresy"
 
 #: widgets/administratordialog/rooms/administratorroomswidget.cpp:81
-#: widgets/directory/directorywidget.cpp:199
+#: widgets/directory/directorywidget.cpp:200
 #, kde-format
 msgid "%1 room (Total: %2)"
 msgid_plural "%1 rooms (Total: %2)"
@@ -7020,28 +7020,28 @@ msgctxt "@title:window"
 msgid "Convert to Team"
 msgstr "Odstrániť účet"
 
-#: widgets/channellist/channellistwidget.cpp:56
+#: widgets/channellist/channellistwidget.cpp:59
 #, fuzzy, kde-format
 #| msgid "Leave Channel"
 msgctxt "@info:placeholder"
 msgid "Filter channels (%1)"
 msgstr "Opustiť kanál"
 
-#: widgets/channellist/channellistwidget.cpp:66
+#: widgets/channellist/channellistwidget.cpp:69
 #, fuzzy, kde-format
 #| msgid "Leave Channel"
 msgctxt "@action"
 msgid "Search Channels"
 msgstr "Opustiť kanál"
 
-#: widgets/channellist/channellistwidget.cpp:73
+#: widgets/channellist/channellistwidget.cpp:76
 #, fuzzy, kde-format
 #| msgid "Leave Channel"
 msgctxt "@action"
 msgid "Previous Channel"
 msgstr "Opustiť kanál"
 
-#: widgets/channellist/channellistwidget.cpp:81
+#: widgets/channellist/channellistwidget.cpp:84
 #, fuzzy, kde-format
 #| msgid "Leave Channel"
 msgctxt "@action"
@@ -7163,7 +7163,7 @@ msgstr "URL serveru:"
 msgid "Provider:"
 msgstr "Predvolené"
 
-#: widgets/configuredialog/accountservertreewidget.cpp:205
+#: widgets/configuredialog/accountservertreewidget.cpp:206
 #, fuzzy, kde-format
 #| msgid "Configure Account"
 msgid "Display Account in Current Activity"
@@ -8459,8 +8459,8 @@ msgstr "Súkromné adresy"
 msgid "You are not authorized to view this page."
 msgstr ""
 
-#: widgets/directory/directorywidget.cpp:34
-#: widgets/misc/joinedchannelcompletionlineeditbase.cpp:25
+#: widgets/directory/directorywidget.cpp:35
+#: widgets/misc/joinedchannelcompletionlineeditbase.cpp:26
 #: widgets/teams/addteamroomcompletionlineedit.cpp:34
 #, fuzzy, kde-format
 #| msgid "Search File..."
@@ -8468,46 +8468,46 @@ msgctxt "@info:placeholder"
 msgid "Search rooms…"
 msgstr "Hľadať súbor..."
 
-#: widgets/directory/directorywidget.cpp:44
+#: widgets/directory/directorywidget.cpp:45
 #, fuzzy, kde-format
 #| msgid "Search File..."
 msgctxt "@info:placeholder"
 msgid "Search teams…"
 msgstr "Hľadať súbor..."
 
-#: widgets/directory/directorywidget.cpp:79
+#: widgets/directory/directorywidget.cpp:80
 #, fuzzy, kde-format
 #| msgid "Delete Account"
 msgctxt "@action"
 msgid "Join…"
 msgstr "Odstrániť účet"
 
-#: widgets/directory/directorywidget.cpp:82
+#: widgets/directory/directorywidget.cpp:83
 #, fuzzy, kde-format
 #| msgid "Private Messages"
 msgctxt "@action"
 msgid "Open Private Messages…"
 msgstr "Súkromné adresy"
 
-#: widgets/directory/directorywidget.cpp:183
+#: widgets/directory/directorywidget.cpp:184
 #, fuzzy, kde-format
 #| msgid "Private Messages"
 msgid "No Room found"
 msgstr "Súkromné adresy"
 
-#: widgets/directory/directorywidget.cpp:185
+#: widgets/directory/directorywidget.cpp:186
 #, fuzzy, kde-format
 #| msgid "Private Messages"
 msgid "No User found"
 msgstr "Súkromné adresy"
 
-#: widgets/directory/directorywidget.cpp:187
+#: widgets/directory/directorywidget.cpp:188
 #, fuzzy, kde-format
 #| msgid "Private Messages"
 msgid "No Team found"
 msgstr "Súkromné adresy"
 
-#: widgets/directory/directorywidget.cpp:205
+#: widgets/directory/directorywidget.cpp:206
 #, kde-format
 msgid "%1 team (Total: %2)"
 msgid_plural "%1 teams (Total: %2)"
@@ -8828,7 +8828,7 @@ msgid "Login Failed: invalid username or password"
 msgstr ""
 
 #: widgets/loginwidget/ruqolaloginwidget.cpp:165
-#: widgets/misc/accountsoverviewwidget.cpp:53
+#: widgets/misc/accountsoverviewwidget.cpp:56
 #, fuzzy, kde-format
 #| msgid "Login Failed"
 msgid "Login failed: Invalid OTP code."
@@ -8879,86 +8879,86 @@ msgstr "Vymazať prílohu"
 msgid "Filename:"
 msgstr "Meno používateľa: %1"
 
-#: widgets/misc/accountsoverviewwidget.cpp:31
+#: widgets/misc/accountsoverviewwidget.cpp:34
 #, kde-format
 msgid "Not connected"
 msgstr ""
 
-#: widgets/misc/accountsoverviewwidget.cpp:35
+#: widgets/misc/accountsoverviewwidget.cpp:38
 #, kde-format
 msgid "Connecting"
 msgstr ""
 
-#: widgets/misc/accountsoverviewwidget.cpp:37
+#: widgets/misc/accountsoverviewwidget.cpp:40
 #, kde-format
 msgid "Login OTP code required"
 msgstr ""
 
-#: widgets/misc/accountsoverviewwidget.cpp:39
+#: widgets/misc/accountsoverviewwidget.cpp:42
 #, kde-format
 msgid "Login failed: invalid username or password"
 msgstr ""
 
-#: widgets/misc/accountsoverviewwidget.cpp:41
+#: widgets/misc/accountsoverviewwidget.cpp:44
 #, fuzzy, kde-format
 #| msgid "Log in"
 msgid "Logging in"
 msgstr "Prihlásenie"
 
-#: widgets/misc/accountsoverviewwidget.cpp:43
+#: widgets/misc/accountsoverviewwidget.cpp:46
 #, kde-format
 msgid "Logged in"
 msgstr ""
 
-#: widgets/misc/accountsoverviewwidget.cpp:45
+#: widgets/misc/accountsoverviewwidget.cpp:48
 #, fuzzy, kde-format
 #| msgid "Log out"
 msgid "Logged out"
 msgstr "Odhlásiť sa"
 
-#: widgets/misc/accountsoverviewwidget.cpp:47
+#: widgets/misc/accountsoverviewwidget.cpp:50
 #, kde-format
 msgid "Failed to login due to plugin problem"
 msgstr ""
 
-#: widgets/misc/accountsoverviewwidget.cpp:49
+#: widgets/misc/accountsoverviewwidget.cpp:52
 #, fuzzy, kde-format
 #| msgid "Login Failed"
 msgid "Login failed: generic error"
 msgstr "Prihlásenie zlyhalo"
 
-#: widgets/misc/accountsoverviewwidget.cpp:51
+#: widgets/misc/accountsoverviewwidget.cpp:54
 #, kde-format
 msgid "A one-time password is required to complete the login procedure."
 msgstr ""
 
-#: widgets/misc/accountsoverviewwidget.cpp:55
+#: widgets/misc/accountsoverviewwidget.cpp:58
 #, fuzzy, kde-format
 #| msgid "Login Failed"
 msgid "Login failed: User is not activated."
 msgstr "Prihlásenie zlyhalo"
 
-#: widgets/misc/accountsoverviewwidget.cpp:57
+#: widgets/misc/accountsoverviewwidget.cpp:60
 #, kde-format
 msgid "Login has been temporarily blocked For IP."
 msgstr ""
 
-#: widgets/misc/accountsoverviewwidget.cpp:59
+#: widgets/misc/accountsoverviewwidget.cpp:62
 #, kde-format
 msgid "Login has been temporarily blocked For User."
 msgstr ""
 
-#: widgets/misc/accountsoverviewwidget.cpp:61
+#: widgets/misc/accountsoverviewwidget.cpp:64
 #, kde-format
 msgid "App user is not allowed to login."
 msgstr ""
 
-#: widgets/misc/accountsoverviewwidget.cpp:67
+#: widgets/misc/accountsoverviewwidget.cpp:70
 #, kde-format
 msgid "Unknown state"
 msgstr ""
 
-#: widgets/misc/accountsoverviewwidget.cpp:81
+#: widgets/misc/accountsoverviewwidget.cpp:84
 #, kde-format
 msgid "(Unnamed)"
 msgstr ""
@@ -9074,7 +9074,7 @@ msgctxt "@info:placeholder"
 msgid "Search Word…"
 msgstr "Vlákna"
 
-#: widgets/misc/servermenu.cpp:20
+#: widgets/misc/servermenu.cpp:21
 #, fuzzy, kde-format
 #| msgid "Server Url"
 msgid "Server"
@@ -10411,25 +10411,25 @@ msgstr ""
 msgid "Reply in Thread for Message: '%1'"
 msgstr "Správa"
 
-#: widgets/room/roomwidget.cpp:328
+#: widgets/room/roomwidget.cpp:329
 #, kde-format
 msgid "Do you want really remove history?"
 msgstr ""
 
-#: widgets/room/roomwidget.cpp:329
+#: widgets/room/roomwidget.cpp:330
 #, fuzzy, kde-format
 #| msgid "Delete Account"
 msgctxt "@title:window"
 msgid "Remove History"
 msgstr "Odstrániť účet"
 
-#: widgets/room/roomwidget.cpp:499
+#: widgets/room/roomwidget.cpp:500
 #, kde-format
 msgid ""
 "A workspace admin needs to install and configure a conference call apps."
 msgstr ""
 
-#: widgets/room/roomwidget.cpp:500
+#: widgets/room/roomwidget.cpp:501
 #, kde-format
 msgctxt "@title:window"
 msgid "Video Conference"
