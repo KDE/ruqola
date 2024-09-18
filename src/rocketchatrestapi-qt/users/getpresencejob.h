@@ -30,7 +30,6 @@ Q_SIGNALS:
     void getPresenceDone(const QString &presence);
 
 private:
-    Q_DISABLE_COPY(GetPresenceJob)
     LIBROCKETCHATRESTAPI_QT_NO_EXPORT void onGetRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson) override;
 };
 }

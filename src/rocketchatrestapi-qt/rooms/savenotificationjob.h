@@ -62,7 +62,6 @@ Q_SIGNALS:
     void changeNotificationDone();
 
 private:
-    Q_DISABLE_COPY(SaveNotificationJob)
     LIBROCKETCHATRESTAPI_QT_NO_EXPORT void onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson) override;
 
     enum SettingChanged {

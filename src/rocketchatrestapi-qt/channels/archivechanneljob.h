@@ -35,7 +35,6 @@ Q_SIGNALS:
     void archiveChannelDone();
 
 private:
-    Q_DISABLE_COPY(ArchiveChannelJob)
     LIBROCKETCHATRESTAPI_QT_NO_EXPORT void onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson) override;
     QString mRoomId;
     bool mArchive = true;

@@ -30,7 +30,6 @@ Q_SIGNALS:
     void getUsernameSuggestionDone(const QString &result);
 
 private:
-    Q_DISABLE_COPY(GetUsernameSuggestionJob)
     LIBROCKETCHATRESTAPI_QT_NO_EXPORT void onGetRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson) override;
 };
 }

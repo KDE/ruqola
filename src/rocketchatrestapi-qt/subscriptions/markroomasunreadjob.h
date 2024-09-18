@@ -40,7 +40,6 @@ protected:
     [[nodiscard]] QString errorMessage(const QString &str, const QJsonObject &detail) override;
 
 private:
-    Q_DISABLE_COPY(MarkRoomAsUnReadJob)
     LIBROCKETCHATRESTAPI_QT_NO_EXPORT void onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson) override;
     QByteArray mObjectId;
     MarkAsUnReadObject mUnReadObject = Unknown;

@@ -39,7 +39,6 @@ Q_SIGNALS:
     void notifyAdminsAppsDone(const QJsonObject &replyObject);
 
 private:
-    Q_DISABLE_COPY(NotifyAdminsAppsJob)
     LIBROCKETCHATRESTAPI_QT_NO_EXPORT void onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson) override;
 
     NotifyAdminsAppsInfo mInfo;

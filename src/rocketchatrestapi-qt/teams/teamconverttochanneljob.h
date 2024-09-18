@@ -34,7 +34,6 @@ Q_SIGNALS:
     void teamConvertToChannelDone();
 
 private:
-    Q_DISABLE_COPY(TeamConvertToChannelJob)
     LIBROCKETCHATRESTAPI_QT_NO_EXPORT void onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson) override;
     QByteArray mTeamId;
     QList<QByteArray> mRoomsToRemove;

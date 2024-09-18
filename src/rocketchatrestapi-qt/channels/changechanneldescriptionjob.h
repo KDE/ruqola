@@ -35,7 +35,6 @@ Q_SIGNALS:
     void changeDescriptionDone();
 
 private:
-    Q_DISABLE_COPY(ChangeChannelDescriptionJob)
     LIBROCKETCHATRESTAPI_QT_NO_EXPORT void onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson) override;
     QString mDescription;
     QString mRoomId;

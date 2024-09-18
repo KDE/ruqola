@@ -32,7 +32,6 @@ Q_SIGNALS:
     void adminRoomGetRoomDone(const QJsonObject &obj);
 
 private:
-    Q_DISABLE_COPY(AdminRoomsGetRoomJob)
     LIBROCKETCHATRESTAPI_QT_NO_EXPORT void onGetRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson) override;
     QString mRoomId;
 };

@@ -276,7 +276,6 @@ Q_SIGNALS:
     void loginStatusChanged();
 
 private:
-    Q_DISABLE_COPY(Connection)
     LIBRUQOLACORE_NO_EXPORT void initializeCookies();
     LIBRUQOLACORE_NO_EXPORT void slotResult(QNetworkReply *reply);
     LIBRUQOLACORE_NO_EXPORT void slotSslErrors(QNetworkReply *reply, const QList<QSslError> &error);

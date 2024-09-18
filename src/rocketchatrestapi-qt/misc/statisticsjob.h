@@ -31,7 +31,6 @@ Q_SIGNALS:
     void statisticDone(const QJsonObject &obj);
 
 private:
-    Q_DISABLE_COPY(StatisticsJob)
     LIBROCKETCHATRESTAPI_QT_NO_EXPORT void onGetRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson) override;
     bool mRefresh = false;
 };

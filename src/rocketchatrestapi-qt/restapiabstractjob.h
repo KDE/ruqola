@@ -123,8 +123,6 @@ Q_SIGNALS:
     void failed(const QString &str);
 
 protected:
-    Q_DISABLE_COPY(RestApiAbstractJob)
-
     [[nodiscard]] QString errorStr(const QJsonObject &replyObject);
 
     [[nodiscard]] QJsonDocument convertToJsonDocument(QNetworkReply *reply);

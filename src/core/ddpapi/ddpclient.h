@@ -223,7 +223,6 @@ private Q_SLOTS:
     void onSslErrors(const QList<QSslError> &errors);
 
 private:
-    Q_DISABLE_COPY(DDPClient)
     LIBRUQOLACORE_NO_EXPORT void initializeWebSocket();
     LIBRUQOLACORE_NO_EXPORT void connectWebSocket();
 

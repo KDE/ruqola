@@ -32,7 +32,6 @@ Q_SIGNALS:
     void roomNameExistsDone(bool exist);
 
 private:
-    Q_DISABLE_COPY(RoomsNameExistsJob)
     LIBROCKETCHATRESTAPI_QT_NO_EXPORT void onGetRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson) override;
     QString mRoomName;
 };

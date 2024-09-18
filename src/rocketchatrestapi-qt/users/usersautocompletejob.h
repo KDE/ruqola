@@ -40,7 +40,6 @@ Q_SIGNALS:
     void usersAutocompleteDone(const QJsonObject &obj);
 
 private:
-    Q_DISABLE_COPY(UsersAutocompleteJob)
     LIBROCKETCHATRESTAPI_QT_NO_EXPORT void onGetRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson) override;
     UsersAutocompleterInfo mUsersCompleterInfo;
 };

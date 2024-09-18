@@ -30,8 +30,5 @@ protected:
 
 Q_SIGNALS:
     void disableEmailDone();
-
-private:
-    Q_DISABLE_COPY(User2FADisableEmailJob)
 };
 }

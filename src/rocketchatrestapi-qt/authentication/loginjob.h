@@ -43,7 +43,6 @@ protected:
     LIBROCKETCHATRESTAPI_QT_NO_EXPORT void onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson) override;
 
 private:
-    Q_DISABLE_COPY(LoginJob)
     QString mUserName;
     QString mPassword;
     QString mResume;

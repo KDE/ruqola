@@ -26,7 +26,6 @@ Q_SIGNALS:
     void channelListDone(const QJsonObject &obj);
 
 private:
-    Q_DISABLE_COPY(ChannelListJob)
     LIBROCKETCHATRESTAPI_QT_NO_EXPORT void onGetRequestResponse(const QString &replyErrorString, const QJsonDocument &reply) override;
 };
 }

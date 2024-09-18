@@ -31,6 +31,5 @@ public:
     void insertTeams(const QList<TeamCompleter> &rooms);
 
 private:
-    Q_DISABLE_COPY(TeamCompleterModel)
     QList<TeamCompleter> mTeams;
 };

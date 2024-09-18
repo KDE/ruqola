@@ -45,7 +45,6 @@ Q_SIGNALS:
     void registerUserDone();
 
 private:
-    Q_DISABLE_COPY(RegisterUserJob)
     LIBROCKETCHATRESTAPI_QT_NO_EXPORT void onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson) override;
     RegisterUserInfo mRegisterUserInfo;
 };

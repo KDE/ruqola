@@ -47,7 +47,6 @@ Q_SIGNALS:
     void updateAdminSettingsDone(const QJsonObject &obj);
 
 private:
-    Q_DISABLE_COPY(UpdateAdminSettingsJob)
     LIBROCKETCHATRESTAPI_QT_NO_EXPORT void onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson) override;
     UpdateAdminSettingsInfo mInfo;
 };

@@ -31,7 +31,6 @@ Q_SIGNALS:
     void deleteOwnAccountDone();
 
 private:
-    Q_DISABLE_COPY(DeleteOwnAccountJob)
     LIBROCKETCHATRESTAPI_QT_NO_EXPORT void onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson) override;
     QString mPassword;
 };

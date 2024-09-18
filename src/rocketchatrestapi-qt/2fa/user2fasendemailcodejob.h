@@ -34,8 +34,7 @@ Q_SIGNALS:
     void sendEmailCodeDone();
 
 private:
-    Q_DISABLE_COPY(User2FASendEmailCodeJob)
-    void slotSendEmailCode();
+    LIBROCKETCHATRESTAPI_QT_NO_EXPORT void slotSendEmailCode();
     QString mUsernameOrEmail;
 };
 }

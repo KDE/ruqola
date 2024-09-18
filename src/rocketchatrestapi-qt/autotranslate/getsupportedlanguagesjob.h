@@ -36,7 +36,6 @@ protected:
     [[nodiscard]] QString errorMessage(const QString &str, const QJsonObject &detail) override;
 
 private:
-    Q_DISABLE_COPY(GetSupportedLanguagesJob)
     LIBROCKETCHATRESTAPI_QT_NO_EXPORT void onGetRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson) override;
     bool mNeedTargetLanguage = false;
 };

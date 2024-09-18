@@ -32,7 +32,6 @@ Q_SIGNALS:
     void resetTOTPDone();
 
 private:
-    Q_DISABLE_COPY(ResetTOTPJob)
     LIBROCKETCHATRESTAPI_QT_NO_EXPORT void onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson) override;
     QByteArray mResetUserId;
 };

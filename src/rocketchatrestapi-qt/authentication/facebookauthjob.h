@@ -38,7 +38,6 @@ Q_SIGNALS:
     void facebookDone(const QString &authToken, const QString &userId);
 
 private:
-    Q_DISABLE_COPY(FacebookAuthJob)
     LIBROCKETCHATRESTAPI_QT_NO_EXPORT void onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson) override;
     QString mAccessToken;
     QString mSecret;

@@ -34,7 +34,6 @@ Q_SIGNALS:
     void addUsersToRoleDone(const QJsonObject &replyObject);
 
 private:
-    Q_DISABLE_COPY(AddUserToRoleJob)
     LIBROCKETCHATRESTAPI_QT_NO_EXPORT void onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson) override;
     QString mRoleName;
     QString mUsername;

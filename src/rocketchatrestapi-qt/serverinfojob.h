@@ -29,7 +29,6 @@ Q_SIGNALS:
     void serverInfoFailed(bool useDeprectedVersion);
 
 private:
-    Q_DISABLE_COPY(ServerInfoJob)
     LIBROCKETCHATRESTAPI_QT_NO_EXPORT void onGetRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson) override;
 };
 }

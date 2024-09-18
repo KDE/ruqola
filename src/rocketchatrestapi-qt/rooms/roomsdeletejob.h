@@ -33,7 +33,6 @@ Q_SIGNALS:
     void roomDeleteDone();
 
 private:
-    Q_DISABLE_COPY(RoomsDeleteJob)
     LIBROCKETCHATRESTAPI_QT_NO_EXPORT void onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson) override;
     QString mRoomId;
 };

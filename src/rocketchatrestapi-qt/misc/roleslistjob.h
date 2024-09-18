@@ -28,7 +28,6 @@ Q_SIGNALS:
     void rolesListDone(const QJsonObject &obj);
 
 private:
-    Q_DISABLE_COPY(RolesListJob)
     LIBROCKETCHATRESTAPI_QT_NO_EXPORT void onGetRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson) override;
 };
 }

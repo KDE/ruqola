@@ -29,7 +29,6 @@ Q_SIGNALS:
     void noVideoConferenceProviderApps();
 
 private:
-    Q_DISABLE_COPY(VideoConferenceCapabilitiesJob)
     LIBROCKETCHATRESTAPI_QT_NO_EXPORT void onGetRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson) override;
 };
 }

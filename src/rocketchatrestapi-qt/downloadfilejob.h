@@ -40,7 +40,6 @@ Q_SIGNALS:
     void downloadFileDone(const QUrl &url, const QUrl &localFileUrl);
 
 private:
-    Q_DISABLE_COPY(DownloadFileJob)
     LIBROCKETCHATRESTAPI_QT_NO_EXPORT void slotDownloadDone();
     QUrl mUrl;
     QByteArray mMimeType;

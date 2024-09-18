@@ -31,7 +31,6 @@ Q_SIGNALS:
     void logoutMeDone();
 
 private:
-    Q_DISABLE_COPY(SessionsLogoutMeJob)
     LIBROCKETCHATRESTAPI_QT_NO_EXPORT void onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson) override;
     QByteArray mSessionId;
 };

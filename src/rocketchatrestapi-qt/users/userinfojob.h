@@ -30,7 +30,6 @@ Q_SIGNALS:
     void userInfoDone(const QJsonObject &obj);
 
 private:
-    Q_DISABLE_COPY(UserInfoJob)
     LIBROCKETCHATRESTAPI_QT_NO_EXPORT void onGetRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson) override;
 };
 }

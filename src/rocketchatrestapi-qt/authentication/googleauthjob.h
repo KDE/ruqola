@@ -38,7 +38,6 @@ Q_SIGNALS:
     void googleauthDone(const QString &authToken, const QString &userId);
 
 private:
-    Q_DISABLE_COPY(GoogleAuthJob)
     LIBROCKETCHATRESTAPI_QT_NO_EXPORT void onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson) override;
     QString mAccessToken;
     QString mIdToken;

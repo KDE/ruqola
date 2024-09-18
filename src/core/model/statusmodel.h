@@ -64,7 +64,6 @@ private:
     [[nodiscard]] LIBRUQOLACORE_NO_EXPORT QString textFromPresenceStatus(User::PresenceStatus status) const;
     [[nodiscard]] LIBRUQOLACORE_NO_EXPORT QIcon iconFromPresenceStatus(User::PresenceStatus status) const;
     [[nodiscard]] LIBRUQOLACORE_NO_EXPORT StatusModel::DisplayStatusInfo createStatusInfo(User::PresenceStatus status, int order);
-    Q_DISABLE_COPY(StatusModel)
     LIBRUQOLACORE_NO_EXPORT void fillModel();
     QList<DisplayStatusInfo> mStatusList;
     QString mCustomText;

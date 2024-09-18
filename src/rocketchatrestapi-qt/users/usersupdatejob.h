@@ -37,7 +37,6 @@ Q_SIGNALS:
     void usersUpdateDone(const QJsonObject &obj);
 
 private:
-    Q_DISABLE_COPY(UsersUpdateJob)
     LIBROCKETCHATRESTAPI_QT_NO_EXPORT void onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson) override;
     UpdateUserInfo mUpdateInfo;
 };

@@ -35,7 +35,6 @@ Q_SIGNALS:
     void getUsersInRoleDone(const QJsonObject &obj);
 
 private:
-    Q_DISABLE_COPY(GetUsersInRoleJob)
     LIBROCKETCHATRESTAPI_QT_NO_EXPORT void onGetRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson) override;
     LIBROCKETCHATRESTAPI_QT_NO_EXPORT void initialUrlParameters(QUrlQuery &urlQuery) const;
     QString mRoleId;

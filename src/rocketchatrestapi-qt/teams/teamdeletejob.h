@@ -34,7 +34,6 @@ Q_SIGNALS:
     void deleteTeamDone();
 
 private:
-    Q_DISABLE_COPY(TeamDeleteJob)
     LIBROCKETCHATRESTAPI_QT_NO_EXPORT void onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson) override;
     QList<QByteArray> mRoomToDeleteId;
     QByteArray mTeamId;

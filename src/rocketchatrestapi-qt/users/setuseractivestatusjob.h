@@ -34,7 +34,6 @@ Q_SIGNALS:
     void setUserActiveStatusDone(const QJsonObject &replyObject);
 
 private:
-    Q_DISABLE_COPY(SetUserActiveStatusJob)
     LIBROCKETCHATRESTAPI_QT_NO_EXPORT void onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson) override;
     QByteArray mActivateUserId;
     bool mActivate = true;

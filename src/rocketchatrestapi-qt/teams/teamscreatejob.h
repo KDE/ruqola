@@ -35,7 +35,6 @@ Q_SIGNALS:
     void addJoinCodeToChannel(const QString &channelId, const QString &password);
 
 private:
-    Q_DISABLE_COPY(TeamsCreateJob)
     LIBROCKETCHATRESTAPI_QT_NO_EXPORT void onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson) override;
     CreateChannelTeamInfo mTeamsCreateJobInfo;
 };

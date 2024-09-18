@@ -34,7 +34,6 @@ Q_SIGNALS:
     void changeAnnouncementDone();
 
 private:
-    Q_DISABLE_COPY(ChangeChannelAnnouncementJob)
     LIBROCKETCHATRESTAPI_QT_NO_EXPORT void onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson) override;
     QString mAnnouncement;
     QString mRoomId;

@@ -87,7 +87,6 @@ Q_SIGNALS:
     void saveRoomSettingsDone(const QString &roomId);
 
 private:
-    Q_DISABLE_COPY(SaveRoomSettingsJob)
     LIBROCKETCHATRESTAPI_QT_NO_EXPORT void onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson) override;
 
     SaveRoomSettingsInfo mSaveRoomSettingsInfo;

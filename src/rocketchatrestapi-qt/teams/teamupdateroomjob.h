@@ -33,7 +33,6 @@ Q_SIGNALS:
     void teamUpdateRoomDone(const QJsonObject &replyObject);
 
 private:
-    Q_DISABLE_COPY(TeamUpdateRoomJob)
     LIBROCKETCHATRESTAPI_QT_NO_EXPORT void onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson) override;
     QByteArray mRoomId;
     bool mIsDefault = false;

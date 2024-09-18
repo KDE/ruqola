@@ -27,5 +27,4 @@ public:
 
 private:
     explicit RuqolaUtils(QObject *parent = nullptr);
-    Q_DISABLE_COPY(RuqolaUtils)
 };

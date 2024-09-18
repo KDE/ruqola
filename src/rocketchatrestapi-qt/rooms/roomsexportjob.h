@@ -57,7 +57,6 @@ Q_SIGNALS:
     void roomExportDone();
 
 private:
-    Q_DISABLE_COPY(RoomsExportJob)
     LIBROCKETCHATRESTAPI_QT_NO_EXPORT void onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson) override;
     LIBROCKETCHATRESTAPI_QT_NO_EXPORT void createJsonForFile(QJsonObject &jsonObj) const;
     LIBROCKETCHATRESTAPI_QT_NO_EXPORT void createJsonForEmail(QJsonObject &jsonObj) const;

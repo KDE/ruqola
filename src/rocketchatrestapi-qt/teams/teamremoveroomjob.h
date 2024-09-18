@@ -33,7 +33,6 @@ Q_SIGNALS:
     void removeTeamRoomDone();
 
 private:
-    Q_DISABLE_COPY(TeamRemoveRoomJob)
     LIBROCKETCHATRESTAPI_QT_NO_EXPORT void onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson) override;
     QByteArray mRoomId;
     QByteArray mTeamId;

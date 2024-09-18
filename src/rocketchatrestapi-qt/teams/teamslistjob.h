@@ -34,7 +34,6 @@ Q_SIGNALS:
     void teamsListDone(const QJsonObject &obj);
 
 private:
-    Q_DISABLE_COPY(TeamsListJob)
     LIBROCKETCHATRESTAPI_QT_NO_EXPORT void initialQueryParameters();
     LIBROCKETCHATRESTAPI_QT_NO_EXPORT void onGetRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson) override;
     QString mPattern;

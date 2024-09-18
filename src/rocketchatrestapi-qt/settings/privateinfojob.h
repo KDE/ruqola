@@ -26,7 +26,6 @@ Q_SIGNALS:
     void privateInfoDone(const QJsonObject &data);
 
 private:
-    Q_DISABLE_COPY(PrivateInfoJob)
     LIBROCKETCHATRESTAPI_QT_NO_EXPORT void onGetRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson) override;
 };
 }

@@ -34,6 +34,5 @@ public:
 
 private:
     [[nodiscard]] LIBRUQOLACORE_NO_EXPORT Utils::AvatarInfo avatarInfo(const TeamRoomCompleter &room) const;
-    Q_DISABLE_COPY(TeamRoomCompleterModel)
     QList<TeamRoomCompleter> mRooms;
 };

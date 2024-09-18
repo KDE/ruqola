@@ -52,7 +52,6 @@ Q_SIGNALS:
     void uploadFinished();
 
 private:
-    Q_DISABLE_COPY(UploadFileJob)
     LIBROCKETCHATRESTAPI_QT_NO_EXPORT void slotUploadProgress(qint64 bytesSent, qint64 bytesTotal);
     LIBROCKETCHATRESTAPI_QT_NO_EXPORT void slotUploadFinished();
     UploadFileInfo mUploadFileInfo;

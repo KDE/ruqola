@@ -33,7 +33,6 @@ Q_SIGNALS:
     void teamInfoDone(const QJsonObject &obj);
 
 private:
-    Q_DISABLE_COPY(TeamInfoJob)
     LIBROCKETCHATRESTAPI_QT_NO_EXPORT void onGetRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson) override;
     QString mTeamId;
 };

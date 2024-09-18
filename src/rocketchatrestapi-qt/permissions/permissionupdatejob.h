@@ -33,7 +33,6 @@ Q_SIGNALS:
     void permissionUpdateDone(const QJsonObject &replyObject);
 
 private:
-    Q_DISABLE_COPY(PermissionUpdateJob)
     LIBROCKETCHATRESTAPI_QT_NO_EXPORT void onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson) override;
     // Id, roles
     QMap<QString, QStringList> mPermissions;

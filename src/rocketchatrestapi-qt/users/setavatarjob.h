@@ -40,7 +40,6 @@ protected:
     [[nodiscard]] QString errorMessage(const QString &str, const QJsonObject &details) override;
 
 private:
-    Q_DISABLE_COPY(SetAvatarJob)
     LIBROCKETCHATRESTAPI_QT_NO_EXPORT void slotSetAvatar();
     LIBROCKETCHATRESTAPI_QT_NO_EXPORT void onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson) override;
     SetAvatarInfo mAvatarInfo;

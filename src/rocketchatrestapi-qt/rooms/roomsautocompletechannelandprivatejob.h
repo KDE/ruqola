@@ -38,7 +38,6 @@ Q_SIGNALS:
     void roomsAutoCompleteChannelAndPrivateDone(const QJsonObject &obj);
 
 private:
-    Q_DISABLE_COPY(RoomsAutocompleteChannelAndPrivateJob)
     LIBROCKETCHATRESTAPI_QT_NO_EXPORT void onGetRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson) override;
     RoomsAutocompleteChannelAndPrivateInfo mRoomsAutocompleteInfo;
 };

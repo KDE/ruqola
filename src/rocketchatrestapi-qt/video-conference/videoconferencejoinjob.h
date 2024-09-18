@@ -38,7 +38,6 @@ Q_SIGNALS:
     void videoConferenceJoinDone(const QJsonObject &replyObject);
 
 private:
-    Q_DISABLE_COPY(VideoConferenceJoinJob)
     LIBROCKETCHATRESTAPI_QT_NO_EXPORT void onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson) override;
     VideoConferenceJoinInfo mInfo;
 };

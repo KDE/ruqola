@@ -28,7 +28,6 @@ Q_SIGNALS:
     void resetAvatarDone();
 
 private:
-    Q_DISABLE_COPY(ResetAvatarJob)
     LIBROCKETCHATRESTAPI_QT_NO_EXPORT void onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson) override;
 };
 }

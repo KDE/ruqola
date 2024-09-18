@@ -34,7 +34,6 @@ Q_SIGNALS:
     void translateMessageDone();
 
 private:
-    Q_DISABLE_COPY(TranslateMessageJob)
     LIBROCKETCHATRESTAPI_QT_NO_EXPORT void onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson) override;
     QString mMessageId;
     QString mTargetLanguage;

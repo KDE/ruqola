@@ -31,7 +31,6 @@ Q_SIGNALS:
     void sendWelcomeEmailDone();
 
 private:
-    Q_DISABLE_COPY(UsersSendWelcomeEmailJob)
     LIBROCKETCHATRESTAPI_QT_NO_EXPORT void onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson) override;
     QString mEmail;
 };

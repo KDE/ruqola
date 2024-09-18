@@ -34,7 +34,6 @@ Q_SIGNALS:
     void changeArchivationStateDone();
 
 private:
-    Q_DISABLE_COPY(ChangeArchivationStateJob)
     LIBROCKETCHATRESTAPI_QT_NO_EXPORT void onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson) override;
     QString mRoomId;
     bool mArchive = true;

@@ -50,7 +50,6 @@ Q_SIGNALS:
     void adminRoomsDone(const QJsonObject &obj);
 
 private:
-    Q_DISABLE_COPY(AdminRoomsJob)
     LIBROCKETCHATRESTAPI_QT_NO_EXPORT void onGetRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson) override;
     LIBROCKETCHATRESTAPI_QT_NO_EXPORT void initialUrlParameters(QUrlQuery &urlQuery) const;
     AdminRoomsJobInfo mRoomsAdminInfo;

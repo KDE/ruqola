@@ -34,7 +34,6 @@ Q_SIGNALS:
     void moderationDismissReportsDone();
 
 private:
-    Q_DISABLE_COPY(ModerationDismissReportsJob)
     LIBROCKETCHATRESTAPI_QT_NO_EXPORT void onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson) override;
     QByteArray mUserIdForMessages;
     QByteArray mMessageId;

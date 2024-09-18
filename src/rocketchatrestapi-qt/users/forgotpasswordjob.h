@@ -35,7 +35,6 @@ Q_SIGNALS:
     void forgotPasswordDone();
 
 private:
-    Q_DISABLE_COPY(ForgotPasswordJob)
     LIBROCKETCHATRESTAPI_QT_NO_EXPORT void onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson) override;
     QString mEmail;
 };

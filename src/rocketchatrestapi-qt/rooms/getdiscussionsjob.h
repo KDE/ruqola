@@ -34,7 +34,6 @@ Q_SIGNALS:
     void getDiscussionsDone(const QJsonObject &obj, const QByteArray &roomId);
 
 private:
-    Q_DISABLE_COPY(GetDiscussionsJob)
     LIBROCKETCHATRESTAPI_QT_NO_EXPORT void onGetRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson) override;
     QByteArray mRoomId;
 };

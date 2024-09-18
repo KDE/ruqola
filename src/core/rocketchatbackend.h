@@ -47,7 +47,6 @@ public:
     void connectDdpClient();
 
 private:
-    Q_DISABLE_COPY(RocketChatBackend)
     LIBRUQOLACORE_NO_EXPORT void slotRemoved(const QJsonObject &object);
     LIBRUQOLACORE_NO_EXPORT void slotAdded(const QJsonObject &object);
     LIBRUQOLACORE_NO_EXPORT void slotChanged(const QJsonObject &object);
