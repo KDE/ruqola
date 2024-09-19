@@ -33,7 +33,7 @@
   <name xml:lang="ru">Ruqola</name>
   <name xml:lang="sk">Ruqola</name>
   <name xml:lang="sl">Ruqola</name>
-  <name xml:lang="sv">Ruqola </name>
+  <name xml:lang="sv">Ruqola</name>
   <name xml:lang="tr">Roka</name>
   <name xml:lang="uk">Ruqola</name>
   <name xml:lang="x-test">xxRuqolaxx</name>
@@ -886,6 +886,11 @@
       <li xml:lang="x-test">xxAllow to reply directly to message from notification (kde features)xx</li>
       <li xml:lang="zh-TW">可以直接從通知回覆訊息（KDE 功能）</li>
       <li>Drag and drop image from ruqola to website or local folder</li>
+      <li xml:lang="ca">Arrossegueu i deixeu anar imatges des del Ruqola a un lloc web o una carpeta local</li>
+      <li xml:lang="ca-valencia">Arrossegueu i deixeu anar imatges des de Ruqola a un lloc web o una carpeta local</li>
+      <li xml:lang="fr">Glisser et déposer une image à partir de Ruqola vers le site Internet ou vers un dossier local</li>
+      <li xml:lang="sl">Povlecite in spustite sliko iz ruqole na spletno mesto ali lokalno mapo</li>
+      <li xml:lang="sv">Dra och släpp bild från Ruqola till webbplats eller lokal katalog</li>
       <li>Store message in local database so we can search in offline</li>
       <li xml:lang="ca">Emmagatzema el missatge a la base de dades local perquè es pugui cercar fora de línia</li>
       <li xml:lang="ca-valencia">Emmagatzema el missatge en la base de dades local perquè es puga buscar fora de línia</li>
