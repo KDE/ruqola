@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-09-18 00:40+0000\n"
-"PO-Revision-Date: 2024-08-27 13:52+0200\n"
+"PO-Revision-Date: 2024-09-17 15:18+0200\n"
 "Last-Translator: Vit Pelcak <vit@pelcak.org>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
 "Language: cs\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
-"X-Generator: Lokalize 24.05.2\n"
+"X-Generator: Lokalize 24.08.1\n"
 
 #: apps/main.cpp:61
 #, kde-format
@@ -9312,7 +9312,7 @@ msgstr "Zatím žádné zprávy"
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Following"
-msgstr ""
+msgstr "Sledujete"
 
 #: widgets/room/delegate/messagelistdelegate.cpp:986
 #, kde-format
@@ -9330,7 +9330,7 @@ msgstr ""
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Reply in Thread"
-msgstr ""
+msgstr "Odpovědět ve vláknu"
 
 #: widgets/room/delegate/messagelistdelegate.cpp:998
 #, kde-format
@@ -10387,7 +10387,7 @@ msgstr "Vrátit číslo účtu."
 #, kde-format
 msgctxt "@action:button"
 msgid "Add Account…"
-msgstr ""
+msgstr "Přidat účet…"
 
 #: widgets/whatsnew/whatsnewcomboboxwidget.cpp:27
 #, kde-format
