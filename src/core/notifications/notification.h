@@ -32,7 +32,6 @@ Q_SIGNALS:
     void alert();
 
 private:
-    Q_DISABLE_COPY(Notification)
     struct TrayInfo {
         TrayInfo(int unread, bool alert)
             : unreadMessage(unread)

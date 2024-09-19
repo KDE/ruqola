@@ -29,7 +29,6 @@ public:
                                         const QModelIndex &index) override;
 
 private:
-    Q_DISABLE_COPY(MessageAttachmentDelegateHelperImage)
     friend class MessageDelegateHelperImageTest;
 
     struct ImageLayout {

@@ -619,8 +619,6 @@ Q_SIGNALS:
     void needToDecryptE2EPassword();
 
 private:
-    Q_DISABLE_COPY(RocketChatAccount)
-
     LIBRUQOLACORE_NO_EXPORT void slotChannelFilesDone(const QJsonObject &obj, const RocketChatRestApi::ChannelGroupBaseJob::ChannelGroupInfo &channelInfo);
     LIBRUQOLACORE_NO_EXPORT void slotChannelGroupRolesDone(const QJsonObject &obj, const RocketChatRestApi::ChannelGroupBaseJob::ChannelGroupInfo &channelInfo);
     LIBRUQOLACORE_NO_EXPORT void slotGetThreadMessagesDone(const QJsonObject &obj, const QByteArray &threadMessageId);
