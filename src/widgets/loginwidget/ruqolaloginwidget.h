@@ -7,7 +7,6 @@
 #pragma once
 
 #include "authenticationmanager.h"
-#include "ddpapi/ddpclient.h"
 #include "libruqolawidgets_private_export.h"
 #include <QWidget>
 class QPushButton;
@@ -15,6 +14,7 @@ class QLabel;
 class KBusyIndicatorWidget;
 class TwoAuthenticationPasswordWidget;
 class RuqolaLoginStackWidget;
+class RocketChatAccount;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT RuqolaLoginWidget : public QWidget
 {
     Q_OBJECT

@@ -17,7 +17,6 @@
 
 class TextSelection;
 class QTextDocument;
-class MessageUrl;
 namespace MessageDelegateUtils
 {
 [[nodiscard]] std::unique_ptr<QTextDocument> createTextDocument(bool useItalic, const QString &text, int width);
