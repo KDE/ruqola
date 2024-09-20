@@ -42,10 +42,9 @@ WhatsNewWidget::~WhatsNewWidget() = default;
 void WhatsNewWidget::fillComboBox()
 {
     mWhatsNewComboBoxWidget->addVersion(i18n("All Version"), allVersion);
-    int index = 0;
-    for (const WhatsNewInfo &info : std::as_const(mWhatsNewInfo)) {
-        mWhatsNewComboBoxWidget->addVersion(i18n("Version %1", info.version()), index);
-        index++;
+    for (int i = mWhatsNewInfo.count() - 1; i >= 0; i--) {
+        const WhatsNewInfo &info = mWhatsNewInfo.at(i);
+        mWhatsNewComboBoxWidget->addVersion(i18n("Version %1", info.version()), i);
     }
 }
 
