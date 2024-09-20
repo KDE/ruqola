@@ -16,7 +16,7 @@ SystemMessagesModelTest::SystemMessagesModelTest(QObject *parent)
 void SystemMessagesModelTest::shouldHaveDefaultValues()
 {
     SystemMessagesModel w;
-    QCOMPARE(w.rowCount(), 34);
+    QCOMPARE(w.rowCount(), 36);
     QVERIFY(w.systemMessagesSelected().isEmpty());
     QStringList lst;
     const int rowCountNb = w.rowCount();
@@ -61,13 +61,23 @@ void SystemMessagesModelTest::shouldHaveDefaultValues()
         QStringLiteral("removed-user-from-team"),
         QStringLiteral("added-user-to-team"),
         QStringLiteral("room_changed_topic"),
+        QStringLiteral("room_changed_announcement"),
+        QStringLiteral("room_changed_description"),
     };
 
     for (const QString &r : std::as_const(lst)) {
-        QVERIFY(lstRoles.contains(r));
+        const bool containsRole = lstRoles.contains(r);
+        if (!containsRole) {
+            qDebug() << " r " << r;
+        }
+        QVERIFY(containsRole);
         lstRoles.removeAll(r);
     }
-    QVERIFY(lstRoles.isEmpty());
+    const bool lstIsEmpty = lstRoles.isEmpty();
+    if (!lstIsEmpty) {
+        qDebug() << " missing " << lstRoles;
+    }
+    QVERIFY(lstIsEmpty);
 }
 
 #include "moc_systemmessagesmodeltest.cpp"

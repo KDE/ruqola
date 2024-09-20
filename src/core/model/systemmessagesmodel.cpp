@@ -63,6 +63,7 @@ void SystemMessagesModel::fillModel()
 
     createItem(i18n("Hide \"Removed user from Team\" messages"), QStringLiteral("removed-user-from-team"));
     createItem(i18n("Hide \"Added user to Team\" messages"), QStringLiteral("added-user-to-team"));
+    createItem(i18n("Hide \"Room topic changed\" messages"), QStringLiteral("room_changed_topic"));
     createItem(i18n("Hide \"Room announcement changed\" messages"), QStringLiteral("room_changed_announcement"));
     createItem(i18n("Hide \"Room description changed\" messages"), QStringLiteral("room_changed_description"));
 
