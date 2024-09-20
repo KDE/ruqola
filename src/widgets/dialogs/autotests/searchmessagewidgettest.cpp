@@ -34,6 +34,11 @@ void SearchMessageWidgetTest::shouldHaveDefaultValues()
     auto mSearchLabel = w.findChild<QLabel *>(QStringLiteral("mSearchLabel"));
     QVERIFY(mSearchLabel);
     QVERIFY(mSearchLabel->text().isEmpty());
+
+    auto labelRegularExpression = w.findChild<QLabel *>(QStringLiteral("labelRegularExpression"));
+    QVERIFY(labelRegularExpression);
+    QVERIFY(!labelRegularExpression->text().isEmpty());
+    QVERIFY(labelRegularExpression->openExternalLinks());
 }
 
 #include "moc_searchmessagewidgettest.cpp"
