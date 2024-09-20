@@ -34,6 +34,7 @@ public:
     maybeStartDrag(const MessageUrl &messageUrl, QMouseEvent *mouseEvent, QRect previewsRect, const QStyleOptionViewItem &option, const QModelIndex &index);
 
 private:
+    Q_DISABLE_COPY(MessageDelegateHelperUrlPreview)
     struct PreviewLayout {
         QPixmap pixmap;
         QString imageUrl;
