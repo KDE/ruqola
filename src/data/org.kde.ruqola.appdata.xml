@@ -889,6 +889,8 @@
       <li xml:lang="ca">Arrossegueu i deixeu anar imatges des del Ruqola a un lloc web o una carpeta local</li>
       <li xml:lang="ca-valencia">Arrossegueu i deixeu anar imatges des de Ruqola a un lloc web o una carpeta local</li>
       <li xml:lang="fr">Glisser et déposer une image à partir de Ruqola vers le site Internet ou vers un dossier local</li>
+      <li xml:lang="gl">Arrastrar e soltar imaxes de Ruqola nun sitio web ou cartafol local.</li>
+      <li xml:lang="it">Trascina e rilascia l'immagine da ruqola al sito web o alla cartella locale</li>
       <li xml:lang="sl">Povlecite in spustite sliko iz ruqole na spletno mesto ali lokalno mapo</li>
       <li xml:lang="sv">Dra och släpp bild från Ruqola till webbplats eller lokal katalog</li>
       <li>Store message in local database so we can search in offline</li>
