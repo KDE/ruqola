@@ -47,8 +47,8 @@ SearchMessageWidget::SearchMessageWidget(RocketChatAccount *account, QWidget *pa
     mSearchLineEdit->setPlaceholderText(i18nc("@info:placeholder", "Search messages"));
     KLineEditEventHandler::catchReturnKey(mSearchLineEdit);
     mainLayout->addWidget(mSearchLineEdit);
-    auto labelRegularExpression = new QLabel(i18n("You can search using <a href=\"https://en.wikipedia.org/wiki/Regular_expression\" target=\"_blank\">Regular "
-                                                  "Expression</a>. e.g. <code class='code-colors inline'>/^text$/i</code>"),
+    auto labelRegularExpression = new QLabel(i18n("You can search using <a href=\"https://en.wikipedia.org/wiki/Regular_expression\">Regular "
+                                                  "Expression</a>. e.g. <code>/^text$/i</code>"),
                                              this);
     labelRegularExpression->setObjectName(QStringLiteral("labelRegularExpression"));
     labelRegularExpression->setOpenExternalLinks(true);
