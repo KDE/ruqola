@@ -28,7 +28,7 @@ void SystemMessagesModel::createItem(const QString &displayStr, const QString &s
 
 void SystemMessagesModel::fillModel()
 {
-    auto item = new QStandardItem(i18n("System Messages"));
+    auto item = new QStandardItem(i18n("Select Messages to hide"));
     item->setSelectable(false);
     appendRow(item);
     createItem(i18n("Hide \"User Added\" messages"), QStringLiteral("au"));
