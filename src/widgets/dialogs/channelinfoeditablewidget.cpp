@@ -78,6 +78,7 @@ ChannelInfoEditableWidget::ChannelInfoEditableWidget(Room *room, RocketChatAccou
 
     mReadOnly->setObjectName(QStringLiteral("mReadOnly"));
     layout->addRow(i18n("ReadOnly:"), mReadOnly);
+    mReadOnly->setToolTip(i18nc("@info:tooltip", "Messages are end-to-end encrypted, search will not work and notifications may not show message content"));
 
     mArchive->setObjectName(QStringLiteral("mArchive"));
     layout->addRow(i18n("Archive:"), mArchive);
@@ -94,10 +95,13 @@ ChannelInfoEditableWidget::ChannelInfoEditableWidget(Room *room, RocketChatAccou
 
     mPrivate->setObjectName(QStringLiteral("mPrivate"));
     layout->addRow(i18n("Private:"), mPrivate);
+    mPrivate->setToolTip(i18nc("@info:tooltip", "People can only join by being invited"));
 
     mEncrypted->setObjectName(QStringLiteral("mEncrypted"));
     layout->addRow(i18n("Encrypted:"), mEncrypted);
     mEncryptedLabel = layout->labelForField(mEncrypted);
+    mEncryptedLabel->setToolTip(
+        i18nc("@info:tooltip", "Messages are end-to-end encrypted, search will not work and notifications may not show message content"));
 
     mSystemMessageCombox->setObjectName(QStringLiteral("mSystemMessageCombox"));
     layout->addRow(i18n("Hide System Messages:"), mSystemMessageCombox);
