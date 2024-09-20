@@ -1296,6 +1296,7 @@ void RocketChatAccount::loadMoreListMessages(const QByteArray &roomId)
                 restApi()->getMentionedMessages(roomId, offset, qMin(50, mListMessageModel->total() - offset));
                 break;
             case ListMessagesModel::ThreadsMessages:
+                // TODO allow to search by type
                 restApi()->getThreadsList(roomId, false, offset, qMin(50, mListMessageModel->total() - offset));
                 break;
             case ListMessagesModel::UnreadThreadsMessages:
