@@ -208,14 +208,6 @@ Q_SIGNALS:
     void disconnectedByServer();
     void wsClosedSocketError();
 
-    /**
-     * @brief Emitted whenever a result is received
-     *
-     * @param id The ID received in the method() call
-     * @param result The response sent by server
-     */
-    void result(quint64 id, const QJsonDocument &result);
-
 private Q_SLOTS:
     void onWSConnected();
     void onTextMessageReceived(const QString &message);

@@ -144,7 +144,7 @@ void validateTempToken_2fa(const QJsonObject &root, RocketChatAccount *account)
     if (account->ruqolaLogger()) {
         account->ruqolaLogger()->dataReceived(QByteArrayLiteral("Validate Temp Token 2FA:") + QJsonDocument(root).toJson());
     }
-    const QJsonObject obj = root.value(QLatin1StringView("result")).toObject();
+    const QJsonObject obj = root.value("result"_L1).toObject();
     account->totpVerify(obj);
 }
 
@@ -205,8 +205,8 @@ void input_user_channel_autocomplete_thread(const QJsonObject &root, RocketChatA
 void process_backlog(const QJsonObject &root, RocketChatAccount *account)
 {
     const QJsonObject obj = root.value("result"_L1).toObject();
-    // qCDebug(RUQOLA_DDPAPI_LOG) << obj.value(QLatin1StringView("messages")).toArray().size();
-    account->rocketChatBackend()->processIncomingMessages(obj.value(QLatin1StringView("messages")).toArray(), true);
+    // qCDebug(RUQOLA_DDPAPI_LOG) << obj.value("messages")).toArray().size();
+    account->rocketChatBackend()->processIncomingMessages(obj.value("messages"_L1).toArray(), true);
 }
 
 void change_room_settings(const QJsonObject &root, RocketChatAccount *account)
@@ -780,30 +780,28 @@ void DDPClient::onTextMessageReceived(const QString &message)
                 std::function<void(QJsonObject, RocketChatAccount *)> callback = m_callbackHash.take(id);
                 callback(root, mRocketChatAccount);
             }
-
-            Q_EMIT result(id, QJsonDocument(root.value(QLatin1StringView("result")).toObject()));
-        } else if (messageType == QLatin1StringView("connected")) {
+        } else if (messageType == "connected"_L1) {
             qCDebug(RUQOLA_DDPAPI_LOG) << mRocketChatAccount->accountName() << " Connected!";
             m_connected = true;
             Q_EMIT connectedChanged();
-        } else if (messageType == QLatin1StringView("error")) {
+        } else if (messageType == "error"_L1) {
             qWarning() << mRocketChatAccount->accountName() << " ERROR!!" << message;
-        } else if (messageType == QLatin1StringView("ping")) {
+        } else if (messageType == "ping"_L1) {
             qCDebug(RUQOLA_DDPAPI_LOG) << mRocketChatAccount->accountName() << "Ping - Pong";
             pong();
-        } else if (messageType == QLatin1StringView("added")) {
+        } else if (messageType == "added"_L1) {
             qCDebug(RUQOLA_DDPAPI_LOG) << mRocketChatAccount->accountName() << "ADDING element" << response;
             Q_EMIT added(root);
-        } else if (messageType == QLatin1StringView("changed")) {
+        } else if (messageType == "changed"_L1) {
             qCDebug(RUQOLA_DDPAPI_LOG) << mRocketChatAccount->accountName() << "Changed element" << response;
             Q_EMIT changed(root);
-        } else if (messageType == QLatin1StringView("ready")) {
+        } else if (messageType == "ready"_L1) {
             qCDebug(RUQOLA_DDPAPI_LOG) << mRocketChatAccount->accountName() << "READY element" << response;
             executeSubsCallBack(root);
-        } else if (messageType == QLatin1StringView("removed")) {
+        } else if (messageType == "removed"_L1) {
             qCDebug(RUQOLA_DDPAPI_LOG) << mRocketChatAccount->accountName() << "REMOVED element" << response;
             Q_EMIT removed(root);
-        } else if (messageType == QLatin1StringView("nosub")) {
+        } else if (messageType == "nosub"_L1) {
             const QString id = root.value("id"_L1).toString();
             qCDebug(RUQOLA_DDPAPI_LOG) << mRocketChatAccount->accountName() << "Unsubscribe element" << message << id;
             const QJsonObject errorObj = root["error"_L1].toObject();
@@ -860,7 +858,7 @@ void DDPClient::onWSConnected()
     qCDebug(RUQOLA_DDPAPI_LOG) << "Websocket connected at URL" << mUrl;
 
     QJsonArray supportedVersions;
-    supportedVersions.append(QLatin1StringView("1"));
+    supportedVersions.append("1"_L1);
     QJsonObject protocol;
     protocol["msg"_L1] = QStringLiteral("connect");
     protocol["version"_L1] = QStringLiteral("1");
