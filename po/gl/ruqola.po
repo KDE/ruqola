@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-09-18 00:40+0000\n"
-"PO-Revision-Date: 2024-09-07 10:40+0200\n"
+"POT-Creation-Date: 2024-09-21 00:40+0000\n"
+"PO-Revision-Date: 2024-09-20 11:04+0200\n"
 "Last-Translator: Adrián Chaves (Gallaecio) <adrian@chaves.io>\n"
 "Language-Team: Proxecto Trasno (proxecto@trasno.gal)\n"
 "Language: gl\n"
@@ -836,11 +836,9 @@ msgid "Pending"
 msgstr "Pendente"
 
 #: core/model/adminusersallmodel.cpp:58
-#, fuzzy, kde-format
-#| msgctxt "@action"
-#| msgid "Deactivate"
+#, kde-format
 msgid "Deactivated"
-msgstr "Desactivar"
+msgstr "Desactivado"
 
 #: core/model/adminusersallmodel.cpp:70
 #: core/model/adminuserspendingmodel.cpp:68
@@ -879,42 +877,34 @@ msgid "Status"
 msgstr "Estado"
 
 #: core/model/adminusersallmodel.cpp:80
-#, fuzzy, kde-format
-#| msgid "Registration"
+#, kde-format
 msgid "Registration status"
-msgstr "Rexistro"
+msgstr "Estado do rexistro"
 
 #: core/model/adminuserspendingmodel.cpp:53
-#, fuzzy, kde-format
-#| msgctxt "@info:shell"
-#| msgid "Use ddp api for login"
+#, kde-format
 msgid "User first log in"
-msgstr "Usar a API de DDP para acceder"
+msgstr "Primeiro acceso da persoa usuaria"
 
 #: core/model/adminuserspendingmodel.cpp:53
-#, fuzzy, kde-format
-#| msgid "Authentication"
+#, kde-format
 msgid "Activation"
-msgstr "Autenticación"
+msgstr "Activación"
 
 #: core/model/adminuserspendingmodel.cpp:58
-#, fuzzy, kde-format
-#| msgctxt "@option:check"
-#| msgid "Send Welcome Email"
+#, kde-format
 msgid "Resend Welcome Email"
-msgstr "Enviar a mensaxe de correo electrónico de benvida."
+msgstr "Enviar de novo a mensaxe de correo electrónico de benvida."
 
 #: core/model/adminuserspendingmodel.cpp:58
-#, fuzzy, kde-format
-#| msgid "Active"
+#, kde-format
 msgid "Activate"
-msgstr "Activa"
+msgstr "Activar"
 
 #: core/model/adminuserspendingmodel.cpp:78
-#, fuzzy, kde-format
-#| msgid "Pending"
+#, kde-format
 msgid "Pending action"
-msgstr "Pendente"
+msgstr "Acción pendente"
 
 #: core/model/bannerinfosmodel.cpp:52
 #, kde-format
@@ -1226,9 +1216,11 @@ msgid "Modify Status…"
 msgstr "Modificar o estado…"
 
 #: core/model/systemmessagesmodel.cpp:31
-#, kde-format
-msgid "System Messages"
-msgstr "Mensaxes do sistema"
+#, fuzzy, kde-format
+#| msgctxt "@title"
+#| msgid "Delete Message"
+msgid "Select Messages to hide"
+msgstr "Eliminar a mensaxe"
 
 #: core/model/systemmessagesmodel.cpp:34
 #, kde-format
@@ -1390,7 +1382,19 @@ msgstr "Agochar as mensaxes de engadir a alguén a un equipo"
 msgid "Hide \"Room topic changed\" messages"
 msgstr "Agochar as mensaxes de cambio de tema de sala"
 
+#: core/model/systemmessagesmodel.cpp:67
+#, fuzzy, kde-format
+#| msgid "Hide \"Room Name Changed\" messages"
+msgid "Hide \"Room announcement changed\" messages"
+msgstr "Agochar as mensaxes de cambio de nome de sala"
+
 #: core/model/systemmessagesmodel.cpp:68
+#, fuzzy, kde-format
+#| msgid "Hide \"Room topic changed\" messages"
+msgid "Hide \"Room description changed\" messages"
+msgstr "Agochar as mensaxes de cambio de tema de sala"
+
+#: core/model/systemmessagesmodel.cpp:70
 #, kde-format
 msgid "Joined this Team"
 msgstr "Uniuse ao equipo"
@@ -1476,12 +1480,12 @@ msgctxt "We need a space between after </strong>"
 msgid "<strong>%1</strong> are typing..."
 msgstr "<strong>%1</strong> están escribindo…"
 
-#: core/rocketchataccount.cpp:3046
+#: core/rocketchataccount.cpp:3047
 #, kde-format
 msgid "Export Messages"
 msgstr "Exportar as mensaxes"
 
-#: core/rocketchataccount.cpp:3047
+#: core/rocketchataccount.cpp:3048
 #, kde-format
 msgid "Your email has been queued for sending."
 msgstr "O seu enderezo de correo electrónico púxose en cola para enviar."
@@ -2863,7 +2867,7 @@ msgid "Show Moderation Messages"
 msgstr "Amosar as mensaxes de moderación"
 
 #: widgets/administratordialog/moderationconsole/moderationmessageswidget.cpp:50
-#: widgets/dialogs/searchmessagewidget.cpp:173
+#: widgets/dialogs/searchmessagewidget.cpp:184
 #: widgets/dialogs/showlistmessagebasewidget.cpp:97
 #: widgets/discussions/showdiscussionswidget.cpp:88
 #: widgets/room/usersinroomwidget.cpp:135
@@ -2872,7 +2876,7 @@ msgid "Loading…"
 msgstr "Cargando…"
 
 #: widgets/administratordialog/moderationconsole/moderationmessageswidget.cpp:52
-#: widgets/dialogs/searchmessagewidget.cpp:177
+#: widgets/dialogs/searchmessagewidget.cpp:188
 #: widgets/dialogs/showlistmessagebasewidget.cpp:99
 #: widgets/room/usersinroomwidget.cpp:137
 #, kde-format
@@ -2880,7 +2884,7 @@ msgid "No Message found"
 msgstr "Non se atopou ningunha mensaxe."
 
 #: widgets/administratordialog/moderationconsole/moderationmessageswidget.cpp:58
-#: widgets/dialogs/searchmessagewidget.cpp:183
+#: widgets/dialogs/searchmessagewidget.cpp:194
 #, kde-format
 msgid "%1 Message in room"
 msgid_plural "%1 Messages in room"
@@ -7282,77 +7286,92 @@ msgstr "Eliminar"
 msgid "ReadOnly:"
 msgstr "SóLectura:"
 
-#: widgets/dialogs/channelinfoeditablewidget.cpp:83
+#: widgets/dialogs/channelinfoeditablewidget.cpp:81
+#: widgets/dialogs/channelinfoeditablewidget.cpp:104
+#, kde-format
+msgctxt "@info:tooltip"
+msgid ""
+"Messages are end-to-end encrypted, search will not work and notifications "
+"may not show message content"
+msgstr ""
+
+#: widgets/dialogs/channelinfoeditablewidget.cpp:84
 #, kde-format
 msgid "Archive:"
 msgstr "Arquivo:"
 
-#: widgets/dialogs/channelinfoeditablewidget.cpp:88
+#: widgets/dialogs/channelinfoeditablewidget.cpp:89
 #, kde-format
 msgid "Do you want to archive this room?"
 msgstr "Quere arquivar a sala?"
 
-#: widgets/dialogs/channelinfoeditablewidget.cpp:88
+#: widgets/dialogs/channelinfoeditablewidget.cpp:89
 #, kde-format
 msgid "Do you want to unarchive this room?"
 msgstr "Quere desarquivar a sala?"
 
-#: widgets/dialogs/channelinfoeditablewidget.cpp:89
+#: widgets/dialogs/channelinfoeditablewidget.cpp:90
 #, kde-format
 msgctxt "@title"
 msgid "Archive Channel"
 msgstr "Arquivar a canle"
 
-#: widgets/dialogs/channelinfoeditablewidget.cpp:89
+#: widgets/dialogs/channelinfoeditablewidget.cpp:90
 #, kde-format
 msgctxt "@title"
 msgid "Unarchive Channel"
 msgstr "Desarquivar a canle"
 
-#: widgets/dialogs/channelinfoeditablewidget.cpp:96
+#: widgets/dialogs/channelinfoeditablewidget.cpp:97
 #, kde-format
 msgid "Private:"
 msgstr "Privada:"
 
-#: widgets/dialogs/channelinfoeditablewidget.cpp:99
+#: widgets/dialogs/channelinfoeditablewidget.cpp:98
+#, kde-format
+msgctxt "@info:tooltip"
+msgid "People can only join by being invited"
+msgstr ""
+
+#: widgets/dialogs/channelinfoeditablewidget.cpp:101
 #, kde-format
 msgid "Encrypted:"
 msgstr "Cifrada:"
 
-#: widgets/dialogs/channelinfoeditablewidget.cpp:103
+#: widgets/dialogs/channelinfoeditablewidget.cpp:107
 #, kde-format
 msgid "Hide System Messages:"
 msgstr "Agochar as mensaxes do sistema:"
 
-#: widgets/dialogs/channelinfoeditablewidget.cpp:117
+#: widgets/dialogs/channelinfoeditablewidget.cpp:121
 #, kde-format
 msgid "Do you want to delete this Team?"
 msgstr "Quere eliminar o equipo?"
 
-#: widgets/dialogs/channelinfoeditablewidget.cpp:118
+#: widgets/dialogs/channelinfoeditablewidget.cpp:122
 #, kde-format
 msgctxt "@title"
 msgid "Delete Team"
 msgstr "Eliminar o equipo"
 
-#: widgets/dialogs/channelinfoeditablewidget.cpp:126
+#: widgets/dialogs/channelinfoeditablewidget.cpp:130
 #, kde-format
 msgid "Do you want to delete this room?"
 msgstr "Quere eliminar a sala?"
 
-#: widgets/dialogs/channelinfoeditablewidget.cpp:127
+#: widgets/dialogs/channelinfoeditablewidget.cpp:131
 #, kde-format
 msgctxt "@title"
 msgid "Delete Room"
 msgstr "Eliminar a sala"
 
-#: widgets/dialogs/channelinfoeditablewidget.cpp:264
+#: widgets/dialogs/channelinfoeditablewidget.cpp:268
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "This room has a password"
 msgstr "A sala ten contrasinal."
 
-#: widgets/dialogs/channelinfoeditablewidget.cpp:265
+#: widgets/dialogs/channelinfoeditablewidget.cpp:269
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Add password"
@@ -7936,6 +7955,13 @@ msgstr "Buscar nas mensaxes de «%1» (%2)"
 msgctxt "@info:placeholder"
 msgid "Search messages"
 msgstr "Buscar nas mensaxes"
+
+#: widgets/dialogs/searchmessagewidget.cpp:50
+#, kde-format
+msgid ""
+"You can search using <a href=\"https://en.wikipedia.org/wiki/"
+"Regular_expression\">Regular Expression</a>. e.g. <code>/^text$/i</code>"
+msgstr ""
 
 #: widgets/dialogs/serverinfo/serverinfodialog.cpp:17
 #, kde-format
@@ -10945,15 +10971,18 @@ msgid "Add welcome page."
 msgstr "Engadir unha páxina de benvida."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:96
-#, fuzzy, kde-format
-#| msgid "Implement moderation (administrator mode)."
+#, kde-format
 msgid "Implement pending users info (administrator mode)."
-msgstr "Implementar moderación (modo de administración)."
+msgstr ""
+"Implementar a información das persoas usuarias pendentes (modo de "
+"administración)."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:97
 #, kde-format
 msgid "Use cmark-rc (https://github.com/dfaure/cmark-rc) for markdown support."
 msgstr ""
+"Usar cmark-rc (https://github.com/dfaure/cmark-rc) para a compatibilidade "
+"con Markdown."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:98
 #, kde-format
@@ -10961,6 +10990,8 @@ msgid ""
 "Delete oldest files from some cache directories (file-upload and media) so "
 "it doesn't grow forever."
 msgstr ""
+"Eliminar os ficheiros máis vellos dalgúns cartafoles de caché («file-upload» "
+"e «media») para que non medren indefinidamente."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:102
 #, kde-format
@@ -10995,17 +11026,20 @@ msgstr "Todas as versións"
 msgid "Version %1"
 msgstr "Versión %1"
 
-#: widgets/whatsnew/whatsnewwidget.cpp:92
+#: widgets/whatsnew/whatsnewwidget.cpp:91
 #, kde-format
 msgid "Important changes since last version:"
 msgstr "Cambios importantes desde a última versión:"
 
-#: widgets/whatsnew/whatsnewwidget.cpp:97
+#: widgets/whatsnew/whatsnewwidget.cpp:96
 #, kde-format
 msgid "Some of the new features in this release of Ruqola include:"
 msgstr "Entre as características novas desta edición de Ruqola están:"
 
-#: widgets/whatsnew/whatsnewwidget.cpp:102
+#: widgets/whatsnew/whatsnewwidget.cpp:101
 #, kde-format
 msgid "Some bug fixing:"
 msgstr "Algunhas correccións de fallos:"
+
+#~ msgid "System Messages"
+#~ msgstr "Mensaxes do sistema"

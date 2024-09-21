@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-09-18 00:40+0000\n"
+"POT-Creation-Date: 2024-09-21 00:40+0000\n"
 "PO-Revision-Date: 2024-09-11 22:38+0200\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
@@ -1234,9 +1234,11 @@ msgid "Modify Status…"
 msgstr "Aldatu egoera..."
 
 #: core/model/systemmessagesmodel.cpp:31
-#, kde-format
-msgid "System Messages"
-msgstr "Sistemaren mezuak"
+#, fuzzy, kde-format
+#| msgctxt "@title"
+#| msgid "Delete Message"
+msgid "Select Messages to hide"
+msgstr "Ezabatu mezua"
 
 #: core/model/systemmessagesmodel.cpp:34
 #, kde-format
@@ -1398,7 +1400,19 @@ msgstr "Ezkutatu \"Erabiltzailea taldera gehitu da\" mezuak"
 msgid "Hide \"Room topic changed\" messages"
 msgstr "Ezkutatu \"Gelaren gaia aldatu da\" mezuak"
 
+#: core/model/systemmessagesmodel.cpp:67
+#, fuzzy, kde-format
+#| msgid "Hide \"Room Name Changed\" messages"
+msgid "Hide \"Room announcement changed\" messages"
+msgstr "Ezkutatu \"Gelaren izena aldatu da\" mezuak"
+
 #: core/model/systemmessagesmodel.cpp:68
+#, fuzzy, kde-format
+#| msgid "Hide \"Room topic changed\" messages"
+msgid "Hide \"Room description changed\" messages"
+msgstr "Ezkutatu \"Gelaren gaia aldatu da\" mezuak"
+
+#: core/model/systemmessagesmodel.cpp:70
 #, kde-format
 msgid "Joined this Team"
 msgstr "Talde honetara batu da"
@@ -1484,12 +1498,12 @@ msgctxt "We need a space between after </strong>"
 msgid "<strong>%1</strong> are typing..."
 msgstr "<strong>%1</strong> tekleatzen ari dira..."
 
-#: core/rocketchataccount.cpp:3046
+#: core/rocketchataccount.cpp:3047
 #, kde-format
 msgid "Export Messages"
 msgstr "Esportatu mezuak"
 
-#: core/rocketchataccount.cpp:3047
+#: core/rocketchataccount.cpp:3048
 #, kde-format
 msgid "Your email has been queued for sending."
 msgstr "Zure e-posta bidaltzeko ilaran ipini da."
@@ -2866,7 +2880,7 @@ msgid "Show Moderation Messages"
 msgstr "Erakutsi moderatze-mezuak"
 
 #: widgets/administratordialog/moderationconsole/moderationmessageswidget.cpp:50
-#: widgets/dialogs/searchmessagewidget.cpp:173
+#: widgets/dialogs/searchmessagewidget.cpp:184
 #: widgets/dialogs/showlistmessagebasewidget.cpp:97
 #: widgets/discussions/showdiscussionswidget.cpp:88
 #: widgets/room/usersinroomwidget.cpp:135
@@ -2875,7 +2889,7 @@ msgid "Loading…"
 msgstr "Zamatzen..."
 
 #: widgets/administratordialog/moderationconsole/moderationmessageswidget.cpp:52
-#: widgets/dialogs/searchmessagewidget.cpp:177
+#: widgets/dialogs/searchmessagewidget.cpp:188
 #: widgets/dialogs/showlistmessagebasewidget.cpp:99
 #: widgets/room/usersinroomwidget.cpp:137
 #, kde-format
@@ -2883,7 +2897,7 @@ msgid "No Message found"
 msgstr "Ez da mezurik aurkitu"
 
 #: widgets/administratordialog/moderationconsole/moderationmessageswidget.cpp:58
-#: widgets/dialogs/searchmessagewidget.cpp:183
+#: widgets/dialogs/searchmessagewidget.cpp:194
 #, kde-format
 msgid "%1 Message in room"
 msgid_plural "%1 Messages in room"
@@ -7276,77 +7290,92 @@ msgstr "Ezabatu"
 msgid "ReadOnly:"
 msgstr "IrakurtzekoSoilik:"
 
-#: widgets/dialogs/channelinfoeditablewidget.cpp:83
+#: widgets/dialogs/channelinfoeditablewidget.cpp:81
+#: widgets/dialogs/channelinfoeditablewidget.cpp:104
+#, kde-format
+msgctxt "@info:tooltip"
+msgid ""
+"Messages are end-to-end encrypted, search will not work and notifications "
+"may not show message content"
+msgstr ""
+
+#: widgets/dialogs/channelinfoeditablewidget.cpp:84
 #, kde-format
 msgid "Archive:"
 msgstr "Artxiboa:"
 
-#: widgets/dialogs/channelinfoeditablewidget.cpp:88
+#: widgets/dialogs/channelinfoeditablewidget.cpp:89
 #, kde-format
 msgid "Do you want to archive this room?"
 msgstr "Gela hori artxibatu nahi duzu?"
 
-#: widgets/dialogs/channelinfoeditablewidget.cpp:88
+#: widgets/dialogs/channelinfoeditablewidget.cpp:89
 #, kde-format
 msgid "Do you want to unarchive this room?"
 msgstr "Gela hori desartxibatu nahi duzu?"
 
-#: widgets/dialogs/channelinfoeditablewidget.cpp:89
+#: widgets/dialogs/channelinfoeditablewidget.cpp:90
 #, kde-format
 msgctxt "@title"
 msgid "Archive Channel"
 msgstr "Artxibatu kanala"
 
-#: widgets/dialogs/channelinfoeditablewidget.cpp:89
+#: widgets/dialogs/channelinfoeditablewidget.cpp:90
 #, kde-format
 msgctxt "@title"
 msgid "Unarchive Channel"
 msgstr "Desartxibatu kanala"
 
-#: widgets/dialogs/channelinfoeditablewidget.cpp:96
+#: widgets/dialogs/channelinfoeditablewidget.cpp:97
 #, kde-format
 msgid "Private:"
 msgstr "Pribatua:"
 
-#: widgets/dialogs/channelinfoeditablewidget.cpp:99
+#: widgets/dialogs/channelinfoeditablewidget.cpp:98
+#, kde-format
+msgctxt "@info:tooltip"
+msgid "People can only join by being invited"
+msgstr ""
+
+#: widgets/dialogs/channelinfoeditablewidget.cpp:101
 #, kde-format
 msgid "Encrypted:"
 msgstr "Zifratua:"
 
-#: widgets/dialogs/channelinfoeditablewidget.cpp:103
+#: widgets/dialogs/channelinfoeditablewidget.cpp:107
 #, kde-format
 msgid "Hide System Messages:"
 msgstr "Sistemako mezuak ezkutatu:"
 
-#: widgets/dialogs/channelinfoeditablewidget.cpp:117
+#: widgets/dialogs/channelinfoeditablewidget.cpp:121
 #, kde-format
 msgid "Do you want to delete this Team?"
 msgstr "Talde hori ezabatu nahi duzu?"
 
-#: widgets/dialogs/channelinfoeditablewidget.cpp:118
+#: widgets/dialogs/channelinfoeditablewidget.cpp:122
 #, kde-format
 msgctxt "@title"
 msgid "Delete Team"
 msgstr "Ezabatu taldea"
 
-#: widgets/dialogs/channelinfoeditablewidget.cpp:126
+#: widgets/dialogs/channelinfoeditablewidget.cpp:130
 #, kde-format
 msgid "Do you want to delete this room?"
 msgstr "Gela hori ezabatu nahi duzu?"
 
-#: widgets/dialogs/channelinfoeditablewidget.cpp:127
+#: widgets/dialogs/channelinfoeditablewidget.cpp:131
 #, kde-format
 msgctxt "@title"
 msgid "Delete Room"
 msgstr "Ezabatu gela"
 
-#: widgets/dialogs/channelinfoeditablewidget.cpp:264
+#: widgets/dialogs/channelinfoeditablewidget.cpp:268
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "This room has a password"
 msgstr "Gela honek pasahitz bat du"
 
-#: widgets/dialogs/channelinfoeditablewidget.cpp:265
+#: widgets/dialogs/channelinfoeditablewidget.cpp:269
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Add password"
@@ -7931,6 +7960,13 @@ msgstr "Bilatu mezuak '%1'(e)an (%2)"
 msgctxt "@info:placeholder"
 msgid "Search messages"
 msgstr "Bilatu mezuak"
+
+#: widgets/dialogs/searchmessagewidget.cpp:50
+#, kde-format
+msgid ""
+"You can search using <a href=\"https://en.wikipedia.org/wiki/"
+"Regular_expression\">Regular Expression</a>. e.g. <code>/^text$/i</code>"
+msgstr ""
 
 #: widgets/dialogs/serverinfo/serverinfodialog.cpp:17
 #, kde-format
@@ -10984,20 +11020,23 @@ msgstr "Bertsio denak"
 msgid "Version %1"
 msgstr "%1 bertsioa"
 
-#: widgets/whatsnew/whatsnewwidget.cpp:92
+#: widgets/whatsnew/whatsnewwidget.cpp:91
 #, kde-format
 msgid "Important changes since last version:"
 msgstr "Azken bertsiotik aldaketa garrantzitsuak:"
 
-#: widgets/whatsnew/whatsnewwidget.cpp:97
+#: widgets/whatsnew/whatsnewwidget.cpp:96
 #, kde-format
 msgid "Some of the new features in this release of Ruqola include:"
 msgstr "Ruqola-ren askapen berri honetako ezaugarri berrien artean daude:"
 
-#: widgets/whatsnew/whatsnewwidget.cpp:102
+#: widgets/whatsnew/whatsnewwidget.cpp:101
 #, kde-format
 msgid "Some bug fixing:"
 msgstr "Akatsak konponketa batzuk:"
+
+#~ msgid "System Messages"
+#~ msgstr "Sistemaren mezuak"
 
 #~ msgid "Reset TOTP"
 #~ msgstr "Berrezarri TOTP"
