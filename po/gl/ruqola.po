@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-09-17 02:36+0000\n"
-"PO-Revision-Date: 2024-09-07 10:40+0200\n"
+"PO-Revision-Date: 2024-09-20 11:04+0200\n"
 "Last-Translator: Adrián Chaves (Gallaecio) <adrian@chaves.io>\n"
 "Language-Team: Proxecto Trasno (proxecto@trasno.gal)\n"
 "Language: gl\n"
@@ -836,10 +836,9 @@ msgid "Pending"
 msgstr "Pendente"
 
 #: core/model/adminusersallmodel.cpp:58
-#, fuzzy, kde-format
-#| msgid "Deactivate"
+#, kde-format
 msgid "Deactivated"
-msgstr "Desactivar"
+msgstr "Desactivado"
 
 #: core/model/adminusersallmodel.cpp:70
 #: core/model/adminuserspendingmodel.cpp:68
@@ -878,39 +877,34 @@ msgid "Status"
 msgstr "Estado"
 
 #: core/model/adminusersallmodel.cpp:80
-#, fuzzy, kde-format
-#| msgid "Registration"
+#, kde-format
 msgid "Registration status"
-msgstr "Rexistro"
+msgstr "Estado do rexistro"
 
 #: core/model/adminuserspendingmodel.cpp:53
 #, kde-format
 msgid "User first log in"
-msgstr ""
+msgstr "Primeiro acceso da persoa usuaria"
 
 #: core/model/adminuserspendingmodel.cpp:53
-#, fuzzy, kde-format
-#| msgid "Authentication"
+#, kde-format
 msgid "Activation"
-msgstr "Autenticación"
+msgstr "Activación"
 
 #: core/model/adminuserspendingmodel.cpp:58
-#, fuzzy, kde-format
-#| msgid "Send Welcome Email"
+#, kde-format
 msgid "Resend Welcome Email"
-msgstr "Enviar a mensaxe de correo electrónico de benvida."
+msgstr "Enviar de novo a mensaxe de correo electrónico de benvida."
 
 #: core/model/adminuserspendingmodel.cpp:58
-#, fuzzy, kde-format
-#| msgid "Active"
+#, kde-format
 msgid "Activate"
-msgstr "Activa"
+msgstr "Activar"
 
 #: core/model/adminuserspendingmodel.cpp:78
-#, fuzzy, kde-format
-#| msgid "Unknown action!"
+#, kde-format
 msgid "Pending action"
-msgstr "Acción descoñecida!"
+msgstr "Acción pendente"
 
 #: core/model/bannerinfosmodel.cpp:52
 #, kde-format
@@ -10693,16 +10687,22 @@ msgstr "Engadir unha páxina de benvida."
 #: widgets/whatsnew/whatsnewtranslations.cpp:22
 msgid "Implement pending users info (administrator mode)."
 msgstr ""
+"Implementar a información das persoas usuarias pendentes (modo de "
+"administración)."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:23
 msgid "Use cmark-rc (https://github.com/dfaure/cmark-rc) for markdown support."
 msgstr ""
+"Usar cmark-rc (https://github.com/dfaure/cmark-rc) para a compatibilidade "
+"con Markdown."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:24
 msgid ""
 "Delete oldest files from some cache directories (file-upload and media) so "
 "it doesn't grow forever."
 msgstr ""
+"Eliminar os ficheiros máis vellos dalgúns cartafoles de caché («file-upload» "
+"e «media») para que non medren indefinidamente."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:34
 #, kde-format
