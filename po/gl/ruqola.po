@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-09-21 00:40+0000\n"
-"PO-Revision-Date: 2024-09-20 11:04+0200\n"
+"PO-Revision-Date: 2024-09-21 16:04+0200\n"
 "Last-Translator: Adrián Chaves (Gallaecio) <adrian@chaves.io>\n"
 "Language-Team: Proxecto Trasno (proxecto@trasno.gal)\n"
 "Language: gl\n"
@@ -1216,11 +1216,9 @@ msgid "Modify Status…"
 msgstr "Modificar o estado…"
 
 #: core/model/systemmessagesmodel.cpp:31
-#, fuzzy, kde-format
-#| msgctxt "@title"
-#| msgid "Delete Message"
+#, kde-format
 msgid "Select Messages to hide"
-msgstr "Eliminar a mensaxe"
+msgstr "Seleccionar mensaxes para agochar"
 
 #: core/model/systemmessagesmodel.cpp:34
 #, kde-format
@@ -1383,16 +1381,14 @@ msgid "Hide \"Room topic changed\" messages"
 msgstr "Agochar as mensaxes de cambio de tema de sala"
 
 #: core/model/systemmessagesmodel.cpp:67
-#, fuzzy, kde-format
-#| msgid "Hide \"Room Name Changed\" messages"
+#, kde-format
 msgid "Hide \"Room announcement changed\" messages"
-msgstr "Agochar as mensaxes de cambio de nome de sala"
+msgstr "Agochar as mensaxes de cambio do anuncio da sala."
 
 #: core/model/systemmessagesmodel.cpp:68
-#, fuzzy, kde-format
-#| msgid "Hide \"Room topic changed\" messages"
+#, kde-format
 msgid "Hide \"Room description changed\" messages"
-msgstr "Agochar as mensaxes de cambio de tema de sala"
+msgstr "Agochar as mensaxes de cambio da descrición da sala."
 
 #: core/model/systemmessagesmodel.cpp:70
 #, kde-format
@@ -7294,6 +7290,8 @@ msgid ""
 "Messages are end-to-end encrypted, search will not work and notifications "
 "may not show message content"
 msgstr ""
+"As mensaxes están cifradas de extremo a extremo, a busca non funcionará e as "
+"notificacións poden non amosar o contido da mensaxe."
 
 #: widgets/dialogs/channelinfoeditablewidget.cpp:84
 #, kde-format
@@ -7331,7 +7329,7 @@ msgstr "Privada:"
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "People can only join by being invited"
-msgstr ""
+msgstr "A xente só pode unirse con invitación."
 
 #: widgets/dialogs/channelinfoeditablewidget.cpp:101
 #, kde-format
@@ -7962,6 +7960,8 @@ msgid ""
 "You can search using <a href=\"https://en.wikipedia.org/wiki/"
 "Regular_expression\">Regular Expression</a>. e.g. <code>/^text$/i</code>"
 msgstr ""
+"Pode buscar con <a href=\"https://en.wikipedia.org/wiki/Regular_expression"
+"\">expresións regulares</a>. Por exemplo: <code>/^texto$/i</code>"
 
 #: widgets/dialogs/serverinfo/serverinfodialog.cpp:17
 #, kde-format

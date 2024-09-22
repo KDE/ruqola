@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-09-21 00:40+0000\n"
-"PO-Revision-Date: 2024-09-13 12:28+0300\n"
+"PO-Revision-Date: 2024-09-21 22:02+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -1217,11 +1217,9 @@ msgid "Modify Status…"
 msgstr "Durumu Değiştir…"
 
 #: core/model/systemmessagesmodel.cpp:31
-#, fuzzy, kde-format
-#| msgctxt "@title"
-#| msgid "Delete Message"
+#, kde-format
 msgid "Select Messages to hide"
-msgstr "İleti Sil"
+msgstr "Gizlenecek İletileri Seç"
 
 #: core/model/systemmessagesmodel.cpp:34
 #, kde-format
@@ -1384,16 +1382,14 @@ msgid "Hide \"Room topic changed\" messages"
 msgstr "“Oda konusu değiştirildi” iletilerini gizle"
 
 #: core/model/systemmessagesmodel.cpp:67
-#, fuzzy, kde-format
-#| msgid "Hide \"Room Name Changed\" messages"
+#, kde-format
 msgid "Hide \"Room announcement changed\" messages"
-msgstr "“Oda adı, değişti” iletilerini gizle"
+msgstr "“Oda duyurusu değiştirildi” iletilerini gizle"
 
 #: core/model/systemmessagesmodel.cpp:68
-#, fuzzy, kde-format
-#| msgid "Hide \"Room topic changed\" messages"
+#, kde-format
 msgid "Hide \"Room description changed\" messages"
-msgstr "“Oda konusu değiştirildi” iletilerini gizle"
+msgstr "“Oda açıklaması değiştirildi” iletilerini gizle"
 
 #: core/model/systemmessagesmodel.cpp:70
 #, kde-format
@@ -7244,6 +7240,8 @@ msgid ""
 "Messages are end-to-end encrypted, search will not work and notifications "
 "may not show message content"
 msgstr ""
+"İletiler uçtan uca şifrelidir; arama çalışmaz ve bildirimler ileti içeriğini "
+"göstermeyebilir"
 
 #: widgets/dialogs/channelinfoeditablewidget.cpp:84
 #, kde-format
@@ -7281,7 +7279,7 @@ msgstr "Özel:"
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "People can only join by being invited"
-msgstr ""
+msgstr "Kişiler yalnızca davet edilirlerse katılabilirler"
 
 #: widgets/dialogs/channelinfoeditablewidget.cpp:101
 #, kde-format
@@ -7914,6 +7912,8 @@ msgid ""
 "You can search using <a href=\"https://en.wikipedia.org/wiki/"
 "Regular_expression\">Regular Expression</a>. e.g. <code>/^text$/i</code>"
 msgstr ""
+"<a href=\"https://tr.wikipedia.org/wiki/Düzenli_ifade\">Düzenli ifade</a> "
+"kullanarak arama yapabilirsiniz; örneğin, <code>/^text$/i</code>"
 
 #: widgets/dialogs/serverinfo/serverinfodialog.cpp:17
 #, kde-format
