@@ -38,6 +38,9 @@ Ruqola supports the following RC features:
 - Implement Message Url Preview
 - Channel List style
 - Add Forward Message support
+- Implement Rocket.Chat Marketplace
+- Implement Channel Sound Notification
+- Implement New Room Sound Notification
 
 Extra features:
 - Allow to reply directly to message from notification (kde features)
@@ -49,6 +52,8 @@ Extra features:
 - Implement message layout (normal/compact)
 - Increase/Decrease global font by using CTRL++/CTRL+- shortcut
 - Add Plasma Activities support.
+- Delete oldest files from some cache directories.
+
 
 
 ## Source Code
