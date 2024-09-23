@@ -892,8 +892,10 @@
       <li xml:lang="gl">Arrastrar e soltar imaxes de Ruqola nun sitio web ou cartafol local.</li>
       <li xml:lang="it">Trascina e rilascia l'immagine da ruqola al sito web o alla cartella locale</li>
       <li xml:lang="ka">გადაათრიეთ და დააგდეთ გამოსახულება ruqola-დან ვებსაიტამდე ან ლოკალურ საქაღალდემდე</li>
+      <li xml:lang="pl">Przeciągnij i upuść obraz ze strony sieciowej ruqoli do katalogu lokalnego</li>
       <li xml:lang="sl">Povlecite in spustite sliko iz ruqole na spletno mesto ali lokalno mapo</li>
       <li xml:lang="sv">Dra och släpp bild från Ruqola till webbplats eller lokal katalog</li>
+      <li xml:lang="uk">Перетягування і скидання зображення з ruqola на сайт або локальну теку</li>
       <li>Store message in local database so we can search in offline</li>
       <li xml:lang="ca">Emmagatzema el missatge a la base de dades local perquè es pugui cercar fora de línia</li>
       <li xml:lang="ca-valencia">Emmagatzema el missatge en la base de dades local perquè es puga buscar fora de línia</li>
