@@ -1,5 +1,5 @@
 Name:           ruqola
-Version:        2.2.0
+Version:        2.3.0
 Release:        0
 Summary:        Rocket.Chat client for the KDE desktop
 Source0:        %{name}-%{version}.tar.gz
@@ -12,13 +12,13 @@ Vendor:         KDE
 Packager:       Klaralvdalens Datakonsult AB (KDAB) <info@kdab.com>
 
 Requires: breeze-icon-theme
-BuildRequires: cmake extra-cmake-modules qtkeychain-qt5-devel
+BuildRequires: cmake extra-cmake-modules qtkeychain-qt6-devel
 %if %{defined suse_version}
-BuildRequires:  python3 update-desktop-files libqt5-qtbase-devel libqt5-qtwebsockets-devel libqt5-qtnetworkauth-devel libqt5-qtmultimedia-devel libqt5-qtsvg-devel kcoreaddons-devel ki18n-devel kcrash-devel knotifications-devel kiconthemes-devel syntax-highlighting-devel knotifyconfig-devel kdoctools-devel kdbusaddons-devel kxmlgui-devel kio-devel sonnet-devel ktextwidgets-devel ktextaddons-devel kidletime-devel karchive-devel purpose-devel prison-qt5-devel
+BuildRequires:  python3 update-desktop-files libqt6-qtbase-devel libqt6-qtwebsockets-devel libqt6-qtnetworkauth-devel libqt6-qtmultimedia-devel libqt6-qtsvg-devel kcoreaddons-devel ki18n-devel kcrash-devel knotifications-devel kiconthemes-devel syntax-highlighting-devel knotifyconfig-devel kdoctools-devel kdbusaddons-devel kxmlgui-devel kio-devel sonnet-devel ktextwidgets-devel ktextaddons-devel kidletime-devel karchive-devel purpose-devel prison-qt6-devel
 %endif
 
 %if %{defined fedora}
-BuildRequires:  gcc-c++ shared-mime-info python desktop-file-utils qt5-qtbase-devel qt5-qtwebsockets-devel qt5-qtnetworkauth-devel qt5-qtmultimedia-devel qt5-qtsvg-devel  kf5-kcoreaddons-devel kf5-ki18n-devel kf5-kcrash-devel kf5-knotifications-devel kf5-kiconthemes-devel kf5-syntax-highlighting-devel kf5-knotifyconfig-devel kf5-kdoctools-devel kf5-kdbusaddons-devel kf5-kxmlgui-devel kf5-kio-devel kf5-sonnet-devel kf5-ktextwidgets-devel ktextaddons-devel kf5-kidletime-devel kf5-prison-devel kf5-kconfigwidgets-devel kf5-karchive-devel kf5-purpose-devel generic-logos util-linux
+BuildRequires:  gcc-c++ shared-mime-info python desktop-file-utils qt6-qtbase-devel qt6-qtwebsockets-devel qt6-qtnetworkauth-devel qt6-qtmultimedia-devel qt6-qtsvg-devel  kf6-kcoreaddons-devel kf6-ki18n-devel kf6-kcrash-devel kf6-knotifications-devel kf6-kiconthemes-devel kf6-syntax-highlighting-devel kf6-knotifyconfig-devel kf6-kdoctools-devel kf6-kdbusaddons-devel kf6-kxmlgui-devel kf6-kio-devel kf6-sonnet-devel kf6-ktextwidgets-devel ktextaddons-devel kf6-kidletime-devel kf6-prison-devel kf6-kconfigwidgets-devel kf6-karchive-devel kf6-purpose-devel generic-logos util-linux
 %endif
 
 %description
@@ -54,9 +54,9 @@ cmake . -DCMAKE_INSTALL_PREFIX=/usr -DCMAKE_BUILD_TYPE=Release -DBUILD_TESTING=F
 %{_libdir}/libruqolacore.*
 %{_libdir}/libruqolawidgets.*
 %{_libdir}/librocketchatrestapi-qt.*
-%dir %{_libdir}/qt5/plugins/ruqolaplugins/
-%{_libdir}/qt5/plugins/ruqolaplugins/authentication/
-%{_libdir}/qt5/plugins/ruqolaplugins/textplugins/
+%dir %{_libdir}/qt6/plugins/ruqolaplugins/
+%{_libdir}/qt6/plugins/ruqolaplugins/authentication/
+%{_libdir}/qt6/plugins/ruqolaplugins/textplugins/
 %{_prefix}/share/applications/org.kde.ruqola.desktop
 %{_prefix}/share/icons/hicolor
 %{_prefix}/share/doc/HTML/en/ruqola/
