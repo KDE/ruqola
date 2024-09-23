@@ -35,6 +35,9 @@ public:
     [[nodiscard]] Status status() const;
     void setStatus(Status newStatus);
 
+    [[nodiscard]] bool keySaved() const;
+    void setKeySaved(bool newKeySaved);
+
 Q_SIGNALS:
     void needDecodeEncryptionKey();
     void failedDecodeEncryptionKey();
@@ -43,5 +46,6 @@ Q_SIGNALS:
 private:
     LIBRUQOLACORE_NO_EXPORT void verifyExistingKey(const QJsonObject &json);
     Status mStatus = Status::Unknown;
+    bool mKeySaved = false;
     RocketChatAccount *const mAccount;
 };

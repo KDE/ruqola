@@ -68,6 +68,16 @@ void E2eKeyManager::verifyExistingKey(const QJsonObject &json)
     // return status value
 }
 
+bool E2eKeyManager::keySaved() const
+{
+    return mKeySaved;
+}
+
+void E2eKeyManager::setKeySaved(bool newKeySaved)
+{
+    mKeySaved = newKeySaved;
+}
+
 E2eKeyManager::Status E2eKeyManager::needToDecodeEncryptionKey() const
 {
     if (!mAccount) {

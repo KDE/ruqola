@@ -17,6 +17,7 @@ void E2eKeyManagerTest::shouldHaveDefaultValues()
 {
     E2eKeyManager m(nullptr);
     QCOMPARE(m.status(), E2eKeyManager::Status::Unknown);
+    QVERIFY(!m.keySaved());
 }
 
 #include "moc_e2ekeymanagertest.cpp"
