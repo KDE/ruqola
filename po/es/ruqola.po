@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-09-21 00:40+0000\n"
-"PO-Revision-Date: 2024-09-07 18:37+0200\n"
+"PO-Revision-Date: 2024-09-22 16:59+0200\n"
 "Last-Translator: Víctor Rodrigo Córdoba <vrcordoba@gmail.com>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -838,11 +838,9 @@ msgid "Pending"
 msgstr "Pendiente"
 
 #: core/model/adminusersallmodel.cpp:58
-#, fuzzy, kde-format
-#| msgctxt "@action"
-#| msgid "Deactivate"
+#, kde-format
 msgid "Deactivated"
-msgstr "Desactivar"
+msgstr "Desactivado"
 
 #: core/model/adminusersallmodel.cpp:70
 #: core/model/adminuserspendingmodel.cpp:68
@@ -881,42 +879,34 @@ msgid "Status"
 msgstr "Estado"
 
 #: core/model/adminusersallmodel.cpp:80
-#, fuzzy, kde-format
-#| msgid "Registration"
+#, kde-format
 msgid "Registration status"
-msgstr "Registro"
+msgstr "Estado de registro"
 
 #: core/model/adminuserspendingmodel.cpp:53
-#, fuzzy, kde-format
-#| msgctxt "@info:shell"
-#| msgid "Use ddp api for login"
+#, kde-format
 msgid "User first log in"
-msgstr "Uso de ddp api para el inicio de sesión"
+msgstr "Primer acceso del usuario"
 
 #: core/model/adminuserspendingmodel.cpp:53
-#, fuzzy, kde-format
-#| msgid "Authentication"
+#, kde-format
 msgid "Activation"
-msgstr "Autenticación"
+msgstr "Activación"
 
 #: core/model/adminuserspendingmodel.cpp:58
-#, fuzzy, kde-format
-#| msgctxt "@option:check"
-#| msgid "Send Welcome Email"
+#, kde-format
 msgid "Resend Welcome Email"
-msgstr "Enviar correo electrónico de bienvenida"
+msgstr "Reenviar correo de bienvenida"
 
 #: core/model/adminuserspendingmodel.cpp:58
-#, fuzzy, kde-format
-#| msgid "Active"
+#, kde-format
 msgid "Activate"
-msgstr "Activo"
+msgstr "Activar"
 
 #: core/model/adminuserspendingmodel.cpp:78
-#, fuzzy, kde-format
-#| msgid "Pending"
+#, kde-format
 msgid "Pending action"
-msgstr "Pendiente"
+msgstr "Acción pendiente"
 
 #: core/model/bannerinfosmodel.cpp:52
 #, kde-format
@@ -1228,11 +1218,9 @@ msgid "Modify Status…"
 msgstr "Modificar estado..."
 
 #: core/model/systemmessagesmodel.cpp:31
-#, fuzzy, kde-format
-#| msgctxt "@title"
-#| msgid "Delete Message"
+#, kde-format
 msgid "Select Messages to hide"
-msgstr "Borrar mensaje"
+msgstr "Seleccionar mensajes a ocultar"
 
 #: core/model/systemmessagesmodel.cpp:34
 #, kde-format
@@ -1395,16 +1383,14 @@ msgid "Hide \"Room topic changed\" messages"
 msgstr "Ocultar mensajes «El tema de la sala cambió»"
 
 #: core/model/systemmessagesmodel.cpp:67
-#, fuzzy, kde-format
-#| msgid "Hide \"Room Name Changed\" messages"
+#, kde-format
 msgid "Hide \"Room announcement changed\" messages"
-msgstr "Ocultar mensajes «Nombre de la sala cambiado»"
+msgstr "Ocultar mensajes «Anuncio de la sala cambiado»"
 
 #: core/model/systemmessagesmodel.cpp:68
-#, fuzzy, kde-format
-#| msgid "Hide \"Room topic changed\" messages"
+#, kde-format
 msgid "Hide \"Room description changed\" messages"
-msgstr "Ocultar mensajes «El tema de la sala cambió»"
+msgstr "Ocultar mensajes «La descripción de la sala cambió»"
 
 #: core/model/systemmessagesmodel.cpp:70
 #, kde-format
@@ -7308,6 +7294,8 @@ msgid ""
 "Messages are end-to-end encrypted, search will not work and notifications "
 "may not show message content"
 msgstr ""
+"Los mensajes están cifrados extremo a extremo, la búsqueda no funcionará y "
+"las notificaciones no mostrarán el contenido del mensaje"
 
 #: widgets/dialogs/channelinfoeditablewidget.cpp:84
 #, kde-format
@@ -7345,7 +7333,7 @@ msgstr "Privado:"
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "People can only join by being invited"
-msgstr ""
+msgstr "La gente solo se puede unir si es invitada"
 
 #: widgets/dialogs/channelinfoeditablewidget.cpp:101
 #, kde-format
@@ -7976,6 +7964,9 @@ msgid ""
 "You can search using <a href=\"https://en.wikipedia.org/wiki/"
 "Regular_expression\">Regular Expression</a>. e.g. <code>/^text$/i</code>"
 msgstr ""
+"Puede buscar usando <a href=\"https://en.wikipedia.org/wiki/"
+"Regular_expression\">expresiones regulares</a>. Por ejemplo: <code>/^texto$/"
+"i</code>"
 
 #: widgets/dialogs/serverinfo/serverinfodialog.cpp:17
 #, kde-format
@@ -10986,15 +10977,17 @@ msgid "Add welcome page."
 msgstr "Añadir página de bienvenida."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:96
-#, fuzzy, kde-format
-#| msgid "Implement moderation (administrator mode)."
+#, kde-format
 msgid "Implement pending users info (administrator mode)."
-msgstr "Moderación implementada (modo administrador)."
+msgstr ""
+"Implementación de la información pendiente de usuarios (modo administrador)."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:97
 #, kde-format
 msgid "Use cmark-rc (https://github.com/dfaure/cmark-rc) for markdown support."
 msgstr ""
+"Uso de cmark-rc  (https://github.com/dfaure/cmark-rc) para la implementación "
+"de Markdown."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:98
 #, kde-format
@@ -11002,6 +10995,8 @@ msgid ""
 "Delete oldest files from some cache directories (file-upload and media) so "
 "it doesn't grow forever."
 msgstr ""
+"Borrado los archivos más antiguos de algunos directorios de caché (subida de "
+"archivos y medios) para que no crezcan para siempre."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:102
 #, kde-format
@@ -11052,6 +11047,3 @@ msgstr ""
 #, kde-format
 msgid "Some bug fixing:"
 msgstr "Algunas correcciones de errores:"
-
-#~ msgid "System Messages"
-#~ msgstr "Mensajes del sistema"

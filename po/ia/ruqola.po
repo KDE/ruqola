@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-09-21 00:40+0000\n"
-"PO-Revision-Date: 2024-09-11 09:59+0200\n"
+"PO-Revision-Date: 2024-09-22 12:16+0200\n"
 "Last-Translator: giovanni <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
 "Language: ia\n"
@@ -1214,11 +1214,9 @@ msgid "Modify Status…"
 msgstr "Modifica Stato ..."
 
 #: core/model/systemmessagesmodel.cpp:31
-#, fuzzy, kde-format
-#| msgctxt "@title"
-#| msgid "Delete Message"
+#, kde-format
 msgid "Select Messages to hide"
-msgstr "Dele Messages"
+msgstr "Selige Messages a celar"
 
 #: core/model/systemmessagesmodel.cpp:34
 #, kde-format
@@ -1381,16 +1379,14 @@ msgid "Hide \"Room topic changed\" messages"
 msgstr "Cela messages de \"Topico de sala cambiate\""
 
 #: core/model/systemmessagesmodel.cpp:67
-#, fuzzy, kde-format
-#| msgid "Hide \"Room Name Changed\" messages"
+#, kde-format
 msgid "Hide \"Room announcement changed\" messages"
-msgstr "Cela messages de \"Nomine de sala cambiate\""
+msgstr "Cela messages de \"Aviso de sala cambiate\""
 
 #: core/model/systemmessagesmodel.cpp:68
-#, fuzzy, kde-format
-#| msgid "Hide \"Room topic changed\" messages"
+#, kde-format
 msgid "Hide \"Room description changed\" messages"
-msgstr "Cela messages de \"Topico de sala cambiate\""
+msgstr "Cela messages de \"Description de sala cambiate\""
 
 #: core/model/systemmessagesmodel.cpp:70
 #, kde-format
