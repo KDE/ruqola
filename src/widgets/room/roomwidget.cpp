@@ -227,12 +227,13 @@ void RoomWidget::slotGenerateNewPassword()
 {
     QPointer<E2eCopyPasswordDialog> dlg = new E2eCopyPasswordDialog(mCurrentRocketChatAccount, this);
     if (dlg->exec()) {
-        mE2eSaveEncryptionKeyWidget->animatedHide();
         // TODO save it in kwalletmanagers ?
         // inform that we saved it.
         // TODO we saved it => don't ask it again
         // TODO hide kmessagewidget
     }
+    // Hide it.
+    mE2eSaveEncryptionKeyWidget->animatedHide();
     delete dlg;
 }
 
