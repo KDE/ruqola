@@ -5,7 +5,6 @@ include(ECMAddAppIcon)
 add_executable(ruqola main.cpp)
 
 target_link_libraries(ruqola
-    libruqolacore
     libruqolawidgets
     librocketchatrestapi-qt
     KF6::Crash
