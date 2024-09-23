@@ -82,6 +82,9 @@ public:
     [[nodiscard]] int cacheVersion() const;
     void setCacheVersion(int newVersion);
 
+    [[nodiscard]] bool keySaved() const;
+    void setKeySaved(bool newKeySaved);
+
 Q_SIGNALS:
     void serverURLChanged();
     void userNameChanged();
@@ -111,6 +114,7 @@ private:
     QString mTwoFactorAuthenticationCode;
     qint64 mExpireToken = -1;
     QSettings *mSetting = nullptr;
+    bool mKeySaved = false;
     bool mUseLdap = false;
     bool mAccountEnabled = true;
     bool mActivityEnabled = false;

@@ -8,6 +8,7 @@
 #include "connection.h"
 #include "e2e/fetchmykeysjob.h"
 #include "rocketchataccount.h"
+#include "rocketchataccountsettings.h"
 #include "ruqola_encryption_debug.h"
 // https://docs.rocket.chat/docs/end-to-end-encryption-specifications
 E2eKeyManager::E2eKeyManager(RocketChatAccount *account, QObject *parent)
@@ -70,12 +71,17 @@ void E2eKeyManager::verifyExistingKey(const QJsonObject &json)
 
 bool E2eKeyManager::keySaved() const
 {
-    return mKeySaved;
+    if (mAccount) {
+        return mAccount->settings()->keySaved();
+    }
+    return false;
 }
 
 void E2eKeyManager::setKeySaved(bool newKeySaved)
 {
-    mKeySaved = newKeySaved;
+    if (mAccount) {
+        mAccount->settings()->setKeySaved(newKeySaved);
+    }
 }
 
 E2eKeyManager::Status E2eKeyManager::needToDecodeEncryptionKey() const

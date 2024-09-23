@@ -8,6 +8,7 @@
 #include "encryption/e2ecopypassworddialog.h"
 #include "encryption/e2edecodeencryptionkeyfailedwidget.h"
 #include "encryption/e2edecodeencryptionkeywidget.h"
+#include "encryption/e2ekeymanager.h"
 #include "encryption/e2epassworddecodekeydialog.h"
 #include "encryption/e2esaveencryptionkeywidget.h"
 using namespace Qt::Literals::StringLiterals;
@@ -44,6 +45,7 @@ using namespace Qt::Literals::StringLiterals;
 
 #include "otr/otrwidget.h"
 #include "reconnectinfowidget.h"
+#include "rocketchataccountsettings.h"
 #include "roomcounterinfowidget.h"
 #include "roomwidgetbase.h"
 #include "ruqola_thread_message_widgets_debug.h"
@@ -185,11 +187,13 @@ void RoomWidget::createOtrWidget()
 
 void RoomWidget::createE2eSaveEncryptionKeyWidget()
 {
-    mE2eSaveEncryptionKeyWidget = new E2eSaveEncryptionKeyWidget(this);
-    mE2eSaveEncryptionKeyWidget->setObjectName(QStringLiteral("mE2eDecodeEncryptionKeyWidget"));
-    connect(mE2eSaveEncryptionKeyWidget, &E2eSaveEncryptionKeyWidget::saveEncrytionKey, this, &RoomWidget::slotGenerateNewPassword);
-    // After mUsersInRoomFlowWidget
-    mRoomWidgetLayout->insertWidget(1, mE2eSaveEncryptionKeyWidget);
+    if (mCurrentRocketChatAccount && !mCurrentRocketChatAccount->e2eKeyManager()->keySaved()) {
+        mE2eSaveEncryptionKeyWidget = new E2eSaveEncryptionKeyWidget(this);
+        mE2eSaveEncryptionKeyWidget->setObjectName(QStringLiteral("mE2eDecodeEncryptionKeyWidget"));
+        connect(mE2eSaveEncryptionKeyWidget, &E2eSaveEncryptionKeyWidget::saveEncrytionKey, this, &RoomWidget::slotGenerateNewPassword);
+        // After mUsersInRoomFlowWidget
+        mRoomWidgetLayout->insertWidget(1, mE2eSaveEncryptionKeyWidget);
+    }
 }
 
 // TODO use it
@@ -227,10 +231,8 @@ void RoomWidget::slotGenerateNewPassword()
 {
     QPointer<E2eCopyPasswordDialog> dlg = new E2eCopyPasswordDialog(mCurrentRocketChatAccount, this);
     if (dlg->exec()) {
+        mCurrentRocketChatAccount->settings()->setKeySaved(true);
         // TODO save it in kwalletmanagers ?
-        // inform that we saved it.
-        // TODO we saved it => don't ask it again
-        // TODO hide kmessagewidget
     }
     // Hide it.
     mE2eSaveEncryptionKeyWidget->animatedHide();
@@ -933,10 +935,12 @@ void RoomWidget::setCurrentRocketChatAccount(RocketChatAccount *account)
     };
 
     auto showE2eSaveEncryptionKeyWidget = [this] {
-        if (!mE2eSaveEncryptionKeyWidget) {
-            createE2eSaveEncryptionKeyWidget();
+        if (mCurrentRocketChatAccount && !mCurrentRocketChatAccount->e2eKeyManager()->keySaved()) {
+            if (!mE2eSaveEncryptionKeyWidget) {
+                createE2eSaveEncryptionKeyWidget();
+            }
+            mE2eSaveEncryptionKeyWidget->animatedShow();
         }
-        mE2eSaveEncryptionKeyWidget->animatedShow();
     };
 
     connect(mCurrentRocketChatAccount, &RocketChatAccount::needToSaveE2EPassword, this, [showE2eSaveEncryptionKeyWidget]() {

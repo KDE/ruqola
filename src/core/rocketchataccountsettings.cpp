@@ -63,7 +63,7 @@ void RocketChatAccountSettings::initializeSettings(const QString &accountFileNam
     mLastCheckedPreviewUrlCacheDate = mSetting->value("lastCheckedPreviewUrlDate"_L1).toDate();
     mAuthMethodType =
         mSetting->value("authenticationMethodType"_L1, AuthenticationManager::AuthMethodType::Password).value<AuthenticationManager::AuthMethodType>();
-
+    mKeySaved = mSetting->value("keySaved"_L1, false).toBool();
     // Password is ok when we use Password authentication method.
     // Not sure for other.
     if (mAccountEnabled && !mAccountName.isEmpty()) {
@@ -364,6 +364,24 @@ void RocketChatAccountSettings::removeSettings()
     }
 }
 
+bool RocketChatAccountSettings::keySaved() const
+{
+    return mKeySaved;
+}
+
+void RocketChatAccountSettings::setKeySaved(bool newKeySaved)
+{
+    if (mKeySaved != newKeySaved) {
+        mKeySaved = newKeySaved;
+        if (mKeySaved) {
+            mSetting->setValue("keySaved"_L1, true);
+        } else {
+            mSetting->remove("keySaved"_L1);
+        }
+        mSetting->sync();
+    }
+}
+
 QDebug operator<<(QDebug d, const RocketChatAccountSettings &t)
 {
     d.space() << "mAuthMethodType" << t.authMethodType();
@@ -378,6 +396,7 @@ QDebug operator<<(QDebug d, const RocketChatAccountSettings &t)
     d.space() << "mAccountEnabled" << t.accountEnabled();
     d.space() << "mActivities" << t.activities();
     d.space() << "mActivityEnabled" << t.activityEnabled();
+    d.space() << "mKeySaved" << t.keySaved();
     return d;
 }
 
