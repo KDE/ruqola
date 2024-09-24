@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-09-21 00:40+0000\n"
+"POT-Creation-Date: 2024-09-24 00:39+0000\n"
 "PO-Revision-Date: 2024-09-21 10:49+0200\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
@@ -10013,18 +10013,18 @@ msgstr "In een discussie antwoorden"
 msgid "Reply in Thread for Message: '%1'"
 msgstr "In discussiebundeling antwoorden op bericht: '%1'"
 
-#: widgets/room/roomwidget.cpp:329
+#: widgets/room/roomwidget.cpp:336
 #, kde-format
 msgid "Do you want really remove history?"
 msgstr "Wilt u de geschiedenis verwijderen?"
 
-#: widgets/room/roomwidget.cpp:330
+#: widgets/room/roomwidget.cpp:337
 #, kde-format
 msgctxt "@title:window"
 msgid "Remove History"
 msgstr "Geschiedenis verwijderen"
 
-#: widgets/room/roomwidget.cpp:500
+#: widgets/room/roomwidget.cpp:507
 #, kde-format
 msgid ""
 "A workspace admin needs to install and configure a conference call apps."
@@ -10032,7 +10032,7 @@ msgstr ""
 "Een beheerder van werkruimte moet een toepassing voor een conferentieoproep "
 "installeren en configureren."
 
-#: widgets/room/roomwidget.cpp:501
+#: widgets/room/roomwidget.cpp:508
 #, kde-format
 msgctxt "@title:window"
 msgid "Video Conference"

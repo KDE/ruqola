@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-09-21 00:40+0000\n"
+"POT-Creation-Date: 2024-09-24 00:39+0000\n"
 "PO-Revision-Date: 2024-09-21 08:11+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
@@ -10002,18 +10002,18 @@ msgstr "Odgovarjanje v niti"
 msgid "Reply in Thread for Message: '%1'"
 msgstr "Odgovori v niti za sporočilo: '%1'"
 
-#: widgets/room/roomwidget.cpp:329
+#: widgets/room/roomwidget.cpp:336
 #, kde-format
 msgid "Do you want really remove history?"
 msgstr "Ali res želite odstraniti zgodovino?"
 
-#: widgets/room/roomwidget.cpp:330
+#: widgets/room/roomwidget.cpp:337
 #, kde-format
 msgctxt "@title:window"
 msgid "Remove History"
 msgstr "Odstrani zgodovino"
 
-#: widgets/room/roomwidget.cpp:500
+#: widgets/room/roomwidget.cpp:507
 #, kde-format
 msgid ""
 "A workspace admin needs to install and configure a conference call apps."
@@ -10021,7 +10021,7 @@ msgstr ""
 "Skrbnik delovnega prostora mora namestiti in konfigurirati aplikacije "
 "konferenčnih klicev."
 
-#: widgets/room/roomwidget.cpp:501
+#: widgets/room/roomwidget.cpp:508
 #, kde-format
 msgctxt "@title:window"
 msgid "Video Conference"

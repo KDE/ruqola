@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-09-21 00:40+0000\n"
+"POT-Creation-Date: 2024-09-24 00:39+0000\n"
 "PO-Revision-Date: 2024-09-21 22:02+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
@@ -9956,18 +9956,18 @@ msgstr "Bir dizide yanıtlanıyor"
 msgid "Reply in Thread for Message: '%1'"
 msgstr "Şu İletiyi Dizide Yanıtla: “%1”"
 
-#: widgets/room/roomwidget.cpp:329
+#: widgets/room/roomwidget.cpp:336
 #, kde-format
 msgid "Do you want really remove history?"
 msgstr "Geçmişi kaldırmayı gerçekten istiyor musunuz?"
 
-#: widgets/room/roomwidget.cpp:330
+#: widgets/room/roomwidget.cpp:337
 #, kde-format
 msgctxt "@title:window"
 msgid "Remove History"
 msgstr "Geçmişi Kaldır"
 
-#: widgets/room/roomwidget.cpp:500
+#: widgets/room/roomwidget.cpp:507
 #, kde-format
 msgid ""
 "A workspace admin needs to install and configure a conference call apps."
@@ -9975,7 +9975,7 @@ msgstr ""
 "Bir çalışma alanı yöneticisinin bir konferans araması uygulaması kurması ve "
 "yapılandırması gerekir."
 
-#: widgets/room/roomwidget.cpp:501
+#: widgets/room/roomwidget.cpp:508
 #, kde-format
 msgctxt "@title:window"
 msgid "Video Conference"
