@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-09-24 00:39+0000\n"
-"PO-Revision-Date: 2024-09-13 18:33+0200\n"
+"PO-Revision-Date: 2024-09-22 17:11+0200\n"
 "Last-Translator: Vincenzo Reale <smart2128vr@gmail.com>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
 "Language: it\n"
@@ -1218,11 +1218,9 @@ msgid "Modify Status…"
 msgstr "Modifica stato…"
 
 #: core/model/systemmessagesmodel.cpp:31
-#, fuzzy, kde-format
-#| msgctxt "@title"
-#| msgid "Delete Message"
+#, kde-format
 msgid "Select Messages to hide"
-msgstr "Elimina messaggio"
+msgstr "Seleziona i messaggi da nascondere"
 
 #: core/model/systemmessagesmodel.cpp:34
 #, kde-format
@@ -1385,16 +1383,14 @@ msgid "Hide \"Room topic changed\" messages"
 msgstr "Nascondi i messaggi «Argomento della stanza modificato»"
 
 #: core/model/systemmessagesmodel.cpp:67
-#, fuzzy, kde-format
-#| msgid "Hide \"Room Name Changed\" messages"
+#, kde-format
 msgid "Hide \"Room announcement changed\" messages"
-msgstr "Nascondi i messaggi «Nome della stanza modificato»"
+msgstr "Nascondi i messaggi «Annuncio della stanza modificato»"
 
 #: core/model/systemmessagesmodel.cpp:68
-#, fuzzy, kde-format
-#| msgid "Hide \"Room topic changed\" messages"
+#, kde-format
 msgid "Hide \"Room description changed\" messages"
-msgstr "Nascondi i messaggi «Argomento della stanza modificato»"
+msgstr "Nascondi i messaggi Descrizione della stanza modificata»"
 
 #: core/model/systemmessagesmodel.cpp:70
 #, kde-format
@@ -7304,6 +7300,8 @@ msgid ""
 "Messages are end-to-end encrypted, search will not work and notifications "
 "may not show message content"
 msgstr ""
+"I messaggi sono cifrati end-to-end, la ricerca non funzionerà e le notifiche "
+"potrebbero non mostrare il contenuto del messaggio"
 
 #: widgets/dialogs/channelinfoeditablewidget.cpp:84
 #, kde-format
@@ -7341,7 +7339,7 @@ msgstr "Privato:"
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "People can only join by being invited"
-msgstr ""
+msgstr "Le persone possono partecipare solo se invitate"
 
 #: widgets/dialogs/channelinfoeditablewidget.cpp:101
 #, kde-format
@@ -7973,6 +7971,9 @@ msgid ""
 "You can search using <a href=\"https://en.wikipedia.org/wiki/"
 "Regular_expression\">Regular Expression</a>. e.g. <code>/^text$/i</code>"
 msgstr ""
+"Puoi cercare usando un'<a href=\"https://en.wikipedia.org/wiki/"
+"Regular_expression\">Espressione regolare</a>. ad esempio <code>/^text$/i</"
+"code>"
 
 #: widgets/dialogs/serverinfo/serverinfodialog.cpp:17
 #, kde-format
