@@ -459,7 +459,7 @@ UsersModel *RocketChatAccount::usersModel() const
     return mUserModel;
 }
 
-Room *RocketChatAccount::room(const QByteArray &roomId)
+Room *RocketChatAccount::room(const QByteArray &roomId) const
 {
     return mRoomModel->findRoom(roomId);
 }
@@ -2120,7 +2120,7 @@ bool RocketChatAccount::isMessageEditable(const Message &message) const
     if (!allowEditingMessages()) {
         return false;
     }
-    if (hasPermission(QStringLiteral("edit-message"))) {
+    if (hasPermission(QStringLiteral("edit-message"), message.roomId())) {
         return true;
     }
     if (message.userId() != userId()) {
@@ -3064,9 +3064,17 @@ QStringList RocketChatAccount::ownUserPermission() const
     return mOwnUser.roles();
 }
 
-bool RocketChatAccount::hasPermission(const QString &permissionId) const
+bool RocketChatAccount::hasPermission(const QString &permissionId, const QByteArray &roomId) const
 {
-    const QStringList ownUserRoles{mOwnUser.roles()};
+    QStringList currentRoles;
+    if (roomId.isEmpty()) {
+        currentRoles = mOwnUser.roles();
+    } else {
+        Room *r = room(roomId);
+        if (r) {
+            currentRoles = r->roles();
+        }
+    }
     const QStringList permissionRoles{mPermissionManager.roles(permissionId)};
     if (permissionRoles.isEmpty()) { // Check if we don't have stored permissionId in permission manager
         if (!mPermissionManager.contains(permissionId)) {
@@ -3074,7 +3082,7 @@ bool RocketChatAccount::hasPermission(const QString &permissionId) const
         }
     }
     for (const QString &role : permissionRoles) {
-        if (ownUserRoles.contains(role)) {
+        if (currentRoles.contains(role)) {
             return true;
         }
     }
