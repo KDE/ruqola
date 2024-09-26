@@ -253,7 +253,7 @@ public:
     [[nodiscard]] AuthenticationManager::LoginStatus loginStatus();
     Connection *restApi();
 
-    [[nodiscard]] Room *room(const QByteArray &roomId);
+    [[nodiscard]] Room *room(const QByteArray &roomId) const;
 
     // Make it private in future
     void slotInformTypingStatus(const QByteArray &room, bool typing);
@@ -413,7 +413,7 @@ public:
     void resetAvatar();
     void setAvatarUrl(const QString &url);
     void exportMessages(const RocketChatRestApi::RoomsExportJob::RoomsExportInfo &info);
-    [[nodiscard]] bool hasPermission(const QString &permissionId) const;
+    [[nodiscard]] bool hasPermission(const QString &permissionId, const QByteArray &roomId = {}) const;
     [[nodiscard]] QStringList permissions(const QString &permissionId) const;
     void setUserPreferences(const RocketChatRestApi::UsersSetPreferencesJob::UsersSetPreferencesInfo &info);
     [[nodiscard]] QStringList ownUserPermission() const;
