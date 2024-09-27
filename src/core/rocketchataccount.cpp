@@ -2117,15 +2117,14 @@ bool RocketChatAccount::uploadFileEnabled() const
 
 bool RocketChatAccount::isMessageEditable(const Message &message) const
 {
-    if (!allowEditingMessages()) {
+    const bool canEditMessage = hasPermission(QStringLiteral("edit-message"), message.roomId());
+    const bool isEditAllowed = allowEditingMessages();
+    const bool editOwn = message.userId() == userId();
+
+    if (!(canEditMessage || (isEditAllowed && editOwn))) {
         return false;
     }
-    if (hasPermission(QStringLiteral("edit-message"), message.roomId())) {
-        return true;
-    }
-    if (message.userId() != userId()) {
-        return false;
-    }
+
     if (ruqolaServerConfig()->blockEditingMessageInMinutes() == 0) {
         return true;
     }
