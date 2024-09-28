@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-09-17 02:36+0000\n"
+"POT-Creation-Date: 2024-09-28 02:31+0000\n"
 "PO-Revision-Date: 2024-06-22 13:21+0100\n"
 "Last-Translator: Steve Allewell <steve.allewell@gmail.com>\n"
 "Language-Team: British English\n"
@@ -1477,12 +1477,12 @@ msgctxt "We need a space between after </strong>"
 msgid "<strong>%1</strong> are typing..."
 msgstr "<strong>%1</strong> are typing..."
 
-#: core/rocketchataccount.cpp:3041
+#: core/rocketchataccount.cpp:3040
 #, kde-format
 msgid "Export Messages"
 msgstr "Export Messages"
 
-#: core/rocketchataccount.cpp:3042
+#: core/rocketchataccount.cpp:3041
 #, kde-format
 msgid "Your email has been queued for sending."
 msgstr "Your email has been queued for sending."
