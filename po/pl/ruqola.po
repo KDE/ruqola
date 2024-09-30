@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-09-28 02:31+0000\n"
-"PO-Revision-Date: 2024-09-07 11:46+0200\n"
+"PO-Revision-Date: 2024-09-29 09:01+0200\n"
 "Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>\n"
 "Language-Team: Polish <kde-i18n-doc@kde.org>\n"
 "Language: pl\n"
@@ -839,10 +839,9 @@ msgid "Pending"
 msgstr "Oczekujący"
 
 #: core/model/adminusersallmodel.cpp:58
-#, fuzzy, kde-format
-#| msgid "Deactivate"
+#, kde-format
 msgid "Deactivated"
-msgstr "Wyłącz"
+msgstr "Wyłączony"
 
 #: core/model/adminusersallmodel.cpp:70
 #: core/model/adminuserspendingmodel.cpp:68
@@ -881,39 +880,34 @@ msgid "Status"
 msgstr "Dostępność"
 
 #: core/model/adminusersallmodel.cpp:80
-#, fuzzy, kde-format
-#| msgid "Registration"
+#, kde-format
 msgid "Registration status"
-msgstr "Rejestracja"
+msgstr "Stan rejestracji"
 
 #: core/model/adminuserspendingmodel.cpp:53
 #, kde-format
 msgid "User first log in"
-msgstr ""
+msgstr "Pierwsze logowanie użytkownika"
 
 #: core/model/adminuserspendingmodel.cpp:53
-#, fuzzy, kde-format
-#| msgid "Authentication"
+#, kde-format
 msgid "Activation"
-msgstr "Uwierzytelnianie"
+msgstr "Aktywacja"
 
 #: core/model/adminuserspendingmodel.cpp:58
-#, fuzzy, kde-format
-#| msgid "Send Welcome Email"
+#, kde-format
 msgid "Resend Welcome Email"
-msgstr "Wyślij wiadomość powitalną"
+msgstr "Wyślij wiadomość powitalną ponownie"
 
 #: core/model/adminuserspendingmodel.cpp:58
-#, fuzzy, kde-format
-#| msgid "Active"
+#, kde-format
 msgid "Activate"
-msgstr "Bieżące"
+msgstr "Aktywuj"
 
 #: core/model/adminuserspendingmodel.cpp:78
-#, fuzzy, kde-format
-#| msgid "Unknown action!"
+#, kde-format
 msgid "Pending action"
-msgstr "Nieznane działanie!"
+msgstr "Oczekujące działanie"
 
 #: core/model/bannerinfosmodel.cpp:52
 #, kde-format
@@ -10706,16 +10700,20 @@ msgstr "Ukryj stronę powitalną."
 #: widgets/whatsnew/whatsnewtranslations.cpp:22
 msgid "Implement pending users info (administrator mode)."
 msgstr ""
+"Dodaj powiadomienie o oczekujących użytkownikach (tryb administratora)."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:23
 msgid "Use cmark-rc (https://github.com/dfaure/cmark-rc) for markdown support."
 msgstr ""
+"Użyj cmark-rc (https://github.com/dfaure/cmark-rc) do obsługi markdown."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:24
 msgid ""
 "Delete oldest files from some cache directories (file-upload and media) so "
 "it doesn't grow forever."
 msgstr ""
+"Usuń najstarsze pliki z niektórych katalogów pamięci podręcznej (file-upload "
+"oraz media) tak, aby nie rosły w nieskończoność."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:34
 #, kde-format
