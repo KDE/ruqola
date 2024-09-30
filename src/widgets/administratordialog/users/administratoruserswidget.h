@@ -18,7 +18,7 @@ public:
         All,
         Pending,
         Desactivated,
-        Actif,
+        Active,
     };
 
     explicit AdministratorUsersWidget(AdministratorUsersWidget::UsersType type, RocketChatAccount *account, QWidget *parent = nullptr);
