@@ -19,6 +19,7 @@ public:
         Name,
         Identifier,
         Aliases,
+        AliasesWithoutDoublePoint,
         Icon,
         LastColumn = Icon,
     };

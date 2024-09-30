@@ -34,6 +34,7 @@ QVariant AdminCustomEmojiModel::headerData(int section, Qt::Orientation orientat
             return i18n("Name");
         case CustomEmojiRoles::Identifier:
             return i18n("Identifier");
+        case CustomEmojiRoles::AliasesWithoutDoublePoint:
         case CustomEmojiRoles::Aliases:
             return i18n("Aliases");
         case CustomEmojiRoles::Icon:
@@ -68,6 +69,17 @@ QVariant AdminCustomEmojiModel::data(const QModelIndex &index, int role) const
         return customEmoji.identifier();
     case CustomEmojiRoles::Aliases:
         return customEmoji.aliases().join(QLatin1Char(','));
+    case CustomEmojiRoles::AliasesWithoutDoublePoint: {
+        const QStringList aliases = customEmoji.aliases();
+        QString aliasStr;
+        for (QString alias : aliases) {
+            if (!aliasStr.isEmpty()) {
+                aliasStr += QLatin1Char(',');
+            }
+            aliasStr += alias.remove(QLatin1Char(':'));
+        }
+        return aliasStr;
+    }
     case CustomEmojiRoles::Icon:
         return createCustomIcon(customEmoji.identifier());
     }
@@ -146,7 +158,7 @@ void AdminCustomEmojiModel::addMoreElements(const QJsonObject &obj)
 
 QList<int> AdminCustomEmojiModel::hideColumns() const
 {
-    return {CustomEmojiRoles::Identifier, CustomEmojiRoles::Icon};
+    return {CustomEmojiRoles::Identifier, CustomEmojiRoles::Icon, CustomEmojiRoles::Aliases};
 }
 
 QIcon AdminCustomEmojiModel::createCustomIcon(const QByteArray &identifier) const
