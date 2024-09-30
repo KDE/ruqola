@@ -23,4 +23,5 @@ private:
     QTabWidget *const mTabWidget;
     AdministratorUsersWidget *const mAllUsers;
     AdministratorUsersWidget *const mPendingUsers;
+    AdministratorUsersWidget *const mDeactivatedUsers;
 };

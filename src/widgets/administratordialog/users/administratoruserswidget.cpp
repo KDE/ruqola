@@ -364,9 +364,20 @@ void AdministratorUsersWidget::slotLoadElements(int offset, int count, const QSt
         info.searchName = searchName;
     }
 
-    if (mUserType == Pending) {
+    switch (mUserType) {
+    case Pending: {
         info.hasLoggedIn = RocketChatRestApi::UsersListByStatusJob::LoggedStatus::NotLogged;
         info.type = RocketChatRestApi::UsersListByStatusJob::StatusType::User;
+        break;
+    }
+    case Desactivated: {
+        info.hasLoggedIn = RocketChatRestApi::UsersListByStatusJob::LoggedStatus::NotLogged;
+        info.type = RocketChatRestApi::UsersListByStatusJob::StatusType::User;
+        info.status = RocketChatRestApi::UsersListByStatusJob::Status::Deactivated;
+        break;
+    }
+    default:
+        break;
     }
 
     job->setUsersListByStatusJobInfo(info);

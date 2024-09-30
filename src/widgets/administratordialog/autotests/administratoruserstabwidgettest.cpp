@@ -30,6 +30,9 @@ void AdministratorUsersTabWidgetTest::shouldHaveDefaultValues()
     auto mPendingUsers = w.findChild<AdministratorUsersWidget *>("mPendingUsers"_L1);
     QVERIFY(mPendingUsers);
 
+    auto mDeactivatedUsers = w.findChild<AdministratorUsersWidget *>("mDeactivatedUsers"_L1);
+    QVERIFY(mDeactivatedUsers);
+
     auto mTabWidget = w.findChild<QTabWidget *>("mTabWidget"_L1);
     QVERIFY(mTabWidget);
 }

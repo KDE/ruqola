@@ -17,6 +17,8 @@ public:
     enum UsersType {
         All,
         Pending,
+        Desactivated,
+        Actif,
     };
 
     explicit AdministratorUsersWidget(AdministratorUsersWidget::UsersType type, RocketChatAccount *account, QWidget *parent = nullptr);
