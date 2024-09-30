@@ -44,9 +44,7 @@ AdministratorUsersWidget::AdministratorUsersWidget(AdministratorUsersWidget::Use
     , mUserType(type)
 {
     AdminUsersBaseModel *adminUsersModel = nullptr;
-    if (type == AdministratorUsersWidget::All) {
-        adminUsersModel = new AdminUsersAllModel(this);
-    } else {
+    if (type == AdministratorUsersWidget::Pending) {
         adminUsersModel = new AdminUsersPendingModel(this);
         auto delegate = new AdministratorUsersPendingActionDelegate(this);
         connect(delegate, &AdministratorUsersPendingActionDelegate::pendingActionActivated, this, [this](const QModelIndex &index) {
@@ -58,6 +56,8 @@ AdministratorUsersWidget::AdministratorUsersWidget(AdministratorUsersWidget::Use
             }
         });
         mTreeView->setItemDelegateForColumn(AdminUsersPendingModel::PendingActionButton, delegate);
+    } else {
+        adminUsersModel = new AdminUsersAllModel(this);
     }
 
     adminUsersModel->setObjectName("mAdminUsersModel"_L1);
