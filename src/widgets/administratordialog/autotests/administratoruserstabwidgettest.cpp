@@ -33,6 +33,9 @@ void AdministratorUsersTabWidgetTest::shouldHaveDefaultValues()
     auto mDeactivatedUsers = w.findChild<AdministratorUsersWidget *>("mDeactivatedUsers"_L1);
     QVERIFY(mDeactivatedUsers);
 
+    auto mActivatedUsers = w.findChild<AdministratorUsersWidget *>("mActivatedUsers"_L1);
+    QVERIFY(mActivatedUsers);
+
     auto mTabWidget = w.findChild<QTabWidget *>("mTabWidget"_L1);
     QVERIFY(mTabWidget);
 }

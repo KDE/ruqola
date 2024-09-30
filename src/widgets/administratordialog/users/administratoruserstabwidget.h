@@ -24,4 +24,5 @@ private:
     AdministratorUsersWidget *const mAllUsers;
     AdministratorUsersWidget *const mPendingUsers;
     AdministratorUsersWidget *const mDeactivatedUsers;
+    AdministratorUsersWidget *const mActivatedUsers;
 };

@@ -376,7 +376,14 @@ void AdministratorUsersWidget::slotLoadElements(int offset, int count, const QSt
         info.status = RocketChatRestApi::UsersListByStatusJob::Status::Deactivated;
         break;
     }
-    default:
+    case Activate: {
+        // TODO fix me
+        info.hasLoggedIn = RocketChatRestApi::UsersListByStatusJob::LoggedStatus::Logged;
+        info.type = RocketChatRestApi::UsersListByStatusJob::StatusType::User;
+        info.status = RocketChatRestApi::UsersListByStatusJob::Status::Activated;
+        break;
+    }
+    case All:
         break;
     }
 

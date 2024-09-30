@@ -16,7 +16,7 @@ AdministratorUsersTabWidget::AdministratorUsersTabWidget(RocketChatAccount *acco
     , mAllUsers(new AdministratorUsersWidget(AdministratorUsersWidget::UsersType::All, account, this))
     , mPendingUsers(new AdministratorUsersWidget(AdministratorUsersWidget::UsersType::Pending, account, this))
     , mDeactivatedUsers(new AdministratorUsersWidget(AdministratorUsersWidget::UsersType::Desactivated, account, this))
-
+    , mActivatedUsers(new AdministratorUsersWidget(AdministratorUsersWidget::UsersType::Activate, account, this))
 {
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName("mainLayout"_L1);
@@ -28,10 +28,12 @@ AdministratorUsersTabWidget::AdministratorUsersTabWidget(RocketChatAccount *acco
     mAllUsers->setObjectName("mAllUsers"_L1);
     mPendingUsers->setObjectName("mPendingUsers"_L1);
     mDeactivatedUsers->setObjectName("mDeactivatedUsers"_L1);
+    mActivatedUsers->setObjectName("mActivatedUsers"_L1);
 
     mTabWidget->addTab(mAllUsers, i18n("All"));
     mTabWidget->addTab(mPendingUsers, i18n("Pending"));
     mTabWidget->addTab(mDeactivatedUsers, i18n("Deactivated"));
+    mTabWidget->addTab(mActivatedUsers, i18n("Activated"));
 }
 
 AdministratorUsersTabWidget::~AdministratorUsersTabWidget() = default;
@@ -41,6 +43,7 @@ void AdministratorUsersTabWidget::initialize()
     mAllUsers->initialize();
     mPendingUsers->initialize();
     mDeactivatedUsers->initialize();
+    mActivatedUsers->initialize();
 }
 
 #include "moc_administratoruserstabwidget.cpp"
