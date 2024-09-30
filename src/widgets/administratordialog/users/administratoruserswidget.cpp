@@ -371,7 +371,7 @@ void AdministratorUsersWidget::slotLoadElements(int offset, int count, const QSt
         break;
     }
     case Desactivated: {
-        info.hasLoggedIn = RocketChatRestApi::UsersListByStatusJob::LoggedStatus::NotLogged;
+        info.hasLoggedIn = RocketChatRestApi::UsersListByStatusJob::LoggedStatus::Logged;
         info.type = RocketChatRestApi::UsersListByStatusJob::StatusType::User;
         info.status = RocketChatRestApi::UsersListByStatusJob::Status::Deactivated;
         break;
