@@ -426,6 +426,16 @@ void RuqolaServerConfig::setAllowEmailNotifications(bool newAllowEmailNotificati
     mAllowEmailNotifications = newAllowEmailNotifications;
 }
 
+bool RuqolaServerConfig::allowEmailVerification() const
+{
+    return mAllowEmailVerification;
+}
+
+void RuqolaServerConfig::setAllowEmailVerification(bool newAllowEmailVerification)
+{
+    mAllowEmailVerification = newAllowEmailVerification;
+}
+
 QString RuqolaServerConfig::accountsDefaultUserPreferencesPushNotifications() const
 {
     return mAccountsDefaultUserPreferencesPushNotifications;
@@ -608,6 +618,8 @@ void RuqolaServerConfig::loadSettings(const QJsonObject &currentConfObject)
         setAccountsDefaultUserPreferencesPushNotifications(value.toString());
     } else if (id == "Accounts_AllowEmailNotifications"_L1) {
         setAllowEmailNotifications(value.toBool());
+    } else if (id == "Accounts_EmailVerification"_L1) {
+        setAllowEmailVerification(value.toBool());
     } else {
         qCDebug(RUQOLA_LOG) << "Other public settings id " << id << value;
     }

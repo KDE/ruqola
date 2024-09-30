@@ -205,6 +205,9 @@ public:
     [[nodiscard]] bool allowEmailNotifications() const;
     void setAllowEmailNotifications(bool newAllowEmailNotifications);
 
+    [[nodiscard]] bool allowEmailVerification() const;
+    void setAllowEmailVerification(bool newAllowEmailNotifications);
+
 private:
     Q_DISABLE_COPY(RuqolaServerConfig)
     LIBRUQOLACORE_NO_EXPORT void assignSettingValue(bool value, ServerConfigFeatureType type);
@@ -263,6 +266,7 @@ private:
     bool mAllowCustomStatusMessage = false;
     bool mPreviewEmbed = false;
     bool mAllowEmailNotifications = true; // Default true
+    bool mAllowEmailVerification = false;
 };
 LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const RuqolaServerConfig &t);
 LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const RuqolaServerConfig::ConfigWithDefaultValue &t);
