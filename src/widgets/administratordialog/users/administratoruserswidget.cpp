@@ -119,7 +119,7 @@ void AdministratorUsersWidget::slotInviteUsers()
             job->setEmails(emails);
             mRocketChatAccount->restApi()->initializeRestApiJob(job);
             connect(job, &RocketChatRestApi::SendInvitationEmailJob::sendInvitationEmailsDone, this, []() {
-                qDebug() << " Emails send";
+                qCDebug(RUQOLAWIDGETS_LOG) << " Emails send";
             });
             if (!job->start()) {
                 qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start SendInvitationEmailJob job";
