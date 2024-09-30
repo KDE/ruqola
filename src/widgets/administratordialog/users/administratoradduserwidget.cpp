@@ -28,7 +28,7 @@ AdministratorAddUserWidget::AdministratorAddUserWidget(RocketChatAccount *accoun
     , mSendWelcomeEmails(new QCheckBox(i18nc("@option:check", "Send Welcome Email"), this))
     , mRequirePasswordChange(new QCheckBox(i18nc("@option:check", "Require Password Change"), this))
     , mSetRandowPassword(new QCheckBox(i18nc("@option:check", "Set random password and send by email"), this))
-    , mEmailVerified(new QCheckBox(i18nc("@option:check", "Verified"), this))
+    , mEmailVerified(new QCheckBox(i18nc("@option:check", "Mark email as verified"), this))
     , mRolesComboBox(new RolesComboBox(this))
     , mBioPlainTextEdit(new QPlainTextEdit(this))
     , mRocketChatAccount(account)
@@ -55,6 +55,7 @@ AdministratorAddUserWidget::AdministratorAddUserWidget(RocketChatAccount *accoun
     mRolesComboBox->setObjectName(QStringLiteral("mRolesComboBox"));
     mRequirePasswordChange->setObjectName(QStringLiteral("mRequirePassword"));
     mSetRandowPassword->setObjectName(QStringLiteral("mSetRandowPassword"));
+    // TODO use RuqolaServerConfig::allowEmailVerification
     mEmailVerified->setObjectName(QStringLiteral("mEmailVerified"));
     formLayout->addRow(i18n("Name:"), mName);
     formLayout->addRow(i18n("Username:"), mUserName);
