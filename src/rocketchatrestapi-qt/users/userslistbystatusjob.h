@@ -17,7 +17,7 @@ class LIBROCKETCHATRESTAPI_QT_EXPORT UsersListByStatusJob : public RestApiAbstra
 public:
     enum class Status {
         Unknown = 0,
-        Desactivated = 1,
+        Deactivated = 1,
         Activated = 2,
     };
     Q_ENUM(Status)

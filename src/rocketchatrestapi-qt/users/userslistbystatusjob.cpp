@@ -121,7 +121,7 @@ QString UsersListByStatusJob::UsersListByStatusJobInfo::statusToString() const
     switch (status) {
     case Status::Unknown:
         break;
-    case Status::Desactivated:
+    case Status::Deactivated:
         return "deactivated"_L1;
     case Status::Activated:
         return "active"_L1;

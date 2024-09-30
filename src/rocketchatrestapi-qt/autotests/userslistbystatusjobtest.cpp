@@ -39,7 +39,7 @@ void UsersListByStatusJobTest::shouldGenerateRequest()
     }
     {
         UsersListByStatusJob::UsersListByStatusJobInfo info;
-        info.status = RocketChatRestApi::UsersListByStatusJob::Status::Desactivated;
+        info.status = RocketChatRestApi::UsersListByStatusJob::Status::Deactivated;
         info.type = RocketChatRestApi::UsersListByStatusJob::StatusType::User;
         info.hasLoggedIn = RocketChatRestApi::UsersListByStatusJob::LoggedStatus::Logged;
         job.setUsersListByStatusJobInfo(info);
@@ -48,7 +48,7 @@ void UsersListByStatusJobTest::shouldGenerateRequest()
     }
     {
         UsersListByStatusJob::UsersListByStatusJobInfo info;
-        info.status = RocketChatRestApi::UsersListByStatusJob::Status::Desactivated;
+        info.status = RocketChatRestApi::UsersListByStatusJob::Status::Deactivated;
         info.type = RocketChatRestApi::UsersListByStatusJob::StatusType::User;
         info.hasLoggedIn = RocketChatRestApi::UsersListByStatusJob::LoggedStatus::Logged;
         info.roles = {"user"_L1};
@@ -59,7 +59,7 @@ void UsersListByStatusJobTest::shouldGenerateRequest()
     }
     {
         UsersListByStatusJob::UsersListByStatusJobInfo info;
-        info.status = RocketChatRestApi::UsersListByStatusJob::Status::Desactivated;
+        info.status = RocketChatRestApi::UsersListByStatusJob::Status::Deactivated;
         info.type = RocketChatRestApi::UsersListByStatusJob::StatusType::User;
         info.hasLoggedIn = RocketChatRestApi::UsersListByStatusJob::LoggedStatus::Logged;
         info.roles = {"user"_L1, "admin"_L1};
@@ -71,7 +71,7 @@ void UsersListByStatusJobTest::shouldGenerateRequest()
 
     {
         UsersListByStatusJob::UsersListByStatusJobInfo info;
-        info.status = RocketChatRestApi::UsersListByStatusJob::Status::Desactivated;
+        info.status = RocketChatRestApi::UsersListByStatusJob::Status::Deactivated;
         info.type = RocketChatRestApi::UsersListByStatusJob::StatusType::User;
         info.hasLoggedIn = RocketChatRestApi::UsersListByStatusJob::LoggedStatus::Logged;
         info.roles = {"user"_L1, "admin"_L1};
