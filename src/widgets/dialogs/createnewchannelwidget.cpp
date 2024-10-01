@@ -43,9 +43,13 @@ CreateNewChannelWidget::CreateNewChannelWidget(RocketChatAccount *account, QWidg
 
     mReadOnly->setObjectName(QStringLiteral("mReadOnly"));
     mReadOnly->setChecked(false);
-    mReadOnly->setToolTip(i18nc("@info:tooltip", "All users in this team can write messages"));
+    mReadOnly->setToolTip(i18nc("@info:tooltip", "Anyone can send new messages"));
     mMainLayout->addRow(i18n("Read-Only:"), mReadOnly);
-    auto label = new QLabel(i18nc("@label:textbox", "Only authorized users can write new messages"), this);
+    auto label = new QLabel(i18nc("@label:textbox", "Anyone can send new messages"), this);
+    connect(mReadOnly, &QCheckBox::clicked, this, [this, label](bool checked) {
+        mReadOnly->setToolTip(checked ? i18nc("@info:tooltip", "Only owners can send new messages") : i18nc("@info:tooltip", "Anyone can send new messages"));
+        label->setText(checked ? i18nc("@label:textbox", "Only owners can send new messages") : i18nc("@label:textbox", "Anyone can send new messages"));
+    });
     mMainLayout->addWidget(label);
 
     mBroadcast->setObjectName(QStringLiteral("mBroadcast"));
