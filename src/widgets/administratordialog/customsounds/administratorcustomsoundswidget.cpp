@@ -9,6 +9,7 @@
 #include "connection.h"
 #include "custom/customsoundslistjob.h"
 #include "ddpapi/ddpclient.h"
+#include "misc/methodcalljob.h"
 #include "misc/searchwithdelaylineedit.h"
 #include "model/admincustomsoundmodel.h"
 #include "model/searchtreebasefilterproxymodel.h"
@@ -100,6 +101,7 @@ void AdministratorCustomSoundsWidget::slotLoadElements(int offset, int count, co
 
 void AdministratorCustomSoundsWidget::slotAddCustomSound()
 {
+    // TODO use method.call/insertOrUpdateSound
     // Comment for the moment. there is not restapi yet.
     return;
     QPointer<AdministratorCustomSoundsCreateDialog> dlg = new AdministratorCustomSoundsCreateDialog(this);
@@ -111,6 +113,7 @@ void AdministratorCustomSoundsWidget::slotAddCustomSound()
 
 void AdministratorCustomSoundsWidget::slotModifyCustomSound(const QModelIndex &index)
 {
+    // method.call/uploadCustomSound
     // Comment for the moment. there is not restapi yet.
     return;
     QPointer<AdministratorCustomSoundsCreateDialog> dlg = new AdministratorCustomSoundsCreateDialog(this);
@@ -132,6 +135,23 @@ void AdministratorCustomSoundsWidget::slotRemoveCustomSound(const QModelIndex &i
         const QModelIndex modelIndex = mModel->index(index.row(), AdminCustomSoundModel::Identifier);
         const QByteArray soundIdentifier = modelIndex.data().toByteArray();
         mRocketChatAccount->ddp()->deleteCustomSound(soundIdentifier);
+#if 0
+        auto job = new RocketChatRestApi::MethodCallJob(this);
+        RocketChatRestApi::MethodCallJob::MethodCallJobInfo info;
+        info.methodName = QStringLiteral("deleteCustomSound");
+        info.anonymous = false;
+        job->setMethodCallJobInfo(std::move(info));
+        mRocketChatAccount->restApi()->initializeRestApiJob(job);
+        // qDebug()<< " mRestApiConnection " << mRestApiConnection->serverUrl();
+        connect(job, &RocketChatRestApi::MethodCallJob::methodCallDone, this, [](const QJsonObject &replyObject) {
+            qDebug() << " replyObject " << replyObject;
+            // TODO update list
+        });
+        if (!job->start()) {
+            qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start MethodCallJob deleteCustomSound job";
+        }
+#endif
+        // TODO use method.call/deleteCustomSound
     }
 }
 
