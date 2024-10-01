@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-09-28 00:39+0000\n"
+"POT-Creation-Date: 2024-10-01 00:39+0000\n"
 "PO-Revision-Date: 2024-02-03 02:20+0200\n"
 "Last-Translator: Moo\n"
 "Language-Team: none\n"
@@ -740,7 +740,7 @@ msgstr "Pavadinimas:"
 msgid "Identifier"
 msgstr ""
 
-#: core/model/admincustomemojimodel.cpp:38
+#: core/model/admincustomemojimodel.cpp:39
 #, kde-format
 msgid "Aliases"
 msgstr ""
@@ -873,12 +873,13 @@ msgid "Type"
 msgstr ""
 
 #: core/model/adminusersallmodel.cpp:54
-#: widgets/administratordialog/users/administratoruserstabwidget.cpp:30
+#: widgets/administratordialog/users/administratoruserstabwidget.cpp:34
 #, kde-format
 msgid "Pending"
 msgstr ""
 
 #: core/model/adminusersallmodel.cpp:58
+#: widgets/administratordialog/users/administratoruserstabwidget.cpp:35
 #, fuzzy, kde-format
 #| msgid "Add Users"
 msgid "Deactivated"
@@ -2710,7 +2711,7 @@ msgstr ""
 #: widgets/administratordialog/roles/roleeditwidget.cpp:34
 #: widgets/administratordialog/rooms/administratordirectroomseditwidget.cpp:24
 #: widgets/administratordialog/rooms/administratorroomseditwidget.cpp:43
-#: widgets/administratordialog/users/administratoradduserwidget.cpp:59
+#: widgets/administratordialog/users/administratoradduserwidget.cpp:60
 #: widgets/dialogs/channelinfoeditablewidget.cpp:53
 #: widgets/dialogs/channelinforeadonlywidget.cpp:33
 #: widgets/dialogs/createnewchannelwidget.cpp:34
@@ -3216,7 +3217,7 @@ msgid "Show Moderation Users"
 msgstr "Rodyti diskusijas..."
 
 #: widgets/administratordialog/moderationconsole/moderationuserswidget.cpp:37
-#: widgets/administratordialog/users/administratoradduserwidget.cpp:62
+#: widgets/administratordialog/users/administratoradduserwidget.cpp:63
 #: widgets/dialogs/directchannelinfowidget.cpp:166
 #: widgets/myaccount/myaccountprofileconfigurewidget.cpp:74
 #: widgets/registeruser/registeruserwidget.cpp:33
@@ -3225,7 +3226,7 @@ msgid "Email:"
 msgstr ""
 
 #: widgets/administratordialog/moderationconsole/moderationuserswidget.cpp:43
-#: widgets/administratordialog/users/administratoradduserwidget.cpp:71
+#: widgets/administratordialog/users/administratoradduserwidget.cpp:72
 #: widgets/dialogs/directchannelinfowidget.cpp:141
 #, kde-format
 msgid "Roles:"
@@ -3867,13 +3868,12 @@ msgid "Set random password and send by email"
 msgstr ""
 
 #: widgets/administratordialog/users/administratoradduserwidget.cpp:31
-#, fuzzy, kde-format
-#| msgid "Authentication Method"
+#, kde-format
 msgctxt "@option:check"
-msgid "Verified"
-msgstr "Tapatybės nustatymo metodas"
+msgid "Mark email as verified"
+msgstr ""
 
-#: widgets/administratordialog/users/administratoradduserwidget.cpp:60
+#: widgets/administratordialog/users/administratoradduserwidget.cpp:61
 #: widgets/dialogs/directchannelinfowidget.cpp:95
 #: widgets/dialogs/serverinfo/serverinfowidget.cpp:39
 #: widgets/myaccount/myaccountprofileconfigurewidget.cpp:67
@@ -3882,14 +3882,14 @@ msgstr "Tapatybės nustatymo metodas"
 msgid "Username:"
 msgstr "Naudotojo vardas:"
 
-#: widgets/administratordialog/users/administratoradduserwidget.cpp:61
+#: widgets/administratordialog/users/administratoradduserwidget.cpp:62
 #, fuzzy, kde-format
 #| msgid "1 message"
 #| msgid_plural "%1 messages"
 msgid "Status Message:"
 msgstr "1 žinutė"
 
-#: widgets/administratordialog/users/administratoradduserwidget.cpp:64
+#: widgets/administratordialog/users/administratoradduserwidget.cpp:65
 #: widgets/common/authenticationloginwidget.cpp:47
 #: widgets/dialogs/channelinfoeditablewidget.cpp:77
 #: widgets/registeruser/registeruserwidget.cpp:39
@@ -3897,13 +3897,13 @@ msgstr "1 žinutė"
 msgid "Password:"
 msgstr "Slaptažodis:"
 
-#: widgets/administratordialog/users/administratoradduserwidget.cpp:65
+#: widgets/administratordialog/users/administratoradduserwidget.cpp:66
 #: widgets/dialogs/directchannelinfowidget.cpp:112
 #, kde-format
 msgid "Bio:"
 msgstr ""
 
-#: widgets/administratordialog/users/administratoradduserwidget.cpp:66
+#: widgets/administratordialog/users/administratoradduserwidget.cpp:67
 #: widgets/myaccount/myaccountprofileconfigurewidget.cpp:82
 #, fuzzy, kde-format
 #| msgid "Name:"
@@ -3930,7 +3930,7 @@ msgctxt "@info:placeholder"
 msgid "Use ',' for separate emails"
 msgstr ""
 
-#: widgets/administratordialog/users/administratoruserstabwidget.cpp:29
+#: widgets/administratordialog/users/administratoruserstabwidget.cpp:33
 #: widgets/applicationssettingsdialog/applicationssettingsinstalledcombobox.cpp:13
 #: widgets/dialogs/showattachmentcombobox.cpp:19
 #: widgets/room/usersinroomcombobox.cpp:20
@@ -3938,6 +3938,12 @@ msgstr ""
 #, kde-format
 msgid "All"
 msgstr ""
+
+#: widgets/administratordialog/users/administratoruserstabwidget.cpp:36
+#, fuzzy, kde-format
+#| msgid "User is not activated"
+msgid "Activated"
+msgstr "Naudotojas nėra aktyvuotas"
 
 #: widgets/administratordialog/users/administratoruserswidget.cpp:227
 #, fuzzy, kde-format
@@ -3994,7 +4000,7 @@ msgctxt "@action"
 msgid "Reset Totp"
 msgstr "Slaptažodis"
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:408
+#: widgets/administratordialog/users/administratoruserswidget.cpp:426
 #, kde-format
 msgid ""
 "Reset the current E2E key will log out the user. When the user login again, "
@@ -4004,41 +4010,41 @@ msgid ""
 "encrypted room that has no member online."
 msgstr ""
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:412
+#: widgets/administratordialog/users/administratoruserswidget.cpp:430
 #, fuzzy, kde-format
 #| msgid "Password"
 msgctxt "@title:window"
 msgid "Reset E2E key"
 msgstr "Slaptažodis"
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:444
+#: widgets/administratordialog/users/administratoruserswidget.cpp:462
 #, kde-format
 msgid "E2E key for %1 has been reset."
 msgstr ""
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:444
+#: widgets/administratordialog/users/administratoruserswidget.cpp:462
 #, fuzzy, kde-format
 #| msgid "Password"
 msgctxt "@title:window"
 msgid "Reset E2E"
 msgstr "Slaptažodis"
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:457
+#: widgets/administratordialog/users/administratoruserswidget.cpp:475
 #, kde-format
 msgid ""
 "Reset the current Two Factor TOTP will log out the user. The user will be "
 "able to set the Two Factor again later."
 msgstr ""
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:458
-#: widgets/administratordialog/users/administratoruserswidget.cpp:489
+#: widgets/administratordialog/users/administratoruserswidget.cpp:476
+#: widgets/administratordialog/users/administratoruserswidget.cpp:507
 #, fuzzy, kde-format
 #| msgid "Password"
 msgctxt "@title:window"
 msgid "Reset TOTP"
 msgstr "Slaptažodis"
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:489
+#: widgets/administratordialog/users/administratoruserswidget.cpp:507
 #, kde-format
 msgid "TOTP key for %1 has been reset"
 msgstr ""
@@ -11576,6 +11582,13 @@ msgstr "Išeiti iš kanalo"
 msgid "Add delegate in search rooms in team dialog."
 msgstr "Išeiti iš kanalo"
 
+#: widgets/whatsnew/whatsnewtranslations.cpp:119
+#, fuzzy, kde-format
+#| msgid "1 message"
+#| msgid_plural "%1 messages"
+msgid "Fix editing message."
+msgstr "1 žinutė"
+
 #: widgets/whatsnew/whatsnewwidget.cpp:44
 #, fuzzy, kde-format
 #| msgid "Server Version:"
@@ -11603,6 +11616,12 @@ msgstr ""
 #| msgid "Bug fixing"
 msgid "Some bug fixing:"
 msgstr "Klaidų pataisymai"
+
+#, fuzzy
+#~| msgid "Authentication Method"
+#~ msgctxt "@option:check"
+#~ msgid "Verified"
+#~ msgstr "Tapatybės nustatymo metodas"
 
 #, fuzzy
 #~| msgid "Delete Message"

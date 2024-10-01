@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-09-28 00:39+0000\n"
+"POT-Creation-Date: 2024-10-01 00:39+0000\n"
 "PO-Revision-Date: 2024-09-21 08:11+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
@@ -710,7 +710,7 @@ msgstr "Ime"
 msgid "Identifier"
 msgstr "Identifikator"
 
-#: core/model/admincustomemojimodel.cpp:38
+#: core/model/admincustomemojimodel.cpp:39
 #, kde-format
 msgid "Aliases"
 msgstr "Vzdevki"
@@ -833,12 +833,13 @@ msgid "Type"
 msgstr "Vrsta"
 
 #: core/model/adminusersallmodel.cpp:54
-#: widgets/administratordialog/users/administratoruserstabwidget.cpp:30
+#: widgets/administratordialog/users/administratoruserstabwidget.cpp:34
 #, kde-format
 msgid "Pending"
 msgstr "V teku"
 
 #: core/model/adminusersallmodel.cpp:58
+#: widgets/administratordialog/users/administratoruserstabwidget.cpp:35
 #, kde-format
 msgid "Deactivated"
 msgstr "Deaktivirano"
@@ -2587,7 +2588,7 @@ msgstr "Ime čustvenčka po meri in njegovi vzdevki morajo biti različni."
 #: widgets/administratordialog/roles/roleeditwidget.cpp:34
 #: widgets/administratordialog/rooms/administratordirectroomseditwidget.cpp:24
 #: widgets/administratordialog/rooms/administratorroomseditwidget.cpp:43
-#: widgets/administratordialog/users/administratoradduserwidget.cpp:59
+#: widgets/administratordialog/users/administratoradduserwidget.cpp:60
 #: widgets/dialogs/channelinfoeditablewidget.cpp:53
 #: widgets/dialogs/channelinforeadonlywidget.cpp:33
 #: widgets/dialogs/createnewchannelwidget.cpp:34
@@ -3059,7 +3060,7 @@ msgid "Show Moderation Users"
 msgstr "Pokaži uporabnike moderatorje"
 
 #: widgets/administratordialog/moderationconsole/moderationuserswidget.cpp:37
-#: widgets/administratordialog/users/administratoradduserwidget.cpp:62
+#: widgets/administratordialog/users/administratoradduserwidget.cpp:63
 #: widgets/dialogs/directchannelinfowidget.cpp:166
 #: widgets/myaccount/myaccountprofileconfigurewidget.cpp:74
 #: widgets/registeruser/registeruserwidget.cpp:33
@@ -3068,7 +3069,7 @@ msgid "Email:"
 msgstr "E-naslov:"
 
 #: widgets/administratordialog/moderationconsole/moderationuserswidget.cpp:43
-#: widgets/administratordialog/users/administratoradduserwidget.cpp:71
+#: widgets/administratordialog/users/administratoradduserwidget.cpp:72
 #: widgets/dialogs/directchannelinfowidget.cpp:141
 #, kde-format
 msgid "Roles:"
@@ -3643,12 +3644,14 @@ msgid "Set random password and send by email"
 msgstr "Nastavi naključno geslo in ga pošlji po e-pošti"
 
 #: widgets/administratordialog/users/administratoradduserwidget.cpp:31
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@option:check"
+#| msgid "Mark Email for External Accounts Verified"
 msgctxt "@option:check"
-msgid "Verified"
-msgstr "Preverjeno"
+msgid "Mark email as verified"
+msgstr "Označi e-pošte za zunanje račune kot preverjene"
 
-#: widgets/administratordialog/users/administratoradduserwidget.cpp:60
+#: widgets/administratordialog/users/administratoradduserwidget.cpp:61
 #: widgets/dialogs/directchannelinfowidget.cpp:95
 #: widgets/dialogs/serverinfo/serverinfowidget.cpp:39
 #: widgets/myaccount/myaccountprofileconfigurewidget.cpp:67
@@ -3657,12 +3660,12 @@ msgstr "Preverjeno"
 msgid "Username:"
 msgstr "Uporabniško ime:"
 
-#: widgets/administratordialog/users/administratoradduserwidget.cpp:61
+#: widgets/administratordialog/users/administratoradduserwidget.cpp:62
 #, kde-format
 msgid "Status Message:"
 msgstr "Sporočilo o stanju:"
 
-#: widgets/administratordialog/users/administratoradduserwidget.cpp:64
+#: widgets/administratordialog/users/administratoradduserwidget.cpp:65
 #: widgets/common/authenticationloginwidget.cpp:47
 #: widgets/dialogs/channelinfoeditablewidget.cpp:77
 #: widgets/registeruser/registeruserwidget.cpp:39
@@ -3670,13 +3673,13 @@ msgstr "Sporočilo o stanju:"
 msgid "Password:"
 msgstr "Geslo:"
 
-#: widgets/administratordialog/users/administratoradduserwidget.cpp:65
+#: widgets/administratordialog/users/administratoradduserwidget.cpp:66
 #: widgets/dialogs/directchannelinfowidget.cpp:112
 #, kde-format
 msgid "Bio:"
 msgstr "Bio:"
 
-#: widgets/administratordialog/users/administratoradduserwidget.cpp:66
+#: widgets/administratordialog/users/administratoradduserwidget.cpp:67
 #: widgets/myaccount/myaccountprofileconfigurewidget.cpp:82
 #, kde-format
 msgid "Nickname:"
@@ -3700,7 +3703,7 @@ msgctxt "@info:placeholder"
 msgid "Use ',' for separate emails"
 msgstr "Uporabi ',' za ločevanje poštnih naslovov"
 
-#: widgets/administratordialog/users/administratoruserstabwidget.cpp:29
+#: widgets/administratordialog/users/administratoruserstabwidget.cpp:33
 #: widgets/applicationssettingsdialog/applicationssettingsinstalledcombobox.cpp:13
 #: widgets/dialogs/showattachmentcombobox.cpp:19
 #: widgets/room/usersinroomcombobox.cpp:20
@@ -3708,6 +3711,12 @@ msgstr "Uporabi ',' za ločevanje poštnih naslovov"
 #, kde-format
 msgid "All"
 msgstr "Vsi"
+
+#: widgets/administratordialog/users/administratoruserstabwidget.cpp:36
+#, fuzzy, kde-format
+#| msgid "Activate"
+msgid "Activated"
+msgstr "Aktiviraj"
 
 #: widgets/administratordialog/users/administratoruserswidget.cpp:227
 #, kde-format
@@ -3756,7 +3765,7 @@ msgctxt "@action"
 msgid "Reset Totp"
 msgstr "Ponastavi Totp"
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:408
+#: widgets/administratordialog/users/administratoruserswidget.cpp:426
 #, kde-format
 msgid ""
 "Reset the current E2E key will log out the user. When the user login again, "
@@ -3771,24 +3780,24 @@ msgstr ""
 "članov. Zaradi narave šifriranja E2E v Rocket.Chat ne boste mogli obnoviti "
 "dostopa do nobene šifrirane sobe, ki trenutno nima povezanega člana."
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:412
+#: widgets/administratordialog/users/administratoruserswidget.cpp:430
 #, kde-format
 msgctxt "@title:window"
 msgid "Reset E2E key"
 msgstr "Ponovno nastavi ključ E2E"
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:444
+#: widgets/administratordialog/users/administratoruserswidget.cpp:462
 #, kde-format
 msgid "E2E key for %1 has been reset."
 msgstr "Tipka E2E za %1 je bila ponovno nastavljena."
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:444
+#: widgets/administratordialog/users/administratoruserswidget.cpp:462
 #, kde-format
 msgctxt "@title:window"
 msgid "Reset E2E"
 msgstr "Ponovno nastavi E2E"
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:457
+#: widgets/administratordialog/users/administratoruserswidget.cpp:475
 #, kde-format
 msgid ""
 "Reset the current Two Factor TOTP will log out the user. The user will be "
@@ -3797,14 +3806,14 @@ msgstr ""
 "Ponovno nastavi dvo-faktorski časovno odvisni enkratni ključ in odjavi "
 "uporabnika. Uporabnik bo lahko nastavil dvo-faktorski ključ spet kasneje."
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:458
-#: widgets/administratordialog/users/administratoruserswidget.cpp:489
+#: widgets/administratordialog/users/administratoruserswidget.cpp:476
+#: widgets/administratordialog/users/administratoruserswidget.cpp:507
 #, kde-format
 msgctxt "@title:window"
 msgid "Reset TOTP"
 msgstr "Ponovno nastavi časovno odvisni enkratni ključ"
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:489
+#: widgets/administratordialog/users/administratoruserswidget.cpp:507
 #, kde-format
 msgid "TOTP key for %1 has been reset"
 msgstr "Časovno odvisni enkratni ključ za %1 je bil ponovno nastavljen"
@@ -11004,6 +11013,12 @@ msgstr "Popravit podvojena sporočila v pogovornem oknu za iskanje sporočil."
 msgid "Add delegate in search rooms in team dialog."
 msgstr "Dodaj pooblaščenca v iskalne sobe v pogovornem oknu ekipe."
 
+#: widgets/whatsnew/whatsnewtranslations.cpp:119
+#, fuzzy, kde-format
+#| msgid "Direct message"
+msgid "Fix editing message."
+msgstr "Neposredno sporočilo"
+
 #: widgets/whatsnew/whatsnewwidget.cpp:44
 #, kde-format
 msgid "All Version"
@@ -11028,6 +11043,10 @@ msgstr "Nekaj novih zmožnosti v tej izdaji Ruqole vsebuje:"
 #, kde-format
 msgid "Some bug fixing:"
 msgstr "Nekaj odprav napak:"
+
+#~ msgctxt "@option:check"
+#~ msgid "Verified"
+#~ msgstr "Preverjeno"
 
 #~ msgid "System Messages"
 #~ msgstr "Sistemska sporočila"

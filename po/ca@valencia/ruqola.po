@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-09-28 00:39+0000\n"
+"POT-Creation-Date: 2024-10-01 00:39+0000\n"
 "PO-Revision-Date: 2024-09-21 12:03+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
@@ -712,7 +712,7 @@ msgstr "Nom"
 msgid "Identifier"
 msgstr "Identificador"
 
-#: core/model/admincustomemojimodel.cpp:38
+#: core/model/admincustomemojimodel.cpp:39
 #, kde-format
 msgid "Aliases"
 msgstr "Àlies"
@@ -835,12 +835,13 @@ msgid "Type"
 msgstr "Tipus"
 
 #: core/model/adminusersallmodel.cpp:54
-#: widgets/administratordialog/users/administratoruserstabwidget.cpp:30
+#: widgets/administratordialog/users/administratoruserstabwidget.cpp:34
 #, kde-format
 msgid "Pending"
 msgstr "Pendent"
 
 #: core/model/adminusersallmodel.cpp:58
+#: widgets/administratordialog/users/administratoruserstabwidget.cpp:35
 #, kde-format
 msgid "Deactivated"
 msgstr "Desactivat"
@@ -2590,7 +2591,7 @@ msgstr ""
 #: widgets/administratordialog/roles/roleeditwidget.cpp:34
 #: widgets/administratordialog/rooms/administratordirectroomseditwidget.cpp:24
 #: widgets/administratordialog/rooms/administratorroomseditwidget.cpp:43
-#: widgets/administratordialog/users/administratoradduserwidget.cpp:59
+#: widgets/administratordialog/users/administratoradduserwidget.cpp:60
 #: widgets/dialogs/channelinfoeditablewidget.cpp:53
 #: widgets/dialogs/channelinforeadonlywidget.cpp:33
 #: widgets/dialogs/createnewchannelwidget.cpp:34
@@ -3055,7 +3056,7 @@ msgid "Show Moderation Users"
 msgstr "Mostra la moderació d'usuaris"
 
 #: widgets/administratordialog/moderationconsole/moderationuserswidget.cpp:37
-#: widgets/administratordialog/users/administratoradduserwidget.cpp:62
+#: widgets/administratordialog/users/administratoradduserwidget.cpp:63
 #: widgets/dialogs/directchannelinfowidget.cpp:166
 #: widgets/myaccount/myaccountprofileconfigurewidget.cpp:74
 #: widgets/registeruser/registeruserwidget.cpp:33
@@ -3064,7 +3065,7 @@ msgid "Email:"
 msgstr "Correu electrònic:"
 
 #: widgets/administratordialog/moderationconsole/moderationuserswidget.cpp:43
-#: widgets/administratordialog/users/administratoradduserwidget.cpp:71
+#: widgets/administratordialog/users/administratoradduserwidget.cpp:72
 #: widgets/dialogs/directchannelinfowidget.cpp:141
 #, kde-format
 msgid "Roles:"
@@ -3635,12 +3636,14 @@ msgid "Set random password and send by email"
 msgstr "Establix una contrasenya aleatòria i l'envia per correu"
 
 #: widgets/administratordialog/users/administratoradduserwidget.cpp:31
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@option:check"
+#| msgid "Mark Email for External Accounts Verified"
 msgctxt "@option:check"
-msgid "Verified"
-msgstr "Verificat"
+msgid "Mark email as verified"
+msgstr "Marca com a verificat el correu electrònic per als comptes externs"
 
-#: widgets/administratordialog/users/administratoradduserwidget.cpp:60
+#: widgets/administratordialog/users/administratoradduserwidget.cpp:61
 #: widgets/dialogs/directchannelinfowidget.cpp:95
 #: widgets/dialogs/serverinfo/serverinfowidget.cpp:39
 #: widgets/myaccount/myaccountprofileconfigurewidget.cpp:67
@@ -3649,12 +3652,12 @@ msgstr "Verificat"
 msgid "Username:"
 msgstr "Nom d'usuari:"
 
-#: widgets/administratordialog/users/administratoradduserwidget.cpp:61
+#: widgets/administratordialog/users/administratoradduserwidget.cpp:62
 #, kde-format
 msgid "Status Message:"
 msgstr "Missatge d'estat:"
 
-#: widgets/administratordialog/users/administratoradduserwidget.cpp:64
+#: widgets/administratordialog/users/administratoradduserwidget.cpp:65
 #: widgets/common/authenticationloginwidget.cpp:47
 #: widgets/dialogs/channelinfoeditablewidget.cpp:77
 #: widgets/registeruser/registeruserwidget.cpp:39
@@ -3662,13 +3665,13 @@ msgstr "Missatge d'estat:"
 msgid "Password:"
 msgstr "Contrasenya:"
 
-#: widgets/administratordialog/users/administratoradduserwidget.cpp:65
+#: widgets/administratordialog/users/administratoradduserwidget.cpp:66
 #: widgets/dialogs/directchannelinfowidget.cpp:112
 #, kde-format
 msgid "Bio:"
 msgstr "Biografia:"
 
-#: widgets/administratordialog/users/administratoradduserwidget.cpp:66
+#: widgets/administratordialog/users/administratoradduserwidget.cpp:67
 #: widgets/myaccount/myaccountprofileconfigurewidget.cpp:82
 #, kde-format
 msgid "Nickname:"
@@ -3692,7 +3695,7 @@ msgctxt "@info:placeholder"
 msgid "Use ',' for separate emails"
 msgstr "Utilitza «,» per a separar els correus"
 
-#: widgets/administratordialog/users/administratoruserstabwidget.cpp:29
+#: widgets/administratordialog/users/administratoruserstabwidget.cpp:33
 #: widgets/applicationssettingsdialog/applicationssettingsinstalledcombobox.cpp:13
 #: widgets/dialogs/showattachmentcombobox.cpp:19
 #: widgets/room/usersinroomcombobox.cpp:20
@@ -3700,6 +3703,12 @@ msgstr "Utilitza «,» per a separar els correus"
 #, kde-format
 msgid "All"
 msgstr "Tot"
+
+#: widgets/administratordialog/users/administratoruserstabwidget.cpp:36
+#, fuzzy, kde-format
+#| msgid "Activate"
+msgid "Activated"
+msgstr "Activa"
 
 #: widgets/administratordialog/users/administratoruserswidget.cpp:227
 #, kde-format
@@ -3748,7 +3757,7 @@ msgctxt "@action"
 msgid "Reset Totp"
 msgstr "Reinicia TOTP"
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:408
+#: widgets/administratordialog/users/administratoruserswidget.cpp:426
 #, kde-format
 msgid ""
 "Reset the current E2E key will log out the user. When the user login again, "
@@ -3763,24 +3772,24 @@ msgstr ""
 "l'essència de l'encriptació E2E, Rocket.Chat no serà capaç de restaurar "
 "l'accés a les sales encriptades que no tinguen cap membre connectat."
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:412
+#: widgets/administratordialog/users/administratoruserswidget.cpp:430
 #, kde-format
 msgctxt "@title:window"
 msgid "Reset E2E key"
 msgstr "Reinicia la clau E2E"
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:444
+#: widgets/administratordialog/users/administratoruserswidget.cpp:462
 #, kde-format
 msgid "E2E key for %1 has been reset."
 msgstr "S'ha reiniciat la clau E2E per a %1."
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:444
+#: widgets/administratordialog/users/administratoruserswidget.cpp:462
 #, kde-format
 msgctxt "@title:window"
 msgid "Reset E2E"
 msgstr "Reinicia E2E"
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:457
+#: widgets/administratordialog/users/administratoruserswidget.cpp:475
 #, kde-format
 msgid ""
 "Reset the current Two Factor TOTP will log out the user. The user will be "
@@ -3789,14 +3798,14 @@ msgstr ""
 "Reiniciar TOTP de dos factors actual desconnectarà l'usuari. Després, "
 "l'usuari podrà tornar a establir els dos factors una altra vegada."
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:458
-#: widgets/administratordialog/users/administratoruserswidget.cpp:489
+#: widgets/administratordialog/users/administratoruserswidget.cpp:476
+#: widgets/administratordialog/users/administratoruserswidget.cpp:507
 #, kde-format
 msgctxt "@title:window"
 msgid "Reset TOTP"
 msgstr "Reinicia TOTP"
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:489
+#: widgets/administratordialog/users/administratoruserswidget.cpp:507
 #, kde-format
 msgid "TOTP key for %1 has been reset"
 msgstr "S'ha reiniciat la clau TOTP per a %1"
@@ -11023,6 +11032,12 @@ msgstr "Corregix els missatges duplicats en el diàleg de busca de missatges."
 msgid "Add delegate in search rooms in team dialog."
 msgstr "Afig un delegat a la busca de sales en el diàleg d'equip."
 
+#: widgets/whatsnew/whatsnewtranslations.cpp:119
+#, fuzzy, kde-format
+#| msgid "Direct message"
+msgid "Fix editing message."
+msgstr "Missatge directe"
+
 #: widgets/whatsnew/whatsnewwidget.cpp:44
 #, kde-format
 msgid "All Version"
@@ -11048,3 +11063,7 @@ msgstr ""
 #, kde-format
 msgid "Some bug fixing:"
 msgstr "Esmena d'errors:"
+
+#~ msgctxt "@option:check"
+#~ msgid "Verified"
+#~ msgstr "Verificat"

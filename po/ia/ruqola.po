@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-09-28 00:39+0000\n"
+"POT-Creation-Date: 2024-10-01 00:39+0000\n"
 "PO-Revision-Date: 2024-09-22 12:16+0200\n"
 "Last-Translator: giovanni <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
@@ -705,7 +705,7 @@ msgstr "Nomine"
 msgid "Identifier"
 msgstr "Identificator"
 
-#: core/model/admincustomemojimodel.cpp:38
+#: core/model/admincustomemojimodel.cpp:39
 #, kde-format
 msgid "Aliases"
 msgstr "Aliases"
@@ -828,12 +828,13 @@ msgid "Type"
 msgstr "Typo"
 
 #: core/model/adminusersallmodel.cpp:54
-#: widgets/administratordialog/users/administratoruserstabwidget.cpp:30
+#: widgets/administratordialog/users/administratoruserstabwidget.cpp:34
 #, kde-format
 msgid "Pending"
 msgstr "Pendente"
 
 #: core/model/adminusersallmodel.cpp:58
+#: widgets/administratordialog/users/administratoruserstabwidget.cpp:35
 #, kde-format
 msgid "Deactivated"
 msgstr "Deactivate"
@@ -2584,7 +2585,7 @@ msgstr ""
 #: widgets/administratordialog/roles/roleeditwidget.cpp:34
 #: widgets/administratordialog/rooms/administratordirectroomseditwidget.cpp:24
 #: widgets/administratordialog/rooms/administratorroomseditwidget.cpp:43
-#: widgets/administratordialog/users/administratoradduserwidget.cpp:59
+#: widgets/administratordialog/users/administratoradduserwidget.cpp:60
 #: widgets/dialogs/channelinfoeditablewidget.cpp:53
 #: widgets/dialogs/channelinforeadonlywidget.cpp:33
 #: widgets/dialogs/createnewchannelwidget.cpp:34
@@ -3038,7 +3039,7 @@ msgid "Show Moderation Users"
 msgstr "Monstra Usatores de Moderation"
 
 #: widgets/administratordialog/moderationconsole/moderationuserswidget.cpp:37
-#: widgets/administratordialog/users/administratoradduserwidget.cpp:62
+#: widgets/administratordialog/users/administratoradduserwidget.cpp:63
 #: widgets/dialogs/directchannelinfowidget.cpp:166
 #: widgets/myaccount/myaccountprofileconfigurewidget.cpp:74
 #: widgets/registeruser/registeruserwidget.cpp:33
@@ -3047,7 +3048,7 @@ msgid "Email:"
 msgstr "E-posta:"
 
 #: widgets/administratordialog/moderationconsole/moderationuserswidget.cpp:43
-#: widgets/administratordialog/users/administratoradduserwidget.cpp:71
+#: widgets/administratordialog/users/administratoradduserwidget.cpp:72
 #: widgets/dialogs/directchannelinfowidget.cpp:141
 #, kde-format
 msgid "Roles:"
@@ -3620,10 +3621,10 @@ msgstr "Fixa contrasigno casual e invia per e-posta"
 #: widgets/administratordialog/users/administratoradduserwidget.cpp:31
 #, kde-format
 msgctxt "@option:check"
-msgid "Verified"
-msgstr "Verificate"
+msgid "Mark email as verified"
+msgstr ""
 
-#: widgets/administratordialog/users/administratoradduserwidget.cpp:60
+#: widgets/administratordialog/users/administratoradduserwidget.cpp:61
 #: widgets/dialogs/directchannelinfowidget.cpp:95
 #: widgets/dialogs/serverinfo/serverinfowidget.cpp:39
 #: widgets/myaccount/myaccountprofileconfigurewidget.cpp:67
@@ -3632,12 +3633,12 @@ msgstr "Verificate"
 msgid "Username:"
 msgstr "Nomine de usator:"
 
-#: widgets/administratordialog/users/administratoradduserwidget.cpp:61
+#: widgets/administratordialog/users/administratoradduserwidget.cpp:62
 #, kde-format
 msgid "Status Message:"
 msgstr "Message de stato:"
 
-#: widgets/administratordialog/users/administratoradduserwidget.cpp:64
+#: widgets/administratordialog/users/administratoradduserwidget.cpp:65
 #: widgets/common/authenticationloginwidget.cpp:47
 #: widgets/dialogs/channelinfoeditablewidget.cpp:77
 #: widgets/registeruser/registeruserwidget.cpp:39
@@ -3645,13 +3646,13 @@ msgstr "Message de stato:"
 msgid "Password:"
 msgstr "Contrasigno:"
 
-#: widgets/administratordialog/users/administratoradduserwidget.cpp:65
+#: widgets/administratordialog/users/administratoradduserwidget.cpp:66
 #: widgets/dialogs/directchannelinfowidget.cpp:112
 #, kde-format
 msgid "Bio:"
 msgstr "Bio:"
 
-#: widgets/administratordialog/users/administratoradduserwidget.cpp:66
+#: widgets/administratordialog/users/administratoradduserwidget.cpp:67
 #: widgets/myaccount/myaccountprofileconfigurewidget.cpp:82
 #, kde-format
 msgid "Nickname:"
@@ -3675,7 +3676,7 @@ msgctxt "@info:placeholder"
 msgid "Use ',' for separate emails"
 msgstr "Usa ',' per separar e-postas"
 
-#: widgets/administratordialog/users/administratoruserstabwidget.cpp:29
+#: widgets/administratordialog/users/administratoruserstabwidget.cpp:33
 #: widgets/applicationssettingsdialog/applicationssettingsinstalledcombobox.cpp:13
 #: widgets/dialogs/showattachmentcombobox.cpp:19
 #: widgets/room/usersinroomcombobox.cpp:20
@@ -3683,6 +3684,12 @@ msgstr "Usa ',' per separar e-postas"
 #, kde-format
 msgid "All"
 msgstr "Omne"
+
+#: widgets/administratordialog/users/administratoruserstabwidget.cpp:36
+#, fuzzy, kde-format
+#| msgid "Activate"
+msgid "Activated"
+msgstr "Activa"
 
 #: widgets/administratordialog/users/administratoruserswidget.cpp:227
 #, kde-format
@@ -3731,7 +3738,7 @@ msgctxt "@action"
 msgid "Reset Totp"
 msgstr "Refixa Totp"
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:408
+#: widgets/administratordialog/users/administratoruserswidget.cpp:426
 #, kde-format
 msgid ""
 "Reset the current E2E key will log out the user. When the user login again, "
@@ -3746,24 +3753,24 @@ msgstr ""
 "membros in linea. Debite al natura del cryptation E2E, Rocket.Chat non "
 "potera restabilir accesso a ulle sala cryptate que non ha membros in linea."
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:412
+#: widgets/administratordialog/users/administratoruserswidget.cpp:430
 #, kde-format
 msgctxt "@title:window"
 msgid "Reset E2E key"
 msgstr "Refixa Clave E2E"
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:444
+#: widgets/administratordialog/users/administratoruserswidget.cpp:462
 #, kde-format
 msgid "E2E key for %1 has been reset."
 msgstr "Clave E2E per %1 ha essite refixate."
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:444
+#: widgets/administratordialog/users/administratoruserswidget.cpp:462
 #, kde-format
 msgctxt "@title:window"
 msgid "Reset E2E"
 msgstr "Refixa E2E"
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:457
+#: widgets/administratordialog/users/administratoruserswidget.cpp:475
 #, kde-format
 msgid ""
 "Reset the current Two Factor TOTP will log out the user. The user will be "
@@ -3772,14 +3779,14 @@ msgstr ""
 "Refixar le TOTPDuo Factor currente claudera session de usator (log out). Le "
 "usator fixara de novo le Duo Factor postea."
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:458
-#: widgets/administratordialog/users/administratoruserswidget.cpp:489
+#: widgets/administratordialog/users/administratoruserswidget.cpp:476
+#: widgets/administratordialog/users/administratoruserswidget.cpp:507
 #, kde-format
 msgctxt "@title:window"
 msgid "Reset TOTP"
 msgstr "Refixa TOTP"
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:489
+#: widgets/administratordialog/users/administratoruserswidget.cpp:507
 #, kde-format
 msgid "TOTP key for %1 has been reset"
 msgstr "Clave TOTP per %1 ha essite refixate"
@@ -10772,6 +10779,12 @@ msgstr "Corrige messages duplicate in dialogo de cerca de message"
 msgid "Add delegate in search rooms in team dialog."
 msgstr "Adde delegato in salas de cerca in dialogo de equipa."
 
+#: widgets/whatsnew/whatsnewtranslations.cpp:119
+#, fuzzy, kde-format
+#| msgid "Direct message"
+msgid "Fix editing message."
+msgstr "Message Directe"
+
 #: widgets/whatsnew/whatsnewwidget.cpp:44
 #, kde-format
 msgid "All Version"
@@ -10796,6 +10809,10 @@ msgstr ""
 #, kde-format
 msgid "Some bug fixing:"
 msgstr "Alcun correction de faltas (bug)"
+
+#~ msgctxt "@option:check"
+#~ msgid "Verified"
+#~ msgstr "Verificate"
 
 #~ msgid "System Messages"
 #~ msgstr "Messages de systema"

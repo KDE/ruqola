@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-09-28 00:39+0000\n"
+"POT-Creation-Date: 2024-10-01 00:39+0000\n"
 "PO-Revision-Date: 2024-06-19 22:06+0200\n"
 "Last-Translator: Kristof Kiszel <ulysses@fsf.hu>\n"
 "Language-Team: Hungarian <kde-l10n-hu@kde.org>\n"
@@ -715,7 +715,7 @@ msgstr "Név"
 msgid "Identifier"
 msgstr "Azonosító"
 
-#: core/model/admincustomemojimodel.cpp:38
+#: core/model/admincustomemojimodel.cpp:39
 #, kde-format
 msgid "Aliases"
 msgstr "Álnevek"
@@ -838,12 +838,13 @@ msgid "Type"
 msgstr "Típus"
 
 #: core/model/adminusersallmodel.cpp:54
-#: widgets/administratordialog/users/administratoruserstabwidget.cpp:30
+#: widgets/administratordialog/users/administratoruserstabwidget.cpp:34
 #, kde-format
 msgid "Pending"
 msgstr ""
 
 #: core/model/adminusersallmodel.cpp:58
+#: widgets/administratordialog/users/administratoruserstabwidget.cpp:35
 #, fuzzy, kde-format
 #| msgid "Deactivate"
 msgid "Deactivated"
@@ -2609,7 +2610,7 @@ msgstr "Az egyéni emodzsi nevének és álneveinek különbözőnek kell lenni�
 #: widgets/administratordialog/roles/roleeditwidget.cpp:34
 #: widgets/administratordialog/rooms/administratordirectroomseditwidget.cpp:24
 #: widgets/administratordialog/rooms/administratorroomseditwidget.cpp:43
-#: widgets/administratordialog/users/administratoradduserwidget.cpp:59
+#: widgets/administratordialog/users/administratoradduserwidget.cpp:60
 #: widgets/dialogs/channelinfoeditablewidget.cpp:53
 #: widgets/dialogs/channelinforeadonlywidget.cpp:33
 #: widgets/dialogs/createnewchannelwidget.cpp:34
@@ -3093,7 +3094,7 @@ msgid "Show Moderation Users"
 msgstr "Moderációs üzenetek megjelenítése"
 
 #: widgets/administratordialog/moderationconsole/moderationuserswidget.cpp:37
-#: widgets/administratordialog/users/administratoradduserwidget.cpp:62
+#: widgets/administratordialog/users/administratoradduserwidget.cpp:63
 #: widgets/dialogs/directchannelinfowidget.cpp:166
 #: widgets/myaccount/myaccountprofileconfigurewidget.cpp:74
 #: widgets/registeruser/registeruserwidget.cpp:33
@@ -3102,7 +3103,7 @@ msgid "Email:"
 msgstr "E-mail:"
 
 #: widgets/administratordialog/moderationconsole/moderationuserswidget.cpp:43
-#: widgets/administratordialog/users/administratoradduserwidget.cpp:71
+#: widgets/administratordialog/users/administratoradduserwidget.cpp:72
 #: widgets/dialogs/directchannelinfowidget.cpp:141
 #, kde-format
 msgid "Roles:"
@@ -3708,12 +3709,12 @@ msgstr "Véletlen jelszó beállítása és küldés e-mailben"
 
 #: widgets/administratordialog/users/administratoradduserwidget.cpp:31
 #, fuzzy, kde-format
-#| msgid "Verified"
+#| msgid "Mark Email for External Accounts Verified"
 msgctxt "@option:check"
-msgid "Verified"
-msgstr "Ellenőrizve"
+msgid "Mark email as verified"
+msgstr "Külső fiókok e-mail-címének megjelölése ellenőrzöttként"
 
-#: widgets/administratordialog/users/administratoradduserwidget.cpp:60
+#: widgets/administratordialog/users/administratoradduserwidget.cpp:61
 #: widgets/dialogs/directchannelinfowidget.cpp:95
 #: widgets/dialogs/serverinfo/serverinfowidget.cpp:39
 #: widgets/myaccount/myaccountprofileconfigurewidget.cpp:67
@@ -3722,12 +3723,12 @@ msgstr "Ellenőrizve"
 msgid "Username:"
 msgstr "Felhasználónév:"
 
-#: widgets/administratordialog/users/administratoradduserwidget.cpp:61
+#: widgets/administratordialog/users/administratoradduserwidget.cpp:62
 #, kde-format
 msgid "Status Message:"
 msgstr "Állapotüzenet:"
 
-#: widgets/administratordialog/users/administratoradduserwidget.cpp:64
+#: widgets/administratordialog/users/administratoradduserwidget.cpp:65
 #: widgets/common/authenticationloginwidget.cpp:47
 #: widgets/dialogs/channelinfoeditablewidget.cpp:77
 #: widgets/registeruser/registeruserwidget.cpp:39
@@ -3735,13 +3736,13 @@ msgstr "Állapotüzenet:"
 msgid "Password:"
 msgstr "Jelszó:"
 
-#: widgets/administratordialog/users/administratoradduserwidget.cpp:65
+#: widgets/administratordialog/users/administratoradduserwidget.cpp:66
 #: widgets/dialogs/directchannelinfowidget.cpp:112
 #, kde-format
 msgid "Bio:"
 msgstr "Életrajz:"
 
-#: widgets/administratordialog/users/administratoradduserwidget.cpp:66
+#: widgets/administratordialog/users/administratoradduserwidget.cpp:67
 #: widgets/myaccount/myaccountprofileconfigurewidget.cpp:82
 #, kde-format
 msgid "Nickname:"
@@ -3766,7 +3767,7 @@ msgctxt "@info:placeholder"
 msgid "Use ',' for separate emails"
 msgstr "A ',' használatával elválaszthatók az e-mail-címek"
 
-#: widgets/administratordialog/users/administratoruserstabwidget.cpp:29
+#: widgets/administratordialog/users/administratoruserstabwidget.cpp:33
 #: widgets/applicationssettingsdialog/applicationssettingsinstalledcombobox.cpp:13
 #: widgets/dialogs/showattachmentcombobox.cpp:19
 #: widgets/room/usersinroomcombobox.cpp:20
@@ -3774,6 +3775,12 @@ msgstr "A ',' használatával elválaszthatók az e-mail-címek"
 #, kde-format
 msgid "All"
 msgstr "Összes"
+
+#: widgets/administratordialog/users/administratoruserstabwidget.cpp:36
+#, fuzzy, kde-format
+#| msgid "Active"
+msgid "Activated"
+msgstr "Aktív"
 
 #: widgets/administratordialog/users/administratoruserswidget.cpp:227
 #, kde-format
@@ -3829,7 +3836,7 @@ msgctxt "@action"
 msgid "Reset Totp"
 msgstr "Időalapú, egyszer használatos jelszó visszaállítása"
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:408
+#: widgets/administratordialog/users/administratoruserswidget.cpp:426
 #, kde-format
 msgid ""
 "Reset the current E2E key will log out the user. When the user login again, "
@@ -3846,25 +3853,25 @@ msgstr ""
 "adódóan a Rocket.Chat nem tudja visszaállítani a hozzáférést olyan "
 "titkosított szobákhoz, amelyek nem rendelkeznek elérhető taggal."
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:412
+#: widgets/administratordialog/users/administratoruserswidget.cpp:430
 #, kde-format
 msgctxt "@title:window"
 msgid "Reset E2E key"
 msgstr "Végpontok közötti titkosítási kulcs visszaállítása"
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:444
+#: widgets/administratordialog/users/administratoruserswidget.cpp:462
 #, kde-format
 msgid "E2E key for %1 has been reset."
 msgstr "%1 végpontok közötti titkosítási kulcsa vissza lett állítva."
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:444
+#: widgets/administratordialog/users/administratoruserswidget.cpp:462
 #, fuzzy, kde-format
 #| msgid "Reset E2E"
 msgctxt "@title:window"
 msgid "Reset E2E"
 msgstr "Végpontok közötti titkosítás visszaállítása"
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:457
+#: widgets/administratordialog/users/administratoruserswidget.cpp:475
 #, kde-format
 msgid ""
 "Reset the current Two Factor TOTP will log out the user. The user will be "
@@ -3874,14 +3881,14 @@ msgstr ""
 "ki fogja jelentkeztetni a felhasználót. A felhasználó később újra képes lesz "
 "beállítani a kétfaktoros hitelesítést."
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:458
-#: widgets/administratordialog/users/administratoruserswidget.cpp:489
+#: widgets/administratordialog/users/administratoruserswidget.cpp:476
+#: widgets/administratordialog/users/administratoruserswidget.cpp:507
 #, kde-format
 msgctxt "@title:window"
 msgid "Reset TOTP"
 msgstr "Időalapú, egyszer használatos jelszó visszaállítása"
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:489
+#: widgets/administratordialog/users/administratoruserswidget.cpp:507
 #, kde-format
 msgid "TOTP key for %1 has been reset"
 msgstr "%1 időalapú, egyszer használatos jelszava vissza lett állítva"
@@ -11457,6 +11464,11 @@ msgstr "Üzenet fordítása a közvetlen csatornában javítva."
 msgid "Add delegate in search rooms in team dialog."
 msgstr "Üzenet fordítása a közvetlen csatornában javítva."
 
+#: widgets/whatsnew/whatsnewtranslations.cpp:119
+#, kde-format
+msgid "Fix editing message."
+msgstr ""
+
 #: widgets/whatsnew/whatsnewwidget.cpp:44
 #, kde-format
 msgid "All Version"
@@ -11482,6 +11494,12 @@ msgstr "Néhány új funkció, amelyet a Ruqola ezen kiadása tartalmaz:"
 #, kde-format
 msgid "Some bug fixing:"
 msgstr "Néhány hibajavítás:"
+
+#, fuzzy
+#~| msgid "Verified"
+#~ msgctxt "@option:check"
+#~ msgid "Verified"
+#~ msgstr "Ellenőrizve"
 
 #~ msgid "System Messages"
 #~ msgstr "Rendszerüzenetek"
