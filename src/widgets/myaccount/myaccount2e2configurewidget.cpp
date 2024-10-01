@@ -76,7 +76,7 @@ void MyAccount2e2ConfigureWidget::slotResetE2EKey()
     job->setMethodCallJobInfo(std::move(info));
     mRocketChatAccount->restApi()->initializeRestApiJob(job);
     // qDebug()<< " mRestApiConnection " << mRestApiConnection->serverUrl();
-    connect(job, &RocketChatRestApi::MethodCallJob::methodCallDone, this, [this](const QJsonObject &replyObject) {
+    connect(job, &RocketChatRestApi::MethodCallJob::methodCallDone, this, [](const QJsonObject &replyObject) {
         qDebug() << " replyObject " << replyObject;
     });
     if (!job->start()) {
