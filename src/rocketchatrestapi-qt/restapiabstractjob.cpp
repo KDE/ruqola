@@ -571,7 +571,7 @@ QJsonDocument RestApiAbstractJob::convertToJsonDocument(QNetworkReply *reply)
     const QByteArray data = reply->readAll();
     const QJsonDocument replyDocument = QJsonDocument::fromJson(data);
     if (replyDocument.isNull()) {
-        qCWarning(ROCKETCHATQTRESTAPI_LOG) << " convertToJsonObject return null jsondocument. It's a bug ";
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << " convertToJsonObject return null jsondocument. It's a bug. Data:" << data;
     }
     return replyDocument;
 }
