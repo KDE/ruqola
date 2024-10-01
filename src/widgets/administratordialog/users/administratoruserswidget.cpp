@@ -16,6 +16,7 @@
 #include "misc/searchwithdelaylineedit.h"
 #include "model/adminusersallmodel.h"
 #include "model/adminuserspendingmodel.h"
+#include "model/adminusersstatusmodel.h"
 #include "model/searchtreebasefilterproxymodel.h"
 #include "rocketchataccount.h"
 #include "ruqolawidgets_debug.h"
@@ -44,7 +45,8 @@ AdministratorUsersWidget::AdministratorUsersWidget(AdministratorUsersWidget::Use
     , mUserType(type)
 {
     AdminUsersBaseModel *adminUsersModel = nullptr;
-    if (type == AdministratorUsersWidget::Pending) {
+    switch (type) {
+    case AdministratorUsersWidget::Pending: {
         adminUsersModel = new AdminUsersPendingModel(this);
         auto delegate = new AdministratorUsersPendingActionDelegate(this);
         connect(delegate, &AdministratorUsersPendingActionDelegate::pendingActionActivated, this, [this](const QModelIndex &index) {
@@ -56,8 +58,15 @@ AdministratorUsersWidget::AdministratorUsersWidget(AdministratorUsersWidget::Use
             }
         });
         mTreeView->setItemDelegateForColumn(AdminUsersPendingModel::PendingActionButton, delegate);
-    } else {
+        break;
+    }
+    case All:
         adminUsersModel = new AdminUsersAllModel(this);
+        break;
+    case Desactivated:
+    case Activate:
+        adminUsersModel = new AdminUsersStatusModel(this);
+        break;
     }
 
     adminUsersModel->setObjectName("mAdminUsersModel"_L1);

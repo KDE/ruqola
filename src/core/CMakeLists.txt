@@ -173,6 +173,8 @@ target_sources(libruqolacore PRIVATE
     model/adminroomsmodel.h
     model/adminusersallmodel.cpp
     model/adminusersallmodel.h
+    model/adminusersstatusmodel.h
+    model/adminusersstatusmodel.cpp
     model/adminuserspendingmodel.cpp
     model/adminuserspendingmodel.h
     model/adminusersbasemodel.h
