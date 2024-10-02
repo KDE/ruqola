@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-10-01 00:39+0000\n"
+"POT-Creation-Date: 2024-10-02 00:39+0000\n"
 "PO-Revision-Date: 2023-06-07 13:29-0300\n"
 "Last-Translator: Luiz Fernando Ranghetti <elchevive@opensuse.org>\n"
 "Language-Team: Brazilian Portuguese <kde-i18n-pt_BR@kde.org>\n"
@@ -709,6 +709,7 @@ msgstr "%1 e %2"
 #: core/model/adminrolesmodel.cpp:32 core/model/adminroomsmodel.cpp:30
 #: core/model/adminusersallmodel.cpp:68
 #: core/model/adminuserspendingmodel.cpp:66
+#: core/model/adminusersstatusmodel.cpp:24
 #: core/model/directoryroomsmodel.cpp:116 core/model/directoryteamsmodel.cpp:90
 #: core/model/directoryusersmodel.cpp:101
 #: core/model/moderationreportedmessagemodel.cpp:30
@@ -867,12 +868,14 @@ msgstr "Total de usuários desativados"
 
 #: core/model/adminusersallmodel.cpp:70
 #: core/model/adminuserspendingmodel.cpp:68
+#: core/model/adminusersstatusmodel.cpp:26
 #, kde-format
 msgid "UserName"
 msgstr "Nome do usuário"
 
 #: core/model/adminusersallmodel.cpp:72
 #: core/model/adminuserspendingmodel.cpp:70
+#: core/model/adminusersstatusmodel.cpp:28
 #: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:125
 #: widgets/dialogs/configurenotificationwidget.cpp:117
 #, kde-format
@@ -881,6 +884,7 @@ msgstr "E-mail"
 
 #: core/model/adminusersallmodel.cpp:74
 #: core/model/adminuserspendingmodel.cpp:72
+#: core/model/adminusersstatusmodel.cpp:30
 #, kde-format
 msgid "Role"
 msgstr "Função"
@@ -2737,12 +2741,12 @@ msgid "Remove Emoji"
 msgstr "Remover emoji"
 
 #: widgets/administratordialog/customemoji/administratorcustomemojiwidget.cpp:178
-#: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:142
+#: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:162
 #: widgets/administratordialog/customuserstatus/customuserstatustreewidget.cpp:127
 #: widgets/administratordialog/oauth/oauthtreeview.cpp:49
 #: widgets/administratordialog/roles/administratorroleswidget.cpp:101
 #: widgets/administratordialog/roles/usersinrolewidget.cpp:106
-#: widgets/administratordialog/users/administratoruserswidget.cpp:286
+#: widgets/administratordialog/users/administratoruserswidget.cpp:295
 #: widgets/myaccount/myaccountpersonalaccesstokentreeview.cpp:35
 #, kde-format
 msgctxt "@action"
@@ -2750,13 +2754,13 @@ msgid "Add…"
 msgstr ""
 
 #: widgets/administratordialog/customemoji/administratorcustomemojiwidget.cpp:181
-#: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:144
+#: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:164
 #: widgets/administratordialog/customuserstatus/customuserstatustreewidget.cpp:130
 #: widgets/administratordialog/oauth/oauthtreeview.cpp:51
 #: widgets/administratordialog/permissions/permissionswidget.cpp:92
 #: widgets/administratordialog/roles/administratorroleswidget.cpp:105
 #: widgets/administratordialog/rooms/administratorroomswidget.cpp:63
-#: widgets/administratordialog/users/administratoruserswidget.cpp:293
+#: widgets/administratordialog/users/administratoruserswidget.cpp:302
 #, fuzzy, kde-format
 #| msgid "Modify..."
 msgctxt "@action"
@@ -2764,14 +2768,14 @@ msgid "Modify…"
 msgstr "Modificar..."
 
 #: widgets/administratordialog/customemoji/administratorcustomemojiwidget.cpp:186
-#: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:148
+#: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:168
 #: widgets/administratordialog/customuserstatus/customuserstatustreewidget.cpp:132
 #: widgets/administratordialog/invites/invitetreeview.cpp:39
 #: widgets/administratordialog/oauth/oauthtreeview.cpp:55
 #: widgets/administratordialog/roles/administratorroleswidget.cpp:120
 #: widgets/administratordialog/roles/usersinrolewidget.cpp:110
 #: widgets/administratordialog/rooms/administratorroomswidget.cpp:67
-#: widgets/administratordialog/users/administratoruserswidget.cpp:330
+#: widgets/administratordialog/users/administratoruserswidget.cpp:339
 #: widgets/myaccount/myaccountpersonalaccesstokentreeview.cpp:42
 #, fuzzy, kde-format
 #| msgid "Remove"
@@ -2785,31 +2789,31 @@ msgctxt "@title:window"
 msgid "Create New Sound"
 msgstr "Criar novo som"
 
-#: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:29
+#: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:30
 #, fuzzy, kde-format
 #| msgid "Search Custom Sounds"
 msgctxt "@info:placeholder"
 msgid "Search Custom Sounds"
 msgstr "Pesquisar sons personalizados"
 
-#: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:61
+#: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:62
 #, kde-format
 msgid "No custom sound found"
 msgstr "Nenhum som personalizado encontrado"
 
-#: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:66
+#: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:67
 #, kde-format
 msgid "%1 custom sound (Total: %2)"
 msgid_plural "%1 custom sounds (Total: %2)"
 msgstr[0] "%1 som personalizado (total: %2)"
 msgstr[1] "%1 sons personalizados (total: %2)"
 
-#: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:127
+#: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:130
 #, kde-format
 msgid "Do you want to remove this sound?"
 msgstr "Deseja excluir este som?"
 
-#: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:128
+#: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:131
 #, kde-format
 msgctxt "@title"
 msgid "Remove Custom Sound"
@@ -3363,7 +3367,7 @@ msgid "Users in Role"
 msgstr "Adicionar usuários na função"
 
 #: widgets/administratordialog/roles/usersinrolewidget.cpp:36
-#: widgets/administratordialog/users/administratoruserswidget.cpp:71
+#: widgets/administratordialog/users/administratoruserswidget.cpp:80
 #: widgets/dialogs/addusersinroomwidget.cpp:23
 #: widgets/directory/directorywidget.cpp:40
 #: widgets/room/usersinroomwidget.cpp:40
@@ -3385,7 +3389,7 @@ msgid "Do you want to remove this user \"%1\"?"
 msgstr "Deseja remover este usuário \"%1\"?"
 
 #: widgets/administratordialog/roles/usersinrolewidget.cpp:81
-#: widgets/administratordialog/users/administratoruserswidget.cpp:228
+#: widgets/administratordialog/users/administratoruserswidget.cpp:237
 #, fuzzy, kde-format
 #| msgid "Remove User"
 msgctxt "@title:window"
@@ -3393,13 +3397,13 @@ msgid "Remove User"
 msgstr "Excluir usuário"
 
 #: widgets/administratordialog/roles/usersinrolewidget.cpp:119
-#: widgets/administratordialog/users/administratoruserswidget.cpp:343
+#: widgets/administratordialog/users/administratoruserswidget.cpp:352
 #, kde-format
 msgid "No user found"
 msgstr "Nenhum usuário encontrado"
 
 #: widgets/administratordialog/roles/usersinrolewidget.cpp:124
-#: widgets/administratordialog/users/administratoruserswidget.cpp:348
+#: widgets/administratordialog/users/administratoruserswidget.cpp:357
 #: widgets/directory/directorywidget.cpp:203
 #, kde-format
 msgid "%1 user (Total: %2)"
@@ -3488,7 +3492,6 @@ msgid "Announcement:"
 msgstr "Anúncio:"
 
 #: widgets/administratordialog/rooms/administratorroomseditwidget.cpp:63
-#: widgets/dialogs/createnewchannelwidget.cpp:48
 #, fuzzy, kde-format
 #| msgid ""
 #| "Only authorized users can write new messages, but the other users will be "
@@ -3500,7 +3503,7 @@ msgstr ""
 "usuários poderão responder"
 
 #: widgets/administratordialog/rooms/administratorroomseditwidget.cpp:67
-#: widgets/dialogs/createnewchannelwidget.cpp:61
+#: widgets/dialogs/createnewchannelwidget.cpp:65
 #, fuzzy, kde-format
 #| msgid "Only invited people can join"
 msgctxt "@label:textbox"
@@ -3882,61 +3885,61 @@ msgstr "Todos"
 msgid "Activated"
 msgstr "Ativo"
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:227
+#: widgets/administratordialog/users/administratoruserswidget.cpp:236
 #, kde-format
 msgid "Do you want to remove this user?"
 msgstr "Deseja remover este usuário?"
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:280
+#: widgets/administratordialog/users/administratoruserswidget.cpp:289
 #, fuzzy, kde-format
 #| msgid "Invites"
 msgctxt "@action"
 msgid "Invite…"
 msgstr "Convites"
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:302
+#: widgets/administratordialog/users/administratoruserswidget.cpp:311
 #, fuzzy, kde-format
 #| msgid "Deactivated Users"
 msgctxt "@action"
 msgid "Deactivate"
 msgstr "Total de usuários desativados"
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:302
+#: widgets/administratordialog/users/administratoruserswidget.cpp:311
 #, fuzzy, kde-format
 #| msgid "Active"
 msgctxt "@action"
 msgid "Active"
 msgstr "Ativo"
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:311
+#: widgets/administratordialog/users/administratoruserswidget.cpp:320
 #, fuzzy, kde-format
 #| msgid "Remove Admin"
 msgctxt "@action"
 msgid "Remove Admin"
 msgstr "Remover administrador"
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:311
+#: widgets/administratordialog/users/administratoruserswidget.cpp:320
 #, fuzzy, kde-format
 #| msgid "Make Admin"
 msgctxt "@action"
 msgid "Make Admin"
 msgstr "Tornar administrador"
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:317
+#: widgets/administratordialog/users/administratoruserswidget.cpp:326
 #, fuzzy, kde-format
 #| msgid "Reset Avatar"
 msgctxt "@action"
 msgid "Reset E2E Key"
 msgstr "Redefinir avatar"
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:323
+#: widgets/administratordialog/users/administratoruserswidget.cpp:332
 #, fuzzy, kde-format
 #| msgid "Reset Avatar"
 msgctxt "@action"
 msgid "Reset Totp"
 msgstr "Redefinir avatar"
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:426
+#: widgets/administratordialog/users/administratoruserswidget.cpp:435
 #, kde-format
 msgid ""
 "Reset the current E2E key will log out the user. When the user login again, "
@@ -3946,41 +3949,41 @@ msgid ""
 "encrypted room that has no member online."
 msgstr ""
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:430
+#: widgets/administratordialog/users/administratoruserswidget.cpp:439
 #, fuzzy, kde-format
 #| msgid "Reset Avatar"
 msgctxt "@title:window"
 msgid "Reset E2E key"
 msgstr "Redefinir avatar"
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:462
+#: widgets/administratordialog/users/administratoruserswidget.cpp:471
 #, kde-format
 msgid "E2E key for %1 has been reset."
 msgstr ""
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:462
+#: widgets/administratordialog/users/administratoruserswidget.cpp:471
 #, fuzzy, kde-format
 #| msgid "Reset Avatar"
 msgctxt "@title:window"
 msgid "Reset E2E"
 msgstr "Redefinir avatar"
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:475
+#: widgets/administratordialog/users/administratoruserswidget.cpp:484
 #, kde-format
 msgid ""
 "Reset the current Two Factor TOTP will log out the user. The user will be "
 "able to set the Two Factor again later."
 msgstr ""
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:476
-#: widgets/administratordialog/users/administratoruserswidget.cpp:507
+#: widgets/administratordialog/users/administratoruserswidget.cpp:485
+#: widgets/administratordialog/users/administratoruserswidget.cpp:516
 #, fuzzy, kde-format
 #| msgid "Reset Avatar"
 msgctxt "@title:window"
 msgid "Reset TOTP"
 msgstr "Redefinir avatar"
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:507
+#: widgets/administratordialog/users/administratoruserswidget.cpp:516
 #, kde-format
 msgid "TOTP key for %1 has been reset"
 msgstr ""
@@ -7908,18 +7911,49 @@ msgid "Users:"
 msgstr "Usuários:"
 
 #: widgets/dialogs/createnewchannelwidget.cpp:46
+#: widgets/dialogs/createnewchannelwidget.cpp:50
 #, fuzzy, kde-format
-#| msgid "All users in this team can write messages"
+#| msgid "Do you want to delete this message?"
 msgctxt "@info:tooltip"
-msgid "All users in this team can write messages"
-msgstr "Todos os usuários nesta equipe podem escrever mensagens"
+msgid "Anyone can send new messages"
+msgstr "Deseja excluir esta mensagem?"
 
 #: widgets/dialogs/createnewchannelwidget.cpp:47
 #, kde-format
 msgid "Read-Only:"
 msgstr "Somente leitura:"
 
-#: widgets/dialogs/createnewchannelwidget.cpp:53
+#: widgets/dialogs/createnewchannelwidget.cpp:48
+#: widgets/dialogs/createnewchannelwidget.cpp:51
+#, fuzzy, kde-format
+#| msgid "Do you want to delete this message?"
+msgctxt "@label:textbox"
+msgid "Anyone can send new messages"
+msgstr "Deseja excluir esta mensagem?"
+
+#: widgets/dialogs/createnewchannelwidget.cpp:50
+#, fuzzy, kde-format
+#| msgid ""
+#| "Only authorized users can write new messages, but the other users will be "
+#| "able to reply"
+msgctxt "@info:tooltip"
+msgid "Only owners can send new messages"
+msgstr ""
+"Somente usuários autorizados podem escrever novas mensagens, mas os outros "
+"usuários poderão responder"
+
+#: widgets/dialogs/createnewchannelwidget.cpp:51
+#, fuzzy, kde-format
+#| msgid ""
+#| "Only authorized users can write new messages, but the other users will be "
+#| "able to reply"
+msgctxt "@label:textbox"
+msgid "Only owners can send new messages"
+msgstr ""
+"Somente usuários autorizados podem escrever novas mensagens, mas os outros "
+"usuários poderão responder"
+
+#: widgets/dialogs/createnewchannelwidget.cpp:57
 #, fuzzy, kde-format
 #| msgid ""
 #| "Only authorized users can write new messages, but the other users will be "
@@ -7932,24 +7966,24 @@ msgstr ""
 "Somente usuários autorizados podem escrever novas mensagens, mas os outros "
 "usuários poderão responder"
 
-#: widgets/dialogs/createnewchannelwidget.cpp:54
+#: widgets/dialogs/createnewchannelwidget.cpp:58
 #, kde-format
 msgid "Broadcast:"
 msgstr "Broadcast:"
 
-#: widgets/dialogs/createnewchannelwidget.cpp:58
+#: widgets/dialogs/createnewchannelwidget.cpp:62
 #, fuzzy, kde-format
 #| msgid "Only invited people can join"
 msgctxt "@info:tooltip"
 msgid "Only invited people can join"
 msgstr "Somente pessoas convidadas podem entrar"
 
-#: widgets/dialogs/createnewchannelwidget.cpp:60
+#: widgets/dialogs/createnewchannelwidget.cpp:64
 #, kde-format
 msgid "Private Room:"
 msgstr "Sala privada:"
 
-#: widgets/dialogs/createnewchannelwidget.cpp:66
+#: widgets/dialogs/createnewchannelwidget.cpp:70
 #, kde-format
 msgid "Encrypted Room:"
 msgstr "Sala criptografada:"
@@ -11622,6 +11656,12 @@ msgstr ""
 #| msgid "Bug fixing"
 msgid "Some bug fixing:"
 msgstr "Correção de erros"
+
+#, fuzzy
+#~| msgid "All users in this team can write messages"
+#~ msgctxt "@info:tooltip"
+#~ msgid "All users in this team can write messages"
+#~ msgstr "Todos os usuários nesta equipe podem escrever mensagens"
 
 #, fuzzy
 #~| msgid "Verified"

@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-10-01 00:39+0000\n"
-"PO-Revision-Date: 2024-09-21 08:11+0200\n"
+"POT-Creation-Date: 2024-10-02 00:39+0000\n"
+"PO-Revision-Date: 2024-10-01 07:24+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
@@ -689,6 +689,7 @@ msgstr "%1 in %2"
 #: core/model/adminrolesmodel.cpp:32 core/model/adminroomsmodel.cpp:30
 #: core/model/adminusersallmodel.cpp:68
 #: core/model/adminuserspendingmodel.cpp:66
+#: core/model/adminusersstatusmodel.cpp:24
 #: core/model/directoryroomsmodel.cpp:116 core/model/directoryteamsmodel.cpp:90
 #: core/model/directoryusersmodel.cpp:101
 #: core/model/moderationreportedmessagemodel.cpp:30
@@ -846,12 +847,14 @@ msgstr "Deaktivirano"
 
 #: core/model/adminusersallmodel.cpp:70
 #: core/model/adminuserspendingmodel.cpp:68
+#: core/model/adminusersstatusmodel.cpp:26
 #, kde-format
 msgid "UserName"
 msgstr "Uporabniško ime"
 
 #: core/model/adminusersallmodel.cpp:72
 #: core/model/adminuserspendingmodel.cpp:70
+#: core/model/adminusersstatusmodel.cpp:28
 #: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:125
 #: widgets/dialogs/configurenotificationwidget.cpp:117
 #, kde-format
@@ -860,6 +863,7 @@ msgstr "E-pošta"
 
 #: core/model/adminusersallmodel.cpp:74
 #: core/model/adminuserspendingmodel.cpp:72
+#: core/model/adminusersstatusmodel.cpp:30
 #, kde-format
 msgid "Role"
 msgstr "Vloga"
@@ -2642,12 +2646,12 @@ msgid "Remove Emoji"
 msgstr "Odstrani čustvenčka"
 
 #: widgets/administratordialog/customemoji/administratorcustomemojiwidget.cpp:178
-#: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:142
+#: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:162
 #: widgets/administratordialog/customuserstatus/customuserstatustreewidget.cpp:127
 #: widgets/administratordialog/oauth/oauthtreeview.cpp:49
 #: widgets/administratordialog/roles/administratorroleswidget.cpp:101
 #: widgets/administratordialog/roles/usersinrolewidget.cpp:106
-#: widgets/administratordialog/users/administratoruserswidget.cpp:286
+#: widgets/administratordialog/users/administratoruserswidget.cpp:295
 #: widgets/myaccount/myaccountpersonalaccesstokentreeview.cpp:35
 #, kde-format
 msgctxt "@action"
@@ -2655,27 +2659,27 @@ msgid "Add…"
 msgstr "Dodaj…"
 
 #: widgets/administratordialog/customemoji/administratorcustomemojiwidget.cpp:181
-#: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:144
+#: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:164
 #: widgets/administratordialog/customuserstatus/customuserstatustreewidget.cpp:130
 #: widgets/administratordialog/oauth/oauthtreeview.cpp:51
 #: widgets/administratordialog/permissions/permissionswidget.cpp:92
 #: widgets/administratordialog/roles/administratorroleswidget.cpp:105
 #: widgets/administratordialog/rooms/administratorroomswidget.cpp:63
-#: widgets/administratordialog/users/administratoruserswidget.cpp:293
+#: widgets/administratordialog/users/administratoruserswidget.cpp:302
 #, kde-format
 msgctxt "@action"
 msgid "Modify…"
 msgstr "Spremeni…"
 
 #: widgets/administratordialog/customemoji/administratorcustomemojiwidget.cpp:186
-#: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:148
+#: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:168
 #: widgets/administratordialog/customuserstatus/customuserstatustreewidget.cpp:132
 #: widgets/administratordialog/invites/invitetreeview.cpp:39
 #: widgets/administratordialog/oauth/oauthtreeview.cpp:55
 #: widgets/administratordialog/roles/administratorroleswidget.cpp:120
 #: widgets/administratordialog/roles/usersinrolewidget.cpp:110
 #: widgets/administratordialog/rooms/administratorroomswidget.cpp:67
-#: widgets/administratordialog/users/administratoruserswidget.cpp:330
+#: widgets/administratordialog/users/administratoruserswidget.cpp:339
 #: widgets/myaccount/myaccountpersonalaccesstokentreeview.cpp:42
 #, kde-format
 msgctxt "@action"
@@ -2688,18 +2692,18 @@ msgctxt "@title:window"
 msgid "Create New Sound"
 msgstr "Ustvari nov zvok"
 
-#: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:29
+#: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:30
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Search Custom Sounds"
 msgstr "Iskanje zvokov po meri"
 
-#: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:61
+#: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:62
 #, kde-format
 msgid "No custom sound found"
 msgstr "Zvoka po meri ni mogoče najti"
 
-#: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:66
+#: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:67
 #, kde-format
 msgid "%1 custom sound (Total: %2)"
 msgid_plural "%1 custom sounds (Total: %2)"
@@ -2708,12 +2712,12 @@ msgstr[1] "%1 zvoka po meri (skupaj: %2)"
 msgstr[2] "%1 zvoki po meri (skupaj: %2)"
 msgstr[3] "%1 zvokov po meri (skupaj: %2)"
 
-#: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:127
+#: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:130
 #, kde-format
 msgid "Do you want to remove this sound?"
 msgstr "Ali želite odstraniti ta zvok?"
 
-#: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:128
+#: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:131
 #, kde-format
 msgctxt "@title"
 msgid "Remove Custom Sound"
@@ -3229,7 +3233,7 @@ msgid "Users in Role"
 msgstr "Uporabniki v vlogi"
 
 #: widgets/administratordialog/roles/usersinrolewidget.cpp:36
-#: widgets/administratordialog/users/administratoruserswidget.cpp:71
+#: widgets/administratordialog/users/administratoruserswidget.cpp:80
 #: widgets/dialogs/addusersinroomwidget.cpp:23
 #: widgets/directory/directorywidget.cpp:40
 #: widgets/room/usersinroomwidget.cpp:40
@@ -3250,20 +3254,20 @@ msgid "Do you want to remove this user \"%1\"?"
 msgstr "Ali želite odstraniti tega uporabnika »%1«?"
 
 #: widgets/administratordialog/roles/usersinrolewidget.cpp:81
-#: widgets/administratordialog/users/administratoruserswidget.cpp:228
+#: widgets/administratordialog/users/administratoruserswidget.cpp:237
 #, kde-format
 msgctxt "@title:window"
 msgid "Remove User"
 msgstr "Odstrani uporabnika"
 
 #: widgets/administratordialog/roles/usersinrolewidget.cpp:119
-#: widgets/administratordialog/users/administratoruserswidget.cpp:343
+#: widgets/administratordialog/users/administratoruserswidget.cpp:352
 #, kde-format
 msgid "No user found"
 msgstr "Ni zadetkov med uporabniki"
 
 #: widgets/administratordialog/roles/usersinrolewidget.cpp:124
-#: widgets/administratordialog/users/administratoruserswidget.cpp:348
+#: widgets/administratordialog/users/administratoruserswidget.cpp:357
 #: widgets/directory/directorywidget.cpp:203
 #, kde-format
 msgid "%1 user (Total: %2)"
@@ -3345,14 +3349,13 @@ msgid "Announcement:"
 msgstr "Objava:"
 
 #: widgets/administratordialog/rooms/administratorroomseditwidget.cpp:63
-#: widgets/dialogs/createnewchannelwidget.cpp:48
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Only authorized users can write new messages"
 msgstr "Samo pooblaščeni uporabniki lahko pišejo nova sporočila"
 
 #: widgets/administratordialog/rooms/administratorroomseditwidget.cpp:67
-#: widgets/dialogs/createnewchannelwidget.cpp:61
+#: widgets/dialogs/createnewchannelwidget.cpp:65
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Just invited people can access this channel."
@@ -3644,12 +3647,10 @@ msgid "Set random password and send by email"
 msgstr "Nastavi naključno geslo in ga pošlji po e-pošti"
 
 #: widgets/administratordialog/users/administratoradduserwidget.cpp:31
-#, fuzzy, kde-format
-#| msgctxt "@option:check"
-#| msgid "Mark Email for External Accounts Verified"
+#, kde-format
 msgctxt "@option:check"
 msgid "Mark email as verified"
-msgstr "Označi e-pošte za zunanje račune kot preverjene"
+msgstr "Označi e-pošto kot preverjeno"
 
 #: widgets/administratordialog/users/administratoradduserwidget.cpp:61
 #: widgets/dialogs/directchannelinfowidget.cpp:95
@@ -3713,59 +3714,58 @@ msgid "All"
 msgstr "Vsi"
 
 #: widgets/administratordialog/users/administratoruserstabwidget.cpp:36
-#, fuzzy, kde-format
-#| msgid "Activate"
+#, kde-format
 msgid "Activated"
-msgstr "Aktiviraj"
+msgstr "Aktivirana"
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:227
+#: widgets/administratordialog/users/administratoruserswidget.cpp:236
 #, kde-format
 msgid "Do you want to remove this user?"
 msgstr "Ali želite odstraniti tega uporabnika?"
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:280
+#: widgets/administratordialog/users/administratoruserswidget.cpp:289
 #, kde-format
 msgctxt "@action"
 msgid "Invite…"
 msgstr "Povabi…"
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:302
+#: widgets/administratordialog/users/administratoruserswidget.cpp:311
 #, kde-format
 msgctxt "@action"
 msgid "Deactivate"
 msgstr "Deaktiviraj"
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:302
+#: widgets/administratordialog/users/administratoruserswidget.cpp:311
 #, kde-format
 msgctxt "@action"
 msgid "Active"
 msgstr "Dejaven"
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:311
+#: widgets/administratordialog/users/administratoruserswidget.cpp:320
 #, kde-format
 msgctxt "@action"
 msgid "Remove Admin"
 msgstr "Odstrani skrbnika"
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:311
+#: widgets/administratordialog/users/administratoruserswidget.cpp:320
 #, kde-format
 msgctxt "@action"
 msgid "Make Admin"
 msgstr "Napravi skrbnika"
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:317
+#: widgets/administratordialog/users/administratoruserswidget.cpp:326
 #, kde-format
 msgctxt "@action"
 msgid "Reset E2E Key"
 msgstr "Ponastavi ključ E2E"
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:323
+#: widgets/administratordialog/users/administratoruserswidget.cpp:332
 #, kde-format
 msgctxt "@action"
 msgid "Reset Totp"
 msgstr "Ponastavi Totp"
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:426
+#: widgets/administratordialog/users/administratoruserswidget.cpp:435
 #, kde-format
 msgid ""
 "Reset the current E2E key will log out the user. When the user login again, "
@@ -3780,24 +3780,24 @@ msgstr ""
 "članov. Zaradi narave šifriranja E2E v Rocket.Chat ne boste mogli obnoviti "
 "dostopa do nobene šifrirane sobe, ki trenutno nima povezanega člana."
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:430
+#: widgets/administratordialog/users/administratoruserswidget.cpp:439
 #, kde-format
 msgctxt "@title:window"
 msgid "Reset E2E key"
 msgstr "Ponovno nastavi ključ E2E"
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:462
+#: widgets/administratordialog/users/administratoruserswidget.cpp:471
 #, kde-format
 msgid "E2E key for %1 has been reset."
 msgstr "Tipka E2E za %1 je bila ponovno nastavljena."
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:462
+#: widgets/administratordialog/users/administratoruserswidget.cpp:471
 #, kde-format
 msgctxt "@title:window"
 msgid "Reset E2E"
 msgstr "Ponovno nastavi E2E"
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:475
+#: widgets/administratordialog/users/administratoruserswidget.cpp:484
 #, kde-format
 msgid ""
 "Reset the current Two Factor TOTP will log out the user. The user will be "
@@ -3806,14 +3806,14 @@ msgstr ""
 "Ponovno nastavi dvo-faktorski časovno odvisni enkratni ključ in odjavi "
 "uporabnika. Uporabnik bo lahko nastavil dvo-faktorski ključ spet kasneje."
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:476
-#: widgets/administratordialog/users/administratoruserswidget.cpp:507
+#: widgets/administratordialog/users/administratoruserswidget.cpp:485
+#: widgets/administratordialog/users/administratoruserswidget.cpp:516
 #, kde-format
 msgctxt "@title:window"
 msgid "Reset TOTP"
 msgstr "Ponovno nastavi časovno odvisni enkratni ključ"
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:507
+#: widgets/administratordialog/users/administratoruserswidget.cpp:516
 #, kde-format
 msgid "TOTP key for %1 has been reset"
 msgstr "Časovno odvisni enkratni ključ za %1 je bil ponovno nastavljen"
@@ -7594,17 +7594,43 @@ msgid "Users:"
 msgstr "Uporabniki:"
 
 #: widgets/dialogs/createnewchannelwidget.cpp:46
-#, kde-format
+#: widgets/dialogs/createnewchannelwidget.cpp:50
+#, fuzzy, kde-format
+#| msgid "Only you can see this message"
 msgctxt "@info:tooltip"
-msgid "All users in this team can write messages"
-msgstr "Vsi uporabniki te skupine lahko pišejo sporočila"
+msgid "Anyone can send new messages"
+msgstr "Samo vi lahko vidite to sporočilo"
 
 #: widgets/dialogs/createnewchannelwidget.cpp:47
 #, kde-format
 msgid "Read-Only:"
 msgstr "Samo za branje:"
 
-#: widgets/dialogs/createnewchannelwidget.cpp:53
+#: widgets/dialogs/createnewchannelwidget.cpp:48
+#: widgets/dialogs/createnewchannelwidget.cpp:51
+#, fuzzy, kde-format
+#| msgid "Only you can see this message"
+msgctxt "@label:textbox"
+msgid "Anyone can send new messages"
+msgstr "Samo vi lahko vidite to sporočilo"
+
+#: widgets/dialogs/createnewchannelwidget.cpp:50
+#, fuzzy, kde-format
+#| msgctxt "@label:textbox"
+#| msgid "Only authorized users can write new messages"
+msgctxt "@info:tooltip"
+msgid "Only owners can send new messages"
+msgstr "Samo pooblaščeni uporabniki lahko pišejo nova sporočila"
+
+#: widgets/dialogs/createnewchannelwidget.cpp:51
+#, fuzzy, kde-format
+#| msgctxt "@label:textbox"
+#| msgid "Only authorized users can write new messages"
+msgctxt "@label:textbox"
+msgid "Only owners can send new messages"
+msgstr "Samo pooblaščeni uporabniki lahko pišejo nova sporočila"
+
+#: widgets/dialogs/createnewchannelwidget.cpp:57
 #, kde-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -7614,23 +7640,23 @@ msgstr ""
 "Samo pooblaščeni uporabniki lahko pišejo nova sporočila, drugi uporabniki pa "
 "bodo lahko odgovarjali"
 
-#: widgets/dialogs/createnewchannelwidget.cpp:54
+#: widgets/dialogs/createnewchannelwidget.cpp:58
 #, kde-format
 msgid "Broadcast:"
 msgstr "Oddajanje:"
 
-#: widgets/dialogs/createnewchannelwidget.cpp:58
+#: widgets/dialogs/createnewchannelwidget.cpp:62
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Only invited people can join"
 msgstr "Samo povabljenci se lahko pridružijo"
 
-#: widgets/dialogs/createnewchannelwidget.cpp:60
+#: widgets/dialogs/createnewchannelwidget.cpp:64
 #, kde-format
 msgid "Private Room:"
 msgstr "Zasebna soba:"
 
-#: widgets/dialogs/createnewchannelwidget.cpp:66
+#: widgets/dialogs/createnewchannelwidget.cpp:70
 #, kde-format
 msgid "Encrypted Room:"
 msgstr "Šifrirana soba:"
@@ -11014,10 +11040,9 @@ msgid "Add delegate in search rooms in team dialog."
 msgstr "Dodaj pooblaščenca v iskalne sobe v pogovornem oknu ekipe."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:119
-#, fuzzy, kde-format
-#| msgid "Direct message"
+#, kde-format
 msgid "Fix editing message."
-msgstr "Neposredno sporočilo"
+msgstr "Popravi urejanje sporočila"
 
 #: widgets/whatsnew/whatsnewwidget.cpp:44
 #, kde-format
@@ -11043,6 +11068,10 @@ msgstr "Nekaj novih zmožnosti v tej izdaji Ruqole vsebuje:"
 #, kde-format
 msgid "Some bug fixing:"
 msgstr "Nekaj odprav napak:"
+
+#~ msgctxt "@info:tooltip"
+#~ msgid "All users in this team can write messages"
+#~ msgstr "Vsi uporabniki te skupine lahko pišejo sporočila"
 
 #~ msgctxt "@option:check"
 #~ msgid "Verified"
