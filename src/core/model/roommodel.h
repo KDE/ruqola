@@ -123,6 +123,7 @@ public:
     [[nodiscard]] static QString sectionName(RoomModel::Section sectionId);
 
     [[nodiscard]] QList<Room *> findRoomNameConstains(const QString &str) const;
+    void cleanRoomHistory();
 Q_SIGNALS:
     void needToUpdateNotification();
     void roomNeedAttention();

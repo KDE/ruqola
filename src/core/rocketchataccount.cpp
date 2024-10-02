@@ -3361,8 +3361,7 @@ MemoryManager *RocketChatAccount::memoryManager() const
 
 void RocketChatAccount::slotCleanRoomHistory()
 {
-    // TODO
-    qDebug() << " void RocketChatAccount::slotCleanRoomHistory() not implement yet";
+    mRoomModel->cleanRoomHistory();
 }
 
 #include "moc_rocketchataccount.cpp"

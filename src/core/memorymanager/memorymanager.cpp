@@ -23,7 +23,6 @@ MemoryManager::MemoryManager(QObject *parent)
     mClearRoomsHistory->setInterval(1h);
     connect(mClearRoomsHistory, &QTimer::timeout, this, [this]() {
         qCDebug(RUQOLA_MEMORY_MANAGEMENT_LOG) << "Clean room history";
-        // TODO check clear room
         Q_EMIT cleanRoomHistoryRequested();
     });
     mClearRoomsHistory->start();
