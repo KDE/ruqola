@@ -86,8 +86,10 @@ void RoomTest::shouldHaveDefaultValue()
     QVERIFY(!w.muteGroupMentions());
     QVERIFY(w.audioNotificationValue().isEmpty());
 
+    QCOMPARE(input.lastOpenedAt(), -1);
+
     // 26/03/2024: size: 1040
-    QCOMPARE(sizeof(Room), 792);
+    QCOMPARE(sizeof(Room), 800);
 }
 
 void RoomTest::shouldSerialized()

@@ -297,6 +297,9 @@ public:
 
     [[nodiscard]] bool canCleanHistory() const;
 
+    [[nodiscard]] qint64 lastOpenedAt() const;
+    void setLastOpenedAt(qint64 newLastOpenedAt);
+
 Q_SIGNALS:
     void highlightsWordChanged();
     void nameChanged();
@@ -431,6 +434,8 @@ private:
     RocketChatAccount *const mRocketChatAccount;
 
     RoomStates mRoomStates = RoomState::None;
+
+    qint64 mLastOpenedAt = -1;
 };
 
 LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const Room &t);

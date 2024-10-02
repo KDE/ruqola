@@ -1598,6 +1598,16 @@ RoomExtra *Room::roomExtra()
     return mRoomExtra;
 }
 
+qint64 Room::lastOpenedAt() const
+{
+    return mLastOpenedAt;
+}
+
+void Room::setLastOpenedAt(qint64 newLastOpenedAt)
+{
+    mLastOpenedAt = newLastOpenedAt;
+}
+
 Room::RoomStates Room::roomStates() const
 {
     return mRoomStates;
@@ -1661,7 +1671,12 @@ void Room::clearHistory()
 
 bool Room::canCleanHistory() const
 {
-    // TODO implement it
+    if (mLastOpenedAt == -1) {
+        return false;
+    }
+    if (mLastOpenedAt - QDateTime::currentDateTime().addSecs(-3600).toSecsSinceEpoch() < 0) {
+        return true;
+    }
     return false;
 }
 
