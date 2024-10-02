@@ -42,13 +42,13 @@ void RoomModel::clear()
 void RoomModel::cleanRoomHistory()
 {
     qDebug() << " void RocketChatAccount::slotCleanRoomHistory() not implement yet";
-#if 0
     // TODO clear if we didn't open it from long time.
     QList<Room *> rooms;
     for (Room *r : std::as_const(mRoomsList)) {
-        r->clearHistory();
+        if (r->canCleanHistory()) {
+            r->clearHistory();
+        }
     }
-#endif
 }
 
 QList<Room *> RoomModel::findRoomNameConstains(const QString &str) const

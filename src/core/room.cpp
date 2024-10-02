@@ -1659,4 +1659,10 @@ void Room::clearHistory()
     }
 }
 
+bool Room::canCleanHistory() const
+{
+    // TODO implement it
+    return false;
+}
+
 #include "moc_room.cpp"

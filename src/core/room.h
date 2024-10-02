@@ -295,6 +295,8 @@ public:
 
     void clearHistory();
 
+    [[nodiscard]] bool canCleanHistory() const;
+
 Q_SIGNALS:
     void highlightsWordChanged();
     void nameChanged();
