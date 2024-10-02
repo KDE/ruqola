@@ -17,6 +17,7 @@
 #include "ruqolawidgets_debug.h"
 #include <KLocalizedString>
 #include <KMessageBox>
+#include <QJsonObject>
 #include <QLabel>
 #include <QMenu>
 #include <QPointer>
@@ -140,6 +141,10 @@ void AdministratorCustomSoundsWidget::slotRemoveCustomSound(const QModelIndex &i
         RocketChatRestApi::MethodCallJob::MethodCallJobInfo info;
         info.methodName = QStringLiteral("deleteCustomSound");
         info.anonymous = false;
+        QJsonObject obj;
+        // TODO
+        const QJsonArray params{{QString::fromLatin1(soundIdentifier)}};
+        info.messageObj = QJsonArray(soundIdentifier);
         job->setMethodCallJobInfo(std::move(info));
         mRocketChatAccount->restApi()->initializeRestApiJob(job);
         // qDebug()<< " mRestApiConnection " << mRestApiConnection->serverUrl();
