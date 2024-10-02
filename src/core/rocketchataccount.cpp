@@ -2681,6 +2681,15 @@ void RocketChatAccount::setE2EPasswordMustBeDecrypt(bool newE2EPasswordMustBeDec
     mE2EPasswordMustBeDecrypt = newE2EPasswordMustBeDecrypt;
 }
 
+void RocketChatAccount::setLastSelectedRoom(const QByteArray &roomId)
+{
+    Room *r = room(roomId);
+    if (r) {
+        r->setLastOpenedAt(QDateTime::currentSecsSinceEpoch());
+    }
+    settings()->setLastSelectedRoom(roomId);
+}
+
 bool RocketChatAccount::e2EPasswordMustBeSave() const
 {
     return mE2EPasswordMustBeSave;

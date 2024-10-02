@@ -548,6 +548,8 @@ public:
     [[nodiscard]] bool e2EPasswordMustBeDecrypt() const;
     void setE2EPasswordMustBeDecrypt(bool newE2EPasswordMustBeDecrypt);
 
+    void setLastSelectedRoom(const QByteArray &roomId);
+
 Q_SIGNALS:
     void roomRemoved(const QByteArray &roomId);
     void disabledTotpValid(bool checked);

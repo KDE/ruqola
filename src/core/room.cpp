@@ -13,6 +13,7 @@ using namespace Qt::Literals::StringLiterals;
 #include "model/usersforroommodel.h"
 #include "rocketchataccount.h"
 #include "ruqola_debug.h"
+#include "ruqola_memory_management_debug.h"
 #include "textconverter.h"
 
 #include <KLocalizedString>
@@ -1605,6 +1606,7 @@ qint64 Room::lastOpenedAt() const
 
 void Room::setLastOpenedAt(qint64 newLastOpenedAt)
 {
+    qCDebug(RUQOLA_MEMORY_MANAGEMENT_LOG) << "name " << name() << " newLastOpenedAt " << newLastOpenedAt;
     mLastOpenedAt = newLastOpenedAt;
 }
 
@@ -1675,6 +1677,7 @@ bool Room::canCleanHistory() const
         return false;
     }
     if (mLastOpenedAt - QDateTime::currentDateTime().addSecs(-3600).toSecsSinceEpoch() < 0) {
+        qCDebug(RUQOLA_MEMORY_MANAGEMENT_LOG) << "name " << name() << " clean up room ";
         return true;
     }
     return false;
