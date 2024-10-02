@@ -5,6 +5,7 @@
 */
 
 #include "roomextra.h"
+#include "ruqola_memory_management_debug.h"
 #include "ruqola_room_memory_debug.h"
 
 RoomExtra::RoomExtra()
@@ -81,4 +82,27 @@ void RoomExtra::setParentRid(const QByteArray &parentRid)
 void RoomExtra::setMutedUsers(const QStringList &mutedUsers)
 {
     mMutedUsers = mutedUsers;
+}
+
+qint64 RoomExtra::lastOpenedAt() const
+{
+    return mLastOpenedAt;
+}
+
+void RoomExtra::setLastOpenedAt(qint64 newLastOpenedAt)
+{
+    qCDebug(RUQOLA_MEMORY_MANAGEMENT_LOG) << "newLastOpenedAt " << newLastOpenedAt;
+    mLastOpenedAt = newLastOpenedAt;
+}
+
+bool RoomExtra::canCleanHistory() const
+{
+    if (mLastOpenedAt == -1) {
+        return false;
+    }
+    if (mLastOpenedAt - QDateTime::currentDateTime().addSecs(-3600).toSecsSinceEpoch() < 0) {
+        qCDebug(RUQOLA_MEMORY_MANAGEMENT_LOG) << "name clean up room ";
+        return true;
+    }
+    return false;
 }

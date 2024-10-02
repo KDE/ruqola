@@ -89,7 +89,7 @@ void RoomTest::shouldHaveDefaultValue()
     QCOMPARE(input.lastOpenedAt(), -1);
 
     // 26/03/2024: size: 1040
-    QCOMPARE(sizeof(Room), 800);
+    QCOMPARE(sizeof(Room), 792);
 }
 
 void RoomTest::shouldSerialized()

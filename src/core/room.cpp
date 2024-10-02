@@ -1601,13 +1601,16 @@ RoomExtra *Room::roomExtra()
 
 qint64 Room::lastOpenedAt() const
 {
-    return mLastOpenedAt;
+    if (!mRoomExtra) {
+        return -1;
+    }
+    return mRoomExtra->lastOpenedAt();
 }
 
 void Room::setLastOpenedAt(qint64 newLastOpenedAt)
 {
     qCDebug(RUQOLA_MEMORY_MANAGEMENT_LOG) << "name " << name() << " newLastOpenedAt " << newLastOpenedAt;
-    mLastOpenedAt = newLastOpenedAt;
+    roomExtra()->setLastOpenedAt(newLastOpenedAt);
 }
 
 Room::RoomStates Room::roomStates() const
@@ -1673,14 +1676,10 @@ void Room::clearHistory()
 
 bool Room::canCleanHistory() const
 {
-    if (mLastOpenedAt == -1) {
+    if (!mRoomExtra) {
         return false;
     }
-    if (mLastOpenedAt - QDateTime::currentDateTime().addSecs(-3600).toSecsSinceEpoch() < 0) {
-        qCDebug(RUQOLA_MEMORY_MANAGEMENT_LOG) << "name " << name() << " clean up room ";
-        return true;
-    }
-    return false;
+    return mRoomExtra->canCleanHistory();
 }
 
 #include "moc_room.cpp"

@@ -36,6 +36,11 @@ public:
 
     [[nodiscard]] bool isDiscussionRoom() const;
 
+    [[nodiscard]] qint64 lastOpenedAt() const;
+    void setLastOpenedAt(qint64 newLastOpenedAt);
+
+    [[nodiscard]] bool canCleanHistory() const;
+
 private:
     // muted - collection of muted users by its usernames
     QStringList mMutedUsers;
@@ -51,4 +56,6 @@ private:
 
     // Parent Rid when we have a discussion.
     QByteArray mParentRid;
+
+    qint64 mLastOpenedAt = -1;
 };

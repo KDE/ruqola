@@ -434,8 +434,6 @@ private:
     RocketChatAccount *const mRocketChatAccount;
 
     RoomStates mRoomStates = RoomState::None;
-
-    qint64 mLastOpenedAt = -1;
 };
 
 LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const Room &t);
