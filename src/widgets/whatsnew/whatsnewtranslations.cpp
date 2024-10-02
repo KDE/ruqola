@@ -13,7 +13,9 @@ WhatsNewTranslations::~WhatsNewTranslations() = default;
 // Use by newFeaturesMD5
 QList<KLazyLocalizedString> WhatsNewTranslations::lastNewFeatures() const
 {
-    const QList<KLazyLocalizedString> info{};
+    const QList<KLazyLocalizedString> info{
+        kli18n("Allow to clean up room history when room was not opened from long time."),
+    };
     return info;
 }
 
