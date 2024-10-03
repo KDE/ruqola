@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-10-02 00:39+0000\n"
+"POT-Creation-Date: 2024-10-03 00:39+0000\n"
 "PO-Revision-Date: 2024-08-06 05:33+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
@@ -988,7 +988,7 @@ msgstr "頻道類型"
 msgid "Belongs To"
 msgstr "屬於"
 
-#: core/model/directoryteamsmodel.cpp:92 core/model/roommodel.cpp:537
+#: core/model/directoryteamsmodel.cpp:92 core/model/roommodel.cpp:549
 #: widgets/administratordialog/administratorwidget.cpp:53
 #: widgets/administratordialog/roles/rolescopecombobox.cpp:13
 #, kde-format
@@ -1150,76 +1150,76 @@ msgstr "兩步驟驗證"
 msgid "Last token part"
 msgstr ""
 
-#: core/model/roommodel.cpp:456
+#: core/model/roommodel.cpp:468
 #, kde-format
 msgid "%1 Mention"
 msgid_plural "%1 Mentions"
 msgstr[0] "%1 個提及"
 
-#: core/model/roommodel.cpp:460
+#: core/model/roommodel.cpp:472
 #, kde-format
 msgid "%1 Group Mention"
 msgid_plural "%1 Group Mentions"
 msgstr[0] "%1 個群組提及"
 
-#: core/model/roommodel.cpp:464
+#: core/model/roommodel.cpp:476
 #, kde-format
 msgid "%1 Unread Threaded Message"
 msgid_plural "%1 Unread Threaded Messages"
 msgstr[0] "%1 個未讀的對話串訊息"
 
-#: core/model/roommodel.cpp:468
+#: core/model/roommodel.cpp:480
 #, kde-format
 msgid "%1 Unread Message"
 msgid_plural "%1 Unread Messages"
 msgstr[0] "%1 個未讀訊息"
 
-#: core/model/roommodel.cpp:494
+#: core/model/roommodel.cpp:506
 #, kde-format
 msgid "Teams Room"
 msgstr "團隊聊天室"
 
-#: core/model/roommodel.cpp:500
+#: core/model/roommodel.cpp:512
 #, kde-format
 msgid "Private Room"
 msgstr "私人聊天室"
 
-#: core/model/roommodel.cpp:502
+#: core/model/roommodel.cpp:514
 #, kde-format
 msgid "Discussion Room"
 msgstr "討論室"
 
-#: core/model/roommodel.cpp:506
+#: core/model/roommodel.cpp:518
 #, kde-format
 msgid "Channel Room"
 msgstr "頻道聊天室"
 
-#: core/model/roommodel.cpp:531
+#: core/model/roommodel.cpp:543
 #, kde-format
 msgid "Unread"
 msgstr "未讀"
 
-#: core/model/roommodel.cpp:533
+#: core/model/roommodel.cpp:545
 #, kde-format
 msgid "Favorites"
 msgstr "最愛"
 
-#: core/model/roommodel.cpp:535
+#: core/model/roommodel.cpp:547
 #, kde-format
 msgid "Teams"
 msgstr "團隊"
 
-#: core/model/roommodel.cpp:539
+#: core/model/roommodel.cpp:551
 #, kde-format
 msgid "Discussions"
 msgstr "討論"
 
-#: core/model/roommodel.cpp:541
+#: core/model/roommodel.cpp:553
 #, kde-format
 msgid "Private Messages"
 msgstr "私訊"
 
-#: core/model/roommodel.cpp:543
+#: core/model/roommodel.cpp:555
 #, kde-format
 msgid "Unknown"
 msgstr "未知"
@@ -1498,12 +1498,12 @@ msgctxt "We need a space between after </strong>"
 msgid "<strong>%1</strong> are typing..."
 msgstr ""
 
-#: core/rocketchataccount.cpp:3046
+#: core/rocketchataccount.cpp:3055
 #, kde-format
 msgid "Export Messages"
 msgstr "匯出訊息"
 
-#: core/rocketchataccount.cpp:3047
+#: core/rocketchataccount.cpp:3056
 #, kde-format
 msgid "Your email has been queued for sending."
 msgstr ""
@@ -1519,32 +1519,32 @@ msgstr "帳戶已新增"
 msgid "A new account was added."
 msgstr "輸入帳戶名稱"
 
-#: core/room.cpp:1169
+#: core/room.cpp:1170
 #, kde-format
 msgid "Owner"
 msgstr "擁有者"
 
-#: core/room.cpp:1172
+#: core/room.cpp:1173
 #, kde-format
 msgid "Leader"
 msgstr "領導者"
 
-#: core/room.cpp:1175
+#: core/room.cpp:1176
 #, kde-format
 msgid "Moderator"
 msgstr "Mod"
 
-#: core/room.cpp:1527
+#: core/room.cpp:1528
 #, kde-format
 msgid "Channel is read only."
 msgstr "頻道是唯讀的。"
 
-#: core/room.cpp:1530
+#: core/room.cpp:1531
 #, kde-format
 msgid "You have blocked this channel."
 msgstr "您已封鎖此頻道。"
 
-#: core/room.cpp:1533
+#: core/room.cpp:1534
 #, kde-format
 msgid "Channel was blocked."
 msgstr "頻道已封鎖。"
@@ -2632,7 +2632,7 @@ msgid "Remove Emoji"
 msgstr "移除表情符號"
 
 #: widgets/administratordialog/customemoji/administratorcustomemojiwidget.cpp:178
-#: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:162
+#: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:167
 #: widgets/administratordialog/customuserstatus/customuserstatustreewidget.cpp:127
 #: widgets/administratordialog/oauth/oauthtreeview.cpp:49
 #: widgets/administratordialog/roles/administratorroleswidget.cpp:101
@@ -2646,7 +2646,7 @@ msgid "Add…"
 msgstr "新增…"
 
 #: widgets/administratordialog/customemoji/administratorcustomemojiwidget.cpp:181
-#: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:164
+#: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:169
 #: widgets/administratordialog/customuserstatus/customuserstatustreewidget.cpp:130
 #: widgets/administratordialog/oauth/oauthtreeview.cpp:51
 #: widgets/administratordialog/permissions/permissionswidget.cpp:92
@@ -2660,7 +2660,7 @@ msgid "Modify…"
 msgstr "變更…"
 
 #: widgets/administratordialog/customemoji/administratorcustomemojiwidget.cpp:186
-#: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:168
+#: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:173
 #: widgets/administratordialog/customuserstatus/customuserstatustreewidget.cpp:132
 #: widgets/administratordialog/invites/invitetreeview.cpp:39
 #: widgets/administratordialog/oauth/oauthtreeview.cpp:55
@@ -2681,31 +2681,31 @@ msgctxt "@title:window"
 msgid "Create New Sound"
 msgstr "建立新音效"
 
-#: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:30
+#: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:31
 #, fuzzy, kde-format
 #| msgid "Search Custom Sounds"
 msgctxt "@info:placeholder"
 msgid "Search Custom Sounds"
 msgstr "搜尋自訂音效"
 
-#: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:62
+#: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:63
 #, kde-format
 msgid "No custom sound found"
 msgstr "找不到自訂音效"
 
-#: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:67
+#: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:68
 #, kde-format
 msgid "%1 custom sound (Total: %2)"
 msgid_plural "%1 custom sounds (Total: %2)"
 msgstr[0] "%1 個自訂音效 (總共：%2)"
 
-#: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:130
+#: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:131
 #, fuzzy, kde-format
 #| msgid "Do you want to unarchive this room?"
 msgid "Do you want to remove this sound?"
 msgstr "您確定要取消封存此聊天室嗎？"
 
-#: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:131
+#: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:132
 #, kde-format
 msgctxt "@title"
 msgid "Remove Custom Sound"
@@ -11018,304 +11018,308 @@ msgstr "（顯示最新消息）"
 msgid "What's new in %2. %1"
 msgstr "%2 的新功能。%1"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:25
+#: widgets/whatsnew/whatsnewtranslations.cpp:17
+msgid "Allow to clean up room history when room was not opened from long time."
+msgstr ""
+
+#: widgets/whatsnew/whatsnewtranslations.cpp:27
 #, kde-format
 msgid "Store Message in Local Database (experimental)"
 msgstr "將訊息儲存在本地資料庫（實驗性）"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:27
+#: widgets/whatsnew/whatsnewtranslations.cpp:29
 #, kde-format
 msgid "Download Server Icon from Server"
 msgstr "從伺服器下載伺服器圖示"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:28
+#: widgets/whatsnew/whatsnewtranslations.cpp:30
 #, kde-format
 msgid "Show Server Error Info in Specific DialogBox"
 msgstr "在特定的對話框中顯示伺服器錯誤資訊"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:29
+#: widgets/whatsnew/whatsnewtranslations.cpp:31
 #, kde-format
 msgid "Allow to Copy Image in Clipboard"
 msgstr "允許複製影像到剪貼簿"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:30
+#: widgets/whatsnew/whatsnewtranslations.cpp:32
 #, kde-format
 msgid "Improve debug support (Allow to show current account permissions)"
 msgstr "改善除錯支援（允許顯示目前帳戶的權限）"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:31
+#: widgets/whatsnew/whatsnewtranslations.cpp:33
 #, kde-format
 msgid "Add support for quoted text (text which starts by '>')"
 msgstr "支援引用文字（以 \">\" 開頭的文字）"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:32
+#: widgets/whatsnew/whatsnewtranslations.cpp:34
 #, kde-format
 msgid "Show leader/moderator/owner in channel info."
 msgstr "在頻道資訊中顯示領導者 / Mod / 擁有者。"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:33
+#: widgets/whatsnew/whatsnewtranslations.cpp:35
 #, kde-format
 msgid "Video/Sound Message support (kf6 only)."
 msgstr "影片/語音訊息支援"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:34
+#: widgets/whatsnew/whatsnewtranslations.cpp:36
 #, kde-format
 msgid "Import/Export Accounts."
 msgstr "匯入/匯出帳戶。"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:36
+#: widgets/whatsnew/whatsnewtranslations.cpp:38
 #, kde-format
 msgid "Fix avatar support"
 msgstr "修正頭貼支援"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:37
+#: widgets/whatsnew/whatsnewtranslations.cpp:39
 #, kde-format
 msgid "Fix emoji support (use new ktextaddons/textemoticons)"
 msgstr "修正顏文字支援（使用新的 ktextaddons/textemoticons）"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:38
+#: widgets/whatsnew/whatsnewtranslations.cpp:40
 #, kde-format
 msgid "Fix animated gif in reactions"
 msgstr "修正反應中的動態 GIF"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:39
+#: widgets/whatsnew/whatsnewtranslations.cpp:41
 #, kde-format
 msgid "Fix kf6 support"
 msgstr "修正 kf6 支援"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:45
+#: widgets/whatsnew/whatsnewtranslations.cpp:47
 #, kde-format
 msgid "Add Moderation Console (Administration, RC server 6.2)"
 msgstr "新增站務主控台（管理員，RC 伺服器 6.2）"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:45
+#: widgets/whatsnew/whatsnewtranslations.cpp:47
 #, kde-format
 msgid "Implement message style"
 msgstr "實作訊息風格"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:45
+#: widgets/whatsnew/whatsnewtranslations.cpp:47
 #, kde-format
 msgid "Implement Url Preview"
 msgstr "實作網址預覽"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:47
+#: widgets/whatsnew/whatsnewtranslations.cpp:49
 #, kde-format
 msgid "Fix markdown support (header + check mark)"
 msgstr "修正 Markdown 支援（標題與勾選）"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:48
+#: widgets/whatsnew/whatsnewtranslations.cpp:50
 #, kde-format
 msgid "Fix mem leak"
 msgstr "修正記憶體流出"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:49
+#: widgets/whatsnew/whatsnewtranslations.cpp:51
 #, kde-format
 msgid "Cache message size (optimization)"
 msgstr "將訊息大小加入快取（效能改善）"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:50
+#: widgets/whatsnew/whatsnewtranslations.cpp:52
 #, kde-format
 msgid ""
 "Improve select room or user in message line edit (show icon, inform if user "
 "is in channel)"
 msgstr ""
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:51
+#: widgets/whatsnew/whatsnewtranslations.cpp:53
 #, kde-format
 msgid ""
 "Fix show commands in message line edit (Hide action when room doesn't "
 "support it)."
 msgstr ""
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:52
+#: widgets/whatsnew/whatsnewtranslations.cpp:54
 #, kde-format
 msgid "Fix download sound/video file when it's not in cache."
 msgstr "修正音訊或視訊檔案不在快取中的下載問題。"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:53
+#: widgets/whatsnew/whatsnewtranslations.cpp:55
 #, kde-format
 msgid "Fix list of authentication method."
 msgstr "修正身份驗證方式列表。"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:54
+#: widgets/whatsnew/whatsnewtranslations.cpp:56
 #, kde-format
 msgid "Fix show avatar url."
 msgstr "修正頭貼顯示 URL。"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:62
+#: widgets/whatsnew/whatsnewtranslations.cpp:64
 #, kde-format
 msgid "Allow to increase/decrease font (CTRL++/CTRL+-)"
 msgstr ""
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:63
+#: widgets/whatsnew/whatsnewtranslations.cpp:65
 #, kde-format
 msgid "Add channel list style (Condensed/Medium/Extended)"
 msgstr ""
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:64
+#: widgets/whatsnew/whatsnewtranslations.cpp:66
 #, kde-format
 msgid "Add forward message"
 msgstr "新增轉寄訊息"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:65
+#: widgets/whatsnew/whatsnewtranslations.cpp:67
 #, kde-format
 msgid "Improve mentions support."
 msgstr "改善提及支援。"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:66
+#: widgets/whatsnew/whatsnewtranslations.cpp:68
 #, kde-format
 msgid ""
 "Add support for deep linking <a href=\"https://developer.rocket.chat/getting-"
 "started/deep-linking\">Deep Linking</a>."
 msgstr ""
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:67
+#: widgets/whatsnew/whatsnewtranslations.cpp:69
 #, kde-format
 msgid "Implement block actions."
 msgstr "實作封鎖動作。"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:68
+#: widgets/whatsnew/whatsnewtranslations.cpp:70
 #, kde-format
 msgid ""
 "Implement personal token authentication. <a href=\"https://bugs.kde.org/"
 "show_bug.cgi?id=481400\">Bug 481400</a>"
 msgstr ""
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:69
+#: widgets/whatsnew/whatsnewtranslations.cpp:71
 #, kde-format
 msgid "Add Plasma Activities Support"
 msgstr "新增 Plasma 活動支援"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:70
+#: widgets/whatsnew/whatsnewtranslations.cpp:72
 #, kde-format
 msgid "Add Report User Support"
 msgstr "新增檢舉使用者的支援"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:71
+#: widgets/whatsnew/whatsnewtranslations.cpp:73
 #, kde-format
 msgid "Implement Channel Sound Notification."
 msgstr "實作頻道的音效通知。"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:72
+#: widgets/whatsnew/whatsnewtranslations.cpp:74
 #, kde-format
 msgid "Implement New Room Sound Notification."
 msgstr "實作新聊天室的音效通知。"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:73
+#: widgets/whatsnew/whatsnewtranslations.cpp:75
 #, kde-format
 msgid "Implement Sorted/Unsorted markdown list."
 msgstr "實作 Markdown 有序/無序清單。"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:76
+#: widgets/whatsnew/whatsnewtranslations.cpp:78
 #, kde-format
 msgid "Fix dark mode support."
 msgstr "修正暗色模式支援。"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:77
+#: widgets/whatsnew/whatsnewtranslations.cpp:79
 #, kde-format
 msgid "Fix jitsi support."
 msgstr "修正 Jitsi 支援。"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:78
+#: widgets/whatsnew/whatsnewtranslations.cpp:80
 #, kde-format
 msgid "Fix translate message in direct channel."
 msgstr "修正私訊頻道中的翻譯訊息。"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:79
+#: widgets/whatsnew/whatsnewtranslations.cpp:81
 #, kde-format
 msgid "Don't show @here/@all as user."
 msgstr "不要把 @here 或 @all 當成使用者顯示。"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:80
+#: widgets/whatsnew/whatsnewtranslations.cpp:82
 #, kde-format
 msgid "Reduce memory footprint."
 msgstr "使用更少記憶體。"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:81
+#: widgets/whatsnew/whatsnewtranslations.cpp:83
 #, kde-format
 msgid "Use RESTAPI for logging."
 msgstr "為日誌使用 REST API。"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:82
+#: widgets/whatsnew/whatsnewtranslations.cpp:84
 #, kde-format
 msgid "Allow to send multi files."
 msgstr "允許傳送多個檔案。"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:83
+#: widgets/whatsnew/whatsnewtranslations.cpp:85
 #, kde-format
 msgid "Fix preview url."
 msgstr "修正預覽網址。"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:91
+#: widgets/whatsnew/whatsnewtranslations.cpp:93
 #, fuzzy, kde-format
 #| msgid "Implement Application Market Settings."
 msgid "Implement Rocket.Chat Marketplace."
 msgstr "實作應用程式商店設定。"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:92
+#: widgets/whatsnew/whatsnewtranslations.cpp:94
 #, fuzzy, kde-format
 #| msgid "Allow to send multi files."
 msgid "Allow to clean room history."
 msgstr "允許傳送多個檔案。"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:93
+#: widgets/whatsnew/whatsnewtranslations.cpp:95
 #, fuzzy, kde-format
 #| msgid "Allow to send multi files."
 msgid "Allow to check new version."
 msgstr "允許傳送多個檔案。"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:94
+#: widgets/whatsnew/whatsnewtranslations.cpp:96
 #, kde-format
 msgid "Implement moderation (administrator mode)."
 msgstr ""
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:95
+#: widgets/whatsnew/whatsnewtranslations.cpp:97
 #, fuzzy, kde-format
 #| msgid "Hide \"Welcome\" messages"
 msgid "Add welcome page."
 msgstr "隱藏「歡迎」訊息"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:96
+#: widgets/whatsnew/whatsnewtranslations.cpp:98
 #, kde-format
 msgid "Implement pending users info (administrator mode)."
 msgstr ""
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:97
+#: widgets/whatsnew/whatsnewtranslations.cpp:99
 #, kde-format
 msgid "Use cmark-rc (https://github.com/dfaure/cmark-rc) for markdown support."
 msgstr ""
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:98
+#: widgets/whatsnew/whatsnewtranslations.cpp:100
 #, kde-format
 msgid ""
 "Delete oldest files from some cache directories (file-upload and media) so "
 "it doesn't grow forever."
 msgstr ""
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:102
+#: widgets/whatsnew/whatsnewtranslations.cpp:104
 #, kde-format
 msgid ""
 "Clean market application model after 30 minutes (reduce memory footprint)."
 msgstr ""
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:103
+#: widgets/whatsnew/whatsnewtranslations.cpp:105
 #, kde-format
 msgid "Fix show discussion name in completion."
 msgstr ""
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:104
+#: widgets/whatsnew/whatsnewtranslations.cpp:106
 #, fuzzy, kde-format
 #| msgid "Fix translate message in direct channel."
 msgid "Fix duplicated messages in search message dialog."
 msgstr "修正私訊頻道中的翻譯訊息。"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:105
+#: widgets/whatsnew/whatsnewtranslations.cpp:107
 #, fuzzy, kde-format
 #| msgid "Fix translate message in direct channel."
 msgid "Add delegate in search rooms in team dialog."
 msgstr "修正私訊頻道中的翻譯訊息。"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:119
+#: widgets/whatsnew/whatsnewtranslations.cpp:121
 #, fuzzy, kde-format
 #| msgid "Direct message"
 msgid "Fix editing message."

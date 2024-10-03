@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-10-02 00:39+0000\n"
-"PO-Revision-Date: 2024-10-01 22:47+0200\n"
+"POT-Creation-Date: 2024-10-03 00:39+0000\n"
+"PO-Revision-Date: 2024-10-02 22:38+0200\n"
 "Last-Translator: Kristof Kiszel <ulysses@fsf.hu>\n"
 "Language-Team: Hungarian <kde-l10n-hu@kde.org>\n"
 "Language: hu\n"
@@ -979,7 +979,7 @@ msgstr "Csatornatípus"
 msgid "Belongs To"
 msgstr "Ehhez tartozik:"
 
-#: core/model/directoryteamsmodel.cpp:92 core/model/roommodel.cpp:537
+#: core/model/directoryteamsmodel.cpp:92 core/model/roommodel.cpp:549
 #: widgets/administratordialog/administratorwidget.cpp:53
 #: widgets/administratordialog/roles/rolescopecombobox.cpp:13
 #, kde-format
@@ -1142,80 +1142,80 @@ msgstr "Kétfaktoros hitelesítés"
 msgid "Last token part"
 msgstr "Utolsó tokenrész"
 
-#: core/model/roommodel.cpp:456
+#: core/model/roommodel.cpp:468
 #, kde-format
 msgid "%1 Mention"
 msgid_plural "%1 Mentions"
 msgstr[0] "%1 említés"
 msgstr[1] "%1 említés"
 
-#: core/model/roommodel.cpp:460
+#: core/model/roommodel.cpp:472
 #, kde-format
 msgid "%1 Group Mention"
 msgid_plural "%1 Group Mentions"
 msgstr[0] "%1 csoportemlítés"
 msgstr[1] "%1 csoportemlítés"
 
-#: core/model/roommodel.cpp:464
+#: core/model/roommodel.cpp:476
 #, kde-format
 msgid "%1 Unread Threaded Message"
 msgid_plural "%1 Unread Threaded Messages"
 msgstr[0] "%1 olvasatlan szálüzenet"
 msgstr[1] "%1 olvasatlan szálüzenet"
 
-#: core/model/roommodel.cpp:468
+#: core/model/roommodel.cpp:480
 #, kde-format
 msgid "%1 Unread Message"
 msgid_plural "%1 Unread Messages"
 msgstr[0] "%1 olvasatlan üzenet"
 msgstr[1] "%1 olvasatlan üzenet"
 
-#: core/model/roommodel.cpp:494
+#: core/model/roommodel.cpp:506
 #, kde-format
 msgid "Teams Room"
 msgstr "Csapatszoba"
 
-#: core/model/roommodel.cpp:500
+#: core/model/roommodel.cpp:512
 #, kde-format
 msgid "Private Room"
 msgstr "Személyes szoba"
 
-#: core/model/roommodel.cpp:502
+#: core/model/roommodel.cpp:514
 #, kde-format
 msgid "Discussion Room"
 msgstr "Megbeszélésszoba"
 
-#: core/model/roommodel.cpp:506
+#: core/model/roommodel.cpp:518
 #, kde-format
 msgid "Channel Room"
 msgstr "Csatornaszoba"
 
-#: core/model/roommodel.cpp:531
+#: core/model/roommodel.cpp:543
 #, kde-format
 msgid "Unread"
 msgstr "Olvasatlan"
 
-#: core/model/roommodel.cpp:533
+#: core/model/roommodel.cpp:545
 #, kde-format
 msgid "Favorites"
 msgstr "Kedvencek"
 
-#: core/model/roommodel.cpp:535
+#: core/model/roommodel.cpp:547
 #, kde-format
 msgid "Teams"
 msgstr "Csapatok"
 
-#: core/model/roommodel.cpp:539
+#: core/model/roommodel.cpp:551
 #, kde-format
 msgid "Discussions"
 msgstr "Megbeszélések"
 
-#: core/model/roommodel.cpp:541
+#: core/model/roommodel.cpp:553
 #, kde-format
 msgid "Private Messages"
 msgstr "Személyes üzenetek"
 
-#: core/model/roommodel.cpp:543
+#: core/model/roommodel.cpp:555
 #, kde-format
 msgid "Unknown"
 msgstr "Ismeretlen"
@@ -1486,12 +1486,12 @@ msgctxt "We need a space between after </strong>"
 msgid "<strong>%1</strong> are typing..."
 msgstr "<strong>%1</strong> gépelnek…"
 
-#: core/rocketchataccount.cpp:3046
+#: core/rocketchataccount.cpp:3055
 #, kde-format
 msgid "Export Messages"
 msgstr "Üzenetek exportálása"
 
-#: core/rocketchataccount.cpp:3047
+#: core/rocketchataccount.cpp:3056
 #, kde-format
 msgid "Your email has been queued for sending."
 msgstr "Az e-maile sorba lett állítva a küldéshez."
@@ -1506,32 +1506,32 @@ msgstr "Fiók hozzáadva"
 msgid "A new account was added."
 msgstr "Egy új fiók hozzáadva."
 
-#: core/room.cpp:1169
+#: core/room.cpp:1170
 #, kde-format
 msgid "Owner"
 msgstr "Tulajdonos"
 
-#: core/room.cpp:1172
+#: core/room.cpp:1173
 #, kde-format
 msgid "Leader"
 msgstr "Vezető"
 
-#: core/room.cpp:1175
+#: core/room.cpp:1176
 #, kde-format
 msgid "Moderator"
 msgstr "Moderátor"
 
-#: core/room.cpp:1527
+#: core/room.cpp:1528
 #, kde-format
 msgid "Channel is read only."
 msgstr "A csatorna csak olvasható."
 
-#: core/room.cpp:1530
+#: core/room.cpp:1531
 #, kde-format
 msgid "You have blocked this channel."
 msgstr "Ön tiltotta ezt a csatornát."
 
-#: core/room.cpp:1533
+#: core/room.cpp:1534
 #, kde-format
 msgid "Channel was blocked."
 msgstr "A csatornát tiltották."
@@ -2649,7 +2649,7 @@ msgid "Remove Emoji"
 msgstr "Emodzsi eltávolítása"
 
 #: widgets/administratordialog/customemoji/administratorcustomemojiwidget.cpp:178
-#: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:162
+#: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:167
 #: widgets/administratordialog/customuserstatus/customuserstatustreewidget.cpp:127
 #: widgets/administratordialog/oauth/oauthtreeview.cpp:49
 #: widgets/administratordialog/roles/administratorroleswidget.cpp:101
@@ -2662,7 +2662,7 @@ msgid "Add…"
 msgstr "Hozzáadás…"
 
 #: widgets/administratordialog/customemoji/administratorcustomemojiwidget.cpp:181
-#: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:164
+#: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:169
 #: widgets/administratordialog/customuserstatus/customuserstatustreewidget.cpp:130
 #: widgets/administratordialog/oauth/oauthtreeview.cpp:51
 #: widgets/administratordialog/permissions/permissionswidget.cpp:92
@@ -2675,7 +2675,7 @@ msgid "Modify…"
 msgstr "Módosítás…"
 
 #: widgets/administratordialog/customemoji/administratorcustomemojiwidget.cpp:186
-#: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:168
+#: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:173
 #: widgets/administratordialog/customuserstatus/customuserstatustreewidget.cpp:132
 #: widgets/administratordialog/invites/invitetreeview.cpp:39
 #: widgets/administratordialog/oauth/oauthtreeview.cpp:55
@@ -2695,30 +2695,30 @@ msgctxt "@title:window"
 msgid "Create New Sound"
 msgstr "Új hang létrehozása"
 
-#: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:30
+#: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:31
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Search Custom Sounds"
 msgstr "Egyéni hangok keresése"
 
-#: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:62
+#: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:63
 #, kde-format
 msgid "No custom sound found"
 msgstr "Nem találhatók egyéni hangok"
 
-#: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:67
+#: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:68
 #, kde-format
 msgid "%1 custom sound (Total: %2)"
 msgid_plural "%1 custom sounds (Total: %2)"
 msgstr[0] "%1 egyéni hang (Összesen: %2)"
 msgstr[1] "%1 egyéni hang (Összesen: %2)"
 
-#: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:130
+#: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:131
 #, kde-format
 msgid "Do you want to remove this sound?"
 msgstr "Szeretné eltávolítani ezt a hangot?"
 
-#: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:131
+#: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:132
 #, kde-format
 msgctxt "@title"
 msgid "Remove Custom Sound"
@@ -7620,11 +7620,10 @@ msgstr "Felhasználók:"
 
 #: widgets/dialogs/createnewchannelwidget.cpp:46
 #: widgets/dialogs/createnewchannelwidget.cpp:50
-#, fuzzy, kde-format
-#| msgid "Only you can see this message"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Anyone can send new messages"
-msgstr "Csak Ön láthatja ezt az üzenetet"
+msgstr "Bárki írhat új üzeneteket"
 
 #: widgets/dialogs/createnewchannelwidget.cpp:47
 #, kde-format
@@ -7633,27 +7632,22 @@ msgstr "Csak olvasható:"
 
 #: widgets/dialogs/createnewchannelwidget.cpp:48
 #: widgets/dialogs/createnewchannelwidget.cpp:51
-#, fuzzy, kde-format
-#| msgid "Only you can see this message"
+#, kde-format
 msgctxt "@label:textbox"
 msgid "Anyone can send new messages"
-msgstr "Csak Ön láthatja ezt az üzenetet"
+msgstr "Bárki írhat új üzeneteket"
 
 #: widgets/dialogs/createnewchannelwidget.cpp:50
-#, fuzzy, kde-format
-#| msgctxt "@label:textbox"
-#| msgid "Only authorized users can write new messages"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Only owners can send new messages"
-msgstr "Csak az engedélyezett felhasználók írhatnak új üzeneteket"
+msgstr "Csak a tulajdonosok írhatnak új üzeneteket"
 
 #: widgets/dialogs/createnewchannelwidget.cpp:51
-#, fuzzy, kde-format
-#| msgctxt "@label:textbox"
-#| msgid "Only authorized users can write new messages"
+#, kde-format
 msgctxt "@label:textbox"
 msgid "Only owners can send new messages"
-msgstr "Csak az engedélyezett felhasználók írhatnak új üzeneteket"
+msgstr "Csak a tulajdonosok írhatnak új üzeneteket"
 
 #: widgets/dialogs/createnewchannelwidget.cpp:57
 #, kde-format
@@ -10752,105 +10746,109 @@ msgstr "(Hírek megjelenítése)"
 msgid "What's new in %2. %1"
 msgstr "A(z) %2 újdonságai. %1"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:25
+#: widgets/whatsnew/whatsnewtranslations.cpp:17
+msgid "Allow to clean up room history when room was not opened from long time."
+msgstr ""
+
+#: widgets/whatsnew/whatsnewtranslations.cpp:27
 #, kde-format
 msgid "Store Message in Local Database (experimental)"
 msgstr "Üzenetek tárolása helyi adatbázisban (kísérleti)"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:27
+#: widgets/whatsnew/whatsnewtranslations.cpp:29
 #, kde-format
 msgid "Download Server Icon from Server"
 msgstr "Kiszolgálóikon letöltése a kiszolgálóról"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:28
+#: widgets/whatsnew/whatsnewtranslations.cpp:30
 #, kde-format
 msgid "Show Server Error Info in Specific DialogBox"
 msgstr ""
 "Kiszolgálóhibák információinak megjelenítése egy külön párbeszédablakban"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:29
+#: widgets/whatsnew/whatsnewtranslations.cpp:31
 #, kde-format
 msgid "Allow to Copy Image in Clipboard"
 msgstr "Kép másolásának vágólapra lehetővé tétele"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:30
+#: widgets/whatsnew/whatsnewtranslations.cpp:32
 #, kde-format
 msgid "Improve debug support (Allow to show current account permissions)"
 msgstr ""
 "Hibakeresés támogatásának javítása (jelenlegi fiókjogosultságok "
 "megjelenítésének lehetővé tétele)"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:31
+#: widgets/whatsnew/whatsnewtranslations.cpp:33
 #, kde-format
 msgid "Add support for quoted text (text which starts by '>')"
 msgstr "Idézett szöveg támogatása („>” jellel kezdődő szöveg)"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:32
+#: widgets/whatsnew/whatsnewtranslations.cpp:34
 #, kde-format
 msgid "Show leader/moderator/owner in channel info."
 msgstr "Vezető/moderátor/tulajdonos megjelenítése a csatornainformációkban."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:33
+#: widgets/whatsnew/whatsnewtranslations.cpp:35
 #, kde-format
 msgid "Video/Sound Message support (kf6 only)."
 msgstr "Video-/hangüzenet támogatása (csak KF6)."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:34
+#: widgets/whatsnew/whatsnewtranslations.cpp:36
 #, kde-format
 msgid "Import/Export Accounts."
 msgstr "Fiókok importálása/exportálása."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:36
+#: widgets/whatsnew/whatsnewtranslations.cpp:38
 #, kde-format
 msgid "Fix avatar support"
 msgstr "Profilkép támogatás javítva"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:37
+#: widgets/whatsnew/whatsnewtranslations.cpp:39
 #, kde-format
 msgid "Fix emoji support (use new ktextaddons/textemoticons)"
 msgstr "Emodzsi támogatás javítva (új ktextaddons/textemoticons használata)"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:38
+#: widgets/whatsnew/whatsnewtranslations.cpp:40
 #, kde-format
 msgid "Fix animated gif in reactions"
 msgstr "Animált GIF-ek javítva a reakciókban"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:39
+#: widgets/whatsnew/whatsnewtranslations.cpp:41
 #, kde-format
 msgid "Fix kf6 support"
 msgstr "KF6 támogatás javítva"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:45
+#: widgets/whatsnew/whatsnewtranslations.cpp:47
 #, kde-format
 msgid "Add Moderation Console (Administration, RC server 6.2)"
 msgstr "Moderációs konzol hozzáadása (Adminisztráció, RC kiszolgáló 6.2)"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:45
+#: widgets/whatsnew/whatsnewtranslations.cpp:47
 #, kde-format
 msgid "Implement message style"
 msgstr "Üzenetstílusok megvalósítása"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:45
+#: widgets/whatsnew/whatsnewtranslations.cpp:47
 #, kde-format
 msgid "Implement Url Preview"
 msgstr "URL előnézet megvalósítása"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:47
+#: widgets/whatsnew/whatsnewtranslations.cpp:49
 #, kde-format
 msgid "Fix markdown support (header + check mark)"
 msgstr "Markdown támogatás javítva (fejléc + ellenőrző jel)"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:48
+#: widgets/whatsnew/whatsnewtranslations.cpp:50
 #, kde-format
 msgid "Fix mem leak"
 msgstr "Memóriaszivárgás javítva"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:49
+#: widgets/whatsnew/whatsnewtranslations.cpp:51
 #, kde-format
 msgid "Cache message size (optimization)"
 msgstr "Üzenetméret gyorsítótárazása (optimalizáció)"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:50
+#: widgets/whatsnew/whatsnewtranslations.cpp:52
 #, kde-format
 msgid ""
 "Improve select room or user in message line edit (show icon, inform if user "
@@ -10859,7 +10857,7 @@ msgstr ""
 "Szoba vagy felhasználó kiválasztásának javítása az üzenetsor szerkesztésében "
 "(ikon megjelenítése, tájékoztatás, ha a felhasználó a csatornán van)"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:51
+#: widgets/whatsnew/whatsnewtranslations.cpp:53
 #, kde-format
 msgid ""
 "Fix show commands in message line edit (Hide action when room doesn't "
@@ -10868,42 +10866,42 @@ msgstr ""
 "Parancsok megjelenítése javítva az üzenetsor szerkesztésében (művelet "
 "elrejtése, ha a szoba nem támogatja)."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:52
+#: widgets/whatsnew/whatsnewtranslations.cpp:54
 #, kde-format
 msgid "Fix download sound/video file when it's not in cache."
 msgstr "Gyorsítótárban nem lévő hang-/videofájlok letöltése javítva."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:53
+#: widgets/whatsnew/whatsnewtranslations.cpp:55
 #, kde-format
 msgid "Fix list of authentication method."
 msgstr "Hitelesítési módok listájának javítva."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:54
+#: widgets/whatsnew/whatsnewtranslations.cpp:56
 #, kde-format
 msgid "Fix show avatar url."
 msgstr "Profilkép URL megjelenítése javítva."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:62
+#: widgets/whatsnew/whatsnewtranslations.cpp:64
 #, kde-format
 msgid "Allow to increase/decrease font (CTRL++/CTRL+-)"
 msgstr "Betűméret növelésének/csökkentésének lehetővé tétele (Ctrl++/Ctrl+-)"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:63
+#: widgets/whatsnew/whatsnewtranslations.cpp:65
 #, kde-format
 msgid "Add channel list style (Condensed/Medium/Extended)"
 msgstr "Csatornalista-stílus hozzáadása (sűrített/közepes/kiterjesztett)"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:64
+#: widgets/whatsnew/whatsnewtranslations.cpp:66
 #, kde-format
 msgid "Add forward message"
 msgstr "Üzenettovábbítás hozzáadása"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:65
+#: widgets/whatsnew/whatsnewtranslations.cpp:67
 #, kde-format
 msgid "Improve mentions support."
 msgstr "Említések támogatásának fejlesztése."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:66
+#: widgets/whatsnew/whatsnewtranslations.cpp:68
 #, kde-format
 msgid ""
 "Add support for deep linking <a href=\"https://developer.rocket.chat/getting-"
@@ -10912,12 +10910,12 @@ msgstr ""
 "<a href=\"https://developer.rocket.chat/getting-started/deep-linking\">Mély "
 "hivatkozások</a> támogatása."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:67
+#: widgets/whatsnew/whatsnewtranslations.cpp:69
 #, kde-format
 msgid "Implement block actions."
 msgstr "Tiltási műveletek megvalósítása."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:68
+#: widgets/whatsnew/whatsnewtranslations.cpp:70
 #, kde-format
 msgid ""
 "Implement personal token authentication. <a href=\"https://bugs.kde.org/"
@@ -10926,110 +10924,110 @@ msgstr ""
 "Személyi tokenes hitelesítés megvalósítása. <a href=\"https://bugs.kde.org/"
 "show_bug.cgi?id=481400\">Hiba: 481400</a>"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:69
+#: widgets/whatsnew/whatsnewtranslations.cpp:71
 #, kde-format
 msgid "Add Plasma Activities Support"
 msgstr "Plasma Aktivitások támogatás hozzáadása"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:70
+#: widgets/whatsnew/whatsnewtranslations.cpp:72
 #, kde-format
 msgid "Add Report User Support"
 msgstr "Felhasználó-jelentés támogatásának hozzáadása"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:71
+#: widgets/whatsnew/whatsnewtranslations.cpp:73
 #, kde-format
 msgid "Implement Channel Sound Notification."
 msgstr "Csatorna hangértesítés megvalósítása."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:72
+#: widgets/whatsnew/whatsnewtranslations.cpp:74
 #, kde-format
 msgid "Implement New Room Sound Notification."
 msgstr "Új szoba hangértesítés megvalósítása."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:73
+#: widgets/whatsnew/whatsnewtranslations.cpp:75
 #, kde-format
 msgid "Implement Sorted/Unsorted markdown list."
 msgstr "Rendezett/rendezetlen markdown lista megvalósítása."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:76
+#: widgets/whatsnew/whatsnewtranslations.cpp:78
 #, kde-format
 msgid "Fix dark mode support."
 msgstr "Sötét mód támogatása javítva."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:77
+#: widgets/whatsnew/whatsnewtranslations.cpp:79
 #, kde-format
 msgid "Fix jitsi support."
 msgstr "Jitsi támogatás javítva."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:78
+#: widgets/whatsnew/whatsnewtranslations.cpp:80
 #, kde-format
 msgid "Fix translate message in direct channel."
 msgstr "Üzenet fordítása a közvetlen csatornában javítva."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:79
+#: widgets/whatsnew/whatsnewtranslations.cpp:81
 #, kde-format
 msgid "Don't show @here/@all as user."
 msgstr "A @here/@all ne felhasználóként jelenjen meg."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:80
+#: widgets/whatsnew/whatsnewtranslations.cpp:82
 #, kde-format
 msgid "Reduce memory footprint."
 msgstr "Memóriahasználat csökkentése."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:81
+#: widgets/whatsnew/whatsnewtranslations.cpp:83
 #, kde-format
 msgid "Use RESTAPI for logging."
 msgstr "RESTAPI használata a naplózáshoz."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:82
+#: widgets/whatsnew/whatsnewtranslations.cpp:84
 #, kde-format
 msgid "Allow to send multi files."
 msgstr "Több fájl küldésének lehetővé tétele."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:83
+#: widgets/whatsnew/whatsnewtranslations.cpp:85
 #, kde-format
 msgid "Fix preview url."
 msgstr "URL-előnézet javítva."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:91
+#: widgets/whatsnew/whatsnewtranslations.cpp:93
 #, kde-format
 msgid "Implement Rocket.Chat Marketplace."
 msgstr "A Rocket.Chat Marketplace megvalósítása."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:92
+#: widgets/whatsnew/whatsnewtranslations.cpp:94
 #, kde-format
 msgid "Allow to clean room history."
 msgstr "Szoba előzményei törlésének lehetővé tétele."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:93
+#: widgets/whatsnew/whatsnewtranslations.cpp:95
 #, kde-format
 msgid "Allow to check new version."
 msgstr "Új verzió keresésnek lehetővé tétele."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:94
+#: widgets/whatsnew/whatsnewtranslations.cpp:96
 #, kde-format
 msgid "Implement moderation (administrator mode)."
 msgstr "Moderáció megvalósítása (adminisztrátor mód)."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:95
+#: widgets/whatsnew/whatsnewtranslations.cpp:97
 #, kde-format
 msgid "Add welcome page."
 msgstr "Kezdőlap hozzáadása."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:96
+#: widgets/whatsnew/whatsnewtranslations.cpp:98
 #, kde-format
 msgid "Implement pending users info (administrator mode)."
 msgstr ""
 "Függőben lévő felhasználók információinak megvalósítása (adminisztrátor mód)."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:97
+#: widgets/whatsnew/whatsnewtranslations.cpp:99
 #, kde-format
 msgid "Use cmark-rc (https://github.com/dfaure/cmark-rc) for markdown support."
 msgstr ""
 "A cmark-rc (https://github.com/dfaure/cmark-rc) használata a Markdown "
 "támogatáshoz."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:98
+#: widgets/whatsnew/whatsnewtranslations.cpp:100
 #, kde-format
 msgid ""
 "Delete oldest files from some cache directories (file-upload and media) so "
@@ -11038,7 +11036,7 @@ msgstr ""
 "Legrégebbi fájlok törlése néhány gyorsítótár-mappából (fájlfeltöltések és "
 "média), hogy ne növekedjenek a végtelenségig."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:102
+#: widgets/whatsnew/whatsnewtranslations.cpp:104
 #, kde-format
 msgid ""
 "Clean market application model after 30 minutes (reduce memory footprint)."
@@ -11046,22 +11044,22 @@ msgstr ""
 "A piaci alkalmazásmodell törlése 30 perc elteltével (memóriahasználat "
 "csökkentése)."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:103
+#: widgets/whatsnew/whatsnewtranslations.cpp:105
 #, kde-format
 msgid "Fix show discussion name in completion."
 msgstr "Megbeszélésnév megjelenítésének javítása kiegészítéskor."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:104
+#: widgets/whatsnew/whatsnewtranslations.cpp:106
 #, kde-format
 msgid "Fix duplicated messages in search message dialog."
 msgstr "Duplikált üzenetek javítása az üzenet keresése párbeszédablakban."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:105
+#: widgets/whatsnew/whatsnewtranslations.cpp:107
 #, kde-format
 msgid "Add delegate in search rooms in team dialog."
 msgstr "Delegálás hozzáadása a szoba keresése a csapatban párbeszédablakhoz."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:119
+#: widgets/whatsnew/whatsnewtranslations.cpp:121
 #, kde-format
 msgid "Fix editing message."
 msgstr "Szerkesztési üzenet javítása."
