@@ -158,7 +158,7 @@ void UsersInRoomMenu::slotCustomContextMenuRequested(const QPoint &pos)
                 menu.addSeparator();
             }
             const bool userIsBlocked = mRoom->blocker();
-            auto blockAction = new QAction(userIsBlocked ? i18n("Unblock User") : i18n("Block User"), &menu);
+            auto blockAction = new QAction(userIsBlocked ? i18nc("@action", "Unblock User") : i18nc("@action", "Block User"), &menu);
             connect(blockAction, &QAction::triggered, this, &UsersInRoomMenu::slotBlockUser);
             menu.addAction(blockAction);
         } else {
@@ -167,7 +167,7 @@ void UsersInRoomMenu::slotCustomContextMenuRequested(const QPoint &pos)
             }
 
             const bool userIsIgnored = mRoom->userIsIgnored(mUserId);
-            auto ignoreAction = new QAction(userIsIgnored ? i18n("Unignore") : i18n("Ignore"), &menu);
+            auto ignoreAction = new QAction(userIsIgnored ? i18nc("@action", "Unignore") : i18nc("@action", "Ignore"), &menu);
             connect(ignoreAction, &QAction::triggered, this, &UsersInRoomMenu::slotIgnoreUser);
             menu.addAction(ignoreAction);
         }
