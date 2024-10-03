@@ -16,6 +16,7 @@ EncryptionSettingsWidget::EncryptionSettingsWidget(RocketChatAccount *account, Q
     , mEnableE2E(new QCheckBox(i18nc("@option:check", "Enabled E2E encryption"), this))
     , mEnableEncryptionDirectRoomsByDefault(new QCheckBox(i18nc("@option:check", "Enable encryption for Direct Rooms by default"), this))
     , mEnableEncryptionPrivateRoomsByDefault(new QCheckBox(i18nc("@option:check", "Enable encryption for Private Rooms by default"), this))
+    , mEnableEncryptFiles(new QCheckBox(i18nc("@option:check", "Encrypt files"), this))
     , mEnableOtr(new QCheckBox(i18nc("@option:check", "Enable OTR"), this))
 {
     mEnableE2E->setObjectName(QStringLiteral("mEnableE2E"));
@@ -32,6 +33,10 @@ EncryptionSettingsWidget::EncryptionSettingsWidget(RocketChatAccount *account, Q
     mMainLayout->addWidget(mEnableEncryptionPrivateRoomsByDefault);
     connectCheckBox(mEnableEncryptionPrivateRoomsByDefault, QStringLiteral("E2E_Enabled_Default_PrivateRooms"));
 
+    mEnableEncryptFiles->setObjectName(QStringLiteral("mEnableEncryptFiles"));
+    mMainLayout->addWidget(mEnableEncryptFiles);
+    connectCheckBox(mEnableEncryptFiles, QStringLiteral("E2E_Enable_Encrypt_Files"));
+
     mEnableOtr->setObjectName(QStringLiteral("mEnableOtr"));
     mEnableOtr->setToolTip(
         i18n("Enable option to use off-the-record (OTR) messages in direct messages between 2 users. OTR messages are not recorded on the server and exchanged "
@@ -47,6 +52,7 @@ void EncryptionSettingsWidget::initialize(const QMap<QString, QVariant> &mapSett
     initializeWidget(mEnableE2E, mapSettings, false);
     initializeWidget(mEnableEncryptionDirectRoomsByDefault, mapSettings, false);
     initializeWidget(mEnableEncryptionPrivateRoomsByDefault, mapSettings, false);
+    initializeWidget(mEnableEncryptFiles, mapSettings, true);
     initializeWidget(mEnableOtr, mapSettings);
 }
 

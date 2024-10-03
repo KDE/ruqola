@@ -43,6 +43,12 @@ void EncryptionSettingsWidgetTest::shouldHaveDefaultValues()
     QVERIFY(!mEnableEncryptionPrivateRoomsByDefault->text().isEmpty());
     QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mEnableEncryptionPrivateRoomsByDefault), QStringLiteral("E2E_Enabled_Default_PrivateRooms"));
 
+    auto mEnableEncryptFiles = w.findChild<QCheckBox *>(QStringLiteral("mEnableEncryptFiles"));
+    QVERIFY(mEnableEncryptFiles);
+    QVERIFY(!mEnableEncryptFiles->isChecked());
+    QVERIFY(!mEnableEncryptFiles->text().isEmpty());
+    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mEnableEncryptFiles), QStringLiteral("E2E_Enable_Encrypt_Files"));
+
     auto mEnableOtr = w.findChild<QCheckBox *>(QStringLiteral("mEnableOtr"));
     QVERIFY(mEnableOtr);
     QVERIFY(!mEnableOtr->isChecked());

@@ -22,5 +22,6 @@ private:
     QCheckBox *const mEnableE2E;
     QCheckBox *const mEnableEncryptionDirectRoomsByDefault;
     QCheckBox *const mEnableEncryptionPrivateRoomsByDefault;
+    QCheckBox *const mEnableEncryptFiles;
     QCheckBox *const mEnableOtr;
 };
