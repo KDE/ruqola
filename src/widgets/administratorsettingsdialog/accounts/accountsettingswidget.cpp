@@ -52,6 +52,7 @@ AccountSettingsWidget::AccountSettingsWidget(RocketChatAccount *account, QWidget
     , mRegistrationAuthenticationServicesDefaultRoles(new QLineEdit(this))
     , mRegistrationUsersDefaultRoles(new QLineEdit(this))
     , mPasswordReset(new QCheckBox(i18nc("@option:check", "Password Reset"), this))
+    , mLoginLogs(new QCheckBox(i18nc("@option:check", "Log (on console) failed login attempts"), this))
 {
     mAllowChangeName->setObjectName(QStringLiteral("mAllowChangeName"));
     mMainLayout->addWidget(mAllowChangeName);
@@ -140,6 +141,14 @@ AccountSettingsWidget::AccountSettingsWidget(RocketChatAccount *account, QWidget
     addSpinbox(i18n("How many failed attempts until block by IP"),
                mHowManyFailedAttemptsUntilBlockByIP,
                QStringLiteral("Block_Multiple_Failed_Logins_Attempts_Until_Block_By_Ip"));
+
+    auto loginLogsLabel = createBoldLabel(i18n("Login Logs"));
+    loginLogsLabel->setObjectName(QStringLiteral("loginLogsLabel"));
+    mMainLayout->addWidget(loginLogsLabel);
+
+    mLoginLogs->setObjectName(QStringLiteral("mLoginLogs"));
+    mMainLayout->addWidget(mLoginLogs);
+    connectCheckBox(mLoginLogs, QStringLiteral("Login_Logs_Enabled"));
 
     auto regislationLabel = createBoldLabel(i18n("Registration"));
     regislationLabel->setObjectName(QStringLiteral("regislationLabel"));
@@ -260,6 +269,7 @@ void AccountSettingsWidget::initialize(const QMap<QString, QVariant> &mapSetting
     initializeWidget(mRegistrationAuthenticationServicesDefaultRoles, mapSettings, QStringLiteral("user"));
     initializeWidget(mRegistrationUsersDefaultRoles, mapSettings, QStringLiteral("user"));
     initializeWidget(mPasswordReset, mapSettings, true);
+    initializeWidget(mLoginLogs, mapSettings, true);
 }
 
 #include "moc_accountsettingswidget.cpp"

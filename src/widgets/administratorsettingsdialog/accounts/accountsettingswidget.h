@@ -60,4 +60,6 @@ private:
     QLineEdit *const mRegistrationAuthenticationServicesDefaultRoles;
     QLineEdit *const mRegistrationUsersDefaultRoles;
     QCheckBox *const mPasswordReset;
+
+    QCheckBox *const mLoginLogs;
 };

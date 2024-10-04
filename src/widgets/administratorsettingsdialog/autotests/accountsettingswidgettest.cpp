@@ -260,6 +260,16 @@ void AccountSettingsWidgetTest::shouldHaveDefaultValues()
     QVERIFY(!mPasswordReset->isChecked());
     QVERIFY(!mPasswordReset->text().isEmpty());
     QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mPasswordReset), QStringLiteral("Accounts_PasswordReset"));
+
+    auto loginLogsLabel = w.findChild<QLabel *>(QStringLiteral("loginLogsLabel"));
+    QVERIFY(loginLogsLabel);
+    QVERIFY(!loginLogsLabel->text().isEmpty());
+
+    auto mLoginLogs = w.findChild<QCheckBox *>(QStringLiteral("mLoginLogs"));
+    QVERIFY(mLoginLogs);
+    QVERIFY(!mLoginLogs->isChecked());
+    QVERIFY(!mLoginLogs->text().isEmpty());
+    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mLoginLogs), QStringLiteral("Login_Logs_Enabled"));
 }
 
 #include "moc_accountsettingswidgettest.cpp"
