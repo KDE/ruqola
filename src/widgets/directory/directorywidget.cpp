@@ -145,7 +145,17 @@ void DirectoryWidget::slotLoadElements(int offset, int count, const QString &sea
     }
     auto job = new RocketChatRestApi::DirectoryJob(this);
     if (!searchName.isEmpty()) {
-        info.pattern = searchName;
+        QString str = searchName;
+        if (mType == DirectoryType::User) {
+            if (str.startsWith(QLatin1Char('@'))) {
+                str.removeFirst();
+            }
+        } else {
+            if (str.startsWith(QLatin1Char('#'))) {
+                str.removeFirst();
+            }
+        }
+        info.pattern = str;
     }
     job->setDirectoryInfo(info);
     RocketChatRestApi::QueryParameters parameters;
