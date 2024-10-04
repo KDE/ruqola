@@ -270,6 +270,18 @@ void AccountSettingsWidgetTest::shouldHaveDefaultValues()
     QVERIFY(!mLoginLogs->isChecked());
     QVERIFY(!mLoginLogs->text().isEmpty());
     QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mLoginLogs), QStringLiteral("Login_Logs_Enabled"));
+
+    auto mLoginLogsUsername = w.findChild<QCheckBox *>(QStringLiteral("mLoginLogsUsername"));
+    QVERIFY(mLoginLogsUsername);
+    QVERIFY(!mLoginLogsUsername->isChecked());
+    QVERIFY(!mLoginLogsUsername->text().isEmpty());
+    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mLoginLogsUsername), QStringLiteral("Login_Logs_Username"));
+
+    auto mLoginLogsUseragent = w.findChild<QCheckBox *>(QStringLiteral("mLoginLogsUseragent"));
+    QVERIFY(mLoginLogsUseragent);
+    QVERIFY(!mLoginLogsUseragent->isChecked());
+    QVERIFY(!mLoginLogsUseragent->text().isEmpty());
+    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mLoginLogsUseragent), QStringLiteral("Login_Logs_UserAgent"));
 }
 
 #include "moc_accountsettingswidgettest.cpp"

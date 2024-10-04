@@ -53,6 +53,8 @@ AccountSettingsWidget::AccountSettingsWidget(RocketChatAccount *account, QWidget
     , mRegistrationUsersDefaultRoles(new QLineEdit(this))
     , mPasswordReset(new QCheckBox(i18nc("@option:check", "Password Reset"), this))
     , mLoginLogs(new QCheckBox(i18nc("@option:check", "Log (on console) failed login attempts"), this))
+    , mLoginLogsUsername(new QCheckBox(i18nc("@option:check", "Show Username on failed login attempts logs"), this))
+    , mLoginLogsUseragent(new QCheckBox(i18nc("@option:check", "Show UserAgent on failed login attempts logs"), this))
 {
     mAllowChangeName->setObjectName(QStringLiteral("mAllowChangeName"));
     mMainLayout->addWidget(mAllowChangeName);
@@ -149,6 +151,14 @@ AccountSettingsWidget::AccountSettingsWidget(RocketChatAccount *account, QWidget
     mLoginLogs->setObjectName(QStringLiteral("mLoginLogs"));
     mMainLayout->addWidget(mLoginLogs);
     connectCheckBox(mLoginLogs, QStringLiteral("Login_Logs_Enabled"));
+
+    mLoginLogsUsername->setObjectName(QStringLiteral("mLoginLogsUsername"));
+    mMainLayout->addWidget(mLoginLogsUsername);
+    connectCheckBox(mLoginLogsUsername, QStringLiteral("Login_Logs_Username"));
+
+    mLoginLogsUseragent->setObjectName(QStringLiteral("mLoginLogsUseragent"));
+    mMainLayout->addWidget(mLoginLogsUseragent);
+    connectCheckBox(mLoginLogsUseragent, QStringLiteral("Login_Logs_UserAgent"));
 
     auto regislationLabel = createBoldLabel(i18n("Registration"));
     regislationLabel->setObjectName(QStringLiteral("regislationLabel"));
@@ -270,6 +280,8 @@ void AccountSettingsWidget::initialize(const QMap<QString, QVariant> &mapSetting
     initializeWidget(mRegistrationUsersDefaultRoles, mapSettings, QStringLiteral("user"));
     initializeWidget(mPasswordReset, mapSettings, true);
     initializeWidget(mLoginLogs, mapSettings, true);
+    initializeWidget(mLoginLogsUsername, mapSettings, false);
+    initializeWidget(mLoginLogsUseragent, mapSettings, false);
 }
 
 #include "moc_accountsettingswidget.cpp"

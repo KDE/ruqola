@@ -62,4 +62,6 @@ private:
     QCheckBox *const mPasswordReset;
 
     QCheckBox *const mLoginLogs;
+    QCheckBox *const mLoginLogsUsername;
+    QCheckBox *const mLoginLogsUseragent;
 };
