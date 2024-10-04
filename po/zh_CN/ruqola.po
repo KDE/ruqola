@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-10-03 00:39+0000\n"
+"POT-Creation-Date: 2024-10-04 00:39+0000\n"
 "PO-Revision-Date: 2024-04-22 15:59\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
@@ -4538,10 +4538,16 @@ msgstr ""
 #: widgets/administratorsettingsdialog/encryption/encryptionsettingswidget.cpp:19
 #, kde-format
 msgctxt "@option:check"
+msgid "Encrypt files"
+msgstr ""
+
+#: widgets/administratorsettingsdialog/encryption/encryptionsettingswidget.cpp:20
+#, kde-format
+msgctxt "@option:check"
 msgid "Enable OTR"
 msgstr ""
 
-#: widgets/administratorsettingsdialog/encryption/encryptionsettingswidget.cpp:23
+#: widgets/administratorsettingsdialog/encryption/encryptionsettingswidget.cpp:24
 #, kde-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -4549,7 +4555,7 @@ msgid ""
 "direct messages to be encrypted."
 msgstr ""
 
-#: widgets/administratorsettingsdialog/encryption/encryptionsettingswidget.cpp:37
+#: widgets/administratorsettingsdialog/encryption/encryptionsettingswidget.cpp:42
 #, kde-format
 msgid ""
 "Enable option to use off-the-record (OTR) messages in direct messages "
@@ -9845,21 +9851,25 @@ msgstr ""
 
 #: widgets/room/usersinroommenu.cpp:161
 #, kde-format
+msgctxt "@action"
 msgid "Unblock User"
 msgstr ""
 
 #: widgets/room/usersinroommenu.cpp:161
 #, kde-format
+msgctxt "@action"
 msgid "Block User"
 msgstr ""
 
 #: widgets/room/usersinroommenu.cpp:170
 #, kde-format
+msgctxt "@action"
 msgid "Unignore"
 msgstr ""
 
 #: widgets/room/usersinroommenu.cpp:170
 #, kde-format
+msgctxt "@action"
 msgid "Ignore"
 msgstr ""
 

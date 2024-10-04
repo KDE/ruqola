@@ -5,8 +5,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-10-03 00:39+0000\n"
-"PO-Revision-Date: 2024-09-22 09:02+0200\n"
+"POT-Creation-Date: 2024-10-04 00:39+0000\n"
+"PO-Revision-Date: 2024-10-02 09:12+0200\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
 "Language-Team: French <French <kde-francophone@kde.org>>\n"
 "Language: fr\n"
@@ -3653,12 +3653,10 @@ msgid "Set random password and send by email"
 msgstr "Définir un mot de passe aléatoire et l'envoyer par courriel"
 
 #: widgets/administratordialog/users/administratoradduserwidget.cpp:31
-#, fuzzy, kde-format
-#| msgctxt "@option:check"
-#| msgid "Mark Email for External Accounts Verified"
+#, kde-format
 msgctxt "@option:check"
 msgid "Mark email as verified"
-msgstr "Marquer un courriel pour les comptes externes vérifiés"
+msgstr "Marquer un courriel comme vérifié"
 
 #: widgets/administratordialog/users/administratoradduserwidget.cpp:61
 #: widgets/dialogs/directchannelinfowidget.cpp:95
@@ -3722,10 +3720,9 @@ msgid "All"
 msgstr "Tous"
 
 #: widgets/administratordialog/users/administratoruserstabwidget.cpp:36
-#, fuzzy, kde-format
-#| msgid "Activate"
+#, kde-format
 msgid "Activated"
-msgstr "Activer"
+msgstr "Activé"
 
 #: widgets/administratordialog/users/administratoruserswidget.cpp:236
 #, kde-format
@@ -4677,12 +4674,19 @@ msgid "Enable encryption for Private Rooms by default"
 msgstr "Activer le chiffrement par défaut pour les salons privés"
 
 #: widgets/administratorsettingsdialog/encryption/encryptionsettingswidget.cpp:19
+#, fuzzy, kde-format
+#| msgid "Encryption"
+msgctxt "@option:check"
+msgid "Encrypt files"
+msgstr "Chiffrement"
+
+#: widgets/administratorsettingsdialog/encryption/encryptionsettingswidget.cpp:20
 #, kde-format
 msgctxt "@option:check"
 msgid "Enable OTR"
 msgstr "Activer « OTR »"
 
-#: widgets/administratorsettingsdialog/encryption/encryptionsettingswidget.cpp:23
+#: widgets/administratorsettingsdialog/encryption/encryptionsettingswidget.cpp:24
 #, kde-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -4692,7 +4696,7 @@ msgstr ""
 "Activer l'option de création de groupes chiffrés ainsi que la capacité à "
 "modifier des groupes et à chiffrer les messages directs."
 
-#: widgets/administratorsettingsdialog/encryption/encryptionsettingswidget.cpp:37
+#: widgets/administratorsettingsdialog/encryption/encryptionsettingswidget.cpp:42
 #, kde-format
 msgid ""
 "Enable option to use off-the-record (OTR) messages in direct messages "
@@ -10245,22 +10249,30 @@ msgid "Remove from Room"
 msgstr "Supprimer du salon"
 
 #: widgets/room/usersinroommenu.cpp:161
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Unblock User"
+msgctxt "@action"
 msgid "Unblock User"
 msgstr "Débloquer un utilisateur"
 
 #: widgets/room/usersinroommenu.cpp:161
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Block User"
+msgctxt "@action"
 msgid "Block User"
 msgstr "Bloquer un utilisateur"
 
 #: widgets/room/usersinroommenu.cpp:170
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Unignore"
+msgctxt "@action"
 msgid "Unignore"
 msgstr "Ne plus ignorer"
 
 #: widgets/room/usersinroommenu.cpp:170
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Ignore"
+msgctxt "@action"
 msgid "Ignore"
 msgstr "Ignorer"
 
@@ -11132,10 +11144,9 @@ msgstr ""
 "dialogue d'équipe."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:121
-#, fuzzy, kde-format
-#| msgid "Direct message"
+#, kde-format
 msgid "Fix editing message."
-msgstr "Message direct"
+msgstr "Corriger le message en cours d'édition."
 
 #: widgets/whatsnew/whatsnewwidget.cpp:44
 #, kde-format

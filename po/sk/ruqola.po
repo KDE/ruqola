@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-10-03 00:39+0000\n"
+"POT-Creation-Date: 2024-10-04 00:39+0000\n"
 "PO-Revision-Date: 2019-07-29 20:25+0200\n"
 "Last-Translator: Roman Paholík <wizzardsk@gmail.com>\n"
 "Language-Team: Slovak <kde-sk@linux.sk>\n"
@@ -4860,12 +4860,19 @@ msgstr ""
 
 #: widgets/administratorsettingsdialog/encryption/encryptionsettingswidget.cpp:19
 #, fuzzy, kde-format
+#| msgid "Encrypted:"
+msgctxt "@option:check"
+msgid "Encrypt files"
+msgstr "Šifrovaný:"
+
+#: widgets/administratorsettingsdialog/encryption/encryptionsettingswidget.cpp:20
+#, fuzzy, kde-format
 #| msgid "Default"
 msgctxt "@option:check"
 msgid "Enable OTR"
 msgstr "Predvolené"
 
-#: widgets/administratorsettingsdialog/encryption/encryptionsettingswidget.cpp:23
+#: widgets/administratorsettingsdialog/encryption/encryptionsettingswidget.cpp:24
 #, kde-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -4873,7 +4880,7 @@ msgid ""
 "direct messages to be encrypted."
 msgstr ""
 
-#: widgets/administratorsettingsdialog/encryption/encryptionsettingswidget.cpp:37
+#: widgets/administratorsettingsdialog/encryption/encryptionsettingswidget.cpp:42
 #, kde-format
 msgid ""
 "Enable option to use off-the-record (OTR) messages in direct messages "
@@ -10632,22 +10639,28 @@ msgstr "Odstrániť účet"
 #: widgets/room/usersinroommenu.cpp:161
 #, fuzzy, kde-format
 #| msgid "Unblock user"
+msgctxt "@action"
 msgid "Unblock User"
 msgstr "Odblokovať používateľa"
 
 #: widgets/room/usersinroommenu.cpp:161
 #, fuzzy, kde-format
 #| msgid "Block user"
+msgctxt "@action"
 msgid "Block User"
 msgstr "Blokovať používateľa"
 
 #: widgets/room/usersinroommenu.cpp:170
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Unignore"
+msgctxt "@action"
 msgid "Unignore"
 msgstr "Zrušiť ignoráciu"
 
 #: widgets/room/usersinroommenu.cpp:170
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Ignore"
+msgctxt "@action"
 msgid "Ignore"
 msgstr "Ignorovať"
 

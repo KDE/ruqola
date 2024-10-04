@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-10-03 00:39+0000\n"
+"POT-Creation-Date: 2024-10-04 00:39+0000\n"
 "PO-Revision-Date: 2024-10-02 22:38+0200\n"
 "Last-Translator: Kristof Kiszel <ulysses@fsf.hu>\n"
 "Language-Team: Hungarian <kde-l10n-hu@kde.org>\n"
@@ -4660,12 +4660,19 @@ msgid "Enable encryption for Private Rooms by default"
 msgstr "Titkosítás engedélyezése alapértelmezetten a személyes szobáknál"
 
 #: widgets/administratorsettingsdialog/encryption/encryptionsettingswidget.cpp:19
+#, fuzzy, kde-format
+#| msgid "Encryption"
+msgctxt "@option:check"
+msgid "Encrypt files"
+msgstr "Titkosítás"
+
+#: widgets/administratorsettingsdialog/encryption/encryptionsettingswidget.cpp:20
 #, kde-format
 msgctxt "@option:check"
 msgid "Enable OTR"
 msgstr "OTR bekapcsolása"
 
-#: widgets/administratorsettingsdialog/encryption/encryptionsettingswidget.cpp:23
+#: widgets/administratorsettingsdialog/encryption/encryptionsettingswidget.cpp:24
 #, kde-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -4675,7 +4682,7 @@ msgstr ""
 "Beállítás engedélyezése a titkosított csoportok létrehozásához, valamint a "
 "titkosítandó csoportok és közvetlen üzenetek megváltoztatásának képességéhez."
 
-#: widgets/administratorsettingsdialog/encryption/encryptionsettingswidget.cpp:37
+#: widgets/administratorsettingsdialog/encryption/encryptionsettingswidget.cpp:42
 #, kde-format
 msgid ""
 "Enable option to use off-the-record (OTR) messages in direct messages "
@@ -10191,22 +10198,30 @@ msgid "Remove from Room"
 msgstr "Eltávolítás a szobából"
 
 #: widgets/room/usersinroommenu.cpp:161
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Unblock User"
+msgctxt "@action"
 msgid "Unblock User"
 msgstr "Felhasználó tiltásának feloldása"
 
 #: widgets/room/usersinroommenu.cpp:161
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Block User"
+msgctxt "@action"
 msgid "Block User"
 msgstr "Felhasználó tiltása"
 
 #: widgets/room/usersinroommenu.cpp:170
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Unignore"
+msgctxt "@action"
 msgid "Unignore"
 msgstr "Mellőzés feloldása"
 
 #: widgets/room/usersinroommenu.cpp:170
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Ignore"
+msgctxt "@action"
 msgid "Ignore"
 msgstr "Mellőzés"
 

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-10-03 00:39+0000\n"
+"POT-Creation-Date: 2024-10-04 00:39+0000\n"
 "PO-Revision-Date: 2020-06-13 21:18+0300\n"
 "Last-Translator: Marek Laane <qiilaq69@gmail.com>\n"
 "Language-Team: Estonian <kde-et@lists.linux.ee>\n"
@@ -4952,12 +4952,19 @@ msgstr ""
 
 #: widgets/administratorsettingsdialog/encryption/encryptionsettingswidget.cpp:19
 #, fuzzy, kde-format
+#| msgid "Encrypted:"
+msgctxt "@option:check"
+msgid "Encrypt files"
+msgstr "Krüptitud:"
+
+#: widgets/administratorsettingsdialog/encryption/encryptionsettingswidget.cpp:20
+#, fuzzy, kde-format
 #| msgid "Delete Room"
 msgctxt "@option:check"
 msgid "Enable OTR"
 msgstr "Toa kustutamine"
 
-#: widgets/administratorsettingsdialog/encryption/encryptionsettingswidget.cpp:23
+#: widgets/administratorsettingsdialog/encryption/encryptionsettingswidget.cpp:24
 #, kde-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -4965,7 +4972,7 @@ msgid ""
 "direct messages to be encrypted."
 msgstr ""
 
-#: widgets/administratorsettingsdialog/encryption/encryptionsettingswidget.cpp:37
+#: widgets/administratorsettingsdialog/encryption/encryptionsettingswidget.cpp:42
 #, kde-format
 msgid ""
 "Enable option to use off-the-record (OTR) messages in direct messages "
@@ -10798,22 +10805,30 @@ msgid "Remove from Room"
 msgstr "Eemalda toast"
 
 #: widgets/room/usersinroommenu.cpp:161
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Unblock User"
+msgctxt "@action"
 msgid "Unblock User"
 msgstr "Tühista kasutaja blokeerimine"
 
 #: widgets/room/usersinroommenu.cpp:161
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Block User"
+msgctxt "@action"
 msgid "Block User"
 msgstr "Blokeeri kasutaja"
 
 #: widgets/room/usersinroommenu.cpp:170
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Unignore"
+msgctxt "@action"
 msgid "Unignore"
 msgstr "Tühista eiramine"
 
 #: widgets/room/usersinroommenu.cpp:170
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Ignore"
+msgctxt "@action"
 msgid "Ignore"
 msgstr "Eira"
 

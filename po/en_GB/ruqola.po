@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-10-03 00:39+0000\n"
+"POT-Creation-Date: 2024-10-04 00:39+0000\n"
 "PO-Revision-Date: 2024-09-15 10:37+0100\n"
 "Last-Translator: Steve Allewell <steve.allewell@gmail.com>\n"
 "Language-Team: British English\n"
@@ -4639,12 +4639,19 @@ msgid "Enable encryption for Private Rooms by default"
 msgstr "Enable encryption for Private Rooms by default"
 
 #: widgets/administratorsettingsdialog/encryption/encryptionsettingswidget.cpp:19
+#, fuzzy, kde-format
+#| msgid "Encryption"
+msgctxt "@option:check"
+msgid "Encrypt files"
+msgstr "Encryption"
+
+#: widgets/administratorsettingsdialog/encryption/encryptionsettingswidget.cpp:20
 #, kde-format
 msgctxt "@option:check"
 msgid "Enable OTR"
 msgstr "Enable OTR"
 
-#: widgets/administratorsettingsdialog/encryption/encryptionsettingswidget.cpp:23
+#: widgets/administratorsettingsdialog/encryption/encryptionsettingswidget.cpp:24
 #, kde-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -4654,7 +4661,7 @@ msgstr ""
 "Enable option to create encrypted groups and be able to change groups and "
 "direct messages to be encrypted."
 
-#: widgets/administratorsettingsdialog/encryption/encryptionsettingswidget.cpp:37
+#: widgets/administratorsettingsdialog/encryption/encryptionsettingswidget.cpp:42
 #, kde-format
 msgid ""
 "Enable option to use off-the-record (OTR) messages in direct messages "
@@ -10124,22 +10131,30 @@ msgid "Remove from Room"
 msgstr "Remove from Room"
 
 #: widgets/room/usersinroommenu.cpp:161
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Unblock User"
+msgctxt "@action"
 msgid "Unblock User"
 msgstr "Unblock User"
 
 #: widgets/room/usersinroommenu.cpp:161
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Block User"
+msgctxt "@action"
 msgid "Block User"
 msgstr "Block User"
 
 #: widgets/room/usersinroommenu.cpp:170
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Unignore"
+msgctxt "@action"
 msgid "Unignore"
 msgstr "Unignore"
 
 #: widgets/room/usersinroommenu.cpp:170
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Ignore"
+msgctxt "@action"
 msgid "Ignore"
 msgstr "Ignore"
 

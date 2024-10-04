@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-10-03 00:39+0000\n"
-"PO-Revision-Date: 2024-10-02 06:30+0200\n"
+"POT-Creation-Date: 2024-10-04 00:39+0000\n"
+"PO-Revision-Date: 2024-10-03 06:36+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
@@ -4660,12 +4660,19 @@ msgid "Enable encryption for Private Rooms by default"
 msgstr "Omogoči privzeto šifriranje zasebnih sob"
 
 #: widgets/administratorsettingsdialog/encryption/encryptionsettingswidget.cpp:19
+#, fuzzy, kde-format
+#| msgid "Encryption"
+msgctxt "@option:check"
+msgid "Encrypt files"
+msgstr "Šifriranje"
+
+#: widgets/administratorsettingsdialog/encryption/encryptionsettingswidget.cpp:20
 #, kde-format
 msgctxt "@option:check"
 msgid "Enable OTR"
 msgstr "Omogoči OTR"
 
-#: widgets/administratorsettingsdialog/encryption/encryptionsettingswidget.cpp:23
+#: widgets/administratorsettingsdialog/encryption/encryptionsettingswidget.cpp:24
 #, kde-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -4675,7 +4682,7 @@ msgstr ""
 "Omogoči možnost ustvarjanja šifriranih skupin in omogočanja sprememb skupin "
 "ter šifriranje neposrednih sporočil."
 
-#: widgets/administratorsettingsdialog/encryption/encryptionsettingswidget.cpp:37
+#: widgets/administratorsettingsdialog/encryption/encryptionsettingswidget.cpp:42
 #, kde-format
 msgid ""
 "Enable option to use off-the-record (OTR) messages in direct messages "
@@ -10172,22 +10179,30 @@ msgid "Remove from Room"
 msgstr "Odstrani iz sobe"
 
 #: widgets/room/usersinroommenu.cpp:161
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Unblock User"
+msgctxt "@action"
 msgid "Unblock User"
 msgstr "Odblokiraj uporabnika"
 
 #: widgets/room/usersinroommenu.cpp:161
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Block User"
+msgctxt "@action"
 msgid "Block User"
 msgstr "Blokiraj uporabnika"
 
 #: widgets/room/usersinroommenu.cpp:170
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Unignore"
+msgctxt "@action"
 msgid "Unignore"
 msgstr "Prenehaj ignorirati"
 
 #: widgets/room/usersinroommenu.cpp:170
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Ignore"
+msgctxt "@action"
 msgid "Ignore"
 msgstr "Prezri"
 
@@ -10731,7 +10746,7 @@ msgstr "Kaj je novega v %2. %1"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:17
 msgid "Allow to clean up room history when room was not opened from long time."
-msgstr ""
+msgstr "Dovoli čiščenje zgodovine sobe, če soba dolgo časa ni bila odprta."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:27
 #, kde-format

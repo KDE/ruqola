@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-10-03 00:39+0000\n"
-"PO-Revision-Date: 2024-09-22 12:16+0200\n"
+"POT-Creation-Date: 2024-10-04 00:39+0000\n"
+"PO-Revision-Date: 2024-10-03 10:06+0200\n"
 "Last-Translator: giovanni <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
 "Language: ia\n"
@@ -3689,10 +3689,9 @@ msgid "All"
 msgstr "Omne"
 
 #: widgets/administratordialog/users/administratoruserstabwidget.cpp:36
-#, fuzzy, kde-format
-#| msgid "Activate"
+#, kde-format
 msgid "Activated"
-msgstr "Activa"
+msgstr "Activate"
 
 #: widgets/administratordialog/users/administratoruserswidget.cpp:236
 #, kde-format
@@ -3895,7 +3894,7 @@ msgstr ""
 #, kde-format
 msgctxt "@option:check"
 msgid "Send Email to User when User is Activated"
-msgstr ""
+msgstr "Invia message de E-posta a Usator quando Usator es Activate"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:39
 #, kde-format
@@ -4589,12 +4588,19 @@ msgid "Enable encryption for Private Rooms by default"
 msgstr ""
 
 #: widgets/administratorsettingsdialog/encryption/encryptionsettingswidget.cpp:19
+#, fuzzy, kde-format
+#| msgid "Encryption"
+msgctxt "@option:check"
+msgid "Encrypt files"
+msgstr "Cryptation"
+
+#: widgets/administratorsettingsdialog/encryption/encryptionsettingswidget.cpp:20
 #, kde-format
 msgctxt "@option:check"
 msgid "Enable OTR"
 msgstr "Habilita OTR"
 
-#: widgets/administratorsettingsdialog/encryption/encryptionsettingswidget.cpp:23
+#: widgets/administratorsettingsdialog/encryption/encryptionsettingswidget.cpp:24
 #, kde-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -4602,7 +4608,7 @@ msgid ""
 "direct messages to be encrypted."
 msgstr ""
 
-#: widgets/administratorsettingsdialog/encryption/encryptionsettingswidget.cpp:37
+#: widgets/administratorsettingsdialog/encryption/encryptionsettingswidget.cpp:42
 #, kde-format
 msgid ""
 "Enable option to use off-the-record (OTR) messages in direct messages "
@@ -6167,7 +6173,7 @@ msgstr "Dishabilita monitor de sessiones"
 #, kde-format
 msgctxt "@option:check"
 msgid "Disable Livechat Activity Monitor"
-msgstr ""
+msgstr "Dishabilita monitor de Activitate de Livechat"
 
 #: widgets/administratorsettingsdialog/troubleshoot/troubleshootsettingswidget.cpp:19
 #, kde-format
@@ -7418,11 +7424,10 @@ msgstr "Usatores:"
 
 #: widgets/dialogs/createnewchannelwidget.cpp:46
 #: widgets/dialogs/createnewchannelwidget.cpp:50
-#, fuzzy, kde-format
-#| msgid "Only you can see this message"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Anyone can send new messages"
-msgstr "Solmente tu pote vider iste message?"
+msgstr "Alcun pote inviar nove messages"
 
 #: widgets/dialogs/createnewchannelwidget.cpp:47
 #, kde-format
@@ -7431,27 +7436,22 @@ msgstr "Solmente de lectura:"
 
 #: widgets/dialogs/createnewchannelwidget.cpp:48
 #: widgets/dialogs/createnewchannelwidget.cpp:51
-#, fuzzy, kde-format
-#| msgid "Only you can see this message"
+#, kde-format
 msgctxt "@label:textbox"
 msgid "Anyone can send new messages"
-msgstr "Solmente tu pote vider iste message?"
+msgstr "Alcun pote inviar nove messages"
 
 #: widgets/dialogs/createnewchannelwidget.cpp:50
-#, fuzzy, kde-format
-#| msgctxt "@label:textbox"
-#| msgid "Only authorized users can write new messages"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Only owners can send new messages"
-msgstr "Solmente usatores authorisate pote scriber nove messages"
+msgstr "Solmente proprietarios pote inviar nove messages"
 
 #: widgets/dialogs/createnewchannelwidget.cpp:51
-#, fuzzy, kde-format
-#| msgctxt "@label:textbox"
-#| msgid "Only authorized users can write new messages"
+#, kde-format
 msgctxt "@label:textbox"
 msgid "Only owners can send new messages"
-msgstr "Solmente usatores authorisate pote scriber nove messages"
+msgstr "Solmente proprietarios pote inviar nove messages"
 
 #: widgets/dialogs/createnewchannelwidget.cpp:57
 #, kde-format
@@ -9962,22 +9962,30 @@ msgid "Remove from Room"
 msgstr "Remove ex Sala"
 
 #: widgets/room/usersinroommenu.cpp:161
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Unblock User"
+msgctxt "@action"
 msgid "Unblock User"
 msgstr "Disbloca usator"
 
 #: widgets/room/usersinroommenu.cpp:161
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Block User"
+msgctxt "@action"
 msgid "Block User"
 msgstr "Bloca Usator"
 
 #: widgets/room/usersinroommenu.cpp:170
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Unignore"
+msgctxt "@action"
 msgid "Unignore"
 msgstr "Cessa a ignorar"
 
 #: widgets/room/usersinroommenu.cpp:170
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Ignore"
+msgctxt "@action"
 msgid "Ignore"
 msgstr "Ignora"
 
@@ -10813,10 +10821,9 @@ msgid "Add delegate in search rooms in team dialog."
 msgstr "Adde delegato in salas de cerca in dialogo de equipa."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:121
-#, fuzzy, kde-format
-#| msgid "Direct message"
+#, kde-format
 msgid "Fix editing message."
-msgstr "Message Directe"
+msgstr "Corrige message a editar."
 
 #: widgets/whatsnew/whatsnewwidget.cpp:44
 #, kde-format
