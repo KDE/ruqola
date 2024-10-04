@@ -16,36 +16,36 @@ AppsMarketPlaceInfo::~AppsMarketPlaceInfo() = default;
 
 QDebug operator<<(QDebug d, const AppsMarketPlaceInfo &t)
 {
-    d.nospace() << "appId " << t.appId();
-    d.nospace() << "isEnterpriseOnly " << t.isEnterpriseOnly();
-    d.nospace() << "appName " << t.appName();
-    d.nospace() << "categories " << t.categories();
-    d.nospace() << "documentationUrl " << t.documentationUrl();
-    d.nospace() << "purchaseType " << t.purchaseType();
-    d.nospace() << "description " << t.description();
-    d.nospace() << "price " << t.price();
-    d.nospace() << "version " << t.version();
-    d.nospace() << "shortDescription " << t.shortDescription();
-    d.nospace() << "pixmap is valid " << !t.pixmap().isNull();
-    d.nospace() << "modifiedDate " << t.modifiedDate();
-    d.nospace() << "isPaid " << t.isPaid();
-    d.nospace() << "pricePlan " << t.pricePlan();
-    d.nospace() << "isPrivate " << t.isPrivate();
-    d.nospace() << "support " << t.support();
-    d.nospace() << "homePage " << t.homePage();
-    d.nospace() << "privacyPolicySummary " << t.privacyPolicySummary();
-    d.nospace() << "requested " << t.requested();
-    d.nospace() << "installed " << t.installed();
-    d.nospace() << "migrated " << t.migrated();
+    d.space() << "appId " << t.appId();
+    d.space() << "isEnterpriseOnly " << t.isEnterpriseOnly();
+    d.space() << "appName " << t.appName();
+    d.space() << "categories " << t.categories();
+    d.space() << "documentationUrl " << t.documentationUrl();
+    d.space() << "purchaseType " << t.purchaseType();
+    d.space() << "description " << t.description();
+    d.space() << "price " << t.price();
+    d.space() << "version " << t.version();
+    d.space() << "shortDescription " << t.shortDescription();
+    d.space() << "pixmap is valid " << !t.pixmap().isNull();
+    d.space() << "modifiedDate " << t.modifiedDate();
+    d.space() << "isPaid " << t.isPaid();
+    d.space() << "pricePlan " << t.pricePlan();
+    d.space() << "isPrivate " << t.isPrivate();
+    d.space() << "support " << t.support();
+    d.space() << "homePage " << t.homePage();
+    d.space() << "privacyPolicySummary " << t.privacyPolicySummary();
+    d.space() << "requested " << t.requested();
+    d.space() << "installed " << t.installed();
+    d.space() << "migrated " << t.migrated();
     return d;
 }
 
 QDebug operator<<(QDebug d, const AppsMarketPlaceInfo::PricePlan &t)
 {
-    d.nospace() << "price " << t.price;
-    d.nospace() << "trialDays " << t.trialDays;
-    d.nospace() << "enabled " << t.enabled;
-    d.nospace() << "strategy " << t.strategy;
+    d.space() << "price " << t.price;
+    d.space() << "trialDays " << t.trialDays;
+    d.space() << "enabled " << t.enabled;
+    d.space() << "strategy " << t.strategy;
     return d;
 }
 

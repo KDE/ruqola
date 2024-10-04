@@ -719,7 +719,7 @@ void DDPClient::deregisterSubscriber(const QString &collection, const QString &e
     const auto unsubscriptionParams = QPair<DDPManager *, int>{ddpManager, subscriptionId};
     if (subscriptionParams != unsubscriptionParams) {
         qCWarning(RUQOLA_DDPAPI_LOG) << "Unsubscription parameters don't match subscription parameters.";
-        qCWarning(RUQOLA_DDPAPI_LOG).nospace() << "Subscription parameters: " << subscriptionParams << ", unsubscription parameters: " << unsubscriptionParams;
+        qCWarning(RUQOLA_DDPAPI_LOG).space() << "Subscription parameters: " << subscriptionParams << ", unsubscription parameters: " << unsubscriptionParams;
         return;
     }
 
@@ -745,8 +745,8 @@ void DDPClient::deregisterFromMethodResponse(quint64 methodId, DDPManager *ddpMa
     const QPair<DDPManager *, int> deregisterParams{ddpManager, operationId};
     if (registerParams != deregisterParams) {
         qCWarning(RUQOLA_DDPAPI_LOG) << "Registration parameters for this method don't match the ones in the unregister request.";
-        qCWarning(RUQOLA_DDPAPI_LOG).nospace() << "Method ID: " << methodId << ", registration parameters: " << registerParams
-                                               << ", deregistration parameters: " << deregisterParams;
+        qCWarning(RUQOLA_DDPAPI_LOG).space() << "Method ID: " << methodId << ", registration parameters: " << registerParams
+                                             << ", deregistration parameters: " << deregisterParams;
         return;
     }
 
