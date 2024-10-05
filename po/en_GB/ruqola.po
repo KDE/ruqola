@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-09-28 02:31+0000\n"
+"POT-Creation-Date: 2024-10-05 02:30+0000\n"
 "PO-Revision-Date: 2024-06-22 13:21+0100\n"
 "Last-Translator: Steve Allewell <steve.allewell@gmail.com>\n"
 "Language-Team: British English\n"
@@ -3284,7 +3284,7 @@ msgstr "No user found"
 
 #: widgets/administratordialog/roles/usersinrolewidget.cpp:124
 #: widgets/administratordialog/users/administratoruserswidget.cpp:348
-#: widgets/directory/directorywidget.cpp:202
+#: widgets/directory/directorywidget.cpp:212
 #, kde-format
 msgid "%1 user (Total: %2)"
 msgid_plural "%1 users (Total: %2)"
@@ -3438,7 +3438,7 @@ msgid "No room found"
 msgstr "No room found"
 
 #: widgets/administratordialog/rooms/administratorroomswidget.cpp:81
-#: widgets/directory/directorywidget.cpp:199
+#: widgets/directory/directorywidget.cpp:209
 #, kde-format
 msgid "%1 room (Total: %2)"
 msgid_plural "%1 rooms (Total: %2)"
@@ -8455,22 +8455,22 @@ msgctxt "@action"
 msgid "Open Private Messages…"
 msgstr "Private Messages"
 
-#: widgets/directory/directorywidget.cpp:183
+#: widgets/directory/directorywidget.cpp:193
 #, kde-format
 msgid "No Room found"
 msgstr "No Room found"
 
-#: widgets/directory/directorywidget.cpp:185
+#: widgets/directory/directorywidget.cpp:195
 #, kde-format
 msgid "No User found"
 msgstr "No User found"
 
-#: widgets/directory/directorywidget.cpp:187
+#: widgets/directory/directorywidget.cpp:197
 #, kde-format
 msgid "No Team found"
 msgstr "No Team found"
 
-#: widgets/directory/directorywidget.cpp:205
+#: widgets/directory/directorywidget.cpp:215
 #, kde-format
 msgid "%1 team (Total: %2)"
 msgid_plural "%1 teams (Total: %2)"

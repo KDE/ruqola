@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-09-28 02:31+0000\n"
+"POT-Creation-Date: 2024-10-05 02:30+0000\n"
 "PO-Revision-Date: 2020-06-13 21:18+0300\n"
 "Last-Translator: Marek Laane <qiilaq69@gmail.com>\n"
 "Language-Team: Estonian <kde-et@lists.linux.ee>\n"
@@ -3480,7 +3480,7 @@ msgstr "Ühtegi sõnumit ei leitud"
 
 #: widgets/administratordialog/roles/usersinrolewidget.cpp:124
 #: widgets/administratordialog/users/administratoruserswidget.cpp:348
-#: widgets/directory/directorywidget.cpp:202
+#: widgets/directory/directorywidget.cpp:212
 #, fuzzy, kde-format
 #| msgid "%1 Message in room (Total: %2)"
 #| msgid_plural "%1 Messages in room (Total: %2)"
@@ -3632,7 +3632,7 @@ msgid "No room found"
 msgstr "Ühtegi mainimist ei leitud"
 
 #: widgets/administratordialog/rooms/administratorroomswidget.cpp:81
-#: widgets/directory/directorywidget.cpp:199
+#: widgets/directory/directorywidget.cpp:209
 #, fuzzy, kde-format
 #| msgid "%1 Message in room (Total: %2)"
 #| msgid_plural "%1 Messages in room (Total: %2)"
@@ -8617,25 +8617,25 @@ msgctxt "@action"
 msgid "Open Private Messages…"
 msgstr "Privaatsõnumid"
 
-#: widgets/directory/directorywidget.cpp:183
+#: widgets/directory/directorywidget.cpp:193
 #, fuzzy, kde-format
 #| msgid "No Mention found"
 msgid "No Room found"
 msgstr "Ühtegi mainimist ei leitud"
 
-#: widgets/directory/directorywidget.cpp:185
+#: widgets/directory/directorywidget.cpp:195
 #, fuzzy, kde-format
 #| msgid "No Message found"
 msgid "No User found"
 msgstr "Ühtegi sõnumit ei leitud"
 
-#: widgets/directory/directorywidget.cpp:187
+#: widgets/directory/directorywidget.cpp:197
 #, fuzzy, kde-format
 #| msgid "No Message found"
 msgid "No Team found"
 msgstr "Ühtegi sõnumit ei leitud"
 
-#: widgets/directory/directorywidget.cpp:205
+#: widgets/directory/directorywidget.cpp:215
 #, fuzzy, kde-format
 #| msgid "%1 thread in room (Total: %2)"
 #| msgid_plural "%1 threads in room (Total: %2)"
