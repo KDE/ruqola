@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-10-04 00:39+0000\n"
-"PO-Revision-Date: 2024-10-03 13:12+0200\n"
+"POT-Creation-Date: 2024-10-05 00:39+0000\n"
+"PO-Revision-Date: 2024-10-04 11:11+0200\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
 "Language: nl\n"
@@ -3266,7 +3266,7 @@ msgstr "Geen gebruiker gevonden"
 
 #: widgets/administratordialog/roles/usersinrolewidget.cpp:124
 #: widgets/administratordialog/users/administratoruserswidget.cpp:357
-#: widgets/directory/directorywidget.cpp:203
+#: widgets/directory/directorywidget.cpp:213
 #, kde-format
 msgid "%1 user (Total: %2)"
 msgid_plural "%1 users (Total: %2)"
@@ -3399,7 +3399,7 @@ msgid "No room found"
 msgstr "Geen room gevonden"
 
 #: widgets/administratordialog/rooms/administratorroomswidget.cpp:81
-#: widgets/directory/directorywidget.cpp:200
+#: widgets/directory/directorywidget.cpp:210
 #, kde-format
 msgid "%1 room (Total: %2)"
 msgid_plural "%1 rooms (Total: %2)"
@@ -3976,71 +3976,96 @@ msgctxt "@option:check"
 msgid "Password Reset"
 msgstr "Wachtwoord resetten"
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:109
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:55
+#, fuzzy, kde-format
+#| msgid "Failed Login Attempts"
+msgctxt "@option:check"
+msgid "Log (on console) failed login attempts"
+msgstr "Mislukte pogingen tot aanmelden"
+
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:56
+#, kde-format
+msgctxt "@option:check"
+msgid "Show Username on failed login attempts logs"
+msgstr ""
+
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:57
+#, kde-format
+msgctxt "@option:check"
+msgid "Show UserAgent on failed login attempts logs"
+msgstr ""
+
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:112
 #, kde-format
 msgid "Login Expiration in Days"
 msgstr "Verlopen van kunnen aanmelden in dagen"
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:119
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:122
 #, kde-format
 msgid "Failed Login Attempts"
 msgstr "Mislukte pogingen tot aanmelden"
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:132
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:135
 #, kde-format
 msgid "How Many Failed Attempts Until Block by User"
 msgstr ""
 "Hoeveel mislukte pogingen tot aanmelden totdat gebruiker wordt geblokkeerd"
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:137
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:140
 #, kde-format
 msgid "Time to unblock User (In Minutes)"
 msgstr "Tijd om blokkering van gebruiker op te heffen (in minuten)"
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:140
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:143
 #, kde-format
 msgid "How many failed attempts until block by IP"
 msgstr "Hoeveel mislukte pogingen tot aanmelden totdat IP wordt geblokkeerd"
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:144
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:147
+#, fuzzy, kde-format
+#| msgid "Login At"
+msgid "Login Logs"
+msgstr "Aanmelden op"
+
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:163
 #, kde-format
 msgid "Registration"
 msgstr "Registratie"
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:166
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:185
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Make sure you have correct SMTP settings to use this feature"
 msgstr "Ga na dat u juiste SMTP-instellingen hebt om deze functie te gebruiken"
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:178
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:197
 #, kde-format
 msgid "Default Username Prefix Suggestion"
 msgstr "Suggestie voor standaard voorvoegsel van gebruikersnaam"
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:181
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:200
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Comma-separated list of allowed domains"
 msgstr "Komma-gescheiden lijst met toegestane domeinen"
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:182
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:201
 #, kde-format
 msgid "Allowed Domains List"
 msgstr "Lijst met toegestane domeinen"
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:185
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:204
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Comma-separated list of blocked domains"
 msgstr "Komma-gescheiden lijst met geblokkeerde domeinen"
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:186
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:205
 #, kde-format
 msgid "Blocked Domains List"
 msgstr "Lijst met geblokkeerde domeinen"
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:189
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:208
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Comma-separated list of blocked usernames (case-insensitive)"
@@ -4048,12 +4073,12 @@ msgstr ""
 "Komma-gescheiden lijst met geblokkeerde gebruikersnamen (geen onderscheid "
 "tussen hoofd- en kleine letters)"
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:190
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:209
 #, kde-format
 msgid "Blocked Username List"
 msgstr "Lijst met geblokkeerde gebruikersnamen"
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:206
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:225
 #, kde-format
 msgid ""
 "Default roles (comma-separated) users will be given when registering through "
@@ -4062,12 +4087,12 @@ msgstr ""
 "Standaard rollen (komma-gescheiden) ven gebruikers zullen gegeven worden bij "
 "registeren via authenticatieservices"
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:207
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:226
 #, kde-format
 msgid "Default Roles for Authentication Services"
 msgstr "Standaard rollen voor authenticatieservices"
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:213
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:232
 #, kde-format
 msgid ""
 "Default roles (comma-separated) users will be given when registering through "
@@ -4076,7 +4101,7 @@ msgstr ""
 "Standaard rollen (komma-gescheiden) ven gebruikers zullen gegeven worden bij "
 "registeren via handmatige registratie (inclusief via API)"
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:214
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:233
 #, kde-format
 msgid "Default Roles for Users"
 msgstr "Standaard rollen voor gebruikers"
@@ -4658,11 +4683,10 @@ msgid "Enable encryption for Private Rooms by default"
 msgstr "Versleuteling standaard inschakelen voor privé rooms"
 
 #: widgets/administratorsettingsdialog/encryption/encryptionsettingswidget.cpp:19
-#, fuzzy, kde-format
-#| msgid "Encryption"
+#, kde-format
 msgctxt "@option:check"
 msgid "Encrypt files"
-msgstr "Versleuteling"
+msgstr "Bestanden versleutelen"
 
 #: widgets/administratorsettingsdialog/encryption/encryptionsettingswidget.cpp:20
 #, kde-format
@@ -8254,22 +8278,22 @@ msgctxt "@action"
 msgid "Open Private Messages…"
 msgstr "Privé berichten openen…"
 
-#: widgets/directory/directorywidget.cpp:184
+#: widgets/directory/directorywidget.cpp:194
 #, kde-format
 msgid "No Room found"
 msgstr "Geen room gevonden"
 
-#: widgets/directory/directorywidget.cpp:186
+#: widgets/directory/directorywidget.cpp:196
 #, kde-format
 msgid "No User found"
 msgstr "Geen gebruiker gevonden"
 
-#: widgets/directory/directorywidget.cpp:188
+#: widgets/directory/directorywidget.cpp:198
 #, kde-format
 msgid "No Team found"
 msgstr "Geen team gevonden"
 
-#: widgets/directory/directorywidget.cpp:206
+#: widgets/directory/directorywidget.cpp:216
 #, kde-format
 msgid "%1 team (Total: %2)"
 msgid_plural "%1 teams (Total: %2)"
@@ -10190,29 +10214,25 @@ msgid "Remove from Room"
 msgstr "Uit room verwijderen"
 
 #: widgets/room/usersinroommenu.cpp:161
-#, fuzzy, kde-format
-#| msgid "Unblock User"
+#, kde-format
 msgctxt "@action"
 msgid "Unblock User"
 msgstr "Gebruiker deblokkeren"
 
 #: widgets/room/usersinroommenu.cpp:161
-#, fuzzy, kde-format
-#| msgid "Block User"
+#, kde-format
 msgctxt "@action"
 msgid "Block User"
 msgstr "Gebruiker blokkeren"
 
 #: widgets/room/usersinroommenu.cpp:170
-#, fuzzy, kde-format
-#| msgid "Unignore"
+#, kde-format
 msgctxt "@action"
 msgid "Unignore"
 msgstr "Niet negeren"
 
 #: widgets/room/usersinroommenu.cpp:170
-#, fuzzy, kde-format
-#| msgid "Ignore"
+#, kde-format
 msgctxt "@action"
 msgid "Ignore"
 msgstr "Negeren"

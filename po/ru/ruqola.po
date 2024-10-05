@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-10-04 00:39+0000\n"
+"POT-Creation-Date: 2024-10-05 00:39+0000\n"
 "PO-Revision-Date: 2023-11-24 12:18+0300\n"
 "Last-Translator: Olesya Gerasimenko <translation-team@basealt.ru>\n"
 "Language-Team: Basealt Translation Team\n"
@@ -3365,7 +3365,7 @@ msgstr "Пользователей не найдено"
 
 #: widgets/administratordialog/roles/usersinrolewidget.cpp:124
 #: widgets/administratordialog/users/administratoruserswidget.cpp:357
-#: widgets/directory/directorywidget.cpp:203
+#: widgets/directory/directorywidget.cpp:213
 #, kde-format
 msgid "%1 user (Total: %2)"
 msgid_plural "%1 users (Total: %2)"
@@ -3518,7 +3518,7 @@ msgid "No room found"
 msgstr "Комнат не найдено"
 
 #: widgets/administratordialog/rooms/administratorroomswidget.cpp:81
-#: widgets/directory/directorywidget.cpp:200
+#: widgets/directory/directorywidget.cpp:210
 #, kde-format
 msgid "%1 room (Total: %2)"
 msgid_plural "%1 rooms (Total: %2)"
@@ -4146,37 +4146,62 @@ msgctxt "@option:check"
 msgid "Password Reset"
 msgstr "Журнал паролей"
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:109
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:55
+#, fuzzy, kde-format
+#| msgid "Failed Login Attempts"
+msgctxt "@option:check"
+msgid "Log (on console) failed login attempts"
+msgstr "Неудачные попытки входа"
+
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:56
+#, kde-format
+msgctxt "@option:check"
+msgid "Show Username on failed login attempts logs"
+msgstr ""
+
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:57
+#, kde-format
+msgctxt "@option:check"
+msgid "Show UserAgent on failed login attempts logs"
+msgstr ""
+
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:112
 #, kde-format
 msgid "Login Expiration in Days"
 msgstr "Срок действия регистрации в днях"
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:119
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:122
 #, kde-format
 msgid "Failed Login Attempts"
 msgstr "Неудачные попытки входа"
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:132
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:135
 #, kde-format
 msgid "How Many Failed Attempts Until Block by User"
 msgstr "Количество неудачных попыток перед блокировкой пользователя"
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:137
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:140
 #, kde-format
 msgid "Time to unblock User (In Minutes)"
 msgstr "Время разблокировки пользователя (в минутах)"
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:140
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:143
 #, kde-format
 msgid "How many failed attempts until block by IP"
 msgstr "Количество неудачных попыток перед блокировкой по IP-адресу"
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:144
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:147
+#, fuzzy, kde-format
+#| msgid "Login At"
+msgid "Login Logs"
+msgstr "Время входа"
+
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:163
 #, kde-format
 msgid "Registration"
 msgstr "Регистрация"
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:166
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:185
 #, fuzzy, kde-format
 #| msgid "Make sure you have correct SMTP settings to use this feature"
 msgctxt "@info:tooltip"
@@ -4185,36 +4210,36 @@ msgstr ""
 "Чтобы использовать эту возможность, убедитесь, что параметры SMTP настроены "
 "верно"
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:178
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:197
 #, kde-format
 msgid "Default Username Prefix Suggestion"
 msgstr "Предложение стандартного префикса имени пользователя"
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:181
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:200
 #, fuzzy, kde-format
 #| msgid "Comma-separated list of allowed domains"
 msgctxt "@info:tooltip"
 msgid "Comma-separated list of allowed domains"
 msgstr "Разделённый запятыми список разрешённых доменов"
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:182
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:201
 #, kde-format
 msgid "Allowed Domains List"
 msgstr "Список разрешённых доменов"
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:185
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:204
 #, fuzzy, kde-format
 #| msgid "Comma-separated list of blocked domains"
 msgctxt "@info:tooltip"
 msgid "Comma-separated list of blocked domains"
 msgstr "Разделённый запятыми список заблокированных доменов"
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:186
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:205
 #, kde-format
 msgid "Blocked Domains List"
 msgstr "Список заблокированных доменов"
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:189
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:208
 #, fuzzy, kde-format
 #| msgid "Comma-separated list of blocked usernames (case-insensitive)"
 msgctxt "@info:tooltip"
@@ -4223,32 +4248,32 @@ msgstr ""
 "Разделённый запятыми список заблокированных пользователей (регистр не "
 "учитывается)"
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:190
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:209
 #, kde-format
 msgid "Blocked Username List"
 msgstr "Список заблокированных пользователей"
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:206
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:225
 #, kde-format
 msgid ""
 "Default roles (comma-separated) users will be given when registering through "
 "authentication services"
 msgstr ""
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:207
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:226
 #, fuzzy, kde-format
 #| msgid "Enter authentication code"
 msgid "Default Roles for Authentication Services"
 msgstr "Введите код аутентификации"
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:213
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:232
 #, kde-format
 msgid ""
 "Default roles (comma-separated) users will be given when registering through "
 "manual registration (including via API)"
 msgstr ""
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:214
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:233
 #, fuzzy, kde-format
 #| msgid "Enter authentication code"
 msgid "Default Roles for Users"
@@ -8818,22 +8843,22 @@ msgctxt "@action"
 msgid "Open Private Messages…"
 msgstr "Личные сообщения"
 
-#: widgets/directory/directorywidget.cpp:184
+#: widgets/directory/directorywidget.cpp:194
 #, kde-format
 msgid "No Room found"
 msgstr "Комнат не найдено"
 
-#: widgets/directory/directorywidget.cpp:186
+#: widgets/directory/directorywidget.cpp:196
 #, kde-format
 msgid "No User found"
 msgstr "Пользователей не найдено"
 
-#: widgets/directory/directorywidget.cpp:188
+#: widgets/directory/directorywidget.cpp:198
 #, kde-format
 msgid "No Team found"
 msgstr "Команд не найдено"
 
-#: widgets/directory/directorywidget.cpp:206
+#: widgets/directory/directorywidget.cpp:216
 #, kde-format
 msgid "%1 team (Total: %2)"
 msgid_plural "%1 teams (Total: %2)"

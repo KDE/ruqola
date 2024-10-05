@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-10-04 00:39+0000\n"
-"PO-Revision-Date: 2024-10-03 12:15+0200\n"
+"POT-Creation-Date: 2024-10-05 00:39+0000\n"
+"PO-Revision-Date: 2024-10-04 10:42+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca\n"
@@ -3264,7 +3264,7 @@ msgstr "No s'ha trobat cap usuari"
 
 #: widgets/administratordialog/roles/usersinrolewidget.cpp:124
 #: widgets/administratordialog/users/administratoruserswidget.cpp:357
-#: widgets/directory/directorywidget.cpp:203
+#: widgets/directory/directorywidget.cpp:213
 #, kde-format
 msgid "%1 user (Total: %2)"
 msgid_plural "%1 users (Total: %2)"
@@ -3397,7 +3397,7 @@ msgid "No room found"
 msgstr "No s'ha trobat cap sala"
 
 #: widgets/administratordialog/rooms/administratorroomswidget.cpp:81
-#: widgets/directory/directorywidget.cpp:200
+#: widgets/directory/directorywidget.cpp:210
 #, kde-format
 msgid "%1 room (Total: %2)"
 msgid_plural "%1 rooms (Total: %2)"
@@ -3974,37 +3974,62 @@ msgctxt "@option:check"
 msgid "Password Reset"
 msgstr "Reinici de la contrasenya"
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:109
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:55
+#, fuzzy, kde-format
+#| msgid "Failed Login Attempts"
+msgctxt "@option:check"
+msgid "Log (on console) failed login attempts"
+msgstr "Intents d'inici de sessió fallits"
+
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:56
+#, kde-format
+msgctxt "@option:check"
+msgid "Show Username on failed login attempts logs"
+msgstr ""
+
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:57
+#, kde-format
+msgctxt "@option:check"
+msgid "Show UserAgent on failed login attempts logs"
+msgstr ""
+
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:112
 #, kde-format
 msgid "Login Expiration in Days"
 msgstr "Venciment de l'inici de sessió en dies"
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:119
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:122
 #, kde-format
 msgid "Failed Login Attempts"
 msgstr "Intents d'inici de sessió fallits"
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:132
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:135
 #, kde-format
 msgid "How Many Failed Attempts Until Block by User"
 msgstr "El nombre d'intents fallits per usuari fins al bloqueig"
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:137
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:140
 #, kde-format
 msgid "Time to unblock User (In Minutes)"
 msgstr "Temps fins a desblocar l'usuari (en minuts)"
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:140
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:143
 #, kde-format
 msgid "How many failed attempts until block by IP"
 msgstr "El nombre d'intents fallits fins al bloqueig per IP"
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:144
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:147
+#, fuzzy, kde-format
+#| msgid "Login At"
+msgid "Login Logs"
+msgstr "Inici de sessió a"
+
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:163
 #, kde-format
 msgid "Registration"
 msgstr "Registre"
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:166
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:185
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Make sure you have correct SMTP settings to use this feature"
@@ -4012,34 +4037,34 @@ msgstr ""
 "Assegureu-vos que el SMTP té la configuració correcta per a usar aquesta "
 "característica"
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:178
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:197
 #, kde-format
 msgid "Default Username Prefix Suggestion"
 msgstr "Suggeriment predeterminat del prefix d'usuari"
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:181
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:200
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Comma-separated list of allowed domains"
 msgstr "Llista separada per comes de dominis permesos"
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:182
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:201
 #, kde-format
 msgid "Allowed Domains List"
 msgstr "Llista de dominis permesos"
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:185
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:204
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Comma-separated list of blocked domains"
 msgstr "Llista separada per comes de dominis bloquejats"
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:186
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:205
 #, kde-format
 msgid "Blocked Domains List"
 msgstr "Llista de dominis bloquejats"
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:189
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:208
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Comma-separated list of blocked usernames (case-insensitive)"
@@ -4047,12 +4072,12 @@ msgstr ""
 "Llista separada per comes de noms d'usuaris bloquejats (no distingeix "
 "majúscules)"
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:190
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:209
 #, kde-format
 msgid "Blocked Username List"
 msgstr "Llista de noms d'usuaris bloquejats"
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:206
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:225
 #, kde-format
 msgid ""
 "Default roles (comma-separated) users will be given when registering through "
@@ -4061,12 +4086,12 @@ msgstr ""
 "Es donaran rols predeterminats (separats per comes) als usuaris quan es "
 "registrin a través de serveis d'autenticació"
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:207
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:226
 #, kde-format
 msgid "Default Roles for Authentication Services"
 msgstr "Rols predeterminats per a serveis d'autenticació"
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:213
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:232
 #, kde-format
 msgid ""
 "Default roles (comma-separated) users will be given when registering through "
@@ -4075,7 +4100,7 @@ msgstr ""
 "Es donaran rols predeterminats (separats per comes) als usuaris quan es "
 "registrin a través d'un registre manual (incloent-hi via una API)"
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:214
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:233
 #, kde-format
 msgid "Default Roles for Users"
 msgstr "Rols predeterminats per a usuaris"
@@ -4658,11 +4683,10 @@ msgid "Enable encryption for Private Rooms by default"
 msgstr "Activa l'encriptatge de les Sales privades de manera predeterminada"
 
 #: widgets/administratorsettingsdialog/encryption/encryptionsettingswidget.cpp:19
-#, fuzzy, kde-format
-#| msgid "Encryption"
+#, kde-format
 msgctxt "@option:check"
 msgid "Encrypt files"
-msgstr "Encriptatge"
+msgstr "Encripta fitxers"
 
 #: widgets/administratorsettingsdialog/encryption/encryptionsettingswidget.cpp:20
 #, kde-format
@@ -8249,22 +8273,22 @@ msgctxt "@action"
 msgid "Open Private Messages…"
 msgstr "Obre missatges privats…"
 
-#: widgets/directory/directorywidget.cpp:184
+#: widgets/directory/directorywidget.cpp:194
 #, kde-format
 msgid "No Room found"
 msgstr "No s'ha trobat cap sala"
 
-#: widgets/directory/directorywidget.cpp:186
+#: widgets/directory/directorywidget.cpp:196
 #, kde-format
 msgid "No User found"
 msgstr "No s'ha trobat cap usuari"
 
-#: widgets/directory/directorywidget.cpp:188
+#: widgets/directory/directorywidget.cpp:198
 #, kde-format
 msgid "No Team found"
 msgstr "No s'ha trobat cap equip"
 
-#: widgets/directory/directorywidget.cpp:206
+#: widgets/directory/directorywidget.cpp:216
 #, kde-format
 msgid "%1 team (Total: %2)"
 msgid_plural "%1 teams (Total: %2)"
@@ -10193,29 +10217,25 @@ msgid "Remove from Room"
 msgstr "Elimina de la sala"
 
 #: widgets/room/usersinroommenu.cpp:161
-#, fuzzy, kde-format
-#| msgid "Unblock User"
+#, kde-format
 msgctxt "@action"
 msgid "Unblock User"
 msgstr "Desbloca l'usuari"
 
 #: widgets/room/usersinroommenu.cpp:161
-#, fuzzy, kde-format
-#| msgid "Block User"
+#, kde-format
 msgctxt "@action"
 msgid "Block User"
 msgstr "Bloca l'usuari"
 
 #: widgets/room/usersinroommenu.cpp:170
-#, fuzzy, kde-format
-#| msgid "Unignore"
+#, kde-format
 msgctxt "@action"
 msgid "Unignore"
 msgstr "Deixa d'ignorar"
 
 #: widgets/room/usersinroommenu.cpp:170
-#, fuzzy, kde-format
-#| msgid "Ignore"
+#, kde-format
 msgctxt "@action"
 msgid "Ignore"
 msgstr "Ignora"

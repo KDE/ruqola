@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-10-04 00:39+0000\n"
+"POT-Creation-Date: 2024-10-05 00:39+0000\n"
 "PO-Revision-Date: 2024-08-06 05:33+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
@@ -3285,7 +3285,7 @@ msgstr "找不到使用者"
 
 #: widgets/administratordialog/roles/usersinrolewidget.cpp:124
 #: widgets/administratordialog/users/administratoruserswidget.cpp:357
-#: widgets/directory/directorywidget.cpp:203
+#: widgets/directory/directorywidget.cpp:213
 #, kde-format
 msgid "%1 user (Total: %2)"
 msgid_plural "%1 users (Total: %2)"
@@ -3431,7 +3431,7 @@ msgid "No room found"
 msgstr "找不到聊天室"
 
 #: widgets/administratordialog/rooms/administratorroomswidget.cpp:81
-#: widgets/directory/directorywidget.cpp:200
+#: widgets/directory/directorywidget.cpp:210
 #, kde-format
 msgid "%1 room (Total: %2)"
 msgid_plural "%1 rooms (Total: %2)"
@@ -4072,105 +4072,129 @@ msgctxt "@option:check"
 msgid "Password Reset"
 msgstr "密碼重設"
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:109
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:55
+#, kde-format
+msgctxt "@option:check"
+msgid "Log (on console) failed login attempts"
+msgstr ""
+
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:56
+#, kde-format
+msgctxt "@option:check"
+msgid "Show Username on failed login attempts logs"
+msgstr ""
+
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:57
+#, kde-format
+msgctxt "@option:check"
+msgid "Show UserAgent on failed login attempts logs"
+msgstr ""
+
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:112
 #, kde-format
 msgid "Login Expiration in Days"
 msgstr ""
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:119
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:122
 #, kde-format
 msgid "Failed Login Attempts"
 msgstr ""
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:132
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:135
 #, kde-format
 msgid "How Many Failed Attempts Until Block by User"
 msgstr ""
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:137
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:140
 #, kde-format
 msgid "Time to unblock User (In Minutes)"
 msgstr ""
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:140
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:143
 #, kde-format
 msgid "How many failed attempts until block by IP"
 msgstr ""
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:144
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:147
+#, fuzzy, kde-format
+#| msgid "Login At"
+msgid "Login Logs"
+msgstr "登入時間"
+
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:163
 #, kde-format
 msgid "Registration"
 msgstr "註冊"
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:166
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:185
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Make sure you have correct SMTP settings to use this feature"
 msgstr ""
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:178
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:197
 #, kde-format
 msgid "Default Username Prefix Suggestion"
 msgstr ""
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:181
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:200
 #, fuzzy, kde-format
 #| msgid "Comma-separated list of allowed domains"
 msgctxt "@info:tooltip"
 msgid "Comma-separated list of allowed domains"
 msgstr "允許的網域，以逗號分隔"
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:182
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:201
 #, kde-format
 msgid "Allowed Domains List"
 msgstr "允許網域列表"
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:185
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:204
 #, fuzzy, kde-format
 #| msgid "Comma-separated list of blocked domains"
 msgctxt "@info:tooltip"
 msgid "Comma-separated list of blocked domains"
 msgstr "被封鎖的網域，以逗號分隔"
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:186
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:205
 #, kde-format
 msgid "Blocked Domains List"
 msgstr "封鎖網域列表"
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:189
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:208
 #, fuzzy, kde-format
 #| msgid "Comma-separated list of blocked domains"
 msgctxt "@info:tooltip"
 msgid "Comma-separated list of blocked usernames (case-insensitive)"
 msgstr "被封鎖的網域，以逗號分隔"
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:190
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:209
 #, fuzzy, kde-format
 #| msgid "Block user"
 msgid "Blocked Username List"
 msgstr "封鎖使用者"
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:206
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:225
 #, kde-format
 msgid ""
 "Default roles (comma-separated) users will be given when registering through "
 "authentication services"
 msgstr ""
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:207
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:226
 #, fuzzy, kde-format
 #| msgid "Authentication Method"
 msgid "Default Roles for Authentication Services"
 msgstr "身份驗證方式"
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:213
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:232
 #, kde-format
 msgid ""
 "Default roles (comma-separated) users will be given when registering through "
 "manual registration (including via API)"
 msgstr ""
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:214
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:233
 #, fuzzy, kde-format
 #| msgid "Authentication Method"
 msgid "Default Roles for Users"
@@ -8436,22 +8460,22 @@ msgctxt "@action"
 msgid "Open Private Messages…"
 msgstr "私訊"
 
-#: widgets/directory/directorywidget.cpp:184
+#: widgets/directory/directorywidget.cpp:194
 #, kde-format
 msgid "No Room found"
 msgstr "找不到聊天室"
 
-#: widgets/directory/directorywidget.cpp:186
+#: widgets/directory/directorywidget.cpp:196
 #, kde-format
 msgid "No User found"
 msgstr "找不到使用者"
 
-#: widgets/directory/directorywidget.cpp:188
+#: widgets/directory/directorywidget.cpp:198
 #, kde-format
 msgid "No Team found"
 msgstr "找不到團隊"
 
-#: widgets/directory/directorywidget.cpp:206
+#: widgets/directory/directorywidget.cpp:216
 #, kde-format
 msgid "%1 team (Total: %2)"
 msgid_plural "%1 teams (Total: %2)"

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-10-04 00:39+0000\n"
+"POT-Creation-Date: 2024-10-05 00:39+0000\n"
 "PO-Revision-Date: 2024-10-03 06:36+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
@@ -3268,7 +3268,7 @@ msgstr "Ni zadetkov med uporabniki"
 
 #: widgets/administratordialog/roles/usersinrolewidget.cpp:124
 #: widgets/administratordialog/users/administratoruserswidget.cpp:357
-#: widgets/directory/directorywidget.cpp:203
+#: widgets/directory/directorywidget.cpp:213
 #, kde-format
 msgid "%1 user (Total: %2)"
 msgid_plural "%1 users (Total: %2)"
@@ -3403,7 +3403,7 @@ msgid "No room found"
 msgstr "Ni zadetkov med sobami"
 
 #: widgets/administratordialog/rooms/administratorroomswidget.cpp:81
-#: widgets/directory/directorywidget.cpp:200
+#: widgets/directory/directorywidget.cpp:210
 #, kde-format
 msgid "%1 room (Total: %2)"
 msgid_plural "%1 rooms (Total: %2)"
@@ -3981,70 +3981,95 @@ msgctxt "@option:check"
 msgid "Password Reset"
 msgstr "Ponovno nastavi geslo"
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:109
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:55
+#, fuzzy, kde-format
+#| msgid "Failed Login Attempts"
+msgctxt "@option:check"
+msgid "Log (on console) failed login attempts"
+msgstr "Zgrešeni poskusi prijav"
+
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:56
+#, kde-format
+msgctxt "@option:check"
+msgid "Show Username on failed login attempts logs"
+msgstr ""
+
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:57
+#, kde-format
+msgctxt "@option:check"
+msgid "Show UserAgent on failed login attempts logs"
+msgstr ""
+
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:112
 #, kde-format
 msgid "Login Expiration in Days"
 msgstr "Potek prijave v dnevih"
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:119
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:122
 #, kde-format
 msgid "Failed Login Attempts"
 msgstr "Zgrešeni poskusi prijav"
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:132
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:135
 #, kde-format
 msgid "How Many Failed Attempts Until Block by User"
 msgstr "Koliko zgrešenih poskusov pred blokiranjem uporabnika"
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:137
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:140
 #, kde-format
 msgid "Time to unblock User (In Minutes)"
 msgstr "Čas za deblokiranje uporabnika (v minutah)"
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:140
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:143
 #, kde-format
 msgid "How many failed attempts until block by IP"
 msgstr "Koliko zgrešenih poskusov pred blokiranjem na IP"
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:144
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:147
+#, fuzzy, kde-format
+#| msgid "Login At"
+msgid "Login Logs"
+msgstr "Prijava na"
+
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:163
 #, kde-format
 msgid "Registration"
 msgstr "Registracija"
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:166
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:185
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Make sure you have correct SMTP settings to use this feature"
 msgstr "Prepričajte, da imate pravilne nastavitve SMTP za uporabo te zmožnosti"
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:178
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:197
 #, kde-format
 msgid "Default Username Prefix Suggestion"
 msgstr "Predlog predpone privzeto uporabniško ime"
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:181
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:200
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Comma-separated list of allowed domains"
 msgstr "Seznam dovoljenih domen ločenih z vejico"
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:182
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:201
 #, kde-format
 msgid "Allowed Domains List"
 msgstr "Seznam dovoljenih domen"
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:185
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:204
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Comma-separated list of blocked domains"
 msgstr "Seznam blokiranih domen ločenih z vejico"
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:186
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:205
 #, kde-format
 msgid "Blocked Domains List"
 msgstr "Seznam blokiranih domen"
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:189
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:208
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Comma-separated list of blocked usernames (case-insensitive)"
@@ -4052,12 +4077,12 @@ msgstr ""
 "Seznam blokiranih uporabniških imen (neodvisno male/velike črke) ločenih z "
 "vejico"
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:190
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:209
 #, kde-format
 msgid "Blocked Username List"
 msgstr "Seznam blokiranih uporabniških imen"
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:206
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:225
 #, kde-format
 msgid ""
 "Default roles (comma-separated) users will be given when registering through "
@@ -4066,12 +4091,12 @@ msgstr ""
 "Privzete vloge (ločene z vejico) uporabnikov bodo dane ob registraciji s "
 "storitvami avtentikacije"
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:207
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:226
 #, kde-format
 msgid "Default Roles for Authentication Services"
 msgstr "Privzete vloge za storitve avtentikacije"
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:213
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:232
 #, kde-format
 msgid ""
 "Default roles (comma-separated) users will be given when registering through "
@@ -4080,7 +4105,7 @@ msgstr ""
 "Privzete vloge (ločene z vejico) uporabnikov bodo dane ob registraciji s "
 "storitvami avtentikacije (vključno prek API)"
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:214
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:233
 #, kde-format
 msgid "Default Roles for Users"
 msgstr "Privzete vloge za uporabnike"
@@ -8238,22 +8263,22 @@ msgctxt "@action"
 msgid "Open Private Messages…"
 msgstr "Odpri zasebna sporočila…"
 
-#: widgets/directory/directorywidget.cpp:184
+#: widgets/directory/directorywidget.cpp:194
 #, kde-format
 msgid "No Room found"
 msgstr "Ni zadetkov med sobami"
 
-#: widgets/directory/directorywidget.cpp:186
+#: widgets/directory/directorywidget.cpp:196
 #, kde-format
 msgid "No User found"
 msgstr "Ni zadetkov med uporabniki"
 
-#: widgets/directory/directorywidget.cpp:188
+#: widgets/directory/directorywidget.cpp:198
 #, kde-format
 msgid "No Team found"
 msgstr "Ni zadetkov med ekipami"
 
-#: widgets/directory/directorywidget.cpp:206
+#: widgets/directory/directorywidget.cpp:216
 #, kde-format
 msgid "%1 team (Total: %2)"
 msgid_plural "%1 teams (Total: %2)"
