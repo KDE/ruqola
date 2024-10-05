@@ -718,7 +718,7 @@ void RocketChatBackend::slotChanged(const QJsonObject &object)
             qDebug() << " DELETE MESSAGE Bulk not IMPLEMENTED yet";
             QString roomId = eventname;
             roomId.remove(QStringLiteral("/deleteMessageBulk"));
-            qDebug() << " deleteMessageBulk " << collection << " object " << object;
+            qDebug() << "UNIMPLEMENT!!!!!! deleteMessageBulk " << collection << " object " << object;
             // QJsonObject({"collection":"stream-notify-room","fields":{"args":[{"excludePinned":false,"ignoreDiscussion":true,"rid":"QgCf8GcnXYW5QXiHN","ts":{"$gt":{"$date":946681200000},"$lt":{"$date":1599602400000}},"users":[]}],"eventName":"QgCf8GcnXYW5QXiHN/deleteMessageBulk"},"id":"id","msg":"changed"})
         } else {
             if (mRocketChatAccount->ruqolaLogger()) {
