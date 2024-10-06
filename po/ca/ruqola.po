@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-10-05 00:39+0000\n"
-"PO-Revision-Date: 2024-10-04 10:42+0200\n"
+"PO-Revision-Date: 2024-10-05 11:52+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca\n"
@@ -3975,23 +3975,24 @@ msgid "Password Reset"
 msgstr "Reinici de la contrasenya"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:55
-#, fuzzy, kde-format
-#| msgid "Failed Login Attempts"
+#, kde-format
 msgctxt "@option:check"
 msgid "Log (on console) failed login attempts"
-msgstr "Intents d'inici de sessió fallits"
+msgstr "Registra (a la consola) els intents d'inici de sessió fallits"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:56
 #, kde-format
 msgctxt "@option:check"
 msgid "Show Username on failed login attempts logs"
 msgstr ""
+"Mostra el nom d'usuari en els registres d'intents d'inici de sessió fallits"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:57
 #, kde-format
 msgctxt "@option:check"
 msgid "Show UserAgent on failed login attempts logs"
 msgstr ""
+"Mostra l'«UserAgent» en els registres d'intents d'inici de sessió fallits"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:112
 #, kde-format
@@ -4019,10 +4020,9 @@ msgid "How many failed attempts until block by IP"
 msgstr "El nombre d'intents fallits fins al bloqueig per IP"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:147
-#, fuzzy, kde-format
-#| msgid "Login At"
+#, kde-format
 msgid "Login Logs"
-msgstr "Inici de sessió a"
+msgstr "Registres d'inici de sessió"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:163
 #, kde-format

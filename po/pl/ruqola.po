@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-10-05 00:39+0000\n"
-"PO-Revision-Date: 2024-09-29 09:01+0200\n"
+"PO-Revision-Date: 2024-10-05 13:03+0200\n"
 "Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>\n"
 "Language-Team: Polish <kde-i18n-doc@kde.org>\n"
 "Language: pl\n"
@@ -3642,12 +3642,10 @@ msgid "Set random password and send by email"
 msgstr "Ustaw losowe hasło i wyślij je pocztą"
 
 #: widgets/administratordialog/users/administratoradduserwidget.cpp:31
-#, fuzzy, kde-format
-#| msgctxt "@option:check"
-#| msgid "Mark Email for External Accounts Verified"
+#, kde-format
 msgctxt "@option:check"
 msgid "Mark email as verified"
-msgstr "Oznacz adres pocztowy dla zewnętrznych kont jako sprawdzony"
+msgstr "Oznacz adres pocztowy jako sprawdzony"
 
 #: widgets/administratordialog/users/administratoradduserwidget.cpp:61
 #: widgets/dialogs/directchannelinfowidget.cpp:95
@@ -3711,10 +3709,9 @@ msgid "All"
 msgstr "Wszystkie"
 
 #: widgets/administratordialog/users/administratoruserstabwidget.cpp:36
-#, fuzzy, kde-format
-#| msgid "Activate"
+#, kde-format
 msgid "Activated"
-msgstr "Aktywuj"
+msgstr "Włączone"
 
 #: widgets/administratordialog/users/administratoruserswidget.cpp:236
 #, kde-format
@@ -3761,7 +3758,7 @@ msgstr "Wyzeruj klucz E2E"
 #, kde-format
 msgctxt "@action"
 msgid "Reset Totp"
-msgstr "Wyzeruj Totp"
+msgstr "Wyzeruj TOTP"
 
 #: widgets/administratordialog/users/administratoruserswidget.cpp:435
 #, kde-format
@@ -3982,23 +3979,22 @@ msgid "Password Reset"
 msgstr "Zerowanie hasła"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:55
-#, fuzzy, kde-format
-#| msgid "Failed Login Attempts"
+#, kde-format
 msgctxt "@option:check"
 msgid "Log (on console) failed login attempts"
-msgstr "Nieudane próby wejścia"
+msgstr "Zapisuj (w konsoli) nieudane próby zalogowania"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:56
 #, kde-format
 msgctxt "@option:check"
 msgid "Show Username on failed login attempts logs"
-msgstr ""
+msgstr "Pokaż nazwę użytkownika dla nieudanych prób logowania"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:57
 #, kde-format
 msgctxt "@option:check"
 msgid "Show UserAgent on failed login attempts logs"
-msgstr ""
+msgstr "Pokaż UserAgent dla nieudanych prób logowania"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:112
 #, kde-format
@@ -4026,10 +4022,9 @@ msgid "How many failed attempts until block by IP"
 msgstr "Liczba nieudanych prób wejścia do zablokowania po IP"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:147
-#, fuzzy, kde-format
-#| msgid "Login At"
+#, kde-format
 msgid "Login Logs"
-msgstr "Zaloguj się na"
+msgstr "Dzienniki logowania"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:163
 #, kde-format
@@ -4687,11 +4682,10 @@ msgid "Enable encryption for Private Rooms by default"
 msgstr "Domyślnie włącz szyfrowanie dla pokojów prywatnych"
 
 #: widgets/administratorsettingsdialog/encryption/encryptionsettingswidget.cpp:19
-#, fuzzy, kde-format
-#| msgid "Encryption"
+#, kde-format
 msgctxt "@option:check"
 msgid "Encrypt files"
-msgstr "Szyfrowanie"
+msgstr "Zaszyfruj pliki"
 
 #: widgets/administratorsettingsdialog/encryption/encryptionsettingswidget.cpp:20
 #, kde-format
@@ -7647,11 +7641,10 @@ msgstr "Użytkownicy:"
 
 #: widgets/dialogs/createnewchannelwidget.cpp:46
 #: widgets/dialogs/createnewchannelwidget.cpp:50
-#, fuzzy, kde-format
-#| msgid "Only you can see this message"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Anyone can send new messages"
-msgstr "Tylko ty możesz zobaczyć tę wiadomość"
+msgstr "Każdy może wysyłać nowe wiadomości"
 
 #: widgets/dialogs/createnewchannelwidget.cpp:47
 #, kde-format
@@ -7660,27 +7653,22 @@ msgstr "Tylko do odczytu:"
 
 #: widgets/dialogs/createnewchannelwidget.cpp:48
 #: widgets/dialogs/createnewchannelwidget.cpp:51
-#, fuzzy, kde-format
-#| msgid "Only you can see this message"
+#, kde-format
 msgctxt "@label:textbox"
 msgid "Anyone can send new messages"
-msgstr "Tylko ty możesz zobaczyć tę wiadomość"
+msgstr "Każdy może wysyłać nowe wiadomości"
 
 #: widgets/dialogs/createnewchannelwidget.cpp:50
-#, fuzzy, kde-format
-#| msgctxt "@label:textbox"
-#| msgid "Only authorized users can write new messages"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Only owners can send new messages"
-msgstr "Tylko uwierzytelnieni użytkownicy mogą pisać nowe wiadomości"
+msgstr "Tylko właściciele mogą wysyłać nowe wiadomości"
 
 #: widgets/dialogs/createnewchannelwidget.cpp:51
-#, fuzzy, kde-format
-#| msgctxt "@label:textbox"
-#| msgid "Only authorized users can write new messages"
+#, kde-format
 msgctxt "@label:textbox"
 msgid "Only owners can send new messages"
-msgstr "Tylko uwierzytelnieni użytkownicy mogą pisać nowe wiadomości"
+msgstr "Tylko właściciele mogą wysyłać nowe wiadomości"
 
 #: widgets/dialogs/createnewchannelwidget.cpp:57
 #, kde-format
@@ -10227,29 +10215,25 @@ msgid "Remove from Room"
 msgstr "Usuń z pokoju"
 
 #: widgets/room/usersinroommenu.cpp:161
-#, fuzzy, kde-format
-#| msgid "Unblock User"
+#, kde-format
 msgctxt "@action"
 msgid "Unblock User"
 msgstr "Odblokuj użytkownika"
 
 #: widgets/room/usersinroommenu.cpp:161
-#, fuzzy, kde-format
-#| msgid "Block User"
+#, kde-format
 msgctxt "@action"
 msgid "Block User"
 msgstr "Zablokuj użytkownika"
 
 #: widgets/room/usersinroommenu.cpp:170
-#, fuzzy, kde-format
-#| msgid "Unignore"
+#, kde-format
 msgctxt "@action"
 msgid "Unignore"
 msgstr "Wycofaj pomijanie"
 
 #: widgets/room/usersinroommenu.cpp:170
-#, fuzzy, kde-format
-#| msgid "Ignore"
+#, kde-format
 msgctxt "@action"
 msgid "Ignore"
 msgstr "Pomiń"
@@ -10794,6 +10778,8 @@ msgstr "Co nowego w %2. %1"
 #: widgets/whatsnew/whatsnewtranslations.cpp:17
 msgid "Allow to clean up room history when room was not opened from long time."
 msgstr ""
+"Zezwól na wyczyszczenie historii pokoju, gdy nie był on otwierany przez "
+"długi czas."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:27
 #, kde-format
@@ -10924,7 +10910,7 @@ msgstr "Naprawiono listę sposobu uwierzytelniania."
 #: widgets/whatsnew/whatsnewtranslations.cpp:56
 #, kde-format
 msgid "Fix show avatar url."
-msgstr "Naprawiono obsługę URL avatarów"
+msgstr "Naprawiono obsługę URL awatarów."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:64
 #, kde-format
@@ -11104,10 +11090,9 @@ msgid "Add delegate in search rooms in team dialog."
 msgstr "Dodaj delegata w wyszukiwaniu pokojów w oknie zespołu."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:121
-#, fuzzy, kde-format
-#| msgid "Direct message"
+#, kde-format
 msgid "Fix editing message."
-msgstr "Wiadomość bezpośrednia"
+msgstr "Naprawiono edytowanie wiadomości."
 
 #: widgets/whatsnew/whatsnewwidget.cpp:44
 #, kde-format

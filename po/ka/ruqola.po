@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-10-05 00:39+0000\n"
-"PO-Revision-Date: 2024-10-04 05:28+0200\n"
+"PO-Revision-Date: 2024-10-05 05:56+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -3963,23 +3963,22 @@ msgid "Password Reset"
 msgstr "პაროლის ჩამოყრა"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:55
-#, fuzzy, kde-format
-#| msgid "Failed Login Attempts"
+#, kde-format
 msgctxt "@option:check"
 msgid "Log (on console) failed login attempts"
-msgstr "შესვლის წარუმატებელი მცდელობები"
+msgstr "შესვლის წარუმატებელი მცდელობების ჟურნალში ჩაწერა (კონსოლში)"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:56
 #, kde-format
 msgctxt "@option:check"
 msgid "Show Username on failed login attempts logs"
-msgstr ""
+msgstr "მომხმარებლის სახელის ჩვენება ჩავარდნილი შესვლის მცდელობების ჟურნალში"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:57
 #, kde-format
 msgctxt "@option:check"
 msgid "Show UserAgent on failed login attempts logs"
-msgstr ""
+msgstr "მომხმარებლის აგენტის ჩვენება ჩავარდნილი შესვლის მცდელობების ჟურნალში"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:112
 #, kde-format
@@ -4007,10 +4006,9 @@ msgid "How many failed attempts until block by IP"
 msgstr "მცდელობების რიცხვი IP-ს დაბლოკვამდე"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:147
-#, fuzzy, kde-format
-#| msgid "Login At"
+#, kde-format
 msgid "Login Logs"
-msgstr "შესვლის დრო"
+msgstr "შესვლის ჟურნალი"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:163
 #, kde-format

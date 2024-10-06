@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-10-05 00:39+0000\n"
-"PO-Revision-Date: 2024-10-02 21:43+0200\n"
+"PO-Revision-Date: 2024-10-05 08:16+0200\n"
 "Last-Translator: Stefan Asserhäll <stefan.asserhall@gmail.com>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
 "Language: sv\n"
@@ -3956,23 +3956,22 @@ msgid "Password Reset"
 msgstr "Lösenordsnollställning"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:55
-#, fuzzy, kde-format
-#| msgid "Failed Login Attempts"
+#, kde-format
 msgctxt "@option:check"
 msgid "Log (on console) failed login attempts"
-msgstr "Misslyckade inloggningsförsök"
+msgstr "Logga misslyckade inloggningsförsök (på terminalen)"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:56
 #, kde-format
 msgctxt "@option:check"
 msgid "Show Username on failed login attempts logs"
-msgstr ""
+msgstr "Visa användarnamn vid misslyckade inloggningsförsök i loggar"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:57
 #, kde-format
 msgctxt "@option:check"
 msgid "Show UserAgent on failed login attempts logs"
-msgstr ""
+msgstr "Visa användaragent vid misslyckade inloggningsförsök i loggar"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:112
 #, kde-format
@@ -4000,10 +3999,9 @@ msgid "How many failed attempts until block by IP"
 msgstr "Hur många misslyckade försök till blockering enligt IP-adress"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:147
-#, fuzzy, kde-format
-#| msgid "Login At"
+#, kde-format
 msgid "Login Logs"
-msgstr "Logga in på"
+msgstr "Inloggningsloggar"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:163
 #, kde-format
@@ -4658,11 +4656,10 @@ msgid "Enable encryption for Private Rooms by default"
 msgstr "Aktivera normalt kryptering av privata rum"
 
 #: widgets/administratorsettingsdialog/encryption/encryptionsettingswidget.cpp:19
-#, fuzzy, kde-format
-#| msgid "Encryption"
+#, kde-format
 msgctxt "@option:check"
 msgid "Encrypt files"
-msgstr "Kryptering"
+msgstr "Kryptera filer"
 
 #: widgets/administratorsettingsdialog/encryption/encryptionsettingswidget.cpp:20
 #, kde-format
@@ -10159,29 +10156,25 @@ msgid "Remove from Room"
 msgstr "Ta bort från rum"
 
 #: widgets/room/usersinroommenu.cpp:161
-#, fuzzy, kde-format
-#| msgid "Unblock User"
+#, kde-format
 msgctxt "@action"
 msgid "Unblock User"
 msgstr "Blockera inte användare"
 
 #: widgets/room/usersinroommenu.cpp:161
-#, fuzzy, kde-format
-#| msgid "Block User"
+#, kde-format
 msgctxt "@action"
 msgid "Block User"
 msgstr "Blockera användare"
 
 #: widgets/room/usersinroommenu.cpp:170
-#, fuzzy, kde-format
-#| msgid "Unignore"
+#, kde-format
 msgctxt "@action"
 msgid "Unignore"
-msgstr "Ignorera inte"
+msgstr "Sluta ignorera"
 
 #: widgets/room/usersinroommenu.cpp:170
-#, fuzzy, kde-format
-#| msgid "Ignore"
+#, kde-format
 msgctxt "@action"
 msgid "Ignore"
 msgstr "Ignorera"
@@ -10724,6 +10717,7 @@ msgstr "Vad är nytt i %2. %1"
 #: widgets/whatsnew/whatsnewtranslations.cpp:17
 msgid "Allow to clean up room history when room was not opened from long time."
 msgstr ""
+"Tillåt att rumshistorik rensas när rummet inte har öppnats under lång tid."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:27
 #, kde-format

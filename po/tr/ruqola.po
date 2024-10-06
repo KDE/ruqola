@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-10-05 00:39+0000\n"
-"PO-Revision-Date: 2024-10-05 01:31+0300\n"
+"PO-Revision-Date: 2024-10-05 10:20+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -3948,23 +3948,22 @@ msgid "Password Reset"
 msgstr "Parolayı sıfırla"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:55
-#, fuzzy, kde-format
-#| msgid "Failed Login Attempts"
+#, kde-format
 msgctxt "@option:check"
 msgid "Log (on console) failed login attempts"
-msgstr "Başarısız Oturum Açma Denemeleri"
+msgstr "Başarısız oturum açma girişimlerini günlükle"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:56
 #, kde-format
 msgctxt "@option:check"
 msgid "Show Username on failed login attempts logs"
-msgstr ""
+msgstr "Başarısız oturum açma girişimi günlüklerinde kullanıcı adını göster"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:57
 #, kde-format
 msgctxt "@option:check"
 msgid "Show UserAgent on failed login attempts logs"
-msgstr ""
+msgstr "Başarısız oturum açma girişimi günlüklerinde UserAgent’ı göster"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:112
 #, kde-format
@@ -3992,10 +3991,9 @@ msgid "How many failed attempts until block by IP"
 msgstr "IP engellenmeden önce kaç hatalı giriş denemesi"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:147
-#, fuzzy, kde-format
-#| msgid "Login At"
+#, kde-format
 msgid "Login Logs"
-msgstr "Oturum Açma Tarihi"
+msgstr "Oturum Açma Günlükleri"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:163
 #, kde-format

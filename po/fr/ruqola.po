@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-10-05 00:39+0000\n"
-"PO-Revision-Date: 2024-10-03 07:16+0200\n"
+"PO-Revision-Date: 2024-10-04 14:30+0200\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
 "Language-Team: French <French <kde-francophone@kde.org>>\n"
 "Language: fr\n"
@@ -10834,6 +10834,8 @@ msgstr "Quoi de neuf dans %2. %1"
 #: widgets/whatsnew/whatsnewtranslations.cpp:17
 msgid "Allow to clean up room history when room was not opened from long time."
 msgstr ""
+"Permettre de nettoyer l'historique du salon lorsque qu'il a été ouvert très "
+"récemment."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:27
 #, kde-format
