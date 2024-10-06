@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-10-05 02:30+0000\n"
-"PO-Revision-Date: 2024-09-30 16:50+0200\n"
+"PO-Revision-Date: 2024-10-05 21:19+0200\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
 "Language: eu\n"
@@ -945,7 +945,7 @@ msgstr "Ip"
 #: core/model/deviceinfomodel.cpp:45
 #, kde-format
 msgid "Login At"
-msgstr "Saioa-hasi hemen"
+msgstr "Saio-sarrera hemen"
 
 #: core/model/directoryroomsmodel.cpp:118
 #, kde-format
@@ -1512,12 +1512,12 @@ msgstr "Kanala irakur-soilekoa da."
 #: core/room.cpp:1530
 #, kde-format
 msgid "You have blocked this channel."
-msgstr "Kanal hau blokeatu duzu."
+msgstr "Kanal hau oztopatu duzu."
 
 #: core/room.cpp:1533
 #, kde-format
 msgid "Channel was blocked."
-msgstr "Kanala blokeatu egin da."
+msgstr "Kanala oztopatu egin da."
 
 #: core/roominfo/roominfo.cpp:110
 #, kde-format
@@ -1637,7 +1637,7 @@ msgstr "Google"
 #: plugins/authentication/password/passwordpluginauthentication.cpp:33
 #, kde-format
 msgid "Login/Password"
-msgstr "Saio-hasiera/Pasahitza"
+msgstr "Saio-sarrera/Pasahitza"
 
 #: plugins/authentication/personalaccesstoken/personalaccesstokenauthenticationconfigwidget.cpp:33
 #: widgets/common/authenticationloginwidget.cpp:33
@@ -1767,7 +1767,7 @@ msgstr "Mezu baliogabea: '%1'"
 #: rocketchatrestapi-qt/chat/postmessagejob.cpp:124
 #, kde-format
 msgid "This room is blocked"
-msgstr "Gela hau blokeatuta dago"
+msgstr "Gela hau oztopatuta dago"
 
 #: rocketchatrestapi-qt/chat/postmessagejob.cpp:126
 #, kde-format
@@ -2114,12 +2114,12 @@ msgstr "«webhook» URLak 200 ez den beste egoera bat erantzun du"
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:363
 #, kde-format
 msgid "Message deleting is blocked"
-msgstr "Mezu ezabatzea blokeatuta dago"
+msgstr "Mezuak ezabatzea oztopatuta dago"
 
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:365
 #, kde-format
 msgid "Message editing is blocked"
-msgstr "Mezu editatzea blokeatuta dago"
+msgstr "Mezuak editatzea blokeatuta dago"
 
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:367
 #, kde-format
@@ -2346,7 +2346,7 @@ msgstr "Erabiltzailea ez da buruzagia"
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:448
 #, kde-format
 msgid "App user is not allowed to login"
-msgstr "Aplikazio-erabiltzailea ez dago saio-hasteko baimenduta"
+msgstr "Aplikazio-erabiltzailea ez dago saioan sartzeko baimenduta"
 
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:450
 #, kde-format
@@ -3743,7 +3743,7 @@ msgid ""
 "encrypted room that has no member online."
 msgstr ""
 "Uneko E2E gakoa berrezartzeak erabiltzailearen saioa itxiko du. "
-"Erabiltzaileak saioa berriz hasten duenean, Rocket.Chat-ek gako berri bat "
+"Erabiltzaileak saioan berriz sartzen denean, Rocket.Chat-ek gako berri bat "
 "sortuko du eta lerroan erabiltzaile bat edo gehiago duen gela zifratuetarako "
 "erabiltzailearen sarbidea lehengoratuko du. E2E zifratzearen izaera dela "
 "eta, Rocket.Chat-ek ezingo du lehengoratu lerroan erabiltzailerik ez duen "
@@ -3882,7 +3882,7 @@ msgstr "Gaitu saioa hasteko datuak biltzea"
 #, kde-format
 msgctxt "@option:check"
 msgid "Block Failed Login Attempts by Username"
-msgstr "Blokeatu erabiltzaile-izenak huts egindako saio-haste saiakerak"
+msgstr "Oztopatu, Erabiltzaile-izenak, huts egindako saio-sarrera saiakerak"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:38
 #, kde-format
@@ -3912,7 +3912,7 @@ msgstr "Eskatu pasahitz berrespena"
 #, kde-format
 msgctxt "@option:check"
 msgid "Only Allow Verified Users to Login"
-msgstr "Saioa hastea egiaztatutako erabiltzaileei bakarrik baimendu"
+msgstr "Saio-sarrera egiaztatutako erabiltzaileei bakarri baimendu"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:43
 #, kde-format
@@ -3953,17 +3953,18 @@ msgstr "Pasahitza berrezartzea"
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:109
 #, kde-format
 msgid "Login Expiration in Days"
-msgstr "Saio-hasiera iraungitzeko egunak"
+msgstr "Saio-sarrera egun batzuk barru iraungiko da"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:119
 #, kde-format
 msgid "Failed Login Attempts"
-msgstr "Saio-hastean huts egindako saiakerak"
+msgstr "Huts egindako saio-sarrera saiakerak"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:132
 #, kde-format
 msgid "How Many Failed Attempts Until Block by User"
-msgstr "Zenbait huts egindako saiakera erabiltzaileagatik blokeatu aurretik"
+msgstr ""
+"Zenbait huts egindako saiakera Erabiltzailearen arabera oztopatu aurretik"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:137
 #, kde-format
@@ -3973,7 +3974,7 @@ msgstr "Erabiltzaileari oztopoa kentzeko denbora (minututan)"
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:140
 #, kde-format
 msgid "How many failed attempts until block by IP"
-msgstr "Zenbait huts egindako saiakera IPagatik blokeatu aurretik"
+msgstr "Zenbait huts egindako saiakera IParen arabera oztopatu aurretik"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:144
 #, kde-format
@@ -4018,7 +4019,7 @@ msgstr "Oztopatutako domeinuen zerrenda"
 msgctxt "@info:tooltip"
 msgid "Comma-separated list of blocked usernames (case-insensitive)"
 msgstr ""
-"Oztomatutako erabiltzaile-izenen komaz bereizitako zerrenda (ez bereizi "
+"Oztopatutako erabiltzaile-izenen komaz bereizitako zerrenda (ez bereizi "
 "maius/minus)"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:190
@@ -4364,7 +4365,7 @@ msgstr ""
 #: widgets/administratorsettingsdialog/cas/cassettingswidget.cpp:38
 #, kde-format
 msgid "SSO Login URL"
-msgstr "SSO saio-hasteko URLa"
+msgstr "SSO Saio-sarreraren URLa"
 
 #: widgets/administratorsettingsdialog/cas/cassettingswidget.cpp:39
 #, kde-format
@@ -4373,8 +4374,8 @@ msgid ""
 "The login URL of your external SSO service e.g: https://sso.example.undef/"
 "sso/login"
 msgstr ""
-"Zure kanpoko SSO zerbitzuaren saio-hasteko URL, adib: https://sso.example."
-"undef/sso/login"
+"Zure kanpoko SSO zerbitzuaren saio-sarreraren URLa, adib: https://sso."
+"example.undef/sso/login"
 
 #: widgets/administratorsettingsdialog/cas/cassettingswidget.cpp:46
 #: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:53
@@ -4416,9 +4417,9 @@ msgid ""
 "login.\n"
 "Note: Attributes are always synced upon account creation anyway."
 msgstr ""
-"Sinkronizatu beti CAS erabiltzailearen kanpoko datuak erabilgarri dauden "
-"atributuetan saioa hastean.\n"
-"Oharra: Dena den, kontuak sortzean atributuak beti sinkronizatzen dira."
+"Sinkronizatu beti kanpoko CAS erabiltzailearen datuak erabilgarri dauden "
+"atributuetan saio-sarreran.\n"
+"Oharra: Dena den, atributuak beti sinkronizatzen dira kontua sortzean."
 
 #: widgets/administratorsettingsdialog/cas/cassettingswidget.cpp:72
 #, kde-format
@@ -4864,7 +4865,7 @@ msgstr "UTF8 kanal-izenen baliozkotzea"
 #: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:65
 #, kde-format
 msgid "First Channel After Login"
-msgstr "Saio-hasi ondoko aurreneko kanala"
+msgstr "Saio-sarrera ondoko aurreneko kanala"
 
 #: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:68
 #, kde-format
@@ -5045,7 +5046,7 @@ msgstr "IRC zerbitzarira ondo konektatu ondoko irteera."
 #: widgets/administratorsettingsdialog/irc/ircwidget.cpp:31
 #, kde-format
 msgid "Login Successful"
-msgstr "Saio-hasiera arrakastatsua"
+msgstr "Saio-sarera arrakastatsua"
 
 #: widgets/administratorsettingsdialog/ircfederation/ircfederationwidget.cpp:28
 #, kde-format
@@ -5365,23 +5366,23 @@ msgstr "Txertatutako esteken aurreikuspegia"
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Enter 0 to disable blocking."
-msgstr "Sartu 0 blokeatzea ezgaitzeko."
+msgstr "Sartu 0 oztopoa ezgaitzeko."
 
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:54
 #, kde-format
 msgid "Block Message Editing After (n) Minutes"
-msgstr "Blokeatu mezuak editatzea (n) minutu ondoren"
+msgstr "Oztopatu mezuak editatzea (n) minutu ondoren"
 
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:61
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Block Message Deleting After (n) Minutes."
-msgstr "Blokeatu mezuak ezabatzea (n) minutu ondoren."
+msgstr "Oztopatu mezuak ezabatzea (n) minutu ondoren."
 
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:62
 #, kde-format
 msgid "Block Message Deleting After (n) Minutes"
-msgstr "Blokeatu mezuak ezabatzea (n) minutu ondoren"
+msgstr "Oztopatu mezuak ezabatzea (n) minutu ondoren"
 
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:67
 #, kde-format
@@ -5632,43 +5633,43 @@ msgstr "Sinatu Apple erabiliz"
 #, kde-format
 msgctxt "@option:check"
 msgid "Twitter Login"
-msgstr "Twitter-ren saioa hasi"
+msgstr "Twitter-ren saio-sarrera"
 
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:24
 #, kde-format
 msgctxt "@option:check"
 msgid "LinkedIn Login"
-msgstr "LinkedIn-en saioa hasi"
+msgstr "LinkedIn-en saio-sarrera"
 
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:30
 #, kde-format
 msgctxt "@option:check"
 msgid "Meteor Login"
-msgstr "Meteor-ren saioa hasi"
+msgstr "Meteor-ren saio-sarrera"
 
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:34
 #, kde-format
 msgctxt "@option:check"
 msgid "Facebook Login"
-msgstr "Facebook-en saioa hasi"
+msgstr "Facebook-en saio-sarrera"
 
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:38
 #, kde-format
 msgctxt "@option:check"
 msgid "Github Login"
-msgstr "Gibhub-en saioa hasi"
+msgstr "Gibhub-en saio-sarrera"
 
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:42
 #, kde-format
 msgctxt "@option:check"
 msgid "Tokenpass Login"
-msgstr "Tokenpass-en saioa hasi"
+msgstr "Tokenpass-en saio-sarrera"
 
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:47
 #, kde-format
 msgctxt "@option:check"
 msgid "Google Login"
-msgstr "Google-n saioa hasi"
+msgstr "Google-n saio-sarrera"
 
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:56
 #, kde-format
@@ -5682,8 +5683,8 @@ msgid ""
 "If you want Apple login enabled only on mobile, you can leave all fields "
 "empty."
 msgstr ""
-"Apple bidez saio-hastea mugikorrean bakarrik gaituta nahi baduzu, eremu "
-"guztiak hutsik utz ditzakezu."
+"Apple saio-sarrera mugikorrean bakarrik gaituta nahi baduzu, eremu guztiak "
+"hutsik utz ditzakezu."
 
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:66
 #, kde-format
@@ -6858,7 +6859,7 @@ msgstr "Erabiltzaile-izena edo e-posta"
 #: widgets/common/authenticationloginwidget.cpp:44
 #, kde-format
 msgid "Username or Email:"
-msgstr "Erabiltzaile-izena edo e-posta:"
+msgstr "Erabiltzaile-izena edo E-posta:"
 
 #: widgets/common/authenticationloginwidget.cpp:155
 #: widgets/ruqolamainwindow.cpp:998
@@ -7708,7 +7709,7 @@ msgstr "Noiz sortua:"
 #: widgets/dialogs/directchannelinfowidget.cpp:155
 #, kde-format
 msgid "Last Login:"
-msgstr "Azken saio hasiera:"
+msgstr "Azken saio-sarrera:"
 
 #: widgets/dialogs/directchannelinfowidget.cpp:161
 #, kde-format
@@ -8466,7 +8467,7 @@ msgstr "Inportatu kontuak"
 #, kde-format
 msgctxt "@action:button"
 msgid "Login"
-msgstr "Saio-hasi"
+msgstr "Saio-sarrera"
 
 #: widgets/loginwidget/ruqolaloginwidget.cpp:46
 #, kde-format
@@ -8481,13 +8482,13 @@ msgstr ""
 #: widgets/loginwidget/ruqolaloginwidget.cpp:161
 #, kde-format
 msgid "Login Failed: invalid username or password"
-msgstr "Saio-hastea huts egin du: erabiltzaile-izen edo pasahitz baliogabea"
+msgstr "Saio-sarrerak huts egin du: erabiltzaile-izen edo pasahitz baliogabea"
 
 #: widgets/loginwidget/ruqolaloginwidget.cpp:165
 #: widgets/misc/accountsoverviewwidget.cpp:53
 #, kde-format
 msgid "Login failed: Invalid OTP code."
-msgstr "Saio-hastea huts egin du: OTP kode baliogabea."
+msgstr "Saio-sarrerak huts egin du: OTP kode baliogabea."
 
 #: widgets/loginwidget/ruqolaloginwidget.cpp:175
 #, kde-format
@@ -8497,31 +8498,32 @@ msgstr "Instalazio-arazo bat aurkitu da. Hemen ez da pluginik aurkitu."
 #: widgets/loginwidget/ruqolaloginwidget.cpp:181
 #, kde-format
 msgid "Login Failed: generic error"
-msgstr "Saio-hastea huts egin du: errore generikoa"
+msgstr "Saio-sarrerak huts egin du: errore generikoa"
 
 #: widgets/loginwidget/ruqolaloginwidget.cpp:187
 #, kde-format
 msgid "Login Failed: Login has been temporarily blocked For IP."
 msgstr ""
-"Saio-hastea huts egin du: IPetik saio-hastea aldi baterako blokeatu egin da."
+"Saio-sarrerak huts egin du: IPetik saio-hastea aldi baterako blokeatu egin "
+"da."
 
 #: widgets/loginwidget/ruqolaloginwidget.cpp:193
 #, kde-format
 msgid "Login Failed: Login has been temporarily blocked For User."
 msgstr ""
-"Saio-hastea huts egin du: Erabiltzaileak saio-hastea aldi baterako blokeatu "
-"egin da."
+"Saio-sarrerak huts egin du: Erabiltzaileak saio-hastea aldi baterako "
+"blokeatu egin da."
 
 #: widgets/loginwidget/ruqolaloginwidget.cpp:199
 #, kde-format
 msgid "Login Failed: User is not activated."
-msgstr "Saio-hastea huts egin du: Erabiltzailea ez dago aktibatuta."
+msgstr "Saio-sarrerak huts egin du: Erabiltzailea ez dago aktibatuta."
 
 #: widgets/loginwidget/ruqolaloginwidget.cpp:205
 #, kde-format
 msgid "Login Failed: App user is not allowed to login."
 msgstr ""
-"Saio-hastea huts egin du: Aplikazio-erabiltzaileak ez du saio-hasteko "
+"Saio-sarrerak huts egin du: Aplikazio-erabiltzaileak ez du saio-hasteko "
 "baimena."
 
 #: widgets/messagemaximumsizedialog/messagemaximumsizedialog.cpp:18
@@ -8548,12 +8550,12 @@ msgstr "Konektatzen"
 #: widgets/misc/accountsoverviewwidget.cpp:37
 #, kde-format
 msgid "Login OTP code required"
-msgstr "Saio-hasteko OTP kode bat behar da"
+msgstr "Saio-sarrerak OTP kode bat behar da"
 
 #: widgets/misc/accountsoverviewwidget.cpp:39
 #, kde-format
 msgid "Login failed: invalid username or password"
-msgstr "Saio-hastea huts egin du: erabiltzaile-izen edo pasahitz baliogabea"
+msgstr "Saio-sarrerak huts egin du: erabiltzaile-izen edo pasahitz baliogabea"
 
 #: widgets/misc/accountsoverviewwidget.cpp:41
 #, kde-format
@@ -8573,38 +8575,38 @@ msgstr "Saio-itxita"
 #: widgets/misc/accountsoverviewwidget.cpp:47
 #, kde-format
 msgid "Failed to login due to plugin problem"
-msgstr "Saio-hastea huts egin du plugin arazo bat dela eta"
+msgstr "Saio-sarrerak huts egin du plugin arazo bat dela eta"
 
 #: widgets/misc/accountsoverviewwidget.cpp:49
 #, kde-format
 msgid "Login failed: generic error"
-msgstr "Saio-hastea huts egin du: errore generikoa"
+msgstr "Saio-sarrerak huts egin du: errore generikoa"
 
 #: widgets/misc/accountsoverviewwidget.cpp:51
 #, kde-format
 msgid "A one-time password is required to complete the login procedure."
 msgstr ""
-"Erabilera bakarreko pasahitz bat behar da saio-hasteko prozedura osatzeko."
+"Erabilera bakarreko pasahitz bat behar da saio-sarrera  prozedura osatzeko."
 
 #: widgets/misc/accountsoverviewwidget.cpp:55
 #, kde-format
 msgid "Login failed: User is not activated."
-msgstr "Saio-hastea huts egin du: Erabiltzailea ez dago aktibatuta."
+msgstr "Saio-sarrerak huts egin du: Erabiltzailea ez dago aktibatuta."
 
 #: widgets/misc/accountsoverviewwidget.cpp:57
 #, kde-format
 msgid "Login has been temporarily blocked For IP."
-msgstr "Saio-hastea IPrako aldi baterako oztopatu egin da."
+msgstr "IPari, Saio-sarrera, aldi baterako oztopatu zaio."
 
 #: widgets/misc/accountsoverviewwidget.cpp:59
 #, kde-format
 msgid "Login has been temporarily blocked For User."
-msgstr "Saio-hastea Erabiltzailerako aldi baterako oztopatu egin da."
+msgstr "Erabiltzaileari, Saio-sarrera, aldi baterako oztopatu zaio."
 
 #: widgets/misc/accountsoverviewwidget.cpp:61
 #, kde-format
 msgid "App user is not allowed to login."
-msgstr "Aplikazio-erabiltzaileak ez du saio-hasteko baimena."
+msgstr "Aplikazio-erabiltzaileak ez du saio-sarrera baimenduta."
 
 #: widgets/misc/accountsoverviewwidget.cpp:67
 #, kde-format
@@ -8776,9 +8778,9 @@ msgid ""
 "the E2E encryption, Rocket.Chat will not be able to restore access to any "
 "encrypted room that has no member online."
 msgstr ""
-"Aukera honek uneko zure E2E gakoa kendu eta zure saioa itxiko du. Saioa "
-"berriz hasten duzunean, Rocket.Chat-ek gako berri bat sortuko dizu eta "
-"lerroan erabiltzaile bat edo gehiago duen zifratutako geletarako zure "
+"Aukera honek uneko zure E2E gakoa kendu eta zure saiotik aterako zaitu. "
+"Saioan berriz sartzen zarenean, Rocket.Chat-ek gako berri bat sortuko dizu "
+"eta lerroan erabiltzaile bat edo gehiago duen zifratutako geletarako zure "
 "sarbidea lehengoratuko du. E2E zifratzearen izaera dela eta, Rocket.Chat-ek "
 "ezingo du lehengoratu lerroan erabiltzailerik ez duen zifratutako geletarako "
 "sarbidea."
@@ -8996,7 +8998,7 @@ msgstr "Kendu tokena"
 #, kde-format
 msgctxt "@option:check"
 msgid "Receive login detection emails"
-msgstr "Jaso saio-hasiera antzemateko e-postak"
+msgstr "Jaso saio-sarrera antzemate e-postak"
 
 #: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:36
 #, kde-format
@@ -9075,7 +9077,7 @@ msgstr "Bultzada jakinarazpena:"
 msgctxt "@info:tooltip"
 msgid "Receive an email each time a new login is detected on your account."
 msgstr ""
-"Jaso e-posta bat zure kontuan saio-hasiera berri bat antzematen den "
+"Jaso e-posta bat zure kontuan saio-sarrera berri bat antzematen den "
 "bakoitzean."
 
 #: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:113
@@ -10153,7 +10155,7 @@ msgstr "Erakutsi mezua"
 #, kde-format
 msgctxt "@info:shell"
 msgid "Use ddp api for login"
-msgstr "Erabili DDP APIa saio-hasteko"
+msgstr "Erabili DDP APIa saio-sarrerarako"
 
 #: widgets/ruqolacommandlineoptions.cpp:44
 #, kde-format
@@ -10856,7 +10858,7 @@ msgstr ""
 #: widgets/whatsnew/whatsnewtranslations.cpp:76
 #, kde-format
 msgid "Implement block actions."
-msgstr "Bloke-ekintzak inplementatzea."
+msgstr "Oztopatzeko ekintzak inplementatzea."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:77
 #, kde-format

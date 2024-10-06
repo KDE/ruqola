@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-10-05 02:30+0000\n"
-"PO-Revision-Date: 2024-09-29 09:01+0200\n"
+"PO-Revision-Date: 2024-10-05 13:03+0200\n"
 "Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>\n"
 "Language-Team: Polish <kde-i18n-doc@kde.org>\n"
 "Language: pl\n"
@@ -3739,7 +3739,7 @@ msgstr "Wyzeruj klucz E2E"
 #, kde-format
 msgctxt "@action"
 msgid "Reset Totp"
-msgstr "Wyzeruj Totp"
+msgstr "Wyzeruj TOTP"
 
 #: widgets/administratordialog/users/administratoruserswidget.cpp:408
 #, kde-format
@@ -10844,7 +10844,7 @@ msgstr "Naprawiono listę sposobu uwierzytelniania."
 #: widgets/whatsnew/whatsnewtranslations.cpp:63
 #, kde-format
 msgid "Fix show avatar url."
-msgstr "Naprawiono obsługę URL avatarów"
+msgstr "Naprawiono obsługę URL awatarów."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:71
 #, kde-format
