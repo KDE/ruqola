@@ -37,9 +37,7 @@ ApplicationsSettingsAskApplicationDialog::ApplicationsSettingsAskApplicationDial
     okButton->setEnabled(false);
     connect(button, &QDialogButtonBox::rejected, this, &ApplicationsSettingsAskApplicationDialog::reject);
     connect(button, &QDialogButtonBox::accepted, this, &ApplicationsSettingsAskApplicationDialog::accept);
-    connect(mApplicationsSettingsAskApplicationWidget, &ApplicationsSettingsAskApplicationWidget::updateOkButton, this, [okButton](bool state) {
-        okButton->setEnabled(state);
-    });
+    connect(mApplicationsSettingsAskApplicationWidget, &ApplicationsSettingsAskApplicationWidget::updateOkButton, okButton, &QPushButton::setEnabled);
 
     readConfig();
 }
