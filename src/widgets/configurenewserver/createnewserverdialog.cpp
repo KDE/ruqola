@@ -41,9 +41,7 @@ CreateNewServerDialog::CreateNewServerDialog(QWidget *parent)
     readConfig();
     mOkButton = buttonBox->button(QDialogButtonBox::Ok);
     mOkButton->setEnabled(false);
-    connect(mCreateNewServerStackWidget, &CreateNewServerStackWidget::settingsIsValid, this, [this](bool state) {
-        mOkButton->setEnabled(state);
-    });
+    connect(mCreateNewServerStackWidget, &CreateNewServerStackWidget::settingsIsValid, mOkButton, &QPushButton::setEnabled);
 #if HAVE_ACTIVITY_SUPPORT
     if (RuqolaGlobalConfig::self()->plasmaActivities()) {
         auto configureActivities = buttonBox->addButton(i18nc("@action:button", "Configure Activities"), QDialogButtonBox::ActionRole);

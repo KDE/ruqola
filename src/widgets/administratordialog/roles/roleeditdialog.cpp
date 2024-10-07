@@ -30,9 +30,7 @@ RoleEditDialog::RoleEditDialog(QWidget *parent)
     connect(button, &QDialogButtonBox::rejected, this, &RoleEditDialog::reject);
     connect(button, &QDialogButtonBox::accepted, this, &RoleEditDialog::accept);
     resize(350, 50);
-    connect(mRoleEditWidget, &RoleEditWidget::updateOkButton, this, [okButton](bool b) {
-        okButton->setEnabled(b);
-    });
+    connect(mRoleEditWidget, &RoleEditWidget::updateOkButton, okButton, &QPushButton::setEnabled);
 }
 
 RoleEditDialog::~RoleEditDialog() = default;
