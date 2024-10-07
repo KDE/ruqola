@@ -42,6 +42,7 @@ private:
     QSpinBox *const mHowManyFailedAttemptsUntilBlockUser;
     QSpinBox *const mTimeUnblockUser;
     QSpinBox *const mHowManyFailedAttemptsUntilBlockByIP;
+    QSpinBox *const mHowManyFailedAttemptsUntilBlockByIPinMinutes;
 
     QCheckBox *const mSendEmailUserWhenUserActivated;
     QCheckBox *const mSendEmailUserWhenUserDeactivated;
