@@ -125,6 +125,20 @@ void SettingsWidgetBase::addSpinbox(const QString &labelStr, QSpinBox *spinBox, 
     layout->addWidget(toolButton);
     toolButton->setEnabled(false);
     setTabOrder(spinBox, toolButton);
+
+    auto resetToolButton = new QToolButton(this);
+    resetToolButton->setToolTip(i18nc("@info:tooltip", "Reset"));
+    resetToolButton->setIcon(QIcon::fromTheme(QStringLiteral("edit-undo")));
+    resetToolButton->setObjectName(QStringLiteral("resetToolButton%1").arg(variable));
+    resetToolButton->setProperty(s_property, variable);
+    resetToolButton->setEnabled(false);
+    layout->addWidget(resetToolButton);
+
+    connect(resetToolButton, &QToolButton::clicked, this, [variable, spinBox, this]() {
+        spinBox->setValue(spinBox->property(s_property_default_value).toInt());
+        Q_EMIT changedChanceled(variable);
+    });
+
     connect(toolButton, &QToolButton::clicked, this, [this, variable, spinBox, toolButton]() {
         if (!updateSettings(variable,
                             spinBox->value(),
@@ -134,17 +148,20 @@ void SettingsWidgetBase::addSpinbox(const QString &labelStr, QSpinBox *spinBox, 
             Q_EMIT changedChanceled(variable);
         }
     });
-    connect(this, &SettingsWidgetBase::changedDone, this, [toolButton, spinBox](const QString &buttonName) {
+    connect(this, &SettingsWidgetBase::changedDone, this, [toolButton, spinBox, resetToolButton](const QString &buttonName) {
         if (toolButton->objectName() == buttonName) {
             toolButton->setEnabled(false);
+            resetToolButton->setEnabled(false);
             spinBox->setProperty(s_property_default_value, spinBox->value());
         }
     });
-    connect(spinBox, &QSpinBox::valueChanged, this, [toolButton, spinBox](int value) {
+    connect(spinBox, &QSpinBox::valueChanged, this, [toolButton, spinBox, resetToolButton](int value) {
         if (spinBox->property(s_property_default_value).toInt() == value) {
             toolButton->setEnabled(false);
+            resetToolButton->setEnabled(false);
         } else {
             toolButton->setEnabled(true);
+            resetToolButton->setEnabled(true);
         }
     });
 
