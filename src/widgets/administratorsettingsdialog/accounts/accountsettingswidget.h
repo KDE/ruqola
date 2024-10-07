@@ -64,4 +64,6 @@ private:
     QCheckBox *const mLoginLogs;
     QCheckBox *const mLoginLogsUsername;
     QCheckBox *const mLoginLogsUseragent;
+    QCheckBox *const mLoginLogsClientIp;
+    QCheckBox *const mLoginLogsForwardedForIp;
 };

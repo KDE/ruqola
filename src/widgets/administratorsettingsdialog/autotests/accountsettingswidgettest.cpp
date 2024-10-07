@@ -282,6 +282,18 @@ void AccountSettingsWidgetTest::shouldHaveDefaultValues()
     QVERIFY(!mLoginLogsUseragent->isChecked());
     QVERIFY(!mLoginLogsUseragent->text().isEmpty());
     QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mLoginLogsUseragent), QStringLiteral("Login_Logs_UserAgent"));
+
+    auto mLoginLogsClientIp = w.findChild<QCheckBox *>(QStringLiteral("mLoginLogsClientIp"));
+    QVERIFY(mLoginLogsClientIp);
+    QVERIFY(!mLoginLogsClientIp->isChecked());
+    QVERIFY(!mLoginLogsClientIp->text().isEmpty());
+    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mLoginLogsClientIp), QStringLiteral("Login_Logs_ClientIp"));
+
+    auto mLoginLogsForwardedForIp = w.findChild<QCheckBox *>(QStringLiteral("mLoginLogsForwardedForIp"));
+    QVERIFY(mLoginLogsForwardedForIp);
+    QVERIFY(!mLoginLogsForwardedForIp->isChecked());
+    QVERIFY(!mLoginLogsForwardedForIp->text().isEmpty());
+    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mLoginLogsForwardedForIp), QStringLiteral("mLoginLogsForwardedForIp"));
 }
 
 #include "moc_accountsettingswidgettest.cpp"

@@ -55,6 +55,8 @@ AccountSettingsWidget::AccountSettingsWidget(RocketChatAccount *account, QWidget
     , mLoginLogs(new QCheckBox(i18nc("@option:check", "Log (on console) failed login attempts"), this))
     , mLoginLogsUsername(new QCheckBox(i18nc("@option:check", "Show Username on failed login attempts logs"), this))
     , mLoginLogsUseragent(new QCheckBox(i18nc("@option:check", "Show UserAgent on failed login attempts logs"), this))
+    , mLoginLogsClientIp(new QCheckBox(i18nc("@option:check", "Show Client IP on failed login attempts logs"), this))
+    , mLoginLogsForwardedForIp(new QCheckBox(i18nc("@option:check", "Show Forwarded IP on failed login attempts logs"), this))
 {
     mAllowChangeName->setObjectName(QStringLiteral("mAllowChangeName"));
     mMainLayout->addWidget(mAllowChangeName);
@@ -160,6 +162,14 @@ AccountSettingsWidget::AccountSettingsWidget(RocketChatAccount *account, QWidget
     mMainLayout->addWidget(mLoginLogsUseragent);
     connectCheckBox(mLoginLogsUseragent, QStringLiteral("Login_Logs_UserAgent"));
 
+    mLoginLogsClientIp->setObjectName(QStringLiteral("mLoginLogsClientIp"));
+    mMainLayout->addWidget(mLoginLogsClientIp);
+    connectCheckBox(mLoginLogsClientIp, QStringLiteral("Login_Logs_ClientIp"));
+
+    mLoginLogsForwardedForIp->setObjectName(QStringLiteral("mLoginLogsForwardedForIp"));
+    mMainLayout->addWidget(mLoginLogsForwardedForIp);
+    connectCheckBox(mLoginLogsForwardedForIp, QStringLiteral("mLoginLogsForwardedForIp"));
+
     auto regislationLabel = createBoldLabel(i18n("Registration"));
     regislationLabel->setObjectName(QStringLiteral("regislationLabel"));
     mMainLayout->addWidget(regislationLabel);
@@ -241,6 +251,7 @@ AccountSettingsWidget::~AccountSettingsWidget() = default;
 
 void AccountSettingsWidget::initialize(const QMap<QString, QVariant> &mapSettings)
 {
+    // qDebug() << " mapSettings " << mapSettings;
     initializeWidget(mAllowChangeName, mapSettings, true);
     initializeWidget(mAllowChangeUserProfile, mapSettings, true);
     initializeWidget(mAllowChangeUserAvatar, mapSettings, true);
@@ -282,6 +293,8 @@ void AccountSettingsWidget::initialize(const QMap<QString, QVariant> &mapSetting
     initializeWidget(mLoginLogs, mapSettings, true);
     initializeWidget(mLoginLogsUsername, mapSettings, false);
     initializeWidget(mLoginLogsUseragent, mapSettings, false);
+    initializeWidget(mLoginLogsClientIp, mapSettings, false);
+    initializeWidget(mLoginLogsForwardedForIp, mapSettings, false);
 }
 
 #include "moc_accountsettingswidget.cpp"
