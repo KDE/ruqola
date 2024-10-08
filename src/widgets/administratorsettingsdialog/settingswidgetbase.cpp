@@ -126,15 +126,10 @@ void SettingsWidgetBase::addSpinbox(const QString &labelStr, QSpinBox *spinBox, 
     toolButton->setEnabled(false);
     setTabOrder(spinBox, toolButton);
 
-    auto resetToolButton = new QToolButton(this);
-    resetToolButton->setToolTip(i18nc("@info:tooltip", "Reset"));
-    resetToolButton->setIcon(QIcon::fromTheme(QStringLiteral("edit-undo")));
-    resetToolButton->setObjectName(QStringLiteral("resetToolButton%1").arg(variable));
-    resetToolButton->setProperty(s_property, variable);
-    resetToolButton->setEnabled(false);
-    layout->addWidget(resetToolButton);
+    auto restoreToolButton = addRestoreButton(variable);
+    layout->addWidget(restoreToolButton);
 
-    connect(resetToolButton, &QToolButton::clicked, this, [variable, spinBox, this]() {
+    connect(restoreToolButton, &QToolButton::clicked, this, [variable, spinBox, this]() {
         spinBox->setValue(spinBox->property(s_property_default_value).toInt());
         Q_EMIT changedChanceled(variable);
     });
@@ -148,24 +143,35 @@ void SettingsWidgetBase::addSpinbox(const QString &labelStr, QSpinBox *spinBox, 
             Q_EMIT changedChanceled(variable);
         }
     });
-    connect(this, &SettingsWidgetBase::changedDone, this, [toolButton, spinBox, resetToolButton](const QString &buttonName) {
+    connect(this, &SettingsWidgetBase::changedDone, this, [toolButton, spinBox, restoreToolButton](const QString &buttonName) {
         if (toolButton->objectName() == buttonName) {
             toolButton->setEnabled(false);
-            resetToolButton->setEnabled(false);
+            restoreToolButton->setEnabled(false);
             spinBox->setProperty(s_property_default_value, spinBox->value());
         }
     });
-    connect(spinBox, &QSpinBox::valueChanged, this, [toolButton, spinBox, resetToolButton](int value) {
+    connect(spinBox, &QSpinBox::valueChanged, this, [toolButton, spinBox, restoreToolButton](int value) {
         if (spinBox->property(s_property_default_value).toInt() == value) {
             toolButton->setEnabled(false);
-            resetToolButton->setEnabled(false);
+            restoreToolButton->setEnabled(false);
         } else {
             toolButton->setEnabled(true);
-            resetToolButton->setEnabled(true);
+            restoreToolButton->setEnabled(true);
         }
     });
 
     mMainLayout->addRow(layout);
+}
+
+QToolButton *SettingsWidgetBase::addRestoreButton(const QString &variable)
+{
+    auto restoreToolButton = new QToolButton(this);
+    restoreToolButton->setToolTip(i18nc("@info:tooltip", "Restore"));
+    restoreToolButton->setIcon(QIcon::fromTheme(QStringLiteral("edit-undo")));
+    restoreToolButton->setObjectName(QStringLiteral("restoreToolButton%1").arg(variable));
+    restoreToolButton->setProperty(s_property, variable);
+    restoreToolButton->setEnabled(false);
+    return restoreToolButton;
 }
 
 void SettingsWidgetBase::addLineEdit(const QString &labelStr, QLineEdit *lineEdit, const QString &variable, bool readOnly)
@@ -186,9 +192,13 @@ void SettingsWidgetBase::addLineEdit(const QString &labelStr, QLineEdit *lineEdi
     layout->addWidget(toolButton);
     toolButton->setEnabled(false);
     toolButton->setVisible(!readOnly);
-    connect(this, &SettingsWidgetBase::changedDone, this, [toolButton, lineEdit](const QString &buttonName) {
+    auto restoreToolButton = addRestoreButton(variable);
+    layout->addWidget(restoreToolButton);
+
+    connect(this, &SettingsWidgetBase::changedDone, this, [toolButton, lineEdit, restoreToolButton](const QString &buttonName) {
         if (toolButton->objectName() == buttonName) {
             toolButton->setEnabled(false);
+            restoreToolButton->setEnabled(false);
             lineEdit->setProperty(s_property_default_value, lineEdit->text());
         }
     });
@@ -202,11 +212,13 @@ void SettingsWidgetBase::addLineEdit(const QString &labelStr, QLineEdit *lineEdi
                 Q_EMIT changedChanceled(variable);
             }
         });
-        connect(lineEdit, &QLineEdit::textChanged, this, [toolButton, lineEdit](const QString &str) {
+        connect(lineEdit, &QLineEdit::textChanged, this, [toolButton, lineEdit, restoreToolButton](const QString &str) {
             if (lineEdit->property(s_property_default_value).toString() == str) {
                 toolButton->setEnabled(false);
+                restoreToolButton->setEnabled(false);
             } else {
                 toolButton->setEnabled(true);
+                restoreToolButton->setEnabled(true);
             }
         });
     }
@@ -240,6 +252,8 @@ void SettingsWidgetBase::addPlainTextEdit(const QString &labelStr, QPlainTextEdi
     layout->addWidget(toolButton, 0, Qt::AlignTop);
     toolButton->setEnabled(false);
     setTabOrder(plainTextEdit, toolButton);
+    auto restoreToolButton = addRestoreButton(variable);
+    layout->addWidget(restoreToolButton);
     connect(toolButton, &QToolButton::clicked, this, [this, variable, plainTextEdit, toolButton]() {
         if (!updateSettings(variable,
                             plainTextEdit->toPlainText(),
@@ -249,17 +263,20 @@ void SettingsWidgetBase::addPlainTextEdit(const QString &labelStr, QPlainTextEdi
             Q_EMIT changedChanceled(variable);
         }
     });
-    connect(plainTextEdit, &QPlainTextEdit::textChanged, this, [toolButton, plainTextEdit]() {
+    connect(plainTextEdit, &QPlainTextEdit::textChanged, this, [toolButton, plainTextEdit, restoreToolButton]() {
         if (plainTextEdit->toPlainText() != plainTextEdit->property(s_property_default_value).toString()) {
             toolButton->setEnabled(true);
+            restoreToolButton->setEnabled(true);
         } else {
             toolButton->setEnabled(false);
+            restoreToolButton->setEnabled(false);
         }
     });
-    connect(this, &SettingsWidgetBase::changedDone, this, [toolButton, plainTextEdit](const QString &buttonName) {
+    connect(this, &SettingsWidgetBase::changedDone, this, [toolButton, plainTextEdit, restoreToolButton](const QString &buttonName) {
         if (toolButton->objectName() == buttonName) {
             plainTextEdit->setProperty(s_property_default_value, plainTextEdit->toPlainText());
             toolButton->setEnabled(false);
+            restoreToolButton->setEnabled(true);
         }
     });
 
@@ -326,6 +343,8 @@ void SettingsWidgetBase::addComboBox(const QString &labelStr, const QMap<QString
     layout->addWidget(toolButton);
     toolButton->setEnabled(false);
     setTabOrder(comboBox, toolButton);
+    auto restoreToolButton = addRestoreButton(variable);
+    layout->addWidget(restoreToolButton);
     connect(toolButton, &QToolButton::clicked, this, [this, variable, comboBox, toolButton]() {
         if (!updateSettings(variable,
                             comboBox->currentData().toString(),
@@ -335,17 +354,20 @@ void SettingsWidgetBase::addComboBox(const QString &labelStr, const QMap<QString
             Q_EMIT changedChanceled(variable);
         }
     });
-    connect(this, &SettingsWidgetBase::changedDone, this, [toolButton, comboBox](const QString &buttonName) {
+    connect(this, &SettingsWidgetBase::changedDone, this, [toolButton, comboBox, restoreToolButton](const QString &buttonName) {
         if (toolButton->objectName() == buttonName) {
             toolButton->setEnabled(false);
+            restoreToolButton->setEnabled(false);
             comboBox->setProperty(s_property_default_value, comboBox->currentText());
         }
     });
-    connect(comboBox, &QComboBox::currentIndexChanged, this, [toolButton, comboBox]() {
+    connect(comboBox, &QComboBox::currentIndexChanged, this, [toolButton, comboBox, restoreToolButton]() {
         if (comboBox->currentIndex() == comboBox->findData(comboBox->property(s_property_default_value).toString())) {
             toolButton->setEnabled(false);
+            restoreToolButton->setEnabled(false);
         } else {
             toolButton->setEnabled(true);
+            restoreToolButton->setEnabled(true);
         }
     });
 
@@ -438,6 +460,11 @@ void SettingsWidgetBase::disableTooButton(const QString &variableName)
     auto toolButton = findChild<QToolButton *>(QStringLiteral("toolbutton_%1").arg(variableName));
     if (toolButton) {
         toolButton->setEnabled(false);
+    }
+
+    auto restoreToolButton = findChild<QToolButton *>(QStringLiteral("restoreToolButton%1").arg(variableName));
+    if (restoreToolButton) {
+        restoreToolButton->setEnabled(false);
     }
 }
 

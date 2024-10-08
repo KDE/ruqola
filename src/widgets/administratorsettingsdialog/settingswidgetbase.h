@@ -19,6 +19,7 @@ class QComboBox;
 class QLabel;
 class KPasswordLineEdit;
 class QPlainTextEdit;
+class QToolButton;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT SettingsWidgetBase : public QScrollArea
 {
     Q_OBJECT
@@ -67,4 +68,5 @@ private:
                                                                  const QString &buttonObjectName = {});
     LIBRUQOLAWIDGETS_NO_EXPORT void slotAdminSettingsDone(const QJsonObject &obj, const QString &buttonObjectName);
     LIBRUQOLAWIDGETS_NO_EXPORT void disableTooButton(const QString &variableName);
+    LIBRUQOLAWIDGETS_NO_EXPORT QToolButton *addRestoreButton(const QString &variable);
 };
