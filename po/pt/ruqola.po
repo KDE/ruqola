@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-10-05 00:39+0000\n"
+"POT-Creation-Date: 2024-10-08 00:39+0000\n"
 "PO-Revision-Date: 2023-07-14 22:16+0100\n"
 "Last-Translator: José Nuno Coelho Pires <zepires@gmail.com>\n"
 "Language-Team: Portuguese <kde-i18n-pt@kde.org>\n"
@@ -3317,7 +3317,7 @@ msgctxt "@title:window"
 msgid "Add Role"
 msgstr "Adicionar um Papel"
 
-#: widgets/administratordialog/roles/roleeditdialog.cpp:42
+#: widgets/administratordialog/roles/roleeditdialog.cpp:40
 #, kde-format
 msgctxt "@title:window"
 msgid "Edit Role"
@@ -4092,139 +4092,154 @@ msgctxt "@option:check"
 msgid "Block Failed Login Attempts by Username"
 msgstr "Bloquear as Tentativas de Autenticação Falhadas do Utilizador"
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:38
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:39
 #, fuzzy, kde-format
 #| msgid "Send Email to User when User is Activated"
 msgctxt "@option:check"
 msgid "Send Email to User when User is Activated"
 msgstr "Enviar um E-mail para o Utilizador Quando For Activado"
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:39
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:40
 #, fuzzy, kde-format
 #| msgid "Send Email to User when User is Deactivated"
 msgctxt "@option:check"
 msgid "Send Email to User when User is Deactivated"
 msgstr "Enviar um E-mail para o Utilizador Quando For Desactivado"
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:40
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:41
 #, fuzzy, kde-format
 #| msgid "Require Name For Signup"
 msgctxt "@option:check"
 msgid "Require Name For Signup"
 msgstr "Pedir o Nome no Registo"
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:41
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:42
 #, fuzzy, kde-format
 #| msgid "Require Password Confirmation"
 msgctxt "@option:check"
 msgid "Require Password Confirmation"
 msgstr "Pedir a Confirmação da Senha"
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:42
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:43
 #, fuzzy, kde-format
 #| msgid "Only Allow Verified Users to Login"
 msgctxt "@option:check"
 msgid "Only Allow Verified Users to Login"
 msgstr "Permitir Apenas a Autenticação de Utilizadores Verificados"
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:43
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:44
 #, fuzzy, kde-format
 #| msgid "Mark Email for External Accounts Verified"
 msgctxt "@option:check"
 msgid "Mark Email for External Accounts Verified"
 msgstr "Marcar como Verificado o E-Mail das Contas Externas"
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:44
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:45
 #, fuzzy, kde-format
 #| msgid "Manually Approve New Users"
 msgctxt "@option:check"
 msgid "Manually Approve New Users"
 msgstr "Aprovar Manualmente os Novos Utilizadores"
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:49
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:50
 #, fuzzy, kde-format
 #| msgid "Use Default Blocked Domains List"
 msgctxt "@option:check"
 msgid "Use Default Blocked Domains List"
 msgstr "Usar a Lista Predefinida de Domínios Bloqueados"
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:50
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:51
 #, fuzzy, kde-format
 #| msgid "Use DNS Domain Check"
 msgctxt "@option:check"
 msgid "Use DNS Domain Check"
 msgstr "Usar a Verificação do Domínio de DNS"
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:51
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:52
 #, fuzzy, kde-format
 #| msgid "Enter authentication code"
 msgctxt "@option:check"
 msgid "Registration with Authentication Services"
 msgstr "Indique o código de autenticação"
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:54
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:55
 #, fuzzy, kde-format
 #| msgid "Password History"
 msgctxt "@option:check"
 msgid "Password Reset"
 msgstr "Histórico de Senhas"
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:55
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:56
 #, fuzzy, kde-format
 #| msgid "Failed Login Attempts"
 msgctxt "@option:check"
 msgid "Log (on console) failed login attempts"
 msgstr "Tentativas de Autenticação Falhadas"
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:56
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:57
 #, kde-format
 msgctxt "@option:check"
 msgid "Show Username on failed login attempts logs"
 msgstr ""
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:57
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:58
 #, kde-format
 msgctxt "@option:check"
 msgid "Show UserAgent on failed login attempts logs"
 msgstr ""
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:112
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:59
+#, fuzzy, kde-format
+#| msgid "Failed Login Attempts"
+msgctxt "@option:check"
+msgid "Show Client IP on failed login attempts logs"
+msgstr "Tentativas de Autenticação Falhadas"
+
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:60
+#, fuzzy, kde-format
+#| msgid "Failed Login Attempts"
+msgctxt "@option:check"
+msgid "Show Forwarded IP on failed login attempts logs"
+msgstr "Tentativas de Autenticação Falhadas"
+
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:115
 #, kde-format
 msgid "Login Expiration in Days"
 msgstr "Validade da Sessão em Dias"
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:122
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:125
 #, kde-format
 msgid "Failed Login Attempts"
 msgstr "Tentativas de Autenticação Falhadas"
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:135
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:138
 #, kde-format
 msgid "How Many Failed Attempts Until Block by User"
 msgstr "Quantas Tentativas Falhadas Até Bloquear o Utilizador"
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:140
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:143
 #, kde-format
 msgid "Time to unblock User (In Minutes)"
 msgstr "Tempo até Desbloquear o Utilizador (em Minutos):"
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:143
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:146
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:152
 #, kde-format
 msgid "How many failed attempts until block by IP"
 msgstr "Quantas tentativas falhadas até bloquear o IP"
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:147
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:156
 #, fuzzy, kde-format
 #| msgid "Login At"
 msgid "Login Logs"
 msgstr "Início da Sessão às"
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:163
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:180
 #, kde-format
 msgid "Registration"
 msgstr "Registo"
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:185
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:202
 #, fuzzy, kde-format
 #| msgid "Make sure you have correct SMTP settings to use this feature"
 msgctxt "@info:tooltip"
@@ -4233,36 +4248,36 @@ msgstr ""
 "Certifique-se que tem a configuração do SMTP correcta para usar esta "
 "funcionalidade"
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:197
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:214
 #, kde-format
 msgid "Default Username Prefix Suggestion"
 msgstr "Sugestão de Prefixos de Utilizadores Predefinida"
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:200
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:217
 #, fuzzy, kde-format
 #| msgid "Comma-separated list of allowed domains"
 msgctxt "@info:tooltip"
 msgid "Comma-separated list of allowed domains"
 msgstr "Lista separada por vírgulas dos domínios permitidos"
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:201
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:218
 #, kde-format
 msgid "Allowed Domains List"
 msgstr "Lista de Domínios Permitidos"
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:204
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:221
 #, fuzzy, kde-format
 #| msgid "Comma-separated list of blocked domains"
 msgctxt "@info:tooltip"
 msgid "Comma-separated list of blocked domains"
 msgstr "Lista separada por vírgulas dos domínios bloqueados"
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:205
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:222
 #, kde-format
 msgid "Blocked Domains List"
 msgstr "Lista de Domínios Bloqueados"
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:208
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:225
 #, fuzzy, kde-format
 #| msgid "Comma-separated list of blocked usernames (case-insensitive)"
 msgctxt "@info:tooltip"
@@ -4271,32 +4286,32 @@ msgstr ""
 "Lista separada por vírgulas dos utilizadores bloqueados (sem distinção de "
 "maiúsculas/minúsculas)"
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:209
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:226
 #, kde-format
 msgid "Blocked Username List"
 msgstr "Lista de Utilizadores Bloqueados"
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:225
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:242
 #, kde-format
 msgid ""
 "Default roles (comma-separated) users will be given when registering through "
 "authentication services"
 msgstr ""
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:226
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:243
 #, fuzzy, kde-format
 #| msgid "Enter authentication code"
 msgid "Default Roles for Authentication Services"
 msgstr "Indique o código de autenticação"
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:232
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:249
 #, kde-format
 msgid ""
 "Default roles (comma-separated) users will be given when registering through "
 "manual registration (including via API)"
 msgstr ""
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:233
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:250
 #, fuzzy, kde-format
 #| msgid "Enter authentication code"
 msgid "Default Roles for Users"
@@ -6645,13 +6660,20 @@ msgid "Maximum message age in direct messages"
 msgstr "Idade máxima das mensagens nas mensagens directas"
 
 #: widgets/administratorsettingsdialog/settingswidgetbase.cpp:122
-#: widgets/administratorsettingsdialog/settingswidgetbase.cpp:164
-#: widgets/administratorsettingsdialog/settingswidgetbase.cpp:220
-#: widgets/administratorsettingsdialog/settingswidgetbase.cpp:261
-#: widgets/administratorsettingsdialog/settingswidgetbase.cpp:306
+#: widgets/administratorsettingsdialog/settingswidgetbase.cpp:181
+#: widgets/administratorsettingsdialog/settingswidgetbase.cpp:237
+#: widgets/administratorsettingsdialog/settingswidgetbase.cpp:278
+#: widgets/administratorsettingsdialog/settingswidgetbase.cpp:323
 #, kde-format
 msgid "Apply"
 msgstr "Aplicar"
+
+#: widgets/administratorsettingsdialog/settingswidgetbase.cpp:130
+#, fuzzy, kde-format
+#| msgid "Reset E2E"
+msgctxt "@info:tooltip"
+msgid "Reset"
+msgstr "Repor o E2E"
 
 #: widgets/administratorsettingsdialog/slackbridge/slackbridgewidget.cpp:20
 #, fuzzy, kde-format
@@ -7733,7 +7755,7 @@ msgctxt "@title:window"
 msgid "Add Server"
 msgstr "Adicionar um Servidor"
 
-#: widgets/configurenewserver/createnewserverdialog.cpp:49
+#: widgets/configurenewserver/createnewserverdialog.cpp:47
 #, fuzzy, kde-format
 #| msgctxt "@title:window"
 #| msgid "Configure Notification"
@@ -7741,7 +7763,7 @@ msgctxt "@action:button"
 msgid "Configure Activities"
 msgstr "Configurar a Notificação"
 
-#: widgets/configurenewserver/createnewserverdialog.cpp:67
+#: widgets/configurenewserver/createnewserverdialog.cpp:65
 #, kde-format
 msgctxt "@title:window"
 msgid "Modify Account"

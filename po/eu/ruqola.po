@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-10-05 00:39+0000\n"
+"POT-Creation-Date: 2024-10-08 00:39+0000\n"
 "PO-Revision-Date: 2024-10-05 21:19+0200\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
@@ -3200,7 +3200,7 @@ msgctxt "@title:window"
 msgid "Add Role"
 msgstr "Gehitu eginkizuna"
 
-#: widgets/administratordialog/roles/roleeditdialog.cpp:42
+#: widgets/administratordialog/roles/roleeditdialog.cpp:40
 #, kde-format
 msgctxt "@title:window"
 msgid "Edit Role"
@@ -3918,160 +3918,177 @@ msgctxt "@option:check"
 msgid "Block Failed Login Attempts by Username"
 msgstr "Oztopatu, Erabiltzaile-izenak, huts egindako saio-sarrera saiakerak"
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:38
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:39
 #, kde-format
 msgctxt "@option:check"
 msgid "Send Email to User when User is Activated"
 msgstr "Bidali e-posta erabiltzaileari erabiltzailea aktibatuta dagoenean"
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:39
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:40
 #, kde-format
 msgctxt "@option:check"
 msgid "Send Email to User when User is Deactivated"
 msgstr "Bidali e-posta erabiltzaileari erabiltzailea ezgaituta dagoenean"
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:40
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:41
 #, kde-format
 msgctxt "@option:check"
 msgid "Require Name For Signup"
 msgstr "Sinatzeko izena eskatu"
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:41
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:42
 #, kde-format
 msgctxt "@option:check"
 msgid "Require Password Confirmation"
 msgstr "Eskatu pasahitz berrespena"
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:42
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:43
 #, kde-format
 msgctxt "@option:check"
 msgid "Only Allow Verified Users to Login"
 msgstr "Saio-sarrera egiaztatutako erabiltzaileei bakarri baimendu"
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:43
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:44
 #, kde-format
 msgctxt "@option:check"
 msgid "Mark Email for External Accounts Verified"
 msgstr "Markatu kanpoko kontuetarako e-posta egiaztatu gisa"
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:44
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:45
 #, kde-format
 msgctxt "@option:check"
 msgid "Manually Approve New Users"
 msgstr "Erabiltzaile berriak eskuz onartu"
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:49
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:50
 #, kde-format
 msgctxt "@option:check"
 msgid "Use Default Blocked Domains List"
 msgstr "Erabili oztopatutako domeinuen zerrenda lehenetsia"
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:50
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:51
 #, kde-format
 msgctxt "@option:check"
 msgid "Use DNS Domain Check"
 msgstr "Erabili DNSaren domeinu egiaztatzea"
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:51
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:52
 #, kde-format
 msgctxt "@option:check"
 msgid "Registration with Authentication Services"
 msgstr "Autentifikazio zerbitzuekin erregistratzea"
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:54
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:55
 #, kde-format
 msgctxt "@option:check"
 msgid "Password Reset"
 msgstr "Pasahitza berrezartzea"
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:55
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:56
 #, kde-format
 msgctxt "@option:check"
 msgid "Log (on console) failed login attempts"
 msgstr "Erregistratu (kontsolan) huts egindako saio-sarrera saiakerak"
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:56
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:57
 #, kde-format
 msgctxt "@option:check"
 msgid "Show Username on failed login attempts logs"
 msgstr "Erakutsi Erabiltzaile-izena huts egindako saio-sarrera saiakeretan"
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:57
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:58
 #, kde-format
 msgctxt "@option:check"
 msgid "Show UserAgent on failed login attempts logs"
 msgstr "Erakutsi «UserAgent» huts egindako saio-sarrera saiakeretan"
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:112
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:59
+#, fuzzy, kde-format
+#| msgctxt "@option:check"
+#| msgid "Show UserAgent on failed login attempts logs"
+msgctxt "@option:check"
+msgid "Show Client IP on failed login attempts logs"
+msgstr "Erakutsi «UserAgent» huts egindako saio-sarrera saiakeretan"
+
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:60
+#, fuzzy, kde-format
+#| msgctxt "@option:check"
+#| msgid "Show Username on failed login attempts logs"
+msgctxt "@option:check"
+msgid "Show Forwarded IP on failed login attempts logs"
+msgstr "Erakutsi Erabiltzaile-izena huts egindako saio-sarrera saiakeretan"
+
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:115
 #, kde-format
 msgid "Login Expiration in Days"
 msgstr "Saio-sarrera egun batzuk barru iraungiko da"
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:122
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:125
 #, kde-format
 msgid "Failed Login Attempts"
 msgstr "Huts egindako saio-sarrera saiakerak"
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:135
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:138
 #, kde-format
 msgid "How Many Failed Attempts Until Block by User"
 msgstr ""
 "Zenbait huts egindako saiakera Erabiltzailearen arabera oztopatu aurretik"
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:140
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:143
 #, kde-format
 msgid "Time to unblock User (In Minutes)"
 msgstr "Erabiltzaileari oztopoa kentzeko denbora (minututan)"
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:143
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:146
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:152
 #, kde-format
 msgid "How many failed attempts until block by IP"
 msgstr "Zenbait huts egindako saiakera IParen arabera oztopatu aurretik"
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:147
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:156
 #, kde-format
 msgid "Login Logs"
 msgstr "Saio-sarreren Egunkariak"
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:163
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:180
 #, kde-format
 msgid "Registration"
 msgstr "Izen-ematea"
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:185
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:202
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Make sure you have correct SMTP settings to use this feature"
 msgstr "Ziurtatu ezaugarri hori erabiltzeko SMTP ezarpen zuzenak dituzula"
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:197
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:214
 #, kde-format
 msgid "Default Username Prefix Suggestion"
 msgstr "Erabiltzaile-izen aurrizki iradokizuna"
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:200
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:217
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Comma-separated list of allowed domains"
 msgstr "Baimendutako domeinuen komaz bereizitako zerrenda"
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:201
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:218
 #, kde-format
 msgid "Allowed Domains List"
 msgstr "Baimendutako domeinuen zerrenda"
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:204
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:221
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Comma-separated list of blocked domains"
 msgstr "Oztopatutako domeinuen komaz bereizitako zerrenda"
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:205
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:222
 #, kde-format
 msgid "Blocked Domains List"
 msgstr "Oztopatutako domeinuen zerrenda"
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:208
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:225
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Comma-separated list of blocked usernames (case-insensitive)"
@@ -4079,12 +4096,12 @@ msgstr ""
 "Oztopatutako erabiltzaile-izenen komaz bereizitako zerrenda (ez bereizi "
 "maius/minus)"
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:209
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:226
 #, kde-format
 msgid "Blocked Username List"
 msgstr "Oztopatutako erabiltzaile-izenen zerrenda"
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:225
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:242
 #, kde-format
 msgid ""
 "Default roles (comma-separated) users will be given when registering through "
@@ -4093,12 +4110,12 @@ msgstr ""
 "Autentifikatzeko zerbitzuen bidez erregistratzean erabiltzaileek jasoko "
 "dituzten eginkizun lehenetsiak (koma bidez bereizita)"
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:226
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:243
 #, kde-format
 msgid "Default Roles for Authentication Services"
 msgstr "Autentifikazio zerbitzuetarako eginkizun lehenetsiak"
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:232
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:249
 #, kde-format
 msgid ""
 "Default roles (comma-separated) users will be given when registering through "
@@ -4107,7 +4124,7 @@ msgstr ""
 "Eskuz erregistratzean (API bidez barne) erabiltzaileek jasoko dituzten "
 "eginkizun lehenetsiak (koma bidez bereizita)"
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:233
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:250
 #, kde-format
 msgid "Default Roles for Users"
 msgstr "Erabiltzaileentzako eginkizun lehenetsiak"
@@ -6244,13 +6261,21 @@ msgid "Maximum message age in direct messages"
 msgstr "Zuzeneko mezuetan mezuen gehienezko adina"
 
 #: widgets/administratorsettingsdialog/settingswidgetbase.cpp:122
-#: widgets/administratorsettingsdialog/settingswidgetbase.cpp:164
-#: widgets/administratorsettingsdialog/settingswidgetbase.cpp:220
-#: widgets/administratorsettingsdialog/settingswidgetbase.cpp:261
-#: widgets/administratorsettingsdialog/settingswidgetbase.cpp:306
+#: widgets/administratorsettingsdialog/settingswidgetbase.cpp:181
+#: widgets/administratorsettingsdialog/settingswidgetbase.cpp:237
+#: widgets/administratorsettingsdialog/settingswidgetbase.cpp:278
+#: widgets/administratorsettingsdialog/settingswidgetbase.cpp:323
 #, kde-format
 msgid "Apply"
 msgstr "Ezarri"
+
+#: widgets/administratorsettingsdialog/settingswidgetbase.cpp:130
+#, fuzzy, kde-format
+#| msgctxt "@title:window"
+#| msgid "Reset E2E"
+msgctxt "@info:tooltip"
+msgid "Reset"
+msgstr "Berrezarri E2E"
 
 #: widgets/administratorsettingsdialog/slackbridge/slackbridgewidget.cpp:20
 #, kde-format
@@ -7236,13 +7261,13 @@ msgctxt "@title:window"
 msgid "Add Server"
 msgstr "Gehitu zerbitzaria"
 
-#: widgets/configurenewserver/createnewserverdialog.cpp:49
+#: widgets/configurenewserver/createnewserverdialog.cpp:47
 #, kde-format
 msgctxt "@action:button"
 msgid "Configure Activities"
 msgstr "Konfiguratu jarduerak"
 
-#: widgets/configurenewserver/createnewserverdialog.cpp:67
+#: widgets/configurenewserver/createnewserverdialog.cpp:65
 #, kde-format
 msgctxt "@title:window"
 msgid "Modify Account"
