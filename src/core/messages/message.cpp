@@ -62,8 +62,8 @@ void Message::parseMessage(const QJsonObject &o, bool restApi, EmojiManager *emo
     if (o.contains("tcount"_L1)) {
         setThreadCount(o.value("tcount"_L1).toInt());
     }
-    if (o.contains("tcount"_L1)) {
-        setDiscussionCount(o.value("tcount"_L1).toInt());
+    if (o.contains("dcount"_L1)) {
+        setDiscussionCount(o.value("dcount"_L1).toInt());
     }
     if (o.contains("drid"_L1)) {
         setDiscussionRoomId(o.value("drid"_L1).toString().toLatin1());
