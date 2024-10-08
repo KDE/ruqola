@@ -254,7 +254,7 @@ void SettingsWidgetBase::addPlainTextEdit(const QString &labelStr, QPlainTextEdi
     toolButton->setEnabled(false);
     setTabOrder(plainTextEdit, toolButton);
     auto restoreToolButton = addRestoreButton(variable);
-    layout->addWidget(restoreToolButton);
+    layout->addWidget(restoreToolButton, 0, Qt::AlignTop);
     setTabOrder(toolButton, restoreToolButton);
     connect(toolButton, &QToolButton::clicked, this, [this, variable, plainTextEdit, toolButton]() {
         if (!updateSettings(variable,
