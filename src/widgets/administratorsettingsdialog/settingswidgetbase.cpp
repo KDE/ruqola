@@ -128,6 +128,7 @@ void SettingsWidgetBase::addSpinbox(const QString &labelStr, QSpinBox *spinBox, 
 
     auto restoreToolButton = addRestoreButton(variable);
     layout->addWidget(restoreToolButton);
+    setTabOrder(toolButton, restoreToolButton);
 
     connect(restoreToolButton, &QToolButton::clicked, this, [variable, spinBox, this]() {
         spinBox->setValue(spinBox->property(s_property_default_value).toInt());
@@ -194,7 +195,7 @@ void SettingsWidgetBase::addLineEdit(const QString &labelStr, QLineEdit *lineEdi
     toolButton->setVisible(!readOnly);
     auto restoreToolButton = addRestoreButton(variable);
     layout->addWidget(restoreToolButton);
-
+    setTabOrder(toolButton, restoreToolButton);
     connect(this, &SettingsWidgetBase::changedDone, this, [toolButton, lineEdit, restoreToolButton](const QString &buttonName) {
         if (toolButton->objectName() == buttonName) {
             toolButton->setEnabled(false);
@@ -254,6 +255,7 @@ void SettingsWidgetBase::addPlainTextEdit(const QString &labelStr, QPlainTextEdi
     setTabOrder(plainTextEdit, toolButton);
     auto restoreToolButton = addRestoreButton(variable);
     layout->addWidget(restoreToolButton);
+    setTabOrder(toolButton, restoreToolButton);
     connect(toolButton, &QToolButton::clicked, this, [this, variable, plainTextEdit, toolButton]() {
         if (!updateSettings(variable,
                             plainTextEdit->toPlainText(),
@@ -345,6 +347,7 @@ void SettingsWidgetBase::addComboBox(const QString &labelStr, const QMap<QString
     setTabOrder(comboBox, toolButton);
     auto restoreToolButton = addRestoreButton(variable);
     layout->addWidget(restoreToolButton);
+    setTabOrder(toolButton, restoreToolButton);
     connect(toolButton, &QToolButton::clicked, this, [this, variable, comboBox, toolButton]() {
         if (!updateSettings(variable,
                             comboBox->currentData().toString(),
