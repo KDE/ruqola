@@ -57,7 +57,13 @@ void RoomStartDiscussionJobTest::shouldGenerateJson()
     job.setUsers(users);
     QCOMPARE(job.json().toJson(QJsonDocument::Compact),
              QStringLiteral(R"({"prid":"%1","reply":"%2","t_name":"%3","users":["aaa","bbb","ddd"]})")
-                 .arg(QLatin1StringView(pRid), replyMessage, discussionName, QStringLiteral("bla"))
+                 .arg(QLatin1StringView(pRid), replyMessage, discussionName)
+                 .toLatin1());
+
+    job.setEncrypted(true);
+    QCOMPARE(job.json().toJson(QJsonDocument::Compact),
+             QStringLiteral(R"({"encrypted":true,"prid":"%1","reply":"%2","t_name":"%3","users":["aaa","bbb","ddd"]})")
+                 .arg(QLatin1StringView(pRid), replyMessage, discussionName)
                  .toLatin1());
 }
 
