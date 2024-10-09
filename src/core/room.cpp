@@ -703,6 +703,71 @@ void Room::parseInsertRoom(const QJsonObject &json)
     parseTeamInfo(json);
 }
 
+void Room::parseSubscriptionRoom(const QJsonObject &json)
+{
+    QByteArray roomID = json.value("rid"_L1).toString().toLatin1();
+    if (roomID.isEmpty()) {
+        roomID = json.value("_id"_L1).toString().toLatin1();
+    }
+    setRoomId(roomID);
+    setName(json["name"_L1].toString());
+    setFName(json["fname"_L1].toString());
+    setAutoTranslateLanguage(json["autoTranslateLanguage"_L1].toString());
+    setAutoTranslate(json["autoTranslate"_L1].toBool());
+    setJitsiTimeout(Utils::parseDate(QStringLiteral("jitsiTimeout"), json));
+    // topic/announcement/description is not part of update subscription
+    const QString roomType = json.value("t"_L1).toString();
+    setChannelType(Room::roomTypeFromString(roomType));
+    const QJsonValue favoriteValue = json.value("f"_L1);
+    if (!favoriteValue.isUndefined()) {
+        setFavorite(favoriteValue.toBool());
+    }
+    setE2EKey(json["E2EKey"_L1].toString());
+    setReadOnly(json["ro"_L1].toBool());
+
+    setUpdatedAt(Utils::parseDate(QStringLiteral("_updatedAt"), json));
+    setLastSeenAt(Utils::parseDate(QStringLiteral("ls"), json));
+    setUnread(json["unread"_L1].toInt());
+    setUserMentions(json["userMentions"_L1].toInt());
+    setGroupMentions(json["groupMentions"_L1].toInt());
+    setOpen(json["open"_L1].toBool());
+    setAlert(json["alert"_L1].toBool());
+    const QJsonValue blockerValue = json.value("blocker"_L1);
+    if (!blockerValue.isUndefined()) {
+        setBlocker(blockerValue.toBool());
+    } else {
+        setBlocker(false);
+    }
+    // TODO e2ekey
+    // TODO blocked ?
+    const QJsonValue archivedValue = json.value("archived"_L1);
+    if (!archivedValue.isUndefined()) {
+        setArchived(archivedValue.toBool());
+    } else {
+        setArchived(false);
+    }
+
+    parseCommonData(json);
+    parseDisplaySystemMessage(json);
+
+    //    const QJsonValue ownerValue = json.value("u"_L1);
+    //    if (!ownerValue.isUndefined()) {
+    //        const QJsonObject objOwner = ownerValue.toObject();
+    //        setRoomCreatorUserId(objOwner.value("_id"_L1).toString());
+    //        setRoomCreatorUserName(objOwner.value("username"_L1).toString());
+    //    } else {
+    //        //When room is initialized we are the owner. When we update room we have the real
+    //        //owner and if it's empty => we need to clear it.
+    //        setRoomCreatorUserId(QString());
+    //        setRoomCreatorUserName(QString());
+    //    }
+    // qDebug() << " *thus" << *this;
+    mNotificationOptions.parseNotificationOptions(json);
+    parseRetentionInfo(json);
+    // parseTeamInfo(json);
+    // TODO add muted
+}
+
 qint64 Room::lastSeenAt() const
 {
     return mLastSeenAt;
@@ -769,71 +834,6 @@ void Room::setIgnoredUsers(const QStringList &users)
         roomExtra()->setIgnoredUsers(users);
         Q_EMIT ignoredUsersChanged();
     }
-}
-
-void Room::parseSubscriptionRoom(const QJsonObject &json)
-{
-    QByteArray roomID = json.value("rid"_L1).toString().toLatin1();
-    if (roomID.isEmpty()) {
-        roomID = json.value("_id"_L1).toString().toLatin1();
-    }
-    setRoomId(roomID);
-    setName(json["name"_L1].toString());
-    setFName(json["fname"_L1].toString());
-    setAutoTranslateLanguage(json["autoTranslateLanguage"_L1].toString());
-    setAutoTranslate(json["autoTranslate"_L1].toBool());
-    setJitsiTimeout(Utils::parseDate(QStringLiteral("jitsiTimeout"), json));
-    // topic/announcement/description is not part of update subscription
-    const QString roomType = json.value("t"_L1).toString();
-    setChannelType(Room::roomTypeFromString(roomType));
-    const QJsonValue favoriteValue = json.value("f"_L1);
-    if (!favoriteValue.isUndefined()) {
-        setFavorite(favoriteValue.toBool());
-    }
-    setE2EKey(json["E2EKey"_L1].toString());
-    setReadOnly(json["ro"_L1].toBool());
-
-    setUpdatedAt(Utils::parseDate(QStringLiteral("_updatedAt"), json));
-    setLastSeenAt(Utils::parseDate(QStringLiteral("ls"), json));
-    setUnread(json["unread"_L1].toInt());
-    setUserMentions(json["userMentions"_L1].toInt());
-    setGroupMentions(json["groupMentions"_L1].toInt());
-    setOpen(json["open"_L1].toBool());
-    setAlert(json["alert"_L1].toBool());
-    const QJsonValue blockerValue = json.value("blocker"_L1);
-    if (!blockerValue.isUndefined()) {
-        setBlocker(blockerValue.toBool());
-    } else {
-        setBlocker(false);
-    }
-    // TODO e2ekey
-    // TODO blocked ?
-    const QJsonValue archivedValue = json.value("archived"_L1);
-    if (!archivedValue.isUndefined()) {
-        setArchived(archivedValue.toBool());
-    } else {
-        setArchived(false);
-    }
-
-    parseCommonData(json);
-    parseDisplaySystemMessage(json);
-
-    //    const QJsonValue ownerValue = json.value("u"_L1);
-    //    if (!ownerValue.isUndefined()) {
-    //        const QJsonObject objOwner = ownerValue.toObject();
-    //        setRoomCreatorUserId(objOwner.value("_id"_L1).toString());
-    //        setRoomCreatorUserName(objOwner.value("username"_L1).toString());
-    //    } else {
-    //        //When room is initialized we are the owner. When we update room we have the real
-    //        //owner and if it's empty => we need to clear it.
-    //        setRoomCreatorUserId(QString());
-    //        setRoomCreatorUserName(QString());
-    //    }
-    // qDebug() << " *thus" << *this;
-    mNotificationOptions.parseNotificationOptions(json);
-    parseRetentionInfo(json);
-    // parseTeamInfo(json);
-    // TODO add muted
 }
 
 void Room::parseRetentionInfo(const QJsonObject &json)
