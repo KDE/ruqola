@@ -38,6 +38,7 @@ CreateNewChannelDialog::CreateNewChannelDialog(RocketChatAccount *account, QWidg
     readConfig();
     mOkButton = button->button(QDialogButtonBox::Ok);
     mOkButton->setEnabled(false);
+    mOkButton->setText(i18nc("@action:button", "Create"));
     connect(mCreateNewChannelWidget, &CreateNewChannelWidget::updateOkButton, mOkButton, &QPushButton::setEnabled);
 }
 
