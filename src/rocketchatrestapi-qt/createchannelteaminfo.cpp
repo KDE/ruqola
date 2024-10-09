@@ -47,6 +47,9 @@ QJsonDocument CreateChannelTeamInfo::json() const
     if (!topic.isEmpty()) {
         extraJsonObj["topic"_L1] = topic;
     }
+    if (federated) {
+        extraJsonObj["federated"_L1] = true;
+    }
     if (!teamId.isEmpty()) {
         extraJsonObj["teamId"_L1] = QLatin1StringView(teamId);
     }

@@ -34,6 +34,7 @@ public:
     bool encrypted = false;
 
     bool privateChannel = false;
+    bool federated = false;
     CreateInfoType infoType = CreateInfoType::Unknown;
 
     [[nodiscard]] QJsonDocument json() const;

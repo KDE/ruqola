@@ -24,6 +24,7 @@ void CreateChannelTeamInfoTest::shouldHaveDefaultValues()
     QVERIFY(!info.readOnly);
     QVERIFY(!info.broadcast);
     QVERIFY(!info.encrypted);
+    QVERIFY(!info.federated);
     QVERIFY(!info.isValid());
 }
 
