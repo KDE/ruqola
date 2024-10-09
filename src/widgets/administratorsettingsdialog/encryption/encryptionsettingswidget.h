@@ -23,5 +23,6 @@ private:
     QCheckBox *const mEnableEncryptionDirectRoomsByDefault;
     QCheckBox *const mEnableEncryptionPrivateRoomsByDefault;
     QCheckBox *const mEnableEncryptFiles;
+    QCheckBox *const mAllowUnencryptedMessages;
     QCheckBox *const mEnableOtr;
 };

@@ -49,6 +49,13 @@ void EncryptionSettingsWidgetTest::shouldHaveDefaultValues()
     QVERIFY(!mEnableEncryptFiles->text().isEmpty());
     QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mEnableEncryptFiles), QStringLiteral("E2E_Enable_Encrypt_Files"));
 
+    auto mAllowUnencryptedMessages = w.findChild<QCheckBox *>(QStringLiteral("mAllowUnencryptedMessages"));
+    QVERIFY(mAllowUnencryptedMessages);
+    QVERIFY(!mAllowUnencryptedMessages->isChecked());
+    QVERIFY(!mAllowUnencryptedMessages->text().isEmpty());
+    QVERIFY(!mAllowUnencryptedMessages->toolTip().isEmpty());
+    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mAllowUnencryptedMessages), QStringLiteral("E2E_Allow_Unencrypted_Messages"));
+
     auto mEnableOtr = w.findChild<QCheckBox *>(QStringLiteral("mEnableOtr"));
     QVERIFY(mEnableOtr);
     QVERIFY(!mEnableOtr->isChecked());

@@ -17,6 +17,7 @@ EncryptionSettingsWidget::EncryptionSettingsWidget(RocketChatAccount *account, Q
     , mEnableEncryptionDirectRoomsByDefault(new QCheckBox(i18nc("@option:check", "Enable encryption for Direct Rooms by default"), this))
     , mEnableEncryptionPrivateRoomsByDefault(new QCheckBox(i18nc("@option:check", "Enable encryption for Private Rooms by default"), this))
     , mEnableEncryptFiles(new QCheckBox(i18nc("@option:check", "Encrypt files"), this))
+    , mAllowUnencryptedMessages(new QCheckBox(i18nc("@option:check", "Access unencrypted content in encrypted rooms"), this))
     , mEnableOtr(new QCheckBox(i18nc("@option:check", "Enable OTR"), this))
 {
     mEnableE2E->setObjectName(QStringLiteral("mEnableE2E"));
@@ -37,6 +38,13 @@ EncryptionSettingsWidget::EncryptionSettingsWidget(RocketChatAccount *account, Q
     mMainLayout->addWidget(mEnableEncryptFiles);
     connectCheckBox(mEnableEncryptFiles, QStringLiteral("E2E_Enable_Encrypt_Files"));
 
+    mAllowUnencryptedMessages->setObjectName(QStringLiteral("mAllowUnencryptedMessages"));
+    mMainLayout->addWidget(mAllowUnencryptedMessages);
+    mAllowUnencryptedMessages->setToolTip(
+        i18nc("@info:tooltip",
+              "Allow access to encrypted rooms to people without room encryption keys. They'll be able to see and send unencrypted messages."));
+    connectCheckBox(mAllowUnencryptedMessages, QStringLiteral("E2E_Allow_Unencrypted_Messages"));
+
     mEnableOtr->setObjectName(QStringLiteral("mEnableOtr"));
     mEnableOtr->setToolTip(
         i18n("Enable option to use off-the-record (OTR) messages in direct messages between 2 users. OTR messages are not recorded on the server and exchanged "
@@ -53,6 +61,7 @@ void EncryptionSettingsWidget::initialize(const QMap<QString, QVariant> &mapSett
     initializeWidget(mEnableEncryptionDirectRoomsByDefault, mapSettings, false);
     initializeWidget(mEnableEncryptionPrivateRoomsByDefault, mapSettings, false);
     initializeWidget(mEnableEncryptFiles, mapSettings, true);
+    initializeWidget(mAllowUnencryptedMessages, mapSettings, true);
     initializeWidget(mEnableOtr, mapSettings);
 }
 
