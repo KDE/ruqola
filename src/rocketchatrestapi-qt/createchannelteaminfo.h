@@ -25,7 +25,7 @@ public:
     [[nodiscard]] bool isValid() const;
     [[nodiscard]] bool canStart() const;
     QString name;
-    QString description;
+    QString topic;
     QByteArray teamId;
 
     QStringList members;

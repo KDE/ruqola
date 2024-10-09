@@ -44,8 +44,8 @@ QJsonDocument CreateChannelTeamInfo::json() const
     if (encrypted) {
         extraJsonObj["encrypted"_L1] = true;
     } // Default is false
-    if (!description.isEmpty()) {
-        extraJsonObj["description"_L1] = description;
+    if (!topic.isEmpty()) {
+        extraJsonObj["topic"_L1] = topic;
     }
     if (!teamId.isEmpty()) {
         extraJsonObj["teamId"_L1] = QLatin1StringView(teamId);
@@ -58,7 +58,7 @@ QJsonDocument CreateChannelTeamInfo::json() const
 QDebug operator<<(QDebug d, const RocketChatRestApi::CreateChannelTeamInfo &t)
 {
     d << "name " << t.name;
-    d << "description " << t.description;
+    d << "description " << t.topic;
     d << "teamId " << t.teamId;
     d << "members " << t.members;
     d << "readOnly " << t.readOnly;
