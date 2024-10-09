@@ -19,7 +19,7 @@ void CreateChannelTeamInfoTest::shouldHaveDefaultValues()
     RocketChatRestApi::CreateChannelTeamInfo info;
     QVERIFY(info.members.isEmpty());
     QVERIFY(info.name.isEmpty());
-    QVERIFY(info.description.isEmpty());
+    QVERIFY(info.topic.isEmpty());
     QVERIFY(info.teamId.isEmpty());
     QVERIFY(!info.readOnly);
     QVERIFY(!info.broadcast);
