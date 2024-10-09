@@ -26,5 +26,4 @@ private:
     LIBRUQOLAWIDGETS_NO_EXPORT void writeConfig();
     LIBRUQOLAWIDGETS_NO_EXPORT void readConfig();
     CreateNewChannelWidget *const mCreateNewChannelWidget;
-    QPushButton *mOkButton = nullptr;
 };
