@@ -48,6 +48,16 @@ void RoomStartDiscussionJob::onPostRequestResponse(const QString &replyErrorStri
     }
 }
 
+bool RoomStartDiscussionJob::encrypted() const
+{
+    return mEncrypted;
+}
+
+void RoomStartDiscussionJob::setEncrypted(bool newEncrypted)
+{
+    mEncrypted = newEncrypted;
+}
+
 QString RoomStartDiscussionJob::replyMessage() const
 {
     return mReplyMessage;
@@ -149,7 +159,9 @@ QJsonDocument RoomStartDiscussionJob::json() const
         const QJsonArray usersJson = QJsonArray::fromStringList(lst);
         jsonObj["users"_L1] = usersJson;
     }
-    // TODO add encrypted
+    if (mEncrypted) {
+        jsonObj["encrypted"_L1] = mEncrypted;
+    }
     const QJsonDocument postData = QJsonDocument(jsonObj);
     // qDebug() << " postData " << postData;
     return postData;

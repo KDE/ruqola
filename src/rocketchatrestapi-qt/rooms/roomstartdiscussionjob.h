@@ -41,6 +41,9 @@ public:
     [[nodiscard]] QString replyMessage() const;
     void setReplyMessage(const QString &reply);
 
+    [[nodiscard]] bool encrypted() const;
+    void setEncrypted(bool newEncrypted);
+
 Q_SIGNALS:
     void startDiscussionDone();
 
@@ -54,5 +57,6 @@ private:
     QString mDiscussionName;
     QByteArray mParentMessageId;
     QString mReplyMessage;
+    bool mEncrypted = false;
 };
 }
