@@ -715,7 +715,7 @@ void RuqolaMainWindow::setupActions()
     roomListDisplay->addAction(mRoomListDisplayExtended);
     ac->addAction(QStringLiteral("room_list_display_extended"), mRoomListDisplayExtended);
 
-    mClearRoomHistory = new QAction(i18n("Clear history"), this);
+    mClearRoomHistory = new QAction(QIcon::fromTheme(QStringLiteral("edit-clear-all")), i18n("Clear history"), this);
     connect(mClearRoomHistory, &QAction::triggered, this, &RuqolaMainWindow::slotClearRoomHistory);
     ac->addAction(QStringLiteral("clear_room_history"), mClearRoomHistory);
 }
