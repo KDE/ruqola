@@ -769,6 +769,7 @@ QByteArray RuqolaServerConfig::serialize(bool toBinary)
         createJsonObject(QStringLiteral("Accounts_Default_User_Preferences_desktopNotifications"), accountsDefaultUserPreferencesDesktopNotifications()));
     array.append(createJsonObject(QStringLiteral("Accounts_Default_User_Preferences_pushNotifications"), accountsDefaultUserPreferencesPushNotifications()));
     array.append(createJsonObject(QStringLiteral("Accounts_AllowEmailNotifications"), allowEmailNotifications()));
+    array.append(createJsonObject(QStringLiteral("Accounts_EmailVerification"), allowEmailVerification()));
 
     o["result"_L1] = array;
 #if 0
