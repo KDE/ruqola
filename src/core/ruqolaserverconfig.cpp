@@ -416,6 +416,16 @@ RuqolaServerConfig::ConfigWithDefaultValue RuqolaServerConfig::parseConfigWithDe
     return value;
 }
 
+bool RuqolaServerConfig::federationEnabled() const
+{
+    return mFederationEnabled;
+}
+
+void RuqolaServerConfig::setFederationEnabled(bool newFederationEnabled)
+{
+    mFederationEnabled = newFederationEnabled;
+}
+
 bool RuqolaServerConfig::allowEmailNotifications() const
 {
     return mAllowEmailNotifications;
@@ -620,6 +630,8 @@ void RuqolaServerConfig::loadSettings(const QJsonObject &currentConfObject)
         setAllowEmailNotifications(value.toBool());
     } else if (id == "Accounts_EmailVerification"_L1) {
         setAllowEmailVerification(value.toBool());
+    } else if (id == "FEDERATION_Enabled"_L1) {
+        setFederationEnabled(value.toBool());
     } else {
         qCDebug(RUQOLA_LOG) << "Other public settings id " << id << value;
     }
@@ -770,8 +782,10 @@ QByteArray RuqolaServerConfig::serialize(bool toBinary)
     array.append(createJsonObject(QStringLiteral("Accounts_Default_User_Preferences_pushNotifications"), accountsDefaultUserPreferencesPushNotifications()));
     array.append(createJsonObject(QStringLiteral("Accounts_AllowEmailNotifications"), allowEmailNotifications()));
     array.append(createJsonObject(QStringLiteral("Accounts_EmailVerification"), allowEmailVerification()));
+    array.append(createJsonObject(QStringLiteral("FEDERATION_Enabled"), federationEnabled()));
 
     o["result"_L1] = array;
+
 #if 0
 } else if (id.contains(regExp)) {
     if (value.toBool()) {

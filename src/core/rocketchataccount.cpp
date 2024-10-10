@@ -1930,6 +1930,11 @@ bool RocketChatAccount::jitsiEnabled() const
     return mRuqolaServerConfig->serverConfigFeatureTypes() & RuqolaServerConfig::ServerConfigFeatureType::JitsiEnabled;
 }
 
+bool RocketChatAccount::federationEnabled() const
+{
+    return mRuqolaServerConfig->federationEnabled();
+}
+
 void RocketChatAccount::groupInfo(const QByteArray &roomId)
 {
     restApi()->groupInfo(roomId);

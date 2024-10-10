@@ -70,6 +70,7 @@ void RuqolaServerConfigTest::shouldHaveDefaultValues()
     QVERIFY(config.accountsDefaultUserPreferencesDesktopNotifications().isEmpty());
     QVERIFY(config.allowEmailNotifications());
     QVERIFY(!config.allowEmailVerification());
+    QVERIFY(!config.federationEnabled());
 }
 
 void RuqolaServerConfigTest::shouldAssignValues()

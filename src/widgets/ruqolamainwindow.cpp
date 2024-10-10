@@ -760,6 +760,9 @@ void RuqolaMainWindow::slotCreateTeam()
     if (mCurrentRocketChatAccount->encryptionEnabled()) {
         flags |= CreateNewChannelWidget::Feature::Encrypted;
     }
+    if (mCurrentRocketChatAccount->federationEnabled()) {
+        flags |= CreateNewChannelWidget::Feature::Federated;
+    }
     dlg->setFeatures(flags);
     if (dlg->exec()) {
         RocketChatRestApi::CreateChannelTeamInfo teamInfo = dlg->channelInfo(true);
@@ -799,6 +802,9 @@ void RuqolaMainWindow::slotCreateNewChannel()
     }
     if (mCurrentRocketChatAccount->encryptionEnabled()) {
         flags |= CreateNewChannelWidget::Feature::Encrypted;
+    }
+    if (mCurrentRocketChatAccount->federationEnabled()) {
+        flags |= CreateNewChannelWidget::Feature::Federated;
     }
     dlg->setFeatures(flags);
     if (dlg->exec()) {

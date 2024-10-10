@@ -550,6 +550,8 @@ public:
 
     void setLastSelectedRoom(const QByteArray &roomId);
 
+    [[nodiscard]] bool federationEnabled() const;
+
 Q_SIGNALS:
     void roomRemoved(const QByteArray &roomId);
     void disabledTotpValid(bool checked);

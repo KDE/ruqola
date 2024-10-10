@@ -222,6 +222,9 @@ void TeamChannelsWidget::slotCreateRoom()
     if (mRocketChatAccount->encryptionEnabled()) {
         flags |= CreateNewChannelWidget::Feature::Encrypted;
     }
+    if (mRocketChatAccount->federationEnabled()) {
+        flags |= CreateNewChannelWidget::Feature::Federated;
+    }
     dlg->setFeatures(flags);
     if (dlg->exec()) {
         RocketChatRestApi::CreateChannelTeamInfo createRoominfo = dlg->channelInfo(false);

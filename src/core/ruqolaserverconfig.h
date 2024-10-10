@@ -208,6 +208,9 @@ public:
     [[nodiscard]] bool allowEmailVerification() const;
     void setAllowEmailVerification(bool newAllowEmailNotifications);
 
+    [[nodiscard]] bool federationEnabled() const;
+    void setFederationEnabled(bool newFederationEnabled);
+
 private:
     Q_DISABLE_COPY(RuqolaServerConfig)
     LIBRUQOLACORE_NO_EXPORT void assignSettingValue(bool value, ServerConfigFeatureType type);
@@ -267,6 +270,7 @@ private:
     bool mPreviewEmbed = false;
     bool mAllowEmailNotifications = true; // Default true
     bool mAllowEmailVerification = false;
+    bool mFederationEnabled = false;
 };
 LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const RuqolaServerConfig &t);
 LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const RuqolaServerConfig::ConfigWithDefaultValue &t);
