@@ -57,6 +57,7 @@ RocketChatRestApi::CreateChannelTeamInfo CreateNewChannelDialog::channelInfo(boo
     info.encrypted = mCreateNewChannelWidget->encryptedRoom();
     info.topic = mCreateNewChannelWidget->topic();
     info.privateChannel = mCreateNewChannelWidget->privateChannel();
+    info.federated = mCreateNewChannelWidget->federated();
     return info;
 }
 
