@@ -25,6 +25,7 @@ CreateNewChannelWidget::CreateNewChannelWidget(RocketChatAccount *account, QWidg
     , mBroadcast(new QCheckBox(this))
     , mPrivate(new QCheckBox(this))
     , mEncryptedRoom(new QCheckBox(this))
+    , mFederated(new QCheckBox(this))
     , mMainLayout(new QFormLayout(this))
 {
     mMainLayout->setObjectName(QStringLiteral("mainLayout"));
@@ -68,6 +69,10 @@ CreateNewChannelWidget::CreateNewChannelWidget(RocketChatAccount *account, QWidg
     mEncryptedRoom->setObjectName(QStringLiteral("mEncryptedRoom"));
     mEncryptedRoom->setChecked(false);
     mMainLayout->addRow(i18n("Encrypted Room:"), mEncryptedRoom);
+
+    mFederated->setObjectName(QStringLiteral("mFederated"));
+    mFederated->setChecked(false);
+    mMainLayout->addRow(i18n("Federated:"), mFederated);
 
     connect(mChannelName, &ChannelNameValidLineWidget::channelIsValid, this, &CreateNewChannelWidget::slotChangeOkButtonEnabled);
 }
@@ -122,6 +127,11 @@ QString CreateNewChannelWidget::topic() const
     return mTopicLineEdit->text();
 }
 
+bool CreateNewChannelWidget::federated() const
+{
+    return mFederated->isChecked();
+}
+
 void CreateNewChannelWidget::setFeatures(CreateNewChannelWidget::Features features)
 {
     bool visible = features & CreateNewChannelWidget::Feature::BroadCast;
@@ -133,6 +143,10 @@ void CreateNewChannelWidget::setFeatures(CreateNewChannelWidget::Features featur
 
     mEncryptedRoom->setVisible(visible);
     mMainLayout->labelForField(mEncryptedRoom)->setVisible(visible);
+
+    visible = features & CreateNewChannelWidget::Feature::Federated;
+    mFederated->setVisible(visible);
+    mMainLayout->labelForField(mFederated)->setVisible(visible);
 }
 
 #include "moc_createnewchannelwidget.cpp"

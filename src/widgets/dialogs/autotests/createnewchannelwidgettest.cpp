@@ -37,6 +37,9 @@ void CreateNewChannelWidgetTest::shouldHaveDefaultValues()
     QVERIFY(mPrivate);
     auto mEncryptedRoom = w.findChild<QCheckBox *>(QStringLiteral("mEncryptedRoom"));
     QVERIFY(mEncryptedRoom);
+
+    auto mFederated = w.findChild<QCheckBox *>(QStringLiteral("mFederated"));
+    QVERIFY(mFederated);
 }
 
 #include "moc_createnewchannelwidgettest.cpp"

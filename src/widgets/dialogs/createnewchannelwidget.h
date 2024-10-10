@@ -23,6 +23,7 @@ public:
         None = 0,
         BroadCast = 1,
         Encrypted = 2,
+        Federated = 4,
     };
     Q_DECLARE_FLAGS(Features, Feature)
     Q_FLAG(Features)
@@ -37,6 +38,7 @@ public:
     [[nodiscard]] bool broadCast() const;
     [[nodiscard]] bool readOnly() const;
     [[nodiscard]] QString topic() const;
+    [[nodiscard]] bool federated() const;
 
     void setFeatures(CreateNewChannelWidget::Features features);
 Q_SIGNALS:
@@ -51,5 +53,6 @@ private:
     QCheckBox *const mBroadcast;
     QCheckBox *const mPrivate;
     QCheckBox *const mEncryptedRoom;
+    QCheckBox *const mFederated;
     QFormLayout *const mMainLayout;
 };
