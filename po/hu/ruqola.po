@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-10-09 00:39+0000\n"
+"POT-Creation-Date: 2024-10-10 00:39+0000\n"
 "PO-Revision-Date: 2024-10-02 22:38+0200\n"
 "Last-Translator: Kristof Kiszel <ulysses@fsf.hu>\n"
 "Language-Team: Hungarian <kde-l10n-hu@kde.org>\n"
@@ -2082,7 +2082,7 @@ msgid "Invalid role"
 msgstr "Érvénytelen szerep"
 
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:339
-#: rocketchatrestapi-qt/rooms/roomstartdiscussionjob.cpp:161
+#: rocketchatrestapi-qt/rooms/roomstartdiscussionjob.cpp:173
 #, kde-format
 msgid "Invalid room"
 msgstr "Érvénytelen szoba"
@@ -4709,10 +4709,16 @@ msgstr "Titkosítás"
 #: widgets/administratorsettingsdialog/encryption/encryptionsettingswidget.cpp:20
 #, kde-format
 msgctxt "@option:check"
+msgid "Access unencrypted content in encrypted rooms"
+msgstr ""
+
+#: widgets/administratorsettingsdialog/encryption/encryptionsettingswidget.cpp:21
+#, kde-format
+msgctxt "@option:check"
 msgid "Enable OTR"
 msgstr "OTR bekapcsolása"
 
-#: widgets/administratorsettingsdialog/encryption/encryptionsettingswidget.cpp:24
+#: widgets/administratorsettingsdialog/encryption/encryptionsettingswidget.cpp:25
 #, kde-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -4722,7 +4728,15 @@ msgstr ""
 "Beállítás engedélyezése a titkosított csoportok létrehozásához, valamint a "
 "titkosítandó csoportok és közvetlen üzenetek megváltoztatásának képességéhez."
 
-#: widgets/administratorsettingsdialog/encryption/encryptionsettingswidget.cpp:42
+#: widgets/administratorsettingsdialog/encryption/encryptionsettingswidget.cpp:45
+#, kde-format
+msgctxt "@info:tooltip"
+msgid ""
+"Allow access to encrypted rooms to people without room encryption keys. "
+"They'll be able to see and send unencrypted messages."
+msgstr ""
+
+#: widgets/administratorsettingsdialog/encryption/encryptionsettingswidget.cpp:50
 #, kde-format
 msgid ""
 "Enable option to use off-the-record (OTR) messages in direct messages "
@@ -7624,6 +7638,15 @@ msgctxt "@title:window"
 msgid "Create Direct Messages - %1"
 msgstr "Közvetlen üzenetek létrehozása - %1"
 
+#: widgets/dialogs/createdirectmessagesdialog.cpp:44
+#: widgets/dialogs/createnewchanneldialog.cpp:41
+#: widgets/dialogs/createnewdiscussiondialog.cpp:42
+#: widgets/myaccount/myaccountpersonalaccesscreatedialog.cpp:32
+#, kde-format
+msgctxt "@action:button"
+msgid "Create"
+msgstr "Létrehozás"
+
 #: widgets/dialogs/createdirectmessageswidget.cpp:19
 #, kde-format
 msgctxt "@label:textbox"
@@ -7738,13 +7761,6 @@ msgstr "Titkosított szoba:"
 msgctxt "@title:window"
 msgid "Create Discussion - %1"
 msgstr "Beszélgetés létrehozása - %1"
-
-#: widgets/dialogs/createnewdiscussiondialog.cpp:42
-#: widgets/myaccount/myaccountpersonalaccesscreatedialog.cpp:32
-#, kde-format
-msgctxt "@action:button"
-msgid "Create"
-msgstr "Létrehozás"
 
 #: widgets/dialogs/createnewdiscussionwidget.cpp:28
 #, kde-format

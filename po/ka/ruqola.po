@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-10-09 00:39+0000\n"
-"PO-Revision-Date: 2024-10-08 03:19+0200\n"
+"POT-Creation-Date: 2024-10-10 00:39+0000\n"
+"PO-Revision-Date: 2024-10-09 05:29+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -2074,7 +2074,7 @@ msgid "Invalid role"
 msgstr "არასწორი როლი"
 
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:339
-#: rocketchatrestapi-qt/rooms/roomstartdiscussionjob.cpp:161
+#: rocketchatrestapi-qt/rooms/roomstartdiscussionjob.cpp:173
 #, kde-format
 msgid "Invalid room"
 msgstr "არასწორი ოთახი"
@@ -4683,10 +4683,16 @@ msgstr "ფაილების დაშიფვრა"
 #: widgets/administratorsettingsdialog/encryption/encryptionsettingswidget.cpp:20
 #, kde-format
 msgctxt "@option:check"
+msgid "Access unencrypted content in encrypted rooms"
+msgstr ""
+
+#: widgets/administratorsettingsdialog/encryption/encryptionsettingswidget.cpp:21
+#, kde-format
+msgctxt "@option:check"
 msgid "Enable OTR"
 msgstr "OTR-ის ჩართვა"
 
-#: widgets/administratorsettingsdialog/encryption/encryptionsettingswidget.cpp:24
+#: widgets/administratorsettingsdialog/encryption/encryptionsettingswidget.cpp:25
 #, kde-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -4696,7 +4702,15 @@ msgstr ""
 "ჩართეთ პარამეტრი, რომ შექმნათ დაშიფრული არხები და გქონდეთ საშუალება, ჯგუფური "
 "და პირდაპირი შეტყობინებები დაშიფროთ."
 
-#: widgets/administratorsettingsdialog/encryption/encryptionsettingswidget.cpp:42
+#: widgets/administratorsettingsdialog/encryption/encryptionsettingswidget.cpp:45
+#, kde-format
+msgctxt "@info:tooltip"
+msgid ""
+"Allow access to encrypted rooms to people without room encryption keys. "
+"They'll be able to see and send unencrypted messages."
+msgstr ""
+
+#: widgets/administratorsettingsdialog/encryption/encryptionsettingswidget.cpp:50
 #, kde-format
 msgid ""
 "Enable option to use off-the-record (OTR) messages in direct messages "
@@ -6232,7 +6246,7 @@ msgstr "გამოყენება"
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Restore"
-msgstr ""
+msgstr "აღდგენა"
 
 #: widgets/administratorsettingsdialog/slackbridge/slackbridgewidget.cpp:20
 #, kde-format
@@ -7567,6 +7581,15 @@ msgctxt "@title:window"
 msgid "Create Direct Messages - %1"
 msgstr "შექმენით პირდაპირი შეტყობინებები - %1"
 
+#: widgets/dialogs/createdirectmessagesdialog.cpp:44
+#: widgets/dialogs/createnewchanneldialog.cpp:41
+#: widgets/dialogs/createnewdiscussiondialog.cpp:42
+#: widgets/myaccount/myaccountpersonalaccesscreatedialog.cpp:32
+#, kde-format
+msgctxt "@action:button"
+msgid "Create"
+msgstr "შექმნა"
+
 #: widgets/dialogs/createdirectmessageswidget.cpp:19
 #, kde-format
 msgctxt "@label:textbox"
@@ -7680,13 +7703,6 @@ msgstr "დაშიფრული ოთახი:"
 msgctxt "@title:window"
 msgid "Create Discussion - %1"
 msgstr "კამათის შექმნა - %1"
-
-#: widgets/dialogs/createnewdiscussiondialog.cpp:42
-#: widgets/myaccount/myaccountpersonalaccesscreatedialog.cpp:32
-#, kde-format
-msgctxt "@action:button"
-msgid "Create"
-msgstr "შექმნა"
 
 #: widgets/dialogs/createnewdiscussionwidget.cpp:28
 #, kde-format
@@ -10736,11 +10752,8 @@ msgid "Allow to clean up room history when room was not opened from long time."
 msgstr "ოთახის ისტორიის გაწმენდის დაშვება, როცა ოთახს დიდხანს არ გახსნით."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:18
-#, fuzzy
-#| msgctxt "@title:window"
-#| msgid "Administrator Server Settings - %1"
 msgid "Add restore button in administrator server settings dialog."
-msgstr "ადმინისტრატორის სერვერის მორგება - %1"
+msgstr "აღდგენის ღილაკის დამატება ადმინისტრატორის სერვერის მორგების დიალოგში."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:28
 #, kde-format

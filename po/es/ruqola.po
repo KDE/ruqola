@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-10-09 00:39+0000\n"
+"POT-Creation-Date: 2024-10-10 00:39+0000\n"
 "PO-Revision-Date: 2024-10-05 18:51+0200\n"
 "Last-Translator: Víctor Rodrigo Córdoba <vrcordoba@gmail.com>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
@@ -2079,7 +2079,7 @@ msgid "Invalid role"
 msgstr "Rol inválido"
 
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:339
-#: rocketchatrestapi-qt/rooms/roomstartdiscussionjob.cpp:161
+#: rocketchatrestapi-qt/rooms/roomstartdiscussionjob.cpp:173
 #, kde-format
 msgid "Invalid room"
 msgstr "Sala inválida"
@@ -4714,10 +4714,16 @@ msgstr "Cifrar archivos"
 #: widgets/administratorsettingsdialog/encryption/encryptionsettingswidget.cpp:20
 #, kde-format
 msgctxt "@option:check"
+msgid "Access unencrypted content in encrypted rooms"
+msgstr ""
+
+#: widgets/administratorsettingsdialog/encryption/encryptionsettingswidget.cpp:21
+#, kde-format
+msgctxt "@option:check"
 msgid "Enable OTR"
 msgstr "Activar sesión confidencial"
 
-#: widgets/administratorsettingsdialog/encryption/encryptionsettingswidget.cpp:24
+#: widgets/administratorsettingsdialog/encryption/encryptionsettingswidget.cpp:25
 #, kde-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -4727,7 +4733,15 @@ msgstr ""
 "Activar opción para crear grupos cifrados y para ser capaz de cambiar el "
 "cifrado de grupos y mensajes directos."
 
-#: widgets/administratorsettingsdialog/encryption/encryptionsettingswidget.cpp:42
+#: widgets/administratorsettingsdialog/encryption/encryptionsettingswidget.cpp:45
+#, kde-format
+msgctxt "@info:tooltip"
+msgid ""
+"Allow access to encrypted rooms to people without room encryption keys. "
+"They'll be able to see and send unencrypted messages."
+msgstr ""
+
+#: widgets/administratorsettingsdialog/encryption/encryptionsettingswidget.cpp:50
 #, kde-format
 msgid ""
 "Enable option to use off-the-record (OTR) messages in direct messages "
@@ -7620,6 +7634,15 @@ msgctxt "@title:window"
 msgid "Create Direct Messages - %1"
 msgstr "Crear mensaje directo - %1"
 
+#: widgets/dialogs/createdirectmessagesdialog.cpp:44
+#: widgets/dialogs/createnewchanneldialog.cpp:41
+#: widgets/dialogs/createnewdiscussiondialog.cpp:42
+#: widgets/myaccount/myaccountpersonalaccesscreatedialog.cpp:32
+#, kde-format
+msgctxt "@action:button"
+msgid "Create"
+msgstr "Crear"
+
 #: widgets/dialogs/createdirectmessageswidget.cpp:19
 #, kde-format
 msgctxt "@label:textbox"
@@ -7733,13 +7756,6 @@ msgstr "Sala cifrada:"
 msgctxt "@title:window"
 msgid "Create Discussion - %1"
 msgstr "Crear discusión - %1"
-
-#: widgets/dialogs/createnewdiscussiondialog.cpp:42
-#: widgets/myaccount/myaccountpersonalaccesscreatedialog.cpp:32
-#, kde-format
-msgctxt "@action:button"
-msgid "Create"
-msgstr "Crear"
 
 #: widgets/dialogs/createnewdiscussionwidget.cpp:28
 #, kde-format

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-10-09 00:39+0000\n"
+"POT-Creation-Date: 2024-10-10 00:39+0000\n"
 "PO-Revision-Date: 2024-10-03 06:36+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
@@ -2088,7 +2088,7 @@ msgid "Invalid role"
 msgstr "Neveljavna vloga"
 
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:339
-#: rocketchatrestapi-qt/rooms/roomstartdiscussionjob.cpp:161
+#: rocketchatrestapi-qt/rooms/roomstartdiscussionjob.cpp:173
 #, kde-format
 msgid "Invalid room"
 msgstr "Neveljavna soba"
@@ -4709,10 +4709,16 @@ msgstr "Šifriranje"
 #: widgets/administratorsettingsdialog/encryption/encryptionsettingswidget.cpp:20
 #, kde-format
 msgctxt "@option:check"
+msgid "Access unencrypted content in encrypted rooms"
+msgstr ""
+
+#: widgets/administratorsettingsdialog/encryption/encryptionsettingswidget.cpp:21
+#, kde-format
+msgctxt "@option:check"
 msgid "Enable OTR"
 msgstr "Omogoči OTR"
 
-#: widgets/administratorsettingsdialog/encryption/encryptionsettingswidget.cpp:24
+#: widgets/administratorsettingsdialog/encryption/encryptionsettingswidget.cpp:25
 #, kde-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -4722,7 +4728,15 @@ msgstr ""
 "Omogoči možnost ustvarjanja šifriranih skupin in omogočanja sprememb skupin "
 "ter šifriranje neposrednih sporočil."
 
-#: widgets/administratorsettingsdialog/encryption/encryptionsettingswidget.cpp:42
+#: widgets/administratorsettingsdialog/encryption/encryptionsettingswidget.cpp:45
+#, kde-format
+msgctxt "@info:tooltip"
+msgid ""
+"Allow access to encrypted rooms to people without room encryption keys. "
+"They'll be able to see and send unencrypted messages."
+msgstr ""
+
+#: widgets/administratorsettingsdialog/encryption/encryptionsettingswidget.cpp:50
 #, kde-format
 msgid ""
 "Enable option to use off-the-record (OTR) messages in direct messages "
@@ -7600,6 +7614,15 @@ msgctxt "@title:window"
 msgid "Create Direct Messages - %1"
 msgstr "Ustvari neposredna sporočila - %1"
 
+#: widgets/dialogs/createdirectmessagesdialog.cpp:44
+#: widgets/dialogs/createnewchanneldialog.cpp:41
+#: widgets/dialogs/createnewdiscussiondialog.cpp:42
+#: widgets/myaccount/myaccountpersonalaccesscreatedialog.cpp:32
+#, kde-format
+msgctxt "@action:button"
+msgid "Create"
+msgstr "Ustvari"
+
 #: widgets/dialogs/createdirectmessageswidget.cpp:19
 #, kde-format
 msgctxt "@label:textbox"
@@ -7713,13 +7736,6 @@ msgstr "Šifrirana soba:"
 msgctxt "@title:window"
 msgid "Create Discussion - %1"
 msgstr "Ustvari razpravo - %1"
-
-#: widgets/dialogs/createnewdiscussiondialog.cpp:42
-#: widgets/myaccount/myaccountpersonalaccesscreatedialog.cpp:32
-#, kde-format
-msgctxt "@action:button"
-msgid "Create"
-msgstr "Ustvari"
 
 #: widgets/dialogs/createnewdiscussionwidget.cpp:28
 #, kde-format

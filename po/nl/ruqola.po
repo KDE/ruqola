@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-10-09 00:39+0000\n"
-"PO-Revision-Date: 2024-10-08 11:38+0200\n"
+"POT-Creation-Date: 2024-10-10 00:39+0000\n"
+"PO-Revision-Date: 2024-10-09 10:35+0200\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
 "Language: nl\n"
@@ -2082,7 +2082,7 @@ msgid "Invalid role"
 msgstr "Ongeldige rol"
 
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:339
-#: rocketchatrestapi-qt/rooms/roomstartdiscussionjob.cpp:161
+#: rocketchatrestapi-qt/rooms/roomstartdiscussionjob.cpp:173
 #, kde-format
 msgid "Invalid room"
 msgstr "Ongeldige room"
@@ -4702,10 +4702,16 @@ msgstr "Bestanden versleutelen"
 #: widgets/administratorsettingsdialog/encryption/encryptionsettingswidget.cpp:20
 #, kde-format
 msgctxt "@option:check"
+msgid "Access unencrypted content in encrypted rooms"
+msgstr ""
+
+#: widgets/administratorsettingsdialog/encryption/encryptionsettingswidget.cpp:21
+#, kde-format
+msgctxt "@option:check"
 msgid "Enable OTR"
 msgstr "OTR inschakelen"
 
-#: widgets/administratorsettingsdialog/encryption/encryptionsettingswidget.cpp:24
+#: widgets/administratorsettingsdialog/encryption/encryptionsettingswidget.cpp:25
 #, kde-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -4715,7 +4721,15 @@ msgstr ""
 "Optie om versleutelde groepen in te schakelen en in staat zijn om groepen te "
 "wijzigen en aangeven dat berichten versleuteld moeten zijn."
 
-#: widgets/administratorsettingsdialog/encryption/encryptionsettingswidget.cpp:42
+#: widgets/administratorsettingsdialog/encryption/encryptionsettingswidget.cpp:45
+#, kde-format
+msgctxt "@info:tooltip"
+msgid ""
+"Allow access to encrypted rooms to people without room encryption keys. "
+"They'll be able to see and send unencrypted messages."
+msgstr ""
+
+#: widgets/administratorsettingsdialog/encryption/encryptionsettingswidget.cpp:50
 #, kde-format
 msgid ""
 "Enable option to use off-the-record (OTR) messages in direct messages "
@@ -6271,7 +6285,7 @@ msgstr "Toepassen"
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Restore"
-msgstr ""
+msgstr "Herstellen"
 
 #: widgets/administratorsettingsdialog/slackbridge/slackbridgewidget.cpp:20
 #, kde-format
@@ -7614,6 +7628,15 @@ msgctxt "@title:window"
 msgid "Create Direct Messages - %1"
 msgstr "Directe berichten aanmaken - %1"
 
+#: widgets/dialogs/createdirectmessagesdialog.cpp:44
+#: widgets/dialogs/createnewchanneldialog.cpp:41
+#: widgets/dialogs/createnewdiscussiondialog.cpp:42
+#: widgets/myaccount/myaccountpersonalaccesscreatedialog.cpp:32
+#, kde-format
+msgctxt "@action:button"
+msgid "Create"
+msgstr "Aanmaken"
+
 #: widgets/dialogs/createdirectmessageswidget.cpp:19
 #, kde-format
 msgctxt "@label:textbox"
@@ -7728,13 +7751,6 @@ msgstr "Versleutelde room:"
 msgctxt "@title:window"
 msgid "Create Discussion - %1"
 msgstr "Discussie aanmaken - %1"
-
-#: widgets/dialogs/createnewdiscussiondialog.cpp:42
-#: widgets/myaccount/myaccountpersonalaccesscreatedialog.cpp:32
-#, kde-format
-msgctxt "@action:button"
-msgid "Create"
-msgstr "Aanmaken"
 
 #: widgets/dialogs/createnewdiscussionwidget.cpp:28
 #, kde-format
@@ -10797,11 +10813,10 @@ msgstr ""
 "is geopend."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:18
-#, fuzzy
-#| msgctxt "@title:window"
-#| msgid "Administrator Server Settings - %1"
 msgid "Add restore button in administrator server settings dialog."
-msgstr "Serverinstellingen van systeembeheerder - %1"
+msgstr ""
+"Herstelknop toevoegen in de dialoog voor de instellingen van de server van "
+"de systeembeheerder."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:28
 #, kde-format

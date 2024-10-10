@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-10-09 00:39+0000\n"
-"PO-Revision-Date: 2024-10-08 20:51+0300\n"
+"POT-Creation-Date: 2024-10-10 00:39+0000\n"
+"PO-Revision-Date: 2024-10-09 10:01+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -2072,7 +2072,7 @@ msgid "Invalid role"
 msgstr "Geçersiz rol"
 
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:339
-#: rocketchatrestapi-qt/rooms/roomstartdiscussionjob.cpp:161
+#: rocketchatrestapi-qt/rooms/roomstartdiscussionjob.cpp:173
 #, kde-format
 msgid "Invalid room"
 msgstr "Geçersiz oda"
@@ -4668,10 +4668,16 @@ msgstr "Dosyaları şifrele"
 #: widgets/administratorsettingsdialog/encryption/encryptionsettingswidget.cpp:20
 #, kde-format
 msgctxt "@option:check"
+msgid "Access unencrypted content in encrypted rooms"
+msgstr ""
+
+#: widgets/administratorsettingsdialog/encryption/encryptionsettingswidget.cpp:21
+#, kde-format
+msgctxt "@option:check"
 msgid "Enable OTR"
 msgstr "Kayıt Dışı’yı etkinleştir"
 
-#: widgets/administratorsettingsdialog/encryption/encryptionsettingswidget.cpp:24
+#: widgets/administratorsettingsdialog/encryption/encryptionsettingswidget.cpp:25
 #, kde-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -4681,7 +4687,15 @@ msgstr ""
 "Şifreli gruplar oluşturma ve grupları ve doğrudan iletileri şifreli "
 "olabilecek biçimde değiştirme seçeneğini etkinleştir."
 
-#: widgets/administratorsettingsdialog/encryption/encryptionsettingswidget.cpp:42
+#: widgets/administratorsettingsdialog/encryption/encryptionsettingswidget.cpp:45
+#, kde-format
+msgctxt "@info:tooltip"
+msgid ""
+"Allow access to encrypted rooms to people without room encryption keys. "
+"They'll be able to see and send unencrypted messages."
+msgstr ""
+
+#: widgets/administratorsettingsdialog/encryption/encryptionsettingswidget.cpp:50
 #, kde-format
 msgid ""
 "Enable option to use off-the-record (OTR) messages in direct messages "
@@ -6222,7 +6236,7 @@ msgstr "Uygula"
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Restore"
-msgstr ""
+msgstr "Geri Yükle"
 
 #: widgets/administratorsettingsdialog/slackbridge/slackbridgewidget.cpp:20
 #, kde-format
@@ -7554,6 +7568,15 @@ msgctxt "@title:window"
 msgid "Create Direct Messages - %1"
 msgstr "Doğrudan İletiler Oluştur — %1"
 
+#: widgets/dialogs/createdirectmessagesdialog.cpp:44
+#: widgets/dialogs/createnewchanneldialog.cpp:41
+#: widgets/dialogs/createnewdiscussiondialog.cpp:42
+#: widgets/myaccount/myaccountpersonalaccesscreatedialog.cpp:32
+#, kde-format
+msgctxt "@action:button"
+msgid "Create"
+msgstr "Oluştur"
+
 #: widgets/dialogs/createdirectmessageswidget.cpp:19
 #, kde-format
 msgctxt "@label:textbox"
@@ -7667,13 +7690,6 @@ msgstr "Şifreli oda:"
 msgctxt "@title:window"
 msgid "Create Discussion - %1"
 msgstr "Tartışma Oluştur — %1"
-
-#: widgets/dialogs/createnewdiscussiondialog.cpp:42
-#: widgets/myaccount/myaccountpersonalaccesscreatedialog.cpp:32
-#, kde-format
-msgctxt "@action:button"
-msgid "Create"
-msgstr "Oluştur"
 
 #: widgets/dialogs/createnewdiscussionwidget.cpp:28
 #, kde-format
@@ -10738,11 +10754,8 @@ msgstr ""
 "Oda uzunca bir süredir açılmadığında oda geçmişini temizlemeye izin ver"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:18
-#, fuzzy
-#| msgctxt "@title:window"
-#| msgid "Administrator Server Settings - %1"
 msgid "Add restore button in administrator server settings dialog."
-msgstr "Yönetici Sunucu Ayarları — %1"
+msgstr "Yönetici sunucu ayarları iletişim kutusuna geri yükle düğmesi ekle"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:28
 #, kde-format

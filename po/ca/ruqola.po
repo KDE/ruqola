@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-10-09 00:39+0000\n"
-"PO-Revision-Date: 2024-10-08 10:04+0200\n"
+"POT-Creation-Date: 2024-10-10 00:39+0000\n"
+"PO-Revision-Date: 2024-10-09 11:10+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca\n"
@@ -2080,7 +2080,7 @@ msgid "Invalid role"
 msgstr "Rol no vàlid"
 
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:339
-#: rocketchatrestapi-qt/rooms/roomstartdiscussionjob.cpp:161
+#: rocketchatrestapi-qt/rooms/roomstartdiscussionjob.cpp:173
 #, kde-format
 msgid "Invalid room"
 msgstr "Sala no vàlida"
@@ -4124,7 +4124,7 @@ msgstr "Rols predeterminats per a usuaris"
 #, kde-format
 msgctxt "@title:window"
 msgid "Administrator Server Settings - %1"
-msgstr "Configuració de l'administració del servidor - %1"
+msgstr "Configuració d'administració del servidor - %1"
 
 #: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:107
 #, kde-format
@@ -4706,10 +4706,16 @@ msgstr "Encripta fitxers"
 #: widgets/administratorsettingsdialog/encryption/encryptionsettingswidget.cpp:20
 #, kde-format
 msgctxt "@option:check"
+msgid "Access unencrypted content in encrypted rooms"
+msgstr ""
+
+#: widgets/administratorsettingsdialog/encryption/encryptionsettingswidget.cpp:21
+#, kde-format
+msgctxt "@option:check"
 msgid "Enable OTR"
 msgstr "Activa l'OTR"
 
-#: widgets/administratorsettingsdialog/encryption/encryptionsettingswidget.cpp:24
+#: widgets/administratorsettingsdialog/encryption/encryptionsettingswidget.cpp:25
 #, kde-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -4719,7 +4725,15 @@ msgstr ""
 "Activa l'opció de crear grups encriptats i ser capaç de canviar grups i "
 "missatges directes perquè es puguin encriptar."
 
-#: widgets/administratorsettingsdialog/encryption/encryptionsettingswidget.cpp:42
+#: widgets/administratorsettingsdialog/encryption/encryptionsettingswidget.cpp:45
+#, kde-format
+msgctxt "@info:tooltip"
+msgid ""
+"Allow access to encrypted rooms to people without room encryption keys. "
+"They'll be able to see and send unencrypted messages."
+msgstr ""
+
+#: widgets/administratorsettingsdialog/encryption/encryptionsettingswidget.cpp:50
 #, kde-format
 msgid ""
 "Enable option to use off-the-record (OTR) messages in direct messages "
@@ -6271,7 +6285,7 @@ msgstr "Aplica"
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Restore"
-msgstr ""
+msgstr "Restaura"
 
 #: widgets/administratorsettingsdialog/slackbridge/slackbridgewidget.cpp:20
 #, kde-format
@@ -7614,6 +7628,15 @@ msgctxt "@title:window"
 msgid "Create Direct Messages - %1"
 msgstr "Crea missatges directes - %1"
 
+#: widgets/dialogs/createdirectmessagesdialog.cpp:44
+#: widgets/dialogs/createnewchanneldialog.cpp:41
+#: widgets/dialogs/createnewdiscussiondialog.cpp:42
+#: widgets/myaccount/myaccountpersonalaccesscreatedialog.cpp:32
+#, kde-format
+msgctxt "@action:button"
+msgid "Create"
+msgstr "Crea"
+
 #: widgets/dialogs/createdirectmessageswidget.cpp:19
 #, kde-format
 msgctxt "@label:textbox"
@@ -7727,13 +7750,6 @@ msgstr "Sala encriptada:"
 msgctxt "@title:window"
 msgid "Create Discussion - %1"
 msgstr "Crea un debat - %1"
-
-#: widgets/dialogs/createnewdiscussiondialog.cpp:42
-#: widgets/myaccount/myaccountpersonalaccesscreatedialog.cpp:32
-#, kde-format
-msgctxt "@action:button"
-msgid "Create"
-msgstr "Crea"
 
 #: widgets/dialogs/createnewdiscussionwidget.cpp:28
 #, kde-format
@@ -10804,11 +10820,10 @@ msgstr ""
 "temps."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:18
-#, fuzzy
-#| msgctxt "@title:window"
-#| msgid "Administrator Server Settings - %1"
 msgid "Add restore button in administrator server settings dialog."
-msgstr "Configuració de l'administració del servidor - %1"
+msgstr ""
+"Afegeix el botó de restauració en el diàleg de configuració d'administració "
+"del servidor."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:28
 #, kde-format

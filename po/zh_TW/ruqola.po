@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-10-09 00:39+0000\n"
+"POT-Creation-Date: 2024-10-10 00:39+0000\n"
 "PO-Revision-Date: 2024-08-06 05:33+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
@@ -2090,7 +2090,7 @@ msgid "Invalid role"
 msgstr ""
 
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:339
-#: rocketchatrestapi-qt/rooms/roomstartdiscussionjob.cpp:161
+#: rocketchatrestapi-qt/rooms/roomstartdiscussionjob.cpp:173
 #, kde-format
 msgid "Invalid room"
 msgstr "無效的聊天室"
@@ -4785,13 +4785,19 @@ msgid "Encrypt files"
 msgstr "加密："
 
 #: widgets/administratorsettingsdialog/encryption/encryptionsettingswidget.cpp:20
+#, kde-format
+msgctxt "@option:check"
+msgid "Access unencrypted content in encrypted rooms"
+msgstr ""
+
+#: widgets/administratorsettingsdialog/encryption/encryptionsettingswidget.cpp:21
 #, fuzzy, kde-format
 #| msgid "Enable"
 msgctxt "@option:check"
 msgid "Enable OTR"
 msgstr "啟用"
 
-#: widgets/administratorsettingsdialog/encryption/encryptionsettingswidget.cpp:24
+#: widgets/administratorsettingsdialog/encryption/encryptionsettingswidget.cpp:25
 #, kde-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -4799,7 +4805,15 @@ msgid ""
 "direct messages to be encrypted."
 msgstr ""
 
-#: widgets/administratorsettingsdialog/encryption/encryptionsettingswidget.cpp:42
+#: widgets/administratorsettingsdialog/encryption/encryptionsettingswidget.cpp:45
+#, kde-format
+msgctxt "@info:tooltip"
+msgid ""
+"Allow access to encrypted rooms to people without room encryption keys. "
+"They'll be able to see and send unencrypted messages."
+msgstr ""
+
+#: widgets/administratorsettingsdialog/encryption/encryptionsettingswidget.cpp:50
 #, kde-format
 msgid ""
 "Enable option to use off-the-record (OTR) messages in direct messages "
@@ -7765,6 +7779,16 @@ msgctxt "@title:window"
 msgid "Create Direct Messages - %1"
 msgstr "建立私訊 - %1"
 
+#: widgets/dialogs/createdirectmessagesdialog.cpp:44
+#: widgets/dialogs/createnewchanneldialog.cpp:41
+#: widgets/dialogs/createnewdiscussiondialog.cpp:42
+#: widgets/myaccount/myaccountpersonalaccesscreatedialog.cpp:32
+#, fuzzy, kde-format
+#| msgid "Create"
+msgctxt "@action:button"
+msgid "Create"
+msgstr "建立"
+
 #: widgets/dialogs/createdirectmessageswidget.cpp:19
 #, fuzzy, kde-format
 #| msgid "Any team selected."
@@ -7882,14 +7906,6 @@ msgstr "加密聊天室："
 msgctxt "@title:window"
 msgid "Create Discussion - %1"
 msgstr "建立討論區 - %1"
-
-#: widgets/dialogs/createnewdiscussiondialog.cpp:42
-#: widgets/myaccount/myaccountpersonalaccesscreatedialog.cpp:32
-#, fuzzy, kde-format
-#| msgid "Create"
-msgctxt "@action:button"
-msgid "Create"
-msgstr "建立"
 
 #: widgets/dialogs/createnewdiscussionwidget.cpp:28
 #, fuzzy, kde-format
