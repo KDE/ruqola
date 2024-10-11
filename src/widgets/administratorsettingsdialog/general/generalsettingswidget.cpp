@@ -34,6 +34,7 @@ GeneralSettingsWidget::GeneralSettingsWidget(RocketChatAccount *account, QWidget
     , mSendStatisticsRocketChat(new QCheckBox(i18nc("@option:check", "Send Statistics to Rocket.Chat"), this))
     , mMaxRoomMembersDisablingMessageNotifications(new QSpinBox(this))
     , mStreamCastAddress(new QLineEdit(this))
+    , mRestApiUpperCountLimit(new QSpinBox(this))
 {
     mEnableFavoriteRooms->setObjectName(QStringLiteral("mEnableFavoriteRooms"));
     mMainLayout->addWidget(mEnableFavoriteRooms);
@@ -148,6 +149,12 @@ GeneralSettingsWidget::GeneralSettingsWidget(RocketChatAccount *account, QWidget
     auto restApiLabel = createBoldLabel(i18n("REST API"));
     restApiLabel->setObjectName(QStringLiteral("restApiLabel"));
     mMainLayout->addWidget(restApiLabel);
+
+    mRestApiUpperCountLimit->setObjectName(QStringLiteral("mRestApiUpperCountLimit"));
+    mRestApiUpperCountLimit->setMaximum(999);
+    addSpinbox(i18n("What is the maximum number of records the REST API should return (when not unlimited)?"),
+               mRestApiUpperCountLimit,
+               QStringLiteral("API_Upper_Count_Limit"));
 }
 
 GeneralSettingsWidget::~GeneralSettingsWidget() = default;
@@ -171,6 +178,7 @@ void GeneralSettingsWidget::initialize(const QMap<QString, QVariant> &mapSetting
     initializeWidget(mMaxRoomMembersDisablingMessageNotifications, mapSettings, 100);
     initializeWidget(mUpdateLatestAvailableVersion, mapSettings, QStringLiteral("0.0.0"));
     initializeWidget(mStreamCastAddress, mapSettings, QString());
+    initializeWidget(mRestApiUpperCountLimit, mapSettings, 100);
 }
 
 #include "moc_generalsettingswidget.cpp"

@@ -154,6 +154,11 @@ void GeneralSettingsWidgetTest::shouldHaveDefaultValues()
     auto restApiLabel = w.findChild<QLabel *>(QStringLiteral("restApiLabel"));
     QVERIFY(restApiLabel);
     QVERIFY(!restApiLabel->text().isEmpty());
+
+    auto mRestApiUpperCountLimit = w.findChild<QSpinBox *>(QStringLiteral("mRestApiUpperCountLimit"));
+    QVERIFY(mRestApiUpperCountLimit);
+    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mRestApiUpperCountLimit), QStringLiteral("API_Upper_Count_Limit"));
+    SettingsWidgetHelper::checkLabelToolButton(&w, QStringLiteral("API_Upper_Count_Limit"));
 }
 
 #include "moc_generalsettingswidgettest.cpp"
