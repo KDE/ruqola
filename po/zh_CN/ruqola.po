@@ -6997,8 +6997,7 @@ msgid "Auto-Translate"
 msgstr ""
 
 #: widgets/dialogs/autotranslateconfigurewidget.cpp:37
-#, fuzzy, kde-format
-#| msgid "Language:"
+#, kde-format
 msgctxt "@label:textbox"
 msgid "Language:"
 msgstr "语言："
@@ -9306,7 +9305,7 @@ msgstr ""
 #: widgets/room/messagelinewidget.cpp:244
 #, kde-format
 msgid "Message %1 in thread"
-msgstr ""
+msgstr "帖子消息 %1"
 
 #: widgets/room/messagelinewidget.cpp:244
 #, kde-format
@@ -10553,7 +10552,7 @@ msgstr ""
 #: widgets/whatsnew/whatsnewtranslations.cpp:82
 #, kde-format
 msgid "Implement Sorted/Unsorted markdown list."
-msgstr ""
+msgstr "排序/未排序的Markdown列表。"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:85
 #, kde-format
