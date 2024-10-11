@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-10-10 00:39+0000\n"
-"PO-Revision-Date: 2024-10-09 11:10+0200\n"
+"POT-Creation-Date: 2024-10-11 00:40+0000\n"
+"PO-Revision-Date: 2024-10-10 10:21+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca\n"
@@ -1486,12 +1486,12 @@ msgctxt "We need a space between after </strong>"
 msgid "<strong>%1</strong> are typing..."
 msgstr "<strong>%1</strong> estan escrivint..."
 
-#: core/rocketchataccount.cpp:3055
+#: core/rocketchataccount.cpp:3060
 #, kde-format
 msgid "Export Messages"
 msgstr "Exporta missatges"
 
-#: core/rocketchataccount.cpp:3056
+#: core/rocketchataccount.cpp:3061
 #, kde-format
 msgid "Your email has been queued for sending."
 msgstr "El correu s'ha posat a la cua per a enviar."
@@ -2598,7 +2598,7 @@ msgstr ""
 #: widgets/administratordialog/users/administratoradduserwidget.cpp:60
 #: widgets/dialogs/channelinfoeditablewidget.cpp:53
 #: widgets/dialogs/channelinforeadonlywidget.cpp:33
-#: widgets/dialogs/createnewchannelwidget.cpp:34
+#: widgets/dialogs/createnewchannelwidget.cpp:35
 #: widgets/dialogs/directchannelinfowidget.cpp:88
 #: widgets/myaccount/myaccountpersonalaccesscreatewidget.cpp:28
 #: widgets/myaccount/myaccountprofileconfigurewidget.cpp:62
@@ -3349,7 +3349,7 @@ msgid "Only authorized users can write new messages"
 msgstr "Només els usuaris autoritzats poden escriure missatges nous"
 
 #: widgets/administratordialog/rooms/administratorroomseditwidget.cpp:67
-#: widgets/dialogs/createnewchannelwidget.cpp:65
+#: widgets/dialogs/createnewchannelwidget.cpp:66
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Just invited people can access this channel."
@@ -4707,7 +4707,7 @@ msgstr "Encripta fitxers"
 #, kde-format
 msgctxt "@option:check"
 msgid "Access unencrypted content in encrypted rooms"
-msgstr ""
+msgstr "Accés a contingut sense encriptar en sales encriptades"
 
 #: widgets/administratorsettingsdialog/encryption/encryptionsettingswidget.cpp:21
 #, kde-format
@@ -4732,6 +4732,8 @@ msgid ""
 "Allow access to encrypted rooms to people without room encryption keys. "
 "They'll be able to see and send unencrypted messages."
 msgstr ""
+"Permet accedir a sales encriptades a persones sense claus d'encriptatge. "
+"Podran veure i enviar missatges sense encriptar."
 
 #: widgets/administratorsettingsdialog/encryption/encryptionsettingswidget.cpp:50
 #, kde-format
@@ -6962,7 +6964,7 @@ msgid "Username or Email:"
 msgstr "Nom d'usuari o correu:"
 
 #: widgets/common/authenticationloginwidget.cpp:155
-#: widgets/ruqolamainwindow.cpp:998
+#: widgets/ruqolamainwindow.cpp:1004
 #, kde-format
 msgid ""
 "We have sent you an email to confirm your registration.\n"
@@ -6972,7 +6974,7 @@ msgstr ""
 "Si no rebeu un correu ben aviat, torneu i intenteu-ho de nou."
 
 #: widgets/common/authenticationloginwidget.cpp:156
-#: widgets/ruqolamainwindow.cpp:999
+#: widgets/ruqolamainwindow.cpp:1005
 #, kde-format
 msgctxt "@title:window"
 msgid "Register New User"
@@ -7666,55 +7668,55 @@ msgctxt "@title:window"
 msgid "Create Channel"
 msgstr "Crea un canal"
 
-#: widgets/dialogs/createnewchannelwidget.cpp:37
+#: widgets/dialogs/createnewchannelwidget.cpp:38
 #, kde-format
 msgid "Topic:"
 msgstr "Tema:"
 
-#: widgets/dialogs/createnewchannelwidget.cpp:41
+#: widgets/dialogs/createnewchannelwidget.cpp:42
 #: widgets/dialogs/createnewdiscussionwidget.cpp:51
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Invite users…"
 msgstr "Convida usuaris…"
 
-#: widgets/dialogs/createnewchannelwidget.cpp:42
+#: widgets/dialogs/createnewchannelwidget.cpp:43
 #, kde-format
 msgid "Users:"
 msgstr "Usuaris:"
 
-#: widgets/dialogs/createnewchannelwidget.cpp:46
-#: widgets/dialogs/createnewchannelwidget.cpp:50
+#: widgets/dialogs/createnewchannelwidget.cpp:47
+#: widgets/dialogs/createnewchannelwidget.cpp:51
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Anyone can send new messages"
 msgstr "Tothom pot enviar missatges nous"
 
-#: widgets/dialogs/createnewchannelwidget.cpp:47
+#: widgets/dialogs/createnewchannelwidget.cpp:48
 #, kde-format
 msgid "Read-Only:"
 msgstr "Només de lectura:"
 
-#: widgets/dialogs/createnewchannelwidget.cpp:48
-#: widgets/dialogs/createnewchannelwidget.cpp:51
+#: widgets/dialogs/createnewchannelwidget.cpp:49
+#: widgets/dialogs/createnewchannelwidget.cpp:52
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Anyone can send new messages"
 msgstr "Tothom pot enviar missatges nous"
 
-#: widgets/dialogs/createnewchannelwidget.cpp:50
+#: widgets/dialogs/createnewchannelwidget.cpp:51
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Only owners can send new messages"
 msgstr "Només els propietaris poden enviar missatges nous"
 
-#: widgets/dialogs/createnewchannelwidget.cpp:51
+#: widgets/dialogs/createnewchannelwidget.cpp:52
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Only owners can send new messages"
 msgstr "Només els propietaris poden enviar missatges nous"
 
-#: widgets/dialogs/createnewchannelwidget.cpp:57
+#: widgets/dialogs/createnewchannelwidget.cpp:58
 #, kde-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -7724,26 +7726,33 @@ msgstr ""
 "Només els usuaris autoritzats poden escriure missatges nous, però els altres "
 "usuaris podran respondre"
 
-#: widgets/dialogs/createnewchannelwidget.cpp:58
+#: widgets/dialogs/createnewchannelwidget.cpp:59
 #, kde-format
 msgid "Broadcast:"
 msgstr "Difusió:"
 
-#: widgets/dialogs/createnewchannelwidget.cpp:62
+#: widgets/dialogs/createnewchannelwidget.cpp:63
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Only invited people can join"
 msgstr "Només els invitats poden unir-se"
 
-#: widgets/dialogs/createnewchannelwidget.cpp:64
+#: widgets/dialogs/createnewchannelwidget.cpp:65
 #, kde-format
 msgid "Private Room:"
 msgstr "Sala privada:"
 
-#: widgets/dialogs/createnewchannelwidget.cpp:70
+#: widgets/dialogs/createnewchannelwidget.cpp:71
 #, kde-format
 msgid "Encrypted Room:"
 msgstr "Sala encriptada:"
+
+#: widgets/dialogs/createnewchannelwidget.cpp:75
+#, fuzzy, kde-format
+#| msgid "Moderator:"
+#| msgid_plural "Moderators:"
+msgid "Federated:"
+msgstr "Moderador:"
 
 #: widgets/dialogs/createnewdiscussiondialog.cpp:28
 #, kde-format
@@ -10569,24 +10578,24 @@ msgctxt "@title:window"
 msgid "Create Team"
 msgstr "Creació d'un equip"
 
-#: widgets/ruqolamainwindow.cpp:911
+#: widgets/ruqolamainwindow.cpp:917
 #, kde-format
 msgid "Impossible to open log."
 msgstr "Impossible obrir el registre."
 
-#: widgets/ruqolamainwindow.cpp:911
+#: widgets/ruqolamainwindow.cpp:917
 #, kde-format
 msgctxt "@title:window"
 msgid "Show Log"
 msgstr "Mostra el registre"
 
-#: widgets/ruqolamainwindow.cpp:1070
+#: widgets/ruqolamainwindow.cpp:1076
 #, kde-format
 msgctxt "@item:inmenu Instant message presence status"
 msgid "Status"
 msgstr "Estat"
 
-#: widgets/ruqolamainwindow.cpp:1158
+#: widgets/ruqolamainwindow.cpp:1164
 #, kde-format
 msgid ""
 "<qt>This will hide the menu bar completely. You can show it again by typing "
@@ -10595,7 +10604,7 @@ msgstr ""
 "<qt>Això ocultarà completament la barra de menús. La podeu tornar a mostrar "
 "prement %1.</qt>"
 
-#: widgets/ruqolamainwindow.cpp:1161
+#: widgets/ruqolamainwindow.cpp:1167
 #, kde-format
 msgctxt "@title:window"
 msgid "Hide menu bar"

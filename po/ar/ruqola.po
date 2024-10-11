@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-10-10 00:39+0000\n"
+"POT-Creation-Date: 2024-10-11 00:40+0000\n"
 "PO-Revision-Date: 2024-02-25 21:19+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
@@ -1521,12 +1521,12 @@ msgctxt "We need a space between after </strong>"
 msgid "<strong>%1</strong> are typing..."
 msgstr "<strong>%1</strong> يكتبون..."
 
-#: core/rocketchataccount.cpp:3055
+#: core/rocketchataccount.cpp:3060
 #, kde-format
 msgid "Export Messages"
 msgstr ""
 
-#: core/rocketchataccount.cpp:3056
+#: core/rocketchataccount.cpp:3061
 #, kde-format
 msgid "Your email has been queued for sending."
 msgstr ""
@@ -2605,7 +2605,7 @@ msgstr ""
 #: widgets/administratordialog/users/administratoradduserwidget.cpp:60
 #: widgets/dialogs/channelinfoeditablewidget.cpp:53
 #: widgets/dialogs/channelinforeadonlywidget.cpp:33
-#: widgets/dialogs/createnewchannelwidget.cpp:34
+#: widgets/dialogs/createnewchannelwidget.cpp:35
 #: widgets/dialogs/directchannelinfowidget.cpp:88
 #: widgets/myaccount/myaccountpersonalaccesscreatewidget.cpp:28
 #: widgets/myaccount/myaccountprofileconfigurewidget.cpp:62
@@ -3411,7 +3411,7 @@ msgid "Only authorized users can write new messages"
 msgstr ""
 
 #: widgets/administratordialog/rooms/administratorroomseditwidget.cpp:67
-#: widgets/dialogs/createnewchannelwidget.cpp:65
+#: widgets/dialogs/createnewchannelwidget.cpp:66
 #, fuzzy, kde-format
 #| msgid "Only invited people can join"
 msgctxt "@label:textbox"
@@ -6949,7 +6949,7 @@ msgid "Username or Email:"
 msgstr ""
 
 #: widgets/common/authenticationloginwidget.cpp:155
-#: widgets/ruqolamainwindow.cpp:998
+#: widgets/ruqolamainwindow.cpp:1004
 #, kde-format
 msgid ""
 "We have sent you an email to confirm your registration.\n"
@@ -6957,7 +6957,7 @@ msgid ""
 msgstr ""
 
 #: widgets/common/authenticationloginwidget.cpp:156
-#: widgets/ruqolamainwindow.cpp:999
+#: widgets/ruqolamainwindow.cpp:1005
 #, fuzzy, kde-format
 #| msgid "Register"
 msgctxt "@title:window"
@@ -7681,12 +7681,12 @@ msgctxt "@title:window"
 msgid "Create Channel"
 msgstr ""
 
-#: widgets/dialogs/createnewchannelwidget.cpp:37
+#: widgets/dialogs/createnewchannelwidget.cpp:38
 #, kde-format
 msgid "Topic:"
 msgstr "الموضوع:"
 
-#: widgets/dialogs/createnewchannelwidget.cpp:41
+#: widgets/dialogs/createnewchannelwidget.cpp:42
 #: widgets/dialogs/createnewdiscussionwidget.cpp:51
 #, fuzzy, kde-format
 #| msgid "Invite Users"
@@ -7694,43 +7694,43 @@ msgctxt "@info:placeholder"
 msgid "Invite users…"
 msgstr "ادع المستخدمين"
 
-#: widgets/dialogs/createnewchannelwidget.cpp:42
+#: widgets/dialogs/createnewchannelwidget.cpp:43
 #, kde-format
 msgid "Users:"
 msgstr "المستخدمين:"
 
-#: widgets/dialogs/createnewchannelwidget.cpp:46
-#: widgets/dialogs/createnewchannelwidget.cpp:50
+#: widgets/dialogs/createnewchannelwidget.cpp:47
+#: widgets/dialogs/createnewchannelwidget.cpp:51
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Anyone can send new messages"
 msgstr ""
 
-#: widgets/dialogs/createnewchannelwidget.cpp:47
+#: widgets/dialogs/createnewchannelwidget.cpp:48
 #, kde-format
 msgid "Read-Only:"
 msgstr "للقراءة فقط:"
 
-#: widgets/dialogs/createnewchannelwidget.cpp:48
-#: widgets/dialogs/createnewchannelwidget.cpp:51
+#: widgets/dialogs/createnewchannelwidget.cpp:49
+#: widgets/dialogs/createnewchannelwidget.cpp:52
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Anyone can send new messages"
 msgstr ""
 
-#: widgets/dialogs/createnewchannelwidget.cpp:50
+#: widgets/dialogs/createnewchannelwidget.cpp:51
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Only owners can send new messages"
 msgstr ""
 
-#: widgets/dialogs/createnewchannelwidget.cpp:51
+#: widgets/dialogs/createnewchannelwidget.cpp:52
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Only owners can send new messages"
 msgstr ""
 
-#: widgets/dialogs/createnewchannelwidget.cpp:57
+#: widgets/dialogs/createnewchannelwidget.cpp:58
 #, kde-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -7738,27 +7738,32 @@ msgid ""
 "able to reply"
 msgstr ""
 
-#: widgets/dialogs/createnewchannelwidget.cpp:58
+#: widgets/dialogs/createnewchannelwidget.cpp:59
 #, kde-format
 msgid "Broadcast:"
 msgstr "البثّ:"
 
-#: widgets/dialogs/createnewchannelwidget.cpp:62
+#: widgets/dialogs/createnewchannelwidget.cpp:63
 #, fuzzy, kde-format
 #| msgid "Only invited people can join"
 msgctxt "@info:tooltip"
 msgid "Only invited people can join"
 msgstr "فقط المدعوون يمكنهم الانضمام"
 
-#: widgets/dialogs/createnewchannelwidget.cpp:64
+#: widgets/dialogs/createnewchannelwidget.cpp:65
 #, kde-format
 msgid "Private Room:"
 msgstr ""
 
-#: widgets/dialogs/createnewchannelwidget.cpp:70
+#: widgets/dialogs/createnewchannelwidget.cpp:71
 #, kde-format
 msgid "Encrypted Room:"
 msgstr ""
+
+#: widgets/dialogs/createnewchannelwidget.cpp:75
+#, fuzzy, kde-format
+msgid "Federated:"
+msgstr "مراقب (50)"
 
 #: widgets/dialogs/createnewdiscussiondialog.cpp:28
 #, kde-format
@@ -10729,32 +10734,32 @@ msgctxt "@title:window"
 msgid "Create Team"
 msgstr ""
 
-#: widgets/ruqolamainwindow.cpp:911
+#: widgets/ruqolamainwindow.cpp:917
 #, kde-format
 msgid "Impossible to open log."
 msgstr ""
 
-#: widgets/ruqolamainwindow.cpp:911
+#: widgets/ruqolamainwindow.cpp:917
 #, fuzzy, kde-format
 #| msgid "Show Log"
 msgctxt "@title:window"
 msgid "Show Log"
 msgstr "أظهر السّجلّ"
 
-#: widgets/ruqolamainwindow.cpp:1070
+#: widgets/ruqolamainwindow.cpp:1076
 #, kde-format
 msgctxt "@item:inmenu Instant message presence status"
 msgid "Status"
 msgstr "الحالة"
 
-#: widgets/ruqolamainwindow.cpp:1158
+#: widgets/ruqolamainwindow.cpp:1164
 #, kde-format
 msgid ""
 "<qt>This will hide the menu bar completely. You can show it again by typing "
 "%1.</qt>"
 msgstr "<qt>سيُخفي هذا شريط القوائم بالكامل. يمكنك إظهاره ثانيةً بضغط %1.</qt>"
 
-#: widgets/ruqolamainwindow.cpp:1161
+#: widgets/ruqolamainwindow.cpp:1167
 #, fuzzy, kde-format
 #| msgid "Hide menu bar"
 msgctxt "@title:window"

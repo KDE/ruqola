@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-10-10 00:39+0000\n"
+"POT-Creation-Date: 2024-10-11 00:40+0000\n"
 "PO-Revision-Date: 2024-10-05 21:19+0200\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
@@ -1499,12 +1499,12 @@ msgctxt "We need a space between after </strong>"
 msgid "<strong>%1</strong> are typing..."
 msgstr "<strong>%1</strong> tekleatzen ari dira..."
 
-#: core/rocketchataccount.cpp:3055
+#: core/rocketchataccount.cpp:3060
 #, kde-format
 msgid "Export Messages"
 msgstr "Esportatu mezuak"
 
-#: core/rocketchataccount.cpp:3056
+#: core/rocketchataccount.cpp:3061
 #, kde-format
 msgid "Your email has been queued for sending."
 msgstr "Zure e-posta bidaltzeko ilaran ipini da."
@@ -2609,7 +2609,7 @@ msgstr ""
 #: widgets/administratordialog/users/administratoradduserwidget.cpp:60
 #: widgets/dialogs/channelinfoeditablewidget.cpp:53
 #: widgets/dialogs/channelinforeadonlywidget.cpp:33
-#: widgets/dialogs/createnewchannelwidget.cpp:34
+#: widgets/dialogs/createnewchannelwidget.cpp:35
 #: widgets/dialogs/directchannelinfowidget.cpp:88
 #: widgets/myaccount/myaccountpersonalaccesscreatewidget.cpp:28
 #: widgets/myaccount/myaccountprofileconfigurewidget.cpp:62
@@ -3359,7 +3359,7 @@ msgid "Only authorized users can write new messages"
 msgstr "Baimena duten erabiltzaileek bakarrik idatz ditzakete mezuak"
 
 #: widgets/administratordialog/rooms/administratorroomseditwidget.cpp:67
-#: widgets/dialogs/createnewchannelwidget.cpp:65
+#: widgets/dialogs/createnewchannelwidget.cpp:66
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Just invited people can access this channel."
@@ -6962,7 +6962,7 @@ msgid "Username or Email:"
 msgstr "Erabiltzaile-izena edo E-posta:"
 
 #: widgets/common/authenticationloginwidget.cpp:155
-#: widgets/ruqolamainwindow.cpp:998
+#: widgets/ruqolamainwindow.cpp:1004
 #, kde-format
 msgid ""
 "We have sent you an email to confirm your registration.\n"
@@ -6973,7 +6973,7 @@ msgstr ""
 "berriro."
 
 #: widgets/common/authenticationloginwidget.cpp:156
-#: widgets/ruqolamainwindow.cpp:999
+#: widgets/ruqolamainwindow.cpp:1005
 #, kde-format
 msgctxt "@title:window"
 msgid "Register New User"
@@ -7666,55 +7666,55 @@ msgctxt "@title:window"
 msgid "Create Channel"
 msgstr "Sortu kanala"
 
-#: widgets/dialogs/createnewchannelwidget.cpp:37
+#: widgets/dialogs/createnewchannelwidget.cpp:38
 #, kde-format
 msgid "Topic:"
 msgstr "Gaia:"
 
-#: widgets/dialogs/createnewchannelwidget.cpp:41
+#: widgets/dialogs/createnewchannelwidget.cpp:42
 #: widgets/dialogs/createnewdiscussionwidget.cpp:51
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Invite users…"
 msgstr "Gonbidatu erabiltzaileak..."
 
-#: widgets/dialogs/createnewchannelwidget.cpp:42
+#: widgets/dialogs/createnewchannelwidget.cpp:43
 #, kde-format
 msgid "Users:"
 msgstr "Erabiltzaileak:"
 
-#: widgets/dialogs/createnewchannelwidget.cpp:46
-#: widgets/dialogs/createnewchannelwidget.cpp:50
+#: widgets/dialogs/createnewchannelwidget.cpp:47
+#: widgets/dialogs/createnewchannelwidget.cpp:51
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Anyone can send new messages"
 msgstr "Edozeinek mezuak bidal ditzake"
 
-#: widgets/dialogs/createnewchannelwidget.cpp:47
+#: widgets/dialogs/createnewchannelwidget.cpp:48
 #, kde-format
 msgid "Read-Only:"
 msgstr "Irakurtzeko soilik:"
 
-#: widgets/dialogs/createnewchannelwidget.cpp:48
-#: widgets/dialogs/createnewchannelwidget.cpp:51
+#: widgets/dialogs/createnewchannelwidget.cpp:49
+#: widgets/dialogs/createnewchannelwidget.cpp:52
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Anyone can send new messages"
 msgstr "Edozeinek mezu berriak bidal ditzake"
 
-#: widgets/dialogs/createnewchannelwidget.cpp:50
+#: widgets/dialogs/createnewchannelwidget.cpp:51
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Only owners can send new messages"
 msgstr "Jabeek bakarrik bidal ditzakete mezu berriak"
 
-#: widgets/dialogs/createnewchannelwidget.cpp:51
+#: widgets/dialogs/createnewchannelwidget.cpp:52
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Only owners can send new messages"
 msgstr "Jabeek bakarrik bidal ditzakete mezu berriak"
 
-#: widgets/dialogs/createnewchannelwidget.cpp:57
+#: widgets/dialogs/createnewchannelwidget.cpp:58
 #, kde-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -7724,26 +7724,33 @@ msgstr ""
 "Baimena duten erabiltzaileek bakarrik sor ditzakete mezuak, baina beste "
 "erabiltzaileak erantzuteko gai izango dira"
 
-#: widgets/dialogs/createnewchannelwidget.cpp:58
+#: widgets/dialogs/createnewchannelwidget.cpp:59
 #, kde-format
 msgid "Broadcast:"
 msgstr "Igorpena:"
 
-#: widgets/dialogs/createnewchannelwidget.cpp:62
+#: widgets/dialogs/createnewchannelwidget.cpp:63
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Only invited people can join"
 msgstr "Gonbidatutako jendea bakarrik elkartu daiteke"
 
-#: widgets/dialogs/createnewchannelwidget.cpp:64
+#: widgets/dialogs/createnewchannelwidget.cpp:65
 #, kde-format
 msgid "Private Room:"
 msgstr "Gela pribatua:"
 
-#: widgets/dialogs/createnewchannelwidget.cpp:70
+#: widgets/dialogs/createnewchannelwidget.cpp:71
 #, kde-format
 msgid "Encrypted Room:"
 msgstr "Zifratutako gela:"
+
+#: widgets/dialogs/createnewchannelwidget.cpp:75
+#, fuzzy, kde-format
+#| msgid "Moderator:"
+#| msgid_plural "Moderators:"
+msgid "Federated:"
+msgstr "Moderatzailea:"
 
 #: widgets/dialogs/createnewdiscussiondialog.cpp:28
 #, kde-format
@@ -10565,24 +10572,24 @@ msgctxt "@title:window"
 msgid "Create Team"
 msgstr "Sortu taldea"
 
-#: widgets/ruqolamainwindow.cpp:911
+#: widgets/ruqolamainwindow.cpp:917
 #, kde-format
 msgid "Impossible to open log."
 msgstr "Egunkaria irekitzea ezinezkoa da."
 
-#: widgets/ruqolamainwindow.cpp:911
+#: widgets/ruqolamainwindow.cpp:917
 #, kde-format
 msgctxt "@title:window"
 msgid "Show Log"
 msgstr "Erakutsi egunkaria"
 
-#: widgets/ruqolamainwindow.cpp:1070
+#: widgets/ruqolamainwindow.cpp:1076
 #, kde-format
 msgctxt "@item:inmenu Instant message presence status"
 msgid "Status"
 msgstr "Egoera"
 
-#: widgets/ruqolamainwindow.cpp:1158
+#: widgets/ruqolamainwindow.cpp:1164
 #, kde-format
 msgid ""
 "<qt>This will hide the menu bar completely. You can show it again by typing "
@@ -10591,7 +10598,7 @@ msgstr ""
 "<qt>Honek menu-barra erabat ezkutatutako du. %1 tekleatuz berriz erakuts "
 "dezakezu.</qt>"
 
-#: widgets/ruqolamainwindow.cpp:1161
+#: widgets/ruqolamainwindow.cpp:1167
 #, kde-format
 msgctxt "@title:window"
 msgid "Hide menu bar"

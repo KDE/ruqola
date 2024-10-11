@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-10-10 00:39+0000\n"
+"POT-Creation-Date: 2024-10-11 00:40+0000\n"
 "PO-Revision-Date: 2024-09-15 10:37+0100\n"
 "Last-Translator: Steve Allewell <steve.allewell@gmail.com>\n"
 "Language-Team: British English\n"
@@ -1485,12 +1485,12 @@ msgctxt "We need a space between after </strong>"
 msgid "<strong>%1</strong> are typing..."
 msgstr "<strong>%1</strong> are typing..."
 
-#: core/rocketchataccount.cpp:3055
+#: core/rocketchataccount.cpp:3060
 #, kde-format
 msgid "Export Messages"
 msgstr "Export Messages"
 
-#: core/rocketchataccount.cpp:3056
+#: core/rocketchataccount.cpp:3061
 #, kde-format
 msgid "Your email has been queued for sending."
 msgstr "Your email has been queued for sending."
@@ -2592,7 +2592,7 @@ msgstr "The custom emoji name and their aliases should be different."
 #: widgets/administratordialog/users/administratoradduserwidget.cpp:60
 #: widgets/dialogs/channelinfoeditablewidget.cpp:53
 #: widgets/dialogs/channelinforeadonlywidget.cpp:33
-#: widgets/dialogs/createnewchannelwidget.cpp:34
+#: widgets/dialogs/createnewchannelwidget.cpp:35
 #: widgets/dialogs/directchannelinfowidget.cpp:88
 #: widgets/myaccount/myaccountpersonalaccesscreatewidget.cpp:28
 #: widgets/myaccount/myaccountprofileconfigurewidget.cpp:62
@@ -3341,7 +3341,7 @@ msgid "Only authorized users can write new messages"
 msgstr "Only authorised users can write new messages"
 
 #: widgets/administratordialog/rooms/administratorroomseditwidget.cpp:67
-#: widgets/dialogs/createnewchannelwidget.cpp:65
+#: widgets/dialogs/createnewchannelwidget.cpp:66
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Just invited people can access this channel."
@@ -6924,7 +6924,7 @@ msgid "Username or Email:"
 msgstr "Username or Email:"
 
 #: widgets/common/authenticationloginwidget.cpp:155
-#: widgets/ruqolamainwindow.cpp:998
+#: widgets/ruqolamainwindow.cpp:1004
 #, kde-format
 msgid ""
 "We have sent you an email to confirm your registration.\n"
@@ -6934,7 +6934,7 @@ msgstr ""
 "If you do not receive an email shortly, please come back and try again."
 
 #: widgets/common/authenticationloginwidget.cpp:156
-#: widgets/ruqolamainwindow.cpp:999
+#: widgets/ruqolamainwindow.cpp:1005
 #, kde-format
 msgctxt "@title:window"
 msgid "Register New User"
@@ -7624,45 +7624,45 @@ msgctxt "@title:window"
 msgid "Create Channel"
 msgstr "Create Channel"
 
-#: widgets/dialogs/createnewchannelwidget.cpp:37
+#: widgets/dialogs/createnewchannelwidget.cpp:38
 #, kde-format
 msgid "Topic:"
 msgstr "Topic:"
 
-#: widgets/dialogs/createnewchannelwidget.cpp:41
+#: widgets/dialogs/createnewchannelwidget.cpp:42
 #: widgets/dialogs/createnewdiscussionwidget.cpp:51
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Invite users…"
 msgstr "Invite users…"
 
-#: widgets/dialogs/createnewchannelwidget.cpp:42
+#: widgets/dialogs/createnewchannelwidget.cpp:43
 #, kde-format
 msgid "Users:"
 msgstr "Users:"
 
-#: widgets/dialogs/createnewchannelwidget.cpp:46
-#: widgets/dialogs/createnewchannelwidget.cpp:50
+#: widgets/dialogs/createnewchannelwidget.cpp:47
+#: widgets/dialogs/createnewchannelwidget.cpp:51
 #, fuzzy, kde-format
 #| msgid "Only you can see this message"
 msgctxt "@info:tooltip"
 msgid "Anyone can send new messages"
 msgstr "Only you can see this message"
 
-#: widgets/dialogs/createnewchannelwidget.cpp:47
+#: widgets/dialogs/createnewchannelwidget.cpp:48
 #, kde-format
 msgid "Read-Only:"
 msgstr "Read-Only:"
 
-#: widgets/dialogs/createnewchannelwidget.cpp:48
-#: widgets/dialogs/createnewchannelwidget.cpp:51
+#: widgets/dialogs/createnewchannelwidget.cpp:49
+#: widgets/dialogs/createnewchannelwidget.cpp:52
 #, fuzzy, kde-format
 #| msgid "Only you can see this message"
 msgctxt "@label:textbox"
 msgid "Anyone can send new messages"
 msgstr "Only you can see this message"
 
-#: widgets/dialogs/createnewchannelwidget.cpp:50
+#: widgets/dialogs/createnewchannelwidget.cpp:51
 #, fuzzy, kde-format
 #| msgctxt "@label:textbox"
 #| msgid "Only authorized users can write new messages"
@@ -7670,7 +7670,7 @@ msgctxt "@info:tooltip"
 msgid "Only owners can send new messages"
 msgstr "Only authorised users can write new messages"
 
-#: widgets/dialogs/createnewchannelwidget.cpp:51
+#: widgets/dialogs/createnewchannelwidget.cpp:52
 #, fuzzy, kde-format
 #| msgctxt "@label:textbox"
 #| msgid "Only authorized users can write new messages"
@@ -7678,7 +7678,7 @@ msgctxt "@label:textbox"
 msgid "Only owners can send new messages"
 msgstr "Only authorised users can write new messages"
 
-#: widgets/dialogs/createnewchannelwidget.cpp:57
+#: widgets/dialogs/createnewchannelwidget.cpp:58
 #, kde-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -7688,26 +7688,33 @@ msgstr ""
 "Only authorised users can write new messages, but the other users will be "
 "able to reply"
 
-#: widgets/dialogs/createnewchannelwidget.cpp:58
+#: widgets/dialogs/createnewchannelwidget.cpp:59
 #, kde-format
 msgid "Broadcast:"
 msgstr "Broadcast:"
 
-#: widgets/dialogs/createnewchannelwidget.cpp:62
+#: widgets/dialogs/createnewchannelwidget.cpp:63
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Only invited people can join"
 msgstr "Only invited people can join"
 
-#: widgets/dialogs/createnewchannelwidget.cpp:64
+#: widgets/dialogs/createnewchannelwidget.cpp:65
 #, kde-format
 msgid "Private Room:"
 msgstr "Private Room:"
 
-#: widgets/dialogs/createnewchannelwidget.cpp:70
+#: widgets/dialogs/createnewchannelwidget.cpp:71
 #, kde-format
 msgid "Encrypted Room:"
 msgstr "Encrypted Room:"
+
+#: widgets/dialogs/createnewchannelwidget.cpp:75
+#, fuzzy, kde-format
+#| msgid "Moderator:"
+#| msgid_plural "Moderators:"
+msgid "Federated:"
+msgstr "Moderator:"
 
 #: widgets/dialogs/createnewdiscussiondialog.cpp:28
 #, kde-format
@@ -10512,24 +10519,24 @@ msgctxt "@title:window"
 msgid "Create Team"
 msgstr "Create Team"
 
-#: widgets/ruqolamainwindow.cpp:911
+#: widgets/ruqolamainwindow.cpp:917
 #, kde-format
 msgid "Impossible to open log."
 msgstr "Impossible to open log."
 
-#: widgets/ruqolamainwindow.cpp:911
+#: widgets/ruqolamainwindow.cpp:917
 #, kde-format
 msgctxt "@title:window"
 msgid "Show Log"
 msgstr "Show Log"
 
-#: widgets/ruqolamainwindow.cpp:1070
+#: widgets/ruqolamainwindow.cpp:1076
 #, kde-format
 msgctxt "@item:inmenu Instant message presence status"
 msgid "Status"
 msgstr "Status"
 
-#: widgets/ruqolamainwindow.cpp:1158
+#: widgets/ruqolamainwindow.cpp:1164
 #, kde-format
 msgid ""
 "<qt>This will hide the menu bar completely. You can show it again by typing "
@@ -10538,7 +10545,7 @@ msgstr ""
 "<qt>This will hide the menu bar completely. You can show it again by typing "
 "%1.</qt>"
 
-#: widgets/ruqolamainwindow.cpp:1161
+#: widgets/ruqolamainwindow.cpp:1167
 #, kde-format
 msgctxt "@title:window"
 msgid "Hide menu bar"
