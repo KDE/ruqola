@@ -66,6 +66,16 @@ void process_publicsettings_administrator(const QJsonObject &obj, RocketChatAcco
     }
 }
 
+void process_permissions_administrator(const QJsonObject &obj, RocketChatAccount *account)
+{
+    Q_EMIT account->permissionSettingLoaded(obj);
+
+    // qCDebug(RUQOLA_LOG) << " configs"<<configs;
+    if (account->ruqolaLogger()) {
+        account->ruqolaLogger()->dataReceived(QByteArrayLiteral("Administrator Permissions:") + QJsonDocument(obj).toJson());
+    }
+}
+
 void rooms_parsing(const QJsonObject &root, RocketChatAccount *account)
 {
     const QJsonObject obj = root.value("result"_L1).toObject();
@@ -192,6 +202,22 @@ void RocketChatBackend::loadPublicSettings(qint64 timeStamp)
     } else {
         ddp->method(QStringLiteral("public-settings/get"), QJsonDocument(params), process_publicsettings);
     }
+}
+
+void RocketChatBackend::loadPermissionsAdministrator(qint64 timeStamp)
+{
+    auto ddp = mRocketChatAccount->ddp();
+    if (!ddp->isConnected()) {
+        return;
+    }
+    // https://developer.rocket.chat/docs/get-permissions
+    QJsonObject params;
+    if (timeStamp != -1) {
+        // "params": [ { "$date": 1480377601 } ]
+        params["$date"_L1] = timeStamp;
+    }
+    qDebug() << " params " << params;
+    ddp->method(QStringLiteral("permissions/get"), QJsonDocument(params), process_permissions_administrator);
 }
 
 void RocketChatBackend::loadPublicSettingsAdministrator(qint64 timeStamp)

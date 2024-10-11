@@ -46,6 +46,8 @@ public:
     void loadPublicSettings(qint64 timeStamp = -1);
     void connectDdpClient();
 
+    void loadPermissionsAdministrator(qint64 timeStamp = -1);
+
 private:
     LIBRUQOLACORE_NO_EXPORT void slotRemoved(const QJsonObject &object);
     LIBRUQOLACORE_NO_EXPORT void slotAdded(const QJsonObject &object);

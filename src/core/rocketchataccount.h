@@ -621,6 +621,7 @@ Q_SIGNALS:
     void appsMarkPlaceLoadDone();
     void needToSaveE2EPassword();
     void needToDecryptE2EPassword();
+    void permissionSettingLoaded(const QJsonObject &obj);
 
 private:
     Q_DISABLE_COPY(RocketChatAccount)
