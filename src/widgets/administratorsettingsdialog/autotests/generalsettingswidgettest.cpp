@@ -150,6 +150,10 @@ void GeneralSettingsWidgetTest::shouldHaveDefaultValues()
     QVERIFY(mStreamCastAddress->text().isEmpty());
     QVERIFY(!mStreamCastAddress->toolTip().isEmpty());
     QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mStreamCastAddress), QStringLiteral("Stream_Cast_Address"));
+
+    auto restApiLabel = w.findChild<QLabel *>(QStringLiteral("restApiLabel"));
+    QVERIFY(restApiLabel);
+    QVERIFY(!restApiLabel->text().isEmpty());
 }
 
 #include "moc_generalsettingswidgettest.cpp"

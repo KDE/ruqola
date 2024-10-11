@@ -144,6 +144,10 @@ GeneralSettingsWidget::GeneralSettingsWidget(RocketChatAccount *account, QWidget
     mStreamCastAddress->setObjectName(QStringLiteral("mStreamCastAddress"));
     addLineEdit(i18n("Stream Cast Address"), mStreamCastAddress, QStringLiteral("Stream_Cast_Address"));
     mStreamCastAddress->setToolTip(i18nc("@info:tooltip", "IP or Host of your Rocket.Chat central Stream Cast. E.g. 192.168.1.1:3000 or localhost:4000"));
+
+    auto restApiLabel = createBoldLabel(i18n("REST API"));
+    restApiLabel->setObjectName(QStringLiteral("restApiLabel"));
+    mMainLayout->addWidget(restApiLabel);
 }
 
 GeneralSettingsWidget::~GeneralSettingsWidget() = default;
