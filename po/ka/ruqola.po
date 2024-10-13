@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-10-12 00:38+0000\n"
-"PO-Revision-Date: 2024-10-11 04:55+0200\n"
+"PO-Revision-Date: 2024-10-12 05:41+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -5088,7 +5088,7 @@ msgstr ""
 #: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:149
 #, kde-format
 msgid "REST API"
-msgstr ""
+msgstr "REST API"
 
 #: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:155
 #, kde-format
@@ -5096,6 +5096,8 @@ msgid ""
 "What is the maximum number of records the REST API should return (when not "
 "unlimited)?"
 msgstr ""
+"რა არის ჩანაწერების მაქსიმალური რაოდენობა, რომელიც REST API-მა უნდა "
+"დააბრუნოს (როდესაც შეუზღუდავი არ არის)?"
 
 #: widgets/administratorsettingsdialog/irc/ircwidget.cpp:21
 #, kde-format

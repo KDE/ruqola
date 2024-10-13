@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-10-12 00:38+0000\n"
-"PO-Revision-Date: 2024-10-10 16:54+0200\n"
+"PO-Revision-Date: 2024-10-12 19:12+0200\n"
 "Last-Translator: Stefan Asserhäll <stefan.asserhall@gmail.com>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
 "Language: sv\n"
@@ -5084,7 +5084,7 @@ msgstr ""
 #: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:149
 #, kde-format
 msgid "REST API"
-msgstr ""
+msgstr "REST programmeringsgränssnitt"
 
 #: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:155
 #, kde-format
@@ -5092,6 +5092,8 @@ msgid ""
 "What is the maximum number of records the REST API should return (when not "
 "unlimited)?"
 msgstr ""
+"Vad är det maximala antalet poster som REST programmeringsgränssnittet ska "
+"returnera (när det inte är obegränsat)?"
 
 #: widgets/administratorsettingsdialog/irc/ircwidget.cpp:21
 #, kde-format
@@ -7718,11 +7720,9 @@ msgid "Encrypted Room:"
 msgstr "Krypterat rum:"
 
 #: widgets/dialogs/createnewchannelwidget.cpp:75
-#, fuzzy, kde-format
-#| msgid "Moderator:"
-#| msgid_plural "Moderators:"
+#, kde-format
 msgid "Federated:"
-msgstr "Moderator:"
+msgstr "Federerad:"
 
 #: widgets/dialogs/createnewdiscussiondialog.cpp:28
 #, kde-format

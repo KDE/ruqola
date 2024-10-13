@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-10-12 00:38+0000\n"
-"PO-Revision-Date: 2024-10-11 23:06+0300\n"
+"PO-Revision-Date: 2024-10-12 09:42+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
 "Language: uk\n"
@@ -5138,7 +5138,7 @@ msgstr ""
 #: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:149
 #, kde-format
 msgid "REST API"
-msgstr ""
+msgstr "REST API"
 
 #: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:155
 #, kde-format
@@ -5146,6 +5146,8 @@ msgid ""
 "What is the maximum number of records the REST API should return (when not "
 "unlimited)?"
 msgstr ""
+"Яку максимальну кількість записів має повертати програмний інтерфейс REST "
+"(якщо обмежено)?"
 
 #: widgets/administratorsettingsdialog/irc/ircwidget.cpp:21
 #, kde-format

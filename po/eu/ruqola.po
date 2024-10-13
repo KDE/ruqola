@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-10-12 00:38+0000\n"
-"PO-Revision-Date: 2024-10-05 21:19+0200\n"
+"PO-Revision-Date: 2024-10-12 17:35+0200\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
 "Language: eu\n"
@@ -4003,20 +4003,16 @@ msgid "Show UserAgent on failed login attempts logs"
 msgstr "Erakutsi «UserAgent» huts egindako saio-sarrera saiakeretan"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:59
-#, fuzzy, kde-format
-#| msgctxt "@option:check"
-#| msgid "Show UserAgent on failed login attempts logs"
+#, kde-format
 msgctxt "@option:check"
 msgid "Show Client IP on failed login attempts logs"
-msgstr "Erakutsi «UserAgent» huts egindako saio-sarrera saiakeretan"
+msgstr "Erakutsi Bezeroaren IPa huts egindako saio-sarrera saiakeretan"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:60
-#, fuzzy, kde-format
-#| msgctxt "@option:check"
-#| msgid "Show Username on failed login attempts logs"
+#, kde-format
 msgctxt "@option:check"
 msgid "Show Forwarded IP on failed login attempts logs"
-msgstr "Erakutsi Erabiltzaile-izena huts egindako saio-sarrera saiakeretan"
+msgstr "Erakutsi Birbidalitako IPa huts egindako saio-sarrera saiakeretan"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:115
 #, kde-format
@@ -4715,7 +4711,7 @@ msgstr "Zifratu fitxategiak"
 #, kde-format
 msgctxt "@option:check"
 msgid "Access unencrypted content in encrypted rooms"
-msgstr ""
+msgstr "Zifratuetako geletan zifratu gabeko edukietara sartzea"
 
 #: widgets/administratorsettingsdialog/encryption/encryptionsettingswidget.cpp:21
 #, kde-format
@@ -4740,6 +4736,8 @@ msgid ""
 "Allow access to encrypted rooms to people without room encryption keys. "
 "They'll be able to see and send unencrypted messages."
 msgstr ""
+"Gelako zifratze-gakorik ez dutenei zifratutako geletara sartzeko aukera "
+"ematea. Zifratu gabeko mezuak ikusi eta bidali ahal izango dituzte."
 
 #: widgets/administratorsettingsdialog/encryption/encryptionsettingswidget.cpp:50
 #, kde-format
@@ -5118,7 +5116,7 @@ msgstr ""
 #: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:149
 #, kde-format
 msgid "REST API"
-msgstr ""
+msgstr "REST API"
 
 #: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:155
 #, kde-format
@@ -5126,6 +5124,8 @@ msgid ""
 "What is the maximum number of records the REST API should return (when not "
 "unlimited)?"
 msgstr ""
+"Zein da REST APIak gehienez itzuli beharko lukeen erregistro kopurua "
+"(mugagabea ez denean)?"
 
 #: widgets/administratorsettingsdialog/irc/ircwidget.cpp:21
 #, kde-format
@@ -6299,7 +6299,7 @@ msgstr "Ezarri"
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Restore"
-msgstr ""
+msgstr "Lehengoratu"
 
 #: widgets/administratorsettingsdialog/slackbridge/slackbridgewidget.cpp:20
 #, kde-format
@@ -7758,11 +7758,9 @@ msgid "Encrypted Room:"
 msgstr "Zifratutako gela:"
 
 #: widgets/dialogs/createnewchannelwidget.cpp:75
-#, fuzzy, kde-format
-#| msgid "Moderator:"
-#| msgid_plural "Moderators:"
+#, kde-format
 msgid "Federated:"
-msgstr "Moderatzailea:"
+msgstr "Federatua:"
 
 #: widgets/dialogs/createnewdiscussiondialog.cpp:28
 #, kde-format
@@ -10834,11 +10832,10 @@ msgstr ""
 "Baimendu gelaren historia garbitzea, gela denbora luzez ireki ez denean."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:18
-#, fuzzy
-#| msgctxt "@title:window"
-#| msgid "Administrator Server Settings - %1"
 msgid "Add restore button in administrator server settings dialog."
-msgstr "Zerbitzari administratzailearen ezarpenak - %1"
+msgstr ""
+"Gehitu lehengoratzeko botoia administratzaile zerbitzariaren ezarpenak "
+"elkarrizketa koadroan."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:28
 #, kde-format

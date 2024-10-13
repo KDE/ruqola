@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-10-12 00:38+0000\n"
-"PO-Revision-Date: 2024-10-11 11:15+0200\n"
+"PO-Revision-Date: 2024-10-12 11:41+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca\n"
@@ -5116,7 +5116,7 @@ msgstr ""
 #: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:149
 #, kde-format
 msgid "REST API"
-msgstr ""
+msgstr "API REST"
 
 #: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:155
 #, kde-format
@@ -5124,6 +5124,8 @@ msgid ""
 "What is the maximum number of records the REST API should return (when not "
 "unlimited)?"
 msgstr ""
+"Quin és el nombre màxim de registres que hauria de retornar l'API de REST "
+"(quan no és il·limitat)?"
 
 #: widgets/administratorsettingsdialog/irc/ircwidget.cpp:21
 #, kde-format

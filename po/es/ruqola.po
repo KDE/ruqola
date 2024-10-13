@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-10-12 00:38+0000\n"
-"PO-Revision-Date: 2024-10-05 18:51+0200\n"
+"PO-Revision-Date: 2024-10-12 18:18+0200\n"
 "Last-Translator: Víctor Rodrigo Córdoba <vrcordoba@gmail.com>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -3997,23 +3997,19 @@ msgstr ""
 "fallidos"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:59
-#, fuzzy, kde-format
-#| msgctxt "@option:check"
-#| msgid "Show UserAgent on failed login attempts logs"
+#, kde-format
 msgctxt "@option:check"
 msgid "Show Client IP on failed login attempts logs"
 msgstr ""
-"Mostrar agente de usuario en los registros de atentos de inicio de sesión "
+"Mostrar IP del cliente en los registros de atentos de inicio de sesión "
 "fallidos"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:60
-#, fuzzy, kde-format
-#| msgctxt "@option:check"
-#| msgid "Show Username on failed login attempts logs"
+#, kde-format
 msgctxt "@option:check"
 msgid "Show Forwarded IP on failed login attempts logs"
 msgstr ""
-"Mostrar nombre de usuario en los registros de atentos de inicio de sesión "
+"Mostrar la IP de redirección en los registros de atentos de inicio de sesión "
 "fallidos"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:115
@@ -4715,7 +4711,7 @@ msgstr "Cifrar archivos"
 #, kde-format
 msgctxt "@option:check"
 msgid "Access unencrypted content in encrypted rooms"
-msgstr ""
+msgstr "Acceder a contenido no cifrado en salas cifradas"
 
 #: widgets/administratorsettingsdialog/encryption/encryptionsettingswidget.cpp:21
 #, kde-format
@@ -4740,6 +4736,8 @@ msgid ""
 "Allow access to encrypted rooms to people without room encryption keys. "
 "They'll be able to see and send unencrypted messages."
 msgstr ""
+"Permite acceder a salas cifradas a usuarios sin claves de cifrado de la "
+"sala. Serán capaces de ver y enviar mensajes no cifrados."
 
 #: widgets/administratorsettingsdialog/encryption/encryptionsettingswidget.cpp:50
 #, kde-format
@@ -5122,7 +5120,7 @@ msgstr ""
 #: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:149
 #, kde-format
 msgid "REST API"
-msgstr ""
+msgstr "API REST"
 
 #: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:155
 #, kde-format
@@ -5130,6 +5128,8 @@ msgid ""
 "What is the maximum number of records the REST API should return (when not "
 "unlimited)?"
 msgstr ""
+"¿Cual es el máximo número de registros que la API REST debería devolver "
+"(cuando no es ilimitado)?"
 
 #: widgets/administratorsettingsdialog/irc/ircwidget.cpp:21
 #, kde-format
@@ -6305,7 +6305,7 @@ msgstr "Aplicar"
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Restore"
-msgstr ""
+msgstr "Restaurar"
 
 #: widgets/administratorsettingsdialog/slackbridge/slackbridgewidget.cpp:20
 #, kde-format
@@ -7764,11 +7764,9 @@ msgid "Encrypted Room:"
 msgstr "Sala cifrada:"
 
 #: widgets/dialogs/createnewchannelwidget.cpp:75
-#, fuzzy, kde-format
-#| msgid "Moderator:"
-#| msgid_plural "Moderators:"
+#, kde-format
 msgid "Federated:"
-msgstr "Moderador:"
+msgstr "Federado:"
 
 #: widgets/dialogs/createnewdiscussiondialog.cpp:28
 #, kde-format
@@ -10846,11 +10844,10 @@ msgstr ""
 "un periodo largo."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:18
-#, fuzzy
-#| msgctxt "@title:window"
-#| msgid "Administrator Server Settings - %1"
 msgid "Add restore button in administrator server settings dialog."
-msgstr "Preferencia del servidor del administrador - %1"
+msgstr ""
+"Se ha añadido el botón de restaurar en el diálogo de preferencias del "
+"administrador del servidor."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:28
 #, kde-format
@@ -11193,10 +11190,3 @@ msgstr ""
 #, kde-format
 msgid "Some bug fixing:"
 msgstr "Algunas correcciones de errores:"
-
-#, fuzzy
-#~| msgctxt "@title:window"
-#~| msgid "Reset E2E"
-#~ msgctxt "@info:tooltip"
-#~ msgid "Reset"
-#~ msgstr "Reiniciar E2E"

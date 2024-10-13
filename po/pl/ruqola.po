@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-10-12 00:38+0000\n"
-"PO-Revision-Date: 2024-10-05 13:03+0200\n"
+"PO-Revision-Date: 2024-10-12 10:18+0200\n"
 "Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>\n"
 "Language-Team: Polish <kde-i18n-doc@kde.org>\n"
 "Language: pl\n"
@@ -3997,20 +3997,16 @@ msgid "Show UserAgent on failed login attempts logs"
 msgstr "Pokaż UserAgent dla nieudanych prób logowania"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:59
-#, fuzzy, kde-format
-#| msgctxt "@option:check"
-#| msgid "Show UserAgent on failed login attempts logs"
+#, kde-format
 msgctxt "@option:check"
 msgid "Show Client IP on failed login attempts logs"
-msgstr "Pokaż UserAgent dla nieudanych prób logowania"
+msgstr "Pokaż IP klienta dla nieudanych prób logowania"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:60
-#, fuzzy, kde-format
-#| msgctxt "@option:check"
-#| msgid "Show Username on failed login attempts logs"
+#, kde-format
 msgctxt "@option:check"
 msgid "Show Forwarded IP on failed login attempts logs"
-msgstr "Pokaż nazwę użytkownika dla nieudanych prób logowania"
+msgstr "Pokaż przekierowany IP dla nieudanych prób logowania"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:115
 #, kde-format
@@ -4708,7 +4704,7 @@ msgstr "Zaszyfruj pliki"
 #, kde-format
 msgctxt "@option:check"
 msgid "Access unencrypted content in encrypted rooms"
-msgstr ""
+msgstr "Uzyskaj dostęp do nieszyfrowanej treści w szyfrowanych pokojach"
 
 #: widgets/administratorsettingsdialog/encryption/encryptionsettingswidget.cpp:21
 #, kde-format
@@ -4733,6 +4729,8 @@ msgid ""
 "Allow access to encrypted rooms to people without room encryption keys. "
 "They'll be able to see and send unencrypted messages."
 msgstr ""
+"Zezwól na dostęp do szyfrowanych pokojów ludziom bez kluczy szyfrujących. "
+"Będą oni mogli zobaczyć i wysyłać niezaszyfrowane wiadomości."
 
 #: widgets/administratorsettingsdialog/encryption/encryptionsettingswidget.cpp:50
 #, kde-format
@@ -6296,7 +6294,7 @@ msgstr "Zastosuj"
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Restore"
-msgstr ""
+msgstr "Przywróć"
 
 #: widgets/administratorsettingsdialog/slackbridge/slackbridgewidget.cpp:20
 #, kde-format
@@ -7760,11 +7758,9 @@ msgid "Encrypted Room:"
 msgstr "Pokój zaszyfrowany:"
 
 #: widgets/dialogs/createnewchannelwidget.cpp:75
-#, fuzzy, kde-format
-#| msgid "Moderator:"
-#| msgid_plural "Moderators:"
+#, kde-format
 msgid "Federated:"
-msgstr "Moderator:"
+msgstr "Federowane:"
 
 #: widgets/dialogs/createnewdiscussiondialog.cpp:28
 #, kde-format
@@ -10840,11 +10836,8 @@ msgstr ""
 "długi czas."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:18
-#, fuzzy
-#| msgctxt "@title:window"
-#| msgid "Administrator Server Settings - %1"
 msgid "Add restore button in administrator server settings dialog."
-msgstr "Ustawienia administratora serwera - %1"
+msgstr "Dodano przycisk przywracania w oknie ustawień serwera."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:28
 #, kde-format
