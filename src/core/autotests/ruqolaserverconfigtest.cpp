@@ -71,6 +71,17 @@ void RuqolaServerConfigTest::shouldHaveDefaultValues()
     QVERIFY(config.allowEmailNotifications());
     QVERIFY(!config.allowEmailVerification());
     QVERIFY(!config.federationEnabled());
+
+    RuqolaServerConfig::PasswordSettings passwordSetting;
+    QVERIFY(!passwordSetting.accountsPasswordPolicyEnabled);
+    QVERIFY(passwordSetting.accountsPasswordPolicyForbidRepeatingCharacters);
+    QVERIFY(passwordSetting.accountsPasswordPolicyAtLeastOneLowercase);
+    QVERIFY(passwordSetting.accountsPasswordPolicyAtLeastOneUppercase);
+    QVERIFY(passwordSetting.accountsPasswordPolicyAtLeastOneNumber);
+    QVERIFY(passwordSetting.accountsPasswordPolicyAtLeastOneSpecialCharacter);
+    QCOMPARE(passwordSetting.accountsPasswordPolicyMinLength, 12);
+    QCOMPARE(passwordSetting.accountsPasswordPolicyMaxLength, 24);
+    QCOMPARE(passwordSetting.accountsPasswordPolicyForbidRepeatingCharactersCount, 3);
 }
 
 void RuqolaServerConfigTest::shouldAssignValues()
