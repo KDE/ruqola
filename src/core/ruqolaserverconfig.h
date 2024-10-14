@@ -24,6 +24,18 @@ public:
         [[nodiscard]] bool operator==(const RuqolaServerConfig::ConfigWithDefaultValue &other) const;
     };
 
+    struct LIBRUQOLACORE_EXPORT PasswordSettings {
+        bool accountsPasswordPolicyEnabled = false;
+        int accountsPasswordPolicyMinLength = 12;
+        int accountsPasswordPolicyMaxLength = 24;
+        bool accountsPasswordPolicyForbidRepeatingCharacters = true;
+        int accountsPasswordPolicyForbidRepeatingCharactersCount = 3;
+        bool accountsPasswordPolicyAtLeastOneLowercase = true;
+        bool accountsPasswordPolicyAtLeastOneUppercase = true;
+        bool accountsPasswordPolicyAtLeastOneNumber = true;
+        bool accountsPasswordPolicyAtLeastOneSpecialCharacter = true;
+    };
+
     RuqolaServerConfig();
 
     enum ServerConfigFeatureType {
