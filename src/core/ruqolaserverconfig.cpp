@@ -5,7 +5,6 @@
 */
 
 #include "ruqolaserverconfig.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "ruqola_authentication_debug.h"
 #include "ruqola_debug.h"
@@ -14,6 +13,7 @@ using namespace Qt::Literals::StringLiterals;
 #include <QJsonObject>
 #include <QRegularExpression>
 #include <QStringList>
+using namespace Qt::Literals::StringLiterals;
 
 RuqolaServerConfig::RuqolaServerConfig() = default;
 
@@ -632,7 +632,7 @@ void RuqolaServerConfig::loadSettings(const QJsonObject &currentConfObject)
         setAllowEmailVerification(value.toBool());
     } else if (id == "FEDERATION_Enabled"_L1) {
         setFederationEnabled(value.toBool());
-    } else {
+    } else if (!mPasswordSettings.loadSettings(id, value)) {
         qCDebug(RUQOLA_LOG) << "Other public settings id " << id << value;
     }
 }
@@ -783,6 +783,19 @@ QByteArray RuqolaServerConfig::serialize(bool toBinary)
     array.append(createJsonObject(QStringLiteral("Accounts_AllowEmailNotifications"), allowEmailNotifications()));
     array.append(createJsonObject(QStringLiteral("Accounts_EmailVerification"), allowEmailVerification()));
     array.append(createJsonObject(QStringLiteral("FEDERATION_Enabled"), federationEnabled()));
+
+    array.append(createJsonObject(QStringLiteral("Accounts_Password_Policy_Enabled"), mPasswordSettings.accountsPasswordPolicyEnabled));
+    array.append(createJsonObject(QStringLiteral("Accounts_Password_Policy_ForbidRepeatingCharacters"),
+                                  mPasswordSettings.accountsPasswordPolicyForbidRepeatingCharacters));
+    array.append(createJsonObject(QStringLiteral("Accounts_Password_Policy_AtLeastOneSpecialCharacter"),
+                                  mPasswordSettings.accountsPasswordPolicyAtLeastOneSpecialCharacter));
+    array.append(createJsonObject(QStringLiteral("Accounts_Password_Policy_AtLeastOneNumber"), mPasswordSettings.accountsPasswordPolicyAtLeastOneNumber));
+    array.append(createJsonObject(QStringLiteral("Accounts_Password_Policy_AtLeastOneUppercase"), mPasswordSettings.accountsPasswordPolicyAtLeastOneUppercase));
+    array.append(createJsonObject(QStringLiteral("Accounts_Password_Policy_AtLeastOneLowercase"), mPasswordSettings.accountsPasswordPolicyAtLeastOneLowercase));
+    array.append(createJsonObject(QStringLiteral("Accounts_Password_Policy_MinLength"), mPasswordSettings.accountsPasswordPolicyMinLength));
+    array.append(createJsonObject(QStringLiteral("Accounts_Password_Policy_MaxLength"), mPasswordSettings.accountsPasswordPolicyMaxLength));
+    array.append(createJsonObject(QStringLiteral("Accounts_Password_Policy_ForbidRepeatingCharactersCount"),
+                                  mPasswordSettings.accountsPasswordPolicyForbidRepeatingCharactersCount));
 
     o["result"_L1] = array;
 
@@ -971,6 +984,44 @@ void RuqolaServerConfig::loadAccountSettingsFromLocalDataBase(const QByteArray &
     const QJsonDocument doc = QJsonDocument::fromJson(ba);
     const QJsonObject newObj = doc.object();
     deserialize(newObj);
+}
+
+bool RuqolaServerConfig::PasswordSettings::loadSettings(const QString &id, const QVariant &value)
+{
+    if (id == "Accounts_Password_Policy_Enabled"_L1) {
+        accountsPasswordPolicyEnabled = value.toBool();
+    } else if (id == "Accounts_Password_Policy_ForbidRepeatingCharacters"_L1) {
+        accountsPasswordPolicyForbidRepeatingCharacters = value.toBool();
+    } else if (id == "Accounts_Password_Policy_AtLeastOneSpecialCharacter"_L1) {
+        accountsPasswordPolicyAtLeastOneSpecialCharacter = value.toBool();
+    } else if (id == "Accounts_Password_Policy_AtLeastOneNumber"_L1) {
+        accountsPasswordPolicyAtLeastOneNumber = value.toBool();
+    } else if (id == "Accounts_Password_Policy_AtLeastOneUppercase"_L1) {
+        accountsPasswordPolicyAtLeastOneUppercase = value.toBool();
+    } else if (id == "Accounts_Password_Policy_AtLeastOneLowercase"_L1) {
+        accountsPasswordPolicyAtLeastOneLowercase = value.toBool();
+    } else if (id == "Accounts_Password_Policy_MinLength"_L1) {
+        accountsPasswordPolicyMinLength = value.toInt();
+    } else if (id == "Accounts_Password_Policy_MaxLength"_L1) {
+        accountsPasswordPolicyMaxLength = value.toInt();
+    } else if (id == "Accounts_Password_Policy_ForbidRepeatingCharactersCount"_L1) {
+        accountsPasswordPolicyForbidRepeatingCharactersCount = value.toInt();
+    } else {
+        return false;
+    }
+    return true;
+}
+
+bool RuqolaServerConfig::PasswordSettings::operator==(const PasswordSettings &other) const
+{
+    return accountsPasswordPolicyMinLength == other.accountsPasswordPolicyMinLength && accountsPasswordPolicyMaxLength == other.accountsPasswordPolicyMaxLength
+        && accountsPasswordPolicyForbidRepeatingCharactersCount == other.accountsPasswordPolicyForbidRepeatingCharactersCount
+        && accountsPasswordPolicyEnabled == other.accountsPasswordPolicyEnabled
+        && accountsPasswordPolicyForbidRepeatingCharacters == other.accountsPasswordPolicyForbidRepeatingCharacters
+        && accountsPasswordPolicyAtLeastOneLowercase == other.accountsPasswordPolicyAtLeastOneLowercase
+        && accountsPasswordPolicyAtLeastOneUppercase == other.accountsPasswordPolicyAtLeastOneUppercase
+        && accountsPasswordPolicyAtLeastOneNumber == other.accountsPasswordPolicyAtLeastOneNumber
+        && accountsPasswordPolicyAtLeastOneSpecialCharacter == other.accountsPasswordPolicyAtLeastOneSpecialCharacter;
 }
 
 #include "moc_ruqolaserverconfig.cpp"

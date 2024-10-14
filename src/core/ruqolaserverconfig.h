@@ -25,15 +25,17 @@ public:
     };
 
     struct LIBRUQOLACORE_EXPORT PasswordSettings {
-        bool accountsPasswordPolicyEnabled = false;
         int accountsPasswordPolicyMinLength = 12;
         int accountsPasswordPolicyMaxLength = 24;
-        bool accountsPasswordPolicyForbidRepeatingCharacters = true;
         int accountsPasswordPolicyForbidRepeatingCharactersCount = 3;
+        bool accountsPasswordPolicyEnabled = false;
+        bool accountsPasswordPolicyForbidRepeatingCharacters = true;
         bool accountsPasswordPolicyAtLeastOneLowercase = true;
         bool accountsPasswordPolicyAtLeastOneUppercase = true;
         bool accountsPasswordPolicyAtLeastOneNumber = true;
         bool accountsPasswordPolicyAtLeastOneSpecialCharacter = true;
+        [[nodiscard]] bool loadSettings(const QString &id, const QVariant &value);
+        [[nodiscard]] bool operator==(const RuqolaServerConfig::PasswordSettings &other) const;
     };
 
     RuqolaServerConfig();
@@ -235,6 +237,7 @@ private:
                                                                               const RuqolaServerConfig::ConfigWithDefaultValue &value);
     [[nodiscard]] LIBRUQOLACORE_NO_EXPORT static RuqolaServerConfig::ConfigWithDefaultValue parseConfigWithDefaultValue(const QJsonObject &o);
 
+    PasswordSettings mPasswordSettings;
     QString mUniqueId;
     QString mJitsiMeetUrl;
     QString mJitsiMeetPrefix;
