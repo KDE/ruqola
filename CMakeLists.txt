@@ -39,7 +39,6 @@ include(KDEClangFormat)
 include(ECMGenerateHeaders)
 include(ECMSetupVersion)
 include(ECMCheckOutboundLicense)
-option(OPTION_SELENIUMWEBDRIVER_SUPPORT "Add selenium driver test (experimental)" OFF)
 option(OPTION_USE_SIZEHINT_CACHE_SUPPORT "Add sizehint cache" ON)
 option(OPTION_USE_ROUNDED_RECT_PIXMAP "Show avatar in a rounded rect" ON)
 option(OPTION_USE_PERSONAL_ACCESS_TOKEN "Activate Personal Access Token Support" ON)
@@ -245,10 +244,6 @@ set_package_properties(Qt6Keychain PROPERTIES
     URL "https://github.com/frankosterfeld/qtkeychain"
     TYPE REQUIRED)
 
-if(OPTION_SELENIUMWEBDRIVER_SUPPORT)
-    find_package(SeleniumWebDriverATSPI)
-    set_package_properties(SeleniumWebDriverATSPI PROPERTIES PURPOSE "Needed for GUI tests" URL "https://invent.kde.org/sdk/selenium-webdriver-at-spi" TYPE OPTIONAL)
-endif()
 
 find_package(KF6UserFeedback ${KF_MIN_VERSION} CONFIG)
 set(HAVE_KUSERFEEDBACK ${KF6UserFeedback_FOUND})
