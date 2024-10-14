@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-10-12 00:38+0000\n"
-"PO-Revision-Date: 2024-10-05 11:52+0200\n"
+"PO-Revision-Date: 2024-10-12 11:41+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca@valencia\n"
@@ -3994,22 +3994,18 @@ msgstr ""
 "Mostra l'«UserAgent» en els registres d'intents d'inici de sessió fallits"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:59
-#, fuzzy, kde-format
-#| msgctxt "@option:check"
-#| msgid "Show UserAgent on failed login attempts logs"
+#, kde-format
 msgctxt "@option:check"
 msgid "Show Client IP on failed login attempts logs"
 msgstr ""
-"Mostra l'«UserAgent» en els registres d'intents d'inici de sessió fallits"
+"Mostra la IP del client en els registres d'intents d'inici de sessió fallits"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:60
-#, fuzzy, kde-format
-#| msgctxt "@option:check"
-#| msgid "Show Username on failed login attempts logs"
+#, kde-format
 msgctxt "@option:check"
 msgid "Show Forwarded IP on failed login attempts logs"
 msgstr ""
-"Mostra el nom d'usuari en els registres d'intents d'inici de sessió fallits"
+"Mostra la IP reenviada en els registres d'intents d'inici de sessió fallits"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:115
 #, kde-format
@@ -4710,7 +4706,7 @@ msgstr "Encripta fitxers"
 #, kde-format
 msgctxt "@option:check"
 msgid "Access unencrypted content in encrypted rooms"
-msgstr ""
+msgstr "Accés a contingut sense encriptar en sales encriptades"
 
 #: widgets/administratorsettingsdialog/encryption/encryptionsettingswidget.cpp:21
 #, kde-format
@@ -4735,6 +4731,8 @@ msgid ""
 "Allow access to encrypted rooms to people without room encryption keys. "
 "They'll be able to see and send unencrypted messages."
 msgstr ""
+"Permet accedir a sales encriptades a persones sense claus d'encriptació. "
+"Podran veure i enviar missatges sense encriptar."
 
 #: widgets/administratorsettingsdialog/encryption/encryptionsettingswidget.cpp:50
 #, kde-format
@@ -5116,7 +5114,7 @@ msgstr ""
 #: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:149
 #, kde-format
 msgid "REST API"
-msgstr ""
+msgstr "API de Rest"
 
 #: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:155
 #, kde-format
@@ -5124,6 +5122,8 @@ msgid ""
 "What is the maximum number of records the REST API should return (when not "
 "unlimited)?"
 msgstr ""
+"Quin és el nombre màxim de registres que hauria de retornar l'API de REST "
+"(quan no és il·limitat)?"
 
 #: widgets/administratorsettingsdialog/irc/ircwidget.cpp:21
 #, kde-format
@@ -6300,7 +6300,7 @@ msgstr "Aplica"
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Restore"
-msgstr ""
+msgstr "Restaura"
 
 #: widgets/administratorsettingsdialog/slackbridge/slackbridgewidget.cpp:20
 #, kde-format
@@ -7761,11 +7761,9 @@ msgid "Encrypted Room:"
 msgstr "Sala encriptada:"
 
 #: widgets/dialogs/createnewchannelwidget.cpp:75
-#, fuzzy, kde-format
-#| msgid "Moderator:"
-#| msgid_plural "Moderators:"
+#, kde-format
 msgid "Federated:"
-msgstr "Moderador:"
+msgstr "Federat:"
 
 #: widgets/dialogs/createnewdiscussiondialog.cpp:28
 #, kde-format
@@ -10843,11 +10841,10 @@ msgstr ""
 "temps."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:18
-#, fuzzy
-#| msgctxt "@title:window"
-#| msgid "Administrator Server Settings - %1"
 msgid "Add restore button in administrator server settings dialog."
-msgstr "Configureu l'administració del servidor - %1"
+msgstr ""
+"Afig el botó de restauració en el diàleg de configuració d'administració del "
+"servidor."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:28
 #, kde-format
@@ -11190,10 +11187,3 @@ msgstr ""
 #, kde-format
 msgid "Some bug fixing:"
 msgstr "Esmena d'errors:"
-
-#, fuzzy
-#~| msgctxt "@title:window"
-#~| msgid "Reset E2E"
-#~ msgctxt "@info:tooltip"
-#~ msgid "Reset"
-#~ msgstr "Reinicia E2E"
