@@ -416,6 +416,16 @@ RuqolaServerConfig::ConfigWithDefaultValue RuqolaServerConfig::parseConfigWithDe
     return value;
 }
 
+RuqolaServerConfig::PasswordSettings RuqolaServerConfig::passwordSettings() const
+{
+    return mPasswordSettings;
+}
+
+void RuqolaServerConfig::setPasswordSettings(const PasswordSettings &newPasswordSettings)
+{
+    mPasswordSettings = newPasswordSettings;
+}
+
 bool RuqolaServerConfig::federationEnabled() const
 {
     return mFederationEnabled;

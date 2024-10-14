@@ -225,6 +225,9 @@ public:
     [[nodiscard]] bool federationEnabled() const;
     void setFederationEnabled(bool newFederationEnabled);
 
+    [[nodiscard]] PasswordSettings passwordSettings() const;
+    void setPasswordSettings(const PasswordSettings &newPasswordSettings);
+
 private:
     Q_DISABLE_COPY(RuqolaServerConfig)
     LIBRUQOLACORE_NO_EXPORT void assignSettingValue(bool value, ServerConfigFeatureType type);
