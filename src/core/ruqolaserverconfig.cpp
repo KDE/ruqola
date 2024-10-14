@@ -396,6 +396,7 @@ QDebug operator<<(QDebug d, const RuqolaServerConfig &t)
     d.space() << "embedCacheExpirationDays " << t.embedCacheExpirationDays();
     d.space() << "accountsDefaultUserPreferencesPushNotifications " << t.accountsDefaultUserPreferencesPushNotifications();
     d.space() << "accountsDefaultUserPreferencesDesktopNotifications " << t.accountsDefaultUserPreferencesDesktopNotifications();
+    d.space() << "mPasswordSettings " << t.passwordSettings();
     return d;
 }
 
@@ -1032,6 +1033,20 @@ bool RuqolaServerConfig::PasswordSettings::operator==(const PasswordSettings &ot
         && accountsPasswordPolicyAtLeastOneUppercase == other.accountsPasswordPolicyAtLeastOneUppercase
         && accountsPasswordPolicyAtLeastOneNumber == other.accountsPasswordPolicyAtLeastOneNumber
         && accountsPasswordPolicyAtLeastOneSpecialCharacter == other.accountsPasswordPolicyAtLeastOneSpecialCharacter;
+}
+
+QDebug operator<<(QDebug d, const RuqolaServerConfig::PasswordSettings &t)
+{
+    d.space() << "accountsPasswordPolicyMinLength" << t.accountsPasswordPolicyMinLength;
+    d.space() << "accountsPasswordPolicyMaxLength" << t.accountsPasswordPolicyMaxLength;
+    d.space() << "accountsPasswordPolicyForbidRepeatingCharactersCount" << t.accountsPasswordPolicyForbidRepeatingCharactersCount;
+    d.space() << "accountsPasswordPolicyEnabled" << t.accountsPasswordPolicyEnabled;
+    d.space() << "accountsPasswordPolicyForbidRepeatingCharacters " << t.accountsPasswordPolicyForbidRepeatingCharacters;
+    d.space() << "accountsPasswordPolicyAtLeastOneLowercase" << t.accountsPasswordPolicyAtLeastOneLowercase;
+    d.space() << "accountsPasswordPolicyAtLeastOneUppercase" << t.accountsPasswordPolicyAtLeastOneUppercase;
+    d.space() << "accountsPasswordPolicyAtLeastOneNumber" << t.accountsPasswordPolicyAtLeastOneNumber;
+    d.space() << "accountsPasswordPolicyAtLeastOneSpecialCharacter" << t.accountsPasswordPolicyAtLeastOneSpecialCharacter;
+    return d;
 }
 
 #include "moc_ruqolaserverconfig.cpp"

@@ -292,3 +292,4 @@ private:
 };
 LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const RuqolaServerConfig &t);
 LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const RuqolaServerConfig::ConfigWithDefaultValue &t);
+LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const RuqolaServerConfig::PasswordSettings &t);
