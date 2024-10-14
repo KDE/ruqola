@@ -41,4 +41,5 @@ private:
     QLineEdit *const mStreamCastAddress;
 
     QSpinBox *const mRestApiUpperCountLimit;
+    QCheckBox *const mUseRestForDDPCalls;
 };

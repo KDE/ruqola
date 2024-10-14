@@ -159,6 +159,12 @@ void GeneralSettingsWidgetTest::shouldHaveDefaultValues()
     QVERIFY(mRestApiUpperCountLimit);
     QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mRestApiUpperCountLimit), QStringLiteral("API_Upper_Count_Limit"));
     SettingsWidgetHelper::checkLabelToolButton(&w, QStringLiteral("API_Upper_Count_Limit"));
+
+    auto mUseRestForDDPCalls = w.findChild<QCheckBox *>(QStringLiteral("mUseRestForDDPCalls"));
+    QVERIFY(mUseRestForDDPCalls);
+    QVERIFY(!mUseRestForDDPCalls->isChecked());
+    QVERIFY(!mUseRestForDDPCalls->text().isEmpty());
+    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mUseRestForDDPCalls), QStringLiteral("API_Use_REST_For_DDP_Calls"));
 }
 
 #include "moc_generalsettingswidgettest.cpp"
