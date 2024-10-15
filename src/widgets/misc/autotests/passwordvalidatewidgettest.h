@@ -14,4 +14,7 @@ class PasswordValidateWidgetTest : public QObject
 public:
     explicit PasswordValidateWidgetTest(QObject *parent = nullptr);
     ~PasswordValidateWidgetTest() override = default;
+
+private Q_SLOTS:
+    void shouldHaveDefaultValues();
 };
