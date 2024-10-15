@@ -88,9 +88,13 @@ void PasswordValidateWidget::initializeWidget()
             addLabel(c, row, col, mPasswordSettings.accountsPasswordPolicyMaxLength);
             updateGridPosition(row, col);
         }
-        c = RuqolaServerConfig::PasswordSettings::PasswordSettingCheck::ForbidRepeatingCharacters;
+        c = RuqolaServerConfig::PasswordSettings::PasswordSettingCheck::ForbidRepeatingCharactersCount;
         if (checks & c) {
             addLabel(c, row, col, mPasswordSettings.accountsPasswordPolicyForbidRepeatingCharactersCount);
+        }
+        c = RuqolaServerConfig::PasswordSettings::PasswordSettingCheck::ForbidRepeatingCharacters;
+        if (checks & c) {
+            addLabel(c, row, col, mPasswordSettings.accountsPasswordPolicyForbidRepeatingCharacters);
         }
     }
     validatePassword(QString()); // Initialize status
@@ -122,6 +126,8 @@ void PasswordValidateWidget::validatePassword(const QString &password)
     c = RuqolaServerConfig::PasswordSettings::PasswordSettingCheck::MaxLengh;
     setValidStatus(c, checks & c);
     c = RuqolaServerConfig::PasswordSettings::PasswordSettingCheck::ForbidRepeatingCharacters;
+    setValidStatus(c, checks & c);
+    c = RuqolaServerConfig::PasswordSettings::PasswordSettingCheck::ForbidRepeatingCharactersCount;
     setValidStatus(c, checks & c);
 }
 
