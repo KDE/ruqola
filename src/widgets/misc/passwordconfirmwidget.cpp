@@ -29,6 +29,7 @@ PasswordConfirmWidget::PasswordConfirmWidget(QWidget *parent)
     mPasswordValidateWidget->setObjectName(QStringLiteral("mPasswordValidateWidget"));
     mainLayout->addWidget(mPasswordValidateWidget);
     connect(mNewPasswordLineEdit, &KPasswordLineEdit::passwordChanged, mPasswordValidateWidget, &PasswordValidateWidget::validatePassword);
+    connect(mPasswordValidateWidget, &PasswordValidateWidget::passwordIsValid, mConfirmPasswordLineEdit, &KPasswordLineEdit::setEnabled);
 
     mConfirmPasswordLineEdit->setObjectName(QStringLiteral("mConfirmPasswordLineEdit"));
     mainLayout->addRow(i18n("Confirm Password:"), mConfirmPasswordLineEdit);
