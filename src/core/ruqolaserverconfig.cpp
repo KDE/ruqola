@@ -1085,6 +1085,12 @@ RuqolaServerConfig::PasswordSettings::PasswordSettingChecks RuqolaServerConfig::
     return checks;
 }
 
+bool RuqolaServerConfig::PasswordSettings::isValidatePassword(PasswordSettingChecks checks) const
+{
+    // TODO
+    return false;
+}
+
 QDebug operator<<(QDebug d, const RuqolaServerConfig::PasswordSettings &t)
 {
     d.space() << "accountsPasswordPolicyMinLength" << t.accountsPasswordPolicyMinLength;
