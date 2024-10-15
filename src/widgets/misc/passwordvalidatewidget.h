@@ -35,6 +35,9 @@ public:
 
     void validatePassword(const QString &password);
 
+Q_SIGNALS:
+    void passwordIsValid(bool valid);
+
 private:
     LIBRUQOLAWIDGETS_NO_EXPORT void addLabel(RuqolaServerConfig::PasswordSettings::PasswordSettingCheck c, int row, int col, int value = -1);
     LIBRUQOLAWIDGETS_NO_EXPORT void initializeWidget();

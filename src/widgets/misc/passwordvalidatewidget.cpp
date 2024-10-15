@@ -128,6 +128,8 @@ void PasswordValidateWidget::validatePassword(const QString &password)
     setValidStatus(c, checks & c);
     c = RuqolaServerConfig::PasswordSettings::PasswordSettingCheck::ForbidRepeatingCharactersCount;
     setValidStatus(c, checks & c);
+
+    Q_EMIT passwordIsValid(mPasswordSettings.isValidatePassword(c));
 }
 
 PasswordValidateLabel::PasswordValidateLabel(QWidget *parent)
