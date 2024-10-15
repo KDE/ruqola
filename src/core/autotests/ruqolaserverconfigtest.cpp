@@ -342,11 +342,12 @@ void RuqolaServerConfigTest::shouldCheckPassword_data()
     QTest::addColumn<QString>("password");
     QTest::addColumn<RuqolaServerConfig::PasswordSettings>("passwordSettings");
     QTest::addColumn<RuqolaServerConfig::PasswordSettings::PasswordSettingChecks>("checks");
+    QTest::addColumn<bool>("valid");
 
     {
         RuqolaServerConfig::PasswordSettings settings;
         RuqolaServerConfig::PasswordSettings::PasswordSettingChecks check = RuqolaServerConfig::PasswordSettings::None;
-        QTest::newRow("empty") << QString() << settings << check;
+        QTest::newRow("empty") << QString() << settings << check << true;
     }
 
     {
@@ -355,7 +356,7 @@ void RuqolaServerConfigTest::shouldCheckPassword_data()
         settings.accountsPasswordPolicyAtLeastOneUppercase = true;
         settings.accountsPasswordPolicyForbidRepeatingCharactersCount = 3;
         RuqolaServerConfig::PasswordSettings::PasswordSettingChecks check = RuqolaServerConfig::PasswordSettings::None;
-        QTest::newRow("disable") << QStringLiteral("sdfsdfDdd2") << settings << check;
+        QTest::newRow("disable") << QStringLiteral("sdfsdfDdd2") << settings << check << true;
     }
 
     {
@@ -363,9 +364,12 @@ void RuqolaServerConfigTest::shouldCheckPassword_data()
         settings.accountsPasswordPolicyEnabled = true;
         settings.accountsPasswordPolicyAtLeastOneUppercase = true;
         settings.accountsPasswordPolicyForbidRepeatingCharactersCount = 3;
-        RuqolaServerConfig::PasswordSettings::PasswordSettingChecks check = {RuqolaServerConfig::PasswordSettings::AtLeastOneUppercase,
-                                                                             RuqolaServerConfig::PasswordSettings::MaxLengh};
-        QTest::newRow("test1") << QStringLiteral("A") << settings << check;
+        RuqolaServerConfig::PasswordSettings::PasswordSettingChecks check = {
+            RuqolaServerConfig::PasswordSettings::AtLeastOneUppercase,
+            RuqolaServerConfig::PasswordSettings::MaxLengh,
+            RuqolaServerConfig::PasswordSettings::ForbidRepeatingCharactersCount,
+        };
+        QTest::newRow("test1") << QStringLiteral("A") << settings << check << false;
     }
     {
         RuqolaServerConfig::PasswordSettings settings;
@@ -374,7 +378,7 @@ void RuqolaServerConfigTest::shouldCheckPassword_data()
         settings.accountsPasswordPolicyForbidRepeatingCharactersCount = 3;
         RuqolaServerConfig::PasswordSettings::PasswordSettingChecks check = {RuqolaServerConfig::PasswordSettings::AtLeastOneUppercase,
                                                                              RuqolaServerConfig::PasswordSettings::MaxLengh};
-        QTest::newRow("test2") << QStringLiteral("AAAAA") << settings << check;
+        QTest::newRow("test2") << QStringLiteral("AAAAA") << settings << check << false;
     }
     {
         RuqolaServerConfig::PasswordSettings settings;
@@ -382,9 +386,12 @@ void RuqolaServerConfigTest::shouldCheckPassword_data()
         settings.accountsPasswordPolicyAtLeastOneUppercase = true;
         settings.accountsPasswordPolicyAtLeastOneLowercase = false;
         settings.accountsPasswordPolicyForbidRepeatingCharactersCount = 3;
-        RuqolaServerConfig::PasswordSettings::PasswordSettingChecks check = {RuqolaServerConfig::PasswordSettings::AtLeastOneUppercase,
-                                                                             RuqolaServerConfig::PasswordSettings::MaxLengh};
-        QTest::newRow("test3") << QStringLiteral("Aqsdfsdfsdf") << settings << check;
+        RuqolaServerConfig::PasswordSettings::PasswordSettingChecks check = {
+            RuqolaServerConfig::PasswordSettings::AtLeastOneUppercase,
+            RuqolaServerConfig::PasswordSettings::MaxLengh,
+            RuqolaServerConfig::PasswordSettings::ForbidRepeatingCharactersCount,
+        };
+        QTest::newRow("test3") << QStringLiteral("Aqsdfsdfsdf") << settings << check << false;
     }
     {
         RuqolaServerConfig::PasswordSettings settings;
@@ -392,23 +399,13 @@ void RuqolaServerConfigTest::shouldCheckPassword_data()
         settings.accountsPasswordPolicyAtLeastOneUppercase = true;
         settings.accountsPasswordPolicyAtLeastOneLowercase = true;
         settings.accountsPasswordPolicyForbidRepeatingCharactersCount = 3;
-        RuqolaServerConfig::PasswordSettings::PasswordSettingChecks check = {RuqolaServerConfig::PasswordSettings::AtLeastOneUppercase,
-                                                                             RuqolaServerConfig::PasswordSettings::AtLeastOneLowercase,
-                                                                             RuqolaServerConfig::PasswordSettings::MaxLengh};
-        QTest::newRow("test4") << QStringLiteral("Aqsdfsdfsdf") << settings << check;
-    }
-    {
-        RuqolaServerConfig::PasswordSettings settings;
-        settings.accountsPasswordPolicyEnabled = true;
-        settings.accountsPasswordPolicyAtLeastOneUppercase = true;
-        settings.accountsPasswordPolicyAtLeastOneLowercase = true;
-        settings.accountsPasswordPolicyAtLeastOneNumber = true;
-        settings.accountsPasswordPolicyForbidRepeatingCharactersCount = 3;
-        RuqolaServerConfig::PasswordSettings::PasswordSettingChecks check = {RuqolaServerConfig::PasswordSettings::AtLeastOneUppercase,
-                                                                             RuqolaServerConfig::PasswordSettings::AtLeastOneLowercase,
-                                                                             RuqolaServerConfig::PasswordSettings::AtLeastOneNumber,
-                                                                             RuqolaServerConfig::PasswordSettings::MaxLengh};
-        QTest::newRow("test5") << QStringLiteral("Aq1444") << settings << check;
+        RuqolaServerConfig::PasswordSettings::PasswordSettingChecks check = {
+            RuqolaServerConfig::PasswordSettings::AtLeastOneUppercase,
+            RuqolaServerConfig::PasswordSettings::AtLeastOneLowercase,
+            RuqolaServerConfig::PasswordSettings::MaxLengh,
+            RuqolaServerConfig::PasswordSettings::ForbidRepeatingCharactersCount,
+        };
+        QTest::newRow("test4") << QStringLiteral("Aqsdfsdfsdf") << settings << check << false;
     }
     {
         RuqolaServerConfig::PasswordSettings settings;
@@ -416,14 +413,15 @@ void RuqolaServerConfigTest::shouldCheckPassword_data()
         settings.accountsPasswordPolicyAtLeastOneUppercase = true;
         settings.accountsPasswordPolicyAtLeastOneLowercase = true;
         settings.accountsPasswordPolicyAtLeastOneNumber = true;
-        settings.accountsPasswordPolicyMinLength = 6;
         settings.accountsPasswordPolicyForbidRepeatingCharactersCount = 3;
-        RuqolaServerConfig::PasswordSettings::PasswordSettingChecks check = {RuqolaServerConfig::PasswordSettings::AtLeastOneUppercase,
-                                                                             RuqolaServerConfig::PasswordSettings::AtLeastOneLowercase,
-                                                                             RuqolaServerConfig::PasswordSettings::AtLeastOneNumber,
-                                                                             RuqolaServerConfig::PasswordSettings::MinLengh,
-                                                                             RuqolaServerConfig::PasswordSettings::MaxLengh};
-        QTest::newRow("test6") << QStringLiteral("Aq1444") << settings << check;
+        RuqolaServerConfig::PasswordSettings::PasswordSettingChecks check = {
+            RuqolaServerConfig::PasswordSettings::AtLeastOneUppercase,
+            RuqolaServerConfig::PasswordSettings::AtLeastOneLowercase,
+            RuqolaServerConfig::PasswordSettings::AtLeastOneNumber,
+            RuqolaServerConfig::PasswordSettings::MaxLengh,
+            RuqolaServerConfig::PasswordSettings::ForbidRepeatingCharactersCount,
+        };
+        QTest::newRow("test5") << QStringLiteral("Aq1444") << settings << check << false;
     }
     {
         RuqolaServerConfig::PasswordSettings settings;
@@ -432,14 +430,16 @@ void RuqolaServerConfigTest::shouldCheckPassword_data()
         settings.accountsPasswordPolicyAtLeastOneLowercase = true;
         settings.accountsPasswordPolicyAtLeastOneNumber = true;
         settings.accountsPasswordPolicyMinLength = 6;
-        settings.accountsPasswordPolicyMaxLength = 8;
         settings.accountsPasswordPolicyForbidRepeatingCharactersCount = 3;
-        RuqolaServerConfig::PasswordSettings::PasswordSettingChecks check = {RuqolaServerConfig::PasswordSettings::AtLeastOneUppercase,
-                                                                             RuqolaServerConfig::PasswordSettings::AtLeastOneLowercase,
-                                                                             RuqolaServerConfig::PasswordSettings::AtLeastOneNumber,
-                                                                             RuqolaServerConfig::PasswordSettings::MinLengh,
-                                                                             RuqolaServerConfig::PasswordSettings::MaxLengh};
-        QTest::newRow("test7") << QStringLiteral("Aq144444") << settings << check;
+        RuqolaServerConfig::PasswordSettings::PasswordSettingChecks check = {
+            RuqolaServerConfig::PasswordSettings::AtLeastOneUppercase,
+            RuqolaServerConfig::PasswordSettings::AtLeastOneLowercase,
+            RuqolaServerConfig::PasswordSettings::AtLeastOneNumber,
+            RuqolaServerConfig::PasswordSettings::MinLengh,
+            RuqolaServerConfig::PasswordSettings::MaxLengh,
+            RuqolaServerConfig::PasswordSettings::ForbidRepeatingCharactersCount,
+        };
+        QTest::newRow("test6") << QStringLiteral("Aq1444") << settings << check << false;
     }
     {
         RuqolaServerConfig::PasswordSettings settings;
@@ -455,7 +455,26 @@ void RuqolaServerConfigTest::shouldCheckPassword_data()
                                                                              RuqolaServerConfig::PasswordSettings::AtLeastOneNumber,
                                                                              RuqolaServerConfig::PasswordSettings::MinLengh,
                                                                              RuqolaServerConfig::PasswordSettings::MaxLengh};
-        QTest::newRow("test7 (less than max)") << QStringLiteral("Aq1444") << settings << check;
+        QTest::newRow("test7") << QStringLiteral("Aq144444") << settings << check << false;
+    }
+    {
+        RuqolaServerConfig::PasswordSettings settings;
+        settings.accountsPasswordPolicyEnabled = true;
+        settings.accountsPasswordPolicyAtLeastOneUppercase = true;
+        settings.accountsPasswordPolicyAtLeastOneLowercase = true;
+        settings.accountsPasswordPolicyAtLeastOneNumber = true;
+        settings.accountsPasswordPolicyMinLength = 6;
+        settings.accountsPasswordPolicyMaxLength = 8;
+        settings.accountsPasswordPolicyForbidRepeatingCharactersCount = 3;
+        RuqolaServerConfig::PasswordSettings::PasswordSettingChecks check = {
+            RuqolaServerConfig::PasswordSettings::AtLeastOneUppercase,
+            RuqolaServerConfig::PasswordSettings::AtLeastOneLowercase,
+            RuqolaServerConfig::PasswordSettings::AtLeastOneNumber,
+            RuqolaServerConfig::PasswordSettings::MinLengh,
+            RuqolaServerConfig::PasswordSettings::MaxLengh,
+            RuqolaServerConfig::PasswordSettings::ForbidRepeatingCharactersCount,
+        };
+        QTest::newRow("test7 (less than max)") << QStringLiteral("Aq1444") << settings << check << false;
     }
 
     {
@@ -474,8 +493,9 @@ void RuqolaServerConfigTest::shouldCheckPassword_data()
             RuqolaServerConfig::PasswordSettings::MinLengh,
             RuqolaServerConfig::PasswordSettings::MaxLengh,
             RuqolaServerConfig::PasswordSettings::AtLeastOneSpecialCharacter,
+            RuqolaServerConfig::PasswordSettings::ForbidRepeatingCharactersCount,
         };
-        QTest::newRow("test8") << QStringLiteral("Aq1444@") << settings << check;
+        QTest::newRow("test8") << QStringLiteral("Aq1444@") << settings << check << true;
     }
 
     {
@@ -494,8 +514,9 @@ void RuqolaServerConfigTest::shouldCheckPassword_data()
             RuqolaServerConfig::PasswordSettings::MinLengh,
             RuqolaServerConfig::PasswordSettings::MaxLengh,
             RuqolaServerConfig::PasswordSettings::AtLeastOneSpecialCharacter,
+            RuqolaServerConfig::PasswordSettings::ForbidRepeatingCharactersCount,
         };
-        QTest::newRow("test8-1") << QStringLiteral("Aq1444;;") << settings << check;
+        QTest::newRow("test8-1") << QStringLiteral("Aq1444;;") << settings << check << true;
     }
     {
         RuqolaServerConfig::PasswordSettings settings;
@@ -513,8 +534,30 @@ void RuqolaServerConfigTest::shouldCheckPassword_data()
             RuqolaServerConfig::PasswordSettings::MinLengh,
             RuqolaServerConfig::PasswordSettings::MaxLengh,
             RuqolaServerConfig::PasswordSettings::AtLeastOneSpecialCharacter,
+            RuqolaServerConfig::PasswordSettings::ForbidRepeatingCharactersCount,
         };
-        QTest::newRow("test8-2") << QStringLiteral("Aq1444_") << settings << check;
+        QTest::newRow("test8-2") << QStringLiteral("Aq1444_") << settings << check << true;
+    }
+
+    {
+        RuqolaServerConfig::PasswordSettings settings;
+        settings.accountsPasswordPolicyEnabled = true;
+        settings.accountsPasswordPolicyAtLeastOneUppercase = true;
+        settings.accountsPasswordPolicyAtLeastOneLowercase = true;
+        settings.accountsPasswordPolicyAtLeastOneNumber = true;
+        settings.accountsPasswordPolicyMinLength = 6;
+        settings.accountsPasswordPolicyMaxLength = 8;
+        settings.accountsPasswordPolicyForbidRepeatingCharactersCount = 4;
+        RuqolaServerConfig::PasswordSettings::PasswordSettingChecks check = {
+            RuqolaServerConfig::PasswordSettings::AtLeastOneUppercase,
+            RuqolaServerConfig::PasswordSettings::AtLeastOneLowercase,
+            RuqolaServerConfig::PasswordSettings::AtLeastOneNumber,
+            RuqolaServerConfig::PasswordSettings::MinLengh,
+            RuqolaServerConfig::PasswordSettings::MaxLengh,
+            RuqolaServerConfig::PasswordSettings::AtLeastOneSpecialCharacter,
+            RuqolaServerConfig::PasswordSettings::ForbidRepeatingCharactersCount,
+        };
+        QTest::newRow("test9") << QStringLiteral("Aq1444_") << settings << check << true;
     }
 }
 
@@ -523,9 +566,14 @@ void RuqolaServerConfigTest::shouldCheckPassword()
     QFETCH(QString, password);
     QFETCH(RuqolaServerConfig::PasswordSettings, passwordSettings);
     QFETCH(RuqolaServerConfig::PasswordSettings::PasswordSettingChecks, checks);
-    const auto f = passwordSettings.validatePassword(password);
+    QFETCH(bool, valid);
+    const RuqolaServerConfig::PasswordSettings::PasswordSettingChecks f = passwordSettings.validatePassword(password);
     // qDebug() << " f " << f;
     QCOMPARE(f, checks);
+    // qDebug() << " FGGDFGSFGSDFGS " << f;
+    const bool passwordValidValue = passwordSettings.isValidatePassword(f);
+    qDebug() << " passwordValidValue " << passwordValidValue << " password " << password;
+    QCOMPARE(passwordValidValue, valid);
 }
 
 #include "moc_ruqolaserverconfigtest.cpp"

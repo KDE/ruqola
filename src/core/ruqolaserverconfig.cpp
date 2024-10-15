@@ -1041,14 +1041,35 @@ RuqolaServerConfig::PasswordSettings::PasswordSettingChecks RuqolaServerConfig::
     if (!accountsPasswordPolicyEnabled) {
         return checks;
     }
-    if (str.length() >= accountsPasswordPolicyMinLength) {
+    const int total = str.length();
+    if (total >= accountsPasswordPolicyMinLength) {
         checks |= RuqolaServerConfig::PasswordSettings::MinLengh;
     }
-    if (str.length() <= accountsPasswordPolicyMaxLength) {
+    if (total <= accountsPasswordPolicyMaxLength) {
         checks |= RuqolaServerConfig::PasswordSettings::MaxLengh;
     }
     if (accountsPasswordPolicyForbidRepeatingCharacters) {
-        // TODO
+        bool tooManyRepeatingCharatersFound = false;
+        const int maxRepeatingChar = accountsPasswordPolicyForbidRepeatingCharactersCount;
+        int duplicateCharFound = 0;
+        for (int i = 0; i < total; ++i) {
+            const QChar c = str.at(i);
+            for (int j = i; j < total; ++j) {
+                if (str.at(j) == c) {
+                    duplicateCharFound++;
+                } else {
+                    break;
+                }
+            }
+            if (duplicateCharFound > maxRepeatingChar) {
+                tooManyRepeatingCharatersFound = true;
+                break;
+            }
+            duplicateCharFound = 0;
+        }
+        if (!tooManyRepeatingCharatersFound) {
+            checks |= RuqolaServerConfig::PasswordSettings::ForbidRepeatingCharactersCount;
+        }
     }
     if (accountsPasswordPolicyAtLeastOneLowercase) {
         for (const auto &a : str) {
@@ -1087,8 +1108,32 @@ RuqolaServerConfig::PasswordSettings::PasswordSettingChecks RuqolaServerConfig::
 
 bool RuqolaServerConfig::PasswordSettings::isValidatePassword(PasswordSettingChecks checks) const
 {
-    // TODO
-    return false;
+    PasswordSettingChecks currentPolicy = PasswordSettingCheck::None;
+    if (accountsPasswordPolicyEnabled) {
+        if (accountsPasswordPolicyForbidRepeatingCharacters) {
+            currentPolicy |= PasswordSettingCheck::ForbidRepeatingCharactersCount;
+        }
+        if (accountsPasswordPolicyAtLeastOneLowercase) {
+            currentPolicy |= PasswordSettingCheck::AtLeastOneLowercase;
+        }
+        if (accountsPasswordPolicyAtLeastOneUppercase) {
+            currentPolicy |= PasswordSettingCheck::AtLeastOneUppercase;
+        }
+        if (accountsPasswordPolicyAtLeastOneSpecialCharacter) {
+            currentPolicy |= PasswordSettingCheck::AtLeastOneSpecialCharacter;
+        }
+        if (accountsPasswordPolicyAtLeastOneNumber) {
+            currentPolicy |= PasswordSettingCheck::AtLeastOneNumber;
+        }
+        if (accountsPasswordPolicyMinLength > 0) {
+            currentPolicy |= PasswordSettingCheck::MinLengh;
+        }
+        if (accountsPasswordPolicyMaxLength > 0) {
+            currentPolicy |= PasswordSettingCheck::MaxLengh;
+        }
+    }
+    qDebug() << " currentPolicy*************** " << currentPolicy << " checks " << checks;
+    return currentPolicy == checks;
 }
 
 QDebug operator<<(QDebug d, const RuqolaServerConfig::PasswordSettings &t)

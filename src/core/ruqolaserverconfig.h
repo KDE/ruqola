@@ -38,7 +38,6 @@ public:
         };
 
         Q_DECLARE_FLAGS(PasswordSettingChecks, PasswordSettings::PasswordSettingCheck)
-        Q_FLAG(PasswordSettingChecks)
 
         int accountsPasswordPolicyMinLength = 12;
         int accountsPasswordPolicyMaxLength = 24;
