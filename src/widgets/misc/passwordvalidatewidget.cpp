@@ -111,6 +111,10 @@ void PasswordValidateWidget::setValidStatus(RuqolaServerConfig::PasswordSettings
 
 void PasswordValidateWidget::validatePassword(const QString &password)
 {
+    if (!mPasswordSettings.accountsPasswordPolicyEnabled) {
+        Q_EMIT passwordIsValid(true);
+        return;
+    }
     const RuqolaServerConfig::PasswordSettings::PasswordSettingChecks checks = mPasswordSettings.validatePassword(password);
     RuqolaServerConfig::PasswordSettings::PasswordSettingCheck c = RuqolaServerConfig::PasswordSettings::PasswordSettingCheck::AtLeastOneLowercase;
     setValidStatus(c, checks & c);
