@@ -245,6 +245,9 @@ public:
     [[nodiscard]] PasswordSettings passwordSettings() const;
     void setPasswordSettings(const PasswordSettings &newPasswordSettings);
 
+    [[nodiscard]] bool accountsManuallyApproveNewUsers() const;
+    void setAccountsManuallyApproveNewUsers(bool newAccountsManuallyApproveNewUsers);
+
 private:
     Q_DISABLE_COPY(RuqolaServerConfig)
     LIBRUQOLACORE_NO_EXPORT void assignSettingValue(bool value, ServerConfigFeatureType type);
@@ -306,6 +309,7 @@ private:
     bool mAllowEmailNotifications = true; // Default true
     bool mAllowEmailVerification = false;
     bool mFederationEnabled = false;
+    bool mAccountsManuallyApproveNewUsers = false;
 };
 LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const RuqolaServerConfig &t);
 LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const RuqolaServerConfig::ConfigWithDefaultValue &t);

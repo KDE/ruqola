@@ -417,6 +417,16 @@ RuqolaServerConfig::ConfigWithDefaultValue RuqolaServerConfig::parseConfigWithDe
     return value;
 }
 
+bool RuqolaServerConfig::accountsManuallyApproveNewUsers() const
+{
+    return mAccountsManuallyApproveNewUsers;
+}
+
+void RuqolaServerConfig::setAccountsManuallyApproveNewUsers(bool newAccountsManuallyApproveNewUsers)
+{
+    mAccountsManuallyApproveNewUsers = newAccountsManuallyApproveNewUsers;
+}
+
 RuqolaServerConfig::PasswordSettings RuqolaServerConfig::passwordSettings() const
 {
     return mPasswordSettings;
@@ -643,6 +653,8 @@ void RuqolaServerConfig::loadSettings(const QJsonObject &currentConfObject)
         setAllowEmailVerification(value.toBool());
     } else if (id == "FEDERATION_Enabled"_L1) {
         setFederationEnabled(value.toBool());
+    } else if (id == "Accounts_ManuallyApproveNewUsers"_L1) {
+        setAccountsManuallyApproveNewUsers(value.toBool());
     } else if (!mPasswordSettings.loadSettings(id, value)) {
         qCDebug(RUQOLA_LOG) << "Other public settings id " << id << value;
     }
@@ -807,6 +819,7 @@ QByteArray RuqolaServerConfig::serialize(bool toBinary)
     array.append(createJsonObject(QStringLiteral("Accounts_Password_Policy_MaxLength"), mPasswordSettings.accountsPasswordPolicyMaxLength));
     array.append(createJsonObject(QStringLiteral("Accounts_Password_Policy_ForbidRepeatingCharactersCount"),
                                   mPasswordSettings.accountsPasswordPolicyForbidRepeatingCharactersCount));
+    array.append(createJsonObject(QStringLiteral("Accounts_ManuallyApproveNewUsers"), mAccountsManuallyApproveNewUsers));
 
     o["result"_L1] = array;
 
