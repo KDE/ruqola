@@ -93,6 +93,7 @@ void PasswordValidateWidget::initializeWidget()
             addLabel(c, row, col, mPasswordSettings.accountsPasswordPolicyForbidRepeatingCharactersCount);
         }
     }
+    validatePassword(QString()); // Initialize status
 }
 
 void PasswordValidateWidget::setValidStatus(RuqolaServerConfig::PasswordSettings::PasswordSettingCheck c, bool b)
