@@ -7,13 +7,15 @@
 #include "passwordvalidatewidget.h"
 #include <KLocalizedString>
 #include <QGridLayout>
+#include <QHBoxLayout>
 #include <QLabel>
+using namespace Qt::Literals::StringLiterals;
 
 PasswordValidateWidget::PasswordValidateWidget(QWidget *parent)
     : QWidget{parent}
     , mGridLayout(new QGridLayout(this))
 {
-    mGridLayout->setObjectName(QStringLiteral("mGridLayout"));
+    mGridLayout->setObjectName("mGridLayout"_L1);
     mGridLayout->setContentsMargins({});
     mGridLayout->setSpacing(0);
 }
@@ -48,6 +50,9 @@ void PasswordValidateWidget::validatePassword(const QString &password)
 PasswordValidateLabel::PasswordValidateLabel(QWidget *parent)
     : QWidget(parent)
 {
+    auto mainLayout = new QHBoxLayout(this);
+    mainLayout->setContentsMargins({});
+    mainLayout->setObjectName("mainLayout"_L1);
 }
 
 PasswordValidateLabel::~PasswordValidateLabel() = default;
