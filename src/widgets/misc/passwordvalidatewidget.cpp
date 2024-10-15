@@ -18,7 +18,6 @@ PasswordValidateWidget::PasswordValidateWidget(QWidget *parent)
 {
     mGridLayout->setObjectName("mGridLayout"_L1);
     mGridLayout->setContentsMargins({});
-    mGridLayout->setSpacing(0);
 }
 
 PasswordValidateWidget::~PasswordValidateWidget() = default;

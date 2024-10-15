@@ -22,7 +22,6 @@ void PasswordValidateWidgetTest::shouldHaveDefaultValues()
     auto mGridLayout = w.findChild<QGridLayout *>(QStringLiteral("mGridLayout"));
     QVERIFY(mGridLayout);
     QCOMPARE(mGridLayout->contentsMargins(), QMargins{});
-    QCOMPARE(mGridLayout->spacing(), 0);
 
     PasswordValidateLabel l;
     auto mainLayout = l.findChild<QHBoxLayout *>(QStringLiteral("mainLayout"));
