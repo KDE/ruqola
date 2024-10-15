@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-10-12 00:38+0000\n"
+"POT-Creation-Date: 2024-10-15 00:39+0000\n"
 "PO-Revision-Date: 2024-08-06 05:33+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
@@ -4987,116 +4987,122 @@ msgctxt "@option:check"
 msgid "Send Statistics to Rocket.Chat"
 msgstr "傳送統計資料到 Rocket.Chat"
 
-#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:44
+#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:38
+#, kde-format
+msgctxt "@option:check"
+msgid "Use REST instead of websocket for Meteor calls"
+msgstr ""
+
+#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:45
 #, kde-format
 msgid "Site URL"
 msgstr "網站 URL"
 
-#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:47
+#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:48
 #, fuzzy, kde-format
 #| msgid "Name:"
 msgid "Site Name"
 msgstr "名稱："
 
-#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:49
+#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:50
 #, kde-format
 msgid "UTF8"
 msgstr "UTF8"
 
-#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:54
+#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:55
 #, fuzzy, kde-format
 #| msgid "RegExp that will be used to validate usernames"
 msgctxt "@info:tooltip"
 msgid "RegExp that will be used to validate usernames"
 msgstr "用來檢查使用者名稱的正則表達式"
 
-#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:55
+#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:56
 #, kde-format
 msgid "UTF8 Usernames Validation"
 msgstr "UTF8 使用者名稱檢查"
 
-#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:58
+#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:59
 #, fuzzy, kde-format
 #| msgid "RegExp that will be used to validate usernames"
 msgctxt "@info:tooltip"
 msgid "RegExp that will be used to validate channel names"
 msgstr "用來檢查使用者名稱的正則表達式"
 
-#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:59
+#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:60
 #, kde-format
 msgid "UTF8 Channel Names Validation"
 msgstr ""
 
-#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:66
+#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:67
 #, kde-format
 msgid "First Channel After Login"
 msgstr "登入後第一個頻道"
 
-#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:69
+#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:70
 #, kde-format
 msgid "Deep Link Url"
 msgstr ""
 
-#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:72
+#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:73
 #, kde-format
 msgid "CDN Prefix"
 msgstr ""
 
-#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:77
-#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:86
+#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:78
+#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:87
 #, fuzzy, kde-format
 #| msgid "1 message"
 #| msgid_plural "%1 messages"
 msgid "All messages"
 msgstr "%1 則訊息"
 
-#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:78
+#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:79
 #, fuzzy, kde-format
 #| msgid "Custom User Status"
 msgid "User mentions only"
 msgstr "自訂使用者狀態"
 
-#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:79
+#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:80
 #, fuzzy, kde-format
 #| msgid "Mute Groups Mention:"
 msgid "Group mentions only"
 msgstr "靜音群組提及："
 
-#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:80
+#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:81
 #, kde-format
 msgid "User and group mentions only"
 msgstr ""
 
-#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:82
+#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:83
 #, fuzzy, kde-format
 #| msgctxt "@title:window"
 #| msgid "Threads"
 msgid "Unread Count"
 msgstr "討論串"
 
-#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:87
+#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:88
 #, fuzzy, kde-format
 #| msgid "Mentions"
 msgid "Mentions only"
 msgstr "提及"
 
-#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:89
+#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:90
 #, fuzzy, kde-format
 #| msgid "Take a Video Message"
 msgid "Unread Count for Direct Messages"
 msgstr "開始視訊聊天"
 
-#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:91
+#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:92
 #, kde-format
 msgid "Update"
 msgstr ""
 
-#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:96
+#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:97
 #, kde-format
 msgid "Update Latest Available Version"
 msgstr ""
 
-#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:102
+#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:103
 #, kde-format
 msgid ""
 "Checks automatically for new updates / important messages from the Rocket."
@@ -5106,12 +5112,12 @@ msgid ""
 "both visible only for administrators."
 msgstr ""
 
-#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:106
+#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:107
 #, kde-format
 msgid "TimeZone"
 msgstr "時區"
 
-#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:111
+#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:112
 #, kde-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -5119,38 +5125,38 @@ msgid ""
 "sending emails"
 msgstr ""
 
-#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:113
+#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:114
 #, kde-format
 msgid "Server Timezone"
 msgstr "伺服器時區"
 
-#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:114
+#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:115
 #, kde-format
 msgid "Custom Timezone"
 msgstr "自訂時區"
 
-#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:115
+#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:116
 #, kde-format
 msgid "User's current Timezone"
 msgstr "使用者目前的時區"
 
-#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:117
+#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:118
 #, kde-format
 msgid "Default timezone for reporting"
 msgstr ""
 
-#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:120
+#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:121
 #, fuzzy, kde-format
 #| msgid "Report a Bug"
 msgid "Reporting"
 msgstr "回報臭蟲"
 
-#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:128
+#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:129
 #, kde-format
 msgid "Notifications"
 msgstr "通知"
 
-#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:134
+#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:135
 #, kde-format
 msgid ""
 "Max number of members in room when notifications for all messages gets "
@@ -5158,22 +5164,22 @@ msgid ""
 "notifications on an individual basis. (0 to disable)"
 msgstr ""
 
-#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:137
+#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:138
 #, kde-format
 msgid "Max Room Members Before Disabling All Message Notifications"
 msgstr ""
 
-#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:141
+#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:142
 #, kde-format
 msgid "Stream Cast"
 msgstr ""
 
-#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:146
+#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:147
 #, kde-format
 msgid "Stream Cast Address"
 msgstr ""
 
-#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:147
+#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:148
 #, kde-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -5181,12 +5187,12 @@ msgid ""
 "localhost:4000"
 msgstr ""
 
-#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:149
+#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:150
 #, kde-format
 msgid "REST API"
 msgstr ""
 
-#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:155
+#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:156
 #, kde-format
 msgid ""
 "What is the maximum number of records the REST API should return (when not "

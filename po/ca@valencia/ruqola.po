@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-10-12 00:38+0000\n"
+"POT-Creation-Date: 2024-10-15 00:39+0000\n"
 "PO-Revision-Date: 2024-10-12 11:41+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
@@ -4913,105 +4913,111 @@ msgctxt "@option:check"
 msgid "Send Statistics to Rocket.Chat"
 msgstr "Envia estadístiques a Rocket.Chat"
 
-#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:44
+#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:38
+#, kde-format
+msgctxt "@option:check"
+msgid "Use REST instead of websocket for Meteor calls"
+msgstr ""
+
+#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:45
 #, kde-format
 msgid "Site URL"
 msgstr "Adreça del lloc"
 
-#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:47
+#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:48
 #, kde-format
 msgid "Site Name"
 msgstr "Nom del lloc"
 
-#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:49
+#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:50
 #, kde-format
 msgid "UTF8"
 msgstr "UTF8"
 
-#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:54
+#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:55
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "RegExp that will be used to validate usernames"
 msgstr "Expressió regular que s'emprarà per a validar els noms d'usuari"
 
-#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:55
+#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:56
 #, kde-format
 msgid "UTF8 Usernames Validation"
 msgstr "Validació de noms d'usuari en UTF8"
 
-#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:58
+#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:59
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "RegExp that will be used to validate channel names"
 msgstr "Expressió regular que s'emprarà per a validar els noms dels canals"
 
-#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:59
+#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:60
 #, kde-format
 msgid "UTF8 Channel Names Validation"
 msgstr "Validació de noms de canal en UTF8"
 
-#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:66
+#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:67
 #, kde-format
 msgid "First Channel After Login"
 msgstr "Primer canal després de la connexió"
 
-#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:69
+#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:70
 #, kde-format
 msgid "Deep Link Url"
 msgstr "URL cap a enllaç profund"
 
-#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:72
+#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:73
 #, kde-format
 msgid "CDN Prefix"
 msgstr "Prefix CDN"
 
-#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:77
-#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:86
+#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:78
+#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:87
 #, kde-format
 msgid "All messages"
 msgstr "Tots els missatges"
 
-#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:78
+#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:79
 #, kde-format
 msgid "User mentions only"
 msgstr "Només les mencions d'usuari"
 
-#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:79
+#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:80
 #, kde-format
 msgid "Group mentions only"
 msgstr "Només les mencions de grup"
 
-#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:80
+#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:81
 #, kde-format
 msgid "User and group mentions only"
 msgstr "Només les mencions d'usuari i de grup"
 
-#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:82
+#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:83
 #, kde-format
 msgid "Unread Count"
 msgstr "Comptador de no llegits"
 
-#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:87
+#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:88
 #, kde-format
 msgid "Mentions only"
 msgstr "Només les mencions"
 
-#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:89
+#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:90
 #, kde-format
 msgid "Unread Count for Direct Messages"
 msgstr "Comptador de no llegits per als missatges directes"
 
-#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:91
+#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:92
 #, kde-format
 msgid "Update"
 msgstr "Actualitza"
 
-#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:96
+#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:97
 #, kde-format
 msgid "Update Latest Available Version"
 msgstr "Actualitza l'última versió disponible"
 
-#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:102
+#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:103
 #, kde-format
 msgid ""
 "Checks automatically for new updates / important messages from the Rocket."
@@ -5026,12 +5032,12 @@ msgstr ""
 "com un bàner clicable i com un missatge del bot Rocket.Chat,\n"
 "tots dos visibles només per als administradors."
 
-#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:106
+#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:107
 #, kde-format
 msgid "TimeZone"
 msgstr "Zona horària"
 
-#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:111
+#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:112
 #, kde-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -5041,37 +5047,37 @@ msgstr ""
 "Establix la zona horària predeterminada que s'emprarà en mostrar els taulers "
 "o enviar correus"
 
-#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:113
+#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:114
 #, kde-format
 msgid "Server Timezone"
 msgstr "Servidor de zona horària"
 
-#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:114
+#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:115
 #, kde-format
 msgid "Custom Timezone"
 msgstr "Zona horària personalitzada"
 
-#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:115
+#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:116
 #, kde-format
 msgid "User's current Timezone"
 msgstr "Zona horària actual de l'usuari"
 
-#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:117
+#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:118
 #, kde-format
 msgid "Default timezone for reporting"
 msgstr "Zona horària predeterminada per a informació"
 
-#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:120
+#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:121
 #, kde-format
 msgid "Reporting"
 msgstr "Informació"
 
-#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:128
+#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:129
 #, kde-format
 msgid "Notifications"
 msgstr "Notificacions"
 
-#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:134
+#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:135
 #, kde-format
 msgid ""
 "Max number of members in room when notifications for all messages gets "
@@ -5083,25 +5089,25 @@ msgstr ""
 "cada sala per a rebre totes les notificacions individualment. (0 per a "
 "desactivar)"
 
-#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:137
+#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:138
 #, kde-format
 msgid "Max Room Members Before Disabling All Message Notifications"
 msgstr ""
 "Nombre màxim de membres per sala abans de desactivar les notificacions de "
 "tots els missatges"
 
-#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:141
+#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:142
 #, kde-format
 msgid "Stream Cast"
 msgstr "Emissió de transmissió"
 
-#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:146
+#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:147
 #, kde-format
 msgid "Stream Cast Address"
 msgstr "Adreça de l'emissió de transmissió"
 
 # skip-rule: t-pu_sp
-#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:147
+#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:148
 #, kde-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -5111,12 +5117,12 @@ msgstr ""
 "IP o servidor d'emissió de transmissió central de Rocket.Chat. P. ex., "
 "192.168.1.1:3000 o localhost:4000"
 
-#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:149
+#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:150
 #, kde-format
 msgid "REST API"
 msgstr "API de Rest"
 
-#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:155
+#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:156
 #, kde-format
 msgid ""
 "What is the maximum number of records the REST API should return (when not "
