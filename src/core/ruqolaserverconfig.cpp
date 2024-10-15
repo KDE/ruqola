@@ -1037,7 +1037,46 @@ bool RuqolaServerConfig::PasswordSettings::operator==(const PasswordSettings &ot
 
 RuqolaServerConfig::PasswordSettings::PasswordSettingChecks RuqolaServerConfig::PasswordSettings::validatePassword(const QString &str)
 {
-    return {};
+    RuqolaServerConfig::PasswordSettings::PasswordSettingChecks checks = RuqolaServerConfig::PasswordSettings::None;
+    if (str.length() >= accountsPasswordPolicyMinLength) {
+        checks &= RuqolaServerConfig::PasswordSettings::MinLengh;
+    }
+    if (accountsPasswordPolicyForbidRepeatingCharacters) {
+        // TODO
+    }
+    if (accountsPasswordPolicyAtLeastOneLowercase) {
+        for (const auto &a : str) {
+            if (a.isLower()) {
+                checks &= RuqolaServerConfig::PasswordSettings::AtLeastOneLowercase;
+                break;
+            }
+        }
+    }
+    if (accountsPasswordPolicyAtLeastOneUppercase) {
+        for (const auto &a : str) {
+            if (a.isUpper()) {
+                checks &= RuqolaServerConfig::PasswordSettings::AtLeastOneUppercase;
+                break;
+            }
+        }
+    }
+    if (accountsPasswordPolicyAtLeastOneNumber) {
+        for (const auto &a : str) {
+            if (a.isNumber()) {
+                checks &= RuqolaServerConfig::PasswordSettings::AtLeastOneNumber;
+                break;
+            }
+        }
+    }
+    if (accountsPasswordPolicyAtLeastOneSpecialCharacter) {
+        for (const auto &a : str) {
+            if (a.isSymbol() || a.isPunct()) {
+                checks &= RuqolaServerConfig::PasswordSettings::AtLeastOneSpecialCharacter;
+                break;
+            }
+        }
+    }
+    return checks;
 }
 
 QDebug operator<<(QDebug d, const RuqolaServerConfig::PasswordSettings &t)

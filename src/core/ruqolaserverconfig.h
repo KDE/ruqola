@@ -34,6 +34,7 @@ public:
             AtLeastOneLowercase = 16,
             AtLeastOneUppercase = 32,
             AtLeastOneSpecialCharacter = 64,
+            AtLeastOneNumber = 128,
         };
 
         Q_DECLARE_FLAGS(PasswordSettingChecks, PasswordSettings::PasswordSettingCheck)

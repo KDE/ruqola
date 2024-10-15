@@ -30,4 +30,7 @@ private Q_SLOTS:
 
     void shouldSerializeConfig_data();
     void shouldSerializeConfig();
+
+    void shouldCheckPassword_data();
+    void shouldCheckPassword();
 };

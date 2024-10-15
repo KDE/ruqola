@@ -337,4 +337,25 @@ void RuqolaServerConfigTest::shouldSerializeConfig()
     QVERIFY(compare);
 }
 
+void RuqolaServerConfigTest::shouldCheckPassword_data()
+{
+    QTest::addColumn<QString>("password");
+    QTest::addColumn<RuqolaServerConfig::PasswordSettings>("passwordSettings");
+    QTest::addColumn<RuqolaServerConfig::PasswordSettings::PasswordSettingChecks>("checks");
+
+    {
+        RuqolaServerConfig::PasswordSettings settings;
+        RuqolaServerConfig::PasswordSettings::PasswordSettingChecks check = RuqolaServerConfig::PasswordSettings::None;
+        QTest::newRow("empty") << QString() << settings << check;
+    }
+}
+
+void RuqolaServerConfigTest::shouldCheckPassword()
+{
+    QFETCH(QString, password);
+    QFETCH(RuqolaServerConfig::PasswordSettings, passwordSettings);
+    QFETCH(RuqolaServerConfig::PasswordSettings::PasswordSettingChecks, checks);
+    QCOMPARE(passwordSettings.validatePassword(password), checks);
+}
+
 #include "moc_ruqolaserverconfigtest.cpp"
