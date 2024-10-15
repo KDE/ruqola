@@ -1138,7 +1138,7 @@ RuqolaServerConfig::PasswordSettings::PasswordSettingChecks RuqolaServerConfig::
 bool RuqolaServerConfig::PasswordSettings::isValidatePassword(PasswordSettingChecks checks) const
 {
     const auto currentPolicy = passwordValidChecks();
-    qDebug() << " currentPolicy*************** " << currentPolicy << " checks " << checks;
+    // qDebug() << " currentPolicy*************** " << currentPolicy << " checks " << checks;
     return currentPolicy == checks;
 }
 
