@@ -1035,6 +1035,11 @@ bool RuqolaServerConfig::PasswordSettings::operator==(const PasswordSettings &ot
         && accountsPasswordPolicyAtLeastOneSpecialCharacter == other.accountsPasswordPolicyAtLeastOneSpecialCharacter;
 }
 
+RuqolaServerConfig::PasswordSettings::PasswordSettingChecks RuqolaServerConfig::PasswordSettings::validatePassword(const QString &str)
+{
+    return {};
+}
+
 QDebug operator<<(QDebug d, const RuqolaServerConfig::PasswordSettings &t)
 {
     d.space() << "accountsPasswordPolicyMinLength" << t.accountsPasswordPolicyMinLength;

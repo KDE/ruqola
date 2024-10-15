@@ -50,6 +50,7 @@ public:
         bool accountsPasswordPolicyAtLeastOneSpecialCharacter = true;
         [[nodiscard]] bool loadSettings(const QString &id, const QVariant &value);
         [[nodiscard]] bool operator==(const RuqolaServerConfig::PasswordSettings &other) const;
+        [[nodiscard]] PasswordSettingChecks validatePassword(const QString &str);
     };
 
     RuqolaServerConfig();
