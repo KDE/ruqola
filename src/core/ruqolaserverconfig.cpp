@@ -1044,6 +1044,9 @@ RuqolaServerConfig::PasswordSettings::PasswordSettingChecks RuqolaServerConfig::
     if (str.length() >= accountsPasswordPolicyMinLength) {
         checks |= RuqolaServerConfig::PasswordSettings::MinLengh;
     }
+    if (str.length() <= accountsPasswordPolicyMaxLength) {
+        checks |= RuqolaServerConfig::PasswordSettings::MaxLengh;
+    }
     if (accountsPasswordPolicyForbidRepeatingCharacters) {
         // TODO
     }
