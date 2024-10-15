@@ -1106,7 +1106,7 @@ RuqolaServerConfig::PasswordSettings::PasswordSettingChecks RuqolaServerConfig::
     return checks;
 }
 
-bool RuqolaServerConfig::PasswordSettings::isValidatePassword(PasswordSettingChecks checks) const
+RuqolaServerConfig::PasswordSettings::PasswordSettingChecks RuqolaServerConfig::PasswordSettings::passwordValidChecks() const
 {
     PasswordSettingChecks currentPolicy = PasswordSettingCheck::None;
     if (accountsPasswordPolicyEnabled) {
@@ -1132,6 +1132,12 @@ bool RuqolaServerConfig::PasswordSettings::isValidatePassword(PasswordSettingChe
             currentPolicy |= PasswordSettingCheck::MaxLengh;
         }
     }
+    return currentPolicy;
+}
+
+bool RuqolaServerConfig::PasswordSettings::isValidatePassword(PasswordSettingChecks checks) const
+{
+    const auto currentPolicy = passwordValidChecks();
     qDebug() << " currentPolicy*************** " << currentPolicy << " checks " << checks;
     return currentPolicy == checks;
 }

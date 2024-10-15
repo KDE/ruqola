@@ -52,6 +52,7 @@ public:
         [[nodiscard]] bool operator==(const RuqolaServerConfig::PasswordSettings &other) const;
         [[nodiscard]] PasswordSettingChecks validatePassword(const QString &str);
         [[nodiscard]] bool isValidatePassword(PasswordSettingChecks checks) const;
+        [[nodiscard]] PasswordSettingChecks passwordValidChecks() const;
     };
 
     RuqolaServerConfig();
