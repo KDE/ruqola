@@ -25,6 +25,20 @@ public:
     };
 
     struct LIBRUQOLACORE_EXPORT PasswordSettings {
+        enum PasswordSettingCheck {
+            None = 0,
+            MinLengh = 1,
+            MaxLengh = 2,
+            ForbidRepeatingCharactersCount = 4,
+            ForbidRepeatingCharacters = 8,
+            AtLeastOneLowercase = 16,
+            AtLeastOneUppercase = 32,
+            AtLeastOneSpecialCharacter = 64,
+        };
+
+        Q_DECLARE_FLAGS(PasswordSettingChecks, PasswordSettings::PasswordSettingCheck)
+        Q_FLAG(PasswordSettingChecks)
+
         int accountsPasswordPolicyMinLength = 12;
         int accountsPasswordPolicyMaxLength = 24;
         int accountsPasswordPolicyForbidRepeatingCharactersCount = 3;
