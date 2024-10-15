@@ -1038,8 +1038,11 @@ bool RuqolaServerConfig::PasswordSettings::operator==(const PasswordSettings &ot
 RuqolaServerConfig::PasswordSettings::PasswordSettingChecks RuqolaServerConfig::PasswordSettings::validatePassword(const QString &str)
 {
     RuqolaServerConfig::PasswordSettings::PasswordSettingChecks checks = RuqolaServerConfig::PasswordSettings::None;
+    if (!accountsPasswordPolicyEnabled) {
+        return checks;
+    }
     if (str.length() >= accountsPasswordPolicyMinLength) {
-        checks &= RuqolaServerConfig::PasswordSettings::MinLengh;
+        checks |= RuqolaServerConfig::PasswordSettings::MinLengh;
     }
     if (accountsPasswordPolicyForbidRepeatingCharacters) {
         // TODO
@@ -1047,7 +1050,7 @@ RuqolaServerConfig::PasswordSettings::PasswordSettingChecks RuqolaServerConfig::
     if (accountsPasswordPolicyAtLeastOneLowercase) {
         for (const auto &a : str) {
             if (a.isLower()) {
-                checks &= RuqolaServerConfig::PasswordSettings::AtLeastOneLowercase;
+                checks |= RuqolaServerConfig::PasswordSettings::AtLeastOneLowercase;
                 break;
             }
         }
@@ -1055,7 +1058,7 @@ RuqolaServerConfig::PasswordSettings::PasswordSettingChecks RuqolaServerConfig::
     if (accountsPasswordPolicyAtLeastOneUppercase) {
         for (const auto &a : str) {
             if (a.isUpper()) {
-                checks &= RuqolaServerConfig::PasswordSettings::AtLeastOneUppercase;
+                checks |= RuqolaServerConfig::PasswordSettings::AtLeastOneUppercase;
                 break;
             }
         }
@@ -1063,7 +1066,7 @@ RuqolaServerConfig::PasswordSettings::PasswordSettingChecks RuqolaServerConfig::
     if (accountsPasswordPolicyAtLeastOneNumber) {
         for (const auto &a : str) {
             if (a.isNumber()) {
-                checks &= RuqolaServerConfig::PasswordSettings::AtLeastOneNumber;
+                checks |= RuqolaServerConfig::PasswordSettings::AtLeastOneNumber;
                 break;
             }
         }
@@ -1071,7 +1074,7 @@ RuqolaServerConfig::PasswordSettings::PasswordSettingChecks RuqolaServerConfig::
     if (accountsPasswordPolicyAtLeastOneSpecialCharacter) {
         for (const auto &a : str) {
             if (a.isSymbol() || a.isPunct()) {
-                checks &= RuqolaServerConfig::PasswordSettings::AtLeastOneSpecialCharacter;
+                checks |= RuqolaServerConfig::PasswordSettings::AtLeastOneSpecialCharacter;
                 break;
             }
         }

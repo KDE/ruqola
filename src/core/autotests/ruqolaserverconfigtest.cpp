@@ -348,6 +348,32 @@ void RuqolaServerConfigTest::shouldCheckPassword_data()
         RuqolaServerConfig::PasswordSettings::PasswordSettingChecks check = RuqolaServerConfig::PasswordSettings::None;
         QTest::newRow("empty") << QString() << settings << check;
     }
+
+    {
+        RuqolaServerConfig::PasswordSettings settings;
+        settings.accountsPasswordPolicyEnabled = false;
+        settings.accountsPasswordPolicyAtLeastOneUppercase = true;
+        settings.accountsPasswordPolicyForbidRepeatingCharactersCount = 3;
+        RuqolaServerConfig::PasswordSettings::PasswordSettingChecks check = RuqolaServerConfig::PasswordSettings::None;
+        QTest::newRow("disable") << QStringLiteral("sdfsdfDdd2") << settings << check;
+    }
+
+    {
+        RuqolaServerConfig::PasswordSettings settings;
+        settings.accountsPasswordPolicyEnabled = true;
+        settings.accountsPasswordPolicyAtLeastOneUppercase = true;
+        settings.accountsPasswordPolicyForbidRepeatingCharactersCount = 3;
+        RuqolaServerConfig::PasswordSettings::PasswordSettingChecks check = RuqolaServerConfig::PasswordSettings::AtLeastOneUppercase;
+        QTest::newRow("test1") << QStringLiteral("A") << settings << check;
+    }
+    {
+        RuqolaServerConfig::PasswordSettings settings;
+        settings.accountsPasswordPolicyEnabled = true;
+        settings.accountsPasswordPolicyAtLeastOneUppercase = true;
+        settings.accountsPasswordPolicyForbidRepeatingCharactersCount = 3;
+        RuqolaServerConfig::PasswordSettings::PasswordSettingChecks check = RuqolaServerConfig::PasswordSettings::AtLeastOneUppercase;
+        QTest::newRow("test2") << QStringLiteral("AAAAA") << settings << check;
+    }
 }
 
 void RuqolaServerConfigTest::shouldCheckPassword()
@@ -355,7 +381,9 @@ void RuqolaServerConfigTest::shouldCheckPassword()
     QFETCH(QString, password);
     QFETCH(RuqolaServerConfig::PasswordSettings, passwordSettings);
     QFETCH(RuqolaServerConfig::PasswordSettings::PasswordSettingChecks, checks);
-    QCOMPARE(passwordSettings.validatePassword(password), checks);
+    const auto f = passwordSettings.validatePassword(password);
+    // qDebug() << " f " << f;
+    QCOMPARE(f, checks);
 }
 
 #include "moc_ruqolaserverconfigtest.cpp"
