@@ -12,3 +12,5 @@ PasswordValidateWidgetTest::PasswordValidateWidgetTest(QObject *parent)
     : QObject{parent}
 {
 }
+
+#include "moc_passwordvalidatewidgettest.cpp"

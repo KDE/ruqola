@@ -12,3 +12,5 @@ PasswordValidateWidget::PasswordValidateWidget(QWidget *parent)
 }
 
 PasswordValidateWidget::~PasswordValidateWidget() = default;
+
+#include "moc_passwordvalidatewidget.cpp"
