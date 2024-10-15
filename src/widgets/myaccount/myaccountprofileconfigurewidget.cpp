@@ -93,6 +93,9 @@ MyAccountProfileConfigureWidget::MyAccountProfileConfigureWidget(RocketChatAccou
 
     mPasswordConfirmWidget->setObjectName(QStringLiteral("mPasswordConfirmWidget"));
     mainLayout->addRow(mPasswordConfirmWidget);
+    if (mRocketChatAccount) {
+        mPasswordConfirmWidget->setPasswordValidChecks(mRocketChatAccount->ruqolaServerConfig()->passwordSettings());
+    }
 
     mDeleteMyAccount->setObjectName(QStringLiteral("mDeleteMyAccount"));
     mainLayout->addWidget(mDeleteMyAccount);
