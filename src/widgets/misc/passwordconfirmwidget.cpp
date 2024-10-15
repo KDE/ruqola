@@ -28,6 +28,7 @@ PasswordConfirmWidget::PasswordConfirmWidget(QWidget *parent)
                                                                                                                    : KPassword::RevealMode::Never);
     mPasswordValidateWidget->setObjectName(QStringLiteral("mPasswordValidateWidget"));
     mainLayout->addWidget(mPasswordValidateWidget);
+    connect(mNewPasswordLineEdit, &KPasswordLineEdit::passwordChanged, mPasswordValidateWidget, &PasswordValidateWidget::validatePassword);
 
     mConfirmPasswordLineEdit->setObjectName(QStringLiteral("mConfirmPasswordLineEdit"));
     mainLayout->addRow(i18n("Confirm Password:"), mConfirmPasswordLineEdit);
