@@ -6,6 +6,7 @@
 
 #include "passwordconfirmwidgettest.h"
 #include "misc/passwordconfirmwidget.h"
+#include "misc/passwordvalidatewidget.h"
 #include <KPasswordLineEdit>
 #include <QFormLayout>
 #include <QTest>
@@ -30,6 +31,9 @@ void PasswordConfirmWidgetTest::shouldHaveDefaultValues()
     QVERIFY(mConfirmPasswordLineEdit);
 
     QVERIFY(!w.isNewPasswordConfirmed());
+
+    auto mPasswordValidateWidget = w.findChild<PasswordValidateWidget *>(QStringLiteral("mPasswordValidateWidget"));
+    QVERIFY(mPasswordValidateWidget);
 }
 
 void PasswordConfirmWidgetTest::shouldReturnNewPassword()

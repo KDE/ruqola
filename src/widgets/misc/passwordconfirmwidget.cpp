@@ -5,6 +5,7 @@
 */
 
 #include "passwordconfirmwidget.h"
+#include "misc/passwordvalidatewidget.h"
 
 #include <KAuthorized>
 #include <KLocalizedString>
@@ -15,6 +16,7 @@ PasswordConfirmWidget::PasswordConfirmWidget(QWidget *parent)
     : QWidget(parent)
     , mNewPasswordLineEdit(new KPasswordLineEdit(this))
     , mConfirmPasswordLineEdit(new KPasswordLineEdit(this))
+    , mPasswordValidateWidget(new PasswordValidateWidget(this))
 {
     auto mainLayout = new QFormLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
@@ -24,6 +26,8 @@ PasswordConfirmWidget::PasswordConfirmWidget(QWidget *parent)
     mainLayout->addRow(i18n("New Password:"), mNewPasswordLineEdit);
     mNewPasswordLineEdit->setRevealPasswordMode(KAuthorized::authorize(QStringLiteral("lineedit_reveal_password")) ? KPassword::RevealMode::OnlyNew
                                                                                                                    : KPassword::RevealMode::Never);
+    mPasswordValidateWidget->setObjectName(QStringLiteral("mPasswordValidateWidget"));
+    mainLayout->addWidget(mPasswordValidateWidget);
 
     mConfirmPasswordLineEdit->setObjectName(QStringLiteral("mConfirmPasswordLineEdit"));
     mainLayout->addRow(i18n("Confirm Password:"), mConfirmPasswordLineEdit);
@@ -42,6 +46,11 @@ bool PasswordConfirmWidget::isNewPasswordConfirmed() const
 QString PasswordConfirmWidget::password() const
 {
     return mConfirmPasswordLineEdit->password();
+}
+
+void PasswordConfirmWidget::setPasswordValidChecks(const RuqolaServerConfig::PasswordSettings &passwordSettings)
+{
+    mPasswordValidateWidget->setPasswordValidChecks(passwordSettings);
 }
 
 #include "moc_passwordconfirmwidget.cpp"

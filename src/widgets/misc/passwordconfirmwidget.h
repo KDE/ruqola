@@ -7,8 +7,10 @@
 #pragma once
 
 #include "libruqolawidgets_private_export.h"
+#include "ruqolaserverconfig.h"
 #include <QWidget>
 class KPasswordLineEdit;
+class PasswordValidateWidget;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT PasswordConfirmWidget : public QWidget
 {
     Q_OBJECT
@@ -18,7 +20,10 @@ public:
     [[nodiscard]] bool isNewPasswordConfirmed() const;
     [[nodiscard]] QString password() const;
 
+    void setPasswordValidChecks(const RuqolaServerConfig::PasswordSettings &passwordSettings);
+
 private:
     KPasswordLineEdit *const mNewPasswordLineEdit;
     KPasswordLineEdit *const mConfirmPasswordLineEdit;
+    PasswordValidateWidget *const mPasswordValidateWidget;
 };
