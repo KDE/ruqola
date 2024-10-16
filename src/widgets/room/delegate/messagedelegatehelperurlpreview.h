@@ -64,6 +64,7 @@ private:
                                                     const QModelIndex &index,
                                                     const QStyleOptionViewItem &option) const;
     [[nodiscard]] LIBRUQOLAWIDGETS_NO_EXPORT QTextDocument *documentForUrlPreview(const MessageUrl &messageUrl) const override;
+    [[nodiscard]] LIBRUQOLAWIDGETS_NO_EXPORT QPoint relativePos(const QPoint &pos, const PreviewLayout &layout, QRect previewRect) const;
 
     QPersistentModelIndex mCurrentIndex;
     mutable PixmapCache mPixmapCache;
