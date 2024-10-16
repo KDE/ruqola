@@ -163,10 +163,7 @@ bool MessageDelegateHelperUrlPreview::handleHelpEvent(QHelpEvent *helpEvent,
     if (!doc) {
         return false;
     }
-    const PreviewLayout layout = layoutPreview(messageUrl, option, previewRect.width(), previewRect.height());
-
-    const QPoint pos =
-        helpEvent->pos() - previewRect.topLeft() - QPoint(0, layout.imageSize.height() + layout.previewTitleSize.height() + DelegatePaintUtil::margin());
+    const QPoint pos = adaptMousePosition(helpEvent->pos(), messageUrl, previewRect, option);
     QString formattedTooltip;
     if (MessageDelegateUtils::generateToolTip(doc, pos, formattedTooltip)) {
         QToolTip::showText(helpEvent->globalPos(), formattedTooltip);
