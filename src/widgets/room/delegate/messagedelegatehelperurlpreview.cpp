@@ -192,8 +192,7 @@ bool MessageDelegateHelperUrlPreview::handleMouseEvent(const MessageUrl &message
             return true;
         }
         // Clicks on links
-        auto *doc = documentDescriptionForIndex(convertMessageUrlToDocumentDescriptionInfo(messageUrl, previewRect.width()));
-        if (doc) {
+        if (const auto *doc = documentDescriptionForIndex(convertMessageUrlToDocumentDescriptionInfo(messageUrl, previewRect.width()))) {
             const QPoint mouseClickPos = relativePos(pos, layout, previewRect);
             const QString link = doc->documentLayout()->anchorAt(mouseClickPos);
             if (!link.isEmpty()) {
@@ -305,18 +304,19 @@ bool MessageDelegateHelperUrlPreview::maybeStartDrag(const MessageUrl &messageUr
         return false;
     }
     if (mTextSelectionImpl->textSelection()->hasSelection()) {
-        const auto *doc = documentDescriptionForIndex(convertMessageUrlToDocumentDescriptionInfo(messageUrl, previewsRect.width()));
-        const QPoint pos = mouseEvent->pos() - previewsRect.topLeft();
-        const int charPos = doc->documentLayout()->hitTest(pos, Qt::FuzzyHit);
-        if (charPos != -1 && mTextSelectionImpl->textSelection()->contains(index, charPos)) {
-            auto mimeData = new QMimeData;
-            mimeData->setHtml(mTextSelectionImpl->textSelection()->selectedText(TextSelection::Html));
-            mimeData->setText(mTextSelectionImpl->textSelection()->selectedText(TextSelection::Text));
-            auto drag = new QDrag(const_cast<QWidget *>(option.widget));
-            drag->setMimeData(mimeData);
-            drag->exec(Qt::CopyAction);
-            mTextSelectionImpl->setMightStartDrag(false); // don't clear selection on release
-            return true;
+        if (const auto *doc = documentDescriptionForIndex(convertMessageUrlToDocumentDescriptionInfo(messageUrl, previewsRect.width()))) {
+            const QPoint pos = mouseEvent->pos() - previewsRect.topLeft();
+            const int charPos = doc->documentLayout()->hitTest(pos, Qt::FuzzyHit);
+            if (charPos != -1 && mTextSelectionImpl->textSelection()->contains(index, charPos)) {
+                auto mimeData = new QMimeData;
+                mimeData->setHtml(mTextSelectionImpl->textSelection()->selectedText(TextSelection::Html));
+                mimeData->setText(mTextSelectionImpl->textSelection()->selectedText(TextSelection::Text));
+                auto drag = new QDrag(const_cast<QWidget *>(option.widget));
+                drag->setMimeData(mimeData);
+                drag->exec(Qt::CopyAction);
+                mTextSelectionImpl->setMightStartDrag(false); // don't clear selection on release
+                return true;
+            }
         }
     }
     return false;
