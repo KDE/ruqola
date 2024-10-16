@@ -7,6 +7,7 @@
 #pragma once
 
 #include "libruqolawidgets_private_export.h"
+#include "ruqolaserverconfig.h"
 #include "users/registeruserjob.h"
 #include <QWidget>
 class QLineEdit;
@@ -21,6 +22,7 @@ public:
 
     [[nodiscard]] RocketChatRestApi::RegisterUserJob::RegisterUserInfo registerUserInfo() const;
 
+    void setPasswordValidChecks(const RuqolaServerConfig::PasswordSettings &passwordSettings);
 Q_SIGNALS:
     void updateOkButton(bool b);
     void registerNewAccount();

@@ -63,4 +63,9 @@ RocketChatRestApi::RegisterUserJob::RegisterUserInfo RegisterUserDialog::registe
     return mRegisterUserWidget->registerUserInfo();
 }
 
+void RegisterUserDialog::setPasswordValidChecks(const RuqolaServerConfig::PasswordSettings &passwordSettings)
+{
+    mRegisterUserWidget->setPasswordValidChecks(passwordSettings);
+}
+
 #include "moc_registeruserdialog.cpp"

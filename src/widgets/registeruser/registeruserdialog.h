@@ -7,6 +7,7 @@
 #pragma once
 
 #include "libruqolawidgets_private_export.h"
+#include "ruqolaserverconfig.h"
 #include "users/registeruserjob.h"
 #include <QDialog>
 
@@ -19,6 +20,7 @@ public:
     ~RegisterUserDialog() override;
     [[nodiscard]] RocketChatRestApi::RegisterUserJob::RegisterUserInfo registerUserInfo() const;
 
+    void setPasswordValidChecks(const RuqolaServerConfig::PasswordSettings &passwordSettings);
 Q_SIGNALS:
     void registerNewAccount();
 

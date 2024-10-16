@@ -990,6 +990,9 @@ void RuqolaMainWindow::slotConfigureNotifications()
 void RuqolaMainWindow::slotRegisterNewUser()
 {
     QPointer<RegisterUserDialog> dlg = new RegisterUserDialog(this);
+    if (mCurrentRocketChatAccount) {
+        dlg->setPasswordValidChecks(mCurrentRocketChatAccount->ruqolaServerConfig()->passwordSettings());
+    }
     connect(dlg, &RegisterUserDialog::registerNewAccount, this, [this, dlg]() {
         mCurrentRocketChatAccount->registerNewUser(dlg->registerUserInfo());
     });

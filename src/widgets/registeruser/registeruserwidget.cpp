@@ -37,11 +37,6 @@ RegisterUserWidget::RegisterUserWidget(QWidget *parent)
     mPasswordConfirmWidget->setObjectName(QStringLiteral("mPasswordConfirmWidget"));
     mainLayout->addRow(mPasswordConfirmWidget);
     connect(mPasswordConfirmWidget, &PasswordConfirmWidget::passwordValidated, this, &RegisterUserWidget::slotUpdateRegisterButton);
-#if 0
-    if (mRocketChatAccount) {
-        mPasswordConfirmWidget->setPasswordValidChecks(mRocketChatAccount->ruqolaServerConfig()->passwordSettings());
-    }
-#endif
 
     mRegisterButton->setObjectName(QStringLiteral("mRegisterButton"));
     connect(mRegisterButton, &QPushButton::clicked, this, &RegisterUserWidget::slotRegisterNewUser);
@@ -50,6 +45,11 @@ RegisterUserWidget::RegisterUserWidget(QWidget *parent)
 }
 
 RegisterUserWidget::~RegisterUserWidget() = default;
+
+void RegisterUserWidget::setPasswordValidChecks(const RuqolaServerConfig::PasswordSettings &passwordSettings)
+{
+    mPasswordConfirmWidget->setPasswordValidChecks(passwordSettings);
+}
 
 void RegisterUserWidget::slotUpdateRegisterButton()
 {
