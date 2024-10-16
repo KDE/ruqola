@@ -5,6 +5,7 @@
 */
 
 #include "registeruserwidget.h"
+#include "misc/passwordconfirmwidget.h"
 
 #include <KAuthorized>
 #include <KLocalizedString>
@@ -18,8 +19,7 @@ RegisterUserWidget::RegisterUserWidget(QWidget *parent)
     , mRegisterButton(new QPushButton(i18nc("@action:button", "Register"), this))
     , mUserName(new QLineEdit(this))
     , mEmail(new QLineEdit(this))
-    , mPasswordLineEdit(new KPasswordLineEdit(this))
-    , mConfirmPasswordLineEdit(new KPasswordLineEdit(this))
+    , mPasswordConfirmWidget(new PasswordConfirmWidget(this))
 {
     // TODO use PasswordConfirmWidget
     auto mainLayout = new QFormLayout(this);
@@ -34,17 +34,14 @@ RegisterUserWidget::RegisterUserWidget(QWidget *parent)
     mainLayout->addRow(i18n("Email:"), mEmail);
     connect(mEmail, &QLineEdit::textChanged, this, &RegisterUserWidget::slotUpdateRegisterButton);
 
-    mPasswordLineEdit->setObjectName(QStringLiteral("mPasswordLineEdit"));
-    mPasswordLineEdit->setRevealPasswordMode(KAuthorized::authorize(QStringLiteral("lineedit_reveal_password")) ? KPassword::RevealMode::OnlyNew
-                                                                                                                : KPassword::RevealMode::Never);
-    mainLayout->addRow(i18n("Password:"), mPasswordLineEdit);
-    connect(mPasswordLineEdit, &KPasswordLineEdit::passwordChanged, this, &RegisterUserWidget::slotUpdateRegisterButton);
-
-    mConfirmPasswordLineEdit->setObjectName(QStringLiteral("mConfirmPasswordLineEdit"));
-    mConfirmPasswordLineEdit->setRevealPasswordMode(KAuthorized::authorize(QStringLiteral("lineedit_reveal_password")) ? KPassword::RevealMode::OnlyNew
-                                                                                                                       : KPassword::RevealMode::Never);
-    mainLayout->addRow(i18n("Confirm Password:"), mConfirmPasswordLineEdit);
-    connect(mConfirmPasswordLineEdit, &KPasswordLineEdit::passwordChanged, this, &RegisterUserWidget::slotUpdateRegisterButton);
+    mPasswordConfirmWidget->setObjectName(QStringLiteral("mPasswordConfirmWidget"));
+    mainLayout->addRow(mPasswordConfirmWidget);
+    connect(mPasswordConfirmWidget, &PasswordConfirmWidget::passwordValidated, this, &RegisterUserWidget::slotUpdateRegisterButton);
+#if 0
+    if (mRocketChatAccount) {
+        mPasswordConfirmWidget->setPasswordValidChecks(mRocketChatAccount->ruqolaServerConfig()->passwordSettings());
+    }
+#endif
 
     mRegisterButton->setObjectName(QStringLiteral("mRegisterButton"));
     connect(mRegisterButton, &QPushButton::clicked, this, &RegisterUserWidget::slotRegisterNewUser);
@@ -56,8 +53,8 @@ RegisterUserWidget::~RegisterUserWidget() = default;
 
 void RegisterUserWidget::slotUpdateRegisterButton()
 {
-    const bool enableRegisterButton = !mUserName->text().trimmed().isEmpty() && !mEmail->text().trimmed().isEmpty() && !mPasswordLineEdit->password().isEmpty()
-        && (mPasswordLineEdit->password() == mConfirmPasswordLineEdit->password());
+    const bool enableRegisterButton =
+        !mUserName->text().trimmed().isEmpty() && !mEmail->text().trimmed().isEmpty() && mPasswordConfirmWidget->isNewPasswordConfirmed();
     mRegisterButton->setEnabled(enableRegisterButton);
 }
 
@@ -73,7 +70,7 @@ RocketChatRestApi::RegisterUserJob::RegisterUserInfo RegisterUserWidget::registe
     info.email = mEmail->text();
     info.name = mUserName->text();
     info.username = mUserName->text().remove(QLatin1Char(' '));
-    info.password = mPasswordLineEdit->password();
+    info.password = mPasswordConfirmWidget->password();
     return info;
 }
 

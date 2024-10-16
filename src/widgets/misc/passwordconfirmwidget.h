@@ -22,7 +22,11 @@ public:
 
     void setPasswordValidChecks(const RuqolaServerConfig::PasswordSettings &passwordSettings);
 
+Q_SIGNALS:
+    void passwordValidated(bool state);
+
 private:
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotVerifyPassword();
     KPasswordLineEdit *const mNewPasswordLineEdit;
     KPasswordLineEdit *const mConfirmPasswordLineEdit;
     PasswordValidateWidget *const mPasswordValidateWidget;

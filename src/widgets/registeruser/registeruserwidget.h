@@ -10,7 +10,7 @@
 #include "users/registeruserjob.h"
 #include <QWidget>
 class QLineEdit;
-class KPasswordLineEdit;
+class PasswordConfirmWidget;
 class QPushButton;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT RegisterUserWidget : public QWidget
 {
@@ -31,6 +31,5 @@ private:
     QPushButton *const mRegisterButton;
     QLineEdit *const mUserName;
     QLineEdit *const mEmail;
-    KPasswordLineEdit *const mPasswordLineEdit;
-    KPasswordLineEdit *const mConfirmPasswordLineEdit;
+    PasswordConfirmWidget *const mPasswordConfirmWidget;
 };

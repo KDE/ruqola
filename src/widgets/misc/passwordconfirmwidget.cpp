@@ -35,9 +35,16 @@ PasswordConfirmWidget::PasswordConfirmWidget(QWidget *parent)
     mainLayout->addRow(i18n("Confirm Password:"), mConfirmPasswordLineEdit);
     mConfirmPasswordLineEdit->setRevealPasswordMode(KAuthorized::authorize(QStringLiteral("lineedit_reveal_password")) ? KPassword::RevealMode::OnlyNew
                                                                                                                        : KPassword::RevealMode::Never);
+    connect(mConfirmPasswordLineEdit, &KPasswordLineEdit::passwordChanged, this, &PasswordConfirmWidget::slotVerifyPassword);
+    connect(mNewPasswordLineEdit, &KPasswordLineEdit::passwordChanged, this, &PasswordConfirmWidget::slotVerifyPassword);
 }
 
 PasswordConfirmWidget::~PasswordConfirmWidget() = default;
+
+void PasswordConfirmWidget::slotVerifyPassword()
+{
+    Q_EMIT passwordValidated(isNewPasswordConfirmed());
+}
 
 bool PasswordConfirmWidget::isNewPasswordConfirmed() const
 {
