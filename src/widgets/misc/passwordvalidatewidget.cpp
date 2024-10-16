@@ -5,7 +5,7 @@
 */
 
 #include "passwordvalidatewidget.h"
-#include "ruqolawidgets_debug.h"
+#include "colorsandmessageviewstyle.h"
 #include <KLocalizedString>
 #include <QGridLayout>
 #include <QHBoxLayout>
@@ -188,6 +188,11 @@ void PasswordValidateLabel::setText(RuqolaServerConfig::PasswordSettings::Passwo
 void PasswordValidateLabel::setValidStatus(bool b)
 {
     mIconLabel->setPixmap(b ? QIcon::fromTheme(QStringLiteral("data-success")).pixmap(18, 18) : QIcon::fromTheme(QStringLiteral("data-error")).pixmap(18, 18));
+    QPalette pal = mLabel->palette();
+    pal.setColor(mLabel->foregroundRole(),
+                 b ? ColorsAndMessageViewStyle::self().schemeView().foreground(KColorScheme::PositiveText).color()
+                   : ColorsAndMessageViewStyle::self().schemeView().foreground(KColorScheme::NegativeText).color());
+    mLabel->setPalette(pal);
 }
 
 #include "moc_passwordvalidatewidget.cpp"
