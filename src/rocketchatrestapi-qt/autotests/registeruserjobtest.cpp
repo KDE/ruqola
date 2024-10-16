@@ -44,19 +44,39 @@ void RegisterUserJobTest::shouldGenerateRequest()
 
 void RegisterUserJobTest::shouldGenerateJson()
 {
-    RegisterUserJob job;
-    RegisterUserJob::RegisterUserInfo info;
-    const QString password = QStringLiteral("foo1");
-    const QString email = QStringLiteral("bla@bli.com");
-    const QString name = QStringLiteral("name");
-    const QString username = QStringLiteral("username");
-    info.email = email;
-    info.username = username;
-    info.name = name;
-    info.password = password;
-    job.setRegisterUserInfo(info);
-    QCOMPARE(job.json().toJson(QJsonDocument::Compact),
-             QStringLiteral(R"({"email":"%1","name":"%2","pass":"%3","username":"%4"})").arg(email, name, password, username).toLatin1());
+    {
+        RegisterUserJob job;
+        RegisterUserJob::RegisterUserInfo info;
+        const QString password = QStringLiteral("foo1");
+        const QString email = QStringLiteral("bla@bli.com");
+        const QString name = QStringLiteral("name");
+        const QString username = QStringLiteral("username");
+        info.email = email;
+        info.username = username;
+        info.name = name;
+        info.password = password;
+        job.setRegisterUserInfo(info);
+        QCOMPARE(job.json().toJson(QJsonDocument::Compact),
+                 QStringLiteral(R"({"email":"%1","name":"%2","pass":"%3","username":"%4"})").arg(email, name, password, username).toLatin1());
+    }
+    {
+        RegisterUserJob job;
+        RegisterUserJob::RegisterUserInfo info;
+        const QString password = QStringLiteral("foo1");
+        const QString email = QStringLiteral("bla@bli.com");
+        const QString name = QStringLiteral("name");
+        const QString username = QStringLiteral("username");
+        const QString reason = QStringLiteral("DDDD");
+        info.email = email;
+        info.username = username;
+        info.name = name;
+        info.password = password;
+        info.reason = reason;
+        job.setRegisterUserInfo(info);
+        QCOMPARE(
+            job.json().toJson(QJsonDocument::Compact),
+            QStringLiteral(R"({"email":"%1","name":"%2","pass":"%3","reason":"%4","username":"%5"})").arg(email, name, password, reason, username).toLatin1());
+    }
 }
 
 void RegisterUserJobTest::shouldNotStarting()
