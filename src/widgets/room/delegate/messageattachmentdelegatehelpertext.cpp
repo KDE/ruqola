@@ -79,8 +79,12 @@ QPoint MessageAttachmentDelegateHelperText::adaptMousePosition(const QPoint &pos
                                                                const QStyleOptionViewItem &option)
 {
     const TextLayout layout = layoutText(msgAttach, option, attachmentsRect.width(), attachmentsRect.height());
-    const QPoint relativePos = pos - attachmentsRect.topLeft() - QPoint(0, layout.titleRect.height() + DelegatePaintUtil::margin());
-    return relativePos;
+    return relativePos(pos, layout, attachmentsRect);
+}
+
+QPoint MessageAttachmentDelegateHelperText::relativePos(const QPoint &pos, const TextLayout &layout, QRect attachmentsRect) const
+{
+    return pos - attachmentsRect.topLeft() - QPoint(0, layout.titleRect.height() + DelegatePaintUtil::margin());
 }
 
 bool MessageAttachmentDelegateHelperText::handleMouseEvent(const MessageAttachment &msgAttach,
@@ -113,7 +117,7 @@ bool MessageAttachmentDelegateHelperText::handleMouseEvent(const MessageAttachme
         auto *doc = documentAttachmentForIndex(msgAttach, attachmentsRect.width());
         if (doc) {
             // Fix mouse position (we have layout.titleSize.height() + DelegatePaintUtil::margin() too)
-            const QPoint mouseClickPos = pos - attachmentsRect.topLeft() - QPoint(0, layout.titleRect.height() + DelegatePaintUtil::margin());
+            const QPoint mouseClickPos = relativePos(pos, layout, attachmentsRect);
             const QString link = doc->documentLayout()->anchorAt(mouseClickPos);
             if (!link.isEmpty()) {
                 Q_EMIT mRocketChatAccount->openLinkRequested(link);
