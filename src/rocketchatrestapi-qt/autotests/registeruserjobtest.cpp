@@ -22,6 +22,14 @@ void RegisterUserJobTest::shouldHaveDefaultValue()
     QVERIFY(!job.requireHttpAuthentication());
     QVERIFY(!job.registerUserInfo().isValid());
     QVERIFY(!job.hasQueryParameterSupport());
+
+    RegisterUserJob::RegisterUserInfo info;
+    QVERIFY(info.username.isEmpty());
+    QVERIFY(info.name.isEmpty());
+    QVERIFY(info.email.isEmpty());
+    QVERIFY(info.password.isEmpty());
+    QVERIFY(info.reason.isEmpty());
+    QVERIFY(!info.isValid());
 }
 
 void RegisterUserJobTest::shouldGenerateRequest()

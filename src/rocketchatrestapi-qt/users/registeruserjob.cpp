@@ -94,6 +94,9 @@ QJsonDocument RegisterUserJob::json() const
     jsonObj["email"_L1] = mRegisterUserInfo.email;
     jsonObj["name"_L1] = mRegisterUserInfo.name;
     jsonObj["pass"_L1] = mRegisterUserInfo.password; // TODO ??
+    if (!mRegisterUserInfo.reason.isEmpty()) {
+        jsonObj["reason"_L1] = mRegisterUserInfo.reason;
+    }
 
     const QJsonDocument postData = QJsonDocument(jsonObj);
     return postData;

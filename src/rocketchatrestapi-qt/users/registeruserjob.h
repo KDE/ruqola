@@ -20,6 +20,7 @@ public:
         QString name;
         QString email;
         QString password;
+        QString reason;
         [[nodiscard]] bool isValid() const;
     };
 
