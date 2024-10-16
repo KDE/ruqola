@@ -5,6 +5,7 @@
 */
 
 #include "registeruserwidgettest.h"
+#include "misc/passwordconfirmwidget.h"
 #include "registeruser/registeruserwidget.h"
 #include <KPasswordLineEdit>
 #include <QFormLayout>
@@ -31,13 +32,8 @@ void RegisterUserWidgetTest::shouldHaveDefaultValues()
     QVERIFY(mEmail);
     QVERIFY(mEmail->text().isEmpty());
 
-    auto mPasswordLineEdit = w.findChild<KPasswordLineEdit *>(QStringLiteral("mPasswordLineEdit"));
-    QVERIFY(mPasswordLineEdit);
-    QVERIFY(mPasswordLineEdit->password().isEmpty());
-
-    auto mConfirmPasswordLineEdit = w.findChild<KPasswordLineEdit *>(QStringLiteral("mConfirmPasswordLineEdit"));
-    QVERIFY(mConfirmPasswordLineEdit);
-    QVERIFY(mConfirmPasswordLineEdit->password().isEmpty());
+    auto mPasswordConfirmWidget = w.findChild<PasswordConfirmWidget *>(QStringLiteral("mPasswordConfirmWidget"));
+    QVERIFY(mPasswordConfirmWidget);
 
     auto mRegisterButton = w.findChild<QPushButton *>(QStringLiteral("mRegisterButton"));
     QVERIFY(mRegisterButton);
