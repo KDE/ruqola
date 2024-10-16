@@ -197,8 +197,7 @@ bool MessageDelegateHelperUrlPreview::handleMouseEvent(const MessageUrl &message
         // Clicks on links
         auto *doc = documentDescriptionForIndex(convertMessageUrlToDocumentDescriptionInfo(messageUrl, previewRect.width()));
         if (doc) {
-            const QPoint mouseClickPos =
-                pos - previewRect.topLeft() - QPoint(0, layout.imageSize.height() + layout.previewTitleSize.height() + DelegatePaintUtil::margin());
+            const QPoint mouseClickPos = relativePos(pos, layout, previewRect);
             const QString link = doc->documentLayout()->anchorAt(mouseClickPos);
             if (!link.isEmpty()) {
                 Q_EMIT mRocketChatAccount->openLinkRequested(link);
@@ -275,9 +274,13 @@ QPoint
 MessageDelegateHelperUrlPreview::adaptMousePosition(const QPoint &pos, const MessageUrl &messageUrl, QRect previewRect, const QStyleOptionViewItem &option)
 {
     const PreviewLayout layout = layoutPreview(messageUrl, option, previewRect.width(), previewRect.height());
-    const QPoint relativePos =
-        pos - previewRect.topLeft() - QPoint(0, layout.imageSize.height() + layout.previewTitleSize.height() + DelegatePaintUtil::margin());
-    return relativePos;
+    return relativePos(pos, layout, previewRect);
+}
+
+QPoint MessageDelegateHelperUrlPreview::relativePos(const QPoint &pos, const PreviewLayout &layout, QRect previewRect) const
+{
+    const auto dpr = layout.pixmap.devicePixelRatioF();
+    return pos - previewRect.topLeft() - QPoint(0, layout.imageSize.height() / dpr + layout.previewTitleSize.height() + DelegatePaintUtil::margin());
 }
 
 QString MessageDelegateHelperUrlPreview::urlAt(const QStyleOptionViewItem &option, const MessageUrl &messageUrl, QRect previewsRect, QPoint pos)
