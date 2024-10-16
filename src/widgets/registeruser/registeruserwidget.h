@@ -13,6 +13,8 @@
 class QLineEdit;
 class PasswordConfirmWidget;
 class QPushButton;
+class QPlainTextEdit;
+class QLabel;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT RegisterUserWidget : public QWidget
 {
     Q_OBJECT
@@ -35,4 +37,6 @@ private:
     QLineEdit *const mUserName;
     QLineEdit *const mEmail;
     PasswordConfirmWidget *const mPasswordConfirmWidget;
+    QPlainTextEdit *const mReasonTextEdit;
+    QLabel *const mReasonLabel;
 };

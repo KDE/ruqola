@@ -11,7 +11,9 @@
 #include <KLocalizedString>
 #include <KPasswordLineEdit>
 #include <QFormLayout>
+#include <QLabel>
 #include <QLineEdit>
+#include <QPlainTextEdit>
 #include <QPushButton>
 
 RegisterUserWidget::RegisterUserWidget(QWidget *parent)
@@ -20,6 +22,8 @@ RegisterUserWidget::RegisterUserWidget(QWidget *parent)
     , mUserName(new QLineEdit(this))
     , mEmail(new QLineEdit(this))
     , mPasswordConfirmWidget(new PasswordConfirmWidget(this))
+    , mReasonTextEdit(new QPlainTextEdit(this))
+    , mReasonLabel(new QLabel(i18n("Reason:"), this))
 {
     auto mainLayout = new QFormLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
@@ -37,6 +41,14 @@ RegisterUserWidget::RegisterUserWidget(QWidget *parent)
     mainLayout->addRow(mPasswordConfirmWidget);
     connect(mPasswordConfirmWidget, &PasswordConfirmWidget::passwordValidated, this, &RegisterUserWidget::slotUpdateRegisterButton);
 
+    mReasonTextEdit->setObjectName(QStringLiteral("mReasonTextEdit"));
+    mReasonLabel->setObjectName(QStringLiteral("mReasonLabel"));
+    mainLayout->addRow(mReasonLabel, mReasonTextEdit);
+    // Hide by default
+    mReasonLabel->setVisible(false);
+    mReasonTextEdit->setVisible(false);
+    connect(mReasonTextEdit, &QPlainTextEdit::textChanged, this, &RegisterUserWidget::slotUpdateRegisterButton);
+
     mRegisterButton->setObjectName(QStringLiteral("mRegisterButton"));
     connect(mRegisterButton, &QPushButton::clicked, this, &RegisterUserWidget::slotRegisterNewUser);
     mainLayout->addWidget(mRegisterButton);
@@ -52,13 +64,17 @@ void RegisterUserWidget::setPasswordValidChecks(const RuqolaServerConfig::Passwo
 
 void RegisterUserWidget::setManuallyApproveNewUsersRequired(bool manual)
 {
-    // TODO show/hide reason
+    mReasonTextEdit->setVisible(manual);
+    mReasonLabel->setVisible(manual);
 }
 
 void RegisterUserWidget::slotUpdateRegisterButton()
 {
-    const bool enableRegisterButton =
+    bool enableRegisterButton =
         !mUserName->text().trimmed().isEmpty() && !mEmail->text().trimmed().isEmpty() && mPasswordConfirmWidget->isNewPasswordConfirmed();
+    if (mReasonTextEdit->isVisible()) {
+        enableRegisterButton &= !mReasonTextEdit->document()->isEmpty();
+    }
     mRegisterButton->setEnabled(enableRegisterButton);
 }
 
@@ -75,7 +91,9 @@ RocketChatRestApi::RegisterUserJob::RegisterUserInfo RegisterUserWidget::registe
     info.name = mUserName->text();
     info.username = mUserName->text().remove(QLatin1Char(' '));
     info.password = mPasswordConfirmWidget->password();
-    // TODO info.reason = ...
+    if (mReasonTextEdit->isVisible()) {
+        info.reason = mReasonTextEdit->toPlainText();
+    }
     return info;
 }
 
