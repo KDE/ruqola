@@ -21,7 +21,6 @@ RegisterUserWidget::RegisterUserWidget(QWidget *parent)
     , mEmail(new QLineEdit(this))
     , mPasswordConfirmWidget(new PasswordConfirmWidget(this))
 {
-    // TODO use PasswordConfirmWidget
     auto mainLayout = new QFormLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
     mainLayout->setContentsMargins({});
