@@ -17,6 +17,7 @@ QList<KLazyLocalizedString> WhatsNewTranslations::lastNewFeatures() const
         kli18n("Allow to clean up room history when room was not opened from long time."),
         kli18n("Add restore button in administrator server settings dialog."),
         kli18n("Improve changing password (show validation info)."),
+        kli18n("Improve register new account (Add reason support)."),
     };
     return info;
 }
