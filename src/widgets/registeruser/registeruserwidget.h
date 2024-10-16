@@ -23,6 +23,7 @@ public:
     [[nodiscard]] RocketChatRestApi::RegisterUserJob::RegisterUserInfo registerUserInfo() const;
 
     void setPasswordValidChecks(const RuqolaServerConfig::PasswordSettings &passwordSettings);
+    void setManuallyApproveNewUsersRequired(bool manual);
 Q_SIGNALS:
     void updateOkButton(bool b);
     void registerNewAccount();

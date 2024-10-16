@@ -68,4 +68,9 @@ void RegisterUserDialog::setPasswordValidChecks(const RuqolaServerConfig::Passwo
     mRegisterUserWidget->setPasswordValidChecks(passwordSettings);
 }
 
+void RegisterUserDialog::setManuallyApproveNewUsersRequired(bool manual)
+{
+    mRegisterUserWidget->setManuallyApproveNewUsersRequired(manual);
+}
+
 #include "moc_registeruserdialog.cpp"

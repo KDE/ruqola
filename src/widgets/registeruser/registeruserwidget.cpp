@@ -50,6 +50,11 @@ void RegisterUserWidget::setPasswordValidChecks(const RuqolaServerConfig::Passwo
     mPasswordConfirmWidget->setPasswordValidChecks(passwordSettings);
 }
 
+void RegisterUserWidget::setManuallyApproveNewUsersRequired(bool manual)
+{
+    // TODO show/hide reason
+}
+
 void RegisterUserWidget::slotUpdateRegisterButton()
 {
     const bool enableRegisterButton =
@@ -70,6 +75,7 @@ RocketChatRestApi::RegisterUserJob::RegisterUserInfo RegisterUserWidget::registe
     info.name = mUserName->text();
     info.username = mUserName->text().remove(QLatin1Char(' '));
     info.password = mPasswordConfirmWidget->password();
+    // TODO info.reason = ...
     return info;
 }
 
