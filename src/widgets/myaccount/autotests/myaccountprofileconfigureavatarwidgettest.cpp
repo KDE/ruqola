@@ -20,6 +20,7 @@ void MyAccountProfileConfigureAvatarWidgetTest::shouldHaveDefaultValues()
 
     auto mainLayout = w.findChild<QHBoxLayout *>(QStringLiteral("mainLayout"));
     QVERIFY(mainLayout);
+    QCOMPARE(mainLayout->contentsMargins(), QMargins{});
 
     auto mAvatarImage = w.findChild<AvatarImage *>(QStringLiteral("mAvatarImage"));
     QVERIFY(mAvatarImage);

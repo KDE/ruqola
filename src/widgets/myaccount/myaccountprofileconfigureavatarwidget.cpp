@@ -21,6 +21,7 @@ MyAccountProfileConfigureAvatarWidget::MyAccountProfileConfigureAvatarWidget(Roc
     , mAvatarImage(new AvatarImage(account, this))
 {
     auto mainLayout = new QHBoxLayout(this);
+    mainLayout->setContentsMargins({});
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
     mAvatarImage->setObjectName(QStringLiteral("mAvatarImage"));
     mainLayout->addWidget(mAvatarImage, 0, Qt::AlignLeft);
