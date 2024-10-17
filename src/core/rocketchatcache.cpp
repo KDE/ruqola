@@ -198,6 +198,10 @@ QUrl RocketChatCache::soundUrlFromLocalCache(const QString &url)
 
 void RocketChatCache::removeCache()
 {
+    // Don't clear all cache when we create new account
+    if (mAccount->accountName().isEmpty()) {
+        return;
+    }
     const QString storeCachePath =
         QStandardPaths::writableLocation(QStandardPaths::CacheLocation) + QLatin1Char('/') + mAccount->accountName() + QLatin1Char('/');
     QDir dir(storeCachePath);
