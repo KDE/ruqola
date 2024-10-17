@@ -31,9 +31,11 @@ RegisterUserWidget::RegisterUserWidget(QWidget *parent)
 
     mUserName->setObjectName(QStringLiteral("mUserName"));
     mainLayout->addRow(i18n("Username:"), mUserName);
+    mUserName->setClearButtonEnabled(true);
     connect(mUserName, &QLineEdit::textChanged, this, &RegisterUserWidget::slotUpdateRegisterButton);
 
     mEmail->setObjectName(QStringLiteral("mEmail"));
+    mEmail->setClearButtonEnabled(true);
     mainLayout->addRow(i18n("Email:"), mEmail);
     connect(mEmail, &QLineEdit::textChanged, this, &RegisterUserWidget::slotUpdateRegisterButton);
 
