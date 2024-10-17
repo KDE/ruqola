@@ -48,7 +48,6 @@ MyAccountProfileConfigureWidget::MyAccountProfileConfigureWidget(RocketChatAccou
 
     auto topLayout = new QVBoxLayout(this);
     topLayout->setObjectName(QStringLiteral("topLayout"));
-    topLayout->setContentsMargins({});
 
     mConfigureAvatarWidget->setObjectName(QStringLiteral("mConfigureAvatarWidget"));
     topLayout->addWidget(mConfigureAvatarWidget);

@@ -26,7 +26,6 @@ void MyAccountProfileConfigureWidgetTest::shouldHaveDefaultValues()
 
     auto topLayout = w.findChild<QVBoxLayout *>(QStringLiteral("topLayout"));
     QVERIFY(topLayout);
-    QCOMPARE(topLayout->contentsMargins(), QMargins());
 
     auto mainLayout = w.findChild<QFormLayout *>(QStringLiteral("mainLayout"));
     QVERIFY(mainLayout);
