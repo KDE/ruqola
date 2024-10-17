@@ -80,7 +80,7 @@ void DirectoryWidget::slotCustomContextMenuRequested(const QPoint &pos)
             actionName = i18nc("@action", "Join…");
             break;
         case DirectoryType::User:
-            actionName = i18nc("@action", "Open Private Messages…");
+            actionName = i18nc("@action", "Open Private Message…");
             break;
         case DirectoryType::Unknown:
             break;
