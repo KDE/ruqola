@@ -7,6 +7,7 @@
 #pragma once
 #include "authenticationinfo.h"
 #include "libruqolawidgets_private_export.h"
+#include "ruqolaserverconfig.h"
 #include <QWidget>
 class QLineEdit;
 class KMessageWidget;
@@ -19,8 +20,10 @@ public:
     struct LIBRUQOLAWIDGETS_TESTS_EXPORT ServerInfo {
         QString url;
         QList<AuthenticationInfo> authenticationInfos;
+        RuqolaServerConfig::PasswordSettings passwordSettings;
         bool canResetPassword = false;
         bool canRegisterAccount = false;
+        bool accountsManuallyApproveNewUsers = false;
     };
 
     explicit CheckNewServerUrlWidget(QWidget *parent = nullptr);

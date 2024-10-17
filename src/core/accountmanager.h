@@ -10,6 +10,7 @@
 #include "config-ruqola.h"
 #include "libruqolacore_export.h"
 #include "parserocketchaturlutils.h"
+#include "ruqolaserverconfig.h"
 
 #include <QIcon>
 #include <QObject>
@@ -57,9 +58,11 @@ public:
         QString token;
         QByteArray userId;
         AuthenticationManager::AuthMethodType authMethodType = AuthenticationManager::AuthMethodType::Unknown;
+        RuqolaServerConfig::PasswordSettings passwordSettings;
         bool canResetPassword = false;
         bool enabled = true;
         bool canRegisterAccount = false;
+        bool accountsManuallyApproveNewUsers = false;
     };
 
     struct LIBRUQOLACORE_EXPORT AccountDisplayInfo {

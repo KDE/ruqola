@@ -135,8 +135,9 @@ void AuthenticationLoginWidget::setAccountInfo(const AccountManager::AccountMana
 
 void AuthenticationLoginWidget::slotRegisterAccount()
 {
-    // TODO use rocketchataccount
     QPointer<RegisterUserDialog> dlg = new RegisterUserDialog(this);
+    dlg->setManuallyApproveNewUsersRequired(mAccountInfo.accountsManuallyApproveNewUsers);
+    dlg->setPasswordValidChecks(mAccountInfo.passwordSettings);
     connect(dlg, &RegisterUserDialog::registerNewAccount, this, [this, dlg]() {
         auto restApi = new Connection(this);
         connect(restApi, &Connection::registerUserDone, this, [this, restApi]() {

@@ -113,6 +113,8 @@ void CheckNewServerUrlWidget::slotTestConnection()
             info.url = mServerUrl->text().trimmed();
             info.canResetPassword = allowResetPassword;
             info.canRegisterAccount = account->registrationFormEnabled();
+            info.passwordSettings = account->ruqolaServerConfig()->passwordSettings();
+            info.accountsManuallyApproveNewUsers = account->ruqolaServerConfig()->accountsManuallyApproveNewUsers();
             Q_EMIT serverUrlFound(std::move(info));
         });
 
