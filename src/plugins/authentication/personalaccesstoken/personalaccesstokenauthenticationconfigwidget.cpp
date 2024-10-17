@@ -21,6 +21,9 @@ PersonalAccessTokenAuthenticationConfigWidget::PersonalAccessTokenAuthentication
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
     mServerNameLineEdit->setObjectName(QStringLiteral("mServerNameLineEdit"));
     mAccountNameLineEdit->setObjectName(QStringLiteral("mAccountNameLineEdit"));
+    mAccountNameLineEdit->setClearButtonEnabled(true);
+    mUserLineEdit->setClearButtonEnabled(true);
+    mPersonalAccessTokenLineEdit->setClearButtonEnabled(true);
 
     mUserLineEdit->setObjectName(QStringLiteral("mUserLineEdit"));
     mPersonalAccessTokenLineEdit->setObjectName(QStringLiteral("mPersonalAccessTokenLineEdit"));
