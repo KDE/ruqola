@@ -1019,7 +1019,7 @@ void RoomWidget::slotDisplayReconnectWidget(int seconds)
 
 void RoomWidget::slotCloseOtr()
 {
-    mCurrentRocketChatAccount->ddp()->streamNotifyUserOtrEnd(QString::fromLatin1(roomId()), QString::fromLatin1(mCurrentRocketChatAccount->userId()));
+    mCurrentRocketChatAccount->streamNotifyUserOtrEnd(roomId(), mCurrentRocketChatAccount->userId());
 }
 
 void RoomWidget::slotRefreshOtrKeys()

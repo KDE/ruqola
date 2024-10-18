@@ -3380,4 +3380,9 @@ void RocketChatAccount::slotCleanRoomHistory()
     mRoomModel->cleanRoomHistory();
 }
 
+void RocketChatAccount::streamNotifyUserOtrEnd(const QByteArray &roomId, const QByteArray &userId)
+{
+    ddp()->streamNotifyUserOtrEnd(QString::fromLatin1(roomId), QString::fromLatin1(userId));
+}
+
 #include "moc_rocketchataccount.cpp"

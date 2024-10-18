@@ -552,6 +552,8 @@ public:
 
     [[nodiscard]] bool federationEnabled() const;
 
+    void streamNotifyUserOtrEnd(const QByteArray &roomId, const QByteArray &userId);
+
 Q_SIGNALS:
     void roomRemoved(const QByteArray &roomId);
     void disabledTotpValid(bool checked);
