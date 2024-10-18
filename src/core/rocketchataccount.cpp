@@ -3361,7 +3361,7 @@ void RocketChatAccount::loadAppMarketPlace()
 void RocketChatAccount::slotVerifyKeysDone()
 {
     // TODO reactivate it when we will have full support
-#ifdef USE_E2E_SUPPORT
+#if USE_E2E_SUPPORT
     Q_EMIT needToSaveE2EPassword();
     Q_EMIT needToDecryptE2EPassword();
     // TODO verify it!!!!!

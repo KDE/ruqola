@@ -926,7 +926,7 @@ void RoomWidget::setCurrentRocketChatAccount(RocketChatAccount *account)
     connect(mCurrentRocketChatAccount, &RocketChatAccount::loginStatusChanged, this, &RoomWidget::slotLoginStatusChanged);
     connect(mCurrentRocketChatAccount, &RocketChatAccount::needUpdateMessageView, this, &RoomWidget::updateListView);
 
-#ifdef USE_E2E_SUPPORT
+#if USE_E2E_SUPPORT
     auto showE2eDecodeEncryptionKeyWidget = [this] {
         if (!mE2eDecodeEncryptionKeyWidget) {
             createE2eDecodeEncryptionKeyWidget();

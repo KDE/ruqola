@@ -5,9 +5,12 @@
 */
 
 #include "e2ekeymanager.h"
+#include "config-ruqola.h"
 #include "connection.h"
 #include "e2e/fetchmykeysjob.h"
+#if USE_E2E_SUPPORT
 #include "encryptionutils.h"
+#endif
 #include "rocketchataccount.h"
 #include "rocketchataccountsettings.h"
 #include "ruqola_encryption_debug.h"
@@ -27,7 +30,11 @@ void E2eKeyManager::decodeEncryptionKey()
 
 QString E2eKeyManager::generateRandomPassword() const
 {
+#if USE_E2E_SUPPORT
     return EncryptionUtils::generateRandomPassword();
+#else
+    return {};
+#endif
 }
 
 E2eKeyManager::Status E2eKeyManager::status() const
