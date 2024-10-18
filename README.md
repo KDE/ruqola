@@ -41,6 +41,7 @@ Ruqola supports the following RC features:
 - Implement Rocket.Chat Marketplace
 - Implement Channel Sound Notification
 - Implement New Room Sound Notification
+- Implement Password Validation
 
 Extra features:
 - Allow to reply directly to message from notification (kde features)
@@ -79,7 +80,7 @@ make install
 ````
 or using CMakePresets support (need cmake > 3.20)
 ````
-cmake --preset dev-qt6 && cmake --build --preset dev-qt6
+cmake --preset dev && cmake --build --preset dev
 ````
 
 
@@ -93,7 +94,7 @@ example: LSAN_OPTIONS=suppressions=../sanitizers.supp ./bin/ruqolaserverconfigte
 
 Ruqola can build with cmake unity support
 ````
-cmake --preset unity-qt6 && cmake --build --preset unity-qt6
+cmake --preset unity && cmake --build --preset unity
 ````
 
 ## Maintainer
