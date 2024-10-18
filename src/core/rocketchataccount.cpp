@@ -3364,6 +3364,8 @@ void RocketChatAccount::slotVerifyKeysDone()
 #ifdef USE_E2E_SUPPORT
     Q_EMIT needToSaveE2EPassword();
     Q_EMIT needToDecryptE2EPassword();
+    // TODO verify it!!!!!
+    setE2EPasswordMustBeDecrypt(true);
     // TODO verify if we must decode it
 #endif
 }
