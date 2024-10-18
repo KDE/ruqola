@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-10-05 02:30+0000\n"
+"POT-Creation-Date: 2024-10-18 02:28+0000\n"
 "PO-Revision-Date: 2023-06-07 13:29-0300\n"
 "Last-Translator: Luiz Fernando Ranghetti <elchevive@opensuse.org>\n"
 "Language-Team: Brazilian Portuguese <kde-i18n-pt_BR@kde.org>\n"
@@ -2675,7 +2675,7 @@ msgstr "O emoji personalizado ou um de seus apelidos já está em uso."
 #: widgets/dialogs/createnewchannelwidget.cpp:34
 #: widgets/dialogs/directchannelinfowidget.cpp:88
 #: widgets/myaccount/myaccountpersonalaccesscreatewidget.cpp:28
-#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:62
+#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:61
 #, kde-format
 msgid "Name:"
 msgstr "Nome:"
@@ -3164,7 +3164,7 @@ msgstr "Mostrar mensagens de menções"
 #: widgets/administratordialog/moderationconsole/moderationuserswidget.cpp:37
 #: widgets/administratordialog/users/administratoradduserwidget.cpp:62
 #: widgets/dialogs/directchannelinfowidget.cpp:166
-#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:74
+#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:73
 #: widgets/registeruser/registeruserwidget.cpp:33
 #, kde-format
 msgid "Email:"
@@ -3802,7 +3802,7 @@ msgstr "Verificado"
 #: widgets/administratordialog/users/administratoradduserwidget.cpp:60
 #: widgets/dialogs/directchannelinfowidget.cpp:95
 #: widgets/dialogs/serverinfo/serverinfowidget.cpp:39
-#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:67
+#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:66
 #: widgets/registeruser/registeruserwidget.cpp:29
 #, kde-format
 msgid "Username:"
@@ -3828,7 +3828,7 @@ msgid "Bio:"
 msgstr ""
 
 #: widgets/administratordialog/users/administratoradduserwidget.cpp:66
-#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:82
+#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:81
 #, kde-format
 msgid "Nickname:"
 msgstr "Apelido:"
@@ -7115,7 +7115,7 @@ msgstr "Nome do usuário"
 msgid "Username or Email:"
 msgstr "Nome do usuário:"
 
-#: widgets/common/authenticationloginwidget.cpp:155
+#: widgets/common/authenticationloginwidget.cpp:156
 #: widgets/ruqolamainwindow.cpp:998
 #, kde-format
 msgid ""
@@ -7125,7 +7125,7 @@ msgstr ""
 "Enviamos a você um e-mail para confirmar seu registro.\n"
 "Se você não receber o e-mail log, volte e tente novamente."
 
-#: widgets/common/authenticationloginwidget.cpp:156
+#: widgets/common/authenticationloginwidget.cpp:157
 #: widgets/ruqolamainwindow.cpp:999
 #, fuzzy, kde-format
 #| msgid "Register New User"
@@ -8205,7 +8205,7 @@ msgid "Email:"
 msgstr "E-mail:"
 
 #: widgets/dialogs/roomavatarwidget.cpp:31
-#: widgets/myaccount/myaccountprofileconfigureavatarwidget.cpp:100
+#: widgets/myaccount/myaccountprofileconfigureavatarwidget.cpp:101
 #, fuzzy, kde-format
 #| msgid "Change Picture..."
 msgctxt "@action"
@@ -8213,7 +8213,7 @@ msgid "Change Picture…"
 msgstr "Alterar imagem..."
 
 #: widgets/dialogs/roomavatarwidget.cpp:33
-#: widgets/myaccount/myaccountprofileconfigureavatarwidget.cpp:103
+#: widgets/myaccount/myaccountprofileconfigureavatarwidget.cpp:104
 #, fuzzy, kde-format
 #| msgid "Reset Avatar"
 msgctxt "@action"
@@ -8230,7 +8230,7 @@ msgid "Cancel"
 msgstr "Cancelar"
 
 #: widgets/dialogs/roomavatarwidget.cpp:49
-#: widgets/myaccount/myaccountprofileconfigureavatarwidget.cpp:75
+#: widgets/myaccount/myaccountprofileconfigureavatarwidget.cpp:76
 #, kde-format
 msgid "Image"
 msgstr "Imagem"
@@ -9587,26 +9587,26 @@ msgstr "A cada menção"
 msgid "Your Rocket.Chat administrator has disabled email notifications"
 msgstr ""
 
-#: widgets/myaccount/myaccountprofileconfigureavatarwidget.cpp:76
+#: widgets/myaccount/myaccountprofileconfigureavatarwidget.cpp:77
 #, fuzzy, kde-format
 #| msgid "Select Image"
 msgctxt "@title:window"
 msgid "Select Image"
 msgstr "Selecionar imagem"
 
-#: widgets/myaccount/myaccountprofileconfigureavatarwidget.cpp:86
+#: widgets/myaccount/myaccountprofileconfigureavatarwidget.cpp:87
 #, fuzzy, kde-format
 #| msgid "Change Url"
 msgctxt "@title:window"
 msgid "Change Url"
 msgstr "Alterar URL"
 
-#: widgets/myaccount/myaccountprofileconfigureavatarwidget.cpp:86
+#: widgets/myaccount/myaccountprofileconfigureavatarwidget.cpp:87
 #, kde-format
 msgid "Define Avatar Url:"
 msgstr "Definir URL do avatar:"
 
-#: widgets/myaccount/myaccountprofileconfigureavatarwidget.cpp:101
+#: widgets/myaccount/myaccountprofileconfigureavatarwidget.cpp:102
 #, fuzzy, kde-format
 #| msgid "Change URL for avatar..."
 msgctxt "@action"
@@ -9645,26 +9645,26 @@ msgctxt "@action:button"
 msgid "Logout From Other Logged In Locations"
 msgstr "Sair de outros locais conectados"
 
-#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:87
+#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:86
 #, fuzzy, kde-format
 #| msgid "Status Text:"
 msgid "Status text:"
 msgstr "Texto do status:"
 
-#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:126
+#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:125
 #, fuzzy, kde-format
 #| msgid "Do you really delete your account ?"
 msgid "Do you really want to delete your account?"
 msgstr "Deseja realmente excluir sua conta?"
 
-#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:127
+#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:126
 #, kde-format
 msgctxt "@title"
 msgid "Delete my Account"
 msgstr "Excluir minha conta"
 
-#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:133
-#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:200
+#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:132
+#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:199
 #, kde-format
 msgid "Current Password"
 msgstr "Senha atual"

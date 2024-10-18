@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-10-05 02:30+0000\n"
+"POT-Creation-Date: 2024-10-18 02:28+0000\n"
 "PO-Revision-Date: 2020-06-13 21:18+0300\n"
 "Last-Translator: Marek Laane <qiilaq69@gmail.com>\n"
 "Language-Team: Estonian <kde-et@lists.linux.ee>\n"
@@ -2750,7 +2750,7 @@ msgstr ""
 #: widgets/dialogs/createnewchannelwidget.cpp:34
 #: widgets/dialogs/directchannelinfowidget.cpp:88
 #: widgets/myaccount/myaccountpersonalaccesscreatewidget.cpp:28
-#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:62
+#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:61
 #, kde-format
 msgid "Name:"
 msgstr "Nimi:"
@@ -3252,7 +3252,7 @@ msgstr "Mainitud sõnumite näitamine"
 #: widgets/administratordialog/moderationconsole/moderationuserswidget.cpp:37
 #: widgets/administratordialog/users/administratoradduserwidget.cpp:62
 #: widgets/dialogs/directchannelinfowidget.cpp:166
-#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:74
+#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:73
 #: widgets/registeruser/registeruserwidget.cpp:33
 #, fuzzy, kde-format
 #| msgid "Email"
@@ -3919,7 +3919,7 @@ msgstr "Pole autoriseeritud"
 #: widgets/administratordialog/users/administratoradduserwidget.cpp:60
 #: widgets/dialogs/directchannelinfowidget.cpp:95
 #: widgets/dialogs/serverinfo/serverinfowidget.cpp:39
-#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:67
+#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:66
 #: widgets/registeruser/registeruserwidget.cpp:29
 #, kde-format
 msgid "Username:"
@@ -3946,7 +3946,7 @@ msgid "Bio:"
 msgstr ""
 
 #: widgets/administratordialog/users/administratoradduserwidget.cpp:66
-#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:82
+#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:81
 #, fuzzy, kde-format
 #| msgid "Name:"
 msgid "Nickname:"
@@ -7203,7 +7203,7 @@ msgstr "Kasutajanimi"
 msgid "Username or Email:"
 msgstr "Kasutajanimi:"
 
-#: widgets/common/authenticationloginwidget.cpp:155
+#: widgets/common/authenticationloginwidget.cpp:156
 #: widgets/ruqolamainwindow.cpp:998
 #, kde-format
 msgid ""
@@ -7211,7 +7211,7 @@ msgid ""
 "If you do not receive an email shortly, please come back and try again."
 msgstr ""
 
-#: widgets/common/authenticationloginwidget.cpp:156
+#: widgets/common/authenticationloginwidget.cpp:157
 #: widgets/ruqolamainwindow.cpp:999
 #, fuzzy, kde-format
 #| msgid "Invite Users"
@@ -8287,7 +8287,7 @@ msgid "Email:"
 msgstr "E-post"
 
 #: widgets/dialogs/roomavatarwidget.cpp:31
-#: widgets/myaccount/myaccountprofileconfigureavatarwidget.cpp:100
+#: widgets/myaccount/myaccountprofileconfigureavatarwidget.cpp:101
 #, fuzzy, kde-format
 #| msgid "Channel Info..."
 msgctxt "@action"
@@ -8295,7 +8295,7 @@ msgid "Change Picture…"
 msgstr "Kanali teave ..."
 
 #: widgets/dialogs/roomavatarwidget.cpp:33
-#: widgets/myaccount/myaccountprofileconfigureavatarwidget.cpp:103
+#: widgets/myaccount/myaccountprofileconfigureavatarwidget.cpp:104
 #, fuzzy, kde-format
 #| msgid "Get Avatar"
 msgctxt "@action"
@@ -8312,7 +8312,7 @@ msgid "Cancel"
 msgstr "Loobu"
 
 #: widgets/dialogs/roomavatarwidget.cpp:49
-#: widgets/myaccount/myaccountprofileconfigureavatarwidget.cpp:75
+#: widgets/myaccount/myaccountprofileconfigureavatarwidget.cpp:76
 #, kde-format
 msgid "Image"
 msgstr "Pilt"
@@ -9674,27 +9674,27 @@ msgstr "Mainimiste otsimine ..."
 msgid "Your Rocket.Chat administrator has disabled email notifications"
 msgstr ""
 
-#: widgets/myaccount/myaccountprofileconfigureavatarwidget.cpp:76
+#: widgets/myaccount/myaccountprofileconfigureavatarwidget.cpp:77
 #, fuzzy, kde-format
 #| msgid "Save Image"
 msgctxt "@title:window"
 msgid "Select Image"
 msgstr "Pildi salvestamine"
 
-#: widgets/myaccount/myaccountprofileconfigureavatarwidget.cpp:86
+#: widgets/myaccount/myaccountprofileconfigureavatarwidget.cpp:87
 #, fuzzy, kde-format
 #| msgid "Channel"
 msgctxt "@title:window"
 msgid "Change Url"
 msgstr "Kanal"
 
-#: widgets/myaccount/myaccountprofileconfigureavatarwidget.cpp:86
+#: widgets/myaccount/myaccountprofileconfigureavatarwidget.cpp:87
 #, fuzzy, kde-format
 #| msgid "Get Avatar"
 msgid "Define Avatar Url:"
 msgstr "Hangi avatar"
 
-#: widgets/myaccount/myaccountprofileconfigureavatarwidget.cpp:101
+#: widgets/myaccount/myaccountprofileconfigureavatarwidget.cpp:102
 #, fuzzy, kde-format
 #| msgid "Channel Info..."
 msgctxt "@action"
@@ -9732,27 +9732,27 @@ msgctxt "@action:button"
 msgid "Logout From Other Logged In Locations"
 msgstr ""
 
-#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:87
+#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:86
 #, fuzzy, kde-format
 #| msgid "Status Text:"
 msgid "Status text:"
 msgstr "Oleku tekst:"
 
-#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:126
+#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:125
 #, fuzzy, kde-format
 #| msgid "Do you want to delete '%1' account?"
 msgid "Do you really want to delete your account?"
 msgstr "Kas tõesti kustutada '%1' konto?"
 
-#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:127
+#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:126
 #, fuzzy, kde-format
 #| msgid "Delete Account"
 msgctxt "@title"
 msgid "Delete my Account"
 msgstr "Konto kustutamine"
 
-#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:133
-#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:200
+#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:132
+#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:199
 #, fuzzy, kde-format
 #| msgid "Password"
 msgid "Current Password"
