@@ -217,7 +217,6 @@ void RoomWidget::slotDecodeEncryptionKey()
     delete dlg;
 }
 
-// TODO use it
 void RoomWidget::createE2eDecodeEncryptionKeyWidget()
 {
     mE2eDecodeEncryptionKeyWidget = new E2eDecodeEncryptionKeyWidget(this);
@@ -927,6 +926,7 @@ void RoomWidget::setCurrentRocketChatAccount(RocketChatAccount *account)
     connect(mCurrentRocketChatAccount, &RocketChatAccount::loginStatusChanged, this, &RoomWidget::slotLoginStatusChanged);
     connect(mCurrentRocketChatAccount, &RocketChatAccount::needUpdateMessageView, this, &RoomWidget::updateListView);
 
+#ifdef USE_E2E_SUPPORT
     auto showE2eDecodeEncryptionKeyWidget = [this] {
         if (!mE2eDecodeEncryptionKeyWidget) {
             createE2eDecodeEncryptionKeyWidget();
@@ -961,6 +961,7 @@ void RoomWidget::setCurrentRocketChatAccount(RocketChatAccount *account)
     } else if (mCurrentRocketChatAccount->e2EPasswordMustBeDecrypt()) {
         showE2eDecodeEncryptionKeyWidget();
     }
+#endif
 
     // TODO verify if we need to show or not reconnect widget
     mRoomHeaderWidget->setCurrentRocketChatAccount(account);
