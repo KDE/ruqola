@@ -34,5 +34,6 @@ LIBRUQOLACORE_TESTS_EXPORT void generateRSAKey();
 [[nodiscard]] LIBRUQOLACORE_TESTS_EXPORT QByteArray importRawKey(const QByteArray &keyData, const QByteArray &salt, int iterations);
 LIBRUQOLACORE_TESTS_EXPORT void importRSAKey();
 LIBRUQOLACORE_TESTS_EXPORT void importAESKey();
+[[nodiscard]] LIBRUQOLACORE_TESTS_EXPORT QString generateRandomPassword();
 };
 Q_DECLARE_TYPEINFO(EncryptionUtils::EncryptionInfo, Q_RELOCATABLE_TYPE);

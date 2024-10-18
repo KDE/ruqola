@@ -7,6 +7,7 @@
 #include "e2ekeymanager.h"
 #include "connection.h"
 #include "e2e/fetchmykeysjob.h"
+#include "encryptionutils.h"
 #include "rocketchataccount.h"
 #include "rocketchataccountsettings.h"
 #include "ruqola_encryption_debug.h"
@@ -26,17 +27,7 @@ void E2eKeyManager::decodeEncryptionKey()
 
 QString E2eKeyManager::generateRandomPassword() const
 {
-    const int numberChar = 30;
-    QString randomStr;
-    for (int i = 0; i < numberChar; i++) {
-        const int d = rand() % 200; // Generate a random ASCII value between 0 and 199
-        if (d >= 33 && d <= 123) {
-            randomStr.append(QLatin1Char(static_cast<char>(d))); // Convert the ASCII value to a character for valid range
-        } else {
-            randomStr.append(QString::number(d % 10)); // Keep the last digit for numbers outside the valid range
-        }
-    }
-    return randomStr;
+    return EncryptionUtils::generateRandomPassword();
 }
 
 E2eKeyManager::Status E2eKeyManager::status() const
