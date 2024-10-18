@@ -55,7 +55,7 @@ QString ReceiveTypingNotificationManager::generateNotification(const QStringList
         return {};
     }
     if (userNames.count() == 1) {
-        return i18nc("We need a space between after </strong>", "<strong>%1</strong> is typing...", userNames[0]);
+        return i18nc("WARNING!!!!!!: PLEASE We need a space between after </strong>", "<strong>%1</strong> is typing...", userNames[0]);
     }
 
     QString notificationStr;
@@ -69,7 +69,7 @@ QString ReceiveTypingNotificationManager::generateNotification(const QStringList
             notificationStr = i18n("%1 and %2", notificationStr, user);
         }
     }
-    return i18nc("We need a space between after </strong>", "<strong>%1</strong> are typing...", notificationStr);
+    return i18nc("WARNING!!!!!!: PLEASE We need a space between after </strong>", "<strong>%1</strong> are typing...", notificationStr);
 }
 
 QString ReceiveTypingNotificationManager::typingNotification(const QByteArray &roomId) const
