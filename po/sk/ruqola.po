@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-10-17 00:40+0000\n"
+"POT-Creation-Date: 2024-10-18 00:39+0000\n"
 "PO-Revision-Date: 2019-07-29 20:25+0200\n"
 "Last-Translator: Roman Paholík <wizzardsk@gmail.com>\n"
 "Language-Team: Slovak <kde-sk@linux.sk>\n"
@@ -1763,7 +1763,7 @@ msgstr "Google"
 msgid "Login/Password"
 msgstr ""
 
-#: plugins/authentication/personalaccesstoken/personalaccesstokenauthenticationconfigwidget.cpp:33
+#: plugins/authentication/personalaccesstoken/personalaccesstokenauthenticationconfigwidget.cpp:36
 #: widgets/common/authenticationloginwidget.cpp:33
 #: widgets/dialogs/serverinfo/serverinfowidget.cpp:44
 #, fuzzy, kde-format
@@ -1771,7 +1771,7 @@ msgstr ""
 msgid "Server URL:"
 msgstr "URL serveru:"
 
-#: plugins/authentication/personalaccesstoken/personalaccesstokenauthenticationconfigwidget.cpp:34
+#: plugins/authentication/personalaccesstoken/personalaccesstokenauthenticationconfigwidget.cpp:37
 #: widgets/common/authenticationloginwidget.cpp:38
 #: widgets/dialogs/serverinfo/serverinfowidget.cpp:34
 #, fuzzy, kde-format
@@ -1779,13 +1779,13 @@ msgstr "URL serveru:"
 msgid "Account name:"
 msgstr "Meno účtu"
 
-#: plugins/authentication/personalaccesstoken/personalaccesstokenauthenticationconfigwidget.cpp:35
+#: plugins/authentication/personalaccesstoken/personalaccesstokenauthenticationconfigwidget.cpp:38
 #, fuzzy, kde-format
 #| msgid "Users:"
 msgid "User Id:"
 msgstr "Užívatelia:"
 
-#: plugins/authentication/personalaccesstoken/personalaccesstokenauthenticationconfigwidget.cpp:36
+#: plugins/authentication/personalaccesstoken/personalaccesstokenauthenticationconfigwidget.cpp:39
 #, kde-format
 msgid "Token:"
 msgstr ""
@@ -2707,7 +2707,7 @@ msgstr ""
 #: widgets/dialogs/createnewchannelwidget.cpp:35
 #: widgets/dialogs/directchannelinfowidget.cpp:88
 #: widgets/myaccount/myaccountpersonalaccesscreatewidget.cpp:28
-#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:62
+#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:61
 #, kde-format
 msgid "Name:"
 msgstr "Názov:"
@@ -3199,8 +3199,8 @@ msgstr "Súkromné adresy"
 #: widgets/administratordialog/moderationconsole/moderationuserswidget.cpp:37
 #: widgets/administratordialog/users/administratoradduserwidget.cpp:63
 #: widgets/dialogs/directchannelinfowidget.cpp:166
-#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:74
-#: widgets/registeruser/registeruserwidget.cpp:37
+#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:73
+#: widgets/registeruser/registeruserwidget.cpp:39
 #, kde-format
 msgid "Email:"
 msgstr ""
@@ -3852,7 +3852,7 @@ msgstr ""
 #: widgets/administratordialog/users/administratoradduserwidget.cpp:61
 #: widgets/dialogs/directchannelinfowidget.cpp:95
 #: widgets/dialogs/serverinfo/serverinfowidget.cpp:39
-#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:67
+#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:66
 #: widgets/registeruser/registeruserwidget.cpp:33
 #, fuzzy, kde-format
 #| msgid "User name: %1"
@@ -3880,7 +3880,7 @@ msgid "Bio:"
 msgstr ""
 
 #: widgets/administratordialog/users/administratoradduserwidget.cpp:67
-#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:82
+#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:81
 #, fuzzy, kde-format
 #| msgid "Name:"
 msgid "Nickname:"
@@ -7176,7 +7176,7 @@ msgstr "Meno používateľa: %1"
 msgid "Username or Email:"
 msgstr "Meno používateľa: %1"
 
-#: widgets/common/authenticationloginwidget.cpp:156
+#: widgets/common/authenticationloginwidget.cpp:158
 #: widgets/ruqolamainwindow.cpp:1008
 #, kde-format
 msgid ""
@@ -7184,7 +7184,7 @@ msgid ""
 "If you do not receive an email shortly, please come back and try again."
 msgstr ""
 
-#: widgets/common/authenticationloginwidget.cpp:157
+#: widgets/common/authenticationloginwidget.cpp:159
 #: widgets/ruqolamainwindow.cpp:1009
 #, fuzzy, kde-format
 #| msgid "Enter Username"
@@ -7469,7 +7469,7 @@ msgctxt "@label:textbox"
 msgid "Server Url:"
 msgstr "URL serveru:"
 
-#: widgets/configurenewserver/checknewserverurlwidget.cpp:127
+#: widgets/configurenewserver/checknewserverurlwidget.cpp:129
 #, kde-format
 msgid "Impossible to access to server."
 msgstr ""
@@ -8306,7 +8306,7 @@ msgid "Email:"
 msgstr "wizzardsk@gmail.com"
 
 #: widgets/dialogs/roomavatarwidget.cpp:31
-#: widgets/myaccount/myaccountprofileconfigureavatarwidget.cpp:100
+#: widgets/myaccount/myaccountprofileconfigureavatarwidget.cpp:101
 #, fuzzy, kde-format
 #| msgid "Channel Name"
 msgctxt "@action"
@@ -8314,7 +8314,7 @@ msgid "Change Picture…"
 msgstr "Názov kanála"
 
 #: widgets/dialogs/roomavatarwidget.cpp:33
-#: widgets/myaccount/myaccountprofileconfigureavatarwidget.cpp:103
+#: widgets/myaccount/myaccountprofileconfigureavatarwidget.cpp:104
 #, fuzzy, kde-format
 #| msgid "Password:"
 msgctxt "@action"
@@ -8330,7 +8330,7 @@ msgid "Cancel"
 msgstr ""
 
 #: widgets/dialogs/roomavatarwidget.cpp:49
-#: widgets/myaccount/myaccountprofileconfigureavatarwidget.cpp:75
+#: widgets/myaccount/myaccountprofileconfigureavatarwidget.cpp:76
 #, kde-format
 msgid "Image"
 msgstr "Obrázok"
@@ -8639,7 +8639,7 @@ msgstr "Odstrániť účet"
 #, fuzzy, kde-format
 #| msgid "Private Messages"
 msgctxt "@action"
-msgid "Open Private Messages…"
+msgid "Open Private Message…"
 msgstr "Súkromné adresy"
 
 #: widgets/directory/directorywidget.cpp:194
@@ -9715,27 +9715,27 @@ msgstr "Súkromné adresy"
 msgid "Your Rocket.Chat administrator has disabled email notifications"
 msgstr ""
 
-#: widgets/myaccount/myaccountprofileconfigureavatarwidget.cpp:76
+#: widgets/myaccount/myaccountprofileconfigureavatarwidget.cpp:77
 #, fuzzy, kde-format
 #| msgid "Image"
 msgctxt "@title:window"
 msgid "Select Image"
 msgstr "Obrázok"
 
-#: widgets/myaccount/myaccountprofileconfigureavatarwidget.cpp:86
+#: widgets/myaccount/myaccountprofileconfigureavatarwidget.cpp:87
 #, fuzzy, kde-format
 #| msgid "Channel Name"
 msgctxt "@title:window"
 msgid "Change Url"
 msgstr "Názov kanála"
 
-#: widgets/myaccount/myaccountprofileconfigureavatarwidget.cpp:86
+#: widgets/myaccount/myaccountprofileconfigureavatarwidget.cpp:87
 #, fuzzy, kde-format
 #| msgid "Password:"
 msgid "Define Avatar Url:"
 msgstr "Heslo:"
 
-#: widgets/myaccount/myaccountprofileconfigureavatarwidget.cpp:101
+#: widgets/myaccount/myaccountprofileconfigureavatarwidget.cpp:102
 #, fuzzy, kde-format
 #| msgid "Channel Name"
 msgctxt "@action"
@@ -9773,26 +9773,26 @@ msgctxt "@action:button"
 msgid "Logout From Other Logged In Locations"
 msgstr ""
 
-#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:87
+#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:86
 #, fuzzy, kde-format
 #| msgid "Status:"
 msgid "Status text:"
 msgstr "Stav:"
 
-#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:129
+#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:128
 #, kde-format
 msgid "Do you really want to delete your account?"
 msgstr ""
 
-#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:130
+#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:129
 #, fuzzy, kde-format
 #| msgid "Delete Account"
 msgctxt "@title"
 msgid "Delete my Account"
 msgstr "Odstrániť účet"
 
-#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:136
-#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:203
+#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:135
+#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:202
 #, fuzzy, kde-format
 #| msgid "Password:"
 msgid "Current Password"

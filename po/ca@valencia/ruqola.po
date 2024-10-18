@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-10-17 00:40+0000\n"
+"POT-Creation-Date: 2024-10-18 00:39+0000\n"
 "PO-Revision-Date: 2024-10-16 12:04+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
@@ -1656,26 +1656,26 @@ msgstr "Google"
 msgid "Login/Password"
 msgstr "Usuari/Contrasenya"
 
-#: plugins/authentication/personalaccesstoken/personalaccesstokenauthenticationconfigwidget.cpp:33
+#: plugins/authentication/personalaccesstoken/personalaccesstokenauthenticationconfigwidget.cpp:36
 #: widgets/common/authenticationloginwidget.cpp:33
 #: widgets/dialogs/serverinfo/serverinfowidget.cpp:44
 #, kde-format
 msgid "Server URL:"
 msgstr "URL del servidor:"
 
-#: plugins/authentication/personalaccesstoken/personalaccesstokenauthenticationconfigwidget.cpp:34
+#: plugins/authentication/personalaccesstoken/personalaccesstokenauthenticationconfigwidget.cpp:37
 #: widgets/common/authenticationloginwidget.cpp:38
 #: widgets/dialogs/serverinfo/serverinfowidget.cpp:34
 #, kde-format
 msgid "Account name:"
 msgstr "Nom del compte:"
 
-#: plugins/authentication/personalaccesstoken/personalaccesstokenauthenticationconfigwidget.cpp:35
+#: plugins/authentication/personalaccesstoken/personalaccesstokenauthenticationconfigwidget.cpp:38
 #, kde-format
 msgid "User Id:"
 msgstr "ID d'usuari:"
 
-#: plugins/authentication/personalaccesstoken/personalaccesstokenauthenticationconfigwidget.cpp:36
+#: plugins/authentication/personalaccesstoken/personalaccesstokenauthenticationconfigwidget.cpp:39
 #, kde-format
 msgid "Token:"
 msgstr "Testimoni:"
@@ -2601,7 +2601,7 @@ msgstr ""
 #: widgets/dialogs/createnewchannelwidget.cpp:35
 #: widgets/dialogs/directchannelinfowidget.cpp:88
 #: widgets/myaccount/myaccountpersonalaccesscreatewidget.cpp:28
-#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:62
+#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:61
 #, kde-format
 msgid "Name:"
 msgstr "Nom:"
@@ -3062,8 +3062,8 @@ msgstr "Mostra la moderació d'usuaris"
 #: widgets/administratordialog/moderationconsole/moderationuserswidget.cpp:37
 #: widgets/administratordialog/users/administratoradduserwidget.cpp:63
 #: widgets/dialogs/directchannelinfowidget.cpp:166
-#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:74
-#: widgets/registeruser/registeruserwidget.cpp:37
+#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:73
+#: widgets/registeruser/registeruserwidget.cpp:39
 #, kde-format
 msgid "Email:"
 msgstr "Correu electrònic:"
@@ -3647,7 +3647,7 @@ msgstr "Marca el correu electrònic com a verificat"
 #: widgets/administratordialog/users/administratoradduserwidget.cpp:61
 #: widgets/dialogs/directchannelinfowidget.cpp:95
 #: widgets/dialogs/serverinfo/serverinfowidget.cpp:39
-#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:67
+#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:66
 #: widgets/registeruser/registeruserwidget.cpp:33
 #, kde-format
 msgid "Username:"
@@ -3672,7 +3672,7 @@ msgid "Bio:"
 msgstr "Biografia:"
 
 #: widgets/administratordialog/users/administratoradduserwidget.cpp:67
-#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:82
+#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:81
 #, kde-format
 msgid "Nickname:"
 msgstr "Sobrenom:"
@@ -6981,7 +6981,7 @@ msgstr "Nom d'usuari o correu"
 msgid "Username or Email:"
 msgstr "Nom d'usuari o correu:"
 
-#: widgets/common/authenticationloginwidget.cpp:156
+#: widgets/common/authenticationloginwidget.cpp:158
 #: widgets/ruqolamainwindow.cpp:1008
 #, kde-format
 msgid ""
@@ -6991,7 +6991,7 @@ msgstr ""
 "Vos hem enviat un correu per a confirmar el registre.\n"
 "Si no rebeu un correu ben prompte, torneu i intenteu-ho de nou."
 
-#: widgets/common/authenticationloginwidget.cpp:157
+#: widgets/common/authenticationloginwidget.cpp:159
 #: widgets/ruqolamainwindow.cpp:1009
 #, kde-format
 msgctxt "@title:window"
@@ -7257,7 +7257,7 @@ msgctxt "@label:textbox"
 msgid "Server Url:"
 msgstr "URL del servidor:"
 
-#: widgets/configurenewserver/checknewserverurlwidget.cpp:127
+#: widgets/configurenewserver/checknewserverurlwidget.cpp:129
 #, kde-format
 msgid "Impossible to access to server."
 msgstr "És impossible accedir al servidor."
@@ -8031,14 +8031,14 @@ msgid "Email:"
 msgstr "Correu electrònic:"
 
 #: widgets/dialogs/roomavatarwidget.cpp:31
-#: widgets/myaccount/myaccountprofileconfigureavatarwidget.cpp:100
+#: widgets/myaccount/myaccountprofileconfigureavatarwidget.cpp:101
 #, kde-format
 msgctxt "@action"
 msgid "Change Picture…"
 msgstr "Canvia la imatge…"
 
 #: widgets/dialogs/roomavatarwidget.cpp:33
-#: widgets/myaccount/myaccountprofileconfigureavatarwidget.cpp:103
+#: widgets/myaccount/myaccountprofileconfigureavatarwidget.cpp:104
 #, kde-format
 msgctxt "@action"
 msgid "Reset Avatar"
@@ -8053,7 +8053,7 @@ msgid "Cancel"
 msgstr "Cancel·la"
 
 #: widgets/dialogs/roomavatarwidget.cpp:49
-#: widgets/myaccount/myaccountprofileconfigureavatarwidget.cpp:75
+#: widgets/myaccount/myaccountprofileconfigureavatarwidget.cpp:76
 #, kde-format
 msgid "Image"
 msgstr "Imatge"
@@ -8330,9 +8330,11 @@ msgid "Join…"
 msgstr "Unix-te…"
 
 #: widgets/directory/directorywidget.cpp:83
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@action"
+#| msgid "Open Private Messages…"
 msgctxt "@action"
-msgid "Open Private Messages…"
+msgid "Open Private Message…"
 msgstr "Obri missatges privats…"
 
 #: widgets/directory/directorywidget.cpp:194
@@ -9376,24 +9378,24 @@ msgstr ""
 "L'administrador de Rocket.Chat ha desactivat les notificacions de correu "
 "electrònic"
 
-#: widgets/myaccount/myaccountprofileconfigureavatarwidget.cpp:76
+#: widgets/myaccount/myaccountprofileconfigureavatarwidget.cpp:77
 #, kde-format
 msgctxt "@title:window"
 msgid "Select Image"
 msgstr "Seleccioneu una imatge"
 
-#: widgets/myaccount/myaccountprofileconfigureavatarwidget.cpp:86
+#: widgets/myaccount/myaccountprofileconfigureavatarwidget.cpp:87
 #, kde-format
 msgctxt "@title:window"
 msgid "Change Url"
 msgstr "Canvia l'URL"
 
-#: widgets/myaccount/myaccountprofileconfigureavatarwidget.cpp:86
+#: widgets/myaccount/myaccountprofileconfigureavatarwidget.cpp:87
 #, kde-format
 msgid "Define Avatar Url:"
 msgstr "Definix l'URL de l'avatar:"
 
-#: widgets/myaccount/myaccountprofileconfigureavatarwidget.cpp:101
+#: widgets/myaccount/myaccountprofileconfigureavatarwidget.cpp:102
 #, kde-format
 msgctxt "@action"
 msgid "Change URL for avatar…"
@@ -9429,24 +9431,24 @@ msgctxt "@action:button"
 msgid "Logout From Other Logged In Locations"
 msgstr "Desconnecta des d'altres ubicacions connectades"
 
-#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:87
+#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:86
 #, kde-format
 msgid "Status text:"
 msgstr "Text de l'estat:"
 
-#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:129
+#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:128
 #, kde-format
 msgid "Do you really want to delete your account?"
 msgstr "Voleu suprimir el vostre compte?"
 
-#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:130
+#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:129
 #, kde-format
 msgctxt "@title"
 msgid "Delete my Account"
 msgstr "Suprimiu el meu compte"
 
-#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:136
-#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:203
+#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:135
+#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:202
 #, kde-format
 msgid "Current Password"
 msgstr "Contrasenya actual"

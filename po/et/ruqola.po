@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-10-17 00:40+0000\n"
+"POT-Creation-Date: 2024-10-18 00:39+0000\n"
 "PO-Revision-Date: 2020-06-13 21:18+0300\n"
 "Last-Translator: Marek Laane <qiilaq69@gmail.com>\n"
 "Language-Team: Estonian <kde-et@lists.linux.ee>\n"
@@ -1787,7 +1787,7 @@ msgstr "Google"
 msgid "Login/Password"
 msgstr "Sisselogimine parooliga"
 
-#: plugins/authentication/personalaccesstoken/personalaccesstokenauthenticationconfigwidget.cpp:33
+#: plugins/authentication/personalaccesstoken/personalaccesstokenauthenticationconfigwidget.cpp:36
 #: widgets/common/authenticationloginwidget.cpp:33
 #: widgets/dialogs/serverinfo/serverinfowidget.cpp:44
 #, fuzzy, kde-format
@@ -1795,20 +1795,20 @@ msgstr "Sisselogimine parooliga"
 msgid "Server URL:"
 msgstr "Serveri URL:"
 
-#: plugins/authentication/personalaccesstoken/personalaccesstokenauthenticationconfigwidget.cpp:34
+#: plugins/authentication/personalaccesstoken/personalaccesstokenauthenticationconfigwidget.cpp:37
 #: widgets/common/authenticationloginwidget.cpp:38
 #: widgets/dialogs/serverinfo/serverinfowidget.cpp:34
 #, kde-format
 msgid "Account name:"
 msgstr "Konto nimi:"
 
-#: plugins/authentication/personalaccesstoken/personalaccesstokenauthenticationconfigwidget.cpp:35
+#: plugins/authentication/personalaccesstoken/personalaccesstokenauthenticationconfigwidget.cpp:38
 #, fuzzy, kde-format
 #| msgid "Users:"
 msgid "User Id:"
 msgstr "Kasutajad:"
 
-#: plugins/authentication/personalaccesstoken/personalaccesstokenauthenticationconfigwidget.cpp:36
+#: plugins/authentication/personalaccesstoken/personalaccesstokenauthenticationconfigwidget.cpp:39
 #, kde-format
 msgid "Token:"
 msgstr ""
@@ -2769,7 +2769,7 @@ msgstr ""
 #: widgets/dialogs/createnewchannelwidget.cpp:35
 #: widgets/dialogs/directchannelinfowidget.cpp:88
 #: widgets/myaccount/myaccountpersonalaccesscreatewidget.cpp:28
-#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:62
+#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:61
 #, kde-format
 msgid "Name:"
 msgstr "Nimi:"
@@ -3271,8 +3271,8 @@ msgstr "Mainitud sõnumite näitamine"
 #: widgets/administratordialog/moderationconsole/moderationuserswidget.cpp:37
 #: widgets/administratordialog/users/administratoradduserwidget.cpp:63
 #: widgets/dialogs/directchannelinfowidget.cpp:166
-#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:74
-#: widgets/registeruser/registeruserwidget.cpp:37
+#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:73
+#: widgets/registeruser/registeruserwidget.cpp:39
 #, fuzzy, kde-format
 #| msgid "Email"
 msgid "Email:"
@@ -3937,7 +3937,7 @@ msgstr ""
 #: widgets/administratordialog/users/administratoradduserwidget.cpp:61
 #: widgets/dialogs/directchannelinfowidget.cpp:95
 #: widgets/dialogs/serverinfo/serverinfowidget.cpp:39
-#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:67
+#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:66
 #: widgets/registeruser/registeruserwidget.cpp:33
 #, kde-format
 msgid "Username:"
@@ -3963,7 +3963,7 @@ msgid "Bio:"
 msgstr ""
 
 #: widgets/administratordialog/users/administratoradduserwidget.cpp:67
-#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:82
+#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:81
 #, fuzzy, kde-format
 #| msgid "Name:"
 msgid "Nickname:"
@@ -7310,7 +7310,7 @@ msgstr "Kasutajanimi"
 msgid "Username or Email:"
 msgstr "Kasutajanimi:"
 
-#: widgets/common/authenticationloginwidget.cpp:156
+#: widgets/common/authenticationloginwidget.cpp:158
 #: widgets/ruqolamainwindow.cpp:1008
 #, kde-format
 msgid ""
@@ -7318,7 +7318,7 @@ msgid ""
 "If you do not receive an email shortly, please come back and try again."
 msgstr ""
 
-#: widgets/common/authenticationloginwidget.cpp:157
+#: widgets/common/authenticationloginwidget.cpp:159
 #: widgets/ruqolamainwindow.cpp:1009
 #, fuzzy, kde-format
 #| msgid "Invite Users"
@@ -7605,7 +7605,7 @@ msgctxt "@label:textbox"
 msgid "Server Url:"
 msgstr "Serveri URL:"
 
-#: widgets/configurenewserver/checknewserverurlwidget.cpp:127
+#: widgets/configurenewserver/checknewserverurlwidget.cpp:129
 #, fuzzy, kde-format
 #| msgid "Failed to extract import file."
 msgid "Impossible to access to server."
@@ -8441,7 +8441,7 @@ msgid "Email:"
 msgstr "E-post"
 
 #: widgets/dialogs/roomavatarwidget.cpp:31
-#: widgets/myaccount/myaccountprofileconfigureavatarwidget.cpp:100
+#: widgets/myaccount/myaccountprofileconfigureavatarwidget.cpp:101
 #, fuzzy, kde-format
 #| msgid "Channel Info..."
 msgctxt "@action"
@@ -8449,7 +8449,7 @@ msgid "Change Picture…"
 msgstr "Kanali teave ..."
 
 #: widgets/dialogs/roomavatarwidget.cpp:33
-#: widgets/myaccount/myaccountprofileconfigureavatarwidget.cpp:103
+#: widgets/myaccount/myaccountprofileconfigureavatarwidget.cpp:104
 #, fuzzy, kde-format
 #| msgid "Get Avatar"
 msgctxt "@action"
@@ -8466,7 +8466,7 @@ msgid "Cancel"
 msgstr "Loobu"
 
 #: widgets/dialogs/roomavatarwidget.cpp:49
-#: widgets/myaccount/myaccountprofileconfigureavatarwidget.cpp:75
+#: widgets/myaccount/myaccountprofileconfigureavatarwidget.cpp:76
 #, kde-format
 msgid "Image"
 msgstr "Pilt"
@@ -8776,7 +8776,7 @@ msgstr "%2 lisas %1 vestlusse"
 #, fuzzy, kde-format
 #| msgid "Private Messages"
 msgctxt "@action"
-msgid "Open Private Messages…"
+msgid "Open Private Message…"
 msgstr "Privaatsõnumid"
 
 #: widgets/directory/directorywidget.cpp:194
@@ -9870,27 +9870,27 @@ msgstr "Mainimiste otsimine ..."
 msgid "Your Rocket.Chat administrator has disabled email notifications"
 msgstr ""
 
-#: widgets/myaccount/myaccountprofileconfigureavatarwidget.cpp:76
+#: widgets/myaccount/myaccountprofileconfigureavatarwidget.cpp:77
 #, fuzzy, kde-format
 #| msgid "Save Image"
 msgctxt "@title:window"
 msgid "Select Image"
 msgstr "Pildi salvestamine"
 
-#: widgets/myaccount/myaccountprofileconfigureavatarwidget.cpp:86
+#: widgets/myaccount/myaccountprofileconfigureavatarwidget.cpp:87
 #, fuzzy, kde-format
 #| msgid "Channel"
 msgctxt "@title:window"
 msgid "Change Url"
 msgstr "Kanal"
 
-#: widgets/myaccount/myaccountprofileconfigureavatarwidget.cpp:86
+#: widgets/myaccount/myaccountprofileconfigureavatarwidget.cpp:87
 #, fuzzy, kde-format
 #| msgid "Get Avatar"
 msgid "Define Avatar Url:"
 msgstr "Hangi avatar"
 
-#: widgets/myaccount/myaccountprofileconfigureavatarwidget.cpp:101
+#: widgets/myaccount/myaccountprofileconfigureavatarwidget.cpp:102
 #, fuzzy, kde-format
 #| msgid "Channel Info..."
 msgctxt "@action"
@@ -9928,27 +9928,27 @@ msgctxt "@action:button"
 msgid "Logout From Other Logged In Locations"
 msgstr ""
 
-#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:87
+#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:86
 #, fuzzy, kde-format
 #| msgid "Status Text:"
 msgid "Status text:"
 msgstr "Oleku tekst:"
 
-#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:129
+#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:128
 #, fuzzy, kde-format
 #| msgid "Do you want to delete '%1' account?"
 msgid "Do you really want to delete your account?"
 msgstr "Kas tõesti kustutada '%1' konto?"
 
-#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:130
+#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:129
 #, fuzzy, kde-format
 #| msgid "Delete Account"
 msgctxt "@title"
 msgid "Delete my Account"
 msgstr "Konto kustutamine"
 
-#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:136
-#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:203
+#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:135
+#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:202
 #, fuzzy, kde-format
 #| msgid "Password"
 msgid "Current Password"
