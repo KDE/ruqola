@@ -2673,7 +2673,9 @@ void RocketChatAccount::slotDDpLoginStatusChanged()
             mRestApi->authenticationManager()->setLoginStatus(mDdp->authenticationManager()->loginStatus());
         }
     }
-    slotLoginStatusChanged();
+    if (!Ruqola::self()->useRestApiLogin()) {
+        slotLoginStatusChanged();
+    }
 }
 
 bool RocketChatAccount::e2EPasswordMustBeDecrypt() const
