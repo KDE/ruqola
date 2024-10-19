@@ -458,10 +458,10 @@ void RocketChatBackend::tryAutoLogin()
         qCWarning(RUQOLA_RECONNECT_LOG) << " tryAutoLogin check not implemented for " << mRocketChatAccount->authMethodType();
     }
     if (Ruqola::self()->useRestApiLogin()) {
-        qCWarning(RUQOLA_RECONNECT_LOG) << "try login REST API" << mRocketChatAccount->accountName();
+        qCDebug(RUQOLA_RECONNECT_LOG) << "try login REST API" << mRocketChatAccount->accountName();
         mRocketChatAccount->tryLogin();
     } else {
-        qCWarning(RUQOLA_RECONNECT_LOG) << "try login ddp" << mRocketChatAccount->accountName();
+        qCDebug(RUQOLA_RECONNECT_LOG) << "try login ddp" << mRocketChatAccount->accountName();
         mRocketChatAccount->ddp()->login();
     }
 }
