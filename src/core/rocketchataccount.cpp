@@ -332,7 +332,7 @@ void RocketChatAccount::loadSettings(const QString &accountFileName)
         connect(mSettings, &RocketChatAccountSettings::serverURLChanged, this, &RocketChatAccount::serverUrlChanged);
         connect(mSettings, &RocketChatAccountSettings::userIdChanged, this, &RocketChatAccount::userIdChanged);
         connect(mSettings, &RocketChatAccountSettings::userNameChanged, this, &RocketChatAccount::userNameChanged);
-        connect(mSettings, &RocketChatAccountSettings::passwordChanged, this, &RocketChatAccount::passwordChanged);
+        connect(mSettings, &RocketChatAccountSettings::passwordAvailable, this, &RocketChatAccount::passwordAvailable);
         connect(mSettings, &RocketChatAccountSettings::activitiesChanged, this, &RocketChatAccount::activitiesChanged);
     }
 }

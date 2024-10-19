@@ -82,7 +82,7 @@ void RocketChatAccountSettings::slotPasswordRead(QKeychain::Job *baseJob)
     if (!job->error()) {
         mPassword = job->textData();
         qCDebug(RUQOLA_PASSWORD_CORE_LOG) << "OK, we have the password now";
-        Q_EMIT passwordChanged();
+        Q_EMIT passwordAvailable();
     } else {
         qCWarning(RUQOLA_PASSWORD_CORE_LOG) << "We have an error during reading password " << job->errorString() << " Account name " << mAccountName;
     }
@@ -277,15 +277,15 @@ QString RocketChatAccountSettings::password() const
 
 void RocketChatAccountSettings::setPassword(const QString &password)
 {
-    mPassword = password;
+    if (mPassword != password) {
+        mPassword = password;
 
-    auto writeJob = new WritePasswordJob(QStringLiteral("Ruqola"), this);
-    connect(writeJob, &Job::finished, this, &RocketChatAccountSettings::slotPasswordWritten);
-    writeJob->setKey(mAccountName);
-    writeJob->setTextData(mPassword);
-    writeJob->start();
-
-    Q_EMIT passwordChanged();
+        auto writeJob = new WritePasswordJob(QStringLiteral("Ruqola"), this);
+        connect(writeJob, &Job::finished, this, &RocketChatAccountSettings::slotPasswordWritten);
+        writeJob->setKey(mAccountName);
+        writeJob->setTextData(mPassword);
+        writeJob->start();
+    }
 }
 
 QString RocketChatAccountSettings::twoFactorAuthenticationCode() const
