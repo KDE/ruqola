@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-10-18 00:39+0000\n"
-"PO-Revision-Date: 2024-10-17 15:15+0200\n"
+"POT-Creation-Date: 2024-10-19 00:39+0000\n"
+"PO-Revision-Date: 2024-10-18 10:18+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca\n"
@@ -1475,14 +1475,18 @@ msgid "%1 denied the OTR session."
 msgstr "%1 ha denegat la sessió OTR."
 
 #: core/receivetypingnotificationmanager.cpp:58
-#, kde-format
-msgctxt "We need a space between after </strong>"
+#, fuzzy, kde-format
+#| msgctxt "We need a space between after </strong>"
+#| msgid "<strong>%1</strong> is typing..."
+msgctxt "WARNING!!!!!!: PLEASE We need a space between after </strong>"
 msgid "<strong>%1</strong> is typing..."
 msgstr "<strong>%1</strong> està escrivint..."
 
 #: core/receivetypingnotificationmanager.cpp:72
-#, kde-format
-msgctxt "We need a space between after </strong>"
+#, fuzzy, kde-format
+#| msgctxt "We need a space between after </strong>"
+#| msgid "<strong>%1</strong> are typing..."
+msgctxt "WARNING!!!!!!: PLEASE We need a space between after </strong>"
 msgid "<strong>%1</strong> are typing..."
 msgstr "<strong>%1</strong> estan escrivint..."
 
@@ -8331,12 +8335,10 @@ msgid "Join…"
 msgstr "Uneix-te…"
 
 #: widgets/directory/directorywidget.cpp:83
-#, fuzzy, kde-format
-#| msgctxt "@action"
-#| msgid "Open Private Messages…"
+#, kde-format
 msgctxt "@action"
 msgid "Open Private Message…"
-msgstr "Obre missatges privats…"
+msgstr "Obre un missatge privat…"
 
 #: widgets/directory/directorywidget.cpp:194
 #, kde-format
@@ -10180,18 +10182,18 @@ msgstr "Resposta a un fil"
 msgid "Reply in Thread for Message: '%1'"
 msgstr "Resposta a un fil del missatge: «%1»"
 
-#: widgets/room/roomwidget.cpp:336
+#: widgets/room/roomwidget.cpp:335
 #, kde-format
 msgid "Do you want really remove history?"
 msgstr "Voleu eliminar l'historial?"
 
-#: widgets/room/roomwidget.cpp:337
+#: widgets/room/roomwidget.cpp:336
 #, kde-format
 msgctxt "@title:window"
 msgid "Remove History"
 msgstr "Elimina l'historial"
 
-#: widgets/room/roomwidget.cpp:507
+#: widgets/room/roomwidget.cpp:506
 #, kde-format
 msgid ""
 "A workspace admin needs to install and configure a conference call apps."
@@ -10199,7 +10201,7 @@ msgstr ""
 "Un administrador de l'espai de treball necessita instal·lar i configurar una "
 "aplicació de trucades de conferència."
 
-#: widgets/room/roomwidget.cpp:508
+#: widgets/room/roomwidget.cpp:507
 #, kde-format
 msgctxt "@title:window"
 msgid "Video Conference"

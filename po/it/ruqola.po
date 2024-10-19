@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-10-18 00:39+0000\n"
-"PO-Revision-Date: 2024-10-11 11:17+0200\n"
+"POT-Creation-Date: 2024-10-19 00:39+0000\n"
+"PO-Revision-Date: 2024-10-18 12:45+0200\n"
 "Last-Translator: Vincenzo Reale <smart2128vr@gmail.com>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
 "Language: it\n"
@@ -1472,14 +1472,18 @@ msgid "%1 denied the OTR session."
 msgstr "%1 ha negato la sessione OTR."
 
 #: core/receivetypingnotificationmanager.cpp:58
-#, kde-format
-msgctxt "We need a space between after </strong>"
+#, fuzzy, kde-format
+#| msgctxt "We need a space between after </strong>"
+#| msgid "<strong>%1</strong> is typing..."
+msgctxt "WARNING!!!!!!: PLEASE We need a space between after </strong>"
 msgid "<strong>%1</strong> is typing..."
 msgstr "<strong>%1</strong> sta scrivendo..."
 
 #: core/receivetypingnotificationmanager.cpp:72
-#, kde-format
-msgctxt "We need a space between after </strong>"
+#, fuzzy, kde-format
+#| msgctxt "We need a space between after </strong>"
+#| msgid "<strong>%1</strong> are typing..."
+msgctxt "WARNING!!!!!!: PLEASE We need a space between after </strong>"
 msgid "<strong>%1</strong> are typing..."
 msgstr "<strong>%1</strong> stanno scrivendo..."
 
@@ -4921,7 +4925,7 @@ msgstr "Invia statistiche a Rocket.Chat"
 #, kde-format
 msgctxt "@option:check"
 msgid "Use REST instead of websocket for Meteor calls"
-msgstr ""
+msgstr "Utilizza REST invece di websocket per le chiamate Meteor"
 
 #: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:45
 #, kde-format
@@ -5125,7 +5129,7 @@ msgstr ""
 #: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:150
 #, kde-format
 msgid "REST API"
-msgstr ""
+msgstr "API REST"
 
 #: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:156
 #, kde-format
@@ -5133,6 +5137,8 @@ msgid ""
 "What is the maximum number of records the REST API should return (when not "
 "unlimited)?"
 msgstr ""
+"Qual è il numero massimo di record che l'API REST dovrebbe restituire (se "
+"non illimitato)?"
 
 #: widgets/administratorsettingsdialog/irc/ircwidget.cpp:21
 #, kde-format
@@ -8335,12 +8341,10 @@ msgid "Join…"
 msgstr "Unisciti…"
 
 #: widgets/directory/directorywidget.cpp:83
-#, fuzzy, kde-format
-#| msgctxt "@action"
-#| msgid "Open Private Messages…"
+#, kde-format
 msgctxt "@action"
 msgid "Open Private Message…"
-msgstr "Apri messaggi privati…"
+msgstr "Apri messaggio privato…"
 
 #: widgets/directory/directorywidget.cpp:194
 #, kde-format
@@ -8892,47 +8896,37 @@ msgid "Reset Password"
 msgstr "Ripristina password"
 
 #: widgets/misc/passwordvalidatewidget.cpp:161
-#, fuzzy, kde-format
-#| msgid "Max Repeating Characters"
+#, kde-format
 msgid "At least %1 characters"
-msgstr "Numero massimo caratteri ripetuti"
+msgstr "Almeno %1 caratteri"
 
 #: widgets/misc/passwordvalidatewidget.cpp:164
 #, kde-format
 msgid "At most %1 characters"
-msgstr ""
+msgstr "Al massimo %1 caratteri"
 
 #: widgets/misc/passwordvalidatewidget.cpp:168
-#, fuzzy, kde-format
-#| msgid "Max Repeating Characters"
+#, kde-format
 msgid "Max. %1 repeating characters"
-msgstr "Numero massimo caratteri ripetuti"
+msgstr "Massimo %1 caratteri ripetuti"
 
 #: widgets/misc/passwordvalidatewidget.cpp:171
-#, fuzzy, kde-format
-#| msgctxt "@option:check"
-#| msgid "At Least One Lowercase"
+#, kde-format
 msgid "At least one lowercase letter"
-msgstr "Almeno una minuscola"
+msgstr "Almeno una lettera minuscola"
 
 #: widgets/misc/passwordvalidatewidget.cpp:174
-#, fuzzy, kde-format
-#| msgctxt "@option:check"
-#| msgid "At Least One Uppercase"
+#, kde-format
 msgid "At least one uppercase letter"
-msgstr "Almeno una maiuscola"
+msgstr "Almeno una lettera maiuscola"
 
 #: widgets/misc/passwordvalidatewidget.cpp:177
-#, fuzzy, kde-format
-#| msgctxt "@option:check"
-#| msgid "At Least One Symbol"
+#, kde-format
 msgid "At least one symbol"
 msgstr "Almeno un simbolo"
 
 #: widgets/misc/passwordvalidatewidget.cpp:180
-#, fuzzy, kde-format
-#| msgctxt "@option:check"
-#| msgid "At Least One Number"
+#, kde-format
 msgid "At least one number"
 msgstr "Almeno un numero"
 
@@ -9613,10 +9607,9 @@ msgid "Register"
 msgstr "Registra"
 
 #: widgets/registeruser/registeruserwidget.cpp:26
-#, fuzzy, kde-format
-#| msgid "Seasons"
+#, kde-format
 msgid "Reason:"
-msgstr "Stagioni"
+msgstr "Motivo:"
 
 #: widgets/room/channelactionpopupmenu.cpp:29
 #, kde-format
@@ -10192,18 +10185,18 @@ msgstr "Rispondi in una conversazione"
 msgid "Reply in Thread for Message: '%1'"
 msgstr "Risposta alla conversazione per messaggio: «%1»"
 
-#: widgets/room/roomwidget.cpp:336
+#: widgets/room/roomwidget.cpp:335
 #, kde-format
 msgid "Do you want really remove history?"
 msgstr "Vuoi davvero rimuovere la cronologia?"
 
-#: widgets/room/roomwidget.cpp:337
+#: widgets/room/roomwidget.cpp:336
 #, kde-format
 msgctxt "@title:window"
 msgid "Remove History"
 msgstr "Rimuovi cronologia"
 
-#: widgets/room/roomwidget.cpp:507
+#: widgets/room/roomwidget.cpp:506
 #, kde-format
 msgid ""
 "A workspace admin needs to install and configure a conference call apps."
@@ -10211,7 +10204,7 @@ msgstr ""
 "Un amministratore dell'area di lavoro deve installare e configurare "
 "un'applicazione per chiamate in conferenza."
 
-#: widgets/room/roomwidget.cpp:508
+#: widgets/room/roomwidget.cpp:507
 #, kde-format
 msgctxt "@title:window"
 msgid "Video Conference"
@@ -10907,10 +10900,13 @@ msgstr ""
 #: widgets/whatsnew/whatsnewtranslations.cpp:19
 msgid "Improve changing password (show validation info)."
 msgstr ""
+"Migliora la modifica della password (mostra le informazioni di convalida)."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:20
 msgid "Improve register new account (Add reason support)."
 msgstr ""
+"Migliora la registrazione di un nuovo account (supporto per l'aggiunta di un "
+"motivo)."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:30
 #, kde-format

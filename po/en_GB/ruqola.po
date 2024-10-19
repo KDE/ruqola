@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-10-18 00:39+0000\n"
-"PO-Revision-Date: 2024-09-15 10:37+0100\n"
+"POT-Creation-Date: 2024-10-19 00:39+0000\n"
+"PO-Revision-Date: 2024-10-18 16:56+0100\n"
 "Last-Translator: Steve Allewell <steve.allewell@gmail.com>\n"
 "Language-Team: British English\n"
 "Language: en_GB\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 24.05.2\n"
+"X-Generator: Lokalize 24.08.2\n"
 
 #: apps/main.cpp:61
 #, kde-format
@@ -1221,11 +1221,9 @@ msgid "Modify Status…"
 msgstr "Modify Status…"
 
 #: core/model/systemmessagesmodel.cpp:31
-#, fuzzy, kde-format
-#| msgctxt "@title"
-#| msgid "Delete Message"
+#, kde-format
 msgid "Select Messages to hide"
-msgstr "Delete Message"
+msgstr "Select Messages to hide"
 
 #: core/model/systemmessagesmodel.cpp:34
 #, kde-format
@@ -1388,16 +1386,14 @@ msgid "Hide \"Room topic changed\" messages"
 msgstr "Hide \"Room topic changed\" messages"
 
 #: core/model/systemmessagesmodel.cpp:67
-#, fuzzy, kde-format
-#| msgid "Hide \"Room Name Changed\" messages"
+#, kde-format
 msgid "Hide \"Room announcement changed\" messages"
-msgstr "Hide \"Room Name Changed\" messages"
+msgstr "Hide \"Room announcement changed\" messages"
 
 #: core/model/systemmessagesmodel.cpp:68
-#, fuzzy, kde-format
-#| msgid "Hide \"Room topic changed\" messages"
+#, kde-format
 msgid "Hide \"Room description changed\" messages"
-msgstr "Hide \"Room topic changed\" messages"
+msgstr "Hide \"Room description changed\" messages"
 
 #: core/model/systemmessagesmodel.cpp:70
 #, kde-format
@@ -1474,14 +1470,18 @@ msgid "%1 denied the OTR session."
 msgstr "%1 denied the OTR session."
 
 #: core/receivetypingnotificationmanager.cpp:58
-#, kde-format
-msgctxt "We need a space between after </strong>"
+#, fuzzy, kde-format
+#| msgctxt "We need a space between after </strong>"
+#| msgid "<strong>%1</strong> is typing..."
+msgctxt "WARNING!!!!!!: PLEASE We need a space between after </strong>"
 msgid "<strong>%1</strong> is typing..."
 msgstr "<strong>%1</strong> is typing..."
 
 #: core/receivetypingnotificationmanager.cpp:72
-#, kde-format
-msgctxt "We need a space between after </strong>"
+#, fuzzy, kde-format
+#| msgctxt "We need a space between after </strong>"
+#| msgid "<strong>%1</strong> are typing..."
+msgctxt "WARNING!!!!!!: PLEASE We need a space between after </strong>"
 msgid "<strong>%1</strong> are typing..."
 msgstr "<strong>%1</strong> are typing..."
 
@@ -3631,12 +3631,10 @@ msgid "Set random password and send by email"
 msgstr "Set random password and send by email"
 
 #: widgets/administratordialog/users/administratoradduserwidget.cpp:31
-#, fuzzy, kde-format
-#| msgctxt "@option:check"
-#| msgid "Mark Email for External Accounts Verified"
+#, kde-format
 msgctxt "@option:check"
 msgid "Mark email as verified"
-msgstr "Mark Email for External Accounts Verified"
+msgstr "Mark email as verified"
 
 #: widgets/administratordialog/users/administratoradduserwidget.cpp:61
 #: widgets/dialogs/directchannelinfowidget.cpp:95
@@ -3699,10 +3697,9 @@ msgid "All"
 msgstr "All"
 
 #: widgets/administratordialog/users/administratoruserstabwidget.cpp:36
-#, fuzzy, kde-format
-#| msgid "Activate"
+#, kde-format
 msgid "Activated"
-msgstr "Activate"
+msgstr "Activated"
 
 #: widgets/administratordialog/users/administratoruserswidget.cpp:236
 #, kde-format
@@ -3968,37 +3965,34 @@ msgid "Password Reset"
 msgstr "Password Reset"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:56
-#, fuzzy, kde-format
-#| msgid "Failed Login Attempts"
+#, kde-format
 msgctxt "@option:check"
 msgid "Log (on console) failed login attempts"
-msgstr "Failed Login Attempts"
+msgstr "Log (on console) failed login attempts"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:57
 #, kde-format
 msgctxt "@option:check"
 msgid "Show Username on failed login attempts logs"
-msgstr ""
+msgstr "Show Username on failed login attempts logs"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:58
 #, kde-format
 msgctxt "@option:check"
 msgid "Show UserAgent on failed login attempts logs"
-msgstr ""
+msgstr "Show UserAgent on failed login attempts logs"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:59
-#, fuzzy, kde-format
-#| msgid "Failed Login Attempts"
+#, kde-format
 msgctxt "@option:check"
 msgid "Show Client IP on failed login attempts logs"
-msgstr "Failed Login Attempts"
+msgstr "Show Client IP on failed login attempts logs"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:60
-#, fuzzy, kde-format
-#| msgid "Failed Login Attempts"
+#, kde-format
 msgctxt "@option:check"
 msgid "Show Forwarded IP on failed login attempts logs"
-msgstr "Failed Login Attempts"
+msgstr "Show Forwarded IP on failed login attempts logs"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:115
 #, kde-format
@@ -4027,10 +4021,9 @@ msgid "How many failed attempts until block by IP"
 msgstr "How many failed attempts until block by IP"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:156
-#, fuzzy, kde-format
-#| msgid "Login At"
+#, kde-format
 msgid "Login Logs"
-msgstr "Login At"
+msgstr "Login Logs"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:180
 #, kde-format
@@ -4678,17 +4671,16 @@ msgid "Enable encryption for Private Rooms by default"
 msgstr "Enable encryption for Private Rooms by default"
 
 #: widgets/administratorsettingsdialog/encryption/encryptionsettingswidget.cpp:19
-#, fuzzy, kde-format
-#| msgid "Encryption"
+#, kde-format
 msgctxt "@option:check"
 msgid "Encrypt files"
-msgstr "Encryption"
+msgstr "Encrypt files"
 
 #: widgets/administratorsettingsdialog/encryption/encryptionsettingswidget.cpp:20
 #, kde-format
 msgctxt "@option:check"
 msgid "Access unencrypted content in encrypted rooms"
-msgstr ""
+msgstr "Access unencrypted content in encrypted rooms"
 
 #: widgets/administratorsettingsdialog/encryption/encryptionsettingswidget.cpp:21
 #, kde-format
@@ -4713,6 +4705,8 @@ msgid ""
 "Allow access to encrypted rooms to people without room encryption keys. "
 "They'll be able to see and send unencrypted messages."
 msgstr ""
+"Allow access to encrypted rooms to people without room encryption keys. "
+"They'll be able to see and send unencrypted messages."
 
 #: widgets/administratorsettingsdialog/encryption/encryptionsettingswidget.cpp:50
 #, kde-format
@@ -4895,7 +4889,7 @@ msgstr "Send Statistics to Rocket.Chat"
 #, kde-format
 msgctxt "@option:check"
 msgid "Use REST instead of websocket for Meteor calls"
-msgstr ""
+msgstr "Use REST instead of websocket for Meteor calls"
 
 #: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:45
 #, kde-format
@@ -5094,7 +5088,7 @@ msgstr ""
 #: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:150
 #, kde-format
 msgid "REST API"
-msgstr ""
+msgstr "REST API"
 
 #: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:156
 #, kde-format
@@ -5102,6 +5096,8 @@ msgid ""
 "What is the maximum number of records the REST API should return (when not "
 "unlimited)?"
 msgstr ""
+"What is the maximum number of records the REST API should return (when not "
+"unlimited)?"
 
 #: widgets/administratorsettingsdialog/irc/ircwidget.cpp:21
 #, kde-format
@@ -6272,7 +6268,7 @@ msgstr "Apply"
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Restore"
-msgstr ""
+msgstr "Restore"
 
 #: widgets/administratorsettingsdialog/slackbridge/slackbridgewidget.cpp:20
 #, kde-format
@@ -7348,6 +7344,8 @@ msgid ""
 "Messages are end-to-end encrypted, search will not work and notifications "
 "may not show message content"
 msgstr ""
+"Messages are end-to-end encrypted, search will not work and notifications "
+"may not show message content"
 
 #: widgets/dialogs/channelinfoeditablewidget.cpp:84
 #, kde-format
@@ -7385,7 +7383,7 @@ msgstr "Private:"
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "People can only join by being invited"
-msgstr ""
+msgstr "People can only join by being invited"
 
 #: widgets/dialogs/channelinfoeditablewidget.cpp:101
 #, kde-format
@@ -7660,11 +7658,10 @@ msgstr "Users:"
 
 #: widgets/dialogs/createnewchannelwidget.cpp:47
 #: widgets/dialogs/createnewchannelwidget.cpp:51
-#, fuzzy, kde-format
-#| msgid "Only you can see this message"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Anyone can send new messages"
-msgstr "Only you can see this message"
+msgstr "Anyone can send new messages"
 
 #: widgets/dialogs/createnewchannelwidget.cpp:48
 #, kde-format
@@ -7673,27 +7670,22 @@ msgstr "Read-Only:"
 
 #: widgets/dialogs/createnewchannelwidget.cpp:49
 #: widgets/dialogs/createnewchannelwidget.cpp:52
-#, fuzzy, kde-format
-#| msgid "Only you can see this message"
+#, kde-format
 msgctxt "@label:textbox"
 msgid "Anyone can send new messages"
-msgstr "Only you can see this message"
+msgstr "Anyone can send new messages"
 
 #: widgets/dialogs/createnewchannelwidget.cpp:51
-#, fuzzy, kde-format
-#| msgctxt "@label:textbox"
-#| msgid "Only authorized users can write new messages"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Only owners can send new messages"
-msgstr "Only authorised users can write new messages"
+msgstr "Only owners can send new messages"
 
 #: widgets/dialogs/createnewchannelwidget.cpp:52
-#, fuzzy, kde-format
-#| msgctxt "@label:textbox"
-#| msgid "Only authorized users can write new messages"
+#, kde-format
 msgctxt "@label:textbox"
 msgid "Only owners can send new messages"
-msgstr "Only authorised users can write new messages"
+msgstr "Only owners can send new messages"
 
 #: widgets/dialogs/createnewchannelwidget.cpp:58
 #, kde-format
@@ -7727,11 +7719,9 @@ msgid "Encrypted Room:"
 msgstr "Encrypted Room:"
 
 #: widgets/dialogs/createnewchannelwidget.cpp:75
-#, fuzzy, kde-format
-#| msgid "Moderator:"
-#| msgid_plural "Moderators:"
+#, kde-format
 msgid "Federated:"
-msgstr "Moderator:"
+msgstr "Federated:"
 
 #: widgets/dialogs/createnewdiscussiondialog.cpp:28
 #, kde-format
@@ -8051,6 +8041,8 @@ msgid ""
 "You can search using <a href=\"https://en.wikipedia.org/wiki/"
 "Regular_expression\">Regular Expression</a>. e.g. <code>/^text$/i</code>"
 msgstr ""
+"You can search using <a href=\"https://en.wikipedia.org/wiki/"
+"Regular_expression\">Regular Expression</a>. e.g. <code>/^text$/i</code>"
 
 #: widgets/dialogs/serverinfo/serverinfodialog.cpp:17
 #, kde-format
@@ -8291,12 +8283,10 @@ msgid "Join…"
 msgstr "Join…"
 
 #: widgets/directory/directorywidget.cpp:83
-#, fuzzy, kde-format
-#| msgctxt "@action"
-#| msgid "Open Private Messages…"
+#, kde-format
 msgctxt "@action"
 msgid "Open Private Message…"
-msgstr "Open Private Messages…"
+msgstr "Open Private Message…"
 
 #: widgets/directory/directorywidget.cpp:194
 #, kde-format
@@ -8840,49 +8830,39 @@ msgid "Reset Password"
 msgstr "Reset Password"
 
 #: widgets/misc/passwordvalidatewidget.cpp:161
-#, fuzzy, kde-format
-#| msgid "Max Repeating Characters"
+#, kde-format
 msgid "At least %1 characters"
-msgstr "Max Repeating Characters"
+msgstr "At least %1 characters"
 
 #: widgets/misc/passwordvalidatewidget.cpp:164
 #, kde-format
 msgid "At most %1 characters"
-msgstr ""
+msgstr "At most %1 characters"
 
 #: widgets/misc/passwordvalidatewidget.cpp:168
-#, fuzzy, kde-format
-#| msgid "Max Repeating Characters"
+#, kde-format
 msgid "Max. %1 repeating characters"
-msgstr "Max Repeating Characters"
+msgstr "Max. %1 repeating characters"
 
 #: widgets/misc/passwordvalidatewidget.cpp:171
-#, fuzzy, kde-format
-#| msgctxt "@option:check"
-#| msgid "At Least One Lowercase"
+#, kde-format
 msgid "At least one lowercase letter"
-msgstr "At Least One Lowercase"
+msgstr "At least one lowercase letter"
 
 #: widgets/misc/passwordvalidatewidget.cpp:174
-#, fuzzy, kde-format
-#| msgctxt "@option:check"
-#| msgid "At Least One Uppercase"
+#, kde-format
 msgid "At least one uppercase letter"
-msgstr "At Least One Uppercase"
+msgstr "At least one uppercase letter"
 
 #: widgets/misc/passwordvalidatewidget.cpp:177
-#, fuzzy, kde-format
-#| msgctxt "@option:check"
-#| msgid "At Least One Symbol"
+#, kde-format
 msgid "At least one symbol"
-msgstr "At Least One Symbol"
+msgstr "At least one symbol"
 
 #: widgets/misc/passwordvalidatewidget.cpp:180
-#, fuzzy, kde-format
-#| msgctxt "@option:check"
-#| msgid "At Least One Number"
+#, kde-format
 msgid "At least one number"
-msgstr "At Least One Number"
+msgstr "At least one number"
 
 #: widgets/misc/searchwithdelaylineedit.cpp:16
 #, kde-format
@@ -9550,10 +9530,9 @@ msgid "Register"
 msgstr "Register"
 
 #: widgets/registeruser/registeruserwidget.cpp:26
-#, fuzzy, kde-format
-#| msgid "Seasons"
+#, kde-format
 msgid "Reason:"
-msgstr "Seasons"
+msgstr "Reason:"
 
 #: widgets/room/channelactionpopupmenu.cpp:29
 #, kde-format
@@ -10129,25 +10108,25 @@ msgstr "Replying in a thread"
 msgid "Reply in Thread for Message: '%1'"
 msgstr "Reply in Thread for Message: '%1'"
 
-#: widgets/room/roomwidget.cpp:336
+#: widgets/room/roomwidget.cpp:335
 #, kde-format
 msgid "Do you want really remove history?"
 msgstr "Do you want really remove history?"
 
-#: widgets/room/roomwidget.cpp:337
+#: widgets/room/roomwidget.cpp:336
 #, kde-format
 msgctxt "@title:window"
 msgid "Remove History"
 msgstr "Remove History"
 
-#: widgets/room/roomwidget.cpp:507
+#: widgets/room/roomwidget.cpp:506
 #, kde-format
 msgid ""
 "A workspace admin needs to install and configure a conference call apps."
 msgstr ""
 "A workspace admin needs to install and configure a conference call apps."
 
-#: widgets/room/roomwidget.cpp:508
+#: widgets/room/roomwidget.cpp:507
 #, kde-format
 msgctxt "@title:window"
 msgid "Video Conference"
@@ -10269,29 +10248,25 @@ msgid "Remove from Room"
 msgstr "Remove from Room"
 
 #: widgets/room/usersinroommenu.cpp:161
-#, fuzzy, kde-format
-#| msgid "Unblock User"
+#, kde-format
 msgctxt "@action"
 msgid "Unblock User"
 msgstr "Unblock User"
 
 #: widgets/room/usersinroommenu.cpp:161
-#, fuzzy, kde-format
-#| msgid "Block User"
+#, kde-format
 msgctxt "@action"
 msgid "Block User"
 msgstr "Block User"
 
 #: widgets/room/usersinroommenu.cpp:170
-#, fuzzy, kde-format
-#| msgid "Unignore"
+#, kde-format
 msgctxt "@action"
 msgid "Unignore"
 msgstr "Unignore"
 
 #: widgets/room/usersinroommenu.cpp:170
-#, fuzzy, kde-format
-#| msgid "Ignore"
+#, kde-format
 msgctxt "@action"
 msgid "Ignore"
 msgstr "Ignore"
@@ -10835,21 +10810,19 @@ msgstr "What's new in %2. %1"
 #: widgets/whatsnew/whatsnewtranslations.cpp:17
 msgid "Allow to clean up room history when room was not opened from long time."
 msgstr ""
+"Allow to clean up room history when room was not opened from long time."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:18
-#, fuzzy
-#| msgctxt "@title:window"
-#| msgid "Administrator Server Settings - %1"
 msgid "Add restore button in administrator server settings dialog."
-msgstr "Administrator Server Settings - %1"
+msgstr "Add restore button in administrator server settings dialog."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:19
 msgid "Improve changing password (show validation info)."
-msgstr ""
+msgstr "Improve changing password (show validation info)."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:20
 msgid "Improve register new account (Add reason support)."
-msgstr ""
+msgstr "Improve register new account (Add reason support)."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:30
 #, kde-format
@@ -11155,10 +11128,9 @@ msgid "Add delegate in search rooms in team dialog."
 msgstr "Add delegate in search rooms in team dialog."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:124
-#, fuzzy, kde-format
-#| msgid "Direct message"
+#, kde-format
 msgid "Fix editing message."
-msgstr "Direct message"
+msgstr "Fix editing message."
 
 #: widgets/whatsnew/whatsnewwidget.cpp:44
 #, kde-format

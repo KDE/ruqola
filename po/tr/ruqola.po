@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-10-18 00:39+0000\n"
-"PO-Revision-Date: 2024-10-18 02:05+0300\n"
+"POT-Creation-Date: 2024-10-19 00:39+0000\n"
+"PO-Revision-Date: 2024-10-18 13:41+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -1471,14 +1471,18 @@ msgid "%1 denied the OTR session."
 msgstr "%1, Kayıt Dışı oturumunu reddetti."
 
 #: core/receivetypingnotificationmanager.cpp:58
-#, kde-format
-msgctxt "We need a space between after </strong>"
+#, fuzzy, kde-format
+#| msgctxt "We need a space between after </strong>"
+#| msgid "<strong>%1</strong> is typing..."
+msgctxt "WARNING!!!!!!: PLEASE We need a space between after </strong>"
 msgid "<strong>%1</strong> is typing..."
 msgstr "<strong>%1</strong> yazıyor…"
 
 #: core/receivetypingnotificationmanager.cpp:72
-#, kde-format
-msgctxt "We need a space between after </strong>"
+#, fuzzy, kde-format
+#| msgctxt "We need a space between after </strong>"
+#| msgid "<strong>%1</strong> are typing..."
+msgctxt "WARNING!!!!!!: PLEASE We need a space between after </strong>"
 msgid "<strong>%1</strong> are typing..."
 msgstr "<strong>%1</strong> yazıyor…"
 
@@ -8273,12 +8277,10 @@ msgid "Join…"
 msgstr "Odaya Katıl…"
 
 #: widgets/directory/directorywidget.cpp:83
-#, fuzzy, kde-format
-#| msgctxt "@action"
-#| msgid "Open Private Messages…"
+#, kde-format
 msgctxt "@action"
 msgid "Open Private Message…"
-msgstr "Özel İletileri Aç…"
+msgstr "Özel İletiyi Aç…"
 
 #: widgets/directory/directorywidget.cpp:194
 #, kde-format
@@ -10116,18 +10118,18 @@ msgstr "Bir dizide yanıtlanıyor"
 msgid "Reply in Thread for Message: '%1'"
 msgstr "Şu İletiyi Dizide Yanıtla: “%1”"
 
-#: widgets/room/roomwidget.cpp:336
+#: widgets/room/roomwidget.cpp:335
 #, kde-format
 msgid "Do you want really remove history?"
 msgstr "Geçmişi kaldırmayı gerçekten istiyor musunuz?"
 
-#: widgets/room/roomwidget.cpp:337
+#: widgets/room/roomwidget.cpp:336
 #, kde-format
 msgctxt "@title:window"
 msgid "Remove History"
 msgstr "Geçmişi Kaldır"
 
-#: widgets/room/roomwidget.cpp:507
+#: widgets/room/roomwidget.cpp:506
 #, kde-format
 msgid ""
 "A workspace admin needs to install and configure a conference call apps."
@@ -10135,7 +10137,7 @@ msgstr ""
 "Bir çalışma alanı yöneticisinin bir konferans araması uygulaması kurması ve "
 "yapılandırması gerekir."
 
-#: widgets/room/roomwidget.cpp:508
+#: widgets/room/roomwidget.cpp:507
 #, kde-format
 msgctxt "@title:window"
 msgid "Video Conference"
