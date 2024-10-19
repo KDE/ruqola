@@ -116,18 +116,19 @@ bool LocalDatabaseBase::initializeDataBase(const QString &accountName, const QSt
             qCWarning(RUQOLA_DATABASE_LOG) << "Couldn't create" << db.databaseName();
             return false;
         }
+        QSqlQuery query(db);
         if (!newDb) {
-            db.exec(schemaDataBase());
-            if (db.lastError().isValid()) {
+            query.exec(schemaDataBase());
+            if (query.lastError().isValid()) {
                 qCWarning(RUQOLA_DATABASE_LOG) << "Couldn't create table LOGS in" << db.databaseName() << ":" << db.lastError();
                 return false;
             }
         }
         // Using the write-ahead log and sync = NORMAL for faster writes
         // (idea taken from kactivities-stat)
-        db.exec(QStringLiteral("PRAGMA synchronous = 1"));
+        query.exec(QStringLiteral("PRAGMA synchronous = 1"));
         // use the write-ahead log (requires sqlite > 3.7.0)
-        db.exec(QStringLiteral("PRAGMA journal_mode = WAL"));
+        query.exec(QStringLiteral("PRAGMA journal_mode = WAL"));
     }
 
     Q_ASSERT(db.isValid());
@@ -153,18 +154,19 @@ bool LocalDatabaseBase::initializeDataBase(const QString &accountName, QSqlDatab
             qCWarning(RUQOLA_DATABASE_LOG) << "Couldn't create" << db.databaseName();
             return false;
         }
+        QSqlQuery query(db);
         if (!newDb) {
-            db.exec(schemaDataBase());
-            if (db.lastError().isValid()) {
+            query.exec(schemaDataBase());
+            if (query.lastError().isValid()) {
                 qCWarning(RUQOLA_DATABASE_LOG) << "Couldn't create table LOGS in" << db.databaseName() << ":" << db.lastError();
                 return false;
             }
         }
         // Using the write-ahead log and sync = NORMAL for faster writes
         // (idea taken from kactivities-stat)
-        db.exec(QStringLiteral("PRAGMA synchronous = 1"));
+        query.exec(QStringLiteral("PRAGMA synchronous = 1"));
         // use the write-ahead log (requires sqlite > 3.7.0)
-        db.exec(QStringLiteral("PRAGMA journal_mode = WAL"));
+        query.exec(QStringLiteral("PRAGMA journal_mode = WAL"));
     }
 
     Q_ASSERT(db.isValid());
