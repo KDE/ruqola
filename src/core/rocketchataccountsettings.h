@@ -90,7 +90,7 @@ Q_SIGNALS:
     void userNameChanged();
     void userIdChanged();
     void accountNameChanged();
-    void passwordChanged();
+    void passwordAvailable();
     void twoFactorAuthenticationCodeChanged();
     void enableAccountChanged();
     void displayNameChanged();

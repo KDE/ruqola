@@ -565,7 +565,7 @@ Q_SIGNALS:
     void accountNameChanged();
     void userNameChanged();
     void userIdChanged();
-    void passwordChanged();
+    void passwordAvailable();
     void twoFactorAuthenticationCodeChanged();
     void serverUrlChanged();
     void loginStatusChanged();
