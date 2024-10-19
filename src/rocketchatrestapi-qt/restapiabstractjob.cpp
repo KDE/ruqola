@@ -193,7 +193,10 @@ void RestApiAbstractJob::addLoggerWarning(const QByteArray &str)
 
 void RestApiAbstractJob::emitFailedMessage(const QString &replyErrorString, const QJsonObject &replyObject)
 {
-    Q_EMIT failed(replyErrorString + QLatin1Char('\n') + errorStr(replyObject));
+    if (replyObject.isEmpty())
+        Q_EMIT failed(replyErrorString);
+    else
+        Q_EMIT failed(replyErrorString + QLatin1Char('\n') + errorStr(replyObject));
 }
 
 QString RestApiAbstractJob::errorStr(const QJsonObject &replyObject)
@@ -491,7 +494,8 @@ void RestApiAbstractJob::genericResponseHandler(void (RestApiAbstractJob::*respo
             return;
         }
         // TODO add support error 400
-        (this->*responseHandler)(mReply->errorString(), convertToJsonDocument(mReply));
+        // qDebug() << mReply->readAll();
+        (this->*responseHandler)(mReply->errorString(), QJsonDocument());
     } else {
         (this->*responseHandler)(QString(), convertToJsonDocument(mReply));
     }
