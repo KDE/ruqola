@@ -439,19 +439,19 @@ void RocketChatBackend::parseServerVersionDone(const QString &version)
 
 void RocketChatBackend::tryAutoLogin()
 {
-    qCDebug(RUQOLA_RECONNECT_LOG) << " mRocketChatAccount->accountName" << mRocketChatAccount->accountName();
+    qCDebug(RUQOLA_RECONNECT_LOG) << "tryAutoLogin for account" << mRocketChatAccount->accountName();
+    if (mRocketChatAccount->serverVersion().isEmpty()) {
+        qCDebug(RUQOLA_RECONNECT_LOG) << "Can't autologin yet, waiting for parseServerVersionDone";
+        return;
+    }
     if (mRocketChatAccount->authMethodType() == AuthenticationManager::AuthMethodType::Password) {
-        if (mRocketChatAccount->serverVersion().isEmpty() || mRocketChatAccount->password().isEmpty()) {
-            qCWarning(RUQOLA_RECONNECT_LOG) << " Impossible to log: mRocketChatAccount->serverVersion().isEmpty()"
-                                            << mRocketChatAccount->serverVersion().isEmpty() << "mRocketChatAccount->password().isEmpty() "
-                                            << mRocketChatAccount->password().isEmpty();
+        if (mRocketChatAccount->password().isEmpty()) {
+            qCDebug(RUQOLA_RECONNECT_LOG) << "Can't autologin (yet?), no password set";
             return;
         }
     } else if (mRocketChatAccount->authMethodType() == AuthenticationManager::AuthMethodType::PersonalAccessToken) {
-        if (mRocketChatAccount->serverVersion().isEmpty() || mRocketChatAccount->authToken().isEmpty()) {
-            qCWarning(RUQOLA_RECONNECT_LOG) << " Impossible to log: mRocketChatAccount->serverVersion().isEmpty()"
-                                            << mRocketChatAccount->serverVersion().isEmpty() << "mRocketChatAccount->authToken().isEmpty() "
-                                            << mRocketChatAccount->authToken().isEmpty();
+        if (mRocketChatAccount->authToken().isEmpty()) {
+            qCDebug(RUQOLA_RECONNECT_LOG) << "Can't autologin (yet?), no authToken";
             return;
         }
     } else {
