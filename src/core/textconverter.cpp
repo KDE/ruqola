@@ -829,7 +829,7 @@ QString addHighlighter(const QString &str, const TextConverter::ConvertMessageTe
     return richText;
 }
 
-#define DEBUG_CMARK_RC
+// #define DEBUG_CMARK_RC
 
 void convertHtmlChar(QString &str)
 {
