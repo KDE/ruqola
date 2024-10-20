@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-10-18 02:28+0000\n"
-"PO-Revision-Date: 2024-10-05 13:03+0200\n"
+"PO-Revision-Date: 2024-10-19 13:00+0200\n"
 "Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>\n"
 "Language-Team: Polish <kde-i18n-doc@kde.org>\n"
 "Language: pl\n"
@@ -10700,7 +10700,7 @@ msgstr "Ukryj stronę powitalną."
 #: widgets/whatsnew/whatsnewtranslations.cpp:22
 msgid "Implement pending users info (administrator mode)."
 msgstr ""
-"Dodaj powiadomienie o oczekujących użytkownikach (tryb administratora)."
+"Dodano powiadomienia o oczekujących użytkownikach (tryb administratora)."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:23
 msgid "Use cmark-rc (https://github.com/dfaure/cmark-rc) for markdown support."
@@ -10854,7 +10854,7 @@ msgstr "Możliwość zwiększenia/zmniejszenia rozmiaru czcionki (CTRL++/CTRL+-)
 #: widgets/whatsnew/whatsnewtranslations.cpp:72
 #, kde-format
 msgid "Add channel list style (Condensed/Medium/Extended)"
-msgstr "Dodanie wyglądu spisu kanałów (ściśnięty/średni/rozszerzony)"
+msgstr "Dodano wygląd spisu kanałów (ściśnięty/średni/rozszerzony)"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:73
 #, kde-format
