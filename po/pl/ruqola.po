@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-10-19 00:39+0000\n"
-"PO-Revision-Date: 2024-10-12 10:18+0200\n"
+"PO-Revision-Date: 2024-10-19 13:00+0200\n"
 "Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>\n"
 "Language-Team: Polish <kde-i18n-doc@kde.org>\n"
 "Language: pl\n"
@@ -1478,17 +1478,13 @@ msgid "%1 denied the OTR session."
 msgstr "%1 odmówił posiedzenia OTR."
 
 #: core/receivetypingnotificationmanager.cpp:58
-#, fuzzy, kde-format
-#| msgctxt "We need a space between after </strong>"
-#| msgid "<strong>%1</strong> is typing..."
+#, kde-format
 msgctxt "WARNING!!!!!!: PLEASE We need a space between after </strong>"
 msgid "<strong>%1</strong> is typing..."
 msgstr "<strong>%1</strong> pisze..."
 
 #: core/receivetypingnotificationmanager.cpp:72
-#, fuzzy, kde-format
-#| msgctxt "We need a space between after </strong>"
-#| msgid "<strong>%1</strong> are typing..."
+#, kde-format
 msgctxt "WARNING!!!!!!: PLEASE We need a space between after </strong>"
 msgid "<strong>%1</strong> are typing..."
 msgstr "<strong>%1</strong> pisze..."
@@ -4917,7 +4913,7 @@ msgstr "Wyślij statystyki na Rocket.Chat"
 #, kde-format
 msgctxt "@option:check"
 msgid "Use REST instead of websocket for Meteor calls"
-msgstr ""
+msgstr "Używaj REST zamiast websocket do wywoływania Meteor"
 
 #: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:45
 #, kde-format
@@ -5119,7 +5115,7 @@ msgstr ""
 #: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:150
 #, kde-format
 msgid "REST API"
-msgstr ""
+msgstr "REST API"
 
 #: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:156
 #, kde-format
@@ -5127,6 +5123,8 @@ msgid ""
 "What is the maximum number of records the REST API should return (when not "
 "unlimited)?"
 msgstr ""
+"Jaka jest graniczna liczba rekordów (jeśli nie nieograniczona), które API "
+"REST może zwrócić?"
 
 #: widgets/administratorsettingsdialog/irc/ircwidget.cpp:21
 #, kde-format
@@ -8334,12 +8332,10 @@ msgid "Join…"
 msgstr "Dołącz…"
 
 #: widgets/directory/directorywidget.cpp:83
-#, fuzzy, kde-format
-#| msgctxt "@action"
-#| msgid "Open Private Messages…"
+#, kde-format
 msgctxt "@action"
 msgid "Open Private Message…"
-msgstr "Otwórz wiadomości prywatne…"
+msgstr "Otwórz wiadomość prywatną…"
 
 #: widgets/directory/directorywidget.cpp:194
 #, kde-format
@@ -8890,49 +8886,39 @@ msgid "Reset Password"
 msgstr "Wyzeruj hasło"
 
 #: widgets/misc/passwordvalidatewidget.cpp:161
-#, fuzzy, kde-format
-#| msgid "Max Repeating Characters"
+#, kde-format
 msgid "At least %1 characters"
-msgstr "Dozwolona liczba powtórzeń znaku"
+msgstr "Co najmniej %1 znaków"
 
 #: widgets/misc/passwordvalidatewidget.cpp:164
 #, kde-format
 msgid "At most %1 characters"
-msgstr ""
+msgstr "Co najwyżej %1 znaków"
 
 #: widgets/misc/passwordvalidatewidget.cpp:168
-#, fuzzy, kde-format
-#| msgid "Max Repeating Characters"
+#, kde-format
 msgid "Max. %1 repeating characters"
-msgstr "Dozwolona liczba powtórzeń znaku"
+msgstr "Dozwolona liczba powtórzeń %1"
 
 #: widgets/misc/passwordvalidatewidget.cpp:171
-#, fuzzy, kde-format
-#| msgctxt "@option:check"
-#| msgid "At Least One Lowercase"
+#, kde-format
 msgid "At least one lowercase letter"
 msgstr "Co najmniej jedna mała litera"
 
 #: widgets/misc/passwordvalidatewidget.cpp:174
-#, fuzzy, kde-format
-#| msgctxt "@option:check"
-#| msgid "At Least One Uppercase"
+#, kde-format
 msgid "At least one uppercase letter"
 msgstr "Co najmniej jedna wielka litera"
 
 #: widgets/misc/passwordvalidatewidget.cpp:177
-#, fuzzy, kde-format
-#| msgctxt "@option:check"
-#| msgid "At Least One Symbol"
+#, kde-format
 msgid "At least one symbol"
 msgstr "Co najmniej jeden symbol"
 
 #: widgets/misc/passwordvalidatewidget.cpp:180
-#, fuzzy, kde-format
-#| msgctxt "@option:check"
-#| msgid "At Least One Number"
+#, kde-format
 msgid "At least one number"
-msgstr "Co najmniej jedna cyfra"
+msgstr "Co najmniej jedna liczba"
 
 #: widgets/misc/searchwithdelaylineedit.cpp:16
 #, kde-format
@@ -9608,10 +9594,9 @@ msgid "Register"
 msgstr "Zarejestruj"
 
 #: widgets/registeruser/registeruserwidget.cpp:26
-#, fuzzy, kde-format
-#| msgid "Seasons"
+#, kde-format
 msgid "Reason:"
-msgstr "Sezony"
+msgstr "Powód:"
 
 #: widgets/room/channelactionpopupmenu.cpp:29
 #, kde-format
@@ -10902,11 +10887,11 @@ msgstr "Dodano przycisk przywracania w oknie ustawień serwera."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:19
 msgid "Improve changing password (show validation info)."
-msgstr ""
+msgstr "Ulepszono zmienianie hasła (poprzez pokazywanie jego poprawności)"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:20
 msgid "Improve register new account (Add reason support)."
-msgstr ""
+msgstr "Ulepszono zakładanie nowego konta (poprzez obsługę powodów)."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:30
 #, kde-format
@@ -11047,7 +11032,7 @@ msgstr "Możliwość zwiększenia/zmniejszenia rozmiaru czcionki (CTRL++/CTRL+-)
 #: widgets/whatsnew/whatsnewtranslations.cpp:68
 #, kde-format
 msgid "Add channel list style (Condensed/Medium/Extended)"
-msgstr "Dodanie wyglądu spisu kanałów (ściśnięty/średni/rozszerzony)"
+msgstr "Dodano wygląd spisu kanałów (ściśnięty/średni/rozszerzony)"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:69
 #, kde-format
@@ -11176,7 +11161,7 @@ msgstr "Ukryj stronę powitalną."
 #, kde-format
 msgid "Implement pending users info (administrator mode)."
 msgstr ""
-"Dodaj powiadomienie o oczekujących użytkownikach (tryb administratora)."
+"Dodano powiadomienia o oczekujących użytkownikach (tryb administratora)."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:102
 #, kde-format

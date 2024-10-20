@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-10-19 00:39+0000\n"
-"PO-Revision-Date: 2024-10-16 12:04+0200\n"
+"PO-Revision-Date: 2024-10-18 10:18+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca@valencia\n"
@@ -19,7 +19,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Accelerator-Marker: &\n"
-"X-Generator: Lokalize 24.08.1\n"
+"X-Generator: Lokalize 24.08.2\n"
 
 #: apps/main.cpp:61
 #, kde-format
@@ -8334,12 +8334,10 @@ msgid "Join…"
 msgstr "Unix-te…"
 
 #: widgets/directory/directorywidget.cpp:83
-#, fuzzy, kde-format
-#| msgctxt "@action"
-#| msgid "Open Private Messages…"
+#, kde-format
 msgctxt "@action"
 msgid "Open Private Message…"
-msgstr "Obri missatges privats…"
+msgstr "Obri un missatge privat…"
 
 #: widgets/directory/directorywidget.cpp:194
 #, kde-format
@@ -9606,10 +9604,9 @@ msgid "Register"
 msgstr "Registre"
 
 #: widgets/registeruser/registeruserwidget.cpp:26
-#, fuzzy, kde-format
-#| msgid "Seasons"
+#, kde-format
 msgid "Reason:"
-msgstr "Estacions"
+msgstr "Motiu:"
 
 #: widgets/room/channelactionpopupmenu.cpp:29
 #, kde-format
@@ -10904,6 +10901,7 @@ msgstr "Millora el canvi de contrasenya (mostra la informació de validació)."
 #: widgets/whatsnew/whatsnewtranslations.cpp:20
 msgid "Improve register new account (Add reason support)."
 msgstr ""
+"Millora el registre d'un compte nou (afegir la implementació del motiu)."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:30
 #, kde-format

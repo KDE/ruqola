@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-10-19 00:39+0000\n"
-"PO-Revision-Date: 2024-10-18 05:32+0200\n"
+"PO-Revision-Date: 2024-10-19 05:50+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -1471,20 +1471,16 @@ msgid "%1 denied the OTR session."
 msgstr "%1 -მა უარყო OTR სესია."
 
 #: core/receivetypingnotificationmanager.cpp:58
-#, fuzzy, kde-format
-#| msgctxt "We need a space between after </strong>"
-#| msgid "<strong>%1</strong> is typing..."
+#, kde-format
 msgctxt "WARNING!!!!!!: PLEASE We need a space between after </strong>"
 msgid "<strong>%1</strong> is typing..."
-msgstr "<strong>%1</strong> კრეფს…"
+msgstr "<strong>%1</strong> კრეფს..."
 
 #: core/receivetypingnotificationmanager.cpp:72
-#, fuzzy, kde-format
-#| msgctxt "We need a space between after </strong>"
-#| msgid "<strong>%1</strong> are typing..."
+#, kde-format
 msgctxt "WARNING!!!!!!: PLEASE We need a space between after </strong>"
 msgid "<strong>%1</strong> are typing..."
-msgstr "<strong>%1</strong> კრეფს…"
+msgstr "<strong>%1</strong> კრეფს..."
 
 #: core/rocketchataccount.cpp:3060
 #, kde-format

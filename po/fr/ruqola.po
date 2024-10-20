@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-10-19 00:39+0000\n"
-"PO-Revision-Date: 2024-10-17 17:09+0200\n"
+"PO-Revision-Date: 2024-10-18 10:58+0200\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
 "Language-Team: French <French <kde-francophone@kde.org>>\n"
 "Language: fr\n"
@@ -9661,10 +9661,9 @@ msgid "Register"
 msgstr "Enregistrer"
 
 #: widgets/registeruser/registeruserwidget.cpp:26
-#, fuzzy, kde-format
-#| msgid "Seasons"
+#, kde-format
 msgid "Reason:"
-msgstr "Saisons"
+msgstr "Raison :"
 
 #: widgets/room/channelactionpopupmenu.cpp:29
 #, kde-format
@@ -10962,6 +10961,8 @@ msgstr ""
 #: widgets/whatsnew/whatsnewtranslations.cpp:20
 msgid "Improve register new account (Add reason support)."
 msgstr ""
+"Améliorez l'enregistrement d'un nouveau compte (Ajout de la prise en charge "
+"d'une raison)."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:30
 #, kde-format
