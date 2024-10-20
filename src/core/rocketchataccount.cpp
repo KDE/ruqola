@@ -651,7 +651,7 @@ void RocketChatAccount::hideRoom(const QByteArray &roomId, Room::RoomType channe
 
 DDPClient *RocketChatAccount::ddp()
 {
-    if (!mDdp) {
+    if (!mDdp && accountEnabled()) {
         mDdp = new DDPClient(this, this);
         if (Ruqola::self()->useRestApiLogin()) {
             connect(mDdp->authenticationManager(), &DDPAuthenticationManager::loginStatusChanged, this, &RocketChatAccount::slotDDpLoginStatusChanged);

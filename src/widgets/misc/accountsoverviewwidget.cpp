@@ -143,14 +143,16 @@ void AccountsOverviewWidget::updateButtons()
         mTabBar->setTabVisible(i, account->accountEnabled());
 
         auto updateTabText = [this, i, account]() {
-            mTabBar->setTabText(i, currentText(account));
+            if (account->accountEnabled())
+                mTabBar->setTabText(i, currentText(account));
         };
         auto updateTabToolTip = [this, i, account]() {
-            mTabBar->setTabToolTip(i, currentLoginStatusText(account));
+            if (account->accountEnabled())
+                mTabBar->setTabToolTip(i, currentLoginStatusText(account));
         };
         auto updateTabIcon = [this, i, account]() {
             QIcon icon;
-            if (account->loginStatus() == AuthenticationManager::LoggedIn) {
+            if (account->accountEnabled() && account->loginStatus() == AuthenticationManager::LoggedIn) {
                 if (currentUnreadAlert(account).alert) {
                     icon = QIcon::fromTheme(QStringLiteral("message-new"));
                 } else {
