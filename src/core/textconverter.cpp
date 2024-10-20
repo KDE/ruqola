@@ -857,7 +857,6 @@ char *TextConverter::convertMessageTextCMark(const TextConverter::ConvertMessage
     const QByteArray ba = settings.str.toUtf8();
     cmark_node *doc = cmark_parse_document(ba.constData(), ba.length(), CMARK_OPT_DEFAULT);
     cmark_iter *iter = cmark_iter_new(doc);
-    cmark_event_type ev_type;
 #ifdef DEBUG_CMARK_RC
     char *beforehtml = cmark_render_html(doc, CMARK_OPT_DEFAULT | CMARK_OPT_UNSAFE | CMARK_OPT_HARDBREAKS);
     qCDebug(RUQOLA_TEXTTOHTML_CMARK_LOG) << " beforehtml " << beforehtml;
