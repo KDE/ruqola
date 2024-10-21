@@ -97,6 +97,11 @@ void RuqolaWebSocket::ignoreSslErrors()
     mWebSocket->ignoreSslErrors();
 }
 
+QWebSocketProtocol::Version RuqolaWebSocket::version() const
+{
+    return mWebSocket->version();
+}
+
 void RuqolaWebSocket::slotTextMessageReceived(const QString &msg)
 {
     if (mLogger) {

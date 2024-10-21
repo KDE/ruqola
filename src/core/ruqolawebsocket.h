@@ -29,6 +29,7 @@ public:
     [[nodiscard]] QString closeReason() const override;
     qint64 sendBinaryMessage(const QByteArray &data) override;
     void ignoreSslErrors() override;
+    [[nodiscard]] QWebSocketProtocol::Version version() const override;
 
 private:
     void slotTextMessageReceived(const QString &msg);

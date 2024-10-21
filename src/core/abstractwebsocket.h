@@ -30,6 +30,7 @@ public:
     [[nodiscard]] virtual QString closeReason() const = 0;
     virtual qint64 sendBinaryMessage(const QByteArray &data) = 0;
     virtual void ignoreSslErrors() = 0;
+    [[nodiscard]] virtual QWebSocketProtocol::Version version() const = 0;
 
 Q_SIGNALS:
     void disconnected();

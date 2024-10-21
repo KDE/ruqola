@@ -896,7 +896,8 @@ void DDPClient::onWSclosed()
         Q_EMIT disconnectedByServer();
     } else {
         qCWarning(RUQOLA_DDPAPI_LOG) << "WebSocket CLOSED reason:" << mWebSocket->closeReason() << " error: " << mWebSocket->error()
-                                     << " close code : " << mWebSocket->closeCode() << " error string " << mWebSocket->errorString();
+                                     << " close code : " << mWebSocket->closeCode() << " error string " << mWebSocket->errorString() << "Protocol version"
+                                     << mWebSocket->version();
         authenticationManager()->setLoginStatus(AuthenticationManager::GenericError);
         Q_EMIT wsClosedSocketError();
     }
