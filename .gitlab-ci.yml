@@ -16,3 +16,4 @@ include:
       - /gitlab-templates/craft-appimage-qt6.yml
       - /gitlab-templates/clang-format.yml
       - /gitlab-templates/alpine-qt6.yml
+      - /gitlab-templates/json-validation.yml
