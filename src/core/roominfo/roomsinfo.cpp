@@ -5,12 +5,12 @@
 */
 
 #include "roominfo/roomsinfo.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "ruqola_debug.h"
 #include <QJsonArray>
 #include <QJsonObject>
 
+using namespace Qt::Literals::StringLiterals;
 RoomsInfo::RoomsInfo() = default;
 
 bool RoomsInfo::isEmpty() const

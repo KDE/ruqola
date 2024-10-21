@@ -5,13 +5,13 @@
 */
 
 #include "deviceinfos.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "ruqola_debug.h"
 
 #include <QJsonArray>
 #include <QJsonObject>
 
+using namespace Qt::Literals::StringLiterals;
 DeviceInfos::DeviceInfos() = default;
 
 QDebug operator<<(QDebug d, const DeviceInfos &t)

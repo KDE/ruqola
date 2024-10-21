@@ -5,13 +5,13 @@
 */
 
 #include "discussions/discussion.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "utils.h"
 #include <KLocalizedString>
 #include <QDateTime>
 #include <QJsonObject>
 
+using namespace Qt::Literals::StringLiterals;
 Discussion::Discussion() = default;
 
 QString Discussion::description() const

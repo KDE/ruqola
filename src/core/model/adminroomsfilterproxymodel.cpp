@@ -5,9 +5,9 @@
 */
 
 #include "adminroomsfilterproxymodel.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "adminroomsmodel.h"
+using namespace Qt::Literals::StringLiterals;
 AdminRoomsFilterProxyModel::AdminRoomsFilterProxyModel(CustomBaseModel *model, QObject *parent)
     : SearchTreeBaseFilterProxyModel(model, parent)
 {

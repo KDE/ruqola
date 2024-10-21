@@ -5,10 +5,10 @@
 */
 
 #include "teamroom.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include <QJsonArray>
 
+using namespace Qt::Literals::StringLiterals;
 TeamRoom::TeamRoom() = default;
 
 bool TeamRoom::operator==(const TeamRoom &other) const

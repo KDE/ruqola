@@ -5,10 +5,10 @@
 */
 
 #include "customsoundinfo.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include <QJsonObject>
 
+using namespace Qt::Literals::StringLiterals;
 CustomSoundInfo::CustomSoundInfo() = default;
 
 const QByteArray &CustomSoundInfo::identifier() const

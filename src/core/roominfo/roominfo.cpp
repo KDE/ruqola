@@ -5,7 +5,6 @@
 */
 
 #include "roominfo/roominfo.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "ruqola_debug.h"
 #include "utils.h"
@@ -13,6 +12,7 @@ using namespace Qt::Literals::StringLiterals;
 #include <QJsonArray>
 #include <QLocale>
 
+using namespace Qt::Literals::StringLiterals;
 RoomInfo::RoomInfo() = default;
 
 RoomInfo::~RoomInfo() = default;

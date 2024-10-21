@@ -5,12 +5,12 @@
 */
 
 #include "customsoundsinfo.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "ruqola_debug.h"
 #include <QJsonArray>
 #include <QJsonObject>
 
+using namespace Qt::Literals::StringLiterals;
 CustomSoundsInfo::CustomSoundsInfo() = default;
 
 bool CustomSoundsInfo::isEmpty() const

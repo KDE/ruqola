@@ -5,7 +5,6 @@
 */
 
 #include "emoticons/emojimanager.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "rocketchataccount.h"
 #include "ruqola_debug.h"
@@ -15,6 +14,7 @@ using namespace Qt::Literals::StringLiterals;
 #include <QJsonObject>
 #include <QTextStream>
 
+using namespace Qt::Literals::StringLiterals;
 EmojiManager::EmojiManager(RocketChatAccount *account, QObject *parent)
     : QObject(parent)
     , mRocketChatAccount(account)

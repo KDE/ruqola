@@ -5,7 +5,6 @@
 */
 
 #include "downloadappslanguagesparser.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "ruqola_debug.h"
 
@@ -14,6 +13,7 @@ using namespace Qt::Literals::StringLiterals;
 #include <QJsonDocument>
 #include <QJsonObject>
 
+using namespace Qt::Literals::StringLiterals;
 DownloadAppsLanguagesParser::DownloadAppsLanguagesParser() = default;
 
 void DownloadAppsLanguagesParser::setFilename(const QString &filename)

@@ -5,13 +5,13 @@
 */
 
 #include "commands.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "downloadappslanguages/downloadappslanguagesmanager.h"
 #include "ruqola_commands_debug.h"
 #include <QJsonArray>
 #include <QJsonObject>
 
+using namespace Qt::Literals::StringLiterals;
 Commands::Commands() = default;
 
 bool Commands::isEmpty() const

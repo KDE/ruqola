@@ -5,10 +5,10 @@
 */
 
 #include "downloadappslanguagesinfo.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include <QVariant>
 
+using namespace Qt::Literals::StringLiterals;
 DownloadAppsLanguagesInfo::DownloadAppsLanguagesInfo() = default;
 
 bool DownloadAppsLanguagesInfo::parse(const QJsonObject &language, const QString &id)

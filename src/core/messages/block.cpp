@@ -5,13 +5,13 @@
 */
 
 #include "block.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "ruqola_debug.h"
 #include <KLocalizedString>
 #include <QJsonArray>
 #include <QJsonObject>
 
+using namespace Qt::Literals::StringLiterals;
 Block::Block() = default;
 
 void Block::parseBlock(const QJsonObject &block)

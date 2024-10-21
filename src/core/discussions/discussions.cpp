@@ -5,12 +5,12 @@
 */
 
 #include "discussions/discussions.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "ruqola_debug.h"
 #include <QJsonArray>
 #include <QJsonObject>
 
+using namespace Qt::Literals::StringLiterals;
 Discussions::Discussions() = default;
 
 QList<Discussion> Discussions::discussions() const

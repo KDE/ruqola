@@ -5,10 +5,10 @@
 */
 
 #include "inviteinfo.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "utils.h"
 
+using namespace Qt::Literals::StringLiterals;
 InviteInfo::InviteInfo() = default;
 
 void InviteInfo::parseInviteInfo(const QJsonObject &replyObject)

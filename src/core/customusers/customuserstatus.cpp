@@ -5,10 +5,10 @@
 */
 
 #include "customuserstatus.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "utils.h"
 
+using namespace Qt::Literals::StringLiterals;
 CustomUserStatus::CustomUserStatus() = default;
 
 CustomUserStatus::~CustomUserStatus() = default;
