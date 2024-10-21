@@ -41,6 +41,7 @@ bool AppMarketPlaceJob::start()
 
 void AppMarketPlaceJob::onGetRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
+    Q_UNUSED(replyErrorString)
     const QJsonArray replyArray = replyJson.array();
     Q_EMIT appMarketPlaceDone(replyArray);
 #if 0

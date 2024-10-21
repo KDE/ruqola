@@ -41,6 +41,7 @@ bool AppInstalledJob::start()
 
 void AppInstalledJob::onGetRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
+    Q_UNUSED(replyErrorString)
     // qDebug() << " replyJson " << replyJson;
     const QJsonArray replyArray = replyJson.object()["apps"_L1].toArray();
     Q_EMIT appInstalledDone(replyArray);
