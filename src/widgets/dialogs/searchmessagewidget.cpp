@@ -25,7 +25,7 @@
 #include <TextEditTextToSpeech/TextToSpeechContainerWidget>
 #endif
 
-constexpr int numberOfElment = 20;
+constexpr ushort numberOfElment = 20;
 
 SearchMessageWidget::SearchMessageWidget(RocketChatAccount *account, QWidget *parent)
     : QWidget(parent)

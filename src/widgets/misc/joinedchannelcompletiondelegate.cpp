@@ -15,7 +15,7 @@
 
 namespace
 {
-constexpr uint padding = 4;
+constexpr ushort padding = 4;
 }
 
 JoinedChannelCompletionDelegate::JoinedChannelCompletionDelegate(QObject *parent)
@@ -46,7 +46,7 @@ void JoinedChannelCompletionDelegate::paint(QPainter *painter, const QStyleOptio
     const Utils::AvatarInfo info = index.data(JoinedChannelModel::AvatarInfo).value<Utils::AvatarInfo>();
     if (info.isValid()) {
         const QRect displayRect(margin, option.rect.y(), option.rect.height(), option.rect.height());
-        constexpr int marginTop = padding / 2;
+        constexpr ushort marginTop = padding / 2;
         const QPixmap pix = mAvatarCacheManager->makeRoundedAvatarPixmap(option.widget, info, option.rect.height() - marginTop);
         if (!pix.isNull()) {
             drawDecoration(painter, option, displayRect, pix);

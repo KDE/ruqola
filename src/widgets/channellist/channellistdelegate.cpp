@@ -21,8 +21,8 @@
 
 namespace
 {
-constexpr uint padding = 2;
-constexpr int extraMargins = 2 * padding;
+constexpr ushort padding = 2;
+constexpr ushort extraMargins = 2 * padding;
 }
 
 ChannelListDelegate::ChannelListDelegate(QObject *parent)
