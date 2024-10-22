@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-10-19 00:39+0000\n"
+"POT-Creation-Date: 2024-10-22 00:39+0000\n"
 "PO-Revision-Date: 2024-10-19 11:15+0200\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
@@ -1485,12 +1485,12 @@ msgctxt "WARNING!!!!!!: PLEASE We need a space between after </strong>"
 msgid "<strong>%1</strong> are typing..."
 msgstr "<strong>%1</strong> zijn aan het typen..."
 
-#: core/rocketchataccount.cpp:3060
+#: core/rocketchataccount.cpp:3062
 #, kde-format
 msgid "Export Messages"
 msgstr "Berichten exporteren"
 
-#: core/rocketchataccount.cpp:3061
+#: core/rocketchataccount.cpp:3063
 #, kde-format
 msgid "Your email has been queued for sending."
 msgstr "Uw e-mailbericht is klaargezet voor verzending."
@@ -1742,13 +1742,13 @@ msgid "User is not an owner."
 msgstr "Gebruiker is geen eigenaar."
 
 #: rocketchatrestapi-qt/channels/createchanneljob.cpp:61
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:262
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:265
 #, kde-format
 msgid "A channel with name '%1' exists"
 msgstr "Een kanaal met de naam '%1' bestaat"
 
 #: rocketchatrestapi-qt/channels/createchanneljob.cpp:63
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:342
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:345
 #: rocketchatrestapi-qt/rooms/saveroomsettingsjob.cpp:64
 #, kde-format
 msgid "'%1' is not a valid room name"
@@ -1815,7 +1815,7 @@ msgid "The custom emoji or one of its aliases is already in use."
 msgstr "De aangepaste emoji of een van zijn aliassen is al in gebruik."
 
 #: rocketchatrestapi-qt/groups/groupremoveownerjob.cpp:46
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:398
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:401
 #, kde-format
 msgid ""
 "This is the last owner. Please set a new owner before removing this one."
@@ -1828,166 +1828,166 @@ msgstr ""
 msgid "Generate link is not authorized in this channel."
 msgstr "Koppeling genereren is niet geautoriseerd in dit kanaal."
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:210
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:213
 #, kde-format
 msgid "Unauthorized"
 msgstr "Niet geautoriseerd"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:228
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:231
 #, kde-format
 msgid "%1:%2"
 msgstr "%1:%2"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:236
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:239
 #, kde-format
 msgid "'%1' is not allowed"
 msgstr "'%1' is niet toegestaan"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:238
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:241
 #, kde-format
 msgid "Application not found"
 msgstr "Programma niet gevonden"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:241
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:244
 #, kde-format
 msgid "There's an archived channel with name '%1'"
 msgstr "Er is een gearchiveerd kanaal met naam '%1'"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:243
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:246
 #, kde-format
 msgid "Can't invite user to direct rooms"
 msgstr "Kan gebruiker niet uitnodiging naar directe rooms"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:245
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:248
 #, kde-format
 msgid "The channel default setting is the same as what it would be changed to."
 msgstr ""
 "De standaard instelling van het kanaal is hetzelfde als waarnaar het "
 "gewijzigd zou worden."
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:247
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:250
 #, kde-format
 msgid "The bodyParam 'default' is required"
 msgstr "De bodyParam 'default' is vereist"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:249
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:252
 #, kde-format
 msgid "Could not change email"
 msgstr "Kon e-mailadres niet wijzigen"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:251
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:254
 #, kde-format
 msgid "Could not change name"
 msgstr "Kon naam niet wijzigen"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:253
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:256
 #, kde-format
 msgid "Could not change username"
 msgstr "Kon gebruikersnaam niet wijzigen"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:255
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:258
 #, kde-format
 msgid "Cannot delete a protected role"
 msgstr "Kan een beschermde rol niet verwijderen"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:257
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:260
 #, kde-format
 msgid "Department not found"
 msgstr "Afdeling niet gevonden"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:259
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:262
 #, kde-format
 msgid "File sharing not allowed in direct messages"
 msgstr "Bestanden delen is niet toegestaan in directe berichten"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:264
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:267
 #, kde-format
 msgid "Editing permissions is not allowed"
 msgstr "Rechten bewerken is niet toegestaan"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:266
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:269
 #, kde-format
 msgid "The email domain is blacklisted"
 msgstr "Het e-maildomein staat op de zwarte lijst"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:269
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:272
 #, kde-format
 msgid "Error trying to send email: %1"
 msgstr "Fout bij poging e-mail te verzenden: %1"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:272
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:275
 #, kde-format
 msgid "'%1' is already in use :("
 msgstr "'%1' is al in gebruik :("
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:274
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:277
 #, kde-format
 msgid "File is too large"
 msgstr "Bestand is te groot"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:276
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:279
 #, kde-format
 msgid "The importer was not defined correctly, it is missing the Import class."
 msgstr ""
 "Het importeerprogramma is niet juist gedefinieerd, er ontbreekt de klasse "
 "Import."
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:278
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:281
 #, kde-format
 msgid "Failed to extract import file."
 msgstr "Importbestand uitpakken is mislukt."
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:280
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:283
 #, kde-format
 msgid "Imported file seems to be empty."
 msgstr "Geïmporteerd bestand lijkt leeg te zijn."
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:282
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:285
 #, kde-format
 msgid "The file to be imported was not found on the specified path."
 msgstr "Het te importeren bestand is niet gevonden in het gespecificeerde pad."
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:286
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:289
 #, kde-format
 msgid "%1 is not a valid %2"
 msgstr "'%1' is geen geldige %2"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:288
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:291
 #, kde-format
 msgid "Invalid action link"
 msgstr "Ongeldige actiekoppeling"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:290
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:293
 #, kde-format
 msgid "Invalid Account"
 msgstr "Ongeldig account"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:292
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:295
 #, kde-format
 msgid "Invalid arguments"
 msgstr "Ongeldige argumenten"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:294
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:297
 #, kde-format
 msgid "Invalid asset"
 msgstr "Ongeldig bezit"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:296
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:299
 #, kde-format
 msgid "Invalid channel."
 msgstr "Ongeldig kanaal."
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:298
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:301
 #, kde-format
 msgid "Invalid channel. Start with @ or #"
 msgstr "Ongeldig kanaal. Begint met @ of #"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:300
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:303
 #, kde-format
 msgid "Invalid custom field"
 msgstr "Ongeldig aangepast veld"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:302
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:305
 #, kde-format
 msgid ""
 "Invalid custom field name. Use only letters, numbers, hyphens and "
@@ -1996,184 +1996,184 @@ msgstr ""
 "Ongeldig aangepaste veldnaam. Gebruik alleen letters, cijfers, mintekens en "
 "underscore."
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:304
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:307
 #, kde-format
 msgid "Invalid date provided."
 msgstr "Ongeldige gegevens aangeleverd."
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:306
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:309
 #, kde-format
 msgid "Invalid description"
 msgstr "Ongeldige beschrijving"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:308
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:311
 #, kde-format
 msgid "Invalid domain"
 msgstr "Ongeldig domein"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:311
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:314
 #, kde-format
 msgid "Invalid email '%1'"
 msgstr "Ongeldig e-mailbericht '%1'"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:313
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:316
 #, kde-format
 msgid "Invalid email address"
 msgstr "Ongeldig e-mailadres"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:315
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:318
 #, kde-format
 msgid "Invalid file height"
 msgstr "Ongeldige bestandshoogte"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:317
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:320
 #, kde-format
 msgid "Invalid file type"
 msgstr "Ongeldig bestandstype"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:319
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:322
 #, kde-format
 msgid "Invalid file width"
 msgstr "Ongeldige bestandsbreedte"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:321
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:324
 #, kde-format
 msgid "You informed an invalid FROM address."
 msgstr "U gaf informatie over een ongeldig VAN-adres"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:323
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:326
 #, kde-format
 msgid "Invalid integration"
 msgstr "Ongeldige integratie"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:325
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:328
 #, kde-format
 msgid "Invalid message"
 msgstr "Ongeldig bericht"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:327
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:330
 #, kde-format
 msgid "Invalid method"
 msgstr "Ongeldige methode"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:329
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:332
 #, kde-format
 msgid "Invalid name"
 msgstr "Ongeldige naam"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:331
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:334
 #, kde-format
 msgid "Invalid password"
 msgstr "Ongeldig wachtwoord"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:333
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:336
 #, kde-format
 msgid "Invalid permission"
 msgstr "Ongeldige toegangsrecht"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:335
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:338
 #, kde-format
 msgid "Invalid redirectUri"
 msgstr "Ongeldig redirectUri"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:337
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:340
 #, kde-format
 msgid "Invalid role"
 msgstr "Ongeldige rol"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:339
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:342
 #: rocketchatrestapi-qt/rooms/roomstartdiscussionjob.cpp:173
 #, kde-format
 msgid "Invalid room"
 msgstr "Ongeldige room"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:345
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:348
 #, kde-format
 msgid "'%1' is not a valid room type."
 msgstr "'%1' is geen geldige type room."
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:347
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:350
 #, kde-format
 msgid "Invalid settings provided"
 msgstr "Ongeldige instellingen aangeleverd"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:349
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:352
 #, kde-format
 msgid "Invalid subscription"
 msgstr "Ongeldige beschrijving"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:351
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:354
 #, kde-format
 msgid "Invalid token"
 msgstr "Ongeldig token"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:353
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:356
 #, kde-format
 msgid "Invalid triggerWords"
 msgstr "Ongeldige triggerWords"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:355
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:358
 #, kde-format
 msgid "Invalid URLs"
 msgstr "Ongeldige URL's"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:357
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:360
 #, kde-format
 msgid "Invalid user"
 msgstr "Ongeldige gebruiker"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:359
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:362
 #, kde-format
 msgid "Invalid username"
 msgstr "Ongeldige gebruikersnaam"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:361
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:364
 #, kde-format
 msgid "The webhook URL responded with a status other than 200"
 msgstr "De webhook-URL antwoorde met een status anders dan 200"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:363
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:366
 #, kde-format
 msgid "Message deleting is blocked"
 msgstr "Berichten verwijderen is nu geblokkeerd"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:365
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:368
 #, kde-format
 msgid "Message editing is blocked"
 msgstr "Berichten bewerken is geblokkeerd"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:367
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:370
 #, kde-format
 msgid "Message size exceeds Message_MaxAllowedSize"
 msgstr "Berichtgrootte gaat boven Message_MaxAllowedSize"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:369
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:372
 #, kde-format
 msgid "You must provide the [unsubscribe] link."
 msgstr "U moet de koppeling van [unsubscribe] leveren."
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:371
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:374
 #, kde-format
 msgid "There are no tokens for this user"
 msgstr "Er zijn geen tokens voor deze gebruiker"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:373
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:376
 #, kde-format
 msgid "Not allowed"
 msgstr "Niet toegestaan"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:375
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:377
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:378
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:380
 #, kde-format
 msgid "Not authorized"
 msgstr "Niet geautoriseerd"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:379
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:382
 #, kde-format
 msgid "Password does not meet the server's policy"
 msgstr "Wachtwoord voldoet niet aan het beleid van de server"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:381
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:384
 #, kde-format
 msgid ""
 "Password does not meet the server's policy of maximum length (password too "
@@ -2182,7 +2182,7 @@ msgstr ""
 "Wachtwoord voldoet niet aan het beleid van de server voor de maximum lengte "
 "(wachtwoord is te lang)"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:383
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:386
 #, kde-format
 msgid ""
 "Password does not meet the server's policy of minimum length (password too "
@@ -2191,7 +2191,7 @@ msgstr ""
 "Wachtwoord voldoet niet aan het beleid van de server voor de minimum lengte "
 "(wachtwoord te kort)"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:385
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:388
 #, kde-format
 msgid ""
 "Password does not meet the server's policy of at least one lowercase "
@@ -2200,7 +2200,7 @@ msgstr ""
 "Wachtwoord voldoet niet aan het beleid van de server voor minstens een "
 "kleine letter"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:387
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:390
 #, kde-format
 msgid ""
 "Password does not meet the server's policy of at least one numerical "
@@ -2208,7 +2208,7 @@ msgid ""
 msgstr ""
 "Wachtwoord voldoet niet aan het beleid van de server voor minstens een cijfer"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:389
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:392
 #, kde-format
 msgid ""
 "Password does not meet the server's policy of at least one special character"
@@ -2216,7 +2216,7 @@ msgstr ""
 "Wachtwoord voldoet niet aan het beleid van de server voor minstens een "
 "speciaal teken"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:391
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:394
 #, kde-format
 msgid ""
 "Password does not meet the server's policy of at least one uppercase "
@@ -2225,7 +2225,7 @@ msgstr ""
 "Wachtwoord voldoet niet aan het beleid van de server voor minstens een "
 "hoofdletter"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:394
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:397
 #, kde-format
 msgid ""
 "Password does not meet the server's policy of forbidden repeating characters "
@@ -2234,52 +2234,52 @@ msgstr ""
 "Wachtwoord voldoet niet aan het beleid van de server voor verboden herhaalde "
 "tekens (u hebt teveel identieke tekens naast elkaar)"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:396
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:399
 #, kde-format
 msgid "Push is disabled"
 msgstr "Push is uitgeschakeld"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:400
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:403
 #, kde-format
 msgid "Cannot delete role because it's in use"
 msgstr "Kan rol niet verwijderen omdat deze in gebruik is"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:402
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:405
 #, kde-format
 msgid "Role name is required"
 msgstr "Naam van rol is vereist"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:404
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:407
 #, kde-format
 msgid "Room is not closed"
 msgstr "Room is niet gesloten"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:407
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:410
 #, kde-format
 msgid "The field '%1' is required."
 msgstr "Het veld '%1' is vereist."
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:409
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:412
 #, kde-format
 msgid "This is not a Livechat room"
 msgstr "Dit is geen Livechat-room"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:411
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:414
 #, kde-format
 msgid "Personal Access Tokens are currently disabled"
 msgstr "Persoonlijke toegangtokens zijn op dit moment uitgeschakeld"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:413
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:416
 #, kde-format
 msgid "A token with this name already exists"
 msgstr "Een token met deze naam bestaat al"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:415
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:418
 #, kde-format
 msgid "Token does not exists"
 msgstr "Token bestaat niet"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:418
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:421
 #, kde-format
 msgid ""
 "Error, too many requests. Please slow down. You must wait %1 seconds before "
@@ -2288,17 +2288,17 @@ msgstr ""
 "Fout, teveel verzoeken. Doe rustig aan. U moet %1 seconden wachten alvorens "
 "het opnieuw te proberen."
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:420
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:423
 #, kde-format
 msgid "User has no roles"
 msgstr "Gebruiker heeft geen rol"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:422
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:425
 #, kde-format
 msgid "User is not activated"
 msgstr "Gebruiker is niet geactiveerd"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:424
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:427
 #, kde-format
 msgid ""
 "The number of users you are trying to invite to #channel_name exceeds the "
@@ -2307,89 +2307,89 @@ msgstr ""
 "Het aantal gebruikers dat u probeert uit te nodigen in #channel_name gaat "
 "uit boven de limiet ingesteld door de systeembeheerder"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:426
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:429
 #, kde-format
 msgid "User is not in this room"
 msgstr "Gebruiker is niet in deze room"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:428
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:431
 #, kde-format
 msgid "You are not in the room `%s`"
 msgstr "U bent niet in de room `%s`"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:430
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:433
 #, kde-format
 msgid "User registration is disabled"
 msgstr "Registratie van gebruikers is uitgeschakeld"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:432
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:435
 #, kde-format
 msgid "User registration is only allowed via Secret URL"
 msgstr "Registratie van gebruikers is alleen toegestaan via beveiligde URL"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:434
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:437
 #, kde-format
 msgid "You are the last owner. Please set new owner before leaving the room."
 msgstr ""
 "U bent de laatste eigenaar. Stel een nieuwe eigenaar in alvorens de room te "
 "verlaten."
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:436
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:439
 #, kde-format
 msgid "The private group is archived"
 msgstr "De privé groep is gearchiveerd"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:438
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:441
 #, kde-format
 msgid "User is already an owner"
 msgstr "Gebruiker is al een eigenaar"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:440
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:443
 #, kde-format
 msgid "User is already a leader"
 msgstr "Gebruiker is al een leider"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:442
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:445
 #, kde-format
 msgid "User is already a moderator"
 msgstr "Gebruiker is al een moderator"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:444
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:447
 #, kde-format
 msgid "Invalid message id"
 msgstr "Ongeldig bericht-id"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:446
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:449
 #, kde-format
 msgid "User is not a leader"
 msgstr "Gebruiker is geen leider"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:448
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:451
 #, kde-format
 msgid "App user is not allowed to login"
 msgstr "App-gebruiker is niet toegestaan om zich aan te melden"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:450
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:453
 #, kde-format
 msgid "Direct Messages can not be archived"
 msgstr "Directe berichten kunnen niet gearchiveerd worden"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:452
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:455
 #, kde-format
 msgid "Message not found."
 msgstr "Bericht niet gevonden."
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:454
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:457
 #, kde-format
 msgid "Two Authentication Password Required"
 msgstr "Twee wachtwoorden voor authenticatie vereist"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:456
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:459
 #, kde-format
 msgid "Invalid Password"
 msgstr "Ongeldig wachtwoord"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:458
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:461
 #, kde-format
 msgid ""
 "The required \\\"roomId\\\" or \\\"roomName\\\" param provided does not "
@@ -2398,22 +2398,22 @@ msgstr ""
 "De vereiste geleverde parameter \\\"roomId\\\" of \\\"roomName\\\" komt met "
 "geen enkel kanaal overeen"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:460
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:463
 #, kde-format
 msgid "A role with this name already exists"
 msgstr "Een rol met deze naam bestaat al"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:462
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:465
 #, kde-format
 msgid "Message could not be pinned"
 msgstr "Bericht kon niet worden vastgepind"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:464
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:467
 #, kde-format
 msgid "Entered password has been previously used"
 msgstr "Ingevoerde wachtwoord is eerder gebruikt"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:466
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:469
 #, kde-format
 msgid "The maximum number of rooms per guest has been reached."
 msgstr "het maximum aantal rooms per gast is bereikt."
