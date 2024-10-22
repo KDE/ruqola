@@ -781,6 +781,9 @@ if(BUILD_TESTING)
     add_subdirectory(autotests)
     add_subdirectory(localdatabase/autotests)
 endif()
+if(USE_E2E_SUPPORT)
+   add_subdirectory(encryption/tests)
+endif()
 
 install(TARGETS libruqolacore ${KDE_INSTALL_TARGETS_DEFAULT_ARGS} LIBRARY NAMELINK_SKIP)
 
