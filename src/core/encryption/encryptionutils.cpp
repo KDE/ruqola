@@ -215,14 +215,14 @@ QByteArray EncryptionUtils::deriveKey(const QByteArray &salt, const QByteArray &
     QByteArray derivedKey(keyLength, 0); // Allocate memory for the derived key
 
     // Use OpenSSL's PKCS5_PBKDF2_HMAC for PBKDF2 key derivation
-    int result = PKCS5_PBKDF2_HMAC(baseKey.data(),
-                                   baseKey.size(), // Input key (password)
-                                   reinterpret_cast<const unsigned char *>(salt.data()),
-                                   salt.size(), // Salt
-                                   iterations, // Number of iterations
-                                   EVP_sha256(), // Hash function (SHA-256)
-                                   keyLength, // Output key length (in bytes)
-                                   reinterpret_cast<unsigned char *>(derivedKey.data()) // Output buffer for the key
+    const int result = PKCS5_PBKDF2_HMAC(baseKey.data(),
+                                         baseKey.size(), // Input key (password)
+                                         reinterpret_cast<const unsigned char *>(salt.data()),
+                                         salt.size(), // Salt
+                                         iterations, // Number of iterations
+                                         EVP_sha256(), // Hash function (SHA-256)
+                                         keyLength, // Output key length (in bytes)
+                                         reinterpret_cast<unsigned char *>(derivedKey.data()) // Output buffer for the key
     );
 
     if (result != 1) {
