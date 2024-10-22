@@ -97,6 +97,15 @@ QString EncryptionUtils::encodePrivateKey(const QString &privateKey, const QStri
 
 QString EncryptionUtils::deriveKey(const QVector<uint8_t> &, const QByteArray &ba)
 {
+#if 0
+    export async function deriveKey(salt, baseKey, keyUsages = ['encrypt', 'decrypt']) {
+            const iterations = 1000;
+            const hash = 'SHA-256';
+
+            return crypto.subtle.deriveKey({ name: 'PBKDF2', salt, iterations, hash }, baseKey, { name: 'AES-CBC', length: 256 }, true, keyUsages);
+    }
+
+#endif
     const int iterations = 1000;
     const QByteArray hash = "SHA-256";
     // TODO
@@ -246,12 +255,26 @@ void EncryptionUtils::importRSAKey()
 // return crypto.subtle.importKey('jwk', keyData, { name: 'AES-CBC' }, true, keyUsages);
 void EncryptionUtils::importAESKey()
 {
+#if 0
+    export async function importAESKey(keyData, keyUsages = ['encrypt', 'decrypt']) {
+            return crypto.subtle.importKey('jwk', keyData, { name: 'AES-CBC' }, true, keyUsages);
+    }
+
+#endif
+
     // TODO
 }
 
 // crypto.subtle.importKey('raw', keyData, { name: 'PBKDF2' }, false, keyUsages);
 QByteArray EncryptionUtils::importRawKey(const QByteArray &keyData, const QByteArray &salt, int iterations)
 {
+#if 0
+    export async function importRawKey(keyData, keyUsages = ['deriveKey']) {
+            return crypto.subtle.importKey('raw', keyData, { name: 'PBKDF2' }, false, keyUsages);
+    }
+
+#endif
+
     // TODO
     QByteArray iv;
     QByteArray plainText;
