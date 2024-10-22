@@ -17,6 +17,19 @@
 using namespace Qt::Literals::StringLiterals;
 QByteArray EncryptionUtils::exportJWKKey(RSA *rsaKey)
 {
+#if 0
+    code javascript
+    const key = await crypto.subtle.generateKey(
+      { name: 'AES-CBC', length: 256 },
+      true,
+      ['encrypt', 'decrypt']
+    );
+
+    const jwkKey = await exportJWKKey(key);
+    console.log(jwkKey);
+
+#endif
+
     const BIGNUM *n, *e, *d;
     RSA_get0_key(rsaKey, &n, &e, &d);
 
@@ -197,21 +210,103 @@ QByteArray EncryptionUtils::generateRandomIV(int size)
     return iv;
 }
 
-QByteArray EncryptionUtils::deriveKey(const QByteArray &keyData, const QByteArray &salt, int iterations)
+QByteArray EncryptionUtils::deriveKey(const QByteArray &salt, const QByteArray &baseKey, int iterations, int keyLength)
 {
-    unsigned char key[32]; // 256-bit key
-    if (!PKCS5_PBKDF2_HMAC(keyData.data(),
-                           keyData.size(),
-                           reinterpret_cast<const unsigned char *>(salt.data()),
-                           salt.size(),
-                           iterations,
-                           EVP_sha256(),
-                           32,
-                           key)) {
-        return {};
+    QByteArray derivedKey(keyLength, 0); // Allocate memory for the derived key
+
+    // Use OpenSSL's PKCS5_PBKDF2_HMAC for PBKDF2 key derivation
+    int result = PKCS5_PBKDF2_HMAC(baseKey.data(),
+                                   baseKey.size(), // Input key (password)
+                                   reinterpret_cast<const unsigned char *>(salt.data()),
+                                   salt.size(), // Salt
+                                   iterations, // Number of iterations
+                                   EVP_sha256(), // Hash function (SHA-256)
+                                   keyLength, // Output key length (in bytes)
+                                   reinterpret_cast<unsigned char *>(derivedKey.data()) // Output buffer for the key
+    );
+
+    if (result != 1) {
+        qCWarning(RUQOLA_ENCRYPTION_LOG) << "Key derivation failed!";
+        return QByteArray();
     }
-    return QByteArray(reinterpret_cast<char *>(key), 32);
+
+    return derivedKey;
 }
+
+#if 0
+QByteArray aesEncrypt(const QByteArray& plaintext, const QByteArray& key, const QByteArray& iv) {
+    EVP_CIPHER_CTX* ctx = EVP_CIPHER_CTX_new();
+    int len;
+    QByteArray ciphertext(plaintext.size() + AES_BLOCK_SIZE, 0);  // Ciphertext buffer
+
+    if (1 != EVP_EncryptInit_ex(ctx, EVP_aes_256_cbc(), nullptr, reinterpret_cast<const unsigned char*>(key.data()), reinterpret_cast<const unsigned char*>(iv.data()))) {
+        qWarning() << "Encryption init failed";
+        return QByteArray();
+    }
+
+    if (1 != EVP_EncryptUpdate(ctx, reinterpret_cast<unsigned char*>(ciphertext.data()), &len, reinterpret_cast<const unsigned char*>(plaintext.data()), plaintext.size())) {
+        qWarning() << "Encryption update failed";
+        return QByteArray();
+    }
+
+    int ciphertext_len = len;
+
+    if (1 != EVP_EncryptFinal_ex(ctx, reinterpret_cast<unsigned char*>(ciphertext.data()) + len, &len)) {
+        qWarning() << "Encryption final failed";
+        return QByteArray();
+    }
+
+    ciphertext_len += len;
+    ciphertext.resize(ciphertext_len);
+
+    EVP_CIPHER_CTX_free(ctx);
+    return ciphertext;
+}
+
+QByteArray aesDecrypt(const QByteArray& ciphertext, const QByteArray& key, const QByteArray& iv) {
+    EVP_CIPHER_CTX* ctx = EVP_CIPHER_CTX_new();
+    int len;
+    QByteArray plaintext(ciphertext.size(), 0);  // Plaintext buffer
+
+    if (1 != EVP_DecryptInit_ex(ctx, EVP_aes_256_cbc(), nullptr, reinterpret_cast<const unsigned char*>(key.data()), reinterpret_cast<const unsigned char*>(iv.data()))) {
+        qWarning() << "Decryption init failed";
+        return QByteArray();
+    }
+
+    if (1 != EVP_DecryptUpdate(ctx, reinterpret_cast<unsigned char*>(plaintext.data()), &len, reinterpret_cast<const unsigned char*>(ciphertext.data()), ciphertext.size())) {
+        qWarning() << "Decryption update failed";
+        return QByteArray();
+    }
+
+    int plaintext_len = len;
+
+    if (1 != EVP_DecryptFinal_ex(ctx, reinterpret_cast<unsigned char*>(plaintext.data()) + len, &len)) {
+        qWarning() << "Decryption final failed";
+        return QByteArray();
+    }
+
+    plaintext_len += len;
+    plaintext.resize(plaintext_len);
+
+    EVP_CIPHER_CTX_free(ctx);
+    return plaintext;
+}
+
+/// TEST
+void aesExample() {
+QByteArray key = deriveKey("mysalt", "mypassword", 1000, 32);  // Derive a key
+QByteArray iv = QByteArray::fromHex("00112233445566778899aabbccddeeff");  // Example IV (16 bytes for AES)
+
+QByteArray plaintext = "Hello, AES CBC Encryption!";
+
+QByteArray ciphertext = aesEncrypt(plaintext, key, iv);
+qDebug() << "Ciphertext:" << ciphertext.toHex();
+
+QByteArray decryptedText = aesDecrypt(ciphertext, key, iv);
+qDebug() << "Decrypted Text:" << decryptedText;
+}
+
+#endif
 
 EncryptionUtils::EncryptionInfo EncryptionUtils::splitVectorAndEcryptedData(const QByteArray &cipherText)
 {
