@@ -22,7 +22,7 @@ ApplicationsSettingsDescriptionDialog::ApplicationsSettingsDescriptionDialog(QWi
     : QDialog(parent)
     , mApplicationsSettingsDescriptionWidget(new ApplicationsSettingsDescriptionWidget(this))
 {
-    setWindowTitle(i18nc("@title:window", "Applications"));
+    setWindowTitle(i18nc("@title:window", "Description"));
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
 
