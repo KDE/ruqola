@@ -108,23 +108,6 @@ QString EncryptionUtils::encodePrivateKey(const QString &privateKey, const QStri
     return {};
 }
 
-QString EncryptionUtils::deriveKey(const QVector<uint8_t> &, const QByteArray &ba)
-{
-#if 0
-    export async function deriveKey(salt, baseKey, keyUsages = ['encrypt', 'decrypt']) {
-            const iterations = 1000;
-            const hash = 'SHA-256';
-
-            return crypto.subtle.deriveKey({ name: 'PBKDF2', salt, iterations, hash }, baseKey, { name: 'AES-CBC', length: 256 }, true, keyUsages);
-    }
-
-#endif
-    const int iterations = 1000;
-    const QByteArray hash = "SHA-256";
-    // TODO
-    return {};
-}
-
 QString EncryptionUtils::getMasterKey(const QString &password, const QString &userId)
 {
     if (password.isEmpty()) {
