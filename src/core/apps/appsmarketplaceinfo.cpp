@@ -33,6 +33,7 @@ QDebug operator<<(QDebug d, const AppsMarketPlaceInfo &t)
     d.space() << "isPrivate " << t.isPrivate();
     d.space() << "support " << t.support();
     d.space() << "homePage " << t.homePage();
+    d.space() << "author " << t.authorName();
     d.space() << "privacyPolicySummary " << t.privacyPolicySummary();
     d.space() << "requested " << t.requested();
     d.space() << "installed " << t.installed();
@@ -115,6 +116,16 @@ void AppsMarketPlaceInfo::parseAppRequestStats(const QJsonObject &replyObject)
     mRequested = replyObject["totalSeen"_L1].toInt();
 }
 
+QString AppsMarketPlaceInfo::authorName() const
+{
+    return mAuthorName;
+}
+
+void AppsMarketPlaceInfo::setAuthorName(const QString &newAuthorName)
+{
+    mAuthorName = newAuthorName;
+}
+
 bool AppsMarketPlaceInfo::migrated() const
 {
     return mMigrated;
@@ -149,6 +160,7 @@ void AppsMarketPlaceInfo::parseAuthor(const QJsonObject &authorObject)
 {
     mHomePage = authorObject["homepage"_L1].toString();
     mSupport = authorObject["support"_L1].toString();
+    mAuthorName = authorObject["name"_L1].toString();
 }
 
 QString AppsMarketPlaceInfo::privacyPolicySummary() const
@@ -323,7 +335,7 @@ bool AppsMarketPlaceInfo::operator==(const AppsMarketPlaceInfo &other) const
         && mShortDescription == other.mShortDescription /*&& mPixmap.isNull() == other.mPixmap.isNull()*/ && mPrice == other.mPrice
         && mIsEnterpriseOnly == other.mIsEnterpriseOnly && mModifiedDate == other.mModifiedDate && mPricePlan == other.mPricePlan
         && mHomePage == other.mHomePage && mSupport == other.mSupport && mPrivacyPolicySummary == other.mPrivacyPolicySummary && mRequested == other.mRequested
-        && mInstalled == other.mInstalled && mMigrated == other.mMigrated;
+        && mInstalled == other.mInstalled && mMigrated == other.mMigrated && mAuthorName == other.mAuthorName;
 }
 
 qint64 AppsMarketPlaceInfo::modifiedDate() const
@@ -355,6 +367,10 @@ QString AppsMarketPlaceInfo::applicationInformations() const
         const QString url = mDocumentationUrl.startsWith(QStringLiteral("http")) ? mDocumentationUrl : QStringLiteral("https://%1").arg(mDocumentationUrl);
         str += QStringLiteral("<b>%1</b><br/>").arg(i18n("Documentation")) + QStringLiteral("<a href=\"%2\">%1</a>").arg(mDocumentationUrl, url)
             + QStringLiteral("<br/><br/>");
+    }
+
+    if (!mAuthorName.isEmpty()) {
+        str += QStringLiteral("<b>%1</b><br/>").arg(i18n("Author")) + mAuthorName + QStringLiteral("<br/><br/>");
     }
 
     if (!mHomePage.isEmpty()) {

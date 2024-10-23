@@ -103,6 +103,9 @@ public:
     [[nodiscard]] bool migrated() const;
     void setMigrated(bool newMigrated);
 
+    [[nodiscard]] QString authorName() const;
+    void setAuthorName(const QString &newAuthorName);
+
 private:
     LIBRUQOLACORE_NO_EXPORT void parsePrincingPlan(const QJsonArray &array);
     LIBRUQOLACORE_NO_EXPORT void parseAuthor(const QJsonObject &authorObject);
@@ -118,6 +121,7 @@ private:
     QString mShortDescription;
     QString mSupport;
     QString mHomePage;
+    QString mAuthorName;
     QPixmap mPixmap;
     QString mPrivacyPolicySummary;
     qint64 mModifiedDate = -1;
