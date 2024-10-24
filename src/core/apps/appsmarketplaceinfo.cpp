@@ -234,8 +234,11 @@ void AppsMarketPlaceInfo::parseAppsMarketPlaceInfo(const QJsonObject &replyObjec
     parseAuthor(latestObj["author"_L1].toObject());
 
     const QJsonObject detailedDescription = latestObj["detailedDescription"_L1].toObject();
-
-    mDescription = detailedDescription["rendered"_L1].toString();
+    if (detailedDescription.contains("rendered"_L1)) {
+        mDescription = detailedDescription["rendered"_L1].toString();
+    } else {
+        mDescription = latestObj["description"_L1].toString();
+    }
     mShortDescription = latestObj["shortDescription"_L1].toString();
     mVersion = latestObj["version"_L1].toString();
     mAppName = latestObj["name"_L1].toString();
