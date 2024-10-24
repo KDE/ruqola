@@ -456,3 +456,9 @@ bool AppsMarketPlaceInfo::Permission::operator==(const Permission &other) const
     // TODO
     return true;
 }
+
+QString AppsMarketPlaceInfo::Permission::convertTypeToI18n() const
+{
+    // TODO
+    return {};
+}

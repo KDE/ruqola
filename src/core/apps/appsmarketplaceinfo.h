@@ -32,7 +32,12 @@ public:
     };
 
     struct LIBRUQOLACORE_EXPORT Permission {
+        enum PermissionType {
+            Unknown,
+        };
         [[nodiscard]] bool operator==(const Permission &other) const;
+        [[nodiscard]] QString convertTypeToI18n() const;
+        PermissionType type = Unknown;
     };
     AppsMarketPlaceInfo();
     ~AppsMarketPlaceInfo();
