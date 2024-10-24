@@ -23,6 +23,7 @@ public:
         };
 
         [[nodiscard]] Strategy convertStringToStrategy(const QString &str) const;
+        [[nodiscard]] QString strategyToI18n() const;
         int price = -1;
         int trialDays = -1;
         Strategy strategy = Strategy::Unknown;
@@ -111,6 +112,7 @@ private:
     LIBRUQOLACORE_NO_EXPORT void parsePrincingPlan(const QJsonArray &array);
     LIBRUQOLACORE_NO_EXPORT void parseAuthor(const QJsonObject &authorObject);
     LIBRUQOLACORE_NO_EXPORT void parseAppRequestStats(const QJsonObject &replyObject);
+    [[nodiscard]] LIBRUQOLACORE_NO_EXPORT QString generatePriceInfo() const;
     QList<PricePlan> mPricePlan;
     QStringList mCategories;
     QByteArray mAppId;

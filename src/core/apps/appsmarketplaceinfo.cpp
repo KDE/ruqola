@@ -65,6 +65,24 @@ void AppsMarketPlaceInfo::parsePrincingPlan(const QJsonArray &array)
     }
 }
 
+QString AppsMarketPlaceInfo::generatePriceInfo() const
+{
+    QString pricingStr;
+    for (const auto &p : mPricePlan) {
+        if (!pricingStr.isEmpty()) {
+            pricingStr += QStringLiteral("<br/>");
+        }
+        QString value;
+        const QString strategy = p.strategyToI18n();
+        value = QStringLiteral("$") + QString::number(p.price);
+        if (!strategy.isEmpty()) {
+            value += QLatin1Char(' ') + i18n("per %1", strategy);
+        }
+        pricingStr += value;
+    }
+    return pricingStr;
+}
+
 QString AppsMarketPlaceInfo::homePage() const
 {
     return mHomePage;
@@ -108,6 +126,19 @@ AppsMarketPlaceInfo::PricePlan::Strategy AppsMarketPlaceInfo::PricePlan::convert
         return AppsMarketPlaceInfo::PricePlan::Strategy::Yearly;
     }
     return AppsMarketPlaceInfo::PricePlan::Strategy::Unknown;
+}
+
+QString AppsMarketPlaceInfo::PricePlan::strategyToI18n() const
+{
+    switch (strategy) {
+    case Unknown:
+        return {};
+    case Monthly:
+        return i18n("month");
+    case Yearly:
+        return i18n("year");
+    }
+    return {};
 }
 
 void AppsMarketPlaceInfo::parseInstalledApps(const QJsonObject &replyObject)
@@ -358,6 +389,11 @@ QString AppsMarketPlaceInfo::applicationInformations() const
 {
     QString str = QStringLiteral("<b>%1</b><br/>").arg(mAppName);
     str += mShortDescription + QStringLiteral("<br/><br/>");
+
+    const QString pricingInfo = generatePriceInfo();
+    if (!pricingInfo.isEmpty()) {
+        str += pricingInfo + QStringLiteral("<br/><br/>");
+    }
 
     QString newDescription = mDescription;
 
