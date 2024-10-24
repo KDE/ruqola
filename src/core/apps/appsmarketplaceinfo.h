@@ -19,7 +19,7 @@ public:
         enum Strategy {
             Unknown,
             Monthly,
-            // More ?
+            Yearly,
         };
 
         [[nodiscard]] Strategy convertStringToStrategy(const QString &str) const;
@@ -27,6 +27,7 @@ public:
         int trialDays = -1;
         Strategy strategy = Strategy::Unknown;
         bool enabled = false;
+        bool isPerSeat = false;
     };
     AppsMarketPlaceInfo();
     ~AppsMarketPlaceInfo();

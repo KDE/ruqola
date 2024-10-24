@@ -47,6 +47,7 @@ QDebug operator<<(QDebug d, const AppsMarketPlaceInfo::PricePlan &t)
     d.space() << "trialDays " << t.trialDays;
     d.space() << "enabled " << t.enabled;
     d.space() << "strategy " << t.strategy;
+    d.space() << "isPerSeat " << t.isPerSeat;
     return d;
 }
 
@@ -58,6 +59,7 @@ void AppsMarketPlaceInfo::parsePrincingPlan(const QJsonArray &array)
         price.price = current["price"_L1].toInt();
         price.trialDays = current["trialDays"_L1].toInt();
         price.enabled = current["enabled"_L1].toBool();
+        price.isPerSeat = current["isPerSeat"_L1].toBool();
         price.strategy = price.convertStringToStrategy(current["strategy"_L1].toString());
         mPricePlan.append(std::move(price));
     }
@@ -95,13 +97,15 @@ void AppsMarketPlaceInfo::setIsPrivate(bool newIsPrivate)
 
 bool AppsMarketPlaceInfo::PricePlan::operator==(const AppsMarketPlaceInfo::PricePlan &other) const
 {
-    return price == other.price && trialDays == other.trialDays && strategy == other.strategy && enabled == other.enabled;
+    return price == other.price && trialDays == other.trialDays && strategy == other.strategy && enabled == other.enabled && isPerSeat == other.isPerSeat;
 }
 
 AppsMarketPlaceInfo::PricePlan::Strategy AppsMarketPlaceInfo::PricePlan::convertStringToStrategy(const QString &str) const
 {
     if (str == "monthly"_L1) {
         return AppsMarketPlaceInfo::PricePlan::Strategy::Monthly;
+    } else if (str == "yearly"_L1) {
+        return AppsMarketPlaceInfo::PricePlan::Strategy::Yearly;
     }
     return AppsMarketPlaceInfo::PricePlan::Strategy::Unknown;
 }
