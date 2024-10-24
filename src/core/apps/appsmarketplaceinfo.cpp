@@ -447,3 +447,9 @@ void AppsMarketPlaceInfo::setPricePlan(const QList<PricePlan> &newPricePlan)
 {
     mPricePlan = newPricePlan;
 }
+
+bool AppsMarketPlaceInfo::Permission::operator==(const Permission &other) const
+{
+    // TODO
+    return true;
+}

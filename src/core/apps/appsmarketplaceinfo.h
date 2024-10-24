@@ -30,6 +30,10 @@ public:
         bool enabled = false;
         bool isPerSeat = false;
     };
+
+    struct LIBRUQOLACORE_EXPORT Permission {
+        [[nodiscard]] bool operator==(const Permission &other) const;
+    };
     AppsMarketPlaceInfo();
     ~AppsMarketPlaceInfo();
 
