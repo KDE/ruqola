@@ -41,8 +41,6 @@ void RoomModel::clear()
 
 void RoomModel::cleanRoomHistory()
 {
-    qDebug() << " void RocketChatAccount::slotCleanRoomHistory() not implement yet";
-    // TODO clear if we didn't open it from long time.
     QList<Room *> rooms;
     for (Room *r : std::as_const(mRoomsList)) {
         if (r->canCleanHistory()) {
