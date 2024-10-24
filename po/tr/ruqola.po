@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-10-22 00:39+0000\n"
+"POT-Creation-Date: 2024-10-24 00:39+0000\n"
 "PO-Revision-Date: 2024-10-19 12:52+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
@@ -162,39 +162,44 @@ msgstr "Eniyileme, Windows/Mac desteğini onarma"
 msgid "The following accounts are available:"
 msgstr "Aşağıdaki hesaplar kullanılabilir:"
 
-#: core/apps/appsmarketplaceinfo.cpp:347 core/model/adminrolesmodel.cpp:40
+#: core/apps/appsmarketplaceinfo.cpp:359 core/model/adminrolesmodel.cpp:40
 #: widgets/administratorsettingsdialog/ircfederation/ircfederationwidget.cpp:50
 #, kde-format
 msgid "Description"
 msgstr "Açıklama"
 
-#: core/apps/appsmarketplaceinfo.cpp:349
+#: core/apps/appsmarketplaceinfo.cpp:361
 #: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:163
 #, kde-format
 msgid "Version"
 msgstr "Sürüm"
 
-#: core/apps/appsmarketplaceinfo.cpp:352 core/model/appscategoriesmodel.cpp:34
+#: core/apps/appsmarketplaceinfo.cpp:364 core/model/appscategoriesmodel.cpp:34
 #, kde-format
 msgid "Categories"
 msgstr "Kategoriler"
 
-#: core/apps/appsmarketplaceinfo.cpp:356
+#: core/apps/appsmarketplaceinfo.cpp:368
 #, kde-format
 msgid "Documentation"
 msgstr "Belgelendirme"
 
-#: core/apps/appsmarketplaceinfo.cpp:363
+#: core/apps/appsmarketplaceinfo.cpp:373
+#, kde-format
+msgid "Author"
+msgstr "Yazar"
+
+#: core/apps/appsmarketplaceinfo.cpp:379
 #, kde-format
 msgid "Homepage"
 msgstr "Ana Sayfa"
 
-#: core/apps/appsmarketplaceinfo.cpp:369
+#: core/apps/appsmarketplaceinfo.cpp:385
 #, kde-format
 msgid "Support"
 msgstr "Destek"
 
-#: core/apps/appsmarketplaceinfo.cpp:373
+#: core/apps/appsmarketplaceinfo.cpp:389
 #, kde-format
 msgid "Privacy Summary"
 msgstr "Gizlilik Özeti"
@@ -6654,6 +6659,12 @@ msgstr[0] "%1 istek"
 msgstr[1] "%1 istek"
 
 #: widgets/applicationssettingsdialog/applicationssettingsdescriptiondialog.cpp:25
+#, fuzzy, kde-format
+#| msgid "Description"
+msgctxt "@title:window"
+msgid "Description"
+msgstr "Açıklama"
+
 #: widgets/applicationssettingsdialog/applicationssettingsdialog.cpp:27
 #, kde-format
 msgctxt "@title:window"
@@ -11339,9 +11350,6 @@ msgstr "Hata düzeltmeleri"
 
 #~ msgid "Tag"
 #~ msgstr "Etiket"
-
-#~ msgid "Author"
-#~ msgstr "Yazar"
 
 #~ msgid "Arch"
 #~ msgstr "Mimari"

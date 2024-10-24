@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-10-22 00:39+0000\n"
+"POT-Creation-Date: 2024-10-24 00:39+0000\n"
 "PO-Revision-Date: 2023-05-10 20:24+0200\n"
 "Last-Translator: Frederik Schwarzer <schwarzer@kde.org>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
@@ -176,41 +176,46 @@ msgstr "Optimierungen, Windows-/macOS-Unterstützung korrigiert"
 msgid "The following accounts are available:"
 msgstr "Die folgenden Zugänge sind vorhanden:"
 
-#: core/apps/appsmarketplaceinfo.cpp:347 core/model/adminrolesmodel.cpp:40
+#: core/apps/appsmarketplaceinfo.cpp:359 core/model/adminrolesmodel.cpp:40
 #: widgets/administratorsettingsdialog/ircfederation/ircfederationwidget.cpp:50
 #, kde-format
 msgid "Description"
 msgstr "Beschreibung"
 
-#: core/apps/appsmarketplaceinfo.cpp:349
+#: core/apps/appsmarketplaceinfo.cpp:361
 #: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:163
 #, kde-format
 msgid "Version"
 msgstr "Version"
 
-#: core/apps/appsmarketplaceinfo.cpp:352 core/model/appscategoriesmodel.cpp:34
+#: core/apps/appsmarketplaceinfo.cpp:364 core/model/appscategoriesmodel.cpp:34
 #, kde-format
 msgid "Categories"
 msgstr ""
 
-#: core/apps/appsmarketplaceinfo.cpp:356
+#: core/apps/appsmarketplaceinfo.cpp:368
 #, fuzzy, kde-format
 #| msgid "Authentication Method"
 msgid "Documentation"
 msgstr "Anmeldeverfahren"
 
-#: core/apps/appsmarketplaceinfo.cpp:363
+#: core/apps/appsmarketplaceinfo.cpp:373
+#, kde-format
+msgid "Author"
+msgstr "Autor"
+
+#: core/apps/appsmarketplaceinfo.cpp:379
 #, kde-format
 msgid "Homepage"
 msgstr ""
 
-#: core/apps/appsmarketplaceinfo.cpp:369
+#: core/apps/appsmarketplaceinfo.cpp:385
 #, fuzzy, kde-format
 #| msgid "Report a Bug"
 msgid "Support"
 msgstr "Probleme oder Wünsche berichten"
 
-#: core/apps/appsmarketplaceinfo.cpp:373
+#: core/apps/appsmarketplaceinfo.cpp:389
 #, fuzzy, kde-format
 #| msgid "Private"
 msgid "Privacy Summary"
@@ -6933,6 +6938,12 @@ msgstr[0] ""
 msgstr[1] ""
 
 #: widgets/applicationssettingsdialog/applicationssettingsdescriptiondialog.cpp:25
+#, fuzzy, kde-format
+#| msgid "Description"
+msgctxt "@title:window"
+msgid "Description"
+msgstr "Beschreibung"
+
 #: widgets/applicationssettingsdialog/applicationssettingsdialog.cpp:27
 #, fuzzy, kde-format
 #| msgid "Application not found"
@@ -11994,9 +12005,6 @@ msgstr "Fehlerkorrekturen"
 
 #~ msgid "Branch"
 #~ msgstr "Zweig"
-
-#~ msgid "Author"
-#~ msgstr "Autor"
 
 #~ msgid "Arch"
 #~ msgstr "Architektur"

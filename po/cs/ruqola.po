@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-10-22 00:39+0000\n"
+"POT-Creation-Date: 2024-10-24 00:39+0000\n"
 "PO-Revision-Date: 2024-09-17 15:18+0200\n"
 "Last-Translator: Vit Pelcak <vit@pelcak.org>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
@@ -161,39 +161,44 @@ msgstr ""
 msgid "The following accounts are available:"
 msgstr "K dispozici jsou následující účty:"
 
-#: core/apps/appsmarketplaceinfo.cpp:347 core/model/adminrolesmodel.cpp:40
+#: core/apps/appsmarketplaceinfo.cpp:359 core/model/adminrolesmodel.cpp:40
 #: widgets/administratorsettingsdialog/ircfederation/ircfederationwidget.cpp:50
 #, kde-format
 msgid "Description"
 msgstr "Popis"
 
-#: core/apps/appsmarketplaceinfo.cpp:349
+#: core/apps/appsmarketplaceinfo.cpp:361
 #: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:163
 #, kde-format
 msgid "Version"
 msgstr "Verze"
 
-#: core/apps/appsmarketplaceinfo.cpp:352 core/model/appscategoriesmodel.cpp:34
+#: core/apps/appsmarketplaceinfo.cpp:364 core/model/appscategoriesmodel.cpp:34
 #, kde-format
 msgid "Categories"
 msgstr "Kategorie"
 
-#: core/apps/appsmarketplaceinfo.cpp:356
+#: core/apps/appsmarketplaceinfo.cpp:368
 #, kde-format
 msgid "Documentation"
 msgstr "Dokumentace"
 
-#: core/apps/appsmarketplaceinfo.cpp:363
+#: core/apps/appsmarketplaceinfo.cpp:373
+#, kde-format
+msgid "Author"
+msgstr ""
+
+#: core/apps/appsmarketplaceinfo.cpp:379
 #, kde-format
 msgid "Homepage"
 msgstr "Domovská stránka"
 
-#: core/apps/appsmarketplaceinfo.cpp:369
+#: core/apps/appsmarketplaceinfo.cpp:385
 #, kde-format
 msgid "Support"
 msgstr "Podpora"
 
-#: core/apps/appsmarketplaceinfo.cpp:373
+#: core/apps/appsmarketplaceinfo.cpp:389
 #, kde-format
 msgid "Privacy Summary"
 msgstr ""
@@ -6509,6 +6514,12 @@ msgstr[1] "%1 požadavky"
 msgstr[2] "%1 požadavků"
 
 #: widgets/applicationssettingsdialog/applicationssettingsdescriptiondialog.cpp:25
+#, fuzzy, kde-format
+#| msgid "Description"
+msgctxt "@title:window"
+msgid "Description"
+msgstr "Popis"
+
 #: widgets/applicationssettingsdialog/applicationssettingsdialog.cpp:27
 #, kde-format
 msgctxt "@title:window"

@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-10-22 00:39+0000\n"
+"POT-Creation-Date: 2024-10-24 00:39+0000\n"
 "PO-Revision-Date: 2024-10-20 11:04+0200\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
 "Language-Team: French <French <kde-francophone@kde.org>>\n"
@@ -160,39 +160,44 @@ msgstr "Optimisation, prise en charge des corrections sous Windows / macOS"
 msgid "The following accounts are available:"
 msgstr "Les comptes suivants sont disponibles :"
 
-#: core/apps/appsmarketplaceinfo.cpp:347 core/model/adminrolesmodel.cpp:40
+#: core/apps/appsmarketplaceinfo.cpp:359 core/model/adminrolesmodel.cpp:40
 #: widgets/administratorsettingsdialog/ircfederation/ircfederationwidget.cpp:50
 #, kde-format
 msgid "Description"
 msgstr "Description"
 
-#: core/apps/appsmarketplaceinfo.cpp:349
+#: core/apps/appsmarketplaceinfo.cpp:361
 #: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:163
 #, kde-format
 msgid "Version"
 msgstr "Version"
 
-#: core/apps/appsmarketplaceinfo.cpp:352 core/model/appscategoriesmodel.cpp:34
+#: core/apps/appsmarketplaceinfo.cpp:364 core/model/appscategoriesmodel.cpp:34
 #, kde-format
 msgid "Categories"
 msgstr "Catégories"
 
-#: core/apps/appsmarketplaceinfo.cpp:356
+#: core/apps/appsmarketplaceinfo.cpp:368
 #, kde-format
 msgid "Documentation"
 msgstr "Documentation"
 
-#: core/apps/appsmarketplaceinfo.cpp:363
+#: core/apps/appsmarketplaceinfo.cpp:373
+#, kde-format
+msgid "Author"
+msgstr "Auteur"
+
+#: core/apps/appsmarketplaceinfo.cpp:379
 #, kde-format
 msgid "Homepage"
 msgstr "Page d'accueil"
 
-#: core/apps/appsmarketplaceinfo.cpp:369
+#: core/apps/appsmarketplaceinfo.cpp:385
 #, kde-format
 msgid "Support"
 msgstr "Aide"
 
-#: core/apps/appsmarketplaceinfo.cpp:373
+#: core/apps/appsmarketplaceinfo.cpp:389
 #, kde-format
 msgid "Privacy Summary"
 msgstr "Résumé des renseignements personnels"
@@ -6758,6 +6763,12 @@ msgstr[0] "Requête %1"
 msgstr[1] "%1 requêtes"
 
 #: widgets/applicationssettingsdialog/applicationssettingsdescriptiondialog.cpp:25
+#, fuzzy, kde-format
+#| msgid "Description"
+msgctxt "@title:window"
+msgid "Description"
+msgstr "Description"
+
 #: widgets/applicationssettingsdialog/applicationssettingsdialog.cpp:27
 #, kde-format
 msgctxt "@title:window"
@@ -11504,9 +11515,6 @@ msgstr "Quelques correction de bogues :"
 
 #~ msgid "Tag"
 #~ msgstr "Étiquette"
-
-#~ msgid "Author"
-#~ msgstr "Auteur"
 
 #~ msgid "Arch"
 #~ msgstr "Archive"

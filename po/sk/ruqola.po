@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-10-22 00:39+0000\n"
+"POT-Creation-Date: 2024-10-24 00:39+0000\n"
 "PO-Revision-Date: 2019-07-29 20:25+0200\n"
 "Last-Translator: Roman Paholík <wizzardsk@gmail.com>\n"
 "Language-Team: Slovak <kde-sk@linux.sk>\n"
@@ -164,42 +164,47 @@ msgstr ""
 msgid "The following accounts are available:"
 msgstr ""
 
-#: core/apps/appsmarketplaceinfo.cpp:347 core/model/adminrolesmodel.cpp:40
+#: core/apps/appsmarketplaceinfo.cpp:359 core/model/adminrolesmodel.cpp:40
 #: widgets/administratorsettingsdialog/ircfederation/ircfederationwidget.cpp:50
 #, kde-format
 msgid "Description"
 msgstr "Popis"
 
-#: core/apps/appsmarketplaceinfo.cpp:349
+#: core/apps/appsmarketplaceinfo.cpp:361
 #: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:163
 #, fuzzy, kde-format
 #| msgid "Version %1"
 msgid "Version"
 msgstr "Verzia %1"
 
-#: core/apps/appsmarketplaceinfo.cpp:352 core/model/appscategoriesmodel.cpp:34
+#: core/apps/appsmarketplaceinfo.cpp:364 core/model/appscategoriesmodel.cpp:34
 #, kde-format
 msgid "Categories"
 msgstr ""
 
-#: core/apps/appsmarketplaceinfo.cpp:356
+#: core/apps/appsmarketplaceinfo.cpp:368
 #, fuzzy, kde-format
 #| msgid "Authentication Method"
 msgid "Documentation"
 msgstr "Autentifikačná metóda"
 
-#: core/apps/appsmarketplaceinfo.cpp:363
+#: core/apps/appsmarketplaceinfo.cpp:373
+#, kde-format
+msgid "Author"
+msgstr "Autor"
+
+#: core/apps/appsmarketplaceinfo.cpp:379
 #, kde-format
 msgid "Homepage"
 msgstr ""
 
-#: core/apps/appsmarketplaceinfo.cpp:369
+#: core/apps/appsmarketplaceinfo.cpp:385
 #, fuzzy, kde-format
 #| msgid "Report a Bug"
 msgid "Support"
 msgstr "Nahlásiť chybu"
 
-#: core/apps/appsmarketplaceinfo.cpp:373
+#: core/apps/appsmarketplaceinfo.cpp:389
 #, fuzzy, kde-format
 #| msgid "Private:"
 msgid "Privacy Summary"
@@ -6874,6 +6879,12 @@ msgstr[1] ""
 msgstr[2] ""
 
 #: widgets/applicationssettingsdialog/applicationssettingsdescriptiondialog.cpp:25
+#, fuzzy, kde-format
+#| msgid "Description"
+msgctxt "@title:window"
+msgid "Description"
+msgstr "Popis"
+
 #: widgets/applicationssettingsdialog/applicationssettingsdialog.cpp:27
 #, fuzzy, kde-format
 #| msgid "Application not found"
@@ -11911,9 +11922,6 @@ msgstr ""
 #~| msgid "Search File..."
 #~ msgid "Search room..."
 #~ msgstr "Hľadať súbor..."
-
-#~ msgid "Author"
-#~ msgstr "Autor"
 
 #, fuzzy
 #~| msgid "Archive:"
