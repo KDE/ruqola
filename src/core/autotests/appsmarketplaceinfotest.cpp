@@ -34,7 +34,7 @@ void AppsMarketPlaceInfoTest::shouldHaveDefaultValues()
     QVERIFY(!d.installed());
 
     // 03/07/2024: size: 256
-    QCOMPARE(sizeof(AppsMarketPlaceInfo), 336);
+    QCOMPARE(sizeof(AppsMarketPlaceInfo), 360);
 }
 
 void AppsMarketPlaceInfoTest::shouldLoadAppsMarketPlaceInfo_data()
@@ -55,6 +55,7 @@ void AppsMarketPlaceInfoTest::shouldLoadAppsMarketPlaceInfo_data()
         appsMarketPlaceInfo.setDescription("Turns YouTrack references into links."_L1);
         appsMarketPlaceInfo.setPrice(0);
         appsMarketPlaceInfo.setVersion("1.2.1"_L1);
+        appsMarketPlaceInfo.setAuthorName("Zakhar Petrov"_L1);
         appsMarketPlaceInfo.setModifiedDate(1633074321015);
         appsMarketPlaceInfo.setShortDescription({});
         appsMarketPlaceInfo.setHomePage("https://github.com/zakhar-petrov"_L1);
@@ -70,8 +71,9 @@ void AppsMarketPlaceInfoTest::shouldLoadAppsMarketPlaceInfo_data()
         appsMarketPlaceInfo.setCategories({"Voice & Video"_L1, "Communication"_L1, "Productivity"_L1});
         appsMarketPlaceInfo.setDocumentationUrl("docs.rocket.chat/use-rocket.chat/rocket.chat-conference-call/conference-call-admin-guide/jitsi-app"_L1);
         appsMarketPlaceInfo.setPurchaseType("buy"_L1);
-        appsMarketPlaceInfo.setDescription("Jitsi is a collection"_L1);
+        appsMarketPlaceInfo.setDescription("<p>Jitsi is a collection of open-source applications</p>\n"_L1);
         appsMarketPlaceInfo.setPrice(0);
+        appsMarketPlaceInfo.setAuthorName("Rocket.Chat Technologies Corp."_L1);
         appsMarketPlaceInfo.setVersion("2.1.1"_L1);
         appsMarketPlaceInfo.setModifiedDate(1706210343886);
         appsMarketPlaceInfo.setShortDescription("Enjoy a secure and robust video conferencing"_L1);
@@ -90,7 +92,8 @@ void AppsMarketPlaceInfoTest::shouldLoadAppsMarketPlaceInfo_data()
         appsMarketPlaceInfo.setAppName("InStatus Notifier"_L1);
         appsMarketPlaceInfo.setCategories({"Bots"_L1, "Developer Tools"_L1});
         appsMarketPlaceInfo.setPurchaseType("buy"_L1);
-        appsMarketPlaceInfo.setDescription("Get alerts from InStatus. Run\n"_L1);
+        appsMarketPlaceInfo.setDescription(
+            "<p>Get alerts from InStatus. Run /instatus command on any channel where youd like to get alerts and then follow the instructions.</p>\n"_L1);
         appsMarketPlaceInfo.setPrice(0);
         appsMarketPlaceInfo.setVersion("1.0.0"_L1);
         appsMarketPlaceInfo.setModifiedDate(1655134588065);
@@ -98,6 +101,7 @@ void AppsMarketPlaceInfoTest::shouldLoadAppsMarketPlaceInfo_data()
         appsMarketPlaceInfo.setSupport("https://github.com/murtaza98/Instatus-RocketChat-App/issues"_L1);
         appsMarketPlaceInfo.setPrivacyPolicySummary("The app doesn't transfer any data to an external server outside your Rocket.Chat instance."_L1);
         appsMarketPlaceInfo.setRequested(1);
+        appsMarketPlaceInfo.setAuthorName("Murtaza Patrawala"_L1);
 
         QTest::addRow("apps3-requested") << QStringLiteral("apps3-requested") << appsMarketPlaceInfo;
     }
