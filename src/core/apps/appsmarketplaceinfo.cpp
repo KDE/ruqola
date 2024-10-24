@@ -198,7 +198,9 @@ void AppsMarketPlaceInfo::parseAppsMarketPlaceInfo(const QJsonObject &replyObjec
 
     parseAuthor(latestObj["author"_L1].toObject());
 
-    mDescription = latestObj["description"_L1].toString();
+    const QJsonObject detailedDescription = latestObj["detailedDescription"_L1].toObject();
+
+    mDescription = detailedDescription["rendered"_L1].toString();
     mShortDescription = latestObj["shortDescription"_L1].toString();
     mVersion = latestObj["version"_L1].toString();
     mAppName = latestObj["name"_L1].toString();
@@ -354,7 +356,6 @@ QString AppsMarketPlaceInfo::applicationInformations() const
     str += mShortDescription + QStringLiteral("<br/><br/>");
 
     QString newDescription = mDescription;
-    newDescription.replace(QLatin1Char('\n'), QStringLiteral("<br/>"));
 
     str += QStringLiteral("<b>%1</b><br/>").arg(i18n("Description")) + newDescription + QStringLiteral("<br/><br/>");
 
