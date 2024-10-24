@@ -5,6 +5,7 @@
 */
 
 #include "appsmarketplaceinfo.h"
+#include "ruqola_debug.h"
 #include "utils.h"
 #include <KLocalizedString>
 
@@ -49,6 +50,16 @@ QDebug operator<<(QDebug d, const AppsMarketPlaceInfo::PricePlan &t)
     d.space() << "strategy " << t.strategy;
     d.space() << "isPerSeat " << t.isPerSeat;
     return d;
+}
+
+void AppsMarketPlaceInfo::parsePermissions(const QJsonArray &array)
+{
+    mPermissions.clear();
+    for (const QJsonValue &current : array) {
+        Permission perm;
+        perm.type = perm.convertStringToPermissionType(current["name"_L1].toString());
+        mPermissions.append(perm);
+    }
 }
 
 void AppsMarketPlaceInfo::parsePrincingPlan(const QJsonArray &array)
@@ -125,6 +136,7 @@ AppsMarketPlaceInfo::PricePlan::Strategy AppsMarketPlaceInfo::PricePlan::convert
     } else if (str == "yearly"_L1) {
         return AppsMarketPlaceInfo::PricePlan::Strategy::Yearly;
     }
+    qCWarning(RUQOLA_LOG) << "Unknown type " << str;
     return AppsMarketPlaceInfo::PricePlan::Strategy::Unknown;
 }
 
@@ -223,6 +235,7 @@ void AppsMarketPlaceInfo::parseAppsMarketPlaceInfo(const QJsonObject &replyObjec
 
     const QJsonObject latestObj = replyObject["latest"_L1].toObject();
     const QJsonArray categoriesArray = latestObj["categories"_L1].toArray();
+    parsePermissions(latestObj["permissions"_L1].toArray());
 
     QStringList lst;
     lst.reserve(categoriesArray.count());
@@ -453,8 +466,73 @@ void AppsMarketPlaceInfo::setPricePlan(const QList<PricePlan> &newPricePlan)
 
 bool AppsMarketPlaceInfo::Permission::operator==(const Permission &other) const
 {
-    // TODO
-    return true;
+    return type == other.type;
+}
+
+AppsMarketPlaceInfo::Permission::PermissionType AppsMarketPlaceInfo::Permission::convertStringToPermissionType(const QString &str)
+{
+    if (str == "message.write"_L1) {
+        return AppsMarketPlaceInfo::Permission::MessageWrite;
+    } else if (str == "message.read"_L1) {
+        return AppsMarketPlaceInfo::Permission::MessageRead;
+    } else if (str == "persistence"_L1) {
+        return AppsMarketPlaceInfo::Permission::Persistence;
+    } else if (str == "room.read"_L1) {
+        return AppsMarketPlaceInfo::Permission::RoomRead;
+    } else if (str == "room.write"_L1) {
+        return AppsMarketPlaceInfo::Permission::RoomWrite;
+    } else if (str == "networking"_L1) {
+        return AppsMarketPlaceInfo::Permission::Networking;
+    } else if (str == "user.write"_L1) {
+        return AppsMarketPlaceInfo::Permission::UserWrite;
+    } else if (str == "user.read"_L1) {
+        return AppsMarketPlaceInfo::Permission::UserRead;
+    } else if (str == "scheduler"_L1) {
+        return AppsMarketPlaceInfo::Permission::Scheduler;
+    } else if (str == "slashcommand"_L1) {
+        return AppsMarketPlaceInfo::Permission::SlashCommand;
+    } else if (str == "api"_L1) {
+        return AppsMarketPlaceInfo::Permission::Api;
+    } else if (str == "server-setting.write"_L1) {
+        return AppsMarketPlaceInfo::Permission::ServerSettingWrite;
+    } else if (str == "server-setting.read"_L1) {
+        return AppsMarketPlaceInfo::Permission::ServerSettingRead;
+    } else if (str == "upload.write"_L1) {
+        return AppsMarketPlaceInfo::Permission::UploadWrite;
+    } else if (str == "upload.read"_L1) {
+        return AppsMarketPlaceInfo::Permission::UploadRead;
+    } else if (str == "cloud.workspace-token"_L1) {
+        return AppsMarketPlaceInfo::Permission::CloudWorkspaceToken;
+    } else if (str == "env.read"_L1) {
+        return AppsMarketPlaceInfo::Permission::EnvRead;
+    } else if (str == "livechat-department.multiple"_L1) {
+        return AppsMarketPlaceInfo::Permission::LiveChatDepartmentMultiple;
+    } else if (str == "livechat-department.read"_L1) {
+        return AppsMarketPlaceInfo::Permission::LiveChatDepartmentRead;
+    } else if (str == "livechat-room.write"_L1) {
+        return AppsMarketPlaceInfo::Permission::LiveChatRoomWrite;
+    } else if (str == "livechat-room.read"_L1) {
+        return AppsMarketPlaceInfo::Permission::LiveChatRoomRead;
+    } else if (str == "livechat-message.write"_L1) {
+        return AppsMarketPlaceInfo::Permission::LiveChatMessageWrite;
+    } else if (str == "livechat-message.read"_L1) {
+        return AppsMarketPlaceInfo::Permission::LiveChatMessageRead;
+    } else if (str == "livechat-visitor.write"_L1) {
+        return AppsMarketPlaceInfo::Permission::LiveChatVisitorWrite;
+    } else if (str == "livechat-visitor.read"_L1) {
+        return AppsMarketPlaceInfo::Permission::LiveChatVisitorRead;
+    } else if (str == "livechat-status.read"_L1) {
+        return AppsMarketPlaceInfo::Permission::LiveChatStatusRead;
+    } else if (str == "livechat-custom-fields.write"_L1) {
+        return AppsMarketPlaceInfo::Permission::LiveChatCustomFieldsWrite;
+    } else if (str == "ui.interact"_L1) {
+        return AppsMarketPlaceInfo::Permission::UiInteract;
+    } else if (str == "livechat-message.multiple"_L1) {
+        return AppsMarketPlaceInfo::Permission::LiveChatMessageMultiple;
+    }
+
+    qCWarning(RUQOLA_LOG) << "Unknown type " << str;
+    return AppsMarketPlaceInfo::Permission::Unknown;
 }
 
 QString AppsMarketPlaceInfo::Permission::convertTypeToI18n() const

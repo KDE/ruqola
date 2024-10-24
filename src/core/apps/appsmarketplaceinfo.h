@@ -34,8 +34,38 @@ public:
     struct LIBRUQOLACORE_EXPORT Permission {
         enum PermissionType {
             Unknown,
+            MessageRead,
+            MessageWrite,
+            Persistence,
+            RoomRead,
+            RoomWrite,
+            Networking,
+            UserRead,
+            UserWrite,
+            SlashCommand,
+            Scheduler,
+            Api,
+            ServerSettingRead,
+            ServerSettingWrite,
+            UploadWrite,
+            UploadRead,
+            CloudWorkspaceToken,
+            EnvRead,
+            LiveChatDepartmentMultiple,
+            LiveChatDepartmentRead,
+            LiveChatRoomWrite,
+            LiveChatRoomRead,
+            LiveChatMessageWrite,
+            LiveChatMessageRead,
+            LiveChatVisitorWrite,
+            LiveChatVisitorRead,
+            LiveChatStatusRead,
+            LiveChatCustomFieldsWrite,
+            LiveChatMessageMultiple,
+            UiInteract,
         };
         [[nodiscard]] bool operator==(const Permission &other) const;
+        [[nodiscard]] static PermissionType convertStringToPermissionType(const QString &str);
         [[nodiscard]] QString convertTypeToI18n() const;
         PermissionType type = Unknown;
     };
@@ -122,7 +152,10 @@ private:
     LIBRUQOLACORE_NO_EXPORT void parseAuthor(const QJsonObject &authorObject);
     LIBRUQOLACORE_NO_EXPORT void parseAppRequestStats(const QJsonObject &replyObject);
     [[nodiscard]] LIBRUQOLACORE_NO_EXPORT QString generatePriceInfo() const;
+    LIBRUQOLACORE_NO_EXPORT void parsePermissions(const QJsonArray &array);
+
     QList<PricePlan> mPricePlan;
+    QList<Permission> mPermissions;
     QStringList mCategories;
     QByteArray mAppId;
     QString mAppName;
