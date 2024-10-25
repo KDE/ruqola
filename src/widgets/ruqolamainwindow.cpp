@@ -82,7 +82,6 @@
 #include <QStatusBar>
 #include <QTemporaryFile>
 #include <QToolButton>
-#include <QWidgetAction>
 
 #include <KColorSchemeMenu>
 
