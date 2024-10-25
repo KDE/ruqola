@@ -626,7 +626,7 @@ QString AppsMarketPlaceInfo::Permission::convertTypeToI18n() const
     case Persistence:
         return i18n("Store internal data in the database");
     case LiveChatCustomFieldsWrite:
-        break;
+        return i18n("Modify Livechat custom field configuration");
     case LiveChatMessageMultiple:
         break;
     case ThreadsRead:
