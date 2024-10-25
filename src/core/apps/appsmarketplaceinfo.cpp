@@ -446,6 +446,15 @@ QString AppsMarketPlaceInfo::applicationInformations() const
         str += QStringLiteral("<b>%1</b><br/>").arg(i18n("Privacy Summary")) + mPrivacyPolicySummary + QStringLiteral("<br/><br/>");
     }
 
+    if (!mPermissions.isEmpty()) {
+        str += QStringLiteral("<b>%1</b><br/>").arg(i18n("Permissions"));
+        str += QStringLiteral("<ol>");
+        for (const Permission &p : mPermissions) {
+            str += QStringLiteral("<li>%1</li>").arg(p.convertTypeToI18n());
+        }
+        str += QStringLiteral("</ol>");
+    }
+
     return str;
 }
 
@@ -614,6 +623,8 @@ QString AppsMarketPlaceInfo::Permission::convertTypeToI18n() const
         return i18n("Access Livechat status information");
     case UiInteract:
         return i18n("Interact with the UI");
+    case Persistence:
+        return i18n("Store internal data in the database");
     case LiveChatCustomFieldsWrite:
         break;
     case LiveChatMessageMultiple:
@@ -635,8 +646,6 @@ QString AppsMarketPlaceInfo::Permission::convertTypeToI18n() const
     case VideoConferenceProvider:
         break;
     case UiRegistrerButtons:
-        break;
-    case Persistence:
         break;
     }
     qCWarning(RUQOLA_LOG) << " i18n not found for " << type;
