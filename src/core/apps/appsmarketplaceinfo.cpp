@@ -529,6 +529,24 @@ AppsMarketPlaceInfo::Permission::PermissionType AppsMarketPlaceInfo::Permission:
         return AppsMarketPlaceInfo::Permission::UiInteract;
     } else if (str == "livechat-message.multiple"_L1) {
         return AppsMarketPlaceInfo::Permission::LiveChatMessageMultiple;
+    } else if (str == "threads.read"_L1) {
+        return AppsMarketPlaceInfo::Permission::ThreadsRead;
+    } else if (str == "moderation.write"_L1) {
+        return AppsMarketPlaceInfo::Permission::ModerationWrite;
+    } else if (str == "moderation.read"_L1) {
+        return AppsMarketPlaceInfo::Permission::ModerationRead;
+    } else if (str == "oauth-app.write"_L1) {
+        return AppsMarketPlaceInfo::Permission::OauthAppWrite;
+    } else if (str == "oauth-app.read"_L1) {
+        return AppsMarketPlaceInfo::Permission::OauthAppRead;
+    } else if (str == "video-conference.write"_L1) {
+        return AppsMarketPlaceInfo::Permission::VideoConferenceWrite;
+    } else if (str == "video-conference.read"_L1) {
+        return AppsMarketPlaceInfo::Permission::VideoConferenceRead;
+    } else if (str == "video-conference-provider"_L1) {
+        return AppsMarketPlaceInfo::Permission::VideoConferenceProvider;
+    } else if (str == "ui.registerButtons"_L1) {
+        return AppsMarketPlaceInfo::Permission::UiRegistrerButtons;
     }
 
     qCWarning(RUQOLA_LOG) << "Unknown type " << str;

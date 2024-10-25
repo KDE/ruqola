@@ -63,6 +63,15 @@ public:
             LiveChatCustomFieldsWrite,
             LiveChatMessageMultiple,
             UiInteract,
+            ThreadsRead,
+            ModerationWrite,
+            ModerationRead,
+            OauthAppWrite,
+            OauthAppRead,
+            VideoConferenceWrite,
+            VideoConferenceRead,
+            VideoConferenceProvider,
+            UiRegistrerButtons,
         };
         [[nodiscard]] bool operator==(const Permission &other) const;
         [[nodiscard]] static PermissionType convertStringToPermissionType(const QString &str);
