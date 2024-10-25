@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-10-24 00:39+0000\n"
+"POT-Creation-Date: 2024-10-25 00:40+0000\n"
 "PO-Revision-Date: 2020-06-13 21:18+0300\n"
 "Last-Translator: Marek Laane <qiilaq69@gmail.com>\n"
 "Language-Team: Estonian <kde-et@lists.linux.ee>\n"
@@ -173,47 +173,63 @@ msgstr ""
 msgid "The following accounts are available:"
 msgstr "Saadaval on järgmised kontod:"
 
-#: core/apps/appsmarketplaceinfo.cpp:359 core/model/adminrolesmodel.cpp:40
+#: core/apps/appsmarketplaceinfo.cpp:90
+#, kde-format
+msgid "per %1"
+msgstr ""
+
+#: core/apps/appsmarketplaceinfo.cpp:149
+#, fuzzy, kde-format
+#| msgid "Previous Channel"
+msgid "month"
+msgstr "Eelmine kanal"
+
+#: core/apps/appsmarketplaceinfo.cpp:151
+#, kde-format
+msgid "year"
+msgstr ""
+
+#: core/apps/appsmarketplaceinfo.cpp:416 core/model/adminrolesmodel.cpp:40
 #: widgets/administratorsettingsdialog/ircfederation/ircfederationwidget.cpp:50
 #, kde-format
 msgid "Description"
 msgstr "Kirjeldus"
 
-#: core/apps/appsmarketplaceinfo.cpp:361
+#: core/apps/appsmarketplaceinfo.cpp:418
 #: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:163
 #, fuzzy, kde-format
 #| msgid "Version %1"
 msgid "Version"
 msgstr "Versioon %1"
 
-#: core/apps/appsmarketplaceinfo.cpp:364 core/model/appscategoriesmodel.cpp:34
+#: core/apps/appsmarketplaceinfo.cpp:421 core/model/appscategoriesmodel.cpp:34
 #, kde-format
 msgid "Categories"
 msgstr ""
 
-#: core/apps/appsmarketplaceinfo.cpp:368
+#: core/apps/appsmarketplaceinfo.cpp:425
 #, fuzzy, kde-format
 #| msgid "Authentication Method"
 msgid "Documentation"
 msgstr "Autentimisviis"
 
-#: core/apps/appsmarketplaceinfo.cpp:373
+#: core/apps/appsmarketplaceinfo.cpp:430
 #, kde-format
 msgid "Author"
 msgstr "Autor"
 
-#: core/apps/appsmarketplaceinfo.cpp:379
+#: core/apps/appsmarketplaceinfo.cpp:436
 #, kde-format
 msgid "Homepage"
 msgstr ""
 
-#: core/apps/appsmarketplaceinfo.cpp:385
+#: core/apps/appsmarketplaceinfo.cpp:442
 #, fuzzy, kde-format
 #| msgid "Report a Bug"
 msgid "Support"
 msgstr "Veast teatamine"
 
-#: core/apps/appsmarketplaceinfo.cpp:389
+#: core/apps/appsmarketplaceinfo.cpp:446
 #, fuzzy, kde-format
 #| msgid "Private:"
 msgid "Privacy Summary"
@@ -1040,7 +1056,7 @@ msgstr "Kanali nimi"
 msgid "Belongs To"
 msgstr ""
 
-#: core/model/directoryteamsmodel.cpp:92 core/model/roommodel.cpp:549
+#: core/model/directoryteamsmodel.cpp:92 core/model/roommodel.cpp:547
 #: widgets/administratordialog/administratorwidget.cpp:53
 #: widgets/administratordialog/roles/rolescopecombobox.cpp:13
 #, kde-format
@@ -1220,7 +1236,7 @@ msgstr "Autentimisviis"
 msgid "Last token part"
 msgstr ""
 
-#: core/model/roommodel.cpp:468
+#: core/model/roommodel.cpp:466
 #, fuzzy, kde-format
 #| msgid "Mentions"
 msgid "%1 Mention"
@@ -1228,7 +1244,7 @@ msgid_plural "%1 Mentions"
 msgstr[0] "Mainimised"
 msgstr[1] "Mainimised"
 
-#: core/model/roommodel.cpp:472
+#: core/model/roommodel.cpp:470
 #, fuzzy, kde-format
 #| msgid "Mute Groups Mention:"
 msgid "%1 Group Mention"
@@ -1236,7 +1252,7 @@ msgid_plural "%1 Group Mentions"
 msgstr[0] "Gruppides mainimiste vaigistamine:"
 msgstr[1] "Gruppides mainimiste vaigistamine:"
 
-#: core/model/roommodel.cpp:476
+#: core/model/roommodel.cpp:474
 #, fuzzy, kde-format
 #| msgid "Threads Messages"
 msgid "%1 Unread Threaded Message"
@@ -1244,7 +1260,7 @@ msgid_plural "%1 Unread Threaded Messages"
 msgstr[0] "Lõimesõnumid"
 msgstr[1] "Lõimesõnumid"
 
-#: core/model/roommodel.cpp:480
+#: core/model/roommodel.cpp:478
 #, fuzzy, kde-format
 #| msgid "%1 has %2 Unread Message"
 msgid "%1 Unread Message"
@@ -1252,58 +1268,58 @@ msgid_plural "%1 Unread Messages"
 msgstr[0] "%1 ei ole lugenud %2 sõnumit"
 msgstr[1] "%1 ei ole lugenud %2 sõnumit"
 
-#: core/model/roommodel.cpp:506
+#: core/model/roommodel.cpp:504
 #, fuzzy, kde-format
 #| msgid "Rooms"
 msgid "Teams Room"
 msgstr "Toad"
 
-#: core/model/roommodel.cpp:512
+#: core/model/roommodel.cpp:510
 #, fuzzy, kde-format
 #| msgid "Private Room:"
 msgid "Private Room"
 msgstr "Privaattuba:"
 
-#: core/model/roommodel.cpp:514
+#: core/model/roommodel.cpp:512
 #, fuzzy, kde-format
 #| msgid "Discussion Name"
 msgid "Discussion Room"
 msgstr "Diskussiooni nimi"
 
-#: core/model/roommodel.cpp:518
+#: core/model/roommodel.cpp:516
 #, fuzzy, kde-format
 #| msgctxt "@title:window"
 #| msgid "Channel Info"
 msgid "Channel Room"
 msgstr "Kanali teave"
 
-#: core/model/roommodel.cpp:543
+#: core/model/roommodel.cpp:541
 #, fuzzy, kde-format
 #| msgid "Unread Rooms"
 msgid "Unread"
 msgstr "Lugemata toad"
 
-#: core/model/roommodel.cpp:545
+#: core/model/roommodel.cpp:543
 #, kde-format
 msgid "Favorites"
 msgstr "Lemmikud"
 
-#: core/model/roommodel.cpp:547
+#: core/model/roommodel.cpp:545
 #, kde-format
 msgid "Teams"
 msgstr ""
 
-#: core/model/roommodel.cpp:551
+#: core/model/roommodel.cpp:549
 #, kde-format
 msgid "Discussions"
 msgstr "Diskussioonid"
 
-#: core/model/roommodel.cpp:553
+#: core/model/roommodel.cpp:551
 #, kde-format
 msgid "Private Messages"
 msgstr "Privaatsõnumid"
 
-#: core/model/roommodel.cpp:555
+#: core/model/roommodel.cpp:553
 #, fuzzy, kde-format
 #| msgid "Unknown state"
 msgid "Unknown"

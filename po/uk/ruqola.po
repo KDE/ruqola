@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-10-24 00:39+0000\n"
-"PO-Revision-Date: 2024-10-19 09:30+0300\n"
+"POT-Creation-Date: 2024-10-25 00:40+0000\n"
+"PO-Revision-Date: 2024-10-24 09:34+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
 "Language: uk\n"
@@ -166,44 +166,61 @@ msgstr "Оптимізація, виправлення підтримки Window
 msgid "The following accounts are available:"
 msgstr "Доступні такі облікові записи:"
 
-#: core/apps/appsmarketplaceinfo.cpp:359 core/model/adminrolesmodel.cpp:40
+#: core/apps/appsmarketplaceinfo.cpp:90
+#, kde-format
+msgid "per %1"
+msgstr ""
+
+#: core/apps/appsmarketplaceinfo.cpp:149
+#, fuzzy, kde-format
+#| msgctxt "@action"
+#| msgid "This month"
+msgid "month"
+msgstr "Цього місяця"
+
+#: core/apps/appsmarketplaceinfo.cpp:151
+#, kde-format
+msgid "year"
+msgstr ""
+
+#: core/apps/appsmarketplaceinfo.cpp:416 core/model/adminrolesmodel.cpp:40
 #: widgets/administratorsettingsdialog/ircfederation/ircfederationwidget.cpp:50
 #, kde-format
 msgid "Description"
 msgstr "Опис"
 
-#: core/apps/appsmarketplaceinfo.cpp:361
+#: core/apps/appsmarketplaceinfo.cpp:418
 #: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:163
 #, kde-format
 msgid "Version"
 msgstr "Версія"
 
-#: core/apps/appsmarketplaceinfo.cpp:364 core/model/appscategoriesmodel.cpp:34
+#: core/apps/appsmarketplaceinfo.cpp:421 core/model/appscategoriesmodel.cpp:34
 #, kde-format
 msgid "Categories"
 msgstr "Категорії"
 
-#: core/apps/appsmarketplaceinfo.cpp:368
+#: core/apps/appsmarketplaceinfo.cpp:425
 #, kde-format
 msgid "Documentation"
 msgstr "Документація"
 
-#: core/apps/appsmarketplaceinfo.cpp:373
+#: core/apps/appsmarketplaceinfo.cpp:430
 #, kde-format
 msgid "Author"
 msgstr "Автор"
 
-#: core/apps/appsmarketplaceinfo.cpp:379
+#: core/apps/appsmarketplaceinfo.cpp:436
 #, kde-format
 msgid "Homepage"
 msgstr "Домашня сторінка"
 
-#: core/apps/appsmarketplaceinfo.cpp:385
+#: core/apps/appsmarketplaceinfo.cpp:442
 #, kde-format
 msgid "Support"
 msgstr "Підтримка"
 
-#: core/apps/appsmarketplaceinfo.cpp:389
+#: core/apps/appsmarketplaceinfo.cpp:446
 #, kde-format
 msgid "Privacy Summary"
 msgstr "Резюме щодо конфіденційності"
@@ -984,7 +1001,7 @@ msgstr "Тип каналу"
 msgid "Belongs To"
 msgstr "Належить"
 
-#: core/model/directoryteamsmodel.cpp:92 core/model/roommodel.cpp:549
+#: core/model/directoryteamsmodel.cpp:92 core/model/roommodel.cpp:547
 #: widgets/administratordialog/administratorwidget.cpp:53
 #: widgets/administratordialog/roles/rolescopecombobox.cpp:13
 #, kde-format
@@ -1149,7 +1166,7 @@ msgstr "Двофакторне розпізнавання"
 msgid "Last token part"
 msgstr "Остання частина жетона"
 
-#: core/model/roommodel.cpp:468
+#: core/model/roommodel.cpp:466
 #, kde-format
 msgid "%1 Mention"
 msgid_plural "%1 Mentions"
@@ -1158,7 +1175,7 @@ msgstr[1] "%1 згадування"
 msgstr[2] "%1 згадувань"
 msgstr[3] "%1 згадування"
 
-#: core/model/roommodel.cpp:472
+#: core/model/roommodel.cpp:470
 #, kde-format
 msgid "%1 Group Mention"
 msgid_plural "%1 Group Mentions"
@@ -1167,7 +1184,7 @@ msgstr[1] "%1 згадування групи"
 msgstr[2] "%1 згадувань групи"
 msgstr[3] "%1 згадування групи"
 
-#: core/model/roommodel.cpp:476
+#: core/model/roommodel.cpp:474
 #, kde-format
 msgid "%1 Unread Threaded Message"
 msgid_plural "%1 Unread Threaded Messages"
@@ -1176,7 +1193,7 @@ msgstr[1] "%1 непрочитаних повідомлення з гілкою"
 msgstr[2] "%1 непрочитаних повідомлень з гілкою"
 msgstr[3] "%1 непрочитане повідомлення з гілкою"
 
-#: core/model/roommodel.cpp:480
+#: core/model/roommodel.cpp:478
 #, kde-format
 msgid "%1 Unread Message"
 msgid_plural "%1 Unread Messages"
@@ -1185,52 +1202,52 @@ msgstr[1] "%1 непрочитаних повідомлення"
 msgstr[2] "%1 непрочитаних повідомлень"
 msgstr[3] "%1 непрочитане повідомлення"
 
-#: core/model/roommodel.cpp:506
+#: core/model/roommodel.cpp:504
 #, kde-format
 msgid "Teams Room"
 msgstr "Кімната команд"
 
-#: core/model/roommodel.cpp:512
+#: core/model/roommodel.cpp:510
 #, kde-format
 msgid "Private Room"
 msgstr "Приватна кімната"
 
-#: core/model/roommodel.cpp:514
+#: core/model/roommodel.cpp:512
 #, kde-format
 msgid "Discussion Room"
 msgstr "Кімната обговорення"
 
-#: core/model/roommodel.cpp:518
+#: core/model/roommodel.cpp:516
 #, kde-format
 msgid "Channel Room"
 msgstr "Кімната каналу"
 
-#: core/model/roommodel.cpp:543
+#: core/model/roommodel.cpp:541
 #, kde-format
 msgid "Unread"
 msgstr "Непрочитані"
 
-#: core/model/roommodel.cpp:545
+#: core/model/roommodel.cpp:543
 #, kde-format
 msgid "Favorites"
 msgstr "Улюблене"
 
-#: core/model/roommodel.cpp:547
+#: core/model/roommodel.cpp:545
 #, kde-format
 msgid "Teams"
 msgstr "Команди"
 
-#: core/model/roommodel.cpp:551
+#: core/model/roommodel.cpp:549
 #, kde-format
 msgid "Discussions"
 msgstr "Обговорення"
 
-#: core/model/roommodel.cpp:553
+#: core/model/roommodel.cpp:551
 #, kde-format
 msgid "Private Messages"
 msgstr "Конфіденційні повідомлення"
 
-#: core/model/roommodel.cpp:555
+#: core/model/roommodel.cpp:553
 #, kde-format
 msgid "Unknown"
 msgstr "Невідомий"
@@ -6745,8 +6762,7 @@ msgstr[2] "%1 запитів"
 msgstr[3] "%1 запит"
 
 #: widgets/applicationssettingsdialog/applicationssettingsdescriptiondialog.cpp:25
-#, fuzzy, kde-format
-#| msgid "Description"
+#, kde-format
 msgctxt "@title:window"
 msgid "Description"
 msgstr "Опис"

@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-10-24 00:39+0000\n"
+"POT-Creation-Date: 2024-10-25 00:40+0000\n"
 "PO-Revision-Date: 2024-10-20 11:04+0200\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
 "Language-Team: French <French <kde-francophone@kde.org>>\n"
@@ -160,44 +160,61 @@ msgstr "Optimisation, prise en charge des corrections sous Windows / macOS"
 msgid "The following accounts are available:"
 msgstr "Les comptes suivants sont disponibles :"
 
-#: core/apps/appsmarketplaceinfo.cpp:359 core/model/adminrolesmodel.cpp:40
+#: core/apps/appsmarketplaceinfo.cpp:90
+#, kde-format
+msgid "per %1"
+msgstr ""
+
+#: core/apps/appsmarketplaceinfo.cpp:149
+#, fuzzy, kde-format
+#| msgctxt "@action"
+#| msgid "This month"
+msgid "month"
+msgstr "Ce mois-ci"
+
+#: core/apps/appsmarketplaceinfo.cpp:151
+#, kde-format
+msgid "year"
+msgstr ""
+
+#: core/apps/appsmarketplaceinfo.cpp:416 core/model/adminrolesmodel.cpp:40
 #: widgets/administratorsettingsdialog/ircfederation/ircfederationwidget.cpp:50
 #, kde-format
 msgid "Description"
 msgstr "Description"
 
-#: core/apps/appsmarketplaceinfo.cpp:361
+#: core/apps/appsmarketplaceinfo.cpp:418
 #: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:163
 #, kde-format
 msgid "Version"
 msgstr "Version"
 
-#: core/apps/appsmarketplaceinfo.cpp:364 core/model/appscategoriesmodel.cpp:34
+#: core/apps/appsmarketplaceinfo.cpp:421 core/model/appscategoriesmodel.cpp:34
 #, kde-format
 msgid "Categories"
 msgstr "Catégories"
 
-#: core/apps/appsmarketplaceinfo.cpp:368
+#: core/apps/appsmarketplaceinfo.cpp:425
 #, kde-format
 msgid "Documentation"
 msgstr "Documentation"
 
-#: core/apps/appsmarketplaceinfo.cpp:373
+#: core/apps/appsmarketplaceinfo.cpp:430
 #, kde-format
 msgid "Author"
 msgstr "Auteur"
 
-#: core/apps/appsmarketplaceinfo.cpp:379
+#: core/apps/appsmarketplaceinfo.cpp:436
 #, kde-format
 msgid "Homepage"
 msgstr "Page d'accueil"
 
-#: core/apps/appsmarketplaceinfo.cpp:385
+#: core/apps/appsmarketplaceinfo.cpp:442
 #, kde-format
 msgid "Support"
 msgstr "Aide"
 
-#: core/apps/appsmarketplaceinfo.cpp:389
+#: core/apps/appsmarketplaceinfo.cpp:446
 #, kde-format
 msgid "Privacy Summary"
 msgstr "Résumé des renseignements personnels"
@@ -978,7 +995,7 @@ msgstr "Type de canal"
 msgid "Belongs To"
 msgstr "Appartient à"
 
-#: core/model/directoryteamsmodel.cpp:92 core/model/roommodel.cpp:549
+#: core/model/directoryteamsmodel.cpp:92 core/model/roommodel.cpp:547
 #: widgets/administratordialog/administratorwidget.cpp:53
 #: widgets/administratordialog/roles/rolescopecombobox.cpp:13
 #, kde-format
@@ -1142,80 +1159,80 @@ msgstr "Authentification à deux facteurs"
 msgid "Last token part"
 msgstr "Dernière partie du jeton"
 
-#: core/model/roommodel.cpp:468
+#: core/model/roommodel.cpp:466
 #, kde-format
 msgid "%1 Mention"
 msgid_plural "%1 Mentions"
 msgstr[0] "Citation %1"
 msgstr[1] "%1 citations"
 
-#: core/model/roommodel.cpp:472
+#: core/model/roommodel.cpp:470
 #, kde-format
 msgid "%1 Group Mention"
 msgid_plural "%1 Group Mentions"
 msgstr[0] "Citation de groupe %1"
 msgstr[1] "%1 citations de groupe"
 
-#: core/model/roommodel.cpp:476
+#: core/model/roommodel.cpp:474
 #, kde-format
 msgid "%1 Unread Threaded Message"
 msgid_plural "%1 Unread Threaded Messages"
 msgstr[0] "message %1 non lu dans le fil de discussions"
 msgstr[1] "%1 messages non lus dans le fil de discussions"
 
-#: core/model/roommodel.cpp:480
+#: core/model/roommodel.cpp:478
 #, kde-format
 msgid "%1 Unread Message"
 msgid_plural "%1 Unread Messages"
 msgstr[0] "message non lu %1"
 msgstr[1] "%1 messages non lus"
 
-#: core/model/roommodel.cpp:506
+#: core/model/roommodel.cpp:504
 #, kde-format
 msgid "Teams Room"
 msgstr "Salons pour des équipes"
 
-#: core/model/roommodel.cpp:512
+#: core/model/roommodel.cpp:510
 #, kde-format
 msgid "Private Room"
 msgstr "Salon privé"
 
-#: core/model/roommodel.cpp:514
+#: core/model/roommodel.cpp:512
 #, kde-format
 msgid "Discussion Room"
 msgstr "Salon de discussions"
 
-#: core/model/roommodel.cpp:518
+#: core/model/roommodel.cpp:516
 #, kde-format
 msgid "Channel Room"
 msgstr "Salon de canal"
 
-#: core/model/roommodel.cpp:543
+#: core/model/roommodel.cpp:541
 #, kde-format
 msgid "Unread"
 msgstr "Non lu"
 
-#: core/model/roommodel.cpp:545
+#: core/model/roommodel.cpp:543
 #, kde-format
 msgid "Favorites"
 msgstr "Favoris"
 
-#: core/model/roommodel.cpp:547
+#: core/model/roommodel.cpp:545
 #, kde-format
 msgid "Teams"
 msgstr "Équipes"
 
-#: core/model/roommodel.cpp:551
+#: core/model/roommodel.cpp:549
 #, kde-format
 msgid "Discussions"
 msgstr "Discussions"
 
-#: core/model/roommodel.cpp:553
+#: core/model/roommodel.cpp:551
 #, kde-format
 msgid "Private Messages"
 msgstr "Messages privés"
 
-#: core/model/roommodel.cpp:555
+#: core/model/roommodel.cpp:553
 #, kde-format
 msgid "Unknown"
 msgstr "Inconnu"
@@ -1481,7 +1498,7 @@ msgstr "%1 a refusé la session » OTR »."
 #, kde-format
 msgctxt "WARNING!!!!!!: PLEASE We need a space between after </strong>"
 msgid "<strong>%1</strong> is typing..."
-msgstr "<strong>%1</strong>est en train d'écrire un message..."
+msgstr "<strong>%1</strong> est en train d'écrire un message..."
 
 #: core/receivetypingnotificationmanager.cpp:72
 #, kde-format
