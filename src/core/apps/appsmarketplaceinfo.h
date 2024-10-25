@@ -53,6 +53,7 @@ public:
             EnvRead,
             LiveChatDepartmentMultiple,
             LiveChatDepartmentRead,
+            LiveChatDepartmentWrite,
             LiveChatRoomWrite,
             LiveChatRoomRead,
             LiveChatMessageWrite,

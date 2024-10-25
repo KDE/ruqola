@@ -509,6 +509,8 @@ AppsMarketPlaceInfo::Permission::PermissionType AppsMarketPlaceInfo::Permission:
         return AppsMarketPlaceInfo::Permission::LiveChatDepartmentMultiple;
     } else if (str == "livechat-department.read"_L1) {
         return AppsMarketPlaceInfo::Permission::LiveChatDepartmentRead;
+    } else if (str == "livechat-department.write"_L1) {
+        return AppsMarketPlaceInfo::Permission::LiveChatDepartmentWrite;
     } else if (str == "livechat-room.write"_L1) {
         return AppsMarketPlaceInfo::Permission::LiveChatRoomWrite;
     } else if (str == "livechat-room.read"_L1) {
@@ -555,6 +557,88 @@ AppsMarketPlaceInfo::Permission::PermissionType AppsMarketPlaceInfo::Permission:
 
 QString AppsMarketPlaceInfo::Permission::convertTypeToI18n() const
 {
-    // TODO
+    switch (type) {
+    case Unknown:
+        return {};
+    case MessageRead:
+        return i18n("Access messages");
+    case MessageWrite:
+        return i18n("Send and modify messages");
+    case RoomRead:
+        return i18n("Access room information");
+    case RoomWrite:
+        return i18n("Create and modify rooms");
+    case Networking:
+        return i18n("Access to this server network");
+    case UserRead:
+        return i18n("Access user information");
+    case UserWrite:
+        return i18n("Modify user information");
+    case SlashCommand:
+        return i18n("Register new slash commands");
+    case Scheduler:
+        return i18n("Register and maintain scheduled jobs");
+    case Api:
+        return i18n("Register new HTTP endpoints");
+    case ServerSettingRead:
+        return i18n("Access settings in this server");
+    case ServerSettingWrite:
+        return i18n("Modify settings in this server");
+    case UploadWrite:
+        return i18n("Upload files to this server");
+    case UploadRead:
+        return i18n("Access files uploaded to this server");
+    case CloudWorkspaceToken:
+        return i18n("Interact with Cloud Services on behalf of this server");
+    case EnvRead:
+        return i18n("Access minimal information about this server environment");
+    case LiveChatDepartmentMultiple:
+        return i18n("Access to multiple Livechat departments information");
+    case LiveChatDepartmentRead:
+        return i18n("Access Livechat department information");
+    case LiveChatDepartmentWrite:
+        return i18n("Modify Livechat department information");
+    case LiveChatRoomWrite:
+        return i18n("Modify Livechat room information");
+    case LiveChatRoomRead:
+        return i18n("Access Livechat room information");
+    case LiveChatMessageWrite:
+        return i18n("Modify Livechat message information");
+    case LiveChatMessageRead:
+        return i18n("Access Livechat message information");
+    case LiveChatVisitorWrite:
+        return i18n("Modify Livechat visitor information");
+    case LiveChatVisitorRead:
+        return i18n("Access Livechat visitor information");
+    case LiveChatStatusRead:
+        return i18n("Access Livechat status information");
+    case UiInteract:
+        return i18n("Interact with the UI");
+    case LiveChatCustomFieldsWrite:
+        break;
+    case LiveChatMessageMultiple:
+        break;
+    case ThreadsRead:
+        break;
+    case ModerationWrite:
+        break;
+    case ModerationRead:
+        break;
+    case OauthAppWrite:
+        break;
+    case OauthAppRead:
+        break;
+    case VideoConferenceWrite:
+        break;
+    case VideoConferenceRead:
+        break;
+    case VideoConferenceProvider:
+        break;
+    case UiRegistrerButtons:
+        break;
+    case Persistence:
+        break;
+    }
+    qCWarning(RUQOLA_LOG) << " i18n not found for " << type;
     return {};
 }
