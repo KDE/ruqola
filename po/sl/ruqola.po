@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-10-25 00:40+0000\n"
-"PO-Revision-Date: 2024-10-24 07:20+0200\n"
+"POT-Creation-Date: 2024-10-26 00:40+0000\n"
+"PO-Revision-Date: 2024-10-25 09:11+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
@@ -167,19 +167,17 @@ msgstr "Na voljo so naslednji računi:"
 #: core/apps/appsmarketplaceinfo.cpp:90
 #, kde-format
 msgid "per %1"
-msgstr ""
+msgstr "za %1"
 
 #: core/apps/appsmarketplaceinfo.cpp:149
-#, fuzzy, kde-format
-#| msgctxt "@action"
-#| msgid "This month"
+#, kde-format
 msgid "month"
-msgstr "Ta mesec"
+msgstr "mesec"
 
 #: core/apps/appsmarketplaceinfo.cpp:151
 #, kde-format
 msgid "year"
-msgstr ""
+msgstr "leto"
 
 #: core/apps/appsmarketplaceinfo.cpp:416 core/model/adminrolesmodel.cpp:40
 #: widgets/administratorsettingsdialog/ircfederation/ircfederationwidget.cpp:50
@@ -222,6 +220,165 @@ msgstr "Podpora"
 #, kde-format
 msgid "Privacy Summary"
 msgstr "Povzetek zasebnosti"
+
+#: core/apps/appsmarketplaceinfo.cpp:450
+#: widgets/administratordialog/administratorwidget.cpp:74
+#, kde-format
+msgid "Permissions"
+msgstr "Dovoljenja"
+
+#: core/apps/appsmarketplaceinfo.cpp:573
+#, fuzzy, kde-format
+#| msgid "All messages"
+msgid "Access messages"
+msgstr "Vsa sporočila"
+
+#: core/apps/appsmarketplaceinfo.cpp:575
+#, fuzzy, kde-format
+#| msgctxt "@info:placeholder"
+#| msgid "Search moderation message…"
+msgid "Send and modify messages"
+msgstr "Preišči sporočila moderacije…"
+
+#: core/apps/appsmarketplaceinfo.cpp:577
+#, fuzzy, kde-format
+#| msgid "Account information"
+msgid "Access room information"
+msgstr "Podatki o računu"
+
+#: core/apps/appsmarketplaceinfo.cpp:579
+#, kde-format
+msgid "Create and modify rooms"
+msgstr ""
+
+#: core/apps/appsmarketplaceinfo.cpp:581
+#, kde-format
+msgid "Access to this server network"
+msgstr ""
+
+#: core/apps/appsmarketplaceinfo.cpp:583
+#, fuzzy, kde-format
+#| msgid "Account information"
+msgid "Access user information"
+msgstr "Podatki o računu"
+
+#: core/apps/appsmarketplaceinfo.cpp:585
+#, fuzzy, kde-format
+#| msgid "Account information"
+msgid "Modify user information"
+msgstr "Podatki o računu"
+
+#: core/apps/appsmarketplaceinfo.cpp:587
+#, kde-format
+msgid "Register new slash commands"
+msgstr ""
+
+#: core/apps/appsmarketplaceinfo.cpp:589
+#, kde-format
+msgid "Register and maintain scheduled jobs"
+msgstr ""
+
+#: core/apps/appsmarketplaceinfo.cpp:591
+#, kde-format
+msgid "Register new HTTP endpoints"
+msgstr ""
+
+#: core/apps/appsmarketplaceinfo.cpp:593
+#, kde-format
+msgid "Access settings in this server"
+msgstr ""
+
+#: core/apps/appsmarketplaceinfo.cpp:595
+#, kde-format
+msgid "Modify settings in this server"
+msgstr ""
+
+#: core/apps/appsmarketplaceinfo.cpp:597
+#, kde-format
+msgid "Upload files to this server"
+msgstr ""
+
+#: core/apps/appsmarketplaceinfo.cpp:599
+#, kde-format
+msgid "Access files uploaded to this server"
+msgstr ""
+
+#: core/apps/appsmarketplaceinfo.cpp:601
+#, kde-format
+msgid "Interact with Cloud Services on behalf of this server"
+msgstr ""
+
+#: core/apps/appsmarketplaceinfo.cpp:603
+#, kde-format
+msgid "Access minimal information about this server environment"
+msgstr ""
+
+#: core/apps/appsmarketplaceinfo.cpp:605
+#, kde-format
+msgid "Access to multiple Livechat departments information"
+msgstr ""
+
+#: core/apps/appsmarketplaceinfo.cpp:607
+#, kde-format
+msgid "Access Livechat department information"
+msgstr ""
+
+#: core/apps/appsmarketplaceinfo.cpp:609
+#, kde-format
+msgid "Modify Livechat department information"
+msgstr ""
+
+#: core/apps/appsmarketplaceinfo.cpp:611
+#, kde-format
+msgid "Modify Livechat room information"
+msgstr ""
+
+#: core/apps/appsmarketplaceinfo.cpp:613
+#, fuzzy, kde-format
+#| msgid "Account information"
+msgid "Access Livechat room information"
+msgstr "Podatki o računu"
+
+#: core/apps/appsmarketplaceinfo.cpp:615
+#, kde-format
+msgid "Modify Livechat message information"
+msgstr ""
+
+#: core/apps/appsmarketplaceinfo.cpp:617
+#, kde-format
+msgid "Access Livechat message information"
+msgstr ""
+
+#: core/apps/appsmarketplaceinfo.cpp:619
+#, kde-format
+msgid "Modify Livechat visitor information"
+msgstr ""
+
+#: core/apps/appsmarketplaceinfo.cpp:621
+#, kde-format
+msgid "Access Livechat visitor information"
+msgstr ""
+
+#: core/apps/appsmarketplaceinfo.cpp:623
+#, fuzzy, kde-format
+#| msgid "Account information"
+msgid "Access Livechat status information"
+msgstr "Podatki o računu"
+
+#: core/apps/appsmarketplaceinfo.cpp:625
+#, kde-format
+msgid "Interact with the UI"
+msgstr ""
+
+#: core/apps/appsmarketplaceinfo.cpp:627
+#, kde-format
+msgid "Store internal data in the database"
+msgstr ""
+
+#: core/apps/appsmarketplaceinfo.cpp:629
+#, kde-format
+msgid "Modify Livechat custom field configuration"
+msgstr ""
 
 #: core/bannerinfo/bannerinfo.cpp:47
 #, kde-format
@@ -2577,11 +2734,6 @@ msgstr "Povabila"
 #, kde-format
 msgid "View Log"
 msgstr "Pokaži zapisnik"
-
-#: widgets/administratordialog/administratorwidget.cpp:74
-#, kde-format
-msgid "Permissions"
-msgstr "Dovoljenja"
 
 #: widgets/administratordialog/administratorwidget.cpp:80
 #: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:131
@@ -6987,7 +7139,7 @@ msgid "Username or Email:"
 msgstr "Uporabniško ime ali naslov e-pošte:"
 
 #: widgets/common/authenticationloginwidget.cpp:158
-#: widgets/ruqolamainwindow.cpp:1008
+#: widgets/ruqolamainwindow.cpp:1007
 #, kde-format
 msgid ""
 "We have sent you an email to confirm your registration.\n"
@@ -6997,7 +7149,7 @@ msgstr ""
 "Če ne prejmete e-pošte v kratkem, se vrnite in poskusite znova."
 
 #: widgets/common/authenticationloginwidget.cpp:159
-#: widgets/ruqolamainwindow.cpp:1009
+#: widgets/ruqolamainwindow.cpp:1008
 #, kde-format
 msgctxt "@title:window"
 msgid "Register New User"
@@ -10396,273 +10548,273 @@ msgctxt "@info:shell"
 msgid "Lists the available options for user feedback"
 msgstr "Prikaže seznam razpoložljivih možnosti za uporabnikov odziv"
 
-#: widgets/ruqolamainwindow.cpp:224
+#: widgets/ruqolamainwindow.cpp:223
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Show New Notifications"
 msgstr "Prikaži nova obvestila"
 
-#: widgets/ruqolamainwindow.cpp:226
+#: widgets/ruqolamainwindow.cpp:225
 #, kde-format
 msgid "Show New Notifications"
 msgstr "Prikaži nova obvestila"
 
-#: widgets/ruqolamainwindow.cpp:414
+#: widgets/ruqolamainwindow.cpp:413
 #, kde-format
 msgctxt "@action"
 msgid "Add Server…"
 msgstr "Dodaj strežnik…"
 
-#: widgets/ruqolamainwindow.cpp:419
+#: widgets/ruqolamainwindow.cpp:418
 #, kde-format
 msgctxt "@action"
 msgid "Server Info…"
 msgstr "Informacije o strežniku…"
 
-#: widgets/ruqolamainwindow.cpp:423
+#: widgets/ruqolamainwindow.cpp:422
 #, kde-format
 msgctxt "@action"
 msgid "Logout Current Server"
 msgstr "Odjavi trenutnega strežnika"
 
-#: widgets/ruqolamainwindow.cpp:427
+#: widgets/ruqolamainwindow.cpp:426
 #, kde-format
 msgctxt "@action"
 msgid "Jump to Next Unread Channel"
 msgstr "Skoči na naslednji neprebrani kanal"
 
-#: widgets/ruqolamainwindow.cpp:432
+#: widgets/ruqolamainwindow.cpp:431
 #, kde-format
 msgid "Create New Channel…"
 msgstr "Ustvari nov kanal…"
 
-#: widgets/ruqolamainwindow.cpp:436
+#: widgets/ruqolamainwindow.cpp:435
 #, kde-format
 msgid "Create Direct Messages…"
 msgstr "Ustvari neposredna sporočila…"
 
-#: widgets/ruqolamainwindow.cpp:440
+#: widgets/ruqolamainwindow.cpp:439
 #, kde-format
 msgid "Create Discussion…"
 msgstr "Ustvari razpravo…"
 
-#: widgets/ruqolamainwindow.cpp:444
+#: widgets/ruqolamainwindow.cpp:443
 #, kde-format
 msgid "Create Team…"
 msgstr "Ustvari ekipo…"
 
-#: widgets/ruqolamainwindow.cpp:452
+#: widgets/ruqolamainwindow.cpp:451
 #, kde-format
 msgctxt "@action"
 msgid "Unread on Top"
 msgstr "Neprebrano na vrhu"
 
-#: widgets/ruqolamainwindow.cpp:460
+#: widgets/ruqolamainwindow.cpp:459
 #, kde-format
 msgctxt "@action"
 msgid "By Last Message"
 msgstr "Z zadnjim sporočilom"
 
-#: widgets/ruqolamainwindow.cpp:466
+#: widgets/ruqolamainwindow.cpp:465
 #, kde-format
 msgctxt "@action"
 msgid "Alphabetically"
 msgstr "Po abecednem redu"
 
-#: widgets/ruqolamainwindow.cpp:472
+#: widgets/ruqolamainwindow.cpp:471
 #, kde-format
 msgid "Show Channel Log"
 msgstr "Pokaži zapisnik kanala"
 
-#: widgets/ruqolamainwindow.cpp:476
+#: widgets/ruqolamainwindow.cpp:475
 #, kde-format
 msgid "Show Server Errors"
 msgstr "Pokaži napake strežnika"
 
-#: widgets/ruqolamainwindow.cpp:507
+#: widgets/ruqolamainwindow.cpp:506
 #, kde-format
 msgctxt "@action"
 msgid "Mark All Channels as Read"
 msgstr "Označi vse kanale kot prebrane"
 
-#: widgets/ruqolamainwindow.cpp:512
+#: widgets/ruqolamainwindow.cpp:511
 #, kde-format
 msgctxt "@action"
 msgid "Register a New User…"
 msgstr "Registriraj novega uporabnika…"
 
-#: widgets/ruqolamainwindow.cpp:516
+#: widgets/ruqolamainwindow.cpp:515
 #, kde-format
 msgctxt "@action"
 msgid "My Account…"
 msgstr "Moj račun…"
 
-#: widgets/ruqolamainwindow.cpp:520
+#: widgets/ruqolamainwindow.cpp:519
 #, kde-format
 msgid "administration"
 msgstr "skrbništvo"
 
-#: widgets/ruqolamainwindow.cpp:521
+#: widgets/ruqolamainwindow.cpp:520
 #, kde-format
 msgctxt "@action"
 msgid "Administrator…"
 msgstr "Skrbnik…"
 
-#: widgets/ruqolamainwindow.cpp:527
+#: widgets/ruqolamainwindow.cpp:526
 #, kde-format
 msgctxt "@action"
 msgid "Server Settings…"
 msgstr "Nastavitve strežnika…"
 
-#: widgets/ruqolamainwindow.cpp:534
+#: widgets/ruqolamainwindow.cpp:533
 #, kde-format
 msgctxt "@action"
 msgid "Applications…"
 msgstr "Aplikacije…"
 
-#: widgets/ruqolamainwindow.cpp:539
+#: widgets/ruqolamainwindow.cpp:538
 #, kde-format
 msgctxt "@action"
 msgid "Requested Applications…"
 msgstr "Zahtevane aplikacije…"
 
-#: widgets/ruqolamainwindow.cpp:544
+#: widgets/ruqolamainwindow.cpp:543
 #, kde-format
 msgctxt "@action"
 msgid "Installed Applications…"
 msgstr "Nameščene aplikacije…"
 
-#: widgets/ruqolamainwindow.cpp:549
+#: widgets/ruqolamainwindow.cpp:548
 #, kde-format
 msgctxt "Action which allows to search room"
 msgid "Join Room…"
 msgstr "Pridruži se sobi…"
 
-#: widgets/ruqolamainwindow.cpp:553
+#: widgets/ruqolamainwindow.cpp:552
 #, kde-format
 msgctxt "Action which allows to search team"
 msgid "Join Team…"
 msgstr "Pridružil se ekipi…"
 
-#: widgets/ruqolamainwindow.cpp:557
+#: widgets/ruqolamainwindow.cpp:556
 #, kde-format
 msgctxt "Action which allows to open private conversation (direct user)"
 msgid "Open Private Conversation…"
 msgstr "Odpri zasebni pogovor…"
 
-#: widgets/ruqolamainwindow.cpp:578
+#: widgets/ruqolamainwindow.cpp:577
 #, kde-format
 msgid "&Next Server"
 msgstr "&Naslednji strežnik"
 
-#: widgets/ruqolamainwindow.cpp:583
+#: widgets/ruqolamainwindow.cpp:582
 #, kde-format
 msgid "&Previous Server"
 msgstr "&Prejšnji strežnik"
 
-#: widgets/ruqolamainwindow.cpp:592
+#: widgets/ruqolamainwindow.cpp:591
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Status:"
 msgstr "Stanje:"
 
-#: widgets/ruqolamainwindow.cpp:605
+#: widgets/ruqolamainwindow.cpp:604
 #, kde-format
 msgctxt "@action"
 msgid "Previous Selected Channel"
 msgstr "Prejšnji izbrani kanal"
 
-#: widgets/ruqolamainwindow.cpp:612
+#: widgets/ruqolamainwindow.cpp:611
 #, kde-format
 msgctxt "@action"
 msgid "Next Selected Channel"
 msgstr "Naslednji izbrani kanal"
 
-#: widgets/ruqolamainwindow.cpp:646
+#: widgets/ruqolamainwindow.cpp:645
 #, kde-format
 msgid "Show Notify History"
 msgstr "Prikaži zgodovino obvestil"
 
-#: widgets/ruqolamainwindow.cpp:650
+#: widgets/ruqolamainwindow.cpp:649
 #, kde-format
 msgctxt "@action"
 msgid "Show RocketChat Information"
 msgstr "Prikaži informacijo o RocketChatu"
 
-#: widgets/ruqolamainwindow.cpp:654
+#: widgets/ruqolamainwindow.cpp:653
 #, kde-format
 msgctxt "@action"
 msgid "Show Room Avatar"
 msgstr "Pokaži avatarja sobe"
 
-#: widgets/ruqolamainwindow.cpp:659
+#: widgets/ruqolamainwindow.cpp:658
 #, kde-format
 msgctxt "@action"
 msgid "Show Favorite Room"
 msgstr "Prikaži priljubljeno sobo"
 
-#: widgets/ruqolamainwindow.cpp:668
+#: widgets/ruqolamainwindow.cpp:667
 #, kde-format
 msgid "What's new"
 msgstr "Kaj je novega"
 
-#: widgets/ruqolamainwindow.cpp:672
+#: widgets/ruqolamainwindow.cpp:671
 #, kde-format
 msgid "Import Accounts"
 msgstr "Uvozi račune"
 
-#: widgets/ruqolamainwindow.cpp:676
+#: widgets/ruqolamainwindow.cpp:675
 #, kde-format
 msgid "Export Accounts"
 msgstr "Izvozi račune"
 
-#: widgets/ruqolamainwindow.cpp:693
+#: widgets/ruqolamainwindow.cpp:692
 #, kde-format
 msgctxt "@action"
 msgid "Medium"
 msgstr "Srednje"
 
-#: widgets/ruqolamainwindow.cpp:701
+#: widgets/ruqolamainwindow.cpp:700
 #, kde-format
 msgctxt "@action"
 msgid "Condensed"
 msgstr "Strnjeno"
 
-#: widgets/ruqolamainwindow.cpp:710
+#: widgets/ruqolamainwindow.cpp:709
 #, kde-format
 msgctxt "@action"
 msgid "Extended"
 msgstr "Razširjeno"
 
-#: widgets/ruqolamainwindow.cpp:718
+#: widgets/ruqolamainwindow.cpp:717
 #, kde-format
 msgid "Clear history"
 msgstr "Počisti zgodovino"
 
-#: widgets/ruqolamainwindow.cpp:755
+#: widgets/ruqolamainwindow.cpp:754
 #, kde-format
 msgctxt "@title:window"
 msgid "Create Team"
 msgstr "Ustvari ekipo"
 
-#: widgets/ruqolamainwindow.cpp:917
+#: widgets/ruqolamainwindow.cpp:916
 #, kde-format
 msgid "Impossible to open log."
 msgstr "Ni mogoče odpreti dnevnika."
 
-#: widgets/ruqolamainwindow.cpp:917
+#: widgets/ruqolamainwindow.cpp:916
 #, kde-format
 msgctxt "@title:window"
 msgid "Show Log"
 msgstr "Prikaži dnevnik"
 
-#: widgets/ruqolamainwindow.cpp:1080
+#: widgets/ruqolamainwindow.cpp:1079
 #, kde-format
 msgctxt "@item:inmenu Instant message presence status"
 msgid "Status"
 msgstr "Stanje"
 
-#: widgets/ruqolamainwindow.cpp:1168
+#: widgets/ruqolamainwindow.cpp:1167
 #, kde-format
 msgid ""
 "<qt>This will hide the menu bar completely. You can show it again by typing "
@@ -10671,7 +10823,7 @@ msgstr ""
 "<qt>To bo skrilo v celoti skrilo menijsko vrstico. Lahko jo spet prikažete, "
 "če vtipkate %1.</qt>"
 
-#: widgets/ruqolamainwindow.cpp:1171
+#: widgets/ruqolamainwindow.cpp:1170
 #, kde-format
 msgctxt "@title:window"
 msgid "Hide menu bar"
@@ -11215,6 +11367,12 @@ msgstr "Dodaj pooblaščenca v iskalne sobe v pogovornem oknu ekipe."
 #, kde-format
 msgid "Fix editing message."
 msgstr "Popravi urejanje sporočila"
+
+#: widgets/whatsnew/whatsnewtranslations.cpp:125
+#, fuzzy, kde-format
+#| msgid "Implement Rocket.Chat Marketplace."
+msgid "Show permissions in Rocket.Chat Marketplace."
+msgstr "Izvedi trg Rocket.Chat."
 
 #: widgets/whatsnew/whatsnewwidget.cpp:44
 #, kde-format
