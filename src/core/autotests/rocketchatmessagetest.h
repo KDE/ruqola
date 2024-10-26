@@ -53,8 +53,6 @@ private Q_SLOTS:
     void regenerateCodes2fa();
 
     void deleteOAuthApp();
-    void addOAuthApp();
-    void updateOAuthApp();
 
     void setAdminStatus();
     void openRoom();

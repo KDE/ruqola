@@ -37,17 +37,6 @@ RocketChatMessage::RocketChatMessageResult RocketChatMessage::updateOAuthApp(con
     return generateMethod(QStringLiteral("updateOAuthApp"), QJsonDocument(params), id);
 }
 
-RocketChatMessage::RocketChatMessageResult RocketChatMessage::addOAuthApp(const QString &name, bool active, const QString &redirectUrl, quint64 id)
-{
-    QJsonObject obj{
-        {QStringLiteral("name"), name},
-        {QStringLiteral("active"), active},
-        {QStringLiteral("redirectUri"), redirectUrl},
-    };
-    const QJsonArray params{obj};
-    return generateMethod(QStringLiteral("addOAuthApp"), QJsonDocument(params), id);
-}
-
 RocketChatMessage::RocketChatMessageResult RocketChatMessage::deleteOAuthApp(const QString &appId, quint64 id)
 {
     const QJsonArray params{{appId}};

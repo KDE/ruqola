@@ -138,33 +138,6 @@ void RocketChatMessageTest::deleteOAuthApp()
     compareFile(r.result, QStringLiteral("deleteOAuthApp"));
 }
 
-void RocketChatMessageTest::addOAuthApp()
-{
-    {
-        RocketChatMessage m;
-        m.setJsonFormat(QJsonDocument::Indented);
-        RocketChatMessage::RocketChatMessageResult r = m.addOAuthApp(QStringLiteral("oauthappname"), true, QStringLiteral("url"), 43);
-        compareFile(r.result, QStringLiteral("addOAuthApp"));
-    }
-    {
-        RocketChatMessage m;
-        m.setJsonFormat(QJsonDocument::Indented);
-        RocketChatMessage::RocketChatMessageResult r = m.addOAuthApp(QStringLiteral("oauthappname"), false, QStringLiteral("url"), 43);
-        compareFile(r.result, QStringLiteral("addOAuthApp-disabled"));
-    }
-}
-
-void RocketChatMessageTest::updateOAuthApp()
-{
-    // TODO
-    {
-        RocketChatMessage m;
-        m.setJsonFormat(QJsonDocument::Indented);
-        RocketChatMessage::RocketChatMessageResult r = m.addOAuthApp(QStringLiteral("updateoauthappname"), true, QStringLiteral("url"), 43);
-        compareFile(r.result, QStringLiteral("updateOAuthApp"));
-    }
-}
-
 void RocketChatMessageTest::unBlockUser()
 {
     RocketChatMessage m;
