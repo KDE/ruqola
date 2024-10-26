@@ -19,7 +19,14 @@
 #include <io.h>
 #endif
 
-typedef enum { FORMAT_NONE, FORMAT_HTML, FORMAT_XML, FORMAT_MAN, FORMAT_COMMONMARK, FORMAT_LATEX } writer_format;
+typedef enum {
+    FORMAT_NONE,
+    FORMAT_HTML,
+    FORMAT_XML,
+    FORMAT_MAN,
+    FORMAT_COMMONMARK,
+    FORMAT_LATEX
+} writer_format;
 
 void print_usage(void)
 {

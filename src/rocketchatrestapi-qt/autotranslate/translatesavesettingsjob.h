@@ -17,7 +17,11 @@ public:
     explicit TranslateSaveSettingsJob(QObject *parent = nullptr);
     ~TranslateSaveSettingsJob() override;
 
-    enum SettingType { AutoTranslateSetting, LanguageSetting, Undefined };
+    enum SettingType {
+        AutoTranslateSetting,
+        LanguageSetting,
+        Undefined
+    };
 
     [[nodiscard]] bool start() override;
     [[nodiscard]] bool requireHttpAuthentication() const override;
