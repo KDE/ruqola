@@ -73,11 +73,14 @@ QJsonDocument CreateUpdateUserInfo::json() const
     userInfoObj["sendWelcomeEmail"_L1] = mSendWelcomeEmail;
     userInfoObj["setRandomPassword"_L1] = mSetRandomPassword;
     userInfoObj["verified"_L1] = mVerified;
+    // TODO RC7.0 remove joinDefaultChannels
     userInfoObj["joinDefaultChannels"_L1] = mJoinDefaultChannels;
     if (mTypeInfo == Update) {
         QJsonObject dataObj;
         dataObj["data"_L1] = userInfoObj;
-        dataObj["userId"_L1] = mUserId;
+        if (!mUserId.isEmpty()) {
+            dataObj["userId"_L1] = mUserId;
+        }
         const QJsonDocument postData = QJsonDocument(dataObj);
         return postData;
     }
