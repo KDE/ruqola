@@ -101,7 +101,7 @@ void FileAttachments::setTotal(int total)
     mTotal = total;
 }
 
-QList<File> FileAttachments::fileAttachments() const
+const QList<File> &FileAttachments::fileAttachments() const
 {
     return mFileAttachments;
 }
