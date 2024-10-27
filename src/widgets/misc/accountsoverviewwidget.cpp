@@ -126,6 +126,10 @@ void AccountsOverviewWidget::updateButtons()
             updateTabText();
             updateTabToolTip();
         });
+        connect(account, &RocketChatAccount::ddpLoginStatusChanged, this, [updateTabText, updateTabToolTip]() {
+            updateTabText();
+            updateTabToolTip();
+        });
         connect(account->roomModel(), &RoomModel::needToUpdateNotification, this, [updateTabText, updateTabIcon]() {
             updateTabText();
             updateTabIcon();

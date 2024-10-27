@@ -2712,6 +2712,7 @@ void RocketChatAccount::slotDDpLoginStatusChanged()
     if (!Ruqola::self()->useRestApiLogin()) {
         slotLoginStatusChanged();
     }
+    Q_EMIT ddpLoginStatusChanged();
 }
 
 bool RocketChatAccount::e2EPasswordMustBeDecrypt() const

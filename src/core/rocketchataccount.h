@@ -572,6 +572,7 @@ Q_SIGNALS:
     void twoFactorAuthenticationCodeChanged();
     void serverUrlChanged();
     void loginStatusChanged();
+    void ddpLoginStatusChanged();
     void socketError(QAbstractSocket::SocketError error, const QString &errorString);
     void logoutDone(const QString &accountname);
     void added(const QJsonObject &item);
