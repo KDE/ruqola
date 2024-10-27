@@ -28,48 +28,6 @@ struct UnreadAlert {
     bool alert = false;
 };
 
-[[nodiscard]] QString currentLoginStatusText(RocketChatAccount *account)
-{
-    if (!account->ddp()->isConnected()) {
-        return i18n("Not connected");
-    }
-    switch (account->loginStatus()) {
-    case AuthenticationManager::Connecting:
-        return i18n("Connecting");
-    case AuthenticationManager::LoginOtpAuthOngoing:
-        return i18n("Login OTP code required");
-    case AuthenticationManager::LoginFailedInvalidUserOrPassword:
-        return i18n("Login failed: invalid username or password");
-    case AuthenticationManager::LoginOngoing:
-        return i18n("Logging in");
-    case AuthenticationManager::LoggedIn:
-        return i18n("Logged in");
-    case AuthenticationManager::LoggedOut:
-        return i18n("Logged out");
-    case AuthenticationManager::FailedToLoginPluginProblem:
-        return i18n("Failed to login due to plugin problem");
-    case AuthenticationManager::GenericError:
-        return i18n("Login failed: generic error");
-    case AuthenticationManager::LoginOtpRequired:
-        return i18n("A one-time password is required to complete the login procedure.");
-    case AuthenticationManager::LoginFailedInvalidOtp:
-        return i18n("Login failed: Invalid OTP code.");
-    case AuthenticationManager::LoginFailedUserNotActivated:
-        return i18n("Login failed: User is not activated.");
-    case AuthenticationManager::LoginFailedLoginBlockForIp:
-        return i18n("Login has been temporarily blocked For IP.");
-    case AuthenticationManager::LoginFailedLoginBlockedForUser:
-        return i18n("Login has been temporarily blocked For User.");
-    case AuthenticationManager::LoginFailedLoginAppNotAllowedToLogin:
-        return i18n("App user is not allowed to login.");
-    case AuthenticationManager::LogoutOngoing:
-    case AuthenticationManager::LogoutCleanUpOngoing:
-    case AuthenticationManager::LoggedOutAndCleanedUp:
-        break;
-    }
-    return i18n("Unknown state");
-}
-
 [[nodiscard]] UnreadAlert currentUnreadAlert(RocketChatAccount *account)
 {
     UnreadAlert ua;
@@ -148,7 +106,7 @@ void AccountsOverviewWidget::updateButtons()
         };
         auto updateTabToolTip = [this, i, account]() {
             if (account->accountEnabled())
-                mTabBar->setTabToolTip(i, currentLoginStatusText(account));
+                mTabBar->setTabToolTip(i, account->loginStatusText());
         };
         auto updateTabIcon = [this, i, account]() {
             QIcon icon;

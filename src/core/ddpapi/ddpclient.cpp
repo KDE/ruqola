@@ -783,7 +783,7 @@ void DDPClient::onTextMessageReceived(const QString &message)
         } else if (messageType == "connected"_L1) {
             qCDebug(RUQOLA_DDPAPI_LOG) << mRocketChatAccount->accountName() << " Connected!";
             m_connected = true;
-            Q_EMIT connectedChanged();
+            Q_EMIT connectedChanged(true);
         } else if (messageType == "error"_L1) {
             qWarning() << mRocketChatAccount->accountName() << " ERROR!!" << message;
         } else if (messageType == "ping"_L1) {
@@ -903,7 +903,7 @@ void DDPClient::onWSclosed()
     }
 
     m_connected = false;
-    Q_EMIT connectedChanged();
+    Q_EMIT connectedChanged(false);
 }
 
 void DDPClient::pong()

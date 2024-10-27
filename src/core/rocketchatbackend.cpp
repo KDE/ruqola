@@ -176,27 +176,27 @@ RocketChatBackend::RocketChatBackend(RocketChatAccount *account, QObject *parent
     connect(mRocketChatAccount, &RocketChatAccount::changed, this, &RocketChatBackend::slotChanged);
     connect(mRocketChatAccount, &RocketChatAccount::added, this, &RocketChatBackend::slotAdded);
     connect(mRocketChatAccount, &RocketChatAccount::removed, this, &RocketChatBackend::slotRemoved);
-    connect(mRocketChatAccount, &RocketChatAccount::connectedChanged, this, &RocketChatBackend::slotConnectedChanged);
+    connect(mRocketChatAccount, &RocketChatAccount::ddpConnectedChanged, this, &RocketChatBackend::slotDDPConnectedChanged);
     connect(mRocketChatAccount, &RocketChatAccount::passwordAvailable, this, &RocketChatBackend::tryAutoLogin);
 }
 
 RocketChatBackend::~RocketChatBackend() = default;
 
-// TODO load public info even if we are not connected.
-void RocketChatBackend::slotConnectedChanged()
+void RocketChatBackend::loadServerInfo()
 {
-    auto ddp = mRocketChatAccount->ddp();
-    if (!ddp->isConnected()) {
-        return;
-    }
-
     auto restApi = mRocketChatAccount->restApi();
 
     restApi->serverInfo();
     connect(restApi, &Connection::serverInfoDone, this, &RocketChatBackend::parseServerVersionDone, Qt::UniqueConnection);
     connect(restApi, &Connection::privateInfoDone, this, &RocketChatBackend::slotPrivateInfoDone, Qt::UniqueConnection);
+}
 
-    mRocketChatAccount->loadAccountSettings();
+void RocketChatBackend::slotDDPConnectedChanged(bool connected)
+{
+    if (connected) {
+        // This ends up calling loadPublicSettings() below
+        mRocketChatAccount->loadAccountSettings();
+    }
 }
 
 void RocketChatBackend::loadPublicSettings(qint64 timeStamp)

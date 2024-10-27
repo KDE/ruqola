@@ -250,7 +250,10 @@ public:
     [[nodiscard]] bool sortUnreadOnTop() const;
     [[nodiscard]] OwnUserPreferences::RoomListSortOrder roomListSortOrder() const;
 
-    [[nodiscard]] AuthenticationManager::LoginStatus loginStatus();
+    [[nodiscard]] AuthenticationManager::LoginStatus loginStatus() const;
+    [[nodiscard]] QString loginStatusText() const;
+    [[nodiscard]] QString restLoginStatusText() const;
+    [[nodiscard]] QString ddpLoginStatusText() const;
     Connection *restApi();
 
     [[nodiscard]] Room *room(const QByteArray &roomId) const;
@@ -561,7 +564,7 @@ Q_SIGNALS:
     void totpValid(const QStringList &code);
     void avatarWasChanged(const Utils::AvatarInfo &info);
     void accountInitialized();
-    void connectedChanged();
+    void ddpConnectedChanged(bool connected);
     void accountNameChanged();
     void userNameChanged();
     void userIdChanged();
@@ -629,6 +632,7 @@ Q_SIGNALS:
 private:
     Q_DISABLE_COPY(RocketChatAccount)
 
+    LIBRUQOLACORE_NO_EXPORT void startConnecting();
     LIBRUQOLACORE_NO_EXPORT void slotChannelFilesDone(const QJsonObject &obj, const RocketChatRestApi::ChannelGroupBaseJob::ChannelGroupInfo &channelInfo);
     LIBRUQOLACORE_NO_EXPORT void slotChannelGroupRolesDone(const QJsonObject &obj, const RocketChatRestApi::ChannelGroupBaseJob::ChannelGroupInfo &channelInfo);
     LIBRUQOLACORE_NO_EXPORT void slotGetThreadMessagesDone(const QJsonObject &obj, const QByteArray &threadMessageId);

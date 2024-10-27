@@ -287,6 +287,9 @@ RocketChatAccount::RocketChatAccount(const QString &accountFileName, QObject *pa
     connect(mE2eKeyManager, &E2eKeyManager::verifyKeyDone, this, &RocketChatAccount::slotVerifyKeysDone);
     connect(mMemoryManager, &MemoryManager::clearApplicationSettingsModelRequested, mAppsMarketPlaceModel, &AppsMarketPlaceModel::clear);
     connect(mMemoryManager, &MemoryManager::cleanRoomHistoryRequested, this, &RocketChatAccount::slotCleanRoomHistory);
+
+    // Initiate socket connections, once we're out of Ruqola::self()
+    QMetaObject::invokeMethod(this, &RocketChatAccount::startConnecting, Qt::QueuedConnection);
 }
 
 RocketChatAccount::~RocketChatAccount()
@@ -658,7 +661,7 @@ DDPClient *RocketChatAccount::ddp()
         } else {
             connect(mDdp->authenticationManager(), &DDPAuthenticationManager::loginStatusChanged, this, &RocketChatAccount::slotLoginStatusChanged);
         }
-        connect(mDdp, &DDPClient::connectedChanged, this, &RocketChatAccount::connectedChanged);
+        connect(mDdp, &DDPClient::connectedChanged, this, &RocketChatAccount::ddpConnectedChanged);
         connect(mDdp, &DDPClient::changed, this, &RocketChatAccount::changed);
         connect(mDdp, &DDPClient::added, this, &RocketChatAccount::added);
         connect(mDdp, &DDPClient::removed, this, &RocketChatAccount::removed);
@@ -679,7 +682,7 @@ bool RocketChatAccount::editingMode() const
     return mEditingMode;
 }
 
-AuthenticationManager::LoginStatus RocketChatAccount::loginStatus()
+AuthenticationManager::LoginStatus RocketChatAccount::loginStatus() const
 {
     if (Ruqola::self()->useRestApiLogin()) {
         if (mRestApi) {
@@ -690,10 +693,35 @@ AuthenticationManager::LoginStatus RocketChatAccount::loginStatus()
     } else {
         // TODO: DDP API should exist as soon as the hostname is known
         if (mDdp) {
-            return ddp()->authenticationManager()->loginStatus();
+            return mDdp->authenticationManager()->loginStatus();
         }
     }
     return AuthenticationManager::LoggedOut;
+}
+
+QString RocketChatAccount::loginStatusText() const
+{
+    return i18n("REST: %1\nDDP: %2", restLoginStatusText(), ddpLoginStatusText());
+}
+
+QString RocketChatAccount::restLoginStatusText() const
+{
+    if (mRestApi && mRestApi->authenticationManager()) {
+        return AuthenticationManager::loginStatusToText(mRestApi->authenticationManager()->loginStatus());
+    }
+    return i18n("Not initiated yet");
+}
+
+QString RocketChatAccount::ddpLoginStatusText() const
+{
+    if (mDdp) {
+        if (!mDdp->isConnected())
+            return i18n("Not connected");
+        if (mDdp->authenticationManager()) {
+            return AuthenticationManager::loginStatusToText(mDdp->authenticationManager()->loginStatus());
+        }
+    }
+    return i18n("Not initiated yet");
 }
 
 void RocketChatAccount::tryLogin()
@@ -1121,6 +1149,14 @@ ListMessagesFilterProxyModel *RocketChatAccount::listMessagesFilterProxyModel() 
 ListMessagesModel *RocketChatAccount::listMessageModel() const
 {
     return mListMessageModel;
+}
+
+void RocketChatAccount::startConnecting()
+{
+    // Initiate DDP connection
+    ddp();
+    // Initiate first REST call, once we're out of Ruqola::self()
+    QMetaObject::invokeMethod(mRocketChatBackend, &RocketChatBackend::loadServerInfo, Qt::QueuedConnection);
 }
 
 void RocketChatAccount::slotChannelFilesDone(const QJsonObject &obj, const RocketChatRestApi::ChannelGroupBaseJob::ChannelGroupInfo &channelInfo)

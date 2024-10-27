@@ -200,7 +200,7 @@ public:
     quint64 videoConferenceConfirmed(const QString &roomId, const QString &callId, const QString &userId);
 Q_SIGNALS:
     void connecting();
-    void connectedChanged();
+    void connectedChanged(bool connected);
     void added(const QJsonObject &item);
     void changed(const QJsonObject &item);
     void removed(const QJsonObject &item);

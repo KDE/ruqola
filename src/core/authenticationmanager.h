@@ -103,6 +103,8 @@ public:
 
     [[nodiscard]] PluginAuthentication *findPluginAuthentication(AuthenticationManager::AuthMethodType type);
 
+    [[nodiscard]] static QString loginStatusToText(LoginStatus status);
+
 private:
     explicit AuthenticationManager(QObject *parent = nullptr);
     LIBRUQOLACORE_NO_EXPORT void initializePluginList();

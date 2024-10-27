@@ -23,6 +23,7 @@ public:
     explicit RocketChatBackend(RocketChatAccount *account, QObject *parent = nullptr);
     ~RocketChatBackend() override;
 
+    void loadServerInfo();
     /**
      * @brief Adds incoming message from server to appropriate room
      *
@@ -55,7 +56,7 @@ private:
     LIBRUQOLACORE_NO_EXPORT void slotAdded(const QJsonObject &object);
     LIBRUQOLACORE_NO_EXPORT void slotChanged(const QJsonObject &object);
     LIBRUQOLACORE_NO_EXPORT void slotLoginStatusChanged();
-    LIBRUQOLACORE_NO_EXPORT void slotConnectedChanged();
+    LIBRUQOLACORE_NO_EXPORT void slotDDPConnectedChanged(bool connected);
     LIBRUQOLACORE_NO_EXPORT void parseServerVersionDone(const QString &version);
     LIBRUQOLACORE_NO_EXPORT void tryAutoLogin();
     LIBRUQOLACORE_NO_EXPORT void subscribeRegistration();
