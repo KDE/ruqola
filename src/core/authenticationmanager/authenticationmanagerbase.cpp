@@ -174,7 +174,7 @@ bool AuthenticationManagerBase::logoutAndCleanup(const OwnUser &ownuser)
     }
 
     // Verify if we need more user info.
-    const QString params = sl("[{\"_id\":\"%1\",\"username\":\"%2\"]").arg(QString::fromLatin1(ownuser.userId()), ownuser.userName());
+    const QString params = sl("[{\"_id\":\"%1\",\"username\":\"%2\"}]").arg(QString::fromLatin1(ownuser.userId()), ownuser.userName());
 
     callLoginImpl(Utils::strToJsonArray(params), Method::LogoutCleanUp);
     setLoginStatus(AuthenticationManager::LoginStatus::LogoutOngoing);
