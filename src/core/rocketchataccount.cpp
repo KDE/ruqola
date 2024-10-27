@@ -2699,11 +2699,9 @@ void RocketChatAccount::markRoomAsUnRead(const QByteArray &roomId)
 
 void RocketChatAccount::slotDDpLoginStatusChanged()
 {
-    if (mRestApi && mDdp) {
-        if (mDdp->authenticationManager()->loginStatus() == AuthenticationManager::LoggedOutAndCleanedUp) {
-            mDdp->deleteLater();
-            mDdp = nullptr;
-        }
+    if (mDdp && mDdp->authenticationManager()->loginStatus() == AuthenticationManager::LoggedOutAndCleanedUp) {
+        mDdp->deleteLater();
+        mDdp = nullptr;
     }
     if (!Ruqola::self()->useRestApiLogin()) {
         slotLoginStatusChanged();
@@ -2716,7 +2714,6 @@ void RocketChatAccount::slotDDpLoginStatusChanged()
 
 void RocketChatAccount::slotRESTLoginStatusChanged()
 {
-    // TODO pass the status as parameter to the signal
     if (mRestApi->authenticationManager()->loginStatus() == AuthenticationManager::LoggedOutAndCleanedUp) {
         mRestApi->deleteLater();
         mRestApi = nullptr;
