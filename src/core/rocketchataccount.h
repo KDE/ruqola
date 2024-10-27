@@ -690,6 +690,7 @@ private:
     LIBRUQOLACORE_NO_EXPORT void slotVerifyKeysDone();
     LIBRUQOLACORE_NO_EXPORT void slotCleanRoomHistory();
     LIBRUQOLACORE_NO_EXPORT void slotDDpLoginStatusChanged();
+    LIBRUQOLACORE_NO_EXPORT void slotRESTLoginStatusChanged();
 
     AccountRoomSettings *const mAccountRoomSettings;
 

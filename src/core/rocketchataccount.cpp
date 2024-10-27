@@ -532,7 +532,7 @@ Connection *RocketChatAccount::restApi()
     if (!mRestApi) {
         mRestApi = new Connection(this);
 
-        connect(mRestApi, &Connection::loginStatusChanged, this, &RocketChatAccount::loginStatusChanged);
+        connect(mRestApi, &Connection::loginStatusChanged, this, &RocketChatAccount::slotRESTLoginStatusChanged);
 
         connect(mRestApi, &Connection::channelMembersDone, this, &RocketChatAccount::parseUsersForRooms);
         connect(mRestApi, &Connection::channelFilesDone, this, &RocketChatAccount::slotChannelFilesDone);
@@ -756,9 +756,9 @@ void RocketChatAccount::logOut()
         if (mRestApi) {
             if (!mRestApi->authenticationManager()->logoutAndCleanup(ownUser())) {
                 qCDebug(RUQOLA_RECONNECT_LOG) << "impossible to logout cleanup (restapi): " << accountName();
-            }
-            delete mRestApi;
-            mRestApi = nullptr;
+                delete mRestApi;
+                mRestApi = nullptr;
+            } // in the normal case, a job was launched and mRestApi will be deleted in slotRESTLoginStatusChanged
         }
         delete mDdp;
         mDdp = nullptr;
@@ -2713,6 +2713,16 @@ void RocketChatAccount::slotDDpLoginStatusChanged()
         slotLoginStatusChanged();
     }
     Q_EMIT ddpLoginStatusChanged();
+}
+
+void RocketChatAccount::slotRESTLoginStatusChanged()
+{
+    // TODO pass the status as parameter to the signal
+    if (mRestApi->authenticationManager()->loginStatus() == AuthenticationManager::LoggedOutAndCleanedUp) {
+        mRestApi->deleteLater();
+        mRestApi = nullptr;
+    }
+    Q_EMIT loginStatusChanged();
 }
 
 bool RocketChatAccount::e2EPasswordMustBeDecrypt() const
