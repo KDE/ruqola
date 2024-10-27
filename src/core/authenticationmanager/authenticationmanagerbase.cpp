@@ -157,7 +157,7 @@ void AuthenticationManagerBase::logout()
     setLoginStatus(AuthenticationManager::LoginStatus::LogoutOngoing);
 }
 
-bool AuthenticationManagerBase::logoutAndCleanup()
+bool AuthenticationManagerBase::logoutAndCleanup(const OwnUser &ownuser)
 {
     if (checkGenericError()) {
         return false;
@@ -173,8 +173,8 @@ bool AuthenticationManagerBase::logoutAndCleanup()
         return false;
     }
 
-    // TODO fix parameters! In RC client we use "user"
-    const QString params = sl("[]");
+    // Verify if we need more user info.
+    const QString params = sl("[{\"_id\":\"%1\",\"username\":\"%2\"]").arg(QString::fromLatin1(ownuser.userId()), ownuser.userName());
 
     callLoginImpl(Utils::strToJsonArray(params), Method::LogoutCleanUp);
     setLoginStatus(AuthenticationManager::LoginStatus::LogoutOngoing);

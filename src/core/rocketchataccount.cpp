@@ -754,7 +754,7 @@ void RocketChatAccount::logOut()
     mRoomModel->clear();
     if (Ruqola::self()->useRestApiLogin()) {
         if (mRestApi) {
-            if (!mRestApi->authenticationManager()->logoutAndCleanup()) {
+            if (!mRestApi->authenticationManager()->logoutAndCleanup(ownUser())) {
                 qCDebug(RUQOLA_RECONNECT_LOG) << "impossible to logout cleanup (restapi): " << accountName();
             }
             delete mRestApi;
@@ -764,7 +764,7 @@ void RocketChatAccount::logOut()
         mDdp = nullptr;
     } else {
         if (mDdp) {
-            if (!mDdp->authenticationManager()->logoutAndCleanup()) {
+            if (!mDdp->authenticationManager()->logoutAndCleanup(ownUser())) {
                 qCDebug(RUQOLA_RECONNECT_LOG) << "impossible to logout cleanup (ddp): " << accountName();
             }
             delete mDdp;

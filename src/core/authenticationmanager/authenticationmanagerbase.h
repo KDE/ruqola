@@ -7,6 +7,7 @@
 #pragma once
 #include "authenticationmanager.h"
 #include "libruqolacore_export.h"
+#include "ownuser/ownuser.h"
 #include <QObject>
 
 class LIBRUQOLACORE_EXPORT AuthenticationManagerBase : public QObject
@@ -43,7 +44,7 @@ public:
     [[nodiscard]] bool login();
     [[nodiscard]] bool sendOTP(const QString &otp);
     void logout();
-    [[nodiscard]] bool logoutAndCleanup();
+    [[nodiscard]] bool logoutAndCleanup(const OwnUser &owser);
     [[nodiscard]] bool loginImpl(const QJsonArray &params);
 
     [[nodiscard]] QString convertMethodEnumToString(AuthenticationManagerBase::Method m);
