@@ -234,7 +234,7 @@ RocketChatAccount::RocketChatAccount(const QString &accountFileName, QObject *pa
 
 #if HAVE_SOLID
     connect(Solid::Power::self(), &Solid::Power::resumeFromSuspend, this, [this]() {
-        slotReconnectToServer();
+        reconnectToServer();
         qCDebug(RUQOLA_RECONNECT_LOG) << "RESUME FROM SUSPEND" << accountName();
     });
 #endif
@@ -245,8 +245,8 @@ RocketChatAccount::RocketChatAccount(const QString &accountFileName, QObject *pa
         // was closed. Do not log out to keep the messages visible. Login only if we were logged in at this point.
         if (uni != "/"_L1 && mDdp) {
             qCDebug(RUQOLA_RECONNECT_LOG) << "Logout and reconnect:" << accountName();
+            mAfterLogout = AfterLogout::Reconnect;
             logOut();
-            slotReconnectToServer();
         }
     });
 #endif
@@ -313,7 +313,10 @@ void RocketChatAccount::loadSoundFiles()
 void RocketChatAccount::reconnectToServer()
 {
     qCDebug(RUQOLA_RECONNECT_LOG) << " accountName " << accountName();
-    slotReconnectToServer();
+    // Clear auth token otherwise we can't reconnect.
+    setAuthToken({});
+    ddp();
+    tryLogin();
 }
 
 Room::TeamRoomInfo RocketChatAccount::roomFromTeamId(const QByteArray &teamId) const
@@ -569,9 +572,9 @@ Connection *RocketChatAccount::restApi()
         connect(mRestApi, &Connection::permissionListAllDone, this, &RocketChatAccount::slotPermissionListAllDone);
         connect(mRestApi, &Connection::usersSetPreferencesDone, this, &RocketChatAccount::slotUsersSetPreferencesDone);
         connect(mRestApi, &Connection::networkSessionFailedError, this, [this]() {
-            qCDebug(RUQOLA_RECONNECT_LOG) << "networkSessionFailedError Reconnect and logout : " << accountName();
+            qCDebug(RUQOLA_RECONNECT_LOG) << "networkSessionFailedError - logout and reconnect" << accountName();
+            mAfterLogout = AfterLogout::ReconnectDelayed;
             logOut();
-            slotReconnectToServer();
         });
 
         mRestApi->setServerUrl(mSettings->serverUrl());
@@ -2468,11 +2471,13 @@ void RocketChatAccount::slotUsersPresenceDone(const QJsonObject &obj)
     }
 }
 
-void RocketChatAccount::slotReconnectToDdpServer()
+void RocketChatAccount::slotReconnectToDdpServer() // connected to DDPClient::disconnectedByServer
 {
     if (Ruqola::self()->useRestApiLogin()) {
-        qCDebug(RUQOLA_RECONNECT_LOG) << " Reconnect only ddpclient";
-        mRocketChatBackend->ddpLogin();
+        if (mRestApi && mRestApi->authenticationManager()->isLoggedIn()) {
+            qCDebug(RUQOLA_RECONNECT_LOG) << "Reconnect only ddpclient";
+            mRocketChatBackend->ddpLogin();
+        }
     } else {
         // ddp() creates a new DDPClient object if it doesn't exist.
         ddp()->enqueueLogin();
@@ -2494,7 +2499,7 @@ AppsMarketPlaceModel *RocketChatAccount::appsMarketPlaceModel() const
     return mAppsMarketPlaceModel;
 }
 
-void RocketChatAccount::slotReconnectToServer()
+void RocketChatAccount::autoReconnectDelayed()
 {
     qCDebug(RUQOLA_RECONNECT_LOG) << "starting single shot timer with" << mDelayReconnect << "ms"
                                   << " account name " << accountName();
@@ -2512,7 +2517,7 @@ void RocketChatAccount::slotReconnectToServer()
             mDelayReconnect *= 2;
         }
         Q_EMIT displayReconnectWidget(mDelayReconnect / 1000);
-        tryLogin();
+        reconnectToServer();
     });
 }
 
@@ -2704,6 +2709,9 @@ void RocketChatAccount::slotDDpLoginStatusChanged()
         slotLoginStatusChanged();
     }
     Q_EMIT ddpLoginStatusChanged();
+    if (!mRestApi && !mDdp) {
+        logoutCompleted();
+    }
 }
 
 void RocketChatAccount::slotRESTLoginStatusChanged()
@@ -2714,6 +2722,28 @@ void RocketChatAccount::slotRESTLoginStatusChanged()
         mRestApi = nullptr;
     }
     Q_EMIT loginStatusChanged();
+    if (!mRestApi && !mDdp) {
+        logoutCompleted();
+    }
+}
+
+void RocketChatAccount::logoutCompleted()
+{
+    qCDebug(RUQOLA_RECONNECT_LOG) << "Successfully logged out!";
+    Q_EMIT logoutDone(accountName());
+
+    switch (mAfterLogout) {
+    case AfterLogout::DoNothing:
+        break;
+    case AfterLogout::Reconnect:
+        mAfterLogout = AfterLogout::DoNothing;
+        reconnectToServer();
+        break;
+    case AfterLogout::ReconnectDelayed:
+        mAfterLogout = AfterLogout::DoNothing;
+        autoReconnectDelayed();
+        break;
+    }
 }
 
 bool RocketChatAccount::e2EPasswordMustBeDecrypt() const
@@ -2747,10 +2777,7 @@ void RocketChatAccount::setE2EPasswordMustBeSave(bool newE2EPasswordMustBeSave)
 
 void RocketChatAccount::slotLoginStatusChanged()
 {
-    if (loginStatus() == AuthenticationManager::LoggedOut) {
-        Q_EMIT logoutDone(accountName());
-        qCDebug(RUQOLA_RECONNECT_LOG) << "Successfully logged out!";
-    } else if (loginStatus() == AuthenticationManager::LoggedIn) {
+    if (loginStatus() == AuthenticationManager::LoggedIn) {
         // Reset it.
         mDelayReconnect = 100;
         qCDebug(RUQOLA_RECONNECT_LOG) << "Successfully logged in!";

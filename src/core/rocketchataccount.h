@@ -640,7 +640,7 @@ private:
     LIBRUQOLACORE_NO_EXPORT void slotGetDiscussionsListDone(const QJsonObject &obj, const QByteArray &roomId);
     LIBRUQOLACORE_NO_EXPORT void slotGetSupportedLanguagesDone(const QJsonObject &obj);
     LIBRUQOLACORE_NO_EXPORT void slotUsersPresenceDone(const QJsonObject &obj);
-    LIBRUQOLACORE_NO_EXPORT void slotReconnectToServer();
+    LIBRUQOLACORE_NO_EXPORT void autoReconnectDelayed();
 
     LIBRUQOLACORE_NO_EXPORT void loadEmoji(const QJsonObject &obj);
     LIBRUQOLACORE_NO_EXPORT void slotNeedToUpdateNotification();
@@ -654,6 +654,7 @@ private:
     LIBRUQOLACORE_NO_EXPORT void slotChannelGetCountersDone(const QJsonObject &obj,
                                                             const RocketChatRestApi::ChannelGroupBaseJob::ChannelGroupInfo &channelInfo);
 
+    LIBRUQOLACORE_NO_EXPORT void logoutCompleted();
     LIBRUQOLACORE_NO_EXPORT void getSupportedLanguages();
     LIBRUQOLACORE_NO_EXPORT void usersPresence();
     LIBRUQOLACORE_NO_EXPORT void listEmojiCustom();
@@ -766,4 +767,10 @@ private:
     bool mMarkUnreadThreadsAsReadOnNextReply = false;
     bool mE2EPasswordMustBeSave = false;
     bool mE2EPasswordMustBeDecrypt = false;
+    enum class AfterLogout : uint8_t {
+        DoNothing,
+        Reconnect,
+        ReconnectDelayed
+    };
+    AfterLogout mAfterLogout = AfterLogout::DoNothing;
 };
