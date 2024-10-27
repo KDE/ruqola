@@ -43,8 +43,8 @@ void DDPAuthenticationManager::clientConnectedChangedSlot(bool connected)
         return;
     }
     if (!connected) {
-        // Just disconnected -> whatever state we're in, need to change to LoggedOut
-        setLoginStatus(AuthenticationManager::LoginStatus::LoggedOut);
+        // Just disconnected -> whatever state we're in, need to change to LoggedOutAndCleanedUp
+        setLoginStatus(AuthenticationManager::LoginStatus::LoggedOutAndCleanedUp);
     }
     // Otherwise, we just connected, so technically we are logged out, but calling
     // the above would also disconnect REST, we don't want that.
