@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-10-26 00:40+0000\n"
-"PO-Revision-Date: 2024-10-25 11:49+0200\n"
+"PO-Revision-Date: 2024-10-26 10:38+0200\n"
 "Last-Translator: giovanni <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
 "Language: ia\n"
@@ -226,23 +226,19 @@ msgid "Permissions"
 msgstr "Permissiones"
 
 #: core/apps/appsmarketplaceinfo.cpp:573
-#, fuzzy, kde-format
-#| msgid "All messages"
+#, kde-format
 msgid "Access messages"
-msgstr "Omne messages"
+msgstr "Accede messages"
 
 #: core/apps/appsmarketplaceinfo.cpp:575
-#, fuzzy, kde-format
-#| msgctxt "@info:placeholder"
-#| msgid "Search moderation message…"
+#, kde-format
 msgid "Send and modify messages"
-msgstr "Cerca message de moderation..."
+msgstr "Cerca e modifica messages"
 
 #: core/apps/appsmarketplaceinfo.cpp:577
-#, fuzzy, kde-format
-#| msgid "Account information"
+#, kde-format
 msgid "Access room information"
-msgstr "Information de conto"
+msgstr "Accede information de sala"
 
 #: core/apps/appsmarketplaceinfo.cpp:579
 #, kde-format
@@ -255,16 +251,14 @@ msgid "Access to this server network"
 msgstr ""
 
 #: core/apps/appsmarketplaceinfo.cpp:583
-#, fuzzy, kde-format
-#| msgid "Account information"
+#, kde-format
 msgid "Access user information"
-msgstr "Information de conto"
+msgstr "Accede information de usator"
 
 #: core/apps/appsmarketplaceinfo.cpp:585
-#, fuzzy, kde-format
-#| msgid "Account information"
+#, kde-format
 msgid "Modify user information"
-msgstr "Information de conto"
+msgstr "Modifica information de usator"
 
 #: core/apps/appsmarketplaceinfo.cpp:587
 #, kde-format
@@ -332,10 +326,9 @@ msgid "Modify Livechat room information"
 msgstr ""
 
 #: core/apps/appsmarketplaceinfo.cpp:613
-#, fuzzy, kde-format
-#| msgid "Account information"
+#, kde-format
 msgid "Access Livechat room information"
-msgstr "Information de conto"
+msgstr "Accede information de sala de LiveChat"
 
 #: core/apps/appsmarketplaceinfo.cpp:615
 #, kde-format
@@ -358,10 +351,9 @@ msgid "Access Livechat visitor information"
 msgstr ""
 
 #: core/apps/appsmarketplaceinfo.cpp:623
-#, fuzzy, kde-format
-#| msgid "Account information"
+#, kde-format
 msgid "Access Livechat status information"
-msgstr "Information de conto"
+msgstr "Accede information de stato de LiveChat"
 
 #: core/apps/appsmarketplaceinfo.cpp:625
 #, kde-format

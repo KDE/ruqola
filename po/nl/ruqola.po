@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-10-26 00:40+0000\n"
-"PO-Revision-Date: 2024-10-24 12:33+0200\n"
+"PO-Revision-Date: 2024-10-26 12:08+0200\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
 "Language: nl\n"
@@ -164,19 +164,17 @@ msgstr "De volgende accounts zijn beschikbaar:"
 #: core/apps/appsmarketplaceinfo.cpp:90
 #, kde-format
 msgid "per %1"
-msgstr ""
+msgstr "per %1"
 
 #: core/apps/appsmarketplaceinfo.cpp:149
-#, fuzzy, kde-format
-#| msgctxt "@action"
-#| msgid "This month"
+#, kde-format
 msgid "month"
-msgstr "Deze maand"
+msgstr "maand"
 
 #: core/apps/appsmarketplaceinfo.cpp:151
 #, kde-format
 msgid "year"
-msgstr ""
+msgstr "jaar"
 
 #: core/apps/appsmarketplaceinfo.cpp:416 core/model/adminrolesmodel.cpp:40
 #: widgets/administratorsettingsdialog/ircfederation/ircfederationwidget.cpp:50
@@ -227,157 +225,149 @@ msgid "Permissions"
 msgstr "Toegangsrechten"
 
 #: core/apps/appsmarketplaceinfo.cpp:573
-#, fuzzy, kde-format
-#| msgid "All messages"
+#, kde-format
 msgid "Access messages"
-msgstr "Alle berichten"
+msgstr "Toegang nemen tot berichten"
 
 #: core/apps/appsmarketplaceinfo.cpp:575
-#, fuzzy, kde-format
-#| msgctxt "@info:placeholder"
-#| msgid "Search moderation message…"
+#, kde-format
 msgid "Send and modify messages"
-msgstr "Moderatiebericht zoeken…"
+msgstr "Berichten verzenden en wijzigen"
 
 #: core/apps/appsmarketplaceinfo.cpp:577
-#, fuzzy, kde-format
-#| msgid "Account information"
+#, kde-format
 msgid "Access room information"
-msgstr "Account-informatie"
+msgstr "Toegang nemen tot informatie over room"
 
 #: core/apps/appsmarketplaceinfo.cpp:579
 #, kde-format
 msgid "Create and modify rooms"
-msgstr ""
+msgstr "Rooms aanmaken en wijzigen"
 
 #: core/apps/appsmarketplaceinfo.cpp:581
 #, kde-format
 msgid "Access to this server network"
-msgstr ""
+msgstr "Toegang tot dit servernetwerk"
 
 #: core/apps/appsmarketplaceinfo.cpp:583
-#, fuzzy, kde-format
-#| msgid "Account information"
+#, kde-format
 msgid "Access user information"
-msgstr "Account-informatie"
+msgstr "Toegang nemen tot gebruikersinformatie"
 
 #: core/apps/appsmarketplaceinfo.cpp:585
-#, fuzzy, kde-format
-#| msgid "Account information"
+#, kde-format
 msgid "Modify user information"
-msgstr "Account-informatie"
+msgstr "Gebruikersinformatie wijzigen"
 
 #: core/apps/appsmarketplaceinfo.cpp:587
 #, kde-format
 msgid "Register new slash commands"
-msgstr ""
+msgstr "Registreer nieuwe slash-commando's"
 
 #: core/apps/appsmarketplaceinfo.cpp:589
 #, kde-format
 msgid "Register and maintain scheduled jobs"
-msgstr ""
+msgstr "Registreer en onderhoud geplande taken"
 
 #: core/apps/appsmarketplaceinfo.cpp:591
 #, kde-format
 msgid "Register new HTTP endpoints"
-msgstr ""
+msgstr "Registreer nieuwe HTTP eindpunten"
 
 #: core/apps/appsmarketplaceinfo.cpp:593
 #, kde-format
 msgid "Access settings in this server"
-msgstr ""
+msgstr "Toegang nemen tot instellingen in deze server"
 
 #: core/apps/appsmarketplaceinfo.cpp:595
 #, kde-format
 msgid "Modify settings in this server"
-msgstr ""
+msgstr "Instellingen wijzigen in deze server"
 
 #: core/apps/appsmarketplaceinfo.cpp:597
 #, kde-format
 msgid "Upload files to this server"
-msgstr ""
+msgstr "Bestanden uploaden naar deze server"
 
 #: core/apps/appsmarketplaceinfo.cpp:599
 #, kde-format
 msgid "Access files uploaded to this server"
-msgstr ""
+msgstr "Toegang nemen tot bestanden die naar deze server zijn geüpload"
 
 #: core/apps/appsmarketplaceinfo.cpp:601
 #, kde-format
 msgid "Interact with Cloud Services on behalf of this server"
-msgstr ""
+msgstr "Doe wat met Cloud-services namens deze server"
 
 #: core/apps/appsmarketplaceinfo.cpp:603
 #, kde-format
 msgid "Access minimal information about this server environment"
-msgstr ""
+msgstr "Toegang nemen tot minimale informatie over deze serveromgeving"
 
 #: core/apps/appsmarketplaceinfo.cpp:605
 #, kde-format
 msgid "Access to multiple Livechat departments information"
-msgstr ""
+msgstr "Toegang tot informatie van meerdere Livechat afdelingen"
 
 #: core/apps/appsmarketplaceinfo.cpp:607
 #, kde-format
 msgid "Access Livechat department information"
-msgstr ""
+msgstr "Toegang nemen tot informatie van Livechat afdeling"
 
 #: core/apps/appsmarketplaceinfo.cpp:609
 #, kde-format
 msgid "Modify Livechat department information"
-msgstr ""
+msgstr "Informatie van Livechat afdeling wijzigen"
 
 #: core/apps/appsmarketplaceinfo.cpp:611
 #, kde-format
 msgid "Modify Livechat room information"
-msgstr ""
+msgstr "Livechat room-informatie wijzigen"
 
 #: core/apps/appsmarketplaceinfo.cpp:613
-#, fuzzy, kde-format
-#| msgid "Account information"
+#, kde-format
 msgid "Access Livechat room information"
-msgstr "Account-informatie"
+msgstr "Toegang nemen tot Livechat room-informatie"
 
 #: core/apps/appsmarketplaceinfo.cpp:615
 #, kde-format
 msgid "Modify Livechat message information"
-msgstr ""
+msgstr "Livechat berichten-informatie wijzigen"
 
 #: core/apps/appsmarketplaceinfo.cpp:617
 #, kde-format
 msgid "Access Livechat message information"
-msgstr ""
+msgstr "Toegang nemen tot Livechat berichten-informatie"
 
 #: core/apps/appsmarketplaceinfo.cpp:619
 #, kde-format
 msgid "Modify Livechat visitor information"
-msgstr ""
+msgstr "Livechat bezoekersinformatie wijzigen"
 
 #: core/apps/appsmarketplaceinfo.cpp:621
 #, kde-format
 msgid "Access Livechat visitor information"
-msgstr ""
+msgstr "Toegang nemen tot Livechat bezoekersinformatie"
 
 #: core/apps/appsmarketplaceinfo.cpp:623
-#, fuzzy, kde-format
-#| msgid "Account information"
+#, kde-format
 msgid "Access Livechat status information"
-msgstr "Account-informatie"
+msgstr "Toegang nemen tot Livechat statusinformatie"
 
 #: core/apps/appsmarketplaceinfo.cpp:625
 #, kde-format
 msgid "Interact with the UI"
-msgstr ""
+msgstr "Doe wat met de UI"
 
 #: core/apps/appsmarketplaceinfo.cpp:627
 #, kde-format
 msgid "Store internal data in the database"
-msgstr ""
+msgstr "Interne gegevens in de database opslaan"
 
 #: core/apps/appsmarketplaceinfo.cpp:629
 #, kde-format
 msgid "Modify Livechat custom field configuration"
-msgstr ""
+msgstr "Livechat aangepast veldconfiguratie wijzigen"
 
 #: core/bannerinfo/bannerinfo.cpp:47
 #, kde-format
@@ -11392,10 +11382,9 @@ msgid "Fix editing message."
 msgstr "Bewerken van bericht repareren."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:125
-#, fuzzy, kde-format
-#| msgid "Implement Rocket.Chat Marketplace."
+#, kde-format
 msgid "Show permissions in Rocket.Chat Marketplace."
-msgstr "Marktplein van Rocket.Chat implementeren."
+msgstr "Rechten van Marktplein van Rocket.Chat tonen."
 
 #: widgets/whatsnew/whatsnewwidget.cpp:44
 #, kde-format

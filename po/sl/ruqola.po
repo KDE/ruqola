@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-10-26 00:40+0000\n"
-"PO-Revision-Date: 2024-10-25 09:11+0200\n"
+"PO-Revision-Date: 2024-10-26 08:24+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
@@ -228,157 +228,149 @@ msgid "Permissions"
 msgstr "Dovoljenja"
 
 #: core/apps/appsmarketplaceinfo.cpp:573
-#, fuzzy, kde-format
-#| msgid "All messages"
+#, kde-format
 msgid "Access messages"
-msgstr "Vsa sporočila"
+msgstr "Dostop do sporočil"
 
 #: core/apps/appsmarketplaceinfo.cpp:575
-#, fuzzy, kde-format
-#| msgctxt "@info:placeholder"
-#| msgid "Search moderation message…"
+#, kde-format
 msgid "Send and modify messages"
-msgstr "Preišči sporočila moderacije…"
+msgstr "Pošiljaj in spreminjaj sporočila"
 
 #: core/apps/appsmarketplaceinfo.cpp:577
-#, fuzzy, kde-format
-#| msgid "Account information"
+#, kde-format
 msgid "Access room information"
-msgstr "Podatki o računu"
+msgstr "Dostop do informacij o sobi"
 
 #: core/apps/appsmarketplaceinfo.cpp:579
 #, kde-format
 msgid "Create and modify rooms"
-msgstr ""
+msgstr "Ustvari in spremeni sobe"
 
 #: core/apps/appsmarketplaceinfo.cpp:581
 #, kde-format
 msgid "Access to this server network"
-msgstr ""
+msgstr "Dostop do omrežja strežnikov"
 
 #: core/apps/appsmarketplaceinfo.cpp:583
-#, fuzzy, kde-format
-#| msgid "Account information"
+#, kde-format
 msgid "Access user information"
-msgstr "Podatki o računu"
+msgstr "Dostop do informacij o uporabniku"
 
 #: core/apps/appsmarketplaceinfo.cpp:585
-#, fuzzy, kde-format
-#| msgid "Account information"
+#, kde-format
 msgid "Modify user information"
-msgstr "Podatki o računu"
+msgstr "Spremeni informacije o uporabniku"
 
 #: core/apps/appsmarketplaceinfo.cpp:587
 #, kde-format
 msgid "Register new slash commands"
-msgstr ""
+msgstr "Registriraj nove ukaze s poševnico"
 
 #: core/apps/appsmarketplaceinfo.cpp:589
 #, kde-format
 msgid "Register and maintain scheduled jobs"
-msgstr ""
+msgstr "Registriraj in vzdržuj načrtovana dela"
 
 #: core/apps/appsmarketplaceinfo.cpp:591
 #, kde-format
 msgid "Register new HTTP endpoints"
-msgstr ""
+msgstr "Registriraj nove končne točke HTTP"
 
 #: core/apps/appsmarketplaceinfo.cpp:593
 #, kde-format
 msgid "Access settings in this server"
-msgstr ""
+msgstr "Dostop do nastavitev na tem strežniku"
 
 #: core/apps/appsmarketplaceinfo.cpp:595
 #, kde-format
 msgid "Modify settings in this server"
-msgstr ""
+msgstr "Spremeni nastavitve na tem strežniku"
 
 #: core/apps/appsmarketplaceinfo.cpp:597
 #, kde-format
 msgid "Upload files to this server"
-msgstr ""
+msgstr "Prenesi datoteke na ta strežnik"
 
 #: core/apps/appsmarketplaceinfo.cpp:599
 #, kde-format
 msgid "Access files uploaded to this server"
-msgstr ""
+msgstr "Dostop do datotek, prenesenih na ta strežnik"
 
 #: core/apps/appsmarketplaceinfo.cpp:601
 #, kde-format
 msgid "Interact with Cloud Services on behalf of this server"
-msgstr ""
+msgstr "Interakcija s storitvami v oblaku v imenu tega strežnika"
 
 #: core/apps/appsmarketplaceinfo.cpp:603
 #, kde-format
 msgid "Access minimal information about this server environment"
-msgstr ""
+msgstr "Dostop do minimalnih informacij o tem strežniškem okolju"
 
 #: core/apps/appsmarketplaceinfo.cpp:605
 #, kde-format
 msgid "Access to multiple Livechat departments information"
-msgstr ""
+msgstr "Dostop do več informacij o oddelkih LiveChat"
 
 #: core/apps/appsmarketplaceinfo.cpp:607
 #, kde-format
 msgid "Access Livechat department information"
-msgstr ""
+msgstr "Dostop do informacij oddelka LiveChat"
 
 #: core/apps/appsmarketplaceinfo.cpp:609
 #, kde-format
 msgid "Modify Livechat department information"
-msgstr ""
+msgstr "Spremeni podatke oddelka LiveChat"
 
 #: core/apps/appsmarketplaceinfo.cpp:611
 #, kde-format
 msgid "Modify Livechat room information"
-msgstr ""
+msgstr "Spremeni podatke sobe LiveChat"
 
 #: core/apps/appsmarketplaceinfo.cpp:613
-#, fuzzy, kde-format
-#| msgid "Account information"
+#, kde-format
 msgid "Access Livechat room information"
-msgstr "Podatki o računu"
+msgstr "Dostop do informacij o sobi LiveChat"
 
 #: core/apps/appsmarketplaceinfo.cpp:615
 #, kde-format
 msgid "Modify Livechat message information"
-msgstr ""
+msgstr "Spremeni informacije o sporočilu LiveChat"
 
 #: core/apps/appsmarketplaceinfo.cpp:617
 #, kde-format
 msgid "Access Livechat message information"
-msgstr ""
+msgstr "Dostop do informacij o sporočilih LiveChat"
 
 #: core/apps/appsmarketplaceinfo.cpp:619
 #, kde-format
 msgid "Modify Livechat visitor information"
-msgstr ""
+msgstr "Spremeni podatke o obiskovalcu Livechata"
 
 #: core/apps/appsmarketplaceinfo.cpp:621
 #, kde-format
 msgid "Access Livechat visitor information"
-msgstr ""
+msgstr "Dostop do informacij o obiskovalcu LiveChat"
 
 #: core/apps/appsmarketplaceinfo.cpp:623
-#, fuzzy, kde-format
-#| msgid "Account information"
+#, kde-format
 msgid "Access Livechat status information"
-msgstr "Podatki o računu"
+msgstr "Dostop do informacij o stanju Livechat"
 
 #: core/apps/appsmarketplaceinfo.cpp:625
 #, kde-format
 msgid "Interact with the UI"
-msgstr ""
+msgstr "Interakcija z uporabniškim vmesnikom"
 
 #: core/apps/appsmarketplaceinfo.cpp:627
 #, kde-format
 msgid "Store internal data in the database"
-msgstr ""
+msgstr "Shrani interne podatke v podatkovno bazo"
 
 #: core/apps/appsmarketplaceinfo.cpp:629
 #, kde-format
 msgid "Modify Livechat custom field configuration"
-msgstr ""
+msgstr "Spremeni konfiguracijo polja po meri LiveChat"
 
 #: core/bannerinfo/bannerinfo.cpp:47
 #, kde-format
@@ -11366,13 +11358,12 @@ msgstr "Dodaj pooblaščenca v iskalne sobe v pogovornem oknu ekipe."
 #: widgets/whatsnew/whatsnewtranslations.cpp:124
 #, kde-format
 msgid "Fix editing message."
-msgstr "Popravi urejanje sporočila"
+msgstr "Popravi urejanje sporočila."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:125
-#, fuzzy, kde-format
-#| msgid "Implement Rocket.Chat Marketplace."
+#, kde-format
 msgid "Show permissions in Rocket.Chat Marketplace."
-msgstr "Izvedi trg Rocket.Chat."
+msgstr "Prikaži dovoljenja v Rocket.Chat Marketplace."
 
 #: widgets/whatsnew/whatsnewwidget.cpp:44
 #, kde-format
