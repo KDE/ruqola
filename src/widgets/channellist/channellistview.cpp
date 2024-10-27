@@ -115,7 +115,7 @@ void ChannelListView::contextMenuEvent(QContextMenuEvent *event)
     const auto roomType = index.data(RoomModel::RoomType).value<Room::RoomType>();
 
     const bool isUnRead = index.data(RoomModel::RoomAlert).toBool();
-    const QString actionMarkAsText = isUnRead ? i18nc("@action", "Mark As Read") : i18nc("@action", "Mark As Unread");
+    const QString actionMarkAsText = isUnRead ? i18nc("@action", "Mark as Read") : i18nc("@action", "Mark as Unread");
     auto markAsChannel = new QAction(QIcon::fromTheme(QStringLiteral("checkmark-symbolic")), actionMarkAsText, &menu);
     connect(markAsChannel, &QAction::triggered, this, [this, index, isUnRead]() {
         if (index.isValid()) {
