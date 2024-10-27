@@ -501,7 +501,8 @@ void RestApiAbstractJob::genericResponseHandler(void (RestApiAbstractJob::*respo
         (this->*responseHandler)(QString(), convertToJsonDocument(mReply));
     }
 
-    mReply->deleteLater();
+    if (mReply)
+        mReply->deleteLater();
     deleteLater();
 }
 
