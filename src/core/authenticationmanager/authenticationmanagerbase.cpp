@@ -276,10 +276,6 @@ void AuthenticationManagerBase::processMethodResponseImpl(const QJsonObject &res
         if (response.contains("error"_L1)) {
             const QJsonValue errorCode = response["error"_L1].toObject()[sl("error")];
             qCWarning(RUQOLA_AUTHENTICATION_LOG) << "Couldn't clean up on logout. Server response:" << response << " error code " << errorCode;
-            // If we get here we're likely getting something wrong from the UI.
-            // Need to prevent any further operation from now on.
-            setLoginStatus(AuthenticationManager::GenericError);
-            return;
         }
 
         setLoginStatus(AuthenticationManager::LoggedOutAndCleanedUp);
