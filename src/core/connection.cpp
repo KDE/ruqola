@@ -223,7 +223,7 @@ void Connection::slotResult(QNetworkReply *reply)
     const auto error = reply->error();
     if (error != QNetworkReply::NoError) {
         const auto jobClassName = reply->property("jobClassName").value<QByteArray>();
-        qCWarning(RUQOLA_LOG) << jobClassName << "error reply: " << reply->errorString();
+        qCWarning(RUQOLA_LOG) << jobClassName << "error reply: " << reply->errorString() << " ERROR type " << error;
 
         if (error == QNetworkReply::NetworkSessionFailedError && !mSessionFailed) {
             mSessionFailed = true;
