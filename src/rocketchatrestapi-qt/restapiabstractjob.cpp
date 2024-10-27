@@ -485,8 +485,9 @@ void RestApiAbstractJob::genericResponseHandler(void (RestApiAbstractJob::*respo
         return;
     }
 
-    if (mReply->error() != QNetworkReply::NoError) {
-        if (mReply->error() == QNetworkReply::NetworkSessionFailedError) {
+    const auto error = mReply->error();
+    if (error != QNetworkReply::NoError) {
+        if (error == QNetworkReply::NetworkSessionFailedError) {
             // Ignore NetworkSessionFailedError. It will be handled in Connection class.
             // no deleting, we will be trying to destroy everything and relogin
             // reply will be invalid at this point, deleting it will crash us
