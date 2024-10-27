@@ -34,7 +34,7 @@ void DDPAuthenticationManager::callLoginImpl(const QJsonArray &params, Authentic
     ddpClient()->invokeMethodAndRegister(methodName, params, this, static_cast<int>(method));
 }
 
-void DDPAuthenticationManager::clientConnectedChangedSlot()
+void DDPAuthenticationManager::clientConnectedChangedSlot(bool connected)
 {
     if (mLoginStatus == AuthenticationManager::FailedToLoginPluginProblem) {
         return;
@@ -42,9 +42,12 @@ void DDPAuthenticationManager::clientConnectedChangedSlot()
     if (checkGenericError()) {
         return;
     }
-    // Just connected -> not logged in yet -> state = LoggedOut
-    // Just disconnected -> whatever state we're in, need to change to LoggedOut
-    setLoginStatus(AuthenticationManager::LoginStatus::LoggedOut);
+    if (!connected) {
+        // Just disconnected -> whatever state we're in, need to change to LoggedOut
+        setLoginStatus(AuthenticationManager::LoginStatus::LoggedOut);
+    }
+    // Otherwise, we just connected, so technically we are logged out, but calling
+    // the above would also disconnect REST, we don't want that.
 }
 
 #include "moc_ddpauthenticationmanager.cpp"

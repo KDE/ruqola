@@ -34,5 +34,5 @@ private:
         Q_UNUSED(result)
     }
 
-    LIBRUQOLACORE_NO_EXPORT void clientConnectedChangedSlot();
+    LIBRUQOLACORE_NO_EXPORT void clientConnectedChangedSlot(bool connected);
 };
