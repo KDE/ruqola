@@ -752,26 +752,19 @@ void RocketChatAccount::logOut()
     qCDebug(RUQOLA_RECONNECT_LOG) << "logout " << mSettings->userName() << "on" << mSettings->serverUrl();
     mSettings->logout();
     mRoomModel->clear();
-    if (Ruqola::self()->useRestApiLogin()) {
-        if (mRestApi) {
-            if (!mRestApi->authenticationManager()->logoutAndCleanup(ownUser())) {
-                qCDebug(RUQOLA_RECONNECT_LOG) << "impossible to logout cleanup (restapi): " << accountName();
-                delete mRestApi;
-                mRestApi = nullptr;
-            } // in the normal case, a job was launched and mRestApi will be deleted in slotRESTLoginStatusChanged
-        }
-        delete mDdp;
-        mDdp = nullptr;
-    } else {
-        if (mDdp) {
-            if (!mDdp->authenticationManager()->logoutAndCleanup(ownUser())) {
-                qCDebug(RUQOLA_RECONNECT_LOG) << "impossible to logout cleanup (ddp): " << accountName();
-            }
+    if (mRestApi) {
+        if (!mRestApi->authenticationManager()->logoutAndCleanup(ownUser())) {
+            qCDebug(RUQOLA_RECONNECT_LOG) << "impossible to logout cleanup (restapi): " << accountName();
+            delete mRestApi;
+            mRestApi = nullptr;
+        } // in the normal case, a job was launched and mRestApi will be deleted in slotRESTLoginStatusChanged
+    }
+    if (mDdp) {
+        if (!mDdp->authenticationManager()->logoutAndCleanup(ownUser())) {
+            qCDebug(RUQOLA_RECONNECT_LOG) << "impossible to logout cleanup (ddp): " << accountName();
             delete mDdp;
             mDdp = nullptr;
         }
-        delete mRestApi;
-        mRestApi = nullptr;
     }
 }
 
@@ -2702,11 +2695,9 @@ void RocketChatAccount::markRoomAsUnRead(const QByteArray &roomId)
 void RocketChatAccount::slotDDpLoginStatusChanged()
 {
     if (mRestApi && mDdp) {
-        if (mDdp->authenticationManager()->loginStatus() == AuthenticationManager::LoggedOut) {
-            // qDebug() << " CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC login rest" <<
-            // mRestApi->authenticationManager()->loginStatus(); qDebug() << " CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC login ddp"
-            // << mDdp->authenticationManager()->loginStatus();
-            mRestApi->authenticationManager()->setLoginStatus(mDdp->authenticationManager()->loginStatus());
+        if (mDdp->authenticationManager()->loginStatus() == AuthenticationManager::LoggedOutAndCleanedUp) {
+            mDdp->deleteLater();
+            mDdp = nullptr;
         }
     }
     if (!Ruqola::self()->useRestApiLogin()) {
