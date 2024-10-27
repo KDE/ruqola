@@ -38,27 +38,32 @@ void MessageLineWidgetTest::shouldHaveDefaultValues()
     QVERIFY(mSendFileButton);
     QVERIFY(!mSendFileButton->icon().isNull());
     QVERIFY(mSendFileButton->autoRaise());
+    QVERIFY(!mSendFileButton->toolTip().isEmpty());
 
     auto mEmoticonButton = w.findChild<QToolButton *>(QStringLiteral("mEmoticonButton"));
     QVERIFY(mEmoticonButton);
     QVERIFY(!mEmoticonButton->icon().isNull());
     QCOMPARE(mEmoticonButton->popupMode(), QToolButton::InstantPopup);
     QVERIFY(mEmoticonButton->autoRaise());
+    QVERIFY(!mEmoticonButton->toolTip().isEmpty());
 
     auto mSendMessageButton = w.findChild<QToolButton *>(QStringLiteral("mSendMessageButton"));
     QVERIFY(mSendMessageButton);
     QVERIFY(!mSendMessageButton->icon().isNull());
     QVERIFY(mSendMessageButton->autoRaise());
+    QVERIFY(!mSendMessageButton->toolTip().isEmpty());
 
     auto mVideoMessageButton = w.findChild<QToolButton *>(QStringLiteral("mVideoMessageButton"));
     QVERIFY(mVideoMessageButton);
     QVERIFY(!mVideoMessageButton->icon().isNull());
     QVERIFY(mVideoMessageButton->autoRaise());
+    QVERIFY(!mVideoMessageButton->toolTip().isEmpty());
 
     auto mSoundMessageButton = w.findChild<QToolButton *>(QStringLiteral("mSoundMessageButton"));
     QVERIFY(mSoundMessageButton);
     QVERIFY(!mSoundMessageButton->icon().isNull());
     QVERIFY(mSoundMessageButton->autoRaise());
+    QVERIFY(!mSoundMessageButton->toolTip().isEmpty());
 
     QVERIFY(w.roomId().isEmpty());
     QVERIFY(w.messageIdBeingEdited().isEmpty());
@@ -66,7 +71,5 @@ void MessageLineWidgetTest::shouldHaveDefaultValues()
     QVERIFY(w.quoteText().isEmpty());
     QVERIFY(w.quotePermalink().isEmpty());
 }
-
-// TODO test signal/slot
 
 #include "moc_messagelinewidgettest.cpp"

@@ -59,6 +59,7 @@ MessageLineWidget::MessageLineWidget(QWidget *parent)
 
     mSendFileButton->setAutoRaise(true);
     mSendFileButton->setObjectName(QStringLiteral("mSendFileButton"));
+    mSendFileButton->setToolTip(i18nc("@info:tooltip", "Attach a file…"));
     mainLayout->addWidget(mSendFileButton);
 #ifndef QT_NO_ACCESSIBILITY
     mSendFileButton->setAccessibleName(i18n("Attach File"));
@@ -69,6 +70,7 @@ MessageLineWidget::MessageLineWidget(QWidget *parent)
 
     mVideoMessageButton->setAutoRaise(true);
     mVideoMessageButton->setObjectName(QStringLiteral("mVideoMessageButton"));
+    mVideoMessageButton->setToolTip(i18nc("@info:tooltip", "Send a video message…"));
 #ifndef QT_NO_ACCESSIBILITY
     mVideoMessageButton->setAccessibleName(i18n("Video Message"));
 #endif
@@ -85,12 +87,14 @@ MessageLineWidget::MessageLineWidget(QWidget *parent)
 
     mainLayout->addWidget(mSoundMessageButton);
     mSoundMessageButton->setIcon(QIcon::fromTheme(QStringLiteral("audio-input-microphone")));
+    mSoundMessageButton->setToolTip(i18nc("@info:tooltip", "Send a sound message…"));
     connect(mSoundMessageButton, &QToolButton::clicked, this, &MessageLineWidget::slotSendSoundMessage);
 
     mEmoticonButton->setAutoRaise(true);
     mEmoticonButton->setObjectName(QStringLiteral("mEmoticonButton"));
     mEmoticonButton->setIcon(QIcon::fromTheme(QStringLiteral("smiley-add")));
     mEmoticonButton->setPopupMode(QToolButton::InstantPopup);
+    mEmoticonButton->setToolTip(i18nc("@info:tooltip", "Add emoticon…"));
 #ifndef QT_NO_ACCESSIBILITY
     mEmoticonButton->setAccessibleName(i18n("Add Emoticon"));
 #endif
@@ -99,6 +103,7 @@ MessageLineWidget::MessageLineWidget(QWidget *parent)
     mSendMessageButton->setAutoRaise(true);
     mSendMessageButton->setObjectName(QStringLiteral("mSendMessageButton"));
     mSendMessageButton->setIcon(QIcon::fromTheme(QStringLiteral("mail-sent")));
+    mSendMessageButton->setToolTip(i18nc("@info:tooltip", "Send message"));
 #ifndef QT_NO_ACCESSIBILITY
     mSendMessageButton->setAccessibleName(i18n("Send Message"));
 #endif
