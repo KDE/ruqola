@@ -196,6 +196,7 @@ void RocketChatBackend::slotDDPConnectedChanged(bool connected)
     if (connected) {
         // This ends up calling loadPublicSettings() below
         mRocketChatAccount->loadAccountSettings();
+        ddpLogin();
     }
 }
 
@@ -366,7 +367,7 @@ void RocketChatBackend::processIncomingMessages(const QJsonArray &messages, bool
     }
 }
 
-void RocketChatBackend::connectDdpClient()
+void RocketChatBackend::ddpLogin()
 {
     auto restApi = mRocketChatAccount->restApi();
     auto ddp = mRocketChatAccount->ddp();
@@ -393,7 +394,9 @@ void RocketChatBackend::slotLoginStatusChanged()
             restApi->setAuthToken(restApi->authenticationManager()->authToken());
             restApi->setUserId(restApi->authenticationManager()->userId());
 
-            connectDdpClient();
+            if (mRocketChatAccount->ddp()->isConnected()) {
+                ddpLogin();
+            }
         } else {
             // Now that we are logged in the ddp authentication manager has all the information we need
             mRocketChatAccount->settings()->setAuthToken(mRocketChatAccount->ddp()->authenticationManager()->authToken());

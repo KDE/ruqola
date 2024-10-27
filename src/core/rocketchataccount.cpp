@@ -2479,7 +2479,7 @@ void RocketChatAccount::slotReconnectToDdpServer()
 {
     if (Ruqola::self()->useRestApiLogin()) {
         qCDebug(RUQOLA_RECONNECT_LOG) << " Reconnect only ddpclient";
-        mRocketChatBackend->connectDdpClient();
+        mRocketChatBackend->ddpLogin();
     } else {
         // ddp() creates a new DDPClient object if it doesn't exist.
         ddp()->enqueueLogin();

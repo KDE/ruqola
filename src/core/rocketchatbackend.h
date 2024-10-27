@@ -45,7 +45,7 @@ public:
     void removeMessageFromLocalDatabase(const QList<QByteArray> &messageIds, const QByteArray &roomId);
 
     void loadPublicSettings(qint64 timeStamp = -1);
-    void connectDdpClient();
+    void ddpLogin();
 
     void loadPermissionsAdministrator(qint64 timeStamp = -1);
 
