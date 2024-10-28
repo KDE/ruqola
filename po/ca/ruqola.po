@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-10-25 02:32+0000\n"
-"PO-Revision-Date: 2024-10-09 10:24+0200\n"
+"PO-Revision-Date: 2024-10-27 19:00+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca\n"
@@ -19,7 +19,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Accelerator-Marker: &\n"
-"X-Generator: Lokalize 24.08.1\n"
+"X-Generator: Lokalize 24.08.2\n"
 
 #: apps/main.cpp:61
 #, kde-format
@@ -6580,7 +6580,7 @@ msgstr "Demana una aplicació"
 msgctxt "@label:textbox"
 msgid "Let your admin know why this app would be useful"
 msgstr ""
-"Permetre que el vostre administrador sàpiga perquè aquesta aplicació seria "
+"Permetre que el vostre administrador sàpiga per què aquesta aplicació seria "
 "útil"
 
 #: widgets/applicationssettingsdialog/applicationssettingsaskapplicationwidget.cpp:35
@@ -7032,7 +7032,7 @@ msgstr "Mostra l'URL de la vista prèvia de manera predeterminada"
 #, kde-format
 msgctxt "@option:check"
 msgid "Mark room as read when clicking to write a reply"
-msgstr "Mostra la sala com a llegida en fer clic a escriu una resposta"
+msgstr "Mostra la sala com a llegida en fer clic a «escriu una resposta»"
 
 #: widgets/configuredialog/configuregeneralwidget.cpp:19
 #, kde-format
@@ -7868,7 +7868,7 @@ msgstr "Informa d'un usuari"
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Why do you want to report?"
-msgstr "Perquè voleu informar?"
+msgstr "Per què voleu informar?"
 
 #: widgets/dialogs/resetpassworddialog.cpp:18
 #, kde-format
@@ -8295,7 +8295,7 @@ msgstr "Desencripta la clau d'encriptatge"
 #: widgets/encryption/e2edecodeencryptionkeywidget.cpp:17
 #, kde-format
 msgid "Click here to enter your e2e password."
-msgstr "Feu clic aquí per a introduir la votra contrasenya «e2e»."
+msgstr "Feu clic aquí per a introduir la vostra contrasenya «e2e»."
 
 #: widgets/encryption/e2edecodeencryptionkeywidget.cpp:19
 #, kde-format
