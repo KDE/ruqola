@@ -584,7 +584,6 @@ Q_SIGNALS:
     void missingChannelPassword(const RocketChatRestApi::ChannelGroupBaseJob::ChannelGroupInfo &channelInfo);
     void editingModeChanged();
     void jobFailed(const QString &message, const QString &accountName);
-    void switchedRooms();
     void userStatusUpdated(User::PresenceStatus status, const QString &customText, const QString &accountName);
     void publicSettingChanged();
     void serverVersionChanged();

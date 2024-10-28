@@ -2336,7 +2336,6 @@ void RocketChatAccount::checkInitializedRoom(const QByteArray &roomId)
         qWarning() << " Room " << roomId << " was no found! Need to open it";
         // openDirectChannel(roomId);
     }
-    QMetaObject::invokeMethod(this, &RocketChatAccount::switchedRooms, Qt::QueuedConnection);
 }
 
 void RocketChatAccount::openDocumentation()
