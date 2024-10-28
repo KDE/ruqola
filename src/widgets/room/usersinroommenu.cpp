@@ -61,6 +61,11 @@ void UsersInRoomMenu::slotReportUser()
     }
 }
 
+void UsersInRoomMenu::slotMuteUser()
+{
+    // TODO
+}
+
 void UsersInRoomMenu::slotIgnoreUser()
 {
     const bool userIsIgnored = mRoom->userIsIgnored(mUserId);
@@ -171,6 +176,13 @@ void UsersInRoomMenu::slotCustomContextMenuRequested(const QPoint &pos)
             connect(ignoreAction, &QAction::triggered, this, &UsersInRoomMenu::slotIgnoreUser);
             menu.addAction(ignoreAction);
         }
+        /*
+        // TODO add Mute/Unmute
+        auto muteAction = new QAction(userIsBlocked ? i18nc("@action", "Unmute User") : i18nc("@action", "Mute User"), &menu);
+        connect(muteAction, &QAction::triggered, this, &UsersInRoomMenu::slotMuteUser);
+        menu.addAction(muteAction);
+        */
+
         menu.addSeparator();
         auto reportUserAction = new QAction(i18nc("@action", "Report User"), &menu);
         connect(reportUserAction, &QAction::triggered, this, &UsersInRoomMenu::slotReportUser);
