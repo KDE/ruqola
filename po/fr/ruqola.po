@@ -5,8 +5,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-10-26 00:40+0000\n"
-"PO-Revision-Date: 2024-10-25 08:01+0200\n"
+"POT-Creation-Date: 2024-10-28 00:40+0000\n"
+"PO-Revision-Date: 2024-10-26 06:38+0200\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
 "Language-Team: French <French <kde-francophone@kde.org>>\n"
 "Language: fr\n"
@@ -163,19 +163,17 @@ msgstr "Les comptes suivants sont disponibles :"
 #: core/apps/appsmarketplaceinfo.cpp:90
 #, kde-format
 msgid "per %1"
-msgstr ""
+msgstr "par %1"
 
 #: core/apps/appsmarketplaceinfo.cpp:149
-#, fuzzy, kde-format
-#| msgctxt "@action"
-#| msgid "This month"
+#, kde-format
 msgid "month"
-msgstr "Ce mois-ci"
+msgstr "mois"
 
 #: core/apps/appsmarketplaceinfo.cpp:151
 #, kde-format
 msgid "year"
-msgstr ""
+msgstr "année"
 
 #: core/apps/appsmarketplaceinfo.cpp:416 core/model/adminrolesmodel.cpp:40
 #: widgets/administratorsettingsdialog/ircfederation/ircfederationwidget.cpp:50
@@ -377,6 +375,100 @@ msgstr ""
 #, kde-format
 msgid "Modify Livechat custom field configuration"
 msgstr ""
+
+#: core/authenticationmanager.cpp:85
+#, kde-format
+msgid "Connecting"
+msgstr "Connexion en cours"
+
+#: core/authenticationmanager.cpp:87
+#, kde-format
+msgid "Login OTP code required"
+msgstr "Le code « OTP » de connexion est requis"
+
+#: core/authenticationmanager.cpp:89
+#, kde-format
+msgid "Login failed: invalid username or password"
+msgstr "Connexion impossible : nom d'utilisateur ou mot de passe non valable."
+
+#: core/authenticationmanager.cpp:91
+#, kde-format
+msgid "Logging in"
+msgstr "Connexion en cours"
+
+#: core/authenticationmanager.cpp:93
+#, kde-format
+msgid "Logged in"
+msgstr "Connecté"
+
+#: core/authenticationmanager.cpp:95
+#, kde-format
+msgid "Logged out"
+msgstr "Déconnecté"
+
+#: core/authenticationmanager.cpp:97
+#, kde-format
+msgid "Failed to login due to plugin problem"
+msgstr "Échec de la connexion du à un problème de module externe"
+
+#: core/authenticationmanager.cpp:99
+#, kde-format
+msgid "Login failed: generic error"
+msgstr "Échec de la connexion : erreur générique"
+
+#: core/authenticationmanager.cpp:101
+#, kde-format
+msgid "A one-time password is required to complete the login procedure."
+msgstr ""
+"Un mot de passe à usage unique est nécessaire pour terminer la procédure de "
+"connexion."
+
+#: core/authenticationmanager.cpp:103
+#: widgets/loginwidget/ruqolaloginwidget.cpp:165
+#, kde-format
+msgid "Login failed: Invalid OTP code."
+msgstr "Échec de la connexion : code « OTP » non valable"
+
+#: core/authenticationmanager.cpp:105
+#, kde-format
+msgid "Login failed: User is not activated."
+msgstr "Connexion impossible : l'utilisateur n'est pas activé."
+
+#: core/authenticationmanager.cpp:107
+#, kde-format
+msgid "Login has been temporarily blocked For IP."
+msgstr "La connexion a été temporairement bloquée par IP."
+
+#: core/authenticationmanager.cpp:109
+#, kde-format
+msgid "Login has been temporarily blocked For User."
+msgstr "La connexion a été temporairement bloquée pour l'utilisateur."
+
+#: core/authenticationmanager.cpp:111
+#, kde-format
+msgid "App user is not allowed to login."
+msgstr "L'utilisateur de l'application n'est pas autorisé à se connecter."
+
+#: core/authenticationmanager.cpp:113
+#, fuzzy, kde-format
+#| msgid "Call ongoing"
+msgid "Logout ongoing"
+msgstr "Appel en cours"
+
+#: core/authenticationmanager.cpp:115
+#, kde-format
+msgid "Logout cleanup ongoing"
+msgstr ""
+
+#: core/authenticationmanager.cpp:117
+#, kde-format
+msgid "Successfully logged out"
+msgstr ""
+
+#: core/authenticationmanager.cpp:119
+#, kde-format
+msgid "Unknown state"
+msgstr "État inconnu"
 
 #: core/bannerinfo/bannerinfo.cpp:47
 #, kde-format
@@ -1665,12 +1757,30 @@ msgctxt "WARNING!!!!!!: PLEASE We need a space between after </strong>"
 msgid "<strong>%1</strong> are typing..."
 msgstr "<strong>%1</strong>sont en train d'écrire des messages..."
 
-#: core/rocketchataccount.cpp:3062
+#: core/rocketchataccount.cpp:707
+#, kde-format
+msgid ""
+"REST: %1\n"
+"DDP: %2"
+msgstr ""
+
+#: core/rocketchataccount.cpp:715 core/rocketchataccount.cpp:727
+#, kde-format
+msgid "Not connected"
+msgstr "Non connecté"
+
+#: core/rocketchataccount.cpp:722
+#, fuzzy, kde-format
+#| msgid "Not connected"
+msgid "Not connected yet"
+msgstr "Non connecté"
+
+#: core/rocketchataccount.cpp:3124
 #, kde-format
 msgid "Export Messages"
 msgstr "Exporter des messages"
 
-#: core/rocketchataccount.cpp:3063
+#: core/rocketchataccount.cpp:3125
 #, kde-format
 msgid "Your email has been queued for sending."
 msgstr "Un courrier électronique a été mis dans la liste d'attente pour envoi."
@@ -7062,21 +7172,18 @@ msgid "Show Unread"
 msgstr "Afficher les messages non lus"
 
 #: widgets/bannerinfodialog/bannermessagewidget.cpp:22
+#: widgets/channellist/channellistview.cpp:118
 #, kde-format
 msgctxt "@action"
 msgid "Mark as Read"
 msgstr "Marquer comme lu"
 
 #: widgets/channellist/channellistview.cpp:118
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@action"
+#| msgid "Mark As Unread"
 msgctxt "@action"
-msgid "Mark As Read"
-msgstr "Marquer comme lu"
-
-#: widgets/channellist/channellistview.cpp:118
-#, kde-format
-msgctxt "@action"
-msgid "Mark As Unread"
+msgid "Mark as Unread"
 msgstr "Marquer comme non lu"
 
 #: widgets/channellist/channellistview.cpp:128
@@ -8490,7 +8597,7 @@ msgid "Video: %1"
 msgstr "Vidéo : %1"
 
 #: widgets/dialogs/uploadfiledialog.cpp:26
-#: widgets/room/messagelinewidget.cpp:362
+#: widgets/room/messagelinewidget.cpp:367
 #, kde-format
 msgctxt "@title:window"
 msgid "Upload File"
@@ -8893,12 +9000,6 @@ msgstr ""
 msgid "Login Failed: invalid username or password"
 msgstr "Connexion impossible : nom d'utilisateur ou mot de passe non valable."
 
-#: widgets/loginwidget/ruqolaloginwidget.cpp:165
-#: widgets/misc/accountsoverviewwidget.cpp:56
-#, kde-format
-msgid "Login failed: Invalid OTP code."
-msgstr "Échec de la connexion : code « OTP » non valable"
-
 #: widgets/loginwidget/ruqolaloginwidget.cpp:175
 #, kde-format
 msgid "Installation Problem found. No plugins found here."
@@ -8946,84 +9047,7 @@ msgstr "Convertir un message en pièce jointe"
 msgid "Filename:"
 msgstr "Nom du fichier :"
 
-#: widgets/misc/accountsoverviewwidget.cpp:34
-#, kde-format
-msgid "Not connected"
-msgstr "Non connecté"
-
-#: widgets/misc/accountsoverviewwidget.cpp:38
-#, kde-format
-msgid "Connecting"
-msgstr "Connexion en cours"
-
-#: widgets/misc/accountsoverviewwidget.cpp:40
-#, kde-format
-msgid "Login OTP code required"
-msgstr "Le code « OTP » de connexion est requis"
-
 #: widgets/misc/accountsoverviewwidget.cpp:42
-#, kde-format
-msgid "Login failed: invalid username or password"
-msgstr "Connexion impossible : nom d'utilisateur ou mot de passe non valable."
-
-#: widgets/misc/accountsoverviewwidget.cpp:44
-#, kde-format
-msgid "Logging in"
-msgstr "Connexion en cours"
-
-#: widgets/misc/accountsoverviewwidget.cpp:46
-#, kde-format
-msgid "Logged in"
-msgstr "Connecté"
-
-#: widgets/misc/accountsoverviewwidget.cpp:48
-#, kde-format
-msgid "Logged out"
-msgstr "Déconnecté"
-
-#: widgets/misc/accountsoverviewwidget.cpp:50
-#, kde-format
-msgid "Failed to login due to plugin problem"
-msgstr "Échec de la connexion du à un problème de module externe"
-
-#: widgets/misc/accountsoverviewwidget.cpp:52
-#, kde-format
-msgid "Login failed: generic error"
-msgstr "Échec de la connexion : erreur générique"
-
-#: widgets/misc/accountsoverviewwidget.cpp:54
-#, kde-format
-msgid "A one-time password is required to complete the login procedure."
-msgstr ""
-"Un mot de passe à usage unique est nécessaire pour terminer la procédure de "
-"connexion."
-
-#: widgets/misc/accountsoverviewwidget.cpp:58
-#, kde-format
-msgid "Login failed: User is not activated."
-msgstr "Connexion impossible : l'utilisateur n'est pas activé."
-
-#: widgets/misc/accountsoverviewwidget.cpp:60
-#, kde-format
-msgid "Login has been temporarily blocked For IP."
-msgstr "La connexion a été temporairement bloquée par IP."
-
-#: widgets/misc/accountsoverviewwidget.cpp:62
-#, kde-format
-msgid "Login has been temporarily blocked For User."
-msgstr "La connexion a été temporairement bloquée pour l'utilisateur."
-
-#: widgets/misc/accountsoverviewwidget.cpp:64
-#, kde-format
-msgid "App user is not allowed to login."
-msgstr "L'utilisateur de l'application n'est pas autorisé à se connecter."
-
-#: widgets/misc/accountsoverviewwidget.cpp:70
-#, kde-format
-msgid "Unknown state"
-msgstr "État inconnu"
-
-#: widgets/misc/accountsoverviewwidget.cpp:84
 #, kde-format
 msgid "(Unnamed)"
 msgstr "(Sans nom)"
@@ -10035,65 +10059,102 @@ msgctxt "@info:tooltip"
 msgid "Add reaction"
 msgstr "Ajouter une réaction"
 
-#: widgets/room/messagelinewidget.cpp:64
+#: widgets/room/messagelinewidget.cpp:62
+#, fuzzy, kde-format
+#| msgid "Attach File"
+msgctxt "@info:tooltip"
+msgid "Attach a file…"
+msgstr "Joindre un fichier"
+
+#: widgets/room/messagelinewidget.cpp:65
 #, kde-format
 msgid "Attach File"
 msgstr "Joindre un fichier"
 
 #: widgets/room/messagelinewidget.cpp:73
+#, fuzzy, kde-format
+#| msgctxt "@info:placeholder"
+#| msgid "Search moderation message…"
+msgctxt "@info:tooltip"
+msgid "Send a video message…"
+msgstr "Rechercher un message de modération..."
+
+#: widgets/room/messagelinewidget.cpp:75
 #, kde-format
 msgid "Video Message"
 msgstr "Message vidéo"
 
-#: widgets/room/messagelinewidget.cpp:83
+#: widgets/room/messagelinewidget.cpp:85
 #, kde-format
 msgid "Sound Message"
 msgstr "Message audio"
 
-#: widgets/room/messagelinewidget.cpp:95
+#: widgets/room/messagelinewidget.cpp:90
+#, fuzzy, kde-format
+#| msgctxt "@info:placeholder"
+#| msgid "Search moderation message…"
+msgctxt "@info:tooltip"
+msgid "Send a sound message…"
+msgstr "Rechercher un message de modération..."
+
+#: widgets/room/messagelinewidget.cpp:97
+#, fuzzy, kde-format
+#| msgid "Add Emoticon"
+msgctxt "@info:tooltip"
+msgid "Add emoticon…"
+msgstr "Ajouter une émoticône"
+
+#: widgets/room/messagelinewidget.cpp:99
 #, kde-format
 msgid "Add Emoticon"
 msgstr "Ajouter une émoticône"
 
-#: widgets/room/messagelinewidget.cpp:103
+#: widgets/room/messagelinewidget.cpp:106
+#, fuzzy, kde-format
+#| msgid "Send Message"
+msgctxt "@info:tooltip"
+msgid "Send message"
+msgstr "Envoyer le message"
+
+#: widgets/room/messagelinewidget.cpp:108
 #, kde-format
 msgid "Send Message"
 msgstr "Envoyer le message"
 
-#: widgets/room/messagelinewidget.cpp:142
+#: widgets/room/messagelinewidget.cpp:147
 #, kde-format
 msgid "Do you want to convert this big text as attachment?"
 msgstr "Voulez-vous vraiment convertir ce texte volumineux en pièce jointe ?"
 
-#: widgets/room/messagelinewidget.cpp:143
+#: widgets/room/messagelinewidget.cpp:148
 #, kde-format
 msgctxt "@title:window"
 msgid "Message Too Big"
 msgstr "Message trop volumineux"
 
-#: widgets/room/messagelinewidget.cpp:244
+#: widgets/room/messagelinewidget.cpp:249
 #, kde-format
 msgid "Message %1 in thread"
 msgstr "Message %1 dans le fil de discussions"
 
-#: widgets/room/messagelinewidget.cpp:244
+#: widgets/room/messagelinewidget.cpp:249
 #, kde-format
 msgid "Message %1"
 msgstr "Message %1"
 
-#: widgets/room/messagelinewidget.cpp:385
+#: widgets/room/messagelinewidget.cpp:390
 #, kde-format
 msgid "File selected is too big (Maximum size %1)"
 msgstr ""
 "Le fichier sélectionné est trop volumineux (La taille maximale est de %1)."
 
-#: widgets/room/messagelinewidget.cpp:386
+#: widgets/room/messagelinewidget.cpp:391
 #, kde-format
 msgctxt "@title:window"
 msgid "File upload"
 msgstr "Envoi de fichiers"
 
-#: widgets/room/messagelinewidget.cpp:391
+#: widgets/room/messagelinewidget.cpp:396
 #, kde-format
 msgid "Server doesn't authorized this file (invalid mimetype)"
 msgstr "Le serveur n'a pas autorisé ce fichier (Type « MIME » non valable)"
@@ -10304,8 +10365,9 @@ msgstr[0] "%4 %1 nouveau message depuis %2. %3"
 msgstr[1] "%4 %1 nouveaux messages depuis %2. %3"
 
 #: widgets/room/roomcounterinfowidget.cpp:52
-#, kde-format
-msgid "(Mark As Read)"
+#, fuzzy, kde-format
+#| msgid "(Mark As Read)"
+msgid "(Mark as Read)"
 msgstr "(Marquer comme lu)"
 
 #: widgets/room/roomcounterinfowidget.cpp:53
@@ -11503,6 +11565,10 @@ msgstr ""
 #, kde-format
 msgid "Some bug fixing:"
 msgstr "Quelques correction de bogues :"
+
+#~ msgctxt "@action"
+#~ msgid "Mark As Read"
+#~ msgstr "Marquer comme lu"
 
 #, fuzzy
 #~| msgctxt "@title:window"

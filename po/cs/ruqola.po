@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-10-26 00:40+0000\n"
+"POT-Creation-Date: 2024-10-28 00:40+0000\n"
 "PO-Revision-Date: 2024-09-17 15:18+0200\n"
 "Last-Translator: Vit Pelcak <vit@pelcak.org>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
@@ -378,6 +378,98 @@ msgstr ""
 #, kde-format
 msgid "Modify Livechat custom field configuration"
 msgstr ""
+
+#: core/authenticationmanager.cpp:85
+#, kde-format
+msgid "Connecting"
+msgstr "Navazuji spojení"
+
+#: core/authenticationmanager.cpp:87
+#, kde-format
+msgid "Login OTP code required"
+msgstr "Pro přihlášení je vyžadován kód OTP"
+
+#: core/authenticationmanager.cpp:89
+#, kde-format
+msgid "Login failed: invalid username or password"
+msgstr "Přihlášení se nezdařilo: neplatné jméno uživatele nebo heslo"
+
+#: core/authenticationmanager.cpp:91
+#, kde-format
+msgid "Logging in"
+msgstr "Přihlašování"
+
+#: core/authenticationmanager.cpp:93
+#, kde-format
+msgid "Logged in"
+msgstr "Přihlášený"
+
+#: core/authenticationmanager.cpp:95
+#, kde-format
+msgid "Logged out"
+msgstr "Odhlášen"
+
+#: core/authenticationmanager.cpp:97
+#, kde-format
+msgid "Failed to login due to plugin problem"
+msgstr "Přihlášení se nezdařilo kvůli problému s modulem"
+
+#: core/authenticationmanager.cpp:99
+#, kde-format
+msgid "Login failed: generic error"
+msgstr "Přihlášení se nezdařilo: obecná chyba"
+
+#: core/authenticationmanager.cpp:101
+#, kde-format
+msgid "A one-time password is required to complete the login procedure."
+msgstr "Pro dokončení přihlášení je potřeba heslo."
+
+#: core/authenticationmanager.cpp:103
+#: widgets/loginwidget/ruqolaloginwidget.cpp:165
+#, kde-format
+msgid "Login failed: Invalid OTP code."
+msgstr "Přihlášení selhalo: Neplatný kód OTP."
+
+#: core/authenticationmanager.cpp:105
+#, kde-format
+msgid "Login failed: User is not activated."
+msgstr "Přihlášení selhalo: Uživatel není aktivován."
+
+#: core/authenticationmanager.cpp:107
+#, kde-format
+msgid "Login has been temporarily blocked For IP."
+msgstr ""
+
+#: core/authenticationmanager.cpp:109
+#, kde-format
+msgid "Login has been temporarily blocked For User."
+msgstr ""
+
+#: core/authenticationmanager.cpp:111
+#, kde-format
+msgid "App user is not allowed to login."
+msgstr "Uživatel aplikace nemá povoleno se přihlásit."
+
+#: core/authenticationmanager.cpp:113
+#, fuzzy, kde-format
+#| msgid "Call ongoing"
+msgid "Logout ongoing"
+msgstr "Probíhá hovor"
+
+#: core/authenticationmanager.cpp:115
+#, kde-format
+msgid "Logout cleanup ongoing"
+msgstr ""
+
+#: core/authenticationmanager.cpp:117
+#, kde-format
+msgid "Successfully logged out"
+msgstr ""
+
+#: core/authenticationmanager.cpp:119
+#, kde-format
+msgid "Unknown state"
+msgstr "Neznámý stav"
 
 #: core/bannerinfo/bannerinfo.cpp:47
 #, kde-format
@@ -1671,12 +1763,30 @@ msgctxt "WARNING!!!!!!: PLEASE We need a space between after </strong>"
 msgid "<strong>%1</strong> are typing..."
 msgstr "<strong>%1</strong> píší…"
 
-#: core/rocketchataccount.cpp:3062
+#: core/rocketchataccount.cpp:707
+#, kde-format
+msgid ""
+"REST: %1\n"
+"DDP: %2"
+msgstr ""
+
+#: core/rocketchataccount.cpp:715 core/rocketchataccount.cpp:727
+#, kde-format
+msgid "Not connected"
+msgstr "Nepřipojen"
+
+#: core/rocketchataccount.cpp:722
+#, fuzzy, kde-format
+#| msgid "Not connected"
+msgid "Not connected yet"
+msgstr "Nepřipojen"
+
+#: core/rocketchataccount.cpp:3124
 #, kde-format
 msgid "Export Messages"
 msgstr "Exportovat zprávy"
 
-#: core/rocketchataccount.cpp:3063
+#: core/rocketchataccount.cpp:3125
 #, kde-format
 msgid "Your email has been queued for sending."
 msgstr ""
@@ -6814,21 +6924,18 @@ msgid "Show Unread"
 msgstr ""
 
 #: widgets/bannerinfodialog/bannermessagewidget.cpp:22
+#: widgets/channellist/channellistview.cpp:118
 #, kde-format
 msgctxt "@action"
 msgid "Mark as Read"
 msgstr "Označit jako přečtený"
 
 #: widgets/channellist/channellistview.cpp:118
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@action"
+#| msgid "Mark As Unread"
 msgctxt "@action"
-msgid "Mark As Read"
-msgstr "Označit jako přečtené"
-
-#: widgets/channellist/channellistview.cpp:118
-#, kde-format
-msgctxt "@action"
-msgid "Mark As Unread"
+msgid "Mark as Unread"
 msgstr "Označit jako nepřečtené"
 
 #: widgets/channellist/channellistview.cpp:128
@@ -8225,7 +8332,7 @@ msgid "Video: %1"
 msgstr "Video: %1"
 
 #: widgets/dialogs/uploadfiledialog.cpp:26
-#: widgets/room/messagelinewidget.cpp:362
+#: widgets/room/messagelinewidget.cpp:367
 #, kde-format
 msgctxt "@title:window"
 msgid "Upload File"
@@ -8614,12 +8721,6 @@ msgstr ""
 msgid "Login Failed: invalid username or password"
 msgstr "Přihlášení se nezdařilo: neplatné jméno uživatele nebo heslo"
 
-#: widgets/loginwidget/ruqolaloginwidget.cpp:165
-#: widgets/misc/accountsoverviewwidget.cpp:56
-#, kde-format
-msgid "Login failed: Invalid OTP code."
-msgstr "Přihlášení selhalo: Neplatný kód OTP."
-
 #: widgets/loginwidget/ruqolaloginwidget.cpp:175
 #, kde-format
 msgid "Installation Problem found. No plugins found here."
@@ -8661,82 +8762,7 @@ msgstr ""
 msgid "Filename:"
 msgstr "Název souboru:"
 
-#: widgets/misc/accountsoverviewwidget.cpp:34
-#, kde-format
-msgid "Not connected"
-msgstr "Nepřipojen"
-
-#: widgets/misc/accountsoverviewwidget.cpp:38
-#, kde-format
-msgid "Connecting"
-msgstr "Navazuji spojení"
-
-#: widgets/misc/accountsoverviewwidget.cpp:40
-#, kde-format
-msgid "Login OTP code required"
-msgstr "Pro přihlášení je vyžadován kód OTP"
-
 #: widgets/misc/accountsoverviewwidget.cpp:42
-#, kde-format
-msgid "Login failed: invalid username or password"
-msgstr "Přihlášení se nezdařilo: neplatné jméno uživatele nebo heslo"
-
-#: widgets/misc/accountsoverviewwidget.cpp:44
-#, kde-format
-msgid "Logging in"
-msgstr "Přihlašování"
-
-#: widgets/misc/accountsoverviewwidget.cpp:46
-#, kde-format
-msgid "Logged in"
-msgstr "Přihlášený"
-
-#: widgets/misc/accountsoverviewwidget.cpp:48
-#, kde-format
-msgid "Logged out"
-msgstr "Odhlášen"
-
-#: widgets/misc/accountsoverviewwidget.cpp:50
-#, kde-format
-msgid "Failed to login due to plugin problem"
-msgstr "Přihlášení se nezdařilo kvůli problému s modulem"
-
-#: widgets/misc/accountsoverviewwidget.cpp:52
-#, kde-format
-msgid "Login failed: generic error"
-msgstr "Přihlášení se nezdařilo: obecná chyba"
-
-#: widgets/misc/accountsoverviewwidget.cpp:54
-#, kde-format
-msgid "A one-time password is required to complete the login procedure."
-msgstr "Pro dokončení přihlášení je potřeba heslo."
-
-#: widgets/misc/accountsoverviewwidget.cpp:58
-#, kde-format
-msgid "Login failed: User is not activated."
-msgstr "Přihlášení selhalo: Uživatel není aktivován."
-
-#: widgets/misc/accountsoverviewwidget.cpp:60
-#, kde-format
-msgid "Login has been temporarily blocked For IP."
-msgstr ""
-
-#: widgets/misc/accountsoverviewwidget.cpp:62
-#, kde-format
-msgid "Login has been temporarily blocked For User."
-msgstr ""
-
-#: widgets/misc/accountsoverviewwidget.cpp:64
-#, kde-format
-msgid "App user is not allowed to login."
-msgstr "Uživatel aplikace nemá povoleno se přihlásit."
-
-#: widgets/misc/accountsoverviewwidget.cpp:70
-#, kde-format
-msgid "Unknown state"
-msgstr "Neznámý stav"
-
-#: widgets/misc/accountsoverviewwidget.cpp:84
 #, kde-format
 msgid "(Unnamed)"
 msgstr "(Nepojmenované)"
@@ -9710,64 +9736,101 @@ msgctxt "@info:tooltip"
 msgid "Add reaction"
 msgstr ""
 
-#: widgets/room/messagelinewidget.cpp:64
+#: widgets/room/messagelinewidget.cpp:62
+#, fuzzy, kde-format
+#| msgid "Attach File"
+msgctxt "@info:tooltip"
+msgid "Attach a file…"
+msgstr "Připojit soubor"
+
+#: widgets/room/messagelinewidget.cpp:65
 #, kde-format
 msgid "Attach File"
 msgstr "Připojit soubor"
 
 #: widgets/room/messagelinewidget.cpp:73
+#, fuzzy, kde-format
+#| msgctxt "@info:placeholder"
+#| msgid "Search messages…"
+msgctxt "@info:tooltip"
+msgid "Send a video message…"
+msgstr "Hledat zprávy…"
+
+#: widgets/room/messagelinewidget.cpp:75
 #, kde-format
 msgid "Video Message"
 msgstr "Vytvořit zprávu"
 
-#: widgets/room/messagelinewidget.cpp:83
+#: widgets/room/messagelinewidget.cpp:85
 #, kde-format
 msgid "Sound Message"
 msgstr "Zvuková zpráva"
 
-#: widgets/room/messagelinewidget.cpp:95
+#: widgets/room/messagelinewidget.cpp:90
+#, fuzzy, kde-format
+#| msgctxt "@info:placeholder"
+#| msgid "Search messages"
+msgctxt "@info:tooltip"
+msgid "Send a sound message…"
+msgstr "Hledat zprávy"
+
+#: widgets/room/messagelinewidget.cpp:97
+#, fuzzy, kde-format
+#| msgid "Add Emoticon"
+msgctxt "@info:tooltip"
+msgid "Add emoticon…"
+msgstr "Přidat emotikon"
+
+#: widgets/room/messagelinewidget.cpp:99
 #, kde-format
 msgid "Add Emoticon"
 msgstr "Přidat emotikon"
 
-#: widgets/room/messagelinewidget.cpp:103
+#: widgets/room/messagelinewidget.cpp:106
+#, fuzzy, kde-format
+#| msgid "Send Message"
+msgctxt "@info:tooltip"
+msgid "Send message"
+msgstr "Poslat správu"
+
+#: widgets/room/messagelinewidget.cpp:108
 #, kde-format
 msgid "Send Message"
 msgstr "Poslat správu"
 
-#: widgets/room/messagelinewidget.cpp:142
+#: widgets/room/messagelinewidget.cpp:147
 #, kde-format
 msgid "Do you want to convert this big text as attachment?"
 msgstr ""
 
-#: widgets/room/messagelinewidget.cpp:143
+#: widgets/room/messagelinewidget.cpp:148
 #, kde-format
 msgctxt "@title:window"
 msgid "Message Too Big"
 msgstr "Zpráva je příliš velká"
 
-#: widgets/room/messagelinewidget.cpp:244
+#: widgets/room/messagelinewidget.cpp:249
 #, kde-format
 msgid "Message %1 in thread"
 msgstr ""
 
-#: widgets/room/messagelinewidget.cpp:244
+#: widgets/room/messagelinewidget.cpp:249
 #, kde-format
 msgid "Message %1"
 msgstr "Zpráva %1"
 
-#: widgets/room/messagelinewidget.cpp:385
+#: widgets/room/messagelinewidget.cpp:390
 #, kde-format
 msgid "File selected is too big (Maximum size %1)"
 msgstr "Vybraný soubor je příliš velký (maximální velikost je %1)"
 
-#: widgets/room/messagelinewidget.cpp:386
+#: widgets/room/messagelinewidget.cpp:391
 #, kde-format
 msgctxt "@title:window"
 msgid "File upload"
 msgstr "Odeslání souboru"
 
-#: widgets/room/messagelinewidget.cpp:391
+#: widgets/room/messagelinewidget.cpp:396
 #, kde-format
 msgid "Server doesn't authorized this file (invalid mimetype)"
 msgstr ""
@@ -9979,8 +10042,9 @@ msgstr[1] ""
 msgstr[2] ""
 
 #: widgets/room/roomcounterinfowidget.cpp:52
-#, kde-format
-msgid "(Mark As Read)"
+#, fuzzy, kde-format
+#| msgid "(Mark As Read)"
+msgid "(Mark as Read)"
 msgstr "(Označit jako přečtené)"
 
 #: widgets/room/roomcounterinfowidget.cpp:53
@@ -11128,3 +11192,7 @@ msgstr "Některé nové vlastnosti tohoto vydání Ruqola zahrnují:"
 #, kde-format
 msgid "Some bug fixing:"
 msgstr "Nějaké opravy chyb:"
+
+#~ msgctxt "@action"
+#~ msgid "Mark As Read"
+#~ msgstr "Označit jako přečtené"

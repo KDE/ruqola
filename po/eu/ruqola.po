@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-10-26 00:40+0000\n"
-"PO-Revision-Date: 2024-10-15 22:29+0200\n"
+"POT-Creation-Date: 2024-10-28 00:40+0000\n"
+"PO-Revision-Date: 2024-10-27 16:39+0100\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
 "Language: eu\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 24.08.1\n"
+"X-Generator: Lokalize 24.08.2\n"
 
 #: apps/main.cpp:61
 #, kde-format
@@ -167,19 +167,17 @@ msgstr "Ondoko kontuak erabilgarri daude:"
 #: core/apps/appsmarketplaceinfo.cpp:90
 #, kde-format
 msgid "per %1"
-msgstr ""
+msgstr "%1"
 
 #: core/apps/appsmarketplaceinfo.cpp:149
-#, fuzzy, kde-format
-#| msgctxt "@action"
-#| msgid "This month"
+#, kde-format
 msgid "month"
-msgstr "Hilabete honetan"
+msgstr "hilabetean"
 
 #: core/apps/appsmarketplaceinfo.cpp:151
 #, kde-format
 msgid "year"
-msgstr ""
+msgstr "urtean"
 
 #: core/apps/appsmarketplaceinfo.cpp:416 core/model/adminrolesmodel.cpp:40
 #: widgets/administratorsettingsdialog/ircfederation/ircfederationwidget.cpp:50
@@ -230,157 +228,242 @@ msgid "Permissions"
 msgstr "Baimenak"
 
 #: core/apps/appsmarketplaceinfo.cpp:573
-#, fuzzy, kde-format
-#| msgid "All messages"
+#, kde-format
 msgid "Access messages"
-msgstr "Mezu guztiak"
+msgstr "Mezuak atzitu"
 
 #: core/apps/appsmarketplaceinfo.cpp:575
-#, fuzzy, kde-format
-#| msgctxt "@info:placeholder"
-#| msgid "Search moderation message…"
+#, kde-format
 msgid "Send and modify messages"
-msgstr "Bilatu moderatzeko mezua..."
+msgstr "Mezuak bidali eta aldatu"
 
 #: core/apps/appsmarketplaceinfo.cpp:577
-#, fuzzy, kde-format
-#| msgid "Account information"
+#, kde-format
 msgid "Access room information"
-msgstr "Kontuaren informazioa"
+msgstr "Gelaren informazioa atzitu"
 
 #: core/apps/appsmarketplaceinfo.cpp:579
 #, kde-format
 msgid "Create and modify rooms"
-msgstr ""
+msgstr "Gelak sortu eta aldatu"
 
 #: core/apps/appsmarketplaceinfo.cpp:581
 #, kde-format
 msgid "Access to this server network"
-msgstr ""
+msgstr "Zerbitzari honen sarea atzitu"
 
 #: core/apps/appsmarketplaceinfo.cpp:583
-#, fuzzy, kde-format
-#| msgid "Account information"
+#, kde-format
 msgid "Access user information"
-msgstr "Kontuaren informazioa"
+msgstr "Erabiltzailearen informazioa atzitu"
 
 #: core/apps/appsmarketplaceinfo.cpp:585
-#, fuzzy, kde-format
-#| msgid "Account information"
+#, kde-format
 msgid "Modify user information"
-msgstr "Kontuaren informazioa"
+msgstr "Erabiltzailearen informazioa aldatu"
 
 #: core/apps/appsmarketplaceinfo.cpp:587
 #, kde-format
 msgid "Register new slash commands"
-msgstr ""
+msgstr "Barra-zeihar (slash) komando berriak erregistratu"
 
 #: core/apps/appsmarketplaceinfo.cpp:589
 #, kde-format
 msgid "Register and maintain scheduled jobs"
-msgstr ""
+msgstr "Programatutako lanak erregistratzea eta mantentzea"
 
 #: core/apps/appsmarketplaceinfo.cpp:591
 #, kde-format
 msgid "Register new HTTP endpoints"
-msgstr ""
+msgstr "Erregistratu bukaerako HTTP puntu berriak"
 
 #: core/apps/appsmarketplaceinfo.cpp:593
 #, kde-format
 msgid "Access settings in this server"
-msgstr ""
+msgstr "Zerbitzari honetako ezarpenak atzitu"
 
 #: core/apps/appsmarketplaceinfo.cpp:595
 #, kde-format
 msgid "Modify settings in this server"
-msgstr ""
+msgstr "Zerbitzari honetako ezarpenak aldatu"
 
 #: core/apps/appsmarketplaceinfo.cpp:597
 #, kde-format
 msgid "Upload files to this server"
-msgstr ""
+msgstr "Fitxategiak zerbitzari horretara zama-igo"
 
 #: core/apps/appsmarketplaceinfo.cpp:599
 #, kde-format
 msgid "Access files uploaded to this server"
-msgstr ""
+msgstr "Zerbitzari honetan zama-igotako fitxategiak atzitu"
 
 #: core/apps/appsmarketplaceinfo.cpp:601
 #, kde-format
 msgid "Interact with Cloud Services on behalf of this server"
-msgstr ""
+msgstr "Zerbitzari honen izenean, hodei zerbitzuekin elkarreragin"
 
 #: core/apps/appsmarketplaceinfo.cpp:603
 #, kde-format
 msgid "Access minimal information about this server environment"
-msgstr ""
+msgstr "Zerbitzari-ingurune honi buruzko gutxieneko informazio atzitu"
 
 #: core/apps/appsmarketplaceinfo.cpp:605
 #, kde-format
 msgid "Access to multiple Livechat departments information"
-msgstr ""
+msgstr "Livechat-eko hainbat sailetako informazioa atzitu"
 
 #: core/apps/appsmarketplaceinfo.cpp:607
 #, kde-format
 msgid "Access Livechat department information"
-msgstr ""
+msgstr "Livechat-eko sailaren informazioa atzitu"
 
 #: core/apps/appsmarketplaceinfo.cpp:609
 #, kde-format
 msgid "Modify Livechat department information"
-msgstr ""
+msgstr "Livechat saileko informazioa aldatu"
 
 #: core/apps/appsmarketplaceinfo.cpp:611
 #, kde-format
 msgid "Modify Livechat room information"
-msgstr ""
+msgstr "Livechat-eko gelaren informazioa aldatu"
 
 #: core/apps/appsmarketplaceinfo.cpp:613
-#, fuzzy, kde-format
-#| msgid "Account information"
+#, kde-format
 msgid "Access Livechat room information"
-msgstr "Kontuaren informazioa"
+msgstr "Livechat-eko gelaren informazioa atzitu"
 
 #: core/apps/appsmarketplaceinfo.cpp:615
 #, kde-format
 msgid "Modify Livechat message information"
-msgstr ""
+msgstr "Livechat-eko mezuaren informazioa aldatu"
 
 #: core/apps/appsmarketplaceinfo.cpp:617
 #, kde-format
 msgid "Access Livechat message information"
-msgstr ""
+msgstr "Livechat-eko mezuaren informazioa atzitu"
 
 #: core/apps/appsmarketplaceinfo.cpp:619
 #, kde-format
 msgid "Modify Livechat visitor information"
-msgstr ""
+msgstr "Livechat-eko bisitariaren informazioa aldatu"
 
 #: core/apps/appsmarketplaceinfo.cpp:621
 #, kde-format
 msgid "Access Livechat visitor information"
-msgstr ""
+msgstr "Livechat-eko bisitariaren informazioa atzitu"
 
 #: core/apps/appsmarketplaceinfo.cpp:623
-#, fuzzy, kde-format
-#| msgid "Account information"
+#, kde-format
 msgid "Access Livechat status information"
-msgstr "Kontuaren informazioa"
+msgstr "Livechat-eko egoeraren informazioa atzitu"
 
 #: core/apps/appsmarketplaceinfo.cpp:625
 #, kde-format
 msgid "Interact with the UI"
-msgstr ""
+msgstr "EIarekin elkarreragin"
 
 #: core/apps/appsmarketplaceinfo.cpp:627
 #, kde-format
 msgid "Store internal data in the database"
-msgstr ""
+msgstr "Barneko datuak datu-basean gorde"
 
 #: core/apps/appsmarketplaceinfo.cpp:629
 #, kde-format
 msgid "Modify Livechat custom field configuration"
+msgstr "Livechat-eko neurrira ipinitako eremuaren konfigurazioa aldatu"
+
+#: core/authenticationmanager.cpp:85
+#, kde-format
+msgid "Connecting"
+msgstr "Konektatzen"
+
+#: core/authenticationmanager.cpp:87
+#, kde-format
+msgid "Login OTP code required"
+msgstr "Saio-sarrerak OTP kode bat behar da"
+
+#: core/authenticationmanager.cpp:89
+#, kde-format
+msgid "Login failed: invalid username or password"
+msgstr "Saio-sarrerak huts egin du: erabiltzaile-izen edo pasahitz baliogabea"
+
+#: core/authenticationmanager.cpp:91
+#, kde-format
+msgid "Logging in"
+msgstr "Saioa hasten..."
+
+#: core/authenticationmanager.cpp:93
+#, kde-format
+msgid "Logged in"
+msgstr "Saioa hasita"
+
+#: core/authenticationmanager.cpp:95
+#, kde-format
+msgid "Logged out"
+msgstr "Saio-itxita"
+
+#: core/authenticationmanager.cpp:97
+#, kde-format
+msgid "Failed to login due to plugin problem"
+msgstr "Saio-sarrerak huts egin du plugin arazo bat dela eta"
+
+#: core/authenticationmanager.cpp:99
+#, kde-format
+msgid "Login failed: generic error"
+msgstr "Saio-sarrerak huts egin du: errore generikoa"
+
+#: core/authenticationmanager.cpp:101
+#, kde-format
+msgid "A one-time password is required to complete the login procedure."
 msgstr ""
+"Erabilera bakarreko pasahitz bat behar da saio-sarrera  prozedura osatzeko."
+
+#: core/authenticationmanager.cpp:103
+#: widgets/loginwidget/ruqolaloginwidget.cpp:165
+#, kde-format
+msgid "Login failed: Invalid OTP code."
+msgstr "Saio-sarrerak huts egin du: OTP kode baliogabea."
+
+#: core/authenticationmanager.cpp:105
+#, kde-format
+msgid "Login failed: User is not activated."
+msgstr "Saio-sarrerak huts egin du: Erabiltzailea ez dago aktibatuta."
+
+#: core/authenticationmanager.cpp:107
+#, kde-format
+msgid "Login has been temporarily blocked For IP."
+msgstr "IPari, Saio-sarrera, aldi baterako oztopatu zaio."
+
+#: core/authenticationmanager.cpp:109
+#, kde-format
+msgid "Login has been temporarily blocked For User."
+msgstr "Erabiltzaileari, Saio-sarrera, aldi baterako oztopatu zaio."
+
+#: core/authenticationmanager.cpp:111
+#, kde-format
+msgid "App user is not allowed to login."
+msgstr "Aplikazio-erabiltzaileak ez du saio-sarrera baimenduta."
+
+#: core/authenticationmanager.cpp:113
+#, fuzzy, kde-format
+#| msgid "Call ongoing"
+msgid "Logout ongoing"
+msgstr "Uneko deia"
+
+#: core/authenticationmanager.cpp:115
+#, kde-format
+msgid "Logout cleanup ongoing"
+msgstr ""
+
+#: core/authenticationmanager.cpp:117
+#, kde-format
+msgid "Successfully logged out"
+msgstr ""
+
+#: core/authenticationmanager.cpp:119
+#, kde-format
+msgid "Unknown state"
+msgstr "Egoera ezezaguna"
 
 #: core/bannerinfo/bannerinfo.cpp:47
 #, kde-format
@@ -1669,27 +1752,41 @@ msgid "%1 denied the OTR session."
 msgstr "%1(e)k «OTR» saioa ukatu du."
 
 #: core/receivetypingnotificationmanager.cpp:58
-#, fuzzy, kde-format
-#| msgctxt "We need a space between after </strong>"
-#| msgid "<strong>%1</strong> is typing..."
+#, kde-format
 msgctxt "WARNING!!!!!!: PLEASE We need a space between after </strong>"
 msgid "<strong>%1</strong> is typing..."
 msgstr "<strong>%1</strong> tekleatzen ari da..."
 
 #: core/receivetypingnotificationmanager.cpp:72
-#, fuzzy, kde-format
-#| msgctxt "We need a space between after </strong>"
-#| msgid "<strong>%1</strong> are typing..."
+#, kde-format
 msgctxt "WARNING!!!!!!: PLEASE We need a space between after </strong>"
 msgid "<strong>%1</strong> are typing..."
 msgstr "<strong>%1</strong> tekleatzen ari dira..."
 
-#: core/rocketchataccount.cpp:3062
+#: core/rocketchataccount.cpp:707
+#, kde-format
+msgid ""
+"REST: %1\n"
+"DDP: %2"
+msgstr ""
+
+#: core/rocketchataccount.cpp:715 core/rocketchataccount.cpp:727
+#, kde-format
+msgid "Not connected"
+msgstr "Konektatu gabe"
+
+#: core/rocketchataccount.cpp:722
+#, fuzzy, kde-format
+#| msgid "Not connected"
+msgid "Not connected yet"
+msgstr "Konektatu gabe"
+
+#: core/rocketchataccount.cpp:3124
 #, kde-format
 msgid "Export Messages"
 msgstr "Esportatu mezuak"
 
-#: core/rocketchataccount.cpp:3063
+#: core/rocketchataccount.cpp:3125
 #, kde-format
 msgid "Your email has been queued for sending."
 msgstr "Zure e-posta bidaltzeko ilaran ipini da."
@@ -6889,8 +6986,7 @@ msgstr[0] "Eskaera %1"
 msgstr[1] "%1 eskaera"
 
 #: widgets/applicationssettingsdialog/applicationssettingsdescriptiondialog.cpp:25
-#, fuzzy, kde-format
-#| msgid "Description"
+#, kde-format
 msgctxt "@title:window"
 msgid "Description"
 msgstr "Deskribapena"
@@ -7018,21 +7114,18 @@ msgid "Show Unread"
 msgstr "Erakutsi irakurri gabeak"
 
 #: widgets/bannerinfodialog/bannermessagewidget.cpp:22
+#: widgets/channellist/channellistview.cpp:118
 #, kde-format
 msgctxt "@action"
 msgid "Mark as Read"
 msgstr "Markatu irakurritako gisa"
 
 #: widgets/channellist/channellistview.cpp:118
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@action"
+#| msgid "Mark As Unread"
 msgctxt "@action"
-msgid "Mark As Read"
-msgstr "Markatu irakurritako gisa"
-
-#: widgets/channellist/channellistview.cpp:118
-#, kde-format
-msgctxt "@action"
-msgid "Mark As Unread"
+msgid "Mark as Unread"
 msgstr "Markatu irakurri gabeko gisa"
 
 #: widgets/channellist/channellistview.cpp:128
@@ -8440,7 +8533,7 @@ msgid "Video: %1"
 msgstr "Bideoa: %1"
 
 #: widgets/dialogs/uploadfiledialog.cpp:26
-#: widgets/room/messagelinewidget.cpp:362
+#: widgets/room/messagelinewidget.cpp:367
 #, kde-format
 msgctxt "@title:window"
 msgid "Upload File"
@@ -8513,12 +8606,10 @@ msgid "Join…"
 msgstr "Elkartu..."
 
 #: widgets/directory/directorywidget.cpp:83
-#, fuzzy, kde-format
-#| msgctxt "@action"
-#| msgid "Open Private Messages…"
+#, kde-format
 msgctxt "@action"
 msgid "Open Private Message…"
-msgstr "Ireki mezu pribatuak..."
+msgstr "Ireki mezu pribatua..."
 
 #: widgets/directory/directorywidget.cpp:194
 #, kde-format
@@ -8842,12 +8933,6 @@ msgstr ""
 msgid "Login Failed: invalid username or password"
 msgstr "Saio-sarrerak huts egin du: erabiltzaile-izen edo pasahitz baliogabea"
 
-#: widgets/loginwidget/ruqolaloginwidget.cpp:165
-#: widgets/misc/accountsoverviewwidget.cpp:56
-#, kde-format
-msgid "Login failed: Invalid OTP code."
-msgstr "Saio-sarrerak huts egin du: OTP kode baliogabea."
-
 #: widgets/loginwidget/ruqolaloginwidget.cpp:175
 #, kde-format
 msgid "Installation Problem found. No plugins found here."
@@ -8895,83 +8980,7 @@ msgstr "Bihurtu mezua eranskin"
 msgid "Filename:"
 msgstr "Fitxategi-izena:"
 
-#: widgets/misc/accountsoverviewwidget.cpp:34
-#, kde-format
-msgid "Not connected"
-msgstr "Konektatu gabe"
-
-#: widgets/misc/accountsoverviewwidget.cpp:38
-#, kde-format
-msgid "Connecting"
-msgstr "Konektatzen"
-
-#: widgets/misc/accountsoverviewwidget.cpp:40
-#, kde-format
-msgid "Login OTP code required"
-msgstr "Saio-sarrerak OTP kode bat behar da"
-
 #: widgets/misc/accountsoverviewwidget.cpp:42
-#, kde-format
-msgid "Login failed: invalid username or password"
-msgstr "Saio-sarrerak huts egin du: erabiltzaile-izen edo pasahitz baliogabea"
-
-#: widgets/misc/accountsoverviewwidget.cpp:44
-#, kde-format
-msgid "Logging in"
-msgstr "Saioa hasten..."
-
-#: widgets/misc/accountsoverviewwidget.cpp:46
-#, kde-format
-msgid "Logged in"
-msgstr "Saioa hasita"
-
-#: widgets/misc/accountsoverviewwidget.cpp:48
-#, kde-format
-msgid "Logged out"
-msgstr "Saio-itxita"
-
-#: widgets/misc/accountsoverviewwidget.cpp:50
-#, kde-format
-msgid "Failed to login due to plugin problem"
-msgstr "Saio-sarrerak huts egin du plugin arazo bat dela eta"
-
-#: widgets/misc/accountsoverviewwidget.cpp:52
-#, kde-format
-msgid "Login failed: generic error"
-msgstr "Saio-sarrerak huts egin du: errore generikoa"
-
-#: widgets/misc/accountsoverviewwidget.cpp:54
-#, kde-format
-msgid "A one-time password is required to complete the login procedure."
-msgstr ""
-"Erabilera bakarreko pasahitz bat behar da saio-sarrera  prozedura osatzeko."
-
-#: widgets/misc/accountsoverviewwidget.cpp:58
-#, kde-format
-msgid "Login failed: User is not activated."
-msgstr "Saio-sarrerak huts egin du: Erabiltzailea ez dago aktibatuta."
-
-#: widgets/misc/accountsoverviewwidget.cpp:60
-#, kde-format
-msgid "Login has been temporarily blocked For IP."
-msgstr "IPari, Saio-sarrera, aldi baterako oztopatu zaio."
-
-#: widgets/misc/accountsoverviewwidget.cpp:62
-#, kde-format
-msgid "Login has been temporarily blocked For User."
-msgstr "Erabiltzaileari, Saio-sarrera, aldi baterako oztopatu zaio."
-
-#: widgets/misc/accountsoverviewwidget.cpp:64
-#, kde-format
-msgid "App user is not allowed to login."
-msgstr "Aplikazio-erabiltzaileak ez du saio-sarrera baimenduta."
-
-#: widgets/misc/accountsoverviewwidget.cpp:70
-#, kde-format
-msgid "Unknown state"
-msgstr "Egoera ezezaguna"
-
-#: widgets/misc/accountsoverviewwidget.cpp:84
 #, kde-format
 msgid "(Unnamed)"
 msgstr "(Izengabea)"
@@ -9070,47 +9079,37 @@ msgid "Reset Password"
 msgstr "Berrezarri pasahitza"
 
 #: widgets/misc/passwordvalidatewidget.cpp:161
-#, fuzzy, kde-format
-#| msgid "Max Repeating Characters"
+#, kde-format
 msgid "At least %1 characters"
-msgstr "Errepikatutako karaktereen gehienezko kopurua"
+msgstr "%1 karaktere gutxienez"
 
 #: widgets/misc/passwordvalidatewidget.cpp:164
 #, kde-format
 msgid "At most %1 characters"
-msgstr ""
+msgstr "%1 karaktere gehienez"
 
 #: widgets/misc/passwordvalidatewidget.cpp:168
-#, fuzzy, kde-format
-#| msgid "Max Repeating Characters"
+#, kde-format
 msgid "Max. %1 repeating characters"
-msgstr "Errepikatutako karaktereen gehienezko kopurua"
+msgstr "%1 karaktere errepikatu gehienez"
 
 #: widgets/misc/passwordvalidatewidget.cpp:171
-#, fuzzy, kde-format
-#| msgctxt "@option:check"
-#| msgid "At Least One Lowercase"
+#, kde-format
 msgid "At least one lowercase letter"
 msgstr "Letra xehe bat gutxienez"
 
 #: widgets/misc/passwordvalidatewidget.cpp:174
-#, fuzzy, kde-format
-#| msgctxt "@option:check"
-#| msgid "At Least One Uppercase"
+#, kde-format
 msgid "At least one uppercase letter"
 msgstr "Letra larri bat gutxienez"
 
 #: widgets/misc/passwordvalidatewidget.cpp:177
-#, fuzzy, kde-format
-#| msgctxt "@option:check"
-#| msgid "At Least One Symbol"
+#, kde-format
 msgid "At least one symbol"
 msgstr "Ikur bat gutxienez"
 
 #: widgets/misc/passwordvalidatewidget.cpp:180
-#, fuzzy, kde-format
-#| msgctxt "@option:check"
-#| msgid "At Least One Number"
+#, kde-format
 msgid "At least one number"
 msgstr "Zenbaki bat gutxienez"
 
@@ -9789,10 +9788,9 @@ msgid "Register"
 msgstr "Erregistratu"
 
 #: widgets/registeruser/registeruserwidget.cpp:26
-#, fuzzy, kde-format
-#| msgid "Seasons"
+#, kde-format
 msgid "Reason:"
-msgstr "Sasoiak"
+msgstr "Arrazoia:"
 
 #: widgets/room/channelactionpopupmenu.cpp:29
 #, kde-format
@@ -9989,64 +9987,100 @@ msgctxt "@info:tooltip"
 msgid "Add reaction"
 msgstr "Gehitu erreakzioa"
 
-#: widgets/room/messagelinewidget.cpp:64
+#: widgets/room/messagelinewidget.cpp:62
+#, fuzzy, kde-format
+#| msgid "Attach File"
+msgctxt "@info:tooltip"
+msgid "Attach a file…"
+msgstr "Atxiki fitxategia"
+
+#: widgets/room/messagelinewidget.cpp:65
 #, kde-format
 msgid "Attach File"
 msgstr "Atxiki fitxategia"
 
 #: widgets/room/messagelinewidget.cpp:73
+#, fuzzy, kde-format
+#| msgctxt "@info:placeholder"
+#| msgid "Search moderation message…"
+msgctxt "@info:tooltip"
+msgid "Send a video message…"
+msgstr "Bilatu moderatzeko mezua..."
+
+#: widgets/room/messagelinewidget.cpp:75
 #, kde-format
 msgid "Video Message"
 msgstr "Bideo-mezua"
 
-#: widgets/room/messagelinewidget.cpp:83
+#: widgets/room/messagelinewidget.cpp:85
 #, kde-format
 msgid "Sound Message"
 msgstr "Soinu-mezua"
 
-#: widgets/room/messagelinewidget.cpp:95
+#: widgets/room/messagelinewidget.cpp:90
+#, fuzzy, kde-format
+#| msgid "Send and modify messages"
+msgctxt "@info:tooltip"
+msgid "Send a sound message…"
+msgstr "Mezuak bidali eta aldatu"
+
+#: widgets/room/messagelinewidget.cpp:97
+#, fuzzy, kde-format
+#| msgid "Add Emoticon"
+msgctxt "@info:tooltip"
+msgid "Add emoticon…"
+msgstr "Gehitu Emotikonoa"
+
+#: widgets/room/messagelinewidget.cpp:99
 #, kde-format
 msgid "Add Emoticon"
 msgstr "Gehitu Emotikonoa"
 
-#: widgets/room/messagelinewidget.cpp:103
+#: widgets/room/messagelinewidget.cpp:106
+#, fuzzy, kde-format
+#| msgid "Send Message"
+msgctxt "@info:tooltip"
+msgid "Send message"
+msgstr "Bidali mezua"
+
+#: widgets/room/messagelinewidget.cpp:108
 #, kde-format
 msgid "Send Message"
 msgstr "Bidali mezua"
 
-#: widgets/room/messagelinewidget.cpp:142
+#: widgets/room/messagelinewidget.cpp:147
 #, kde-format
 msgid "Do you want to convert this big text as attachment?"
 msgstr "Testu handi hau eranskin bihurtu nahi duzu?"
 
-#: widgets/room/messagelinewidget.cpp:143
+#: widgets/room/messagelinewidget.cpp:148
 #, kde-format
 msgctxt "@title:window"
 msgid "Message Too Big"
 msgstr "Mezua handiegia"
 
-#: widgets/room/messagelinewidget.cpp:244
+#: widgets/room/messagelinewidget.cpp:249
 #, kde-format
 msgid "Message %1 in thread"
 msgstr "%1 mezua harian"
 
-#: widgets/room/messagelinewidget.cpp:244
+#: widgets/room/messagelinewidget.cpp:249
 #, kde-format
 msgid "Message %1"
 msgstr "%1 mezua"
 
-#: widgets/room/messagelinewidget.cpp:385
+#: widgets/room/messagelinewidget.cpp:390
 #, kde-format
 msgid "File selected is too big (Maximum size %1)"
 msgstr "Hautatutako fitxategia handiegia da (Gehienezko neurria %1)"
 
-#: widgets/room/messagelinewidget.cpp:386
+#: widgets/room/messagelinewidget.cpp:391
 #, kde-format
 msgctxt "@title:window"
 msgid "File upload"
 msgstr "Fitxategia zama-igotzea"
 
-#: widgets/room/messagelinewidget.cpp:391
+#: widgets/room/messagelinewidget.cpp:396
 #, kde-format
 msgid "Server doesn't authorized this file (invalid mimetype)"
 msgstr "Zerbitzariak ez du fitxategi hori baimentzen (MIME-mota baliogabea)"
@@ -10257,8 +10291,9 @@ msgstr[0] "%4 %1 mezu berri %2(e)tik. %3"
 msgstr[1] "%4 %1 mezu berri %2(e)tik. %3"
 
 #: widgets/room/roomcounterinfowidget.cpp:52
-#, kde-format
-msgid "(Mark As Read)"
+#, fuzzy, kde-format
+#| msgid "(Mark As Read)"
+msgid "(Mark as Read)"
 msgstr "(Markatu irakurritako gisa)"
 
 #: widgets/room/roomcounterinfowidget.cpp:53
@@ -11082,11 +11117,11 @@ msgstr ""
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:19
 msgid "Improve changing password (show validation info)."
-msgstr ""
+msgstr "Pasahitza aldaketa hobetu (erakutsi baliozkotzeko informazioa)."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:20
 msgid "Improve register new account (Add reason support)."
-msgstr ""
+msgstr "Kontu berria erregistratu hobetu (Gehitu arrazoiaren euskarria)."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:30
 #, kde-format
@@ -11402,10 +11437,9 @@ msgid "Fix editing message."
 msgstr "Mezuak editatzea konpondu."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:125
-#, fuzzy, kde-format
-#| msgid "Implement Rocket.Chat Marketplace."
+#, kde-format
 msgid "Show permissions in Rocket.Chat Marketplace."
-msgstr "Rocket.Chat-en merkatu-plaza inplementatzea."
+msgstr "Rocket.Chat merkatu-plazako baimenak erakutsi."
 
 #: widgets/whatsnew/whatsnewwidget.cpp:44
 #, kde-format
@@ -11431,6 +11465,10 @@ msgstr "Ruqola-ren askapen berri honetako ezaugarri berrien artean daude:"
 #, kde-format
 msgid "Some bug fixing:"
 msgstr "Akatsak konponketa batzuk:"
+
+#~ msgctxt "@action"
+#~ msgid "Mark As Read"
+#~ msgstr "Markatu irakurritako gisa"
 
 #, fuzzy
 #~| msgctxt "@title:window"
