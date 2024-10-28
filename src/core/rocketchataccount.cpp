@@ -244,9 +244,9 @@ RocketChatAccount::RocketChatAccount(const QString &accountFileName, QObject *pa
         // If there is a new network connection, log out and back. The uni is "/" when the last primary connection
         // was closed. Do not log out to keep the messages visible. Login only if we were logged in at this point.
         if (uni != "/"_L1 && mDdp) {
-            qCDebug(RUQOLA_RECONNECT_LOG) << "Logout and reconnect:" << accountName();
-            mAfterLogout = AfterLogout::Reconnect;
-            logOut();
+            qCDebug(RUQOLA_RECONNECT_LOG) << "Disconnect and reconnect:" << accountName();
+            forceDisconnect();
+            reconnectToServer();
         }
     });
 #endif
@@ -310,9 +310,20 @@ void RocketChatAccount::loadSoundFiles()
     }
 }
 
+void RocketChatAccount::forceDisconnect()
+{
+    qCDebug(RUQOLA_RECONNECT_LOG) << "forcefully disconnecting" << accountName();
+    mSettings->logout();
+    mRoomModel->clear();
+    delete mRestApi;
+    mRestApi = nullptr;
+    delete mDdp;
+    mDdp = nullptr;
+}
+
 void RocketChatAccount::reconnectToServer()
 {
-    qCDebug(RUQOLA_RECONNECT_LOG) << " accountName " << accountName();
+    qCDebug(RUQOLA_RECONNECT_LOG) << "reconnecting" << accountName();
     // Clear auth token otherwise we can't reconnect.
     setAuthToken({});
     ddp();
@@ -572,9 +583,10 @@ Connection *RocketChatAccount::restApi()
         connect(mRestApi, &Connection::permissionListAllDone, this, &RocketChatAccount::slotPermissionListAllDone);
         connect(mRestApi, &Connection::usersSetPreferencesDone, this, &RocketChatAccount::slotUsersSetPreferencesDone);
         connect(mRestApi, &Connection::networkSessionFailedError, this, [this]() {
-            qCDebug(RUQOLA_RECONNECT_LOG) << "networkSessionFailedError - logout and reconnect" << accountName();
-            mAfterLogout = AfterLogout::ReconnectDelayed;
-            logOut();
+            // QNetworkReply::NetworkSessionFailedError = connection was broken due to disconnection from the network or failure to start the network
+            qCDebug(RUQOLA_RECONNECT_LOG) << "networkSessionFailedError" << accountName();
+            forceDisconnect();
+            autoReconnectDelayed();
         });
 
         mRestApi->setServerUrl(mSettings->serverUrl());
@@ -2714,19 +2726,6 @@ void RocketChatAccount::logoutCompleted()
 {
     qCDebug(RUQOLA_RECONNECT_LOG) << "Successfully logged out!";
     Q_EMIT logoutDone(accountName());
-
-    switch (mAfterLogout) {
-    case AfterLogout::DoNothing:
-        break;
-    case AfterLogout::Reconnect:
-        mAfterLogout = AfterLogout::DoNothing;
-        reconnectToServer();
-        break;
-    case AfterLogout::ReconnectDelayed:
-        mAfterLogout = AfterLogout::DoNothing;
-        autoReconnectDelayed();
-        break;
-    }
 }
 
 bool RocketChatAccount::e2EPasswordMustBeDecrypt() const

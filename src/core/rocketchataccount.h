@@ -650,6 +650,7 @@ private:
     LIBRUQOLACORE_NO_EXPORT void slotChannelGetCountersDone(const QJsonObject &obj,
                                                             const RocketChatRestApi::ChannelGroupBaseJob::ChannelGroupInfo &channelInfo);
 
+    LIBRUQOLACORE_NO_EXPORT void forceDisconnect();
     LIBRUQOLACORE_NO_EXPORT void logoutCompleted();
     LIBRUQOLACORE_NO_EXPORT void getSupportedLanguages();
     LIBRUQOLACORE_NO_EXPORT void usersPresence();
@@ -762,10 +763,4 @@ private:
     bool mMarkUnreadThreadsAsReadOnNextReply = false;
     bool mE2EPasswordMustBeSave = false;
     bool mE2EPasswordMustBeDecrypt = false;
-    enum class AfterLogout : uint8_t {
-        DoNothing,
-        Reconnect,
-        ReconnectDelayed
-    };
-    AfterLogout mAfterLogout = AfterLogout::DoNothing;
 };
