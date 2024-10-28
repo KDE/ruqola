@@ -17,3 +17,5 @@ TestDeriveKeyWidget::TestDeriveKeyWidget(QWidget *parent)
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setContentsMargins({});
 }
+
+#include "moc_testderivekeywidget.cpp"
