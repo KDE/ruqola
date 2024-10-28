@@ -2553,6 +2553,7 @@ void RocketChatAccount::initializeAccount()
     }
 
     Q_EMIT accountInitialized();
+    Q_EMIT initializeRoomRequested(mRoomModel->findRoom(settings()->lastSelectedRoom()));
 }
 
 void RocketChatAccount::checkLicenses()
@@ -2777,6 +2778,7 @@ void RocketChatAccount::slotLoginStatusChanged()
         // Reset it.
         mDelayReconnect = 100;
         qCDebug(RUQOLA_RECONNECT_LOG) << "Successfully logged in!";
+        Q_EMIT initializeRoomRequested(mRoomModel->findRoom(settings()->lastSelectedRoom()));
     } else if (loginStatus() == AuthenticationManager::LoginFailedInvalidUserOrPassword) {
         // clear auth token to refresh it with the next login
         setAuthToken({});

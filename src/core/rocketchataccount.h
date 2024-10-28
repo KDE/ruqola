@@ -628,6 +628,7 @@ Q_SIGNALS:
     void needToDecryptE2EPassword();
     void permissionSettingLoaded(const QJsonObject &obj);
     void privateSettingLoaded(const QJsonObject &obj);
+    void initializeRoomRequested(Room *r);
 
 private:
     Q_DISABLE_COPY(RocketChatAccount)

@@ -151,6 +151,7 @@ void MessageListView::goToMessage(const QByteArray &messageId)
 
 void MessageListView::setChannelSelected(Room *room)
 {
+    qDebug() << " void MessageListView::setChannelSelected(Room *room)***********************************" << room->roomId();
     auto oldModel = qobject_cast<MessagesModel *>(model());
     if (oldModel) {
         oldModel->deactivate();
@@ -165,6 +166,7 @@ void MessageListView::setChannelSelected(Room *room)
 
 void MessageListView::setModel(QAbstractItemModel *newModel)
 {
+    qWarning() << " void MessageListView::setModel(QAbstractItemModel *newModel)********************";
     QAbstractItemModel *oldModel = model();
     if (oldModel) {
         disconnect(oldModel, nullptr, this, nullptr);
@@ -711,8 +713,12 @@ void MessageListView::slotDebugMessage(const QModelIndex &index)
 
 void MessageListView::setCurrentRocketChatAccount(RocketChatAccount *currentRocketChatAccount)
 {
+    if (mCurrentRocketChatAccount) {
+        disconnect(mCurrentRocketChatAccount, &RocketChatAccount::initializeRoomRequested, this, &MessageListView::setChannelSelected);
+    }
     mCurrentRocketChatAccount = currentRocketChatAccount;
     mMessageListDelegate->setRocketChatAccount(mCurrentRocketChatAccount);
+    connect(mCurrentRocketChatAccount, &RocketChatAccount::initializeRoomRequested, this, &MessageListView::setChannelSelected);
 }
 
 void MessageListView::slotFollowMessage(const QModelIndex &index, bool messageIsFollowing)
