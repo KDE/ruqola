@@ -45,16 +45,6 @@ void RoomsUnmuteUserJob::onPostRequestResponse(const QString &replyErrorString, 
     }
 }
 
-RoomsUnmuteUserJob::CleanHistoryInfo RoomsUnmuteUserJob::cleanHistoryInfo() const
-{
-    return mCleanHistoryInfo;
-}
-
-void RoomsUnmuteUserJob::setCleanHistoryInfo(const CleanHistoryInfo &cleanHistoryInfo)
-{
-    mCleanHistoryInfo = cleanHistoryInfo;
-}
-
 bool RoomsUnmuteUserJob::requireHttpAuthentication() const
 {
     return true;
@@ -62,10 +52,10 @@ bool RoomsUnmuteUserJob::requireHttpAuthentication() const
 
 bool RoomsUnmuteUserJob::canStart() const
 {
-    if (!mCleanHistoryInfo.isValid()) {
-        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "mCleanHistoryInfo: mCleanHistoryInfo is not valid.";
-        return false;
-    }
+    // if (!mCleanHistoryInfo.isValid()) {
+    //     qCWarning(ROCKETCHATQTRESTAPI_LOG) << "mCleanHistoryInfo: mCleanHistoryInfo is not valid.";
+    //     return false;
+    // }
 
     if (!RestApiAbstractJob::canStart()) {
         return false;
@@ -76,29 +66,6 @@ bool RoomsUnmuteUserJob::canStart() const
 QJsonDocument RoomsUnmuteUserJob::json() const
 {
     QJsonObject jsonObj;
-    jsonObj["roomId"_L1] = QLatin1StringView(mCleanHistoryInfo.roomId);
-    if (mCleanHistoryInfo.inclusive) {
-        jsonObj["inclusive"_L1] = true;
-    }
-    if (mCleanHistoryInfo.ignoreThreads) {
-        jsonObj["ignoreThreads"_L1] = true;
-    }
-    if (mCleanHistoryInfo.filesOnly) {
-        jsonObj["filesOnly"_L1] = true;
-    }
-    if (mCleanHistoryInfo.excludePinned) {
-        jsonObj["excludePinned"_L1] = true;
-    }
-    if (mCleanHistoryInfo.ignoreDiscussion) {
-        jsonObj["ignoreDiscussion"_L1] = true;
-    }
-
-    jsonObj["latest"_L1] = mCleanHistoryInfo.latest.toString(Qt::ISODateWithMs);
-    jsonObj["oldest"_L1] = mCleanHistoryInfo.oldest.toString(Qt::ISODateWithMs);
-    if (!mCleanHistoryInfo.users.isEmpty()) {
-        jsonObj["users"_L1] = QJsonArray::fromStringList(mCleanHistoryInfo.users);
-    }
-
     const QJsonDocument postData = QJsonDocument(jsonObj);
     // qDebug() << " postData**************** " << postData;
     return postData;
@@ -111,24 +78,6 @@ QNetworkRequest RoomsUnmuteUserJob::request() const
     addAuthRawHeader(request);
     addRequestAttribute(request);
     return request;
-}
-
-bool RoomsUnmuteUserJob::CleanHistoryInfo::isValid() const
-{
-    return latest.isValid() && oldest.isValid() && !roomId.isEmpty();
-}
-
-QDebug operator<<(QDebug d, const RocketChatRestApi::RoomsUnmuteUserJob::CleanHistoryInfo &t)
-{
-    d << "latest " << t.latest;
-    d << "oldest " << t.oldest;
-    d << "roomId " << t.roomId;
-    d << "users " << t.users;
-    d << "inclusive " << t.inclusive;
-    d << "excludePinned " << t.excludePinned;
-    d << "filesOnly " << t.filesOnly;
-    d << "ignoreThreads " << t.ignoreThreads;
-    return d;
 }
 
 #include "moc_roomsunmuteuserjob.cpp"
