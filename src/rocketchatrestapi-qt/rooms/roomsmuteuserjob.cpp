@@ -86,6 +86,8 @@ bool RoomsMuteUserJob::canStart() const
 QJsonDocument RoomsMuteUserJob::json() const
 {
     QJsonObject jsonObj;
+    jsonObj["rid"_L1] = QString::fromLatin1(mRoomId);
+    jsonObj["username"_L1] = mUserName;
     const QJsonDocument postData = QJsonDocument(jsonObj);
     // qDebug() << " postData**************** " << postData;
     return postData;
