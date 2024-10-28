@@ -120,10 +120,7 @@ QList<WhatsNewInfo> WhatsNewTranslations::createWhatsNewInfo() const
         }
         info.setNewFeatures(lst);
         info.setVersion(QStringLiteral("2.4"));
-        info.setBugFixings({
-            i18n("Fix editing message."),
-            i18n("Show permissions in Rocket.Chat Marketplace."),
-        });
+        info.setBugFixings({i18n("Fix editing message."), i18n("Show permissions in Rocket.Chat Marketplace."), i18n("Fix reconnect server.")});
 
         listInfo.append(std::move(info));
     }
