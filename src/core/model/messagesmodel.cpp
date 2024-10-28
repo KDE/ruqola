@@ -39,14 +39,18 @@ MessagesModel::~MessagesModel() = default;
 
 void MessagesModel::activate()
 {
+    qCDebug(RUQOLA_LOG) << "Activate model";
     if (mRocketChatAccount) {
+        qCDebug(RUQOLA_LOG) << "CONNECT: messages model";
         connect(mRocketChatAccount, &RocketChatAccount::fileDownloaded, this, &MessagesModel::slotFileDownloaded);
     }
 }
 
 void MessagesModel::deactivate()
 {
+    qCDebug(RUQOLA_LOG) << "Desactivate model";
     if (mRocketChatAccount) {
+        qCDebug(RUQOLA_LOG) << "DISCONNECT: messages model";
         disconnect(mRocketChatAccount, &RocketChatAccount::fileDownloaded, this, &MessagesModel::slotFileDownloaded);
     }
 }
