@@ -72,7 +72,7 @@ void ChannelActionPopupMenu::createMenu()
 
     mMenu->addSeparator();
 
-    mConfigureNotification = new QAction(QIcon::fromTheme(QStringLiteral("preferences-desktop-notification")), i18n("Configure Notification…"), this);
+    mConfigureNotification = new QAction(QIcon::fromTheme(QStringLiteral("notifications-symbolic")), i18n("Configure Notification…"), this);
     mMenu->addAction(mConfigureNotification);
     connect(mConfigureNotification, &QAction::triggered, this, [this]() {
         Q_EMIT actionRequested(RoomHeaderWidget::Notification);
