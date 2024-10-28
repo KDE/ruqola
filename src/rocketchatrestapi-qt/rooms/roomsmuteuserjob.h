@@ -27,10 +27,18 @@ public:
 
     [[nodiscard]] QJsonDocument json() const;
 
+    [[nodiscard]] QByteArray roomId() const;
+    void setRoomId(const QByteArray &newRoomId);
+
+    [[nodiscard]] QString userName() const;
+    void setUserName(const QString &newUserName);
+
 Q_SIGNALS:
-    void cleanHistoryDone();
+    void roomsMuteUserDone();
 
 private:
     LIBROCKETCHATRESTAPI_QT_NO_EXPORT void onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson) override;
+    QString mUserName;
+    QByteArray mRoomId;
 };
 }

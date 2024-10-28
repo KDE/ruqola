@@ -38,11 +38,31 @@ void RoomsMuteUserJob::onPostRequestResponse(const QString &replyErrorString, co
 
     if (replyObject["success"_L1].toBool()) {
         addLoggerInfo(QByteArrayLiteral("RoomsMuteUserJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
-        Q_EMIT cleanHistoryDone();
+        Q_EMIT roomsMuteUserDone();
     } else {
         emitFailedMessage(replyErrorString, replyObject);
         addLoggerWarning(QByteArrayLiteral("RoomsMuteUserJob: problem: ") + replyJson.toJson(QJsonDocument::Indented));
     }
+}
+
+QString RoomsMuteUserJob::userName() const
+{
+    return mUserName;
+}
+
+void RoomsMuteUserJob::setUserName(const QString &newUserName)
+{
+    mUserName = newUserName;
+}
+
+QByteArray RoomsMuteUserJob::roomId() const
+{
+    return mRoomId;
+}
+
+void RoomsMuteUserJob::setRoomId(const QByteArray &newRoomId)
+{
+    mRoomId = newRoomId;
 }
 
 bool RoomsMuteUserJob::requireHttpAuthentication() const
@@ -73,7 +93,7 @@ QJsonDocument RoomsMuteUserJob::json() const
 
 QNetworkRequest RoomsMuteUserJob::request() const
 {
-    const QUrl url = mRestApiMethod->generateUrl(RestApiUtil::RestApiUrlType::RoomsCleanHistory);
+    const QUrl url = mRestApiMethod->generateUrl(RestApiUtil::RestApiUrlType::RoomsMuteUser);
     QNetworkRequest request(url);
     addAuthRawHeader(request);
     addRequestAttribute(request);

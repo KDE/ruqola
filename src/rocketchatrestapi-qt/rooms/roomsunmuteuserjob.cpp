@@ -38,11 +38,31 @@ void RoomsUnmuteUserJob::onPostRequestResponse(const QString &replyErrorString, 
 
     if (replyObject["success"_L1].toBool()) {
         addLoggerInfo(QByteArrayLiteral("RoomsUnmuteUserJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
-        Q_EMIT cleanHistoryDone();
+        Q_EMIT roomsUnmuteUserDone();
     } else {
         emitFailedMessage(replyErrorString, replyObject);
         addLoggerWarning(QByteArrayLiteral("RoomsUnmuteUserJob: problem: ") + replyJson.toJson(QJsonDocument::Indented));
     }
+}
+
+QString RoomsUnmuteUserJob::userName() const
+{
+    return mUserName;
+}
+
+void RoomsUnmuteUserJob::setUserName(const QString &newUserName)
+{
+    mUserName = newUserName;
+}
+
+QByteArray RoomsUnmuteUserJob::roomId() const
+{
+    return mRoomId;
+}
+
+void RoomsUnmuteUserJob::setRoomId(const QByteArray &newRoomId)
+{
+    mRoomId = newRoomId;
 }
 
 bool RoomsUnmuteUserJob::requireHttpAuthentication() const
@@ -73,7 +93,7 @@ QJsonDocument RoomsUnmuteUserJob::json() const
 
 QNetworkRequest RoomsUnmuteUserJob::request() const
 {
-    const QUrl url = mRestApiMethod->generateUrl(RestApiUtil::RestApiUrlType::RoomsCleanHistory);
+    const QUrl url = mRestApiMethod->generateUrl(RestApiUtil::RestApiUrlType::RoomsUnmuteUser);
     QNetworkRequest request(url);
     addAuthRawHeader(request);
     addRequestAttribute(request);

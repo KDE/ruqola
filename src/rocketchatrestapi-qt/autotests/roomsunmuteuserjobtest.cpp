@@ -5,7 +5,7 @@
 */
 
 #include "roomsunmuteuserjobtest.h"
-#include "rooms/roomscleanhistoryjob.h"
+#include "rooms/roomsunmuteuserjob.h"
 #include "ruqola_restapi_helper.h"
 #include <QJsonDocument>
 QTEST_GUILESS_MAIN(RoomsUnmuteUserJobTest)
@@ -17,28 +17,17 @@ RoomsUnmuteUserJobTest::RoomsUnmuteUserJobTest(QObject *parent)
 
 void RoomsUnmuteUserJobTest::shouldHaveDefaultValue()
 {
-    RoomsCleanHistoryJob job;
-    QVERIFY(!job.cleanHistoryInfo().isValid());
+    RoomsUnmuteUserJob job;
+    QVERIFY(job.userName().isEmpty());
+    QVERIFY(job.roomId().isEmpty());
     verifyDefaultValue(&job);
     QVERIFY(job.requireHttpAuthentication());
     QVERIFY(!job.hasQueryParameterSupport());
-
-    RoomsCleanHistoryJob::CleanHistoryInfo info;
-    QVERIFY(!info.isValid());
-    QVERIFY(!info.inclusive);
-    QVERIFY(!info.excludePinned);
-    QVERIFY(!info.filesOnly);
-    QVERIFY(!info.ignoreThreads);
-    QVERIFY(!info.ignoreDiscussion);
-    QVERIFY(info.users.isEmpty());
-    QVERIFY(info.roomId.isEmpty());
-    QVERIFY(!info.oldest.isValid());
-    QVERIFY(!info.latest.isValid());
 }
 
 void RoomsUnmuteUserJobTest::shouldGenerateRequest()
 {
-    RoomsCleanHistoryJob job;
+    RoomsUnmuteUserJob job;
     QNetworkRequest request = QNetworkRequest(QUrl());
     verifyAuthentication(&job, request);
     QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/v1/rooms.cleanHistory")));
@@ -47,50 +36,13 @@ void RoomsUnmuteUserJobTest::shouldGenerateRequest()
 
 void RoomsUnmuteUserJobTest::shouldGenerateJson()
 {
-    RoomsCleanHistoryJob job;
-    RoomsCleanHistoryJob::CleanHistoryInfo info;
-    const QByteArray roomId("room1");
-    info.roomId = roomId;
-    info.latest = QDateTime(QDate(2020, 12, 3), QTime(5, 7, 50));
-    info.oldest = QDateTime(QDate(2020, 3, 3), QTime(5, 7, 50));
-    job.setCleanHistoryInfo(info);
-    QCOMPARE(
-        job.json().toJson(QJsonDocument::Compact),
-        QStringLiteral(R"({"latest":"2020-12-03T05:07:50.000","oldest":"2020-03-03T05:07:50.000","roomId":"%1"})").arg(QLatin1StringView(roomId)).toLatin1());
-    info.inclusive = true;
-    job.setCleanHistoryInfo(info);
-    QCOMPARE(job.json().toJson(QJsonDocument::Compact),
-             QStringLiteral(R"({"inclusive":true,"latest":"2020-12-03T05:07:50.000","oldest":"2020-03-03T05:07:50.000","roomId":"%1"})")
-                 .arg(QLatin1StringView(roomId))
-                 .toLatin1());
-    info.ignoreThreads = true;
-    job.setCleanHistoryInfo(info);
-    QCOMPARE(job.json().toJson(QJsonDocument::Compact),
-             QStringLiteral(R"({"ignoreThreads":true,"inclusive":true,"latest":"2020-12-03T05:07:50.000","oldest":"2020-03-03T05:07:50.000","roomId":"%1"})")
-                 .arg(QLatin1StringView(roomId))
-                 .toLatin1());
-    const QStringList users = {QStringLiteral("bla"), QStringLiteral("bli")};
-    info.users = users;
-    job.setCleanHistoryInfo(info);
-    QCOMPARE(
-        job.json().toJson(QJsonDocument::Compact),
-        QStringLiteral(
-            R"({"ignoreThreads":true,"inclusive":true,"latest":"2020-12-03T05:07:50.000","oldest":"2020-03-03T05:07:50.000","roomId":"%1","users":["bla","bli"]})")
-            .arg(QLatin1StringView(roomId))
-            .toLatin1());
-    info.ignoreDiscussion = true;
-    job.setCleanHistoryInfo(info);
-    QCOMPARE(
-        job.json().toJson(QJsonDocument::Compact),
-        QStringLiteral(
-            R"({"ignoreDiscussion":true,"ignoreThreads":true,"inclusive":true,"latest":"2020-12-03T05:07:50.000","oldest":"2020-03-03T05:07:50.000","roomId":"%1","users":["bla","bli"]})")
-            .arg(QLatin1StringView(roomId))
-            .toLatin1());
+    RoomsUnmuteUserJob job;
+    // TODO
 }
 
 void RoomsUnmuteUserJobTest::shouldNotStarting()
 {
-    RoomsCleanHistoryJob job;
+    RoomsUnmuteUserJob job;
 
     RestApiMethod method;
     method.setServerUrl(QStringLiteral("http://www.kde.org"));
@@ -105,15 +57,12 @@ void RoomsUnmuteUserJobTest::shouldNotStarting()
     QVERIFY(!job.canStart());
     job.setUserId(userId);
     QVERIFY(!job.canStart());
-    RoomsCleanHistoryJob::CleanHistoryInfo info;
-    const QByteArray roomId("room1");
-    info.roomId = roomId;
-    job.setCleanHistoryInfo(info);
-    QVERIFY(!job.canStart());
 
-    info.latest = QDateTime(QDate(2020, 12, 3), QTime(5, 7, 50));
-    info.oldest = QDateTime(QDate(2020, 3, 3), QTime(5, 7, 50));
-    job.setCleanHistoryInfo(info);
+    const QByteArray roomId("room1");
+    job.setRoomId(roomId);
+    QVERIFY(!job.canStart());
+    const QString userName(QStringLiteral("userName"));
+    job.setUserName(userName);
     QVERIFY(job.canStart());
 }
 
