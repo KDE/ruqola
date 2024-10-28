@@ -35,7 +35,6 @@ void RocketChatAccountTest::shouldHaveDefaultValue()
     QVERIFY(w.inputTextManager());
     QVERIFY(w.inputThreadMessageTextManager());
     QVERIFY(w.receiveTypingNotificationManager());
-    QVERIFY(!w.editingMode());
     QVERIFY(w.filesModelForRoom());
     QVERIFY(w.filesForRoomFilterProxyModel());
     QCOMPARE(w.filesForRoomFilterProxyModel()->sourceModel(), w.filesModelForRoom());

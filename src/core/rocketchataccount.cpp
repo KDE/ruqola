@@ -680,11 +680,6 @@ DDPClient *RocketChatAccount::ddp()
     return mDdp;
 }
 
-bool RocketChatAccount::editingMode() const
-{
-    return mEditingMode;
-}
-
 AuthenticationManager::LoginStatus RocketChatAccount::loginStatus() const
 {
     if (Ruqola::self()->useRestApiLogin()) {
@@ -1970,14 +1965,6 @@ bool RocketChatAccount::federationEnabled() const
 void RocketChatAccount::groupInfo(const QByteArray &roomId)
 {
     restApi()->groupInfo(roomId);
-}
-
-void RocketChatAccount::switchEditingMode(bool b)
-{
-    if (mEditingMode != b) {
-        mEditingMode = b;
-        Q_EMIT editingModeChanged();
-    }
 }
 
 void RocketChatAccount::setSortUnreadOnTop(bool checked)

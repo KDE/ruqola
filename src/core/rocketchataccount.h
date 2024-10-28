@@ -190,7 +190,6 @@ public:
     void ignoreUser(const QByteArray &rid, const QByteArray &userId, bool ignore);
     void channelInfo(const QByteArray &roomId);
     void groupInfo(const QByteArray &roomId);
-    void switchEditingMode(bool b);
     void setSortUnreadOnTop(bool b);
     void setRoomListSortOrder(OwnUserPreferences::RoomListSortOrder roomListSortOrder);
     void kickUser(const QByteArray &rid, const QByteArray &userId, Room::RoomType channelType);
@@ -246,7 +245,6 @@ public:
 
     DDPClient *ddp();
     [[nodiscard]] RoomModel *roomModel() const;
-    [[nodiscard]] bool editingMode() const;
     [[nodiscard]] bool sortUnreadOnTop() const;
     [[nodiscard]] OwnUserPreferences::RoomListSortOrder roomListSortOrder() const;
 
@@ -582,7 +580,6 @@ Q_SIGNALS:
     void fileDownloaded(const QString &filePath, const QUrl &cacheImageUrl);
     void updateNotification(bool hasAlert, int nbUnread, const QString &accountName);
     void missingChannelPassword(const RocketChatRestApi::ChannelGroupBaseJob::ChannelGroupInfo &channelInfo);
-    void editingModeChanged();
     void jobFailed(const QString &message, const QString &accountName);
     void userStatusUpdated(User::PresenceStatus status, const QString &customText, const QString &accountName);
     void publicSettingChanged();
@@ -762,7 +759,6 @@ private:
     AppsCategoriesModel *const mAppsCategoriesModel;
     MemoryManager *const mMemoryManager;
     int mDelayReconnect = 100;
-    bool mEditingMode = false;
     bool mMarkUnreadThreadsAsReadOnNextReply = false;
     bool mE2EPasswordMustBeSave = false;
     bool mE2EPasswordMustBeDecrypt = false;
