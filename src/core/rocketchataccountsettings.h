@@ -93,7 +93,6 @@ Q_SIGNALS:
     void passwordAvailable();
     void twoFactorAuthenticationCodeChanged();
     void enableAccountChanged();
-    void displayNameChanged();
     void activitiesChanged();
 
 private:

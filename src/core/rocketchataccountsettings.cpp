@@ -182,7 +182,6 @@ void RocketChatAccountSettings::setDisplayName(const QString &displayName)
         mDisplayName = displayName;
         mSetting->setValue("displayName"_L1, mDisplayName);
         mSetting->sync();
-        Q_EMIT displayNameChanged();
     }
 }
 
