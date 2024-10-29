@@ -18,7 +18,11 @@ public:
     explicit MarkRoomAsUnReadJob(QObject *parent = nullptr);
     ~MarkRoomAsUnReadJob() override;
 
-    enum MarkAsUnReadObject { Unknown = 0, FromMessage, Room };
+    enum MarkAsUnReadObject {
+        Unknown = 0,
+        FromMessage,
+        Room
+    };
 
     [[nodiscard]] bool start() override;
     [[nodiscard]] bool requireHttpAuthentication() const override;

@@ -73,9 +73,17 @@ typedef enum {
 #define CMARK_NODE_HTML CMARK_NODE_HTML_BLOCK
 #define CMARK_NODE_INLINE_HTML CMARK_NODE_HTML_INLINE
 
-typedef enum { CMARK_NO_LIST, CMARK_BULLET_LIST, CMARK_ORDERED_LIST } cmark_list_type;
+typedef enum {
+    CMARK_NO_LIST,
+    CMARK_BULLET_LIST,
+    CMARK_ORDERED_LIST
+} cmark_list_type;
 
-typedef enum { CMARK_NO_DELIM, CMARK_PERIOD_DELIM, CMARK_PAREN_DELIM } cmark_delim_type;
+typedef enum {
+    CMARK_NO_DELIM,
+    CMARK_PERIOD_DELIM,
+    CMARK_PAREN_DELIM
+} cmark_delim_type;
 
 typedef struct cmark_node cmark_node;
 typedef struct cmark_parser cmark_parser;
@@ -206,7 +214,12 @@ CMARK_RC_EXPORT cmark_node *cmark_node_last_child(cmark_node *node);
  * leaf nodes.
  */
 
-typedef enum { CMARK_EVENT_NONE, CMARK_EVENT_DONE, CMARK_EVENT_ENTER, CMARK_EVENT_EXIT } cmark_event_type;
+typedef enum {
+    CMARK_EVENT_NONE,
+    CMARK_EVENT_DONE,
+    CMARK_EVENT_ENTER,
+    CMARK_EVENT_EXIT
+} cmark_event_type;
 
 /** Creates a new iterator starting at 'root'.  The current node and event
  * type are undefined until 'cmark_iter_next' is called for the first time.

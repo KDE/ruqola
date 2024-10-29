@@ -10,7 +10,12 @@ extern "C" {
 
 #include "buffer.h"
 
-typedef enum { LITERAL, NORMAL, TITLE, URL } cmark_escaping;
+typedef enum {
+    LITERAL,
+    NORMAL,
+    TITLE,
+    URL
+} cmark_escaping;
 
 struct block_number {
     int number;
