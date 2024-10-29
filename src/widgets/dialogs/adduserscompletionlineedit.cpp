@@ -70,11 +70,26 @@ void AddUsersCompletionLineEdit::slotComplete(const QModelIndex &index)
     UserCompletionInfo info;
     info.username = completerName;
     info.userId = userId;
+    if (!info.isValid()) {
+        return;
+    }
     mCompletionListView->hide();
     disconnect(this, &AddUsersCompletionLineEdit::textChanged, this, &AddUsersCompletionLineEdit::slotSearchTextEdited);
     Q_EMIT newUserName(info);
     clear();
     connect(this, &AddUsersCompletionLineEdit::textChanged, this, &AddUsersCompletionLineEdit::slotSearchTextEdited);
+}
+
+QDebug operator<<(QDebug d, const AddUsersCompletionLineEdit::UserCompletionInfo &t)
+{
+    d.space() << "userId" << t.userId;
+    d.space() << "username" << t.username;
+    return d;
+}
+
+bool AddUsersCompletionLineEdit::UserCompletionInfo::isValid() const
+{
+    return !userId.isEmpty() && !username.isEmpty();
 }
 
 #include "moc_adduserscompletionlineedit.cpp"

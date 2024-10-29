@@ -17,6 +17,7 @@ public:
     struct UserCompletionInfo {
         QString username;
         QByteArray userId;
+        [[nodiscard]] bool isValid() const;
     };
     explicit AddUsersCompletionLineEdit(RocketChatAccount *account, QWidget *parent = nullptr);
     ~AddUsersCompletionLineEdit() override;
@@ -33,3 +34,5 @@ private:
     RocketChatAccount *const mRocketChatAccount;
     QTimer *const mSearchTimer;
 };
+LIBRUQOLAWIDGETS_EXPORT QDebug operator<<(QDebug d, const AddUsersCompletionLineEdit::UserCompletionInfo &t);
+Q_DECLARE_TYPEINFO(AddUsersCompletionLineEdit::UserCompletionInfo, Q_RELOCATABLE_TYPE);
