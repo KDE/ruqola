@@ -241,8 +241,10 @@ RocketChatAccount::RocketChatAccount(const QString &accountFileName, QObject *pa
 
 #if HAVE_NETWORKMANAGER
     connect(NetworkManager::notifier(), &NetworkManager::Notifier::primaryConnectionChanged, this, [this](const QString &uni) {
-        // If there is a new network connection, log out and back. The uni is "/" when the last primary connection
-        // was closed. Do not log out to keep the messages visible. Login only if we were logged in at this point.
+        // If there is a new network connection, disconnect and reconnect/login.
+        // The uni is "/" when the last primary connection was closed.
+        // Do not log out to keep the messages visible (and because we can't, without a connected socket).
+        // TODO Login only if we were logged in at this point.
         if (uni != "/"_L1 && mDdp) {
             qCDebug(RUQOLA_RECONNECT_LOG) << "Disconnect and reconnect:" << accountName();
             forceDisconnect();
@@ -2762,7 +2764,7 @@ void RocketChatAccount::setE2EPasswordMustBeSave(bool newE2EPasswordMustBeSave)
     mE2EPasswordMustBeSave = newE2EPasswordMustBeSave;
 }
 
-void RocketChatAccount::slotLoginStatusChanged()
+void RocketChatAccount::slotLoginStatusChanged() // only used in DDP-only mode (!useRestApiLogin)
 {
     if (loginStatus() == AuthenticationManager::LoggedIn) {
         // Reset it.
