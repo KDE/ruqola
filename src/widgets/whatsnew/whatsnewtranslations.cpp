@@ -18,6 +18,7 @@ QList<KLazyLocalizedString> WhatsNewTranslations::lastNewFeatures() const
         kli18n("Add restore button in administrator server settings dialog."),
         kli18n("Improve changing password (show validation info)."),
         kli18n("Improve register new account (Add reason support)."),
+        kli18n("Implement mute/unmute user."),
     };
     return info;
 }
