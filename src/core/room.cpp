@@ -1639,6 +1639,9 @@ QIcon Room::icon() const
             return QIcon::fromTheme(QStringLiteral("irc-channel-inactive"));
         }
     case Room::RoomType::Direct: {
+        if (mUids.count() > 2) {
+            return QIcon::fromTheme(QStringLiteral("view-conversation-balloon-symbolic"));
+        }
         const QString userStatusIconFileName = mRocketChatAccount ? mRocketChatAccount->userStatusIconFileName(name()) : QString();
         if (userStatusIconFileName.isEmpty()) {
             return QIcon::fromTheme(QStringLiteral("user-available"));
