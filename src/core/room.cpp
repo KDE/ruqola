@@ -766,7 +766,6 @@ void Room::parseSubscriptionRoom(const QJsonObject &json)
     mNotificationOptions.parseNotificationOptions(json);
     parseRetentionInfo(json);
     // parseTeamInfo(json);
-    // TODO add muted
 }
 
 qint64 Room::lastSeenAt() const
