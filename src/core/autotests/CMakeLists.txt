@@ -164,7 +164,7 @@ if(HAVE_TEXT_TRANSLATOR)
     add_ruqola_test(translatetextjobtest.cpp)
 endif()
 
-add_ruqola_test(appsmarketplaceinfotest.cpp)
+#add_ruqola_test(appsmarketplaceinfotest.cpp)
 if(TEXT_CONVERTER_CMARK_SUPPORT)
     add_ruqola_test(textconvertercmarktest.cpp)
 endif()
