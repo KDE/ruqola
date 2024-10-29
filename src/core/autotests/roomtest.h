@@ -19,6 +19,8 @@ private Q_SLOTS:
     void shouldSerialized();
     void shouldEmitSignals();
 
+    void shoudUserIsMuted();
+
     // Rooms subscriptions only
     void shouldParseRoom_data();
     void shouldParseRoom();

@@ -300,6 +300,8 @@ public:
     [[nodiscard]] qint64 lastOpenedAt() const;
     void setLastOpenedAt(qint64 newLastOpenedAt);
 
+    [[nodiscard]] bool userIsMuted(const QString &username);
+
 Q_SIGNALS:
     void highlightsWordChanged();
     void nameChanged();

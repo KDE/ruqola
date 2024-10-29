@@ -63,15 +63,19 @@ void UsersInRoomMenu::slotReportUser()
 
 void UsersInRoomMenu::slotMuteUser()
 {
-    // TODO
-    if (KMessageBox::ButtonCode::SecondaryAction
-        == KMessageBox::questionTwoActions(mParentWidget,
-                                           i18n("Do you want to mute this user?"),
-                                           i18nc("@title", "Mute User"),
-                                           KGuiItem(i18nc("@action:button", "Mute User"), QStringLiteral("dialog-ok")),
-                                           KStandardGuiItem::cancel())) {
-        return;
+    const bool userIsMuted = mRoom->userIsMuted(mUserName);
+    if (!userIsMuted) {
+        if (KMessageBox::ButtonCode::SecondaryAction
+            == KMessageBox::questionTwoActions(mParentWidget,
+                                               i18n("Do you want to mute this user?"),
+                                               i18nc("@title", "Mute User"),
+                                               KGuiItem(i18nc("@action:button", "Mute User"), QStringLiteral("dialog-ok")),
+                                               KStandardGuiItem::cancel())) {
+            return;
+        }
     }
+    // Fix remove Ruqola::self()
+    Ruqola::self()->rocketChatAccount()->muteUser(mRoom->roomId(), mUserName, !userIsMuted);
 }
 
 void UsersInRoomMenu::slotIgnoreUser()
@@ -166,30 +170,26 @@ void UsersInRoomMenu::slotCustomContextMenuRequested(const QPoint &pos)
         }
     }
     if (isNotMe) {
+        if (!menu.isEmpty()) {
+            menu.addSeparator();
+        }
         if (isAdirectChannel) {
-            if (!menu.isEmpty()) {
-                menu.addSeparator();
-            }
             const bool userIsBlocked = mRoom->blocker();
             auto blockAction = new QAction(userIsBlocked ? i18nc("@action", "Unblock User") : i18nc("@action", "Block User"), &menu);
             connect(blockAction, &QAction::triggered, this, &UsersInRoomMenu::slotBlockUser);
             menu.addAction(blockAction);
         } else {
-            if (!menu.isEmpty()) {
-                menu.addSeparator();
-            }
-
             const bool userIsIgnored = mRoom->userIsIgnored(mUserId);
             auto ignoreAction = new QAction(userIsIgnored ? i18nc("@action", "Unignore") : i18nc("@action", "Ignore"), &menu);
             connect(ignoreAction, &QAction::triggered, this, &UsersInRoomMenu::slotIgnoreUser);
             menu.addAction(ignoreAction);
+            menu.addSeparator();
+            const bool userIsMuted = mRoom->userIsMuted(mUserName);
+            auto muteAction = new QAction(userIsMuted ? i18nc("@action", "Unmute User") : i18nc("@action", "Mute User"), &menu);
+            muteAction->setIcon(userIsMuted ? QIcon::fromTheme("mic-on"_L1) : QIcon::fromTheme("mic-off"_L1));
+            connect(muteAction, &QAction::triggered, this, &UsersInRoomMenu::slotMuteUser);
+            menu.addAction(muteAction);
         }
-        /*
-        // TODO add Mute/Unmute
-        auto muteAction = new QAction(userIsBlocked ? i18nc("@action", "Unmute User") : i18nc("@action", "Mute User"), &menu);
-        connect(muteAction, &QAction::triggered, this, &UsersInRoomMenu::slotMuteUser);
-        menu.addAction(muteAction);
-        */
 
         menu.addSeparator();
         auto reportUserAction = new QAction(i18nc("@action", "Report User"), &menu);

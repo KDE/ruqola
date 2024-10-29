@@ -2295,6 +2295,11 @@ void RocketChatAccount::ignoreUser(const QByteArray &rid, const QByteArray &user
     restApi()->ignoreUser(rid, userId, ignore);
 }
 
+void RocketChatAccount::muteUser(const QByteArray &rid, const QString &userName, bool mute)
+{
+    restApi()->muteUser(rid, userName, mute);
+}
+
 void RocketChatAccount::blockUser(const QString &rid, bool block)
 {
     // TODO use restapi

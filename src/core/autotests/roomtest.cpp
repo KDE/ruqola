@@ -5,7 +5,6 @@
 */
 
 #include "roomtest.h"
-#include "model/usersforroommodel.h"
 #include "rocketchataccount.h"
 #include "room.h"
 #include "ruqola_autotest_helper.h"
@@ -324,6 +323,20 @@ void RoomTest::shouldEmitSignals()
     QCOMPARE(spyautoTranslateChanged.count(), 1);
     QCOMPARE(spydirectChannelUserIdChanged.count(), 1);
     QCOMPARE(spylastMessageAtChanged.count(), 1);
+}
+
+void RoomTest::shoudUserIsMuted()
+{
+    {
+        Room input(nullptr);
+        input.setMutedUsers(QStringList());
+        QVERIFY(!input.userIsMuted("foo"_L1));
+
+        QStringList lst;
+        lst << QStringLiteral("bla") << QStringLiteral("foo");
+        input.setMutedUsers(lst);
+        QVERIFY(input.userIsMuted("foo"_L1));
+    }
 }
 
 void RoomTest::shouldParseRoom_data()

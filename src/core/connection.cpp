@@ -14,6 +14,8 @@
 #include "serverinfojob.h"
 #include "settings/privateinfojob.h"
 
+#include "rooms/roomsmuteuserjob.h"
+#include "rooms/roomsunmuteuserjob.h"
 #include "users/deleteownaccountjob.h"
 #include "users/forgotpasswordjob.h"
 #include "users/getavatarjob.h"
@@ -1039,6 +1041,29 @@ void Connection::ignoreUser(const QByteArray &roomId, const QByteArray &userId, 
     connect(job, &IgnoreUserJob::ignoreUserDone, this, &Connection::ignoreUserDone);
     if (!job->start()) {
         qCWarning(RUQOLA_LOG) << "Impossible to start ignoreUser job";
+    }
+}
+
+void Connection::muteUser(const QByteArray &roomId, const QString &userName, bool mute)
+{
+    if (mute) {
+        auto job = new RoomsMuteUserJob(this);
+        initializeRestApiJob(job);
+        job->setUserName(userName);
+        job->setRoomId(roomId);
+        // connect(job, &RoomsMuteUserJob::ignoreUserDone, this, &Connection::ignoreUserDone);
+        if (!job->start()) {
+            qCWarning(RUQOLA_LOG) << "Impossible to start RoomsMuteUserJob job";
+        }
+    } else {
+        auto job = new RoomsUnmuteUserJob(this);
+        initializeRestApiJob(job);
+        job->setUserName(userName);
+        job->setRoomId(roomId);
+        // connect(job, &RoomsMuteUserJob::ignoreUserDone, this, &Connection::ignoreUserDone);
+        if (!job->start()) {
+            qCWarning(RUQOLA_LOG) << "Impossible to start RoomsMuteUserJob job";
+        }
     }
 }
 

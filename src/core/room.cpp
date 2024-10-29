@@ -1517,6 +1517,15 @@ bool Room::userIsIgnored(const QByteArray &userId)
     return users.contains(QString::fromLatin1(userId));
 }
 
+bool Room::userIsMuted(const QString &username)
+{
+    const QStringList users = mutedUsers();
+    if (users.isEmpty()) {
+        return false;
+    }
+    return users.contains(username);
+}
+
 bool Room::roomIsBlocked() const
 {
     return ((readOnly() && !canChangeRoles()) || archived()) || blocker() || blocked();

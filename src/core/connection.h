@@ -195,6 +195,7 @@ public:
     void hideMentionStatus(const QByteArray &roomId, bool value);
     void historyChannel(const RocketChatRestApi::ChannelHistoryJob::ChannelHistoryInfo &info);
 
+    void muteUser(const QByteArray &roomId, const QString &userName, bool mute);
 Q_SIGNALS:
     void avatar(const RocketChatRestApi::UserBaseJob::UserInfo &info, const QUrl &url);
     void redownloadAvatar();
