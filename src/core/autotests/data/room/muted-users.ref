@@ -9,7 +9,7 @@
     "fname": "foo",
     "jitsiTimeout": -1,
     "lastSeenAt": -1,
-    "mutedUsers": [
+    "muted": [
         "muteduser"
     ],
     "name": "foo",
