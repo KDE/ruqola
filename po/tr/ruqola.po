@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-10-28 00:40+0000\n"
-"PO-Revision-Date: 2024-10-26 13:34+0300\n"
+"POT-Creation-Date: 2024-10-29 00:40+0000\n"
+"PO-Revision-Date: 2024-10-28 13:29+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -444,20 +444,19 @@ msgid "App user is not allowed to login."
 msgstr "Uygulama kullanıcısının oturum açmasına izin verilmiyor."
 
 #: core/authenticationmanager.cpp:113
-#, fuzzy, kde-format
-#| msgid "Call ongoing"
+#, kde-format
 msgid "Logout ongoing"
-msgstr "Arama sürüyor"
+msgstr "Oturumu kapatma sürüyor…"
 
 #: core/authenticationmanager.cpp:115
 #, kde-format
 msgid "Logout cleanup ongoing"
-msgstr ""
+msgstr "Oturumu kapatma temizliği sürüyor…"
 
 #: core/authenticationmanager.cpp:117
 #, kde-format
 msgid "Successfully logged out"
-msgstr ""
+msgstr "Oturum başarıyla kapatıldı."
 
 #: core/authenticationmanager.cpp:119
 #, kde-format
@@ -1302,17 +1301,17 @@ msgstr "İleti Dizileri"
 msgid "Unread Threads Messages"
 msgstr "Okunmamış İleti Dizileri"
 
-#: core/model/messagesmodel.cpp:219
+#: core/model/messagesmodel.cpp:223
 #, kde-format
 msgid "Edited at %1 by %2"
 msgstr "%2 tarafından %1 tarihinde düzenlendi"
 
-#: core/model/messagesmodel.cpp:365
+#: core/model/messagesmodel.cpp:369
 #, kde-format
 msgid "Ignored Message"
 msgstr "Yok Sayılan İleti"
 
-#: core/model/messagesmodel.cpp:374
+#: core/model/messagesmodel.cpp:378
 #, kde-format
 msgid "Only you can see this message"
 msgstr "Bu iletiyi yalnızca siz görebilirsiniz"
@@ -1747,30 +1746,31 @@ msgctxt "WARNING!!!!!!: PLEASE We need a space between after </strong>"
 msgid "<strong>%1</strong> are typing..."
 msgstr "<strong>%1</strong> yazıyor…"
 
-#: core/rocketchataccount.cpp:707
+#: core/rocketchataccount.cpp:702
 #, kde-format
 msgid ""
 "REST: %1\n"
 "DDP: %2"
 msgstr ""
+"REST: %1\n"
+"DDP: %2"
 
-#: core/rocketchataccount.cpp:715 core/rocketchataccount.cpp:727
+#: core/rocketchataccount.cpp:710 core/rocketchataccount.cpp:722
 #, kde-format
 msgid "Not connected"
 msgstr "Bağlı değil"
 
-#: core/rocketchataccount.cpp:722
-#, fuzzy, kde-format
-#| msgid "Not connected"
+#: core/rocketchataccount.cpp:717
+#, kde-format
 msgid "Not connected yet"
-msgstr "Bağlı değil"
+msgstr "Henüz bağlı değil"
 
-#: core/rocketchataccount.cpp:3124
+#: core/rocketchataccount.cpp:3110
 #, kde-format
 msgid "Export Messages"
 msgstr "İletileri Dışa Aktar"
 
-#: core/rocketchataccount.cpp:3125
+#: core/rocketchataccount.cpp:3111
 #, kde-format
 msgid "Your email has been queued for sending."
 msgstr "E-postanız, gönderme için kuyruğa eklendi."
@@ -7067,9 +7067,7 @@ msgid "Mark as Read"
 msgstr "Okundu Olarak İmle"
 
 #: widgets/channellist/channellistview.cpp:118
-#, fuzzy, kde-format
-#| msgctxt "@action"
-#| msgid "Mark As Unread"
+#, kde-format
 msgctxt "@action"
 msgid "Mark as Unread"
 msgstr "Okunmadı Olarak İmle"
@@ -9933,11 +9931,10 @@ msgid "Add reaction"
 msgstr "Tepki ekle"
 
 #: widgets/room/messagelinewidget.cpp:62
-#, fuzzy, kde-format
-#| msgid "Attach File"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Attach a file…"
-msgstr "Dosya İliştir"
+msgstr "Dosya İliştir…"
 
 #: widgets/room/messagelinewidget.cpp:65
 #, kde-format
@@ -9945,12 +9942,10 @@ msgid "Attach File"
 msgstr "Dosya İliştir"
 
 #: widgets/room/messagelinewidget.cpp:73
-#, fuzzy, kde-format
-#| msgctxt "@info:placeholder"
-#| msgid "Search moderation message…"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Send a video message…"
-msgstr "Moderasyon iletisi ara…"
+msgstr "Video iletisi gönder…"
 
 #: widgets/room/messagelinewidget.cpp:75
 #, kde-format
@@ -9963,18 +9958,16 @@ msgid "Sound Message"
 msgstr "Ses İletisi"
 
 #: widgets/room/messagelinewidget.cpp:90
-#, fuzzy, kde-format
-#| msgid "Send and modify messages"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Send a sound message…"
-msgstr "İletiler gönder ve iletilerde değişiklik yap"
+msgstr "Ses iletisi gönder…"
 
 #: widgets/room/messagelinewidget.cpp:97
-#, fuzzy, kde-format
-#| msgid "Add Emoticon"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Add emoticon…"
-msgstr "Emoji Ekle"
+msgstr "Emoji ekle…"
 
 #: widgets/room/messagelinewidget.cpp:99
 #, kde-format
@@ -9982,11 +9975,10 @@ msgid "Add Emoticon"
 msgstr "Emoji Ekle"
 
 #: widgets/room/messagelinewidget.cpp:106
-#, fuzzy, kde-format
-#| msgid "Send Message"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Send message"
-msgstr "İletiyi Gönder"
+msgstr "İletiyi gönder"
 
 #: widgets/room/messagelinewidget.cpp:108
 #, kde-format
@@ -10118,7 +10110,7 @@ msgctxt "@action"
 msgid "Copy URL"
 msgstr "URL’yi Kopyala"
 
-#: widgets/room/messagelistview.cpp:384 widgets/room/usersinroommenu.cpp:105
+#: widgets/room/messagelistview.cpp:384 widgets/room/usersinroommenu.cpp:110
 #, kde-format
 msgctxt "@action"
 msgid "User Info"
@@ -10236,8 +10228,7 @@ msgstr[0] "%4 %2 tarihinden bu yana %1 yeni ileti. %3"
 msgstr[1] "%4 %2 tarihinden bu yana %1 yeni ileti. %3"
 
 #: widgets/room/roomcounterinfowidget.cpp:52
-#, fuzzy, kde-format
-#| msgid "(Mark As Read)"
+#, kde-format
 msgid "(Mark as Read)"
 msgstr "(Okundu Olarak İmle)"
 
@@ -10423,96 +10414,96 @@ msgctxt "@action:button"
 msgid "Block User"
 msgstr "Kullanıcıyı Engelle"
 
-#: widgets/room/usersinroommenu.cpp:70
+#: widgets/room/usersinroommenu.cpp:75
 #, kde-format
 msgid "Do you want to ignore this user?"
 msgstr "Bu kullanıcıyı yok saymak istiyor musunuz?"
 
-#: widgets/room/usersinroommenu.cpp:71
+#: widgets/room/usersinroommenu.cpp:76
 #, kde-format
 msgctxt "@title"
 msgid "Ignore User"
 msgstr "Kullanıcı Yok Say"
 
-#: widgets/room/usersinroommenu.cpp:72
+#: widgets/room/usersinroommenu.cpp:77
 #, kde-format
 msgctxt "@action:button"
 msgid "Ignore User"
 msgstr "Kullanıcıyı Yok Say"
 
-#: widgets/room/usersinroommenu.cpp:97
+#: widgets/room/usersinroommenu.cpp:102
 #, kde-format
 msgctxt "@action"
 msgid "Start Conversation"
 msgstr "Konuşma Başlat"
 
-#: widgets/room/usersinroommenu.cpp:114
+#: widgets/room/usersinroommenu.cpp:119
 #, kde-format
 msgctxt "@action"
 msgid "Remove as Owner"
 msgstr "Sahiplikten Çıkar"
 
-#: widgets/room/usersinroommenu.cpp:114
+#: widgets/room/usersinroommenu.cpp:119
 #, kde-format
 msgctxt "@action"
 msgid "Add as Owner"
 msgstr "Sahip Olarak Ekle"
 
-#: widgets/room/usersinroommenu.cpp:127
+#: widgets/room/usersinroommenu.cpp:132
 #, kde-format
 msgctxt "@action"
 msgid "Remove as Leader"
 msgstr "Liderlikten Çıkar"
 
-#: widgets/room/usersinroommenu.cpp:127
+#: widgets/room/usersinroommenu.cpp:132
 #, kde-format
 msgctxt "@action"
 msgid "Add as Leader"
 msgstr "Lider Olarak Ekle"
 
-#: widgets/room/usersinroommenu.cpp:139
+#: widgets/room/usersinroommenu.cpp:144
 #, kde-format
 msgctxt "@action"
 msgid "Remove as Moderator"
 msgstr "Moderatörlükten Çıkar"
 
-#: widgets/room/usersinroommenu.cpp:139
+#: widgets/room/usersinroommenu.cpp:144
 #, kde-format
 msgctxt "@action"
 msgid "Add as Moderator"
 msgstr "Moderatör Olarak Ekle"
 
-#: widgets/room/usersinroommenu.cpp:150
+#: widgets/room/usersinroommenu.cpp:155
 #, kde-format
 msgctxt "@action"
 msgid "Remove from Room"
 msgstr "Odadan Çıkar"
 
-#: widgets/room/usersinroommenu.cpp:161
+#: widgets/room/usersinroommenu.cpp:166
 #, kde-format
 msgctxt "@action"
 msgid "Unblock User"
 msgstr "Kullanıcının Engelini Kaldır"
 
-#: widgets/room/usersinroommenu.cpp:161
+#: widgets/room/usersinroommenu.cpp:166
 #, kde-format
 msgctxt "@action"
 msgid "Block User"
 msgstr "Kullanıcıyı Engelle"
 
-#: widgets/room/usersinroommenu.cpp:170
+#: widgets/room/usersinroommenu.cpp:175
 #, kde-format
 msgctxt "@action"
 msgid "Unignore"
 msgstr "Yok Saymayı Bırak"
 
-#: widgets/room/usersinroommenu.cpp:170
+#: widgets/room/usersinroommenu.cpp:175
 #, kde-format
 msgctxt "@action"
 msgid "Ignore"
 msgstr "Yok Say"
 
-#: widgets/room/usersinroommenu.cpp:175
+#: widgets/room/usersinroommenu.cpp:187
 #, kde-format
 msgctxt "@action"
 msgid "Report User"
@@ -11370,15 +11361,20 @@ msgstr "İleti arama iletişim kutusundaki yinelenen iletileri onar"
 msgid "Add delegate in search rooms in team dialog."
 msgstr "Takım iletişim kutusunda oda aramaya vekil ekle"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:124
+#: widgets/whatsnew/whatsnewtranslations.cpp:123
 #, kde-format
 msgid "Fix editing message."
 msgstr "İleti düzenlemeyi onar"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:125
+#: widgets/whatsnew/whatsnewtranslations.cpp:123
 #, kde-format
 msgid "Show permissions in Rocket.Chat Marketplace."
 msgstr "Rocket.Chat mağazasında izinleri göster"
+
+#: widgets/whatsnew/whatsnewtranslations.cpp:123
+#, kde-format
+msgid "Fix reconnect server."
+msgstr ""
 
 #: widgets/whatsnew/whatsnewwidget.cpp:44
 #, kde-format

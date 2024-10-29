@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-10-28 00:40+0000\n"
+"POT-Creation-Date: 2024-10-29 00:40+0000\n"
 "PO-Revision-Date: 2024-10-02 22:38+0200\n"
 "Last-Translator: Kristof Kiszel <ulysses@fsf.hu>\n"
 "Language-Team: Hungarian <kde-l10n-hu@kde.org>\n"
@@ -1314,17 +1314,17 @@ msgstr "Szálüzenetek"
 msgid "Unread Threads Messages"
 msgstr "Olvasatlan szálüzenetek"
 
-#: core/model/messagesmodel.cpp:219
+#: core/model/messagesmodel.cpp:223
 #, kde-format
 msgid "Edited at %1 by %2"
 msgstr "%2 szerkesztette ekkor: %1"
 
-#: core/model/messagesmodel.cpp:365
+#: core/model/messagesmodel.cpp:369
 #, kde-format
 msgid "Ignored Message"
 msgstr "Mellőzött üzenet"
 
-#: core/model/messagesmodel.cpp:374
+#: core/model/messagesmodel.cpp:378
 #, kde-format
 msgid "Only you can see this message"
 msgstr "Csak Ön láthatja ezt az üzenetet"
@@ -1763,30 +1763,30 @@ msgctxt "WARNING!!!!!!: PLEASE We need a space between after </strong>"
 msgid "<strong>%1</strong> are typing..."
 msgstr "<strong>%1</strong> gépelnek…"
 
-#: core/rocketchataccount.cpp:707
+#: core/rocketchataccount.cpp:702
 #, kde-format
 msgid ""
 "REST: %1\n"
 "DDP: %2"
 msgstr ""
 
-#: core/rocketchataccount.cpp:715 core/rocketchataccount.cpp:727
+#: core/rocketchataccount.cpp:710 core/rocketchataccount.cpp:722
 #, kde-format
 msgid "Not connected"
 msgstr "Nincs kapcsolódva"
 
-#: core/rocketchataccount.cpp:722
+#: core/rocketchataccount.cpp:717
 #, fuzzy, kde-format
 #| msgid "Not connected"
 msgid "Not connected yet"
 msgstr "Nincs kapcsolódva"
 
-#: core/rocketchataccount.cpp:3124
+#: core/rocketchataccount.cpp:3110
 #, kde-format
 msgid "Export Messages"
 msgstr "Üzenetek exportálása"
 
-#: core/rocketchataccount.cpp:3125
+#: core/rocketchataccount.cpp:3111
 #, kde-format
 msgid "Your email has been queued for sending."
 msgstr "Az e-maile sorba lett állítva a küldéshez."
@@ -10215,7 +10215,7 @@ msgctxt "@action"
 msgid "Copy URL"
 msgstr "URL másolása"
 
-#: widgets/room/messagelistview.cpp:384 widgets/room/usersinroommenu.cpp:105
+#: widgets/room/messagelistview.cpp:384 widgets/room/usersinroommenu.cpp:110
 #, kde-format
 msgctxt "@action"
 msgid "User Info"
@@ -10520,100 +10520,100 @@ msgctxt "@action:button"
 msgid "Block User"
 msgstr "Felhasználó tiltása"
 
-#: widgets/room/usersinroommenu.cpp:70
+#: widgets/room/usersinroommenu.cpp:75
 #, kde-format
 msgid "Do you want to ignore this user?"
 msgstr "Szeretné mellőzni ezt a felhasználót?"
 
-#: widgets/room/usersinroommenu.cpp:71
+#: widgets/room/usersinroommenu.cpp:76
 #, kde-format
 msgctxt "@title"
 msgid "Ignore User"
 msgstr "Felhasználó mellőzése"
 
-#: widgets/room/usersinroommenu.cpp:72
+#: widgets/room/usersinroommenu.cpp:77
 #, kde-format
 msgctxt "@action:button"
 msgid "Ignore User"
 msgstr "Felhasználó mellőzése"
 
-#: widgets/room/usersinroommenu.cpp:97
+#: widgets/room/usersinroommenu.cpp:102
 #, kde-format
 msgctxt "@action"
 msgid "Start Conversation"
 msgstr "Beszélgetés indítása"
 
-#: widgets/room/usersinroommenu.cpp:114
+#: widgets/room/usersinroommenu.cpp:119
 #, kde-format
 msgctxt "@action"
 msgid "Remove as Owner"
 msgstr "Eltávolítás tulajdonosként"
 
-#: widgets/room/usersinroommenu.cpp:114
+#: widgets/room/usersinroommenu.cpp:119
 #, kde-format
 msgctxt "@action"
 msgid "Add as Owner"
 msgstr "Hozzáadás tulajdonosként"
 
-#: widgets/room/usersinroommenu.cpp:127
+#: widgets/room/usersinroommenu.cpp:132
 #, kde-format
 msgctxt "@action"
 msgid "Remove as Leader"
 msgstr "Eltávolítás vezetőként"
 
-#: widgets/room/usersinroommenu.cpp:127
+#: widgets/room/usersinroommenu.cpp:132
 #, kde-format
 msgctxt "@action"
 msgid "Add as Leader"
 msgstr "Hozzáadás vezetőként"
 
-#: widgets/room/usersinroommenu.cpp:139
+#: widgets/room/usersinroommenu.cpp:144
 #, kde-format
 msgctxt "@action"
 msgid "Remove as Moderator"
 msgstr "Eltávolítás moderátorként"
 
-#: widgets/room/usersinroommenu.cpp:139
+#: widgets/room/usersinroommenu.cpp:144
 #, kde-format
 msgctxt "@action"
 msgid "Add as Moderator"
 msgstr "Hozzáadás moderátorként"
 
-#: widgets/room/usersinroommenu.cpp:150
+#: widgets/room/usersinroommenu.cpp:155
 #, kde-format
 msgctxt "@action"
 msgid "Remove from Room"
 msgstr "Eltávolítás a szobából"
 
-#: widgets/room/usersinroommenu.cpp:161
+#: widgets/room/usersinroommenu.cpp:166
 #, fuzzy, kde-format
 #| msgid "Unblock User"
 msgctxt "@action"
 msgid "Unblock User"
 msgstr "Felhasználó tiltásának feloldása"
 
-#: widgets/room/usersinroommenu.cpp:161
+#: widgets/room/usersinroommenu.cpp:166
 #, fuzzy, kde-format
 #| msgid "Block User"
 msgctxt "@action"
 msgid "Block User"
 msgstr "Felhasználó tiltása"
 
-#: widgets/room/usersinroommenu.cpp:170
+#: widgets/room/usersinroommenu.cpp:175
 #, fuzzy, kde-format
 #| msgid "Unignore"
 msgctxt "@action"
 msgid "Unignore"
 msgstr "Mellőzés feloldása"
 
-#: widgets/room/usersinroommenu.cpp:170
+#: widgets/room/usersinroommenu.cpp:175
 #, fuzzy, kde-format
 #| msgid "Ignore"
 msgctxt "@action"
 msgid "Ignore"
 msgstr "Mellőzés"
 
-#: widgets/room/usersinroommenu.cpp:175
+#: widgets/room/usersinroommenu.cpp:187
 #, kde-format
 msgctxt "@action"
 msgid "Report User"
@@ -11477,16 +11477,21 @@ msgstr "Duplikált üzenetek javítása az üzenet keresése párbeszédablakban
 msgid "Add delegate in search rooms in team dialog."
 msgstr "Delegálás hozzáadása a szoba keresése a csapatban párbeszédablakhoz."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:124
+#: widgets/whatsnew/whatsnewtranslations.cpp:123
 #, kde-format
 msgid "Fix editing message."
 msgstr "Szerkesztési üzenet javítása."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:125
+#: widgets/whatsnew/whatsnewtranslations.cpp:123
 #, fuzzy, kde-format
 #| msgid "Implement Rocket.Chat Marketplace."
 msgid "Show permissions in Rocket.Chat Marketplace."
 msgstr "A Rocket.Chat Marketplace megvalósítása."
+
+#: widgets/whatsnew/whatsnewtranslations.cpp:123
+#, kde-format
+msgid "Fix reconnect server."
+msgstr ""
 
 #: widgets/whatsnew/whatsnewwidget.cpp:44
 #, kde-format

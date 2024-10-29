@@ -5,8 +5,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-10-28 00:40+0000\n"
-"PO-Revision-Date: 2024-10-26 06:38+0200\n"
+"POT-Creation-Date: 2024-10-29 00:40+0000\n"
+"PO-Revision-Date: 2024-10-27 20:57+0100\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
 "Language-Team: French <French <kde-francophone@kde.org>>\n"
 "Language: fr\n"
@@ -224,157 +224,150 @@ msgid "Permissions"
 msgstr "Droits d'accès"
 
 #: core/apps/appsmarketplaceinfo.cpp:573
-#, fuzzy, kde-format
-#| msgid "All messages"
+#, kde-format
 msgid "Access messages"
-msgstr "Tous les messages"
+msgstr "Accéder aux messages"
 
 #: core/apps/appsmarketplaceinfo.cpp:575
-#, fuzzy, kde-format
-#| msgctxt "@info:placeholder"
-#| msgid "Search moderation message…"
+#, kde-format
 msgid "Send and modify messages"
-msgstr "Rechercher un message de modération..."
+msgstr "Envoyer et modifier des messages"
 
 #: core/apps/appsmarketplaceinfo.cpp:577
-#, fuzzy, kde-format
-#| msgid "Account information"
+#, kde-format
 msgid "Access room information"
-msgstr "Informations sur le compte"
+msgstr "Accéder aux informations sur les salons"
 
 #: core/apps/appsmarketplaceinfo.cpp:579
 #, kde-format
 msgid "Create and modify rooms"
-msgstr ""
+msgstr "Créer et modifier des salons"
 
 #: core/apps/appsmarketplaceinfo.cpp:581
 #, kde-format
 msgid "Access to this server network"
-msgstr ""
+msgstr "Accéder à ce réseau de serveurs"
 
 #: core/apps/appsmarketplaceinfo.cpp:583
-#, fuzzy, kde-format
-#| msgid "Account information"
+#, kde-format
 msgid "Access user information"
-msgstr "Informations sur le compte"
+msgstr "Accéder aux informations de comptes"
 
 #: core/apps/appsmarketplaceinfo.cpp:585
-#, fuzzy, kde-format
-#| msgid "Account information"
+#, kde-format
 msgid "Modify user information"
-msgstr "Informations sur le compte"
+msgstr "Modifier les informations de comptes"
 
 #: core/apps/appsmarketplaceinfo.cpp:587
 #, kde-format
 msgid "Register new slash commands"
-msgstr ""
+msgstr "Enregistrer de nouvelles commandes"
 
 #: core/apps/appsmarketplaceinfo.cpp:589
 #, kde-format
 msgid "Register and maintain scheduled jobs"
-msgstr ""
+msgstr "Enregistrer et maintenir les tâches planifiées"
 
 #: core/apps/appsmarketplaceinfo.cpp:591
 #, kde-format
 msgid "Register new HTTP endpoints"
-msgstr ""
+msgstr "Enregistrer de nouveaux points de terminaison « HTTP »"
 
 #: core/apps/appsmarketplaceinfo.cpp:593
 #, kde-format
 msgid "Access settings in this server"
-msgstr ""
+msgstr "Accéder aux paramètres de ce serveur"
 
 #: core/apps/appsmarketplaceinfo.cpp:595
 #, kde-format
 msgid "Modify settings in this server"
-msgstr ""
+msgstr "Modifier les paramètres dans ce serveur"
 
 #: core/apps/appsmarketplaceinfo.cpp:597
 #, kde-format
 msgid "Upload files to this server"
-msgstr ""
+msgstr "Envoyer des fichiers sur le serveur"
 
 #: core/apps/appsmarketplaceinfo.cpp:599
 #, kde-format
 msgid "Access files uploaded to this server"
-msgstr ""
+msgstr "Accéder aux fichiers téléchargés sur ce serveur"
 
 #: core/apps/appsmarketplaceinfo.cpp:601
 #, kde-format
 msgid "Interact with Cloud Services on behalf of this server"
-msgstr ""
+msgstr "Interagir avec les services de Cloud au nom de ce serveur"
 
 #: core/apps/appsmarketplaceinfo.cpp:603
 #, kde-format
 msgid "Access minimal information about this server environment"
 msgstr ""
+"Accéder aux informations minimales concernant cet environnement de serveur"
 
 #: core/apps/appsmarketplaceinfo.cpp:605
 #, kde-format
 msgid "Access to multiple Livechat departments information"
-msgstr ""
+msgstr "Accéder aux informations de plusieurs départements de Livechat"
 
 #: core/apps/appsmarketplaceinfo.cpp:607
 #, kde-format
 msgid "Access Livechat department information"
-msgstr ""
+msgstr "Accéder aux informations de département de Livechat"
 
 #: core/apps/appsmarketplaceinfo.cpp:609
 #, kde-format
 msgid "Modify Livechat department information"
-msgstr ""
+msgstr "Modifier les informations de département de Livechat"
 
 #: core/apps/appsmarketplaceinfo.cpp:611
 #, kde-format
 msgid "Modify Livechat room information"
-msgstr ""
+msgstr "Modifier les informations de la salon de Livechat"
 
 #: core/apps/appsmarketplaceinfo.cpp:613
-#, fuzzy, kde-format
-#| msgid "Account information"
+#, kde-format
 msgid "Access Livechat room information"
-msgstr "Informations sur le compte"
+msgstr "Accéder aux informations de salons de Livechat"
 
 #: core/apps/appsmarketplaceinfo.cpp:615
 #, kde-format
 msgid "Modify Livechat message information"
-msgstr ""
+msgstr "Modifier les informations du message de Livechat"
 
 #: core/apps/appsmarketplaceinfo.cpp:617
 #, kde-format
 msgid "Access Livechat message information"
-msgstr ""
+msgstr "Accéder aux informations de messages de Livechat"
 
 #: core/apps/appsmarketplaceinfo.cpp:619
 #, kde-format
 msgid "Modify Livechat visitor information"
-msgstr ""
+msgstr "Modifier les informations des visiteurs de Livechat"
 
 #: core/apps/appsmarketplaceinfo.cpp:621
 #, kde-format
 msgid "Access Livechat visitor information"
-msgstr ""
+msgstr "Accéder aux informations de visiteurs de Livechat"
 
 #: core/apps/appsmarketplaceinfo.cpp:623
-#, fuzzy, kde-format
-#| msgid "Account information"
+#, kde-format
 msgid "Access Livechat status information"
-msgstr "Informations sur le compte"
+msgstr "Accéder aux informations d'état de Livechat"
 
 #: core/apps/appsmarketplaceinfo.cpp:625
 #, kde-format
 msgid "Interact with the UI"
-msgstr ""
+msgstr "Interagir avec l'interface utilisateur"
 
 #: core/apps/appsmarketplaceinfo.cpp:627
 #, kde-format
 msgid "Store internal data in the database"
-msgstr ""
+msgstr "Enregistrer les données internes dans la base de données"
 
 #: core/apps/appsmarketplaceinfo.cpp:629
 #, kde-format
 msgid "Modify Livechat custom field configuration"
-msgstr ""
+msgstr "Modifier la configuration de champs personnalisés de Livechat"
 
 #: core/authenticationmanager.cpp:85
 #, kde-format
@@ -1308,17 +1301,17 @@ msgstr "Messages du fil de discussions"
 msgid "Unread Threads Messages"
 msgstr "Messages du fil de discussions non lus"
 
-#: core/model/messagesmodel.cpp:219
+#: core/model/messagesmodel.cpp:223
 #, kde-format
 msgid "Edited at %1 by %2"
 msgstr "Modifié à %1 par %2"
 
-#: core/model/messagesmodel.cpp:365
+#: core/model/messagesmodel.cpp:369
 #, kde-format
 msgid "Ignored Message"
 msgstr "Message ignoré"
 
-#: core/model/messagesmodel.cpp:374
+#: core/model/messagesmodel.cpp:378
 #, kde-format
 msgid "Only you can see this message"
 msgstr "Vous ne pouvez voir que ce message"
@@ -1757,30 +1750,30 @@ msgctxt "WARNING!!!!!!: PLEASE We need a space between after </strong>"
 msgid "<strong>%1</strong> are typing..."
 msgstr "<strong>%1</strong>sont en train d'écrire des messages..."
 
-#: core/rocketchataccount.cpp:707
+#: core/rocketchataccount.cpp:702
 #, kde-format
 msgid ""
 "REST: %1\n"
 "DDP: %2"
 msgstr ""
 
-#: core/rocketchataccount.cpp:715 core/rocketchataccount.cpp:727
+#: core/rocketchataccount.cpp:710 core/rocketchataccount.cpp:722
 #, kde-format
 msgid "Not connected"
 msgstr "Non connecté"
 
-#: core/rocketchataccount.cpp:722
+#: core/rocketchataccount.cpp:717
 #, fuzzy, kde-format
 #| msgid "Not connected"
 msgid "Not connected yet"
 msgstr "Non connecté"
 
-#: core/rocketchataccount.cpp:3124
+#: core/rocketchataccount.cpp:3110
 #, kde-format
 msgid "Export Messages"
 msgstr "Exporter des messages"
 
-#: core/rocketchataccount.cpp:3125
+#: core/rocketchataccount.cpp:3111
 #, kde-format
 msgid "Your email has been queued for sending."
 msgstr "Un courrier électronique a été mis dans la liste d'attente pour envoi."
@@ -10247,7 +10240,7 @@ msgctxt "@action"
 msgid "Copy URL"
 msgstr "Copier une URL"
 
-#: widgets/room/messagelistview.cpp:384 widgets/room/usersinroommenu.cpp:105
+#: widgets/room/messagelistview.cpp:384 widgets/room/usersinroommenu.cpp:110
 #, kde-format
 msgctxt "@action"
 msgid "User Info"
@@ -10552,96 +10545,96 @@ msgctxt "@action:button"
 msgid "Block User"
 msgstr "Bloquer un utilisateur"
 
-#: widgets/room/usersinroommenu.cpp:70
+#: widgets/room/usersinroommenu.cpp:75
 #, kde-format
 msgid "Do you want to ignore this user?"
 msgstr "Voulez-vous vraiment ignorer cet utilisateur ?"
 
-#: widgets/room/usersinroommenu.cpp:71
+#: widgets/room/usersinroommenu.cpp:76
 #, kde-format
 msgctxt "@title"
 msgid "Ignore User"
 msgstr "Ignorer un utilisateur"
 
-#: widgets/room/usersinroommenu.cpp:72
+#: widgets/room/usersinroommenu.cpp:77
 #, kde-format
 msgctxt "@action:button"
 msgid "Ignore User"
 msgstr "Ignorer un utilisateur"
 
-#: widgets/room/usersinroommenu.cpp:97
+#: widgets/room/usersinroommenu.cpp:102
 #, kde-format
 msgctxt "@action"
 msgid "Start Conversation"
 msgstr "Démarrer une conversation"
 
-#: widgets/room/usersinroommenu.cpp:114
+#: widgets/room/usersinroommenu.cpp:119
 #, kde-format
 msgctxt "@action"
 msgid "Remove as Owner"
 msgstr "Supprimer comme propriétaire"
 
-#: widgets/room/usersinroommenu.cpp:114
+#: widgets/room/usersinroommenu.cpp:119
 #, kde-format
 msgctxt "@action"
 msgid "Add as Owner"
 msgstr "Ajouter comme propriétaire"
 
-#: widgets/room/usersinroommenu.cpp:127
+#: widgets/room/usersinroommenu.cpp:132
 #, kde-format
 msgctxt "@action"
 msgid "Remove as Leader"
 msgstr "Supprimer comme responsable"
 
-#: widgets/room/usersinroommenu.cpp:127
+#: widgets/room/usersinroommenu.cpp:132
 #, kde-format
 msgctxt "@action"
 msgid "Add as Leader"
 msgstr "Ajouter comme responsable"
 
-#: widgets/room/usersinroommenu.cpp:139
+#: widgets/room/usersinroommenu.cpp:144
 #, kde-format
 msgctxt "@action"
 msgid "Remove as Moderator"
 msgstr "Supprimer comme modérateur"
 
-#: widgets/room/usersinroommenu.cpp:139
+#: widgets/room/usersinroommenu.cpp:144
 #, kde-format
 msgctxt "@action"
 msgid "Add as Moderator"
 msgstr "Ajouter comme modérateur"
 
-#: widgets/room/usersinroommenu.cpp:150
+#: widgets/room/usersinroommenu.cpp:155
 #, kde-format
 msgctxt "@action"
 msgid "Remove from Room"
 msgstr "Supprimer du salon"
 
-#: widgets/room/usersinroommenu.cpp:161
+#: widgets/room/usersinroommenu.cpp:166
 #, kde-format
 msgctxt "@action"
 msgid "Unblock User"
 msgstr "Débloquer un utilisateur"
 
-#: widgets/room/usersinroommenu.cpp:161
+#: widgets/room/usersinroommenu.cpp:166
 #, kde-format
 msgctxt "@action"
 msgid "Block User"
 msgstr "Bloquer un utilisateur"
 
-#: widgets/room/usersinroommenu.cpp:170
+#: widgets/room/usersinroommenu.cpp:175
 #, kde-format
 msgctxt "@action"
 msgid "Unignore"
 msgstr "Ne plus ignorer"
 
-#: widgets/room/usersinroommenu.cpp:170
+#: widgets/room/usersinroommenu.cpp:175
 #, kde-format
 msgctxt "@action"
 msgid "Ignore"
 msgstr "Ignorer"
 
-#: widgets/room/usersinroommenu.cpp:175
+#: widgets/room/usersinroommenu.cpp:187
 #, kde-format
 msgctxt "@action"
 msgid "Report User"
@@ -11528,16 +11521,20 @@ msgstr ""
 "Ajouter un représentant pour les salons de recherche dans la boîte de "
 "dialogue d'équipe."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:124
+#: widgets/whatsnew/whatsnewtranslations.cpp:123
 #, kde-format
 msgid "Fix editing message."
 msgstr "Corriger le message en cours d'édition."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:125
-#, fuzzy, kde-format
-#| msgid "Implement Rocket.Chat Marketplace."
+#: widgets/whatsnew/whatsnewtranslations.cpp:123
+#, kde-format
 msgid "Show permissions in Rocket.Chat Marketplace."
-msgstr "Implémenter la place de marché de Rocket.Chat."
+msgstr "Afficher les autorisations de la place de marché Rocket.Chat."
+
+#: widgets/whatsnew/whatsnewtranslations.cpp:123
+#, kde-format
+msgid "Fix reconnect server."
+msgstr ""
 
 #: widgets/whatsnew/whatsnewwidget.cpp:44
 #, kde-format

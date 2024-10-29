@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-10-28 00:40+0000\n"
+"POT-Creation-Date: 2024-10-29 00:40+0000\n"
 "PO-Revision-Date: 2023-09-20 18:47+0300\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
@@ -1334,17 +1334,17 @@ msgstr "Säieviestit"
 msgid "Unread Threads Messages"
 msgstr "Merkitse säikeen viestien olevan lukematta"
 
-#: core/model/messagesmodel.cpp:219
+#: core/model/messagesmodel.cpp:223
 #, kde-format
 msgid "Edited at %1 by %2"
 msgstr "%2 muokannut %1"
 
-#: core/model/messagesmodel.cpp:365
+#: core/model/messagesmodel.cpp:369
 #, kde-format
 msgid "Ignored Message"
 msgstr "Ohitettu viesti"
 
-#: core/model/messagesmodel.cpp:374
+#: core/model/messagesmodel.cpp:378
 #, fuzzy, kde-format
 #| msgid "Do you want to delete this message?"
 msgid "Only you can see this message"
@@ -1798,30 +1798,30 @@ msgctxt "WARNING!!!!!!: PLEASE We need a space between after </strong>"
 msgid "<strong>%1</strong> are typing..."
 msgstr "<strong>%1</strong> kirjoittavat…"
 
-#: core/rocketchataccount.cpp:707
+#: core/rocketchataccount.cpp:702
 #, kde-format
 msgid ""
 "REST: %1\n"
 "DDP: %2"
 msgstr ""
 
-#: core/rocketchataccount.cpp:715 core/rocketchataccount.cpp:727
+#: core/rocketchataccount.cpp:710 core/rocketchataccount.cpp:722
 #, kde-format
 msgid "Not connected"
 msgstr "Ei yhteyttä"
 
-#: core/rocketchataccount.cpp:722
+#: core/rocketchataccount.cpp:717
 #, fuzzy, kde-format
 #| msgid "Not connected"
 msgid "Not connected yet"
 msgstr "Ei yhteyttä"
 
-#: core/rocketchataccount.cpp:3124
+#: core/rocketchataccount.cpp:3110
 #, kde-format
 msgid "Export Messages"
 msgstr "Vie viestejä"
 
-#: core/rocketchataccount.cpp:3125
+#: core/rocketchataccount.cpp:3111
 #, kde-format
 msgid "Your email has been queued for sending."
 msgstr "Sähköposti on viety jonoon lähetystä varten."
@@ -10545,7 +10545,7 @@ msgctxt "@action"
 msgid "Copy URL"
 msgstr "Kopioi verkko-osoite"
 
-#: widgets/room/messagelistview.cpp:384 widgets/room/usersinroommenu.cpp:105
+#: widgets/room/messagelistview.cpp:384 widgets/room/usersinroommenu.cpp:110
 #, fuzzy, kde-format
 #| msgid "User Info"
 msgctxt "@action"
@@ -10877,108 +10877,108 @@ msgctxt "@action:button"
 msgid "Block User"
 msgstr "Estä käyttäjä"
 
-#: widgets/room/usersinroommenu.cpp:70
+#: widgets/room/usersinroommenu.cpp:75
 #, kde-format
 msgid "Do you want to ignore this user?"
 msgstr "Haluatko sivuuttaa tämän käyttäjän?"
 
-#: widgets/room/usersinroommenu.cpp:71
+#: widgets/room/usersinroommenu.cpp:76
 #, kde-format
 msgctxt "@title"
 msgid "Ignore User"
 msgstr "Sivuuta käyttäjä"
 
-#: widgets/room/usersinroommenu.cpp:72
+#: widgets/room/usersinroommenu.cpp:77
 #, kde-format
 msgctxt "@action:button"
 msgid "Ignore User"
 msgstr "Sivuuta käyttäjä"
 
-#: widgets/room/usersinroommenu.cpp:97
+#: widgets/room/usersinroommenu.cpp:102
 #, fuzzy, kde-format
 #| msgid "Start Conversation"
 msgctxt "@action"
 msgid "Start Conversation"
 msgstr "Aloita keskustelu"
 
-#: widgets/room/usersinroommenu.cpp:114
+#: widgets/room/usersinroommenu.cpp:119
 #, fuzzy, kde-format
 #| msgid "Remove as Owner"
 msgctxt "@action"
 msgid "Remove as Owner"
 msgstr "Poista omistajista"
 
-#: widgets/room/usersinroommenu.cpp:114
+#: widgets/room/usersinroommenu.cpp:119
 #, fuzzy, kde-format
 #| msgid "Add as Owner"
 msgctxt "@action"
 msgid "Add as Owner"
 msgstr "Lisää omistajaksi"
 
-#: widgets/room/usersinroommenu.cpp:127
+#: widgets/room/usersinroommenu.cpp:132
 #, fuzzy, kde-format
 #| msgid "Remove as Leader"
 msgctxt "@action"
 msgid "Remove as Leader"
 msgstr "Poista johtajista"
 
-#: widgets/room/usersinroommenu.cpp:127
+#: widgets/room/usersinroommenu.cpp:132
 #, fuzzy, kde-format
 #| msgid "Add as Leader"
 msgctxt "@action"
 msgid "Add as Leader"
 msgstr "Lisää johtajaksi"
 
-#: widgets/room/usersinroommenu.cpp:139
+#: widgets/room/usersinroommenu.cpp:144
 #, fuzzy, kde-format
 #| msgid "Remove as Moderator"
 msgctxt "@action"
 msgid "Remove as Moderator"
 msgstr "Poista moderaattoreista"
 
-#: widgets/room/usersinroommenu.cpp:139
+#: widgets/room/usersinroommenu.cpp:144
 #, fuzzy, kde-format
 #| msgid "Add as Moderator"
 msgctxt "@action"
 msgid "Add as Moderator"
 msgstr "Lisää moderaattoriksi"
 
-#: widgets/room/usersinroommenu.cpp:150
+#: widgets/room/usersinroommenu.cpp:155
 #, fuzzy, kde-format
 #| msgid "Remove from Room"
 msgctxt "@action"
 msgid "Remove from Room"
 msgstr "Poista huoneesta"
 
-#: widgets/room/usersinroommenu.cpp:161
+#: widgets/room/usersinroommenu.cpp:166
 #, fuzzy, kde-format
 #| msgid "Unblock User"
 msgctxt "@action"
 msgid "Unblock User"
 msgstr "Poista käyttäjän esto"
 
-#: widgets/room/usersinroommenu.cpp:161
+#: widgets/room/usersinroommenu.cpp:166
 #, fuzzy, kde-format
 #| msgid "Block User"
 msgctxt "@action"
 msgid "Block User"
 msgstr "Estä käyttäjä"
 
-#: widgets/room/usersinroommenu.cpp:170
+#: widgets/room/usersinroommenu.cpp:175
 #, fuzzy, kde-format
 #| msgid "Unignore"
 msgctxt "@action"
 msgid "Unignore"
 msgstr "Peru ohitus"
 
-#: widgets/room/usersinroommenu.cpp:170
+#: widgets/room/usersinroommenu.cpp:175
 #, fuzzy, kde-format
 #| msgid "Ignore"
 msgctxt "@action"
 msgid "Ignore"
 msgstr "Ohita"
 
-#: widgets/room/usersinroommenu.cpp:175
+#: widgets/room/usersinroommenu.cpp:187
 #, fuzzy, kde-format
 #| msgid "Report Message"
 msgctxt "@action"
@@ -11894,15 +11894,20 @@ msgstr "Viestejä kanavilla yhteensä"
 msgid "Add delegate in search rooms in team dialog."
 msgstr "Viestejä kanavilla yhteensä"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:124
+#: widgets/whatsnew/whatsnewtranslations.cpp:123
 #, fuzzy, kde-format
 #| msgid "Direct message someone"
 msgid "Fix editing message."
 msgstr "Lähetä jollekulle suoraviesti"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:125
+#: widgets/whatsnew/whatsnewtranslations.cpp:123
 #, kde-format
 msgid "Show permissions in Rocket.Chat Marketplace."
+msgstr ""
+
+#: widgets/whatsnew/whatsnewtranslations.cpp:123
+#, kde-format
+msgid "Fix reconnect server."
 msgstr ""
 
 #: widgets/whatsnew/whatsnewwidget.cpp:44

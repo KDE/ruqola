@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-10-28 00:40+0000\n"
-"PO-Revision-Date: 2024-10-27 19:00+0100\n"
+"POT-Creation-Date: 2024-10-29 00:40+0000\n"
+"PO-Revision-Date: 2024-10-28 10:36+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca@valencia\n"
@@ -448,20 +448,19 @@ msgid "App user is not allowed to login."
 msgstr "L'usuari de l'aplicació no té permés iniciar la sessió."
 
 #: core/authenticationmanager.cpp:113
-#, fuzzy, kde-format
-#| msgid "Call ongoing"
+#, kde-format
 msgid "Logout ongoing"
-msgstr "Tocada en curs"
+msgstr "Desconnexió en curs"
 
 #: core/authenticationmanager.cpp:115
 #, kde-format
 msgid "Logout cleanup ongoing"
-msgstr ""
+msgstr "Neteja de la desconnexió en curs"
 
 #: core/authenticationmanager.cpp:117
 #, kde-format
 msgid "Successfully logged out"
-msgstr ""
+msgstr "S'ha desconnectat correctament"
 
 #: core/authenticationmanager.cpp:119
 #, kde-format
@@ -1307,17 +1306,17 @@ msgstr "Missatges dels fils"
 msgid "Unread Threads Messages"
 msgstr "Missatges dels fils no llegits"
 
-#: core/model/messagesmodel.cpp:219
+#: core/model/messagesmodel.cpp:223
 #, kde-format
 msgid "Edited at %1 by %2"
 msgstr "Editat a les %1 per %2"
 
-#: core/model/messagesmodel.cpp:365
+#: core/model/messagesmodel.cpp:369
 #, kde-format
 msgid "Ignored Message"
 msgstr "Missatge ignorat"
 
-#: core/model/messagesmodel.cpp:374
+#: core/model/messagesmodel.cpp:378
 #, kde-format
 msgid "Only you can see this message"
 msgstr "Este missatge només el podeu veure vós"
@@ -1752,30 +1751,31 @@ msgctxt "WARNING!!!!!!: PLEASE We need a space between after </strong>"
 msgid "<strong>%1</strong> are typing..."
 msgstr "<strong>%1</strong> estan escrivint…"
 
-#: core/rocketchataccount.cpp:707
+#: core/rocketchataccount.cpp:702
 #, kde-format
 msgid ""
 "REST: %1\n"
 "DDP: %2"
 msgstr ""
+"REST: %1\n"
+"DDP: %2"
 
-#: core/rocketchataccount.cpp:715 core/rocketchataccount.cpp:727
+#: core/rocketchataccount.cpp:710 core/rocketchataccount.cpp:722
 #, kde-format
 msgid "Not connected"
 msgstr "No connectat"
 
-#: core/rocketchataccount.cpp:722
-#, fuzzy, kde-format
-#| msgid "Not connected"
+#: core/rocketchataccount.cpp:717
+#, kde-format
 msgid "Not connected yet"
-msgstr "No connectat"
+msgstr "Encara no connectat"
 
-#: core/rocketchataccount.cpp:3124
+#: core/rocketchataccount.cpp:3110
 #, kde-format
 msgid "Export Messages"
 msgstr "Exporta missatges"
 
-#: core/rocketchataccount.cpp:3125
+#: core/rocketchataccount.cpp:3111
 #, kde-format
 msgid "Your email has been queued for sending."
 msgstr "El correu s'ha posat a la cua per a enviar."
@@ -7126,9 +7126,7 @@ msgid "Mark as Read"
 msgstr "Marca com a llegit"
 
 #: widgets/channellist/channellistview.cpp:118
-#, fuzzy, kde-format
-#| msgctxt "@action"
-#| msgid "Mark As Unread"
+#, kde-format
 msgctxt "@action"
 msgid "Mark as Unread"
 msgstr "Marca com a sense llegir"
@@ -9997,11 +9995,10 @@ msgid "Add reaction"
 msgstr "Afig una reacció"
 
 #: widgets/room/messagelinewidget.cpp:62
-#, fuzzy, kde-format
-#| msgid "Attach File"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Attach a file…"
-msgstr "Adjunta un fitxer"
+msgstr "Adjunta un fitxer…"
 
 #: widgets/room/messagelinewidget.cpp:65
 #, kde-format
@@ -10009,12 +10006,10 @@ msgid "Attach File"
 msgstr "Adjunta un fitxer"
 
 #: widgets/room/messagelinewidget.cpp:73
-#, fuzzy, kde-format
-#| msgctxt "@info:placeholder"
-#| msgid "Search moderation message…"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Send a video message…"
-msgstr "Busca un missatge de moderació…"
+msgstr "Envia un missatge de vídeo…"
 
 #: widgets/room/messagelinewidget.cpp:75
 #, kde-format
@@ -10027,18 +10022,16 @@ msgid "Sound Message"
 msgstr "Missatge de so"
 
 #: widgets/room/messagelinewidget.cpp:90
-#, fuzzy, kde-format
-#| msgid "Send and modify messages"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Send a sound message…"
-msgstr "Enviar i modificar els missatges"
+msgstr "Envia un missatge de so…"
 
 #: widgets/room/messagelinewidget.cpp:97
-#, fuzzy, kde-format
-#| msgid "Add Emoticon"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Add emoticon…"
-msgstr "Afig una emoticona"
+msgstr "Afig una emoticona…"
 
 #: widgets/room/messagelinewidget.cpp:99
 #, kde-format
@@ -10046,8 +10039,7 @@ msgid "Add Emoticon"
 msgstr "Afig una emoticona"
 
 #: widgets/room/messagelinewidget.cpp:106
-#, fuzzy, kde-format
-#| msgid "Send Message"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Send message"
 msgstr "Envia un missatge"
@@ -10182,7 +10174,7 @@ msgctxt "@action"
 msgid "Copy URL"
 msgstr "Copia l'URL"
 
-#: widgets/room/messagelistview.cpp:384 widgets/room/usersinroommenu.cpp:105
+#: widgets/room/messagelistview.cpp:384 widgets/room/usersinroommenu.cpp:110
 #, kde-format
 msgctxt "@action"
 msgid "User Info"
@@ -10300,8 +10292,7 @@ msgstr[0] "%4 %1 missatge nou des de %2. %3"
 msgstr[1] "%4 %1 missatges nous des de %2. %3"
 
 #: widgets/room/roomcounterinfowidget.cpp:52
-#, fuzzy, kde-format
-#| msgid "(Mark As Read)"
+#, kde-format
 msgid "(Mark as Read)"
 msgstr "(Marca com a llegit)"
 
@@ -10487,96 +10478,96 @@ msgctxt "@action:button"
 msgid "Block User"
 msgstr "Bloca l'usuari"
 
-#: widgets/room/usersinroommenu.cpp:70
+#: widgets/room/usersinroommenu.cpp:75
 #, kde-format
 msgid "Do you want to ignore this user?"
 msgstr "Voleu ignorar este usuari?"
 
-#: widgets/room/usersinroommenu.cpp:71
+#: widgets/room/usersinroommenu.cpp:76
 #, kde-format
 msgctxt "@title"
 msgid "Ignore User"
 msgstr "Ignora usuari"
 
-#: widgets/room/usersinroommenu.cpp:72
+#: widgets/room/usersinroommenu.cpp:77
 #, kde-format
 msgctxt "@action:button"
 msgid "Ignore User"
 msgstr "Ignora l'usuari"
 
-#: widgets/room/usersinroommenu.cpp:97
+#: widgets/room/usersinroommenu.cpp:102
 #, kde-format
 msgctxt "@action"
 msgid "Start Conversation"
 msgstr "Inicia una conversa"
 
-#: widgets/room/usersinroommenu.cpp:114
+#: widgets/room/usersinroommenu.cpp:119
 #, kde-format
 msgctxt "@action"
 msgid "Remove as Owner"
 msgstr "Elimina com a propietari"
 
-#: widgets/room/usersinroommenu.cpp:114
+#: widgets/room/usersinroommenu.cpp:119
 #, kde-format
 msgctxt "@action"
 msgid "Add as Owner"
 msgstr "Afig com a propietari"
 
-#: widgets/room/usersinroommenu.cpp:127
+#: widgets/room/usersinroommenu.cpp:132
 #, kde-format
 msgctxt "@action"
 msgid "Remove as Leader"
 msgstr "Elimina com a líder"
 
-#: widgets/room/usersinroommenu.cpp:127
+#: widgets/room/usersinroommenu.cpp:132
 #, kde-format
 msgctxt "@action"
 msgid "Add as Leader"
 msgstr "Afig com a líder"
 
-#: widgets/room/usersinroommenu.cpp:139
+#: widgets/room/usersinroommenu.cpp:144
 #, kde-format
 msgctxt "@action"
 msgid "Remove as Moderator"
 msgstr "Elimina com a moderador"
 
-#: widgets/room/usersinroommenu.cpp:139
+#: widgets/room/usersinroommenu.cpp:144
 #, kde-format
 msgctxt "@action"
 msgid "Add as Moderator"
 msgstr "Afig com a moderador"
 
-#: widgets/room/usersinroommenu.cpp:150
+#: widgets/room/usersinroommenu.cpp:155
 #, kde-format
 msgctxt "@action"
 msgid "Remove from Room"
 msgstr "Elimina de la sala"
 
-#: widgets/room/usersinroommenu.cpp:161
+#: widgets/room/usersinroommenu.cpp:166
 #, kde-format
 msgctxt "@action"
 msgid "Unblock User"
 msgstr "Desbloca l'usuari"
 
-#: widgets/room/usersinroommenu.cpp:161
+#: widgets/room/usersinroommenu.cpp:166
 #, kde-format
 msgctxt "@action"
 msgid "Block User"
 msgstr "Bloca l'usuari"
 
-#: widgets/room/usersinroommenu.cpp:170
+#: widgets/room/usersinroommenu.cpp:175
 #, kde-format
 msgctxt "@action"
 msgid "Unignore"
 msgstr "Deixa d'ignorar"
 
-#: widgets/room/usersinroommenu.cpp:170
+#: widgets/room/usersinroommenu.cpp:175
 #, kde-format
 msgctxt "@action"
 msgid "Ignore"
 msgstr "Ignora"
 
-#: widgets/room/usersinroommenu.cpp:175
+#: widgets/room/usersinroommenu.cpp:187
 #, kde-format
 msgctxt "@action"
 msgid "Report User"
@@ -11444,15 +11435,20 @@ msgstr "Corregix els missatges duplicats en el diàleg de busca de missatges."
 msgid "Add delegate in search rooms in team dialog."
 msgstr "Afig un delegat a la busca de sales en el diàleg d'equip."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:124
+#: widgets/whatsnew/whatsnewtranslations.cpp:123
 #, kde-format
 msgid "Fix editing message."
 msgstr "Corregix l'edició de missatges."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:125
+#: widgets/whatsnew/whatsnewtranslations.cpp:123
 #, kde-format
 msgid "Show permissions in Rocket.Chat Marketplace."
 msgstr "Mostra els permisos al mercat d'aplicacions Rocket.Chat."
+
+#: widgets/whatsnew/whatsnewtranslations.cpp:123
+#, kde-format
+msgid "Fix reconnect server."
+msgstr ""
 
 #: widgets/whatsnew/whatsnewwidget.cpp:44
 #, kde-format
@@ -11479,7 +11475,3 @@ msgstr ""
 #, kde-format
 msgid "Some bug fixing:"
 msgstr "Esmena d'errors:"
-
-#~ msgctxt "@action"
-#~ msgid "Mark As Read"
-#~ msgstr "Marca com a llegit"

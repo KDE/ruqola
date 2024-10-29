@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-10-28 00:40+0000\n"
-"PO-Revision-Date: 2024-10-26 08:24+0200\n"
+"POT-Creation-Date: 2024-10-29 00:40+0000\n"
+"PO-Revision-Date: 2024-10-28 06:57+0100\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
@@ -444,20 +444,19 @@ msgid "App user is not allowed to login."
 msgstr "Uporabniku aplikacije ni dovoljena prijava."
 
 #: core/authenticationmanager.cpp:113
-#, fuzzy, kde-format
-#| msgid "Call ongoing"
+#, kde-format
 msgid "Logout ongoing"
-msgstr "Klic v teku"
+msgstr "Odjava v teku"
 
 #: core/authenticationmanager.cpp:115
 #, kde-format
 msgid "Logout cleanup ongoing"
-msgstr ""
+msgstr "Čiščenje po odjavi v teku"
 
 #: core/authenticationmanager.cpp:117
 #, kde-format
 msgid "Successfully logged out"
-msgstr ""
+msgstr "Uspešno odjavljen"
 
 #: core/authenticationmanager.cpp:119
 #, kde-format
@@ -1302,17 +1301,17 @@ msgstr "Sporočila iz niti"
 msgid "Unread Threads Messages"
 msgstr "Neprebrana sporočila niti"
 
-#: core/model/messagesmodel.cpp:219
+#: core/model/messagesmodel.cpp:223
 #, kde-format
 msgid "Edited at %1 by %2"
 msgstr "Uredil %2: %1"
 
-#: core/model/messagesmodel.cpp:365
+#: core/model/messagesmodel.cpp:369
 #, kde-format
 msgid "Ignored Message"
 msgstr "Prezrto sporočilo"
 
-#: core/model/messagesmodel.cpp:374
+#: core/model/messagesmodel.cpp:378
 #, kde-format
 msgid "Only you can see this message"
 msgstr "Samo vi lahko vidite to sporočilo"
@@ -1757,30 +1756,31 @@ msgctxt "WARNING!!!!!!: PLEASE We need a space between after </strong>"
 msgid "<strong>%1</strong> are typing..."
 msgstr "<strong>%1</strong> pravkar tipkajo…"
 
-#: core/rocketchataccount.cpp:707
+#: core/rocketchataccount.cpp:702
 #, kde-format
 msgid ""
 "REST: %1\n"
 "DDP: %2"
 msgstr ""
+"REST: %1\n"
+"DDP: %2"
 
-#: core/rocketchataccount.cpp:715 core/rocketchataccount.cpp:727
+#: core/rocketchataccount.cpp:710 core/rocketchataccount.cpp:722
 #, kde-format
 msgid "Not connected"
 msgstr "Brez povezave"
 
-#: core/rocketchataccount.cpp:722
-#, fuzzy, kde-format
-#| msgid "Not connected"
+#: core/rocketchataccount.cpp:717
+#, kde-format
 msgid "Not connected yet"
-msgstr "Brez povezave"
+msgstr "Še ne povezan"
 
-#: core/rocketchataccount.cpp:3124
+#: core/rocketchataccount.cpp:3110
 #, kde-format
 msgid "Export Messages"
 msgstr "Izvozi sporočila"
 
-#: core/rocketchataccount.cpp:3125
+#: core/rocketchataccount.cpp:3111
 #, kde-format
 msgid "Your email has been queued for sending."
 msgstr "Vaša e-pošta je čakala v čakalni vrsti za pošiljanje."
@@ -7099,9 +7099,7 @@ msgid "Mark as Read"
 msgstr "Označi kot prebrano"
 
 #: widgets/channellist/channellistview.cpp:118
-#, fuzzy, kde-format
-#| msgctxt "@action"
-#| msgid "Mark As Unread"
+#, kde-format
 msgctxt "@action"
 msgid "Mark as Unread"
 msgstr "Označi kot neprebrano"
@@ -9977,24 +9975,21 @@ msgid "Add reaction"
 msgstr "Dodaj reakcijo"
 
 #: widgets/room/messagelinewidget.cpp:62
-#, fuzzy, kde-format
-#| msgid "Attach File"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Attach a file…"
-msgstr "Priloži datoteko"
+msgstr "Pripni datoteko…"
 
 #: widgets/room/messagelinewidget.cpp:65
 #, kde-format
 msgid "Attach File"
-msgstr "Priloži datoteko"
+msgstr "Pripni datoteko"
 
 #: widgets/room/messagelinewidget.cpp:73
-#, fuzzy, kde-format
-#| msgctxt "@info:placeholder"
-#| msgid "Search moderation message…"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Send a video message…"
-msgstr "Preišči sporočila moderacije…"
+msgstr "Pošlji video sporočilo…"
 
 #: widgets/room/messagelinewidget.cpp:75
 #, kde-format
@@ -10007,18 +10002,16 @@ msgid "Sound Message"
 msgstr "Zvočno sporočilo"
 
 #: widgets/room/messagelinewidget.cpp:90
-#, fuzzy, kde-format
-#| msgid "Send and modify messages"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Send a sound message…"
-msgstr "Pošiljaj in spreminjaj sporočila"
+msgstr "Pošlji zvočno sporočilo…"
 
 #: widgets/room/messagelinewidget.cpp:97
-#, fuzzy, kde-format
-#| msgid "Add Emoticon"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Add emoticon…"
-msgstr "Poišči čustvenčka"
+msgstr "Dodaj čustvenčka…"
 
 #: widgets/room/messagelinewidget.cpp:99
 #, kde-format
@@ -10026,8 +10019,7 @@ msgid "Add Emoticon"
 msgstr "Poišči čustvenčka"
 
 #: widgets/room/messagelinewidget.cpp:106
-#, fuzzy, kde-format
-#| msgid "Send Message"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Send message"
 msgstr "Pošlji sporočilo"
@@ -10162,7 +10154,7 @@ msgctxt "@action"
 msgid "Copy URL"
 msgstr "Kopiraj URL"
 
-#: widgets/room/messagelistview.cpp:384 widgets/room/usersinroommenu.cpp:105
+#: widgets/room/messagelistview.cpp:384 widgets/room/usersinroommenu.cpp:110
 #, kde-format
 msgctxt "@action"
 msgid "User Info"
@@ -10282,8 +10274,7 @@ msgstr[2] "%4 %1 nova sporočila od %2. %3"
 msgstr[3] "%4 %1 novih sporočil od %2. %3"
 
 #: widgets/room/roomcounterinfowidget.cpp:52
-#, fuzzy, kde-format
-#| msgid "(Mark As Read)"
+#, kde-format
 msgid "(Mark as Read)"
 msgstr "(Označi kot prebrano)"
 
@@ -10469,96 +10460,96 @@ msgctxt "@action:button"
 msgid "Block User"
 msgstr "Blokiraj uporabnika"
 
-#: widgets/room/usersinroommenu.cpp:70
+#: widgets/room/usersinroommenu.cpp:75
 #, kde-format
 msgid "Do you want to ignore this user?"
 msgstr "Ali želite prezreti tega uporabnika?"
 
-#: widgets/room/usersinroommenu.cpp:71
+#: widgets/room/usersinroommenu.cpp:76
 #, kde-format
 msgctxt "@title"
 msgid "Ignore User"
 msgstr "Prezri uporabnika"
 
-#: widgets/room/usersinroommenu.cpp:72
+#: widgets/room/usersinroommenu.cpp:77
 #, kde-format
 msgctxt "@action:button"
 msgid "Ignore User"
 msgstr "Prezri uporabnika"
 
-#: widgets/room/usersinroommenu.cpp:97
+#: widgets/room/usersinroommenu.cpp:102
 #, kde-format
 msgctxt "@action"
 msgid "Start Conversation"
 msgstr "Začni pogovor"
 
-#: widgets/room/usersinroommenu.cpp:114
+#: widgets/room/usersinroommenu.cpp:119
 #, kde-format
 msgctxt "@action"
 msgid "Remove as Owner"
 msgstr "Odstrani kot lastnika"
 
-#: widgets/room/usersinroommenu.cpp:114
+#: widgets/room/usersinroommenu.cpp:119
 #, kde-format
 msgctxt "@action"
 msgid "Add as Owner"
 msgstr "Dodaj kot lastnika"
 
-#: widgets/room/usersinroommenu.cpp:127
+#: widgets/room/usersinroommenu.cpp:132
 #, kde-format
 msgctxt "@action"
 msgid "Remove as Leader"
 msgstr "Odstrani kot vodjo"
 
-#: widgets/room/usersinroommenu.cpp:127
+#: widgets/room/usersinroommenu.cpp:132
 #, kde-format
 msgctxt "@action"
 msgid "Add as Leader"
 msgstr "Dodaj kot vodjo"
 
-#: widgets/room/usersinroommenu.cpp:139
+#: widgets/room/usersinroommenu.cpp:144
 #, kde-format
 msgctxt "@action"
 msgid "Remove as Moderator"
 msgstr "Odstrani kot moderatorja"
 
-#: widgets/room/usersinroommenu.cpp:139
+#: widgets/room/usersinroommenu.cpp:144
 #, kde-format
 msgctxt "@action"
 msgid "Add as Moderator"
 msgstr "Dodaj kot moderatorja"
 
-#: widgets/room/usersinroommenu.cpp:150
+#: widgets/room/usersinroommenu.cpp:155
 #, kde-format
 msgctxt "@action"
 msgid "Remove from Room"
 msgstr "Odstrani iz sobe"
 
-#: widgets/room/usersinroommenu.cpp:161
+#: widgets/room/usersinroommenu.cpp:166
 #, kde-format
 msgctxt "@action"
 msgid "Unblock User"
 msgstr "Odblokiraj uporabnika"
 
-#: widgets/room/usersinroommenu.cpp:161
+#: widgets/room/usersinroommenu.cpp:166
 #, kde-format
 msgctxt "@action"
 msgid "Block User"
 msgstr "Blokiraj uporabnika"
 
-#: widgets/room/usersinroommenu.cpp:170
+#: widgets/room/usersinroommenu.cpp:175
 #, kde-format
 msgctxt "@action"
 msgid "Unignore"
 msgstr "Prenehaj prezreti"
 
-#: widgets/room/usersinroommenu.cpp:170
+#: widgets/room/usersinroommenu.cpp:175
 #, kde-format
 msgctxt "@action"
 msgid "Ignore"
 msgstr "Prezri"
 
-#: widgets/room/usersinroommenu.cpp:175
+#: widgets/room/usersinroommenu.cpp:187
 #, kde-format
 msgctxt "@action"
 msgid "Report User"
@@ -11418,15 +11409,20 @@ msgstr "Popravit podvojena sporočila v pogovornem oknu za iskanje sporočil."
 msgid "Add delegate in search rooms in team dialog."
 msgstr "Dodaj pooblaščenca v iskalne sobe v pogovornem oknu ekipe."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:124
+#: widgets/whatsnew/whatsnewtranslations.cpp:123
 #, kde-format
 msgid "Fix editing message."
 msgstr "Popravi urejanje sporočila."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:125
+#: widgets/whatsnew/whatsnewtranslations.cpp:123
 #, kde-format
 msgid "Show permissions in Rocket.Chat Marketplace."
 msgstr "Prikaži dovoljenja v Rocket.Chat Marketplace."
+
+#: widgets/whatsnew/whatsnewtranslations.cpp:123
+#, kde-format
+msgid "Fix reconnect server."
+msgstr ""
 
 #: widgets/whatsnew/whatsnewwidget.cpp:44
 #, kde-format
