@@ -1293,7 +1293,7 @@ void Room::deserialize(Room *r, const QJsonObject &o)
     r->setLastSeenAt(static_cast<qint64>(o["lastSeenAt"_L1].toDouble()));
     r->setNumberMessages(static_cast<qint64>(o["msgs"_L1].toInt()));
 
-    r->setMutedUsers(extractStringList(o, "mutedUsers"_L1));
+    r->setMutedUsers(extractStringList(o, "muted"_L1));
 
     r->setDisplaySystemMessageTypes(extractStringList(o, "systemMessages"_L1));
 
@@ -1408,7 +1408,7 @@ QByteArray Room::serialize(Room *r, bool toBinary)
         o["groupMentions"_L1] = r->groupMentions();
     }
 
-    serializeStringList(o, "mutedUsers"_L1, r->mutedUsers());
+    serializeStringList(o, "muted"_L1, r->mutedUsers());
 
     serializeStringList(o, "ignored"_L1, r->ignoredUsers());
     serializeStringList(o, "tunread"_L1, r->threadUnread());
