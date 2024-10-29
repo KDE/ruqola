@@ -54,7 +54,7 @@ void TeamSearchRoomForTeamWidget::slotRemoveRoom(const QString &name)
         if (index != -1) {
             delete mFlowLayout->takeAt(index);
             mMap.remove(name);
-            delete userWidget;
+            userWidget->deleteLater();
         }
     }
     Q_EMIT userListChanged(!mMap.isEmpty());
