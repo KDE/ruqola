@@ -18,6 +18,7 @@ TeamSearchRoomWidget::TeamSearchRoomWidget(RocketChatAccount *account, QWidget *
 
     mTeamSearchRoomForTeamWidget->setObjectName(QStringLiteral("mTeamSearchRoomForTeamWidget"));
     vboxLayout->addWidget(mTeamSearchRoomForTeamWidget);
+    connect(mTeamSearchRoomForTeamWidget, &TeamSearchRoomForTeamWidget::userListChanged, this, &TeamSearchRoomWidget::enableOkButton);
 }
 
 TeamSearchRoomWidget::~TeamSearchRoomWidget() = default;

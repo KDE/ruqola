@@ -12,6 +12,7 @@
 #include <KSharedConfig>
 #include <KWindowConfig>
 #include <QDialogButtonBox>
+#include <QPushButton>
 #include <QVBoxLayout>
 #include <QWindow>
 namespace
@@ -34,6 +35,9 @@ TeamSearchRoomDialog::TeamSearchRoomDialog(RocketChatAccount *account, QWidget *
     mainLayout->addWidget(button);
     connect(button, &QDialogButtonBox::rejected, this, &TeamSearchRoomDialog::reject);
     connect(button, &QDialogButtonBox::accepted, this, &TeamSearchRoomDialog::accept);
+    auto okButton = button->button(QDialogButtonBox::Ok);
+    okButton->setEnabled(false);
+    connect(mTeamSearchRoomWidget, &TeamSearchRoomWidget::enableOkButton, okButton, &QPushButton::setEnabled);
     readConfig();
 }
 

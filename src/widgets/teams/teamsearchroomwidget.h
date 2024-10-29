@@ -19,6 +19,9 @@ public:
 
     [[nodiscard]] QList<QByteArray> roomIds() const;
 
+Q_SIGNALS:
+    void enableOkButton(bool enabled);
+
 private:
     TeamSearchRoomForTeamWidget *const mTeamSearchRoomForTeamWidget;
 };
