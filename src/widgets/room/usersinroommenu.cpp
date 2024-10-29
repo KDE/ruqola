@@ -184,15 +184,17 @@ void UsersInRoomMenu::slotCustomContextMenuRequested(const QPoint &pos)
             connect(ignoreAction, &QAction::triggered, this, &UsersInRoomMenu::slotIgnoreUser);
             menu.addAction(ignoreAction);
             menu.addSeparator();
-            const bool userIsMuted = mRoom->userIsMuted(mUserName);
-            auto muteAction = new QAction(userIsMuted ? i18nc("@action", "Unmute User") : i18nc("@action", "Mute User"), &menu);
-            muteAction->setIcon(userIsMuted ? QIcon::fromTheme("mic-on"_L1) : QIcon::fromTheme("mic-off"_L1));
-            connect(muteAction, &QAction::triggered, this, &UsersInRoomMenu::slotMuteUser);
-            menu.addAction(muteAction);
+            if (mRoom->hasPermission(QStringLiteral("mute-user"))) {
+                const bool userIsMuted = mRoom->userIsMuted(mUserName);
+                auto muteAction = new QAction(userIsMuted ? i18nc("@action", "Unmute User") : i18nc("@action", "Mute User"), &menu);
+                muteAction->setIcon(userIsMuted ? QIcon::fromTheme("mic-on"_L1) : QIcon::fromTheme("mic-off"_L1));
+                connect(muteAction, &QAction::triggered, this, &UsersInRoomMenu::slotMuteUser);
+                menu.addAction(muteAction);
+            }
         }
 
         menu.addSeparator();
-        auto reportUserAction = new QAction(i18nc("@action", "Report User"), &menu);
+        auto reportUserAction = new QAction(QIcon::fromTheme("emblem-warning"_L1), i18nc("@action", "Report User"), &menu);
         connect(reportUserAction, &QAction::triggered, this, &UsersInRoomMenu::slotReportUser);
         menu.addAction(reportUserAction);
     }
