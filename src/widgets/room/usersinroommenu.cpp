@@ -64,6 +64,14 @@ void UsersInRoomMenu::slotReportUser()
 void UsersInRoomMenu::slotMuteUser()
 {
     // TODO
+    if (KMessageBox::ButtonCode::SecondaryAction
+        == KMessageBox::questionTwoActions(mParentWidget,
+                                           i18n("Do you want to mute this user?"),
+                                           i18nc("@title", "Mute User"),
+                                           KGuiItem(i18nc("@action:button", "Mute User"), QStringLiteral("dialog-ok")),
+                                           KStandardGuiItem::cancel())) {
+        return;
+    }
 }
 
 void UsersInRoomMenu::slotIgnoreUser()
