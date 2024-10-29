@@ -13,14 +13,14 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT MessageAttachmentDownloadAndSaveJob : public
 {
     Q_OBJECT
 public:
-    enum class ActionType {
+    enum class ActionType : uint8_t {
         Unknown = 0,
         DownloadOnly,
         DownloadAndSave,
     };
     Q_ENUM(ActionType)
 
-    enum class AttachmentType {
+    enum class AttachmentType : uint8_t {
         Unknown = 0,
         Image,
         Video,

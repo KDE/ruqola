@@ -21,7 +21,7 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT MessageListView : public MessageListViewBase
 {
     Q_OBJECT
 public:
-    enum class Mode {
+    enum class Mode : uint8_t {
         ThreadEditing,
         Editing,
         Viewing, /*when we show list of message as mentions, search etc.*/

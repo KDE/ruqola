@@ -22,7 +22,7 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT MessageLineWidget : public QWidget
 {
     Q_OBJECT
 public:
-    enum class EditingMode {
+    enum class EditingMode : uint8_t {
         EditMessage,
         NewMessage,
     };

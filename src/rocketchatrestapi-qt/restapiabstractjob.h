@@ -22,7 +22,7 @@ class AbstractLogger;
 class LIBROCKETCHATRESTAPI_QT_EXPORT QueryParameters
 {
 public:
-    enum class SortOrder {
+    enum class SortOrder : uint8_t {
         Ascendant,
         Descendant,
         NoSorting,

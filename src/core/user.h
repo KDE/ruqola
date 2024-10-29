@@ -16,7 +16,7 @@ class LIBRUQOLACORE_EXPORT User
 {
     Q_GADGET
 public:
-    enum class PresenceStatus {
+    enum class PresenceStatus : uint8_t {
         Online,
         Busy,
         Away,

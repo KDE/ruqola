@@ -34,7 +34,7 @@ public:
     void selectChannelRequested(const QByteArray &channelId, const QByteArray &messageId);
     void selectNextUnreadChannel();
 
-    enum class Direction {
+    enum class Direction : uint8_t {
         Up,
         Down,
     };

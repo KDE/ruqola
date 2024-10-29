@@ -44,7 +44,7 @@ private:
     // each section vector is kept sorted for performance reasons
     std::array<std::vector<QPersistentModelIndex>, sectionCount> mSections;
 
-    enum class IndexType {
+    enum class IndexType : uint8_t {
         Root,
         Section,
         Channel,

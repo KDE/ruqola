@@ -57,7 +57,7 @@ public:
     };
     Q_ENUM(RoomRoles)
 
-    enum class Section {
+    enum class Section : uint8_t {
         Unread,
         Favorites,
         Teams,
@@ -68,7 +68,7 @@ public:
         NSections,
     };
 
-    enum class MentionsInfoType {
+    enum class MentionsInfoType : uint8_t {
         Important,
         Warning,
         Information,

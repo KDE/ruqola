@@ -15,7 +15,7 @@ class LIBROCKETCHATRESTAPI_QT_EXPORT UserBaseJob : public RestApiAbstractJob
 {
     Q_OBJECT
 public:
-    enum class UserInfoType {
+    enum class UserInfoType : uint8_t {
         Unknown,
         UserId,
         UserName,

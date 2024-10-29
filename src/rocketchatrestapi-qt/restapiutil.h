@@ -12,7 +12,7 @@
 namespace RestApiUtil
 {
 
-enum class RestApiUrlExtensionType {
+enum class RestApiUrlExtensionType : uint8_t {
     NoExtension,
     V1,
     Apps,

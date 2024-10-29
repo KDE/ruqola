@@ -40,7 +40,7 @@ public:
     };
 
     // t (can take values "d" , "c" or "p" or "l")
-    enum class RoomType {
+    enum class RoomType : uint8_t {
         Unknown,
         Direct,
         Channel,

@@ -17,7 +17,7 @@ class LIBROCKETCHATRESTAPI_QT_EXPORT UsersUpdateOwnBasicInfoJob : public RestApi
     Q_OBJECT
 public:
     struct LIBROCKETCHATRESTAPI_QT_EXPORT UpdateOwnBasicInfo {
-        enum class BasicInfoType {
+        enum class BasicInfoType : uint8_t {
             Unknown = 0,
             Email = 1,
             Name = 2,

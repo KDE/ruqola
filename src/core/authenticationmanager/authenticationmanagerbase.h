@@ -14,7 +14,7 @@ class LIBRUQOLACORE_EXPORT AuthenticationManagerBase : public QObject
 {
     Q_OBJECT
 public:
-    enum class Method {
+    enum class Method : uint8_t {
         Login,
         SendOtp,
         Logout,

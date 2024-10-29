@@ -101,7 +101,7 @@ MessageAttachmentDelegateHelperFile::doLayout(const MessageAttachment &msgAttach
     return layout;
 }
 
-enum class UserChoice {
+enum class UserChoice : uint8_t {
     Save,
     Open,
     OpenWith,

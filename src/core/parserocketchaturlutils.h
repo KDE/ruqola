@@ -14,7 +14,7 @@ class LIBRUQOLACORE_EXPORT ParseRocketChatUrlUtils
 {
     Q_GADGET
 public:
-    enum class UrlType {
+    enum class UrlType : uint8_t {
         Unknown = 0,
         Message = 1,
         Server = 2,
@@ -24,14 +24,14 @@ public:
     };
     Q_ENUM(UrlType)
 
-    enum class ChannelType {
+    enum class ChannelType : uint8_t {
         Unknown = 0,
         Direct = 1,
         Channel = 2,
         Group = 3,
     };
     Q_ENUM(ChannelType)
-    enum class RoomIdType {
+    enum class RoomIdType : uint8_t {
         Unknown = 0,
         RoomId = 1,
         RoomName = 2,

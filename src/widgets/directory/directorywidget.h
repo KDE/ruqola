@@ -15,7 +15,7 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT DirectoryWidget : public SearchTreeBaseWidge
 {
     Q_OBJECT
 public:
-    enum class DirectoryType {
+    enum class DirectoryType : uint8_t {
         Unknown = 0,
         Room = 1,
         User = 2,

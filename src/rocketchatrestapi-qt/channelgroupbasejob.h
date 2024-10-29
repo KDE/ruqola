@@ -18,7 +18,7 @@ class LIBROCKETCHATRESTAPI_QT_EXPORT ChannelGroupBaseJob : public RestApiAbstrac
 public:
     explicit ChannelGroupBaseJob(QObject *parent = nullptr);
     ~ChannelGroupBaseJob() override;
-    enum class ChannelGroupInfoType {
+    enum class ChannelGroupInfoType : uint8_t {
         Unknown,
         Identifier,
         Name,

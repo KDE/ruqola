@@ -10,7 +10,7 @@
 
 namespace LocalDatabaseUtils
 {
-enum class DatabasePath {
+enum class DatabasePath : uint8_t {
     Messages,
     Rooms,
     Account,

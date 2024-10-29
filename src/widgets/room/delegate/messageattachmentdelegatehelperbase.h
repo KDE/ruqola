@@ -85,7 +85,7 @@ protected:
     [[nodiscard]] MessageDelegateHelperBase::DocumentDescriptionInfo convertAttachmentToDocumentTitleInfo(const MessageAttachment &msgAttach, int width) const;
 
 private:
-    enum class DocumentIdType : int {
+    enum class DocumentIdType : uint8_t {
         Unknown = 0,
         Title,
         Description,

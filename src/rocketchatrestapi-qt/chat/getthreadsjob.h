@@ -15,7 +15,7 @@ class LIBROCKETCHATRESTAPI_QT_EXPORT GetThreadsJob : public RestApiAbstractJob
 {
     Q_OBJECT
 public:
-    enum class TheadSearchType {
+    enum class TheadSearchType : uint8_t {
         All = 0,
         Following,
         Unread,

@@ -13,7 +13,7 @@ class LIBRUQOLACORE_EXPORT PluginAuthenticationConfigureWidget : public QWidget
 {
     Q_OBJECT
 public:
-    enum class AuthenticationLoginType {
+    enum class AuthenticationLoginType : uint8_t {
         Unknown = 0,
         Create,
         Modify,

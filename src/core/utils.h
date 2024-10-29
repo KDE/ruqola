@@ -56,7 +56,7 @@ struct LIBRUQOLACORE_EXPORT QuotedRichTextInfo {
  */
 [[nodiscard]] LIBRUQOLACORE_TESTS_EXPORT QString convertTextWithUrl(const QString &str);
 
-enum class AvatarType {
+enum class AvatarType : uint8_t {
     Unknown,
     Room,
     User,

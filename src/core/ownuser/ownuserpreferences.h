@@ -53,7 +53,7 @@ public:
     [[nodiscard]] bool showUnread() const;
     void setShowUnread(bool newShowUnread);
 
-    enum class RoomListSortOrder {
+    enum class RoomListSortOrder : uint8_t {
         Unknown,
         ByLastMessage,
         Alphabetically,
@@ -62,7 +62,7 @@ public:
     [[nodiscard]] RoomListSortOrder roomListSortOrder() const;
     void setRoomListSortOrder(RoomListSortOrder roomListSortOrder);
 
-    enum class RoomListDisplay {
+    enum class RoomListDisplay : uint8_t {
         Unknown,
         Condensed,
         Medium,

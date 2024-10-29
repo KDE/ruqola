@@ -1145,6 +1145,7 @@ void Room::setRolesForRooms(const Roles &rolesForRooms)
 bool Room::hasPermission(const QString &permission) const
 {
     if (mRocketChatAccount) {
+        // qDebug() << " mRoles " << mRoles << " mRolesForRooms " << mRolesForRooms;
         const QStringList permissionRoles = mRocketChatAccount->permissions(permission);
         for (const QString &role : permissionRoles) {
             if (mRoles.contains(role)) {

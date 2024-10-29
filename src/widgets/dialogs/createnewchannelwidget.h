@@ -19,7 +19,7 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT CreateNewChannelWidget : public QWidget
 {
     Q_OBJECT
 public:
-    enum class Feature {
+    enum class Feature : uint8_t {
         None = 0,
         BroadCast = 1,
         Encrypted = 2,
