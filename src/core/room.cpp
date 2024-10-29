@@ -340,6 +340,7 @@ void Room::parseUpdateRoom(const QJsonObject &json)
     }
     setUserNames(lstUserNames);
 
+    setMutedUsers(extractStringList(json, "muted"_L1));
     setAvatarETag(json.value("avatarETag"_L1).toString().toLatin1());
     parseDisplaySystemMessage(json);
     parseRetentionInfo(json);
