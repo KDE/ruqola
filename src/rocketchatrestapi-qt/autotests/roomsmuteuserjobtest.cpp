@@ -42,7 +42,8 @@ void RoomsMuteUserJobTest::shouldGenerateJson()
     const QString userName(QStringLiteral("usename"));
     job.setUserName(userName);
 
-    QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral(R"({"rid":"%1","username":"%2"})").arg(QLatin1StringView(roomId), userName).toLatin1());
+    QCOMPARE(job.json().toJson(QJsonDocument::Compact),
+             QStringLiteral(R"({"roomId":"%1","username":"%2"})").arg(QLatin1StringView(roomId), userName).toLatin1());
 }
 
 void RoomsMuteUserJobTest::shouldNotStarting()
