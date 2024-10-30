@@ -43,7 +43,7 @@ void TeamSearchRoomForTeamWidget::slotAddNewName(const AddTeamRoomCompletionLine
     connect(clickableWidget, &ClickableWidget::removeClickableWidget, this, &TeamSearchRoomForTeamWidget::slotRemoveRoom);
     mFlowLayout->addWidget(clickableWidget);
     mMap.insert(roomName, clickableWidget);
-    Q_EMIT userListChanged(!mMap.isEmpty());
+    Q_EMIT roomListChanged(!mMap.isEmpty());
 }
 
 void TeamSearchRoomForTeamWidget::slotRemoveRoom(const QString &name)
@@ -57,7 +57,7 @@ void TeamSearchRoomForTeamWidget::slotRemoveRoom(const QString &name)
             userWidget->deleteLater();
         }
     }
-    Q_EMIT userListChanged(!mMap.isEmpty());
+    Q_EMIT roomListChanged(!mMap.isEmpty());
 }
 
 QList<QByteArray> TeamSearchRoomForTeamWidget::roomIds() const

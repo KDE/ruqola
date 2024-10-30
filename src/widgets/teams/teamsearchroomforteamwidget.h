@@ -24,7 +24,7 @@ public:
 
 Q_SIGNALS:
     void textChanged(const QString &str);
-    void userListChanged(bool isNotEmpty);
+    void roomListChanged(bool isNotEmpty);
 
 private:
     LIBRUQOLAWIDGETS_NO_EXPORT void slotRemoveRoom(const QString &name);
