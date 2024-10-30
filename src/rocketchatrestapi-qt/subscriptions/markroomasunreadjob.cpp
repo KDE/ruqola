@@ -86,7 +86,7 @@ bool MarkRoomAsUnReadJob::canStart() const
     if (!RestApiAbstractJob::canStart()) {
         return false;
     }
-    if (mUnReadObject == Unknown) {
+    if (mUnReadObject == MarkAsUnReadObject::Unknown) {
         qCWarning(ROCKETCHATQTRESTAPI_LOG) << "MarkRoomAsUnReadJob: object type undefined";
         return false;
     }
@@ -110,9 +110,9 @@ QNetworkRequest MarkRoomAsUnReadJob::request() const
 QJsonDocument MarkRoomAsUnReadJob::json() const
 {
     QJsonObject jsonObj;
-    if (mUnReadObject == Room) {
+    if (mUnReadObject == MarkAsUnReadObject::Room) {
         jsonObj["roomId"_L1] = QLatin1StringView(mObjectId);
-    } else if (mUnReadObject == FromMessage) {
+    } else if (mUnReadObject == MarkAsUnReadObject::FromMessage) {
         QJsonObject fromMessage;
         fromMessage["_id"_L1] = QLatin1StringView(mObjectId);
         jsonObj["firstUnreadMessage"_L1] = fromMessage;

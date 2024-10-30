@@ -18,7 +18,7 @@ public:
     ChannelUserCompleter();
     ~ChannelUserCompleter();
 
-    enum ChannelUserCompleterType {
+    enum ChannelUserCompleterType : uint8_t {
         Unknown,
         Room,
         DirectChannel,

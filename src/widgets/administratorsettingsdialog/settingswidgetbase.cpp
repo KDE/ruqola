@@ -52,7 +52,7 @@ void SettingsWidgetBase::connectCheckBox(QCheckBox *checkBox, const QString &var
 {
     checkBox->setProperty(s_property, variable);
     connect(checkBox, &QCheckBox::clicked, this, [this, variable, checkBox](bool checked) {
-        if (!updateSettings(variable, checked, RocketChatRestApi::UpdateAdminSettingsJob::UpdateAdminSettingsInfo::Boolean)) {
+        if (!updateSettings(variable, checked, RocketChatRestApi::UpdateAdminSettingsJob::UpdateAdminSettingsInfo::ValueType::Boolean)) {
             checkBox->setChecked(!checked);
             Q_EMIT changedChanceled(variable);
         } else {
@@ -138,7 +138,7 @@ void SettingsWidgetBase::addSpinbox(const QString &labelStr, QSpinBox *spinBox, 
     connect(toolButton, &QToolButton::clicked, this, [this, variable, spinBox, toolButton]() {
         if (!updateSettings(variable,
                             spinBox->value(),
-                            RocketChatRestApi::UpdateAdminSettingsJob::UpdateAdminSettingsInfo::Integer,
+                            RocketChatRestApi::UpdateAdminSettingsJob::UpdateAdminSettingsInfo::ValueType::Integer,
                             toolButton->objectName())) {
             spinBox->setValue(spinBox->property(s_property_default_value).toInt());
             Q_EMIT changedChanceled(variable);
@@ -207,7 +207,7 @@ void SettingsWidgetBase::addLineEdit(const QString &labelStr, QLineEdit *lineEdi
         connect(toolButton, &QToolButton::clicked, this, [this, variable, lineEdit, toolButton]() {
             if (!updateSettings(variable,
                                 lineEdit->text(),
-                                RocketChatRestApi::UpdateAdminSettingsJob::UpdateAdminSettingsInfo::String,
+                                RocketChatRestApi::UpdateAdminSettingsJob::UpdateAdminSettingsInfo::ValueType::String,
                                 toolButton->objectName())) {
                 lineEdit->setText(lineEdit->property(s_property_default_value).toString());
                 Q_EMIT changedChanceled(variable);
@@ -259,7 +259,7 @@ void SettingsWidgetBase::addPlainTextEdit(const QString &labelStr, QPlainTextEdi
     connect(toolButton, &QToolButton::clicked, this, [this, variable, plainTextEdit, toolButton]() {
         if (!updateSettings(variable,
                             plainTextEdit->toPlainText(),
-                            RocketChatRestApi::UpdateAdminSettingsJob::UpdateAdminSettingsInfo::String,
+                            RocketChatRestApi::UpdateAdminSettingsJob::UpdateAdminSettingsInfo::ValueType::String,
                             toolButton->objectName())) {
             plainTextEdit->setPlainText(plainTextEdit->property(s_property_default_value).toString());
             Q_EMIT changedChanceled(variable);
@@ -303,7 +303,7 @@ void SettingsWidgetBase::addPasswordEdit(const QString &labelStr, KPasswordLineE
     connect(toolButton, &QToolButton::clicked, this, [this, variable, lineEdit, toolButton]() {
         if (!updateSettings(variable,
                             lineEdit->password(),
-                            RocketChatRestApi::UpdateAdminSettingsJob::UpdateAdminSettingsInfo::String,
+                            RocketChatRestApi::UpdateAdminSettingsJob::UpdateAdminSettingsInfo::ValueType::String,
                             toolButton->objectName())) {
             Q_EMIT changedChanceled(variable);
         }
@@ -351,7 +351,7 @@ void SettingsWidgetBase::addComboBox(const QString &labelStr, const QMap<QString
     connect(toolButton, &QToolButton::clicked, this, [this, variable, comboBox, toolButton]() {
         if (!updateSettings(variable,
                             comboBox->currentData().toString(),
-                            RocketChatRestApi::UpdateAdminSettingsJob::UpdateAdminSettingsInfo::String,
+                            RocketChatRestApi::UpdateAdminSettingsJob::UpdateAdminSettingsInfo::ValueType::String,
                             toolButton->objectName())) {
             comboBox->setCurrentIndex(comboBox->findData(comboBox->property(s_property_default_value).toString()));
             Q_EMIT changedChanceled(variable);

@@ -27,7 +27,7 @@ class LIBRUQOLACORE_EXPORT DDPClient : public QObject
 {
     Q_OBJECT
 public:
-    enum MessageType {
+    enum class MessageType : uint8_t {
         Persistent,
         Ephemeral,
     };
@@ -43,7 +43,7 @@ public:
      * @param messageType The type of message
      * @return unsigned int, the ID of the called method
      */
-    quint64 method(const QString &method, const QJsonDocument &params, DDPClient::MessageType messageType = DDPClient::Ephemeral);
+    quint64 method(const QString &method, const QJsonDocument &params, DDPClient::MessageType messageType = DDPClient::MessageType::Ephemeral);
 
     /**
      * @brief Send message over network
@@ -57,11 +57,11 @@ public:
     quint64 method(const QString &method,
                    const QJsonDocument &params,
                    const std::function<void(QJsonObject, RocketChatAccount *)> &callback,
-                   DDPClient::MessageType messageType = DDPClient::Ephemeral);
+                   DDPClient::MessageType messageType = DDPClient::MessageType::Ephemeral);
 
     quint64 method(const RocketChatMessage::RocketChatMessageResult &result,
                    const std::function<void(QJsonObject, RocketChatAccount *)> &callback,
-                   DDPClient::MessageType messageType = DDPClient::Ephemeral);
+                   DDPClient::MessageType messageType = DDPClient::MessageType::Ephemeral);
 
     /**
      * @brief Subscribes to a collection with name @param collection and parameters @param params

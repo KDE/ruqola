@@ -38,7 +38,7 @@ void VideoConferenceInfoTest::shouldLoadVideoConferenceInfo_data()
         VideoConferenceInfo info;
         info.setProviderName(QStringLiteral("jitsi"));
         info.setUrl(QStringLiteral("https://bla/RocketChat63ebad0405c6c93252c0f337"));
-        info.setConferenceType(VideoConferenceInfo::Conference);
+        info.setConferenceType(VideoConferenceInfo::VideoConferenceType::Conference);
         info.setRoomId(QStringLiteral("hE6RS3iv5ND5EGWC6"));
         info.setStatus(1);
         info.setRinging(false);
@@ -51,7 +51,7 @@ void VideoConferenceInfoTest::shouldLoadVideoConferenceInfo_data()
         VideoConferenceInfo info;
         info.setProviderName(QStringLiteral("jitsi"));
         info.setUrl(QStringLiteral("https://goo/RocketChat639593184ef3f3baa965910c"));
-        info.setConferenceType(VideoConferenceInfo::Conference);
+        info.setConferenceType(VideoConferenceInfo::VideoConferenceType::Conference);
         info.setRoomId(QStringLiteral("hE6RS3iv5ND5EGWC6"));
         info.setStatus(2);
         info.setRinging(false);

@@ -25,14 +25,14 @@ void VideoConferenceNotificationJob::start()
         return;
     }
     switch (mVideoConference.action()) {
-    case VideoConference::IncomingCall:
+    case VideoConference::Action::IncomingCall:
         inComingCall();
         return;
-    case VideoConference::Unknown:
-    case VideoConference::Canceled:
-    case VideoConference::Confirmed:
-    case VideoConference::Accepted:
-    case VideoConference::Rejected:
+    case VideoConference::Action::Unknown:
+    case VideoConference::Action::Canceled:
+    case VideoConference::Action::Confirmed:
+    case VideoConference::Action::Accepted:
+    case VideoConference::Action::Rejected:
         break;
     }
     deleteLater();

@@ -17,7 +17,7 @@ class LIBROCKETCHATRESTAPI_QT_EXPORT DirectoryJob : public RestApiAbstractJob
 public:
     explicit DirectoryJob(QObject *parent = nullptr);
     ~DirectoryJob() override;
-    enum SearchType {
+    enum class SearchType : uint8_t {
         Unknown = 0,
         Rooms = 1,
         Users = 2,

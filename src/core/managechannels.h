@@ -13,7 +13,7 @@ class LIBRUQOLACORE_TESTS_EXPORT ManageChannels : public QObject
 {
     Q_OBJECT
 public:
-    enum SearchChannelFound {
+    enum class SearchChannelFound : uint8_t {
         NoFound = 0,
         ChannelOpened,
         ChannelHidden,

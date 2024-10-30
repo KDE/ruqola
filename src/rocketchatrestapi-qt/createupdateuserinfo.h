@@ -14,7 +14,7 @@
 namespace RocketChatRestApi
 {
 struct LIBROCKETCHATRESTAPI_QT_EXPORT CreateUpdateUserInfo {
-    enum InfoType {
+    enum InfoType : uint8_t {
         Create = 0,
         Update,
     };

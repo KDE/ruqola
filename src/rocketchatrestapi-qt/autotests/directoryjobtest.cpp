@@ -49,7 +49,7 @@ void DirectoryJobTest::shouldNotStarting()
     job.setUserId(userId);
     QVERIFY(!job.canStart());
     DirectoryJob::DirectoryInfo info;
-    info.searchType = DirectoryJob::Rooms;
+    info.searchType = DirectoryJob::SearchType::Rooms;
     job.setDirectoryInfo(info);
     QVERIFY(job.canStart());
 }

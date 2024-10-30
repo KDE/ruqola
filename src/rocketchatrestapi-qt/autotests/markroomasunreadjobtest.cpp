@@ -21,7 +21,7 @@ void MarkRoomAsUnReadJobTest::shouldHaveDefaultValue()
     verifyDefaultValue(&job);
     QVERIFY(job.requireHttpAuthentication());
     QVERIFY(job.objectId().isEmpty());
-    QCOMPARE(job.unReadObject(), MarkRoomAsUnReadJob::Unknown);
+    QCOMPARE(job.unReadObject(), MarkRoomAsUnReadJob::MarkAsUnReadObject::Unknown);
     QVERIFY(!job.hasQueryParameterSupport());
 }
 
@@ -39,9 +39,9 @@ void MarkRoomAsUnReadJobTest::shouldGenerateJson()
     MarkRoomAsUnReadJob job;
     const QString roomId = QStringLiteral("foo1");
     job.setObjectId(roomId.toLatin1());
-    job.setUnReadObject(MarkRoomAsUnReadJob::Room);
+    job.setUnReadObject(MarkRoomAsUnReadJob::MarkAsUnReadObject::Room);
     QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral(R"({"roomId":"%1"})").arg(roomId).toLatin1());
-    job.setUnReadObject(MarkRoomAsUnReadJob::FromMessage);
+    job.setUnReadObject(MarkRoomAsUnReadJob::MarkAsUnReadObject::FromMessage);
     QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral(R"({"firstUnreadMessage":{"_id":"foo1"}})").arg(roomId).toLatin1());
 }
 
@@ -65,7 +65,7 @@ void MarkRoomAsUnReadJobTest::shouldNotStarting()
     const QByteArray roomId = QByteArrayLiteral("foo1");
     job.setObjectId(roomId);
     QVERIFY(!job.canStart());
-    job.setUnReadObject(MarkRoomAsUnReadJob::FromMessage);
+    job.setUnReadObject(MarkRoomAsUnReadJob::MarkAsUnReadObject::FromMessage);
     QVERIFY(job.canStart());
 }
 

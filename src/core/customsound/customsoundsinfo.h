@@ -13,7 +13,7 @@
 class LIBRUQOLACORE_EXPORT CustomSoundsInfo
 {
 public:
-    enum ParseType {
+    enum class ParseType : uint8_t {
         Administrator,
         Directory,
     };

@@ -13,7 +13,7 @@ class LIBRUQOLACORE_EXPORT VideoConference
 {
     Q_GADGET
 public:
-    enum Action {
+    enum class Action : uint8_t {
         Unknown,
         IncomingCall,
         Canceled,
@@ -48,7 +48,7 @@ private:
     QByteArray mCallId;
     QByteArray mRoomId;
     QByteArray mUserId;
-    Action mAction = Unknown;
+    Action mAction = Action::Unknown;
 };
 Q_DECLARE_TYPEINFO(VideoConference, Q_RELOCATABLE_TYPE);
 LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const VideoConference &t);

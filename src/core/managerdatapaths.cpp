@@ -45,20 +45,20 @@ QString ManagerDataPaths::path(ManagerDataPaths::PathType type, const QString &a
         path += QLatin1Char('/') + accountName;
     }
     switch (type) {
-    case Picture:
-    case Video:
+    case PathType::Picture:
+    case PathType::Video:
         path += QStringLiteral("/Ruqola/recordings");
         break;
-    case PreviewUrl:
+    case PathType::PreviewUrl:
         path += QStringLiteral("/PreviewUrl");
         break;
-    case CustomSound:
+    case PathType::CustomSound:
         path += QStringLiteral("/CustomSound");
         break;
-    case Cache:
+    case PathType::Cache:
         path += QStringLiteral("/MainCache");
         break;
-    case Config:
+    case PathType::Config:
         break;
     }
     if (!subdirectory.isEmpty()) {

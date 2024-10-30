@@ -797,7 +797,7 @@ void Connection::markRoomAsUnRead(const QByteArray &roomId)
 {
     auto job = new MarkRoomAsUnReadJob(this);
     job->setObjectId(roomId);
-    job->setUnReadObject(MarkRoomAsUnReadJob::Room);
+    job->setUnReadObject(MarkRoomAsUnReadJob::MarkAsUnReadObject::Room);
     initializeRestApiJob(job);
     if (!job->start()) {
         qCWarning(RUQOLA_LOG) << "Impossible to start markRoomAsUnRead job";
@@ -808,7 +808,7 @@ void Connection::markMessageAsUnReadFrom(const QByteArray &messageId)
 {
     auto job = new MarkRoomAsUnReadJob(this);
     job->setObjectId(messageId);
-    job->setUnReadObject(MarkRoomAsUnReadJob::FromMessage);
+    job->setUnReadObject(MarkRoomAsUnReadJob::MarkAsUnReadObject::FromMessage);
     initializeRestApiJob(job);
     if (!job->start()) {
         qCWarning(RUQOLA_LOG) << "Impossible to start markMessageAsUnReadFrom job";

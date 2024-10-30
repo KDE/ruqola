@@ -16,7 +16,7 @@ class LIBROCKETCHATRESTAPI_QT_EXPORT UpdateAdminSettingsJob : public RestApiAbst
     Q_OBJECT
 public:
     struct UpdateAdminSettingsInfo {
-        enum ValueType {
+        enum class ValueType : uint8_t {
             Unknown,
             Boolean,
             Integer,

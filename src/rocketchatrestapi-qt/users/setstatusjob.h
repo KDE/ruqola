@@ -16,7 +16,7 @@ class LIBROCKETCHATRESTAPI_QT_EXPORT SetStatusJob : public RestApiAbstractJob
 public:
     explicit SetStatusJob(QObject *parent = nullptr);
     ~SetStatusJob() override;
-    enum StatusType {
+    enum class StatusType : uint8_t {
         OnLine,
         Away,
         Offline,
@@ -50,6 +50,6 @@ private:
     LIBROCKETCHATRESTAPI_QT_NO_EXPORT void onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson) override;
     QString mStatusUserId;
     QString mStatusMessage;
-    StatusType mStatus = Unknown;
+    StatusType mStatus = StatusType::Unknown;
 };
 }

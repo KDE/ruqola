@@ -22,7 +22,7 @@ void SetStatusJobTest::shouldHaveDefaultValue()
     QVERIFY(job.requireHttpAuthentication());
     QVERIFY(job.statusUserId().isEmpty());
     QVERIFY(job.statusMessage().isEmpty());
-    QCOMPARE(job.status(), SetStatusJob::Unknown);
+    QCOMPARE(job.status(), SetStatusJob::StatusType::Unknown);
     QVERIFY(!job.hasQueryParameterSupport());
     QVERIFY(!job.requireTwoFactorAuthentication());
 }
@@ -42,11 +42,11 @@ void SetStatusJobTest::shouldGenerateJson()
     const QString userId = QStringLiteral("foo1");
     job.setStatusUserId(userId);
     job.setStatusMessage(QString());
-    job.setStatus(SetStatusJob::Away);
+    job.setStatus(SetStatusJob::StatusType::Away);
     QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral(R"({"message":"","status":"away","userId":"foo1"})").arg(userId).toLatin1());
     job.setStatusMessage(QStringLiteral("bla"));
     QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral(R"({"message":"bla","status":"away","userId":"foo1"})").arg(userId).toLatin1());
-    job.setStatus(SetStatusJob::Offline);
+    job.setStatus(SetStatusJob::StatusType::Offline);
     QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral(R"({"message":"bla","status":"offline","userId":"foo1"})").arg(userId).toLatin1());
 }
 
@@ -70,7 +70,7 @@ void SetStatusJobTest::shouldNotStarting()
     const QString statusUserid = QStringLiteral("foo1");
     job.setStatusUserId(statusUserid);
     QVERIFY(!job.canStart());
-    job.setStatus(SetStatusJob::Away);
+    job.setStatus(SetStatusJob::StatusType::Away);
     QVERIFY(job.canStart());
 }
 

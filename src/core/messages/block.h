@@ -15,7 +15,7 @@ class LIBRUQOLACORE_EXPORT Block
 {
     Q_GADGET
 public:
-    enum BlockType {
+    enum class BlockType : uint8_t {
         Unknown,
         VideoConf,
         Actions,
@@ -67,7 +67,7 @@ private:
     QString mAppId;
     QString mBlockStr;
     QString mSectionText;
-    BlockType mBlockType = Unknown;
+    BlockType mBlockType = BlockType::Unknown;
     VideoConferenceInfo mVideoConferenceInfo;
 };
 LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const Block &t);

@@ -21,9 +21,9 @@ void Block::parseBlock(const QJsonObject &block)
     mCallId = block["callId"_L1].toString();
     mAppId = block["appId"_L1].toString();
     setBlockTypeStr(block["type"_L1].toString());
-    if (mBlockType == Unknown) {
+    if (mBlockType == BlockType::Unknown) {
         qCWarning(RUQOLA_LOG) << " Unknown type " << block;
-    } else if (mBlockType == Section) {
+    } else if (mBlockType == BlockType::Section) {
         if (block.contains("text"_L1)) {
             const QJsonObject objText = block["text"_L1].toObject();
             mSectionText = objText["text"_L1].toString();
@@ -47,13 +47,13 @@ void Block::parseBlock(const QJsonObject &block)
 QString Block::convertEnumToStr(BlockType newBlockType) const
 {
     switch (newBlockType) {
-    case Unknown:
+    case BlockType::Unknown:
         return {};
-    case VideoConf:
+    case BlockType::VideoConf:
         return QStringLiteral("video_conf");
-    case Section:
+    case BlockType::Section:
         return QStringLiteral("section");
-    case Actions:
+    case BlockType::Actions:
         return QStringLiteral("actions");
     }
     return {};
@@ -62,15 +62,15 @@ QString Block::convertEnumToStr(BlockType newBlockType) const
 Block::BlockType Block::convertBlockTypeToEnum(const QString &typeStr)
 {
     if (typeStr == "video_conf"_L1) {
-        return VideoConf;
+        return BlockType::VideoConf;
     } else if (typeStr == "section"_L1) {
-        return Section;
+        return BlockType::Section;
     } else if (typeStr == "actions"_L1) {
-        return Actions;
+        return BlockType::Actions;
     }
 
     qCWarning(RUQOLA_LOG) << " Invalid BlockType " << typeStr;
-    return Unknown;
+    return BlockType::Unknown;
 }
 
 QList<BlockAction> Block::blockActions() const
@@ -108,7 +108,7 @@ void Block::setBlockTypeStr(const QString &newBlockStr)
 
 bool Block::isValid() const
 {
-    return mBlockType != Unknown;
+    return mBlockType != BlockType::Unknown;
 }
 
 QString Block::title() const

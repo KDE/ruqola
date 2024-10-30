@@ -88,7 +88,7 @@ bool SetStatusJob::canStart() const
         qCWarning(ROCKETCHATQTRESTAPI_LOG) << "SetStatusJob: mUserId is empty";
         return false;
     }
-    if (mStatus == SetStatusJob::Unknown) {
+    if (mStatus == SetStatusJob::StatusType::Unknown) {
         qCWarning(ROCKETCHATQTRESTAPI_LOG) << "SetStatusJob: mStatus is not defined";
         return false;
     }
@@ -110,19 +110,19 @@ QJsonDocument SetStatusJob::json() const
     jsonObj["userId"_L1] = mStatusUserId;
     QString statusType;
     switch (mStatus) {
-    case OnLine:
+    case StatusType::OnLine:
         statusType = QStringLiteral("online");
         break;
-    case Away:
+    case StatusType::Away:
         statusType = QStringLiteral("away");
         break;
-    case Offline:
+    case StatusType::Offline:
         statusType = QStringLiteral("offline");
         break;
-    case Busy:
+    case StatusType::Busy:
         statusType = QStringLiteral("busy");
         break;
-    case Unknown:
+    case StatusType::Unknown:
         break;
     }
     jsonObj["status"_L1] = statusType;

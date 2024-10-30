@@ -15,7 +15,7 @@ class LIBRUQOLACORE_EXPORT VideoConferenceInfo
 {
     Q_GADGET
 public:
-    enum VideoConferenceType {
+    enum class VideoConferenceType : uint8_t {
         Unknown,
         Direct,
         Conference,
@@ -82,7 +82,7 @@ private:
     QString mRoomId;
     QString mProviderName;
     QString mMessageId;
-    VideoConferenceType mConferenceType = Unknown;
+    VideoConferenceType mConferenceType = VideoConferenceType::Unknown;
     qint64 mCreatedAtDateTime = -1;
     qint64 mEndedAtDateTime = -1;
     int mStatus = -1;

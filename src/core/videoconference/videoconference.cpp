@@ -32,17 +32,17 @@ void VideoConference::parseVideoConference(const QJsonObject &content)
 
 VideoConference::Action VideoConference::convertActionToEnum(const QString &str)
 {
-    Action action = Unknown;
+    Action action = Action::Unknown;
     if (str == "call"_L1) {
-        action = IncomingCall;
+        action = Action::IncomingCall;
     } else if (str == "canceled"_L1) {
-        action = Canceled;
+        action = Action::Canceled;
     } else if (str == "confirmed"_L1) {
-        action = Confirmed;
+        action = Action::Confirmed;
     } else if (str == "accepted"_L1) {
-        action = Accepted;
+        action = Action::Accepted;
     } else if (str == "rejected"_L1) {
-        action = Rejected;
+        action = Action::Rejected;
     } else {
         qCWarning(RUQOLA_LOG) << "Action not implemented! " << str;
     }
@@ -91,7 +91,7 @@ void VideoConference::setUserId(const QByteArray &newUserId)
 
 bool VideoConference::isValid() const
 {
-    return !mCallId.isEmpty() && !mRoomId.isEmpty() && !mUserId.isEmpty() && mAction != Unknown;
+    return !mCallId.isEmpty() && !mRoomId.isEmpty() && !mUserId.isEmpty() && mAction != Action::Unknown;
 }
 
 QDebug operator<<(QDebug d, const VideoConference &t)

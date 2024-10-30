@@ -17,7 +17,7 @@ public:
     explicit SetGroupTypeJob(QObject *parent = nullptr);
     ~SetGroupTypeJob() override;
 
-    enum GroupType {
+    enum GroupType : uint8_t {
         Unknown = 0,
         Private,
         Public,

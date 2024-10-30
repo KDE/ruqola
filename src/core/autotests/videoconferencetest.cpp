@@ -47,7 +47,7 @@ void VideoConferenceTest::shouldExtractVideoConference_data()
     QTest::addRow("conferenceempty") << QStringLiteral("conferenceempty") << VideoConference();
     {
         VideoConference conference;
-        conference.setAction(VideoConference::IncomingCall);
+        conference.setAction(VideoConference::Action::IncomingCall);
         conference.setCallId(QByteArrayLiteral("6398e61e29673367a61e6f23"));
         conference.setRoomId(QByteArrayLiteral("YbwG4T2uB3wZSZSKBxkNpoB3T98EEPCj2K"));
         conference.setUserId(QByteArrayLiteral("YbwG4T2uB3wZSZSKB"));
@@ -55,7 +55,7 @@ void VideoConferenceTest::shouldExtractVideoConference_data()
     }
     {
         VideoConference conference;
-        conference.setAction(VideoConference::Accepted);
+        conference.setAction(VideoConference::Action::Accepted);
         conference.setCallId(QByteArrayLiteral("6398e79daa2274c5a48a02c2"));
         conference.setRoomId(QByteArrayLiteral("YbwG4T2uB3wZSZSKBxkNpoB3T98EEPCj2K"));
         conference.setUserId(QByteArrayLiteral("YbwG4T2uB3wZSZSKB"));
@@ -63,7 +63,7 @@ void VideoConferenceTest::shouldExtractVideoConference_data()
     }
     {
         VideoConference conference;
-        conference.setAction(VideoConference::Confirmed);
+        conference.setAction(VideoConference::Action::Confirmed);
         conference.setCallId(QByteArrayLiteral("6398e79daa2274c5a48a02c2"));
         conference.setRoomId(QByteArrayLiteral("YbwG4T2uB3wZSZSKBxkNpoB3T98EEPCj2K"));
         conference.setUserId(QByteArrayLiteral("xkNpoB3T98EEPCj2K"));
@@ -71,7 +71,7 @@ void VideoConferenceTest::shouldExtractVideoConference_data()
     }
     {
         VideoConference conference;
-        conference.setAction(VideoConference::Rejected);
+        conference.setAction(VideoConference::Action::Rejected);
         conference.setCallId(QByteArrayLiteral("6398e888fc94d2587faae3c6"));
         conference.setRoomId(QByteArrayLiteral("YbwG4T2uB3wZSZSKBxkNpoB3T98EEPCj2K"));
         conference.setUserId(QByteArrayLiteral("YbwG4T2uB3wZSZSKB"));
@@ -79,7 +79,7 @@ void VideoConferenceTest::shouldExtractVideoConference_data()
     }
     {
         VideoConference conference;
-        conference.setAction(VideoConference::Canceled);
+        conference.setAction(VideoConference::Action::Canceled);
         conference.setCallId(QByteArrayLiteral("6398e944aa2274c5a48a02ea"));
         conference.setRoomId(QByteArrayLiteral("YbwG4T2uB3wZSZSKBxkNpoB3T98EEPCj2K"));
         conference.setUserId(QByteArrayLiteral("YbwG4T2uB3wZSZSKB"));

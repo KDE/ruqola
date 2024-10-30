@@ -18,7 +18,7 @@ public:
     explicit MarkRoomAsUnReadJob(QObject *parent = nullptr);
     ~MarkRoomAsUnReadJob() override;
 
-    enum MarkAsUnReadObject {
+    enum class MarkAsUnReadObject : uint8_t {
         Unknown = 0,
         FromMessage,
         Room
@@ -46,6 +46,6 @@ protected:
 private:
     LIBROCKETCHATRESTAPI_QT_NO_EXPORT void onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson) override;
     QByteArray mObjectId;
-    MarkAsUnReadObject mUnReadObject = Unknown;
+    MarkAsUnReadObject mUnReadObject = MarkAsUnReadObject::Unknown;
 };
 }

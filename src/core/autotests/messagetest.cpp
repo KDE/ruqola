@@ -656,14 +656,14 @@ void MessageTest::shouldSerializeData()
             Block b;
             b.setBlockId(QStringLiteral("block-id1"));
             b.setAppId(QStringLiteral("appid-1"));
-            b.setBlockType(Block::VideoConf);
+            b.setBlockType(Block::BlockType::VideoConf);
             blockInfos.append(b);
         }
         {
             Block b;
             b.setBlockId(QStringLiteral("block-id2"));
             b.setAppId(QStringLiteral("appid-2"));
-            b.setBlockType(Block::VideoConf);
+            b.setBlockType(Block::BlockType::VideoConf);
             blockInfos.append(b);
         }
         blocks.setBlocks(blockInfos);

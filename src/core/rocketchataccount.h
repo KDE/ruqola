@@ -103,7 +103,7 @@ public:
     };
     Q_ENUM(ChannelTypeInfo)
 
-    enum RoomInfoType {
+    enum class RoomInfoType : uint8_t {
         Announcement,
         Description,
         Name,

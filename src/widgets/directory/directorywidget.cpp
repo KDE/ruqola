@@ -131,13 +131,13 @@ void DirectoryWidget::slotLoadElements(int offset, int count, const QString &sea
     RocketChatRestApi::DirectoryJob::DirectoryInfo info;
     switch (mType) {
     case DirectoryType::Room:
-        info.searchType = RocketChatRestApi::DirectoryJob::Rooms;
+        info.searchType = RocketChatRestApi::DirectoryJob::SearchType::Rooms;
         break;
     case DirectoryType::User:
-        info.searchType = RocketChatRestApi::DirectoryJob::Users;
+        info.searchType = RocketChatRestApi::DirectoryJob::SearchType::Users;
         break;
     case DirectoryType::Team:
-        info.searchType = RocketChatRestApi::DirectoryJob::Teams;
+        info.searchType = RocketChatRestApi::DirectoryJob::SearchType::Teams;
         break;
     case DirectoryType::Unknown:
         qCWarning(RUQOLAWIDGETS_LOG) << "Invalid type it's a bug";

@@ -13,7 +13,7 @@
 class LIBRUQOLACORE_EXPORT ManagerDataPaths
 {
 public:
-    enum PathType {
+    enum PathType : uint8_t {
         Config = 0,
         Cache = 1,
         Picture = 2,

@@ -34,21 +34,21 @@ void VideoConferenceManager::parseVideoConference(const QJsonArray &contents)
                 mVideoConferenceList.append(std::move(videoConference));
 
                 switch (videoConference.action()) {
-                case VideoConference::Unknown:
+                case VideoConference::Action::Unknown:
                     break;
-                case VideoConference::IncomingCall:
+                case VideoConference::Action::IncomingCall:
                     showNotification(videoConference);
                     break;
-                case VideoConference::Accepted:
+                case VideoConference::Action::Accepted:
                     Q_EMIT videoConferenceCallAccepted(videoConference);
                     break;
-                case VideoConference::Canceled:
+                case VideoConference::Action::Canceled:
                     Q_EMIT videoConferenceCallCanceled(videoConference);
                     break;
-                case VideoConference::Confirmed:
+                case VideoConference::Action::Confirmed:
                     Q_EMIT videoConferenceCallConfirmed(videoConference);
                     break;
-                case VideoConference::Rejected:
+                case VideoConference::Action::Rejected:
                     Q_EMIT videoConferenceCallRejected(videoConference);
                     break;
                 }

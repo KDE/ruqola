@@ -903,22 +903,22 @@ void RocketChatAccount::listEmojiCustom()
 
 void RocketChatAccount::setDefaultStatus(User::PresenceStatus status, const QString &messageStatus)
 {
-    RocketChatRestApi::SetStatusJob::StatusType type = RocketChatRestApi::SetStatusJob::Unknown;
+    RocketChatRestApi::SetStatusJob::StatusType type = RocketChatRestApi::SetStatusJob::StatusType::Unknown;
     switch (status) {
     case User::PresenceStatus::Online:
-        type = RocketChatRestApi::SetStatusJob::OnLine;
+        type = RocketChatRestApi::SetStatusJob::StatusType::OnLine;
         break;
     case User::PresenceStatus::Busy:
-        type = RocketChatRestApi::SetStatusJob::Busy;
+        type = RocketChatRestApi::SetStatusJob::StatusType::Busy;
         break;
     case User::PresenceStatus::Away:
-        type = RocketChatRestApi::SetStatusJob::Away;
+        type = RocketChatRestApi::SetStatusJob::StatusType::Away;
         break;
     case User::PresenceStatus::Offline:
-        type = RocketChatRestApi::SetStatusJob::Offline;
+        type = RocketChatRestApi::SetStatusJob::StatusType::Offline;
         break;
     case User::PresenceStatus::Unknown:
-        type = RocketChatRestApi::SetStatusJob::Unknown;
+        type = RocketChatRestApi::SetStatusJob::StatusType::Unknown;
         break;
     }
     mPresenceStatus = status;
@@ -3223,7 +3223,9 @@ CustomSoundsManager *RocketChatAccount::customSoundManager() const
 
 void RocketChatAccount::slotAwayStatusChanged(bool away)
 {
-    restApi()->setUserStatus(QString::fromLatin1(userId()), away ? RocketChatRestApi::SetStatusJob::Away : RocketChatRestApi::SetStatusJob::OnLine, {});
+    restApi()->setUserStatus(QString::fromLatin1(userId()),
+                             away ? RocketChatRestApi::SetStatusJob::StatusType::Away : RocketChatRestApi::SetStatusJob::StatusType::OnLine,
+                             {});
     qCDebug(RUQOLA_LOG) << "RocketChatAccount::slotAwayStatusChanged  " << away;
 }
 
