@@ -3,7 +3,10 @@
   <id>org.kde.ruqola.desktop</id>
   <metadata_license>CC0-1.0</metadata_license>
   <project_license>GPL-2.0+</project_license>
-  <developer_name translate="no">KDE</developer_name>
+  <developer id="kde.org">
+    <name translate="no">KDE</name>
+    <url>https://kde.org</url>
+  </developer>
   <name>Ruqola</name>
   <name xml:lang="ar">رقولة</name>
   <name xml:lang="ast">Ruqola</name>
@@ -1153,14 +1156,15 @@
   <launchable type="desktop-id">org.kde.ruqola.desktop</launchable>
   <releases>
     <release version="2.2.0" date="2024-06-05"/>
-    <release version="2.1.1" date="2024-03-14"/>
-    <artifacts>
-      <artifact type="binary" platform="x86_64-windows-msvc">
-        <location>https://download.kde.org/stable/ruqola/ruqola-2.1.1-windows-cl-msvc2022-x86_64.exe</location>
-        <checksum type="sha256">37136299cfc32735ed322a221ce0414eeb415224aed7e59a562e5d67ac0e0779</checksum>
-        <size type="download">90766800</size>
-      </artifact>
-    </artifacts>
+    <release version="2.1.1" date="2024-03-14">
+      <artifacts>
+        <artifact type="binary" platform="x86_64-windows-msvc">
+          <location>https://download.kde.org/stable/ruqola/ruqola-2.1.1-windows-cl-msvc2022-x86_64.exe</location>
+          <checksum type="sha256">37136299cfc32735ed322a221ce0414eeb415224aed7e59a562e5d67ac0e0779</checksum>
+          <size type="download">90766800</size>
+        </artifact>
+      </artifacts>
+    </release>
     <release version="2.1.0" date="2024-02-09"/>
     <release version="2.0.1" date="2023-10-17"/>
     <release version="2.0.0" date="2023-09-27"/>
