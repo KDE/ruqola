@@ -17,6 +17,7 @@
 #include "ruqola.h"
 #include "ruqola_ddpapi_command_debug.h"
 #include "ruqola_ddpapi_debug.h"
+#include "ruqola_reconnect_core_debug.h"
 #include "ruqolalogger.h"
 #include "ruqolawebsocket.h"
 #include "utils.h"
