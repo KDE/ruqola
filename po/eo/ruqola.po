@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-10-29 00:40+0000\n"
+"POT-Creation-Date: 2024-10-30 00:39+0000\n"
 "PO-Revision-Date: 2024-09-17 21:39+0200\n"
 "Last-Translator: Oliver Kellogg <olivermkellogg@gmail.com>\n"
 "Language-Team: Esperanto <kde-i18n-doc@kde.org>\n"
@@ -1763,30 +1763,30 @@ msgctxt "WARNING!!!!!!: PLEASE We need a space between after </strong>"
 msgid "<strong>%1</strong> are typing..."
 msgstr "<strong>%1</strong> tajpas..."
 
-#: core/rocketchataccount.cpp:702
+#: core/rocketchataccount.cpp:714
 #, kde-format
 msgid ""
 "REST: %1\n"
 "DDP: %2"
 msgstr ""
 
-#: core/rocketchataccount.cpp:710 core/rocketchataccount.cpp:722
+#: core/rocketchataccount.cpp:722 core/rocketchataccount.cpp:734
 #, kde-format
 msgid "Not connected"
 msgstr "Sen konekto"
 
-#: core/rocketchataccount.cpp:717
+#: core/rocketchataccount.cpp:729
 #, fuzzy, kde-format
 #| msgid "Not connected"
 msgid "Not connected yet"
 msgstr "Sen konekto"
 
-#: core/rocketchataccount.cpp:3110
+#: core/rocketchataccount.cpp:3114
 #, kde-format
 msgid "Export Messages"
 msgstr "Eksporti Mesaĝojn"
 
-#: core/rocketchataccount.cpp:3111
+#: core/rocketchataccount.cpp:3115
 #, kde-format
 msgid "Your email has been queued for sending."
 msgstr "Via retpoŝto estas vicigita por sendo."
@@ -1801,32 +1801,32 @@ msgstr "Aldoniĝis Konto"
 msgid "A new account was added."
 msgstr "Nova konto estis aldonita."
 
-#: core/room.cpp:1170
+#: core/room.cpp:1171
 #, kde-format
 msgid "Owner"
 msgstr "Posedanto"
 
-#: core/room.cpp:1173
+#: core/room.cpp:1174
 #, kde-format
 msgid "Leader"
 msgstr "Leader"
 
-#: core/room.cpp:1176
+#: core/room.cpp:1177
 #, kde-format
 msgid "Moderator"
 msgstr "Moderiganto"
 
-#: core/room.cpp:1528
+#: core/room.cpp:1538
 #, kde-format
 msgid "Channel is read only."
 msgstr "Kanalo estas nur legata."
 
-#: core/room.cpp:1531
+#: core/room.cpp:1541
 #, kde-format
 msgid "You have blocked this channel."
 msgstr "Vi blokis ĉi tiun kanalon."
 
-#: core/room.cpp:1534
+#: core/room.cpp:1544
 #, kde-format
 msgid "Channel was blocked."
 msgstr "Kanalo estis blokita."
@@ -10158,7 +10158,7 @@ msgctxt "@action"
 msgid "Copy URL"
 msgstr "Kopii URL"
 
-#: widgets/room/messagelistview.cpp:384 widgets/room/usersinroommenu.cpp:110
+#: widgets/room/messagelistview.cpp:384 widgets/room/usersinroommenu.cpp:122
 #, kde-format
 msgctxt "@action"
 msgid "User Info"
@@ -10463,100 +10463,138 @@ msgctxt "@action:button"
 msgid "Block User"
 msgstr "Bloki Uzanton"
 
-#: widgets/room/usersinroommenu.cpp:75
+#: widgets/room/usersinroommenu.cpp:70
+#, fuzzy, kde-format
+#| msgid "Do you want to remove this user?"
+msgid "Do you want to mute this user?"
+msgstr "Ĉu vi volas forigi ĉi tiun uzanton?"
+
+#: widgets/room/usersinroommenu.cpp:71
+#, fuzzy, kde-format
+#| msgctxt "@label:textbox"
+#| msgid "Invite Users"
+msgctxt "@title"
+msgid "Mute User"
+msgstr "Inviti Uzantojn"
+
+#: widgets/room/usersinroommenu.cpp:72
+#, fuzzy, kde-format
+#| msgctxt "@label:textbox"
+#| msgid "Invite Users"
+msgctxt "@action:button"
+msgid "Mute User"
+msgstr "Inviti Uzantojn"
+
+#: widgets/room/usersinroommenu.cpp:87
 #, kde-format
 msgid "Do you want to ignore this user?"
 msgstr "Ĉu vi volas ignori ĉi tiun uzanton?"
 
-#: widgets/room/usersinroommenu.cpp:76
+#: widgets/room/usersinroommenu.cpp:88
 #, kde-format
 msgctxt "@title"
 msgid "Ignore User"
 msgstr "Ignori Uzanton"
 
-#: widgets/room/usersinroommenu.cpp:77
+#: widgets/room/usersinroommenu.cpp:89
 #, kde-format
 msgctxt "@action:button"
 msgid "Ignore User"
 msgstr "Ignori Uzanton"
 
-#: widgets/room/usersinroommenu.cpp:102
+#: widgets/room/usersinroommenu.cpp:114
 #, kde-format
 msgctxt "@action"
 msgid "Start Conversation"
 msgstr "Komenci Konversacion"
 
-#: widgets/room/usersinroommenu.cpp:119
+#: widgets/room/usersinroommenu.cpp:131
 #, kde-format
 msgctxt "@action"
 msgid "Remove as Owner"
 msgstr "Forigi kiel Posedanto"
 
-#: widgets/room/usersinroommenu.cpp:119
+#: widgets/room/usersinroommenu.cpp:131
 #, kde-format
 msgctxt "@action"
 msgid "Add as Owner"
 msgstr "Aldoni kiel Posedanto"
 
-#: widgets/room/usersinroommenu.cpp:132
+#: widgets/room/usersinroommenu.cpp:144
 #, kde-format
 msgctxt "@action"
 msgid "Remove as Leader"
 msgstr "Forigi kiel Gvidanto"
 
-#: widgets/room/usersinroommenu.cpp:132
+#: widgets/room/usersinroommenu.cpp:144
 #, kde-format
 msgctxt "@action"
 msgid "Add as Leader"
 msgstr "Aldoni kiel Ĉefo"
 
-#: widgets/room/usersinroommenu.cpp:144
+#: widgets/room/usersinroommenu.cpp:156
 #, kde-format
 msgctxt "@action"
 msgid "Remove as Moderator"
 msgstr "Forigi kiel Moderiganto"
 
-#: widgets/room/usersinroommenu.cpp:144
+#: widgets/room/usersinroommenu.cpp:156
 #, kde-format
 msgctxt "@action"
 msgid "Add as Moderator"
 msgstr "Aldoni kiel Moderiganto"
 
-#: widgets/room/usersinroommenu.cpp:155
+#: widgets/room/usersinroommenu.cpp:167
 #, kde-format
 msgctxt "@action"
 msgid "Remove from Room"
 msgstr "Forigi el Ĉambro"
 
-#: widgets/room/usersinroommenu.cpp:166
+#: widgets/room/usersinroommenu.cpp:178
 #, fuzzy, kde-format
 #| msgid "Unblock User"
 msgctxt "@action"
 msgid "Unblock User"
 msgstr "Malbloki Uzanton"
 
-#: widgets/room/usersinroommenu.cpp:166
+#: widgets/room/usersinroommenu.cpp:178
 #, fuzzy, kde-format
 #| msgid "Block User"
 msgctxt "@action"
 msgid "Block User"
 msgstr "Bloki Uzanton"
 
-#: widgets/room/usersinroommenu.cpp:175
+#: widgets/room/usersinroommenu.cpp:183
 #, fuzzy, kde-format
 #| msgid "Unignore"
 msgctxt "@action"
 msgid "Unignore"
 msgstr "Malignori"
 
-#: widgets/room/usersinroommenu.cpp:175
+#: widgets/room/usersinroommenu.cpp:183
 #, fuzzy, kde-format
 #| msgid "Ignore"
 msgctxt "@action"
 msgid "Ignore"
 msgstr "Ignori"
 
-#: widgets/room/usersinroommenu.cpp:187
+#: widgets/room/usersinroommenu.cpp:189
+#, fuzzy, kde-format
+#| msgctxt "@action"
+#| msgid "Invite Users"
+msgctxt "@action"
+msgid "Unmute User"
+msgstr "Inviti Uzantojn"
+
+#: widgets/room/usersinroommenu.cpp:189
+#, fuzzy, kde-format
+#| msgctxt "@action"
+#| msgid "Invite Users"
+msgctxt "@action"
+msgid "Mute User"
+msgstr "Inviti Uzantojn"
+
+#: widgets/room/usersinroommenu.cpp:197
 #, kde-format
 msgctxt "@action"
 msgid "Report User"
@@ -11026,7 +11064,7 @@ msgstr ""
 "elektas, estos movitaj al la Laborspaco. Rimarku, ke publikaj Kanaloj estos "
 "publikaj kaj videblaj por ĉiuj."
 
-#: widgets/teams/teamsearchroomdialog.cpp:25
+#: widgets/teams/teamsearchroomdialog.cpp:26
 #, kde-format
 msgctxt "@title:window"
 msgid "Search Rooms"
@@ -11111,103 +11149,109 @@ msgstr ""
 msgid "Improve register new account (Add reason support)."
 msgstr ""
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:30
+#: widgets/whatsnew/whatsnewtranslations.cpp:21
+#, fuzzy
+#| msgid "Implement message style"
+msgid "Implement mute/unmute user."
+msgstr "Efektivigi mesaĝstilon"
+
+#: widgets/whatsnew/whatsnewtranslations.cpp:31
 #, kde-format
 msgid "Store Message in Local Database (experimental)"
 msgstr "Konservi Mesaĝon en Loka Datumbazo (eksperimenta)"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:32
+#: widgets/whatsnew/whatsnewtranslations.cpp:33
 #, kde-format
 msgid "Download Server Icon from Server"
 msgstr "Elŝuti Servila Piktogramo de Servilo"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:33
+#: widgets/whatsnew/whatsnewtranslations.cpp:34
 #, kde-format
 msgid "Show Server Error Info in Specific DialogBox"
 msgstr "Montri Servila Eraro Informoj en Specifa DialogBox"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:34
+#: widgets/whatsnew/whatsnewtranslations.cpp:35
 #, kde-format
 msgid "Allow to Copy Image in Clipboard"
 msgstr "Permesi Kopii Bildon en Tondujo"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:35
+#: widgets/whatsnew/whatsnewtranslations.cpp:36
 #, kde-format
 msgid "Improve debug support (Allow to show current account permissions)"
 msgstr ""
 "Plibonigi sencimigan subtenon (Permesi montri permesojn pri nunaj kontoj)"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:36
+#: widgets/whatsnew/whatsnewtranslations.cpp:37
 #, kde-format
 msgid "Add support for quoted text (text which starts by '>')"
 msgstr "Aldoni subtenon por citita teksto (teksto kiu komenciĝas per '>')"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:37
+#: widgets/whatsnew/whatsnewtranslations.cpp:38
 #, kde-format
 msgid "Show leader/moderator/owner in channel info."
 msgstr "Montri gvidanton/moderiganton/posedanton en kanalaj informoj."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:38
+#: widgets/whatsnew/whatsnewtranslations.cpp:39
 #, kde-format
 msgid "Video/Sound Message support (kf6 only)."
 msgstr "Subteno de Video/Sona Mesaĝo (nur kf6)."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:39
+#: widgets/whatsnew/whatsnewtranslations.cpp:40
 #, kde-format
 msgid "Import/Export Accounts."
 msgstr "Importi/Eksporti Kontojn."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:41
+#: widgets/whatsnew/whatsnewtranslations.cpp:42
 #, kde-format
 msgid "Fix avatar support"
 msgstr "Ripari subtenon de avataro"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:42
+#: widgets/whatsnew/whatsnewtranslations.cpp:43
 #, kde-format
 msgid "Fix emoji support (use new ktextaddons/textemoticons)"
 msgstr "Ripari emoji-subtenon (uzi novajn ktextaddons/textemoticons)"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:43
+#: widgets/whatsnew/whatsnewtranslations.cpp:44
 #, kde-format
 msgid "Fix animated gif in reactions"
 msgstr "Ripari viglan gifon en reagoj"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:44
+#: widgets/whatsnew/whatsnewtranslations.cpp:45
 #, kde-format
 msgid "Fix kf6 support"
 msgstr "Ripari kf6-subtenon"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:50
+#: widgets/whatsnew/whatsnewtranslations.cpp:51
 #, kde-format
 msgid "Add Moderation Console (Administration, RC server 6.2)"
 msgstr "Aldoni Moderan Konzolon (Administrado, RC-servilo 6.2)"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:50
+#: widgets/whatsnew/whatsnewtranslations.cpp:51
 #, kde-format
 msgid "Implement message style"
 msgstr "Efektivigi mesaĝstilon"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:50
+#: widgets/whatsnew/whatsnewtranslations.cpp:51
 #, kde-format
 msgid "Implement Url Preview"
 msgstr "Efektivigi Url Antaŭrigardon"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:52
+#: widgets/whatsnew/whatsnewtranslations.cpp:53
 #, kde-format
 msgid "Fix markdown support (header + check mark)"
 msgstr "Ripari subtenon de markdown (kapo + marko)"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:53
+#: widgets/whatsnew/whatsnewtranslations.cpp:54
 #, kde-format
 msgid "Fix mem leak"
 msgstr "Ripari memorfukon"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:54
+#: widgets/whatsnew/whatsnewtranslations.cpp:55
 #, kde-format
 msgid "Cache message size (optimization)"
 msgstr "Kaŝmemorgrando de mesaĝo (optimumigo)"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:55
+#: widgets/whatsnew/whatsnewtranslations.cpp:56
 #, kde-format
 msgid ""
 "Improve select room or user in message line edit (show icon, inform if user "
@@ -11216,7 +11260,7 @@ msgstr ""
 "Plibonigi elektitan ĉambron aŭ uzanton en mesaĝo-linia redakto (montri "
 "piktogramon, informi ĉu uzanto estas en kanalo)"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:56
+#: widgets/whatsnew/whatsnewtranslations.cpp:57
 #, kde-format
 msgid ""
 "Fix show commands in message line edit (Hide action when room doesn't "
@@ -11225,42 +11269,42 @@ msgstr ""
 "Ripari montri komandojn en mesaĝlinia redakto (Kaŝi agon kiam ĉambro ne "
 "subtenas ĝin)."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:57
+#: widgets/whatsnew/whatsnewtranslations.cpp:58
 #, kde-format
 msgid "Fix download sound/video file when it's not in cache."
 msgstr "Ripari elŝutan son/filmetan dosieron kiam ĝi ne estas en kaŝmemoro."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:58
+#: widgets/whatsnew/whatsnewtranslations.cpp:59
 #, kde-format
 msgid "Fix list of authentication method."
 msgstr "Ripari liston de aŭtentikigmetodo."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:59
+#: widgets/whatsnew/whatsnewtranslations.cpp:60
 #, kde-format
 msgid "Fix show avatar url."
 msgstr "Ripari URL por montri avataron."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:67
+#: widgets/whatsnew/whatsnewtranslations.cpp:68
 #, kde-format
 msgid "Allow to increase/decrease font (CTRL++/CTRL+-)"
 msgstr "Permesi pligrandigi/malpligrandigi tiparon (KTRL++/KTRL+-)"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:68
+#: widgets/whatsnew/whatsnewtranslations.cpp:69
 #, kde-format
 msgid "Add channel list style (Condensed/Medium/Extended)"
 msgstr "Aldoni kanalan listostilon (Densigita/Meza/Etendita)"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:69
+#: widgets/whatsnew/whatsnewtranslations.cpp:70
 #, kde-format
 msgid "Add forward message"
 msgstr "Aldoni plusend-mesaĝon"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:70
+#: widgets/whatsnew/whatsnewtranslations.cpp:71
 #, kde-format
 msgid "Improve mentions support."
 msgstr "Plibonigi subtenon de mencioj."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:71
+#: widgets/whatsnew/whatsnewtranslations.cpp:72
 #, kde-format
 msgid ""
 "Add support for deep linking <a href=\"https://developer.rocket.chat/getting-"
@@ -11269,12 +11313,12 @@ msgstr ""
 "Aldoni subtenon por funda ligado <a href=\"https://developer.rocket.chat/"
 "getting-started/deep-linking\">Deep Linking</a>."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:72
+#: widgets/whatsnew/whatsnewtranslations.cpp:73
 #, kde-format
 msgid "Implement block actions."
 msgstr "Realigi blokad-agojn."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:73
+#: widgets/whatsnew/whatsnewtranslations.cpp:74
 #, kde-format
 msgid ""
 "Implement personal token authentication. <a href=\"https://bugs.kde.org/"
@@ -11283,147 +11327,147 @@ msgstr ""
 "Realigi aŭtentigon per persona ĵetono. <a href=\"https://bugs.kde.org/"
 "show_bug.cgi?id=481400\">Bug 481400</a>"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:74
+#: widgets/whatsnew/whatsnewtranslations.cpp:75
 #, kde-format
 msgid "Add Plasma Activities Support"
 msgstr "Aldoni Subtenon por Plasma-Aktivecoj"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:75
+#: widgets/whatsnew/whatsnewtranslations.cpp:76
 #, kde-format
 msgid "Add Report User Support"
 msgstr "Aldoni Raporti Uzant-Subtenon"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:76
+#: widgets/whatsnew/whatsnewtranslations.cpp:77
 #, kde-format
 msgid "Implement Channel Sound Notification."
 msgstr "Realigi Kanalan Son-Sciigon."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:77
+#: widgets/whatsnew/whatsnewtranslations.cpp:78
 #, kde-format
 msgid "Implement New Room Sound Notification."
 msgstr "Realigi Novĉambran Son-Sciigon."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:78
+#: widgets/whatsnew/whatsnewtranslations.cpp:79
 #, kde-format
 msgid "Implement Sorted/Unsorted markdown list."
 msgstr "Realigi Ordigita/Neordigita markdown-listo."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:81
+#: widgets/whatsnew/whatsnewtranslations.cpp:82
 #, kde-format
 msgid "Fix dark mode support."
 msgstr "Ripari subtenon por malhela reĝimo."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:82
+#: widgets/whatsnew/whatsnewtranslations.cpp:83
 #, kde-format
 msgid "Fix jitsi support."
 msgstr "Ripari subtenon de jitsi."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:83
+#: widgets/whatsnew/whatsnewtranslations.cpp:84
 #, kde-format
 msgid "Fix translate message in direct channel."
 msgstr "Ripari traduki mesaĝon en rekta kanalo."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:84
+#: widgets/whatsnew/whatsnewtranslations.cpp:85
 #, kde-format
 msgid "Don't show @here/@all as user."
 msgstr "Ne montri @here/@all kiel uzanto."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:85
+#: widgets/whatsnew/whatsnewtranslations.cpp:86
 #, kde-format
 msgid "Reduce memory footprint."
 msgstr "Redukti memorbezonon."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:86
+#: widgets/whatsnew/whatsnewtranslations.cpp:87
 #, kde-format
 msgid "Use RESTAPI for logging."
 msgstr "Uzi RESTAPI por protokolado."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:87
+#: widgets/whatsnew/whatsnewtranslations.cpp:88
 #, kde-format
 msgid "Allow to send multi files."
 msgstr "Permesi sendi plurajn dosierojn."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:88
+#: widgets/whatsnew/whatsnewtranslations.cpp:89
 #, kde-format
 msgid "Fix preview url."
 msgstr "Ripari antaŭrigardan URL."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:96
+#: widgets/whatsnew/whatsnewtranslations.cpp:97
 #, kde-format
 msgid "Implement Rocket.Chat Marketplace."
 msgstr "Realigi Rocket.Chat-Merkaton."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:97
+#: widgets/whatsnew/whatsnewtranslations.cpp:98
 #, kde-format
 msgid "Allow to clean room history."
 msgstr "Permesi purigi ĉambran historion."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:98
+#: widgets/whatsnew/whatsnewtranslations.cpp:99
 #, kde-format
 msgid "Allow to check new version."
 msgstr "Permesi kontrolon pri nova versio."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:99
+#: widgets/whatsnew/whatsnewtranslations.cpp:100
 #, kde-format
 msgid "Implement moderation (administrator mode)."
 msgstr "Realigi komentokontroladon (administra reĝimo)."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:100
+#: widgets/whatsnew/whatsnewtranslations.cpp:101
 #, kde-format
 msgid "Add welcome page."
 msgstr "Aldoni bonvenpaĝon."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:101
+#: widgets/whatsnew/whatsnewtranslations.cpp:102
 #, kde-format
 msgid "Implement pending users info (administrator mode)."
 msgstr "Realigi informon pri atendantaj uzantoj (administra reĝimo)."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:102
+#: widgets/whatsnew/whatsnewtranslations.cpp:103
 #, kde-format
 msgid "Use cmark-rc (https://github.com/dfaure/cmark-rc) for markdown support."
 msgstr ""
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:103
+#: widgets/whatsnew/whatsnewtranslations.cpp:104
 #, kde-format
 msgid ""
 "Delete oldest files from some cache directories (file-upload and media) so "
 "it doesn't grow forever."
 msgstr ""
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:107
+#: widgets/whatsnew/whatsnewtranslations.cpp:108
 #, kde-format
 msgid ""
 "Clean market application model after 30 minutes (reduce memory footprint)."
 msgstr "Viŝi merkatan aplikaĵmodelon post 30 minutoj (redukti memorbezonon)."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:108
+#: widgets/whatsnew/whatsnewtranslations.cpp:109
 #, kde-format
 msgid "Fix show discussion name in completion."
 msgstr "Ripari montron de diskutnomo en kompletigo."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:109
+#: widgets/whatsnew/whatsnewtranslations.cpp:110
 #, kde-format
 msgid "Fix duplicated messages in search message dialog."
 msgstr "Ripari duobligitajn mesaĝojn en mesaĝoserĉa dialogo."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:110
+#: widgets/whatsnew/whatsnewtranslations.cpp:111
 #, kde-format
 msgid "Add delegate in search rooms in team dialog."
 msgstr "Aldoni delegiton en ĉambroserĉo en teama dialogo."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:123
+#: widgets/whatsnew/whatsnewtranslations.cpp:124
 #, fuzzy, kde-format
 #| msgid "Direct message"
 msgid "Fix editing message."
 msgstr "Rekte mesaĝi"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:123
+#: widgets/whatsnew/whatsnewtranslations.cpp:124
 #, fuzzy, kde-format
 #| msgid "Implement Rocket.Chat Marketplace."
 msgid "Show permissions in Rocket.Chat Marketplace."
 msgstr "Realigi Rocket.Chat-Merkaton."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:123
+#: widgets/whatsnew/whatsnewtranslations.cpp:124
 #, kde-format
 msgid "Fix reconnect server."
 msgstr ""
