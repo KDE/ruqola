@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-10-25 02:32+0000\n"
+"POT-Creation-Date: 2024-10-30 02:29+0000\n"
 "PO-Revision-Date: 2024-09-22 19:54+0100\n"
 "Last-Translator: Víctor Rodrigo Córdoba <vrcordoba@gmail.com>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
@@ -164,39 +164,39 @@ msgstr "Optimización, arreglos en windows/mac"
 msgid "The following accounts are available:"
 msgstr "Las siguientes cuentas están disponibles:"
 
-#: core/apps/appsmarketplaceinfo.cpp:348 core/model/adminrolesmodel.cpp:40
+#: core/apps/appsmarketplaceinfo.cpp:351 core/model/adminrolesmodel.cpp:40
 #: widgets/administratorsettingsdialog/ircfederation/ircfederationwidget.cpp:50
 #, kde-format
 msgid "Description"
 msgstr "Descripción"
 
-#: core/apps/appsmarketplaceinfo.cpp:350
+#: core/apps/appsmarketplaceinfo.cpp:353
 #: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:163
 #, kde-format
 msgid "Version"
 msgstr "Versión"
 
-#: core/apps/appsmarketplaceinfo.cpp:353 core/model/appscategoriesmodel.cpp:34
+#: core/apps/appsmarketplaceinfo.cpp:356 core/model/appscategoriesmodel.cpp:34
 #, kde-format
 msgid "Categories"
 msgstr "Categorías"
 
-#: core/apps/appsmarketplaceinfo.cpp:357
+#: core/apps/appsmarketplaceinfo.cpp:360
 #, kde-format
 msgid "Documentation"
 msgstr "Documentación"
 
-#: core/apps/appsmarketplaceinfo.cpp:364
+#: core/apps/appsmarketplaceinfo.cpp:367
 #, kde-format
 msgid "Homepage"
 msgstr "Página de inicio"
 
-#: core/apps/appsmarketplaceinfo.cpp:370
+#: core/apps/appsmarketplaceinfo.cpp:373
 #, kde-format
 msgid "Support"
 msgstr "Apoyar"
 
-#: core/apps/appsmarketplaceinfo.cpp:374
+#: core/apps/appsmarketplaceinfo.cpp:377
 #, kde-format
 msgid "Privacy Summary"
 msgstr "Resumen de privacidad"
@@ -10609,7 +10609,7 @@ msgstr ""
 "se moverán al espacio de trabajo. Tenga en cuenta que los canales públicos "
 "serán visibles para todo el mundo."
 
-#: widgets/teams/teamsearchroomdialog.cpp:25
+#: widgets/teams/teamsearchroomdialog.cpp:26
 #, kde-format
 msgctxt "@title:window"
 msgid "Search Rooms"
