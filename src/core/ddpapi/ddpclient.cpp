@@ -890,8 +890,10 @@ void DDPClient::onSslErrors(const QList<QSslError> &errors)
 
 void DDPClient::onWSclosed()
 {
+    qDebug();
     const bool normalClose = mWebSocket->closeCode() == QWebSocketProtocol::CloseCodeNormal;
     if (normalClose) {
+        qCDebug(RUQOLA_RECONNECT_LOG) << "DDP: Normal close, set status to LoggedOutAndCleanedUp, emit disconnectedByServer";
         authenticationManager()->setLoginStatus(AuthenticationManager::LoggedOutAndCleanedUp);
         Q_EMIT disconnectedByServer();
     } else {

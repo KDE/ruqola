@@ -20,7 +20,7 @@ public:
         Logout,
         LogoutCleanUp,
     };
-    Q_ENUMS(Method)
+    Q_ENUM(Method)
 
     explicit AuthenticationManagerBase(QObject *parent = nullptr);
     ~AuthenticationManagerBase() override;

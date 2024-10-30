@@ -31,6 +31,7 @@ bool AuthenticationManagerBase::isLoggedOut() const
 void AuthenticationManagerBase::setLoginStatus(AuthenticationManager::LoginStatus status)
 {
     if (mLoginStatus != status) {
+        qCDebug(RUQOLA_AUTHENTICATION_LOG) << authenticationName() << status;
         mLoginStatus = status;
         Q_EMIT loginStatusChanged();
     }
@@ -92,6 +93,7 @@ bool AuthenticationManagerBase::loginOAuth(const QString &credentialToken, const
 
 bool AuthenticationManagerBase::login()
 {
+    qCDebug(RUQOLA_AUTHENTICATION_LOG) << authenticationName() << "about to login";
     if (mAuthToken.isEmpty()) {
         qCWarning(RUQOLA_AUTHENTICATION_LOG) << "No auth token available, can't login. (" << authenticationName() << ")";
         return false;
@@ -207,6 +209,8 @@ bool AuthenticationManagerBase::loginImpl(const QJsonArray &params)
 
 void AuthenticationManagerBase::processMethodResponseImpl(const QJsonObject &response, AuthenticationManagerBase::Method method)
 {
+    qCDebug(RUQOLA_AUTHENTICATION_LOG) << authenticationName() << method;
+
     switch (method) {
     case Method::Login: // intentional fall-through
     case Method::SendOtp:
