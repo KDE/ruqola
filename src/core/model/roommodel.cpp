@@ -452,6 +452,9 @@ RoomModel::Section RoomModel::section(Room *r) const
 
 bool RoomModel::userOffline(Room *r) const
 {
+    if (r->uids().count() > 2) {
+        return false;
+    }
     if (r->channelType() == Room::RoomType::Direct) {
         return mRocketChatAccount ? mRocketChatAccount->userIsOffline(r->name()) : false;
     }
