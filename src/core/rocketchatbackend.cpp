@@ -196,7 +196,12 @@ void RocketChatBackend::slotDDPConnectedChanged(bool connected)
     if (connected) {
         // This ends up calling loadPublicSettings() below
         mRocketChatAccount->loadAccountSettings();
-        ddpLogin();
+
+        // In RestAPI-login mode (the default), we can only DDP-login if we have an auth token from rest api
+        auto restApi = mRocketChatAccount->restApi();
+        if (!Ruqola::self()->useRestApiLogin() || (restApi && restApi->authenticationManager()->isLoggedIn())) {
+            ddpLogin();
+        }
     }
 }
 
