@@ -143,10 +143,7 @@ RoomWidget::RoomWidget(QWidget *parent)
     setAcceptDrops(true);
 }
 
-RoomWidget::~RoomWidget()
-{
-    delete mRoom;
-}
+RoomWidget::~RoomWidget() = default;
 
 void RoomWidget::createPluginTextMessageWidget()
 {
