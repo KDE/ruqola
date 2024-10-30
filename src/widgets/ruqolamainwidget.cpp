@@ -116,6 +116,8 @@ void RuqolaMainWidget::slotRoomPressed(const QByteArray &roomId)
 void RuqolaMainWidget::selectChannelRoom(const ChannelListView::ChannelSelectedInfo &roomInfo)
 {
     if (mRoomWidget->roomId() == roomInfo.roomId) {
+        // During reconnect
+        mRoomWidget->setChannelSelected(roomInfo.roomId, roomInfo.roomType);
         return;
     }
     mCurrentRocketChatAccount->setLastSelectedRoom(roomInfo.roomId);
