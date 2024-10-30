@@ -33,8 +33,8 @@ void RoomModel::clear()
 {
     if (!mRoomsList.isEmpty()) {
         beginResetModel();
-        mRoomsList.clear();
         qDeleteAll(mRoomsList);
+        mRoomsList.clear();
         endResetModel();
     }
 }
