@@ -299,7 +299,6 @@ void Room::parseUpdateRoom(const QJsonObject &json)
         setIgnoredUsers(extractStringList(json, "ignored"_L1));
     }
 
-    // TODO muted ????
     // TODO E2EKey
     setE2eKeyId(json["e2eKeyId"_L1].toString());
 
