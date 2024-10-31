@@ -380,10 +380,10 @@ void RocketChatBackend::ddpLogin()
     ddp->authenticationManager()->setAuthToken(restApi->authenticationManager()->authToken());
     // if (ddp->authenticationManager()->loginPassword(mRocketChatAccount->settings()->userName(), mRocketChatAccount->settings()->password())) {
     if (ddp->authenticationManager()->login()) {
-        qCDebug(RUQOLA_AUTHENTICATION_LOG) << " login ok" << mRocketChatAccount->accountName() << mRocketChatAccount->userName();
+        qCDebug(RUQOLA_AUTHENTICATION_LOG) << "login ok" << mRocketChatAccount->accountName() << mRocketChatAccount->userName();
         initializeSubscription(ddp);
     } else {
-        qCWarning(RUQOLA_AUTHENTICATION_LOG) << " impossible to reconnect" << mRocketChatAccount->accountName() << mRocketChatAccount->userName();
+        qCWarning(RUQOLA_AUTHENTICATION_LOG) << "could not reconnect" << mRocketChatAccount->accountName() << mRocketChatAccount->userName();
     }
 }
 

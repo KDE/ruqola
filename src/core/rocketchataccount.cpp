@@ -2467,6 +2467,7 @@ void RocketChatAccount::slotUsersPresenceDone(const QJsonObject &obj)
 
 void RocketChatAccount::slotReconnectToDdpServer() // connected to DDPClient::disconnectedByServer
 {
+    mRoomModel->clear();
     if (Ruqola::self()->useRestApiLogin()) {
         if (mRestApi && mRestApi->authenticationManager()->isLoggedIn()) {
             qCDebug(RUQOLA_RECONNECT_LOG) << "Reconnect only ddpclient";
