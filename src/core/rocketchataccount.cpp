@@ -731,11 +731,25 @@ void RocketChatAccount::tryLogin()
 
     if (Ruqola::self()->useRestApiLogin()) {
         if (auto interface = defaultAuthenticationInterface()) {
-            qCDebug(RUQOLA_RECONNECT_LOG) << "RESTAPI login " << accountName();
+            qCDebug(RUQOLA_RECONNECT_LOG) << "RESTAPI login" << accountName();
             if (!interface->login()) {
-                qCDebug(RUQOLA_RECONNECT_LOG) << "RESTAPI impossible to login " << accountName();
+                qCDebug(RUQOLA_RECONNECT_LOG) << "RESTAPI impossible to login" << accountName();
                 return;
             }
+
+            // Normally, DDP is already connected at this point, and not yet logged in (it waits for the REST auth token)
+            // But if it's in another state, recreate it.
+            // Ex: we just changed networks, there's no NetworkManager support, the DDP socket
+            // is stuck forever, and the user clicked logout to try and repair that... but it's stuck logging out.
+            const auto ddpStatus = ddp()->authenticationManager()->loginStatus();
+            if (ddpStatus == AuthenticationManager::LogoutOngoing || ddpStatus == AuthenticationManager::LogoutCleanUpOngoing) {
+                qCDebug(RUQOLA_RECONNECT_LOG) << "DDP seems stuck, recreating it";
+                mRoomModel->clear();
+                delete mDdp;
+                mDdp = nullptr;
+                ddp();
+            }
+
         } else {
             qCWarning(RUQOLA_RECONNECT_LOG) << "No plugins loaded. Please verify your installation.";
         }
