@@ -406,9 +406,9 @@ void RuqolaMainWindow::setupActions()
 
     mShowMenuBarAction = KStandardAction::showMenubar(this, &RuqolaMainWindow::slotToggleMenubar, ac);
 
-    KStandardAction::quit(this, &RuqolaMainWindow::slotClose, ac);
-    KStandardAction::preferences(this, &RuqolaMainWindow::slotConfigure, ac);
-    KStandardAction::configureNotifications(this, &RuqolaMainWindow::slotConfigureNotifications, ac);
+    KStandardActions::quit(this, &RuqolaMainWindow::slotClose, ac);
+    KStandardActions::preferences(this, &RuqolaMainWindow::slotConfigure, ac);
+    KStandardActions::configureNotifications(this, &RuqolaMainWindow::slotConfigureNotifications, ac);
 
     auto act = new QAction(i18nc("@action", "Add Server…"), this);
     connect(act, &QAction::triggered, this, &RuqolaMainWindow::slotAddServer);
@@ -1078,8 +1078,8 @@ void RuqolaMainWindow::createSystemTray()
 
         mContextStatusMenu = mNotification->contextMenu()->addMenu(i18nc("@item:inmenu Instant message presence status", "Status"));
         mContextStatusMenu->menuAction()->setVisible(false);
-        trayMenu->addAction(actionCollection()->action(KStandardAction::name(KStandardAction::Preferences)));
-        trayMenu->addAction(actionCollection()->action(KStandardAction::name(KStandardAction::ConfigureNotifications)));
+        trayMenu->addAction(actionCollection()->action(KStandardActions::name(KStandardActions::Preferences)));
+        trayMenu->addAction(actionCollection()->action(KStandardActions::name(KStandardActions::ConfigureNotifications)));
         // Create systray to show notifications on Desktop
         connect(mNotification, &Notification::alert, this, [this]() {
             QApplication::alert(this, 0);
@@ -1189,7 +1189,7 @@ void RuqolaMainWindow::updateHamburgerMenu()
     menu->addSeparator();
     menu->addAction(actionCollection()->action(QStringLiteral("logout")));
     menu->addSeparator();
-    menu->addAction(actionCollection()->action(KStandardAction::name(KStandardAction::Quit)));
+    menu->addAction(actionCollection()->action(KStandardActions::name(KStandardActions::Quit)));
     mHamburgerMenu->setMenu(menu);
 }
 

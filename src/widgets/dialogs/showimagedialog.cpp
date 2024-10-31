@@ -9,11 +9,12 @@
 #include <KConfigGroup>
 #include <KLocalizedString>
 #include <KSharedConfig>
-#include <KStandardAction>
+#include <KStandardActions>
 #include <KWindowConfig>
 #include <QDialogButtonBox>
 #include <QMenu>
 #include <QPushButton>
+#include <QToolButton>
 #include <QVBoxLayout>
 #include <QWindow>
 
@@ -36,7 +37,7 @@ ShowImageDialog::ShowImageDialog(RocketChatAccount *account, QWidget *parent)
     auto buttonBox = new QDialogButtonBox(QDialogButtonBox::Close | QDialogButtonBox::Save, this);
     buttonBox->setObjectName(QStringLiteral("button"));
 
-    mClipboardImageAction = KStandardAction::copy(mShowImageWidget, &ShowImageWidget::copyImage, this);
+    mClipboardImageAction = KStandardActions::copy(mShowImageWidget, &ShowImageWidget::copyImage, this);
     mClipboardImageAction->setObjectName(QStringLiteral("clipboardLocationAction"));
     mClipboardImageAction->setText(i18n("Copy Image to Clipboard"));
 
