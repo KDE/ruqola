@@ -96,10 +96,6 @@
 #include <NetworkManagerQt/Manager>
 #endif
 
-#if HAVE_SOLID
-#include <Solid/Power>
-#endif
-
 #include "plugins/pluginauthentication.h"
 #include "plugins/pluginauthenticationinterface.h"
 
@@ -231,13 +227,6 @@ RocketChatAccount::RocketChatAccount(const QString &accountFileName, QObject *pa
     connect(mTypingNotification, &TypingNotification::informTypingStatus, this, &RocketChatAccount::slotInformTypingStatus);
     connect(this, &RocketChatAccount::customUserStatusChanged, this, &RocketChatAccount::slotUpdateCustomUserStatus);
     QTimer::singleShot(0, this, &RocketChatAccount::clearModels);
-
-#if HAVE_SOLID
-    connect(Solid::Power::self(), &Solid::Power::resumeFromSuspend, this, [this]() {
-        reconnectToServer();
-        qCDebug(RUQOLA_RECONNECT_LOG) << "RESUME FROM SUSPEND" << accountName();
-    });
-#endif
 
 #if HAVE_NETWORKMANAGER
     connect(NetworkManager::notifier(), &NetworkManager::Notifier::primaryConnectionChanged, this, [this](const QString &uni) {

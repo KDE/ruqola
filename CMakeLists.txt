@@ -250,22 +250,6 @@ find_package(KF6UserFeedback ${KF_MIN_VERSION} CONFIG)
 set(HAVE_KUSERFEEDBACK ${KF6UserFeedback_FOUND})
 set_package_properties(KF6UserFeedback PROPERTIES DESCRIPTION "User Feedback lib" TYPE OPTIONAL PURPOSE "Allow to send Telemetry Information (optional).")
 
-find_package(KF6Solid ${KF_MIN_VERSION} CONFIG)
-if(KF6Solid_FOUND)
-    # SolidPower is not built by default, and the only way to find is to
-    # check for the header and that it builds
-    get_target_property(SOLID_INCLUDE_DIRS KF6::Solid INTERFACE_INCLUDE_DIRECTORIES)
-    find_file(SOLID_POWER_FOUND Solid/Power PATHS ${SOLID_INCLUDE_DIRS} NO_DEFAULT_PATH)
-    if(SOLID_POWER_FOUND)
-        message(STATUS "Found Solid Power header at ${SOLID_POWER_FOUND}")
-        set(HAVE_SOLID 1)
-    else()
-        message(WARNING "Solid Power header was not found, suspend/resume detection is disabled. Reconfigure Solid build with `cmake -DWITH_NEW_SOLID_JOB=ON -DWITH_NEW_POWER_ASYNC_API=ON -DWITH_NEW_POWER_ASYNC_FREEDESKTOP=ON .`")
-    endif()
-endif()
-set_package_properties(KF6Solid PROPERTIES DESCRIPTION "Device integration framework" TYPE OPTIONAL PURPOSE "Allows detecting suspend and resume.")
-
-
 if(OPTION_DISABLE_NETWORKMANAGER)
     set(HAVE_NETWORKMANAGER FALSE)
 else()    

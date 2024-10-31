@@ -716,10 +716,6 @@ endif()
 
 generate_export_header(libruqolacore BASE_NAME libruqolacore)
 
-if(HAVE_SOLID)
-    target_link_libraries(libruqolacore KF6::Solid)
-endif()
-
 if(HAVE_NETWORKMANAGER)
     target_link_libraries(libruqolacore KF6::NetworkManagerQt)
 endif()
