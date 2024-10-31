@@ -250,7 +250,7 @@ Q_SIGNALS:
     void usersAutocompleteDone(const QJsonObject &obj);
 
     void failed(const QString &str);
-    void networkSessionFailedError();
+    void networkError();
     void findOrCreateInviteDone(const RocketChatRestApi::FindOrCreateInviteJob::InviteUsersInfo &info);
 
     void getMessageDone(const QJsonObject &obj, const QByteArray &messageId, const QByteArray &roomId);
@@ -293,5 +293,5 @@ private:
     QString mAuthToken;
     QString mUserName;
     QString mPassword;
-    bool mSessionFailed = false;
+    bool mNetworkErrorEmitted = false;
 };

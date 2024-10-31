@@ -489,10 +489,10 @@ void RestApiAbstractJob::genericResponseHandler(void (RestApiAbstractJob::*respo
     const auto error = mReply->error();
     if (error != QNetworkReply::NoError) {
         if (networkErrorsNeedingReconnect().contains(error)) {
-            // Ignore NetworkSessionFailedError. It will be handled in Connection class.
+            // Ignore errors that will be handled in Connection class.
             // no deleting, we will be trying to destroy everything and relogin
             // reply will be invalid at this point, deleting it will crash us
-            qCWarning(ROCKETCHATQTRESTAPI_LOG) << "NetworkSessionFailedError. Lost connection? ";
+            qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Network error. Lost connection? Let's reconnect";
             return;
         }
         // TODO add support error 400

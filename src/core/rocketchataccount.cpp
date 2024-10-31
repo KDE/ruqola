@@ -584,9 +584,9 @@ Connection *RocketChatAccount::restApi()
         connect(mRestApi, &Connection::customUserStatusDone, this, &RocketChatAccount::slotCustomUserStatusDone);
         connect(mRestApi, &Connection::permissionListAllDone, this, &RocketChatAccount::slotPermissionListAllDone);
         connect(mRestApi, &Connection::usersSetPreferencesDone, this, &RocketChatAccount::slotUsersSetPreferencesDone);
-        connect(mRestApi, &Connection::networkSessionFailedError, this, [this]() {
-            // QNetworkReply::NetworkSessionFailedError = connection was broken due to disconnection from the network or failure to start the network
-            qCDebug(RUQOLA_RECONNECT_LOG) << "networkSessionFailedError" << accountName();
+        connect(mRestApi, &Connection::networkError, this, [this]() {
+            // Transient error, try again, with an increasing delay
+            qCDebug(RUQOLA_RECONNECT_LOG) << "networkError" << accountName();
             forceDisconnect();
             autoReconnectDelayed();
         });
@@ -2506,8 +2506,7 @@ AppsMarketPlaceModel *RocketChatAccount::appsMarketPlaceModel() const
 
 void RocketChatAccount::autoReconnectDelayed()
 {
-    qCDebug(RUQOLA_RECONNECT_LOG) << "starting single shot timer with" << mDelayReconnect << "ms"
-                                  << " account name " << accountName();
+    qCDebug(RUQOLA_RECONNECT_LOG) << "starting single shot timer with" << mDelayReconnect << "ms" << "account name" << accountName();
     // Clear auth token otherwise we can't reconnect.
     setAuthToken({});
 

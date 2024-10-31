@@ -227,10 +227,11 @@ void Connection::slotResult(QNetworkReply *reply)
         const auto jobClassName = reply->property("jobClassName").value<QByteArray>();
         qCWarning(RUQOLA_LOG) << jobClassName << "error reply: " << reply->errorString() << " ERROR type " << error;
 
-        if (RocketChatRestApi::networkErrorsNeedingReconnect().contains(error) && !mSessionFailed) {
-            mSessionFailed = true;
+        if (RocketChatRestApi::networkErrorsNeedingReconnect().contains(error) && !mNetworkErrorEmitted) {
+            mNetworkErrorEmitted = true;
             QTimer::singleShot(1ms, this, [this] {
-                Q_EMIT networkSessionFailedError();
+                // This will delete "this" Connection, so no need to reset mNetworkErrorEmitted
+                Q_EMIT networkError();
             });
         }
     }
