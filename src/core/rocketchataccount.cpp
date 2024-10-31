@@ -306,10 +306,8 @@ void RocketChatAccount::forceDisconnect()
     qCDebug(RUQOLA_RECONNECT_LOG) << "forcefully disconnecting" << accountName();
     mSettings->logout();
     mRoomModel->clear();
-    delete mRestApi;
-    mRestApi = nullptr;
-    delete mDdp;
-    mDdp = nullptr;
+    mRestApi.reset();
+    mDdp.reset();
 }
 
 void RocketChatAccount::reconnectToServer()
@@ -535,45 +533,45 @@ void RocketChatAccount::insertAvatarUrl(const QString &userId, const QUrl &url)
 Connection *RocketChatAccount::restApi()
 {
     if (!mRestApi) {
-        mRestApi = new Connection(this);
+        mRestApi.reset(new Connection(this));
 
-        connect(mRestApi, &Connection::loginStatusChanged, this, &RocketChatAccount::slotRESTLoginStatusChanged);
+        connect(mRestApi.get(), &Connection::loginStatusChanged, this, &RocketChatAccount::slotRESTLoginStatusChanged);
 
-        connect(mRestApi, &Connection::channelMembersDone, this, &RocketChatAccount::parseUsersForRooms);
-        connect(mRestApi, &Connection::channelFilesDone, this, &RocketChatAccount::slotChannelFilesDone);
-        connect(mRestApi, &Connection::channelRolesDone, this, &RocketChatAccount::slotChannelGroupRolesDone);
-        connect(mRestApi, &Connection::groupRolesDone, this, &RocketChatAccount::slotChannelGroupRolesDone);
-        connect(mRestApi, &Connection::failed, this, &RocketChatAccount::slotJobFailed);
-        connect(mRestApi, &Connection::getThreadMessagesDone, this, &RocketChatAccount::slotGetThreadMessagesDone);
-        connect(mRestApi, &Connection::getDiscussionsDone, this, &RocketChatAccount::slotGetDiscussionsListDone);
-        connect(mRestApi, &Connection::markAsReadDone, this, &RocketChatAccount::slotMarkAsReadDone);
-        connect(mRestApi, &Connection::postMessageDone, this, &RocketChatAccount::slotPostMessageDone);
-        connect(mRestApi, &Connection::updateMessageFailed, this, &RocketChatAccount::updateMessageFailed);
+        connect(mRestApi.get(), &Connection::channelMembersDone, this, &RocketChatAccount::parseUsersForRooms);
+        connect(mRestApi.get(), &Connection::channelFilesDone, this, &RocketChatAccount::slotChannelFilesDone);
+        connect(mRestApi.get(), &Connection::channelRolesDone, this, &RocketChatAccount::slotChannelGroupRolesDone);
+        connect(mRestApi.get(), &Connection::groupRolesDone, this, &RocketChatAccount::slotChannelGroupRolesDone);
+        connect(mRestApi.get(), &Connection::failed, this, &RocketChatAccount::slotJobFailed);
+        connect(mRestApi.get(), &Connection::getThreadMessagesDone, this, &RocketChatAccount::slotGetThreadMessagesDone);
+        connect(mRestApi.get(), &Connection::getDiscussionsDone, this, &RocketChatAccount::slotGetDiscussionsListDone);
+        connect(mRestApi.get(), &Connection::markAsReadDone, this, &RocketChatAccount::slotMarkAsReadDone);
+        connect(mRestApi.get(), &Connection::postMessageDone, this, &RocketChatAccount::slotPostMessageDone);
+        connect(mRestApi.get(), &Connection::updateMessageFailed, this, &RocketChatAccount::updateMessageFailed);
 
-        connect(mRestApi, &Connection::getThreadsDone, this, [this](const QJsonObject &obj, const QString &roomId, bool onlyUnread) {
+        connect(mRestApi.get(), &Connection::getThreadsDone, this, [this](const QJsonObject &obj, const QString &roomId, bool onlyUnread) {
             slotGetListMessagesDone(obj,
                                     roomId.toLatin1(),
                                     onlyUnread ? ListMessagesModel::ListMessageType::UnreadThreadsMessages
                                                : ListMessagesModel::ListMessageType::ThreadsMessages);
         });
-        connect(mRestApi, &Connection::getMentionedMessagesDone, this, [this](const QJsonObject &obj, const QByteArray &roomId) {
+        connect(mRestApi.get(), &Connection::getMentionedMessagesDone, this, [this](const QJsonObject &obj, const QByteArray &roomId) {
             slotGetListMessagesDone(obj, roomId, ListMessagesModel::ListMessageType::MentionsMessages);
         });
-        connect(mRestApi, &Connection::getPinnedMessagesDone, this, [this](const QJsonObject &obj, const QByteArray &roomId) {
+        connect(mRestApi.get(), &Connection::getPinnedMessagesDone, this, [this](const QJsonObject &obj, const QByteArray &roomId) {
             slotGetListMessagesDone(obj, roomId, ListMessagesModel::ListMessageType::PinnedMessages);
         });
-        connect(mRestApi, &Connection::getStarredMessagesDone, this, [this](const QJsonObject &obj, const QByteArray &roomId) {
+        connect(mRestApi.get(), &Connection::getStarredMessagesDone, this, [this](const QJsonObject &obj, const QByteArray &roomId) {
             slotGetListMessagesDone(obj, roomId, ListMessagesModel::ListMessageType::StarredMessages);
         });
 
-        connect(mRestApi, &Connection::usersPresenceDone, this, &RocketChatAccount::slotUsersPresenceDone);
-        connect(mRestApi, &Connection::usersAutocompleteDone, this, &RocketChatAccount::slotUserAutoCompleterDone);
-        connect(mRestApi, &Connection::registerUserDone, this, &RocketChatAccount::slotRegisterUserDone);
-        connect(mRestApi, &Connection::channelGetCountersDone, this, &RocketChatAccount::slotChannelGetCountersDone);
-        connect(mRestApi, &Connection::customUserStatusDone, this, &RocketChatAccount::slotCustomUserStatusDone);
-        connect(mRestApi, &Connection::permissionListAllDone, this, &RocketChatAccount::slotPermissionListAllDone);
-        connect(mRestApi, &Connection::usersSetPreferencesDone, this, &RocketChatAccount::slotUsersSetPreferencesDone);
-        connect(mRestApi, &Connection::networkError, this, [this]() {
+        connect(mRestApi.get(), &Connection::usersPresenceDone, this, &RocketChatAccount::slotUsersPresenceDone);
+        connect(mRestApi.get(), &Connection::usersAutocompleteDone, this, &RocketChatAccount::slotUserAutoCompleterDone);
+        connect(mRestApi.get(), &Connection::registerUserDone, this, &RocketChatAccount::slotRegisterUserDone);
+        connect(mRestApi.get(), &Connection::channelGetCountersDone, this, &RocketChatAccount::slotChannelGetCountersDone);
+        connect(mRestApi.get(), &Connection::customUserStatusDone, this, &RocketChatAccount::slotCustomUserStatusDone);
+        connect(mRestApi.get(), &Connection::permissionListAllDone, this, &RocketChatAccount::slotPermissionListAllDone);
+        connect(mRestApi.get(), &Connection::usersSetPreferencesDone, this, &RocketChatAccount::slotUsersSetPreferencesDone);
+        connect(mRestApi.get(), &Connection::networkError, this, [this]() {
             // Transient error, try again, with an increasing delay
             qCDebug(RUQOLA_RECONNECT_LOG) << "networkError" << accountName();
             forceDisconnect();
@@ -582,9 +580,9 @@ Connection *RocketChatAccount::restApi()
 
         mRestApi->setServerUrl(mSettings->serverUrl());
         mRestApi->setRestApiLogger(mRuqolaLogger);
-        mCache->setRestApiConnection(mRestApi);
+        mCache->setRestApiConnection(mRestApi.get());
     }
-    return mRestApi;
+    return mRestApi.get();
 }
 
 void RocketChatAccount::slotJobFailed(const QString &str)
@@ -661,26 +659,26 @@ void RocketChatAccount::hideRoom(const QByteArray &roomId, Room::RoomType channe
 DDPClient *RocketChatAccount::ddp()
 {
     if (!mDdp && accountEnabled()) {
-        mDdp = new DDPClient(this, this);
+        mDdp.reset(new DDPClient(this, this));
         if (Ruqola::self()->useRestApiLogin()) {
             connect(mDdp->authenticationManager(), &DDPAuthenticationManager::loginStatusChanged, this, &RocketChatAccount::slotDDpLoginStatusChanged);
         } else {
             connect(mDdp->authenticationManager(), &DDPAuthenticationManager::loginStatusChanged, this, &RocketChatAccount::slotLoginStatusChanged);
         }
-        connect(mDdp, &DDPClient::connectedChanged, this, &RocketChatAccount::ddpConnectedChanged);
-        connect(mDdp, &DDPClient::changed, this, &RocketChatAccount::changed);
-        connect(mDdp, &DDPClient::added, this, &RocketChatAccount::added);
-        connect(mDdp, &DDPClient::removed, this, &RocketChatAccount::removed);
-        connect(mDdp, &DDPClient::socketError, this, &RocketChatAccount::socketError);
-        connect(mDdp, &DDPClient::disconnectedByServer, this, &RocketChatAccount::slotReconnectToDdpServer);
-        connect(mDdp, &DDPClient::wsClosedSocketError, this, &RocketChatAccount::wsClosedSocketError);
+        connect(mDdp.get(), &DDPClient::connectedChanged, this, &RocketChatAccount::ddpConnectedChanged);
+        connect(mDdp.get(), &DDPClient::changed, this, &RocketChatAccount::changed);
+        connect(mDdp.get(), &DDPClient::added, this, &RocketChatAccount::added);
+        connect(mDdp.get(), &DDPClient::removed, this, &RocketChatAccount::removed);
+        connect(mDdp.get(), &DDPClient::socketError, this, &RocketChatAccount::socketError);
+        connect(mDdp.get(), &DDPClient::disconnectedByServer, this, &RocketChatAccount::slotReconnectToDdpServer);
+        connect(mDdp.get(), &DDPClient::wsClosedSocketError, this, &RocketChatAccount::wsClosedSocketError);
 
         if (mSettings) {
             mDdp->setServerUrl(mSettings->serverUrl());
         }
         mDdp->start();
     }
-    return mDdp;
+    return mDdp.get();
 }
 
 AuthenticationManager::LoginStatus RocketChatAccount::loginStatus() const
@@ -745,8 +743,7 @@ void RocketChatAccount::tryLogin()
             if (ddpStatus == AuthenticationManager::LogoutOngoing || ddpStatus == AuthenticationManager::LogoutCleanUpOngoing) {
                 qCDebug(RUQOLA_RECONNECT_LOG) << "DDP seems stuck, recreating it";
                 mRoomModel->clear();
-                delete mDdp;
-                mDdp = nullptr;
+                mDdp.reset();
                 ddp();
             }
 
@@ -770,15 +767,13 @@ void RocketChatAccount::logOut()
     if (mRestApi) {
         if (!mRestApi->authenticationManager()->logoutAndCleanup(ownUser())) {
             qCDebug(RUQOLA_RECONNECT_LOG) << "impossible to logout cleanup (restapi): " << accountName();
-            delete mRestApi;
-            mRestApi = nullptr;
+            mRestApi.reset();
         } // in the normal case, a job was launched and mRestApi will be deleted in slotRESTLoginStatusChanged
     }
     if (mDdp) {
         if (!mDdp->authenticationManager()->logoutAndCleanup(ownUser())) {
             qCDebug(RUQOLA_RECONNECT_LOG) << "impossible to logout cleanup (ddp): " << accountName();
-            delete mDdp;
-            mDdp = nullptr;
+            mDdp.reset();
         }
     }
 }
@@ -2708,8 +2703,7 @@ void RocketChatAccount::markRoomAsUnRead(const QByteArray &roomId)
 void RocketChatAccount::slotDDpLoginStatusChanged()
 {
     if (mDdp && mDdp->authenticationManager()->loginStatus() == AuthenticationManager::LoggedOutAndCleanedUp) {
-        mDdp->deleteLater();
-        mDdp = nullptr;
+        mDdp.release()->deleteLater();
     }
     if (!Ruqola::self()->useRestApiLogin()) {
         slotLoginStatusChanged();
@@ -2723,8 +2717,7 @@ void RocketChatAccount::slotDDpLoginStatusChanged()
 void RocketChatAccount::slotRESTLoginStatusChanged()
 {
     if (mRestApi->authenticationManager()->loginStatus() == AuthenticationManager::LoggedOutAndCleanedUp) {
-        mRestApi->deleteLater();
-        mRestApi = nullptr;
+        mRestApi.release()->deleteLater();
     }
     Q_EMIT loginStatusChanged();
     if (!mRestApi && !mDdp) {

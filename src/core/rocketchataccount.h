@@ -704,8 +704,8 @@ private:
     TypingNotification *mTypingNotification = nullptr;
     UsersModel *const mUserModel;
     RoomModel *const mRoomModel;
-    DDPClient *mDdp = nullptr;
-    Connection *mRestApi = nullptr;
+    std::unique_ptr<DDPClient> mDdp;
+    std::unique_ptr<Connection> mRestApi;
     MessageQueue *mMessageQueue = nullptr;
     RocketChatBackend *mRocketChatBackend = nullptr;
     RuqolaLogger *mRuqolaLogger = nullptr;
