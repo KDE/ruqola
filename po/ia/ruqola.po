@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-10-30 00:39+0000\n"
-"PO-Revision-Date: 2024-10-28 11:15+0100\n"
+"POT-Creation-Date: 2024-10-31 00:40+0000\n"
+"PO-Revision-Date: 2024-10-30 17:34+0100\n"
 "Last-Translator: giovanni <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
 "Language: ia\n"
@@ -1237,7 +1237,7 @@ msgstr "Typo de Canale"
 msgid "Belongs To"
 msgstr ""
 
-#: core/model/directoryteamsmodel.cpp:92 core/model/roommodel.cpp:547
+#: core/model/directoryteamsmodel.cpp:92 core/model/roommodel.cpp:550
 #: widgets/administratordialog/administratorwidget.cpp:53
 #: widgets/administratordialog/roles/rolescopecombobox.cpp:13
 #, kde-format
@@ -1400,80 +1400,80 @@ msgstr "Authentication a duo factores"
 msgid "Last token part"
 msgstr "Ultime parte de indicio"
 
-#: core/model/roommodel.cpp:466
+#: core/model/roommodel.cpp:469
 #, kde-format
 msgid "%1 Mention"
 msgid_plural "%1 Mentions"
 msgstr[0] "%1 Mention"
 msgstr[1] "%1 Mentiones"
 
-#: core/model/roommodel.cpp:470
+#: core/model/roommodel.cpp:473
 #, kde-format
 msgid "%1 Group Mention"
 msgid_plural "%1 Group Mentions"
 msgstr[0] "%1 Mention de Gruppo"
 msgstr[1] "%1 Mentiones de Gruppo"
 
-#: core/model/roommodel.cpp:474
+#: core/model/roommodel.cpp:477
 #, kde-format
 msgid "%1 Unread Threaded Message"
 msgid_plural "%1 Unread Threaded Messages"
 msgstr[0] "%1 Message de topico non legite"
 msgstr[1] "%1 Messages de topicos non legite"
 
-#: core/model/roommodel.cpp:478
+#: core/model/roommodel.cpp:481
 #, kde-format
 msgid "%1 Unread Message"
 msgid_plural "%1 Unread Messages"
 msgstr[0] "%1 Message non legite"
 msgstr[1] "%1 messages non legite"
 
-#: core/model/roommodel.cpp:504
+#: core/model/roommodel.cpp:507
 #, kde-format
 msgid "Teams Room"
 msgstr "Sala de Equipas"
 
-#: core/model/roommodel.cpp:510
+#: core/model/roommodel.cpp:513
 #, kde-format
 msgid "Private Room"
 msgstr "Sala Private"
 
-#: core/model/roommodel.cpp:512
+#: core/model/roommodel.cpp:515
 #, kde-format
 msgid "Discussion Room"
 msgstr "Sala de discussion"
 
-#: core/model/roommodel.cpp:516
+#: core/model/roommodel.cpp:519
 #, kde-format
 msgid "Channel Room"
 msgstr "Sala de Canal"
 
-#: core/model/roommodel.cpp:541
+#: core/model/roommodel.cpp:544
 #, kde-format
 msgid "Unread"
 msgstr "Non Legite"
 
-#: core/model/roommodel.cpp:543
+#: core/model/roommodel.cpp:546
 #, kde-format
 msgid "Favorites"
 msgstr "Favoritos"
 
-#: core/model/roommodel.cpp:545
+#: core/model/roommodel.cpp:548
 #, kde-format
 msgid "Teams"
 msgstr "Equipas"
 
-#: core/model/roommodel.cpp:549
+#: core/model/roommodel.cpp:552
 #, kde-format
 msgid "Discussions"
 msgstr "Discussiones"
 
-#: core/model/roommodel.cpp:551
+#: core/model/roommodel.cpp:554
 #, kde-format
 msgid "Private Messages"
 msgstr "Messages private"
 
-#: core/model/roommodel.cpp:553
+#: core/model/roommodel.cpp:556
 #, kde-format
 msgid "Unknown"
 msgstr "Incognite"
@@ -1744,29 +1744,29 @@ msgctxt "WARNING!!!!!!: PLEASE We need a space between after </strong>"
 msgid "<strong>%1</strong> are typing..."
 msgstr "<strong>%1</strong> es typante..."
 
-#: core/rocketchataccount.cpp:714
+#: core/rocketchataccount.cpp:716
 #, kde-format
 msgid ""
 "REST: %1\n"
 "DDP: %2"
 msgstr ""
 
-#: core/rocketchataccount.cpp:722 core/rocketchataccount.cpp:734
+#: core/rocketchataccount.cpp:724 core/rocketchataccount.cpp:736
 #, kde-format
 msgid "Not connected"
 msgstr "Non connectite"
 
-#: core/rocketchataccount.cpp:729
+#: core/rocketchataccount.cpp:731
 #, kde-format
 msgid "Not connected yet"
 msgstr "Ancora non connectite"
 
-#: core/rocketchataccount.cpp:3114
+#: core/rocketchataccount.cpp:3116
 #, kde-format
 msgid "Export Messages"
 msgstr "Exporta Messages "
 
-#: core/rocketchataccount.cpp:3115
+#: core/rocketchataccount.cpp:3117
 #, kde-format
 msgid "Your email has been queued for sending."
 msgstr "Tu e-posta ha essite ponite in cauda pro inviar."
@@ -1781,32 +1781,32 @@ msgstr "Conto addite"
 msgid "A new account was added."
 msgstr ""
 
-#: core/room.cpp:1171
+#: core/room.cpp:1170
 #, kde-format
 msgid "Owner"
 msgstr "Proprietario"
 
-#: core/room.cpp:1174
+#: core/room.cpp:1173
 #, kde-format
 msgid "Leader"
 msgstr "Chef"
 
-#: core/room.cpp:1177
+#: core/room.cpp:1176
 #, kde-format
 msgid "Moderator"
 msgstr "Moderator"
 
-#: core/room.cpp:1538
+#: core/room.cpp:1537
 #, kde-format
 msgid "Channel is read only."
 msgstr "Canal es de sol lectura"
 
-#: core/room.cpp:1541
+#: core/room.cpp:1540
 #, kde-format
 msgid "You have blocked this channel."
 msgstr "Tu ha blocate iste canal."
 
-#: core/room.cpp:1544
+#: core/room.cpp:1543
 #, kde-format
 msgid "Channel was blocked."
 msgstr "Canal esseva blocate."
@@ -1939,7 +1939,7 @@ msgid "Server URL:"
 msgstr "URL de servitor:"
 
 #: plugins/authentication/personalaccesstoken/personalaccesstokenauthenticationconfigwidget.cpp:37
-#: widgets/common/authenticationloginwidget.cpp:38
+#: widgets/common/authenticationloginwidget.cpp:39
 #: widgets/dialogs/serverinfo/serverinfowidget.cpp:34
 #, kde-format
 msgid "Account name:"
@@ -3285,7 +3285,7 @@ msgstr "Copia message"
 #: widgets/administratordialog/moderationconsole/moderationreportinfolistview.cpp:87
 #: widgets/discussions/discussionlistview.cpp:69
 #: widgets/notificationhistory/notificationhistorylistview.cpp:94
-#: widgets/room/messagelistview.cpp:627
+#: widgets/room/messagelistview.cpp:628
 #: widgets/servererrorinfohistory/servererrorinfomessagehistorylistview.cpp:62
 #, kde-format
 msgctxt "@action"
@@ -3919,7 +3919,7 @@ msgid "Status Message:"
 msgstr "Message de stato:"
 
 #: widgets/administratordialog/users/administratoradduserwidget.cpp:65
-#: widgets/common/authenticationloginwidget.cpp:47
+#: widgets/common/authenticationloginwidget.cpp:48
 #: widgets/dialogs/channelinfoeditablewidget.cpp:77
 #, kde-format
 msgid "Password:"
@@ -7038,10 +7038,12 @@ msgid "Next Channel"
 msgstr "Proxime Canale"
 
 #: widgets/common/authenticationbutton.cpp:23
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@action:button"
+#| msgid "&Open With '%1'"
 msgctxt "@action:button"
-msgid "Sign in with %1"
-msgstr ""
+msgid "Sign in With %1"
+msgstr "&Aperi con '%1'"
 
 #: widgets/common/authenticationloginwidget.cpp:25
 #, kde-format
@@ -7049,18 +7051,27 @@ msgctxt "@action:button"
 msgid "Register Account"
 msgstr "Registra  conto"
 
-#: widgets/common/authenticationloginwidget.cpp:42
+#: widgets/common/authenticationloginwidget.cpp:37
+#, fuzzy, kde-format
+#| msgctxt "@action"
+#| msgid "My Account…"
+msgid "My Account"
+msgstr "Mi conto ..."
+
+#: widgets/common/authenticationloginwidget.cpp:43
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Username or email"
 msgstr "Nomine de usator o E-Posta"
 
-#: widgets/common/authenticationloginwidget.cpp:44
-#, kde-format
-msgid "Username or Email:"
-msgstr "Nomine de usator o E-Posta:"
+#: widgets/common/authenticationloginwidget.cpp:45
+#, fuzzy, kde-format
+#| msgctxt "@info:placeholder"
+#| msgid "Username or email"
+msgid "Username or email:"
+msgstr "Nomine de usator o E-Posta"
 
-#: widgets/common/authenticationloginwidget.cpp:158
+#: widgets/common/authenticationloginwidget.cpp:159
 #: widgets/ruqolamainwindow.cpp:1007
 #, kde-format
 msgid ""
@@ -7071,7 +7082,7 @@ msgstr ""
 "Si tu non recipe in breve un e-posta, pro favor tu retorna e essaya "
 "novemente."
 
-#: widgets/common/authenticationloginwidget.cpp:159
+#: widgets/common/authenticationloginwidget.cpp:160
 #: widgets/ruqolamainwindow.cpp:1008
 #, kde-format
 msgctxt "@title:window"
@@ -7195,63 +7206,31 @@ msgid "&Use custom fonts"
 msgstr "&Usa  fonts personalisate"
 
 #: widgets/configuredialog/configuregeneralwidget.cpp:15
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@option:check"
+#| msgid "Set accounts online on startup"
 msgctxt "@option:check"
-msgid "Set accounts online on startup"
+msgid "Set status to \"Online\" on startup"
 msgstr "Fixa contos in linea al initio"
 
 #: widgets/configuredialog/configuregeneralwidget.cpp:16
-#, kde-format
-msgctxt "@option:check"
-msgid "Show images by default"
-msgstr "Monstra images per definition"
-
 #: widgets/configuredialog/configuregeneralwidget.cpp:17
-#, kde-format
-msgctxt "@option:check"
-msgid "Show preview url by default"
-msgstr "Monstra url de vista preliminar per definition"
-
 #: widgets/configuredialog/configuregeneralwidget.cpp:18
-#, kde-format
-msgctxt "@option:check"
-msgid "Mark room as read when clicking to write a reply"
-msgstr "Marca sala como legite quando clicca a scriber un responsa"
-
 #: widgets/configuredialog/configuregeneralwidget.cpp:19
-#, kde-format
-msgctxt "@option:check"
-msgid "Enable system tray icon"
-msgstr "Habilita icone de tabuliero de systema"
-
 #: widgets/configuredialog/configuregeneralwidget.cpp:20
-#, kde-format
-msgctxt "@option:check"
-msgid "Enable logging"
-msgstr "Habilita registrar"
-
 #: widgets/configuredialog/configuregeneralwidget.cpp:21
-#, kde-format
-msgctxt "@option:check"
-msgid "Show hover highlights"
-msgstr ""
-
 #: widgets/configuredialog/configuregeneralwidget.cpp:22
-#, kde-format
-msgctxt "@option:check"
-msgid "Animate Gif Image"
-msgstr "Anima imagine Gif"
-
 #: widgets/configuredialog/configuregeneralwidget.cpp:23
 #, kde-format
-msgctxt "@option:check"
-msgid "Use local dataBase (experimental)"
+msgid "@option:check"
 msgstr ""
 
 #: widgets/configuredialog/configuregeneralwidget.cpp:25
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@option:check"
+#| msgid "Enable Plasma Activities"
 msgctxt "@option:check"
-msgid "Enable Plasma Activities"
+msgid "Enable Plasma Activities integration"
 msgstr "Habilita Activitates de Plasma"
 
 #: widgets/configuredialog/configuresettingsdialog.cpp:62
@@ -7267,10 +7246,11 @@ msgid "General"
 msgstr "General"
 
 #: widgets/configuredialog/configuresettingsdialog.cpp:72
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Accounts"
 msgctxt "@title Preferences page name"
-msgid "Account"
-msgstr "Conto"
+msgid "Accounts"
+msgstr "Contos"
 
 #: widgets/configuredialog/configuresettingsdialog.cpp:77
 #, kde-format
@@ -7279,9 +7259,11 @@ msgid "Font"
 msgstr "Font"
 
 #: widgets/configuredialog/configuresettingsdialog.cpp:83
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@title AutoCorrection page name"
+#| msgid "AutoCorrection"
 msgctxt "@title AutoCorrection page name"
-msgid "AutoCorrection"
+msgid "Auto-Correction"
 msgstr "AutoCorrection"
 
 #: widgets/configuredialog/configuresettingsdialog.cpp:89
@@ -7291,9 +7273,11 @@ msgid "Spell Checking"
 msgstr "Controlo Orthographic"
 
 #: widgets/configuredialog/configuresettingsdialog.cpp:95
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@title Preferences page name"
+#| msgid "Translate"
 msgctxt "@title Preferences page name"
-msgid "Translate"
+msgid "Translation"
 msgstr "Traduce"
 
 #: widgets/configuredialog/configuresettingsdialog.cpp:102
@@ -7326,20 +7310,28 @@ msgid "Do you want to remove this account '%1'?"
 msgstr "Tu vole remover iste conto '%1''"
 
 #: widgets/configurenewserver/checknewserverurlwidget.cpp:25
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Connected"
 msgctxt "@action:button"
-msgid "Connection"
-msgstr "Connexion"
+msgid "Connect"
+msgstr "Connectite"
 
 #: widgets/configurenewserver/checknewserverurlwidget.cpp:36
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Server URL:"
 msgctxt "@label:textbox"
-msgid "Server Url:"
+msgid "Server URL:"
 msgstr "URL de servitor:"
 
-#: widgets/configurenewserver/checknewserverurlwidget.cpp:129
+#: widgets/configurenewserver/checknewserverurlwidget.cpp:94
 #, kde-format
-msgid "Impossible to access to server."
+msgid "Socket was unexpectedly closed."
+msgstr ""
+
+#: widgets/configurenewserver/checknewserverurlwidget.cpp:131
+#, fuzzy, kde-format
+#| msgid "Impossible to access to server."
+msgid "Failed to connect to server: %1"
 msgstr "Impossibile acceder a servitor."
 
 #: widgets/configurenewserver/configureactivitiesdialog.cpp:25
@@ -8332,7 +8324,7 @@ msgid "Video: %1"
 msgstr "Video: %1"
 
 #: widgets/dialogs/uploadfiledialog.cpp:26
-#: widgets/room/messagelinewidget.cpp:367
+#: widgets/room/messagelinewidget.cpp:368
 #, kde-format
 msgctxt "@title:window"
 msgid "Upload File"
@@ -9448,7 +9440,7 @@ msgid "Clear"
 msgstr "Netta"
 
 #: widgets/notificationhistory/notificationhistorylistview.cpp:79
-#: widgets/room/messagelistview.cpp:610
+#: widgets/room/messagelistview.cpp:611
 #, kde-format
 msgctxt "@action"
 msgid "Go to Message"
@@ -9701,56 +9693,56 @@ msgid "User Info"
 msgstr "Information de usator"
 
 #: widgets/room/delegate/messagelistdelegate.cpp:438
-#: widgets/room/messagelistview.cpp:392
+#: widgets/room/messagelistview.cpp:393
 #, kde-format
 msgctxt "@action"
 msgid "Start a Private Conversation"
 msgstr "Initia un Conversation Private"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:664
+#: widgets/room/delegate/messagelistdelegate.cpp:665
 #, kde-format
 msgid "1 reply"
 msgid_plural "%1 replies"
 msgstr[0] "1 responsa"
 msgstr[1] "%1 responsas"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:674
+#: widgets/room/delegate/messagelistdelegate.cpp:675
 #, kde-format
 msgid "1 message"
 msgid_plural "%1 messages"
 msgstr[0] "1 message"
 msgstr[1] "%1 messages"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:674
+#: widgets/room/delegate/messagelistdelegate.cpp:675
 #, kde-format
 msgid "No message yet"
 msgstr "Ancora nulle message"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:982
+#: widgets/room/delegate/messagelistdelegate.cpp:983
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Following"
 msgstr "Sequente"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:986
+#: widgets/room/delegate/messagelistdelegate.cpp:987
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Message has been pinned"
 msgstr "Message ha essite appunctate"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:990
+#: widgets/room/delegate/messagelistdelegate.cpp:991
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Message has been starred"
 msgstr "Message ha essite ponite con stellas"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:994
+#: widgets/room/delegate/messagelistdelegate.cpp:995
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Reply in Thread"
 msgstr "Responde in Topico"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:998
+#: widgets/room/delegate/messagelistdelegate.cpp:999
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Add reaction"
@@ -9778,72 +9770,74 @@ msgstr "Invia un message video…"
 msgid "Video Message"
 msgstr "Message video"
 
-#: widgets/room/messagelinewidget.cpp:85
-#, kde-format
-msgid "Sound Message"
-msgstr "Message  de sono"
-
-#: widgets/room/messagelinewidget.cpp:90
+#: widgets/room/messagelinewidget.cpp:84 widgets/room/messagelinewidget.cpp:91
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Send a sound message…"
 msgstr "Invia un message  de sono…"
 
-#: widgets/room/messagelinewidget.cpp:97
+#: widgets/room/messagelinewidget.cpp:86
+#, kde-format
+msgid "Sound Message"
+msgstr "Message  de sono"
+
+#: widgets/room/messagelinewidget.cpp:98
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Add emoticon…"
 msgstr "Adde emoticon…"
 
-#: widgets/room/messagelinewidget.cpp:99
+#: widgets/room/messagelinewidget.cpp:100
 #, kde-format
 msgid "Add Emoticon"
 msgstr "Adde emoticon"
 
-#: widgets/room/messagelinewidget.cpp:106
+#: widgets/room/messagelinewidget.cpp:107
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Send message"
 msgstr "Invia message"
 
-#: widgets/room/messagelinewidget.cpp:108
+#: widgets/room/messagelinewidget.cpp:109
 #, kde-format
 msgid "Send Message"
 msgstr "Invia Message"
 
-#: widgets/room/messagelinewidget.cpp:147
+#: widgets/room/messagelinewidget.cpp:148
 #, kde-format
 msgid "Do you want to convert this big text as attachment?"
 msgstr "Tu vole converter iste texto grande a attachamento?"
 
-#: widgets/room/messagelinewidget.cpp:148
+#: widgets/room/messagelinewidget.cpp:149
 #, kde-format
 msgctxt "@title:window"
 msgid "Message Too Big"
 msgstr "Message troppo grande"
 
-#: widgets/room/messagelinewidget.cpp:249
+#: widgets/room/messagelinewidget.cpp:250
 #, kde-format
 msgid "Message %1 in thread"
 msgstr "Message %1 in topico"
 
-#: widgets/room/messagelinewidget.cpp:249
-#, kde-format
-msgid "Message %1"
-msgstr "Message %1"
+#: widgets/room/messagelinewidget.cpp:250
+#, fuzzy, kde-format
+#| msgctxt "@info:tooltip"
+#| msgid "Send a video message…"
+msgid "Send a message in %1…"
+msgstr "Invia un message video…"
 
-#: widgets/room/messagelinewidget.cpp:390
+#: widgets/room/messagelinewidget.cpp:391
 #, kde-format
 msgid "File selected is too big (Maximum size %1)"
 msgstr "File seligite es troppo grande (Grandor Maxime %1)"
 
-#: widgets/room/messagelinewidget.cpp:391
+#: widgets/room/messagelinewidget.cpp:392
 #, kde-format
 msgctxt "@title:window"
 msgid "File upload"
 msgstr "Incargamento de file"
 
-#: widgets/room/messagelinewidget.cpp:396
+#: widgets/room/messagelinewidget.cpp:397
 #, kde-format
 msgid "Server doesn't authorized this file (invalid mimetype)"
 msgstr ""
@@ -9942,60 +9936,60 @@ msgctxt "@action"
 msgid "User Info"
 msgstr "Information de usator"
 
-#: widgets/room/messagelistview.cpp:429
+#: widgets/room/messagelistview.cpp:430
 #, kde-format
 msgctxt "@action"
 msgid "Start a Discussion"
 msgstr "Initia un discussion"
 
-#: widgets/room/messagelistview.cpp:435
+#: widgets/room/messagelistview.cpp:436
 #, kde-format
 msgctxt "@action"
 msgid "Reply in Thread"
 msgstr "Responde in Topico"
 
-#: widgets/room/messagelistview.cpp:491
+#: widgets/room/messagelistview.cpp:492
 #, kde-format
 msgctxt "@action"
 msgid "Show Original Message"
 msgstr "Monstra message original"
 
-#: widgets/room/messagelistview.cpp:491
+#: widgets/room/messagelistview.cpp:492
 #, kde-format
 msgctxt "@action"
 msgid "Translate Message"
 msgstr "Traduce Message"
 
-#: widgets/room/messagelistview.cpp:534
+#: widgets/room/messagelistview.cpp:535
 #, kde-format
 msgctxt "@action"
 msgid "View Reports"
 msgstr "Vide Reportos"
 
-#: widgets/room/messagelistview.cpp:557
+#: widgets/room/messagelistview.cpp:558
 #, kde-format
 msgctxt "@action"
 msgid "Dismiss Reports"
 msgstr "Abbandona Reportos"
 
-#: widgets/room/messagelistview.cpp:635
+#: widgets/room/messagelistview.cpp:636
 #, kde-format
 msgctxt "@action"
 msgid "Report Message"
 msgstr "Reporta Message"
 
-#: widgets/room/messagelistview.cpp:831
+#: widgets/room/messagelistview.cpp:832
 #, kde-format
 msgid "Do you want to delete this message?"
 msgstr "Tu vole deler iste message?"
 
-#: widgets/room/messagelistview.cpp:832
+#: widgets/room/messagelistview.cpp:833
 #, kde-format
 msgctxt "@title"
 msgid "Delete Message"
 msgstr "Dele Messages"
 
-#: widgets/room/messagelistview.cpp:981
+#: widgets/room/messagelistview.cpp:982
 #, kde-format
 msgctxt "@title:window"
 msgid "Translator Error"
@@ -10165,24 +10159,24 @@ msgstr "Respondente a un topico"
 msgid "Reply in Thread for Message: '%1'"
 msgstr "Responde a un Topico per Message: '%1'"
 
-#: widgets/room/roomwidget.cpp:335
+#: widgets/room/roomwidget.cpp:332
 #, kde-format
 msgid "Do you want really remove history?"
 msgstr "Tu vole vermente remover chronologia?"
 
-#: widgets/room/roomwidget.cpp:336
+#: widgets/room/roomwidget.cpp:333
 #, kde-format
 msgctxt "@title:window"
 msgid "Remove History"
 msgstr "Remove Chronologia"
 
-#: widgets/room/roomwidget.cpp:506
+#: widgets/room/roomwidget.cpp:503
 #, kde-format
 msgid ""
 "A workspace admin needs to install and configure a conference call apps."
 msgstr ""
 
-#: widgets/room/roomwidget.cpp:507
+#: widgets/room/roomwidget.cpp:504
 #, kde-format
 msgctxt "@title:window"
 msgid "Video Conference"
@@ -10239,26 +10233,21 @@ msgid "Block User"
 msgstr "Bloca Usator"
 
 #: widgets/room/usersinroommenu.cpp:70
-#, fuzzy, kde-format
-#| msgid "Do you want to remove this user?"
+#, kde-format
 msgid "Do you want to mute this user?"
-msgstr "Tu vole remover iste usator?"
+msgstr "Tu vole poner silente iste usator?"
 
 #: widgets/room/usersinroommenu.cpp:71
-#, fuzzy, kde-format
-#| msgctxt "@label:textbox"
-#| msgid "Invite Users"
+#, kde-format
 msgctxt "@title"
 msgid "Mute User"
-msgstr "Invita Usatores"
+msgstr "Pone silente usator"
 
 #: widgets/room/usersinroommenu.cpp:72
-#, fuzzy, kde-format
-#| msgctxt "@label:textbox"
-#| msgid "Invite Users"
+#, kde-format
 msgctxt "@action:button"
 msgid "Mute User"
-msgstr "Invita Usatores"
+msgstr "Pone silente usator"
 
 #: widgets/room/usersinroommenu.cpp:87
 #, kde-format
@@ -10350,20 +10339,16 @@ msgid "Ignore"
 msgstr "Ignora"
 
 #: widgets/room/usersinroommenu.cpp:189
-#, fuzzy, kde-format
-#| msgctxt "@action"
-#| msgid "Invite Users"
+#, kde-format
 msgctxt "@action"
 msgid "Unmute User"
-msgstr "Invita Usatores"
+msgstr "Leva surdina a usator"
 
 #: widgets/room/usersinroommenu.cpp:189
-#, fuzzy, kde-format
-#| msgctxt "@action"
-#| msgid "Invite Users"
+#, kde-format
 msgctxt "@action"
 msgid "Mute User"
-msgstr "Invita Usatores"
+msgstr "Pone silente usator"
 
 #: widgets/room/usersinroommenu.cpp:197
 #, kde-format
@@ -10920,10 +10905,8 @@ msgid "Improve register new account (Add reason support)."
 msgstr ""
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:21
-#, fuzzy
-#| msgid "Implement message style"
 msgid "Implement mute/unmute user."
-msgstr "Actua stilo de messages"
+msgstr "Actua poner/levar surdina a usator."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:31
 #, kde-format
@@ -11255,6 +11238,48 @@ msgstr ""
 #, kde-format
 msgid "Some bug fixing:"
 msgstr "Alcun correction de faltas (bug)"
+
+#~ msgid "Username or Email:"
+#~ msgstr "Nomine de usator o E-Posta:"
+
+#~ msgctxt "@option:check"
+#~ msgid "Show images by default"
+#~ msgstr "Monstra images per definition"
+
+#~ msgctxt "@option:check"
+#~ msgid "Show preview url by default"
+#~ msgstr "Monstra url de vista preliminar per definition"
+
+#~ msgctxt "@option:check"
+#~ msgid "Mark room as read when clicking to write a reply"
+#~ msgstr "Marca sala como legite quando clicca a scriber un responsa"
+
+#~ msgctxt "@option:check"
+#~ msgid "Enable system tray icon"
+#~ msgstr "Habilita icone de tabuliero de systema"
+
+#~ msgctxt "@option:check"
+#~ msgid "Enable logging"
+#~ msgstr "Habilita registrar"
+
+#~ msgctxt "@option:check"
+#~ msgid "Animate Gif Image"
+#~ msgstr "Anima imagine Gif"
+
+#~ msgctxt "@title Preferences page name"
+#~ msgid "Account"
+#~ msgstr "Conto"
+
+#~ msgctxt "@action:button"
+#~ msgid "Connection"
+#~ msgstr "Connexion"
+
+#~ msgctxt "@label:textbox"
+#~ msgid "Server Url:"
+#~ msgstr "URL de servitor:"
+
+#~ msgid "Message %1"
+#~ msgstr "Message %1"
 
 #~ msgctxt "@action"
 #~ msgid "Mark As Read"

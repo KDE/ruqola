@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-10-30 00:39+0000\n"
+"POT-Creation-Date: 2024-10-31 00:40+0000\n"
 "PO-Revision-Date: 2023-09-20 18:47+0300\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
@@ -1269,7 +1269,7 @@ msgstr "Kanavan tyyppi"
 msgid "Belongs To"
 msgstr ""
 
-#: core/model/directoryteamsmodel.cpp:92 core/model/roommodel.cpp:547
+#: core/model/directoryteamsmodel.cpp:92 core/model/roommodel.cpp:550
 #: widgets/administratordialog/administratorwidget.cpp:53
 #: widgets/administratordialog/roles/rolescopecombobox.cpp:13
 #, kde-format
@@ -1440,7 +1440,7 @@ msgstr "Kahden tekijän todennus"
 msgid "Last token part"
 msgstr "Merkin viimeinen osa"
 
-#: core/model/roommodel.cpp:466
+#: core/model/roommodel.cpp:469
 #, fuzzy, kde-format
 #| msgid "Mentions"
 msgid "%1 Mention"
@@ -1448,7 +1448,7 @@ msgid_plural "%1 Mentions"
 msgstr[0] "Maininnat"
 msgstr[1] "Maininnat"
 
-#: core/model/roommodel.cpp:470
+#: core/model/roommodel.cpp:473
 #, fuzzy, kde-format
 #| msgid "Mute Group Mentions"
 msgid "%1 Group Mention"
@@ -1456,7 +1456,7 @@ msgid_plural "%1 Group Mentions"
 msgstr[0] "Vaimenna ryhmämaininnat"
 msgstr[1] "Vaimenna ryhmämaininnat"
 
-#: core/model/roommodel.cpp:474
+#: core/model/roommodel.cpp:477
 #, fuzzy, kde-format
 #| msgid "Unread Threads Messages"
 msgid "%1 Unread Threaded Message"
@@ -1464,7 +1464,7 @@ msgid_plural "%1 Unread Threaded Messages"
 msgstr[0] "Merkitse säikeen viestien olevan lukematta"
 msgstr[1] "Merkitse säikeen viestien olevan lukematta"
 
-#: core/model/roommodel.cpp:478
+#: core/model/roommodel.cpp:481
 #, fuzzy, kde-format
 #| msgid "%1 has %2 Unread Message"
 msgid "%1 Unread Message"
@@ -1472,52 +1472,52 @@ msgid_plural "%1 Unread Messages"
 msgstr[0] "Käyttäjällä %1 on %2 lukematonta viestiä"
 msgstr[1] "Käyttäjällä %1 on %2 lukematonta viestiä"
 
-#: core/model/roommodel.cpp:504
+#: core/model/roommodel.cpp:507
 #, kde-format
 msgid "Teams Room"
 msgstr "Ryhmähuone"
 
-#: core/model/roommodel.cpp:510
+#: core/model/roommodel.cpp:513
 #, kde-format
 msgid "Private Room"
 msgstr "Yksityishuone"
 
-#: core/model/roommodel.cpp:512
+#: core/model/roommodel.cpp:515
 #, kde-format
 msgid "Discussion Room"
 msgstr "Keskusteluhuone"
 
-#: core/model/roommodel.cpp:516
+#: core/model/roommodel.cpp:519
 #, kde-format
 msgid "Channel Room"
 msgstr "Kanavahuone"
 
-#: core/model/roommodel.cpp:541
+#: core/model/roommodel.cpp:544
 #, kde-format
 msgid "Unread"
 msgstr "Lukematta"
 
-#: core/model/roommodel.cpp:543
+#: core/model/roommodel.cpp:546
 #, kde-format
 msgid "Favorites"
 msgstr "Suosikit"
 
-#: core/model/roommodel.cpp:545
+#: core/model/roommodel.cpp:548
 #, kde-format
 msgid "Teams"
 msgstr "Ryhmät"
 
-#: core/model/roommodel.cpp:549
+#: core/model/roommodel.cpp:552
 #, kde-format
 msgid "Discussions"
 msgstr "Keskustelut"
 
-#: core/model/roommodel.cpp:551
+#: core/model/roommodel.cpp:554
 #, kde-format
 msgid "Private Messages"
 msgstr "Yksityisviestejä"
 
-#: core/model/roommodel.cpp:553
+#: core/model/roommodel.cpp:556
 #, kde-format
 msgid "Unknown"
 msgstr "Tuntematon"
@@ -1798,30 +1798,30 @@ msgctxt "WARNING!!!!!!: PLEASE We need a space between after </strong>"
 msgid "<strong>%1</strong> are typing..."
 msgstr "<strong>%1</strong> kirjoittavat…"
 
-#: core/rocketchataccount.cpp:714
+#: core/rocketchataccount.cpp:716
 #, kde-format
 msgid ""
 "REST: %1\n"
 "DDP: %2"
 msgstr ""
 
-#: core/rocketchataccount.cpp:722 core/rocketchataccount.cpp:734
+#: core/rocketchataccount.cpp:724 core/rocketchataccount.cpp:736
 #, kde-format
 msgid "Not connected"
 msgstr "Ei yhteyttä"
 
-#: core/rocketchataccount.cpp:729
+#: core/rocketchataccount.cpp:731
 #, fuzzy, kde-format
 #| msgid "Not connected"
 msgid "Not connected yet"
 msgstr "Ei yhteyttä"
 
-#: core/rocketchataccount.cpp:3114
+#: core/rocketchataccount.cpp:3116
 #, kde-format
 msgid "Export Messages"
 msgstr "Vie viestejä"
 
-#: core/rocketchataccount.cpp:3115
+#: core/rocketchataccount.cpp:3117
 #, kde-format
 msgid "Your email has been queued for sending."
 msgstr "Sähköposti on viety jonoon lähetystä varten."
@@ -1838,32 +1838,32 @@ msgstr "Tilin nimi"
 msgid "A new account was added."
 msgstr "Anna tilin nimi"
 
-#: core/room.cpp:1171
+#: core/room.cpp:1170
 #, kde-format
 msgid "Owner"
 msgstr "Omistaja"
 
-#: core/room.cpp:1174
+#: core/room.cpp:1173
 #, kde-format
 msgid "Leader"
 msgstr "Johtaja"
 
-#: core/room.cpp:1177
+#: core/room.cpp:1176
 #, kde-format
 msgid "Moderator"
 msgstr "Moderaattori"
 
-#: core/room.cpp:1538
+#: core/room.cpp:1537
 #, kde-format
 msgid "Channel is read only."
 msgstr "Kanavaa voi vain lukea."
 
-#: core/room.cpp:1541
+#: core/room.cpp:1540
 #, kde-format
 msgid "You have blocked this channel."
 msgstr "Olet estänyt tämän kanavan."
 
-#: core/room.cpp:1544
+#: core/room.cpp:1543
 #, kde-format
 msgid "Channel was blocked."
 msgstr "Kanava oli estetty."
@@ -1997,7 +1997,7 @@ msgid "Server URL:"
 msgstr "Palvelimen osoite:"
 
 #: plugins/authentication/personalaccesstoken/personalaccesstokenauthenticationconfigwidget.cpp:37
-#: widgets/common/authenticationloginwidget.cpp:38
+#: widgets/common/authenticationloginwidget.cpp:39
 #: widgets/dialogs/serverinfo/serverinfowidget.cpp:34
 #, kde-format
 msgid "Account name:"
@@ -3383,7 +3383,7 @@ msgstr "Kopioi viesti"
 #: widgets/administratordialog/moderationconsole/moderationreportinfolistview.cpp:87
 #: widgets/discussions/discussionlistview.cpp:69
 #: widgets/notificationhistory/notificationhistorylistview.cpp:94
-#: widgets/room/messagelistview.cpp:627
+#: widgets/room/messagelistview.cpp:628
 #: widgets/servererrorinfohistory/servererrorinfomessagehistorylistview.cpp:62
 #, fuzzy, kde-format
 #| msgid "Speak Text"
@@ -4062,7 +4062,7 @@ msgid "Status Message:"
 msgstr "Tilaviesti:"
 
 #: widgets/administratordialog/users/administratoradduserwidget.cpp:65
-#: widgets/common/authenticationloginwidget.cpp:47
+#: widgets/common/authenticationloginwidget.cpp:48
 #: widgets/dialogs/channelinfoeditablewidget.cpp:77
 #, kde-format
 msgid "Password:"
@@ -7384,7 +7384,7 @@ msgstr "Seuraava kanava"
 #, fuzzy, kde-format
 #| msgid "Sign in with Apple"
 msgctxt "@action:button"
-msgid "Sign in with %1"
+msgid "Sign in With %1"
 msgstr "Kirjaudu Applella"
 
 #: widgets/common/authenticationloginwidget.cpp:25
@@ -7395,19 +7395,26 @@ msgctxt "@action:button"
 msgid "Register Account"
 msgstr "Poista tili"
 
-#: widgets/common/authenticationloginwidget.cpp:42
+#: widgets/common/authenticationloginwidget.cpp:37
+#, fuzzy, kde-format
+#| msgid "My Account..."
+msgid "My Account"
+msgstr "Tilini…"
+
+#: widgets/common/authenticationloginwidget.cpp:43
 #, fuzzy, kde-format
 #| msgid "Username or email"
 msgctxt "@info:placeholder"
 msgid "Username or email"
 msgstr "Käyttäjätunnus tai sähköposti"
 
-#: widgets/common/authenticationloginwidget.cpp:44
-#, kde-format
-msgid "Username or Email:"
-msgstr "Käyttäjätunnus tai sähköposti:"
+#: widgets/common/authenticationloginwidget.cpp:45
+#, fuzzy, kde-format
+#| msgid "Username or email"
+msgid "Username or email:"
+msgstr "Käyttäjätunnus tai sähköposti"
 
-#: widgets/common/authenticationloginwidget.cpp:158
+#: widgets/common/authenticationloginwidget.cpp:159
 #: widgets/ruqolamainwindow.cpp:1007
 #, kde-format
 msgid ""
@@ -7417,7 +7424,7 @@ msgstr ""
 "Sinulle on lähetetty sähköpostia rekisteröinnin vahvistamiseksi.\n"
 "Ellei viestiä pikapuoliin kuulu, palaa yrittämään uudestaan."
 
-#: widgets/common/authenticationloginwidget.cpp:159
+#: widgets/common/authenticationloginwidget.cpp:160
 #: widgets/ruqolamainwindow.cpp:1008
 #, fuzzy, kde-format
 #| msgid "Register New User"
@@ -7552,70 +7559,26 @@ msgstr "Mukauta &fontteja"
 #, fuzzy, kde-format
 #| msgid "Set accounts online on startup"
 msgctxt "@option:check"
-msgid "Set accounts online on startup"
+msgid "Set status to \"Online\" on startup"
 msgstr "Aseta tilit käynnistettäessä verkossa oleviksi"
 
 #: widgets/configuredialog/configuregeneralwidget.cpp:16
-#, fuzzy, kde-format
-#| msgid "Show images by default"
-msgctxt "@option:check"
-msgid "Show images by default"
-msgstr "Näytä kuvat oletusarvoisesti"
-
 #: widgets/configuredialog/configuregeneralwidget.cpp:17
-#, fuzzy, kde-format
-#| msgid "Show images by default"
-msgctxt "@option:check"
-msgid "Show preview url by default"
-msgstr "Näytä kuvat oletusarvoisesti"
-
 #: widgets/configuredialog/configuregeneralwidget.cpp:18
-#, fuzzy, kde-format
-#| msgid "Mark room as read when clicking to write a reply"
-msgctxt "@option:check"
-msgid "Mark room as read when clicking to write a reply"
-msgstr "Merkitse huone luetuksi viestiin vastattaessa"
-
 #: widgets/configuredialog/configuregeneralwidget.cpp:19
-#, fuzzy, kde-format
-#| msgid "Enable system tray icon"
-msgctxt "@option:check"
-msgid "Enable system tray icon"
-msgstr "Näytä ilmoitusaluekuvake"
-
 #: widgets/configuredialog/configuregeneralwidget.cpp:20
-#, fuzzy, kde-format
-#| msgid "Enable logging"
-msgctxt "@option:check"
-msgid "Enable logging"
-msgstr "Käytä lokia"
-
 #: widgets/configuredialog/configuregeneralwidget.cpp:21
-#, fuzzy, kde-format
-#| msgid "Show hover highlights"
-msgctxt "@option:check"
-msgid "Show hover highlights"
-msgstr "Näytä korostukset hiiren ollessa yllä"
-
 #: widgets/configuredialog/configuregeneralwidget.cpp:22
-#, fuzzy, kde-format
-#| msgid "Animate Gif Image"
-msgctxt "@option:check"
-msgid "Animate Gif Image"
-msgstr "Animoi Gif-kuva"
-
 #: widgets/configuredialog/configuregeneralwidget.cpp:23
-#, fuzzy, kde-format
-#| msgid "Store Message in Local Database"
-msgctxt "@option:check"
-msgid "Use local dataBase (experimental)"
-msgstr "Talleta viestit paikalliseen tietokantaan"
+#, kde-format
+msgid "@option:check"
+msgstr ""
 
 #: widgets/configuredialog/configuregeneralwidget.cpp:25
 #, fuzzy, kde-format
 #| msgid "No Limit"
 msgctxt "@option:check"
-msgid "Enable Plasma Activities"
+msgid "Enable Plasma Activities integration"
 msgstr "Ei rajoitusta"
 
 #: widgets/configuredialog/configuresettingsdialog.cpp:62
@@ -7631,10 +7594,11 @@ msgid "General"
 msgstr "Perusasetukset"
 
 #: widgets/configuredialog/configuresettingsdialog.cpp:72
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Accounts"
 msgctxt "@title Preferences page name"
-msgid "Account"
-msgstr "Tili"
+msgid "Accounts"
+msgstr "Tilit"
 
 #: widgets/configuredialog/configuresettingsdialog.cpp:77
 #, kde-format
@@ -7643,9 +7607,11 @@ msgid "Font"
 msgstr "Fontti"
 
 #: widgets/configuredialog/configuresettingsdialog.cpp:83
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@title AutoCorrection page name"
+#| msgid "AutoCorrection"
 msgctxt "@title AutoCorrection page name"
-msgid "AutoCorrection"
+msgid "Auto-Correction"
 msgstr "Automaattikorjaus"
 
 #: widgets/configuredialog/configuresettingsdialog.cpp:89
@@ -7655,9 +7621,11 @@ msgid "Spell Checking"
 msgstr "Oikeinkirjoituksen tarkistus"
 
 #: widgets/configuredialog/configuresettingsdialog.cpp:95
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@title Preferences page name"
+#| msgid "Translate"
 msgctxt "@title Preferences page name"
-msgid "Translate"
+msgid "Translation"
 msgstr "Käännä"
 
 #: widgets/configuredialog/configuresettingsdialog.cpp:102
@@ -7692,22 +7660,27 @@ msgstr "Haluatko poistaa tilin ”%1”?"
 
 #: widgets/configurenewserver/checknewserverurlwidget.cpp:25
 #, fuzzy, kde-format
-#| msgid "Connecting"
+#| msgid "Connected"
 msgctxt "@action:button"
-msgid "Connection"
-msgstr "Yhdistetään"
+msgid "Connect"
+msgstr "Yhdistetty"
 
 #: widgets/configurenewserver/checknewserverurlwidget.cpp:36
 #, fuzzy, kde-format
-#| msgid "Server Url:"
+#| msgid "Server URL:"
 msgctxt "@label:textbox"
-msgid "Server Url:"
+msgid "Server URL:"
 msgstr "Palvelimen osoite:"
 
-#: widgets/configurenewserver/checknewserverurlwidget.cpp:129
+#: widgets/configurenewserver/checknewserverurlwidget.cpp:94
+#, kde-format
+msgid "Socket was unexpectedly closed."
+msgstr ""
+
+#: widgets/configurenewserver/checknewserverurlwidget.cpp:131
 #, fuzzy, kde-format
 #| msgid "Impossible to copy file"
-msgid "Impossible to access to server."
+msgid "Failed to connect to server: %1"
 msgstr "Tiedostoa on mahdotonta kopioida"
 
 #: widgets/configurenewserver/configureactivitiesdialog.cpp:25
@@ -8777,7 +8750,7 @@ msgid "Video: %1"
 msgstr "Video: %1"
 
 #: widgets/dialogs/uploadfiledialog.cpp:26
-#: widgets/room/messagelinewidget.cpp:367
+#: widgets/room/messagelinewidget.cpp:368
 #, kde-format
 msgctxt "@title:window"
 msgid "Upload File"
@@ -9988,7 +9961,7 @@ msgid "Clear"
 msgstr "Tyhjennä"
 
 #: widgets/notificationhistory/notificationhistorylistview.cpp:79
-#: widgets/room/messagelistview.cpp:610
+#: widgets/room/messagelistview.cpp:611
 #, fuzzy, kde-format
 #| msgid "Go to Message"
 msgctxt "@action"
@@ -10275,61 +10248,61 @@ msgid "User Info"
 msgstr "Käyttäjän tiedot"
 
 #: widgets/room/delegate/messagelistdelegate.cpp:438
-#: widgets/room/messagelistview.cpp:392
+#: widgets/room/messagelistview.cpp:393
 #, fuzzy, kde-format
 #| msgid "Start a Private Conversation"
 msgctxt "@action"
 msgid "Start a Private Conversation"
 msgstr "Aloitus yksityiskeskustelu"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:664
+#: widgets/room/delegate/messagelistdelegate.cpp:665
 #, kde-format
 msgid "1 reply"
 msgid_plural "%1 replies"
 msgstr[0] "1 vastaus"
 msgstr[1] "%1 vastausta"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:674
+#: widgets/room/delegate/messagelistdelegate.cpp:675
 #, kde-format
 msgid "1 message"
 msgid_plural "%1 messages"
 msgstr[0] "1 viesti"
 msgstr[1] "%1 viestiä"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:674
+#: widgets/room/delegate/messagelistdelegate.cpp:675
 #, kde-format
 msgid "No message yet"
 msgstr "Ei vielä viestejä"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:982
+#: widgets/room/delegate/messagelistdelegate.cpp:983
 #, fuzzy, kde-format
 #| msgid "Following"
 msgctxt "@info:tooltip"
 msgid "Following"
 msgstr "Seuraa"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:986
+#: widgets/room/delegate/messagelistdelegate.cpp:987
 #, fuzzy, kde-format
 #| msgid "Message has been pinned"
 msgctxt "@info:tooltip"
 msgid "Message has been pinned"
 msgstr "Viesti on kiinnitetty"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:990
+#: widgets/room/delegate/messagelistdelegate.cpp:991
 #, fuzzy, kde-format
 #| msgid "Message has been starred"
 msgctxt "@info:tooltip"
 msgid "Message has been starred"
 msgstr "Viesti on merkitty tähdellä"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:994
+#: widgets/room/delegate/messagelistdelegate.cpp:995
 #, fuzzy, kde-format
 #| msgid "Reply in Thread"
 msgctxt "@info:tooltip"
 msgid "Reply in Thread"
 msgstr "Vastaa säikeeseen"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:998
+#: widgets/room/delegate/messagelistdelegate.cpp:999
 #, fuzzy, kde-format
 #| msgctxt "@title:window"
 #| msgid "Add Account"
@@ -10363,20 +10336,20 @@ msgstr "Etsi viestejä…"
 msgid "Video Message"
 msgstr "Luo videoviesti"
 
-#: widgets/room/messagelinewidget.cpp:85
-#, fuzzy, kde-format
-#| msgid "Follow Message..."
-msgid "Sound Message"
-msgstr "Seuraa viestiä…"
-
-#: widgets/room/messagelinewidget.cpp:90
+#: widgets/room/messagelinewidget.cpp:84 widgets/room/messagelinewidget.cpp:91
 #, fuzzy, kde-format
 #| msgid "Search messages..."
 msgctxt "@info:tooltip"
 msgid "Send a sound message…"
 msgstr "Etsi viestejä…"
 
-#: widgets/room/messagelinewidget.cpp:97
+#: widgets/room/messagelinewidget.cpp:86
+#, fuzzy, kde-format
+#| msgid "Follow Message..."
+msgid "Sound Message"
+msgstr "Seuraa viestiä…"
+
+#: widgets/room/messagelinewidget.cpp:98
 #, fuzzy, kde-format
 #| msgctxt "@title:window"
 #| msgid "Add Account"
@@ -10384,62 +10357,62 @@ msgctxt "@info:tooltip"
 msgid "Add emoticon…"
 msgstr "Lisää tili"
 
-#: widgets/room/messagelinewidget.cpp:99
+#: widgets/room/messagelinewidget.cpp:100
 #, fuzzy, kde-format
 #| msgctxt "@title:window"
 #| msgid "Add Account"
 msgid "Add Emoticon"
 msgstr "Lisää tili"
 
-#: widgets/room/messagelinewidget.cpp:106
+#: widgets/room/messagelinewidget.cpp:107
 #, fuzzy, kde-format
 #| msgid "Send Message"
 msgctxt "@info:tooltip"
 msgid "Send message"
 msgstr "Lähetä viesti"
 
-#: widgets/room/messagelinewidget.cpp:108
+#: widgets/room/messagelinewidget.cpp:109
 #, kde-format
 msgid "Send Message"
 msgstr "Lähetä viesti"
 
-#: widgets/room/messagelinewidget.cpp:147
+#: widgets/room/messagelinewidget.cpp:148
 #, kde-format
 msgid "Do you want to convert this big text as attachment?"
 msgstr "Haluatko muuntaa tämän pitkän tekstin liitteeksi?"
 
-#: widgets/room/messagelinewidget.cpp:148
+#: widgets/room/messagelinewidget.cpp:149
 #, fuzzy, kde-format
 #| msgid "Message Too Big"
 msgctxt "@title:window"
 msgid "Message Too Big"
 msgstr "Viesti on liian pitkä"
 
-#: widgets/room/messagelinewidget.cpp:249
+#: widgets/room/messagelinewidget.cpp:250
 #, fuzzy, kde-format
 #| msgid "Message Pinned"
 msgid "Message %1 in thread"
 msgstr "Viesti kiinnitetty"
 
-#: widgets/room/messagelinewidget.cpp:249
+#: widgets/room/messagelinewidget.cpp:250
 #, fuzzy, kde-format
-#| msgid "Message"
-msgid "Message %1"
-msgstr "Viesti"
+#| msgid "Search messages..."
+msgid "Send a message in %1…"
+msgstr "Etsi viestejä…"
 
-#: widgets/room/messagelinewidget.cpp:390
+#: widgets/room/messagelinewidget.cpp:391
 #, kde-format
 msgid "File selected is too big (Maximum size %1)"
 msgstr "Valittu tiedosto on liian iso (enimmäiskoko %1)"
 
-#: widgets/room/messagelinewidget.cpp:391
+#: widgets/room/messagelinewidget.cpp:392
 #, fuzzy, kde-format
 #| msgid "File upload"
 msgctxt "@title:window"
 msgid "File upload"
 msgstr "Tiedoston lähetys"
 
-#: widgets/room/messagelinewidget.cpp:396
+#: widgets/room/messagelinewidget.cpp:397
 #, kde-format
 msgid "Server doesn't authorized this file (invalid mimetype)"
 msgstr "Palvelin ei valtuuta tätä tiedostoa (virheellinen MIME-tyyppi)"
@@ -10552,67 +10525,67 @@ msgctxt "@action"
 msgid "User Info"
 msgstr "Käyttäjän tiedot"
 
-#: widgets/room/messagelistview.cpp:429
+#: widgets/room/messagelistview.cpp:430
 #, fuzzy, kde-format
 #| msgid "Start a Discussion"
 msgctxt "@action"
 msgid "Start a Discussion"
 msgstr "Aloita keskustelu"
 
-#: widgets/room/messagelistview.cpp:435
+#: widgets/room/messagelistview.cpp:436
 #, fuzzy, kde-format
 #| msgid "Reply in Thread"
 msgctxt "@action"
 msgid "Reply in Thread"
 msgstr "Vastaa säikeeseen"
 
-#: widgets/room/messagelistview.cpp:491
+#: widgets/room/messagelistview.cpp:492
 #, fuzzy, kde-format
 #| msgid "Show Original Message"
 msgctxt "@action"
 msgid "Show Original Message"
 msgstr "Näytä alkuperäinen viesti"
 
-#: widgets/room/messagelistview.cpp:491
+#: widgets/room/messagelistview.cpp:492
 #, fuzzy, kde-format
 #| msgid "Translate Message"
 msgctxt "@action"
 msgid "Translate Message"
 msgstr "Käännä viesti"
 
-#: widgets/room/messagelistview.cpp:534
+#: widgets/room/messagelistview.cpp:535
 #, fuzzy, kde-format
 #| msgid "Report a Bug"
 msgctxt "@action"
 msgid "View Reports"
 msgstr "Ilmoita ohjelmavirheestä"
 
-#: widgets/room/messagelistview.cpp:557
+#: widgets/room/messagelistview.cpp:558
 #, fuzzy, kde-format
 #| msgid "Report a Bug"
 msgctxt "@action"
 msgid "Dismiss Reports"
 msgstr "Ilmoita ohjelmavirheestä"
 
-#: widgets/room/messagelistview.cpp:635
+#: widgets/room/messagelistview.cpp:636
 #, fuzzy, kde-format
 #| msgid "Report Message"
 msgctxt "@action"
 msgid "Report Message"
 msgstr "Ilmoita viestistä"
 
-#: widgets/room/messagelistview.cpp:831
+#: widgets/room/messagelistview.cpp:832
 #, kde-format
 msgid "Do you want to delete this message?"
 msgstr "Haluatko poistaa tämän viestin?"
 
-#: widgets/room/messagelistview.cpp:832
+#: widgets/room/messagelistview.cpp:833
 #, kde-format
 msgctxt "@title"
 msgid "Delete Message"
 msgstr "Poista viesti"
 
-#: widgets/room/messagelistview.cpp:981
+#: widgets/room/messagelistview.cpp:982
 #, fuzzy, kde-format
 #| msgid "Translator Error"
 msgctxt "@title:window"
@@ -10798,19 +10771,19 @@ msgstr "Vastataan säikeeseen"
 msgid "Reply in Thread for Message: '%1'"
 msgstr "Vastaa säikeessä viestiin: ”%1”"
 
-#: widgets/room/roomwidget.cpp:335
+#: widgets/room/roomwidget.cpp:332
 #, kde-format
 msgid "Do you want really remove history?"
 msgstr "Haluatko varmasti poistaa historian?"
 
-#: widgets/room/roomwidget.cpp:336
+#: widgets/room/roomwidget.cpp:333
 #, fuzzy, kde-format
 #| msgid "Remove History"
 msgctxt "@title:window"
 msgid "Remove History"
 msgstr "Poista historia"
 
-#: widgets/room/roomwidget.cpp:506
+#: widgets/room/roomwidget.cpp:503
 #, kde-format
 msgid ""
 "A workspace admin needs to install and configure a conference call apps."
@@ -10818,7 +10791,7 @@ msgstr ""
 "Työtilan ylläpitäjän on asennettava ja määritettävä "
 "konferenssipuhelusovellus."
 
-#: widgets/room/roomwidget.cpp:507
+#: widgets/room/roomwidget.cpp:504
 #, fuzzy, kde-format
 #| msgid "Video Conference"
 msgctxt "@title:window"
@@ -11976,6 +11949,78 @@ msgstr "Joitakin tämän Ruqola-julkaisua uusia ominaisuuksia ovat:"
 #, kde-format
 msgid "Some bug fixing:"
 msgstr "Joitakin virheenkorjauksia:"
+
+#~ msgid "Username or Email:"
+#~ msgstr "Käyttäjätunnus tai sähköposti:"
+
+#, fuzzy
+#~| msgid "Show images by default"
+#~ msgctxt "@option:check"
+#~ msgid "Show images by default"
+#~ msgstr "Näytä kuvat oletusarvoisesti"
+
+#, fuzzy
+#~| msgid "Show images by default"
+#~ msgctxt "@option:check"
+#~ msgid "Show preview url by default"
+#~ msgstr "Näytä kuvat oletusarvoisesti"
+
+#, fuzzy
+#~| msgid "Mark room as read when clicking to write a reply"
+#~ msgctxt "@option:check"
+#~ msgid "Mark room as read when clicking to write a reply"
+#~ msgstr "Merkitse huone luetuksi viestiin vastattaessa"
+
+#, fuzzy
+#~| msgid "Enable system tray icon"
+#~ msgctxt "@option:check"
+#~ msgid "Enable system tray icon"
+#~ msgstr "Näytä ilmoitusaluekuvake"
+
+#, fuzzy
+#~| msgid "Enable logging"
+#~ msgctxt "@option:check"
+#~ msgid "Enable logging"
+#~ msgstr "Käytä lokia"
+
+#, fuzzy
+#~| msgid "Show hover highlights"
+#~ msgctxt "@option:check"
+#~ msgid "Show hover highlights"
+#~ msgstr "Näytä korostukset hiiren ollessa yllä"
+
+#, fuzzy
+#~| msgid "Animate Gif Image"
+#~ msgctxt "@option:check"
+#~ msgid "Animate Gif Image"
+#~ msgstr "Animoi Gif-kuva"
+
+#, fuzzy
+#~| msgid "Store Message in Local Database"
+#~ msgctxt "@option:check"
+#~ msgid "Use local dataBase (experimental)"
+#~ msgstr "Talleta viestit paikalliseen tietokantaan"
+
+#~ msgctxt "@title Preferences page name"
+#~ msgid "Account"
+#~ msgstr "Tili"
+
+#, fuzzy
+#~| msgid "Connecting"
+#~ msgctxt "@action:button"
+#~ msgid "Connection"
+#~ msgstr "Yhdistetään"
+
+#, fuzzy
+#~| msgid "Server Url:"
+#~ msgctxt "@label:textbox"
+#~ msgid "Server Url:"
+#~ msgstr "Palvelimen osoite:"
+
+#, fuzzy
+#~| msgid "Message"
+#~ msgid "Message %1"
+#~ msgstr "Viesti"
 
 #, fuzzy
 #~| msgid "Mark As Read"
