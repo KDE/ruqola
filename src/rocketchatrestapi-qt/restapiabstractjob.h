@@ -19,6 +19,16 @@ namespace RocketChatRestApi
 class RestApiMethod;
 class AbstractLogger;
 
+inline static const QList<QNetworkReply::NetworkError> &networkErrorsNeedingReconnect()
+{
+    static const QList<QNetworkReply::NetworkError> sNetworkErrorsNeedingReconnect = {QNetworkReply::NetworkSessionFailedError,
+                                                                                      QNetworkReply::HostNotFoundError,
+                                                                                      QNetworkReply::TemporaryNetworkFailureError,
+                                                                                      QNetworkReply::UnknownNetworkError}; // maybe others need to be added
+
+    return sNetworkErrorsNeedingReconnect;
+}
+
 class LIBROCKETCHATRESTAPI_QT_EXPORT QueryParameters
 {
 public:

@@ -227,7 +227,7 @@ void Connection::slotResult(QNetworkReply *reply)
         const auto jobClassName = reply->property("jobClassName").value<QByteArray>();
         qCWarning(RUQOLA_LOG) << jobClassName << "error reply: " << reply->errorString() << " ERROR type " << error;
 
-        if (error == QNetworkReply::NetworkSessionFailedError && !mSessionFailed) {
+        if (RocketChatRestApi::networkErrorsNeedingReconnect().contains(error) && !mSessionFailed) {
             mSessionFailed = true;
             QTimer::singleShot(1ms, this, [this] {
                 Q_EMIT networkSessionFailedError();

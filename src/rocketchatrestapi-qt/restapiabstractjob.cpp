@@ -15,6 +15,7 @@ using namespace Qt::Literals::StringLiterals;
 #include <QUrlQuery>
 
 using namespace RocketChatRestApi;
+
 RestApiAbstractJob::RestApiAbstractJob(QObject *parent)
     : QObject(parent)
 {
@@ -487,7 +488,7 @@ void RestApiAbstractJob::genericResponseHandler(void (RestApiAbstractJob::*respo
 
     const auto error = mReply->error();
     if (error != QNetworkReply::NoError) {
-        if (error == QNetworkReply::NetworkSessionFailedError) {
+        if (networkErrorsNeedingReconnect().contains(error)) {
             // Ignore NetworkSessionFailedError. It will be handled in Connection class.
             // no deleting, we will be trying to destroy everything and relogin
             // reply will be invalid at this point, deleting it will crash us
