@@ -435,8 +435,8 @@ bool MessageListDelegate::contextMenu(const QStyleOptionViewItem &option, const 
             if (info.roomType != Room::RoomType::Direct) {
                 if (mRocketChatAccount->hasPermission(QStringLiteral("create-d"))) {
                     menu.addSeparator();
-                    auto startPrivateConversationAction = new QAction(i18nc("@action", "Start a Private Conversation"), &menu);
-                    startPrivateConversationAction->setIcon(QIcon::fromTheme(QStringLiteral("document-send-symbolic")));
+                    auto startPrivateConversationAction =
+                        new QAction(QIcon::fromTheme(QStringLiteral("document-send-symbolic")), i18nc("@action", "Start a Private Conversation"), &menu);
                     connect(startPrivateConversationAction, &QAction::triggered, this, [this, message]() {
                         Q_EMIT startPrivateConversation(message->username());
                     });

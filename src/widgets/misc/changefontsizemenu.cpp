@@ -16,15 +16,13 @@ ChangeFontSizeMenu::ChangeFontSizeMenu(QObject *parent)
 {
     setText(i18n("Font Size"));
 
-    auto increaseFontSizeAction = new QAction(i18nc("@action", "Increase Font"), this);
-    increaseFontSizeAction->setIcon(QIcon::fromTheme(QStringLiteral("zoom-in")));
+    auto increaseFontSizeAction = new QAction(QIcon::fromTheme(QStringLiteral("zoom-in")), i18nc("@action", "Increase Font"), this);
     increaseFontSizeAction->setShortcut(Qt::CTRL | Qt::Key_Plus);
     menu()->addAction(increaseFontSizeAction);
     connect(increaseFontSizeAction, &QAction::triggered, this, [this]() {
         changeFontSize(+1);
     });
-    auto decreaseFontSizeAction = new QAction(i18nc("@action", "Decrease Font"), this);
-    decreaseFontSizeAction->setIcon(QIcon::fromTheme(QStringLiteral("zoom-out")));
+    auto decreaseFontSizeAction = new QAction(QIcon::fromTheme(QStringLiteral("zoom-out")), i18nc("@action", "Decrease Font"), this);
     decreaseFontSizeAction->setShortcut(Qt::CTRL | Qt::Key_Minus);
     menu()->addAction(decreaseFontSizeAction);
     connect(decreaseFontSizeAction, &QAction::triggered, this, [this]() {

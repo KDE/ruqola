@@ -1130,8 +1130,7 @@ void RuqolaMainWindow::slotUpdateCustomUserStatus()
 
         for (int i = 0; i < mStatusProxyModel->rowCount(); i++) {
             const QModelIndex index = mStatusProxyModel->index(i, 0);
-            QAction *action = mContextStatusMenu->addAction(index.data(Qt::DisplayRole).toString());
-            action->setIcon(index.data(Qt::DecorationRole).value<QIcon>());
+            QAction *action = mContextStatusMenu->addAction(index.data(Qt::DecorationRole).value<QIcon>(), index.data(Qt::DisplayRole).toString());
 
             connect(action, &QAction::triggered, this, [this, index] {
                 mStatusComboBox->setStatus(index.data(StatusModel::StatusRoles::Status).value<User::PresenceStatus>());
