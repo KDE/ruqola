@@ -322,7 +322,7 @@ void DDPClient::start()
         const QUrl serverUrl = adaptUrl(mUrl);
         if (serverUrl.isValid()) {
             mWebSocket->openUrl(serverUrl);
-            qCDebug(RUQOLA_DDPAPI_LOG) << "Trying to connect to URL" << serverUrl;
+            qCDebug(RUQOLA_RECONNECT_LOG) << "Trying to connect to URL" << serverUrl;
             Q_EMIT connecting();
         }
     } else {
@@ -333,7 +333,7 @@ void DDPClient::start()
 void DDPClient::connectWebSocket()
 {
     mWebSocket->openUrl(adaptUrl(mUrl));
-    qCDebug(RUQOLA_DDPAPI_LOG) << "Reconnecting" << mUrl;
+    qCDebug(RUQOLA_RECONNECT_LOG) << "Reconnecting" << mUrl;
 }
 
 QUrl DDPClient::adaptUrl(const QString &url)
