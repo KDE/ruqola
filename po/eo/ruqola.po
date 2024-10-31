@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-10-30 02:29+0000\n"
+"POT-Creation-Date: 2024-10-31 02:30+0000\n"
 "PO-Revision-Date: 2024-05-30 07:49+0200\n"
 "Last-Translator: Oliver Kellogg <olivermkellogg@gmail.com>\n"
 "Language-Team: Esperanto <kde-i18n-eo.org>\n"
@@ -979,7 +979,7 @@ msgstr "Kanala Tipo"
 msgid "Belongs To"
 msgstr "Apartenas Al"
 
-#: core/model/directoryteamsmodel.cpp:92 core/model/roommodel.cpp:537
+#: core/model/directoryteamsmodel.cpp:92 core/model/roommodel.cpp:540
 #: widgets/administratordialog/administratorwidget.cpp:53
 #: widgets/administratordialog/roles/rolescopecombobox.cpp:13
 #, kde-format
@@ -1142,80 +1142,80 @@ msgstr "Dufaktora Aŭtentigo"
 msgid "Last token part"
 msgstr "Lasta simbola parto"
 
-#: core/model/roommodel.cpp:456
+#: core/model/roommodel.cpp:459
 #, kde-format
 msgid "%1 Mention"
 msgid_plural "%1 Mentions"
 msgstr[0] "%1 Mencio"
 msgstr[1] "%1 Mencioj"
 
-#: core/model/roommodel.cpp:460
+#: core/model/roommodel.cpp:463
 #, kde-format
 msgid "%1 Group Mention"
 msgid_plural "%1 Group Mentions"
 msgstr[0] "%1 Grupmencio"
 msgstr[1] "%1 Grupmencioj"
 
-#: core/model/roommodel.cpp:464
+#: core/model/roommodel.cpp:467
 #, kde-format
 msgid "%1 Unread Threaded Message"
 msgid_plural "%1 Unread Threaded Messages"
 msgstr[0] "%1 Nelegita Fadenmesaĝo"
 msgstr[1] "%1 Nelegitaj Fadenmesaĝoj"
 
-#: core/model/roommodel.cpp:468
+#: core/model/roommodel.cpp:471
 #, kde-format
 msgid "%1 Unread Message"
 msgid_plural "%1 Unread Messages"
 msgstr[0] "%1 Nelegita Mesaĝo"
 msgstr[1] "%1 Nelegitaj Mesaĝoj"
 
-#: core/model/roommodel.cpp:494
+#: core/model/roommodel.cpp:497
 #, kde-format
 msgid "Teams Room"
 msgstr "Ĉambro de Teamoj"
 
-#: core/model/roommodel.cpp:500
+#: core/model/roommodel.cpp:503
 #, kde-format
 msgid "Private Room"
 msgstr "Privata Ĉambro"
 
-#: core/model/roommodel.cpp:502
+#: core/model/roommodel.cpp:505
 #, kde-format
 msgid "Discussion Room"
 msgstr "Diskutejo"
 
-#: core/model/roommodel.cpp:506
+#: core/model/roommodel.cpp:509
 #, kde-format
 msgid "Channel Room"
 msgstr "Kanala Ĉambro"
 
-#: core/model/roommodel.cpp:531
+#: core/model/roommodel.cpp:534
 #, kde-format
 msgid "Unread"
 msgstr "Nelegita"
 
-#: core/model/roommodel.cpp:533
+#: core/model/roommodel.cpp:536
 #, kde-format
 msgid "Favorites"
 msgstr "Plej ŝatataj"
 
-#: core/model/roommodel.cpp:535
+#: core/model/roommodel.cpp:538
 #, kde-format
 msgid "Teams"
 msgstr "Teamoj"
 
-#: core/model/roommodel.cpp:539
+#: core/model/roommodel.cpp:542
 #, kde-format
 msgid "Discussions"
 msgstr "Diskutoj"
 
-#: core/model/roommodel.cpp:541
+#: core/model/roommodel.cpp:544
 #, kde-format
 msgid "Private Messages"
 msgstr "Privataj Mesaĝoj"
 
-#: core/model/roommodel.cpp:543
+#: core/model/roommodel.cpp:546
 #, kde-format
 msgid "Unknown"
 msgstr "Nekonata"
@@ -10375,18 +10375,18 @@ msgstr "Respondante en fadeno"
 msgid "Reply in Thread for Message: '%1'"
 msgstr "Respondi en Fadeno por Mesaĝo: '%1'"
 
-#: widgets/room/roomwidget.cpp:328
+#: widgets/room/roomwidget.cpp:325
 #, kde-format
 msgid "Do you want really remove history?"
 msgstr "Ĉu vi vere volas forigi la historion?"
 
-#: widgets/room/roomwidget.cpp:329
+#: widgets/room/roomwidget.cpp:326
 #, kde-format
 msgctxt "@title:window"
 msgid "Remove History"
 msgstr "Forigi Historion"
 
-#: widgets/room/roomwidget.cpp:499
+#: widgets/room/roomwidget.cpp:496
 #, kde-format
 msgid ""
 "A workspace admin needs to install and configure a conference call apps."
@@ -10394,7 +10394,7 @@ msgstr ""
 "Administranto de laborspaco devas instali kaj agordi programojn pri "
 "konferencovoko."
 
-#: widgets/room/roomwidget.cpp:500
+#: widgets/room/roomwidget.cpp:497
 #, fuzzy, kde-format
 #| msgid "Video Conference"
 msgctxt "@title:window"

@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-10-30 02:29+0000\n"
+"POT-Creation-Date: 2024-10-31 02:30+0000\n"
 "PO-Revision-Date: 2024-10-20 11:04+0200\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
 "Language-Team: French <French <kde-francophone@kde.org>>\n"
@@ -968,7 +968,7 @@ msgstr "Type de canal"
 msgid "Belongs To"
 msgstr "Appartient à"
 
-#: core/model/directoryteamsmodel.cpp:92 core/model/roommodel.cpp:537
+#: core/model/directoryteamsmodel.cpp:92 core/model/roommodel.cpp:540
 #: widgets/administratordialog/administratorwidget.cpp:53
 #: widgets/administratordialog/roles/rolescopecombobox.cpp:13
 #, kde-format
@@ -1132,80 +1132,80 @@ msgstr "Authentification à deux facteurs"
 msgid "Last token part"
 msgstr "Dernière partie du jeton"
 
-#: core/model/roommodel.cpp:456
+#: core/model/roommodel.cpp:459
 #, kde-format
 msgid "%1 Mention"
 msgid_plural "%1 Mentions"
 msgstr[0] "Citation %1"
 msgstr[1] "%1 citations"
 
-#: core/model/roommodel.cpp:460
+#: core/model/roommodel.cpp:463
 #, kde-format
 msgid "%1 Group Mention"
 msgid_plural "%1 Group Mentions"
 msgstr[0] "Citation de groupe %1"
 msgstr[1] "%1 citations de groupe"
 
-#: core/model/roommodel.cpp:464
+#: core/model/roommodel.cpp:467
 #, kde-format
 msgid "%1 Unread Threaded Message"
 msgid_plural "%1 Unread Threaded Messages"
 msgstr[0] "message %1 non lu dans le fil de discussions"
 msgstr[1] "%1 messages non lus dans le fil de discussions"
 
-#: core/model/roommodel.cpp:468
+#: core/model/roommodel.cpp:471
 #, kde-format
 msgid "%1 Unread Message"
 msgid_plural "%1 Unread Messages"
 msgstr[0] "message non lu %1"
 msgstr[1] "%1 messages non lus"
 
-#: core/model/roommodel.cpp:494
+#: core/model/roommodel.cpp:497
 #, kde-format
 msgid "Teams Room"
 msgstr "Salons pour des équipes"
 
-#: core/model/roommodel.cpp:500
+#: core/model/roommodel.cpp:503
 #, kde-format
 msgid "Private Room"
 msgstr "Salon privé"
 
-#: core/model/roommodel.cpp:502
+#: core/model/roommodel.cpp:505
 #, kde-format
 msgid "Discussion Room"
 msgstr "Salon de discussions"
 
-#: core/model/roommodel.cpp:506
+#: core/model/roommodel.cpp:509
 #, kde-format
 msgid "Channel Room"
 msgstr "Salon de canal"
 
-#: core/model/roommodel.cpp:531
+#: core/model/roommodel.cpp:534
 #, kde-format
 msgid "Unread"
 msgstr "Non lu"
 
-#: core/model/roommodel.cpp:533
+#: core/model/roommodel.cpp:536
 #, kde-format
 msgid "Favorites"
 msgstr "Favoris"
 
-#: core/model/roommodel.cpp:535
+#: core/model/roommodel.cpp:538
 #, kde-format
 msgid "Teams"
 msgstr "Équipes"
 
-#: core/model/roommodel.cpp:539
+#: core/model/roommodel.cpp:542
 #, kde-format
 msgid "Discussions"
 msgstr "Discussions"
 
-#: core/model/roommodel.cpp:541
+#: core/model/roommodel.cpp:544
 #, kde-format
 msgid "Private Messages"
 msgstr "Messages privés"
 
-#: core/model/roommodel.cpp:543
+#: core/model/roommodel.cpp:546
 #, kde-format
 msgid "Unknown"
 msgstr "Inconnu"
@@ -10029,18 +10029,18 @@ msgstr "Réponse dans le fil de discussions"
 msgid "Reply in Thread for Message: '%1'"
 msgstr "Répondre dans le fil de discussion pour le message : « %1 »"
 
-#: widgets/room/roomwidget.cpp:328
+#: widgets/room/roomwidget.cpp:325
 #, kde-format
 msgid "Do you want really remove history?"
 msgstr "Voulez-vous vraiment supprimer l'historique ?"
 
-#: widgets/room/roomwidget.cpp:329
+#: widgets/room/roomwidget.cpp:326
 #, kde-format
 msgctxt "@title:window"
 msgid "Remove History"
 msgstr "Supprimer l'historique"
 
-#: widgets/room/roomwidget.cpp:499
+#: widgets/room/roomwidget.cpp:496
 #, kde-format
 msgid ""
 "A workspace admin needs to install and configure a conference call apps."
@@ -10048,7 +10048,7 @@ msgstr ""
 "Un administrateur d'espace de travail doit installer et configurer des "
 "applications de conférence téléphonique."
 
-#: widgets/room/roomwidget.cpp:500
+#: widgets/room/roomwidget.cpp:497
 #, kde-format
 msgctxt "@title:window"
 msgid "Video Conference"

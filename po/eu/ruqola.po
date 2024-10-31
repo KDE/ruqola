@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-10-30 02:29+0000\n"
+"POT-Creation-Date: 2024-10-31 02:30+0000\n"
 "PO-Revision-Date: 2024-10-05 21:19+0200\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
@@ -972,7 +972,7 @@ msgstr "Kanal-mota"
 msgid "Belongs To"
 msgstr "Honi dagokio,"
 
-#: core/model/directoryteamsmodel.cpp:92 core/model/roommodel.cpp:537
+#: core/model/directoryteamsmodel.cpp:92 core/model/roommodel.cpp:540
 #: widgets/administratordialog/administratorwidget.cpp:53
 #: widgets/administratordialog/roles/rolescopecombobox.cpp:13
 #, kde-format
@@ -1135,80 +1135,80 @@ msgstr "Bi faktoreko kautotzea"
 msgid "Last token part"
 msgstr "Tokenaren azken zatia"
 
-#: core/model/roommodel.cpp:456
+#: core/model/roommodel.cpp:459
 #, kde-format
 msgid "%1 Mention"
 msgid_plural "%1 Mentions"
 msgstr[0] "Aipamen %1"
 msgstr[1] "%1 aipamen"
 
-#: core/model/roommodel.cpp:460
+#: core/model/roommodel.cpp:463
 #, kde-format
 msgid "%1 Group Mention"
 msgid_plural "%1 Group Mentions"
 msgstr[0] "Taldearen aipamen %1"
 msgstr[1] "Taldearen %1 aipamen"
 
-#: core/model/roommodel.cpp:464
+#: core/model/roommodel.cpp:467
 #, kde-format
 msgid "%1 Unread Threaded Message"
 msgid_plural "%1 Unread Threaded Messages"
 msgstr[0] "Hariko mezu %1 irakurri gabe"
 msgstr[1] "Hariko %1 mezu irakurri gabe"
 
-#: core/model/roommodel.cpp:468
+#: core/model/roommodel.cpp:471
 #, kde-format
 msgid "%1 Unread Message"
 msgid_plural "%1 Unread Messages"
 msgstr[0] "Irakurri gabeko mezu %1"
 msgstr[1] "Irakurri gabeko %1 mezu"
 
-#: core/model/roommodel.cpp:494
+#: core/model/roommodel.cpp:497
 #, kde-format
 msgid "Teams Room"
 msgstr "Taldearen gela"
 
-#: core/model/roommodel.cpp:500
+#: core/model/roommodel.cpp:503
 #, kde-format
 msgid "Private Room"
 msgstr "Gela pribatua"
 
-#: core/model/roommodel.cpp:502
+#: core/model/roommodel.cpp:505
 #, kde-format
 msgid "Discussion Room"
 msgstr "Elkarrizketa-gela"
 
-#: core/model/roommodel.cpp:506
+#: core/model/roommodel.cpp:509
 #, kde-format
 msgid "Channel Room"
 msgstr "Kanalaren gela"
 
-#: core/model/roommodel.cpp:531
+#: core/model/roommodel.cpp:534
 #, kde-format
 msgid "Unread"
 msgstr "Irakurri gabea"
 
-#: core/model/roommodel.cpp:533
+#: core/model/roommodel.cpp:536
 #, kde-format
 msgid "Favorites"
 msgstr "Gogokoak"
 
-#: core/model/roommodel.cpp:535
+#: core/model/roommodel.cpp:538
 #, kde-format
 msgid "Teams"
 msgstr "Taldeak"
 
-#: core/model/roommodel.cpp:539
+#: core/model/roommodel.cpp:542
 #, kde-format
 msgid "Discussions"
 msgstr "Eztabaidak"
 
-#: core/model/roommodel.cpp:541
+#: core/model/roommodel.cpp:544
 #, kde-format
 msgid "Private Messages"
 msgstr "Mezu pribatua"
 
-#: core/model/roommodel.cpp:543
+#: core/model/roommodel.cpp:546
 #, kde-format
 msgid "Unknown"
 msgstr "Ezezaguna"
@@ -9960,18 +9960,18 @@ msgstr "Hari batean erantzutea"
 msgid "Reply in Thread for Message: '%1'"
 msgstr "Erantzun harian mezuari: '%1'"
 
-#: widgets/room/roomwidget.cpp:328
+#: widgets/room/roomwidget.cpp:325
 #, kde-format
 msgid "Do you want really remove history?"
 msgstr "Historia benetan kendu nahi duzu?"
 
-#: widgets/room/roomwidget.cpp:329
+#: widgets/room/roomwidget.cpp:326
 #, kde-format
 msgctxt "@title:window"
 msgid "Remove History"
 msgstr "Kendu historia"
 
-#: widgets/room/roomwidget.cpp:499
+#: widgets/room/roomwidget.cpp:496
 #, kde-format
 msgid ""
 "A workspace admin needs to install and configure a conference call apps."
@@ -9979,7 +9979,7 @@ msgstr ""
 "Langunearen administratzaile batek konferentzia aplikazio bat instalatu eta "
 "konfiguratu behar du."
 
-#: widgets/room/roomwidget.cpp:500
+#: widgets/room/roomwidget.cpp:497
 #, kde-format
 msgctxt "@title:window"
 msgid "Video Conference"
