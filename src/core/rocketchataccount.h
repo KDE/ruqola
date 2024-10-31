@@ -619,7 +619,6 @@ Q_SIGNALS:
     void bannerInfoChanged();
     void privateSettingsChanged();
     void updateMessageFailed(const QString &str);
-    void wsClosedSocketError();
     void activitiesChanged();
     void appsMarkPlaceLoadDone();
     void needToSaveE2EPassword();
