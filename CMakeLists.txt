@@ -44,6 +44,7 @@ option(OPTION_USE_ROUNDED_RECT_PIXMAP "Show avatar in a rounded rect" ON)
 option(OPTION_USE_PERSONAL_ACCESS_TOKEN "Activate Personal Access Token Support" ON)
 option(OPTION_USE_PLASMA_ACTIVITIES "Activate plasma activities" ON)
 option(OPTION_USE_E2E_SUPPORT "E2E support (experimental)" OFF)
+option(OPTION_DISABLE_NETWORKMANAGER "Disable Network Manager support (mainly for debugging)" OFF)
 
 
 if(OPTION_USE_PLASMA_ACTIVITIES)
@@ -264,10 +265,14 @@ if(KF6Solid_FOUND)
 endif()
 set_package_properties(KF6Solid PROPERTIES DESCRIPTION "Device integration framework" TYPE OPTIONAL PURPOSE "Allows detecting suspend and resume.")
 
-find_package(KF6NetworkManagerQt ${KF_MIN_VERSION} CONFIG)
-set(HAVE_NETWORKMANAGER ${KF6NetworkManagerQt_FOUND})
-set_package_properties(KF6NetworkManagerQt PROPERTIES DESCRIPTION "Network management lib" TYPE OPTIONAL PURPOSE "Allows detecting network state changes.")
 
+if(OPTION_DISABLE_NETWORKMANAGER)
+    set(HAVE_NETWORKMANAGER FALSE)
+else()    
+    find_package(KF6NetworkManagerQt ${KF_MIN_VERSION} CONFIG)
+    set(HAVE_NETWORKMANAGER ${KF6NetworkManagerQt_FOUND})
+    set_package_properties(KF6NetworkManagerQt PROPERTIES DESCRIPTION "Network management lib" TYPE OPTIONAL PURPOSE "Allows detecting network state changes.")
+endif()
 
 include_directories(${CMAKE_CURRENT_BINARY_DIR})
 ecm_set_disabled_deprecation_versions(QT 6.8
