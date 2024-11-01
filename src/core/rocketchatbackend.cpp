@@ -474,11 +474,6 @@ void RocketChatBackend::tryAutoLogin()
     }
 }
 
-QList<File> RocketChatBackend::files() const
-{
-    return mFiles;
-}
-
 QList<User> RocketChatBackend::users() const
 {
     return mUsers;
@@ -553,6 +548,8 @@ void RocketChatBackend::slotAdded(const QJsonObject &object)
         user.parseUser(object);
         mUsers.append(std::move(user));
     } else if (collection == "room_files"_L1) {
+        qWarning() << " Necessary to implement room_files !!!!!";
+        /*
         if (mRocketChatAccount->ruqolaLogger()) {
             QJsonDocument d;
             d.setObject(object);
@@ -563,6 +560,7 @@ void RocketChatBackend::slotAdded(const QJsonObject &object)
         File file;
         file.parseFile(object, false);
         mFiles.append(std::move(file));
+        */
     } else if (collection == "stream-notify-room"_L1) {
         // qCDebug(RUQOLA_UNKNOWN_COLLECTIONTYPE_LOG) << mRocketChatAccount->accountName() << ":stream-notify-room not implemented: "<< object;
     } else if (collection == "stream-notify-logged"_L1) {

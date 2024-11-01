@@ -33,8 +33,6 @@ public:
 
     [[nodiscard]] QList<User> users() const;
 
-    [[nodiscard]] QList<File> files() const;
-
     void loadPublicSettingsAdministrator(qint64 timeStamp = -1);
 
     void addMessagesFromLocalDataBase(const QList<Message> &messages);
@@ -62,6 +60,5 @@ private:
     LIBRUQOLACORE_NO_EXPORT void initializeSubscription(DDPClient *ddp);
 
     QList<User> mUsers;
-    QList<File> mFiles;
     RocketChatAccount *const mRocketChatAccount;
 };
