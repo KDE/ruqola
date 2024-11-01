@@ -118,8 +118,6 @@
 #include "2fa/user2faenableemailjob.h"
 #include "2fa/user2fasendemailcodejob.h"
 
-#include "misc/statisticsjob.h"
-
 #include <QNetworkAccessManager>
 #include <QNetworkCookie>
 #include <QNetworkCookieJar>
@@ -1851,17 +1849,6 @@ void Connection::resetAvatar(const UserBaseJob::UserInfo &info)
     connect(job, &ResetAvatarJob::resetAvatarDone, this, &Connection::resetAvatarDone);
     if (!job->start()) {
         qCDebug(RUQOLA_LOG) << "Impossible to start ResetAvatarJob";
-    }
-}
-
-void Connection::statistics(bool refresh)
-{
-    auto job = new StatisticsJob(this);
-    job->setRefresh(refresh);
-    initializeRestApiJob(job);
-    connect(job, &StatisticsJob::statisticDone, this, &Connection::statisticDone);
-    if (!job->start()) {
-        qCDebug(RUQOLA_LOG) << "Impossible to start StatisticsJob";
     }
 }
 

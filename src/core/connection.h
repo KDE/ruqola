@@ -184,7 +184,6 @@ public:
     void deleteCustomUserStatus(const QByteArray &customUserStatusId);
     void updateCustomUserStatus(const RocketChatRestApi::CustomUserStatusUpdateJob::StatusUpdateInfo &statusUpdateInfo);
     void resetAvatar(const RocketChatRestApi::UserBaseJob::UserInfo &info);
-    void statistics(bool refresh);
     void searchRooms(const QString &pattern);
     void getMentionedMessages(const QByteArray &roomId, int offset = 0, int count = 50);
     void hideMentionStatus(const QByteArray &roomId, bool value);
@@ -263,7 +262,6 @@ Q_SIGNALS:
     void customUserUpdateDone();
     void postMessageDone(const QJsonObject &replyObject);
     void resetAvatarDone();
-    void statisticDone(const QJsonObject &replyObject);
     void updateMessageFailed(const QString &str);
     void forgotPasswordDone();
 
