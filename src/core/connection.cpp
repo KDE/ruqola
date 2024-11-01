@@ -54,8 +54,6 @@
 #include "channels/changechannelannouncementjob.h"
 #include "channels/changechanneldescriptionjob.h"
 #include "channels/changechannelnamejob.h"
-#include "channels/changechannelreadonlyjob.h"
-#include "channels/changechanneltopicjob.h"
 #include "channels/channeladdleaderjob.h"
 #include "channels/channeladdmoderatorjob.h"
 #include "channels/channeladdownerjob.h"
@@ -78,8 +76,6 @@
 #include "channels/setjoincodechanneljob.h"
 
 #include "groups/archivegroupsjob.h"
-#include "groups/changegroupsannouncementjob.h"
-#include "groups/changegroupsdescriptionjob.h"
 #include "groups/changegroupsencryptedjob.h"
 #include "groups/changegroupsnamejob.h"
 #include "groups/changegroupsreadonlyjob.h"
@@ -112,8 +108,6 @@
 #include "subscriptions/markroomasunreadjob.h"
 
 #include "permissions/permissionslistalljob.h"
-
-#include "commands/getcommandsjob.h"
 
 #include "autotranslate/translatesavesettingsjob.h"
 
@@ -389,17 +383,6 @@ void Connection::serverInfo()
     }
 }
 
-void Connection::changeChannelTopic(const QString &roomId, const QString &topic)
-{
-    auto job = new ChangeChannelTopicJob(this);
-    initializeRestApiJob(job);
-    job->setRoomId(roomId);
-    job->setTopic(topic);
-    if (!job->start()) {
-        qCWarning(RUQOLA_LOG) << "Impossible to start ChangeChannelTopicJob job";
-    }
-}
-
 void Connection::changeGroupsTopic(const QString &roomId, const QString &topic)
 {
     auto job = new ChangeGroupsTopicJob(this);
@@ -411,17 +394,6 @@ void Connection::changeGroupsTopic(const QString &roomId, const QString &topic)
     job->setTopic(topic);
     if (!job->start()) {
         qCWarning(RUQOLA_LOG) << "Impossible to start ChangeGroupsTopicJob job";
-    }
-}
-
-void Connection::changeChannelReadOnly(const QString &roomId, bool b)
-{
-    auto job = new ChangeChannelReadonlyJob(this);
-    initializeRestApiJob(job);
-    job->setRoomId(roomId);
-    job->setReadOnly(b);
-    if (!job->start()) {
-        qCWarning(RUQOLA_LOG) << "Impossible to start ChangeChannelReadonlyJob job";
     }
 }
 
@@ -464,20 +436,6 @@ void Connection::changeChannelAnnouncement(const QString &roomId, const QString 
     }
 }
 
-void Connection::changeGroupsAnnouncement(const QString &roomId, const QString &announcement)
-{
-    auto job = new ChangeGroupsAnnouncementJob(this);
-    initializeRestApiJob(job);
-    ChannelGroupBaseJob::ChannelGroupInfo info;
-    info.channelGroupInfoType = ChannelGroupBaseJob::ChannelGroupInfoType::Identifier;
-    info.identifier = roomId;
-    job->setChannelGroupInfo(info);
-    job->setAnnouncement(announcement);
-    if (!job->start()) {
-        qCWarning(RUQOLA_LOG) << "Impossible to start ChangeGroupsAnnouncementJob job";
-    }
-}
-
 void Connection::changeChannelDescription(const QString &roomId, const QString &description)
 {
     auto job = new ChangeChannelDescriptionJob(this);
@@ -486,20 +444,6 @@ void Connection::changeChannelDescription(const QString &roomId, const QString &
     job->setDescription(description);
     if (!job->start()) {
         qCWarning(RUQOLA_LOG) << "Impossible to start changeChannelDescription job";
-    }
-}
-
-void Connection::changeGroupsDescription(const QString &roomId, const QString &description)
-{
-    auto job = new ChangeGroupsDescriptionJob(this);
-    initializeRestApiJob(job);
-    ChannelGroupBaseJob::ChannelGroupInfo info;
-    info.channelGroupInfoType = ChannelGroupBaseJob::ChannelGroupInfoType::Identifier;
-    info.identifier = roomId;
-    job->setChannelGroupInfo(info);
-    job->setDescription(description);
-    if (!job->start()) {
-        qCWarning(RUQOLA_LOG) << "Impossible to start changeGroupsDescription job";
     }
 }
 
@@ -1165,17 +1109,6 @@ void Connection::listAllPermissions()
     connect(job, &PermissionsListAllJob::permissionListAllDone, this, &Connection::permissionListAllDone);
     if (!job->start()) {
         qCDebug(RUQOLA_LOG) << "Impossible to start ListPermissionsJob job";
-    }
-}
-
-void Connection::getCommand(const QString &commandName)
-{
-    auto job = new GetCommandsJob(this);
-    initializeRestApiJob(job);
-    job->setCommandName(commandName);
-    connect(job, &GetCommandsJob::getCommandsDone, this, &Connection::getCommandsDone);
-    if (!job->start()) {
-        qCDebug(RUQOLA_LOG) << "Impossible to start GetCommandsJob job";
     }
 }
 

@@ -73,10 +73,8 @@ public:
     void starMessage(const QByteArray &messageId, bool starred);
     RocketChatRestApi::DownloadFileJob *
     downloadFile(const QUrl &url, const QUrl &localFileUrl, const QByteArray &mimeType = "text/plain", bool requiredAuthentication = true);
-    void changeChannelTopic(const QString &roomId, const QString &topic);
     void changeGroupsTopic(const QString &roomId, const QString &topic);
     void changeChannelAnnouncement(const QString &roomId, const QString &announcement);
-    void changeGroupsAnnouncement(const QString &roomId, const QString &announcement);
     void postMessage(const QByteArray &roomId, const QString &text);
     void deleteMessage(const QByteArray &roomId, const QByteArray &messageId);
     void createChannels(const RocketChatRestApi::CreateChannelTeamInfo &info);
@@ -89,7 +87,6 @@ public:
     void createDirectMessage(const QStringList &userName);
     void historyChannel(const QString &roomId, const QString &type);
     void changeChannelDescription(const QString &roomId, const QString &description);
-    void changeGroupsDescription(const QString &roomId, const QString &description);
     void archiveChannel(const QString &roomId, bool archive);
     void filesInRoom(const QByteArray &roomId, const QString &type, int offset = 0, int count = 50);
     void addUserInChannel(const QByteArray &roomId, const QByteArray &userId);
@@ -144,7 +141,6 @@ public:
     void channelDelete(const QByteArray &roomId);
     void groupDelete(const QByteArray &roomId);
     void membersInRoom(const QByteArray &roomId, const QString &type, int offset = 0, int count = 50);
-    void changeChannelReadOnly(const QString &roomId, bool b);
     void changeGroupsReadOnly(const QString &roomId, bool b);
     void channelAddLeader(const QByteArray &roomId, const QString &userId);
     void channelRemoveLeader(const QByteArray &roomId, const QString &userId);
@@ -174,7 +170,6 @@ public:
     void usersAutocomplete(const RocketChatRestApi::UsersAutocompleteJob::UsersAutocompleterInfo &info);
     void findOrCreateInvite(const QByteArray &roomId, int maxUses, int numberOfDays);
     void getMessage(const QByteArray &messageId, const QByteArray &roomId);
-    void getCommand(const QString &commandName);
     void runCommand(const RocketChatRestApi::RunCommandJob::RunCommandInfo &runCommandInfo);
     void sendUserEmailCode(const QString &identifier);
     void deleteOwnAccount(const QString &password);
@@ -214,7 +209,6 @@ Q_SIGNALS:
     void getUsernameSuggestionDone(const QString &username);
     void getPresenceDone(const QString &presence);
     void permissionListAllDone(const QJsonObject &obj);
-    void getCommandsDone(const QJsonObject &obj);
     void setJoinCodeDone();
     void channelGetAllUserMentionsDone(const QJsonObject &obj, const QString &roomId);
     void channelKickUserDone(const QJsonObject &obj);
