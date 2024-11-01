@@ -31,11 +31,8 @@ public:
      */
     void processIncomingMessages(const QJsonArray &messages, bool loadHistory, bool restApi = false);
 
-    void clearUsersList();
-
     [[nodiscard]] QList<User> users() const;
 
-    void clearFilesList();
     [[nodiscard]] QList<File> files() const;
 
     void loadPublicSettingsAdministrator(qint64 timeStamp = -1);

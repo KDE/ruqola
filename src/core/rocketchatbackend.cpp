@@ -839,16 +839,6 @@ void RocketChatBackend::slotChanged(const QJsonObject &object)
     }
 }
 
-void RocketChatBackend::clearFilesList()
-{
-    mFiles.clear();
-}
-
-void RocketChatBackend::clearUsersList()
-{
-    mUsers.clear();
-}
-
 void RocketChatBackend::subscribeRegistration()
 {
     qCDebug(RUQOLA_LOG) << "subscribe registration";
