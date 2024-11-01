@@ -1039,7 +1039,6 @@ void Connection::ignoreUser(const QByteArray &roomId, const QByteArray &userId, 
     job->setIgnoreUserId(userId);
     job->setRoomId(roomId);
     job->setIgnore(ignore);
-    connect(job, &IgnoreUserJob::ignoreUserDone, this, &Connection::ignoreUserDone);
     if (!job->start()) {
         qCWarning(RUQOLA_LOG) << "Impossible to start ignoreUser job";
     }
@@ -1052,7 +1051,6 @@ void Connection::muteUser(const QByteArray &roomId, const QString &userName, boo
         initializeRestApiJob(job);
         job->setUserName(userName);
         job->setRoomId(roomId);
-        // connect(job, &RoomsMuteUserJob::ignoreUserDone, this, &Connection::ignoreUserDone);
         if (!job->start()) {
             qCWarning(RUQOLA_LOG) << "Impossible to start RoomsMuteUserJob job";
         }
@@ -1061,7 +1059,6 @@ void Connection::muteUser(const QByteArray &roomId, const QString &userName, boo
         initializeRestApiJob(job);
         job->setUserName(userName);
         job->setRoomId(roomId);
-        // connect(job, &RoomsMuteUserJob::ignoreUserDone, this, &Connection::ignoreUserDone);
         if (!job->start()) {
             qCWarning(RUQOLA_LOG) << "Impossible to start RoomsMuteUserJob job";
         }

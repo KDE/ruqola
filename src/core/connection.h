@@ -229,7 +229,6 @@ Q_SIGNALS:
     void deletechannelDone();
     void deleteGroupsDone();
     void pinMessageDone();
-    void ignoreUserDone(const QJsonObject &obj, const QByteArray &roomId);
     void groupRolesDone(const QJsonObject &obj, const RocketChatRestApi::ChannelGroupBaseJob::ChannelGroupInfo &channelInfo);
     void followMessageDone();
     void unFollowMessageDone();
