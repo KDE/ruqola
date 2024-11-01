@@ -33,7 +33,6 @@ Q_SIGNALS:
     void loadingInProgressChanged();
 
 private:
-    [[nodiscard]] LIBRUQOLACORE_NO_EXPORT QString title() const;
     [[nodiscard]] LIBRUQOLACORE_NO_EXPORT ListMessagesModel::ListMessageType listMessageType() const;
     ListMessagesModel *const mModel;
 };

@@ -131,11 +131,6 @@ void ChannelActionPopupMenu::createMenu()
     });
 }
 
-QAction *ChannelActionPopupMenu::createSeparator()
-{
-    return mMenu->addSeparator();
-}
-
 QMenu *ChannelActionPopupMenu::menu() const
 {
     return mMenu;

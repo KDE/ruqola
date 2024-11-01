@@ -34,25 +34,6 @@ void ListMessagesFilterProxyModel::setFilterString(const QString &string)
     setFilterFixedString(string);
 }
 
-QString ListMessagesFilterProxyModel::title() const
-{
-    switch (listMessageType()) {
-    case ListMessagesModel::Unknown:
-        return {};
-    case ListMessagesModel::StarredMessages:
-        return i18n("Starred Messages");
-    case ListMessagesModel::PinnedMessages:
-        return i18n("Pinned Messages");
-    case ListMessagesModel::MentionsMessages:
-        return i18n("Mentions Messages");
-    case ListMessagesModel::ThreadsMessages:
-        return i18n("Threads Messages");
-    case ListMessagesModel::UnreadThreadsMessages:
-        return i18n("Unread Threads Messages");
-    }
-    return {};
-}
-
 ListMessagesModel::ListMessageType ListMessagesFilterProxyModel::listMessageType() const
 {
     return mModel->listMessageType();

@@ -30,7 +30,6 @@ Q_SIGNALS:
 private:
     LIBRUQOLAWIDGETS_NO_EXPORT void slotUpdateMenu();
     LIBRUQOLAWIDGETS_NO_EXPORT void createMenu();
-    LIBRUQOLAWIDGETS_NO_EXPORT QAction *createSeparator();
     QMenu *const mMenu;
     QAction *mShowMentions = nullptr;
     QAction *mShowPinnedMessages = nullptr;

@@ -26,7 +26,6 @@ Q_SIGNALS:
 private:
     LIBRUQOLACORE_NO_EXPORT void slotInsertAvatarUrl(const Utils::AvatarInfo &info, const QUrl &url);
     LIBRUQOLACORE_NO_EXPORT void slotLoadNextAvatar();
-    LIBRUQOLACORE_NO_EXPORT void slotRescheduleDownload();
     QList<Utils::AvatarInfo> mAvatarDownloadIdentifer;
     RocketChatAccount *const mAccount;
     QTimer *const mTimer;

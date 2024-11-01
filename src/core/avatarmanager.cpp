@@ -35,12 +35,6 @@ void AvatarManager::slotLoadNextAvatar()
     slotInsertAvatarUrl(info, url);
 }
 
-void AvatarManager::slotRescheduleDownload()
-{
-    // if problem we need to reschedule after several seconds
-    QTimer::singleShot(20s, this, &AvatarManager::slotLoadNextAvatar);
-}
-
 void AvatarManager::insertInDownloadQueue(const Utils::AvatarInfo &info)
 {
     if (!info.isValid()) {
