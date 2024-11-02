@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-11-01 00:39+0000\n"
+"POT-Creation-Date: 2024-11-02 00:39+0000\n"
 "PO-Revision-Date: 2024-10-29 15:46+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
@@ -1275,31 +1275,6 @@ msgstr "Sonuç bulunamadı."
 #, kde-format
 msgid "Notify active users in this room"
 msgstr "Odadaki etkin herkesi haberdar et"
-
-#: core/model/listmessagesfilterproxymodel.cpp:43
-#, kde-format
-msgid "Starred Messages"
-msgstr "Yıldızlı İletiler"
-
-#: core/model/listmessagesfilterproxymodel.cpp:45
-#, kde-format
-msgid "Pinned Messages"
-msgstr "Sabitlenmiş İletiler"
-
-#: core/model/listmessagesfilterproxymodel.cpp:47
-#, kde-format
-msgid "Mentions Messages"
-msgstr "Değinilen İletiler"
-
-#: core/model/listmessagesfilterproxymodel.cpp:49
-#, kde-format
-msgid "Threads Messages"
-msgstr "İleti Dizileri"
-
-#: core/model/listmessagesfilterproxymodel.cpp:51
-#, kde-format
-msgid "Unread Threads Messages"
-msgstr "Okunmamış İleti Dizileri"
 
 #: core/model/messagesmodel.cpp:223
 #, kde-format
@@ -7180,9 +7155,7 @@ msgid "Next Channel"
 msgstr "Sonraki Kanal"
 
 #: widgets/common/authenticationbutton.cpp:23
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Sign in with %1"
+#, kde-format
 msgctxt "@action:button"
 msgid "Sign in With %1"
 msgstr "%1 ile Giriş Yap"
@@ -7194,11 +7167,9 @@ msgid "Register Account"
 msgstr "Hesap Kaydı Yap"
 
 #: widgets/common/authenticationloginwidget.cpp:37
-#, fuzzy, kde-format
-#| msgctxt "@action"
-#| msgid "My Account…"
+#, kde-format
 msgid "My Account"
-msgstr "Hesabım…"
+msgstr "Hesabım"
 
 #: widgets/common/authenticationloginwidget.cpp:43
 #, kde-format
@@ -7207,11 +7178,9 @@ msgid "Username or email"
 msgstr "Kullanıcı adı veya e-posta…"
 
 #: widgets/common/authenticationloginwidget.cpp:45
-#, fuzzy, kde-format
-#| msgctxt "@info:placeholder"
-#| msgid "Username or email"
+#, kde-format
 msgid "Username or email:"
-msgstr "Kullanıcı adı veya e-posta…"
+msgstr "Kullanıcı adı veya e-posta:"
 
 #: widgets/common/authenticationloginwidget.cpp:159
 #: widgets/ruqolamainwindow.cpp:1007
@@ -7347,36 +7316,28 @@ msgid "&Use custom fonts"
 msgstr "Ö&zel yazıtipleri kullan"
 
 #: widgets/configuredialog/configuregeneralwidget.cpp:15
-#, fuzzy, kde-format
-#| msgctxt "@option:check"
-#| msgid "Set accounts online on startup"
+#, kde-format
 msgctxt "@option:check"
 msgid "Set status to \"Online\" on startup"
-msgstr "Başlangıçta, hesapları çevrimiçi yap"
+msgstr "Başlangıçta, hesapları “Çevrimiçi” yap"
 
 #: widgets/configuredialog/configuregeneralwidget.cpp:16
-#, fuzzy, kde-format
-#| msgctxt "@option:check"
-#| msgid "Embed Link Previews"
+#, kde-format
 msgctxt "@option:check"
 msgid "Enable image previews"
-msgstr "Bağlantı önizlemelerini göm"
+msgstr "Görsel önizlemelerini etkinleştir"
 
 #: widgets/configuredialog/configuregeneralwidget.cpp:17
-#, fuzzy, kde-format
-#| msgctxt "@option:check"
-#| msgid "Embed Link Previews"
+#, kde-format
 msgctxt "@option:check"
 msgid "Enable URL previews"
-msgstr "Bağlantı önizlemelerini göm"
+msgstr "URL önizlemelerini etkinleştir"
 
 #: widgets/configuredialog/configuregeneralwidget.cpp:18
-#, fuzzy, kde-format
-#| msgctxt "@option:check"
-#| msgid "Mark room as read when clicking to write a reply"
+#, kde-format
 msgctxt "@option:check"
 msgid "Mark channel as read when writing a reply"
-msgstr "Bir yanıt yazmak için odaya tıklandığında odayı okundu olarak imle"
+msgstr "Yanıt yazarken kanalı okundu olarak imle"
 
 #: widgets/configuredialog/configuregeneralwidget.cpp:19
 #, kde-format
@@ -7394,29 +7355,25 @@ msgstr "Günlüklemeyi etkinleştir"
 #, kde-format
 msgctxt "@option:check"
 msgid "Highlight messages when hovering"
-msgstr ""
+msgstr "Üzerine gelindiğinde iletileri vurgula"
 
 #: widgets/configuredialog/configuregeneralwidget.cpp:22
-#, fuzzy, kde-format
-#| msgctxt "@option:check"
-#| msgid "Animate Gif Image"
+#, kde-format
 msgctxt "@option:check"
 msgid "Animate GIFs"
-msgstr "GIF görselini canlandır"
+msgstr "GIF’leri oynat"
 
 #: widgets/configuredialog/configuregeneralwidget.cpp:23
 #, kde-format
 msgctxt "@option:check"
 msgid "Enable experimental local database"
-msgstr ""
+msgstr "Yerel veritabanını etkinleştir (deneysel)"
 
 #: widgets/configuredialog/configuregeneralwidget.cpp:25
-#, fuzzy, kde-format
-#| msgctxt "@option:check"
-#| msgid "Enable Plasma Activities"
+#, kde-format
 msgctxt "@option:check"
 msgid "Enable Plasma Activities integration"
-msgstr "Plasma Etkinlikler’i etkinleştir"
+msgstr "Plasma Etkinlikler tümleştirmesini etkinleştir"
 
 #: widgets/configuredialog/configuresettingsdialog.cpp:62
 #, kde-format
@@ -7431,8 +7388,7 @@ msgid "General"
 msgstr "Genel"
 
 #: widgets/configuredialog/configuresettingsdialog.cpp:72
-#, fuzzy, kde-format
-#| msgid "Accounts"
+#, kde-format
 msgctxt "@title Preferences page name"
 msgid "Accounts"
 msgstr "Hesaplar"
@@ -7444,12 +7400,10 @@ msgid "Font"
 msgstr "Yazıtipi"
 
 #: widgets/configuredialog/configuresettingsdialog.cpp:83
-#, fuzzy, kde-format
-#| msgctxt "@title AutoCorrection page name"
-#| msgid "AutoCorrection"
+#, kde-format
 msgctxt "@title AutoCorrection page name"
 msgid "Auto-Correction"
-msgstr "Otomatik Düzeltme"
+msgstr "Kendiliğinden Düzeltme"
 
 #: widgets/configuredialog/configuresettingsdialog.cpp:89
 #, kde-format
@@ -7458,9 +7412,7 @@ msgid "Spell Checking"
 msgstr "Yazım Denetimi"
 
 #: widgets/configuredialog/configuresettingsdialog.cpp:95
-#, fuzzy, kde-format
-#| msgctxt "@title Preferences page name"
-#| msgid "Translate"
+#, kde-format
 msgctxt "@title Preferences page name"
 msgid "Translation"
 msgstr "Çeviri"
@@ -7495,15 +7447,13 @@ msgid "Do you want to remove this account '%1'?"
 msgstr "“%1” hesabını kaldırmak istediğinizden emin misiniz?"
 
 #: widgets/configurenewserver/checknewserverurlwidget.cpp:25
-#, fuzzy, kde-format
-#| msgid "Connected"
+#, kde-format
 msgctxt "@action:button"
 msgid "Connect"
-msgstr "Bağlandı"
+msgstr "Bağlan"
 
 #: widgets/configurenewserver/checknewserverurlwidget.cpp:36
-#, fuzzy, kde-format
-#| msgid "Server URL:"
+#, kde-format
 msgctxt "@label:textbox"
 msgid "Server URL:"
 msgstr "Sunucu URL’si:"
@@ -7511,13 +7461,12 @@ msgstr "Sunucu URL’si:"
 #: widgets/configurenewserver/checknewserverurlwidget.cpp:94
 #, kde-format
 msgid "Socket was unexpectedly closed."
-msgstr ""
+msgstr "Yuva, beklenmedik bir biçimde kapandı."
 
 #: widgets/configurenewserver/checknewserverurlwidget.cpp:131
-#, fuzzy, kde-format
-#| msgid "Fix reconnect server."
+#, kde-format
 msgid "Failed to connect to server: %1"
-msgstr "Sunucuya yeniden bağlanmayı onar"
+msgstr "Sunucuya yeniden bağlanılamadı: %1"
 
 #: widgets/configurenewserver/configureactivitiesdialog.cpp:25
 #, kde-format
@@ -10038,11 +9987,9 @@ msgid "Message %1 in thread"
 msgstr "Dizideki %1 Kişisine İleti Gönder"
 
 #: widgets/room/messagelinewidget.cpp:250
-#, fuzzy, kde-format
-#| msgctxt "@info:tooltip"
-#| msgid "Send a video message…"
+#, kde-format
 msgid "Send a message in %1…"
-msgstr "Video iletisi gönder…"
+msgstr "%1 içinde bir ileti gönder…"
 
 #: widgets/room/messagelinewidget.cpp:391
 #, kde-format
@@ -10259,28 +10206,23 @@ msgid "%1 seconds before reconnecting. %2"
 msgstr "Yeniden bağlanma öncesi %1 saniye. %2"
 
 #: widgets/room/roomcounterinfowidget.cpp:18
-#, fuzzy, kde-format
-#| msgid "(Jump to first Unread)"
+#, kde-format
 msgctxt "@action:button"
 msgid "Jump to First Unread"
-msgstr "(İlk Okunmamışa Atla)"
+msgstr "İlk Okunmamışa Atla"
 
 #: widgets/room/roomcounterinfowidget.cpp:25
-#, fuzzy, kde-format
-#| msgctxt "@action"
-#| msgid "Mark as Read"
+#, kde-format
 msgctxt "@action:button"
 msgid "Mark as Read"
 msgstr "Okundu Olarak İmle"
 
 #: widgets/room/roomcounterinfowidget.cpp:60
-#, fuzzy, kde-format
-#| msgid "%4 %1 new message since %2. %3"
-#| msgid_plural "%4 %1 new messages since %2. %3"
+#, kde-format
 msgid "%1 new message since %2."
 msgid_plural "%1 new messages since %2."
-msgstr[0] "%4 %2 tarihinden bu yana %1 yeni ileti. %3"
-msgstr[1] "%4 %2 tarihinden bu yana %1 yeni ileti. %3"
+msgstr[0] "%2 tarihinden bu yana %1 yeni ileti."
+msgstr[1] "%2 tarihinden bu yana %1 yeni ileti."
 
 #: widgets/room/roomheaderlabel.cpp:68
 #, kde-format
@@ -10460,26 +10402,21 @@ msgid "Block User"
 msgstr "Kullanıcıyı Engelle"
 
 #: widgets/room/usersinroommenu.cpp:70
-#, fuzzy, kde-format
-#| msgid "Do you want to remove this user?"
+#, kde-format
 msgid "Do you want to mute this user?"
-msgstr "Bu kullanıcıyı kaldırmak istiyor musunuz?"
+msgstr "Bu kullanıcıyı sessize almak istiyor musunuz?"
 
 #: widgets/room/usersinroommenu.cpp:71
-#, fuzzy, kde-format
-#| msgctxt "@label:textbox"
-#| msgid "Invite Users"
+#, kde-format
 msgctxt "@title"
 msgid "Mute User"
-msgstr "Kullanıcıları davet et"
+msgstr "Kullanıcıyı Sessize Al"
 
 #: widgets/room/usersinroommenu.cpp:72
-#, fuzzy, kde-format
-#| msgctxt "@label:textbox"
-#| msgid "Invite Users"
+#, kde-format
 msgctxt "@action:button"
 msgid "Mute User"
-msgstr "Kullanıcıları davet et"
+msgstr "Kullanıcıyı Sessize Al"
 
 #: widgets/room/usersinroommenu.cpp:87
 #, kde-format
@@ -10571,20 +10508,16 @@ msgid "Ignore"
 msgstr "Yok Say"
 
 #: widgets/room/usersinroommenu.cpp:189
-#, fuzzy, kde-format
-#| msgctxt "@action"
-#| msgid "Invite Users"
+#, kde-format
 msgctxt "@action"
 msgid "Unmute User"
-msgstr "Kullanıcılar Davet Et"
+msgstr "Kullanıcıyı Sessizden Kaldır"
 
 #: widgets/room/usersinroommenu.cpp:189
-#, fuzzy, kde-format
-#| msgctxt "@action"
-#| msgid "Invite Users"
+#, kde-format
 msgctxt "@action"
 msgid "Mute User"
-msgstr "Kullanıcılar Davet Et"
+msgstr "Kullanıcıyı Sessizden Kaldır"
 
 #: widgets/room/usersinroommenu.cpp:197
 #, kde-format
@@ -11139,10 +11072,8 @@ msgid "Improve register new account (Add reason support)."
 msgstr "Yeni hesap kaydını iyileştir (Gerekçe desteği eklendi)"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:21
-#, fuzzy
-#| msgid "Implement message style"
 msgid "Implement mute/unmute user."
-msgstr "İleti biçemi seçimini gerçekle"
+msgstr "Kullanıcıları sessize almayı/kaldırmayı gerçekle"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:31
 #, kde-format
@@ -11488,260 +11419,19 @@ msgstr "Roka’nın bu sürümündeki yeni özelliklerden bazıları şunlardır
 #: widgets/whatsnew/whatsnewwidget.cpp:101
 #, kde-format
 msgid "Some bug fixing:"
-msgstr "Hata düzeltmeleri"
+msgstr "Hata düzeltmeleri:"
 
-#~ msgid "(Mark as Read)"
-#~ msgstr "(Okundu Olarak İmle)"
+#~ msgid "Starred Messages"
+#~ msgstr "Yıldızlı İletiler"
 
-#~ msgid "Username or Email:"
-#~ msgstr "Kullanıcı adı veya e-posta:"
+#~ msgid "Pinned Messages"
+#~ msgstr "Sabitlenmiş İletiler"
 
-#~ msgctxt "@option:check"
-#~ msgid "Show images by default"
-#~ msgstr "Görselleri öntanımlı olarak göster"
+#~ msgid "Mentions Messages"
+#~ msgstr "Değinilen İletiler"
 
-#~ msgctxt "@option:check"
-#~ msgid "Show preview url by default"
-#~ msgstr "Öntanımlı olarak önizleme URL’sini göster"
+#~ msgid "Threads Messages"
+#~ msgstr "İleti Dizileri"
 
-#~ msgctxt "@option:check"
-#~ msgid "Show hover highlights"
-#~ msgstr "Üzerine gelince vurguları göster"
-
-#~ msgctxt "@option:check"
-#~ msgid "Use local dataBase (experimental)"
-#~ msgstr "Yerel veritabanı kullan (deneysel)"
-
-#~ msgctxt "@title Preferences page name"
-#~ msgid "Account"
-#~ msgstr "Hesap"
-
-#~ msgctxt "@action:button"
-#~ msgid "Connection"
-#~ msgstr "Bağlantı"
-
-#~ msgctxt "@label:textbox"
-#~ msgid "Server Url:"
-#~ msgstr "Sunucu URL’si:"
-
-#~ msgid "Impossible to access to server."
-#~ msgstr "Sunucuya erişim olanaksız."
-
-#~ msgid "Message %1"
-#~ msgstr "İleti Gönder: %1"
-
-#~ msgctxt "@action"
-#~ msgid "Mark As Read"
-#~ msgstr "Okundu Olarak İmle"
-
-#~| msgctxt "@title:window"
-#~| msgid "Reset E2E"
-#~ msgctxt "@info:tooltip"
-#~ msgid "Reset"
-#~ msgstr "Sıfırla"
-
-#~ msgctxt "@info:tooltip"
-#~ msgid "All users in this team can write messages"
-#~ msgstr "Bu takımdaki herkes iletiler yazabilir"
-
-#~ msgctxt "@option:check"
-#~ msgid "Verified"
-#~ msgstr "Doğrulanmış"
-
-#~ msgid "System Messages"
-#~ msgstr "Sistem İletileri"
-
-#~ msgid "Reset TOTP"
-#~ msgstr "TOTP’yi Sıfırla"
-
-#~ msgid "Create"
-#~ msgstr "Oluştur"
-
-#~ msgid "Set as Favorite"
-#~ msgstr "Sık Kullanılan Olarak Ayarla"
-
-#~ msgid "Search rooms…"
-#~ msgstr "Odalar ara…"
-
-#~ msgid "Copy Message"
-#~ msgstr "İletiyi Kopyala"
-
-#~| msgid "Search rooms…"
-#~ msgctxt "Placeholder"
-#~ msgid "Search rooms…"
-#~ msgstr "Odalar ara…"
-
-#~| msgid "Search users…"
-#~ msgctxt "Placeholder"
-#~ msgid "Search users…"
-#~ msgstr "Kullanıcılar ara…"
-
-#~ msgid "Cancel"
-#~ msgstr "İptal"
-
-#~ msgid "Search channels…"
-#~ msgstr "Kanallar ara…"
-
-#~ msgid "Open…"
-#~ msgstr "Aç…"
-
-#~ msgctxt "@title:window"
-#~ msgid "Directory - %1"
-#~ msgstr "Dizin — %1"
-
-#~ msgctxt "Action which allows to search room/user/team"
-#~ msgid "Directory…"
-#~ msgstr "Dizin…"
-
-#~ msgid "Version 2.0"
-#~ msgstr "Sürüm 2.0"
-
-#~ msgid "Version 2.2"
-#~ msgstr "Sürüm 2.2"
-
-#~ msgid "Version 2.3"
-#~ msgstr "Sürüm 2.3"
-
-#~ msgctxt "@title:window"
-#~ msgid "What's new in Ruqola"
-#~ msgstr "Roka’da Neler Yeni"
-
-#~ msgid "Select All"
-#~ msgstr "Tümünü Seç"
-
-#~ msgid "Go to Message"
-#~ msgstr "İletiye Git"
-
-#~ msgid "Add..."
-#~ msgstr "Ekle…"
-
-#~ msgid "Modify..."
-#~ msgstr "Değiştir…"
-
-#~ msgid "(Click here for Loading more...)"
-#~ msgstr "(Daha fazla yüklemek için buraya tıklayın…)"
-
-#~ msgid "(Click here for Loading more…"
-#~ msgstr "(Daha fazla yüklemek için buraya tıklayın…)"
-
-#~ msgid "Droplet"
-#~ msgstr "Damlacık"
-
-#~ msgid "Modify Status..."
-#~ msgstr "Durumu Değiştir…"
-
-#~ msgid "Reply..."
-#~ msgstr "Yanıtla…"
-
-#~ msgid "Add Users In Role..."
-#~ msgstr "Role Kullanıcılar Ekle…"
-
-#~ msgid "Invite..."
-#~ msgstr "Davet et…"
-
-#~ msgid "Configure Notification..."
-#~ msgstr "Bildirimleri Yapılandır…"
-
-#~ msgid "Invite users..."
-#~ msgstr "Kullanıcıları davet et…"
-
-#~ msgid "Search messages..."
-#~ msgstr "İletiler ara…"
-
-#~ msgid "Search channels..."
-#~ msgstr "Kanallar ara…"
-
-#~ msgid "Open..."
-#~ msgstr "Aç…"
-
-#~ msgid "Search rooms..."
-#~ msgstr "Odalar ara…"
-
-#~ msgid "Download Image..."
-#~ msgstr "Görseli İndir…"
-
-#~ msgid "Download Video..."
-#~ msgstr "Videoyu İndir…"
-
-#~ msgid "Download Sound..."
-#~ msgstr "Sesi İndir…"
-
-#~ msgid "Prune Messages..."
-#~ msgstr "İletileri Buda…"
-
-#~ msgid "Configure Auto-Translate..."
-#~ msgstr "Otomatik Çeviriyi Yapılandır…"
-
-#~ msgid "Export Messages..."
-#~ msgstr "İletileri Dışa Aktar…"
-
-#~ msgid "Search Messages..."
-#~ msgstr "İletileri Ara…"
-
-#~ msgid "Add Server..."
-#~ msgstr "Sunucu Ekle…"
-
-#~ msgid "Server Info..."
-#~ msgstr "Sunucu Bilgisi…"
-
-#~ msgid "Create New Channel..."
-#~ msgstr "Yeni Kanal Oluştur…"
-
-#~ msgid "Create Team..."
-#~ msgstr "Takım Oluştur…"
-
-#~ msgid "Register a New User..."
-#~ msgstr "Yeni Bir Kullanıcı Olarak Kaydol…"
-
-#~ msgid "Administrator..."
-#~ msgstr "Yönetici…"
-
-#~ msgid "Search room..."
-#~ msgstr "Oda ara…"
-
-#~ msgid "Hash"
-#~ msgstr "Sağlama"
-
-#~ msgid "Branch"
-#~ msgstr "Dal"
-
-#~ msgid "Tag"
-#~ msgstr "Etiket"
-
-#~ msgid "Arch"
-#~ msgstr "Mimari"
-
-#~ msgid "Room topic changed to: %1 by %2"
-#~ msgstr "Oda konusu, %2 tarafından değiştirildi: %1"
-
-#~ msgid "Server not found: %1"
-#~ msgstr "Sunucu bulunamadı: %1"
-
-#~ msgid "Commit"
-#~ msgstr "İşleme"
-
-#~ msgid "Build Environment"
-#~ msgstr "Yapı Ortamı"
-
-#~ msgid "Account Name:"
-#~ msgstr "Hesap adı:"
-
-#~ msgid "Account name"
-#~ msgstr "Hesap adı"
-
-#~ msgid "File Uploaded:"
-#~ msgstr "Dosya karşıya yüklendi:"
-
-#~ msgid "File Uploaded: %1"
-#~ msgstr "Dosya karşıya yüklendi: %1"
-
-#~ msgid "Authentication Method"
-#~ msgstr "Kimlik Doğrulama Yöntemi"
-
-#~ msgctxt "@title:window"
-#~ msgid "Configure"
-#~ msgstr "Yapılandır"
-
-#~ msgctxt "@title:window"
-#~ msgid "Start a Direct Call"
-#~ msgstr "Bir Doğrudan Arama Başlat"
+#~ msgid "Unread Threads Messages"
+#~ msgstr "Okunmamış İleti Dizileri"

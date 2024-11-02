@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-11-01 00:39+0000\n"
+"POT-Creation-Date: 2024-11-02 00:39+0000\n"
 "PO-Revision-Date: 2024-10-27 21:27+0100\n"
 "Last-Translator: Vincenzo Reale <smart2128vr@gmail.com>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
@@ -1276,31 +1276,6 @@ msgstr "Nessun risultato trovato."
 #, kde-format
 msgid "Notify active users in this room"
 msgstr "Avvisa gli utenti attivi in questa stanza"
-
-#: core/model/listmessagesfilterproxymodel.cpp:43
-#, kde-format
-msgid "Starred Messages"
-msgstr "Messaggi speciali"
-
-#: core/model/listmessagesfilterproxymodel.cpp:45
-#, kde-format
-msgid "Pinned Messages"
-msgstr "Messaggi appuntati"
-
-#: core/model/listmessagesfilterproxymodel.cpp:47
-#, kde-format
-msgid "Mentions Messages"
-msgstr "Messaggi di menzioni"
-
-#: core/model/listmessagesfilterproxymodel.cpp:49
-#, kde-format
-msgid "Threads Messages"
-msgstr "Messaggi delle conversazioni"
-
-#: core/model/listmessagesfilterproxymodel.cpp:51
-#, kde-format
-msgid "Unread Threads Messages"
-msgstr "Messaggi delle conversazioni non letti"
 
 #: core/model/messagesmodel.cpp:223
 #, kde-format
@@ -11581,6 +11556,21 @@ msgstr ""
 #, kde-format
 msgid "Some bug fixing:"
 msgstr "Alcune correzioni di bug:"
+
+#~ msgid "Starred Messages"
+#~ msgstr "Messaggi speciali"
+
+#~ msgid "Pinned Messages"
+#~ msgstr "Messaggi appuntati"
+
+#~ msgid "Mentions Messages"
+#~ msgstr "Messaggi di menzioni"
+
+#~ msgid "Threads Messages"
+#~ msgstr "Messaggi delle conversazioni"
+
+#~ msgid "Unread Threads Messages"
+#~ msgstr "Messaggi delle conversazioni non letti"
 
 #, fuzzy
 #~| msgid "(Mark As Read)"

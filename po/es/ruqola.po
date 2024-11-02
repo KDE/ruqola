@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-11-01 00:39+0000\n"
+"POT-Creation-Date: 2024-11-02 00:39+0000\n"
 "PO-Revision-Date: 2024-10-26 18:58+0200\n"
 "Last-Translator: Víctor Rodrigo Córdoba <vrcordoba@gmail.com>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
@@ -1278,31 +1278,6 @@ msgstr "No se encontró ningún resultado."
 #, kde-format
 msgid "Notify active users in this room"
 msgstr "Notificar usuarios activos en esta sala"
-
-#: core/model/listmessagesfilterproxymodel.cpp:43
-#, kde-format
-msgid "Starred Messages"
-msgstr "Mensajes favoritos"
-
-#: core/model/listmessagesfilterproxymodel.cpp:45
-#, kde-format
-msgid "Pinned Messages"
-msgstr "Mensajes fijados"
-
-#: core/model/listmessagesfilterproxymodel.cpp:47
-#, kde-format
-msgid "Mentions Messages"
-msgstr "Mensajes mencionados"
-
-#: core/model/listmessagesfilterproxymodel.cpp:49
-#, kde-format
-msgid "Threads Messages"
-msgstr "Mensajes de los hilos"
-
-#: core/model/listmessagesfilterproxymodel.cpp:51
-#, kde-format
-msgid "Unread Threads Messages"
-msgstr "Marcar como no leídos los mensajes de los hilos"
 
 #: core/model/messagesmodel.cpp:223
 #, kde-format
@@ -11575,6 +11550,21 @@ msgstr ""
 #, kde-format
 msgid "Some bug fixing:"
 msgstr "Algunas correcciones de errores:"
+
+#~ msgid "Starred Messages"
+#~ msgstr "Mensajes favoritos"
+
+#~ msgid "Pinned Messages"
+#~ msgstr "Mensajes fijados"
+
+#~ msgid "Mentions Messages"
+#~ msgstr "Mensajes mencionados"
+
+#~ msgid "Threads Messages"
+#~ msgstr "Mensajes de los hilos"
+
+#~ msgid "Unread Threads Messages"
+#~ msgstr "Marcar como no leídos los mensajes de los hilos"
 
 #, fuzzy
 #~| msgid "(Mark As Read)"

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-11-01 00:39+0000\n"
+"POT-Creation-Date: 2024-11-02 00:39+0000\n"
 "PO-Revision-Date: 2024-09-17 21:39+0200\n"
 "Last-Translator: Oliver Kellogg <olivermkellogg@gmail.com>\n"
 "Language-Team: Esperanto <kde-i18n-doc@kde.org>\n"
@@ -1284,31 +1284,6 @@ msgstr "Neniu rezulto trovita."
 #, kde-format
 msgid "Notify active users in this room"
 msgstr "Informi aktivajn uzantojn en ĉi tiu ĉambro"
-
-#: core/model/listmessagesfilterproxymodel.cpp:43
-#, kde-format
-msgid "Starred Messages"
-msgstr "Stelitaj Mesaĝoj"
-
-#: core/model/listmessagesfilterproxymodel.cpp:45
-#, kde-format
-msgid "Pinned Messages"
-msgstr "Alpinglitaj Mesaĝoj"
-
-#: core/model/listmessagesfilterproxymodel.cpp:47
-#, kde-format
-msgid "Mentions Messages"
-msgstr "Mencias Mesaĝojn"
-
-#: core/model/listmessagesfilterproxymodel.cpp:49
-#, kde-format
-msgid "Threads Messages"
-msgstr "Fadenoj Mesaĝoj"
-
-#: core/model/listmessagesfilterproxymodel.cpp:51
-#, kde-format
-msgid "Unread Threads Messages"
-msgstr "Nelegitaj Fadenoj Mesaĝoj"
 
 #: core/model/messagesmodel.cpp:223
 #, kde-format
@@ -11540,6 +11515,21 @@ msgstr "Kelkaj el la novaj funkcioj en ĉi tiu eldono de Ruqola inkluzivas:"
 #, kde-format
 msgid "Some bug fixing:"
 msgstr "Iu eraro korekto:"
+
+#~ msgid "Starred Messages"
+#~ msgstr "Stelitaj Mesaĝoj"
+
+#~ msgid "Pinned Messages"
+#~ msgstr "Alpinglitaj Mesaĝoj"
+
+#~ msgid "Mentions Messages"
+#~ msgstr "Mencias Mesaĝojn"
+
+#~ msgid "Threads Messages"
+#~ msgstr "Fadenoj Mesaĝoj"
+
+#~ msgid "Unread Threads Messages"
+#~ msgstr "Nelegitaj Fadenoj Mesaĝoj"
 
 #, fuzzy
 #~| msgid "(Mark As Read)"

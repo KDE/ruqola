@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-11-01 00:39+0000\n"
-"PO-Revision-Date: 2024-10-31 17:38+0200\n"
+"POT-Creation-Date: 2024-11-02 00:39+0000\n"
+"PO-Revision-Date: 2024-11-01 19:13+0200\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
 "Language: uk\n"
@@ -1277,31 +1277,6 @@ msgstr "Нічого не знайдено."
 #, kde-format
 msgid "Notify active users in this room"
 msgstr "Сповістити активних користувачів у цій кімнаті"
-
-#: core/model/listmessagesfilterproxymodel.cpp:43
-#, kde-format
-msgid "Starred Messages"
-msgstr "Повідомлення із зіркою"
-
-#: core/model/listmessagesfilterproxymodel.cpp:45
-#, kde-format
-msgid "Pinned Messages"
-msgstr "Пришпилені повідомлення"
-
-#: core/model/listmessagesfilterproxymodel.cpp:47
-#, kde-format
-msgid "Mentions Messages"
-msgstr "Повідомлення зі згадками"
-
-#: core/model/listmessagesfilterproxymodel.cpp:49
-#, kde-format
-msgid "Threads Messages"
-msgstr "Повідомлення з гілками"
-
-#: core/model/listmessagesfilterproxymodel.cpp:51
-#, kde-format
-msgid "Unread Threads Messages"
-msgstr "Повідомлення з непрочитаних гілок"
 
 #: core/model/messagesmodel.cpp:223
 #, kde-format
@@ -7434,28 +7409,22 @@ msgid "Set status to \"Online\" on startup"
 msgstr "Переводити у стан «у мережі» після запуску"
 
 #: widgets/configuredialog/configuregeneralwidget.cpp:16
-#, fuzzy, kde-format
-#| msgctxt "@option:check"
-#| msgid "Embed Link Previews"
+#, kde-format
 msgctxt "@option:check"
 msgid "Enable image previews"
-msgstr "Перегляд вбудованих посилань"
+msgstr "Увімкнути перегляд зображень"
 
 #: widgets/configuredialog/configuregeneralwidget.cpp:17
-#, fuzzy, kde-format
-#| msgctxt "@option:check"
-#| msgid "Embed Link Previews"
+#, kde-format
 msgctxt "@option:check"
 msgid "Enable URL previews"
-msgstr "Перегляд вбудованих посилань"
+msgstr "Увімкнути перегляд адрес"
 
 #: widgets/configuredialog/configuregeneralwidget.cpp:18
-#, fuzzy, kde-format
-#| msgctxt "@option:check"
-#| msgid "Mark room as read when clicking to write a reply"
+#, kde-format
 msgctxt "@option:check"
 msgid "Mark channel as read when writing a reply"
-msgstr "Позначати кімнату як прочитану при написанні відповіді"
+msgstr "Позначати канал як прочитаний при написанні відповіді"
 
 #: widgets/configuredialog/configuregeneralwidget.cpp:19
 #, kde-format
@@ -7473,21 +7442,19 @@ msgstr "Увімкнути журнал"
 #, kde-format
 msgctxt "@option:check"
 msgid "Highlight messages when hovering"
-msgstr ""
+msgstr "Підсвічувати повідомлення у відповідь на наведення"
 
 #: widgets/configuredialog/configuregeneralwidget.cpp:22
-#, fuzzy, kde-format
-#| msgctxt "@option:check"
-#| msgid "Animate Gif Image"
+#, kde-format
 msgctxt "@option:check"
 msgid "Animate GIFs"
-msgstr "Анімувати зображення Gif"
+msgstr "Анімувати GIF"
 
 #: widgets/configuredialog/configuregeneralwidget.cpp:23
 #, kde-format
 msgctxt "@option:check"
 msgid "Enable experimental local database"
-msgstr ""
+msgstr "Увімкнути експериментальну локальну базу даних"
 
 #: widgets/configuredialog/configuregeneralwidget.cpp:25
 #, kde-format
@@ -10359,30 +10326,25 @@ msgid "%1 seconds before reconnecting. %2"
 msgstr "%1 секунд до повторного з'єднання. %2"
 
 #: widgets/room/roomcounterinfowidget.cpp:18
-#, fuzzy, kde-format
-#| msgid "(Jump to first Unread)"
+#, kde-format
 msgctxt "@action:button"
 msgid "Jump to First Unread"
-msgstr "(Перейти до першого непрочитаного)"
+msgstr "Перейти до першого непрочитаного"
 
 #: widgets/room/roomcounterinfowidget.cpp:25
-#, fuzzy, kde-format
-#| msgctxt "@action"
-#| msgid "Mark as Read"
+#, kde-format
 msgctxt "@action:button"
 msgid "Mark as Read"
 msgstr "Позначити як прочитане"
 
 #: widgets/room/roomcounterinfowidget.cpp:60
-#, fuzzy, kde-format
-#| msgid "%4 %1 new message since %2. %3"
-#| msgid_plural "%4 %1 new messages since %2. %3"
+#, kde-format
 msgid "%1 new message since %2."
 msgid_plural "%1 new messages since %2."
-msgstr[0] "%4 %1 нове повідомлення з %2. %3"
-msgstr[1] "%4 %1 нових повідомлення з %2. %3"
-msgstr[2] "%4 %1 нових повідомлень з %2. %3"
-msgstr[3] "%4 %1 нове повідомлення з %2. %3"
+msgstr[0] "%1 нове повідомлення з %2."
+msgstr[1] "%1 нових повідомлення з %2."
+msgstr[2] "%1 нових повідомлень з %2."
+msgstr[3] "%1 нове повідомлення з %2."
 
 #: widgets/room/roomheaderlabel.cpp:68
 #, kde-format
@@ -11590,6 +11552,21 @@ msgstr "Серед нових можливостей у цьому випуск�
 #, kde-format
 msgid "Some bug fixing:"
 msgstr "Виправлення деяких вад:"
+
+#~ msgid "Starred Messages"
+#~ msgstr "Повідомлення із зіркою"
+
+#~ msgid "Pinned Messages"
+#~ msgstr "Пришпилені повідомлення"
+
+#~ msgid "Mentions Messages"
+#~ msgstr "Повідомлення зі згадками"
+
+#~ msgid "Threads Messages"
+#~ msgstr "Повідомлення з гілками"
+
+#~ msgid "Unread Threads Messages"
+#~ msgstr "Повідомлення з непрочитаних гілок"
 
 #~ msgid "@option:check"
 #~ msgstr "@option:check"

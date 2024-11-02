@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-11-01 00:39+0000\n"
-"PO-Revision-Date: 2024-10-31 04:00+0100\n"
+"POT-Creation-Date: 2024-11-02 00:39+0000\n"
+"PO-Revision-Date: 2024-11-01 04:18+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -1273,31 +1273,6 @@ msgstr "შედეგი ვერ ვიპოვე."
 #, kde-format
 msgid "Notify active users in this room"
 msgstr "ამ ოთახში მყოფი აქტიური მომხმარებლების გაფრთხილება"
-
-#: core/model/listmessagesfilterproxymodel.cpp:43
-#, kde-format
-msgid "Starred Messages"
-msgstr "ვარსკვლავიანი შეტყობინებები"
-
-#: core/model/listmessagesfilterproxymodel.cpp:45
-#, kde-format
-msgid "Pinned Messages"
-msgstr "მიმაგრებული შეტყობინებები"
-
-#: core/model/listmessagesfilterproxymodel.cpp:47
-#, kde-format
-msgid "Mentions Messages"
-msgstr "ხსენების შეტყობინებები"
-
-#: core/model/listmessagesfilterproxymodel.cpp:49
-#, kde-format
-msgid "Threads Messages"
-msgstr "ნაკადის შეტყობინებები"
-
-#: core/model/listmessagesfilterproxymodel.cpp:51
-#, kde-format
-msgid "Unread Threads Messages"
-msgstr "ნაკადების წაუკითხავი შეტყობინებები"
 
 #: core/model/messagesmodel.cpp:223
 #, kde-format
@@ -7359,28 +7334,22 @@ msgid "Set status to \"Online\" on startup"
 msgstr "გაშვებისას სტატუსის 'ხაზზე' დაყენება"
 
 #: widgets/configuredialog/configuregeneralwidget.cpp:16
-#, fuzzy, kde-format
-#| msgctxt "@option:check"
-#| msgid "Embed Link Previews"
+#, kde-format
 msgctxt "@option:check"
 msgid "Enable image previews"
-msgstr "ბმულის მინიატურების ჩაშენება"
+msgstr "გამოსახულების მინიატურების ჩართვა"
 
 #: widgets/configuredialog/configuregeneralwidget.cpp:17
-#, fuzzy, kde-format
-#| msgctxt "@option:check"
-#| msgid "Embed Link Previews"
+#, kde-format
 msgctxt "@option:check"
 msgid "Enable URL previews"
-msgstr "ბმულის მინიატურების ჩაშენება"
+msgstr "ბმულის მინიატურების ჩართვა"
 
 #: widgets/configuredialog/configuregeneralwidget.cpp:18
-#, fuzzy, kde-format
-#| msgctxt "@option:check"
-#| msgid "Mark room as read when clicking to write a reply"
+#, kde-format
 msgctxt "@option:check"
 msgid "Mark channel as read when writing a reply"
-msgstr "პასუხის დასაწერად დაწკაპუნებისას ოთახის წაკითხულად მონიშვნა"
+msgstr "პასუხის დაწერისას არხის წაკითხულად მონიშვნა"
 
 #: widgets/configuredialog/configuregeneralwidget.cpp:19
 #, kde-format
@@ -7398,21 +7367,19 @@ msgstr "ჟურნალის ჩართვა"
 #, kde-format
 msgctxt "@option:check"
 msgid "Highlight messages when hovering"
-msgstr ""
+msgstr "შეტყობინებების გამოკვეთა თაგუნას ზედ გაჩერებისას"
 
 #: widgets/configuredialog/configuregeneralwidget.cpp:22
-#, fuzzy, kde-format
-#| msgctxt "@option:check"
-#| msgid "Animate Gif Image"
+#, kde-format
 msgctxt "@option:check"
 msgid "Animate GIFs"
-msgstr "GIF გამოსახულებების ანიმაცია"
+msgstr "GIF-ების ანიმაცია"
 
 #: widgets/configuredialog/configuregeneralwidget.cpp:23
 #, kde-format
 msgctxt "@option:check"
 msgid "Enable experimental local database"
-msgstr ""
+msgstr "ექსპერიმენტული ლოკალური მონაცემთა ბაზის ჩართვა"
 
 #: widgets/configuredialog/configuregeneralwidget.cpp:25
 #, kde-format
@@ -10238,28 +10205,23 @@ msgid "%1 seconds before reconnecting. %2"
 msgstr "%1 წამი თავიდან მიერთებამდე. %2"
 
 #: widgets/room/roomcounterinfowidget.cpp:18
-#, fuzzy, kde-format
-#| msgid "(Jump to first Unread)"
+#, kde-format
 msgctxt "@action:button"
 msgid "Jump to First Unread"
-msgstr "(პირველ წაუკითხავ შეტყობინებაზე გადასვლა)"
+msgstr "გადასვლა პირველ წაუკითხავ შეტყობინებაზე"
 
 #: widgets/room/roomcounterinfowidget.cpp:25
-#, fuzzy, kde-format
-#| msgctxt "@action"
-#| msgid "Mark as Read"
+#, kde-format
 msgctxt "@action:button"
 msgid "Mark as Read"
-msgstr "მონიშნე როგორც წაკითხული"
+msgstr "წაკითხულად მონიშვნა"
 
 #: widgets/room/roomcounterinfowidget.cpp:60
-#, fuzzy, kde-format
-#| msgid "%4 %1 new message since %2. %3"
-#| msgid_plural "%4 %1 new messages since %2. %3"
+#, kde-format
 msgid "%1 new message since %2."
 msgid_plural "%1 new messages since %2."
-msgstr[0] "%4 %1 ახალი შეტყობინება %2. %3"
-msgstr[1] "%4 %1 ახალი შეტყობინება %2. %3"
+msgstr[0] "%1 ახალი შეტყობინება %2-ის შემდეგ."
+msgstr[1] "%1 ახალი შეტყობინება %2-ის შემდეგ."
 
 #: widgets/room/roomheaderlabel.cpp:68
 #, kde-format
@@ -11461,6 +11423,21 @@ msgstr "Ruqola-ის ახალ ფუნქციებში შედი�
 #, kde-format
 msgid "Some bug fixing:"
 msgstr "გამოსწორდა ზოგიერთი შეცდომა:"
+
+#~ msgid "Starred Messages"
+#~ msgstr "ვარსკვლავიანი შეტყობინებები"
+
+#~ msgid "Pinned Messages"
+#~ msgstr "მიმაგრებული შეტყობინებები"
+
+#~ msgid "Mentions Messages"
+#~ msgstr "ხსენების შეტყობინებები"
+
+#~ msgid "Threads Messages"
+#~ msgstr "ნაკადის შეტყობინებები"
+
+#~ msgid "Unread Threads Messages"
+#~ msgstr "ნაკადების წაუკითხავი შეტყობინებები"
 
 #~ msgid "@option:check"
 #~ msgstr "@პარამეტრი:შემოწმება"

@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-11-01 00:39+0000\n"
-"PO-Revision-Date: 2024-10-31 10:36+0100\n"
+"POT-Creation-Date: 2024-11-02 00:39+0000\n"
+"PO-Revision-Date: 2024-11-01 10:17+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca\n"
@@ -1279,31 +1279,6 @@ msgstr "No s'ha trobat cap resultat."
 #, kde-format
 msgid "Notify active users in this room"
 msgstr "Notifica als usuaris actius en aquesta sala"
-
-#: core/model/listmessagesfilterproxymodel.cpp:43
-#, kde-format
-msgid "Starred Messages"
-msgstr "Missatges destacats"
-
-#: core/model/listmessagesfilterproxymodel.cpp:45
-#, kde-format
-msgid "Pinned Messages"
-msgstr "Missatges fixats"
-
-#: core/model/listmessagesfilterproxymodel.cpp:47
-#, kde-format
-msgid "Mentions Messages"
-msgstr "Missatges que mencionen"
-
-#: core/model/listmessagesfilterproxymodel.cpp:49
-#, kde-format
-msgid "Threads Messages"
-msgstr "Missatges dels fils"
-
-#: core/model/listmessagesfilterproxymodel.cpp:51
-#, kde-format
-msgid "Unread Threads Messages"
-msgstr "Missatges dels fils no llegits"
 
 #: core/model/messagesmodel.cpp:223
 #, kde-format
@@ -7405,28 +7380,22 @@ msgid "Set status to \"Online\" on startup"
 msgstr "Estableix l'estat a «en línia» a l'inici"
 
 #: widgets/configuredialog/configuregeneralwidget.cpp:16
-#, fuzzy, kde-format
-#| msgctxt "@option:check"
-#| msgid "Embed Link Previews"
+#, kde-format
 msgctxt "@option:check"
 msgid "Enable image previews"
-msgstr "Incrusta la vista prèvia dels enllaços"
+msgstr "Activa les vistes prèvies de les imatges"
 
 #: widgets/configuredialog/configuregeneralwidget.cpp:17
-#, fuzzy, kde-format
-#| msgctxt "@option:check"
-#| msgid "Embed Link Previews"
+#, kde-format
 msgctxt "@option:check"
 msgid "Enable URL previews"
-msgstr "Incrusta la vista prèvia dels enllaços"
+msgstr "Activa les vistes prèvies dels URL"
 
 #: widgets/configuredialog/configuregeneralwidget.cpp:18
-#, fuzzy, kde-format
-#| msgctxt "@option:check"
-#| msgid "Mark room as read when clicking to write a reply"
+#, kde-format
 msgctxt "@option:check"
 msgid "Mark channel as read when writing a reply"
-msgstr "Mostra la sala com a llegida en fer clic a «escriu una resposta»"
+msgstr "Mostra el canal com a llegit en escriure una resposta"
 
 #: widgets/configuredialog/configuregeneralwidget.cpp:19
 #, kde-format
@@ -7444,21 +7413,19 @@ msgstr "Activa el registre"
 #, kde-format
 msgctxt "@option:check"
 msgid "Highlight messages when hovering"
-msgstr ""
+msgstr "Ressalta els missatges en passar-hi per sobre"
 
 #: widgets/configuredialog/configuregeneralwidget.cpp:22
-#, fuzzy, kde-format
-#| msgctxt "@option:check"
-#| msgid "Animate Gif Image"
+#, kde-format
 msgctxt "@option:check"
 msgid "Animate GIFs"
-msgstr "Anima les imatges GIF"
+msgstr "Anima els GIF"
 
 #: widgets/configuredialog/configuregeneralwidget.cpp:23
 #, kde-format
 msgctxt "@option:check"
 msgid "Enable experimental local database"
-msgstr ""
+msgstr "Activa la base de dades local experimental"
 
 #: widgets/configuredialog/configuregeneralwidget.cpp:25
 #, kde-format
@@ -10303,28 +10270,23 @@ msgid "%1 seconds before reconnecting. %2"
 msgstr "%1 segons abans de reconnectar. %2"
 
 #: widgets/room/roomcounterinfowidget.cpp:18
-#, fuzzy, kde-format
-#| msgid "(Jump to first Unread)"
+#, kde-format
 msgctxt "@action:button"
 msgid "Jump to First Unread"
-msgstr "(Ves al primer no llegit)"
+msgstr "Ves al primer no llegit"
 
 #: widgets/room/roomcounterinfowidget.cpp:25
-#, fuzzy, kde-format
-#| msgctxt "@action"
-#| msgid "Mark as Read"
+#, kde-format
 msgctxt "@action:button"
 msgid "Mark as Read"
 msgstr "Marca com a llegit"
 
 #: widgets/room/roomcounterinfowidget.cpp:60
-#, fuzzy, kde-format
-#| msgid "%4 %1 new message since %2. %3"
-#| msgid_plural "%4 %1 new messages since %2. %3"
+#, kde-format
 msgid "%1 new message since %2."
 msgid_plural "%1 new messages since %2."
-msgstr[0] "%4 %1 missatge nou des de %2. %3"
-msgstr[1] "%4 %1 missatges nous des de %2. %3"
+msgstr[0] "%1 missatge nou des de %2."
+msgstr[1] "%1 missatges nous des de %2."
 
 #: widgets/room/roomheaderlabel.cpp:68
 #, kde-format
@@ -11534,6 +11496,21 @@ msgstr ""
 #, kde-format
 msgid "Some bug fixing:"
 msgstr "Correcció d'errors:"
+
+#~ msgid "Starred Messages"
+#~ msgstr "Missatges destacats"
+
+#~ msgid "Pinned Messages"
+#~ msgstr "Missatges fixats"
+
+#~ msgid "Mentions Messages"
+#~ msgstr "Missatges que mencionen"
+
+#~ msgid "Threads Messages"
+#~ msgstr "Missatges dels fils"
+
+#~ msgid "Unread Threads Messages"
+#~ msgstr "Missatges dels fils no llegits"
 
 #~ msgid "@option:check"
 #~ msgstr "@option:check"

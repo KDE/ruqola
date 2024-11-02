@@ -5,8 +5,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-11-01 00:39+0000\n"
-"PO-Revision-Date: 2024-10-30 09:52+0100\n"
+"POT-Creation-Date: 2024-11-02 00:39+0000\n"
+"PO-Revision-Date: 2024-10-31 09:19+0100\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
 "Language-Team: French <French <kde-francophone@kde.org>>\n"
 "Language: fr\n"
@@ -1274,31 +1274,6 @@ msgstr "Aucun résultat trouvé."
 #, kde-format
 msgid "Notify active users in this room"
 msgstr "Envoyer des notifications à tous les personnes actives de ce salon"
-
-#: core/model/listmessagesfilterproxymodel.cpp:43
-#, kde-format
-msgid "Starred Messages"
-msgstr "Messages avec étoiles"
-
-#: core/model/listmessagesfilterproxymodel.cpp:45
-#, kde-format
-msgid "Pinned Messages"
-msgstr "Messages agrafés"
-
-#: core/model/listmessagesfilterproxymodel.cpp:47
-#, kde-format
-msgid "Mentions Messages"
-msgstr "Messages de citation"
-
-#: core/model/listmessagesfilterproxymodel.cpp:49
-#, kde-format
-msgid "Threads Messages"
-msgstr "Messages du fil de discussions"
-
-#: core/model/listmessagesfilterproxymodel.cpp:51
-#, kde-format
-msgid "Unread Threads Messages"
-msgstr "Messages du fil de discussions non lus"
 
 #: core/model/messagesmodel.cpp:223
 #, kde-format
@@ -10581,26 +10556,21 @@ msgid "Block User"
 msgstr "Bloquer un utilisateur"
 
 #: widgets/room/usersinroommenu.cpp:70
-#, fuzzy, kde-format
-#| msgid "Do you want to remove this user?"
+#, kde-format
 msgid "Do you want to mute this user?"
-msgstr "Voulez-vous vraiment supprimer cet utilisateur ?"
+msgstr "Voulez-vous vraiment couper le son pour cet utilisateur ?"
 
 #: widgets/room/usersinroommenu.cpp:71
-#, fuzzy, kde-format
-#| msgctxt "@label:textbox"
-#| msgid "Invite Users"
+#, kde-format
 msgctxt "@title"
 msgid "Mute User"
-msgstr "Inviter des utilisateurs"
+msgstr "Couper le son d'un utilisateur"
 
 #: widgets/room/usersinroommenu.cpp:72
-#, fuzzy, kde-format
-#| msgctxt "@label:textbox"
-#| msgid "Invite Users"
+#, kde-format
 msgctxt "@action:button"
 msgid "Mute User"
-msgstr "Inviter des utilisateurs"
+msgstr "Couper le son d'un utilisateur"
 
 #: widgets/room/usersinroommenu.cpp:87
 #, kde-format
@@ -10692,20 +10662,16 @@ msgid "Ignore"
 msgstr "Ignorer"
 
 #: widgets/room/usersinroommenu.cpp:189
-#, fuzzy, kde-format
-#| msgctxt "@action"
-#| msgid "Invite Users"
+#, kde-format
 msgctxt "@action"
 msgid "Unmute User"
-msgstr "Inviter des utilisateurs"
+msgstr "Remettre le son d'un utilisateur"
 
 #: widgets/room/usersinroommenu.cpp:189
-#, fuzzy, kde-format
-#| msgctxt "@action"
-#| msgid "Invite Users"
+#, kde-format
 msgctxt "@action"
 msgid "Mute User"
-msgstr "Inviter des utilisateurs"
+msgstr "Couper le son d'un utilisateur"
 
 #: widgets/room/usersinroommenu.cpp:197
 #, kde-format
@@ -11641,6 +11607,21 @@ msgstr ""
 #, kde-format
 msgid "Some bug fixing:"
 msgstr "Quelques correction de bogues :"
+
+#~ msgid "Starred Messages"
+#~ msgstr "Messages avec étoiles"
+
+#~ msgid "Pinned Messages"
+#~ msgstr "Messages agrafés"
+
+#~ msgid "Mentions Messages"
+#~ msgstr "Messages de citation"
+
+#~ msgid "Threads Messages"
+#~ msgstr "Messages du fil de discussions"
+
+#~ msgid "Unread Threads Messages"
+#~ msgstr "Messages du fil de discussions non lus"
 
 #~ msgid "(Mark as Read)"
 #~ msgstr "(Marquer comme lu)"

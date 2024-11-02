@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-11-01 00:39+0000\n"
+"POT-Creation-Date: 2024-11-02 00:39+0000\n"
 "PO-Revision-Date: 2024-10-08 22:03+0300\n"
 "Last-Translator: Moo\n"
 "Language-Team: none\n"
@@ -1304,32 +1304,6 @@ msgstr "Nerasta jokių žinučių"
 #, kde-format
 msgid "Notify active users in this room"
 msgstr "Pranešti aktyviems naudotojams šiame kambaryje"
-
-#: core/model/listmessagesfilterproxymodel.cpp:43
-#, kde-format
-msgid "Starred Messages"
-msgstr ""
-
-#: core/model/listmessagesfilterproxymodel.cpp:45
-#, kde-format
-msgid "Pinned Messages"
-msgstr ""
-
-#: core/model/listmessagesfilterproxymodel.cpp:47
-#, kde-format
-msgid "Mentions Messages"
-msgstr ""
-
-#: core/model/listmessagesfilterproxymodel.cpp:49
-#, kde-format
-msgid "Threads Messages"
-msgstr ""
-
-#: core/model/listmessagesfilterproxymodel.cpp:51
-#, fuzzy, kde-format
-#| msgid "Delete Message"
-msgid "Unread Threads Messages"
-msgstr "Ištrinti žinutę"
 
 #: core/model/messagesmodel.cpp:223
 #, kde-format
@@ -12010,6 +11984,11 @@ msgstr ""
 #, kde-format
 msgid "Some bug fixing:"
 msgstr "Kai kurių klaidų pataisymai:"
+
+#, fuzzy
+#~| msgid "Delete Message"
+#~ msgid "Unread Threads Messages"
+#~ msgstr "Ištrinti žinutę"
 
 #, fuzzy
 #~| msgid "No Messages found"

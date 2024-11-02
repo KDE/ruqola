@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-11-01 00:39+0000\n"
+"POT-Creation-Date: 2024-11-02 00:39+0000\n"
 "PO-Revision-Date: 2024-10-31 09:19+0100\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
@@ -1275,31 +1275,6 @@ msgstr "Ni zadetkov."
 #, kde-format
 msgid "Notify active users in this room"
 msgstr "Obvesti vse aktivne uporabnike v tej sobi"
-
-#: core/model/listmessagesfilterproxymodel.cpp:43
-#, kde-format
-msgid "Starred Messages"
-msgstr "Sporočila z zvezdico"
-
-#: core/model/listmessagesfilterproxymodel.cpp:45
-#, kde-format
-msgid "Pinned Messages"
-msgstr "Pripeta sporočila"
-
-#: core/model/listmessagesfilterproxymodel.cpp:47
-#, kde-format
-msgid "Mentions Messages"
-msgstr "Sporočila z omembami"
-
-#: core/model/listmessagesfilterproxymodel.cpp:49
-#, kde-format
-msgid "Threads Messages"
-msgstr "Sporočila iz niti"
-
-#: core/model/listmessagesfilterproxymodel.cpp:51
-#, kde-format
-msgid "Unread Threads Messages"
-msgstr "Neprebrana sporočila niti"
 
 #: core/model/messagesmodel.cpp:223
 #, kde-format
@@ -11506,6 +11481,21 @@ msgstr "Nekaj novih zmožnosti v tej izdaji Ruqole vsebuje:"
 #, kde-format
 msgid "Some bug fixing:"
 msgstr "Nekaj odprav napak:"
+
+#~ msgid "Starred Messages"
+#~ msgstr "Sporočila z zvezdico"
+
+#~ msgid "Pinned Messages"
+#~ msgstr "Pripeta sporočila"
+
+#~ msgid "Mentions Messages"
+#~ msgstr "Sporočila z omembami"
+
+#~ msgid "Threads Messages"
+#~ msgstr "Sporočila iz niti"
+
+#~ msgid "Unread Threads Messages"
+#~ msgstr "Neprebrana sporočila niti"
 
 #~ msgid "@option:check"
 #~ msgstr "@option:check"

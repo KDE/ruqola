@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-11-01 00:39+0000\n"
+"POT-Creation-Date: 2024-11-02 00:39+0000\n"
 "PO-Revision-Date: 2024-10-31 18:03+0100\n"
 "Last-Translator: giovanni <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
@@ -1273,31 +1273,6 @@ msgstr "Necun exito trovate."
 #, kde-format
 msgid "Notify active users in this room"
 msgstr "Notifica usatores active in iste sala"
-
-#: core/model/listmessagesfilterproxymodel.cpp:43
-#, kde-format
-msgid "Starred Messages"
-msgstr "Messages con stella"
-
-#: core/model/listmessagesfilterproxymodel.cpp:45
-#, kde-format
-msgid "Pinned Messages"
-msgstr "Messages appunctate"
-
-#: core/model/listmessagesfilterproxymodel.cpp:47
-#, kde-format
-msgid "Mentions Messages"
-msgstr "Messages de mentiones"
-
-#: core/model/listmessagesfilterproxymodel.cpp:49
-#, kde-format
-msgid "Threads Messages"
-msgstr "Messages de topicos"
-
-#: core/model/listmessagesfilterproxymodel.cpp:51
-#, kde-format
-msgid "Unread Threads Messages"
-msgstr "Messages de topicos non legite"
 
 #: core/model/messagesmodel.cpp:223
 #, kde-format
@@ -11269,6 +11244,21 @@ msgstr ""
 #, kde-format
 msgid "Some bug fixing:"
 msgstr "Alcun correction de faltas (bug)"
+
+#~ msgid "Starred Messages"
+#~ msgstr "Messages con stella"
+
+#~ msgid "Pinned Messages"
+#~ msgstr "Messages appunctate"
+
+#~ msgid "Mentions Messages"
+#~ msgstr "Messages de mentiones"
+
+#~ msgid "Threads Messages"
+#~ msgstr "Messages de topicos"
+
+#~ msgid "Unread Threads Messages"
+#~ msgstr "Messages de topicos non legite"
 
 #~ msgid "(Mark as Read)"
 #~ msgstr "(Marca como legite)"

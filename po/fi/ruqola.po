@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-11-01 00:39+0000\n"
+"POT-Creation-Date: 2024-11-02 00:39+0000\n"
 "PO-Revision-Date: 2023-09-20 18:47+0300\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
@@ -1308,31 +1308,6 @@ msgstr "Tuloksia ei löytynyt"
 #| msgid "User is not in this room"
 msgid "Notify active users in this room"
 msgstr "Käyttäjä ei ole tässä huoneessa"
-
-#: core/model/listmessagesfilterproxymodel.cpp:43
-#, kde-format
-msgid "Starred Messages"
-msgstr "Tähdellä merkityt viestit"
-
-#: core/model/listmessagesfilterproxymodel.cpp:45
-#, kde-format
-msgid "Pinned Messages"
-msgstr "Kiinnitetyt viestit"
-
-#: core/model/listmessagesfilterproxymodel.cpp:47
-#, kde-format
-msgid "Mentions Messages"
-msgstr "Mainintaviestit"
-
-#: core/model/listmessagesfilterproxymodel.cpp:49
-#, kde-format
-msgid "Threads Messages"
-msgstr "Säieviestit"
-
-#: core/model/listmessagesfilterproxymodel.cpp:51
-#, kde-format
-msgid "Unread Threads Messages"
-msgstr "Merkitse säikeen viestien olevan lukematta"
 
 #: core/model/messagesmodel.cpp:223
 #, kde-format
@@ -11995,6 +11970,21 @@ msgstr "Joitakin tämän Ruqola-julkaisua uusia ominaisuuksia ovat:"
 #, kde-format
 msgid "Some bug fixing:"
 msgstr "Joitakin virheenkorjauksia:"
+
+#~ msgid "Starred Messages"
+#~ msgstr "Tähdellä merkityt viestit"
+
+#~ msgid "Pinned Messages"
+#~ msgstr "Kiinnitetyt viestit"
+
+#~ msgid "Mentions Messages"
+#~ msgstr "Mainintaviestit"
+
+#~ msgid "Threads Messages"
+#~ msgstr "Säieviestit"
+
+#~ msgid "Unread Threads Messages"
+#~ msgstr "Merkitse säikeen viestien olevan lukematta"
 
 #, fuzzy
 #~| msgid "(Mark As Read)"

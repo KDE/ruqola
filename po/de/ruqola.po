@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-11-01 00:39+0000\n"
+"POT-Creation-Date: 2024-11-02 00:39+0000\n"
 "PO-Revision-Date: 2023-05-10 20:24+0200\n"
 "Last-Translator: Frederik Schwarzer <schwarzer@kde.org>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
@@ -1341,36 +1341,6 @@ msgstr "Kein Ergebnis gefunden"
 #| msgid "User is not in this room"
 msgid "Notify active users in this room"
 msgstr "Der Benutzer ist nicht in diesem Raum"
-
-#: core/model/listmessagesfilterproxymodel.cpp:43
-#, fuzzy, kde-format
-#| msgid "Send Message"
-msgid "Starred Messages"
-msgstr "Nachricht senden"
-
-#: core/model/listmessagesfilterproxymodel.cpp:45
-#, fuzzy, kde-format
-#| msgid "Private Messages"
-msgid "Pinned Messages"
-msgstr "Private Nachrichten"
-
-#: core/model/listmessagesfilterproxymodel.cpp:47
-#, fuzzy, kde-format
-#| msgid "Send Message"
-msgid "Mentions Messages"
-msgstr "Nachricht senden"
-
-#: core/model/listmessagesfilterproxymodel.cpp:49
-#, fuzzy, kde-format
-#| msgid "Send Message"
-msgid "Threads Messages"
-msgstr "Nachricht senden"
-
-#: core/model/listmessagesfilterproxymodel.cpp:51
-#, fuzzy, kde-format
-#| msgid "Send Message"
-msgid "Unread Threads Messages"
-msgstr "Nachricht senden"
 
 #: core/model/messagesmodel.cpp:223
 #, kde-format
@@ -12105,6 +12075,31 @@ msgstr ""
 #| msgid "Bug fixing"
 msgid "Some bug fixing:"
 msgstr "Fehlerkorrekturen"
+
+#, fuzzy
+#~| msgid "Send Message"
+#~ msgid "Starred Messages"
+#~ msgstr "Nachricht senden"
+
+#, fuzzy
+#~| msgid "Private Messages"
+#~ msgid "Pinned Messages"
+#~ msgstr "Private Nachrichten"
+
+#, fuzzy
+#~| msgid "Send Message"
+#~ msgid "Mentions Messages"
+#~ msgstr "Nachricht senden"
+
+#, fuzzy
+#~| msgid "Send Message"
+#~ msgid "Threads Messages"
+#~ msgstr "Nachricht senden"
+
+#, fuzzy
+#~| msgid "Send Message"
+#~ msgid "Unread Threads Messages"
+#~ msgstr "Nachricht senden"
 
 #, fuzzy
 #~| msgid "(Mark As Read)"
