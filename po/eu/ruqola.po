@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-10-31 02:30+0000\n"
-"PO-Revision-Date: 2024-10-05 21:19+0200\n"
+"PO-Revision-Date: 2024-10-28 23:56+0100\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
 "Language: eu\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 24.08.1\n"
+"X-Generator: Lokalize 24.08.2\n"
 
 #: apps/main.cpp:61
 #, kde-format
@@ -9346,7 +9346,7 @@ msgstr "Hariak ez inausi"
 #, kde-format
 msgctxt "@option:check"
 msgid "Only Remove Attached Files. Keep messages"
-msgstr "Kendu bakarrik atxikitako fitxategiak. Mezuak mantendu"
+msgstr "Kendu bakarrik erantsitako fitxategiak. Mezuak mantendu"
 
 #: widgets/prunemessages/prunemessageswidget.cpp:38
 #, kde-format
@@ -9584,7 +9584,7 @@ msgstr "Gehitu erreakzioa"
 #: widgets/room/messagelinewidget.cpp:64
 #, kde-format
 msgid "Attach File"
-msgstr "Atxiki fitxategia"
+msgstr "Erantsi fitxategia"
 
 #: widgets/room/messagelinewidget.cpp:73
 #, kde-format
