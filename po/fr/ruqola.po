@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-11-02 00:39+0000\n"
-"PO-Revision-Date: 2024-10-31 09:19+0100\n"
+"PO-Revision-Date: 2024-11-01 08:35+0100\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
 "Language-Team: French <French <kde-francophone@kde.org>>\n"
 "Language: fr\n"
@@ -7260,9 +7260,7 @@ msgid "Next Channel"
 msgstr "Canal suivant"
 
 #: widgets/common/authenticationbutton.cpp:23
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Sign in with %1"
+#, kde-format
 msgctxt "@action:button"
 msgid "Sign in With %1"
 msgstr "Se connecter avec %1"
@@ -7274,11 +7272,9 @@ msgid "Register Account"
 msgstr "Enregistrer un compte"
 
 #: widgets/common/authenticationloginwidget.cpp:37
-#, fuzzy, kde-format
-#| msgctxt "@action"
-#| msgid "My Account…"
+#, kde-format
 msgid "My Account"
-msgstr "Mon compte..."
+msgstr "Mon compte"
 
 #: widgets/common/authenticationloginwidget.cpp:43
 #, kde-format
@@ -7287,11 +7283,9 @@ msgid "Username or email"
 msgstr "Nom d'utilisateur ou courriel"
 
 #: widgets/common/authenticationloginwidget.cpp:45
-#, fuzzy, kde-format
-#| msgctxt "@info:placeholder"
-#| msgid "Username or email"
+#, kde-format
 msgid "Username or email:"
-msgstr "Nom d'utilisateur ou courriel"
+msgstr "Nom d'utilisateur ou courriel :"
 
 #: widgets/common/authenticationloginwidget.cpp:159
 #: widgets/ruqolamainwindow.cpp:1007
@@ -7428,12 +7422,10 @@ msgid "&Use custom fonts"
 msgstr "&Utiliser des polices personnalisées"
 
 #: widgets/configuredialog/configuregeneralwidget.cpp:15
-#, fuzzy, kde-format
-#| msgctxt "@option:check"
-#| msgid "Set accounts online on startup"
+#, kde-format
 msgctxt "@option:check"
 msgid "Set status to \"Online\" on startup"
-msgstr "Définir les comptes en ligne au démarrage"
+msgstr "Définir l'état à « En ligne » au démarrage"
 
 #: widgets/configuredialog/configuregeneralwidget.cpp:16
 #, fuzzy, kde-format
@@ -7492,12 +7484,10 @@ msgid "Enable experimental local database"
 msgstr ""
 
 #: widgets/configuredialog/configuregeneralwidget.cpp:25
-#, fuzzy, kde-format
-#| msgctxt "@option:check"
-#| msgid "Enable Plasma Activities"
+#, kde-format
 msgctxt "@option:check"
 msgid "Enable Plasma Activities integration"
-msgstr "Activer les activités de Plasma"
+msgstr "Activer l'intégration des activités de Plasma"
 
 #: widgets/configuredialog/configuresettingsdialog.cpp:62
 #, kde-format
@@ -7512,8 +7502,7 @@ msgid "General"
 msgstr "Général"
 
 #: widgets/configuredialog/configuresettingsdialog.cpp:72
-#, fuzzy, kde-format
-#| msgid "Accounts"
+#, kde-format
 msgctxt "@title Preferences page name"
 msgid "Accounts"
 msgstr "Comptes"
@@ -7525,9 +7514,7 @@ msgid "Font"
 msgstr "Police"
 
 #: widgets/configuredialog/configuresettingsdialog.cpp:83
-#, fuzzy, kde-format
-#| msgctxt "@title AutoCorrection page name"
-#| msgid "AutoCorrection"
+#, kde-format
 msgctxt "@title AutoCorrection page name"
 msgid "Auto-Correction"
 msgstr "Correction automatique"
@@ -7539,12 +7526,10 @@ msgid "Spell Checking"
 msgstr "Vérification de l'orthographe"
 
 #: widgets/configuredialog/configuresettingsdialog.cpp:95
-#, fuzzy, kde-format
-#| msgctxt "@title Preferences page name"
-#| msgid "Translate"
+#, kde-format
 msgctxt "@title Preferences page name"
 msgid "Translation"
-msgstr "Traduire"
+msgstr "Traduction"
 
 #: widgets/configuredialog/configuresettingsdialog.cpp:102
 #, kde-format
@@ -7576,15 +7561,13 @@ msgid "Do you want to remove this account '%1'?"
 msgstr "Voulez-vous vraiment supprimer ce compte « %1 » ?"
 
 #: widgets/configurenewserver/checknewserverurlwidget.cpp:25
-#, fuzzy, kde-format
-#| msgid "Connected"
+#, kde-format
 msgctxt "@action:button"
 msgid "Connect"
-msgstr "Connecté"
+msgstr "Se connecter"
 
 #: widgets/configurenewserver/checknewserverurlwidget.cpp:36
-#, fuzzy, kde-format
-#| msgid "Server URL:"
+#, kde-format
 msgctxt "@label:textbox"
 msgid "Server URL:"
 msgstr "URL du serveur :"
@@ -7592,13 +7575,12 @@ msgstr "URL du serveur :"
 #: widgets/configurenewserver/checknewserverurlwidget.cpp:94
 #, kde-format
 msgid "Socket was unexpectedly closed."
-msgstr ""
+msgstr "Le canal de connexion (socket) a été fermée de manière inattendue."
 
 #: widgets/configurenewserver/checknewserverurlwidget.cpp:131
-#, fuzzy, kde-format
-#| msgid "Impossible to access to server."
+#, kde-format
 msgid "Failed to connect to server: %1"
-msgstr "Impossible d'accéder au serveur."
+msgstr "Impossible de se connecter au serveur : %1"
 
 #: widgets/configurenewserver/configureactivitiesdialog.cpp:25
 #, kde-format
@@ -10133,11 +10115,9 @@ msgid "Message %1 in thread"
 msgstr "Message %1 dans le fil de discussions"
 
 #: widgets/room/messagelinewidget.cpp:250
-#, fuzzy, kde-format
-#| msgctxt "@info:tooltip"
-#| msgid "Send a video message…"
+#, kde-format
 msgid "Send a message in %1…"
-msgstr "Envoyer un message vidéo…"
+msgstr "Envoyer un message par %1..."
 
 #: widgets/room/messagelinewidget.cpp:391
 #, kde-format
@@ -11234,10 +11214,9 @@ msgstr ""
 "d'une raison)."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:21
-#, fuzzy
-#| msgid "Implement message style"
 msgid "Implement mute/unmute user."
-msgstr "Définir un style de message"
+msgstr ""
+"Définir une mise en pause du son /restauration du son pour un utilisateur"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:31
 #, kde-format

@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-11-02 00:39+0000\n"
-"PO-Revision-Date: 2024-10-31 09:19+0100\n"
+"PO-Revision-Date: 2024-11-02 06:33+0100\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
@@ -7352,31 +7352,25 @@ msgstr "&Uporabi pisave po meri"
 #, kde-format
 msgctxt "@option:check"
 msgid "Set status to \"Online\" on startup"
-msgstr "Ob zagonu nastavi status na \"Online\"."
+msgstr "Ob zagonu nastavi status na \"Online\""
 
 #: widgets/configuredialog/configuregeneralwidget.cpp:16
-#, fuzzy, kde-format
-#| msgctxt "@option:check"
-#| msgid "Embed Link Previews"
+#, kde-format
 msgctxt "@option:check"
 msgid "Enable image previews"
-msgstr "Vgradi predoglede povezave"
+msgstr "Omogoči predoglede slike"
 
 #: widgets/configuredialog/configuregeneralwidget.cpp:17
-#, fuzzy, kde-format
-#| msgctxt "@option:check"
-#| msgid "Embed Link Previews"
+#, kde-format
 msgctxt "@option:check"
 msgid "Enable URL previews"
-msgstr "Vgradi predoglede povezave"
+msgstr "Omogoči predoglede URL"
 
 #: widgets/configuredialog/configuregeneralwidget.cpp:18
-#, fuzzy, kde-format
-#| msgctxt "@option:check"
-#| msgid "Mark room as read when clicking to write a reply"
+#, kde-format
 msgctxt "@option:check"
 msgid "Mark channel as read when writing a reply"
-msgstr "Označite sobo kot prebrano, ko kliknete, da napišete odgovor"
+msgstr "Označi kanal kot prebranega, ko napišete odgovor"
 
 #: widgets/configuredialog/configuregeneralwidget.cpp:19
 #, kde-format
@@ -7394,21 +7388,19 @@ msgstr "Omogoči zapisovanje v dnevnik"
 #, kde-format
 msgctxt "@option:check"
 msgid "Highlight messages when hovering"
-msgstr ""
+msgstr "Osvetli sporočilo, ko je miška nad njim"
 
 #: widgets/configuredialog/configuregeneralwidget.cpp:22
-#, fuzzy, kde-format
-#| msgctxt "@option:check"
-#| msgid "Animate Gif Image"
+#, kde-format
 msgctxt "@option:check"
 msgid "Animate GIFs"
-msgstr "Animiraj gif sliko"
+msgstr "Animiraj slike GIF"
 
 #: widgets/configuredialog/configuregeneralwidget.cpp:23
 #, kde-format
 msgctxt "@option:check"
 msgid "Enable experimental local database"
-msgstr ""
+msgstr "Omogoči poskusno lokalno podatkovno bazo"
 
 #: widgets/configuredialog/configuregeneralwidget.cpp:25
 #, kde-format
@@ -10258,30 +10250,25 @@ msgid "%1 seconds before reconnecting. %2"
 msgstr "%1 s pred ponovno povezavo. %2"
 
 #: widgets/room/roomcounterinfowidget.cpp:18
-#, fuzzy, kde-format
-#| msgid "(Jump to first Unread)"
+#, kde-format
 msgctxt "@action:button"
 msgid "Jump to First Unread"
-msgstr "(Skoči na prvo neprebrano)"
+msgstr "Skoči na prvo neprebrano"
 
 #: widgets/room/roomcounterinfowidget.cpp:25
-#, fuzzy, kde-format
-#| msgctxt "@action"
-#| msgid "Mark as Read"
+#, kde-format
 msgctxt "@action:button"
 msgid "Mark as Read"
 msgstr "Označi kot prebrano"
 
 #: widgets/room/roomcounterinfowidget.cpp:60
-#, fuzzy, kde-format
-#| msgid "%4 %1 new message since %2. %3"
-#| msgid_plural "%4 %1 new messages since %2. %3"
+#, kde-format
 msgid "%1 new message since %2."
 msgid_plural "%1 new messages since %2."
-msgstr[0] "%4 %1 novo sporočilo od %2. %3"
-msgstr[1] "%4 %1 novi sporočili od %2. %3"
-msgstr[2] "%4 %1 nova sporočila od %2. %3"
-msgstr[3] "%4 %1 novih sporočil od %2. %3"
+msgstr[0] "%1 novih sporočil od %2."
+msgstr[1] "%1 novo sporočilo od %2."
+msgstr[2] "%1 novi sporočili od %2."
+msgstr[3] "%1 novi sporočili od %2."
 
 #: widgets/room/roomheaderlabel.cpp:68
 #, kde-format
