@@ -111,7 +111,8 @@ void TeamChannelsWidget::slotCustomContextMenuRequested(const QPoint &pos)
 {
     QMenu menu(this);
     QModelIndex index = mListView->indexAt(pos);
-    if (mRoom->hasPermission(QStringLiteral("add-team-channel"))) {
+    // TODO Remove add-team-channel when we will depend against RC 7.0
+    if (mRoom->hasPermission(QStringLiteral("add-team-channel")) || mRoom->hasPermission(QStringLiteral("move-room-to-team"))) {
         menu.addAction(i18n("Add Existing Room"), this, &TeamChannelsWidget::slotAddExistingRoom);
         menu.addSeparator();
         menu.addAction(QIcon::fromTheme(QStringLiteral("irc-join-channel")), i18nc("@action", "Create Room"), this, &TeamChannelsWidget::slotCreateRoom);

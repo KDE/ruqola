@@ -70,12 +70,14 @@ bool PermissionManager::storePermission(const QString &id)
         || id == "manage-sounds"_L1 || id == "set-moderator"_L1 || id == "set-leader"_L1 || id == "set-owner"_L1 || id == "delete-user"_L1
         || id == "edit-room-retention-policy"_L1 || id == "access-setting-permissions"_L1 || id == "start-discussion"_L1
         || id == "start-discussion-other-user"_L1 || id == "force-delete-message"_L1 || id == "create-team"_L1 || id == "convert-team"_L1
-        || id == "delete-team"_L1 || id == "edit-team"_L1 || id == "add-team-member"_L1 || id == "edit-team-member"_L1 || id == "add-team-channel"_L1
-        || id == "edit-team-channel"_L1 || id == "remove-team-channel"_L1 || id == "view-all-team-channels"_L1 || id == "view-all-teams"_L1
-        || id == "access-permissions"_L1 || id == "edit-other-user-e2ee"_L1 || id == "edit-other-user-totp"_L1 || id == "assign-admin-role"_L1
-        || id == "edit-other-user-info"_L1 || id == "edit-other-user-active-status"_L1 || id == "logout-device-management"_L1
-        || id == "view-device-management"_L1 || id == "create-personal-access-tokens"_L1 || id == "manage-oauth-apps"_L1 || id == "create-user"_L1
-        || id == "bulk-register-user"_L1 || id == "view-broadcast-member-list"_L1 /* TODO implement view-broadcast-member-list */
+        || id == "delete-team"_L1 || id == "edit-team"_L1 || id == "add-team-member"_L1
+        || id == "edit-team-member"_L1
+        // INFO: add-team-channel was renamed to move-room-to-team in RC 7.0
+        || id == "add-team-channel"_L1 || id == "move-room-to-team"_L1 || id == "edit-team-channel"_L1 || id == "remove-team-channel"_L1
+        || id == "view-all-team-channels"_L1 || id == "view-all-teams"_L1 || id == "access-permissions"_L1 || id == "edit-other-user-e2ee"_L1
+        || id == "edit-other-user-totp"_L1 || id == "assign-admin-role"_L1 || id == "edit-other-user-info"_L1 || id == "edit-other-user-active-status"_L1
+        || id == "logout-device-management"_L1 || id == "view-device-management"_L1 || id == "create-personal-access-tokens"_L1 || id == "manage-oauth-apps"_L1
+        || id == "create-user"_L1 || id == "bulk-register-user"_L1 || id == "view-broadcast-member-list"_L1 /* TODO implement view-broadcast-member-list */
         || id == "videoconf-ring-users"_L1 || id == "edit-other-user-password"_L1 || id == "view-moderation-console"_L1 || id == "manage-moderation-actions"_L1
         || id == "manage-emoji"_L1 || id == "view-room-administration"_L1 || id == "view-user-administration"_L1 || id == "edit-other-user-avatar"_L1;
 }

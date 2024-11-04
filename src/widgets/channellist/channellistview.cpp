@@ -180,7 +180,8 @@ void ChannelListView::contextMenuEvent(QContextMenuEvent *event)
                     }
                 }
                 const QByteArray mainTeamId = index.data(RoomModel::RoomTeamId).toByteArray();
-                if (mainTeamId.isEmpty() && !mainTeam && room->hasPermission(QStringLiteral("add-team-channel"))) {
+                if (mainTeamId.isEmpty() && !mainTeam
+                    && (room->hasPermission(QStringLiteral("add-team-channel")) || room->hasPermission(QStringLiteral("move-room-to-team")))) {
                     menu.addSeparator();
                     auto moveToTeam = new QAction(i18nc("@action", "Move to Team"), &menu);
                     connect(moveToTeam, &QAction::triggered, this, [this, index]() {
