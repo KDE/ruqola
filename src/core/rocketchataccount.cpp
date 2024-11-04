@@ -962,11 +962,6 @@ OtrManager *RocketChatAccount::otrManager() const
     return mOtrManager;
 }
 
-void RocketChatAccount::deleteMessage(const QByteArray &messageId, const QByteArray &roomId)
-{
-    restApi()->deleteMessage(roomId, messageId);
-}
-
 void RocketChatAccount::insertCompleterUsers()
 {
     userCompleterModel()->addUsers(rocketChatBackend()->users());

@@ -76,7 +76,6 @@ public:
     void changeGroupsTopic(const QString &roomId, const QString &topic);
     void changeChannelAnnouncement(const QString &roomId, const QString &announcement);
     void postMessage(const QByteArray &roomId, const QString &text);
-    void deleteMessage(const QByteArray &roomId, const QByteArray &messageId);
     void createChannels(const RocketChatRestApi::CreateChannelTeamInfo &info);
     void createGroups(const RocketChatRestApi::CreateChannelTeamInfo &info);
     void leaveChannel(const QByteArray &roomId);

@@ -30,7 +30,6 @@
 #include "authentication/loginjob.h"
 #include "authentication/logoutjob.h"
 
-#include "chat/deletemessagejob.h"
 #include "chat/followmessagejob.h"
 #include "chat/getmentionedmessagesjob.h"
 #include "chat/getmessagejob.h"
@@ -454,17 +453,6 @@ void Connection::postMessage(const QByteArray &roomId, const QString &text)
     job->setText(text);
     if (!job->start()) {
         qCWarning(RUQOLA_LOG) << "Impossible to start PostMessageJob job";
-    }
-}
-
-void Connection::deleteMessage(const QByteArray &roomId, const QByteArray &messageId)
-{
-    auto job = new DeleteMessageJob(this);
-    initializeRestApiJob(job);
-    job->setRoomId(roomId);
-    job->setMessageId(messageId);
-    if (!job->start()) {
-        qCWarning(RUQOLA_LOG) << "Impossible to start deleteMessage job";
     }
 }
 

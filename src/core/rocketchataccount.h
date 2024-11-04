@@ -164,7 +164,6 @@ public:
     void openDirectChannel(const QString &username);
     void setDefaultStatus(User::PresenceStatus status, const QString &messageStatus); // Move to private no ?
     void createJitsiConfCall(const QByteArray &roomId);
-    void deleteMessage(const QByteArray &messageId, const QByteArray &roomId);
     void userAutocomplete(const QString &searchText, const QString &exception);
     void eraseRoom(const QByteArray &roomId, Room::RoomType channelType);
     void changeNotificationsSettings(const QByteArray &QByteArray, RocketChatAccount::NotificationOptionsType notificationsType, const QVariant &newValue);

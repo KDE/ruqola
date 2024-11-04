@@ -7,6 +7,7 @@
 #include "messagelistview.h"
 
 #include "administratordialog/moderationconsole/moderationmessageinfodialog.h"
+#include "chat/deletemessagejob.h"
 #include "chat/followmessagejob.h"
 #include "chat/postmessagejob.h"
 #include "chat/unfollowmessagejob.h"
@@ -834,7 +835,14 @@ void MessageListView::slotDeleteMessage(const QModelIndex &index)
                                            KStandardGuiItem::del(),
                                            KStandardGuiItem::cancel())) {
         const QByteArray messageId = index.data(MessagesModel::MessageId).toByteArray();
-        mCurrentRocketChatAccount->deleteMessage(messageId, mRoom->roomId());
+
+        auto job = new RocketChatRestApi::DeleteMessageJob(this);
+        mCurrentRocketChatAccount->restApi()->initializeRestApiJob(job);
+        job->setRoomId(mRoom->roomId());
+        job->setMessageId(messageId);
+        if (!job->start()) {
+            qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start deleteMessage job";
+        }
     }
 }
 
