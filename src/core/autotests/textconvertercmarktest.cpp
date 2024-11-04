@@ -124,10 +124,14 @@ void TextConverterCMarkTest::shouldConvertText_data()
 
     QTest::newRow("noquotedtext") << QStringLiteral("bla > toto") << QStringLiteral("<p>bla &gt; toto</p>\n");
 
-    QTest::newRow("bug-three-quote") << QStringLiteral("```fff\nssss\n```")
-                                     << QStringLiteral(
-                                            "<p><table><tr><td style='background-color:$BGCOLOR$; padding: 5px; border: 1px solid "
-                                            "$BORDERCOLOR$'><code>fff<br>ssss</code></td></tr></table></p>\n");
+    QTest::newRow("code-with-language") << QStringLiteral("```ruby\nssss\n```")
+                                        << QStringLiteral(
+                                               "<p><table><tr><td style='background-color:$BGCOLOR$; padding: 5px; border: 1px solid "
+                                               "$BORDERCOLOR$'><code>ssss</code></td></tr></table></p>\n"); // TODO class='language-ruby'?
+    QTest::newRow("code-starting-on-first-line") << QStringLiteral("``` fff\nssss\n```")
+                                                 << QStringLiteral(
+                                                        "<p><table><tr><td style='background-color:$BGCOLOR$; padding: 5px; border: 1px solid "
+                                                        "$BORDERCOLOR$'><code>fff<br>ssss</code></td></tr></table></p>\n");
 }
 
 void TextConverterCMarkTest::shouldConvertText()
