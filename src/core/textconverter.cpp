@@ -858,6 +858,7 @@ char *TextConverter::convertMessageTextCMark(const TextConverter::ConvertMessage
     cmark_node *doc = cmark_parse_document(ba.constData(), ba.length(), CMARK_OPT_DEFAULT);
     cmark_iter *iter = cmark_iter_new(doc);
 #ifdef DEBUG_CMARK_RC
+    qCDebug(RUQOLA_TEXTTOHTML_CMARK_LOG) << " quotedMessage + newSettings.str.toHtmlEscaped() " << quotedMessage + newSettings.str.toHtmlEscaped();
     char *beforehtml = cmark_render_html(doc, CMARK_OPT_DEFAULT | CMARK_OPT_UNSAFE | CMARK_OPT_HARDBREAKS);
     qCDebug(RUQOLA_TEXTTOHTML_CMARK_LOG) << " beforehtml " << beforehtml;
     delete beforehtml;
