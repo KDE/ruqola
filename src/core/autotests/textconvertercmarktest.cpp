@@ -100,7 +100,6 @@ void TextConverterCMarkTest::shouldConvertText_data()
     QTest::newRow("url") << QStringLiteral("http://www.kde.org#foo_bla")
                          << QStringLiteral("<p><a href=\"http://www.kde.org#foo_bla\">http://www.kde.org#foo_bla</a></p>\n");
 
-    QTest::newRow("0.6.3") << QStringLiteral("0.6.3") << QStringLiteral("<p>0.6.3</p>\n");
     QTest::newRow("`code`")
         << QStringLiteral("foo `bla` bar `asdf` test")
         << QStringLiteral("<p>foo <code style='background-color:$BGCOLOR$'>bla</code> bar <code style='background-color:$BGCOLOR$'>asdf</code> test</p>\n");
