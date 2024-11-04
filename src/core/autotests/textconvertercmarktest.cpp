@@ -123,6 +123,17 @@ void TextConverterCMarkTest::shouldConvertText_data()
                                         "style='background-color:$BGCOLOR$'></code><strong>bla</strong></p>\n");
 
     QTest::newRow("noquotedtext") << QStringLiteral("bla > toto") << QStringLiteral("<p>bla &gt; toto</p>\n");
+
+    QTest::newRow("code-with-language") << QStringLiteral("```ruby\nssss\n```")
+                                        << QStringLiteral(
+                                               "<p><table><tr><td style='background-color:$BGCOLOR$; padding: 5px; border: 1px solid "
+                                               "$BORDERCOLOR$'><code>ssss</code></td></tr></table></p>\n");
+
+    QTest::newRow("indented-code-block")
+        << QStringLiteral("```\n  first line\n  second line\n```")
+        << QStringLiteral(
+               "<p><table><tr><td style='background-color:$BGCOLOR$; padding: 5px; border: 1px solid "
+               "$BORDERCOLOR$'><code>&nbsp;&nbsp;first&nbsp;line<br>&nbsp;&nbsp;second&nbsp;line</code></td></tr></table></p>\n");
 }
 
 void TextConverterCMarkTest::shouldConvertText()

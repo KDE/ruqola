@@ -80,8 +80,7 @@ void iterateOverRegions(const QString &str, const QString &regionMarker, InRegio
             break;
         }
 
-        // Fix me in cmark-rc => we remove space it's not good
-        const auto codeBlock = str.mid(startIndex + markerSize, endIndex - startIndex - markerSize).trimmed();
+        const auto codeBlock = str.mid(startIndex + markerSize, endIndex - startIndex - markerSize);
 
         outsideRegion(str.mid(startFrom, startIndex - startFrom));
         startFrom = endIndex + markerSize;
@@ -726,7 +725,8 @@ void iterateOverRegionsCmark(const QString &str, const QString &regionMarker, In
             break;
         }
 
-        const auto codeBlock = str.mid(startIndex + markerSize, endIndex - startIndex - markerSize).trimmed();
+        const int adjust = str.at(endIndex - 1) == QLatin1Char('\n') ? 1 : 0;
+        const auto codeBlock = str.mid(startIndex + markerSize, endIndex - startIndex - markerSize - adjust);
 
         outsideRegion(str.mid(startFrom, startIndex - startFrom));
         startFrom = endIndex + markerSize;
