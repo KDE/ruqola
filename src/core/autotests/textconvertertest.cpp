@@ -126,6 +126,11 @@ void TextConverterTest::shouldConvertText_data()
                "<div>bla <br />\n<code style='background-color:$BGCOLOR$'>toto</code><br /><code style='background-color:$BGCOLOR$'><b>bla</b></code></div>");
 
     QTest::newRow("noquotedtext") << QStringLiteral("bla > toto") << QStringLiteral("<div>bla &gt; toto</div>");
+
+    QTest::newRow("bug-three-quote")
+        << QStringLiteral("```fff\nssss\n```")
+        << QStringLiteral(
+               "<table><tr><td style='background-color:#f7f7f7; padding: 5px; border: 1px solid #707d8a'><code>fff<br>ssss</code></td></tr></table>");
 }
 
 void TextConverterTest::shouldConvertText()
