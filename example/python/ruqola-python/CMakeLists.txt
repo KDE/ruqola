@@ -37,4 +37,4 @@ set(ruqola_python_SRCS
 
 KDE_INSTALL_PYTHON_FILES(${ruqola_python_SRCS} ruqola.py ${ruqola_python_generated_SRCS})
 KDE_ADD_PYTHON_EXECUTABLE(ruqola.py ruqola-python)
-feature_summary(WHAT ALL INCLUDE_QUIET_PACKAGES FATAL_ON_MISSING_REQUIRED_PACKAGES)
+feature_summary(WHAT ALL FATAL_ON_MISSING_REQUIRED_PACKAGES)

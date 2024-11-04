@@ -298,7 +298,7 @@ if(KF6DocTools_FOUND)
     kdoctools_install(po)
     add_subdirectory(doc)
 endif()
-feature_summary(WHAT ALL INCLUDE_QUIET_PACKAGES FATAL_ON_MISSING_REQUIRED_PACKAGES)
+feature_summary(WHAT ALL FATAL_ON_MISSING_REQUIRED_PACKAGES)
 file(GLOB_RECURSE ALL_SOURCE_FILES src/widgets/*.cpp src/widgets/*.h src/rocketchatrestapi-qt/*.cpp src/rocketchatrestapi-qt/*.h  src/core/*.cpp src/core/*.h  src/plugins/*.cpp src/plugins/*.h tests/*.cpp tests/*.h)
 ecm_check_outbound_license(LICENSES GPL-2.0-only  FILES ${ALL_SOURCE_FILES})
 
