@@ -130,7 +130,7 @@ void TextConverterTest::shouldConvertText_data()
     QTest::newRow("bug-three-quote")
         << QStringLiteral("```fff\nssss\n```")
         << QStringLiteral(
-               "<table><tr><td style='background-color:#f7f7f7; padding: 5px; border: 1px solid #707d8a'><code>fff<br>ssss</code></td></tr></table>");
+               "<table><tr><td style='background-color:$BGCOLOR$; padding: 5px; border: 1px solid $BORDERCOLOR$'><code>fff<br>ssss</code></td></tr></table>");
 }
 
 void TextConverterTest::shouldConvertText()
