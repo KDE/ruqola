@@ -839,7 +839,7 @@ void convertHtmlChar(QString &str)
     str.replace(QStringLiteral("&amp;"), QStringLiteral("&"));
 }
 
-char *TextConverter::convertMessageTextCMark(const TextConverter::ConvertMessageTextSettings &newSettings, const QString &quotedMessage)
+QString TextConverter::convertMessageTextCMark(const TextConverter::ConvertMessageTextSettings &newSettings, const QString &quotedMessage)
 {
     // Need to escaped text (avoid to interprete html code)
     const TextConverter::ConvertMessageTextSettings settings{
@@ -930,7 +930,12 @@ char *TextConverter::convertMessageTextCMark(const TextConverter::ConvertMessage
 
     cmark_iter_free(iter);
     cmark_node_free(doc);
-    return html;
+    QString result = QString::fromUtf8(html);
+
+    cmark_mem *allocator = cmark_get_default_mem_allocator();
+    allocator->free(html);
+
+    return result;
 }
 
 QString TextConverter::convertMessageTextCMark(const TextConverter::ConvertMessageTextSettings &settings, QByteArray &needUpdateMessageId, int &recusiveIndex)
@@ -1018,13 +1023,8 @@ QString TextConverter::convertMessageTextCMark(const TextConverter::ConvertMessa
         settings.maximumRecursiveQuotedText,
     };
     // qDebug() << "settings.str  " << settings.str;
-    char *html = convertMessageTextCMark(newsettings, quotedMessage);
-    const QString result = QString::fromUtf8(html);
-    // qDebug() << " RESUILT ************ " << result;
-    cmark_mem *allocator = cmark_get_default_mem_allocator();
-
-    allocator->free(html);
-
+    const QString result = convertMessageTextCMark(newsettings, quotedMessage);
+    // qDebug() << " RESULT ************ " << result;
     return "<qt>"_L1 + result + "</qt>"_L1;
 }
 
