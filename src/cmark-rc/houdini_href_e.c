@@ -5,11 +5,11 @@
 #include "houdini.h"
 
 #if !defined(__has_builtin)
-#define __has_builtin(b) 0
+# define __has_builtin(b) 0
 #endif
 
 #if !__has_builtin(__builtin_expect)
-#define __builtin_expect(e, v) (e)
+# define __builtin_expect(e, v) (e)
 #endif
 
 #define likely(e) __builtin_expect((e), 1)
@@ -41,46 +41,51 @@
  *
  */
 static const char HREF_SAFE[] = {
-    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1, 1, 1, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
-    1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 1, 0, 1, 1, 1, 1, 1, 1, 1,
-    1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1, 1, 1, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1,
+    1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+    1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 1,
+    0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+    1, 1, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
 };
 
-int houdini_escape_href(cmark_strbuf *ob, const uint8_t *src, bufsize_t size)
-{
-    static const uint8_t hex_chars[] = "0123456789ABCDEF";
-    bufsize_t i = 0, org;
-    uint8_t hex_str[3];
+int houdini_escape_href(cmark_strbuf *ob, const uint8_t *src, bufsize_t size) {
+  static const uint8_t hex_chars[] = "0123456789ABCDEF";
+  bufsize_t i = 0, org;
+  uint8_t hex_str[3];
 
-    hex_str[0] = '%';
+  hex_str[0] = '%';
 
-    while (i < size) {
-        org = i;
-        while (i < size && HREF_SAFE[src[i]] != 0)
-            i++;
+  while (i < size) {
+    org = i;
+    while (i < size && HREF_SAFE[src[i]] != 0)
+      i++;
 
-        if (likely(i > org))
-            cmark_strbuf_put(ob, src + org, i - org);
+    if (likely(i > org))
+      cmark_strbuf_put(ob, src + org, i - org);
 
-        /* escaping */
-        if (i >= size)
-            break;
+    /* escaping */
+    if (i >= size)
+      break;
 
-        switch (src[i]) {
-        /* amp appears all the time in URLs, but needs
-         * HTML-entity escaping to be inside an href */
-        case '&':
-            cmark_strbuf_puts(ob, "&amp;");
-            break;
+    switch (src[i]) {
+    /* amp appears all the time in URLs, but needs
+     * HTML-entity escaping to be inside an href */
+    case '&':
+      cmark_strbuf_puts(ob, "&amp;");
+      break;
 
-        /* the single quote is a valid URL character
-         * according to the standard; it needs HTML
-         * entity escaping too */
-        case '\'':
-            cmark_strbuf_puts(ob, "&#x27;");
-            break;
+    /* the single quote is a valid URL character
+     * according to the standard; it needs HTML
+     * entity escaping too */
+    case '\'':
+      cmark_strbuf_puts(ob, "&#x27;");
+      break;
 
 /* the space can be escaped to %20 or a plus
  * sign. we're going with the generic escape
@@ -92,15 +97,15 @@ int houdini_escape_href(cmark_strbuf *ob, const uint8_t *src, bufsize_t size)
       break;
 #endif
 
-        /* every other character goes with a %XX escaping */
-        default:
-            hex_str[1] = hex_chars[(src[i] >> 4) & 0xF];
-            hex_str[2] = hex_chars[src[i] & 0xF];
-            cmark_strbuf_put(ob, hex_str, 3);
-        }
-
-        i++;
+    /* every other character goes with a %XX escaping */
+    default:
+      hex_str[1] = hex_chars[(src[i] >> 4) & 0xF];
+      hex_str[2] = hex_chars[src[i] & 0xF];
+      cmark_strbuf_put(ob, hex_str, 3);
     }
 
-    return 1;
+    i++;
+  }
+
+  return 1;
 }

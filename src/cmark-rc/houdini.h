@@ -20,14 +20,19 @@ extern "C" {
 #define _isdigit(c) ((c) >= '0' && (c) <= '9')
 #endif
 
-#define HOUDINI_ESCAPED_SIZE(x) (((x) * 12) / 10)
+#define HOUDINI_ESCAPED_SIZE(x) (((x)*12) / 10)
 #define HOUDINI_UNESCAPED_SIZE(x) (x)
 
-bufsize_t houdini_unescape_ent(cmark_strbuf *ob, const uint8_t *src, bufsize_t size);
-int houdini_escape_html(cmark_strbuf *ob, const uint8_t *src, bufsize_t size, int secure);
-int houdini_unescape_html(cmark_strbuf *ob, const uint8_t *src, bufsize_t size);
-void houdini_unescape_html_f(cmark_strbuf *ob, const uint8_t *src, bufsize_t size);
-int houdini_escape_href(cmark_strbuf *ob, const uint8_t *src, bufsize_t size);
+bufsize_t houdini_unescape_ent(cmark_strbuf *ob, const uint8_t *src,
+                               bufsize_t size);
+int houdini_escape_html(cmark_strbuf *ob, const uint8_t *src,
+                         bufsize_t size, int secure);
+int houdini_unescape_html(cmark_strbuf *ob, const uint8_t *src,
+                          bufsize_t size);
+void houdini_unescape_html_f(cmark_strbuf *ob, const uint8_t *src,
+                             bufsize_t size);
+int houdini_escape_href(cmark_strbuf *ob, const uint8_t *src,
+                        bufsize_t size);
 
 #ifdef __cplusplus
 }

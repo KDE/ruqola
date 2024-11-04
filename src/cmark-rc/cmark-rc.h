@@ -1,10 +1,10 @@
 #ifndef CMARK_H
 #define CMARK_H
 
+#include <stdio.h>
+#include <stdbool.h>
 #include <cmark-rc_export.h>
 #include <cmark-rc_version.h>
-#include <stdbool.h>
-#include <stdio.h>
 
 #ifdef __cplusplus
 extern "C" {
@@ -32,39 +32,39 @@ char *cmark_markdown_to_html(const char *text, size_t len, int options);
  */
 
 typedef enum {
-    /* Error status */
-    CMARK_NODE_NONE,
+  /* Error status */
+  CMARK_NODE_NONE,
 
-    /* Block */
-    CMARK_NODE_DOCUMENT,
-    CMARK_NODE_BLOCK_QUOTE,
-    CMARK_NODE_LIST,
-    CMARK_NODE_ITEM,
-    CMARK_NODE_CODE_BLOCK,
-    CMARK_NODE_HTML_BLOCK,
-    CMARK_NODE_CUSTOM_BLOCK,
-    CMARK_NODE_PARAGRAPH,
-    CMARK_NODE_HEADING,
-    CMARK_NODE_THEMATIC_BREAK,
+  /* Block */
+  CMARK_NODE_DOCUMENT,
+  CMARK_NODE_BLOCK_QUOTE,
+  CMARK_NODE_LIST,
+  CMARK_NODE_ITEM,
+  CMARK_NODE_CODE_BLOCK,
+  CMARK_NODE_HTML_BLOCK,
+  CMARK_NODE_CUSTOM_BLOCK,
+  CMARK_NODE_PARAGRAPH,
+  CMARK_NODE_HEADING,
+  CMARK_NODE_THEMATIC_BREAK,
 
-    CMARK_NODE_FIRST_BLOCK = CMARK_NODE_DOCUMENT,
-    CMARK_NODE_LAST_BLOCK = CMARK_NODE_THEMATIC_BREAK,
+  CMARK_NODE_FIRST_BLOCK = CMARK_NODE_DOCUMENT,
+  CMARK_NODE_LAST_BLOCK = CMARK_NODE_THEMATIC_BREAK,
 
-    /* Inline */
-    CMARK_NODE_TEXT,
-    CMARK_NODE_SOFTBREAK,
-    CMARK_NODE_LINEBREAK,
-    CMARK_NODE_CODE,
-    CMARK_NODE_HTML_INLINE,
-    CMARK_NODE_CUSTOM_INLINE,
-    CMARK_NODE_EMPH,
-    CMARK_NODE_STRONG,
-    CMARK_NODE_STRIKE,
-    CMARK_NODE_LINK,
-    CMARK_NODE_IMAGE,
+  /* Inline */
+  CMARK_NODE_TEXT,
+  CMARK_NODE_SOFTBREAK,
+  CMARK_NODE_LINEBREAK,
+  CMARK_NODE_CODE,
+  CMARK_NODE_HTML_INLINE,
+  CMARK_NODE_CUSTOM_INLINE,
+  CMARK_NODE_EMPH,
+  CMARK_NODE_STRONG,
+  CMARK_NODE_STRIKE,
+  CMARK_NODE_LINK,
+  CMARK_NODE_IMAGE,
 
-    CMARK_NODE_FIRST_INLINE = CMARK_NODE_TEXT,
-    CMARK_NODE_LAST_INLINE = CMARK_NODE_IMAGE
+  CMARK_NODE_FIRST_INLINE = CMARK_NODE_TEXT,
+  CMARK_NODE_LAST_INLINE = CMARK_NODE_IMAGE
 } cmark_node_type;
 
 /* For backwards compatibility: */
@@ -74,15 +74,15 @@ typedef enum {
 #define CMARK_NODE_INLINE_HTML CMARK_NODE_HTML_INLINE
 
 typedef enum {
-    CMARK_NO_LIST,
-    CMARK_BULLET_LIST,
-    CMARK_ORDERED_LIST
+  CMARK_NO_LIST,
+  CMARK_BULLET_LIST,
+  CMARK_ORDERED_LIST
 } cmark_list_type;
 
 typedef enum {
-    CMARK_NO_DELIM,
-    CMARK_PERIOD_DELIM,
-    CMARK_PAREN_DELIM
+  CMARK_NO_DELIM,
+  CMARK_PERIOD_DELIM,
+  CMARK_PAREN_DELIM
 } cmark_delim_type;
 
 typedef struct cmark_node cmark_node;
@@ -97,9 +97,9 @@ typedef struct cmark_iter cmark_iter;
  * when parsing and allocating a document tree
  */
 typedef struct cmark_mem {
-    void *(*calloc)(size_t, size_t);
-    void *(*realloc)(void *, size_t);
-    void (*free)(void *);
+  void *(*calloc)(size_t, size_t);
+  void *(*realloc)(void *, size_t);
+  void (*free)(void *);
 } cmark_mem;
 
 /** Returns a pointer to the default memory allocator.
@@ -111,11 +111,11 @@ CMARK_RC_EXPORT cmark_mem *cmark_get_default_mem_allocator(void);
  */
 
 /** Returns true if the node is a block node.
- */
+  */
 CMARK_RC_EXPORT bool cmark_node_is_block(cmark_node *node);
 
 /** Returns true if the node is an inline node.
- */
+  */
 CMARK_RC_EXPORT bool cmark_node_is_inline(cmark_node *node);
 
 /** Returns true if the node is a leaf node (a node that cannot
@@ -137,7 +137,8 @@ CMARK_RC_EXPORT cmark_node *cmark_node_new(cmark_node_type type);
  * allocator used to allocate the node.  Note:  be sure to use the same
  * allocator for every node in a tree, or bad things can happen.
  */
-CMARK_RC_EXPORT cmark_node *cmark_node_new_with_mem(cmark_node_type type, cmark_mem *mem);
+CMARK_RC_EXPORT cmark_node *cmark_node_new_with_mem(cmark_node_type type,
+                                                 cmark_mem *mem);
 
 /** Frees the memory allocated for a node and any children.
  */
@@ -215,10 +216,10 @@ CMARK_RC_EXPORT cmark_node *cmark_node_last_child(cmark_node *node);
  */
 
 typedef enum {
-    CMARK_EVENT_NONE,
-    CMARK_EVENT_DONE,
-    CMARK_EVENT_ENTER,
-    CMARK_EVENT_EXIT
+  CMARK_EVENT_NONE,
+  CMARK_EVENT_DONE,
+  CMARK_EVENT_ENTER,
+  CMARK_EVENT_EXIT
 } cmark_event_type;
 
 /** Creates a new iterator starting at 'root'.  The current node and event
@@ -260,7 +261,8 @@ cmark_node *cmark_iter_get_root(cmark_iter *iter);
  * descendant of the root node or the root node itself.
  */
 CMARK_RC_EXPORT
-void cmark_iter_reset(cmark_iter *iter, cmark_node *current, cmark_event_type event_type);
+void cmark_iter_reset(cmark_iter *iter, cmark_node *current,
+                      cmark_event_type event_type);
 
 /**
  * ## Accessors
@@ -315,7 +317,8 @@ CMARK_RC_EXPORT cmark_list_type cmark_node_get_list_type(cmark_node *node);
 
 /** Sets the list type of 'node', returning 1 on success and 0 on error.
  */
-CMARK_RC_EXPORT int cmark_node_set_list_type(cmark_node *node, cmark_list_type type);
+CMARK_RC_EXPORT int cmark_node_set_list_type(cmark_node *node,
+                                          cmark_list_type type);
 
 /** Returns the list delimiter type of 'node', or `CMARK_NO_DELIM` if 'node'
  * is not a list.
@@ -325,7 +328,8 @@ CMARK_RC_EXPORT cmark_delim_type cmark_node_get_list_delim(cmark_node *node);
 /** Sets the list delimiter type of 'node', returning 1 on success and 0
  * on error.
  */
-CMARK_RC_EXPORT int cmark_node_set_list_delim(cmark_node *node, cmark_delim_type delim);
+CMARK_RC_EXPORT int cmark_node_set_list_delim(cmark_node *node,
+                                           cmark_delim_type delim);
 
 /** Returns starting number of 'node', if it is an ordered list, otherwise 0.
  */
@@ -385,7 +389,8 @@ CMARK_RC_EXPORT const char *cmark_node_get_on_enter(cmark_node *node);
     Any children of the node will be rendered after this text.
     Returns 1 on success 0 on failure.
  */
-CMARK_RC_EXPORT int cmark_node_set_on_enter(cmark_node *node, const char *on_enter);
+CMARK_RC_EXPORT int cmark_node_set_on_enter(cmark_node *node,
+                                         const char *on_enter);
 
 /** Returns the literal "on exit" text for a custom 'node', or
     an empty string if no on_exit is set.  Returns NULL if
@@ -426,7 +431,8 @@ CMARK_RC_EXPORT void cmark_node_unlink(cmark_node *node);
 
 /** Inserts 'sibling' before 'node'.  Returns 1 on success, 0 on failure.
  */
-CMARK_RC_EXPORT int cmark_node_insert_before(cmark_node *node, cmark_node *sibling);
+CMARK_RC_EXPORT int cmark_node_insert_before(cmark_node *node,
+                                          cmark_node *sibling);
 
 /** Inserts 'sibling' after 'node'. Returns 1 on success, 0 on failure.
  */
@@ -513,7 +519,8 @@ cmark_parser *cmark_parser_new_with_mem(int options, cmark_mem *mem);
  * document fragments.
  */
 CMARK_RC_EXPORT
-cmark_parser *cmark_parser_new_with_mem_into_root(int options, cmark_mem *mem, cmark_node *root);
+cmark_parser *cmark_parser_new_with_mem_into_root(
+    int options, cmark_mem *mem, cmark_node *root);
 
 /** Frees memory allocated for a parser object.
  */
