@@ -904,7 +904,6 @@ char *TextConverter::convertMessageTextCMark(const TextConverter::ConvertMessage
             }
             break;
         }
-        case CMARK_NODE_DOCUMENT:
         case CMARK_NODE_CODE: {
             const char *literal = cmark_node_get_literal(node);
             qCDebug(RUQOLA_TEXTTOHTML_CMARK_LOG) << "CMARK_NODE_CODE:  QString::fromUtf8(literal) code" << QString::fromUtf8(literal);
