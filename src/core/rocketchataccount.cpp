@@ -2710,8 +2710,12 @@ void RocketChatAccount::slotDDpLoginStatusChanged()
 
 void RocketChatAccount::slotRESTLoginStatusChanged()
 {
-    if (mRestApi->authenticationManager()->loginStatus() == AuthenticationManager::LoggedOutAndCleanedUp) {
+    const auto loginStatus = mRestApi->authenticationManager()->loginStatus();
+    if (loginStatus == AuthenticationManager::LoggedOutAndCleanedUp) {
         mRestApi.release()->deleteLater();
+    } else if (loginStatus == AuthenticationManager::LoggedIn) {
+        // Reset it.
+        mDelayReconnect = 100;
     }
     Q_EMIT loginStatusChanged();
     if (!mRestApi && !mDdp) {
