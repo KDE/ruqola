@@ -303,11 +303,13 @@ static cmark_node *finalize(cmark_parser *parser, cmark_node *b) {
       remove_trailing_blank_lines(node_content);
       cmark_strbuf_putc(node_content, '\n');
     } else {
-      // Markdown says first line of contents becomes info
-      // But in RC it's rather: first word of contents (=language) becomes info
+#if 1 // RC treats the first line as being part of the code itself
+      pos = 0;
+      b->as.code.info = NULL;
+#else
+      // first line of contents becomes info
       for (pos = 0; pos < node_content->size; ++pos) {
-        char ch = node_content->ptr[pos];
-        if (S_is_line_end_char(ch) || S_is_line_end_char(ch))
+        if (S_is_line_end_char(node_content->ptr[pos]))
           break;
       }
       assert(pos < node_content->size);
@@ -321,7 +323,7 @@ static cmark_node *finalize(cmark_parser *parser, cmark_node *b) {
         cmark_strbuf_unescape(&tmp);
         b->as.code.info = cmark_strbuf_detach(&tmp);
       }
-
+#endif
       if (node_content->ptr[pos] == '\r')
         pos += 1;
       if (node_content->ptr[pos] == '\n')
