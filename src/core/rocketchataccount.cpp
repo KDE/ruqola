@@ -651,11 +651,6 @@ void RocketChatAccount::leaveRoom(const QByteArray &identifier, Room::RoomType c
     }
 }
 
-void RocketChatAccount::hideRoom(const QByteArray &roomId, Room::RoomType channelType)
-{
-    restApi()->closeChannel(roomId, Room::roomFromRoomType(channelType));
-}
-
 DDPClient *RocketChatAccount::ddp()
 {
     if (!mDdp && accountEnabled()) {

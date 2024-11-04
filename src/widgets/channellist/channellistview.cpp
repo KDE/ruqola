@@ -21,6 +21,8 @@
 #include "teams/teamroom.h"
 #include "teams/teamslistroomsjob.h"
 
+#include "channels/channelclosejob.h"
+
 #include <KLocalizedString>
 #include <KMessageBox>
 
@@ -379,7 +381,23 @@ void ChannelListView::channelSelected(const QModelIndex &index)
 void ChannelListView::slotHideChannel(const QModelIndex &index, Room::RoomType roomType)
 {
     const QByteArray roomId = index.data(RoomModel::RoomId).toByteArray();
-    mCurrentRocketChatAccount->hideRoom(roomId, roomType);
+    auto job = new RocketChatRestApi::ChannelCloseJob(this);
+    mCurrentRocketChatAccount->restApi()->initializeRestApiJob(job);
+    RocketChatRestApi::ChannelGroupBaseJob::ChannelGroupInfo info;
+    info.channelGroupInfoType = RocketChatRestApi::ChannelGroupBaseJob::ChannelGroupInfoType::Identifier;
+    info.identifier = QString::fromLatin1(roomId);
+    job->setChannelGroupInfo(info);
+    const QString type = Room::roomFromRoomType(roomType);
+    if (type == QLatin1Char('d')) {
+        job->setChannelType(RocketChatRestApi::ChannelCloseJob::Direct);
+    } else if (type == QLatin1Char('p')) {
+        job->setChannelType(RocketChatRestApi::ChannelCloseJob::Groups);
+    } else if (type == QLatin1Char('c')) {
+        job->setChannelType(RocketChatRestApi::ChannelCloseJob::Channel);
+    }
+    if (!job->start()) {
+        qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start ChannelCloseJob job";
+    }
 }
 
 void ChannelListView::slotLeaveChannel(const QModelIndex &index, Room::RoomType roomType)

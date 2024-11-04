@@ -56,7 +56,6 @@
 #include "channels/channeladdleaderjob.h"
 #include "channels/channeladdmoderatorjob.h"
 #include "channels/channeladdownerjob.h"
-#include "channels/channelclosejob.h"
 #include "channels/channeldeletejob.h"
 #include "channels/channelfilesjob.h"
 #include "channels/channelgetallusermentionsjob.h"
@@ -549,26 +548,6 @@ void Connection::reactOnMessage(const QByteArray &messageId, const QString &emoj
     job->setShouldReact(shouldReact);
     if (!job->start()) {
         qCWarning(RUQOLA_LOG) << "Impossible to start reactOnMessage job";
-    }
-}
-
-void Connection::closeChannel(const QByteArray &roomId, const QString &type)
-{
-    auto job = new ChannelCloseJob(this);
-    initializeRestApiJob(job);
-    ChannelGroupBaseJob::ChannelGroupInfo info;
-    info.channelGroupInfoType = ChannelGroupBaseJob::ChannelGroupInfoType::Identifier;
-    info.identifier = QString::fromLatin1(roomId);
-    job->setChannelGroupInfo(info);
-    if (type == QLatin1Char('d')) {
-        job->setChannelType(ChannelCloseJob::Direct);
-    } else if (type == QLatin1Char('p')) {
-        job->setChannelType(ChannelCloseJob::Groups);
-    } else if (type == QLatin1Char('c')) {
-        job->setChannelType(ChannelCloseJob::Channel);
-    }
-    if (!job->start()) {
-        qCWarning(RUQOLA_LOG) << "Impossible to start ChannelCloseJob job";
     }
 }
 

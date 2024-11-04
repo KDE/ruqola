@@ -148,7 +148,6 @@ public:
 
     void textEditing(const QByteArray &roomId, bool clearNotification);
     void leaveRoom(const QByteArray &identifier, Room::RoomType channelType);
-    void hideRoom(const QByteArray &roomId, Room::RoomType channelType);
     void tryLogin();
     void logOut();
     void clearAllUnreadMessages();
