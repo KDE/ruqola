@@ -123,6 +123,11 @@ void TextConverterCMarkTest::shouldConvertText_data()
                                         "style='background-color:$BGCOLOR$'></code><strong>bla</strong></p>\n");
 
     QTest::newRow("noquotedtext") << QStringLiteral("bla > toto") << QStringLiteral("<p>bla &gt; toto</p>\n");
+
+    QTest::newRow("bug-three-quote") << QStringLiteral("```fff\nssss\n```")
+                                     << QStringLiteral(
+                                            "<p><table><tr><td style='background-color:$BGCOLOR$; padding: 5px; border: 1px solid "
+                                            "$BORDERCOLOR$'><code>fff<br>ssss</code></td></tr></table></p>\n");
 }
 
 void TextConverterCMarkTest::shouldConvertText()
