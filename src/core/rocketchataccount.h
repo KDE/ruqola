@@ -29,8 +29,6 @@
 
 #include "roles/rolesmanager.h"
 #include "room.h"
-#include "rooms/roomscleanhistoryjob.h"
-#include "rooms/roomsexportjob.h"
 #include "ruqolaserverconfig.h"
 #include "users/registeruserjob.h"
 #include "users/userssetpreferencesjob.h"
@@ -196,16 +194,11 @@ public:
                           const QString &replyMessage,
                           const QByteArray &messageId,
                           const QList<QByteArray> &users = QList<QByteArray>());
-    void threadsInRoom(const QByteArray &roomId, bool onlyUnread);
     void discussionsInRoom(const QByteArray &roomId);
     void loadMoreFileAttachments(const QByteArray &roomId, Room::RoomType channelType);
     void loadMoreDiscussions(const QByteArray &roomId);
     void loadThreadMessagesHistory(const QByteArray &threadMessageId);
     void loadMoreUsersInRoom(const QByteArray &roomId, Room::RoomType channelType);
-
-    void getPinnedMessages(const QByteArray &roomId);
-    void getStarredMessages(const QByteArray &roomId);
-    void getMentionsMessages(const QByteArray &roomId);
 
     void autoTranslateSaveLanguageSettings(const QByteArray &roomId, const QString &language);
     void autoTranslateSaveAutoTranslateSettings(const QByteArray &roomId, bool autoTranslate);
@@ -287,8 +280,6 @@ public:
     [[nodiscard]] EmojiManager *emojiManager() const;
     [[nodiscard]] QString userStatusIconFileName(const QString &id);
 
-    void parseUsersForRooms(const QJsonObject &obj, const RocketChatRestApi::ChannelGroupBaseJob::ChannelGroupInfo &channelInfo);
-
     PluginAuthenticationInterface *defaultAuthenticationInterface() const;
 
     void removeSettings();
@@ -343,7 +334,6 @@ public:
 
     void avatarChanged(const QJsonArray &contents);
     void sendUserEmailCode();
-    void requestNewPassword(const QString &email);
     [[nodiscard]] bool allowDeleteOwnAccount() const;
     [[nodiscard]] bool registrationFormEnabled() const;
     void registerNewUser(const RocketChatRestApi::RegisterUserJob::RegisterUserInfo &userInfo);
@@ -599,6 +589,13 @@ Q_SIGNALS:
 
 private:
     Q_DISABLE_COPY(RocketChatAccount)
+
+    LIBRUQOLACORE_NO_EXPORT void getPinnedMessages(const QByteArray &roomId);
+    LIBRUQOLACORE_NO_EXPORT void getStarredMessages(const QByteArray &roomId);
+    LIBRUQOLACORE_NO_EXPORT void getMentionsMessages(const QByteArray &roomId);
+    LIBRUQOLACORE_NO_EXPORT void parseUsersForRooms(const QJsonObject &obj, const RocketChatRestApi::ChannelGroupBaseJob::ChannelGroupInfo &channelInfo);
+
+    LIBRUQOLACORE_NO_EXPORT void threadsInRoom(const QByteArray &roomId, bool onlyUnread);
 
     LIBRUQOLACORE_NO_EXPORT void membersInRoom(const QByteArray &roomId, Room::RoomType channelType);
 
