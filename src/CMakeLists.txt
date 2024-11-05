@@ -1,8 +1,6 @@
 # SPDX-FileCopyrightText: 2020-2024 Laurent Montel <montel@kde.org>
 # SPDX-License-Identifier: BSD-3-Clause
-if(TEXT_CONVERTER_CMARK_SUPPORT)
-    add_subdirectory(cmark-rc)
-endif()
+add_subdirectory(cmark-rc)
 
 add_subdirectory(rocketchatrestapi-qt)
 
