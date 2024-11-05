@@ -100,11 +100,9 @@ public:
     void userInfo(const QString &identifier, bool userName = false);
     void ignoreUser(const QByteArray &roomId, const QByteArray &userId, bool ignore);
     void userPresence(const QString &userId);
-    void setGroupType(const QString &roomId, bool isPrivate);
     void setChannelType(const QString &roomId, bool isPrivate);
     void getGroupRoles(const QByteArray &roomId);
     void getChannelRoles(const QByteArray &roomId);
-    void getUsernameSuggestion();
     void listAllPermissions();
     void setJoinCodeChannel(const QString &roomId, const QString &joinCode);
     void muteGroupMentions(const QByteArray &roomId, bool value);
@@ -189,7 +187,6 @@ Q_SIGNALS:
     void getRoomsDone(const QJsonObject &obj);
     void userInfoDone(const QJsonObject &obj);
     void channelRolesDone(const QJsonObject &obj, const RocketChatRestApi::ChannelGroupBaseJob::ChannelGroupInfo &channelInfo);
-    void getUsernameSuggestionDone(const QString &username);
     void getPresenceDone(const QString &presence);
     void permissionListAllDone(const QJsonObject &obj);
     void setJoinCodeDone();

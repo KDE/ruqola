@@ -20,7 +20,6 @@
 #include "users/forgotpasswordjob.h"
 #include "users/getavatarjob.h"
 #include "users/getpresencejob.h"
-#include "users/getusernamesuggestionjob.h"
 #include "users/resetavatarjob.h"
 #include "users/userinfojob.h"
 #include "users/userspresencejob.h"
@@ -79,7 +78,6 @@
 #include "groups/groupsinvitejob.h"
 #include "groups/groupskickjob.h"
 #include "groups/leavegroupsjob.h"
-#include "groups/setgrouptypejob.h"
 
 #include "rooms/getdiscussionsjob.h"
 #include "rooms/getroomsjob.h"
@@ -834,21 +832,6 @@ void Connection::userPresence(const QString &userId)
     }
 }
 
-void Connection::setGroupType(const QString &roomId, bool isPrivate)
-{
-    auto job = new SetGroupTypeJob(this);
-    initializeRestApiJob(job);
-    ChannelGroupBaseJob::ChannelGroupInfo info;
-    info.channelGroupInfoType = ChannelGroupBaseJob::ChannelGroupInfoType::Identifier;
-    info.identifier = roomId;
-    job->setChannelGroupInfo(info);
-
-    job->setType(isPrivate ? SetGroupTypeJob::Private : SetGroupTypeJob::Public);
-    if (!job->start()) {
-        qCWarning(RUQOLA_LOG) << "Impossible to start setGroupType job";
-    }
-}
-
 void Connection::setChannelType(const QString &roomId, bool isPrivate)
 {
     auto job = new SetChannelTypeJob(this);
@@ -888,16 +871,6 @@ void Connection::getChannelRoles(const QByteArray &roomId)
     connect(job, &GetChannelRolesJob::channelRolesDone, this, &Connection::channelRolesDone);
     if (!job->start()) {
         qCDebug(RUQOLA_LOG) << "Impossible to start GetChannelRolesJob job";
-    }
-}
-
-void Connection::getUsernameSuggestion()
-{
-    auto job = new GetUsernameSuggestionJob(this);
-    initializeRestApiJob(job);
-    connect(job, &GetUsernameSuggestionJob::getUsernameSuggestionDone, this, &Connection::getUsernameSuggestionDone);
-    if (!job->start()) {
-        qCDebug(RUQOLA_LOG) << "Impossible to start getUsernameSuggestion job";
     }
 }
 
