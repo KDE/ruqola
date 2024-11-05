@@ -587,16 +587,6 @@ void Connection::historyChannel(const QString &roomId, const QString &type)
     }
 }
 
-void Connection::openDirectMessage(const QString &userId)
-{
-    auto job = new OpenDmJob(this);
-    initializeRestApiJob(job);
-    job->setDirectUserId(userId);
-    if (!job->start()) {
-        qCWarning(RUQOLA_LOG) << "Impossible to start job";
-    }
-}
-
 void Connection::filesInRoom(const QByteArray &roomId, const QString &type, int offset, int count)
 {
     auto job = new ChannelFilesJob(this);

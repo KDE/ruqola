@@ -122,7 +122,6 @@ public:
     void changeGroupName(const QString &roomId, const QString &newName);
     void groupInfo(const QByteArray &roomId);
     void channelGetAllUserMentions(const QString &roomId, int offset = 0, int count = 50);
-    void openDirectMessage(const QString &userId);
     void channelKick(const QByteArray &roomId, const QByteArray &userId);
     void groupKick(const QByteArray &roomId, const QByteArray &userId);
     void groupAddModerator(const QByteArray &roomId, const QString &userId);
