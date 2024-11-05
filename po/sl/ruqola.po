@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-11-02 00:39+0000\n"
+"POT-Creation-Date: 2024-11-05 00:40+0000\n"
 "PO-Revision-Date: 2024-11-02 06:33+0100\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
@@ -1731,7 +1731,7 @@ msgctxt "WARNING!!!!!!: PLEASE We need a space between after </strong>"
 msgid "<strong>%1</strong> are typing..."
 msgstr "<strong>%1</strong> pravkar tipkajo…"
 
-#: core/rocketchataccount.cpp:702
+#: core/rocketchataccount.cpp:697
 #, kde-format
 msgid ""
 "REST: %1\n"
@@ -1740,22 +1740,22 @@ msgstr ""
 "REST: %1\n"
 "DDP: %2"
 
-#: core/rocketchataccount.cpp:710 core/rocketchataccount.cpp:722
+#: core/rocketchataccount.cpp:705 core/rocketchataccount.cpp:717
 #, kde-format
 msgid "Not connected"
 msgstr "Brez povezave"
 
-#: core/rocketchataccount.cpp:717
+#: core/rocketchataccount.cpp:712
 #, kde-format
 msgid "Not connected yet"
 msgstr "Še ne povezan"
 
-#: core/rocketchataccount.cpp:3111
+#: core/rocketchataccount.cpp:3105
 #, kde-format
 msgid "Export Messages"
 msgstr "Izvozi sporočila"
 
-#: core/rocketchataccount.cpp:3112
+#: core/rocketchataccount.cpp:3106
 #, kde-format
 msgid "Your email has been queued for sending."
 msgstr "Vaša e-pošta je čakala v čakalni vrsti za pošiljanje."
@@ -3270,7 +3270,7 @@ msgstr "Odpusti vsa poročila"
 
 #: widgets/administratordialog/moderationconsole/moderationreportinfolistview.cpp:76
 #: widgets/notificationhistory/notificationhistorylistview.cpp:83
-#: widgets/room/messagelistview.cpp:272
+#: widgets/room/messagelistview.cpp:273
 #: widgets/servererrorinfohistory/servererrorinfomessagehistorylistview.cpp:50
 #, kde-format
 msgctxt "@action"
@@ -3280,7 +3280,7 @@ msgstr "Kopiraj sporočilo"
 #: widgets/administratordialog/moderationconsole/moderationreportinfolistview.cpp:87
 #: widgets/discussions/discussionlistview.cpp:69
 #: widgets/notificationhistory/notificationhistorylistview.cpp:94
-#: widgets/room/messagelistview.cpp:628
+#: widgets/room/messagelistview.cpp:629
 #: widgets/servererrorinfohistory/servererrorinfomessagehistorylistview.cpp:62
 #, kde-format
 msgctxt "@action"
@@ -3292,7 +3292,7 @@ msgstr "Govori besedilo"
 #: widgets/bannerinfodialog/bannerinfolistview.cpp:51
 #: widgets/discussions/discussionlistview.cpp:75
 #: widgets/notificationhistory/notificationhistorylistview.cpp:100
-#: widgets/room/messagelistview.cpp:304
+#: widgets/room/messagelistview.cpp:305
 #: widgets/servererrorinfohistory/servererrorinfomessagehistorylistview.cpp:69
 #, kde-format
 msgctxt "@action"
@@ -7067,97 +7067,97 @@ msgid "Show Unread"
 msgstr "Prikaži neprebrano"
 
 #: widgets/bannerinfodialog/bannermessagewidget.cpp:22
-#: widgets/channellist/channellistview.cpp:118
+#: widgets/channellist/channellistview.cpp:120
 #, kde-format
 msgctxt "@action"
 msgid "Mark as Read"
 msgstr "Označi kot prebrano"
 
-#: widgets/channellist/channellistview.cpp:118
+#: widgets/channellist/channellistview.cpp:120
 #, kde-format
 msgctxt "@action"
 msgid "Mark as Unread"
 msgstr "Označi kot neprebrano"
 
-#: widgets/channellist/channellistview.cpp:128
-#: widgets/room/messagelistview.cpp:290
+#: widgets/channellist/channellistview.cpp:130
+#: widgets/room/messagelistview.cpp:291
 #, kde-format
 msgctxt "@action"
 msgid "Set as Favorite"
 msgstr "Nastavi kot priljubljeno"
 
-#: widgets/channellist/channellistview.cpp:128
+#: widgets/channellist/channellistview.cpp:130
 #, kde-format
 msgctxt "@action"
 msgid "Unset as Favorite"
 msgstr "Odstavi kot priljubljeno"
 
-#: widgets/channellist/channellistview.cpp:137
+#: widgets/channellist/channellistview.cpp:139
 #, kde-format
 msgctxt "@action"
 msgid "Hide Channel"
 msgstr "Skrij kanal"
 
-#: widgets/channellist/channellistview.cpp:154
+#: widgets/channellist/channellistview.cpp:156
 #, kde-format
 msgctxt "@action"
 msgid "Convert to Team"
 msgstr "Pretvori v ekipo"
 
-#: widgets/channellist/channellistview.cpp:165
+#: widgets/channellist/channellistview.cpp:167
 #, kde-format
 msgctxt "@action"
 msgid "Convert to Channel"
 msgstr "Pretvori v kanal"
 
-#: widgets/channellist/channellistview.cpp:168
+#: widgets/channellist/channellistview.cpp:170
 #, kde-format
 msgid "Do you want to convert team to channel?"
 msgstr "Ali želite ekipo pretvoriti v kanal?"
 
-#: widgets/channellist/channellistview.cpp:169
+#: widgets/channellist/channellistview.cpp:171
 #, kde-format
 msgctxt "@title:window"
 msgid "Convert To Channel"
 msgstr "Pretvori v kanal"
 
-#: widgets/channellist/channellistview.cpp:185
+#: widgets/channellist/channellistview.cpp:188
 #, kde-format
 msgctxt "@action"
 msgid "Move to Team"
 msgstr "Premakni v ekipo"
 
-#: widgets/channellist/channellistview.cpp:202
+#: widgets/channellist/channellistview.cpp:205
 #, kde-format
 msgctxt "@action"
 msgid "Configure Notification…"
 msgstr "Konfiguriraj obvestilo…"
 
-#: widgets/channellist/channellistview.cpp:209
+#: widgets/channellist/channellistview.cpp:212
 #, kde-format
 msgctxt "@action"
 msgid "Quit Channel"
 msgstr "Zapusti kanal"
 
-#: widgets/channellist/channellistview.cpp:252
+#: widgets/channellist/channellistview.cpp:255
 #, kde-format
 msgid "Any team selected."
 msgstr "Katerakoli izbrana ekipa."
 
-#: widgets/channellist/channellistview.cpp:252
+#: widgets/channellist/channellistview.cpp:255
 #, kde-format
 msgctxt "@title:window"
 msgid "Move To Team"
 msgstr "Premakni v ekipo"
 
-#: widgets/channellist/channellistview.cpp:301
+#: widgets/channellist/channellistview.cpp:304
 #, kde-format
 msgid "Are you sure to convert it to team? It can not be undo."
 msgstr ""
 "Ali ste prepričani, da ga želite pretvoriti v ekipo? Tega ni mogoče "
 "razveljaviti."
 
-#: widgets/channellist/channellistview.cpp:302
+#: widgets/channellist/channellistview.cpp:305
 #, kde-format
 msgctxt "@title:window"
 msgid "Convert to Team"
@@ -9647,7 +9647,7 @@ msgid "Clear"
 msgstr "Počisti"
 
 #: widgets/notificationhistory/notificationhistorylistview.cpp:79
-#: widgets/room/messagelistview.cpp:611
+#: widgets/room/messagelistview.cpp:612
 #, kde-format
 msgctxt "@action"
 msgid "Go to Message"
@@ -9900,7 +9900,7 @@ msgid "User Info"
 msgstr "Podatki o uporabniku"
 
 #: widgets/room/delegate/messagelistdelegate.cpp:439
-#: widgets/room/messagelistview.cpp:393
+#: widgets/room/messagelistview.cpp:394
 #, kde-format
 msgctxt "@action"
 msgid "Start a Private Conversation"
@@ -10051,154 +10051,154 @@ msgstr "Prenos datoteke tja"
 msgid "Server doesn't authorized this file (invalid mimetype)"
 msgstr "Strežnik ne odobrava te datoteke (neveljavna vrsta mime)"
 
-#: widgets/room/messagelistview.cpp:105
+#: widgets/room/messagelistview.cpp:106
 #, kde-format
 msgid "You have joined a new direct message"
 msgstr "Pridružili ste se novemu neposrednemu sporočilu"
 
-#: widgets/room/messagelistview.cpp:107
+#: widgets/room/messagelistview.cpp:108
 #, kde-format
 msgid "Start of conversation"
 msgstr "Začetek pogovora"
 
-#: widgets/room/messagelistview.cpp:281
+#: widgets/room/messagelistview.cpp:282
 #, kde-format
 msgctxt "@action"
 msgid "Unpin Message"
 msgstr "Odpni sporočilo"
 
-#: widgets/room/messagelistview.cpp:281
+#: widgets/room/messagelistview.cpp:282
 #, kde-format
 msgctxt "@action"
 msgid "Pin Message"
 msgstr "Pripni sporočilo"
 
-#: widgets/room/messagelistview.cpp:290
+#: widgets/room/messagelistview.cpp:291
 #, kde-format
 msgctxt "@action"
 msgid "Remove as Favorite"
 msgstr "Odstrani iz priljubljenih"
 
-#: widgets/room/messagelistview.cpp:298
+#: widgets/room/messagelistview.cpp:299
 #, kde-format
 msgctxt "@action"
 msgid "Delete"
 msgstr "Izbriši"
 
-#: widgets/room/messagelistview.cpp:309
+#: widgets/room/messagelistview.cpp:310
 #, kde-format
 msgctxt "@action"
 msgid "Mark Message As Unread"
 msgstr "Označi sporočilo kot neprebrano"
 
-#: widgets/room/messagelistview.cpp:314
+#: widgets/room/messagelistview.cpp:315
 #, kde-format
 msgctxt "@action"
 msgid "Show Full Thread"
 msgstr "Pokaži polno nit"
 
-#: widgets/room/messagelistview.cpp:319
+#: widgets/room/messagelistview.cpp:320
 #, kde-format
 msgctxt "@action"
 msgid "Edit"
 msgstr "Uredi"
 
-#: widgets/room/messagelistview.cpp:324
+#: widgets/room/messagelistview.cpp:325
 #, kde-format
 msgctxt "@action"
 msgid "Quote"
 msgstr "Citiraj"
 
-#: widgets/room/messagelistview.cpp:329
+#: widgets/room/messagelistview.cpp:330
 #, kde-format
 msgctxt "@action"
 msgid "Copy Link To Message"
 msgstr "Kopiraj povezavo v sporočilo"
 
-#: widgets/room/messagelistview.cpp:334
+#: widgets/room/messagelistview.cpp:335
 #, kde-format
 msgctxt "@action"
 msgid "Forward Message"
 msgstr "Posreduj sporočilo"
 
-#: widgets/room/messagelistview.cpp:348
+#: widgets/room/messagelistview.cpp:349
 #, kde-format
 msgctxt "@action"
 msgid "Unfollow Message"
 msgstr "Ne sledi sporočilu"
 
-#: widgets/room/messagelistview.cpp:348
+#: widgets/room/messagelistview.cpp:349
 #, kde-format
 msgctxt "@action"
 msgid "Follow Message"
 msgstr "Sledi sporočilu"
 
-#: widgets/room/messagelistview.cpp:361
+#: widgets/room/messagelistview.cpp:362
 #, kde-format
 msgctxt "@action"
 msgid "Copy URL"
 msgstr "Kopiraj URL"
 
-#: widgets/room/messagelistview.cpp:384 widgets/room/usersinroommenu.cpp:122
+#: widgets/room/messagelistview.cpp:385 widgets/room/usersinroommenu.cpp:122
 #, kde-format
 msgctxt "@action"
 msgid "User Info"
 msgstr "Informacije o uporabniku"
 
-#: widgets/room/messagelistview.cpp:430
+#: widgets/room/messagelistview.cpp:431
 #, kde-format
 msgctxt "@action"
 msgid "Start a Discussion"
 msgstr "Začni razpravo"
 
-#: widgets/room/messagelistview.cpp:436
+#: widgets/room/messagelistview.cpp:437
 #, kde-format
 msgctxt "@action"
 msgid "Reply in Thread"
 msgstr "Odgovori v niti"
 
-#: widgets/room/messagelistview.cpp:492
+#: widgets/room/messagelistview.cpp:493
 #, kde-format
 msgctxt "@action"
 msgid "Show Original Message"
 msgstr "Pokaži izvirno sporočilo"
 
-#: widgets/room/messagelistview.cpp:492
+#: widgets/room/messagelistview.cpp:493
 #, kde-format
 msgctxt "@action"
 msgid "Translate Message"
 msgstr "Prevedi sporočilo"
 
-#: widgets/room/messagelistview.cpp:535
+#: widgets/room/messagelistview.cpp:536
 #, kde-format
 msgctxt "@action"
 msgid "View Reports"
 msgstr "Pogled poročil"
 
-#: widgets/room/messagelistview.cpp:558
+#: widgets/room/messagelistview.cpp:559
 #, kde-format
 msgctxt "@action"
 msgid "Dismiss Reports"
 msgstr "Odpusti poročila"
 
-#: widgets/room/messagelistview.cpp:636
+#: widgets/room/messagelistview.cpp:637
 #, kde-format
 msgctxt "@action"
 msgid "Report Message"
 msgstr "Poročaj sporočilo"
 
-#: widgets/room/messagelistview.cpp:832
+#: widgets/room/messagelistview.cpp:833
 #, kde-format
 msgid "Do you want to delete this message?"
 msgstr "Ali želite izbrisati to sporočilo?"
 
-#: widgets/room/messagelistview.cpp:833
+#: widgets/room/messagelistview.cpp:834
 #, kde-format
 msgctxt "@title"
 msgid "Delete Message"
 msgstr "Izbriši sporočilo"
 
-#: widgets/room/messagelistview.cpp:982
+#: widgets/room/messagelistview.cpp:990
 #, kde-format
 msgctxt "@title:window"
 msgid "Translator Error"
@@ -10973,41 +10973,41 @@ msgctxt "@info:placeholder"
 msgid "Search room…"
 msgstr "Išči sobo…"
 
-#: widgets/teams/teamchannelswidget.cpp:115
+#: widgets/teams/teamchannelswidget.cpp:116
 #, kde-format
 msgid "Add Existing Room"
 msgstr "Dodaj obstoječo sobo"
 
-#: widgets/teams/teamchannelswidget.cpp:117
+#: widgets/teams/teamchannelswidget.cpp:118
 #, kde-format
 msgctxt "@action"
 msgid "Create Room"
 msgstr "Ustvari sobo"
 
-#: widgets/teams/teamchannelswidget.cpp:123
+#: widgets/teams/teamchannelswidget.cpp:124
 #, kde-format
 msgctxt "@action"
 msgid "Remove Autojoin"
 msgstr "Odstrani samodejno pridružitev"
 
-#: widgets/teams/teamchannelswidget.cpp:123
+#: widgets/teams/teamchannelswidget.cpp:124
 #, kde-format
 msgctxt "@action"
 msgid "Add Autojoin"
 msgstr "Dodaj samodejno pridružitev"
 
-#: widgets/teams/teamchannelswidget.cpp:130
+#: widgets/teams/teamchannelswidget.cpp:131
 #, kde-format
 msgctxt "@action"
 msgid "Remove from Team"
 msgstr "Odstrani iz ekipe"
 
-#: widgets/teams/teamchannelswidget.cpp:165
+#: widgets/teams/teamchannelswidget.cpp:166
 #, kde-format
 msgid "Would you like to remove this Channel from team?"
 msgstr "Bi radi odstranili ta kanal iz ekipe?"
 
-#: widgets/teams/teamchannelswidget.cpp:166
+#: widgets/teams/teamchannelswidget.cpp:167
 #, kde-format
 msgctxt "@title"
 msgid "Remove Channel from Team"

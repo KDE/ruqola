@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-11-02 00:39+0000\n"
+"POT-Creation-Date: 2024-11-05 00:40+0000\n"
 "PO-Revision-Date: 2023-09-20 18:47+0300\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
@@ -1773,30 +1773,30 @@ msgctxt "WARNING!!!!!!: PLEASE We need a space between after </strong>"
 msgid "<strong>%1</strong> are typing..."
 msgstr "<strong>%1</strong> kirjoittavat…"
 
-#: core/rocketchataccount.cpp:702
+#: core/rocketchataccount.cpp:697
 #, kde-format
 msgid ""
 "REST: %1\n"
 "DDP: %2"
 msgstr ""
 
-#: core/rocketchataccount.cpp:710 core/rocketchataccount.cpp:722
+#: core/rocketchataccount.cpp:705 core/rocketchataccount.cpp:717
 #, kde-format
 msgid "Not connected"
 msgstr "Ei yhteyttä"
 
-#: core/rocketchataccount.cpp:717
+#: core/rocketchataccount.cpp:712
 #, fuzzy, kde-format
 #| msgid "Not connected"
 msgid "Not connected yet"
 msgstr "Ei yhteyttä"
 
-#: core/rocketchataccount.cpp:3111
+#: core/rocketchataccount.cpp:3105
 #, kde-format
 msgid "Export Messages"
 msgstr "Vie viestejä"
 
-#: core/rocketchataccount.cpp:3112
+#: core/rocketchataccount.cpp:3106
 #, kde-format
 msgid "Your email has been queued for sending."
 msgstr "Sähköposti on viety jonoon lähetystä varten."
@@ -3347,7 +3347,7 @@ msgstr "Ilmoita ohjelmavirheestä"
 
 #: widgets/administratordialog/moderationconsole/moderationreportinfolistview.cpp:76
 #: widgets/notificationhistory/notificationhistorylistview.cpp:83
-#: widgets/room/messagelistview.cpp:272
+#: widgets/room/messagelistview.cpp:273
 #: widgets/servererrorinfohistory/servererrorinfomessagehistorylistview.cpp:50
 #, fuzzy, kde-format
 #| msgid "Copy Message"
@@ -3358,7 +3358,7 @@ msgstr "Kopioi viesti"
 #: widgets/administratordialog/moderationconsole/moderationreportinfolistview.cpp:87
 #: widgets/discussions/discussionlistview.cpp:69
 #: widgets/notificationhistory/notificationhistorylistview.cpp:94
-#: widgets/room/messagelistview.cpp:628
+#: widgets/room/messagelistview.cpp:629
 #: widgets/servererrorinfohistory/servererrorinfomessagehistorylistview.cpp:62
 #, fuzzy, kde-format
 #| msgid "Speak Text"
@@ -3371,7 +3371,7 @@ msgstr "Puhu teksti"
 #: widgets/bannerinfodialog/bannerinfolistview.cpp:51
 #: widgets/discussions/discussionlistview.cpp:75
 #: widgets/notificationhistory/notificationhistorylistview.cpp:100
-#: widgets/room/messagelistview.cpp:304
+#: widgets/room/messagelistview.cpp:305
 #: widgets/servererrorinfohistory/servererrorinfomessagehistorylistview.cpp:69
 #, fuzzy, kde-format
 #| msgid "Select All"
@@ -7219,108 +7219,108 @@ msgid "Show Unread"
 msgstr "Näytät lukematta olevat"
 
 #: widgets/bannerinfodialog/bannermessagewidget.cpp:22
-#: widgets/channellist/channellistview.cpp:118
+#: widgets/channellist/channellistview.cpp:120
 #, fuzzy, kde-format
 #| msgid "Mark as Read"
 msgctxt "@action"
 msgid "Mark as Read"
 msgstr "Merkitse luetuksi"
 
-#: widgets/channellist/channellistview.cpp:118
+#: widgets/channellist/channellistview.cpp:120
 #, fuzzy, kde-format
 #| msgid "Mark As Unread"
 msgctxt "@action"
 msgid "Mark as Unread"
 msgstr "Merkitse lukematta olevaksi"
 
-#: widgets/channellist/channellistview.cpp:128
-#: widgets/room/messagelistview.cpp:290
+#: widgets/channellist/channellistview.cpp:130
+#: widgets/room/messagelistview.cpp:291
 #, fuzzy, kde-format
 #| msgid "Set as Favorite"
 msgctxt "@action"
 msgid "Set as Favorite"
 msgstr "Aseta suosikiksi"
 
-#: widgets/channellist/channellistview.cpp:128
+#: widgets/channellist/channellistview.cpp:130
 #, fuzzy, kde-format
 #| msgid "Unset as Favorite"
 msgctxt "@action"
 msgid "Unset as Favorite"
 msgstr "Poista suosikeista"
 
-#: widgets/channellist/channellistview.cpp:137
+#: widgets/channellist/channellistview.cpp:139
 #, fuzzy, kde-format
 #| msgid "Hide Channel"
 msgctxt "@action"
 msgid "Hide Channel"
 msgstr "Piilota kanava"
 
-#: widgets/channellist/channellistview.cpp:154
+#: widgets/channellist/channellistview.cpp:156
 #, fuzzy, kde-format
 #| msgid "Convert to Team"
 msgctxt "@action"
 msgid "Convert to Team"
 msgstr "Muunna ryhmäksi"
 
-#: widgets/channellist/channellistview.cpp:165
+#: widgets/channellist/channellistview.cpp:167
 #, fuzzy, kde-format
 #| msgid "Convert to Channel"
 msgctxt "@action"
 msgid "Convert to Channel"
 msgstr "Muunna kanavaksi"
 
-#: widgets/channellist/channellistview.cpp:168
+#: widgets/channellist/channellistview.cpp:170
 #, fuzzy, kde-format
 #| msgid "Do you want to open this channel: \"%1\"?"
 msgid "Do you want to convert team to channel?"
 msgstr "Haluatko avata tämän kanavan: ”%1”?"
 
-#: widgets/channellist/channellistview.cpp:169
+#: widgets/channellist/channellistview.cpp:171
 #, fuzzy, kde-format
 #| msgid "Convert to Channel"
 msgctxt "@title:window"
 msgid "Convert To Channel"
 msgstr "Muunna kanavaksi"
 
-#: widgets/channellist/channellistview.cpp:185
+#: widgets/channellist/channellistview.cpp:188
 #, fuzzy, kde-format
 #| msgid "Move to Team"
 msgctxt "@action"
 msgid "Move to Team"
 msgstr "Siirrä ryhmään"
 
-#: widgets/channellist/channellistview.cpp:202
+#: widgets/channellist/channellistview.cpp:205
 #, fuzzy, kde-format
 #| msgid "Configure Notification"
 msgctxt "@action"
 msgid "Configure Notification…"
 msgstr "Ilmoitusten asetukset"
 
-#: widgets/channellist/channellistview.cpp:209
+#: widgets/channellist/channellistview.cpp:212
 #, fuzzy, kde-format
 #| msgid "Quit Channel"
 msgctxt "@action"
 msgid "Quit Channel"
 msgstr "Lopeta kanava"
 
-#: widgets/channellist/channellistview.cpp:252
+#: widgets/channellist/channellistview.cpp:255
 #, kde-format
 msgid "Any team selected."
 msgstr "Mikä tahansa valittu ryhmä."
 
-#: widgets/channellist/channellistview.cpp:252
+#: widgets/channellist/channellistview.cpp:255
 #, fuzzy, kde-format
 #| msgid "Move To Team"
 msgctxt "@title:window"
 msgid "Move To Team"
 msgstr "Siirrä ryhmään"
 
-#: widgets/channellist/channellistview.cpp:301
+#: widgets/channellist/channellistview.cpp:304
 #, kde-format
 msgid "Are you sure to convert it to team? It can not be undo."
 msgstr "Haluatko varmasti muuntaa sen ryhmäksi? Tätä ei voi kumota."
 
-#: widgets/channellist/channellistview.cpp:302
+#: widgets/channellist/channellistview.cpp:305
 #, fuzzy, kde-format
 #| msgid "Convert to Team"
 msgctxt "@title:window"
@@ -9977,7 +9977,7 @@ msgid "Clear"
 msgstr "Tyhjennä"
 
 #: widgets/notificationhistory/notificationhistorylistview.cpp:79
-#: widgets/room/messagelistview.cpp:611
+#: widgets/room/messagelistview.cpp:612
 #, fuzzy, kde-format
 #| msgid "Go to Message"
 msgctxt "@action"
@@ -10264,7 +10264,7 @@ msgid "User Info"
 msgstr "Käyttäjän tiedot"
 
 #: widgets/room/delegate/messagelistdelegate.cpp:439
-#: widgets/room/messagelistview.cpp:393
+#: widgets/room/messagelistview.cpp:394
 #, fuzzy, kde-format
 #| msgid "Start a Private Conversation"
 msgctxt "@action"
@@ -10433,175 +10433,175 @@ msgstr "Tiedoston lähetys"
 msgid "Server doesn't authorized this file (invalid mimetype)"
 msgstr "Palvelin ei valtuuta tätä tiedostoa (virheellinen MIME-tyyppi)"
 
-#: widgets/room/messagelistview.cpp:105
+#: widgets/room/messagelistview.cpp:106
 #, kde-format
 msgid "You have joined a new direct message"
 msgstr "Liityit uuteen suoraviestiin"
 
-#: widgets/room/messagelistview.cpp:107
+#: widgets/room/messagelistview.cpp:108
 #, kde-format
 msgid "Start of conversation"
 msgstr "Keskustelun alku"
 
-#: widgets/room/messagelistview.cpp:281
+#: widgets/room/messagelistview.cpp:282
 #, fuzzy, kde-format
 #| msgid "Unpin Message"
 msgctxt "@action"
 msgid "Unpin Message"
 msgstr "Poista viestin kiinnitys"
 
-#: widgets/room/messagelistview.cpp:281
+#: widgets/room/messagelistview.cpp:282
 #, fuzzy, kde-format
 #| msgid "Pin Message"
 msgctxt "@action"
 msgid "Pin Message"
 msgstr "Kiinnitä viesti"
 
-#: widgets/room/messagelistview.cpp:290
+#: widgets/room/messagelistview.cpp:291
 #, fuzzy, kde-format
 #| msgid "Remove as Favorite"
 msgctxt "@action"
 msgid "Remove as Favorite"
 msgstr "Poista suosikeista"
 
-#: widgets/room/messagelistview.cpp:298
+#: widgets/room/messagelistview.cpp:299
 #, fuzzy, kde-format
 #| msgid "Delete"
 msgctxt "@action"
 msgid "Delete"
 msgstr "Poista"
 
-#: widgets/room/messagelistview.cpp:309
+#: widgets/room/messagelistview.cpp:310
 #, fuzzy, kde-format
 #| msgid "Mark Message As Unread"
 msgctxt "@action"
 msgid "Mark Message As Unread"
 msgstr "Merkitse viesti lukematta olevaksi"
 
-#: widgets/room/messagelistview.cpp:314
+#: widgets/room/messagelistview.cpp:315
 #, fuzzy, kde-format
 #| msgid "Show Full Thread"
 msgctxt "@action"
 msgid "Show Full Thread"
 msgstr "Näytä koko säie"
 
-#: widgets/room/messagelistview.cpp:319
+#: widgets/room/messagelistview.cpp:320
 #, fuzzy, kde-format
 #| msgid "Edit"
 msgctxt "@action"
 msgid "Edit"
 msgstr "Muokkaa"
 
-#: widgets/room/messagelistview.cpp:324
+#: widgets/room/messagelistview.cpp:325
 #, fuzzy, kde-format
 #| msgid "Quote"
 msgctxt "@action"
 msgid "Quote"
 msgstr "Lainaus"
 
-#: widgets/room/messagelistview.cpp:329
+#: widgets/room/messagelistview.cpp:330
 #, fuzzy, kde-format
 #| msgid "Copy Link To Message"
 msgctxt "@action"
 msgid "Copy Link To Message"
 msgstr "Kopioi linkki viestiin"
 
-#: widgets/room/messagelistview.cpp:334
+#: widgets/room/messagelistview.cpp:335
 #, fuzzy, kde-format
 #| msgid "Follow Message"
 msgctxt "@action"
 msgid "Forward Message"
 msgstr "Seuraa viestiä"
 
-#: widgets/room/messagelistview.cpp:348
+#: widgets/room/messagelistview.cpp:349
 #, fuzzy, kde-format
 #| msgid "Unfollow Message"
 msgctxt "@action"
 msgid "Unfollow Message"
 msgstr "Lakkaa seuraamasta viestiä"
 
-#: widgets/room/messagelistview.cpp:348
+#: widgets/room/messagelistview.cpp:349
 #, fuzzy, kde-format
 #| msgid "Follow Message"
 msgctxt "@action"
 msgid "Follow Message"
 msgstr "Seuraa viestiä"
 
-#: widgets/room/messagelistview.cpp:361
+#: widgets/room/messagelistview.cpp:362
 #, fuzzy, kde-format
 #| msgid "Copy URL"
 msgctxt "@action"
 msgid "Copy URL"
 msgstr "Kopioi verkko-osoite"
 
-#: widgets/room/messagelistview.cpp:384 widgets/room/usersinroommenu.cpp:122
+#: widgets/room/messagelistview.cpp:385 widgets/room/usersinroommenu.cpp:122
 #, fuzzy, kde-format
 #| msgid "User Info"
 msgctxt "@action"
 msgid "User Info"
 msgstr "Käyttäjän tiedot"
 
-#: widgets/room/messagelistview.cpp:430
+#: widgets/room/messagelistview.cpp:431
 #, fuzzy, kde-format
 #| msgid "Start a Discussion"
 msgctxt "@action"
 msgid "Start a Discussion"
 msgstr "Aloita keskustelu"
 
-#: widgets/room/messagelistview.cpp:436
+#: widgets/room/messagelistview.cpp:437
 #, fuzzy, kde-format
 #| msgid "Reply in Thread"
 msgctxt "@action"
 msgid "Reply in Thread"
 msgstr "Vastaa säikeeseen"
 
-#: widgets/room/messagelistview.cpp:492
+#: widgets/room/messagelistview.cpp:493
 #, fuzzy, kde-format
 #| msgid "Show Original Message"
 msgctxt "@action"
 msgid "Show Original Message"
 msgstr "Näytä alkuperäinen viesti"
 
-#: widgets/room/messagelistview.cpp:492
+#: widgets/room/messagelistview.cpp:493
 #, fuzzy, kde-format
 #| msgid "Translate Message"
 msgctxt "@action"
 msgid "Translate Message"
 msgstr "Käännä viesti"
 
-#: widgets/room/messagelistview.cpp:535
+#: widgets/room/messagelistview.cpp:536
 #, fuzzy, kde-format
 #| msgid "Report a Bug"
 msgctxt "@action"
 msgid "View Reports"
 msgstr "Ilmoita ohjelmavirheestä"
 
-#: widgets/room/messagelistview.cpp:558
+#: widgets/room/messagelistview.cpp:559
 #, fuzzy, kde-format
 #| msgid "Report a Bug"
 msgctxt "@action"
 msgid "Dismiss Reports"
 msgstr "Ilmoita ohjelmavirheestä"
 
-#: widgets/room/messagelistview.cpp:636
+#: widgets/room/messagelistview.cpp:637
 #, fuzzy, kde-format
 #| msgid "Report Message"
 msgctxt "@action"
 msgid "Report Message"
 msgstr "Ilmoita viestistä"
 
-#: widgets/room/messagelistview.cpp:832
+#: widgets/room/messagelistview.cpp:833
 #, kde-format
 msgid "Do you want to delete this message?"
 msgstr "Haluatko poistaa tämän viestin?"
 
-#: widgets/room/messagelistview.cpp:833
+#: widgets/room/messagelistview.cpp:834
 #, kde-format
 msgctxt "@title"
 msgid "Delete Message"
 msgstr "Poista viesti"
 
-#: widgets/room/messagelistview.cpp:982
+#: widgets/room/messagelistview.cpp:990
 #, fuzzy, kde-format
 #| msgid "Translator Error"
 msgctxt "@title:window"
@@ -11455,45 +11455,45 @@ msgctxt "@info:placeholder"
 msgid "Search room…"
 msgstr "Etsi huoneita"
 
-#: widgets/teams/teamchannelswidget.cpp:115
+#: widgets/teams/teamchannelswidget.cpp:116
 #, kde-format
 msgid "Add Existing Room"
 msgstr "Lisää huoneeseen käyttäjiä"
 
-#: widgets/teams/teamchannelswidget.cpp:117
+#: widgets/teams/teamchannelswidget.cpp:118
 #, fuzzy, kde-format
 #| msgid "Create Room"
 msgctxt "@action"
 msgid "Create Room"
 msgstr "Luo huone"
 
-#: widgets/teams/teamchannelswidget.cpp:123
+#: widgets/teams/teamchannelswidget.cpp:124
 #, fuzzy, kde-format
 #| msgid "Remove Autojoin"
 msgctxt "@action"
 msgid "Remove Autojoin"
 msgstr "Poista automaattiliittyminen"
 
-#: widgets/teams/teamchannelswidget.cpp:123
+#: widgets/teams/teamchannelswidget.cpp:124
 #, fuzzy, kde-format
 #| msgid "Add Autojoin"
 msgctxt "@action"
 msgid "Add Autojoin"
 msgstr "Lisää automaattiliittyminen"
 
-#: widgets/teams/teamchannelswidget.cpp:130
+#: widgets/teams/teamchannelswidget.cpp:131
 #, fuzzy, kde-format
 #| msgid "Remove from Team"
 msgctxt "@action"
 msgid "Remove from Team"
 msgstr "Poista huoneesta"
 
-#: widgets/teams/teamchannelswidget.cpp:165
+#: widgets/teams/teamchannelswidget.cpp:166
 #, kde-format
 msgid "Would you like to remove this Channel from team?"
 msgstr "Haluatko poistua tältä kanavalta?"
 
-#: widgets/teams/teamchannelswidget.cpp:166
+#: widgets/teams/teamchannelswidget.cpp:167
 #, kde-format
 msgctxt "@title"
 msgid "Remove Channel from Team"
