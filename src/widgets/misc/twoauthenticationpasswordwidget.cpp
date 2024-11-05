@@ -50,7 +50,6 @@ void TwoAuthenticationPasswordWidget::clear()
 
 void TwoAuthenticationPasswordWidget::slotSendNewEmailCode()
 {
-    // TODO avoid to use directly mRocketChatAccount
     mRocketChatAccount->sendUserEmailCode();
 }
 
