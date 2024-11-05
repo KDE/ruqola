@@ -18,7 +18,8 @@ qint64 LoadRecentHistoryManager::lastLoadingTimeStamp() const
 
 qint64 LoadRecentHistoryManager::generateNewStartTimeStamp(qint64 lastTimeStamp)
 {
-    const qint64 newTimeStamp = qMin(mLastLoadingTimeStamp, lastTimeStamp) - (86400 * 3 * 1000);
+    constexpr qint64 result = 86400 * 3 * 1000;
+    const qint64 newTimeStamp = qMin(mLastLoadingTimeStamp, lastTimeStamp) - result;
     mLastLoadingTimeStamp = newTimeStamp;
     qCDebug(RUQOLA_LOG) << "newTimeStamp " << QDateTime::fromMSecsSinceEpoch(newTimeStamp);
     return newTimeStamp;
