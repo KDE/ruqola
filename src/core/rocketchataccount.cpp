@@ -1377,11 +1377,6 @@ void RocketChatAccount::pinMessage(const QByteArray &messageId, bool pinned)
     restApi()->pinMessage(messageId, pinned);
 }
 
-void RocketChatAccount::reportMessage(const QByteArray &messageId, const QString &message)
-{
-    restApi()->reportMessage(messageId, message);
-}
-
 void RocketChatAccount::getThreadMessages(const QByteArray &threadMessageId, const Message &message)
 {
     // mListMessageModel->clear();

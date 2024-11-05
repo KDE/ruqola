@@ -100,7 +100,6 @@ public:
     void userInfo(const QString &identifier, bool userName = false);
     void ignoreUser(const QByteArray &roomId, const QByteArray &userId, bool ignore);
     void userPresence(const QString &userId);
-    void reportMessage(const QByteArray &messageId, const QString &message);
     void setGroupType(const QString &roomId, bool isPrivate);
     void setChannelType(const QString &roomId, bool isPrivate);
     void getGroupRoles(const QByteArray &roomId);

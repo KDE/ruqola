@@ -10,6 +10,7 @@
 #include "chat/deletemessagejob.h"
 #include "chat/followmessagejob.h"
 #include "chat/postmessagejob.h"
+#include "chat/reportmessagejob.h"
 #include "chat/starmessagejob.h"
 #include "chat/unfollowmessagejob.h"
 
@@ -865,7 +866,13 @@ void MessageListView::slotReportMessage(const QModelIndex &index)
     dlg->setPreviewMessage(message);
     if (dlg->exec()) {
         const QByteArray messageId = index.data(MessagesModel::MessageId).toByteArray();
-        mCurrentRocketChatAccount->reportMessage(messageId, dlg->message());
+        auto job = new RocketChatRestApi::ReportMessageJob(this);
+        mCurrentRocketChatAccount->restApi()->initializeRestApiJob(job);
+        job->setMessageId(messageId);
+        job->setReportMessage(dlg->message());
+        if (!job->start()) {
+            qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start reportMessage job";
+        }
     }
     delete dlg;
 }

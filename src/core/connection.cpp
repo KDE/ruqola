@@ -42,7 +42,6 @@
 #include "chat/pinmessagejob.h"
 #include "chat/postmessagejob.h"
 #include "chat/reactonmessagejob.h"
-#include "chat/reportmessagejob.h"
 #include "chat/sendmessagejob.h"
 #include "chat/syncthreadmessagesjob.h"
 #include "chat/unfollowmessagejob.h"
@@ -832,17 +831,6 @@ void Connection::userPresence(const QString &userId)
     connect(job, &GetPresenceJob::getPresenceDone, this, &Connection::getPresenceDone);
     if (!job->start()) {
         qCWarning(RUQOLA_LOG) << "Impossible to start userPresence job";
-    }
-}
-
-void Connection::reportMessage(const QByteArray &messageId, const QString &message)
-{
-    auto job = new ReportMessageJob(this);
-    initializeRestApiJob(job);
-    job->setMessageId(messageId);
-    job->setReportMessage(message);
-    if (!job->start()) {
-        qCWarning(RUQOLA_LOG) << "Impossible to start reportMessage job";
     }
 }
 

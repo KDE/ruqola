@@ -191,7 +191,6 @@ public:
     void changeRoles(const QByteArray &rid, const QString &userId, Room::RoomType channelType, RocketChatAccount::RoleType roleType);
     void rolesInRoom(const QByteArray &roomId, Room::RoomType channelType);
     void switchingToRoom(const QByteArray &roomID);
-    void reportMessage(const QByteArray &messageId, const QString &message);
     void getThreadMessages(const QByteArray &threadMessageId, const Message &message);
     void createDiscussion(const QByteArray &parentRoomName,
                           const QString &discussionName,
