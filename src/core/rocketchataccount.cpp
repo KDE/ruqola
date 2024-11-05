@@ -2866,11 +2866,6 @@ void RocketChatAccount::slotMarkAsReadDone(const QByteArray &roomId)
     }
 }
 
-void RocketChatAccount::createDirectMessages(const QStringList &usernames)
-{
-    restApi()->createDirectMessage(usernames);
-}
-
 void RocketChatAccount::slotCustomUserStatusDone(const QJsonObject &customList)
 {
     mCustomUserStatuses.parseCustomUserStatuses(customList);

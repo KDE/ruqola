@@ -99,7 +99,6 @@
 #include "rooms/roomstartdiscussionjob.h"
 #include "rooms/savenotificationjob.h"
 
-#include "directmessage/createdmjob.h"
 #include "directmessage/opendmjob.h"
 
 #include "subscriptions/markroomasreadjob.h"
@@ -585,16 +584,6 @@ void Connection::historyChannel(const QString &roomId, const QString &type)
     }
     if (!job->start()) {
         qCWarning(RUQOLA_LOG) << "Impossible to start historyChannel job";
-    }
-}
-
-void Connection::createDirectMessage(const QStringList &userNames)
-{
-    auto job = new CreateDmJob(this);
-    initializeRestApiJob(job);
-    job->setUserNames(userNames);
-    if (!job->start()) {
-        qCWarning(RUQOLA_LOG) << "Impossible to start createDirectMessage job";
     }
 }
 
