@@ -70,10 +70,8 @@ public:
     void serverInfo();
     void getPrivateSettings();
     void getOwnInfo();
-    void starMessage(const QByteArray &messageId, bool starred);
     RocketChatRestApi::DownloadFileJob *
     downloadFile(const QUrl &url, const QUrl &localFileUrl, const QByteArray &mimeType = "text/plain", bool requiredAuthentication = true);
-    void changeGroupsTopic(const QString &roomId, const QString &topic);
     void changeChannelAnnouncement(const QString &roomId, const QString &announcement);
     void postMessage(const QByteArray &roomId, const QString &text);
     void createChannels(const RocketChatRestApi::CreateChannelTeamInfo &info);
@@ -135,10 +133,8 @@ public:
     void channelDelete(const QByteArray &roomId);
     void groupDelete(const QByteArray &roomId);
     void membersInRoom(const QByteArray &roomId, const QString &type, int offset = 0, int count = 50);
-    void changeGroupsReadOnly(const QString &roomId, bool b);
     void channelAddLeader(const QByteArray &roomId, const QString &userId);
     void channelRemoveLeader(const QByteArray &roomId, const QString &userId);
-    void changeGroupsEncrypted(const QString &roomId, bool b);
     void pinMessage(const QByteArray &messageId, bool pinned);
     void desktopDurationNotifications(const QByteArray &roomId, int value);
     void desktopSoundNotifications(const QByteArray &roomId, const QString &value);

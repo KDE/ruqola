@@ -10,6 +10,7 @@
 #include "chat/deletemessagejob.h"
 #include "chat/followmessagejob.h"
 #include "chat/postmessagejob.h"
+#include "chat/starmessagejob.h"
 #include "chat/unfollowmessagejob.h"
 
 #include "forwardmessage/forwardmessagedialog.h"
@@ -872,7 +873,14 @@ void MessageListView::slotReportMessage(const QModelIndex &index)
 void MessageListView::slotSetAsFavorite(const QModelIndex &index, bool isStarred)
 {
     const QByteArray messageId = index.data(MessagesModel::MessageId).toByteArray();
-    mCurrentRocketChatAccount->starMessage(messageId, !isStarred);
+
+    auto job = new RocketChatRestApi::StarMessageJob(this);
+    mCurrentRocketChatAccount->restApi()->initializeRestApiJob(job);
+    job->setMessageId(messageId);
+    job->setStarMessage(!isStarred);
+    if (!job->start()) {
+        qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start starMessage job";
+    }
 }
 
 void MessageListView::slotSetPinnedMessage(const QModelIndex &index, bool isPinned)

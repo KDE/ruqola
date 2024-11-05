@@ -44,7 +44,6 @@
 #include "chat/reactonmessagejob.h"
 #include "chat/reportmessagejob.h"
 #include "chat/sendmessagejob.h"
-#include "chat/starmessagejob.h"
 #include "chat/syncthreadmessagesjob.h"
 #include "chat/unfollowmessagejob.h"
 #include "chat/updatemessagejob.h"
@@ -71,10 +70,7 @@
 #include "channels/setchanneltypejob.h"
 #include "channels/setjoincodechanneljob.h"
 
-#include "groups/changegroupsencryptedjob.h"
 #include "groups/changegroupsnamejob.h"
-#include "groups/changegroupsreadonlyjob.h"
-#include "groups/changegroupstopicjob.h"
 #include "groups/creategroupsjob.h"
 #include "groups/getgrouprolesjob.h"
 #include "groups/groupaddleaderjob.h"
@@ -336,17 +332,6 @@ void Connection::getOwnInfo()
     }
 }
 
-void Connection::starMessage(const QByteArray &messageId, bool starred)
-{
-    auto job = new StarMessageJob(this);
-    initializeRestApiJob(job);
-    job->setMessageId(messageId);
-    job->setStarMessage(starred);
-    if (!job->start()) {
-        qCWarning(RUQOLA_LOG) << "Impossible to start starMessage job";
-    }
-}
-
 DownloadFileJob *Connection::downloadFile(const QUrl &url, const QUrl &localFileUrl, const QByteArray &mimeType, bool requiredAuthentication)
 {
     auto job = new DownloadFileJob(this);
@@ -370,48 +355,6 @@ void Connection::serverInfo()
     connect(job, &ServerInfoJob::serverInfoFailed, this, &Connection::serverInfoFailed);
     if (!job->start()) {
         qCWarning(RUQOLA_LOG) << "Impossible to start ServerInfoJob job";
-    }
-}
-
-void Connection::changeGroupsTopic(const QString &roomId, const QString &topic)
-{
-    auto job = new ChangeGroupsTopicJob(this);
-    initializeRestApiJob(job);
-    ChannelGroupBaseJob::ChannelGroupInfo info;
-    info.channelGroupInfoType = ChannelGroupBaseJob::ChannelGroupInfoType::Identifier;
-    info.identifier = roomId;
-    job->setChannelGroupInfo(info);
-    job->setTopic(topic);
-    if (!job->start()) {
-        qCWarning(RUQOLA_LOG) << "Impossible to start ChangeGroupsTopicJob job";
-    }
-}
-
-void Connection::changeGroupsReadOnly(const QString &roomId, bool b)
-{
-    auto job = new ChangeGroupsReadonlyJob(this);
-    initializeRestApiJob(job);
-    ChannelGroupBaseJob::ChannelGroupInfo info;
-    info.channelGroupInfoType = ChannelGroupBaseJob::ChannelGroupInfoType::Identifier;
-    info.identifier = roomId;
-    job->setChannelGroupInfo(info);
-    job->setReadOnly(b);
-    if (!job->start()) {
-        qCWarning(RUQOLA_LOG) << "Impossible to start changeGroupsReadOnly job";
-    }
-}
-
-void Connection::changeGroupsEncrypted(const QString &roomId, bool b)
-{
-    auto job = new ChangeGroupsEncryptedJob(this);
-    initializeRestApiJob(job);
-    ChannelGroupBaseJob::ChannelGroupInfo info;
-    info.channelGroupInfoType = ChannelGroupBaseJob::ChannelGroupInfoType::Identifier;
-    info.identifier = roomId;
-    job->setChannelGroupInfo(info);
-    job->setEncrypted(b);
-    if (!job->start()) {
-        qCWarning(RUQOLA_LOG) << "Impossible to start ChangeGroupsEncryptedJob job";
     }
 }
 

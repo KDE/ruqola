@@ -167,7 +167,6 @@ public:
     void eraseRoom(const QByteArray &roomId, Room::RoomType channelType);
     void changeNotificationsSettings(const QByteArray &QByteArray, RocketChatAccount::NotificationOptionsType notificationsType, const QVariant &newValue);
     void downloadFile(const QString &downloadFileUrl, const QUrl &localFile);
-    void starMessage(const QByteArray &messageId, bool starred);
     void pinMessage(const QByteArray &messageId, bool pinned);
     [[nodiscard]] QString avatarUrl(const Utils::AvatarInfo &info);
     [[nodiscard]] QUrl attachmentUrlFromLocalCache(const QString &url);
