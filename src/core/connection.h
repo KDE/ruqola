@@ -72,7 +72,6 @@ public:
     void getOwnInfo();
     RocketChatRestApi::DownloadFileJob *
     downloadFile(const QUrl &url, const QUrl &localFileUrl, const QByteArray &mimeType = "text/plain", bool requiredAuthentication = true);
-    void changeChannelAnnouncement(const QString &roomId, const QString &announcement);
     void postMessage(const QByteArray &roomId, const QString &text);
     void createChannels(const RocketChatRestApi::CreateChannelTeamInfo &info);
     void createGroups(const RocketChatRestApi::CreateChannelTeamInfo &info);
@@ -111,12 +110,8 @@ public:
     void setJoinCodeChannel(const QString &roomId, const QString &joinCode);
     void muteGroupMentions(const QByteArray &roomId, bool value);
 
-    void channelInfo(const QByteArray &roomId);
-
     void syncThreadMessages(const QString &threadMessageId, const QString &timestamp);
-    void changeChannelName(const QString &roomId, const QString &newName);
     void changeGroupName(const QString &roomId, const QString &newName);
-    void groupInfo(const QByteArray &roomId);
     void channelGetAllUserMentions(const QString &roomId, int offset = 0, int count = 50);
     void channelKick(const QByteArray &roomId, const QByteArray &userId);
     void groupKick(const QByteArray &roomId, const QByteArray &userId);

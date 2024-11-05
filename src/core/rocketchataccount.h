@@ -185,8 +185,6 @@ public:
     void openDocumentation();
     void reactOnMessage(const QByteArray &messageId, const QString &emoji, bool shouldReact);
     void ignoreUser(const QByteArray &rid, const QByteArray &userId, bool ignore);
-    void channelInfo(const QByteArray &roomId);
-    void groupInfo(const QByteArray &roomId);
     void setSortUnreadOnTop(bool b);
     void setRoomListSortOrder(OwnUserPreferences::RoomListSortOrder roomListSortOrder);
     void kickUser(const QByteArray &rid, const QByteArray &userId, Room::RoomType channelType);
@@ -301,8 +299,6 @@ public:
     void insertCompleterUsers();
 
     PluginAuthenticationInterface *defaultAuthenticationInterface() const;
-
-    void updateUser(const QJsonObject &object);
 
     void removeSettings();
 

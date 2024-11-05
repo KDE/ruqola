@@ -1958,11 +1958,6 @@ bool RocketChatAccount::federationEnabled() const
     return mRuqolaServerConfig->federationEnabled();
 }
 
-void RocketChatAccount::groupInfo(const QByteArray &roomId)
-{
-    restApi()->groupInfo(roomId);
-}
-
 void RocketChatAccount::setSortUnreadOnTop(bool checked)
 {
     RocketChatRestApi::UsersSetPreferencesJob::UsersSetPreferencesInfo info;
@@ -2126,11 +2121,6 @@ void RocketChatAccount::changeRoles(const QByteArray &roomId, const QString &use
     }
 }
 
-void RocketChatAccount::channelInfo(const QByteArray &roomId)
-{
-    restApi()->channelInfo(roomId);
-}
-
 bool RocketChatAccount::allowEditingMessages() const
 {
     return mRuqolaServerConfig->serverConfigFeatureTypes() & RuqolaServerConfig::ServerConfigFeatureType::AllowEditingMessage;
@@ -2255,11 +2245,6 @@ void RocketChatAccount::inputAutocomplete(const QByteArray &roomId,
 AutotranslateLanguagesModel *RocketChatAccount::autoTranslateLanguagesModel() const
 {
     return mAutoTranslateLanguagesModel;
-}
-
-void RocketChatAccount::updateUser(const QJsonObject &object)
-{
-    mUserModel->updateUser(object);
 }
 
 void RocketChatAccount::userStatusChanged(const User &user)

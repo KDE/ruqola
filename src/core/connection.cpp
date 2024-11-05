@@ -48,8 +48,6 @@
 #include "chat/unfollowmessagejob.h"
 #include "chat/updatemessagejob.h"
 
-#include "channels/changechannelannouncementjob.h"
-#include "channels/changechannelnamejob.h"
 #include "channels/channeladdleaderjob.h"
 #include "channels/channeladdmoderatorjob.h"
 #include "channels/channeladdownerjob.h"
@@ -57,7 +55,6 @@
 #include "channels/channelfilesjob.h"
 #include "channels/channelgetallusermentionsjob.h"
 #include "channels/channelgetcountersjob.h"
-#include "channels/channelinfojob.h"
 #include "channels/channelinvitejob.h"
 #include "channels/channelkickjob.h"
 #include "channels/channelmembersjob.h"
@@ -80,7 +77,6 @@
 #include "groups/groupremovemoderatorjob.h"
 #include "groups/groupremoveownerjob.h"
 #include "groups/groupsdeletejob.h"
-#include "groups/groupsinfojob.h"
 #include "groups/groupsinvitejob.h"
 #include "groups/groupskickjob.h"
 #include "groups/leavegroupsjob.h"
@@ -355,17 +351,6 @@ void Connection::serverInfo()
     connect(job, &ServerInfoJob::serverInfoFailed, this, &Connection::serverInfoFailed);
     if (!job->start()) {
         qCWarning(RUQOLA_LOG) << "Impossible to start ServerInfoJob job";
-    }
-}
-
-void Connection::changeChannelAnnouncement(const QString &roomId, const QString &announcement)
-{
-    auto job = new ChangeChannelAnnouncementJob(this);
-    initializeRestApiJob(job);
-    job->setRoomId(roomId);
-    job->setAnnouncement(announcement);
-    if (!job->start()) {
-        qCWarning(RUQOLA_LOG) << "Impossible to start changeChannelAnnouncement job";
     }
 }
 
@@ -707,40 +692,6 @@ void Connection::changeGroupName(const QString &roomId, const QString &newName)
     job->setName(newName);
     if (!job->start()) {
         qCWarning(RUQOLA_LOG) << "Impossible to start changeGroupName job";
-    }
-}
-
-void Connection::changeChannelName(const QString &roomId, const QString &newName)
-{
-    auto job = new ChangeChannelNameJob(this);
-    initializeRestApiJob(job);
-    job->setRoomId(roomId);
-    job->setName(newName);
-    if (!job->start()) {
-        qCWarning(RUQOLA_LOG) << "Impossible to start changeChannelName job";
-    }
-}
-
-void Connection::channelInfo(const QByteArray &roomId)
-{
-    auto job = new ChannelInfoJob(this);
-    initializeRestApiJob(job);
-    ChannelGroupBaseJob::ChannelGroupInfo info;
-    info.channelGroupInfoType = ChannelGroupBaseJob::ChannelGroupInfoType::Identifier;
-    info.identifier = QString::fromLatin1(roomId);
-    job->setChannelGroupInfo(info);
-    if (!job->start()) {
-        qCWarning(RUQOLA_LOG) << "Impossible to start channelInfo job";
-    }
-}
-
-void Connection::groupInfo(const QByteArray &roomId)
-{
-    auto job = new GroupsInfoJob(this);
-    initializeRestApiJob(job);
-    job->setRoomId(QString::fromLatin1(roomId));
-    if (!job->start()) {
-        qCWarning(RUQOLA_LOG) << "Impossible to start groupInfo job";
     }
 }
 
