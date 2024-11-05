@@ -1155,7 +1155,6 @@ void Connection::createDiscussion(const QByteArray &parentRoomId,
     job->setParentMessageId(parentMessageId);
     job->setReplyMessage(replyMessage);
     job->setUsers(users);
-    connect(job, &RoomStartDiscussionJob::startDiscussionDone, this, &Connection::startDiscussionDone);
     if (!job->start()) {
         qCDebug(RUQOLA_LOG) << "Impossible to start roomStartDiscussion";
     }
@@ -1411,7 +1410,6 @@ void Connection::sendUserEmailCode(const QString &identifier)
     auto job = new User2FASendEmailCodeJob(this);
     job->setUsernameOrEmail(identifier);
     initializeRestApiJob(job);
-    connect(job, &User2FASendEmailCodeJob::sendEmailCodeDone, this, &Connection::sendEmailCodeDone);
     if (!job->start()) {
         qCDebug(RUQOLA_LOG) << "Impossible to start User2FASendEmailCodeJob";
     }
@@ -1516,7 +1514,6 @@ void Connection::resetAvatar(const UserBaseJob::UserInfo &info)
     auto job = new ResetAvatarJob(this);
     job->setUserInfo(info);
     initializeRestApiJob(job);
-    connect(job, &ResetAvatarJob::resetAvatarDone, this, &Connection::resetAvatarDone);
     if (!job->start()) {
         qCDebug(RUQOLA_LOG) << "Impossible to start ResetAvatarJob";
     }

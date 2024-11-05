@@ -186,7 +186,6 @@ public:
     void setRoomListSortOrder(OwnUserPreferences::RoomListSortOrder roomListSortOrder);
     void kickUser(const QByteArray &rid, const QByteArray &userId, Room::RoomType channelType);
     void changeRoles(const QByteArray &rid, const QString &userId, Room::RoomType channelType, RocketChatAccount::RoleType roleType);
-    void rolesInRoom(const QByteArray &roomId, Room::RoomType channelType);
     void switchingToRoom(const QByteArray &roomID);
     void getThreadMessages(const QByteArray &threadMessageId, const Message &message);
     void createDiscussion(const QByteArray &parentRoomName,
@@ -199,13 +198,13 @@ public:
     void loadMoreDiscussions(const QByteArray &roomId);
     void loadThreadMessagesHistory(const QByteArray &threadMessageId);
     void loadMoreUsersInRoom(const QByteArray &roomId, Room::RoomType channelType);
+    void loadMoreListMessages(const QByteArray &roomId);
 
     void autoTranslateSaveLanguageSettings(const QByteArray &roomId, const QString &language);
     void autoTranslateSaveAutoTranslateSettings(const QByteArray &roomId, bool autoTranslate);
 
     [[nodiscard]] MessagesModel *messageModelForRoom(const QByteArray &roomID);
 
-    void loadMoreListMessages(const QByteArray &roomId);
     void getListMessages(const QByteArray &roomId, ListMessagesModel::ListMessageType type);
 
     [[nodiscard]] QUrl urlForLink(const QString &link) const;
@@ -589,6 +588,8 @@ Q_SIGNALS:
 
 private:
     Q_DISABLE_COPY(RocketChatAccount)
+
+    LIBRUQOLACORE_NO_EXPORT void rolesInRoom(const QByteArray &roomId, Room::RoomType channelType);
 
     LIBRUQOLACORE_NO_EXPORT void getPinnedMessages(const QByteArray &roomId);
     LIBRUQOLACORE_NO_EXPORT void getStarredMessages(const QByteArray &roomId);

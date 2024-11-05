@@ -194,7 +194,6 @@ Q_SIGNALS:
     void deletechannelDone();
     void deleteGroupsDone();
     void groupRolesDone(const QJsonObject &obj, const RocketChatRestApi::ChannelGroupBaseJob::ChannelGroupInfo &channelInfo);
-    void startDiscussionDone();
     void getDiscussionsDone(const QJsonObject &obj, const QByteArray &roomId);
     void getThreadsDone(const QJsonObject &obj, const QString &roomId, bool onlyUnread);
     void getThreadMessagesDone(const QJsonObject &obj, const QByteArray &threadMessageId);
@@ -216,7 +215,6 @@ Q_SIGNALS:
 
     void getMessageDone(const QJsonObject &obj, const QByteArray &messageId, const QByteArray &roomId);
     void runCommandDone();
-    void sendEmailCodeDone();
     void registerUserDone();
     void updateOwnBasicInfoDone();
     void channelGetCountersDone(const QJsonObject &obj, const RocketChatRestApi::ChannelGroupBaseJob::ChannelGroupInfo &channelInfo);
@@ -226,7 +224,6 @@ Q_SIGNALS:
     void userStatusDeletedDone();
     void customUserUpdateDone();
     void postMessageDone(const QJsonObject &replyObject);
-    void resetAvatarDone();
     void updateMessageFailed(const QString &str);
     void forgotPasswordDone();
 
