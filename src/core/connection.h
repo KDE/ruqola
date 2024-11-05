@@ -178,9 +178,7 @@ Q_SIGNALS:
     void getRoomsDone(const QJsonObject &obj);
     void userInfoDone(const QJsonObject &obj);
     void channelRolesDone(const QJsonObject &obj, const RocketChatRestApi::ChannelGroupBaseJob::ChannelGroupInfo &channelInfo);
-    void getPresenceDone(const QString &presence);
     void permissionListAllDone(const QJsonObject &obj);
-    void setJoinCodeDone();
     void channelGetAllUserMentionsDone(const QJsonObject &obj, const QString &roomId);
     void channelKickUserDone(const QJsonObject &obj);
     void groupKickUserDone(const QJsonObject &obj);

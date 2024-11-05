@@ -797,7 +797,6 @@ void Connection::userPresence(const QString &userId)
     info.userInfoType = UserInfoJob::UserInfoType::UserId;
 
     job->setUserInfo(info);
-    connect(job, &GetPresenceJob::getPresenceDone, this, &Connection::getPresenceDone);
     if (!job->start()) {
         qCWarning(RUQOLA_LOG) << "Impossible to start userPresence job";
     }
@@ -876,7 +875,6 @@ void Connection::setJoinCodeChannel(const QString &roomId, const QString &joinCo
     info.identifier = roomId;
     job->setChannelGroupInfo(info);
 
-    connect(job, &SetJoinCodeChannelJob::setJoinCodeDone, this, &Connection::setJoinCodeDone);
     if (!job->start()) {
         qCDebug(RUQOLA_LOG) << "Impossible to start setjoincode";
     }
