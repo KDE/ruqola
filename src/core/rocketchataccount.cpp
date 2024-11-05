@@ -1372,11 +1372,6 @@ InputTextManager *RocketChatAccount::inputThreadMessageTextManager() const
     return mInputThreadMessageTextManager;
 }
 
-void RocketChatAccount::pinMessage(const QByteArray &messageId, bool pinned)
-{
-    restApi()->pinMessage(messageId, pinned);
-}
-
 void RocketChatAccount::getThreadMessages(const QByteArray &threadMessageId, const Message &message)
 {
     // mListMessageModel->clear();

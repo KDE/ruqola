@@ -38,7 +38,6 @@
 #include "chat/getthreadmessagesjob.h"
 #include "chat/getthreadsjob.h"
 #include "chat/ignoreuserjob.h"
-#include "chat/pinmessagejob.h"
 #include "chat/postmessagejob.h"
 #include "chat/reactonmessagejob.h"
 #include "chat/sendmessagejob.h"
@@ -1167,18 +1166,6 @@ void Connection::groupDelete(const QByteArray &roomId)
     connect(job, &GroupsDeleteJob::deleteGroupsDone, this, &Connection::deleteGroupsDone);
     if (!job->start()) {
         qCDebug(RUQOLA_LOG) << "Impossible to start GroupsDeleteJob";
-    }
-}
-
-void Connection::pinMessage(const QByteArray &messageId, bool pinned)
-{
-    auto job = new PinMessageJob(this);
-    initializeRestApiJob(job);
-    job->setMessageId(messageId);
-    job->setPinMessage(pinned);
-    connect(job, &PinMessageJob::pinMessageDone, this, &Connection::pinMessageDone);
-    if (!job->start()) {
-        qCDebug(RUQOLA_LOG) << "Impossible to start PinMessageJob";
     }
 }
 

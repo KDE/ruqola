@@ -127,7 +127,6 @@ public:
     void membersInRoom(const QByteArray &roomId, const QString &type, int offset = 0, int count = 50);
     void channelAddLeader(const QByteArray &roomId, const QString &userId);
     void channelRemoveLeader(const QByteArray &roomId, const QString &userId);
-    void pinMessage(const QByteArray &messageId, bool pinned);
     void desktopDurationNotifications(const QByteArray &roomId, int value);
     void desktopSoundNotifications(const QByteArray &roomId, const QString &value);
     void followMessage(const QByteArray &messageId);
@@ -202,7 +201,6 @@ Q_SIGNALS:
     void groupRemoveOwnerDone();
     void deletechannelDone();
     void deleteGroupsDone();
-    void pinMessageDone();
     void groupRolesDone(const QJsonObject &obj, const RocketChatRestApi::ChannelGroupBaseJob::ChannelGroupInfo &channelInfo);
     void followMessageDone();
     void unFollowMessageDone();

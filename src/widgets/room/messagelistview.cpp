@@ -9,6 +9,7 @@
 #include "administratordialog/moderationconsole/moderationmessageinfodialog.h"
 #include "chat/deletemessagejob.h"
 #include "chat/followmessagejob.h"
+#include "chat/pinmessagejob.h"
 #include "chat/postmessagejob.h"
 #include "chat/reportmessagejob.h"
 #include "chat/starmessagejob.h"
@@ -893,7 +894,14 @@ void MessageListView::slotSetAsFavorite(const QModelIndex &index, bool isStarred
 void MessageListView::slotSetPinnedMessage(const QModelIndex &index, bool isPinned)
 {
     const QByteArray messageId = index.data(MessagesModel::MessageId).toByteArray();
-    mCurrentRocketChatAccount->pinMessage(messageId, !isPinned);
+
+    auto job = new RocketChatRestApi::PinMessageJob(this);
+    mCurrentRocketChatAccount->restApi()->initializeRestApiJob(job);
+    job->setMessageId(messageId);
+    job->setPinMessage(!isPinned);
+    if (!job->start()) {
+        qCDebug(RUQOLAWIDGETS_LOG) << "Impossible to start PinMessageJob";
+    }
 }
 
 void MessageListView::slotStartPrivateConversation(const QString &userName)
