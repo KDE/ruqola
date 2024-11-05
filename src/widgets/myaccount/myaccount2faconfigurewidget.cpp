@@ -5,10 +5,14 @@
 */
 
 #include "myaccount2faconfigurewidget.h"
+#include "2fa/user2fadisableemailjob.h"
+#include "2fa/user2faenableemailjob.h"
+#include "connection.h"
 #include "ddpapi/ddpclient.h"
 #include "myaccount2fadisabletotpwidget.h"
 #include "myaccount2fatotpwidget.h"
 #include "rocketchataccount.h"
+#include "ruqolawidgets_debug.h"
 #include <KLocalizedString>
 #include <QCheckBox>
 #include <QStackedWidget>
@@ -88,7 +92,19 @@ void MyAccount2FaConfigureWidget::save()
 {
     if (mRocketChatAccount) {
         if (mRocketChatAccount->twoFactorAuthenticationByEmailEnabled()) {
-            mRocketChatAccount->enable2FaEmailJob(mActivate2FAViaEmailCheckbox->isChecked());
+            if (mActivate2FAViaEmailCheckbox->isChecked()) {
+                auto job = new RocketChatRestApi::User2FAEnableEmailJob(this);
+                mRocketChatAccount->restApi()->initializeRestApiJob(job);
+                if (!job->start()) {
+                    qCDebug(RUQOLAWIDGETS_LOG) << "Impossible to start User2FAEnableEmailJob";
+                }
+            } else {
+                auto job = new RocketChatRestApi::User2FADisableEmailJob(this);
+                mRocketChatAccount->restApi()->initializeRestApiJob(job);
+                if (!job->start()) {
+                    qCDebug(RUQOLAWIDGETS_LOG) << "Impossible to start User2FADisableEmailJob";
+                }
+            }
         }
         // Not necessary
         if (mRocketChatAccount->twoFactorAuthenticationByTOTPEnabled()) {

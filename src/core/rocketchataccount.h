@@ -198,7 +198,6 @@ public:
                           const QList<QByteArray> &users = QList<QByteArray>());
     void threadsInRoom(const QByteArray &roomId, bool onlyUnread);
     void discussionsInRoom(const QByteArray &roomId);
-    void followMessage(const QByteArray &messageId, bool follow);
     void loadMoreFileAttachments(const QByteArray &roomId, Room::RoomType channelType);
     void loadMoreDiscussions(const QByteArray &roomId);
     void loadThreadMessagesHistory(const QByteArray &threadMessageId);
@@ -249,9 +248,6 @@ public:
 
     [[nodiscard]] Room *room(const QByteArray &roomId) const;
 
-    // Make it private in future
-    void slotInformTypingStatus(const QByteArray &room, bool typing);
-
     [[nodiscard]] MessageQueue *messageQueue() const;
 
     [[nodiscard]] RocketChatBackend *rocketChatBackend() const;
@@ -291,10 +287,7 @@ public:
     [[nodiscard]] EmojiManager *emojiManager() const;
     [[nodiscard]] QString userStatusIconFileName(const QString &id);
 
-    void membersInRoom(const QByteArray &roomId, Room::RoomType channelType);
     void parseUsersForRooms(const QJsonObject &obj, const RocketChatRestApi::ChannelGroupBaseJob::ChannelGroupInfo &channelInfo);
-
-    void insertCompleterUsers();
 
     PluginAuthenticationInterface *defaultAuthenticationInterface() const;
 
@@ -320,8 +313,6 @@ public:
     [[nodiscard]] QString serverUrl() const;
     [[nodiscard]] StatusModel *statusModel() const;
 
-    void customUsersStatus();
-
     [[nodiscard]] bool jitsiEnabled() const;
     [[nodiscard]] bool allowMessagePinningEnabled() const;
     [[nodiscard]] bool allowMessageStarringEnabled() const;
@@ -346,15 +337,11 @@ public:
     [[nodiscard]] bool isMessageDeletable(const Message &message) const;
     void joinDiscussion(const QByteArray &roomId, const QString &joinCode);
     void setNameChanged(const QJsonArray &array);
-    void setOwnStatus(const User &user);
     [[nodiscard]] User::PresenceStatus presenceStatus() const;
 
-    void getListCommands();
     [[nodiscard]] bool runCommand(const QString &msg, const QByteArray &roomId, const QByteArray &tmid = QByteArray());
 
     void avatarChanged(const QJsonArray &contents);
-    void markMessageAsUnReadFrom(const QByteArray &messageId);
-    void markRoomAsUnRead(const QByteArray &roomId);
     void sendUserEmailCode();
     void requestNewPassword(const QString &email);
     [[nodiscard]] bool allowDeleteOwnAccount() const;
@@ -372,8 +359,6 @@ public:
     void parseOwnInfoDone(const QJsonObject &replyObject);
     [[nodiscard]] OwnUser ownUser() const;
 
-    void cleanChannelHistory(const RocketChatRestApi::RoomsCleanHistoryJob::CleanHistoryInfo &info);
-
     [[nodiscard]] bool broadCastEnabled() const;
     [[nodiscard]] bool encryptionEnabled() const;
     [[nodiscard]] bool uploadFileEnabled() const;
@@ -384,7 +369,6 @@ public:
     [[nodiscard]] bool audioRecorderEnabled() const;
     [[nodiscard]] bool videoRecorderEnabled() const;
 
-    void enable2FaEmailJob(bool enable);
     void setDisplayName(const QString &displayName);
     [[nodiscard]] QString displayName() const;
 
@@ -402,12 +386,10 @@ public:
     [[nodiscard]] QStringList highlightWords() const;
     void resetAvatar();
     void setAvatarUrl(const QString &url);
-    void exportMessages(const RocketChatRestApi::RoomsExportJob::RoomsExportInfo &info);
     [[nodiscard]] bool hasPermission(const QString &permissionId, const QByteArray &roomId = {}) const;
     [[nodiscard]] QStringList permissions(const QString &permissionId) const;
     void setUserPreferences(const RocketChatRestApi::UsersSetPreferencesJob::UsersSetPreferencesInfo &info);
     [[nodiscard]] QStringList ownUserPermission() const;
-    void downloadAppsLanguages();
     [[nodiscard]] bool hasAutotranslateSupport() const;
     [[nodiscard]] OwnUserPreferences ownUserPreferences() const;
     [[nodiscard]] bool ldapEnabled() const;
@@ -618,6 +600,13 @@ Q_SIGNALS:
 private:
     Q_DISABLE_COPY(RocketChatAccount)
 
+    LIBRUQOLACORE_NO_EXPORT void membersInRoom(const QByteArray &roomId, Room::RoomType channelType);
+
+    LIBRUQOLACORE_NO_EXPORT void slotInformTypingStatus(const QByteArray &room, bool typing);
+
+    LIBRUQOLACORE_NO_EXPORT void setOwnStatus(const User &user);
+    LIBRUQOLACORE_NO_EXPORT void downloadAppsLanguages();
+
     LIBRUQOLACORE_NO_EXPORT void startConnecting();
     LIBRUQOLACORE_NO_EXPORT void slotChannelFilesDone(const QJsonObject &obj, const RocketChatRestApi::ChannelGroupBaseJob::ChannelGroupInfo &channelInfo);
     LIBRUQOLACORE_NO_EXPORT void slotChannelGroupRolesDone(const QJsonObject &obj, const RocketChatRestApi::ChannelGroupBaseJob::ChannelGroupInfo &channelInfo);
@@ -642,7 +631,6 @@ private:
     LIBRUQOLACORE_NO_EXPORT void forceDisconnect();
     LIBRUQOLACORE_NO_EXPORT void logoutCompleted();
     LIBRUQOLACORE_NO_EXPORT void getSupportedLanguages();
-    LIBRUQOLACORE_NO_EXPORT void usersPresence();
     LIBRUQOLACORE_NO_EXPORT void listEmojiCustom();
 
     LIBRUQOLACORE_NO_EXPORT void checkInitializedRoom(const QByteArray &roomId);
@@ -661,7 +649,6 @@ private:
     LIBRUQOLACORE_NO_EXPORT void slotMarkAsReadDone(const QByteArray &roomId);
     LIBRUQOLACORE_NO_EXPORT void slotCustomUserStatusDone(const QJsonObject &customList);
     LIBRUQOLACORE_NO_EXPORT void slotPostMessageDone(const QJsonObject &replyObject);
-    LIBRUQOLACORE_NO_EXPORT void slotRoomExportDone();
     LIBRUQOLACORE_NO_EXPORT void slotPermissionListAllDone(const QJsonObject &replyObject);
     LIBRUQOLACORE_NO_EXPORT void slotUsersSetPreferencesDone(const QJsonObject &replyObject);
     LIBRUQOLACORE_NO_EXPORT void slotUpdateCustomUserStatus();

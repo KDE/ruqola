@@ -113,6 +113,7 @@ private:
     LIBRUQOLAWIDGETS_NO_EXPORT void createE2eDecodeEncryptionKeyFailedWidget();
     LIBRUQOLAWIDGETS_NO_EXPORT void slotDecodeEncryptionKey();
     LIBRUQOLAWIDGETS_NO_EXPORT void createE2eDecodeEncryptionKeyWidget();
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotRoomExportDone();
 
     Room::RoomType mRoomType = Room::RoomType::Unknown;
 

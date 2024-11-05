@@ -30,6 +30,7 @@
 #include "ruqola_translatemessage_debug.h"
 #include "ruqolawidgets_debug.h"
 #include "selectedmessagebackgroundanimation.h"
+#include "subscriptions/markroomasunreadjob.h"
 #include "threadwidget/threadmessagedialog.h"
 
 #include <KLocalizedString>
@@ -826,7 +827,14 @@ void MessageListView::slotShowFullThread(const QModelIndex &index)
 void MessageListView::slotMarkMessageAsUnread(const QModelIndex &index)
 {
     const QByteArray messageId = index.data(MessagesModel::MessageId).toByteArray();
-    mCurrentRocketChatAccount->markMessageAsUnReadFrom(messageId);
+
+    auto job = new RocketChatRestApi::MarkRoomAsUnReadJob(this);
+    job->setObjectId(messageId);
+    job->setUnReadObject(RocketChatRestApi::MarkRoomAsUnReadJob::MarkAsUnReadObject::FromMessage);
+    mCurrentRocketChatAccount->restApi()->initializeRestApiJob(job);
+    if (!job->start()) {
+        qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start markMessageAsUnReadFrom job";
+    }
 }
 
 void MessageListView::slotDeleteMessage(const QModelIndex &index)

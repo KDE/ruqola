@@ -360,11 +360,6 @@ OwnUser RocketChatAccount::ownUser() const
     return mOwnUser;
 }
 
-void RocketChatAccount::cleanChannelHistory(const RocketChatRestApi::RoomsCleanHistoryJob::CleanHistoryInfo &info)
-{
-    restApi()->cleanChannelHistory(info);
-}
-
 void RocketChatAccount::slotNeedToUpdateNotification()
 {
     bool hasAlert = false;
@@ -955,11 +950,6 @@ void RocketChatAccount::updateCustomEmojiList(bool fetchListCustom)
 OtrManager *RocketChatAccount::otrManager() const
 {
     return mOtrManager;
-}
-
-void RocketChatAccount::insertCompleterUsers()
-{
-    userCompleterModel()->addUsers(rocketChatBackend()->users());
 }
 
 void RocketChatAccount::userAutocomplete(const QString &searchText, const QString &exception)
@@ -1833,11 +1823,6 @@ bool RocketChatAccount::allowProfileChange() const
     return mRuqolaServerConfig->serverConfigFeatureTypes() & RuqolaServerConfig::ServerConfigFeatureType::AllowUserProfileChange;
 }
 
-void RocketChatAccount::enable2FaEmailJob(bool enable)
-{
-    restApi()->enable2FaEmailJob(enable);
-}
-
 bool RocketChatAccount::allowMessagePinningEnabled() const
 {
     return mRuqolaServerConfig->serverConfigFeatureTypes() & RuqolaServerConfig::ServerConfigFeatureType::AllowMessagePinning;
@@ -2379,15 +2364,6 @@ void RocketChatAccount::discussionsInRoom(const QByteArray &roomId)
     restApi()->getDiscussions(roomId);
 }
 
-void RocketChatAccount::followMessage(const QByteArray &messageId, bool follow)
-{
-    if (follow) {
-        restApi()->followMessage(messageId);
-    } else {
-        restApi()->unFollowMessage(messageId);
-    }
-}
-
 void RocketChatAccount::getSupportedLanguages()
 {
     if (autoTranslateEnabled()) {
@@ -2483,22 +2459,12 @@ void RocketChatAccount::autoReconnectDelayed()
     });
 }
 
-void RocketChatAccount::usersPresence()
-{
-    restApi()->usersPresence();
-}
-
-void RocketChatAccount::customUsersStatus()
-{
-    restApi()->customUserStatus();
-}
-
 void RocketChatAccount::initializeAccount()
 {
     listEmojiCustom();
 
     // load when necessary
-    usersPresence();
+    restApi()->usersPresence();
     // Force set online.
     // TODO don't reset message status !
     if (RuqolaGlobalConfig::self()->setOnlineAccounts()) {
@@ -2507,7 +2473,7 @@ void RocketChatAccount::initializeAccount()
     // Initialize sounds
     mCustomSoundManager->initializeDefaultSounds();
     ddp()->listCustomSounds();
-    customUsersStatus();
+    restApi()->customUserStatus();
     slotLoadRoles();
     checkLicenses();
     qDebug() << "encryptionEnabled()  " << encryptionEnabled() << " account name " << accountName();
@@ -2599,11 +2565,6 @@ void RocketChatAccount::downloadAppsLanguages()
 void RocketChatAccount::slotFileLanguagedParsed()
 {
     // We need mDownloadAppsLanguagesManager result for updating command
-    getListCommands();
-}
-
-void RocketChatAccount::getListCommands()
-{
     auto job = new RocketChatRestApi::ListCommandsJob(this);
     restApi()->initializeRestApiJob(job);
     connect(job, &RocketChatRestApi::ListCommandsJob::listCommandsDone, this, &RocketChatAccount::slotListCommandDone);
@@ -2647,16 +2608,6 @@ void RocketChatAccount::runCommand(const RocketChatRestApi::RunCommandJob::RunCo
 User RocketChatAccount::fullUserInfo(const QString &userName) const
 {
     return mUserModel->fullUserInfo(userName);
-}
-
-void RocketChatAccount::markMessageAsUnReadFrom(const QByteArray &messageId)
-{
-    restApi()->markMessageAsUnReadFrom(messageId);
-}
-
-void RocketChatAccount::markRoomAsUnRead(const QByteArray &roomId)
-{
-    restApi()->markRoomAsUnRead(roomId);
 }
 
 void RocketChatAccount::slotDDpLoginStatusChanged()
@@ -3046,25 +2997,6 @@ void RocketChatAccount::setImageUrl(const QUrl &url)
     RocketChatRestApi::SetAvatarJob::SetAvatarInfo avatarInfo;
     avatarInfo.mImageUrl = url;
     restApi()->setAvatar(userInfo, avatarInfo);
-}
-
-void RocketChatAccount::exportMessages(const RocketChatRestApi::RoomsExportJob::RoomsExportInfo &info)
-{
-    auto job = new RocketChatRestApi::RoomsExportJob(this);
-    job->setRoomExportInfo(info);
-    restApi()->initializeRestApiJob(job);
-    connect(job, &RocketChatRestApi::RoomsExportJob::roomExportDone, this, &RocketChatAccount::slotRoomExportDone);
-    if (!job->start()) {
-        qCDebug(RUQOLA_LOG) << "Impossible to start RoomsExportJob";
-    }
-}
-
-void RocketChatAccount::slotRoomExportDone()
-{
-    auto notification = new KNotification(QStringLiteral("export-message"), KNotification::CloseOnTimeout);
-    notification->setTitle(i18n("Export Messages"));
-    notification->setText(i18n("Your email has been queued for sending."));
-    notification->sendEvent();
 }
 
 void RocketChatAccount::slotPermissionListAllDone(const QJsonObject &replyObject)

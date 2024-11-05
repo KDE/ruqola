@@ -12,6 +12,7 @@
 #include "model/roomlistheadingsproxymodel.h"
 #include "rocketchataccount.h"
 #include "ruqolawidgets_debug.h"
+#include "subscriptions/markroomasunreadjob.h"
 #include "teams/channelsconverttoteamjob.h"
 #include "teams/groupsconverttoteamjob.h"
 #include "teams/searchteamdialog.h"
@@ -357,7 +358,13 @@ void ChannelListView::slotMarkAsChannel(const QModelIndex &index, bool markAsRea
     if (markAsRead) {
         mCurrentRocketChatAccount->markRoomAsRead(roomId);
     } else {
-        mCurrentRocketChatAccount->markRoomAsUnRead(roomId);
+        auto job = new RocketChatRestApi::MarkRoomAsUnReadJob(this);
+        job->setObjectId(roomId);
+        job->setUnReadObject(RocketChatRestApi::MarkRoomAsUnReadJob::MarkAsUnReadObject::Room);
+        mCurrentRocketChatAccount->restApi()->initializeRestApiJob(job);
+        if (!job->start()) {
+            qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start markRoomAsUnRead job";
+        }
     }
 }
 

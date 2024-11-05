@@ -28,7 +28,6 @@
 #include "authentication/loginjob.h"
 #include "authentication/logoutjob.h"
 
-#include "chat/followmessagejob.h"
 #include "chat/getmentionedmessagesjob.h"
 #include "chat/getmessagejob.h"
 #include "chat/getpinnedmessagesjob.h"
@@ -41,7 +40,6 @@
 #include "chat/reactonmessagejob.h"
 #include "chat/sendmessagejob.h"
 #include "chat/syncthreadmessagesjob.h"
-#include "chat/unfollowmessagejob.h"
 #include "chat/updatemessagejob.h"
 
 #include "channels/channeladdleaderjob.h"
@@ -84,7 +82,6 @@
 #include "rooms/savenotificationjob.h"
 
 #include "subscriptions/markroomasreadjob.h"
-#include "subscriptions/markroomasunreadjob.h"
 
 #include "permissions/permissionslistalljob.h"
 
@@ -93,8 +90,6 @@
 #include "custom/customuserstatusdeletejob.h"
 #include "custom/customuserstatuslistjob.h"
 
-#include "2fa/user2fadisableemailjob.h"
-#include "2fa/user2faenableemailjob.h"
 #include "2fa/user2fasendemailcodejob.h"
 
 #include <QNetworkAccessManager>
@@ -575,28 +570,6 @@ void Connection::markRoomAsRead(const QByteArray &roomId)
     connect(job, &MarkRoomAsReadJob::markAsReadDone, this, &Connection::markAsReadDone);
     if (!job->start()) {
         qCWarning(RUQOLA_LOG) << "Impossible to start markAsRead job";
-    }
-}
-
-void Connection::markRoomAsUnRead(const QByteArray &roomId)
-{
-    auto job = new MarkRoomAsUnReadJob(this);
-    job->setObjectId(roomId);
-    job->setUnReadObject(MarkRoomAsUnReadJob::MarkAsUnReadObject::Room);
-    initializeRestApiJob(job);
-    if (!job->start()) {
-        qCWarning(RUQOLA_LOG) << "Impossible to start markRoomAsUnRead job";
-    }
-}
-
-void Connection::markMessageAsUnReadFrom(const QByteArray &messageId)
-{
-    auto job = new MarkRoomAsUnReadJob(this);
-    job->setObjectId(messageId);
-    job->setUnReadObject(MarkRoomAsUnReadJob::MarkAsUnReadObject::FromMessage);
-    initializeRestApiJob(job);
-    if (!job->start()) {
-        qCWarning(RUQOLA_LOG) << "Impossible to start markMessageAsUnReadFrom job";
     }
 }
 
@@ -1168,28 +1141,6 @@ void Connection::groupDelete(const QByteArray &roomId)
     }
 }
 
-void Connection::followMessage(const QByteArray &messageId)
-{
-    auto job = new FollowMessageJob(this);
-    initializeRestApiJob(job);
-    job->setMessageId(messageId);
-    connect(job, &FollowMessageJob::followMessageDone, this, &Connection::followMessageDone);
-    if (!job->start()) {
-        qCDebug(RUQOLA_LOG) << "Impossible to start FollowMessageJob";
-    }
-}
-
-void Connection::unFollowMessage(const QByteArray &messageId)
-{
-    auto job = new UnFollowMessageJob(this);
-    initializeRestApiJob(job);
-    job->setMessageId(messageId);
-    connect(job, &UnFollowMessageJob::unFollowMessageDone, this, &Connection::unFollowMessageDone);
-    if (!job->start()) {
-        qCDebug(RUQOLA_LOG) << "Impossible to start unFollowMessageDone";
-    }
-}
-
 void Connection::createDiscussion(const QByteArray &parentRoomId,
                                   const QString &discussionName,
                                   const QString &replyMessage,
@@ -1477,25 +1428,6 @@ void Connection::registerNewUser(const RocketChatRestApi::RegisterUserJob::Regis
     }
 }
 
-void Connection::enable2FaEmailJob(bool enable)
-{
-    if (enable) {
-        auto job = new User2FAEnableEmailJob(this);
-        initializeRestApiJob(job);
-        connect(job, &User2FAEnableEmailJob::enableEmailDone, this, &Connection::enableEmailDone);
-        if (!job->start()) {
-            qCDebug(RUQOLA_LOG) << "Impossible to start User2FAEnableEmailJob";
-        }
-    } else {
-        auto job = new User2FADisableEmailJob(this);
-        initializeRestApiJob(job);
-        connect(job, &User2FADisableEmailJob::disableEmailDone, this, &Connection::disableEmailDone);
-        if (!job->start()) {
-            qCDebug(RUQOLA_LOG) << "Impossible to start User2FADisableEmailJob";
-        }
-    }
-}
-
 void Connection::updateOwnBasicInfo(const RocketChatRestApi::UsersUpdateOwnBasicInfoJob::UpdateOwnBasicInfo &info)
 {
     auto job = new UsersUpdateOwnBasicInfoJob(this);
@@ -1507,17 +1439,6 @@ void Connection::updateOwnBasicInfo(const RocketChatRestApi::UsersUpdateOwnBasic
 
     if (!job->start()) {
         qCDebug(RUQOLA_LOG) << "Impossible to start UsersUpdateOwnBasicInfoJob";
-    }
-}
-
-void Connection::cleanChannelHistory(const RocketChatRestApi::RoomsCleanHistoryJob::CleanHistoryInfo &info)
-{
-    auto job = new RoomsCleanHistoryJob(this);
-    job->setCleanHistoryInfo(info);
-    initializeRestApiJob(job);
-    connect(job, &RoomsCleanHistoryJob::cleanHistoryDone, this, &Connection::cleanHistoryDone);
-    if (!job->start()) {
-        qCDebug(RUQOLA_LOG) << "Impossible to start ChannelCleanHistoryJob";
     }
 }
 

@@ -56,8 +56,11 @@ using namespace Qt::Literals::StringLiterals;
 #include "video-conference/videoconferencestartjob.h"
 #include "videoconference/videoconferencemessageinfomanager.h"
 
+#include "rooms/roomscleanhistoryjob.h"
+
 #include <KLocalizedString>
 #include <KMessageBox>
+#include <KNotification>
 
 #include "ruqolautils.h"
 #include <QDragEnterEvent>
@@ -333,7 +336,12 @@ void RoomWidget::slotPruneMessages()
                                                i18nc("@title:window", "Remove History"),
                                                KStandardGuiItem::remove(),
                                                KStandardGuiItem::cancel())) {
-            mCurrentRocketChatAccount->cleanChannelHistory(info);
+            auto job = new RocketChatRestApi::RoomsCleanHistoryJob(this);
+            job->setCleanHistoryInfo(info);
+            mCurrentRocketChatAccount->restApi()->initializeRestApiJob(job);
+            if (!job->start()) {
+                qCDebug(RUQOLAWIDGETS_LOG) << "Impossible to start ChannelCleanHistoryJob";
+            }
         }
     }
     delete dlg;
@@ -345,9 +353,23 @@ void RoomWidget::slotExportMessages()
     if (dlg->exec()) {
         RocketChatRestApi::RoomsExportJob::RoomsExportInfo info = dlg->roomExportInfo();
         info.roomId = mRoomWidgetBase->roomId();
-        mCurrentRocketChatAccount->exportMessages(info);
+        auto job = new RocketChatRestApi::RoomsExportJob(this);
+        job->setRoomExportInfo(info);
+        mCurrentRocketChatAccount->restApi()->initializeRestApiJob(job);
+        connect(job, &RocketChatRestApi::RoomsExportJob::roomExportDone, this, &RoomWidget::slotRoomExportDone);
+        if (!job->start()) {
+            qCDebug(RUQOLAWIDGETS_LOG) << "Impossible to start RoomsExportJob";
+        }
     }
     delete dlg;
+}
+
+void RoomWidget::slotRoomExportDone()
+{
+    auto notification = new KNotification(QStringLiteral("export-message"), KNotification::CloseOnTimeout);
+    notification->setTitle(i18n("Export Messages"));
+    notification->setText(i18n("Your email has been queued for sending."));
+    notification->sendEvent();
 }
 
 void RoomWidget::slotVideoChat()

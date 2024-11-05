@@ -16,7 +16,6 @@
 #include "invite/findorcreateinvitejob.h"
 #include "libruqolacore_export.h"
 #include "rooms/adminroomsjob.h"
-#include "rooms/roomscleanhistoryjob.h"
 #include "users/registeruserjob.h"
 #include "users/setavatarjob.h"
 #include "users/setstatusjob.h"
@@ -94,8 +93,6 @@ public:
     void mobilePushNotifications(const QByteArray &roomId, const QString &value);
     void unreadAlert(const QByteArray &roomId, const QString &value);
     void setAvatar(const RocketChatRestApi::UserBaseJob::UserInfo &info, const RocketChatRestApi::SetAvatarJob::SetAvatarInfo &avatarInfo);
-    void markRoomAsUnRead(const QByteArray &roomId);
-    void markMessageAsUnReadFrom(const QByteArray &messageId);
     void forgotPassword(const QString &email);
     void userInfo(const QString &identifier, bool userName = false);
     void ignoreUser(const QByteArray &roomId, const QByteArray &userId, bool ignore);
@@ -129,8 +126,6 @@ public:
     void channelRemoveLeader(const QByteArray &roomId, const QString &userId);
     void desktopDurationNotifications(const QByteArray &roomId, int value);
     void desktopSoundNotifications(const QByteArray &roomId, const QString &value);
-    void followMessage(const QByteArray &messageId);
-    void unFollowMessage(const QByteArray &messageId);
     void createDiscussion(const QByteArray &parentRoomId,
                           const QString &discussionName,
                           const QString &replyMessage,
@@ -154,9 +149,7 @@ public:
     void runCommand(const RocketChatRestApi::RunCommandJob::RunCommandInfo &runCommandInfo);
     void sendUserEmailCode(const QString &identifier);
     void registerNewUser(const RocketChatRestApi::RegisterUserJob::RegisterUserInfo &userInfo);
-    void enable2FaEmailJob(bool enable);
     void updateOwnBasicInfo(const RocketChatRestApi::UsersUpdateOwnBasicInfoJob::UpdateOwnBasicInfo &info);
-    void cleanChannelHistory(const RocketChatRestApi::RoomsCleanHistoryJob::CleanHistoryInfo &info);
     void getRoomsAdmin(const RocketChatRestApi::AdminRoomsJob::AdminRoomsJobInfo &info);
     void getChannelsCounter(const QByteArray &roomId);
     void setUserPreferences(const RocketChatRestApi::UsersSetPreferencesJob::UsersSetPreferencesInfo &info);
@@ -201,8 +194,6 @@ Q_SIGNALS:
     void deletechannelDone();
     void deleteGroupsDone();
     void groupRolesDone(const QJsonObject &obj, const RocketChatRestApi::ChannelGroupBaseJob::ChannelGroupInfo &channelInfo);
-    void followMessageDone();
-    void unFollowMessageDone();
     void startDiscussionDone();
     void getDiscussionsDone(const QJsonObject &obj, const QByteArray &roomId);
     void getThreadsDone(const QJsonObject &obj, const QString &roomId, bool onlyUnread);
@@ -227,10 +218,7 @@ Q_SIGNALS:
     void runCommandDone();
     void sendEmailCodeDone();
     void registerUserDone();
-    void enableEmailDone();
-    void disableEmailDone();
     void updateOwnBasicInfoDone();
-    void cleanHistoryDone();
     void channelGetCountersDone(const QJsonObject &obj, const RocketChatRestApi::ChannelGroupBaseJob::ChannelGroupInfo &channelInfo);
     void markAsReadDone(const QByteArray &roomId);
     void usersSetPreferencesDone(const QJsonObject &replyObject);
