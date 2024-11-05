@@ -618,9 +618,7 @@ if(UNITY_SUPPORT)
     target_link_libraries(libruqolacore Qt::DBus)
 endif()
 
-if(TEXT_CONVERTER_CMARK_SUPPORT)
-    target_link_libraries(libruqolacore cmark-rc)
-endif()
+target_link_libraries(libruqolacore cmark-rc)
 
 if(USE_E2E_SUPPORT)
     target_link_libraries(libruqolacore OpenSSL::Crypto)

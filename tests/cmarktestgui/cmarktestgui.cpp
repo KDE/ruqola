@@ -15,7 +15,6 @@
 CMarkTestGui::CMarkTestGui(QWidget *parent)
     : QWidget{parent}
     , mTextEdit(new QTextEdit(this))
-    , mTextEditResult(new QTextEdit(this))
     , mTextEditResultCMark(new QTextEdit(this))
 {
     auto mainLayout = new QVBoxLayout(this);
@@ -28,16 +27,11 @@ CMarkTestGui::CMarkTestGui(QWidget *parent)
         const TextConverter::ConvertMessageTextSettings settings(mTextEdit->toPlainText(), QStringLiteral("foo"), {}, {}, nullptr, nullptr, {}, {});
         QByteArray needUpdateMessageId;
         int recursiveIndex = 0;
-        mTextEditResult->setHtml(TextConverter::convertMessageTextRuqola(settings, needUpdateMessageId, recursiveIndex));
         mTextEditResultCMark->setHtml(TextConverter::convertMessageTextCMark(settings, needUpdateMessageId, recursiveIndex));
     });
-    mTextEditResult->setReadOnly(true);
-    auto label = new QLabel(QStringLiteral("Convert with TextConverter"), this);
-    mainLayout->addWidget(label);
-    mainLayout->addWidget(mTextEditResult);
 
     mTextEditResultCMark->setReadOnly(true);
-    label = new QLabel(QStringLiteral("Convert with CMark"), this);
+    auto label = new QLabel(QStringLiteral("Convert with CMark"), this);
     mainLayout->addWidget(label);
     mainLayout->addWidget(mTextEditResultCMark);
 }

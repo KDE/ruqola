@@ -109,11 +109,6 @@ set(KTEXTADDONS_MIN_VERSION "1.5.4")
 set(KLLMWIDGETS_VERSION "0.1.0")
 set(QT6KEYCHAIN_LIB_VERSION "0.14.2")
 
-option(TEXT_CONVERTER_CMARK_SUPPORT "Build support text converter with cmark-rc" ON)
-
-if(TEXT_CONVERTER_CMARK_SUPPORT)
-    set(USE_CMARK_RC_RENDERING_TEXT true)
-endif()
 
 find_package(Qt6 ${REQUIRED_QT_VERSION} REQUIRED COMPONENTS Core Gui Widgets WebSockets Network NetworkAuth MultimediaWidgets Sql)
 

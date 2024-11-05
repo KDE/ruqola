@@ -56,14 +56,9 @@ struct LIBRUQOLACORE_EXPORT ConvertMessageTextSettings {
 };
 
 [[nodiscard]] LIBRUQOLACORE_EXPORT QString convertMessageText(const ConvertMessageTextSettings &settings, QByteArray &needUpdateMessageId, int &recusiveIndex);
-#if USE_CMARK_RC_RENDERING_TEXT
 [[nodiscard]] LIBRUQOLACORE_EXPORT QString convertMessageTextCMark(const TextConverter::ConvertMessageTextSettings &settings,
                                                                    const QString &quotedMessage = {});
 [[nodiscard]] LIBRUQOLACORE_EXPORT QString convertMessageTextCMark(const TextConverter::ConvertMessageTextSettings &settings,
                                                                    QByteArray &needUpdateMessageId,
                                                                    int &recusiveIndex);
-#endif
-[[nodiscard]] LIBRUQOLACORE_EXPORT QString convertMessageTextRuqola(const ConvertMessageTextSettings &settings,
-                                                                    QByteArray &needUpdateMessageId,
-                                                                    int &recusiveIndex);
 }
