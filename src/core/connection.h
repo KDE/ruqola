@@ -83,8 +83,6 @@ public:
     void updateMessage(const QByteArray &roomId, const QByteArray &messageId, const QString &text);
     void reactOnMessage(const QByteArray &messageId, const QString &emoji, bool shouldReact);
     void historyChannel(const QString &roomId, const QString &type);
-    void changeChannelDescription(const QString &roomId, const QString &description);
-    void archiveChannel(const QString &roomId, bool archive);
     void filesInRoom(const QByteArray &roomId, const QString &type, int offset = 0, int count = 50);
     void addUserInChannel(const QByteArray &roomId, const QByteArray &userId);
 

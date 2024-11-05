@@ -49,9 +49,7 @@
 #include "chat/unfollowmessagejob.h"
 #include "chat/updatemessagejob.h"
 
-#include "channels/archivechanneljob.h"
 #include "channels/changechannelannouncementjob.h"
-#include "channels/changechanneldescriptionjob.h"
 #include "channels/changechannelnamejob.h"
 #include "channels/channeladdleaderjob.h"
 #include "channels/channeladdmoderatorjob.h"
@@ -73,7 +71,6 @@
 #include "channels/setchanneltypejob.h"
 #include "channels/setjoincodechanneljob.h"
 
-#include "groups/archivegroupsjob.h"
 #include "groups/changegroupsencryptedjob.h"
 #include "groups/changegroupsnamejob.h"
 #include "groups/changegroupsreadonlyjob.h"
@@ -98,8 +95,6 @@
 #include "rooms/roomfavoritejob.h"
 #include "rooms/roomstartdiscussionjob.h"
 #include "rooms/savenotificationjob.h"
-
-#include "directmessage/opendmjob.h"
 
 #include "subscriptions/markroomasreadjob.h"
 #include "subscriptions/markroomasunreadjob.h"
@@ -431,17 +426,6 @@ void Connection::changeChannelAnnouncement(const QString &roomId, const QString 
     }
 }
 
-void Connection::changeChannelDescription(const QString &roomId, const QString &description)
-{
-    auto job = new ChangeChannelDescriptionJob(this);
-    initializeRestApiJob(job);
-    job->setRoomId(roomId);
-    job->setDescription(description);
-    if (!job->start()) {
-        qCWarning(RUQOLA_LOG) << "Impossible to start changeChannelDescription job";
-    }
-}
-
 void Connection::postMessage(const QByteArray &roomId, const QString &text)
 {
     auto job = new PostMessageJob(this);
@@ -503,17 +487,6 @@ void Connection::leaveGroups(const QByteArray &roomId)
     job->setChannelGroupInfo(info);
     if (!job->start()) {
         qCWarning(RUQOLA_LOG) << "Impossible to start leaveGroups job";
-    }
-}
-
-void Connection::archiveChannel(const QString &roomId, bool archive)
-{
-    auto job = new ArchiveChannelJob(this);
-    initializeRestApiJob(job);
-    job->setRoomId(roomId);
-    job->setArchive(archive);
-    if (!job->start()) {
-        qCWarning(RUQOLA_LOG) << "Impossible to start ArchiveChannelJob job";
     }
 }
 
