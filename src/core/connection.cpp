@@ -16,7 +16,6 @@
 
 #include "rooms/roomsmuteuserjob.h"
 #include "rooms/roomsunmuteuserjob.h"
-#include "users/deleteownaccountjob.h"
 #include "users/forgotpasswordjob.h"
 #include "users/getavatarjob.h"
 #include "users/getpresencejob.h"
@@ -1464,17 +1463,6 @@ void Connection::sendUserEmailCode(const QString &identifier)
     connect(job, &User2FASendEmailCodeJob::sendEmailCodeDone, this, &Connection::sendEmailCodeDone);
     if (!job->start()) {
         qCDebug(RUQOLA_LOG) << "Impossible to start User2FASendEmailCodeJob";
-    }
-}
-
-void Connection::deleteOwnAccount(const QString &password)
-{
-    auto job = new DeleteOwnAccountJob(this);
-    job->setPassword(password);
-    initializeRestApiJob(job);
-    connect(job, &DeleteOwnAccountJob::deleteOwnAccountDone, this, &Connection::deleteOwnAccountDone);
-    if (!job->start()) {
-        qCDebug(RUQOLA_LOG) << "Impossible to start DeleteOwnAccountJob";
     }
 }
 

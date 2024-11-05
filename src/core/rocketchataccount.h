@@ -360,7 +360,6 @@ public:
     [[nodiscard]] bool allowDeleteOwnAccount() const;
     [[nodiscard]] bool registrationFormEnabled() const;
     void registerNewUser(const RocketChatRestApi::RegisterUserJob::RegisterUserInfo &userInfo);
-    void deleteOwnAccount(const QString &password);
 
     [[nodiscard]] bool allowEmailChange() const;
 

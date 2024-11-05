@@ -11,6 +11,7 @@
 #include "myaccountprofileconfigureavatarwidget.h"
 #include "rocketchataccount.h"
 #include "ruqolawidgets_debug.h"
+#include "users/deleteownaccountjob.h"
 #include "users/userslogoutotherclientsjob.h"
 #include <KAuthorized>
 #include <KLineEditEventHandler>
@@ -134,7 +135,12 @@ void MyAccountProfileConfigureWidget::slotDeleteMyAccount()
                                                                                                       : KPassword::RevealMode::Never);
         dlg->setPrompt(i18n("Current Password"));
         if (dlg->exec()) {
-            mRocketChatAccount->deleteOwnAccount(dlg->password());
+            auto job = new RocketChatRestApi::DeleteOwnAccountJob(this);
+            job->setPassword(dlg->password());
+            mRocketChatAccount->restApi()->initializeRestApiJob(job);
+            if (!job->start()) {
+                qCDebug(RUQOLAWIDGETS_LOG) << "Impossible to start DeleteOwnAccountJob";
+            }
         }
         delete dlg;
     }

@@ -153,7 +153,6 @@ public:
     void getMessage(const QByteArray &messageId, const QByteArray &roomId);
     void runCommand(const RocketChatRestApi::RunCommandJob::RunCommandInfo &runCommandInfo);
     void sendUserEmailCode(const QString &identifier);
-    void deleteOwnAccount(const QString &password);
     void registerNewUser(const RocketChatRestApi::RegisterUserJob::RegisterUserInfo &userInfo);
     void enable2FaEmailJob(bool enable);
     void updateOwnBasicInfo(const RocketChatRestApi::UsersUpdateOwnBasicInfoJob::UpdateOwnBasicInfo &info);
@@ -227,7 +226,6 @@ Q_SIGNALS:
     void getMessageDone(const QJsonObject &obj, const QByteArray &messageId, const QByteArray &roomId);
     void runCommandDone();
     void sendEmailCodeDone();
-    void deleteOwnAccountDone();
     void registerUserDone();
     void enableEmailDone();
     void disableEmailDone();

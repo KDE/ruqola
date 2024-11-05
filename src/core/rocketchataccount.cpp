@@ -2751,11 +2751,6 @@ void RocketChatAccount::registerNewUser(const RocketChatRestApi::RegisterUserJob
     restApi()->registerNewUser(userInfo);
 }
 
-void RocketChatAccount::deleteOwnAccount(const QString &password)
-{
-    restApi()->deleteOwnAccount(password);
-}
-
 bool RocketChatAccount::allowEmailChange() const
 {
     return serverConfigFeatureTypes() & RuqolaServerConfig::ServerConfigFeatureType::AllowEmailChange;
