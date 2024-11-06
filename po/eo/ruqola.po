@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-11-05 00:40+0000\n"
+"POT-Creation-Date: 2024-11-06 00:40+0000\n"
 "PO-Revision-Date: 2024-09-17 21:39+0200\n"
 "Last-Translator: Oliver Kellogg <olivermkellogg@gmail.com>\n"
 "Language-Team: Esperanto <kde-i18n-doc@kde.org>\n"
@@ -1738,33 +1738,23 @@ msgctxt "WARNING!!!!!!: PLEASE We need a space between after </strong>"
 msgid "<strong>%1</strong> are typing..."
 msgstr "<strong>%1</strong> tajpas..."
 
-#: core/rocketchataccount.cpp:697
+#: core/rocketchataccount.cpp:692
 #, kde-format
 msgid ""
 "REST: %1\n"
 "DDP: %2"
 msgstr ""
 
-#: core/rocketchataccount.cpp:705 core/rocketchataccount.cpp:717
+#: core/rocketchataccount.cpp:700 core/rocketchataccount.cpp:712
 #, kde-format
 msgid "Not connected"
 msgstr "Sen konekto"
 
-#: core/rocketchataccount.cpp:712
+#: core/rocketchataccount.cpp:707
 #, fuzzy, kde-format
 #| msgid "Not connected"
 msgid "Not connected yet"
 msgstr "Sen konekto"
-
-#: core/rocketchataccount.cpp:3105
-#, kde-format
-msgid "Export Messages"
-msgstr "Eksporti Mesaĝojn"
-
-#: core/rocketchataccount.cpp:3106
-#, kde-format
-msgid "Your email has been queued for sending."
-msgstr "Via retpoŝto estas vicigita por sendo."
 
 #: core/rocketchaturlutils.cpp:41
 #, kde-format
@@ -2864,7 +2854,7 @@ msgstr "La propra emoĝi-nomo kaj iliaj kaŝnomoj devus esti malsamaj."
 #: widgets/dialogs/createnewchannelwidget.cpp:35
 #: widgets/dialogs/directchannelinfowidget.cpp:88
 #: widgets/myaccount/myaccountpersonalaccesscreatewidget.cpp:28
-#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:61
+#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:62
 #, kde-format
 msgid "Name:"
 msgstr "Nomo:"
@@ -3277,7 +3267,7 @@ msgstr "Forigi Ĉiujn Raportojn"
 
 #: widgets/administratordialog/moderationconsole/moderationreportinfolistview.cpp:76
 #: widgets/notificationhistory/notificationhistorylistview.cpp:83
-#: widgets/room/messagelistview.cpp:273
+#: widgets/room/messagelistview.cpp:277
 #: widgets/servererrorinfohistory/servererrorinfomessagehistorylistview.cpp:50
 #, kde-format
 msgctxt "@action"
@@ -3287,7 +3277,7 @@ msgstr "Kopii Mesaĝon"
 #: widgets/administratordialog/moderationconsole/moderationreportinfolistview.cpp:87
 #: widgets/discussions/discussionlistview.cpp:69
 #: widgets/notificationhistory/notificationhistorylistview.cpp:94
-#: widgets/room/messagelistview.cpp:629
+#: widgets/room/messagelistview.cpp:633
 #: widgets/servererrorinfohistory/servererrorinfomessagehistorylistview.cpp:62
 #, kde-format
 msgctxt "@action"
@@ -3299,7 +3289,7 @@ msgstr "Paroli Tekston"
 #: widgets/bannerinfodialog/bannerinfolistview.cpp:51
 #: widgets/discussions/discussionlistview.cpp:75
 #: widgets/notificationhistory/notificationhistorylistview.cpp:100
-#: widgets/room/messagelistview.cpp:305
+#: widgets/room/messagelistview.cpp:309
 #: widgets/servererrorinfohistory/servererrorinfomessagehistorylistview.cpp:69
 #, kde-format
 msgctxt "@action"
@@ -3324,7 +3314,7 @@ msgstr "Montri Administrajn Uzantojn"
 #: widgets/administratordialog/moderationconsole/moderationuserswidget.cpp:37
 #: widgets/administratordialog/users/administratoradduserwidget.cpp:63
 #: widgets/dialogs/directchannelinfowidget.cpp:166
-#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:73
+#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:74
 #: widgets/registeruser/registeruserwidget.cpp:39
 #, kde-format
 msgid "Email:"
@@ -3911,7 +3901,7 @@ msgstr "Marki Retpoŝton por Eksteraj Kontoj Konfirmita"
 #: widgets/administratordialog/users/administratoradduserwidget.cpp:61
 #: widgets/dialogs/directchannelinfowidget.cpp:95
 #: widgets/dialogs/serverinfo/serverinfowidget.cpp:39
-#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:66
+#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:67
 #: widgets/registeruser/registeruserwidget.cpp:33
 #, kde-format
 msgid "Username:"
@@ -3936,7 +3926,7 @@ msgid "Bio:"
 msgstr "Biografio:"
 
 #: widgets/administratordialog/users/administratoradduserwidget.cpp:67
-#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:81
+#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:82
 #, kde-format
 msgid "Nickname:"
 msgstr "Kromnomo:"
@@ -7075,13 +7065,13 @@ msgid "Show Unread"
 msgstr "Montri Nelegitan"
 
 #: widgets/bannerinfodialog/bannermessagewidget.cpp:22
-#: widgets/channellist/channellistview.cpp:120
+#: widgets/channellist/channellistview.cpp:121
 #, kde-format
 msgctxt "@action"
 msgid "Mark as Read"
 msgstr "Marki kiel Legita"
 
-#: widgets/channellist/channellistview.cpp:120
+#: widgets/channellist/channellistview.cpp:121
 #, fuzzy, kde-format
 #| msgctxt "@action"
 #| msgid "Mark As Unread"
@@ -7089,83 +7079,83 @@ msgctxt "@action"
 msgid "Mark as Unread"
 msgstr "Marki Kiel Nelegita"
 
-#: widgets/channellist/channellistview.cpp:130
-#: widgets/room/messagelistview.cpp:291
+#: widgets/channellist/channellistview.cpp:131
+#: widgets/room/messagelistview.cpp:295
 #, kde-format
 msgctxt "@action"
 msgid "Set as Favorite"
 msgstr "Agordi kiel Plej ŝatatan"
 
-#: widgets/channellist/channellistview.cpp:130
+#: widgets/channellist/channellistview.cpp:131
 #, kde-format
 msgctxt "@action"
 msgid "Unset as Favorite"
 msgstr "Malŝalti kiel Favorita"
 
-#: widgets/channellist/channellistview.cpp:139
+#: widgets/channellist/channellistview.cpp:140
 #, kde-format
 msgctxt "@action"
 msgid "Hide Channel"
 msgstr "Kaŝi Kanalon"
 
-#: widgets/channellist/channellistview.cpp:156
+#: widgets/channellist/channellistview.cpp:157
 #, kde-format
 msgctxt "@action"
 msgid "Convert to Team"
 msgstr "Konverti al Teamo"
 
-#: widgets/channellist/channellistview.cpp:167
+#: widgets/channellist/channellistview.cpp:168
 #, kde-format
 msgctxt "@action"
 msgid "Convert to Channel"
 msgstr "Konverti al Kanalo"
 
-#: widgets/channellist/channellistview.cpp:170
+#: widgets/channellist/channellistview.cpp:171
 #, kde-format
 msgid "Do you want to convert team to channel?"
 msgstr "Ĉu vi volas konverti teamon al kanalo?"
 
-#: widgets/channellist/channellistview.cpp:171
+#: widgets/channellist/channellistview.cpp:172
 #, kde-format
 msgctxt "@title:window"
 msgid "Convert To Channel"
 msgstr "Konverti al Kanalo"
 
-#: widgets/channellist/channellistview.cpp:188
+#: widgets/channellist/channellistview.cpp:189
 #, kde-format
 msgctxt "@action"
 msgid "Move to Team"
 msgstr "Movi al Teamo"
 
-#: widgets/channellist/channellistview.cpp:205
+#: widgets/channellist/channellistview.cpp:206
 #, kde-format
 msgctxt "@action"
 msgid "Configure Notification…"
 msgstr "Agordi Sciigon…"
 
-#: widgets/channellist/channellistview.cpp:212
+#: widgets/channellist/channellistview.cpp:213
 #, kde-format
 msgctxt "@action"
 msgid "Quit Channel"
 msgstr "Forlasi Kanalon"
 
-#: widgets/channellist/channellistview.cpp:255
+#: widgets/channellist/channellistview.cpp:256
 #, kde-format
 msgid "Any team selected."
 msgstr "Ajna teamo elektita."
 
-#: widgets/channellist/channellistview.cpp:255
+#: widgets/channellist/channellistview.cpp:256
 #, kde-format
 msgctxt "@title:window"
 msgid "Move To Team"
 msgstr "Movi al Teamo"
 
-#: widgets/channellist/channellistview.cpp:304
+#: widgets/channellist/channellistview.cpp:305
 #, kde-format
 msgid "Are you sure to convert it to team? It can not be undo."
 msgstr "Ĉu vi certe konverti ĝin al teamo? Ĝi ne povas esti malfarita."
 
-#: widgets/channellist/channellistview.cpp:305
+#: widgets/channellist/channellistview.cpp:306
 #, kde-format
 msgctxt "@title:window"
 msgid "Convert to Team"
@@ -7911,13 +7901,13 @@ msgctxt "@label:textbox"
 msgid "For your security, you must enter your current password to continue"
 msgstr "Por via sekureco, vi devas enigi vian nunan pasvorton por daŭrigi"
 
-#: widgets/dialogs/createdirectmessagesdialog.cpp:29
+#: widgets/dialogs/createdirectmessagesdialog.cpp:32
 #, kde-format
 msgctxt "@title:window"
 msgid "Create Direct Messages - %1"
 msgstr "Krei Rektajn Mesaĝojn - %1"
 
-#: widgets/dialogs/createdirectmessagesdialog.cpp:44
+#: widgets/dialogs/createdirectmessagesdialog.cpp:47
 #: widgets/dialogs/createnewchanneldialog.cpp:41
 #: widgets/dialogs/createnewdiscussiondialog.cpp:42
 #: widgets/myaccount/myaccountpersonalaccesscreatedialog.cpp:32
@@ -9188,13 +9178,13 @@ msgstr ""
 "interrete. Pro la naturo de la ĉifrado E2E, Rocket.Chat ne povos restarigi "
 "aliron al iu ĉifrita ĉambro, kiu ne havas membron interrete."
 
-#: widgets/myaccount/myaccount2faconfigurewidget.cpp:19
+#: widgets/myaccount/myaccount2faconfigurewidget.cpp:23
 #, kde-format
 msgctxt "@option:check"
 msgid "Activate Two Authentication Factor via Email"
 msgstr "Aktivigi Du Aŭtentikigan Faktoron per Retpoŝto"
 
-#: widgets/myaccount/myaccount2faconfigurewidget.cpp:20
+#: widgets/myaccount/myaccount2faconfigurewidget.cpp:24
 #, kde-format
 msgctxt "@option:check"
 msgid "Activate Two Authentication Factor via TOTP"
@@ -9583,54 +9573,54 @@ msgctxt "@action"
 msgid "Change URL for avatar…"
 msgstr "Ŝanĝi URL por avataro…"
 
-#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:33
+#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:34
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Your administrator has disabled the changing of email."
 msgstr "Via administranto malŝaltis la ŝanĝon de retpoŝto."
 
-#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:34
+#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:35
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Your administrator has disabled the changing of usernames."
 msgstr "Via administranto malŝaltis la ŝanĝon de uzantnomoj."
 
-#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:37
+#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:38
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Your administrator has disabled the changing of status messages."
 msgstr "Via administranto malŝaltis la ŝanĝon de statusmesaĝoj."
 
-#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:38
+#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:39
 #, kde-format
 msgctxt "@action:button"
 msgid "Delete my Account"
 msgstr "Forigi mian Konton"
 
-#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:39
+#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:40
 #, kde-format
 msgctxt "@action:button"
 msgid "Logout From Other Logged In Locations"
 msgstr "Elsaluti De Aliaj Ensalutintaj Lokoj"
 
-#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:86
+#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:87
 #, kde-format
 msgid "Status text:"
 msgstr "Statusa teksto:"
 
-#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:128
+#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:129
 #, kde-format
 msgid "Do you really want to delete your account?"
 msgstr "Ĉu vi vere forigas vian konton?"
 
-#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:129
+#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:130
 #, kde-format
 msgctxt "@title"
 msgid "Delete my Account"
 msgstr "Forigi mian Konton"
 
-#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:135
-#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:202
+#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:136
+#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:208
 #, kde-format
 msgid "Current Password"
 msgstr "Aktuala Pasvorto"
@@ -9673,7 +9663,7 @@ msgid "Clear"
 msgstr "Viŝi"
 
 #: widgets/notificationhistory/notificationhistorylistview.cpp:79
-#: widgets/room/messagelistview.cpp:612
+#: widgets/room/messagelistview.cpp:616
 #, kde-format
 msgctxt "@action"
 msgid "Go to Message"
@@ -9927,7 +9917,7 @@ msgid "User Info"
 msgstr "Informoj pri uzantoj"
 
 #: widgets/room/delegate/messagelistdelegate.cpp:439
-#: widgets/room/messagelistview.cpp:394
+#: widgets/room/messagelistview.cpp:398
 #, kde-format
 msgctxt "@action"
 msgid "Start a Private Conversation"
@@ -10083,154 +10073,154 @@ msgstr "Dosiera alŝuto"
 msgid "Server doesn't authorized this file (invalid mimetype)"
 msgstr "Servilo ne rajtigis ĉi tiun dosieron (nevalida mimetipo)"
 
-#: widgets/room/messagelistview.cpp:106
+#: widgets/room/messagelistview.cpp:110
 #, kde-format
 msgid "You have joined a new direct message"
 msgstr "Vi aliĝis al nova rekta mesaĝo"
 
-#: widgets/room/messagelistview.cpp:108
+#: widgets/room/messagelistview.cpp:112
 #, kde-format
 msgid "Start of conversation"
 msgstr "Komenco de konversacio"
 
-#: widgets/room/messagelistview.cpp:282
+#: widgets/room/messagelistview.cpp:286
 #, kde-format
 msgctxt "@action"
 msgid "Unpin Message"
 msgstr "Malfiksi Mesaĝon"
 
-#: widgets/room/messagelistview.cpp:282
+#: widgets/room/messagelistview.cpp:286
 #, kde-format
 msgctxt "@action"
 msgid "Pin Message"
 msgstr "Pin Mesaĝo"
 
-#: widgets/room/messagelistview.cpp:291
+#: widgets/room/messagelistview.cpp:295
 #, kde-format
 msgctxt "@action"
 msgid "Remove as Favorite"
 msgstr "Forigi kiel Plej ŝatatan"
 
-#: widgets/room/messagelistview.cpp:299
+#: widgets/room/messagelistview.cpp:303
 #, kde-format
 msgctxt "@action"
 msgid "Delete"
 msgstr "Forigi"
 
-#: widgets/room/messagelistview.cpp:310
+#: widgets/room/messagelistview.cpp:314
 #, kde-format
 msgctxt "@action"
 msgid "Mark Message As Unread"
 msgstr "Marki Mesaĝon Kiel Nelegita"
 
-#: widgets/room/messagelistview.cpp:315
+#: widgets/room/messagelistview.cpp:319
 #, kde-format
 msgctxt "@action"
 msgid "Show Full Thread"
 msgstr "Montri Plenan Fadenon"
 
-#: widgets/room/messagelistview.cpp:320
+#: widgets/room/messagelistview.cpp:324
 #, kde-format
 msgctxt "@action"
 msgid "Edit"
 msgstr "Redakti"
 
-#: widgets/room/messagelistview.cpp:325
+#: widgets/room/messagelistview.cpp:329
 #, kde-format
 msgctxt "@action"
 msgid "Quote"
 msgstr "Citaĵo"
 
-#: widgets/room/messagelistview.cpp:330
+#: widgets/room/messagelistview.cpp:334
 #, kde-format
 msgctxt "@action"
 msgid "Copy Link To Message"
 msgstr "Kopii Ligilon Al Mesaĝo"
 
-#: widgets/room/messagelistview.cpp:335
+#: widgets/room/messagelistview.cpp:339
 #, kde-format
 msgctxt "@action"
 msgid "Forward Message"
 msgstr "Plusendi Mesaĝon"
 
-#: widgets/room/messagelistview.cpp:349
+#: widgets/room/messagelistview.cpp:353
 #, kde-format
 msgctxt "@action"
 msgid "Unfollow Message"
 msgstr "Malsekvi Mesaĝon"
 
-#: widgets/room/messagelistview.cpp:349
+#: widgets/room/messagelistview.cpp:353
 #, kde-format
 msgctxt "@action"
 msgid "Follow Message"
 msgstr "Sekvi Mesaĝon"
 
-#: widgets/room/messagelistview.cpp:362
+#: widgets/room/messagelistview.cpp:366
 #, kde-format
 msgctxt "@action"
 msgid "Copy URL"
 msgstr "Kopii URL"
 
-#: widgets/room/messagelistview.cpp:385 widgets/room/usersinroommenu.cpp:122
+#: widgets/room/messagelistview.cpp:389 widgets/room/usersinroommenu.cpp:122
 #, kde-format
 msgctxt "@action"
 msgid "User Info"
 msgstr "Informoj pri uzantoj"
 
-#: widgets/room/messagelistview.cpp:431
+#: widgets/room/messagelistview.cpp:435
 #, kde-format
 msgctxt "@action"
 msgid "Start a Discussion"
 msgstr "Komenci Diskuton"
 
-#: widgets/room/messagelistview.cpp:437
+#: widgets/room/messagelistview.cpp:441
 #, kde-format
 msgctxt "@action"
 msgid "Reply in Thread"
 msgstr "Respondi en Fadeno"
 
-#: widgets/room/messagelistview.cpp:493
+#: widgets/room/messagelistview.cpp:497
 #, kde-format
 msgctxt "@action"
 msgid "Show Original Message"
 msgstr "Montri Originalan Mesaĝon"
 
-#: widgets/room/messagelistview.cpp:493
+#: widgets/room/messagelistview.cpp:497
 #, kde-format
 msgctxt "@action"
 msgid "Translate Message"
 msgstr "Traduki Mesaĝon"
 
-#: widgets/room/messagelistview.cpp:536
+#: widgets/room/messagelistview.cpp:540
 #, kde-format
 msgctxt "@action"
 msgid "View Reports"
 msgstr "Vidi Raportojn"
 
-#: widgets/room/messagelistview.cpp:559
+#: widgets/room/messagelistview.cpp:563
 #, kde-format
 msgctxt "@action"
 msgid "Dismiss Reports"
 msgstr "Forigi Raportojn"
 
-#: widgets/room/messagelistview.cpp:637
+#: widgets/room/messagelistview.cpp:641
 #, kde-format
 msgctxt "@action"
 msgid "Report Message"
 msgstr "Raporti Mesaĝon"
 
-#: widgets/room/messagelistview.cpp:833
+#: widgets/room/messagelistview.cpp:844
 #, kde-format
 msgid "Do you want to delete this message?"
 msgstr "Ĉu vi volas forigi ĉi tiun mesaĝon?"
 
-#: widgets/room/messagelistview.cpp:834
+#: widgets/room/messagelistview.cpp:845
 #, kde-format
 msgctxt "@title"
 msgid "Delete Message"
 msgstr "Forigi mesaĝon"
 
-#: widgets/room/messagelistview.cpp:990
+#: widgets/room/messagelistview.cpp:1021
 #, kde-format
 msgctxt "@title:window"
 msgid "Translator Error"
@@ -10407,18 +10397,28 @@ msgstr "Respondante en fadeno"
 msgid "Reply in Thread for Message: '%1'"
 msgstr "Respondi en Fadeno por Mesaĝo: '%1'"
 
-#: widgets/room/roomwidget.cpp:332
+#: widgets/room/roomwidget.cpp:335
 #, kde-format
 msgid "Do you want really remove history?"
 msgstr "Ĉu vi vere volas forigi la historion?"
 
-#: widgets/room/roomwidget.cpp:333
+#: widgets/room/roomwidget.cpp:336
 #, kde-format
 msgctxt "@title:window"
 msgid "Remove History"
 msgstr "Forigi Historion"
 
-#: widgets/room/roomwidget.cpp:503
+#: widgets/room/roomwidget.cpp:370
+#, kde-format
+msgid "Export Messages"
+msgstr "Eksporti Mesaĝojn"
+
+#: widgets/room/roomwidget.cpp:371
+#, kde-format
+msgid "Your email has been queued for sending."
+msgstr "Via retpoŝto estas vicigita por sendo."
+
+#: widgets/room/roomwidget.cpp:525
 #, kde-format
 msgid ""
 "A workspace admin needs to install and configure a conference call apps."
@@ -10426,7 +10426,7 @@ msgstr ""
 "Administranto de laborspaco devas instali kaj agordi programojn pri "
 "konferencovoko."
 
-#: widgets/room/roomwidget.cpp:504
+#: widgets/room/roomwidget.cpp:526
 #, kde-format
 msgctxt "@title:window"
 msgid "Video Conference"
