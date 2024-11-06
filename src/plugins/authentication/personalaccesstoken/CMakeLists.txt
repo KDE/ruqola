@@ -20,6 +20,7 @@ kcoreaddons_add_plugin(ruqola_personalaccesstokenauthenticationplugin SOURCES
 target_link_libraries(ruqola_personalaccesstokenauthenticationplugin
     libruqolacore
     qt6keychain
+    KF6::WidgetsAddons
 )
 
 if(BUILD_TESTING)
