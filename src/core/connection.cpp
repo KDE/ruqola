@@ -1462,16 +1462,6 @@ void Connection::setUserPreferences(const RocketChatRestApi::UsersSetPreferences
     }
 }
 
-void Connection::createCustomUserStatus(const CustomUserStatusCreateJob::StatusCreateInfo &statusCreateInfo)
-{
-    auto job = new CustomUserStatusCreateJob(this);
-    job->setStatusCreateInfo(statusCreateInfo);
-    initializeRestApiJob(job);
-    if (!job->start()) {
-        qCDebug(RUQOLA_LOG) << "Impossible to start CustomUserStatusCreateJob";
-    }
-}
-
 void Connection::deleteCustomUserStatus(const QByteArray &customUserStatusId)
 {
     auto job = new CustomUserStatusDeleteJob(this);

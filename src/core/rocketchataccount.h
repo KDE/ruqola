@@ -370,7 +370,6 @@ public:
 
     void removeCustomUserStatus(const QByteArray &customUserStatusId);
     void updateCustomUserStatus(const RocketChatRestApi::CustomUserStatusUpdateJob::StatusUpdateInfo &statusUpdateInfo);
-    void createCustomUserStatus(const RocketChatRestApi::CustomUserStatusCreateJob::StatusCreateInfo &statusCreateInfo);
     void addMessage(const QJsonObject &replyObject, bool useRestApi = false, bool temporaryMessage = false);
     [[nodiscard]] QStringList highlightWords() const;
     void resetAvatar();

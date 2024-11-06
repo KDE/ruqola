@@ -6,7 +6,9 @@
 
 #include "customuserstatustreewidget.h"
 #include "administratorcustomuserstatuscreatedialog.h"
+#include "connection.h"
 #include "rocketchataccount.h"
+#include "ruqolawidgets_debug.h"
 #include "utils.h"
 #include <KLocalizedString>
 #include <KMessageBox>
@@ -75,7 +77,12 @@ void CustomUserStatusTreeWidget::addClicked()
         RocketChatRestApi::CustomUserStatusCreateJob::StatusCreateInfo statusCreateInfo;
         statusCreateInfo.name = info.name;
         statusCreateInfo.statusType = Utils::presenceStatusToString(info.statusType);
-        mRocketChatAccount->createCustomUserStatus(std::move(statusCreateInfo));
+        auto job = new RocketChatRestApi::CustomUserStatusCreateJob(this);
+        job->setStatusCreateInfo(statusCreateInfo);
+        mRocketChatAccount->restApi()->initializeRestApiJob(job);
+        if (!job->start()) {
+            qCDebug(RUQOLAWIDGETS_LOG) << "Impossible to start CustomUserStatusCreateJob";
+        }
     }
     delete dlg;
 }

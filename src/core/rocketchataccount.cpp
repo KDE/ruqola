@@ -2799,11 +2799,6 @@ void RocketChatAccount::updateCustomUserStatus(const RocketChatRestApi::CustomUs
     restApi()->updateCustomUserStatus(statusUpdateInfo);
 }
 
-void RocketChatAccount::createCustomUserStatus(const RocketChatRestApi::CustomUserStatusCreateJob::StatusCreateInfo &statusCreateInfo)
-{
-    restApi()->createCustomUserStatus(statusCreateInfo);
-}
-
 void RocketChatAccount::slotPostMessageDone(const QJsonObject &replyObject)
 {
     // qDebug() << "replyObject " << replyObject;
