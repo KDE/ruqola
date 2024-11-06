@@ -199,7 +199,6 @@ Q_SIGNALS:
     void getMentionedMessagesDone(const QJsonObject &obj, const QByteArray &roomId);
     void roomsAdminDone(const QJsonObject &obj);
     void translateSavesettingsDone();
-    void setStatusDone();
     void usersPresenceDone(const QJsonObject &obj);
     void customUserStatusDone(const QJsonObject &);
 

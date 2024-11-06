@@ -1342,7 +1342,6 @@ void Connection::setUserStatus(const QString &userId, SetStatusJob::StatusType s
     job->setStatusUserId(userId);
     job->setStatus(status);
     job->setStatusMessage(message);
-    connect(job, &SetStatusJob::setStatusDone, this, &Connection::setStatusDone);
     if (!job->start()) {
         qCDebug(RUQOLA_LOG) << "Impossible to start SetStatusJob";
     }
