@@ -17,7 +17,6 @@ public:
     ~SwitchChannelTreeView() override;
 
     [[nodiscard]] int sizeHintWidth() const;
-    void resizeColumnsToContents();
 
     void setCurrentRocketChatAccount(RocketChatAccount *newCurrentRocketChatAccount);
 
@@ -30,5 +29,6 @@ protected:
     void keyReleaseEvent(QKeyEvent *event) override;
 
 private:
+    LIBRUQOLAWIDGETS_NO_EXPORT void resizeColumnsToContents();
     SwitchChannelDelegate *const mSwitchChannelDelegate;
 };

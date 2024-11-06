@@ -16,10 +16,6 @@ public:
     explicit NotificationHistoryListView(QWidget *parent = nullptr);
     ~NotificationHistoryListView() override;
 
-    void clearCache();
-
-    void slotSelectAll(const QModelIndex &index);
-
     [[nodiscard]] const QString &searchText() const;
     void setSearchText(const QString &newSearchText);
 
@@ -33,6 +29,8 @@ Q_SIGNALS:
     void showMessage(const QModelIndex &index);
 
 private:
+    LIBRUQOLAWIDGETS_NO_EXPORT void clearCache();
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotSelectAll(const QModelIndex &index);
     [[nodiscard]] LIBRUQOLAWIDGETS_NO_EXPORT QString selectedText(const QModelIndex &index) override;
     LIBRUQOLAWIDGETS_NO_EXPORT void slotTextToSpeech(const QModelIndex &index);
     LIBRUQOLAWIDGETS_NO_EXPORT void slotCustomContextMenuRequested(const QPoint &pos);

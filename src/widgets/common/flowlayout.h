@@ -36,10 +36,10 @@ public:
 
     void setGeometry(const QRect &rect) override;
 
-    void clear();
     void clearAndDeleteWidgets();
 
 private:
+    LIBRUQOLAWIDGETS_NO_EXPORT void clear();
     LIBRUQOLAWIDGETS_NO_EXPORT int doFlow(QRect rect, bool effective) const;
     QList<QLayoutItem *> mItems;
     int mHorizontalSpacing = -1;

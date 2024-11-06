@@ -25,7 +25,6 @@ public:
 
     void selectForward();
     void selectBackward();
-    void updateViewGeometry();
 
     [[nodiscard]] SwitchChannelTreeView *switchChannelTreeView() const;
 
@@ -36,6 +35,7 @@ Q_SIGNALS:
     void switchToChannel(const QByteArray &identifier);
 
 private:
+    LIBRUQOLAWIDGETS_NO_EXPORT void updateViewGeometry();
     LIBRUQOLAWIDGETS_NO_EXPORT void activateChannel(const QModelIndex &index);
     LIBRUQOLAWIDGETS_NO_EXPORT void switchToCollectionClicked(const QModelIndex &index);
     LIBRUQOLAWIDGETS_NO_EXPORT void selectChannel(const int from, const int to);

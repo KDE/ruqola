@@ -42,8 +42,6 @@ public:
 
     void setInputTextChanged(const QByteArray &roomId, const QString &str, int position);
 
-    void clearCompleter();
-
     // Only for autotests
     [[nodiscard]] QString searchWord(const QString &text, int position, int &start);
 
@@ -59,6 +57,7 @@ Q_SIGNALS:
 
 private:
     LIBRUQOLACORE_NO_EXPORT void setCompletionType(CompletionForType type);
+    LIBRUQOLACORE_NO_EXPORT void clearCompleter();
 
     InputCompleterModel *const mInputCompleterModel;
     EmoticonFilterProxyModel *const mEmoticonFilterProxyModel;

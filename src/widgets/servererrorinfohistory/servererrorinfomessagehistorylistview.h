@@ -16,10 +16,6 @@ public:
     explicit ServerErrorInfoMessageHistoryListView(QWidget *parent = nullptr);
     ~ServerErrorInfoMessageHistoryListView() override;
 
-    void clearCache();
-
-    void slotSelectAll(const QModelIndex &index);
-
     [[nodiscard]] const QString &searchText() const;
     void setSearchText(const QString &newSearchText);
 
@@ -30,6 +26,8 @@ protected:
     [[nodiscard]] bool mouseEvent(QMouseEvent *event, const QStyleOptionViewItem &option, const QModelIndex &index) override;
 
 private:
+    LIBRUQOLAWIDGETS_NO_EXPORT void clearCache();
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotSelectAll(const QModelIndex &index);
     LIBRUQOLAWIDGETS_NO_EXPORT void slotTextToSpeech(const QModelIndex &index);
     LIBRUQOLAWIDGETS_NO_EXPORT void slotCustomContextMenuRequested(const QPoint &pos);
     LIBRUQOLAWIDGETS_NO_EXPORT void slotClearList();

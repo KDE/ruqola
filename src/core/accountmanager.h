@@ -85,7 +85,6 @@ public:
 
     void setCurrentAccount(const QString &accountName);
     [[nodiscard]] QString currentAccount() const;
-    void selectAccount(const QString &accountName);
 
     void modifyAccount(const AccountManagerInfo &info);
     [[nodiscard]] QStringList accountsName() const;
@@ -109,6 +108,7 @@ Q_SIGNALS:
     void activitiesChanged();
 
 private:
+    LIBRUQOLACORE_NO_EXPORT void selectAccount(const QString &accountName);
     LIBRUQOLACORE_NO_EXPORT void removeDatabaseAccount(const QString &accountName);
     LIBRUQOLACORE_NO_EXPORT void removeDirectory(const QString &directory);
     LIBRUQOLACORE_NO_EXPORT void removeLogs(const QString &accountName);
