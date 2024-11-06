@@ -44,3 +44,4 @@ private:
     StatusUpdateInfo mStatusUpdateInfo;
 };
 }
+Q_DECLARE_TYPEINFO(RocketChatRestApi::CustomUserStatusUpdateJob::StatusUpdateInfo, Q_RELOCATABLE_TYPE);
