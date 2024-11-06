@@ -76,7 +76,6 @@
 #include "groups/leavegroupsjob.h"
 
 #include "rooms/getdiscussionsjob.h"
-#include "rooms/getroomsjob.h"
 #include "rooms/roomfavoritejob.h"
 #include "rooms/roomstartdiscussionjob.h"
 #include "rooms/savenotificationjob.h"
@@ -570,16 +569,6 @@ void Connection::markRoomAsRead(const QByteArray &roomId)
     connect(job, &MarkRoomAsReadJob::markAsReadDone, this, &Connection::markAsReadDone);
     if (!job->start()) {
         qCWarning(RUQOLA_LOG) << "Impossible to start markAsRead job";
-    }
-}
-
-void Connection::getRooms()
-{
-    auto job = new GetRoomsJob(this);
-    initializeRestApiJob(job);
-    connect(job, &GetRoomsJob::getRoomsDone, this, &Connection::getRoomsDone);
-    if (!job->start()) {
-        qCWarning(RUQOLA_LOG) << "Impossible to start getRooms job";
     }
 }
 

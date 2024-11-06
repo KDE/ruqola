@@ -83,7 +83,6 @@ public:
     void addUserInChannel(const QByteArray &roomId, const QByteArray &userId);
 
     void markRoomAsRead(const QByteArray &roomId);
-    void getRooms();
     void markAsFavorite(const QByteArray &roomId, bool favorite);
     void addUserInGroup(const QByteArray &roomId, const QByteArray &userId);
     void disableNotifications(const QByteArray &roomId, bool value);
@@ -175,7 +174,6 @@ Q_SIGNALS:
     void channelFilesDone(const QJsonObject &obj, const RocketChatRestApi::ChannelGroupBaseJob::ChannelGroupInfo &channelInfo);
     void channelMembersDone(const QJsonObject &obj, const RocketChatRestApi::ChannelGroupBaseJob::ChannelGroupInfo &channelInfo);
     void syncThreadMessagesDone(const QJsonObject &obj, const QString &threadMessageId);
-    void getRoomsDone(const QJsonObject &obj);
     void userInfoDone(const QJsonObject &obj);
     void channelRolesDone(const QJsonObject &obj, const RocketChatRestApi::ChannelGroupBaseJob::ChannelGroupInfo &channelInfo);
     void permissionListAllDone(const QJsonObject &obj);
