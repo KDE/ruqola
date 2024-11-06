@@ -1032,11 +1032,14 @@ void RoomWidget::slotTryReconnect()
 
 void RoomWidget::slotDisplayReconnectWidget(int seconds)
 {
-    // Disable for the moment it seems to create some problems
-    if (!mRoomReconnectInfoWidget) {
-        createRoomReconnectInfoWidget();
+    // Don't show all the time. => show only if after 5 secondes
+    if (seconds > 5) {
+        // Disable for the moment it seems to create some problems
+        if (!mRoomReconnectInfoWidget) {
+            createRoomReconnectInfoWidget();
+        }
+        mRoomReconnectInfoWidget->setReconnectSecondDelay(seconds);
     }
-    // FIXME mRoomReconnectInfoWidget->setReconnectSecondDelay(seconds);
 }
 
 void RoomWidget::slotCloseOtr()
