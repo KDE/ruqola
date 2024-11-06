@@ -7,6 +7,7 @@
 #include "customuserstatustreewidget.h"
 #include "administratorcustomuserstatuscreatedialog.h"
 #include "connection.h"
+#include "custom/customuserstatusdeletejob.h"
 #include "rocketchataccount.h"
 #include "ruqolawidgets_debug.h"
 #include "utils.h"
@@ -106,7 +107,13 @@ void CustomUserStatusTreeWidget::editClicked()
         statusUpdateInfo.name = info.name;
         statusUpdateInfo.statusType = Utils::presenceStatusToString(info.statusType);
         statusUpdateInfo.identifier = userStatus.identifier();
-        mRocketChatAccount->updateCustomUserStatus(statusUpdateInfo);
+
+        auto job = new RocketChatRestApi::CustomUserStatusUpdateJob(this);
+        job->setStatusUpdateInfo(statusUpdateInfo);
+        mRocketChatAccount->restApi()->initializeRestApiJob(job);
+        if (!job->start()) {
+            qCDebug(RUQOLAWIDGETS_LOG) << "Impossible to start CustomUserStatusUpdateJob";
+        }
     }
     delete dlg;
 }
@@ -124,7 +131,12 @@ void CustomUserStatusTreeWidget::removeClicked()
                                            i18nc("@title", "Remove Custom User Status"),
                                            KStandardGuiItem::remove(),
                                            KStandardGuiItem::cancel())) {
-        mRocketChatAccount->removeCustomUserStatus(userStatus.identifier());
+        auto job = new RocketChatRestApi::CustomUserStatusDeleteJob(this);
+        job->setCustomUserStatusId(userStatus.identifier());
+        mRocketChatAccount->restApi()->initializeRestApiJob(job);
+        if (!job->start()) {
+            qCDebug(RUQOLAWIDGETS_LOG) << "Impossible to start CustomUserStatusDeleteJob";
+        }
     }
 }
 

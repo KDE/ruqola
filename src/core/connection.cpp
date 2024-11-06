@@ -85,7 +85,6 @@
 
 #include "autotranslate/translatesavesettingsjob.h"
 
-#include "custom/customuserstatusdeletejob.h"
 #include "custom/customuserstatuslistjob.h"
 
 #include "2fa/user2fasendemailcodejob.h"
@@ -1424,26 +1423,6 @@ void Connection::setUserPreferences(const RocketChatRestApi::UsersSetPreferences
     connect(job, &UsersSetPreferencesJob::usersSetPreferencesDone, this, &Connection::usersSetPreferencesDone);
     if (!job->start()) {
         qCDebug(RUQOLA_LOG) << "Impossible to start UsersSetPreferencesJob";
-    }
-}
-
-void Connection::deleteCustomUserStatus(const QByteArray &customUserStatusId)
-{
-    auto job = new CustomUserStatusDeleteJob(this);
-    job->setCustomUserStatusId(customUserStatusId);
-    initializeRestApiJob(job);
-    if (!job->start()) {
-        qCDebug(RUQOLA_LOG) << "Impossible to start CustomUserStatusDeleteJob";
-    }
-}
-
-void Connection::updateCustomUserStatus(const CustomUserStatusUpdateJob::StatusUpdateInfo &statusUpdateInfo)
-{
-    auto job = new CustomUserStatusUpdateJob(this);
-    job->setStatusUpdateInfo(statusUpdateInfo);
-    initializeRestApiJob(job);
-    if (!job->start()) {
-        qCDebug(RUQOLA_LOG) << "Impossible to start CustomUserStatusUpdateJob";
     }
 }
 

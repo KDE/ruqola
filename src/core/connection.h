@@ -11,7 +11,6 @@
 #include "commands/runcommandjob.h"
 #include "config-ruqola.h"
 #include "createchannelteaminfo.h"
-#include "custom/customuserstatusupdatejob.h"
 #include "invite/findorcreateinvitejob.h"
 #include "libruqolacore_export.h"
 #include "rooms/adminroomsjob.h"
@@ -150,8 +149,6 @@ public:
     void getRoomsAdmin(const RocketChatRestApi::AdminRoomsJob::AdminRoomsJobInfo &info);
     void getChannelsCounter(const QByteArray &roomId);
     void setUserPreferences(const RocketChatRestApi::UsersSetPreferencesJob::UsersSetPreferencesInfo &info);
-    void deleteCustomUserStatus(const QByteArray &customUserStatusId);
-    void updateCustomUserStatus(const RocketChatRestApi::CustomUserStatusUpdateJob::StatusUpdateInfo &statusUpdateInfo);
     void resetAvatar(const RocketChatRestApi::UserBaseJob::UserInfo &info);
     void searchRooms(const QString &pattern);
     void getMentionedMessages(const QByteArray &roomId, int offset = 0, int count = 50);

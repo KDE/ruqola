@@ -2789,16 +2789,6 @@ CustomUserStatuses RocketChatAccount::customUserStatuses() const
     return mCustomUserStatuses;
 }
 
-void RocketChatAccount::removeCustomUserStatus(const QByteArray &customUserStatusId)
-{
-    restApi()->deleteCustomUserStatus(customUserStatusId);
-}
-
-void RocketChatAccount::updateCustomUserStatus(const RocketChatRestApi::CustomUserStatusUpdateJob::StatusUpdateInfo &statusUpdateInfo)
-{
-    restApi()->updateCustomUserStatus(statusUpdateInfo);
-}
-
 void RocketChatAccount::slotPostMessageDone(const QJsonObject &replyObject)
 {
     // qDebug() << "replyObject " << replyObject;
