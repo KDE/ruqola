@@ -33,6 +33,7 @@ Dependencies:
     'frameworks/kstatusnotifieritem': '@latest-kf6'
     'frameworks/kuserfeedback': '@latest-kf6'
     'libraries/ktextaddons': '@latest-kf6'
+    'frameworks/kcolorscheme': '@latest-kf6'
 
 - 'on': ['Linux', 'FreeBSD']
   'require':

@@ -124,6 +124,7 @@ find_package(KF6 ${KF_MIN_VERSION} REQUIRED COMPONENTS
     IdleTime
     Prison
     Archive
+    ColorScheme
     Codecs # KEmailAddress
 )
 

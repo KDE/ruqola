@@ -737,6 +737,7 @@ target_link_libraries(libruqolacore
     KF6::StatusNotifierItem
     KF6::KIOCore
     Qt::Multimedia
+    KF6::ColorScheme
 )
 
 if(HAVE_TEXT_TRANSLATOR)
