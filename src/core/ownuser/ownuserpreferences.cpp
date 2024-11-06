@@ -5,13 +5,13 @@
 */
 
 #include "ownuserpreferences.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "ruqola_debug.h"
 
 #include <QJsonArray>
 #include <QJsonObject>
 
+using namespace Qt::Literals::StringLiterals;
 OwnUserPreferences::OwnUserPreferences() = default;
 
 OwnUserPreferences::~OwnUserPreferences() = default;

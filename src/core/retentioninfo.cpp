@@ -5,10 +5,10 @@
 */
 
 #include "retentioninfo.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include <QJsonObject>
 
+using namespace Qt::Literals::StringLiterals;
 RetentionInfo::RetentionInfo() = default;
 
 bool RetentionInfo::isNotDefault() const

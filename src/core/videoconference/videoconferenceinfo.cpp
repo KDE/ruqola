@@ -5,7 +5,6 @@
 */
 
 #include "videoconferenceinfo.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "ruqola_videoconference_core_debug.h"
 #include "utils.h"
@@ -14,6 +13,7 @@ using namespace Qt::Literals::StringLiterals;
 
 #include <QJsonObject>
 
+using namespace Qt::Literals::StringLiterals;
 VideoConferenceInfo::VideoConferenceInfo() = default;
 
 VideoConferenceInfo::~VideoConferenceInfo() = default;

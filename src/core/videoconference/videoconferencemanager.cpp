@@ -5,7 +5,6 @@
 */
 
 #include "videoconferencemanager.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "connection.h"
 #include "ddpapi/ddpclient.h"
@@ -15,6 +14,7 @@ using namespace Qt::Literals::StringLiterals;
 #include "video-conference/videoconferencejoinjob.h"
 #include "videoconferencenotificationjob.h"
 #include <QJsonObject>
+using namespace Qt::Literals::StringLiterals;
 VideoConferenceManager::VideoConferenceManager(RocketChatAccount *account, QObject *parent)
     : QObject{parent}
     , mRocketChatAccount(account)

@@ -5,13 +5,13 @@
 */
 
 #include "channelhistoryjob.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "restapimethod.h"
 #include "rocketchatqtrestapi_debug.h"
 #include <QJsonDocument>
 #include <QJsonObject>
 #include <QUrlQuery>
+using namespace Qt::Literals::StringLiterals;
 using namespace RocketChatRestApi;
 ChannelHistoryJob::ChannelHistoryJob(QObject *parent)
     : ChannelGroupBaseJob(parent)

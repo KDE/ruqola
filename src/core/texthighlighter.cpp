@@ -5,7 +5,6 @@
 */
 
 #include "texthighlighter.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include <KSyntaxHighlighting/Format>
 #include <KSyntaxHighlighting/State>
@@ -13,6 +12,7 @@ using namespace Qt::Literals::StringLiterals;
 
 #include <QTextStream>
 
+using namespace Qt::Literals::StringLiterals;
 TextHighlighter::TextHighlighter(QTextStream *stream)
     : mStream(stream)
 {

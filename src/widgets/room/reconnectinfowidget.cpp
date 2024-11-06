@@ -5,11 +5,11 @@
 */
 
 #include "reconnectinfowidget.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include <KLocalizedString>
 #include <QTimer>
 #include <chrono>
+using namespace Qt::Literals::StringLiterals;
 using namespace std::chrono_literals;
 
 ReconnectInfoWidget::ReconnectInfoWidget(QWidget *parent)

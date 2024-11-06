@@ -5,13 +5,13 @@
 */
 
 #include "videoconferenceinfos.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "ruqola_debug.h"
 
 #include <QJsonArray>
 #include <QJsonObject>
 
+using namespace Qt::Literals::StringLiterals;
 VideoConferenceInfos::VideoConferenceInfos() = default;
 
 QDebug operator<<(QDebug d, const VideoConferenceInfos &t)

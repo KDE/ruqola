@@ -5,11 +5,11 @@
 */
 
 #include "notificationoptions.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "ruqola_debug.h"
 #include <QJsonObject>
 
+using namespace Qt::Literals::StringLiterals;
 NotificationOptions::NotificationOptions() = default;
 
 void NotificationOptions::updateNotificationOptions(const QJsonObject &obj)

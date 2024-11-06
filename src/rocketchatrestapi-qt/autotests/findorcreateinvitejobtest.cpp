@@ -5,12 +5,12 @@
 */
 
 #include "findorcreateinvitejobtest.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "invite/findorcreateinvitejob.h"
 #include "ruqola_restapi_helper.h"
 #include <QJsonDocument>
 #include <QJsonObject>
+using namespace Qt::Literals::StringLiterals;
 QTEST_GUILESS_MAIN(FindOrCreateInviteJobTest)
 using namespace RocketChatRestApi;
 FindOrCreateInviteJobTest::FindOrCreateInviteJobTest(QObject *parent)

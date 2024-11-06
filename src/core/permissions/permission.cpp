@@ -5,10 +5,10 @@
 */
 
 #include "permission.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "utils.h"
 
+using namespace Qt::Literals::StringLiterals;
 Permission::Permission() = default;
 
 bool Permission::parsePermission(const QJsonObject &replyObject, const QList<RoleInfo> &roleInfo, bool restApi)

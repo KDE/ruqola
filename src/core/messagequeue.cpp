@@ -7,7 +7,6 @@
  */
 
 #include "messagequeue.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "config-ruqola.h"
 #include "ddpapi/ddpclient.h"
@@ -23,6 +22,7 @@ using namespace Qt::Literals::StringLiterals;
 #include <QJsonArray>
 #include <QPair>
 
+using namespace Qt::Literals::StringLiterals;
 MessageQueue::MessageQueue(RocketChatAccount *account, QObject *parent)
     : QObject(parent)
     , mRocketChatAccount(account)

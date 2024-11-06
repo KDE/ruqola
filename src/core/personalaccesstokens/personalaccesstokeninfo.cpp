@@ -5,12 +5,12 @@
 */
 
 #include "personalaccesstokeninfo.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "utils.h"
 
 #include <QLocale>
 
+using namespace Qt::Literals::StringLiterals;
 PersonalAccessTokenInfo::PersonalAccessTokenInfo() = default;
 
 QDebug operator<<(QDebug d, const PersonalAccessTokenInfo &t)
