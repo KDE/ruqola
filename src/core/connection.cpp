@@ -1467,7 +1467,6 @@ void Connection::deleteCustomUserStatus(const QByteArray &customUserStatusId)
     auto job = new CustomUserStatusDeleteJob(this);
     job->setCustomUserStatusId(customUserStatusId);
     initializeRestApiJob(job);
-    connect(job, &CustomUserStatusDeleteJob::userStatusDeletedDone, this, &Connection::userStatusDeletedDone);
     if (!job->start()) {
         qCDebug(RUQOLA_LOG) << "Impossible to start CustomUserStatusDeleteJob";
     }
@@ -1478,7 +1477,6 @@ void Connection::updateCustomUserStatus(const CustomUserStatusUpdateJob::StatusU
     auto job = new CustomUserStatusUpdateJob(this);
     job->setStatusUpdateInfo(statusUpdateInfo);
     initializeRestApiJob(job);
-    connect(job, &CustomUserStatusUpdateJob::customUserUpdateDone, this, &Connection::customUserUpdateDone);
     if (!job->start()) {
         qCDebug(RUQOLA_LOG) << "Impossible to start CustomUserStatusUpdateJob";
     }
