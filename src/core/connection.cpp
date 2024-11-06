@@ -1467,7 +1467,6 @@ void Connection::createCustomUserStatus(const CustomUserStatusCreateJob::StatusC
     auto job = new CustomUserStatusCreateJob(this);
     job->setStatusCreateInfo(statusCreateInfo);
     initializeRestApiJob(job);
-    connect(job, &CustomUserStatusCreateJob::createUserStatusDone, this, &Connection::createUserStatusDone);
     if (!job->start()) {
         qCDebug(RUQOLA_LOG) << "Impossible to start CustomUserStatusCreateJob";
     }

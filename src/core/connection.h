@@ -215,7 +215,6 @@ Q_SIGNALS:
     void channelGetCountersDone(const QJsonObject &obj, const RocketChatRestApi::ChannelGroupBaseJob::ChannelGroupInfo &channelInfo);
     void markAsReadDone(const QByteArray &roomId);
     void usersSetPreferencesDone(const QJsonObject &replyObject);
-    void createUserStatusDone();
     void userStatusDeletedDone();
     void customUserUpdateDone();
     void postMessageDone(const QJsonObject &replyObject);
