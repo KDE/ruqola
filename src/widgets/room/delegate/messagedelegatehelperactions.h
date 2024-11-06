@@ -43,4 +43,10 @@ private:
         QList<ButtonLayout> buttonList;
     };
     [[nodiscard]] LIBRUQOLAWIDGETS_NO_EXPORT ActionsLayout layoutActions(const Block &block, const QStyleOptionViewItem &option, int attachmentsWidth) const;
+    LIBRUQOLAWIDGETS_NO_EXPORT void executeBlockAction(const QString &appId,
+                                                       const QString &actionId,
+                                                       const QString &value,
+                                                       const QString &blockId,
+                                                       const QByteArray &roomId,
+                                                       const QByteArray &messageId);
 };

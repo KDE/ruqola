@@ -6,7 +6,10 @@
 
 #include "messagedelegatehelperactions.h"
 #include "common/delegatepaintutil.h"
+#include "connection.h"
+#include "misc/appsuiinteractionjob.h"
 #include "rocketchataccount.h"
+#include "ruqolawidgets_debug.h"
 
 #include <KLocalizedString>
 
@@ -88,12 +91,31 @@ bool MessageDelegateHelperActions::handleMouseEvent(const Block &block,
                 Q_ASSERT(message);
                 // qDebug() << " message->roomId" << message->roomId();
                 // qDebug() << " message->messageId" << message->messageId();
-                mRocketChatAccount->executeBlockAction(button.appId, button.actionId, button.value, button.blockId, message->roomId(), message->messageId());
+                executeBlockAction(button.appId, button.actionId, button.value, button.blockId, message->roomId(), message->messageId());
                 return true;
             }
         }
     }
     return false;
+}
+
+void MessageDelegateHelperActions::executeBlockAction(const QString &appId,
+                                                      const QString &actionId,
+                                                      const QString &value,
+                                                      const QString &blockId,
+                                                      const QByteArray &roomId,
+                                                      const QByteArray &messageId)
+{
+    auto job = new RocketChatRestApi::AppsUiInteractionJob(this);
+    RocketChatRestApi::AppsUiInteractionJob::AppsUiInteractionJobInfo info;
+    info.methodName = appId;
+    info.generateMessageObj(actionId, value, blockId, roomId, messageId);
+    job->setAppsUiInteractionJobInfo(info);
+
+    mRocketChatAccount->restApi()->initializeRestApiJob(job);
+    if (!job->start()) {
+        qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start AppsUiInteractionJob job";
+    }
 }
 
 MessageDelegateHelperActions::ActionsLayout

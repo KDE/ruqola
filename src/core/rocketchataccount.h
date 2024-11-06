@@ -471,12 +471,6 @@ public:
 
     [[nodiscard]] AuthenticationManager::AuthMethodType authMethodType() const;
     void setAuthMethodType(const AuthenticationManager::AuthMethodType &newAuthMethodType);
-    void executeBlockAction(const QString &appId,
-                            const QString &aactionId,
-                            const QString &avalue,
-                            const QString &ablockId,
-                            const QByteArray &roomId,
-                            const QByteArray &messageId);
 
     void setActivities(const QStringList &activities);
 
