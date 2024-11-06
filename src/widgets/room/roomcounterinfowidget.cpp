@@ -60,7 +60,7 @@ void RoomCounterInfoWidget::updateInfo()
         setText(i18np("%1 new message since %2.",
                       "%1 new messages since %2.",
                       mChannelCounterInfo->unreadMessages(),
-                      QLocale().toString(mChannelCounterInfo->unreadFrom().toLocalTime())));
+                      QLocale().toString(mChannelCounterInfo->unreadFrom().toLocalTime(), QLocale::ShortFormat)));
         setVisible(true); // FIXME: AnimateShow create some pb. Need to investigate it
     } else {
         setVisible(false);
