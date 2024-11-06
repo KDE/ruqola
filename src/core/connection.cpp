@@ -25,7 +25,6 @@
 
 #include "misc/owninfojob.h"
 
-#include "authentication/loginjob.h"
 #include "authentication/logoutjob.h"
 
 #include "chat/getmentionedmessagesjob.h"
@@ -238,18 +237,6 @@ QString Connection::userId() const
     return mUserId;
 }
 
-void Connection::login()
-{
-    auto job = new LoginJob(this);
-    connect(job, &LoginJob::loginDone, this, &Connection::slotLogin);
-    initializeRestApiJob(job);
-    job->setPassword(mPassword);
-    job->setUserName(mUserName);
-    if (!job->start()) {
-        qCWarning(RUQOLA_LOG) << "Impossible to start job";
-    }
-}
-
 void Connection::slotLogin(const QString &authToken, const QString &userId)
 {
     mAuthToken = authToken;
@@ -289,7 +276,6 @@ void Connection::getAvatar(const UserBaseJob::UserInfo &info)
 {
     auto job = new GetAvatarJob(this);
     connect(job, &GetAvatarJob::avatar, this, &Connection::avatar);
-    connect(job, &GetAvatarJob::redownloadAvatar, this, &Connection::redownloadAvatar);
     initializeRestApiJob(job);
     job->setUserInfo(info);
     if (!job->start()) {
@@ -848,7 +834,6 @@ void Connection::runCommand(const RunCommandJob::RunCommandInfo &runCommandInfo)
     auto job = new RunCommandJob(this);
     initializeRestApiJob(job);
     job->setRunCommandInfo(runCommandInfo);
-    connect(job, &RunCommandJob::runCommandDone, this, &Connection::runCommandDone);
     if (!job->start()) {
         qCDebug(RUQOLA_LOG) << "Impossible to start RunCommandJob job";
     }
@@ -882,7 +867,6 @@ void Connection::channelGetAllUserMentions(const QString &roomId, int offset, in
     parameters.setOffset(offset);
     job->setQueryParameters(parameters);
 
-    connect(job, &ChannelGetAllUserMentionsJob::channelGetAllUserMentionsDone, this, &Connection::channelGetAllUserMentionsDone);
     if (!job->start()) {
         qCDebug(RUQOLA_LOG) << "Impossible to start setChannelJoin";
     }
@@ -897,7 +881,6 @@ void Connection::channelKick(const QByteArray &roomId, const QByteArray &userId)
     info.channelGroupInfoType = ChannelGroupBaseJob::ChannelGroupInfoType::Identifier;
     info.identifier = QString::fromLatin1(roomId);
     job->setChannelGroupInfo(info);
-    connect(job, &ChannelKickJob::kickUserDone, this, &Connection::channelKickUserDone);
     if (!job->start()) {
         qCDebug(RUQOLA_LOG) << "Impossible to start channelKick";
     }
@@ -913,7 +896,6 @@ void Connection::groupKick(const QByteArray &roomId, const QByteArray &userId)
     info.identifier = QString::fromLatin1(roomId);
     job->setChannelGroupInfo(info);
 
-    connect(job, &GroupsKickJob::kickUserDone, this, &Connection::groupKickUserDone);
     if (!job->start()) {
         qCDebug(RUQOLA_LOG) << "Impossible to start channelKick";
     }
@@ -928,7 +910,6 @@ void Connection::groupAddModerator(const QByteArray &roomId, const QString &user
     info.channelGroupInfoType = ChannelGroupBaseJob::ChannelGroupInfoType::Identifier;
     info.identifier = QString::fromLatin1(roomId);
     job->setChannelGroupInfo(info);
-    connect(job, &GroupAddModeratorJob::addModeratorDone, this, &Connection::addModeratorDone);
     if (!job->start()) {
         qCDebug(RUQOLA_LOG) << "Impossible to start groupAddModerator";
     }
@@ -943,7 +924,6 @@ void Connection::groupRemoveModerator(const QByteArray &roomId, const QString &u
     info.identifier = QString::fromLatin1(roomId);
     info.channelGroupInfoType = ChannelGroupBaseJob::ChannelGroupInfoType::Identifier;
     job->setChannelGroupInfo(info);
-    connect(job, &GroupRemoveModeratorJob::removeModeratorDone, this, &Connection::removeModeratorDone);
     if (!job->start()) {
         qCDebug(RUQOLA_LOG) << "Impossible to start groupRemoveModerator";
     }
@@ -958,7 +938,6 @@ void Connection::groupAddLeader(const QByteArray &roomId, const QString &userId)
     info.channelGroupInfoType = ChannelGroupBaseJob::ChannelGroupInfoType::Identifier;
     info.identifier = QString::fromLatin1(roomId);
     job->setChannelGroupInfo(info);
-    connect(job, &GroupAddLeaderJob::addLeaderDone, this, &Connection::addLeaderDone);
     if (!job->start()) {
         qCDebug(RUQOLA_LOG) << "Impossible to start groupAddLeader";
     }
@@ -973,7 +952,6 @@ void Connection::groupRemoveLeader(const QByteArray &roomId, const QString &user
     info.identifier = QString::fromLatin1(roomId);
     info.channelGroupInfoType = ChannelGroupBaseJob::ChannelGroupInfoType::Identifier;
     job->setChannelGroupInfo(info);
-    connect(job, &GroupRemoveLeaderJob::removeLeaderDone, this, &Connection::removeLeaderDone);
     if (!job->start()) {
         qCDebug(RUQOLA_LOG) << "Impossible to start groupRemoveLeader";
     }
@@ -988,7 +966,6 @@ void Connection::groupAddOwner(const QByteArray &roomId, const QString &userId)
     info.identifier = QString::fromLatin1(roomId);
     info.channelGroupInfoType = ChannelGroupBaseJob::ChannelGroupInfoType::Identifier;
     job->setChannelGroupInfo(info);
-    connect(job, &GroupAddOwnerJob::addOwnerDone, this, &Connection::addOwnerDone);
     if (!job->start()) {
         qCDebug(RUQOLA_LOG) << "Impossible to start groupAddOwner";
     }
@@ -1004,7 +981,6 @@ void Connection::groupRemoveOwner(const QByteArray &roomId, const QString &userI
     info.identifier = QString::fromLatin1(roomId);
     job->setChannelGroupInfo(info);
 
-    connect(job, &GroupRemoveOwnerJob::groupRemoveOwnerDone, this, &Connection::channelRemoveOwnerDone);
     if (!job->start()) {
         qCDebug(RUQOLA_LOG) << "Impossible to start groupRemoveOwner";
     }
@@ -1019,7 +995,6 @@ void Connection::channelAddModerator(const QByteArray &roomId, const QString &us
     info.channelGroupInfoType = ChannelGroupBaseJob::ChannelGroupInfoType::Identifier;
     info.identifier = QString::fromLatin1(roomId);
     job->setChannelGroupInfo(info);
-    connect(job, &ChannelAddModeratorJob::addModeratorDone, this, &Connection::addModeratorDone);
     if (!job->start()) {
         qCDebug(RUQOLA_LOG) << "Impossible to start channelAddModerator";
     }
@@ -1034,7 +1009,6 @@ void Connection::channelRemoveModerator(const QByteArray &roomId, const QString 
     info.channelGroupInfoType = ChannelGroupBaseJob::ChannelGroupInfoType::Identifier;
     info.identifier = QString::fromLatin1(roomId);
     job->setChannelGroupInfo(info);
-    connect(job, &ChannelRemoveModeratorJob::removeModeratorDone, this, &Connection::removeModeratorDone);
     if (!job->start()) {
         qCDebug(RUQOLA_LOG) << "Impossible to start ChannelRemoveModeratorJob";
     }
@@ -1049,7 +1023,6 @@ void Connection::channelAddLeader(const QByteArray &roomId, const QString &userI
     info.channelGroupInfoType = ChannelGroupBaseJob::ChannelGroupInfoType::Identifier;
     info.identifier = QString::fromLatin1(roomId);
     job->setChannelGroupInfo(info);
-    connect(job, &ChannelAddLeaderJob::addLeaderDone, this, &Connection::addLeaderDone);
     if (!job->start()) {
         qCDebug(RUQOLA_LOG) << "Impossible to start channelAddLeader";
     }
@@ -1064,7 +1037,6 @@ void Connection::channelRemoveLeader(const QByteArray &roomId, const QString &us
     info.channelGroupInfoType = ChannelGroupBaseJob::ChannelGroupInfoType::Identifier;
     info.identifier = QString::fromLatin1(roomId);
     job->setChannelGroupInfo(info);
-    connect(job, &ChannelRemoveLeaderJob::removeLeaderDone, this, &Connection::removeLeaderDone);
     if (!job->start()) {
         qCDebug(RUQOLA_LOG) << "Impossible to start channelRemoveLeader";
     }
@@ -1079,7 +1051,6 @@ void Connection::channelAddOwner(const QByteArray &roomId, const QString &userId
     info.channelGroupInfoType = ChannelGroupBaseJob::ChannelGroupInfoType::Identifier;
     info.identifier = QString::fromLatin1(roomId);
     job->setChannelGroupInfo(info);
-    connect(job, &ChannelAddOwnerJob::addOwnerDone, this, &Connection::addOwnerDone);
     if (!job->start()) {
         qCDebug(RUQOLA_LOG) << "Impossible to start ChannelAddOwnerJob";
     }
@@ -1094,7 +1065,6 @@ void Connection::channelRemoveOwner(const QByteArray &roomId, const QString &use
     info.channelGroupInfoType = ChannelGroupBaseJob::ChannelGroupInfoType::Identifier;
     info.identifier = QString::fromLatin1(roomId);
     job->setChannelGroupInfo(info);
-    connect(job, &ChannelRemoveOwnerJob::channelRemoveOwnerDone, this, &Connection::channelRemoveOwnerDone);
     if (!job->start()) {
         qCDebug(RUQOLA_LOG) << "Impossible to start ChannelRemoveOwnerJob";
     }
@@ -1288,7 +1258,6 @@ void Connection::syncThreadMessages(const QString &threadMessageId, const QStrin
     initializeRestApiJob(job);
     job->setThreadMessageId(threadMessageId);
     job->setTimeStamp(timestamp);
-    connect(job, &SyncThreadMessagesJob::syncThreadMessagesDone, this, &Connection::syncThreadMessagesDone);
     if (!job->start()) {
         qCDebug(RUQOLA_LOG) << "Impossible to start syncThreadMessages";
     }
@@ -1316,7 +1285,6 @@ void Connection::autoTranslateSaveLanguageSettings(const QByteArray &roomId, con
     job->setRoomId(QString::fromLatin1(roomId));
     job->setType(TranslateSaveSettingsJob::LanguageSetting);
     job->setLanguage(language);
-    connect(job, &TranslateSaveSettingsJob::translateSavesettingsDone, this, &Connection::translateSavesettingsDone);
     if (!job->start()) {
         qCDebug(RUQOLA_LOG) << "Impossible to start autoTranslateSaveLanguageSettings";
     }
@@ -1329,7 +1297,6 @@ void Connection::autoTranslateSaveAutoTranslateSettings(const QByteArray &roomId
     job->setRoomId(QString::fromLatin1(roomId));
     job->setType(TranslateSaveSettingsJob::AutoTranslateSetting);
     job->setAutoTranslate(autoTranslate);
-    connect(job, &TranslateSaveSettingsJob::translateSavesettingsDone, this, &Connection::translateSavesettingsDone);
     if (!job->start()) {
         qCDebug(RUQOLA_LOG) << "Impossible to start autoTranslateSaveAutoTranslateSettings";
     }
@@ -1417,7 +1384,6 @@ void Connection::updateOwnBasicInfo(const RocketChatRestApi::UsersUpdateOwnBasic
     auto job = new UsersUpdateOwnBasicInfoJob(this);
     job->setUpdateOwnBasicInfo(info);
     initializeRestApiJob(job);
-    connect(job, &UsersUpdateOwnBasicInfoJob::updateOwnBasicInfoDone, this, &Connection::updateOwnBasicInfoDone);
     // Clear all other tokens when password was changed
     // TODO fix me connect(job, &UsersUpdateOwnBasicInfoJob::passwordChanged, this, &Connection::updateOwnBasicInfoDone);
 
@@ -1431,7 +1397,6 @@ void Connection::getRoomsAdmin(const RocketChatRestApi::AdminRoomsJob::AdminRoom
     auto job = new AdminRoomsJob(this);
     job->setRoomsAdminInfo(info);
     initializeRestApiJob(job);
-    connect(job, &AdminRoomsJob::adminRoomsDone, this, &Connection::roomsAdminDone);
     if (!job->start()) {
         qCDebug(RUQOLA_LOG) << "Impossible to start RoomsAdminJob";
     }

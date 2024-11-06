@@ -61,7 +61,6 @@ public:
 
     void initializeRestApiJob(RocketChatRestApi::RestApiAbstractJob *job);
 
-    void login();
     void logout();
     void getAvatar(const RocketChatRestApi::UserBaseJob::UserInfo &info);
 
@@ -162,8 +161,6 @@ public:
     void muteUser(const QByteArray &roomId, const QString &userName, bool mute);
 Q_SIGNALS:
     void avatar(const RocketChatRestApi::UserBaseJob::UserInfo &info, const QUrl &url);
-    void redownloadAvatar();
-    void loginDone(const QString &authToken, const QString &userId);
     void downloadFileDone(const QUrl &url, const QUrl &localFileUrl);
     void serverInfoDone(const QString &version);
     void serverInfoFailed(bool useDeprecatedVersion);
@@ -171,20 +168,9 @@ Q_SIGNALS:
     void privateInfoDone(const QJsonObject &data);
     void channelFilesDone(const QJsonObject &obj, const RocketChatRestApi::ChannelGroupBaseJob::ChannelGroupInfo &channelInfo);
     void channelMembersDone(const QJsonObject &obj, const RocketChatRestApi::ChannelGroupBaseJob::ChannelGroupInfo &channelInfo);
-    void syncThreadMessagesDone(const QJsonObject &obj, const QString &threadMessageId);
     void userInfoDone(const QJsonObject &obj);
     void channelRolesDone(const QJsonObject &obj, const RocketChatRestApi::ChannelGroupBaseJob::ChannelGroupInfo &channelInfo);
     void permissionListAllDone(const QJsonObject &obj);
-    void channelGetAllUserMentionsDone(const QJsonObject &obj, const QString &roomId);
-    void channelKickUserDone(const QJsonObject &obj);
-    void groupKickUserDone(const QJsonObject &obj);
-    void addModeratorDone();
-    void removeModeratorDone();
-    void addLeaderDone();
-    void removeLeaderDone();
-    void addOwnerDone();
-    void channelRemoveOwnerDone();
-    void groupRemoveOwnerDone();
     void deletechannelDone();
     void deleteGroupsDone();
     void groupRolesDone(const QJsonObject &obj, const RocketChatRestApi::ChannelGroupBaseJob::ChannelGroupInfo &channelInfo);
@@ -195,8 +181,6 @@ Q_SIGNALS:
     void getStarredMessagesDone(const QJsonObject &obj, const QByteArray &roomId);
     void getSnippetedMessagesDone(const QJsonObject &obj, const QByteArray &roomId);
     void getMentionedMessagesDone(const QJsonObject &obj, const QByteArray &roomId);
-    void roomsAdminDone(const QJsonObject &obj);
-    void translateSavesettingsDone();
     void usersPresenceDone(const QJsonObject &obj);
     void customUserStatusDone(const QJsonObject &);
 
@@ -209,7 +193,6 @@ Q_SIGNALS:
     void getMessageDone(const QJsonObject &obj, const QByteArray &messageId, const QByteArray &roomId);
     void runCommandDone();
     void registerUserDone();
-    void updateOwnBasicInfoDone();
     void channelGetCountersDone(const QJsonObject &obj, const RocketChatRestApi::ChannelGroupBaseJob::ChannelGroupInfo &channelInfo);
     void markAsReadDone(const QByteArray &roomId);
     void usersSetPreferencesDone(const QJsonObject &replyObject);
