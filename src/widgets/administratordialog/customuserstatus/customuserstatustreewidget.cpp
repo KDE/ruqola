@@ -75,7 +75,7 @@ void CustomUserStatusTreeWidget::addClicked()
         RocketChatRestApi::CustomUserStatusCreateJob::StatusCreateInfo statusCreateInfo;
         statusCreateInfo.name = info.name;
         statusCreateInfo.statusType = Utils::presenceStatusToString(info.statusType);
-        mRocketChatAccount->createCustomUserStatus(statusCreateInfo);
+        mRocketChatAccount->createCustomUserStatus(std::move(statusCreateInfo));
     }
     delete dlg;
 }
