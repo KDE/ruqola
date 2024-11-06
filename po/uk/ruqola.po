@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-10-31 02:30+0000\n"
+"POT-Creation-Date: 2024-11-06 02:31+0000\n"
 "PO-Revision-Date: 2024-09-21 09:49+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
@@ -6819,43 +6819,43 @@ msgctxt "@title:window"
 msgid "Convert To Channel"
 msgstr "Перетворення на канал"
 
-#: widgets/channellist/channellistview.cpp:185
+#: widgets/channellist/channellistview.cpp:186
 #, kde-format
 msgctxt "@action"
 msgid "Move to Team"
 msgstr "Пересунути до команди"
 
-#: widgets/channellist/channellistview.cpp:202
+#: widgets/channellist/channellistview.cpp:203
 #, kde-format
 msgctxt "@action"
 msgid "Configure Notification…"
 msgstr "Налаштувати сповіщення…"
 
-#: widgets/channellist/channellistview.cpp:209
+#: widgets/channellist/channellistview.cpp:210
 #, kde-format
 msgctxt "@action"
 msgid "Quit Channel"
 msgstr "Вийти з каналу"
 
-#: widgets/channellist/channellistview.cpp:252
+#: widgets/channellist/channellistview.cpp:253
 #, kde-format
 msgid "Any team selected."
 msgstr "Не вибрано жодної команди."
 
-#: widgets/channellist/channellistview.cpp:252
+#: widgets/channellist/channellistview.cpp:253
 #, kde-format
 msgctxt "@title:window"
 msgid "Move To Team"
 msgstr "Пересунути до команди"
 
-#: widgets/channellist/channellistview.cpp:301
+#: widgets/channellist/channellistview.cpp:302
 #, kde-format
 msgid "Are you sure to convert it to team? It can not be undo."
 msgstr ""
 "Ви справді хочете перетворити це на команду? Наслідки дії не можна буде "
 "скасувати."
 
-#: widgets/channellist/channellistview.cpp:302
+#: widgets/channellist/channellistview.cpp:303
 #, kde-format
 msgctxt "@title:window"
 msgid "Convert to Team"
@@ -10609,41 +10609,41 @@ msgctxt "@info:placeholder"
 msgid "Search room…"
 msgstr "Шукати кімнату…"
 
-#: widgets/teams/teamchannelswidget.cpp:115
+#: widgets/teams/teamchannelswidget.cpp:116
 #, kde-format
 msgid "Add Existing Room"
 msgstr "Додати наявну кімнату"
 
-#: widgets/teams/teamchannelswidget.cpp:117
+#: widgets/teams/teamchannelswidget.cpp:118
 #, kde-format
 msgctxt "@action"
 msgid "Create Room"
 msgstr "Створити кімнату"
 
-#: widgets/teams/teamchannelswidget.cpp:123
+#: widgets/teams/teamchannelswidget.cpp:124
 #, kde-format
 msgctxt "@action"
 msgid "Remove Autojoin"
 msgstr "Вилучити автодолучення"
 
-#: widgets/teams/teamchannelswidget.cpp:123
+#: widgets/teams/teamchannelswidget.cpp:124
 #, kde-format
 msgctxt "@action"
 msgid "Add Autojoin"
 msgstr "Додати автодолучення"
 
-#: widgets/teams/teamchannelswidget.cpp:130
+#: widgets/teams/teamchannelswidget.cpp:131
 #, kde-format
 msgctxt "@action"
 msgid "Remove from Team"
 msgstr "Вилучити з команди"
 
-#: widgets/teams/teamchannelswidget.cpp:165
+#: widgets/teams/teamchannelswidget.cpp:166
 #, kde-format
 msgid "Would you like to remove this Channel from team?"
 msgstr "Хочете вилучити цей канал з команди?"
 
-#: widgets/teams/teamchannelswidget.cpp:166
+#: widgets/teams/teamchannelswidget.cpp:167
 #, kde-format
 msgctxt "@title"
 msgid "Remove Channel from Team"

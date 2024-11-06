@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-10-31 02:30+0000\n"
+"POT-Creation-Date: 2024-11-06 02:31+0000\n"
 "PO-Revision-Date: 2024-08-06 05:33+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
@@ -6901,45 +6901,45 @@ msgctxt "@title:window"
 msgid "Convert To Channel"
 msgstr "轉換為頻道"
 
-#: widgets/channellist/channellistview.cpp:185
+#: widgets/channellist/channellistview.cpp:186
 #, fuzzy, kde-format
 #| msgid "Move to Team"
 msgctxt "@action"
 msgid "Move to Team"
 msgstr "移動到團隊"
 
-#: widgets/channellist/channellistview.cpp:202
+#: widgets/channellist/channellistview.cpp:203
 #, fuzzy, kde-format
 #| msgid "Configure Notification"
 msgctxt "@action"
 msgid "Configure Notification…"
 msgstr "設定通知"
 
-#: widgets/channellist/channellistview.cpp:209
+#: widgets/channellist/channellistview.cpp:210
 #, fuzzy, kde-format
 #| msgid "Quit Channel"
 msgctxt "@action"
 msgid "Quit Channel"
 msgstr "離開頻道"
 
-#: widgets/channellist/channellistview.cpp:252
+#: widgets/channellist/channellistview.cpp:253
 #, kde-format
 msgid "Any team selected."
 msgstr "任何選取的團隊。"
 
-#: widgets/channellist/channellistview.cpp:252
+#: widgets/channellist/channellistview.cpp:253
 #, fuzzy, kde-format
 #| msgid "Move To Team"
 msgctxt "@title:window"
 msgid "Move To Team"
 msgstr "移動到團隊"
 
-#: widgets/channellist/channellistview.cpp:301
+#: widgets/channellist/channellistview.cpp:302
 #, kde-format
 msgid "Are you sure to convert it to team? It can not be undo."
 msgstr "您確定要將它轉換為團隊？這個動作無法復原。"
 
-#: widgets/channellist/channellistview.cpp:302
+#: widgets/channellist/channellistview.cpp:303
 #, kde-format
 msgctxt "@title:window"
 msgid "Convert to Team"
@@ -10829,45 +10829,45 @@ msgctxt "@info:placeholder"
 msgid "Search room…"
 msgstr "搜尋聊天室…"
 
-#: widgets/teams/teamchannelswidget.cpp:115
+#: widgets/teams/teamchannelswidget.cpp:116
 #, kde-format
 msgid "Add Existing Room"
 msgstr "新增現存的聊天室"
 
-#: widgets/teams/teamchannelswidget.cpp:117
+#: widgets/teams/teamchannelswidget.cpp:118
 #, fuzzy, kde-format
 #| msgid "Create Room"
 msgctxt "@action"
 msgid "Create Room"
 msgstr "建立聊天室"
 
-#: widgets/teams/teamchannelswidget.cpp:123
+#: widgets/teams/teamchannelswidget.cpp:124
 #, fuzzy, kde-format
 #| msgid "Remove Autojoin"
 msgctxt "@action"
 msgid "Remove Autojoin"
 msgstr "移除自動加入"
 
-#: widgets/teams/teamchannelswidget.cpp:123
+#: widgets/teams/teamchannelswidget.cpp:124
 #, fuzzy, kde-format
 #| msgid "Add Autojoin"
 msgctxt "@action"
 msgid "Add Autojoin"
 msgstr "新增自動加入"
 
-#: widgets/teams/teamchannelswidget.cpp:130
+#: widgets/teams/teamchannelswidget.cpp:131
 #, fuzzy, kde-format
 #| msgid "Remove from Team"
 msgctxt "@action"
 msgid "Remove from Team"
 msgstr "從團隊中移除"
 
-#: widgets/teams/teamchannelswidget.cpp:165
+#: widgets/teams/teamchannelswidget.cpp:166
 #, kde-format
 msgid "Would you like to remove this Channel from team?"
 msgstr "您確定要將此頻道從團隊中移除嗎？"
 
-#: widgets/teams/teamchannelswidget.cpp:166
+#: widgets/teams/teamchannelswidget.cpp:167
 #, kde-format
 msgctxt "@title"
 msgid "Remove Channel from Team"

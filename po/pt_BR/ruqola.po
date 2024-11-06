@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-10-31 02:30+0000\n"
+"POT-Creation-Date: 2024-11-06 02:31+0000\n"
 "PO-Revision-Date: 2023-06-07 13:29-0300\n"
 "Last-Translator: Luiz Fernando Ranghetti <elchevive@opensuse.org>\n"
 "Language-Team: Brazilian Portuguese <kde-i18n-pt_BR@kde.org>\n"
@@ -7014,46 +7014,46 @@ msgctxt "@title:window"
 msgid "Convert To Channel"
 msgstr "Converter para canal"
 
-#: widgets/channellist/channellistview.cpp:185
+#: widgets/channellist/channellistview.cpp:186
 #, fuzzy, kde-format
 #| msgid "Move to Team"
 msgctxt "@action"
 msgid "Move to Team"
 msgstr "Mover para equipe"
 
-#: widgets/channellist/channellistview.cpp:202
+#: widgets/channellist/channellistview.cpp:203
 #, fuzzy, kde-format
 #| msgid "Configure Notification"
 msgctxt "@action"
 msgid "Configure Notification…"
 msgstr "Configurar notificação"
 
-#: widgets/channellist/channellistview.cpp:209
+#: widgets/channellist/channellistview.cpp:210
 #, fuzzy, kde-format
 #| msgid "Quit Channel"
 msgctxt "@action"
 msgid "Quit Channel"
 msgstr "Sair do canal"
 
-#: widgets/channellist/channellistview.cpp:252
+#: widgets/channellist/channellistview.cpp:253
 #, kde-format
 msgid "Any team selected."
 msgstr ""
 
-#: widgets/channellist/channellistview.cpp:252
+#: widgets/channellist/channellistview.cpp:253
 #, fuzzy, kde-format
 #| msgid "Move to Team"
 msgctxt "@title:window"
 msgid "Move To Team"
 msgstr "Mover para equipe"
 
-#: widgets/channellist/channellistview.cpp:301
+#: widgets/channellist/channellistview.cpp:302
 #, kde-format
 msgid "Are you sure to convert it to team? It can not be undo."
 msgstr ""
 "Tem certeza que deseja converter para equipe? Isto não pode ser desfeito."
 
-#: widgets/channellist/channellistview.cpp:302
+#: widgets/channellist/channellistview.cpp:303
 #, fuzzy, kde-format
 #| msgid "Convert to Team"
 msgctxt "@title:window"
@@ -11100,45 +11100,45 @@ msgctxt "@info:placeholder"
 msgid "Search room…"
 msgstr "Pesquisar salas"
 
-#: widgets/teams/teamchannelswidget.cpp:115
+#: widgets/teams/teamchannelswidget.cpp:116
 #, kde-format
 msgid "Add Existing Room"
 msgstr "Adicionar sala existente"
 
-#: widgets/teams/teamchannelswidget.cpp:117
+#: widgets/teams/teamchannelswidget.cpp:118
 #, fuzzy, kde-format
 #| msgid "Create Room"
 msgctxt "@action"
 msgid "Create Room"
 msgstr "Criar sala"
 
-#: widgets/teams/teamchannelswidget.cpp:123
+#: widgets/teams/teamchannelswidget.cpp:124
 #, fuzzy, kde-format
 #| msgid "Remove Autojoin"
 msgctxt "@action"
 msgid "Remove Autojoin"
 msgstr "Remover entrada automática"
 
-#: widgets/teams/teamchannelswidget.cpp:123
+#: widgets/teams/teamchannelswidget.cpp:124
 #, fuzzy, kde-format
 #| msgid "Add Autojoin"
 msgctxt "@action"
 msgid "Add Autojoin"
 msgstr "Adicionar entrada automática"
 
-#: widgets/teams/teamchannelswidget.cpp:130
+#: widgets/teams/teamchannelswidget.cpp:131
 #, fuzzy, kde-format
 #| msgid "Remove from Team"
 msgctxt "@action"
 msgid "Remove from Team"
 msgstr "Excluir da equipe"
 
-#: widgets/teams/teamchannelswidget.cpp:165
+#: widgets/teams/teamchannelswidget.cpp:166
 #, kde-format
 msgid "Would you like to remove this Channel from team?"
 msgstr "Deseja excluir este canal da equipe?"
 
-#: widgets/teams/teamchannelswidget.cpp:166
+#: widgets/teams/teamchannelswidget.cpp:167
 #, kde-format
 msgctxt "@title"
 msgid "Remove Channel from Team"

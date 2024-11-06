@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-10-31 02:30+0000\n"
+"POT-Creation-Date: 2024-11-06 02:31+0000\n"
 "PO-Revision-Date: 2020-06-13 21:18+0300\n"
 "Last-Translator: Marek Laane <qiilaq69@gmail.com>\n"
 "Language-Team: Estonian <kde-et@lists.linux.ee>\n"
@@ -7103,45 +7103,45 @@ msgctxt "@title:window"
 msgid "Convert To Channel"
 msgstr "Kanali loomine"
 
-#: widgets/channellist/channellistview.cpp:185
+#: widgets/channellist/channellistview.cpp:186
 #, fuzzy, kde-format
 #| msgid "Remove from Room"
 msgctxt "@action"
 msgid "Move to Team"
 msgstr "Eemalda toast"
 
-#: widgets/channellist/channellistview.cpp:202
+#: widgets/channellist/channellistview.cpp:203
 #, fuzzy, kde-format
 #| msgid "Configure Notification"
 msgctxt "@action"
 msgid "Configure Notification…"
 msgstr "Märguannete seadistamine"
 
-#: widgets/channellist/channellistview.cpp:209
+#: widgets/channellist/channellistview.cpp:210
 #, fuzzy, kde-format
 #| msgid "Quit Channel"
 msgctxt "@action"
 msgid "Quit Channel"
 msgstr "Välju kanalilt"
 
-#: widgets/channellist/channellistview.cpp:252
+#: widgets/channellist/channellistview.cpp:253
 #, kde-format
 msgid "Any team selected."
 msgstr ""
 
-#: widgets/channellist/channellistview.cpp:252
+#: widgets/channellist/channellistview.cpp:253
 #, fuzzy, kde-format
 #| msgid "Remove from Room"
 msgctxt "@title:window"
 msgid "Move To Team"
 msgstr "Eemalda toast"
 
-#: widgets/channellist/channellistview.cpp:301
+#: widgets/channellist/channellistview.cpp:302
 #, kde-format
 msgid "Are you sure to convert it to team? It can not be undo."
 msgstr ""
 
-#: widgets/channellist/channellistview.cpp:302
+#: widgets/channellist/channellistview.cpp:303
 #, fuzzy, kde-format
 #| msgid "Remove from Room"
 msgctxt "@title:window"
@@ -11199,48 +11199,48 @@ msgctxt "@info:placeholder"
 msgid "Search room…"
 msgstr "Toa otsimine"
 
-#: widgets/teams/teamchannelswidget.cpp:115
+#: widgets/teams/teamchannelswidget.cpp:116
 #, fuzzy, kde-format
 #| msgctxt "@title:window"
 #| msgid "Add Users in Room"
 msgid "Add Existing Room"
 msgstr "Kasutajate lisamine tuppa"
 
-#: widgets/teams/teamchannelswidget.cpp:117
+#: widgets/teams/teamchannelswidget.cpp:118
 #, fuzzy, kde-format
 #| msgid "Private Room:"
 msgctxt "@action"
 msgid "Create Room"
 msgstr "Privaattuba:"
 
-#: widgets/teams/teamchannelswidget.cpp:123
+#: widgets/teams/teamchannelswidget.cpp:124
 #, fuzzy, kde-format
 #| msgid "Remove from Room"
 msgctxt "@action"
 msgid "Remove Autojoin"
 msgstr "Eemalda toast"
 
-#: widgets/teams/teamchannelswidget.cpp:123
+#: widgets/teams/teamchannelswidget.cpp:124
 #, fuzzy, kde-format
 #| msgid "Add Account"
 msgctxt "@action"
 msgid "Add Autojoin"
 msgstr "Konto lisamine"
 
-#: widgets/teams/teamchannelswidget.cpp:130
+#: widgets/teams/teamchannelswidget.cpp:131
 #, fuzzy, kde-format
 #| msgid "Remove from Room"
 msgctxt "@action"
 msgid "Remove from Team"
 msgstr "Eemalda toast"
 
-#: widgets/teams/teamchannelswidget.cpp:165
+#: widgets/teams/teamchannelswidget.cpp:166
 #, fuzzy, kde-format
 #| msgid "Do you want to leave this channel?"
 msgid "Would you like to remove this Channel from team?"
 msgstr "Kas tõesti lahkuda sellelt kanalilt?"
 
-#: widgets/teams/teamchannelswidget.cpp:166
+#: widgets/teams/teamchannelswidget.cpp:167
 #, fuzzy, kde-format
 #| msgid "Remove from Room"
 msgctxt "@title"
