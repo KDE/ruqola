@@ -731,7 +731,6 @@ target_link_libraries(libruqolacore
     KF6::SyntaxHighlighting
     librocketchatrestapi-qt
     KF6::ConfigGui
-    KF6::ConfigWidgets
     KF6::IdleTime
     KF6::WindowSystem
     qt6keychain
