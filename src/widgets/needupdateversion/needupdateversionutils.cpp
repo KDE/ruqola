@@ -74,7 +74,11 @@ QUrl NeedUpdateVersionUtils::newVersionUrl()
 #endif
 
 #if defined(Q_OS_MACOS)
+#ifdef Q_PROCESSOR_ARM_64
     return QUrl("https://cdn.kde.org/ci-builds/network/ruqola/master/macos-arm64/"_L1);
+#else
+    return QUrl("https://cdn.kde.org/ci-builds/network/ruqola/master/macos-x86_64/"_L1);
+#endif
 #endif
     return {};
 }
