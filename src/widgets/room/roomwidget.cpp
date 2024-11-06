@@ -155,7 +155,6 @@ void RoomWidget::createPluginTextMessageWidget()
     mRoomWidgetLayout->insertWidget(1, mPluginTextMessageWidget);
 }
 
-// TODO using it
 void RoomWidget::createRoomReconnectInfoWidget()
 {
     mRoomReconnectInfoWidget = new ReconnectInfoWidget(this);
@@ -1034,6 +1033,9 @@ void RoomWidget::slotTryReconnect()
 void RoomWidget::slotDisplayReconnectWidget(int seconds)
 {
     // Disable for the moment it seems to create some problems
+    if (!mRoomReconnectInfoWidget) {
+        createRoomReconnectInfoWidget();
+    }
     // FIXME mRoomReconnectInfoWidget->setReconnectSecondDelay(seconds);
 }
 
