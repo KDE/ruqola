@@ -32,7 +32,7 @@ public:
     };
 
     struct LIBRUQOLACORE_EXPORT Permission {
-        enum PermissionType {
+        enum PermissionType : uint8_t {
             Unknown,
             MessageRead,
             MessageWrite,
