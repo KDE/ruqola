@@ -498,7 +498,6 @@ public:
     void setE2EPasswordMustBeSave(bool newE2EPasswordMustBeSave);
 
     [[nodiscard]] bool e2EPasswordMustBeDecrypt() const;
-    void setE2EPasswordMustBeDecrypt(bool newE2EPasswordMustBeDecrypt);
 
     void setLastSelectedRoom(const QByteArray &roomId);
 
@@ -579,6 +578,8 @@ Q_SIGNALS:
 
 private:
     Q_DISABLE_COPY(RocketChatAccount)
+
+    LIBRUQOLACORE_NO_EXPORT void setE2EPasswordMustBeDecrypt(bool newE2EPasswordMustBeDecrypt);
 
     LIBRUQOLACORE_NO_EXPORT void rolesInRoom(const QByteArray &roomId, Room::RoomType channelType);
 
