@@ -5,7 +5,10 @@
 */
 
 #include "myaccountprofileconfigureavatarwidget.h"
-using namespace Qt::Literals::StringLiterals;
+#include "connection.h"
+#include "ruqolawidgets_debug.h"
+#include "users/resetavatarjob.h"
+#include "users/userbasejob.h"
 
 #include "rocketchataccount.h"
 #include <KLocalizedString>
@@ -16,6 +19,7 @@ using namespace Qt::Literals::StringLiterals;
 #include <QInputDialog>
 #include <QMenu>
 
+using namespace Qt::Literals::StringLiterals;
 MyAccountProfileConfigureAvatarWidget::MyAccountProfileConfigureAvatarWidget(RocketChatAccount *account, QWidget *parent)
     : QWidget(parent)
     , mAvatarImage(new AvatarImage(account, this))
@@ -92,7 +96,15 @@ void AvatarImage::changeUrl()
 
 void AvatarImage::resetAvatar()
 {
-    mRocketChatAccount->resetAvatar();
+    RocketChatRestApi::UserBaseJob::UserInfo info;
+    info.userInfoType = RocketChatRestApi::UserBaseJob::UserInfoType::UserId;
+    info.userIdentifier = QString::fromLatin1(mRocketChatAccount->userId());
+    auto job = new RocketChatRestApi::ResetAvatarJob(this);
+    job->setUserInfo(info);
+    mRocketChatAccount->restApi()->initializeRestApiJob(job);
+    if (!job->start()) {
+        qCDebug(RUQOLAWIDGETS_LOG) << "Impossible to start ResetAvatarJob";
+    }
 }
 
 void AvatarImage::contextMenuEvent(QContextMenuEvent *event)

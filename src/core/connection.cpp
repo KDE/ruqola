@@ -19,7 +19,6 @@
 #include "users/forgotpasswordjob.h"
 #include "users/getavatarjob.h"
 #include "users/getpresencejob.h"
-#include "users/resetavatarjob.h"
 #include "users/userinfojob.h"
 #include "users/userspresencejob.h"
 
@@ -1423,16 +1422,6 @@ void Connection::setUserPreferences(const RocketChatRestApi::UsersSetPreferences
     connect(job, &UsersSetPreferencesJob::usersSetPreferencesDone, this, &Connection::usersSetPreferencesDone);
     if (!job->start()) {
         qCDebug(RUQOLA_LOG) << "Impossible to start UsersSetPreferencesJob";
-    }
-}
-
-void Connection::resetAvatar(const UserBaseJob::UserInfo &info)
-{
-    auto job = new ResetAvatarJob(this);
-    job->setUserInfo(info);
-    initializeRestApiJob(job);
-    if (!job->start()) {
-        qCDebug(RUQOLA_LOG) << "Impossible to start ResetAvatarJob";
     }
 }
 

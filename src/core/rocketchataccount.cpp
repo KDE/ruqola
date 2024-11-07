@@ -2949,15 +2949,6 @@ QStringList RocketChatAccount::highlightWords() const
     return ownUser().ownUserPreferences().highlightWords();
 }
 
-void RocketChatAccount::resetAvatar()
-{
-    RocketChatRestApi::UserBaseJob::UserInfo info;
-    info.userInfoType = RocketChatRestApi::UserBaseJob::UserInfoType::UserId;
-    info.userIdentifier = QString::fromLatin1(userId());
-    restApi()->resetAvatar(info);
-    // TODO update avatar when we reset it.
-}
-
 void RocketChatAccount::setAvatarUrl(const QString &url)
 {
     RocketChatRestApi::UserBaseJob::UserInfo userInfo;

@@ -370,7 +370,6 @@ public:
 
     void addMessage(const QJsonObject &replyObject, bool useRestApi = false, bool temporaryMessage = false);
     [[nodiscard]] QStringList highlightWords() const;
-    void resetAvatar();
     void setAvatarUrl(const QString &url);
     [[nodiscard]] bool hasPermission(const QString &permissionId, const QByteArray &roomId = {}) const;
     [[nodiscard]] QStringList permissions(const QString &permissionId) const;

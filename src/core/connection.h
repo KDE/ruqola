@@ -149,7 +149,6 @@ public:
     void getRoomsAdmin(const RocketChatRestApi::AdminRoomsJob::AdminRoomsJobInfo &info);
     void getChannelsCounter(const QByteArray &roomId);
     void setUserPreferences(const RocketChatRestApi::UsersSetPreferencesJob::UsersSetPreferencesInfo &info);
-    void resetAvatar(const RocketChatRestApi::UserBaseJob::UserInfo &info);
     void searchRooms(const QString &pattern);
     void getMentionedMessages(const QByteArray &roomId, int offset = 0, int count = 50);
     void hideMentionStatus(const QByteArray &roomId, bool value);
