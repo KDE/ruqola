@@ -9,10 +9,8 @@
 
 #pragma once
 
-#include "attachments/file.h"
 #include "libruqolacore_export.h"
 #include "messages/message.h"
-#include "user.h"
 #include <QObject>
 class DDPClient;
 class RocketChatAccount;
@@ -30,8 +28,6 @@ public:
      * @param messages The Json containing the message
      */
     void processIncomingMessages(const QJsonArray &messages, bool loadHistory, bool restApi = false);
-
-    [[nodiscard]] QList<User> users() const;
 
     void loadPublicSettingsAdministrator(qint64 timeStamp = -1);
 
@@ -59,6 +55,5 @@ private:
     LIBRUQOLACORE_NO_EXPORT void updateVideoConferenceInfo(const Message &m);
     LIBRUQOLACORE_NO_EXPORT void initializeSubscription(DDPClient *ddp);
 
-    QList<User> mUsers;
     RocketChatAccount *const mRocketChatAccount;
 };

@@ -10,7 +10,6 @@
 #include "rocketchatbackend.h"
 #include "ruqola_authentication_debug.h"
 #include "ruqola_reconnect_core_debug.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "authenticationmanager/ddpauthenticationmanager.h"
 #include "config-ruqola.h"
@@ -32,6 +31,7 @@ using namespace Qt::Literals::StringLiterals;
 #include "authenticationmanager/restauthenticationmanager.h"
 #include "connection.h"
 #include <QJsonArray>
+using namespace Qt::Literals::StringLiterals;
 
 void process_updatePublicsettings(const QJsonObject &obj, RocketChatAccount *account)
 {
@@ -474,11 +474,6 @@ void RocketChatBackend::tryAutoLogin()
     }
 }
 
-QList<User> RocketChatBackend::users() const
-{
-    return mUsers;
-}
-
 void RocketChatBackend::slotRemoved(const QJsonObject &object)
 {
     const QString collection = object.value("collection"_L1).toString();
@@ -537,6 +532,7 @@ void RocketChatBackend::slotAdded(const QJsonObject &object)
         // qCDebug(RUQOLA_UNKNOWN_COLLECTIONTYPE_LOG) << mRocketChatAccount->accountName() << ":stream-notify-all: " << object;
         // TODO verify that all is ok !
     } else if (collection == "autocompleteRecords"_L1) {
+        qWarning() << "autocompleteRecords: Necessary to implement autocompleteRecords !!!!!";
         if (mRocketChatAccount->ruqolaLogger()) {
             QJsonDocument d;
             d.setObject(object);
@@ -544,9 +540,6 @@ void RocketChatBackend::slotAdded(const QJsonObject &object)
         } else {
             qCDebug(RUQOLA_LOG) << "AutoCompleteRecords VALUE" << object;
         }
-        User user;
-        user.parseUser(object);
-        mUsers.append(std::move(user));
     } else if (collection == "room_files"_L1) {
         qWarning() << " Necessary to implement room_files !!!!!";
         /*
