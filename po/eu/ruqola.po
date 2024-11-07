@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-11-06 00:40+0000\n"
+"POT-Creation-Date: 2024-11-07 00:40+0000\n"
 "PO-Revision-Date: 2024-10-28 23:57+0100\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
@@ -975,7 +975,7 @@ msgstr "%1 eta %2"
 #: core/model/permissionsmodel.cpp:30
 #: core/model/personalaccesstokeninfosmodel.cpp:78
 #: core/model/usersinrolemodel.cpp:86
-#: widgets/administratordialog/customuserstatus/customuserstatustreewidget.cpp:39
+#: widgets/administratordialog/customuserstatus/customuserstatustreewidget.cpp:42
 #: widgets/administratorsettingsdialog/ircfederation/ircfederationwidget.cpp:47
 #, kde-format
 msgid "Name"
@@ -1737,7 +1737,7 @@ msgctxt "WARNING!!!!!!: PLEASE We need a space between after </strong>"
 msgid "<strong>%1</strong> are typing..."
 msgstr "<strong>%1</strong> tekleatzen ari dira..."
 
-#: core/rocketchataccount.cpp:692
+#: core/rocketchataccount.cpp:691
 #, kde-format
 msgid ""
 "REST: %1\n"
@@ -1746,12 +1746,12 @@ msgstr ""
 "REST: %1\n"
 "DDP: %2"
 
-#: core/rocketchataccount.cpp:700 core/rocketchataccount.cpp:712
+#: core/rocketchataccount.cpp:699 core/rocketchataccount.cpp:711
 #, kde-format
 msgid "Not connected"
 msgstr "Konektatu gabe"
 
-#: core/rocketchataccount.cpp:707
+#: core/rocketchataccount.cpp:706
 #, kde-format
 msgid "Not connected yet"
 msgstr "Oraindik konektatu gabe"
@@ -2901,7 +2901,7 @@ msgstr "Kendu Emojia"
 
 #: widgets/administratordialog/customemoji/administratorcustomemojiwidget.cpp:178
 #: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:167
-#: widgets/administratordialog/customuserstatus/customuserstatustreewidget.cpp:127
+#: widgets/administratordialog/customuserstatus/customuserstatustreewidget.cpp:146
 #: widgets/administratordialog/oauth/oauthtreeview.cpp:49
 #: widgets/administratordialog/roles/administratorroleswidget.cpp:101
 #: widgets/administratordialog/roles/usersinrolewidget.cpp:106
@@ -2914,7 +2914,7 @@ msgstr "Gehitu…"
 
 #: widgets/administratordialog/customemoji/administratorcustomemojiwidget.cpp:181
 #: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:169
-#: widgets/administratordialog/customuserstatus/customuserstatustreewidget.cpp:130
+#: widgets/administratordialog/customuserstatus/customuserstatustreewidget.cpp:149
 #: widgets/administratordialog/oauth/oauthtreeview.cpp:51
 #: widgets/administratordialog/permissions/permissionswidget.cpp:92
 #: widgets/administratordialog/roles/administratorroleswidget.cpp:105
@@ -2927,7 +2927,7 @@ msgstr "Aldatu..."
 
 #: widgets/administratordialog/customemoji/administratorcustomemojiwidget.cpp:186
 #: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:173
-#: widgets/administratordialog/customuserstatus/customuserstatustreewidget.cpp:132
+#: widgets/administratordialog/customuserstatus/customuserstatustreewidget.cpp:151
 #: widgets/administratordialog/invites/invitetreeview.cpp:39
 #: widgets/administratordialog/oauth/oauthtreeview.cpp:55
 #: widgets/administratordialog/roles/administratorroleswidget.cpp:120
@@ -2995,18 +2995,18 @@ msgstr "Editatu Erabiltzailearen-egoera"
 msgid "Status:"
 msgstr "Egoera:"
 
-#: widgets/administratordialog/customuserstatus/customuserstatustreewidget.cpp:39
+#: widgets/administratordialog/customuserstatus/customuserstatustreewidget.cpp:42
 #, kde-format
 msgid "Presence"
 msgstr "Presentzia"
 
-#: widgets/administratordialog/customuserstatus/customuserstatustreewidget.cpp:116
+#: widgets/administratordialog/customuserstatus/customuserstatustreewidget.cpp:130
 #: widgets/administratordialog/rooms/administratorroomswidget.cpp:211
 #, kde-format
 msgid "Do you want to remove \"%1\"?"
 msgstr "\"%1\" kendu nahi duzu?"
 
-#: widgets/administratordialog/customuserstatus/customuserstatustreewidget.cpp:117
+#: widgets/administratordialog/customuserstatus/customuserstatustreewidget.cpp:131
 #, kde-format
 msgctxt "@title"
 msgid "Remove Custom User Status"
@@ -10404,28 +10404,28 @@ msgstr "Hari batean erantzutea"
 msgid "Reply in Thread for Message: '%1'"
 msgstr "Erantzun harian mezuari: '%1'"
 
-#: widgets/room/roomwidget.cpp:335
+#: widgets/room/roomwidget.cpp:334
 #, kde-format
 msgid "Do you want really remove history?"
 msgstr "Historia benetan kendu nahi duzu?"
 
-#: widgets/room/roomwidget.cpp:336
+#: widgets/room/roomwidget.cpp:335
 #, kde-format
 msgctxt "@title:window"
 msgid "Remove History"
 msgstr "Kendu historia"
 
-#: widgets/room/roomwidget.cpp:370
+#: widgets/room/roomwidget.cpp:369
 #, kde-format
 msgid "Export Messages"
 msgstr "Esportatu mezuak"
 
-#: widgets/room/roomwidget.cpp:371
+#: widgets/room/roomwidget.cpp:370
 #, kde-format
 msgid "Your email has been queued for sending."
 msgstr "Zure e-posta bidaltzeko ilaran ipini da."
 
-#: widgets/room/roomwidget.cpp:525
+#: widgets/room/roomwidget.cpp:524
 #, kde-format
 msgid ""
 "A workspace admin needs to install and configure a conference call apps."
@@ -10433,7 +10433,7 @@ msgstr ""
 "Langunearen administratzaile batek konferentzia aplikazio bat instalatu eta "
 "konfiguratu behar du."
 
-#: widgets/room/roomwidget.cpp:526
+#: widgets/room/roomwidget.cpp:525
 #, kde-format
 msgctxt "@title:window"
 msgid "Video Conference"

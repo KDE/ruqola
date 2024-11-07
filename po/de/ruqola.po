@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-11-06 00:40+0000\n"
+"POT-Creation-Date: 2024-11-07 00:40+0000\n"
 "PO-Revision-Date: 2023-05-10 20:24+0200\n"
 "Last-Translator: Frederik Schwarzer <schwarzer@kde.org>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
@@ -1003,7 +1003,7 @@ msgstr "%1 und %2"
 #: core/model/permissionsmodel.cpp:30
 #: core/model/personalaccesstokeninfosmodel.cpp:78
 #: core/model/usersinrolemodel.cpp:86
-#: widgets/administratordialog/customuserstatus/customuserstatustreewidget.cpp:39
+#: widgets/administratordialog/customuserstatus/customuserstatustreewidget.cpp:42
 #: widgets/administratorsettingsdialog/ircfederation/ircfederationwidget.cpp:47
 #, kde-format
 msgid "Name"
@@ -1828,19 +1828,19 @@ msgctxt "WARNING!!!!!!: PLEASE We need a space between after </strong>"
 msgid "<strong>%1</strong> are typing..."
 msgstr "<strong>%1</strong> schreiben gerade ..."
 
-#: core/rocketchataccount.cpp:692
+#: core/rocketchataccount.cpp:691
 #, kde-format
 msgid ""
 "REST: %1\n"
 "DDP: %2"
 msgstr ""
 
-#: core/rocketchataccount.cpp:700 core/rocketchataccount.cpp:712
+#: core/rocketchataccount.cpp:699 core/rocketchataccount.cpp:711
 #, kde-format
 msgid "Not connected"
 msgstr "Nicht verbunden"
 
-#: core/rocketchataccount.cpp:707
+#: core/rocketchataccount.cpp:706
 #, fuzzy, kde-format
 #| msgid "Not connected"
 msgid "Not connected yet"
@@ -3009,7 +3009,7 @@ msgstr "Entfernen"
 
 #: widgets/administratordialog/customemoji/administratorcustomemojiwidget.cpp:178
 #: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:167
-#: widgets/administratordialog/customuserstatus/customuserstatustreewidget.cpp:127
+#: widgets/administratordialog/customuserstatus/customuserstatustreewidget.cpp:146
 #: widgets/administratordialog/oauth/oauthtreeview.cpp:49
 #: widgets/administratordialog/roles/administratorroleswidget.cpp:101
 #: widgets/administratordialog/roles/usersinrolewidget.cpp:106
@@ -3022,7 +3022,7 @@ msgstr ""
 
 #: widgets/administratordialog/customemoji/administratorcustomemojiwidget.cpp:181
 #: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:169
-#: widgets/administratordialog/customuserstatus/customuserstatustreewidget.cpp:130
+#: widgets/administratordialog/customuserstatus/customuserstatustreewidget.cpp:149
 #: widgets/administratordialog/oauth/oauthtreeview.cpp:51
 #: widgets/administratordialog/permissions/permissionswidget.cpp:92
 #: widgets/administratordialog/roles/administratorroleswidget.cpp:105
@@ -3036,7 +3036,7 @@ msgstr "Ändern ..."
 
 #: widgets/administratordialog/customemoji/administratorcustomemojiwidget.cpp:186
 #: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:173
-#: widgets/administratordialog/customuserstatus/customuserstatustreewidget.cpp:132
+#: widgets/administratordialog/customuserstatus/customuserstatustreewidget.cpp:151
 #: widgets/administratordialog/invites/invitetreeview.cpp:39
 #: widgets/administratordialog/oauth/oauthtreeview.cpp:55
 #: widgets/administratordialog/roles/administratorroleswidget.cpp:120
@@ -3114,18 +3114,18 @@ msgstr "Benutzerstatus bearbeiten"
 msgid "Status:"
 msgstr "Status:"
 
-#: widgets/administratordialog/customuserstatus/customuserstatustreewidget.cpp:39
+#: widgets/administratordialog/customuserstatus/customuserstatustreewidget.cpp:42
 #, kde-format
 msgid "Presence"
 msgstr "Anwesenheit"
 
-#: widgets/administratordialog/customuserstatus/customuserstatustreewidget.cpp:116
+#: widgets/administratordialog/customuserstatus/customuserstatustreewidget.cpp:130
 #: widgets/administratordialog/rooms/administratorroomswidget.cpp:211
 #, kde-format
 msgid "Do you want to remove \"%1\"?"
 msgstr "Möchten Sie „%1“ entfernen?"
 
-#: widgets/administratordialog/customuserstatus/customuserstatustreewidget.cpp:117
+#: widgets/administratordialog/customuserstatus/customuserstatustreewidget.cpp:131
 #, fuzzy, kde-format
 #| msgid "Status:"
 msgctxt "@title"
@@ -10877,35 +10877,35 @@ msgstr ""
 msgid "Reply in Thread for Message: '%1'"
 msgstr "Nachricht"
 
-#: widgets/room/roomwidget.cpp:335
+#: widgets/room/roomwidget.cpp:334
 #, kde-format
 msgid "Do you want really remove history?"
 msgstr "Möchten Sie den Verlauf wirklich öffnen?"
 
-#: widgets/room/roomwidget.cpp:336
+#: widgets/room/roomwidget.cpp:335
 #, fuzzy, kde-format
 #| msgid "Remove History"
 msgctxt "@title:window"
 msgid "Remove History"
 msgstr "Verlauf löschen"
 
-#: widgets/room/roomwidget.cpp:370
+#: widgets/room/roomwidget.cpp:369
 #, kde-format
 msgid "Export Messages"
 msgstr "Nachrichten exportieren"
 
-#: widgets/room/roomwidget.cpp:371
+#: widgets/room/roomwidget.cpp:370
 #, kde-format
 msgid "Your email has been queued for sending."
 msgstr ""
 
-#: widgets/room/roomwidget.cpp:525
+#: widgets/room/roomwidget.cpp:524
 #, kde-format
 msgid ""
 "A workspace admin needs to install and configure a conference call apps."
 msgstr ""
 
-#: widgets/room/roomwidget.cpp:526
+#: widgets/room/roomwidget.cpp:525
 #, fuzzy, kde-format
 #| msgid "Preference"
 msgctxt "@title:window"
