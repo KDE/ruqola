@@ -116,16 +116,17 @@ Q_SIGNALS:
     void replyToThread(const QByteArray &messageId, const QString &threadPreview);
 
 private:
-    void slotUpdateColors();
-    void switchMessageLayout();
-    void slotPrivateSettingsChanged();
-    void clearAvatarSizeHintCache();
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotUpdateColors();
+    LIBRUQOLAWIDGETS_NO_EXPORT void switchMessageLayout();
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotPrivateSettingsChanged();
+    LIBRUQOLAWIDGETS_NO_EXPORT void clearAvatarSizeHintCache();
 
     [[nodiscard]] MessageListLayoutBase::Layout doLayout(const QStyleOptionViewItem &option, const QModelIndex &index) const;
-    void drawLastSeenLine(QPainter *painter, qint64 displayLastSeenY, const QStyleOptionViewItem &option) const;
-    void drawModerationDate(QPainter *painter, const QModelIndex &index, const QStyleOptionViewItem &option, const QString &roomName) const;
-    [[nodiscard]] bool isSystemMessage(const Message *message) const;
-    [[nodiscard]] QByteArray cacheIdentifier(const QModelIndex &index) const;
+    LIBRUQOLAWIDGETS_NO_EXPORT void drawLastSeenLine(QPainter *painter, qint64 displayLastSeenY, const QStyleOptionViewItem &option) const;
+    LIBRUQOLAWIDGETS_NO_EXPORT void
+    drawModerationDate(QPainter *painter, const QModelIndex &index, const QStyleOptionViewItem &option, const QString &roomName) const;
+    [[nodiscard]] LIBRUQOLAWIDGETS_NO_EXPORT bool isSystemMessage(const Message *message) const;
+    [[nodiscard]] LIBRUQOLAWIDGETS_NO_EXPORT QByteArray cacheIdentifier(const QModelIndex &index) const;
 
     friend class MessageListDelegateTest;
 

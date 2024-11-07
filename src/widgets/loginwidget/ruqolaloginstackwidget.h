@@ -19,8 +19,6 @@ public:
     explicit RuqolaLoginStackWidget(QWidget *parent = nullptr);
     ~RuqolaLoginStackWidget() override;
 
-    void addAuthenticationConfigureWidget(AuthenticationManager::AuthMethodType type);
-
     [[nodiscard]] AccountManager::AccountManagerInfo accountInfo() const;
     void setAccountInfo(const AccountManager::AccountManagerInfo &info);
 
@@ -31,6 +29,7 @@ Q_SIGNALS:
     void tryLogin();
 
 private:
+    LIBRUQOLAWIDGETS_NO_EXPORT void addAuthenticationConfigureWidget(AuthenticationManager::AuthMethodType type);
     QStringList mExistingAccountNames;
     AccountManager::AccountManagerInfo mAccountManagerInfo;
     PluginAuthenticationConfigureWidget *mPluginAuthenticationConfigureWidget = nullptr;
