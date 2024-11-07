@@ -58,9 +58,7 @@ void RoomsExportJobTest::shouldGenerateJson()
     info.dateTo = QDateTime(QDate(2020, 3, 3), QTime(5, 7, 50));
     job.setRoomExportInfo(info);
     QCOMPARE(job.json().toJson(QJsonDocument::Compact),
-             QStringLiteral(R"({"dateFrom":"2020-12-03T05:07:50.000","dateTo":"2020-03-03T05:07:50.000","rid":"%1","type":"file"})")
-                 .arg(QLatin1StringView(roomId))
-                 .toLatin1());
+             QStringLiteral(R"({"dateFrom":"2020-12-03","dateTo":"2020-03-03","rid":"%1","type":"file"})").arg(QLatin1StringView(roomId)).toLatin1());
     //    info.inclusive = true;
     //    job.setCleanHistoryInfo(info);
     //    QCOMPARE(job.json().toJson(QJsonDocument::Compact),
