@@ -98,8 +98,8 @@ void RoomsExportJob::createJsonForFile(QJsonObject &jsonObj) const
         jsonObj["format"_L1] = QStringLiteral("json");
         break;
     }
-    jsonObj["dateTo"_L1] = mRoomExportInfo.dateTo.toString(Qt::ISODateWithMs);
-    jsonObj["dateFrom"_L1] = mRoomExportInfo.dateFrom.toString(Qt::ISODateWithMs);
+    jsonObj["dateTo"_L1] = mRoomExportInfo.dateTo.date().toString(Qt::ISODate);
+    jsonObj["dateFrom"_L1] = mRoomExportInfo.dateFrom.date().toString(Qt::ISODate);
 }
 
 void RoomsExportJob::createJsonForEmail(QJsonObject &jsonObj) const
@@ -126,6 +126,7 @@ QNetworkRequest RoomsExportJob::request() const
     QNetworkRequest request(url);
     addAuthRawHeader(request);
     addRequestAttribute(request);
+    // qDebug() << " url ************* " << url;
     return request;
 }
 
