@@ -18,7 +18,7 @@ public:
     NotificationInfo();
     ~NotificationInfo();
 
-    enum NotificationType {
+    enum class NotificationType : uint8_t {
         StandardMessage,
         ConferenceCall,
     };
@@ -87,7 +87,7 @@ private:
     QByteArray mTmId;
     QDateTime mDateTime;
     QPixmap mPixmap;
-    NotificationType mNotificationType = StandardMessage;
+    NotificationType mNotificationType = NotificationType::StandardMessage;
 };
 Q_DECLARE_TYPEINFO(NotificationInfo, Q_RELOCATABLE_TYPE);
 LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const NotificationInfo &t);

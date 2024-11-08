@@ -2172,7 +2172,7 @@ void RocketChatAccount::sendNotification(const QJsonArray &contents)
         qCWarning(RUQOLA_LOG) << " Info is invalid ! " << contents;
     } else {
         switch (info.notificationType()) {
-        case NotificationInfo::StandardMessage: {
+        case NotificationInfo::NotificationType::StandardMessage: {
             const QString iconFileName = mCache->avatarUrlFromCacheOnly(info.senderUserName());
             // qDebug() << " iconFileName" << iconFileName << " sender " << info.senderId() << " info.senderUserName() " << info.senderUserName();
             QPixmap pix;
@@ -2187,7 +2187,7 @@ void RocketChatAccount::sendNotification(const QJsonArray &contents)
             }
             break;
         }
-        case NotificationInfo::ConferenceCall: {
+        case NotificationInfo::NotificationType::ConferenceCall: {
             // Nothing
             break;
         }

@@ -739,7 +739,7 @@ void AccountManager::connectToAccount(RocketChatAccount *account)
         NotificationHistoryManager::self()->addNotification(info);
 
         switch (info.notificationType()) {
-        case NotificationInfo::StandardMessage: {
+        case NotificationInfo::NotificationType::StandardMessage: {
             if (Room *room = account->room(info.roomId())) {
                 const QByteArray audioNotificationId = room->notificationOptions().audioNotificationValue();
                 account->playSound(audioNotificationId);
@@ -760,7 +760,7 @@ void AccountManager::connectToAccount(RocketChatAccount *account)
             job->start();
             break;
         }
-        case NotificationInfo::ConferenceCall: {
+        case NotificationInfo::NotificationType::ConferenceCall: {
             break;
         }
         }

@@ -57,9 +57,9 @@ QVariant NotificationHistoryModel::data(const QModelIndex &index, int role) cons
 QString NotificationHistoryModel::generateMessage(const NotificationInfo &info) const
 {
     switch (info.notificationType()) {
-    case NotificationInfo::StandardMessage:
+    case NotificationInfo::NotificationType::StandardMessage:
         return info.message();
-    case NotificationInfo::ConferenceCall:
+    case NotificationInfo::NotificationType::ConferenceCall:
         return i18n("Conference Call");
     }
     return {};

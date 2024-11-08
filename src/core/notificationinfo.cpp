@@ -167,7 +167,7 @@ void NotificationInfo::parseNotification(const QJsonArray &contents)
             setMessage(obj["text"_L1].toString());
         } else {
             if (messageObj["t"_L1].toString() == "videoconf"_L1) {
-                mNotificationType = ConferenceCall;
+                mNotificationType = NotificationType::ConferenceCall;
             } else {
                 setMessage(messageObj["msg"_L1].toString());
                 if (message().isEmpty()) {
@@ -185,7 +185,7 @@ void NotificationInfo::parseNotification(const QJsonArray &contents)
 bool NotificationInfo::isValid() const
 {
     bool valid = !mSenderId.isEmpty() && !mChannelType.isEmpty();
-    if (mNotificationType == ConferenceCall) {
+    if (mNotificationType == NotificationType::ConferenceCall) {
         return valid;
     }
     return valid && !mMessage.isEmpty();
