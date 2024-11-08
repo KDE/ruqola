@@ -32,7 +32,7 @@ QJsonDocument CreateChannelTeamInfo::json() const
         jsonObj["readOnly"_L1] = true;
     } // Default is false
 
-    if (infoType == Team) {
+    if (infoType == CreateInfoType::Team) {
         jsonObj["type"_L1] = privateChannel ? 1 : 0;
     }
 

@@ -15,7 +15,7 @@ namespace RocketChatRestApi
 struct LIBROCKETCHATRESTAPI_QT_EXPORT CreateChannelTeamInfo {
     Q_GADGET
 public:
-    enum CreateInfoType {
+    enum class CreateInfoType : uint8_t {
         Unknown = 0,
         Channel = 1,
         Team = 2,
