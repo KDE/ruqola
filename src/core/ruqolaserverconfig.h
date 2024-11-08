@@ -25,7 +25,7 @@ public:
     };
 
     struct LIBRUQOLACORE_EXPORT PasswordSettings {
-        enum PasswordSettingCheck {
+        enum PasswordSettingCheck : uint8_t {
             None = 0,
             MinLengh = 1,
             MaxLengh = 2,

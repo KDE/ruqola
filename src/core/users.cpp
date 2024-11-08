@@ -55,11 +55,11 @@ void Users::parseListUsers(const QJsonObject &obj, ParseType type, const QList<R
 {
     QString parseTypeStr;
     switch (type) {
-    case UserInRoles:
-    case Administrator:
+    case ParseType::UserInRoles:
+    case ParseType::Administrator:
         parseTypeStr = QStringLiteral("users");
         break;
-    case Directory:
+    case ParseType::Directory:
         parseTypeStr = QStringLiteral("result");
         break;
     }

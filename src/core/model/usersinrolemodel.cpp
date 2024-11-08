@@ -33,7 +33,7 @@ QList<int> UsersInRoleModel::hideColumns() const
 void UsersInRoleModel::addMoreElements(const QJsonObject &obj)
 {
     const int numberOfElement = mUsers.count();
-    mUsers.parseMoreUsers(obj, Users::UserInRoles, {}); // Don't use RoleInfo as we don't need to show it
+    mUsers.parseMoreUsers(obj, Users::ParseType::UserInRoles, {}); // Don't use RoleInfo as we don't need to show it
     beginInsertRows(QModelIndex(), numberOfElement, mUsers.count() - 1);
     endInsertRows();
     checkFullList();
@@ -46,7 +46,7 @@ void UsersInRoleModel::parseElements(const QJsonObject &obj)
         mUsers.clear();
         endResetModel();
     }
-    mUsers.parseUsers(obj, Users::UserInRoles, {});
+    mUsers.parseUsers(obj, Users::ParseType::UserInRoles, {});
     if (!mUsers.isEmpty()) {
         beginInsertRows(QModelIndex(), 0, mUsers.count() - 1);
         endInsertRows();
