@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-11-07 00:40+0000\n"
+"POT-Creation-Date: 2024-11-08 00:40+0000\n"
 "PO-Revision-Date: 2024-11-06 16:19+0300\n"
 "Last-Translator: Olesya Gerasimenko <translation-team@basealt.ru>\n"
 "Language-Team: Basealt Translation Team\n"
@@ -8332,14 +8332,14 @@ msgid "Email:"
 msgstr "Адрес эл. почты:"
 
 #: widgets/dialogs/roomavatarwidget.cpp:31
-#: widgets/myaccount/myaccountprofileconfigureavatarwidget.cpp:101
+#: widgets/myaccount/myaccountprofileconfigureavatarwidget.cpp:113
 #, kde-format
 msgctxt "@action"
 msgid "Change Picture…"
 msgstr "Изменить изображение…"
 
 #: widgets/dialogs/roomavatarwidget.cpp:33
-#: widgets/myaccount/myaccountprofileconfigureavatarwidget.cpp:104
+#: widgets/myaccount/myaccountprofileconfigureavatarwidget.cpp:116
 #, kde-format
 msgctxt "@action"
 msgid "Reset Avatar"
@@ -8354,7 +8354,7 @@ msgid "Cancel"
 msgstr "Отменить"
 
 #: widgets/dialogs/roomavatarwidget.cpp:49
-#: widgets/myaccount/myaccountprofileconfigureavatarwidget.cpp:76
+#: widgets/myaccount/myaccountprofileconfigureavatarwidget.cpp:80
 #, kde-format
 msgid "Image"
 msgstr "Изображение"
@@ -9594,24 +9594,24 @@ msgid "Your Rocket.Chat administrator has disabled email notifications"
 msgstr ""
 "Ваш администратор Rocket.Chat отключил уведомления по электронной почте"
 
-#: widgets/myaccount/myaccountprofileconfigureavatarwidget.cpp:77
+#: widgets/myaccount/myaccountprofileconfigureavatarwidget.cpp:81
 #, kde-format
 msgctxt "@title:window"
 msgid "Select Image"
 msgstr "Выбор изображения"
 
-#: widgets/myaccount/myaccountprofileconfigureavatarwidget.cpp:87
+#: widgets/myaccount/myaccountprofileconfigureavatarwidget.cpp:91
 #, kde-format
 msgctxt "@title:window"
 msgid "Change Url"
 msgstr "Изменение URL-адреса"
 
-#: widgets/myaccount/myaccountprofileconfigureavatarwidget.cpp:87
+#: widgets/myaccount/myaccountprofileconfigureavatarwidget.cpp:91
 #, kde-format
 msgid "Define Avatar Url:"
 msgstr "Указание адреса аватара:"
 
-#: widgets/myaccount/myaccountprofileconfigureavatarwidget.cpp:102
+#: widgets/myaccount/myaccountprofileconfigureavatarwidget.cpp:114
 #, kde-format
 msgctxt "@action"
 msgid "Change URL for avatar…"

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-11-07 00:40+0000\n"
+"POT-Creation-Date: 2024-11-08 00:40+0000\n"
 "PO-Revision-Date: 2020-06-13 21:18+0300\n"
 "Last-Translator: Marek Laane <qiilaq69@gmail.com>\n"
 "Language-Team: Estonian <kde-et@lists.linux.ee>\n"
@@ -8703,7 +8703,7 @@ msgid "Email:"
 msgstr "E-post"
 
 #: widgets/dialogs/roomavatarwidget.cpp:31
-#: widgets/myaccount/myaccountprofileconfigureavatarwidget.cpp:101
+#: widgets/myaccount/myaccountprofileconfigureavatarwidget.cpp:113
 #, fuzzy, kde-format
 #| msgid "Channel Info..."
 msgctxt "@action"
@@ -8711,7 +8711,7 @@ msgid "Change Picture…"
 msgstr "Kanali teave ..."
 
 #: widgets/dialogs/roomavatarwidget.cpp:33
-#: widgets/myaccount/myaccountprofileconfigureavatarwidget.cpp:104
+#: widgets/myaccount/myaccountprofileconfigureavatarwidget.cpp:116
 #, fuzzy, kde-format
 #| msgid "Get Avatar"
 msgctxt "@action"
@@ -8728,7 +8728,7 @@ msgid "Cancel"
 msgstr "Loobu"
 
 #: widgets/dialogs/roomavatarwidget.cpp:49
-#: widgets/myaccount/myaccountprofileconfigureavatarwidget.cpp:76
+#: widgets/myaccount/myaccountprofileconfigureavatarwidget.cpp:80
 #, kde-format
 msgid "Image"
 msgstr "Pilt"
@@ -10048,27 +10048,27 @@ msgstr "Mainimiste otsimine ..."
 msgid "Your Rocket.Chat administrator has disabled email notifications"
 msgstr ""
 
-#: widgets/myaccount/myaccountprofileconfigureavatarwidget.cpp:77
+#: widgets/myaccount/myaccountprofileconfigureavatarwidget.cpp:81
 #, fuzzy, kde-format
 #| msgid "Save Image"
 msgctxt "@title:window"
 msgid "Select Image"
 msgstr "Pildi salvestamine"
 
-#: widgets/myaccount/myaccountprofileconfigureavatarwidget.cpp:87
+#: widgets/myaccount/myaccountprofileconfigureavatarwidget.cpp:91
 #, fuzzy, kde-format
 #| msgid "Channel"
 msgctxt "@title:window"
 msgid "Change Url"
 msgstr "Kanal"
 
-#: widgets/myaccount/myaccountprofileconfigureavatarwidget.cpp:87
+#: widgets/myaccount/myaccountprofileconfigureavatarwidget.cpp:91
 #, fuzzy, kde-format
 #| msgid "Get Avatar"
 msgid "Define Avatar Url:"
 msgstr "Hangi avatar"
 
-#: widgets/myaccount/myaccountprofileconfigureavatarwidget.cpp:102
+#: widgets/myaccount/myaccountprofileconfigureavatarwidget.cpp:114
 #, fuzzy, kde-format
 #| msgid "Channel Info..."
 msgctxt "@action"

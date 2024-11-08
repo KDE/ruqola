@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-11-07 00:40+0000\n"
+"POT-Creation-Date: 2024-11-08 00:40+0000\n"
 "PO-Revision-Date: 2024-11-04 18:05+0100\n"
 "Last-Translator: giovanni <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
@@ -8083,14 +8083,14 @@ msgid "Email:"
 msgstr "E-posta:"
 
 #: widgets/dialogs/roomavatarwidget.cpp:31
-#: widgets/myaccount/myaccountprofileconfigureavatarwidget.cpp:101
+#: widgets/myaccount/myaccountprofileconfigureavatarwidget.cpp:113
 #, kde-format
 msgctxt "@action"
 msgid "Change Picture…"
 msgstr "Cambia pictura"
 
 #: widgets/dialogs/roomavatarwidget.cpp:33
-#: widgets/myaccount/myaccountprofileconfigureavatarwidget.cpp:104
+#: widgets/myaccount/myaccountprofileconfigureavatarwidget.cpp:116
 #, kde-format
 msgctxt "@action"
 msgid "Reset Avatar"
@@ -8105,7 +8105,7 @@ msgid "Cancel"
 msgstr "Cancella"
 
 #: widgets/dialogs/roomavatarwidget.cpp:49
-#: widgets/myaccount/myaccountprofileconfigureavatarwidget.cpp:76
+#: widgets/myaccount/myaccountprofileconfigureavatarwidget.cpp:80
 #, kde-format
 msgid "Image"
 msgstr "Imagine"
@@ -9309,24 +9309,24 @@ msgstr "Cata Mention/DM"
 msgid "Your Rocket.Chat administrator has disabled email notifications"
 msgstr ""
 
-#: widgets/myaccount/myaccountprofileconfigureavatarwidget.cpp:77
+#: widgets/myaccount/myaccountprofileconfigureavatarwidget.cpp:81
 #, kde-format
 msgctxt "@title:window"
 msgid "Select Image"
 msgstr "Selige Image"
 
-#: widgets/myaccount/myaccountprofileconfigureavatarwidget.cpp:87
+#: widgets/myaccount/myaccountprofileconfigureavatarwidget.cpp:91
 #, kde-format
 msgctxt "@title:window"
 msgid "Change Url"
 msgstr "Cambia URL "
 
-#: widgets/myaccount/myaccountprofileconfigureavatarwidget.cpp:87
+#: widgets/myaccount/myaccountprofileconfigureavatarwidget.cpp:91
 #, kde-format
 msgid "Define Avatar Url:"
 msgstr "Define Url de Avatar:"
 
-#: widgets/myaccount/myaccountprofileconfigureavatarwidget.cpp:102
+#: widgets/myaccount/myaccountprofileconfigureavatarwidget.cpp:114
 #, kde-format
 msgctxt "@action"
 msgid "Change URL for avatar…"
