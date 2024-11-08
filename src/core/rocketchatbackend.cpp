@@ -570,7 +570,7 @@ void RocketChatBackend::slotChanged(const QJsonObject &object)
     const QJsonArray contents = fields.value("args"_L1).toArray();
 
     if (collection == "stream-room-messages"_L1) {
-        qDebug() << " RocketChatBackend::slotChanged stream-room-messages " << contents;
+        qCDebug(RUQOLA_LOG) << " RocketChatBackend::slotChanged stream-room-messages " << contents;
         processIncomingMessages(contents, false);
     } else if (collection == "users"_L1) {
         if (mRocketChatAccount->ruqolaLogger()) {
