@@ -74,7 +74,7 @@ public:
     //   - LoggedOutAndCleanedUp
     //   - GenericError
     // GenericError is used when the class doesn't know what else to do, and is irreversible
-    enum LoginStatus {
+    enum LoginStatus : uint8_t {
         Connecting,
         LoginOngoing,
         LoggedIn,
