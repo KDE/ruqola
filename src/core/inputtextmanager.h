@@ -19,7 +19,7 @@ class LIBRUQOLACORE_EXPORT InputTextManager : public QObject
 {
     Q_OBJECT
 public:
-    enum CompletionForType {
+    enum class CompletionForType : uint8_t {
         Channel = 0,
         User,
         Emoji,
@@ -63,7 +63,7 @@ private:
     EmoticonFilterProxyModel *const mEmoticonFilterProxyModel;
     CommandsModelFilterProxyModel *const mCommandFilterProxyModel;
     RocketChatAccount *const mRocketChatAccount;
-    CompletionForType mCurrentCompletionType = None;
+    CompletionForType mCurrentCompletionType = CompletionForType::None;
     QString mCurrentCompletionPattern;
 };
 

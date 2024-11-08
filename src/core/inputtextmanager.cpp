@@ -187,7 +187,7 @@ void InputTextManager::setInputTextChanged(const QByteArray &roomId, const QStri
 void InputTextManager::clearCompleter()
 {
     mInputCompleterModel->clear();
-    setCompletionType(None);
+    setCompletionType(CompletionForType::None);
 }
 
 // Used by MessageTextEdit to set the completion model for the listview
@@ -204,7 +204,7 @@ QAbstractItemModel *InputTextManager::emojiCompleterModel() const
 // Called by DDPClient to fill in the completer model based on the typed input
 void InputTextManager::inputTextCompleter(const QJsonObject &obj)
 {
-    if (mCurrentCompletionType == None) {
+    if (mCurrentCompletionType == CompletionForType::None) {
         return;
     }
     mInputCompleterModel->parseChannels(obj);

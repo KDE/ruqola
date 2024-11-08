@@ -389,16 +389,16 @@ void MessageTextEdit::dropEvent(QDropEvent *event)
 
 void MessageTextEdit::slotCompletionTypeChanged(InputTextManager::CompletionForType type)
 {
-    if (type == InputTextManager::Emoji) {
+    if (type == InputTextManager::CompletionForType::Emoji) {
         // show emoji completion popup when typing ':'
         mEmojiCompletionListView->slotCompletionAvailable();
         mUserAndChannelCompletionListView->hide();
         mCommandCompletionListView->hide();
-    } else if (type == InputTextManager::None) {
+    } else if (type == InputTextManager::CompletionForType::None) {
         mUserAndChannelCompletionListView->hide();
         mEmojiCompletionListView->hide();
         mCommandCompletionListView->hide();
-    } else if (type == InputTextManager::Command) {
+    } else if (type == InputTextManager::CompletionForType::Command) {
         mUserAndChannelCompletionListView->hide();
         mEmojiCompletionListView->hide();
         mCommandCompletionListView->slotCompletionAvailable();
