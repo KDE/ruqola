@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-11-08 00:40+0000\n"
-"PO-Revision-Date: 2024-10-26 18:58+0200\n"
+"PO-Revision-Date: 2024-11-09 19:25+0100\n"
 "Last-Translator: Víctor Rodrigo Córdoba <vrcordoba@gmail.com>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -446,10 +446,9 @@ msgid "App user is not allowed to login."
 msgstr "Al usuario de la aplicación no se le permite iniciar sesión."
 
 #: core/authenticationmanager.cpp:113
-#, fuzzy, kde-format
-#| msgid "Call ongoing"
+#, kde-format
 msgid "Logout ongoing"
-msgstr "Llamada en curso"
+msgstr "Desconexión en curso"
 
 #: core/authenticationmanager.cpp:115
 #, kde-format
@@ -1737,10 +1736,9 @@ msgid "Not connected"
 msgstr "No conectado"
 
 #: core/rocketchataccount.cpp:706
-#, fuzzy, kde-format
-#| msgid "Not connected"
+#, kde-format
 msgid "Not connected yet"
-msgstr "No conectado"
+msgstr "No conectado todavía"
 
 #: core/rocketchaturlutils.cpp:41
 #, kde-format
@@ -7096,9 +7094,7 @@ msgid "Mark as Read"
 msgstr "Marcar como leído"
 
 #: widgets/channellist/channellistview.cpp:121
-#, fuzzy, kde-format
-#| msgctxt "@action"
-#| msgid "Mark As Unread"
+#, kde-format
 msgctxt "@action"
 msgid "Mark as Unread"
 msgstr "Marcar como no leído"
@@ -7210,9 +7206,7 @@ msgid "Next Channel"
 msgstr "Canal siguiente"
 
 #: widgets/common/authenticationbutton.cpp:23
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Sign in with %1"
+#, kde-format
 msgctxt "@action:button"
 msgid "Sign in With %1"
 msgstr "Registrarse con %1"
@@ -7224,11 +7218,9 @@ msgid "Register Account"
 msgstr "Registrar cuenta"
 
 #: widgets/common/authenticationloginwidget.cpp:37
-#, fuzzy, kde-format
-#| msgctxt "@action"
-#| msgid "My Account…"
+#, kde-format
 msgid "My Account"
-msgstr "Mi cuenta..."
+msgstr "Mi cuenta"
 
 #: widgets/common/authenticationloginwidget.cpp:43
 #, kde-format
@@ -7237,11 +7229,9 @@ msgid "Username or email"
 msgstr "Nombre del usuario o correo electrónico"
 
 #: widgets/common/authenticationloginwidget.cpp:45
-#, fuzzy, kde-format
-#| msgctxt "@info:placeholder"
-#| msgid "Username or email"
+#, kde-format
 msgid "Username or email:"
-msgstr "Nombre del usuario o correo electrónico"
+msgstr "Nombre del usuario o correo electrónico:"
 
 #: widgets/common/authenticationloginwidget.cpp:159
 #: widgets/ruqolamainwindow.cpp:1007
@@ -7377,36 +7367,28 @@ msgid "&Use custom fonts"
 msgstr "&Usar tipos de letra personalizados"
 
 #: widgets/configuredialog/configuregeneralwidget.cpp:15
-#, fuzzy, kde-format
-#| msgctxt "@option:check"
-#| msgid "Set accounts online on startup"
+#, kde-format
 msgctxt "@option:check"
 msgid "Set status to \"Online\" on startup"
-msgstr "Establecer cuentas online al inicio"
+msgstr "Establecer estado como «En línea» al inicio"
 
 #: widgets/configuredialog/configuregeneralwidget.cpp:16
-#, fuzzy, kde-format
-#| msgctxt "@option:check"
-#| msgid "Embed Link Previews"
+#, kde-format
 msgctxt "@option:check"
 msgid "Enable image previews"
-msgstr "Vista previa integrada de enlaces"
+msgstr "Activar vistas previas de imágenes"
 
 #: widgets/configuredialog/configuregeneralwidget.cpp:17
-#, fuzzy, kde-format
-#| msgctxt "@option:check"
-#| msgid "Embed Link Previews"
+#, kde-format
 msgctxt "@option:check"
 msgid "Enable URL previews"
-msgstr "Vista previa integrada de enlaces"
+msgstr "Activar vistas previas de URLs"
 
 #: widgets/configuredialog/configuregeneralwidget.cpp:18
-#, fuzzy, kde-format
-#| msgctxt "@option:check"
-#| msgid "Mark room as read when clicking to write a reply"
+#, kde-format
 msgctxt "@option:check"
 msgid "Mark channel as read when writing a reply"
-msgstr "Marcar sala como leída cuando se pulse en escribir una respuesta"
+msgstr "Marcar canal como leído cuando se escribir una respuesta"
 
 #: widgets/configuredialog/configuregeneralwidget.cpp:19
 #, kde-format
@@ -7427,12 +7409,10 @@ msgid "Highlight messages when hovering"
 msgstr ""
 
 #: widgets/configuredialog/configuregeneralwidget.cpp:22
-#, fuzzy, kde-format
-#| msgctxt "@option:check"
-#| msgid "Animate Gif Image"
+#, kde-format
 msgctxt "@option:check"
 msgid "Animate GIFs"
-msgstr "Animar imagen Gif"
+msgstr "Animar GIFs"
 
 #: widgets/configuredialog/configuregeneralwidget.cpp:23
 #, kde-format
@@ -7441,12 +7421,10 @@ msgid "Enable experimental local database"
 msgstr ""
 
 #: widgets/configuredialog/configuregeneralwidget.cpp:25
-#, fuzzy, kde-format
-#| msgctxt "@option:check"
-#| msgid "Enable Plasma Activities"
+#, kde-format
 msgctxt "@option:check"
 msgid "Enable Plasma Activities integration"
-msgstr "Activar actividades de Plasma"
+msgstr "Activar integración con actividades de Plasma"
 
 #: widgets/configuredialog/configuresettingsdialog.cpp:62
 #, kde-format
@@ -7461,8 +7439,7 @@ msgid "General"
 msgstr "General"
 
 #: widgets/configuredialog/configuresettingsdialog.cpp:72
-#, fuzzy, kde-format
-#| msgid "Accounts"
+#, kde-format
 msgctxt "@title Preferences page name"
 msgid "Accounts"
 msgstr "Cuentas"
@@ -7474,9 +7451,7 @@ msgid "Font"
 msgstr "Tipo de letra"
 
 #: widgets/configuredialog/configuresettingsdialog.cpp:83
-#, fuzzy, kde-format
-#| msgctxt "@title AutoCorrection page name"
-#| msgid "AutoCorrection"
+#, kde-format
 msgctxt "@title AutoCorrection page name"
 msgid "Auto-Correction"
 msgstr "Auto-corrección"
@@ -7488,12 +7463,10 @@ msgid "Spell Checking"
 msgstr "Comprobación de ortografía"
 
 #: widgets/configuredialog/configuresettingsdialog.cpp:95
-#, fuzzy, kde-format
-#| msgctxt "@title Preferences page name"
-#| msgid "Translate"
+#, kde-format
 msgctxt "@title Preferences page name"
 msgid "Translation"
-msgstr "Traducir"
+msgstr "Traducción"
 
 #: widgets/configuredialog/configuresettingsdialog.cpp:102
 #, kde-format
@@ -7525,15 +7498,13 @@ msgid "Do you want to remove this account '%1'?"
 msgstr "¿Quiere eliminar esta cuenta «%1»?"
 
 #: widgets/configurenewserver/checknewserverurlwidget.cpp:25
-#, fuzzy, kde-format
-#| msgid "Connected"
+#, kde-format
 msgctxt "@action:button"
 msgid "Connect"
-msgstr "Conectado"
+msgstr "Conectar"
 
 #: widgets/configurenewserver/checknewserverurlwidget.cpp:36
-#, fuzzy, kde-format
-#| msgid "Server URL:"
+#, kde-format
 msgctxt "@label:textbox"
 msgid "Server URL:"
 msgstr "URL del servidor:"
@@ -7544,10 +7515,9 @@ msgid "Socket was unexpectedly closed."
 msgstr ""
 
 #: widgets/configurenewserver/checknewserverurlwidget.cpp:131
-#, fuzzy, kde-format
-#| msgid "Impossible to access to server."
+#, kde-format
 msgid "Failed to connect to server: %1"
-msgstr "No se pudo acceder al servidor."
+msgstr "Fallo al conectar al servidor: %1"
 
 #: widgets/configurenewserver/configureactivitiesdialog.cpp:25
 #, kde-format
@@ -10001,11 +9971,10 @@ msgid "Add reaction"
 msgstr "Añadir reacción"
 
 #: widgets/room/messagelinewidget.cpp:62
-#, fuzzy, kde-format
-#| msgid "Attach File"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Attach a file…"
-msgstr "Adjuntar archivo"
+msgstr "Adjuntar un archivo..."
 
 #: widgets/room/messagelinewidget.cpp:65
 #, kde-format
@@ -11550,61 +11519,3 @@ msgstr ""
 #, kde-format
 msgid "Some bug fixing:"
 msgstr "Algunas correcciones de errores:"
-
-#~ msgid "Starred Messages"
-#~ msgstr "Mensajes favoritos"
-
-#~ msgid "Pinned Messages"
-#~ msgstr "Mensajes fijados"
-
-#~ msgid "Mentions Messages"
-#~ msgstr "Mensajes mencionados"
-
-#~ msgid "Threads Messages"
-#~ msgstr "Mensajes de los hilos"
-
-#~ msgid "Unread Threads Messages"
-#~ msgstr "Marcar como no leídos los mensajes de los hilos"
-
-#, fuzzy
-#~| msgid "(Mark As Read)"
-#~ msgid "(Mark as Read)"
-#~ msgstr "(Marcar como leído)"
-
-#~ msgid "Username or Email:"
-#~ msgstr "Nombre del usuario o correo electrónico:"
-
-#~ msgctxt "@option:check"
-#~ msgid "Show images by default"
-#~ msgstr "Mostrar imágenes por omisión"
-
-#~ msgctxt "@option:check"
-#~ msgid "Show preview url by default"
-#~ msgstr "Mostrar vista previa de URL por omisión"
-
-#~ msgctxt "@option:check"
-#~ msgid "Show hover highlights"
-#~ msgstr "Mostrar información más destacada al pasar por encima"
-
-#~ msgctxt "@option:check"
-#~ msgid "Use local dataBase (experimental)"
-#~ msgstr "Usar base de datos local (experimental)"
-
-#~ msgctxt "@title Preferences page name"
-#~ msgid "Account"
-#~ msgstr "Cuenta"
-
-#~ msgctxt "@action:button"
-#~ msgid "Connection"
-#~ msgstr "Conexión"
-
-#~ msgctxt "@label:textbox"
-#~ msgid "Server Url:"
-#~ msgstr "URL del servidor:"
-
-#~ msgid "Message %1"
-#~ msgstr "Mensaje %1"
-
-#~ msgctxt "@action"
-#~ msgid "Mark As Read"
-#~ msgstr "Marcar como leído"
