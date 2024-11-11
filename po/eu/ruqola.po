@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-11-06 02:31+0000\n"
-"PO-Revision-Date: 2024-10-28 23:56+0100\n"
+"PO-Revision-Date: 2024-11-10 20:20+0100\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
 "Language: eu\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 24.08.2\n"
+"X-Generator: Lokalize 24.08.3\n"
 
 #: apps/main.cpp:61
 #, kde-format
@@ -4538,7 +4538,7 @@ msgid ""
 msgstr ""
 "[Adi!] \"Zuzeneko erantzuna\" gaituta badago, Rocket.Chat-ek, konfiguratuta "
 "dagoen e-posta postontzia kontrolatuko du.\n"
-"Irakurri gabeko e-posta guztiak eskuratu, irakurritako gisa markatu eta "
+"Irakurri gabeko e-posta guztiak eskuratu, irakurrita gisa markatu eta "
 "prozesatzen dira.\n"
 "\"Zuzeneko erantzuna\" aktibatu beharko litzateke, bakarrik, erabilitako "
 "postontzia Rocket.Chat-ek bakarrik atzituko badu\n"
@@ -6718,7 +6718,7 @@ msgstr "Erakutsi irakurri gabeak"
 #, kde-format
 msgctxt "@action"
 msgid "Mark as Read"
-msgstr "Markatu irakurritako gisa"
+msgstr "Markatu Irakurrita gisa"
 
 #: widgets/channellist/channellistview.cpp:118
 #, kde-format
