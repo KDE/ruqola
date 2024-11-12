@@ -61,7 +61,6 @@ public:
     void initializeRestApiJob(RocketChatRestApi::RestApiAbstractJob *job);
 
     void logout();
-    void getAvatar(const RocketChatRestApi::UserBaseJob::UserInfo &info);
 
     void serverInfo();
     void getPrivateSettings();
