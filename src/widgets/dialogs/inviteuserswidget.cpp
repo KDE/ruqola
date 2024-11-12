@@ -7,6 +7,10 @@
 #include "inviteuserswidget.h"
 #include "connection.h"
 #include "rocketchataccount.h"
+
+#include "invite/findorcreateinvitejob.h"
+#include "ruqolawidgets_debug.h"
+
 #include <KLineEditEventHandler>
 
 #include <KCollapsibleGroupBox>
@@ -59,10 +63,6 @@ InviteUsersWidget::InviteUsersWidget(RocketChatAccount *account, QWidget *parent
     collapsibleGroupBox->setObjectName(QStringLiteral("collapsibleGroupBox"));
     collapsibleGroupBox->setTitle(i18n("Options"));
     mainLayout->addWidget(collapsibleGroupBox);
-
-    if (mRocketChatAccount) {
-        connect(mRocketChatAccount->restApi(), &Connection::findOrCreateInviteDone, this, &InviteUsersWidget::slotFindOrCreateInvite);
-    }
 
     auto formLayout = new QFormLayout(collapsibleGroupBox);
     formLayout->setObjectName(QStringLiteral("formLayout"));
@@ -130,7 +130,15 @@ void InviteUsersWidget::setRoomId(const QByteArray &roomId)
 
 void InviteUsersWidget::generateLink(int maxUses, int numberOfDays)
 {
-    mRocketChatAccount->restApi()->findOrCreateInvite(mRoomId, maxUses, numberOfDays);
+    auto job = new RocketChatRestApi::FindOrCreateInviteJob(this);
+    job->setRoomId(mRoomId);
+    job->setMaxUses(maxUses);
+    job->setNumberOfDays(numberOfDays);
+    mRocketChatAccount->restApi()->initializeRestApiJob(job);
+    connect(job, &RocketChatRestApi::FindOrCreateInviteJob::findOrCreateInviteDone, this, &InviteUsersWidget::slotFindOrCreateInvite);
+    if (!job->start()) {
+        qCDebug(RUQOLAWIDGETS_LOG) << "Impossible to start findOrCreateInviteJob";
+    }
 }
 
 void InviteUsersWidget::fillComboBox()

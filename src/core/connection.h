@@ -11,7 +11,6 @@
 #include "commands/runcommandjob.h"
 #include "config-ruqola.h"
 #include "createchannelteaminfo.h"
-#include "invite/findorcreateinvitejob.h"
 #include "libruqolacore_export.h"
 #include "rooms/adminroomsjob.h"
 #include "users/registeruserjob.h"
@@ -130,7 +129,6 @@ public:
     void getSnippetedMessages(const QByteArray &roomId, int offset = 0, int count = 50);
     void customUserStatus();
     void usersAutocomplete(const RocketChatRestApi::UsersAutocompleteJob::UsersAutocompleterInfo &info);
-    void findOrCreateInvite(const QByteArray &roomId, int maxUses, int numberOfDays);
     void runCommand(const RocketChatRestApi::RunCommandJob::RunCommandInfo &runCommandInfo);
     void registerNewUser(const RocketChatRestApi::RegisterUserJob::RegisterUserInfo &userInfo);
     void updateOwnBasicInfo(const RocketChatRestApi::UsersUpdateOwnBasicInfoJob::UpdateOwnBasicInfo &info);
@@ -168,7 +166,6 @@ Q_SIGNALS:
 
     void failed(const QString &str);
     void networkError();
-    void findOrCreateInviteDone(const RocketChatRestApi::FindOrCreateInviteJob::InviteUsersInfo &info);
 
     void runCommandDone();
     void registerUserDone();

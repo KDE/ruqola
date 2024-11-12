@@ -1201,19 +1201,6 @@ void Connection::usersAutocomplete(const UsersAutocompleteJob::UsersAutocomplete
     }
 }
 
-void Connection::findOrCreateInvite(const QByteArray &roomId, int maxUses, int numberOfDays)
-{
-    auto job = new FindOrCreateInviteJob(this);
-    job->setRoomId(roomId);
-    job->setMaxUses(maxUses);
-    job->setNumberOfDays(numberOfDays);
-    initializeRestApiJob(job);
-    connect(job, &FindOrCreateInviteJob::findOrCreateInviteDone, this, &Connection::findOrCreateInviteDone);
-    if (!job->start()) {
-        qCDebug(RUQOLA_LOG) << "Impossible to start findOrCreateInviteJob";
-    }
-}
-
 void Connection::registerNewUser(const RocketChatRestApi::RegisterUserJob::RegisterUserInfo &userInfo)
 {
     auto job = new RegisterUserJob(this);
