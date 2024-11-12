@@ -15,7 +15,7 @@ class LIBROCKETCHATRESTAPI_QT_EXPORT AdminRoomsJob : public RestApiAbstractJob
 {
     Q_OBJECT
 public:
-    enum class AdminRoomSearchType {
+    enum class AdminRoomSearchType : uint8_t {
         None = 0,
         Direct = 1,
         Public = 2,

@@ -29,27 +29,27 @@ void Otr::parseOtr(const QJsonArray &contents)
         const QJsonObject obj = contents.at(1).toObject();
         extractRoomUser(obj);
         qCDebug(RUQOLA_LOG) << " END" << obj << " roomId " << mRoomId << " userId " << mUserId;
-        mType = Otr::End;
+        mType = Otr::OtrType::End;
     } else if (type == "handshake"_L1) {
         // qDebug() << " HANDSHAKE" << contents.at(1).toObject();
         const QJsonObject obj = contents.at(1).toObject();
         extractRoomUser(obj);
         const QString publicKey = obj.value("publicKey"_L1).toString();
         qCDebug(RUQOLA_LOG) << " HANDSHAKE" << obj << " roomId " << mRoomId << " userId " << mUserId << " publicKey " << publicKey;
-        mType = Otr::Handshake;
+        mType = Otr::OtrType::Handshake;
         parseCryptoSettings(publicKey);
     } else if (type == "deny"_L1) {
         qCDebug(RUQOLA_LOG) << " Deny " << contents;
         const QJsonObject obj = contents.at(1).toObject();
         extractRoomUser(obj);
-        mType = Otr::Deny;
+        mType = Otr::OtrType::Deny;
     } else if (type == "acknowledge"_L1) {
         qCDebug(RUQOLA_LOG) << " acknowledge " << contents;
         const QJsonObject obj = contents.at(1).toObject();
         extractRoomUser(obj);
         const QString publicKey = obj.value("publicKey"_L1).toString();
         parseCryptoSettings(publicKey);
-        mType = Otr::AcknowLedge;
+        mType = Otr::OtrType::AcknowLedge;
     } else {
         qCDebug(RUQOLA_LOG) << " unknown" << type;
     }
@@ -85,7 +85,7 @@ QByteArray Otr::userId() const
 
 bool Otr::isValid() const
 {
-    return mType != Otr::Unknown;
+    return mType != Otr::OtrType::Unknown;
 }
 
 QDebug operator<<(QDebug d, const Otr &t)

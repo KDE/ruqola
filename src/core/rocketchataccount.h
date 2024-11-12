@@ -12,8 +12,6 @@
 #include "commands/runcommandjob.h"
 
 #include "createchannelteaminfo.h"
-#include "custom/customuserstatuscreatejob.h"
-#include "custom/customuserstatusupdatejob.h"
 #include "customusers/customuserstatuses.h"
 
 #include "inputtextmanager.h"
@@ -114,7 +112,7 @@ public:
     };
     Q_ENUM(RoomInfoType)
 
-    enum NotificationOptionsType {
+    enum NotificationOptionsType : uint8_t {
         DisableNotifications,
         HideUnreadStatus,
         DesktopNotifications,
@@ -129,7 +127,7 @@ public:
 
     Q_ENUM(NotificationOptionsType)
 
-    enum RoleType {
+    enum RoleType : uint8_t {
         AddOwner,
         AddLeader,
         AddModerator,

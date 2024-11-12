@@ -30,7 +30,7 @@ public:
         [[nodiscard]] bool isEmpty() const;
     };
 
-    enum NotificationType {
+    enum class NotificationType : uint8_t {
         Default = 0,
         AllMessages,
         Mentions,

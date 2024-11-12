@@ -11,7 +11,7 @@
 #include <QString>
 namespace NeedUpdateVersionUtils
 {
-enum class LIBRUQOLAWIDGETS_TESTS_EXPORT ObsoleteVersion {
+enum class LIBRUQOLAWIDGETS_TESTS_EXPORT ObsoleteVersion : uint8_t {
     Unknown,
     NotObsoleteYet,
     OlderThan6Months,

@@ -45,7 +45,7 @@ void TextSelection::selectionText(const OrderedPositions ordered,
 {
     const QTextCursor cursor = selectionForIndex(index, doc, att, messageUrl);
     const QTextDocumentFragment fragment(cursor);
-    str += format == Text ? fragment.toPlainText() : fragment.toHtml();
+    str += format == Format::Text ? fragment.toPlainText() : fragment.toHtml();
     if (row < ordered.toRow) {
         str += QLatin1Char('\n');
     }

@@ -17,7 +17,7 @@ public:
     ~ImportDataWizard() override;
 
 private:
-    enum ImportDataEnum {
+    enum ImportDataEnum : uint8_t {
         SelectAccountPage,
         FinishPage,
     };

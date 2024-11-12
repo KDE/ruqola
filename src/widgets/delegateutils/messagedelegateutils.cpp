@@ -132,7 +132,7 @@ void MessageDelegateUtils::setClipboardSelection(TextSelection *selection)
 {
     QClipboard *clipboard = QGuiApplication::clipboard();
     if (selection->hasSelection() && clipboard->supportsSelection()) {
-        const QString text = selection->selectedText(TextSelection::Text);
+        const QString text = selection->selectedText(TextSelection::Format::Text);
         clipboard->setText(text, QClipboard::Selection);
     }
 }

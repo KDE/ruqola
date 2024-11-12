@@ -60,7 +60,7 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT TextSelection : public QObject
 public:
     TextSelection();
     [[nodiscard]] bool hasSelection() const;
-    enum Format {
+    enum class Format : uint8_t {
         Text,
         Html,
     };

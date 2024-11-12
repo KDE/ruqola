@@ -18,7 +18,7 @@ public:
     ~ExportDataWizard() override;
 
 private:
-    enum ExportDataEnum {
+    enum ExportDataEnum : uint8_t {
         SelectAccountPage,
         FinishPage,
     };

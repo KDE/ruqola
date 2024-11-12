@@ -21,7 +21,7 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT RoomHeaderWidget : public QWidget
 {
     Q_OBJECT
 public:
-    enum ChannelActionType {
+    enum ChannelActionType : uint8_t {
         ShowMentions = 1,
         ShowPinned = 2,
         ShowStarred = 3,

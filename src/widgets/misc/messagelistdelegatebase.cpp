@@ -55,8 +55,8 @@ bool MessageListDelegateBase::maybeStartDrag(QMouseEvent *mouseEvent, QRect mess
         const int charPos = doc->documentLayout()->hitTest(pos, Qt::FuzzyHit);
         if (charPos != -1 && mTextSelectionImpl->textSelection()->contains(index, charPos)) {
             auto mimeData = new QMimeData;
-            mimeData->setHtml(mTextSelectionImpl->textSelection()->selectedText(TextSelection::Html));
-            mimeData->setText(mTextSelectionImpl->textSelection()->selectedText(TextSelection::Text));
+            mimeData->setHtml(mTextSelectionImpl->textSelection()->selectedText(TextSelection::Format::Html));
+            mimeData->setText(mTextSelectionImpl->textSelection()->selectedText(TextSelection::Format::Text));
             auto drag = new QDrag(const_cast<QWidget *>(option.widget));
             drag->setMimeData(mimeData);
             drag->exec(Qt::CopyAction);

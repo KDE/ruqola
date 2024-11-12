@@ -23,7 +23,7 @@ public:
     Otr();
     ~Otr();
 
-    enum OtrType {
+    enum class OtrType : uint8_t {
         Unknown = 0,
         End,
         Handshake,
