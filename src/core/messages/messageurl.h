@@ -14,7 +14,7 @@ class LIBRUQOLACORE_EXPORT MessageUrl
 public:
     MessageUrl();
 
-    enum ContentType {
+    enum class ContentType : uint8_t {
         None,
         Image,
         ImageAnimated,

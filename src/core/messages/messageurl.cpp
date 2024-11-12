@@ -236,15 +236,15 @@ void MessageUrl::setImageUrl(const QString &newImageUrl)
 QString MessageUrl::contentTypeEnumToString(ContentType type)
 {
     switch (type) {
-    case None:
+    case ContentType::None:
         return {};
-    case Image:
+    case ContentType::Image:
         return QLatin1StringView("image");
-    case ImageAnimated:
+    case ContentType::ImageAnimated:
         return QLatin1StringView("image_animated");
-    case Audio:
+    case ContentType::Audio:
         return QLatin1StringView("audio");
-    case Video:
+    case ContentType::Video:
         return QLatin1StringView("video");
     }
     return {};
@@ -408,7 +408,7 @@ QJsonObject MessageUrl::serialize(const MessageUrl &url)
     if (url.imageWidth() > -1) {
         obj["imageWidth"_L1] = url.imageWidth();
     }
-    if (url.contentType() != MessageUrl::None) {
+    if (url.contentType() != MessageUrl::ContentType::None) {
         obj["contentType"_L1] = contentTypeEnumToString(url.contentType());
     }
     return obj;

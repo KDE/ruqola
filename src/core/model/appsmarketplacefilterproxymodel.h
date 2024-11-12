@@ -12,7 +12,7 @@ class LIBRUQOLACORE_EXPORT AppsMarketPlaceFilterProxyModel : public QSortFilterP
 {
     Q_OBJECT
 public:
-    enum Status {
+    enum Status : uint8_t {
         AllStatus,
         Enabled,
         Disabled,
@@ -20,7 +20,7 @@ public:
     };
     Q_ENUM(Status);
 
-    enum Price {
+    enum Price : uint8_t {
         AllPrice,
         Free,
         Paid,
@@ -29,7 +29,7 @@ public:
     };
     Q_ENUM(Price);
 
-    enum Sorting {
+    enum Sorting : uint8_t {
         AtoZ,
         ZtoA,
         MostRecent,

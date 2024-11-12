@@ -101,29 +101,29 @@ bool AppsMarketPlaceFilterProxyModel::lessThan(const QModelIndex &left, const QM
 {
     if (left.isValid() && right.isValid()) {
         switch (mSorting) {
-        case AtoZ: {
+        case Sorting::AtoZ: {
             const QString leftString = sourceModel()->data(left, AppsMarketPlaceModel::AppName).toString();
             const QString rightString = sourceModel()->data(right, AppsMarketPlaceModel::AppName).toString();
             return QString::localeAwareCompare(leftString, rightString) < 0;
         }
-        case ZtoA: {
+        case Sorting::ZtoA: {
             const QString leftString = sourceModel()->data(left, AppsMarketPlaceModel::AppName).toString();
             const QString rightString = sourceModel()->data(right, AppsMarketPlaceModel::AppName).toString();
             return QString::localeAwareCompare(leftString, rightString) > 0;
         }
-        case LeastRecent: {
+        case Sorting::LeastRecent: {
             const qint64 leftDateTime = sourceModel()->data(left, AppsMarketPlaceModel::ModifiedDate).toLongLong();
             const qint64 rightDateTime = sourceModel()->data(right, AppsMarketPlaceModel::ModifiedDate).toLongLong();
             // qDebug() << " leftDateTime " << leftDateTime << " rightDateTime " << rightDateTime;
             return leftDateTime > rightDateTime;
         }
-        case MostRecent: {
+        case Sorting::MostRecent: {
             const qint64 leftDateTime = sourceModel()->data(left, AppsMarketPlaceModel::ModifiedDate).toLongLong();
             const qint64 rightDateTime = sourceModel()->data(right, AppsMarketPlaceModel::ModifiedDate).toLongLong();
             // qDebug() << " leftDateTime " << leftDateTime << " rightDateTime " << rightDateTime;
             return leftDateTime < rightDateTime;
         }
-        case UnknownSorting:
+        case Sorting::UnknownSorting:
             return QSortFilterProxyModel::lessThan(left, right);
         }
     } else {
