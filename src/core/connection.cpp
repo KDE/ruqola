@@ -18,7 +18,6 @@
 #include "rooms/roomsunmuteuserjob.h"
 #include "users/forgotpasswordjob.h"
 #include "users/getavatarjob.h"
-#include "users/getpresencejob.h"
 #include "users/userinfojob.h"
 #include "users/userspresencejob.h"
 
@@ -37,7 +36,6 @@
 #include "chat/postmessagejob.h"
 #include "chat/reactonmessagejob.h"
 #include "chat/sendmessagejob.h"
-#include "chat/syncthreadmessagesjob.h"
 #include "chat/updatemessagejob.h"
 
 #include "channels/channeladdleaderjob.h"
@@ -714,20 +712,6 @@ void Connection::forgotPassword(const QString &email)
     }
 }
 
-void Connection::userInfo(const QString &identifier, bool userName)
-{
-    auto job = new UserInfoJob(this);
-    initializeRestApiJob(job);
-    UserInfoJob::UserInfo info;
-    info.userIdentifier = identifier;
-    info.userInfoType = userName ? UserInfoJob::UserInfoType::UserName : UserInfoJob::UserInfoType::UserId;
-    job->setUserInfo(info);
-    connect(job, &UserInfoJob::userInfoDone, this, &Connection::userInfoDone);
-    if (!job->start()) {
-        qCWarning(RUQOLA_LOG) << "Impossible to start userInfo job";
-    }
-}
-
 void Connection::ignoreUser(const QByteArray &roomId, const QByteArray &userId, bool ignore)
 {
     auto job = new IgnoreUserJob(this);
@@ -758,34 +742,6 @@ void Connection::muteUser(const QByteArray &roomId, const QString &userName, boo
         if (!job->start()) {
             qCWarning(RUQOLA_LOG) << "Impossible to start RoomsMuteUserJob job";
         }
-    }
-}
-
-void Connection::userPresence(const QString &userId)
-{
-    auto job = new GetPresenceJob(this);
-    initializeRestApiJob(job);
-    UserInfoJob::UserInfo info;
-    info.userIdentifier = userId;
-    info.userInfoType = UserInfoJob::UserInfoType::UserId;
-
-    job->setUserInfo(info);
-    if (!job->start()) {
-        qCWarning(RUQOLA_LOG) << "Impossible to start userPresence job";
-    }
-}
-
-void Connection::setChannelType(const QString &roomId, bool isPrivate)
-{
-    auto job = new SetChannelTypeJob(this);
-    initializeRestApiJob(job);
-    ChannelGroupBaseJob::ChannelGroupInfo info;
-    info.channelGroupInfoType = ChannelGroupBaseJob::ChannelGroupInfoType::Identifier;
-    info.identifier = roomId;
-    job->setChannelGroupInfo(info);
-    job->setType(isPrivate ? SetChannelTypeJob::GroupType::Private : SetChannelTypeJob::GroupType::Public);
-    if (!job->start()) {
-        qCWarning(RUQOLA_LOG) << "Impossible to start setChannelType job";
     }
 }
 
@@ -1247,17 +1203,6 @@ void Connection::getThreadMessages(const QByteArray &threadMessageId)
     connect(job, &GetThreadMessagesJob::getThreadMessagesDone, this, &Connection::getThreadMessagesDone);
     if (!job->start()) {
         qCDebug(RUQOLA_LOG) << "Impossible to start getThreadMessages";
-    }
-}
-
-void Connection::syncThreadMessages(const QString &threadMessageId, const QString &timestamp)
-{
-    auto job = new SyncThreadMessagesJob(this);
-    initializeRestApiJob(job);
-    job->setThreadMessageId(threadMessageId);
-    job->setTimeStamp(timestamp);
-    if (!job->start()) {
-        qCDebug(RUQOLA_LOG) << "Impossible to start syncThreadMessages";
     }
 }
 

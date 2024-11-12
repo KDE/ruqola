@@ -90,17 +90,12 @@ public:
     void unreadAlert(const QByteArray &roomId, const QString &value);
     void setAvatar(const RocketChatRestApi::UserBaseJob::UserInfo &info, const RocketChatRestApi::SetAvatarJob::SetAvatarInfo &avatarInfo);
     void forgotPassword(const QString &email);
-    void userInfo(const QString &identifier, bool userName = false);
     void ignoreUser(const QByteArray &roomId, const QByteArray &userId, bool ignore);
-    void userPresence(const QString &userId);
-    void setChannelType(const QString &roomId, bool isPrivate);
     void getGroupRoles(const QByteArray &roomId);
     void getChannelRoles(const QByteArray &roomId);
     void listAllPermissions();
-    void setJoinCodeChannel(const QString &roomId, const QString &joinCode);
     void muteGroupMentions(const QByteArray &roomId, bool value);
 
-    void syncThreadMessages(const QString &threadMessageId, const QString &timestamp);
     void changeGroupName(const QString &roomId, const QString &newName);
     void channelGetAllUserMentions(const QString &roomId, int offset = 0, int count = 50);
     void channelKick(const QByteArray &roomId, const QByteArray &userId);
@@ -163,7 +158,6 @@ Q_SIGNALS:
     void privateInfoDone(const QJsonObject &data);
     void channelFilesDone(const QJsonObject &obj, const RocketChatRestApi::ChannelGroupBaseJob::ChannelGroupInfo &channelInfo);
     void channelMembersDone(const QJsonObject &obj, const RocketChatRestApi::ChannelGroupBaseJob::ChannelGroupInfo &channelInfo);
-    void userInfoDone(const QJsonObject &obj);
     void channelRolesDone(const QJsonObject &obj, const RocketChatRestApi::ChannelGroupBaseJob::ChannelGroupInfo &channelInfo);
     void permissionListAllDone(const QJsonObject &obj);
     void deletechannelDone();
@@ -204,6 +198,7 @@ private:
     LIBRUQOLACORE_NO_EXPORT void slotLogout();
     LIBRUQOLACORE_NO_EXPORT void slotLogin(const QString &authToken, const QString &userId);
     LIBRUQOLACORE_NO_EXPORT void slotAddJoinCodeToChannel(const QString &channelId, const QString &password);
+    LIBRUQOLACORE_NO_EXPORT void setJoinCodeChannel(const QString &roomId, const QString &joinCode);
 
     QNetworkAccessManager *const mNetworkAccessManager;
     QNetworkCookieJar *const mCookieJar;
