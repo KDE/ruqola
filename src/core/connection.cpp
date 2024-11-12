@@ -43,7 +43,6 @@
 #include "channels/channeladdownerjob.h"
 #include "channels/channeldeletejob.h"
 #include "channels/channelfilesjob.h"
-#include "channels/channelgetallusermentionsjob.h"
 #include "channels/channelgetcountersjob.h"
 #include "channels/channelinvitejob.h"
 #include "channels/channelkickjob.h"
@@ -57,7 +56,6 @@
 #include "channels/setchanneltypejob.h"
 #include "channels/setjoincodechanneljob.h"
 
-#include "groups/changegroupsnamejob.h"
 #include "groups/creategroupsjob.h"
 #include "groups/getgrouprolesjob.h"
 #include "groups/groupaddleaderjob.h"
@@ -620,20 +618,6 @@ void Connection::desktopSoundNotifications(const QByteArray &roomId, const QStri
     }
 }
 
-void Connection::changeGroupName(const QString &roomId, const QString &newName)
-{
-    auto job = new ChangeGroupsNameJob(this);
-    initializeRestApiJob(job);
-    ChannelGroupBaseJob::ChannelGroupInfo info;
-    info.channelGroupInfoType = ChannelGroupBaseJob::ChannelGroupInfoType::Identifier;
-    info.identifier = roomId;
-    job->setChannelGroupInfo(info);
-    job->setName(newName);
-    if (!job->start()) {
-        qCWarning(RUQOLA_LOG) << "Impossible to start changeGroupName job";
-    }
-}
-
 void Connection::hideUnreadStatus(const QByteArray &roomId, bool value)
 {
     auto job = new SaveNotificationJob(this);
@@ -805,24 +789,6 @@ void Connection::setJoinCodeChannel(const QString &roomId, const QString &joinCo
 
     if (!job->start()) {
         qCDebug(RUQOLA_LOG) << "Impossible to start setjoincode";
-    }
-}
-
-void Connection::channelGetAllUserMentions(const QString &roomId, int offset, int count)
-{
-    auto job = new ChannelGetAllUserMentionsJob(this);
-    initializeRestApiJob(job);
-    job->setRoomId(roomId);
-    QueryParameters parameters;
-    QMap<QString, QueryParameters::SortOrder> map;
-    map.insert(QStringLiteral("ts"), QueryParameters::SortOrder::Descendant);
-    parameters.setSorting(map);
-    parameters.setCount(count);
-    parameters.setOffset(offset);
-    job->setQueryParameters(parameters);
-
-    if (!job->start()) {
-        qCDebug(RUQOLA_LOG) << "Impossible to start setChannelJoin";
     }
 }
 
