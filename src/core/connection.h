@@ -124,8 +124,6 @@ public:
     void getThreadMessages(const QByteArray &threadMessageId);
     void sendMessage(const QByteArray &roomId, const QString &text, const QString &messageId = QString(), const QByteArray &threadMessageId = QByteArray());
     void getPinnedMessages(const QByteArray &roomId, int offset = 0, int count = 50);
-    void autoTranslateSaveLanguageSettings(const QByteArray &roomId, const QString &language);
-    void autoTranslateSaveAutoTranslateSettings(const QByteArray &roomId, bool autoTranslate);
     void setUserStatus(const QString &userId, RocketChatRestApi::SetStatusJob::StatusType status, const QString &message = QString());
     void usersPresence();
     void getStarredMessages(const QByteArray &roomId, int offset = 0, int count = 50);

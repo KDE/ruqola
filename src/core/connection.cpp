@@ -76,8 +76,6 @@
 
 #include "permissions/permissionslistalljob.h"
 
-#include "autotranslate/translatesavesettingsjob.h"
-
 #include "custom/customuserstatuslistjob.h"
 
 #include <QNetworkAccessManager>
@@ -1157,30 +1155,6 @@ void Connection::sendMessage(const QByteArray &roomId, const QString &text, cons
     job->setSendMessageArguments(std::move(args));
     if (!job->start()) {
         qCWarning(RUQOLA_LOG) << "Impossible to start job";
-    }
-}
-
-void Connection::autoTranslateSaveLanguageSettings(const QByteArray &roomId, const QString &language)
-{
-    auto job = new TranslateSaveSettingsJob(this);
-    initializeRestApiJob(job);
-    job->setRoomId(QString::fromLatin1(roomId));
-    job->setType(TranslateSaveSettingsJob::SettingType::LanguageSetting);
-    job->setLanguage(language);
-    if (!job->start()) {
-        qCDebug(RUQOLA_LOG) << "Impossible to start autoTranslateSaveLanguageSettings";
-    }
-}
-
-void Connection::autoTranslateSaveAutoTranslateSettings(const QByteArray &roomId, bool autoTranslate)
-{
-    auto job = new TranslateSaveSettingsJob(this);
-    initializeRestApiJob(job);
-    job->setRoomId(QString::fromLatin1(roomId));
-    job->setType(TranslateSaveSettingsJob::SettingType::AutoTranslateSetting);
-    job->setAutoTranslate(autoTranslate);
-    if (!job->start()) {
-        qCDebug(RUQOLA_LOG) << "Impossible to start autoTranslateSaveAutoTranslateSettings";
     }
 }
 

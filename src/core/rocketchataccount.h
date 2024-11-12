@@ -200,9 +200,6 @@ public:
     void loadMoreUsersInRoom(const QByteArray &roomId, Room::RoomType channelType);
     void loadMoreListMessages(const QByteArray &roomId);
 
-    void autoTranslateSaveLanguageSettings(const QByteArray &roomId, const QString &language);
-    void autoTranslateSaveAutoTranslateSettings(const QByteArray &roomId, bool autoTranslate);
-
     [[nodiscard]] MessagesModel *messageModelForRoom(const QByteArray &roomID);
 
     void getListMessages(const QByteArray &roomId, ListMessagesModel::ListMessageType type);

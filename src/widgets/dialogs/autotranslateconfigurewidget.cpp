@@ -5,9 +5,13 @@
 */
 
 #include "autotranslateconfigurewidget.h"
+#include "autotranslate/translatesavesettingsjob.h"
 #include "model/autotranslatelanguagesmodel.h"
 #include "rocketchataccount.h"
+
+#include "connection.h"
 #include "room.h"
+#include "ruqolawidgets_debug.h"
 #include <KLocalizedString>
 #include <QCheckBox>
 #include <QComboBox>
@@ -59,12 +63,26 @@ Room *AutoTranslateConfigureWidget::room() const
 
 void AutoTranslateConfigureWidget::slotLanguageChanged(int index)
 {
-    mRocketChatAccount->autoTranslateSaveLanguageSettings(mRoom->roomId(), mRocketChatAccount->autoTranslateLanguagesModel()->selectedLanguage(index));
+    auto job = new RocketChatRestApi::TranslateSaveSettingsJob(this);
+    mRocketChatAccount->restApi()->initializeRestApiJob(job);
+    job->setRoomId(QString::fromLatin1(mRoom->roomId()));
+    job->setType(RocketChatRestApi::TranslateSaveSettingsJob::SettingType::LanguageSetting);
+    job->setLanguage(mRocketChatAccount->autoTranslateLanguagesModel()->selectedLanguage(index));
+    if (!job->start()) {
+        qCDebug(RUQOLAWIDGETS_LOG) << "Impossible to start autoTranslateSaveLanguageSettings";
+    }
 }
 
 void AutoTranslateConfigureWidget::slotChangeAutoTranslate(bool status)
 {
-    mRocketChatAccount->autoTranslateSaveAutoTranslateSettings(mRoom->roomId(), status);
+    auto job = new RocketChatRestApi::TranslateSaveSettingsJob(this);
+    mRocketChatAccount->restApi()->initializeRestApiJob(job);
+    job->setRoomId(QString::fromLatin1(mRoom->roomId()));
+    job->setType(RocketChatRestApi::TranslateSaveSettingsJob::SettingType::AutoTranslateSetting);
+    job->setAutoTranslate(status);
+    if (!job->start()) {
+        qCDebug(RUQOLAWIDGETS_LOG) << "Impossible to start autoTranslateSaveAutoTranslateSettings";
+    }
 }
 
 void AutoTranslateConfigureWidget::slotAutoTranslateChanged()

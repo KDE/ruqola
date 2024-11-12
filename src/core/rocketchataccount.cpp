@@ -2384,16 +2384,6 @@ void RocketChatAccount::slotGetSupportedLanguagesDone(const QJsonObject &obj)
     mAutoTranslateLanguagesModel->parseLanguages(obj);
 }
 
-void RocketChatAccount::autoTranslateSaveLanguageSettings(const QByteArray &roomId, const QString &language)
-{
-    restApi()->autoTranslateSaveLanguageSettings(roomId, language);
-}
-
-void RocketChatAccount::autoTranslateSaveAutoTranslateSettings(const QByteArray &roomId, bool autoTranslate)
-{
-    restApi()->autoTranslateSaveAutoTranslateSettings(roomId, autoTranslate);
-}
-
 void RocketChatAccount::slotUsersPresenceDone(const QJsonObject &obj)
 {
     // qDebug() << " void RocketChatAccount::slotUsersPresenceDone(const QJsonObject &obj)" << obj;
