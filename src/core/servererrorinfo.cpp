@@ -56,7 +56,7 @@ void ServerErrorInfo::setDateTime(const QDateTime &newDateTime)
     if (mDateTime != newDateTime) {
         mDateTime = newDateTime;
         QLocale l;
-        mDateTimeStr = l.toString(mDateTime, QLocale::LongFormat);
+        mDateTimeStr = l.toString(mDateTime, QLocale::ShortFormat);
     }
 }
 
