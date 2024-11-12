@@ -292,7 +292,7 @@ MessageAttachment::AttachmentType MessageAttachment::attachmentType() const
 void MessageAttachment::setAttachmentType(AttachmentType attachmentType)
 {
     mAttachmentType = attachmentType;
-    if (mAttachmentType == Image) {
+    if (mAttachmentType == AttachmentType::Image) {
         // By default use false for showing it or using settings for image
         mShowAttachment = RuqolaGlobalConfig::self()->showImage();
     }

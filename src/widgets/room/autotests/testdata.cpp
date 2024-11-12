@@ -27,7 +27,7 @@ void initTestAccount()
 MessageAttachment testAttachment()
 {
     MessageAttachment msgAttach;
-    msgAttach.setAttachmentType(MessageAttachment::Image);
+    msgAttach.setAttachmentType(MessageAttachment::AttachmentType::Image);
     const QString title = QStringLiteral("This is the title");
     msgAttach.setTitle(title);
     const QString description = QStringLiteral("A description");

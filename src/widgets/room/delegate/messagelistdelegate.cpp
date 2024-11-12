@@ -174,17 +174,17 @@ MessageBlockDelegateHelperBase *MessageListDelegate::blocksHelper(const Block &b
 MessageAttachmentDelegateHelperBase *MessageListDelegate::attachmentsHelper(const MessageAttachment &msgAttach) const
 {
     switch (msgAttach.attachmentType()) {
-    case MessageAttachment::Image:
+    case MessageAttachment::AttachmentType::Image:
         return mHelperAttachmentImage.data();
-    case MessageAttachment::File:
+    case MessageAttachment::AttachmentType::File:
         return mHelperAttachmentFile.data();
-    case MessageAttachment::Video:
+    case MessageAttachment::AttachmentType::Video:
         return mHelperAttachmentVideo.data();
-    case MessageAttachment::Audio:
+    case MessageAttachment::AttachmentType::Audio:
         return mHelperAttachmentSound.data();
-    case MessageAttachment::NormalText:
+    case MessageAttachment::AttachmentType::NormalText:
         return mHelperAttachmentText.data();
-    case MessageAttachment::Unknown:
+    case MessageAttachment::AttachmentType::Unknown:
         qCWarning(RUQOLAWIDGETS_LOG) << "It's an unknown attachment ! It's a bug for sure";
         break;
     }

@@ -16,7 +16,7 @@ class LIBRUQOLACORE_EXPORT MessageAttachment
 public:
     MessageAttachment();
 
-    enum AttachmentType {
+    enum class AttachmentType : uint8_t {
         Unknown,
         NormalText,
         File,
@@ -99,7 +99,7 @@ public:
 private:
     LIBRUQOLACORE_NO_EXPORT void generateAttachmentFieldsText();
     QList<MessageAttachmentField> mAttachmentFields;
-    AttachmentType mAttachmentType = Unknown;
+    AttachmentType mAttachmentType = AttachmentType::Unknown;
     QString mColor;
     QString mDescription;
     QString mTitle;

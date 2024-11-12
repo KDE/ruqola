@@ -59,7 +59,7 @@ void MessageTest::shouldParseMessage_data()
         MessageAttachment att;
         att.setLink(QStringLiteral("/file-upload/3zfLR3Cjr8YnvD6cS/dd.pdf"));
         att.setTitle(QStringLiteral("dd.pdf"));
-        att.setAttachmentType(MessageAttachment::File);
+        att.setAttachmentType(MessageAttachment::AttachmentType::File);
         att.generateTitle();
 
         MessageAttachments attachments;
@@ -155,7 +155,7 @@ void MessageTest::shouldParseMessage_data()
         attImage.setMimeType(QStringLiteral("image/png"));
         attImage.setImageWidth(120);
         attImage.setImageHeight(120);
-        attImage.setAttachmentType(MessageAttachment::Image);
+        attImage.setAttachmentType(MessageAttachment::AttachmentType::Image);
         attImage.setAttachmentSize(1829038);
         attImage.generateTitle();
 
@@ -191,7 +191,7 @@ void MessageTest::shouldParseMessage_data()
         attVideo.setLink(QStringLiteral("/file-upload/sLgmaWowyttg4d2ZD/SampleVideo_1280x720_1mb.mp4"));
         attVideo.setDescription(QStringLiteral("test"));
         attVideo.setAttachmentSize(1055736);
-        attVideo.setAttachmentType(MessageAttachment::Video);
+        attVideo.setAttachmentType(MessageAttachment::AttachmentType::Video);
         attVideo.generateTitle();
 
         MessageAttachments attachments;
@@ -224,7 +224,7 @@ void MessageTest::shouldParseMessage_data()
         attAudio.setTitle(QStringLiteral("joint.wav"));
         attAudio.setLink(QStringLiteral("/file-upload/9E8YBGgq3H6GbASf3/joint.wav"));
         attAudio.setDescription(QStringLiteral("dfgsdfgsdfg sdfgd dfsg sfd g"));
-        attAudio.setAttachmentType(MessageAttachment::Audio);
+        attAudio.setAttachmentType(MessageAttachment::AttachmentType::Audio);
         attAudio.setAttachmentSize(59217);
         attAudio.generateTitle();
 
@@ -321,7 +321,7 @@ void MessageTest::shouldParseMessage_data()
         fileAttachment.setTitle(QStringLiteral("webkit.txt"));
         fileAttachment.setLink(QStringLiteral("/file-upload/tmqfdJTCmJ3oqG/webkit.txt"));
         fileAttachment.setDescription(QStringLiteral("description"));
-        fileAttachment.setAttachmentType(MessageAttachment::File);
+        fileAttachment.setAttachmentType(MessageAttachment::AttachmentType::File);
         fileAttachment.generateTitle();
 
         MessageAttachments attachments;

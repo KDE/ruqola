@@ -45,7 +45,7 @@ void MessageListDelegateTest::layoutChecks_data()
 
     message.setMessageType(Message::NormalText);
     MessageAttachment msgAttach = testAttachment();
-    msgAttach.setAttachmentType(MessageAttachment::Image);
+    msgAttach.setAttachmentType(MessageAttachment::AttachmentType::Image);
 
     MessageAttachments attachments;
     QList<MessageAttachment> attachmentInfos;
