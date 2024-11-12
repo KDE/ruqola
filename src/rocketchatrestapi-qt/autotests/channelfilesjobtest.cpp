@@ -28,7 +28,7 @@ void ChannelFilesJobTest::shouldHaveDefaultValue()
 void ChannelFilesJobTest::shouldGenerateRequest()
 {
     ChannelFilesJob job;
-    job.setChannelType(ChannelFilesJob::Channel);
+    job.setChannelType(ChannelFilesJob::ChannelType::Channel);
     ChannelGroupBaseJob::ChannelGroupInfo info;
     info.channelGroupInfoType = ChannelGroupBaseJob::ChannelGroupInfoType::Identifier;
     info.identifier = QStringLiteral("foo");
@@ -38,11 +38,11 @@ void ChannelFilesJobTest::shouldGenerateRequest()
     verifyAuthentication(&job, request);
     QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/v1/channels.files?roomId=foo")));
 
-    job.setChannelType(ChannelFilesJob::Direct);
+    job.setChannelType(ChannelFilesJob::ChannelType::Direct);
     verifyAuthentication(&job, request);
     QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/v1/im.files?roomId=foo")));
 
-    job.setChannelType(ChannelFilesJob::Groups);
+    job.setChannelType(ChannelFilesJob::ChannelType::Groups);
     verifyAuthentication(&job, request);
     QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/v1/groups.files?roomId=foo")));
 }

@@ -154,16 +154,16 @@ RuqolaMainWindow::~RuqolaMainWindow()
 
 void RuqolaMainWindow::parseCommandLine(QCommandLineParser *parser)
 {
-    if (parser->isSet(RuqolaCommandLineParser::commandLineFromEnum(RuqolaCommandLineParser::MessageUrl))) {
-        const QString messageUrl = parser->value(RuqolaCommandLineParser::commandLineFromEnum(RuqolaCommandLineParser::MessageUrl));
+    if (parser->isSet(RuqolaCommandLineParser::commandLineFromEnum(RuqolaCommandLineParser::CommandLineName::MessageUrl))) {
+        const QString messageUrl = parser->value(RuqolaCommandLineParser::commandLineFromEnum(RuqolaCommandLineParser::CommandLineName::MessageUrl));
         if (!messageUrl.isEmpty()) {
             if (RocketChatUrlUtils::parseUrl(messageUrl)) {
                 return;
             }
         }
     }
-    if (parser->isSet(RuqolaCommandLineParser::commandLineFromEnum(RuqolaCommandLineParser::Account))) {
-        const QString loadAccount = parser->value(RuqolaCommandLineParser::commandLineFromEnum(RuqolaCommandLineParser::Account));
+    if (parser->isSet(RuqolaCommandLineParser::commandLineFromEnum(RuqolaCommandLineParser::CommandLineName::Account))) {
+        const QString loadAccount = parser->value(RuqolaCommandLineParser::commandLineFromEnum(RuqolaCommandLineParser::CommandLineName::Account));
         if (!loadAccount.isEmpty()) {
             Ruqola::self()->setCurrentAccount(loadAccount);
         }
@@ -1258,21 +1258,21 @@ void RuqolaMainWindow::slotExportAccounts()
 void RuqolaMainWindow::slotApplicationsSettings()
 {
     ApplicationsSettingsDialog dlg(mCurrentRocketChatAccount, this);
-    dlg.setFeature(ApplicationsSettingsSearchWidget::None);
+    dlg.setFeature(ApplicationsSettingsSearchWidget::Feature::None);
     dlg.exec();
 }
 
 void RuqolaMainWindow::slotApplicationsRequestedSettings()
 {
     ApplicationsSettingsDialog dlg(mCurrentRocketChatAccount, this);
-    dlg.setFeature(ApplicationsSettingsSearchWidget::Requested);
+    dlg.setFeature(ApplicationsSettingsSearchWidget::Feature::Requested);
     dlg.exec();
 }
 
 void RuqolaMainWindow::slotApplicationsInstalledSettings()
 {
     ApplicationsSettingsDialog dlg(mCurrentRocketChatAccount, this);
-    dlg.setFeature(ApplicationsSettingsSearchWidget::Installed);
+    dlg.setFeature(ApplicationsSettingsSearchWidget::Feature::Installed);
     dlg.exec();
 }
 

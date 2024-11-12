@@ -17,7 +17,7 @@ public:
     explicit SetChannelTypeJob(QObject *parent = nullptr);
     ~SetChannelTypeJob() override;
 
-    enum GroupType {
+    enum class GroupType : uint8_t {
         Unknown = 0,
         Private,
         Public,
@@ -39,6 +39,6 @@ Q_SIGNALS:
 
 private:
     LIBROCKETCHATRESTAPI_QT_NO_EXPORT void onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson) override;
-    GroupType mType = Unknown;
+    GroupType mType = GroupType::Unknown;
 };
 }

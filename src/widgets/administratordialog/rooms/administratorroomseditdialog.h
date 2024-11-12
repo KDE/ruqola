@@ -13,7 +13,7 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT AdministratorRoomsEditDialog : public QDialo
 {
     Q_OBJECT
 public:
-    enum RoomType {
+    enum class RoomType : uint8_t {
         Unknown,
         DirectRoom,
         Team,

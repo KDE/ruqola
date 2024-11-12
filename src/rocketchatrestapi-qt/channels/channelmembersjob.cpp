@@ -77,7 +77,7 @@ bool ChannelMembersJob::canStart() const
         qCWarning(ROCKETCHATQTRESTAPI_LOG) << "ChannelMembersJob: RoomId and RoomName are empty";
         return false;
     }
-    if (mChannelType == ChannelMembersJob::Unknown) {
+    if (mChannelType == ChannelMembersJob::ChannelType::Unknown) {
         qCWarning(ROCKETCHATQTRESTAPI_LOG) << "ChannelMembersJob: Channel type is unknown.";
         return false;
     }
@@ -91,16 +91,16 @@ QNetworkRequest ChannelMembersJob::request() const
 {
     QUrl url;
     switch (mChannelType) {
-    case Channel:
+    case ChannelType::Channel:
         url = mRestApiMethod->generateUrl(RestApiUtil::RestApiUrlType::ChannelsMembers);
         break;
-    case Groups:
+    case ChannelType::Groups:
         url = mRestApiMethod->generateUrl(RestApiUtil::RestApiUrlType::GroupsMembers);
         break;
-    case Direct:
+    case ChannelType::Direct:
         url = mRestApiMethod->generateUrl(RestApiUtil::RestApiUrlType::ImMembers);
         break;
-    case Unknown:
+    case ChannelType::Unknown:
         qCWarning(ROCKETCHATQTRESTAPI_LOG) << "ChannelMembersJob: Type is not defined";
         break;
     }

@@ -396,11 +396,11 @@ void ChannelListView::slotHideChannel(const QModelIndex &index, Room::RoomType r
     job->setChannelGroupInfo(info);
     const QString type = Room::roomFromRoomType(roomType);
     if (type == QLatin1Char('d')) {
-        job->setChannelType(RocketChatRestApi::ChannelCloseJob::Direct);
+        job->setChannelType(RocketChatRestApi::ChannelCloseJob::ChannelType::Direct);
     } else if (type == QLatin1Char('p')) {
-        job->setChannelType(RocketChatRestApi::ChannelCloseJob::Groups);
+        job->setChannelType(RocketChatRestApi::ChannelCloseJob::ChannelType::Groups);
     } else if (type == QLatin1Char('c')) {
-        job->setChannelType(RocketChatRestApi::ChannelCloseJob::Channel);
+        job->setChannelType(RocketChatRestApi::ChannelCloseJob::ChannelType::Channel);
     }
     if (!job->start()) {
         qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start ChannelCloseJob job";

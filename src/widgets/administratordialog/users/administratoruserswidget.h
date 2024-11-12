@@ -14,7 +14,7 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT AdministratorUsersWidget : public SearchTree
 {
     Q_OBJECT
 public:
-    enum UsersType {
+    enum class UsersType : uint8_t {
         All,
         Pending,
         Desactivated,

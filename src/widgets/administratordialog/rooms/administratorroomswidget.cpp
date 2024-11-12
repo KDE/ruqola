@@ -87,7 +87,7 @@ QString AdministratorRoomsWidget::displayShowMessageInRoom() const
 
 void AdministratorRoomsWidget::slotGetRoomSettingsModifyDone(const QJsonObject &obj, Room::RoomType roomType)
 {
-    AdministratorRoomsEditDialog::RoomType admRoomType{AdministratorRoomsEditDialog::Unknown};
+    AdministratorRoomsEditDialog::RoomType admRoomType{AdministratorRoomsEditDialog::RoomType::Unknown};
     RoomInfo roomInfo;
     roomInfo.parseRoomInfo(obj);
     AdministratorRoomsEditBaseWidget::RoomEditInfo info;
@@ -96,13 +96,13 @@ void AdministratorRoomsWidget::slotGetRoomSettingsModifyDone(const QJsonObject &
     info.defaultRoom = roomInfo.defaultRoom();
     info.name = roomInfo.roomName();
     if (roomType == Room::RoomType::Direct) {
-        admRoomType = AdministratorRoomsEditDialog::DirectRoom;
+        admRoomType = AdministratorRoomsEditDialog::RoomType::DirectRoom;
     } else {
         info.topic = roomInfo.topic();
         info.announcement = roomInfo.announcement();
         info.description = roomInfo.description();
         info.userOwnerName = roomInfo.ownerName();
-        admRoomType = AdministratorRoomsEditDialog::Channel;
+        admRoomType = AdministratorRoomsEditDialog::RoomType::Channel;
     }
     QPointer<AdministratorRoomsEditDialog> dlg = new AdministratorRoomsEditDialog(admRoomType, this);
     dlg->setRoomEditInfo(info);

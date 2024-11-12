@@ -28,7 +28,7 @@ void ChannelMembersJobTest::shouldHaveDefaultValue()
 void ChannelMembersJobTest::shouldGenerateRequest()
 {
     ChannelMembersJob job;
-    job.setChannelType(ChannelMembersJob::Channel);
+    job.setChannelType(ChannelMembersJob::ChannelType::Channel);
     ChannelGroupBaseJob::ChannelGroupInfo info;
     info.channelGroupInfoType = ChannelGroupBaseJob::ChannelGroupInfoType::Identifier;
     info.identifier = QStringLiteral("foo");
@@ -38,11 +38,11 @@ void ChannelMembersJobTest::shouldGenerateRequest()
     verifyAuthentication(&job, request);
     QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/v1/channels.members?roomId=foo")));
 
-    job.setChannelType(ChannelMembersJob::Direct);
+    job.setChannelType(ChannelMembersJob::ChannelType::Direct);
     verifyAuthentication(&job, request);
     QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/v1/im.members?roomId=foo")));
 
-    job.setChannelType(ChannelMembersJob::Groups);
+    job.setChannelType(ChannelMembersJob::ChannelType::Groups);
     verifyAuthentication(&job, request);
     QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/v1/groups.members?roomId=foo")));
 }

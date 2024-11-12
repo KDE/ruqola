@@ -12,7 +12,7 @@
 class LIBRUQOLAWIDGETS_EXPORT RuqolaCommandLineParser
 {
 public:
-    enum CommandLineName {
+    enum class CommandLineName : uint8_t {
         ListAccount,
         Account,
         MessageUrl,

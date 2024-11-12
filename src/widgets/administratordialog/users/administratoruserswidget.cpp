@@ -46,7 +46,7 @@ AdministratorUsersWidget::AdministratorUsersWidget(AdministratorUsersWidget::Use
 {
     AdminUsersBaseModel *adminUsersModel = nullptr;
     switch (type) {
-    case AdministratorUsersWidget::Pending: {
+    case AdministratorUsersWidget::UsersType::Pending: {
         adminUsersModel = new AdminUsersPendingModel(this);
         auto delegate = new AdministratorUsersPendingActionDelegate(this);
         connect(delegate, &AdministratorUsersPendingActionDelegate::pendingActionActivated, this, [this](const QModelIndex &index) {
@@ -60,11 +60,11 @@ AdministratorUsersWidget::AdministratorUsersWidget(AdministratorUsersWidget::Use
         mTreeView->setItemDelegateForColumn(AdminUsersPendingModel::PendingActionButton, delegate);
         break;
     }
-    case All:
+    case UsersType::All:
         adminUsersModel = new AdminUsersAllModel(this);
         break;
-    case Desactivated:
-    case Activate:
+    case UsersType::Desactivated:
+    case UsersType::Activate:
         adminUsersModel = new AdminUsersStatusModel(this);
         break;
     }
@@ -79,7 +79,7 @@ AdministratorUsersWidget::AdministratorUsersWidget(AdministratorUsersWidget::Use
     mProxyModelModel->setObjectName("mAdminUsersProxyModel"_L1);
     mSearchLineEdit->setPlaceholderText(i18nc("@info:placeholder", "Search users…"));
     mTreeView->setModel(mProxyModelModel);
-    if (type == AdministratorUsersWidget::Pending) {
+    if (type == AdministratorUsersWidget::UsersType::Pending) {
         auto funct = [this](const QModelIndex &left, const QModelIndex &right, bool &useDefaultLessThan) {
             const int leftColumn{left.column()};
             if (leftColumn == AdminUsersPendingModel::PendingActionButton) {
@@ -374,25 +374,25 @@ void AdministratorUsersWidget::slotLoadElements(int offset, int count, const QSt
     }
 
     switch (mUserType) {
-    case Pending: {
+    case UsersType::Pending: {
         info.hasLoggedIn = RocketChatRestApi::UsersListByStatusJob::LoggedStatus::NotLogged;
         info.type = RocketChatRestApi::UsersListByStatusJob::StatusType::User;
         break;
     }
-    case Desactivated: {
+    case UsersType::Desactivated: {
         info.hasLoggedIn = RocketChatRestApi::UsersListByStatusJob::LoggedStatus::Logged;
         info.type = RocketChatRestApi::UsersListByStatusJob::StatusType::User;
         info.status = RocketChatRestApi::UsersListByStatusJob::Status::Deactivated;
         break;
     }
-    case Activate: {
+    case UsersType::Activate: {
         // TODO fix me
         info.hasLoggedIn = RocketChatRestApi::UsersListByStatusJob::LoggedStatus::Logged;
         info.type = RocketChatRestApi::UsersListByStatusJob::StatusType::User;
         info.status = RocketChatRestApi::UsersListByStatusJob::Status::Activated;
         break;
     }
-    case All:
+    case UsersType::All:
         break;
     }
 

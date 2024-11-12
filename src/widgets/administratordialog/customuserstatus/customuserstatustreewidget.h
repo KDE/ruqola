@@ -28,7 +28,7 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT CustomUserStatusTreeWidget : public QTreeWid
 {
     Q_OBJECT
 public:
-    enum UserStatusColumn {
+    enum UserStatusColumn : uint8_t {
         Name = 0,
         Presence,
         Identifier,

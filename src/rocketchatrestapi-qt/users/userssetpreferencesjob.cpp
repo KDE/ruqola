@@ -106,25 +106,25 @@ QJsonDocument UsersSetPreferencesJob::json() const
         dataObj["highlights"_L1] = QJsonArray::fromStringList(mUsersSetPreferencesInfo.highlights);
     }
 
-    if (mUsersSetPreferencesInfo.useEmoji != UsersSetPreferencesInfo::Unknown) {
+    if (mUsersSetPreferencesInfo.useEmoji != UsersSetPreferencesInfo::State::Unknown) {
         dataObj["useEmojis"_L1] = UsersSetPreferencesInfo::convertToBool(mUsersSetPreferencesInfo.useEmoji);
     }
-    if (mUsersSetPreferencesInfo.convertAsciiToEmoji != UsersSetPreferencesInfo::Unknown) {
+    if (mUsersSetPreferencesInfo.convertAsciiToEmoji != UsersSetPreferencesInfo::State::Unknown) {
         dataObj["convertAsciiEmoji"_L1] = UsersSetPreferencesInfo::convertToBool(mUsersSetPreferencesInfo.convertAsciiToEmoji);
     }
-    if (mUsersSetPreferencesInfo.hideRoles != UsersSetPreferencesInfo::Unknown) {
+    if (mUsersSetPreferencesInfo.hideRoles != UsersSetPreferencesInfo::State::Unknown) {
         dataObj["hideRoles"_L1] = UsersSetPreferencesInfo::convertToBool(mUsersSetPreferencesInfo.hideRoles);
     }
-    if (mUsersSetPreferencesInfo.displayAvatars != UsersSetPreferencesInfo::Unknown) {
+    if (mUsersSetPreferencesInfo.displayAvatars != UsersSetPreferencesInfo::State::Unknown) {
         dataObj["displayAvatars"_L1] = UsersSetPreferencesInfo::convertToBool(mUsersSetPreferencesInfo.displayAvatars);
     }
-    if (mUsersSetPreferencesInfo.sidebarDisplayAvatar != UsersSetPreferencesInfo::Unknown) {
+    if (mUsersSetPreferencesInfo.sidebarDisplayAvatar != UsersSetPreferencesInfo::State::Unknown) {
         dataObj["sidebarDisplayAvatar"_L1] = UsersSetPreferencesInfo::convertToBool(mUsersSetPreferencesInfo.sidebarDisplayAvatar);
     }
-    if (mUsersSetPreferencesInfo.sidebarShowUnread != UsersSetPreferencesInfo::Unknown) {
+    if (mUsersSetPreferencesInfo.sidebarShowUnread != UsersSetPreferencesInfo::State::Unknown) {
         dataObj["sidebarShowUnread"_L1] = UsersSetPreferencesInfo::convertToBool(mUsersSetPreferencesInfo.sidebarShowUnread);
     }
-    if (mUsersSetPreferencesInfo.sidebarShowFavorites != UsersSetPreferencesInfo::Unknown) {
+    if (mUsersSetPreferencesInfo.sidebarShowFavorites != UsersSetPreferencesInfo::State::Unknown) {
         dataObj["sidebarShowFavorites"_L1] = UsersSetPreferencesInfo::convertToBool(mUsersSetPreferencesInfo.sidebarShowFavorites);
     }
     if (!mUsersSetPreferencesInfo.sidebarSortby.isEmpty()) {
@@ -133,16 +133,16 @@ QJsonDocument UsersSetPreferencesJob::json() const
     if (!mUsersSetPreferencesInfo.sidebarViewMode.isEmpty()) {
         dataObj["sidebarViewMode"_L1] = mUsersSetPreferencesInfo.sidebarViewMode;
     }
-    if (mUsersSetPreferencesInfo.receiveLoginDetectionEmail != UsersSetPreferencesInfo::Unknown) {
+    if (mUsersSetPreferencesInfo.receiveLoginDetectionEmail != UsersSetPreferencesInfo::State::Unknown) {
         dataObj["receiveLoginDetectionEmail"_L1] = UsersSetPreferencesInfo::convertToBool(mUsersSetPreferencesInfo.receiveLoginDetectionEmail);
     }
-    if (mUsersSetPreferencesInfo.enableAutoAway != UsersSetPreferencesInfo::Unknown) {
+    if (mUsersSetPreferencesInfo.enableAutoAway != UsersSetPreferencesInfo::State::Unknown) {
         dataObj["enableAutoAway"_L1] = UsersSetPreferencesInfo::convertToBool(mUsersSetPreferencesInfo.enableAutoAway);
     }
     if (mUsersSetPreferencesInfo.idleTimeLimit != -1) {
         dataObj["idleTimeLimit"_L1] = mUsersSetPreferencesInfo.idleTimeLimit;
     }
-    if (mUsersSetPreferencesInfo.muteFocusedConversations != UsersSetPreferencesInfo::Unknown) {
+    if (mUsersSetPreferencesInfo.muteFocusedConversations != UsersSetPreferencesInfo::State::Unknown) {
         dataObj["muteFocusedConversations"_L1] = UsersSetPreferencesInfo::convertToBool(mUsersSetPreferencesInfo.muteFocusedConversations);
     }
     if (mUsersSetPreferencesInfo.notificationsSoundVolume != -1) {
@@ -196,11 +196,11 @@ bool UsersSetPreferencesJob::UsersSetPreferencesInfo::isValid() const
 bool UsersSetPreferencesJob::UsersSetPreferencesInfo::convertToBool(State state)
 {
     switch (state) {
-    case Unknown:
+    case State::Unknown:
         return false;
-    case Checked:
+    case State::Checked:
         return true;
-    case Unchecked:
+    case State::Unchecked:
         return false;
     }
     return false;
@@ -208,7 +208,7 @@ bool UsersSetPreferencesJob::UsersSetPreferencesInfo::convertToBool(State state)
 
 UsersSetPreferencesJob::UsersSetPreferencesInfo::State UsersSetPreferencesJob::UsersSetPreferencesInfo::convertToState(bool checked)
 {
-    return checked ? UsersSetPreferencesJob::UsersSetPreferencesInfo::Checked : UsersSetPreferencesJob::UsersSetPreferencesInfo::Unchecked;
+    return checked ? UsersSetPreferencesJob::UsersSetPreferencesInfo::State::Checked : UsersSetPreferencesJob::UsersSetPreferencesInfo::State::Unchecked;
 }
 
 #include "moc_userssetpreferencesjob.cpp"

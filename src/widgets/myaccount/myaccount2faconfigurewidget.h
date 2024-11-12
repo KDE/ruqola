@@ -17,7 +17,7 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT MyAccount2FaConfigureWidget : public QWidget
 {
     Q_OBJECT
 public:
-    enum PageType {
+    enum PageType : uint8_t {
         EmptyPage = 0,
         Enable2FaPage,
         Disable2FaPage,

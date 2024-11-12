@@ -20,7 +20,7 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT ApplicationsSettingsSearchWidget : public QW
 {
     Q_OBJECT
 public:
-    enum Feature {
+    enum class Feature : uint8_t {
         None,
         Installed,
         Requested,

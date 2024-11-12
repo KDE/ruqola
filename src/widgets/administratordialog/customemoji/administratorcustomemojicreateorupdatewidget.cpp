@@ -97,10 +97,10 @@ void AdministratorCustomEmojiCreateOrUpdateWidget::slotUpdateOkButton()
     if (nameTrimmed != aliasTrimmed) {
         mWarningLabel->hide();
         switch (mType) {
-        case Create:
+        case AdministratorCustomEmojiCreateOrUpdateType::Create:
             Q_EMIT updateOkButton(!nameTrimmed.isEmpty() && mSelectFile->url().isValid());
             break;
-        case Update:
+        case AdministratorCustomEmojiCreateOrUpdateType::Update:
             Q_EMIT updateOkButton(!nameTrimmed.isEmpty());
             break;
         }

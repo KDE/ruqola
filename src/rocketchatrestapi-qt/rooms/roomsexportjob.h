@@ -17,12 +17,12 @@ class LIBROCKETCHATRESTAPI_QT_EXPORT RoomsExportJob : public RestApiAbstractJob
     Q_OBJECT
 public:
     struct LIBROCKETCHATRESTAPI_QT_EXPORT RoomsExportInfo {
-        enum class FileFormat {
+        enum class FileFormat : uint8_t {
             Unknown,
             Html,
             Json,
         };
-        enum class ExportAs {
+        enum class ExportAs : uint8_t {
             Unknown,
             File,
             Email,

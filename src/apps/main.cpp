@@ -91,7 +91,7 @@ int main(int argc, char *argv[])
     parser.process(app);
     aboutData.processCommandLine(&parser);
 #if HAVE_KUSERFEEDBACK
-    if (parser.isSet(commandLineParser.commandLineFromEnum(RuqolaCommandLineParser::FeedBack))) {
+    if (parser.isSet(commandLineParser.commandLineFromEnum(RuqolaCommandLineParser::CommandLineName::FeedBack))) {
         auto userFeedback = new RuqolaUserFeedbackProvider;
         QTextStream(stdout) << userFeedback->describeDataSources() << '\n';
         delete userFeedback;
@@ -99,7 +99,7 @@ int main(int argc, char *argv[])
     }
 #endif
 
-    if (parser.isSet(commandLineParser.commandLineFromEnum(RuqolaCommandLineParser::ListAccount))) {
+    if (parser.isSet(commandLineParser.commandLineFromEnum(RuqolaCommandLineParser::CommandLineName::ListAccount))) {
         const QString configPath = ManagerDataPaths::self()->path(ManagerDataPaths::Config, QString());
         QDirIterator it(configPath,
                         QStringList() << QStringLiteral("ruqola.conf"),
@@ -117,7 +117,7 @@ int main(int argc, char *argv[])
 
     (void)Ruqola::self();
 
-    if (parser.isSet(commandLineParser.commandLineFromEnum(RuqolaCommandLineParser::LoginDdpApi))) {
+    if (parser.isSet(commandLineParser.commandLineFromEnum(RuqolaCommandLineParser::CommandLineName::LoginDdpApi))) {
         Ruqola::self()->setUseRestApiLogin(false);
     }
 

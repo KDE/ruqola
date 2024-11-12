@@ -17,7 +17,7 @@ class LIBROCKETCHATRESTAPI_QT_EXPORT UsersSetPreferencesJob : public RestApiAbst
     Q_OBJECT
 public:
     struct LIBROCKETCHATRESTAPI_QT_EXPORT UsersSetPreferencesInfo {
-        enum State {
+        enum State : uint8_t {
             Unknown = 0,
             Checked = 1,
             Unchecked = 2,
@@ -33,20 +33,20 @@ public:
         QString pushNotifications;
         QString emailNotificationMode;
         QStringList highlights;
-        State useEmoji = Unknown;
-        State convertAsciiToEmoji = Unknown;
-        State hideRoles = Unknown;
-        State displayAvatars = Unknown;
-        State sidebarDisplayAvatar = Unknown;
-        State sidebarShowUnread = Unknown;
-        State sidebarShowFavorites = Unknown;
-        State receiveLoginDetectionEmail = Unknown;
-        State enableAutoAway = Unknown;
+        State useEmoji = State::Unknown;
+        State convertAsciiToEmoji = State::Unknown;
+        State hideRoles = State::Unknown;
+        State displayAvatars = State::Unknown;
+        State sidebarDisplayAvatar = State::Unknown;
+        State sidebarShowUnread = State::Unknown;
+        State sidebarShowFavorites = State::Unknown;
+        State receiveLoginDetectionEmail = State::Unknown;
+        State enableAutoAway = State::Unknown;
         QString sidebarSortby;
         QString sidebarViewMode;
         int idleTimeLimit = -1;
         int notificationsSoundVolume = -1;
-        State muteFocusedConversations = Unknown;
+        State muteFocusedConversations = State::Unknown;
 
         // Add more
     };

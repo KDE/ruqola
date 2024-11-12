@@ -48,7 +48,7 @@ CreateSoundMessageWizard::~CreateSoundMessageWizard() = default;
 
 void CreateSoundMessageWizard::slotCurrentIdChanged(int id)
 {
-    if (id == GenerateSoundMessage) {
+    if (id == CreateSoundMessageEnum::GenerateSoundMessage) {
         mGenerateSoundMessagePage->setFileNamePath(mCreateSoundMessagePage->fileNameUrl().toLocalFile());
     }
 }

@@ -28,7 +28,7 @@ int DirectoryRoomsModel::rowCount(const QModelIndex &parent) const
 void DirectoryRoomsModel::addMoreElements(const QJsonObject &obj)
 {
     const int numberOfElement = mRoomsInfo.count();
-    mRoomsInfo.parseMoreRooms(obj, RoomsInfo::Directory);
+    mRoomsInfo.parseMoreRooms(obj, RoomsInfo::ParseType::Directory);
     beginInsertRows(QModelIndex(), numberOfElement, mRoomsInfo.count() - 1);
     endInsertRows();
     checkFullList();
@@ -51,7 +51,7 @@ void DirectoryRoomsModel::parseElements(const QJsonObject &roomsObj)
         mRoomsInfo.clear();
         endResetModel();
     }
-    mRoomsInfo.parseRooms(roomsObj, RoomsInfo::Directory);
+    mRoomsInfo.parseRooms(roomsObj, RoomsInfo::ParseType::Directory);
     if (!mRoomsInfo.isEmpty()) {
         beginInsertRows(QModelIndex(), 0, mRoomsInfo.count() - 1);
         endInsertRows();

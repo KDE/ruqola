@@ -97,11 +97,11 @@ bool TranslateSaveSettingsJob::canStart() const
         qCWarning(ROCKETCHATQTRESTAPI_LOG) << "TranslateSaveSettingsJob: mRoomId is empty";
         return false;
     }
-    if (mType == LanguageSetting && mLanguage.isEmpty()) {
+    if (mType == SettingType::LanguageSetting && mLanguage.isEmpty()) {
         qCWarning(ROCKETCHATQTRESTAPI_LOG) << "TranslateSaveSettingsJob: mLanguage is empty";
         return false;
     }
-    if (mType == Undefined) {
+    if (mType == SettingType::Undefined) {
         qCWarning(ROCKETCHATQTRESTAPI_LOG) << "TranslateSaveSettingsJob: mType is not defined";
         return false;
     }
@@ -122,15 +122,15 @@ QJsonDocument TranslateSaveSettingsJob::json() const
     QJsonObject jsonObj;
     jsonObj["roomId"_L1] = mRoomId;
     switch (mType) {
-    case AutoTranslateSetting:
+    case SettingType::AutoTranslateSetting:
         jsonObj["field"_L1] = QStringLiteral("autoTranslate");
         jsonObj["value"_L1] = mAutoTranslate;
         break;
-    case LanguageSetting:
+    case SettingType::LanguageSetting:
         jsonObj["field"_L1] = QStringLiteral("autoTranslateLanguage");
         jsonObj["value"_L1] = mLanguage;
         break;
-    case Undefined:
+    case SettingType::Undefined:
         break;
     }
     const QJsonDocument postData = QJsonDocument(jsonObj);

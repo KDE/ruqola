@@ -128,7 +128,7 @@ void AdminRoomsModel::parseElements(const QJsonObject &obj)
         mAdminRooms.clear();
         endRemoveRows();
     }
-    mAdminRooms.parseRooms(obj, RoomsInfo::Administrator);
+    mAdminRooms.parseRooms(obj, RoomsInfo::ParseType::Administrator);
     if (!mAdminRooms.isEmpty()) {
         beginInsertRows(QModelIndex(), 0, mAdminRooms.count() - 1);
         endInsertRows();
@@ -145,7 +145,7 @@ void AdminRoomsModel::checkFullList()
 void AdminRoomsModel::addMoreElements(const QJsonObject &obj)
 {
     const int numberOfElement = mAdminRooms.count();
-    mAdminRooms.parseMoreRooms(obj, RoomsInfo::Directory);
+    mAdminRooms.parseMoreRooms(obj, RoomsInfo::ParseType::Directory);
     beginInsertRows(QModelIndex(), numberOfElement, mAdminRooms.count() - 1);
     endInsertRows();
     checkFullList();

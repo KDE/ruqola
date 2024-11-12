@@ -28,7 +28,7 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT ChannelNameValidLineEdit : public SearchWith
 {
     Q_OBJECT
 public:
-    enum ChannelNameStatus {
+    enum class ChannelNameStatus : uint8_t {
         Unknown = 0,
         Valid = 1,
         AlreadyExistingName = 2,

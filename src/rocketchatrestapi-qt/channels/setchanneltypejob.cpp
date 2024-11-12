@@ -65,7 +65,7 @@ bool SetChannelTypeJob::canStart() const
         qCWarning(ROCKETCHATQTRESTAPI_LOG) << "SetChannelTypeJob: mRoomId and RoomName are empty";
         return false;
     }
-    if (mType == Unknown) {
+    if (mType == GroupType::Unknown) {
         qCWarning(ROCKETCHATQTRESTAPI_LOG) << "SetChannelTypeJob: type is not defined";
         return false;
     }
@@ -80,13 +80,13 @@ QJsonDocument SetChannelTypeJob::json() const
     QJsonObject jsonObj;
     generateJson(jsonObj);
     switch (mType) {
-    case Public:
+    case GroupType::Public:
         jsonObj["type"_L1] = QStringLiteral("c");
         break;
-    case Private:
+    case GroupType::Private:
         jsonObj["type"_L1] = QStringLiteral("p");
         break;
-    case Unknown:
+    case GroupType::Unknown:
         break;
     }
 

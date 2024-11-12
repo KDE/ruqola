@@ -15,7 +15,7 @@ class LIBROCKETCHATRESTAPI_QT_EXPORT ChannelMembersJob : public ChannelGroupBase
 {
     Q_OBJECT
 public:
-    enum ChannelType {
+    enum class ChannelType : uint8_t {
         Channel = 0,
         Groups,
         Direct,
@@ -44,6 +44,6 @@ protected:
 
 private:
     LIBROCKETCHATRESTAPI_QT_NO_EXPORT void onGetRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson) override;
-    ChannelType mChannelType = Unknown;
+    ChannelType mChannelType = ChannelType::Unknown;
 };
 }

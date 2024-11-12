@@ -37,27 +37,27 @@ void ChannelHistoryJobTest::shouldGenerateRequest()
 {
     ChannelHistoryJob job;
     ChannelHistoryJob::ChannelHistoryInfo info;
-    info.channelType = ChannelHistoryJob::Channel;
+    info.channelType = ChannelHistoryJob::ChannelType::Channel;
     job.setChannelHistoryInfo(info);
     QNetworkRequest request = QNetworkRequest(QUrl());
     verifyAuthentication(&job, request);
     QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/v1/channels.history?inclusive=false&unreads=false")));
     QCOMPARE(request.header(QNetworkRequest::ContentTypeHeader).toString(), QStringLiteral("application/json"));
 
-    info.channelType = ChannelHistoryJob::Direct;
+    info.channelType = ChannelHistoryJob::ChannelType::Direct;
     job.setChannelHistoryInfo(info);
     verifyAuthentication(&job, request);
     QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/v1/im.history?inclusive=false&unreads=false")));
     QCOMPARE(request.header(QNetworkRequest::ContentTypeHeader).toString(), QStringLiteral("application/json"));
 
-    info.channelType = ChannelHistoryJob::Groups;
+    info.channelType = ChannelHistoryJob::ChannelType::Groups;
     job.setChannelHistoryInfo(info);
     verifyAuthentication(&job, request);
     QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/v1/groups.history?inclusive=false&unreads=false")));
     QCOMPARE(request.header(QNetworkRequest::ContentTypeHeader).toString(), QStringLiteral("application/json"));
 
     info.roomId = QByteArrayLiteral("foo");
-    info.channelType = ChannelHistoryJob::Groups;
+    info.channelType = ChannelHistoryJob::ChannelType::Groups;
     job.setChannelHistoryInfo(info);
     verifyAuthentication(&job, request);
     QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/v1/groups.history?roomId=foo&inclusive=false&unreads=false")));
@@ -99,7 +99,7 @@ void ChannelHistoryJobTest::shouldNotStarting()
     job.setChannelGroupInfo(info);
     QVERIFY(!job.canStart());
     ChannelHistoryJob::ChannelHistoryInfo historyInfo;
-    historyInfo.channelType = ChannelHistoryJob::Channel;
+    historyInfo.channelType = ChannelHistoryJob::ChannelType::Channel;
 
     job.setChannelHistoryInfo(historyInfo);
     QVERIFY(!job.canStart());

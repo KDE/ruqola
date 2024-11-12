@@ -66,7 +66,7 @@ bool ChannelHistoryJob::canStart() const
     //        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "ChannelHistoryJob: RoomId and RoomName are empty";
     //        return false;
     //    }
-    if (mChannelHistoryInfo.channelType == ChannelHistoryJob::Unknown) {
+    if (mChannelHistoryInfo.channelType == ChannelHistoryJob::ChannelType::Unknown) {
         qCWarning(ROCKETCHATQTRESTAPI_LOG) << "ChannelHistoryJob: Channel type is unknown.";
         return false;
     }
@@ -84,16 +84,16 @@ QNetworkRequest ChannelHistoryJob::request() const
 {
     QUrl url;
     switch (mChannelHistoryInfo.channelType) {
-    case Channel:
+    case ChannelType::Channel:
         url = mRestApiMethod->generateUrl(RestApiUtil::RestApiUrlType::ChannelsHistory);
         break;
-    case Groups:
+    case ChannelType::Groups:
         url = mRestApiMethod->generateUrl(RestApiUtil::RestApiUrlType::GroupsHistory);
         break;
-    case Direct:
+    case ChannelType::Direct:
         url = mRestApiMethod->generateUrl(RestApiUtil::RestApiUrlType::ImHistory);
         break;
-    case Unknown:
+    case ChannelType::Unknown:
         qCWarning(ROCKETCHATQTRESTAPI_LOG) << "ChannelHistoryJob: Type is not defined";
         break;
     }

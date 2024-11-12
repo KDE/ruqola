@@ -23,7 +23,7 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT AdministratorAddUserWidget : public QWidget
 {
     Q_OBJECT
 public:
-    enum UserType {
+    enum class UserType : uint8_t {
         Unknown = 0,
         Create,
         Edit,

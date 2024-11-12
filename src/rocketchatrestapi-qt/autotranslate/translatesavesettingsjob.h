@@ -17,7 +17,7 @@ public:
     explicit TranslateSaveSettingsJob(QObject *parent = nullptr);
     ~TranslateSaveSettingsJob() override;
 
-    enum SettingType {
+    enum class SettingType : uint8_t {
         AutoTranslateSetting,
         LanguageSetting,
         Undefined
@@ -49,7 +49,7 @@ private:
     LIBROCKETCHATRESTAPI_QT_NO_EXPORT void onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson) override;
     QString mRoomId;
     QString mLanguage;
-    TranslateSaveSettingsJob::SettingType mType = Undefined;
+    TranslateSaveSettingsJob::SettingType mType = SettingType::Undefined;
     bool mAutoTranslate = false;
 };
 }

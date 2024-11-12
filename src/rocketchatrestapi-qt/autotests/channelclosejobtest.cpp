@@ -28,18 +28,18 @@ void ChannelCloseJobTest::shouldHaveDefaultValue()
 void ChannelCloseJobTest::shouldGenerateRequest()
 {
     ChannelCloseJob job;
-    job.setChannelType(ChannelCloseJob::Channel);
+    job.setChannelType(ChannelCloseJob::ChannelType::Channel);
     QNetworkRequest request = QNetworkRequest(QUrl());
     verifyAuthentication(&job, request);
     QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/v1/channels.close")));
     QCOMPARE(request.header(QNetworkRequest::ContentTypeHeader).toString(), QStringLiteral("application/json"));
 
-    job.setChannelType(ChannelCloseJob::Direct);
+    job.setChannelType(ChannelCloseJob::ChannelType::Direct);
     verifyAuthentication(&job, request);
     QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/v1/im.close")));
     QCOMPARE(request.header(QNetworkRequest::ContentTypeHeader).toString(), QStringLiteral("application/json"));
 
-    job.setChannelType(ChannelCloseJob::Groups);
+    job.setChannelType(ChannelCloseJob::ChannelType::Groups);
     verifyAuthentication(&job, request);
     QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/v1/groups.close")));
     QCOMPARE(request.header(QNetworkRequest::ContentTypeHeader).toString(), QStringLiteral("application/json"));

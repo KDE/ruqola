@@ -18,15 +18,15 @@ RuqolaCommandLineParser::~RuqolaCommandLineParser() = default;
 QString RuqolaCommandLineParser::commandLineFromEnum(CommandLineName e)
 {
     switch (e) {
-    case ListAccount:
+    case CommandLineName::ListAccount:
         return QStringLiteral("list-accounts");
-    case Account:
+    case CommandLineName::Account:
         return QStringLiteral("account");
-    case MessageUrl:
+    case CommandLineName::MessageUrl:
         return QStringLiteral("messageurl");
-    case LoginDdpApi:
+    case CommandLineName::LoginDdpApi:
         return QStringLiteral("loginddpapi");
-    case FeedBack:
+    case CommandLineName::FeedBack:
         return QStringLiteral("feedback");
     }
     return {};
@@ -34,13 +34,16 @@ QString RuqolaCommandLineParser::commandLineFromEnum(CommandLineName e)
 
 void RuqolaCommandLineParser::initializeCommandLine(QCommandLineParser *parser)
 {
-    parser->addOption(QCommandLineOption(QStringList() << commandLineFromEnum(ListAccount), i18nc("@info:shell", "Return lists of accounts")));
+    parser->addOption(QCommandLineOption(QStringList() << commandLineFromEnum(CommandLineName::ListAccount), i18nc("@info:shell", "Return lists of accounts")));
+    parser->addOption(QCommandLineOption(QStringList() << commandLineFromEnum(CommandLineName::Account),
+                                         i18nc("@info:shell", "Start with specific account"),
+                                         QStringLiteral("accountname")));
     parser->addOption(
-        QCommandLineOption(QStringList() << commandLineFromEnum(Account), i18nc("@info:shell", "Start with specific account"), QStringLiteral("accountname")));
-    parser->addOption(QCommandLineOption(QStringList() << commandLineFromEnum(MessageUrl), i18nc("@info:shell", "Show Message"), QStringLiteral("url")));
-    parser->addOption(QCommandLineOption(QStringList() << commandLineFromEnum(LoginDdpApi), i18nc("@info:shell", "Use ddp api for login")));
+        QCommandLineOption(QStringList() << commandLineFromEnum(CommandLineName::MessageUrl), i18nc("@info:shell", "Show Message"), QStringLiteral("url")));
+    parser->addOption(QCommandLineOption(QStringList() << commandLineFromEnum(CommandLineName::LoginDdpApi), i18nc("@info:shell", "Use ddp api for login")));
 
 #if HAVE_KUSERFEEDBACK
-    parser->addOption(QCommandLineOption(commandLineFromEnum(FeedBack), i18nc("@info:shell", "Lists the available options for user feedback")));
+    parser->addOption(
+        QCommandLineOption(commandLineFromEnum(CommandLineName::FeedBack), i18nc("@info:shell", "Lists the available options for user feedback")));
 #endif
 }

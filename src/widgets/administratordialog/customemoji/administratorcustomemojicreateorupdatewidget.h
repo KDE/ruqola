@@ -18,7 +18,7 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT AdministratorCustomEmojiCreateOrUpdateWidget
 {
     Q_OBJECT
 public:
-    enum AdministratorCustomEmojiCreateOrUpdateType {
+    enum class AdministratorCustomEmojiCreateOrUpdateType : uint8_t {
         Create,
         Update,
     };

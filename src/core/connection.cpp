@@ -445,15 +445,15 @@ void Connection::historyChannel(const QString &roomId, const QString &type)
     job->setChannelGroupInfo(info);
     if (type == QLatin1Char('d')) {
         ChannelHistoryJob::ChannelHistoryInfo historyInfo;
-        historyInfo.channelType = ChannelHistoryJob::Direct;
+        historyInfo.channelType = ChannelHistoryJob::ChannelType::Direct;
         job->setChannelHistoryInfo(historyInfo);
     } else if (type == QLatin1Char('p')) {
         ChannelHistoryJob::ChannelHistoryInfo historyInfo;
-        historyInfo.channelType = ChannelHistoryJob::Groups;
+        historyInfo.channelType = ChannelHistoryJob::ChannelType::Groups;
         job->setChannelHistoryInfo(historyInfo);
     } else if (type == QLatin1Char('c')) {
         ChannelHistoryJob::ChannelHistoryInfo historyInfo;
-        historyInfo.channelType = ChannelHistoryJob::Channel;
+        historyInfo.channelType = ChannelHistoryJob::ChannelType::Channel;
         job->setChannelHistoryInfo(historyInfo);
     }
     if (!job->start()) {
@@ -479,11 +479,11 @@ void Connection::filesInRoom(const QByteArray &roomId, const QString &type, int 
     job->setQueryParameters(parameters);
 
     if (type == QLatin1Char('d')) {
-        job->setChannelType(ChannelFilesJob::Direct);
+        job->setChannelType(ChannelFilesJob::ChannelType::Direct);
     } else if (type == QLatin1Char('p')) {
-        job->setChannelType(ChannelFilesJob::Groups);
+        job->setChannelType(ChannelFilesJob::ChannelType::Groups);
     } else if (type == QLatin1Char('c')) {
-        job->setChannelType(ChannelFilesJob::Channel);
+        job->setChannelType(ChannelFilesJob::ChannelType::Channel);
     }
     if (!job->start()) {
         qCWarning(RUQOLA_LOG) << "Impossible to start filesInRoom job";
@@ -505,11 +505,11 @@ void Connection::membersInRoom(const QByteArray &roomId, const QString &type, in
     info.identifier = QString::fromLatin1(roomId);
     job->setChannelGroupInfo(info);
     if (type == QLatin1Char('d')) {
-        job->setChannelType(ChannelMembersJob::Direct);
+        job->setChannelType(ChannelMembersJob::ChannelType::Direct);
     } else if (type == QLatin1Char('p')) {
-        job->setChannelType(ChannelMembersJob::Groups);
+        job->setChannelType(ChannelMembersJob::ChannelType::Groups);
     } else if (type == QLatin1Char('c')) {
-        job->setChannelType(ChannelMembersJob::Channel);
+        job->setChannelType(ChannelMembersJob::ChannelType::Channel);
     }
     if (!job->start()) {
         qCWarning(RUQOLA_LOG) << "Impossible to start membersInRoom job";
@@ -783,7 +783,7 @@ void Connection::setChannelType(const QString &roomId, bool isPrivate)
     info.channelGroupInfoType = ChannelGroupBaseJob::ChannelGroupInfoType::Identifier;
     info.identifier = roomId;
     job->setChannelGroupInfo(info);
-    job->setType(isPrivate ? SetChannelTypeJob::Private : SetChannelTypeJob::Public);
+    job->setType(isPrivate ? SetChannelTypeJob::GroupType::Private : SetChannelTypeJob::GroupType::Public);
     if (!job->start()) {
         qCWarning(RUQOLA_LOG) << "Impossible to start setChannelType job";
     }
@@ -1281,7 +1281,7 @@ void Connection::autoTranslateSaveLanguageSettings(const QByteArray &roomId, con
     auto job = new TranslateSaveSettingsJob(this);
     initializeRestApiJob(job);
     job->setRoomId(QString::fromLatin1(roomId));
-    job->setType(TranslateSaveSettingsJob::LanguageSetting);
+    job->setType(TranslateSaveSettingsJob::SettingType::LanguageSetting);
     job->setLanguage(language);
     if (!job->start()) {
         qCDebug(RUQOLA_LOG) << "Impossible to start autoTranslateSaveLanguageSettings";
@@ -1293,7 +1293,7 @@ void Connection::autoTranslateSaveAutoTranslateSettings(const QByteArray &roomId
     auto job = new TranslateSaveSettingsJob(this);
     initializeRestApiJob(job);
     job->setRoomId(QString::fromLatin1(roomId));
-    job->setType(TranslateSaveSettingsJob::AutoTranslateSetting);
+    job->setType(TranslateSaveSettingsJob::SettingType::AutoTranslateSetting);
     job->setAutoTranslate(autoTranslate);
     if (!job->start()) {
         qCDebug(RUQOLA_LOG) << "Impossible to start autoTranslateSaveAutoTranslateSettings";

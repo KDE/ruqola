@@ -33,7 +33,7 @@ QList<int> DirectoryTeamsModel::hideColumns() const
 void DirectoryTeamsModel::addMoreElements(const QJsonObject &obj)
 {
     const int numberOfElement = mRoomsInfo.count();
-    mRoomsInfo.parseMoreRooms(obj, RoomsInfo::Directory);
+    mRoomsInfo.parseMoreRooms(obj, RoomsInfo::ParseType::Directory);
     beginInsertRows(QModelIndex(), numberOfElement, mRoomsInfo.count() - 1);
     endInsertRows();
     checkFullList();
@@ -46,7 +46,7 @@ void DirectoryTeamsModel::parseElements(const QJsonObject &obj)
         mRoomsInfo.clear();
         endResetModel();
     }
-    mRoomsInfo.parseRooms(obj, RoomsInfo::Directory);
+    mRoomsInfo.parseRooms(obj, RoomsInfo::ParseType::Directory);
     if (!mRoomsInfo.isEmpty()) {
         beginInsertRows(QModelIndex(), 0, mRoomsInfo.count() - 1);
         endInsertRows();

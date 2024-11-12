@@ -14,7 +14,7 @@ class LIBROCKETCHATRESTAPI_QT_EXPORT ChannelHistoryJob : public ChannelGroupBase
 {
     Q_OBJECT
 public:
-    enum ChannelType {
+    enum class ChannelType : uint8_t {
         Channel = 0,
         Groups,
         Direct,
@@ -26,7 +26,7 @@ public:
         QByteArray roomId;
         QString latestMessage;
         QString oldestMessage;
-        ChannelType channelType = Unknown;
+        ChannelType channelType = ChannelType::Unknown;
         int offset = -1; // default
         int count = -1;
         bool inclusive = false; // Default

@@ -800,13 +800,13 @@ void RoomWidget::slotJumpToUnreadMessage(qint64 numberOfMessage)
         RocketChatRestApi::ChannelHistoryJob::ChannelHistoryInfo info;
         switch (mRoomType) {
         case Room::RoomType::Channel:
-            info.channelType = RocketChatRestApi::ChannelHistoryJob::Channel;
+            info.channelType = RocketChatRestApi::ChannelHistoryJob::ChannelType::Channel;
             break;
         case Room::RoomType::Direct:
-            info.channelType = RocketChatRestApi::ChannelHistoryJob::Direct;
+            info.channelType = RocketChatRestApi::ChannelHistoryJob::ChannelType::Direct;
             break;
         case Room::RoomType::Private:
-            info.channelType = RocketChatRestApi::ChannelHistoryJob::Groups;
+            info.channelType = RocketChatRestApi::ChannelHistoryJob::ChannelType::Groups;
             break;
         case Room::RoomType::Unknown:
             qCWarning(RUQOLAWIDGETS_LOG) << " Problem with room type ";
@@ -856,13 +856,13 @@ void RoomWidget::slotGotoMessage(const QByteArray &messageId, const QString &mes
         RocketChatRestApi::ChannelHistoryJob::ChannelHistoryInfo info;
         switch (mRoomType) {
         case Room::RoomType::Channel:
-            info.channelType = RocketChatRestApi::ChannelHistoryJob::Channel;
+            info.channelType = RocketChatRestApi::ChannelHistoryJob::ChannelType::Channel;
             break;
         case Room::RoomType::Direct:
-            info.channelType = RocketChatRestApi::ChannelHistoryJob::Direct;
+            info.channelType = RocketChatRestApi::ChannelHistoryJob::ChannelType::Direct;
             break;
         case Room::RoomType::Private:
-            info.channelType = RocketChatRestApi::ChannelHistoryJob::Groups;
+            info.channelType = RocketChatRestApi::ChannelHistoryJob::ChannelType::Groups;
             break;
         case Room::RoomType::Unknown:
             qCWarning(RUQOLAWIDGETS_LOG) << " Problem with room type ";

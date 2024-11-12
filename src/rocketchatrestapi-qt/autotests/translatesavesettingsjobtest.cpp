@@ -22,7 +22,7 @@ void TranslateSaveSettingsJobTest::shouldHaveDefaultValue()
     QVERIFY(job.requireHttpAuthentication());
     QVERIFY(job.roomId().isEmpty());
     QVERIFY(job.language().isEmpty());
-    QCOMPARE(job.type(), TranslateSaveSettingsJob::Undefined);
+    QCOMPARE(job.type(), TranslateSaveSettingsJob::SettingType::Undefined);
     QVERIFY(!job.autoTranslate());
     QVERIFY(!job.hasQueryParameterSupport());
     QVERIFY(!job.requireTwoFactorAuthentication());
@@ -44,14 +44,14 @@ void TranslateSaveSettingsJobTest::shouldGenerateJson()
     job.setRoomId(roomId);
     const QString targetLanguage = QStringLiteral("bla");
     job.setLanguage(targetLanguage);
-    TranslateSaveSettingsJob::SettingType type = TranslateSaveSettingsJob::AutoTranslateSetting;
+    TranslateSaveSettingsJob::SettingType type = TranslateSaveSettingsJob::SettingType::AutoTranslateSetting;
     job.setType(type);
     bool autoTranslate = true;
     job.setAutoTranslate(autoTranslate);
 
     QCOMPARE(job.json().toJson(QJsonDocument::Compact),
              QStringLiteral("{\"field\":\"%1\",\"roomId\":\"%2\",\"value\":true}").arg(QStringLiteral("autoTranslate"), roomId).toLatin1());
-    type = TranslateSaveSettingsJob::LanguageSetting;
+    type = TranslateSaveSettingsJob::SettingType::LanguageSetting;
     job.setType(type);
     QCOMPARE(job.json().toJson(QJsonDocument::Compact),
              QStringLiteral("{\"field\":\"%1\",\"roomId\":\"%2\",\"value\":\"%3\"}")
@@ -76,13 +76,13 @@ void TranslateSaveSettingsJobTest::shouldNotStarting()
     QVERIFY(!job.canStart());
     job.setUserId(userId);
     QVERIFY(!job.canStart());
-    TranslateSaveSettingsJob::SettingType type = TranslateSaveSettingsJob::AutoTranslateSetting;
+    TranslateSaveSettingsJob::SettingType type = TranslateSaveSettingsJob::SettingType::AutoTranslateSetting;
     job.setType(type);
 
     const QString roomId = QStringLiteral("foo1");
     job.setRoomId(roomId);
     QVERIFY(job.canStart());
-    type = TranslateSaveSettingsJob::LanguageSetting;
+    type = TranslateSaveSettingsJob::SettingType::LanguageSetting;
     job.setType(type);
     QVERIFY(!job.canStart());
     const QString targetLanguage = QStringLiteral("bla");

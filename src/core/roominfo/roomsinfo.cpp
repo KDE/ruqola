@@ -50,10 +50,10 @@ void RoomsInfo::parseListRooms(const QJsonObject &adminRoomsObj, RoomsInfo::Pars
 {
     QString jsonKeyType;
     switch (type) {
-    case Administrator:
+    case ParseType::Administrator:
         jsonKeyType = QStringLiteral("rooms");
         break;
-    case Directory:
+    case ParseType::Directory:
         jsonKeyType = QStringLiteral("result");
         break;
     }

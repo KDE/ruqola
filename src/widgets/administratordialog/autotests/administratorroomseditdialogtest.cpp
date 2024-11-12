@@ -15,8 +15,8 @@ AdministratorRoomsEditDialogTest::AdministratorRoomsEditDialogTest(QObject *pare
 
 void AdministratorRoomsEditDialogTest::shouldHaveDefaultValues()
 {
-    AdministratorRoomsEditDialog d(AdministratorRoomsEditDialog::Channel);
-    QCOMPARE(d.roomType(), AdministratorRoomsEditDialog::Channel);
+    AdministratorRoomsEditDialog d(AdministratorRoomsEditDialog::RoomType::Channel);
+    QCOMPARE(d.roomType(), AdministratorRoomsEditDialog::RoomType::Channel);
     // TODO
 }
 

@@ -65,7 +65,7 @@ bool ChannelCloseJob::canStart() const
         qCWarning(ROCKETCHATQTRESTAPI_LOG) << "ChannelCloseJob: RoomId and RoomName are empty";
         return false;
     }
-    if (mChannelType == ChannelCloseJob::Unknown) {
+    if (mChannelType == ChannelCloseJob::ChannelType::Unknown) {
         qCWarning(ROCKETCHATQTRESTAPI_LOG) << "ChannelCloseJob: Channel type is unknown.";
         return false;
     }
@@ -88,16 +88,16 @@ QNetworkRequest ChannelCloseJob::request() const
 {
     QUrl url;
     switch (mChannelType) {
-    case Channel:
+    case ChannelType::Channel:
         url = mRestApiMethod->generateUrl(RestApiUtil::RestApiUrlType::ChannelsClose);
         break;
-    case Groups:
+    case ChannelType::Groups:
         url = mRestApiMethod->generateUrl(RestApiUtil::RestApiUrlType::GroupsClose);
         break;
-    case Direct:
+    case ChannelType::Direct:
         url = mRestApiMethod->generateUrl(RestApiUtil::RestApiUrlType::ImClose);
         break;
-    case Unknown:
+    case ChannelType::Unknown:
         qCWarning(ROCKETCHATQTRESTAPI_LOG) << "ChannelCloseJob: Type is not defined";
         break;
     }
