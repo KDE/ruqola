@@ -495,9 +495,9 @@ void RestApiAbstractJob::genericResponseHandler(void (RestApiAbstractJob::*respo
             qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Network error. Lost connection? Let's reconnect";
             return;
         }
-        // TODO add support error 400
         // qDebug() << mReply->readAll();
-        (this->*responseHandler)(mReply->errorString(), QJsonDocument());
+        // JSon can be null
+        (this->*responseHandler)(mReply->errorString(), convertToJsonDocument(mReply, true));
     } else {
         (this->*responseHandler)(QString(), convertToJsonDocument(mReply));
     }
@@ -573,11 +573,11 @@ void RestApiAbstractJob::submitPostRequest(const QJsonDocument &doc)
     });
 }
 
-QJsonDocument RestApiAbstractJob::convertToJsonDocument(QNetworkReply *reply)
+QJsonDocument RestApiAbstractJob::convertToJsonDocument(QNetworkReply *reply, bool canBeNull)
 {
     const QByteArray data = reply->readAll();
     const QJsonDocument replyDocument = QJsonDocument::fromJson(data);
-    if (replyDocument.isNull()) {
+    if (replyDocument.isNull() && !canBeNull) {
         qCWarning(ROCKETCHATQTRESTAPI_LOG) << " convertToJsonObject return null jsondocument. It's a bug. Data:" << data;
     }
     return replyDocument;

@@ -136,7 +136,7 @@ Q_SIGNALS:
 protected:
     [[nodiscard]] QString errorStr(const QJsonObject &replyObject);
 
-    [[nodiscard]] QJsonDocument convertToJsonDocument(QNetworkReply *reply);
+    [[nodiscard]] QJsonDocument convertToJsonDocument(QNetworkReply *reply, bool canBeNull = false);
     void emitFailedMessage(const QString &replyErrorString, const QJsonObject &replyObject);
     void addAuthRawHeader(QNetworkRequest &request) const;
     [[nodiscard]] virtual QString errorMessage(const QString &str, const QJsonObject &detail);
