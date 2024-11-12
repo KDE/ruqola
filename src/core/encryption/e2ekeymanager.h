@@ -13,7 +13,7 @@ class LIBRUQOLACORE_EXPORT E2eKeyManager : public QObject
 {
     Q_OBJECT
 public:
-    enum Status {
+    enum class Status : uint8_t {
         Unknown = 0,
         NeedToDecryptKey,
         NeedToGenerateKey,

@@ -33,7 +33,7 @@ public:
     Message(const Message &other) = default;
     virtual ~Message();
 
-    enum MessageType {
+    enum MessageType : uint8_t {
         System,
         Information,
         NormalText,

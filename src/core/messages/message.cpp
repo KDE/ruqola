@@ -97,15 +97,15 @@ void Message::parseMessage(const QJsonObject &o, bool restApi, EmojiManager *emo
     mMessageType = Message::MessageType::NormalText;
     if (!type.isEmpty()) {
         if (type == "videoconf"_L1) {
-            mMessageType = VideoConference;
+            mMessageType = MessageType::VideoConference;
             // qDebug() << " VIDEO " << o;
         } else if (type == "e2e"_L1) {
             mSystemMessageType = SystemMessageTypeUtil::systemMessageTypeFromString(type);
-            mMessageType = System;
+            mMessageType = MessageType::System;
             qDebug() << " encrypted message !!!!" << mText;
         } else {
             mSystemMessageType = SystemMessageTypeUtil::systemMessageTypeFromString(type);
-            mMessageType = System;
+            mMessageType = MessageType::System;
         }
     }
     parseBlocks(o.value("blocks"_L1).toArray());
