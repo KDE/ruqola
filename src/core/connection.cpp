@@ -17,7 +17,6 @@
 #include "rooms/roomsmuteuserjob.h"
 #include "rooms/roomsunmuteuserjob.h"
 #include "users/forgotpasswordjob.h"
-#include "users/getavatarjob.h"
 #include "users/userinfojob.h"
 #include "users/userspresencejob.h"
 
@@ -260,17 +259,6 @@ void Connection::logout()
     initializeRestApiJob(job);
     if (!job->start()) {
         qCWarning(RUQOLA_LOG) << "Impossible to start LogoutJob job";
-    }
-}
-
-void Connection::getAvatar(const UserBaseJob::UserInfo &info)
-{
-    auto job = new GetAvatarJob(this);
-    connect(job, &GetAvatarJob::avatar, this, &Connection::avatar);
-    initializeRestApiJob(job);
-    job->setUserInfo(info);
-    if (!job->start()) {
-        qCWarning(RUQOLA_LOG) << "Impossible to start getAvatar job";
     }
 }
 

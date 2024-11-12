@@ -145,7 +145,6 @@ public:
 
     void muteUser(const QByteArray &roomId, const QString &userName, bool mute);
 Q_SIGNALS:
-    void avatar(const RocketChatRestApi::UserBaseJob::UserInfo &info, const QUrl &url);
     void downloadFileDone(const QUrl &url, const QUrl &localFileUrl);
     void serverInfoDone(const QString &version);
     void serverInfoFailed(bool useDeprecatedVersion);
