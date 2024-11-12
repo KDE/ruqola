@@ -508,7 +508,6 @@ Q_SIGNALS:
     void accountInitialized();
     void ddpConnectedChanged(bool connected);
     void accountNameChanged();
-    void userNameChanged();
     void userIdChanged();
     void passwordAvailable();
     void twoFactorAuthenticationCodeChanged();
