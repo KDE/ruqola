@@ -5,7 +5,11 @@
 */
 
 #include "twoauthenticationpasswordwidget.h"
+#include "2fa/user2fasendemailcodejob.h"
+#include "connection.h"
 #include "rocketchataccount.h"
+#include "ruqolawidgets_debug.h"
+
 #include <KAuthorized>
 #include <KLocalizedString>
 #include <KPasswordLineEdit>
@@ -50,7 +54,12 @@ void TwoAuthenticationPasswordWidget::clear()
 
 void TwoAuthenticationPasswordWidget::slotSendNewEmailCode()
 {
-    mRocketChatAccount->sendUserEmailCode();
+    auto job = new RocketChatRestApi::User2FASendEmailCodeJob(this);
+    job->setUsernameOrEmail(mRocketChatAccount->userName());
+    mRocketChatAccount->restApi()->initializeRestApiJob(job);
+    if (!job->start()) {
+        qCDebug(RUQOLAWIDGETS_LOG) << "Impossible to start User2FASendEmailCodeJob";
+    }
 }
 
 RocketChatAccount *TwoAuthenticationPasswordWidget::rocketChatAccount() const

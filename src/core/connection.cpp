@@ -26,7 +26,6 @@
 #include "authentication/logoutjob.h"
 
 #include "chat/getmentionedmessagesjob.h"
-#include "chat/getmessagejob.h"
 #include "chat/getpinnedmessagesjob.h"
 #include "chat/getsnippetedmessagesjob.h"
 #include "chat/getstarredmessagesjob.h"
@@ -81,8 +80,6 @@
 #include "autotranslate/translatesavesettingsjob.h"
 
 #include "custom/customuserstatuslistjob.h"
-
-#include "2fa/user2fasendemailcodejob.h"
 
 #include <QNetworkAccessManager>
 #include <QNetworkCookie>
@@ -1075,18 +1072,6 @@ void Connection::getThreadsList(const QByteArray &roomId, bool onlyUnread, int o
     }
 }
 
-void Connection::getMessage(const QByteArray &messageId, const QByteArray &roomId)
-{
-    auto job = new GetMessageJob(this);
-    initializeRestApiJob(job);
-    job->setMessageId(messageId);
-    job->setRoomId(roomId);
-    connect(job, &GetMessageJob::getMessageDone, this, &Connection::getMessageDone);
-    if (!job->start()) {
-        qCDebug(RUQOLA_LOG) << "Impossible to start getMessage";
-    }
-}
-
 void Connection::getPinnedMessages(const QByteArray &roomId, int offset, int count)
 {
     auto job = new GetPinnedMessagesJob(this);
@@ -1267,16 +1252,6 @@ void Connection::findOrCreateInvite(const QByteArray &roomId, int maxUses, int n
     }
 }
 
-void Connection::sendUserEmailCode(const QString &identifier)
-{
-    auto job = new User2FASendEmailCodeJob(this);
-    job->setUsernameOrEmail(identifier);
-    initializeRestApiJob(job);
-    if (!job->start()) {
-        qCDebug(RUQOLA_LOG) << "Impossible to start User2FASendEmailCodeJob";
-    }
-}
-
 void Connection::registerNewUser(const RocketChatRestApi::RegisterUserJob::RegisterUserInfo &userInfo)
 {
     auto job = new RegisterUserJob(this);
@@ -1298,16 +1273,6 @@ void Connection::updateOwnBasicInfo(const RocketChatRestApi::UsersUpdateOwnBasic
 
     if (!job->start()) {
         qCDebug(RUQOLA_LOG) << "Impossible to start UsersUpdateOwnBasicInfoJob";
-    }
-}
-
-void Connection::getRoomsAdmin(const RocketChatRestApi::AdminRoomsJob::AdminRoomsJobInfo &info)
-{
-    auto job = new AdminRoomsJob(this);
-    job->setRoomsAdminInfo(info);
-    initializeRestApiJob(job);
-    if (!job->start()) {
-        qCDebug(RUQOLA_LOG) << "Impossible to start RoomsAdminJob";
     }
 }
 

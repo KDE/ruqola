@@ -2686,11 +2686,6 @@ void RocketChatAccount::slotLoginStatusChanged() // only used in DDP-only mode (
     Q_EMIT loginStatusChanged();
 }
 
-void RocketChatAccount::sendUserEmailCode()
-{
-    restApi()->sendUserEmailCode(userName());
-}
-
 void RocketChatAccount::registerNewUser(const RocketChatRestApi::RegisterUserJob::RegisterUserInfo &userInfo)
 {
     restApi()->registerNewUser(userInfo);

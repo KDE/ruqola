@@ -332,7 +332,6 @@ public:
     [[nodiscard]] bool runCommand(const QString &msg, const QByteArray &roomId, const QByteArray &tmid = QByteArray());
 
     void avatarChanged(const QJsonArray &contents);
-    void sendUserEmailCode();
     [[nodiscard]] bool allowDeleteOwnAccount() const;
     [[nodiscard]] bool registrationFormEnabled() const;
     void registerNewUser(const RocketChatRestApi::RegisterUserJob::RegisterUserInfo &userInfo);

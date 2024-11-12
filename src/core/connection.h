@@ -134,12 +134,9 @@ public:
     void customUserStatus();
     void usersAutocomplete(const RocketChatRestApi::UsersAutocompleteJob::UsersAutocompleterInfo &info);
     void findOrCreateInvite(const QByteArray &roomId, int maxUses, int numberOfDays);
-    void getMessage(const QByteArray &messageId, const QByteArray &roomId);
     void runCommand(const RocketChatRestApi::RunCommandJob::RunCommandInfo &runCommandInfo);
-    void sendUserEmailCode(const QString &identifier);
     void registerNewUser(const RocketChatRestApi::RegisterUserJob::RegisterUserInfo &userInfo);
     void updateOwnBasicInfo(const RocketChatRestApi::UsersUpdateOwnBasicInfoJob::UpdateOwnBasicInfo &info);
-    void getRoomsAdmin(const RocketChatRestApi::AdminRoomsJob::AdminRoomsJobInfo &info);
     void getChannelsCounter(const QByteArray &roomId);
     void setUserPreferences(const RocketChatRestApi::UsersSetPreferencesJob::UsersSetPreferencesInfo &info);
     void getMentionedMessages(const QByteArray &roomId, int offset = 0, int count = 50);
@@ -177,7 +174,6 @@ Q_SIGNALS:
     void networkError();
     void findOrCreateInviteDone(const RocketChatRestApi::FindOrCreateInviteJob::InviteUsersInfo &info);
 
-    void getMessageDone(const QJsonObject &obj, const QByteArray &messageId, const QByteArray &roomId);
     void runCommandDone();
     void registerUserDone();
     void channelGetCountersDone(const QJsonObject &obj, const RocketChatRestApi::ChannelGroupBaseJob::ChannelGroupInfo &channelInfo);
