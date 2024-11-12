@@ -981,7 +981,6 @@ void Connection::channelDelete(const QByteArray &roomId)
     info.channelGroupInfoType = ChannelGroupBaseJob::ChannelGroupInfoType::Identifier;
     info.identifier = QString::fromLatin1(roomId);
     job->setChannelGroupInfo(info);
-    connect(job, &ChannelDeleteJob::deletechannelDone, this, &Connection::deletechannelDone);
     if (!job->start()) {
         qCDebug(RUQOLA_LOG) << "Impossible to start ChannelDeleteJob";
     }
@@ -995,7 +994,6 @@ void Connection::groupDelete(const QByteArray &roomId)
     info.identifier = QString::fromLatin1(roomId);
     info.channelGroupInfoType = ChannelGroupBaseJob::ChannelGroupInfoType::Identifier;
     job->setChannelGroupInfo(info);
-    connect(job, &GroupsDeleteJob::deleteGroupsDone, this, &Connection::deleteGroupsDone);
     if (!job->start()) {
         qCDebug(RUQOLA_LOG) << "Impossible to start GroupsDeleteJob";
     }

@@ -12,7 +12,6 @@
 #include "config-ruqola.h"
 #include "createchannelteaminfo.h"
 #include "libruqolacore_export.h"
-#include "rooms/adminroomsjob.h"
 #include "users/registeruserjob.h"
 #include "users/setavatarjob.h"
 #include "users/setstatusjob.h"
@@ -149,8 +148,6 @@ Q_SIGNALS:
     void channelMembersDone(const QJsonObject &obj, const RocketChatRestApi::ChannelGroupBaseJob::ChannelGroupInfo &channelInfo);
     void channelRolesDone(const QJsonObject &obj, const RocketChatRestApi::ChannelGroupBaseJob::ChannelGroupInfo &channelInfo);
     void permissionListAllDone(const QJsonObject &obj);
-    void deletechannelDone();
-    void deleteGroupsDone();
     void groupRolesDone(const QJsonObject &obj, const RocketChatRestApi::ChannelGroupBaseJob::ChannelGroupInfo &channelInfo);
     void getDiscussionsDone(const QJsonObject &obj, const QByteArray &roomId);
     void getThreadsDone(const QJsonObject &obj, const QString &roomId, bool onlyUnread);
