@@ -2582,15 +2582,10 @@ bool RocketChatAccount::runCommand(const QString &msg, const QByteArray &roomId,
 {
     const RocketChatRestApi::RunCommandJob::RunCommandInfo info = RocketChatRestApi::RunCommandJob::parseString(msg, roomId, tmid);
     if (info.isValid()) {
-        runCommand(info);
+        restApi()->runCommand(info);
         return true;
     }
     return false;
-}
-
-void RocketChatAccount::runCommand(const RocketChatRestApi::RunCommandJob::RunCommandInfo &runCommandInfo)
-{
-    restApi()->runCommand(runCommandInfo);
 }
 
 User RocketChatAccount::fullUserInfo(const QString &userName) const
