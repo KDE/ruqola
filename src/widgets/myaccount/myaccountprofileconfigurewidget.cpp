@@ -13,6 +13,7 @@
 #include "ruqolawidgets_debug.h"
 #include "users/deleteownaccountjob.h"
 #include "users/userslogoutotherclientsjob.h"
+#include "users/usersupdateownbasicinfojob.h"
 #include <KAuthorized>
 #include <KLineEditEventHandler>
 #include <KLocalizedString>
@@ -230,7 +231,15 @@ void MyAccountProfileConfigureWidget::save()
 
     // TODO add more.
     if (updateInfo.isValid()) {
-        mRocketChatAccount->updateOwnBasicInfo(updateInfo);
+        auto job = new RocketChatRestApi::UsersUpdateOwnBasicInfoJob(this);
+        job->setUpdateOwnBasicInfo(updateInfo);
+        mRocketChatAccount->restApi()->initializeRestApiJob(job);
+        // Clear all other tokens when password was changed
+        // TODO fix me connect(job, &UsersUpdateOwnBasicInfoJob::passwordChanged, this, &Connection::updateOwnBasicInfoDone);
+
+        if (!job->start()) {
+            qCDebug(RUQOLAWIDGETS_LOG) << "Impossible to start UsersUpdateOwnBasicInfoJob";
+        }
     }
 }
 

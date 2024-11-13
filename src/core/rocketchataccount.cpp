@@ -2705,11 +2705,6 @@ void RocketChatAccount::slotRegisterUserDone()
     Q_EMIT registerUserSuccess();
 }
 
-void RocketChatAccount::updateOwnBasicInfo(const RocketChatRestApi::UsersUpdateOwnBasicInfoJob::UpdateOwnBasicInfo &info)
-{
-    restApi()->updateOwnBasicInfo(info);
-}
-
 RuqolaServerConfig::ServerConfigFeatureTypes RocketChatAccount::serverConfigFeatureTypes() const
 {
     return mRuqolaServerConfig->serverConfigFeatureTypes();

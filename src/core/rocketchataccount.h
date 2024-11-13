@@ -30,7 +30,6 @@
 #include "ruqolaserverconfig.h"
 #include "users/registeruserjob.h"
 #include "users/userssetpreferencesjob.h"
-#include "users/usersupdateownbasicinfojob.h"
 #include "utils.h"
 #include <QObject>
 #include <QUrl>
@@ -337,7 +336,6 @@ public:
 
     [[nodiscard]] bool allowUsernameChange() const;
 
-    void updateOwnBasicInfo(const RocketChatRestApi::UsersUpdateOwnBasicInfoJob::UpdateOwnBasicInfo &info);
     [[nodiscard]] RuqolaServerConfig::ServerConfigFeatureTypes serverConfigFeatureTypes() const;
     void parseOwnInfoDone(const QJsonObject &replyObject);
     [[nodiscard]] OwnUser ownUser() const;

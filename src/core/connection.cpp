@@ -1210,19 +1210,6 @@ void Connection::registerNewUser(const RocketChatRestApi::RegisterUserJob::Regis
     }
 }
 
-void Connection::updateOwnBasicInfo(const RocketChatRestApi::UsersUpdateOwnBasicInfoJob::UpdateOwnBasicInfo &info)
-{
-    auto job = new UsersUpdateOwnBasicInfoJob(this);
-    job->setUpdateOwnBasicInfo(info);
-    initializeRestApiJob(job);
-    // Clear all other tokens when password was changed
-    // TODO fix me connect(job, &UsersUpdateOwnBasicInfoJob::passwordChanged, this, &Connection::updateOwnBasicInfoDone);
-
-    if (!job->start()) {
-        qCDebug(RUQOLA_LOG) << "Impossible to start UsersUpdateOwnBasicInfoJob";
-    }
-}
-
 void Connection::getChannelsCounter(const QByteArray &roomId)
 {
     auto job = new ChannelGetCountersJob(this);
