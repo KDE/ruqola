@@ -208,7 +208,7 @@ if(TARGET KF6::TextCustomEditor)
     set(HAVE_TEXT_CUSTOM_EDITOR TRUE)
 endif()
 
-if(NOT WIN32 AND NOT APPLE)
+if(NOT WIN32 AND NOT APPLE AND NOT HAIKU)
     find_package(KF6DBusAddons ${KF_MIN_VERSION} CONFIG REQUIRED)
 endif()
 
