@@ -158,6 +158,7 @@ void ManageLocalDatabase::loadMessagesHistory(const ManageLocalDatabase::ManageL
         params.append(std::move(dateObjectStart));
     }
     qCDebug(RUQOLA_LOAD_HISTORY_LOG) << " load history ddp:" << params;
+    // TODO use /api/v1/method.call/loadHistory directly => restapi
     mRocketChatAccount->ddp()->loadHistory(params);
     // TODO MISSING load rooms from database too
 }
