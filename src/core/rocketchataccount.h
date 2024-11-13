@@ -93,7 +93,7 @@ public:
     explicit RocketChatAccount(const QString &accountName = QString(), QObject *parent = nullptr);
     ~RocketChatAccount() override;
 
-    enum ChannelTypeInfo : uint8_t {
+    enum class ChannelTypeInfo : uint8_t {
         RoomId,
         RoomName,
     };
