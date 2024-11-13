@@ -133,7 +133,7 @@ void UsersInRoomMenu::slotCustomContextMenuRequested(const QPoint &pos)
                 account->changeRoles(mRoom->roomId(),
                                      QString::fromLatin1(mUserId),
                                      mRoom->channelType(),
-                                     hasOwnerRole ? RocketChatAccount::RemoveOwner : RocketChatAccount::AddOwner);
+                                     hasOwnerRole ? RocketChatAccount::RoleType::RemoveOwner : RocketChatAccount::RoleType::AddOwner);
             });
 
             menu.addAction(removeAsOwner);
@@ -146,7 +146,7 @@ void UsersInRoomMenu::slotCustomContextMenuRequested(const QPoint &pos)
                 account->changeRoles(mRoom->roomId(),
                                      QString::fromLatin1(mUserId),
                                      mRoom->channelType(),
-                                     hasLeaderRole ? RocketChatAccount::RemoveLeader : RocketChatAccount::AddLeader);
+                                     hasLeaderRole ? RocketChatAccount::RoleType::RemoveLeader : RocketChatAccount::RoleType::AddLeader);
             });
             menu.addAction(removeAsLeader);
         }
@@ -158,7 +158,7 @@ void UsersInRoomMenu::slotCustomContextMenuRequested(const QPoint &pos)
                 account->changeRoles(mRoom->roomId(),
                                      QString::fromLatin1(mUserId),
                                      mRoom->channelType(),
-                                     hasModeratorRole ? RocketChatAccount::RemoveModerator : RocketChatAccount::AddModerator);
+                                     hasModeratorRole ? RocketChatAccount::RoleType::RemoveModerator : RocketChatAccount::RoleType::AddModerator);
             });
             menu.addAction(removeAsModerator);
         }

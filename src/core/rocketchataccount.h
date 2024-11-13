@@ -112,7 +112,7 @@ public:
     };
     Q_ENUM(RoomInfoType)
 
-    enum NotificationOptionsType : uint8_t {
+    enum class NotificationOptionsType : uint8_t {
         DisableNotifications,
         HideUnreadStatus,
         DesktopNotifications,
@@ -127,7 +127,7 @@ public:
 
     Q_ENUM(NotificationOptionsType)
 
-    enum RoleType : uint8_t {
+    enum class RoleType : uint8_t {
         AddOwner,
         AddLeader,
         AddModerator,

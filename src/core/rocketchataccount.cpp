@@ -1372,34 +1372,34 @@ void RocketChatAccount::changeNotificationsSettings(const QByteArray &roomId,
                                                     const QVariant &newValue)
 {
     switch (notificationsType) {
-    case DisableNotifications:
+    case NotificationOptionsType::DisableNotifications:
         restApi()->disableNotifications(roomId, newValue.toBool());
         break;
-    case HideUnreadStatus:
+    case NotificationOptionsType::HideUnreadStatus:
         restApi()->hideUnreadStatus(roomId, newValue.toBool());
         break;
-    case DesktopNotifications:
+    case NotificationOptionsType::DesktopNotifications:
         restApi()->desktopNotifications(roomId, newValue.toString());
         break;
-    case EmailNotifications:
+    case NotificationOptionsType::EmailNotifications:
         restApi()->emailNotifications(roomId, newValue.toString());
         break;
-    case MobilePushNotifications:
+    case NotificationOptionsType::MobilePushNotifications:
         restApi()->mobilePushNotifications(roomId, newValue.toString());
         break;
-    case UnreadAlert:
+    case NotificationOptionsType::UnreadAlert:
         restApi()->unreadAlert(roomId, newValue.toString());
         break;
-    case MuteGroupMentions:
+    case NotificationOptionsType::MuteGroupMentions:
         restApi()->muteGroupMentions(roomId, newValue.toBool());
         break;
-    case DesktopDurationNotifications:
+    case NotificationOptionsType::DesktopDurationNotifications:
         restApi()->desktopDurationNotifications(roomId, newValue.toInt());
         break;
-    case DesktopSoundNotifications:
+    case NotificationOptionsType::DesktopSoundNotifications:
         restApi()->desktopSoundNotifications(roomId, newValue.toString());
         break;
-    case HideMentionStatus:
+    case NotificationOptionsType::HideMentionStatus:
         restApi()->hideMentionStatus(roomId, newValue.toBool());
         break;
     }
@@ -2043,22 +2043,22 @@ void RocketChatAccount::changeRoles(const QByteArray &roomId, const QString &use
     switch (channelType) {
     case Room::RoomType::Private:
         switch (roleType) {
-        case RocketChatAccount::AddOwner:
+        case RocketChatAccount::RoleType::AddOwner:
             restApi()->groupAddOwner(roomId, userId);
             break;
-        case RocketChatAccount::AddLeader:
+        case RocketChatAccount::RoleType::AddLeader:
             restApi()->groupAddLeader(roomId, userId);
             break;
-        case RocketChatAccount::AddModerator:
+        case RocketChatAccount::RoleType::AddModerator:
             restApi()->groupAddModerator(roomId, userId);
             break;
-        case RocketChatAccount::RemoveOwner:
+        case RocketChatAccount::RoleType::RemoveOwner:
             restApi()->groupRemoveOwner(roomId, userId);
             break;
-        case RocketChatAccount::RemoveLeader:
+        case RocketChatAccount::RoleType::RemoveLeader:
             restApi()->groupRemoveLeader(roomId, userId);
             break;
-        case RocketChatAccount::RemoveModerator:
+        case RocketChatAccount::RoleType::RemoveModerator:
             restApi()->groupRemoveModerator(roomId, userId);
             break;
         }
@@ -2066,22 +2066,22 @@ void RocketChatAccount::changeRoles(const QByteArray &roomId, const QString &use
         break;
     case Room::RoomType::Channel:
         switch (roleType) {
-        case RocketChatAccount::AddOwner:
+        case RocketChatAccount::RoleType::AddOwner:
             restApi()->channelAddOwner(roomId, userId);
             break;
-        case RocketChatAccount::AddLeader:
+        case RocketChatAccount::RoleType::AddLeader:
             restApi()->channelAddLeader(roomId, userId);
             break;
-        case RocketChatAccount::AddModerator:
+        case RocketChatAccount::RoleType::AddModerator:
             restApi()->channelAddModerator(roomId, userId);
             break;
-        case RocketChatAccount::RemoveOwner:
+        case RocketChatAccount::RoleType::RemoveOwner:
             restApi()->channelRemoveOwner(roomId, userId);
             break;
-        case RocketChatAccount::RemoveLeader:
+        case RocketChatAccount::RoleType::RemoveLeader:
             restApi()->channelRemoveLeader(roomId, userId);
             break;
-        case RocketChatAccount::RemoveModerator:
+        case RocketChatAccount::RoleType::RemoveModerator:
             restApi()->channelRemoveModerator(roomId, userId);
             break;
         }
