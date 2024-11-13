@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-11-08 00:40+0000\n"
+"POT-Creation-Date: 2024-11-13 00:40+0000\n"
 "PO-Revision-Date: 2024-11-02 08:51+0100\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
 "Language-Team: French <French <kde-francophone@kde.org>>\n"
@@ -958,7 +958,7 @@ msgstr "%1 et %2"
 #: core/model/permissionsmodel.cpp:30
 #: core/model/personalaccesstokeninfosmodel.cpp:78
 #: core/model/usersinrolemodel.cpp:86
-#: widgets/administratordialog/customuserstatus/customuserstatustreewidget.cpp:42
+#: widgets/administratordialog/customuserstatus/customuserstatustreewidget.cpp:44
 #: widgets/administratorsettingsdialog/ircfederation/ircfederationwidget.cpp:47
 #, kde-format
 msgid "Name"
@@ -1724,7 +1724,7 @@ msgctxt "WARNING!!!!!!: PLEASE We need a space between after </strong>"
 msgid "<strong>%1</strong> are typing..."
 msgstr "<strong>%1</strong>sont en train d'écrire des messages..."
 
-#: core/rocketchataccount.cpp:691
+#: core/rocketchataccount.cpp:690
 #, kde-format
 msgid ""
 "REST: %1\n"
@@ -1733,12 +1733,12 @@ msgstr ""
 "REST : %1\n"
 "DDP : %2"
 
-#: core/rocketchataccount.cpp:699 core/rocketchataccount.cpp:711
+#: core/rocketchataccount.cpp:698 core/rocketchataccount.cpp:710
 #, kde-format
 msgid "Not connected"
 msgstr "Non connecté"
 
-#: core/rocketchataccount.cpp:706
+#: core/rocketchataccount.cpp:705
 #, kde-format
 msgid "Not connected yet"
 msgstr "Pas encore connecté"
@@ -2905,7 +2905,7 @@ msgstr "Supprimer une émoticône"
 
 #: widgets/administratordialog/customemoji/administratorcustomemojiwidget.cpp:178
 #: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:167
-#: widgets/administratordialog/customuserstatus/customuserstatustreewidget.cpp:146
+#: widgets/administratordialog/customuserstatus/customuserstatustreewidget.cpp:148
 #: widgets/administratordialog/oauth/oauthtreeview.cpp:49
 #: widgets/administratordialog/roles/administratorroleswidget.cpp:101
 #: widgets/administratordialog/roles/usersinrolewidget.cpp:106
@@ -2918,7 +2918,7 @@ msgstr "Ajouter..."
 
 #: widgets/administratordialog/customemoji/administratorcustomemojiwidget.cpp:181
 #: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:169
-#: widgets/administratordialog/customuserstatus/customuserstatustreewidget.cpp:149
+#: widgets/administratordialog/customuserstatus/customuserstatustreewidget.cpp:151
 #: widgets/administratordialog/oauth/oauthtreeview.cpp:51
 #: widgets/administratordialog/permissions/permissionswidget.cpp:92
 #: widgets/administratordialog/roles/administratorroleswidget.cpp:105
@@ -2931,7 +2931,7 @@ msgstr "Modifier…"
 
 #: widgets/administratordialog/customemoji/administratorcustomemojiwidget.cpp:186
 #: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:173
-#: widgets/administratordialog/customuserstatus/customuserstatustreewidget.cpp:151
+#: widgets/administratordialog/customuserstatus/customuserstatustreewidget.cpp:153
 #: widgets/administratordialog/invites/invitetreeview.cpp:39
 #: widgets/administratordialog/oauth/oauthtreeview.cpp:55
 #: widgets/administratordialog/roles/administratorroleswidget.cpp:120
@@ -2999,18 +2999,18 @@ msgstr "Modifier l'état de l'utilisateur"
 msgid "Status:"
 msgstr "État :"
 
-#: widgets/administratordialog/customuserstatus/customuserstatustreewidget.cpp:42
+#: widgets/administratordialog/customuserstatus/customuserstatustreewidget.cpp:44
 #, kde-format
 msgid "Presence"
 msgstr "Présence"
 
-#: widgets/administratordialog/customuserstatus/customuserstatustreewidget.cpp:130
+#: widgets/administratordialog/customuserstatus/customuserstatustreewidget.cpp:132
 #: widgets/administratordialog/rooms/administratorroomswidget.cpp:211
 #, kde-format
 msgid "Do you want to remove \"%1\"?"
 msgstr "Voulez-vous vraiment supprimer « %1 » ?"
 
-#: widgets/administratordialog/customuserstatus/customuserstatustreewidget.cpp:131
+#: widgets/administratordialog/customuserstatus/customuserstatustreewidget.cpp:133
 #, kde-format
 msgctxt "@title"
 msgid "Remove Custom User Status"
@@ -7649,13 +7649,13 @@ msgctxt "@title:window"
 msgid "Configure Auto-Translate"
 msgstr "Configurer la traduction automatique"
 
-#: widgets/dialogs/autotranslateconfigurewidget.cpp:20
+#: widgets/dialogs/autotranslateconfigurewidget.cpp:24
 #, kde-format
 msgctxt "@option:check"
 msgid "Auto-Translate"
 msgstr "Traduire automatiquement"
 
-#: widgets/dialogs/autotranslateconfigurewidget.cpp:37
+#: widgets/dialogs/autotranslateconfigurewidget.cpp:41
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Language:"
@@ -8201,19 +8201,19 @@ msgctxt "@title:window"
 msgid "Invite Users"
 msgstr "Inviter des utilisateurs"
 
-#: widgets/dialogs/inviteuserswidget.cpp:41
+#: widgets/dialogs/inviteuserswidget.cpp:45
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Invite Link:"
 msgstr "Lien d'invitation :"
 
-#: widgets/dialogs/inviteuserswidget.cpp:54
+#: widgets/dialogs/inviteuserswidget.cpp:58
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Copy link"
 msgstr "Copier un lien"
 
-#: widgets/dialogs/inviteuserswidget.cpp:60
+#: widgets/dialogs/inviteuserswidget.cpp:64
 #, kde-format
 msgid "Options"
 msgstr "Options"
@@ -8246,12 +8246,12 @@ msgstr[1] "Votre lien d'invitation expirera en %2 ou après %1 utilisations."
 msgid "Your invite link will expire on %1."
 msgstr "Votre lien d'invitation expirera en %1."
 
-#: widgets/dialogs/inviteuserswidget.cpp:142
+#: widgets/dialogs/inviteuserswidget.cpp:150
 #, kde-format
 msgid "Never"
 msgstr "Jamais"
 
-#: widgets/dialogs/inviteuserswidget.cpp:150
+#: widgets/dialogs/inviteuserswidget.cpp:158
 #, kde-format
 msgid "No Limit"
 msgstr "Aucune limite"
@@ -9162,13 +9162,13 @@ msgstr "Serveur"
 msgid "Filter Account…"
 msgstr "Filtrer un compte..."
 
-#: widgets/misc/twoauthenticationpasswordwidget.cpp:25
+#: widgets/misc/twoauthenticationpasswordwidget.cpp:29
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Enter code"
 msgstr "Saisissez le code"
 
-#: widgets/misc/twoauthenticationpasswordwidget.cpp:30
+#: widgets/misc/twoauthenticationpasswordwidget.cpp:34
 #, kde-format
 msgctxt "@action:button"
 msgid "Send new code"
@@ -10665,19 +10665,19 @@ msgctxt "@info:shell"
 msgid "Start with specific account"
 msgstr "Démarrer avec un compte spécifique"
 
-#: widgets/ruqolacommandlineoptions.cpp:40
+#: widgets/ruqolacommandlineoptions.cpp:42
 #, kde-format
 msgctxt "@info:shell"
 msgid "Show Message"
 msgstr "Afficher un message"
 
-#: widgets/ruqolacommandlineoptions.cpp:41
+#: widgets/ruqolacommandlineoptions.cpp:43
 #, kde-format
 msgctxt "@info:shell"
 msgid "Use ddp api for login"
 msgstr "Utiliser l'API « DDP » pour se connecter."
 
-#: widgets/ruqolacommandlineoptions.cpp:44
+#: widgets/ruqolacommandlineoptions.cpp:47
 #, kde-format
 msgctxt "@info:shell"
 msgid "Lists the available options for user feedback"
