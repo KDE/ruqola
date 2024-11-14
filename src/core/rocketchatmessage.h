@@ -27,7 +27,8 @@ public:
 
     void setJsonFormat(QJsonDocument::JsonFormat jsonFormat);
 
-    [[nodiscard]] RocketChatMessageResult generateMethod(const QString &method, const QJsonDocument &params, quint64 id);
+    [[nodiscard]] RocketChatMessage::RocketChatMessageResult generateMethod(const QString &method, const QJsonDocument &params, quint64 id);
+    [[nodiscard]] RocketChatMessage::RocketChatMessageResult generateMethod(const QString &method, const QJsonArray &params, quint64 id);
     [[nodiscard]] RocketChatMessage::RocketChatMessageResult joinRoom(const QByteArray &roomId, const QString &accessCode, quint64 id);
     [[nodiscard]] RocketChatMessage::RocketChatMessageResult informTypingStatus(const QByteArray &roomId, const QString &userId, bool typingStatus, quint64 id);
     [[nodiscard]] RocketChatMessage::RocketChatMessageResult setDefaultStatus(User::PresenceStatus status, quint64 id);
@@ -92,6 +93,9 @@ public:
     videoConferenceConfirmed(const QString &roomId, const QString &callId, const QString &userId, quint64 id);
 
     [[nodiscard]] static QJsonObject generateJsonObject(const QString &method, const QJsonDocument &params, quint64 id);
+
+    [[nodiscard]] static QJsonObject generateJsonObject(const QString &method, const QJsonObject &params, quint64 id);
+    [[nodiscard]] static QJsonObject generateJsonObject(const QString &method, const QJsonArray &params, quint64 id);
 
 private:
     [[nodiscard]] LIBRUQOLACORE_NO_EXPORT QJsonValue toJsonDateTime(const QDateTime &dateTime);
