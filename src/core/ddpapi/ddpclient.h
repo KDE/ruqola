@@ -214,7 +214,7 @@ private:
     LIBRUQOLACORE_NO_EXPORT void initializeWebSocket();
     LIBRUQOLACORE_NO_EXPORT void connectWebSocket();
 
-    LIBRUQOLACORE_NO_EXPORT QUrl adaptUrl(const QString &url);
+    [[nodiscard]] LIBRUQOLACORE_NO_EXPORT QUrl adaptUrl(const QString &url);
 
     LIBRUQOLACORE_NO_EXPORT void pong();
     LIBRUQOLACORE_NO_EXPORT void executeSubsCallBack(const QJsonObject &root);
