@@ -846,11 +846,6 @@ void DDPClient::onTextMessageReceived(const QString &message)
     }
 }
 
-quint64 DDPClient::loadHistory(const QJsonArray &params)
-{
-    return method(QStringLiteral("loadHistory"), params, process_backlog);
-}
-
 void DDPClient::login()
 {
     if (!Ruqola::self()->useRestApiLogin()) {

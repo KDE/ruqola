@@ -55,16 +55,7 @@ public:
      * @return unsigned int, the ID of the called method
      */
     quint64 method(const QString &method,
-                   const QJsonArray &params,
-                   const std::function<void(QJsonObject, RocketChatAccount *)> &callback,
-                   DDPClient::MessageType messageType = DDPClient::MessageType::Ephemeral);
-
-    quint64 method(const QString &method,
                    const QJsonObject &params,
-                   const std::function<void(QJsonObject, RocketChatAccount *)> &callback,
-                   DDPClient::MessageType messageType = DDPClient::MessageType::Ephemeral);
-
-    quint64 method(const RocketChatMessage::RocketChatMessageResult &result,
                    const std::function<void(QJsonObject, RocketChatAccount *)> &callback,
                    DDPClient::MessageType messageType = DDPClient::MessageType::Ephemeral);
 
@@ -178,7 +169,6 @@ public:
     void subscribeRoomMessage(const QByteArray &roomId);
     quint64 setDefaultStatus(User::PresenceStatus status);
     quint64 createJitsiConfCall(const QByteArray &roomId);
-    quint64 loadHistory(const QJsonArray &params);
     quint64 inputChannelAutocomplete(const QByteArray &roomId, const QString &pattern, const QString &exceptions, bool threadDialog);
     quint64 inputUserAutocomplete(const QByteArray &roomId, const QString &pattern, const QString &exceptions, bool threadDialog);
     quint64 unBlockUser(const QString &rid, const QString &userId);
@@ -232,6 +222,14 @@ private:
     LIBRUQOLACORE_NO_EXPORT quint64 storeInQueue(const RocketChatMessage::RocketChatMessageResult &result,
                                                  const std::function<void(QJsonObject, RocketChatAccount *)> &callback,
                                                  DDPClient::MessageType messageType);
+
+    LIBRUQOLACORE_NO_EXPORT quint64 method(const QString &method,
+                                           const QJsonArray &params,
+                                           const std::function<void(QJsonObject, RocketChatAccount *)> &callback,
+                                           DDPClient::MessageType messageType = DDPClient::MessageType::Ephemeral);
+    LIBRUQOLACORE_NO_EXPORT quint64 method(const RocketChatMessage::RocketChatMessageResult &result,
+                                           const std::function<void(QJsonObject, RocketChatAccount *)> &callback,
+                                           DDPClient::MessageType messageType = DDPClient::MessageType::Ephemeral);
 
     QString mUrl;
     AbstractWebSocket *mWebSocket = nullptr;

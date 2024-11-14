@@ -159,9 +159,7 @@ void ManageLocalDatabase::loadMessagesHistory(const ManageLocalDatabase::ManageL
         params.append(std::move(dateObjectStart));
     }
     qCDebug(RUQOLA_LOAD_HISTORY_LOG) << " load history ddp:" << params;
-#if 0
-    mRocketChatAccount->ddp()->loadHistory(params);
-#else
+
     // use /api/v1/method.call/loadHistory directly => restapi
     auto job = new RocketChatRestApi::MethodCallJob(this);
     RocketChatRestApi::MethodCallJob::MethodCallJobInfo loadHistoryInfo;
@@ -179,7 +177,6 @@ void ManageLocalDatabase::loadMessagesHistory(const ManageLocalDatabase::ManageL
     if (!job->start()) {
         qCWarning(RUQOLA_LOAD_HISTORY_LOG) << "Impossible to start loadHistory job";
     }
-#endif
     // TODO MISSING load rooms from database too
 }
 
