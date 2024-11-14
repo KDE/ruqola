@@ -614,7 +614,7 @@ quint64 DDPClient::method(const QString &m, const QJsonDocument &params, DDPClie
     return method(m, params, empty_callback, messageType);
 }
 
-QJsonObject DDPClient::generateJsonObject(const QString &method, const QJsonDocument &params)
+QJsonObject DDPClient::generateJsonObject(const QString &method, const QJsonArray &params)
 {
     return RocketChatMessage::generateJsonObject(method, params, mUid++);
 }
