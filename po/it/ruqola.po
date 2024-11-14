@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-11-13 00:40+0000\n"
+"POT-Creation-Date: 2024-11-14 00:40+0000\n"
 "PO-Revision-Date: 2024-11-04 20:40+0100\n"
 "Last-Translator: Vincenzo Reale <smart2128vr@gmail.com>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
@@ -2843,7 +2843,7 @@ msgstr ""
 #: widgets/dialogs/createnewchannelwidget.cpp:35
 #: widgets/dialogs/directchannelinfowidget.cpp:88
 #: widgets/myaccount/myaccountpersonalaccesscreatewidget.cpp:28
-#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:62
+#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:63
 #, kde-format
 msgid "Name:"
 msgstr "Nome:"
@@ -3304,7 +3304,7 @@ msgstr "Mostra utenti moderati"
 #: widgets/administratordialog/moderationconsole/moderationuserswidget.cpp:37
 #: widgets/administratordialog/users/administratoradduserwidget.cpp:63
 #: widgets/dialogs/directchannelinfowidget.cpp:166
-#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:74
+#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:75
 #: widgets/registeruser/registeruserwidget.cpp:39
 #, kde-format
 msgid "Email:"
@@ -3889,7 +3889,7 @@ msgstr "Contrassegna il messaggio di posta come verificato"
 #: widgets/administratordialog/users/administratoradduserwidget.cpp:61
 #: widgets/dialogs/directchannelinfowidget.cpp:95
 #: widgets/dialogs/serverinfo/serverinfowidget.cpp:39
-#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:67
+#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:68
 #: widgets/registeruser/registeruserwidget.cpp:33
 #, kde-format
 msgid "Username:"
@@ -3914,7 +3914,7 @@ msgid "Bio:"
 msgstr "Biografia:"
 
 #: widgets/administratordialog/users/administratoradduserwidget.cpp:67
-#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:82
+#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:83
 #, kde-format
 msgid "Nickname:"
 msgstr "Soprannome:"
@@ -9568,7 +9568,7 @@ msgctxt "@action"
 msgid "Change URL for avatar…"
 msgstr "Modifica URL dell'avatar…"
 
-#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:34
+#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:35
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Your administrator has disabled the changing of email."
@@ -9576,48 +9576,48 @@ msgstr ""
 "L'amministratore ha disabilitato la modifica dei messaggi di posta "
 "elettronica."
 
-#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:35
+#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:36
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Your administrator has disabled the changing of usernames."
 msgstr "Il tuo amministratore ha disabilitato la modifica dei nomi utente."
 
-#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:38
+#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:39
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Your administrator has disabled the changing of status messages."
 msgstr "L'amministratore ha disabilitato la modifica dei messaggi di stato."
 
-#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:39
+#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:40
 #, kde-format
 msgctxt "@action:button"
 msgid "Delete my Account"
 msgstr "Elimina il mio account"
 
-#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:40
+#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:41
 #, kde-format
 msgctxt "@action:button"
 msgid "Logout From Other Logged In Locations"
 msgstr "Disconnettiti da ogni altra posizione connessa"
 
-#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:87
+#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:88
 #, kde-format
 msgid "Status text:"
 msgstr "Testo di stato:"
 
-#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:129
+#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:130
 #, kde-format
 msgid "Do you really want to delete your account?"
 msgstr "Vuoi davvero eliminare il tuo account?"
 
-#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:130
+#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:131
 #, kde-format
 msgctxt "@title"
 msgid "Delete my Account"
 msgstr "Elimina il mio account"
 
-#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:136
-#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:208
+#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:137
+#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:209
 #, kde-format
 msgid "Current Password"
 msgstr "Password attuale"

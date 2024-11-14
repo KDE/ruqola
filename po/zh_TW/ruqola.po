@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-11-13 00:40+0000\n"
+"POT-Creation-Date: 2024-11-14 00:40+0000\n"
 "PO-Revision-Date: 2024-08-06 05:33+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
@@ -2837,7 +2837,7 @@ msgstr "自訂表情符號名稱跟它的別名應該不同。"
 #: widgets/dialogs/createnewchannelwidget.cpp:35
 #: widgets/dialogs/directchannelinfowidget.cpp:88
 #: widgets/myaccount/myaccountpersonalaccesscreatewidget.cpp:28
-#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:62
+#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:63
 #, kde-format
 msgid "Name:"
 msgstr "名稱："
@@ -3311,7 +3311,7 @@ msgstr "顯示站務訊息"
 #: widgets/administratordialog/moderationconsole/moderationuserswidget.cpp:37
 #: widgets/administratordialog/users/administratoradduserwidget.cpp:63
 #: widgets/dialogs/directchannelinfowidget.cpp:166
-#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:74
+#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:75
 #: widgets/registeruser/registeruserwidget.cpp:39
 #, kde-format
 msgid "Email:"
@@ -3970,7 +3970,7 @@ msgstr ""
 #: widgets/administratordialog/users/administratoradduserwidget.cpp:61
 #: widgets/dialogs/directchannelinfowidget.cpp:95
 #: widgets/dialogs/serverinfo/serverinfowidget.cpp:39
-#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:67
+#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:68
 #: widgets/registeruser/registeruserwidget.cpp:33
 #, kde-format
 msgid "Username:"
@@ -3997,7 +3997,7 @@ msgid "Bio:"
 msgstr ""
 
 #: widgets/administratordialog/users/administratoradduserwidget.cpp:67
-#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:82
+#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:83
 #, kde-format
 msgid "Nickname:"
 msgstr "暱稱："
@@ -9781,56 +9781,56 @@ msgctxt "@action"
 msgid "Change URL for avatar…"
 msgstr "變更頭貼的網址…"
 
-#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:34
+#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:35
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Your administrator has disabled the changing of email."
 msgstr ""
 
-#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:35
+#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:36
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Your administrator has disabled the changing of usernames."
 msgstr ""
 
-#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:38
+#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:39
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Your administrator has disabled the changing of status messages."
 msgstr ""
 
-#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:39
+#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:40
 #, fuzzy, kde-format
 #| msgid "Delete my Account"
 msgctxt "@action:button"
 msgid "Delete my Account"
 msgstr "刪除我的帳戶"
 
-#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:40
+#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:41
 #, kde-format
 msgctxt "@action:button"
 msgid "Logout From Other Logged In Locations"
 msgstr ""
 
-#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:87
+#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:88
 #, kde-format
 msgid "Status text:"
 msgstr "狀態文字："
 
-#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:129
+#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:130
 #, fuzzy, kde-format
 #| msgid "Do you really delete your account ?"
 msgid "Do you really want to delete your account?"
 msgstr "您確定要刪除您的帳戶嗎？"
 
-#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:130
+#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:131
 #, kde-format
 msgctxt "@title"
 msgid "Delete my Account"
 msgstr "刪除我的帳戶"
 
-#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:136
-#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:208
+#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:137
+#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:209
 #, kde-format
 msgid "Current Password"
 msgstr "目前密碼"

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-11-13 00:40+0000\n"
+"POT-Creation-Date: 2024-11-14 00:40+0000\n"
 "PO-Revision-Date: 2024-10-02 22:38+0200\n"
 "Last-Translator: Kristof Kiszel <ulysses@fsf.hu>\n"
 "Language-Team: Hungarian <kde-l10n-hu@kde.org>\n"
@@ -2858,7 +2858,7 @@ msgstr "Az egyéni emodzsi nevének és álneveinek különbözőnek kell lenni�
 #: widgets/dialogs/createnewchannelwidget.cpp:35
 #: widgets/dialogs/directchannelinfowidget.cpp:88
 #: widgets/myaccount/myaccountpersonalaccesscreatewidget.cpp:28
-#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:62
+#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:63
 #, kde-format
 msgid "Name:"
 msgstr "Név:"
@@ -3316,7 +3316,7 @@ msgstr "Moderációs üzenetek megjelenítése"
 #: widgets/administratordialog/moderationconsole/moderationuserswidget.cpp:37
 #: widgets/administratordialog/users/administratoradduserwidget.cpp:63
 #: widgets/dialogs/directchannelinfowidget.cpp:166
-#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:74
+#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:75
 #: widgets/registeruser/registeruserwidget.cpp:39
 #, kde-format
 msgid "Email:"
@@ -3901,7 +3901,7 @@ msgstr "E-mail-cím megjelölése ellenőrzöttként"
 #: widgets/administratordialog/users/administratoradduserwidget.cpp:61
 #: widgets/dialogs/directchannelinfowidget.cpp:95
 #: widgets/dialogs/serverinfo/serverinfowidget.cpp:39
-#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:67
+#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:68
 #: widgets/registeruser/registeruserwidget.cpp:33
 #, kde-format
 msgid "Username:"
@@ -3926,7 +3926,7 @@ msgid "Bio:"
 msgstr "Életrajz:"
 
 #: widgets/administratordialog/users/administratoradduserwidget.cpp:67
-#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:82
+#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:83
 #, kde-format
 msgid "Nickname:"
 msgstr "Becenév:"
@@ -9631,54 +9631,54 @@ msgctxt "@action"
 msgid "Change URL for avatar…"
 msgstr "Profilkép URL megváltoztatása…"
 
-#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:34
+#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:35
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Your administrator has disabled the changing of email."
 msgstr "Az adminisztrátora letiltotta az e-mail-cím megváltoztatását."
 
-#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:35
+#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:36
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Your administrator has disabled the changing of usernames."
 msgstr "Az adminisztrátora letiltotta a felhasználónevek megváltoztatását."
 
-#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:38
+#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:39
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Your administrator has disabled the changing of status messages."
 msgstr "Az adminisztrátora letiltotta az állapotüzenetek megváltoztatását."
 
-#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:39
+#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:40
 #, kde-format
 msgctxt "@action:button"
 msgid "Delete my Account"
 msgstr "A fiókom törlése"
 
-#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:40
+#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:41
 #, kde-format
 msgctxt "@action:button"
 msgid "Logout From Other Logged In Locations"
 msgstr "Kijelentkezés más bejelentkezett helyekről"
 
-#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:87
+#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:88
 #, kde-format
 msgid "Status text:"
 msgstr "Állapotszöveg:"
 
-#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:129
+#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:130
 #, kde-format
 msgid "Do you really want to delete your account?"
 msgstr "Biztosan törölni szeretné a fiókját?"
 
-#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:130
+#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:131
 #, kde-format
 msgctxt "@title"
 msgid "Delete my Account"
 msgstr "A fiókom törlése"
 
-#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:136
-#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:208
+#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:137
+#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:209
 #, kde-format
 msgid "Current Password"
 msgstr "Jelenlegi jelszó"
