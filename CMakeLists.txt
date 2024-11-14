@@ -208,8 +208,17 @@ if(TARGET KF6::TextCustomEditor)
     set(HAVE_TEXT_CUSTOM_EDITOR TRUE)
 endif()
 
-if(NOT WIN32 AND NOT APPLE AND NOT HAIKU)
-    find_package(KF6DBusAddons ${KF_MIN_VERSION} CONFIG REQUIRED)
+# shall we use DBus?
+# enabled per default on Linux & BSD systems
+set(USE_DBUS_DEFAULT OFF)
+if(UNIX AND NOT APPLE AND NOT HAIKU)
+    set(USE_DBUS_DEFAULT ON)
+endif()
+
+option(USE_DBUS "Build components using DBus" ${USE_DBUS_DEFAULT})
+if(USE_DBUS)
+   set(WITH_DBUS TRUE)
+   find_package(KF6DBusAddons ${KF_MIN_VERSION} CONFIG REQUIRED)
 endif()
 
 

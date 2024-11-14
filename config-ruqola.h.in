@@ -21,3 +21,4 @@
 #cmakedefine01 HAVE_UNITY_SUPPORT
 #cmakedefine01 HAVE_ACTIVITY_SUPPORT
 #cmakedefine01 USE_E2E_SUPPORT
+#cmakedefine01 WITH_DBUS

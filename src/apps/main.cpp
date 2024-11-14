@@ -129,12 +129,12 @@ int main(int argc, char *argv[])
 #endif
     }
 
-#if !defined(Q_OS_WIN) && !defined(Q_OS_MACOS)
+#if WITH_DBUS
     // TODO Port to something like KDSingleApplication
     KDBusService service(KDBusService::Unique);
 #endif
     auto mw = new RuqolaMainWindow();
-#if !defined(Q_OS_WIN) && !defined(Q_OS_MACOS)
+#if WITH_DBUS
     QObject::connect(&service, &KDBusService::activateRequested, mw, &RuqolaMainWindow::slotActivateRequested);
 #endif
     mw->parseCommandLine(&parser);

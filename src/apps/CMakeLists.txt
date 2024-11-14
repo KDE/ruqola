@@ -11,7 +11,7 @@ target_link_libraries(ruqola
     KF6::XmlGui
     KF6::IconThemes
 )
-if(NOT WIN32 AND NOT APPLE)
+if(USE_DBUS)
     target_link_libraries(ruqola KF6::DBusAddons)
 endif()
 
