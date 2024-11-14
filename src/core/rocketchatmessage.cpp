@@ -249,48 +249,6 @@ RocketChatMessage::RocketChatMessageResult RocketChatMessage::unsubscribe(quint6
     return result;
 }
 
-RocketChatMessage::RocketChatMessageResult RocketChatMessage::subscribe(const QString &name, const QJsonDocument &params, quint64 id)
-{
-    // TODO fixme.
-    QJsonObject json;
-    json["msg"_L1] = QStringLiteral("sub");
-    json["id"_L1] = QString::number(id);
-    json["name"_L1] = name;
-    if (params.isArray()) {
-        json["params"_L1] = params.array();
-    } else if (params.isObject()) {
-        QJsonArray arr;
-        arr.append(params.object());
-        json["params"_L1] = arr;
-    }
-
-    const QString generatedJsonDoc = QString::fromUtf8(QJsonDocument(json).toJson(mJsonFormat));
-    RocketChatMessageResult result;
-    result.jsonDocument = params;
-    result.method = name;
-    result.result = generatedJsonDoc;
-    return result;
-}
-
-QJsonObject RocketChatMessage::generateJsonObject(const QString &method, const QJsonDocument &params, quint64 id)
-{
-    QJsonObject json;
-    json["msg"_L1] = QStringLiteral("method");
-    json["method"_L1] = method;
-    json["id"_L1] = QString::number(id);
-
-    if (!params.isEmpty()) {
-        if (params.isArray()) {
-            json["params"_L1] = params.array();
-        } else if (params.isObject()) {
-            QJsonArray arr;
-            arr.append(params.object());
-            json["params"_L1] = arr;
-        }
-    }
-    return json;
-}
-
 QJsonObject RocketChatMessage::generateJsonObject(const QString &method, const QJsonObject &params, quint64 id)
 {
     QJsonArray arr;
@@ -316,17 +274,6 @@ RocketChatMessage::RocketChatMessageResult RocketChatMessage::generateMethod(con
     const QString generatedJsonDoc = QString::fromUtf8(QJsonDocument(json).toJson(mJsonFormat));
     RocketChatMessageResult result;
     result.jsonDocument = QJsonDocument(params);
-    result.method = method;
-    result.result = generatedJsonDoc;
-    return result;
-}
-
-RocketChatMessage::RocketChatMessageResult RocketChatMessage::generateMethod(const QString &method, const QJsonDocument &params, quint64 id)
-{
-    const QJsonObject json = RocketChatMessage::generateJsonObject(method, params, id);
-    const QString generatedJsonDoc = QString::fromUtf8(QJsonDocument(json).toJson(mJsonFormat));
-    RocketChatMessageResult result;
-    result.jsonDocument = params;
     result.method = method;
     result.result = generatedJsonDoc;
     return result;
