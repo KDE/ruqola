@@ -609,7 +609,7 @@ quint64 DDPClient::method(const RocketChatMessage::RocketChatMessageResult &resu
     return value;
 }
 
-quint64 DDPClient::method(const QString &m, const QJsonDocument &params, DDPClient::MessageType messageType)
+quint64 DDPClient::method(const QString &m, const QJsonArray &params, DDPClient::MessageType messageType)
 {
     return method(m, params, empty_callback, messageType);
 }
@@ -619,12 +619,10 @@ QJsonObject DDPClient::generateJsonObject(const QString &method, const QJsonArra
     return RocketChatMessage::generateJsonObject(method, params, mUid++);
 }
 
-quint64 DDPClient::method(const QString &methodName,
-                          const QJsonDocument &params,
-                          const std::function<void(QJsonObject, RocketChatAccount *)> &callback,
-                          DDPClient::MessageType messageType)
+quint64 DDPClient::storeInQueue(const RocketChatMessage::RocketChatMessageResult &result,
+                                const std::function<void(QJsonObject, RocketChatAccount *)> &callback,
+                                DDPClient::MessageType messageType)
 {
-    const RocketChatMessage::RocketChatMessageResult result = mRocketChatMessage->generateMethod(methodName, params, mUid);
     qint64 bytes = mWebSocket->sendTextMessage(result.result);
     if (bytes < result.result.length()) {
         qCDebug(RUQOLA_DDPAPI_COMMAND_LOG) << "ERROR! I couldn't send all of my message. This is a bug! (try again)";
@@ -651,24 +649,7 @@ quint64 DDPClient::method(const QString &methodName,
                           DDPClient::MessageType messageType)
 {
     const RocketChatMessage::RocketChatMessageResult result = mRocketChatMessage->generateMethod(methodName, params, mUid);
-    qint64 bytes = mWebSocket->sendTextMessage(result.result);
-    if (bytes < result.result.length()) {
-        qCDebug(RUQOLA_DDPAPI_COMMAND_LOG) << "ERROR! I couldn't send all of my message. This is a bug! (try again)";
-        qCDebug(RUQOLA_DDPAPI_COMMAND_LOG) << mWebSocket->isValid() << mWebSocket->error() << mWebSocket->requestUrl();
-
-        if (messageType == DDPClient::MessageType::Persistent) {
-            m_messageQueue.enqueue(qMakePair(result.method, result.jsonDocument));
-            mRocketChatAccount->messageQueue()->processQueue();
-        }
-    } else {
-        qCDebug(RUQOLA_DDPAPI_COMMAND_LOG) << "Successfully sent " << result.result;
-    }
-
-    m_callbackHash[mUid] = callback;
-
-    const quint64 uidCurrent = mUid;
-    mUid++;
-    return uidCurrent;
+    return storeInQueue(result, callback, messageType);
 }
 
 quint64 DDPClient::method(const QString &methodName,
@@ -677,24 +658,7 @@ quint64 DDPClient::method(const QString &methodName,
                           DDPClient::MessageType messageType)
 {
     const RocketChatMessage::RocketChatMessageResult result = mRocketChatMessage->generateMethod(methodName, params, mUid);
-    qint64 bytes = mWebSocket->sendTextMessage(result.result);
-    if (bytes < result.result.length()) {
-        qCDebug(RUQOLA_DDPAPI_COMMAND_LOG) << "ERROR! I couldn't send all of my message. This is a bug! (try again)";
-        qCDebug(RUQOLA_DDPAPI_COMMAND_LOG) << mWebSocket->isValid() << mWebSocket->error() << mWebSocket->requestUrl();
-
-        if (messageType == DDPClient::MessageType::Persistent) {
-            m_messageQueue.enqueue(qMakePair(result.method, result.jsonDocument));
-            mRocketChatAccount->messageQueue()->processQueue();
-        }
-    } else {
-        qCDebug(RUQOLA_DDPAPI_COMMAND_LOG) << "Successfully sent " << result.result;
-    }
-
-    m_callbackHash[mUid] = callback;
-
-    const quint64 uidCurrent = mUid;
-    mUid++;
-    return uidCurrent;
+    return storeInQueue(result, callback, messageType);
 }
 
 void DDPClient::unsubscribe(quint64 registerId)
@@ -789,7 +753,7 @@ quint64 DDPClient::invokeMethodAndRegister(const QString &methodName, const QJso
 {
     qCDebug(RUQOLA_DDPAPI_LOG) << Q_FUNC_INFO << "invoked with" << methodName << params;
     mMethodResponseHash[mUid] = QPair<DDPManager *, int>(ddpManager, operationId);
-    return method(methodName, QJsonDocument(params));
+    return method(methodName, params);
 }
 
 void DDPClient::deregisterFromMethodResponse(quint64 methodId, DDPManager *ddpManager, int operationId)
@@ -884,7 +848,7 @@ void DDPClient::onTextMessageReceived(const QString &message)
 
 quint64 DDPClient::loadHistory(const QJsonArray &params)
 {
-    return method(QStringLiteral("loadHistory"), QJsonDocument(params), process_backlog);
+    return method(QStringLiteral("loadHistory"), params, process_backlog);
 }
 
 void DDPClient::login()

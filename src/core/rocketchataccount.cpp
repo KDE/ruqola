@@ -1086,7 +1086,7 @@ void RocketChatAccount::slotGetListMessagesDone(const QJsonObject &obj, const QB
         for (const auto &msg : listMessages) {
             QJsonObject params;
             params.insert(QStringLiteral("tmid"), QString::fromLatin1(msg.messageId()));
-            mDdp->method(QStringLiteral("getThreadMessages"), QJsonDocument(params), [](const QJsonObject &reply, RocketChatAccount *account) {
+            mDdp->method(QStringLiteral("getThreadMessages"), params, [](const QJsonObject &reply, RocketChatAccount *account) {
                 // don't trigger warning about unhandled replies
                 Q_UNUSED(reply)
                 Q_UNUSED(account)

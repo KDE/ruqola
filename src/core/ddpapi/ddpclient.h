@@ -43,7 +43,7 @@ public:
      * @param messageType The type of message
      * @return unsigned int, the ID of the called method
      */
-    quint64 method(const QString &method, const QJsonDocument &params, DDPClient::MessageType messageType = DDPClient::MessageType::Ephemeral);
+    quint64 method(const QString &method, const QJsonArray &params, DDPClient::MessageType messageType = DDPClient::MessageType::Ephemeral);
 
     /**
      * @brief Send message over network
@@ -54,11 +54,6 @@ public:
      * @param messageType The type of message
      * @return unsigned int, the ID of the called method
      */
-    quint64 method(const QString &method,
-                   const QJsonDocument &params,
-                   const std::function<void(QJsonObject, RocketChatAccount *)> &callback,
-                   DDPClient::MessageType messageType = DDPClient::MessageType::Ephemeral);
-
     quint64 method(const QString &method,
                    const QJsonArray &params,
                    const std::function<void(QJsonObject, RocketChatAccount *)> &callback,
@@ -233,6 +228,10 @@ private:
 
     LIBRUQOLACORE_NO_EXPORT void pong();
     LIBRUQOLACORE_NO_EXPORT void executeSubsCallBack(const QJsonObject &root);
+
+    LIBRUQOLACORE_NO_EXPORT quint64 storeInQueue(const RocketChatMessage::RocketChatMessageResult &result,
+                                                 const std::function<void(QJsonObject, RocketChatAccount *)> &callback,
+                                                 DDPClient::MessageType messageType);
 
     QString mUrl;
     AbstractWebSocket *mWebSocket = nullptr;

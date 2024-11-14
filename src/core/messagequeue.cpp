@@ -86,8 +86,13 @@ void MessageQueue::processQueue()
     while (mRocketChatAccount->loginStatus() == AuthenticationManager::LoggedIn && !mRocketChatAccount->ddp()->messageQueue().empty()) {
         const QPair<QString, QJsonDocument> pair = mRocketChatAccount->ddp()->messageQueue().head();
         const QString method = pair.first;
-        const QJsonDocument params = pair.second;
-        mRocketChatAccount->ddp()->method(method, params);
+        QJsonArray arr;
+        if (pair.second.isArray()) {
+            arr.append(pair.second.array());
+        } else if (pair.second.isObject()) {
+            arr.append(pair.second.object());
+        }
+        mRocketChatAccount->ddp()->method(method, arr);
     }
 }
 
