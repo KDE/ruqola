@@ -751,7 +751,7 @@ void DDPClient::deregisterSubscriber(const QString &collection, const QString &e
 
 quint64 DDPClient::invokeMethodAndRegister(const QString &methodName, const QJsonArray &params, DDPManager *ddpManager, int operationId)
 {
-    qCDebug(RUQOLA_DDPAPI_LOG) << Q_FUNC_INFO << "invoked with" << methodName << params;
+    qCDebug(RUQOLA_DDPAPI_LOG) << "invoked with" << methodName << params;
     mMethodResponseHash[mUid] = QPair<DDPManager *, int>(ddpManager, operationId);
     return method(methodName, params);
 }
