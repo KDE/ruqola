@@ -619,12 +619,64 @@ QJsonObject DDPClient::generateJsonObject(const QString &method, const QJsonArra
     return RocketChatMessage::generateJsonObject(method, params, mUid++);
 }
 
-quint64 DDPClient::method(const QString &method,
+quint64 DDPClient::method(const QString &methodName,
                           const QJsonDocument &params,
                           const std::function<void(QJsonObject, RocketChatAccount *)> &callback,
                           DDPClient::MessageType messageType)
 {
-    const RocketChatMessage::RocketChatMessageResult result = mRocketChatMessage->generateMethod(method, params, mUid);
+    const RocketChatMessage::RocketChatMessageResult result = mRocketChatMessage->generateMethod(methodName, params, mUid);
+    qint64 bytes = mWebSocket->sendTextMessage(result.result);
+    if (bytes < result.result.length()) {
+        qCDebug(RUQOLA_DDPAPI_COMMAND_LOG) << "ERROR! I couldn't send all of my message. This is a bug! (try again)";
+        qCDebug(RUQOLA_DDPAPI_COMMAND_LOG) << mWebSocket->isValid() << mWebSocket->error() << mWebSocket->requestUrl();
+
+        if (messageType == DDPClient::MessageType::Persistent) {
+            m_messageQueue.enqueue(qMakePair(result.method, result.jsonDocument));
+            mRocketChatAccount->messageQueue()->processQueue();
+        }
+    } else {
+        qCDebug(RUQOLA_DDPAPI_COMMAND_LOG) << "Successfully sent " << result.result;
+    }
+
+    m_callbackHash[mUid] = callback;
+
+    const quint64 uidCurrent = mUid;
+    mUid++;
+    return uidCurrent;
+}
+
+quint64 DDPClient::method(const QString &methodName,
+                          const QJsonObject &params,
+                          const std::function<void(QJsonObject, RocketChatAccount *)> &callback,
+                          DDPClient::MessageType messageType)
+{
+    const RocketChatMessage::RocketChatMessageResult result = mRocketChatMessage->generateMethod(methodName, params, mUid);
+    qint64 bytes = mWebSocket->sendTextMessage(result.result);
+    if (bytes < result.result.length()) {
+        qCDebug(RUQOLA_DDPAPI_COMMAND_LOG) << "ERROR! I couldn't send all of my message. This is a bug! (try again)";
+        qCDebug(RUQOLA_DDPAPI_COMMAND_LOG) << mWebSocket->isValid() << mWebSocket->error() << mWebSocket->requestUrl();
+
+        if (messageType == DDPClient::MessageType::Persistent) {
+            m_messageQueue.enqueue(qMakePair(result.method, result.jsonDocument));
+            mRocketChatAccount->messageQueue()->processQueue();
+        }
+    } else {
+        qCDebug(RUQOLA_DDPAPI_COMMAND_LOG) << "Successfully sent " << result.result;
+    }
+
+    m_callbackHash[mUid] = callback;
+
+    const quint64 uidCurrent = mUid;
+    mUid++;
+    return uidCurrent;
+}
+
+quint64 DDPClient::method(const QString &methodName,
+                          const QJsonArray &params,
+                          const std::function<void(QJsonObject, RocketChatAccount *)> &callback,
+                          DDPClient::MessageType messageType)
+{
+    const RocketChatMessage::RocketChatMessageResult result = mRocketChatMessage->generateMethod(methodName, params, mUid);
     qint64 bytes = mWebSocket->sendTextMessage(result.result);
     if (bytes < result.result.length()) {
         qCDebug(RUQOLA_DDPAPI_COMMAND_LOG) << "ERROR! I couldn't send all of my message. This is a bug! (try again)";

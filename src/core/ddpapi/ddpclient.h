@@ -59,6 +59,16 @@ public:
                    const std::function<void(QJsonObject, RocketChatAccount *)> &callback,
                    DDPClient::MessageType messageType = DDPClient::MessageType::Ephemeral);
 
+    quint64 method(const QString &method,
+                   const QJsonArray &params,
+                   const std::function<void(QJsonObject, RocketChatAccount *)> &callback,
+                   DDPClient::MessageType messageType = DDPClient::MessageType::Ephemeral);
+
+    quint64 method(const QString &method,
+                   const QJsonObject &params,
+                   const std::function<void(QJsonObject, RocketChatAccount *)> &callback,
+                   DDPClient::MessageType messageType = DDPClient::MessageType::Ephemeral);
+
     quint64 method(const RocketChatMessage::RocketChatMessageResult &result,
                    const std::function<void(QJsonObject, RocketChatAccount *)> &callback,
                    DDPClient::MessageType messageType = DDPClient::MessageType::Ephemeral);

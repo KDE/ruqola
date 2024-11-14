@@ -162,7 +162,7 @@ void getsubscription_parsing(const QJsonObject &root, RocketChatAccount *account
     // TODO use timeStamp too
     params["$date"_L1] = QJsonValue(0); // get ALL rooms we've ever seen
     // Add timestamp https://developer.rocket.chat/reference/api/realtime-api/method-calls/get-rooms
-    account->ddp()->method(QStringLiteral("rooms/get"), QJsonDocument(params), rooms_parsing);
+    account->ddp()->method(QStringLiteral("rooms/get"), params, rooms_parsing);
 
     account->initializeAccount();
 }
@@ -214,9 +214,9 @@ void RocketChatBackend::loadPublicSettings(qint64 timeStamp)
         // "params": [ { "$date": 1480377601 } ]
         params["$date"_L1] = timeStamp;
         qDebug() << "RocketChatBackend::loadPublicSettings load from: " << params;
-        ddp->method(QStringLiteral("public-settings/get"), QJsonDocument(params), process_updatePublicsettings);
+        ddp->method(QStringLiteral("public-settings/get"), params, process_updatePublicsettings);
     } else {
-        ddp->method(QStringLiteral("public-settings/get"), QJsonDocument(params), process_publicsettings);
+        ddp->method(QStringLiteral("public-settings/get"), params, process_publicsettings);
     }
 }
 
@@ -233,7 +233,7 @@ void RocketChatBackend::loadPermissionsAdministrator(qint64 timeStamp)
         params["$date"_L1] = timeStamp;
     }
     qDebug() << " params " << params;
-    ddp->method(QStringLiteral("permissions/get"), QJsonDocument(params), process_permissions_administrator);
+    ddp->method(QStringLiteral("permissions/get"), params, process_permissions_administrator);
 }
 
 void RocketChatBackend::loadPrivateSettingsAdministrator(qint64 timeStamp)
@@ -249,7 +249,7 @@ void RocketChatBackend::loadPrivateSettingsAdministrator(qint64 timeStamp)
         params["$date"_L1] = timeStamp;
     }
     qDebug() << " params " << params;
-    ddp->method(QStringLiteral("private-settings/get"), QJsonDocument(params), process_privatesettings_administrator);
+    ddp->method(QStringLiteral("private-settings/get"), params, process_privatesettings_administrator);
 }
 
 void RocketChatBackend::loadPublicSettingsAdministrator(qint64 timeStamp)
@@ -265,7 +265,7 @@ void RocketChatBackend::loadPublicSettingsAdministrator(qint64 timeStamp)
         params["$date"_L1] = timeStamp;
     }
     qDebug() << " params " << params;
-    ddp->method(QStringLiteral("public-settings/get"), QJsonDocument(params), process_publicsettings_administrator);
+    ddp->method(QStringLiteral("public-settings/get"), params, process_publicsettings_administrator);
 }
 
 void RocketChatBackend::updateVideoConferenceInfo(const Message &m)
@@ -430,7 +430,7 @@ void RocketChatBackend::initializeSubscription(DDPClient *ddp)
         getsubscription_parsing(obj, account);
     };
 
-    ddp->method(QStringLiteral("subscriptions/get"), QJsonDocument(params), subscription_callback);
+    ddp->method(QStringLiteral("subscriptions/get"), params, subscription_callback);
 }
 
 void RocketChatBackend::slotPrivateInfoDone(const QJsonObject &data)

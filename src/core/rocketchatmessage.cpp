@@ -332,6 +332,17 @@ RocketChatMessage::RocketChatMessageResult RocketChatMessage::generateMethod(con
     return result;
 }
 
+RocketChatMessage::RocketChatMessageResult RocketChatMessage::generateMethod(const QString &method, const QJsonObject &params, quint64 id)
+{
+    const QJsonObject json = RocketChatMessage::generateJsonObject(method, params, id);
+    const QString generatedJsonDoc = QString::fromUtf8(QJsonDocument(json).toJson(mJsonFormat));
+    RocketChatMessageResult result;
+    result.jsonDocument = QJsonDocument(params);
+    result.method = method;
+    result.result = generatedJsonDoc;
+    return result;
+}
+
 RocketChatMessage::RocketChatMessageResult RocketChatMessage::streamNotifyUserOtrEnd(const QString &roomId, const QString &userId, quint64 id)
 {
     const QJsonObject endObject{{QStringLiteral("roomId"), roomId}, {QStringLiteral("userId"), userId}};

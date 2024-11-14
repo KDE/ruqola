@@ -29,6 +29,7 @@ public:
 
     [[nodiscard]] RocketChatMessage::RocketChatMessageResult generateMethod(const QString &method, const QJsonDocument &params, quint64 id);
     [[nodiscard]] RocketChatMessage::RocketChatMessageResult generateMethod(const QString &method, const QJsonArray &params, quint64 id);
+    [[nodiscard]] RocketChatMessage::RocketChatMessageResult generateMethod(const QString &method, const QJsonObject &params, quint64 id);
     [[nodiscard]] RocketChatMessage::RocketChatMessageResult joinRoom(const QByteArray &roomId, const QString &accessCode, quint64 id);
     [[nodiscard]] RocketChatMessage::RocketChatMessageResult informTypingStatus(const QByteArray &roomId, const QString &userId, bool typingStatus, quint64 id);
     [[nodiscard]] RocketChatMessage::RocketChatMessageResult setDefaultStatus(User::PresenceStatus status, quint64 id);
