@@ -28,7 +28,7 @@ RocketChatMessage::RocketChatMessageResult RocketChatMessage::openDirectChannel(
 
 RocketChatMessage::RocketChatMessageResult RocketChatMessage::updateOAuthApp(const QString &name, bool active, const QString &redirectUrl, quint64 id)
 {
-    QJsonObject obj{
+    const QJsonObject obj{
         {QStringLiteral("name"), name},
         {QStringLiteral("active"), active},
         {QStringLiteral("redirectUri"), redirectUrl},
@@ -71,12 +71,12 @@ RocketChatMessage::videoConferenceAccepted(const QString &roomId, const QString 
 RocketChatMessage::RocketChatMessageResult
 RocketChatMessage::generateVideoConferenceAction(const QString &action, const QString &roomId, const QString &callId, const QString &userId, quint64 id)
 {
-    QJsonObject actionParamsObj{
+    const QJsonObject actionParamsObj{
         {QStringLiteral("callId"), callId},
         {QStringLiteral("uid"), userId},
         {QStringLiteral("rid"), roomId},
     };
-    QJsonObject actionObj{
+    const QJsonObject actionObj{
         {QStringLiteral("action"), action},
         {QStringLiteral("params"), actionParamsObj},
     };
@@ -95,7 +95,7 @@ RocketChatMessage::RocketChatMessageResult RocketChatMessage::licenseGetModules(
 
 RocketChatMessage::RocketChatMessageResult RocketChatMessage::bannerDismiss(const QByteArray &bannerId, quint64 id)
 {
-    QJsonObject obj{
+    const QJsonObject obj{
         {QStringLiteral("id"), QString::fromLatin1(bannerId)},
     };
 
@@ -105,7 +105,7 @@ RocketChatMessage::RocketChatMessageResult RocketChatMessage::bannerDismiss(cons
 
 RocketChatMessage::RocketChatMessageResult RocketChatMessage::blockUser(const QString &rid, const QString &userId, quint64 id)
 {
-    QJsonObject obj{
+    const QJsonObject obj{
         {QStringLiteral("rid"), rid},
         {QStringLiteral("blocked"), userId},
     };
@@ -144,7 +144,7 @@ RocketChatMessage::RocketChatMessageResult RocketChatMessage::listCustomSounds(q
 
 RocketChatMessage::RocketChatMessageResult RocketChatMessage::unblockUser(const QString &rid, const QString &userId, quint64 id)
 {
-    QJsonObject obj{
+    const QJsonObject obj{
         {QStringLiteral("rid"), rid},
         {QStringLiteral("blocked"), userId},
     };
