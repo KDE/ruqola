@@ -91,6 +91,8 @@ public:
     [[nodiscard]] RocketChatMessage::RocketChatMessageResult
     videoConferenceConfirmed(const QString &roomId, const QString &callId, const QString &userId, quint64 id);
 
+    [[nodiscard]] static QJsonObject generateJsonObject(const QString &method, const QJsonDocument &params, quint64 id);
+
 private:
     [[nodiscard]] LIBRUQOLACORE_NO_EXPORT QJsonValue toJsonDateTime(const QDateTime &dateTime);
     [[nodiscard]] LIBRUQOLACORE_NO_EXPORT RocketChatMessage::RocketChatMessageResult subscribe(const QString &name, const QJsonDocument &params, quint64 id);

@@ -5,6 +5,7 @@
 */
 
 #include "managelocaldatabase.h"
+#include "misc/methodcalljob.h"
 using namespace Qt::Literals::StringLiterals;
 
 #include "chat/syncmessagesjob.h"
@@ -158,8 +159,27 @@ void ManageLocalDatabase::loadMessagesHistory(const ManageLocalDatabase::ManageL
         params.append(std::move(dateObjectStart));
     }
     qCDebug(RUQOLA_LOAD_HISTORY_LOG) << " load history ddp:" << params;
-    // TODO use /api/v1/method.call/loadHistory directly => restapi
+#if 0
     mRocketChatAccount->ddp()->loadHistory(params);
+#else
+    // use /api/v1/method.call/loadHistory directly => restapi
+    auto job = new RocketChatRestApi::MethodCallJob(this);
+    RocketChatRestApi::MethodCallJob::MethodCallJobInfo loadHistoryInfo;
+    loadHistoryInfo.methodName = QStringLiteral("loadHistory");
+    loadHistoryInfo.anonymous = false;
+    loadHistoryInfo.messageObj = mRocketChatAccount->ddp()->generateJsonObject(loadHistoryInfo.methodName, QJsonDocument(params));
+    job->setMethodCallJobInfo(std::move(loadHistoryInfo));
+    mRocketChatAccount->restApi()->initializeRestApiJob(job);
+    // qDebug()<< " mRestApiConnection " << mRestApiConnection->serverUrl();
+    connect(job, &RocketChatRestApi::MethodCallJob::methodCallDone, this, [this](const QJsonObject &root) {
+        const QJsonObject obj = root.value("result"_L1).toObject();
+        // qCDebug(RUQOLA_DDPAPI_LOG) << obj.value("messages")).toArray().size();
+        mRocketChatAccount->rocketChatBackend()->processIncomingMessages(obj.value("messages"_L1).toArray(), true);
+    });
+    if (!job->start()) {
+        qCWarning(RUQOLA_LOAD_HISTORY_LOG) << "Impossible to start loadHistory job";
+    }
+#endif
     // TODO MISSING load rooms from database too
 }
 

@@ -272,7 +272,7 @@ RocketChatMessage::RocketChatMessageResult RocketChatMessage::subscribe(const QS
     return result;
 }
 
-RocketChatMessage::RocketChatMessageResult RocketChatMessage::generateMethod(const QString &method, const QJsonDocument &params, quint64 id)
+QJsonObject RocketChatMessage::generateJsonObject(const QString &method, const QJsonDocument &params, quint64 id)
 {
     QJsonObject json;
     json["msg"_L1] = QStringLiteral("method");
@@ -288,6 +288,12 @@ RocketChatMessage::RocketChatMessageResult RocketChatMessage::generateMethod(con
             json["params"_L1] = arr;
         }
     }
+    return json;
+}
+
+RocketChatMessage::RocketChatMessageResult RocketChatMessage::generateMethod(const QString &method, const QJsonDocument &params, quint64 id)
+{
+    const QJsonObject json = RocketChatMessage::generateJsonObject(method, params, id);
     const QString generatedJsonDoc = QString::fromUtf8(QJsonDocument(json).toJson(mJsonFormat));
     RocketChatMessageResult result;
     result.jsonDocument = params;
