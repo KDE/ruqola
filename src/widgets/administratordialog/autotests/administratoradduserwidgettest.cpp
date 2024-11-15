@@ -43,11 +43,6 @@ void AdministratorAddUserWidgetTest::shouldHaveDefaultValues()
     QVERIFY(mNickName);
     QVERIFY(mNickName->text().isEmpty());
 
-    auto mJoinDefaultChannels = w.findChild<QCheckBox *>(QStringLiteral("mJoinDefaultChannels"));
-    QVERIFY(mJoinDefaultChannels);
-    QVERIFY(!mJoinDefaultChannels->text().isEmpty());
-    QVERIFY(!mJoinDefaultChannels->isChecked());
-
     auto mSendWelcomeEmails = w.findChild<QCheckBox *>(QStringLiteral("mSendWelcomeEmails"));
     QVERIFY(mSendWelcomeEmails);
     QVERIFY(!mSendWelcomeEmails->text().isEmpty());

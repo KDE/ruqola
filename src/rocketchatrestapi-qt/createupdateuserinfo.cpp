@@ -34,7 +34,6 @@ QDebug operator<<(QDebug d, const RocketChatRestApi::CreateUpdateUserInfo &t)
     // d << "mPassword " << t.mPassword;
     d << "mStatusText " << t.mStatusText;
     d << "mNickName " << t.mNickName;
-    d << "mJoinDefaultChannels " << t.mJoinDefaultChannels;
     d << "mRequirePasswordChange " << t.mRequirePasswordChange;
     d << "mAssignRandomPassword " << t.mSetRandomPassword;
     d << "mSendWelcomeEmail " << t.mSendWelcomeEmail;
@@ -73,8 +72,6 @@ QJsonDocument CreateUpdateUserInfo::json() const
     userInfoObj["sendWelcomeEmail"_L1] = mSendWelcomeEmail;
     userInfoObj["setRandomPassword"_L1] = mSetRandomPassword;
     userInfoObj["verified"_L1] = mVerified;
-    // TODO RC7.0 remove joinDefaultChannels
-    userInfoObj["joinDefaultChannels"_L1] = mJoinDefaultChannels;
     if (mTypeInfo == Update) {
         QJsonObject dataObj;
         dataObj["data"_L1] = userInfoObj;

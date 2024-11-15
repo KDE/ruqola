@@ -24,7 +24,6 @@ AdministratorAddUserWidget::AdministratorAddUserWidget(RocketChatAccount *accoun
     , mEmail(new QLineEdit(this))
     , mNickName(new QLineEdit(this))
     , mPasswordLineEdit(new KPasswordLineEdit(this))
-    , mJoinDefaultChannels(new QCheckBox(i18nc("@option:check", "Join Default Channels"), this))
     , mSendWelcomeEmails(new QCheckBox(i18nc("@option:check", "Send Welcome Email"), this))
     , mRequirePasswordChange(new QCheckBox(i18nc("@option:check", "Require Password Change"), this))
     , mSetRandowPassword(new QCheckBox(i18nc("@option:check", "Set random password and send by email"), this))
@@ -47,7 +46,6 @@ AdministratorAddUserWidget::AdministratorAddUserWidget(RocketChatAccount *accoun
     KLineEditEventHandler::catchReturnKey(mStatusText);
     KLineEditEventHandler::catchReturnKey(mNickName);
 
-    mJoinDefaultChannels->setObjectName(QStringLiteral("mJoinDefaultChannels"));
     mSendWelcomeEmails->setObjectName(QStringLiteral("mSendWelcomeEmails"));
     mPasswordLineEdit->setObjectName(QStringLiteral("mPasswordLineEdit"));
     mPasswordLineEdit->setRevealPasswordMode(KAuthorized::authorize(QStringLiteral("lineedit_reveal_password")) ? KPassword::RevealMode::OnlyNew
@@ -65,7 +63,6 @@ AdministratorAddUserWidget::AdministratorAddUserWidget(RocketChatAccount *accoun
     formLayout->addRow(i18n("Password:"), mPasswordLineEdit);
     formLayout->addRow(i18n("Bio:"), mBioPlainTextEdit);
     formLayout->addRow(i18n("Nickname:"), mNickName);
-    formLayout->addWidget(mJoinDefaultChannels);
     formLayout->addWidget(mSendWelcomeEmails);
     formLayout->addWidget(mRequirePasswordChange);
     formLayout->addWidget(mSetRandowPassword);
@@ -105,7 +102,6 @@ RocketChatRestApi::UpdateUserInfo AdministratorAddUserWidget::updateInfo() const
     info.mEmail = mEmail->text().trimmed();
     info.mUserName = mUserName->text();
     info.mSendWelcomeEmail = mSendWelcomeEmails->isChecked();
-    info.mJoinDefaultChannels = mJoinDefaultChannels->isChecked();
     info.mPassword = mPasswordLineEdit->password();
     info.mStatusText = mStatusText->text().trimmed();
 
@@ -131,7 +127,6 @@ RocketChatRestApi::CreateUpdateUserInfo AdministratorAddUserWidget::createInfo()
     info.mUserName = mUserName->text();
     info.mStatusText = mStatusText->text().trimmed();
     info.mSendWelcomeEmail = mSendWelcomeEmails->isChecked();
-    info.mJoinDefaultChannels = mJoinDefaultChannels->isChecked();
     if (mRocketChatAccount && mRocketChatAccount->hasPermission(QStringLiteral("edit-other-user-password"))) {
         info.mPassword = mPasswordLineEdit->password();
     }

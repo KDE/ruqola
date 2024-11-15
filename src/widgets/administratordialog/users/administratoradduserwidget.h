@@ -52,7 +52,6 @@ private:
     QLineEdit *const mNickName;
     KPasswordLineEdit *const mPasswordLineEdit;
 
-    QCheckBox *const mJoinDefaultChannels;
     QCheckBox *const mSendWelcomeEmails;
     QCheckBox *const mRequirePasswordChange;
     QCheckBox *const mSetRandowPassword;
