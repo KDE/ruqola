@@ -266,6 +266,12 @@ else()
     set_package_properties(KF6NetworkManagerQt PROPERTIES DESCRIPTION "Network management lib" TYPE OPTIONAL PURPOSE "Allows detecting network state changes.")
 endif()
 
+
+if (NOT USE_DBUS)
+    find_package(KDSingleApplication-qt6 CONFIG REQUIRED)
+endif()
+
+
 include_directories(${CMAKE_CURRENT_BINARY_DIR})
 ecm_set_disabled_deprecation_versions(QT 6.8
     KF 6.9.0
