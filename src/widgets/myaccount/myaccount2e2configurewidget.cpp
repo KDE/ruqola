@@ -67,7 +67,7 @@ MyAccount2e2ConfigureWidget::~MyAccount2e2ConfigureWidget() = default;
 
 void MyAccount2e2ConfigureWidget::slotResetE2EKey()
 {
-    // TODO it uses "/api/v1/method.call/e2e.resetOwnE2EKey"
+    // it uses "/api/v1/method.call/e2e.resetOwnE2EKey"
     // => use restapi for calling ddp method
     auto job = new RocketChatRestApi::MethodCallJob(this);
     RocketChatRestApi::MethodCallJob::MethodCallJobInfo info;
