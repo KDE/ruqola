@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-11-14 00:40+0000\n"
+"POT-Creation-Date: 2024-11-16 00:40+0000\n"
 "PO-Revision-Date: 2019-07-29 20:25+0200\n"
 "Last-Translator: Roman Paholík <wizzardsk@gmail.com>\n"
 "Language-Team: Slovak <kde-sk@linux.sk>\n"
@@ -2948,7 +2948,7 @@ msgstr ""
 #: widgets/administratordialog/roles/roleeditwidget.cpp:34
 #: widgets/administratordialog/rooms/administratordirectroomseditwidget.cpp:24
 #: widgets/administratordialog/rooms/administratorroomseditwidget.cpp:43
-#: widgets/administratordialog/users/administratoradduserwidget.cpp:60
+#: widgets/administratordialog/users/administratoradduserwidget.cpp:58
 #: widgets/dialogs/channelinfoeditablewidget.cpp:53
 #: widgets/dialogs/channelinforeadonlywidget.cpp:33
 #: widgets/dialogs/createnewchannelwidget.cpp:35
@@ -3444,7 +3444,7 @@ msgid "Show Moderation Users"
 msgstr "Súkromné adresy"
 
 #: widgets/administratordialog/moderationconsole/moderationuserswidget.cpp:37
-#: widgets/administratordialog/users/administratoradduserwidget.cpp:63
+#: widgets/administratordialog/users/administratoradduserwidget.cpp:61
 #: widgets/dialogs/directchannelinfowidget.cpp:166
 #: widgets/myaccount/myaccountprofileconfigurewidget.cpp:75
 #: widgets/registeruser/registeruserwidget.cpp:39
@@ -3453,7 +3453,7 @@ msgid "Email:"
 msgstr ""
 
 #: widgets/administratordialog/moderationconsole/moderationuserswidget.cpp:43
-#: widgets/administratordialog/users/administratoradduserwidget.cpp:72
+#: widgets/administratordialog/users/administratoradduserwidget.cpp:69
 #: widgets/dialogs/directchannelinfowidget.cpp:141
 #, kde-format
 msgid "Roles:"
@@ -4065,38 +4065,31 @@ msgid "Edit User"
 msgstr "Stav:"
 
 #: widgets/administratordialog/users/administratoradduserwidget.cpp:27
-#, fuzzy, kde-format
-#| msgid "Leave Channel"
-msgctxt "@option:check"
-msgid "Join Default Channels"
-msgstr "Opustiť kanál"
-
-#: widgets/administratordialog/users/administratoradduserwidget.cpp:28
 #, kde-format
 msgctxt "@option:check"
 msgid "Send Welcome Email"
 msgstr ""
 
-#: widgets/administratordialog/users/administratoradduserwidget.cpp:29
+#: widgets/administratordialog/users/administratoradduserwidget.cpp:28
 #, fuzzy, kde-format
 #| msgid "Password:"
 msgctxt "@option:check"
 msgid "Require Password Change"
 msgstr "Heslo:"
 
-#: widgets/administratordialog/users/administratoradduserwidget.cpp:30
+#: widgets/administratordialog/users/administratoradduserwidget.cpp:29
 #, kde-format
 msgctxt "@option:check"
 msgid "Set random password and send by email"
 msgstr ""
 
-#: widgets/administratordialog/users/administratoradduserwidget.cpp:31
+#: widgets/administratordialog/users/administratoradduserwidget.cpp:30
 #, kde-format
 msgctxt "@option:check"
 msgid "Mark email as verified"
 msgstr ""
 
-#: widgets/administratordialog/users/administratoradduserwidget.cpp:61
+#: widgets/administratordialog/users/administratoradduserwidget.cpp:59
 #: widgets/dialogs/directchannelinfowidget.cpp:95
 #: widgets/dialogs/serverinfo/serverinfowidget.cpp:39
 #: widgets/myaccount/myaccountprofileconfigurewidget.cpp:68
@@ -4106,27 +4099,27 @@ msgstr ""
 msgid "Username:"
 msgstr "Meno používateľa: %1"
 
-#: widgets/administratordialog/users/administratoradduserwidget.cpp:62
+#: widgets/administratordialog/users/administratoradduserwidget.cpp:60
 #, fuzzy, kde-format
 #| msgid "1 message"
 #| msgid_plural "%1 messages"
 msgid "Status Message:"
 msgstr "1 správa"
 
-#: widgets/administratordialog/users/administratoradduserwidget.cpp:65
+#: widgets/administratordialog/users/administratoradduserwidget.cpp:63
 #: widgets/common/authenticationloginwidget.cpp:48
 #: widgets/dialogs/channelinfoeditablewidget.cpp:77
 #, kde-format
 msgid "Password:"
 msgstr "Heslo:"
 
-#: widgets/administratordialog/users/administratoradduserwidget.cpp:66
+#: widgets/administratordialog/users/administratoradduserwidget.cpp:64
 #: widgets/dialogs/directchannelinfowidget.cpp:112
 #, kde-format
 msgid "Bio:"
 msgstr ""
 
-#: widgets/administratordialog/users/administratoradduserwidget.cpp:67
+#: widgets/administratordialog/users/administratoradduserwidget.cpp:65
 #: widgets/myaccount/myaccountprofileconfigurewidget.cpp:83
 #, fuzzy, kde-format
 #| msgid "Name:"
@@ -12004,6 +11997,12 @@ msgstr ""
 #, kde-format
 msgid "Some bug fixing:"
 msgstr ""
+
+#, fuzzy
+#~| msgid "Leave Channel"
+#~ msgctxt "@option:check"
+#~ msgid "Join Default Channels"
+#~ msgstr "Opustiť kanál"
 
 #, fuzzy
 #~| msgid "Private Messages"

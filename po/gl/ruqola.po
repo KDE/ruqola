@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-11-14 00:40+0000\n"
+"POT-Creation-Date: 2024-11-16 00:40+0000\n"
 "PO-Revision-Date: 2024-09-21 16:04+0200\n"
 "Last-Translator: Adrián Chaves (Gallaecio) <adrian@chaves.io>\n"
 "Language-Team: Proxecto Trasno (proxecto@trasno.gal)\n"
@@ -2850,7 +2850,7 @@ msgstr "O nome personalizado de expresión e os alias deberían ser distintos."
 #: widgets/administratordialog/roles/roleeditwidget.cpp:34
 #: widgets/administratordialog/rooms/administratordirectroomseditwidget.cpp:24
 #: widgets/administratordialog/rooms/administratorroomseditwidget.cpp:43
-#: widgets/administratordialog/users/administratoradduserwidget.cpp:60
+#: widgets/administratordialog/users/administratoradduserwidget.cpp:58
 #: widgets/dialogs/channelinfoeditablewidget.cpp:53
 #: widgets/dialogs/channelinforeadonlywidget.cpp:33
 #: widgets/dialogs/createnewchannelwidget.cpp:35
@@ -3315,7 +3315,7 @@ msgid "Show Moderation Users"
 msgstr "Amosar a xente moderadora"
 
 #: widgets/administratordialog/moderationconsole/moderationuserswidget.cpp:37
-#: widgets/administratordialog/users/administratoradduserwidget.cpp:63
+#: widgets/administratordialog/users/administratoradduserwidget.cpp:61
 #: widgets/dialogs/directchannelinfowidget.cpp:166
 #: widgets/myaccount/myaccountprofileconfigurewidget.cpp:75
 #: widgets/registeruser/registeruserwidget.cpp:39
@@ -3324,7 +3324,7 @@ msgid "Email:"
 msgstr "Enderezo de correo electrónico:"
 
 #: widgets/administratordialog/moderationconsole/moderationuserswidget.cpp:43
-#: widgets/administratordialog/users/administratoradduserwidget.cpp:72
+#: widgets/administratordialog/users/administratoradduserwidget.cpp:69
 #: widgets/dialogs/directchannelinfowidget.cpp:141
 #, kde-format
 msgid "Roles:"
@@ -3872,28 +3872,22 @@ msgstr "Editar a persoa usuaria"
 #: widgets/administratordialog/users/administratoradduserwidget.cpp:27
 #, kde-format
 msgctxt "@option:check"
-msgid "Join Default Channels"
-msgstr "Unirse ás canles predeterminadas."
-
-#: widgets/administratordialog/users/administratoradduserwidget.cpp:28
-#, kde-format
-msgctxt "@option:check"
 msgid "Send Welcome Email"
 msgstr "Enviar a mensaxe de correo electrónico de benvida."
 
-#: widgets/administratordialog/users/administratoradduserwidget.cpp:29
+#: widgets/administratordialog/users/administratoradduserwidget.cpp:28
 #, kde-format
 msgctxt "@option:check"
 msgid "Require Password Change"
 msgstr "Requirir cambiar o contrasinal."
 
-#: widgets/administratordialog/users/administratoradduserwidget.cpp:30
+#: widgets/administratordialog/users/administratoradduserwidget.cpp:29
 #, kde-format
 msgctxt "@option:check"
 msgid "Set random password and send by email"
 msgstr "Definir un contrasinal aleatorio e envialo por correo electrónico."
 
-#: widgets/administratordialog/users/administratoradduserwidget.cpp:31
+#: widgets/administratordialog/users/administratoradduserwidget.cpp:30
 #, fuzzy, kde-format
 #| msgctxt "@option:check"
 #| msgid "Mark Email for External Accounts Verified"
@@ -3902,7 +3896,7 @@ msgid "Mark email as verified"
 msgstr ""
 "Marcar como verificado o enderezo de correo electrónico de contas externas."
 
-#: widgets/administratordialog/users/administratoradduserwidget.cpp:61
+#: widgets/administratordialog/users/administratoradduserwidget.cpp:59
 #: widgets/dialogs/directchannelinfowidget.cpp:95
 #: widgets/dialogs/serverinfo/serverinfowidget.cpp:39
 #: widgets/myaccount/myaccountprofileconfigurewidget.cpp:68
@@ -3911,25 +3905,25 @@ msgstr ""
 msgid "Username:"
 msgstr "Nome de persoa usuaria:"
 
-#: widgets/administratordialog/users/administratoradduserwidget.cpp:62
+#: widgets/administratordialog/users/administratoradduserwidget.cpp:60
 #, kde-format
 msgid "Status Message:"
 msgstr "Mensaxe de estado:"
 
-#: widgets/administratordialog/users/administratoradduserwidget.cpp:65
+#: widgets/administratordialog/users/administratoradduserwidget.cpp:63
 #: widgets/common/authenticationloginwidget.cpp:48
 #: widgets/dialogs/channelinfoeditablewidget.cpp:77
 #, kde-format
 msgid "Password:"
 msgstr "Contrasinal:"
 
-#: widgets/administratordialog/users/administratoradduserwidget.cpp:66
+#: widgets/administratordialog/users/administratoradduserwidget.cpp:64
 #: widgets/dialogs/directchannelinfowidget.cpp:112
 #, kde-format
 msgid "Bio:"
 msgstr "Biografía:"
 
-#: widgets/administratordialog/users/administratoradduserwidget.cpp:67
+#: widgets/administratordialog/users/administratoradduserwidget.cpp:65
 #: widgets/myaccount/myaccountprofileconfigurewidget.cpp:83
 #, kde-format
 msgid "Nickname:"
@@ -11581,6 +11575,10 @@ msgstr "Entre as características novas desta edición de Ruqola están:"
 #, kde-format
 msgid "Some bug fixing:"
 msgstr "Algunhas correccións de fallos:"
+
+#~ msgctxt "@option:check"
+#~ msgid "Join Default Channels"
+#~ msgstr "Unirse ás canles predeterminadas."
 
 #~ msgid "Starred Messages"
 #~ msgstr "Mensaxes vixiadas"

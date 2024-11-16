@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-11-14 00:40+0000\n"
+"POT-Creation-Date: 2024-11-16 00:40+0000\n"
 "PO-Revision-Date: 2024-09-17 21:39+0200\n"
 "Last-Translator: Oliver Kellogg <olivermkellogg@gmail.com>\n"
 "Language-Team: Esperanto <kde-i18n-doc@kde.org>\n"
@@ -2848,7 +2848,7 @@ msgstr "La propra emoĝi-nomo kaj iliaj kaŝnomoj devus esti malsamaj."
 #: widgets/administratordialog/roles/roleeditwidget.cpp:34
 #: widgets/administratordialog/rooms/administratordirectroomseditwidget.cpp:24
 #: widgets/administratordialog/rooms/administratorroomseditwidget.cpp:43
-#: widgets/administratordialog/users/administratoradduserwidget.cpp:60
+#: widgets/administratordialog/users/administratoradduserwidget.cpp:58
 #: widgets/dialogs/channelinfoeditablewidget.cpp:53
 #: widgets/dialogs/channelinforeadonlywidget.cpp:33
 #: widgets/dialogs/createnewchannelwidget.cpp:35
@@ -3312,7 +3312,7 @@ msgid "Show Moderation Users"
 msgstr "Montri Administrajn Uzantojn"
 
 #: widgets/administratordialog/moderationconsole/moderationuserswidget.cpp:37
-#: widgets/administratordialog/users/administratoradduserwidget.cpp:63
+#: widgets/administratordialog/users/administratoradduserwidget.cpp:61
 #: widgets/dialogs/directchannelinfowidget.cpp:166
 #: widgets/myaccount/myaccountprofileconfigurewidget.cpp:75
 #: widgets/registeruser/registeruserwidget.cpp:39
@@ -3321,7 +3321,7 @@ msgid "Email:"
 msgstr "Retpoŝto:"
 
 #: widgets/administratordialog/moderationconsole/moderationuserswidget.cpp:43
-#: widgets/administratordialog/users/administratoradduserwidget.cpp:72
+#: widgets/administratordialog/users/administratoradduserwidget.cpp:69
 #: widgets/dialogs/directchannelinfowidget.cpp:141
 #, kde-format
 msgid "Roles:"
@@ -3869,28 +3869,22 @@ msgstr "Redaktu Uzanton"
 #: widgets/administratordialog/users/administratoradduserwidget.cpp:27
 #, kde-format
 msgctxt "@option:check"
-msgid "Join Default Channels"
-msgstr "Aliĝi al Defaŭltaj Kanaloj"
-
-#: widgets/administratordialog/users/administratoradduserwidget.cpp:28
-#, kde-format
-msgctxt "@option:check"
 msgid "Send Welcome Email"
 msgstr "Sendi Bonvenan Retpoŝton"
 
-#: widgets/administratordialog/users/administratoradduserwidget.cpp:29
+#: widgets/administratordialog/users/administratoradduserwidget.cpp:28
 #, kde-format
 msgctxt "@option:check"
 msgid "Require Password Change"
 msgstr "Postuli Ŝanĝon de Pasvorto"
 
-#: widgets/administratordialog/users/administratoradduserwidget.cpp:30
+#: widgets/administratordialog/users/administratoradduserwidget.cpp:29
 #, kde-format
 msgctxt "@option:check"
 msgid "Set random password and send by email"
 msgstr "Agordi hazardan pasvorton kaj sendu retpoŝte"
 
-#: widgets/administratordialog/users/administratoradduserwidget.cpp:31
+#: widgets/administratordialog/users/administratoradduserwidget.cpp:30
 #, fuzzy, kde-format
 #| msgctxt "@option:check"
 #| msgid "Mark Email for External Accounts Verified"
@@ -3898,7 +3892,7 @@ msgctxt "@option:check"
 msgid "Mark email as verified"
 msgstr "Marki Retpoŝton por Eksteraj Kontoj Konfirmita"
 
-#: widgets/administratordialog/users/administratoradduserwidget.cpp:61
+#: widgets/administratordialog/users/administratoradduserwidget.cpp:59
 #: widgets/dialogs/directchannelinfowidget.cpp:95
 #: widgets/dialogs/serverinfo/serverinfowidget.cpp:39
 #: widgets/myaccount/myaccountprofileconfigurewidget.cpp:68
@@ -3907,25 +3901,25 @@ msgstr "Marki Retpoŝton por Eksteraj Kontoj Konfirmita"
 msgid "Username:"
 msgstr "Uzantnomo:"
 
-#: widgets/administratordialog/users/administratoradduserwidget.cpp:62
+#: widgets/administratordialog/users/administratoradduserwidget.cpp:60
 #, kde-format
 msgid "Status Message:"
 msgstr "Statusa Mesaĝo:"
 
-#: widgets/administratordialog/users/administratoradduserwidget.cpp:65
+#: widgets/administratordialog/users/administratoradduserwidget.cpp:63
 #: widgets/common/authenticationloginwidget.cpp:48
 #: widgets/dialogs/channelinfoeditablewidget.cpp:77
 #, kde-format
 msgid "Password:"
 msgstr "Pasvorto:"
 
-#: widgets/administratordialog/users/administratoradduserwidget.cpp:66
+#: widgets/administratordialog/users/administratoradduserwidget.cpp:64
 #: widgets/dialogs/directchannelinfowidget.cpp:112
 #, kde-format
 msgid "Bio:"
 msgstr "Biografio:"
 
-#: widgets/administratordialog/users/administratoradduserwidget.cpp:67
+#: widgets/administratordialog/users/administratoradduserwidget.cpp:65
 #: widgets/myaccount/myaccountprofileconfigurewidget.cpp:83
 #, kde-format
 msgid "Nickname:"
@@ -11515,6 +11509,10 @@ msgstr "Kelkaj el la novaj funkcioj en ĉi tiu eldono de Ruqola inkluzivas:"
 #, kde-format
 msgid "Some bug fixing:"
 msgstr "Iu eraro korekto:"
+
+#~ msgctxt "@option:check"
+#~ msgid "Join Default Channels"
+#~ msgstr "Aliĝi al Defaŭltaj Kanaloj"
 
 #~ msgid "Starred Messages"
 #~ msgstr "Stelitaj Mesaĝoj"
