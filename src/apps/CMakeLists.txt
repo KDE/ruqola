@@ -13,11 +13,6 @@ target_link_libraries(ruqola
 )
 if(USE_DBUS)
     target_link_libraries(ruqola KF6::DBusAddons)
-else()
-    target_link_libraries(ruqola KDAB::kdsingleapplication)
-    if (NOT WIN32 AND NOT APPLE)
-        target_link_libraries(ruqola Qt::GuiPrivate)
-    endif()
 endif()
 
 file(GLOB_RECURSE RUQOLA_ICONS "${PROJECT_SOURCE_DIR}/src/icons/*-apps-ruqola.png")
