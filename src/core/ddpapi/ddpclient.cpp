@@ -227,11 +227,11 @@ void create_jitsi_conf_call(const QJsonObject &root, RocketChatAccount *account)
 void open_direct_channel(const QJsonObject &root, RocketChatAccount *account)
 {
     const QJsonObject obj = root.value("result"_L1).toObject();
-    // qDebug() << " void open_direct_channel(const QJsonObject &root, RocketChatAccount *account)" << obj;
+    qDebug() << " void open_direct_channel(const QJsonObject &root, RocketChatAccount *account)" << obj;
     if (!obj.isEmpty()) {
         const QByteArray rid = obj.value("rid"_L1).toString().toLatin1();
         if (!rid.isEmpty()) {
-            account->ddp()->subscribeRoomMessage(rid);
+            account->initializeDirectChannel(rid);
         }
     }
     if (account->ruqolaLogger()) {

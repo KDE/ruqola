@@ -837,14 +837,18 @@ void RocketChatAccount::eraseRoom(const QByteArray &roomId, Room::RoomType chann
     }
 }
 
+void RocketChatAccount::initializeDirectChannel(const QByteArray &rid)
+{
+    ddp()->subscribeRoomMessage(rid);
+    Q_EMIT selectRoomByRoomIdRequested(rid);
+}
+
 void RocketChatAccount::openDirectChannel(const QString &roomId)
 {
     if (hasPermission(QStringLiteral("create-d"))) {
         auto job = new RocketChatRestApi::OpenDmJob(this);
         job->setDirectUserId(roomId);
         restApi()->initializeRestApiJob(job);
-        // TODO ????
-        // connect(job, &RocketChatRestApi::OpenDmJob::openDmDone, this, &RolesManager::parseRoles);
         if (!job->start()) {
             qCWarning(RUQOLA_LOG) << "Impossible to start OpenDmJob job";
         }

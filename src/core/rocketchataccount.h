@@ -497,6 +497,7 @@ public:
     void streamNotifyUserOtrEnd(const QByteArray &roomId, const QByteArray &userId);
 
     void muteUser(const QByteArray &rid, const QString &userId, bool mute);
+    void initializeDirectChannel(const QByteArray &rid);
 Q_SIGNALS:
     void roomRemoved(const QByteArray &roomId);
     void disabledTotpValid(bool checked);
