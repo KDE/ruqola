@@ -705,6 +705,9 @@ ecm_qt_declare_logging_category(libruqolacore_debug_SRCS HEADER ruqola_message_u
 ecm_qt_declare_logging_category(libruqolacore_debug_SRCS HEADER ruqola_memory_management_debug.h IDENTIFIER RUQOLA_MEMORY_MANAGEMENT_LOG
     CATEGORY_NAME org.kde.ruqola.memorymanagement DESCRIPTION "ruqola memory management" EXPORT RUQOLA)
 
+ecm_qt_declare_logging_category(libruqolacore_debug_SRCS HEADER ruqola_channel_management_debug.h IDENTIFIER RUQOLA_CHANNEL_MANAGEMENT_LOG
+    CATEGORY_NAME org.kde.ruqola.channelmanagement DESCRIPTION "ruqola channel management" EXPORT RUQOLA)
+
 target_sources(libruqolacore PRIVATE ${libruqolacore_debug_SRCS})
 
 ruqola_target_precompile_headers(libruqolacore PUBLIC ../../ruqola_pch.h)
