@@ -154,8 +154,7 @@ void AdministratorAddUserWidget::setUser(const User &user)
     mEmailVerified->setChecked(user.userEmailsInfo().verified);
 
     // mSetRandowPassword
-    // TODO add mSendWelcomeEmail and mJoinDefaultChannels
-    // mJoinDefaultChannels->setChecked(user.jo)
+    // TODO add mSendWelcomeEmail
     if (mRocketChatAccount) {
         mPasswordLineEdit->setEnabled(mRocketChatAccount->hasPermission(QStringLiteral("edit-other-user-password")));
     }
