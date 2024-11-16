@@ -518,7 +518,7 @@ void Room::setOpen(bool open)
 {
     if (roomStateValue(Room::Open) != open) {
         assignRoomStateValue(Room::Open, open);
-        Q_EMIT openChanged();
+        Q_EMIT openChanged(mRoomId);
     }
 }
 

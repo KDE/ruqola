@@ -128,6 +128,7 @@ Q_SIGNALS:
     void needToUpdateNotification();
     void roomNeedAttention();
     void roomRemoved(const QByteArray &roomId);
+    void openChanged(const QByteArray &roomId);
 
 private:
     LIBRUQOLACORE_NO_EXPORT Room *createNewRoom();

@@ -206,6 +206,7 @@ Room *RoomModel::createNewRoom()
     connect(r, &Room::alertChanged, this, &RoomModel::needToUpdateNotification);
     connect(r, &Room::unreadChanged, this, &RoomModel::needToUpdateNotification);
     connect(r, &Room::openChanged, this, &RoomModel::needToUpdateNotification);
+    connect(r, &Room::openChanged, this, &RoomModel::openChanged);
     connect(r, &Room::needAttention, this, &RoomModel::roomNeedAttention);
     return r;
 }

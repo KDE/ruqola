@@ -498,6 +498,7 @@ public:
 
     void muteUser(const QByteArray &rid, const QString &userId, bool mute);
     void initializeDirectChannel(const QByteArray &rid);
+    void delaySelectChannelRequested(const QByteArray &rid);
 Q_SIGNALS:
     void roomRemoved(const QByteArray &roomId);
     void disabledTotpValid(bool checked);
@@ -645,6 +646,7 @@ private:
     LIBRUQOLACORE_NO_EXPORT void slotCleanRoomHistory();
     LIBRUQOLACORE_NO_EXPORT void slotDDpLoginStatusChanged();
     LIBRUQOLACORE_NO_EXPORT void slotRESTLoginStatusChanged();
+    LIBRUQOLACORE_NO_EXPORT void slotRoomOpenChanged(const QByteArray &rid);
 
     AccountRoomSettings *const mAccountRoomSettings;
 

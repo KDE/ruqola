@@ -423,6 +423,7 @@ void ChannelListView::selectChannelRequested(const QByteArray &channelId, const 
 {
     if (!selectChannelByRoomIdRequested(QString::fromLatin1(channelId))) {
         qCWarning(RUQOLAWIDGETS_LOG) << "Room not found:" << channelId;
+        mCurrentRocketChatAccount->delaySelectChannelRequested(channelId);
     } else {
         if (!messageId.isEmpty()) {
             Q_EMIT selectMessageIdRequested(messageId);

@@ -312,7 +312,7 @@ Q_SIGNALS:
     void alertChanged();
     void readOnlyChanged();
     void unreadChanged();
-    void openChanged();
+    void openChanged(const QByteArray &ba);
     void encryptedChanged();
     void encryptionKeyChanged();
     void encryptionKeyIdChanged();

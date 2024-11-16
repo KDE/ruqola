@@ -16,6 +16,8 @@
 #include "ruqola.h"
 #include "ruqola_channel_management_debug.h"
 
+#include <QTimer>
+
 ManageChannels::ManageChannels(RocketChatAccount *account, QObject *parent)
     : QObject(parent)
     , mAccount(account)
@@ -71,6 +73,25 @@ void ManageChannels::channelJoin(const RocketChatRestApi::ChannelGroupBaseJob::C
     connect(job, &RocketChatRestApi::ChannelJoinJob::openArchivedRoom, this, &ManageChannels::openArchivedRoom);
     if (!job->start()) {
         qCDebug(RUQOLA_CHANNEL_MANAGEMENT_LOG) << "Impossible to start setChannelJoin";
+    }
+}
+
+void ManageChannels::verifyNeedSelectChannel(const QByteArray &rid)
+{
+    if (mDelayedSelectedRooms.contains(rid)) {
+        // Need to delay it until model was updated
+        QTimer::singleShot(0, this, [this, rid]() {
+            Q_EMIT selectRoomByRoomIdRequested(rid);
+        });
+
+        mDelayedSelectedRooms.removeAll(rid);
+    }
+}
+
+void ManageChannels::delaySelectChannelRequested(const QByteArray &rid)
+{
+    if (!mDelayedSelectedRooms.contains(rid)) {
+        mDelayedSelectedRooms.append(rid);
     }
 }
 

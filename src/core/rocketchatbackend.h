@@ -54,6 +54,5 @@ private:
     LIBRUQOLACORE_NO_EXPORT void slotPrivateInfoDone(const QJsonObject &data);
     LIBRUQOLACORE_NO_EXPORT void updateVideoConferenceInfo(const Message &m);
     LIBRUQOLACORE_NO_EXPORT void initializeSubscription(DDPClient *ddp);
-
     RocketChatAccount *const mRocketChatAccount;
 };

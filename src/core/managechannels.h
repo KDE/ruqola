@@ -26,6 +26,8 @@ public:
     void openChannel(const QString &roomId, RocketChatAccount::ChannelTypeInfo typeInfo);
 
     void channelJoin(const RocketChatRestApi::ChannelGroupBaseJob::ChannelGroupInfo &channelInfo, const QString &joinCode);
+    void delaySelectChannelRequested(const QByteArray &rid);
+    void verifyNeedSelectChannel(const QByteArray &rid);
 Q_SIGNALS:
     // TODO ?
     void selectRoomByRoomIdRequested(const QByteArray &identifier, const QByteArray &messageId = QByteArray());
@@ -39,4 +41,5 @@ private:
     [[nodiscard]] LIBRUQOLACORE_NO_EXPORT RocketChatRestApi::ChannelGroupBaseJob::ChannelGroupInfo
     generateGroupInfo(const QString &roomId, RocketChatAccount::ChannelTypeInfo typeInfo);
     RocketChatAccount *const mAccount;
+    QList<QByteArray> mDelayedSelectedRooms;
 };

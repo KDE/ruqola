@@ -214,6 +214,7 @@ RocketChatAccount::RocketChatAccount(const QString &accountFileName, QObject *pa
     connect(mRoomModel, &RoomModel::needToUpdateNotification, this, &RocketChatAccount::slotNeedToUpdateNotification);
     connect(mRoomModel, &RoomModel::roomNeedAttention, this, &RocketChatAccount::slotRoomNeedAttention);
     connect(mRoomModel, &RoomModel::roomRemoved, this, &RocketChatAccount::roomRemoved);
+    connect(mRoomModel, &RoomModel::openChanged, this, &RocketChatAccount::slotRoomOpenChanged);
 
     mMessageQueue = new MessageQueue(this, this);
     mTypingNotification = new TypingNotification(this);
@@ -835,6 +836,16 @@ void RocketChatAccount::eraseRoom(const QByteArray &roomId, Room::RoomType chann
         qCWarning(RUQOLA_LOG) << " unsupported delete for type " << channelType;
         break;
     }
+}
+
+void RocketChatAccount::slotRoomOpenChanged(const QByteArray &rid)
+{
+    mManageChannels->verifyNeedSelectChannel(rid);
+}
+
+void RocketChatAccount::delaySelectChannelRequested(const QByteArray &rid)
+{
+    mManageChannels->delaySelectChannelRequested(rid);
 }
 
 void RocketChatAccount::initializeDirectChannel(const QByteArray &rid)
