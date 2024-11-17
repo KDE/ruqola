@@ -5,11 +5,8 @@
 */
 
 #include "createdirectmessagesdialog.h"
-#include "connection.h"
 #include "createdirectmessageswidget.h"
-#include "directmessage/createdmjob.h"
 #include "rocketchataccount.h"
-#include "ruqolawidgets_debug.h"
 
 #include <KLocalizedString>
 
@@ -46,22 +43,11 @@ CreateDirectMessagesDialog::CreateDirectMessagesDialog(RocketChatAccount *accoun
     okButton->setEnabled(false);
     okButton->setText(i18nc("@action:button", "Create"));
     connect(mCreateDirectMessagesWidget, &CreateDirectMessagesWidget::updateOkButton, okButton, &QPushButton::setEnabled);
-    connect(buttonBox, &QDialogButtonBox::accepted, this, &CreateDirectMessagesDialog::slotAccepted);
+    connect(buttonBox, &QDialogButtonBox::accepted, this, &CreateDirectMessagesDialog::accept);
 }
 CreateDirectMessagesDialog::~CreateDirectMessagesDialog()
 {
     writeConfig();
-}
-
-void CreateDirectMessagesDialog::slotAccepted()
-{
-    const QStringList usernames = userNames();
-    auto job = new RocketChatRestApi::CreateDmJob(this);
-    mCreateDirectMessagesWidget->rocketChatAccount()->restApi()->initializeRestApiJob(job);
-    job->setUserNames(usernames);
-    if (!job->start()) {
-        qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start createDirectMessage job";
-    }
 }
 
 QStringList CreateDirectMessagesDialog::userNames() const

@@ -10,6 +10,7 @@
 #include "administratorsettingsdialog/administratorsettingsdialog.h"
 #include "applicationssettingsdialog/applicationssettingsdialog.h"
 #include "databasedialog/exploredatabasedialog.h"
+#include "directmessage/createdmjob.h"
 #include "explorepermissionsdialog/explorepermissionsdialog.h"
 #include "kcolorscheme_version.h"
 #include "misc/changefontsizemenu.h"
@@ -789,8 +790,17 @@ void RuqolaMainWindow::slotCreateDiscussion()
 
 void RuqolaMainWindow::slotCreateDirectMessages()
 {
-    CreateDirectMessagesDialog dlg(mCurrentRocketChatAccount, this);
-    dlg.exec();
+    QPointer<CreateDirectMessagesDialog> dlg = new CreateDirectMessagesDialog(mCurrentRocketChatAccount, this);
+    if (dlg->exec()) {
+        const QStringList usernames = dlg->userNames();
+        auto job = new RocketChatRestApi::CreateDmJob(this);
+        mCurrentRocketChatAccount->restApi()->initializeRestApiJob(job);
+        job->setUserNames(usernames);
+        if (!job->start()) {
+            qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start createDirectMessage job";
+        }
+    }
+    delete dlg;
 }
 
 void RuqolaMainWindow::slotCreateNewChannel()
