@@ -540,6 +540,7 @@ Connection *RocketChatAccount::restApi()
         connect(mRestApi.get(), &Connection::getDiscussionsDone, this, &RocketChatAccount::slotGetDiscussionsListDone);
         connect(mRestApi.get(), &Connection::markAsReadDone, this, &RocketChatAccount::slotMarkAsReadDone);
         connect(mRestApi.get(), &Connection::postMessageDone, this, &RocketChatAccount::slotPostMessageDone);
+        connect(mRestApi.get(), &Connection::createChannelDone, this, &RocketChatAccount::slotCreateChannelDone);
         connect(mRestApi.get(), &Connection::updateMessageFailed, this, &RocketChatAccount::updateMessageFailed);
 
         connect(mRestApi.get(), &Connection::getThreadsDone, this, [this](const QJsonObject &obj, const QString &roomId, bool onlyUnread) {
@@ -2775,6 +2776,15 @@ void RocketChatAccount::slotCustomUserStatusDone(const QJsonObject &customList)
 CustomUserStatuses RocketChatAccount::customUserStatuses() const
 {
     return mCustomUserStatuses;
+}
+
+void RocketChatAccount::slotCreateChannelDone(const QJsonObject &replyObject)
+{
+    const QJsonObject channel = replyObject["channel"_L1].toObject();
+    const QString roomId = channel["_id"_L1].toString();
+    if (!roomId.isEmpty()) {
+        Q_EMIT selectRoomByRoomIdRequested(roomId.toLatin1());
+    }
 }
 
 void RocketChatAccount::slotPostMessageDone(const QJsonObject &replyObject)

@@ -322,6 +322,7 @@ void Connection::createChannels(const RocketChatRestApi::CreateChannelTeamInfo &
 {
     auto job = new CreateChannelJob(this);
     connect(job, &CreateChannelJob::addJoinCodeToChannel, this, &Connection::setJoinCodeChannel);
+    connect(job, &CreateChannelJob::createChannelDone, this, &Connection::createChannelDone);
     initializeRestApiJob(job);
     job->setCreateChannelInfo(info);
     if (!job->start()) {

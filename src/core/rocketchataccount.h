@@ -647,6 +647,7 @@ private:
     LIBRUQOLACORE_NO_EXPORT void slotDDpLoginStatusChanged();
     LIBRUQOLACORE_NO_EXPORT void slotRESTLoginStatusChanged();
     LIBRUQOLACORE_NO_EXPORT void slotRoomOpenChanged(const QByteArray &rid);
+    LIBRUQOLACORE_NO_EXPORT void slotCreateChannelDone(const QJsonObject &replyObject);
 
     AccountRoomSettings *const mAccountRoomSettings;
 

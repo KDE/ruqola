@@ -172,6 +172,7 @@ Q_SIGNALS:
     void forgotPasswordDone();
 
     void loginStatusChanged();
+    void createChannelDone(const QJsonObject &replyObject);
 
 private:
     LIBRUQOLACORE_NO_EXPORT void initializeCookies();
