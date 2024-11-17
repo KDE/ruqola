@@ -44,7 +44,7 @@ CreateNewDiscussionDialog::CreateNewDiscussionDialog(RocketChatAccount *account,
     connect(mCreateNewDiscussionWidget, &CreateNewDiscussionWidget::updateOkButton, this, [button](bool state) {
         button->setEnabled(state);
     });
-    connect(buttonBox, &QDialogButtonBox::accepted, this, &CreateNewDiscussionDialog::createNewDiscussion);
+    connect(buttonBox, &QDialogButtonBox::accepted, this, &CreateNewDiscussionDialog::accept);
 }
 
 CreateNewDiscussionDialog::~CreateNewDiscussionDialog()
@@ -86,13 +86,6 @@ void CreateNewDiscussionDialog::setChannelInfo(const QString &name, const QByteA
 void CreateNewDiscussionDialog::setDiscussionName(const QString &name)
 {
     mCreateNewDiscussionWidget->setDiscussionName(name);
-}
-
-void CreateNewDiscussionDialog::createNewDiscussion()
-{
-    const CreateNewDiscussionDialog::NewDiscussionInfo info = newDiscussionInfo();
-    mCurrentRocketChatAccount->createDiscussion(info.channelId, info.discussionName, info.message, mMessageId, info.users);
-    accept();
 }
 
 const QByteArray &CreateNewDiscussionDialog::messageId() const

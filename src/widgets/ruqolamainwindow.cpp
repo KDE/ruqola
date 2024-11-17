@@ -784,8 +784,12 @@ void RuqolaMainWindow::slotCreateTeam()
 
 void RuqolaMainWindow::slotCreateDiscussion()
 {
-    CreateNewDiscussionDialog dlg(mCurrentRocketChatAccount, this);
-    dlg.exec();
+    QPointer<CreateNewDiscussionDialog> dlg = new CreateNewDiscussionDialog(mCurrentRocketChatAccount, this);
+    if (dlg->exec()) {
+        const CreateNewDiscussionDialog::NewDiscussionInfo info = dlg->newDiscussionInfo();
+        mCurrentRocketChatAccount->createDiscussion(info.channelId, info.discussionName, info.message, dlg->messageId(), info.users);
+    }
+    delete dlg;
 }
 
 void RuqolaMainWindow::slotCreateDirectMessages()

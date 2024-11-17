@@ -36,7 +36,6 @@ public:
 private:
     LIBRUQOLAWIDGETS_NO_EXPORT void readConfig();
     LIBRUQOLAWIDGETS_NO_EXPORT void writeConfig();
-    LIBRUQOLAWIDGETS_NO_EXPORT void createNewDiscussion();
     QByteArray mMessageId;
     CreateNewDiscussionWidget *const mCreateNewDiscussionWidget;
     RocketChatAccount *const mCurrentRocketChatAccount;
