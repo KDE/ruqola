@@ -795,6 +795,13 @@ void RuqolaMainWindow::slotCreateDirectMessages()
         const QStringList usernames = dlg->userNames();
         auto job = new RocketChatRestApi::CreateDmJob(this);
         mCurrentRocketChatAccount->restApi()->initializeRestApiJob(job);
+        connect(job, &RocketChatRestApi::CreateDmJob::createDmDone, this, [this](const QJsonObject &replyObject) {
+            const QJsonObject room = replyObject["room"_L1].toObject();
+            const QString roomId = room["_id"_L1].toString();
+            if (!roomId.isEmpty()) {
+                Q_EMIT mCurrentRocketChatAccount->selectRoomByRoomIdRequested(roomId.toLatin1());
+            }
+        });
         job->setUserNames(usernames);
         if (!job->start()) {
             qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start createDirectMessage job";
