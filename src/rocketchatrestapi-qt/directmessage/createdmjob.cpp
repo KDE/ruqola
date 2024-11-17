@@ -37,7 +37,7 @@ void CreateDmJob::onPostRequestResponse(const QString &replyErrorString, const Q
 
     if (replyObject["success"_L1].toBool()) {
         addLoggerInfo(QByteArrayLiteral("Create direct message success: ") + replyJson.toJson(QJsonDocument::Indented));
-        Q_EMIT createDmDone();
+        Q_EMIT createDmDone(replyObject);
     } else {
         emitFailedMessage(replyErrorString, replyObject);
         addLoggerWarning(QByteArrayLiteral("Create direct message Problem: ") + replyJson.toJson(QJsonDocument::Indented));

@@ -29,7 +29,7 @@ public:
     void setUserNames(const QStringList &userNames);
 
 Q_SIGNALS:
-    void createDmDone();
+    void createDmDone(const QJsonObject &reply);
 
 private:
     LIBROCKETCHATRESTAPI_QT_NO_EXPORT void onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson) override;
