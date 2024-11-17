@@ -104,13 +104,14 @@ QVariant VideoConferencesModel::data(const QModelIndex &index, int role) const
     if (index.row() < 0 || index.row() >= mVideoConferenceInfos.count()) {
         return {};
     }
-
-    const VideoConferenceInfo &file = mVideoConferenceInfos.at(index.row());
-    switch (role) {
-    // TODO
-    default:
-        break;
-    }
+    /*
+        const VideoConferenceInfo &file = mVideoConferenceInfos.at(index.row());
+        switch (role) {
+        // TODO
+        default:
+            break;
+        }
+        */
     return {};
 }
 
