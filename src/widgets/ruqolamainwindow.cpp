@@ -170,7 +170,6 @@ void RuqolaMainWindow::parseCommandLine(QCommandLineParser *parser)
     }
 }
 
-#if !defined(Q_OS_WIN) && !defined(Q_OS_MACOS)
 void RuqolaMainWindow::slotActivateRequested(const QStringList &arguments, const QString &workingDirectory)
 {
     Q_UNUSED(workingDirectory)
@@ -180,11 +179,13 @@ void RuqolaMainWindow::slotActivateRequested(const QStringList &arguments, const
         parser.parse(arguments);
         parseCommandLine(&parser);
     }
-
+#if !defined(Q_OS_WIN) && !defined(Q_OS_MACOS)
     KWindowSystem::updateStartupId(windowHandle());
     KWindowSystem::activateWindow(windowHandle());
-}
+#else
+    activateWindow();
 #endif
+}
 
 void RuqolaMainWindow::slotRoomNeedAttention()
 {
