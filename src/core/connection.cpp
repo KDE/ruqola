@@ -318,15 +318,10 @@ void Connection::postMessage(const QByteArray &roomId, const QString &text)
     }
 }
 
-void Connection::slotAddJoinCodeToChannel(const QString &channelId, const QString &password)
-{
-    setJoinCodeChannel(channelId, password);
-}
-
 void Connection::createChannels(const RocketChatRestApi::CreateChannelTeamInfo &info)
 {
     auto job = new CreateChannelJob(this);
-    connect(job, &CreateChannelJob::addJoinCodeToChannel, this, &Connection::slotAddJoinCodeToChannel);
+    connect(job, &CreateChannelJob::addJoinCodeToChannel, this, &Connection::setJoinCodeChannel);
     initializeRestApiJob(job);
     job->setCreateChannelInfo(info);
     if (!job->start()) {

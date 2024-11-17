@@ -179,7 +179,6 @@ private:
     LIBRUQOLACORE_NO_EXPORT void slotSslErrors(QNetworkReply *reply, const QList<QSslError> &error);
     LIBRUQOLACORE_NO_EXPORT void slotLogout();
     LIBRUQOLACORE_NO_EXPORT void slotLogin(const QString &authToken, const QString &userId);
-    LIBRUQOLACORE_NO_EXPORT void slotAddJoinCodeToChannel(const QString &channelId, const QString &password);
     LIBRUQOLACORE_NO_EXPORT void setJoinCodeChannel(const QString &roomId, const QString &joinCode);
 
     QNetworkAccessManager *const mNetworkAccessManager;
