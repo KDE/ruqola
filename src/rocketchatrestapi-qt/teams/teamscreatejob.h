@@ -30,7 +30,7 @@ public:
     void setTeamsCreateJobInfo(const CreateChannelTeamInfo &teamsCreateJobInfo);
 
 Q_SIGNALS:
-    void teamCreateDone();
+    void teamCreateDone(const QJsonObject &replyObject);
     // TODO verify it.
     void addJoinCodeToChannel(const QString &channelId, const QString &password);
 

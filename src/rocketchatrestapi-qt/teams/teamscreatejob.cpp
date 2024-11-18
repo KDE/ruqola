@@ -34,10 +34,9 @@ bool TeamsCreateJob::start()
 void TeamsCreateJob::onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
     const QJsonObject replyObject = replyJson.object();
-
     if (replyObject["success"_L1].toBool()) {
         addLoggerInfo(QByteArrayLiteral("TeamsCreateJob success: ") + replyJson.toJson(QJsonDocument::Indented));
-        Q_EMIT teamCreateDone();
+        Q_EMIT teamCreateDone(replyObject);
     } else {
         emitFailedMessage(replyErrorString, replyObject);
         addLoggerWarning(QByteArrayLiteral("TeamsCreateJob problem: ") + replyJson.toJson(QJsonDocument::Indented));
