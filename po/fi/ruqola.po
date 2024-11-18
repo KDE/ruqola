@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-11-16 00:40+0000\n"
+"POT-Creation-Date: 2024-11-18 00:40+0000\n"
 "PO-Revision-Date: 2023-09-20 18:47+0300\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
@@ -17,160 +17,160 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Lokalize 22.12.3\n"
 
-#: apps/main.cpp:61
+#: apps/main.cpp:73
 #, kde-format
 msgid "Ruqola"
 msgstr "Ruqola"
 
-#: apps/main.cpp:63
+#: apps/main.cpp:75
 #, kde-format
 msgid "Rocket Chat Client"
 msgstr "Rocket-keskusteluasiakas"
 
-#: apps/main.cpp:65
+#: apps/main.cpp:77
 #, fuzzy, kde-format
 #| msgid "Copyright © 2020-2023 Ruqola authors"
 msgid "Copyright © 2020-2024 Ruqola authors"
 msgstr "Tekijänoikeudet © 2020–2023 Ruqolan tekijät"
 
-#: apps/main.cpp:67
+#: apps/main.cpp:79
 #, fuzzy, kde-format
 #| msgid "Laurent Montel"
 msgctxt "@info:credit"
 msgid "Laurent Montel"
 msgstr "Laurent Montel"
 
-#: apps/main.cpp:67
+#: apps/main.cpp:79
 #, kde-format
 msgid "Maintainer"
 msgstr "Ylläpitäjä"
 
-#: apps/main.cpp:68
+#: apps/main.cpp:80
 #, fuzzy, kde-format
 #| msgid "Riccardo Iaconelli"
 msgctxt "@info:credit"
 msgid "Riccardo Iaconelli"
 msgstr "Riccardo Iaconelli"
 
-#: apps/main.cpp:68
+#: apps/main.cpp:80
 #, kde-format
 msgid "Original Author"
 msgstr "Alkuperäinen tekijä"
 
-#: apps/main.cpp:72
+#: apps/main.cpp:84
 #, fuzzy, kde-format
 #| msgid "David Faure"
 msgctxt "@info:credit"
 msgid "David Faure"
 msgstr "David Faure"
 
-#: apps/main.cpp:72
+#: apps/main.cpp:84
 #, kde-format
 msgid "Bug fixing, delegates etc."
 msgstr "Virheiden korjaus, delegaatit jne."
 
-#: apps/main.cpp:73
+#: apps/main.cpp:85
 #, fuzzy, kde-format
 #| msgid "Kevin Funk"
 msgctxt "@info:credit"
 msgid "Kevin Funk"
 msgstr "Kevin Funk"
 
-#: apps/main.cpp:73 apps/main.cpp:74 apps/main.cpp:75 apps/main.cpp:77
-#: apps/main.cpp:78
+#: apps/main.cpp:85 apps/main.cpp:86 apps/main.cpp:87 apps/main.cpp:89
+#: apps/main.cpp:90
 #, kde-format
 msgid "Bug fixing"
 msgstr "Virheenkorjaus"
 
-#: apps/main.cpp:74
+#: apps/main.cpp:86
 #, fuzzy, kde-format
 #| msgid "Olivier JG"
 msgctxt "@info:credit"
 msgid "Olivier JG"
 msgstr "Olivier JG"
 
-#: apps/main.cpp:75
+#: apps/main.cpp:87
 #, fuzzy, kde-format
 #| msgid "Milian Wolff"
 msgctxt "@info:credit"
 msgid "Milian Wolff"
 msgstr "Milian Wolff"
 
-#: apps/main.cpp:76
+#: apps/main.cpp:88
 #, fuzzy, kde-format
 #| msgid "Till Adam"
 msgctxt "@info:credit"
 msgid "Till Adam"
 msgstr "Till Adam"
 
-#: apps/main.cpp:76
+#: apps/main.cpp:88
 #, kde-format
 msgid "Windows compile bug fixing"
 msgstr "Windows-koosteen viankorjaus"
 
-#: apps/main.cpp:77
+#: apps/main.cpp:89
 #, fuzzy, kde-format
 #| msgid "Shantanu Tushar"
 msgctxt "@info:credit"
 msgid "Shantanu Tushar"
 msgstr "Shantanu Tushar"
 
-#: apps/main.cpp:78
+#: apps/main.cpp:90
 #, fuzzy, kde-format
 #| msgid "Alessandro Ambrosano"
 msgctxt "@info:credit"
 msgid "Alessandro Ambrosano"
 msgstr "Alessandro Ambrosano"
 
-#: apps/main.cpp:79
+#: apps/main.cpp:91
 #, fuzzy, kde-format
 #| msgid "Hannah von Reth"
 msgctxt "@info:credit"
 msgid "Hannah von Reth"
 msgstr "Hannah von Reth"
 
-#: apps/main.cpp:79
+#: apps/main.cpp:91
 #, kde-format
 msgid "Bug fixing for Windows/Mac"
 msgstr "Virheiden korjaus Windowsissa/Macissä"
 
-#: apps/main.cpp:80
+#: apps/main.cpp:92
 #, fuzzy, kde-format
 #| msgid "Allen Winter"
 msgctxt "@info:credit"
 msgid "Allen Winter"
 msgstr "Allen Winter"
 
-#: apps/main.cpp:80
+#: apps/main.cpp:92
 #, kde-format
 msgid "Packaging"
 msgstr "Paketointi"
 
-#: apps/main.cpp:81
+#: apps/main.cpp:93
 #, fuzzy, kde-format
 #| msgid "Waqar Ahmed"
 msgctxt "@info:credit"
 msgid "Waqar Ahmed"
 msgstr "Waqar Ahmed"
 
-#: apps/main.cpp:81
+#: apps/main.cpp:93
 #, kde-format
 msgid "Bug fixing (compile, network crash...)"
 msgstr "Ohjelmavirheiden korjaus (kääntäminen, verkkokaatuminen…)"
 
-#: apps/main.cpp:82
+#: apps/main.cpp:94
 #, fuzzy, kde-format
 #| msgid "Nicolas Fella"
 msgctxt "@info:credit"
 msgid "Nicolas Fella"
 msgstr "Nicolas Fella"
 
-#: apps/main.cpp:82
+#: apps/main.cpp:94
 #, kde-format
 msgid "Optimization, fix windows/mac support"
 msgstr "Optimointi, Windows/Mac-tuen korjaus"
 
-#: apps/main.cpp:108
+#: apps/main.cpp:120
 #, kde-format
 msgid "The following accounts are available:"
 msgstr "Käytettävissä ovat seuraavat tilit:"
@@ -1269,7 +1269,7 @@ msgstr "Kanavan tyyppi"
 msgid "Belongs To"
 msgstr ""
 
-#: core/model/directoryteamsmodel.cpp:92 core/model/roommodel.cpp:550
+#: core/model/directoryteamsmodel.cpp:92 core/model/roommodel.cpp:551
 #: widgets/administratordialog/administratorwidget.cpp:53
 #: widgets/administratordialog/roles/rolescopecombobox.cpp:13
 #, kde-format
@@ -1415,7 +1415,7 @@ msgstr "Kahden tekijän todennus"
 msgid "Last token part"
 msgstr "Merkin viimeinen osa"
 
-#: core/model/roommodel.cpp:469
+#: core/model/roommodel.cpp:470
 #, fuzzy, kde-format
 #| msgid "Mentions"
 msgid "%1 Mention"
@@ -1423,7 +1423,7 @@ msgid_plural "%1 Mentions"
 msgstr[0] "Maininnat"
 msgstr[1] "Maininnat"
 
-#: core/model/roommodel.cpp:473
+#: core/model/roommodel.cpp:474
 #, fuzzy, kde-format
 #| msgid "Mute Group Mentions"
 msgid "%1 Group Mention"
@@ -1431,7 +1431,7 @@ msgid_plural "%1 Group Mentions"
 msgstr[0] "Vaimenna ryhmämaininnat"
 msgstr[1] "Vaimenna ryhmämaininnat"
 
-#: core/model/roommodel.cpp:477
+#: core/model/roommodel.cpp:478
 #, fuzzy, kde-format
 #| msgid "Unread Threads Messages"
 msgid "%1 Unread Threaded Message"
@@ -1439,7 +1439,7 @@ msgid_plural "%1 Unread Threaded Messages"
 msgstr[0] "Merkitse säikeen viestien olevan lukematta"
 msgstr[1] "Merkitse säikeen viestien olevan lukematta"
 
-#: core/model/roommodel.cpp:481
+#: core/model/roommodel.cpp:482
 #, fuzzy, kde-format
 #| msgid "%1 has %2 Unread Message"
 msgid "%1 Unread Message"
@@ -1447,52 +1447,52 @@ msgid_plural "%1 Unread Messages"
 msgstr[0] "Käyttäjällä %1 on %2 lukematonta viestiä"
 msgstr[1] "Käyttäjällä %1 on %2 lukematonta viestiä"
 
-#: core/model/roommodel.cpp:507
+#: core/model/roommodel.cpp:508
 #, kde-format
 msgid "Teams Room"
 msgstr "Ryhmähuone"
 
-#: core/model/roommodel.cpp:513
+#: core/model/roommodel.cpp:514
 #, kde-format
 msgid "Private Room"
 msgstr "Yksityishuone"
 
-#: core/model/roommodel.cpp:515
+#: core/model/roommodel.cpp:516
 #, kde-format
 msgid "Discussion Room"
 msgstr "Keskusteluhuone"
 
-#: core/model/roommodel.cpp:519
+#: core/model/roommodel.cpp:520
 #, kde-format
 msgid "Channel Room"
 msgstr "Kanavahuone"
 
-#: core/model/roommodel.cpp:544
+#: core/model/roommodel.cpp:545
 #, kde-format
 msgid "Unread"
 msgstr "Lukematta"
 
-#: core/model/roommodel.cpp:546
+#: core/model/roommodel.cpp:547
 #, kde-format
 msgid "Favorites"
 msgstr "Suosikit"
 
-#: core/model/roommodel.cpp:548
+#: core/model/roommodel.cpp:549
 #, kde-format
 msgid "Teams"
 msgstr "Ryhmät"
 
-#: core/model/roommodel.cpp:552
+#: core/model/roommodel.cpp:553
 #, kde-format
 msgid "Discussions"
 msgstr "Keskustelut"
 
-#: core/model/roommodel.cpp:554
+#: core/model/roommodel.cpp:555
 #, kde-format
 msgid "Private Messages"
 msgstr "Yksityisviestejä"
 
-#: core/model/roommodel.cpp:556
+#: core/model/roommodel.cpp:557
 #, kde-format
 msgid "Unknown"
 msgstr "Tuntematon"
@@ -1773,19 +1773,19 @@ msgctxt "WARNING!!!!!!: PLEASE We need a space between after </strong>"
 msgid "<strong>%1</strong> are typing..."
 msgstr "<strong>%1</strong> kirjoittavat…"
 
-#: core/rocketchataccount.cpp:690
+#: core/rocketchataccount.cpp:692
 #, kde-format
 msgid ""
 "REST: %1\n"
 "DDP: %2"
 msgstr ""
 
-#: core/rocketchataccount.cpp:698 core/rocketchataccount.cpp:710
+#: core/rocketchataccount.cpp:700 core/rocketchataccount.cpp:712
 #, kde-format
 msgid "Not connected"
 msgstr "Ei yhteyttä"
 
-#: core/rocketchataccount.cpp:705
+#: core/rocketchataccount.cpp:707
 #, fuzzy, kde-format
 #| msgid "Not connected"
 msgid "Not connected yet"
@@ -3605,7 +3605,7 @@ msgstr "Käyttäjää ei löytynyt"
 
 #: widgets/administratordialog/roles/usersinrolewidget.cpp:124
 #: widgets/administratordialog/users/administratoruserswidget.cpp:357
-#: widgets/directory/directorywidget.cpp:213
+#: widgets/directory/directorywidget.cpp:214
 #, kde-format
 msgid "%1 user (Total: %2)"
 msgid_plural "%1 users (Total: %2)"
@@ -3756,7 +3756,7 @@ msgid "No room found"
 msgstr "Huonetta ei löytynyt"
 
 #: widgets/administratordialog/rooms/administratorroomswidget.cpp:81
-#: widgets/directory/directorywidget.cpp:210
+#: widgets/directory/directorywidget.cpp:211
 #, kde-format
 msgid "%1 room (Total: %2)"
 msgid_plural "%1 rooms (Total: %2)"
@@ -7373,7 +7373,7 @@ msgid "Username or email:"
 msgstr "Käyttäjätunnus tai sähköposti"
 
 #: widgets/common/authenticationloginwidget.cpp:159
-#: widgets/ruqolamainwindow.cpp:1007
+#: widgets/ruqolamainwindow.cpp:1029
 #, kde-format
 msgid ""
 "We have sent you an email to confirm your registration.\n"
@@ -7383,7 +7383,7 @@ msgstr ""
 "Ellei viestiä pikapuoliin kuulu, palaa yrittämään uudestaan."
 
 #: widgets/common/authenticationloginwidget.cpp:160
-#: widgets/ruqolamainwindow.cpp:1008
+#: widgets/ruqolamainwindow.cpp:1030
 #, fuzzy, kde-format
 #| msgid "Register New User"
 msgctxt "@title:window"
@@ -8082,13 +8082,13 @@ msgctxt "@label:textbox"
 msgid "For your security, you must enter your current password to continue"
 msgstr "Tietoturvasyistä on ennen jatkamista syötettävä nykyinen salasana"
 
-#: widgets/dialogs/createdirectmessagesdialog.cpp:32
+#: widgets/dialogs/createdirectmessagesdialog.cpp:29
 #, kde-format
 msgctxt "@title:window"
 msgid "Create Direct Messages - %1"
 msgstr "Luo suoraviestejä – %1"
 
-#: widgets/dialogs/createdirectmessagesdialog.cpp:47
+#: widgets/dialogs/createdirectmessagesdialog.cpp:44
 #: widgets/dialogs/createnewchanneldialog.cpp:41
 #: widgets/dialogs/createnewdiscussiondialog.cpp:42
 #: widgets/myaccount/myaccountpersonalaccesscreatedialog.cpp:32
@@ -8836,22 +8836,22 @@ msgctxt "@action"
 msgid "Open Private Message…"
 msgstr "Yksityisviestejä"
 
-#: widgets/directory/directorywidget.cpp:194
+#: widgets/directory/directorywidget.cpp:195
 #, kde-format
 msgid "No Room found"
 msgstr "Huonetta ei löytynyt"
 
-#: widgets/directory/directorywidget.cpp:196
+#: widgets/directory/directorywidget.cpp:197
 #, kde-format
 msgid "No User found"
 msgstr "Käyttäjää ei löytynyt"
 
-#: widgets/directory/directorywidget.cpp:198
+#: widgets/directory/directorywidget.cpp:199
 #, kde-format
 msgid "No Team found"
 msgstr "Ryhmää ei löytynyt"
 
-#: widgets/directory/directorywidget.cpp:216
+#: widgets/directory/directorywidget.cpp:217
 #, kde-format
 msgid "%1 team (Total: %2)"
 msgid_plural "%1 teams (Total: %2)"
@@ -11047,19 +11047,19 @@ msgctxt "@info:shell"
 msgid "Lists the available options for user feedback"
 msgstr "Luettelee eri käyttäjäpalautemahdollisuudet"
 
-#: widgets/ruqolamainwindow.cpp:223
+#: widgets/ruqolamainwindow.cpp:225
 #, fuzzy, kde-format
 #| msgid "Show New Notifications"
 msgctxt "@info:tooltip"
 msgid "Show New Notifications"
 msgstr "Näytä uudet ilmoitukset"
 
-#: widgets/ruqolamainwindow.cpp:225
+#: widgets/ruqolamainwindow.cpp:227
 #, kde-format
 msgid "Show New Notifications"
 msgstr "Näytä uudet ilmoitukset"
 
-#: widgets/ruqolamainwindow.cpp:413
+#: widgets/ruqolamainwindow.cpp:415
 #, fuzzy, kde-format
 #| msgctxt "@title:window"
 #| msgid "Add Server"
@@ -11067,286 +11067,286 @@ msgctxt "@action"
 msgid "Add Server…"
 msgstr "Lisää palvelin"
 
-#: widgets/ruqolamainwindow.cpp:418
+#: widgets/ruqolamainwindow.cpp:420
 #, fuzzy, kde-format
 #| msgid "Server Info"
 msgctxt "@action"
 msgid "Server Info…"
 msgstr "Palvelintiedot"
 
-#: widgets/ruqolamainwindow.cpp:422
+#: widgets/ruqolamainwindow.cpp:424
 #, fuzzy, kde-format
 #| msgid "Logout Current Server"
 msgctxt "@action"
 msgid "Logout Current Server"
 msgstr "Kirjaudu ulos nykyisestä palvelimesta"
 
-#: widgets/ruqolamainwindow.cpp:426
+#: widgets/ruqolamainwindow.cpp:428
 #, fuzzy, kde-format
 #| msgid "Jump to Next Unread Channel"
 msgctxt "@action"
 msgid "Jump to Next Unread Channel"
 msgstr "Siirry seuraavaan lukematta olevaan kanavaan"
 
-#: widgets/ruqolamainwindow.cpp:431
+#: widgets/ruqolamainwindow.cpp:433
 #, fuzzy, kde-format
 #| msgid "Create New Channel"
 msgid "Create New Channel…"
 msgstr "Luo uusi kanava"
 
-#: widgets/ruqolamainwindow.cpp:435
+#: widgets/ruqolamainwindow.cpp:437
 #, fuzzy, kde-format
 #| msgid "Create Direct Messages..."
 msgid "Create Direct Messages…"
 msgstr "Luo suoraviestejä…"
 
-#: widgets/ruqolamainwindow.cpp:439
+#: widgets/ruqolamainwindow.cpp:441
 #, fuzzy, kde-format
 #| msgid "Create Discussion..."
 msgid "Create Discussion…"
 msgstr "Luo keskustelu…"
 
-#: widgets/ruqolamainwindow.cpp:443
+#: widgets/ruqolamainwindow.cpp:445
 #, fuzzy, kde-format
 #| msgctxt "@title:window"
 #| msgid "Create Team"
 msgid "Create Team…"
 msgstr "Luo ryhmä"
 
-#: widgets/ruqolamainwindow.cpp:451
+#: widgets/ruqolamainwindow.cpp:453
 #, fuzzy, kde-format
 #| msgid "Unread on Top"
 msgctxt "@action"
 msgid "Unread on Top"
 msgstr "Lukematta olevat ylinnä"
 
-#: widgets/ruqolamainwindow.cpp:459
+#: widgets/ruqolamainwindow.cpp:461
 #, fuzzy, kde-format
 #| msgid "By Last Message"
 msgctxt "@action"
 msgid "By Last Message"
 msgstr "Viimeisimmän viestin mukaan"
 
-#: widgets/ruqolamainwindow.cpp:465
+#: widgets/ruqolamainwindow.cpp:467
 #, fuzzy, kde-format
 #| msgid "Alphabetically"
 msgctxt "@action"
 msgid "Alphabetically"
 msgstr "Aakkosjärjestyksessä"
 
-#: widgets/ruqolamainwindow.cpp:471
+#: widgets/ruqolamainwindow.cpp:473
 #, kde-format
 msgid "Show Channel Log"
 msgstr "Näytä kanavaloki"
 
-#: widgets/ruqolamainwindow.cpp:475
+#: widgets/ruqolamainwindow.cpp:477
 #, kde-format
 msgid "Show Server Errors"
 msgstr "Näytä palvelinvirheet"
 
-#: widgets/ruqolamainwindow.cpp:506
+#: widgets/ruqolamainwindow.cpp:508
 #, fuzzy, kde-format
 #| msgid "Mark All Channels as Read"
 msgctxt "@action"
 msgid "Mark All Channels as Read"
 msgstr "Merkitse kaikki kanavat luetuiksi"
 
-#: widgets/ruqolamainwindow.cpp:511
+#: widgets/ruqolamainwindow.cpp:513
 #, fuzzy, kde-format
 #| msgid "Register New User"
 msgctxt "@action"
 msgid "Register a New User…"
 msgstr "Rekisteröi uusi käyttäjä"
 
-#: widgets/ruqolamainwindow.cpp:515
+#: widgets/ruqolamainwindow.cpp:517
 #, fuzzy, kde-format
 #| msgid "My Account..."
 msgctxt "@action"
 msgid "My Account…"
 msgstr "Tilini…"
 
-#: widgets/ruqolamainwindow.cpp:519
+#: widgets/ruqolamainwindow.cpp:521
 #, fuzzy, kde-format
 #| msgid "Administrator"
 msgid "administration"
 msgstr "Ylläpitäjä"
 
-#: widgets/ruqolamainwindow.cpp:520
+#: widgets/ruqolamainwindow.cpp:522
 #, fuzzy, kde-format
 #| msgid "Administrator"
 msgctxt "@action"
 msgid "Administrator…"
 msgstr "Ylläpitäjä"
 
-#: widgets/ruqolamainwindow.cpp:526
+#: widgets/ruqolamainwindow.cpp:528
 #, fuzzy, kde-format
 #| msgid "Server Settings..."
 msgctxt "@action"
 msgid "Server Settings…"
 msgstr "Palvelinasetukset…"
 
-#: widgets/ruqolamainwindow.cpp:533
+#: widgets/ruqolamainwindow.cpp:535
 #, fuzzy, kde-format
 #| msgid "Application ID (iss)"
 msgctxt "@action"
 msgid "Applications…"
 msgstr "Sovellustunniste (iss)"
 
-#: widgets/ruqolamainwindow.cpp:538
+#: widgets/ruqolamainwindow.cpp:540
 #, fuzzy, kde-format
 #| msgid "Application ID (iss)"
 msgctxt "@action"
 msgid "Requested Applications…"
 msgstr "Sovellustunniste (iss)"
 
-#: widgets/ruqolamainwindow.cpp:543
+#: widgets/ruqolamainwindow.cpp:545
 #, fuzzy, kde-format
 #| msgid "Application ID (iss)"
 msgctxt "@action"
 msgid "Installed Applications…"
 msgstr "Sovellustunniste (iss)"
 
-#: widgets/ruqolamainwindow.cpp:548
+#: widgets/ruqolamainwindow.cpp:550
 #, kde-format
 msgctxt "Action which allows to search room"
 msgid "Join Room…"
 msgstr ""
 
-#: widgets/ruqolamainwindow.cpp:552
+#: widgets/ruqolamainwindow.cpp:554
 #, fuzzy, kde-format
 #| msgid "Joined this Team"
 msgctxt "Action which allows to search team"
 msgid "Join Team…"
 msgstr "Liittyi tähän ryhmään"
 
-#: widgets/ruqolamainwindow.cpp:556
+#: widgets/ruqolamainwindow.cpp:558
 #, fuzzy, kde-format
 #| msgid "Start a Private Conversation"
 msgctxt "Action which allows to open private conversation (direct user)"
 msgid "Open Private Conversation…"
 msgstr "Aloitus yksityiskeskustelu"
 
-#: widgets/ruqolamainwindow.cpp:577
+#: widgets/ruqolamainwindow.cpp:579
 #, kde-format
 msgid "&Next Server"
 msgstr "&Seuraava palvelin"
 
-#: widgets/ruqolamainwindow.cpp:582
+#: widgets/ruqolamainwindow.cpp:584
 #, kde-format
 msgid "&Previous Server"
 msgstr "&Edellinen palvelin"
 
-#: widgets/ruqolamainwindow.cpp:591
+#: widgets/ruqolamainwindow.cpp:593
 #, fuzzy, kde-format
 #| msgid "Status:"
 msgctxt "@label:textbox"
 msgid "Status:"
 msgstr "Tila:"
 
-#: widgets/ruqolamainwindow.cpp:604
+#: widgets/ruqolamainwindow.cpp:606
 #, fuzzy, kde-format
 #| msgid "Previous Selected Channel"
 msgctxt "@action"
 msgid "Previous Selected Channel"
 msgstr "Edellinen valittu kanava"
 
-#: widgets/ruqolamainwindow.cpp:611
+#: widgets/ruqolamainwindow.cpp:613
 #, fuzzy, kde-format
 #| msgid "Next Selected Channel"
 msgctxt "@action"
 msgid "Next Selected Channel"
 msgstr "Seuraava valittu kanava"
 
-#: widgets/ruqolamainwindow.cpp:645
+#: widgets/ruqolamainwindow.cpp:647
 #, kde-format
 msgid "Show Notify History"
 msgstr "Näytä ilmoitushistoria"
 
-#: widgets/ruqolamainwindow.cpp:649
+#: widgets/ruqolamainwindow.cpp:651
 #, fuzzy, kde-format
 #| msgid "Show RocketChat Information"
 msgctxt "@action"
 msgid "Show RocketChat Information"
 msgstr "Näytä RocketChat-tiedot"
 
-#: widgets/ruqolamainwindow.cpp:653
+#: widgets/ruqolamainwindow.cpp:655
 #, fuzzy, kde-format
 #| msgid "Show Room Avatar"
 msgctxt "@action"
 msgid "Show Room Avatar"
 msgstr "Näytä huoneen avatar"
 
-#: widgets/ruqolamainwindow.cpp:658
+#: widgets/ruqolamainwindow.cpp:660
 #, fuzzy, kde-format
 #| msgid "Show Favorite Room"
 msgctxt "@action"
 msgid "Show Favorite Room"
 msgstr "Näytä suosikkihuone"
 
-#: widgets/ruqolamainwindow.cpp:667
+#: widgets/ruqolamainwindow.cpp:669
 #, kde-format
 msgid "What's new"
 msgstr "Mitä uutta"
 
-#: widgets/ruqolamainwindow.cpp:671
+#: widgets/ruqolamainwindow.cpp:673
 #, kde-format
 msgid "Import Accounts"
 msgstr "Tuo tilejä"
 
-#: widgets/ruqolamainwindow.cpp:675
+#: widgets/ruqolamainwindow.cpp:677
 #, kde-format
 msgid "Export Accounts"
 msgstr "Vie tilejä"
 
-#: widgets/ruqolamainwindow.cpp:692
+#: widgets/ruqolamainwindow.cpp:694
 #, kde-format
 msgctxt "@action"
 msgid "Medium"
 msgstr ""
 
-#: widgets/ruqolamainwindow.cpp:700
+#: widgets/ruqolamainwindow.cpp:702
 #, kde-format
 msgctxt "@action"
 msgid "Condensed"
 msgstr ""
 
-#: widgets/ruqolamainwindow.cpp:709
+#: widgets/ruqolamainwindow.cpp:711
 #, kde-format
 msgctxt "@action"
 msgid "Extended"
 msgstr ""
 
-#: widgets/ruqolamainwindow.cpp:717
+#: widgets/ruqolamainwindow.cpp:719
 #, fuzzy, kde-format
 #| msgid "Password History"
 msgid "Clear history"
 msgstr "Salasanahistoria"
 
-#: widgets/ruqolamainwindow.cpp:754
+#: widgets/ruqolamainwindow.cpp:756
 #, kde-format
 msgctxt "@title:window"
 msgid "Create Team"
 msgstr "Luo ryhmä"
 
-#: widgets/ruqolamainwindow.cpp:916
+#: widgets/ruqolamainwindow.cpp:938
 #, kde-format
 msgid "Impossible to open log."
 msgstr "Lokia on mahdotonta avata."
 
-#: widgets/ruqolamainwindow.cpp:916
+#: widgets/ruqolamainwindow.cpp:938
 #, fuzzy, kde-format
 #| msgid "Show Log"
 msgctxt "@title:window"
 msgid "Show Log"
 msgstr "Näytä loki"
 
-#: widgets/ruqolamainwindow.cpp:1079
+#: widgets/ruqolamainwindow.cpp:1101
 #, kde-format
 msgctxt "@item:inmenu Instant message presence status"
 msgid "Status"
 msgstr "Tila"
 
-#: widgets/ruqolamainwindow.cpp:1166
+#: widgets/ruqolamainwindow.cpp:1188
 #, kde-format
 msgid ""
 "<qt>This will hide the menu bar completely. You can show it again by typing "
@@ -11355,7 +11355,7 @@ msgstr ""
 "<qt>Tämä piilottaa valikkorivin kokonaan. Saat sen uudelleen näkyviin "
 "painamalla %1.</qt>"
 
-#: widgets/ruqolamainwindow.cpp:1169
+#: widgets/ruqolamainwindow.cpp:1191
 #, fuzzy, kde-format
 #| msgid "Hide menu bar"
 msgctxt "@title:window"
@@ -11927,14 +11927,19 @@ msgstr "Viestejä kanavilla yhteensä"
 msgid "Fix editing message."
 msgstr "Lähetä jollekulle suoraviesti"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:124
+#: widgets/whatsnew/whatsnewtranslations.cpp:125
 #, kde-format
 msgid "Show permissions in Rocket.Chat Marketplace."
 msgstr ""
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:124
+#: widgets/whatsnew/whatsnewtranslations.cpp:126
 #, kde-format
 msgid "Fix reconnect server."
+msgstr ""
+
+#: widgets/whatsnew/whatsnewtranslations.cpp:127
+#, kde-format
+msgid "Fix single application on Windows/MacOs"
 msgstr ""
 
 #: widgets/whatsnew/whatsnewwidget.cpp:44
