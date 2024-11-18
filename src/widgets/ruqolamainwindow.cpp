@@ -773,7 +773,7 @@ void RuqolaMainWindow::slotCreateTeam()
         mCurrentRocketChatAccount->restApi()->initializeRestApiJob(job);
         connect(job, &RocketChatRestApi::TeamsCreateJob::teamCreateDone, this, [this](const QJsonObject &replyObject) {
             const QJsonObject room = replyObject["team"_L1].toObject();
-            const QString roomId = room["_id"_L1].toString();
+            const QString roomId = room["roomId"_L1].toString();
             if (!roomId.isEmpty()) {
                 Q_EMIT mCurrentRocketChatAccount->selectRoomByRoomIdRequested(roomId.toLatin1());
             }
