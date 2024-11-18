@@ -499,6 +499,7 @@ public:
     void muteUser(const QByteArray &rid, const QString &userId, bool mute);
     void initializeDirectChannel(const QByteArray &rid);
     void delaySelectChannelRequested(const QByteArray &rid);
+    [[nodiscard]] bool hasAtLeastVersion(int major, int minor, int patch) const;
 Q_SIGNALS:
     void roomRemoved(const QByteArray &roomId);
     void disabledTotpValid(bool checked);

@@ -170,6 +170,7 @@ void DirectoryWidget::slotLoadElements(int offset, int count, const QString &sea
     if (count != -1) {
         parameters.setCount(count);
     }
+    parameters.setUseSyntaxRc70(mRocketChatAccount->hasAtLeastVersion(7, 0, 0));
     job->setQueryParameters(parameters);
 
     mRocketChatAccount->restApi()->initializeRestApiJob(job);

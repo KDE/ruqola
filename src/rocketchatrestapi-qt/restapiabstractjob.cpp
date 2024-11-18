@@ -590,6 +590,16 @@ QString QueryParameters::filter() const
     return mFilter;
 }
 
+bool QueryParameters::useSyntaxRc70() const
+{
+    return mUseSyntaxRc70;
+}
+
+void QueryParameters::setUseSyntaxRc70(bool newUseSyntaxRc70)
+{
+    mUseSyntaxRc70 = newUseSyntaxRc70;
+}
+
 void QueryParameters::setFilter(const QString &filter)
 {
     mFilter = filter;
@@ -665,18 +675,25 @@ void QueryParameters::generateQueryParameter(const QueryParameters &queryParamet
     const QMap<QString, QString> custom = queryParameters.custom();
     if (!custom.isEmpty()) {
         QMapIterator<QString, QString> i(custom);
-        QString str;
-        while (i.hasNext()) {
-            i.next();
-            if (!str.isEmpty()) {
-                str += QLatin1Char(',');
+        if (queryParameters.useSyntaxRc70()) {
+            while (i.hasNext()) {
+                i.next();
+                urlQuery.addQueryItem(i.key(), i.value());
             }
-            str += QLatin1Char('"') + i.key() + QLatin1Char('"') + QLatin1Char(':');
-            str += QLatin1Char('"') + i.value() + QLatin1Char('"');
-        }
-        str = QStringLiteral("{%1}").arg(str);
+        } else {
+            QString str;
+            while (i.hasNext()) {
+                i.next();
+                if (!str.isEmpty()) {
+                    str += QLatin1Char(',');
+                }
+                str += QLatin1Char('"') + i.key() + QLatin1Char('"') + QLatin1Char(':');
+                str += QLatin1Char('"') + i.value() + QLatin1Char('"');
+            }
+            str = QStringLiteral("{%1}").arg(str);
 
-        urlQuery.addQueryItem(QStringLiteral("query"), str);
+            urlQuery.addQueryItem(QStringLiteral("query"), str);
+        }
     }
     if (!queryParameters.searchString().isEmpty()) {
         const QString str = QStringLiteral(R"({"name":{"$regex":"%1","$options":"i"}})").arg(queryParameters.searchString());

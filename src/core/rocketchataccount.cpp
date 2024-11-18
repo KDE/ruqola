@@ -2488,6 +2488,11 @@ void RocketChatAccount::initializeAccount()
     Q_EMIT accountInitialized();
 }
 
+bool RocketChatAccount::hasAtLeastVersion(int major, int minor, int patch) const
+{
+    return ruqolaServerConfig()->hasAtLeastVersion(major, minor, patch);
+}
+
 void RocketChatAccount::checkLicenses()
 {
     if (ruqolaServerConfig()->hasAtLeastVersion(6, 5, 0)) {

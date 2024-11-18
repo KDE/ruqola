@@ -25,6 +25,7 @@ void QueryParametersTest::shouldHaveDefaultValue()
     QVERIFY(query.custom().isEmpty());
     QVERIFY(query.searchString().isEmpty());
     QVERIFY(query.filter().isEmpty());
+    QVERIFY(!query.useSyntaxRc70());
 }
 
 void QueryParametersTest::shouldQueryIsValid()
