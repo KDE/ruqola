@@ -551,6 +551,7 @@ public:
     [[nodiscard]] bool e2EPasswordMustBeDecrypt() const;
     void setE2EPasswordMustBeDecrypt(bool newE2EPasswordMustBeDecrypt);
 
+    [[nodiscard]] bool hasAtLeastVersion(int major, int minor, int patch) const;
 Q_SIGNALS:
     void roomRemoved(const QByteArray &roomId);
     void disabledTotpValid(bool checked);
