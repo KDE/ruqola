@@ -66,6 +66,11 @@ void QueryParametersTest::shouldGenerateQuery()
         QUrlQuery urlQuery;
         RocketChatRestApi::QueryParameters::generateQueryParameter(query, urlQuery);
         QCOMPARE(urlQuery.toString(), QStringLiteral("count=4"));
+
+        urlQuery.clear();
+        query.setUseSyntaxRc70(true);
+        RocketChatRestApi::QueryParameters::generateQueryParameter(query, urlQuery);
+        QCOMPARE(urlQuery.toString(), QStringLiteral("count=4"));
     }
     {
         RocketChatRestApi::QueryParameters query;
@@ -78,6 +83,11 @@ void QueryParametersTest::shouldGenerateQuery()
         QUrlQuery urlQuery;
         RocketChatRestApi::QueryParameters::generateQueryParameter(query, urlQuery);
         QCOMPARE(urlQuery.toString(), QStringLiteral("query=%7B%22bla%22:%22foo%22%7D"));
+
+        urlQuery.clear();
+        query.setUseSyntaxRc70(true);
+        RocketChatRestApi::QueryParameters::generateQueryParameter(query, urlQuery);
+        QCOMPARE(urlQuery.toString(), QStringLiteral("bla=foo"));
     }
     {
         RocketChatRestApi::QueryParameters query;
@@ -91,6 +101,11 @@ void QueryParametersTest::shouldGenerateQuery()
         QUrlQuery urlQuery;
         RocketChatRestApi::QueryParameters::generateQueryParameter(query, urlQuery);
         QCOMPARE(urlQuery.toString(), QStringLiteral("query=%7B%22text%22:%22gene%22,%22type%22:%22channels%22%7D"));
+
+        urlQuery.clear();
+        query.setUseSyntaxRc70(true);
+        RocketChatRestApi::QueryParameters::generateQueryParameter(query, urlQuery);
+        QCOMPARE(urlQuery.toString(), QStringLiteral("text=gene&type=channels"));
     }
     {
         RocketChatRestApi::QueryParameters query;
@@ -99,6 +114,12 @@ void QueryParametersTest::shouldGenerateQuery()
         query.setSearchString(QStringLiteral("blabla"));
         QVERIFY(query.isValid());
         QUrlQuery urlQuery;
+        RocketChatRestApi::QueryParameters::generateQueryParameter(query, urlQuery);
+        QCOMPARE(urlQuery.toString(), QStringLiteral("query=%7B%22name%22:%7B%22$regex%22:%22blabla%22,%22$options%22:%22i%22%7D%7D"));
+
+        // TODO verify it
+        urlQuery.clear();
+        query.setUseSyntaxRc70(true);
         RocketChatRestApi::QueryParameters::generateQueryParameter(query, urlQuery);
         QCOMPARE(urlQuery.toString(), QStringLiteral("query=%7B%22name%22:%7B%22$regex%22:%22blabla%22,%22$options%22:%22i%22%7D%7D"));
     }
