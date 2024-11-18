@@ -333,6 +333,7 @@ void Connection::createChannels(const RocketChatRestApi::CreateChannelTeamInfo &
 void Connection::createGroups(const RocketChatRestApi::CreateChannelTeamInfo &info)
 {
     auto job = new CreateGroupsJob(this);
+    connect(job, &CreateGroupsJob::createGroupsDone, this, &Connection::createGroupDone);
     initializeRestApiJob(job);
     job->setCreateGroupsInfo(info);
     if (!job->start()) {

@@ -173,6 +173,7 @@ Q_SIGNALS:
 
     void loginStatusChanged();
     void createChannelDone(const QJsonObject &replyObject);
+    void createGroupDone(const QJsonObject &replyObject);
 
 private:
     LIBRUQOLACORE_NO_EXPORT void initializeCookies();
