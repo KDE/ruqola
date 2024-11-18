@@ -60,6 +60,7 @@ void QueryParametersTest::shouldGenerateQuery()
 {
     {
         RocketChatRestApi::QueryParameters query;
+        query.setUseSyntaxRc70(false);
         QVERIFY(!query.isValid());
         query.setCount(4);
         QUrlQuery urlQuery;
@@ -68,6 +69,7 @@ void QueryParametersTest::shouldGenerateQuery()
     }
     {
         RocketChatRestApi::QueryParameters query;
+        query.setUseSyntaxRc70(false);
         QVERIFY(!query.isValid());
         QMap<QString, QString> custom;
         custom.insert(QStringLiteral("bla"), QStringLiteral("foo"));
@@ -79,6 +81,7 @@ void QueryParametersTest::shouldGenerateQuery()
     }
     {
         RocketChatRestApi::QueryParameters query;
+        query.setUseSyntaxRc70(false);
         QVERIFY(!query.isValid());
         QMap<QString, QString> custom;
         custom.insert(QStringLiteral("text"), QStringLiteral("gene"));
@@ -91,6 +94,7 @@ void QueryParametersTest::shouldGenerateQuery()
     }
     {
         RocketChatRestApi::QueryParameters query;
+        query.setUseSyntaxRc70(false);
         QVERIFY(!query.isValid());
         query.setSearchString(QStringLiteral("blabla"));
         QVERIFY(query.isValid());
