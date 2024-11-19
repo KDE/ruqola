@@ -135,7 +135,6 @@ if(OPTION_USE_PLASMA_ACTIVITIES)
                "Allow to compile with plasma activities"
                 TYPE OPTIONAL
         )
-
     endif()
 endif()	
 
@@ -293,13 +292,11 @@ if(PLUGINS_AUTHENTICATION_BASED_ON_O2)
     find_package(o2)
 endif()
 
-
 add_subdirectory(src)
 
 if(BUILD_TESTING)
     add_subdirectory(tests)
 endif()
-
 
 ecm_qt_install_logging_categories(
     EXPORT RUQOLA
