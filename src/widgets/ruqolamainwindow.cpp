@@ -792,6 +792,13 @@ void RuqolaMainWindow::slotCreateDiscussion()
     if (dlg->exec()) {
         const CreateNewDiscussionDialog::NewDiscussionInfo info = dlg->newDiscussionInfo();
         auto job = new RocketChatRestApi::RoomStartDiscussionJob(this);
+        connect(job, &RocketChatRestApi::RoomStartDiscussionJob::startDiscussionDone, this, [this](const QJsonObject &replyObj) {
+            const QJsonObject room = replyObj["discussion"_L1].toObject();
+            const QString roomId = room["_id"_L1].toString();
+            if (!roomId.isEmpty()) {
+                Q_EMIT mCurrentRocketChatAccount->selectRoomByRoomIdRequested(roomId.toLatin1());
+            }
+        });
         mCurrentRocketChatAccount->restApi()->initializeRestApiJob(job);
         job->setParentRoomId(info.channelId);
 
