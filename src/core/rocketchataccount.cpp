@@ -280,7 +280,9 @@ RocketChatAccount::RocketChatAccount(const QString &accountFileName, QObject *pa
     connect(mMemoryManager, &MemoryManager::cleanRoomHistoryRequested, this, &RocketChatAccount::slotCleanRoomHistory);
 
     // Initiate socket connections, once we're out of Ruqola::self()
-    QMetaObject::invokeMethod(this, &RocketChatAccount::startConnecting, Qt::QueuedConnection);
+    if (accountEnabled()) {
+        QMetaObject::invokeMethod(this, &RocketChatAccount::startConnecting, Qt::QueuedConnection);
+    }
 }
 
 RocketChatAccount::~RocketChatAccount()
