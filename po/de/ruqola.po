@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-11-18 00:40+0000\n"
+"POT-Creation-Date: 2024-11-19 00:40+0000\n"
 "PO-Revision-Date: 2023-05-10 20:24+0200\n"
 "Last-Translator: Frederik Schwarzer <schwarzer@kde.org>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
@@ -1828,19 +1828,19 @@ msgctxt "WARNING!!!!!!: PLEASE We need a space between after </strong>"
 msgid "<strong>%1</strong> are typing..."
 msgstr "<strong>%1</strong> schreiben gerade ..."
 
-#: core/rocketchataccount.cpp:692
+#: core/rocketchataccount.cpp:693
 #, kde-format
 msgid ""
 "REST: %1\n"
 "DDP: %2"
 msgstr ""
 
-#: core/rocketchataccount.cpp:700 core/rocketchataccount.cpp:712
+#: core/rocketchataccount.cpp:701 core/rocketchataccount.cpp:713
 #, kde-format
 msgid "Not connected"
 msgstr "Nicht verbunden"
 
-#: core/rocketchataccount.cpp:707
+#: core/rocketchataccount.cpp:708
 #, fuzzy, kde-format
 #| msgid "Not connected"
 msgid "Not connected yet"
@@ -3687,7 +3687,7 @@ msgstr "Kein Benutzer gefunden"
 
 #: widgets/administratordialog/roles/usersinrolewidget.cpp:124
 #: widgets/administratordialog/users/administratoruserswidget.cpp:357
-#: widgets/directory/directorywidget.cpp:214
+#: widgets/directory/directorywidget.cpp:215
 #, kde-format
 msgid "%1 user (Total: %2)"
 msgid_plural "%1 users (Total: %2)"
@@ -3839,7 +3839,7 @@ msgid "No room found"
 msgstr "Kein Raum gefunden"
 
 #: widgets/administratordialog/rooms/administratorroomswidget.cpp:81
-#: widgets/directory/directorywidget.cpp:211
+#: widgets/directory/directorywidget.cpp:212
 #, kde-format
 msgid "%1 room (Total: %2)"
 msgid_plural "%1 rooms (Total: %2)"
@@ -7484,7 +7484,7 @@ msgid "Username or email:"
 msgstr "Benutzername"
 
 #: widgets/common/authenticationloginwidget.cpp:159
-#: widgets/ruqolamainwindow.cpp:1029
+#: widgets/ruqolamainwindow.cpp:1032
 #, kde-format
 msgid ""
 "We have sent you an email to confirm your registration.\n"
@@ -7492,7 +7492,7 @@ msgid ""
 msgstr ""
 
 #: widgets/common/authenticationloginwidget.cpp:160
-#: widgets/ruqolamainwindow.cpp:1030
+#: widgets/ruqolamainwindow.cpp:1033
 #, fuzzy, kde-format
 #| msgid "Register New User"
 msgctxt "@title:window"
@@ -8943,22 +8943,22 @@ msgctxt "@action"
 msgid "Open Private Message…"
 msgstr "Private Nachrichten"
 
-#: widgets/directory/directorywidget.cpp:195
+#: widgets/directory/directorywidget.cpp:196
 #, kde-format
 msgid "No Room found"
 msgstr "Kein Raum gefunden"
 
-#: widgets/directory/directorywidget.cpp:197
+#: widgets/directory/directorywidget.cpp:198
 #, kde-format
 msgid "No User found"
 msgstr "Kein Benutzer gefunden"
 
-#: widgets/directory/directorywidget.cpp:199
+#: widgets/directory/directorywidget.cpp:200
 #, kde-format
 msgid "No Team found"
 msgstr "Kein Team gefunden"
 
-#: widgets/directory/directorywidget.cpp:217
+#: widgets/directory/directorywidget.cpp:218
 #, kde-format
 msgid "%1 team (Total: %2)"
 msgid_plural "%1 teams (Total: %2)"
@@ -11432,33 +11432,33 @@ msgctxt "@title:window"
 msgid "Create Team"
 msgstr "Team erstellen"
 
-#: widgets/ruqolamainwindow.cpp:938
+#: widgets/ruqolamainwindow.cpp:941
 #, kde-format
 msgid "Impossible to open log."
 msgstr ""
 
-#: widgets/ruqolamainwindow.cpp:938
+#: widgets/ruqolamainwindow.cpp:941
 #, fuzzy, kde-format
 #| msgid "No Channel found"
 msgctxt "@title:window"
 msgid "Show Log"
 msgstr "Kein Kanal gefunden"
 
-#: widgets/ruqolamainwindow.cpp:1101
+#: widgets/ruqolamainwindow.cpp:1104
 #, fuzzy, kde-format
 #| msgid "Status"
 msgctxt "@item:inmenu Instant message presence status"
 msgid "Status"
 msgstr "Status"
 
-#: widgets/ruqolamainwindow.cpp:1188
+#: widgets/ruqolamainwindow.cpp:1191
 #, kde-format
 msgid ""
 "<qt>This will hide the menu bar completely. You can show it again by typing "
 "%1.</qt>"
 msgstr ""
 
-#: widgets/ruqolamainwindow.cpp:1191
+#: widgets/ruqolamainwindow.cpp:1194
 #, kde-format
 msgctxt "@title:window"
 msgid "Hide menu bar"

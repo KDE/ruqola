@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-11-18 00:40+0000\n"
-"PO-Revision-Date: 2024-11-02 06:33+0100\n"
+"POT-Creation-Date: 2024-11-19 00:40+0000\n"
+"PO-Revision-Date: 2024-11-18 08:45+0100\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
@@ -1731,7 +1731,7 @@ msgctxt "WARNING!!!!!!: PLEASE We need a space between after </strong>"
 msgid "<strong>%1</strong> are typing..."
 msgstr "<strong>%1</strong> pravkar tipkajo…"
 
-#: core/rocketchataccount.cpp:692
+#: core/rocketchataccount.cpp:693
 #, kde-format
 msgid ""
 "REST: %1\n"
@@ -1740,12 +1740,12 @@ msgstr ""
 "REST: %1\n"
 "DDP: %2"
 
-#: core/rocketchataccount.cpp:700 core/rocketchataccount.cpp:712
+#: core/rocketchataccount.cpp:701 core/rocketchataccount.cpp:713
 #, kde-format
 msgid "Not connected"
 msgstr "Brez povezave"
 
-#: core/rocketchataccount.cpp:707
+#: core/rocketchataccount.cpp:708
 #, kde-format
 msgid "Not connected yet"
 msgstr "Še ne povezan"
@@ -3509,7 +3509,7 @@ msgstr "Ni zadetkov med uporabniki"
 
 #: widgets/administratordialog/roles/usersinrolewidget.cpp:124
 #: widgets/administratordialog/users/administratoruserswidget.cpp:357
-#: widgets/directory/directorywidget.cpp:214
+#: widgets/directory/directorywidget.cpp:215
 #, kde-format
 msgid "%1 user (Total: %2)"
 msgid_plural "%1 users (Total: %2)"
@@ -3644,7 +3644,7 @@ msgid "No room found"
 msgstr "Ni zadetkov med sobami"
 
 #: widgets/administratordialog/rooms/administratorroomswidget.cpp:81
-#: widgets/directory/directorywidget.cpp:211
+#: widgets/directory/directorywidget.cpp:212
 #, kde-format
 msgid "%1 room (Total: %2)"
 msgid_plural "%1 rooms (Total: %2)"
@@ -7200,7 +7200,7 @@ msgid "Username or email:"
 msgstr "Uporabniško ime ali naslov e-pošte:"
 
 #: widgets/common/authenticationloginwidget.cpp:159
-#: widgets/ruqolamainwindow.cpp:1029
+#: widgets/ruqolamainwindow.cpp:1032
 #, kde-format
 msgid ""
 "We have sent you an email to confirm your registration.\n"
@@ -7210,7 +7210,7 @@ msgstr ""
 "Če ne prejmete e-pošte v kratkem, se vrnite in poskusite znova."
 
 #: widgets/common/authenticationloginwidget.cpp:160
-#: widgets/ruqolamainwindow.cpp:1030
+#: widgets/ruqolamainwindow.cpp:1033
 #, kde-format
 msgctxt "@title:window"
 msgid "Register New User"
@@ -8566,22 +8566,22 @@ msgctxt "@action"
 msgid "Open Private Message…"
 msgstr "Odpri zasebno sporočilo…"
 
-#: widgets/directory/directorywidget.cpp:195
+#: widgets/directory/directorywidget.cpp:196
 #, kde-format
 msgid "No Room found"
 msgstr "Ni zadetkov med sobami"
 
-#: widgets/directory/directorywidget.cpp:197
+#: widgets/directory/directorywidget.cpp:198
 #, kde-format
 msgid "No User found"
 msgstr "Ni zadetkov med uporabniki"
 
-#: widgets/directory/directorywidget.cpp:199
+#: widgets/directory/directorywidget.cpp:200
 #, kde-format
 msgid "No Team found"
 msgstr "Ni zadetkov med ekipami"
 
-#: widgets/directory/directorywidget.cpp:217
+#: widgets/directory/directorywidget.cpp:218
 #, kde-format
 msgid "%1 team (Total: %2)"
 msgid_plural "%1 teams (Total: %2)"
@@ -10853,24 +10853,24 @@ msgctxt "@title:window"
 msgid "Create Team"
 msgstr "Ustvari ekipo"
 
-#: widgets/ruqolamainwindow.cpp:938
+#: widgets/ruqolamainwindow.cpp:941
 #, kde-format
 msgid "Impossible to open log."
 msgstr "Ni mogoče odpreti dnevnika."
 
-#: widgets/ruqolamainwindow.cpp:938
+#: widgets/ruqolamainwindow.cpp:941
 #, kde-format
 msgctxt "@title:window"
 msgid "Show Log"
 msgstr "Prikaži dnevnik"
 
-#: widgets/ruqolamainwindow.cpp:1101
+#: widgets/ruqolamainwindow.cpp:1104
 #, kde-format
 msgctxt "@item:inmenu Instant message presence status"
 msgid "Status"
 msgstr "Stanje"
 
-#: widgets/ruqolamainwindow.cpp:1188
+#: widgets/ruqolamainwindow.cpp:1191
 #, kde-format
 msgid ""
 "<qt>This will hide the menu bar completely. You can show it again by typing "
@@ -10879,7 +10879,7 @@ msgstr ""
 "<qt>To bo skrilo v celoti skrilo menijsko vrstico. Lahko jo spet prikažete, "
 "če vtipkate %1.</qt>"
 
-#: widgets/ruqolamainwindow.cpp:1191
+#: widgets/ruqolamainwindow.cpp:1194
 #, kde-format
 msgctxt "@title:window"
 msgid "Hide menu bar"
@@ -11441,7 +11441,7 @@ msgstr "Popravi ponovno povezavo s strežnikom."
 #: widgets/whatsnew/whatsnewtranslations.cpp:127
 #, kde-format
 msgid "Fix single application on Windows/MacOs"
-msgstr ""
+msgstr "Popravi posamezno aplikacijo na sistemih Windows/MacO"
 
 #: widgets/whatsnew/whatsnewwidget.cpp:44
 #, kde-format

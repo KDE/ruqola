@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-11-18 00:40+0000\n"
+"POT-Creation-Date: 2024-11-19 00:40+0000\n"
 "PO-Revision-Date: 2024-08-06 05:33+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
@@ -1746,19 +1746,19 @@ msgctxt "WARNING!!!!!!: PLEASE We need a space between after </strong>"
 msgid "<strong>%1</strong> are typing..."
 msgstr ""
 
-#: core/rocketchataccount.cpp:692
+#: core/rocketchataccount.cpp:693
 #, kde-format
 msgid ""
 "REST: %1\n"
 "DDP: %2"
 msgstr ""
 
-#: core/rocketchataccount.cpp:700 core/rocketchataccount.cpp:712
+#: core/rocketchataccount.cpp:701 core/rocketchataccount.cpp:713
 #, kde-format
 msgid "Not connected"
 msgstr "未連線"
 
-#: core/rocketchataccount.cpp:707
+#: core/rocketchataccount.cpp:708
 #, fuzzy, kde-format
 #| msgid "Not connected"
 msgid "Not connected yet"
@@ -3536,7 +3536,7 @@ msgstr "找不到使用者"
 
 #: widgets/administratordialog/roles/usersinrolewidget.cpp:124
 #: widgets/administratordialog/users/administratoruserswidget.cpp:357
-#: widgets/directory/directorywidget.cpp:214
+#: widgets/directory/directorywidget.cpp:215
 #, kde-format
 msgid "%1 user (Total: %2)"
 msgid_plural "%1 users (Total: %2)"
@@ -3682,7 +3682,7 @@ msgid "No room found"
 msgstr "找不到聊天室"
 
 #: widgets/administratordialog/rooms/administratorroomswidget.cpp:81
-#: widgets/directory/directorywidget.cpp:211
+#: widgets/directory/directorywidget.cpp:212
 #, kde-format
 msgid "%1 room (Total: %2)"
 msgid_plural "%1 rooms (Total: %2)"
@@ -7357,7 +7357,7 @@ msgid "Username or email:"
 msgstr "使用者名稱或電子郵件"
 
 #: widgets/common/authenticationloginwidget.cpp:159
-#: widgets/ruqolamainwindow.cpp:1029
+#: widgets/ruqolamainwindow.cpp:1032
 #, kde-format
 msgid ""
 "We have sent you an email to confirm your registration.\n"
@@ -7365,7 +7365,7 @@ msgid ""
 msgstr ""
 
 #: widgets/common/authenticationloginwidget.cpp:160
-#: widgets/ruqolamainwindow.cpp:1030
+#: widgets/ruqolamainwindow.cpp:1033
 #, fuzzy, kde-format
 #| msgid "Register New User"
 msgctxt "@title:window"
@@ -8783,22 +8783,22 @@ msgctxt "@action"
 msgid "Open Private Message…"
 msgstr "私訊"
 
-#: widgets/directory/directorywidget.cpp:195
+#: widgets/directory/directorywidget.cpp:196
 #, kde-format
 msgid "No Room found"
 msgstr "找不到聊天室"
 
-#: widgets/directory/directorywidget.cpp:197
+#: widgets/directory/directorywidget.cpp:198
 #, kde-format
 msgid "No User found"
 msgstr "找不到使用者"
 
-#: widgets/directory/directorywidget.cpp:199
+#: widgets/directory/directorywidget.cpp:200
 #, kde-format
 msgid "No Team found"
 msgstr "找不到團隊"
 
-#: widgets/directory/directorywidget.cpp:217
+#: widgets/directory/directorywidget.cpp:218
 #, kde-format
 msgid "%1 team (Total: %2)"
 msgid_plural "%1 teams (Total: %2)"
@@ -11175,32 +11175,32 @@ msgctxt "@title:window"
 msgid "Create Team"
 msgstr "建立團隊"
 
-#: widgets/ruqolamainwindow.cpp:938
+#: widgets/ruqolamainwindow.cpp:941
 #, kde-format
 msgid "Impossible to open log."
 msgstr "無法開啟日誌。"
 
-#: widgets/ruqolamainwindow.cpp:938
+#: widgets/ruqolamainwindow.cpp:941
 #, fuzzy, kde-format
 #| msgid "Show Log"
 msgctxt "@title:window"
 msgid "Show Log"
 msgstr "顯示紀錄"
 
-#: widgets/ruqolamainwindow.cpp:1101
+#: widgets/ruqolamainwindow.cpp:1104
 #, kde-format
 msgctxt "@item:inmenu Instant message presence status"
 msgid "Status"
 msgstr "狀態"
 
-#: widgets/ruqolamainwindow.cpp:1188
+#: widgets/ruqolamainwindow.cpp:1191
 #, kde-format
 msgid ""
 "<qt>This will hide the menu bar completely. You can show it again by typing "
 "%1.</qt>"
 msgstr "<qt>這會完全隱藏選單列。您可以按下 %1 重新顯示選單列。</qt>"
 
-#: widgets/ruqolamainwindow.cpp:1191
+#: widgets/ruqolamainwindow.cpp:1194
 #, fuzzy, kde-format
 #| msgid "Hide menu bar"
 msgctxt "@title:window"

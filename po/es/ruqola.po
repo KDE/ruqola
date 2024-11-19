@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-11-18 00:40+0000\n"
+"POT-Creation-Date: 2024-11-19 00:40+0000\n"
 "PO-Revision-Date: 2024-11-16 19:50+0100\n"
 "Last-Translator: Víctor Rodrigo Córdoba <vrcordoba@gmail.com>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
@@ -1723,7 +1723,7 @@ msgctxt "WARNING!!!!!!: PLEASE We need a space between after </strong>"
 msgid "<strong>%1</strong> are typing..."
 msgstr "<strong>%1</strong> están escribiendo..."
 
-#: core/rocketchataccount.cpp:692
+#: core/rocketchataccount.cpp:693
 #, kde-format
 msgid ""
 "REST: %1\n"
@@ -1732,12 +1732,12 @@ msgstr ""
 "REST: %1\n"
 "DDP: %2"
 
-#: core/rocketchataccount.cpp:700 core/rocketchataccount.cpp:712
+#: core/rocketchataccount.cpp:701 core/rocketchataccount.cpp:713
 #, kde-format
 msgid "Not connected"
 msgstr "No conectado"
 
-#: core/rocketchataccount.cpp:707
+#: core/rocketchataccount.cpp:708
 #, kde-format
 msgid "Not connected yet"
 msgstr "No conectado todavía"
@@ -3508,7 +3508,7 @@ msgstr "No se encontró ningún usuario"
 
 #: widgets/administratordialog/roles/usersinrolewidget.cpp:124
 #: widgets/administratordialog/users/administratoruserswidget.cpp:357
-#: widgets/directory/directorywidget.cpp:214
+#: widgets/directory/directorywidget.cpp:215
 #, kde-format
 msgid "%1 user (Total: %2)"
 msgid_plural "%1 users (Total: %2)"
@@ -3641,7 +3641,7 @@ msgid "No room found"
 msgstr "No se encontró ninguna habitación"
 
 #: widgets/administratordialog/rooms/administratorroomswidget.cpp:81
-#: widgets/directory/directorywidget.cpp:211
+#: widgets/directory/directorywidget.cpp:212
 #, kde-format
 msgid "%1 room (Total: %2)"
 msgid_plural "%1 rooms (Total: %2)"
@@ -7230,7 +7230,7 @@ msgid "Username or email:"
 msgstr "Nombre del usuario o correo electrónico:"
 
 #: widgets/common/authenticationloginwidget.cpp:159
-#: widgets/ruqolamainwindow.cpp:1029
+#: widgets/ruqolamainwindow.cpp:1032
 #, kde-format
 msgid ""
 "We have sent you an email to confirm your registration.\n"
@@ -7240,7 +7240,7 @@ msgstr ""
 "Si no recibe un correo en un periodo corto, por favor, pruebe de nuevo."
 
 #: widgets/common/authenticationloginwidget.cpp:160
-#: widgets/ruqolamainwindow.cpp:1030
+#: widgets/ruqolamainwindow.cpp:1033
 #, kde-format
 msgctxt "@title:window"
 msgid "Register New User"
@@ -8587,22 +8587,22 @@ msgctxt "@action"
 msgid "Open Private Message…"
 msgstr "Abrir mensaje privado..."
 
-#: widgets/directory/directorywidget.cpp:195
+#: widgets/directory/directorywidget.cpp:196
 #, kde-format
 msgid "No Room found"
 msgstr "No se encontró ninguna habitación"
 
-#: widgets/directory/directorywidget.cpp:197
+#: widgets/directory/directorywidget.cpp:198
 #, kde-format
 msgid "No User found"
 msgstr "No se encontró ningún usuario"
 
-#: widgets/directory/directorywidget.cpp:199
+#: widgets/directory/directorywidget.cpp:200
 #, kde-format
 msgid "No Team found"
 msgstr "No se encontró ningún equipo"
 
-#: widgets/directory/directorywidget.cpp:217
+#: widgets/directory/directorywidget.cpp:218
 #, kde-format
 msgid "%1 team (Total: %2)"
 msgid_plural "%1 teams (Total: %2)"
@@ -10872,24 +10872,24 @@ msgctxt "@title:window"
 msgid "Create Team"
 msgstr "Crear equipo"
 
-#: widgets/ruqolamainwindow.cpp:938
+#: widgets/ruqolamainwindow.cpp:941
 #, kde-format
 msgid "Impossible to open log."
 msgstr "No se pudo abrir los registros."
 
-#: widgets/ruqolamainwindow.cpp:938
+#: widgets/ruqolamainwindow.cpp:941
 #, kde-format
 msgctxt "@title:window"
 msgid "Show Log"
 msgstr "Mostrar registros"
 
-#: widgets/ruqolamainwindow.cpp:1101
+#: widgets/ruqolamainwindow.cpp:1104
 #, kde-format
 msgctxt "@item:inmenu Instant message presence status"
 msgid "Status"
 msgstr "Estado"
 
-#: widgets/ruqolamainwindow.cpp:1188
+#: widgets/ruqolamainwindow.cpp:1191
 #, kde-format
 msgid ""
 "<qt>This will hide the menu bar completely. You can show it again by typing "
@@ -10898,7 +10898,7 @@ msgstr ""
 "<qt>Esto ocultará la barra de menús completamente. Puede mostrarla de nuevo "
 "pulsando %1.</qt>"
 
-#: widgets/ruqolamainwindow.cpp:1191
+#: widgets/ruqolamainwindow.cpp:1194
 #, kde-format
 msgctxt "@title:window"
 msgid "Hide menu bar"
