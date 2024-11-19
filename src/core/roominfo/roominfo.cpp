@@ -23,6 +23,15 @@ void RoomInfo::parseRoomInfo(const QJsonObject &object)
     if (object.contains("name"_L1)) {
         setName(object["name"_L1].toString());
     }
+
+    if (object.contains("fname"_L1)) {
+        setFName(object["fname"_L1].toString());
+    }
+
+    if (object.contains("prid"_L1)) {
+        setParentRid(object["prid"_L1].toString().toLatin1());
+    }
+
     setTopic(object["topic"_L1].toString());
     setDescription(object["description"_L1].toString());
     setAnnouncement(object["announcement"_L1].toString());
@@ -68,6 +77,16 @@ void RoomInfo::parseRoomInfo(const QJsonObject &object)
     // TODO
 }
 
+void RoomInfo::setParentRid(const QByteArray &rid)
+{
+    mParentRid = rid;
+}
+
+QByteArray RoomInfo::parentRid() const
+{
+    return mParentRid;
+}
+
 bool RoomInfo::defaultRoom() const
 {
     return mDefaultRoom;
@@ -103,8 +122,11 @@ QString RoomInfo::channelType() const
     return mChannelType;
 }
 
-static QString convertChannelType(const QString &str, bool mainTeam)
+static QString convertChannelType(const QString &str, bool mainTeam, bool isDiscussion)
 {
+    if (isDiscussion) {
+        return i18n("Discussion");
+    }
     if (str == QLatin1Char('p')) {
         if (mainTeam) {
             return i18n("Private Team");
@@ -132,9 +154,14 @@ bool RoomInfo::isTeam() const
     return mTeamInfo.mainTeam();
 }
 
+bool RoomInfo::isDiscussion() const
+{
+    return !mParentRid.isEmpty();
+}
+
 void RoomInfo::generateDisplayChannelType()
 {
-    mChannelTypeStr = convertChannelType(mChannelType, isTeam());
+    mChannelTypeStr = convertChannelType(mChannelType, isTeam(), !mParentRid.isEmpty());
 }
 
 QString RoomInfo::belongsTo() const
@@ -288,6 +315,16 @@ void RoomInfo::setName(const QString &name)
     mName = name;
 }
 
+QString RoomInfo::fName() const
+{
+    return mFName;
+}
+
+void RoomInfo::setFName(const QString &name)
+{
+    mFName = name;
+}
+
 QStringList RoomInfo::userNames() const
 {
     return mUserNames;
@@ -319,7 +356,7 @@ bool RoomInfo::operator==(const RoomInfo &other) const
         && mChannelType == other.channelType() && mIdentifier == other.identifier() && mTopic == other.topic() && mName == other.name()
         && mUserNames == other.userNames() && mUsers == other.users() && mTeamInfo == other.teamInfo() && mLastMessage == other.lastMessage()
         && mCreatedRoom == other.createdRoom() && mDescription == other.description() && mAnnouncement == other.announcement()
-        && mOwnerName == other.ownerName();
+        && mOwnerName == other.ownerName() && mFName == other.fName() && mParentRid == other.parentRid();
 }
 
 QDebug operator<<(QDebug d, const RoomInfo &t)
@@ -331,6 +368,7 @@ QDebug operator<<(QDebug d, const RoomInfo &t)
     d << " identifier: " << t.identifier();
     d << " topic: " << t.topic();
     d << " name: " << t.name();
+    d << " fname: " << t.fName();
     d << " usernames: " << t.userNames();
     d << " users: " << t.users();
     d << " teaminfo: " << t.teamInfo();
@@ -339,5 +377,6 @@ QDebug operator<<(QDebug d, const RoomInfo &t)
     d << " description : " << t.description();
     d << " announcement : " << t.announcement();
     d << " OwnerName : " << t.ownerName();
+    d << " ParentRid : " << t.parentRid();
     return d;
 }

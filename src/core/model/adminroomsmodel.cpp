@@ -45,6 +45,7 @@ QVariant AdminRoomsModel::headerData(int section, Qt::Orientation orientation, i
             return i18n("Type");
         case AdminRoomsRoles::IsTeam:
         case AdminRoomsRoles::Featured:
+        case AdminRoomsRoles::IsDiscussion:
             return {};
         }
     }
@@ -92,6 +93,8 @@ QVariant AdminRoomsModel::data(const QModelIndex &index, int role) const
         return adminroom.featured();
     case AdminRoomsRoles::IsTeam:
         return adminroom.isTeam();
+    case AdminRoomsRoles::IsDiscussion:
+        return adminroom.isDiscussion();
     }
 
     return {};

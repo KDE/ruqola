@@ -84,6 +84,14 @@ public:
     [[nodiscard]] QString belongsTo() const;
     void setBelongsTo(const QString &newBelongsTo);
 
+    void setFName(const QString &name);
+    [[nodiscard]] QString fName() const;
+
+    void setParentRid(const QByteArray &rid);
+    [[nodiscard]] QByteArray parentRid() const;
+
+    [[nodiscard]] bool isDiscussion() const;
+
 private:
     LIBRUQOLACORE_NO_EXPORT void generateDisplayChannelType();
     TeamInfo mTeamInfo;
@@ -94,12 +102,14 @@ private:
     QString mChannelType;
     QString mChannelTypeStr;
     QString mName;
+    QString mFName;
     QString mLastMessageDisplayTime;
     QString mCreatedRoomDisplayTime;
     QString mDescription;
     QString mAnnouncement;
     QString mOwnerName;
     QString mBelongsTo;
+    QByteArray mParentRid;
     qint64 mLastMessage = -1;
     qint64 mCreatedRoom = -1;
     int mMessageCount = -1;

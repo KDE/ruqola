@@ -31,6 +31,10 @@ void RoomInfoTest::shouldHaveDefaultValues()
     QVERIFY(!w.featured());
     QVERIFY(w.ownerName().isEmpty());
     QVERIFY(w.belongsTo().isEmpty());
+    QVERIFY(!w.isDiscussion());
+    QVERIFY(!w.isTeam());
+    QVERIFY(w.fName().isEmpty());
+    QVERIFY(w.parentRid().isEmpty());
 }
 
 #include "moc_roominfotest.cpp"

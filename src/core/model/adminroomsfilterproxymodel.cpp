@@ -30,8 +30,8 @@ bool AdminRoomsFilterProxyModel::filterAcceptsRow(int source_row, const QModelIn
     if (!QSortFilterProxyModel::filterAcceptsRow(source_row, source_parent)) {
         return false;
     }
-    const QModelIndex sourceIndex = sourceModel()->index(source_row, AdminRoomsModel::AdminRoomsRoles::ChannelType, source_parent);
-    const QString channelType = sourceModel()->data(sourceIndex).toString();
+    const QModelIndex sourceChannelTypeIndex = sourceModel()->index(source_row, AdminRoomsModel::AdminRoomsRoles::ChannelType, source_parent);
+    const QString channelType = sourceModel()->data(sourceChannelTypeIndex).toString();
     if (mFilters & FilterRoom::DirectRooms) {
         if (channelType == "d"_L1) {
             return true;
@@ -47,11 +47,17 @@ bool AdminRoomsFilterProxyModel::filterAcceptsRow(int source_row, const QModelIn
             return true;
         }
     }
-    if (mFilters & FilterRoom::PrivateRooms) {
+    if (mFilters & FilterRoom::Omnichannel) {
         if (channelType == "l"_L1) {
             return true;
         }
     }
+    if (mFilters & FilterRoom::DiscussionRooms) {
+        const QModelIndex sourceIndexIsDiscussion = sourceModel()->index(source_row, AdminRoomsModel::AdminRoomsRoles::IsDiscussion, source_parent);
+        const bool isDiscussion = sourceModel()->data(sourceIndexIsDiscussion).toBool();
+        return isDiscussion;
+    }
+
     if (mFilters & FilterRoom::TeamRooms) {
         const QModelIndex sourceIndexIsTeam = sourceModel()->index(source_row, AdminRoomsModel::AdminRoomsRoles::IsTeam, source_parent);
         const bool isTeam = sourceModel()->data(sourceIndexIsTeam).toBool();
