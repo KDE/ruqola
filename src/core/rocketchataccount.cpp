@@ -2775,22 +2775,25 @@ CustomUserStatuses RocketChatAccount::customUserStatuses() const
     return mCustomUserStatuses;
 }
 
+void RocketChatAccount::extractIdentifier(const QJsonObject &replyObject, const QString &identifier, const QString &subIdentifier)
+{
+    const QJsonObject channel = replyObject[identifier].toObject();
+    const QString roomId = channel[subIdentifier].toString();
+    if (roomId.isEmpty()) {
+        Q_EMIT selectRoomByRoomIdRequested(roomId.toLatin1());
+    } else {
+        qCWarning(RUQOLA_LOG) << "No identifier found " << identifier << " with subIdentifier " << subIdentifier << " replyObject " << replyObject;
+    }
+}
+
 void RocketChatAccount::slotCreateGroupDone(const QJsonObject &replyObject)
 {
-    const QJsonObject channel = replyObject["group"_L1].toObject();
-    const QString roomId = channel["_id"_L1].toString();
-    if (!roomId.isEmpty()) {
-        Q_EMIT selectRoomByRoomIdRequested(roomId.toLatin1());
-    }
+    extractIdentifier(replyObject, "group"_L1, "_id"_L1);
 }
 
 void RocketChatAccount::slotCreateChannelDone(const QJsonObject &replyObject)
 {
-    const QJsonObject channel = replyObject["channel"_L1].toObject();
-    const QString roomId = channel["_id"_L1].toString();
-    if (!roomId.isEmpty()) {
-        Q_EMIT selectRoomByRoomIdRequested(roomId.toLatin1());
-    }
+    extractIdentifier(replyObject, "channel"_L1, "_id"_L1);
 }
 
 void RocketChatAccount::slotPostMessageDone(const QJsonObject &replyObject)

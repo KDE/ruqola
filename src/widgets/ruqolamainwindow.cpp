@@ -773,11 +773,7 @@ void RuqolaMainWindow::slotCreateTeam()
         job->setTeamsCreateJobInfo(teamInfo);
         mCurrentRocketChatAccount->restApi()->initializeRestApiJob(job);
         connect(job, &RocketChatRestApi::TeamsCreateJob::teamCreateDone, this, [this](const QJsonObject &replyObject) {
-            const QJsonObject room = replyObject["team"_L1].toObject();
-            const QString roomId = room["roomId"_L1].toString();
-            if (!roomId.isEmpty()) {
-                Q_EMIT mCurrentRocketChatAccount->selectRoomByRoomIdRequested(roomId.toLatin1());
-            }
+            mCurrentRocketChatAccount->extractIdentifier(replyObject, "team"_L1, "roomId"_L1);
         });
         if (!job->start()) {
             qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start TeamsCreateJob";
@@ -793,11 +789,7 @@ void RuqolaMainWindow::slotCreateDiscussion()
         const CreateNewDiscussionDialog::NewDiscussionInfo info = dlg->newDiscussionInfo();
         auto job = new RocketChatRestApi::RoomStartDiscussionJob(this);
         connect(job, &RocketChatRestApi::RoomStartDiscussionJob::startDiscussionDone, this, [this](const QJsonObject &replyObj) {
-            const QJsonObject room = replyObj["discussion"_L1].toObject();
-            const QString roomId = room["_id"_L1].toString();
-            if (!roomId.isEmpty()) {
-                Q_EMIT mCurrentRocketChatAccount->selectRoomByRoomIdRequested(roomId.toLatin1());
-            }
+            mCurrentRocketChatAccount->extractIdentifier(replyObj, "discussion"_L1, "_id"_L1);
         });
         mCurrentRocketChatAccount->restApi()->initializeRestApiJob(job);
         job->setParentRoomId(info.channelId);
@@ -821,11 +813,7 @@ void RuqolaMainWindow::slotCreateDirectMessages()
         auto job = new RocketChatRestApi::CreateDmJob(this);
         mCurrentRocketChatAccount->restApi()->initializeRestApiJob(job);
         connect(job, &RocketChatRestApi::CreateDmJob::createDmDone, this, [this](const QJsonObject &replyObject) {
-            const QJsonObject room = replyObject["room"_L1].toObject();
-            const QString roomId = room["_id"_L1].toString();
-            if (!roomId.isEmpty()) {
-                Q_EMIT mCurrentRocketChatAccount->selectRoomByRoomIdRequested(roomId.toLatin1());
-            }
+            mCurrentRocketChatAccount->extractIdentifier(replyObject, "room"_L1, "_id"_L1);
         });
         job->setUserNames(usernames);
         if (!job->start()) {
