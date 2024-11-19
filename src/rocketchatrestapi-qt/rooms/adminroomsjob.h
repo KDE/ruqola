@@ -23,7 +23,8 @@ public:
         Channel = 8,
         Team = 16,
         OmniChannel = 32,
-        All = Direct | Private | Channel | Team | OmniChannel,
+        Discussion = 64,
+        All = Direct | Private | Channel | Team | OmniChannel | Discussion,
     };
     Q_DECLARE_FLAGS(AdminRoomSearchTypes, AdminRoomSearchType)
     Q_FLAG(AdminRoomSearchType)
