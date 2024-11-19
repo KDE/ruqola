@@ -8,6 +8,7 @@
 #include "accountsoverviewwidget.h"
 
 #include "accountmanager.h"
+#include "colorsandmessageviewstyle.h"
 #include "ddpapi/ddpclient.h"
 #include "model/rocketchataccountfilterproxymodel.h"
 #include "model/rocketchataccountmodel.h"
@@ -54,6 +55,25 @@ struct UnreadAlert {
     }
 
     return text;
+}
+
+[[nodiscard]] QColor currentTextColor(RocketChatAccount *account)
+{
+    auto colorScheme = ColorsAndMessageViewStyle::self().schemeView();
+    if (account->loginStatus() != AuthenticationManager::LoggedIn) {
+        return colorScheme.foreground(KColorScheme::InactiveText).color();
+    }
+    auto unreadAlertAndMentions = currentUnreadAlert(account);
+    if (unreadAlertAndMentions.mentions) {
+        return colorScheme.foreground(KColorScheme::NegativeText).color();
+    }
+    if (unreadAlertAndMentions.unread) {
+        return colorScheme.foreground(KColorScheme::NeutralText).color();
+    }
+    if (unreadAlertAndMentions.alert) {
+        return colorScheme.foreground(KColorScheme::ActiveText).color();
+    }
+    return colorScheme.foreground(KColorScheme::NormalText).color();
 }
 }
 
@@ -106,8 +126,10 @@ void AccountsOverviewWidget::updateButtons()
         mTabBar->setTabVisible(i, account->accountEnabled());
 
         auto updateTabText = [this, i, account]() {
-            if (account->accountEnabled())
+            if (account->accountEnabled()) {
                 mTabBar->setTabText(i, currentText(account));
+                mTabBar->setTabTextColor(i, currentTextColor(account));
+            }
         };
         auto updateTabToolTip = [this, i, account]() {
             if (account->accountEnabled())
