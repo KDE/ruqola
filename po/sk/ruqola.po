@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-11-06 02:31+0000\n"
+"POT-Creation-Date: 2024-11-19 02:30+0000\n"
 "PO-Revision-Date: 2019-07-29 20:25+0200\n"
 "Last-Translator: Roman Paholík <wizzardsk@gmail.com>\n"
 "Language-Team: Slovak <kde-sk@linux.sk>\n"
@@ -1566,13 +1566,13 @@ msgctxt "We need a space between after </strong>"
 msgid "<strong>%1</strong> are typing..."
 msgstr ""
 
-#: core/rocketchataccount.cpp:3040
+#: core/rocketchataccount.cpp:3045
 #, fuzzy, kde-format
 #| msgid "Message"
 msgid "Export Messages"
 msgstr "Správa"
 
-#: core/rocketchataccount.cpp:3041
+#: core/rocketchataccount.cpp:3046
 #, kde-format
 msgid "Your email has been queued for sending."
 msgstr ""
@@ -3405,7 +3405,7 @@ msgstr "Súkromné adresy"
 
 #: widgets/administratordialog/roles/usersinrolewidget.cpp:124
 #: widgets/administratordialog/users/administratoruserswidget.cpp:348
-#: widgets/directory/directorywidget.cpp:212
+#: widgets/directory/directorywidget.cpp:213
 #, kde-format
 msgid "%1 user (Total: %2)"
 msgid_plural "%1 users (Total: %2)"
@@ -3553,7 +3553,7 @@ msgid "No room found"
 msgstr "Súkromné adresy"
 
 #: widgets/administratordialog/rooms/administratorroomswidget.cpp:81
-#: widgets/directory/directorywidget.cpp:209
+#: widgets/directory/directorywidget.cpp:210
 #, kde-format
 msgid "%1 room (Total: %2)"
 msgid_plural "%1 rooms (Total: %2)"
@@ -8484,25 +8484,25 @@ msgctxt "@action"
 msgid "Open Private Messages…"
 msgstr "Súkromné adresy"
 
-#: widgets/directory/directorywidget.cpp:193
+#: widgets/directory/directorywidget.cpp:194
 #, fuzzy, kde-format
 #| msgid "Private Messages"
 msgid "No Room found"
 msgstr "Súkromné adresy"
 
-#: widgets/directory/directorywidget.cpp:195
+#: widgets/directory/directorywidget.cpp:196
 #, fuzzy, kde-format
 #| msgid "Private Messages"
 msgid "No User found"
 msgstr "Súkromné adresy"
 
-#: widgets/directory/directorywidget.cpp:197
+#: widgets/directory/directorywidget.cpp:198
 #, fuzzy, kde-format
 #| msgid "Private Messages"
 msgid "No Team found"
 msgstr "Súkromné adresy"
 
-#: widgets/directory/directorywidget.cpp:215
+#: widgets/directory/directorywidget.cpp:216
 #, kde-format
 msgid "%1 team (Total: %2)"
 msgid_plural "%1 teams (Total: %2)"
