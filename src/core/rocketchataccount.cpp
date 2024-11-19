@@ -2354,15 +2354,6 @@ void RocketChatAccount::rolesChanged(const QJsonArray &contents)
     }
 }
 
-void RocketChatAccount::createDiscussion(const QByteArray &parentRoomId,
-                                         const QString &discussionName,
-                                         const QString &replyMessage,
-                                         const QByteArray &messageId,
-                                         const QList<QByteArray> &users)
-{
-    restApi()->createDiscussion(parentRoomId, discussionName, replyMessage, messageId, users);
-}
-
 void RocketChatAccount::threadsInRoom(const QByteArray &roomId, bool onlyUnread)
 {
     if (threadsEnabled()) {

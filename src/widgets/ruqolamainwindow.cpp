@@ -57,6 +57,7 @@
 #include "teams/teamscreatejob.h"
 #include "whatsnew/whatsnewdialog.h"
 
+#include "rooms/roomstartdiscussionjob.h"
 #include <KActionCollection>
 #include <KColorSchemeManager>
 #include <KConfigGroup>
@@ -790,7 +791,17 @@ void RuqolaMainWindow::slotCreateDiscussion()
     QPointer<CreateNewDiscussionDialog> dlg = new CreateNewDiscussionDialog(mCurrentRocketChatAccount, this);
     if (dlg->exec()) {
         const CreateNewDiscussionDialog::NewDiscussionInfo info = dlg->newDiscussionInfo();
-        mCurrentRocketChatAccount->createDiscussion(info.channelId, info.discussionName, info.message, dlg->messageId(), info.users);
+        auto job = new RocketChatRestApi::RoomStartDiscussionJob(this);
+        mCurrentRocketChatAccount->restApi()->initializeRestApiJob(job);
+        job->setParentRoomId(info.channelId);
+
+        job->setDiscussionName(info.discussionName);
+        job->setParentMessageId(dlg->messageId());
+        job->setReplyMessage(info.message);
+        job->setUsers(info.users);
+        if (!job->start()) {
+            qCDebug(RUQOLAWIDGETS_LOG) << "Impossible to start RoomStartDiscussionJob";
+        }
     }
     delete dlg;
 }

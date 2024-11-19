@@ -185,11 +185,6 @@ public:
     void changeRoles(const QByteArray &rid, const QString &userId, Room::RoomType channelType, RocketChatAccount::RoleType roleType);
     void switchingToRoom(const QByteArray &roomID);
     void getThreadMessages(const QByteArray &threadMessageId, const Message &message);
-    void createDiscussion(const QByteArray &parentRoomName,
-                          const QString &discussionName,
-                          const QString &replyMessage,
-                          const QByteArray &messageId,
-                          const QList<QByteArray> &users = QList<QByteArray>());
     void discussionsInRoom(const QByteArray &roomId);
     void loadMoreFileAttachments(const QByteArray &roomId, Room::RoomType channelType);
     void loadMoreDiscussions(const QByteArray &roomId);

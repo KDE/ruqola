@@ -69,7 +69,6 @@
 
 #include "rooms/getdiscussionsjob.h"
 #include "rooms/roomfavoritejob.h"
-#include "rooms/roomstartdiscussionjob.h"
 #include "rooms/savenotificationjob.h"
 
 #include "subscriptions/markroomasreadjob.h"
@@ -993,25 +992,6 @@ void Connection::groupDelete(const QByteArray &roomId)
     job->setChannelGroupInfo(info);
     if (!job->start()) {
         qCDebug(RUQOLA_LOG) << "Impossible to start GroupsDeleteJob";
-    }
-}
-
-void Connection::createDiscussion(const QByteArray &parentRoomId,
-                                  const QString &discussionName,
-                                  const QString &replyMessage,
-                                  const QByteArray &parentMessageId,
-                                  const QList<QByteArray> &users)
-{
-    auto job = new RoomStartDiscussionJob(this);
-    initializeRestApiJob(job);
-    job->setParentRoomId(parentRoomId);
-
-    job->setDiscussionName(discussionName);
-    job->setParentMessageId(parentMessageId);
-    job->setReplyMessage(replyMessage);
-    job->setUsers(users);
-    if (!job->start()) {
-        qCDebug(RUQOLA_LOG) << "Impossible to start roomStartDiscussion";
     }
 }
 

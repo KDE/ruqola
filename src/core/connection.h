@@ -111,11 +111,6 @@ public:
     void channelRemoveLeader(const QByteArray &roomId, const QString &userId);
     void desktopDurationNotifications(const QByteArray &roomId, int value);
     void desktopSoundNotifications(const QByteArray &roomId, const QString &value);
-    void createDiscussion(const QByteArray &parentRoomId,
-                          const QString &discussionName,
-                          const QString &replyMessage,
-                          const QByteArray &parentMessageId,
-                          const QList<QByteArray> &users);
     void getDiscussions(const QByteArray &roomId, int offset = 0, int count = 50);
     void getThreadsList(const QByteArray &roomId, bool onlyUnread, int offset = 0, int count = 50);
     void getThreadMessages(const QByteArray &threadMessageId);
