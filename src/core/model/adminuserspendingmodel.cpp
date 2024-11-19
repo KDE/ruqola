@@ -115,8 +115,10 @@ QVariant AdminUsersPendingModel::data(const QModelIndex &index, int role) const
     const User &user = mUsers.at(index.row());
     const int col = index.column();
     switch (static_cast<AdminUsersPendingRoles>(col)) {
-    case AdminUsersPendingRoles::Name:
-        return user.name();
+    case AdminUsersPendingRoles::Name: {
+        const QString name = user.name();
+        return name.isEmpty() ? user.userName() : name;
+    }
     case AdminUsersPendingRoles::UserName:
         return user.userName();
     case AdminUsersPendingRoles::Email:
