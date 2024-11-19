@@ -289,6 +289,9 @@ void RoomInfo::setReadOnly(bool readOnly)
 
 QString RoomInfo::roomName() const
 {
+    if (!mFName.isEmpty()) {
+        return mFName;
+    }
     if (mName.isEmpty()) {
         return mUserNames.join(QStringLiteral(" x "));
     }
