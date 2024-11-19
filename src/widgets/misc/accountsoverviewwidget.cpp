@@ -26,12 +26,13 @@ namespace
 struct UnreadAlert {
     int unread = 0;
     bool alert = false;
+    bool mentions = false;
 };
 
 [[nodiscard]] UnreadAlert currentUnreadAlert(RocketChatAccount *account)
 {
     UnreadAlert ua;
-    account->roomModel()->getUnreadAlertFromAccount(ua.alert, ua.unread);
+    account->roomModel()->getUnreadAlertFromAccount(ua.alert, ua.unread, ua.mentions);
     return ua;
 }
 
@@ -43,8 +44,12 @@ struct UnreadAlert {
     }
 
     if (account->loginStatus() == AuthenticationManager::LoggedIn) {
-        if (int unread = currentUnreadAlert(account).unread) {
+        auto unreadAlert = currentUnreadAlert(account);
+        if (int unread = unreadAlert.unread) {
             text += QStringLiteral(" (%1)").arg(unread);
+        }
+        if (unreadAlert.mentions) {
+            text += QStringLiteral(" @");
         }
     }
 
@@ -134,6 +139,10 @@ void AccountsOverviewWidget::updateButtons()
             updateTabToolTip();
         });
         connect(account->roomModel(), &RoomModel::needToUpdateNotification, this, [updateTabText, updateTabIcon]() {
+            updateTabText();
+            updateTabIcon();
+        });
+        connect(account->roomModel(), &RoomModel::roomNeedAttention, this, [=]() {
             updateTabText();
             updateTabIcon();
         });

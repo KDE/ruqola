@@ -107,7 +107,7 @@ public:
     [[nodiscard]] bool addRoom(Room *room);
     void removeRoom(const QByteArray &roomId);
 
-    void getUnreadAlertFromAccount(bool &hasAlert, int &nbUnread) const;
+    void getUnreadAlertFromAccount(bool &hasAlert, int &nbUnread, bool &hasMentions) const;
     void userStatusChanged(const User &user);
 
     [[nodiscard]] UsersForRoomModel *usersModelForRoom(const QByteArray &roomId) const;

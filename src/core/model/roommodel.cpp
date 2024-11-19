@@ -211,15 +211,21 @@ Room *RoomModel::createNewRoom()
     return r;
 }
 
-void RoomModel::getUnreadAlertFromAccount(bool &hasAlert, int &nbUnread) const
+void RoomModel::getUnreadAlertFromAccount(bool &hasAlert, int &nbUnread, bool &hasMentions) const
 {
-    for (int i = 0, total = mRoomsList.count(); i < total; ++i) {
+    for (int i = 0; i < mRoomsList.count(); ++i) {
         Room *room = mRoomsList.at(i);
         if (room->open()) {
             if (room->alert()) {
                 hasAlert = true;
+                if (room->channelType() == Room::RoomType::Direct) {
+                    hasMentions = true;
+                }
             }
             nbUnread += room->unread();
+            if (room->userMentions()) {
+                hasMentions = true;
+            }
         }
     }
 }
