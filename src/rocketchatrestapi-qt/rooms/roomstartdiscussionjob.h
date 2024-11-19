@@ -45,7 +45,7 @@ public:
     void setEncrypted(bool newEncrypted);
 
 Q_SIGNALS:
-    void startDiscussionDone();
+    void startDiscussionDone(const QJsonObject &replyObject);
 
 protected:
     [[nodiscard]] QString generateErrorMessage(const QString &errorStr) const override;

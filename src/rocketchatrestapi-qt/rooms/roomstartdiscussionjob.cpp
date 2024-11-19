@@ -41,7 +41,7 @@ void RoomStartDiscussionJob::onPostRequestResponse(const QString &replyErrorStri
 
     if (replyObject["success"_L1].toBool()) {
         addLoggerInfo(QByteArrayLiteral("RoomStartDiscussionJob success: ") + replyJson.toJson(QJsonDocument::Indented));
-        Q_EMIT startDiscussionDone();
+        Q_EMIT startDiscussionDone(replyObject);
     } else {
         emitFailedMessage(replyErrorString, replyObject);
         addLoggerWarning(QByteArrayLiteral("RoomStartDiscussionJob: Problem: ") + replyJson.toJson(QJsonDocument::Indented));
