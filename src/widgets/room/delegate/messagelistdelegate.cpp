@@ -341,12 +341,11 @@ void MessageListDelegate::removeMessageCache(const Message *message)
     if (message->attachments()) {
         const auto attachments{message->attachments()->messageAttachments()};
         for (const auto &attachment : attachments) {
-            const QByteArray attachmentId = attachment.attachmentId();
-            mHelperAttachmentImage->removeMessageCache(attachmentId);
-            mHelperAttachmentFile->removeMessageCache(attachmentId);
-            mHelperAttachmentVideo->removeMessageCache(attachmentId);
-            mHelperAttachmentSound->removeMessageCache(attachmentId);
-            mHelperAttachmentText->removeMessageCache(attachmentId);
+            mHelperAttachmentImage->removeMessageDescriptionTitleCache(attachment);
+            mHelperAttachmentFile->removeMessageDescriptionTitleCache(attachment);
+            mHelperAttachmentVideo->removeMessageDescriptionTitleCache(attachment);
+            mHelperAttachmentSound->removeMessageDescriptionTitleCache(attachment);
+            mHelperAttachmentText->removeMessageDescriptionTitleCache(attachment);
         }
     }
     if (mPreviewEmbed) {

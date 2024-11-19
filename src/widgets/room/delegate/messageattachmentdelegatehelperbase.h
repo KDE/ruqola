@@ -57,6 +57,8 @@ public:
                                            const QStyleOptionViewItem &option,
                                            QMenu *menu);
 
+    void removeMessageDescriptionTitleCache(const MessageAttachment &attachment);
+
 protected:
     [[nodiscard]] virtual QPoint
     adaptMousePosition(const QPoint &pos, const MessageAttachment &msgAttach, QRect attachmentsRect, const QStyleOptionViewItem &option) = 0;
@@ -90,7 +92,8 @@ private:
         Title,
         Description,
     };
-
+    [[nodiscard]] LIBRUQOLAWIDGETS_NO_EXPORT QByteArray documentId(MessageAttachmentDelegateHelperBase::DocumentIdType type,
+                                                                   const MessageAttachment &msgAttach) const;
     [[nodiscard]] LIBRUQOLAWIDGETS_NO_EXPORT QByteArray documendIdPrefix(MessageAttachmentDelegateHelperBase::DocumentIdType type) const;
     [[nodiscard]] LIBRUQOLAWIDGETS_NO_EXPORT MessageDelegateHelperBase::DocumentDescriptionInfo
     convertAttachmentToDocumentTypeInfo(DocumentIdType type, const MessageAttachment &msgAttach, int width) const;
