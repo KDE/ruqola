@@ -127,6 +127,7 @@ QList<WhatsNewInfo> WhatsNewTranslations::createWhatsNewInfo() const
             i18n("Fix reconnect server."),
             i18n("Fix single application on Windows/MacOs"),
             i18n("Fix select created room/discussion/teams"),
+            i18n("Fix filter discussion in administrator mode"),
         });
 
         listInfo.append(std::move(info));
