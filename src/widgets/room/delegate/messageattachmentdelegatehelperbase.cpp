@@ -187,10 +187,20 @@ MessageDelegateHelperBase::DocumentDescriptionInfo
 MessageAttachmentDelegateHelperBase::convertAttachmentToDocumentTypeInfo(DocumentIdType type, const MessageAttachment &msgAttach, int width) const
 {
     MessageDelegateHelperBase::DocumentDescriptionInfo info;
-    info.documentId = documendIdPrefix(type) + msgAttach.attachmentId();
+    info.documentId = documentId(type, msgAttach);
     info.description = msgAttach.description();
     info.width = width;
     return info;
+}
+
+void MessageAttachmentDelegateHelperBase::removeMessageDescriptionTitleCache(const MessageAttachment &attachment)
+{
+    removeMessageCache(documentId(MessageAttachmentDelegateHelperBase::DocumentIdType::Description, attachment));
+}
+
+QByteArray MessageAttachmentDelegateHelperBase::documentId(DocumentIdType type, const MessageAttachment &msgAttach) const
+{
+    return documendIdPrefix(type) + msgAttach.attachmentId();
 }
 
 QByteArray MessageAttachmentDelegateHelperBase::documendIdPrefix(DocumentIdType type) const
