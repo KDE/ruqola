@@ -248,7 +248,6 @@ void ChannelListView::slotMoveToTeam(const QModelIndex &index)
             job->setRoomIds({roomId});
 
             mCurrentRocketChatAccount->restApi()->initializeRestApiJob(job);
-            // connect(job, &RocketChatRestApi::TeamAddRoomsJob::teamAddRoomsDone, this, &ChannelListView::slotChannelConvertToTeamDone);
             if (!job->start()) {
                 qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start TeamAddRoomsJob job";
             }
