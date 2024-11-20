@@ -117,6 +117,7 @@ void CreateVideoMessageWidget::loadSettings()
             const QCameraDevice videoDevice = mListCamera->itemData(i).value<QCameraDevice>();
             if (videoDevice.id() == deviceIdentifier) {
                 mListCamera->setCurrentIndex(i);
+                setCamera(videoDevice);
                 break;
             }
         }
