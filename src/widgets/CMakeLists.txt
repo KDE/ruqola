@@ -978,6 +978,9 @@ ki18n_wrap_ui(libruqolawidgets
     configuredialog/configureaccountserverwidget.ui
 )
 
+ecm_qt_declare_logging_category(libruqolawidgets_debug_SRCS HEADER ruqola_videomessage_debug.h IDENTIFIER RUQOLA_VIDEOMESSAGE_LOG CATEGORY_NAME org.kde.ruqola.widgets.videomessage
+    DESCRIPTION "ruqola video message support" EXPORT RUQOLA)
+
 ecm_qt_declare_logging_category(libruqolawidgets_debug_SRCS HEADER ruqolawidgets_debug.h IDENTIFIER RUQOLAWIDGETS_LOG CATEGORY_NAME org.kde.ruqola.widgets
     DESCRIPTION "ruqola widgets" EXPORT RUQOLA)
 ecm_qt_declare_logging_category(libruqolawidgets_debug_SRCS HEADER ruqolawidgets_selection_debug.h IDENTIFIER RUQOLAWIDGETS_SELECTION_LOG CATEGORY_NAME org.kde.ruqola.widgets.selection

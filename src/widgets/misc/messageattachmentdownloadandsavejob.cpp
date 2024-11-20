@@ -159,4 +159,12 @@ bool MessageAttachmentDownloadAndSaveJob::MessageAttachmentDownloadJobInfo::isVa
     return !attachmentPath.isEmpty();
 }
 
+QDebug operator<<(QDebug d, const MessageAttachmentDownloadAndSaveJob::MessageAttachmentDownloadJobInfo &t)
+{
+    d.space() << "attachmentPath : " << t.attachmentPath;
+    d.space() << "actionType : " << t.actionType;
+    d.space() << "needToDownloadAttachment : " << t.needToDownloadAttachment;
+    return d;
+}
+
 #include "moc_messageattachmentdownloadandsavejob.cpp"
