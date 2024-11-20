@@ -9,15 +9,13 @@
 #pragma once
 
 #include "libruqolacore_export.h"
-#include <QObject>
-
+#include <QUrl>
 class QString;
 
-class LIBRUQOLACORE_EXPORT RuqolaUtils : public QObject
+class LIBRUQOLACORE_EXPORT RuqolaUtils
 {
-    Q_OBJECT
 public:
-    ~RuqolaUtils() override;
+    ~RuqolaUtils();
     static RuqolaUtils *self();
     void openUrl(const QString &url);
 
@@ -26,5 +24,5 @@ public:
     void openUrl(const QUrl &url);
 
 private:
-    explicit RuqolaUtils(QObject *parent = nullptr);
+    RuqolaUtils();
 };

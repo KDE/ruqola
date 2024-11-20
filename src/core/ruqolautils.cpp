@@ -16,10 +16,7 @@
 #include <PlasmaActivities/ResourceInstance>
 #endif
 
-RuqolaUtils::RuqolaUtils(QObject *parent)
-    : QObject(parent)
-{
-}
+RuqolaUtils::RuqolaUtils() = default;
 
 RuqolaUtils::~RuqolaUtils() = default;
 
@@ -50,5 +47,3 @@ void RuqolaUtils::openUrl(const QUrl &url)
         qCWarning(RUQOLA_LOG) << "Impossible to open " << url;
     }
 }
-
-#include "moc_ruqolautils.cpp"
