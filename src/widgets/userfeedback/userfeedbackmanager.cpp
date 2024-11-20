@@ -7,13 +7,15 @@
 #include "userfeedbackmanager.h"
 #include "ruqolauserfeedbackprovider.h"
 
-UserFeedBackManager::UserFeedBackManager(QObject *parent)
-    : QObject(parent)
-    , mUserFeedbackProvider(new RuqolaUserFeedbackProvider(this))
+UserFeedBackManager::UserFeedBackManager()
+    : mUserFeedbackProvider(new RuqolaUserFeedbackProvider())
 {
 }
 
-UserFeedBackManager::~UserFeedBackManager() = default;
+UserFeedBackManager::~UserFeedBackManager()
+{
+    delete mUserFeedbackProvider;
+}
 
 UserFeedBackManager *UserFeedBackManager::self()
 {
@@ -25,5 +27,3 @@ KUserFeedback::Provider *UserFeedBackManager::userFeedbackProvider() const
 {
     return mUserFeedbackProvider;
 }
-
-#include "moc_userfeedbackmanager.cpp"

@@ -6,21 +6,19 @@
 
 #pragma once
 
-#include <QObject>
 namespace KUserFeedback
 {
 class Provider;
 }
-class UserFeedBackManager : public QObject
+class UserFeedBackManager
 {
-    Q_OBJECT
 public:
-    ~UserFeedBackManager() override;
+    ~UserFeedBackManager();
     static UserFeedBackManager *self();
 
     [[nodiscard]] KUserFeedback::Provider *userFeedbackProvider() const;
 
 private:
-    explicit UserFeedBackManager(QObject *parent = nullptr);
+    UserFeedBackManager();
     KUserFeedback::Provider *const mUserFeedbackProvider;
 };
