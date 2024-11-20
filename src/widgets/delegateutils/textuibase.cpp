@@ -5,7 +5,7 @@
 */
 
 #include "textuibase.h"
-#include "ruqolawidgets_debug.h"
+#include "ruqola_cache_debug.h"
 TextUiBase::TextUiBase(TextSelectionImpl *textSelectionImpl, QAbstractItemView *view)
     : mTextSelectionImpl(textSelectionImpl)
     , mListView(view)
@@ -17,7 +17,7 @@ TextUiBase::~TextUiBase() = default;
 void TextUiBase::removeMessageCache(const QByteArray &messageId)
 {
     if (!mDocumentCache.remove(messageId)) {
-        qCWarning(RUQOLAWIDGETS_LOG) << " impossible to find identifier " << messageId;
+        qCWarning(RUQOLA_CACHE_LOG) << " impossible to find identifier " << messageId;
     }
 }
 
