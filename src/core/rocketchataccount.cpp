@@ -2781,7 +2781,7 @@ void RocketChatAccount::extractIdentifier(const QJsonObject &replyObject, const 
 {
     const QJsonObject channel = replyObject[identifier].toObject();
     const QString roomId = channel[subIdentifier].toString();
-    if (roomId.isEmpty()) {
+    if (!roomId.isEmpty()) {
         Q_EMIT selectRoomByRoomIdRequested(roomId.toLatin1());
     } else {
         qCWarning(RUQOLA_LOG) << "No identifier found " << identifier << " with subIdentifier " << subIdentifier << " replyObject " << replyObject;
