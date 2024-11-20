@@ -24,7 +24,7 @@ public:
     explicit ShowVideoWidget(RocketChatAccount *account, QWidget *parent = nullptr);
     ~ShowVideoWidget() override;
 
-    void setVideoPath(const QString &videoPath);
+    void setVideoPath(const QString &videoPath, bool isLocalFile = false);
 
     [[nodiscard]] QUrl videoUrl() const;
 

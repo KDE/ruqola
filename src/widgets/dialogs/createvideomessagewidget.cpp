@@ -5,7 +5,7 @@
 */
 
 #include "createvideomessagewidget.h"
-using namespace Qt::Literals::StringLiterals;
+#include "ruqola_videomessage_debug.h"
 
 #include <KMessageWidget>
 #include <QAudioInput>
@@ -25,6 +25,7 @@ using namespace Qt::Literals::StringLiterals;
 #include <QDir>
 #include <QMediaFormat>
 
+using namespace Qt::Literals::StringLiterals;
 namespace
 {
 const char myVideoGroupName[] = "Message Video";
@@ -83,15 +84,17 @@ CreateVideoMessageWidget::CreateVideoMessageWidget(QWidget *parent)
     mainLayout->addLayout(hboxLayout);
 
     updateCameras();
-    setCamera(QMediaDevices::defaultVideoInput());
     if (QMediaDevices::defaultVideoInput().isNull()) {
         mRecordButton->setEnabled(false);
         mPauseButton->setEnabled(false);
     }
+    connect(mMediaDevices, &QMediaDevices::videoInputsChanged, this, &CreateVideoMessageWidget::updateCameras);
+
     connect(mListCamera, &QComboBox::activated, this, [this]() {
         setCamera(mListCamera->itemData(mListCamera->currentIndex()).value<QCameraDevice>());
     });
     connect(mMediaDevices, &QMediaDevices::audioInputsChanged, this, &CreateVideoMessageWidget::updateVideoInputs);
+    setCamera(QMediaDevices::defaultVideoInput());
 }
 
 CreateVideoMessageWidget::~CreateVideoMessageWidget()
@@ -132,7 +135,8 @@ void CreateVideoMessageWidget::saveSettings()
 
 QUrl CreateVideoMessageWidget::temporaryFilePath() const
 {
-    // qDebug() << " XCCCCCCCCCCCCCCCCCCC" << mMediaRecorder->outputLocation() << " dd " << mMediaRecorder->actualLocation();
+    qCDebug(RUQOLA_VIDEOMESSAGE_LOG) << " CreateVideoMessageWidget::temporaryFilePath " << mMediaRecorder->outputLocation() << " actual location "
+                                     << mMediaRecorder->actualLocation();
     return mMediaRecorder->actualLocation();
 }
 
@@ -152,7 +156,6 @@ void CreateVideoMessageWidget::setCamera(const QCameraDevice &cameraDevice)
     mAudioInput.reset(new QAudioInput);
     mCaptureSession.setAudioInput(mAudioInput.get());
 
-    connect(mCamera.data(), &QCamera::activeChanged, this, &CreateVideoMessageWidget::updateCameraActive);
     connect(mCamera.data(), &QCamera::errorOccurred, this, &CreateVideoMessageWidget::displayCameraError);
 
     if (!mMediaRecorder) {
@@ -172,7 +175,6 @@ void CreateVideoMessageWidget::setCamera(const QCameraDevice &cameraDevice)
         connect(mMediaRecorder.data(), &QMediaRecorder::errorChanged, this, &CreateVideoMessageWidget::displayRecorderError);
     }
     mCaptureSession.setVideoOutput(mVideoWidget);
-    updateCameraActive(mCamera->isActive());
     updateRecorderState(mMediaRecorder->recorderState());
 
     mCamera->start();
@@ -188,6 +190,7 @@ void CreateVideoMessageWidget::displayCameraError()
 
 void CreateVideoMessageWidget::updateRecorderState(QMediaRecorder::RecorderState state)
 {
+    qCDebug(RUQOLA_VIDEOMESSAGE_LOG) << " CreateVideoMessageWidget::updateRecorderState " << state;
     switch (state) {
     case QMediaRecorder::StoppedState:
         mRecordButton->setEnabled(true);
@@ -207,17 +210,6 @@ void CreateVideoMessageWidget::updateRecorderState(QMediaRecorder::RecorderState
     }
 }
 
-void CreateVideoMessageWidget::updateCameraActive(bool active)
-{
-    if (active) {
-        mRecordButton->setEnabled(false);
-        mStopButton->setEnabled(true);
-    } else {
-        mRecordButton->setEnabled(true);
-        mStopButton->setEnabled(false);
-    }
-}
-
 void CreateVideoMessageWidget::displayRecorderError()
 {
     if (mMediaRecorder->error() != QMediaRecorder::NoError) {
@@ -228,17 +220,20 @@ void CreateVideoMessageWidget::displayRecorderError()
 
 void CreateVideoMessageWidget::record()
 {
+    qCDebug(RUQOLA_VIDEOMESSAGE_LOG) << " CreateVideoMessageWidget::record ";
     mMediaRecorder->record();
     updateRecordTime();
 }
 
 void CreateVideoMessageWidget::pause()
 {
+    qCDebug(RUQOLA_VIDEOMESSAGE_LOG) << " CreateVideoMessageWidget::pause ";
     mMediaRecorder->pause();
 }
 
 void CreateVideoMessageWidget::stop()
 {
+    qCDebug(RUQOLA_VIDEOMESSAGE_LOG) << " CreateVideoMessageWidget::stop ";
     mMediaRecorder->stop();
     Q_EMIT recordDone();
 }

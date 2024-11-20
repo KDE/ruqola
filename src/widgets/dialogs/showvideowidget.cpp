@@ -178,9 +178,9 @@ void ShowVideoWidget::slotAttachmentFileDownloadDone(const QString &url)
     mPlayButton->setEnabled(true);
 }
 
-void ShowVideoWidget::setVideoPath(const QString &url)
+void ShowVideoWidget::setVideoPath(const QString &url, bool isLocalFile)
 {
-    if (mRocketChatAccount) {
+    if (mRocketChatAccount && !isLocalFile) {
         MessageAttachmentDownloadAndSaveJob::MessageAttachmentDownloadJobInfo info;
         info.attachmentType = MessageAttachmentDownloadAndSaveJob::AttachmentType::Video;
         info.actionType = MessageAttachmentDownloadAndSaveJob::ActionType::DownloadOnly;

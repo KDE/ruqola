@@ -44,7 +44,6 @@ private:
     LIBRUQOLAWIDGETS_NO_EXPORT void stop();
     LIBRUQOLAWIDGETS_NO_EXPORT void updateRecordTime();
     LIBRUQOLAWIDGETS_NO_EXPORT void displayRecorderError();
-    LIBRUQOLAWIDGETS_NO_EXPORT void updateCameraActive(bool active);
     LIBRUQOLAWIDGETS_NO_EXPORT void displayCameraError();
     LIBRUQOLAWIDGETS_NO_EXPORT void updateVideoInputs();
 

@@ -65,3 +65,4 @@ private:
     QProgressDialog *mProgressDialogBox = nullptr;
 };
 Q_DECLARE_TYPEINFO(MessageAttachmentDownloadAndSaveJob::MessageAttachmentDownloadJobInfo, Q_RELOCATABLE_TYPE);
+QDebug operator<<(QDebug d, const MessageAttachmentDownloadAndSaveJob::MessageAttachmentDownloadJobInfo &t);
