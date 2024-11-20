@@ -773,7 +773,7 @@ void RuqolaMainWindow::slotCreateTeam()
         job->setTeamsCreateJobInfo(teamInfo);
         mCurrentRocketChatAccount->restApi()->initializeRestApiJob(job);
         connect(job, &RocketChatRestApi::TeamsCreateJob::teamCreateDone, this, [this](const QJsonObject &replyObject) {
-            mCurrentRocketChatAccount->extractIdentifier(replyObject, "team"_L1, "roomId"_L1);
+            mCurrentRocketChatAccount->extractIdentifier(replyObject, "team"_L1, "_id"_L1);
         });
         if (!job->start()) {
             qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start TeamsCreateJob";
