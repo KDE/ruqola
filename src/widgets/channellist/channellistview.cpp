@@ -284,9 +284,9 @@ void ChannelListView::slotConvertToChannel(const QModelIndex &index)
         job->setTeamId(teamId);
         job->setRoomsToRemove(listRoomIdToDelete);
         mCurrentRocketChatAccount->restApi()->initializeRestApiJob(job);
-        connect(job, &RocketChatRestApi::TeamConvertToChannelJob::teamConvertToChannelDone, this, []() {
-            // TODO ?
-        });
+        // connect(job, &RocketChatRestApi::TeamConvertToChannelJob::teamConvertToChannelDone, this, []() {
+        //     // TODO ?
+        // });
         if (!job->start()) {
             qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start TeamConvertToChannelJob job";
         }
@@ -317,7 +317,6 @@ void ChannelListView::slotConvertToTeam(const QModelIndex &index, Room::RoomType
             auto job = new RocketChatRestApi::ChannelsConvertToTeamJob(this);
             job->setChannelId(roomId);
             mCurrentRocketChatAccount->restApi()->initializeRestApiJob(job);
-            connect(job, &RocketChatRestApi::ChannelsConvertToTeamJob::channelConvertToTeamDone, this, &ChannelListView::slotChannelConvertToTeamDone);
             if (!job->start()) {
                 qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start ChannelsConvertToTeamJob job";
             }
@@ -327,7 +326,6 @@ void ChannelListView::slotConvertToTeam(const QModelIndex &index, Room::RoomType
             auto job = new RocketChatRestApi::GroupsConvertToTeamJob(this);
             job->setRoomId(roomId);
             mCurrentRocketChatAccount->restApi()->initializeRestApiJob(job);
-            connect(job, &RocketChatRestApi::GroupsConvertToTeamJob::groupConvertToTeamDone, this, &ChannelListView::slotGroupConvertToTeamDone);
             if (!job->start()) {
                 qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start ChannelsConvertToTeamJob job";
             }
@@ -335,20 +333,6 @@ void ChannelListView::slotConvertToTeam(const QModelIndex &index, Room::RoomType
         }
         }
     }
-}
-
-void ChannelListView::slotChannelConvertToTeamDone(const QJsonObject &obj)
-{
-    Q_UNUSED(obj)
-    // qDebug() << " obj "<< obj;
-    // TODO
-}
-
-void ChannelListView::slotGroupConvertToTeamDone(const QJsonObject &obj)
-{
-    Q_UNUSED(obj)
-    // qDebug() << " obj "<< obj;
-    // TODO
 }
 
 void ChannelListView::slotMarkAsChannel(const QModelIndex &index, bool markAsRead)

@@ -62,8 +62,6 @@ private:
     LIBRUQOLAWIDGETS_NO_EXPORT void slotChangeFavorite(const QModelIndex &index, bool isFavorite);
     LIBRUQOLAWIDGETS_NO_EXPORT void slotMarkAsChannel(const QModelIndex &index, bool markAsRead);
     LIBRUQOLAWIDGETS_NO_EXPORT void slotConvertToTeam(const QModelIndex &index, Room::RoomType roomType);
-    LIBRUQOLAWIDGETS_NO_EXPORT void slotChannelConvertToTeamDone(const QJsonObject &obj);
-    LIBRUQOLAWIDGETS_NO_EXPORT void slotGroupConvertToTeamDone(const QJsonObject &obj);
     LIBRUQOLAWIDGETS_NO_EXPORT void slotMoveToTeam(const QModelIndex &index);
     LIBRUQOLAWIDGETS_NO_EXPORT void slotConvertToChannel(const QModelIndex &index);
     LIBRUQOLAWIDGETS_NO_EXPORT void slotConfigureNotification(Room *room);
