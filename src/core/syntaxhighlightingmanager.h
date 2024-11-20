@@ -14,7 +14,6 @@ class SyntaxHighlightingManager : public QObject
 {
     Q_OBJECT
 public:
-    explicit SyntaxHighlightingManager(QObject *parent = nullptr);
     ~SyntaxHighlightingManager() override = default;
 
     static SyntaxHighlightingManager *self();
@@ -27,6 +26,7 @@ public:
     KSyntaxHighlighting::Repository &repo() const;
 
 private:
+    explicit SyntaxHighlightingManager(QObject *parent = nullptr);
     void initialize();
     mutable KSyntaxHighlighting::Repository mRepo;
     KSyntaxHighlighting::Definition mDefaultDef;
