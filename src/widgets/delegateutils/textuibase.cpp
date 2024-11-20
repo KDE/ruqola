@@ -16,9 +16,12 @@ TextUiBase::~TextUiBase() = default;
 
 void TextUiBase::removeMessageCache(const QByteArray &messageId)
 {
+    mDocumentCache.remove(messageId);
+#if 0
     if (!mDocumentCache.remove(messageId)) {
         qCWarning(RUQOLA_CACHE_LOG) << " impossible to find identifier " << messageId;
     }
+#endif
 }
 
 void TextUiBase::setCacheMaxEntries(int maxEntries)
