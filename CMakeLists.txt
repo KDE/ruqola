@@ -6,6 +6,10 @@ set(RUQOLA_VERSION "2.3.49")
 # TODO: update it in each release version
 set(RUQOLA_RELEASE_VERSION "24.11.20") # yy.MM.dd
 
+# Use true if stable version => we will check specific version
+set(RUQOLA_STABLE_VERSION false)
+
+
 project(Ruqola VERSION ${RUQOLA_VERSION})
 set(QT_REQUIRED_VERSION "6.7.0")
 set(KF_MIN_VERSION "6.5.0")
