@@ -6,6 +6,7 @@
 */
 
 #include "needupdateversionutils.h"
+#include "config-ruqola.h"
 
 #include <KConfigGroup>
 #include <KSharedConfig>
@@ -15,7 +16,7 @@
 using namespace Qt::Literals::StringLiterals;
 NeedUpdateVersionUtils::ObsoleteVersion NeedUpdateVersionUtils::obsoleteVersionStatus(const QString &str, const QDate &currentDate)
 {
-    static QRegularExpression regular{QStringLiteral("\\((.*)\\)")};
+    static const QRegularExpression regular{QStringLiteral("\\((.*)\\)")};
     QRegularExpressionMatch match;
     QString captured;
     if (str.contains(regular, &match)) {
@@ -70,14 +71,26 @@ bool NeedUpdateVersionUtils::checkVersion()
 QUrl NeedUpdateVersionUtils::newVersionUrl()
 {
 #if defined(Q_OS_WIN)
+#if RUQOLA_STABLE_VERSION
+    return QUrl("https://cdn.kde.org/ci-builds/network/ruqola/2.3/windows/"_L1);
+#else
     return QUrl("https://cdn.kde.org/ci-builds/network/ruqola/master/windows/"_L1);
+#endif
 #endif
 
 #if defined(Q_OS_MACOS)
 #ifdef Q_PROCESSOR_ARM_64
+#if RUQOLA_STABLE_VERSION
+    return QUrl("https://cdn.kde.org/ci-builds/network/ruqola/2.3/macos-arm64/"_L1);
+#else
     return QUrl("https://cdn.kde.org/ci-builds/network/ruqola/master/macos-arm64/"_L1);
+#endif
+#else
+#if RUQOLA_STABLE_VERSION
+    return QUrl("https://cdn.kde.org/ci-builds/network/ruqola/2.3/macos-x86_64/"_L1);
 #else
     return QUrl("https://cdn.kde.org/ci-builds/network/ruqola/master/macos-x86_64/"_L1);
+#endif
 #endif
 #endif
     return {};
