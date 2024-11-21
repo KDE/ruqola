@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-11-20 00:40+0000\n"
+"POT-Creation-Date: 2024-11-21 00:41+0000\n"
 "PO-Revision-Date: 2024-10-02 22:38+0200\n"
 "Last-Translator: Kristof Kiszel <ulysses@fsf.hu>\n"
 "Language-Team: Hungarian <kde-l10n-hu@kde.org>\n"
@@ -7177,23 +7177,23 @@ msgctxt "@action"
 msgid "Quit Channel"
 msgstr "Kilépés a csatornából"
 
-#: widgets/channellist/channellistview.cpp:256
+#: widgets/channellist/channellistview.cpp:255
 #, kde-format
 msgid "Any team selected."
 msgstr "Bármelyik kiválasztott csapat."
 
-#: widgets/channellist/channellistview.cpp:256
+#: widgets/channellist/channellistview.cpp:255
 #, kde-format
 msgctxt "@title:window"
 msgid "Move To Team"
 msgstr "Áthelyezés csapatba"
 
-#: widgets/channellist/channellistview.cpp:305
+#: widgets/channellist/channellistview.cpp:304
 #, kde-format
 msgid "Are you sure to convert it to team? It can not be undo."
 msgstr "Biztosan átalakítja csapattá? Nem visszavonható."
 
-#: widgets/channellist/channellistview.cpp:306
+#: widgets/channellist/channellistview.cpp:305
 #, kde-format
 msgctxt "@title:window"
 msgid "Convert to Team"
@@ -8115,7 +8115,7 @@ msgstr ""
 "fel egy képet?”."
 
 #: widgets/dialogs/createsoundmessagewidget.cpp:157
-#: widgets/dialogs/createvideomessagewidget.cpp:248
+#: widgets/dialogs/createvideomessagewidget.cpp:244
 #, kde-format
 msgid "Recorded %1 sec"
 msgstr "%1 másodperc rögzítve"
@@ -11076,41 +11076,41 @@ msgctxt "@info:placeholder"
 msgid "Search room…"
 msgstr "Szoba keresése…"
 
-#: widgets/teams/teamchannelswidget.cpp:116
+#: widgets/teams/teamchannelswidget.cpp:117
 #, kde-format
 msgid "Add Existing Room"
 msgstr "Meglévő szoba hozzáadása"
 
-#: widgets/teams/teamchannelswidget.cpp:118
+#: widgets/teams/teamchannelswidget.cpp:119
 #, kde-format
 msgctxt "@action"
 msgid "Create Room"
 msgstr "Szoba létrehozása"
 
-#: widgets/teams/teamchannelswidget.cpp:124
+#: widgets/teams/teamchannelswidget.cpp:125
 #, kde-format
 msgctxt "@action"
 msgid "Remove Autojoin"
 msgstr "Automatikus csatlakozás eltávolítása"
 
-#: widgets/teams/teamchannelswidget.cpp:124
+#: widgets/teams/teamchannelswidget.cpp:125
 #, kde-format
 msgctxt "@action"
 msgid "Add Autojoin"
 msgstr "Automatikus csatlakozás hozzáadása"
 
-#: widgets/teams/teamchannelswidget.cpp:131
+#: widgets/teams/teamchannelswidget.cpp:132
 #, kde-format
 msgctxt "@action"
 msgid "Remove from Team"
 msgstr "Eltávolítás a csapatból"
 
-#: widgets/teams/teamchannelswidget.cpp:166
+#: widgets/teams/teamchannelswidget.cpp:167
 #, kde-format
 msgid "Would you like to remove this Channel from team?"
 msgstr "Szeretné eltávolítani ezt a csatornát a csapatból?"
 
-#: widgets/teams/teamchannelswidget.cpp:167
+#: widgets/teams/teamchannelswidget.cpp:168
 #, kde-format
 msgctxt "@title"
 msgid "Remove Channel from Team"
@@ -11572,6 +11572,12 @@ msgstr ""
 msgid "Fix filter discussion in administrator mode"
 msgstr ""
 "Függőben lévő felhasználók információinak megvalósítása (adminisztrátor mód)."
+
+#: widgets/whatsnew/whatsnewtranslations.cpp:131
+#, fuzzy, kde-format
+#| msgid "Fix dark mode support."
+msgid "Fix message video support"
+msgstr "Sötét mód támogatása javítva."
 
 #: widgets/whatsnew/whatsnewwidget.cpp:44
 #, kde-format

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-11-20 00:40+0000\n"
+"POT-Creation-Date: 2024-11-21 00:41+0000\n"
 "PO-Revision-Date: 2024-11-19 20:27+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
@@ -7097,24 +7097,24 @@ msgctxt "@action"
 msgid "Quit Channel"
 msgstr "Kanaldan Çık"
 
-#: widgets/channellist/channellistview.cpp:256
+#: widgets/channellist/channellistview.cpp:255
 #, kde-format
 msgid "Any team selected."
 msgstr "Herhangi bir takım seçili."
 
-#: widgets/channellist/channellistview.cpp:256
+#: widgets/channellist/channellistview.cpp:255
 #, kde-format
 msgctxt "@title:window"
 msgid "Move To Team"
 msgstr "Takıma Taşı"
 
-#: widgets/channellist/channellistview.cpp:305
+#: widgets/channellist/channellistview.cpp:304
 #, kde-format
 msgid "Are you sure to convert it to team? It can not be undo."
 msgstr ""
 "Takıma dönüştürmek istediğinizden emin misiniz? Bu işlem geri alınamaz."
 
-#: widgets/channellist/channellistview.cpp:306
+#: widgets/channellist/channellistview.cpp:305
 #, kde-format
 msgctxt "@title:window"
 msgid "Convert to Team"
@@ -8005,7 +8005,7 @@ msgstr ""
 "yüklerim?”"
 
 #: widgets/dialogs/createsoundmessagewidget.cpp:157
-#: widgets/dialogs/createvideomessagewidget.cpp:248
+#: widgets/dialogs/createvideomessagewidget.cpp:244
 #, kde-format
 msgid "Recorded %1 sec"
 msgstr "%1 saniye kaydedildi"
@@ -10925,41 +10925,41 @@ msgctxt "@info:placeholder"
 msgid "Search room…"
 msgstr "Odalar ara…"
 
-#: widgets/teams/teamchannelswidget.cpp:116
+#: widgets/teams/teamchannelswidget.cpp:117
 #, kde-format
 msgid "Add Existing Room"
 msgstr "Var Olan Odayı Ekle"
 
-#: widgets/teams/teamchannelswidget.cpp:118
+#: widgets/teams/teamchannelswidget.cpp:119
 #, kde-format
 msgctxt "@action"
 msgid "Create Room"
 msgstr "Oda Oluştur"
 
-#: widgets/teams/teamchannelswidget.cpp:124
+#: widgets/teams/teamchannelswidget.cpp:125
 #, kde-format
 msgctxt "@action"
 msgid "Remove Autojoin"
 msgstr "Kendiliğinden Katılmayı Kaldır"
 
-#: widgets/teams/teamchannelswidget.cpp:124
+#: widgets/teams/teamchannelswidget.cpp:125
 #, kde-format
 msgctxt "@action"
 msgid "Add Autojoin"
 msgstr "Kendiliğinden Katılma Ekle"
 
-#: widgets/teams/teamchannelswidget.cpp:131
+#: widgets/teams/teamchannelswidget.cpp:132
 #, kde-format
 msgctxt "@action"
 msgid "Remove from Team"
 msgstr "Takımdan Kaldır"
 
-#: widgets/teams/teamchannelswidget.cpp:166
+#: widgets/teams/teamchannelswidget.cpp:167
 #, kde-format
 msgid "Would you like to remove this Channel from team?"
 msgstr "Bu kanalı, takımdan kaldırmak ister misiniz?"
 
-#: widgets/teams/teamchannelswidget.cpp:167
+#: widgets/teams/teamchannelswidget.cpp:168
 #, kde-format
 msgctxt "@title"
 msgid "Remove Channel from Team"
@@ -11411,6 +11411,12 @@ msgstr ""
 #| msgid "Implement pending users info (administrator mode)."
 msgid "Fix filter discussion in administrator mode"
 msgstr "Beklemede olan kullanıcı bilgisini gerçekle (yönetim kipi)"
+
+#: widgets/whatsnew/whatsnewtranslations.cpp:131
+#, fuzzy, kde-format
+#| msgid "Fix dark mode support."
+msgid "Fix message video support"
+msgstr "Koyu kip desteğini onar"
 
 #: widgets/whatsnew/whatsnewwidget.cpp:44
 #, kde-format

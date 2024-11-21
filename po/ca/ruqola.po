@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-11-20 00:40+0000\n"
-"PO-Revision-Date: 2024-11-18 09:00+0100\n"
+"POT-Creation-Date: 2024-11-21 00:41+0000\n"
+"PO-Revision-Date: 2024-11-20 10:59+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca\n"
@@ -1785,10 +1785,9 @@ msgid "Channel was blocked."
 msgstr "El canal està blocat."
 
 #: core/roominfo/roominfo.cpp:128
-#, fuzzy, kde-format
-#| msgid "Discussions"
+#, kde-format
 msgid "Discussion"
-msgstr "Debats"
+msgstr "Debat"
 
 #: core/roominfo/roominfo.cpp:132
 #, kde-format
@@ -7156,23 +7155,23 @@ msgctxt "@action"
 msgid "Quit Channel"
 msgstr "Surt del canal"
 
-#: widgets/channellist/channellistview.cpp:256
+#: widgets/channellist/channellistview.cpp:255
 #, kde-format
 msgid "Any team selected."
 msgstr "Qualsevol equip seleccionat."
 
-#: widgets/channellist/channellistview.cpp:256
+#: widgets/channellist/channellistview.cpp:255
 #, kde-format
 msgctxt "@title:window"
 msgid "Move To Team"
 msgstr "Mou a un equip"
 
-#: widgets/channellist/channellistview.cpp:305
+#: widgets/channellist/channellistview.cpp:304
 #, kde-format
 msgid "Are you sure to convert it to team? It can not be undo."
 msgstr "Esteu segur de convertir-ho a un equip? Això no es pot desfer."
 
-#: widgets/channellist/channellistview.cpp:306
+#: widgets/channellist/channellistview.cpp:305
 #, kde-format
 msgctxt "@title:window"
 msgid "Convert to Team"
@@ -8065,7 +8064,7 @@ msgstr ""
 "imatge?»"
 
 #: widgets/dialogs/createsoundmessagewidget.cpp:157
-#: widgets/dialogs/createvideomessagewidget.cpp:248
+#: widgets/dialogs/createvideomessagewidget.cpp:244
 #, kde-format
 msgid "Recorded %1 sec"
 msgstr "S'han enregistrat %1 s"
@@ -10989,41 +10988,41 @@ msgctxt "@info:placeholder"
 msgid "Search room…"
 msgstr "Cerca una sala…"
 
-#: widgets/teams/teamchannelswidget.cpp:116
+#: widgets/teams/teamchannelswidget.cpp:117
 #, kde-format
 msgid "Add Existing Room"
 msgstr "Afegeix una sala existent"
 
-#: widgets/teams/teamchannelswidget.cpp:118
+#: widgets/teams/teamchannelswidget.cpp:119
 #, kde-format
 msgctxt "@action"
 msgid "Create Room"
 msgstr "Crea una sala"
 
-#: widgets/teams/teamchannelswidget.cpp:124
+#: widgets/teams/teamchannelswidget.cpp:125
 #, kde-format
 msgctxt "@action"
 msgid "Remove Autojoin"
 msgstr "Elimina la unió automàtica"
 
-#: widgets/teams/teamchannelswidget.cpp:124
+#: widgets/teams/teamchannelswidget.cpp:125
 #, kde-format
 msgctxt "@action"
 msgid "Add Autojoin"
 msgstr "Afegeix la unió automàtica"
 
-#: widgets/teams/teamchannelswidget.cpp:131
+#: widgets/teams/teamchannelswidget.cpp:132
 #, kde-format
 msgctxt "@action"
 msgid "Remove from Team"
 msgstr "Elimina de l'equip"
 
-#: widgets/teams/teamchannelswidget.cpp:166
+#: widgets/teams/teamchannelswidget.cpp:167
 #, kde-format
 msgid "Would you like to remove this Channel from team?"
 msgstr "Voleu eliminar aquest canal de l'equip?"
 
-#: widgets/teams/teamchannelswidget.cpp:167
+#: widgets/teams/teamchannelswidget.cpp:168
 #, kde-format
 msgctxt "@title"
 msgid "Remove Channel from Team"
@@ -11479,14 +11478,18 @@ msgstr "Corregeix l'aplicació individual a Windows/MacOs"
 #: widgets/whatsnew/whatsnewtranslations.cpp:129
 #, kde-format
 msgid "Fix select created room/discussion/teams"
-msgstr ""
+msgstr "Corregeix la selecció de sales/debats/equips creats"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:130
-#, fuzzy, kde-format
-#| msgid "Implement pending users info (administrator mode)."
+#, kde-format
 msgid "Fix filter discussion in administrator mode"
-msgstr ""
-"Implementa la informació sobre els usuaris pendents (mode d'administrador)."
+msgstr "Corregeix el filtre de debats en mode d'administrador"
+
+#: widgets/whatsnew/whatsnewtranslations.cpp:131
+#, fuzzy, kde-format
+#| msgid "Fix dark mode support."
+msgid "Fix message video support"
+msgstr "Corregeix la implementació del mode fosc."
 
 #: widgets/whatsnew/whatsnewwidget.cpp:44
 #, kde-format

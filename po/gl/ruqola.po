@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-11-20 00:40+0000\n"
+"POT-Creation-Date: 2024-11-21 00:41+0000\n"
 "PO-Revision-Date: 2024-09-21 16:04+0200\n"
 "Last-Translator: Adrián Chaves (Gallaecio) <adrian@chaves.io>\n"
 "Language-Team: Proxecto Trasno (proxecto@trasno.gal)\n"
@@ -7170,23 +7170,23 @@ msgctxt "@action"
 msgid "Quit Channel"
 msgstr "Saír da canle"
 
-#: widgets/channellist/channellistview.cpp:256
+#: widgets/channellist/channellistview.cpp:255
 #, kde-format
 msgid "Any team selected."
 msgstr "Calquera equipo seleccionado."
 
-#: widgets/channellist/channellistview.cpp:256
+#: widgets/channellist/channellistview.cpp:255
 #, kde-format
 msgctxt "@title:window"
 msgid "Move To Team"
 msgstr "Mover a un equipo"
 
-#: widgets/channellist/channellistview.cpp:305
+#: widgets/channellist/channellistview.cpp:304
 #, kde-format
 msgid "Are you sure to convert it to team? It can not be undo."
 msgstr "Seguro que quere convertela nun equipo? Non se pode desfacer."
 
-#: widgets/channellist/channellistview.cpp:306
+#: widgets/channellist/channellistview.cpp:305
 #, kde-format
 msgctxt "@title:window"
 msgid "Convert to Team"
@@ -8111,7 +8111,7 @@ msgstr ""
 "imaxe?»."
 
 #: widgets/dialogs/createsoundmessagewidget.cpp:157
-#: widgets/dialogs/createvideomessagewidget.cpp:248
+#: widgets/dialogs/createvideomessagewidget.cpp:244
 #, kde-format
 msgid "Recorded %1 sec"
 msgstr "Graváronse %1 segundos"
@@ -11069,41 +11069,41 @@ msgctxt "@info:placeholder"
 msgid "Search room…"
 msgstr "Buscar unha sala…"
 
-#: widgets/teams/teamchannelswidget.cpp:116
+#: widgets/teams/teamchannelswidget.cpp:117
 #, kde-format
 msgid "Add Existing Room"
 msgstr "Engadir unha sala existente"
 
-#: widgets/teams/teamchannelswidget.cpp:118
+#: widgets/teams/teamchannelswidget.cpp:119
 #, kde-format
 msgctxt "@action"
 msgid "Create Room"
 msgstr "Crear unha sala"
 
-#: widgets/teams/teamchannelswidget.cpp:124
+#: widgets/teams/teamchannelswidget.cpp:125
 #, kde-format
 msgctxt "@action"
 msgid "Remove Autojoin"
 msgstr "Retirar a unión automática"
 
-#: widgets/teams/teamchannelswidget.cpp:124
+#: widgets/teams/teamchannelswidget.cpp:125
 #, kde-format
 msgctxt "@action"
 msgid "Add Autojoin"
 msgstr "Engadir a unión automática"
 
-#: widgets/teams/teamchannelswidget.cpp:131
+#: widgets/teams/teamchannelswidget.cpp:132
 #, kde-format
 msgctxt "@action"
 msgid "Remove from Team"
 msgstr "Retirar do equipo"
 
-#: widgets/teams/teamchannelswidget.cpp:166
+#: widgets/teams/teamchannelswidget.cpp:167
 #, kde-format
 msgid "Would you like to remove this Channel from team?"
 msgstr "Quere retirar a canle do equipo?"
 
-#: widgets/teams/teamchannelswidget.cpp:167
+#: widgets/teams/teamchannelswidget.cpp:168
 #, kde-format
 msgctxt "@title"
 msgid "Remove Channel from Team"
@@ -11574,6 +11574,12 @@ msgid "Fix filter discussion in administrator mode"
 msgstr ""
 "Implementar a información das persoas usuarias pendentes (modo de "
 "administración)."
+
+#: widgets/whatsnew/whatsnewtranslations.cpp:131
+#, fuzzy, kde-format
+#| msgid "Fix dark mode support."
+msgid "Fix message video support"
+msgstr "Corrixir a compatibilidade co modo escuro."
 
 #: widgets/whatsnew/whatsnewwidget.cpp:44
 #, kde-format
