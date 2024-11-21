@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-11-20 02:33+0000\n"
+"POT-Creation-Date: 2024-11-21 02:28+0000\n"
 "PO-Revision-Date: 2023-05-10 20:24+0200\n"
 "Last-Translator: Frederik Schwarzer <schwarzer@kde.org>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
@@ -7969,7 +7969,7 @@ msgid ""
 msgstr ""
 
 #: widgets/dialogs/createsoundmessagewidget.cpp:157
-#: widgets/dialogs/createvideomessagewidget.cpp:248
+#: widgets/dialogs/createvideomessagewidget.cpp:244
 #, kde-format
 msgid "Recorded %1 sec"
 msgstr ""
@@ -11090,45 +11090,45 @@ msgctxt "@info:placeholder"
 msgid "Search room…"
 msgstr "Räume suchen"
 
-#: widgets/teams/teamchannelswidget.cpp:116
+#: widgets/teams/teamchannelswidget.cpp:117
 #, kde-format
 msgid "Add Existing Room"
 msgstr "Vorhandenen Raum hinzufügen"
 
-#: widgets/teams/teamchannelswidget.cpp:118
+#: widgets/teams/teamchannelswidget.cpp:119
 #, fuzzy, kde-format
 #| msgid "Create Room"
 msgctxt "@action"
 msgid "Create Room"
 msgstr "Raum erstellen"
 
-#: widgets/teams/teamchannelswidget.cpp:124
+#: widgets/teams/teamchannelswidget.cpp:125
 #, fuzzy, kde-format
 #| msgid "Remove"
 msgctxt "@action"
 msgid "Remove Autojoin"
 msgstr "Entfernen"
 
-#: widgets/teams/teamchannelswidget.cpp:124
+#: widgets/teams/teamchannelswidget.cpp:125
 #, fuzzy, kde-format
 #| msgid "Add Account"
 msgctxt "@action"
 msgid "Add Autojoin"
 msgstr "Zugang hinzufügen"
 
-#: widgets/teams/teamchannelswidget.cpp:131
+#: widgets/teams/teamchannelswidget.cpp:132
 #, fuzzy, kde-format
 #| msgid "Remove from Team"
 msgctxt "@action"
 msgid "Remove from Team"
 msgstr "Vom Team entfernen"
 
-#: widgets/teams/teamchannelswidget.cpp:166
+#: widgets/teams/teamchannelswidget.cpp:167
 #, kde-format
 msgid "Would you like to remove this Channel from team?"
 msgstr "Möchten Sie diesen Kanal vom Team entfernen?"
 
-#: widgets/teams/teamchannelswidget.cpp:167
+#: widgets/teams/teamchannelswidget.cpp:168
 #, fuzzy, kde-format
 #| msgid "Remove Channel from Team"
 msgctxt "@title"

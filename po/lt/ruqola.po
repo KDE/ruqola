@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-11-20 02:33+0000\n"
+"POT-Creation-Date: 2024-11-21 02:28+0000\n"
 "PO-Revision-Date: 2024-10-08 22:03+0300\n"
 "Last-Translator: Moo\n"
 "Language-Team: none\n"
@@ -7859,7 +7859,7 @@ msgid ""
 msgstr ""
 
 #: widgets/dialogs/createsoundmessagewidget.cpp:157
-#: widgets/dialogs/createvideomessagewidget.cpp:248
+#: widgets/dialogs/createvideomessagewidget.cpp:244
 #, kde-format
 msgid "Recorded %1 sec"
 msgstr ""
@@ -10994,46 +10994,46 @@ msgctxt "@info:placeholder"
 msgid "Search room…"
 msgstr "Ieškoti žinučių..."
 
-#: widgets/teams/teamchannelswidget.cpp:116
+#: widgets/teams/teamchannelswidget.cpp:117
 #, kde-format
 msgid "Add Existing Room"
 msgstr ""
 
-#: widgets/teams/teamchannelswidget.cpp:118
+#: widgets/teams/teamchannelswidget.cpp:119
 #, fuzzy, kde-format
 #| msgid "Private Room:"
 msgctxt "@action"
 msgid "Create Room"
 msgstr "Privatus kambarys:"
 
-#: widgets/teams/teamchannelswidget.cpp:124
+#: widgets/teams/teamchannelswidget.cpp:125
 #, fuzzy, kde-format
 #| msgid "Remove from Room"
 msgctxt "@action"
 msgid "Remove Autojoin"
 msgstr "Šalinti iš kambario"
 
-#: widgets/teams/teamchannelswidget.cpp:124
+#: widgets/teams/teamchannelswidget.cpp:125
 #, fuzzy, kde-format
 #| msgid "Add Account"
 msgctxt "@action"
 msgid "Add Autojoin"
 msgstr "Pridėti paskyrą"
 
-#: widgets/teams/teamchannelswidget.cpp:131
+#: widgets/teams/teamchannelswidget.cpp:132
 #, fuzzy, kde-format
 #| msgid "Remove from Room"
 msgctxt "@action"
 msgid "Remove from Team"
 msgstr "Šalinti iš kambario"
 
-#: widgets/teams/teamchannelswidget.cpp:166
+#: widgets/teams/teamchannelswidget.cpp:167
 #, fuzzy, kde-format
 #| msgid "Do you want to leave this channel?"
 msgid "Would you like to remove this Channel from team?"
 msgstr "Ar norite išeiti iš šio kanalo?"
 
-#: widgets/teams/teamchannelswidget.cpp:167
+#: widgets/teams/teamchannelswidget.cpp:168
 #, fuzzy, kde-format
 #| msgid "Remove from Room"
 msgctxt "@title"

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-11-20 02:33+0000\n"
+"POT-Creation-Date: 2024-11-21 02:28+0000\n"
 "PO-Revision-Date: 2024-05-24 11:20+0200\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
@@ -7968,7 +7968,7 @@ msgstr ""
 "van een afbeelding?\""
 
 #: widgets/dialogs/createsoundmessagewidget.cpp:157
-#: widgets/dialogs/createvideomessagewidget.cpp:248
+#: widgets/dialogs/createvideomessagewidget.cpp:244
 #, kde-format
 msgid "Recorded %1 sec"
 msgstr "%1 seconden opgenomen"
@@ -11026,45 +11026,45 @@ msgctxt "@info:placeholder"
 msgid "Search room…"
 msgstr "Room doorzoeken…"
 
-#: widgets/teams/teamchannelswidget.cpp:116
+#: widgets/teams/teamchannelswidget.cpp:117
 #, kde-format
 msgid "Add Existing Room"
 msgstr "Bestaand room toevoegen"
 
-#: widgets/teams/teamchannelswidget.cpp:118
+#: widgets/teams/teamchannelswidget.cpp:119
 #, fuzzy, kde-format
 #| msgid "Create Room"
 msgctxt "@action"
 msgid "Create Room"
 msgstr "Kamer aanmaken"
 
-#: widgets/teams/teamchannelswidget.cpp:124
+#: widgets/teams/teamchannelswidget.cpp:125
 #, fuzzy, kde-format
 #| msgid "Remove Autojoin"
 msgctxt "@action"
 msgid "Remove Autojoin"
 msgstr "Auto-meedoen verwijderen"
 
-#: widgets/teams/teamchannelswidget.cpp:124
+#: widgets/teams/teamchannelswidget.cpp:125
 #, fuzzy, kde-format
 #| msgid "Add Autojoin"
 msgctxt "@action"
 msgid "Add Autojoin"
 msgstr "Auto-meedoen toevoegen"
 
-#: widgets/teams/teamchannelswidget.cpp:131
+#: widgets/teams/teamchannelswidget.cpp:132
 #, fuzzy, kde-format
 #| msgid "Remove from Team"
 msgctxt "@action"
 msgid "Remove from Team"
 msgstr "Uit team verwijderen"
 
-#: widgets/teams/teamchannelswidget.cpp:166
+#: widgets/teams/teamchannelswidget.cpp:167
 #, kde-format
 msgid "Would you like to remove this Channel from team?"
 msgstr "Wilt u dit kanaal uit team verwijderen?"
 
-#: widgets/teams/teamchannelswidget.cpp:167
+#: widgets/teams/teamchannelswidget.cpp:168
 #, kde-format
 msgctxt "@title"
 msgid "Remove Channel from Team"

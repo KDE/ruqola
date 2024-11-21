@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-11-20 02:33+0000\n"
+"POT-Creation-Date: 2024-11-21 02:28+0000\n"
 "PO-Revision-Date: 2024-09-13 08:25+0200\n"
 "Last-Translator: Stefan Asserhäll <stefan.asserhall@gmail.com>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
@@ -7622,7 +7622,7 @@ msgstr ""
 "Ofta börjar en diskussion med en fråga, såsom \"Hur laddar jag upp en bild?\""
 
 #: widgets/dialogs/createsoundmessagewidget.cpp:157
-#: widgets/dialogs/createvideomessagewidget.cpp:248
+#: widgets/dialogs/createvideomessagewidget.cpp:244
 #, kde-format
 msgid "Recorded %1 sec"
 msgstr "Spelade in %1 sek"
@@ -10487,41 +10487,41 @@ msgctxt "@info:placeholder"
 msgid "Search room…"
 msgstr "Sök efter rum…"
 
-#: widgets/teams/teamchannelswidget.cpp:116
+#: widgets/teams/teamchannelswidget.cpp:117
 #, kde-format
 msgid "Add Existing Room"
 msgstr "Lägg till befintligt rum"
 
-#: widgets/teams/teamchannelswidget.cpp:118
+#: widgets/teams/teamchannelswidget.cpp:119
 #, kde-format
 msgctxt "@action"
 msgid "Create Room"
 msgstr "Skapa rum"
 
-#: widgets/teams/teamchannelswidget.cpp:124
+#: widgets/teams/teamchannelswidget.cpp:125
 #, kde-format
 msgctxt "@action"
 msgid "Remove Autojoin"
 msgstr "Ta bort automatisk anslutning"
 
-#: widgets/teams/teamchannelswidget.cpp:124
+#: widgets/teams/teamchannelswidget.cpp:125
 #, kde-format
 msgctxt "@action"
 msgid "Add Autojoin"
 msgstr "Lägg till automatisk anslutning"
 
-#: widgets/teams/teamchannelswidget.cpp:131
+#: widgets/teams/teamchannelswidget.cpp:132
 #, kde-format
 msgctxt "@action"
 msgid "Remove from Team"
 msgstr "Ta bort från lag"
 
-#: widgets/teams/teamchannelswidget.cpp:166
+#: widgets/teams/teamchannelswidget.cpp:167
 #, kde-format
 msgid "Would you like to remove this Channel from team?"
 msgstr "Vill du ta bort kanalen från laget?"
 
-#: widgets/teams/teamchannelswidget.cpp:167
+#: widgets/teams/teamchannelswidget.cpp:168
 #, kde-format
 msgctxt "@title"
 msgid "Remove Channel from Team"
