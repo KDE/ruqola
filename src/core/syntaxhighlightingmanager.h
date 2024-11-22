@@ -8,13 +8,11 @@
 
 #include <KSyntaxHighlighting/Definition>
 #include <KSyntaxHighlighting/Repository>
-#include <QObject>
 
-class SyntaxHighlightingManager : public QObject
+class SyntaxHighlightingManager
 {
-    Q_OBJECT
 public:
-    ~SyntaxHighlightingManager() override = default;
+    ~SyntaxHighlightingManager() = default;
 
     static SyntaxHighlightingManager *self();
 
@@ -26,7 +24,7 @@ public:
     KSyntaxHighlighting::Repository &repo() const;
 
 private:
-    explicit SyntaxHighlightingManager(QObject *parent = nullptr);
+    SyntaxHighlightingManager();
     void initialize();
     mutable KSyntaxHighlighting::Repository mRepo;
     KSyntaxHighlighting::Definition mDefaultDef;

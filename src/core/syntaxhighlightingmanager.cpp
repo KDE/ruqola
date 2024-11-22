@@ -15,10 +15,12 @@ bool sortCaseInsensitively(const QString &lhs, const QString &rhs)
 }
 }
 
-SyntaxHighlightingManager::SyntaxHighlightingManager(QObject *parent)
-    : QObject(parent)
+SyntaxHighlightingManager::SyntaxHighlightingManager()
 {
     initialize();
+    // qDebug() << " *******************************************************************: " << sizeof(SyntaxHighlightingManager);
+    // "88" with qobject
+    // "72" without qobject
 }
 
 void SyntaxHighlightingManager::initialize()
@@ -67,4 +69,4 @@ SyntaxHighlightingManager *SyntaxHighlightingManager::self()
     return &s_self;
 }
 
-#include "moc_syntaxhighlightingmanager.cpp"
+// #include "moc_syntaxhighlightingmanager.cpp"
