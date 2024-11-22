@@ -92,6 +92,7 @@ int main(int argc, char *argv[])
     aboutData.addCredit(i18nc("@info:credit", "Allen Winter"), i18n("Packaging"), QStringLiteral("allen.winter@kdab.com"));
     aboutData.addCredit(i18nc("@info:credit", "Waqar Ahmed"), i18n("Bug fixing (compile, network crash...)"), QStringLiteral("waqar.17a@gmail.com"));
     aboutData.addCredit(i18nc("@info:credit", "Nicolas Fella"), i18n("Optimization, fix windows/mac support"), QStringLiteral("nicolas.fella@gmx.de"));
+    aboutData.addCredit(i18nc("@info:credit", "Daniele E. Domenichelli"), i18n("New feature"), QStringLiteral("daniele.domenichelli@kdab.com"));
 
     KAboutData::setApplicationData(aboutData);
 
