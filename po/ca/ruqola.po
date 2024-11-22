@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-11-21 00:41+0000\n"
-"PO-Revision-Date: 2024-11-20 10:59+0100\n"
+"PO-Revision-Date: 2024-11-21 09:30+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca\n"
@@ -11486,10 +11486,9 @@ msgid "Fix filter discussion in administrator mode"
 msgstr "Corregeix el filtre de debats en mode d'administrador"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:131
-#, fuzzy, kde-format
-#| msgid "Fix dark mode support."
+#, kde-format
 msgid "Fix message video support"
-msgstr "Corregeix la implementació del mode fosc."
+msgstr "Corregeix la implementació dels missatges de vídeo"
 
 #: widgets/whatsnew/whatsnewwidget.cpp:44
 #, kde-format

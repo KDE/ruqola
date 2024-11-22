@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-11-21 00:41+0000\n"
-"PO-Revision-Date: 2024-11-18 23:30+0100\n"
+"PO-Revision-Date: 2024-11-21 22:29+0100\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
 "Language: eu\n"
@@ -1797,10 +1797,9 @@ msgid "Channel was blocked."
 msgstr "Kanala oztopatu egin da."
 
 #: core/roominfo/roominfo.cpp:128
-#, fuzzy, kde-format
-#| msgid "Discussions"
+#, kde-format
 msgid "Discussion"
-msgstr "Eztabaidak"
+msgstr "Elkarrizketa"
 
 #: core/roominfo/roominfo.cpp:132
 #, kde-format
@@ -11465,21 +11464,17 @@ msgstr "Windows-en/MacOs-en banakako aplikazioa konpontzea"
 #: widgets/whatsnew/whatsnewtranslations.cpp:129
 #, kde-format
 msgid "Fix select created room/discussion/teams"
-msgstr ""
+msgstr "Sortutako gela/elkarrizketa/taldeak hautatzea konpontzea"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:130
-#, fuzzy, kde-format
-#| msgid "Implement pending users info (administrator mode)."
+#, kde-format
 msgid "Fix filter discussion in administrator mode"
-msgstr ""
-"Inplementatu egiteko dagoen erabiltzaileen informazioa (administratzaile "
-"modua)."
+msgstr "Administratzaile-moduan elkarrizketa iragaztea konpontzea"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:131
-#, fuzzy, kde-format
-#| msgid "Fix dark mode support."
+#, kde-format
 msgid "Fix message video support"
-msgstr "Gai ilunaren euskarria konpontzea."
+msgstr "Bideo-mezuen euskarria konpondu"
 
 #: widgets/whatsnew/whatsnewwidget.cpp:44
 #, kde-format

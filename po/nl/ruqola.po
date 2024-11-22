@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-11-21 00:41+0000\n"
-"PO-Revision-Date: 2024-11-21 00:04+0100\n"
+"PO-Revision-Date: 2024-11-21 10:23+0100\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
 "Language: nl\n"
@@ -11480,10 +11480,9 @@ msgid "Fix filter discussion in administrator mode"
 msgstr "Reparatie van filter discussie in modus beheerder"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:131
-#, fuzzy, kde-format
-#| msgid "Fix dark mode support."
+#, kde-format
 msgid "Fix message video support"
-msgstr "Ondersteuning voor modus Donker repareren."
+msgstr "Reparatie van bericht ondersteuning van video"
 
 #: widgets/whatsnew/whatsnewwidget.cpp:44
 #, kde-format

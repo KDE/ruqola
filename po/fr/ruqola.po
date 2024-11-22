@@ -1784,8 +1784,7 @@ msgid "Channel was blocked."
 msgstr "Le canal a été bloqué."
 
 #: core/roominfo/roominfo.cpp:128
-#, fuzzy, kde-format
-#| msgid "Discussion"
+#, kde-format
 msgid "Discussion"
 msgstr "Discussion"
 

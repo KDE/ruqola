@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-11-21 00:41+0000\n"
-"PO-Revision-Date: 2024-11-19 20:27+0300\n"
+"PO-Revision-Date: 2024-11-21 20:55+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -1781,10 +1781,9 @@ msgid "Channel was blocked."
 msgstr "Kanal engellenmiş."
 
 #: core/roominfo/roominfo.cpp:128
-#, fuzzy, kde-format
-#| msgid "Discussions"
+#, kde-format
 msgid "Discussion"
-msgstr "Tartışmalar"
+msgstr "Tartışma"
 
 #: core/roominfo/roominfo.cpp:132
 #, kde-format
@@ -11404,19 +11403,17 @@ msgstr "Windows/macOS üzerinde tekil uygulama başlatımını onar"
 #: widgets/whatsnew/whatsnewtranslations.cpp:129
 #, kde-format
 msgid "Fix select created room/discussion/teams"
-msgstr ""
+msgstr "Oluşturulan oda/tartışma/takım seçimini onar"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:130
-#, fuzzy, kde-format
-#| msgid "Implement pending users info (administrator mode)."
+#, kde-format
 msgid "Fix filter discussion in administrator mode"
-msgstr "Beklemede olan kullanıcı bilgisini gerçekle (yönetim kipi)"
+msgstr "Yönetici kipinde tartışma süzmeyi onar"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:131
-#, fuzzy, kde-format
-#| msgid "Fix dark mode support."
+#, kde-format
 msgid "Fix message video support"
-msgstr "Koyu kip desteğini onar"
+msgstr "Video iletisi desteğini onar"
 
 #: widgets/whatsnew/whatsnewwidget.cpp:44
 #, kde-format

@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-11-21 00:41+0000\n"
-"PO-Revision-Date: 2024-11-20 06:59+0100\n"
+"PO-Revision-Date: 2024-11-21 05:05+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -11414,10 +11414,9 @@ msgid "Fix filter discussion in administrator mode"
 msgstr "გასწორდა დისკუსიის ფილტრი ადმინისტრატორის რეჟიმში"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:131
-#, fuzzy, kde-format
-#| msgid "Fix dark mode support."
+#, kde-format
 msgid "Fix message video support"
-msgstr "ბნელი რეჟიმის მხარდაჭერის გასწორება."
+msgstr "გასწორდა შეტყობინების ვიდეოს მხარდაჭერა"
 
 #: widgets/whatsnew/whatsnewwidget.cpp:44
 #, kde-format
