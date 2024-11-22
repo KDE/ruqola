@@ -39,13 +39,13 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT TextPluginManager : public QObject
 {
     Q_OBJECT
 public:
-    explicit TextPluginManager(QObject *parent = nullptr);
     ~TextPluginManager() override;
     static TextPluginManager *self();
 
     [[nodiscard]] QList<PluginText *> pluginsList() const;
 
 private:
+    explicit TextPluginManager(QObject *parent = nullptr);
     LIBRUQOLAWIDGETS_NO_EXPORT void initializePluginList();
     LIBRUQOLAWIDGETS_NO_EXPORT void loadPlugin(TextPluginManagerInfo *item);
     LIBRUQOLAWIDGETS_NO_EXPORT PluginTextUtilData createPluginMetaData(const KPluginMetaData &metaData);
