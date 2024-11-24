@@ -696,8 +696,12 @@ void QueryParameters::generateQueryParameter(const QueryParameters &queryParamet
         }
     }
     if (!queryParameters.searchString().isEmpty()) {
-        const QString str = QStringLiteral(R"({"name":{"$regex":"%1","$options":"i"}})").arg(queryParameters.searchString());
-        urlQuery.addQueryItem(QStringLiteral("query"), str);
+        if (queryParameters.useSyntaxRc70()) {
+            urlQuery.addQueryItem(QLatin1String("name"), queryParameters.searchString());
+        } else {
+            const QString str = QStringLiteral(R"({"name":{"$regex":"%1","$options":"i"}})").arg(queryParameters.searchString());
+            urlQuery.addQueryItem(QStringLiteral("query"), str);
+        }
     }
 
     if (!queryParameters.sorting().isEmpty()) {
