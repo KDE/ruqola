@@ -8,10 +8,10 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-11-23 00:40+0000\n"
-"PO-Revision-Date: 2024-11-21 10:10+0200\n"
-"Last-Translator: Fracture dept <yurchor@ukr.net>\n"
-"Language-Team: Ukrainian <kde-i18n-uk@kde.org>\n"
+"POT-Creation-Date: 2024-11-24 00:40+0000\n"
+"PO-Revision-Date: 2024-11-23 09:28+0200\n"
+"Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
+"Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
 "Language: uk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -165,13 +165,12 @@ msgstr "Оптимізація, виправлення підтримки Window
 #, kde-format
 msgctxt "@info:credit"
 msgid "Daniele E. Domenichelli"
-msgstr ""
+msgstr "Daniele E. Domenichelli"
 
 #: apps/main.cpp:95
-#, fuzzy, kde-format
-#| msgid "Nature"
+#, kde-format
 msgid "New feature"
-msgstr "Природа"
+msgstr "Нова можливість"
 
 #: apps/main.cpp:121
 #, kde-format
@@ -3237,7 +3236,7 @@ msgctxt "@title:window"
 msgid "Deactivate User"
 msgstr "Деактивувати користувача"
 
-#: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:195
+#: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:196
 #, kde-format
 msgid ""
 "Are you sure you want to dismiss and delete all reports for this user's "
@@ -3246,13 +3245,13 @@ msgstr ""
 "Ви справді хочете відкинути і вилучити усі скарги щодо повідомлень цього "
 "користувача? Скасувати наслідки цієї дії не можна."
 
-#: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:196
+#: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:197
 #, kde-format
 msgctxt "@title:window"
 msgid "Dismiss"
 msgstr "Відкидання"
 
-#: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:216
+#: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:217
 #, kde-format
 msgid ""
 "Are you sure you want to delete all reported messages from this user?\n"
@@ -3266,7 +3265,7 @@ msgstr ""
 "бачити.\n"
 "Наслідки дії не можна буде скасувати."
 
-#: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:219
+#: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:220
 #, kde-format
 msgctxt "@title:window"
 msgid "Delete All Messages"
@@ -11214,7 +11213,7 @@ msgstr "Реалізовано вимикання та вмикання пові
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:21
 msgid "Add color to the text in the account tab"
-msgstr ""
+msgstr "Додано колір до тексту на вкладці облікових записів"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:30
 #, kde-format

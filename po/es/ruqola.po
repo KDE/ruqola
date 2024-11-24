@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-11-23 00:40+0000\n"
-"PO-Revision-Date: 2024-11-16 19:50+0100\n"
+"POT-Creation-Date: 2024-11-24 00:40+0000\n"
+"PO-Revision-Date: 2024-11-23 18:32+0100\n"
 "Last-Translator: Víctor Rodrigo Córdoba <vrcordoba@gmail.com>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -162,14 +162,12 @@ msgstr "Optimización, arreglos en windows/mac"
 #, kde-format
 msgctxt "@info:credit"
 msgid "Daniele E. Domenichelli"
-msgstr ""
+msgstr "Daniele E. Domenichelli"
 
 #: apps/main.cpp:95
-#, fuzzy, kde-format
-#| msgctxt "@option:check"
-#| msgid "Featured"
+#, kde-format
 msgid "New feature"
-msgstr "Destacado"
+msgstr "Nueva funcionalidad"
 
 #: apps/main.cpp:121
 #, kde-format
@@ -1796,10 +1794,9 @@ msgid "Channel was blocked."
 msgstr "El canal fue bloqueado."
 
 #: core/roominfo/roominfo.cpp:128
-#, fuzzy, kde-format
-#| msgid "Discussions"
+#, kde-format
 msgid "Discussion"
-msgstr "Discusiones"
+msgstr "Discusión"
 
 #: core/roominfo/roominfo.cpp:132
 #, kde-format
@@ -3221,7 +3218,7 @@ msgctxt "@title:window"
 msgid "Deactivate User"
 msgstr "Desactivar usuario"
 
-#: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:195
+#: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:196
 #, kde-format
 msgid ""
 "Are you sure you want to dismiss and delete all reports for this user's "
@@ -3230,13 +3227,13 @@ msgstr ""
 "¿Está seguro de querer descartar y borrar todos los reportes de los mensajes "
 "de este usuario? Esta acción no se puede deshacer."
 
-#: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:196
+#: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:197
 #, kde-format
 msgctxt "@title:window"
 msgid "Dismiss"
 msgstr "Descartar"
 
-#: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:216
+#: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:217
 #, kde-format
 msgid ""
 "Are you sure you want to delete all reported messages from this user?\n"
@@ -3250,7 +3247,7 @@ msgstr ""
 "verlos.\n"
 "Esta acción no se puede deshacer."
 
-#: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:219
+#: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:220
 #, kde-format
 msgctxt "@title:window"
 msgid "Delete All Messages"
@@ -11162,7 +11159,7 @@ msgstr "Implementación silenciar usuario."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:21
 msgid "Add color to the text in the account tab"
-msgstr ""
+msgstr "Añadir color al texto en la pestaña de cuenta"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:30
 #, kde-format
@@ -11493,25 +11490,22 @@ msgstr "Mejora de la reconexión del servidor"
 #: widgets/whatsnew/whatsnewtranslations.cpp:127
 #, kde-format
 msgid "Fix single application on Windows/MacOs"
-msgstr ""
+msgstr "Mejoras en la aplicación en Windows/MacOs"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:128
 #, kde-format
 msgid "Fix select created room/discussion/teams"
-msgstr ""
+msgstr "Mejora en la selección sala/discusión/equipos creados"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:129
-#, fuzzy, kde-format
-#| msgid "Implement pending users info (administrator mode)."
+#, kde-format
 msgid "Fix filter discussion in administrator mode"
-msgstr ""
-"Implementación de la información pendiente de usuarios (modo administrador)."
+msgstr "Mejora en el filtro de discusiones en modo administrador"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:130
-#, fuzzy, kde-format
-#| msgid "Fix dark mode support."
+#, kde-format
 msgid "Fix message video support"
-msgstr "Mejora en el soporte del modo oscuro."
+msgstr "Mejora en el soporte de mensajes de video"
 
 #: widgets/whatsnew/whatsnewwidget.cpp:44
 #, kde-format

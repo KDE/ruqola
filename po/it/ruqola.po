@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-11-23 00:40+0000\n"
+"POT-Creation-Date: 2024-11-24 00:40+0000\n"
 "PO-Revision-Date: 2024-11-18 19:52+0100\n"
 "Last-Translator: Vincenzo Reale <smart2128vr@gmail.com>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
@@ -3218,7 +3218,7 @@ msgctxt "@title:window"
 msgid "Deactivate User"
 msgstr "Disattiva utente"
 
-#: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:195
+#: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:196
 #, kde-format
 msgid ""
 "Are you sure you want to dismiss and delete all reports for this user's "
@@ -3227,13 +3227,13 @@ msgstr ""
 "Vuoi ignorare ed eliminare tutti i report per i messaggi di questo utente? "
 "Questa azione non può essere annullata."
 
-#: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:196
+#: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:197
 #, kde-format
 msgctxt "@title:window"
 msgid "Dismiss"
 msgstr "Ignora"
 
-#: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:216
+#: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:217
 #, kde-format
 msgid ""
 "Are you sure you want to delete all reported messages from this user?\n"
@@ -3246,7 +3246,7 @@ msgstr ""
 "vederli.\n"
 "Questa azione non può essere annullata."
 
-#: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:219
+#: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:220
 #, kde-format
 msgctxt "@title:window"
 msgid "Delete All Messages"

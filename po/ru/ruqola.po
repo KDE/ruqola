@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-11-23 00:40+0000\n"
+"POT-Creation-Date: 2024-11-24 00:40+0000\n"
 "PO-Revision-Date: 2024-11-06 16:19+0300\n"
 "Last-Translator: Olesya Gerasimenko <translation-team@basealt.ru>\n"
 "Language-Team: Basealt Translation Team\n"
@@ -3241,7 +3241,7 @@ msgctxt "@title:window"
 msgid "Deactivate User"
 msgstr "Деактивация пользователя"
 
-#: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:195
+#: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:196
 #, kde-format
 msgid ""
 "Are you sure you want to dismiss and delete all reports for this user's "
@@ -3250,13 +3250,13 @@ msgstr ""
 "Отклонить и удалить все жалобы на сообщения этого пользователя? Это действие "
 "нельзя отменить."
 
-#: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:196
+#: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:197
 #, kde-format
 msgctxt "@title:window"
 msgid "Dismiss"
 msgstr "Отклонение"
 
-#: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:216
+#: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:217
 #, kde-format
 msgid ""
 "Are you sure you want to delete all reported messages from this user?\n"
@@ -3269,7 +3269,7 @@ msgstr ""
 "их.\n"
 "Это действие нельзя отменить."
 
-#: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:219
+#: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:220
 #, kde-format
 msgctxt "@title:window"
 msgid "Delete All Messages"

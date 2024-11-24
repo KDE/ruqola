@@ -5,8 +5,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-11-23 00:40+0000\n"
-"PO-Revision-Date: 2024-11-21 09:10+0100\n"
+"POT-Creation-Date: 2024-11-24 00:40+0000\n"
+"PO-Revision-Date: 2024-11-22 09:59+0100\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
 "Language-Team: French <French <kde-francophone@kde.org>>\n"
 "Language: fr\n"
@@ -14,7 +14,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 24.08.3\n"
+"X-Generator: Lokalize 24.11.80\n"
 
 #: apps/main.cpp:73
 #, kde-format
@@ -3233,7 +3233,7 @@ msgctxt "@title:window"
 msgid "Deactivate User"
 msgstr "Désactiver un utilisateur"
 
-#: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:195
+#: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:196
 #, kde-format
 msgid ""
 "Are you sure you want to dismiss and delete all reports for this user's "
@@ -3242,13 +3242,13 @@ msgstr ""
 "Voulez-vous vraiment rejeter et supprimer tous les rapports pour les "
 "messages de cet utilisateur ? Il est impossible d'annuler cette action."
 
-#: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:196
+#: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:197
 #, kde-format
 msgctxt "@title:window"
 msgid "Dismiss"
 msgstr "Rejeter"
 
-#: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:216
+#: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:217
 #, kde-format
 msgid ""
 "Are you sure you want to delete all reported messages from this user?\n"
@@ -3262,7 +3262,7 @@ msgstr ""
 "pourra les revoir.\n"
 "Il est impossible d'annuler cette action."
 
-#: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:219
+#: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:220
 #, kde-format
 msgctxt "@title:window"
 msgid "Delete All Messages"
@@ -11578,10 +11578,9 @@ msgid "Fix filter discussion in administrator mode"
 msgstr "Corriger le filtrage d'une discussion en mode administrateur"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:130
-#, fuzzy, kde-format
-#| msgid "Fix dark mode support."
+#, kde-format
 msgid "Fix message video support"
-msgstr "Correction de la prise en charge du mode sombre"
+msgstr "Correction de la prise en charge de messages vidéo"
 
 #: widgets/whatsnew/whatsnewwidget.cpp:44
 #, kde-format

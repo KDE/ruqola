@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-11-23 00:40+0000\n"
-"PO-Revision-Date: 2024-11-21 10:23+0100\n"
+"POT-Creation-Date: 2024-11-24 00:40+0000\n"
+"PO-Revision-Date: 2024-11-23 12:33+0100\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
 "Language: nl\n"
@@ -160,13 +160,12 @@ msgstr "Optimalisatie, ondersteuning voor windows/mac gerepareerd"
 #, kde-format
 msgctxt "@info:credit"
 msgid "Daniele E. Domenichelli"
-msgstr ""
+msgstr "Daniele E. Domenichelli"
 
 #: apps/main.cpp:95
-#, fuzzy, kde-format
-#| msgid "Nature"
+#, kde-format
 msgid "New feature"
-msgstr "Natuur"
+msgstr "Nieuwe mogelijkheid"
 
 #: apps/main.cpp:121
 #, kde-format
@@ -3219,7 +3218,7 @@ msgctxt "@title:window"
 msgid "Deactivate User"
 msgstr "Gebruiker deactiveren"
 
-#: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:195
+#: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:196
 #, kde-format
 msgid ""
 "Are you sure you want to dismiss and delete all reports for this user's "
@@ -3228,13 +3227,13 @@ msgstr ""
 "Weet u zeker dat u alle rapporten voor de meldingen van deze gebruiker wilt "
 "verwerpen en verwijderen? Deze actie kan niet ongedaan worden gemaakt."
 
-#: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:196
+#: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:197
 #, kde-format
 msgctxt "@title:window"
 msgid "Dismiss"
 msgstr "Verwerpen"
 
-#: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:216
+#: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:217
 #, kde-format
 msgid ""
 "Are you sure you want to delete all reported messages from this user?\n"
@@ -3248,7 +3247,7 @@ msgstr ""
 "niemand zal in staat zijn on ze te zien.\n"
 "Deze actie kan niet ongedaan worden gemaakt."
 
-#: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:219
+#: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:220
 #, kde-format
 msgctxt "@title:window"
 msgid "Delete All Messages"
@@ -11151,7 +11150,7 @@ msgstr "Dempen/dempen ongedaan maken van gebruiker implementeren."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:21
 msgid "Add color to the text in the account tab"
-msgstr ""
+msgstr "Kleur toevoegen aan de tekst in het tabblad account"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:30
 #, kde-format

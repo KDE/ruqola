@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-11-23 00:40+0000\n"
-"PO-Revision-Date: 2024-11-21 20:55+0300\n"
+"POT-Creation-Date: 2024-11-24 00:40+0000\n"
+"PO-Revision-Date: 2024-11-23 21:08+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -161,14 +161,12 @@ msgstr "Eniyileme, Windows/Mac desteğini onarma"
 #, kde-format
 msgctxt "@info:credit"
 msgid "Daniele E. Domenichelli"
-msgstr ""
+msgstr "Daniele E. Domenichelli"
 
 #: apps/main.cpp:95
-#, fuzzy, kde-format
-#| msgctxt "@option:check"
-#| msgid "Featured"
+#, kde-format
 msgid "New feature"
-msgstr "Öne çıkan"
+msgstr "Yeni özellik"
 
 #: apps/main.cpp:121
 #, kde-format
@@ -3195,7 +3193,7 @@ msgctxt "@title:window"
 msgid "Deactivate User"
 msgstr "Kullanıcıyı Pasifleştir"
 
-#: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:195
+#: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:196
 #, kde-format
 msgid ""
 "Are you sure you want to dismiss and delete all reports for this user's "
@@ -3204,13 +3202,13 @@ msgstr ""
 "Bu kullanıcının iletilerine ilişkin tüm raporları göz ardı etmek ve silmek "
 "istediğinizden emin misiniz? Bu eylem geri alınamaz."
 
-#: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:196
+#: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:197
 #, kde-format
 msgctxt "@title:window"
 msgid "Dismiss"
 msgstr "Göz Ardı Et"
 
-#: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:216
+#: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:217
 #, kde-format
 msgid ""
 "Are you sure you want to delete all reported messages from this user?\n"
@@ -3223,7 +3221,7 @@ msgstr ""
 "İletlire, ileti geçmişinden silinecek ve hiç kimse göremeyecektir.\n"
 "Bu eylem geri alınamaz."
 
-#: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:219
+#: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:220
 #, kde-format
 msgctxt "@title:window"
 msgid "Delete All Messages"
@@ -11089,7 +11087,7 @@ msgstr "Kullanıcıları sessize almayı/kaldırmayı gerçekle"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:21
 msgid "Add color to the text in the account tab"
-msgstr ""
+msgstr "Hesap sekmesindeki metne renk ekle"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:30
 #, kde-format
