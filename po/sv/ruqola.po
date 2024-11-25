@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-11-21 02:28+0000\n"
+"POT-Creation-Date: 2024-11-25 02:34+0000\n"
 "PO-Revision-Date: 2024-09-13 08:25+0200\n"
 "Last-Translator: Stefan Asserhäll <stefan.asserhall@gmail.com>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
@@ -2601,19 +2601,19 @@ msgid_plural "%1 custom emojis (Total: %2)"
 msgstr[0] "%1 eget emoji (totalt : %2)"
 msgstr[1] "%1 egna emoji (totalt : %2)"
 
-#: widgets/administratordialog/customemoji/administratorcustomemojiwidget.cpp:151
+#: widgets/administratordialog/customemoji/administratorcustomemojiwidget.cpp:152
 #, kde-format
 msgid "Do you want to remove this emoji?"
 msgstr "Vill du ta bort emojin?"
 
-#: widgets/administratordialog/customemoji/administratorcustomemojiwidget.cpp:152
+#: widgets/administratordialog/customemoji/administratorcustomemojiwidget.cpp:153
 #, kde-format
 msgctxt "@title"
 msgid "Remove Emoji"
 msgstr "Ta bort emoji"
 
-#: widgets/administratordialog/customemoji/administratorcustomemojiwidget.cpp:178
-#: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:141
+#: widgets/administratordialog/customemoji/administratorcustomemojiwidget.cpp:179
+#: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:142
 #: widgets/administratordialog/customuserstatus/customuserstatustreewidget.cpp:127
 #: widgets/administratordialog/oauth/oauthtreeview.cpp:49
 #: widgets/administratordialog/roles/administratorroleswidget.cpp:101
@@ -2625,8 +2625,8 @@ msgctxt "@action"
 msgid "Add…"
 msgstr "Lägg till…"
 
-#: widgets/administratordialog/customemoji/administratorcustomemojiwidget.cpp:181
-#: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:143
+#: widgets/administratordialog/customemoji/administratorcustomemojiwidget.cpp:182
+#: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:144
 #: widgets/administratordialog/customuserstatus/customuserstatustreewidget.cpp:130
 #: widgets/administratordialog/oauth/oauthtreeview.cpp:51
 #: widgets/administratordialog/permissions/permissionswidget.cpp:92
@@ -2638,8 +2638,8 @@ msgctxt "@action"
 msgid "Modify…"
 msgstr "Ändra…"
 
-#: widgets/administratordialog/customemoji/administratorcustomemojiwidget.cpp:186
-#: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:147
+#: widgets/administratordialog/customemoji/administratorcustomemojiwidget.cpp:187
+#: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:148
 #: widgets/administratordialog/customuserstatus/customuserstatustreewidget.cpp:132
 #: widgets/administratordialog/invites/invitetreeview.cpp:39
 #: widgets/administratordialog/oauth/oauthtreeview.cpp:55
@@ -2677,12 +2677,12 @@ msgid_plural "%1 custom sounds (Total: %2)"
 msgstr[0] "%1 eget ljud (totalt : %2)"
 msgstr[1] "%1 egna ljud (totalt : %2)"
 
-#: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:126
+#: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:127
 #, kde-format
 msgid "Do you want to remove this sound?"
 msgstr "Vill du ta bort ljudet?"
 
-#: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:127
+#: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:128
 #, kde-format
 msgctxt "@title"
 msgid "Remove Custom Sound"
