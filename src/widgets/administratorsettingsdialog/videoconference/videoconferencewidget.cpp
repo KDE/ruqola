@@ -33,7 +33,7 @@ VideoConferenceWidget::VideoConferenceWidget(RocketChatAccount *account, QWidget
     , mJitsiApplicationSecret(new QLineEdit(this))
     , mJitsiLimitTokenJitsiRoom(new QCheckBox(i18nc("@option:check", "Limit token to Jitsi Room"), this))
 {
-    auto bigBlueButtonLabel = createBoldLabel(i18n("BigBlueButton"));
+    auto bigBlueButtonLabel = createBoldLabel(QStringLiteral("BigBlueButton"));
     bigBlueButtonLabel->setObjectName(QStringLiteral("bigBlueButtonLabel"));
     mMainLayout->addWidget(bigBlueButtonLabel);
 
@@ -51,7 +51,7 @@ VideoConferenceWidget::VideoConferenceWidget(RocketChatAccount *account, QWidget
     mMainLayout->addWidget(mAlwaysOpenNewWindow);
     connectCheckBox(mAlwaysOpenNewWindow, QStringLiteral("bigbluebutton_Open_New_Window"));
 
-    auto jitsiButtonLabel = createBoldLabel(i18n("Jitsi"));
+    auto jitsiButtonLabel = createBoldLabel(QStringLiteral("Jitsi"));
     jitsiButtonLabel->setObjectName(QStringLiteral("jitsiButtonLabel"));
     mMainLayout->addWidget(jitsiButtonLabel);
 
