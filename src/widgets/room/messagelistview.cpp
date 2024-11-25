@@ -465,9 +465,9 @@ void MessageListView::contextMenuEvent(QContextMenuEvent *event)
         menu.addAction(copyLinkToMessageAction);
         if (!isVideoConferenceMessage) {
             menu.addAction(forwardMessageAction);
+            menu.addSeparator();
+            menu.addAction(selectAllAction);
         }
-        menu.addSeparator();
-        menu.addAction(selectAllAction);
 
         menu.addSeparator();
         if (isNotOwnerOfMessage) {
@@ -523,9 +523,9 @@ void MessageListView::contextMenuEvent(QContextMenuEvent *event)
         menu.addAction(copyLinkToMessageAction);
         if (!isVideoConferenceMessage) {
             menu.addAction(forwardMessageAction);
+            menu.addSeparator();
+            menu.addAction(selectAllAction);
         }
-        menu.addSeparator();
-        menu.addAction(selectAllAction);
         if (isNotOwnerOfMessage) {
             menu.addAction(markMessageAsUnReadAction);
             menu.addSeparator();
@@ -608,9 +608,9 @@ void MessageListView::contextMenuEvent(QContextMenuEvent *event)
         menu.addAction(copyLinkToMessageAction);
         if (!isVideoConferenceMessage) {
             menu.addAction(forwardMessageAction);
+            menu.addSeparator();
+            menu.addAction(selectAllAction);
         }
-        menu.addSeparator();
-        menu.addAction(selectAllAction);
 #if 0
         createTranslorMenu();
         if (!mTranslatorMenu->isEmpty()) {
