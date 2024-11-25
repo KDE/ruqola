@@ -257,7 +257,8 @@ void MessageListView::contextMenuEvent(QContextMenuEvent *event)
         return;
     }
     const auto messageType = index.data(MessagesModel::MessageType).value<Message::MessageType>();
-    const bool isSystemMessage = (messageType == Message::System) || (messageType == Message::Information) || (messageType == Message::VideoConference);
+    const bool isSystemMessage = (messageType == Message::System) || (messageType == Message::Information);
+    const bool isVideoConferenceMessage = messageType == Message::VideoConference;
     QMenu menu(this);
     if (isSystemMessage) {
         if (Ruqola::self()->debug()) {
@@ -441,7 +442,9 @@ void MessageListView::contextMenuEvent(QContextMenuEvent *event)
             menu.addAction(action);
         }
 
-        menu.addAction(quoteAction);
+        if (!isVideoConferenceMessage) {
+            menu.addAction(quoteAction);
+        }
         menu.addSeparator();
         if (setPinnedMessage) {
             menu.addAction(setPinnedMessage);
@@ -451,7 +454,7 @@ void MessageListView::contextMenuEvent(QContextMenuEvent *event)
         }
         menu.addSeparator();
 
-        if (index.data(MessagesModel::CanEditMessage).toBool()) {
+        if (!isVideoConferenceMessage && index.data(MessagesModel::CanEditMessage).toBool()) {
             menu.addAction(editAction);
             menu.addSeparator();
         }
@@ -460,7 +463,9 @@ void MessageListView::contextMenuEvent(QContextMenuEvent *event)
             menu.addAction(copyUrlAction);
         }
         menu.addAction(copyLinkToMessageAction);
-        menu.addAction(forwardMessageAction);
+        if (!isVideoConferenceMessage) {
+            menu.addAction(forwardMessageAction);
+        }
         menu.addSeparator();
         menu.addAction(selectAllAction);
 
@@ -473,11 +478,13 @@ void MessageListView::contextMenuEvent(QContextMenuEvent *event)
         menu.addAction(followingToMessageAction);
 
 #if HAVE_TEXT_TRANSLATOR
-        createTranslorMenu();
-        if (!mTranslatorMenu->isEmpty()) {
-            menu.addSeparator();
-            mTranslatorMenu->setModelIndex(index);
-            menu.addMenu(mTranslatorMenu->menu());
+        if (!isVideoConferenceMessage) {
+            createTranslorMenu();
+            if (!mTranslatorMenu->isEmpty()) {
+                menu.addSeparator();
+                mTranslatorMenu->setModelIndex(index);
+                menu.addMenu(mTranslatorMenu->menu());
+            }
         }
 #endif
 
@@ -485,7 +492,7 @@ void MessageListView::contextMenuEvent(QContextMenuEvent *event)
             menu.addSeparator();
             menu.addAction(deleteAction);
         }
-        if (mCurrentRocketChatAccount->hasAutotranslateSupport() || !message->localTranslation().isEmpty()) {
+        if (!isVideoConferenceMessage && (mCurrentRocketChatAccount->hasAutotranslateSupport() || !message->localTranslation().isEmpty())) {
             createSeparator(menu);
             const bool isTranslated = message->showTranslatedMessage();
             auto translateAction = new QAction(isTranslated ? i18nc("@action", "Show Original Message") : i18nc("@action", "Translate Message"), &menu);
@@ -504,22 +511,26 @@ void MessageListView::contextMenuEvent(QContextMenuEvent *event)
             menu.addAction(setAsFavoriteAction);
         }
 
-        menu.addSeparator();
-        menu.addAction(quoteAction);
+        if (!isVideoConferenceMessage) {
+            menu.addSeparator();
+            menu.addAction(quoteAction);
+        }
         menu.addSeparator();
         menu.addAction(copyAction);
         if (copyUrlAction) {
             menu.addAction(copyUrlAction);
         }
         menu.addAction(copyLinkToMessageAction);
-        menu.addAction(forwardMessageAction);
+        if (!isVideoConferenceMessage) {
+            menu.addAction(forwardMessageAction);
+        }
         menu.addSeparator();
         menu.addAction(selectAllAction);
         if (isNotOwnerOfMessage) {
             menu.addAction(markMessageAsUnReadAction);
             menu.addSeparator();
         }
-        if (index.data(MessagesModel::CanEditMessage).toBool()) {
+        if (!isVideoConferenceMessage && index.data(MessagesModel::CanEditMessage).toBool()) {
             menu.addSeparator();
             menu.addAction(editAction);
         }
@@ -595,7 +606,9 @@ void MessageListView::contextMenuEvent(QContextMenuEvent *event)
             menu.addAction(copyUrlAction);
         }
         menu.addAction(copyLinkToMessageAction);
-        menu.addAction(forwardMessageAction);
+        if (!isVideoConferenceMessage) {
+            menu.addAction(forwardMessageAction);
+        }
         menu.addSeparator();
         menu.addAction(selectAllAction);
 #if 0
@@ -623,11 +636,13 @@ void MessageListView::contextMenuEvent(QContextMenuEvent *event)
     }
 
 #if HAVE_TEXT_TO_SPEECH
-    createSeparator(menu);
-    auto speakAction = menu.addAction(QIcon::fromTheme(QStringLiteral("text-speak-symbolic")), i18nc("@action", "Speak Text"));
-    connect(speakAction, &QAction::triggered, this, [this, index]() {
-        slotTextToSpeech(index);
-    });
+    if (!isVideoConferenceMessage) {
+        createSeparator(menu);
+        auto speakAction = menu.addAction(QIcon::fromTheme(QStringLiteral("text-speak-symbolic")), i18nc("@action", "Speak Text"));
+        connect(speakAction, &QAction::triggered, this, [this, index]() {
+            slotTextToSpeech(index);
+        });
+    }
 #endif
 
     if (mMode != Mode::Moderation && isNotOwnerOfMessage) {
