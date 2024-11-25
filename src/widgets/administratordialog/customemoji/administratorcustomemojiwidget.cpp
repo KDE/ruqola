@@ -71,6 +71,7 @@ void AdministratorCustomEmojiWidget::slotLoadElements(int offset, int count, con
     if (count != -1) {
         parameters.setCount(count);
     }
+    // TODO bug in RC 7.0 !
     parameters.setUseSyntaxRc70(mRocketChatAccount->hasAtLeastVersion(7, 0, 0));
     parameters.setSearchString(searchName);
 
