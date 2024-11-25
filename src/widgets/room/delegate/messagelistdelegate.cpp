@@ -749,7 +749,7 @@ static void positionPopup(QPoint pos, QWidget *parentWindow, QWidget *popup)
 bool MessageListDelegate::isSystemMessage(const Message *message) const
 {
     const Message::MessageType messageType = message->messageType();
-    const bool isSystemMessage = (messageType == Message::System) || (messageType == Message::Information) || (messageType == Message::VideoConference);
+    const bool isSystemMessage = (messageType == Message::System) || (messageType == Message::Information) /* || (messageType == Message::VideoConference)*/;
     return isSystemMessage || message->privateMessage();
 }
 
