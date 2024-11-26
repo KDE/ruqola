@@ -6,6 +6,7 @@
 
 #include "rocketchataccount.h"
 #include "accountroomsettings.h"
+#include "apps/appcountjob.h"
 #include "apps/appinstalledjob.h"
 #include "config-ruqola.h"
 #include "ddpapi/ddpclient.h"
@@ -3175,6 +3176,22 @@ bool RocketChatAccount::allowCustomStatusMessage() const
 bool RocketChatAccount::appMarketPlaceLoaded() const
 {
     return mAppsMarketPlaceModel->wasFilled();
+}
+
+void RocketChatAccount::loadAppCount()
+{
+    if (mAppsCategoriesModel->wasFilled()) {
+        return;
+    }
+    auto job = new RocketChatRestApi::AppCountJob(this);
+    restApi()->initializeRestApiJob(job);
+    connect(job, &RocketChatRestApi::AppCountJob::appCountDone, this, [this](const QJsonObject &obj) {
+        // Q_EMIT appsMarkPlaceLoadDone();
+        qDebug() << " OBJ " << obj;
+    });
+    if (!job->start()) {
+        qCWarning(RUQOLA_LOG) << "Impossible to start AppCountJob";
+    }
 }
 
 void RocketChatAccount::loadAppCategories()

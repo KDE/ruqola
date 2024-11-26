@@ -50,6 +50,7 @@ ApplicationsSettingsWidget::ApplicationsSettingsWidget(RocketChatAccount *accoun
         mCurrentRocketChatAccount->loadAppMarketPlace();
         mCurrentRocketChatAccount->loadAppCategories();
         mCurrentRocketChatAccount->loadInstalledApps();
+        mCurrentRocketChatAccount->loadAppCount();
         if (mCurrentRocketChatAccount->appMarketPlaceLoaded()) {
             mStackedWidget->setCurrentWidget(mWidgetListView);
         } else {

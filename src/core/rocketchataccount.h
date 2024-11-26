@@ -496,6 +496,8 @@ public:
     void delaySelectChannelRequested(const QByteArray &rid);
     [[nodiscard]] bool hasAtLeastVersion(int major, int minor, int patch) const;
     void extractIdentifier(const QJsonObject &replyObject, const QString &identifier, const QString &subIdentifier);
+    void loadAppCount();
+
 Q_SIGNALS:
     void roomRemoved(const QByteArray &roomId);
     void disabledTotpValid(bool checked);
