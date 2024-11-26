@@ -19,6 +19,8 @@ public:
     [[nodiscard]] AdministratorCustomUserStatusCreateWidget::UserStatusInfo userStatusInfo() const;
     void setUserStatusInfo(const AdministratorCustomUserStatusCreateWidget::UserStatusInfo &info);
 
+    void setExistingCustomUserNames(const QStringList &names);
+
 private:
     LIBRUQOLAWIDGETS_NO_EXPORT void readConfig();
     LIBRUQOLAWIDGETS_NO_EXPORT void writeConfig();

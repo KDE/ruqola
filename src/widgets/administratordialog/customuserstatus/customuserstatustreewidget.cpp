@@ -75,6 +75,13 @@ void CustomUserStatusTreeWidget::initialize()
 void CustomUserStatusTreeWidget::addClicked()
 {
     QPointer<AdministratorCustomUserStatusCreateDialog> dlg = new AdministratorCustomUserStatusCreateDialog(this);
+    const CustomUserStatuses statuses = mRocketChatAccount->customUserStatuses();
+    const QList<CustomUserStatus> customUserses = statuses.customUserses();
+    QStringList names;
+    for (const CustomUserStatus &status : customUserses) {
+        names << status.name();
+    }
+    dlg->setExistingCustomUserNames(names);
     if (dlg->exec()) {
         const AdministratorCustomUserStatusCreateWidget::UserStatusInfo info = dlg->userStatusInfo();
         RocketChatRestApi::CustomUserStatusCreateJob::StatusCreateInfo statusCreateInfo;

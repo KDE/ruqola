@@ -34,7 +34,9 @@ AdministratorCustomUserStatusCreateWidget::~AdministratorCustomUserStatusCreateW
 
 void AdministratorCustomUserStatusCreateWidget::slotCheckValues()
 {
-    Q_EMIT updateOkButton(!mName->text().trimmed().isEmpty() && (mStatusCombobox->status() != User::PresenceStatus::Unknown));
+    const QString currentName{mName->text().trimmed()};
+    Q_EMIT updateOkButton(!currentName.isEmpty() && (mStatusCombobox->status() != User::PresenceStatus::Unknown)
+                          && !mExistingCustomUserNames.contains(currentName));
 }
 
 AdministratorCustomUserStatusCreateWidget::UserStatusInfo AdministratorCustomUserStatusCreateWidget::userStatusInfo() const
@@ -49,6 +51,11 @@ void AdministratorCustomUserStatusCreateWidget::setUserStatusInfo(const Administ
 {
     mName->setText(info.name);
     mStatusCombobox->setStatus(info.statusType);
+}
+
+void AdministratorCustomUserStatusCreateWidget::setExistingCustomUserNames(const QStringList &names)
+{
+    mExistingCustomUserNames = names;
 }
 
 #include "moc_administratorcustomuserstatuscreatewidget.cpp"
