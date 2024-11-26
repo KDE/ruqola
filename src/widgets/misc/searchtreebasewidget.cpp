@@ -78,6 +78,12 @@ QString SearchTreeBaseWidget::clickableStr() const
     return QStringLiteral(" <a href=\"loadmoreelement\">%1</a>").arg(i18n("(Click here for Loading more…)"));
 }
 
+void SearchTreeBaseWidget::refreshLoadElements()
+{
+    const int offset = mModel->rowCount();
+    slotLoadElements(-1, qMin(50, mModel->total() - offset), mSearchLineEdit->text().trimmed());
+}
+
 void SearchTreeBaseWidget::slotLoadMoreElements()
 {
     if (!mModel->loadMoreInProgress()) {
