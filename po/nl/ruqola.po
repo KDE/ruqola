@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-11-25 00:40+0000\n"
+"POT-Creation-Date: 2024-11-26 00:40+0000\n"
 "PO-Revision-Date: 2024-11-23 12:33+0100\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
@@ -2894,18 +2894,18 @@ msgid_plural "%1 custom emojis (Total: %2)"
 msgstr[0] "%1 eigen emoji (totaal: %2)"
 msgstr[1] "%1 eigen emoji's (totaal: %2)"
 
-#: widgets/administratordialog/customemoji/administratorcustomemojiwidget.cpp:152
+#: widgets/administratordialog/customemoji/administratorcustomemojiwidget.cpp:153
 #, kde-format
 msgid "Do you want to remove this emoji?"
 msgstr "Wilt u deze emoji verwijderen?"
 
-#: widgets/administratordialog/customemoji/administratorcustomemojiwidget.cpp:153
+#: widgets/administratordialog/customemoji/administratorcustomemojiwidget.cpp:154
 #, kde-format
 msgctxt "@title"
 msgid "Remove Emoji"
 msgstr "Emoji verwijderen"
 
-#: widgets/administratordialog/customemoji/administratorcustomemojiwidget.cpp:179
+#: widgets/administratordialog/customemoji/administratorcustomemojiwidget.cpp:180
 #: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:168
 #: widgets/administratordialog/customuserstatus/customuserstatustreewidget.cpp:148
 #: widgets/administratordialog/oauth/oauthtreeview.cpp:49
@@ -2918,7 +2918,7 @@ msgctxt "@action"
 msgid "Add…"
 msgstr "Toevoegen…"
 
-#: widgets/administratordialog/customemoji/administratorcustomemojiwidget.cpp:182
+#: widgets/administratordialog/customemoji/administratorcustomemojiwidget.cpp:183
 #: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:170
 #: widgets/administratordialog/customuserstatus/customuserstatustreewidget.cpp:151
 #: widgets/administratordialog/oauth/oauthtreeview.cpp:51
@@ -2931,7 +2931,7 @@ msgctxt "@action"
 msgid "Modify…"
 msgstr "Wijzigen…"
 
-#: widgets/administratordialog/customemoji/administratorcustomemojiwidget.cpp:187
+#: widgets/administratordialog/customemoji/administratorcustomemojiwidget.cpp:188
 #: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:174
 #: widgets/administratordialog/customuserstatus/customuserstatustreewidget.cpp:153
 #: widgets/administratordialog/invites/invitetreeview.cpp:39
@@ -3275,7 +3275,7 @@ msgstr "Alle rapporten verwerpen"
 
 #: widgets/administratordialog/moderationconsole/moderationreportinfolistview.cpp:76
 #: widgets/notificationhistory/notificationhistorylistview.cpp:83
-#: widgets/room/messagelistview.cpp:277
+#: widgets/room/messagelistview.cpp:278
 #: widgets/servererrorinfohistory/servererrorinfomessagehistorylistview.cpp:50
 #, kde-format
 msgctxt "@action"
@@ -3285,7 +3285,7 @@ msgstr "Bericht kopiëren"
 #: widgets/administratordialog/moderationconsole/moderationreportinfolistview.cpp:87
 #: widgets/discussions/discussionlistview.cpp:69
 #: widgets/notificationhistory/notificationhistorylistview.cpp:94
-#: widgets/room/messagelistview.cpp:633
+#: widgets/room/messagelistview.cpp:647
 #: widgets/servererrorinfohistory/servererrorinfomessagehistorylistview.cpp:62
 #, kde-format
 msgctxt "@action"
@@ -3297,7 +3297,7 @@ msgstr "Tekst uitspreken"
 #: widgets/bannerinfodialog/bannerinfolistview.cpp:51
 #: widgets/discussions/discussionlistview.cpp:75
 #: widgets/notificationhistory/notificationhistorylistview.cpp:100
-#: widgets/room/messagelistview.cpp:309
+#: widgets/room/messagelistview.cpp:310
 #: widgets/servererrorinfohistory/servererrorinfomessagehistorylistview.cpp:69
 #, kde-format
 msgctxt "@action"
@@ -6831,11 +6831,6 @@ msgctxt "@option:check"
 msgid "Limit token to Jitsi Room"
 msgstr "Token naar Jitsi-room beperken"
 
-#: widgets/administratorsettingsdialog/videoconference/videoconferencewidget.cpp:36
-#, kde-format
-msgid "BigBlueButton"
-msgstr "BigBlueButton"
-
 #: widgets/administratorsettingsdialog/videoconference/videoconferencewidget.cpp:45
 #: widgets/administratorsettingsdialog/videoconference/videoconferencewidget.cpp:63
 #, kde-format
@@ -6846,11 +6841,6 @@ msgstr "Domein"
 #, kde-format
 msgid "Shared Secret"
 msgstr "Gedeeld geheim"
-
-#: widgets/administratorsettingsdialog/videoconference/videoconferencewidget.cpp:54
-#, kde-format
-msgid "Jitsi"
-msgstr "Jitsi"
 
 #: widgets/administratorsettingsdialog/videoconference/videoconferencewidget.cpp:66
 #, kde-format
@@ -7106,7 +7096,7 @@ msgid "Mark as Unread"
 msgstr "Als ongelezen markeren"
 
 #: widgets/channellist/channellistview.cpp:131
-#: widgets/room/messagelistview.cpp:295
+#: widgets/room/messagelistview.cpp:296
 #, kde-format
 msgctxt "@action"
 msgid "Set as Favorite"
@@ -9665,7 +9655,7 @@ msgid "Clear"
 msgstr "Wissen"
 
 #: widgets/notificationhistory/notificationhistorylistview.cpp:79
-#: widgets/room/messagelistview.cpp:616
+#: widgets/room/messagelistview.cpp:629
 #, kde-format
 msgctxt "@action"
 msgid "Go to Message"
@@ -9918,7 +9908,7 @@ msgid "User Info"
 msgstr "Gebruikersinformatie"
 
 #: widgets/room/delegate/messagelistdelegate.cpp:438
-#: widgets/room/messagelistview.cpp:398
+#: widgets/room/messagelistview.cpp:399
 #, kde-format
 msgctxt "@action"
 msgid "Start a Private Conversation"
@@ -10075,144 +10065,144 @@ msgstr "U doet mee met een nieuw direct bericht"
 msgid "Start of conversation"
 msgstr "Begin van conversatie"
 
-#: widgets/room/messagelistview.cpp:286
+#: widgets/room/messagelistview.cpp:287
 #, kde-format
 msgctxt "@action"
 msgid "Unpin Message"
 msgstr "Bericht losmaken"
 
-#: widgets/room/messagelistview.cpp:286
+#: widgets/room/messagelistview.cpp:287
 #, kde-format
 msgctxt "@action"
 msgid "Pin Message"
 msgstr "Bericht vastpinnen"
 
-#: widgets/room/messagelistview.cpp:295
+#: widgets/room/messagelistview.cpp:296
 #, kde-format
 msgctxt "@action"
 msgid "Remove as Favorite"
 msgstr "Als favoriet verwijderen"
 
-#: widgets/room/messagelistview.cpp:303
+#: widgets/room/messagelistview.cpp:304
 #, kde-format
 msgctxt "@action"
 msgid "Delete"
 msgstr "Verwijderen"
 
-#: widgets/room/messagelistview.cpp:314
+#: widgets/room/messagelistview.cpp:315
 #, kde-format
 msgctxt "@action"
 msgid "Mark Message As Unread"
 msgstr "Bericht markeren als ongelezen"
 
-#: widgets/room/messagelistview.cpp:319
+#: widgets/room/messagelistview.cpp:320
 #, kde-format
 msgctxt "@action"
 msgid "Show Full Thread"
 msgstr "Volledige thread tonen"
 
-#: widgets/room/messagelistview.cpp:324
+#: widgets/room/messagelistview.cpp:325
 #, kde-format
 msgctxt "@action"
 msgid "Edit"
 msgstr "Bewerken"
 
-#: widgets/room/messagelistview.cpp:329
+#: widgets/room/messagelistview.cpp:330
 #, kde-format
 msgctxt "@action"
 msgid "Quote"
 msgstr "Citaat"
 
-#: widgets/room/messagelistview.cpp:334
+#: widgets/room/messagelistview.cpp:335
 #, kde-format
 msgctxt "@action"
 msgid "Copy Link To Message"
 msgstr "Koppeling naar bericht kopiëren"
 
-#: widgets/room/messagelistview.cpp:339
+#: widgets/room/messagelistview.cpp:340
 #, kde-format
 msgctxt "@action"
 msgid "Forward Message"
 msgstr "Bericht doorsturen"
 
-#: widgets/room/messagelistview.cpp:353
+#: widgets/room/messagelistview.cpp:354
 #, kde-format
 msgctxt "@action"
 msgid "Unfollow Message"
 msgstr "Bericht niet volgen"
 
-#: widgets/room/messagelistview.cpp:353
+#: widgets/room/messagelistview.cpp:354
 #, kde-format
 msgctxt "@action"
 msgid "Follow Message"
 msgstr "Bericht volgen"
 
-#: widgets/room/messagelistview.cpp:366
+#: widgets/room/messagelistview.cpp:367
 #, kde-format
 msgctxt "@action"
 msgid "Copy URL"
 msgstr "URL kopiëren"
 
-#: widgets/room/messagelistview.cpp:389 widgets/room/usersinroommenu.cpp:122
+#: widgets/room/messagelistview.cpp:390 widgets/room/usersinroommenu.cpp:122
 #, kde-format
 msgctxt "@action"
 msgid "User Info"
 msgstr "Gebruikersinformatie"
 
-#: widgets/room/messagelistview.cpp:435
+#: widgets/room/messagelistview.cpp:436
 #, kde-format
 msgctxt "@action"
 msgid "Start a Discussion"
 msgstr "Een discussie starten"
 
-#: widgets/room/messagelistview.cpp:441
+#: widgets/room/messagelistview.cpp:442
 #, kde-format
 msgctxt "@action"
 msgid "Reply in Thread"
 msgstr "In discussie antwoorden"
 
-#: widgets/room/messagelistview.cpp:497
+#: widgets/room/messagelistview.cpp:504
 #, kde-format
 msgctxt "@action"
 msgid "Show Original Message"
 msgstr "Oorspronkelijke bericht tonen"
 
-#: widgets/room/messagelistview.cpp:497
+#: widgets/room/messagelistview.cpp:504
 #, kde-format
 msgctxt "@action"
 msgid "Translate Message"
 msgstr "Bericht vertalen"
 
-#: widgets/room/messagelistview.cpp:540
+#: widgets/room/messagelistview.cpp:551
 #, kde-format
 msgctxt "@action"
 msgid "View Reports"
 msgstr "Rapporten bekijken"
 
-#: widgets/room/messagelistview.cpp:563
+#: widgets/room/messagelistview.cpp:574
 #, kde-format
 msgctxt "@action"
 msgid "Dismiss Reports"
 msgstr "Rapporten verwerpen"
 
-#: widgets/room/messagelistview.cpp:641
+#: widgets/room/messagelistview.cpp:656
 #, kde-format
 msgctxt "@action"
 msgid "Report Message"
 msgstr "Bericht rapporteren"
 
-#: widgets/room/messagelistview.cpp:844
+#: widgets/room/messagelistview.cpp:859
 #, kde-format
 msgid "Do you want to delete this message?"
 msgstr "Wilt u dit bericht verwijderen?"
 
-#: widgets/room/messagelistview.cpp:845
+#: widgets/room/messagelistview.cpp:860
 #, kde-format
 msgctxt "@title"
 msgid "Delete Message"
 msgstr "Bericht verwijderen"
 
-#: widgets/room/messagelistview.cpp:1021
+#: widgets/room/messagelistview.cpp:1036
 #, kde-format
 msgctxt "@title:window"
 msgid "Translator Error"
@@ -11523,6 +11513,12 @@ msgstr "Enige van de nieuwe functies in deze uitgave van Ruqola omvatten:"
 #, kde-format
 msgid "Some bug fixing:"
 msgstr "Enig repareren van bugs:"
+
+#~ msgid "BigBlueButton"
+#~ msgstr "BigBlueButton"
+
+#~ msgid "Jitsi"
+#~ msgstr "Jitsi"
 
 #~ msgctxt "@option:check"
 #~ msgid "Join Default Channels"
