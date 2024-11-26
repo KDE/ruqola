@@ -99,6 +99,17 @@ void CustomUserStatusTreeWidget::editClicked()
     AdministratorCustomUserStatusCreateWidget::UserStatusInfo userStatusinfo;
     userStatusinfo.name = userStatus.name();
     userStatusinfo.statusType = userStatus.statusType();
+
+    const CustomUserStatuses statuses = mRocketChatAccount->customUserStatuses();
+    const QList<CustomUserStatus> customUserses = statuses.customUserses();
+    QStringList names;
+    for (const CustomUserStatus &status : customUserses) {
+        if (userStatus.name() != status.name()) {
+            names << status.name();
+        }
+    }
+    dlg->setExistingCustomUserNames(names);
+
     dlg->setUserStatusInfo(userStatusinfo);
     if (dlg->exec()) {
         const AdministratorCustomUserStatusCreateWidget::UserStatusInfo info = dlg->userStatusInfo();
