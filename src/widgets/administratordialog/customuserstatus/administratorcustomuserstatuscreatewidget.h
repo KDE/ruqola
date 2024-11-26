@@ -31,11 +31,13 @@ public:
     [[nodiscard]] UserStatusInfo userStatusInfo() const;
     void setUserStatusInfo(const AdministratorCustomUserStatusCreateWidget::UserStatusInfo &info);
 
+    void setExistingCustomUserNames(const QStringList &names);
 Q_SIGNALS:
     void updateOkButton(bool state);
 
 private:
     LIBRUQOLAWIDGETS_NO_EXPORT void slotCheckValues();
+    QStringList mExistingCustomUserNames;
     QLineEdit *const mName;
     StatusCombobox *const mStatusCombobox;
 };

@@ -71,4 +71,9 @@ void AdministratorCustomUserStatusCreateDialog::setUserStatusInfo(const Administ
     setWindowTitle(i18nc("@title:window", "Edit User Status"));
 }
 
+void AdministratorCustomUserStatusCreateDialog::setExistingCustomUserNames(const QStringList &names)
+{
+    mCreateWidget->setExistingCustomUserNames(names);
+}
+
 #include "moc_administratorcustomuserstatuscreatedialog.cpp"
