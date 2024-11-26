@@ -47,6 +47,8 @@ protected:
     QHBoxLayout *mSearchLineLayout = nullptr;
     RocketChatAccount *const mRocketChatAccount;
 
+    void refreshLoadElements();
+
 private:
     LIBRUQOLAWIDGETS_NO_EXPORT void slotSearchCleared();
     LIBRUQOLAWIDGETS_NO_EXPORT void slotSearchRequested(const QString &str);

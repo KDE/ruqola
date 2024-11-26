@@ -115,7 +115,7 @@ void AdministratorUsersWidget::slotTextChanged(const QString &str)
 
 void AdministratorUsersWidget::slotRolesChanged()
 {
-    slotLoadElements();
+    refreshLoadElements();
 }
 
 void AdministratorUsersWidget::slotInviteUsers()
@@ -268,7 +268,7 @@ void AdministratorUsersWidget::slotActivateUser(const QModelIndex &index, bool a
     mRocketChatAccount->restApi()->initializeRestApiJob(job);
     connect(job, &RocketChatRestApi::SetUserActiveStatusJob::setUserActiveStatusDone, this, [this, modelIndex](const QJsonObject &replyObject) {
         slotSetUserActiveStatus(replyObject, modelIndex);
-        slotLoadElements();
+        refreshLoadElements();
     });
     if (!job->start()) {
         qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start SetUserActiveStatusJob job";
