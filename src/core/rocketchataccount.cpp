@@ -8,6 +8,7 @@
 #include "accountroomsettings.h"
 #include "apps/appcountjob.h"
 #include "apps/appinstalledjob.h"
+#include "apps/appscountinfo.h"
 #include "config-ruqola.h"
 #include "ddpapi/ddpclient.h"
 #include "memorymanager/memorymanager.h"
@@ -3186,6 +3187,10 @@ void RocketChatAccount::loadAppCount()
     auto job = new RocketChatRestApi::AppCountJob(this);
     restApi()->initializeRestApiJob(job);
     connect(job, &RocketChatRestApi::AppCountJob::appCountDone, this, [this](const QJsonObject &obj) {
+        AppsCountInfo countinfo;
+        countinfo.parseCountInfo(obj);
+        // TODO
+
         // Q_EMIT appsMarkPlaceLoadDone();
         qDebug() << " OBJ " << obj;
     });
