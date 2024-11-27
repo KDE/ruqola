@@ -374,7 +374,7 @@ void RestApiMethodTest::shouldGenerateUrl()
 
     QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::MethodCall), QUrl(QStringLiteral("http://www.kde.org/api/v1/method.call")));
     QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::MethodCallAnon), QUrl(QStringLiteral("http://www.kde.org/api/v1/method.callAnon")));
-    QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::AppsUiInteraction, QString(), RestApiUtil::RestApiUrlExtensionType::Apps),
+    QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::AppsUiInteraction, RestApiUtil::RestApiUrlExtensionType::Apps),
              QUrl(QStringLiteral("http://www.kde.org/api/apps/ui.interaction")));
 
     QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::UsersLogoutOtherClients),
@@ -383,19 +383,19 @@ void RestApiMethodTest::shouldGenerateUrl()
     QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::RoomsMuteUser), QUrl(QStringLiteral("http://www.kde.org/api/v1/rooms.muteUser")));
     QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::RoomsUnmuteUser), QUrl(QStringLiteral("http://www.kde.org/api/v1/rooms.unmuteUser")));
 
-    QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::CategoriesApps, QString(), RestApiUtil::RestApiUrlExtensionType::Apps),
+    QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::CategoriesApps, RestApiUtil::RestApiUrlExtensionType::Apps),
              QUrl(QStringLiteral("http://www.kde.org/api/apps/categories")));
 
-    QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::FeaturedApps, QString(), RestApiUtil::RestApiUrlExtensionType::Apps),
+    QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::FeaturedApps, RestApiUtil::RestApiUrlExtensionType::Apps),
              QUrl(QStringLiteral("http://www.kde.org/api/apps/featured-apps")));
 
-    QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::CountApps, QString(), RestApiUtil::RestApiUrlExtensionType::Apps),
+    QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::CountApps, RestApiUtil::RestApiUrlExtensionType::Apps),
              QUrl(QStringLiteral("http://www.kde.org/api/apps/count")));
-    QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::NotifyAdminsApps, QString(), RestApiUtil::RestApiUrlExtensionType::Apps),
+    QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::NotifyAdminsApps, RestApiUtil::RestApiUrlExtensionType::Apps),
              QUrl(QStringLiteral("http://www.kde.org/api/apps/notify-admins")));
-    QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::InstalledApps, QString(), RestApiUtil::RestApiUrlExtensionType::Apps),
+    QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::InstalledApps, RestApiUtil::RestApiUrlExtensionType::Apps),
              QUrl(QStringLiteral("http://www.kde.org/api/apps/installed")));
-    QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::MarketplaceApps, QString(), RestApiUtil::RestApiUrlExtensionType::Apps),
+    QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::MarketplaceApps, RestApiUtil::RestApiUrlExtensionType::Apps),
              QUrl(QStringLiteral("http://www.kde.org/api/apps/marketplace")));
 
     QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::UsersListByStatus), QUrl(QStringLiteral("http://www.kde.org/api/v1/users.listByStatus")));

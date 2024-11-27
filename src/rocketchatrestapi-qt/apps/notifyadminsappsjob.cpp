@@ -73,7 +73,7 @@ bool NotifyAdminsAppsJob::canStart() const
 
 QNetworkRequest NotifyAdminsAppsJob::request() const
 {
-    const QUrl url = mRestApiMethod->generateUrl(RestApiUtil::RestApiUrlType::NotifyAdminsApps, QString(), RestApiUtil::RestApiUrlExtensionType::Apps);
+    const QUrl url = mRestApiMethod->generateUrl(RestApiUtil::RestApiUrlType::NotifyAdminsApps, RestApiUtil::RestApiUrlExtensionType::Apps);
     QNetworkRequest request(url);
     addAuthRawHeader(request);
     addRequestAttribute(request);

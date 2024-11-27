@@ -59,7 +59,7 @@ void AppInstalledJob::onGetRequestResponse(const QString &replyErrorString, cons
 
 QNetworkRequest AppInstalledJob::request() const
 {
-    const QUrl url = mRestApiMethod->generateUrl(RestApiUtil::RestApiUrlType::InstalledApps, QString(), RestApiUtil::RestApiUrlExtensionType::Apps);
+    const QUrl url = mRestApiMethod->generateUrl(RestApiUtil::RestApiUrlType::InstalledApps, RestApiUtil::RestApiUrlExtensionType::Apps);
     QNetworkRequest request(url);
     addAuthRawHeader(request);
     addRequestAttribute(request, false);

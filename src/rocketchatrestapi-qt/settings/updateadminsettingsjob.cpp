@@ -72,7 +72,7 @@ bool UpdateAdminSettingsJob::canStart() const
 
 QNetworkRequest UpdateAdminSettingsJob::request() const
 {
-    const QUrl url = mRestApiMethod->generateUrl(RestApiUtil::RestApiUrlType::UpdateAdminSettings, mInfo.settingName);
+    const QUrl url = mRestApiMethod->generateUrl(RestApiUtil::RestApiUrlType::UpdateAdminSettings, RestApiUtil::RestApiUrlExtensionType::V1, mInfo.settingName);
     QNetworkRequest request(url);
     addAuthRawHeader(request);
     addRequestAttribute(request);

@@ -79,8 +79,8 @@ bool AppsUiInteractionJob::canStart() const
 QNetworkRequest AppsUiInteractionJob::request() const
 {
     const QUrl url = mRestApiMethod->generateUrl(RestApiUtil::RestApiUrlType::AppsUiInteraction,
-                                                 mAppsUiInteractionJobInfo.methodName,
-                                                 RestApiUtil::RestApiUrlExtensionType::Apps);
+                                                 RestApiUtil::RestApiUrlExtensionType::Apps,
+                                                 mAppsUiInteractionJobInfo.methodName);
     QNetworkRequest request(url);
     addAuthRawHeader(request);
     addRequestAttribute(request);

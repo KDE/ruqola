@@ -75,6 +75,7 @@ QNetworkRequest MethodCallJob::request() const
 {
     const QUrl url =
         mRestApiMethod->generateUrl(mMethodCallJobInfo.anonymous ? RestApiUtil::RestApiUrlType::MethodCallAnon : RestApiUtil::RestApiUrlType::MethodCall,
+                                    RestApiUtil::RestApiUrlExtensionType::V1,
                                     mMethodCallJobInfo.methodName);
     QNetworkRequest request(url);
     addAuthRawHeader(request);

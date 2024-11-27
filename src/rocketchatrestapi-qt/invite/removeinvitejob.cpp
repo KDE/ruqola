@@ -98,7 +98,7 @@ bool RemoveInviteJob::hasQueryParameterSupport() const
 
 QNetworkRequest RemoveInviteJob::request() const
 {
-    QUrl url = mRestApiMethod->generateUrl(RestApiUtil::RestApiUrlType::RemoveInvite, QLatin1StringView(mIdentifier));
+    QUrl url = mRestApiMethod->generateUrl(RestApiUtil::RestApiUrlType::RemoveInvite, RestApiUtil::RestApiUrlExtensionType::V1, QLatin1StringView(mIdentifier));
     QNetworkRequest request(url);
     addAuthRawHeader(request);
     addRequestAttribute(request, false);

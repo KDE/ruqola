@@ -19,7 +19,7 @@ void RestApiMethod::setServerUrl(const QString &serverUrl)
     mServerUrl = serverUrl;
 }
 
-QUrl RestApiMethod::generateUrl(RestApiUtil::RestApiUrlType type, const QString &urlExtension, RestApiUtil::RestApiUrlExtensionType restApiUrlExtensionType)
+QUrl RestApiMethod::generateUrl(RestApiUtil::RestApiUrlType type, RestApiUtil::RestApiUrlExtensionType restApiUrlExtensionType, const QString &urlExtension)
 {
     if (mServerUrl.isEmpty()) {
         qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Server url is empty";
