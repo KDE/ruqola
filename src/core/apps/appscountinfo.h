@@ -30,6 +30,8 @@ public:
 
     [[nodiscard]] bool operator==(const AppsCountInfo &other) const;
 
+    [[nodiscard]] bool isValid() const;
+
 private:
     int mMaxMarketplaceApps = -1;
     int mMaxPrivateApps = -1;
