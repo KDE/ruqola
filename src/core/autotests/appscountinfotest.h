@@ -15,4 +15,6 @@ public:
     ~AppsCountInfoTest() override = default;
 private Q_SLOTS:
     void shouldHaveDefaultValues();
+    void shouldLoadAppsCountInfo();
+    void shouldLoadAppsCountInfo_data();
 };

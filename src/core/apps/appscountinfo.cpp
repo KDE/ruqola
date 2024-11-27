@@ -5,15 +5,17 @@
 */
 
 #include "appscountinfo.h"
-
+using namespace Qt::Literals::StringLiterals;
 AppsCountInfo::AppsCountInfo() = default;
 
 AppsCountInfo::~AppsCountInfo() = default;
 
 void AppsCountInfo::parseCountInfo(const QJsonObject &replyObject)
 {
-    qDebug() << " replyObject " << replyObject;
-    // {"maxMarketplaceApps":-1,"maxPrivateApps":-1,"success":true,"totalMarketplaceEnabled":1,"totalPrivateEnabled":1}
+    mMaxMarketplaceApps = replyObject["maxMarketplaceApps"_L1].toInt();
+    mMaxPrivateApps = replyObject["maxPrivateApps"_L1].toInt();
+    mTotalMarketplaceEnabled = replyObject["totalMarketplaceEnabled"_L1].toInt();
+    mTotalPrivateEnabled = replyObject["totalPrivateEnabled"_L1].toInt();
 }
 
 int AppsCountInfo::maxMarketplaceApps() const
@@ -63,4 +65,10 @@ QDebug operator<<(QDebug d, const AppsCountInfo &t)
     d.space() << "totalMarketplaceEnabled" << t.totalMarketplaceEnabled();
     d.space() << "totalPrivateEnabled" << t.totalPrivateEnabled();
     return d;
+}
+
+bool AppsCountInfo::operator==(const AppsCountInfo &other) const
+{
+    return mTotalPrivateEnabled == other.totalPrivateEnabled() && mTotalMarketplaceEnabled == other.totalMarketplaceEnabled()
+        && mMaxMarketplaceApps == other.maxMarketplaceApps() && mMaxPrivateApps == other.maxPrivateApps();
 }

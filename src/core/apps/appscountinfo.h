@@ -28,6 +28,8 @@ public:
     [[nodiscard]] int totalPrivateEnabled() const;
     void setTotalPrivateEnabled(int newTotalPrivateEnabled);
 
+    [[nodiscard]] bool operator==(const AppsCountInfo &other) const;
+
 private:
     int mMaxMarketplaceApps = -1;
     int mMaxPrivateApps = -1;
