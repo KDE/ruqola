@@ -3189,8 +3189,7 @@ void RocketChatAccount::loadAppCount()
     connect(job, &RocketChatRestApi::AppCountJob::appCountDone, this, [this](const QJsonObject &obj) {
         AppsCountInfo countinfo;
         countinfo.parseCountInfo(obj);
-        // TODO
-
+        mAppsCategoriesModel->setAppsCountInfo(countinfo);
         Q_EMIT appsCountLoadDone();
     });
     if (!job->start()) {

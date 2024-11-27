@@ -7,6 +7,7 @@
 #pragma once
 
 #include "apps/appscategoryinfo.h"
+#include "apps/appscountinfo.h"
 #include "libruqolacore_export.h"
 #include <QStandardItemModel>
 
@@ -31,7 +32,11 @@ public:
 
     [[nodiscard]] QStringList categoriesSelected() const;
 
+    [[nodiscard]] AppsCountInfo appsCountInfo() const;
+    void setAppsCountInfo(const AppsCountInfo &newAppsCountInfo);
+
 private:
     LIBRUQOLACORE_NO_EXPORT void createItem(const QString &displayStr, const QByteArray &identifier);
     QList<AppsCategoryInfo> mAppsCategories;
+    AppsCountInfo mAppsCountInfo;
 };
