@@ -15,6 +15,24 @@ public:
     AppsCountInfo();
     ~AppsCountInfo();
     void parseCountInfo(const QJsonObject &replyObject);
+
+    [[nodiscard]] int maxMarketplaceApps() const;
+    void setMaxMarketplaceApps(int newMaxMarketplaceApps);
+
+    [[nodiscard]] int maxPrivateApps() const;
+    void setMaxPrivateApps(int newMaxPrivateApps);
+
+    [[nodiscard]] int totalMarketplaceEnabled() const;
+    void setTotalMarketplaceEnabled(int newTotalMarketplaceEnabled);
+
+    [[nodiscard]] int totalPrivateEnabled() const;
+    void setTotalPrivateEnabled(int newTotalPrivateEnabled);
+
+private:
+    int mMaxMarketplaceApps = -1;
+    int mMaxPrivateApps = -1;
+    int mTotalMarketplaceEnabled = -1;
+    int mTotalPrivateEnabled = -1;
 };
 
 Q_DECLARE_METATYPE(AppsCountInfo)
