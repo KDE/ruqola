@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-11-26 00:40+0000\n"
+"POT-Creation-Date: 2024-11-27 00:40+0000\n"
 "PO-Revision-Date: 2020-06-13 21:18+0300\n"
 "Last-Translator: Marek Laane <qiilaq69@gmail.com>\n"
 "Language-Team: Estonian <kde-et@lists.linux.ee>\n"
@@ -1868,19 +1868,19 @@ msgctxt "WARNING!!!!!!: PLEASE We need a space between after </strong>"
 msgid "<strong>%1</strong> are typing..."
 msgstr "<strong>%1</strong> kirjutavad ..."
 
-#: core/rocketchataccount.cpp:696
+#: core/rocketchataccount.cpp:697
 #, kde-format
 msgid ""
 "REST: %1\n"
 "DDP: %2"
 msgstr ""
 
-#: core/rocketchataccount.cpp:704 core/rocketchataccount.cpp:716
+#: core/rocketchataccount.cpp:705 core/rocketchataccount.cpp:717
 #, kde-format
 msgid "Not connected"
 msgstr "Pole ühendatud"
 
-#: core/rocketchataccount.cpp:711
+#: core/rocketchataccount.cpp:712
 #, fuzzy, kde-format
 #| msgid "Not connected"
 msgid "Not connected yet"
@@ -3089,7 +3089,7 @@ msgstr "Eemalda toast"
 
 #: widgets/administratordialog/customemoji/administratorcustomemojiwidget.cpp:180
 #: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:168
-#: widgets/administratordialog/customuserstatus/customuserstatustreewidget.cpp:148
+#: widgets/administratordialog/customuserstatus/customuserstatustreewidget.cpp:166
 #: widgets/administratordialog/oauth/oauthtreeview.cpp:49
 #: widgets/administratordialog/roles/administratorroleswidget.cpp:101
 #: widgets/administratordialog/roles/usersinrolewidget.cpp:106
@@ -3102,7 +3102,7 @@ msgstr ""
 
 #: widgets/administratordialog/customemoji/administratorcustomemojiwidget.cpp:183
 #: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:170
-#: widgets/administratordialog/customuserstatus/customuserstatustreewidget.cpp:151
+#: widgets/administratordialog/customuserstatus/customuserstatustreewidget.cpp:169
 #: widgets/administratordialog/oauth/oauthtreeview.cpp:51
 #: widgets/administratordialog/permissions/permissionswidget.cpp:92
 #: widgets/administratordialog/roles/administratorroleswidget.cpp:105
@@ -3116,7 +3116,7 @@ msgstr "Muuda ..."
 
 #: widgets/administratordialog/customemoji/administratorcustomemojiwidget.cpp:188
 #: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:174
-#: widgets/administratordialog/customuserstatus/customuserstatustreewidget.cpp:153
+#: widgets/administratordialog/customuserstatus/customuserstatustreewidget.cpp:171
 #: widgets/administratordialog/invites/invitetreeview.cpp:39
 #: widgets/administratordialog/oauth/oauthtreeview.cpp:55
 #: widgets/administratordialog/roles/administratorroleswidget.cpp:120
@@ -3200,14 +3200,14 @@ msgstr "Olek:"
 msgid "Presence"
 msgstr ""
 
-#: widgets/administratordialog/customuserstatus/customuserstatustreewidget.cpp:132
+#: widgets/administratordialog/customuserstatus/customuserstatustreewidget.cpp:150
 #: widgets/administratordialog/rooms/administratorroomswidget.cpp:211
 #, fuzzy, kde-format
 #| msgid "Do you want to remove this account '%1'?"
 msgid "Do you want to remove \"%1\"?"
 msgstr "Kas eemaldada konto \"%1\"?"
 
-#: widgets/administratordialog/customuserstatus/customuserstatustreewidget.cpp:133
+#: widgets/administratordialog/customuserstatus/customuserstatustreewidget.cpp:151
 #, fuzzy, kde-format
 #| msgid "Custom User Status"
 msgctxt "@title"
