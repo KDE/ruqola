@@ -87,7 +87,7 @@ QJsonDocument GroupRemoveLeaderJob::json() const
 
 QNetworkRequest GroupRemoveLeaderJob::request() const
 {
-    const QUrl url = mRestApiMethod->generateUrl(RestApiUtil::RestApiUrlType::GroupRemoveLeader);
+    const QUrl url = mRestApiMethod->generateUrl(RestApiUtil::RestApiUrlType::GroupsRemoveLeader);
     QNetworkRequest request(url);
     addAuthRawHeader(request);
     addRequestAttribute(request);

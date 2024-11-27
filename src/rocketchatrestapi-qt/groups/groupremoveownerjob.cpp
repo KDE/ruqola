@@ -91,7 +91,7 @@ QJsonDocument GroupRemoveOwnerJob::json() const
 
 QNetworkRequest GroupRemoveOwnerJob::request() const
 {
-    const QUrl url = mRestApiMethod->generateUrl(RestApiUtil::RestApiUrlType::GroupRemoveOwner);
+    const QUrl url = mRestApiMethod->generateUrl(RestApiUtil::RestApiUrlType::GroupsRemoveOwner);
     QNetworkRequest request(url);
     addAuthRawHeader(request);
     addRequestAttribute(request);

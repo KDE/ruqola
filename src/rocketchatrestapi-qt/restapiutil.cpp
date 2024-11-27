@@ -240,7 +240,7 @@ QString RestApiUtil::restUrl(RestApiUtil::RestApiUrlType type)
         return QStringLiteral("groups.open");
     case RestApiUtil::RestApiUrlType::GroupsRemoveModerator:
         return QStringLiteral("groups.removeModerator");
-    case RestApiUtil::RestApiUrlType::GroupRemoveOwner:
+    case RestApiUtil::RestApiUrlType::GroupsRemoveOwner:
         return QStringLiteral("groups.removeOwner");
     case RestApiUtil::RestApiUrlType::GroupsRename:
         return QStringLiteral("groups.rename");
@@ -264,7 +264,7 @@ QString RestApiUtil::restUrl(RestApiUtil::RestApiUrlType type)
         return QStringLiteral("groups.roles");
     case RestApiUtil::RestApiUrlType::GroupsCounters:
         return QStringLiteral("groups.counters");
-    case RestApiUtil::RestApiUrlType::GroupRemoveLeader:
+    case RestApiUtil::RestApiUrlType::GroupsRemoveLeader:
         return QStringLiteral("groups.removeLeader");
     case RestApiUtil::RestApiUrlType::GroupsAddLeader:
         return QStringLiteral("groups.addLeader");

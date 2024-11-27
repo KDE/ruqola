@@ -161,7 +161,7 @@ void RestApiMethodTest::shouldGenerateUrl()
     QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::GroupsList), QUrl(QStringLiteral("http://www.kde.org/api/v1/groups.list")));
     QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::GroupsOpen), QUrl(QStringLiteral("http://www.kde.org/api/v1/groups.open")));
     QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::GroupsRemoveModerator), QUrl(QStringLiteral("http://www.kde.org/api/v1/groups.removeModerator")));
-    QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::GroupRemoveOwner), QUrl(QStringLiteral("http://www.kde.org/api/v1/groups.removeOwner")));
+    QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::GroupsRemoveOwner), QUrl(QStringLiteral("http://www.kde.org/api/v1/groups.removeOwner")));
     QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::GroupsRename), QUrl(QStringLiteral("http://www.kde.org/api/v1/groups.rename")));
     QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::GroupsSetDescription), QUrl(QStringLiteral("http://www.kde.org/api/v1/groups.setDescription")));
     QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::GroupsSetPurpose), QUrl(QStringLiteral("http://www.kde.org/api/v1/groups.setPurpose")));
@@ -174,7 +174,7 @@ void RestApiMethodTest::shouldGenerateUrl()
     QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::GroupsSetAnnouncement), QUrl(QStringLiteral("http://www.kde.org/api/v1/groups.setAnnouncement")));
     QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::GroupsRoles), QUrl(QStringLiteral("http://www.kde.org/api/v1/groups.roles")));
     QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::GroupsCounters), QUrl(QStringLiteral("http://www.kde.org/api/v1/groups.counters")));
-    QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::GroupRemoveLeader), QUrl(QStringLiteral("http://www.kde.org/api/v1/groups.removeLeader")));
+    QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::GroupsRemoveLeader), QUrl(QStringLiteral("http://www.kde.org/api/v1/groups.removeLeader")));
     QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::GroupsAddLeader), QUrl(QStringLiteral("http://www.kde.org/api/v1/groups.addLeader")));
     QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::GroupsDelete), QUrl(QStringLiteral("http://www.kde.org/api/v1/groups.delete")));
     QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::GroupsSetEncrypted), QUrl(QStringLiteral("http://www.kde.org/api/v1/groups.setEncrypted")));
