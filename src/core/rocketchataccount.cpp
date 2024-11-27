@@ -3191,8 +3191,7 @@ void RocketChatAccount::loadAppCount()
         countinfo.parseCountInfo(obj);
         // TODO
 
-        // Q_EMIT appsMarkPlaceLoadDone();
-        qDebug() << " OBJ " << obj;
+        Q_EMIT appsCountLoadDone();
     });
     if (!job->start()) {
         qCWarning(RUQOLA_LOG) << "Impossible to start AppCountJob";
