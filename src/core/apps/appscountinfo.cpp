@@ -10,6 +10,11 @@ AppsCountInfo::AppsCountInfo() = default;
 
 AppsCountInfo::~AppsCountInfo() = default;
 
+void AppsCountInfo::parseCountInfo(const QJsonObject &replyObject)
+{
+    qDebug() << " replyObject " << replyObject;
+}
+
 QDebug operator<<(QDebug d, const AppsCountInfo &t)
 {
     // TODO
