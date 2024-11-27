@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-11-26 02:30+0000\n"
+"POT-Creation-Date: 2024-11-27 02:32+0000\n"
 "PO-Revision-Date: 2024-09-21 09:49+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
@@ -2647,7 +2647,7 @@ msgstr "Вилучення емодзі"
 
 #: widgets/administratordialog/customemoji/administratorcustomemojiwidget.cpp:179
 #: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:142
-#: widgets/administratordialog/customuserstatus/customuserstatustreewidget.cpp:127
+#: widgets/administratordialog/customuserstatus/customuserstatustreewidget.cpp:145
 #: widgets/administratordialog/oauth/oauthtreeview.cpp:49
 #: widgets/administratordialog/roles/administratorroleswidget.cpp:101
 #: widgets/administratordialog/roles/usersinrolewidget.cpp:106
@@ -2660,7 +2660,7 @@ msgstr "Додати…"
 
 #: widgets/administratordialog/customemoji/administratorcustomemojiwidget.cpp:182
 #: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:144
-#: widgets/administratordialog/customuserstatus/customuserstatustreewidget.cpp:130
+#: widgets/administratordialog/customuserstatus/customuserstatustreewidget.cpp:148
 #: widgets/administratordialog/oauth/oauthtreeview.cpp:51
 #: widgets/administratordialog/permissions/permissionswidget.cpp:92
 #: widgets/administratordialog/roles/administratorroleswidget.cpp:105
@@ -2673,7 +2673,7 @@ msgstr "Змінити…"
 
 #: widgets/administratordialog/customemoji/administratorcustomemojiwidget.cpp:187
 #: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:148
-#: widgets/administratordialog/customuserstatus/customuserstatustreewidget.cpp:132
+#: widgets/administratordialog/customuserstatus/customuserstatustreewidget.cpp:150
 #: widgets/administratordialog/invites/invitetreeview.cpp:39
 #: widgets/administratordialog/oauth/oauthtreeview.cpp:55
 #: widgets/administratordialog/roles/administratorroleswidget.cpp:120
@@ -2748,13 +2748,13 @@ msgstr "Стан:"
 msgid "Presence"
 msgstr "Присутність"
 
-#: widgets/administratordialog/customuserstatus/customuserstatustreewidget.cpp:116
+#: widgets/administratordialog/customuserstatus/customuserstatustreewidget.cpp:134
 #: widgets/administratordialog/rooms/administratorroomswidget.cpp:211
 #, kde-format
 msgid "Do you want to remove \"%1\"?"
 msgstr "Хочете вилучити «%1»?"
 
-#: widgets/administratordialog/customuserstatus/customuserstatustreewidget.cpp:117
+#: widgets/administratordialog/customuserstatus/customuserstatustreewidget.cpp:135
 #, kde-format
 msgctxt "@title"
 msgid "Remove Custom User Status"
