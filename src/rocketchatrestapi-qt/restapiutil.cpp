@@ -22,11 +22,6 @@ QString RestApiUtil::adaptUrl(const QString &url)
     }
 }
 
-QString RestApiUtil::apiUri()
-{
-    return QStringLiteral("/api/v1/");
-}
-
 QString RestApiUtil::restUrl(RestApiUtil::RestApiUrlType type)
 {
     switch (type) {
