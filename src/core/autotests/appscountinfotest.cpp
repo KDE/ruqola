@@ -16,3 +16,5 @@ void AppsCountInfoTest::shouldHaveDefaultValues()
 {
     // TOOD
 }
+
+#include "moc_appscountinfotest.cpp"
