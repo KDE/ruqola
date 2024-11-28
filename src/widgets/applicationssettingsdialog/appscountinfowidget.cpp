@@ -30,10 +30,16 @@ void AppsCountInfoWidget::setAppCountInfo(const AppsCountInfo &info)
     switch (mInfoType) {
     case AppsCountInfoWidget::InfoType::Unknown:
         break;
-    case AppsCountInfoWidget::InfoType::Applications:
+    case AppsCountInfoWidget::InfoType::Applications: {
+        mProgressBar->setMaximum(info.maxMarketplaceApps());
+        mProgressBar->setValue(info.totalMarketplaceEnabled());
         break;
-    case AppsCountInfoWidget::InfoType::PrivateApps:
+    }
+    case AppsCountInfoWidget::InfoType::PrivateApps: {
+        mProgressBar->setMaximum(info.maxPrivateApps());
+        mProgressBar->setValue(info.totalPrivateEnabled());
         break;
+    }
     }
 
     // TODO
