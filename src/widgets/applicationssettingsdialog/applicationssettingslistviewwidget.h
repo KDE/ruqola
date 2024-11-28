@@ -6,11 +6,14 @@
 #pragma once
 
 #include <QWidget>
-
+class AppsCountInfoWidget;
 class ApplicationsSettingsListViewWidget : public QWidget
 {
     Q_OBJECT
 public:
     explicit ApplicationsSettingsListViewWidget(QWidget *parent = nullptr);
     ~ApplicationsSettingsListViewWidget() override;
+
+private:
+    AppsCountInfoWidget *const mAppsCountInfoWidget;
 };
