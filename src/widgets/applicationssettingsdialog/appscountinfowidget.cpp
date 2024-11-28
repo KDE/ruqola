@@ -20,6 +20,7 @@ AppsCountInfoWidget::AppsCountInfoWidget(InfoType type, QWidget *parent)
 
     mProgressBar->setObjectName("mProgressBar"_L1);
     mainLayout->addWidget(mProgressBar);
+    mProgressBar->setTextVisible(false);
 }
 
 AppsCountInfoWidget::~AppsCountInfoWidget() = default;
