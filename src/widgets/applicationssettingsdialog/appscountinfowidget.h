@@ -20,10 +20,11 @@ public:
         PrivateApps,
     };
 
-    explicit AppsCountInfoWidget(QWidget *parent = nullptr);
+    explicit AppsCountInfoWidget(InfoType type, QWidget *parent = nullptr);
     ~AppsCountInfoWidget() override;
     void setAppCountInfo(const AppsCountInfo &info);
 
 private:
     QProgressBar *const mProgressBar;
+    InfoType mInfoType = InfoType::Unknown;
 };

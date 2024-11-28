@@ -19,7 +19,7 @@ AppsCountInfoWidgetTest::AppsCountInfoWidgetTest(QObject *parent)
 
 void AppsCountInfoWidgetTest::shouldHaveDefaultValues()
 {
-    AppsCountInfoWidget w;
+    AppsCountInfoWidget w(AppsCountInfoWidget::InfoType::PrivateApps);
     auto mainLayout = w.findChild<QHBoxLayout *>(QStringLiteral("mainLayout"));
     QVERIFY(mainLayout);
     QCOMPARE(mainLayout->contentsMargins(), QMargins{});
