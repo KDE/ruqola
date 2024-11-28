@@ -7,43 +7,48 @@
 #include "appscountinfowidget.h"
 #include <KLocalizedString>
 #include <QHBoxLayout>
+#include <QLabel>
 #include <QProgressBar>
 using namespace Qt::Literals::StringLiterals;
-AppsCountInfoWidget::AppsCountInfoWidget(InfoType type, QWidget *parent)
+AppsCountInfoWidget::AppsCountInfoWidget(QWidget *parent)
     : QWidget{parent}
     , mProgressBar(new QProgressBar(this))
-    , mInfoType(type)
+    , mApplicationInfo(new QLabel(this))
 {
     auto mainLayout = new QHBoxLayout(this);
     mainLayout->setObjectName("mainLayout"_L1);
     mainLayout->setContentsMargins({});
 
+    mainLayout->addStretch(1);
+
     mProgressBar->setObjectName("mProgressBar"_L1);
     mainLayout->addWidget(mProgressBar);
     mProgressBar->setTextVisible(false);
+    mApplicationInfo->setObjectName("mApplicationInfo"_L1);
+    mainLayout->addWidget(mApplicationInfo);
 }
 
 AppsCountInfoWidget::~AppsCountInfoWidget() = default;
 
-void AppsCountInfoWidget::setAppCountInfo(const AppsCountInfo &info)
+void AppsCountInfoWidget::setAppCountInfo(const AppsCountInfo &info, InfoType type)
 {
     setVisible(info.isValid());
-    switch (mInfoType) {
+    switch (type) {
     case AppsCountInfoWidget::InfoType::Unknown:
         break;
     case AppsCountInfoWidget::InfoType::Applications: {
         mProgressBar->setMaximum(info.maxMarketplaceApps());
         mProgressBar->setValue(info.totalMarketplaceEnabled());
+        mApplicationInfo->setText(QStringLiteral("%1/%2").arg(QString::number(info.totalMarketplaceEnabled()), QString::number(info.maxMarketplaceApps())));
         break;
     }
     case AppsCountInfoWidget::InfoType::PrivateApps: {
         mProgressBar->setMaximum(info.maxPrivateApps());
         mProgressBar->setValue(info.totalPrivateEnabled());
+        mApplicationInfo->setText(QStringLiteral("%1/%2").arg(QString::number(info.totalPrivateEnabled()), QString::number(info.maxPrivateApps())));
         break;
     }
     }
-
-    // TODO
 }
 
 #include "moc_appscountinfowidget.cpp"

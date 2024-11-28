@@ -98,4 +98,14 @@ void AppsMarketPlaceModel::clear()
     mAppsMarketPlaceInfos.clear();
 }
 
+AppsCountInfo AppsMarketPlaceModel::appsCountInfo() const
+{
+    return mAppsCountInfo;
+}
+
+void AppsMarketPlaceModel::setAppsCountInfo(const AppsCountInfo &newAppsCountInfo)
+{
+    mAppsCountInfo = newAppsCountInfo;
+}
+
 #include "moc_appsmarketplacemodel.cpp"

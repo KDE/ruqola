@@ -7,7 +7,9 @@
 #include "applicationssettingswidget.h"
 #include "applicationssettingsinprogresswidget.h"
 #include "applicationssettingslistview.h"
+#include "appscountinfowidget.h"
 #include "memorymanager/memorymanager.h"
+#include "model/appsmarketplacemodel.h"
 #include "rocketchataccount.h"
 
 #include <QStackedWidget>
@@ -20,6 +22,7 @@ ApplicationsSettingsWidget::ApplicationsSettingsWidget(RocketChatAccount *accoun
     , mApplicationsSettingsSearchWidget(new ApplicationsSettingsSearchWidget(account, this))
     , mApplicationsSettingsListView(new ApplicationsSettingsListView(account, this))
     , mApplicationsSettingsInProgressWidget(new ApplicationsSettingsInProgressWidget(this))
+    , mAppsCountInfoWidget(new AppsCountInfoWidget(this))
     , mStackedWidget(new QStackedWidget(this))
     , mWidgetListView(new QWidget(this))
 {
@@ -40,11 +43,15 @@ ApplicationsSettingsWidget::ApplicationsSettingsWidget(RocketChatAccount *accoun
     mWidgetListView->setObjectName("mWidgetListView"_L1);
     mStackedWidget->addWidget(mWidgetListView);
 
+    mAppsCountInfoWidget->setObjectName("mAppsCountInfoWidget"_L1);
+    widgetLayout->addWidget(mAppsCountInfoWidget);
+
     mApplicationsSettingsSearchWidget->setObjectName("mApplicationsSettingsSearchWidget"_L1);
     widgetLayout->addWidget(mApplicationsSettingsSearchWidget);
 
     mApplicationsSettingsListView->setObjectName("mApplicationsSettingsListView"_L1);
     widgetLayout->addWidget(mApplicationsSettingsListView);
+
     if (mCurrentRocketChatAccount) {
         mCurrentRocketChatAccount->memoryManager()->stopClearApplicationSettingsModelTimer();
         mCurrentRocketChatAccount->loadAppMarketPlace();
@@ -59,6 +66,12 @@ ApplicationsSettingsWidget::ApplicationsSettingsWidget(RocketChatAccount *accoun
         connect(mCurrentRocketChatAccount, &RocketChatAccount::appsMarkPlaceLoadDone, this, [this]() {
             mStackedWidget->setCurrentWidget(mWidgetListView);
         });
+        connect(mCurrentRocketChatAccount, &RocketChatAccount::appsCountLoadDone, this, [this]() {
+            // TODO fix me
+            mAppsCountInfoWidget->setAppCountInfo(mCurrentRocketChatAccount->appsMarketPlaceModel()->appsCountInfo(),
+                                                  AppsCountInfoWidget::InfoType::Applications);
+        });
+
     } else {
         mStackedWidget->setCurrentWidget(mWidgetListView);
     }

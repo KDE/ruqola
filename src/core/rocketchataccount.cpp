@@ -887,6 +887,13 @@ void RocketChatAccount::createNewChannel(const RocketChatRestApi::CreateChannelT
     }
 }
 
+#if 0
+void RocketChatAccount::getRoomByTypeAndName()
+{
+    // TODO
+}
+#endif
+
 void RocketChatAccount::joinDiscussion(const QByteArray &roomId, const QString &joinCode)
 {
     ddp()->joinRoom(roomId, joinCode);
@@ -3189,7 +3196,7 @@ void RocketChatAccount::loadAppCount()
     connect(job, &RocketChatRestApi::AppCountJob::appCountDone, this, [this](const QJsonObject &obj) {
         AppsCountInfo countinfo;
         countinfo.parseCountInfo(obj);
-        mAppsCategoriesModel->setAppsCountInfo(countinfo);
+        mAppsMarketPlaceModel->setAppsCountInfo(countinfo);
         Q_EMIT appsCountLoadDone();
     });
     if (!job->start()) {

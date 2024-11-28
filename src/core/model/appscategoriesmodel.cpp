@@ -24,16 +24,6 @@ void AppsCategoriesModel::createItem(const QString &displayStr, const QByteArray
     appendRow(item);
 }
 
-AppsCountInfo AppsCategoriesModel::appsCountInfo() const
-{
-    return mAppsCountInfo;
-}
-
-void AppsCategoriesModel::setAppsCountInfo(const AppsCountInfo &newAppsCountInfo)
-{
-    mAppsCountInfo = newAppsCountInfo;
-}
-
 QList<AppsCategoryInfo> AppsCategoriesModel::appsCategories() const
 {
     return mAppsCategories;

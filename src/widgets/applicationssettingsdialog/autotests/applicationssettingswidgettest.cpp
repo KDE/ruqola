@@ -9,6 +9,7 @@
 #include "applicationssettingsdialog/applicationssettingslistview.h"
 #include "applicationssettingsdialog/applicationssettingssearchwidget.h"
 #include "applicationssettingsdialog/applicationssettingswidget.h"
+#include "applicationssettingsdialog/appscountinfowidget.h"
 #include <QStackedWidget>
 #include <QTest>
 #include <QVBoxLayout>
@@ -25,7 +26,6 @@ void ApplicationsSettingsWidgetTest::shouldHaveDefaultValues()
     auto mainLayout = d.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
     QVERIFY(mainLayout);
     QCOMPARE(mainLayout->contentsMargins(), QMargins{});
-    // TODO
 
     auto mApplicationsSettingsSearchWidget = d.findChild<ApplicationsSettingsSearchWidget *>(QStringLiteral("mApplicationsSettingsSearchWidget"));
     QVERIFY(mApplicationsSettingsSearchWidget);
@@ -37,6 +37,8 @@ void ApplicationsSettingsWidgetTest::shouldHaveDefaultValues()
     QVERIFY(mStackedWidget);
     auto mWidgetListView = d.findChild<QWidget *>(QStringLiteral("mWidgetListView"));
     QVERIFY(mWidgetListView);
+    auto mAppsCountInfoWidget = d.findChild<AppsCountInfoWidget *>("mAppsCountInfoWidget");
+    QVERIFY(mAppsCountInfoWidget);
 }
 
 #include "moc_applicationssettingswidgettest.cpp"

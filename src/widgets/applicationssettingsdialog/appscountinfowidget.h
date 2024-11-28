@@ -10,6 +10,7 @@
 #include "libruqolawidgets_private_export.h"
 #include <QWidget>
 class QProgressBar;
+class QLabel;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT AppsCountInfoWidget : public QWidget
 {
     Q_OBJECT
@@ -20,11 +21,11 @@ public:
         PrivateApps,
     };
 
-    explicit AppsCountInfoWidget(InfoType type, QWidget *parent = nullptr);
+    explicit AppsCountInfoWidget(QWidget *parent = nullptr);
     ~AppsCountInfoWidget() override;
-    void setAppCountInfo(const AppsCountInfo &info);
+    void setAppCountInfo(const AppsCountInfo &info, InfoType type);
 
 private:
     QProgressBar *const mProgressBar;
-    InfoType mInfoType = InfoType::Unknown;
+    QLabel *const mApplicationInfo;
 };

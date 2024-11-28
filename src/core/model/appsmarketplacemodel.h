@@ -6,6 +6,7 @@
 
 #pragma once
 
+#include "apps/appscountinfo.h"
 #include "apps/appsmarketplaceinfo.h"
 #include "libruqolacore_export.h"
 #include <QAbstractListModel>
@@ -48,6 +49,10 @@ public:
 
     void clear();
 
+    [[nodiscard]] AppsCountInfo appsCountInfo() const;
+    void setAppsCountInfo(const AppsCountInfo &newAppsCountInfo);
+
 private:
     QList<AppsMarketPlaceInfo> mAppsMarketPlaceInfos;
+    AppsCountInfo mAppsCountInfo;
 };
