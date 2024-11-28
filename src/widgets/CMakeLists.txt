@@ -948,8 +948,8 @@ target_sources(libruqolawidgets PRIVATE
     applicationssettingsdialog/applicationssettingsinstalledcombobox.h
     applicationssettingsdialog/applicationssettingsinstalledcombobox.cpp
 
-    applicationssettingsdialog/appcountinfowidget.h
-    applicationssettingsdialog/appcountinfowidget.cpp
+    applicationssettingsdialog/appscountinfowidget.h
+    applicationssettingsdialog/appscountinfowidget.cpp
 
     welcome/welcomewidget.h
     welcome/welcomewidget.cpp

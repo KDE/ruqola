@@ -4,11 +4,11 @@
    SPDX-License-Identifier: LGPL-2.0-or-later
 */
 
-#include "appcountinfowidget.h"
+#include "appscountinfowidget.h"
 #include <KLocalizedString>
 #include <QHBoxLayout>
 using namespace Qt::Literals::StringLiterals;
-AppCountInfoWidget::AppCountInfoWidget(QWidget *parent)
+AppsCountInfoWidget::AppsCountInfoWidget(QWidget *parent)
     : QWidget{parent}
 {
     auto mainLayout = new QHBoxLayout(this);
@@ -16,11 +16,11 @@ AppCountInfoWidget::AppCountInfoWidget(QWidget *parent)
     mainLayout->setContentsMargins({});
 }
 
-void AppCountInfoWidget::setAppCountInfo(const AppsCountInfo &info)
+void AppsCountInfoWidget::setAppCountInfo(const AppsCountInfo &info)
 {
     // TODO
 }
 
-AppCountInfoWidget::~AppCountInfoWidget() = default;
+AppsCountInfoWidget::~AppsCountInfoWidget() = default;
 
-#include "moc_appcountinfowidget.cpp"
+#include "moc_appscountinfowidget.cpp"

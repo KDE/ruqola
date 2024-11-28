@@ -10,7 +10,7 @@
 #include "libruqolawidgets_private_export.h"
 #include <QWidget>
 
-class LIBRUQOLAWIDGETS_TESTS_EXPORT AppCountInfoWidget : public QWidget
+class LIBRUQOLAWIDGETS_TESTS_EXPORT AppsCountInfoWidget : public QWidget
 {
     Q_OBJECT
 public:
@@ -20,7 +20,7 @@ public:
         PrivateApps,
     };
 
-    explicit AppCountInfoWidget(QWidget *parent = nullptr);
-    ~AppCountInfoWidget() override;
+    explicit AppsCountInfoWidget(QWidget *parent = nullptr);
+    ~AppsCountInfoWidget() override;
     void setAppCountInfo(const AppsCountInfo &info);
 };

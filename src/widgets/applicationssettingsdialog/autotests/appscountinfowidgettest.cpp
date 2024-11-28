@@ -4,25 +4,25 @@
    SPDX-License-Identifier: LGPL-2.0-or-later
 */
 
-#include "appcountinfowidgettest.h"
-#include "applicationssettingsdialog/appcountinfowidget.h"
+#include "appscountinfowidgettest.h"
+#include "applicationssettingsdialog/appscountinfowidget.h"
 #include <QHBoxLayout>
 #include <QTest>
 
-QTEST_MAIN(AppCountInfoWidgetTest)
+QTEST_MAIN(AppsCountInfoWidgetTest)
 
-AppCountInfoWidgetTest::AppCountInfoWidgetTest(QObject *parent)
+AppsCountInfoWidgetTest::AppsCountInfoWidgetTest(QObject *parent)
     : QObject{parent}
 {
 }
 
-void AppCountInfoWidgetTest::shouldHaveDefaultValues()
+void AppsCountInfoWidgetTest::shouldHaveDefaultValues()
 {
-    AppCountInfoWidget w;
+    AppsCountInfoWidget w;
     auto mainLayout = w.findChild<QHBoxLayout *>(QStringLiteral("mainLayout"));
     QVERIFY(mainLayout);
     QCOMPARE(mainLayout->contentsMargins(), QMargins{});
     // TODO
 }
 
-#include "moc_appcountinfowidgettest.cpp"
+#include "moc_appscountinfowidgettest.cpp"

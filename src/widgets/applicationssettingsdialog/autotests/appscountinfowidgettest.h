@@ -8,12 +8,12 @@
 
 #include <QObject>
 
-class AppCountInfoWidgetTest : public QObject
+class AppsCountInfoWidgetTest : public QObject
 {
     Q_OBJECT
 public:
-    explicit AppCountInfoWidgetTest(QObject *parent = nullptr);
-    ~AppCountInfoWidgetTest() override = default;
+    explicit AppsCountInfoWidgetTest(QObject *parent = nullptr);
+    ~AppsCountInfoWidgetTest() override = default;
 
 private Q_SLOTS:
     void shouldHaveDefaultValues();
