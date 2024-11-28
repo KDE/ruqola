@@ -8,11 +8,9 @@
 #include "libruqolawidgets_private_export.h"
 #include "misc/messagelistviewbase.h"
 #include "model/appsmarketplacefilterproxymodel.h"
-#include "rocketchataccount.h"
-#include <QTreeView>
+
 class ApplicationsSettingsDelegate;
 class RocketChatAccount;
-class AppsMarketPlaceFilterProxyModel;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT ApplicationsSettingsListView : public MessageListViewBase
 {
     Q_OBJECT
