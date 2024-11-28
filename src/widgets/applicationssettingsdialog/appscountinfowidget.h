@@ -9,7 +9,7 @@
 #include "apps/appscountinfo.h"
 #include "libruqolawidgets_private_export.h"
 #include <QWidget>
-
+class QProgressBar;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT AppsCountInfoWidget : public QWidget
 {
     Q_OBJECT
@@ -23,4 +23,7 @@ public:
     explicit AppsCountInfoWidget(QWidget *parent = nullptr);
     ~AppsCountInfoWidget() override;
     void setAppCountInfo(const AppsCountInfo &info);
+
+private:
+    QProgressBar *const mProgressBar;
 };
