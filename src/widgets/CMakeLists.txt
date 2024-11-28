@@ -950,6 +950,8 @@ target_sources(libruqolawidgets PRIVATE
 
     applicationssettingsdialog/appscountinfowidget.h
     applicationssettingsdialog/appscountinfowidget.cpp
+    applicationssettingsdialog/applicationssettingslistviewwidget.h
+    applicationssettingsdialog/applicationssettingslistviewwidget.cpp
 
     welcome/welcomewidget.h
     welcome/welcomewidget.cpp
