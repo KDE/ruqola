@@ -902,8 +902,9 @@ void RocketChatAccount::getRoomByTypeAndName(const QByteArray &rid, const QStrin
     job->setMethodCallJobInfo(std::move(info));
     restApi()->initializeRestApiJob(job);
     // qDebug()<< " mRestApiConnection " << mRestApiConnection->serverUrl();
-    connect(job, &RocketChatRestApi::MethodCallJob::methodCallDone, this, [](const QJsonObject &replyObject) {
-        qDebug() << " replyObject " << replyObject;
+    connect(job, &RocketChatRestApi::MethodCallJob::methodCallDone, this, [this](const QJsonObject &replyObject) {
+        extractIdentifier(replyObject, "result"_L1, "_id"_L1);
+        // qDebug() << " replyObject " << replyObject;
     });
     if (!job->start()) {
         qCWarning(RUQOLA_LOG) << "Impossible to start getRoomByTypeAndName job";
