@@ -380,10 +380,10 @@ void RocketChatBackend::ddpLogin()
     ddp->authenticationManager()->setAuthToken(restApi->authenticationManager()->authToken());
     // if (ddp->authenticationManager()->loginPassword(mRocketChatAccount->settings()->userName(), mRocketChatAccount->settings()->password())) {
     if (ddp->authenticationManager()->login()) {
-        qCDebug(RUQOLA_AUTHENTICATION_LOG) << "login ok" << mRocketChatAccount->accountName() << mRocketChatAccount->userName();
+        qCDebug(RUQOLA_AUTHENTICATION_LOG) << "ddpLogin: login ok" << mRocketChatAccount->accountName() << mRocketChatAccount->userName();
         initializeSubscription(ddp);
     } else {
-        qCWarning(RUQOLA_AUTHENTICATION_LOG) << "could not reconnect" << mRocketChatAccount->accountName() << mRocketChatAccount->userName();
+        qCWarning(RUQOLA_AUTHENTICATION_LOG) << "ddpLogin: could not reconnect" << mRocketChatAccount->accountName() << mRocketChatAccount->userName();
     }
 }
 
@@ -449,27 +449,27 @@ void RocketChatBackend::tryAutoLogin()
 {
     qCDebug(RUQOLA_RECONNECT_LOG) << "tryAutoLogin for account" << mRocketChatAccount->accountName();
     if (mRocketChatAccount->serverVersion().isEmpty()) {
-        qCDebug(RUQOLA_RECONNECT_LOG) << "Can't autologin yet, waiting for parseServerVersionDone";
+        qCDebug(RUQOLA_RECONNECT_LOG) << "tryAutoLogin: can't autologin yet, waiting for parseServerVersionDone";
         return;
     }
     if (mRocketChatAccount->authMethodType() == AuthenticationManager::AuthMethodType::Password) {
         if (mRocketChatAccount->password().isEmpty()) {
-            qCDebug(RUQOLA_RECONNECT_LOG) << "Can't autologin (yet?), no password set";
+            qCDebug(RUQOLA_RECONNECT_LOG) << "tryAutoLogin: can't autologin (yet?), no password set";
             return;
         }
     } else if (mRocketChatAccount->authMethodType() == AuthenticationManager::AuthMethodType::PersonalAccessToken) {
         if (mRocketChatAccount->authToken().isEmpty()) {
-            qCDebug(RUQOLA_RECONNECT_LOG) << "Can't autologin (yet?), no authToken";
+            qCDebug(RUQOLA_RECONNECT_LOG) << "tryAutoLogin: can't autologin (yet?), no authToken";
             return;
         }
     } else {
-        qCWarning(RUQOLA_RECONNECT_LOG) << " tryAutoLogin check not implemented for " << mRocketChatAccount->authMethodType();
+        qCWarning(RUQOLA_RECONNECT_LOG) << " tryAutoLogin: check not implemented for " << mRocketChatAccount->authMethodType();
     }
     if (Ruqola::self()->useRestApiLogin()) {
-        qCDebug(RUQOLA_RECONNECT_LOG) << "try login REST API" << mRocketChatAccount->accountName();
+        qCDebug(RUQOLA_RECONNECT_LOG) << "tryAutoLogin: try login REST API" << mRocketChatAccount->accountName();
         mRocketChatAccount->tryLogin();
     } else {
-        qCDebug(RUQOLA_RECONNECT_LOG) << "try login ddp" << mRocketChatAccount->accountName();
+        qCDebug(RUQOLA_RECONNECT_LOG) << "tryAutoLogin: try login ddp" << mRocketChatAccount->accountName();
         mRocketChatAccount->ddp()->login();
     }
 }

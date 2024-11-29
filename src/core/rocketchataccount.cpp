@@ -374,7 +374,7 @@ void RocketChatAccount::slotNeedToUpdateNotification()
 
 void RocketChatAccount::clearModels()
 {
-    qCDebug(RUQOLA_RECONNECT_LOG) << " account name " << accountName();
+    qCDebug(RUQOLA_RECONNECT_LOG) << "clear room model for" << accountName();
     // Clear rooms data and refill it with data in the cache, if there is
     mRoomModel->clear();
 
@@ -720,7 +720,7 @@ QString RocketChatAccount::ddpLoginStatusText() const
 
 void RocketChatAccount::tryLogin()
 {
-    qCDebug(RUQOLA_RECONNECT_LOG) << "Attempting login" << mSettings->userName() << "on" << mSettings->serverUrl();
+    qCDebug(RUQOLA_RECONNECT_LOG) << accountName() << "attempting login" << mSettings->userName() << "on" << mSettings->serverUrl();
 
     if (Ruqola::self()->useRestApiLogin()) {
         if (auto interface = defaultAuthenticationInterface()) {
@@ -2482,7 +2482,7 @@ void RocketChatAccount::initializeAccount()
     restApi()->customUserStatus();
     slotLoadRoles();
     checkLicenses();
-    qDebug() << "encryptionEnabled()  " << encryptionEnabled() << " account name " << accountName();
+    qDebug() << "initializeAccount: encryptionEnabled =" << encryptionEnabled() << "account name" << accountName();
     if (encryptionEnabled()) {
         mE2eKeyManager->fetchMyKeys();
     }
@@ -2647,7 +2647,7 @@ void RocketChatAccount::slotRESTLoginStatusChanged()
 
 void RocketChatAccount::logoutCompleted()
 {
-    qCDebug(RUQOLA_RECONNECT_LOG) << "Successfully logged out!";
+    qCDebug(RUQOLA_RECONNECT_LOG) << "Successfully logged out from" << accountName();
     Q_EMIT logoutDone(accountName());
 }
 

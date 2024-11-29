@@ -31,7 +31,7 @@ bool AuthenticationManagerBase::isLoggedOut() const
 void AuthenticationManagerBase::setLoginStatus(AuthenticationManager::LoginStatus status)
 {
     if (mLoginStatus != status) {
-        qCDebug(RUQOLA_AUTHENTICATION_LOG) << authenticationName() << status;
+        qCDebug(RUQOLA_AUTHENTICATION_LOG) << "setLoginStatus" << authenticationName() << status;
         mLoginStatus = status;
         Q_EMIT loginStatusChanged();
     }
@@ -209,7 +209,7 @@ bool AuthenticationManagerBase::loginImpl(const QJsonArray &params)
 
 void AuthenticationManagerBase::processMethodResponseImpl(const QJsonObject &response, AuthenticationManagerBase::Method method)
 {
-    qCDebug(RUQOLA_AUTHENTICATION_LOG) << authenticationName() << method;
+    qCDebug(RUQOLA_AUTHENTICATION_LOG) << "processing response" << authenticationName() << method;
 
     switch (method) {
     case Method::Login: // intentional fall-through
