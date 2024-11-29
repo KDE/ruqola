@@ -914,11 +914,6 @@ void RocketChatAccount::getRoomByTypeAndName(const QByteArray &rid, const QStrin
 #endif
 }
 
-void RocketChatAccount::joinDiscussion(const QByteArray &roomId, const QString &joinCode)
-{
-    ddp()->joinRoom(roomId, joinCode);
-}
-
 void RocketChatAccount::joinRoom(const QString &roomId, const QString &joinCode)
 {
     RocketChatRestApi::ChannelGroupBaseJob::ChannelGroupInfo info;

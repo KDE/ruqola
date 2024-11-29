@@ -20,14 +20,6 @@ void RocketChatMessageTest::compareFile(const QString &data, const QString &name
     AutoTestHelper::compareFile(QStringLiteral("/method/"), data.toUtf8(), name);
 }
 
-void RocketChatMessageTest::shouldJoinRoom()
-{
-    RocketChatMessage m;
-    m.setJsonFormat(QJsonDocument::Indented);
-    RocketChatMessage::RocketChatMessageResult r = m.joinRoom(QByteArray("foo"), QStringLiteral("access_code"), 43);
-    compareFile(r.result, QStringLiteral("joinroom"));
-}
-
 void RocketChatMessageTest::shouldSetDefaultStatus()
 {
     RocketChatMessage m;

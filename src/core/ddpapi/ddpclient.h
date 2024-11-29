@@ -164,7 +164,6 @@ public:
 
     [[nodiscard]] DDPAuthenticationManager *authenticationManager() const;
 
-    quint64 joinRoom(const QByteArray &roomId, const QString &joinCode);
     quint64 openDirectChannel(const QString &userId);
     void subscribeRoomMessage(const QByteArray &roomId);
     quint64 setDefaultStatus(User::PresenceStatus status);

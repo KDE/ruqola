@@ -314,7 +314,6 @@ public:
     [[nodiscard]] AccountRoomSettings *accountRoomSettings() const;
 
     [[nodiscard]] bool isMessageDeletable(const Message &message) const;
-    void joinDiscussion(const QByteArray &roomId, const QString &joinCode);
     void setNameChanged(const QJsonArray &array);
     [[nodiscard]] User::PresenceStatus presenceStatus() const;
 

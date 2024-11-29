@@ -15,7 +15,6 @@ public:
     explicit RocketChatMessageTest(QObject *parent = nullptr);
     ~RocketChatMessageTest() override = default;
 private Q_SLOTS:
-    void shouldJoinRoom();
     void shouldSetDefaultStatus();
     void shouldInformTypingStatus();
 
