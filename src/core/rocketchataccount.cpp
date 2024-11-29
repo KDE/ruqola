@@ -12,6 +12,7 @@
 #include "config-ruqola.h"
 #include "ddpapi/ddpclient.h"
 #include "memorymanager/memorymanager.h"
+#include "misc/methodcalljob.h"
 #include "model/appscategoriesmodel.h"
 #include "model/roommodel.h"
 #include "notifications/notificationpreferences.h"
@@ -889,7 +890,27 @@ void RocketChatAccount::createNewChannel(const RocketChatRestApi::CreateChannelT
 
 void RocketChatAccount::getRoomByTypeAndName(const QByteArray &rid, const QString &roomType)
 {
+#if 1
+    // it uses "/api/v1/method.call/getRoomByTypeAndName"
+    // => use restapi for calling ddp method
+    auto job = new RocketChatRestApi::MethodCallJob(this);
+    RocketChatRestApi::MethodCallJob::MethodCallJobInfo info;
+    info.methodName = QStringLiteral("getRoomByTypeAndName");
+    info.anonymous = false;
+    const QJsonArray params{{roomType}, {QString::fromLatin1(rid)}};
+    info.messageObj = ddp()->generateJsonObject(info.methodName, params);
+    job->setMethodCallJobInfo(std::move(info));
+    restApi()->initializeRestApiJob(job);
+    // qDebug()<< " mRestApiConnection " << mRestApiConnection->serverUrl();
+    connect(job, &RocketChatRestApi::MethodCallJob::methodCallDone, this, [](const QJsonObject &replyObject) {
+        qDebug() << " replyObject " << replyObject;
+    });
+    if (!job->start()) {
+        qCWarning(RUQOLA_LOG) << "Impossible to start getRoomByTypeAndName job";
+    }
+#else
     ddp()->getRoomByTypeAndName(rid, roomType);
+#endif
 }
 
 void RocketChatAccount::joinDiscussion(const QByteArray &roomId, const QString &joinCode)
