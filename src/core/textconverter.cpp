@@ -108,11 +108,6 @@ void iterateOverEndLineRegions(const QString &str,
 }
 }
 
-QString TextConverter::convertMessageText(const ConvertMessageTextSettings &settings, QByteArray &needUpdateMessageId, int &recusiveIndex)
-{
-    return TextConverter::convertMessageTextCMark(settings, needUpdateMessageId, recusiveIndex);
-}
-
 namespace
 {
 QString markdownToRichTextCMark(const QString &markDown)
@@ -442,7 +437,7 @@ void convertHtmlChar(QString &str)
     str.replace(QStringLiteral("&amp;"), QStringLiteral("&"));
 }
 
-QString TextConverter::convertMessageTextCMark(const TextConverter::ConvertMessageTextSettings &newSettings, const QString &quotedMessage)
+QString convertMessageText(const TextConverter::ConvertMessageTextSettings &newSettings, const QString &quotedMessage)
 {
     // Need to escaped text (avoid to interprete html code)
     const TextConverter::ConvertMessageTextSettings settings{
@@ -541,7 +536,7 @@ QString TextConverter::convertMessageTextCMark(const TextConverter::ConvertMessa
     return result;
 }
 
-QString TextConverter::convertMessageTextCMark(const TextConverter::ConvertMessageTextSettings &settings, QByteArray &needUpdateMessageId, int &recusiveIndex)
+QString TextConverter::convertMessageText(const TextConverter::ConvertMessageTextSettings &settings, QByteArray &needUpdateMessageId, int &recusiveIndex)
 {
     if (!settings.emojiManager) {
         qCWarning(RUQOLA_TEXTTOHTML_LOG) << "Emojimanager is null";
@@ -574,7 +569,7 @@ QString TextConverter::convertMessageTextCMark(const TextConverter::ConvertMessa
                                                                        settings.searchedText,
                                                                        settings.maximumRecursiveQuotedText);
             recusiveIndex++;
-            const QString text = TextConverter::convertMessageTextCMark(newSetting, needUpdateMessageId, recusiveIndex);
+            const QString text = TextConverter::convertMessageText(newSetting, needUpdateMessageId, recusiveIndex);
             Utils::QuotedRichTextInfo info;
             info.url = url;
             info.richText = text;
@@ -597,7 +592,7 @@ QString TextConverter::convertMessageTextCMark(const TextConverter::ConvertMessa
                                                                                settings.searchedText,
                                                                                settings.maximumRecursiveQuotedText);
                     recusiveIndex++;
-                    const QString text = TextConverter::convertMessageTextCMark(newSetting, needUpdateMessageId, recusiveIndex);
+                    const QString text = TextConverter::convertMessageText(newSetting, needUpdateMessageId, recusiveIndex);
                     Utils::QuotedRichTextInfo info;
                     info.url = url;
                     info.richText = text;
@@ -626,7 +621,7 @@ QString TextConverter::convertMessageTextCMark(const TextConverter::ConvertMessa
         settings.maximumRecursiveQuotedText,
     };
     // qDebug() << "settings.str  " << settings.str;
-    const QString result = convertMessageTextCMark(newsettings, quotedMessage);
+    const QString result = convertMessageText(newsettings, quotedMessage);
     // qDebug() << " RESULT ************ " << result;
     return "<qt>"_L1 + result + "</qt>"_L1;
 }

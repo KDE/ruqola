@@ -27,7 +27,7 @@ CMarkTestGui::CMarkTestGui(QWidget *parent)
         const TextConverter::ConvertMessageTextSettings settings(mTextEdit->toPlainText(), QStringLiteral("foo"), {}, {}, nullptr, nullptr, {}, {});
         QByteArray needUpdateMessageId;
         int recursiveIndex = 0;
-        mTextEditResultCMark->setHtml(TextConverter::convertMessageTextCMark(settings, needUpdateMessageId, recursiveIndex));
+        mTextEditResultCMark->setHtml(TextConverter::convertMessageText(settings, needUpdateMessageId, recursiveIndex));
     });
 
     mTextEditResultCMark->setReadOnly(true);
