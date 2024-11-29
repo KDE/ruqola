@@ -14,6 +14,7 @@ class MessagesModel;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT SelectedMessageBackgroundAnimation : public QObject
 {
     Q_OBJECT
+    Q_PROPERTY(QColor backgroundColor READ backgroundColor WRITE setBackgroundColor NOTIFY backgroundColorChanged)
 public:
     explicit SelectedMessageBackgroundAnimation(MessagesModel *model, QObject *parent = nullptr);
     ~SelectedMessageBackgroundAnimation() override;
