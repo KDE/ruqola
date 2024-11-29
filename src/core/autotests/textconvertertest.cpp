@@ -4,7 +4,7 @@
    SPDX-License-Identifier: LGPL-2.0-or-later
 */
 
-#include "textconvertercmarktest.h"
+#include "textconvertertest.h"
 using namespace Qt::Literals::StringLiterals;
 
 #include "emoticons/emojimanager.h"
@@ -17,7 +17,7 @@ using namespace Qt::Literals::StringLiterals;
 
 #include <KColorScheme>
 
-QTEST_GUILESS_MAIN(TextConverterCMarkTest)
+QTEST_GUILESS_MAIN(TextConverterTest)
 
 namespace
 {
@@ -46,12 +46,12 @@ QString prepareExpectedOutput(QString output)
 }
 }
 
-TextConverterCMarkTest::TextConverterCMarkTest(QObject *parent)
+TextConverterTest::TextConverterTest(QObject *parent)
     : QObject(parent)
 {
 }
 
-void TextConverterCMarkTest::shouldConvertText_data()
+void TextConverterTest::shouldConvertText_data()
 {
     QTest::addColumn<QString>("input");
     QTest::addColumn<QString>("output");
@@ -136,7 +136,7 @@ void TextConverterCMarkTest::shouldConvertText_data()
                "$BORDERCOLOR$'><code>&nbsp;&nbsp;first&nbsp;line<br>&nbsp;&nbsp;second&nbsp;line</code></td></tr></table></p>\n");
 }
 
-void TextConverterCMarkTest::shouldConvertText()
+void TextConverterTest::shouldConvertText()
 {
     QFETCH(QString, input);
     QFETCH(QString, output);
@@ -152,7 +152,7 @@ void TextConverterCMarkTest::shouldConvertText()
              output); // TODO add autotests for highlightwords
 }
 
-void TextConverterCMarkTest::shouldHighlightWords_data()
+void TextConverterTest::shouldHighlightWords_data()
 {
     QTest::addColumn<QString>("input");
     QTest::addColumn<QString>("username");
@@ -190,7 +190,7 @@ void TextConverterCMarkTest::shouldHighlightWords_data()
                                   "style=\"color:$HERECOLOR$;background-color:$HEREBGCOLOR$;font-weight:bold\">here</a></p>\n");
 }
 
-void TextConverterCMarkTest::shouldHighlightWords()
+void TextConverterTest::shouldHighlightWords()
 {
     QFETCH(QString, input);
     QFETCH(QString, username);
@@ -205,7 +205,7 @@ void TextConverterCMarkTest::shouldHighlightWords()
     QCOMPARE(TextConverter::convertMessageText(settings, needUpdateMessageId, recursiveIndex), output);
 }
 
-void TextConverterCMarkTest::shouldHighlightText_data()
+void TextConverterTest::shouldHighlightText_data()
 {
     QTest::addColumn<QString>("input");
     QTest::addColumn<QString>("username");
@@ -224,7 +224,7 @@ void TextConverterCMarkTest::shouldHighlightText_data()
                                             .arg(userMentionForegroundColor, userMentionBackgroundColor);
 }
 
-void TextConverterCMarkTest::shouldHighlightText()
+void TextConverterTest::shouldHighlightText()
 {
     QFETCH(QString, input);
     QFETCH(QString, username);
@@ -237,7 +237,7 @@ void TextConverterCMarkTest::shouldHighlightText()
     QCOMPARE(TextConverter::convertMessageText(settings, needUpdateMessageId, recursiveIndex), output);
 }
 
-void TextConverterCMarkTest::shouldConvertTextWithEmoji_data()
+void TextConverterTest::shouldConvertTextWithEmoji_data()
 {
     QTest::addColumn<QString>("input");
     QTest::addColumn<QString>("output");
@@ -363,7 +363,7 @@ void TextConverterCMarkTest::shouldConvertTextWithEmoji_data()
                                     << QStringLiteral("www.kde.org");
 }
 
-void TextConverterCMarkTest::shouldConvertTextWithEmoji()
+void TextConverterTest::shouldConvertTextWithEmoji()
 {
     QFETCH(QString, input);
     QFETCH(QString, output);
@@ -396,7 +396,7 @@ void TextConverterCMarkTest::shouldConvertTextWithEmoji()
     QCOMPARE(actualOutput, output); // TODO add autotest for highlightwords
 }
 
-void TextConverterCMarkTest::shouldShowChannels_data()
+void TextConverterTest::shouldShowChannels_data()
 {
     QTest::addColumn<QString>("input");
     QTest::addColumn<QString>("output");
@@ -458,7 +458,7 @@ void TextConverterCMarkTest::shouldShowChannels_data()
     }
 }
 
-void TextConverterCMarkTest::shouldShowChannels()
+void TextConverterTest::shouldShowChannels()
 {
     using mapMentions = QMap<QString, QByteArray>;
     using mapChannels = QList<Channels::ChannelInfo>;
@@ -477,7 +477,7 @@ void TextConverterCMarkTest::shouldShowChannels()
     delete c;
 }
 
-void TextConverterCMarkTest::shouldShowUsers()
+void TextConverterTest::shouldShowUsers()
 {
     using mapMentions = QMap<QString, QByteArray>;
     using mapChannels = QList<Channels::ChannelInfo>;
@@ -496,7 +496,7 @@ void TextConverterCMarkTest::shouldShowUsers()
     delete c;
 }
 
-void TextConverterCMarkTest::shouldShowUsers_data()
+void TextConverterTest::shouldShowUsers_data()
 {
     QTest::addColumn<QString>("input");
     QTest::addColumn<QString>("output");
@@ -534,7 +534,7 @@ void TextConverterCMarkTest::shouldShowUsers_data()
     }
 }
 
-void TextConverterCMarkTest::shouldShowSearchedText_data()
+void TextConverterTest::shouldShowSearchedText_data()
 {
     QTest::addColumn<QString>("input");
     QTest::addColumn<QString>("username");
@@ -568,7 +568,7 @@ void TextConverterCMarkTest::shouldShowSearchedText_data()
                "style=\"color:$USERCOLOR$;background-color:$USERBGCOLOR$;\">KDE</a>.</p>\n");
 }
 
-void TextConverterCMarkTest::shouldShowSearchedText()
+void TextConverterTest::shouldShowSearchedText()
 {
     QFETCH(QString, input);
     QFETCH(QString, username);
@@ -584,4 +584,4 @@ void TextConverterCMarkTest::shouldShowSearchedText()
     QCOMPARE(TextConverter::convertMessageText(settings, needUpdateMessageId, recursiveIndex), output);
 }
 
-#include "moc_textconvertercmarktest.cpp"
+#include "moc_textconvertertest.cpp"

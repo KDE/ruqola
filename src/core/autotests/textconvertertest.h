@@ -8,12 +8,12 @@
 
 #include <QObject>
 
-class TextConverterCMarkTest : public QObject
+class TextConverterTest : public QObject
 {
     Q_OBJECT
 public:
-    explicit TextConverterCMarkTest(QObject *parent = nullptr);
-    ~TextConverterCMarkTest() override = default;
+    explicit TextConverterTest(QObject *parent = nullptr);
+    ~TextConverterTest() override = default;
 private Q_SLOTS:
     void shouldConvertText_data();
     void shouldConvertText();
