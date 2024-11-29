@@ -32,15 +32,6 @@ private Q_SLOTS:
     void shouldGenerateCheckMark_data();
     void shouldGenerateCheckMark();
 
-    void shouldGenerateHeader_data();
-    void shouldGenerateHeader();
-
     void shouldGenerateUniqueAccountName();
     void shouldGenerateUniqueAccountName_data();
-
-    void shouldGenerateUnsortedList_data();
-    void shouldGenerateUnsortedList();
-
-    void shouldGenerateSortedList_data();
-    void shouldGenerateSortedList();
 };
