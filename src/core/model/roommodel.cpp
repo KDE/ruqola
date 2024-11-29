@@ -62,12 +62,14 @@ QList<Room *> RoomModel::findRoomNameConstains(const QString &str) const
 
 Room *RoomModel::findRoom(const QByteArray &roomID) const
 {
+#ifndef NDEBUG
     const int nbRoomWithSameRoomId = std::count_if(mRoomsList.begin(), mRoomsList.end(), [roomID](Room *r) {
         return r->roomId() == roomID;
     });
     if (nbRoomWithSameRoomId > 1) {
         qWarning() << "RoomModel::findRoom found more than 1 room : roomId" << roomID << " count " << nbRoomWithSameRoomId;
     }
+#endif
 
     for (Room *r : std::as_const(mRoomsList)) {
         if (r->roomId() == roomID) {
