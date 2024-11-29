@@ -246,6 +246,13 @@ void open_room(const QJsonObject &obj, RocketChatAccount *account)
     }
 }
 
+void get_room_by_type_and_name(const QJsonObject &obj, RocketChatAccount *account)
+{
+    if (account->ruqolaLogger()) {
+        account->ruqolaLogger()->dataReceived(QByteArrayLiteral("Get Room y room and name :") + QJsonDocument(obj).toJson());
+    }
+}
+
 void join_room(const QJsonObject &obj, RocketChatAccount *account)
 {
     if (account->ruqolaLogger()) {
@@ -414,6 +421,12 @@ quint64 DDPClient::openRoom(const QByteArray &roomId)
 {
     const RocketChatMessage::RocketChatMessageResult result = mRocketChatMessage->openRoom(roomId, mUid);
     return method(result, open_room, DDPClient::MessageType::Persistent);
+}
+
+quint64 DDPClient::getRoomByTypeAndName(const QByteArray &roomId, const QString &roomType)
+{
+    const RocketChatMessage::RocketChatMessageResult result = mRocketChatMessage->getRoomByTypeAndName(roomId, roomType, mUid);
+    return method(result, get_room_by_type_and_name, DDPClient::MessageType::Persistent);
 }
 
 quint64 DDPClient::joinRoom(const QByteArray &roomId, const QString &joinCode)

@@ -300,4 +300,13 @@ void RocketChatMessageTest::videoConferenceConfirmed()
     compareFile(r.result, QStringLiteral("videoConferenceConfirmed"));
 }
 
+void RocketChatMessageTest::getRoomByTypeAndName()
+{
+    RocketChatMessage m;
+    m.setJsonFormat(QJsonDocument::Indented);
+
+    RocketChatMessage::RocketChatMessageResult r = m.getRoomByTypeAndName(QByteArrayLiteral("oHfocsBTwc9bSdAxt"), QStringLiteral("c"), 43);
+    compareFile(r.result, QStringLiteral("getRoomByTypeAndName"));
+}
+
 #include "moc_rocketchatmessagetest.cpp"

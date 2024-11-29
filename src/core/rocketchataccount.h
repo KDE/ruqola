@@ -498,6 +498,7 @@ public:
     void extractIdentifier(const QJsonObject &replyObject, const QString &identifier, const QString &subIdentifier);
     void loadAppCount();
 
+    void getRoomByTypeAndName(const QByteArray &rid, const QString &roomType);
 Q_SIGNALS:
     void roomRemoved(const QByteArray &roomId);
     void disabledTotpValid(bool checked);

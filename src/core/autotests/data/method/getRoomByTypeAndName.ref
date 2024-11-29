@@ -1,0 +1,9 @@
+{
+    "id": "43",
+    "method": "getRoomByTypeAndName",
+    "msg": "method",
+    "params": [
+        "c",
+        "oHfocsBTwc9bSdAxt"
+    ]
+}

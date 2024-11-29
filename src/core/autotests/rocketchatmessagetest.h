@@ -66,6 +66,8 @@ private Q_SLOTS:
     void videoConferenceCall();
     void videoConferenceConfirmed();
 
+    void getRoomByTypeAndName();
+
 private:
     void compareFile(const QString &data, const QString &name);
 };

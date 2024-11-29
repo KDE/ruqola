@@ -159,6 +159,12 @@ RocketChatMessage::RocketChatMessageResult RocketChatMessage::joinRoom(const QBy
     return generateMethod(QStringLiteral("joinRoom"), params, id);
 }
 
+RocketChatMessage::RocketChatMessageResult RocketChatMessage::getRoomByTypeAndName(const QByteArray &roomId, const QString &roomType, quint64 id)
+{
+    const QJsonArray params{{roomType}, {QString::fromLatin1(roomId)}};
+    return generateMethod(QStringLiteral("getRoomByTypeAndName"), params, id);
+}
+
 RocketChatMessage::RocketChatMessageResult RocketChatMessage::openRoom(const QByteArray &roomId, quint64 id)
 {
     const QJsonArray params{{QString::fromLatin1(roomId)}};

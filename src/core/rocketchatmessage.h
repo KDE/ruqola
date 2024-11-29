@@ -95,6 +95,8 @@ public:
     [[nodiscard]] static QJsonObject generateJsonObject(const QString &method, const QJsonObject &params, quint64 id);
     [[nodiscard]] static QJsonObject generateJsonObject(const QString &method, const QJsonArray &params, quint64 id);
 
+    [[nodiscard]] RocketChatMessage::RocketChatMessageResult getRoomByTypeAndName(const QByteArray &roomId, const QString &roomType, quint64 id);
+
 private:
     [[nodiscard]] LIBRUQOLACORE_NO_EXPORT QJsonValue toJsonDateTime(const QDateTime &dateTime);
     [[nodiscard]] LIBRUQOLACORE_NO_EXPORT RocketChatMessage::RocketChatMessageResult

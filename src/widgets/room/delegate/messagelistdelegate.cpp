@@ -809,9 +809,9 @@ bool MessageListDelegate::mouseEvent(QEvent *event, const QStyleOptionViewItem &
         if (!message->discussionRoomId().isEmpty()) {
             const QRect discussionRect(layout.usableRect.x(), layout.repliesY + layout.repliesHeight, layout.usableRect.width(), layout.discussionsHeight);
             if (discussionRect.contains(mev->pos())) {
-                qDebug() << " message->discussionRoomId()*****************" << message->discussionRoomId();
+                // qDebug() << " message->discussionRoomId()*****************" << message->discussionRoomId();
                 // We need to fix rest api first
-                mRocketChatAccount->joinDiscussion(message->discussionRoomId(), QString());
+                mRocketChatAccount->getRoomByTypeAndName(message->discussionRoomId(), QStringLiteral("c"));
                 return true;
             }
         }

@@ -887,12 +887,10 @@ void RocketChatAccount::createNewChannel(const RocketChatRestApi::CreateChannelT
     }
 }
 
-#if 0
-void RocketChatAccount::getRoomByTypeAndName()
+void RocketChatAccount::getRoomByTypeAndName(const QByteArray &rid, const QString &roomType)
 {
-    // TODO
+    ddp()->getRoomByTypeAndName(rid, roomType);
 }
-#endif
 
 void RocketChatAccount::joinDiscussion(const QByteArray &roomId, const QString &joinCode)
 {
