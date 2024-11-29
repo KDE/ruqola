@@ -861,7 +861,6 @@ void RocketChatBackend::subscribeRegistration()
         QStringLiteral("permissions-changed"),
         QStringLiteral("license"),
         QStringLiteral("public-info"),
-
         QStringLiteral("userData"),
         QStringLiteral("banners"),
         QStringLiteral("force_logout"),
