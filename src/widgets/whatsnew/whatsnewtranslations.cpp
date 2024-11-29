@@ -128,6 +128,7 @@ QList<WhatsNewInfo> WhatsNewTranslations::createWhatsNewInfo() const
             i18n("Fix select created room/discussion/teams"),
             i18n("Fix filter discussion in administrator mode"),
             i18n("Fix message video support"),
+            i18n("Fix highlight text in quoted message"),
         });
 
         listInfo.append(std::move(info));
