@@ -574,8 +574,24 @@ QString TextConverter::convertMessageText(const TextConverter::ConvertMessageTex
             info.url = url;
             info.richText = text;
             info.displayTime = (*it).dateTime();
-            quotedMessage = Utils::formatQuotedRichText(std::move(info));
+
             str = str.left(startPos - 3) + str.mid(endPos + 1);
+            const TextConverter::ConvertMessageTextSettings newsettings{
+                str,
+                settings.userName,
+                settings.allMessages,
+                settings.highlightWords,
+                settings.emojiManager,
+                settings.messageCache,
+                settings.mentions,
+                settings.channels,
+                settings.searchedText,
+                settings.maximumRecursiveQuotedText,
+            };
+            str = convertMessageText(newsettings, QString());
+
+            quotedMessage = Utils::formatQuotedRichText(std::move(info)) + str;
+            str.clear();
         } else {
             if (settings.messageCache) {
                 // TODO allow to reload index when we loaded message
@@ -597,8 +613,22 @@ QString TextConverter::convertMessageText(const TextConverter::ConvertMessageTex
                     info.url = url;
                     info.richText = text;
                     info.displayTime = msg->dateTime();
-                    quotedMessage = Utils::formatQuotedRichText(std::move(info));
-                    str = str.left(startPos - 3) + str.mid(endPos + 1);
+                    const TextConverter::ConvertMessageTextSettings newsettings{
+                        str,
+                        settings.userName,
+                        settings.allMessages,
+                        settings.highlightWords,
+                        settings.emojiManager,
+                        settings.messageCache,
+                        settings.mentions,
+                        settings.channels,
+                        settings.searchedText,
+                        settings.maximumRecursiveQuotedText,
+                    };
+                    str = convertMessageText(newsettings, QString());
+
+                    quotedMessage = Utils::formatQuotedRichText(std::move(info)) + str;
+                    str.clear();
                 } else {
                     qCDebug(RUQOLA_TEXTTOHTML_LOG) << "Quoted message" << messageId << "not found"; // could be a very old one
                     needUpdateMessageId = messageId;
