@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-11-29 00:40+0000\n"
+"POT-Creation-Date: 2024-11-30 00:40+0000\n"
 "PO-Revision-Date: 2024-11-23 21:08+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
@@ -1250,7 +1250,7 @@ msgstr "Kanal Türü"
 msgid "Belongs To"
 msgstr "Sahibi"
 
-#: core/model/directoryteamsmodel.cpp:92 core/model/roommodel.cpp:557
+#: core/model/directoryteamsmodel.cpp:92 core/model/roommodel.cpp:566
 #: widgets/administratordialog/administratorwidget.cpp:53
 #: widgets/administratordialog/roles/rolescopecombobox.cpp:13
 #, kde-format
@@ -1388,80 +1388,80 @@ msgstr "İki Adımlı Kimlik Doğrulama"
 msgid "Last token part"
 msgstr "Son jeton parçası"
 
-#: core/model/roommodel.cpp:476
+#: core/model/roommodel.cpp:485
 #, kde-format
 msgid "%1 Mention"
 msgid_plural "%1 Mentions"
 msgstr[0] "%1 değinme"
 msgstr[1] "%1 değinme"
 
-#: core/model/roommodel.cpp:480
+#: core/model/roommodel.cpp:489
 #, kde-format
 msgid "%1 Group Mention"
 msgid_plural "%1 Group Mentions"
 msgstr[0] "%1 grup değinmesi"
 msgstr[1] "%1 grup değinmesi"
 
-#: core/model/roommodel.cpp:484
+#: core/model/roommodel.cpp:493
 #, kde-format
 msgid "%1 Unread Threaded Message"
 msgid_plural "%1 Unread Threaded Messages"
 msgstr[0] "%1 okunmamış ileti dizisi"
 msgstr[1] "%1 okunmamış ileti dizisi"
 
-#: core/model/roommodel.cpp:488
+#: core/model/roommodel.cpp:497
 #, kde-format
 msgid "%1 Unread Message"
 msgid_plural "%1 Unread Messages"
 msgstr[0] "%1 okunmamış ileti"
 msgstr[1] "%1 okunmamış ileti"
 
-#: core/model/roommodel.cpp:514
+#: core/model/roommodel.cpp:523
 #, kde-format
 msgid "Teams Room"
 msgstr "Takımlar Odası"
 
-#: core/model/roommodel.cpp:520
+#: core/model/roommodel.cpp:529
 #, kde-format
 msgid "Private Room"
 msgstr "Özel Oda"
 
-#: core/model/roommodel.cpp:522
+#: core/model/roommodel.cpp:531
 #, kde-format
 msgid "Discussion Room"
 msgstr "Tartışma Odası"
 
-#: core/model/roommodel.cpp:526
+#: core/model/roommodel.cpp:535
 #, kde-format
 msgid "Channel Room"
 msgstr "Kanal Odası"
 
-#: core/model/roommodel.cpp:551
+#: core/model/roommodel.cpp:560
 #, kde-format
 msgid "Unread"
 msgstr "Okunmamış"
 
-#: core/model/roommodel.cpp:553
+#: core/model/roommodel.cpp:562
 #, kde-format
 msgid "Favorites"
 msgstr "Sık Kullanılanlar"
 
-#: core/model/roommodel.cpp:555
+#: core/model/roommodel.cpp:564
 #, kde-format
 msgid "Teams"
 msgstr "Takımlar"
 
-#: core/model/roommodel.cpp:559
+#: core/model/roommodel.cpp:568
 #, kde-format
 msgid "Discussions"
 msgstr "Tartışmalar"
 
-#: core/model/roommodel.cpp:561
+#: core/model/roommodel.cpp:570
 #, kde-format
 msgid "Private Messages"
 msgstr "Özel İletiler"
 
-#: core/model/roommodel.cpp:563
+#: core/model/roommodel.cpp:572
 #, kde-format
 msgid "Unknown"
 msgstr "Bilinmiyor"
@@ -1656,7 +1656,7 @@ msgstr "Bu takıma katıldı"
 msgid "(Autojoin)"
 msgstr "(Otomatik Katılma)"
 
-#: core/model/usersmodel.cpp:73 core/utils.cpp:90 core/utils.cpp:455
+#: core/model/usersmodel.cpp:73 core/utils.cpp:90 core/utils.cpp:351
 #, kde-format
 msgid "Offline"
 msgstr "Çevrimdışı"
@@ -1732,7 +1732,7 @@ msgctxt "WARNING!!!!!!: PLEASE We need a space between after </strong>"
 msgid "<strong>%1</strong> are typing..."
 msgstr "<strong>%1</strong> yazıyor…"
 
-#: core/rocketchataccount.cpp:698
+#: core/rocketchataccount.cpp:699
 #, kde-format
 msgid ""
 "REST: %1\n"
@@ -1741,12 +1741,12 @@ msgstr ""
 "REST: %1\n"
 "DDP: %2"
 
-#: core/rocketchataccount.cpp:706 core/rocketchataccount.cpp:718
+#: core/rocketchataccount.cpp:707 core/rocketchataccount.cpp:719
 #, kde-format
 msgid "Not connected"
 msgstr "Bağlı değil"
 
-#: core/rocketchataccount.cpp:713
+#: core/rocketchataccount.cpp:714
 #, kde-format
 msgid "Not connected yet"
 msgstr "Henüz bağlı değil"
@@ -1848,17 +1848,17 @@ msgstr "Yönetici"
 msgid "Bot"
 msgstr "Bot"
 
-#: core/utils.cpp:84 core/utils.cpp:449
+#: core/utils.cpp:84 core/utils.cpp:345
 #, kde-format
 msgid "Online"
 msgstr "Çevrimiçi"
 
-#: core/utils.cpp:86 core/utils.cpp:451 widgets/room/usersinroomcombobox.cpp:24
+#: core/utils.cpp:86 core/utils.cpp:347 widgets/room/usersinroomcombobox.cpp:24
 #, kde-format
 msgid "Busy"
 msgstr "Meşgul"
 
-#: core/utils.cpp:88 core/utils.cpp:453 widgets/room/usersinroomcombobox.cpp:23
+#: core/utils.cpp:88 core/utils.cpp:349 widgets/room/usersinroomcombobox.cpp:23
 #, kde-format
 msgid "Away"
 msgstr "Uzakta"
@@ -11419,6 +11419,17 @@ msgstr "Yönetici kipinde tartışma süzmeyi onar"
 #, kde-format
 msgid "Fix message video support"
 msgstr "Video iletisi desteğini onar"
+
+#: widgets/whatsnew/whatsnewtranslations.cpp:131
+#, kde-format
+msgid "Fix highlight text in quoted message"
+msgstr ""
+
+#: widgets/whatsnew/whatsnewtranslations.cpp:132
+#, fuzzy, kde-format
+#| msgid "Open Discussion"
+msgid "Fix open discussion channel"
+msgstr "Tartışma Aç"
 
 #: widgets/whatsnew/whatsnewwidget.cpp:44
 #, kde-format

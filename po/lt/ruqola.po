@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-11-29 00:40+0000\n"
+"POT-Creation-Date: 2024-11-30 00:40+0000\n"
 "PO-Revision-Date: 2024-10-08 22:03+0300\n"
 "Last-Translator: Moo\n"
 "Language-Team: none\n"
@@ -1277,7 +1277,7 @@ msgstr "Kanalo tipas"
 msgid "Belongs To"
 msgstr ""
 
-#: core/model/directoryteamsmodel.cpp:92 core/model/roommodel.cpp:557
+#: core/model/directoryteamsmodel.cpp:92 core/model/roommodel.cpp:566
 #: widgets/administratordialog/administratorwidget.cpp:53
 #: widgets/administratordialog/roles/rolescopecombobox.cpp:13
 #, kde-format
@@ -1427,7 +1427,7 @@ msgstr "Tapatybės nustatymo metodas"
 msgid "Last token part"
 msgstr ""
 
-#: core/model/roommodel.cpp:476
+#: core/model/roommodel.cpp:485
 #, kde-format
 msgid "%1 Mention"
 msgid_plural "%1 Mentions"
@@ -1436,7 +1436,7 @@ msgstr[1] ""
 msgstr[2] ""
 msgstr[3] ""
 
-#: core/model/roommodel.cpp:480
+#: core/model/roommodel.cpp:489
 #, kde-format
 msgid "%1 Group Mention"
 msgid_plural "%1 Group Mentions"
@@ -1445,7 +1445,7 @@ msgstr[1] ""
 msgstr[2] ""
 msgstr[3] ""
 
-#: core/model/roommodel.cpp:484
+#: core/model/roommodel.cpp:493
 #, fuzzy, kde-format
 #| msgid "Delete Message"
 msgid "%1 Unread Threaded Message"
@@ -1455,7 +1455,7 @@ msgstr[1] "Ištrinti žinutę"
 msgstr[2] "Ištrinti žinutę"
 msgstr[3] "Ištrinti žinutę"
 
-#: core/model/roommodel.cpp:488
+#: core/model/roommodel.cpp:497
 #, fuzzy, kde-format
 #| msgid "Encrypted Message"
 msgid "%1 Unread Message"
@@ -1465,58 +1465,58 @@ msgstr[1] "Šifruota žinutė"
 msgstr[2] "Šifruota žinutė"
 msgstr[3] "Šifruota žinutė"
 
-#: core/model/roommodel.cpp:514
+#: core/model/roommodel.cpp:523
 #, fuzzy, kde-format
 #| msgid "Delete Room"
 msgid "Teams Room"
 msgstr "Ištrinti kambarį"
 
-#: core/model/roommodel.cpp:520
+#: core/model/roommodel.cpp:529
 #, kde-format
 msgid "Private Room"
 msgstr "Privatus kambarys"
 
-#: core/model/roommodel.cpp:522
+#: core/model/roommodel.cpp:531
 #, fuzzy, kde-format
 #| msgid "Open Discussion"
 msgid "Discussion Room"
 msgstr "Atverti diskusiją"
 
-#: core/model/roommodel.cpp:526
+#: core/model/roommodel.cpp:535
 #, fuzzy, kde-format
 #| msgctxt "@title:window"
 #| msgid "Channel Info"
 msgid "Channel Room"
 msgstr "Informacija apie kanalą"
 
-#: core/model/roommodel.cpp:551
+#: core/model/roommodel.cpp:560
 #, fuzzy, kde-format
 #| msgctxt "@title:window"
 #| msgid "Threads"
 msgid "Unread"
 msgstr "Gijos"
 
-#: core/model/roommodel.cpp:553
+#: core/model/roommodel.cpp:562
 #, kde-format
 msgid "Favorites"
 msgstr ""
 
-#: core/model/roommodel.cpp:555
+#: core/model/roommodel.cpp:564
 #, kde-format
 msgid "Teams"
 msgstr ""
 
-#: core/model/roommodel.cpp:559
+#: core/model/roommodel.cpp:568
 #, kde-format
 msgid "Discussions"
 msgstr ""
 
-#: core/model/roommodel.cpp:561
+#: core/model/roommodel.cpp:570
 #, kde-format
 msgid "Private Messages"
 msgstr ""
 
-#: core/model/roommodel.cpp:563
+#: core/model/roommodel.cpp:572
 #, kde-format
 msgid "Unknown"
 msgstr "Nežinoma"
@@ -1725,7 +1725,7 @@ msgstr "Šalinti iš kambario"
 msgid "(Autojoin)"
 msgstr ""
 
-#: core/model/usersmodel.cpp:73 core/utils.cpp:90 core/utils.cpp:455
+#: core/model/usersmodel.cpp:73 core/utils.cpp:90 core/utils.cpp:351
 #, kde-format
 msgid "Offline"
 msgstr ""
@@ -1804,19 +1804,19 @@ msgctxt "WARNING!!!!!!: PLEASE We need a space between after </strong>"
 msgid "<strong>%1</strong> are typing..."
 msgstr "<strong>%1</strong> rašo..."
 
-#: core/rocketchataccount.cpp:698
+#: core/rocketchataccount.cpp:699
 #, kde-format
 msgid ""
 "REST: %1\n"
 "DDP: %2"
 msgstr ""
 
-#: core/rocketchataccount.cpp:706 core/rocketchataccount.cpp:718
+#: core/rocketchataccount.cpp:707 core/rocketchataccount.cpp:719
 #, kde-format
 msgid "Not connected"
 msgstr ""
 
-#: core/rocketchataccount.cpp:713
+#: core/rocketchataccount.cpp:714
 #, fuzzy, kde-format
 #| msgid "Add Users"
 msgid "Not connected yet"
@@ -1921,17 +1921,17 @@ msgstr ""
 msgid "Bot"
 msgstr ""
 
-#: core/utils.cpp:84 core/utils.cpp:449
+#: core/utils.cpp:84 core/utils.cpp:345
 #, kde-format
 msgid "Online"
 msgstr ""
 
-#: core/utils.cpp:86 core/utils.cpp:451 widgets/room/usersinroomcombobox.cpp:24
+#: core/utils.cpp:86 core/utils.cpp:347 widgets/room/usersinroomcombobox.cpp:24
 #, kde-format
 msgid "Busy"
 msgstr ""
 
-#: core/utils.cpp:88 core/utils.cpp:453 widgets/room/usersinroomcombobox.cpp:23
+#: core/utils.cpp:88 core/utils.cpp:349 widgets/room/usersinroomcombobox.cpp:23
 #, kde-format
 msgid "Away"
 msgstr ""
@@ -11984,6 +11984,17 @@ msgstr ""
 #| msgid "Android support"
 msgid "Fix message video support"
 msgstr "Android palaikymas"
+
+#: widgets/whatsnew/whatsnewtranslations.cpp:131
+#, kde-format
+msgid "Fix highlight text in quoted message"
+msgstr ""
+
+#: widgets/whatsnew/whatsnewtranslations.cpp:132
+#, fuzzy, kde-format
+#| msgid "Open Discussion"
+msgid "Fix open discussion channel"
+msgstr "Atverti diskusiją"
 
 #: widgets/whatsnew/whatsnewwidget.cpp:44
 #, kde-format

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-11-29 00:40+0000\n"
+"POT-Creation-Date: 2024-11-30 00:40+0000\n"
 "PO-Revision-Date: 2024-11-23 09:28+0200\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
@@ -1252,7 +1252,7 @@ msgstr "Тип каналу"
 msgid "Belongs To"
 msgstr "Належить"
 
-#: core/model/directoryteamsmodel.cpp:92 core/model/roommodel.cpp:557
+#: core/model/directoryteamsmodel.cpp:92 core/model/roommodel.cpp:566
 #: widgets/administratordialog/administratorwidget.cpp:53
 #: widgets/administratordialog/roles/rolescopecombobox.cpp:13
 #, kde-format
@@ -1392,7 +1392,7 @@ msgstr "Двофакторне розпізнавання"
 msgid "Last token part"
 msgstr "Остання частина жетона"
 
-#: core/model/roommodel.cpp:476
+#: core/model/roommodel.cpp:485
 #, kde-format
 msgid "%1 Mention"
 msgid_plural "%1 Mentions"
@@ -1401,7 +1401,7 @@ msgstr[1] "%1 згадування"
 msgstr[2] "%1 згадувань"
 msgstr[3] "%1 згадування"
 
-#: core/model/roommodel.cpp:480
+#: core/model/roommodel.cpp:489
 #, kde-format
 msgid "%1 Group Mention"
 msgid_plural "%1 Group Mentions"
@@ -1410,7 +1410,7 @@ msgstr[1] "%1 згадування групи"
 msgstr[2] "%1 згадувань групи"
 msgstr[3] "%1 згадування групи"
 
-#: core/model/roommodel.cpp:484
+#: core/model/roommodel.cpp:493
 #, kde-format
 msgid "%1 Unread Threaded Message"
 msgid_plural "%1 Unread Threaded Messages"
@@ -1419,7 +1419,7 @@ msgstr[1] "%1 непрочитаних повідомлення з гілкою"
 msgstr[2] "%1 непрочитаних повідомлень з гілкою"
 msgstr[3] "%1 непрочитане повідомлення з гілкою"
 
-#: core/model/roommodel.cpp:488
+#: core/model/roommodel.cpp:497
 #, kde-format
 msgid "%1 Unread Message"
 msgid_plural "%1 Unread Messages"
@@ -1428,52 +1428,52 @@ msgstr[1] "%1 непрочитаних повідомлення"
 msgstr[2] "%1 непрочитаних повідомлень"
 msgstr[3] "%1 непрочитане повідомлення"
 
-#: core/model/roommodel.cpp:514
+#: core/model/roommodel.cpp:523
 #, kde-format
 msgid "Teams Room"
 msgstr "Кімната команд"
 
-#: core/model/roommodel.cpp:520
+#: core/model/roommodel.cpp:529
 #, kde-format
 msgid "Private Room"
 msgstr "Приватна кімната"
 
-#: core/model/roommodel.cpp:522
+#: core/model/roommodel.cpp:531
 #, kde-format
 msgid "Discussion Room"
 msgstr "Кімната обговорення"
 
-#: core/model/roommodel.cpp:526
+#: core/model/roommodel.cpp:535
 #, kde-format
 msgid "Channel Room"
 msgstr "Кімната каналу"
 
-#: core/model/roommodel.cpp:551
+#: core/model/roommodel.cpp:560
 #, kde-format
 msgid "Unread"
 msgstr "Непрочитані"
 
-#: core/model/roommodel.cpp:553
+#: core/model/roommodel.cpp:562
 #, kde-format
 msgid "Favorites"
 msgstr "Улюблене"
 
-#: core/model/roommodel.cpp:555
+#: core/model/roommodel.cpp:564
 #, kde-format
 msgid "Teams"
 msgstr "Команди"
 
-#: core/model/roommodel.cpp:559
+#: core/model/roommodel.cpp:568
 #, kde-format
 msgid "Discussions"
 msgstr "Обговорення"
 
-#: core/model/roommodel.cpp:561
+#: core/model/roommodel.cpp:570
 #, kde-format
 msgid "Private Messages"
 msgstr "Конфіденційні повідомлення"
 
-#: core/model/roommodel.cpp:563
+#: core/model/roommodel.cpp:572
 #, kde-format
 msgid "Unknown"
 msgstr "Невідомий"
@@ -1669,7 +1669,7 @@ msgstr "Долучено до цієї команди"
 msgid "(Autojoin)"
 msgstr "(Автодолучення)"
 
-#: core/model/usersmodel.cpp:73 core/utils.cpp:90 core/utils.cpp:455
+#: core/model/usersmodel.cpp:73 core/utils.cpp:90 core/utils.cpp:351
 #, kde-format
 msgid "Offline"
 msgstr "Поза мережею"
@@ -1745,7 +1745,7 @@ msgctxt "WARNING!!!!!!: PLEASE We need a space between after </strong>"
 msgid "<strong>%1</strong> are typing..."
 msgstr "<strong>%1</strong> вводить текст…"
 
-#: core/rocketchataccount.cpp:698
+#: core/rocketchataccount.cpp:699
 #, kde-format
 msgid ""
 "REST: %1\n"
@@ -1754,12 +1754,12 @@ msgstr ""
 "REST: %1\n"
 "DDP: %2"
 
-#: core/rocketchataccount.cpp:706 core/rocketchataccount.cpp:718
+#: core/rocketchataccount.cpp:707 core/rocketchataccount.cpp:719
 #, kde-format
 msgid "Not connected"
 msgstr "Не з'єднано"
 
-#: core/rocketchataccount.cpp:713
+#: core/rocketchataccount.cpp:714
 #, kde-format
 msgid "Not connected yet"
 msgstr "Ще не з'єднано"
@@ -1861,17 +1861,17 @@ msgstr "Адміністратор"
 msgid "Bot"
 msgstr "Бот"
 
-#: core/utils.cpp:84 core/utils.cpp:449
+#: core/utils.cpp:84 core/utils.cpp:345
 #, kde-format
 msgid "Online"
 msgstr "У мережі"
 
-#: core/utils.cpp:86 core/utils.cpp:451 widgets/room/usersinroomcombobox.cpp:24
+#: core/utils.cpp:86 core/utils.cpp:347 widgets/room/usersinroomcombobox.cpp:24
 #, kde-format
 msgid "Busy"
 msgstr "Зайнято"
 
-#: core/utils.cpp:88 core/utils.cpp:453 widgets/room/usersinroomcombobox.cpp:23
+#: core/utils.cpp:88 core/utils.cpp:349 widgets/room/usersinroomcombobox.cpp:23
 #, kde-format
 msgid "Away"
 msgstr "Відсутність"
@@ -11551,6 +11551,17 @@ msgstr "Виправлено фільтрування обговорень у р
 #, kde-format
 msgid "Fix message video support"
 msgstr "Виправлено підтримку відео у повідомленнях"
+
+#: widgets/whatsnew/whatsnewtranslations.cpp:131
+#, kde-format
+msgid "Fix highlight text in quoted message"
+msgstr ""
+
+#: widgets/whatsnew/whatsnewtranslations.cpp:132
+#, fuzzy, kde-format
+#| msgid "Open Discussion"
+msgid "Fix open discussion channel"
+msgstr "Відкрити обговорення"
 
 #: widgets/whatsnew/whatsnewwidget.cpp:44
 #, kde-format

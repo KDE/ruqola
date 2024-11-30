@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-11-29 00:40+0000\n"
+"POT-Creation-Date: 2024-11-30 00:40+0000\n"
 "PO-Revision-Date: 2024-11-23 11:52+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
@@ -1254,7 +1254,7 @@ msgstr "Tipus de canal"
 msgid "Belongs To"
 msgstr "Pertany a"
 
-#: core/model/directoryteamsmodel.cpp:92 core/model/roommodel.cpp:557
+#: core/model/directoryteamsmodel.cpp:92 core/model/roommodel.cpp:566
 #: widgets/administratordialog/administratorwidget.cpp:53
 #: widgets/administratordialog/roles/rolescopecombobox.cpp:13
 #, kde-format
@@ -1392,80 +1392,80 @@ msgstr "Autenticació de dos factors"
 msgid "Last token part"
 msgstr "Última part del testimoni"
 
-#: core/model/roommodel.cpp:476
+#: core/model/roommodel.cpp:485
 #, kde-format
 msgid "%1 Mention"
 msgid_plural "%1 Mentions"
 msgstr[0] "%1 menció"
 msgstr[1] "%1 mencions"
 
-#: core/model/roommodel.cpp:480
+#: core/model/roommodel.cpp:489
 #, kde-format
 msgid "%1 Group Mention"
 msgid_plural "%1 Group Mentions"
 msgstr[0] "%1 menció de grup"
 msgstr[1] "%1 mencions de grup"
 
-#: core/model/roommodel.cpp:484
+#: core/model/roommodel.cpp:493
 #, kde-format
 msgid "%1 Unread Threaded Message"
 msgid_plural "%1 Unread Threaded Messages"
 msgstr[0] "%1 missatge del fil no llegit"
 msgstr[1] "%1 missatges dels fils no llegits"
 
-#: core/model/roommodel.cpp:488
+#: core/model/roommodel.cpp:497
 #, kde-format
 msgid "%1 Unread Message"
 msgid_plural "%1 Unread Messages"
 msgstr[0] "%1 missatge sense llegir"
 msgstr[1] "%1 missatges sense llegir"
 
-#: core/model/roommodel.cpp:514
+#: core/model/roommodel.cpp:523
 #, kde-format
 msgid "Teams Room"
 msgstr "Sala d'equips"
 
-#: core/model/roommodel.cpp:520
+#: core/model/roommodel.cpp:529
 #, kde-format
 msgid "Private Room"
 msgstr "Sala privada"
 
-#: core/model/roommodel.cpp:522
+#: core/model/roommodel.cpp:531
 #, kde-format
 msgid "Discussion Room"
 msgstr "Sala de debat"
 
-#: core/model/roommodel.cpp:526
+#: core/model/roommodel.cpp:535
 #, kde-format
 msgid "Channel Room"
 msgstr "Sala de canal"
 
-#: core/model/roommodel.cpp:551
+#: core/model/roommodel.cpp:560
 #, kde-format
 msgid "Unread"
 msgstr "Sense llegir"
 
-#: core/model/roommodel.cpp:553
+#: core/model/roommodel.cpp:562
 #, kde-format
 msgid "Favorites"
 msgstr "Preferides"
 
-#: core/model/roommodel.cpp:555
+#: core/model/roommodel.cpp:564
 #, kde-format
 msgid "Teams"
 msgstr "Equips"
 
-#: core/model/roommodel.cpp:559
+#: core/model/roommodel.cpp:568
 #, kde-format
 msgid "Discussions"
 msgstr "Debats"
 
-#: core/model/roommodel.cpp:561
+#: core/model/roommodel.cpp:570
 #, kde-format
 msgid "Private Messages"
 msgstr "Missatges privats"
 
-#: core/model/roommodel.cpp:563
+#: core/model/roommodel.cpp:572
 #, kde-format
 msgid "Unknown"
 msgstr "Desconegut"
@@ -1660,7 +1660,7 @@ msgstr "S'ha unit a aquest equip"
 msgid "(Autojoin)"
 msgstr "(Unió automàtica)"
 
-#: core/model/usersmodel.cpp:73 core/utils.cpp:90 core/utils.cpp:455
+#: core/model/usersmodel.cpp:73 core/utils.cpp:90 core/utils.cpp:351
 #, kde-format
 msgid "Offline"
 msgstr "Desconnectat"
@@ -1736,7 +1736,7 @@ msgctxt "WARNING!!!!!!: PLEASE We need a space between after </strong>"
 msgid "<strong>%1</strong> are typing..."
 msgstr "<strong>%1</strong> estan escrivint..."
 
-#: core/rocketchataccount.cpp:698
+#: core/rocketchataccount.cpp:699
 #, kde-format
 msgid ""
 "REST: %1\n"
@@ -1745,12 +1745,12 @@ msgstr ""
 "REST: %1\n"
 "DDP: %2"
 
-#: core/rocketchataccount.cpp:706 core/rocketchataccount.cpp:718
+#: core/rocketchataccount.cpp:707 core/rocketchataccount.cpp:719
 #, kde-format
 msgid "Not connected"
 msgstr "No connectat"
 
-#: core/rocketchataccount.cpp:713
+#: core/rocketchataccount.cpp:714
 #, kde-format
 msgid "Not connected yet"
 msgstr "Encara no connectat"
@@ -1852,17 +1852,17 @@ msgstr "Administrador"
 msgid "Bot"
 msgstr "Bot"
 
-#: core/utils.cpp:84 core/utils.cpp:449
+#: core/utils.cpp:84 core/utils.cpp:345
 #, kde-format
 msgid "Online"
 msgstr "Connectat"
 
-#: core/utils.cpp:86 core/utils.cpp:451 widgets/room/usersinroomcombobox.cpp:24
+#: core/utils.cpp:86 core/utils.cpp:347 widgets/room/usersinroomcombobox.cpp:24
 #, kde-format
 msgid "Busy"
 msgstr "Ocupat"
 
-#: core/utils.cpp:88 core/utils.cpp:453 widgets/room/usersinroomcombobox.cpp:23
+#: core/utils.cpp:88 core/utils.cpp:349 widgets/room/usersinroomcombobox.cpp:23
 #, kde-format
 msgid "Away"
 msgstr "Absent"
@@ -11494,6 +11494,17 @@ msgstr "Corregeix el filtre de debats en mode d'administrador"
 #, kde-format
 msgid "Fix message video support"
 msgstr "Corregeix la implementació dels missatges de vídeo"
+
+#: widgets/whatsnew/whatsnewtranslations.cpp:131
+#, kde-format
+msgid "Fix highlight text in quoted message"
+msgstr ""
+
+#: widgets/whatsnew/whatsnewtranslations.cpp:132
+#, fuzzy, kde-format
+#| msgid "Open Discussion"
+msgid "Fix open discussion channel"
+msgstr "Obre un debat"
 
 #: widgets/whatsnew/whatsnewwidget.cpp:44
 #, kde-format

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-11-29 00:40+0000\n"
+"POT-Creation-Date: 2024-11-30 00:40+0000\n"
 "PO-Revision-Date: 2020-06-13 21:18+0300\n"
 "Last-Translator: Marek Laane <qiilaq69@gmail.com>\n"
 "Language-Team: Estonian <kde-et@lists.linux.ee>\n"
@@ -1321,7 +1321,7 @@ msgstr "Kanali nimi"
 msgid "Belongs To"
 msgstr ""
 
-#: core/model/directoryteamsmodel.cpp:92 core/model/roommodel.cpp:557
+#: core/model/directoryteamsmodel.cpp:92 core/model/roommodel.cpp:566
 #: widgets/administratordialog/administratorwidget.cpp:53
 #: widgets/administratordialog/roles/rolescopecombobox.cpp:13
 #, kde-format
@@ -1475,7 +1475,7 @@ msgstr "Autentimisviis"
 msgid "Last token part"
 msgstr ""
 
-#: core/model/roommodel.cpp:476
+#: core/model/roommodel.cpp:485
 #, fuzzy, kde-format
 #| msgid "Mentions"
 msgid "%1 Mention"
@@ -1483,7 +1483,7 @@ msgid_plural "%1 Mentions"
 msgstr[0] "Mainimised"
 msgstr[1] "Mainimised"
 
-#: core/model/roommodel.cpp:480
+#: core/model/roommodel.cpp:489
 #, fuzzy, kde-format
 #| msgid "Mute Groups Mention:"
 msgid "%1 Group Mention"
@@ -1491,7 +1491,7 @@ msgid_plural "%1 Group Mentions"
 msgstr[0] "Gruppides mainimiste vaigistamine:"
 msgstr[1] "Gruppides mainimiste vaigistamine:"
 
-#: core/model/roommodel.cpp:484
+#: core/model/roommodel.cpp:493
 #, fuzzy, kde-format
 #| msgid "Threads Messages"
 msgid "%1 Unread Threaded Message"
@@ -1499,7 +1499,7 @@ msgid_plural "%1 Unread Threaded Messages"
 msgstr[0] "Lõimesõnumid"
 msgstr[1] "Lõimesõnumid"
 
-#: core/model/roommodel.cpp:488
+#: core/model/roommodel.cpp:497
 #, fuzzy, kde-format
 #| msgid "%1 has %2 Unread Message"
 msgid "%1 Unread Message"
@@ -1507,58 +1507,58 @@ msgid_plural "%1 Unread Messages"
 msgstr[0] "%1 ei ole lugenud %2 sõnumit"
 msgstr[1] "%1 ei ole lugenud %2 sõnumit"
 
-#: core/model/roommodel.cpp:514
+#: core/model/roommodel.cpp:523
 #, fuzzy, kde-format
 #| msgid "Rooms"
 msgid "Teams Room"
 msgstr "Toad"
 
-#: core/model/roommodel.cpp:520
+#: core/model/roommodel.cpp:529
 #, fuzzy, kde-format
 #| msgid "Private Room:"
 msgid "Private Room"
 msgstr "Privaattuba:"
 
-#: core/model/roommodel.cpp:522
+#: core/model/roommodel.cpp:531
 #, fuzzy, kde-format
 #| msgid "Discussion Name"
 msgid "Discussion Room"
 msgstr "Diskussiooni nimi"
 
-#: core/model/roommodel.cpp:526
+#: core/model/roommodel.cpp:535
 #, fuzzy, kde-format
 #| msgctxt "@title:window"
 #| msgid "Channel Info"
 msgid "Channel Room"
 msgstr "Kanali teave"
 
-#: core/model/roommodel.cpp:551
+#: core/model/roommodel.cpp:560
 #, fuzzy, kde-format
 #| msgid "Unread Rooms"
 msgid "Unread"
 msgstr "Lugemata toad"
 
-#: core/model/roommodel.cpp:553
+#: core/model/roommodel.cpp:562
 #, kde-format
 msgid "Favorites"
 msgstr "Lemmikud"
 
-#: core/model/roommodel.cpp:555
+#: core/model/roommodel.cpp:564
 #, kde-format
 msgid "Teams"
 msgstr ""
 
-#: core/model/roommodel.cpp:559
+#: core/model/roommodel.cpp:568
 #, kde-format
 msgid "Discussions"
 msgstr "Diskussioonid"
 
-#: core/model/roommodel.cpp:561
+#: core/model/roommodel.cpp:570
 #, kde-format
 msgid "Private Messages"
 msgstr "Privaatsõnumid"
 
-#: core/model/roommodel.cpp:563
+#: core/model/roommodel.cpp:572
 #, fuzzy, kde-format
 #| msgid "Unknown state"
 msgid "Unknown"
@@ -1789,7 +1789,7 @@ msgstr "%2 lisas %1 vestlusse"
 msgid "(Autojoin)"
 msgstr ""
 
-#: core/model/usersmodel.cpp:73 core/utils.cpp:90 core/utils.cpp:455
+#: core/model/usersmodel.cpp:73 core/utils.cpp:90 core/utils.cpp:351
 #, kde-format
 msgid "Offline"
 msgstr "Pole võrgus"
@@ -1868,19 +1868,19 @@ msgctxt "WARNING!!!!!!: PLEASE We need a space between after </strong>"
 msgid "<strong>%1</strong> are typing..."
 msgstr "<strong>%1</strong> kirjutavad ..."
 
-#: core/rocketchataccount.cpp:698
+#: core/rocketchataccount.cpp:699
 #, kde-format
 msgid ""
 "REST: %1\n"
 "DDP: %2"
 msgstr ""
 
-#: core/rocketchataccount.cpp:706 core/rocketchataccount.cpp:718
+#: core/rocketchataccount.cpp:707 core/rocketchataccount.cpp:719
 #, kde-format
 msgid "Not connected"
 msgstr "Pole ühendatud"
 
-#: core/rocketchataccount.cpp:713
+#: core/rocketchataccount.cpp:714
 #, fuzzy, kde-format
 #| msgid "Not connected"
 msgid "Not connected yet"
@@ -1991,17 +1991,17 @@ msgstr ""
 msgid "Bot"
 msgstr ""
 
-#: core/utils.cpp:84 core/utils.cpp:449
+#: core/utils.cpp:84 core/utils.cpp:345
 #, kde-format
 msgid "Online"
 msgstr "Võrgus"
 
-#: core/utils.cpp:86 core/utils.cpp:451 widgets/room/usersinroomcombobox.cpp:24
+#: core/utils.cpp:86 core/utils.cpp:347 widgets/room/usersinroomcombobox.cpp:24
 #, kde-format
 msgid "Busy"
 msgstr "Hõivatud"
 
-#: core/utils.cpp:88 core/utils.cpp:453 widgets/room/usersinroomcombobox.cpp:23
+#: core/utils.cpp:88 core/utils.cpp:349 widgets/room/usersinroomcombobox.cpp:23
 #, kde-format
 msgid "Away"
 msgstr "Eemal"
@@ -12189,6 +12189,17 @@ msgstr ""
 #| msgid "Android support"
 msgid "Fix message video support"
 msgstr "Androidi toetus"
+
+#: widgets/whatsnew/whatsnewtranslations.cpp:131
+#, kde-format
+msgid "Fix highlight text in quoted message"
+msgstr ""
+
+#: widgets/whatsnew/whatsnewtranslations.cpp:132
+#, fuzzy, kde-format
+#| msgid "Open Discussion"
+msgid "Fix open discussion channel"
+msgstr "Diskussiooni avamine"
 
 #: widgets/whatsnew/whatsnewwidget.cpp:44
 #, fuzzy, kde-format

@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-11-29 00:40+0000\n"
+"POT-Creation-Date: 2024-11-30 00:40+0000\n"
 "PO-Revision-Date: 2024-08-06 05:33+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
@@ -1273,7 +1273,7 @@ msgstr "頻道類型"
 msgid "Belongs To"
 msgstr "屬於"
 
-#: core/model/directoryteamsmodel.cpp:92 core/model/roommodel.cpp:557
+#: core/model/directoryteamsmodel.cpp:92 core/model/roommodel.cpp:566
 #: widgets/administratordialog/administratorwidget.cpp:53
 #: widgets/administratordialog/roles/rolescopecombobox.cpp:13
 #, kde-format
@@ -1410,76 +1410,76 @@ msgstr "兩步驟驗證"
 msgid "Last token part"
 msgstr ""
 
-#: core/model/roommodel.cpp:476
+#: core/model/roommodel.cpp:485
 #, kde-format
 msgid "%1 Mention"
 msgid_plural "%1 Mentions"
 msgstr[0] "%1 個提及"
 
-#: core/model/roommodel.cpp:480
+#: core/model/roommodel.cpp:489
 #, kde-format
 msgid "%1 Group Mention"
 msgid_plural "%1 Group Mentions"
 msgstr[0] "%1 個群組提及"
 
-#: core/model/roommodel.cpp:484
+#: core/model/roommodel.cpp:493
 #, kde-format
 msgid "%1 Unread Threaded Message"
 msgid_plural "%1 Unread Threaded Messages"
 msgstr[0] "%1 個未讀的對話串訊息"
 
-#: core/model/roommodel.cpp:488
+#: core/model/roommodel.cpp:497
 #, kde-format
 msgid "%1 Unread Message"
 msgid_plural "%1 Unread Messages"
 msgstr[0] "%1 個未讀訊息"
 
-#: core/model/roommodel.cpp:514
+#: core/model/roommodel.cpp:523
 #, kde-format
 msgid "Teams Room"
 msgstr "團隊聊天室"
 
-#: core/model/roommodel.cpp:520
+#: core/model/roommodel.cpp:529
 #, kde-format
 msgid "Private Room"
 msgstr "私人聊天室"
 
-#: core/model/roommodel.cpp:522
+#: core/model/roommodel.cpp:531
 #, kde-format
 msgid "Discussion Room"
 msgstr "討論室"
 
-#: core/model/roommodel.cpp:526
+#: core/model/roommodel.cpp:535
 #, kde-format
 msgid "Channel Room"
 msgstr "頻道聊天室"
 
-#: core/model/roommodel.cpp:551
+#: core/model/roommodel.cpp:560
 #, kde-format
 msgid "Unread"
 msgstr "未讀"
 
-#: core/model/roommodel.cpp:553
+#: core/model/roommodel.cpp:562
 #, kde-format
 msgid "Favorites"
 msgstr "最愛"
 
-#: core/model/roommodel.cpp:555
+#: core/model/roommodel.cpp:564
 #, kde-format
 msgid "Teams"
 msgstr "團隊"
 
-#: core/model/roommodel.cpp:559
+#: core/model/roommodel.cpp:568
 #, kde-format
 msgid "Discussions"
 msgstr "討論"
 
-#: core/model/roommodel.cpp:561
+#: core/model/roommodel.cpp:570
 #, kde-format
 msgid "Private Messages"
 msgstr "私訊"
 
-#: core/model/roommodel.cpp:563
+#: core/model/roommodel.cpp:572
 #, kde-format
 msgid "Unknown"
 msgstr "未知"
@@ -1681,7 +1681,7 @@ msgstr "已加入此團隊"
 msgid "(Autojoin)"
 msgstr "（自動加入）"
 
-#: core/model/usersmodel.cpp:73 core/utils.cpp:90 core/utils.cpp:455
+#: core/model/usersmodel.cpp:73 core/utils.cpp:90 core/utils.cpp:351
 #, kde-format
 msgid "Offline"
 msgstr "離線"
@@ -1758,19 +1758,19 @@ msgctxt "WARNING!!!!!!: PLEASE We need a space between after </strong>"
 msgid "<strong>%1</strong> are typing..."
 msgstr ""
 
-#: core/rocketchataccount.cpp:698
+#: core/rocketchataccount.cpp:699
 #, kde-format
 msgid ""
 "REST: %1\n"
 "DDP: %2"
 msgstr ""
 
-#: core/rocketchataccount.cpp:706 core/rocketchataccount.cpp:718
+#: core/rocketchataccount.cpp:707 core/rocketchataccount.cpp:719
 #, kde-format
 msgid "Not connected"
 msgstr "未連線"
 
-#: core/rocketchataccount.cpp:713
+#: core/rocketchataccount.cpp:714
 #, fuzzy, kde-format
 #| msgid "Not connected"
 msgid "Not connected yet"
@@ -1876,17 +1876,17 @@ msgstr "管理員"
 msgid "Bot"
 msgstr "機器人"
 
-#: core/utils.cpp:84 core/utils.cpp:449
+#: core/utils.cpp:84 core/utils.cpp:345
 #, kde-format
 msgid "Online"
 msgstr "線上"
 
-#: core/utils.cpp:86 core/utils.cpp:451 widgets/room/usersinroomcombobox.cpp:24
+#: core/utils.cpp:86 core/utils.cpp:347 widgets/room/usersinroomcombobox.cpp:24
 #, kde-format
 msgid "Busy"
 msgstr "忙碌"
 
-#: core/utils.cpp:88 core/utils.cpp:453 widgets/room/usersinroomcombobox.cpp:23
+#: core/utils.cpp:88 core/utils.cpp:349 widgets/room/usersinroomcombobox.cpp:23
 #, kde-format
 msgid "Away"
 msgstr "離席"
@@ -11799,6 +11799,17 @@ msgstr ""
 #| msgid "Fix dark mode support."
 msgid "Fix message video support"
 msgstr "修正暗色模式支援。"
+
+#: widgets/whatsnew/whatsnewtranslations.cpp:131
+#, kde-format
+msgid "Fix highlight text in quoted message"
+msgstr ""
+
+#: widgets/whatsnew/whatsnewtranslations.cpp:132
+#, fuzzy, kde-format
+#| msgid "Open Discussion"
+msgid "Fix open discussion channel"
+msgstr "開啟討論區"
 
 #: widgets/whatsnew/whatsnewwidget.cpp:44
 #, kde-format
