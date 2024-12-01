@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-11-30 00:40+0000\n"
-"PO-Revision-Date: 2024-11-23 18:32+0100\n"
+"PO-Revision-Date: 2024-11-30 18:38+0100\n"
 "Last-Translator: Víctor Rodrigo Córdoba <vrcordoba@gmail.com>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -11500,13 +11500,12 @@ msgstr "Mejora en el soporte de mensajes de video"
 #: widgets/whatsnew/whatsnewtranslations.cpp:131
 #, kde-format
 msgid "Fix highlight text in quoted message"
-msgstr ""
+msgstr "Mejora en el texto destacado en mensajes citados"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:132
-#, fuzzy, kde-format
-#| msgid "Open Discussion"
+#, kde-format
 msgid "Fix open discussion channel"
-msgstr "Abrir discusión"
+msgstr "Mejora al abrir un canal de discusión"
 
 #: widgets/whatsnew/whatsnewwidget.cpp:44
 #, kde-format
@@ -11533,9 +11532,3 @@ msgstr ""
 #, kde-format
 msgid "Some bug fixing:"
 msgstr "Algunas correcciones de errores:"
-
-#~ msgid "BigBlueButton"
-#~ msgstr "BigBlueButton"
-
-#~ msgid "Jitsi"
-#~ msgstr "Jitsi"

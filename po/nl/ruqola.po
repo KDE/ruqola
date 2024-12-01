@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-11-30 00:40+0000\n"
-"PO-Revision-Date: 2024-11-23 12:33+0100\n"
+"PO-Revision-Date: 2024-11-30 13:46+0100\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
 "Language: nl\n"
@@ -11492,13 +11492,12 @@ msgstr "Reparatie van bericht ondersteuning van video"
 #: widgets/whatsnew/whatsnewtranslations.cpp:131
 #, kde-format
 msgid "Fix highlight text in quoted message"
-msgstr ""
+msgstr "Geaccentueerde tekst in aangehaald bericht repareren"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:132
-#, fuzzy, kde-format
-#| msgid "Open Discussion"
+#, kde-format
 msgid "Fix open discussion channel"
-msgstr "Discussie openen"
+msgstr "Open discussiekanaal repareren"
 
 #: widgets/whatsnew/whatsnewwidget.cpp:44
 #, kde-format

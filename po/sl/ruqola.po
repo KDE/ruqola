@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-11-30 00:40+0000\n"
-"PO-Revision-Date: 2024-11-23 07:14+0100\n"
+"PO-Revision-Date: 2024-11-30 07:58+0100\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
@@ -11471,13 +11471,12 @@ msgstr "Popravi podporo video sporočil"
 #: widgets/whatsnew/whatsnewtranslations.cpp:131
 #, kde-format
 msgid "Fix highlight text in quoted message"
-msgstr ""
+msgstr "Popravi označeno besedilo v citiranem sporočilu"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:132
-#, fuzzy, kde-format
-#| msgid "Open Discussion"
+#, kde-format
 msgid "Fix open discussion channel"
-msgstr "Odpri razpravo"
+msgstr "Popravi odprt kanal za razprave"
 
 #: widgets/whatsnew/whatsnewwidget.cpp:44
 #, kde-format

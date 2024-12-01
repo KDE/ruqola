@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-11-30 00:40+0000\n"
-"PO-Revision-Date: 2024-11-23 11:52+0100\n"
+"PO-Revision-Date: 2024-11-30 09:47+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca\n"
@@ -11498,13 +11498,12 @@ msgstr "Corregeix la implementació dels missatges de vídeo"
 #: widgets/whatsnew/whatsnewtranslations.cpp:131
 #, kde-format
 msgid "Fix highlight text in quoted message"
-msgstr ""
+msgstr "Corregeix el text ressaltat en un missatge citat"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:132
-#, fuzzy, kde-format
-#| msgid "Open Discussion"
+#, kde-format
 msgid "Fix open discussion channel"
-msgstr "Obre un debat"
+msgstr "Corregeix l'obertura d'un canal de debat"
 
 #: widgets/whatsnew/whatsnewwidget.cpp:44
 #, kde-format

@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-11-30 00:40+0000\n"
-"PO-Revision-Date: 2024-11-23 08:36+0100\n"
+"PO-Revision-Date: 2024-11-30 08:30+0100\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
 "Language: eu\n"
@@ -11479,18 +11479,17 @@ msgstr "Administratzaile-moduan elkarrizketa iragaztea konpontzea"
 #: widgets/whatsnew/whatsnewtranslations.cpp:130
 #, kde-format
 msgid "Fix message video support"
-msgstr "Bideo-mezuen euskarria konpondu"
+msgstr "Bideo-mezuen euskarria konpontzea"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:131
 #, kde-format
 msgid "Fix highlight text in quoted message"
-msgstr ""
+msgstr "Aipu-mezuetan testu-nabarmentzea konpontzea"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:132
-#, fuzzy, kde-format
-#| msgid "Open Discussion"
+#, kde-format
 msgid "Fix open discussion channel"
-msgstr "Ireki elkarrizketa"
+msgstr "Elkarrizketa irekiko kanala konpontzea"
 
 #: widgets/whatsnew/whatsnewwidget.cpp:44
 #, kde-format
