@@ -35,6 +35,8 @@ void AppsCountInfoWidgetTest::shouldHaveDefaultValues()
     auto mEnableAppsLabel = w.findChild<QLabel *>(QStringLiteral("mEnableAppsLabel"));
     QVERIFY(mEnableAppsLabel);
     QVERIFY(mEnableAppsLabel->text().isEmpty());
+
+    QCOMPARE(w.infotype(), AppsCountInfoWidget::InfoType::Unknown);
 }
 
 #include "moc_appscountinfowidgettest.cpp"
