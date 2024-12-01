@@ -6,6 +6,7 @@
 
 #pragma once
 
+#include "applicationssettingsdialog/applicationssettingssearchwidget.h"
 #include "channelgroupbasejob.h"
 #include "config-ruqola.h"
 #include "libruqolawidgets_export.h"
@@ -122,6 +123,7 @@ private:
     LIBRUQOLAWIDGETS_NO_EXPORT void slotClearRoomHistory();
     LIBRUQOLAWIDGETS_NO_EXPORT void slotShowLogsFile();
     LIBRUQOLAWIDGETS_NO_EXPORT void slotShowRestApiLogsFile();
+    LIBRUQOLAWIDGETS_NO_EXPORT void applicationSettings(ApplicationsSettingsSearchWidget::Feature feature);
 
     bool mReallyClose{false};
 

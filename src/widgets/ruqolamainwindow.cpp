@@ -1293,28 +1293,27 @@ void RuqolaMainWindow::slotExportAccounts()
     dlg.exec();
 }
 
-void RuqolaMainWindow::slotApplicationsSettings()
+void RuqolaMainWindow::applicationSettings(ApplicationsSettingsSearchWidget::Feature feature)
 {
     ApplicationsSettingsDialog dlg(mCurrentRocketChatAccount, this);
-    dlg.setFeature(ApplicationsSettingsSearchWidget::Feature::None);
+    dlg.setFeature(feature);
     dlg.initialize();
     dlg.exec();
+}
+
+void RuqolaMainWindow::slotApplicationsSettings()
+{
+    applicationSettings(ApplicationsSettingsSearchWidget::Feature::None);
 }
 
 void RuqolaMainWindow::slotApplicationsRequestedSettings()
 {
-    ApplicationsSettingsDialog dlg(mCurrentRocketChatAccount, this);
-    dlg.setFeature(ApplicationsSettingsSearchWidget::Feature::Requested);
-    dlg.initialize();
-    dlg.exec();
+    applicationSettings(ApplicationsSettingsSearchWidget::Feature::Requested);
 }
 
 void RuqolaMainWindow::slotApplicationsInstalledSettings()
 {
-    ApplicationsSettingsDialog dlg(mCurrentRocketChatAccount, this);
-    dlg.setFeature(ApplicationsSettingsSearchWidget::Feature::Installed);
-    dlg.initialize();
-    dlg.exec();
+    applicationSettings(ApplicationsSettingsSearchWidget::Feature::Installed);
 }
 
 void RuqolaMainWindow::slotClearRoomHistory()
