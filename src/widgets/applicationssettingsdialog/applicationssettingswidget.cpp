@@ -45,6 +45,7 @@ ApplicationsSettingsWidget::ApplicationsSettingsWidget(RocketChatAccount *accoun
 
     mAppsCountInfoWidget->setObjectName("mAppsCountInfoWidget"_L1);
     widgetLayout->addWidget(mAppsCountInfoWidget);
+    mAppsCountInfoWidget->setVisible(false);
 
     mApplicationsSettingsSearchWidget->setObjectName("mApplicationsSettingsSearchWidget"_L1);
     widgetLayout->addWidget(mApplicationsSettingsSearchWidget);
@@ -67,7 +68,6 @@ ApplicationsSettingsWidget::ApplicationsSettingsWidget(RocketChatAccount *accoun
             mStackedWidget->setCurrentWidget(mWidgetListView);
         });
         connect(mCurrentRocketChatAccount, &RocketChatAccount::appsCountLoadDone, this, [this]() {
-            // TODO fix me
             mAppsCountInfoWidget->setAppCountInfo(mCurrentRocketChatAccount->appsMarketPlaceModel()->appsCountInfo(),
                                                   AppsCountInfoWidget::InfoType::Applications);
         });
