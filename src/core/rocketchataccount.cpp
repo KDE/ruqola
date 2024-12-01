@@ -3203,19 +3203,21 @@ bool RocketChatAccount::appMarketPlaceLoaded() const
 
 void RocketChatAccount::loadAppCount()
 {
-    if (mAppsCategoriesModel->wasFilled()) {
-        return;
-    }
-    auto job = new RocketChatRestApi::AppCountJob(this);
-    restApi()->initializeRestApiJob(job);
-    connect(job, &RocketChatRestApi::AppCountJob::appCountDone, this, [this](const QJsonObject &obj) {
-        AppsCountInfo countinfo;
-        countinfo.parseCountInfo(obj);
-        mAppsMarketPlaceModel->setAppsCountInfo(countinfo);
-        Q_EMIT appsCountLoadDone();
-    });
-    if (!job->start()) {
-        qCWarning(RUQOLA_LOG) << "Impossible to start AppCountJob";
+    if (isAdministrator()) {
+        if (mAppsCategoriesModel->wasFilled()) {
+            return;
+        }
+        auto job = new RocketChatRestApi::AppCountJob(this);
+        restApi()->initializeRestApiJob(job);
+        connect(job, &RocketChatRestApi::AppCountJob::appCountDone, this, [this](const QJsonObject &obj) {
+            AppsCountInfo countinfo;
+            countinfo.parseCountInfo(obj);
+            mAppsMarketPlaceModel->setAppsCountInfo(countinfo);
+            Q_EMIT appsCountLoadDone();
+        });
+        if (!job->start()) {
+            qCWarning(RUQOLA_LOG) << "Impossible to start AppCountJob";
+        }
     }
 }
 
