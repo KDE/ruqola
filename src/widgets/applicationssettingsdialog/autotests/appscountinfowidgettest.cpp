@@ -7,6 +7,7 @@
 #include "appscountinfowidgettest.h"
 #include "applicationssettingsdialog/appscountinfowidget.h"
 #include <QHBoxLayout>
+#include <QLabel>
 #include <QProgressBar>
 #include <QTest>
 
@@ -26,6 +27,14 @@ void AppsCountInfoWidgetTest::shouldHaveDefaultValues()
 
     auto mProgressBar = w.findChild<QProgressBar *>(QStringLiteral("mProgressBar"));
     QVERIFY(mProgressBar);
+
+    auto mApplicationInfo = w.findChild<QLabel *>(QStringLiteral("mApplicationInfo"));
+    QVERIFY(mApplicationInfo);
+    QVERIFY(mApplicationInfo->text().isEmpty());
+
+    auto mEnableAppsLabel = w.findChild<QLabel *>(QStringLiteral("mEnableAppsLabel"));
+    QVERIFY(mEnableAppsLabel);
+    QVERIFY(mEnableAppsLabel->text().isEmpty());
 }
 
 #include "moc_appscountinfowidgettest.cpp"

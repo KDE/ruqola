@@ -28,4 +28,5 @@ public:
 private:
     QProgressBar *const mProgressBar;
     QLabel *const mApplicationInfo;
+    QLabel *const mEnableAppsLabel;
 };

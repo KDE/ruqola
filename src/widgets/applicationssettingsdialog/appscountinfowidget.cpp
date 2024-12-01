@@ -14,12 +14,16 @@ AppsCountInfoWidget::AppsCountInfoWidget(QWidget *parent)
     : QWidget{parent}
     , mProgressBar(new QProgressBar(this))
     , mApplicationInfo(new QLabel(this))
+    , mEnableAppsLabel(new QLabel(this))
 {
     auto mainLayout = new QHBoxLayout(this);
     mainLayout->setObjectName("mainLayout"_L1);
     mainLayout->setContentsMargins({});
 
     mainLayout->addStretch(1);
+
+    mEnableAppsLabel->setObjectName("mEnableAppsLabel"_L1);
+    mainLayout->addWidget(mEnableAppsLabel);
 
     mProgressBar->setObjectName("mProgressBar"_L1);
     mainLayout->addWidget(mProgressBar);
@@ -40,12 +44,14 @@ void AppsCountInfoWidget::setAppCountInfo(const AppsCountInfo &info, InfoType ty
         mProgressBar->setMaximum(info.maxMarketplaceApps());
         mProgressBar->setValue(info.totalMarketplaceEnabled());
         mApplicationInfo->setText(QStringLiteral("%1/%2").arg(QString::number(info.totalMarketplaceEnabled()), QString::number(info.maxMarketplaceApps())));
+        mEnableAppsLabel->setText(i18np("%1 app enabled", "%1 apps enabled", info.totalMarketplaceEnabled()));
         break;
     }
     case AppsCountInfoWidget::InfoType::PrivateApps: {
         mProgressBar->setMaximum(info.maxPrivateApps());
         mProgressBar->setValue(info.totalPrivateEnabled());
         mApplicationInfo->setText(QStringLiteral("%1/%2").arg(QString::number(info.totalPrivateEnabled()), QString::number(info.maxPrivateApps())));
+        mEnableAppsLabel->setText(i18np("%1 private app enabled", "%1 private apps enabled", info.totalMarketplaceEnabled()));
         break;
     }
     }
