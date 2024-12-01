@@ -548,6 +548,13 @@ void RuqolaMainWindow::setupActions()
     ac->addAction(QStringLiteral("applications_requested_settings"), mInstalledApplications);
     mAdministrationMenu->addAction(mInstalledApplications);
 
+#if 0
+    mPrivateApplications = new QAction(i18nc("@action", "Private Applications…"), this);
+    connect(mPrivateApplications, &QAction::triggered, this, &RuqolaMainWindow::slotPrivateApplicationsSettings);
+    ac->addAction(QStringLiteral("applications_requested_settings"), mPrivateApplications);
+    mAdministrationMenu->addAction(mPrivateApplications);
+#endif
+
     mJoinRoom = new QAction(i18nc("Action which allows to search room", "Join Room…"), this);
     connect(mJoinRoom, &QAction::triggered, this, &RuqolaMainWindow::slotJoinRoom);
     ac->addAction(QStringLiteral("join_room"), mJoinRoom);

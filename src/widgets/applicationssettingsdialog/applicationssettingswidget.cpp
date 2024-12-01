@@ -69,6 +69,7 @@ ApplicationsSettingsWidget::ApplicationsSettingsWidget(RocketChatAccount *accoun
         });
         connect(mCurrentRocketChatAccount, &RocketChatAccount::appsCountLoadDone, this, [this]() {
             mAppsCountInfoWidget->setAppCountInfo(mCurrentRocketChatAccount->appsMarketPlaceModel()->appsCountInfo(),
+                                                  // TODO fix type
                                                   AppsCountInfoWidget::InfoType::Applications);
         });
 
