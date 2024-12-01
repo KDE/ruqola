@@ -26,17 +26,6 @@ RocketChatMessage::RocketChatMessageResult RocketChatMessage::openDirectChannel(
     return generateMethod(QStringLiteral("createDirectMessage"), params, id);
 }
 
-RocketChatMessage::RocketChatMessageResult RocketChatMessage::updateOAuthApp(const QString &name, bool active, const QString &redirectUrl, quint64 id)
-{
-    const QJsonObject obj{
-        {QStringLiteral("name"), name},
-        {QStringLiteral("active"), active},
-        {QStringLiteral("redirectUri"), redirectUrl},
-    };
-    const QJsonArray params{obj};
-    return generateMethod(QStringLiteral("updateOAuthApp"), params, id);
-}
-
 RocketChatMessage::RocketChatMessageResult
 RocketChatMessage::videoConferenceConfirmed(const QString &roomId, const QString &callId, const QString &userId, quint64 id)
 {
