@@ -53,6 +53,12 @@ ApplicationsSettingsWidget::ApplicationsSettingsWidget(RocketChatAccount *accoun
     mApplicationsSettingsListView->setObjectName("mApplicationsSettingsListView"_L1);
     widgetLayout->addWidget(mApplicationsSettingsListView);
 
+    connect(mApplicationsSettingsSearchWidget, &ApplicationsSettingsSearchWidget::filterChanged, this, &ApplicationsSettingsWidget::slotFilterChanged);
+    connect(mApplicationsSettingsSearchWidget, &ApplicationsSettingsSearchWidget::sortingChanged, this, &ApplicationsSettingsWidget::slotSortingChanged);
+}
+
+void ApplicationsSettingsWidget::initialize()
+{
     if (mCurrentRocketChatAccount) {
         mCurrentRocketChatAccount->memoryManager()->stopClearApplicationSettingsModelTimer();
         mCurrentRocketChatAccount->loadAppMarketPlace();
@@ -76,8 +82,6 @@ ApplicationsSettingsWidget::ApplicationsSettingsWidget(RocketChatAccount *accoun
     } else {
         mStackedWidget->setCurrentWidget(mWidgetListView);
     }
-    connect(mApplicationsSettingsSearchWidget, &ApplicationsSettingsSearchWidget::filterChanged, this, &ApplicationsSettingsWidget::slotFilterChanged);
-    connect(mApplicationsSettingsSearchWidget, &ApplicationsSettingsSearchWidget::sortingChanged, this, &ApplicationsSettingsWidget::slotSortingChanged);
 }
 
 void ApplicationsSettingsWidget::setFeature(ApplicationsSettingsSearchWidget::Feature feature)

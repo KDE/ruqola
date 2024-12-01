@@ -23,6 +23,8 @@ public:
 
     void setFeature(ApplicationsSettingsSearchWidget::Feature feature);
 
+    void initialize();
+
 private:
     LIBRUQOLAWIDGETS_NO_EXPORT void slotFilterChanged();
     LIBRUQOLAWIDGETS_NO_EXPORT void slotSortingChanged();

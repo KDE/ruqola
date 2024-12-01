@@ -1297,6 +1297,7 @@ void RuqolaMainWindow::slotApplicationsSettings()
 {
     ApplicationsSettingsDialog dlg(mCurrentRocketChatAccount, this);
     dlg.setFeature(ApplicationsSettingsSearchWidget::Feature::None);
+    dlg.initialize();
     dlg.exec();
 }
 
@@ -1304,6 +1305,7 @@ void RuqolaMainWindow::slotApplicationsRequestedSettings()
 {
     ApplicationsSettingsDialog dlg(mCurrentRocketChatAccount, this);
     dlg.setFeature(ApplicationsSettingsSearchWidget::Feature::Requested);
+    dlg.initialize();
     dlg.exec();
 }
 
@@ -1311,6 +1313,7 @@ void RuqolaMainWindow::slotApplicationsInstalledSettings()
 {
     ApplicationsSettingsDialog dlg(mCurrentRocketChatAccount, this);
     dlg.setFeature(ApplicationsSettingsSearchWidget::Feature::Installed);
+    dlg.initialize();
     dlg.exec();
 }
 

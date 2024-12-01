@@ -49,6 +49,11 @@ void ApplicationsSettingsDialog::setFeature(ApplicationsSettingsSearchWidget::Fe
     mApplicationsSettingsWidget->setFeature(feature);
 }
 
+void ApplicationsSettingsDialog::initialize()
+{
+    mApplicationsSettingsWidget->initialize();
+}
+
 void ApplicationsSettingsDialog::readConfig()
 {
     create(); // ensure a window is created

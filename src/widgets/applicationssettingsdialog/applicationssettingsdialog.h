@@ -20,6 +20,8 @@ public:
 
     void setFeature(ApplicationsSettingsSearchWidget::Feature feature);
 
+    void initialize();
+
 private:
     LIBRUQOLAWIDGETS_NO_EXPORT void readConfig();
     LIBRUQOLAWIDGETS_NO_EXPORT void writeConfig();
