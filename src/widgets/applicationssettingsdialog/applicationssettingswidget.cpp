@@ -74,9 +74,7 @@ void ApplicationsSettingsWidget::initialize()
             mStackedWidget->setCurrentWidget(mWidgetListView);
         });
         connect(mCurrentRocketChatAccount, &RocketChatAccount::appsCountLoadDone, this, [this]() {
-            mAppsCountInfoWidget->setAppCountInfo(mCurrentRocketChatAccount->appsMarketPlaceModel()->appsCountInfo(),
-                                                  // TODO fix type
-                                                  AppsCountInfoWidget::InfoType::Applications);
+            mAppsCountInfoWidget->setAppCountInfo(mCurrentRocketChatAccount->appsMarketPlaceModel()->appsCountInfo());
         });
 
     } else {
@@ -87,6 +85,8 @@ void ApplicationsSettingsWidget::initialize()
 void ApplicationsSettingsWidget::setFeature(ApplicationsSettingsSearchWidget::Feature feature)
 {
     mApplicationsSettingsSearchWidget->setFeature(feature);
+    mAppsCountInfoWidget->setInfotype(feature == ApplicationsSettingsSearchWidget::Feature::Private ? AppsCountInfoWidget::InfoType::PrivateApps
+                                                                                                    : AppsCountInfoWidget::InfoType::Applications);
     if (feature == ApplicationsSettingsSearchWidget::Feature::Requested) {
         mApplicationsSettingsListView->setRequested(true);
     }

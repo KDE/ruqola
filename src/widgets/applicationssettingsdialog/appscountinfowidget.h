@@ -23,10 +23,14 @@ public:
 
     explicit AppsCountInfoWidget(QWidget *parent = nullptr);
     ~AppsCountInfoWidget() override;
-    void setAppCountInfo(const AppsCountInfo &info, InfoType type);
+    void setAppCountInfo(const AppsCountInfo &info);
+
+    [[nodiscard]] InfoType infotype() const;
+    void setInfotype(InfoType newInfotype);
 
 private:
     QProgressBar *const mProgressBar;
     QLabel *const mApplicationInfo;
     QLabel *const mEnableAppsLabel;
+    InfoType mInfotype = InfoType::Unknown;
 };

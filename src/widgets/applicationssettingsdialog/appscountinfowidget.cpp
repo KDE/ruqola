@@ -34,10 +34,10 @@ AppsCountInfoWidget::AppsCountInfoWidget(QWidget *parent)
 
 AppsCountInfoWidget::~AppsCountInfoWidget() = default;
 
-void AppsCountInfoWidget::setAppCountInfo(const AppsCountInfo &info, InfoType type)
+void AppsCountInfoWidget::setAppCountInfo(const AppsCountInfo &info)
 {
     setVisible(info.isValid());
-    switch (type) {
+    switch (mInfotype) {
     case AppsCountInfoWidget::InfoType::Unknown:
         break;
     case AppsCountInfoWidget::InfoType::Applications: {
@@ -55,6 +55,16 @@ void AppsCountInfoWidget::setAppCountInfo(const AppsCountInfo &info, InfoType ty
         break;
     }
     }
+}
+
+AppsCountInfoWidget::InfoType AppsCountInfoWidget::infotype() const
+{
+    return mInfotype;
+}
+
+void AppsCountInfoWidget::setInfotype(InfoType newInfotype)
+{
+    mInfotype = newInfotype;
 }
 
 #include "moc_appscountinfowidget.cpp"
