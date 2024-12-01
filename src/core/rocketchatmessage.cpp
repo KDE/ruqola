@@ -179,15 +179,6 @@ RocketChatMessage::RocketChatMessageResult RocketChatMessage::informTypingStatus
     return generateMethod(QStringLiteral("stream-notify-room"), params, id);
 }
 
-QJsonValue RocketChatMessage::toJsonDateTime(const QDateTime &dateTime)
-{
-    if (dateTime.isNull()) {
-        return {};
-    }
-
-    return QJsonObject{{QStringLiteral("$date"), dateTime.toMSecsSinceEpoch()}};
-}
-
 RocketChatMessage::RocketChatMessageResult RocketChatMessage::setDefaultStatus(User::PresenceStatus status, quint64 id)
 {
     const QString strPresence = Utils::presenceStatusToString(status);

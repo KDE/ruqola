@@ -97,7 +97,6 @@ public:
     [[nodiscard]] RocketChatMessage::RocketChatMessageResult getRoomByTypeAndName(const QByteArray &roomId, const QString &roomType, quint64 id);
 
 private:
-    [[nodiscard]] LIBRUQOLACORE_NO_EXPORT QJsonValue toJsonDateTime(const QDateTime &dateTime);
     [[nodiscard]] LIBRUQOLACORE_NO_EXPORT RocketChatMessage::RocketChatMessageResult
     generateVideoConferenceAction(const QString &action, const QString &roomId, const QString &callId, const QString &userId, quint64 id);
 
