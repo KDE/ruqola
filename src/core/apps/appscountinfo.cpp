@@ -75,5 +75,5 @@ bool AppsCountInfo::operator==(const AppsCountInfo &other) const
 
 bool AppsCountInfo::isValid() const
 {
-    return mMaxMarketplaceApps != -1 || mMaxPrivateApps != -1 || mTotalMarketplaceEnabled != -1 || mTotalPrivateEnabled != -1;
+    return mMaxMarketplaceApps != -1 && mMaxPrivateApps != -1 && mTotalMarketplaceEnabled != -1 && mTotalPrivateEnabled != -1;
 }
