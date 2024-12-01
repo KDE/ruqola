@@ -37,13 +37,6 @@ RocketChatMessage::RocketChatMessageResult RocketChatMessage::updateOAuthApp(con
     return generateMethod(QStringLiteral("updateOAuthApp"), params, id);
 }
 
-RocketChatMessage::RocketChatMessageResult RocketChatMessage::deleteOAuthApp(const QString &appId, quint64 id)
-{
-    const QJsonArray params{{appId}};
-    // qDebug() << " DELETE " << appId;
-    return generateMethod(QStringLiteral("deleteOAuthApp"), params, id);
-}
-
 RocketChatMessage::RocketChatMessageResult
 RocketChatMessage::videoConferenceConfirmed(const QString &roomId, const QString &callId, const QString &userId, quint64 id)
 {

@@ -67,8 +67,6 @@ public:
 
     [[nodiscard]] RocketChatMessage::RocketChatMessageResult regenerateCodes2fa(const QString &code, quint64 id);
 
-    [[nodiscard]] RocketChatMessage::RocketChatMessageResult deleteOAuthApp(const QString &appId, quint64 id);
-
     [[nodiscard]] RocketChatMessage::RocketChatMessageResult updateOAuthApp(const QString &name, bool active, const QString &redirectUrl, quint64 id);
 
     [[nodiscard]] RocketChatMessage::RocketChatMessageResult setAdminStatus(const QByteArray &userId, bool admin, quint64 id);

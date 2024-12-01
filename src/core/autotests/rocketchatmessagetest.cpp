@@ -122,14 +122,6 @@ void RocketChatMessageTest::setAdminStatus()
     }
 }
 
-void RocketChatMessageTest::deleteOAuthApp()
-{
-    RocketChatMessage m;
-    m.setJsonFormat(QJsonDocument::Indented);
-    RocketChatMessage::RocketChatMessageResult r = m.deleteOAuthApp(QStringLiteral("oauthappid"), 43);
-    compareFile(r.result, QStringLiteral("deleteOAuthApp"));
-}
-
 void RocketChatMessageTest::unBlockUser()
 {
     RocketChatMessage m;
