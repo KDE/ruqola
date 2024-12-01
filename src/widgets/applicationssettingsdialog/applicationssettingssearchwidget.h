@@ -24,6 +24,7 @@ public:
         None,
         Installed,
         Requested,
+        Private,
     };
     Q_ENUM(Feature)
 

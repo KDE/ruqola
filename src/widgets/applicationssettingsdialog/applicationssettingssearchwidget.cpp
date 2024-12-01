@@ -95,6 +95,10 @@ void ApplicationsSettingsSearchWidget::setFeature(Feature feature)
         mApplicationsSettingsInstalledComboBox->setVisible(false);
         mSearchLineEdit->setPlaceholderText(i18nc("@info:placeholder", "Search Requested Applications"));
         break;
+    case Feature::Private:
+        mApplicationsSettingsInstalledComboBox->setVisible(false);
+        mSearchLineEdit->setPlaceholderText(i18nc("@info:placeholder", "Search Private Applications"));
+        break;
     }
 }
 
