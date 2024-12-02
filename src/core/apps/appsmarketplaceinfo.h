@@ -131,8 +131,6 @@ public:
     [[nodiscard]] QList<PricePlan> pricePlan() const;
     void setPricePlan(const QList<PricePlan> &newPricePlan);
 
-    void parseInstalledApps(const QJsonObject &replyObject);
-
     [[nodiscard]] QString support() const;
     void setSupport(const QString &newSupport);
 
@@ -144,9 +142,6 @@ public:
 
     [[nodiscard]] int requested() const;
     void setRequested(int newRequested);
-
-    [[nodiscard]] bool migrated() const;
-    void setMigrated(bool newMigrated);
 
     [[nodiscard]] QString authorName() const;
     void setAuthorName(const QString &newAuthorName);
@@ -177,7 +172,6 @@ private:
     int mPrice = 0;
     int mRequested = 0;
     bool mIsEnterpriseOnly = false;
-    bool mMigrated = false;
 };
 
 Q_DECLARE_METATYPE(AppsMarketPlaceInfo)

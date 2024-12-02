@@ -40,6 +40,12 @@ public:
     [[nodiscard]] QString authorName() const;
     void setAuthorName(const QString &newAuthorName);
 
+    [[nodiscard]] bool migrated() const;
+    void setMigrated(bool newMigrated);
+
+    [[nodiscard]] QString appId() const;
+    void setAppId(const QString &newAppId);
+
 private:
     LIBRUQOLACORE_NO_EXPORT void parseAuthor(const QJsonObject &authorObject);
     QString mAppName;
@@ -48,7 +54,9 @@ private:
     QString mSupport;
     QString mHomePage;
     QString mAuthorName;
+    QString mAppId;
     bool mIsPrivate = false;
+    bool mMigrated = false;
 };
 
 Q_DECLARE_METATYPE(AppsMarketPlaceInstalledInfo)

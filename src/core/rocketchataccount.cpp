@@ -9,6 +9,7 @@
 #include "apps/appcountjob.h"
 #include "apps/appinstalledjob.h"
 #include "apps/appscountinfo.h"
+#include "apps/appsmarketplaceinstalledinfo.h"
 #include "config-ruqola.h"
 #include "ddpapi/ddpclient.h"
 #include "memorymanager/memorymanager.h"
@@ -3259,8 +3260,8 @@ void RocketChatAccount::loadInstalledApps()
         for (int i = 0; i < replyArray.count(); ++i) {
             const QJsonObject obj = replyArray.at(i).toObject();
             qDebug() << "RocketChatAccount::loadInstalledApps obj" << obj;
-            AppsMarketPlaceInfo info;
-            info.parseInstalledApps(obj);
+            AppsMarketPlaceInstalledInfo info;
+            info.parseInstalledAppsMarketPlaceInfo(obj);
             qDebug() << "installed " << info;
         }
     });

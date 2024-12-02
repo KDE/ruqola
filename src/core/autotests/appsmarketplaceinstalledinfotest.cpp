@@ -21,3 +21,5 @@ void AppsMarketPlaceInstalledInfoTest::shouldHaveDefaultValues()
     AppsMarketPlaceInstalledInfo w;
     // TODO
 }
+
+#include "moc_appsmarketplaceinstalledinfotest.cpp"

@@ -36,7 +36,6 @@ QDebug operator<<(QDebug d, const AppsMarketPlaceInfo &t)
     d.space() << "author " << t.authorName();
     d.space() << "privacyPolicySummary " << t.privacyPolicySummary();
     d.space() << "requested " << t.requested();
-    d.space() << "migrated " << t.migrated();
     return d;
 }
 
@@ -141,10 +140,6 @@ QString AppsMarketPlaceInfo::PricePlan::strategyToI18n() const
     return {};
 }
 
-void AppsMarketPlaceInfo::parseInstalledApps(const QJsonObject &replyObject)
-{
-}
-
 void AppsMarketPlaceInfo::parseAppRequestStats(const QJsonObject &replyObject)
 {
     // "appRequestStats":{"appId":"ebb7f05b-ea65-4565-880b-8c2360f14500","totalSeen":1}
@@ -159,16 +154,6 @@ QString AppsMarketPlaceInfo::authorName() const
 void AppsMarketPlaceInfo::setAuthorName(const QString &newAuthorName)
 {
     mAuthorName = newAuthorName;
-}
-
-bool AppsMarketPlaceInfo::migrated() const
-{
-    return mMigrated;
-}
-
-void AppsMarketPlaceInfo::setMigrated(bool newMigrated)
-{
-    mMigrated = newMigrated;
 }
 
 int AppsMarketPlaceInfo::requested() const
@@ -366,7 +351,7 @@ bool AppsMarketPlaceInfo::operator==(const AppsMarketPlaceInfo &other) const
         && mShortDescription == other.mShortDescription /*&& mPixmap.isNull() == other.mPixmap.isNull()*/ && mPrice == other.mPrice
         && mIsEnterpriseOnly == other.mIsEnterpriseOnly && mModifiedDate == other.mModifiedDate && mPricePlan == other.mPricePlan
         && mHomePage == other.mHomePage && mSupport == other.mSupport && mPrivacyPolicySummary == other.mPrivacyPolicySummary && mRequested == other.mRequested
-        && mMigrated == other.mMigrated && mAuthorName == other.mAuthorName;
+        && mAuthorName == other.mAuthorName;
 }
 
 qint64 AppsMarketPlaceInfo::modifiedDate() const

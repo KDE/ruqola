@@ -12,20 +12,23 @@ AppsMarketPlaceInstalledInfo::~AppsMarketPlaceInstalledInfo() = default;
 
 QDebug operator<<(QDebug d, const AppsMarketPlaceInstalledInfo &t)
 {
-    d << "private " << t.isPrivate();
-    d << "name " << t.appName();
-    d << "version " << t.version();
-    d << "description " << t.description();
-    d << "support " << t.support();
-    d << "homePage " << t.homePage();
-    d << "authorName " << t.authorName();
+    d.space() << "private" << t.isPrivate();
+    d.space() << "name" << t.appName();
+    d.space() << "version" << t.version();
+    d.space() << "description" << t.description();
+    d.space() << "support" << t.support();
+    d.space() << "homePage" << t.homePage();
+    d.space() << "authorName" << t.authorName();
+    d.space() << "migrated" << t.migrated();
+    d.space() << "id" << t.appId();
     return d;
 }
 
 bool AppsMarketPlaceInstalledInfo::operator==(const AppsMarketPlaceInstalledInfo &other) const
 {
     return mAppName == other.mAppName && mVersion == other.mVersion && mIsPrivate == other.mIsPrivate && mDescription == other.mDescription
-        && mSupport == other.mSupport && mHomePage == other.mHomePage && mAuthorName == other.mAuthorName;
+        && mSupport == other.mSupport && mHomePage == other.mHomePage && mAuthorName == other.mAuthorName && mMigrated == other.migrated()
+        && mAppId == other.mAppId;
 }
 
 void AppsMarketPlaceInstalledInfo::parseInstalledAppsMarketPlaceInfo(const QJsonObject &replyObject)
@@ -34,6 +37,8 @@ void AppsMarketPlaceInstalledInfo::parseInstalledAppsMarketPlaceInfo(const QJson
     mAppName = replyObject["name"_L1].toString();
     mVersion = replyObject["version"_L1].toString();
     mDescription = replyObject["description"_L1].toString();
+    mMigrated = replyObject["migrated"_L1].toBool();
+    mAppId = replyObject["id"_L1].toString();
 
     parseAuthor(replyObject["author"_L1].toObject());
 }
@@ -43,6 +48,26 @@ void AppsMarketPlaceInstalledInfo::parseAuthor(const QJsonObject &authorObject)
     mHomePage = authorObject["homepage"_L1].toString();
     mSupport = authorObject["support"_L1].toString();
     mAuthorName = authorObject["name"_L1].toString();
+}
+
+QString AppsMarketPlaceInstalledInfo::appId() const
+{
+    return mAppId;
+}
+
+void AppsMarketPlaceInstalledInfo::setAppId(const QString &newAppId)
+{
+    mAppId = newAppId;
+}
+
+bool AppsMarketPlaceInstalledInfo::migrated() const
+{
+    return mMigrated;
+}
+
+void AppsMarketPlaceInstalledInfo::setMigrated(bool newMigrated)
+{
+    mMigrated = newMigrated;
 }
 
 QString AppsMarketPlaceInstalledInfo::authorName() const

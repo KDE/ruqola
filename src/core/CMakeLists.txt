@@ -336,6 +336,8 @@ target_sources(libruqolacore PRIVATE
 
     model/appsmarketplacefilterproxymodel.h
     model/appsmarketplacefilterproxymodel.cpp
+    model/appsmarketplaceinstalledmodel.cpp
+    model/appsmarketplaceinstalledmodel.h
 
     notificationinfo.cpp
     notificationinfo.h
