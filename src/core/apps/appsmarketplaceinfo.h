@@ -145,9 +145,6 @@ public:
     [[nodiscard]] int requested() const;
     void setRequested(int newRequested);
 
-    [[nodiscard]] bool installed() const;
-    void setInstalled(bool newInstalled);
-
     [[nodiscard]] bool migrated() const;
     void setMigrated(bool newMigrated);
 
@@ -180,7 +177,6 @@ private:
     int mPrice = 0;
     int mRequested = 0;
     bool mIsEnterpriseOnly = false;
-    bool mInstalled = false;
     bool mMigrated = false;
 };
 

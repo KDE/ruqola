@@ -36,7 +36,6 @@ QDebug operator<<(QDebug d, const AppsMarketPlaceInfo &t)
     d.space() << "author " << t.authorName();
     d.space() << "privacyPolicySummary " << t.privacyPolicySummary();
     d.space() << "requested " << t.requested();
-    d.space() << "installed " << t.installed();
     d.space() << "migrated " << t.migrated();
     return d;
 }
@@ -170,16 +169,6 @@ bool AppsMarketPlaceInfo::migrated() const
 void AppsMarketPlaceInfo::setMigrated(bool newMigrated)
 {
     mMigrated = newMigrated;
-}
-
-bool AppsMarketPlaceInfo::installed() const
-{
-    return mInstalled;
-}
-
-void AppsMarketPlaceInfo::setInstalled(bool newInstalled)
-{
-    mInstalled = newInstalled;
 }
 
 int AppsMarketPlaceInfo::requested() const
@@ -377,7 +366,7 @@ bool AppsMarketPlaceInfo::operator==(const AppsMarketPlaceInfo &other) const
         && mShortDescription == other.mShortDescription /*&& mPixmap.isNull() == other.mPixmap.isNull()*/ && mPrice == other.mPrice
         && mIsEnterpriseOnly == other.mIsEnterpriseOnly && mModifiedDate == other.mModifiedDate && mPricePlan == other.mPricePlan
         && mHomePage == other.mHomePage && mSupport == other.mSupport && mPrivacyPolicySummary == other.mPrivacyPolicySummary && mRequested == other.mRequested
-        && mInstalled == other.mInstalled && mMigrated == other.mMigrated && mAuthorName == other.mAuthorName;
+        && mMigrated == other.mMigrated && mAuthorName == other.mAuthorName;
 }
 
 qint64 AppsMarketPlaceInfo::modifiedDate() const

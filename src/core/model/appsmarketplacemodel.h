@@ -31,7 +31,6 @@ public:
         ModifiedDate,
         ApplicationInformations,
         RequestedApps,
-        InstalledApps,
     };
     Q_ENUM(AppsCategoriesRoles)
 
