@@ -3260,12 +3260,10 @@ void RocketChatAccount::loadInstalledApps()
             const QJsonObject obj = replyArray.at(i).toObject();
             qDebug() << "RocketChatAccount::loadInstalledApps obj" << obj;
             AppsMarketPlaceInfo info;
-            info.parseAppsMarketPlaceInfo(obj);
+            info.parseInstalledApps(obj);
             qDebug() << "installed " << info;
-            // TODO
         }
-        // qDebug() << "DD replyArray " << replyArray;
-        // TODO implement it.
+
     });
     if (!job->start()) {
         qCWarning(RUQOLA_LOG) << "Impossible to start AppInstalledJob";
