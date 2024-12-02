@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-11-30 00:40+0000\n"
+"POT-Creation-Date: 2024-12-02 00:41+0000\n"
 "PO-Revision-Date: 2024-03-27 23:08+0100\n"
 "Last-Translator: Enol P. <enolp@softastur.org>\n"
 "Language-Team: Asturian <alministradores@softastur.org>\n"
@@ -6795,6 +6795,12 @@ msgctxt "@info:placeholder"
 msgid "Search Requested Applications"
 msgstr ""
 
+#: widgets/applicationssettingsdialog/applicationssettingssearchwidget.cpp:100
+#, kde-format
+msgctxt "@info:placeholder"
+msgid "Search Private Applications"
+msgstr ""
+
 #: widgets/applicationssettingsdialog/applicationssettingssortingcombobox.cpp:12
 #, kde-format
 msgid "A-Z"
@@ -6824,6 +6830,20 @@ msgstr ""
 #, kde-format
 msgid "Enabled"
 msgstr ""
+
+#: widgets/applicationssettingsdialog/appscountinfowidget.cpp:47
+#, kde-format
+msgid "%1 app enabled"
+msgid_plural "%1 apps enabled"
+msgstr[0] ""
+msgstr[1] ""
+
+#: widgets/applicationssettingsdialog/appscountinfowidget.cpp:54
+#, kde-format
+msgid "%1 private app enabled"
+msgid_plural "%1 private apps enabled"
+msgstr[0] ""
+msgstr[1] ""
 
 #: widgets/bannerinfodialog/bannerinfodialog.cpp:27
 #, kde-format
@@ -6985,7 +7005,7 @@ msgid "Username or email:"
 msgstr ""
 
 #: widgets/common/authenticationloginwidget.cpp:159
-#: widgets/ruqolamainwindow.cpp:1038
+#: widgets/ruqolamainwindow.cpp:1045
 #, kde-format
 msgid ""
 "We have sent you an email to confirm your registration.\n"
@@ -6993,7 +7013,7 @@ msgid ""
 msgstr ""
 
 #: widgets/common/authenticationloginwidget.cpp:160
-#: widgets/ruqolamainwindow.cpp:1039
+#: widgets/ruqolamainwindow.cpp:1046
 #, kde-format
 msgctxt "@title:window"
 msgid "Register New User"
@@ -10435,144 +10455,150 @@ msgctxt "@action"
 msgid "Installed Applications…"
 msgstr ""
 
-#: widgets/ruqolamainwindow.cpp:551
+#: widgets/ruqolamainwindow.cpp:552
+#, kde-format
+msgctxt "@action"
+msgid "Private Applications…"
+msgstr ""
+
+#: widgets/ruqolamainwindow.cpp:558
 #, kde-format
 msgctxt "Action which allows to search room"
 msgid "Join Room…"
 msgstr ""
 
-#: widgets/ruqolamainwindow.cpp:555
+#: widgets/ruqolamainwindow.cpp:562
 #, kde-format
 msgctxt "Action which allows to search team"
 msgid "Join Team…"
 msgstr ""
 
-#: widgets/ruqolamainwindow.cpp:559
+#: widgets/ruqolamainwindow.cpp:566
 #, kde-format
 msgctxt "Action which allows to open private conversation (direct user)"
 msgid "Open Private Conversation…"
 msgstr ""
 
-#: widgets/ruqolamainwindow.cpp:580
+#: widgets/ruqolamainwindow.cpp:587
 #, kde-format
 msgid "&Next Server"
 msgstr ""
 
-#: widgets/ruqolamainwindow.cpp:585
+#: widgets/ruqolamainwindow.cpp:592
 #, kde-format
 msgid "&Previous Server"
 msgstr ""
 
-#: widgets/ruqolamainwindow.cpp:594
+#: widgets/ruqolamainwindow.cpp:601
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Status:"
 msgstr ""
 
-#: widgets/ruqolamainwindow.cpp:607
+#: widgets/ruqolamainwindow.cpp:614
 #, kde-format
 msgctxt "@action"
 msgid "Previous Selected Channel"
 msgstr ""
 
-#: widgets/ruqolamainwindow.cpp:614
+#: widgets/ruqolamainwindow.cpp:621
 #, kde-format
 msgctxt "@action"
 msgid "Next Selected Channel"
 msgstr ""
 
-#: widgets/ruqolamainwindow.cpp:648
+#: widgets/ruqolamainwindow.cpp:655
 #, kde-format
 msgid "Show Notify History"
 msgstr ""
 
-#: widgets/ruqolamainwindow.cpp:652
+#: widgets/ruqolamainwindow.cpp:659
 #, kde-format
 msgctxt "@action"
 msgid "Show RocketChat Information"
 msgstr ""
 
-#: widgets/ruqolamainwindow.cpp:656
+#: widgets/ruqolamainwindow.cpp:663
 #, kde-format
 msgctxt "@action"
 msgid "Show Room Avatar"
 msgstr ""
 
-#: widgets/ruqolamainwindow.cpp:661
+#: widgets/ruqolamainwindow.cpp:668
 #, kde-format
 msgctxt "@action"
 msgid "Show Favorite Room"
 msgstr ""
 
-#: widgets/ruqolamainwindow.cpp:670
+#: widgets/ruqolamainwindow.cpp:677
 #, kde-format
 msgid "What's new"
 msgstr ""
 
-#: widgets/ruqolamainwindow.cpp:674
+#: widgets/ruqolamainwindow.cpp:681
 #, kde-format
 msgid "Import Accounts"
 msgstr ""
 
-#: widgets/ruqolamainwindow.cpp:678
+#: widgets/ruqolamainwindow.cpp:685
 #, kde-format
 msgid "Export Accounts"
 msgstr ""
 
-#: widgets/ruqolamainwindow.cpp:695
+#: widgets/ruqolamainwindow.cpp:702
 #, kde-format
 msgctxt "@action"
 msgid "Medium"
 msgstr ""
 
-#: widgets/ruqolamainwindow.cpp:703
+#: widgets/ruqolamainwindow.cpp:710
 #, kde-format
 msgctxt "@action"
 msgid "Condensed"
 msgstr ""
 
-#: widgets/ruqolamainwindow.cpp:712
+#: widgets/ruqolamainwindow.cpp:719
 #, kde-format
 msgctxt "@action"
 msgid "Extended"
 msgstr ""
 
-#: widgets/ruqolamainwindow.cpp:720
+#: widgets/ruqolamainwindow.cpp:727
 #, kde-format
 msgid "Clear history"
 msgstr ""
 
-#: widgets/ruqolamainwindow.cpp:757
+#: widgets/ruqolamainwindow.cpp:764
 #, kde-format
 msgctxt "@title:window"
 msgid "Create Team"
 msgstr ""
 
-#: widgets/ruqolamainwindow.cpp:947
+#: widgets/ruqolamainwindow.cpp:954
 #, kde-format
 msgid "Impossible to open log."
 msgstr ""
 
-#: widgets/ruqolamainwindow.cpp:947
+#: widgets/ruqolamainwindow.cpp:954
 #, kde-format
 msgctxt "@title:window"
 msgid "Show Log"
 msgstr ""
 
-#: widgets/ruqolamainwindow.cpp:1110
+#: widgets/ruqolamainwindow.cpp:1117
 #, kde-format
 msgctxt "@item:inmenu Instant message presence status"
 msgid "Status"
 msgstr ""
 
-#: widgets/ruqolamainwindow.cpp:1197
+#: widgets/ruqolamainwindow.cpp:1204
 #, kde-format
 msgid ""
 "<qt>This will hide the menu bar completely. You can show it again by typing "
 "%1.</qt>"
 msgstr ""
 
-#: widgets/ruqolamainwindow.cpp:1200
+#: widgets/ruqolamainwindow.cpp:1207
 #, kde-format
 msgctxt "@title:window"
 msgid "Hide menu bar"

@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-11-30 00:40+0000\n"
+"POT-Creation-Date: 2024-12-02 00:41+0000\n"
 "PO-Revision-Date: 2024-08-06 05:33+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
@@ -7149,6 +7149,13 @@ msgctxt "@info:placeholder"
 msgid "Search Requested Applications"
 msgstr "應用程式…"
 
+#: widgets/applicationssettingsdialog/applicationssettingssearchwidget.cpp:100
+#, fuzzy, kde-format
+#| msgid "Application ID (iss)"
+msgctxt "@info:placeholder"
+msgid "Search Private Applications"
+msgstr "應用程式 ID (iss)"
+
 #: widgets/applicationssettingsdialog/applicationssettingssortingcombobox.cpp:12
 #, kde-format
 msgid "A-Z"
@@ -7179,6 +7186,18 @@ msgstr "狀態"
 #, kde-format
 msgid "Enabled"
 msgstr "已啟用"
+
+#: widgets/applicationssettingsdialog/appscountinfowidget.cpp:47
+#, kde-format
+msgid "%1 app enabled"
+msgid_plural "%1 apps enabled"
+msgstr[0] ""
+
+#: widgets/applicationssettingsdialog/appscountinfowidget.cpp:54
+#, kde-format
+msgid "%1 private app enabled"
+msgid_plural "%1 private apps enabled"
+msgstr[0] ""
 
 #: widgets/bannerinfodialog/bannerinfodialog.cpp:27
 #, fuzzy, kde-format
@@ -7365,7 +7384,7 @@ msgid "Username or email:"
 msgstr "使用者名稱或電子郵件"
 
 #: widgets/common/authenticationloginwidget.cpp:159
-#: widgets/ruqolamainwindow.cpp:1038
+#: widgets/ruqolamainwindow.cpp:1045
 #, kde-format
 msgid ""
 "We have sent you an email to confirm your registration.\n"
@@ -7373,7 +7392,7 @@ msgid ""
 msgstr ""
 
 #: widgets/common/authenticationloginwidget.cpp:160
-#: widgets/ruqolamainwindow.cpp:1039
+#: widgets/ruqolamainwindow.cpp:1046
 #, fuzzy, kde-format
 #| msgid "Register New User"
 msgctxt "@title:window"
@@ -11067,148 +11086,156 @@ msgctxt "@action"
 msgid "Installed Applications…"
 msgstr "應用程式…"
 
-#: widgets/ruqolamainwindow.cpp:551
+#: widgets/ruqolamainwindow.cpp:552
+#, fuzzy, kde-format
+#| msgctxt "@action"
+#| msgid "Applications…"
+msgctxt "@action"
+msgid "Private Applications…"
+msgstr "應用程式…"
+
+#: widgets/ruqolamainwindow.cpp:558
 #, kde-format
 msgctxt "Action which allows to search room"
 msgid "Join Room…"
 msgstr ""
 
-#: widgets/ruqolamainwindow.cpp:555
+#: widgets/ruqolamainwindow.cpp:562
 #, fuzzy, kde-format
 #| msgid "Joined this Team"
 msgctxt "Action which allows to search team"
 msgid "Join Team…"
 msgstr "已加入此團隊"
 
-#: widgets/ruqolamainwindow.cpp:559
+#: widgets/ruqolamainwindow.cpp:566
 #, fuzzy, kde-format
 #| msgid "Start a Private Conversation"
 msgctxt "Action which allows to open private conversation (direct user)"
 msgid "Open Private Conversation…"
 msgstr "開始私人對話"
 
-#: widgets/ruqolamainwindow.cpp:580
+#: widgets/ruqolamainwindow.cpp:587
 #, kde-format
 msgid "&Next Server"
 msgstr "下一個伺服器(&N)"
 
-#: widgets/ruqolamainwindow.cpp:585
+#: widgets/ruqolamainwindow.cpp:592
 #, kde-format
 msgid "&Previous Server"
 msgstr "上一個伺服器(&P)"
 
-#: widgets/ruqolamainwindow.cpp:594
+#: widgets/ruqolamainwindow.cpp:601
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Status:"
 msgstr "狀態："
 
-#: widgets/ruqolamainwindow.cpp:607
+#: widgets/ruqolamainwindow.cpp:614
 #, kde-format
 msgctxt "@action"
 msgid "Previous Selected Channel"
 msgstr "上一個選取的頻道"
 
-#: widgets/ruqolamainwindow.cpp:614
+#: widgets/ruqolamainwindow.cpp:621
 #, kde-format
 msgctxt "@action"
 msgid "Next Selected Channel"
 msgstr "下一個選取的頻道"
 
-#: widgets/ruqolamainwindow.cpp:648
+#: widgets/ruqolamainwindow.cpp:655
 #, kde-format
 msgid "Show Notify History"
 msgstr "顯示通知歷史"
 
-#: widgets/ruqolamainwindow.cpp:652
+#: widgets/ruqolamainwindow.cpp:659
 #, kde-format
 msgctxt "@action"
 msgid "Show RocketChat Information"
 msgstr "顯示 RocketChat 資訊"
 
-#: widgets/ruqolamainwindow.cpp:656
+#: widgets/ruqolamainwindow.cpp:663
 #, kde-format
 msgctxt "@action"
 msgid "Show Room Avatar"
 msgstr "顯示聊天室頭貼"
 
-#: widgets/ruqolamainwindow.cpp:661
+#: widgets/ruqolamainwindow.cpp:668
 #, kde-format
 msgctxt "@action"
 msgid "Show Favorite Room"
 msgstr "顯示最愛聊天室"
 
-#: widgets/ruqolamainwindow.cpp:670
+#: widgets/ruqolamainwindow.cpp:677
 #, kde-format
 msgid "What's new"
 msgstr "新功能"
 
-#: widgets/ruqolamainwindow.cpp:674
+#: widgets/ruqolamainwindow.cpp:681
 #, kde-format
 msgid "Import Accounts"
 msgstr "匯入名稱"
 
-#: widgets/ruqolamainwindow.cpp:678
+#: widgets/ruqolamainwindow.cpp:685
 #, kde-format
 msgid "Export Accounts"
 msgstr "匯出帳戶"
 
-#: widgets/ruqolamainwindow.cpp:695
+#: widgets/ruqolamainwindow.cpp:702
 #, kde-format
 msgctxt "@action"
 msgid "Medium"
 msgstr "中等"
 
-#: widgets/ruqolamainwindow.cpp:703
+#: widgets/ruqolamainwindow.cpp:710
 #, kde-format
 msgctxt "@action"
 msgid "Condensed"
 msgstr "簡明"
 
-#: widgets/ruqolamainwindow.cpp:712
+#: widgets/ruqolamainwindow.cpp:719
 #, kde-format
 msgctxt "@action"
 msgid "Extended"
 msgstr "擴展"
 
-#: widgets/ruqolamainwindow.cpp:720
+#: widgets/ruqolamainwindow.cpp:727
 #, fuzzy, kde-format
 #| msgid "Password History"
 msgid "Clear history"
 msgstr "密碼歷史"
 
-#: widgets/ruqolamainwindow.cpp:757
+#: widgets/ruqolamainwindow.cpp:764
 #, kde-format
 msgctxt "@title:window"
 msgid "Create Team"
 msgstr "建立團隊"
 
-#: widgets/ruqolamainwindow.cpp:947
+#: widgets/ruqolamainwindow.cpp:954
 #, kde-format
 msgid "Impossible to open log."
 msgstr "無法開啟日誌。"
 
-#: widgets/ruqolamainwindow.cpp:947
+#: widgets/ruqolamainwindow.cpp:954
 #, fuzzy, kde-format
 #| msgid "Show Log"
 msgctxt "@title:window"
 msgid "Show Log"
 msgstr "顯示紀錄"
 
-#: widgets/ruqolamainwindow.cpp:1110
+#: widgets/ruqolamainwindow.cpp:1117
 #, kde-format
 msgctxt "@item:inmenu Instant message presence status"
 msgid "Status"
 msgstr "狀態"
 
-#: widgets/ruqolamainwindow.cpp:1197
+#: widgets/ruqolamainwindow.cpp:1204
 #, kde-format
 msgid ""
 "<qt>This will hide the menu bar completely. You can show it again by typing "
 "%1.</qt>"
 msgstr "<qt>這會完全隱藏選單列。您可以按下 %1 重新顯示選單列。</qt>"
 
-#: widgets/ruqolamainwindow.cpp:1200
+#: widgets/ruqolamainwindow.cpp:1207
 #, fuzzy, kde-format
 #| msgid "Hide menu bar"
 msgctxt "@title:window"

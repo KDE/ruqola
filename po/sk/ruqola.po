@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-11-30 00:40+0000\n"
+"POT-Creation-Date: 2024-12-02 00:41+0000\n"
 "PO-Revision-Date: 2019-07-29 20:25+0200\n"
 "Last-Translator: Roman Paholík <wizzardsk@gmail.com>\n"
 "Language-Team: Slovak <kde-sk@linux.sk>\n"
@@ -7215,6 +7215,13 @@ msgctxt "@info:placeholder"
 msgid "Search Requested Applications"
 msgstr "Aplikácia nenájdená"
 
+#: widgets/applicationssettingsdialog/applicationssettingssearchwidget.cpp:100
+#, fuzzy, kde-format
+#| msgid "Application not found"
+msgctxt "@info:placeholder"
+msgid "Search Private Applications"
+msgstr "Aplikácia nenájdená"
+
 #: widgets/applicationssettingsdialog/applicationssettingssortingcombobox.cpp:12
 #, kde-format
 msgid "A-Z"
@@ -7245,6 +7252,22 @@ msgstr "Stav:"
 #, kde-format
 msgid "Enabled"
 msgstr ""
+
+#: widgets/applicationssettingsdialog/appscountinfowidget.cpp:47
+#, kde-format
+msgid "%1 app enabled"
+msgid_plural "%1 apps enabled"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+
+#: widgets/applicationssettingsdialog/appscountinfowidget.cpp:54
+#, kde-format
+msgid "%1 private app enabled"
+msgid_plural "%1 private apps enabled"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
 
 #: widgets/bannerinfodialog/bannerinfodialog.cpp:27
 #, fuzzy, kde-format
@@ -7430,7 +7453,7 @@ msgid "Username or email:"
 msgstr "Meno používateľa: %1"
 
 #: widgets/common/authenticationloginwidget.cpp:159
-#: widgets/ruqolamainwindow.cpp:1038
+#: widgets/ruqolamainwindow.cpp:1045
 #, kde-format
 msgid ""
 "We have sent you an email to confirm your registration.\n"
@@ -7438,7 +7461,7 @@ msgid ""
 msgstr ""
 
 #: widgets/common/authenticationloginwidget.cpp:160
-#: widgets/ruqolamainwindow.cpp:1039
+#: widgets/ruqolamainwindow.cpp:1046
 #, fuzzy, kde-format
 #| msgid "Enter Username"
 msgctxt "@title:window"
@@ -11246,161 +11269,168 @@ msgctxt "@action"
 msgid "Installed Applications…"
 msgstr "Aplikácia nenájdená"
 
-#: widgets/ruqolamainwindow.cpp:551
+#: widgets/ruqolamainwindow.cpp:552
+#, fuzzy, kde-format
+#| msgid "Application not found"
+msgctxt "@action"
+msgid "Private Applications…"
+msgstr "Aplikácia nenájdená"
+
+#: widgets/ruqolamainwindow.cpp:558
 #, kde-format
 msgctxt "Action which allows to search room"
 msgid "Join Room…"
 msgstr ""
 
-#: widgets/ruqolamainwindow.cpp:555
+#: widgets/ruqolamainwindow.cpp:562
 #, fuzzy, kde-format
 #| msgid "Delete Account"
 msgctxt "Action which allows to search team"
 msgid "Join Team…"
 msgstr "Odstrániť účet"
 
-#: widgets/ruqolamainwindow.cpp:559
+#: widgets/ruqolamainwindow.cpp:566
 #, fuzzy, kde-format
 #| msgid "Conversation"
 msgctxt "Action which allows to open private conversation (direct user)"
 msgid "Open Private Conversation…"
 msgstr "Konverzácia"
 
-#: widgets/ruqolamainwindow.cpp:580
+#: widgets/ruqolamainwindow.cpp:587
 #, fuzzy, kde-format
 #| msgid "Server Url"
 msgid "&Next Server"
 msgstr "URL serveru"
 
-#: widgets/ruqolamainwindow.cpp:585
+#: widgets/ruqolamainwindow.cpp:592
 #, fuzzy, kde-format
 #| msgid "Leave Channel"
 msgid "&Previous Server"
 msgstr "Opustiť kanál"
 
-#: widgets/ruqolamainwindow.cpp:594
+#: widgets/ruqolamainwindow.cpp:601
 #, fuzzy, kde-format
 #| msgid "Status:"
 msgctxt "@label:textbox"
 msgid "Status:"
 msgstr "Stav:"
 
-#: widgets/ruqolamainwindow.cpp:607
+#: widgets/ruqolamainwindow.cpp:614
 #, fuzzy, kde-format
 #| msgid "Leave Channel"
 msgctxt "@action"
 msgid "Previous Selected Channel"
 msgstr "Opustiť kanál"
 
-#: widgets/ruqolamainwindow.cpp:614
+#: widgets/ruqolamainwindow.cpp:621
 #, fuzzy, kde-format
 #| msgid "Leave Channel"
 msgctxt "@action"
 msgid "Next Selected Channel"
 msgstr "Opustiť kanál"
 
-#: widgets/ruqolamainwindow.cpp:648
+#: widgets/ruqolamainwindow.cpp:655
 #, fuzzy, kde-format
 #| msgid "Notifications"
 msgid "Show Notify History"
 msgstr "Upozornenia"
 
-#: widgets/ruqolamainwindow.cpp:652
+#: widgets/ruqolamainwindow.cpp:659
 #, fuzzy, kde-format
 #| msgid "Rocket Chat Client"
 msgctxt "@action"
 msgid "Show RocketChat Information"
 msgstr "Chatovací klient Rocket"
 
-#: widgets/ruqolamainwindow.cpp:656
+#: widgets/ruqolamainwindow.cpp:663
 #, fuzzy, kde-format
 #| msgid "Password:"
 msgctxt "@action"
 msgid "Show Room Avatar"
 msgstr "Heslo:"
 
-#: widgets/ruqolamainwindow.cpp:661
+#: widgets/ruqolamainwindow.cpp:668
 #, fuzzy, kde-format
 #| msgid "Default"
 msgctxt "@action"
 msgid "Show Favorite Room"
 msgstr "Predvolené"
 
-#: widgets/ruqolamainwindow.cpp:670
+#: widgets/ruqolamainwindow.cpp:677
 #, kde-format
 msgid "What's new"
 msgstr ""
 
-#: widgets/ruqolamainwindow.cpp:674
+#: widgets/ruqolamainwindow.cpp:681
 #, fuzzy, kde-format
 #| msgid "Add Account"
 msgid "Import Accounts"
 msgstr "Pridať účet"
 
-#: widgets/ruqolamainwindow.cpp:678
+#: widgets/ruqolamainwindow.cpp:685
 #, fuzzy, kde-format
 #| msgid "Add Account"
 msgid "Export Accounts"
 msgstr "Pridať účet"
 
-#: widgets/ruqolamainwindow.cpp:695
+#: widgets/ruqolamainwindow.cpp:702
 #, kde-format
 msgctxt "@action"
 msgid "Medium"
 msgstr ""
 
-#: widgets/ruqolamainwindow.cpp:703
+#: widgets/ruqolamainwindow.cpp:710
 #, kde-format
 msgctxt "@action"
 msgid "Condensed"
 msgstr ""
 
-#: widgets/ruqolamainwindow.cpp:712
+#: widgets/ruqolamainwindow.cpp:719
 #, kde-format
 msgctxt "@action"
 msgid "Extended"
 msgstr ""
 
-#: widgets/ruqolamainwindow.cpp:720
+#: widgets/ruqolamainwindow.cpp:727
 #, fuzzy, kde-format
 #| msgid "Invalid password"
 msgid "Clear history"
 msgstr "Neplatné heslo"
 
-#: widgets/ruqolamainwindow.cpp:757
+#: widgets/ruqolamainwindow.cpp:764
 #, fuzzy, kde-format
 #| msgid "Leave Channel"
 msgctxt "@title:window"
 msgid "Create Team"
 msgstr "Opustiť kanál"
 
-#: widgets/ruqolamainwindow.cpp:947
+#: widgets/ruqolamainwindow.cpp:954
 #, kde-format
 msgid "Impossible to open log."
 msgstr ""
 
-#: widgets/ruqolamainwindow.cpp:947
+#: widgets/ruqolamainwindow.cpp:954
 #, fuzzy, kde-format
 #| msgid "Leave Channel"
 msgctxt "@title:window"
 msgid "Show Log"
 msgstr "Opustiť kanál"
 
-#: widgets/ruqolamainwindow.cpp:1110
+#: widgets/ruqolamainwindow.cpp:1117
 #, fuzzy, kde-format
 #| msgid "Status:"
 msgctxt "@item:inmenu Instant message presence status"
 msgid "Status"
 msgstr "Stav:"
 
-#: widgets/ruqolamainwindow.cpp:1197
+#: widgets/ruqolamainwindow.cpp:1204
 #, kde-format
 msgid ""
 "<qt>This will hide the menu bar completely. You can show it again by typing "
 "%1.</qt>"
 msgstr ""
 
-#: widgets/ruqolamainwindow.cpp:1200
+#: widgets/ruqolamainwindow.cpp:1207
 #, kde-format
 msgctxt "@title:window"
 msgid "Hide menu bar"

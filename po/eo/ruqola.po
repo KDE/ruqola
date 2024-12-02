@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-11-30 00:40+0000\n"
+"POT-Creation-Date: 2024-12-02 00:41+0000\n"
 "PO-Revision-Date: 2024-09-17 21:39+0200\n"
 "Last-Translator: Oliver Kellogg <olivermkellogg@gmail.com>\n"
 "Language-Team: Esperanto <kde-i18n-doc@kde.org>\n"
@@ -7025,6 +7025,14 @@ msgctxt "@info:placeholder"
 msgid "Search Requested Applications"
 msgstr "Serĉi Alpetitajn Aplikaĵojn"
 
+#: widgets/applicationssettingsdialog/applicationssettingssearchwidget.cpp:100
+#, fuzzy, kde-format
+#| msgctxt "@info:placeholder"
+#| msgid "Search Applications"
+msgctxt "@info:placeholder"
+msgid "Search Private Applications"
+msgstr "Serĉi Aplikaĵojn"
+
 #: widgets/applicationssettingsdialog/applicationssettingssortingcombobox.cpp:12
 #, kde-format
 msgid "A-Z"
@@ -7054,6 +7062,20 @@ msgstr "Ĉiuj Statusoj"
 #, kde-format
 msgid "Enabled"
 msgstr "Ebligita"
+
+#: widgets/applicationssettingsdialog/appscountinfowidget.cpp:47
+#, kde-format
+msgid "%1 app enabled"
+msgid_plural "%1 apps enabled"
+msgstr[0] ""
+msgstr[1] ""
+
+#: widgets/applicationssettingsdialog/appscountinfowidget.cpp:54
+#, kde-format
+msgid "%1 private app enabled"
+msgid_plural "%1 private apps enabled"
+msgstr[0] ""
+msgstr[1] ""
 
 #: widgets/bannerinfodialog/bannerinfodialog.cpp:27
 #, kde-format
@@ -7223,7 +7245,7 @@ msgid "Username or email:"
 msgstr "Uzantnomo aŭ retpoŝto"
 
 #: widgets/common/authenticationloginwidget.cpp:159
-#: widgets/ruqolamainwindow.cpp:1038
+#: widgets/ruqolamainwindow.cpp:1045
 #, kde-format
 msgid ""
 "We have sent you an email to confirm your registration.\n"
@@ -7233,7 +7255,7 @@ msgstr ""
 "Se vi ne ricevas retmesaĝon baldaŭ, bonvolu reveni kaj provi denove."
 
 #: widgets/common/authenticationloginwidget.cpp:160
-#: widgets/ruqolamainwindow.cpp:1039
+#: widgets/ruqolamainwindow.cpp:1046
 #, kde-format
 msgctxt "@title:window"
 msgid "Register New User"
@@ -10795,137 +10817,145 @@ msgctxt "@action"
 msgid "Installed Applications…"
 msgstr "Instalitaj Aplikaĵoj…"
 
-#: widgets/ruqolamainwindow.cpp:551
+#: widgets/ruqolamainwindow.cpp:552
+#, fuzzy, kde-format
+#| msgctxt "@action"
+#| msgid "Applications…"
+msgctxt "@action"
+msgid "Private Applications…"
+msgstr "Aplikaĵoj…"
+
+#: widgets/ruqolamainwindow.cpp:558
 #, kde-format
 msgctxt "Action which allows to search room"
 msgid "Join Room…"
 msgstr "Aliĝi al Ĉambro…"
 
-#: widgets/ruqolamainwindow.cpp:555
+#: widgets/ruqolamainwindow.cpp:562
 #, kde-format
 msgctxt "Action which allows to search team"
 msgid "Join Team…"
 msgstr "Aliĝi al Teamo…"
 
-#: widgets/ruqolamainwindow.cpp:559
+#: widgets/ruqolamainwindow.cpp:566
 #, kde-format
 msgctxt "Action which allows to open private conversation (direct user)"
 msgid "Open Private Conversation…"
 msgstr "Malfermi Privatan Konversacion…"
 
-#: widgets/ruqolamainwindow.cpp:580
+#: widgets/ruqolamainwindow.cpp:587
 #, kde-format
 msgid "&Next Server"
 msgstr "&Sekva Servilo"
 
-#: widgets/ruqolamainwindow.cpp:585
+#: widgets/ruqolamainwindow.cpp:592
 #, kde-format
 msgid "&Previous Server"
 msgstr "&Antaŭa Servilo"
 
-#: widgets/ruqolamainwindow.cpp:594
+#: widgets/ruqolamainwindow.cpp:601
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Status:"
 msgstr "Statuso:"
 
-#: widgets/ruqolamainwindow.cpp:607
+#: widgets/ruqolamainwindow.cpp:614
 #, kde-format
 msgctxt "@action"
 msgid "Previous Selected Channel"
 msgstr "Antaŭa Elektita Kanalo"
 
-#: widgets/ruqolamainwindow.cpp:614
+#: widgets/ruqolamainwindow.cpp:621
 #, kde-format
 msgctxt "@action"
 msgid "Next Selected Channel"
 msgstr "Sekva Elektita Kanalo"
 
-#: widgets/ruqolamainwindow.cpp:648
+#: widgets/ruqolamainwindow.cpp:655
 #, kde-format
 msgid "Show Notify History"
 msgstr "Montri Sciigo-Historion"
 
-#: widgets/ruqolamainwindow.cpp:652
+#: widgets/ruqolamainwindow.cpp:659
 #, kde-format
 msgctxt "@action"
 msgid "Show RocketChat Information"
 msgstr "Montri RocketChat-Informojn"
 
-#: widgets/ruqolamainwindow.cpp:656
+#: widgets/ruqolamainwindow.cpp:663
 #, kde-format
 msgctxt "@action"
 msgid "Show Room Avatar"
 msgstr "Montri Ĉambran Avataron"
 
-#: widgets/ruqolamainwindow.cpp:661
+#: widgets/ruqolamainwindow.cpp:668
 #, kde-format
 msgctxt "@action"
 msgid "Show Favorite Room"
 msgstr "Montri Ŝatatan Ĉambron"
 
-#: widgets/ruqolamainwindow.cpp:670
+#: widgets/ruqolamainwindow.cpp:677
 #, kde-format
 msgid "What's new"
 msgstr "Kio novas"
 
-#: widgets/ruqolamainwindow.cpp:674
+#: widgets/ruqolamainwindow.cpp:681
 #, kde-format
 msgid "Import Accounts"
 msgstr "Importi Kontojn"
 
-#: widgets/ruqolamainwindow.cpp:678
+#: widgets/ruqolamainwindow.cpp:685
 #, kde-format
 msgid "Export Accounts"
 msgstr "Eksporto-Kontoj"
 
-#: widgets/ruqolamainwindow.cpp:695
+#: widgets/ruqolamainwindow.cpp:702
 #, kde-format
 msgctxt "@action"
 msgid "Medium"
 msgstr "Meza"
 
-#: widgets/ruqolamainwindow.cpp:703
+#: widgets/ruqolamainwindow.cpp:710
 #, kde-format
 msgctxt "@action"
 msgid "Condensed"
 msgstr "Densigita"
 
-#: widgets/ruqolamainwindow.cpp:712
+#: widgets/ruqolamainwindow.cpp:719
 #, kde-format
 msgctxt "@action"
 msgid "Extended"
 msgstr "Etendita"
 
-#: widgets/ruqolamainwindow.cpp:720
+#: widgets/ruqolamainwindow.cpp:727
 #, kde-format
 msgid "Clear history"
 msgstr "Viŝi historion"
 
-#: widgets/ruqolamainwindow.cpp:757
+#: widgets/ruqolamainwindow.cpp:764
 #, kde-format
 msgctxt "@title:window"
 msgid "Create Team"
 msgstr "Krei Teamon"
 
-#: widgets/ruqolamainwindow.cpp:947
+#: widgets/ruqolamainwindow.cpp:954
 #, kde-format
 msgid "Impossible to open log."
 msgstr "Malfermi protokolon."
 
-#: widgets/ruqolamainwindow.cpp:947
+#: widgets/ruqolamainwindow.cpp:954
 #, kde-format
 msgctxt "@title:window"
 msgid "Show Log"
 msgstr "Montri Protokolon"
 
-#: widgets/ruqolamainwindow.cpp:1110
+#: widgets/ruqolamainwindow.cpp:1117
 #, kde-format
 msgctxt "@item:inmenu Instant message presence status"
 msgid "Status"
 msgstr "Statuso"
 
-#: widgets/ruqolamainwindow.cpp:1197
+#: widgets/ruqolamainwindow.cpp:1204
 #, kde-format
 msgid ""
 "<qt>This will hide the menu bar completely. You can show it again by typing "
@@ -10934,7 +10964,7 @@ msgstr ""
 "<qt>Ĉi tio tute kaŝos la menubreton. Vi povas montri ĝin denove tajpante %1."
 "</qt>"
 
-#: widgets/ruqolamainwindow.cpp:1200
+#: widgets/ruqolamainwindow.cpp:1207
 #, kde-format
 msgctxt "@title:window"
 msgid "Hide menu bar"
