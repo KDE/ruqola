@@ -16,7 +16,7 @@ public:
     struct LIBRUQOLACORE_EXPORT PricePlan {
         [[nodiscard]] bool operator==(const PricePlan &other) const;
 
-        enum Strategy {
+        enum Strategy : uint8_t {
             Unknown,
             Monthly,
             Yearly,
