@@ -3263,7 +3263,6 @@ void RocketChatAccount::loadInstalledApps()
             info.parseInstalledApps(obj);
             qDebug() << "installed " << info;
         }
-
     });
     if (!job->start()) {
         qCWarning(RUQOLA_LOG) << "Impossible to start AppInstalledJob";
