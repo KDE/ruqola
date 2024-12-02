@@ -15,7 +15,10 @@ public:
     AppsMarketPlaceInstalledInfo();
     ~AppsMarketPlaceInstalledInfo();
 
+    [[nodiscard]] bool operator==(const AppsMarketPlaceInstalledInfo &other) const;
+
     void parseInstalledAppsMarketPlaceInfo(const QJsonObject &replyObject);
+
     [[nodiscard]] bool isPrivate() const;
     void setIsPrivate(bool newIsPrivate);
 
@@ -25,9 +28,26 @@ public:
     [[nodiscard]] QString version() const;
     void setVersion(const QString &newVersion);
 
+    [[nodiscard]] QString description() const;
+    void setDescription(const QString &newDescription);
+
+    [[nodiscard]] QString support() const;
+    void setSupport(const QString &newSupport);
+
+    [[nodiscard]] QString homePage() const;
+    void setHomePage(const QString &newHomePage);
+
+    [[nodiscard]] QString authorName() const;
+    void setAuthorName(const QString &newAuthorName);
+
 private:
+    LIBRUQOLACORE_NO_EXPORT void parseAuthor(const QJsonObject &authorObject);
     QString mAppName;
     QString mVersion;
+    QString mDescription;
+    QString mSupport;
+    QString mHomePage;
+    QString mAuthorName;
     bool mIsPrivate = false;
 };
 
