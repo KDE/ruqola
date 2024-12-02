@@ -636,9 +636,9 @@ QString AppsMarketPlaceInfo::Permission::convertTypeToI18n() const
     case ModerationRead:
         break;
     case OauthAppWrite:
-        break;
+        return i18n("Allow to write oauth app settings");
     case OauthAppRead:
-        break;
+        return i18n("Allow to read oauth app settings");
     case VideoConferenceWrite:
         break;
     case VideoConferenceRead:
