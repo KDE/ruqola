@@ -5,7 +5,18 @@
 */
 
 #include "appsmarketplaceinstalledinfo.h"
-
+using namespace Qt::Literals::StringLiterals;
 AppsMarketPlaceInstalledInfo::AppsMarketPlaceInstalledInfo() = default;
 
 AppsMarketPlaceInstalledInfo::~AppsMarketPlaceInstalledInfo() = default;
+
+QDebug operator<<(QDebug d, const AppsMarketPlaceInstalledInfo &t)
+{
+    // TODO
+    return d;
+}
+
+void AppsMarketPlaceInstalledInfo::parseInstalledAppsMarketPlaceInfo(const QJsonObject &replyObject)
+{
+    // TODO
+}

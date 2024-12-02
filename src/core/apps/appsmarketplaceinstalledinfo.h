@@ -14,6 +14,8 @@ class LIBRUQOLACORE_EXPORT AppsMarketPlaceInstalledInfo
 public:
     AppsMarketPlaceInstalledInfo();
     ~AppsMarketPlaceInstalledInfo();
+
+    void parseInstalledAppsMarketPlaceInfo(const QJsonObject &replyObject);
 };
 
 Q_DECLARE_METATYPE(AppsMarketPlaceInstalledInfo)
