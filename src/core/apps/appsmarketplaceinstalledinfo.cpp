@@ -12,11 +12,22 @@ AppsMarketPlaceInstalledInfo::~AppsMarketPlaceInstalledInfo() = default;
 
 QDebug operator<<(QDebug d, const AppsMarketPlaceInstalledInfo &t)
 {
-    // TODO
+    d << "private " << t.isPrivate();
     return d;
 }
 
 void AppsMarketPlaceInstalledInfo::parseInstalledAppsMarketPlaceInfo(const QJsonObject &replyObject)
 {
+    mIsPrivate = replyObject["private"_L1].toBool();
     // TODO
+}
+
+bool AppsMarketPlaceInstalledInfo::isPrivate() const
+{
+    return mIsPrivate;
+}
+
+void AppsMarketPlaceInstalledInfo::setIsPrivate(bool newIsPrivate)
+{
+    mIsPrivate = newIsPrivate;
 }

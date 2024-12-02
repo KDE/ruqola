@@ -76,24 +76,6 @@ bool AppsMarketPlaceFilterProxyModel::filterAcceptsRow(int source_row, const QMo
         break;
     }
 
-    switch (mFilterInfo.installedApps) {
-    case InstalledApps::AllInstalledApps: {
-        const bool isInstalled = modelIndex.data(AppsMarketPlaceModel::InstalledApps).toBool();
-        if (!isInstalled) {
-            return false;
-        }
-        break;
-    }
-    case InstalledApps::AnyInfoApps:
-        break;
-    case InstalledApps::PrivateApps:
-        const bool isPrivate = modelIndex.data(AppsMarketPlaceModel::PrivateApps).toBool();
-        if (!isPrivate) {
-            return false;
-        }
-        break;
-    }
-
     return QSortFilterProxyModel::filterAcceptsColumn(source_row, source_parent);
 }
 
@@ -173,7 +155,7 @@ void AppsMarketPlaceFilterProxyModel::setFilterInfo(const FilterInfo &newFilterI
 
 bool AppsMarketPlaceFilterProxyModel::FilterInfo::operator==(const FilterInfo &other) const
 {
-    return categories == other.categories && text == other.text && other.status == status && price == other.price && installedApps == other.installedApps;
+    return categories == other.categories && text == other.text && other.status == status && price == other.price;
 }
 
 bool AppsMarketPlaceFilterProxyModel::FilterInfo::operator!=(const FilterInfo &other) const
@@ -187,7 +169,6 @@ QDebug operator<<(QDebug d, const AppsMarketPlaceFilterProxyModel::FilterInfo &t
     d.space() << "text:" << t.text;
     d.space() << "status:" << t.status;
     d.space() << "price:" << t.price;
-    d.space() << "installedApps:" << t.installedApps;
     return d;
 }
 

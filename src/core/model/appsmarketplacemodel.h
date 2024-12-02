@@ -30,7 +30,6 @@ public:
         Pixmap,
         ModifiedDate,
         ApplicationInformations,
-        PrivateApps,
         RequestedApps,
         InstalledApps,
     };

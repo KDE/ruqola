@@ -131,9 +131,6 @@ public:
     [[nodiscard]] QList<PricePlan> pricePlan() const;
     void setPricePlan(const QList<PricePlan> &newPricePlan);
 
-    [[nodiscard]] bool isPrivate() const;
-    void setIsPrivate(bool newIsPrivate);
-
     void parseInstalledApps(const QJsonObject &replyObject);
 
     [[nodiscard]] QString support() const;
@@ -182,7 +179,6 @@ private:
     qint64 mModifiedDate = -1;
     int mPrice = 0;
     int mRequested = 0;
-    bool mIsPrivate = false;
     bool mIsEnterpriseOnly = false;
     bool mInstalled = false;
     bool mMigrated = false;

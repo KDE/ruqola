@@ -16,6 +16,11 @@ public:
     ~AppsMarketPlaceInstalledInfo();
 
     void parseInstalledAppsMarketPlaceInfo(const QJsonObject &replyObject);
+    [[nodiscard]] bool isPrivate() const;
+    void setIsPrivate(bool newIsPrivate);
+
+private:
+    bool mIsPrivate = false;
 };
 
 Q_DECLARE_METATYPE(AppsMarketPlaceInstalledInfo)

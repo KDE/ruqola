@@ -27,7 +27,6 @@ void AppsMarketPlaceInfoTest::shouldHaveDefaultValues()
     QVERIFY(d.shortDescription().isEmpty());
     QCOMPARE(d.price(), 0);
     QVERIFY(!d.isValid());
-    QVERIFY(!d.isPrivate());
     QVERIFY(d.homePage().isEmpty());
     QVERIFY(d.authorName().isEmpty());
     QVERIFY(d.support().isEmpty());

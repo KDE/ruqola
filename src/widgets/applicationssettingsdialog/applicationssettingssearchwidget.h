@@ -12,7 +12,6 @@
 class ApplicationsSettingsCategoriesComboBox;
 class ApplicationsSettingsPriceComboBox;
 class ApplicationsSettingsStatusComboBox;
-class ApplicationsSettingsInstalledComboBox;
 class QLineEdit;
 class RocketChatAccount;
 class ApplicationsSettingsSortingComboBox;
@@ -46,5 +45,4 @@ private:
     ApplicationsSettingsPriceComboBox *const mApplicationsSettingsPriceComboBox;
     ApplicationsSettingsStatusComboBox *const mApplicationsSettingsStatusComboBox;
     ApplicationsSettingsSortingComboBox *const mApplicationsSettingsSortingComboBox;
-    ApplicationsSettingsInstalledComboBox *const mApplicationsSettingsInstalledComboBox;
 };

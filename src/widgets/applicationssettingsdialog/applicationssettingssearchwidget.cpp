@@ -6,7 +6,6 @@
 
 #include "applicationssettingssearchwidget.h"
 #include "applicationssettingscategoriescombobox.h"
-#include "applicationssettingsinstalledcombobox.h"
 #include "applicationssettingspricecombobox.h"
 #include "applicationssettingssortingcombobox.h"
 #include "applicationssettingsstatuscombobox.h"
@@ -25,7 +24,6 @@ ApplicationsSettingsSearchWidget::ApplicationsSettingsSearchWidget(RocketChatAcc
     , mApplicationsSettingsPriceComboBox(new ApplicationsSettingsPriceComboBox(this))
     , mApplicationsSettingsStatusComboBox(new ApplicationsSettingsStatusComboBox(this))
     , mApplicationsSettingsSortingComboBox(new ApplicationsSettingsSortingComboBox(this))
-    , mApplicationsSettingsInstalledComboBox(new ApplicationsSettingsInstalledComboBox(this))
 {
     auto mainLayout = new QHBoxLayout(this);
     mainLayout->setContentsMargins({});
@@ -48,9 +46,6 @@ ApplicationsSettingsSearchWidget::ApplicationsSettingsSearchWidget(RocketChatAcc
     mApplicationsSettingsSortingComboBox->setObjectName("mApplicationsSettingsSortingComboBox"_L1);
     mainLayout->addWidget(mApplicationsSettingsSortingComboBox);
 
-    mApplicationsSettingsInstalledComboBox->setObjectName("mApplicationsSettingsInstalledComboBox"_L1);
-    mainLayout->addWidget(mApplicationsSettingsInstalledComboBox);
-
     connect(mSearchLineEdit, &QLineEdit::textChanged, this, &ApplicationsSettingsSearchWidget::filterChanged);
     connect(mApplicationsSettingsCategoriesComboBox,
             &ApplicationsSettingsCategoriesComboBox::categoriesChanged,
@@ -59,7 +54,6 @@ ApplicationsSettingsSearchWidget::ApplicationsSettingsSearchWidget(RocketChatAcc
     connect(mApplicationsSettingsPriceComboBox, &ApplicationsSettingsPriceComboBox::activated, this, &ApplicationsSettingsSearchWidget::filterChanged);
     connect(mApplicationsSettingsStatusComboBox, &ApplicationsSettingsStatusComboBox::activated, this, &ApplicationsSettingsSearchWidget::filterChanged);
     connect(mApplicationsSettingsSortingComboBox, &ApplicationsSettingsSortingComboBox::activated, this, &ApplicationsSettingsSearchWidget::sortingChanged);
-    connect(mApplicationsSettingsInstalledComboBox, &ApplicationsSettingsInstalledComboBox::activated, this, &ApplicationsSettingsSearchWidget::filterChanged);
 }
 
 ApplicationsSettingsSearchWidget::~ApplicationsSettingsSearchWidget() = default;
@@ -71,7 +65,6 @@ AppsMarketPlaceFilterProxyModel::FilterInfo ApplicationsSettingsSearchWidget::fi
     info.categories = mApplicationsSettingsCategoriesComboBox->categories();
     info.price = mApplicationsSettingsPriceComboBox->currentPrice();
     info.status = mApplicationsSettingsStatusComboBox->currentStatus();
-    info.installedApps = mApplicationsSettingsInstalledComboBox->currentInstalledStatus();
     return info;
 }
 
@@ -84,19 +77,15 @@ void ApplicationsSettingsSearchWidget::setFeature(Feature feature)
 {
     switch (feature) {
     case Feature::None:
-        mApplicationsSettingsInstalledComboBox->setVisible(true); // ??? true ??
         mSearchLineEdit->setPlaceholderText(i18nc("@info:placeholder", "Search Applications"));
         break;
     case Feature::Installed:
-        mApplicationsSettingsInstalledComboBox->setVisible(false);
         mSearchLineEdit->setPlaceholderText(i18nc("@info:placeholder", "Search Installed Applications"));
         break;
     case Feature::Requested:
-        mApplicationsSettingsInstalledComboBox->setVisible(false);
         mSearchLineEdit->setPlaceholderText(i18nc("@info:placeholder", "Search Requested Applications"));
         break;
     case Feature::Private:
-        mApplicationsSettingsInstalledComboBox->setVisible(false);
         mSearchLineEdit->setPlaceholderText(i18nc("@info:placeholder", "Search Private Applications"));
         break;
     }

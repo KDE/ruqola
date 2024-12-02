@@ -38,19 +38,11 @@ public:
     };
     Q_ENUM(Sorting);
 
-    enum InstalledApps {
-        AnyInfoApps,
-        PrivateApps,
-        AllInstalledApps,
-    };
-    Q_ENUM(InstalledApps);
-
     struct LIBRUQOLACORE_EXPORT FilterInfo {
         QStringList categories;
         QString text;
         Status status = Status::UnknownStatus;
         Price price = Price::UnknownPrice;
-        InstalledApps installedApps = InstalledApps::AnyInfoApps;
         [[nodiscard]] bool operator==(const FilterInfo &other) const;
         [[nodiscard]] bool operator!=(const FilterInfo &other) const;
     };

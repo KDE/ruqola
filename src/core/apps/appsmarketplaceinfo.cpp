@@ -31,7 +31,6 @@ QDebug operator<<(QDebug d, const AppsMarketPlaceInfo &t)
     d.space() << "modifiedDate " << t.modifiedDate();
     d.space() << "isPaid " << t.isPaid();
     d.space() << "pricePlan " << t.pricePlan();
-    d.space() << "isPrivate " << t.isPrivate();
     d.space() << "support " << t.support();
     d.space() << "homePage " << t.homePage();
     d.space() << "author " << t.authorName();
@@ -112,16 +111,6 @@ QString AppsMarketPlaceInfo::support() const
 void AppsMarketPlaceInfo::setSupport(const QString &newSupport)
 {
     mSupport = newSupport;
-}
-
-bool AppsMarketPlaceInfo::isPrivate() const
-{
-    return mIsPrivate;
-}
-
-void AppsMarketPlaceInfo::setIsPrivate(bool newIsPrivate)
-{
-    mIsPrivate = newIsPrivate;
 }
 
 bool AppsMarketPlaceInfo::PricePlan::operator==(const AppsMarketPlaceInfo::PricePlan &other) const
