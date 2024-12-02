@@ -19,7 +19,15 @@ public:
     [[nodiscard]] bool isPrivate() const;
     void setIsPrivate(bool newIsPrivate);
 
+    [[nodiscard]] QString appName() const;
+    void setAppName(const QString &newAppName);
+
+    [[nodiscard]] QString version() const;
+    void setVersion(const QString &newVersion);
+
 private:
+    QString mAppName;
+    QString mVersion;
     bool mIsPrivate = false;
 };
 
