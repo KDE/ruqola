@@ -246,12 +246,21 @@ void RoomModel::updateSubscriptionRoom(const QJsonObject &roomData)
     if (rId.isEmpty()) {
         rId = roomData.value("_id"_L1).toString().toLatin1();
     }
+#ifndef NDEBUG
+    const int nbRoomWithSameRoomId = std::count_if(mRoomsList.begin(), mRoomsList.end(), [rId](Room *r) {
+        return r->roomId() == rId;
+    });
+    if (nbRoomWithSameRoomId > 1) {
+        qWarning() << "RoomModel::updateSubscriptionRoom found more than 1 room : roomId" << rId << " count " << nbRoomWithSameRoomId;
+    }
+#endif
+
     if (!rId.isEmpty()) {
         const int roomCount = mRoomsList.size();
         for (int i = 0; i < roomCount; ++i) {
             Room *room = mRoomsList.at(i);
             if (room->roomId() == rId) {
-                qCDebug(RUQOLA_ROOMS_LOG) << " void RoomModel::updateSubscriptionRoom(const QJsonArray &array) room found";
+                qCDebug(RUQOLA_ROOMS_LOG) << " void RoomModel::updateSubscriptionRoom(const QJsonArray &array) room found:" << room->roomId();
                 room->updateSubscriptionRoom(roomData);
                 Q_EMIT dataChanged(createIndex(i, 0), createIndex(i, 0));
 
@@ -371,12 +380,20 @@ void RoomModel::updateRoom(const QJsonObject &roomData)
     if (rId.isEmpty()) {
         rId = roomData.value("_id"_L1).toString().toLatin1();
     }
+#ifndef NDEBUG
+    const int nbRoomWithSameRoomId = std::count_if(mRoomsList.begin(), mRoomsList.end(), [rId](Room *r) {
+        return r->roomId() == rId;
+    });
+    if (nbRoomWithSameRoomId > 1) {
+        qWarning() << "RoomModel::updateRoom found more than 1 room : roomId" << rId << " count " << nbRoomWithSameRoomId;
+    }
+#endif
     if (!rId.isEmpty()) {
         const int roomCount = mRoomsList.size();
         for (int i = 0; i < roomCount; ++i) {
             Room *room = mRoomsList.at(i);
             if (room->roomId() == rId) {
-                qCDebug(RUQOLA_ROOMS_LOG) << " void RoomModel::updateRoom(const QJsonArray &array) room found";
+                qCDebug(RUQOLA_ROOMS_LOG) << " void RoomModel::updateRoom(const QJsonArray &array) room found:" << rId;
                 room->parseUpdateRoom(roomData);
                 Q_EMIT dataChanged(createIndex(i, 0), createIndex(i, 0));
 

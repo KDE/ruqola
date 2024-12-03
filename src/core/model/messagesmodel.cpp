@@ -141,7 +141,7 @@ void MessagesModel::addMessage(const Message &message)
         qCDebug(RUQOLA_LOG) << "Update first message";
         emitChanged(0);
     } else if (((it) != mAllMessages.begin() && (*(it - 1)).messageId() == message.messageId())) {
-        qCDebug(RUQOLA_LOG) << "Update message";
+        qCDebug(RUQOLA_LOG) << "Update message: " << message.text();
         if (message.pendingMessage()) {
             // If we already have a message and we must add pending message it's that server
             // send quickly new message => replace not it by a pending message
@@ -150,6 +150,7 @@ void MessagesModel::addMessage(const Message &message)
         (*(it - 1)) = message;
         emitChanged(std::distance(mAllMessages.begin(), it - 1), {OriginalMessageOrAttachmentDescription});
     } else {
+        qCDebug(RUQOLA_LOG) << "Add message: " << message.text();
         const int pos = it - mAllMessages.begin();
         beginInsertRows(QModelIndex(), pos, pos);
         mAllMessages.insert(it, message);
