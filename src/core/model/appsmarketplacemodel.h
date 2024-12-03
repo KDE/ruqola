@@ -40,8 +40,8 @@ public:
     [[nodiscard]] int rowCount(const QModelIndex &parent = QModelIndex()) const override;
     [[nodiscard]] QVariant data(const QModelIndex &index, int role) const override;
 
-    [[nodiscard]] QList<AppsMarketPlaceInfo> appsCategories() const;
-    void setAppsCategories(const QList<AppsMarketPlaceInfo> &appsCategories);
+    [[nodiscard]] QList<AppsMarketPlaceInfo> appsMarketPlaceInfos() const;
+    void setAppsMarketPlaceInfos(const QList<AppsMarketPlaceInfo> &appsCategories);
 
     [[nodiscard]] bool wasFilled() const;
 

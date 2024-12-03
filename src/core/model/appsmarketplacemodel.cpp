@@ -22,21 +22,21 @@ int AppsMarketPlaceModel::rowCount(const QModelIndex &parent) const
     return mAppsMarketPlaceInfos.count();
 }
 
-QList<AppsMarketPlaceInfo> AppsMarketPlaceModel::appsCategories() const
+QList<AppsMarketPlaceInfo> AppsMarketPlaceModel::appsMarketPlaceInfos() const
 {
     return mAppsMarketPlaceInfos;
 }
 
-void AppsMarketPlaceModel::setAppsCategories(const QList<AppsMarketPlaceInfo> &appsCategories)
+void AppsMarketPlaceModel::setAppsMarketPlaceInfos(const QList<AppsMarketPlaceInfo> &appsMarketInfos)
 {
     if (!mAppsMarketPlaceInfos.isEmpty()) {
         beginResetModel();
         mAppsMarketPlaceInfos.clear();
         endResetModel();
     }
-    if (!appsCategories.isEmpty()) {
-        beginInsertRows(QModelIndex(), 0, appsCategories.count() - 1);
-        mAppsMarketPlaceInfos = appsCategories;
+    if (!appsMarketInfos.isEmpty()) {
+        beginInsertRows(QModelIndex(), 0, appsMarketInfos.count() - 1);
+        mAppsMarketPlaceInfos = appsMarketInfos;
         endInsertRows();
     }
 }

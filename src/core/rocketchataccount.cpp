@@ -3263,6 +3263,7 @@ void RocketChatAccount::loadInstalledApps()
             AppsMarketPlaceInstalledInfo info;
             info.parseInstalledAppsMarketPlaceInfo(obj);
             qDebug() << "installed " << info;
+            // mAppsMarketPlaceModel->
         }
     });
     if (!job->start()) {
@@ -3293,7 +3294,7 @@ void RocketChatAccount::loadAppMarketPlace()
                 // qDebug() << " info " << info;
             }
         }
-        mAppsMarketPlaceModel->setAppsCategories(listAppsMarketPlaceInfo);
+        mAppsMarketPlaceModel->setAppsMarketPlaceInfos(listAppsMarketPlaceInfo);
         Q_EMIT appsMarkPlaceLoadDone();
     });
     if (!job->start()) {
