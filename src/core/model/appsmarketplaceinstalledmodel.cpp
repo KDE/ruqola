@@ -54,6 +54,15 @@ QVariant AppsMarketPlaceInstalledModel::data(const QModelIndex &index, int role)
         return appsMarketPlaceInfo.appName();
     case AppsMarketPlaceInstalledModel::AppVersion:
         return appsMarketPlaceInfo.version();
+    case AppsMarketPlaceInstalledModel::Description:
+        return appsMarketPlaceInfo.description();
+    case AppsMarketPlaceInstalledModel::IsPrivate:
+        return appsMarketPlaceInfo.isPrivate();
+    case AppsMarketPlaceInstalledModel::HomePage:
+        return appsMarketPlaceInfo.homePage();
+    case AppsMarketPlaceInstalledModel::IsMigrated:
+        return appsMarketPlaceInfo.migrated();
+        // Add status !!!
     }
     return {};
 }

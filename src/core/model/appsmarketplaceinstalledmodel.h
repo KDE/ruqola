@@ -19,6 +19,10 @@ public:
         AppName = Qt::UserRole + 1,
         AppId,
         AppVersion,
+        Description,
+        IsPrivate,
+        HomePage,
+        IsMigrated,
     };
     Q_ENUM(AppsCategoriesRoles)
 
