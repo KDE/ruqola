@@ -894,6 +894,7 @@
       <li xml:lang="en-GB">Drag and drop image from ruqola to website or local folder</li>
       <li xml:lang="es">Arrastrar y soltar imagen desde ruqola al sitio web o a una carpeta local</li>
       <li xml:lang="eu">Arrastatu eta jaregin irudia ruqola-tik webgunera edo karpeta lokalera</li>
+      <li xml:lang="fi">Vedä ja pudota kuva Ruqolasta verkkosivustolle tai paikalliseen kansioon</li>
       <li xml:lang="fr">Glisser et déposer une image à partir de Ruqola vers le site Internet ou vers un dossier local</li>
       <li xml:lang="gl">Arrastrar e soltar imaxes de Ruqola nun sitio web ou cartafol local.</li>
       <li xml:lang="hu">Képek ejtése fogd és vidd módszerrel Ruqolából weboldalra vagy helyi mappába</li>
@@ -1036,6 +1037,7 @@
       <li xml:lang="eo">Administri Personan Alir-Tokenon</li>
       <li xml:lang="es">Administrar símbolo de acceso personal</li>
       <li xml:lang="eu">Kudeatu sarbide-token pertsonala</li>
+      <li xml:lang="fi">Hallitse henkilökohtaista pääsymerkkiä</li>
       <li xml:lang="fr">Gérer un jeton d'accès personnel</li>
       <li xml:lang="gl">Xestión de pase de acceso persoal.</li>
       <li xml:lang="hu">Személyes hozzáférési tokenek kezelése</li>
