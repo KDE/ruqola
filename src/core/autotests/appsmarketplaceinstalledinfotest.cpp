@@ -19,7 +19,16 @@ AppsMarketPlaceInstalledInfoTest::AppsMarketPlaceInstalledInfoTest(QObject *pare
 void AppsMarketPlaceInstalledInfoTest::shouldHaveDefaultValues()
 {
     AppsMarketPlaceInstalledInfo w;
-    // TODO
+    QVERIFY(!w.isPrivate());
+    QVERIFY(!w.migrated());
+    QVERIFY(w.appName().isEmpty());
+    QVERIFY(w.version().isEmpty());
+    QVERIFY(w.description().isEmpty());
+    QVERIFY(w.support().isEmpty());
+    QVERIFY(w.homePage().isEmpty());
+    QVERIFY(w.authorName().isEmpty());
+    QVERIFY(w.appId().isEmpty());
+    QCOMPARE(w.status(), AppsMarketPlaceInstalledInfo::Status::Unknown);
 }
 
 #include "moc_appsmarketplaceinstalledinfotest.cpp"
