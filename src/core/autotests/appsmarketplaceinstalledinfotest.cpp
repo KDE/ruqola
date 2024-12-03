@@ -40,8 +40,17 @@ void AppsMarketPlaceInstalledInfoTest::shouldLoadAppsMarketPlaceInstalledInfo_da
 
     {
         AppsMarketPlaceInstalledInfo appsmaketplaceinstalledinfo;
-
-        // QTest::addRow("apps1") << QStringLiteral("apps1") << appsmaketplaceinstalledinfo;
+        appsmaketplaceinstalledinfo.setAppName("Jitsi"_L1);
+        appsmaketplaceinstalledinfo.setIsPrivate(false);
+        appsmaketplaceinstalledinfo.setVersion("2.0.4"_L1);
+        appsmaketplaceinstalledinfo.setDescription("Jitsi Conference Calls Provider"_L1);
+        appsmaketplaceinstalledinfo.setSupport("https://github.com/RocketChat/Rocket.Chat"_L1);
+        appsmaketplaceinstalledinfo.setHomePage("https://github.com/RocketChat/Rocket.Chat"_L1);
+        appsmaketplaceinstalledinfo.setAuthorName("Rocket.Chat Technologies Corp."_L1);
+        appsmaketplaceinstalledinfo.setMigrated(true);
+        appsmaketplaceinstalledinfo.setAppId("3b387ba9-f57c-44c6-9810-8c0256abd64c"_L1);
+        appsmaketplaceinstalledinfo.setStatus(AppsMarketPlaceInstalledInfo::Status::AutoEnabled);
+        QTest::addRow("appsinstalled1") << QStringLiteral("appsinstalled1") << appsmaketplaceinstalledinfo;
     }
 }
 
