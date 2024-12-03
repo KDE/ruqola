@@ -5,6 +5,7 @@
 */
 
 #include "appsmarketplaceinstalledinfo.h"
+#include "ruqola_debug.h"
 using namespace Qt::Literals::StringLiterals;
 AppsMarketPlaceInstalledInfo::AppsMarketPlaceInstalledInfo() = default;
 
@@ -32,6 +33,20 @@ bool AppsMarketPlaceInstalledInfo::operator==(const AppsMarketPlaceInstalledInfo
         && mAppId == other.mAppId && mStatus == other.mStatus;
 }
 
+AppsMarketPlaceInstalledInfo::Status AppsMarketPlaceInstalledInfo::convertStatusFromString(const QString &str)
+{
+    if (str == "auto_enabled"_L1) {
+        return AppsMarketPlaceInstalledInfo::Status::AutoEnabled;
+    } else if (str == "manually_enabled"_L1) {
+        return AppsMarketPlaceInstalledInfo::Status::ManuallyEnabled;
+    } else if (str == "initialized"_L1) {
+        return AppsMarketPlaceInstalledInfo::Status::Initialized;
+    } else {
+        qCWarning(RUQOLA_LOG) << "Unknown status type " << str;
+        return AppsMarketPlaceInstalledInfo::Status::Unknown;
+    }
+}
+
 void AppsMarketPlaceInstalledInfo::parseInstalledAppsMarketPlaceInfo(const QJsonObject &replyObject)
 {
     mIsPrivate = replyObject["private"_L1].toBool();
@@ -42,6 +57,7 @@ void AppsMarketPlaceInstalledInfo::parseInstalledAppsMarketPlaceInfo(const QJson
     mAppId = replyObject["id"_L1].toString();
 
     parseAuthor(replyObject["author"_L1].toObject());
+    mStatus = convertStatusFromString(replyObject["status"_L1].toString());
 }
 
 void AppsMarketPlaceInstalledInfo::parseAuthor(const QJsonObject &authorObject)
