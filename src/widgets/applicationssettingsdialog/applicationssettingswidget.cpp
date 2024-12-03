@@ -63,7 +63,6 @@ void ApplicationsSettingsWidget::initialize()
         mCurrentRocketChatAccount->memoryManager()->stopClearApplicationSettingsModelTimer();
         mCurrentRocketChatAccount->loadAppMarketPlace();
         mCurrentRocketChatAccount->loadAppCategories();
-        mCurrentRocketChatAccount->loadInstalledApps();
         mCurrentRocketChatAccount->loadAppCount();
         if (mCurrentRocketChatAccount->appMarketPlaceLoaded()) {
             mStackedWidget->setCurrentWidget(mWidgetListView);
@@ -71,6 +70,7 @@ void ApplicationsSettingsWidget::initialize()
             mStackedWidget->setCurrentWidget(mApplicationsSettingsInProgressWidget);
         }
         connect(mCurrentRocketChatAccount, &RocketChatAccount::appsMarkPlaceLoadDone, this, [this]() {
+            mCurrentRocketChatAccount->loadInstalledApps();
             mStackedWidget->setCurrentWidget(mWidgetListView);
         });
         connect(mCurrentRocketChatAccount, &RocketChatAccount::appsCountLoadDone, this, [this]() {
