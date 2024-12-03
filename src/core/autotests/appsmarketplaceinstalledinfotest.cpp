@@ -31,4 +31,29 @@ void AppsMarketPlaceInstalledInfoTest::shouldHaveDefaultValues()
     QCOMPARE(w.status(), AppsMarketPlaceInstalledInfo::Status::Unknown);
 }
 
+void AppsMarketPlaceInstalledInfoTest::shouldLoadAppsMarketPlaceInstalledInfo_data()
+{
+    QTest::addColumn<QString>("name");
+    QTest::addColumn<AppsMarketPlaceInstalledInfo>("appsmaketplaceinstalledinfo");
+
+    QTest::addRow("empty") << QStringLiteral("empty") << AppsMarketPlaceInstalledInfo();
+
+    {
+        AppsMarketPlaceInstalledInfo appsmaketplaceinstalledinfo;
+
+        // QTest::addRow("apps1") << QStringLiteral("apps1") << appsmaketplaceinstalledinfo;
+    }
+}
+
+void AppsMarketPlaceInstalledInfoTest::shouldLoadAppsMarketPlaceInstalledInfo()
+{
+    QFETCH(QString, name);
+    QFETCH(AppsMarketPlaceInstalledInfo, appsmaketplaceinstalledinfo);
+    const QString originalJsonFile = QLatin1StringView(RUQOLA_DATA_DIR) + "/appsmarketplaceinstalledinfo/"_L1 + name + ".json"_L1;
+    const QJsonObject obj = AutoTestHelper::loadJsonObject(originalJsonFile);
+    AppsMarketPlaceInstalledInfo m;
+    m.parseInstalledAppsMarketPlaceInfo(obj);
+    QCOMPARE(m, appsmaketplaceinstalledinfo);
+}
+
 #include "moc_appsmarketplaceinstalledinfotest.cpp"

@@ -16,4 +16,6 @@ public:
     ~AppsMarketPlaceInstalledInfoTest() override = default;
 private Q_SLOTS:
     void shouldHaveDefaultValues();
+    void shouldLoadAppsMarketPlaceInstalledInfo();
+    void shouldLoadAppsMarketPlaceInstalledInfo_data();
 };
