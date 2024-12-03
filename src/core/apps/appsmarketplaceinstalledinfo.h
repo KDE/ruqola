@@ -9,9 +9,19 @@
 #include "libruqolacore_export.h"
 #include <QDebug>
 #include <QJsonObject>
+#include <QObject>
 class LIBRUQOLACORE_EXPORT AppsMarketPlaceInstalledInfo
 {
+    Q_GADGET
 public:
+    enum class Status : uint8_t {
+        Unknown,
+        AutoEnabled,
+        Initialized,
+        ManuallyEnabled,
+    };
+    Q_ENUM(Status);
+
     AppsMarketPlaceInstalledInfo();
     ~AppsMarketPlaceInstalledInfo();
 
@@ -46,6 +56,9 @@ public:
     [[nodiscard]] QString appId() const;
     void setAppId(const QString &newAppId);
 
+    [[nodiscard]] Status status() const;
+    void setStatus(Status newStatus);
+
 private:
     LIBRUQOLACORE_NO_EXPORT void parseAuthor(const QJsonObject &authorObject);
     QString mAppName;
@@ -55,6 +68,7 @@ private:
     QString mHomePage;
     QString mAuthorName;
     QString mAppId;
+    Status mStatus = Status::Unknown;
     bool mIsPrivate = false;
     bool mMigrated = false;
 };

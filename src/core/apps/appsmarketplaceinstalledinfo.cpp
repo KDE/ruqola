@@ -21,6 +21,7 @@ QDebug operator<<(QDebug d, const AppsMarketPlaceInstalledInfo &t)
     d.space() << "authorName" << t.authorName();
     d.space() << "migrated" << t.migrated();
     d.space() << "id" << t.appId();
+    d.space() << "status" << t.status();
     return d;
 }
 
@@ -28,7 +29,7 @@ bool AppsMarketPlaceInstalledInfo::operator==(const AppsMarketPlaceInstalledInfo
 {
     return mAppName == other.mAppName && mVersion == other.mVersion && mIsPrivate == other.mIsPrivate && mDescription == other.mDescription
         && mSupport == other.mSupport && mHomePage == other.mHomePage && mAuthorName == other.mAuthorName && mMigrated == other.migrated()
-        && mAppId == other.mAppId;
+        && mAppId == other.mAppId && mStatus == other.mStatus;
 }
 
 void AppsMarketPlaceInstalledInfo::parseInstalledAppsMarketPlaceInfo(const QJsonObject &replyObject)
@@ -48,6 +49,16 @@ void AppsMarketPlaceInstalledInfo::parseAuthor(const QJsonObject &authorObject)
     mHomePage = authorObject["homepage"_L1].toString();
     mSupport = authorObject["support"_L1].toString();
     mAuthorName = authorObject["name"_L1].toString();
+}
+
+AppsMarketPlaceInstalledInfo::Status AppsMarketPlaceInstalledInfo::status() const
+{
+    return mStatus;
+}
+
+void AppsMarketPlaceInstalledInfo::setStatus(Status newStatus)
+{
+    mStatus = newStatus;
 }
 
 QString AppsMarketPlaceInstalledInfo::appId() const
@@ -139,3 +150,5 @@ void AppsMarketPlaceInstalledInfo::setDescription(const QString &newDescription)
 {
     mDescription = newDescription;
 }
+
+#include "moc_appsmarketplaceinstalledinfo.cpp"
