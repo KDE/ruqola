@@ -48,7 +48,7 @@ void AppsMarketPlaceInstalledInfoTest::shouldLoadAppsMarketPlaceInstalledInfo_da
         appsmaketplaceinstalledinfo.setHomePage("https://github.com/RocketChat/Rocket.Chat"_L1);
         appsmaketplaceinstalledinfo.setAuthorName("Rocket.Chat Technologies Corp."_L1);
         appsmaketplaceinstalledinfo.setMigrated(true);
-        appsmaketplaceinstalledinfo.setAppId("3b387ba9-f57c-44c6-9810-8c0256abd64c"_L1);
+        appsmaketplaceinstalledinfo.setAppId("3b387ba9-f57c-44c6-9810-8c0256abd64c");
         appsmaketplaceinstalledinfo.setStatus(AppsMarketPlaceInstalledInfo::Status::AutoEnabled);
         QTest::addRow("appsinstalled1") << QStringLiteral("appsinstalled1") << appsmaketplaceinstalledinfo;
     }

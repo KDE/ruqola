@@ -54,7 +54,7 @@ void AppsMarketPlaceInstalledInfo::parseInstalledAppsMarketPlaceInfo(const QJson
     mVersion = replyObject["version"_L1].toString();
     mDescription = replyObject["description"_L1].toString();
     mMigrated = replyObject["migrated"_L1].toBool();
-    mAppId = replyObject["id"_L1].toString();
+    mAppId = replyObject["id"_L1].toString().toLatin1();
 
     parseAuthor(replyObject["author"_L1].toObject());
     mStatus = convertStatusFromString(replyObject["status"_L1].toString());
@@ -77,12 +77,12 @@ void AppsMarketPlaceInstalledInfo::setStatus(Status newStatus)
     mStatus = newStatus;
 }
 
-QString AppsMarketPlaceInstalledInfo::appId() const
+QByteArray AppsMarketPlaceInstalledInfo::appId() const
 {
     return mAppId;
 }
 
-void AppsMarketPlaceInstalledInfo::setAppId(const QString &newAppId)
+void AppsMarketPlaceInstalledInfo::setAppId(const QByteArray &newAppId)
 {
     mAppId = newAppId;
 }

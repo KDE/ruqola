@@ -53,8 +53,8 @@ public:
     [[nodiscard]] bool migrated() const;
     void setMigrated(bool newMigrated);
 
-    [[nodiscard]] QString appId() const;
-    void setAppId(const QString &newAppId);
+    [[nodiscard]] QByteArray appId() const;
+    void setAppId(const QByteArray &newAppId);
 
     [[nodiscard]] Status status() const;
     void setStatus(Status newStatus);
@@ -68,7 +68,7 @@ private:
     QString mSupport;
     QString mHomePage;
     QString mAuthorName;
-    QString mAppId;
+    QByteArray mAppId;
     Status mStatus = Status::Unknown;
     bool mIsPrivate = false;
     bool mMigrated = false;
