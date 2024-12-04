@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-12-03 00:40+0000\n"
-"PO-Revision-Date: 2024-11-25 17:49+0100\n"
+"POT-Creation-Date: 2024-12-04 00:40+0000\n"
+"PO-Revision-Date: 2024-12-03 16:58+0100\n"
 "Last-Translator: giovanni <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
 "Language: ia\n"
@@ -1258,7 +1258,7 @@ msgstr "Typo de Canale"
 msgid "Belongs To"
 msgstr ""
 
-#: core/model/directoryteamsmodel.cpp:92 core/model/roommodel.cpp:566
+#: core/model/directoryteamsmodel.cpp:92 core/model/roommodel.cpp:583
 #: widgets/administratordialog/administratorwidget.cpp:53
 #: widgets/administratordialog/roles/rolescopecombobox.cpp:13
 #, kde-format
@@ -1295,17 +1295,17 @@ msgstr "Necun exito trovate."
 msgid "Notify active users in this room"
 msgstr "Notifica usatores active in iste sala"
 
-#: core/model/messagesmodel.cpp:223
+#: core/model/messagesmodel.cpp:224
 #, kde-format
 msgid "Edited at %1 by %2"
 msgstr "Modificate a %1 per %2"
 
-#: core/model/messagesmodel.cpp:369
+#: core/model/messagesmodel.cpp:370
 #, kde-format
 msgid "Ignored Message"
 msgstr "Message ignorate"
 
-#: core/model/messagesmodel.cpp:378
+#: core/model/messagesmodel.cpp:379
 #, kde-format
 msgid "Only you can see this message"
 msgstr "Solmente tu pote vider iste message?"
@@ -1396,80 +1396,80 @@ msgstr "Authentication a duo factores"
 msgid "Last token part"
 msgstr "Ultime parte de indicio"
 
-#: core/model/roommodel.cpp:485
+#: core/model/roommodel.cpp:502
 #, kde-format
 msgid "%1 Mention"
 msgid_plural "%1 Mentions"
 msgstr[0] "%1 Mention"
 msgstr[1] "%1 Mentiones"
 
-#: core/model/roommodel.cpp:489
+#: core/model/roommodel.cpp:506
 #, kde-format
 msgid "%1 Group Mention"
 msgid_plural "%1 Group Mentions"
 msgstr[0] "%1 Mention de Gruppo"
 msgstr[1] "%1 Mentiones de Gruppo"
 
-#: core/model/roommodel.cpp:493
+#: core/model/roommodel.cpp:510
 #, kde-format
 msgid "%1 Unread Threaded Message"
 msgid_plural "%1 Unread Threaded Messages"
 msgstr[0] "%1 Message de topico non legite"
 msgstr[1] "%1 Messages de topicos non legite"
 
-#: core/model/roommodel.cpp:497
+#: core/model/roommodel.cpp:514
 #, kde-format
 msgid "%1 Unread Message"
 msgid_plural "%1 Unread Messages"
 msgstr[0] "%1 Message non legite"
 msgstr[1] "%1 messages non legite"
 
-#: core/model/roommodel.cpp:523
+#: core/model/roommodel.cpp:540
 #, kde-format
 msgid "Teams Room"
 msgstr "Sala de Equipas"
 
-#: core/model/roommodel.cpp:529
+#: core/model/roommodel.cpp:546
 #, kde-format
 msgid "Private Room"
 msgstr "Sala Private"
 
-#: core/model/roommodel.cpp:531
+#: core/model/roommodel.cpp:548
 #, kde-format
 msgid "Discussion Room"
 msgstr "Sala de discussion"
 
-#: core/model/roommodel.cpp:535
+#: core/model/roommodel.cpp:552
 #, kde-format
 msgid "Channel Room"
 msgstr "Sala de Canal"
 
-#: core/model/roommodel.cpp:560
+#: core/model/roommodel.cpp:577
 #, kde-format
 msgid "Unread"
 msgstr "Non Legite"
 
-#: core/model/roommodel.cpp:562
+#: core/model/roommodel.cpp:579
 #, kde-format
 msgid "Favorites"
 msgstr "Favoritos"
 
-#: core/model/roommodel.cpp:564
+#: core/model/roommodel.cpp:581
 #, kde-format
 msgid "Teams"
 msgstr "Equipas"
 
-#: core/model/roommodel.cpp:568
+#: core/model/roommodel.cpp:585
 #, kde-format
 msgid "Discussions"
 msgstr "Discussiones"
 
-#: core/model/roommodel.cpp:570
+#: core/model/roommodel.cpp:587
 #, kde-format
 msgid "Private Messages"
 msgstr "Messages private"
 
-#: core/model/roommodel.cpp:572
+#: core/model/roommodel.cpp:589
 #, kde-format
 msgid "Unknown"
 msgstr "Incognite"
@@ -6841,12 +6841,10 @@ msgid "Search Requested Applications"
 msgstr "Cerca Applicationes Requirite"
 
 #: widgets/applicationssettingsdialog/applicationssettingssearchwidget.cpp:89
-#, fuzzy, kde-format
-#| msgctxt "@info:placeholder"
-#| msgid "Search Applications"
+#, kde-format
 msgctxt "@info:placeholder"
 msgid "Search Private Applications"
-msgstr "Cerca applicationes"
+msgstr "Cerca applicationes private"
 
 #: widgets/applicationssettingsdialog/applicationssettingssortingcombobox.cpp:12
 #, kde-format
@@ -10544,12 +10542,10 @@ msgid "Installed Applications…"
 msgstr "Applicationes installate …"
 
 #: widgets/ruqolamainwindow.cpp:552
-#, fuzzy, kde-format
-#| msgctxt "@action"
-#| msgid "Applications…"
+#, kde-format
 msgctxt "@action"
 msgid "Private Applications…"
-msgstr "Applicationes…"
+msgstr "Applicationes Private …"
 
 #: widgets/ruqolamainwindow.cpp:558
 #, kde-format
@@ -11266,10 +11262,9 @@ msgid "Fix highlight text in quoted message"
 msgstr ""
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:132
-#, fuzzy, kde-format
-#| msgid "Open Discussion"
+#, kde-format
 msgid "Fix open discussion channel"
-msgstr "Aperi Discussion"
+msgstr "Fixa canal de discussion aperite"
 
 #: widgets/whatsnew/whatsnewwidget.cpp:44
 #, kde-format

@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-12-03 00:40+0000\n"
-"PO-Revision-Date: 2024-12-02 18:48+0100\n"
+"POT-Creation-Date: 2024-12-04 00:40+0000\n"
+"PO-Revision-Date: 2024-12-03 20:41+0100\n"
 "Last-Translator: Vincenzo Reale <smart2128vr@gmail.com>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
 "Language: it\n"
@@ -384,12 +384,12 @@ msgstr "Modifica la configurazione del campo personalizzato di Livechat"
 #: core/apps/appsmarketplaceinfo.cpp:602
 #, kde-format
 msgid "Allow to write oauth app settings"
-msgstr ""
+msgstr "Consenti di scrivere le impostazioni dell'applicazione oauth"
 
 #: core/apps/appsmarketplaceinfo.cpp:604
 #, kde-format
 msgid "Allow to read oauth app settings"
-msgstr ""
+msgstr "Consenti di leggere le impostazioni dell'applicazione oauth"
 
 #: core/authenticationmanager.cpp:85
 #, kde-format
@@ -1260,7 +1260,7 @@ msgstr "Tipo di canale"
 msgid "Belongs To"
 msgstr "Appartiene a"
 
-#: core/model/directoryteamsmodel.cpp:92 core/model/roommodel.cpp:566
+#: core/model/directoryteamsmodel.cpp:92 core/model/roommodel.cpp:583
 #: widgets/administratordialog/administratorwidget.cpp:53
 #: widgets/administratordialog/roles/rolescopecombobox.cpp:13
 #, kde-format
@@ -1297,17 +1297,17 @@ msgstr "Nessun risultato trovato."
 msgid "Notify active users in this room"
 msgstr "Avvisa gli utenti attivi in questa stanza"
 
-#: core/model/messagesmodel.cpp:223
+#: core/model/messagesmodel.cpp:224
 #, kde-format
 msgid "Edited at %1 by %2"
 msgstr "Modificato alle %1 da %2"
 
-#: core/model/messagesmodel.cpp:369
+#: core/model/messagesmodel.cpp:370
 #, kde-format
 msgid "Ignored Message"
 msgstr "Messaggio ignorato"
 
-#: core/model/messagesmodel.cpp:378
+#: core/model/messagesmodel.cpp:379
 #, kde-format
 msgid "Only you can see this message"
 msgstr "Solo tu puoi vedere questo messaggio"
@@ -1398,80 +1398,80 @@ msgstr "Autenticazione a due fattori"
 msgid "Last token part"
 msgstr "Ultima parte del token"
 
-#: core/model/roommodel.cpp:485
+#: core/model/roommodel.cpp:502
 #, kde-format
 msgid "%1 Mention"
 msgid_plural "%1 Mentions"
 msgstr[0] "%1 menzione"
 msgstr[1] "%1 menzioni"
 
-#: core/model/roommodel.cpp:489
+#: core/model/roommodel.cpp:506
 #, kde-format
 msgid "%1 Group Mention"
 msgid_plural "%1 Group Mentions"
 msgstr[0] "%1 menzione di gruppo"
 msgstr[1] "%1 menzioni di gruppo"
 
-#: core/model/roommodel.cpp:493
+#: core/model/roommodel.cpp:510
 #, kde-format
 msgid "%1 Unread Threaded Message"
 msgid_plural "%1 Unread Threaded Messages"
 msgstr[0] "%1 messaggio di una conversazione non letto"
 msgstr[1] "%1 messaggi di una conversazione non letti"
 
-#: core/model/roommodel.cpp:497
+#: core/model/roommodel.cpp:514
 #, kde-format
 msgid "%1 Unread Message"
 msgid_plural "%1 Unread Messages"
 msgstr[0] "%1 messaggio non letto"
 msgstr[1] "%1 messaggi non letti"
 
-#: core/model/roommodel.cpp:523
+#: core/model/roommodel.cpp:540
 #, kde-format
 msgid "Teams Room"
 msgstr "Stanza delle squadre"
 
-#: core/model/roommodel.cpp:529
+#: core/model/roommodel.cpp:546
 #, kde-format
 msgid "Private Room"
 msgstr "Stanza privata"
 
-#: core/model/roommodel.cpp:531
+#: core/model/roommodel.cpp:548
 #, kde-format
 msgid "Discussion Room"
 msgstr "Stanza di discussione"
 
-#: core/model/roommodel.cpp:535
+#: core/model/roommodel.cpp:552
 #, kde-format
 msgid "Channel Room"
 msgstr "Stanza del canale"
 
-#: core/model/roommodel.cpp:560
+#: core/model/roommodel.cpp:577
 #, kde-format
 msgid "Unread"
 msgstr "Non letto"
 
-#: core/model/roommodel.cpp:562
+#: core/model/roommodel.cpp:579
 #, kde-format
 msgid "Favorites"
 msgstr "Preferiti"
 
-#: core/model/roommodel.cpp:564
+#: core/model/roommodel.cpp:581
 #, kde-format
 msgid "Teams"
 msgstr "Squadre"
 
-#: core/model/roommodel.cpp:568
+#: core/model/roommodel.cpp:585
 #, kde-format
 msgid "Discussions"
 msgstr "Discussioni"
 
-#: core/model/roommodel.cpp:570
+#: core/model/roommodel.cpp:587
 #, kde-format
 msgid "Private Messages"
 msgstr "Messaggi privati"
 
-#: core/model/roommodel.cpp:572
+#: core/model/roommodel.cpp:589
 #, kde-format
 msgid "Unknown"
 msgstr "Sconosciuto"

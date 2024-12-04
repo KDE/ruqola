@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-12-03 00:40+0000\n"
-"PO-Revision-Date: 2024-12-02 13:28+0100\n"
+"POT-Creation-Date: 2024-12-04 00:40+0000\n"
+"PO-Revision-Date: 2024-12-03 12:30+0100\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
 "Language: nl\n"
@@ -383,12 +383,12 @@ msgstr "Livechat aangepast veldconfiguratie wijzigen"
 #: core/apps/appsmarketplaceinfo.cpp:602
 #, kde-format
 msgid "Allow to write oauth app settings"
-msgstr ""
+msgstr "Bied het schrijven van oauth-app-instellingen"
 
 #: core/apps/appsmarketplaceinfo.cpp:604
 #, kde-format
 msgid "Allow to read oauth app settings"
-msgstr ""
+msgstr "Bied het lezen van oauth-app-instellingen"
 
 #: core/authenticationmanager.cpp:85
 #, kde-format
@@ -1260,7 +1260,7 @@ msgstr "Kanaaltype"
 msgid "Belongs To"
 msgstr "Behoort toe aan"
 
-#: core/model/directoryteamsmodel.cpp:92 core/model/roommodel.cpp:566
+#: core/model/directoryteamsmodel.cpp:92 core/model/roommodel.cpp:583
 #: widgets/administratordialog/administratorwidget.cpp:53
 #: widgets/administratordialog/roles/rolescopecombobox.cpp:13
 #, kde-format
@@ -1297,17 +1297,17 @@ msgstr "Geen resultaat gevonden."
 msgid "Notify active users in this room"
 msgstr "Actieve gebruikers in deze room berichten"
 
-#: core/model/messagesmodel.cpp:223
+#: core/model/messagesmodel.cpp:224
 #, kde-format
 msgid "Edited at %1 by %2"
 msgstr "Bewerkt op %1 door %2"
 
-#: core/model/messagesmodel.cpp:369
+#: core/model/messagesmodel.cpp:370
 #, kde-format
 msgid "Ignored Message"
 msgstr "Genegeerd bericht"
 
-#: core/model/messagesmodel.cpp:378
+#: core/model/messagesmodel.cpp:379
 #, kde-format
 msgid "Only you can see this message"
 msgstr "Alleen u kunt dit bericht zien"
@@ -1398,80 +1398,80 @@ msgstr "Twee-factor-authenticatie"
 msgid "Last token part"
 msgstr "Laatste gedeelte token"
 
-#: core/model/roommodel.cpp:485
+#: core/model/roommodel.cpp:502
 #, kde-format
 msgid "%1 Mention"
 msgid_plural "%1 Mentions"
 msgstr[0] "%1 vermelding"
 msgstr[1] "%1 vermeldingen"
 
-#: core/model/roommodel.cpp:489
+#: core/model/roommodel.cpp:506
 #, kde-format
 msgid "%1 Group Mention"
 msgid_plural "%1 Group Mentions"
 msgstr[0] "%1 groepsmelding"
 msgstr[1] "%1 groepsmeldingen"
 
-#: core/model/roommodel.cpp:493
+#: core/model/roommodel.cpp:510
 #, kde-format
 msgid "%1 Unread Threaded Message"
 msgid_plural "%1 Unread Threaded Messages"
 msgstr[0] "%1 ongelezen bericht uit discussiebundeling"
 msgstr[1] "%1 ongelezen berichten uit discussiebundeling"
 
-#: core/model/roommodel.cpp:497
+#: core/model/roommodel.cpp:514
 #, kde-format
 msgid "%1 Unread Message"
 msgid_plural "%1 Unread Messages"
 msgstr[0] "%1 ongelezen bericht"
 msgstr[1] "%1 ongelezen berichten"
 
-#: core/model/roommodel.cpp:523
+#: core/model/roommodel.cpp:540
 #, kde-format
 msgid "Teams Room"
 msgstr "Teamsroom"
 
-#: core/model/roommodel.cpp:529
+#: core/model/roommodel.cpp:546
 #, kde-format
 msgid "Private Room"
 msgstr "Privéroom"
 
-#: core/model/roommodel.cpp:531
+#: core/model/roommodel.cpp:548
 #, kde-format
 msgid "Discussion Room"
 msgstr "Discussieroom"
 
-#: core/model/roommodel.cpp:535
+#: core/model/roommodel.cpp:552
 #, kde-format
 msgid "Channel Room"
 msgstr "Kanaalroom"
 
-#: core/model/roommodel.cpp:560
+#: core/model/roommodel.cpp:577
 #, kde-format
 msgid "Unread"
 msgstr "Ongelezen"
 
-#: core/model/roommodel.cpp:562
+#: core/model/roommodel.cpp:579
 #, kde-format
 msgid "Favorites"
 msgstr "Favorieten"
 
-#: core/model/roommodel.cpp:564
+#: core/model/roommodel.cpp:581
 #, kde-format
 msgid "Teams"
 msgstr "Teams"
 
-#: core/model/roommodel.cpp:568
+#: core/model/roommodel.cpp:585
 #, kde-format
 msgid "Discussions"
 msgstr "Discussies"
 
-#: core/model/roommodel.cpp:570
+#: core/model/roommodel.cpp:587
 #, kde-format
 msgid "Private Messages"
 msgstr "Privé berichten"
 
-#: core/model/roommodel.cpp:572
+#: core/model/roommodel.cpp:589
 #, kde-format
 msgid "Unknown"
 msgstr "Onbekend"

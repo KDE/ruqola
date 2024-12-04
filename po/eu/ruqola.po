@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-12-03 00:40+0000\n"
-"PO-Revision-Date: 2024-12-02 23:01+0100\n"
+"POT-Creation-Date: 2024-12-04 00:40+0000\n"
+"PO-Revision-Date: 2024-12-03 16:38+0100\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
 "Language: eu\n"
@@ -386,12 +386,12 @@ msgstr "Livechat-eko neurrira ipinitako eremuaren konfigurazioa aldatu"
 #: core/apps/appsmarketplaceinfo.cpp:602
 #, kde-format
 msgid "Allow to write oauth app settings"
-msgstr ""
+msgstr "«oauth» aplikazioen ezarpenak idazten uzten du"
 
 #: core/apps/appsmarketplaceinfo.cpp:604
 #, kde-format
 msgid "Allow to read oauth app settings"
-msgstr ""
+msgstr "«oauth» aplikazioen ezarpenak irakurtzen uzten du"
 
 #: core/authenticationmanager.cpp:85
 #, kde-format
@@ -1276,7 +1276,7 @@ msgstr "Kanal-mota"
 msgid "Belongs To"
 msgstr "Honi dagokio,"
 
-#: core/model/directoryteamsmodel.cpp:92 core/model/roommodel.cpp:566
+#: core/model/directoryteamsmodel.cpp:92 core/model/roommodel.cpp:583
 #: widgets/administratordialog/administratorwidget.cpp:53
 #: widgets/administratordialog/roles/rolescopecombobox.cpp:13
 #, kde-format
@@ -1313,17 +1313,17 @@ msgstr "Ez da emaitzarik aurkitu."
 msgid "Notify active users in this room"
 msgstr "Jakinarazi gela honetako erabiltzaile aktiboei"
 
-#: core/model/messagesmodel.cpp:223
+#: core/model/messagesmodel.cpp:224
 #, kde-format
 msgid "Edited at %1 by %2"
 msgstr "%1(e)an %2(e)k editatua"
 
-#: core/model/messagesmodel.cpp:369
+#: core/model/messagesmodel.cpp:370
 #, kde-format
 msgid "Ignored Message"
 msgstr "Ezikusitako mezua"
 
-#: core/model/messagesmodel.cpp:378
+#: core/model/messagesmodel.cpp:379
 #, kde-format
 msgid "Only you can see this message"
 msgstr "Zuk bakarrik ikus dezakezu mezu hau"
@@ -1414,80 +1414,80 @@ msgstr "Bi faktoreko kautotzea"
 msgid "Last token part"
 msgstr "Tokenaren azken zatia"
 
-#: core/model/roommodel.cpp:485
+#: core/model/roommodel.cpp:502
 #, kde-format
 msgid "%1 Mention"
 msgid_plural "%1 Mentions"
 msgstr[0] "Aipamen %1"
 msgstr[1] "%1 aipamen"
 
-#: core/model/roommodel.cpp:489
+#: core/model/roommodel.cpp:506
 #, kde-format
 msgid "%1 Group Mention"
 msgid_plural "%1 Group Mentions"
 msgstr[0] "Taldearen aipamen %1"
 msgstr[1] "Taldearen %1 aipamen"
 
-#: core/model/roommodel.cpp:493
+#: core/model/roommodel.cpp:510
 #, kde-format
 msgid "%1 Unread Threaded Message"
 msgid_plural "%1 Unread Threaded Messages"
 msgstr[0] "Hariko mezu %1 irakurri gabe"
 msgstr[1] "Hariko %1 mezu irakurri gabe"
 
-#: core/model/roommodel.cpp:497
+#: core/model/roommodel.cpp:514
 #, kde-format
 msgid "%1 Unread Message"
 msgid_plural "%1 Unread Messages"
 msgstr[0] "Irakurri gabeko mezu %1"
 msgstr[1] "Irakurri gabeko %1 mezu"
 
-#: core/model/roommodel.cpp:523
+#: core/model/roommodel.cpp:540
 #, kde-format
 msgid "Teams Room"
 msgstr "Taldearen gela"
 
-#: core/model/roommodel.cpp:529
+#: core/model/roommodel.cpp:546
 #, kde-format
 msgid "Private Room"
 msgstr "Gela pribatua"
 
-#: core/model/roommodel.cpp:531
+#: core/model/roommodel.cpp:548
 #, kde-format
 msgid "Discussion Room"
 msgstr "Elkarrizketa-gela"
 
-#: core/model/roommodel.cpp:535
+#: core/model/roommodel.cpp:552
 #, kde-format
 msgid "Channel Room"
 msgstr "Kanalaren gela"
 
-#: core/model/roommodel.cpp:560
+#: core/model/roommodel.cpp:577
 #, kde-format
 msgid "Unread"
 msgstr "Irakurri gabea"
 
-#: core/model/roommodel.cpp:562
+#: core/model/roommodel.cpp:579
 #, kde-format
 msgid "Favorites"
 msgstr "Gogokoak"
 
-#: core/model/roommodel.cpp:564
+#: core/model/roommodel.cpp:581
 #, kde-format
 msgid "Teams"
 msgstr "Taldeak"
 
-#: core/model/roommodel.cpp:568
+#: core/model/roommodel.cpp:585
 #, kde-format
 msgid "Discussions"
 msgstr "Eztabaidak"
 
-#: core/model/roommodel.cpp:570
+#: core/model/roommodel.cpp:587
 #, kde-format
 msgid "Private Messages"
 msgstr "Mezu pribatua"
 
-#: core/model/roommodel.cpp:572
+#: core/model/roommodel.cpp:589
 #, kde-format
 msgid "Unknown"
 msgstr "Ezezaguna"
