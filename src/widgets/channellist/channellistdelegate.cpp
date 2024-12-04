@@ -175,6 +175,8 @@ void ChannelListDelegate::paint(QPainter *painter, const QStyleOptionViewItem &o
         QRect mentionRect =
             QRect(layout.unreadRect.x(), layout.unreadRect.y(), qMax(layout.unreadRect.width(), layout.unreadRect.height()), layout.unreadRect.height());
 
+        mentionRect.translate(0, (option.rect.height() - mentionRect.height()) / 2 - 2);
+
         mentionRect.moveRight(layout.unreadRect.right());
         painter->setPen(Qt::NoPen);
         painter->setRenderHint(QPainter::Antialiasing);
