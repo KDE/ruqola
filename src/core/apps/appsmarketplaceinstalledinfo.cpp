@@ -26,6 +26,11 @@ QDebug operator<<(QDebug d, const AppsMarketPlaceInstalledInfo &t)
     return d;
 }
 
+bool AppsMarketPlaceInstalledInfo::isValid() const
+{
+    return !mAppId.isEmpty();
+}
+
 bool AppsMarketPlaceInstalledInfo::operator==(const AppsMarketPlaceInstalledInfo &other) const
 {
     return mAppName == other.mAppName && mVersion == other.mVersion && mIsPrivate == other.mIsPrivate && mDescription == other.mDescription

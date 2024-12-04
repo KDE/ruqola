@@ -82,6 +82,7 @@ class RocketChatAccountSettings;
 class SoundManager;
 class AppsMarketPlaceModel;
 class AppsCategoriesModel;
+class AppsMarketPlaceInstalledModel;
 class MemoryManager;
 class ServerConfigInfo;
 
@@ -498,6 +499,8 @@ public:
     void loadAppCount();
 
     void getRoomByTypeAndName(const QByteArray &rid, const QString &roomType);
+    [[nodiscard]] AppsMarketPlaceInstalledModel *appsMarketPlaceInstalledModel() const;
+
 Q_SIGNALS:
     void roomRemoved(const QByteArray &roomId);
     void disabledTotpValid(bool checked);
@@ -718,6 +721,7 @@ private:
     SoundManager *const mSoundManager;
     AppsMarketPlaceModel *const mAppsMarketPlaceModel;
     AppsCategoriesModel *const mAppsCategoriesModel;
+    AppsMarketPlaceInstalledModel *const mAppsMarketPlaceInstalledModel;
     MemoryManager *const mMemoryManager;
     int mDelayReconnect = 100;
     bool mMarkUnreadThreadsAsReadOnNextReply = false;

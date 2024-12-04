@@ -25,6 +25,8 @@ public:
     AppsMarketPlaceInstalledInfo();
     ~AppsMarketPlaceInstalledInfo();
 
+    [[nodiscard]] bool isValid() const;
+
     [[nodiscard]] bool operator==(const AppsMarketPlaceInstalledInfo &other) const;
 
     void parseInstalledAppsMarketPlaceInfo(const QJsonObject &replyObject);
