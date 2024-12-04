@@ -12,3 +12,5 @@ AppsMarketPlaceInstalledFilterProxyModel::AppsMarketPlaceInstalledFilterProxyMod
 }
 
 AppsMarketPlaceInstalledFilterProxyModel::~AppsMarketPlaceInstalledFilterProxyModel() = default;
+
+#include "moc_appsmarketplaceinstalledfilterproxymodel.cpp"
