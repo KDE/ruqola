@@ -7,7 +7,6 @@
 #pragma once
 
 #include "room/plugins/plugintext.h"
-class QObject;
 #include <QVariant>
 
 class WebShortcutTextPlugin : public PluginText
