@@ -32,6 +32,9 @@ bool AppsMarketPlaceFilterProxyModel::filterAcceptsRow(int source_row, const QMo
     }
     if (!mFilterInfo.categories.isEmpty()) {
         const QStringList categories = modelIndex.data(AppsMarketPlaceModel::Categories).toStringList();
+        if (categories.isEmpty()) {
+            return true;
+        }
         bool found = false;
         for (const QString &cat : std::as_const(mFilterInfo.categories)) {
             if (categories.contains(cat)) {
