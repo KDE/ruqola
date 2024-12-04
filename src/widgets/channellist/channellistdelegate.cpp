@@ -174,12 +174,13 @@ void ChannelListDelegate::paint(QPainter *painter, const QStyleOptionViewItem &o
         }
         QRect mentionRect =
             QRect(layout.unreadRect.x(), layout.unreadRect.y(), qMax(layout.unreadRect.width(), layout.unreadRect.height()), layout.unreadRect.height());
+
         mentionRect.moveRight(layout.unreadRect.right());
         painter->setPen(Qt::NoPen);
         painter->setRenderHint(QPainter::Antialiasing);
         painter->drawEllipse(mentionRect);
         painter->setPen(Qt::white);
-        painter->drawText(layout.unreadRect, Qt::AlignCenter, layout.unreadText);
+        painter->drawText(mentionRect.adjusted(1, -1, 0, 0), Qt::AlignCenter, layout.unreadText);
         painter->restore();
     }
 }
