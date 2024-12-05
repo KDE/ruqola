@@ -1291,10 +1291,11 @@ void RocketChatAccount::loadMoreListMessages(const QByteArray &roomId)
                 restApi()->getMentionedMessages(roomId, offset, qMin(50, mListMessageModel->total() - offset));
                 break;
             case ListMessagesModel::ThreadsMessages:
-                restApi()->getThreadsList(roomId, false, offset, qMin(50, mListMessageModel->total() - offset));
+                // TODO allow to search by type
+                restApi()->getThreadsList(roomId, false, offset, qMin(50, mListMessageModel->total() - offset), hasAtLeastVersion(7, 0, 0));
                 break;
             case ListMessagesModel::UnreadThreadsMessages:
-                restApi()->getThreadsList(roomId, true, offset, qMin(50, mListMessageModel->total() - offset));
+                restApi()->getThreadsList(roomId, true, offset, qMin(50, mListMessageModel->total() - offset), hasAtLeastVersion(7, 0, 0));
                 break;
             }
         }
@@ -2363,7 +2364,7 @@ void RocketChatAccount::threadsInRoom(const QByteArray &roomId, bool onlyUnread)
     if (threadsEnabled()) {
         mListMessageModel->clear();
         mListMessageModel->setRoomId(roomId);
-        restApi()->getThreadsList(roomId, onlyUnread);
+        restApi()->getThreadsList(roomId, onlyUnread, 0, 50, hasAtLeastVersion(7, 0, 0));
     }
 }
 

@@ -1511,9 +1511,10 @@ void Connection::getDiscussions(const QByteArray &roomId, int offset, int count)
     }
 }
 
-void Connection::getThreadsList(const QByteArray &roomId, bool onlyUnread, int offset, int count)
+void Connection::getThreadsList(const QByteArray &roomId, bool onlyUnread, int offset, int count, bool useSyntaxRc70)
 {
     auto job = new GetThreadsJob(this);
+    job->setUseSyntaxRc70(useSyntaxRc70);
     initializeRestApiJob(job);
     job->setRoomId(QString::fromLatin1(roomId));
     QueryParameters parameters;
