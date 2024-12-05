@@ -161,8 +161,8 @@ void MyAccountPersonalAccessTokenConfigureWidget::slotRemoveToken(const QString 
 
             mRocketChatAccount->restApi()->initializeRestApiJob(job);
             connect(job, &RocketChatRestApi::RemovePersonalAccessTokenJob::removeTokenDone, this, [this, tokenName]() {
-                KMessageBox::information(this, i18n("Personal Token removed."), i18nc("@title:window", "Remove Personal Token"));
                 mPersonalAccessTokenModel->removeToken(tokenName);
+                KMessageBox::information(this, i18n("Personal Token removed."), i18nc("@title:window", "Remove Personal Token"));
             });
             if (!job->start()) {
                 qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start RemovePersonalAccessTokenJob job";
