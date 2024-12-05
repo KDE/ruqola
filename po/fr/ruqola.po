@@ -5,8 +5,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-12-04 00:40+0000\n"
-"PO-Revision-Date: 2024-11-30 16:02+0100\n"
+"POT-Creation-Date: 2024-12-05 00:40+0000\n"
+"PO-Revision-Date: 2024-12-03 10:26+0100\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
 "Language-Team: French <French <kde-francophone@kde.org>>\n"
 "Language: fr\n"
@@ -186,206 +186,206 @@ msgstr "mois"
 msgid "year"
 msgstr "année"
 
-#: core/apps/appsmarketplaceinfo.cpp:379 core/model/adminrolesmodel.cpp:40
+#: core/apps/appsmarketplaceinfo.cpp:377 core/model/adminrolesmodel.cpp:40
 #: widgets/administratorsettingsdialog/ircfederation/ircfederationwidget.cpp:50
 #, kde-format
 msgid "Description"
 msgstr "Description"
 
-#: core/apps/appsmarketplaceinfo.cpp:381
+#: core/apps/appsmarketplaceinfo.cpp:379
 #: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:163
 #, kde-format
 msgid "Version"
 msgstr "Version"
 
-#: core/apps/appsmarketplaceinfo.cpp:384 core/model/appscategoriesmodel.cpp:34
+#: core/apps/appsmarketplaceinfo.cpp:382 core/model/appscategoriesmodel.cpp:34
 #, kde-format
 msgid "Categories"
 msgstr "Catégories"
 
-#: core/apps/appsmarketplaceinfo.cpp:388
+#: core/apps/appsmarketplaceinfo.cpp:386
 #, kde-format
 msgid "Documentation"
 msgstr "Documentation"
 
-#: core/apps/appsmarketplaceinfo.cpp:393
+#: core/apps/appsmarketplaceinfo.cpp:391
 #, kde-format
 msgid "Author"
 msgstr "Auteur"
 
-#: core/apps/appsmarketplaceinfo.cpp:399
+#: core/apps/appsmarketplaceinfo.cpp:397
 #, kde-format
 msgid "Homepage"
 msgstr "Page d'accueil"
 
-#: core/apps/appsmarketplaceinfo.cpp:405
+#: core/apps/appsmarketplaceinfo.cpp:403
 #, kde-format
 msgid "Support"
 msgstr "Aide"
 
-#: core/apps/appsmarketplaceinfo.cpp:409
+#: core/apps/appsmarketplaceinfo.cpp:407
 #, kde-format
 msgid "Privacy Summary"
 msgstr "Résumé des renseignements personnels"
 
-#: core/apps/appsmarketplaceinfo.cpp:413
+#: core/apps/appsmarketplaceinfo.cpp:411
 #: widgets/administratordialog/administratorwidget.cpp:74
 #, kde-format
 msgid "Permissions"
 msgstr "Droits d'accès"
 
-#: core/apps/appsmarketplaceinfo.cpp:536
+#: core/apps/appsmarketplaceinfo.cpp:534
 #, kde-format
 msgid "Access messages"
 msgstr "Accéder aux messages"
 
-#: core/apps/appsmarketplaceinfo.cpp:538
+#: core/apps/appsmarketplaceinfo.cpp:536
 #, kde-format
 msgid "Send and modify messages"
 msgstr "Envoyer et modifier des messages"
 
-#: core/apps/appsmarketplaceinfo.cpp:540
+#: core/apps/appsmarketplaceinfo.cpp:538
 #, kde-format
 msgid "Access room information"
 msgstr "Accéder aux informations sur les salons"
 
-#: core/apps/appsmarketplaceinfo.cpp:542
+#: core/apps/appsmarketplaceinfo.cpp:540
 #, kde-format
 msgid "Create and modify rooms"
 msgstr "Créer et modifier des salons"
 
-#: core/apps/appsmarketplaceinfo.cpp:544
+#: core/apps/appsmarketplaceinfo.cpp:542
 #, kde-format
 msgid "Access to this server network"
 msgstr "Accéder à ce réseau de serveurs"
 
-#: core/apps/appsmarketplaceinfo.cpp:546
+#: core/apps/appsmarketplaceinfo.cpp:544
 #, kde-format
 msgid "Access user information"
 msgstr "Accéder aux informations de comptes"
 
-#: core/apps/appsmarketplaceinfo.cpp:548
+#: core/apps/appsmarketplaceinfo.cpp:546
 #, kde-format
 msgid "Modify user information"
 msgstr "Modifier les informations de comptes"
 
-#: core/apps/appsmarketplaceinfo.cpp:550
+#: core/apps/appsmarketplaceinfo.cpp:548
 #, kde-format
 msgid "Register new slash commands"
 msgstr "Enregistrer de nouvelles commandes"
 
-#: core/apps/appsmarketplaceinfo.cpp:552
+#: core/apps/appsmarketplaceinfo.cpp:550
 #, kde-format
 msgid "Register and maintain scheduled jobs"
 msgstr "Enregistrer et maintenir les tâches planifiées"
 
-#: core/apps/appsmarketplaceinfo.cpp:554
+#: core/apps/appsmarketplaceinfo.cpp:552
 #, kde-format
 msgid "Register new HTTP endpoints"
 msgstr "Enregistrer de nouveaux points de terminaison « HTTP »"
 
-#: core/apps/appsmarketplaceinfo.cpp:556
+#: core/apps/appsmarketplaceinfo.cpp:554
 #, kde-format
 msgid "Access settings in this server"
 msgstr "Accéder aux paramètres de ce serveur"
 
-#: core/apps/appsmarketplaceinfo.cpp:558
+#: core/apps/appsmarketplaceinfo.cpp:556
 #, kde-format
 msgid "Modify settings in this server"
 msgstr "Modifier les paramètres dans ce serveur"
 
-#: core/apps/appsmarketplaceinfo.cpp:560
+#: core/apps/appsmarketplaceinfo.cpp:558
 #, kde-format
 msgid "Upload files to this server"
 msgstr "Envoyer des fichiers sur le serveur"
 
-#: core/apps/appsmarketplaceinfo.cpp:562
+#: core/apps/appsmarketplaceinfo.cpp:560
 #, kde-format
 msgid "Access files uploaded to this server"
 msgstr "Accéder aux fichiers téléchargés sur ce serveur"
 
-#: core/apps/appsmarketplaceinfo.cpp:564
+#: core/apps/appsmarketplaceinfo.cpp:562
 #, kde-format
 msgid "Interact with Cloud Services on behalf of this server"
 msgstr "Interagir avec les services de Cloud au nom de ce serveur"
 
-#: core/apps/appsmarketplaceinfo.cpp:566
+#: core/apps/appsmarketplaceinfo.cpp:564
 #, kde-format
 msgid "Access minimal information about this server environment"
 msgstr ""
 "Accéder aux informations minimales concernant cet environnement de serveur"
 
-#: core/apps/appsmarketplaceinfo.cpp:568
+#: core/apps/appsmarketplaceinfo.cpp:566
 #, kde-format
 msgid "Access to multiple Livechat departments information"
 msgstr "Accéder aux informations de plusieurs départements de Livechat"
 
-#: core/apps/appsmarketplaceinfo.cpp:570
+#: core/apps/appsmarketplaceinfo.cpp:568
 #, kde-format
 msgid "Access Livechat department information"
 msgstr "Accéder aux informations de département de Livechat"
 
-#: core/apps/appsmarketplaceinfo.cpp:572
+#: core/apps/appsmarketplaceinfo.cpp:570
 #, kde-format
 msgid "Modify Livechat department information"
 msgstr "Modifier les informations de département de Livechat"
 
-#: core/apps/appsmarketplaceinfo.cpp:574
+#: core/apps/appsmarketplaceinfo.cpp:572
 #, kde-format
 msgid "Modify Livechat room information"
 msgstr "Modifier les informations de la salon de Livechat"
 
-#: core/apps/appsmarketplaceinfo.cpp:576
+#: core/apps/appsmarketplaceinfo.cpp:574
 #, kde-format
 msgid "Access Livechat room information"
 msgstr "Accéder aux informations de salons de Livechat"
 
-#: core/apps/appsmarketplaceinfo.cpp:578
+#: core/apps/appsmarketplaceinfo.cpp:576
 #, kde-format
 msgid "Modify Livechat message information"
 msgstr "Modifier les informations du message de Livechat"
 
-#: core/apps/appsmarketplaceinfo.cpp:580
+#: core/apps/appsmarketplaceinfo.cpp:578
 #, kde-format
 msgid "Access Livechat message information"
 msgstr "Accéder aux informations de messages de Livechat"
 
-#: core/apps/appsmarketplaceinfo.cpp:582
+#: core/apps/appsmarketplaceinfo.cpp:580
 #, kde-format
 msgid "Modify Livechat visitor information"
 msgstr "Modifier les informations des visiteurs de Livechat"
 
-#: core/apps/appsmarketplaceinfo.cpp:584
+#: core/apps/appsmarketplaceinfo.cpp:582
 #, kde-format
 msgid "Access Livechat visitor information"
 msgstr "Accéder aux informations de visiteurs de Livechat"
 
-#: core/apps/appsmarketplaceinfo.cpp:586
+#: core/apps/appsmarketplaceinfo.cpp:584
 #, kde-format
 msgid "Access Livechat status information"
 msgstr "Accéder aux informations d'état de Livechat"
 
-#: core/apps/appsmarketplaceinfo.cpp:588
+#: core/apps/appsmarketplaceinfo.cpp:586
 #, kde-format
 msgid "Interact with the UI"
 msgstr "Interagir avec l'interface utilisateur"
 
-#: core/apps/appsmarketplaceinfo.cpp:590
+#: core/apps/appsmarketplaceinfo.cpp:588
 #, kde-format
 msgid "Store internal data in the database"
 msgstr "Enregistrer les données internes dans la base de données"
 
-#: core/apps/appsmarketplaceinfo.cpp:592
+#: core/apps/appsmarketplaceinfo.cpp:590
 #, kde-format
 msgid "Modify Livechat custom field configuration"
 msgstr "Modifier la configuration de champs personnalisés de Livechat"
 
-#: core/apps/appsmarketplaceinfo.cpp:602
+#: core/apps/appsmarketplaceinfo.cpp:600
 #, kde-format
 msgid "Allow to write oauth app settings"
 msgstr ""
 
-#: core/apps/appsmarketplaceinfo.cpp:604
+#: core/apps/appsmarketplaceinfo.cpp:602
 #, kde-format
 msgid "Allow to read oauth app settings"
 msgstr ""
@@ -1745,7 +1745,7 @@ msgctxt "WARNING!!!!!!: PLEASE We need a space between after </strong>"
 msgid "<strong>%1</strong> are typing..."
 msgstr "<strong>%1</strong>sont en train d'écrire des messages..."
 
-#: core/rocketchataccount.cpp:700
+#: core/rocketchataccount.cpp:703
 #, kde-format
 msgid ""
 "REST: %1\n"
@@ -1754,12 +1754,12 @@ msgstr ""
 "REST : %1\n"
 "DDP : %2"
 
-#: core/rocketchataccount.cpp:708 core/rocketchataccount.cpp:720
+#: core/rocketchataccount.cpp:711 core/rocketchataccount.cpp:723
 #, kde-format
 msgid "Not connected"
 msgstr "Non connecté"
 
-#: core/rocketchataccount.cpp:715
+#: core/rocketchataccount.cpp:718
 #, kde-format
 msgid "Not connected yet"
 msgstr "Pas encore connecté"
@@ -7087,12 +7087,10 @@ msgid "Search Requested Applications"
 msgstr "Rechercher les applications nécessaires"
 
 #: widgets/applicationssettingsdialog/applicationssettingssearchwidget.cpp:89
-#, fuzzy, kde-format
-#| msgctxt "@info:placeholder"
-#| msgid "Search Applications"
+#, kde-format
 msgctxt "@info:placeholder"
 msgid "Search Private Applications"
-msgstr "Rechercher des applications"
+msgstr "Rechercher des applications privées"
 
 #: widgets/applicationssettingsdialog/applicationssettingssortingcombobox.cpp:12
 #, kde-format
@@ -7128,15 +7126,15 @@ msgstr "Activé"
 #, kde-format
 msgid "%1 app enabled"
 msgid_plural "%1 apps enabled"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Application %1 activée"
+msgstr[1] "%1 applications activées"
 
 #: widgets/applicationssettingsdialog/appscountinfowidget.cpp:54
 #, kde-format
 msgid "%1 private app enabled"
 msgid_plural "%1 private apps enabled"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Application privée %1 activée"
+msgstr[1] "%1 applications privées activées"
 
 #: widgets/bannerinfodialog/bannerinfodialog.cpp:27
 #, kde-format
@@ -10841,12 +10839,10 @@ msgid "Installed Applications…"
 msgstr "Applications installées..."
 
 #: widgets/ruqolamainwindow.cpp:552
-#, fuzzy, kde-format
-#| msgctxt "@action"
-#| msgid "Applications…"
+#, kde-format
 msgctxt "@action"
 msgid "Private Applications…"
-msgstr "Applications…"
+msgstr "Applications privées…"
 
 #: widgets/ruqolamainwindow.cpp:558
 #, kde-format
