@@ -196,6 +196,12 @@ void SettingsWidgetBase::addLineEdit(const QString &labelStr, QLineEdit *lineEdi
     auto restoreToolButton = addRestoreButton(variable);
     layout->addWidget(restoreToolButton);
     setTabOrder(toolButton, restoreToolButton);
+
+    connect(restoreToolButton, &QToolButton::clicked, this, [variable, lineEdit, this]() {
+        lineEdit->setText(lineEdit->property(s_property_default_value).toString());
+        Q_EMIT changedChanceled(variable);
+    });
+
     connect(this, &SettingsWidgetBase::changedDone, this, [toolButton, lineEdit, restoreToolButton](const QString &buttonName) {
         if (toolButton->objectName() == buttonName) {
             toolButton->setEnabled(false);
@@ -256,6 +262,12 @@ void SettingsWidgetBase::addPlainTextEdit(const QString &labelStr, QPlainTextEdi
     auto restoreToolButton = addRestoreButton(variable);
     layout->addWidget(restoreToolButton, 0, Qt::AlignTop);
     setTabOrder(toolButton, restoreToolButton);
+
+    connect(restoreToolButton, &QToolButton::clicked, this, [variable, plainTextEdit, this]() {
+        plainTextEdit->setPlainText(plainTextEdit->property(s_property_default_value).toString());
+        Q_EMIT changedChanceled(variable);
+    });
+
     connect(toolButton, &QToolButton::clicked, this, [this, variable, plainTextEdit, toolButton]() {
         if (!updateSettings(variable,
                             plainTextEdit->toPlainText(),
@@ -348,6 +360,12 @@ void SettingsWidgetBase::addComboBox(const QString &labelStr, const QMap<QString
     auto restoreToolButton = addRestoreButton(variable);
     layout->addWidget(restoreToolButton);
     setTabOrder(toolButton, restoreToolButton);
+
+    connect(restoreToolButton, &QToolButton::clicked, this, [variable, comboBox, this]() {
+        comboBox->setCurrentIndex(comboBox->findData(comboBox->property(s_property_default_value).toString()));
+        Q_EMIT changedChanceled(variable);
+    });
+
     connect(toolButton, &QToolButton::clicked, this, [this, variable, comboBox, toolButton]() {
         if (!updateSettings(variable,
                             comboBox->currentData().toString(),
