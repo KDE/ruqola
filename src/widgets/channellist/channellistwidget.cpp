@@ -332,9 +332,8 @@ void ChannelListWidget::setLayoutSpacing(int spacing)
 
 void ChannelListWidget::applyChannelSelection()
 {
-    const auto selectedIndex = mChannelView->selectionModel()->currentIndex();
+    const auto selectedIndex = mChannelView->filterModel()->mapToSource(mChannelView->selectionModel()->currentIndex());
     if (selectedIndex.isValid()) {
-        mChannelView->channelSelected(selectedIndex);
         mSearchRoomLineEdit->clear();
     }
 }
