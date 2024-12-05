@@ -92,8 +92,8 @@ void MessageTextEdit::switchAutoCorrectionLanguage(const QString &lang)
         settings->setLanguage(lang);
         Ruqola::self()->autoCorrection()->setAutoCorrectionSettings(settings);
     }
-#endif
     qDebug() << " MessageTextEdit::switchAutoCorrectionLanguage " << lang;
+#endif
 }
 
 void MessageTextEdit::loadSpellCheckingSettings()
