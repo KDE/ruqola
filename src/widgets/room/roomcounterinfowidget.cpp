@@ -14,6 +14,7 @@ RoomCounterInfoWidget::RoomCounterInfoWidget(QWidget *parent)
     setCloseButtonVisible(false);
     setMessageType(Information);
     setPosition(KMessageWidget::Header);
+    setTextFormat(Qt::PlainText);
 
     auto jumpToFirstUnreadAction = new QAction(QIcon::fromTheme(QStringLiteral("go-jump-locationbar")), i18nc("@action:button", "Jump to First Unread"));
     connect(jumpToFirstUnreadAction, &QAction::triggered, this, [this] {

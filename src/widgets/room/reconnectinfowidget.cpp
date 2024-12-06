@@ -19,6 +19,7 @@ ReconnectInfoWidget::ReconnectInfoWidget(QWidget *parent)
     setVisible(false);
     setCloseButtonVisible(false);
     setMessageType(Information);
+    setTextFormat(Qt::RichText);
     setPosition(KMessageWidget::Header);
     mDelayTimer->setSingleShot(true);
     mDelayTimer->setInterval(1s);

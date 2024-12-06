@@ -32,6 +32,7 @@ ImportDataFinishPage::ImportDataFinishPage(QWidget *parent)
     mMessageWidget->setMessageType(KMessageWidget::Information);
     mMessageWidget->setWordWrap(true);
     mMessageWidget->setText(i18n("Accounts imported."));
+    mMessageWidget->setTextFormat(Qt::PlainText);
     mainLayout->addWidget(mMessageWidget);
 
     mDetails->setObjectName(QStringLiteral("mDetails"));

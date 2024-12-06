@@ -14,6 +14,7 @@ E2eDecodeEncryptionKeyWidget::E2eDecodeEncryptionKeyWidget(QWidget *parent)
     setCloseButtonVisible(false);
     setMessageType(Information);
     setPosition(KMessageWidget::Header);
+    setTextFormat(Qt::PlainText);
     setText(i18n("Click here to enter your e2e password."));
 
     auto decodeEncryptionKeyAction = new QAction(i18nc("@action", "Decode Encryption Key"), this);

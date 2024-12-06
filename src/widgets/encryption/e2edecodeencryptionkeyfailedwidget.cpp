@@ -14,6 +14,7 @@ E2eDecodeEncryptionKeyFailedWidget::E2eDecodeEncryptionKeyFailedWidget(QWidget *
     setCloseButtonVisible(true);
     setMessageType(Error);
     setPosition(KMessageWidget::Header);
+    setTextFormat(Qt::PlainText);
     setText(i18n("It was not possible to decode your encryption key to be imported. Your encryption password seems wrong."));
 
     auto decodeEncryptionKeyAction = new QAction(i18nc("@action", "Decrypt Encryption Key"), this);

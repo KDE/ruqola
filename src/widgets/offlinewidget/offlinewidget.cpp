@@ -15,6 +15,7 @@ OffLineWidget::OffLineWidget(QWidget *parent)
     setCloseButtonVisible(false);
     setMessageType(Information);
     setText(i18n("Network is offline mode."));
+    setTextFormat(Qt::PlainText);
 }
 
 OffLineWidget::~OffLineWidget() = default;

@@ -17,6 +17,7 @@ OtrWidget::OtrWidget(QWidget *parent)
     setMessageType(Information);
     setPosition(KMessageWidget::Header);
     setText(i18n("Otr Activated"));
+    setTextFormat(Qt::PlainText);
     auto endOtrAction = new QAction(i18nc("@action", "End OTR"), this);
     endOtrAction->setObjectName(QStringLiteral("endOtrAction"));
     connect(endOtrAction, &QAction::triggered, this, &OtrWidget::closeOtr);

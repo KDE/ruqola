@@ -19,6 +19,7 @@ NeedUpdateVersionWidget::NeedUpdateVersionWidget(QWidget *parent)
     setVisible(false);
     setPosition(KMessageWidget::Header);
     setCloseButtonVisible(true);
+    setTextFormat(Qt::PlainText);
     auto action = new QAction(i18nc("@action", "Disable version check"), this);
     addAction(action);
     connect(action, &QAction::triggered, this, &NeedUpdateVersionWidget::slotDisableVersionCheck);

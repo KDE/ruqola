@@ -36,6 +36,7 @@ ExportDataFinishPage::ExportDataFinishPage(QWidget *parent)
     mMessageWidget->setMessageType(KMessageWidget::Information);
     mMessageWidget->setWordWrap(true);
     mMessageWidget->setText(i18n("Accounts Exported."));
+    mMessageWidget->setTextFormat(Qt::PlainText);
     mainLayout->addWidget(mMessageWidget);
 
     mainLayout->addWidget(mDetails);
