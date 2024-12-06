@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-11-27 02:32+0000\n"
+"POT-Creation-Date: 2024-12-06 02:30+0000\n"
 "PO-Revision-Date: 2024-10-08 22:03+0300\n"
 "Last-Translator: Moo\n"
 "Language-Team: none\n"
@@ -1527,13 +1527,13 @@ msgctxt "We need a space between after </strong>"
 msgid "<strong>%1</strong> are typing..."
 msgstr "<strong>%1</strong> rašo..."
 
-#: core/rocketchataccount.cpp:3045
+#: core/rocketchataccount.cpp:3046
 #, fuzzy, kde-format
 #| msgid "Encrypted Message"
 msgid "Export Messages"
 msgstr "Šifruota žinutė"
 
-#: core/rocketchataccount.cpp:3046
+#: core/rocketchataccount.cpp:3047
 #, kde-format
 msgid "Your email has been queued for sending."
 msgstr ""
@@ -9252,13 +9252,13 @@ msgctxt "@title:window"
 msgid "Personal Token Created"
 msgstr "Ieškoti žinučių..."
 
-#: widgets/myaccount/myaccountpersonalaccesstokenconfigurewidget.cpp:164
+#: widgets/myaccount/myaccountpersonalaccesstokenconfigurewidget.cpp:165
 #, fuzzy, kde-format
 #| msgid "Search Messages..."
 msgid "Personal Token removed."
 msgstr "Ieškoti žinučių..."
 
-#: widgets/myaccount/myaccountpersonalaccesstokenconfigurewidget.cpp:164
+#: widgets/myaccount/myaccountpersonalaccesstokenconfigurewidget.cpp:165
 #, fuzzy, kde-format
 #| msgid "Remove from Room"
 msgctxt "@title:window"

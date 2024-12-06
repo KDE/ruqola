@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-11-27 02:32+0000\n"
+"POT-Creation-Date: 2024-12-06 02:30+0000\n"
 "PO-Revision-Date: 2024-11-10 20:20+0100\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
@@ -1469,12 +1469,12 @@ msgctxt "We need a space between after </strong>"
 msgid "<strong>%1</strong> are typing..."
 msgstr "<strong>%1</strong> tekleatzen ari dira..."
 
-#: core/rocketchataccount.cpp:3045
+#: core/rocketchataccount.cpp:3046
 #, kde-format
 msgid "Export Messages"
 msgstr "Esportatu mezuak"
 
-#: core/rocketchataccount.cpp:3046
+#: core/rocketchataccount.cpp:3047
 #, kde-format
 msgid "Your email has been queued for sending."
 msgstr "Zure e-posta bidaltzeko ilaran ipini da."
@@ -8950,12 +8950,12 @@ msgctxt "@title:window"
 msgid "Personal Token Created"
 msgstr "Token pertsonala sortu da"
 
-#: widgets/myaccount/myaccountpersonalaccesstokenconfigurewidget.cpp:164
+#: widgets/myaccount/myaccountpersonalaccesstokenconfigurewidget.cpp:165
 #, kde-format
 msgid "Personal Token removed."
 msgstr "Token pertsonala kendu da."
 
-#: widgets/myaccount/myaccountpersonalaccesstokenconfigurewidget.cpp:164
+#: widgets/myaccount/myaccountpersonalaccesstokenconfigurewidget.cpp:165
 #, kde-format
 msgctxt "@title:window"
 msgid "Remove Personal Token"
