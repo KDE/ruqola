@@ -124,6 +124,7 @@ private:
     LIBRUQOLAWIDGETS_NO_EXPORT void slotShowLogsFile();
     LIBRUQOLAWIDGETS_NO_EXPORT void slotShowRestApiLogsFile();
     LIBRUQOLAWIDGETS_NO_EXPORT void applicationSettings(ApplicationsSettingsSearchWidget::Feature feature);
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotPrivateApplicationsSettings();
 
     bool mReallyClose{false};
 
@@ -186,6 +187,7 @@ private:
     QAction *mRoomListDisplayExtended = nullptr;
     QWidget *mContainerStatusInfo = nullptr;
     QAction *mClearRoomHistory = nullptr;
+    QAction *mPrivateApplications = nullptr;
     MessageStyleLayoutMenu *mMessageStyleAction = nullptr;
     ChangeFontSizeMenu *mChangeFontSizeAction = nullptr;
 #if defined(Q_OS_WIN) || defined(Q_OS_MACOS)
