@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-12-05 00:40+0000\n"
+"POT-Creation-Date: 2024-12-06 00:40+0000\n"
 "PO-Revision-Date: 2024-12-03 05:57+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
@@ -6517,9 +6517,9 @@ msgstr "პირად შეტყობინებების მაქს�
 
 #: widgets/administratorsettingsdialog/settingswidgetbase.cpp:122
 #: widgets/administratorsettingsdialog/settingswidgetbase.cpp:188
-#: widgets/administratorsettingsdialog/settingswidgetbase.cpp:250
-#: widgets/administratorsettingsdialog/settingswidgetbase.cpp:297
-#: widgets/administratorsettingsdialog/settingswidgetbase.cpp:342
+#: widgets/administratorsettingsdialog/settingswidgetbase.cpp:256
+#: widgets/administratorsettingsdialog/settingswidgetbase.cpp:309
+#: widgets/administratorsettingsdialog/settingswidgetbase.cpp:354
 #, kde-format
 msgid "Apply"
 msgstr "გამოყენება"
@@ -9304,12 +9304,12 @@ msgctxt "@title:window"
 msgid "Personal Token Created"
 msgstr "პირადი კოდი შეიქმნა"
 
-#: widgets/myaccount/myaccountpersonalaccesstokenconfigurewidget.cpp:164
+#: widgets/myaccount/myaccountpersonalaccesstokenconfigurewidget.cpp:165
 #, kde-format
 msgid "Personal Token removed."
 msgstr "პირადი კოდი წაშლილია."
 
-#: widgets/myaccount/myaccountpersonalaccesstokenconfigurewidget.cpp:164
+#: widgets/myaccount/myaccountpersonalaccesstokenconfigurewidget.cpp:165
 #, kde-format
 msgctxt "@title:window"
 msgid "Remove Personal Token"
