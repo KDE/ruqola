@@ -104,6 +104,8 @@ void DirectoryWidget::slotOpen(const QModelIndex &index)
             mRocketChatAccount->openPrivateGroup(QString::fromLatin1(channelId), RocketChatAccount::ChannelTypeInfo::RoomId);
         } else if (channelType == "c"_L1) {
             mRocketChatAccount->openChannel(QString::fromLatin1(channelId), RocketChatAccount::ChannelTypeInfo::RoomId);
+        } else {
+            qCWarning(RUQOLAWIDGETS_LOG) << " Unknown channel type " << channelType;
         }
         break;
     }
