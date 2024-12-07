@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-12-06 00:40+0000\n"
+"POT-Creation-Date: 2024-12-07 00:40+0000\n"
 "PO-Revision-Date: 2024-12-03 09:52+0200\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
@@ -3552,7 +3552,7 @@ msgstr "Користувача не знайдено"
 
 #: widgets/administratordialog/roles/usersinrolewidget.cpp:124
 #: widgets/administratordialog/users/administratoruserswidget.cpp:357
-#: widgets/directory/directorywidget.cpp:215
+#: widgets/directory/directorywidget.cpp:217
 #, kde-format
 msgid "%1 user (Total: %2)"
 msgid_plural "%1 users (Total: %2)"
@@ -3687,7 +3687,7 @@ msgid "No room found"
 msgstr "Кімнати не знайдено"
 
 #: widgets/administratordialog/rooms/administratorroomswidget.cpp:81
-#: widgets/directory/directorywidget.cpp:212
+#: widgets/directory/directorywidget.cpp:214
 #, kde-format
 msgid "%1 room (Total: %2)"
 msgid_plural "%1 rooms (Total: %2)"
@@ -7281,7 +7281,7 @@ msgid "Username or email:"
 msgstr "Ім'я користувача або адреса ел. пошти:"
 
 #: widgets/common/authenticationloginwidget.cpp:159
-#: widgets/ruqolamainwindow.cpp:1045
+#: widgets/ruqolamainwindow.cpp:1043
 #, kde-format
 msgid ""
 "We have sent you an email to confirm your registration.\n"
@@ -7293,7 +7293,7 @@ msgstr ""
 "поверніться сюди і повторіть спробу."
 
 #: widgets/common/authenticationloginwidget.cpp:160
-#: widgets/ruqolamainwindow.cpp:1046
+#: widgets/ruqolamainwindow.cpp:1044
 #, kde-format
 msgctxt "@title:window"
 msgid "Register New User"
@@ -8369,7 +8369,7 @@ msgid "Reset Avatar"
 msgstr "Скинути аватар"
 
 #: widgets/dialogs/roomavatarwidget.cpp:35
-#: widgets/room/roomquotemessagewidget.cpp:20
+#: widgets/room/roomquotemessagewidget.cpp:21
 #: widgets/room/roomreplythreadwidget.cpp:21
 #, kde-format
 msgctxt "@action"
@@ -8663,22 +8663,22 @@ msgctxt "@action"
 msgid "Open Private Message…"
 msgstr "Відкрити конфіденційне повідомлення…"
 
-#: widgets/directory/directorywidget.cpp:196
+#: widgets/directory/directorywidget.cpp:198
 #, kde-format
 msgid "No Room found"
 msgstr "Кімнати не знайдено"
 
-#: widgets/directory/directorywidget.cpp:198
+#: widgets/directory/directorywidget.cpp:200
 #, kde-format
 msgid "No User found"
 msgstr "Користувача не знайдено"
 
-#: widgets/directory/directorywidget.cpp:200
+#: widgets/directory/directorywidget.cpp:202
 #, kde-format
 msgid "No Team found"
 msgstr "Команди не знайдено"
 
-#: widgets/directory/directorywidget.cpp:218
+#: widgets/directory/directorywidget.cpp:220
 #, kde-format
 msgid "%1 team (Total: %2)"
 msgid_plural "%1 teams (Total: %2)"
@@ -8768,7 +8768,7 @@ msgstr ""
 msgid "Copy password"
 msgstr "Копіювати пароль"
 
-#: widgets/encryption/e2edecodeencryptionkeyfailedwidget.cpp:17
+#: widgets/encryption/e2edecodeencryptionkeyfailedwidget.cpp:18
 #, kde-format
 msgid ""
 "It was not possible to decode your encryption key to be imported. Your "
@@ -8777,18 +8777,18 @@ msgstr ""
 "Не вдалося декодувати ваш ключ шифрування, який має бути імпортовано. "
 "Здається, вказаний вами пароль шифрування є помилковим."
 
-#: widgets/encryption/e2edecodeencryptionkeyfailedwidget.cpp:19
+#: widgets/encryption/e2edecodeencryptionkeyfailedwidget.cpp:20
 #, kde-format
 msgctxt "@action"
 msgid "Decrypt Encryption Key"
 msgstr "Розшифрувати ключ шифрування"
 
-#: widgets/encryption/e2edecodeencryptionkeywidget.cpp:17
+#: widgets/encryption/e2edecodeencryptionkeywidget.cpp:18
 #, kde-format
 msgid "Click here to enter your e2e password."
 msgstr "Натисніть тут, щоб ввести ваш пароль e2e."
 
-#: widgets/encryption/e2edecodeencryptionkeywidget.cpp:19
+#: widgets/encryption/e2edecodeencryptionkeywidget.cpp:20
 #, kde-format
 msgctxt "@action"
 msgid "Decode Encryption Key"
@@ -8815,7 +8815,7 @@ msgstr ""
 "повідомлень на кожному використаному вами клієнті, оскільки ключ не "
 "зберігається на сервері."
 
-#: widgets/encryption/e2esaveencryptionkeywidget.cpp:17
+#: widgets/encryption/e2esaveencryptionkeywidget.cpp:18
 #, kde-format
 msgid ""
 "Save your encryption password. Click here to view and copy your password."
@@ -8823,7 +8823,7 @@ msgstr ""
 "Збережіть ваш пароль шифрування. Натисніть тут, щоб переглянути і скопіювати "
 "ваш пароль."
 
-#: widgets/encryption/e2esaveencryptionkeywidget.cpp:19
+#: widgets/encryption/e2esaveencryptionkeywidget.cpp:20
 #, kde-format
 msgctxt "@action"
 msgid "Save Encryption Key"
@@ -9698,24 +9698,24 @@ msgstr "Вилучення облікового запису"
 msgid "Current Password"
 msgstr "Поточний пароль"
 
-#: widgets/needupdateversion/needupdateversionwidget.cpp:22
+#: widgets/needupdateversion/needupdateversionwidget.cpp:23
 #, kde-format
 msgctxt "@action"
 msgid "Disable version check"
 msgstr "Вимкнути перевірку версій"
 
-#: widgets/needupdateversion/needupdateversionwidget.cpp:26
+#: widgets/needupdateversion/needupdateversionwidget.cpp:27
 #, kde-format
 msgctxt "@action"
 msgid "Check new Version"
 msgstr "Шукати нову версію"
 
-#: widgets/needupdateversion/needupdateversionwidget.cpp:42
+#: widgets/needupdateversion/needupdateversionwidget.cpp:43
 #, kde-format
 msgid "Your version is older than 6 months, we encourage you to upgrade."
 msgstr "Ваша версія застаріла на понад 6 місяців. Ми рекомендуємо її оновити."
 
-#: widgets/needupdateversion/needupdateversionwidget.cpp:47
+#: widgets/needupdateversion/needupdateversionwidget.cpp:48
 #, kde-format
 msgid ""
 "Your version is older than 1 year, we strongly encourage you to upgrade."
@@ -9752,13 +9752,13 @@ msgstr "Мережа у автономному режимі."
 msgid "Otr Activated"
 msgstr "Задіяно режим OTR"
 
-#: widgets/otr/otrwidget.cpp:20
+#: widgets/otr/otrwidget.cpp:21
 #, kde-format
 msgctxt "@action"
 msgid "End OTR"
 msgstr "Завершити OTR"
 
-#: widgets/otr/otrwidget.cpp:25
+#: widgets/otr/otrwidget.cpp:26
 #, kde-format
 msgctxt "@action"
 msgid "Refresh Keys"
@@ -10328,29 +10328,29 @@ msgstr "Блок коду"
 msgid "Markdown Url"
 msgstr "Адреса Markdown"
 
-#: widgets/room/reconnectinfowidget.cpp:73
+#: widgets/room/reconnectinfowidget.cpp:74
 #, kde-format
 msgid "(Try Reconnect)"
 msgstr "(Спроба повторного з'єднання)"
 
-#: widgets/room/reconnectinfowidget.cpp:73
+#: widgets/room/reconnectinfowidget.cpp:74
 #, kde-format
 msgid "%1 seconds before reconnecting. %2"
 msgstr "%1 секунд до повторного з'єднання. %2"
 
-#: widgets/room/roomcounterinfowidget.cpp:18
+#: widgets/room/roomcounterinfowidget.cpp:19
 #, kde-format
 msgctxt "@action:button"
 msgid "Jump to First Unread"
 msgstr "Перейти до першого непрочитаного"
 
-#: widgets/room/roomcounterinfowidget.cpp:25
+#: widgets/room/roomcounterinfowidget.cpp:26
 #, kde-format
 msgctxt "@action:button"
 msgid "Mark as Read"
 msgstr "Позначити як прочитане"
 
-#: widgets/room/roomcounterinfowidget.cpp:60
+#: widgets/room/roomcounterinfowidget.cpp:61
 #, kde-format
 msgid "%1 new message since %2."
 msgid_plural "%1 new messages since %2."
@@ -10446,7 +10446,7 @@ msgstr "Шукати повідомлення…"
 msgid "Team's Information"
 msgstr "Дані щодо команди"
 
-#: widgets/room/roomquotemessagewidget.cpp:29
+#: widgets/room/roomquotemessagewidget.cpp:30
 #, kde-format
 msgid "Quote Message: '%1'"
 msgstr "Цитата повідомлення: «%1»"
@@ -10845,143 +10845,143 @@ msgctxt "@action"
 msgid "Installed Applications…"
 msgstr "Встановлені програми…"
 
-#: widgets/ruqolamainwindow.cpp:552
+#: widgets/ruqolamainwindow.cpp:551
 #, kde-format
 msgctxt "@action"
 msgid "Private Applications…"
 msgstr "Конфіденційні програми…"
 
-#: widgets/ruqolamainwindow.cpp:558
+#: widgets/ruqolamainwindow.cpp:556
 #, kde-format
 msgctxt "Action which allows to search room"
 msgid "Join Room…"
 msgstr "Приєднатися до кімнати…"
 
-#: widgets/ruqolamainwindow.cpp:562
+#: widgets/ruqolamainwindow.cpp:560
 #, kde-format
 msgctxt "Action which allows to search team"
 msgid "Join Team…"
 msgstr "Приєднатися до команди…"
 
-#: widgets/ruqolamainwindow.cpp:566
+#: widgets/ruqolamainwindow.cpp:564
 #, kde-format
 msgctxt "Action which allows to open private conversation (direct user)"
 msgid "Open Private Conversation…"
 msgstr "Відкрити конфіденційне спілкування…"
 
-#: widgets/ruqolamainwindow.cpp:587
+#: widgets/ruqolamainwindow.cpp:585
 #, kde-format
 msgid "&Next Server"
 msgstr "&Наступний сервер"
 
-#: widgets/ruqolamainwindow.cpp:592
+#: widgets/ruqolamainwindow.cpp:590
 #, kde-format
 msgid "&Previous Server"
 msgstr "&Попередній сервер"
 
-#: widgets/ruqolamainwindow.cpp:601
+#: widgets/ruqolamainwindow.cpp:599
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Status:"
 msgstr "Стан:"
 
-#: widgets/ruqolamainwindow.cpp:614
+#: widgets/ruqolamainwindow.cpp:612
 #, kde-format
 msgctxt "@action"
 msgid "Previous Selected Channel"
 msgstr "Попередній вибраний канал"
 
-#: widgets/ruqolamainwindow.cpp:621
+#: widgets/ruqolamainwindow.cpp:619
 #, kde-format
 msgctxt "@action"
 msgid "Next Selected Channel"
 msgstr "Наступний вибраний канал"
 
-#: widgets/ruqolamainwindow.cpp:655
+#: widgets/ruqolamainwindow.cpp:653
 #, kde-format
 msgid "Show Notify History"
 msgstr "Показати журнал сповіщень"
 
-#: widgets/ruqolamainwindow.cpp:659
+#: widgets/ruqolamainwindow.cpp:657
 #, kde-format
 msgctxt "@action"
 msgid "Show RocketChat Information"
 msgstr "Показати відомості щодо RocketChat"
 
-#: widgets/ruqolamainwindow.cpp:663
+#: widgets/ruqolamainwindow.cpp:661
 #, kde-format
 msgctxt "@action"
 msgid "Show Room Avatar"
 msgstr "Показувати аватар кімнати"
 
-#: widgets/ruqolamainwindow.cpp:668
+#: widgets/ruqolamainwindow.cpp:666
 #, kde-format
 msgctxt "@action"
 msgid "Show Favorite Room"
 msgstr "Показувати улюблену кімнату"
 
-#: widgets/ruqolamainwindow.cpp:677
+#: widgets/ruqolamainwindow.cpp:675
 #, kde-format
 msgid "What's new"
 msgstr "Що нового?"
 
-#: widgets/ruqolamainwindow.cpp:681
+#: widgets/ruqolamainwindow.cpp:679
 #, kde-format
 msgid "Import Accounts"
 msgstr "Імпортувати облікові записи"
 
-#: widgets/ruqolamainwindow.cpp:685
+#: widgets/ruqolamainwindow.cpp:683
 #, kde-format
 msgid "Export Accounts"
 msgstr "Експортувати облікові записи"
 
-#: widgets/ruqolamainwindow.cpp:702
+#: widgets/ruqolamainwindow.cpp:700
 #, kde-format
 msgctxt "@action"
 msgid "Medium"
 msgstr "Середній"
 
-#: widgets/ruqolamainwindow.cpp:710
+#: widgets/ruqolamainwindow.cpp:708
 #, kde-format
 msgctxt "@action"
 msgid "Condensed"
 msgstr "Стиснений"
 
-#: widgets/ruqolamainwindow.cpp:719
+#: widgets/ruqolamainwindow.cpp:717
 #, kde-format
 msgctxt "@action"
 msgid "Extended"
 msgstr "Розгорнутий"
 
-#: widgets/ruqolamainwindow.cpp:727
+#: widgets/ruqolamainwindow.cpp:725
 #, kde-format
 msgid "Clear history"
 msgstr "Спорожнити журнал"
 
-#: widgets/ruqolamainwindow.cpp:764
+#: widgets/ruqolamainwindow.cpp:762
 #, kde-format
 msgctxt "@title:window"
 msgid "Create Team"
 msgstr "Створення команди"
 
-#: widgets/ruqolamainwindow.cpp:954
+#: widgets/ruqolamainwindow.cpp:952
 #, kde-format
 msgid "Impossible to open log."
 msgstr "Не вдалося відкрити журнал."
 
-#: widgets/ruqolamainwindow.cpp:954
+#: widgets/ruqolamainwindow.cpp:952
 #, kde-format
 msgctxt "@title:window"
 msgid "Show Log"
 msgstr "Показати журнал"
 
-#: widgets/ruqolamainwindow.cpp:1117
+#: widgets/ruqolamainwindow.cpp:1115
 #, kde-format
 msgctxt "@item:inmenu Instant message presence status"
 msgid "Status"
 msgstr "Стан"
 
-#: widgets/ruqolamainwindow.cpp:1204
+#: widgets/ruqolamainwindow.cpp:1202
 #, kde-format
 msgid ""
 "<qt>This will hide the menu bar completely. You can show it again by typing "
@@ -10990,7 +10990,7 @@ msgstr ""
 "<qt>За допомогою цього пункту можна повністю сховати смужку меню. Наказати "
 "програмі знову показувати цю смужку можна клавіатурним скороченням %1.</qt>"
 
-#: widgets/ruqolamainwindow.cpp:1207
+#: widgets/ruqolamainwindow.cpp:1205
 #, kde-format
 msgctxt "@title:window"
 msgid "Hide menu bar"
@@ -11038,12 +11038,12 @@ msgctxt "@title:window"
 msgid "Server Error Information"
 msgstr "Дані щодо помилок сервера"
 
-#: widgets/servererrorinfohistory/servererrorinfomessagewidget.cpp:23
+#: widgets/servererrorinfohistory/servererrorinfomessagewidget.cpp:24
 #, kde-format
 msgid "(Show Errors)"
 msgstr "(Показати помилки)"
 
-#: widgets/servererrorinfohistory/servererrorinfomessagewidget.cpp:23
+#: widgets/servererrorinfohistory/servererrorinfomessagewidget.cpp:24
 #, kde-format
 msgid "Server errors reported. %1"
 msgstr "Повідомлено про помилки сервера. %1"
@@ -11198,12 +11198,12 @@ msgctxt "@title:window"
 msgid "What's new in %1"
 msgstr "Що нового у %1"
 
-#: widgets/whatsnew/whatsnewmessagewidget.cpp:20
+#: widgets/whatsnew/whatsnewmessagewidget.cpp:21
 #, kde-format
 msgid "(Show News)"
 msgstr "(Показати новини)"
 
-#: widgets/whatsnew/whatsnewmessagewidget.cpp:20
+#: widgets/whatsnew/whatsnewmessagewidget.cpp:21
 #, kde-format
 msgid "What's new in %2. %1"
 msgstr "Що нового у %2. %1"

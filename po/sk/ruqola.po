@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-12-06 00:40+0000\n"
+"POT-Creation-Date: 2024-12-07 00:40+0000\n"
 "PO-Revision-Date: 2019-07-29 20:25+0200\n"
 "Last-Translator: Roman Paholík <wizzardsk@gmail.com>\n"
 "Language-Team: Slovak <kde-sk@linux.sk>\n"
@@ -3696,7 +3696,7 @@ msgstr "Súkromné adresy"
 
 #: widgets/administratordialog/roles/usersinrolewidget.cpp:124
 #: widgets/administratordialog/users/administratoruserswidget.cpp:357
-#: widgets/directory/directorywidget.cpp:215
+#: widgets/directory/directorywidget.cpp:217
 #, kde-format
 msgid "%1 user (Total: %2)"
 msgid_plural "%1 users (Total: %2)"
@@ -3845,7 +3845,7 @@ msgid "No room found"
 msgstr "Súkromné adresy"
 
 #: widgets/administratordialog/rooms/administratorroomswidget.cpp:81
-#: widgets/directory/directorywidget.cpp:212
+#: widgets/directory/directorywidget.cpp:214
 #, kde-format
 msgid "%1 room (Total: %2)"
 msgid_plural "%1 rooms (Total: %2)"
@@ -7451,7 +7451,7 @@ msgid "Username or email:"
 msgstr "Meno používateľa: %1"
 
 #: widgets/common/authenticationloginwidget.cpp:159
-#: widgets/ruqolamainwindow.cpp:1045
+#: widgets/ruqolamainwindow.cpp:1043
 #, kde-format
 msgid ""
 "We have sent you an email to confirm your registration.\n"
@@ -7459,7 +7459,7 @@ msgid ""
 msgstr ""
 
 #: widgets/common/authenticationloginwidget.cpp:160
-#: widgets/ruqolamainwindow.cpp:1046
+#: widgets/ruqolamainwindow.cpp:1044
 #, fuzzy, kde-format
 #| msgid "Enter Username"
 msgctxt "@title:window"
@@ -8602,7 +8602,7 @@ msgid "Reset Avatar"
 msgstr "Heslo:"
 
 #: widgets/dialogs/roomavatarwidget.cpp:35
-#: widgets/room/roomquotemessagewidget.cpp:20
+#: widgets/room/roomquotemessagewidget.cpp:21
 #: widgets/room/roomreplythreadwidget.cpp:21
 #, kde-format
 msgctxt "@action"
@@ -8922,25 +8922,25 @@ msgctxt "@action"
 msgid "Open Private Message…"
 msgstr "Súkromné adresy"
 
-#: widgets/directory/directorywidget.cpp:196
+#: widgets/directory/directorywidget.cpp:198
 #, fuzzy, kde-format
 #| msgid "Private Messages"
 msgid "No Room found"
 msgstr "Súkromné adresy"
 
-#: widgets/directory/directorywidget.cpp:198
+#: widgets/directory/directorywidget.cpp:200
 #, fuzzy, kde-format
 #| msgid "Private Messages"
 msgid "No User found"
 msgstr "Súkromné adresy"
 
-#: widgets/directory/directorywidget.cpp:200
+#: widgets/directory/directorywidget.cpp:202
 #, fuzzy, kde-format
 #| msgid "Private Messages"
 msgid "No Team found"
 msgstr "Súkromné adresy"
 
-#: widgets/directory/directorywidget.cpp:218
+#: widgets/directory/directorywidget.cpp:220
 #, kde-format
 msgid "%1 team (Total: %2)"
 msgid_plural "%1 teams (Total: %2)"
@@ -9027,26 +9027,26 @@ msgstr ""
 msgid "Copy password"
 msgstr "Heslo:"
 
-#: widgets/encryption/e2edecodeencryptionkeyfailedwidget.cpp:17
+#: widgets/encryption/e2edecodeencryptionkeyfailedwidget.cpp:18
 #, kde-format
 msgid ""
 "It was not possible to decode your encryption key to be imported. Your "
 "encryption password seems wrong."
 msgstr ""
 
-#: widgets/encryption/e2edecodeencryptionkeyfailedwidget.cpp:19
+#: widgets/encryption/e2edecodeencryptionkeyfailedwidget.cpp:20
 #, fuzzy, kde-format
 #| msgid "Encrypted:"
 msgctxt "@action"
 msgid "Decrypt Encryption Key"
 msgstr "Šifrovaný:"
 
-#: widgets/encryption/e2edecodeencryptionkeywidget.cpp:17
+#: widgets/encryption/e2edecodeencryptionkeywidget.cpp:18
 #, kde-format
 msgid "Click here to enter your e2e password."
 msgstr ""
 
-#: widgets/encryption/e2edecodeencryptionkeywidget.cpp:19
+#: widgets/encryption/e2edecodeencryptionkeywidget.cpp:20
 #, fuzzy, kde-format
 #| msgid "Encrypted:"
 msgctxt "@action"
@@ -9069,13 +9069,13 @@ msgid ""
 "client you use, since the key is not stored on the server."
 msgstr ""
 
-#: widgets/encryption/e2esaveencryptionkeywidget.cpp:17
+#: widgets/encryption/e2esaveencryptionkeywidget.cpp:18
 #, kde-format
 msgid ""
 "Save your encryption password. Click here to view and copy your password."
 msgstr ""
 
-#: widgets/encryption/e2esaveencryptionkeywidget.cpp:19
+#: widgets/encryption/e2esaveencryptionkeywidget.cpp:20
 #, fuzzy, kde-format
 #| msgid "Encrypted:"
 msgctxt "@action"
@@ -9992,25 +9992,25 @@ msgstr "Odstrániť účet"
 msgid "Current Password"
 msgstr "Heslo:"
 
-#: widgets/needupdateversion/needupdateversionwidget.cpp:22
+#: widgets/needupdateversion/needupdateversionwidget.cpp:23
 #, kde-format
 msgctxt "@action"
 msgid "Disable version check"
 msgstr ""
 
-#: widgets/needupdateversion/needupdateversionwidget.cpp:26
+#: widgets/needupdateversion/needupdateversionwidget.cpp:27
 #, fuzzy, kde-format
 #| msgid "Server Url:"
 msgctxt "@action"
 msgid "Check new Version"
 msgstr "URL serveru:"
 
-#: widgets/needupdateversion/needupdateversionwidget.cpp:42
+#: widgets/needupdateversion/needupdateversionwidget.cpp:43
 #, kde-format
 msgid "Your version is older than 6 months, we encourage you to upgrade."
 msgstr ""
 
-#: widgets/needupdateversion/needupdateversionwidget.cpp:47
+#: widgets/needupdateversion/needupdateversionwidget.cpp:48
 #, kde-format
 msgid ""
 "Your version is older than 1 year, we strongly encourage you to upgrade."
@@ -10049,13 +10049,13 @@ msgstr ""
 msgid "Otr Activated"
 msgstr "Zadajte užívateľské meno"
 
-#: widgets/otr/otrwidget.cpp:20
+#: widgets/otr/otrwidget.cpp:21
 #, kde-format
 msgctxt "@action"
 msgid "End OTR"
 msgstr ""
 
-#: widgets/otr/otrwidget.cpp:25
+#: widgets/otr/otrwidget.cpp:26
 #, kde-format
 msgctxt "@action"
 msgid "Refresh Keys"
@@ -10690,31 +10690,31 @@ msgstr ""
 msgid "Markdown Url"
 msgstr ""
 
-#: widgets/room/reconnectinfowidget.cpp:73
+#: widgets/room/reconnectinfowidget.cpp:74
 #, kde-format
 msgid "(Try Reconnect)"
 msgstr ""
 
-#: widgets/room/reconnectinfowidget.cpp:73
+#: widgets/room/reconnectinfowidget.cpp:74
 #, kde-format
 msgid "%1 seconds before reconnecting. %2"
 msgstr ""
 
-#: widgets/room/roomcounterinfowidget.cpp:18
+#: widgets/room/roomcounterinfowidget.cpp:19
 #, fuzzy, kde-format
 #| msgid "Leave Channel"
 msgctxt "@action:button"
 msgid "Jump to First Unread"
 msgstr "Opustiť kanál"
 
-#: widgets/room/roomcounterinfowidget.cpp:25
+#: widgets/room/roomcounterinfowidget.cpp:26
 #, fuzzy, kde-format
 #| msgid "Private Messages"
 msgctxt "@action:button"
 msgid "Mark as Read"
 msgstr "Súkromné adresy"
 
-#: widgets/room/roomcounterinfowidget.cpp:60
+#: widgets/room/roomcounterinfowidget.cpp:61
 #, kde-format
 msgid "%1 new message since %2."
 msgid_plural "%1 new messages since %2."
@@ -10819,7 +10819,7 @@ msgstr "Hľadať súbor..."
 msgid "Team's Information"
 msgstr ""
 
-#: widgets/room/roomquotemessagewidget.cpp:29
+#: widgets/room/roomquotemessagewidget.cpp:30
 #, fuzzy, kde-format
 #| msgid "(Last Message: %1)"
 msgid "Quote Message: '%1'"
@@ -11267,168 +11267,168 @@ msgctxt "@action"
 msgid "Installed Applications…"
 msgstr "Aplikácia nenájdená"
 
-#: widgets/ruqolamainwindow.cpp:552
+#: widgets/ruqolamainwindow.cpp:551
 #, fuzzy, kde-format
 #| msgid "Application not found"
 msgctxt "@action"
 msgid "Private Applications…"
 msgstr "Aplikácia nenájdená"
 
-#: widgets/ruqolamainwindow.cpp:558
+#: widgets/ruqolamainwindow.cpp:556
 #, kde-format
 msgctxt "Action which allows to search room"
 msgid "Join Room…"
 msgstr ""
 
-#: widgets/ruqolamainwindow.cpp:562
+#: widgets/ruqolamainwindow.cpp:560
 #, fuzzy, kde-format
 #| msgid "Delete Account"
 msgctxt "Action which allows to search team"
 msgid "Join Team…"
 msgstr "Odstrániť účet"
 
-#: widgets/ruqolamainwindow.cpp:566
+#: widgets/ruqolamainwindow.cpp:564
 #, fuzzy, kde-format
 #| msgid "Conversation"
 msgctxt "Action which allows to open private conversation (direct user)"
 msgid "Open Private Conversation…"
 msgstr "Konverzácia"
 
-#: widgets/ruqolamainwindow.cpp:587
+#: widgets/ruqolamainwindow.cpp:585
 #, fuzzy, kde-format
 #| msgid "Server Url"
 msgid "&Next Server"
 msgstr "URL serveru"
 
-#: widgets/ruqolamainwindow.cpp:592
+#: widgets/ruqolamainwindow.cpp:590
 #, fuzzy, kde-format
 #| msgid "Leave Channel"
 msgid "&Previous Server"
 msgstr "Opustiť kanál"
 
-#: widgets/ruqolamainwindow.cpp:601
+#: widgets/ruqolamainwindow.cpp:599
 #, fuzzy, kde-format
 #| msgid "Status:"
 msgctxt "@label:textbox"
 msgid "Status:"
 msgstr "Stav:"
 
-#: widgets/ruqolamainwindow.cpp:614
+#: widgets/ruqolamainwindow.cpp:612
 #, fuzzy, kde-format
 #| msgid "Leave Channel"
 msgctxt "@action"
 msgid "Previous Selected Channel"
 msgstr "Opustiť kanál"
 
-#: widgets/ruqolamainwindow.cpp:621
+#: widgets/ruqolamainwindow.cpp:619
 #, fuzzy, kde-format
 #| msgid "Leave Channel"
 msgctxt "@action"
 msgid "Next Selected Channel"
 msgstr "Opustiť kanál"
 
-#: widgets/ruqolamainwindow.cpp:655
+#: widgets/ruqolamainwindow.cpp:653
 #, fuzzy, kde-format
 #| msgid "Notifications"
 msgid "Show Notify History"
 msgstr "Upozornenia"
 
-#: widgets/ruqolamainwindow.cpp:659
+#: widgets/ruqolamainwindow.cpp:657
 #, fuzzy, kde-format
 #| msgid "Rocket Chat Client"
 msgctxt "@action"
 msgid "Show RocketChat Information"
 msgstr "Chatovací klient Rocket"
 
-#: widgets/ruqolamainwindow.cpp:663
+#: widgets/ruqolamainwindow.cpp:661
 #, fuzzy, kde-format
 #| msgid "Password:"
 msgctxt "@action"
 msgid "Show Room Avatar"
 msgstr "Heslo:"
 
-#: widgets/ruqolamainwindow.cpp:668
+#: widgets/ruqolamainwindow.cpp:666
 #, fuzzy, kde-format
 #| msgid "Default"
 msgctxt "@action"
 msgid "Show Favorite Room"
 msgstr "Predvolené"
 
-#: widgets/ruqolamainwindow.cpp:677
+#: widgets/ruqolamainwindow.cpp:675
 #, kde-format
 msgid "What's new"
 msgstr ""
 
-#: widgets/ruqolamainwindow.cpp:681
+#: widgets/ruqolamainwindow.cpp:679
 #, fuzzy, kde-format
 #| msgid "Add Account"
 msgid "Import Accounts"
 msgstr "Pridať účet"
 
-#: widgets/ruqolamainwindow.cpp:685
+#: widgets/ruqolamainwindow.cpp:683
 #, fuzzy, kde-format
 #| msgid "Add Account"
 msgid "Export Accounts"
 msgstr "Pridať účet"
 
-#: widgets/ruqolamainwindow.cpp:702
+#: widgets/ruqolamainwindow.cpp:700
 #, kde-format
 msgctxt "@action"
 msgid "Medium"
 msgstr ""
 
-#: widgets/ruqolamainwindow.cpp:710
+#: widgets/ruqolamainwindow.cpp:708
 #, kde-format
 msgctxt "@action"
 msgid "Condensed"
 msgstr ""
 
-#: widgets/ruqolamainwindow.cpp:719
+#: widgets/ruqolamainwindow.cpp:717
 #, kde-format
 msgctxt "@action"
 msgid "Extended"
 msgstr ""
 
-#: widgets/ruqolamainwindow.cpp:727
+#: widgets/ruqolamainwindow.cpp:725
 #, fuzzy, kde-format
 #| msgid "Invalid password"
 msgid "Clear history"
 msgstr "Neplatné heslo"
 
-#: widgets/ruqolamainwindow.cpp:764
+#: widgets/ruqolamainwindow.cpp:762
 #, fuzzy, kde-format
 #| msgid "Leave Channel"
 msgctxt "@title:window"
 msgid "Create Team"
 msgstr "Opustiť kanál"
 
-#: widgets/ruqolamainwindow.cpp:954
+#: widgets/ruqolamainwindow.cpp:952
 #, kde-format
 msgid "Impossible to open log."
 msgstr ""
 
-#: widgets/ruqolamainwindow.cpp:954
+#: widgets/ruqolamainwindow.cpp:952
 #, fuzzy, kde-format
 #| msgid "Leave Channel"
 msgctxt "@title:window"
 msgid "Show Log"
 msgstr "Opustiť kanál"
 
-#: widgets/ruqolamainwindow.cpp:1117
+#: widgets/ruqolamainwindow.cpp:1115
 #, fuzzy, kde-format
 #| msgid "Status:"
 msgctxt "@item:inmenu Instant message presence status"
 msgid "Status"
 msgstr "Stav:"
 
-#: widgets/ruqolamainwindow.cpp:1204
+#: widgets/ruqolamainwindow.cpp:1202
 #, kde-format
 msgid ""
 "<qt>This will hide the menu bar completely. You can show it again by typing "
 "%1.</qt>"
 msgstr ""
 
-#: widgets/ruqolamainwindow.cpp:1207
+#: widgets/ruqolamainwindow.cpp:1205
 #, kde-format
 msgctxt "@title:window"
 msgid "Hide menu bar"
@@ -11477,13 +11477,13 @@ msgctxt "@title:window"
 msgid "Server Error Information"
 msgstr "Názov kanála"
 
-#: widgets/servererrorinfohistory/servererrorinfomessagewidget.cpp:23
+#: widgets/servererrorinfohistory/servererrorinfomessagewidget.cpp:24
 #, fuzzy, kde-format
 #| msgid "Channel Name"
 msgid "(Show Errors)"
 msgstr "Názov kanála"
 
-#: widgets/servererrorinfohistory/servererrorinfomessagewidget.cpp:23
+#: widgets/servererrorinfohistory/servererrorinfomessagewidget.cpp:24
 #, fuzzy, kde-format
 #| msgid "Server Info"
 msgid "Server errors reported. %1"
@@ -11655,13 +11655,13 @@ msgctxt "@title:window"
 msgid "What's new in %1"
 msgstr ""
 
-#: widgets/whatsnew/whatsnewmessagewidget.cpp:20
+#: widgets/whatsnew/whatsnewmessagewidget.cpp:21
 #, fuzzy, kde-format
 #| msgid "Server Info"
 msgid "(Show News)"
 msgstr "Informácie o serveri"
 
-#: widgets/whatsnew/whatsnewmessagewidget.cpp:20
+#: widgets/whatsnew/whatsnewmessagewidget.cpp:21
 #, kde-format
 msgid "What's new in %2. %1"
 msgstr ""

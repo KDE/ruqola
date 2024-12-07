@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-12-06 00:40+0000\n"
+"POT-Creation-Date: 2024-12-07 00:40+0000\n"
 "PO-Revision-Date: 2024-09-17 21:39+0200\n"
 "Last-Translator: Oliver Kellogg <olivermkellogg@gmail.com>\n"
 "Language-Team: Esperanto <kde-i18n-doc@kde.org>\n"
@@ -3545,7 +3545,7 @@ msgstr "Neniu uzanto trovita"
 
 #: widgets/administratordialog/roles/usersinrolewidget.cpp:124
 #: widgets/administratordialog/users/administratoruserswidget.cpp:357
-#: widgets/directory/directorywidget.cpp:215
+#: widgets/directory/directorywidget.cpp:217
 #, kde-format
 msgid "%1 user (Total: %2)"
 msgid_plural "%1 users (Total: %2)"
@@ -3678,7 +3678,7 @@ msgid "No room found"
 msgstr "Neniu ĉambro trovita"
 
 #: widgets/administratordialog/rooms/administratorroomswidget.cpp:81
-#: widgets/directory/directorywidget.cpp:212
+#: widgets/directory/directorywidget.cpp:214
 #, kde-format
 msgid "%1 room (Total: %2)"
 msgid_plural "%1 rooms (Total: %2)"
@@ -7244,7 +7244,7 @@ msgid "Username or email:"
 msgstr "Uzantnomo aŭ retpoŝto"
 
 #: widgets/common/authenticationloginwidget.cpp:159
-#: widgets/ruqolamainwindow.cpp:1045
+#: widgets/ruqolamainwindow.cpp:1043
 #, kde-format
 msgid ""
 "We have sent you an email to confirm your registration.\n"
@@ -7254,7 +7254,7 @@ msgstr ""
 "Se vi ne ricevas retmesaĝon baldaŭ, bonvolu reveni kaj provi denove."
 
 #: widgets/common/authenticationloginwidget.cpp:160
-#: widgets/ruqolamainwindow.cpp:1046
+#: widgets/ruqolamainwindow.cpp:1044
 #, kde-format
 msgctxt "@title:window"
 msgid "Register New User"
@@ -8335,7 +8335,7 @@ msgid "Reset Avatar"
 msgstr "Restarigi avataron"
 
 #: widgets/dialogs/roomavatarwidget.cpp:35
-#: widgets/room/roomquotemessagewidget.cpp:20
+#: widgets/room/roomquotemessagewidget.cpp:21
 #: widgets/room/roomreplythreadwidget.cpp:21
 #, kde-format
 msgctxt "@action"
@@ -8625,22 +8625,22 @@ msgctxt "@action"
 msgid "Open Private Message…"
 msgstr "Malfermi Privatajn Mesaĝojn…"
 
-#: widgets/directory/directorywidget.cpp:196
+#: widgets/directory/directorywidget.cpp:198
 #, kde-format
 msgid "No Room found"
 msgstr "Neniu Ĉambro trovita"
 
-#: widgets/directory/directorywidget.cpp:198
+#: widgets/directory/directorywidget.cpp:200
 #, kde-format
 msgid "No User found"
 msgstr "Neniu uzanto trovita"
 
-#: widgets/directory/directorywidget.cpp:200
+#: widgets/directory/directorywidget.cpp:202
 #, kde-format
 msgid "No Team found"
 msgstr "Neniu Teamo trovita"
 
-#: widgets/directory/directorywidget.cpp:218
+#: widgets/directory/directorywidget.cpp:220
 #, kde-format
 msgid "%1 team (Total: %2)"
 msgid_plural "%1 teams (Total: %2)"
@@ -8723,7 +8723,7 @@ msgstr ""
 msgid "Copy password"
 msgstr "Kopii pasvorton"
 
-#: widgets/encryption/e2edecodeencryptionkeyfailedwidget.cpp:17
+#: widgets/encryption/e2edecodeencryptionkeyfailedwidget.cpp:18
 #, kde-format
 msgid ""
 "It was not possible to decode your encryption key to be imported. Your "
@@ -8732,18 +8732,18 @@ msgstr ""
 "Ne eblis malkodi vian ĉifradan ŝlosilon importendan. Via ĉifrada pasvorto "
 "ŝajnas malĝusta."
 
-#: widgets/encryption/e2edecodeencryptionkeyfailedwidget.cpp:19
+#: widgets/encryption/e2edecodeencryptionkeyfailedwidget.cpp:20
 #, kde-format
 msgctxt "@action"
 msgid "Decrypt Encryption Key"
 msgstr "Malĉifri Ĉifradan Ŝlosilon"
 
-#: widgets/encryption/e2edecodeencryptionkeywidget.cpp:17
+#: widgets/encryption/e2edecodeencryptionkeywidget.cpp:18
 #, kde-format
 msgid "Click here to enter your e2e password."
 msgstr "Klaku tie ĉi por enigi vian e2e-pasvorton."
 
-#: widgets/encryption/e2edecodeencryptionkeywidget.cpp:19
+#: widgets/encryption/e2edecodeencryptionkeywidget.cpp:20
 #, kde-format
 msgctxt "@action"
 msgid "Decode Encryption Key"
@@ -8769,7 +8769,7 @@ msgstr ""
 "Vi devas enigi ĉi tiun pasvorton por kodi/malkodi viajn mesaĝojn en ĉiu "
 "kliento, kiun vi uzas, ĉar la ŝlosilo ne estas konservita en la servilo."
 
-#: widgets/encryption/e2esaveencryptionkeywidget.cpp:17
+#: widgets/encryption/e2esaveencryptionkeywidget.cpp:18
 #, kde-format
 msgid ""
 "Save your encryption password. Click here to view and copy your password."
@@ -8777,7 +8777,7 @@ msgstr ""
 "Konservu vian ĉifradan pasvorton. Klaku ĉi tie por vidi kaj kopii vian "
 "pasvorton."
 
-#: widgets/encryption/e2esaveencryptionkeywidget.cpp:19
+#: widgets/encryption/e2esaveencryptionkeywidget.cpp:20
 #, kde-format
 msgctxt "@action"
 msgid "Save Encryption Key"
@@ -9649,24 +9649,24 @@ msgstr "Forigi mian Konton"
 msgid "Current Password"
 msgstr "Aktuala Pasvorto"
 
-#: widgets/needupdateversion/needupdateversionwidget.cpp:22
+#: widgets/needupdateversion/needupdateversionwidget.cpp:23
 #, kde-format
 msgctxt "@action"
 msgid "Disable version check"
 msgstr "Malebligi versiokontrolon"
 
-#: widgets/needupdateversion/needupdateversionwidget.cpp:26
+#: widgets/needupdateversion/needupdateversionwidget.cpp:27
 #, kde-format
 msgctxt "@action"
 msgid "Check new Version"
 msgstr "Kontroli pri nova versio"
 
-#: widgets/needupdateversion/needupdateversionwidget.cpp:42
+#: widgets/needupdateversion/needupdateversionwidget.cpp:43
 #, kde-format
 msgid "Your version is older than 6 months, we encourage you to upgrade."
 msgstr "Via versio estas pli malnova ol 6 monatoj, ni instigas vin ĝisdatigi."
 
-#: widgets/needupdateversion/needupdateversionwidget.cpp:47
+#: widgets/needupdateversion/needupdateversionwidget.cpp:48
 #, kde-format
 msgid ""
 "Your version is older than 1 year, we strongly encourage you to upgrade."
@@ -9703,13 +9703,13 @@ msgstr "Reto estas senkonekta reĝimo."
 msgid "Otr Activated"
 msgstr "Otr Aktivigita"
 
-#: widgets/otr/otrwidget.cpp:20
+#: widgets/otr/otrwidget.cpp:21
 #, kde-format
 msgctxt "@action"
 msgid "End OTR"
 msgstr "Fini OTR"
 
-#: widgets/otr/otrwidget.cpp:25
+#: widgets/otr/otrwidget.cpp:26
 #, kde-format
 msgctxt "@action"
 msgid "Refresh Keys"
@@ -10285,24 +10285,24 @@ msgstr "Kodbloko"
 msgid "Markdown Url"
 msgstr "Markdown URL"
 
-#: widgets/room/reconnectinfowidget.cpp:73
+#: widgets/room/reconnectinfowidget.cpp:74
 #, kde-format
 msgid "(Try Reconnect)"
 msgstr "(Provi Rekonekti)"
 
-#: widgets/room/reconnectinfowidget.cpp:73
+#: widgets/room/reconnectinfowidget.cpp:74
 #, kde-format
 msgid "%1 seconds before reconnecting. %2"
 msgstr "%1 sekundoj antaŭ rekonektado. %2"
 
-#: widgets/room/roomcounterinfowidget.cpp:18
+#: widgets/room/roomcounterinfowidget.cpp:19
 #, fuzzy, kde-format
 #| msgid "(Jump to first Unread)"
 msgctxt "@action:button"
 msgid "Jump to First Unread"
 msgstr "(Salti al la unua Nelegita)"
 
-#: widgets/room/roomcounterinfowidget.cpp:25
+#: widgets/room/roomcounterinfowidget.cpp:26
 #, fuzzy, kde-format
 #| msgctxt "@action"
 #| msgid "Mark as Read"
@@ -10310,7 +10310,7 @@ msgctxt "@action:button"
 msgid "Mark as Read"
 msgstr "Marki kiel Legita"
 
-#: widgets/room/roomcounterinfowidget.cpp:60
+#: widgets/room/roomcounterinfowidget.cpp:61
 #, fuzzy, kde-format
 #| msgid "%4 %1 new message since %2. %3"
 #| msgid_plural "%4 %1 new messages since %2. %3"
@@ -10406,7 +10406,7 @@ msgstr "Serĉi Mesaĝojn…"
 msgid "Team's Information"
 msgstr "Informoj de Teamo"
 
-#: widgets/room/roomquotemessagewidget.cpp:29
+#: widgets/room/roomquotemessagewidget.cpp:30
 #, kde-format
 msgid "Quote Message: '%1'"
 msgstr "Citmesaĝo: '%1'"
@@ -10816,7 +10816,7 @@ msgctxt "@action"
 msgid "Installed Applications…"
 msgstr "Instalitaj Aplikaĵoj…"
 
-#: widgets/ruqolamainwindow.cpp:552
+#: widgets/ruqolamainwindow.cpp:551
 #, fuzzy, kde-format
 #| msgctxt "@action"
 #| msgid "Applications…"
@@ -10824,137 +10824,137 @@ msgctxt "@action"
 msgid "Private Applications…"
 msgstr "Aplikaĵoj…"
 
-#: widgets/ruqolamainwindow.cpp:558
+#: widgets/ruqolamainwindow.cpp:556
 #, kde-format
 msgctxt "Action which allows to search room"
 msgid "Join Room…"
 msgstr "Aliĝi al Ĉambro…"
 
-#: widgets/ruqolamainwindow.cpp:562
+#: widgets/ruqolamainwindow.cpp:560
 #, kde-format
 msgctxt "Action which allows to search team"
 msgid "Join Team…"
 msgstr "Aliĝi al Teamo…"
 
-#: widgets/ruqolamainwindow.cpp:566
+#: widgets/ruqolamainwindow.cpp:564
 #, kde-format
 msgctxt "Action which allows to open private conversation (direct user)"
 msgid "Open Private Conversation…"
 msgstr "Malfermi Privatan Konversacion…"
 
-#: widgets/ruqolamainwindow.cpp:587
+#: widgets/ruqolamainwindow.cpp:585
 #, kde-format
 msgid "&Next Server"
 msgstr "&Sekva Servilo"
 
-#: widgets/ruqolamainwindow.cpp:592
+#: widgets/ruqolamainwindow.cpp:590
 #, kde-format
 msgid "&Previous Server"
 msgstr "&Antaŭa Servilo"
 
-#: widgets/ruqolamainwindow.cpp:601
+#: widgets/ruqolamainwindow.cpp:599
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Status:"
 msgstr "Statuso:"
 
-#: widgets/ruqolamainwindow.cpp:614
+#: widgets/ruqolamainwindow.cpp:612
 #, kde-format
 msgctxt "@action"
 msgid "Previous Selected Channel"
 msgstr "Antaŭa Elektita Kanalo"
 
-#: widgets/ruqolamainwindow.cpp:621
+#: widgets/ruqolamainwindow.cpp:619
 #, kde-format
 msgctxt "@action"
 msgid "Next Selected Channel"
 msgstr "Sekva Elektita Kanalo"
 
-#: widgets/ruqolamainwindow.cpp:655
+#: widgets/ruqolamainwindow.cpp:653
 #, kde-format
 msgid "Show Notify History"
 msgstr "Montri Sciigo-Historion"
 
-#: widgets/ruqolamainwindow.cpp:659
+#: widgets/ruqolamainwindow.cpp:657
 #, kde-format
 msgctxt "@action"
 msgid "Show RocketChat Information"
 msgstr "Montri RocketChat-Informojn"
 
-#: widgets/ruqolamainwindow.cpp:663
+#: widgets/ruqolamainwindow.cpp:661
 #, kde-format
 msgctxt "@action"
 msgid "Show Room Avatar"
 msgstr "Montri Ĉambran Avataron"
 
-#: widgets/ruqolamainwindow.cpp:668
+#: widgets/ruqolamainwindow.cpp:666
 #, kde-format
 msgctxt "@action"
 msgid "Show Favorite Room"
 msgstr "Montri Ŝatatan Ĉambron"
 
-#: widgets/ruqolamainwindow.cpp:677
+#: widgets/ruqolamainwindow.cpp:675
 #, kde-format
 msgid "What's new"
 msgstr "Kio novas"
 
-#: widgets/ruqolamainwindow.cpp:681
+#: widgets/ruqolamainwindow.cpp:679
 #, kde-format
 msgid "Import Accounts"
 msgstr "Importi Kontojn"
 
-#: widgets/ruqolamainwindow.cpp:685
+#: widgets/ruqolamainwindow.cpp:683
 #, kde-format
 msgid "Export Accounts"
 msgstr "Eksporto-Kontoj"
 
-#: widgets/ruqolamainwindow.cpp:702
+#: widgets/ruqolamainwindow.cpp:700
 #, kde-format
 msgctxt "@action"
 msgid "Medium"
 msgstr "Meza"
 
-#: widgets/ruqolamainwindow.cpp:710
+#: widgets/ruqolamainwindow.cpp:708
 #, kde-format
 msgctxt "@action"
 msgid "Condensed"
 msgstr "Densigita"
 
-#: widgets/ruqolamainwindow.cpp:719
+#: widgets/ruqolamainwindow.cpp:717
 #, kde-format
 msgctxt "@action"
 msgid "Extended"
 msgstr "Etendita"
 
-#: widgets/ruqolamainwindow.cpp:727
+#: widgets/ruqolamainwindow.cpp:725
 #, kde-format
 msgid "Clear history"
 msgstr "Viŝi historion"
 
-#: widgets/ruqolamainwindow.cpp:764
+#: widgets/ruqolamainwindow.cpp:762
 #, kde-format
 msgctxt "@title:window"
 msgid "Create Team"
 msgstr "Krei Teamon"
 
-#: widgets/ruqolamainwindow.cpp:954
+#: widgets/ruqolamainwindow.cpp:952
 #, kde-format
 msgid "Impossible to open log."
 msgstr "Malfermi protokolon."
 
-#: widgets/ruqolamainwindow.cpp:954
+#: widgets/ruqolamainwindow.cpp:952
 #, kde-format
 msgctxt "@title:window"
 msgid "Show Log"
 msgstr "Montri Protokolon"
 
-#: widgets/ruqolamainwindow.cpp:1117
+#: widgets/ruqolamainwindow.cpp:1115
 #, kde-format
 msgctxt "@item:inmenu Instant message presence status"
 msgid "Status"
 msgstr "Statuso"
 
-#: widgets/ruqolamainwindow.cpp:1204
+#: widgets/ruqolamainwindow.cpp:1202
 #, kde-format
 msgid ""
 "<qt>This will hide the menu bar completely. You can show it again by typing "
@@ -10963,7 +10963,7 @@ msgstr ""
 "<qt>Ĉi tio tute kaŝos la menubreton. Vi povas montri ĝin denove tajpante %1."
 "</qt>"
 
-#: widgets/ruqolamainwindow.cpp:1207
+#: widgets/ruqolamainwindow.cpp:1205
 #, kde-format
 msgctxt "@title:window"
 msgid "Hide menu bar"
@@ -11011,12 +11011,12 @@ msgctxt "@title:window"
 msgid "Server Error Information"
 msgstr "Servila Eraro Informoj"
 
-#: widgets/servererrorinfohistory/servererrorinfomessagewidget.cpp:23
+#: widgets/servererrorinfohistory/servererrorinfomessagewidget.cpp:24
 #, kde-format
 msgid "(Show Errors)"
 msgstr "(Montri Erarojn)"
 
-#: widgets/servererrorinfohistory/servererrorinfomessagewidget.cpp:23
+#: widgets/servererrorinfohistory/servererrorinfomessagewidget.cpp:24
 #, kde-format
 msgid "Server errors reported. %1"
 msgstr "Servilaj eraroj raportitaj. %1"
@@ -11171,12 +11171,12 @@ msgctxt "@title:window"
 msgid "What's new in %1"
 msgstr "Kio estas nova en %1"
 
-#: widgets/whatsnew/whatsnewmessagewidget.cpp:20
+#: widgets/whatsnew/whatsnewmessagewidget.cpp:21
 #, kde-format
 msgid "(Show News)"
 msgstr "(Montri Novaĵojn)"
 
-#: widgets/whatsnew/whatsnewmessagewidget.cpp:20
+#: widgets/whatsnew/whatsnewmessagewidget.cpp:21
 #, kde-format
 msgid "What's new in %2. %1"
 msgstr "Kio estas nova en %2. %1"

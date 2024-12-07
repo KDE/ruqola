@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-12-06 00:40+0000\n"
+"POT-Creation-Date: 2024-12-07 00:40+0000\n"
 "PO-Revision-Date: 2024-11-23 12:07+0000\n"
 "Last-Translator: Steve Allewell <steve.allewell@gmail.com>\n"
 "Language-Team: British English\n"
@@ -3519,7 +3519,7 @@ msgstr "No user found"
 
 #: widgets/administratordialog/roles/usersinrolewidget.cpp:124
 #: widgets/administratordialog/users/administratoruserswidget.cpp:357
-#: widgets/directory/directorywidget.cpp:215
+#: widgets/directory/directorywidget.cpp:217
 #, kde-format
 msgid "%1 user (Total: %2)"
 msgid_plural "%1 users (Total: %2)"
@@ -3652,7 +3652,7 @@ msgid "No room found"
 msgstr "No room found"
 
 #: widgets/administratordialog/rooms/administratorroomswidget.cpp:81
-#: widgets/directory/directorywidget.cpp:212
+#: widgets/directory/directorywidget.cpp:214
 #, kde-format
 msgid "%1 room (Total: %2)"
 msgid_plural "%1 rooms (Total: %2)"
@@ -7200,7 +7200,7 @@ msgid "Username or email:"
 msgstr "Username or email:"
 
 #: widgets/common/authenticationloginwidget.cpp:159
-#: widgets/ruqolamainwindow.cpp:1045
+#: widgets/ruqolamainwindow.cpp:1043
 #, kde-format
 msgid ""
 "We have sent you an email to confirm your registration.\n"
@@ -7210,7 +7210,7 @@ msgstr ""
 "If you do not receive an email shortly, please come back and try again."
 
 #: widgets/common/authenticationloginwidget.cpp:160
-#: widgets/ruqolamainwindow.cpp:1046
+#: widgets/ruqolamainwindow.cpp:1044
 #, kde-format
 msgctxt "@title:window"
 msgid "Register New User"
@@ -8266,7 +8266,7 @@ msgid "Reset Avatar"
 msgstr "Reset Avatar"
 
 #: widgets/dialogs/roomavatarwidget.cpp:35
-#: widgets/room/roomquotemessagewidget.cpp:20
+#: widgets/room/roomquotemessagewidget.cpp:21
 #: widgets/room/roomreplythreadwidget.cpp:21
 #, kde-format
 msgctxt "@action"
@@ -8556,22 +8556,22 @@ msgctxt "@action"
 msgid "Open Private Message…"
 msgstr "Open Private Message…"
 
-#: widgets/directory/directorywidget.cpp:196
+#: widgets/directory/directorywidget.cpp:198
 #, kde-format
 msgid "No Room found"
 msgstr "No Room found"
 
-#: widgets/directory/directorywidget.cpp:198
+#: widgets/directory/directorywidget.cpp:200
 #, kde-format
 msgid "No User found"
 msgstr "No User found"
 
-#: widgets/directory/directorywidget.cpp:200
+#: widgets/directory/directorywidget.cpp:202
 #, kde-format
 msgid "No Team found"
 msgstr "No Team found"
 
-#: widgets/directory/directorywidget.cpp:218
+#: widgets/directory/directorywidget.cpp:220
 #, kde-format
 msgid "%1 team (Total: %2)"
 msgid_plural "%1 teams (Total: %2)"
@@ -8654,7 +8654,7 @@ msgstr ""
 msgid "Copy password"
 msgstr "Copy password"
 
-#: widgets/encryption/e2edecodeencryptionkeyfailedwidget.cpp:17
+#: widgets/encryption/e2edecodeencryptionkeyfailedwidget.cpp:18
 #, kde-format
 msgid ""
 "It was not possible to decode your encryption key to be imported. Your "
@@ -8663,18 +8663,18 @@ msgstr ""
 "It was not possible to decode your encryption key to be imported. Your "
 "encryption password seems wrong."
 
-#: widgets/encryption/e2edecodeencryptionkeyfailedwidget.cpp:19
+#: widgets/encryption/e2edecodeencryptionkeyfailedwidget.cpp:20
 #, kde-format
 msgctxt "@action"
 msgid "Decrypt Encryption Key"
 msgstr "Decrypt Encryption Key"
 
-#: widgets/encryption/e2edecodeencryptionkeywidget.cpp:17
+#: widgets/encryption/e2edecodeencryptionkeywidget.cpp:18
 #, kde-format
 msgid "Click here to enter your e2e password."
 msgstr "Click here to enter your e2e password."
 
-#: widgets/encryption/e2edecodeencryptionkeywidget.cpp:19
+#: widgets/encryption/e2edecodeencryptionkeywidget.cpp:20
 #, kde-format
 msgctxt "@action"
 msgid "Decode Encryption Key"
@@ -8700,14 +8700,14 @@ msgstr ""
 "You need to enter this password to encode/decode your messages on every "
 "client you use, since the key is not stored on the server."
 
-#: widgets/encryption/e2esaveencryptionkeywidget.cpp:17
+#: widgets/encryption/e2esaveencryptionkeywidget.cpp:18
 #, kde-format
 msgid ""
 "Save your encryption password. Click here to view and copy your password."
 msgstr ""
 "Save your encryption password. Click here to view and copy your password."
 
-#: widgets/encryption/e2esaveencryptionkeywidget.cpp:19
+#: widgets/encryption/e2esaveencryptionkeywidget.cpp:20
 #, kde-format
 msgctxt "@action"
 msgid "Save Encryption Key"
@@ -9571,24 +9571,24 @@ msgstr "Delete my Account"
 msgid "Current Password"
 msgstr "Current Password"
 
-#: widgets/needupdateversion/needupdateversionwidget.cpp:22
+#: widgets/needupdateversion/needupdateversionwidget.cpp:23
 #, kde-format
 msgctxt "@action"
 msgid "Disable version check"
 msgstr "Disable version check"
 
-#: widgets/needupdateversion/needupdateversionwidget.cpp:26
+#: widgets/needupdateversion/needupdateversionwidget.cpp:27
 #, kde-format
 msgctxt "@action"
 msgid "Check new Version"
 msgstr "Check new Version"
 
-#: widgets/needupdateversion/needupdateversionwidget.cpp:42
+#: widgets/needupdateversion/needupdateversionwidget.cpp:43
 #, kde-format
 msgid "Your version is older than 6 months, we encourage you to upgrade."
 msgstr "Your version is older than 6 months, we encourage you to upgrade."
 
-#: widgets/needupdateversion/needupdateversionwidget.cpp:47
+#: widgets/needupdateversion/needupdateversionwidget.cpp:48
 #, kde-format
 msgid ""
 "Your version is older than 1 year, we strongly encourage you to upgrade."
@@ -9625,13 +9625,13 @@ msgstr "Network is offline mode."
 msgid "Otr Activated"
 msgstr "Otr Activated"
 
-#: widgets/otr/otrwidget.cpp:20
+#: widgets/otr/otrwidget.cpp:21
 #, kde-format
 msgctxt "@action"
 msgid "End OTR"
 msgstr "End OTR"
 
-#: widgets/otr/otrwidget.cpp:25
+#: widgets/otr/otrwidget.cpp:26
 #, kde-format
 msgctxt "@action"
 msgid "Refresh Keys"
@@ -10196,29 +10196,29 @@ msgstr "Code Block"
 msgid "Markdown Url"
 msgstr "Markdown URL"
 
-#: widgets/room/reconnectinfowidget.cpp:73
+#: widgets/room/reconnectinfowidget.cpp:74
 #, kde-format
 msgid "(Try Reconnect)"
 msgstr "(Try Reconnect)"
 
-#: widgets/room/reconnectinfowidget.cpp:73
+#: widgets/room/reconnectinfowidget.cpp:74
 #, kde-format
 msgid "%1 seconds before reconnecting. %2"
 msgstr "%1 seconds before reconnecting. %2"
 
-#: widgets/room/roomcounterinfowidget.cpp:18
+#: widgets/room/roomcounterinfowidget.cpp:19
 #, kde-format
 msgctxt "@action:button"
 msgid "Jump to First Unread"
 msgstr "Jump to First Unread"
 
-#: widgets/room/roomcounterinfowidget.cpp:25
+#: widgets/room/roomcounterinfowidget.cpp:26
 #, kde-format
 msgctxt "@action:button"
 msgid "Mark as Read"
 msgstr "Mark as Read"
 
-#: widgets/room/roomcounterinfowidget.cpp:60
+#: widgets/room/roomcounterinfowidget.cpp:61
 #, kde-format
 msgid "%1 new message since %2."
 msgid_plural "%1 new messages since %2."
@@ -10312,7 +10312,7 @@ msgstr "Search Messages…"
 msgid "Team's Information"
 msgstr "Team's Information"
 
-#: widgets/room/roomquotemessagewidget.cpp:29
+#: widgets/room/roomquotemessagewidget.cpp:30
 #, kde-format
 msgid "Quote Message: '%1'"
 msgstr "Quote Message: '%1'"
@@ -10708,7 +10708,7 @@ msgctxt "@action"
 msgid "Installed Applications…"
 msgstr "Installed Applications…"
 
-#: widgets/ruqolamainwindow.cpp:552
+#: widgets/ruqolamainwindow.cpp:551
 #, fuzzy, kde-format
 #| msgctxt "@action"
 #| msgid "Applications…"
@@ -10716,137 +10716,137 @@ msgctxt "@action"
 msgid "Private Applications…"
 msgstr "Applications…"
 
-#: widgets/ruqolamainwindow.cpp:558
+#: widgets/ruqolamainwindow.cpp:556
 #, kde-format
 msgctxt "Action which allows to search room"
 msgid "Join Room…"
 msgstr "Join Room…"
 
-#: widgets/ruqolamainwindow.cpp:562
+#: widgets/ruqolamainwindow.cpp:560
 #, kde-format
 msgctxt "Action which allows to search team"
 msgid "Join Team…"
 msgstr "Join Team…"
 
-#: widgets/ruqolamainwindow.cpp:566
+#: widgets/ruqolamainwindow.cpp:564
 #, kde-format
 msgctxt "Action which allows to open private conversation (direct user)"
 msgid "Open Private Conversation…"
 msgstr "Open Private Conversation…"
 
-#: widgets/ruqolamainwindow.cpp:587
+#: widgets/ruqolamainwindow.cpp:585
 #, kde-format
 msgid "&Next Server"
 msgstr "&Next Server"
 
-#: widgets/ruqolamainwindow.cpp:592
+#: widgets/ruqolamainwindow.cpp:590
 #, kde-format
 msgid "&Previous Server"
 msgstr "&Previous Server"
 
-#: widgets/ruqolamainwindow.cpp:601
+#: widgets/ruqolamainwindow.cpp:599
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Status:"
 msgstr "Status:"
 
-#: widgets/ruqolamainwindow.cpp:614
+#: widgets/ruqolamainwindow.cpp:612
 #, kde-format
 msgctxt "@action"
 msgid "Previous Selected Channel"
 msgstr "Previous Selected Channel"
 
-#: widgets/ruqolamainwindow.cpp:621
+#: widgets/ruqolamainwindow.cpp:619
 #, kde-format
 msgctxt "@action"
 msgid "Next Selected Channel"
 msgstr "Next Selected Channel"
 
-#: widgets/ruqolamainwindow.cpp:655
+#: widgets/ruqolamainwindow.cpp:653
 #, kde-format
 msgid "Show Notify History"
 msgstr "Show Notify History"
 
-#: widgets/ruqolamainwindow.cpp:659
+#: widgets/ruqolamainwindow.cpp:657
 #, kde-format
 msgctxt "@action"
 msgid "Show RocketChat Information"
 msgstr "Show RocketChat Information"
 
-#: widgets/ruqolamainwindow.cpp:663
+#: widgets/ruqolamainwindow.cpp:661
 #, kde-format
 msgctxt "@action"
 msgid "Show Room Avatar"
 msgstr "Show Room Avatar"
 
-#: widgets/ruqolamainwindow.cpp:668
+#: widgets/ruqolamainwindow.cpp:666
 #, kde-format
 msgctxt "@action"
 msgid "Show Favorite Room"
 msgstr "Show Favourite Room"
 
-#: widgets/ruqolamainwindow.cpp:677
+#: widgets/ruqolamainwindow.cpp:675
 #, kde-format
 msgid "What's new"
 msgstr "What's new"
 
-#: widgets/ruqolamainwindow.cpp:681
+#: widgets/ruqolamainwindow.cpp:679
 #, kde-format
 msgid "Import Accounts"
 msgstr "Import Accounts"
 
-#: widgets/ruqolamainwindow.cpp:685
+#: widgets/ruqolamainwindow.cpp:683
 #, kde-format
 msgid "Export Accounts"
 msgstr "Export Accounts"
 
-#: widgets/ruqolamainwindow.cpp:702
+#: widgets/ruqolamainwindow.cpp:700
 #, kde-format
 msgctxt "@action"
 msgid "Medium"
 msgstr "Medium"
 
-#: widgets/ruqolamainwindow.cpp:710
+#: widgets/ruqolamainwindow.cpp:708
 #, kde-format
 msgctxt "@action"
 msgid "Condensed"
 msgstr "Condensed"
 
-#: widgets/ruqolamainwindow.cpp:719
+#: widgets/ruqolamainwindow.cpp:717
 #, kde-format
 msgctxt "@action"
 msgid "Extended"
 msgstr "Extended"
 
-#: widgets/ruqolamainwindow.cpp:727
+#: widgets/ruqolamainwindow.cpp:725
 #, kde-format
 msgid "Clear history"
 msgstr "Clear history"
 
-#: widgets/ruqolamainwindow.cpp:764
+#: widgets/ruqolamainwindow.cpp:762
 #, kde-format
 msgctxt "@title:window"
 msgid "Create Team"
 msgstr "Create Team"
 
-#: widgets/ruqolamainwindow.cpp:954
+#: widgets/ruqolamainwindow.cpp:952
 #, kde-format
 msgid "Impossible to open log."
 msgstr "Impossible to open log."
 
-#: widgets/ruqolamainwindow.cpp:954
+#: widgets/ruqolamainwindow.cpp:952
 #, kde-format
 msgctxt "@title:window"
 msgid "Show Log"
 msgstr "Show Log"
 
-#: widgets/ruqolamainwindow.cpp:1117
+#: widgets/ruqolamainwindow.cpp:1115
 #, kde-format
 msgctxt "@item:inmenu Instant message presence status"
 msgid "Status"
 msgstr "Status"
 
-#: widgets/ruqolamainwindow.cpp:1204
+#: widgets/ruqolamainwindow.cpp:1202
 #, kde-format
 msgid ""
 "<qt>This will hide the menu bar completely. You can show it again by typing "
@@ -10855,7 +10855,7 @@ msgstr ""
 "<qt>This will hide the menu bar completely. You can show it again by typing "
 "%1.</qt>"
 
-#: widgets/ruqolamainwindow.cpp:1207
+#: widgets/ruqolamainwindow.cpp:1205
 #, kde-format
 msgctxt "@title:window"
 msgid "Hide menu bar"
@@ -10903,12 +10903,12 @@ msgctxt "@title:window"
 msgid "Server Error Information"
 msgstr "Server Error Information"
 
-#: widgets/servererrorinfohistory/servererrorinfomessagewidget.cpp:23
+#: widgets/servererrorinfohistory/servererrorinfomessagewidget.cpp:24
 #, kde-format
 msgid "(Show Errors)"
 msgstr "(Show Errors)"
 
-#: widgets/servererrorinfohistory/servererrorinfomessagewidget.cpp:23
+#: widgets/servererrorinfohistory/servererrorinfomessagewidget.cpp:24
 #, kde-format
 msgid "Server errors reported. %1"
 msgstr "Server errors reported. %1"
@@ -11063,12 +11063,12 @@ msgctxt "@title:window"
 msgid "What's new in %1"
 msgstr "What's new in %1"
 
-#: widgets/whatsnew/whatsnewmessagewidget.cpp:20
+#: widgets/whatsnew/whatsnewmessagewidget.cpp:21
 #, kde-format
 msgid "(Show News)"
 msgstr "(Show News)"
 
-#: widgets/whatsnew/whatsnewmessagewidget.cpp:20
+#: widgets/whatsnew/whatsnewmessagewidget.cpp:21
 #, kde-format
 msgid "What's new in %2. %1"
 msgstr "What's new in %2. %1"
