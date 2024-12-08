@@ -291,9 +291,6 @@ target_sources(librocketchatrestapi-qt PRIVATE
     personalaccesstoken/generatepersonalaccesstokenjob.cpp
     personalaccesstoken/generatepersonalaccesstokenjob.h
 
-
-    # python/pyrocketchatrestapi-qt5/rocketchatrestapi-qt5_global.h
-
     restapiabstractjob.cpp
     restapiabstractjob.h
     restapimethod.cpp
