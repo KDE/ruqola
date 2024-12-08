@@ -60,10 +60,10 @@ cmake . -DCMAKE_INSTALL_PREFIX=/usr -DCMAKE_BUILD_TYPE=Release -DBUILD_TESTING=F
 %{_prefix}/share/applications/org.kde.ruqola.desktop
 %{_prefix}/share/icons/hicolor
 %{_prefix}/share/doc/HTML/en/ruqola/
-%{_prefix}/share/knotifications5/ruqola.notifyrc
+%{_prefix}/share/knotifications6/ruqola.notifyrc
 %{_prefix}/share/metainfo/org.kde.ruqola.appdata.xml
-%{_prefix}/share/qlogging-categories5/ruqola.categories
-%{_prefix}/share/qlogging-categories5/ruqola.renamecategories
+%{_prefix}/share/qlogging-categories6/ruqola.categories
+%{_prefix}/share/qlogging-categories6/ruqola.renamecategories
 %{_prefix}/share/locale
 
 %changelog
