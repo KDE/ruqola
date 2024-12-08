@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-12-07 00:40+0000\n"
-"PO-Revision-Date: 2024-11-23 14:14+0100\n"
+"PO-Revision-Date: 2024-12-07 13:17+0100\n"
 "Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>\n"
 "Language-Team: Polish <kde-i18n-doc@kde.org>\n"
 "Language: pl\n"
@@ -161,7 +161,7 @@ msgstr "Optymalizacje, naprawa obsługi Windowsa/macOSa"
 #, kde-format
 msgctxt "@info:credit"
 msgid "Daniele E. Domenichelli"
-msgstr ""
+msgstr "Daniele E. Domenichelli"
 
 #: apps/main.cpp:95
 #, kde-format
@@ -254,12 +254,12 @@ msgstr "Dostęp do szczegółów o pokoju"
 #: core/apps/appsmarketplaceinfo.cpp:540
 #, kde-format
 msgid "Create and modify rooms"
-msgstr ""
+msgstr "Tworzenie i dostosowywanie pokojów"
 
 #: core/apps/appsmarketplaceinfo.cpp:542
 #, kde-format
 msgid "Access to this server network"
-msgstr ""
+msgstr "Dostęp do sieci tego serwera"
 
 #: core/apps/appsmarketplaceinfo.cpp:544
 #, kde-format
@@ -274,92 +274,92 @@ msgstr "Zmiana szczegółów o użytkowniku"
 #: core/apps/appsmarketplaceinfo.cpp:548
 #, kde-format
 msgid "Register new slash commands"
-msgstr ""
+msgstr "Rejestracja nowych poleceń slash"
 
 #: core/apps/appsmarketplaceinfo.cpp:550
 #, kde-format
 msgid "Register and maintain scheduled jobs"
-msgstr ""
+msgstr "Rejestracja i utrzymanie zaplanowanych zadań"
 
 #: core/apps/appsmarketplaceinfo.cpp:552
 #, kde-format
 msgid "Register new HTTP endpoints"
-msgstr ""
+msgstr "Rejestracja nowych punktów łączących HTTP"
 
 #: core/apps/appsmarketplaceinfo.cpp:554
 #, kde-format
 msgid "Access settings in this server"
-msgstr ""
+msgstr "Dostęp do ustawień na tym serwerze"
 
 #: core/apps/appsmarketplaceinfo.cpp:556
 #, kde-format
 msgid "Modify settings in this server"
-msgstr ""
+msgstr "Zmiana ustawień na tym serwerze"
 
 #: core/apps/appsmarketplaceinfo.cpp:558
 #, kde-format
 msgid "Upload files to this server"
-msgstr ""
+msgstr "Wysyłanie plików na ten serwer"
 
 #: core/apps/appsmarketplaceinfo.cpp:560
 #, kde-format
 msgid "Access files uploaded to this server"
-msgstr ""
+msgstr "Dostęp do plików wysyłanych na ten serwer"
 
 #: core/apps/appsmarketplaceinfo.cpp:562
 #, kde-format
 msgid "Interact with Cloud Services on behalf of this server"
-msgstr ""
+msgstr "Współdziałanie z usługami w chmurze na rzecz tego serwera"
 
 #: core/apps/appsmarketplaceinfo.cpp:564
 #, kde-format
 msgid "Access minimal information about this server environment"
-msgstr ""
+msgstr "Dostęp do podstawowych szczegółów o środowisku tego serwera"
 
 #: core/apps/appsmarketplaceinfo.cpp:566
 #, kde-format
 msgid "Access to multiple Livechat departments information"
-msgstr ""
+msgstr "Dostęp do szczegółów o wielu wydziałach Livechat"
 
 #: core/apps/appsmarketplaceinfo.cpp:568
 #, kde-format
 msgid "Access Livechat department information"
-msgstr ""
+msgstr "Dostęp do szczegółów o wydziale Livechat"
 
 #: core/apps/appsmarketplaceinfo.cpp:570
 #, kde-format
 msgid "Modify Livechat department information"
-msgstr ""
+msgstr "Zmiana szczegółów o wydziale Livechat"
 
 #: core/apps/appsmarketplaceinfo.cpp:572
 #, kde-format
 msgid "Modify Livechat room information"
-msgstr ""
+msgstr "Zmiana szczegółów o pokoju Livechat"
 
 #: core/apps/appsmarketplaceinfo.cpp:574
 #, kde-format
 msgid "Access Livechat room information"
-msgstr "Szczegóły o pokoju w rozmowie na żywo"
+msgstr "Dostęp do szczegółów o pokoju Livechat"
 
 #: core/apps/appsmarketplaceinfo.cpp:576
 #, kde-format
 msgid "Modify Livechat message information"
-msgstr ""
+msgstr "Zmiana szczegółów wiadomości Livechat"
 
 #: core/apps/appsmarketplaceinfo.cpp:578
 #, kde-format
 msgid "Access Livechat message information"
-msgstr ""
+msgstr "Dostęp do szczegółów wiadomości Livechat"
 
 #: core/apps/appsmarketplaceinfo.cpp:580
 #, kde-format
 msgid "Modify Livechat visitor information"
-msgstr ""
+msgstr "Zmiana szczegółów odwiedzających Livechat"
 
 #: core/apps/appsmarketplaceinfo.cpp:582
 #, kde-format
 msgid "Access Livechat visitor information"
-msgstr ""
+msgstr "Dostęp do szczegółów odwiedzających Livechat"
 
 #: core/apps/appsmarketplaceinfo.cpp:584
 #, kde-format
@@ -369,27 +369,27 @@ msgstr "Szczegóły o dostępności w rozmowie na żywo"
 #: core/apps/appsmarketplaceinfo.cpp:586
 #, kde-format
 msgid "Interact with the UI"
-msgstr ""
+msgstr "Obsługa interfejsu użytkownika"
 
 #: core/apps/appsmarketplaceinfo.cpp:588
 #, kde-format
 msgid "Store internal data in the database"
-msgstr ""
+msgstr "Przechowuj dane wewnętrzne w bazie danych"
 
 #: core/apps/appsmarketplaceinfo.cpp:590
 #, kde-format
 msgid "Modify Livechat custom field configuration"
-msgstr ""
+msgstr "Ustawienia zmiany własnych pól Livechat"
 
 #: core/apps/appsmarketplaceinfo.cpp:600
 #, kde-format
 msgid "Allow to write oauth app settings"
-msgstr ""
+msgstr "Zezwól na zapis ustawień aplikacji OAuth"
 
 #: core/apps/appsmarketplaceinfo.cpp:602
 #, kde-format
 msgid "Allow to read oauth app settings"
-msgstr ""
+msgstr "Zezwól na odczyt ustawień aplikacji OAuth"
 
 #: core/authenticationmanager.cpp:85
 #, kde-format
@@ -470,12 +470,12 @@ msgstr "Trwa wylogowywanie"
 #: core/authenticationmanager.cpp:115
 #, kde-format
 msgid "Logout cleanup ongoing"
-msgstr ""
+msgstr "Czyszczenie po wylogowaniu w trakcie"
 
 #: core/authenticationmanager.cpp:117
 #, kde-format
 msgid "Successfully logged out"
-msgstr ""
+msgstr "Pomyślnie wylogowano"
 
 #: core/authenticationmanager.cpp:119
 #, kde-format
@@ -1753,6 +1753,8 @@ msgid ""
 "REST: %1\n"
 "DDP: %2"
 msgstr ""
+"REST: %1\n"
+"DDP: %2"
 
 #: core/rocketchataccount.cpp:711 core/rocketchataccount.cpp:723
 #, kde-format
@@ -7030,12 +7032,10 @@ msgid "Search Requested Applications"
 msgstr "Poszukaj żądanych aplikacji"
 
 #: widgets/applicationssettingsdialog/applicationssettingssearchwidget.cpp:89
-#, fuzzy, kde-format
-#| msgctxt "@info:placeholder"
-#| msgid "Search Applications"
+#, kde-format
 msgctxt "@info:placeholder"
 msgid "Search Private Applications"
-msgstr "Poszukaj aplikacji"
+msgstr "Poszukaj prywatnych aplikacji"
 
 #: widgets/applicationssettingsdialog/applicationssettingssortingcombobox.cpp:12
 #, kde-format
@@ -7071,17 +7071,17 @@ msgstr "Włączone"
 #, kde-format
 msgid "%1 app enabled"
 msgid_plural "%1 apps enabled"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "Włączono %1 aplikację"
+msgstr[1] "Włączono %1 aplikacje"
+msgstr[2] "Włączono %1 aplikacji"
 
 #: widgets/applicationssettingsdialog/appscountinfowidget.cpp:54
 #, kde-format
 msgid "%1 private app enabled"
 msgid_plural "%1 private apps enabled"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "Włączono %1 prywatną aplikację"
+msgstr[1] "Włączono %1 prywatne aplikacje"
+msgstr[2] "Włączono %1 prywatnych aplikacji"
 
 #: widgets/bannerinfodialog/bannerinfodialog.cpp:27
 #, kde-format
@@ -7416,7 +7416,7 @@ msgstr "Włącz dziennik"
 #, kde-format
 msgctxt "@option:check"
 msgid "Highlight messages when hovering"
-msgstr ""
+msgstr "Podświetl wiadomości po najechaniu"
 
 #: widgets/configuredialog/configuregeneralwidget.cpp:22
 #, kde-format
@@ -7428,7 +7428,7 @@ msgstr "Animowane GIFy"
 #, kde-format
 msgctxt "@option:check"
 msgid "Enable experimental local database"
-msgstr ""
+msgstr "Włącz eksperymentalną, lokalną bazę danych"
 
 #: widgets/configuredialog/configuregeneralwidget.cpp:25
 #, kde-format
@@ -7522,7 +7522,7 @@ msgstr "Adres URL serwera:"
 #: widgets/configurenewserver/checknewserverurlwidget.cpp:94
 #, kde-format
 msgid "Socket was unexpectedly closed."
-msgstr ""
+msgstr "Gniazdo zostało niespodziewanie zamknięte."
 
 #: widgets/configurenewserver/checknewserverurlwidget.cpp:131
 #, kde-format
@@ -10781,12 +10781,10 @@ msgid "Installed Applications…"
 msgstr "Wgrane aplikacje…"
 
 #: widgets/ruqolamainwindow.cpp:551
-#, fuzzy, kde-format
-#| msgctxt "@action"
-#| msgid "Applications…"
+#, kde-format
 msgctxt "@action"
 msgid "Private Applications…"
-msgstr "Programy…"
+msgstr "Prywatne aplikacje…"
 
 #: widgets/ruqolamainwindow.cpp:556
 #, kde-format
@@ -11169,7 +11167,7 @@ msgstr "Dodano wyciszanie użytkowników i przywracanie im głosu."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:21
 msgid "Add color to the text in the account tab"
-msgstr ""
+msgstr "Dodaj kolor do tekstu na karcie konta"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:30
 #, kde-format
@@ -11492,17 +11490,17 @@ msgstr "Zaczęto pokazywać uprawnienia w Rocket.Chat Marketplace."
 #: widgets/whatsnew/whatsnewtranslations.cpp:126
 #, kde-format
 msgid "Fix reconnect server."
-msgstr ""
+msgstr "Naprawiono ponowne łączenie się z serwerem."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:127
 #, kde-format
 msgid "Fix single application on Windows/MacOs"
-msgstr ""
+msgstr "Naprawiono pojedyncze wystąpienie aplikacji na Windowsie/MacOS"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:128
 #, kde-format
 msgid "Fix select created room/discussion/teams"
-msgstr ""
+msgstr "Naprawiono zaznaczanie utworzonych pokojów/rozmów/zespołów"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:129
 #, kde-format
@@ -11517,13 +11515,12 @@ msgstr "Naprawiono obsługę wiadomości z nagraniami"
 #: widgets/whatsnew/whatsnewtranslations.cpp:131
 #, kde-format
 msgid "Fix highlight text in quoted message"
-msgstr ""
+msgstr "Naprawiono podświetlanie tekstu w cytowanych wiadomościach"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:132
-#, fuzzy, kde-format
-#| msgid "Open Discussion"
+#, kde-format
 msgid "Fix open discussion channel"
-msgstr "Otwórz rozmowę"
+msgstr "Naprawiono otwieranie kanału rozmowy"
 
 #: widgets/whatsnew/whatsnewwidget.cpp:44
 #, kde-format

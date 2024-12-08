@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-12-07 00:40+0000\n"
-"PO-Revision-Date: 2024-11-30 18:38+0100\n"
+"PO-Revision-Date: 2024-12-07 19:30+0100\n"
 "Last-Translator: Víctor Rodrigo Córdoba <vrcordoba@gmail.com>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -385,12 +385,12 @@ msgstr "Modificar configuración de los campos personalizados Livechat"
 #: core/apps/appsmarketplaceinfo.cpp:600
 #, kde-format
 msgid "Allow to write oauth app settings"
-msgstr ""
+msgstr "Permitir escribir las preferencias de la aplicación oauth"
 
 #: core/apps/appsmarketplaceinfo.cpp:602
 #, kde-format
 msgid "Allow to read oauth app settings"
-msgstr ""
+msgstr "Permitir leer las preferencias de la aplicación oauth"
 
 #: core/authenticationmanager.cpp:85
 #, kde-format
@@ -7046,12 +7046,10 @@ msgid "Search Requested Applications"
 msgstr "Buscar aplicaciones pedidas"
 
 #: widgets/applicationssettingsdialog/applicationssettingssearchwidget.cpp:89
-#, fuzzy, kde-format
-#| msgctxt "@info:placeholder"
-#| msgid "Search Applications"
+#, kde-format
 msgctxt "@info:placeholder"
 msgid "Search Private Applications"
-msgstr "Aplicaciones"
+msgstr "Buscar aplicaciones privadas"
 
 #: widgets/applicationssettingsdialog/applicationssettingssortingcombobox.cpp:12
 #, kde-format
@@ -7087,15 +7085,15 @@ msgstr "Activado"
 #, kde-format
 msgid "%1 app enabled"
 msgid_plural "%1 apps enabled"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%1 aplicación activada"
+msgstr[1] "%1 aplicaciones activadas"
 
 #: widgets/applicationssettingsdialog/appscountinfowidget.cpp:54
 #, kde-format
 msgid "%1 private app enabled"
 msgid_plural "%1 private apps enabled"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%1 aplicación privada activada"
+msgstr[1] "%1 aplicaciones privadas activadas"
 
 #: widgets/bannerinfodialog/bannerinfodialog.cpp:27
 #, kde-format
@@ -10787,12 +10785,10 @@ msgid "Installed Applications…"
 msgstr "Aplicaciones instaladas..."
 
 #: widgets/ruqolamainwindow.cpp:551
-#, fuzzy, kde-format
-#| msgctxt "@action"
-#| msgid "Applications…"
+#, kde-format
 msgctxt "@action"
 msgid "Private Applications…"
-msgstr "Aplicaciones..."
+msgstr "Aplicaciones privadas..."
 
 #: widgets/ruqolamainwindow.cpp:556
 #, kde-format
@@ -11561,9 +11557,3 @@ msgstr ""
 #, kde-format
 msgid "Some bug fixing:"
 msgstr "Algunas correcciones de errores:"
-
-#~ msgid "Private"
-#~ msgstr "Privado"
-
-#~ msgid "Installed"
-#~ msgstr "Instalado"
