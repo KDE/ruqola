@@ -36,6 +36,7 @@ QDebug operator<<(QDebug d, const AppsMarketPlaceInfo &t)
     d.space() << "author " << t.authorName();
     d.space() << "privacyPolicySummary " << t.privacyPolicySummary();
     d.space() << "requested " << t.requested();
+    d.space() << "installedInfo " << t.installedInfo();
     return d;
 }
 
@@ -57,6 +58,16 @@ void AppsMarketPlaceInfo::parsePermissions(const QJsonArray &array)
         perm.type = perm.convertStringToPermissionType(current["name"_L1].toString());
         mPermissions.append(perm);
     }
+}
+
+AppsMarketPlaceInstalledInfo AppsMarketPlaceInfo::installedInfo() const
+{
+    return mInstalledInfo;
+}
+
+void AppsMarketPlaceInfo::setInstalledInfo(const AppsMarketPlaceInstalledInfo &newInstalledInfo)
+{
+    mInstalledInfo = newInstalledInfo;
 }
 
 void AppsMarketPlaceInfo::parsePrincingPlan(const QJsonArray &array)
@@ -269,7 +280,7 @@ void AppsMarketPlaceInfo::setCategories(const QStringList &newCategories)
 bool AppsMarketPlaceInfo::isValid() const
 {
     // TODO
-    return !mAppId.isEmpty();
+    return !mAppId.isEmpty() || mInstalledInfo.isValid();
 }
 
 QString AppsMarketPlaceInfo::documentationUrl() const

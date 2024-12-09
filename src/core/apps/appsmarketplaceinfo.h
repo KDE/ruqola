@@ -6,6 +6,7 @@
 
 #pragma once
 
+#include "appsmarketplaceinstalledinfo.h"
 #include "libruqolacore_export.h"
 #include <QDebug>
 #include <QJsonObject>
@@ -146,6 +147,9 @@ public:
     [[nodiscard]] QString authorName() const;
     void setAuthorName(const QString &newAuthorName);
 
+    [[nodiscard]] AppsMarketPlaceInstalledInfo installedInfo() const;
+    void setInstalledInfo(const AppsMarketPlaceInstalledInfo &newInstalledInfo);
+
 private:
     LIBRUQOLACORE_NO_EXPORT void parsePrincingPlan(const QJsonArray &array);
     LIBRUQOLACORE_NO_EXPORT void parseAuthor(const QJsonObject &authorObject);
@@ -153,6 +157,7 @@ private:
     [[nodiscard]] LIBRUQOLACORE_NO_EXPORT QString generatePriceInfo() const;
     LIBRUQOLACORE_NO_EXPORT void parsePermissions(const QJsonArray &array);
 
+    AppsMarketPlaceInstalledInfo mInstalledInfo;
     QList<PricePlan> mPricePlan;
     QList<Permission> mPermissions;
     QStringList mCategories;
