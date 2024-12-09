@@ -59,12 +59,13 @@ void ApplicationsSettingsListView::slotCustomContextMenuRequested(const QPoint &
             menu.addAction(QIcon::fromTheme(QStringLiteral("description-symbolic")), i18nc("@action", "Show Description…"), this, [this, index]() {
                 slotShowApplicationDescription(index);
             });
-            menu.addSeparator();
             if (mRocketChatAccount->isAdministrator()) {
+                menu.addSeparator();
                 menu.addAction(i18nc("@action", "Install"), this, [this, index]() {
                     slotInstallApplication(index);
                 });
             } else {
+                menu.addSeparator();
                 menu.addAction(i18nc("@action", "Ask Application…"), this, [this, index]() {
                     slotAskApplication(index);
                 });
