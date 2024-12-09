@@ -383,11 +383,23 @@ QString AppsMarketPlaceInfo::applicationInformations() const
         str += pricingInfo + QStringLiteral("<br/><br/>");
     }
 
-    QString newDescription = mDescription;
+    QString newDescription;
+    if (mInstalledInfo.isValid() && !mInstalledInfo.description().isEmpty()) {
+        newDescription = mInstalledInfo.description();
+    } else {
+        newDescription = mAuthorName;
+    }
 
     str += QStringLiteral("<b>%1</b><br/>").arg(i18n("Description")) + newDescription + QStringLiteral("<br/><br/>");
 
-    str += QStringLiteral("<b>%1</b><br/>").arg(i18n("Version")) + mVersion + QStringLiteral("<br/><br/>");
+    QString version;
+    if (mInstalledInfo.isValid() && !mInstalledInfo.version().isEmpty()) {
+        version = mInstalledInfo.version();
+    } else {
+        version = mVersion;
+    }
+
+    str += QStringLiteral("<b>%1</b><br/>").arg(i18n("Version")) + version + QStringLiteral("<br/><br/>");
 
     if (!mCategories.isEmpty()) {
         str += QStringLiteral("<b>%1</b><br/>").arg(i18n("Categories")) + mCategories.join(QStringLiteral(", ")) + QStringLiteral("<br/><br/>");
