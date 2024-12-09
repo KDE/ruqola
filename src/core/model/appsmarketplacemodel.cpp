@@ -42,6 +42,8 @@ void AppsMarketPlaceModel::addInstalledInfo(const AppsMarketPlaceInstalledInfo &
         info.setInstalledInfo(installedInfo);
         mAppsMarketPlaceInfos.append(info);
     }
+    beginResetModel();
+    endResetModel();
 }
 
 void AppsMarketPlaceModel::setAppsMarketPlaceInfos(const QList<AppsMarketPlaceInfo> &appsMarketInfos)
