@@ -90,6 +90,7 @@ bool AppsMarketPlaceFilterProxyModel::filterAcceptsRow(int source_row, const QMo
     // TODO
     switch (mFilterInfo.status) {
     case Status::AllStatus:
+        break;
     case Status::Enabled:
     case Status::Disabled:
     case Status::UnknownStatus:
