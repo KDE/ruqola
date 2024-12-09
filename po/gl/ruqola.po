@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-12-06 02:30+0000\n"
-"PO-Revision-Date: 2024-12-04 22:18+0100\n"
+"PO-Revision-Date: 2024-12-08 14:34+0100\n"
 "Last-Translator: Adrián Chaves (Gallaecio) <adrian@chaves.io>\n"
 "Language-Team: Proxecto Trasno (proxecto@trasno.gal)\n"
 "Language: gl\n"
@@ -3454,7 +3454,7 @@ msgstr "Envíos totais"
 #: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:188
 #, kde-format
 msgid "Online Users"
-msgstr "Persoas usuarias conectadas"
+msgstr "Xente en liña"
 
 #: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:189
 #, kde-format
@@ -3748,9 +3748,9 @@ msgstr ""
 "Restabelecer a chave de extremo a extremo actual pechará a sesión da persoa "
 "usuaria. Cando a persoa acceda de novo, Rocket.Chat xerará unha nova chave e "
 "restaurará o acceso da persoa a calquera sala cifrada na que haxa polo menos "
-"unha outra persoa conectada. Por mor da natureza da cifraxe de extremo a "
+"unha outra persoa en liña. Por mor da natureza da cifraxe de extremo a "
 "extremo, Rocket.Chat non pode restaurar o acceso a salas cifradas sen xente "
-"conectada."
+"en liña."
 
 #: widgets/administratordialog/users/administratoruserswidget.cpp:412
 #, kde-format
@@ -6999,7 +6999,7 @@ msgstr "&Usar fontes personalizadas."
 #, kde-format
 msgctxt "@option:check"
 msgid "Set accounts online on startup"
-msgstr "Definir as contas como conectadas no inicio."
+msgstr "Definir as contas como en liña no inicio."
 
 #: widgets/configuredialog/configuregeneralwidget.cpp:16
 #, kde-format
@@ -8304,7 +8304,7 @@ msgstr ""
 "Para acceder aos seus grupos privados e mensaxes directas cifradas, "
 "introduza o seu contrasinal de cifraxe.\n"
 "Ten que introducir o contrasinal para codificar e descodificar as súas "
-"mensaxes en cada aplicación de cliente que use, dado que a chave non se "
+"mensaxes en cada programa de cliente que use, dado que a chave non se "
 "almacena no servidor."
 
 #: widgets/encryption/e2esaveencryptionkeywidget.cpp:17
@@ -8782,9 +8782,9 @@ msgstr ""
 "Esta opción retirará a súa chave de extremo a extremo actual e pechar a súa "
 "sesión. Cando acceda de novo, Rocket.Chat xerará unha nova chave e "
 "restaurará o acceso da persoa a calquera sala cifrada na que haxa polo menos "
-"unha outra persoa conectada. Por mor da natureza da cifraxe de extremo a "
+"unha outra persoa en liña. Por mor da natureza da cifraxe de extremo a "
 "extremo, Rocket.Chat non pode restaurar o acceso a salas cifradas sen xente "
-"conectada."
+"en liña."
 
 #: widgets/myaccount/myaccount2faconfigurewidget.cpp:19
 #, kde-format

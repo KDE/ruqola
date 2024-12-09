@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-12-06 02:30+0000\n"
-"PO-Revision-Date: 2024-11-15 10:01+0200\n"
+"PO-Revision-Date: 2024-12-07 18:13+0200\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
 "Language: fi\n"
@@ -967,7 +967,7 @@ msgstr "Kanavan tyyppi"
 #: core/model/directoryroomsmodel.cpp:135
 #, kde-format
 msgid "Belongs To"
-msgstr ""
+msgstr "Kuuluu käyttäjälle"
 
 #: core/model/directoryteamsmodel.cpp:92 core/model/roommodel.cpp:540
 #: widgets/administratordialog/administratorwidget.cpp:53
@@ -1753,7 +1753,7 @@ msgstr "Viestin %1 nouto ei sallittu"
 #: rocketchatrestapi-qt/chat/getmessagejob.cpp:105
 #, kde-format
 msgid "Not allowed to get message %2 in room %1"
-msgstr ""
+msgstr "Ei sallittua noutaa viestiä %2 huoneesta %1"
 
 #: rocketchatrestapi-qt/chat/getthreadmessagesjob.cpp:93
 #, kde-format
@@ -2018,7 +2018,7 @@ msgstr "Ilmoitit virheellisestä FROM-osoitteesta."
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:323
 #, kde-format
 msgid "Invalid integration"
-msgstr ""
+msgstr "Virheellinen eheytys"
 
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:325
 #, kde-format
@@ -2048,7 +2048,7 @@ msgstr "Virheellinen käyttöoikeus"
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:335
 #, kde-format
 msgid "Invalid redirectUri"
-msgstr ""
+msgstr "Virheellinen uudelleenohjaus-URI"
 
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:337
 #, kde-format
@@ -4010,6 +4010,8 @@ msgid ""
 "Default roles (comma-separated) users will be given when registering through "
 "authentication services"
 msgstr ""
+"Käyttäjille todennuspalvelujen kautta rekisteröityessään annettavat "
+"oletusroolit (pilkuin erotettuna)"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:207
 #, kde-format
@@ -4022,6 +4024,8 @@ msgid ""
 "Default roles (comma-separated) users will be given when registering through "
 "manual registration (including via API)"
 msgstr ""
+"Käyttäjille oman rekisteröinnin (ja APIn) kautta rekisteröityessään "
+"annettavat oletusroolit (pilkuin erotettuna)"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:214
 #, kde-format
@@ -4201,7 +4205,7 @@ msgstr "Käytössä olevat ominaisuudet"
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Tracks custom events related to actions a user does on messages."
-msgstr ""
+msgstr "Jäljitä viestitoimenpiteisiin liittyviä mukautettuja tapahtumia."
 
 #: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:41
 #, kde-format
@@ -4210,6 +4214,8 @@ msgid ""
 "Tracks custom events related to actions on a channel or group (create, "
 "leave, delete)."
 msgstr ""
+"Jäljittää kanava- tai ryhmätoimenpiteisiin (luonti, poistuminen, "
+"poistaminen) liittyviä mukautettuja tapahtumia."
 
 #: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:46
 #, kde-format
@@ -4218,6 +4224,8 @@ msgid ""
 "Tracks custom events related to actions related to users (password reset "
 "times, profile picture change, etc)."
 msgstr ""
+"Jäljittää käyttäjätoimenpiteisiin (salasanan palautuskerrat, profiilikuvan "
+"vaihto jne.) liittyviä mukautettuja tapahtumia."
 
 #: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:49
 #, kde-format
@@ -4227,7 +4235,7 @@ msgstr "Google Analytics"
 #: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:58
 #, kde-format
 msgid "Tracking ID"
-msgstr ""
+msgstr "Jäljitystunniste"
 
 #: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:60
 #, kde-format
@@ -4241,6 +4249,8 @@ msgid ""
 "The url where the Piwik resides, be sure to include the trailing slash. "
 "Example: //piwik.rocket.chat/"
 msgstr ""
+"Piwikin sijaintiosoite; varmista, että lopussa on vinoviiva. Esim. //piwik."
+"rocket.chat/"
 
 #: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:70
 #, kde-format
@@ -4251,7 +4261,7 @@ msgstr "Verkko-osoite"
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "The site id to use for identifying this site. Example: 17"
-msgstr ""
+msgstr "Tämän sivuston tunnistamiseen käytettävä tunniste. Esim. 17"
 
 #: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:74
 #, kde-format
@@ -4267,13 +4277,13 @@ msgstr "Piwik-lisäpalvelimet"
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Prepend the site domain to the page title when tracking"
-msgstr ""
+msgstr "Lisää jäljitettäessä sivuotsikon alkuun sivuston verkkoalue"
 
 #: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:85
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Track visitors across all subdomains"
-msgstr ""
+msgstr "Jäljitä vierailijoita kaikilla aliverkkoalueilla"
 
 #: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:90
 #, kde-format
@@ -4309,7 +4319,7 @@ msgstr "Salli käyttäjän luominen"
 #, kde-format
 msgctxt "@option:check"
 msgid "Always Sync User Data"
-msgstr ""
+msgstr "Tahdista aina käyttäjätiedot"
 
 #: widgets/administratorsettingsdialog/cas/cassettingswidget.cpp:34
 #, kde-format
@@ -4374,6 +4384,9 @@ msgid ""
 "login.\n"
 "Note: Attributes are always synced upon account creation anyway."
 msgstr ""
+"Tahdista aina ulkoinen CAS-käyttäjätieto saatavilla oleviin määritteisiin "
+"kirjauduttaessa.\n"
+"Huom! Määritteet tahdistetaan aina joka tapauksessa tiliä luotaessa."
 
 #: widgets/administratorsettingsdialog/cas/cassettingswidget.cpp:72
 #, kde-format
@@ -4478,6 +4491,13 @@ msgid ""
 "exclusively for access by Rocket.Chat\n"
 "and is not read/processed \"in parallel\" by humans."
 msgstr ""
+"[HUOM!] Jos ”suora vastaus” on käytössä, Rocket.Chat hallitsee asetettua "
+"sähköpostilaatikkoa.\n"
+"Kaikki lukematta olevat viestit noudetaan, merkitään luetuiksi ja "
+"käsitellään.\n"
+"”Suoravastaus” tulisi ottaa käyttöön vain, jos sähköpostilaatikkoa on "
+"yksinomaan Rocket.Chat-käyttöön\n"
+"eikä sitä ”rinnalla” lue tai käsittele kukaan ihminen."
 
 #: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:102
 #, kde-format
@@ -4486,6 +4506,8 @@ msgid ""
 "[Beware] Enabling Debug mode would display your 'Plain Text Password' in "
 "Admin console."
 msgstr ""
+"[VAARA] Virheenpaikannustilan käyttöönotto paljastaa ”raakatekstisalasanasi” "
+"ylläpitokonsolille."
 
 #: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:105
 #, kde-format
@@ -4556,13 +4578,13 @@ msgstr "E2E-salaus käytössä"
 #, kde-format
 msgctxt "@option:check"
 msgid "Enable encryption for Direct Rooms by default"
-msgstr ""
+msgstr "Ota oletuksena käyttöön suorahuoneiden salaus"
 
 #: widgets/administratorsettingsdialog/encryption/encryptionsettingswidget.cpp:18
 #, kde-format
 msgctxt "@option:check"
 msgid "Enable encryption for Private Rooms by default"
-msgstr ""
+msgstr "Ota oletuksena käyttöön yksityishuoneiden salaus"
 
 #: widgets/administratorsettingsdialog/encryption/encryptionsettingswidget.cpp:19
 #, kde-format
@@ -4577,6 +4599,8 @@ msgid ""
 "Enable option to create encrypted groups and be able to change groups and "
 "direct messages to be encrypted."
 msgstr ""
+"Ota käyttöön mahdollisuus luoda salattuja ryhmiä ja muuttaa ryhmiä ja "
+"suoraviestejä salatuiksi."
 
 #: widgets/administratorsettingsdialog/encryption/encryptionsettingswidget.cpp:37
 #, kde-format
@@ -4592,6 +4616,8 @@ msgid ""
 "If your workspace is registered and license is provided by Rocket.Chat Cloud "
 "you don't need to manually update the license here."
 msgstr ""
+"Jos työtila on rekisteröity ja lisenssin tarjoaa Rocket.Chatin pilvi, "
+"lisenssiä ei enää tarvitse päivittää tässä."
 
 #: widgets/administratorsettingsdialog/enterprise/enterprisesettingswidget.cpp:21
 #, kde-format
@@ -4620,7 +4646,7 @@ msgstr "Kierrä kuvia lähetettäessä"
 #, kde-format
 msgctxt "@option:check"
 msgid "Restrict files to rooms' members"
-msgstr ""
+msgstr "Rajaa tiedostot huoneen jäsenille"
 
 #: widgets/administratorsettingsdialog/fileupload/fileuploadsettingswidget.cpp:24
 #, kde-format
@@ -4643,13 +4669,13 @@ msgstr "Lähetetyn tiedoston enimmäiskoko (tavuina)"
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Only authenticated users will have access"
-msgstr ""
+msgstr "Vain todennetuilla käyttäjillä on pääsy"
 
 #: widgets/administratorsettingsdialog/fileupload/fileuploadsettingswidget.cpp:45
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Enabling this setting may cause image quality loss"
-msgstr ""
+msgstr "Asetuksen käyttöönotto voi johtaa kuvanlaadun heikkenemiseen"
 
 #: widgets/administratorsettingsdialog/fileupload/fileuploadsettingswidget.cpp:50
 #, kde-format
@@ -4739,13 +4765,13 @@ msgstr ""
 #, kde-format
 msgctxt "@option:check"
 msgid "Enable the Update Checker"
-msgstr ""
+msgstr "Tarkista päivitykset"
 
 #: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:34
 #, kde-format
 msgctxt "@option:check"
 msgid "Send Statistics to Rocket.Chat"
-msgstr ""
+msgstr "Lähetä tilastot Rocket.Chatiin"
 
 #: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:43
 #, kde-format
@@ -4766,7 +4792,7 @@ msgstr "UTF8"
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "RegExp that will be used to validate usernames"
-msgstr ""
+msgstr "Käyttäjätunnusten varmistamiseen käytettävä säännöllinen lauseke"
 
 #: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:54
 #, kde-format
@@ -4777,7 +4803,7 @@ msgstr "UTF-8-käyttäjätunnusten todentaminen"
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "RegExp that will be used to validate channel names"
-msgstr ""
+msgstr "Kanavanimien varmistamiseen käyttävä säännöllinen lauseke"
 
 #: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:58
 #, kde-format
@@ -4787,7 +4813,7 @@ msgstr "UTF-8-kanavanimien todentaminen"
 #: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:65
 #, kde-format
 msgid "First Channel After Login"
-msgstr ""
+msgstr "Ensimmäinen kirjautumisen jälkeen kanava"
 
 #: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:68
 #, kde-format
@@ -4854,6 +4880,11 @@ msgid ""
 "message from the Rocket.Cat bot,\n"
 "both visible only for administrators."
 msgstr ""
+"Etsii automaattisesti uusia päivityksiä tai tärkeitä viestejä Rocket.Chatin "
+"kehittäjiltä ja vastaanottaa saatavilla olevat ilmoitukset.\n"
+"Ilmoitus näkyy kerran versiota kohden napsautettavana ikkunana ja viestinä "
+"Rocket.Chatin botilta\n"
+"ja ainoastaan ylläpitäjille."
 
 #: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:105
 #, kde-format
@@ -4866,7 +4897,7 @@ msgctxt "@info:tooltip"
 msgid ""
 "Sets the default timezone that will be used when showing dashboards or "
 "sending emails"
-msgstr ""
+msgstr "Asettaa kojelaudan ja viestien lähetyksen oletusaikavyöhykkeen"
 
 #: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:112
 #, kde-format
@@ -4905,21 +4936,26 @@ msgid ""
 "disabled. Users can still change per room setting to receive all "
 "notifications on an individual basis. (0 to disable)"
 msgstr ""
+"Huoneen jäsenten enimmäismäärä ennen kaikkien viesti-ilmoitusten poistamista "
+"käytöstä. Käyttäjät voivat yhä muuttaa huonekohtaista asetusta saadakseen "
+"yksittäisiä ilmoituksia. (0 poistaa käytöstä)"
 
 #: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:136
 #, kde-format
 msgid "Max Room Members Before Disabling All Message Notifications"
 msgstr ""
+"Huoneen jäsenten enimmäismäärä ennen kaikkien viesti-ilmoitusten poistamista "
+"käytöstä"
 
 #: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:140
 #, kde-format
 msgid "Stream Cast"
-msgstr ""
+msgstr "Suoratoisto"
 
 #: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:145
 #, kde-format
 msgid "Stream Cast Address"
-msgstr ""
+msgstr "Suoratoisto-osoite"
 
 #: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:146
 #, kde-format
@@ -4928,6 +4964,8 @@ msgid ""
 "IP or Host of your Rocket.Chat central Stream Cast. E.g. 192.168.1.1:3000 or "
 "localhost:4000"
 msgstr ""
+"Rocket.Chatin keskeisen suoratoiston IP tai palvelin. Esim. 192.168.1.1:3000 "
+"tai localhost:4000"
 
 #: widgets/administratorsettingsdialog/irc/ircwidget.cpp:21
 #, kde-format
@@ -6113,7 +6151,7 @@ msgstr "Reaktiot"
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Enable Rocket.Chat to communicate directly with Slack."
-msgstr ""
+msgstr "Salli Rocket.Chatin viestiä suoraan Slackin kanssa."
 
 #: widgets/administratorsettingsdialog/slackbridge/slackbridgewidget.cpp:33
 #, kde-format
@@ -6124,7 +6162,7 @@ msgstr "API-merkit"
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Choose whether SlackBridge should also send your messages back to Slack"
-msgstr ""
+msgstr "Valitse, lähettääkö Slack-silta viestisi myös takaisin Slackiin"
 
 #: widgets/administratorsettingsdialog/slackbridge/slackbridgewidget.cpp:45
 #, kde-format
@@ -6132,6 +6170,8 @@ msgctxt "@info:tooltip"
 msgid ""
 "Send messages from all channels that exist in Slack and the bot has joined"
 msgstr ""
+"Lähetä kaikkien niiden Slackissä olemassa olevien kanavien viestit, joihin "
+"botti on liittynyt"
 
 #: widgets/administratorsettingsdialog/slackbridge/slackbridgewidget.cpp:51
 #, kde-format
@@ -6140,6 +6180,8 @@ msgid ""
 "Import messages from Slack with an alias; %s is replaced by the username of "
 "the user. If empty, no alias will be used."
 msgstr ""
+"Tuo viestit Slackistä aliaksella; %s korvataan käyttäjätunnuksella. Jos on "
+"tyhjä, aliaksia ei käytetä."
 
 #: widgets/administratorsettingsdialog/slackbridge/slackbridgewidget.cpp:52
 #, kde-format
@@ -6152,6 +6194,8 @@ msgid ""
 "Do not propagate messages from bots whose name matches the regular "
 "expression above. If left empty, all messages from bots will be propagated."
 msgstr ""
+"Älä välitä viestejä boteilta, joiden nimet vastaavat yllä annettuja "
+"lausekkeita. Jos jätetään tyhjäksi, kaikki bottien viestit välitetään."
 
 #: widgets/administratorsettingsdialog/slackbridge/slackbridgewidget.cpp:57
 #, kde-format
@@ -6168,13 +6212,13 @@ msgstr "Poista ilmoitukset käytöstä"
 #, kde-format
 msgctxt "@option:check"
 msgid "Disable Presence Broadcast"
-msgstr ""
+msgstr "Poista läsnäolotietojen lähetys käytöstä"
 
 #: widgets/administratorsettingsdialog/troubleshoot/troubleshootsettingswidget.cpp:16
 #, kde-format
 msgctxt "@option:check"
 msgid "Disable Instance Broadcast"
-msgstr ""
+msgstr "Poista ilmentymälähetys käytöstä"
 
 #: widgets/administratorsettingsdialog/troubleshoot/troubleshootsettingswidget.cpp:17
 #, kde-format
@@ -6198,13 +6242,13 @@ msgstr "Poista tilastojen luominen käytöstä"
 #, kde-format
 msgctxt "@option:check"
 msgid "Disable Data Exporter Processor"
-msgstr ""
+msgstr "Poista tietojen viennin käsittely käytöstä"
 
 #: widgets/administratorsettingsdialog/troubleshoot/troubleshootsettingswidget.cpp:21
 #, kde-format
 msgctxt "@option:check"
 msgid "Disable Workspace Sync"
-msgstr ""
+msgstr "Poista työtilatahdistus käytöstä"
 
 #: widgets/administratorsettingsdialog/troubleshoot/troubleshootsettingswidget.cpp:26
 #, kde-format
@@ -6212,6 +6256,8 @@ msgid ""
 "This setting completely disables the notifications system; sounds, desktop "
 "notifications, mobile notifications, and emails will stop!"
 msgstr ""
+"Asetus poistaa ilmoitusjärjestelmän kokonaan käytöstä: äänet, työpöytä- ja "
+"mobiili-ilmoitukset ja sähköpostit loppuvat kaikki!"
 
 #: widgets/administratorsettingsdialog/troubleshoot/troubleshootsettingswidget.cpp:32
 #, kde-format
@@ -6220,6 +6266,9 @@ msgid ""
 "users to their clients keeping all the users with their presence status from "
 "the first load!"
 msgstr ""
+"Tämä asetus estää kaikkia ilmentymiä lähettämästä käyttäjien tilamuutoksia "
+"asiakkailleen, jolloin kaikkien käyttäjien läsnäolotila pysyy ensimmäisen "
+"latauksen mukaisena!"
 
 #: widgets/administratorsettingsdialog/troubleshoot/troubleshootsettingswidget.cpp:39
 #: widgets/administratorsettingsdialog/troubleshoot/troubleshootsettingswidget.cpp:45
@@ -6228,6 +6277,8 @@ msgid ""
 "This setting prevents the Rocket.Chat instances from sending events to the "
 "other instances, it may cause syncing problems and misbehavior!"
 msgstr ""
+"Tämä asetus estää Rocket.Chat-ilmentymiä lähettämästä tapahtumia muille "
+"ilmentymille, mistä voi seurata tahdistus- ja muita ongelmia!"
 
 #: widgets/administratorsettingsdialog/troubleshoot/troubleshootsettingswidget.cpp:51
 #, kde-format
@@ -6243,6 +6294,9 @@ msgid ""
 "outdated until someone clicks on the refresh button and may cause other "
 "missing information around the system!"
 msgstr ""
+"Tämä asetus lopettaa kaikkien tilastojen käsittelyn, jolloin tietosivu jää "
+"ajasta jälkeen, kunnes joku napsauttaa virkistyspainiketta. Muutakin tietoa "
+"voi jäädä puuttumaan muualla järjestelmässä!"
 
 #: widgets/administratorsettingsdialog/troubleshoot/troubleshootsettingswidget.cpp:64
 #, kde-format
@@ -6250,6 +6304,8 @@ msgid ""
 "This setting stops the processing of all export requests from users, so they "
 "will not receive the link to download their data!"
 msgstr ""
+"Tämä asetus lopettaa käyttäjien kaikkien vientipyyntöjen käsittelyn, joten "
+"he eivät saa linkkiä tietojensa lataamiseksi!"
 
 #: widgets/administratorsettingsdialog/troubleshoot/troubleshootsettingswidget.cpp:70
 #, kde-format
@@ -6257,6 +6313,8 @@ msgid ""
 "This setting stops the sync of this server with Rocket.Chat's cloud and may "
 "cause issues with marketplace and enterprise licenses!"
 msgstr ""
+"Tämä asetus lopettaa tämän palvelimen tahdistuksen Rocket.Chatin pilveen ja "
+"voi aiheuttaa ongelmia tori- ja yrityslisensseille!"
 
 #: widgets/administratorsettingsdialog/userdatadownload/userdatadownloadwidget.cpp:16
 #, kde-format
@@ -6289,7 +6347,7 @@ msgstr "Pyyntökohtainen viestirajoitus"
 #, kde-format
 msgctxt "@option:check"
 msgid "Always Open in New Window"
-msgstr ""
+msgstr "Avaa aina uuteen ikkunaan"
 
 #: widgets/administratorsettingsdialog/videoconference/videoconferencewidget.cpp:25
 #, kde-format
@@ -6325,7 +6383,7 @@ msgstr "Käytä JWT-todennusta"
 #, kde-format
 msgctxt "@option:check"
 msgid "Limit token to Jitsi Room"
-msgstr ""
+msgstr "Rajaa pääsymerkki Jitsi-huoneeseen"
 
 #: widgets/administratorsettingsdialog/videoconference/videoconferencewidget.cpp:45
 #: widgets/administratorsettingsdialog/videoconference/videoconferencewidget.cpp:63
