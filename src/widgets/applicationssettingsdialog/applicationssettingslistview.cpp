@@ -59,16 +59,19 @@ void ApplicationsSettingsListView::slotCustomContextMenuRequested(const QPoint &
             menu.addAction(QIcon::fromTheme(QStringLiteral("description-symbolic")), i18nc("@action", "Show Description…"), this, [this, index]() {
                 slotShowApplicationDescription(index);
             });
-            if (mRocketChatAccount->isAdministrator()) {
-                menu.addSeparator();
-                menu.addAction(i18nc("@action", "Install"), this, [this, index]() {
-                    slotInstallApplication(index);
-                });
-            } else {
-                menu.addSeparator();
-                menu.addAction(i18nc("@action", "Ask Application…"), this, [this, index]() {
-                    slotAskApplication(index);
-                });
+
+            if (!index.data(AppsMarketPlaceModel::Private).toBool() && !index.data(AppsMarketPlaceModel::Installed).toBool()) {
+                if (mRocketChatAccount->isAdministrator()) {
+                    menu.addSeparator();
+                    menu.addAction(i18nc("@action", "Install"), this, [this, index]() {
+                        slotInstallApplication(index);
+                    });
+                } else {
+                    menu.addSeparator();
+                    menu.addAction(i18nc("@action", "Ask Application…"), this, [this, index]() {
+                        slotAskApplication(index);
+                    });
+                }
             }
 
             if (mApplicationsSettingsListDelegate->hasSelection()) {
