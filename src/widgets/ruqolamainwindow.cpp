@@ -1340,7 +1340,7 @@ void RuqolaMainWindow::slotShowRestApiLogsFile()
 
 void RuqolaMainWindow::slotPrivateApplicationsSettings()
 {
-    // TODO
+    applicationSettings(ApplicationsSettingsSearchWidget::Feature::Private);
 }
 
 #include "moc_ruqolamainwindow.cpp"
