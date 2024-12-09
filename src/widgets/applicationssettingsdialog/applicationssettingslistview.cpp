@@ -4,7 +4,7 @@
    SPDX-License-Identifier: LGPL-2.0-or-later
 */
 
-#include "applicationssettingslistviewbase.h"
+#include "applicationssettingslistview.h"
 #include "applicationssettingsaskapplicationdialog.h"
 #include "applicationssettingsdelegate.h"
 #include "applicationssettingsdescriptiondialog.h"
@@ -20,7 +20,7 @@
 #include <QPointer>
 
 using namespace Qt::Literals::StringLiterals;
-ApplicationsSettingsListViewBase::ApplicationsSettingsListViewBase(RocketChatAccount *account, QWidget *parent)
+ApplicationsSettingsListView::ApplicationsSettingsListView(RocketChatAccount *account, QWidget *parent)
     : MessageListViewBase(parent)
     , mRocketChatAccount(account)
     , mApplicationsSettingsListDelegate(new ApplicationsSettingsDelegate(account, this, this))
@@ -41,16 +41,16 @@ ApplicationsSettingsListViewBase::ApplicationsSettingsListViewBase(RocketChatAcc
         update(index);
     });
     connect(this,
-            &ApplicationsSettingsListViewBase::needToClearSizeHintCache,
+            &ApplicationsSettingsListView::needToClearSizeHintCache,
             mApplicationsSettingsListDelegate,
             &ApplicationsSettingsDelegate::clearSizeHintCache);
 
-    connect(this, &QListView::customContextMenuRequested, this, &ApplicationsSettingsListViewBase::slotCustomContextMenuRequested);
+    connect(this, &QListView::customContextMenuRequested, this, &ApplicationsSettingsListView::slotCustomContextMenuRequested);
 }
 
-ApplicationsSettingsListViewBase::~ApplicationsSettingsListViewBase() = default;
+ApplicationsSettingsListView::~ApplicationsSettingsListView() = default;
 
-void ApplicationsSettingsListViewBase::slotCustomContextMenuRequested(const QPoint &pos)
+void ApplicationsSettingsListView::slotCustomContextMenuRequested(const QPoint &pos)
 {
     if (model()->rowCount() > 0) {
         const QModelIndex index = indexAt(pos);
@@ -89,12 +89,12 @@ void ApplicationsSettingsListViewBase::slotCustomContextMenuRequested(const QPoi
     }
 }
 
-QString ApplicationsSettingsListViewBase::selectedText() const
+QString ApplicationsSettingsListView::selectedText() const
 {
     return mApplicationsSettingsListDelegate->selectedText();
 }
 
-QString ApplicationsSettingsListViewBase::selectedText(const QModelIndex &index)
+QString ApplicationsSettingsListView::selectedText(const QModelIndex &index)
 {
     QString messageText = selectedText();
     if (messageText.isEmpty()) {
@@ -106,33 +106,33 @@ QString ApplicationsSettingsListViewBase::selectedText(const QModelIndex &index)
     return messageText;
 }
 
-void ApplicationsSettingsListViewBase::slotSelectAll(const QModelIndex &index)
+void ApplicationsSettingsListView::slotSelectAll(const QModelIndex &index)
 {
     mApplicationsSettingsListDelegate->selectAll(listViewOptions(), index);
 }
 
-void ApplicationsSettingsListViewBase::setFilterInfo(const AppsMarketPlaceFilterProxyModel::FilterInfo &info)
+void ApplicationsSettingsListView::setFilterInfo(const AppsMarketPlaceFilterProxyModel::FilterInfo &info)
 {
     mAppsMarketPlaceFilterProxyModel->setFilterInfo(info);
 }
 
-void ApplicationsSettingsListViewBase::setSorting(AppsMarketPlaceFilterProxyModel::Sorting newSorting)
+void ApplicationsSettingsListView::setSorting(AppsMarketPlaceFilterProxyModel::Sorting newSorting)
 {
     mAppsMarketPlaceFilterProxyModel->setSorting(newSorting);
 }
 
-void ApplicationsSettingsListViewBase::setRequested(bool requested)
+void ApplicationsSettingsListView::setRequested(bool requested)
 {
     mAppsMarketPlaceFilterProxyModel->setRequested(requested);
 }
 
-void ApplicationsSettingsListViewBase::slotInstallApplication(const QModelIndex &index)
+void ApplicationsSettingsListView::slotInstallApplication(const QModelIndex &index)
 {
     qCWarning(RUQOLAWIDGETS_LOG) << "ApplicationsSettingsListView::slotInstallApplication not implemented yet.";
     // TODO
 }
 
-void ApplicationsSettingsListViewBase::slotAskApplication(const QModelIndex &index)
+void ApplicationsSettingsListView::slotAskApplication(const QModelIndex &index)
 {
     QPointer<ApplicationsSettingsAskApplicationDialog> dlg = new ApplicationsSettingsAskApplicationDialog(this);
     const QString appName = index.data(AppsMarketPlaceModel::AppName).toString();
@@ -159,7 +159,7 @@ void ApplicationsSettingsListViewBase::slotAskApplication(const QModelIndex &ind
     delete dlg;
 }
 
-void ApplicationsSettingsListViewBase::slotShowApplicationDescription(const QModelIndex &index)
+void ApplicationsSettingsListView::slotShowApplicationDescription(const QModelIndex &index)
 {
     ApplicationsSettingsDescriptionDialog dlg(this);
     const QString description = index.data(AppsMarketPlaceModel::ApplicationInformations).toString();
@@ -167,14 +167,14 @@ void ApplicationsSettingsListViewBase::slotShowApplicationDescription(const QMod
     dlg.exec();
 }
 
-bool ApplicationsSettingsListViewBase::maybeStartDrag(QMouseEvent *event, const QStyleOptionViewItem &option, const QModelIndex &index)
+bool ApplicationsSettingsListView::maybeStartDrag(QMouseEvent *event, const QStyleOptionViewItem &option, const QModelIndex &index)
 {
     return mApplicationsSettingsListDelegate->maybeStartDrag(event, option, index);
 }
 
-bool ApplicationsSettingsListViewBase::mouseEvent(QMouseEvent *event, const QStyleOptionViewItem &option, const QModelIndex &index)
+bool ApplicationsSettingsListView::mouseEvent(QMouseEvent *event, const QStyleOptionViewItem &option, const QModelIndex &index)
 {
     return mApplicationsSettingsListDelegate->mouseEvent(event, option, index);
 }
 
-#include "moc_applicationssettingslistviewbase.cpp"
+#include "moc_applicationssettingslistview.cpp"

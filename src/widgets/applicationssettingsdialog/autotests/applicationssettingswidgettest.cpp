@@ -6,7 +6,7 @@
 
 #include "applicationssettingswidgettest.h"
 #include "applicationssettingsdialog/applicationssettingsinprogresswidget.h"
-#include "applicationssettingsdialog/applicationssettingslistviewbase.h"
+#include "applicationssettingsdialog/applicationssettingslistview.h"
 #include "applicationssettingsdialog/applicationssettingssearchwidget.h"
 #include "applicationssettingsdialog/applicationssettingswidgetbase.h"
 #include "applicationssettingsdialog/appscountinfowidget.h"
@@ -29,7 +29,7 @@ void ApplicationsSettingsWidgetTest::shouldHaveDefaultValues()
 
     auto mApplicationsSettingsSearchWidget = d.findChild<ApplicationsSettingsSearchWidget *>(QStringLiteral("mApplicationsSettingsSearchWidget"));
     QVERIFY(mApplicationsSettingsSearchWidget);
-    auto mApplicationsSettingsListView = d.findChild<ApplicationsSettingsListViewBase *>(QStringLiteral("mApplicationsSettingsListView"));
+    auto mApplicationsSettingsListView = d.findChild<ApplicationsSettingsListView *>(QStringLiteral("mApplicationsSettingsListView"));
     QVERIFY(mApplicationsSettingsListView);
     auto mApplicationsSettingsInProgressWidget = d.findChild<ApplicationsSettingsInProgressWidget *>(QStringLiteral("mApplicationsSettingsInProgressWidget"));
     QVERIFY(mApplicationsSettingsInProgressWidget);

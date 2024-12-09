@@ -11,12 +11,12 @@
 
 class ApplicationsSettingsDelegate;
 class RocketChatAccount;
-class LIBRUQOLAWIDGETS_TESTS_EXPORT ApplicationsSettingsListViewBase : public MessageListViewBase
+class LIBRUQOLAWIDGETS_TESTS_EXPORT ApplicationsSettingsListView : public MessageListViewBase
 {
     Q_OBJECT
 public:
-    explicit ApplicationsSettingsListViewBase(RocketChatAccount *account, QWidget *parent = nullptr);
-    ~ApplicationsSettingsListViewBase() override;
+    explicit ApplicationsSettingsListView(RocketChatAccount *account, QWidget *parent = nullptr);
+    ~ApplicationsSettingsListView() override;
 
     void setFilterInfo(const AppsMarketPlaceFilterProxyModel::FilterInfo &info);
     void setSorting(AppsMarketPlaceFilterProxyModel::Sorting newSorting);
