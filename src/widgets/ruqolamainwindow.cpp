@@ -8,7 +8,9 @@
 #include "accountmanager.h"
 #include "administratordialog/administratordialog.h"
 #include "administratorsettingsdialog/administratorsettingsdialog.h"
-#include "applicationssettingsdialog/applicationssettingsdialog.h"
+#include "applicationssettingsdialog/applicationssettingsinstalledprivatedialog.h"
+#include "applicationssettingsdialog/applicationssettingsmarketplacedialog.h"
+
 #include "databasedialog/exploredatabasedialog.h"
 #include "directmessage/createdmjob.h"
 #include "explorepermissionsdialog/explorepermissionsdialog.h"
@@ -1293,7 +1295,7 @@ void RuqolaMainWindow::slotExportAccounts()
 
 void RuqolaMainWindow::applicationSettings(ApplicationsSettingsSearchWidget::Feature feature)
 {
-    ApplicationsSettingsDialog dlg(mCurrentRocketChatAccount, this);
+    ApplicationsSettingsMarketPlaceDialog dlg(mCurrentRocketChatAccount, this);
     dlg.setFeature(feature);
     dlg.initialize();
     dlg.exec();

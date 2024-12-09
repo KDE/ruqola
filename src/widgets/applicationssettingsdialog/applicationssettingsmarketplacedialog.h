@@ -11,12 +11,12 @@
 #include <QDialog>
 class ApplicationsSettingsWidgetBase;
 class RocketChatAccount;
-class LIBRUQOLAWIDGETS_TESTS_EXPORT ApplicationsSettingsDialog : public QDialog
+class LIBRUQOLAWIDGETS_TESTS_EXPORT ApplicationsSettingsMarketPlaceDialog : public QDialog
 {
     Q_OBJECT
 public:
-    explicit ApplicationsSettingsDialog(RocketChatAccount *account, QWidget *parent = nullptr);
-    ~ApplicationsSettingsDialog() override;
+    explicit ApplicationsSettingsMarketPlaceDialog(RocketChatAccount *account, QWidget *parent = nullptr);
+    ~ApplicationsSettingsMarketPlaceDialog() override;
 
     void setFeature(ApplicationsSettingsSearchWidget::Feature feature);
 

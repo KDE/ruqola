@@ -8,12 +8,12 @@
 
 #include <QObject>
 
-class ApplicationsSettingsDialogTest : public QObject
+class ApplicationsSettingsMarketPlaceDialogTest : public QObject
 {
     Q_OBJECT
 public:
-    explicit ApplicationsSettingsDialogTest(QObject *parent = nullptr);
-    ~ApplicationsSettingsDialogTest() override = default;
+    explicit ApplicationsSettingsMarketPlaceDialogTest(QObject *parent = nullptr);
+    ~ApplicationsSettingsMarketPlaceDialogTest() override = default;
 
 private Q_SLOTS:
     void shouldHaveDefaultValues();
