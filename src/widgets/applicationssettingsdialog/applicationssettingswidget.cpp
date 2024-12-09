@@ -4,7 +4,7 @@
    SPDX-License-Identifier: LGPL-2.0-or-later
 */
 
-#include "applicationssettingswidgetbase.h"
+#include "applicationssettingswidget.h"
 #include "applicationssettingsinprogresswidget.h"
 #include "applicationssettingslistview.h"
 #include "appscountinfowidget.h"
@@ -16,7 +16,7 @@
 #include <QVBoxLayout>
 
 using namespace Qt::Literals::StringLiterals;
-ApplicationsSettingsWidgetBase::ApplicationsSettingsWidgetBase(RocketChatAccount *account, QWidget *parent)
+ApplicationsSettingsWidget::ApplicationsSettingsWidget(RocketChatAccount *account, QWidget *parent)
     : QWidget{parent}
     , mCurrentRocketChatAccount(account)
     , mApplicationsSettingsSearchWidget(new ApplicationsSettingsSearchWidget(account, this))
@@ -53,11 +53,11 @@ ApplicationsSettingsWidgetBase::ApplicationsSettingsWidgetBase(RocketChatAccount
     mApplicationsSettingsListView->setObjectName("mApplicationsSettingsListView"_L1);
     widgetLayout->addWidget(mApplicationsSettingsListView);
 
-    connect(mApplicationsSettingsSearchWidget, &ApplicationsSettingsSearchWidget::filterChanged, this, &ApplicationsSettingsWidgetBase::slotFilterChanged);
-    connect(mApplicationsSettingsSearchWidget, &ApplicationsSettingsSearchWidget::sortingChanged, this, &ApplicationsSettingsWidgetBase::slotSortingChanged);
+    connect(mApplicationsSettingsSearchWidget, &ApplicationsSettingsSearchWidget::filterChanged, this, &ApplicationsSettingsWidget::slotFilterChanged);
+    connect(mApplicationsSettingsSearchWidget, &ApplicationsSettingsSearchWidget::sortingChanged, this, &ApplicationsSettingsWidget::slotSortingChanged);
 }
 
-void ApplicationsSettingsWidgetBase::initialize()
+void ApplicationsSettingsWidget::initialize()
 {
     if (mCurrentRocketChatAccount) {
         mCurrentRocketChatAccount->memoryManager()->stopClearApplicationSettingsModelTimer();
@@ -82,7 +82,7 @@ void ApplicationsSettingsWidgetBase::initialize()
     }
 }
 
-void ApplicationsSettingsWidgetBase::setFeature(ApplicationsSettingsSearchWidget::Feature feature)
+void ApplicationsSettingsWidget::setFeature(ApplicationsSettingsSearchWidget::Feature feature)
 {
     mApplicationsSettingsSearchWidget->setFeature(feature);
     mAppsCountInfoWidget->setInfotype(feature == ApplicationsSettingsSearchWidget::Feature::Private ? AppsCountInfoWidget::InfoType::PrivateApps
@@ -92,21 +92,21 @@ void ApplicationsSettingsWidgetBase::setFeature(ApplicationsSettingsSearchWidget
     }
 }
 
-ApplicationsSettingsWidgetBase::~ApplicationsSettingsWidgetBase()
+ApplicationsSettingsWidget::~ApplicationsSettingsWidget()
 {
     if (mCurrentRocketChatAccount) {
         mCurrentRocketChatAccount->memoryManager()->startClearApplicationSettingsModelTimer();
     }
 }
 
-void ApplicationsSettingsWidgetBase::slotFilterChanged()
+void ApplicationsSettingsWidget::slotFilterChanged()
 {
     mApplicationsSettingsListView->setFilterInfo(mApplicationsSettingsSearchWidget->filterInfo());
 }
 
-void ApplicationsSettingsWidgetBase::slotSortingChanged()
+void ApplicationsSettingsWidget::slotSortingChanged()
 {
     mApplicationsSettingsListView->setSorting(mApplicationsSettingsSearchWidget->sortingInfo());
 }
 
-#include "moc_applicationssettingswidgetbase.cpp"
+#include "moc_applicationssettingswidget.cpp"

@@ -912,8 +912,8 @@ target_sources(libruqolawidgets PRIVATE
 
     applicationssettingsdialog/applicationssettingsdialog.h
     applicationssettingsdialog/applicationssettingsdialog.cpp
-    applicationssettingsdialog/applicationssettingswidgetbase.h
-    applicationssettingsdialog/applicationssettingswidgetbase.cpp
+    applicationssettingsdialog/applicationssettingswidget.h
+    applicationssettingsdialog/applicationssettingswidget.cpp
 
     applicationssettingsdialog/applicationssettingslistview.h
     applicationssettingsdialog/applicationssettingslistview.cpp
