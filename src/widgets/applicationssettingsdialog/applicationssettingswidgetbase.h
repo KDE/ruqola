@@ -10,7 +10,7 @@
 #include "rocketchataccount.h"
 #include <QWidget>
 class RocketChatAccount;
-class ApplicationsSettingsListView;
+class ApplicationsSettingsListViewBase;
 class QStackedWidget;
 class AppsCountInfoWidget;
 class ApplicationsSettingsInProgressWidget;
@@ -30,7 +30,7 @@ private:
     LIBRUQOLAWIDGETS_NO_EXPORT void slotSortingChanged();
     RocketChatAccount *const mCurrentRocketChatAccount;
     ApplicationsSettingsSearchWidget *const mApplicationsSettingsSearchWidget;
-    ApplicationsSettingsListView *const mApplicationsSettingsListView;
+    ApplicationsSettingsListViewBase *const mApplicationsSettingsListView;
     ApplicationsSettingsInProgressWidget *const mApplicationsSettingsInProgressWidget;
     AppsCountInfoWidget *const mAppsCountInfoWidget;
     QStackedWidget *const mStackedWidget;

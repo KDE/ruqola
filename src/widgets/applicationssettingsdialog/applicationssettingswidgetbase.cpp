@@ -6,7 +6,7 @@
 
 #include "applicationssettingswidgetbase.h"
 #include "applicationssettingsinprogresswidget.h"
-#include "applicationssettingslistview.h"
+#include "applicationssettingslistviewbase.h"
 #include "appscountinfowidget.h"
 #include "memorymanager/memorymanager.h"
 #include "model/appsmarketplacemodel.h"
@@ -20,7 +20,7 @@ ApplicationsSettingsWidgetBase::ApplicationsSettingsWidgetBase(RocketChatAccount
     : QWidget{parent}
     , mCurrentRocketChatAccount(account)
     , mApplicationsSettingsSearchWidget(new ApplicationsSettingsSearchWidget(account, this))
-    , mApplicationsSettingsListView(new ApplicationsSettingsListView(account, this))
+    , mApplicationsSettingsListView(new ApplicationsSettingsListViewBase(account, this))
     , mApplicationsSettingsInProgressWidget(new ApplicationsSettingsInProgressWidget(this))
     , mAppsCountInfoWidget(new AppsCountInfoWidget(this))
     , mStackedWidget(new QStackedWidget(this))
