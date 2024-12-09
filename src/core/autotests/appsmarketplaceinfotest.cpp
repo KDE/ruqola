@@ -34,7 +34,7 @@ void AppsMarketPlaceInfoTest::shouldHaveDefaultValues()
     QVERIFY(!d.installedInfo().isValid());
 
     // 03/07/2024: size: 256
-    QCOMPARE(sizeof(AppsMarketPlaceInfo), 560);
+    QCOMPARE(sizeof(AppsMarketPlaceInfo), 584);
 }
 
 void AppsMarketPlaceInfoTest::shouldLoadAppsMarketPlaceInfo_data()
