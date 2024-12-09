@@ -507,16 +507,6 @@ void RestApiAbstractJob::genericResponseHandler(void (RestApiAbstractJob::*respo
     deleteLater();
 }
 
-QDateTime RestApiAbstractJob::updatedSince() const
-{
-    return mUpdatedSince;
-}
-
-void RestApiAbstractJob::setUpdatedSince(const QDateTime &newUpdatedSince)
-{
-    mUpdatedSince = newUpdatedSince;
-}
-
 const QString &RestApiAbstractJob::authCode() const
 {
     return mAuthCode;

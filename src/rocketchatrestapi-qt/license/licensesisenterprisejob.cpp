@@ -54,7 +54,7 @@ QNetworkRequest LicensesIsEnterpriseJob::request() const
     const QUrl url = mRestApiMethod->generateUrl(RestApiUtil::RestApiUrlType::LicensesIsEntreprise);
     QNetworkRequest request(url);
     addAuthRawHeader(request);
-    addRequestAttribute(request, false);
+    addRequestAttribute(request);
 
     return request;
 }

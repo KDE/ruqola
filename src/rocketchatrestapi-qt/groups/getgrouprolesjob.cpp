@@ -51,7 +51,7 @@ QNetworkRequest GetGroupRolesJob::request() const
     QUrl url = mRestApiMethod->generateUrl(RestApiUtil::RestApiUrlType::GroupsRoles);
     addQueryItem(url);
     QNetworkRequest request(url);
-    addRequestAttribute(request, false);
+    addRequestAttribute(request);
     addAuthRawHeader(request);
     return request;
 }

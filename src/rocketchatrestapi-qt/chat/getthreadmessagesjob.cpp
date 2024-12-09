@@ -81,7 +81,7 @@ QNetworkRequest GetThreadMessagesJob::request() const
     url.setQuery(queryUrl);
 
     QNetworkRequest request(url);
-    addRequestAttribute(request, false);
+    addRequestAttribute(request);
 
     addAuthRawHeader(request);
     return request;

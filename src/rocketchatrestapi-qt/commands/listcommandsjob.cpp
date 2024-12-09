@@ -54,7 +54,7 @@ QNetworkRequest ListCommandsJob::request() const
     const QUrl url = mRestApiMethod->generateUrl(RestApiUtil::RestApiUrlType::CommandsList);
     QNetworkRequest request(url);
     addAuthRawHeader(request);
-    addRequestAttribute(request, false);
+    addRequestAttribute(request);
 
     return request;
 }

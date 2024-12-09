@@ -53,7 +53,7 @@ QNetworkRequest GetChannelRolesJob::request() const
     QUrl url = mRestApiMethod->generateUrl(RestApiUtil::RestApiUrlType::ChannelsRoles);
     addQueryItem(url);
     QNetworkRequest request(url);
-    addRequestAttribute(request, false);
+    addRequestAttribute(request);
     addAuthRawHeader(request);
     return request;
 }

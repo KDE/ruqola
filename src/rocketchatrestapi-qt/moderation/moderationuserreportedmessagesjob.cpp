@@ -69,7 +69,7 @@ QNetworkRequest ModerationUserReportedMessagesJob::request() const
     url.setQuery(queryUrl);
     QNetworkRequest request(url);
     addAuthRawHeader(request);
-    addRequestAttribute(request, false);
+    addRequestAttribute(request);
 
     return request;
 }

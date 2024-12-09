@@ -71,7 +71,7 @@ QNetworkRequest GetSupportedLanguagesJob::request() const
     }
     QNetworkRequest request(url);
     addAuthRawHeader(request);
-    addRequestAttribute(request, false);
+    addRequestAttribute(request);
     return request;
 }
 

@@ -36,7 +36,7 @@ QNetworkRequest ServerInfoJob::request() const
 {
     const QUrl url = mRestApiMethod->generateUrl(RestApiUtil::RestApiUrlType::ServerInfo, RestApiUtil::RestApiUrlExtensionType::NoExtension);
     QNetworkRequest request(url);
-    addRequestAttribute(request, false);
+    addRequestAttribute(request);
 
     return request;
 }

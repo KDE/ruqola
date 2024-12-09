@@ -131,9 +131,6 @@ public:
     [[nodiscard]] const QString &authCode() const;
     void setAuthCode(const QString &newAuthCode);
 
-    [[nodiscard]] QDateTime updatedSince() const;
-    void setUpdatedSince(const QDateTime &newUpdatedSince);
-
 Q_SIGNALS:
     void failed(const QString &str);
 
@@ -175,7 +172,6 @@ protected Q_SLOTS:
 private:
     LIBROCKETCHATRESTAPI_QT_NO_EXPORT void genericResponseHandler(void (RestApiAbstractJob::*func)(const QString &, const QJsonDocument &));
 
-    QDateTime mUpdatedSince;
     QueryParameters mQueryParameters;
     QString mAuthToken;
     QString mUserId;

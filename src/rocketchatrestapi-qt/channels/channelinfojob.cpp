@@ -67,7 +67,7 @@ QNetworkRequest ChannelInfoJob::request() const
     addQueryItem(url);
     QNetworkRequest request(url);
     addAuthRawHeader(request);
-    addRequestAttribute(request, false);
+    addRequestAttribute(request);
 
     return request;
 }

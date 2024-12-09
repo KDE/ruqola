@@ -61,7 +61,7 @@ QNetworkRequest AppCategoriesJob::request() const
     const QUrl url = mRestApiMethod->generateUrl(RestApiUtil::RestApiUrlType::CategoriesApps, RestApiUtil::RestApiUrlExtensionType::Apps);
     QNetworkRequest request(url);
     addAuthRawHeader(request);
-    addRequestAttribute(request, false);
+    addRequestAttribute(request);
 
     return request;
 }
