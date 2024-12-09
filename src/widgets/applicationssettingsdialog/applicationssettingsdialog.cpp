@@ -4,7 +4,7 @@
    SPDX-License-Identifier: LGPL-2.0-or-later
 */
 
-#include "applicationssettingsmarketplacedialog.h"
+#include "applicationssettingsdialog.h"
 #include "applicationssettingswidgetbase.h"
 #include "rocketchataccount.h"
 #include <KConfigGroup>
@@ -17,10 +17,10 @@
 
 namespace
 {
-const char myApplicationsSettingsMarketPlaceDialogGroupName[] = "ApplicationsSettingsMarketPlaceDialog";
+const char myApplicationsSettingsDialogGroupName[] = "ApplicationsSettingsDialog";
 }
 
-ApplicationsSettingsMarketPlaceDialog::ApplicationsSettingsMarketPlaceDialog(RocketChatAccount *account, QWidget *parent)
+ApplicationsSettingsDialog::ApplicationsSettingsDialog(RocketChatAccount *account, QWidget *parent)
     : QDialog(parent)
     , mApplicationsSettingsWidget(new ApplicationsSettingsWidgetBase(account, this))
 {
@@ -34,39 +34,39 @@ ApplicationsSettingsMarketPlaceDialog::ApplicationsSettingsMarketPlaceDialog(Roc
     auto button = new QDialogButtonBox(QDialogButtonBox::Close, this);
     button->setObjectName(QStringLiteral("button"));
     mainLayout->addWidget(button);
-    connect(button, &QDialogButtonBox::rejected, this, &ApplicationsSettingsMarketPlaceDialog::reject);
+    connect(button, &QDialogButtonBox::rejected, this, &ApplicationsSettingsDialog::reject);
 
     readConfig();
 }
 
-ApplicationsSettingsMarketPlaceDialog::~ApplicationsSettingsMarketPlaceDialog()
+ApplicationsSettingsDialog::~ApplicationsSettingsDialog()
 {
     writeConfig();
 }
 
-void ApplicationsSettingsMarketPlaceDialog::setFeature(ApplicationsSettingsSearchWidget::Feature feature)
+void ApplicationsSettingsDialog::setFeature(ApplicationsSettingsSearchWidget::Feature feature)
 {
     mApplicationsSettingsWidget->setFeature(feature);
 }
 
-void ApplicationsSettingsMarketPlaceDialog::initialize()
+void ApplicationsSettingsDialog::initialize()
 {
     mApplicationsSettingsWidget->initialize();
 }
 
-void ApplicationsSettingsMarketPlaceDialog::readConfig()
+void ApplicationsSettingsDialog::readConfig()
 {
     create(); // ensure a window is created
     windowHandle()->resize(QSize(400, 300));
-    KConfigGroup group(KSharedConfig::openStateConfig(), QLatin1StringView(myApplicationsSettingsMarketPlaceDialogGroupName));
+    KConfigGroup group(KSharedConfig::openStateConfig(), QLatin1StringView(myApplicationsSettingsDialogGroupName));
     KWindowConfig::restoreWindowSize(windowHandle(), group);
     resize(windowHandle()->size()); // workaround for QTBUG-40584
 }
 
-void ApplicationsSettingsMarketPlaceDialog::writeConfig()
+void ApplicationsSettingsDialog::writeConfig()
 {
-    KConfigGroup group(KSharedConfig::openStateConfig(), QLatin1StringView(myApplicationsSettingsMarketPlaceDialogGroupName));
+    KConfigGroup group(KSharedConfig::openStateConfig(), QLatin1StringView(myApplicationsSettingsDialogGroupName));
     KWindowConfig::saveWindowSize(windowHandle(), group);
 }
 
-#include "moc_applicationssettingsmarketplacedialog.cpp"
+#include "moc_applicationssettingsdialog.cpp"

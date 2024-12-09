@@ -910,13 +910,8 @@ target_sources(libruqolawidgets PRIVATE
     forwardmessage/forwardmessageaddchannelcompletionlineedit.cpp
 
 
-    applicationssettingsdialog/applicationssettingsmarketplacedialog.h
-    applicationssettingsdialog/applicationssettingsmarketplacedialog.cpp
-
-    applicationssettingsdialog/applicationssettingsinstalledprivatedialog.h
-    applicationssettingsdialog/applicationssettingsinstalledprivatedialog.cpp
-
-
+    applicationssettingsdialog/applicationssettingsdialog.h
+    applicationssettingsdialog/applicationssettingsdialog.cpp
     applicationssettingsdialog/applicationssettingswidgetbase.h
     applicationssettingsdialog/applicationssettingswidgetbase.cpp
 

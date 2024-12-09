@@ -10,7 +10,7 @@ macro(add_applicationssettingsdialog_test _source)
     set_target_properties(${_name} PROPERTIES DISABLE_PRECOMPILE_HEADERS ON)
 endmacro()
 
-add_applicationssettingsdialog_test(applicationssettingsmarketplacedialogtest.cpp)
+add_applicationssettingsdialog_test(applicationssettingsdialogtest.cpp)
 add_applicationssettingsdialog_test(applicationssettingswidgettest.cpp)
 add_applicationssettingsdialog_test(applicationssettingssearchwidgettest.cpp)
 add_applicationssettingsdialog_test(applicationssettingspricecomboboxtest.cpp)

@@ -4,24 +4,24 @@
    SPDX-License-Identifier: LGPL-2.0-or-later
 */
 
-#include "applicationssettingsmarketplacedialogtest.h"
-#include "applicationssettingsdialog/applicationssettingsmarketplacedialog.h"
+#include "applicationssettingsdialogtest.h"
+#include "applicationssettingsdialog/applicationssettingsdialog.h"
 #include "applicationssettingsdialog/applicationssettingswidgetbase.h"
 #include <QDialogButtonBox>
 #include <QStandardPaths>
 #include <QTest>
 #include <QVBoxLayout>
 
-QTEST_MAIN(ApplicationsSettingsMarketPlaceDialogTest)
-ApplicationsSettingsMarketPlaceDialogTest::ApplicationsSettingsMarketPlaceDialogTest(QObject *parent)
+QTEST_MAIN(ApplicationsSettingsDialogTest)
+ApplicationsSettingsDialogTest::ApplicationsSettingsDialogTest(QObject *parent)
     : QObject{parent}
 {
     QStandardPaths::setTestModeEnabled(true);
 }
 
-void ApplicationsSettingsMarketPlaceDialogTest::shouldHaveDefaultValues()
+void ApplicationsSettingsDialogTest::shouldHaveDefaultValues()
 {
-    ApplicationsSettingsMarketPlaceDialog d(nullptr);
+    ApplicationsSettingsDialog d(nullptr);
     QVERIFY(!d.windowTitle().isEmpty());
     auto mainLayout = d.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
     QVERIFY(mainLayout);
@@ -33,4 +33,4 @@ void ApplicationsSettingsMarketPlaceDialogTest::shouldHaveDefaultValues()
     QVERIFY(button);
 }
 
-#include "moc_applicationssettingsmarketplacedialogtest.cpp"
+#include "moc_applicationssettingsdialogtest.cpp"
