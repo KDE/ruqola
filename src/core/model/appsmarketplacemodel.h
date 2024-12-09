@@ -31,6 +31,10 @@ public:
         ModifiedDate,
         ApplicationInformations,
         RequestedApps,
+        Private,
+        Migrated,
+        Installed,
+        Status,
     };
     Q_ENUM(AppsCategoriesRoles)
 
@@ -50,7 +54,11 @@ public:
     [[nodiscard]] AppsCountInfo appsCountInfo() const;
     void setAppsCountInfo(const AppsCountInfo &newAppsCountInfo);
 
+    void addInstalledInfo(const AppsMarketPlaceInstalledInfo &info);
+
 private:
+    [[nodiscard]] LIBRUQOLACORE_NO_EXPORT QString appName(const AppsMarketPlaceInfo &appsMarketPlaceInfo) const;
+    [[nodiscard]] LIBRUQOLACORE_NO_EXPORT QByteArray appId(const AppsMarketPlaceInfo &appsMarketPlaceInfo) const;
     QList<AppsMarketPlaceInfo> mAppsMarketPlaceInfos;
     AppsCountInfo mAppsCountInfo;
 };

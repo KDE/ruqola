@@ -27,6 +27,23 @@ QList<AppsMarketPlaceInfo> AppsMarketPlaceModel::appsMarketPlaceInfos() const
     return mAppsMarketPlaceInfos;
 }
 
+void AppsMarketPlaceModel::addInstalledInfo(const AppsMarketPlaceInstalledInfo &installedInfo)
+{
+    bool found = false;
+    for (AppsMarketPlaceInfo &info : mAppsMarketPlaceInfos) {
+        if (info.appId() == installedInfo.appId()) {
+            info.setInstalledInfo(installedInfo);
+            found = true;
+            break;
+        }
+    }
+    if (!found) {
+        AppsMarketPlaceInfo info;
+        info.setInstalledInfo(installedInfo);
+        mAppsMarketPlaceInfos.append(info);
+    }
+}
+
 void AppsMarketPlaceModel::setAppsMarketPlaceInfos(const QList<AppsMarketPlaceInfo> &appsMarketInfos)
 {
     if (!mAppsMarketPlaceInfos.isEmpty()) {
@@ -41,6 +58,30 @@ void AppsMarketPlaceModel::setAppsMarketPlaceInfos(const QList<AppsMarketPlaceIn
     }
 }
 
+QByteArray AppsMarketPlaceModel::appId(const AppsMarketPlaceInfo &appsMarketPlaceInfo) const
+{
+    if (!appsMarketPlaceInfo.appId().isEmpty()) {
+        return appsMarketPlaceInfo.appId();
+    }
+    const AppsMarketPlaceInstalledInfo installedInfo = appsMarketPlaceInfo.installedInfo();
+    if (installedInfo.isValid()) {
+        return installedInfo.appId();
+    }
+    return {};
+}
+
+QString AppsMarketPlaceModel::appName(const AppsMarketPlaceInfo &appsMarketPlaceInfo) const
+{
+    if (!appsMarketPlaceInfo.appId().isEmpty()) {
+        return appsMarketPlaceInfo.appName();
+    }
+    const AppsMarketPlaceInstalledInfo installedInfo = appsMarketPlaceInfo.installedInfo();
+    if (installedInfo.isValid()) {
+        return installedInfo.appName();
+    }
+    return {};
+}
+
 QVariant AppsMarketPlaceModel::data(const QModelIndex &index, int role) const
 {
     if (index.row() < 0 || index.row() >= mAppsMarketPlaceInfos.count()) {
@@ -51,11 +92,11 @@ QVariant AppsMarketPlaceModel::data(const QModelIndex &index, int role) const
     switch (role) {
     case Qt::DisplayRole:
     case AppsMarketPlaceModel::AppName:
-        return appsMarketPlaceInfo.appName();
+        return appName(appsMarketPlaceInfo);
     case AppsMarketPlaceModel::AppVersion:
         return appsMarketPlaceInfo.version();
     case AppsMarketPlaceModel::AppId:
-        return appsMarketPlaceInfo.appId();
+        return appId(appsMarketPlaceInfo);
     case AppsMarketPlaceModel::Categories:
         return appsMarketPlaceInfo.categories();
     case AppsMarketPlaceModel::IsEnterpriseOnly:
@@ -80,6 +121,14 @@ QVariant AppsMarketPlaceModel::data(const QModelIndex &index, int role) const
         return appsMarketPlaceInfo.isPaid();
     case AppsMarketPlaceModel::RequestedApps:
         return appsMarketPlaceInfo.requested();
+    case AppsMarketPlaceModel::Private:
+        return appsMarketPlaceInfo.installedInfo().isPrivate();
+    case AppsMarketPlaceModel::Migrated:
+        return appsMarketPlaceInfo.installedInfo().migrated();
+    case AppsMarketPlaceModel::Installed:
+        return appsMarketPlaceInfo.installedInfo().isValid();
+    case AppsMarketPlaceModel::Status:
+        return QVariant::fromValue(appsMarketPlaceInfo.installedInfo().status());
     }
     return {};
 }

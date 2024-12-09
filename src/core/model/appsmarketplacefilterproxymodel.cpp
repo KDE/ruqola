@@ -24,6 +24,23 @@ bool AppsMarketPlaceFilterProxyModel::filterAcceptsRow(int source_row, const QMo
             return false;
         }
     }
+
+    if (mInstalled) {
+        if (!modelIndex.data(AppsMarketPlaceModel::Installed).toBool()) {
+            return false;
+        }
+        // Don't show private apps
+        if (modelIndex.data(AppsMarketPlaceModel::Private).toBool()) {
+            return false;
+        }
+    }
+
+    if (mPrivate) {
+        if (!modelIndex.data(AppsMarketPlaceModel::Private).toBool()) {
+            return false;
+        }
+    }
+
     if (!mFilterInfo.text.isEmpty()) {
         if (!modelIndex.data(AppsMarketPlaceModel::ShortDescription).toString().contains(mFilterInfo.text, Qt::CaseInsensitive)
             && !modelIndex.data(AppsMarketPlaceModel::AppName).toString().contains(mFilterInfo.text, Qt::CaseInsensitive)) {
@@ -115,6 +132,32 @@ bool AppsMarketPlaceFilterProxyModel::lessThan(const QModelIndex &left, const QM
         return false;
     }
     return false;
+}
+
+bool AppsMarketPlaceFilterProxyModel::isPrivate() const
+{
+    return mPrivate;
+}
+
+void AppsMarketPlaceFilterProxyModel::setIsPrivate(bool newPrivate)
+{
+    if (mPrivate != newPrivate) {
+        mPrivate = newPrivate;
+        invalidateFilter();
+    }
+}
+
+bool AppsMarketPlaceFilterProxyModel::installed() const
+{
+    return mInstalled;
+}
+
+void AppsMarketPlaceFilterProxyModel::setInstalled(bool newInstalled)
+{
+    if (mInstalled != newInstalled) {
+        mInstalled = newInstalled;
+        invalidateFilter();
+    }
 }
 
 bool AppsMarketPlaceFilterProxyModel::requested() const

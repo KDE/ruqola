@@ -15,7 +15,6 @@
 #include "memorymanager/memorymanager.h"
 #include "misc/methodcalljob.h"
 #include "model/appscategoriesmodel.h"
-#include "model/appsmarketplaceinstalledmodel.h"
 #include "model/roommodel.h"
 #include "notifications/notificationpreferences.h"
 #include "rocketchataccountsettings.h"
@@ -143,7 +142,6 @@ RocketChatAccount::RocketChatAccount(const QString &accountFileName, QObject *pa
     , mSoundManager(new SoundManager(this))
     , mAppsMarketPlaceModel(new AppsMarketPlaceModel(this))
     , mAppsCategoriesModel(new AppsCategoriesModel(this))
-    , mAppsMarketPlaceInstalledModel(new AppsMarketPlaceInstalledModel(this))
     , mMemoryManager(new MemoryManager(this))
 {
     qCDebug(RUQOLA_LOG) << " RocketChatAccount::RocketChatAccount(const QString &accountFileName, QObject *parent)" << accountFileName;
@@ -284,7 +282,6 @@ RocketChatAccount::RocketChatAccount(const QString &accountFileName, QObject *pa
     connect(mE2eKeyManager, &E2eKeyManager::verifyKeyDone, this, &RocketChatAccount::slotVerifyKeysDone);
     connect(mMemoryManager, &MemoryManager::clearApplicationSettingsModelRequested, mAppsMarketPlaceModel, &AppsMarketPlaceModel::clear);
     connect(mMemoryManager, &MemoryManager::cleanRoomHistoryRequested, this, &RocketChatAccount::slotCleanRoomHistory);
-    connect(mMemoryManager, &MemoryManager::clearApplicationSettingsModelRequested, mAppsMarketPlaceInstalledModel, &AppsMarketPlaceInstalledModel::clear);
 
     // Initiate socket connections, once we're out of Ruqola::self()
     if (accountEnabled()) {
@@ -2822,11 +2819,6 @@ void RocketChatAccount::slotCreateGroupDone(const QJsonObject &replyObject)
     extractIdentifier(replyObject, "group"_L1, "_id"_L1);
 }
 
-AppsMarketPlaceInstalledModel *RocketChatAccount::appsMarketPlaceInstalledModel() const
-{
-    return mAppsMarketPlaceInstalledModel;
-}
-
 void RocketChatAccount::slotCreateChannelDone(const QJsonObject &replyObject)
 {
     extractIdentifier(replyObject, "channel"_L1, "_id"_L1);
@@ -3266,17 +3258,16 @@ void RocketChatAccount::loadInstalledApps()
     restApi()->initializeRestApiJob(job);
 
     connect(job, &RocketChatRestApi::AppInstalledJob::appInstalledDone, this, [this](const QJsonArray &replyArray) {
-        QList<AppsMarketPlaceInstalledInfo> listAppsMarketPlaceInstalledInfo;
         for (int i = 0; i < replyArray.count(); ++i) {
             const QJsonObject obj = replyArray.at(i).toObject();
             // qDebug() << "RocketChatAccount::loadInstalledApps obj" << obj;
             AppsMarketPlaceInstalledInfo info;
             info.parseInstalledAppsMarketPlaceInfo(obj);
             if (info.isValid()) {
-                listAppsMarketPlaceInstalledInfo.append(info);
+                mAppsMarketPlaceModel->addInstalledInfo(info);
             }
         }
-        mAppsMarketPlaceInstalledModel->setAppsCategories(listAppsMarketPlaceInstalledInfo);
+        Q_EMIT appsMarkPlaceLoadDone();
     });
     if (!job->start()) {
         qCWarning(RUQOLA_LOG) << "Impossible to start AppInstalledJob";
@@ -3307,7 +3298,7 @@ void RocketChatAccount::loadAppMarketPlace()
             }
         }
         mAppsMarketPlaceModel->setAppsMarketPlaceInfos(listAppsMarketPlaceInfo);
-        Q_EMIT appsMarkPlaceLoadDone();
+        loadInstalledApps();
     });
     if (!job->start()) {
         qCWarning(RUQOLA_LOG) << "Impossible to start AppMarketPlaceJob";

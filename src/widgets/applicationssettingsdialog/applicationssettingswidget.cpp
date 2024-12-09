@@ -70,7 +70,6 @@ void ApplicationsSettingsWidget::initialize()
             mStackedWidget->setCurrentWidget(mApplicationsSettingsInProgressWidget);
         }
         connect(mCurrentRocketChatAccount, &RocketChatAccount::appsMarkPlaceLoadDone, this, [this]() {
-            mCurrentRocketChatAccount->loadInstalledApps();
             mStackedWidget->setCurrentWidget(mWidgetListView);
         });
         connect(mCurrentRocketChatAccount, &RocketChatAccount::appsCountLoadDone, this, [this]() {
@@ -89,6 +88,12 @@ void ApplicationsSettingsWidget::setFeature(ApplicationsSettingsSearchWidget::Fe
                                                                                                     : AppsCountInfoWidget::InfoType::Applications);
     if (feature == ApplicationsSettingsSearchWidget::Feature::Requested) {
         mApplicationsSettingsListView->setRequested(true);
+    }
+    if (feature == ApplicationsSettingsSearchWidget::Feature::Installed) {
+        mApplicationsSettingsListView->setInstalled(true);
+    }
+    if (feature == ApplicationsSettingsSearchWidget::Feature::Private) {
+        mApplicationsSettingsListView->setIsPrivate(true);
     }
 }
 

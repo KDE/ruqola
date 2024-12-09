@@ -126,6 +126,16 @@ void ApplicationsSettingsListView::setRequested(bool requested)
     mAppsMarketPlaceFilterProxyModel->setRequested(requested);
 }
 
+void ApplicationsSettingsListView::setInstalled(bool installed)
+{
+    mAppsMarketPlaceFilterProxyModel->setInstalled(installed);
+}
+
+void ApplicationsSettingsListView::setIsPrivate(bool isPrivate)
+{
+    mAppsMarketPlaceFilterProxyModel->setIsPrivate(isPrivate);
+}
+
 void ApplicationsSettingsListView::slotInstallApplication(const QModelIndex &index)
 {
     qCWarning(RUQOLAWIDGETS_LOG) << "ApplicationsSettingsListView::slotInstallApplication not implemented yet.";

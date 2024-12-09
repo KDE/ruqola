@@ -398,20 +398,40 @@ QString AppsMarketPlaceInfo::applicationInformations() const
             + QStringLiteral("<br/><br/>");
     }
 
-    if (!mAuthorName.isEmpty()) {
-        str += QStringLiteral("<b>%1</b><br/>").arg(i18n("Author")) + mAuthorName + QStringLiteral("<br/><br/>");
+    QString authorName;
+    if (mInstalledInfo.isValid() && !mInstalledInfo.authorName().isEmpty()) {
+        authorName = mInstalledInfo.authorName();
+    } else {
+        authorName = mAuthorName;
     }
 
-    if (!mHomePage.isEmpty()) {
-        const QString url = mHomePage.startsWith(QStringLiteral("http")) ? mHomePage : QStringLiteral("https://%1").arg(mHomePage);
-        str +=
-            QStringLiteral("<b>%1</b><br/>").arg(i18n("Homepage")) + QStringLiteral("<a href=\"%2\">%1</a>").arg(mHomePage, url) + QStringLiteral("<br/><br/>");
+    if (!authorName.isEmpty()) {
+        str += QStringLiteral("<b>%1</b><br/>").arg(i18n("Author")) + authorName + QStringLiteral("<br/><br/>");
     }
 
-    if (!mSupport.isEmpty()) {
-        const QString url = mSupport.startsWith(QStringLiteral("http")) ? mSupport : QStringLiteral("mailto://%1").arg(mSupport);
+    QString homePage;
+    if (mInstalledInfo.isValid() && !mInstalledInfo.homePage().isEmpty()) {
+        homePage = mInstalledInfo.homePage();
+    } else {
+        homePage = mHomePage;
+    }
+
+    if (!homePage.isEmpty()) {
+        const QString url = homePage.startsWith(QStringLiteral("http")) ? homePage : QStringLiteral("https://%1").arg(homePage);
         str +=
-            QStringLiteral("<b>%1</b><br/>").arg(i18n("Support")) + QStringLiteral("<a href=\"%2\">%1</a>").arg(mSupport, url) + QStringLiteral("<br/><br/>");
+            QStringLiteral("<b>%1</b><br/>").arg(i18n("Homepage")) + QStringLiteral("<a href=\"%2\">%1</a>").arg(homePage, url) + QStringLiteral("<br/><br/>");
+    }
+
+    QString support;
+    if (mInstalledInfo.isValid() && !mInstalledInfo.support().isEmpty()) {
+        support = mInstalledInfo.support();
+    } else {
+        support = mSupport;
+    }
+
+    if (!support.isEmpty()) {
+        const QString url = support.startsWith(QStringLiteral("http")) ? support : QStringLiteral("mailto://%1").arg(support);
+        str += QStringLiteral("<b>%1</b><br/>").arg(i18n("Support")) + QStringLiteral("<a href=\"%2\">%1</a>").arg(support, url) + QStringLiteral("<br/><br/>");
     }
 
     if (!mPrivacyPolicySummary.isEmpty()) {

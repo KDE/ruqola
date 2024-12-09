@@ -23,6 +23,10 @@ public:
 
     void setRequested(bool requested);
 
+    void setInstalled(bool installed);
+
+    void setIsPrivate(bool isPrivate);
+
 protected:
     [[nodiscard]] bool maybeStartDrag(QMouseEvent *event, const QStyleOptionViewItem &option, const QModelIndex &index) override;
     [[nodiscard]] bool mouseEvent(QMouseEvent *event, const QStyleOptionViewItem &option, const QModelIndex &index) override;
