@@ -6,7 +6,7 @@
 
 #include "applicationssettingsdialogtest.h"
 #include "applicationssettingsdialog/applicationssettingsdialog.h"
-#include "applicationssettingsdialog/applicationssettingswidget.h"
+#include "applicationssettingsdialog/applicationssettingswidgetbase.h"
 #include <QDialogButtonBox>
 #include <QStandardPaths>
 #include <QTest>
@@ -26,7 +26,7 @@ void ApplicationsSettingsDialogTest::shouldHaveDefaultValues()
     auto mainLayout = d.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
     QVERIFY(mainLayout);
 
-    auto mBannerInfoWidget = d.findChild<ApplicationsSettingsWidget *>(QStringLiteral("mApplicationsSettingsWidget"));
+    auto mBannerInfoWidget = d.findChild<ApplicationsSettingsWidgetBase *>(QStringLiteral("mApplicationsSettingsWidget"));
     QVERIFY(mBannerInfoWidget);
 
     auto button = d.findChild<QDialogButtonBox *>(QStringLiteral("button"));

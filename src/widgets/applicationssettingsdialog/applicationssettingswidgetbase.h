@@ -14,12 +14,12 @@ class ApplicationsSettingsListView;
 class QStackedWidget;
 class AppsCountInfoWidget;
 class ApplicationsSettingsInProgressWidget;
-class LIBRUQOLAWIDGETS_TESTS_EXPORT ApplicationsSettingsWidget : public QWidget
+class LIBRUQOLAWIDGETS_TESTS_EXPORT ApplicationsSettingsWidgetBase : public QWidget
 {
     Q_OBJECT
 public:
-    explicit ApplicationsSettingsWidget(RocketChatAccount *account, QWidget *parent = nullptr);
-    ~ApplicationsSettingsWidget() override;
+    explicit ApplicationsSettingsWidgetBase(RocketChatAccount *account, QWidget *parent = nullptr);
+    ~ApplicationsSettingsWidgetBase() override;
 
     void setFeature(ApplicationsSettingsSearchWidget::Feature feature);
 

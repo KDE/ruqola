@@ -5,7 +5,7 @@
 */
 
 #include "applicationssettingsdialog.h"
-#include "applicationssettingswidget.h"
+#include "applicationssettingswidgetbase.h"
 #include "rocketchataccount.h"
 #include <KConfigGroup>
 #include <KLocalizedString>
@@ -22,7 +22,7 @@ const char myApplicationsSettingsDialogGroupName[] = "ApplicationsSettingsDialog
 
 ApplicationsSettingsDialog::ApplicationsSettingsDialog(RocketChatAccount *account, QWidget *parent)
     : QDialog(parent)
-    , mApplicationsSettingsWidget(new ApplicationsSettingsWidget(account, this))
+    , mApplicationsSettingsWidget(new ApplicationsSettingsWidgetBase(account, this))
 {
     setWindowTitle(i18nc("@title:window", "Applications"));
     auto mainLayout = new QVBoxLayout(this);

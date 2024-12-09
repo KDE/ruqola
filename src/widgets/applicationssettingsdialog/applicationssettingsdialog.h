@@ -9,7 +9,7 @@
 #include "applicationssettingssearchwidget.h"
 #include "libruqolawidgets_private_export.h"
 #include <QDialog>
-class ApplicationsSettingsWidget;
+class ApplicationsSettingsWidgetBase;
 class RocketChatAccount;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT ApplicationsSettingsDialog : public QDialog
 {
@@ -25,5 +25,5 @@ public:
 private:
     LIBRUQOLAWIDGETS_NO_EXPORT void readConfig();
     LIBRUQOLAWIDGETS_NO_EXPORT void writeConfig();
-    ApplicationsSettingsWidget *const mApplicationsSettingsWidget;
+    ApplicationsSettingsWidgetBase *const mApplicationsSettingsWidget;
 };

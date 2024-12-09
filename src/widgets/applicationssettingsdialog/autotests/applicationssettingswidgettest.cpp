@@ -8,7 +8,7 @@
 #include "applicationssettingsdialog/applicationssettingsinprogresswidget.h"
 #include "applicationssettingsdialog/applicationssettingslistview.h"
 #include "applicationssettingsdialog/applicationssettingssearchwidget.h"
-#include "applicationssettingsdialog/applicationssettingswidget.h"
+#include "applicationssettingsdialog/applicationssettingswidgetbase.h"
 #include "applicationssettingsdialog/appscountinfowidget.h"
 #include <QStackedWidget>
 #include <QTest>
@@ -22,7 +22,7 @@ ApplicationsSettingsWidgetTest::ApplicationsSettingsWidgetTest(QObject *parent)
 
 void ApplicationsSettingsWidgetTest::shouldHaveDefaultValues()
 {
-    ApplicationsSettingsWidget d(nullptr);
+    ApplicationsSettingsWidgetBase d(nullptr);
     auto mainLayout = d.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
     QVERIFY(mainLayout);
     QCOMPARE(mainLayout->contentsMargins(), QMargins{});
