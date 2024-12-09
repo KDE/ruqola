@@ -1293,7 +1293,7 @@ void RuqolaMainWindow::slotExportAccounts()
     dlg.exec();
 }
 
-void RuqolaMainWindow::applicationSettingsMarket(ApplicationsSettingsSearchWidget::Feature feature)
+void RuqolaMainWindow::applicationSettings(ApplicationsSettingsSearchWidget::Feature feature)
 {
     ApplicationsSettingsMarketPlaceDialog dlg(mCurrentRocketChatAccount, this);
     dlg.setFeature(feature);
@@ -1303,30 +1303,17 @@ void RuqolaMainWindow::applicationSettingsMarket(ApplicationsSettingsSearchWidge
 
 void RuqolaMainWindow::slotApplicationsSettings()
 {
-    applicationSettingsMarket(ApplicationsSettingsSearchWidget::Feature::None);
+    applicationSettings(ApplicationsSettingsSearchWidget::Feature::None);
 }
 
 void RuqolaMainWindow::slotApplicationsRequestedSettings()
 {
-    applicationSettingsMarket(ApplicationsSettingsSearchWidget::Feature::Requested);
-}
-
-void RuqolaMainWindow::applicationSettingsInstalledPrivate(ApplicationsSettingsSearchWidget::Feature feature)
-{
-    ApplicationsSettingsInstalledPrivateDialog dlg(mCurrentRocketChatAccount, this);
-    dlg.setFeature(feature);
-    dlg.initialize();
-    dlg.exec();
+    applicationSettings(ApplicationsSettingsSearchWidget::Feature::Requested);
 }
 
 void RuqolaMainWindow::slotApplicationsInstalledSettings()
 {
-    applicationSettingsInstalledPrivate(ApplicationsSettingsSearchWidget::Feature::Installed);
-}
-
-void RuqolaMainWindow::slotPrivateApplicationsSettings()
-{
-    applicationSettingsInstalledPrivate(ApplicationsSettingsSearchWidget::Feature::Private);
+    applicationSettings(ApplicationsSettingsSearchWidget::Feature::Installed);
 }
 
 void RuqolaMainWindow::slotClearRoomHistory()
@@ -1351,6 +1338,11 @@ void RuqolaMainWindow::slotShowRestApiLogsFile()
     job->setUiDelegate(KIO::createDefaultJobUiDelegate(KJobUiDelegate::AutoHandlingEnabled, this));
     job->setDeleteTemporaryFile(true);
     job->start();
+}
+
+void RuqolaMainWindow::slotPrivateApplicationsSettings()
+{
+    applicationSettings(ApplicationsSettingsSearchWidget::Feature::Private);
 }
 
 #include "moc_ruqolamainwindow.cpp"

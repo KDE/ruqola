@@ -123,9 +123,8 @@ private:
     LIBRUQOLAWIDGETS_NO_EXPORT void slotClearRoomHistory();
     LIBRUQOLAWIDGETS_NO_EXPORT void slotShowLogsFile();
     LIBRUQOLAWIDGETS_NO_EXPORT void slotShowRestApiLogsFile();
-    LIBRUQOLAWIDGETS_NO_EXPORT void applicationSettingsMarket(ApplicationsSettingsSearchWidget::Feature feature);
+    LIBRUQOLAWIDGETS_NO_EXPORT void applicationSettings(ApplicationsSettingsSearchWidget::Feature feature);
     LIBRUQOLAWIDGETS_NO_EXPORT void slotPrivateApplicationsSettings();
-    LIBRUQOLAWIDGETS_NO_EXPORT void applicationSettingsInstalledPrivate(ApplicationsSettingsSearchWidget::Feature feature);
 
     bool mReallyClose{false};
 
