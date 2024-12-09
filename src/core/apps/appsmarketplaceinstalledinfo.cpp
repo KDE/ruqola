@@ -52,6 +52,11 @@ AppsMarketPlaceInstalledInfo::Status AppsMarketPlaceInstalledInfo::convertStatus
     }
 }
 
+QPixmap AppsMarketPlaceInstalledInfo::pixmap() const
+{
+    return mPixmap;
+}
+
 void AppsMarketPlaceInstalledInfo::parseInstalledAppsMarketPlaceInfo(const QJsonObject &replyObject)
 {
     mIsPrivate = replyObject["private"_L1].toBool();
@@ -63,6 +68,9 @@ void AppsMarketPlaceInstalledInfo::parseInstalledAppsMarketPlaceInfo(const QJson
 
     parseAuthor(replyObject["author"_L1].toObject());
     mStatus = convertStatusFromString(replyObject["status"_L1].toString());
+
+    const QByteArray baImageBase64 = replyObject["iconFileData"_L1].toString().toLatin1();
+    mPixmap.loadFromData(QByteArray::fromBase64(baImageBase64), "PNG");
 }
 
 void AppsMarketPlaceInstalledInfo::parseAuthor(const QJsonObject &authorObject)

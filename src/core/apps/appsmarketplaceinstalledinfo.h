@@ -10,6 +10,7 @@
 #include <QDebug>
 #include <QJsonObject>
 #include <QObject>
+#include <QPixmap>
 class LIBRUQOLACORE_EXPORT AppsMarketPlaceInstalledInfo
 {
     Q_GADGET
@@ -61,9 +62,12 @@ public:
     [[nodiscard]] Status status() const;
     void setStatus(Status newStatus);
 
+    [[nodiscard]] QPixmap pixmap() const;
+
 private:
     LIBRUQOLACORE_NO_EXPORT void parseAuthor(const QJsonObject &authorObject);
     [[nodiscard]] LIBRUQOLACORE_NO_EXPORT AppsMarketPlaceInstalledInfo::Status convertStatusFromString(const QString &str);
+    QPixmap mPixmap;
     QString mAppName;
     QString mVersion;
     QString mDescription;
