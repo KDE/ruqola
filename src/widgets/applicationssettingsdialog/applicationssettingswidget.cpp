@@ -62,8 +62,6 @@ void ApplicationsSettingsWidget::initialize()
     if (mCurrentRocketChatAccount) {
         mCurrentRocketChatAccount->memoryManager()->stopClearApplicationSettingsModelTimer();
         mCurrentRocketChatAccount->loadAppMarketPlace();
-        mCurrentRocketChatAccount->loadAppCategories();
-        mCurrentRocketChatAccount->loadAppCount();
         if (mCurrentRocketChatAccount->appMarketPlaceLoaded()) {
             mStackedWidget->setCurrentWidget(mWidgetListView);
         } else {

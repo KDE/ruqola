@@ -3214,11 +3214,14 @@ void RocketChatAccount::loadAppCount()
             AppsCountInfo countinfo;
             countinfo.parseCountInfo(obj);
             mAppsMarketPlaceModel->setAppsCountInfo(countinfo);
+            loadAppCategories();
             Q_EMIT appsCountLoadDone();
         });
         if (!job->start()) {
             qCWarning(RUQOLA_LOG) << "Impossible to start AppCountJob";
         }
+    } else {
+        loadAppCategories();
     }
 }
 
@@ -3246,6 +3249,7 @@ void RocketChatAccount::loadAppCategories()
             }
         }
         mAppsCategoriesModel->setAppsCategories(appsCategoryInfoList);
+        loadInstalledApps();
     });
     if (!job->start()) {
         qCWarning(RUQOLA_LOG) << "Impossible to start AppCategoriesJob";
@@ -3298,7 +3302,7 @@ void RocketChatAccount::loadAppMarketPlace()
             }
         }
         mAppsMarketPlaceModel->setAppsMarketPlaceInfos(listAppsMarketPlaceInfo);
-        loadInstalledApps();
+        loadAppCount();
     });
     if (!job->start()) {
         qCWarning(RUQOLA_LOG) << "Impossible to start AppMarketPlaceJob";
