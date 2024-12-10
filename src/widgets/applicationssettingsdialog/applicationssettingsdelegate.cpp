@@ -87,6 +87,18 @@ void ApplicationsSettingsDelegate::paint(QPainter *painter, const QStyleOptionVi
         painter->setPen(Qt::white);
         painter->drawText(layout.requestedRect, layout.requestedText);
     }
+
+    if (layout.status != Status::Unknown) {
+        if (layout.status == Status::Enabled) {
+            painter->setBrush(ColorsAndMessageViewStyle::self().schemeView().foreground(KColorScheme::PositiveText).color());
+        } else {
+            painter->setBrush(ColorsAndMessageViewStyle::self().schemeView().foreground(KColorScheme::NeutralText).color());
+        }
+        painter->setPen(Qt::NoPen);
+        painter->drawRoundedRect(layout.statusRect.adjusted(-5, 0, 5, 0), bordermargin, bordermargin);
+        painter->setPen(Qt::white);
+        painter->drawText(layout.statusRect, layout.statusText);
+    }
     painter->restore();
 }
 
@@ -142,6 +154,7 @@ ApplicationsSettingsDelegate::Layout ApplicationsSettingsDelegate::doLayout(cons
     layout.textRect = QRect(iconWidth + 2 * margin, topPos, maxWidth, qMax(textSize.height(), iconWidth + margin) /* + textVMargin*/);
     layout.premiumRect = QRectF(usableRect.right() - premiumTextSize.width() - 2 * margin, topPos, premiumTextSize.width(), premiumTextSize.height());
 
+    // Requested
     const int requested = index.data(AppsMarketPlaceModel::RequestedApps).toInt();
     layout.requested = requested > 0;
     layout.requestedText = layout.requested ? i18np("%1 request", "%1 requests", requested) : QString();
@@ -150,6 +163,23 @@ ApplicationsSettingsDelegate::Layout ApplicationsSettingsDelegate::doLayout(cons
                                   topPos,
                                   requestedTextSize.width(),
                                   requestedTextSize.height());
+
+    // Status
+    const AppsMarketPlaceInstalledInfo::Status status = index.data(AppsMarketPlaceModel::Status).value<AppsMarketPlaceInstalledInfo::Status>();
+    if (status == AppsMarketPlaceInstalledInfo::Status::AutoEnabled || status == AppsMarketPlaceInstalledInfo::Status::ManuallyEnabled) {
+        layout.status = Status::Enabled;
+        layout.statusText = i18n("Enabled");
+    } else if (status == AppsMarketPlaceInstalledInfo::Status::Initialized) {
+        layout.status = Status::Disabled;
+        layout.statusText = i18n("Disabled");
+    } else {
+        layout.status = Status::Unknown;
+    }
+    const QSizeF statusTextSize = senderFontMetrics.size(Qt::TextSingleLine, layout.statusText);
+
+    layout.statusRect =
+        QRectF(usableRect.right() - requestedTextSize.width() - statusTextSize.width() - 2 * margin, topPos, statusTextSize.width(), statusTextSize.height());
+
     return layout;
 }
 

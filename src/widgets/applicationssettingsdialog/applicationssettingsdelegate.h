@@ -30,6 +30,11 @@ public:
     [[nodiscard]] bool hasSelection() const;
 
 private:
+    enum class Status : uint8_t {
+        Unknown,
+        Enabled,
+        Disabled,
+    };
     struct Layout {
         // Text
         QRect textRect;
@@ -47,6 +52,11 @@ private:
         QString requestedText;
         QRectF requestedRect;
         bool requested = false;
+
+        // Status
+        QString statusText;
+        QRectF statusRect;
+        Status status = Status::Unknown;
     };
 
     [[nodiscard]] ApplicationsSettingsDelegate::Layout doLayout(const QStyleOptionViewItem &option, const QModelIndex &index) const;
