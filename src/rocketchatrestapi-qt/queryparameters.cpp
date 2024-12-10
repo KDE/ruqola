@@ -65,16 +65,6 @@ void QueryParameters::setSorting(const QMap<QString, QueryParameters::SortOrder>
     mSorting = sorting;
 }
 
-QString QueryParameters::type() const
-{
-    return mType;
-}
-
-void QueryParameters::setType(const QString &type)
-{
-    mType = type;
-}
-
 QMap<QString, QString> QueryParameters::custom() const
 {
     return mCustom;
@@ -155,9 +145,6 @@ void QueryParameters::generateQueryParameter(const QueryParameters &queryParamet
 
         // It's ok for getAllMentions....
         urlQuery.addQueryItem(QStringLiteral("sort"), str);
-    }
-    if (!queryParameters.type().isEmpty()) {
-        urlQuery.addQueryItem(QStringLiteral("type"), queryParameters.type());
     }
 }
 

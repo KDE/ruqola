@@ -32,9 +32,6 @@ public:
     [[nodiscard]] QMap<QString, SortOrder> sorting() const;
     void setSorting(const QMap<QString, SortOrder> &sorting);
 
-    [[nodiscard]] QString type() const;
-    void setType(const QString &type);
-
     [[nodiscard]] QMap<QString, QString> custom() const;
     void setCustom(const QMap<QString, QString> &custom);
 
@@ -54,7 +51,6 @@ private:
     int mCount = -1;
     QMap<QString, SortOrder> mSorting;
     QMap<QString, QString> mCustom;
-    QString mType;
     QString mSearchString;
     QString mFilter;
     bool mUseSyntaxRc70 = false;
