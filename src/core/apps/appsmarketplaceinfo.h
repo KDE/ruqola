@@ -74,6 +74,8 @@ public:
             VideoConferenceRead,
             VideoConferenceProvider,
             UiRegistrerButtons,
+            ContactWrite,
+            ContactRead,
         };
         [[nodiscard]] bool operator==(const Permission &other) const;
         [[nodiscard]] static PermissionType convertStringToPermissionType(const QString &str);

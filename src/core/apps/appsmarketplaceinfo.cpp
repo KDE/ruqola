@@ -562,6 +562,10 @@ AppsMarketPlaceInfo::Permission::PermissionType AppsMarketPlaceInfo::Permission:
         return AppsMarketPlaceInfo::Permission::PermissionType::VideoConferenceProvider;
     } else if (str == "ui.registerButtons"_L1) {
         return AppsMarketPlaceInfo::Permission::PermissionType::UiRegistrerButtons;
+    } else if (str == "contact.read"_L1) {
+        return AppsMarketPlaceInfo::Permission::PermissionType::ContactRead;
+    } else if (str == "contact.write"_L1) {
+        return AppsMarketPlaceInfo::Permission::PermissionType::ContactWrite;
     }
 
     qCWarning(RUQOLA_LOG) << "PermissionType Unknown type " << str;
@@ -650,6 +654,10 @@ QString AppsMarketPlaceInfo::Permission::convertTypeToI18n() const
     case Permission::PermissionType::VideoConferenceProvider:
         break;
     case Permission::PermissionType::UiRegistrerButtons:
+        break;
+    case Permission::PermissionType::ContactRead:
+        break;
+    case Permission::PermissionType::ContactWrite:
         break;
     }
     qCWarning(RUQOLA_LOG) << " i18n not found for " << int(type);
