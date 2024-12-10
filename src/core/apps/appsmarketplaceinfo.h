@@ -33,7 +33,7 @@ public:
     };
 
     struct LIBRUQOLACORE_EXPORT Permission {
-        enum PermissionType : uint8_t {
+        enum class PermissionType : uint8_t {
             Unknown,
             MessageRead,
             MessageWrite,
@@ -78,7 +78,7 @@ public:
         [[nodiscard]] bool operator==(const Permission &other) const;
         [[nodiscard]] static PermissionType convertStringToPermissionType(const QString &str);
         [[nodiscard]] QString convertTypeToI18n() const;
-        PermissionType type = Unknown;
+        PermissionType type = PermissionType::Unknown;
     };
     AppsMarketPlaceInfo();
     ~AppsMarketPlaceInfo();

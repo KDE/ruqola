@@ -134,7 +134,7 @@ AppsMarketPlaceInfo::PricePlan::Strategy AppsMarketPlaceInfo::PricePlan::convert
     } else if (str == "yearly"_L1) {
         return AppsMarketPlaceInfo::PricePlan::Strategy::Yearly;
     }
-    qCWarning(RUQOLA_LOG) << "Unknown type " << str;
+    qCWarning(RUQOLA_LOG) << "Strategy Unknown type " << str;
     return AppsMarketPlaceInfo::PricePlan::Strategy::Unknown;
 }
 
@@ -485,173 +485,173 @@ bool AppsMarketPlaceInfo::Permission::operator==(const Permission &other) const
 AppsMarketPlaceInfo::Permission::PermissionType AppsMarketPlaceInfo::Permission::convertStringToPermissionType(const QString &str)
 {
     if (str == "message.write"_L1) {
-        return AppsMarketPlaceInfo::Permission::MessageWrite;
+        return AppsMarketPlaceInfo::Permission::PermissionType::MessageWrite;
     } else if (str == "message.read"_L1) {
-        return AppsMarketPlaceInfo::Permission::MessageRead;
+        return AppsMarketPlaceInfo::Permission::PermissionType::MessageRead;
     } else if (str == "persistence"_L1) {
-        return AppsMarketPlaceInfo::Permission::Persistence;
+        return AppsMarketPlaceInfo::Permission::PermissionType::Persistence;
     } else if (str == "room.read"_L1) {
-        return AppsMarketPlaceInfo::Permission::RoomRead;
+        return AppsMarketPlaceInfo::Permission::PermissionType::RoomRead;
     } else if (str == "room.write"_L1) {
-        return AppsMarketPlaceInfo::Permission::RoomWrite;
+        return AppsMarketPlaceInfo::Permission::PermissionType::RoomWrite;
     } else if (str == "networking"_L1) {
-        return AppsMarketPlaceInfo::Permission::Networking;
+        return AppsMarketPlaceInfo::Permission::PermissionType::Networking;
     } else if (str == "user.write"_L1) {
-        return AppsMarketPlaceInfo::Permission::UserWrite;
+        return AppsMarketPlaceInfo::Permission::PermissionType::UserWrite;
     } else if (str == "user.read"_L1) {
-        return AppsMarketPlaceInfo::Permission::UserRead;
+        return AppsMarketPlaceInfo::Permission::PermissionType::UserRead;
     } else if (str == "scheduler"_L1) {
-        return AppsMarketPlaceInfo::Permission::Scheduler;
+        return AppsMarketPlaceInfo::Permission::PermissionType::Scheduler;
     } else if (str == "slashcommand"_L1) {
-        return AppsMarketPlaceInfo::Permission::SlashCommand;
+        return AppsMarketPlaceInfo::Permission::PermissionType::SlashCommand;
     } else if (str == "api"_L1) {
-        return AppsMarketPlaceInfo::Permission::Api;
+        return AppsMarketPlaceInfo::Permission::PermissionType::Api;
     } else if (str == "server-setting.write"_L1) {
-        return AppsMarketPlaceInfo::Permission::ServerSettingWrite;
+        return AppsMarketPlaceInfo::Permission::PermissionType::ServerSettingWrite;
     } else if (str == "server-setting.read"_L1) {
-        return AppsMarketPlaceInfo::Permission::ServerSettingRead;
+        return AppsMarketPlaceInfo::Permission::PermissionType::ServerSettingRead;
     } else if (str == "upload.write"_L1) {
-        return AppsMarketPlaceInfo::Permission::UploadWrite;
+        return AppsMarketPlaceInfo::Permission::PermissionType::UploadWrite;
     } else if (str == "upload.read"_L1) {
-        return AppsMarketPlaceInfo::Permission::UploadRead;
+        return AppsMarketPlaceInfo::Permission::PermissionType::UploadRead;
     } else if (str == "cloud.workspace-token"_L1) {
-        return AppsMarketPlaceInfo::Permission::CloudWorkspaceToken;
+        return AppsMarketPlaceInfo::Permission::PermissionType::CloudWorkspaceToken;
     } else if (str == "env.read"_L1) {
-        return AppsMarketPlaceInfo::Permission::EnvRead;
+        return AppsMarketPlaceInfo::Permission::PermissionType::EnvRead;
     } else if (str == "livechat-department.multiple"_L1) {
-        return AppsMarketPlaceInfo::Permission::LiveChatDepartmentMultiple;
+        return AppsMarketPlaceInfo::Permission::PermissionType::LiveChatDepartmentMultiple;
     } else if (str == "livechat-department.read"_L1) {
-        return AppsMarketPlaceInfo::Permission::LiveChatDepartmentRead;
+        return AppsMarketPlaceInfo::Permission::PermissionType::LiveChatDepartmentRead;
     } else if (str == "livechat-department.write"_L1) {
-        return AppsMarketPlaceInfo::Permission::LiveChatDepartmentWrite;
+        return AppsMarketPlaceInfo::Permission::PermissionType::LiveChatDepartmentWrite;
     } else if (str == "livechat-room.write"_L1) {
-        return AppsMarketPlaceInfo::Permission::LiveChatRoomWrite;
+        return AppsMarketPlaceInfo::Permission::PermissionType::LiveChatRoomWrite;
     } else if (str == "livechat-room.read"_L1) {
-        return AppsMarketPlaceInfo::Permission::LiveChatRoomRead;
+        return AppsMarketPlaceInfo::Permission::PermissionType::LiveChatRoomRead;
     } else if (str == "livechat-message.write"_L1) {
-        return AppsMarketPlaceInfo::Permission::LiveChatMessageWrite;
+        return AppsMarketPlaceInfo::Permission::PermissionType::LiveChatMessageWrite;
     } else if (str == "livechat-message.read"_L1) {
-        return AppsMarketPlaceInfo::Permission::LiveChatMessageRead;
+        return AppsMarketPlaceInfo::Permission::PermissionType::LiveChatMessageRead;
     } else if (str == "livechat-visitor.write"_L1) {
-        return AppsMarketPlaceInfo::Permission::LiveChatVisitorWrite;
+        return AppsMarketPlaceInfo::Permission::PermissionType::LiveChatVisitorWrite;
     } else if (str == "livechat-visitor.read"_L1) {
-        return AppsMarketPlaceInfo::Permission::LiveChatVisitorRead;
+        return AppsMarketPlaceInfo::Permission::PermissionType::LiveChatVisitorRead;
     } else if (str == "livechat-status.read"_L1) {
-        return AppsMarketPlaceInfo::Permission::LiveChatStatusRead;
+        return AppsMarketPlaceInfo::Permission::PermissionType::LiveChatStatusRead;
     } else if (str == "livechat-custom-fields.write"_L1) {
-        return AppsMarketPlaceInfo::Permission::LiveChatCustomFieldsWrite;
+        return AppsMarketPlaceInfo::Permission::PermissionType::LiveChatCustomFieldsWrite;
     } else if (str == "ui.interact"_L1) {
-        return AppsMarketPlaceInfo::Permission::UiInteract;
+        return AppsMarketPlaceInfo::Permission::PermissionType::UiInteract;
     } else if (str == "livechat-message.multiple"_L1) {
-        return AppsMarketPlaceInfo::Permission::LiveChatMessageMultiple;
+        return AppsMarketPlaceInfo::Permission::PermissionType::LiveChatMessageMultiple;
     } else if (str == "threads.read"_L1) {
-        return AppsMarketPlaceInfo::Permission::ThreadsRead;
+        return AppsMarketPlaceInfo::Permission::PermissionType::ThreadsRead;
     } else if (str == "moderation.write"_L1) {
-        return AppsMarketPlaceInfo::Permission::ModerationWrite;
+        return AppsMarketPlaceInfo::Permission::PermissionType::ModerationWrite;
     } else if (str == "moderation.read"_L1) {
-        return AppsMarketPlaceInfo::Permission::ModerationRead;
+        return AppsMarketPlaceInfo::Permission::PermissionType::ModerationRead;
     } else if (str == "oauth-app.write"_L1) {
-        return AppsMarketPlaceInfo::Permission::OauthAppWrite;
+        return AppsMarketPlaceInfo::Permission::PermissionType::OauthAppWrite;
     } else if (str == "oauth-app.read"_L1) {
-        return AppsMarketPlaceInfo::Permission::OauthAppRead;
+        return AppsMarketPlaceInfo::Permission::PermissionType::OauthAppRead;
     } else if (str == "video-conference.write"_L1) {
-        return AppsMarketPlaceInfo::Permission::VideoConferenceWrite;
+        return AppsMarketPlaceInfo::Permission::PermissionType::VideoConferenceWrite;
     } else if (str == "video-conference.read"_L1) {
-        return AppsMarketPlaceInfo::Permission::VideoConferenceRead;
+        return AppsMarketPlaceInfo::Permission::PermissionType::VideoConferenceRead;
     } else if (str == "video-conference-provider"_L1) {
-        return AppsMarketPlaceInfo::Permission::VideoConferenceProvider;
+        return AppsMarketPlaceInfo::Permission::PermissionType::VideoConferenceProvider;
     } else if (str == "ui.registerButtons"_L1) {
-        return AppsMarketPlaceInfo::Permission::UiRegistrerButtons;
+        return AppsMarketPlaceInfo::Permission::PermissionType::UiRegistrerButtons;
     }
 
-    qCWarning(RUQOLA_LOG) << "Unknown type " << str;
-    return AppsMarketPlaceInfo::Permission::Unknown;
+    qCWarning(RUQOLA_LOG) << "PermissionType Unknown type " << str;
+    return AppsMarketPlaceInfo::Permission::PermissionType::Unknown;
 }
 
 QString AppsMarketPlaceInfo::Permission::convertTypeToI18n() const
 {
     switch (type) {
-    case Unknown:
+    case Permission::PermissionType::Unknown:
         return {};
-    case MessageRead:
+    case Permission::PermissionType::MessageRead:
         return i18n("Access messages");
-    case MessageWrite:
+    case Permission::PermissionType::MessageWrite:
         return i18n("Send and modify messages");
-    case RoomRead:
+    case Permission::PermissionType::RoomRead:
         return i18n("Access room information");
-    case RoomWrite:
+    case Permission::PermissionType::RoomWrite:
         return i18n("Create and modify rooms");
-    case Networking:
+    case Permission::PermissionType::Networking:
         return i18n("Access to this server network");
-    case UserRead:
+    case Permission::PermissionType::UserRead:
         return i18n("Access user information");
-    case UserWrite:
+    case Permission::PermissionType::UserWrite:
         return i18n("Modify user information");
-    case SlashCommand:
+    case Permission::PermissionType::SlashCommand:
         return i18n("Register new slash commands");
-    case Scheduler:
+    case Permission::PermissionType::Scheduler:
         return i18n("Register and maintain scheduled jobs");
-    case Api:
+    case Permission::PermissionType::Api:
         return i18n("Register new HTTP endpoints");
-    case ServerSettingRead:
+    case Permission::PermissionType::ServerSettingRead:
         return i18n("Access settings in this server");
-    case ServerSettingWrite:
+    case Permission::PermissionType::ServerSettingWrite:
         return i18n("Modify settings in this server");
-    case UploadWrite:
+    case Permission::PermissionType::UploadWrite:
         return i18n("Upload files to this server");
-    case UploadRead:
+    case Permission::PermissionType::UploadRead:
         return i18n("Access files uploaded to this server");
-    case CloudWorkspaceToken:
+    case Permission::PermissionType::CloudWorkspaceToken:
         return i18n("Interact with Cloud Services on behalf of this server");
-    case EnvRead:
+    case Permission::PermissionType::EnvRead:
         return i18n("Access minimal information about this server environment");
-    case LiveChatDepartmentMultiple:
+    case Permission::PermissionType::LiveChatDepartmentMultiple:
         return i18n("Access to multiple Livechat departments information");
-    case LiveChatDepartmentRead:
+    case Permission::PermissionType::LiveChatDepartmentRead:
         return i18n("Access Livechat department information");
-    case LiveChatDepartmentWrite:
+    case Permission::PermissionType::LiveChatDepartmentWrite:
         return i18n("Modify Livechat department information");
-    case LiveChatRoomWrite:
+    case Permission::PermissionType::LiveChatRoomWrite:
         return i18n("Modify Livechat room information");
-    case LiveChatRoomRead:
+    case Permission::PermissionType::LiveChatRoomRead:
         return i18n("Access Livechat room information");
-    case LiveChatMessageWrite:
+    case Permission::PermissionType::LiveChatMessageWrite:
         return i18n("Modify Livechat message information");
-    case LiveChatMessageRead:
+    case Permission::PermissionType::LiveChatMessageRead:
         return i18n("Access Livechat message information");
-    case LiveChatVisitorWrite:
+    case Permission::PermissionType::LiveChatVisitorWrite:
         return i18n("Modify Livechat visitor information");
-    case LiveChatVisitorRead:
+    case Permission::PermissionType::LiveChatVisitorRead:
         return i18n("Access Livechat visitor information");
-    case LiveChatStatusRead:
+    case Permission::PermissionType::LiveChatStatusRead:
         return i18n("Access Livechat status information");
-    case UiInteract:
+    case Permission::PermissionType::UiInteract:
         return i18n("Interact with the UI");
-    case Persistence:
+    case Permission::PermissionType::Persistence:
         return i18n("Store internal data in the database");
-    case LiveChatCustomFieldsWrite:
+    case Permission::PermissionType::LiveChatCustomFieldsWrite:
         return i18n("Modify Livechat custom field configuration");
-    case LiveChatMessageMultiple:
+    case Permission::PermissionType::LiveChatMessageMultiple:
         break;
-    case ThreadsRead:
+    case Permission::PermissionType::ThreadsRead:
         break;
-    case ModerationWrite:
+    case Permission::PermissionType::ModerationWrite:
         break;
-    case ModerationRead:
+    case Permission::PermissionType::ModerationRead:
         break;
-    case OauthAppWrite:
+    case Permission::PermissionType::OauthAppWrite:
         return i18n("Allow to write oauth app settings");
-    case OauthAppRead:
+    case Permission::PermissionType::OauthAppRead:
         return i18n("Allow to read oauth app settings");
-    case VideoConferenceWrite:
+    case Permission::PermissionType::VideoConferenceWrite:
         break;
-    case VideoConferenceRead:
+    case Permission::PermissionType::VideoConferenceRead:
         break;
-    case VideoConferenceProvider:
+    case Permission::PermissionType::VideoConferenceProvider:
         break;
-    case UiRegistrerButtons:
+    case Permission::PermissionType::UiRegistrerButtons:
         break;
     }
-    qCWarning(RUQOLA_LOG) << " i18n not found for " << type;
+    qCWarning(RUQOLA_LOG) << " i18n not found for " << int(type);
     return {};
 }
