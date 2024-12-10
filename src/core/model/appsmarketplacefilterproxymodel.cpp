@@ -87,12 +87,25 @@ bool AppsMarketPlaceFilterProxyModel::filterAcceptsRow(int source_row, const QMo
     }
     }
 
-    // TODO
     switch (mFilterInfo.status) {
     case Status::AllStatus:
         break;
-    case Status::Enabled:
-    case Status::Disabled:
+    case Status::Enabled: {
+        const AppsMarketPlaceInstalledInfo::Status status = modelIndex.data(AppsMarketPlaceModel::Status).value<AppsMarketPlaceInstalledInfo::Status>();
+        if (status == AppsMarketPlaceInstalledInfo::Status::AutoEnabled || status == AppsMarketPlaceInstalledInfo::Status::ManuallyEnabled) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+    case Status::Disabled: {
+        const AppsMarketPlaceInstalledInfo::Status status = modelIndex.data(AppsMarketPlaceModel::Status).value<AppsMarketPlaceInstalledInfo::Status>();
+        if (status == AppsMarketPlaceInstalledInfo::Status::Initialized) {
+            return true;
+        } else {
+            return false;
+        }
+    }
     case Status::UnknownStatus:
         break;
     }
