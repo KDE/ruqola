@@ -42,6 +42,7 @@ bool AppCategoriesJob::start()
 
 void AppCategoriesJob::onGetRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
+    Q_UNUSED(replyErrorString)
     const QJsonArray replyArray = replyJson.array();
     Q_EMIT appCategoriesDone(replyArray);
 #if 0
