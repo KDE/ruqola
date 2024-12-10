@@ -44,8 +44,6 @@ target_sources(libruqolacore PRIVATE
     commands/command.h
     commands/commands.cpp
     commands/commands.h
-    convertertextjob/convertertextabstractjob.cpp
-    convertertextjob/convertertextabstractjob.h
     customsound/customsoundinfo.cpp
     customsound/customsoundinfo.h
     customsound/customsoundsinfo.cpp
