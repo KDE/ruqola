@@ -5,7 +5,7 @@
 */
 
 #include "queryparameterstest.h"
-#include "restapiabstractjob.h"
+#include "queryparameters.h"
 #include <QTest>
 #include <QUrlQuery>
 QTEST_GUILESS_MAIN(QueryParametersTest)

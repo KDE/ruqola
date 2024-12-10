@@ -1,7 +1,8 @@
 # SPDX-FileCopyrightText: 2020-2024 Laurent Montel <montel@kde.org>
 # SPDX-License-Identifier: BSD-3-Clause
 
-add_library(librocketchatrestapi-qt)
+add_library(librocketchatrestapi-qt
+    queryparameters.h queryparameters.cpp)
 target_sources(librocketchatrestapi-qt PRIVATE
     2fa/user2fadisableemailjob.cpp
     2fa/user2fadisableemailjob.h
