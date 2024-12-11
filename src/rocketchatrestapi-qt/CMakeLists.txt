@@ -503,6 +503,8 @@ target_sources(librocketchatrestapi-qt PRIVATE
     apps/appinstalledjob.h
     apps/appmarketplacejob.cpp
     apps/appmarketplacejob.h
+    apps/appinfojob.cpp
+    apps/appinfojob.h
 )
 
 
