@@ -8,6 +8,7 @@
 #include "applicationssettingsdescriptionwidget.h"
 #include "applicationssettingslogswidget.h"
 #include "applicationssettingsversionwidget.h"
+#include "rocketchataccount.h"
 
 #include <KLocalizedString>
 #include <QTabWidget>
@@ -35,7 +36,12 @@ ApplicationsSettingsDescriptionTabWidget::ApplicationsSettingsDescriptionTabWidg
     mTabWidget->addTab(mVersionWidget, i18n("Versions"));
 
     mLogsWidget->setObjectName("mLogsWidget"_L1);
-    mTabWidget->addTab(mLogsWidget, i18n("Logs"));
+    const int logTabIndex = mTabWidget->addTab(mLogsWidget, i18n("Logs"));
+    if (account) {
+        if (!account->isAdministrator()) {
+            mTabWidget->setTabVisible(logTabIndex, false);
+        }
+    }
 }
 
 ApplicationsSettingsDescriptionTabWidget::~ApplicationsSettingsDescriptionTabWidget() = default;
