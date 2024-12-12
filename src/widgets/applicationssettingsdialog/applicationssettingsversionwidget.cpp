@@ -6,6 +6,7 @@
 
 #include "applicationssettingsversionwidget.h"
 
+#include <QShowEvent>
 #include <QTextBrowser>
 #include <QVBoxLayout>
 
@@ -25,3 +26,19 @@ ApplicationsSettingsVersionWidget::ApplicationsSettingsVersionWidget(RocketChatA
 }
 
 ApplicationsSettingsVersionWidget::~ApplicationsSettingsVersionWidget() = default;
+
+void ApplicationsSettingsVersionWidget::showEvent(QShowEvent *event)
+{
+    if (!event->spontaneous() && !mWasInitialized) {
+        mWasInitialized = true;
+        initialize();
+    }
+    QWidget::showEvent(event);
+}
+
+void ApplicationsSettingsVersionWidget::initialize()
+{
+    if (mRocketChatAccount) {
+        // TODO
+    }
+}

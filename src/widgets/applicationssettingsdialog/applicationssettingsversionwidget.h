@@ -16,7 +16,12 @@ public:
     explicit ApplicationsSettingsVersionWidget(RocketChatAccount *account, QWidget *parent = nullptr);
     ~ApplicationsSettingsVersionWidget() override;
 
+protected:
+    void showEvent(QShowEvent *event) override;
+
 private:
+    LIBRUQOLAWIDGETS_NO_EXPORT void initialize();
+    bool mWasInitialized = false;
     QTextBrowser *const mTextBrowser;
     RocketChatAccount *const mRocketChatAccount;
 };

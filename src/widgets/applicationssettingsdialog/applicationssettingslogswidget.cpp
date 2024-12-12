@@ -6,6 +6,7 @@
 
 #include "applicationssettingslogswidget.h"
 
+#include <QShowEvent>
 #include <QTextBrowser>
 #include <QVBoxLayout>
 
@@ -25,3 +26,19 @@ ApplicationsSettingsLogsWidget::ApplicationsSettingsLogsWidget(RocketChatAccount
 }
 
 ApplicationsSettingsLogsWidget::~ApplicationsSettingsLogsWidget() = default;
+
+void ApplicationsSettingsLogsWidget::showEvent(QShowEvent *event)
+{
+    if (!event->spontaneous() && !mWasInitialized) {
+        mWasInitialized = true;
+        initialize();
+    }
+    QWidget::showEvent(event);
+}
+
+void ApplicationsSettingsLogsWidget::initialize()
+{
+    if (mRocketChatAccount) {
+        // TODO
+    }
+}
