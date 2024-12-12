@@ -38,15 +38,31 @@ bool AppInfoJob::start()
     return true;
 }
 
+bool AppInfoJob::canStart() const
+{
+    if (!RestApiAbstractJob::canStart()) {
+        return false;
+    }
+    if (mAppInfoType == AppInfoType::Unknown) {
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "mAppInfoType undefined";
+        return false;
+    }
+    if (mAppsId.isEmpty()) {
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "mAppsId is empty";
+        return false;
+    }
+    return true;
+}
+
 void AppInfoJob::onGetRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
     const QJsonObject replyObject = replyJson.object();
     if (replyObject["success"_L1].toBool()) {
         addLoggerInfo(QByteArrayLiteral("AppInfoJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
-        Q_EMIT appCountDone(replyObject);
+        Q_EMIT appInfoDone(mAppInfoType, replyObject);
     } else {
         emitFailedMessage(replyErrorString, replyObject);
-        addLoggerWarning(QByteArrayLiteral("AppInfoJob: Problem when we tried to get app count info : ") + replyJson.toJson(QJsonDocument::Indented));
+        addLoggerWarning(QByteArrayLiteral("AppInfoJob: Problem when we tried to get app info : ") + replyJson.toJson(QJsonDocument::Indented));
     }
 }
 
@@ -70,9 +86,33 @@ void AppInfoJob::setAppsId(const QByteArray &newAppsId)
     mAppsId = newAppsId;
 }
 
+QString AppInfoJob::generateUrlExtension() const
+{
+    QString url = QString::fromLatin1(mAppsId) + QLatin1Char('/');
+
+    switch (mAppInfoType) {
+    case AppInfoType::Unknown:
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Unknown type";
+        break;
+    case AppInfoType::Versions:
+        url += QStringLiteral("versions");
+        break;
+    case AppInfoType::Logs:
+        url += QStringLiteral("logs");
+        break;
+    case AppInfoType::Apis:
+        url += QStringLiteral("apis");
+        break;
+    case AppInfoType::ScreenShots:
+        url += QStringLiteral("screenshots");
+        break;
+    }
+    return url;
+}
+
 QNetworkRequest AppInfoJob::request() const
 {
-    const QUrl url = mRestApiMethod->generateUrl(RestApiUtil::RestApiUrlType::CountApps, RestApiUtil::RestApiUrlExtensionType::Apps);
+    const QUrl url = mRestApiMethod->generateUrl(RestApiUtil::RestApiUrlType::Empty, RestApiUtil::RestApiUrlExtensionType::Apps, generateUrlExtension());
     QNetworkRequest request(url);
     addAuthRawHeader(request);
     addRequestAttribute(request);

@@ -17,8 +17,8 @@ class LIBROCKETCHATRESTAPI_QT_EXPORT AppInfoJob : public RestApiAbstractJob
 public:
     enum class AppInfoType {
         Unknown,
-        Version,
-        Log,
+        Versions,
+        Logs,
         Apis,
         ScreenShots,
     };
@@ -38,11 +38,14 @@ public:
     [[nodiscard]] AppInfoType appInfoType() const;
     void setAppInfoType(AppInfoType newAppInfoType);
 
+    [[nodiscard]] bool canStart() const override;
+
 Q_SIGNALS:
-    void appCountDone(const QJsonObject &obj);
+    void appInfoDone(AppInfoType type, const QJsonObject &obj);
 
 private:
     LIBROCKETCHATRESTAPI_QT_NO_EXPORT void onGetRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson) override;
+    [[nodiscard]] LIBROCKETCHATRESTAPI_QT_NO_EXPORT QString generateUrlExtension() const;
     QByteArray mAppsId;
     AppInfoType mAppInfoType = AppInfoType::Unknown;
 };
