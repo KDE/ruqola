@@ -954,6 +954,9 @@ target_sources(libruqolawidgets PRIVATE
     applicationssettingsdialog/applicationssettingsversionwidget.h
     applicationssettingsdialog/applicationssettingsversionwidget.cpp
 
+    applicationssettingsdialog/applicationssettingslogswidget.cpp
+    applicationssettingsdialog/applicationssettingslogswidget.h
+
     welcome/welcomewidget.h
     welcome/welcomewidget.cpp
 )

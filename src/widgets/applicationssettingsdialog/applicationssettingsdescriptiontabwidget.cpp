@@ -6,7 +6,9 @@
 
 #include "applicationssettingsdescriptiontabwidget.h"
 #include "applicationssettingsdescriptionwidget.h"
+#include "applicationssettingslogswidget.h"
 #include "applicationssettingsversionwidget.h"
+
 #include <KLocalizedString>
 #include <QTabWidget>
 #include <QVBoxLayout>
@@ -17,6 +19,7 @@ ApplicationsSettingsDescriptionTabWidget::ApplicationsSettingsDescriptionTabWidg
     , mTabWidget(new QTabWidget(this))
     , mDescriptionWidget(new ApplicationsSettingsDescriptionWidget(this))
     , mVersionWidget(new ApplicationsSettingsVersionWidget(this))
+    , mLogsWidget(new ApplicationsSettingsLogsWidget(this))
 {
     mTabWidget->setObjectName("mTabWidget"_L1);
 
@@ -29,7 +32,10 @@ ApplicationsSettingsDescriptionTabWidget::ApplicationsSettingsDescriptionTabWidg
     mTabWidget->addTab(mDescriptionWidget, i18n("Description"));
 
     mVersionWidget->setObjectName("mVersionWidget"_L1);
-    mTabWidget->addTab(mVersionWidget, i18n("Version"));
+    mTabWidget->addTab(mVersionWidget, i18n("Versions"));
+
+    mLogsWidget->setObjectName("mLogsWidget"_L1);
+    mTabWidget->addTab(mLogsWidget, i18n("Logs"));
 }
 
 ApplicationsSettingsDescriptionTabWidget::~ApplicationsSettingsDescriptionTabWidget() = default;
