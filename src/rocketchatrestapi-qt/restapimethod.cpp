@@ -25,9 +25,13 @@ QUrl RestApiMethod::generateUrl(RestApiUtil::RestApiUrlType type, RestApiUtil::R
         qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Server url is empty";
         return {};
     }
-    QString urlStr = RestApiUtil::adaptUrl(mServerUrl) + RestApiUtil::restApiUrlExtensionType(restApiUrlExtensionType) + RestApiUtil::restUrl(type);
+    const QString restUrl = RestApiUtil::restUrl(type);
+    QString urlStr = RestApiUtil::adaptUrl(mServerUrl) + RestApiUtil::restApiUrlExtensionType(restApiUrlExtensionType) + restUrl;
     if (!urlExtension.isEmpty()) {
-        urlStr += QLatin1Char('/') + urlExtension;
+        if (!restUrl.isEmpty()) {
+            urlStr += QLatin1Char('/');
+        }
+        urlStr += urlExtension;
     }
     return QUrl(urlStr);
 }
