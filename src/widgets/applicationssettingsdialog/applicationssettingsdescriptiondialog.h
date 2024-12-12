@@ -7,7 +7,7 @@
 #pragma once
 #include "libruqolawidgets_private_export.h"
 #include <QDialog>
-class ApplicationsSettingsDescriptionWidget;
+class ApplicationsSettingsDescriptionTabWidget;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT ApplicationsSettingsDescriptionDialog : public QDialog
 {
     Q_OBJECT
@@ -20,5 +20,5 @@ public:
 private:
     LIBRUQOLAWIDGETS_NO_EXPORT void readConfig();
     LIBRUQOLAWIDGETS_NO_EXPORT void writeConfig();
-    ApplicationsSettingsDescriptionWidget *const mApplicationsSettingsDescriptionWidget;
+    ApplicationsSettingsDescriptionTabWidget *const mApplicationsSettingsDescriptionTabWidget;
 };

@@ -5,7 +5,7 @@
 */
 
 #include "applicationssettingsdescriptiondialog.h"
-#include "applicationssettingsdescriptionwidget.h"
+#include "applicationssettingsdescriptiontabwidget.h"
 #include <KConfigGroup>
 #include <KLocalizedString>
 #include <KSharedConfig>
@@ -20,14 +20,14 @@ const char myApplicationsSettingsDescriptionDialogGroupName[] = "ApplicationsSet
 }
 ApplicationsSettingsDescriptionDialog::ApplicationsSettingsDescriptionDialog(QWidget *parent)
     : QDialog(parent)
-    , mApplicationsSettingsDescriptionWidget(new ApplicationsSettingsDescriptionWidget(this))
+    , mApplicationsSettingsDescriptionTabWidget(new ApplicationsSettingsDescriptionTabWidget(this))
 {
     setWindowTitle(i18nc("@title:window", "Description"));
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
 
-    mApplicationsSettingsDescriptionWidget->setObjectName("mApplicationsSettingsDescriptionWidget"_L1);
-    mainLayout->addWidget(mApplicationsSettingsDescriptionWidget);
+    mApplicationsSettingsDescriptionTabWidget->setObjectName("mApplicationsSettingsDescriptionWidget"_L1);
+    mainLayout->addWidget(mApplicationsSettingsDescriptionTabWidget);
 
     auto button = new QDialogButtonBox(QDialogButtonBox::Close, this);
     button->setObjectName(QStringLiteral("button"));
@@ -58,7 +58,7 @@ void ApplicationsSettingsDescriptionDialog::writeConfig()
 
 void ApplicationsSettingsDescriptionDialog::setDescription(const QString &desc)
 {
-    mApplicationsSettingsDescriptionWidget->setDescription(desc);
+    mApplicationsSettingsDescriptionTabWidget->setDescription(desc);
 }
 
 #include "moc_applicationssettingsdescriptiondialog.cpp"
