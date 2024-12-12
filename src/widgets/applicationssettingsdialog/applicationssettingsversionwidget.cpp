@@ -51,13 +51,17 @@ void ApplicationsSettingsVersionWidget::initialize()
         mRocketChatAccount->restApi()->initializeRestApiJob(job);
         job->setAppInfoType(RocketChatRestApi::AppInfoJob::AppInfoType::Versions);
         job->setAppsId(mAppId);
-        connect(job, &RocketChatRestApi::AppInfoJob::appInfoDone, this, [](const QJsonObject &obj) {
-            qDebug() << " obj " << obj;
-        });
+        connect(job, &RocketChatRestApi::AppInfoJob::appInfoDone, this, &ApplicationsSettingsVersionWidget::generateInfo);
         if (!job->start()) {
             qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start AppInfoJob";
         }
     }
+}
+
+void ApplicationsSettingsVersionWidget::generateInfo(const QJsonObject &obj)
+{
+    qDebug() << " obj " << obj;
+    // TODO
 }
 
 #include "moc_applicationssettingsversionwidget.cpp"

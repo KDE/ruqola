@@ -23,6 +23,7 @@ protected:
 
 private:
     LIBRUQOLAWIDGETS_NO_EXPORT void initialize();
+    LIBRUQOLAWIDGETS_NO_EXPORT void generateInfo(const QJsonObject &obj);
     bool mWasInitialized = false;
     QByteArray mAppId;
     QTextBrowser *const mTextBrowser;

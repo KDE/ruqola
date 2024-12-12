@@ -40,6 +40,12 @@ void ApplicationsSettingsLogsWidget::showEvent(QShowEvent *event)
     QWidget::showEvent(event);
 }
 
+void ApplicationsSettingsLogsWidget::generateInfo(const QJsonObject &obj)
+{
+    qDebug() << " obj " << obj;
+    // TODO
+}
+
 void ApplicationsSettingsLogsWidget::initialize()
 {
     if (mRocketChatAccount) {
@@ -47,9 +53,7 @@ void ApplicationsSettingsLogsWidget::initialize()
         job->setAppsId(mAppId);
         job->setAppInfoType(RocketChatRestApi::AppInfoJob::AppInfoType::Logs);
         mRocketChatAccount->restApi()->initializeRestApiJob(job);
-        connect(job, &RocketChatRestApi::AppInfoJob::appInfoDone, this, [](const QJsonObject &obj) {
-            qDebug() << " obj " << obj;
-        });
+        connect(job, &RocketChatRestApi::AppInfoJob::appInfoDone, this, &ApplicationsSettingsLogsWidget::generateInfo);
         if (!job->start()) {
             qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start AppInfoJob";
         }

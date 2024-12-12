@@ -22,6 +22,7 @@ protected:
     void showEvent(QShowEvent *event) override;
 
 private:
+    LIBRUQOLAWIDGETS_NO_EXPORT void generateInfo(const QJsonObject &obj);
     LIBRUQOLAWIDGETS_NO_EXPORT void initialize();
     bool mWasInitialized = false;
     QByteArray mAppId;
