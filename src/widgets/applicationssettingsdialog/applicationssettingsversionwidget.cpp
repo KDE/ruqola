@@ -60,6 +60,7 @@ void ApplicationsSettingsVersionWidget::initialize()
 
 void ApplicationsSettingsVersionWidget::generateInfo(const QJsonObject &obj)
 {
+    QString message;
     const QJsonArray array = obj[QStringLiteral("apps")].toArray();
     for (const auto &info : array) {
         const QString version = info["version"_L1].toString();
@@ -69,6 +70,7 @@ void ApplicationsSettingsVersionWidget::generateInfo(const QJsonObject &obj)
         qDebug() << " version " << version << " changesNote " << changesNote << " createdDate " << createdDate;
         // TODO createdDate
     }
+    mTextBrowser->setText(message);
 }
 
 #include "moc_applicationssettingsversionwidget.cpp"
