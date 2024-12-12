@@ -8,10 +8,17 @@
 
 #include "libruqolawidgets_private_export.h"
 #include <QWidget>
+class ApplicationsSettingsDescriptionWidget;
+class QTabWidget;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT ApplicationsSettingsDescriptionTabWidget : public QWidget
 {
     Q_OBJECT
 public:
     explicit ApplicationsSettingsDescriptionTabWidget(QWidget *parent = nullptr);
     ~ApplicationsSettingsDescriptionTabWidget() override;
+    void setDescription(const QString &desc);
+
+private:
+    QTabWidget *const mTabWidget;
+    ApplicationsSettingsDescriptionWidget *const mDescriptionWidget;
 };
