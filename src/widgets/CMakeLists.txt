@@ -945,6 +945,9 @@ target_sources(libruqolawidgets PRIVATE
     applicationssettingsdialog/applicationssettingsinprogresswidget.h
     applicationssettingsdialog/applicationssettingsinprogresswidget.cpp
 
+    applicationssettingsdialog/applicationssettingsdescriptiontabwidget.h
+    applicationssettingsdialog/applicationssettingsdescriptiontabwidget.cpp
+
     applicationssettingsdialog/appscountinfowidget.h
     applicationssettingsdialog/appscountinfowidget.cpp
 
