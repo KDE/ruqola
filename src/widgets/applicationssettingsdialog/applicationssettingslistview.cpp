@@ -175,7 +175,7 @@ void ApplicationsSettingsListView::slotAskApplication(const QModelIndex &index)
 
 void ApplicationsSettingsListView::slotShowApplicationDescription(const QModelIndex &index)
 {
-    ApplicationsSettingsDescriptionDialog dlg(this);
+    ApplicationsSettingsDescriptionDialog dlg(mRocketChatAccount, this);
     const QString description = index.data(AppsMarketPlaceModel::ApplicationInformations).toString();
     dlg.setDescription(description);
     dlg.exec();

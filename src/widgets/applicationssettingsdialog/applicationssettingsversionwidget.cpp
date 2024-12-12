@@ -10,9 +10,10 @@
 #include <QVBoxLayout>
 
 using namespace Qt::Literals::StringLiterals;
-ApplicationsSettingsVersionWidget::ApplicationsSettingsVersionWidget(QWidget *parent)
+ApplicationsSettingsVersionWidget::ApplicationsSettingsVersionWidget(RocketChatAccount *account, QWidget *parent)
     : QWidget{parent}
     , mTextBrowser(new QTextBrowser(this))
+    , mRocketChatAccount(account)
 {
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName("mainLayout"_L1);

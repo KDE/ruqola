@@ -8,13 +8,15 @@
 #include "libruqolawidgets_private_export.h"
 #include <QWidget>
 class QTextBrowser;
+class RocketChatAccount;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT ApplicationsSettingsVersionWidget : public QWidget
 {
     Q_OBJECT
 public:
-    explicit ApplicationsSettingsVersionWidget(QWidget *parent = nullptr);
+    explicit ApplicationsSettingsVersionWidget(RocketChatAccount *account, QWidget *parent = nullptr);
     ~ApplicationsSettingsVersionWidget() override;
 
 private:
     QTextBrowser *const mTextBrowser;
+    RocketChatAccount *const mRocketChatAccount;
 };

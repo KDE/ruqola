@@ -12,11 +12,12 @@ class ApplicationsSettingsDescriptionWidget;
 class ApplicationsSettingsVersionWidget;
 class ApplicationsSettingsLogsWidget;
 class QTabWidget;
+class RocketChatAccount;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT ApplicationsSettingsDescriptionTabWidget : public QWidget
 {
     Q_OBJECT
 public:
-    explicit ApplicationsSettingsDescriptionTabWidget(QWidget *parent = nullptr);
+    explicit ApplicationsSettingsDescriptionTabWidget(RocketChatAccount *account, QWidget *parent = nullptr);
     ~ApplicationsSettingsDescriptionTabWidget() override;
     void setDescription(const QString &desc);
 

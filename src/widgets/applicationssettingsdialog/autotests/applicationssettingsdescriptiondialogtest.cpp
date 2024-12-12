@@ -19,7 +19,7 @@ ApplicationsSettingsDescriptionDialogTest::ApplicationsSettingsDescriptionDialog
 
 void ApplicationsSettingsDescriptionDialogTest::shouldHaveDefaultValues()
 {
-    ApplicationsSettingsDescriptionDialog d;
+    ApplicationsSettingsDescriptionDialog d(nullptr);
     QVERIFY(!d.windowTitle().isEmpty());
 
     auto mainLayout = d.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));

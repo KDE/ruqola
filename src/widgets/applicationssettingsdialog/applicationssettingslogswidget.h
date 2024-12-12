@@ -8,13 +8,15 @@
 #include "libruqolawidgets_private_export.h"
 #include <QWidget>
 class QTextBrowser;
+class RocketChatAccount;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT ApplicationsSettingsLogsWidget : public QWidget
 {
     Q_OBJECT
 public:
-    explicit ApplicationsSettingsLogsWidget(QWidget *parent = nullptr);
+    explicit ApplicationsSettingsLogsWidget(RocketChatAccount *account, QWidget *parent = nullptr);
     ~ApplicationsSettingsLogsWidget() override;
 
 private:
     QTextBrowser *const mTextBrowser;
+    RocketChatAccount *const mRocketChatAccount;
 };

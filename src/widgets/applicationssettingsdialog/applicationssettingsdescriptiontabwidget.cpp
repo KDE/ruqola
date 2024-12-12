@@ -14,12 +14,12 @@
 #include <QVBoxLayout>
 using namespace Qt::Literals::StringLiterals;
 
-ApplicationsSettingsDescriptionTabWidget::ApplicationsSettingsDescriptionTabWidget(QWidget *parent)
+ApplicationsSettingsDescriptionTabWidget::ApplicationsSettingsDescriptionTabWidget(RocketChatAccount *account, QWidget *parent)
     : QWidget(parent)
     , mTabWidget(new QTabWidget(this))
     , mDescriptionWidget(new ApplicationsSettingsDescriptionWidget(this))
-    , mVersionWidget(new ApplicationsSettingsVersionWidget(this))
-    , mLogsWidget(new ApplicationsSettingsLogsWidget(this))
+    , mVersionWidget(new ApplicationsSettingsVersionWidget(account, this))
+    , mLogsWidget(new ApplicationsSettingsLogsWidget(account, this))
 {
     mTabWidget->setObjectName("mTabWidget"_L1);
 

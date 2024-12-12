@@ -18,9 +18,9 @@ namespace
 {
 const char myApplicationsSettingsDescriptionDialogGroupName[] = "ApplicationsSettingsDescriptionDialog";
 }
-ApplicationsSettingsDescriptionDialog::ApplicationsSettingsDescriptionDialog(QWidget *parent)
+ApplicationsSettingsDescriptionDialog::ApplicationsSettingsDescriptionDialog(RocketChatAccount *account, QWidget *parent)
     : QDialog(parent)
-    , mApplicationsSettingsDescriptionTabWidget(new ApplicationsSettingsDescriptionTabWidget(this))
+    , mApplicationsSettingsDescriptionTabWidget(new ApplicationsSettingsDescriptionTabWidget(account, this))
 {
     setWindowTitle(i18nc("@title:window", "Description"));
     auto mainLayout = new QVBoxLayout(this);

@@ -21,7 +21,7 @@ ApplicationsSettingsDescriptionTabWidgetTest::ApplicationsSettingsDescriptionTab
 
 void ApplicationsSettingsDescriptionTabWidgetTest::shouldHaveDefaultValues()
 {
-    ApplicationsSettingsDescriptionTabWidget w;
+    ApplicationsSettingsDescriptionTabWidget w(nullptr);
     auto mainLayout = w.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
     QVERIFY(mainLayout);
     QCOMPARE(mainLayout->contentsMargins(), QMargins{});

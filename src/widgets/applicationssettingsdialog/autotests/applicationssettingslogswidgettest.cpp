@@ -18,7 +18,7 @@ ApplicationsSettingsLogsWidgetTest::ApplicationsSettingsLogsWidgetTest(QObject *
 
 void ApplicationsSettingsLogsWidgetTest::shouldHaveDefaultValues()
 {
-    ApplicationsSettingsLogsWidget d;
+    ApplicationsSettingsLogsWidget d(nullptr);
 
     auto mainLayout = d.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
     QVERIFY(mainLayout);
