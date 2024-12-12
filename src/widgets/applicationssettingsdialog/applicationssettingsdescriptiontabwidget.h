@@ -21,6 +21,8 @@ public:
     ~ApplicationsSettingsDescriptionTabWidget() override;
     void setDescription(const QString &desc);
 
+    void setApplicationId(const QByteArray &appId);
+
 private:
     QTabWidget *const mTabWidget;
     ApplicationsSettingsDescriptionWidget *const mDescriptionWidget;

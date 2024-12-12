@@ -45,4 +45,10 @@ void ApplicationsSettingsDescriptionTabWidget::setDescription(const QString &des
     mDescriptionWidget->setDescription(desc);
 }
 
+void ApplicationsSettingsDescriptionTabWidget::setApplicationId(const QByteArray &appId)
+{
+    mVersionWidget->setApplicationId(appId);
+    mLogsWidget->setApplicationId(appId);
+}
+
 #include "moc_applicationssettingsdescriptiontabwidget.cpp"

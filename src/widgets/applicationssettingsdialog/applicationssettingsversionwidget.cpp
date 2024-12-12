@@ -28,6 +28,11 @@ ApplicationsSettingsVersionWidget::ApplicationsSettingsVersionWidget(RocketChatA
     mTextBrowser->setOpenExternalLinks(true);
 }
 
+void ApplicationsSettingsVersionWidget::setApplicationId(const QByteArray &appId)
+{
+    mAppId = appId;
+}
+
 ApplicationsSettingsVersionWidget::~ApplicationsSettingsVersionWidget() = default;
 
 void ApplicationsSettingsVersionWidget::showEvent(QShowEvent *event)
@@ -45,6 +50,7 @@ void ApplicationsSettingsVersionWidget::initialize()
         auto job = new RocketChatRestApi::AppInfoJob(this);
         mRocketChatAccount->restApi()->initializeRestApiJob(job);
         job->setAppInfoType(RocketChatRestApi::AppInfoJob::AppInfoType::Versions);
+        job->setAppsId(mAppId);
         connect(job, &RocketChatRestApi::AppInfoJob::appInfoDone, this, [](const QJsonObject &obj) {
             qDebug() << " obj " << obj;
         });

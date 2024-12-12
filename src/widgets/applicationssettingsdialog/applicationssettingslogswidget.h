@@ -16,12 +16,15 @@ public:
     explicit ApplicationsSettingsLogsWidget(RocketChatAccount *account, QWidget *parent = nullptr);
     ~ApplicationsSettingsLogsWidget() override;
 
+    void setApplicationId(const QByteArray &appId);
+
 protected:
     void showEvent(QShowEvent *event) override;
 
 private:
     LIBRUQOLAWIDGETS_NO_EXPORT void initialize();
     bool mWasInitialized = false;
+    QByteArray mAppId;
     QTextBrowser *const mTextBrowser;
     RocketChatAccount *const mRocketChatAccount;
 };
