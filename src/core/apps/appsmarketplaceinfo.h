@@ -76,6 +76,7 @@ public:
             UiRegistrerButtons,
             ContactWrite,
             ContactRead,
+            EmailSend,
         };
         [[nodiscard]] bool operator==(const Permission &other) const;
         [[nodiscard]] static PermissionType convertStringToPermissionType(const QString &str);

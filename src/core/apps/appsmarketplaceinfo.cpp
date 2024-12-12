@@ -566,6 +566,8 @@ AppsMarketPlaceInfo::Permission::PermissionType AppsMarketPlaceInfo::Permission:
         return AppsMarketPlaceInfo::Permission::PermissionType::ContactRead;
     } else if (str == "contact.write"_L1) {
         return AppsMarketPlaceInfo::Permission::PermissionType::ContactWrite;
+    } else if (str == "email.send"_L1) {
+        return AppsMarketPlaceInfo::Permission::PermissionType::EmailSend;
     }
 
     qCWarning(RUQOLA_LOG) << "PermissionType Unknown type " << str;
@@ -659,6 +661,8 @@ QString AppsMarketPlaceInfo::Permission::convertTypeToI18n() const
         break;
     case Permission::PermissionType::ContactWrite:
         break;
+    case Permission::PermissionType::EmailSend:
+        return i18n("Allow to send email");
     }
     qCWarning(RUQOLA_LOG) << " i18n not found for " << int(type);
     return {};
