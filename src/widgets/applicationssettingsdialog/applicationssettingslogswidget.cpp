@@ -6,6 +6,10 @@
 
 #include "applicationssettingslogswidget.h"
 
+#include "apps/appinfojob.h"
+#include "connection.h"
+#include "rocketchataccount.h"
+#include "ruqolawidgets_debug.h"
 #include <QShowEvent>
 #include <QTextBrowser>
 #include <QVBoxLayout>
@@ -39,7 +43,16 @@ void ApplicationsSettingsLogsWidget::showEvent(QShowEvent *event)
 void ApplicationsSettingsLogsWidget::initialize()
 {
     if (mRocketChatAccount) {
-        // TODO
+        auto job = new RocketChatRestApi::AppInfoJob(this);
+        // TODO add appsid + type
+        job->setAppInfoType(RocketChatRestApi::AppInfoJob::AppInfoType::Logs);
+        mRocketChatAccount->restApi()->initializeRestApiJob(job);
+        connect(job, &RocketChatRestApi::AppInfoJob::appInfoDone, this, [](const QJsonObject &obj) {
+            qDebug() << " obj " << obj;
+        });
+        if (!job->start()) {
+            qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start AppInfoJob";
+        }
     }
 }
 

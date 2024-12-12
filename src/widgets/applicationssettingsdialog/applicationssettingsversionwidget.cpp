@@ -5,7 +5,10 @@
 */
 
 #include "applicationssettingsversionwidget.h"
-
+#include "apps/appinfojob.h"
+#include "connection.h"
+#include "rocketchataccount.h"
+#include "ruqolawidgets_debug.h"
 #include <QShowEvent>
 #include <QTextBrowser>
 #include <QVBoxLayout>
@@ -39,7 +42,15 @@ void ApplicationsSettingsVersionWidget::showEvent(QShowEvent *event)
 void ApplicationsSettingsVersionWidget::initialize()
 {
     if (mRocketChatAccount) {
-        // TODO
+        auto job = new RocketChatRestApi::AppInfoJob(this);
+        mRocketChatAccount->restApi()->initializeRestApiJob(job);
+        job->setAppInfoType(RocketChatRestApi::AppInfoJob::AppInfoType::Versions);
+        connect(job, &RocketChatRestApi::AppInfoJob::appInfoDone, this, [](const QJsonObject &obj) {
+            qDebug() << " obj " << obj;
+        });
+        if (!job->start()) {
+            qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start AppInfoJob";
+        }
     }
 }
 

@@ -41,7 +41,7 @@ public:
     [[nodiscard]] bool canStart() const override;
 
 Q_SIGNALS:
-    void appInfoDone(AppInfoType type, const QJsonObject &obj);
+    void appInfoDone(const QJsonObject &obj);
 
 private:
     LIBROCKETCHATRESTAPI_QT_NO_EXPORT void onGetRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson) override;

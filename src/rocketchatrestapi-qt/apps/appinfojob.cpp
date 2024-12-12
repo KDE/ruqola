@@ -59,7 +59,7 @@ void AppInfoJob::onGetRequestResponse(const QString &replyErrorString, const QJs
     const QJsonObject replyObject = replyJson.object();
     if (replyObject["success"_L1].toBool()) {
         addLoggerInfo(QByteArrayLiteral("AppInfoJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
-        Q_EMIT appInfoDone(mAppInfoType, replyObject);
+        Q_EMIT appInfoDone(replyObject);
     } else {
         emitFailedMessage(replyErrorString, replyObject);
         addLoggerWarning(QByteArrayLiteral("AppInfoJob: Problem when we tried to get app info : ") + replyJson.toJson(QJsonDocument::Indented));
