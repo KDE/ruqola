@@ -11485,19 +11485,3 @@ msgstr "Roka’nın bu sürümündeki yeni özelliklerden bazıları şunlardır
 #, kde-format
 msgid "Some bug fixing:"
 msgstr "Hata düzeltmeleri:"
-
-#~ msgid "Private"
-#~ msgstr "Özel"
-
-#~ msgid "Installed"
-#~ msgstr "Kurulu"
-
-#~ msgid "BigBlueButton"
-#~ msgstr "BüyükMaviDüğme"
-
-#~ msgid "Jitsi"
-#~ msgstr "Jitsi"
-
-#~ msgctxt "@option:check"
-#~ msgid "Join Default Channels"
-#~ msgstr "Öntanımlı kanallara katıl"

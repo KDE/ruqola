@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-12-11 00:40+0000\n"
-"PO-Revision-Date: 2024-12-08 14:34+0100\n"
+"PO-Revision-Date: 2024-12-11 20:12+0100\n"
 "Last-Translator: Adrián Chaves (Gallaecio) <adrian@chaves.io>\n"
 "Language-Team: Proxecto Trasno (proxecto@trasno.gal)\n"
 "Language: gl\n"
@@ -11164,10 +11164,8 @@ msgid "Add color to the text in the account tab"
 msgstr "Engadir cor ao texto da lapela de conta."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:23
-#, fuzzy
-#| msgid "Allow to write oauth app settings"
 msgid "Allow to show private installed applications"
-msgstr "Permitir escribir a configuración de aplicacións de OAuth"
+msgstr "Permitir amosar as aplicacións privadas instaladas."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:33
 #, kde-format
