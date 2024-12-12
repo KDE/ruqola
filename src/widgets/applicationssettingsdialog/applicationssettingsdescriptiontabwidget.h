@@ -9,6 +9,7 @@
 #include "libruqolawidgets_private_export.h"
 #include <QWidget>
 class ApplicationsSettingsDescriptionWidget;
+class ApplicationsSettingsVersionWidget;
 class QTabWidget;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT ApplicationsSettingsDescriptionTabWidget : public QWidget
 {
@@ -21,4 +22,5 @@ public:
 private:
     QTabWidget *const mTabWidget;
     ApplicationsSettingsDescriptionWidget *const mDescriptionWidget;
+    ApplicationsSettingsVersionWidget *const mVersionWidget;
 };

@@ -6,6 +6,7 @@
 #include "applicationssettingsdescriptiontabwidgettest.h"
 #include "applicationssettingsdialog/applicationssettingsdescriptiontabwidget.h"
 #include "applicationssettingsdialog/applicationssettingsdescriptionwidget.h"
+#include "applicationssettingsdialog/applicationssettingsversionwidget.h"
 #include <QTabWidget>
 #include <QTest>
 #include <QVBoxLayout>
@@ -29,6 +30,9 @@ void ApplicationsSettingsDescriptionTabWidgetTest::shouldHaveDefaultValues()
 
     auto mDescriptionWidget = mTabWidget->findChild<ApplicationsSettingsDescriptionWidget *>(QStringLiteral("mDescriptionWidget"));
     QVERIFY(mDescriptionWidget);
+
+    auto mVersionWidget = mTabWidget->findChild<ApplicationsSettingsVersionWidget *>(QStringLiteral("mVersionWidget"));
+    QVERIFY(mVersionWidget);
     // TODO
 }
 
