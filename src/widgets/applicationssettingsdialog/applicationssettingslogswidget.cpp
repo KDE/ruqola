@@ -42,3 +42,5 @@ void ApplicationsSettingsLogsWidget::initialize()
         // TODO
     }
 }
+
+#include "moc_applicationssettingslogswidget.cpp"

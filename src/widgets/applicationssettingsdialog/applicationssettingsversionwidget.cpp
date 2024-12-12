@@ -42,3 +42,5 @@ void ApplicationsSettingsVersionWidget::initialize()
         // TODO
     }
 }
+
+#include "moc_applicationssettingsversionwidget.cpp"
