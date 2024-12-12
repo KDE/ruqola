@@ -377,6 +377,9 @@ enum class RestApiUrlType {
 
     // users.sendWelcomeEmail
     UsersSendWelcomeEmail,
+
+    // Used by apps info => we need empty string here.
+    Empty,
 };
 LIBROCKETCHATRESTAPI_QT_EXPORT QString adaptUrl(const QString &url);
 LIBROCKETCHATRESTAPI_QT_EXPORT QString restUrl(RestApiUtil::RestApiUrlType type);
