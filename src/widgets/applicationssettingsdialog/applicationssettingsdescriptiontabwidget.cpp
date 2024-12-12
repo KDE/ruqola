@@ -20,6 +20,7 @@ ApplicationsSettingsDescriptionTabWidget::ApplicationsSettingsDescriptionTabWidg
 
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
+    mainLayout->setContentsMargins({});
     mainLayout->addWidget(mTabWidget);
 
     mDescriptionWidget->setObjectName("mDescriptionWidget"_L1);
