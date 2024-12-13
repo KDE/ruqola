@@ -2602,6 +2602,11 @@ void RocketChatAccount::slotFileLanguagedParsed()
     }
 }
 
+QString RocketChatAccount::getTranslatedIdentifier(const QString &lang, const QString &identifier) const
+{
+    return mDownloadAppsLanguagesManager->translatedString(lang, identifier);
+}
+
 void RocketChatAccount::slotListCommandDone(const QJsonObject &obj)
 {
     Commands commands;

@@ -5,6 +5,7 @@
 */
 #pragma once
 
+#include "apps/applicationssettingssettingsinfo.h"
 #include "libruqolawidgets_private_export.h"
 #include <QWidget>
 class QVBoxLayout;
@@ -24,6 +25,10 @@ protected:
 private:
     LIBRUQOLAWIDGETS_NO_EXPORT void generateSettings(const QJsonObject &obj);
     LIBRUQOLAWIDGETS_NO_EXPORT void initialize();
+    LIBRUQOLAWIDGETS_NO_EXPORT void generateSettingsWidgets(const QList<ApplicationsSettingsSettingsInfo> &infos);
+    LIBRUQOLAWIDGETS_NO_EXPORT void addBooleanSettings(const ApplicationsSettingsSettingsInfo &info);
+    LIBRUQOLAWIDGETS_NO_EXPORT void addStringSettings(const ApplicationsSettingsSettingsInfo &info);
+    [[nodiscard]] LIBRUQOLAWIDGETS_NO_EXPORT QString getTranslatedIdentifier(const QString &lang, const QString &id) const;
     bool mWasInitialized = false;
     QByteArray mAppId;
     RocketChatAccount *const mRocketChatAccount;

@@ -35,7 +35,7 @@ ApplicationsSettingsDescriptionTabWidget::ApplicationsSettingsDescriptionTabWidg
     mTabWidget->addTab(mDescriptionWidget, i18n("Description"));
 
     mVersionWidget->setObjectName("mVersionWidget"_L1);
-    mTabWidget->addTab(mVersionWidget, i18n("Versions"));
+    const int versionTabIndex = mTabWidget->addTab(mVersionWidget, i18n("Versions"));
 
     mLogsWidget->setObjectName("mLogsWidget"_L1);
     const int logTabIndex = mTabWidget->addTab(mLogsWidget, i18n("Logs"));
@@ -48,6 +48,7 @@ ApplicationsSettingsDescriptionTabWidget::ApplicationsSettingsDescriptionTabWidg
             mTabWidget->setTabVisible(logTabIndex, false);
             mTabWidget->setTabVisible(settingsTabIndex, false);
         }
+        // TODO disable mVersionWidget when apps is private
     }
 }
 

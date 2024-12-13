@@ -21,7 +21,6 @@ void ApplicationsSettingsSettingsWidgetTest::shouldHaveDefaultValues()
 
     auto mainLayout = d.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
     QVERIFY(mainLayout);
-    QCOMPARE(mainLayout->contentsMargins(), QMargins{});
 }
 
 #include "moc_applicationssettingssettingswidgettest.cpp"

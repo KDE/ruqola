@@ -499,6 +499,8 @@ public:
 
     void getRoomByTypeAndName(const QByteArray &rid, const QString &roomType);
 
+    [[nodiscard]] QString getTranslatedIdentifier(const QString &lang, const QString &identifier) const;
+
 Q_SIGNALS:
     void roomRemoved(const QByteArray &roomId);
     void disabledTotpValid(bool checked);

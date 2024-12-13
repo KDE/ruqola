@@ -10,9 +10,12 @@
 #include "connection.h"
 #include "rocketchataccount.h"
 #include "ruqolawidgets_debug.h"
+#include <QCheckBox>
+#include <QHBoxLayout>
+#include <QLabel>
+#include <QLineEdit>
 #include <QShowEvent>
 #include <QVBoxLayout>
-using namespace Qt::Literals::StringLiterals;
 
 using namespace Qt::Literals::StringLiterals;
 ApplicationsSettingsSettingsWidget::ApplicationsSettingsSettingsWidget(RocketChatAccount *account, QWidget *parent)
@@ -21,7 +24,6 @@ ApplicationsSettingsSettingsWidget::ApplicationsSettingsSettingsWidget(RocketCha
     , mMainLayout(new QVBoxLayout(this))
 {
     mMainLayout->setObjectName("mainLayout"_L1);
-    mMainLayout->setContentsMargins({});
 }
 
 ApplicationsSettingsSettingsWidget::~ApplicationsSettingsSettingsWidget() = default;
@@ -37,17 +39,73 @@ void ApplicationsSettingsSettingsWidget::showEvent(QShowEvent *event)
 
 void ApplicationsSettingsSettingsWidget::generateSettings(const QJsonObject &obj)
 {
-    // TODO use mMainLayout
-    qDebug() << " obj " << obj;
-    const QJsonArray array = obj[QStringLiteral("apps")].toArray();
-    for (const auto &info : array) {
-        const QString version = info["version"_L1].toString();
-        const QString changesNote = info["changesNote"_L1].toString();
-        const QString createdDate = info["createdDate"_L1].toString();
-
-        qDebug() << " version " << version << " changesNote " << changesNote << " createdDate " << createdDate;
-        // TODO createdDate
+    QList<ApplicationsSettingsSettingsInfo> infos;
+    const QJsonObject settings = obj[QStringLiteral("settings")].toObject();
+    for (const QJsonValue &current : settings) {
+        ApplicationsSettingsSettingsInfo i;
+        i.parseSettings(current.toObject());
+        infos.append(std::move(i));
     }
+    generateSettingsWidgets(infos);
+}
+
+void ApplicationsSettingsSettingsWidget::generateSettingsWidgets(const QList<ApplicationsSettingsSettingsInfo> &infos)
+{
+    for (const ApplicationsSettingsSettingsInfo &info : infos) {
+        switch (info.settingType()) {
+        case ApplicationsSettingsSettingsInfo::SettingType::Boolean: {
+            addBooleanSettings(info);
+            break;
+        }
+        case ApplicationsSettingsSettingsInfo::SettingType::String: {
+            addStringSettings(info);
+            break;
+        }
+        default:
+            break;
+        }
+    }
+    mMainLayout->addStretch(1);
+}
+
+QString ApplicationsSettingsSettingsWidget::getTranslatedIdentifier(const QString &lang, const QString &id) const
+{
+    const QString translatedString =
+        mRocketChatAccount->getTranslatedIdentifier(lang, QStringLiteral("app-") + QString::fromLatin1(mAppId) + QLatin1Char('.') + id);
+    if (translatedString.isEmpty()) {
+        qCWarning(RUQOLAWIDGETS_LOG) << " Translated string not found: " << QString::fromLatin1(mAppId) + id;
+        return id;
+    }
+    return translatedString;
+}
+
+void ApplicationsSettingsSettingsWidget::addBooleanSettings(const ApplicationsSettingsSettingsInfo &info)
+{
+    const QString lang = QLocale().name();
+    QHBoxLayout *hbox = new QHBoxLayout;
+    auto checkBox = new QCheckBox(getTranslatedIdentifier(lang, info.i18nLabel()), this);
+    checkBox->setObjectName(info.id());
+    checkBox->setToolTip(getTranslatedIdentifier(lang, info.i18nDescription()));
+    hbox->addWidget(checkBox);
+    checkBox->setCheckState(info.packageValue() == "true"_L1 ? Qt::Checked : Qt::Unchecked);
+
+    mMainLayout->addLayout(hbox);
+}
+
+void ApplicationsSettingsSettingsWidget::addStringSettings(const ApplicationsSettingsSettingsInfo &info)
+{
+    const QString lang = QLocale().name();
+    QHBoxLayout *hbox = new QHBoxLayout;
+    auto label = new QLabel(getTranslatedIdentifier(lang, info.i18nLabel()), this);
+    label->setToolTip(getTranslatedIdentifier(lang, info.i18nDescription()));
+    hbox->addWidget(label);
+
+    auto lineEdit = new QLineEdit(this);
+    lineEdit->setObjectName(info.id());
+    hbox->addWidget(lineEdit);
+    lineEdit->setText(info.packageValue());
+
+    mMainLayout->addLayout(hbox);
 }
 
 void ApplicationsSettingsSettingsWidget::initialize()
