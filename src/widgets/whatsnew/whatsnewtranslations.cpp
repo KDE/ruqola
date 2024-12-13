@@ -133,6 +133,7 @@ QList<WhatsNewInfo> WhatsNewTranslations::createWhatsNewInfo() const
             i18n("Fix message video support"),
             i18n("Fix highlight text in quoted message"),
             i18n("Fix open discussion channel"),
+            i18n("Allow to show application market settings"),
         });
 
         listInfo.append(std::move(info));
