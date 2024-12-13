@@ -70,7 +70,7 @@ void ApplicationsSettingsVersionWidget::generateInfo(const QJsonObject &obj)
         if (changesNote.isEmpty()) {
             changesNote = i18n("No release information provided");
         }
-        qDebug() << " version " << version << " changesNote " << changesNote << " createdDate " << createdDate;
+        // qDebug() << " version " << version << " changesNote " << changesNote << " createdDate " << createdDate;
 
         message += QStringLiteral("<b>%1</b><br/>").arg(version);
         message += changesNote + QStringLiteral("<br/><br/>");
