@@ -106,6 +106,9 @@ QString AppInfoJob::generateUrlExtension() const
     case AppInfoType::ScreenShots:
         url += QStringLiteral("screenshots");
         break;
+    case AppInfoType::Settings:
+        url += QStringLiteral("settings");
+        break;
     }
     return url;
 }

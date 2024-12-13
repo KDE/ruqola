@@ -21,6 +21,7 @@ public:
         Logs,
         Apis,
         ScreenShots,
+        Settings,
     };
 
     explicit AppInfoJob(QObject *parent = nullptr);

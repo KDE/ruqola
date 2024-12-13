@@ -59,6 +59,15 @@ void AppInfoJobTest::shouldGenerateRequest()
         verifyAuthentication(&job, request);
         QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/apps/%1/screenshots").arg(QString::fromLatin1(ba))));
     }
+    {
+        AppInfoJob job;
+        const QByteArray ba{QByteArrayLiteral("foo-bla-bli")};
+        job.setAppsId(ba);
+        job.setAppInfoType(AppInfoJob::AppInfoType::Settings);
+        QNetworkRequest request = QNetworkRequest(QUrl());
+        verifyAuthentication(&job, request);
+        QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/apps/%1/settings").arg(QString::fromLatin1(ba))));
+    }
 }
 
 #include "moc_appinfojobtest.cpp"
