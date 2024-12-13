@@ -18,10 +18,10 @@ using namespace Qt::Literals::StringLiterals;
 ApplicationsSettingsSettingsWidget::ApplicationsSettingsSettingsWidget(RocketChatAccount *account, QWidget *parent)
     : QWidget{parent}
     , mRocketChatAccount(account)
+    , mMainLayout(new QVBoxLayout(this))
 {
-    auto mainLayout = new QVBoxLayout(this);
-    mainLayout->setObjectName("mainLayout"_L1);
-    mainLayout->setContentsMargins({});
+    mMainLayout->setObjectName("mainLayout"_L1);
+    mMainLayout->setContentsMargins({});
 }
 
 ApplicationsSettingsSettingsWidget::~ApplicationsSettingsSettingsWidget() = default;
@@ -35,9 +35,10 @@ void ApplicationsSettingsSettingsWidget::showEvent(QShowEvent *event)
     QWidget::showEvent(event);
 }
 
-void ApplicationsSettingsSettingsWidget::generateInfo(const QJsonObject &obj)
+void ApplicationsSettingsSettingsWidget::generateSettings(const QJsonObject &obj)
 {
-    // qDebug() << " obj " << obj;
+    // TODO use mMainLayout
+    qDebug() << " obj " << obj;
     const QJsonArray array = obj[QStringLiteral("apps")].toArray();
     for (const auto &info : array) {
         const QString version = info["version"_L1].toString();
@@ -54,9 +55,9 @@ void ApplicationsSettingsSettingsWidget::initialize()
     if (mRocketChatAccount) {
         auto job = new RocketChatRestApi::AppInfoJob(this);
         job->setAppsId(mAppId);
-        job->setAppInfoType(RocketChatRestApi::AppInfoJob::AppInfoType::Logs);
+        job->setAppInfoType(RocketChatRestApi::AppInfoJob::AppInfoType::Settings);
         mRocketChatAccount->restApi()->initializeRestApiJob(job);
-        connect(job, &RocketChatRestApi::AppInfoJob::appInfoDone, this, &ApplicationsSettingsSettingsWidget::generateInfo);
+        connect(job, &RocketChatRestApi::AppInfoJob::appInfoDone, this, &ApplicationsSettingsSettingsWidget::generateSettings);
         if (!job->start()) {
             qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start AppInfoJob";
         }

@@ -7,6 +7,7 @@
 
 #include "libruqolawidgets_private_export.h"
 #include <QWidget>
+class QVBoxLayout;
 class RocketChatAccount;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT ApplicationsSettingsSettingsWidget : public QWidget
 {
@@ -21,9 +22,10 @@ protected:
     void showEvent(QShowEvent *event) override;
 
 private:
-    LIBRUQOLAWIDGETS_NO_EXPORT void generateInfo(const QJsonObject &obj);
+    LIBRUQOLAWIDGETS_NO_EXPORT void generateSettings(const QJsonObject &obj);
     LIBRUQOLAWIDGETS_NO_EXPORT void initialize();
     bool mWasInitialized = false;
     QByteArray mAppId;
     RocketChatAccount *const mRocketChatAccount;
+    QVBoxLayout *const mMainLayout;
 };
