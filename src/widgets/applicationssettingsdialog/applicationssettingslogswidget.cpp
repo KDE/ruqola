@@ -53,7 +53,6 @@ void ApplicationsSettingsLogsWidget::generateInfo(const QJsonObject &obj)
         qDebug() << " version " << version << " changesNote " << changesNote << " createdDate " << createdDate;
         // TODO createdDate
     }
-    // TODO
 }
 
 void ApplicationsSettingsLogsWidget::initialize()

@@ -9,6 +9,7 @@
 #include "connection.h"
 #include "rocketchataccount.h"
 #include "ruqolawidgets_debug.h"
+#include <KLocalizedString>
 #include <QShowEvent>
 #include <QTextBrowser>
 #include <QVBoxLayout>
@@ -64,11 +65,16 @@ void ApplicationsSettingsVersionWidget::generateInfo(const QJsonObject &obj)
     const QJsonArray array = obj[QStringLiteral("apps")].toArray();
     for (const auto &info : array) {
         const QString version = info["version"_L1].toString();
-        const QString changesNote = info["changesNote"_L1].toString();
+        QString changesNote = info["changesNote"_L1].toString();
         const QString createdDate = info["createdDate"_L1].toString();
-
+        if (changesNote.isEmpty()) {
+            changesNote = i18n("No release information provided");
+        }
         qDebug() << " version " << version << " changesNote " << changesNote << " createdDate " << createdDate;
-        // TODO createdDate
+
+        message += QStringLiteral("<b>%1</b><br/>").arg(version);
+        message += changesNote + QStringLiteral("<br/><br/>");
+        // TODO add createdDate
     }
     mTextBrowser->setText(message);
 }
