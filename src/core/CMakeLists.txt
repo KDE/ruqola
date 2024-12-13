@@ -582,6 +582,8 @@ target_sources(libruqolacore PRIVATE
 
     apps/appsmarketplaceinstalledinfo.h
     apps/appsmarketplaceinstalledinfo.cpp
+    apps/applicationssettingssettingsinfo.h 
+    apps/applicationssettingssettingsinfo.cpp
 
     memorymanager/memorymanager.h
     memorymanager/memorymanager.cpp
