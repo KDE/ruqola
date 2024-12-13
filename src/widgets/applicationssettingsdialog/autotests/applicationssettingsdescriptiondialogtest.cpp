@@ -5,7 +5,7 @@
 */
 #include "applicationssettingsdescriptiondialogtest.h"
 #include "applicationssettingsdialog/applicationssettingsdescriptiondialog.h"
-#include "applicationssettingsdialog/applicationssettingsdescriptionwidget.h"
+#include "applicationssettingsdialog/applicationssettingsdescriptiontabwidget.h"
 #include <QDialogButtonBox>
 #include <QStandardPaths>
 #include <QTest>
@@ -28,7 +28,7 @@ void ApplicationsSettingsDescriptionDialogTest::shouldHaveDefaultValues()
     auto button = d.findChild<QDialogButtonBox *>(QStringLiteral("button"));
     QVERIFY(button);
     auto mApplicationsSettingsDescriptionWidget =
-        d.findChild<ApplicationsSettingsDescriptionWidget *>(QStringLiteral("mApplicationsSettingsDescriptionWidget"));
+        d.findChild<ApplicationsSettingsDescriptionTabWidget *>(QStringLiteral("mApplicationsSettingsDescriptionWidget"));
     QVERIFY(mApplicationsSettingsDescriptionWidget);
     QCOMPARE(button->standardButtons(), QDialogButtonBox::Close);
 }
