@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-12-13 00:40+0000\n"
+"POT-Creation-Date: 2024-12-13 09:51+0000\n"
 "PO-Revision-Date: 2024-12-10 10:33+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
@@ -193,7 +193,7 @@ msgstr "any"
 
 #: core/apps/appsmarketplaceinfo.cpp:393 core/model/adminrolesmodel.cpp:40
 #: widgets/administratorsettingsdialog/ircfederation/ircfederationwidget.cpp:50
-#: widgets/applicationssettingsdialog/applicationssettingsdescriptiontabwidget.cpp:33
+#: widgets/applicationssettingsdialog/applicationssettingsdescriptiontabwidget.cpp:35
 #, kde-format
 msgid "Description"
 msgstr "Descripció"
@@ -4485,7 +4485,7 @@ msgid "Slack Bridge"
 msgstr "Pont de Slack"
 
 #: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:124
-#: widgets/applicationssettingsdialog/applicationssettingsdescriptiontabwidget.cpp:39
+#: widgets/applicationssettingsdialog/applicationssettingsdescriptiontabwidget.cpp:41
 #, kde-format
 msgid "Logs"
 msgstr "Registres"
@@ -6985,11 +6985,17 @@ msgctxt "@title:window"
 msgid "Description"
 msgstr "Descripció"
 
-#: widgets/applicationssettingsdialog/applicationssettingsdescriptiontabwidget.cpp:36
+#: widgets/applicationssettingsdialog/applicationssettingsdescriptiontabwidget.cpp:38
 #, fuzzy, kde-format
 #| msgid "Version"
 msgid "Versions"
 msgstr "Versió"
+
+#: widgets/applicationssettingsdialog/applicationssettingsdescriptiontabwidget.cpp:44
+#, fuzzy, kde-format
+#| msgid "&Settings"
+msgid "Settings"
+msgstr "Con&figuració"
 
 #: widgets/applicationssettingsdialog/applicationssettingsdialog.cpp:27
 #, kde-format
@@ -7091,6 +7097,11 @@ msgstr "Actualitzat menys recent"
 #, kde-format
 msgid "All Status"
 msgstr "Tots els estats"
+
+#: widgets/applicationssettingsdialog/applicationssettingsversionwidget.cpp:71
+#, kde-format
+msgid "No release information provided"
+msgstr ""
 
 #: widgets/applicationssettingsdialog/appscountinfowidget.cpp:47
 #, kde-format
@@ -11548,6 +11559,12 @@ msgstr "Corregix el text ressaltat en un missatge citat"
 #, kde-format
 msgid "Fix open discussion channel"
 msgstr "Corregix l'obertura d'un canal de debat"
+
+#: widgets/whatsnew/whatsnewtranslations.cpp:136
+#, fuzzy, kde-format
+#| msgid "Allow to write oauth app settings"
+msgid "Allow to show application market settings"
+msgstr "Permetre escriure paràmetres de l'aplicació «oauth»"
 
 #: widgets/whatsnew/whatsnewwidget.cpp:44
 #, kde-format

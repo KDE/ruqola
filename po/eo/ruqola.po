@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-12-13 00:40+0000\n"
+"POT-Creation-Date: 2024-12-13 09:51+0000\n"
 "PO-Revision-Date: 2024-09-17 21:39+0200\n"
 "Last-Translator: Oliver Kellogg <olivermkellogg@gmail.com>\n"
 "Language-Team: Esperanto <kde-i18n-doc@kde.org>\n"
@@ -194,7 +194,7 @@ msgstr ""
 
 #: core/apps/appsmarketplaceinfo.cpp:393 core/model/adminrolesmodel.cpp:40
 #: widgets/administratorsettingsdialog/ircfederation/ircfederationwidget.cpp:50
-#: widgets/applicationssettingsdialog/applicationssettingsdescriptiontabwidget.cpp:33
+#: widgets/applicationssettingsdialog/applicationssettingsdescriptiontabwidget.cpp:35
 #, kde-format
 msgid "Description"
 msgstr "Priskribo"
@@ -4495,7 +4495,7 @@ msgid "Slack Bridge"
 msgstr "Slack Bridge"
 
 #: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:124
-#: widgets/applicationssettingsdialog/applicationssettingsdescriptiontabwidget.cpp:39
+#: widgets/applicationssettingsdialog/applicationssettingsdescriptiontabwidget.cpp:41
 #, kde-format
 msgid "Logs"
 msgstr "Protokoloj"
@@ -6969,11 +6969,17 @@ msgctxt "@title:window"
 msgid "Description"
 msgstr "Priskribo"
 
-#: widgets/applicationssettingsdialog/applicationssettingsdescriptiontabwidget.cpp:36
+#: widgets/applicationssettingsdialog/applicationssettingsdescriptiontabwidget.cpp:38
 #, fuzzy, kde-format
 #| msgid "Version"
 msgid "Versions"
 msgstr "Versio"
+
+#: widgets/applicationssettingsdialog/applicationssettingsdescriptiontabwidget.cpp:44
+#, fuzzy, kde-format
+#| msgid "&Settings"
+msgid "Settings"
+msgstr "&Agordoj"
 
 #: widgets/applicationssettingsdialog/applicationssettingsdialog.cpp:27
 #, kde-format
@@ -7077,6 +7083,11 @@ msgstr "Plej mallasttempe ĝisdatigita"
 #, kde-format
 msgid "All Status"
 msgstr "Ĉiuj Statusoj"
+
+#: widgets/applicationssettingsdialog/applicationssettingsversionwidget.cpp:71
+#, kde-format
+msgid "No release information provided"
+msgstr ""
 
 #: widgets/applicationssettingsdialog/appscountinfowidget.cpp:47
 #, kde-format
@@ -11582,6 +11593,13 @@ msgstr ""
 #| msgid "Open Discussion"
 msgid "Fix open discussion channel"
 msgstr "Malfermi Diskuton"
+
+#: widgets/whatsnew/whatsnewtranslations.cpp:136
+#, fuzzy, kde-format
+#| msgctxt "@info:placeholder"
+#| msgid "Search Installed Applications"
+msgid "Allow to show application market settings"
+msgstr "Serĉi Instalitajn Aplikaĵojn"
 
 #: widgets/whatsnew/whatsnewwidget.cpp:44
 #, kde-format

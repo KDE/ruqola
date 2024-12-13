@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-12-13 00:40+0000\n"
+"POT-Creation-Date: 2024-12-13 09:51+0000\n"
 "PO-Revision-Date: 2024-08-06 05:33+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
@@ -196,7 +196,7 @@ msgstr ""
 
 #: core/apps/appsmarketplaceinfo.cpp:393 core/model/adminrolesmodel.cpp:40
 #: widgets/administratorsettingsdialog/ircfederation/ircfederationwidget.cpp:50
-#: widgets/applicationssettingsdialog/applicationssettingsdescriptiontabwidget.cpp:33
+#: widgets/applicationssettingsdialog/applicationssettingsdescriptiontabwidget.cpp:35
 #, kde-format
 msgid "Description"
 msgstr "描述"
@@ -4588,7 +4588,7 @@ msgid "Slack Bridge"
 msgstr "Slack 橋接"
 
 #: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:124
-#: widgets/applicationssettingsdialog/applicationssettingsdescriptiontabwidget.cpp:39
+#: widgets/applicationssettingsdialog/applicationssettingsdescriptiontabwidget.cpp:41
 #, kde-format
 msgid "Logs"
 msgstr "紀錄"
@@ -7082,11 +7082,17 @@ msgctxt "@title:window"
 msgid "Description"
 msgstr "描述"
 
-#: widgets/applicationssettingsdialog/applicationssettingsdescriptiontabwidget.cpp:36
+#: widgets/applicationssettingsdialog/applicationssettingsdescriptiontabwidget.cpp:38
 #, fuzzy, kde-format
 #| msgid "Version"
 msgid "Versions"
 msgstr "版本"
+
+#: widgets/applicationssettingsdialog/applicationssettingsdescriptiontabwidget.cpp:44
+#, fuzzy, kde-format
+#| msgid "&Settings"
+msgid "Settings"
+msgstr "設定(&S)"
 
 #: widgets/applicationssettingsdialog/applicationssettingsdialog.cpp:27
 #, fuzzy, kde-format
@@ -7201,6 +7207,11 @@ msgstr "最久以前更新"
 #| msgid "Status"
 msgid "All Status"
 msgstr "狀態"
+
+#: widgets/applicationssettingsdialog/applicationssettingsversionwidget.cpp:71
+#, kde-format
+msgid "No release information provided"
+msgstr ""
 
 #: widgets/applicationssettingsdialog/appscountinfowidget.cpp:47
 #, kde-format
@@ -11859,6 +11870,13 @@ msgstr ""
 #| msgid "Open Discussion"
 msgid "Fix open discussion channel"
 msgstr "開啟討論區"
+
+#: widgets/whatsnew/whatsnewtranslations.cpp:136
+#, fuzzy, kde-format
+#| msgctxt "@action"
+#| msgid "Applications…"
+msgid "Allow to show application market settings"
+msgstr "應用程式…"
 
 #: widgets/whatsnew/whatsnewwidget.cpp:44
 #, kde-format

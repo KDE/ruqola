@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-12-13 00:40+0000\n"
+"POT-Creation-Date: 2024-12-13 09:51+0000\n"
 "PO-Revision-Date: 2023-06-07 13:29-0300\n"
 "Last-Translator: Luiz Fernando Ranghetti <elchevive@opensuse.org>\n"
 "Language-Team: Brazilian Portuguese <kde-i18n-pt_BR@kde.org>\n"
@@ -206,7 +206,7 @@ msgstr ""
 
 #: core/apps/appsmarketplaceinfo.cpp:393 core/model/adminrolesmodel.cpp:40
 #: widgets/administratorsettingsdialog/ircfederation/ircfederationwidget.cpp:50
-#: widgets/applicationssettingsdialog/applicationssettingsdescriptiontabwidget.cpp:33
+#: widgets/applicationssettingsdialog/applicationssettingsdescriptiontabwidget.cpp:35
 #, kde-format
 msgid "Description"
 msgstr "Descrição"
@@ -4692,7 +4692,7 @@ msgid "Slack Bridge"
 msgstr ""
 
 #: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:124
-#: widgets/applicationssettingsdialog/applicationssettingsdescriptiontabwidget.cpp:39
+#: widgets/applicationssettingsdialog/applicationssettingsdescriptiontabwidget.cpp:41
 #, kde-format
 msgid "Logs"
 msgstr ""
@@ -7199,11 +7199,17 @@ msgctxt "@title:window"
 msgid "Description"
 msgstr "Descrição"
 
-#: widgets/applicationssettingsdialog/applicationssettingsdescriptiontabwidget.cpp:36
+#: widgets/applicationssettingsdialog/applicationssettingsdescriptiontabwidget.cpp:38
 #, fuzzy, kde-format
 #| msgid "Version"
 msgid "Versions"
 msgstr "Versão"
+
+#: widgets/applicationssettingsdialog/applicationssettingsdescriptiontabwidget.cpp:44
+#, fuzzy, kde-format
+#| msgid "Server Info..."
+msgid "Settings"
+msgstr "Informação do servidor..."
 
 #: widgets/applicationssettingsdialog/applicationssettingsdialog.cpp:27
 #, fuzzy, kde-format
@@ -7315,6 +7321,11 @@ msgstr ""
 #| msgid "Status"
 msgid "All Status"
 msgstr "Status"
+
+#: widgets/applicationssettingsdialog/applicationssettingsversionwidget.cpp:71
+#, kde-format
+msgid "No release information provided"
+msgstr ""
 
 #: widgets/applicationssettingsdialog/appscountinfowidget.cpp:47
 #, kde-format
@@ -12150,6 +12161,12 @@ msgstr ""
 #| msgid "Open Discussion"
 msgid "Fix open discussion channel"
 msgstr "Abrir discussão"
+
+#: widgets/whatsnew/whatsnewtranslations.cpp:136
+#, fuzzy, kde-format
+#| msgid "Application not found"
+msgid "Allow to show application market settings"
+msgstr "Aplicativo não encontrado"
 
 #: widgets/whatsnew/whatsnewwidget.cpp:44
 #, fuzzy, kde-format

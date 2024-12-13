@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-12-13 00:40+0000\n"
+"POT-Creation-Date: 2024-12-13 09:51+0000\n"
 "PO-Revision-Date: 2019-08-04 18:23-0700\n"
 "Last-Translator: Japanese KDE translation team <kde-jp@kde.org>\n"
 "Language-Team: Japanese <kde-jp@kde.org>\n"
@@ -186,7 +186,7 @@ msgstr ""
 
 #: core/apps/appsmarketplaceinfo.cpp:393 core/model/adminrolesmodel.cpp:40
 #: widgets/administratorsettingsdialog/ircfederation/ircfederationwidget.cpp:50
-#: widgets/applicationssettingsdialog/applicationssettingsdescriptiontabwidget.cpp:33
+#: widgets/applicationssettingsdialog/applicationssettingsdescriptiontabwidget.cpp:35
 #, kde-format
 msgid "Description"
 msgstr ""
@@ -4395,7 +4395,7 @@ msgid "Slack Bridge"
 msgstr ""
 
 #: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:124
-#: widgets/applicationssettingsdialog/applicationssettingsdescriptiontabwidget.cpp:39
+#: widgets/applicationssettingsdialog/applicationssettingsdescriptiontabwidget.cpp:41
 #, kde-format
 msgid "Logs"
 msgstr ""
@@ -6723,9 +6723,14 @@ msgctxt "@title:window"
 msgid "Description"
 msgstr ""
 
-#: widgets/applicationssettingsdialog/applicationssettingsdescriptiontabwidget.cpp:36
+#: widgets/applicationssettingsdialog/applicationssettingsdescriptiontabwidget.cpp:38
 #, kde-format
 msgid "Versions"
+msgstr ""
+
+#: widgets/applicationssettingsdialog/applicationssettingsdescriptiontabwidget.cpp:44
+#, kde-format
+msgid "Settings"
 msgstr ""
 
 #: widgets/applicationssettingsdialog/applicationssettingsdialog.cpp:27
@@ -6827,6 +6832,11 @@ msgstr ""
 #: widgets/applicationssettingsdialog/applicationssettingsstatuscombobox.cpp:13
 #, kde-format
 msgid "All Status"
+msgstr ""
+
+#: widgets/applicationssettingsdialog/applicationssettingsversionwidget.cpp:71
+#, kde-format
+msgid "No release information provided"
 msgstr ""
 
 #: widgets/applicationssettingsdialog/appscountinfowidget.cpp:47
@@ -11157,6 +11167,11 @@ msgstr ""
 #: widgets/whatsnew/whatsnewtranslations.cpp:135
 #, kde-format
 msgid "Fix open discussion channel"
+msgstr ""
+
+#: widgets/whatsnew/whatsnewtranslations.cpp:136
+#, kde-format
+msgid "Allow to show application market settings"
 msgstr ""
 
 #: widgets/whatsnew/whatsnewwidget.cpp:44
