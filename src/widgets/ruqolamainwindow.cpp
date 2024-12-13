@@ -949,7 +949,7 @@ void RuqolaMainWindow::slotShowLog()
                 job->setDeleteTemporaryFile(true);
                 job->start();
             } else {
-                KMessageBox::information(this, i18n("Impossible to open log."), i18nc("@title:window", "Show Log"));
+                KMessageBox::information(this, i18n("Cannot write to log file %1", tempFile.fileName()), i18nc("@title:window", "Show Channel Log"));
             }
         }
     }
