@@ -7,6 +7,7 @@
 #include "applicationssettingsdescriptiontabwidget.h"
 #include "applicationssettingsdescriptionwidget.h"
 #include "applicationssettingslogswidget.h"
+#include "applicationssettingssettingswidget.h"
 #include "applicationssettingsversionwidget.h"
 #include "rocketchataccount.h"
 
@@ -21,6 +22,7 @@ ApplicationsSettingsDescriptionTabWidget::ApplicationsSettingsDescriptionTabWidg
     , mDescriptionWidget(new ApplicationsSettingsDescriptionWidget(this))
     , mVersionWidget(new ApplicationsSettingsVersionWidget(account, this))
     , mLogsWidget(new ApplicationsSettingsLogsWidget(account, this))
+    , mSettingsWidget(new ApplicationsSettingsSettingsWidget(account, this))
 {
     mTabWidget->setObjectName("mTabWidget"_L1);
 
@@ -37,9 +39,14 @@ ApplicationsSettingsDescriptionTabWidget::ApplicationsSettingsDescriptionTabWidg
 
     mLogsWidget->setObjectName("mLogsWidget"_L1);
     const int logTabIndex = mTabWidget->addTab(mLogsWidget, i18n("Logs"));
+
+    mSettingsWidget->setObjectName("mSettingsWidget"_L1);
+    const int settingsTabIndex = mTabWidget->addTab(mSettingsWidget, i18n("Settings"));
+
     if (account) {
         if (!account->isAdministrator()) {
             mTabWidget->setTabVisible(logTabIndex, false);
+            mTabWidget->setTabVisible(settingsTabIndex, false);
         }
     }
 }
@@ -55,6 +62,7 @@ void ApplicationsSettingsDescriptionTabWidget::setApplicationId(const QByteArray
 {
     mVersionWidget->setApplicationId(appId);
     mLogsWidget->setApplicationId(appId);
+    mSettingsWidget->setApplicationId(appId);
 }
 
 #include "moc_applicationssettingsdescriptiontabwidget.cpp"

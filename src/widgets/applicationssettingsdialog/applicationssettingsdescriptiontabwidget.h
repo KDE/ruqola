@@ -11,6 +11,7 @@
 class ApplicationsSettingsDescriptionWidget;
 class ApplicationsSettingsVersionWidget;
 class ApplicationsSettingsLogsWidget;
+class ApplicationsSettingsSettingsWidget;
 class QTabWidget;
 class RocketChatAccount;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT ApplicationsSettingsDescriptionTabWidget : public QWidget
@@ -28,4 +29,5 @@ private:
     ApplicationsSettingsDescriptionWidget *const mDescriptionWidget;
     ApplicationsSettingsVersionWidget *const mVersionWidget;
     ApplicationsSettingsLogsWidget *const mLogsWidget;
+    ApplicationsSettingsSettingsWidget *const mSettingsWidget;
 };
