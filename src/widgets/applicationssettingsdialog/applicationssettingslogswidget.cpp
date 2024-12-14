@@ -44,8 +44,10 @@ void ApplicationsSettingsLogsWidget::showEvent(QShowEvent *event)
 void ApplicationsSettingsLogsWidget::generateInfo(const QJsonObject &obj)
 {
     // qDebug() << " obj " << obj;
-    const QJsonArray array = obj[QStringLiteral("settings")].toArray();
-    for (const auto &setting : array) { }
+    const QJsonArray array = obj[QStringLiteral("logs")].toArray();
+    for (const auto &log : array) {
+        qDebug() << " log " << log;
+    }
 }
 
 void ApplicationsSettingsLogsWidget::initialize()
