@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-12-13 09:51+0000\n"
+"POT-Creation-Date: 2024-12-14 00:49+0000\n"
 "PO-Revision-Date: 2024-04-22 15:59\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
@@ -10571,13 +10571,13 @@ msgstr ""
 
 #: widgets/ruqolamainwindow.cpp:952
 #, kde-format
-msgid "Impossible to open log."
+msgid "Cannot write to log file %1"
 msgstr ""
 
 #: widgets/ruqolamainwindow.cpp:952
 #, kde-format
 msgctxt "@title:window"
-msgid "Show Log"
+msgid "Show Channel Log"
 msgstr ""
 
 #: widgets/ruqolamainwindow.cpp:1115

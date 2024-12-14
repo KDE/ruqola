@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-12-13 09:51+0000\n"
+"POT-Creation-Date: 2024-12-14 00:49+0000\n"
 "PO-Revision-Date: 2024-09-17 15:18+0200\n"
 "Last-Translator: Vit Pelcak <vit@pelcak.org>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
@@ -10716,14 +10716,15 @@ msgstr "Vytvořit tým"
 
 #: widgets/ruqolamainwindow.cpp:952
 #, kde-format
-msgid "Impossible to open log."
+msgid "Cannot write to log file %1"
 msgstr ""
 
 #: widgets/ruqolamainwindow.cpp:952
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Show Channel Log"
 msgctxt "@title:window"
-msgid "Show Log"
-msgstr "Zobrazit záznamy"
+msgid "Show Channel Log"
+msgstr "Zobrazit záznam kanálu"
 
 #: widgets/ruqolamainwindow.cpp:1115
 #, kde-format
@@ -11350,6 +11351,10 @@ msgstr "Některé nové vlastnosti tohoto vydání Ruqola zahrnují:"
 #, kde-format
 msgid "Some bug fixing:"
 msgstr "Nějaké opravy chyb:"
+
+#~ msgctxt "@title:window"
+#~ msgid "Show Log"
+#~ msgstr "Zobrazit záznamy"
 
 #~ msgid "Private"
 #~ msgstr "Soukromý"

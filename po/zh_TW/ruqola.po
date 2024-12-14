@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-12-13 09:51+0000\n"
+"POT-Creation-Date: 2024-12-14 00:49+0000\n"
 "PO-Revision-Date: 2024-08-06 05:33+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
@@ -11238,15 +11238,15 @@ msgstr "建立團隊"
 
 #: widgets/ruqolamainwindow.cpp:952
 #, kde-format
-msgid "Impossible to open log."
-msgstr "無法開啟日誌。"
+msgid "Cannot write to log file %1"
+msgstr ""
 
 #: widgets/ruqolamainwindow.cpp:952
 #, fuzzy, kde-format
-#| msgid "Show Log"
+#| msgid "Show Channel Log"
 msgctxt "@title:window"
-msgid "Show Log"
-msgstr "顯示紀錄"
+msgid "Show Channel Log"
+msgstr "顯示頻道紀錄"
 
 #: widgets/ruqolamainwindow.cpp:1115
 #, kde-format
@@ -11903,6 +11903,15 @@ msgstr "在這一版的 Ruqola 中包含了一些新功能："
 #, kde-format
 msgid "Some bug fixing:"
 msgstr "一些錯誤修正："
+
+#~ msgid "Impossible to open log."
+#~ msgstr "無法開啟日誌。"
+
+#, fuzzy
+#~| msgid "Show Log"
+#~ msgctxt "@title:window"
+#~ msgid "Show Log"
+#~ msgstr "顯示紀錄"
 
 #~ msgid "Private"
 #~ msgstr "私人"

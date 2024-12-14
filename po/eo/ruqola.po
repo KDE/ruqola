@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-12-13 09:51+0000\n"
+"POT-Creation-Date: 2024-12-14 00:49+0000\n"
 "PO-Revision-Date: 2024-09-17 21:39+0200\n"
 "Last-Translator: Oliver Kellogg <olivermkellogg@gmail.com>\n"
 "Language-Team: Esperanto <kde-i18n-doc@kde.org>\n"
@@ -10966,14 +10966,15 @@ msgstr "Krei Teamon"
 
 #: widgets/ruqolamainwindow.cpp:952
 #, kde-format
-msgid "Impossible to open log."
-msgstr "Malfermi protokolon."
+msgid "Cannot write to log file %1"
+msgstr ""
 
 #: widgets/ruqolamainwindow.cpp:952
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Show Channel Log"
 msgctxt "@title:window"
-msgid "Show Log"
-msgstr "Montri Protokolon"
+msgid "Show Channel Log"
+msgstr "Montru Kanalan Protokolon"
 
 #: widgets/ruqolamainwindow.cpp:1115
 #, kde-format
@@ -11625,6 +11626,13 @@ msgstr "Kelkaj el la novaj funkcioj en ĉi tiu eldono de Ruqola inkluzivas:"
 #, kde-format
 msgid "Some bug fixing:"
 msgstr "Iu eraro korekto:"
+
+#~ msgid "Impossible to open log."
+#~ msgstr "Malfermi protokolon."
+
+#~ msgctxt "@title:window"
+#~ msgid "Show Log"
+#~ msgstr "Montri Protokolon"
 
 #~ msgid "Private"
 #~ msgstr "Privata"

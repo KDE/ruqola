@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-12-13 09:51+0000\n"
-"PO-Revision-Date: 2024-12-13 05:11+0100\n"
+"POT-Creation-Date: 2024-12-14 00:49+0000\n"
+"PO-Revision-Date: 2024-12-14 01:41+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -6943,10 +6943,9 @@ msgid "Versions"
 msgstr "ვერსიები"
 
 #: widgets/applicationssettingsdialog/applicationssettingsdescriptiontabwidget.cpp:44
-#, fuzzy, kde-format
-#| msgid "&Settings"
+#, kde-format
 msgid "Settings"
-msgstr "&მორგება"
+msgstr "მორგება"
 
 #: widgets/applicationssettingsdialog/applicationssettingsdialog.cpp:27
 #, kde-format
@@ -7052,7 +7051,7 @@ msgstr "ყველა სტატუსი"
 #: widgets/applicationssettingsdialog/applicationssettingsversionwidget.cpp:71
 #, kde-format
 msgid "No release information provided"
-msgstr ""
+msgstr "რელიზის ინფორმაცია მითითებული არაა"
 
 #: widgets/applicationssettingsdialog/appscountinfowidget.cpp:47
 #, kde-format
@@ -10862,14 +10861,15 @@ msgstr "გუნდის შექმნა"
 
 #: widgets/ruqolamainwindow.cpp:952
 #, kde-format
-msgid "Impossible to open log."
-msgstr "ჟურნალის გახსნა შეუძლებელია."
+msgid "Cannot write to log file %1"
+msgstr ""
 
 #: widgets/ruqolamainwindow.cpp:952
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Show Channel Log"
 msgctxt "@title:window"
-msgid "Show Log"
-msgstr "ჟურნალის ჩვენება"
+msgid "Show Channel Log"
+msgstr "არხის ჟურნალის ჩვენება"
 
 #: widgets/ruqolamainwindow.cpp:1115
 #, kde-format
@@ -11488,10 +11488,9 @@ msgid "Fix open discussion channel"
 msgstr "გასწორდა კამათის არხის გახსნა"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:136
-#, fuzzy, kde-format
-#| msgid "Allow to write oauth app settings"
+#, kde-format
 msgid "Allow to show application market settings"
-msgstr "OAuth აპის პარამეტრების ჩაწერის დაშვება"
+msgstr "აპლიკაციის მარკეტის პარამეტრების ჩვენების დაშვება"
 
 #: widgets/whatsnew/whatsnewwidget.cpp:44
 #, kde-format
@@ -11517,6 +11516,13 @@ msgstr "Ruqola-ის ახალ ფუნქციებში შედი�
 #, kde-format
 msgid "Some bug fixing:"
 msgstr "გამოსწორდა ზოგიერთი შეცდომა:"
+
+#~ msgid "Impossible to open log."
+#~ msgstr "ჟურნალის გახსნა შეუძლებელია."
+
+#~ msgctxt "@title:window"
+#~ msgid "Show Log"
+#~ msgstr "ჟურნალის ჩვენება"
 
 #~ msgid "Private"
 #~ msgstr "პირადი"

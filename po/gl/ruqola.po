@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-12-13 09:51+0000\n"
-"PO-Revision-Date: 2024-12-11 20:12+0100\n"
+"POT-Creation-Date: 2024-12-14 00:49+0000\n"
+"PO-Revision-Date: 2024-12-13 23:28+0100\n"
 "Last-Translator: Adrián Chaves (Gallaecio) <adrian@chaves.io>\n"
 "Language-Team: Proxecto Trasno (proxecto@trasno.gal)\n"
 "Language: gl\n"
@@ -392,10 +392,9 @@ msgid "Allow to read oauth app settings"
 msgstr "Permitir ler a configuración de aplicacións de OAuth"
 
 #: core/apps/appsmarketplaceinfo.cpp:665
-#, fuzzy, kde-format
-#| msgid "Allow to send multi files."
+#, kde-format
 msgid "Allow to send email"
-msgstr "Permitir enviar varios ficheiros."
+msgstr "Permitir enviar mensaxes de correo electrónico."
 
 #: core/authenticationmanager.cpp:85
 #, kde-format
@@ -701,6 +700,7 @@ msgstr "Son de chamada saínte"
 msgid "Call Ended"
 msgstr "A chamada rematou"
 
+# skip-rule: trasno-check3_reverse
 #: core/customsound/customsoundsmanager.cpp:146
 #, kde-format
 msgid "Dialtone"
@@ -5839,8 +5839,8 @@ msgstr ""
 "mensaxes e ficheiros da persoa usuaria eliminarase de mensaxes directas e "
 "manterase noutras salas. Eliminar todas as mensaxes: todas as mensaxes e "
 "ficheiros da persoa usuaria eliminaranse da base de datos e deixará de ser "
-"posíbel localizar á persoa usuaria. Retirar a ligazón entre a persoa usuaria "
-"e as mensaxes: es opción asigna todas as mensaxes e ficheiros da persoa "
+"posíbel atopar a persoa usuaria. Retirar a ligazón entre a persoa usuaria e "
+"as mensaxes: es opción asigna todas as mensaxes e ficheiros da persoa "
 "usuaria ao robot de Rocket.Chat e elimina as mensaxes directas."
 
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:114
@@ -6294,8 +6294,8 @@ msgid ""
 "When enabled, users won't be able to update their passwords to some of their "
 "most recently used passwords."
 msgstr ""
-"Se se activa, as persoas usuarias non poderán cambiar o seu contrasinal a un "
-"dos que usasen máis recentemente."
+"Se se activa, as persoas usuarias non poderán actualizar o seu contrasinal a "
+"un dos que usasen máis recentemente."
 
 #: widgets/administratorsettingsdialog/password/passwordsettingswidget.cpp:40
 #, kde-format
@@ -6983,16 +6983,14 @@ msgid "Description"
 msgstr "Descrición"
 
 #: widgets/applicationssettingsdialog/applicationssettingsdescriptiontabwidget.cpp:38
-#, fuzzy, kde-format
-#| msgid "Version"
+#, kde-format
 msgid "Versions"
-msgstr "Versión"
+msgstr "Versións"
 
 #: widgets/applicationssettingsdialog/applicationssettingsdescriptiontabwidget.cpp:44
-#, fuzzy, kde-format
-#| msgid "&Settings"
+#, kde-format
 msgid "Settings"
-msgstr "&Configuración"
+msgstr "Configuración"
 
 #: widgets/applicationssettingsdialog/applicationssettingsdialog.cpp:27
 #, kde-format
@@ -7098,7 +7096,7 @@ msgstr "Todos os estados"
 #: widgets/applicationssettingsdialog/applicationssettingsversionwidget.cpp:71
 #, kde-format
 msgid "No release information provided"
-msgstr ""
+msgstr "Non se forneceu información de publicación."
 
 #: widgets/applicationssettingsdialog/appscountinfowidget.cpp:47
 #, kde-format
@@ -8527,6 +8525,7 @@ msgctxt "@title:window"
 msgid "Show Pinned Messages - %1"
 msgstr "Amosar as mensaxes fixadas — %1"
 
+# skip-rule: trasno-check3_reverse
 #: widgets/dialogs/showstarredmessagesdialog.cpp:22
 #, kde-format
 msgctxt "@title:window"
@@ -8706,6 +8705,7 @@ msgctxt "@action:button"
 msgid "Do it later"
 msgstr "Facelo máis tarde"
 
+# skip-rule: trasno-close_reverse
 #: widgets/encryption/e2ecopypasswordwidget.cpp:31
 #, kde-format
 msgid ""
@@ -9632,6 +9632,7 @@ msgctxt "@action:button"
 msgid "Delete my Account"
 msgstr "Eliminar a miña conta"
 
+# skip-rule: trasno-close_reverse
 #: widgets/myaccount/myaccountprofileconfigurewidget.cpp:41
 #, kde-format
 msgctxt "@action:button"
@@ -9829,6 +9830,7 @@ msgctxt "@action"
 msgid "Show Pinned Messages…"
 msgstr "Amosar mensaxes fixadas…"
 
+# skip-rule: trasno-check3_reverse
 #: widgets/room/channelactionpopupmenu.cpp:49
 #, kde-format
 msgctxt "@action"
@@ -9988,6 +9990,7 @@ msgctxt "@info:tooltip"
 msgid "Message has been pinned"
 msgstr "A mensaxe fixouse"
 
+# skip-rule: trasno-check3_reverse
 #: widgets/room/delegate/messagelistdelegate.cpp:991
 #, kde-format
 msgctxt "@info:tooltip"
@@ -10686,6 +10689,7 @@ msgctxt "@action"
 msgid "Server Info…"
 msgstr "Información do servidor…"
 
+# skip-rule: trasno-close_reverse
 #: widgets/ruqolamainwindow.cpp:425
 #, kde-format
 msgctxt "@action"
@@ -10920,14 +10924,15 @@ msgstr "Crear un equipo"
 
 #: widgets/ruqolamainwindow.cpp:952
 #, kde-format
-msgid "Impossible to open log."
-msgstr "Non é posíbel abrir o rexistro."
+msgid "Cannot write to log file %1"
+msgstr ""
 
 #: widgets/ruqolamainwindow.cpp:952
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Show Channel Log"
 msgctxt "@title:window"
-msgid "Show Log"
-msgstr "Amosar o rexistro"
+msgid "Show Channel Log"
+msgstr "Amosar o historial da canle"
 
 #: widgets/ruqolamainwindow.cpp:1115
 #, kde-format
@@ -11160,6 +11165,7 @@ msgstr "(amosar as novas)"
 msgid "What's new in %2. %1"
 msgstr "Novidades de %2. %1"
 
+# skip-rule: trasno-clean
 #: widgets/whatsnew/whatsnewtranslations.cpp:17
 msgid "Allow to clean up room history when room was not opened from long time."
 msgstr ""
@@ -11442,6 +11448,7 @@ msgstr "Corrixir a vista previa de URL."
 msgid "Implement Rocket.Chat Marketplace."
 msgstr "Implementar o mercado de Rocket.Chat."
 
+# skip-rule: trasno-clean
 #: widgets/whatsnew/whatsnewtranslations.cpp:100
 #, kde-format
 msgid "Allow to clean room history."
@@ -11554,10 +11561,9 @@ msgid "Fix open discussion channel"
 msgstr "Corrixir a apertura da canle de discusión."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:136
-#, fuzzy, kde-format
-#| msgid "Allow to write oauth app settings"
+#, kde-format
 msgid "Allow to show application market settings"
-msgstr "Permitir escribir a configuración de aplicacións de OAuth"
+msgstr "Permitir amosar a configuración de mercado das aplicacións."
 
 #: widgets/whatsnew/whatsnewwidget.cpp:44
 #, kde-format
@@ -11583,6 +11589,13 @@ msgstr "Entre as características novas desta edición de Ruqola están:"
 #, kde-format
 msgid "Some bug fixing:"
 msgstr "Algunhas correccións de fallos:"
+
+#~ msgid "Impossible to open log."
+#~ msgstr "Non é posíbel abrir o rexistro."
+
+#~ msgctxt "@title:window"
+#~ msgid "Show Log"
+#~ msgstr "Amosar o rexistro"
 
 #~ msgid "Private"
 #~ msgstr "Privada"

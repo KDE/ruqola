@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-12-13 09:51+0000\n"
+"POT-Creation-Date: 2024-12-14 00:49+0000\n"
 "PO-Revision-Date: 2024-12-07 18:13+0200\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
@@ -10816,14 +10816,15 @@ msgstr "Luo työryhmä"
 
 #: widgets/ruqolamainwindow.cpp:952
 #, kde-format
-msgid "Impossible to open log."
-msgstr "Lokia on mahdotonta avata."
+msgid "Cannot write to log file %1"
+msgstr ""
 
 #: widgets/ruqolamainwindow.cpp:952
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Show Channel Log"
 msgctxt "@title:window"
-msgid "Show Log"
-msgstr "Näytä loki"
+msgid "Show Channel Log"
+msgstr "Näytä kanavaloki"
 
 #: widgets/ruqolamainwindow.cpp:1115
 #, kde-format
@@ -11474,6 +11475,13 @@ msgstr "Joitakin tämän Ruqola-julkaisua uusia ominaisuuksia ovat:"
 #, kde-format
 msgid "Some bug fixing:"
 msgstr "Joitakin virheenkorjauksia:"
+
+#~ msgid "Impossible to open log."
+#~ msgstr "Lokia on mahdotonta avata."
+
+#~ msgctxt "@title:window"
+#~ msgid "Show Log"
+#~ msgstr "Näytä loki"
 
 #~ msgid "Private"
 #~ msgstr "Yksityinen"

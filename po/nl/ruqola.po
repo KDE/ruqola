@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-12-13 09:51+0000\n"
-"PO-Revision-Date: 2024-12-10 11:43+0100\n"
+"POT-Creation-Date: 2024-12-14 00:49+0000\n"
+"PO-Revision-Date: 2024-12-14 00:12+0100\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
 "Language: nl\n"
@@ -392,10 +392,9 @@ msgid "Allow to read oauth app settings"
 msgstr "Bied het lezen van oauth-app-instellingen"
 
 #: core/apps/appsmarketplaceinfo.cpp:665
-#, fuzzy, kde-format
-#| msgid "Allow to send multi files."
+#, kde-format
 msgid "Allow to send email"
-msgstr "Meerdere bestanden verzenden toestaan."
+msgstr "Verzenden van e-mail toestaan"
 
 #: core/authenticationmanager.cpp:85
 #, kde-format
@@ -6985,16 +6984,14 @@ msgid "Description"
 msgstr "Beschrijving"
 
 #: widgets/applicationssettingsdialog/applicationssettingsdescriptiontabwidget.cpp:38
-#, fuzzy, kde-format
-#| msgid "Version"
+#, kde-format
 msgid "Versions"
-msgstr "Versie"
+msgstr "Versies"
 
 #: widgets/applicationssettingsdialog/applicationssettingsdescriptiontabwidget.cpp:44
-#, fuzzy, kde-format
-#| msgid "&Settings"
+#, kde-format
 msgid "Settings"
-msgstr "&Instellingen"
+msgstr "Instellingen"
 
 #: widgets/applicationssettingsdialog/applicationssettingsdialog.cpp:27
 #, kde-format
@@ -7100,7 +7097,7 @@ msgstr "Alle statussen"
 #: widgets/applicationssettingsdialog/applicationssettingsversionwidget.cpp:71
 #, kde-format
 msgid "No release information provided"
-msgstr ""
+msgstr "Geen informatie over uitgave geleverd"
 
 #: widgets/applicationssettingsdialog/appscountinfowidget.cpp:47
 #, kde-format
@@ -10923,14 +10920,15 @@ msgstr "Team aanmaken"
 
 #: widgets/ruqolamainwindow.cpp:952
 #, kde-format
-msgid "Impossible to open log."
-msgstr "Log openen is onmogelijk"
+msgid "Cannot write to log file %1"
+msgstr ""
 
 #: widgets/ruqolamainwindow.cpp:952
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Show Channel Log"
 msgctxt "@title:window"
-msgid "Show Log"
-msgstr "Log tonen"
+msgid "Show Channel Log"
+msgstr "Kanaallog tonen"
 
 #: widgets/ruqolamainwindow.cpp:1115
 #, kde-format
@@ -11556,10 +11554,9 @@ msgid "Fix open discussion channel"
 msgstr "Open discussiekanaal repareren"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:136
-#, fuzzy, kde-format
-#| msgid "Allow to write oauth app settings"
+#, kde-format
 msgid "Allow to show application market settings"
-msgstr "Bied het schrijven van oauth-app-instellingen"
+msgstr "Sta het tonen van instellingen van toepassingenmarkt toe"
 
 #: widgets/whatsnew/whatsnewwidget.cpp:44
 #, kde-format
@@ -11585,6 +11582,13 @@ msgstr "Enige van de nieuwe functies in deze uitgave van Ruqola omvatten:"
 #, kde-format
 msgid "Some bug fixing:"
 msgstr "Enig repareren van bugs:"
+
+#~ msgid "Impossible to open log."
+#~ msgstr "Log openen is onmogelijk"
+
+#~ msgctxt "@title:window"
+#~ msgid "Show Log"
+#~ msgstr "Log tonen"
 
 #~ msgid "Private"
 #~ msgstr "Privé"

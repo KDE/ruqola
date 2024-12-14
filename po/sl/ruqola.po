@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-12-13 09:51+0000\n"
-"PO-Revision-Date: 2024-12-10 07:10+0100\n"
+"POT-Creation-Date: 2024-12-14 00:49+0000\n"
+"PO-Revision-Date: 2024-12-13 07:12+0100\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
@@ -395,10 +395,9 @@ msgid "Allow to read oauth app settings"
 msgstr "Dovoli branje nastavitev aplikacije oauth"
 
 #: core/apps/appsmarketplaceinfo.cpp:665
-#, fuzzy, kde-format
-#| msgid "Allow to send multi files."
+#, kde-format
 msgid "Allow to send email"
-msgstr "Dovoli pošiljanje več datotek."
+msgstr "Dovoli pošiljanje elektronske pošte"
 
 #: core/authenticationmanager.cpp:85
 #, kde-format
@@ -6959,10 +6958,9 @@ msgid "Description"
 msgstr "Opis"
 
 #: widgets/applicationssettingsdialog/applicationssettingsdescriptiontabwidget.cpp:38
-#, fuzzy, kde-format
-#| msgid "Version"
+#, kde-format
 msgid "Versions"
-msgstr "Različica"
+msgstr "Različice"
 
 #: widgets/applicationssettingsdialog/applicationssettingsdescriptiontabwidget.cpp:44
 #, fuzzy, kde-format
@@ -10917,14 +10915,15 @@ msgstr "Ustvari ekipo"
 
 #: widgets/ruqolamainwindow.cpp:952
 #, kde-format
-msgid "Impossible to open log."
-msgstr "Ni mogoče odpreti dnevnika."
+msgid "Cannot write to log file %1"
+msgstr ""
 
 #: widgets/ruqolamainwindow.cpp:952
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Show Channel Log"
 msgctxt "@title:window"
-msgid "Show Log"
-msgstr "Prikaži dnevnik"
+msgid "Show Channel Log"
+msgstr "Pokaži zapisnik kanala"
 
 #: widgets/ruqolamainwindow.cpp:1115
 #, kde-format
@@ -11568,6 +11567,13 @@ msgstr "Nekaj novih zmožnosti v tej izdaji Ruqole vsebuje:"
 #, kde-format
 msgid "Some bug fixing:"
 msgstr "Nekaj odprav napak:"
+
+#~ msgid "Impossible to open log."
+#~ msgstr "Ni mogoče odpreti dnevnika."
+
+#~ msgctxt "@title:window"
+#~ msgid "Show Log"
+#~ msgstr "Prikaži dnevnik"
 
 #~ msgid "Private"
 #~ msgstr "Zasebno"

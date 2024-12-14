@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-12-13 09:51+0000\n"
+"POT-Creation-Date: 2024-12-14 00:49+0000\n"
 "PO-Revision-Date: 2024-11-06 16:19+0300\n"
 "Last-Translator: Olesya Gerasimenko <translation-team@basealt.ru>\n"
 "Language-Team: Basealt Translation Team\n"
@@ -10996,14 +10996,15 @@ msgstr "Создание команды"
 
 #: widgets/ruqolamainwindow.cpp:952
 #, kde-format
-msgid "Impossible to open log."
-msgstr "Невозможно открыть журнал."
+msgid "Cannot write to log file %1"
+msgstr ""
 
 #: widgets/ruqolamainwindow.cpp:952
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Show Channel Log"
 msgctxt "@title:window"
-msgid "Show Log"
-msgstr "Показ журнала"
+msgid "Show Channel Log"
+msgstr "Показать журнал канала"
 
 #: widgets/ruqolamainwindow.cpp:1115
 #, kde-format
@@ -11661,6 +11662,13 @@ msgstr "Некоторые из новых возможностей в этой 
 #, kde-format
 msgid "Some bug fixing:"
 msgstr "Исправление некоторых ошибок:"
+
+#~ msgid "Impossible to open log."
+#~ msgstr "Невозможно открыть журнал."
+
+#~ msgctxt "@title:window"
+#~ msgid "Show Log"
+#~ msgstr "Показ журнала"
 
 #~ msgid "Private"
 #~ msgstr "Закрытые"

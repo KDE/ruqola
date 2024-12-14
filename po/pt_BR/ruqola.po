@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-12-13 09:51+0000\n"
+"POT-Creation-Date: 2024-12-14 00:49+0000\n"
 "PO-Revision-Date: 2023-06-07 13:29-0300\n"
 "Last-Translator: Luiz Fernando Ranghetti <elchevive@opensuse.org>\n"
 "Language-Team: Brazilian Portuguese <kde-i18n-pt_BR@kde.org>\n"
@@ -11520,14 +11520,14 @@ msgstr "Criar equipe..."
 
 #: widgets/ruqolamainwindow.cpp:952
 #, kde-format
-msgid "Impossible to open log."
+msgid "Cannot write to log file %1"
 msgstr ""
 
 #: widgets/ruqolamainwindow.cpp:952
 #, fuzzy, kde-format
 #| msgid "Show Channel Log"
 msgctxt "@title:window"
-msgid "Show Log"
+msgid "Show Channel Log"
 msgstr "Mostrar log do canal"
 
 #: widgets/ruqolamainwindow.cpp:1115
@@ -12195,6 +12195,12 @@ msgstr ""
 #| msgid "Bug fixing"
 msgid "Some bug fixing:"
 msgstr "Correção de erros"
+
+#, fuzzy
+#~| msgid "Show Channel Log"
+#~ msgctxt "@title:window"
+#~ msgid "Show Log"
+#~ msgstr "Mostrar log do canal"
 
 #~ msgid "Private"
 #~ msgstr "Privado"

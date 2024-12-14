@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-12-13 09:51+0000\n"
-"PO-Revision-Date: 2024-12-03 20:41+0100\n"
+"POT-Creation-Date: 2024-12-14 00:49+0000\n"
+"PO-Revision-Date: 2024-12-13 16:22+0100\n"
 "Last-Translator: Vincenzo Reale <smart2128vr@gmail.com>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
 "Language: it\n"
@@ -393,10 +393,9 @@ msgid "Allow to read oauth app settings"
 msgstr "Consenti di leggere le impostazioni dell'applicazione oauth"
 
 #: core/apps/appsmarketplaceinfo.cpp:665
-#, fuzzy, kde-format
-#| msgid "Allow to send multi files."
+#, kde-format
 msgid "Allow to send email"
-msgstr "Consenti di inviare più file."
+msgstr "Consenti di inviare un messaggio di posta"
 
 #: core/authenticationmanager.cpp:85
 #, kde-format
@@ -6990,16 +6989,14 @@ msgid "Description"
 msgstr "Descrizione"
 
 #: widgets/applicationssettingsdialog/applicationssettingsdescriptiontabwidget.cpp:38
-#, fuzzy, kde-format
-#| msgid "Version"
+#, kde-format
 msgid "Versions"
-msgstr "Versione"
+msgstr "Versioni"
 
 #: widgets/applicationssettingsdialog/applicationssettingsdescriptiontabwidget.cpp:44
-#, fuzzy, kde-format
-#| msgid "&Settings"
+#, kde-format
 msgid "Settings"
-msgstr "Impo&stazioni"
+msgstr "Impostazioni"
 
 #: widgets/applicationssettingsdialog/applicationssettingsdialog.cpp:27
 #, kde-format
@@ -7105,7 +7102,7 @@ msgstr "Tutti gli stati"
 #: widgets/applicationssettingsdialog/applicationssettingsversionwidget.cpp:71
 #, kde-format
 msgid "No release information provided"
-msgstr ""
+msgstr "Nessuna informazione sulla versione fornita"
 
 #: widgets/applicationssettingsdialog/appscountinfowidget.cpp:47
 #, kde-format
@@ -10931,14 +10928,15 @@ msgstr "Crea squadra"
 
 #: widgets/ruqolamainwindow.cpp:952
 #, kde-format
-msgid "Impossible to open log."
-msgstr "Impossibile aprire il registro."
+msgid "Cannot write to log file %1"
+msgstr ""
 
 #: widgets/ruqolamainwindow.cpp:952
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Show Channel Log"
 msgctxt "@title:window"
-msgid "Show Log"
-msgstr "Mostra il registro"
+msgid "Show Channel Log"
+msgstr "Mostra il registro del canale"
 
 #: widgets/ruqolamainwindow.cpp:1115
 #, kde-format
@@ -11205,10 +11203,8 @@ msgid "Add color to the text in the account tab"
 msgstr "Aggiungi colore al testo nella scheda degli account"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:23
-#, fuzzy
-#| msgid "Allow to write oauth app settings"
 msgid "Allow to show private installed applications"
-msgstr "Consenti di scrivere le impostazioni dell'applicazione oauth"
+msgstr "Consenti di mostrare le applicazioni private installate"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:33
 #, kde-format
@@ -11570,10 +11566,9 @@ msgid "Fix open discussion channel"
 msgstr "Correggi il canale di discussione aperto"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:136
-#, fuzzy, kde-format
-#| msgid "Allow to write oauth app settings"
+#, kde-format
 msgid "Allow to show application market settings"
-msgstr "Consenti di scrivere le impostazioni dell'applicazione oauth"
+msgstr "Consenti di mostrare le impostazioni del negozio delle applicazioni"
 
 #: widgets/whatsnew/whatsnewwidget.cpp:44
 #, kde-format
@@ -11600,6 +11595,13 @@ msgstr ""
 #, kde-format
 msgid "Some bug fixing:"
 msgstr "Alcune correzioni di bug:"
+
+#~ msgid "Impossible to open log."
+#~ msgstr "Impossibile aprire il registro."
+
+#~ msgctxt "@title:window"
+#~ msgid "Show Log"
+#~ msgstr "Mostra il registro"
 
 #~ msgid "Private"
 #~ msgstr "Privato"

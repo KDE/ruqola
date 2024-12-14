@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-12-13 09:51+0000\n"
+"POT-Creation-Date: 2024-12-14 00:49+0000\n"
 "PO-Revision-Date: 2020-06-13 21:18+0300\n"
 "Last-Translator: Marek Laane <qiilaq69@gmail.com>\n"
 "Language-Team: Estonian <kde-et@lists.linux.ee>\n"
@@ -11608,14 +11608,14 @@ msgstr "Loo uus kanal ..."
 
 #: widgets/ruqolamainwindow.cpp:952
 #, kde-format
-msgid "Impossible to open log."
+msgid "Cannot write to log file %1"
 msgstr ""
 
 #: widgets/ruqolamainwindow.cpp:952
 #, fuzzy, kde-format
 #| msgid "No Channel found"
 msgctxt "@title:window"
-msgid "Show Log"
+msgid "Show Channel Log"
 msgstr "Ühtegi kanalit ei leitud"
 
 #: widgets/ruqolamainwindow.cpp:1115
@@ -12293,6 +12293,12 @@ msgstr ""
 #| msgid "Bug fixing"
 msgid "Some bug fixing:"
 msgstr "Vigade parandamine"
+
+#, fuzzy
+#~| msgid "No Channel found"
+#~ msgctxt "@title:window"
+#~ msgid "Show Log"
+#~ msgstr "Ühtegi kanalit ei leitud"
 
 #, fuzzy
 #~| msgid "Private:"

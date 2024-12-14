@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-12-13 09:51+0000\n"
-"PO-Revision-Date: 2024-12-10 10:33+0100\n"
+"POT-Creation-Date: 2024-12-14 00:49+0000\n"
+"PO-Revision-Date: 2024-12-13 09:08+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca@valencia\n"
@@ -396,10 +396,9 @@ msgid "Allow to read oauth app settings"
 msgstr "Permetre llegir paràmetres de l'aplicació «oauth»"
 
 #: core/apps/appsmarketplaceinfo.cpp:665
-#, fuzzy, kde-format
-#| msgid "Allow to send multi files."
+#, kde-format
 msgid "Allow to send email"
-msgstr "Permet enviar múltiples fitxers."
+msgstr "Permetre enviar correu electrònic"
 
 #: core/authenticationmanager.cpp:85
 #, kde-format
@@ -6986,10 +6985,9 @@ msgid "Description"
 msgstr "Descripció"
 
 #: widgets/applicationssettingsdialog/applicationssettingsdescriptiontabwidget.cpp:38
-#, fuzzy, kde-format
-#| msgid "Version"
+#, kde-format
 msgid "Versions"
-msgstr "Versió"
+msgstr "Versions"
 
 #: widgets/applicationssettingsdialog/applicationssettingsdescriptiontabwidget.cpp:44
 #, fuzzy, kde-format
@@ -10929,14 +10927,15 @@ msgstr "Creeu un equip"
 
 #: widgets/ruqolamainwindow.cpp:952
 #, kde-format
-msgid "Impossible to open log."
-msgstr "Impossible obrir el registre."
+msgid "Cannot write to log file %1"
+msgstr ""
 
 #: widgets/ruqolamainwindow.cpp:952
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Show Channel Log"
 msgctxt "@title:window"
-msgid "Show Log"
-msgstr "Mostra el registre"
+msgid "Show Channel Log"
+msgstr "Mostra el registre del canal"
 
 #: widgets/ruqolamainwindow.cpp:1115
 #, kde-format
@@ -11591,3 +11590,10 @@ msgstr ""
 #, kde-format
 msgid "Some bug fixing:"
 msgstr "Esmena d'errors:"
+
+#~ msgid "Impossible to open log."
+#~ msgstr "Impossible obrir el registre."
+
+#~ msgctxt "@title:window"
+#~ msgid "Show Log"
+#~ msgstr "Mostra el registre"

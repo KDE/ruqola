@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-12-13 09:51+0000\n"
+"POT-Creation-Date: 2024-12-14 00:49+0000\n"
 "PO-Revision-Date: 2023-07-14 22:16+0100\n"
 "Last-Translator: José Nuno Coelho Pires <zepires@gmail.com>\n"
 "Language-Team: Portuguese <kde-i18n-pt@kde.org>\n"
@@ -11759,15 +11759,15 @@ msgstr "Criar uma Equipa"
 
 #: widgets/ruqolamainwindow.cpp:952
 #, kde-format
-msgid "Impossible to open log."
-msgstr "Não é possível abrir o registo."
+msgid "Cannot write to log file %1"
+msgstr ""
 
 #: widgets/ruqolamainwindow.cpp:952
 #, fuzzy, kde-format
-#| msgid "Show Log"
+#| msgid "Show Channel Log"
 msgctxt "@title:window"
-msgid "Show Log"
-msgstr "Mostrar o Registo"
+msgid "Show Channel Log"
+msgstr "Mostrar o Registo do Canal"
 
 #: widgets/ruqolamainwindow.cpp:1115
 #, kde-format
@@ -12444,6 +12444,15 @@ msgstr "Algumas das novas funcionalidades nesta versão do Ruqola incluem:"
 #, kde-format
 msgid "Some bug fixing:"
 msgstr "Algumas correcções de erros:"
+
+#~ msgid "Impossible to open log."
+#~ msgstr "Não é possível abrir o registo."
+
+#, fuzzy
+#~| msgid "Show Log"
+#~ msgctxt "@title:window"
+#~ msgid "Show Log"
+#~ msgstr "Mostrar o Registo"
 
 #~ msgid "Private"
 #~ msgstr "Privado"
