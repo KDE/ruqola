@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-12-06 02:30+0000\n"
-"PO-Revision-Date: 2024-11-10 20:20+0100\n"
+"PO-Revision-Date: 2024-12-14 02:09+0100\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
 "Language: eu\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 24.08.3\n"
+"X-Generator: Lokalize 24.12.0\n"
 
 #: apps/main.cpp:61
 #, kde-format
@@ -10653,11 +10653,11 @@ msgstr "Rocket.Chat-en merkatu-plaza inplementatzea."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:18
 msgid "Allow to clean room history."
-msgstr "Gelaren historia garbitzeko aukera ematen du."
+msgstr "Gelaren historia garbitzea baimendu."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:19
 msgid "Allow to check new version."
-msgstr "Bertsio berria egiaztatzeko aukera ematen du."
+msgstr "Bertsio berria egiaztatzea baimendu."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:20
 msgid "Implement moderation (administrator mode)."
@@ -10705,13 +10705,13 @@ msgstr "Erakutsi zerbitzariaren informazioa elkarrizketa-koadro jakin batean"
 #: widgets/whatsnew/whatsnewtranslations.cpp:38
 #, kde-format
 msgid "Allow to Copy Image in Clipboard"
-msgstr "Baimendu irudia arbelera kopiatzea"
+msgstr "Irudia arbelera kopiatzea baimendu"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:39
 #, kde-format
 msgid "Improve debug support (Allow to show current account permissions)"
 msgstr ""
-"Arazteko euskarria hobetzea (uneko kontuaren baimenak erakusten uzten du)"
+"Arazteko euskarria hobetu (uneko kontuaren baimenak erakustea baimendu)"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:40
 #, kde-format
@@ -10819,7 +10819,7 @@ msgstr "Erakutsi abatararen URLa konpontzea."
 #: widgets/whatsnew/whatsnewtranslations.cpp:71
 #, kde-format
 msgid "Allow to increase/decrease font (CTRL++/CTRL+-)"
-msgstr "Letra-tipoa handitzeko/txikitzeko aukera ematea (KTRL++/KTRL--)v"
+msgstr "Letra-tipoa handitzea/txikiagotzea baimendu (KTRL++/KTRL+-)"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:72
 #, kde-format
@@ -10917,7 +10917,7 @@ msgstr "Erabili RESTAPI erregistratzeko."
 #: widgets/whatsnew/whatsnewtranslations.cpp:91
 #, kde-format
 msgid "Allow to send multi files."
-msgstr "Fitxategi anizkoitzak bidaltzeko aukera ematen du."
+msgstr "Hainbat fitxategi bidaltzea baimendu."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:92
 #, kde-format
