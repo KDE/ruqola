@@ -1,7 +1,7 @@
 /*
-   SPDX-FileCopyrightText: 2024 Laurent Montel <montel@kde.org>
+SPDX-FileCopyrightText: 2024 Laurent Montel <montel@kde.org>
 
-   SPDX-License-Identifier: LGPL-2.0-or-later
+SPDX-License-Identifier: LGPL-2.0-or-later
 */
 
 #include "applicationssettingsversionwidget.h"
@@ -75,6 +75,9 @@ void ApplicationsSettingsVersionWidget::generateInfo(const QJsonObject &obj)
         message += QStringLiteral("<b>%1</b><br/>").arg(version);
         message += changesNote + QStringLiteral("<br/><br/>");
         // TODO add createdDate
+    }
+    if (message.isEmpty()) {
+        message = i18n("No version info found.");
     }
     mTextBrowser->setText(message);
 }
