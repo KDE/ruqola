@@ -77,7 +77,7 @@ void ApplicationsSettingsVersionWidget::generateInfo(const QJsonObject &obj)
         // TODO add createdDate
     }
     if (message.isEmpty()) {
-        message = i18n("No version info found.");
+        message = QStringLiteral("<b><i>%1</i></b>").arg(i18n("No version info found."));
     }
     mTextBrowser->setText(message);
 }
