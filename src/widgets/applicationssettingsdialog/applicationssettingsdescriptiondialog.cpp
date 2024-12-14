@@ -66,4 +66,9 @@ void ApplicationsSettingsDescriptionDialog::setApplicationId(const QByteArray &a
     mApplicationsSettingsDescriptionTabWidget->setApplicationId(appId);
 }
 
+void ApplicationsSettingsDescriptionDialog::setApplicationInstalled(bool state)
+{
+    mApplicationsSettingsDescriptionTabWidget->setApplicationInstalled(state);
+}
+
 #include "moc_applicationssettingsdescriptiondialog.cpp"

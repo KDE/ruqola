@@ -24,6 +24,8 @@ public:
 
     void setApplicationId(const QByteArray &appId);
 
+    void setApplicationInstalled(bool state);
+
 private:
     QTabWidget *const mTabWidget;
     ApplicationsSettingsDescriptionWidget *const mDescriptionWidget;

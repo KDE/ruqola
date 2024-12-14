@@ -20,6 +20,8 @@ public:
 
     void setApplicationId(const QByteArray &appId);
 
+    void setApplicationInstalled(bool state);
+
 private:
     LIBRUQOLAWIDGETS_NO_EXPORT void readConfig();
     LIBRUQOLAWIDGETS_NO_EXPORT void writeConfig();

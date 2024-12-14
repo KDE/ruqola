@@ -35,7 +35,7 @@ ApplicationsSettingsDescriptionTabWidget::ApplicationsSettingsDescriptionTabWidg
     mTabWidget->addTab(mDescriptionWidget, i18n("Description"));
 
     mVersionWidget->setObjectName("mVersionWidget"_L1);
-    const int versionTabIndex = mTabWidget->addTab(mVersionWidget, i18n("Versions"));
+    mTabWidget->addTab(mVersionWidget, i18n("Versions"));
 
     mLogsWidget->setObjectName("mLogsWidget"_L1);
     const int logTabIndex = mTabWidget->addTab(mLogsWidget, i18n("Logs"));
@@ -48,7 +48,6 @@ ApplicationsSettingsDescriptionTabWidget::ApplicationsSettingsDescriptionTabWidg
             mTabWidget->setTabVisible(logTabIndex, false);
             mTabWidget->setTabVisible(settingsTabIndex, false);
         }
-        // TODO disable mVersionWidget when apps is private
     }
 }
 
@@ -64,6 +63,12 @@ void ApplicationsSettingsDescriptionTabWidget::setApplicationId(const QByteArray
     mVersionWidget->setApplicationId(appId);
     mLogsWidget->setApplicationId(appId);
     mSettingsWidget->setApplicationId(appId);
+}
+
+void ApplicationsSettingsDescriptionTabWidget::setApplicationInstalled(bool state)
+{
+    mTabWidget->setTabVisible(mTabWidget->indexOf(mLogsWidget), state);
+    mTabWidget->setTabVisible(mTabWidget->indexOf(mSettingsWidget), state);
 }
 
 #include "moc_applicationssettingsdescriptiontabwidget.cpp"
