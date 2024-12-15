@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-12-06 02:30+0000\n"
-"PO-Revision-Date: 2024-12-13 23:28+0100\n"
+"PO-Revision-Date: 2024-12-14 10:56+0100\n"
 "Last-Translator: Adrián Chaves (Gallaecio) <adrian@chaves.io>\n"
 "Language-Team: Proxecto Trasno (proxecto@trasno.gal)\n"
 "Language: gl\n"
@@ -642,6 +642,7 @@ msgstr "%1 engadiu #%2 ao equipo"
 msgid "Room allowed reacting by %1"
 msgstr "%1 activou as reaccións na sala"
 
+# skip-rule: trasno-disable_reverse
 #: core/messages/message.cpp:849
 #, kde-format
 msgid "Room disallowed reacting by %1"
@@ -5389,12 +5390,12 @@ msgstr "Bloquear a edición de mensaxes tras N minutos."
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Block Message Deleting After (n) Minutes."
-msgstr "Bloquear a edición de mensaxes tras N minutos."
+msgstr "Bloquear a eliminación de mensaxes tras N minutos."
 
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:62
 #, kde-format
 msgid "Block Message Deleting After (n) Minutes"
-msgstr "Bloquear a edición de mensaxes tras N minutos."
+msgstr "Bloquear a eliminación de mensaxes tras N minutos."
 
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:67
 #, kde-format
