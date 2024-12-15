@@ -50,8 +50,23 @@ void ApplicationsSettingsLogsWidget::generateInfo(const QJsonObject &obj)
     for (const auto &log : array) {
         ApplicationsSettingsLogsInfo logInfo;
         logInfo.parseLogs(log.toObject());
+        if (!message.isEmpty()) {
+            message += QStringLiteral("<br/>");
+        }
+
+        message += QStringLiteral("<b>") + QLocale().toString(logInfo.createdAt());
+        message += logInfo.method() + QStringLiteral("</b>");
+        for (const auto &arg : logInfo.arguments()) {
+            message += QStringLiteral("<br/>");
+            message += arg.caller + QStringLiteral("<br/>");
+            message += arg.method + QStringLiteral("<br/>");
+            message += arg.severity + QStringLiteral("<br/>");
+            for (const QString &str : arg.args) {
+                message += str + QStringLiteral("<br/>");
+            }
+        }
     }
-    mTextBrowser->setPlainText(message);
+    mTextBrowser->setHtml(message);
 }
 
 void ApplicationsSettingsLogsWidget::initialize()
