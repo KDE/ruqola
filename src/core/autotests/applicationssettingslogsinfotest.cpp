@@ -20,7 +20,13 @@ void ApplicationsSettingsLogsInfoTest::shouldHaveDefaultValues()
 {
     ApplicationsSettingsLogsInfo log;
     QVERIFY(log.method().isEmpty());
-    // TODO
+    QVERIFY(log.arguments().isEmpty());
+
+    ApplicationsSettingsLogsInfo::LogsArgument args;
+    QVERIFY(args.caller.isEmpty());
+    QVERIFY(args.method.isEmpty());
+    QVERIFY(args.severity.isEmpty());
+    QVERIFY(args.args.isEmpty());
 }
 
 #include "moc_applicationssettingslogsinfotest.cpp"

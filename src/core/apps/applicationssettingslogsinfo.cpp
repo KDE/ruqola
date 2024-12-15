@@ -22,7 +22,17 @@ void ApplicationsSettingsLogsInfo::parseLogs(const QJsonObject &obj)
 bool ApplicationsSettingsLogsInfo::operator==(const ApplicationsSettingsLogsInfo &other) const
 {
     // TODO
-    return mMethod == other.method();
+    return mMethod == other.method() && mArguments == other.arguments();
+}
+
+QList<ApplicationsSettingsLogsInfo::LogsArgument> ApplicationsSettingsLogsInfo::arguments() const
+{
+    return mArguments;
+}
+
+void ApplicationsSettingsLogsInfo::setArguments(const QList<LogsArgument> &newArguments)
+{
+    mArguments = newArguments;
 }
 
 QString ApplicationsSettingsLogsInfo::method() const
@@ -37,6 +47,21 @@ void ApplicationsSettingsLogsInfo::setMethod(const QString &newMethod)
 
 QDebug operator<<(QDebug d, const ApplicationsSettingsLogsInfo &t)
 {
-    d << "method " << t.method();
+    d.space() << "method" << t.method();
+    d.space() << "arguments" << t.arguments();
+    return d;
+}
+
+bool ApplicationsSettingsLogsInfo::LogsArgument::operator==(const LogsArgument &other) const
+{
+    return caller == other.caller && method == other.method && severity == other.severity && args == other.args;
+}
+
+QDebug operator<<(QDebug d, const ApplicationsSettingsLogsInfo::LogsArgument &arg)
+{
+    d.space() << "caller" << arg.caller;
+    d.space() << "method" << arg.method;
+    d.space() << "severity" << arg.severity;
+    d.space() << "args" << arg.args;
     return d;
 }

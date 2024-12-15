@@ -17,6 +17,7 @@ public:
         QString method;
         QString severity;
         QStringList args;
+        [[nodiscard]] bool operator==(const LogsArgument &other) const;
     };
 
     ApplicationsSettingsLogsInfo();
@@ -28,6 +29,9 @@ public:
 
     [[nodiscard]] bool operator==(const ApplicationsSettingsLogsInfo &other) const;
 
+    [[nodiscard]] QList<LogsArgument> arguments() const;
+    void setArguments(const QList<LogsArgument> &newArguments);
+
 private:
     QList<LogsArgument> mArguments;
     QString mMethod;
@@ -36,3 +40,4 @@ private:
 Q_DECLARE_METATYPE(ApplicationsSettingsLogsInfo)
 Q_DECLARE_TYPEINFO(ApplicationsSettingsLogsInfo, Q_RELOCATABLE_TYPE);
 LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const ApplicationsSettingsLogsInfo &t);
+LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const ApplicationsSettingsLogsInfo::LogsArgument &arg);
