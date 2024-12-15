@@ -6,7 +6,9 @@
 
 #include "applicationssettingslogsinfo.h"
 #include "ruqola_debug.h"
+#include "utils.h"
 
+#include <QDateTime>
 #include <QJsonArray>
 #include <QJsonObject>
 using namespace Qt::Literals::StringLiterals;
@@ -18,6 +20,7 @@ ApplicationsSettingsLogsInfo::~ApplicationsSettingsLogsInfo() = default;
 void ApplicationsSettingsLogsInfo::parseLogs(const QJsonObject &obj)
 {
     mMethod = obj["method"_L1].toString();
+    mCreatedAt = QDateTime::fromMSecsSinceEpoch(Utils::parseIsoDate(QStringLiteral("_createdAt"), obj));
     const QJsonArray array = obj["entries"_L1].toArray();
     for (const QJsonValue &current : array) {
         ApplicationsSettingsLogsInfo::LogsArgument log;
@@ -41,6 +44,16 @@ void ApplicationsSettingsLogsInfo::setArguments(const QList<LogsArgument> &newAr
     mArguments = newArguments;
 }
 
+QDateTime ApplicationsSettingsLogsInfo::createdAt() const
+{
+    return mCreatedAt;
+}
+
+void ApplicationsSettingsLogsInfo::setCreatedAt(const QDateTime &newCreatedAt)
+{
+    mCreatedAt = newCreatedAt;
+}
+
 QString ApplicationsSettingsLogsInfo::method() const
 {
     return mMethod;
@@ -55,6 +68,7 @@ QDebug operator<<(QDebug d, const ApplicationsSettingsLogsInfo &t)
 {
     d.space() << "method" << t.method();
     d.space() << "arguments" << t.arguments();
+    d.space() << "createdAt" << t.createdAt();
     return d;
 }
 

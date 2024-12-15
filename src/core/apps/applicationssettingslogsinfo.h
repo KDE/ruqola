@@ -7,6 +7,7 @@
 #pragma once
 #include "libruqolacore_export.h"
 
+#include <QDateTime>
 #include <QDebug>
 
 class LIBRUQOLACORE_EXPORT ApplicationsSettingsLogsInfo
@@ -34,9 +35,13 @@ public:
     [[nodiscard]] QList<LogsArgument> arguments() const;
     void setArguments(const QList<LogsArgument> &newArguments);
 
+    [[nodiscard]] QDateTime createdAt() const;
+    void setCreatedAt(const QDateTime &newCreatedAt);
+
 private:
     QList<LogsArgument> mArguments;
     QString mMethod;
+    QDateTime mCreatedAt;
 };
 
 Q_DECLARE_METATYPE(ApplicationsSettingsLogsInfo)
