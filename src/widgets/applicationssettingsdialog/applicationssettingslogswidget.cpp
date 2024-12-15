@@ -44,15 +44,14 @@ void ApplicationsSettingsLogsWidget::showEvent(QShowEvent *event)
 
 void ApplicationsSettingsLogsWidget::generateInfo(const QJsonObject &obj)
 {
+    QString message;
     // qDebug() << " obj " << obj;
     const QJsonArray array = obj[QStringLiteral("logs")].toArray();
-    QList<ApplicationsSettingsLogsInfo> logs;
     for (const auto &log : array) {
         ApplicationsSettingsLogsInfo logInfo;
         logInfo.parseLogs(log.toObject());
-        logs.append(logInfo);
     }
-    qDebug() << " logs " << logs;
+    mTextBrowser->setPlainText(message);
 }
 
 void ApplicationsSettingsLogsWidget::initialize()
