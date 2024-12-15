@@ -857,7 +857,7 @@ void DDPClient::onTextMessageReceived(const QString &message)
 
 void DDPClient::login()
 {
-    if (!Ruqola::self()->useRestApiLogin()) {
+    if (!Ruqola::useRestApiLogin()) {
         if (auto interface = mRocketChatAccount->defaultAuthenticationInterface()) {
             interface->login();
         } else {
@@ -897,7 +897,7 @@ void DDPClient::onWSConnected()
     } else {
         qCDebug(RUQOLA_DDPAPI_COMMAND_LOG) << "Successfully sent " << serialize;
     }
-    if (!Ruqola::self()->useRestApiLogin()) {
+    if (!Ruqola::useRestApiLogin()) {
         if (mLoginEnqueued) {
             login();
             mLoginEnqueued = false;

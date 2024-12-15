@@ -658,7 +658,7 @@ DDPClient *RocketChatAccount::ddp()
 {
     if (!mDdp && accountEnabled()) {
         mDdp.reset(new DDPClient(this, this));
-        if (Ruqola::self()->useRestApiLogin()) {
+        if (Ruqola::useRestApiLogin()) {
             connect(mDdp->authenticationManager(), &DDPAuthenticationManager::loginStatusChanged, this, &RocketChatAccount::slotDDpLoginStatusChanged);
         } else {
             connect(mDdp->authenticationManager(), &DDPAuthenticationManager::loginStatusChanged, this, &RocketChatAccount::slotLoginStatusChanged);
@@ -680,7 +680,7 @@ DDPClient *RocketChatAccount::ddp()
 
 AuthenticationManager::LoginStatus RocketChatAccount::loginStatus() const
 {
-    if (Ruqola::self()->useRestApiLogin()) {
+    if (Ruqola::useRestApiLogin()) {
         if (mRestApi) {
             if (mRestApi->authenticationManager()) {
                 return mRestApi->authenticationManager()->loginStatus();
@@ -723,8 +723,9 @@ QString RocketChatAccount::ddpLoginStatusText() const
 void RocketChatAccount::tryLogin()
 {
     qCDebug(RUQOLA_RECONNECT_LOG) << accountName() << "attempting login" << mSettings->userName() << "on" << mSettings->serverUrl();
+    Q_ASSERT(ddp());
 
-    if (Ruqola::self()->useRestApiLogin()) {
+    if (Ruqola::useRestApiLogin()) {
         if (auto interface = defaultAuthenticationInterface()) {
             qCDebug(RUQOLA_RECONNECT_LOG) << "RESTAPI login" << accountName();
             if (!interface->login()) {
@@ -1517,7 +1518,7 @@ void RocketChatAccount::initializeAuthenticationPlugins()
     qCDebug(RUQOLA_LOG) << " void RocketChatAccount::initializeAuthenticationPlugins()" << lstPlugins.count();
     if (lstPlugins.isEmpty()) {
         qCWarning(RUQOLA_LOG) << " No plugins loaded. Please verify your installation.";
-        if (Ruqola::self()->useRestApiLogin()) {
+        if (Ruqola::useRestApiLogin()) {
             restApi()->authenticationManager()->setLoginStatus(AuthenticationManager::FailedToLoginPluginProblem);
         } else {
             ddp()->authenticationManager()->setLoginStatus(AuthenticationManager::FailedToLoginPluginProblem);
@@ -2436,7 +2437,7 @@ void RocketChatAccount::slotUsersPresenceDone(const QJsonObject &obj)
 void RocketChatAccount::slotReconnectToDdpServer() // connected to DDPClient::disconnectedByServer
 {
     mRoomModel->clear();
-    if (Ruqola::self()->useRestApiLogin()) {
+    if (Ruqola::useRestApiLogin()) {
         if (mRestApi && mRestApi->authenticationManager()->isLoggedIn()) {
             qCDebug(RUQOLA_RECONNECT_LOG) << "Reconnect only ddpclient";
             ddp()->enqueueLogin();
@@ -2644,7 +2645,7 @@ void RocketChatAccount::slotDDpLoginStatusChanged()
     if (mDdp && mDdp->authenticationManager()->loginStatus() == AuthenticationManager::LoggedOutAndCleanedUp) {
         mDdp.release()->deleteLater();
     }
-    if (!Ruqola::self()->useRestApiLogin()) {
+    if (!Ruqola::useRestApiLogin()) {
         slotLoginStatusChanged();
     }
     Q_EMIT ddpLoginStatusChanged();

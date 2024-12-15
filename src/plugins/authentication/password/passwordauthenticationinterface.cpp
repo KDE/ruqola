@@ -27,7 +27,7 @@ PasswordAuthenticationInterface::~PasswordAuthenticationInterface() = default;
 bool PasswordAuthenticationInterface::login()
 {
     if (!mAccount->settings()->authToken().isEmpty() && !mAccount->settings()->tokenExpired()) {
-        if (Ruqola::self()->useRestApiLogin()) {
+        if (Ruqola::useRestApiLogin()) {
             mAccount->restApi()->authenticationManager()->setAuthToken(mAccount->settings()->authToken());
             if (!mAccount->restApi()->authenticationManager()->login()) {
                 return false;
@@ -42,7 +42,7 @@ bool PasswordAuthenticationInterface::login()
     }
 
     if (!mAccount->settings()->twoFactorAuthenticationCode().isEmpty()) {
-        if (Ruqola::self()->useRestApiLogin()) {
+        if (Ruqola::useRestApiLogin()) {
             if (!mAccount->restApi()->authenticationManager()->sendOTP(mAccount->settings()->twoFactorAuthenticationCode())) {
                 return false;
             }
@@ -58,7 +58,7 @@ bool PasswordAuthenticationInterface::login()
         return false;
     }
 
-    if (Ruqola::self()->useRestApiLogin()) {
+    if (Ruqola::useRestApiLogin()) {
         if (mAccount->ldapEnabled()) {
             if (!mAccount->restApi()->authenticationManager()->loginLDAP(mAccount->settings()->userName(), mAccount->settings()->password())) {
                 return false;

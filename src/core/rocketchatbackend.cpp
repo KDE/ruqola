@@ -199,7 +199,7 @@ void RocketChatBackend::slotDDPConnectedChanged(bool connected)
 
         // In RestAPI-login mode (the default), we can only DDP-login if we have an auth token from rest api
         auto restApi = mRocketChatAccount->restApi();
-        if (!Ruqola::self()->useRestApiLogin() || (restApi && restApi->authenticationManager()->isLoggedIn())) {
+        if (!Ruqola::useRestApiLogin() || (restApi && restApi->authenticationManager()->isLoggedIn())) {
             ddpLogin();
         }
     }
@@ -391,7 +391,7 @@ void RocketChatBackend::slotLoginStatusChanged()
 {
     if (mRocketChatAccount->loginStatus() == AuthenticationManager::LoggedIn) {
         auto restApi = mRocketChatAccount->restApi();
-        if (Ruqola::self()->useRestApiLogin()) {
+        if (Ruqola::useRestApiLogin()) {
             mRocketChatAccount->settings()->setAuthToken(restApi->authenticationManager()->authToken());
             mRocketChatAccount->settings()->setExpireToken(restApi->authenticationManager()->tokenExpires());
 
@@ -465,7 +465,7 @@ void RocketChatBackend::tryAutoLogin()
     } else {
         qCWarning(RUQOLA_RECONNECT_LOG) << " tryAutoLogin: check not implemented for " << mRocketChatAccount->authMethodType();
     }
-    if (Ruqola::self()->useRestApiLogin()) {
+    if (Ruqola::useRestApiLogin()) {
         qCDebug(RUQOLA_RECONNECT_LOG) << "tryAutoLogin: try login REST API" << mRocketChatAccount->accountName();
         mRocketChatAccount->tryLogin();
     } else {

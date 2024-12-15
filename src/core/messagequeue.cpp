@@ -35,7 +35,7 @@ MessageQueue::~MessageQueue()
 
 void MessageQueue::loadCache()
 {
-    if (Ruqola::self()->useRestApiLogin()) {
+    if (Ruqola::useRestApiLogin()) {
         connect(mRocketChatAccount->restApi()->authenticationManager(),
                 &RESTAuthenticationManager::loginStatusChanged,
                 this,
