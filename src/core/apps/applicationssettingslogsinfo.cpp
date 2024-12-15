@@ -7,6 +7,7 @@
 #include "applicationssettingslogsinfo.h"
 #include "ruqola_debug.h"
 
+#include <QJsonArray>
 #include <QJsonObject>
 using namespace Qt::Literals::StringLiterals;
 
@@ -17,11 +18,16 @@ ApplicationsSettingsLogsInfo::~ApplicationsSettingsLogsInfo() = default;
 void ApplicationsSettingsLogsInfo::parseLogs(const QJsonObject &obj)
 {
     mMethod = obj["method"_L1].toString();
+    const QJsonArray array = obj["entries"_L1].toArray();
+    for (const QJsonValue &current : array) {
+        ApplicationsSettingsLogsInfo::LogsArgument log;
+        log.parseArguments(current.toObject());
+        mArguments.append(log);
+    }
 }
 
 bool ApplicationsSettingsLogsInfo::operator==(const ApplicationsSettingsLogsInfo &other) const
 {
-    // TODO
     return mMethod == other.method() && mArguments == other.arguments();
 }
 
@@ -50,6 +56,15 @@ QDebug operator<<(QDebug d, const ApplicationsSettingsLogsInfo &t)
     d.space() << "method" << t.method();
     d.space() << "arguments" << t.arguments();
     return d;
+}
+
+void ApplicationsSettingsLogsInfo::LogsArgument::parseArguments(const QJsonObject &obj)
+{
+    caller = obj["caller"_L1].toString();
+    method = obj["method"_L1].toString();
+    severity = obj["severity"_L1].toString(); // TODO convert to enum !!!
+    // TODO extract args
+    //  TODO
 }
 
 bool ApplicationsSettingsLogsInfo::LogsArgument::operator==(const LogsArgument &other) const

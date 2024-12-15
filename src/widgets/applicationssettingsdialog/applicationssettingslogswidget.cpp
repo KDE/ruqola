@@ -5,6 +5,7 @@
 */
 
 #include "applicationssettingslogswidget.h"
+#include "apps/applicationssettingslogsinfo.h"
 
 #include "apps/appinfojob.h"
 #include "connection.h"
@@ -45,9 +46,13 @@ void ApplicationsSettingsLogsWidget::generateInfo(const QJsonObject &obj)
 {
     // qDebug() << " obj " << obj;
     const QJsonArray array = obj[QStringLiteral("logs")].toArray();
+    QList<ApplicationsSettingsLogsInfo> logs;
     for (const auto &log : array) {
-        qDebug() << " log " << log;
+        ApplicationsSettingsLogsInfo logInfo;
+        logInfo.parseLogs(log.toObject());
+        logs.append(logInfo);
     }
+    qDebug() << " logs " << logs;
 }
 
 void ApplicationsSettingsLogsWidget::initialize()
