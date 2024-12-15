@@ -585,6 +585,9 @@ target_sources(libruqolacore PRIVATE
     apps/applicationssettingssettingsinfo.h 
     apps/applicationssettingssettingsinfo.cpp
 
+    apps/applicationssettingslogsinfo.h
+    apps/applicationssettingslogsinfo.cpp
+
     memorymanager/memorymanager.h
     memorymanager/memorymanager.cpp
 )
