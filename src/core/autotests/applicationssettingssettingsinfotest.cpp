@@ -9,7 +9,7 @@
 #include "ruqola_autotest_helper.h"
 #include <QTest>
 using namespace Qt::Literals::StringLiterals;
-QTEST_MAIN(ApplicationsSettingsSettingsInfoTest)
+QTEST_GUILESS_MAIN(ApplicationsSettingsSettingsInfoTest)
 ApplicationsSettingsSettingsInfoTest::ApplicationsSettingsSettingsInfoTest(QObject *parent)
     : QObject{parent}
 {
