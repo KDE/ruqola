@@ -11,6 +11,7 @@
 #include "connection.h"
 #include "rocketchataccount.h"
 #include "ruqolawidgets_debug.h"
+#include <KLocalizedString>
 #include <QShowEvent>
 #include <QTextBrowser>
 #include <QVBoxLayout>
@@ -65,6 +66,9 @@ void ApplicationsSettingsLogsWidget::generateInfo(const QJsonObject &obj)
                 message += str + QStringLiteral("<br/>");
             }
         }
+    }
+    if (message.isEmpty()) {
+        message = QStringLiteral("<b><i>%1</i></b>").arg(i18n("No logs info found."));
     }
     mTextBrowser->setHtml(message);
 }
