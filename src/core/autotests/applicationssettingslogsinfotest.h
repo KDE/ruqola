@@ -14,4 +14,6 @@ class ApplicationsSettingsLogsInfoTest : public QObject
 public:
     explicit ApplicationsSettingsLogsInfoTest(QObject *parent = nullptr);
     ~ApplicationsSettingsLogsInfoTest() override = default;
+private Q_SLOTS:
+    void shouldHaveDefaultValues();
 };

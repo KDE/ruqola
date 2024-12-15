@@ -5,6 +5,8 @@
 */
 
 #include "applicationssettingslogsinfotest.h"
+#include "apps/applicationssettingslogsinfo.h"
+#include "ruqola_autotest_helper.h"
 #include <QTest>
 
 QTEST_GUILESS_MAIN(ApplicationsSettingsLogsInfoTest)
@@ -13,3 +15,10 @@ ApplicationsSettingsLogsInfoTest::ApplicationsSettingsLogsInfoTest(QObject *pare
     : QObject{parent}
 {
 }
+
+void ApplicationsSettingsLogsInfoTest::shouldHaveDefaultValues()
+{
+    // TODO
+}
+
+#include "moc_applicationssettingslogsinfotest.cpp"
