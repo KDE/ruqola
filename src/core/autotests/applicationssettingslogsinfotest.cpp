@@ -18,6 +18,8 @@ ApplicationsSettingsLogsInfoTest::ApplicationsSettingsLogsInfoTest(QObject *pare
 
 void ApplicationsSettingsLogsInfoTest::shouldHaveDefaultValues()
 {
+    ApplicationsSettingsLogsInfo log;
+    QVERIFY(log.method().isEmpty());
     // TODO
 }
 

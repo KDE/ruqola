@@ -12,8 +12,25 @@
 class LIBRUQOLACORE_EXPORT ApplicationsSettingsLogsInfo
 {
 public:
+    struct LIBRUQOLACORE_EXPORT LogsArgument {
+        QString caller;
+        QString method;
+        QString severity;
+        QStringList args;
+    };
+
     ApplicationsSettingsLogsInfo();
     ~ApplicationsSettingsLogsInfo();
+    [[nodiscard]] QString method() const;
+    void setMethod(const QString &newMethod);
+
+    void parseLogs(const QJsonObject &obj);
+
+    [[nodiscard]] bool operator==(const ApplicationsSettingsLogsInfo &other) const;
+
+private:
+    QList<LogsArgument> mArguments;
+    QString mMethod;
 };
 
 Q_DECLARE_METATYPE(ApplicationsSettingsLogsInfo)
