@@ -8,10 +8,10 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-12-14 00:49+0000\n"
-"PO-Revision-Date: 2024-12-13 20:06+0200\n"
-"Last-Translator: Fracture dept <yurchor@ukr.net>\n"
-"Language-Team: Ukrainian <kde-i18n-uk@kde.org>\n"
+"POT-Creation-Date: 2024-12-15 00:41+0000\n"
+"PO-Revision-Date: 2024-12-14 09:19+0200\n"
+"Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
+"Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
 "Language: uk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -7125,6 +7125,12 @@ msgstr "усі стани"
 msgid "No release information provided"
 msgstr "Даних щодо випуску не надано"
 
+#: widgets/applicationssettingsdialog/applicationssettingsversionwidget.cpp:80
+#, fuzzy, kde-format
+#| msgid "No room found"
+msgid "No version info found."
+msgstr "Кімнати не знайдено"
+
 #: widgets/applicationssettingsdialog/appscountinfowidget.cpp:47
 #, kde-format
 msgid "%1 app enabled"
@@ -10991,14 +10997,13 @@ msgstr "Створення команди"
 #: widgets/ruqolamainwindow.cpp:952
 #, kde-format
 msgid "Cannot write to log file %1"
-msgstr ""
+msgstr "Не вдалося виконати запис до файла журналу %1"
 
 #: widgets/ruqolamainwindow.cpp:952
-#, fuzzy, kde-format
-#| msgid "Show Channel Log"
+#, kde-format
 msgctxt "@title:window"
 msgid "Show Channel Log"
-msgstr "Показати журнал каналу"
+msgstr "Показ журналу каналу"
 
 #: widgets/ruqolamainwindow.cpp:1115
 #, kde-format

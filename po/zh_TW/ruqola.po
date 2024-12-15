@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-12-14 00:49+0000\n"
+"POT-Creation-Date: 2024-12-15 00:41+0000\n"
 "PO-Revision-Date: 2024-08-06 05:33+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
@@ -7212,6 +7212,12 @@ msgstr "狀態"
 #, kde-format
 msgid "No release information provided"
 msgstr ""
+
+#: widgets/applicationssettingsdialog/applicationssettingsversionwidget.cpp:80
+#, fuzzy, kde-format
+#| msgid "No room found"
+msgid "No version info found."
+msgstr "找不到聊天室"
 
 #: widgets/applicationssettingsdialog/appscountinfowidget.cpp:47
 #, kde-format

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-12-14 00:49+0000\n"
+"POT-Creation-Date: 2024-12-15 00:41+0000\n"
 "PO-Revision-Date: 2024-10-08 22:03+0300\n"
 "Last-Translator: Moo\n"
 "Language-Team: none\n"
@@ -7230,6 +7230,12 @@ msgstr "Būsenos tekstas:"
 #, kde-format
 msgid "No release information provided"
 msgstr ""
+
+#: widgets/applicationssettingsdialog/applicationssettingsversionwidget.cpp:80
+#, fuzzy, kde-format
+#| msgid "No Messages found"
+msgid "No version info found."
+msgstr "Nerasta jokių žinučių"
 
 #: widgets/applicationssettingsdialog/appscountinfowidget.cpp:47
 #, kde-format

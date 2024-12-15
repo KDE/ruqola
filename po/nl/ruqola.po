@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-12-14 00:49+0000\n"
-"PO-Revision-Date: 2024-12-14 00:12+0100\n"
+"POT-Creation-Date: 2024-12-15 00:41+0000\n"
+"PO-Revision-Date: 2024-12-14 12:37+0100\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
 "Language: nl\n"
@@ -7099,6 +7099,12 @@ msgstr "Alle statussen"
 msgid "No release information provided"
 msgstr "Geen informatie over uitgave geleverd"
 
+#: widgets/applicationssettingsdialog/applicationssettingsversionwidget.cpp:80
+#, fuzzy, kde-format
+#| msgid "No room found"
+msgid "No version info found."
+msgstr "Geen room gevonden"
+
 #: widgets/applicationssettingsdialog/appscountinfowidget.cpp:47
 #, kde-format
 msgid "%1 app enabled"
@@ -10921,11 +10927,10 @@ msgstr "Team aanmaken"
 #: widgets/ruqolamainwindow.cpp:952
 #, kde-format
 msgid "Cannot write to log file %1"
-msgstr ""
+msgstr "Kan niet naar logbestand %1 schrijven"
 
 #: widgets/ruqolamainwindow.cpp:952
-#, fuzzy, kde-format
-#| msgid "Show Channel Log"
+#, kde-format
 msgctxt "@title:window"
 msgid "Show Channel Log"
 msgstr "Kanaallog tonen"

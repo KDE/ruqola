@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-12-14 00:49+0000\n"
+"POT-Creation-Date: 2024-12-15 00:41+0000\n"
 "PO-Revision-Date: 2020-06-13 21:18+0300\n"
 "Last-Translator: Marek Laane <qiilaq69@gmail.com>\n"
 "Language-Team: Estonian <kde-et@lists.linux.ee>\n"
@@ -7411,6 +7411,12 @@ msgstr "Olek:"
 #, kde-format
 msgid "No release information provided"
 msgstr ""
+
+#: widgets/applicationssettingsdialog/applicationssettingsversionwidget.cpp:80
+#, fuzzy, kde-format
+#| msgid "No Mention found"
+msgid "No version info found."
+msgstr "Ühtegi mainimist ei leitud"
 
 #: widgets/applicationssettingsdialog/appscountinfowidget.cpp:47
 #, kde-format

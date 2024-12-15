@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-12-14 00:49+0000\n"
+"POT-Creation-Date: 2024-12-15 00:41+0000\n"
 "PO-Revision-Date: 2024-12-11 08:53+0100\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
 "Language-Team: French <French <kde-francophone@kde.org>>\n"
@@ -7148,6 +7148,12 @@ msgstr "Tous les états"
 #, kde-format
 msgid "No release information provided"
 msgstr ""
+
+#: widgets/applicationssettingsdialog/applicationssettingsversionwidget.cpp:80
+#, fuzzy, kde-format
+#| msgid "No room found"
+msgid "No version info found."
+msgstr "Aucun salon trouvé"
 
 #: widgets/applicationssettingsdialog/appscountinfowidget.cpp:47
 #, kde-format

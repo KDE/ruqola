@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-12-14 00:49+0000\n"
+"POT-Creation-Date: 2024-12-15 00:41+0000\n"
 "PO-Revision-Date: 2024-12-14 01:41+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
@@ -7052,6 +7052,12 @@ msgstr "ყველა სტატუსი"
 #, kde-format
 msgid "No release information provided"
 msgstr "რელიზის ინფორმაცია მითითებული არაა"
+
+#: widgets/applicationssettingsdialog/applicationssettingsversionwidget.cpp:80
+#, fuzzy, kde-format
+#| msgid "No room found"
+msgid "No version info found."
+msgstr "ოთახი ვერ ვიპოვე"
 
 #: widgets/applicationssettingsdialog/appscountinfowidget.cpp:47
 #, kde-format

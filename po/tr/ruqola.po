@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-12-14 00:49+0000\n"
-"PO-Revision-Date: 2024-12-13 11:42+0300\n"
+"POT-Creation-Date: 2024-12-15 00:41+0000\n"
+"PO-Revision-Date: 2024-12-14 18:03+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -6931,10 +6931,9 @@ msgid "Versions"
 msgstr "Sürümler"
 
 #: widgets/applicationssettingsdialog/applicationssettingsdescriptiontabwidget.cpp:44
-#, fuzzy, kde-format
-#| msgid "&Settings"
+#, kde-format
 msgid "Settings"
-msgstr "Ayar&lar"
+msgstr "Ayarlar"
 
 #: widgets/applicationssettingsdialog/applicationssettingsdialog.cpp:27
 #, kde-format
@@ -7040,7 +7039,13 @@ msgstr "Tüm Durumlar"
 #: widgets/applicationssettingsdialog/applicationssettingsversionwidget.cpp:71
 #, kde-format
 msgid "No release information provided"
-msgstr ""
+msgstr "Sunulmuş yayım bilgisi yok"
+
+#: widgets/applicationssettingsdialog/applicationssettingsversionwidget.cpp:80
+#, fuzzy, kde-format
+#| msgid "No room found"
+msgid "No version info found."
+msgstr "Oda bulunamadı"
 
 #: widgets/applicationssettingsdialog/appscountinfowidget.cpp:47
 #, kde-format
@@ -10864,11 +10869,10 @@ msgstr "Takım Oluştur"
 #: widgets/ruqolamainwindow.cpp:952
 #, kde-format
 msgid "Cannot write to log file %1"
-msgstr ""
+msgstr "%1 günlük dosyasına yazılamıyor"
 
 #: widgets/ruqolamainwindow.cpp:952
-#, fuzzy, kde-format
-#| msgid "Show Channel Log"
+#, kde-format
 msgctxt "@title:window"
 msgid "Show Channel Log"
 msgstr "Kanal Günlüğünü Göster"
@@ -11486,10 +11490,9 @@ msgid "Fix open discussion channel"
 msgstr "Açık tartışma kanalını onar"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:136
-#, fuzzy, kde-format
-#| msgid "Allow to write oauth app settings"
+#, kde-format
 msgid "Allow to show application market settings"
-msgstr "OAuth uygulama ayarlarını yazmaya izin ver"
+msgstr "Uygulama marketi ayarlarını göstermeye izin ver"
 
 #: widgets/whatsnew/whatsnewwidget.cpp:44
 #, kde-format
