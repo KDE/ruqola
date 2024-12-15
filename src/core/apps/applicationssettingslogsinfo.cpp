@@ -31,7 +31,7 @@ void ApplicationsSettingsLogsInfo::parseLogs(const QJsonObject &obj)
 
 bool ApplicationsSettingsLogsInfo::operator==(const ApplicationsSettingsLogsInfo &other) const
 {
-    return mMethod == other.method() && mArguments == other.arguments();
+    return mMethod == other.method() && mArguments == other.arguments() && mCreatedAt == other.createdAt();
 }
 
 QList<ApplicationsSettingsLogsInfo::LogsArgument> ApplicationsSettingsLogsInfo::arguments() const
@@ -77,8 +77,10 @@ void ApplicationsSettingsLogsInfo::LogsArgument::parseArguments(const QJsonObjec
     caller = obj["caller"_L1].toString();
     method = obj["method"_L1].toString();
     severity = obj["severity"_L1].toString(); // TODO convert to enum !!!
-    // TODO extract args
-    //  TODO
+    const QJsonArray arrayArgs = obj["args"_L1].toArray();
+    for (const QJsonValue &current : arrayArgs) {
+        args.append(current.toString());
+    }
 }
 
 bool ApplicationsSettingsLogsInfo::LogsArgument::operator==(const LogsArgument &other) const
