@@ -132,7 +132,7 @@ AdministratorSettingsWidget::AdministratorSettingsWidget(RocketChatAccount *acco
     mTabWidget->addTab(mAnalyticsWidget, i18n("Analytics"));
     if (mRocketChatAccount) {
         connect(mRocketChatAccount, &RocketChatAccount::publicSettingLoaded, this, &AdministratorSettingsWidget::initialize);
-        connect(mRocketChatAccount, &RocketChatAccount::privateSettingLoaded, this, [this](const QJsonObject &obj) {
+        connect(mRocketChatAccount, &RocketChatAccount::privateSettingLoaded, this, [](const QJsonObject &obj) {
             qDebug() << " RocketChatAccount::privateSettingLoaded " << obj;
         });
     }
