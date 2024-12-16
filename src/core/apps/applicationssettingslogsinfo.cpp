@@ -5,7 +5,6 @@
 */
 
 #include "applicationssettingslogsinfo.h"
-#include "ruqola_debug.h"
 #include "utils.h"
 
 #include <QDateTime>
