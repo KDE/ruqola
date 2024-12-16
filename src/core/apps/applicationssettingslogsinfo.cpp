@@ -11,6 +11,7 @@
 #include <QDateTime>
 #include <QJsonArray>
 #include <QJsonObject>
+#include <QTimeZone>
 using namespace Qt::Literals::StringLiterals;
 
 ApplicationsSettingsLogsInfo::ApplicationsSettingsLogsInfo() = default;
@@ -20,7 +21,7 @@ ApplicationsSettingsLogsInfo::~ApplicationsSettingsLogsInfo() = default;
 void ApplicationsSettingsLogsInfo::parseLogs(const QJsonObject &obj)
 {
     mMethod = obj["method"_L1].toString();
-    mCreatedAt = QDateTime::fromMSecsSinceEpoch(Utils::parseIsoDate(QStringLiteral("_createdAt"), obj));
+    mCreatedAt = QDateTime::fromMSecsSinceEpoch(Utils::parseIsoDate(QStringLiteral("_createdAt"), obj), QTimeZone::utc());
     const QJsonArray array = obj["entries"_L1].toArray();
     for (const QJsonValue &current : array) {
         ApplicationsSettingsLogsInfo::LogsArgument log;

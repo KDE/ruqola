@@ -38,7 +38,7 @@ void ApplicationsSettingsLogsInfoTest::shouldLoadApplicationLogsInfo_data()
     {
         ApplicationsSettingsLogsInfo info;
         info.setMethod("app:construct"_L1);
-        info.setCreatedAt(QDateTime(QDate(2024, 12, 05), QTime(04, 28, 02, 762), QTimeZone::UTC));
+        info.setCreatedAt(QDateTime(QDate(2024, 12, 05), QTime(03, 28, 02, 762), QTimeZone::UTC));
 
         QList<ApplicationsSettingsLogsInfo::LogsArgument> args;
         {
