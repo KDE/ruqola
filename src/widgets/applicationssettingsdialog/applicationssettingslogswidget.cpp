@@ -55,16 +55,16 @@ void ApplicationsSettingsLogsWidget::generateInfo(const QJsonObject &obj)
             message += QStringLiteral("<br/>");
         }
 
-        message += QStringLiteral("<b>") + QLocale().toString(logInfo.createdAt());
-        message += logInfo.method() + QStringLiteral("</b>");
+        message += QStringLiteral("<b>%1: %2</b>").arg(QLocale().toString(logInfo.createdAt(), QLocale::ShortFormat), logInfo.method());
         for (const auto &arg : logInfo.arguments()) {
             message += QStringLiteral("<br/>");
-            message += arg.caller + QStringLiteral("<br/>");
+            message += i18n("%1 Caller: %2", arg.severity, arg.caller) + QStringLiteral("<br/>");
             message += arg.method + QStringLiteral("<br/>");
-            message += arg.severity + QStringLiteral("<br/>");
+            message += QStringLiteral("[<br/>");
             for (const QString &str : arg.args) {
-                message += str + QStringLiteral("<br/>");
+                message += QStringLiteral("\"") + str + QStringLiteral("\"") + QStringLiteral("<br/>");
             }
+            message += QStringLiteral("]<br/>");
         }
     }
     if (message.isEmpty()) {
