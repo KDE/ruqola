@@ -16,4 +16,6 @@ public:
     ~ApplicationsSettingsLogsInfoTest() override = default;
 private Q_SLOTS:
     void shouldHaveDefaultValues();
+    void shouldLoadApplicationLogsInfo();
+    void shouldLoadApplicationLogsInfo_data();
 };

@@ -49,6 +49,7 @@ void ApplicationsSettingsLogsWidget::generateInfo(const QJsonObject &obj)
     // qDebug() << " obj " << obj;
     const QJsonArray array = obj[QStringLiteral("logs")].toArray();
     for (const auto &log : array) {
+        qDebug() << " log " << log;
         ApplicationsSettingsLogsInfo logInfo;
         logInfo.parseLogs(log.toObject());
         if (!message.isEmpty()) {
