@@ -21,6 +21,7 @@ void ApplicationsSettingsLogsInfoTest::shouldHaveDefaultValues()
     ApplicationsSettingsLogsInfo log;
     QVERIFY(log.method().isEmpty());
     QVERIFY(log.arguments().isEmpty());
+    QVERIFY(log.createdAt().isNull());
 
     ApplicationsSettingsLogsInfo::LogsArgument args;
     QVERIFY(args.caller.isEmpty());
