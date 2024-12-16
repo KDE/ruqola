@@ -639,11 +639,7 @@ void RuqolaMainWindow::setupActions()
             disconnect(mHamburgerMenu, &KHamburgerMenu::aboutToShowMenu, this, nullptr);
         });
     }
-#if KCOLORSCHEME_VERSION < QT_VERSION_CHECK(6, 6, 0)
-    auto manager = new KColorSchemeManager(this);
-#else
     auto manager = KColorSchemeManager::instance();
-#endif
     ac->addAction(QStringLiteral("colorscheme_menu"), KColorSchemeMenu::createMenu(manager, this));
 
     mShowFullScreenAction = KStandardAction::fullScreen(nullptr, nullptr, this, ac);

@@ -13,15 +13,7 @@ WhatsNewTranslations::~WhatsNewTranslations() = default;
 // Use by newFeaturesMD5
 QList<KLazyLocalizedString> WhatsNewTranslations::lastNewFeatures() const
 {
-    const QList<KLazyLocalizedString> info{
-        kli18n("Allow to clean up room history when room was not opened from long time."),
-        kli18n("Add restore button in administrator server settings dialog."),
-        kli18n("Improve changing password (show validation info)."),
-        kli18n("Improve register new account (Add reason support)."),
-        kli18n("Implement mute/unmute user."),
-        kli18n("Add color to the text in the account tab"),
-        kli18n("Allow to show private installed applications"),
-    };
+    const QList<KLazyLocalizedString> info{};
     return info;
 }
 
@@ -123,6 +115,17 @@ QList<WhatsNewInfo> WhatsNewTranslations::createWhatsNewInfo() const
         }
         info.setNewFeatures(lst);
         info.setVersion(QStringLiteral("2.4"));
+        info.setNewFeatures({
+            i18n("Allow to clean up room history when room was not opened from long time."),
+            i18n("Add restore button in administrator server settings dialog."),
+            i18n("Improve changing password (show validation info)."),
+            i18n("Improve register new account (Add reason support)."),
+            i18n("Implement mute/unmute user."),
+            i18n("Add color to the text in the account tab"),
+            i18n("Allow to show private installed applications"),
+        }
+
+        );
         info.setBugFixings({
             i18n("Fix editing message."),
             i18n("Show permissions in Rocket.Chat Marketplace."),
@@ -135,6 +138,17 @@ QList<WhatsNewInfo> WhatsNewTranslations::createWhatsNewInfo() const
             i18n("Fix open discussion channel"),
             i18n("Allow to show application market settings"),
         });
+
+        listInfo.append(std::move(info));
+    }
+    {
+        WhatsNewInfo info;
+        QStringList lst;
+        for (const KLazyLocalizedString &l : lastNewFeatures()) {
+            lst += l.toString();
+        }
+        info.setNewFeatures(lst);
+        info.setVersion(QStringLiteral("2.5"));
 
         listInfo.append(std::move(info));
     }
