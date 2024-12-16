@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-12-15 00:41+0000\n"
-"PO-Revision-Date: 2024-12-14 01:45+0530\n"
+"POT-Creation-Date: 2024-12-16 00:42+0000\n"
+"PO-Revision-Date: 2024-12-15 22:15+0530\n"
 "Last-Translator: kali <skkalwar999@gmail.com>\n"
 "Language-Team: Sanskrit <kde-i18n-doc@kde.org>\n"
 "Language: sa\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n>2);\n"
-"X-Generator: Lokalize 24.08.2\n"
+"X-Generator: Poedit 3.5\n"
 
 #: apps/main.cpp:73
 #, kde-format
@@ -394,10 +394,9 @@ msgid "Allow to read oauth app settings"
 msgstr "oauth app सेटिंग्स् पठितुं अनुमतिं ददातु"
 
 #: core/apps/appsmarketplaceinfo.cpp:665
-#, fuzzy, kde-format
-#| msgid "Allow to send multi files."
+#, kde-format
 msgid "Allow to send email"
-msgstr "बहुसञ्चिकाः प्रेषयितुं अनुमतिं ददातु।"
+msgstr "ईमेल प्रेषयितुं अनुमतिं ददातु"
 
 #: core/authenticationmanager.cpp:85
 #, kde-format
@@ -6893,16 +6892,14 @@ msgid "Description"
 msgstr "वर्णनम्‌"
 
 #: widgets/applicationssettingsdialog/applicationssettingsdescriptiontabwidget.cpp:38
-#, fuzzy, kde-format
-#| msgid "Version"
+#, kde-format
 msgid "Versions"
-msgstr "संस्करण"
+msgstr "संस्करणाः"
 
 #: widgets/applicationssettingsdialog/applicationssettingsdescriptiontabwidget.cpp:44
-#, fuzzy, kde-format
-#| msgid "&Settings"
+#, kde-format
 msgid "Settings"
-msgstr "&सेटिंग्स"
+msgstr "समायोजनानि"
 
 #: widgets/applicationssettingsdialog/applicationssettingsdialog.cpp:27
 #, kde-format
@@ -6940,6 +6937,12 @@ msgstr "आवेदनम् पृच्छतु..."
 msgctxt "@action"
 msgid "Copy Text"
 msgstr "पाठं प्रतिलिपितु"
+
+#: widgets/applicationssettingsdialog/applicationssettingslogswidget.cpp:71
+#, fuzzy, kde-format
+#| msgid "No version info found."
+msgid "No logs info found."
+msgstr "संस्करणसूचना न प्राप्ता।"
 
 #: widgets/applicationssettingsdialog/applicationssettingspricecombobox.cpp:13
 #, kde-format
@@ -7008,13 +7011,12 @@ msgstr "सर्वः स्थितिः"
 #: widgets/applicationssettingsdialog/applicationssettingsversionwidget.cpp:71
 #, kde-format
 msgid "No release information provided"
-msgstr ""
+msgstr "विमोचनसूचना न प्रदत्ता"
 
 #: widgets/applicationssettingsdialog/applicationssettingsversionwidget.cpp:80
-#, fuzzy, kde-format
-#| msgid "No room found"
+#, kde-format
 msgid "No version info found."
-msgstr "न स्थानं लब्धम्"
+msgstr "संस्करणसूचना न प्राप्ता।"
 
 #: widgets/applicationssettingsdialog/appscountinfowidget.cpp:47
 #, kde-format
@@ -10812,11 +10814,10 @@ msgstr "दल रचयतु"
 #: widgets/ruqolamainwindow.cpp:952
 #, kde-format
 msgid "Cannot write to log file %1"
-msgstr ""
+msgstr "%1 लॉग् सञ्चिकायां लिखितुं न शक्यते"
 
 #: widgets/ruqolamainwindow.cpp:952
-#, fuzzy, kde-format
-#| msgid "Show Channel Log"
+#, kde-format
 msgctxt "@title:window"
 msgid "Show Channel Log"
 msgstr "Channel Log दर्शयतु"
@@ -11431,10 +11432,9 @@ msgid "Fix open discussion channel"
 msgstr "खुला चर्चा चैनलं निवारयन्तु"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:136
-#, fuzzy, kde-format
-#| msgid "Allow to write oauth app settings"
+#, kde-format
 msgid "Allow to show application market settings"
-msgstr "oauth app सेटिंग्स् लिखितुं अनुमतिं ददातु"
+msgstr "अनुप्रयोगविपण्यसेटिंग्स् दर्शयितुं अनुमतिं ददातु"
 
 #: widgets/whatsnew/whatsnewwidget.cpp:44
 #, kde-format

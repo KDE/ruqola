@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-12-15 00:41+0000\n"
-"PO-Revision-Date: 2024-12-14 12:37+0100\n"
+"POT-Creation-Date: 2024-12-16 00:42+0000\n"
+"PO-Revision-Date: 2024-12-15 14:17+0100\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
 "Language: nl\n"
@@ -7030,6 +7030,12 @@ msgctxt "@action"
 msgid "Copy Text"
 msgstr "Tekst kopiëren"
 
+#: widgets/applicationssettingsdialog/applicationssettingslogswidget.cpp:71
+#, fuzzy, kde-format
+#| msgid "No version info found."
+msgid "No logs info found."
+msgstr "Geen versie-informatie gevonden."
+
 #: widgets/applicationssettingsdialog/applicationssettingspricecombobox.cpp:13
 #, kde-format
 msgid "All Prices"
@@ -7100,10 +7106,9 @@ msgid "No release information provided"
 msgstr "Geen informatie over uitgave geleverd"
 
 #: widgets/applicationssettingsdialog/applicationssettingsversionwidget.cpp:80
-#, fuzzy, kde-format
-#| msgid "No room found"
+#, kde-format
 msgid "No version info found."
-msgstr "Geen room gevonden"
+msgstr "Geen versie-informatie gevonden."
 
 #: widgets/applicationssettingsdialog/appscountinfowidget.cpp:47
 #, kde-format

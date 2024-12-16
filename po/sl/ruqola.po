@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-12-15 00:41+0000\n"
-"PO-Revision-Date: 2024-12-14 09:42+0100\n"
+"POT-Creation-Date: 2024-12-16 00:42+0000\n"
+"PO-Revision-Date: 2024-12-15 08:33+0100\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
@@ -7004,6 +7004,12 @@ msgctxt "@action"
 msgid "Copy Text"
 msgstr "Kopiraj besedilo"
 
+#: widgets/applicationssettingsdialog/applicationssettingslogswidget.cpp:71
+#, fuzzy, kde-format
+#| msgid "No version info found."
+msgid "No logs info found."
+msgstr "Ni informacij o različici."
+
 #: widgets/applicationssettingsdialog/applicationssettingspricecombobox.cpp:13
 #, kde-format
 msgid "All Prices"
@@ -7074,10 +7080,9 @@ msgid "No release information provided"
 msgstr "Ni podatkov o izdaji"
 
 #: widgets/applicationssettingsdialog/applicationssettingsversionwidget.cpp:80
-#, fuzzy, kde-format
-#| msgid "No room found"
+#, kde-format
 msgid "No version info found."
-msgstr "Ni zadetkov med sobami"
+msgstr "Ni informacij o različici."
 
 #: widgets/applicationssettingsdialog/appscountinfowidget.cpp:47
 #, kde-format

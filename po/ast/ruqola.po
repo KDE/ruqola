@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-12-15 00:41+0000\n"
+"POT-Creation-Date: 2024-12-16 00:42+0000\n"
 "PO-Revision-Date: 2024-03-27 23:08+0100\n"
 "Last-Translator: Enol P. <enolp@softastur.org>\n"
 "Language-Team: Asturian <alministradores@softastur.org>\n"
@@ -6783,6 +6783,11 @@ msgstr ""
 #, kde-format
 msgctxt "@action"
 msgid "Copy Text"
+msgstr ""
+
+#: widgets/applicationssettingsdialog/applicationssettingslogswidget.cpp:71
+#, kde-format
+msgid "No logs info found."
 msgstr ""
 
 #: widgets/applicationssettingsdialog/applicationssettingspricecombobox.cpp:13

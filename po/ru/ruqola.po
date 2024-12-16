@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-12-15 00:41+0000\n"
+"POT-Creation-Date: 2024-12-16 00:42+0000\n"
 "PO-Revision-Date: 2024-11-06 16:19+0300\n"
 "Last-Translator: Olesya Gerasimenko <translation-team@basealt.ru>\n"
 "Language-Team: Basealt Translation Team\n"
@@ -7067,6 +7067,12 @@ msgstr "Сделать запрос к приложению…"
 msgctxt "@action"
 msgid "Copy Text"
 msgstr "Копировать текст"
+
+#: widgets/applicationssettingsdialog/applicationssettingslogswidget.cpp:71
+#, fuzzy, kde-format
+#| msgid "No room found"
+msgid "No logs info found."
+msgstr "Комнат не найдено"
 
 #: widgets/applicationssettingsdialog/applicationssettingspricecombobox.cpp:13
 #, kde-format

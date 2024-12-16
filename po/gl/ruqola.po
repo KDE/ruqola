@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-12-15 00:41+0000\n"
-"PO-Revision-Date: 2024-12-14 10:56+0100\n"
+"POT-Creation-Date: 2024-12-16 00:42+0000\n"
+"PO-Revision-Date: 2024-12-16 00:51+0100\n"
 "Last-Translator: Adrián Chaves (Gallaecio) <adrian@chaves.io>\n"
 "Language-Team: Proxecto Trasno (proxecto@trasno.gal)\n"
 "Language: gl\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 24.08.3\n"
+"X-Generator: Lokalize 24.12.0\n"
 
 #: apps/main.cpp:73
 #, kde-format
@@ -928,6 +928,7 @@ msgstr "%1 eliminou #%2"
 msgid "%1 added #%2 to this Team"
 msgstr "%1 engadiu #%2 ao equipo"
 
+# skip-rule: trasno-enable_reverse
 #: core/messages/message.cpp:847
 #, kde-format
 msgid "Room allowed reacting by %1"
@@ -7030,6 +7031,12 @@ msgctxt "@action"
 msgid "Copy Text"
 msgstr "Copiar o texto"
 
+#: widgets/applicationssettingsdialog/applicationssettingslogswidget.cpp:71
+#, fuzzy, kde-format
+#| msgid "No version info found."
+msgid "No logs info found."
+msgstr "Non se atopou información da versión."
+
 #: widgets/applicationssettingsdialog/applicationssettingspricecombobox.cpp:13
 #, kde-format
 msgid "All Prices"
@@ -7100,10 +7107,9 @@ msgid "No release information provided"
 msgstr "Non se forneceu información de publicación."
 
 #: widgets/applicationssettingsdialog/applicationssettingsversionwidget.cpp:80
-#, fuzzy, kde-format
-#| msgid "No room found"
+#, kde-format
 msgid "No version info found."
-msgstr "Non se atopou ningunha sala."
+msgstr "Non se atopou información da versión."
 
 #: widgets/applicationssettingsdialog/appscountinfowidget.cpp:47
 #, kde-format
@@ -9774,7 +9780,7 @@ msgstr "Non borrar os fíos."
 #, kde-format
 msgctxt "@option:check"
 msgid "Only Remove Attached Files. Keep messages"
-msgstr "Só borrar os ficheiros anexos. Manter as mensaxes."
+msgstr "Só retirar os ficheiros anexos. Manter as mensaxes."
 
 #: widgets/prunemessages/prunemessageswidget.cpp:38
 #, kde-format
@@ -10932,11 +10938,10 @@ msgstr "Crear un equipo"
 #: widgets/ruqolamainwindow.cpp:952
 #, kde-format
 msgid "Cannot write to log file %1"
-msgstr ""
+msgstr "Non é posíbel escribir no ficheiro de rexistro %1."
 
 #: widgets/ruqolamainwindow.cpp:952
-#, fuzzy, kde-format
-#| msgid "Show Channel Log"
+#, kde-format
 msgctxt "@title:window"
 msgid "Show Channel Log"
 msgstr "Amosar o historial da canle"
@@ -11590,7 +11595,7 @@ msgstr "Cambios importantes desde a última versión:"
 #: widgets/whatsnew/whatsnewwidget.cpp:96
 #, kde-format
 msgid "Some of the new features in this release of Ruqola include:"
-msgstr "Entre as características novas desta edición de Ruqola están:"
+msgstr "Entre as funcionalidades novas desta versión de Ruqola están:"
 
 #: widgets/whatsnew/whatsnewwidget.cpp:101
 #, kde-format

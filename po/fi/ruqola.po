@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-12-15 00:41+0000\n"
+"POT-Creation-Date: 2024-12-16 00:42+0000\n"
 "PO-Revision-Date: 2024-12-07 18:13+0200\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
@@ -6941,6 +6941,12 @@ msgstr "Kysy sovellusta…"
 msgctxt "@action"
 msgid "Copy Text"
 msgstr "Kopioi teksti"
+
+#: widgets/applicationssettingsdialog/applicationssettingslogswidget.cpp:71
+#, fuzzy, kde-format
+#| msgid "No room found"
+msgid "No logs info found."
+msgstr "Huonetta ei löytynyt"
 
 #: widgets/applicationssettingsdialog/applicationssettingspricecombobox.cpp:13
 #, kde-format

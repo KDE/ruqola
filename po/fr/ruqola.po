@@ -5,8 +5,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-12-15 00:41+0000\n"
-"PO-Revision-Date: 2024-12-11 08:53+0100\n"
+"POT-Creation-Date: 2024-12-16 00:42+0000\n"
+"PO-Revision-Date: 2024-12-14 10:12+0100\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
 "Language-Team: French <French <kde-francophone@kde.org>>\n"
 "Language: fr\n"
@@ -14,7 +14,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 24.11.90\n"
+"X-Generator: Lokalize 24.12.0\n"
 
 #: apps/main.cpp:73
 #, kde-format
@@ -392,10 +392,9 @@ msgid "Allow to read oauth app settings"
 msgstr "Autoriser à lire les paramètres de l'application « oauth »"
 
 #: core/apps/appsmarketplaceinfo.cpp:665
-#, fuzzy, kde-format
-#| msgid "Allow to send multi files."
+#, kde-format
 msgid "Allow to send email"
-msgstr "Autoriser l'envoi de fichiers multiples."
+msgstr "Autoriser l'envoi d'un courriel"
 
 #: core/authenticationmanager.cpp:85
 #, kde-format
@@ -7032,16 +7031,14 @@ msgid "Description"
 msgstr "Description"
 
 #: widgets/applicationssettingsdialog/applicationssettingsdescriptiontabwidget.cpp:38
-#, fuzzy, kde-format
-#| msgid "Version"
+#, kde-format
 msgid "Versions"
-msgstr "Version"
+msgstr "Versions"
 
 #: widgets/applicationssettingsdialog/applicationssettingsdescriptiontabwidget.cpp:44
-#, fuzzy, kde-format
-#| msgid "&Settings"
+#, kde-format
 msgid "Settings"
-msgstr "Confi&guration"
+msgstr "Configuration"
 
 #: widgets/applicationssettingsdialog/applicationssettingsdialog.cpp:27
 #, kde-format
@@ -7079,6 +7076,12 @@ msgstr "Demander à une application..."
 msgctxt "@action"
 msgid "Copy Text"
 msgstr "Copier le texte"
+
+#: widgets/applicationssettingsdialog/applicationssettingslogswidget.cpp:71
+#, fuzzy, kde-format
+#| msgid "No room found"
+msgid "No logs info found."
+msgstr "Aucun salon trouvé"
 
 #: widgets/applicationssettingsdialog/applicationssettingspricecombobox.cpp:13
 #, kde-format
@@ -7147,7 +7150,7 @@ msgstr "Tous les états"
 #: widgets/applicationssettingsdialog/applicationssettingsversionwidget.cpp:71
 #, kde-format
 msgid "No release information provided"
-msgstr ""
+msgstr "Aucune information de publication fournie"
 
 #: widgets/applicationssettingsdialog/applicationssettingsversionwidget.cpp:80
 #, fuzzy, kde-format
@@ -11645,10 +11648,9 @@ msgid "Fix open discussion channel"
 msgstr "Corriger le canal de discussion ouvert"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:136
-#, fuzzy, kde-format
-#| msgid "Allow to write oauth app settings"
+#, kde-format
 msgid "Allow to show application market settings"
-msgstr "Autoriser à écrire les paramètres de l'application « oauth »"
+msgstr "Autoriser à afficher la configuration du marché des applications"
 
 #: widgets/whatsnew/whatsnewwidget.cpp:44
 #, kde-format

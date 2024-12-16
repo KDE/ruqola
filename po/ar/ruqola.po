@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-12-15 00:41+0000\n"
+"POT-Creation-Date: 2024-12-16 00:42+0000\n"
 "PO-Revision-Date: 2024-02-25 21:19+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
@@ -6999,6 +6999,12 @@ msgstr "الإخطارات"
 msgctxt "@action"
 msgid "Copy Text"
 msgstr "انسخ نص"
+
+#: widgets/applicationssettingsdialog/applicationssettingslogswidget.cpp:71
+#, fuzzy, kde-format
+#| msgid "No result found."
+msgid "No logs info found."
+msgstr "لا يوجد نتائج."
 
 #: widgets/applicationssettingsdialog/applicationssettingspricecombobox.cpp:13
 #, kde-format

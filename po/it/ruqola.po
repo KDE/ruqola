@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-12-15 00:41+0000\n"
-"PO-Revision-Date: 2024-12-13 16:22+0100\n"
+"POT-Creation-Date: 2024-12-16 00:42+0000\n"
+"PO-Revision-Date: 2024-12-15 21:10+0100\n"
 "Last-Translator: Vincenzo Reale <smart2128vr@gmail.com>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
 "Language: it\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 24.08.3\n"
+"X-Generator: Lokalize 24.12.0\n"
 
 #: apps/main.cpp:73
 #, kde-format
@@ -7035,6 +7035,12 @@ msgctxt "@action"
 msgid "Copy Text"
 msgstr "Copia il testo"
 
+#: widgets/applicationssettingsdialog/applicationssettingslogswidget.cpp:71
+#, fuzzy, kde-format
+#| msgid "No version info found."
+msgid "No logs info found."
+msgstr "Informazioni di versione non trovate."
+
 #: widgets/applicationssettingsdialog/applicationssettingspricecombobox.cpp:13
 #, kde-format
 msgid "All Prices"
@@ -7105,10 +7111,9 @@ msgid "No release information provided"
 msgstr "Nessuna informazione sulla versione fornita"
 
 #: widgets/applicationssettingsdialog/applicationssettingsversionwidget.cpp:80
-#, fuzzy, kde-format
-#| msgid "No room found"
+#, kde-format
 msgid "No version info found."
-msgstr "Nessuna stanza trovata"
+msgstr "Informazioni di versione non trovate."
 
 #: widgets/applicationssettingsdialog/appscountinfowidget.cpp:47
 #, kde-format
@@ -10935,11 +10940,10 @@ msgstr "Crea squadra"
 #: widgets/ruqolamainwindow.cpp:952
 #, kde-format
 msgid "Cannot write to log file %1"
-msgstr ""
+msgstr "Impossibile scrivere nel file di registro %1"
 
 #: widgets/ruqolamainwindow.cpp:952
-#, fuzzy, kde-format
-#| msgid "Show Channel Log"
+#, kde-format
 msgctxt "@title:window"
 msgid "Show Channel Log"
 msgstr "Mostra il registro del canale"

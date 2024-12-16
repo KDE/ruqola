@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-12-15 00:41+0000\n"
-"PO-Revision-Date: 2024-12-14 01:41+0100\n"
+"POT-Creation-Date: 2024-12-16 00:42+0000\n"
+"PO-Revision-Date: 2024-12-15 06:32+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -6984,6 +6984,12 @@ msgctxt "@action"
 msgid "Copy Text"
 msgstr "ტექსტის კოპირება"
 
+#: widgets/applicationssettingsdialog/applicationssettingslogswidget.cpp:71
+#, fuzzy, kde-format
+#| msgid "No version info found."
+msgid "No logs info found."
+msgstr "ვერსიის ინფორმაცია ვერ მოიძებნა."
+
 #: widgets/applicationssettingsdialog/applicationssettingspricecombobox.cpp:13
 #, kde-format
 msgid "All Prices"
@@ -7054,10 +7060,9 @@ msgid "No release information provided"
 msgstr "რელიზის ინფორმაცია მითითებული არაა"
 
 #: widgets/applicationssettingsdialog/applicationssettingsversionwidget.cpp:80
-#, fuzzy, kde-format
-#| msgid "No room found"
+#, kde-format
 msgid "No version info found."
-msgstr "ოთახი ვერ ვიპოვე"
+msgstr "ვერსიის ინფორმაცია ვერ მოიძებნა."
 
 #: widgets/applicationssettingsdialog/appscountinfowidget.cpp:47
 #, kde-format
@@ -10868,11 +10873,10 @@ msgstr "გუნდის შექმნა"
 #: widgets/ruqolamainwindow.cpp:952
 #, kde-format
 msgid "Cannot write to log file %1"
-msgstr ""
+msgstr "ჩაწერა შეუძლებელია ჟურნალის ფაილში %1"
 
 #: widgets/ruqolamainwindow.cpp:952
-#, fuzzy, kde-format
-#| msgid "Show Channel Log"
+#, kde-format
 msgctxt "@title:window"
 msgid "Show Channel Log"
 msgstr "არხის ჟურნალის ჩვენება"

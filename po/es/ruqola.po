@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-12-15 00:41+0000\n"
-"PO-Revision-Date: 2024-12-07 19:30+0100\n"
+"POT-Creation-Date: 2024-12-16 00:42+0000\n"
+"PO-Revision-Date: 2024-12-16 00:43+0100\n"
 "Last-Translator: Víctor Rodrigo Córdoba <vrcordoba@gmail.com>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 22.12.3\n"
+"X-Generator: Lokalize 24.08.3\n"
 
 #: apps/main.cpp:73
 #, kde-format
@@ -394,10 +394,9 @@ msgid "Allow to read oauth app settings"
 msgstr "Permitir leer las preferencias de la aplicación oauth"
 
 #: core/apps/appsmarketplaceinfo.cpp:665
-#, fuzzy, kde-format
-#| msgid "Allow to send multi files."
+#, kde-format
 msgid "Allow to send email"
-msgstr "Permitir el envío de múltiples archivos."
+msgstr "Permitir el envío de correos electrónicos"
 
 #: core/authenticationmanager.cpp:85
 #, kde-format
@@ -6991,16 +6990,14 @@ msgid "Description"
 msgstr "Descripción"
 
 #: widgets/applicationssettingsdialog/applicationssettingsdescriptiontabwidget.cpp:38
-#, fuzzy, kde-format
-#| msgid "Version"
+#, kde-format
 msgid "Versions"
-msgstr "Versión"
+msgstr "Versiones"
 
 #: widgets/applicationssettingsdialog/applicationssettingsdescriptiontabwidget.cpp:44
-#, fuzzy, kde-format
-#| msgid "&Settings"
+#, kde-format
 msgid "Settings"
-msgstr "&Preferencias"
+msgstr "Preferencias"
 
 #: widgets/applicationssettingsdialog/applicationssettingsdialog.cpp:27
 #, kde-format
@@ -7038,6 +7035,12 @@ msgstr "Preguntar a la aplicación..."
 msgctxt "@action"
 msgid "Copy Text"
 msgstr "Copiar texto"
+
+#: widgets/applicationssettingsdialog/applicationssettingslogswidget.cpp:71
+#, fuzzy, kde-format
+#| msgid "No version info found."
+msgid "No logs info found."
+msgstr "No se encontró información de la versión."
 
 #: widgets/applicationssettingsdialog/applicationssettingspricecombobox.cpp:13
 #, kde-format
@@ -7106,13 +7109,12 @@ msgstr "Todos los estados"
 #: widgets/applicationssettingsdialog/applicationssettingsversionwidget.cpp:71
 #, kde-format
 msgid "No release information provided"
-msgstr ""
+msgstr "No se ha proporcionado información de lanzamiento"
 
 #: widgets/applicationssettingsdialog/applicationssettingsversionwidget.cpp:80
-#, fuzzy, kde-format
-#| msgid "No room found"
+#, kde-format
 msgid "No version info found."
-msgstr "No se encontró ninguna habitación"
+msgstr "No se encontró información de la versión."
 
 #: widgets/applicationssettingsdialog/appscountinfowidget.cpp:47
 #, kde-format
@@ -10939,14 +10941,13 @@ msgstr "Crear equipo"
 #: widgets/ruqolamainwindow.cpp:952
 #, kde-format
 msgid "Cannot write to log file %1"
-msgstr ""
+msgstr "No se puede escribir al archivo de registros %1"
 
 #: widgets/ruqolamainwindow.cpp:952
-#, fuzzy, kde-format
-#| msgid "Show Channel Log"
+#, kde-format
 msgctxt "@title:window"
 msgid "Show Channel Log"
-msgstr "Mostrar log del canal"
+msgstr "Muestra registro del canal"
 
 #: widgets/ruqolamainwindow.cpp:1115
 #, kde-format
@@ -11211,10 +11212,8 @@ msgid "Add color to the text in the account tab"
 msgstr "Añadir color al texto en la pestaña de cuenta"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:23
-#, fuzzy
-#| msgid "Allow to write oauth app settings"
 msgid "Allow to show private installed applications"
-msgstr "Permitir escribir las preferencias de la aplicación oauth"
+msgstr "Permite mostrar aplicaciones privadas instaladas"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:33
 #, kde-format
@@ -11573,10 +11572,9 @@ msgid "Fix open discussion channel"
 msgstr "Mejora al abrir un canal de discusión"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:136
-#, fuzzy, kde-format
-#| msgid "Allow to write oauth app settings"
+#, kde-format
 msgid "Allow to show application market settings"
-msgstr "Permitir escribir las preferencias de la aplicación oauth"
+msgstr "Permite mostrar las preferencias del mercado de aplicaciones"
 
 #: widgets/whatsnew/whatsnewwidget.cpp:44
 #, kde-format
@@ -11603,10 +11601,3 @@ msgstr ""
 #, kde-format
 msgid "Some bug fixing:"
 msgstr "Algunas correcciones de errores:"
-
-#~ msgid "Impossible to open log."
-#~ msgstr "No se pudo abrir los registros."
-
-#~ msgctxt "@title:window"
-#~ msgid "Show Log"
-#~ msgstr "Mostrar registros"
