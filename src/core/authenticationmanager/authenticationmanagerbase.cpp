@@ -78,16 +78,25 @@ void AuthenticationManagerBase::setUserId(const QString &newUserId)
 
 bool AuthenticationManagerBase::loginPassword(const QString &user, const QString &password)
 {
+    if (checkGenericError()) {
+        mLoginStatus = AuthenticationManager::LoggedOut;
+    }
     return loginImpl(AuthenticationManagerUtils::login(user, password));
 }
 
 bool AuthenticationManagerBase::loginLDAP(const QString &user, const QString &password)
 {
+    if (checkGenericError()) {
+        mLoginStatus = AuthenticationManager::LoggedOut;
+    }
     return loginImpl(AuthenticationManagerUtils::loginLdap(user, password));
 }
 
 bool AuthenticationManagerBase::loginOAuth(const QString &credentialToken, const QString &credentialSecret)
 {
+    if (checkGenericError()) {
+        mLoginStatus = AuthenticationManager::LoggedOut;
+    }
     return loginImpl(AuthenticationManagerUtils::loginOAuth(credentialToken, credentialSecret));
 }
 
@@ -98,7 +107,6 @@ bool AuthenticationManagerBase::login()
         qCWarning(RUQOLA_AUTHENTICATION_LOG) << "No auth token available, can't login. (" << authenticationName() << ")";
         return false;
     }
-
     return loginImpl(AuthenticationManagerUtils::loginResume(mAuthToken));
 }
 
