@@ -2662,6 +2662,10 @@ void RocketChatAccount::slotRESTLoginStatusChanged()
     } else if (loginStatus == AuthenticationManager::LoggedIn) {
         // Reset it.
         mDelayReconnect = 100;
+    } else if (loginStatus == AuthenticationManager::GenericError) {
+        // Clear authToken it can be changed
+        // If we don't clear it ruqola will want to login with resume method => it will failed all the time.
+        mSettings->setAuthToken({});
     }
     Q_EMIT loginStatusChanged();
     if (!mRestApi && !mDdp) {
