@@ -322,6 +322,8 @@ void RocketChatAccount::reconnectToServer()
     // Clear auth token otherwise we can't reconnect.
     setAuthToken({});
     ddp();
+    if (accountEnabled())
+        Q_ASSERT(mDdp);
     tryLogin();
 }
 
@@ -657,6 +659,7 @@ void RocketChatAccount::leaveRoom(const QByteArray &identifier, Room::RoomType c
 DDPClient *RocketChatAccount::ddp()
 {
     if (!mDdp && accountEnabled()) {
+        qCDebug(RUQOLA_RECONNECT_LOG) << "creating new DDPClient" << accountName();
         mDdp.reset(new DDPClient(this, this));
         if (Ruqola::useRestApiLogin()) {
             connect(mDdp->authenticationManager(), &DDPAuthenticationManager::loginStatusChanged, this, &RocketChatAccount::slotDDpLoginStatusChanged);
@@ -673,7 +676,9 @@ DDPClient *RocketChatAccount::ddp()
         if (mSettings) {
             mDdp->setServerUrl(mSettings->serverUrl());
         }
-        mDdp->start();
+        // Delay the call to mDdp->start() in case it emits disconnectedByServer right away
+        // The caller doesn't expect ddp() to get reset to nullptr right away.
+        QMetaObject::invokeMethod(mDdp.get(), &DDPClient::start, Qt::QueuedConnection);
     }
     return mDdp.get();
 }
@@ -2643,6 +2648,8 @@ User RocketChatAccount::fullUserInfo(const QString &userName) const
 void RocketChatAccount::slotDDpLoginStatusChanged()
 {
     if (mDdp && mDdp->authenticationManager()->loginStatus() == AuthenticationManager::LoggedOutAndCleanedUp) {
+        qCDebug(RUQOLA_RECONNECT_LOG) << "Logged out from DDP, resetting mDdp" << accountName();
+        disconnect(mDdp.get(), nullptr, this, nullptr);
         mDdp.release()->deleteLater();
     }
     if (!Ruqola::useRestApiLogin()) {
@@ -2658,6 +2665,8 @@ void RocketChatAccount::slotRESTLoginStatusChanged()
 {
     const auto loginStatus = mRestApi->authenticationManager()->loginStatus();
     if (loginStatus == AuthenticationManager::LoggedOutAndCleanedUp) {
+        qCDebug(RUQOLA_RECONNECT_LOG) << "Logged out from REST, resetting mRestApi" << accountName();
+        disconnect(mRestApi.get(), nullptr, this, nullptr);
         mRestApi.release()->deleteLater();
     } else if (loginStatus == AuthenticationManager::LoggedIn) {
         // Reset it.
