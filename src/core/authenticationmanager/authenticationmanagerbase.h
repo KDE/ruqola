@@ -62,6 +62,6 @@ protected:
 
     QString mAuthToken;
     QString mUserId;
-    qint64 mTokenExpires;
+    qint64 mTokenExpires = -1;
     AuthenticationManager::LoginStatus mLoginStatus = AuthenticationManager::LoggedOut;
 };
