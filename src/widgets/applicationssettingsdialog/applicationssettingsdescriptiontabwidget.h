@@ -32,4 +32,5 @@ private:
     ApplicationsSettingsVersionWidget *const mVersionWidget;
     ApplicationsSettingsLogsWidget *const mLogsWidget;
     ApplicationsSettingsSettingsWidget *const mSettingsWidget;
+    RocketChatAccount *const mRocketChatAccount;
 };

@@ -23,6 +23,7 @@ ApplicationsSettingsDescriptionTabWidget::ApplicationsSettingsDescriptionTabWidg
     , mVersionWidget(new ApplicationsSettingsVersionWidget(account, this))
     , mLogsWidget(new ApplicationsSettingsLogsWidget(account, this))
     , mSettingsWidget(new ApplicationsSettingsSettingsWidget(account, this))
+    , mRocketChatAccount(account)
 {
     mTabWidget->setObjectName("mTabWidget"_L1);
 
@@ -43,8 +44,8 @@ ApplicationsSettingsDescriptionTabWidget::ApplicationsSettingsDescriptionTabWidg
     mSettingsWidget->setObjectName("mSettingsWidget"_L1);
     const int settingsTabIndex = mTabWidget->addTab(mSettingsWidget, i18n("Settings"));
 
-    if (account) {
-        if (!account->isAdministrator()) {
+    if (mRocketChatAccount) {
+        if (!mRocketChatAccount->isAdministrator()) {
             mTabWidget->setTabVisible(logTabIndex, false);
             mTabWidget->setTabVisible(settingsTabIndex, false);
         }
@@ -67,8 +68,13 @@ void ApplicationsSettingsDescriptionTabWidget::setApplicationId(const QByteArray
 
 void ApplicationsSettingsDescriptionTabWidget::setApplicationInstalled(bool state)
 {
-    mTabWidget->setTabVisible(mTabWidget->indexOf(mLogsWidget), state);
-    mTabWidget->setTabVisible(mTabWidget->indexOf(mSettingsWidget), state);
+    if (mRocketChatAccount) {
+        mTabWidget->setTabVisible(mTabWidget->indexOf(mLogsWidget), mRocketChatAccount->isAdministrator());
+        mTabWidget->setTabVisible(mTabWidget->indexOf(mSettingsWidget), mRocketChatAccount->isAdministrator());
+    } else {
+        mTabWidget->setTabVisible(mTabWidget->indexOf(mLogsWidget), false);
+        mTabWidget->setTabVisible(mTabWidget->indexOf(mSettingsWidget), false);
+    }
 }
 
 #include "moc_applicationssettingsdescriptiontabwidget.cpp"
