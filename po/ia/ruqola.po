@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-12-17 00:40+0000\n"
+"POT-Creation-Date: 2024-12-18 00:40+0000\n"
 "PO-Revision-Date: 2024-12-03 16:58+0100\n"
 "Last-Translator: giovanni <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
@@ -190,7 +190,7 @@ msgstr "anno"
 
 #: core/apps/appsmarketplaceinfo.cpp:393 core/model/adminrolesmodel.cpp:40
 #: widgets/administratorsettingsdialog/ircfederation/ircfederationwidget.cpp:50
-#: widgets/applicationssettingsdialog/applicationssettingsdescriptiontabwidget.cpp:35
+#: widgets/applicationssettingsdialog/applicationssettingsdescriptiontabwidget.cpp:36
 #, kde-format
 msgid "Description"
 msgstr "Description"
@@ -4455,7 +4455,7 @@ msgid "Slack Bridge"
 msgstr ""
 
 #: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:124
-#: widgets/applicationssettingsdialog/applicationssettingsdescriptiontabwidget.cpp:41
+#: widgets/applicationssettingsdialog/applicationssettingsdescriptiontabwidget.cpp:42
 #, kde-format
 msgid "Logs"
 msgstr "Registros"
@@ -6786,13 +6786,13 @@ msgctxt "@title:window"
 msgid "Description"
 msgstr "Description"
 
-#: widgets/applicationssettingsdialog/applicationssettingsdescriptiontabwidget.cpp:38
+#: widgets/applicationssettingsdialog/applicationssettingsdescriptiontabwidget.cpp:39
 #, fuzzy, kde-format
 #| msgid "Version"
 msgid "Versions"
 msgstr "Version"
 
-#: widgets/applicationssettingsdialog/applicationssettingsdescriptiontabwidget.cpp:44
+#: widgets/applicationssettingsdialog/applicationssettingsdescriptiontabwidget.cpp:45
 #, fuzzy, kde-format
 #| msgid "&Settings"
 msgid "Settings"

@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-12-17 00:40+0000\n"
-"PO-Revision-Date: 2024-12-16 13:20+0300\n"
+"POT-Creation-Date: 2024-12-18 00:40+0000\n"
+"PO-Revision-Date: 2024-12-17 20:45+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -190,7 +190,7 @@ msgstr "yıl"
 
 #: core/apps/appsmarketplaceinfo.cpp:393 core/model/adminrolesmodel.cpp:40
 #: widgets/administratorsettingsdialog/ircfederation/ircfederationwidget.cpp:50
-#: widgets/applicationssettingsdialog/applicationssettingsdescriptiontabwidget.cpp:35
+#: widgets/applicationssettingsdialog/applicationssettingsdescriptiontabwidget.cpp:36
 #, kde-format
 msgid "Description"
 msgstr "Açıklama"
@@ -4452,7 +4452,7 @@ msgid "Slack Bridge"
 msgstr "Slack Köprüsü"
 
 #: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:124
-#: widgets/applicationssettingsdialog/applicationssettingsdescriptiontabwidget.cpp:41
+#: widgets/applicationssettingsdialog/applicationssettingsdescriptiontabwidget.cpp:42
 #, kde-format
 msgid "Logs"
 msgstr "Günlükler"
@@ -6925,12 +6925,12 @@ msgctxt "@title:window"
 msgid "Description"
 msgstr "Açıklama"
 
-#: widgets/applicationssettingsdialog/applicationssettingsdescriptiontabwidget.cpp:38
+#: widgets/applicationssettingsdialog/applicationssettingsdescriptiontabwidget.cpp:39
 #, kde-format
 msgid "Versions"
 msgstr "Sürümler"
 
-#: widgets/applicationssettingsdialog/applicationssettingsdescriptiontabwidget.cpp:44
+#: widgets/applicationssettingsdialog/applicationssettingsdescriptiontabwidget.cpp:45
 #, kde-format
 msgid "Settings"
 msgstr "Ayarlar"
@@ -6973,10 +6973,9 @@ msgid "Copy Text"
 msgstr "Metni Kopyala"
 
 #: widgets/applicationssettingsdialog/applicationssettingslogswidget.cpp:62
-#, fuzzy, kde-format
-#| msgid "%1: %2"
+#, kde-format
 msgid "%1 Caller: %2"
-msgstr "%1: %2"
+msgstr "%1 arayan: %2"
 
 #: widgets/applicationssettingsdialog/applicationssettingslogswidget.cpp:72
 #, kde-format

@@ -5,8 +5,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-12-17 00:40+0000\n"
-"PO-Revision-Date: 2024-12-14 10:12+0100\n"
+"POT-Creation-Date: 2024-12-18 00:40+0000\n"
+"PO-Revision-Date: 2024-12-17 12:37+0100\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
 "Language-Team: French <French <kde-francophone@kde.org>>\n"
 "Language: fr\n"
@@ -188,7 +188,7 @@ msgstr "année"
 
 #: core/apps/appsmarketplaceinfo.cpp:393 core/model/adminrolesmodel.cpp:40
 #: widgets/administratorsettingsdialog/ircfederation/ircfederationwidget.cpp:50
-#: widgets/applicationssettingsdialog/applicationssettingsdescriptiontabwidget.cpp:35
+#: widgets/applicationssettingsdialog/applicationssettingsdescriptiontabwidget.cpp:36
 #, kde-format
 msgid "Description"
 msgstr "Description"
@@ -4504,7 +4504,7 @@ msgid "Slack Bridge"
 msgstr "Slack Bridge"
 
 #: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:124
-#: widgets/applicationssettingsdialog/applicationssettingsdescriptiontabwidget.cpp:41
+#: widgets/applicationssettingsdialog/applicationssettingsdescriptiontabwidget.cpp:42
 #, kde-format
 msgid "Logs"
 msgstr "Journaux"
@@ -7030,12 +7030,12 @@ msgctxt "@title:window"
 msgid "Description"
 msgstr "Description"
 
-#: widgets/applicationssettingsdialog/applicationssettingsdescriptiontabwidget.cpp:38
+#: widgets/applicationssettingsdialog/applicationssettingsdescriptiontabwidget.cpp:39
 #, kde-format
 msgid "Versions"
 msgstr "Versions"
 
-#: widgets/applicationssettingsdialog/applicationssettingsdescriptiontabwidget.cpp:44
+#: widgets/applicationssettingsdialog/applicationssettingsdescriptiontabwidget.cpp:45
 #, kde-format
 msgid "Settings"
 msgstr "Configuration"
@@ -7084,10 +7084,9 @@ msgid "%1 Caller: %2"
 msgstr "%1 : %2"
 
 #: widgets/applicationssettingsdialog/applicationssettingslogswidget.cpp:72
-#, fuzzy, kde-format
-#| msgid "No room found"
+#, kde-format
 msgid "No logs info found."
-msgstr "Aucun salon trouvé"
+msgstr "Aucune information sur les journaux n'a été trouvée."
 
 #: widgets/applicationssettingsdialog/applicationssettingspricecombobox.cpp:13
 #, kde-format
@@ -7159,10 +7158,9 @@ msgid "No release information provided"
 msgstr "Aucune information de publication fournie"
 
 #: widgets/applicationssettingsdialog/applicationssettingsversionwidget.cpp:80
-#, fuzzy, kde-format
-#| msgid "No room found"
+#, kde-format
 msgid "No version info found."
-msgstr "Aucun salon trouvé"
+msgstr "Aucune information de version n'a été trouvée."
 
 #: widgets/applicationssettingsdialog/appscountinfowidget.cpp:47
 #, kde-format
@@ -11002,11 +11000,10 @@ msgstr "Créer une équipe"
 #: widgets/ruqolamainwindow.cpp:948
 #, kde-format
 msgid "Cannot write to log file %1"
-msgstr ""
+msgstr "Impossible d'écrire dans le fichier %1 de journal"
 
 #: widgets/ruqolamainwindow.cpp:948
-#, fuzzy, kde-format
-#| msgid "Show Channel Log"
+#, kde-format
 msgctxt "@title:window"
 msgid "Show Channel Log"
 msgstr "Afficher le journal du canal"

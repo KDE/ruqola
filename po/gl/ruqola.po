@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-12-17 00:40+0000\n"
-"PO-Revision-Date: 2024-12-16 00:51+0100\n"
+"POT-Creation-Date: 2024-12-18 00:40+0000\n"
+"PO-Revision-Date: 2024-12-17 22:46+0100\n"
 "Last-Translator: Adrián Chaves (Gallaecio) <adrian@chaves.io>\n"
 "Language-Team: Proxecto Trasno (proxecto@trasno.gal)\n"
 "Language: gl\n"
@@ -189,7 +189,7 @@ msgstr "ano"
 
 #: core/apps/appsmarketplaceinfo.cpp:393 core/model/adminrolesmodel.cpp:40
 #: widgets/administratorsettingsdialog/ircfederation/ircfederationwidget.cpp:50
-#: widgets/applicationssettingsdialog/applicationssettingsdescriptiontabwidget.cpp:35
+#: widgets/applicationssettingsdialog/applicationssettingsdescriptiontabwidget.cpp:36
 #, kde-format
 msgid "Description"
 msgstr "Descrición"
@@ -1993,7 +1993,7 @@ msgstr "Parámetros incorrectos."
 #: rocketchatrestapi-qt/channels/channeljoinjob.cpp:107
 #, kde-format
 msgid "The required '%1' param provided does not match any channel"
-msgstr "O parámetro «%1» requirido non coincide con ningunha canle."
+msgstr "O parámetro «%1» fornecido non coincide con ningunha canle."
 
 #: rocketchatrestapi-qt/channels/channeljoinjob.cpp:109
 #, kde-format
@@ -2315,6 +2315,7 @@ msgstr "O tipo de ficheiro non é válido"
 msgid "Invalid file width"
 msgstr "A anchura do ficheiro non é válida"
 
+# skip-rule: trasno-provide_reverse
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:325
 #, kde-format
 msgid "You informed an invalid FROM address."
@@ -2659,6 +2660,7 @@ msgstr "As mensaxes directas non poden arquivarse."
 msgid "Message not found."
 msgstr "Non se atopou a mensaxe."
 
+# skip-rule: trasno-password
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:458
 #, kde-format
 msgid "Two Authentication Password Required"
@@ -4490,7 +4492,7 @@ msgid "Slack Bridge"
 msgstr "Ponte de Slack"
 
 #: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:124
-#: widgets/applicationssettingsdialog/applicationssettingsdescriptiontabwidget.cpp:41
+#: widgets/applicationssettingsdialog/applicationssettingsdescriptiontabwidget.cpp:42
 #, kde-format
 msgid "Logs"
 msgstr "Rexistros"
@@ -4739,6 +4741,7 @@ msgstr ""
 "pode permitir a xente tomar o control de contas de Rocket.Chat cambiando o "
 "seu nome de persoa usuaria en CAS."
 
+# skip-rule: trasno-provide
 #: widgets/administratorsettingsdialog/cas/cassettingswidget.cpp:56
 #, kde-format
 msgctxt "@info:tooltip"
@@ -6984,12 +6987,12 @@ msgctxt "@title:window"
 msgid "Description"
 msgstr "Descrición"
 
-#: widgets/applicationssettingsdialog/applicationssettingsdescriptiontabwidget.cpp:38
+#: widgets/applicationssettingsdialog/applicationssettingsdescriptiontabwidget.cpp:39
 #, kde-format
 msgid "Versions"
 msgstr "Versións"
 
-#: widgets/applicationssettingsdialog/applicationssettingsdescriptiontabwidget.cpp:44
+#: widgets/applicationssettingsdialog/applicationssettingsdescriptiontabwidget.cpp:45
 #, kde-format
 msgid "Settings"
 msgstr "Configuración"
@@ -7032,16 +7035,14 @@ msgid "Copy Text"
 msgstr "Copiar o texto"
 
 #: widgets/applicationssettingsdialog/applicationssettingslogswidget.cpp:62
-#, fuzzy, kde-format
-#| msgid "%1: %2"
+#, kde-format
 msgid "%1 Caller: %2"
-msgstr "%1: %2"
+msgstr "%1 Chama: %2"
 
 #: widgets/applicationssettingsdialog/applicationssettingslogswidget.cpp:72
-#, fuzzy, kde-format
-#| msgid "No version info found."
+#, kde-format
 msgid "No logs info found."
-msgstr "Non se atopou información da versión."
+msgstr "Non se atopou información dos rexistros."
 
 #: widgets/applicationssettingsdialog/applicationssettingspricecombobox.cpp:13
 #, kde-format
@@ -9486,7 +9487,7 @@ msgstr "Silenciar as conversas co foco."
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Highlight words:"
-msgstr "Resaltar estas palabras:"
+msgstr "Realzar estas palabras:"
 
 #: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:65
 #, kde-format
@@ -10762,7 +10763,7 @@ msgstr "Alfabeticamente"
 #: widgets/ruqolamainwindow.cpp:474
 #, kde-format
 msgid "Show Channel Log"
-msgstr "Amosar o historial da canle"
+msgstr "Amosar o rexistro da canle"
 
 #: widgets/ruqolamainwindow.cpp:478
 #, kde-format
@@ -10950,7 +10951,7 @@ msgstr "Non é posíbel escribir no ficheiro de rexistro %1."
 #, kde-format
 msgctxt "@title:window"
 msgid "Show Channel Log"
-msgstr "Amosar o historial da canle"
+msgstr "Amosar o rexistro da canle"
 
 #: widgets/ruqolamainwindow.cpp:1111
 #, kde-format

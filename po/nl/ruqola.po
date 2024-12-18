@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-12-17 00:40+0000\n"
-"PO-Revision-Date: 2024-12-16 11:34+0100\n"
+"POT-Creation-Date: 2024-12-18 00:40+0000\n"
+"PO-Revision-Date: 2024-12-17 15:03+0100\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
 "Language: nl\n"
@@ -189,7 +189,7 @@ msgstr "jaar"
 
 #: core/apps/appsmarketplaceinfo.cpp:393 core/model/adminrolesmodel.cpp:40
 #: widgets/administratorsettingsdialog/ircfederation/ircfederationwidget.cpp:50
-#: widgets/applicationssettingsdialog/applicationssettingsdescriptiontabwidget.cpp:35
+#: widgets/applicationssettingsdialog/applicationssettingsdescriptiontabwidget.cpp:36
 #, kde-format
 msgid "Description"
 msgstr "Beschrijving"
@@ -4480,7 +4480,7 @@ msgid "Slack Bridge"
 msgstr "Slack Bridge"
 
 #: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:124
-#: widgets/applicationssettingsdialog/applicationssettingsdescriptiontabwidget.cpp:41
+#: widgets/applicationssettingsdialog/applicationssettingsdescriptiontabwidget.cpp:42
 #, kde-format
 msgid "Logs"
 msgstr "Logs"
@@ -6983,12 +6983,12 @@ msgctxt "@title:window"
 msgid "Description"
 msgstr "Beschrijving"
 
-#: widgets/applicationssettingsdialog/applicationssettingsdescriptiontabwidget.cpp:38
+#: widgets/applicationssettingsdialog/applicationssettingsdescriptiontabwidget.cpp:39
 #, kde-format
 msgid "Versions"
 msgstr "Versies"
 
-#: widgets/applicationssettingsdialog/applicationssettingsdescriptiontabwidget.cpp:44
+#: widgets/applicationssettingsdialog/applicationssettingsdescriptiontabwidget.cpp:45
 #, kde-format
 msgid "Settings"
 msgstr "Instellingen"
@@ -7031,10 +7031,9 @@ msgid "Copy Text"
 msgstr "Tekst kopiëren"
 
 #: widgets/applicationssettingsdialog/applicationssettingslogswidget.cpp:62
-#, fuzzy, kde-format
-#| msgid "%1: %2"
+#, kde-format
 msgid "%1 Caller: %2"
-msgstr "%1: %2"
+msgstr "%1 beller: %2"
 
 #: widgets/applicationssettingsdialog/applicationssettingslogswidget.cpp:72
 #, kde-format
