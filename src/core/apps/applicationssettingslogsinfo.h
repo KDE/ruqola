@@ -38,10 +38,14 @@ public:
     [[nodiscard]] QDateTime createdAt() const;
     void setCreatedAt(const QDateTime &newCreatedAt);
 
+    [[nodiscard]] qint64 totalTime() const;
+    void setTotalTime(qint64 newTotalTime);
+
 private:
     QList<LogsArgument> mArguments;
     QString mMethod;
     QDateTime mCreatedAt;
+    qint64 mTotalTime = 0;
 };
 
 Q_DECLARE_METATYPE(ApplicationsSettingsLogsInfo)
