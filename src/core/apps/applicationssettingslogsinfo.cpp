@@ -79,7 +79,13 @@ void ApplicationsSettingsLogsInfo::LogsArgument::parseArguments(const QJsonObjec
     severity = obj["severity"_L1].toString(); // TODO convert to enum !!!
     const QJsonArray arrayArgs = obj["args"_L1].toArray();
     for (const QJsonValue &current : arrayArgs) {
-        args.append(current.toString());
+        if (current.isBool()) {
+            args.append(current.toBool() ? QStringLiteral("true") : QStringLiteral("false"));
+        } else if (current.isNull()) {
+            args.append(QStringLiteral("null"));
+        } else {
+            args.append(current.toString());
+        }
     }
 }
 
