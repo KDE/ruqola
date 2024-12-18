@@ -20,6 +20,7 @@ ApplicationsSettingsLogsInfo::~ApplicationsSettingsLogsInfo() = default;
 void ApplicationsSettingsLogsInfo::parseLogs(const QJsonObject &obj)
 {
     mMethod = obj["method"_L1].toString();
+    mTotalTime = obj["totalTime"_L1].toInteger();
     mCreatedAt = QDateTime::fromMSecsSinceEpoch(Utils::parseIsoDate(QStringLiteral("_createdAt"), obj), QTimeZone::utc());
     const QJsonArray array = obj["entries"_L1].toArray();
     for (const QJsonValue &current : array) {
@@ -31,7 +32,7 @@ void ApplicationsSettingsLogsInfo::parseLogs(const QJsonObject &obj)
 
 bool ApplicationsSettingsLogsInfo::operator==(const ApplicationsSettingsLogsInfo &other) const
 {
-    return mMethod == other.method() && mArguments == other.arguments() && mCreatedAt == other.createdAt();
+    return mMethod == other.method() && mArguments == other.arguments() && mCreatedAt == other.createdAt() && mTotalTime == other.totalTime();
 }
 
 QList<ApplicationsSettingsLogsInfo::LogsArgument> ApplicationsSettingsLogsInfo::arguments() const
@@ -54,6 +55,16 @@ void ApplicationsSettingsLogsInfo::setCreatedAt(const QDateTime &newCreatedAt)
     mCreatedAt = newCreatedAt;
 }
 
+qint64 ApplicationsSettingsLogsInfo::totalTime() const
+{
+    return mTotalTime;
+}
+
+void ApplicationsSettingsLogsInfo::setTotalTime(qint64 newTotalTime)
+{
+    mTotalTime = newTotalTime;
+}
+
 QString ApplicationsSettingsLogsInfo::method() const
 {
     return mMethod;
@@ -69,6 +80,7 @@ QDebug operator<<(QDebug d, const ApplicationsSettingsLogsInfo &t)
     d.space() << "method" << t.method();
     d.space() << "arguments" << t.arguments();
     d.space() << "createdAt" << t.createdAt();
+    d.space() << "totalTime" << t.totalTime();
     return d;
 }
 

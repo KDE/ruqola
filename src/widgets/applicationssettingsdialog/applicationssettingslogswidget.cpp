@@ -49,14 +49,15 @@ void ApplicationsSettingsLogsWidget::generateInfo(const QJsonObject &obj)
     // qDebug() << " obj " << obj;
     const QJsonArray array = obj[QStringLiteral("logs")].toArray();
     for (const auto &log : array) {
-        qDebug() << " log " << log;
+        // qDebug() << " log " << log;
         ApplicationsSettingsLogsInfo logInfo;
         logInfo.parseLogs(log.toObject());
         if (!message.isEmpty()) {
             message += QStringLiteral("<br/>");
         }
 
-        message += QStringLiteral("<b>%1: %2</b>").arg(QLocale().toString(logInfo.createdAt(), QLocale::ShortFormat), logInfo.method());
+        message += QStringLiteral("<b>%1: %2 (%3 ms)</b>")
+                       .arg(QLocale().toString(logInfo.createdAt(), QLocale::ShortFormat), logInfo.method(), QString::number(logInfo.totalTime()));
         for (const auto &arg : logInfo.arguments()) {
             message += QStringLiteral("<br/>");
             message += i18n("%1 Caller: %2", arg.severity, arg.caller) + QStringLiteral("<br/>");

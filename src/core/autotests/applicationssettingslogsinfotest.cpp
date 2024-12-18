@@ -22,6 +22,7 @@ void ApplicationsSettingsLogsInfoTest::shouldHaveDefaultValues()
     QVERIFY(log.method().isEmpty());
     QVERIFY(log.arguments().isEmpty());
     QVERIFY(log.createdAt().isNull());
+    QCOMPARE(log.totalTime(), 0);
 
     ApplicationsSettingsLogsInfo::LogsArgument args;
     QVERIFY(args.caller.isEmpty());
@@ -39,6 +40,7 @@ void ApplicationsSettingsLogsInfoTest::shouldLoadApplicationLogsInfo_data()
         ApplicationsSettingsLogsInfo info;
         info.setMethod("app:construct"_L1);
         info.setCreatedAt(QDateTime(QDate(2024, 12, 05), QTime(03, 28, 02, 762), QTimeZone::UTC));
+        info.setTotalTime(32);
 
         QList<ApplicationsSettingsLogsInfo::LogsArgument> args;
         {
