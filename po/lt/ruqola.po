@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-12-16 00:42+0000\n"
+"POT-Creation-Date: 2024-12-18 02:39+0000\n"
 "PO-Revision-Date: 2024-10-08 22:03+0300\n"
 "Last-Translator: Moo\n"
 "Language-Team: none\n"
@@ -192,7 +192,7 @@ msgstr ""
 
 #: core/apps/appsmarketplaceinfo.cpp:393 core/model/adminrolesmodel.cpp:40
 #: widgets/administratorsettingsdialog/ircfederation/ircfederationwidget.cpp:50
-#: widgets/applicationssettingsdialog/applicationssettingsdescriptiontabwidget.cpp:35
+#: widgets/applicationssettingsdialog/applicationssettingsdescriptiontabwidget.cpp:36
 #, kde-format
 msgid "Description"
 msgstr "Aprašas"
@@ -1219,9 +1219,9 @@ msgstr ""
 
 #: core/model/adminuserspendingmodel.cpp:58
 #, fuzzy, kde-format
-#| msgid "User is not activated"
+#| msgid "Add Users"
 msgid "Activate"
-msgstr "Naudotojas nėra aktyvuotas"
+msgstr "Pridėti naudotojus"
 
 #: core/model/adminuserspendingmodel.cpp:78
 #, fuzzy, kde-format
@@ -3754,12 +3754,10 @@ msgid "Just invited people can access this channel."
 msgstr "Gali rašyti tik įgalioti asmenys."
 
 #: widgets/administratordialog/rooms/administratorroomsselectroomtypewidget.cpp:14
-#, fuzzy, kde-format
-#| msgid "1 message"
-#| msgid_plural "%1 messages"
+#, kde-format
 msgctxt "@option:check"
 msgid "Direct"
-msgstr "1 žinutė"
+msgstr ""
 
 #: widgets/administratordialog/rooms/administratorroomsselectroomtypewidget.cpp:15
 #, kde-format
@@ -4133,9 +4131,9 @@ msgstr ""
 
 #: widgets/administratordialog/users/administratoruserstabwidget.cpp:36
 #, fuzzy, kde-format
-#| msgid "User is not activated"
+#| msgid "Add Users"
 msgid "Activated"
-msgstr "Naudotojas nėra aktyvuotas"
+msgstr "Pridėti naudotojus"
 
 #: widgets/administratordialog/users/administratoruserswidget.cpp:236
 #, fuzzy, kde-format
@@ -4662,7 +4660,7 @@ msgid "Slack Bridge"
 msgstr ""
 
 #: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:124
-#: widgets/applicationssettingsdialog/applicationssettingsdescriptiontabwidget.cpp:41
+#: widgets/applicationssettingsdialog/applicationssettingsdescriptiontabwidget.cpp:42
 #, kde-format
 msgid "Logs"
 msgstr ""
@@ -7103,13 +7101,13 @@ msgctxt "@title:window"
 msgid "Description"
 msgstr "Aprašas"
 
-#: widgets/applicationssettingsdialog/applicationssettingsdescriptiontabwidget.cpp:38
+#: widgets/applicationssettingsdialog/applicationssettingsdescriptiontabwidget.cpp:39
 #, fuzzy, kde-format
 #| msgid "Version"
 msgid "Versions"
 msgstr "Versija"
 
-#: widgets/applicationssettingsdialog/applicationssettingsdescriptiontabwidget.cpp:44
+#: widgets/applicationssettingsdialog/applicationssettingsdescriptiontabwidget.cpp:45
 #, fuzzy, kde-format
 #| msgid "Server Info..."
 msgid "Settings"
@@ -7157,7 +7155,12 @@ msgctxt "@action"
 msgid "Copy Text"
 msgstr "Būsenos tekstas:"
 
-#: widgets/applicationssettingsdialog/applicationssettingslogswidget.cpp:71
+#: widgets/applicationssettingsdialog/applicationssettingslogswidget.cpp:62
+#, kde-format
+msgid "%1 Caller: %2"
+msgstr ""
+
+#: widgets/applicationssettingsdialog/applicationssettingslogswidget.cpp:72
 #, fuzzy, kde-format
 #| msgid "No Messages found"
 msgid "No logs info found."
@@ -7180,31 +7183,29 @@ msgstr ""
 
 #: widgets/applicationssettingsdialog/applicationssettingssearchwidget.cpp:80
 #, fuzzy, kde-format
-#| msgid "Application not found"
+#| msgid "Search Messages..."
 msgctxt "@info:placeholder"
 msgid "Search Applications"
-msgstr "Programa nerasta"
+msgstr "Ieškoti žinučių..."
 
 #: widgets/applicationssettingsdialog/applicationssettingssearchwidget.cpp:83
-#, fuzzy, kde-format
-#| msgid "Application not found"
+#, kde-format
 msgctxt "@info:placeholder"
 msgid "Search Installed Applications"
-msgstr "Programa nerasta"
+msgstr ""
 
 #: widgets/applicationssettingsdialog/applicationssettingssearchwidget.cpp:86
-#, fuzzy, kde-format
-#| msgid "Application not found"
+#, kde-format
 msgctxt "@info:placeholder"
 msgid "Search Requested Applications"
-msgstr "Programa nerasta"
+msgstr ""
 
 #: widgets/applicationssettingsdialog/applicationssettingssearchwidget.cpp:89
 #, fuzzy, kde-format
-#| msgid "Application not found"
+#| msgid "Search Messages..."
 msgctxt "@info:placeholder"
 msgid "Search Private Applications"
-msgstr "Programa nerasta"
+msgstr "Ieškoti žinučių..."
 
 #: widgets/applicationssettingsdialog/applicationssettingssortingcombobox.cpp:12
 #, kde-format
@@ -7614,11 +7615,10 @@ msgid "Mark channel as read when writing a reply"
 msgstr ""
 
 #: widgets/configuredialog/configuregeneralwidget.cpp:19
-#, fuzzy, kde-format
-#| msgid "Download"
+#, kde-format
 msgctxt "@option:check"
 msgid "Enable system tray icon"
-msgstr "Atsisiųsti"
+msgstr ""
 
 #: widgets/configuredialog/configuregeneralwidget.cpp:20
 #, kde-format
@@ -8228,10 +8228,10 @@ msgstr "Naudotojai:"
 #: widgets/dialogs/createnewchannelwidget.cpp:47
 #: widgets/dialogs/createnewchannelwidget.cpp:51
 #, fuzzy, kde-format
-#| msgid "Do you want to delete this message?"
+#| msgid "Only you can see this message"
 msgctxt "@info:tooltip"
 msgid "Anyone can send new messages"
-msgstr "Ar norite ištrinti šią žinutę?"
+msgstr "Šią žinutę matote tik jūs"
 
 #: widgets/dialogs/createnewchannelwidget.cpp:48
 #, kde-format
@@ -8241,10 +8241,10 @@ msgstr "Tik skaitymui:"
 #: widgets/dialogs/createnewchannelwidget.cpp:49
 #: widgets/dialogs/createnewchannelwidget.cpp:52
 #, fuzzy, kde-format
-#| msgid "Do you want to delete this message?"
+#| msgid "Only you can see this message"
 msgctxt "@label:textbox"
 msgid "Anyone can send new messages"
-msgstr "Ar norite ištrinti šią žinutę?"
+msgstr "Šią žinutę matote tik jūs"
 
 #: widgets/dialogs/createnewchannelwidget.cpp:51
 #, fuzzy, kde-format
@@ -8900,11 +8900,10 @@ msgid "Search teams…"
 msgstr "Ieškoti žinučių..."
 
 #: widgets/directory/directorywidget.cpp:80
-#, fuzzy, kde-format
-#| msgid "Remove from Room"
+#, kde-format
 msgctxt "@action"
 msgid "Join…"
-msgstr "Šalinti iš kambario"
+msgstr ""
 
 #: widgets/directory/directorywidget.cpp:83
 #, fuzzy, kde-format
@@ -10367,11 +10366,10 @@ msgstr "Kopijuoti nuorodą"
 
 #: widgets/room/delegate/messagelistdelegate.cpp:999
 #, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Add Account"
+#| msgid "Description:"
 msgctxt "@info:tooltip"
 msgid "Add reaction"
-msgstr "Pridėti paskyrą"
+msgstr "Aprašas:"
 
 #: widgets/room/messagelinewidget.cpp:62
 #, fuzzy, kde-format
@@ -11265,18 +11263,16 @@ msgid "Applications…"
 msgstr "Programa nerasta"
 
 #: widgets/ruqolamainwindow.cpp:541
-#, fuzzy, kde-format
-#| msgid "Application not found"
+#, kde-format
 msgctxt "@action"
 msgid "Requested Applications…"
-msgstr "Programa nerasta"
+msgstr ""
 
 #: widgets/ruqolamainwindow.cpp:546
-#, fuzzy, kde-format
-#| msgid "Application not found"
+#, kde-format
 msgctxt "@action"
 msgid "Installed Applications…"
-msgstr "Programa nerasta"
+msgstr ""
 
 #: widgets/ruqolamainwindow.cpp:551
 #, fuzzy, kde-format
@@ -11712,10 +11708,8 @@ msgid "Add color to the text in the account tab"
 msgstr ""
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:23
-#, fuzzy
-#| msgid "Application not found"
 msgid "Allow to show private installed applications"
-msgstr "Programa nerasta"
+msgstr ""
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:33
 #, kde-format
@@ -12017,17 +12011,15 @@ msgid "Fix duplicated messages in search message dialog."
 msgstr "Išeiti iš kanalo"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:113
-#, fuzzy, kde-format
-#| msgid "Leave Channel"
+#, kde-format
 msgid "Add delegate in search rooms in team dialog."
-msgstr "Išeiti iš kanalo"
+msgstr ""
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:127
 #, fuzzy, kde-format
-#| msgid "1 message"
-#| msgid_plural "%1 messages"
+#| msgid "Direct message"
 msgid "Fix editing message."
-msgstr "1 žinutė"
+msgstr "Tiesioginė žinutė"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:128
 #, kde-format
@@ -12072,10 +12064,9 @@ msgid "Fix open discussion channel"
 msgstr "Atverti diskusiją"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:136
-#, fuzzy, kde-format
-#| msgid "Application not found"
+#, kde-format
 msgid "Allow to show application market settings"
-msgstr "Programa nerasta"
+msgstr ""
 
 #: widgets/whatsnew/whatsnewwidget.cpp:44
 #, kde-format
@@ -12103,15 +12094,14 @@ msgid "Some bug fixing:"
 msgstr "Kai kurių klaidų pataisymai:"
 
 #, fuzzy
-#~| msgid "Search User..."
-#~ msgctxt "@title:window"
-#~ msgid "Show Log"
-#~ msgstr "Ieškoti naudotojo..."
+#~| msgid "Delete Message"
+#~ msgid "Unread Threads Messages"
+#~ msgstr "Ištrinti žinutę"
 
 #, fuzzy
-#~| msgid "Private Room:"
-#~ msgid "Private"
-#~ msgstr "Privatus kambarys:"
+#~| msgid "Delete Message"
+#~ msgid "System Messages"
+#~ msgstr "Ištrinti žinutę"
 
 #, fuzzy
 #~| msgid "Leave Channel"
@@ -12120,13 +12110,20 @@ msgstr "Kai kurių klaidų pataisymai:"
 #~ msgstr "Išeiti iš kanalo"
 
 #, fuzzy
-#~| msgid "Delete Message"
-#~ msgid "Unread Threads Messages"
-#~ msgstr "Ištrinti žinutę"
+#~| msgid "Authentication Method"
+#~ msgctxt "@option:check"
+#~ msgid "Verified"
+#~ msgstr "Tapatybės nustatymo metodas"
+
+#, fuzzy
+#~| msgid "Private Room:"
+#~ msgid "Private"
+#~ msgstr "Privatus kambarys:"
 
 #, fuzzy
 #~| msgid "No Messages found"
-#~ msgid "(Mark as Read)"
+#~ msgctxt "@action"
+#~ msgid "Mark As Read"
 #~ msgstr "Nerasta jokių žinučių"
 
 #, fuzzy
@@ -12157,56 +12154,19 @@ msgstr "Kai kurių klaidų pataisymai:"
 
 #, fuzzy
 #~| msgid "No Messages found"
-#~ msgctxt "@action"
-#~ msgid "Mark As Read"
+#~ msgid "(Mark As Read)"
 #~ msgstr "Nerasta jokių žinučių"
 
 #, fuzzy
-#~| msgid "Password"
-#~ msgctxt "@info:tooltip"
-#~ msgid "Reset"
-#~ msgstr "Slaptažodis"
-
-#, fuzzy
-#~| msgid "Authentication Method"
-#~ msgctxt "@option:check"
-#~ msgid "Verified"
-#~ msgstr "Tapatybės nustatymo metodas"
-
-#, fuzzy
-#~| msgid "Delete Message"
-#~ msgid "System Messages"
-#~ msgstr "Ištrinti žinutę"
+#~| msgid "Search User..."
+#~ msgctxt "@title:window"
+#~ msgid "Show Log"
+#~ msgstr "Ieškoti naudotojo..."
 
 #, fuzzy
 #~| msgid "Password"
 #~ msgid "Reset TOTP"
 #~ msgstr "Slaptažodis"
-
-#~ msgid "Create"
-#~ msgstr "Sukurti"
-
-#, fuzzy
-#~| msgid "Search Messages..."
-#~ msgid "Search rooms…"
-#~ msgstr "Ieškoti žinučių..."
-
-#, fuzzy
-#~| msgid "Copy link"
-#~ msgid "Copy Message"
-#~ msgstr "Kopijuoti nuorodą"
-
-#, fuzzy
-#~| msgid "Search Messages..."
-#~ msgctxt "Placeholder"
-#~ msgid "Search rooms…"
-#~ msgstr "Ieškoti žinučių..."
-
-#, fuzzy
-#~| msgid "Search Messages..."
-#~ msgctxt "Placeholder"
-#~ msgid "Search users…"
-#~ msgstr "Ieškoti žinučių..."
 
 #, fuzzy
 #~| msgid "Search User..."
@@ -12221,11 +12181,6 @@ msgstr "Kai kurių klaidų pataisymai:"
 #, fuzzy
 #~| msgid "Server Version:"
 #~ msgid "Version 2.2"
-#~ msgstr "Serverio versija:"
-
-#, fuzzy
-#~| msgid "Server Version:"
-#~ msgid "Version 2.3"
 #~ msgstr "Serverio versija:"
 
 #, fuzzy

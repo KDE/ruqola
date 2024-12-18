@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-12-16 00:42+0000\n"
+"POT-Creation-Date: 2024-12-18 02:39+0000\n"
 "PO-Revision-Date: 2024-11-06 16:19+0300\n"
 "Last-Translator: Olesya Gerasimenko <translation-team@basealt.ru>\n"
 "Language-Team: Basealt Translation Team\n"
@@ -185,6 +185,8 @@ msgstr ""
 
 #: core/apps/appsmarketplaceinfo.cpp:147
 #, fuzzy, kde-format
+#| msgctxt "@action"
+#| msgid "This month"
 msgid "month"
 msgstr "В этом месяце"
 
@@ -195,7 +197,7 @@ msgstr ""
 
 #: core/apps/appsmarketplaceinfo.cpp:393 core/model/adminrolesmodel.cpp:40
 #: widgets/administratorsettingsdialog/ircfederation/ircfederationwidget.cpp:50
-#: widgets/applicationssettingsdialog/applicationssettingsdescriptiontabwidget.cpp:35
+#: widgets/applicationssettingsdialog/applicationssettingsdescriptiontabwidget.cpp:36
 #, kde-format
 msgid "Description"
 msgstr "Описание"
@@ -244,16 +246,20 @@ msgstr "Права доступа"
 
 #: core/apps/appsmarketplaceinfo.cpp:583
 #, fuzzy, kde-format
+#| msgid "All messages"
 msgid "Access messages"
 msgstr "Все сообщения"
 
 #: core/apps/appsmarketplaceinfo.cpp:585
 #, fuzzy, kde-format
+#| msgctxt "@info:placeholder"
+#| msgid "Search moderation message…"
 msgid "Send and modify messages"
 msgstr "Поиск сообщения модерации…"
 
 #: core/apps/appsmarketplaceinfo.cpp:587
 #, fuzzy, kde-format
+#| msgid "Account information"
 msgid "Access room information"
 msgstr "Сведения об учётной записи"
 
@@ -269,11 +275,13 @@ msgstr ""
 
 #: core/apps/appsmarketplaceinfo.cpp:593
 #, fuzzy, kde-format
+#| msgid "Account information"
 msgid "Access user information"
 msgstr "Сведения об учётной записи"
 
 #: core/apps/appsmarketplaceinfo.cpp:595
 #, fuzzy, kde-format
+#| msgid "Account information"
 msgid "Modify user information"
 msgstr "Сведения об учётной записи"
 
@@ -344,6 +352,7 @@ msgstr ""
 
 #: core/apps/appsmarketplaceinfo.cpp:623
 #, fuzzy, kde-format
+#| msgid "Account information"
 msgid "Access Livechat room information"
 msgstr "Сведения об учётной записи"
 
@@ -369,6 +378,7 @@ msgstr ""
 
 #: core/apps/appsmarketplaceinfo.cpp:633
 #, fuzzy, kde-format
+#| msgid "Account information"
 msgid "Access Livechat status information"
 msgstr "Сведения об учётной записи"
 
@@ -476,6 +486,7 @@ msgstr "Пользователю приложения запрещён вход.
 
 #: core/authenticationmanager.cpp:113
 #, fuzzy, kde-format
+#| msgid "Call ongoing"
 msgid "Logout ongoing"
 msgstr "Вызов продолжается"
 
@@ -1510,6 +1521,8 @@ msgstr "Изменить статус…"
 
 #: core/model/systemmessagesmodel.cpp:31
 #, fuzzy, kde-format
+#| msgctxt "@title"
+#| msgid "Delete Message"
 msgid "Select Messages to hide"
 msgstr "Удаление сообщения"
 
@@ -1675,11 +1688,13 @@ msgstr "Скрыть сообщения «Тема комнаты изменен
 
 #: core/model/systemmessagesmodel.cpp:67
 #, fuzzy, kde-format
+#| msgid "Hide \"Room Name Changed\" messages"
 msgid "Hide \"Room announcement changed\" messages"
 msgstr "Скрыть сообщения «Название комнаты изменено»"
 
 #: core/model/systemmessagesmodel.cpp:68
 #, fuzzy, kde-format
+#| msgid "Hide \"Room topic changed\" messages"
 msgid "Hide \"Room description changed\" messages"
 msgstr "Скрыть сообщения «Тема комнаты изменена»"
 
@@ -1759,12 +1774,16 @@ msgstr "Пользователь %1 отклонил сеанс OTR."
 
 #: core/receivetypingnotificationmanager.cpp:58
 #, fuzzy, kde-format
+#| msgctxt "We need a space between after </strong>"
+#| msgid "<strong>%1</strong> is typing..."
 msgctxt "WARNING!!!!!!: PLEASE We need a space between after </strong>"
 msgid "<strong>%1</strong> is typing..."
 msgstr "<strong>%1</strong> печатает…"
 
 #: core/receivetypingnotificationmanager.cpp:72
 #, fuzzy, kde-format
+#| msgctxt "We need a space between after </strong>"
+#| msgid "<strong>%1</strong> are typing..."
 msgctxt "WARNING!!!!!!: PLEASE We need a space between after </strong>"
 msgid "<strong>%1</strong> are typing..."
 msgstr "<strong>%1</strong> печатают…"
@@ -1783,6 +1802,7 @@ msgstr "Не подключено"
 
 #: core/rocketchataccount.cpp:715
 #, fuzzy, kde-format
+#| msgid "Not connected"
 msgid "Not connected yet"
 msgstr "Не подключено"
 
@@ -3940,6 +3960,8 @@ msgstr "Установить случайный пароль и отправит
 
 #: widgets/administratordialog/users/administratoradduserwidget.cpp:30
 #, fuzzy, kde-format
+#| msgctxt "@option:check"
+#| msgid "Mark Email for External Accounts Verified"
 msgctxt "@option:check"
 msgid "Mark email as verified"
 msgstr "Отмечать адреса эл. почты внешних учётных записей как проверенные"
@@ -4005,6 +4027,7 @@ msgstr "Все"
 
 #: widgets/administratordialog/users/administratoruserstabwidget.cpp:36
 #, fuzzy, kde-format
+#| msgid "Activate"
 msgid "Activated"
 msgstr "Активировать"
 
@@ -4278,6 +4301,7 @@ msgstr "Сброс пароля"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:56
 #, fuzzy, kde-format
+#| msgid "Failed Login Attempts"
 msgctxt "@option:check"
 msgid "Log (on console) failed login attempts"
 msgstr "Неудачные попытки входа"
@@ -4295,18 +4319,16 @@ msgid "Show UserAgent on failed login attempts logs"
 msgstr ""
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:59
-#, fuzzy, kde-format
-#| msgid "Failed Login Attempts"
+#, kde-format
 msgctxt "@option:check"
 msgid "Show Client IP on failed login attempts logs"
-msgstr "Неудачные попытки входа"
+msgstr ""
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:60
-#, fuzzy, kde-format
-#| msgid "Failed Login Attempts"
+#, kde-format
 msgctxt "@option:check"
 msgid "Show Forwarded IP on failed login attempts logs"
-msgstr "Неудачные попытки входа"
+msgstr ""
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:115
 #, kde-format
@@ -4336,6 +4358,7 @@ msgstr "Количество неудачных попыток перед бло
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:156
 #, fuzzy, kde-format
+#| msgid "Login At"
 msgid "Login Logs"
 msgstr "Время входа"
 
@@ -4516,7 +4539,7 @@ msgid "Slack Bridge"
 msgstr "Мост Slack"
 
 #: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:124
-#: widgets/applicationssettingsdialog/applicationssettingsdescriptiontabwidget.cpp:41
+#: widgets/applicationssettingsdialog/applicationssettingsdescriptiontabwidget.cpp:42
 #, kde-format
 msgid "Logs"
 msgstr "Журналы"
@@ -5000,6 +5023,7 @@ msgstr "По умолчанию включить для закрытых ком�
 
 #: widgets/administratorsettingsdialog/encryption/encryptionsettingswidget.cpp:19
 #, fuzzy, kde-format
+#| msgid "Encryption"
 msgctxt "@option:check"
 msgid "Encrypt files"
 msgstr "Шифрование"
@@ -7015,17 +7039,18 @@ msgstr "Включено"
 
 #: widgets/applicationssettingsdialog/applicationssettingsdescriptiondialog.cpp:25
 #, fuzzy, kde-format
+#| msgid "Description"
 msgctxt "@title:window"
 msgid "Description"
 msgstr "Описание"
 
-#: widgets/applicationssettingsdialog/applicationssettingsdescriptiontabwidget.cpp:38
+#: widgets/applicationssettingsdialog/applicationssettingsdescriptiontabwidget.cpp:39
 #, fuzzy, kde-format
 #| msgid "Version"
 msgid "Versions"
 msgstr "Версия"
 
-#: widgets/applicationssettingsdialog/applicationssettingsdescriptiontabwidget.cpp:44
+#: widgets/applicationssettingsdialog/applicationssettingsdescriptiontabwidget.cpp:45
 #, fuzzy, kde-format
 #| msgid "&Settings"
 msgid "Settings"
@@ -7068,7 +7093,13 @@ msgctxt "@action"
 msgid "Copy Text"
 msgstr "Копировать текст"
 
-#: widgets/applicationssettingsdialog/applicationssettingslogswidget.cpp:71
+#: widgets/applicationssettingsdialog/applicationssettingslogswidget.cpp:62
+#, fuzzy, kde-format
+#| msgid "%1: %2"
+msgid "%1 Caller: %2"
+msgstr "%1: %2"
+
+#: widgets/applicationssettingsdialog/applicationssettingslogswidget.cpp:72
 #, fuzzy, kde-format
 #| msgid "No room found"
 msgid "No logs info found."
@@ -7190,6 +7221,8 @@ msgstr "Отметить как прочитанное"
 
 #: widgets/channellist/channellistview.cpp:121
 #, fuzzy, kde-format
+#| msgctxt "@action"
+#| msgid "Mark As Unread"
 msgctxt "@action"
 msgid "Mark as Unread"
 msgstr "Отметить как непрочитанное"
@@ -7302,6 +7335,8 @@ msgstr "Следующий канал"
 
 #: widgets/common/authenticationbutton.cpp:23
 #, fuzzy, kde-format
+#| msgctxt "@action:button"
+#| msgid "Sign in with %1"
 msgctxt "@action:button"
 msgid "Sign in With %1"
 msgstr "Войти с помощью данных %1"
@@ -7314,6 +7349,8 @@ msgstr "Зарегистрировать учётную запись"
 
 #: widgets/common/authenticationloginwidget.cpp:37
 #, fuzzy, kde-format
+#| msgctxt "@action"
+#| msgid "My Account…"
 msgid "My Account"
 msgstr "Моя учётная запись…"
 
@@ -7325,6 +7362,8 @@ msgstr "Имя пользователя или адрес эл. почты"
 
 #: widgets/common/authenticationloginwidget.cpp:45
 #, fuzzy, kde-format
+#| msgctxt "@info:placeholder"
+#| msgid "Username or email"
 msgid "Username or email:"
 msgstr "Имя пользователя или адрес эл. почты"
 
@@ -7463,24 +7502,32 @@ msgstr "&Использовать нестандартные шрифты"
 
 #: widgets/configuredialog/configuregeneralwidget.cpp:15
 #, fuzzy, kde-format
+#| msgctxt "@option:check"
+#| msgid "Set accounts online on startup"
 msgctxt "@option:check"
 msgid "Set status to \"Online\" on startup"
 msgstr "Переводить учётные записи в состояние «в сети» при запуске"
 
 #: widgets/configuredialog/configuregeneralwidget.cpp:16
 #, fuzzy, kde-format
+#| msgctxt "@option:check"
+#| msgid "Embed Link Previews"
 msgctxt "@option:check"
 msgid "Enable image previews"
 msgstr "Встроенный предпросмотр ссылок"
 
 #: widgets/configuredialog/configuregeneralwidget.cpp:17
 #, fuzzy, kde-format
+#| msgctxt "@option:check"
+#| msgid "Embed Link Previews"
 msgctxt "@option:check"
 msgid "Enable URL previews"
 msgstr "Встроенный предпросмотр ссылок"
 
 #: widgets/configuredialog/configuregeneralwidget.cpp:18
 #, fuzzy, kde-format
+#| msgctxt "@option:check"
+#| msgid "Mark room as read when clicking to write a reply"
 msgctxt "@option:check"
 msgid "Mark channel as read when writing a reply"
 msgstr "Отметить комнату как прочитанную при щелчке для написания ответа"
@@ -7505,6 +7552,8 @@ msgstr ""
 
 #: widgets/configuredialog/configuregeneralwidget.cpp:22
 #, fuzzy, kde-format
+#| msgctxt "@option:check"
+#| msgid "Animate Gif Image"
 msgctxt "@option:check"
 msgid "Animate GIFs"
 msgstr "Анимировать изображение GIF"
@@ -7517,6 +7566,8 @@ msgstr ""
 
 #: widgets/configuredialog/configuregeneralwidget.cpp:25
 #, fuzzy, kde-format
+#| msgctxt "@option:check"
+#| msgid "Enable Plasma Activities"
 msgctxt "@option:check"
 msgid "Enable Plasma Activities integration"
 msgstr "Включить комнаты Plasma"
@@ -7535,6 +7586,7 @@ msgstr "Общие"
 
 #: widgets/configuredialog/configuresettingsdialog.cpp:72
 #, fuzzy, kde-format
+#| msgid "Accounts"
 msgctxt "@title Preferences page name"
 msgid "Accounts"
 msgstr "Учётные записи"
@@ -7547,6 +7599,8 @@ msgstr "Шрифт"
 
 #: widgets/configuredialog/configuresettingsdialog.cpp:83
 #, fuzzy, kde-format
+#| msgctxt "@title AutoCorrection page name"
+#| msgid "AutoCorrection"
 msgctxt "@title AutoCorrection page name"
 msgid "Auto-Correction"
 msgstr "Автоисправление"
@@ -7559,6 +7613,8 @@ msgstr "Проверка орфографии"
 
 #: widgets/configuredialog/configuresettingsdialog.cpp:95
 #, fuzzy, kde-format
+#| msgctxt "@title Preferences page name"
+#| msgid "Translate"
 msgctxt "@title Preferences page name"
 msgid "Translation"
 msgstr "Перевод"
@@ -7594,12 +7650,14 @@ msgstr "Удалить учётную запись «%1»?"
 
 #: widgets/configurenewserver/checknewserverurlwidget.cpp:25
 #, fuzzy, kde-format
+#| msgid "Connected"
 msgctxt "@action:button"
 msgid "Connect"
 msgstr "Подключён"
 
 #: widgets/configurenewserver/checknewserverurlwidget.cpp:36
 #, fuzzy, kde-format
+#| msgid "Server URL:"
 msgctxt "@label:textbox"
 msgid "Server URL:"
 msgstr "Адрес сервера:"
@@ -7611,6 +7669,7 @@ msgstr ""
 
 #: widgets/configurenewserver/checknewserverurlwidget.cpp:131
 #, fuzzy, kde-format
+#| msgid "Impossible to access to server."
 msgid "Failed to connect to server: %1"
 msgstr "Невозможно получить доступ к серверу."
 
@@ -8063,6 +8122,7 @@ msgstr "Пользователи:"
 #: widgets/dialogs/createnewchannelwidget.cpp:47
 #: widgets/dialogs/createnewchannelwidget.cpp:51
 #, fuzzy, kde-format
+#| msgid "Only you can see this message"
 msgctxt "@info:tooltip"
 msgid "Anyone can send new messages"
 msgstr "Только вы можете видеть это сообщение"
@@ -8075,12 +8135,15 @@ msgstr "Только чтение:"
 #: widgets/dialogs/createnewchannelwidget.cpp:49
 #: widgets/dialogs/createnewchannelwidget.cpp:52
 #, fuzzy, kde-format
+#| msgid "Only you can see this message"
 msgctxt "@label:textbox"
 msgid "Anyone can send new messages"
 msgstr "Только вы можете видеть это сообщение"
 
 #: widgets/dialogs/createnewchannelwidget.cpp:51
 #, fuzzy, kde-format
+#| msgctxt "@label:textbox"
+#| msgid "Only authorized users can write new messages"
 msgctxt "@info:tooltip"
 msgid "Only owners can send new messages"
 msgstr ""
@@ -8089,6 +8152,8 @@ msgstr ""
 
 #: widgets/dialogs/createnewchannelwidget.cpp:52
 #, fuzzy, kde-format
+#| msgctxt "@label:textbox"
+#| msgid "Only authorized users can write new messages"
 msgctxt "@label:textbox"
 msgid "Only owners can send new messages"
 msgstr ""
@@ -8128,6 +8193,8 @@ msgstr "Зашифрованная комната:"
 
 #: widgets/dialogs/createnewchannelwidget.cpp:75
 #, fuzzy, kde-format
+#| msgid "Moderator:"
+#| msgid_plural "Moderators:"
 msgid "Federated:"
 msgstr "Модераторы:"
 
@@ -8700,6 +8767,8 @@ msgstr "Присоединиться…"
 
 #: widgets/directory/directorywidget.cpp:83
 #, fuzzy, kde-format
+#| msgctxt "@action"
+#| msgid "Open Private Messages…"
 msgctxt "@action"
 msgid "Open Private Message…"
 msgstr "Открыть конфиденциальные сообщения…"
@@ -9174,6 +9243,7 @@ msgstr "Сбросить пароль"
 
 #: widgets/misc/passwordvalidatewidget.cpp:161
 #, fuzzy, kde-format
+#| msgid "Max Repeating Characters"
 msgid "At least %1 characters"
 msgstr "Максимальное количество повторяющихся символов"
 
@@ -9184,26 +9254,35 @@ msgstr ""
 
 #: widgets/misc/passwordvalidatewidget.cpp:168
 #, fuzzy, kde-format
+#| msgid "Max Repeating Characters"
 msgid "Max. %1 repeating characters"
 msgstr "Максимальное количество повторяющихся символов"
 
 #: widgets/misc/passwordvalidatewidget.cpp:171
 #, fuzzy, kde-format
+#| msgctxt "@option:check"
+#| msgid "At Least One Lowercase"
 msgid "At least one lowercase letter"
 msgstr "Хотя бы одна буква в нижнем регистре"
 
 #: widgets/misc/passwordvalidatewidget.cpp:174
 #, fuzzy, kde-format
+#| msgctxt "@option:check"
+#| msgid "At Least One Uppercase"
 msgid "At least one uppercase letter"
 msgstr "Хотя бы одна буква в верхнем регистре"
 
 #: widgets/misc/passwordvalidatewidget.cpp:177
 #, fuzzy, kde-format
+#| msgctxt "@option:check"
+#| msgid "At Least One Symbol"
 msgid "At least one symbol"
 msgstr "Хотя бы один специальный символ"
 
 #: widgets/misc/passwordvalidatewidget.cpp:180
 #, fuzzy, kde-format
+#| msgctxt "@option:check"
+#| msgid "At Least One Number"
 msgid "At least one number"
 msgstr "Хотя бы одна цифра"
 
@@ -9886,6 +9965,7 @@ msgstr "Зарегистрировать"
 
 #: widgets/registeruser/registeruserwidget.cpp:26
 #, fuzzy, kde-format
+#| msgid "Seasons"
 msgid "Reason:"
 msgstr "Времена года"
 
@@ -10090,6 +10170,7 @@ msgstr "Добавить реакцию"
 
 #: widgets/room/messagelinewidget.cpp:62
 #, fuzzy, kde-format
+#| msgid "Attach File"
 msgctxt "@info:tooltip"
 msgid "Attach a file…"
 msgstr "Прикрепить файл"
@@ -10101,6 +10182,8 @@ msgstr "Прикрепить файл"
 
 #: widgets/room/messagelinewidget.cpp:73
 #, fuzzy, kde-format
+#| msgctxt "@info:placeholder"
+#| msgid "Search moderation message…"
 msgctxt "@info:tooltip"
 msgid "Send a video message…"
 msgstr "Поиск сообщения модерации…"
@@ -10112,6 +10195,8 @@ msgstr "Видеосообщение"
 
 #: widgets/room/messagelinewidget.cpp:84 widgets/room/messagelinewidget.cpp:91
 #, fuzzy, kde-format
+#| msgctxt "@info:placeholder"
+#| msgid "Search messages…"
 msgctxt "@info:tooltip"
 msgid "Send a sound message…"
 msgstr "Поиск сообщений…"
@@ -10123,6 +10208,7 @@ msgstr "Аудиосообщение"
 
 #: widgets/room/messagelinewidget.cpp:98
 #, fuzzy, kde-format
+#| msgid "Add Emoticon"
 msgctxt "@info:tooltip"
 msgid "Add emoticon…"
 msgstr "Добавить смайлик"
@@ -10134,6 +10220,7 @@ msgstr "Добавить смайлик"
 
 #: widgets/room/messagelinewidget.cpp:107
 #, fuzzy, kde-format
+#| msgid "Send Message"
 msgctxt "@info:tooltip"
 msgid "Send message"
 msgstr "Отправить сообщение"
@@ -10161,6 +10248,8 @@ msgstr "Сообщение %1 в ветке"
 
 #: widgets/room/messagelinewidget.cpp:250
 #, fuzzy, kde-format
+#| msgctxt "@info:placeholder"
+#| msgid "Search messages…"
 msgid "Send a message in %1…"
 msgstr "Поиск сообщений…"
 
@@ -10380,18 +10469,23 @@ msgstr "%1 сек. до переподключения. %2"
 
 #: widgets/room/roomcounterinfowidget.cpp:19
 #, fuzzy, kde-format
+#| msgid "(Jump to first Unread)"
 msgctxt "@action:button"
 msgid "Jump to First Unread"
 msgstr "(Перейти к первому непрочитанному)"
 
 #: widgets/room/roomcounterinfowidget.cpp:26
 #, fuzzy, kde-format
+#| msgctxt "@action"
+#| msgid "Mark as Read"
 msgctxt "@action:button"
 msgid "Mark as Read"
 msgstr "Отметить как прочитанное"
 
 #: widgets/room/roomcounterinfowidget.cpp:61
 #, fuzzy, kde-format
+#| msgid "%4 %1 new message since %2. %3"
+#| msgid_plural "%4 %1 new messages since %2. %3"
 msgid "%1 new message since %2."
 msgid_plural "%1 new messages since %2."
 msgstr[0] "%4 %1 новое сообщение с %2. %3"
@@ -10588,17 +10682,22 @@ msgstr "Заблокировать пользователя"
 
 #: widgets/room/usersinroommenu.cpp:70
 #, fuzzy, kde-format
+#| msgid "Do you want to remove this user?"
 msgid "Do you want to mute this user?"
 msgstr "Удалить этого пользователя?"
 
 #: widgets/room/usersinroommenu.cpp:71
 #, fuzzy, kde-format
+#| msgctxt "@label:textbox"
+#| msgid "Invite Users"
 msgctxt "@title"
 msgid "Mute User"
 msgstr "Пригласить пользователей"
 
 #: widgets/room/usersinroommenu.cpp:72
 #, fuzzy, kde-format
+#| msgctxt "@label:textbox"
+#| msgid "Invite Users"
 msgctxt "@action:button"
 msgid "Mute User"
 msgstr "Пригласить пользователей"
@@ -10670,36 +10769,44 @@ msgstr "Удалить из комнаты"
 
 #: widgets/room/usersinroommenu.cpp:178
 #, fuzzy, kde-format
+#| msgid "Unblock User"
 msgctxt "@action"
 msgid "Unblock User"
 msgstr "Разблокировать пользователя"
 
 #: widgets/room/usersinroommenu.cpp:178
 #, fuzzy, kde-format
+#| msgid "Block User"
 msgctxt "@action"
 msgid "Block User"
 msgstr "Заблокировать пользователя"
 
 #: widgets/room/usersinroommenu.cpp:183
 #, fuzzy, kde-format
+#| msgid "Unignore"
 msgctxt "@action"
 msgid "Unignore"
 msgstr "Отменить игнорирование"
 
 #: widgets/room/usersinroommenu.cpp:183
 #, fuzzy, kde-format
+#| msgid "Ignore"
 msgctxt "@action"
 msgid "Ignore"
 msgstr "Игнорировать"
 
 #: widgets/room/usersinroommenu.cpp:189
 #, fuzzy, kde-format
+#| msgctxt "@action"
+#| msgid "Invite Users"
 msgctxt "@action"
 msgid "Unmute User"
 msgstr "Пригласить пользователей"
 
 #: widgets/room/usersinroommenu.cpp:189
 #, fuzzy, kde-format
+#| msgctxt "@action"
+#| msgid "Invite Users"
 msgctxt "@action"
 msgid "Mute User"
 msgstr "Пригласить пользователей"
@@ -11257,6 +11364,8 @@ msgstr ""
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:18
 #, fuzzy
+#| msgctxt "@title:window"
+#| msgid "Administrator Server Settings - %1"
 msgid "Add restore button in administrator server settings dialog."
 msgstr "Параметры администратора сервера — %1"
 
@@ -11270,6 +11379,7 @@ msgstr ""
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:21
 #, fuzzy
+#| msgid "Implement message style"
 msgid "Implement mute/unmute user."
 msgstr "Реализация стиля сообщения"
 
@@ -11596,11 +11706,13 @@ msgstr "Добавлено делегирование в диалоге поис
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:127
 #, fuzzy, kde-format
+#| msgid "Direct message"
 msgid "Fix editing message."
 msgstr "Личное сообщение"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:128
 #, fuzzy, kde-format
+#| msgid "Implement Rocket.Chat Marketplace."
 msgid "Show permissions in Rocket.Chat Marketplace."
 msgstr "Реализация рынка программ Rocket.Chat (Rocket.Chat Marketplace)"
 
@@ -11644,11 +11756,9 @@ msgid "Fix open discussion channel"
 msgstr "Открыть обсуждение"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:136
-#, fuzzy, kde-format
-#| msgctxt "@info:placeholder"
-#| msgid "Search Installed Applications"
+#, kde-format
 msgid "Allow to show application market settings"
-msgstr "Поиск установленных приложений"
+msgstr ""
 
 #: widgets/whatsnew/whatsnewwidget.cpp:44
 #, kde-format
@@ -11675,29 +11785,6 @@ msgstr "Некоторые из новых возможностей в этой 
 msgid "Some bug fixing:"
 msgstr "Исправление некоторых ошибок:"
 
-#~ msgid "Impossible to open log."
-#~ msgstr "Невозможно открыть журнал."
-
-#~ msgctxt "@title:window"
-#~ msgid "Show Log"
-#~ msgstr "Показ журнала"
-
-#~ msgid "Private"
-#~ msgstr "Закрытые"
-
-#~ msgid "Installed"
-#~ msgstr "Установленные"
-
-#~ msgid "BigBlueButton"
-#~ msgstr "BigBlueButton"
-
-#~ msgid "Jitsi"
-#~ msgstr "Jitsi"
-
-#~ msgctxt "@option:check"
-#~ msgid "Join Default Channels"
-#~ msgstr "Присоединиться к каналам по умолчанию"
-
 #~ msgid "Starred Messages"
 #~ msgstr "Сообщения со звёздочкой"
 
@@ -11713,9 +11800,26 @@ msgstr "Исправление некоторых ошибок:"
 #~ msgid "Unread Threads Messages"
 #~ msgstr "Непрочитанные сообщения в ветках"
 
-#, fuzzy
-#~ msgid "(Mark as Read)"
-#~ msgstr "(Отметить как прочитанное)"
+#~ msgid "System Messages"
+#~ msgstr "Системные сообщения"
+
+#~ msgctxt "@option:check"
+#~ msgid "Join Default Channels"
+#~ msgstr "Присоединиться к каналам по умолчанию"
+
+#~ msgctxt "@option:check"
+#~ msgid "Verified"
+#~ msgstr "Проверено"
+
+#~ msgid "Private"
+#~ msgstr "Закрытые"
+
+#~ msgid "Installed"
+#~ msgstr "Установленные"
+
+#~ msgctxt "@action"
+#~ msgid "Mark As Read"
+#~ msgstr "Отметить как прочитанное"
 
 #~ msgid "Username or Email:"
 #~ msgstr "Имя пользователя или адрес эл. почты:"
@@ -11748,70 +11852,62 @@ msgstr "Исправление некоторых ошибок:"
 #~ msgid "Server Url:"
 #~ msgstr "Адрес сервера:"
 
-#~ msgid "Message %1"
-#~ msgstr "Сообщение %1"
-
-#~ msgctxt "@action"
-#~ msgid "Mark As Read"
-#~ msgstr "Отметить как прочитанное"
-
-#, fuzzy
-#~ msgctxt "@info:tooltip"
-#~ msgid "Reset"
-#~ msgstr "Сброс сквозного шифрования"
-
 #~ msgctxt "@info:tooltip"
 #~ msgid "All users in this team can write messages"
 #~ msgstr "Все пользователи в этой команде могут писать сообщения"
 
-#~ msgctxt "@option:check"
-#~ msgid "Verified"
-#~ msgstr "Проверено"
+#~ msgid "Message %1"
+#~ msgstr "Сообщение %1"
 
-#~ msgid "System Messages"
-#~ msgstr "Системные сообщения"
+#~ msgid "(Mark As Read)"
+#~ msgstr "(Отметить как прочитанное)"
+
+#~ msgid "Impossible to open log."
+#~ msgstr "Невозможно открыть журнал."
+
+#~ msgctxt "@title:window"
+#~ msgid "Show Log"
+#~ msgstr "Показ журнала"
+
+#~ msgid "BigBlueButton"
+#~ msgstr "BigBlueButton"
+
+#~ msgid "Jitsi"
+#~ msgstr "Jitsi"
+
+#~ msgid "Select All"
+#~ msgstr "Выбрать все"
 
 #~ msgid "Reset TOTP"
 #~ msgstr "Сбросить TOTP"
 
-#, fuzzy
-#~ msgid "Create"
-#~ msgstr "Создать"
+#~ msgid "Add..."
+#~ msgstr "Добавить..."
 
-#, fuzzy
-#~ msgid "Set as Favorite"
-#~ msgstr "Добавить в избранное"
-
-#, fuzzy
-#~ msgid "Search rooms…"
-#~ msgstr "Поиск комнат…"
-
-#, fuzzy
-#~ msgid "Copy Message"
-#~ msgstr "Копировать сообщение"
-
-#, fuzzy
-#~ msgctxt "Placeholder"
-#~ msgid "Search rooms…"
-#~ msgstr "Поиск комнат…"
-
-#, fuzzy
-#~ msgctxt "Placeholder"
-#~ msgid "Search users…"
-#~ msgstr "Поиск пользователей…"
+#~ msgid "Modify..."
+#~ msgstr "Изменить..."
 
 #~ msgid "Cancel"
 #~ msgstr "Отмена"
-
-#, fuzzy
-#~ msgid "Search channels…"
-#~ msgstr "Поиск каналов"
 
 #~ msgctxt "@title:window"
 #~ msgid "Directory - %1"
 #~ msgstr "Каталог — %1"
 
 #, fuzzy
+#~| msgid "Search Channels"
+#~ msgid "Search channels…"
+#~ msgstr "Поиск каналов"
+
+#~ msgid "Go to Message"
+#~ msgstr "Перейти к сообщению"
+
+#~ msgid "(Click here for Loading more...)"
+#~ msgstr "(Щёлкните здесь, чтобы загрузить ещё…)"
+
+#, fuzzy
+#~| msgctxt "Action which allows to search room/user/team"
+#~| msgid "Directory..."
 #~ msgctxt "Action which allows to search room/user/team"
 #~ msgid "Directory…"
 #~ msgstr "Каталог..."
@@ -11820,33 +11916,16 @@ msgstr "Исправление некоторых ошибок:"
 #~ msgstr "Версия 2.0"
 
 #, fuzzy
+#~| msgid "Version 2.0"
 #~ msgid "Version 2.2"
-#~ msgstr "Версия 2.0"
-
-#, fuzzy
-#~ msgid "Version 2.3"
 #~ msgstr "Версия 2.0"
 
 #~ msgctxt "@title:window"
 #~ msgid "What's new in Ruqola"
 #~ msgstr "Новое в Ruqola"
 
-#~ msgid "Select All"
-#~ msgstr "Выбрать все"
-
-#~ msgid "Go to Message"
-#~ msgstr "Перейти к сообщению"
-
-#~ msgid "Add..."
-#~ msgstr "Добавить..."
-
-#~ msgid "Modify..."
-#~ msgstr "Изменить..."
-
-#~ msgid "(Click here for Loading more...)"
-#~ msgstr "(Щёлкните здесь, чтобы загрузить ещё…)"
-
 #, fuzzy
+#~| msgid "(Click here for Loading more...)"
 #~ msgid "(Click here for Loading more…"
 #~ msgstr "(Щёлкните здесь, чтобы загрузить ещё…)"
 
@@ -11896,10 +11975,12 @@ msgstr "Исправление некоторых ошибок:"
 #~ msgstr "Загрузить изображение…"
 
 #, fuzzy
+#~| msgid "Download Image..."
 #~ msgid "Download Video..."
 #~ msgstr "Загрузить изображение…"
 
 #, fuzzy
+#~| msgid "Download Image..."
 #~ msgid "Download Sound..."
 #~ msgstr "Загрузить изображение…"
 
@@ -11985,6 +12066,7 @@ msgstr "Исправление некоторых ошибок:"
 #~ msgstr "Начало прямого вызова"
 
 #, fuzzy
+#~| msgid "Cozy"
 #~ msgctxt "Message Style"
 #~ msgid "Cozy"
 #~ msgstr "Уютный"
