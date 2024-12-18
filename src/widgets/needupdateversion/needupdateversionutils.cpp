@@ -72,7 +72,7 @@ QUrl NeedUpdateVersionUtils::newVersionUrl()
 {
 #if defined(Q_OS_WIN)
 #if RUQOLA_STABLE_VERSION
-    return QUrl("https://cdn.kde.org/ci-builds/network/ruqola/2.3/windows/"_L1);
+    return QUrl("https://cdn.kde.org/ci-builds/network/ruqola/2.4/windows/"_L1);
 #else
     return QUrl("https://cdn.kde.org/ci-builds/network/ruqola/master/windows/"_L1);
 #endif
@@ -81,13 +81,13 @@ QUrl NeedUpdateVersionUtils::newVersionUrl()
 #if defined(Q_OS_MACOS)
 #ifdef Q_PROCESSOR_ARM_64
 #if RUQOLA_STABLE_VERSION
-    return QUrl("https://cdn.kde.org/ci-builds/network/ruqola/2.3/macos-arm64/"_L1);
+    return QUrl("https://cdn.kde.org/ci-builds/network/ruqola/2.4/macos-arm64/"_L1);
 #else
     return QUrl("https://cdn.kde.org/ci-builds/network/ruqola/master/macos-arm64/"_L1);
 #endif
 #else
 #if RUQOLA_STABLE_VERSION
-    return QUrl("https://cdn.kde.org/ci-builds/network/ruqola/2.3/macos-x86_64/"_L1);
+    return QUrl("https://cdn.kde.org/ci-builds/network/ruqola/2.4/macos-x86_64/"_L1);
 #else
     return QUrl("https://cdn.kde.org/ci-builds/network/ruqola/master/macos-x86_64/"_L1);
 #endif
