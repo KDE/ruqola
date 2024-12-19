@@ -8,7 +8,6 @@
 
 #include "messagequeue.h"
 
-#include "config-ruqola.h"
 #include "ddpapi/ddpclient.h"
 #include "rocketchataccount.h"
 #include "ruqola.h"
