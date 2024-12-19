@@ -42,7 +42,7 @@ void ManageLocalDatabase::loadAccountSettings()
         qCDebug(RUQOLA_LOAD_HISTORY_LOG) << " timeStamp:" << timeStamp;
     }
 #endif
-    mRocketChatAccount->rocketChatBackend()->loadPublicSettings(timeStamp);
+    mRocketChatAccount->ddp()->loadPublicSettings(timeStamp);
 }
 
 void ManageLocalDatabase::syncMessage(const QByteArray &roomId, qint64 lastSeenAt)

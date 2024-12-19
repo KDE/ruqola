@@ -182,12 +182,6 @@ void RocketChatBackend::slotDDPConnectedChanged(bool connected)
     }
 }
 
-void RocketChatBackend::loadPublicSettings(qint64 timeStamp)
-{
-    auto ddp = mRocketChatAccount->ddp();
-    ddp->loadPublicSettings(timeStamp);
-}
-
 void RocketChatBackend::loadPermissionsAdministrator(qint64 timeStamp)
 {
     auto ddp = mRocketChatAccount->ddp();
