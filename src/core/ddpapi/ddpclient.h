@@ -194,6 +194,7 @@ public:
     quint64 videoConferenceConfirmed(const QString &roomId, const QString &callId, const QString &userId);
     [[nodiscard]] QJsonObject generateJsonObject(const QString &method, const QJsonArray &params);
     quint64 getRoomByTypeAndName(const QByteArray &roomId, const QString &roomType);
+    qint64 loadPublicSettings(qint64 timeStamp = -1);
 Q_SIGNALS:
     void connecting();
     void connectedChanged(bool connected);

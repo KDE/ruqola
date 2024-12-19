@@ -272,6 +272,29 @@ void empty_callback(const QJsonObject &obj, RocketChatAccount *account)
     }
 }
 
+void process_updatePublicsettings(const QJsonObject &obj, RocketChatAccount *account)
+{
+    // qDebug() << " obj " << obj;
+    // Update it.
+    account->parsePublicSettings(obj, true);
+
+    // qCDebug(RUQOLA_LOG) << " configs"<<configs;
+    if (account->ruqolaLogger()) {
+        account->ruqolaLogger()->dataReceived(QByteArrayLiteral("Update Public Settings:") + QJsonDocument(obj).toJson());
+    }
+}
+
+void process_publicsettings(const QJsonObject &obj, RocketChatAccount *account)
+{
+    // qDebug() << " obj " << obj;
+    account->parsePublicSettings(obj, false);
+
+    // qCDebug(RUQOLA_LOG) << " configs"<<configs;
+    if (account->ruqolaLogger()) {
+        account->ruqolaLogger()->dataReceived(QByteArrayLiteral("Public Settings:") + QJsonDocument(obj).toJson());
+    }
+}
+
 DDPClient::DDPClient(RocketChatAccount *account, QObject *parent)
     : QObject(parent)
     , mUid(1)
@@ -323,6 +346,20 @@ void DDPClient::start()
         }
     } else {
         qCDebug(RUQOLA_DDPAPI_LOG) << "url is empty";
+    }
+}
+
+qint64 DDPClient::loadPublicSettings(qint64 timeStamp)
+{
+    // https://developer.rocket.chat/reference/api/realtime-api/method-calls/get-public-settings
+    QJsonObject params;
+    if (timeStamp != -1) {
+        // "params": [ { "$date": 1480377601 } ]
+        params["$date"_L1] = timeStamp;
+        qDebug() << "RocketChatBackend::loadPublicSettings load from: " << params;
+        return method(QStringLiteral("public-settings/get"), params, process_updatePublicsettings);
+    } else {
+        return method(QStringLiteral("public-settings/get"), params, process_publicsettings);
     }
 }
 

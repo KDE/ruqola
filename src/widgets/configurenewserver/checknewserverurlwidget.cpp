@@ -122,7 +122,7 @@ void CheckNewServerUrlWidget::slotTestConnection()
 
         ddpClient->setServerUrl(mServerUrl->text());
         ddpClient->start();
-        account->rocketChatBackend()->loadPublicSettings();
+        ddpClient->loadPublicSettings();
     }
 }
 

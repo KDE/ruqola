@@ -33,29 +33,6 @@
 #include <QJsonArray>
 using namespace Qt::Literals::StringLiterals;
 
-void process_updatePublicsettings(const QJsonObject &obj, RocketChatAccount *account)
-{
-    // qDebug() << " obj " << obj;
-    // Update it.
-    account->parsePublicSettings(obj, true);
-
-    // qCDebug(RUQOLA_LOG) << " configs"<<configs;
-    if (account->ruqolaLogger()) {
-        account->ruqolaLogger()->dataReceived(QByteArrayLiteral("Update Public Settings:") + QJsonDocument(obj).toJson());
-    }
-}
-
-void process_publicsettings(const QJsonObject &obj, RocketChatAccount *account)
-{
-    // qDebug() << " obj " << obj;
-    account->parsePublicSettings(obj, false);
-
-    // qCDebug(RUQOLA_LOG) << " configs"<<configs;
-    if (account->ruqolaLogger()) {
-        account->ruqolaLogger()->dataReceived(QByteArrayLiteral("Public Settings:") + QJsonDocument(obj).toJson());
-    }
-}
-
 void process_publicsettings_administrator(const QJsonObject &obj, RocketChatAccount *account)
 {
     Q_EMIT account->publicSettingLoaded(obj);
@@ -208,16 +185,7 @@ void RocketChatBackend::slotDDPConnectedChanged(bool connected)
 void RocketChatBackend::loadPublicSettings(qint64 timeStamp)
 {
     auto ddp = mRocketChatAccount->ddp();
-    // https://developer.rocket.chat/reference/api/realtime-api/method-calls/get-public-settings
-    QJsonObject params;
-    if (timeStamp != -1) {
-        // "params": [ { "$date": 1480377601 } ]
-        params["$date"_L1] = timeStamp;
-        qDebug() << "RocketChatBackend::loadPublicSettings load from: " << params;
-        ddp->method(QStringLiteral("public-settings/get"), params, process_updatePublicsettings);
-    } else {
-        ddp->method(QStringLiteral("public-settings/get"), params, process_publicsettings);
-    }
+    ddp->loadPublicSettings(timeStamp);
 }
 
 void RocketChatBackend::loadPermissionsAdministrator(qint64 timeStamp)
