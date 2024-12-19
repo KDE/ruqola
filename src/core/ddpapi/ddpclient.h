@@ -32,6 +32,20 @@ public:
         Ephemeral,
     };
 
+    enum class MethodRequestedType : uint8_t {
+        Unknown,
+        PublicSettings,
+        GetLicenseModules,
+        ListCustomSounds,
+        BlockUser,
+        UnBlockUser,
+        UpdateCustomSound,
+        DeleteCustomSound,
+        RegenerateCodes2fa,
+        Enable2fa,
+        BannerDismiss
+    };
+
     explicit DDPClient(RocketChatAccount *account = nullptr, QObject *parent = nullptr);
     ~DDPClient() override;
 
@@ -197,6 +211,7 @@ Q_SIGNALS:
     void socketError(QAbstractSocket::SocketError error, const QString &errorString);
     void disconnectedByServer();
     void wsClosedSocketError();
+    void methodRequested(const QJsonObject &obj, DDPClient::MethodRequestedType type);
 
 private Q_SLOTS:
     void onWSConnected();
