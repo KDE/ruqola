@@ -197,7 +197,7 @@ void RocketChatAccountSettingsTest::shouldHaveDefaultValues()
     QVERIFY(chat.authToken().isEmpty());
     QCOMPARE(chat.serverUrl(), QStringLiteral("open.rocket.chat"));
     QVERIFY(chat.twoFactorAuthenticationCode().isEmpty());
-    QVERIFY(chat.accountEnabled());
+    QVERIFY(!chat.accountEnabled()); // Not valid => false
     QVERIFY(chat.displayName().isEmpty());
     QVERIFY(chat.activities().isEmpty());
 }
