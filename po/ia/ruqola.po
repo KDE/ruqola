@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-12-18 00:40+0000\n"
-"PO-Revision-Date: 2024-12-03 16:58+0100\n"
+"POT-Creation-Date: 2024-12-19 00:40+0000\n"
+"PO-Revision-Date: 2024-12-18 19:40+0100\n"
 "Last-Translator: giovanni <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
 "Language: ia\n"
@@ -393,11 +393,9 @@ msgid "Allow to read oauth app settings"
 msgstr ""
 
 #: core/apps/appsmarketplaceinfo.cpp:665
-#, fuzzy, kde-format
-#| msgctxt "@option:check"
-#| msgid "Allow user creation"
+#, kde-format
 msgid "Allow to send email"
-msgstr "Permitte creation de usator"
+msgstr "Permitte inviar eposta"
 
 #: core/authenticationmanager.cpp:85
 #, kde-format
@@ -6787,16 +6785,14 @@ msgid "Description"
 msgstr "Description"
 
 #: widgets/applicationssettingsdialog/applicationssettingsdescriptiontabwidget.cpp:39
-#, fuzzy, kde-format
-#| msgid "Version"
+#, kde-format
 msgid "Versions"
-msgstr "Version"
+msgstr "Versiones"
 
 #: widgets/applicationssettingsdialog/applicationssettingsdescriptiontabwidget.cpp:45
-#, fuzzy, kde-format
-#| msgid "&Settings"
+#, kde-format
 msgid "Settings"
-msgstr "Preferentia&s"
+msgstr "Preferentias"
 
 #: widgets/applicationssettingsdialog/applicationssettingsdialog.cpp:27
 #, kde-format
@@ -6835,17 +6831,15 @@ msgctxt "@action"
 msgid "Copy Text"
 msgstr "Copia texto"
 
-#: widgets/applicationssettingsdialog/applicationssettingslogswidget.cpp:62
-#, fuzzy, kde-format
-#| msgid "%1: %2"
+#: widgets/applicationssettingsdialog/applicationssettingslogswidget.cpp:63
+#, kde-format
 msgid "%1 Caller: %2"
-msgstr "%1: %2"
+msgstr "%1 Appellante: %2"
 
-#: widgets/applicationssettingsdialog/applicationssettingslogswidget.cpp:72
-#, fuzzy, kde-format
-#| msgid "No room found"
+#: widgets/applicationssettingsdialog/applicationssettingslogswidget.cpp:73
+#, kde-format
 msgid "No logs info found."
-msgstr "Nulle Sala trovate"
+msgstr "Nulle info de registros (logs)  trovate."
 
 #: widgets/applicationssettingsdialog/applicationssettingspricecombobox.cpp:13
 #, kde-format
@@ -6917,10 +6911,9 @@ msgid "No release information provided"
 msgstr ""
 
 #: widgets/applicationssettingsdialog/applicationssettingsversionwidget.cpp:80
-#, fuzzy, kde-format
-#| msgid "No room found"
+#, kde-format
 msgid "No version info found."
-msgstr "Nulle Sala trovate"
+msgstr "Nulle info de version trovate"
 
 #: widgets/applicationssettingsdialog/appscountinfowidget.cpp:47
 #, kde-format
@@ -10102,7 +10095,7 @@ msgstr "Marca como legite"
 #, kde-format
 msgid "%1 new message since %2."
 msgid_plural "%1 new messages since %2."
-msgstr[0] "%1 nve message desde %2."
+msgstr[0] "%1 nove message desde %2."
 msgstr[1] "%1 nove messages desde %2."
 
 #: widgets/room/roomheaderlabel.cpp:68
@@ -10712,8 +10705,7 @@ msgid "Cannot write to log file %1"
 msgstr ""
 
 #: widgets/ruqolamainwindow.cpp:948
-#, fuzzy, kde-format
-#| msgid "Show Channel Log"
+#, kde-format
 msgctxt "@title:window"
 msgid "Show Channel Log"
 msgstr "Monstra registro de canal"
@@ -11275,11 +11267,9 @@ msgid "Add color to the text in the account tab"
 msgstr ""
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:125
-#, fuzzy, kde-format
-#| msgctxt "@info:placeholder"
-#| msgid "Search Installed Applications"
+#, kde-format
 msgid "Allow to show private installed applications"
-msgstr "Cerca applicationes installate "
+msgstr "Permitte monstrar applicationes private installate "
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:130
 #, kde-format
@@ -11327,11 +11317,9 @@ msgid "Fix open discussion channel"
 msgstr "Fixa canal de discussion aperite"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:139
-#, fuzzy, kde-format
-#| msgctxt "@info:placeholder"
-#| msgid "Search Installed Applications"
+#, kde-format
 msgid "Allow to show application market settings"
-msgstr "Cerca applicationes installate "
+msgstr "Permitte monstrar preferentias de application de mercato "
 
 #: widgets/whatsnew/whatsnewwidget.cpp:44
 #, kde-format

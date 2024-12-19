@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-12-18 00:40+0000\n"
+"POT-Creation-Date: 2024-12-19 00:40+0000\n"
 "PO-Revision-Date: 2024-12-17 07:15+0100\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
@@ -7004,12 +7004,12 @@ msgctxt "@action"
 msgid "Copy Text"
 msgstr "Kopiraj besedilo"
 
-#: widgets/applicationssettingsdialog/applicationssettingslogswidget.cpp:62
+#: widgets/applicationssettingsdialog/applicationssettingslogswidget.cpp:63
 #, kde-format
 msgid "%1 Caller: %2"
 msgstr "%1 Klicatelj: %2"
 
-#: widgets/applicationssettingsdialog/applicationssettingslogswidget.cpp:72
+#: widgets/applicationssettingsdialog/applicationssettingslogswidget.cpp:73
 #, kde-format
 msgid "No logs info found."
 msgstr "Ni podatkov o dnevnikih."

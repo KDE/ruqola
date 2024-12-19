@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-12-18 00:40+0000\n"
+"POT-Creation-Date: 2024-12-19 00:40+0000\n"
 "PO-Revision-Date: 2024-12-17 22:46+0100\n"
 "Last-Translator: Adrián Chaves (Gallaecio) <adrian@chaves.io>\n"
 "Language-Team: Proxecto Trasno (proxecto@trasno.gal)\n"
@@ -7034,12 +7034,12 @@ msgctxt "@action"
 msgid "Copy Text"
 msgstr "Copiar o texto"
 
-#: widgets/applicationssettingsdialog/applicationssettingslogswidget.cpp:62
+#: widgets/applicationssettingsdialog/applicationssettingslogswidget.cpp:63
 #, kde-format
 msgid "%1 Caller: %2"
 msgstr "%1 Chama: %2"
 
-#: widgets/applicationssettingsdialog/applicationssettingslogswidget.cpp:72
+#: widgets/applicationssettingsdialog/applicationssettingslogswidget.cpp:73
 #, kde-format
 msgid "No logs info found."
 msgstr "Non se atopou información dos rexistros."
