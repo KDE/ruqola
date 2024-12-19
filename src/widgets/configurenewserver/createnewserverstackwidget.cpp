@@ -97,6 +97,9 @@ AccountManager::AccountManagerInfo CreateNewServerStackWidget::accountInfo() con
 
 void CreateNewServerStackWidget::setAccountInfo(const AccountManager::AccountManagerInfo &info)
 {
+    if (info.authenticationInfos.isEmpty()) {
+        qCWarning(RUQOLAWIDGETS_LOG) << "info.authenticationInfo is empty. Need to fetch it";
+    }
     mAccountManagerInfo = info;
     addAuthenticationConfigureWidget(mAccountManagerInfo.authMethodType);
     if (mPluginAuthenticationConfigureWidget) {
