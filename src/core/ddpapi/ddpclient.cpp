@@ -30,10 +30,6 @@
 #include <QJsonObject>
 #include <QStandardPaths>
 using namespace Qt::Literals::StringLiterals;
-namespace RuqolaTestWebSocket
-{
-LIBRUQOLACORE_EXPORT AbstractWebSocket *_k_ruqola_webSocket = nullptr;
-}
 
 void video_conference_call(const QJsonObject &root, RocketChatAccount *account)
 {
@@ -289,11 +285,8 @@ DDPClient::~DDPClient()
 {
     disconnect(mWebSocket, &AbstractWebSocket::disconnected, this, &DDPClient::onWSclosed);
     mWebSocket->close();
-    // Don't delete socket when we use specific socket.
-    if (!RuqolaTestWebSocket::_k_ruqola_webSocket) {
-        delete mWebSocket;
-        mWebSocket = nullptr;
-    }
+    delete mWebSocket;
+    mWebSocket = nullptr;
     delete mRocketChatMessage;
     mRocketChatMessage = nullptr;
 }
@@ -316,11 +309,7 @@ void DDPClient::initializeWebSocket()
 void DDPClient::start()
 {
     if (!mWebSocket) {
-        if (!RuqolaTestWebSocket::_k_ruqola_webSocket) {
-            mWebSocket = new RuqolaWebSocket(mRocketChatAccount->ruqolaLogger(), this);
-        } else {
-            mWebSocket = RuqolaTestWebSocket::_k_ruqola_webSocket;
-        }
+        mWebSocket = new RuqolaWebSocket(mRocketChatAccount->ruqolaLogger(), this);
         initializeWebSocket();
     }
     connect(mRocketChatAccount, &RocketChatAccount::serverUrlChanged, this, &DDPClient::onServerURLChange);
