@@ -42,34 +42,6 @@ void MessageQueue::loadCache()
     }
 }
 
-QPair<QString, QJsonDocument> MessageQueue::fromJson(const QJsonObject &object)
-{
-    QPair<QString, QJsonDocument> pair;
-
-    pair.first = object["method"_L1].toString();
-    QJsonArray arr = object["params"_L1].toArray();
-    pair.second = QJsonDocument(arr);
-    return pair;
-}
-
-QByteArray MessageQueue::serialize(const QPair<QString, QJsonDocument> &pair)
-{
-    QJsonObject o;
-
-    o["method"_L1] = QJsonValue(pair.first);
-
-    QJsonArray arr;
-    if (pair.second.isArray()) {
-        arr.append(pair.second.array());
-    } else if (pair.second.isObject()) {
-        arr.append(pair.second.object());
-    }
-
-    o["params"_L1] = QJsonValue(arr);
-
-    return QCborValue::fromJsonValue(o).toCbor();
-}
-
 void MessageQueue::onLoginStatusChanged()
 {
     // retry sending messages
