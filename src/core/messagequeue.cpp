@@ -28,9 +28,7 @@ MessageQueue::MessageQueue(RocketChatAccount *account, QObject *parent)
 {
 }
 
-MessageQueue::~MessageQueue()
-{
-}
+MessageQueue::~MessageQueue() = default;
 
 void MessageQueue::loadCache()
 {
