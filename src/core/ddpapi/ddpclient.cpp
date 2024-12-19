@@ -382,12 +382,12 @@ DDPAuthenticationManager *DDPClient::authenticationManager() const
 
 bool DDPClient::isConnected() const
 {
-    return m_connected;
+    return mConnected;
 }
 
 QQueue<QPair<QString, QJsonDocument>> DDPClient::messageQueue() const
 {
-    return m_messageQueue;
+    return mMessageQueue;
 }
 
 void DDPClient::subscribeRoomMessage(const QByteArray &roomId)
@@ -612,7 +612,7 @@ quint64 DDPClient::method(const RocketChatMessage::RocketChatMessageResult &resu
         qCDebug(RUQOLA_DDPAPI_COMMAND_LOG) << mWebSocket->isValid() << mWebSocket->error() << mWebSocket->requestUrl();
 
         if (messageType == DDPClient::MessageType::Persistent) {
-            m_messageQueue.enqueue(qMakePair(result.method, result.jsonDocument));
+            mMessageQueue.enqueue(qMakePair(result.method, result.jsonDocument));
             mRocketChatAccount->messageQueue()->processQueue();
         }
     } else {
@@ -646,7 +646,7 @@ quint64 DDPClient::storeInQueue(const RocketChatMessage::RocketChatMessageResult
         qCDebug(RUQOLA_DDPAPI_COMMAND_LOG) << mWebSocket->isValid() << mWebSocket->error() << mWebSocket->requestUrl();
 
         if (messageType == DDPClient::MessageType::Persistent) {
-            m_messageQueue.enqueue(qMakePair(result.method, result.jsonDocument));
+            mMessageQueue.enqueue(qMakePair(result.method, result.jsonDocument));
             mRocketChatAccount->messageQueue()->processQueue();
         }
     } else {
@@ -823,7 +823,7 @@ void DDPClient::onTextMessageReceived(const QString &message)
             }
         } else if (messageType == "connected"_L1) {
             qCDebug(RUQOLA_DDPAPI_LOG) << mRocketChatAccount->accountName() << " Connected!";
-            m_connected = true;
+            mConnected = true;
             Q_EMIT connectedChanged(true);
         } else if (messageType == "error"_L1) {
             qWarning() << mRocketChatAccount->accountName() << " ERROR!!" << message;
@@ -940,7 +940,7 @@ void DDPClient::onWSclosed()
         Q_EMIT wsClosedSocketError();
     }
 
-    m_connected = false;
+    mConnected = false;
     Q_EMIT connectedChanged(false);
 }
 

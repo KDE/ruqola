@@ -261,14 +261,14 @@ private:
      */
     QHash<int, QPair<DDPManager *, int>> mMethodResponseHash;
 
-    bool m_connected = false;
+    bool mConnected = false;
 
     /**
      * @brief Abstract queue for all requests regarding network management
      *
      * @def QPair QString method and QJsonDocument params
      */
-    QQueue<QPair<QString, QJsonDocument>> m_messageQueue;
+    QQueue<QPair<QString, QJsonDocument>> mMessageQueue;
 
     friend class Ruqola;
     RocketChatMessage *mRocketChatMessage = nullptr;
