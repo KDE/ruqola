@@ -187,7 +187,7 @@ void RocketChatAccountSettings::setDisplayName(const QString &displayName)
 
 bool RocketChatAccountSettings::accountEnabled() const
 {
-    return mAccountEnabled;
+    return isValid() && mAccountEnabled;
 }
 
 void RocketChatAccountSettings::setAccountEnabled(bool enabled)
