@@ -28,7 +28,7 @@
 #include <QJsonArray>
 #include <QJsonDocument>
 #include <QJsonObject>
-#include <QStandardPaths>
+
 using namespace Qt::Literals::StringLiterals;
 
 void video_conference_call(const QJsonObject &root, RocketChatAccount *account)
@@ -392,11 +392,6 @@ DDPAuthenticationManager *DDPClient::authenticationManager() const
 bool DDPClient::isConnected() const
 {
     return m_connected;
-}
-
-QString DDPClient::cachePath() const
-{
-    return QStandardPaths::writableLocation(QStandardPaths::CacheLocation);
 }
 
 QQueue<QPair<QString, QJsonDocument>> DDPClient::messageQueue() const

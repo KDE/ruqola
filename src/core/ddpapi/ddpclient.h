@@ -150,13 +150,6 @@ public:
      */
     [[nodiscard]] QQueue<QPair<QString, QJsonDocument>> messageQueue() const;
 
-    /**
-     * @brief Returns standard cache path
-     *
-     *@def QString path
-     */
-    [[nodiscard]] QString cachePath() const;
-
     quint64 informTypingStatus(const QByteArray &room, bool typing, const QString &userName);
 
     void setServerUrl(const QString &url);
