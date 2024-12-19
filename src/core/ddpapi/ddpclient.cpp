@@ -91,15 +91,6 @@ void list_custom_sounds(const QJsonObject &root, RocketChatAccount *account)
     account->parseCustomSounds(obj);
 }
 
-void delete_oauth_app(const QJsonObject &root, RocketChatAccount *account)
-{
-    if (account->ruqolaLogger()) {
-        account->ruqolaLogger()->dataReceived(QByteArrayLiteral("Delete Oauth app:") + QJsonDocument(root).toJson());
-    }
-    const QJsonObject obj = root.value("result"_L1).toObject();
-    qDebug() << "delete_oauth_app root " << root;
-}
-
 void admin_status(const QJsonObject &root, RocketChatAccount *account)
 {
     qDebug() << " root " << root;
