@@ -343,7 +343,9 @@ void RocketChatAccount::loadSettings(const QString &accountFileName)
     delete mSettings;
     mSettings = new RocketChatAccountSettings(accountFileName, this);
     if (mSettings->isValid()) {
-        connect(mSettings, &RocketChatAccountSettings::serverURLChanged, this, &RocketChatAccount::serverUrlChanged);
+        connect(mSettings, &RocketChatAccountSettings::serverURLChanged, this, [this]() {
+            ddp()->onServerURLChange();
+        });
         connect(mSettings, &RocketChatAccountSettings::userIdChanged, this, &RocketChatAccount::userIdChanged);
         connect(mSettings, &RocketChatAccountSettings::passwordAvailable, this, &RocketChatAccount::passwordAvailable);
         connect(mSettings, &RocketChatAccountSettings::activitiesChanged, this, &RocketChatAccount::activitiesChanged);

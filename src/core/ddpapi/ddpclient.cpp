@@ -335,8 +335,6 @@ void DDPClient::start()
         mWebSocket = new RuqolaWebSocket(mRocketChatAccount->ruqolaLogger(), this);
         initializeWebSocket();
     }
-    connect(mRocketChatAccount, &RocketChatAccount::serverUrlChanged, this, &DDPClient::onServerURLChange);
-
     if (!mUrl.isEmpty()) {
         const QUrl serverUrl = adaptUrl(mUrl);
         if (serverUrl.isValid()) {

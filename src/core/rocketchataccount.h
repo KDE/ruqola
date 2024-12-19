@@ -513,7 +513,6 @@ Q_SIGNALS:
     void userIdChanged();
     void passwordAvailable();
     void twoFactorAuthenticationCodeChanged();
-    void serverUrlChanged();
     void loginStatusChanged();
     void ddpLoginStatusChanged();
     void socketError(QAbstractSocket::SocketError error, const QString &errorString);
