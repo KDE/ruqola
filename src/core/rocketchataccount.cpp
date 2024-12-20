@@ -2326,15 +2326,17 @@ void RocketChatAccount::checkInitializedRoom(const QByteArray &roomId)
     Room *r = mRoomModel->findRoom(roomId);
     if (r && !r->wasInitialized()) {
         r->setWasInitialized(true);
-        ddp()->subscribeRoomMessage(roomId);
-        if (!r->archived()) {
-            membersInRoom(r->roomId(), r->channelType());
-            rolesInRoom(r->roomId(), r->channelType());
-            if (r->channelType() == Room::RoomType::Channel) {
-                restApi()->getChannelsCounter(r->roomId());
+        if (ddp()) {
+            ddp()->subscribeRoomMessage(roomId);
+            if (!r->archived()) {
+                membersInRoom(r->roomId(), r->channelType());
+                rolesInRoom(r->roomId(), r->channelType());
+                if (r->channelType() == Room::RoomType::Channel) {
+                    restApi()->getChannelsCounter(r->roomId());
+                }
             }
+            loadHistory(r->roomId(), true /*initial loading*/);
         }
-        loadHistory(r->roomId(), true /*initial loading*/);
     } else if (!r) {
         qWarning() << " Room " << roomId << " was no found! Need to open it";
         // openDirectChannel(roomId);
@@ -3410,40 +3412,40 @@ void RocketChatAccount::parseMethodRequested(const QJsonObject &obj, DDPClient::
         validateTempToken2fa(obj);
         break;
     case DDPClient::MethodRequestedType::UpdateCustomSound:
-        updateCustomSound(obj);
+        displayLogInfo(QByteArrayLiteral("Update Custom Sound"), obj);
         break;
     case DDPClient::MethodRequestedType::DeleteCustomSound:
-        deleteCustomSound(obj);
+        displayLogInfo(QByteArrayLiteral("Delete Custom Sound"), obj);
         break;
     case DDPClient::MethodRequestedType::BlockUser:
-        blockUser(obj);
+        displayLogInfo(QByteArrayLiteral("Block User"), obj);
         break;
     case DDPClient::MethodRequestedType::UnBlockUser:
-        unblockUser(obj);
+        displayLogInfo(QByteArrayLiteral("UnBlock User"), obj);
         break;
     case DDPClient::MethodRequestedType::AdminStatus:
-        adminStatus(obj);
+        displayLogInfo(QByteArrayLiteral("Admin Status"), obj);
         break;
     case DDPClient::MethodRequestedType::ListCustomSounds:
         listCustomSounds(obj);
         break;
     case DDPClient::MethodRequestedType::BannerDismiss:
-        bannerDismiss(obj);
+        displayLogInfo(QByteArrayLiteral("Banner Dismiss"), obj);
         break;
     case DDPClient::MethodRequestedType::GetLicenseModules:
         licenseGetModules(obj);
         break;
     case DDPClient::MethodRequestedType::VideoConferenceCall:
-        videoConferenceCall(obj);
+        displayLogInfo(QByteArrayLiteral("Video Conference Call"), obj);
         break;
     case DDPClient::MethodRequestedType::VideoConferenceRejected:
-        videoConferenceRejected(obj);
+        displayLogInfo(QByteArrayLiteral("Video Conference Rejected"), obj);
         break;
     case DDPClient::MethodRequestedType::VideoConferenceAccepted:
-        videoConferenceAccepted(obj);
+        displayLogInfo(QByteArrayLiteral("Video Conference Accepted"), obj);
         break;
     case DDPClient::MethodRequestedType::VideoConferenceConfirmed:
-        videoConferenceConfirmed(obj);
+        displayLogInfo(QByteArrayLiteral("Video Conference Confirmed"), obj);
         break;
     case DDPClient::MethodRequestedType::PublicsettingsAdministrator:
         processPublicsettingsAdministrator(obj);
@@ -3461,10 +3463,10 @@ void RocketChatAccount::parseMethodRequested(const QJsonObject &obj, DDPClient::
         getsubscriptionParsing(obj);
         break;
     case DDPClient::MethodRequestedType::Unsubscribe:
-        unsubscribe(obj);
+        displayLogInfo(QByteArrayLiteral("Unsubscribe Method"), obj);
         break;
     case DDPClient::MethodRequestedType::ShowDebug:
-        showDebug(obj);
+        displayLogInfo(QByteArrayLiteral("Empty call back"), obj);
         break;
     case DDPClient::MethodRequestedType::GetThreadMessages: {
         // Nothing
@@ -3476,52 +3478,31 @@ void RocketChatAccount::parseMethodRequested(const QJsonObject &obj, DDPClient::
     }
 }
 
-void RocketChatAccount::showDebug(const QJsonObject &obj)
+void RocketChatAccount::displayLogInfo(const QByteArray &ba, const QJsonObject &obj)
 {
     if (mRuqolaLogger) {
-        mRuqolaLogger->dataReceived(QByteArrayLiteral("Empty call back :") + QJsonDocument(obj).toJson());
+        mRuqolaLogger->dataReceived(ba + ": " + QJsonDocument(obj).toJson());
     } else {
         qCWarning(RUQOLA_LOG) << "empty_callback " << obj;
-    }
-}
-void RocketChatAccount::unsubscribe(const QJsonObject &obj)
-{
-    if (mRuqolaLogger) {
-        mRuqolaLogger->dataReceived(QByteArrayLiteral("Unsubscribe Method:") + QJsonDocument(obj).toJson());
-    } else {
-        // qDebug() << " Unsubscribe Method" << root;
-        qCDebug(RUQOLA_LOG) << " Unsubscribe Method" << obj;
     }
 }
 
 void RocketChatAccount::processPublicsettingsAdministrator(const QJsonObject &obj)
 {
     Q_EMIT publicSettingLoaded(obj);
-
-    // qCDebug(RUQOLA_LOG) << " configs"<<configs;
-    if (mRuqolaLogger) {
-        mRuqolaLogger->dataReceived(QByteArrayLiteral("Administrator Public Settings:") + QJsonDocument(obj).toJson());
-    }
+    displayLogInfo(QByteArrayLiteral("Administrator Public Settings"), obj);
 }
 
 void RocketChatAccount::processPrivatesettingsAdministrator(const QJsonObject &obj)
 {
     Q_EMIT privateSettingLoaded(obj);
-
-    // qCDebug(RUQOLA_LOG) << " configs"<<configs;
-    if (mRuqolaLogger) {
-        mRuqolaLogger->dataReceived(QByteArrayLiteral("Administrator Private Settings:") + QJsonDocument(obj).toJson());
-    }
+    displayLogInfo(QByteArrayLiteral("Administrator Private Settings"), obj);
 }
 
 void RocketChatAccount::processPermissionsAdministrator(const QJsonObject &obj)
 {
     Q_EMIT permissionSettingLoaded(obj);
-
-    // qCDebug(RUQOLA_LOG) << " configs"<<configs;
-    if (mRuqolaLogger) {
-        mRuqolaLogger->dataReceived(QByteArrayLiteral("Administrator Permissions:") + QJsonDocument(obj).toJson());
-    }
+    displayLogInfo(QByteArrayLiteral("Administrator Permissions"), obj);
 }
 
 void RocketChatAccount::roomsParsing(const QJsonObject &root)
@@ -3606,116 +3587,30 @@ void RocketChatAccount::getsubscriptionParsing(const QJsonObject &root)
     initializeAccount();
 }
 
-void RocketChatAccount::videoConferenceCall(const QJsonObject &root)
-{
-    qDebug() << "video_conference_call  root " << root;
-    if (mRuqolaLogger) {
-        mRuqolaLogger->dataReceived(QByteArrayLiteral("Video Conference Call:") + QJsonDocument(root).toJson());
-    }
-}
-
-void RocketChatAccount::videoConferenceRejected(const QJsonObject &root)
-{
-    qDebug() << "video_conference_rejected  root " << root;
-    if (mRuqolaLogger) {
-        mRuqolaLogger->dataReceived(QByteArrayLiteral("Video Conference Rejected:") + QJsonDocument(root).toJson());
-    }
-}
-
-void RocketChatAccount::videoConferenceAccepted(const QJsonObject &root)
-{
-    qDebug() << "video_conference_accepted  root " << root;
-    if (mRuqolaLogger) {
-        mRuqolaLogger->dataReceived(QByteArrayLiteral("Video Conference Accepted:") + QJsonDocument(root).toJson());
-    }
-}
-
-void RocketChatAccount::videoConferenceConfirmed(const QJsonObject &root)
-{
-    qDebug() << "video_conference_confirmed  root " << root;
-    if (mRuqolaLogger) {
-        mRuqolaLogger->dataReceived(QByteArrayLiteral("Video Conference Confirmed:") + QJsonDocument(root).toJson());
-    }
-}
-
 void RocketChatAccount::licenseGetModules(const QJsonObject &root)
 {
-    // qDebug() << " root " << root;
-    if (mRuqolaLogger) {
-        mRuqolaLogger->dataReceived(QByteArrayLiteral("License GetModule:") + QJsonDocument(root).toJson());
-    }
+    displayLogInfo(QByteArrayLiteral("License GetModule"), root);
     const QJsonArray obj = root.value("result"_L1).toArray();
     parseLicenses(obj);
 }
 
-void RocketChatAccount::bannerDismiss(const QJsonObject &root)
-{
-    // qDebug() << " root " << root;
-    if (mRuqolaLogger) {
-        mRuqolaLogger->dataReceived(QByteArrayLiteral("Banner Dismiss:") + QJsonDocument(root).toJson());
-    }
-}
-
 void RocketChatAccount::listCustomSounds(const QJsonObject &root)
 {
-    qDebug() << " root " << root;
-    if (mRuqolaLogger) {
-        mRuqolaLogger->dataReceived(QByteArrayLiteral("list custom sounds:") + QJsonDocument(root).toJson());
-    }
+    displayLogInfo(QByteArrayLiteral("list custom sounds"), root);
     const QJsonArray obj = root.value("result"_L1).toArray();
     parseCustomSounds(obj);
 }
 
-void RocketChatAccount::adminStatus(const QJsonObject &root)
-{
-    qDebug() << " root " << root;
-    if (mRuqolaLogger) {
-        mRuqolaLogger->dataReceived(QByteArrayLiteral("Admin Status:") + QJsonDocument(root).toJson());
-    }
-}
-
-void RocketChatAccount::blockUser(const QJsonObject &root)
-{
-    if (mRuqolaLogger) {
-        mRuqolaLogger->dataReceived(QByteArrayLiteral("Block User:") + QJsonDocument(root).toJson());
-    }
-}
-
-void RocketChatAccount::unblockUser(const QJsonObject &root)
-{
-    if (mRuqolaLogger) {
-        mRuqolaLogger->dataReceived(QByteArrayLiteral("UnBlock User:") + QJsonDocument(root).toJson());
-    }
-}
-
-void RocketChatAccount::deleteCustomSound(const QJsonObject &root)
-{
-    if (mRuqolaLogger) {
-        mRuqolaLogger->dataReceived(QByteArrayLiteral("Delete Custom Sound:") + QJsonDocument(root).toJson());
-    }
-}
-
-void RocketChatAccount::updateCustomSound(const QJsonObject &root)
-{
-    if (mRuqolaLogger) {
-        mRuqolaLogger->dataReceived(QByteArrayLiteral("Update Custom Sound:") + QJsonDocument(root).toJson());
-    }
-}
-
 void RocketChatAccount::validateTempToken2fa(const QJsonObject &root)
 {
-    if (mRuqolaLogger) {
-        mRuqolaLogger->dataReceived(QByteArrayLiteral("Validate Temp Token 2FA:") + QJsonDocument(root).toJson());
-    }
+    displayLogInfo(QByteArrayLiteral("Validate Temp Token 2FA"), root);
     const QJsonObject obj = root.value("result"_L1).toObject();
     totpVerify(obj);
 }
 
 void RocketChatAccount::disable2fa(const QJsonObject &root)
 {
-    if (mRuqolaLogger) {
-        mRuqolaLogger->dataReceived(QByteArrayLiteral("Disable 2FA:") + QJsonDocument(root).toJson());
-    }
+    displayLogInfo(QByteArrayLiteral("Disable 2FA"), root);
     totpDisabledVerify(root);
 }
 
@@ -3731,9 +3626,8 @@ void RocketChatAccount::regenerateCodes2fa(const QJsonObject &root)
 
 void RocketChatAccount::enable2fa(const QJsonObject &root)
 {
-    if (mRuqolaLogger) {
-        mRuqolaLogger->dataReceived(QByteArrayLiteral("Enable 2FA:") + QJsonDocument(root).toJson());
-    }
+    displayLogInfo(QByteArrayLiteral("Enable 2FA"), root);
+
     const QJsonObject obj = root.value("result"_L1).toObject();
     generate2FaTotp(obj);
 }
@@ -3782,9 +3676,7 @@ void RocketChatAccount::openDirectChannel(const QJsonObject &root)
             initializeDirectChannel(rid);
         }
     }
-    if (mRuqolaLogger) {
-        mRuqolaLogger->dataReceived(QByteArrayLiteral("Open Direct channel:") + QJsonDocument(root).toJson());
-    }
+    displayLogInfo(QByteArrayLiteral("Open Direct channel"), obj);
 }
 
 void RocketChatAccount::openRoom(const QJsonObject &obj)
@@ -3797,7 +3689,7 @@ void RocketChatAccount::openRoom(const QJsonObject &obj)
 void RocketChatAccount::getRoomByTypeAndName(const QJsonObject &obj)
 {
     if (mRuqolaLogger) {
-        mRuqolaLogger->dataReceived(QByteArrayLiteral("Get Room y room and name :") + QJsonDocument(obj).toJson());
+        mRuqolaLogger->dataReceived(QByteArrayLiteral("Get Room by room and name :") + QJsonDocument(obj).toJson());
     }
 }
 
@@ -3813,10 +3705,7 @@ void RocketChatAccount::processPublicsettings(const QJsonObject &obj)
     // qDebug() << " obj " << obj;
     parsePublicSettings(obj, false);
 
-    // qCDebug(RUQOLA_LOG) << " configs"<<configs;
-    if (mRuqolaLogger) {
-        mRuqolaLogger->dataReceived(QByteArrayLiteral("Public Settings:") + QJsonDocument(obj).toJson());
-    }
+    displayLogInfo(QByteArrayLiteral("Public Settings"), obj);
 }
 
 void RocketChatAccount::processUpdatePublicsettings(const QJsonObject &obj)
@@ -3825,10 +3714,7 @@ void RocketChatAccount::processUpdatePublicsettings(const QJsonObject &obj)
     // Update it.
     parsePublicSettings(obj, true);
 
-    // qCDebug(RUQOLA_LOG) << " configs"<<configs;
-    if (mRuqolaLogger) {
-        mRuqolaLogger->dataReceived(QByteArrayLiteral("Update Public Settings:") + QJsonDocument(obj).toJson());
-    }
+    displayLogInfo(QByteArrayLiteral("Update Public Settings"), obj);
 }
 
 #include "moc_rocketchataccount.cpp"
