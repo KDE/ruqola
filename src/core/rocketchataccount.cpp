@@ -1140,11 +1140,7 @@ void RocketChatAccount::slotGetListMessagesDone(const QJsonObject &obj, const QB
         for (const auto &msg : listMessages) {
             QJsonObject params;
             params.insert(QStringLiteral("tmid"), QString::fromLatin1(msg.messageId()));
-            mDdp->method(QStringLiteral("getThreadMessages"), params, [](const QJsonObject &reply, RocketChatAccount *account) {
-                // don't trigger warning about unhandled replies
-                Q_UNUSED(reply)
-                Q_UNUSED(account)
-            });
+            ddp()->getThreadMessages(params);
         }
         return;
     }
@@ -3460,9 +3456,27 @@ void RocketChatAccount::parseMethodRequested(const QJsonObject &obj, DDPClient::
     case DDPClient::MethodRequestedType::Unsubscribe:
         unsubscribe(obj);
         break;
+    case DDPClient::MethodRequestedType::ShowDebug:
+        showDebug(obj);
+        break;
+    case DDPClient::MethodRequestedType::GetThreadMessages: {
+        // Nothing
+        break;
+    }
+    case DDPClient::MethodRequestedType::DeleteFile:
+        // TODO Need to implement it
+        break;
     }
 }
 
+void RocketChatAccount::showDebug(const QJsonObject &obj)
+{
+    if (mRuqolaLogger) {
+        mRuqolaLogger->dataReceived(QByteArrayLiteral("Empty call back :") + QJsonDocument(obj).toJson());
+    } else {
+        qCWarning(RUQOLA_LOG) << "empty_callback " << obj;
+    }
+}
 void RocketChatAccount::unsubscribe(const QJsonObject &obj)
 {
     if (mRuqolaLogger) {
@@ -3809,4 +3823,5 @@ void RocketChatAccount::processUpdatePublicsettings(const QJsonObject &obj)
         mRuqolaLogger->dataReceived(QByteArrayLiteral("Update Public Settings:") + QJsonDocument(obj).toJson());
     }
 }
+
 #include "moc_rocketchataccount.cpp"

@@ -14,7 +14,6 @@
 #include <QAbstractSocket>
 #include <QQueue>
 #include <QSslError>
-#include <functional>
 
 class QJsonObject;
 class QJsonDocument;
@@ -69,6 +68,9 @@ public:
         RoomsParsing,
         GetsubscriptionParsing,
         Unsubscribe,
+        DeleteFile,
+        ShowDebug,
+        GetThreadMessages,
     };
 
     struct LIBRUQOLACORE_EXPORT DDPClientAccountParameter {
@@ -97,20 +99,6 @@ public:
      * @return unsigned int, the ID of the called method
      */
     quint64 method(const QString &method, const QJsonArray &params, DDPClient::MessageType messageType = DDPClient::MessageType::Ephemeral);
-
-    /**
-     * @brief Send message over network
-     *
-     * @param method The name of the method to call Rocket.Chat API for
-     * @param params The parameters
-     * @param callback The pointer to callback function
-     * @param messageType The type of message
-     * @return unsigned int, the ID of the called method
-     */
-    quint64 method(const QString &method,
-                   const QJsonObject &params,
-                   const std::function<void(QJsonObject, RocketChatAccount *)> &callback,
-                   DDPClient::MessageType messageType = DDPClient::MessageType::Ephemeral);
 
     /**
      * @brief Subscribes to a collection with name @param collection and parameters @param params
@@ -248,6 +236,7 @@ public:
     void setDDPClientAccountParameter(DDPClientAccountParameter *newDDPClientAccountParameter);
 
     quint64 getRooms(const QJsonObject &params);
+    quint64 getThreadMessages(const QJsonObject &params);
 Q_SIGNALS:
     void connecting();
     void connectedChanged(bool connected);
@@ -275,30 +264,18 @@ private:
     LIBRUQOLACORE_NO_EXPORT void executeSubsCallBack(const QJsonObject &root);
 
     LIBRUQOLACORE_NO_EXPORT quint64 storeInQueue(const RocketChatMessage::RocketChatMessageResult &result,
-                                                 const std::function<void(QJsonObject, RocketChatAccount *)> &callback,
-                                                 DDPClient::MessageType messageType);
-
-    LIBRUQOLACORE_NO_EXPORT quint64 storeInQueue(const RocketChatMessage::RocketChatMessageResult &result,
                                                  MethodRequestedType methodRequestedType,
                                                  DDPClient::MessageType messageType);
 
     LIBRUQOLACORE_NO_EXPORT quint64 method(const QString &methodName,
                                            const QJsonObject &params,
                                            MethodRequestedType methodRequestedType,
-                                           DDPClient::MessageType messageType);
+                                           DDPClient::MessageType messageType = DDPClient::MessageType::Ephemeral);
 
     LIBRUQOLACORE_NO_EXPORT quint64 method(const QString &methodName,
                                            const QJsonArray &params,
                                            MethodRequestedType methodRequestedType,
                                            DDPClient::MessageType messageType);
-
-    LIBRUQOLACORE_NO_EXPORT quint64 method(const QString &method,
-                                           const QJsonArray &params,
-                                           const std::function<void(QJsonObject, RocketChatAccount *)> &callback,
-                                           DDPClient::MessageType messageType = DDPClient::MessageType::Ephemeral);
-    LIBRUQOLACORE_NO_EXPORT quint64 method(const RocketChatMessage::RocketChatMessageResult &result,
-                                           const std::function<void(QJsonObject, RocketChatAccount *)> &callback,
-                                           DDPClient::MessageType messageType = DDPClient::MessageType::Ephemeral);
 
     LIBRUQOLACORE_NO_EXPORT quint64 method(const RocketChatMessage::RocketChatMessageResult &result,
                                            MethodRequestedType methodRequestedType,
@@ -311,13 +288,6 @@ private:
      * @brief Unique message ID for each message sent over network
      */
     quint64 mUid = 0;
-
-    /**
-     * @brief Stores callback function associated with each message
-     *
-     * @def QHash unsigned messageID and std::function<void (QJsonDocument)> pointer to callback
-     */
-    QHash<quint64, std::function<void(QJsonObject, RocketChatAccount *)>> m_callbackHash;
 
     QHash<quint64, MethodRequestedType> mMethodRequestedTypeHash;
 
