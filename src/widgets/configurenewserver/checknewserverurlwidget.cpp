@@ -85,7 +85,8 @@ void CheckNewServerUrlWidget::slotTestConnection()
         mFailedError->hide();
         mBusyIndicatorWidget->show();
         auto ddpClient = new DDPClient(this);
-        ddpClient->setServerUrl(mServerUrl->text());
+        auto ddpclientAccountParameter = new DDPClient::DDPClientAccountParameter;
+        ddpClient->setDDPClientAccountParameter(ddpclientAccountParameter);
         // TODO FIX ME
         connect(ddpClient, &DDPClient::wsClosedSocketError, this, [this, ddpClient]() {
             mBusyIndicatorWidget->hide();
