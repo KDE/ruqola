@@ -31,7 +31,9 @@ QByteArray DDPAuthenticationManager::authenticationName() const
 void DDPAuthenticationManager::callLoginImpl(const QJsonArray &params, AuthenticationManagerBase::Method method)
 {
     const QString methodName = AuthenticationManagerBase::convertMethodEnumToString(method);
-    ddpClient()->invokeMethodAndRegister(methodName, params, this, static_cast<int>(method));
+    if (ddpClient()) {
+        ddpClient()->invokeMethodAndRegister(methodName, params, this, static_cast<int>(method));
+    }
 }
 
 void DDPAuthenticationManager::clientConnectedChangedSlot(bool connected)
