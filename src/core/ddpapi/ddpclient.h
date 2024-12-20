@@ -68,6 +68,7 @@ public:
         PermissionsAdministrator,
         RoomsParsing,
         GetsubscriptionParsing,
+        Unsubscribe,
     };
 
     struct LIBRUQOLACORE_EXPORT DDPClientAccountParameter {
@@ -244,6 +245,9 @@ public:
     void loadPrivateSettingsAdministrator(qint64 timeStamp = -1);
     void loadPublicSettingsAdministrator(qint64 timeStamp = -1);
     void initializeSubscription();
+    void setDDPClientAccountParameter(DDPClientAccountParameter *newDDPClientAccountParameter);
+
+    quint64 getRooms(const QJsonObject &params);
 Q_SIGNALS:
     void connecting();
     void connectedChanged(bool connected);
@@ -274,12 +278,30 @@ private:
                                                  const std::function<void(QJsonObject, RocketChatAccount *)> &callback,
                                                  DDPClient::MessageType messageType);
 
+    LIBRUQOLACORE_NO_EXPORT quint64 storeInQueue(const RocketChatMessage::RocketChatMessageResult &result,
+                                                 MethodRequestedType methodRequestedType,
+                                                 DDPClient::MessageType messageType);
+
+    LIBRUQOLACORE_NO_EXPORT quint64 method(const QString &methodName,
+                                           const QJsonObject &params,
+                                           MethodRequestedType methodRequestedType,
+                                           DDPClient::MessageType messageType);
+
+    LIBRUQOLACORE_NO_EXPORT quint64 method(const QString &methodName,
+                                           const QJsonArray &params,
+                                           MethodRequestedType methodRequestedType,
+                                           DDPClient::MessageType messageType);
+
     LIBRUQOLACORE_NO_EXPORT quint64 method(const QString &method,
                                            const QJsonArray &params,
                                            const std::function<void(QJsonObject, RocketChatAccount *)> &callback,
                                            DDPClient::MessageType messageType = DDPClient::MessageType::Ephemeral);
     LIBRUQOLACORE_NO_EXPORT quint64 method(const RocketChatMessage::RocketChatMessageResult &result,
                                            const std::function<void(QJsonObject, RocketChatAccount *)> &callback,
+                                           DDPClient::MessageType messageType = DDPClient::MessageType::Ephemeral);
+
+    LIBRUQOLACORE_NO_EXPORT quint64 method(const RocketChatMessage::RocketChatMessageResult &result,
+                                           MethodRequestedType methodRequestedType,
                                            DDPClient::MessageType messageType = DDPClient::MessageType::Ephemeral);
 
     QString mUrl;
@@ -333,6 +355,6 @@ private:
     RocketChatMessage *mRocketChatMessage = nullptr;
     RocketChatAccount *mRocketChatAccount = nullptr;
     DDPAuthenticationManager *mAuthenticationManager = nullptr;
-
+    std::unique_ptr<DDPClientAccountParameter> mDDPClientAccountParameter;
     bool mLoginEnqueued = false;
 };

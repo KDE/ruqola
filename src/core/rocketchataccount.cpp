@@ -3457,6 +3457,19 @@ void RocketChatAccount::parseMethodRequested(const QJsonObject &obj, DDPClient::
     case DDPClient::MethodRequestedType::GetsubscriptionParsing:
         getsubscriptionParsing(obj);
         break;
+    case DDPClient::MethodRequestedType::Unsubscribe:
+        unsubscribe(obj);
+        break;
+    }
+}
+
+void RocketChatAccount::unsubscribe(const QJsonObject &obj)
+{
+    if (mRuqolaLogger) {
+        mRuqolaLogger->dataReceived(QByteArrayLiteral("Unsubscribe Method:") + QJsonDocument(obj).toJson());
+    } else {
+        // qDebug() << " Unsubscribe Method" << root;
+        qCDebug(RUQOLA_LOG) << " Unsubscribe Method" << obj;
     }
 }
 
@@ -3567,7 +3580,7 @@ void RocketChatAccount::getsubscriptionParsing(const QJsonObject &root)
     params["$date"_L1] = QJsonValue(0); // get ALL rooms we've ever seen
     // Add timestamp https://developer.rocket.chat/reference/api/realtime-api/method-calls/get-rooms
 
-    // FIXME !!!!!!!!!!!!ddp()->method(QStringLiteral("rooms/get"), params, rooms_parsing);
+    ddp()->getRooms(params);
 
     initializeAccount();
 }

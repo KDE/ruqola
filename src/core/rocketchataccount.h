@@ -686,6 +686,7 @@ private:
     LIBRUQOLACORE_NO_EXPORT void processPermissionsAdministrator(const QJsonObject &obj);
     LIBRUQOLACORE_NO_EXPORT void roomsParsing(const QJsonObject &root);
     LIBRUQOLACORE_NO_EXPORT void getsubscriptionParsing(const QJsonObject &root);
+    LIBRUQOLACORE_NO_EXPORT void unsubscribe(const QJsonObject &obj);
 
     AccountRoomSettings *const mAccountRoomSettings;
 

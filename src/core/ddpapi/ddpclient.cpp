@@ -498,6 +498,7 @@ void DDPClient::subscribeRoomMessage(const QByteArray &roomId)
 quint64 DDPClient::openDirectChannel(const QString &userId)
 {
     const RocketChatMessage::RocketChatMessageResult result = mRocketChatMessage->openDirectChannel(userId, mUid);
+    // return method(result, DDPClient::MethodRequestedType::OpenDirectRoom, DDPClient::MessageType::Persistent);
     return method(result, open_direct_channel, DDPClient::MessageType::Persistent);
 }
 
@@ -520,24 +521,33 @@ quint64 DDPClient::deleteFileMessage(const QByteArray &roomId, const QByteArray 
 quint64 DDPClient::openRoom(const QByteArray &roomId)
 {
     const RocketChatMessage::RocketChatMessageResult result = mRocketChatMessage->openRoom(roomId, mUid);
+    // return method(result, DDPClient::MethodRequestedType::OpenRoom, DDPClient::MessageType::Persistent);
     return method(result, open_room, DDPClient::MessageType::Persistent);
 }
 
 quint64 DDPClient::getRoomByTypeAndName(const QByteArray &roomId, const QString &roomType)
 {
     const RocketChatMessage::RocketChatMessageResult result = mRocketChatMessage->getRoomByTypeAndName(roomId, roomType, mUid);
+    // return method(result, DDPClient::MethodRequestedType::GetRoomByTypeAndName, DDPClient::MessageType::Persistent);
     return method(result, get_room_by_type_and_name, DDPClient::MessageType::Persistent);
 }
 
 quint64 DDPClient::setDefaultStatus(User::PresenceStatus status)
 {
     const RocketChatMessage::RocketChatMessageResult result = mRocketChatMessage->setDefaultStatus(status, mUid);
+    // return method(result, DDPClient::MethodRequestedType::ChangeDefaultStatus, DDPClient::MessageType::Persistent);
     return method(result, change_default_status, DDPClient::MessageType::Persistent);
+}
+
+quint64 DDPClient::getRooms(const QJsonObject &params)
+{
+    return method(QStringLiteral("rooms/get"), params, MethodRequestedType::RoomsParsing, DDPClient::MessageType::Persistent);
 }
 
 quint64 DDPClient::createJitsiConfCall(const QByteArray &roomId)
 {
     const RocketChatMessage::RocketChatMessageResult result = mRocketChatMessage->createJitsiConfCall(roomId, mUid);
+    // return method(result, DDPClient::MethodRequestedType::CreateJitsiConfCall, DDPClient::MessageType::Persistent);
     return method(result, create_jitsi_conf_call, DDPClient::MessageType::Persistent);
 }
 
@@ -545,8 +555,10 @@ quint64 DDPClient::inputChannelAutocomplete(const QByteArray &roomId, const QStr
 {
     const RocketChatMessage::RocketChatMessageResult result = mRocketChatMessage->inputChannelAutocomplete(roomId, pattern, exceptions, mUid);
     if (threadDialog) {
+        // return method(result, DDPClient::MethodRequestedType::InputUserChannelAutocompleteThread, DDPClient::MessageType::Persistent);
         return method(result, input_user_channel_autocomplete_thread, DDPClient::MessageType::Persistent);
     } else {
+        // return method(result, DDPClient::MethodRequestedType::InputUserChannelAutocomplete, DDPClient::MessageType::Persistent);
         return method(result, input_user_channel_autocomplete, DDPClient::MessageType::Persistent);
     }
 }
@@ -555,8 +567,10 @@ quint64 DDPClient::inputUserAutocomplete(const QByteArray &roomId, const QString
 {
     const RocketChatMessage::RocketChatMessageResult result = mRocketChatMessage->inputUserAutocomplete(roomId, pattern, exceptions, mUid);
     if (threadDialog) {
+        // return method(result, DDPClient::MethodRequestedType::InputUserChannelAutocompleteThread, DDPClient::MessageType::Persistent);
         return method(result, input_user_channel_autocomplete_thread, DDPClient::MessageType::Persistent);
     } else {
+        // return method(result, DDPClient::MethodRequestedType::InputUserChannelAutocomplete, DDPClient::MessageType::Persistent);
         return method(result, input_user_channel_autocomplete, DDPClient::MessageType::Persistent);
     }
 }
@@ -564,24 +578,28 @@ quint64 DDPClient::inputUserAutocomplete(const QByteArray &roomId, const QString
 quint64 DDPClient::unBlockUser(const QString &rid, const QString &userId)
 {
     const RocketChatMessage::RocketChatMessageResult result = mRocketChatMessage->unblockUser(rid, userId, mUid);
+    // return method(result, DDPClient::MethodRequestedType::UnBlockUser, DDPClient::MessageType::Persistent);
     return method(result, unblock_user, DDPClient::MessageType::Persistent);
 }
 
 quint64 DDPClient::listCustomSounds()
 {
     const RocketChatMessage::RocketChatMessageResult result = mRocketChatMessage->listCustomSounds(mUid);
+    // return method(result, DDPClient::MethodRequestedType::ListCustomSounds, DDPClient::MessageType::Persistent);
     return method(result, list_custom_sounds, DDPClient::MessageType::Persistent);
 }
 
 quint64 DDPClient::deleteCustomSound(const QByteArray &identifier)
 {
     const RocketChatMessage::RocketChatMessageResult result = mRocketChatMessage->deleteCustomSound(identifier, mUid);
+    // return method(result, DDPClient::MethodRequestedType::DeleteCustomSound, DDPClient::MessageType::Persistent);
     return method(result, delete_custom_sound, DDPClient::MessageType::Persistent);
 }
 
 quint64 DDPClient::uploadCustomSound(const QByteArray &sound)
 {
     const RocketChatMessage::RocketChatMessageResult result = mRocketChatMessage->uploadCustomSound(sound, mUid);
+    // return method(result, DDPClient::MethodRequestedType::UpdateCustomSound, DDPClient::MessageType::Persistent);
     return method(result, update_custom_sound, DDPClient::MessageType::Persistent);
 }
 
@@ -589,36 +607,42 @@ quint64 DDPClient::streamNotifyUserOtrEnd(const QString &roomId, const QString &
 {
     const RocketChatMessage::RocketChatMessageResult result = mRocketChatMessage->streamNotifyUserOtrEnd(roomId, userId, mUid);
     // qDebug() << " result " << result;
+    // Verify return method(result, DDPClient::MethodRequestedType::OtrEnd, DDPClient::MessageType::Persistent);
     return method(result, otr_end, DDPClient::MessageType::Persistent);
 }
 
 quint64 DDPClient::streamNotifyUserOtrHandshake(const QString &userFrom, const QString &userTo, const QString &publicKey)
 {
     const RocketChatMessage::RocketChatMessageResult result = mRocketChatMessage->streamNotifyUserOtrHandshake(userFrom, userTo, publicKey, mUid);
+    // Verify !!! return method(result, DDPClient::MethodRequestedType::OtrEnd, DDPClient::MessageType::Persistent);
     return method(result, otr_end, DDPClient::MessageType::Persistent);
 }
 
 quint64 DDPClient::enable2fa()
 {
     const RocketChatMessage::RocketChatMessageResult result = mRocketChatMessage->enable2fa(mUid);
+    // return method(result, DDPClient::MethodRequestedType::Enable2fa, DDPClient::MessageType::Persistent);
     return method(result, enable_2fa, DDPClient::MessageType::Persistent);
 }
 
 quint64 DDPClient::disable2fa(const QString &code)
 {
     const RocketChatMessage::RocketChatMessageResult result = mRocketChatMessage->disable2fa(code, mUid);
+    // return method(result, DDPClient::MethodRequestedType::Disable2fa, DDPClient::MessageType::Persistent);
     return method(result, disable_2fa, DDPClient::MessageType::Persistent);
 }
 
 quint64 DDPClient::regenerateCodes2fa(const QString &code)
 {
     const RocketChatMessage::RocketChatMessageResult result = mRocketChatMessage->regenerateCodes2fa(code, mUid);
+    // return method(result, DDPClient::MethodRequestedType::RegenerateCodes2fa, DDPClient::MessageType::Persistent);
     return method(result, regenerateCodes_2fa, DDPClient::MessageType::Persistent);
 }
 
 quint64 DDPClient::validateTempToken2fa(const QString &code)
 {
     const RocketChatMessage::RocketChatMessageResult result = mRocketChatMessage->validateTempToken2fa(code, mUid);
+    // return method(result, DDPClient::MethodRequestedType::ValidateTempToken2fa, DDPClient::MessageType::Persistent);
     return method(result, validateTempToken_2fa, DDPClient::MessageType::Persistent);
 }
 
@@ -626,54 +650,63 @@ quint64 DDPClient::streamNotifyUserOtrAcknowledge(const QByteArray &roomId, cons
 {
     const RocketChatMessage::RocketChatMessageResult result = mRocketChatMessage->streamNotifyUserOtrAcknowledge(roomId, userId, publicKey, mUid);
     qDebug() << "streamNotifyUserOtrAcknowledge result " << result;
+    // return method(result, DDPClient::MethodRequestedType::OtrEnd, DDPClient::MessageType::Persistent);
     return method(result, otr_end, DDPClient::MessageType::Persistent);
 }
 
 quint64 DDPClient::blockUser(const QString &rid, const QString &userId)
 {
     const RocketChatMessage::RocketChatMessageResult result = mRocketChatMessage->blockUser(rid, userId, mUid);
+    // return method(result, DDPClient::MethodRequestedType::BlockUser, DDPClient::MessageType::Persistent);
     return method(result, block_user, DDPClient::MessageType::Persistent);
 }
 
 quint64 DDPClient::setAdminStatus(const QByteArray &userId, bool admin)
 {
     const RocketChatMessage::RocketChatMessageResult result = mRocketChatMessage->setAdminStatus(userId, admin, mUid);
+    // return method(result, DDPClient::MethodRequestedType::AdminStatus, DDPClient::MessageType::Persistent);
     return method(result, admin_status, DDPClient::MessageType::Persistent);
 }
 
 quint64 DDPClient::bannerDismiss(const QByteArray &bannerId)
 {
     const RocketChatMessage::RocketChatMessageResult result = mRocketChatMessage->bannerDismiss(bannerId, mUid);
+    // return method(result, DDPClient::MethodRequestedType::BannerDismiss, DDPClient::MessageType::Persistent);
     return method(result, banner_dismiss, DDPClient::MessageType::Persistent);
 }
 
 quint64 DDPClient::licenseGetModules()
 {
     const RocketChatMessage::RocketChatMessageResult result = mRocketChatMessage->licenseGetModules(mUid);
+    // return method(result, DDPClient::MethodRequestedType::GetLicenseModules, DDPClient::MessageType::Persistent);
     return method(result, license_get_modules, DDPClient::MessageType::Persistent);
 }
 
 quint64 DDPClient::videoConferenceAccepted(const QString &roomId, const QString &callId, const QString &userId)
 {
     const RocketChatMessage::RocketChatMessageResult result = mRocketChatMessage->videoConferenceAccepted(roomId, callId, userId, mUid);
+    // return method(result, DDPClient::MethodRequestedType::VideoConferenceAccepted, DDPClient::MessageType::Persistent);
     return method(result, video_conference_accepted, DDPClient::MessageType::Persistent);
 }
 
 quint64 DDPClient::videoConferenceRejected(const QString &roomId, const QString &callId, const QString &userId)
 {
     const RocketChatMessage::RocketChatMessageResult result = mRocketChatMessage->videoConferenceRejected(roomId, callId, userId, mUid);
+    // return method(result, DDPClient::MethodRequestedType::VideoConferenceRejected, DDPClient::MessageType::Persistent);
     return method(result, video_conference_rejected, DDPClient::MessageType::Persistent);
 }
 
 quint64 DDPClient::videoConferenceConfirmed(const QString &roomId, const QString &callId, const QString &userId)
 {
     const RocketChatMessage::RocketChatMessageResult result = mRocketChatMessage->videoConferenceConfirmed(roomId, callId, userId, mUid);
+    // return method(result, DDPClient::MethodRequestedType::VideoConferenceConfirmed, DDPClient::MessageType::Persistent);
     return method(result, video_conference_confirmed, DDPClient::MessageType::Persistent);
 }
 
 quint64 DDPClient::videoConferenceCall(const QString &roomId, const QString &callId, const QString &userId)
 {
     const RocketChatMessage::RocketChatMessageResult result = mRocketChatMessage->videoConferenceCall(roomId, callId, userId, mUid);
+    // TODO return method(result, DDPClient::MethodRequestedType::VideoConferenceCall, DDPClient::MessageType::Persistent);
     return method(result, video_conference_call, DDPClient::MessageType::Persistent);
 }
 
@@ -692,6 +725,7 @@ quint64 DDPClient::informTypingStatus(const QByteArray &roomId, bool typing, con
     return value;
 }
 
+// TODO remove it
 quint64 DDPClient::method(const RocketChatMessage::RocketChatMessageResult &result,
                           const std::function<void(QJsonObject, RocketChatAccount *)> &callback,
                           DDPClient::MessageType messageType)
@@ -716,6 +750,33 @@ quint64 DDPClient::method(const RocketChatMessage::RocketChatMessageResult &resu
     return value;
 }
 
+quint64 DDPClient::method(const RocketChatMessage::RocketChatMessageResult &result, MethodRequestedType methodRequestedType, DDPClient::MessageType messageType)
+{
+    qint64 bytes = mWebSocket->sendTextMessage(result.result);
+    if (bytes < result.result.length()) {
+        qCDebug(RUQOLA_DDPAPI_COMMAND_LOG) << "ERROR! I couldn't send all of my message. This is a bug! (try again)";
+        qCDebug(RUQOLA_DDPAPI_COMMAND_LOG) << mWebSocket->isValid() << mWebSocket->error() << mWebSocket->requestUrl();
+
+        if (messageType == DDPClient::MessageType::Persistent) {
+            mMessageQueue.enqueue(qMakePair(result.method, result.jsonDocument));
+            mRocketChatAccount->messageQueue()->processQueue();
+        }
+    } else {
+        qCDebug(RUQOLA_DDPAPI_COMMAND_LOG) << "Successfully sent " << result.result;
+    }
+
+    mMethodRequestedTypeHash[mUid] = methodRequestedType;
+
+    const quint64 value = mUid;
+    mUid++;
+    return value;
+}
+
+void DDPClient::setDDPClientAccountParameter(DDPClientAccountParameter *newDDPClientAccountParameter)
+{
+    mDDPClientAccountParameter.reset(newDDPClientAccountParameter);
+}
+
 quint64 DDPClient::method(const QString &m, const QJsonArray &params, DDPClient::MessageType messageType)
 {
     return method(m, params, empty_callback, messageType);
@@ -726,6 +787,7 @@ QJsonObject DDPClient::generateJsonObject(const QString &method, const QJsonArra
     return RocketChatMessage::generateJsonObject(method, params, mUid++);
 }
 
+// TODO remove it
 quint64 DDPClient::storeInQueue(const RocketChatMessage::RocketChatMessageResult &result,
                                 const std::function<void(QJsonObject, RocketChatAccount *)> &callback,
                                 DDPClient::MessageType messageType)
@@ -750,6 +812,42 @@ quint64 DDPClient::storeInQueue(const RocketChatMessage::RocketChatMessageResult
     return uidCurrent;
 }
 
+quint64
+DDPClient::storeInQueue(const RocketChatMessage::RocketChatMessageResult &result, MethodRequestedType methodRequestedType, DDPClient::MessageType messageType)
+{
+    qint64 bytes = mWebSocket->sendTextMessage(result.result);
+    if (bytes < result.result.length()) {
+        qCDebug(RUQOLA_DDPAPI_COMMAND_LOG) << "ERROR! I couldn't send all of my message. This is a bug! (try again)";
+        qCDebug(RUQOLA_DDPAPI_COMMAND_LOG) << mWebSocket->isValid() << mWebSocket->error() << mWebSocket->requestUrl();
+
+        if (messageType == DDPClient::MessageType::Persistent) {
+            mMessageQueue.enqueue(qMakePair(result.method, result.jsonDocument));
+            mRocketChatAccount->messageQueue()->processQueue();
+        }
+    } else {
+        qCDebug(RUQOLA_DDPAPI_COMMAND_LOG) << "Successfully sent " << result.result;
+    }
+
+    mMethodRequestedTypeHash[mUid] = methodRequestedType;
+
+    const quint64 uidCurrent = mUid;
+    mUid++;
+    return uidCurrent;
+}
+
+quint64 DDPClient::method(const QString &methodName, const QJsonObject &params, MethodRequestedType methodRequestedType, DDPClient::MessageType messageType)
+{
+    const RocketChatMessage::RocketChatMessageResult result = mRocketChatMessage->generateMethod(methodName, params, mUid);
+    return storeInQueue(result, methodRequestedType, messageType);
+}
+
+quint64 DDPClient::method(const QString &methodName, const QJsonArray &params, MethodRequestedType methodRequestedType, DDPClient::MessageType messageType)
+{
+    const RocketChatMessage::RocketChatMessageResult result = mRocketChatMessage->generateMethod(methodName, params, mUid);
+    return storeInQueue(result, methodRequestedType, messageType);
+}
+
+// TODO remove it
 quint64 DDPClient::method(const QString &methodName,
                           const QJsonObject &params,
                           const std::function<void(QJsonObject, RocketChatAccount *)> &callback,
@@ -759,6 +857,7 @@ quint64 DDPClient::method(const QString &methodName,
     return storeInQueue(result, callback, messageType);
 }
 
+// TODO remove it
 quint64 DDPClient::method(const QString &methodName,
                           const QJsonArray &params,
                           const std::function<void(QJsonObject, RocketChatAccount *)> &callback,
@@ -1049,6 +1148,7 @@ void DDPClient::executeSubsCallBack(const QJsonObject &root)
     const QJsonArray subs = root["subs"_L1].toArray();
     if (!subs.isEmpty()) {
         const quint64 id = subs.at(0).toString().toULongLong();
+        // TODO remove it
         if (m_callbackHash.contains(id)) {
             std::function<void(QJsonObject, RocketChatAccount *)> callback = m_callbackHash.take(id);
             callback(root, mRocketChatAccount);
