@@ -102,9 +102,22 @@ void CheckNewServerUrlWidget::slotTestConnection()
             ddpClient->deleteLater();
         });
 
-        connect(ddpClient, &DDPClient::methodRequested, this, [](const QJsonObject &obj, DDPClient::MethodRequestedType type) {
+        connect(ddpClient, &DDPClient::methodRequested, this, [this, ddpClient](const QJsonObject &obj, DDPClient::MethodRequestedType type) {
             if (type == DDPClient::MethodRequestedType::PublicSettings) {
+                RuqolaServerConfig config;
+                config.parsePublicSettings(obj, false);
+                // TODO parse info
                 qDebug() << " obj " << obj;
+
+                ServerInfo info;
+                info.url = mServerUrl->text().trimmed();
+                // TODO info.canRegisterAccount = account->registrationFormEnabled();
+                info.passwordSettings = config.passwordSettings();
+                info.accountsManuallyApproveNewUsers = config.accountsManuallyApproveNewUsers();
+                // TODO
+                Q_EMIT serverUrlFound(std::move(info));
+                mBusyIndicatorWidget->hide();
+                ddpClient->deleteLater();
             }
         });
         connect(ddpClient, &DDPClient::connectedChanged, this, [ddpClient]() {
