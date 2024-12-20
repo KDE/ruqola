@@ -101,6 +101,15 @@ void CheckNewServerUrlWidget::slotTestConnection()
             slotErrorConnection(strError);
             ddpClient->deleteLater();
         });
+
+        connect(ddpClient, &DDPClient::methodRequested, this, [](const QJsonObject &obj, DDPClient::MethodRequestedType type) {
+            if (type == DDPClient::MethodRequestedType::PublicSettings) {
+                qDebug() << " obj " << obj;
+            }
+        });
+
+        ddpClient->loadPublicSettings();
+
 #if 0 // FIXME
         connect(account, &RocketChatAccount::publicSettingChanged, this, [this, ddpClient, account]() {
             mBusyIndicatorWidget->hide();
