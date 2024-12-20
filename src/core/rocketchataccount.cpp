@@ -662,7 +662,7 @@ DDPClient *RocketChatAccount::ddp()
 {
     if (!mDdp && accountEnabled()) {
         qCDebug(RUQOLA_RECONNECT_LOG) << "creating new DDPClient" << accountName();
-        mDdp.reset(new DDPClient(this, this));
+        mDdp.reset(new DDPClient(this));
         if (Ruqola::useRestApiLogin()) {
             connect(mDdp->authenticationManager(), &DDPAuthenticationManager::loginStatusChanged, this, &RocketChatAccount::slotDDpLoginStatusChanged);
         } else {
@@ -679,6 +679,13 @@ DDPClient *RocketChatAccount::ddp()
         if (mSettings) {
             mDdp->setServerUrl(mSettings->serverUrl());
         }
+        auto ddpclientAccountParameter = new DDPClient::DDPClientAccountParameter;
+        ddpclientAccountParameter->settings = mSettings;
+        ddpclientAccountParameter->logger = mRuqolaLogger;
+        ddpclientAccountParameter->messageQueue = mMessageQueue;
+        ddpclientAccountParameter->accountName = accountName();
+        ddpclientAccountParameter->defaultAuthenticationInterface = defaultAuthenticationInterface();
+        mDdp->setDDPClientAccountParameter(ddpclientAccountParameter);
         // Delay the call to mDdp->start() in case it emits disconnectedByServer right away
         // The caller doesn't expect ddp() to get reset to nullptr right away.
         QMetaObject::invokeMethod(mDdp.get(), &DDPClient::start, Qt::QueuedConnection);

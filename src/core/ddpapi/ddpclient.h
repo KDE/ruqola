@@ -19,12 +19,12 @@ class QJsonObject;
 class QJsonDocument;
 class RocketChatMessage;
 class AbstractWebSocket;
-class RocketChatAccount;
 class DDPAuthenticationManager;
 class RuqolaLogger;
 class RocketChatAccountSettings;
 class DDPManager;
 class MessageQueue;
+class PluginAuthenticationInterface;
 class LIBRUQOLACORE_EXPORT DDPClient : public QObject
 {
     Q_OBJECT
@@ -74,6 +74,7 @@ public:
     };
 
     struct LIBRUQOLACORE_EXPORT DDPClientAccountParameter {
+        DDPClientAccountParameter() = default;
         DDPClientAccountParameter(const QString &_accountName, RuqolaLogger *_logger, RocketChatAccountSettings *_settings, MessageQueue *_messageQueue)
             : accountName(_accountName)
             , logger(_logger)
@@ -81,13 +82,15 @@ public:
             , messageQueue(_messageQueue)
         {
         }
+
         QString accountName;
         RuqolaLogger *logger = nullptr;
         RocketChatAccountSettings *settings = nullptr;
         MessageQueue *messageQueue = nullptr;
+        PluginAuthenticationInterface *defaultAuthenticationInterface = nullptr;
     };
 
-    explicit DDPClient(RocketChatAccount *account = nullptr, QObject *parent = nullptr);
+    explicit DDPClient(QObject *parent = nullptr);
     ~DDPClient() override;
 
     /**
@@ -323,7 +326,6 @@ private:
 
     friend class Ruqola;
     RocketChatMessage *mRocketChatMessage = nullptr;
-    RocketChatAccount *mRocketChatAccount = nullptr;
     DDPAuthenticationManager *mAuthenticationManager = nullptr;
     std::unique_ptr<DDPClientAccountParameter> mDDPClientAccountParameter;
     bool mLoginEnqueued = false;

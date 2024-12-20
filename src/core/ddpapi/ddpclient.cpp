@@ -12,7 +12,6 @@
 #include "messagequeue.h"
 #include "model/roommodel.h"
 #include "plugins/pluginauthenticationinterface.h"
-#include "rocketchataccount.h"
 #include "rocketchataccountsettings.h"
 #include "rocketchatbackend.h"
 #include "ruqola.h"
@@ -32,11 +31,10 @@
 
 using namespace Qt::Literals::StringLiterals;
 
-DDPClient::DDPClient(RocketChatAccount *account, QObject *parent)
+DDPClient::DDPClient(QObject *parent)
     : QObject(parent)
     , mUid(1)
     , mRocketChatMessage(new RocketChatMessage)
-    , mRocketChatAccount(account)
     , mAuthenticationManager(new DDPAuthenticationManager(this, this))
 {
 }
@@ -69,7 +67,7 @@ void DDPClient::initializeWebSocket()
 void DDPClient::start()
 {
     if (!mWebSocket) {
-        mWebSocket = new RuqolaWebSocket(mRocketChatAccount->ruqolaLogger(), this);
+        mWebSocket = new RuqolaWebSocket(mDDPClientAccountParameter->logger, this);
         initializeWebSocket();
     }
     if (!mUrl.isEmpty()) {
@@ -111,12 +109,12 @@ QUrl DDPClient::adaptUrl(const QString &url)
 
 void DDPClient::onServerURLChange()
 {
-    if (mRocketChatAccount->settings()->serverUrl() != mUrl || !mWebSocket->isValid()) {
+    if (mDDPClientAccountParameter->settings->serverUrl() != mUrl || !mWebSocket->isValid()) {
         if (mWebSocket->isValid()) {
             mWebSocket->flush();
             mWebSocket->close();
         }
-        mUrl = mRocketChatAccount->settings()->serverUrl();
+        mUrl = mDDPClientAccountParameter->settings->serverUrl();
         connectWebSocket();
     }
 }
@@ -367,7 +365,7 @@ quint64 DDPClient::method(const RocketChatMessage::RocketChatMessageResult &resu
 
         if (messageType == DDPClient::MessageType::Persistent) {
             mMessageQueue.enqueue(qMakePair(result.method, result.jsonDocument));
-            mRocketChatAccount->messageQueue()->processQueue();
+            mDDPClientAccountParameter->messageQueue->processQueue();
         }
     } else {
         qCDebug(RUQOLA_DDPAPI_COMMAND_LOG) << "Successfully sent " << result.result;
@@ -405,7 +403,7 @@ DDPClient::storeInQueue(const RocketChatMessage::RocketChatMessageResult &result
 
         if (messageType == DDPClient::MessageType::Persistent) {
             mMessageQueue.enqueue(qMakePair(result.method, result.jsonDocument));
-            mRocketChatAccount->messageQueue()->processQueue();
+            mDDPClientAccountParameter->messageQueue->processQueue();
         }
     } else {
         qCDebug(RUQOLA_DDPAPI_COMMAND_LOG) << "Successfully sent " << result.result;
@@ -547,7 +545,7 @@ void DDPClient::onTextMessageReceived(const QString &message)
 
         if (messageType == "updated"_L1) {
             // nothing to do.
-            qCDebug(RUQOLA_DDPAPI_LOG) << mRocketChatAccount->accountName() << " message updated ! not implemented yet" << response;
+            qCDebug(RUQOLA_DDPAPI_LOG) << mDDPClientAccountParameter->accountName << " message updated ! not implemented yet" << response;
         } else if (messageType == "result"_L1) {
             quint64 id = root.value("id"_L1).toString().toULongLong();
 
@@ -565,53 +563,53 @@ void DDPClient::onTextMessageReceived(const QString &message)
                 Q_EMIT methodRequested(root, mMethodRequestedTypeHash.take(id));
             }
         } else if (messageType == "connected"_L1) {
-            qCDebug(RUQOLA_DDPAPI_LOG) << mRocketChatAccount->accountName() << " Connected!";
+            qCDebug(RUQOLA_DDPAPI_LOG) << mDDPClientAccountParameter->accountName << " Connected!";
             mConnected = true;
             Q_EMIT connectedChanged(true);
         } else if (messageType == "error"_L1) {
-            qWarning() << mRocketChatAccount->accountName() << " ERROR!!" << message;
+            qWarning() << mDDPClientAccountParameter->accountName << " ERROR!!" << message;
         } else if (messageType == "ping"_L1) {
-            qCDebug(RUQOLA_DDPAPI_LOG) << mRocketChatAccount->accountName() << "Ping - Pong";
+            qCDebug(RUQOLA_DDPAPI_LOG) << mDDPClientAccountParameter->accountName << "Ping - Pong";
             pong();
         } else if (messageType == "added"_L1) {
-            qCDebug(RUQOLA_DDPAPI_LOG) << mRocketChatAccount->accountName() << "ADDING element" << response;
+            qCDebug(RUQOLA_DDPAPI_LOG) << mDDPClientAccountParameter->accountName << "ADDING element" << response;
             Q_EMIT added(root);
         } else if (messageType == "changed"_L1) {
-            qCDebug(RUQOLA_DDPAPI_LOG) << mRocketChatAccount->accountName() << "Changed element" << response;
+            qCDebug(RUQOLA_DDPAPI_LOG) << mDDPClientAccountParameter->accountName << "Changed element" << response;
             Q_EMIT changed(root);
         } else if (messageType == "ready"_L1) {
-            qCDebug(RUQOLA_DDPAPI_LOG) << mRocketChatAccount->accountName() << "READY element" << response;
+            qCDebug(RUQOLA_DDPAPI_LOG) << mDDPClientAccountParameter->accountName << "READY element" << response;
             executeSubsCallBack(root);
         } else if (messageType == "removed"_L1) {
-            qCDebug(RUQOLA_DDPAPI_LOG) << mRocketChatAccount->accountName() << "REMOVED element" << response;
+            qCDebug(RUQOLA_DDPAPI_LOG) << mDDPClientAccountParameter->accountName << "REMOVED element" << response;
             Q_EMIT removed(root);
         } else if (messageType == "nosub"_L1) {
             const QString id = root.value("id"_L1).toString();
-            qCDebug(RUQOLA_DDPAPI_LOG) << mRocketChatAccount->accountName() << "Unsubscribe element" << message << id;
+            qCDebug(RUQOLA_DDPAPI_LOG) << mDDPClientAccountParameter->accountName << "Unsubscribe element" << message << id;
             const QJsonObject errorObj = root["error"_L1].toObject();
             if (!errorObj.isEmpty()) {
-                qWarning() << mRocketChatAccount->accountName() << "Error unsubscribing from" << id;
-                qWarning() << mRocketChatAccount->accountName() << "ERROR: " << errorObj["error"_L1].toString();
-                qWarning() << mRocketChatAccount->accountName() << "Message: " << errorObj["message"_L1].toString();
-                qWarning() << mRocketChatAccount->accountName() << "Reason: " << errorObj["reason"_L1].toString();
-                qWarning() << mRocketChatAccount->accountName() << "-- Error found END --";
+                qWarning() << mDDPClientAccountParameter->accountName << "Error unsubscribing from" << id;
+                qWarning() << mDDPClientAccountParameter->accountName << "ERROR: " << errorObj["error"_L1].toString();
+                qWarning() << mDDPClientAccountParameter->accountName << "Message: " << errorObj["message"_L1].toString();
+                qWarning() << mDDPClientAccountParameter->accountName << "Reason: " << errorObj["reason"_L1].toString();
+                qWarning() << mDDPClientAccountParameter->accountName << "-- Error found END --";
             }
         } else {
             // The very first message we receive is {"server_id":"0"}, can't find it in the spec, just ignore it.
             if (messageType.isEmpty() && !root.value("server_id"_L1).isUndefined()) {
                 return;
             }
-            qWarning() << mRocketChatAccount->accountName() << "received something unhandled:" << messageType << message;
+            qWarning() << mDDPClientAccountParameter->accountName << "received something unhandled:" << messageType << message;
         }
     } else {
-        qWarning() << mRocketChatAccount->accountName() << "received something unhandled unknown " << message;
+        qWarning() << mDDPClientAccountParameter->accountName << "received something unhandled unknown " << message;
     }
 }
 
 void DDPClient::login()
 {
     if (!Ruqola::useRestApiLogin()) {
-        if (auto interface = mRocketChatAccount->defaultAuthenticationInterface()) {
+        if (auto interface = mDDPClientAccountParameter->defaultAuthenticationInterface) {
             interface->login();
         } else {
             qCWarning(RUQOLA_DDPAPI_LOG) << "No plugins loaded. Please verify your installation.";

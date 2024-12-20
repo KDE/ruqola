@@ -85,25 +85,24 @@ void CheckNewServerUrlWidget::slotTestConnection()
     if (!serverUrl.isEmpty()) {
         mFailedError->hide();
         mBusyIndicatorWidget->show();
-        auto account = new RocketChatAccount();
-        account->setServerUrl(mServerUrl->text());
-        auto ddpClient = new DDPClient(account, this);
-        connect(ddpClient, &DDPClient::wsClosedSocketError, this, [this, ddpClient, account]() {
+        auto ddpClient = new DDPClient(this);
+        ddpClient->setServerUrl(mServerUrl->text());
+        // TODO FIX ME
+        connect(ddpClient, &DDPClient::wsClosedSocketError, this, [this, ddpClient]() {
             mBusyIndicatorWidget->hide();
             mConnectionPushButton->setEnabled(true);
             slotErrorConnection(i18n("Socket was unexpectedly closed."));
             ddpClient->deleteLater();
-            account->deleteLater();
         });
-        connect(ddpClient, &DDPClient::socketError, this, [this, ddpClient, account](QAbstractSocket::SocketError error, const QString &strError) {
+        connect(ddpClient, &DDPClient::socketError, this, [this, ddpClient](QAbstractSocket::SocketError error, const QString &strError) {
             Q_UNUSED(error);
             Q_UNUSED(strError);
             mConnectionPushButton->setEnabled(true);
             mBusyIndicatorWidget->hide();
             slotErrorConnection(strError);
             ddpClient->deleteLater();
-            account->deleteLater();
         });
+#if 0 // FIXME
         connect(account, &RocketChatAccount::publicSettingChanged, this, [this, ddpClient, account]() {
             mBusyIndicatorWidget->hide();
             ddpClient->deleteLater();
@@ -119,6 +118,7 @@ void CheckNewServerUrlWidget::slotTestConnection()
             info.accountsManuallyApproveNewUsers = account->ruqolaServerConfig()->accountsManuallyApproveNewUsers();
             Q_EMIT serverUrlFound(std::move(info));
         });
+#endif
 
         ddpClient->setServerUrl(mServerUrl->text());
         ddpClient->start();
