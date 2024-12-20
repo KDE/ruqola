@@ -6,7 +6,6 @@
 
 #include "checknewserverurlwidget.h"
 #include "ddpapi/ddpclient.h"
-#include "rocketchataccount.h"
 #include "rocketchatbackend.h"
 #include <KBusyIndicatorWidget>
 #include <KLineEditEventHandler>
