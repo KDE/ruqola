@@ -301,20 +301,6 @@ void input_user_channel_autocomplete_thread(const QJsonObject &root, RocketChatA
     account->inputThreadMessageTextManager()->inputTextCompleter(obj);
 }
 
-void process_backlog(const QJsonObject &root, RocketChatAccount *account)
-{
-    const QJsonObject obj = root.value("result"_L1).toObject();
-    // qCDebug(RUQOLA_DDPAPI_LOG) << obj.value("messages")).toArray().size();
-    account->rocketChatBackend()->processIncomingMessages(obj.value("messages"_L1).toArray(), true);
-}
-
-void change_room_settings(const QJsonObject &root, RocketChatAccount *account)
-{
-    if (account->ruqolaLogger()) {
-        account->ruqolaLogger()->dataReceived(QByteArrayLiteral("Change Room Settings:") + QJsonDocument(root).toJson());
-    }
-}
-
 void create_jitsi_conf_call(const QJsonObject &root, RocketChatAccount *account)
 {
     if (account->ruqolaLogger()) {
@@ -348,13 +334,6 @@ void get_room_by_type_and_name(const QJsonObject &obj, RocketChatAccount *accoun
 {
     if (account->ruqolaLogger()) {
         account->ruqolaLogger()->dataReceived(QByteArrayLiteral("Get Room y room and name :") + QJsonDocument(obj).toJson());
-    }
-}
-
-void join_room(const QJsonObject &obj, RocketChatAccount *account)
-{
-    if (account->ruqolaLogger()) {
-        account->ruqolaLogger()->dataReceived(QByteArrayLiteral("Join Room :") + QJsonDocument(obj).toJson());
     }
 }
 
