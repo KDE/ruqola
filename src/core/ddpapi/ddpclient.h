@@ -297,6 +297,8 @@ private:
      */
     QHash<quint64, std::function<void(QJsonObject, RocketChatAccount *)>> m_callbackHash;
 
+    QHash<quint64, MethodRequestedType> mMethodRequestedTypeHash;
+
     /**
      * @brief stores subscription handlers for a given event on a given collection
      *

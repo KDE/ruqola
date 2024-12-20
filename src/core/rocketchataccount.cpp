@@ -674,6 +674,7 @@ DDPClient *RocketChatAccount::ddp()
         connect(mDdp.get(), &DDPClient::removed, this, &RocketChatAccount::removed);
         connect(mDdp.get(), &DDPClient::socketError, this, &RocketChatAccount::socketError);
         connect(mDdp.get(), &DDPClient::disconnectedByServer, this, &RocketChatAccount::slotReconnectToDdpServer);
+        connect(mDdp.get(), &DDPClient::methodRequested, this, &RocketChatAccount::parseMethodRequested);
 
         if (mSettings) {
             mDdp->setServerUrl(mSettings->serverUrl());

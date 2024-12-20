@@ -1050,6 +1050,9 @@ void DDPClient::executeSubsCallBack(const QJsonObject &root)
             std::function<void(QJsonObject, RocketChatAccount *)> callback = m_callbackHash.take(id);
             callback(root, mRocketChatAccount);
         }
+        if (mMethodRequestedTypeHash.contains(id)) {
+            Q_EMIT methodRequested(root, mMethodRequestedTypeHash.take(id));
+        }
     } else {
         qCWarning(RUQOLA_DDPAPI_LOG) << "Problem with subs json " << root;
     }
