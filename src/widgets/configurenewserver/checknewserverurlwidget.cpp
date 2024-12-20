@@ -87,7 +87,6 @@ void CheckNewServerUrlWidget::slotTestConnection()
         auto ddpClient = new DDPClient(this);
         auto ddpclientAccountParameter = new DDPClient::DDPClientAccountParameter;
         ddpClient->setDDPClientAccountParameter(ddpclientAccountParameter);
-        // TODO FIX ME
         connect(ddpClient, &DDPClient::wsClosedSocketError, this, [this, ddpClient]() {
             mBusyIndicatorWidget->hide();
             mConnectionPushButton->setEnabled(true);
@@ -107,6 +106,9 @@ void CheckNewServerUrlWidget::slotTestConnection()
             if (type == DDPClient::MethodRequestedType::PublicSettings) {
                 qDebug() << " obj " << obj;
             }
+        });
+        connect(ddpClient, &DDPClient::connectedChanged, this, [ddpClient]() {
+            ddpClient->loadPublicSettings();
         });
 
 #if 0 // FIXME
@@ -129,7 +131,6 @@ void CheckNewServerUrlWidget::slotTestConnection()
 
         ddpClient->setServerUrl(mServerUrl->text());
         ddpClient->start();
-        ddpClient->loadPublicSettings();
     }
 }
 
