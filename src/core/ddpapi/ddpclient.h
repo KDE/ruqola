@@ -22,7 +22,10 @@ class RocketChatMessage;
 class AbstractWebSocket;
 class RocketChatAccount;
 class DDPAuthenticationManager;
+class RuqolaLogger;
+class RocketChatAccountSettings;
 class DDPManager;
+class MessageQueue;
 class LIBRUQOLACORE_EXPORT DDPClient : public QObject
 {
     Q_OBJECT
@@ -44,6 +47,20 @@ public:
         RegenerateCodes2fa,
         Enable2fa,
         BannerDismiss
+    };
+
+    struct LIBRUQOLACORE_EXPORT DDPClientAccountParameter {
+        DDPClientAccountParameter(const QString &_accountName, RuqolaLogger *_logger, RocketChatAccountSettings *_settings, MessageQueue *_messageQueue)
+            : accountName(_accountName)
+            , logger(_logger)
+            , settings(_settings)
+            , messageQueue(_messageQueue)
+        {
+        }
+        const QString accountName;
+        RuqolaLogger *const logger;
+        RocketChatAccountSettings *const settings;
+        MessageQueue *const messageQueue;
     };
 
     explicit DDPClient(RocketChatAccount *account = nullptr, QObject *parent = nullptr);
