@@ -3393,18 +3393,314 @@ void RocketChatAccount::parseMethodRequested(const QJsonObject &obj, DDPClient::
     case DDPClient::MethodRequestedType::OtrEnd:
         otrEnd(obj);
         break;
-
-    case DDPClient::MethodRequestedType::GetLicenseModules:
-    case DDPClient::MethodRequestedType::ListCustomSounds:
-    case DDPClient::MethodRequestedType::BlockUser:
-    case DDPClient::MethodRequestedType::UnBlockUser:
-    case DDPClient::MethodRequestedType::UpdateCustomSound:
-    case DDPClient::MethodRequestedType::DeleteCustomSound:
-    case DDPClient::MethodRequestedType::RegenerateCodes2fa:
     case DDPClient::MethodRequestedType::Enable2fa:
+        enable2fa(obj);
+        break;
+    case DDPClient::MethodRequestedType::RegenerateCodes2fa:
+        regenerateCodes2fa(obj);
+        break;
+    case DDPClient::MethodRequestedType::Disable2fa:
+        disable2fa(obj);
+        break;
+    case DDPClient::MethodRequestedType::ValidateTempToken2fa:
+        validateTempToken2fa(obj);
+        break;
+    case DDPClient::MethodRequestedType::UpdateCustomSound:
+        updateCustomSound(obj);
+        break;
+    case DDPClient::MethodRequestedType::DeleteCustomSound:
+        deleteCustomSound(obj);
+        break;
+    case DDPClient::MethodRequestedType::BlockUser:
+        blockUser(obj);
+        break;
+    case DDPClient::MethodRequestedType::UnBlockUser:
+        unblockUser(obj);
+        break;
+    case DDPClient::MethodRequestedType::AdminStatus:
+        adminStatus(obj);
+        break;
+    case DDPClient::MethodRequestedType::ListCustomSounds:
+        listCustomSounds(obj);
+        break;
     case DDPClient::MethodRequestedType::BannerDismiss:
+        bannerDismiss(obj);
+        break;
+    case DDPClient::MethodRequestedType::GetLicenseModules:
+        licenseGetModules(obj);
+        break;
+    case DDPClient::MethodRequestedType::VideoConferenceCall:
+        videoConferenceCall(obj);
+        break;
+    case DDPClient::MethodRequestedType::VideoConferenceRejected:
+        videoConferenceRejected(obj);
+        break;
+    case DDPClient::MethodRequestedType::VideoConferenceAccepted:
+        videoConferenceAccepted(obj);
+        break;
+    case DDPClient::MethodRequestedType::VideoConferenceConfirmed:
+        videoConferenceConfirmed(obj);
+        break;
+    case DDPClient::MethodRequestedType::PublicsettingsAdministrator:
+        processPublicsettingsAdministrator(obj);
+        break;
+    case DDPClient::MethodRequestedType::PrivatesettingsAdministrator:
+        processPrivatesettingsAdministrator(obj);
+        break;
+    case DDPClient::MethodRequestedType::PermissionsAdministrator:
+        processPermissionsAdministrator(obj);
+        break;
+    case DDPClient::MethodRequestedType::RoomsParsing:
+        roomsParsing(obj);
+        break;
+    case DDPClient::MethodRequestedType::GetsubscriptionParsing:
+        getsubscriptionParsing(obj);
         break;
     }
+}
+
+void RocketChatAccount::processPublicsettingsAdministrator(const QJsonObject &obj)
+{
+    Q_EMIT publicSettingLoaded(obj);
+
+    // qCDebug(RUQOLA_LOG) << " configs"<<configs;
+    if (mRuqolaLogger) {
+        mRuqolaLogger->dataReceived(QByteArrayLiteral("Administrator Public Settings:") + QJsonDocument(obj).toJson());
+    }
+}
+
+void RocketChatAccount::processPrivatesettingsAdministrator(const QJsonObject &obj)
+{
+    Q_EMIT privateSettingLoaded(obj);
+
+    // qCDebug(RUQOLA_LOG) << " configs"<<configs;
+    if (mRuqolaLogger) {
+        mRuqolaLogger->dataReceived(QByteArrayLiteral("Administrator Private Settings:") + QJsonDocument(obj).toJson());
+    }
+}
+
+void RocketChatAccount::processPermissionsAdministrator(const QJsonObject &obj)
+{
+    Q_EMIT permissionSettingLoaded(obj);
+
+    // qCDebug(RUQOLA_LOG) << " configs"<<configs;
+    if (mRuqolaLogger) {
+        mRuqolaLogger->dataReceived(QByteArrayLiteral("Administrator Permissions:") + QJsonDocument(obj).toJson());
+    }
+}
+
+void RocketChatAccount::roomsParsing(const QJsonObject &root)
+{
+    const QJsonObject obj = root.value("result"_L1).toObject();
+    RoomModel *model = roomModel();
+
+    // qDebug() << " doc " << doc;
+
+    // QJsonArray removed = obj.value("remove"_L1).toArray();
+    // qDebug() << " rooms_parsing: room removed *************************************************" << removed;
+    const QJsonArray updated = obj.value("update"_L1).toArray();
+    // qDebug() << " rooms_parsing: updated  *******************************************************: "<< updated;
+
+    for (int i = 0; i < updated.size(); i++) {
+        QJsonObject roomJson = updated.at(i).toObject();
+        const QString roomType = roomJson.value("t"_L1).toString();
+        if (mRuqolaLogger) {
+            QJsonDocument d;
+            d.setObject(roomJson);
+
+            mRuqolaLogger->dataReceived(QByteArrayLiteral("Rooms:") + d.toJson());
+        }
+        // TODO: why checking the room type?
+        if (roomType == QLatin1Char('c') // Chat
+            || roomType == QLatin1Char('p') /*Private chat*/
+            || roomType == QLatin1Char('d') /*Direct chat*/) {
+            // let's be extra safe around crashes
+            if (loginStatus() == AuthenticationManager::LoggedIn) {
+                model->updateRoom(roomJson);
+            }
+        }
+    }
+}
+
+void RocketChatAccount::getsubscriptionParsing(const QJsonObject &root)
+{
+    // qCDebug(RUQOLA_MESSAGE_LOG) << " getsubscription_parsing " << root;
+    const QJsonObject obj = root.value("result"_L1).toObject();
+    RoomModel *model = roomModel();
+
+    // qDebug() << " doc " << doc;
+
+    const QJsonArray removed = obj.value("remove"_L1).toArray();
+    if (!removed.isEmpty()) {
+        // TODO implement it.
+        qDebug() << " room removed " << removed;
+    }
+
+    const QJsonArray updated = obj.value("update"_L1).toArray();
+    // qDebug() << " updated : "<< updated;
+
+    for (int i = 0; i < updated.size(); i++) {
+        QJsonObject room = updated.at(i).toObject();
+
+        const QString roomType = room.value("t"_L1).toString();
+        if (mRuqolaLogger) {
+            QJsonDocument d;
+            d.setObject(room);
+
+            mRuqolaLogger->dataReceived(QByteArrayLiteral("Rooms subscriptions:") + d.toJson());
+        }
+        if (roomType == QLatin1Char('c') // Chat
+            || roomType == QLatin1Char('p') // Private chat
+            || roomType == QLatin1Char('d')) { // Direct chat
+            // let's be extra safe around crashes
+            if (loginStatus() == AuthenticationManager::LoggedIn) {
+                model->addRoom(room);
+            }
+        } else if (roomType == QLatin1Char('l')) { // Live chat
+            qCDebug(RUQOLA_LOG) << "Live Chat not implemented yet";
+        }
+    }
+    // We need to load all room after get subscription to update parameters
+    QJsonObject params;
+    // TODO use timeStamp too
+    params["$date"_L1] = QJsonValue(0); // get ALL rooms we've ever seen
+    // Add timestamp https://developer.rocket.chat/reference/api/realtime-api/method-calls/get-rooms
+
+    // FIXME !!!!!!!!!!!!ddp()->method(QStringLiteral("rooms/get"), params, rooms_parsing);
+
+    initializeAccount();
+}
+
+void RocketChatAccount::videoConferenceCall(const QJsonObject &root)
+{
+    qDebug() << "video_conference_call  root " << root;
+    if (mRuqolaLogger) {
+        mRuqolaLogger->dataReceived(QByteArrayLiteral("Video Conference Call:") + QJsonDocument(root).toJson());
+    }
+}
+
+void RocketChatAccount::videoConferenceRejected(const QJsonObject &root)
+{
+    qDebug() << "video_conference_rejected  root " << root;
+    if (mRuqolaLogger) {
+        mRuqolaLogger->dataReceived(QByteArrayLiteral("Video Conference Rejected:") + QJsonDocument(root).toJson());
+    }
+}
+
+void RocketChatAccount::videoConferenceAccepted(const QJsonObject &root)
+{
+    qDebug() << "video_conference_accepted  root " << root;
+    if (mRuqolaLogger) {
+        mRuqolaLogger->dataReceived(QByteArrayLiteral("Video Conference Accepted:") + QJsonDocument(root).toJson());
+    }
+}
+
+void RocketChatAccount::videoConferenceConfirmed(const QJsonObject &root)
+{
+    qDebug() << "video_conference_confirmed  root " << root;
+    if (mRuqolaLogger) {
+        mRuqolaLogger->dataReceived(QByteArrayLiteral("Video Conference Confirmed:") + QJsonDocument(root).toJson());
+    }
+}
+
+void RocketChatAccount::licenseGetModules(const QJsonObject &root)
+{
+    // qDebug() << " root " << root;
+    if (mRuqolaLogger) {
+        mRuqolaLogger->dataReceived(QByteArrayLiteral("License GetModule:") + QJsonDocument(root).toJson());
+    }
+    const QJsonArray obj = root.value("result"_L1).toArray();
+    parseLicenses(obj);
+}
+
+void RocketChatAccount::bannerDismiss(const QJsonObject &root)
+{
+    // qDebug() << " root " << root;
+    if (mRuqolaLogger) {
+        mRuqolaLogger->dataReceived(QByteArrayLiteral("Banner Dismiss:") + QJsonDocument(root).toJson());
+    }
+}
+
+void RocketChatAccount::listCustomSounds(const QJsonObject &root)
+{
+    qDebug() << " root " << root;
+    if (mRuqolaLogger) {
+        mRuqolaLogger->dataReceived(QByteArrayLiteral("list custom sounds:") + QJsonDocument(root).toJson());
+    }
+    const QJsonArray obj = root.value("result"_L1).toArray();
+    parseCustomSounds(obj);
+}
+
+void RocketChatAccount::adminStatus(const QJsonObject &root)
+{
+    qDebug() << " root " << root;
+    if (mRuqolaLogger) {
+        mRuqolaLogger->dataReceived(QByteArrayLiteral("Admin Status:") + QJsonDocument(root).toJson());
+    }
+}
+
+void RocketChatAccount::blockUser(const QJsonObject &root)
+{
+    if (mRuqolaLogger) {
+        mRuqolaLogger->dataReceived(QByteArrayLiteral("Block User:") + QJsonDocument(root).toJson());
+    }
+}
+
+void RocketChatAccount::unblockUser(const QJsonObject &root)
+{
+    if (mRuqolaLogger) {
+        mRuqolaLogger->dataReceived(QByteArrayLiteral("UnBlock User:") + QJsonDocument(root).toJson());
+    }
+}
+
+void RocketChatAccount::deleteCustomSound(const QJsonObject &root)
+{
+    if (mRuqolaLogger) {
+        mRuqolaLogger->dataReceived(QByteArrayLiteral("Delete Custom Sound:") + QJsonDocument(root).toJson());
+    }
+}
+
+void RocketChatAccount::updateCustomSound(const QJsonObject &root)
+{
+    if (mRuqolaLogger) {
+        mRuqolaLogger->dataReceived(QByteArrayLiteral("Update Custom Sound:") + QJsonDocument(root).toJson());
+    }
+}
+
+void RocketChatAccount::validateTempToken2fa(const QJsonObject &root)
+{
+    if (mRuqolaLogger) {
+        mRuqolaLogger->dataReceived(QByteArrayLiteral("Validate Temp Token 2FA:") + QJsonDocument(root).toJson());
+    }
+    const QJsonObject obj = root.value("result"_L1).toObject();
+    totpVerify(obj);
+}
+
+void RocketChatAccount::disable2fa(const QJsonObject &root)
+{
+    if (mRuqolaLogger) {
+        mRuqolaLogger->dataReceived(QByteArrayLiteral("Disable 2FA:") + QJsonDocument(root).toJson());
+    }
+    totpDisabledVerify(root);
+}
+
+void RocketChatAccount::regenerateCodes2fa(const QJsonObject &root)
+{
+    if (mRuqolaLogger) {
+        mRuqolaLogger->dataReceived(QByteArrayLiteral("Regenerate Codes 2FA:") + QJsonDocument(root).toJson());
+    }
+    const QJsonObject obj = root.value("result"_L1).toObject();
+    // TODO
+    qDebug() << " regenerateCodes_2fa " << root;
+}
+
+void RocketChatAccount::enable2fa(const QJsonObject &root)
+{
+    if (mRuqolaLogger) {
+        mRuqolaLogger->dataReceived(QByteArrayLiteral("Enable 2FA:") + QJsonDocument(root).toJson());
+    }
+    const QJsonObject obj = root.value("result"_L1).toObject();
+    generate2FaTotp(obj);
 }
 
 void RocketChatAccount::otrEnd(const QJsonObject &root)

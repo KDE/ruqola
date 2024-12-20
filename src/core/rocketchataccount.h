@@ -663,6 +663,29 @@ private:
     LIBRUQOLACORE_NO_EXPORT void inputUserChannelAutocompleteThread(const QJsonObject &root);
     LIBRUQOLACORE_NO_EXPORT void inputUserChannelAutocomplete(const QJsonObject &root);
     LIBRUQOLACORE_NO_EXPORT void otrEnd(const QJsonObject &root);
+    LIBRUQOLACORE_NO_EXPORT void enable2fa(const QJsonObject &root);
+    LIBRUQOLACORE_NO_EXPORT void regenerateCodes2fa(const QJsonObject &root);
+    LIBRUQOLACORE_NO_EXPORT void disable2fa(const QJsonObject &root);
+    LIBRUQOLACORE_NO_EXPORT void validateTempToken2fa(const QJsonObject &root);
+    LIBRUQOLACORE_NO_EXPORT void updateCustomSound(const QJsonObject &root);
+    LIBRUQOLACORE_NO_EXPORT void deleteCustomSound(const QJsonObject &root);
+    LIBRUQOLACORE_NO_EXPORT void blockUser(const QJsonObject &root);
+    LIBRUQOLACORE_NO_EXPORT void unblockUser(const QJsonObject &root);
+    LIBRUQOLACORE_NO_EXPORT void adminStatus(const QJsonObject &root);
+    LIBRUQOLACORE_NO_EXPORT void listCustomSounds(const QJsonObject &root);
+    LIBRUQOLACORE_NO_EXPORT void bannerDismiss(const QJsonObject &root);
+    LIBRUQOLACORE_NO_EXPORT void licenseGetModules(const QJsonObject &root);
+
+    LIBRUQOLACORE_NO_EXPORT void videoConferenceCall(const QJsonObject &root);
+    LIBRUQOLACORE_NO_EXPORT void videoConferenceRejected(const QJsonObject &root);
+    LIBRUQOLACORE_NO_EXPORT void videoConferenceAccepted(const QJsonObject &root);
+    LIBRUQOLACORE_NO_EXPORT void videoConferenceConfirmed(const QJsonObject &root);
+
+    LIBRUQOLACORE_NO_EXPORT void processPublicsettingsAdministrator(const QJsonObject &obj);
+    LIBRUQOLACORE_NO_EXPORT void processPrivatesettingsAdministrator(const QJsonObject &obj);
+    LIBRUQOLACORE_NO_EXPORT void processPermissionsAdministrator(const QJsonObject &obj);
+    LIBRUQOLACORE_NO_EXPORT void roomsParsing(const QJsonObject &root);
+    LIBRUQOLACORE_NO_EXPORT void getsubscriptionParsing(const QJsonObject &root);
 
     AccountRoomSettings *const mAccountRoomSettings;
 

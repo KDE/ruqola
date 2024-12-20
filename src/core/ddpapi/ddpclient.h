@@ -47,6 +47,8 @@ public:
         DeleteCustomSound,
         RegenerateCodes2fa,
         Enable2fa,
+        Disable2fa,
+        ValidateTempToken2fa,
         BannerDismiss,
         ChangeDefaultStatus,
         GetRoomByTypeAndName,
@@ -56,6 +58,16 @@ public:
         InputUserChannelAutocompleteThread,
         InputUserChannelAutocomplete,
         OtrEnd,
+        AdminStatus,
+        VideoConferenceCall,
+        VideoConferenceRejected,
+        VideoConferenceAccepted,
+        VideoConferenceConfirmed,
+        PublicsettingsAdministrator,
+        PrivatesettingsAdministrator,
+        PermissionsAdministrator,
+        RoomsParsing,
+        GetsubscriptionParsing,
     };
 
     struct LIBRUQOLACORE_EXPORT DDPClientAccountParameter {
