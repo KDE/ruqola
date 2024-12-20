@@ -14,6 +14,7 @@
 #include "createchannelteaminfo.h"
 #include "customusers/customuserstatuses.h"
 
+#include "ddpapi/ddpclient.h"
 #include "inputtextmanager.h"
 #include "libruqolacore_export.h"
 #include "licenses/licensesmanager.h"
@@ -651,6 +652,17 @@ private:
     LIBRUQOLACORE_NO_EXPORT void slotRoomOpenChanged(const QByteArray &rid);
     LIBRUQOLACORE_NO_EXPORT void slotCreateChannelDone(const QJsonObject &replyObject);
     LIBRUQOLACORE_NO_EXPORT void slotCreateGroupDone(const QJsonObject &replyObject);
+    LIBRUQOLACORE_NO_EXPORT void parseMethodRequested(const QJsonObject &obj, DDPClient::MethodRequestedType type);
+    LIBRUQOLACORE_NO_EXPORT void processPublicsettings(const QJsonObject &obj);
+    LIBRUQOLACORE_NO_EXPORT void processUpdatePublicsettings(const QJsonObject &obj);
+    LIBRUQOLACORE_NO_EXPORT void changeDefaultStatus(const QJsonObject &obj);
+    LIBRUQOLACORE_NO_EXPORT void getRoomByTypeAndName(const QJsonObject &obj);
+    LIBRUQOLACORE_NO_EXPORT void openRoom(const QJsonObject &obj);
+    LIBRUQOLACORE_NO_EXPORT void openDirectChannel(const QJsonObject &root);
+    LIBRUQOLACORE_NO_EXPORT void createJitsiConfCall(const QJsonObject &root);
+    LIBRUQOLACORE_NO_EXPORT void inputUserChannelAutocompleteThread(const QJsonObject &root);
+    LIBRUQOLACORE_NO_EXPORT void inputUserChannelAutocomplete(const QJsonObject &root);
+    LIBRUQOLACORE_NO_EXPORT void otrEnd(const QJsonObject &root);
 
     AccountRoomSettings *const mAccountRoomSettings;
 

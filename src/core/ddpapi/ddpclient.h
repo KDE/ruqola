@@ -38,6 +38,7 @@ public:
     enum class MethodRequestedType : uint8_t {
         Unknown,
         PublicSettings,
+        UpdatePublicsettings,
         GetLicenseModules,
         ListCustomSounds,
         BlockUser,
@@ -46,7 +47,15 @@ public:
         DeleteCustomSound,
         RegenerateCodes2fa,
         Enable2fa,
-        BannerDismiss
+        BannerDismiss,
+        ChangeDefaultStatus,
+        GetRoomByTypeAndName,
+        OpenRoom,
+        OpenDirectRoom,
+        CreateJitsiConfCall,
+        InputUserChannelAutocompleteThread,
+        InputUserChannelAutocomplete,
+        OtrEnd,
     };
 
     struct LIBRUQOLACORE_EXPORT DDPClientAccountParameter {

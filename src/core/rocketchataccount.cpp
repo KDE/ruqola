@@ -3357,4 +3357,146 @@ void RocketChatAccount::streamNotifyUserOtrEnd(const QByteArray &roomId, const Q
     ddp()->streamNotifyUserOtrEnd(QString::fromLatin1(roomId), QString::fromLatin1(userId));
 }
 
+void RocketChatAccount::parseMethodRequested(const QJsonObject &obj, DDPClient::MethodRequestedType type)
+{
+    switch (type) {
+    case DDPClient::MethodRequestedType::Unknown:
+        qCWarning(RUQOLA_LOG) << "DDPClient::MethodRequestedType::Unknown it's a bug!!!! ";
+        break;
+    case DDPClient::MethodRequestedType::PublicSettings:
+        processPublicsettings(obj);
+        break;
+    case DDPClient::MethodRequestedType::UpdatePublicsettings:
+        processUpdatePublicsettings(obj);
+        break;
+    case DDPClient::MethodRequestedType::ChangeDefaultStatus:
+        changeDefaultStatus(obj);
+        break;
+    case DDPClient::MethodRequestedType::GetRoomByTypeAndName:
+        getRoomByTypeAndName(obj);
+        break;
+    case DDPClient::MethodRequestedType::OpenRoom:
+        openRoom(obj);
+        break;
+    case DDPClient::MethodRequestedType::OpenDirectRoom:
+        openDirectChannel(obj);
+        break;
+    case DDPClient::MethodRequestedType::CreateJitsiConfCall:
+        createJitsiConfCall(obj);
+        break;
+    case DDPClient::MethodRequestedType::InputUserChannelAutocompleteThread:
+        inputUserChannelAutocompleteThread(obj);
+        break;
+    case DDPClient::MethodRequestedType::InputUserChannelAutocomplete:
+        inputUserChannelAutocomplete(obj);
+        break;
+    case DDPClient::MethodRequestedType::OtrEnd:
+        otrEnd(obj);
+        break;
+
+    case DDPClient::MethodRequestedType::GetLicenseModules:
+    case DDPClient::MethodRequestedType::ListCustomSounds:
+    case DDPClient::MethodRequestedType::BlockUser:
+    case DDPClient::MethodRequestedType::UnBlockUser:
+    case DDPClient::MethodRequestedType::UpdateCustomSound:
+    case DDPClient::MethodRequestedType::DeleteCustomSound:
+    case DDPClient::MethodRequestedType::RegenerateCodes2fa:
+    case DDPClient::MethodRequestedType::Enable2fa:
+    case DDPClient::MethodRequestedType::BannerDismiss:
+        break;
+    }
+}
+
+void RocketChatAccount::otrEnd(const QJsonObject &root)
+{
+    qDebug() << "otr_end  " << root;
+    if (mRuqolaLogger) {
+        mRuqolaLogger->dataReceived(QByteArrayLiteral("Otr End:") + QJsonDocument(root).toJson());
+    }
+}
+
+void RocketChatAccount::inputUserChannelAutocomplete(const QJsonObject &root)
+{
+    if (mRuqolaLogger) {
+        mRuqolaLogger->dataReceived(QByteArrayLiteral("Input channel/User autocomplete:") + QJsonDocument(root).toJson());
+    }
+    const QJsonObject obj = root.value("result"_L1).toObject();
+    inputTextManager()->inputTextCompleter(obj);
+}
+
+void RocketChatAccount::inputUserChannelAutocompleteThread(const QJsonObject &root)
+{
+    if (mRuqolaLogger) {
+        mRuqolaLogger->dataReceived(QByteArrayLiteral("Input channel/User autocomplete thread dialog:") + QJsonDocument(root).toJson());
+    }
+    const QJsonObject obj = root.value("result"_L1).toObject();
+
+    inputThreadMessageTextManager()->inputTextCompleter(obj);
+}
+
+void RocketChatAccount::createJitsiConfCall(const QJsonObject &root)
+{
+    if (mRuqolaLogger) {
+        mRuqolaLogger->dataReceived(QByteArrayLiteral("Create Jitsi Conf Call:") + QJsonDocument(root).toJson());
+    }
+}
+
+void RocketChatAccount::openDirectChannel(const QJsonObject &root)
+{
+    const QJsonObject obj = root.value("result"_L1).toObject();
+    qDebug() << " void open_direct_channel(const QJsonObject &root, RocketChatAccount *account)" << obj;
+    if (!obj.isEmpty()) {
+        const QByteArray rid = obj.value("rid"_L1).toString().toLatin1();
+        if (!rid.isEmpty()) {
+            initializeDirectChannel(rid);
+        }
+    }
+    if (mRuqolaLogger) {
+        mRuqolaLogger->dataReceived(QByteArrayLiteral("Open Direct channel:") + QJsonDocument(root).toJson());
+    }
+}
+
+void RocketChatAccount::openRoom(const QJsonObject &obj)
+{
+    if (mRuqolaLogger) {
+        mRuqolaLogger->dataReceived(QByteArrayLiteral("Open Room :") + QJsonDocument(obj).toJson());
+    }
+}
+
+void RocketChatAccount::getRoomByTypeAndName(const QJsonObject &obj)
+{
+    if (mRuqolaLogger) {
+        mRuqolaLogger->dataReceived(QByteArrayLiteral("Get Room y room and name :") + QJsonDocument(obj).toJson());
+    }
+}
+
+void RocketChatAccount::changeDefaultStatus(const QJsonObject &obj)
+{
+    if (mRuqolaLogger) {
+        mRuqolaLogger->dataReceived(QByteArrayLiteral("Change Default Status :") + QJsonDocument(obj).toJson());
+    }
+}
+
+void RocketChatAccount::processPublicsettings(const QJsonObject &obj)
+{
+    // qDebug() << " obj " << obj;
+    parsePublicSettings(obj, false);
+
+    // qCDebug(RUQOLA_LOG) << " configs"<<configs;
+    if (mRuqolaLogger) {
+        mRuqolaLogger->dataReceived(QByteArrayLiteral("Public Settings:") + QJsonDocument(obj).toJson());
+    }
+}
+
+void RocketChatAccount::processUpdatePublicsettings(const QJsonObject &obj)
+{
+    // qDebug() << " obj " << obj;
+    // Update it.
+    parsePublicSettings(obj, true);
+
+    // qCDebug(RUQOLA_LOG) << " configs"<<configs;
+    if (mRuqolaLogger) {
+        mRuqolaLogger->dataReceived(QByteArrayLiteral("Update Public Settings:") + QJsonDocument(obj).toJson());
+    }
+}
 #include "moc_rocketchataccount.cpp"
