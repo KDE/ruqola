@@ -911,6 +911,9 @@ void DDPClient::onTextMessageReceived(const QString &message)
                 std::function<void(QJsonObject, RocketChatAccount *)> callback = m_callbackHash.take(id);
                 callback(root, mRocketChatAccount);
             }
+            if (mMethodRequestedTypeHash.contains(id)) {
+                Q_EMIT methodRequested(root, mMethodRequestedTypeHash.take(id));
+            }
         } else if (messageType == "connected"_L1) {
             qCDebug(RUQOLA_DDPAPI_LOG) << mRocketChatAccount->accountName() << " Connected!";
             mConnected = true;
