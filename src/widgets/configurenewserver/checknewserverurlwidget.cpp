@@ -109,8 +109,6 @@ void CheckNewServerUrlWidget::slotTestConnection()
             }
         });
 
-        ddpClient->loadPublicSettings();
-
 #if 0 // FIXME
         connect(account, &RocketChatAccount::publicSettingChanged, this, [this, ddpClient, account]() {
             mBusyIndicatorWidget->hide();
