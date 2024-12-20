@@ -57,10 +57,10 @@ public:
             , messageQueue(_messageQueue)
         {
         }
-        const QString accountName;
-        RuqolaLogger *const logger;
-        RocketChatAccountSettings *const settings;
-        MessageQueue *const messageQueue;
+        QString accountName;
+        RuqolaLogger *logger = nullptr;
+        RocketChatAccountSettings *settings = nullptr;
+        MessageQueue *messageQueue = nullptr;
     };
 
     explicit DDPClient(RocketChatAccount *account = nullptr, QObject *parent = nullptr);
