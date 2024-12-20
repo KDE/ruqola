@@ -10,7 +10,6 @@
 #include "ddpclient.h"
 #include "config-ruqola.h"
 #include "messagequeue.h"
-#include "model/roommodel.h"
 #include "plugins/pluginauthenticationinterface.h"
 #include "rocketchataccountsettings.h"
 #include "rocketchatbackend.h"
@@ -18,7 +17,6 @@
 #include "ruqola_ddpapi_command_debug.h"
 #include "ruqola_ddpapi_debug.h"
 #include "ruqola_reconnect_core_debug.h"
-#include "ruqolalogger.h"
 #include "ruqolawebsocket.h"
 #include "utils.h"
 
