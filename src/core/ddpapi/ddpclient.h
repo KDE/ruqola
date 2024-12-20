@@ -202,6 +202,10 @@ public:
     [[nodiscard]] QJsonObject generateJsonObject(const QString &method, const QJsonArray &params);
     quint64 getRoomByTypeAndName(const QByteArray &roomId, const QString &roomType);
     qint64 loadPublicSettings(qint64 timeStamp = -1);
+    void loadPermissionsAdministrator(qint64 timeStamp = -1);
+    void loadPrivateSettingsAdministrator(qint64 timeStamp = -1);
+    void loadPublicSettingsAdministrator(qint64 timeStamp = -1);
+    void initializeSubscription();
 Q_SIGNALS:
     void connecting();
     void connectedChanged(bool connected);

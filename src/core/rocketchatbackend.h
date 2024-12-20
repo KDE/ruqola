@@ -29,17 +29,11 @@ public:
      */
     void processIncomingMessages(const QJsonArray &messages, bool loadHistory, bool restApi = false);
 
-    void loadPublicSettingsAdministrator(qint64 timeStamp = -1);
-
     void addMessagesFromLocalDataBase(const QList<Message> &messages);
 
     void removeMessageFromLocalDatabase(const QList<QByteArray> &messageIds, const QByteArray &roomId);
 
     void ddpLogin();
-
-    void loadPermissionsAdministrator(qint64 timeStamp = -1);
-
-    void loadPrivateSettingsAdministrator(qint64 timeStamp = -1);
 
 private:
     LIBRUQOLACORE_NO_EXPORT void slotRemoved(const QJsonObject &object);
@@ -52,6 +46,5 @@ private:
     LIBRUQOLACORE_NO_EXPORT void subscribeRegistration();
     LIBRUQOLACORE_NO_EXPORT void slotPrivateInfoDone(const QJsonObject &data);
     LIBRUQOLACORE_NO_EXPORT void updateVideoConferenceInfo(const Message &m);
-    LIBRUQOLACORE_NO_EXPORT void initializeSubscription(DDPClient *ddp);
     RocketChatAccount *const mRocketChatAccount;
 };

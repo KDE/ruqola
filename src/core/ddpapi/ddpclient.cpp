@@ -10,6 +10,7 @@
 #include "ddpclient.h"
 #include "config-ruqola.h"
 #include "messagequeue.h"
+#include "model/roommodel.h"
 #include "plugins/pluginauthenticationinterface.h"
 #include "rocketchataccount.h"
 #include "rocketchataccountsettings.h"
@@ -30,6 +31,116 @@
 #include <QJsonObject>
 
 using namespace Qt::Literals::StringLiterals;
+void process_publicsettings_administrator(const QJsonObject &obj, RocketChatAccount *account)
+{
+    Q_EMIT account->publicSettingLoaded(obj);
+
+    // qCDebug(RUQOLA_LOG) << " configs"<<configs;
+    if (account->ruqolaLogger()) {
+        account->ruqolaLogger()->dataReceived(QByteArrayLiteral("Administrator Public Settings:") + QJsonDocument(obj).toJson());
+    }
+}
+
+void process_privatesettings_administrator(const QJsonObject &obj, RocketChatAccount *account)
+{
+    Q_EMIT account->privateSettingLoaded(obj);
+
+    // qCDebug(RUQOLA_LOG) << " configs"<<configs;
+    if (account->ruqolaLogger()) {
+        account->ruqolaLogger()->dataReceived(QByteArrayLiteral("Administrator Private Settings:") + QJsonDocument(obj).toJson());
+    }
+}
+
+void process_permissions_administrator(const QJsonObject &obj, RocketChatAccount *account)
+{
+    Q_EMIT account->permissionSettingLoaded(obj);
+
+    // qCDebug(RUQOLA_LOG) << " configs"<<configs;
+    if (account->ruqolaLogger()) {
+        account->ruqolaLogger()->dataReceived(QByteArrayLiteral("Administrator Permissions:") + QJsonDocument(obj).toJson());
+    }
+}
+
+void rooms_parsing(const QJsonObject &root, RocketChatAccount *account)
+{
+    const QJsonObject obj = root.value("result"_L1).toObject();
+    RoomModel *model = account->roomModel();
+
+    // qDebug() << " doc " << doc;
+
+    // QJsonArray removed = obj.value("remove"_L1).toArray();
+    // qDebug() << " rooms_parsing: room removed *************************************************" << removed;
+    const QJsonArray updated = obj.value("update"_L1).toArray();
+    // qDebug() << " rooms_parsing: updated  *******************************************************: "<< updated;
+
+    for (int i = 0; i < updated.size(); i++) {
+        QJsonObject roomJson = updated.at(i).toObject();
+        const QString roomType = roomJson.value("t"_L1).toString();
+        if (account->ruqolaLogger()) {
+            QJsonDocument d;
+            d.setObject(roomJson);
+
+            account->ruqolaLogger()->dataReceived(QByteArrayLiteral("Rooms:") + d.toJson());
+        }
+        // TODO: why checking the room type?
+        if (roomType == QLatin1Char('c') // Chat
+            || roomType == QLatin1Char('p') /*Private chat*/
+            || roomType == QLatin1Char('d') /*Direct chat*/) {
+            // let's be extra safe around crashes
+            if (account->loginStatus() == AuthenticationManager::LoggedIn) {
+                model->updateRoom(roomJson);
+            }
+        }
+    }
+}
+
+void getsubscription_parsing(const QJsonObject &root, RocketChatAccount *account)
+{
+    // qCDebug(RUQOLA_MESSAGE_LOG) << " getsubscription_parsing " << root;
+    const QJsonObject obj = root.value("result"_L1).toObject();
+    RoomModel *model = account->roomModel();
+
+    // qDebug() << " doc " << doc;
+
+    const QJsonArray removed = obj.value("remove"_L1).toArray();
+    if (!removed.isEmpty()) {
+        // TODO implement it.
+        qDebug() << " room removed " << removed;
+    }
+
+    const QJsonArray updated = obj.value("update"_L1).toArray();
+    // qDebug() << " updated : "<< updated;
+
+    for (int i = 0; i < updated.size(); i++) {
+        QJsonObject room = updated.at(i).toObject();
+
+        const QString roomType = room.value("t"_L1).toString();
+        if (account->ruqolaLogger()) {
+            QJsonDocument d;
+            d.setObject(room);
+
+            account->ruqolaLogger()->dataReceived(QByteArrayLiteral("Rooms subscriptions:") + d.toJson());
+        }
+        if (roomType == QLatin1Char('c') // Chat
+            || roomType == QLatin1Char('p') // Private chat
+            || roomType == QLatin1Char('d')) { // Direct chat
+            // let's be extra safe around crashes
+            if (account->loginStatus() == AuthenticationManager::LoggedIn) {
+                model->addRoom(room);
+            }
+        } else if (roomType == QLatin1Char('l')) { // Live chat
+            qCDebug(RUQOLA_DDPAPI_LOG) << "Live Chat not implemented yet";
+        }
+    }
+    // We need to load all room after get subscription to update parameters
+    QJsonObject params;
+    // TODO use timeStamp too
+    params["$date"_L1] = QJsonValue(0); // get ALL rooms we've ever seen
+    // Add timestamp https://developer.rocket.chat/reference/api/realtime-api/method-calls/get-rooms
+    account->ddp()->method(QStringLiteral("rooms/get"), params, rooms_parsing);
+
+    account->initializeAccount();
+}
 
 void video_conference_call(const QJsonObject &root, RocketChatAccount *account)
 {
@@ -963,6 +1074,64 @@ void DDPClient::executeSubsCallBack(const QJsonObject &root)
     } else {
         qCWarning(RUQOLA_DDPAPI_LOG) << "Problem with subs json " << root;
     }
+}
+
+void DDPClient::loadPermissionsAdministrator(qint64 timeStamp)
+{
+    if (!isConnected()) {
+        return;
+    }
+    // https://developer.rocket.chat/docs/get-permissions
+    QJsonObject params;
+    if (timeStamp != -1) {
+        // "params": [ { "$date": 1480377601 } ]
+        params["$date"_L1] = timeStamp;
+    }
+    qDebug() << " params " << params;
+    method(QStringLiteral("permissions/get"), params, process_permissions_administrator);
+}
+
+void DDPClient::loadPrivateSettingsAdministrator(qint64 timeStamp)
+{
+    if (!isConnected()) {
+        return;
+    }
+    // https://developer.rocket.chat/docs/get-permissions
+    QJsonObject params;
+    if (timeStamp != -1) {
+        // "params": [ { "$date": 1480377601 } ]
+        params["$date"_L1] = timeStamp;
+    }
+    qDebug() << " params " << params;
+    method(QStringLiteral("private-settings/get"), params, process_privatesettings_administrator);
+}
+
+void DDPClient::loadPublicSettingsAdministrator(qint64 timeStamp)
+{
+    if (!isConnected()) {
+        return;
+    }
+    // https://developer.rocket.chat/reference/api/realtime-api/method-calls/get-public-settings
+    QJsonObject params;
+    if (timeStamp != -1) {
+        // "params": [ { "$date": 1480377601 } ]
+        params["$date"_L1] = timeStamp;
+    }
+    qDebug() << " params " << params;
+    method(QStringLiteral("public-settings/get"), params, process_publicsettings_administrator);
+}
+
+void DDPClient::initializeSubscription()
+{
+    QJsonObject params;
+    // TODO use timeStamp too
+    params["$date"_L1] = QJsonValue(0); // get ALL rooms we've ever seen
+
+    std::function<void(QJsonObject, RocketChatAccount *)> subscription_callback = [=](const QJsonObject &obj, RocketChatAccount *account) {
+        getsubscription_parsing(obj, account);
+    };
+
+    method(QStringLiteral("subscriptions/get"), params, subscription_callback);
 }
 
 #include "moc_ddpclient.cpp"

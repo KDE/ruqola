@@ -5,12 +5,12 @@
 */
 
 #include "administratorsettingswidget.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "accounts/accountsettingswidget.h"
 #include "analytics/analyticswidget.h"
 #include "cas/cassettingswidget.h"
 #include "conferencecall/conferencecallsettingswidget.h"
+#include "ddpapi/ddpclient.h"
 #include "email/emailsettingswidget.h"
 #include "encryption/encryptionsettingswidget.h"
 #include "enterprise/enterprisesettingswidget.h"
@@ -35,11 +35,11 @@ using namespace Qt::Literals::StringLiterals;
 #include "videoconference/videoconferencewidget.h"
 #include "webdav/webdavsettingswidget.h"
 #include "webrtc/webrtcsettingswidget.h"
-
 #include <KLocalizedString>
 #include <QTabWidget>
 #include <QVBoxLayout>
 
+using namespace Qt::Literals::StringLiterals;
 AdministratorSettingsWidget::AdministratorSettingsWidget(RocketChatAccount *account, QWidget *parent)
     : QWidget{parent}
     , mTabWidget(new QTabWidget(this))
@@ -144,8 +144,8 @@ AdministratorSettingsWidget::~AdministratorSettingsWidget() = default;
 void AdministratorSettingsWidget::loadSettings()
 {
     // Load from database ?
-    mRocketChatAccount->rocketChatBackend()->loadPublicSettingsAdministrator();
-    mRocketChatAccount->rocketChatBackend()->loadPrivateSettingsAdministrator();
+    mRocketChatAccount->ddp()->loadPublicSettingsAdministrator();
+    mRocketChatAccount->ddp()->loadPrivateSettingsAdministrator();
 }
 
 void AdministratorSettingsWidget::initialize(const QJsonObject &obj)
