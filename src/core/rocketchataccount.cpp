@@ -520,11 +520,6 @@ void RocketChatAccount::replyOnThread(const QByteArray &roomID, const QByteArray
     restApi()->sendMessage(roomID, message, QString(), threadMessageId);
 }
 
-void RocketChatAccount::deleteFileMessage(const QByteArray &roomId, const QByteArray &fileId, Room::RoomType channelType)
-{
-    ddp()->deleteFileMessage(roomId, fileId, channelType);
-}
-
 QString RocketChatAccount::avatarUrl(const Utils::AvatarInfo &info)
 {
     return mCache->avatarUrl(info);
@@ -3472,9 +3467,6 @@ void RocketChatAccount::parseMethodRequested(const QJsonObject &obj, DDPClient::
         // Nothing
         break;
     }
-    case DDPClient::MethodRequestedType::DeleteFile:
-        // TODO Need to implement it
-        break;
     }
 }
 

@@ -68,7 +68,6 @@ public:
         RoomsParsing,
         GetsubscriptionParsing,
         Unsubscribe,
-        DeleteFile,
         ShowDebug,
         GetThreadMessages,
     };
@@ -209,7 +208,6 @@ public:
     quint64 inputUserAutocomplete(const QByteArray &roomId, const QString &pattern, const QString &exceptions, bool threadDialog);
     quint64 unBlockUser(const QString &rid, const QString &userId);
     quint64 blockUser(const QString &rid, const QString &userId);
-    quint64 deleteFileMessage(const QByteArray &roomId, const QByteArray &fileid, Room::RoomType channelType);
     quint64 streamNotifyUserOtrEnd(const QString &roomId, const QString &userId);
     quint64 streamNotifyUserOtrHandshake(const QString &userFrom, const QString &userTo, const QString &publicKey);
     quint64 streamNotifyUserOtrAcknowledge(const QByteArray &roomId, const QByteArray &userId, const QString &publicKey);

@@ -5,6 +5,8 @@
 */
 
 #include "showattachmentdialog.h"
+#include "connection.h"
+#include "misc/methodcalljob.h"
 #include "rocketchataccount.h"
 #include "ruqolawidgets_debug.h"
 #include "showattachmentwidget.h"
@@ -50,7 +52,21 @@ ShowAttachmentDialog::~ShowAttachmentDialog()
 
 void ShowAttachmentDialog::slotDeleteAttachment(const QByteArray &fileId)
 {
-    mRocketChatAccount->deleteFileMessage(mRoomId, fileId, mRoomType);
+    auto job = new RocketChatRestApi::MethodCallJob(this);
+    RocketChatRestApi::MethodCallJob::MethodCallJobInfo info;
+    info.methodName = QStringLiteral("deleteFileMessage");
+    info.anonymous = false;
+    const QJsonArray params{{QString::fromLatin1(fileId)}};
+    info.messageObj = mRocketChatAccount->ddp()->generateJsonObject(info.methodName, params);
+    job->setMethodCallJobInfo(std::move(info));
+    mRocketChatAccount->restApi()->initializeRestApiJob(job);
+    connect(job, &RocketChatRestApi::MethodCallJob::methodCallDone, this, [this](const QJsonObject &replyObject) {
+        Q_UNUSED(replyObject);
+        mRocketChatAccount->roomFiles(mRoomId, mRoomType);
+    });
+    if (!job->start()) {
+        qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start getRoomByTypeAndName job";
+    }
 }
 
 void ShowAttachmentDialog::setModel(FilesForRoomFilterProxyModel *model)

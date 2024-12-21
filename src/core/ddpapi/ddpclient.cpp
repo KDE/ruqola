@@ -153,27 +153,6 @@ quint64 DDPClient::openDirectChannel(const QString &userId)
     return method(result, DDPClient::MethodRequestedType::OpenDirectRoom, DDPClient::MessageType::Persistent);
 }
 
-quint64 DDPClient::deleteFileMessage(const QByteArray &roomId, const QByteArray &fileid, Room::RoomType channelType)
-{
-#ifdef FIX_PORTING
-    const RocketChatMessage::RocketChatMessageResult result = mRocketChatMessage->deleteFileMessage(fileid, mUid);
-
-    std::function<void(QJsonObject, RocketChatAccount *)> callback = [roomId, channelType](const QJsonObject &root, RocketChatAccount *account) {
-        if (account->ruqolaLogger()) {
-            account->ruqolaLogger()->dataReceived(QByteArrayLiteral("Delete Attachment File:") + QJsonDocument(root).toJson());
-        } else {
-            qCDebug(RUQOLA_DDPAPI_LOG) << " parse users for room" << roomId;
-        }
-        account->roomFiles(roomId, channelType);
-    };
-
-    return method(result, callback, DDPClient::MessageType::Persistent);
-#else
-    qWarning() << " Not implemented yet";
-    return -1;
-#endif
-}
-
 quint64 DDPClient::openRoom(const QByteArray &roomId)
 {
     const RocketChatMessage::RocketChatMessageResult result = mRocketChatMessage->openRoom(roomId, mUid);
