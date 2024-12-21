@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-12-20 00:40+0000\n"
+"POT-Creation-Date: 2024-12-21 00:41+0000\n"
 "PO-Revision-Date: 2024-10-02 22:38+0200\n"
 "Last-Translator: Kristof Kiszel <ulysses@fsf.hu>\n"
 "Language-Team: Hungarian <kde-l10n-hu@kde.org>\n"
@@ -1769,19 +1769,19 @@ msgctxt "WARNING!!!!!!: PLEASE We need a space between after </strong>"
 msgid "<strong>%1</strong> are typing..."
 msgstr "<strong>%1</strong> gépelnek…"
 
-#: core/rocketchataccount.cpp:707
+#: core/rocketchataccount.cpp:715
 #, kde-format
 msgid ""
 "REST: %1\n"
 "DDP: %2"
 msgstr ""
 
-#: core/rocketchataccount.cpp:715 core/rocketchataccount.cpp:727
+#: core/rocketchataccount.cpp:723 core/rocketchataccount.cpp:735
 #, kde-format
 msgid "Not connected"
 msgstr "Nincs kapcsolódva"
 
-#: core/rocketchataccount.cpp:722
+#: core/rocketchataccount.cpp:730
 #, fuzzy, kde-format
 #| msgid "Not connected"
 msgid "Not connected yet"
@@ -7607,26 +7607,26 @@ msgstr "A lemezen tárolt naplók eltávolítása"
 msgid "Do you want to remove this account '%1'?"
 msgstr "Szeretné eltávolítani a(z) „%1” fiókot?"
 
-#: widgets/configurenewserver/checknewserverurlwidget.cpp:25
+#: widgets/configurenewserver/checknewserverurlwidget.cpp:24
 #, fuzzy, kde-format
 #| msgid "Connected"
 msgctxt "@action:button"
 msgid "Connect"
 msgstr "Kapcsolódva"
 
-#: widgets/configurenewserver/checknewserverurlwidget.cpp:36
+#: widgets/configurenewserver/checknewserverurlwidget.cpp:35
 #, fuzzy, kde-format
 #| msgid "Server URL:"
 msgctxt "@label:textbox"
 msgid "Server URL:"
 msgstr "Kiszolgáló URL-je:"
 
-#: widgets/configurenewserver/checknewserverurlwidget.cpp:94
+#: widgets/configurenewserver/checknewserverurlwidget.cpp:93
 #, kde-format
 msgid "Socket was unexpectedly closed."
 msgstr ""
 
-#: widgets/configurenewserver/checknewserverurlwidget.cpp:131
+#: widgets/configurenewserver/checknewserverurlwidget.cpp:152
 #, fuzzy, kde-format
 #| msgid "Impossible to access to server."
 msgid "Failed to connect to server: %1"

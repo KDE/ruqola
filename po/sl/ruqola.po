@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-12-20 00:40+0000\n"
+"POT-Creation-Date: 2024-12-21 00:41+0000\n"
 "PO-Revision-Date: 2024-12-17 07:15+0100\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
@@ -1759,7 +1759,7 @@ msgctxt "WARNING!!!!!!: PLEASE We need a space between after </strong>"
 msgid "<strong>%1</strong> are typing..."
 msgstr "<strong>%1</strong> pravkar tipkajo…"
 
-#: core/rocketchataccount.cpp:707
+#: core/rocketchataccount.cpp:715
 #, kde-format
 msgid ""
 "REST: %1\n"
@@ -1768,12 +1768,12 @@ msgstr ""
 "REST: %1\n"
 "DDP: %2"
 
-#: core/rocketchataccount.cpp:715 core/rocketchataccount.cpp:727
+#: core/rocketchataccount.cpp:723 core/rocketchataccount.cpp:735
 #, kde-format
 msgid "Not connected"
 msgstr "Brez povezave"
 
-#: core/rocketchataccount.cpp:722
+#: core/rocketchataccount.cpp:730
 #, kde-format
 msgid "Not connected yet"
 msgstr "Še ne povezan"
@@ -7531,24 +7531,24 @@ msgstr "Odstrani dnevnike shranjene na disku"
 msgid "Do you want to remove this account '%1'?"
 msgstr "Ali želite odstraniti ta račun '%1'?"
 
-#: widgets/configurenewserver/checknewserverurlwidget.cpp:25
+#: widgets/configurenewserver/checknewserverurlwidget.cpp:24
 #, kde-format
 msgctxt "@action:button"
 msgid "Connect"
 msgstr "Poveži"
 
-#: widgets/configurenewserver/checknewserverurlwidget.cpp:36
+#: widgets/configurenewserver/checknewserverurlwidget.cpp:35
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Server URL:"
 msgstr "URL strežnika:"
 
-#: widgets/configurenewserver/checknewserverurlwidget.cpp:94
+#: widgets/configurenewserver/checknewserverurlwidget.cpp:93
 #, kde-format
 msgid "Socket was unexpectedly closed."
 msgstr "Vtičnica je bila nepričakovano zaprta."
 
-#: widgets/configurenewserver/checknewserverurlwidget.cpp:131
+#: widgets/configurenewserver/checknewserverurlwidget.cpp:152
 #, kde-format
 msgid "Failed to connect to server: %1"
 msgstr "Povezava s strežnikom ni uspela: %1"

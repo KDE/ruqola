@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-12-20 00:40+0000\n"
+"POT-Creation-Date: 2024-12-21 00:41+0000\n"
 "PO-Revision-Date: 2024-08-06 05:33+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
@@ -1776,19 +1776,19 @@ msgctxt "WARNING!!!!!!: PLEASE We need a space between after </strong>"
 msgid "<strong>%1</strong> are typing..."
 msgstr ""
 
-#: core/rocketchataccount.cpp:707
+#: core/rocketchataccount.cpp:715
 #, kde-format
 msgid ""
 "REST: %1\n"
 "DDP: %2"
 msgstr ""
 
-#: core/rocketchataccount.cpp:715 core/rocketchataccount.cpp:727
+#: core/rocketchataccount.cpp:723 core/rocketchataccount.cpp:735
 #, kde-format
 msgid "Not connected"
 msgstr "未連線"
 
-#: core/rocketchataccount.cpp:722
+#: core/rocketchataccount.cpp:730
 #, fuzzy, kde-format
 #| msgid "Not connected"
 msgid "Not connected yet"
@@ -7706,26 +7706,26 @@ msgstr "移除磁碟上儲存的紀錄"
 msgid "Do you want to remove this account '%1'?"
 msgstr "您確定要移除帳戶「%1」嗎？"
 
-#: widgets/configurenewserver/checknewserverurlwidget.cpp:25
+#: widgets/configurenewserver/checknewserverurlwidget.cpp:24
 #, fuzzy, kde-format
 #| msgid "Connected"
 msgctxt "@action:button"
 msgid "Connect"
 msgstr "已連線"
 
-#: widgets/configurenewserver/checknewserverurlwidget.cpp:36
+#: widgets/configurenewserver/checknewserverurlwidget.cpp:35
 #, fuzzy, kde-format
 #| msgid "Server URL:"
 msgctxt "@label:textbox"
 msgid "Server URL:"
 msgstr "伺服器網址："
 
-#: widgets/configurenewserver/checknewserverurlwidget.cpp:94
+#: widgets/configurenewserver/checknewserverurlwidget.cpp:93
 #, kde-format
 msgid "Socket was unexpectedly closed."
 msgstr ""
 
-#: widgets/configurenewserver/checknewserverurlwidget.cpp:131
+#: widgets/configurenewserver/checknewserverurlwidget.cpp:152
 #, fuzzy, kde-format
 #| msgid "Impossible to access to server."
 msgid "Failed to connect to server: %1"

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-12-20 00:40+0000\n"
+"POT-Creation-Date: 2024-12-21 00:41+0000\n"
 "PO-Revision-Date: 2024-12-18 19:40+0100\n"
 "Last-Translator: giovanni <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
@@ -1747,19 +1747,19 @@ msgctxt "WARNING!!!!!!: PLEASE We need a space between after </strong>"
 msgid "<strong>%1</strong> are typing..."
 msgstr "<strong>%1</strong> es typante..."
 
-#: core/rocketchataccount.cpp:707
+#: core/rocketchataccount.cpp:715
 #, kde-format
 msgid ""
 "REST: %1\n"
 "DDP: %2"
 msgstr ""
 
-#: core/rocketchataccount.cpp:715 core/rocketchataccount.cpp:727
+#: core/rocketchataccount.cpp:723 core/rocketchataccount.cpp:735
 #, kde-format
 msgid "Not connected"
 msgstr "Non connectite"
 
-#: core/rocketchataccount.cpp:722
+#: core/rocketchataccount.cpp:730
 #, kde-format
 msgid "Not connected yet"
 msgstr "Ancora non connectite"
@@ -7353,24 +7353,24 @@ msgstr "Remove registros memorisate sur disco"
 msgid "Do you want to remove this account '%1'?"
 msgstr "Tu vole remover iste conto '%1''"
 
-#: widgets/configurenewserver/checknewserverurlwidget.cpp:25
+#: widgets/configurenewserver/checknewserverurlwidget.cpp:24
 #, kde-format
 msgctxt "@action:button"
 msgid "Connect"
 msgstr "Connecte"
 
-#: widgets/configurenewserver/checknewserverurlwidget.cpp:36
+#: widgets/configurenewserver/checknewserverurlwidget.cpp:35
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Server URL:"
 msgstr "URL de servitor:"
 
-#: widgets/configurenewserver/checknewserverurlwidget.cpp:94
+#: widgets/configurenewserver/checknewserverurlwidget.cpp:93
 #, kde-format
 msgid "Socket was unexpectedly closed."
 msgstr ""
 
-#: widgets/configurenewserver/checknewserverurlwidget.cpp:131
+#: widgets/configurenewserver/checknewserverurlwidget.cpp:152
 #, kde-format
 msgid "Failed to connect to server: %1"
 msgstr "Il falleva a connecter con le servitor: %1"
