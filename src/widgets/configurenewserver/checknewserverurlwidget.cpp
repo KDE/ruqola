@@ -6,7 +6,9 @@
 
 #include "checknewserverurlwidget.h"
 #include "ddpapi/ddpclient.h"
+#include "plugins/pluginauthentication.h"
 #include "rocketchatbackend.h"
+
 #include <KBusyIndicatorWidget>
 #include <KLineEditEventHandler>
 #include <KLocalizedString>
@@ -118,7 +120,19 @@ void CheckNewServerUrlWidget::slotTestConnection()
                 const bool allowResetPassword = (config.serverConfigFeatureTypes() & RuqolaServerConfig::ServerConfigFeatureType::AllowPasswordChange)
                     && (config.serverConfigFeatureTypes() & RuqolaServerConfig::ServerConfigFeatureType::AllowPasswordReset);
                 info.canResetPassword = allowResetPassword;
-                // TODO             info.authenticationInfos = account->authenticationMethodInfos();
+
+                const QList<PluginAuthentication *> lstPlugins = AuthenticationManager::self()->pluginsList();
+                QList<AuthenticationInfo> authenticationMethodInfos;
+                for (PluginAuthentication *abstractPlugin : lstPlugins) {
+                    AuthenticationInfo info;
+                    info.setIconName(abstractPlugin->iconName());
+                    info.setName(abstractPlugin->name());
+                    info.setOauthType(abstractPlugin->authenticationType());
+                    if (info.isValid()) {
+                        authenticationMethodInfos.append(std::move(info));
+                    }
+                }
+                info.authenticationInfos = authenticationMethodInfos;
 
                 Q_EMIT serverUrlFound(std::move(info));
                 mBusyIndicatorWidget->hide();
