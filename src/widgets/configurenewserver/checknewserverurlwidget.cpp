@@ -5,6 +5,7 @@
 */
 
 #include "checknewserverurlwidget.h"
+#include "config-ruqola.h"
 #include "ddpapi/ddpclient.h"
 #include "plugins/pluginauthentication.h"
 #include "rocketchatbackend.h"
@@ -109,7 +110,7 @@ void CheckNewServerUrlWidget::slotTestConnection()
                 RuqolaServerConfig config;
                 config.parsePublicSettings(obj, false);
                 // TODO parse info
-                qDebug() << " obj " << obj;
+                // qDebug() << " obj " << obj;
 
                 ServerInfo info;
                 info.url = mServerUrl->text().trimmed();
@@ -132,7 +133,25 @@ void CheckNewServerUrlWidget::slotTestConnection()
                         authenticationMethodInfos.append(std::move(info));
                     }
                 }
-                info.authenticationInfos = authenticationMethodInfos;
+#if 0
+                QList<AuthenticationInfo> fillModel;
+                qDebug() << " before " << authenticationMethodInfos;
+                for (int i = 0, total = authenticationMethodInfos.count(); i < total; ++i) {
+                    if (config.canShowAuthMethod(authenticationMethodInfos.at(i).oauthType())
+                    // Reactivate it we will want to show PersonalAccessToken
+#if USE_PERSONAL_ACCESS_TOKEN
+                        || (authenticationMethodInfos.at(i).oauthType() == AuthenticationManager::AuthMethodType::PersonalAccessToken)
+#endif
+                    ) {
+                        fillModel.append(authenticationMethodInfos.at(i));
+                        qDebug() << " xcdddddddddddddd " << fillModel;
+                    }
+                }
+#else
+                // TODO fixme
+                QList<AuthenticationInfo> fillModel = authenticationMethodInfos;
+#endif
+                info.authenticationInfos = fillModel;
 
                 Q_EMIT serverUrlFound(std::move(info));
                 mBusyIndicatorWidget->hide();
