@@ -28,7 +28,10 @@ FilesForRoomFilterProxyModel::~FilesForRoomFilterProxyModel() = default;
 
 void FilesForRoomFilterProxyModel::setFilterString(const QString &string)
 {
-    setFilterFixedString(string);
+    if (mSearchText != string) {
+        mSearchText = string;
+        invalidateFilter();
+    }
 }
 
 int FilesForRoomFilterProxyModel::total() const
@@ -66,12 +69,23 @@ void FilesForRoomFilterProxyModel::setTypeGroup(const QString &typeGroup)
 
 bool FilesForRoomFilterProxyModel::filterAcceptsRow(int source_row, const QModelIndex &source_parent) const
 {
-    if (mTypeGroup.isEmpty()) {
-        return QSortFilterProxyModel::filterAcceptsRow(source_row, source_parent);
-    }
     const QModelIndex sourceIndex = sourceModel()->index(source_row, 0, source_parent);
     const QString typegroup = sourceIndex.data(FilesForRoomModel::TypeGroup).toString();
-    return (mTypeGroup == typegroup) && QSortFilterProxyModel::filterAcceptsRow(source_row, source_parent);
+    const QString fileName = sourceIndex.data(FilesForRoomModel::FileName).toString();
+    const QString username = sourceIndex.data(FilesForRoomModel::UserName).toString();
+
+    if (mSearchText.isEmpty() && mTypeGroup.isEmpty()) {
+        return true;
+    } else {
+        const bool indexContains = fileName.contains(mSearchText) || username.contains(mSearchText);
+        if (!mSearchText.isEmpty() && mTypeGroup.isEmpty()) {
+            return indexContains;
+        }
+        if (!mTypeGroup.isEmpty()) {
+            return (mTypeGroup == typegroup) && (indexContains);
+        }
+    }
+    return false;
 }
 
 #include "moc_filesforroomfilterproxymodel.cpp"

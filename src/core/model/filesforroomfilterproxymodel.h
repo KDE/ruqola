@@ -38,5 +38,6 @@ Q_SIGNALS:
 
 private:
     QString mTypeGroup;
+    QString mSearchText;
     FilesForRoomModel *const mFilesForRoomModel;
 };
