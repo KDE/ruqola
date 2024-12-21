@@ -111,10 +111,15 @@ void CheckNewServerUrlWidget::slotTestConnection()
 
                 ServerInfo info;
                 info.url = mServerUrl->text().trimmed();
-                // TODO info.canRegisterAccount = account->registrationFormEnabled();
+                info.canRegisterAccount = config.serverConfigFeatureTypes() & RuqolaServerConfig::ServerConfigFeatureType::RegistrationFormEnabled;
                 info.passwordSettings = config.passwordSettings();
                 info.accountsManuallyApproveNewUsers = config.accountsManuallyApproveNewUsers();
-                // TODO
+
+                const bool allowResetPassword = (config.serverConfigFeatureTypes() & RuqolaServerConfig::ServerConfigFeatureType::AllowPasswordChange)
+                    && (config.serverConfigFeatureTypes() & RuqolaServerConfig::ServerConfigFeatureType::AllowPasswordReset);
+                info.canResetPassword = allowResetPassword;
+                // TODO             info.authenticationInfos = account->authenticationMethodInfos();
+
                 Q_EMIT serverUrlFound(std::move(info));
                 mBusyIndicatorWidget->hide();
                 ddpClient->deleteLater();
@@ -123,24 +128,6 @@ void CheckNewServerUrlWidget::slotTestConnection()
         connect(ddpClient, &DDPClient::connectedChanged, this, [ddpClient]() {
             ddpClient->loadPublicSettings();
         });
-
-#if 0 // FIXME
-        connect(account, &RocketChatAccount::publicSettingChanged, this, [this, ddpClient, account]() {
-            mBusyIndicatorWidget->hide();
-            ddpClient->deleteLater();
-            account->deleteLater();
-            ServerInfo info;
-            info.authenticationInfos = account->authenticationMethodInfos();
-
-            const bool allowResetPassword = account->allowPasswordReset() && account->allowPasswordChange();
-            info.url = mServerUrl->text().trimmed();
-            info.canResetPassword = allowResetPassword;
-            info.canRegisterAccount = account->registrationFormEnabled();
-            info.passwordSettings = account->ruqolaServerConfig()->passwordSettings();
-            info.accountsManuallyApproveNewUsers = account->ruqolaServerConfig()->accountsManuallyApproveNewUsers();
-            Q_EMIT serverUrlFound(std::move(info));
-        });
-#endif
 
         ddpClient->setServerUrl(mServerUrl->text());
         ddpClient->start();
