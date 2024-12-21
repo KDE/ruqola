@@ -149,6 +149,9 @@ QList<WhatsNewInfo> WhatsNewTranslations::createWhatsNewInfo() const
         }
         info.setNewFeatures(lst);
         info.setVersion(QStringLiteral("2.5"));
+        info.setBugFixings({
+            i18n("Allow to search file from username and filename."),
+        });
 
         listInfo.append(std::move(info));
     }
