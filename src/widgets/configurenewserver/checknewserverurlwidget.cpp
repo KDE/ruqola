@@ -6,10 +6,7 @@
 
 #include "checknewserverurlwidget.h"
 #include "config-ruqola.h"
-#include "ddpapi/ddpclient.h"
 #include "job/extractserverinfojob.h"
-#include "plugins/pluginauthentication.h"
-#include "rocketchatbackend.h"
 
 #include <KBusyIndicatorWidget>
 #include <KLineEditEventHandler>
