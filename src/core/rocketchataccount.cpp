@@ -3371,10 +3371,10 @@ void RocketChatAccount::parseMethodRequested(const QJsonObject &obj, DDPClient::
         processUpdatePublicsettings(obj);
         break;
     case DDPClient::MethodRequestedType::ChangeDefaultStatus:
-        changeDefaultStatus(obj);
+        displayLogInfo(QByteArrayLiteral("Change Default Status"), obj);
         break;
     case DDPClient::MethodRequestedType::GetRoomByTypeAndName:
-        getRoomByTypeAndName(obj);
+        displayLogInfo(QByteArrayLiteral("Get Room by room and name"), obj);
         break;
     case DDPClient::MethodRequestedType::OpenRoom:
         openRoom(obj);
@@ -3664,16 +3664,6 @@ void RocketChatAccount::openDirectChannel(const QJsonObject &root)
 void RocketChatAccount::openRoom(const QJsonObject &obj)
 {
     displayLogInfo(QByteArrayLiteral("Open Room"), obj);
-}
-
-void RocketChatAccount::getRoomByTypeAndName(const QJsonObject &obj)
-{
-    displayLogInfo(QByteArrayLiteral("Get Room by room and name"), obj);
-}
-
-void RocketChatAccount::changeDefaultStatus(const QJsonObject &obj)
-{
-    displayLogInfo(QByteArrayLiteral("Change Default Status"), obj);
 }
 
 void RocketChatAccount::processPublicsettings(const QJsonObject &obj)

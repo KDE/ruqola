@@ -654,8 +654,6 @@ private:
     LIBRUQOLACORE_NO_EXPORT void parseMethodRequested(const QJsonObject &obj, DDPClient::MethodRequestedType type);
     LIBRUQOLACORE_NO_EXPORT void processPublicsettings(const QJsonObject &obj);
     LIBRUQOLACORE_NO_EXPORT void processUpdatePublicsettings(const QJsonObject &obj);
-    LIBRUQOLACORE_NO_EXPORT void changeDefaultStatus(const QJsonObject &obj);
-    LIBRUQOLACORE_NO_EXPORT void getRoomByTypeAndName(const QJsonObject &obj);
     LIBRUQOLACORE_NO_EXPORT void openRoom(const QJsonObject &obj);
     LIBRUQOLACORE_NO_EXPORT void openDirectChannel(const QJsonObject &root);
     LIBRUQOLACORE_NO_EXPORT void createJitsiConfCall(const QJsonObject &root);
