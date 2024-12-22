@@ -44,7 +44,6 @@ void ExtractServerInfoJob::start()
         if (type == DDPClient::MethodRequestedType::PublicSettings) {
             RuqolaServerConfig config;
             config.parsePublicSettings(obj, false);
-            // TODO parse info
             // qDebug() << " obj " << obj;
 
             ServerInfo info;
