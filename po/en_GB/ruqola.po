@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-12-21 00:41+0000\n"
+"POT-Creation-Date: 2024-12-22 00:40+0000\n"
 "PO-Revision-Date: 2024-11-23 12:07+0000\n"
 "Last-Translator: Steve Allewell <steve.allewell@gmail.com>\n"
 "Language-Team: British English\n"
@@ -1747,7 +1747,7 @@ msgctxt "WARNING!!!!!!: PLEASE We need a space between after </strong>"
 msgid "<strong>%1</strong> are typing..."
 msgstr "<strong>%1</strong> are typing..."
 
-#: core/rocketchataccount.cpp:715
+#: core/rocketchataccount.cpp:710
 #, kde-format
 msgid ""
 "REST: %1\n"
@@ -1756,12 +1756,12 @@ msgstr ""
 "REST: %1\n"
 "DDP: %2"
 
-#: core/rocketchataccount.cpp:723 core/rocketchataccount.cpp:735
+#: core/rocketchataccount.cpp:718 core/rocketchataccount.cpp:730
 #, kde-format
 msgid "Not connected"
 msgstr "Not connected"
 
-#: core/rocketchataccount.cpp:730
+#: core/rocketchataccount.cpp:725
 #, kde-format
 msgid "Not connected yet"
 msgstr "Not connected yet"
@@ -1776,32 +1776,32 @@ msgstr "Account Added"
 msgid "A new account was added."
 msgstr "A new account was added."
 
-#: core/room.cpp:1170
+#: core/room.cpp:1168
 #, kde-format
 msgid "Owner"
 msgstr "Owner"
 
-#: core/room.cpp:1173
+#: core/room.cpp:1171
 #, kde-format
 msgid "Leader"
 msgstr "Leader"
 
-#: core/room.cpp:1176
+#: core/room.cpp:1174
 #, kde-format
 msgid "Moderator"
 msgstr "Moderator"
 
-#: core/room.cpp:1537
+#: core/room.cpp:1535
 #, kde-format
 msgid "Channel is read only."
 msgstr "Channel is read only."
 
-#: core/room.cpp:1540
+#: core/room.cpp:1538
 #, kde-format
 msgid "You have blocked this channel."
 msgstr "You have blocked this channel."
 
-#: core/room.cpp:1543
+#: core/room.cpp:1541
 #, kde-format
 msgid "Channel was blocked."
 msgstr "Channel was blocked."
@@ -7508,24 +7508,24 @@ msgstr "Remove logs stored on disk"
 msgid "Do you want to remove this account '%1'?"
 msgstr "Do you want to remove this account '%1'?"
 
-#: widgets/configurenewserver/checknewserverurlwidget.cpp:24
+#: widgets/configurenewserver/checknewserverurlwidget.cpp:27
 #, kde-format
 msgctxt "@action:button"
 msgid "Connect"
 msgstr "Connect"
 
-#: widgets/configurenewserver/checknewserverurlwidget.cpp:35
+#: widgets/configurenewserver/checknewserverurlwidget.cpp:38
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Server URL:"
 msgstr "Server URL:"
 
-#: widgets/configurenewserver/checknewserverurlwidget.cpp:93
+#: widgets/configurenewserver/checknewserverurlwidget.cpp:96
 #, kde-format
 msgid "Socket was unexpectedly closed."
 msgstr "Socket was unexpectedly closed."
 
-#: widgets/configurenewserver/checknewserverurlwidget.cpp:152
+#: widgets/configurenewserver/checknewserverurlwidget.cpp:172
 #, kde-format
 msgid "Failed to connect to server: %1"
 msgstr "Failed to connect to server: %1"
@@ -8398,7 +8398,7 @@ msgstr "Texts"
 msgid "Files"
 msgstr "Files"
 
-#: widgets/dialogs/showattachmentdialog.cpp:29
+#: widgets/dialogs/showattachmentdialog.cpp:31
 #, kde-format
 msgctxt "@title:window"
 msgid "Show Attachments - %1"
@@ -11512,6 +11512,11 @@ msgstr "Open Discussion"
 #| msgid "Search Installed Applications"
 msgid "Allow to show application market settings"
 msgstr "Search Installed Applications"
+
+#: widgets/whatsnew/whatsnewtranslations.cpp:153
+#, kde-format
+msgid "Allow to search file from username and filename."
+msgstr ""
 
 #: widgets/whatsnew/whatsnewwidget.cpp:44
 #, kde-format

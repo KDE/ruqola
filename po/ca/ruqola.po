@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-12-21 00:41+0000\n"
+"POT-Creation-Date: 2024-12-22 00:40+0000\n"
 "PO-Revision-Date: 2024-12-17 10:45+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
@@ -1753,7 +1753,7 @@ msgctxt "WARNING!!!!!!: PLEASE We need a space between after </strong>"
 msgid "<strong>%1</strong> are typing..."
 msgstr "<strong>%1</strong> estan escrivint..."
 
-#: core/rocketchataccount.cpp:715
+#: core/rocketchataccount.cpp:710
 #, kde-format
 msgid ""
 "REST: %1\n"
@@ -1762,12 +1762,12 @@ msgstr ""
 "REST: %1\n"
 "DDP: %2"
 
-#: core/rocketchataccount.cpp:723 core/rocketchataccount.cpp:735
+#: core/rocketchataccount.cpp:718 core/rocketchataccount.cpp:730
 #, kde-format
 msgid "Not connected"
 msgstr "No connectat"
 
-#: core/rocketchataccount.cpp:730
+#: core/rocketchataccount.cpp:725
 #, kde-format
 msgid "Not connected yet"
 msgstr "Encara no connectat"
@@ -1782,32 +1782,32 @@ msgstr "S'ha afegit un compte"
 msgid "A new account was added."
 msgstr "S'ha afegit un compte nou."
 
-#: core/room.cpp:1170
+#: core/room.cpp:1168
 #, kde-format
 msgid "Owner"
 msgstr "Propietari"
 
-#: core/room.cpp:1173
+#: core/room.cpp:1171
 #, kde-format
 msgid "Leader"
 msgstr "Líder"
 
-#: core/room.cpp:1176
+#: core/room.cpp:1174
 #, kde-format
 msgid "Moderator"
 msgstr "Moderador"
 
-#: core/room.cpp:1537
+#: core/room.cpp:1535
 #, kde-format
 msgid "Channel is read only."
 msgstr "El canal només és de lectura."
 
-#: core/room.cpp:1540
+#: core/room.cpp:1538
 #, kde-format
 msgid "You have blocked this channel."
 msgstr "Heu blocat aquest canal."
 
-#: core/room.cpp:1543
+#: core/room.cpp:1541
 #, kde-format
 msgid "Channel was blocked."
 msgstr "El canal està blocat."
@@ -7552,24 +7552,24 @@ msgstr "Elimina els registres emmagatzemats al disc"
 msgid "Do you want to remove this account '%1'?"
 msgstr "Voleu eliminar aquest compte «%1»?"
 
-#: widgets/configurenewserver/checknewserverurlwidget.cpp:24
+#: widgets/configurenewserver/checknewserverurlwidget.cpp:27
 #, kde-format
 msgctxt "@action:button"
 msgid "Connect"
 msgstr "Connecta"
 
-#: widgets/configurenewserver/checknewserverurlwidget.cpp:35
+#: widgets/configurenewserver/checknewserverurlwidget.cpp:38
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Server URL:"
 msgstr "URL del servidor:"
 
-#: widgets/configurenewserver/checknewserverurlwidget.cpp:93
+#: widgets/configurenewserver/checknewserverurlwidget.cpp:96
 #, kde-format
 msgid "Socket was unexpectedly closed."
 msgstr "El sòcol s'ha tancat inesperadament."
 
-#: widgets/configurenewserver/checknewserverurlwidget.cpp:152
+#: widgets/configurenewserver/checknewserverurlwidget.cpp:172
 #, kde-format
 msgid "Failed to connect to server: %1"
 msgstr "Ha fallat en connectar amb el servidor: %1"
@@ -8444,7 +8444,7 @@ msgstr "Textos"
 msgid "Files"
 msgstr "Fitxers"
 
-#: widgets/dialogs/showattachmentdialog.cpp:29
+#: widgets/dialogs/showattachmentdialog.cpp:31
 #, kde-format
 msgctxt "@title:window"
 msgid "Show Attachments - %1"
@@ -11584,6 +11584,11 @@ msgstr "Corregeix l'obertura d'un canal de debat"
 #, kde-format
 msgid "Allow to show application market settings"
 msgstr "Permet mostrar la configuració del mercat d'aplicacions"
+
+#: widgets/whatsnew/whatsnewtranslations.cpp:153
+#, kde-format
+msgid "Allow to search file from username and filename."
+msgstr ""
 
 #: widgets/whatsnew/whatsnewwidget.cpp:44
 #, kde-format

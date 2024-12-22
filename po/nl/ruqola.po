@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-12-21 00:41+0000\n"
+"POT-Creation-Date: 2024-12-22 00:40+0000\n"
 "PO-Revision-Date: 2024-12-17 15:03+0100\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
@@ -1751,7 +1751,7 @@ msgctxt "WARNING!!!!!!: PLEASE We need a space between after </strong>"
 msgid "<strong>%1</strong> are typing..."
 msgstr "<strong>%1</strong> zijn aan het typen..."
 
-#: core/rocketchataccount.cpp:715
+#: core/rocketchataccount.cpp:710
 #, kde-format
 msgid ""
 "REST: %1\n"
@@ -1760,12 +1760,12 @@ msgstr ""
 "REST: %1\n"
 "DDP: %2"
 
-#: core/rocketchataccount.cpp:723 core/rocketchataccount.cpp:735
+#: core/rocketchataccount.cpp:718 core/rocketchataccount.cpp:730
 #, kde-format
 msgid "Not connected"
 msgstr "Niet verbonden"
 
-#: core/rocketchataccount.cpp:730
+#: core/rocketchataccount.cpp:725
 #, kde-format
 msgid "Not connected yet"
 msgstr "Nog niet verbonden"
@@ -1780,32 +1780,32 @@ msgstr "Account toegevoegd"
 msgid "A new account was added."
 msgstr "Een nieuw account is ingevoerd."
 
-#: core/room.cpp:1170
+#: core/room.cpp:1168
 #, kde-format
 msgid "Owner"
 msgstr "Eigenaar"
 
-#: core/room.cpp:1173
+#: core/room.cpp:1171
 #, kde-format
 msgid "Leader"
 msgstr "Leader"
 
-#: core/room.cpp:1176
+#: core/room.cpp:1174
 #, kde-format
 msgid "Moderator"
 msgstr "Moderator"
 
-#: core/room.cpp:1537
+#: core/room.cpp:1535
 #, kde-format
 msgid "Channel is read only."
 msgstr "Kanaal is alleen-lezen."
 
-#: core/room.cpp:1540
+#: core/room.cpp:1538
 #, kde-format
 msgid "You have blocked this channel."
 msgstr "U hebt dit kanaal geblokkeerd."
 
-#: core/room.cpp:1543
+#: core/room.cpp:1541
 #, kde-format
 msgid "Channel was blocked."
 msgstr "Kanaal was geblokkeerd."
@@ -7552,24 +7552,24 @@ msgstr "Logs opgeslagen op schijf verwijderen"
 msgid "Do you want to remove this account '%1'?"
 msgstr "Wilt u dit account verwijderen: \"%1\"?"
 
-#: widgets/configurenewserver/checknewserverurlwidget.cpp:24
+#: widgets/configurenewserver/checknewserverurlwidget.cpp:27
 #, kde-format
 msgctxt "@action:button"
 msgid "Connect"
 msgstr "Verbinden"
 
-#: widgets/configurenewserver/checknewserverurlwidget.cpp:35
+#: widgets/configurenewserver/checknewserverurlwidget.cpp:38
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Server URL:"
 msgstr "Server-URL:"
 
-#: widgets/configurenewserver/checknewserverurlwidget.cpp:93
+#: widgets/configurenewserver/checknewserverurlwidget.cpp:96
 #, kde-format
 msgid "Socket was unexpectedly closed."
 msgstr "Socket is onverwacht gesloten."
 
-#: widgets/configurenewserver/checknewserverurlwidget.cpp:152
+#: widgets/configurenewserver/checknewserverurlwidget.cpp:172
 #, kde-format
 msgid "Failed to connect to server: %1"
 msgstr "Verbinden met de server is mislukt: %1"
@@ -8445,7 +8445,7 @@ msgstr "Teksten"
 msgid "Files"
 msgstr "Bestanden"
 
-#: widgets/dialogs/showattachmentdialog.cpp:29
+#: widgets/dialogs/showattachmentdialog.cpp:31
 #, kde-format
 msgctxt "@title:window"
 msgid "Show Attachments - %1"
@@ -11578,6 +11578,11 @@ msgstr "Open discussiekanaal repareren"
 #, kde-format
 msgid "Allow to show application market settings"
 msgstr "Sta het tonen van instellingen van toepassingenmarkt toe"
+
+#: widgets/whatsnew/whatsnewtranslations.cpp:153
+#, kde-format
+msgid "Allow to search file from username and filename."
+msgstr ""
 
 #: widgets/whatsnew/whatsnewwidget.cpp:44
 #, kde-format

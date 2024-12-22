@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-12-21 00:41+0000\n"
+"POT-Creation-Date: 2024-12-22 00:40+0000\n"
 "PO-Revision-Date: 2024-12-07 18:13+0200\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
@@ -1752,7 +1752,7 @@ msgctxt "WARNING!!!!!!: PLEASE We need a space between after </strong>"
 msgid "<strong>%1</strong> are typing..."
 msgstr "<strong>%1</strong> kirjoittavat…"
 
-#: core/rocketchataccount.cpp:715
+#: core/rocketchataccount.cpp:710
 #, kde-format
 msgid ""
 "REST: %1\n"
@@ -1761,12 +1761,12 @@ msgstr ""
 "REST: %1\n"
 "DDP: %2"
 
-#: core/rocketchataccount.cpp:723 core/rocketchataccount.cpp:735
+#: core/rocketchataccount.cpp:718 core/rocketchataccount.cpp:730
 #, kde-format
 msgid "Not connected"
 msgstr "Ei yhteyttä"
 
-#: core/rocketchataccount.cpp:730
+#: core/rocketchataccount.cpp:725
 #, kde-format
 msgid "Not connected yet"
 msgstr "Ei vielä yhteyttä"
@@ -1781,32 +1781,32 @@ msgstr "Tili lisätty"
 msgid "A new account was added."
 msgstr "Lisättiin uusi tili."
 
-#: core/room.cpp:1170
+#: core/room.cpp:1168
 #, kde-format
 msgid "Owner"
 msgstr "Omistaja"
 
-#: core/room.cpp:1173
+#: core/room.cpp:1171
 #, kde-format
 msgid "Leader"
 msgstr "Johtaja"
 
-#: core/room.cpp:1176
+#: core/room.cpp:1174
 #, kde-format
 msgid "Moderator"
 msgstr "Moderaattori"
 
-#: core/room.cpp:1537
+#: core/room.cpp:1535
 #, kde-format
 msgid "Channel is read only."
 msgstr "Kanavaa voi vain lukea."
 
-#: core/room.cpp:1540
+#: core/room.cpp:1538
 #, kde-format
 msgid "You have blocked this channel."
 msgstr "Olet estänyt tämän kanavan."
 
-#: core/room.cpp:1543
+#: core/room.cpp:1541
 #, kde-format
 msgid "Channel was blocked."
 msgstr "Kanava oli estetty."
@@ -7469,24 +7469,24 @@ msgstr "Poista levylle talletetut lokit"
 msgid "Do you want to remove this account '%1'?"
 msgstr "Haluatko poistaa tilin ”%1”?"
 
-#: widgets/configurenewserver/checknewserverurlwidget.cpp:24
+#: widgets/configurenewserver/checknewserverurlwidget.cpp:27
 #, kde-format
 msgctxt "@action:button"
 msgid "Connect"
 msgstr "Yhdistä"
 
-#: widgets/configurenewserver/checknewserverurlwidget.cpp:35
+#: widgets/configurenewserver/checknewserverurlwidget.cpp:38
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Server URL:"
 msgstr "Palvelimen osoite:"
 
-#: widgets/configurenewserver/checknewserverurlwidget.cpp:93
+#: widgets/configurenewserver/checknewserverurlwidget.cpp:96
 #, kde-format
 msgid "Socket was unexpectedly closed."
 msgstr "Pistoke suljettiin odottamatta."
 
-#: widgets/configurenewserver/checknewserverurlwidget.cpp:152
+#: widgets/configurenewserver/checknewserverurlwidget.cpp:172
 #, kde-format
 msgid "Failed to connect to server: %1"
 msgstr "Palvelimeen yhdistäminen epäonnistui: %1"
@@ -8357,7 +8357,7 @@ msgstr "Tekstit"
 msgid "Files"
 msgstr "Tiedostot"
 
-#: widgets/dialogs/showattachmentdialog.cpp:29
+#: widgets/dialogs/showattachmentdialog.cpp:31
 #, kde-format
 msgctxt "@title:window"
 msgid "Show Attachments - %1"
@@ -11474,6 +11474,11 @@ msgstr "Avaa keskustelu"
 #| msgid "Search Installed Applications"
 msgid "Allow to show application market settings"
 msgstr "Etsi asennettuja sovelluksia"
+
+#: widgets/whatsnew/whatsnewtranslations.cpp:153
+#, kde-format
+msgid "Allow to search file from username and filename."
+msgstr ""
 
 #: widgets/whatsnew/whatsnewwidget.cpp:44
 #, kde-format

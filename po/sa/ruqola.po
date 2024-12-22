@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-12-21 00:41+0000\n"
+"POT-Creation-Date: 2024-12-22 00:40+0000\n"
 "PO-Revision-Date: 2024-12-20 22:10+0530\n"
 "Last-Translator: kali <skkalwar999@gmail.com>\n"
 "Language-Team: Sanskrit <kde-i18n-doc@kde.org>\n"
@@ -1748,7 +1748,7 @@ msgctxt "WARNING!!!!!!: PLEASE We need a space between after </strong>"
 msgid "<strong>%1</strong> are typing..."
 msgstr "<strong>%1</strong> टङ्कयन्ति..."
 
-#: core/rocketchataccount.cpp:715
+#: core/rocketchataccount.cpp:710
 #, kde-format
 msgid ""
 "REST: %1\n"
@@ -1757,12 +1757,12 @@ msgstr ""
 "REST: %1\n"
 "डीडीपी: %2"
 
-#: core/rocketchataccount.cpp:723 core/rocketchataccount.cpp:735
+#: core/rocketchataccount.cpp:718 core/rocketchataccount.cpp:730
 #, kde-format
 msgid "Not connected"
 msgstr "न संबद्धः"
 
-#: core/rocketchataccount.cpp:730
+#: core/rocketchataccount.cpp:725
 #, kde-format
 msgid "Not connected yet"
 msgstr "अद्यापि न सम्बद्धम्"
@@ -1777,32 +1777,32 @@ msgstr "खाता योजितः"
 msgid "A new account was added."
 msgstr "नूतनं खातं योजितम्।"
 
-#: core/room.cpp:1170
+#: core/room.cpp:1168
 #, kde-format
 msgid "Owner"
 msgstr "स्वामी"
 
-#: core/room.cpp:1173
+#: core/room.cpp:1171
 #, kde-format
 msgid "Leader"
 msgstr "नेता"
 
-#: core/room.cpp:1176
+#: core/room.cpp:1174
 #, kde-format
 msgid "Moderator"
 msgstr "संचालकः"
 
-#: core/room.cpp:1537
+#: core/room.cpp:1535
 #, kde-format
 msgid "Channel is read only."
 msgstr "चैनलः केवलं पठनीयः अस्ति।"
 
-#: core/room.cpp:1540
+#: core/room.cpp:1538
 #, kde-format
 msgid "You have blocked this channel."
 msgstr "भवता एतत् चैनलं अवरुद्धम् अस्ति।"
 
-#: core/room.cpp:1543
+#: core/room.cpp:1541
 #, kde-format
 msgid "Channel was blocked."
 msgstr "चैनल् अवरुद्धम् आसीत्।"
@@ -7459,24 +7459,24 @@ msgstr "डिस्कमध्ये संगृहीतं लॉग्स�
 msgid "Do you want to remove this account '%1'?"
 msgstr "किं भवान् एतत् खातं '%1' अपसारयितुम् इच्छति?"
 
-#: widgets/configurenewserver/checknewserverurlwidget.cpp:24
+#: widgets/configurenewserver/checknewserverurlwidget.cpp:27
 #, kde-format
 msgctxt "@action:button"
 msgid "Connect"
 msgstr "संयुज्"
 
-#: widgets/configurenewserver/checknewserverurlwidget.cpp:35
+#: widgets/configurenewserver/checknewserverurlwidget.cpp:38
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Server URL:"
 msgstr "सर्वर URL: 1.1."
 
-#: widgets/configurenewserver/checknewserverurlwidget.cpp:93
+#: widgets/configurenewserver/checknewserverurlwidget.cpp:96
 #, kde-format
 msgid "Socket was unexpectedly closed."
 msgstr "सॉकेट् अप्रत्याशितरूपेण बन्दः आसीत् ।"
 
-#: widgets/configurenewserver/checknewserverurlwidget.cpp:152
+#: widgets/configurenewserver/checknewserverurlwidget.cpp:172
 #, kde-format
 msgid "Failed to connect to server: %1"
 msgstr "सर्वरेण सह संयोजितुं असफलम्: %1"
@@ -8347,7 +8347,7 @@ msgstr "ग्रन्थाः"
 msgid "Files"
 msgstr "सञ्चिकाः"
 
-#: widgets/dialogs/showattachmentdialog.cpp:29
+#: widgets/dialogs/showattachmentdialog.cpp:31
 #, kde-format
 msgctxt "@title:window"
 msgid "Show Attachments - %1"
@@ -11446,6 +11446,11 @@ msgstr "खुला चर्चा चैनलं निवारयन्त
 #, kde-format
 msgid "Allow to show application market settings"
 msgstr "अनुप्रयोगविपण्यसेटिंग्स् दर्शयितुं अनुमतिं ददातु"
+
+#: widgets/whatsnew/whatsnewtranslations.cpp:153
+#, kde-format
+msgid "Allow to search file from username and filename."
+msgstr ""
 
 #: widgets/whatsnew/whatsnewwidget.cpp:44
 #, kde-format

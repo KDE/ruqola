@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-12-21 00:41+0000\n"
-"PO-Revision-Date: 2024-12-07 13:17+0100\n"
+"POT-Creation-Date: 2024-12-22 00:40+0000\n"
+"PO-Revision-Date: 2024-12-21 11:10+0100\n"
 "Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>\n"
 "Language-Team: Polish <kde-i18n-doc@kde.org>\n"
 "Language: pl\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
 "|| n%100>=20) ? 1 : 2);\n"
-"X-Generator: Lokalize 24.08.3\n"
+"X-Generator: Lokalize 24.12.0\n"
 
 #: apps/main.cpp:73
 #, kde-format
@@ -393,10 +393,9 @@ msgid "Allow to read oauth app settings"
 msgstr "Zezwól na odczyt ustawień aplikacji OAuth"
 
 #: core/apps/appsmarketplaceinfo.cpp:665
-#, fuzzy, kde-format
-#| msgid "Allow to send multi files."
+#, kde-format
 msgid "Allow to send email"
-msgstr "Zezwól na wysyłanie wielu plików."
+msgstr "Zezwól na wysyłanie pocztą"
 
 #: core/authenticationmanager.cpp:85
 #, kde-format
@@ -1755,7 +1754,7 @@ msgctxt "WARNING!!!!!!: PLEASE We need a space between after </strong>"
 msgid "<strong>%1</strong> are typing..."
 msgstr "<strong>%1</strong> pisze..."
 
-#: core/rocketchataccount.cpp:715
+#: core/rocketchataccount.cpp:710
 #, kde-format
 msgid ""
 "REST: %1\n"
@@ -1764,12 +1763,12 @@ msgstr ""
 "REST: %1\n"
 "DDP: %2"
 
-#: core/rocketchataccount.cpp:723 core/rocketchataccount.cpp:735
+#: core/rocketchataccount.cpp:718 core/rocketchataccount.cpp:730
 #, kde-format
 msgid "Not connected"
 msgstr "Niepodłączony"
 
-#: core/rocketchataccount.cpp:730
+#: core/rocketchataccount.cpp:725
 #, kde-format
 msgid "Not connected yet"
 msgstr "Jeszcze niepodłączony"
@@ -1784,32 +1783,32 @@ msgstr "Dodano konto"
 msgid "A new account was added."
 msgstr "Dodano nowe konto."
 
-#: core/room.cpp:1170
+#: core/room.cpp:1168
 #, kde-format
 msgid "Owner"
 msgstr "Właściciel"
 
-#: core/room.cpp:1173
+#: core/room.cpp:1171
 #, kde-format
 msgid "Leader"
 msgstr "Lider"
 
-#: core/room.cpp:1176
+#: core/room.cpp:1174
 #, kde-format
 msgid "Moderator"
 msgstr "Moderator"
 
-#: core/room.cpp:1537
+#: core/room.cpp:1535
 #, kde-format
 msgid "Channel is read only."
 msgstr "Kanał jest tylko-do-odczytu."
 
-#: core/room.cpp:1540
+#: core/room.cpp:1538
 #, kde-format
 msgid "You have blocked this channel."
 msgstr "Zablokowałeś ten kanał."
 
-#: core/room.cpp:1543
+#: core/room.cpp:1541
 #, kde-format
 msgid "Channel was blocked."
 msgstr "Kanał został zablokowany."
@@ -6977,16 +6976,14 @@ msgid "Description"
 msgstr "Opis"
 
 #: widgets/applicationssettingsdialog/applicationssettingsdescriptiontabwidget.cpp:39
-#, fuzzy, kde-format
-#| msgid "Version"
+#, kde-format
 msgid "Versions"
-msgstr "Wersja"
+msgstr "Wersje"
 
 #: widgets/applicationssettingsdialog/applicationssettingsdescriptiontabwidget.cpp:45
-#, fuzzy, kde-format
-#| msgid "&Settings"
+#, kde-format
 msgid "Settings"
-msgstr "U&stawienia"
+msgstr "Ustawienia"
 
 #: widgets/applicationssettingsdialog/applicationssettingsdialog.cpp:27
 #, kde-format
@@ -7026,16 +7023,14 @@ msgid "Copy Text"
 msgstr "Skopiuj tekst"
 
 #: widgets/applicationssettingsdialog/applicationssettingslogswidget.cpp:63
-#, fuzzy, kde-format
-#| msgid "%1: %2"
+#, kde-format
 msgid "%1 Caller: %2"
-msgstr "%1: %2"
+msgstr "%1 Dzwoniący: %2"
 
 #: widgets/applicationssettingsdialog/applicationssettingslogswidget.cpp:73
-#, fuzzy, kde-format
-#| msgid "No room found"
+#, kde-format
 msgid "No logs info found."
-msgstr "Nie znaleziono żadnego pokoju"
+msgstr "Nie znaleziono żadnego dziennika."
 
 #: widgets/applicationssettingsdialog/applicationssettingspricecombobox.cpp:13
 #, kde-format
@@ -7104,13 +7099,12 @@ msgstr "Wszystkie dostępności"
 #: widgets/applicationssettingsdialog/applicationssettingsversionwidget.cpp:71
 #, kde-format
 msgid "No release information provided"
-msgstr ""
+msgstr "Nie podano szczegółów wydania"
 
 #: widgets/applicationssettingsdialog/applicationssettingsversionwidget.cpp:80
-#, fuzzy, kde-format
-#| msgid "No room found"
+#, kde-format
 msgid "No version info found."
-msgstr "Nie znaleziono żadnego pokoju"
+msgstr "Nie znaleziono szczegółowej wersji."
 
 #: widgets/applicationssettingsdialog/appscountinfowidget.cpp:47
 #, kde-format
@@ -7552,24 +7546,24 @@ msgstr "Usuń dzienniki zapisane na dysku"
 msgid "Do you want to remove this account '%1'?"
 msgstr "Czy usunąć to konto '%1'?"
 
-#: widgets/configurenewserver/checknewserverurlwidget.cpp:24
+#: widgets/configurenewserver/checknewserverurlwidget.cpp:27
 #, kde-format
 msgctxt "@action:button"
 msgid "Connect"
 msgstr "Połącz"
 
-#: widgets/configurenewserver/checknewserverurlwidget.cpp:35
+#: widgets/configurenewserver/checknewserverurlwidget.cpp:38
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Server URL:"
 msgstr "Adres URL serwera:"
 
-#: widgets/configurenewserver/checknewserverurlwidget.cpp:93
+#: widgets/configurenewserver/checknewserverurlwidget.cpp:96
 #, kde-format
 msgid "Socket was unexpectedly closed."
 msgstr "Gniazdo zostało niespodziewanie zamknięte."
 
-#: widgets/configurenewserver/checknewserverurlwidget.cpp:152
+#: widgets/configurenewserver/checknewserverurlwidget.cpp:172
 #, kde-format
 msgid "Failed to connect to server: %1"
 msgstr "Nie udało połączyć się z serwerem: %1"
@@ -8449,7 +8443,7 @@ msgstr "Tekst"
 msgid "Files"
 msgstr "Pliki"
 
-#: widgets/dialogs/showattachmentdialog.cpp:29
+#: widgets/dialogs/showattachmentdialog.cpp:31
 #, kde-format
 msgctxt "@title:window"
 msgid "Show Attachments - %1"
@@ -10947,11 +10941,10 @@ msgstr "Utwórz zespół"
 #: widgets/ruqolamainwindow.cpp:948
 #, kde-format
 msgid "Cannot write to log file %1"
-msgstr ""
+msgstr "Nie można zapisywać do pliku dziennika %1"
 
 #: widgets/ruqolamainwindow.cpp:948
-#, fuzzy, kde-format
-#| msgid "Show Channel Log"
+#, kde-format
 msgctxt "@title:window"
 msgid "Show Channel Log"
 msgstr "Pokaż dziennik kanału"
@@ -11501,7 +11494,7 @@ msgstr "Dodaj delegata w wyszukiwaniu pokojów w oknie zespołu."
 #, kde-format
 msgid "Allow to clean up room history when room was not opened from long time."
 msgstr ""
-"Zezwól na wyczyszczenie historii pokoju, gdy nie był on otwierany przez "
+"Umożliwiono czyszczenie historii pokoju, gdy nie był on otwierany przez "
 "długi czas."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:120
@@ -11530,10 +11523,9 @@ msgid "Add color to the text in the account tab"
 msgstr "Dodaj kolor do tekstu na karcie konta"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:125
-#, fuzzy, kde-format
-#| msgid "Allow to write oauth app settings"
+#, kde-format
 msgid "Allow to show private installed applications"
-msgstr "Zezwól na zapis ustawień aplikacji OAuth"
+msgstr "Umożliwiono pokazywanie prywatnie wgranych aplikacji"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:130
 #, kde-format
@@ -11581,10 +11573,14 @@ msgid "Fix open discussion channel"
 msgstr "Naprawiono otwieranie kanału rozmowy"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:139
-#, fuzzy, kde-format
-#| msgid "Allow to write oauth app settings"
+#, kde-format
 msgid "Allow to show application market settings"
-msgstr "Zezwól na zapis ustawień aplikacji OAuth"
+msgstr "Umożliwiono pokazywanie ustawień aplikacji ze sklepu"
+
+#: widgets/whatsnew/whatsnewtranslations.cpp:153
+#, kde-format
+msgid "Allow to search file from username and filename."
+msgstr ""
 
 #: widgets/whatsnew/whatsnewwidget.cpp:44
 #, kde-format
