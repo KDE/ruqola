@@ -109,3 +109,5 @@ void ExtractServerInfoJob::setServerUrl(const QString &newServerUrl)
 {
     mServerUrl = newServerUrl;
 }
+
+#include "moc_extractserverinfojob.cpp"
