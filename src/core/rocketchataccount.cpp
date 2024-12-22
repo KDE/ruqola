@@ -3608,9 +3608,7 @@ void RocketChatAccount::disable2fa(const QJsonObject &root)
 
 void RocketChatAccount::regenerateCodes2fa(const QJsonObject &root)
 {
-    if (mRuqolaLogger) {
-        mRuqolaLogger->dataReceived(QByteArrayLiteral("Regenerate Codes 2FA:") + QJsonDocument(root).toJson());
-    }
+    displayLogInfo(QByteArrayLiteral("Regenerate Codes 2FA"), root);
     const QJsonObject obj = root.value("result"_L1).toObject();
     // TODO
     qDebug() << " regenerateCodes_2fa " << root;
@@ -3627,25 +3625,19 @@ void RocketChatAccount::enable2fa(const QJsonObject &root)
 void RocketChatAccount::otrEnd(const QJsonObject &root)
 {
     qDebug() << "otr_end  " << root;
-    if (mRuqolaLogger) {
-        mRuqolaLogger->dataReceived(QByteArrayLiteral("Otr End:") + QJsonDocument(root).toJson());
-    }
+    displayLogInfo(QByteArrayLiteral("Otr End"), root);
 }
 
 void RocketChatAccount::inputUserChannelAutocomplete(const QJsonObject &root)
 {
-    if (mRuqolaLogger) {
-        mRuqolaLogger->dataReceived(QByteArrayLiteral("Input channel/User autocomplete:") + QJsonDocument(root).toJson());
-    }
+    displayLogInfo(QByteArrayLiteral("Input channel/User autocomplete"), root);
     const QJsonObject obj = root.value("result"_L1).toObject();
     inputTextManager()->inputTextCompleter(obj);
 }
 
 void RocketChatAccount::inputUserChannelAutocompleteThread(const QJsonObject &root)
 {
-    if (mRuqolaLogger) {
-        mRuqolaLogger->dataReceived(QByteArrayLiteral("Input channel/User autocomplete thread dialog:") + QJsonDocument(root).toJson());
-    }
+    displayLogInfo(QByteArrayLiteral("Input channel/User autocomplete thread dialog"), root);
     const QJsonObject obj = root.value("result"_L1).toObject();
 
     inputThreadMessageTextManager()->inputTextCompleter(obj);
@@ -3653,9 +3645,7 @@ void RocketChatAccount::inputUserChannelAutocompleteThread(const QJsonObject &ro
 
 void RocketChatAccount::createJitsiConfCall(const QJsonObject &root)
 {
-    if (mRuqolaLogger) {
-        mRuqolaLogger->dataReceived(QByteArrayLiteral("Create Jitsi Conf Call:") + QJsonDocument(root).toJson());
-    }
+    displayLogInfo(QByteArrayLiteral("Create Jitsi Conf Call"), root);
 }
 
 void RocketChatAccount::openDirectChannel(const QJsonObject &root)
@@ -3673,23 +3663,17 @@ void RocketChatAccount::openDirectChannel(const QJsonObject &root)
 
 void RocketChatAccount::openRoom(const QJsonObject &obj)
 {
-    if (mRuqolaLogger) {
-        mRuqolaLogger->dataReceived(QByteArrayLiteral("Open Room :") + QJsonDocument(obj).toJson());
-    }
+    displayLogInfo(QByteArrayLiteral("Open Room"), obj);
 }
 
 void RocketChatAccount::getRoomByTypeAndName(const QJsonObject &obj)
 {
-    if (mRuqolaLogger) {
-        mRuqolaLogger->dataReceived(QByteArrayLiteral("Get Room by room and name :") + QJsonDocument(obj).toJson());
-    }
+    displayLogInfo(QByteArrayLiteral("Get Room by room and name"), obj);
 }
 
 void RocketChatAccount::changeDefaultStatus(const QJsonObject &obj)
 {
-    if (mRuqolaLogger) {
-        mRuqolaLogger->dataReceived(QByteArrayLiteral("Change Default Status :") + QJsonDocument(obj).toJson());
-    }
+    displayLogInfo(QByteArrayLiteral("Change Default Status"), obj);
 }
 
 void RocketChatAccount::processPublicsettings(const QJsonObject &obj)
