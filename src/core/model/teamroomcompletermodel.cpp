@@ -5,7 +5,6 @@
 */
 
 #include "teamroomcompletermodel.h"
-#include "utils.h"
 #include <QModelIndex>
 
 TeamRoomCompleterModel::TeamRoomCompleterModel(QObject *parent)

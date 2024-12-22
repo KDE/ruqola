@@ -11,7 +11,6 @@
 #include "apps/appscountinfo.h"
 #include "apps/appsmarketplaceinstalledinfo.h"
 #include "config-ruqola.h"
-#include "ddpapi/ddpclient.h"
 #include "memorymanager/memorymanager.h"
 #include "misc/methodcalljob.h"
 #include "model/appscategoriesmodel.h"

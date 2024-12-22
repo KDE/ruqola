@@ -11,7 +11,6 @@
 #include "ruqola_debug.h"
 #include "utils.h"
 #include <QDesktopServices>
-#include <QUrl>
 #if HAVE_ACTIVITY_SUPPORT
 #include <PlasmaActivities/ResourceInstance>
 #endif

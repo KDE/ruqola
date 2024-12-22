@@ -6,7 +6,6 @@
 
 #include "checknewserverurlwidget.h"
 #include "config-ruqola.h"
-#include "job/extractserverinfojob.h"
 
 #include <KBusyIndicatorWidget>
 #include <KLineEditEventHandler>

@@ -9,7 +9,6 @@
 #include "colorsandmessageviewstyle.h"
 #include "emoticons/emojimanager.h"
 #include "messagecache.h"
-#include "messages/message.h"
 #include "ruqola_texttohtml_cmark_debug.h"
 #include "ruqola_texttohtml_debug.h"
 #include "utils.h"

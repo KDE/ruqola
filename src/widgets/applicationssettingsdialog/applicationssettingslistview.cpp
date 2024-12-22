@@ -10,7 +10,6 @@
 #include "applicationssettingsdescriptiondialog.h"
 #include "apps/notifyadminsappsjob.h"
 #include "connection.h"
-#include "model/appsmarketplacefilterproxymodel.h"
 #include "model/appsmarketplacemodel.h"
 #include "rocketchataccount.h"
 #include "ruqolawidgets_debug.h"

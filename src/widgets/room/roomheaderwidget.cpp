@@ -7,7 +7,6 @@
 #include "roomheaderwidget.h"
 #include "channelactionpopupmenu.h"
 #include "misc/avatarcachemanager.h"
-#include "room.h"
 #include "roomheaderlabel.h"
 #include "teamnamelabel.h"
 #include <KLocalizedString>

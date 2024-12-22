@@ -8,7 +8,6 @@
 #include "connection.h"
 #include "rocketchataccount.h"
 
-#include "invite/findorcreateinvitejob.h"
 #include "ruqolawidgets_debug.h"
 
 #include <KLineEditEventHandler>

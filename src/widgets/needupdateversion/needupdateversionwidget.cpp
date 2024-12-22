@@ -6,7 +6,6 @@
 */
 
 #include "needupdateversionwidget.h"
-#include "needupdateversionutils.h"
 #include "ruqolawidgets_debug.h"
 #include <KLocalizedString>
 #include <QAction>

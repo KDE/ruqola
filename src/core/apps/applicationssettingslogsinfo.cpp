@@ -7,7 +7,6 @@
 #include "applicationssettingslogsinfo.h"
 #include "utils.h"
 
-#include <QDateTime>
 #include <QJsonArray>
 #include <QJsonObject>
 #include <QTimeZone>

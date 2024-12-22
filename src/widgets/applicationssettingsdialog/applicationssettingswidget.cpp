@@ -10,7 +10,6 @@
 #include "appscountinfowidget.h"
 #include "memorymanager/memorymanager.h"
 #include "model/appsmarketplacemodel.h"
-#include "rocketchataccount.h"
 
 #include <QStackedWidget>
 #include <QVBoxLayout>
