@@ -73,11 +73,7 @@ void ExtractServerInfoJob::start()
             qDebug() << " before " << authenticationMethodInfos;
             for (int i = 0, total = authenticationMethodInfos.count(); i < total; ++i) {
                 if (config.canShowAuthMethod(authenticationMethodInfos.at(i).oauthType())
-                // Reactivate it we will want to show PersonalAccessToken
-#if USE_PERSONAL_ACCESS_TOKEN
-                    || (authenticationMethodInfos.at(i).oauthType() == AuthenticationManager::AuthMethodType::PersonalAccessToken)
-#endif
-                ) {
+                    || (authenticationMethodInfos.at(i).oauthType() == AuthenticationManager::AuthMethodType::PersonalAccessToken)) {
                     fillModel.append(authenticationMethodInfos.at(i));
                 }
             }
