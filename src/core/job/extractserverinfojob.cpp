@@ -67,8 +67,8 @@ void ExtractServerInfoJob::start()
                 if (info.isValid()) {
                     authenticationMethodInfos.append(std::move(info));
                 }
+                config.addRuqolaAuthenticationSupport(abstractPlugin->authenticationType());
             }
-#if 0
             QList<AuthenticationInfo> fillModel;
             qDebug() << " before " << authenticationMethodInfos;
             for (int i = 0, total = authenticationMethodInfos.count(); i < total; ++i) {
@@ -79,13 +79,8 @@ void ExtractServerInfoJob::start()
 #endif
                 ) {
                     fillModel.append(authenticationMethodInfos.at(i));
-                    qDebug() << " xcdddddddddddddd " << fillModel;
                 }
             }
-#else
-            // TODO fixme
-            QList<AuthenticationInfo> fillModel = authenticationMethodInfos;
-#endif
             info.authenticationInfos = fillModel;
 
             Q_EMIT serverInfoFound(std::move(info));
