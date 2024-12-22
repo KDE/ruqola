@@ -5,6 +5,7 @@
 */
 
 #include "extractserverinfojob.h"
+#include "config-ruqola.h"
 #include "ddpapi/ddpclient.h"
 #include "plugins/pluginauthentication.h"
 #include <KLocalizedString>
