@@ -7,6 +7,7 @@
 #include "checknewserverurlwidget.h"
 #include "config-ruqola.h"
 #include "ddpapi/ddpclient.h"
+#include "job/extractserverinfojob.h"
 #include "plugins/pluginauthentication.h"
 #include "rocketchatbackend.h"
 
@@ -87,82 +88,18 @@ void CheckNewServerUrlWidget::slotTestConnection()
     if (!serverUrl.isEmpty()) {
         mFailedError->hide();
         mBusyIndicatorWidget->show();
-        auto ddpClient = new DDPClient(this);
-        auto ddpclientAccountParameter = new DDPClient::DDPClientAccountParameter;
-        ddpClient->setDDPClientAccountParameter(ddpclientAccountParameter);
-        connect(ddpClient, &DDPClient::wsClosedSocketError, this, [this, ddpClient]() {
-            mBusyIndicatorWidget->hide();
-            mConnectionPushButton->setEnabled(true);
-            slotErrorConnection(i18n("Socket was unexpectedly closed."));
-            ddpClient->deleteLater();
-        });
-        connect(ddpClient, &DDPClient::socketError, this, [this, ddpClient](QAbstractSocket::SocketError error, const QString &strError) {
-            Q_UNUSED(error);
+        auto job = new ExtractServerInfoJob(this);
+        job->setServerUrl(mServerUrl->text());
+        connect(job, &ExtractServerInfoJob::errorConnection, this, [this](const QString &errorStr) {
             mConnectionPushButton->setEnabled(true);
             mBusyIndicatorWidget->hide();
-            slotErrorConnection(strError);
-            ddpClient->deleteLater();
+            slotErrorConnection(errorStr);
         });
-
-        connect(ddpClient, &DDPClient::methodRequested, this, [this, ddpClient](const QJsonObject &obj, DDPClient::MethodRequestedType type) {
-            if (type == DDPClient::MethodRequestedType::PublicSettings) {
-                RuqolaServerConfig config;
-                config.parsePublicSettings(obj, false);
-                // TODO parse info
-                // qDebug() << " obj " << obj;
-
-                ServerInfo info;
-                info.url = mServerUrl->text().trimmed();
-                info.canRegisterAccount = config.serverConfigFeatureTypes() & RuqolaServerConfig::ServerConfigFeatureType::RegistrationFormEnabled;
-                info.passwordSettings = config.passwordSettings();
-                info.accountsManuallyApproveNewUsers = config.accountsManuallyApproveNewUsers();
-
-                const bool allowResetPassword = (config.serverConfigFeatureTypes() & RuqolaServerConfig::ServerConfigFeatureType::AllowPasswordChange)
-                    && (config.serverConfigFeatureTypes() & RuqolaServerConfig::ServerConfigFeatureType::AllowPasswordReset);
-                info.canResetPassword = allowResetPassword;
-
-                const QList<PluginAuthentication *> lstPlugins = AuthenticationManager::self()->pluginsList();
-                QList<AuthenticationInfo> authenticationMethodInfos;
-                for (PluginAuthentication *abstractPlugin : lstPlugins) {
-                    AuthenticationInfo info;
-                    info.setIconName(abstractPlugin->iconName());
-                    info.setName(abstractPlugin->name());
-                    info.setOauthType(abstractPlugin->authenticationType());
-                    if (info.isValid()) {
-                        authenticationMethodInfos.append(std::move(info));
-                    }
-                }
-#if 0
-                QList<AuthenticationInfo> fillModel;
-                qDebug() << " before " << authenticationMethodInfos;
-                for (int i = 0, total = authenticationMethodInfos.count(); i < total; ++i) {
-                    if (config.canShowAuthMethod(authenticationMethodInfos.at(i).oauthType())
-                    // Reactivate it we will want to show PersonalAccessToken
-#if USE_PERSONAL_ACCESS_TOKEN
-                        || (authenticationMethodInfos.at(i).oauthType() == AuthenticationManager::AuthMethodType::PersonalAccessToken)
-#endif
-                    ) {
-                        fillModel.append(authenticationMethodInfos.at(i));
-                        qDebug() << " xcdddddddddddddd " << fillModel;
-                    }
-                }
-#else
-                // TODO fixme
-                QList<AuthenticationInfo> fillModel = authenticationMethodInfos;
-#endif
-                info.authenticationInfos = fillModel;
-
-                Q_EMIT serverUrlFound(std::move(info));
-                mBusyIndicatorWidget->hide();
-                ddpClient->deleteLater();
-            }
+        connect(job, &ExtractServerInfoJob::serverInfoFound, this, [this](const ExtractServerInfoJob::ServerInfo &info) {
+            Q_EMIT serverUrlFound(std::move(info));
+            mBusyIndicatorWidget->hide();
         });
-        connect(ddpClient, &DDPClient::connectedChanged, this, [ddpClient]() {
-            ddpClient->loadPublicSettings();
-        });
-
-        ddpClient->setServerUrl(mServerUrl->text());
-        ddpClient->start();
+        job->start();
     }
 }
 

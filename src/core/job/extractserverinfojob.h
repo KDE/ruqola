@@ -40,3 +40,4 @@ Q_SIGNALS:
 private:
     QString mServerUrl;
 };
+Q_DECLARE_TYPEINFO(ExtractServerInfoJob::ServerInfo, Q_RELOCATABLE_TYPE);

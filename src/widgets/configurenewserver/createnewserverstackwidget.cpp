@@ -29,7 +29,7 @@ CreateNewServerStackWidget::CreateNewServerStackWidget(QWidget *parent)
     mCreateNewServerWidget->setObjectName(QStringLiteral("mCreateNewServerWidget"));
     addWidget(mCreateNewServerWidget);
     setCurrentWidget(mCheckNewServerUrlWidget);
-    connect(mCheckNewServerUrlWidget, &CheckNewServerUrlWidget::serverUrlFound, this, [this](const CheckNewServerUrlWidget::ServerInfo &serverInfo) {
+    connect(mCheckNewServerUrlWidget, &CheckNewServerUrlWidget::serverUrlFound, this, [this](const ExtractServerInfoJob::ServerInfo &serverInfo) {
         AccountManager::AccountManagerInfo info;
         info.serverUrl = serverInfo.url;
         info.authenticationInfos = serverInfo.authenticationInfos;

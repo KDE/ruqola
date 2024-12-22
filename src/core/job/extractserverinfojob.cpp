@@ -24,7 +24,7 @@ ExtractServerInfoJob::~ExtractServerInfoJob() = default;
 void ExtractServerInfoJob::start()
 {
     if (!canStart()) {
-        // TODO emit signal
+        Q_EMIT errorConnection(i18n("Missing server url."));
         return;
     }
     auto ddpClient = new DDPClient(this);

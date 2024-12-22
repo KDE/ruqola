@@ -5,9 +5,8 @@
 */
 
 #pragma once
-#include "authenticationinfo.h"
+#include "job/extractserverinfojob.h"
 #include "libruqolawidgets_private_export.h"
-#include "ruqolaserverconfig.h"
 #include <QWidget>
 class QLineEdit;
 class KMessageWidget;
@@ -17,20 +16,11 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT CheckNewServerUrlWidget : public QWidget
 {
     Q_OBJECT
 public:
-    struct LIBRUQOLAWIDGETS_TESTS_EXPORT ServerInfo {
-        QString url;
-        QList<AuthenticationInfo> authenticationInfos;
-        RuqolaServerConfig::PasswordSettings passwordSettings;
-        bool canResetPassword = false;
-        bool canRegisterAccount = false;
-        bool accountsManuallyApproveNewUsers = false;
-    };
-
     explicit CheckNewServerUrlWidget(QWidget *parent = nullptr);
     ~CheckNewServerUrlWidget() override;
 
 Q_SIGNALS:
-    void serverUrlFound(const CheckNewServerUrlWidget::ServerInfo &info);
+    void serverUrlFound(const ExtractServerInfoJob::ServerInfo &info);
 
 private:
     LIBRUQOLAWIDGETS_NO_EXPORT void slotTestConnection();
@@ -40,4 +30,3 @@ private:
     KMessageWidget *const mFailedError;
     QPushButton *const mConnectionPushButton;
 };
-Q_DECLARE_TYPEINFO(CheckNewServerUrlWidget::ServerInfo, Q_RELOCATABLE_TYPE);
