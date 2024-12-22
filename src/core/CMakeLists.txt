@@ -590,6 +590,9 @@ target_sources(libruqolacore PRIVATE
 
     memorymanager/memorymanager.h
     memorymanager/memorymanager.cpp
+
+    job/extractserverinfojob.h
+    job/extractserverinfojob.cpp
 )
 
 if(USE_E2E_SUPPORT)
