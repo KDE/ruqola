@@ -98,7 +98,6 @@ void CheckNewServerUrlWidget::slotTestConnection()
         });
         connect(ddpClient, &DDPClient::socketError, this, [this, ddpClient](QAbstractSocket::SocketError error, const QString &strError) {
             Q_UNUSED(error);
-            Q_UNUSED(strError);
             mConnectionPushButton->setEnabled(true);
             mBusyIndicatorWidget->hide();
             slotErrorConnection(strError);
