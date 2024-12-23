@@ -24,6 +24,7 @@
 #include "authenticationmanager/ddpauthenticationmanager.h"
 #include "autotranslate/getsupportedlanguagesjob.h"
 #include "commands/listcommandsjob.h"
+#include "commands/runcommandjob.h"
 #include "customemojiiconmanager.h"
 #include "downloadappslanguages/downloadappslanguagesmanager.h"
 #include "emoticons/emojimanager.h"

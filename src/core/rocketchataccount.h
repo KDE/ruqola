@@ -9,7 +9,6 @@
 #include "authenticationinfo.h"
 #include "bannerinfo/bannerinfos.h"
 #include "channelgroupbasejob.h"
-#include "commands/runcommandjob.h"
 
 #include "createchannelteaminfo.h"
 #include "customusers/customuserstatuses.h"
