@@ -1293,6 +1293,7 @@ void RocketChatAccount::setNameChanged(const QJsonArray &array)
 {
     qCWarning(RUQOLA_LOG) << "Need to implement: Users:NameChanged :" << array << " account name " << accountName();
     // QJsonArray([{"_id":"Z5TPBsWrmjAWCKGBC","name":"LifeLine","username":"LifeLine-GM"}])
+#if 0
     for (int i = 0; i < array.count(); ++i) {
         const QJsonObject obj = array.at(i).toObject();
         const QString id = obj["_id"_L1].toString();
@@ -1300,6 +1301,7 @@ void RocketChatAccount::setNameChanged(const QJsonArray &array)
         const QString username = obj["username"_L1].toString();
         // TODO
     }
+#endif
 }
 
 void RocketChatAccount::setOwnStatus(const User &user)
