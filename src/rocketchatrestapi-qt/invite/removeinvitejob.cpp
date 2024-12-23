@@ -5,7 +5,6 @@
 */
 
 #include "removeinvitejob.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "restapimethod.h"
 #include "rocketchatqtrestapi_debug.h"
@@ -13,6 +12,7 @@ using namespace Qt::Literals::StringLiterals;
 #include <QJsonObject>
 #include <QNetworkReply>
 using namespace RocketChatRestApi;
+using namespace Qt::Literals::StringLiterals;
 RemoveInviteJob::RemoveInviteJob(QObject *parent)
     : RestApiAbstractJob(parent)
 {

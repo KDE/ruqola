@@ -5,13 +5,13 @@
 */
 
 #include "licensesinfojob.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "restapimethod.h"
 #include "rocketchatqtrestapi_debug.h"
 #include <QJsonDocument>
 #include <QJsonObject>
 using namespace RocketChatRestApi;
+using namespace Qt::Literals::StringLiterals;
 LicensesInfoJob::LicensesInfoJob(QObject *parent)
     : RestApiAbstractJob(parent)
 {
