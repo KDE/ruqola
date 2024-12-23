@@ -321,8 +321,9 @@ void RocketChatAccount::reconnectToServer()
     // Clear auth token otherwise we can't reconnect.
     setAuthToken({});
     ddp();
-    if (accountEnabled())
+    if (accountEnabled()) {
         Q_ASSERT(mDdp);
+    }
     tryLogin();
 }
 
