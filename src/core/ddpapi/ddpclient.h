@@ -49,7 +49,6 @@ public:
         ValidateTempToken2fa,
         BannerDismiss,
         ChangeDefaultStatus,
-        GetRoomByTypeAndName,
         OpenRoom,
         OpenDirectRoom,
         CreateJitsiConfCall,
@@ -227,7 +226,6 @@ public:
     quint64 videoConferenceCall(const QString &roomId, const QString &callId, const QString &userId);
     quint64 videoConferenceConfirmed(const QString &roomId, const QString &callId, const QString &userId);
     [[nodiscard]] QJsonObject generateJsonObject(const QString &method, const QJsonArray &params);
-    quint64 getRoomByTypeAndName(const QByteArray &roomId, const QString &roomType);
     qint64 loadPublicSettings(qint64 timeStamp = -1);
     void loadPermissionsAdministrator(qint64 timeStamp = -1);
     void loadPrivateSettingsAdministrator(qint64 timeStamp = -1);

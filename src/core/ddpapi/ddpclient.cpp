@@ -159,12 +159,6 @@ quint64 DDPClient::openRoom(const QByteArray &roomId)
     return method(result, DDPClient::MethodRequestedType::OpenRoom, DDPClient::MessageType::Persistent);
 }
 
-quint64 DDPClient::getRoomByTypeAndName(const QByteArray &roomId, const QString &roomType)
-{
-    const RocketChatMessage::RocketChatMessageResult result = mRocketChatMessage->getRoomByTypeAndName(roomId, roomType, mUid);
-    return method(result, DDPClient::MethodRequestedType::GetRoomByTypeAndName, DDPClient::MessageType::Persistent);
-}
-
 quint64 DDPClient::setDefaultStatus(User::PresenceStatus status)
 {
     const RocketChatMessage::RocketChatMessageResult result = mRocketChatMessage->setDefaultStatus(status, mUid);

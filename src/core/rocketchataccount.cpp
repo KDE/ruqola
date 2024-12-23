@@ -902,7 +902,6 @@ void RocketChatAccount::createNewChannel(const RocketChatRestApi::CreateChannelT
 
 void RocketChatAccount::getRoomByTypeAndName(const QByteArray &rid, const QString &roomType)
 {
-#if 1
     // it uses "/api/v1/method.call/getRoomByTypeAndName"
     // => use restapi for calling ddp method
     auto job = new RocketChatRestApi::MethodCallJob(this);
@@ -921,9 +920,6 @@ void RocketChatAccount::getRoomByTypeAndName(const QByteArray &rid, const QStrin
     if (!job->start()) {
         qCWarning(RUQOLA_LOG) << "Impossible to start getRoomByTypeAndName job";
     }
-#else
-    ddp()->getRoomByTypeAndName(rid, roomType);
-#endif
 }
 
 void RocketChatAccount::joinRoom(const QString &roomId, const QString &joinCode)
@@ -3368,9 +3364,6 @@ void RocketChatAccount::parseMethodRequested(const QJsonObject &obj, DDPClient::
         break;
     case DDPClient::MethodRequestedType::ChangeDefaultStatus:
         displayLogInfo(QByteArrayLiteral("Change Default Status"), obj);
-        break;
-    case DDPClient::MethodRequestedType::GetRoomByTypeAndName:
-        displayLogInfo(QByteArrayLiteral("Get Room by room and name"), obj);
         break;
     case DDPClient::MethodRequestedType::OpenRoom:
         openRoom(obj);
