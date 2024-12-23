@@ -56,6 +56,7 @@ bool AppsMarketPlaceFilterProxyModel::filterAcceptsRow(int source_row, const QMo
         for (const QString &cat : std::as_const(mFilterInfo.categories)) {
             if (categories.contains(cat)) {
                 found = true;
+                break;
             }
         }
         if (!found) {
