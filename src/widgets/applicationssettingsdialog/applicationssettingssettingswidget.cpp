@@ -111,6 +111,7 @@ void ApplicationsSettingsSettingsWidget::addStringSettings(const ApplicationsSet
 void ApplicationsSettingsSettingsWidget::initialize()
 {
     if (mRocketChatAccount) {
+        // TODO add progress indicator
         auto job = new RocketChatRestApi::AppInfoJob(this);
         job->setAppsId(mAppId);
         job->setAppInfoType(RocketChatRestApi::AppInfoJob::AppInfoType::Settings);
