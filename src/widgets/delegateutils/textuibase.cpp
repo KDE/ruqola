@@ -5,7 +5,7 @@
 */
 
 #include "textuibase.h"
-#include "ruqola_cache_debug.h"
+
 TextUiBase::TextUiBase(TextSelectionImpl *textSelectionImpl, QAbstractItemView *view)
     : mTextSelectionImpl(textSelectionImpl)
     , mListView(view)
