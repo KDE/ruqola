@@ -48,6 +48,7 @@ void ApplicationsSettingsVersionWidget::showEvent(QShowEvent *event)
 void ApplicationsSettingsVersionWidget::initialize()
 {
     if (mRocketChatAccount) {
+        mTextBrowser->setText(QStringLiteral("<b><i>%1</i></b>").arg(i18n("Fetching version information in progress...")));
         auto job = new RocketChatRestApi::AppInfoJob(this);
         mRocketChatAccount->restApi()->initializeRestApiJob(job);
         job->setAppInfoType(RocketChatRestApi::AppInfoJob::AppInfoType::Versions);
