@@ -10,7 +10,6 @@
 
 #include "libruqolacore_export.h"
 #include "rocketchatmessage.h"
-#include "room.h"
 #include <QAbstractSocket>
 #include <QQueue>
 #include <QSslError>
