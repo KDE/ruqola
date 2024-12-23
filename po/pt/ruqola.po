@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-12-22 00:40+0000\n"
+"POT-Creation-Date: 2024-12-23 00:40+0000\n"
 "PO-Revision-Date: 2023-07-14 22:16+0100\n"
 "Last-Translator: José Nuno Coelho Pires <zepires@gmail.com>\n"
 "Language-Team: Portuguese <kde-i18n-pt@kde.org>\n"
@@ -47,172 +47,172 @@ msgstr ""
 "X-POFile-SpellExtra: UtilizadorKeep Messages mensagen localhost roomId\n"
 "X-POFile-SpellExtra: roomName Smiley ktextaddons textemoticons KF\n"
 
-#: apps/main.cpp:73
+#: apps/main.cpp:59
 #, kde-format
 msgid "Ruqola"
 msgstr "Ruqola"
 
-#: apps/main.cpp:75
+#: apps/main.cpp:61
 #, kde-format
 msgid "Rocket Chat Client"
 msgstr "Cliente de Rocket Chat"
 
-#: apps/main.cpp:77
+#: apps/main.cpp:63
 #, fuzzy, kde-format
 #| msgid "Copyright © 2020-2023 Ruqola authors"
 msgid "Copyright © 2020-2024 Ruqola authors"
 msgstr "Copyright © 2020-2023 dos autores do Ruqola"
 
-#: apps/main.cpp:79
+#: apps/main.cpp:65
 #, fuzzy, kde-format
 #| msgid "Laurent Montel"
 msgctxt "@info:credit"
 msgid "Laurent Montel"
 msgstr "Laurent Montel"
 
-#: apps/main.cpp:79
+#: apps/main.cpp:65
 #, kde-format
 msgid "Maintainer"
 msgstr "Manutenção"
 
-#: apps/main.cpp:80
+#: apps/main.cpp:66
 #, fuzzy, kde-format
 #| msgid "Riccardo Iaconelli"
 msgctxt "@info:credit"
 msgid "Riccardo Iaconelli"
 msgstr "Riccardo Iaconelli"
 
-#: apps/main.cpp:80
+#: apps/main.cpp:66
 #, kde-format
 msgid "Original Author"
 msgstr "Autor Original"
 
-#: apps/main.cpp:84
+#: apps/main.cpp:70
 #, fuzzy, kde-format
 #| msgid "David Faure"
 msgctxt "@info:credit"
 msgid "David Faure"
 msgstr "David Faure"
 
-#: apps/main.cpp:84
+#: apps/main.cpp:70
 #, kde-format
 msgid "Bug fixing, delegates etc."
 msgstr "Correcção de erros, delegações, etc."
 
-#: apps/main.cpp:85
+#: apps/main.cpp:71
 #, fuzzy, kde-format
 #| msgid "Kevin Funk"
 msgctxt "@info:credit"
 msgid "Kevin Funk"
 msgstr "Kevin Funk"
 
-#: apps/main.cpp:85 apps/main.cpp:86 apps/main.cpp:87 apps/main.cpp:89
-#: apps/main.cpp:90
+#: apps/main.cpp:71 apps/main.cpp:72 apps/main.cpp:73 apps/main.cpp:75
+#: apps/main.cpp:76
 #, kde-format
 msgid "Bug fixing"
 msgstr "Correcção de erros"
 
-#: apps/main.cpp:86
+#: apps/main.cpp:72
 #, fuzzy, kde-format
 #| msgid "Olivier JG"
 msgctxt "@info:credit"
 msgid "Olivier JG"
 msgstr "Olivier JG"
 
-#: apps/main.cpp:87
+#: apps/main.cpp:73
 #, fuzzy, kde-format
 #| msgid "Milian Wolff"
 msgctxt "@info:credit"
 msgid "Milian Wolff"
 msgstr "Milian Wolff"
 
-#: apps/main.cpp:88
+#: apps/main.cpp:74
 #, fuzzy, kde-format
 #| msgid "Till Adam"
 msgctxt "@info:credit"
 msgid "Till Adam"
 msgstr "Till Adam"
 
-#: apps/main.cpp:88
+#: apps/main.cpp:74
 #, kde-format
 msgid "Windows compile bug fixing"
 msgstr "Correcção de erros na compilação para Windows"
 
-#: apps/main.cpp:89
+#: apps/main.cpp:75
 #, fuzzy, kde-format
 #| msgid "Shantanu Tushar"
 msgctxt "@info:credit"
 msgid "Shantanu Tushar"
 msgstr "Shantanu Tushar"
 
-#: apps/main.cpp:90
+#: apps/main.cpp:76
 #, fuzzy, kde-format
 #| msgid "Alessandro Ambrosano"
 msgctxt "@info:credit"
 msgid "Alessandro Ambrosano"
 msgstr "Alessandro Ambrosano"
 
-#: apps/main.cpp:91
+#: apps/main.cpp:77
 #, fuzzy, kde-format
 #| msgid "Hannah von Reth"
 msgctxt "@info:credit"
 msgid "Hannah von Reth"
 msgstr "Hannah von Reth"
 
-#: apps/main.cpp:91
+#: apps/main.cpp:77
 #, kde-format
 msgid "Bug fixing for Windows/Mac"
 msgstr "Correcção de erros no Windows/Mac"
 
-#: apps/main.cpp:92
+#: apps/main.cpp:78
 #, fuzzy, kde-format
 #| msgid "Allen Winter"
 msgctxt "@info:credit"
 msgid "Allen Winter"
 msgstr "Allen Winter"
 
-#: apps/main.cpp:92
+#: apps/main.cpp:78
 #, kde-format
 msgid "Packaging"
 msgstr "Pacotes"
 
-#: apps/main.cpp:93
+#: apps/main.cpp:79
 #, fuzzy, kde-format
 #| msgid "Waqar Ahmed"
 msgctxt "@info:credit"
 msgid "Waqar Ahmed"
 msgstr "Waqar Ahmed"
 
-#: apps/main.cpp:93
+#: apps/main.cpp:79
 #, kde-format
 msgid "Bug fixing (compile, network crash...)"
 msgstr "Correcção de erros (compilação, estoiro da rede...)"
 
-#: apps/main.cpp:94
+#: apps/main.cpp:80
 #, fuzzy, kde-format
 #| msgid "Nicolas Fella"
 msgctxt "@info:credit"
 msgid "Nicolas Fella"
 msgstr "Nicolas Fella"
 
-#: apps/main.cpp:94
+#: apps/main.cpp:80
 #, kde-format
 msgid "Optimization, fix windows/mac support"
 msgstr "Optimização, correcção do suporte para Windows/Mac"
 
-#: apps/main.cpp:95
+#: apps/main.cpp:81
 #, kde-format
 msgctxt "@info:credit"
 msgid "Daniele E. Domenichelli"
 msgstr ""
 
-#: apps/main.cpp:95
+#: apps/main.cpp:81
 #, fuzzy, kde-format
 #| msgid "Nature"
 msgid "New feature"
 msgstr "Natureza"
 
-#: apps/main.cpp:121
+#: apps/main.cpp:107
 #, kde-format
 msgid "The following accounts are available:"
 msgstr "Estão disponíveis as seguintes contas:"
@@ -774,6 +774,16 @@ msgstr ""
 #, kde-format
 msgid "(Last Message: %1)"
 msgstr "(Última Mensagem: %1)"
+
+#: core/job/extractserverinfojob.cpp:28
+#, kde-format
+msgid "Missing server url."
+msgstr ""
+
+#: core/job/extractserverinfojob.cpp:35
+#, kde-format
+msgid "Socket was unexpectedly closed."
+msgstr ""
 
 #: core/messages/block.cpp:128 core/messages/message.cpp:859
 #: core/model/notificationhistorymodel.cpp:63
@@ -1837,19 +1847,19 @@ msgctxt "WARNING!!!!!!: PLEASE We need a space between after </strong>"
 msgid "<strong>%1</strong> are typing..."
 msgstr "<strong>%1</strong> estão a escrever..."
 
-#: core/rocketchataccount.cpp:710
+#: core/rocketchataccount.cpp:709
 #, kde-format
 msgid ""
 "REST: %1\n"
 "DDP: %2"
 msgstr ""
 
-#: core/rocketchataccount.cpp:718 core/rocketchataccount.cpp:730
+#: core/rocketchataccount.cpp:717 core/rocketchataccount.cpp:729
 #, kde-format
 msgid "Not connected"
 msgstr "Não ligado"
 
-#: core/rocketchataccount.cpp:725
+#: core/rocketchataccount.cpp:724
 #, fuzzy, kde-format
 #| msgid "Not connected"
 msgid "Not connected yet"
@@ -3433,7 +3443,7 @@ msgid "Speak Text"
 msgstr "Falar o Texto"
 
 #: widgets/administratordialog/moderationconsole/moderationreportinfolistview.cpp:93
-#: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:88
+#: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:87
 #: widgets/bannerinfodialog/bannerinfolistview.cpp:51
 #: widgets/discussions/discussionlistview.cpp:75
 #: widgets/notificationhistory/notificationhistorylistview.cpp:100
@@ -4607,7 +4617,7 @@ msgid "Accounts"
 msgstr "Contas"
 
 #: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:108
-#: widgets/room/roomheaderwidget.cpp:68
+#: widgets/room/roomheaderwidget.cpp:67
 #, kde-format
 msgid "Encryption"
 msgstr "Encriptação"
@@ -7453,27 +7463,27 @@ msgctxt "@label:textbox"
 msgid "Loading in progress…"
 msgstr "A carregar..."
 
-#: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:59
+#: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:58
 #, fuzzy, kde-format
 #| msgid "Show Mentions..."
 msgctxt "@action"
 msgid "Show Description…"
 msgstr "Mostrar as Menções..."
 
-#: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:66
+#: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:65
 #, kde-format
 msgctxt "@action"
 msgid "Install"
 msgstr ""
 
-#: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:71
+#: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:70
 #, fuzzy, kde-format
 #| msgid "Application ID (iss)"
 msgctxt "@action"
 msgid "Ask Application…"
 msgstr "ID da Aplicação (ISS)"
 
-#: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:79
+#: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:78
 #: widgets/bannerinfodialog/bannerinfolistview.cpp:55
 #, fuzzy, kde-format
 #| msgid "Copy Text"
@@ -7508,28 +7518,28 @@ msgstr ""
 msgid "Paid Apps"
 msgstr ""
 
-#: widgets/applicationssettingsdialog/applicationssettingssearchwidget.cpp:80
+#: widgets/applicationssettingsdialog/applicationssettingssearchwidget.cpp:78
 #, fuzzy, kde-format
 #| msgid "Application ID (iss)"
 msgctxt "@info:placeholder"
 msgid "Search Applications"
 msgstr "ID da Aplicação (ISS)"
 
-#: widgets/applicationssettingsdialog/applicationssettingssearchwidget.cpp:83
+#: widgets/applicationssettingsdialog/applicationssettingssearchwidget.cpp:81
 #, fuzzy, kde-format
 #| msgid "Application ID (iss)"
 msgctxt "@info:placeholder"
 msgid "Search Installed Applications"
 msgstr "ID da Aplicação (ISS)"
 
-#: widgets/applicationssettingsdialog/applicationssettingssearchwidget.cpp:86
+#: widgets/applicationssettingsdialog/applicationssettingssearchwidget.cpp:84
 #, fuzzy, kde-format
 #| msgid "Application ID (iss)"
 msgctxt "@info:placeholder"
 msgid "Search Requested Applications"
 msgstr "ID da Aplicação (ISS)"
 
-#: widgets/applicationssettingsdialog/applicationssettingssearchwidget.cpp:89
+#: widgets/applicationssettingsdialog/applicationssettingssearchwidget.cpp:87
 #, fuzzy, kde-format
 #| msgid "Application ID (iss)"
 msgctxt "@info:placeholder"
@@ -8062,26 +8072,21 @@ msgstr "Remover os registos guardados no disco"
 msgid "Do you want to remove this account '%1'?"
 msgstr "Deseja remover esta conta '%1'?"
 
-#: widgets/configurenewserver/checknewserverurlwidget.cpp:27
+#: widgets/configurenewserver/checknewserverurlwidget.cpp:24
 #, fuzzy, kde-format
 #| msgid "Connected"
 msgctxt "@action:button"
 msgid "Connect"
 msgstr "Ligado"
 
-#: widgets/configurenewserver/checknewserverurlwidget.cpp:38
+#: widgets/configurenewserver/checknewserverurlwidget.cpp:35
 #, fuzzy, kde-format
 #| msgid "Server URL:"
 msgctxt "@label:textbox"
 msgid "Server URL:"
 msgstr "URL do servidor:"
 
-#: widgets/configurenewserver/checknewserverurlwidget.cpp:96
-#, kde-format
-msgid "Socket was unexpectedly closed."
-msgstr ""
-
-#: widgets/configurenewserver/checknewserverurlwidget.cpp:172
+#: widgets/configurenewserver/checknewserverurlwidget.cpp:104
 #, fuzzy, kde-format
 #| msgid "Impossible to copy file"
 msgid "Failed to connect to server: %1"
@@ -8776,43 +8781,43 @@ msgctxt "@title:window"
 msgid "Invite Users"
 msgstr "Convidar Utilizadores"
 
-#: widgets/dialogs/inviteuserswidget.cpp:45
+#: widgets/dialogs/inviteuserswidget.cpp:44
 #, fuzzy, kde-format
 #| msgid "Invite Link:"
 msgctxt "@label:textbox"
 msgid "Invite Link:"
 msgstr "Ligação de Convite:"
 
-#: widgets/dialogs/inviteuserswidget.cpp:58
+#: widgets/dialogs/inviteuserswidget.cpp:57
 #, fuzzy, kde-format
 #| msgid "Copy link"
 msgctxt "@info:tooltip"
 msgid "Copy link"
 msgstr "Copiar a ligação"
 
-#: widgets/dialogs/inviteuserswidget.cpp:64
+#: widgets/dialogs/inviteuserswidget.cpp:63
 #, kde-format
 msgid "Options"
 msgstr "Opções"
 
-#: widgets/dialogs/inviteuserswidget.cpp:72
+#: widgets/dialogs/inviteuserswidget.cpp:71
 #, kde-format
 msgid "Expiration (Days)"
 msgstr "Validade (Dias)"
 
-#: widgets/dialogs/inviteuserswidget.cpp:75
+#: widgets/dialogs/inviteuserswidget.cpp:74
 #, kde-format
 msgid "Max number of uses"
 msgstr "Número máx. de utilizações"
 
-#: widgets/dialogs/inviteuserswidget.cpp:77
+#: widgets/dialogs/inviteuserswidget.cpp:76
 #, fuzzy, kde-format
 #| msgid "Generate New Link"
 msgctxt "@action:button"
 msgid "Generate New Link"
 msgstr "Gerar uma Nova Ligação"
 
-#: widgets/dialogs/inviteuserswidget.cpp:112
+#: widgets/dialogs/inviteuserswidget.cpp:111
 #, kde-format
 msgid "Your invite link will expire on %2 or after %1 use."
 msgid_plural "Your invite link will expire on %2 or after %1 uses."
@@ -8821,17 +8826,17 @@ msgstr[0] ""
 msgstr[1] ""
 "A sua ligação de convite perderá a validade a %2 ou ao fim de %1 utilizações."
 
-#: widgets/dialogs/inviteuserswidget.cpp:117
+#: widgets/dialogs/inviteuserswidget.cpp:116
 #, kde-format
 msgid "Your invite link will expire on %1."
 msgstr "A sua ligação de convite perderá a validade a %1."
 
-#: widgets/dialogs/inviteuserswidget.cpp:150
+#: widgets/dialogs/inviteuserswidget.cpp:149
 #, kde-format
 msgid "Never"
 msgstr "Nunca"
 
-#: widgets/dialogs/inviteuserswidget.cpp:158
+#: widgets/dialogs/inviteuserswidget.cpp:157
 #, kde-format
 msgid "No Limit"
 msgstr "Sem Limite"
@@ -10362,26 +10367,26 @@ msgstr "Apagar a Minha Conta"
 msgid "Current Password"
 msgstr "Senha Actual"
 
-#: widgets/needupdateversion/needupdateversionwidget.cpp:23
+#: widgets/needupdateversion/needupdateversionwidget.cpp:22
 #, fuzzy, kde-format
 #| msgid "Disable Sessions Monitor"
 msgctxt "@action"
 msgid "Disable version check"
 msgstr "Desactivar o Monitor de Sessões"
 
-#: widgets/needupdateversion/needupdateversionwidget.cpp:27
+#: widgets/needupdateversion/needupdateversionwidget.cpp:26
 #, fuzzy, kde-format
 #| msgid "Node Version"
 msgctxt "@action"
 msgid "Check new Version"
 msgstr "Versão do Nó"
 
-#: widgets/needupdateversion/needupdateversionwidget.cpp:43
+#: widgets/needupdateversion/needupdateversionwidget.cpp:42
 #, kde-format
 msgid "Your version is older than 6 months, we encourage you to upgrade."
 msgstr ""
 
-#: widgets/needupdateversion/needupdateversionwidget.cpp:48
+#: widgets/needupdateversion/needupdateversionwidget.cpp:47
 #, kde-format
 msgid ""
 "Your version is older than 1 year, we strongly encourage you to upgrade."
@@ -11115,74 +11120,74 @@ msgstr "(Mostrar Mais Informações...)"
 msgid "(Show Less Info…)"
 msgstr "(Mostrar Menos Informações...)"
 
-#: widgets/room/roomheaderwidget.cpp:48
+#: widgets/room/roomheaderwidget.cpp:47
 #, fuzzy, kde-format
 #| msgid "Favorite"
 msgctxt "@info:tooltip"
 msgid "Favorite"
 msgstr "Favorito"
 
-#: widgets/room/roomheaderwidget.cpp:50
+#: widgets/room/roomheaderwidget.cpp:49
 #, kde-format
 msgid "Favorite"
 msgstr "Favorito"
 
-#: widgets/room/roomheaderwidget.cpp:66
+#: widgets/room/roomheaderwidget.cpp:65
 #, fuzzy, kde-format
 #| msgid "E2E Enabled"
 msgctxt "@info:tooltip"
 msgid "E2E Enabled"
 msgstr "E2E Activo"
 
-#: widgets/room/roomheaderwidget.cpp:113
+#: widgets/room/roomheaderwidget.cpp:112
 #, fuzzy, kde-format
 #| msgid "Call"
 msgctxt "@info:tooltip"
 msgid "Call"
 msgstr "Chamada"
 
-#: widgets/room/roomheaderwidget.cpp:115
+#: widgets/room/roomheaderwidget.cpp:114
 #, kde-format
 msgid "Call"
 msgstr "Chamada"
 
-#: widgets/room/roomheaderwidget.cpp:124
+#: widgets/room/roomheaderwidget.cpp:123
 #, fuzzy, kde-format
 #| msgid "Channel's Information"
 msgctxt "@info:tooltip"
 msgid "Channel's Information"
 msgstr "Informação do Canal"
 
-#: widgets/room/roomheaderwidget.cpp:126 widgets/room/roomheaderwidget.cpp:233
+#: widgets/room/roomheaderwidget.cpp:125 widgets/room/roomheaderwidget.cpp:232
 #, kde-format
 msgid "Channel's Information"
 msgstr "Informação do Canal"
 
-#: widgets/room/roomheaderwidget.cpp:135
+#: widgets/room/roomheaderwidget.cpp:134
 #, fuzzy, kde-format
 #| msgid "Team Channels"
 msgctxt "@info:tooltip"
 msgid "Team Channels"
 msgstr "Canais da Equipa"
 
-#: widgets/room/roomheaderwidget.cpp:137
+#: widgets/room/roomheaderwidget.cpp:136
 #, kde-format
 msgid "Team Channels"
 msgstr "Canais da Equipa"
 
-#: widgets/room/roomheaderwidget.cpp:147
+#: widgets/room/roomheaderwidget.cpp:146
 #, fuzzy, kde-format
 #| msgid "Show List of Users"
 msgctxt "@info:tooltip"
 msgid "Show List of Users"
 msgstr "Mostrar a Lista de Utilizadores"
 
-#: widgets/room/roomheaderwidget.cpp:149
+#: widgets/room/roomheaderwidget.cpp:148
 #, kde-format
 msgid "Show List of Users"
 msgstr "Mostrar a Lista de Utilizadores"
 
-#: widgets/room/roomheaderwidget.cpp:160
+#: widgets/room/roomheaderwidget.cpp:159
 #, fuzzy, kde-format
 #| msgctxt "@title:window"
 #| msgid "Search Messages"
@@ -11190,14 +11195,14 @@ msgctxt "@info:tooltip"
 msgid "Search Messages…"
 msgstr "Procurar por Mensagens"
 
-#: widgets/room/roomheaderwidget.cpp:162
+#: widgets/room/roomheaderwidget.cpp:161
 #, fuzzy, kde-format
 #| msgctxt "@title:window"
 #| msgid "Search Messages"
 msgid "Search Messages…"
 msgstr "Procurar por Mensagens"
 
-#: widgets/room/roomheaderwidget.cpp:233
+#: widgets/room/roomheaderwidget.cpp:232
 #, kde-format
 msgid "Team's Information"
 msgstr "Informação da Equipa"

@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-12-22 00:40+0000\n"
-"PO-Revision-Date: 2024-12-17 08:52+0200\n"
+"POT-Creation-Date: 2024-12-23 00:40+0000\n"
+"PO-Revision-Date: 2024-12-22 17:16+0200\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
 "Language: uk\n"
@@ -20,159 +20,159 @@ msgstr ""
 "%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
 "X-Generator: Lokalize 23.04.3\n"
 
-#: apps/main.cpp:73
+#: apps/main.cpp:59
 #, kde-format
 msgid "Ruqola"
 msgstr "Ruqola"
 
-#: apps/main.cpp:75
+#: apps/main.cpp:61
 #, kde-format
 msgid "Rocket Chat Client"
 msgstr "Клієнт спілкування Rocket"
 
-#: apps/main.cpp:77
+#: apps/main.cpp:63
 #, kde-format
 msgid "Copyright © 2020-2024 Ruqola authors"
 msgstr "© Автори Ruqola, 2020–2024"
 
-#: apps/main.cpp:79
+#: apps/main.cpp:65
 #, kde-format
 msgctxt "@info:credit"
 msgid "Laurent Montel"
 msgstr "Laurent Montel"
 
-#: apps/main.cpp:79
+#: apps/main.cpp:65
 #, kde-format
 msgid "Maintainer"
 msgstr "Супровідник"
 
-#: apps/main.cpp:80
+#: apps/main.cpp:66
 #, kde-format
 msgctxt "@info:credit"
 msgid "Riccardo Iaconelli"
 msgstr "Riccardo Iaconelli"
 
-#: apps/main.cpp:80
+#: apps/main.cpp:66
 #, kde-format
 msgid "Original Author"
 msgstr "Початковий автор"
 
-#: apps/main.cpp:84
+#: apps/main.cpp:70
 #, kde-format
 msgctxt "@info:credit"
 msgid "David Faure"
 msgstr "David Faure"
 
-#: apps/main.cpp:84
+#: apps/main.cpp:70
 #, kde-format
 msgid "Bug fixing, delegates etc."
 msgstr "Виправлення вад, делегування тощо."
 
-#: apps/main.cpp:85
+#: apps/main.cpp:71
 #, kde-format
 msgctxt "@info:credit"
 msgid "Kevin Funk"
 msgstr "Kevin Funk"
 
-#: apps/main.cpp:85 apps/main.cpp:86 apps/main.cpp:87 apps/main.cpp:89
-#: apps/main.cpp:90
+#: apps/main.cpp:71 apps/main.cpp:72 apps/main.cpp:73 apps/main.cpp:75
+#: apps/main.cpp:76
 #, kde-format
 msgid "Bug fixing"
 msgstr "Виправлення вад"
 
-#: apps/main.cpp:86
+#: apps/main.cpp:72
 #, kde-format
 msgctxt "@info:credit"
 msgid "Olivier JG"
 msgstr "Olivier JG"
 
-#: apps/main.cpp:87
+#: apps/main.cpp:73
 #, kde-format
 msgctxt "@info:credit"
 msgid "Milian Wolff"
 msgstr "Milian Wolff"
 
-#: apps/main.cpp:88
+#: apps/main.cpp:74
 #, kde-format
 msgctxt "@info:credit"
 msgid "Till Adam"
 msgstr "Till Adam"
 
-#: apps/main.cpp:88
+#: apps/main.cpp:74
 #, kde-format
 msgid "Windows compile bug fixing"
 msgstr "Виправлення вад компіляції у Windows"
 
-#: apps/main.cpp:89
+#: apps/main.cpp:75
 #, kde-format
 msgctxt "@info:credit"
 msgid "Shantanu Tushar"
 msgstr "Shantanu Tushar"
 
-#: apps/main.cpp:90
+#: apps/main.cpp:76
 #, kde-format
 msgctxt "@info:credit"
 msgid "Alessandro Ambrosano"
 msgstr "Alessandro Ambrosano"
 
-#: apps/main.cpp:91
+#: apps/main.cpp:77
 #, kde-format
 msgctxt "@info:credit"
 msgid "Hannah von Reth"
 msgstr "Hannah von Reth"
 
-#: apps/main.cpp:91
+#: apps/main.cpp:77
 #, kde-format
 msgid "Bug fixing for Windows/Mac"
 msgstr "Виправлення вад у Windows/Mac"
 
-#: apps/main.cpp:92
+#: apps/main.cpp:78
 #, kde-format
 msgctxt "@info:credit"
 msgid "Allen Winter"
 msgstr "Allen Winter"
 
-#: apps/main.cpp:92
+#: apps/main.cpp:78
 #, kde-format
 msgid "Packaging"
 msgstr "Пакування"
 
-#: apps/main.cpp:93
+#: apps/main.cpp:79
 #, kde-format
 msgctxt "@info:credit"
 msgid "Waqar Ahmed"
 msgstr "Waqar Ahmed"
 
-#: apps/main.cpp:93
+#: apps/main.cpp:79
 #, kde-format
 msgid "Bug fixing (compile, network crash...)"
 msgstr ""
 "Виправлення вад (компіляція, аварійне завершення роботи, пов'язане із "
 "мережею…)"
 
-#: apps/main.cpp:94
+#: apps/main.cpp:80
 #, kde-format
 msgctxt "@info:credit"
 msgid "Nicolas Fella"
 msgstr "Nicolas Fella"
 
-#: apps/main.cpp:94
+#: apps/main.cpp:80
 #, kde-format
 msgid "Optimization, fix windows/mac support"
 msgstr "Оптимізація, виправлення підтримки Windows/Mac"
 
-#: apps/main.cpp:95
+#: apps/main.cpp:81
 #, kde-format
 msgctxt "@info:credit"
 msgid "Daniele E. Domenichelli"
 msgstr "Daniele E. Domenichelli"
 
-#: apps/main.cpp:95
+#: apps/main.cpp:81
 #, kde-format
 msgid "New feature"
 msgstr "Нова можливість"
 
-#: apps/main.cpp:121
+#: apps/main.cpp:107
 #, kde-format
 msgid "The following accounts are available:"
 msgstr "Доступні такі облікові записи:"
@@ -717,6 +717,16 @@ msgstr "Мелодія дзвінка"
 #, kde-format
 msgid "(Last Message: %1)"
 msgstr "(Останнє повідомлення: %1)"
+
+#: core/job/extractserverinfojob.cpp:28
+#, kde-format
+msgid "Missing server url."
+msgstr ""
+
+#: core/job/extractserverinfojob.cpp:35
+#, kde-format
+msgid "Socket was unexpectedly closed."
+msgstr "Сокет неочікувано закрито."
 
 #: core/messages/block.cpp:128 core/messages/message.cpp:859
 #: core/model/notificationhistorymodel.cpp:63
@@ -1762,7 +1772,7 @@ msgctxt "WARNING!!!!!!: PLEASE We need a space between after </strong>"
 msgid "<strong>%1</strong> are typing..."
 msgstr "<strong>%1</strong> вводить текст…"
 
-#: core/rocketchataccount.cpp:710
+#: core/rocketchataccount.cpp:709
 #, kde-format
 msgid ""
 "REST: %1\n"
@@ -1771,12 +1781,12 @@ msgstr ""
 "REST: %1\n"
 "DDP: %2"
 
-#: core/rocketchataccount.cpp:718 core/rocketchataccount.cpp:730
+#: core/rocketchataccount.cpp:717 core/rocketchataccount.cpp:729
 #, kde-format
 msgid "Not connected"
 msgstr "Не з'єднано"
 
-#: core/rocketchataccount.cpp:725
+#: core/rocketchataccount.cpp:724
 #, kde-format
 msgid "Not connected yet"
 msgstr "Ще не з'єднано"
@@ -3328,7 +3338,7 @@ msgid "Speak Text"
 msgstr "Декламувати текст"
 
 #: widgets/administratordialog/moderationconsole/moderationreportinfolistview.cpp:93
-#: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:88
+#: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:87
 #: widgets/bannerinfodialog/bannerinfolistview.cpp:51
 #: widgets/discussions/discussionlistview.cpp:75
 #: widgets/notificationhistory/notificationhistorylistview.cpp:100
@@ -4422,7 +4432,7 @@ msgid "Accounts"
 msgstr "Облікові записи"
 
 #: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:108
-#: widgets/room/roomheaderwidget.cpp:68
+#: widgets/room/roomheaderwidget.cpp:67
 #, kde-format
 msgid "Encryption"
 msgstr "Шифрування"
@@ -7031,25 +7041,25 @@ msgctxt "@label:textbox"
 msgid "Loading in progress…"
 msgstr "Триває завантаження…"
 
-#: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:59
+#: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:58
 #, kde-format
 msgctxt "@action"
 msgid "Show Description…"
 msgstr "Показати опис…"
 
-#: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:66
+#: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:65
 #, kde-format
 msgctxt "@action"
 msgid "Install"
 msgstr "Встановити"
 
-#: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:71
+#: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:70
 #, kde-format
 msgctxt "@action"
 msgid "Ask Application…"
 msgstr "Запитати програму…"
 
-#: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:79
+#: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:78
 #: widgets/bannerinfodialog/bannerinfolistview.cpp:55
 #, kde-format
 msgctxt "@action"
@@ -7081,25 +7091,25 @@ msgstr "безкоштовні програми"
 msgid "Paid Apps"
 msgstr "платні програми"
 
-#: widgets/applicationssettingsdialog/applicationssettingssearchwidget.cpp:80
+#: widgets/applicationssettingsdialog/applicationssettingssearchwidget.cpp:78
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Search Applications"
 msgstr "Програми"
 
-#: widgets/applicationssettingsdialog/applicationssettingssearchwidget.cpp:83
+#: widgets/applicationssettingsdialog/applicationssettingssearchwidget.cpp:81
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Search Installed Applications"
 msgstr "Потрібні програми…"
 
-#: widgets/applicationssettingsdialog/applicationssettingssearchwidget.cpp:86
+#: widgets/applicationssettingsdialog/applicationssettingssearchwidget.cpp:84
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Search Requested Applications"
 msgstr "Шукати потрібні програми"
 
-#: widgets/applicationssettingsdialog/applicationssettingssearchwidget.cpp:89
+#: widgets/applicationssettingsdialog/applicationssettingssearchwidget.cpp:87
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Search Private Applications"
@@ -7585,24 +7595,19 @@ msgstr "Вилучити журнал, що зберігається на дис
 msgid "Do you want to remove this account '%1'?"
 msgstr "Хочете вилучити обліковий запис «%1»?"
 
-#: widgets/configurenewserver/checknewserverurlwidget.cpp:27
+#: widgets/configurenewserver/checknewserverurlwidget.cpp:24
 #, kde-format
 msgctxt "@action:button"
 msgid "Connect"
 msgstr "З'єднатися"
 
-#: widgets/configurenewserver/checknewserverurlwidget.cpp:38
+#: widgets/configurenewserver/checknewserverurlwidget.cpp:35
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Server URL:"
 msgstr "Адреса сервера:"
 
-#: widgets/configurenewserver/checknewserverurlwidget.cpp:96
-#, kde-format
-msgid "Socket was unexpectedly closed."
-msgstr "Сокет неочікувано закрито."
-
-#: widgets/configurenewserver/checknewserverurlwidget.cpp:172
+#: widgets/configurenewserver/checknewserverurlwidget.cpp:104
 #, kde-format
 msgid "Failed to connect to server: %1"
 msgstr "Не вдалося з'єднатися з сервером: %1"
@@ -8249,40 +8254,40 @@ msgctxt "@title:window"
 msgid "Invite Users"
 msgstr "Запрошення користувачів"
 
-#: widgets/dialogs/inviteuserswidget.cpp:45
+#: widgets/dialogs/inviteuserswidget.cpp:44
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Invite Link:"
 msgstr "Посилання-запрошення:"
 
-#: widgets/dialogs/inviteuserswidget.cpp:58
+#: widgets/dialogs/inviteuserswidget.cpp:57
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Copy link"
 msgstr "Копіювати посилання"
 
-#: widgets/dialogs/inviteuserswidget.cpp:64
+#: widgets/dialogs/inviteuserswidget.cpp:63
 #, kde-format
 msgid "Options"
 msgstr "Параметри"
 
-#: widgets/dialogs/inviteuserswidget.cpp:72
+#: widgets/dialogs/inviteuserswidget.cpp:71
 #, kde-format
 msgid "Expiration (Days)"
 msgstr "Строк дії (у днях)"
 
-#: widgets/dialogs/inviteuserswidget.cpp:75
+#: widgets/dialogs/inviteuserswidget.cpp:74
 #, kde-format
 msgid "Max number of uses"
 msgstr "Максимальна кількість використань"
 
-#: widgets/dialogs/inviteuserswidget.cpp:77
+#: widgets/dialogs/inviteuserswidget.cpp:76
 #, kde-format
 msgctxt "@action:button"
 msgid "Generate New Link"
 msgstr "Створити посилання"
 
-#: widgets/dialogs/inviteuserswidget.cpp:112
+#: widgets/dialogs/inviteuserswidget.cpp:111
 #, kde-format
 msgid "Your invite link will expire on %2 or after %1 use."
 msgid_plural "Your invite link will expire on %2 or after %1 uses."
@@ -8299,17 +8304,17 @@ msgstr[3] ""
 "Строк дії вашого посилання запрошення буде вичерпано %2 або після %1 "
 "використання."
 
-#: widgets/dialogs/inviteuserswidget.cpp:117
+#: widgets/dialogs/inviteuserswidget.cpp:116
 #, kde-format
 msgid "Your invite link will expire on %1."
 msgstr "Строк дії вашого посилання запрошення буде вичерпано %1."
 
-#: widgets/dialogs/inviteuserswidget.cpp:150
+#: widgets/dialogs/inviteuserswidget.cpp:149
 #, kde-format
 msgid "Never"
 msgstr "Ніколи"
 
-#: widgets/dialogs/inviteuserswidget.cpp:158
+#: widgets/dialogs/inviteuserswidget.cpp:157
 #, kde-format
 msgid "No Limit"
 msgstr "Не обмежувати"
@@ -9737,24 +9742,24 @@ msgstr "Вилучення облікового запису"
 msgid "Current Password"
 msgstr "Поточний пароль"
 
-#: widgets/needupdateversion/needupdateversionwidget.cpp:23
+#: widgets/needupdateversion/needupdateversionwidget.cpp:22
 #, kde-format
 msgctxt "@action"
 msgid "Disable version check"
 msgstr "Вимкнути перевірку версій"
 
-#: widgets/needupdateversion/needupdateversionwidget.cpp:27
+#: widgets/needupdateversion/needupdateversionwidget.cpp:26
 #, kde-format
 msgctxt "@action"
 msgid "Check new Version"
 msgstr "Шукати нову версію"
 
-#: widgets/needupdateversion/needupdateversionwidget.cpp:43
+#: widgets/needupdateversion/needupdateversionwidget.cpp:42
 #, kde-format
 msgid "Your version is older than 6 months, we encourage you to upgrade."
 msgstr "Ваша версія застаріла на понад 6 місяців. Ми рекомендуємо її оновити."
 
-#: widgets/needupdateversion/needupdateversionwidget.cpp:48
+#: widgets/needupdateversion/needupdateversionwidget.cpp:47
 #, kde-format
 msgid ""
 "Your version is older than 1 year, we strongly encourage you to upgrade."
@@ -10408,79 +10413,79 @@ msgstr "(Показати більше відомостей…)"
 msgid "(Show Less Info…)"
 msgstr "(Показати менше відомостей…)"
 
-#: widgets/room/roomheaderwidget.cpp:48
+#: widgets/room/roomheaderwidget.cpp:47
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Favorite"
 msgstr "Улюблене"
 
-#: widgets/room/roomheaderwidget.cpp:50
+#: widgets/room/roomheaderwidget.cpp:49
 #, kde-format
 msgid "Favorite"
 msgstr "Улюблене"
 
-#: widgets/room/roomheaderwidget.cpp:66
+#: widgets/room/roomheaderwidget.cpp:65
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "E2E Enabled"
 msgstr "Увімкнено E2E"
 
-#: widgets/room/roomheaderwidget.cpp:113
+#: widgets/room/roomheaderwidget.cpp:112
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Call"
 msgstr "Виклик"
 
-#: widgets/room/roomheaderwidget.cpp:115
+#: widgets/room/roomheaderwidget.cpp:114
 #, kde-format
 msgid "Call"
 msgstr "Виклик"
 
-#: widgets/room/roomheaderwidget.cpp:124
+#: widgets/room/roomheaderwidget.cpp:123
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Channel's Information"
 msgstr "Дані щодо каналу"
 
-#: widgets/room/roomheaderwidget.cpp:126 widgets/room/roomheaderwidget.cpp:233
+#: widgets/room/roomheaderwidget.cpp:125 widgets/room/roomheaderwidget.cpp:232
 #, kde-format
 msgid "Channel's Information"
 msgstr "Дані щодо каналу"
 
-#: widgets/room/roomheaderwidget.cpp:135
+#: widgets/room/roomheaderwidget.cpp:134
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Team Channels"
 msgstr "Канали команди"
 
-#: widgets/room/roomheaderwidget.cpp:137
+#: widgets/room/roomheaderwidget.cpp:136
 #, kde-format
 msgid "Team Channels"
 msgstr "Канали команди"
 
-#: widgets/room/roomheaderwidget.cpp:147
+#: widgets/room/roomheaderwidget.cpp:146
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Show List of Users"
 msgstr "Показувати список користувачів"
 
-#: widgets/room/roomheaderwidget.cpp:149
+#: widgets/room/roomheaderwidget.cpp:148
 #, kde-format
 msgid "Show List of Users"
 msgstr "Показувати список користувачів"
 
-#: widgets/room/roomheaderwidget.cpp:160
+#: widgets/room/roomheaderwidget.cpp:159
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Search Messages…"
 msgstr "Шукати повідомлення…"
 
-#: widgets/room/roomheaderwidget.cpp:162
+#: widgets/room/roomheaderwidget.cpp:161
 #, kde-format
 msgid "Search Messages…"
 msgstr "Шукати повідомлення…"
 
-#: widgets/room/roomheaderwidget.cpp:233
+#: widgets/room/roomheaderwidget.cpp:232
 #, kde-format
 msgid "Team's Information"
 msgstr "Дані щодо команди"
@@ -11649,7 +11654,7 @@ msgstr "Уможливлено показ параметрів ринку про
 #: widgets/whatsnew/whatsnewtranslations.cpp:153
 #, kde-format
 msgid "Allow to search file from username and filename."
-msgstr ""
+msgstr "Уможливлено пошук файла за іменем користувача і назвою файла."
 
 #: widgets/whatsnew/whatsnewwidget.cpp:44
 #, kde-format
