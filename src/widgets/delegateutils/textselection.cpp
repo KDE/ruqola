@@ -133,8 +133,9 @@ QString TextSelection::selectedText(Format format) const
 bool TextSelection::contains(const QModelIndex &index, int charPos, const MessageAttachment &att) const
 {
     Q_UNUSED(att);
-    if (!hasSelection())
+    if (!hasSelection()) {
         return false;
+    }
     Q_ASSERT(index.model() == mStartIndex.model());
     // TODO implement check attachment
     const int row = index.row();
@@ -152,8 +153,9 @@ bool TextSelection::contains(const QModelIndex &index, int charPos, const Messag
 
 QTextCursor TextSelection::selectionForIndex(const QModelIndex &index, QTextDocument *doc, const MessageAttachment &att, const MessageUrl &msgUrl) const
 {
-    if (!hasSelection())
+    if (!hasSelection()) {
         return {};
+    }
     Q_ASSERT(index.model() == mStartIndex.model());
     Q_ASSERT(index.model() == mEndIndex.model());
 
