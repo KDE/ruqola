@@ -83,7 +83,6 @@ bool AppsMarketPlaceFilterProxyModel::filterAcceptsRow(int source_row, const QMo
         const bool isEnterpriseOnly = modelIndex.data(AppsMarketPlaceModel::IsEnterpriseOnly).toBool();
         if (!isEnterpriseOnly) {
             return false;
-            break;
         }
     }
     }
