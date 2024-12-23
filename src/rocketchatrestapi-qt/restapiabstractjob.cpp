@@ -234,7 +234,7 @@ QString RestApiAbstractJob::generateErrorMessage(const QString &errorStr) const
 
 QString RestApiAbstractJob::errorMessage(const QString &str, const QJsonObject &details)
 {
-    qDebug() << " details " << details;
+    // qDebug() << " details " << details;
     if (str == "error-action-not-allowed"_L1) {
         const QString actionName = details["action"_L1].toString();
         return i18n("'%1' is not allowed", actionName);
