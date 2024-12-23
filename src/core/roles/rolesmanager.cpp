@@ -51,14 +51,14 @@ void RolesManager::updateRoles(const QJsonArray &contents)
             for (int i = 0, total = mRoleInfo.count(); i < total; ++i) {
                 if (mRoleInfo.at(i).identifier() == identifier) {
                     mRoleInfo.removeAt(i);
-                    mRoleInfo.append(info);
+                    mRoleInfo.append(std::move(info));
                     found = true;
                     wasChanged = true;
                     break;
                 }
             }
             if (!found) { // Insert it.
-                mRoleInfo.append(info);
+                mRoleInfo.append(std::move(info));
                 wasChanged = true;
             }
         } else {

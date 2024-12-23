@@ -56,7 +56,7 @@ void AppsMarketPlaceInfo::parsePermissions(const QJsonArray &array)
     for (const QJsonValue &current : array) {
         Permission perm;
         perm.type = perm.convertStringToPermissionType(current["name"_L1].toString());
-        mPermissions.append(perm);
+        mPermissions.append(std::move(perm));
     }
 }
 

@@ -49,7 +49,7 @@ void MessageUrls::parseMessageUrls(const QJsonArray &urls, const QByteArray &mes
         messageUrl.setUrlId(MessageUtils::generateUniqueId(messageId, i));
         messageUrl.parseUrl(url);
         if (!messageUrl.isEmpty()) {
-            mMessageUrls.append(messageUrl);
+            mMessageUrls.append(std::move(messageUrl));
         }
     }
 }
