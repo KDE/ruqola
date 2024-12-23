@@ -51,7 +51,6 @@
 #include "channels/createchanneljob.h"
 #include "channels/getchannelrolesjob.h"
 #include "channels/leavechanneljob.h"
-#include "channels/setchanneltypejob.h"
 #include "channels/setjoincodechanneljob.h"
 
 #include "groups/creategroupsjob.h"
