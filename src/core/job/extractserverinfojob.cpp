@@ -70,7 +70,7 @@ void ExtractServerInfoJob::start()
                 config.addRuqolaAuthenticationSupport(abstractPlugin->authenticationType());
             }
             QList<AuthenticationInfo> fillModel;
-            qDebug() << " before " << authenticationMethodInfos;
+            // qDebug() << " before " << authenticationMethodInfos;
             for (int i = 0, total = authenticationMethodInfos.count(); i < total; ++i) {
                 if (config.canShowAuthMethod(authenticationMethodInfos.at(i).oauthType())
                     || (authenticationMethodInfos.at(i).oauthType() == AuthenticationManager::AuthMethodType::PersonalAccessToken)) {
