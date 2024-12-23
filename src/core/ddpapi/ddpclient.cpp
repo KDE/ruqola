@@ -87,7 +87,7 @@ qint64 DDPClient::loadPublicSettings(qint64 timeStamp)
     if (timeStamp != -1) {
         // "params": [ { "$date": 1480377601 } ]
         params["$date"_L1] = timeStamp;
-        qDebug() << "RocketChatBackend::loadPublicSettings load from: " << params;
+        // qDebug() << "RocketChatBackend::loadPublicSettings load from: " << params;
         return method(QStringLiteral("public-settings/get"), params, DDPClient::MethodRequestedType::UpdatePublicsettings);
     } else {
         return method(QStringLiteral("public-settings/get"), params, DDPClient::MethodRequestedType::PublicSettings);
@@ -266,7 +266,7 @@ quint64 DDPClient::validateTempToken2fa(const QString &code)
 quint64 DDPClient::streamNotifyUserOtrAcknowledge(const QByteArray &roomId, const QByteArray &userId, const QString &publicKey)
 {
     const RocketChatMessage::RocketChatMessageResult result = mRocketChatMessage->streamNotifyUserOtrAcknowledge(roomId, userId, publicKey, mUid);
-    qDebug() << "streamNotifyUserOtrAcknowledge result " << result;
+    // qDebug() << "streamNotifyUserOtrAcknowledge result " << result;
     return method(result, DDPClient::MethodRequestedType::OtrEnd, DDPClient::MessageType::Persistent);
 }
 
@@ -708,7 +708,7 @@ void DDPClient::loadPrivateSettingsAdministrator(qint64 timeStamp)
         // "params": [ { "$date": 1480377601 } ]
         params["$date"_L1] = timeStamp;
     }
-    qDebug() << " params " << params;
+    // qDebug() << " params " << params;
     method(QStringLiteral("private-settings/get"), params, MethodRequestedType::PrivatesettingsAdministrator);
 }
 
@@ -723,7 +723,7 @@ void DDPClient::loadPublicSettingsAdministrator(qint64 timeStamp)
         // "params": [ { "$date": 1480377601 } ]
         params["$date"_L1] = timeStamp;
     }
-    qDebug() << " params " << params;
+    // qDebug() << " params " << params;
     method(QStringLiteral("public-settings/get"), params, MethodRequestedType::PublicsettingsAdministrator);
 }
 
