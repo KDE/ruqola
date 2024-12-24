@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-12-23 00:40+0000\n"
-"PO-Revision-Date: 2024-12-22 17:16+0200\n"
+"POT-Creation-Date: 2024-12-24 00:40+0000\n"
+"PO-Revision-Date: 2024-12-23 09:40+0200\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
 "Language: uk\n"
@@ -721,7 +721,7 @@ msgstr "(Останнє повідомлення: %1)"
 #: core/job/extractserverinfojob.cpp:28
 #, kde-format
 msgid "Missing server url."
-msgstr ""
+msgstr "Пропущено адресу сервера."
 
 #: core/job/extractserverinfojob.cpp:35
 #, kde-format
@@ -1772,7 +1772,7 @@ msgctxt "WARNING!!!!!!: PLEASE We need a space between after </strong>"
 msgid "<strong>%1</strong> are typing..."
 msgstr "<strong>%1</strong> вводить текст…"
 
-#: core/rocketchataccount.cpp:709
+#: core/rocketchataccount.cpp:711
 #, kde-format
 msgid ""
 "REST: %1\n"
@@ -1781,12 +1781,12 @@ msgstr ""
 "REST: %1\n"
 "DDP: %2"
 
-#: core/rocketchataccount.cpp:717 core/rocketchataccount.cpp:729
+#: core/rocketchataccount.cpp:719 core/rocketchataccount.cpp:731
 #, kde-format
 msgid "Not connected"
 msgstr "Не з'єднано"
 
-#: core/rocketchataccount.cpp:724
+#: core/rocketchataccount.cpp:726
 #, kde-format
 msgid "Not connected yet"
 msgstr "Ще не з'єднано"
@@ -7140,12 +7140,17 @@ msgstr "Найдавніші оновлення"
 msgid "All Status"
 msgstr "усі стани"
 
-#: widgets/applicationssettingsdialog/applicationssettingsversionwidget.cpp:71
+#: widgets/applicationssettingsdialog/applicationssettingsversionwidget.cpp:51
+#, kde-format
+msgid "Fetching version information in progress..."
+msgstr ""
+
+#: widgets/applicationssettingsdialog/applicationssettingsversionwidget.cpp:72
 #, kde-format
 msgid "No release information provided"
 msgstr "Даних щодо випуску не надано"
 
-#: widgets/applicationssettingsdialog/applicationssettingsversionwidget.cpp:80
+#: widgets/applicationssettingsdialog/applicationssettingsversionwidget.cpp:81
 #, kde-format
 msgid "No version info found."
 msgstr "Не знайдено відомостей щодо версії."

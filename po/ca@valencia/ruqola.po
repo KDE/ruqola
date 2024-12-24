@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-12-23 00:40+0000\n"
-"PO-Revision-Date: 2024-12-17 10:45+0100\n"
+"POT-Creation-Date: 2024-12-24 00:40+0000\n"
+"PO-Revision-Date: 2024-12-23 10:28+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca@valencia\n"
@@ -724,7 +724,7 @@ msgstr "(Últim missatge: %1)"
 #: core/job/extractserverinfojob.cpp:28
 #, kde-format
 msgid "Missing server url."
-msgstr ""
+msgstr "Falta l'URL del servidor."
 
 #: core/job/extractserverinfojob.cpp:35
 #, kde-format
@@ -1764,7 +1764,7 @@ msgctxt "WARNING!!!!!!: PLEASE We need a space between after </strong>"
 msgid "<strong>%1</strong> are typing..."
 msgstr "<strong>%1</strong> estan escrivint…"
 
-#: core/rocketchataccount.cpp:709
+#: core/rocketchataccount.cpp:711
 #, kde-format
 msgid ""
 "REST: %1\n"
@@ -1773,12 +1773,12 @@ msgstr ""
 "REST: %1\n"
 "DDP: %2"
 
-#: core/rocketchataccount.cpp:717 core/rocketchataccount.cpp:729
+#: core/rocketchataccount.cpp:719 core/rocketchataccount.cpp:731
 #, kde-format
 msgid "Not connected"
 msgstr "No connectat"
 
-#: core/rocketchataccount.cpp:724
+#: core/rocketchataccount.cpp:726
 #, kde-format
 msgid "Not connected yet"
 msgstr "Encara no connectat"
@@ -7115,12 +7115,17 @@ msgstr "Actualitzat menys recent"
 msgid "All Status"
 msgstr "Tots els estats"
 
-#: widgets/applicationssettingsdialog/applicationssettingsversionwidget.cpp:71
+#: widgets/applicationssettingsdialog/applicationssettingsversionwidget.cpp:51
+#, kde-format
+msgid "Fetching version information in progress..."
+msgstr ""
+
+#: widgets/applicationssettingsdialog/applicationssettingsversionwidget.cpp:72
 #, kde-format
 msgid "No release information provided"
 msgstr "No s'ha proporcionat informació del llançament"
 
-#: widgets/applicationssettingsdialog/applicationssettingsversionwidget.cpp:80
+#: widgets/applicationssettingsdialog/applicationssettingsversionwidget.cpp:81
 #, kde-format
 msgid "No version info found."
 msgstr "No s'ha trobat informació de la versió."
@@ -11592,7 +11597,7 @@ msgstr "Permet mostrar la configuració del mercat d'aplicacions"
 #: widgets/whatsnew/whatsnewtranslations.cpp:153
 #, kde-format
 msgid "Allow to search file from username and filename."
-msgstr ""
+msgstr "Permet buscar fitxers a partir del nom d'usuari i el nom de fitxer."
 
 #: widgets/whatsnew/whatsnewwidget.cpp:44
 #, kde-format

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-12-23 00:40+0000\n"
+"POT-Creation-Date: 2024-12-24 00:40+0000\n"
 "PO-Revision-Date: 2024-12-21 11:10+0100\n"
 "Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>\n"
 "Language-Team: Polish <kde-i18n-doc@kde.org>\n"
@@ -1764,7 +1764,7 @@ msgctxt "WARNING!!!!!!: PLEASE We need a space between after </strong>"
 msgid "<strong>%1</strong> are typing..."
 msgstr "<strong>%1</strong> pisze..."
 
-#: core/rocketchataccount.cpp:709
+#: core/rocketchataccount.cpp:711
 #, kde-format
 msgid ""
 "REST: %1\n"
@@ -1773,12 +1773,12 @@ msgstr ""
 "REST: %1\n"
 "DDP: %2"
 
-#: core/rocketchataccount.cpp:717 core/rocketchataccount.cpp:729
+#: core/rocketchataccount.cpp:719 core/rocketchataccount.cpp:731
 #, kde-format
 msgid "Not connected"
 msgstr "Niepodłączony"
 
-#: core/rocketchataccount.cpp:724
+#: core/rocketchataccount.cpp:726
 #, kde-format
 msgid "Not connected yet"
 msgstr "Jeszcze niepodłączony"
@@ -7106,12 +7106,17 @@ msgstr "Ostatnio uaktualnione"
 msgid "All Status"
 msgstr "Wszystkie dostępności"
 
-#: widgets/applicationssettingsdialog/applicationssettingsversionwidget.cpp:71
+#: widgets/applicationssettingsdialog/applicationssettingsversionwidget.cpp:51
+#, kde-format
+msgid "Fetching version information in progress..."
+msgstr ""
+
+#: widgets/applicationssettingsdialog/applicationssettingsversionwidget.cpp:72
 #, kde-format
 msgid "No release information provided"
 msgstr "Nie podano szczegółów wydania"
 
-#: widgets/applicationssettingsdialog/applicationssettingsversionwidget.cpp:80
+#: widgets/applicationssettingsdialog/applicationssettingsversionwidget.cpp:81
 #, kde-format
 msgid "No version info found."
 msgstr "Nie znaleziono szczegółowej wersji."

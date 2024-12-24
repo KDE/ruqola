@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-12-23 00:40+0000\n"
+"POT-Creation-Date: 2024-12-24 00:40+0000\n"
 "PO-Revision-Date: 2024-12-15 19:31+0530\n"
 "Last-Translator: kali <skkalwar999@gmail.com>\n"
 "Language-Team: Hindi <kde-i18n-doc@kde.org>\n"
@@ -1758,7 +1758,7 @@ msgctxt "WARNING!!!!!!: PLEASE We need a space between after </strong>"
 msgid "<strong>%1</strong> are typing..."
 msgstr "<strong>%1</strong> टाइप कर रहे हैं..."
 
-#: core/rocketchataccount.cpp:709
+#: core/rocketchataccount.cpp:711
 #, kde-format
 msgid ""
 "REST: %1\n"
@@ -1767,12 +1767,12 @@ msgstr ""
 "शेष: %1\n"
 "डीडीपी: %2"
 
-#: core/rocketchataccount.cpp:717 core/rocketchataccount.cpp:729
+#: core/rocketchataccount.cpp:719 core/rocketchataccount.cpp:731
 #, kde-format
 msgid "Not connected"
 msgstr "जुड़े नहीं हैं"
 
-#: core/rocketchataccount.cpp:724
+#: core/rocketchataccount.cpp:726
 #, kde-format
 msgid "Not connected yet"
 msgstr "अभी तक कनेक्ट नहीं हुआ"
@@ -7040,12 +7040,17 @@ msgstr "सबसे हाल ही में अपडेट किया ग
 msgid "All Status"
 msgstr "सभी स्थिति"
 
-#: widgets/applicationssettingsdialog/applicationssettingsversionwidget.cpp:71
+#: widgets/applicationssettingsdialog/applicationssettingsversionwidget.cpp:51
+#, kde-format
+msgid "Fetching version information in progress..."
+msgstr ""
+
+#: widgets/applicationssettingsdialog/applicationssettingsversionwidget.cpp:72
 #, kde-format
 msgid "No release information provided"
 msgstr "कोई रिलीज़ जानकारी उपलब्ध नहीं कराई गई"
 
-#: widgets/applicationssettingsdialog/applicationssettingsversionwidget.cpp:80
+#: widgets/applicationssettingsdialog/applicationssettingsversionwidget.cpp:81
 #, kde-format
 msgid "No version info found."
 msgstr "कोई संस्करण जानकारी नहीं मिली."

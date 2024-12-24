@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-12-23 00:40+0000\n"
-"PO-Revision-Date: 2024-12-19 22:25+0100\n"
+"POT-Creation-Date: 2024-12-24 00:40+0000\n"
+"PO-Revision-Date: 2024-12-23 17:02+0100\n"
 "Last-Translator: Adrián Chaves (Gallaecio) <adrian@chaves.io>\n"
 "Language-Team: Proxecto Trasno (proxecto@trasno.gal)\n"
 "Language: gl\n"
@@ -719,7 +719,7 @@ msgstr "(Última mensaxe: %1)"
 #: core/job/extractserverinfojob.cpp:28
 #, kde-format
 msgid "Missing server url."
-msgstr ""
+msgstr "Falta o URL do servidor."
 
 #: core/job/extractserverinfojob.cpp:35
 #, kde-format
@@ -1761,7 +1761,7 @@ msgctxt "WARNING!!!!!!: PLEASE We need a space between after </strong>"
 msgid "<strong>%1</strong> are typing..."
 msgstr "<strong>%1</strong> están escribindo…"
 
-#: core/rocketchataccount.cpp:709
+#: core/rocketchataccount.cpp:711
 #, kde-format
 msgid ""
 "REST: %1\n"
@@ -1770,12 +1770,12 @@ msgstr ""
 "REST: %1\n"
 "DDP: %2"
 
-#: core/rocketchataccount.cpp:717 core/rocketchataccount.cpp:729
+#: core/rocketchataccount.cpp:719 core/rocketchataccount.cpp:731
 #, kde-format
 msgid "Not connected"
 msgstr "Sen conexión"
 
-#: core/rocketchataccount.cpp:724
+#: core/rocketchataccount.cpp:726
 #, kde-format
 msgid "Not connected yet"
 msgstr "Aínda sen conexión"
@@ -7118,12 +7118,17 @@ msgstr "Actualizacións menos recentes"
 msgid "All Status"
 msgstr "Todos os estados"
 
-#: widgets/applicationssettingsdialog/applicationssettingsversionwidget.cpp:71
+#: widgets/applicationssettingsdialog/applicationssettingsversionwidget.cpp:51
+#, kde-format
+msgid "Fetching version information in progress..."
+msgstr ""
+
+#: widgets/applicationssettingsdialog/applicationssettingsversionwidget.cpp:72
 #, kde-format
 msgid "No release information provided"
 msgstr "Non se forneceu información de publicación."
 
-#: widgets/applicationssettingsdialog/applicationssettingsversionwidget.cpp:80
+#: widgets/applicationssettingsdialog/applicationssettingsversionwidget.cpp:81
 #, kde-format
 msgid "No version info found."
 msgstr "Non se atopou información da versión."
@@ -11600,6 +11605,8 @@ msgstr "Permitir amosar a configuración de mercado das aplicacións."
 #, kde-format
 msgid "Allow to search file from username and filename."
 msgstr ""
+"Permitir buscar nun ficheiro a partir do nome de persoa usuaria e nome de "
+"ficheiro."
 
 #: widgets/whatsnew/whatsnewwidget.cpp:44
 #, kde-format
