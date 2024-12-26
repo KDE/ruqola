@@ -5,11 +5,11 @@
 */
 
 #include "channelgroupbasejob.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "rocketchatqtrestapi_debug.h"
 #include <QUrlQuery>
 using namespace RocketChatRestApi;
+using namespace Qt::Literals::StringLiterals;
 ChannelGroupBaseJob::ChannelGroupBaseJob(QObject *parent)
     : RestApiAbstractJob(parent)
 {

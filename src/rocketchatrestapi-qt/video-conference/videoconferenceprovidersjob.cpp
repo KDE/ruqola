@@ -5,13 +5,13 @@
 */
 
 #include "videoconferenceprovidersjob.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "restapimethod.h"
 #include "rocketchatqtrestapi_debug.h"
 #include <QJsonDocument>
 #include <QJsonObject>
 using namespace RocketChatRestApi;
+using namespace Qt::Literals::StringLiterals;
 VideoConferenceProvidersJob::VideoConferenceProvidersJob(QObject *parent)
     : RestApiAbstractJob(parent)
 {

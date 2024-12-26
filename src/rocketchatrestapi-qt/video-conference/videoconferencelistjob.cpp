@@ -5,7 +5,6 @@
 */
 
 #include "videoconferencelistjob.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "restapimethod.h"
 #include "rocketchatqtrestapi_debug.h"
@@ -14,6 +13,7 @@ using namespace Qt::Literals::StringLiterals;
 #include <QUrlQuery>
 
 using namespace RocketChatRestApi;
+using namespace Qt::Literals::StringLiterals;
 VideoConferenceListJob::VideoConferenceListJob(QObject *parent)
     : RestApiAbstractJob(parent)
 {
