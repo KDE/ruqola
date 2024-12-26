@@ -65,9 +65,7 @@ void MyAccount2e2ConfigureWidget::slotResetE2EKey()
     info.anonymous = false;
     job->setMethodCallJobInfo(std::move(info));
     mRocketChatAccount->restApi()->initializeRestApiJob(job);
-    connect(job, &RocketChatRestApi::MethodCallJob::methodCallDone, this, [](const QJsonObject &replyObject) {
-        qDebug() << " replyObject " << replyObject;
-    });
+    connect(job, &RocketChatRestApi::MethodCallJob::methodCallDone, this, &MyAccount2e2ConfigureWidget::slotReset2E2KeyDone);
     if (!job->start()) {
         qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start ResetOwnE2eKeyJob job";
     }
