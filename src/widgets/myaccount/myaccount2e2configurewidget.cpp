@@ -53,16 +53,6 @@ MyAccount2e2ConfigureWidget::MyAccount2e2ConfigureWidget(RocketChatAccount *acco
     mainLayout->addStretch(1);
 }
 
-void MyAccount2e2ConfigureWidget::save()
-{
-    // TODO
-}
-
-void MyAccount2e2ConfigureWidget::load()
-{
-    // TODO
-}
-
 MyAccount2e2ConfigureWidget::~MyAccount2e2ConfigureWidget() = default;
 
 void MyAccount2e2ConfigureWidget::slotResetE2EKey()

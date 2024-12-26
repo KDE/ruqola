@@ -19,9 +19,6 @@ public:
     explicit MyAccount2e2ConfigureWidget(RocketChatAccount *account, QWidget *parent = nullptr);
     ~MyAccount2e2ConfigureWidget() override;
 
-    void save();
-    void load();
-
 private:
     LIBRUQOLAWIDGETS_NO_EXPORT void slotReset2E2KeyDone(const QJsonObject &replyObject);
     LIBRUQOLAWIDGETS_NO_EXPORT void slotResetE2EKey();

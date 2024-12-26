@@ -77,9 +77,6 @@ void MyAccountConfigureWidget::save()
         if (mRocketChatAccount->twoFactorAuthenticationEnabled()) {
             mMyAccount2FaConfigureWidget->save();
         }
-        if (mRocketChatAccount->encryptionEnabled()) {
-            mMyAccount2e2ConfigureWidget->save();
-        }
     }
 }
 
@@ -92,9 +89,6 @@ void MyAccountConfigureWidget::load()
         }
         if (mRocketChatAccount->twoFactorAuthenticationEnabled()) {
             mMyAccount2FaConfigureWidget->load();
-        }
-        if (mRocketChatAccount->encryptionEnabled()) {
-            mMyAccount2e2ConfigureWidget->load();
         }
     }
 }
