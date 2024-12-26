@@ -204,7 +204,6 @@ void AppsMarketPlaceInfo::parseAppsMarketPlaceInfo(const QJsonObject &replyObjec
     mModifiedDate = Utils::parseIsoDate("modifiedAt"_L1, replyObject);
 
     parsePrincingPlan(replyObject["pricingPlans"_L1].toArray());
-    // TODO implement plans support
     mPrice = replyObject["price"_L1].toInt();
 
     const QJsonObject latestObj = replyObject["latest"_L1].toObject();
