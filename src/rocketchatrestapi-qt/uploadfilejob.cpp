@@ -5,7 +5,6 @@
 */
 
 #include "uploadfilejob.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "restapimethod.h"
 #include "rocketchatqtrestapi_debug.h"
@@ -17,6 +16,7 @@ using namespace Qt::Literals::StringLiterals;
 #include <QMimeDatabase>
 #include <QNetworkReply>
 
+using namespace Qt::Literals::StringLiterals;
 using namespace RocketChatRestApi;
 
 UploadFileJob::UploadFileJob(QObject *parent)

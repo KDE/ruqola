@@ -5,7 +5,6 @@
 */
 
 #include "markroomasunreadjob.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "restapimethod.h"
 #include "rocketchatqtrestapi_debug.h"
@@ -13,6 +12,7 @@ using namespace Qt::Literals::StringLiterals;
 #include <KLocalizedString>
 #include <QJsonDocument>
 #include <QJsonObject>
+using namespace Qt::Literals::StringLiterals;
 using namespace RocketChatRestApi;
 MarkRoomAsUnReadJob::MarkRoomAsUnReadJob(QObject *parent)
     : RestApiAbstractJob(parent)

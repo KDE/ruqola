@@ -5,7 +5,6 @@
 */
 
 #include "updateadminsettingsjob.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "restapimethod.h"
 
@@ -14,6 +13,7 @@ using namespace Qt::Literals::StringLiterals;
 #include <QJsonDocument>
 #include <QJsonObject>
 using namespace RocketChatRestApi;
+using namespace Qt::Literals::StringLiterals;
 UpdateAdminSettingsJob::UpdateAdminSettingsJob(QObject *parent)
     : RestApiAbstractJob(parent)
 {

@@ -5,13 +5,13 @@
 */
 
 #include "roomsinfojob.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "restapimethod.h"
 #include "rocketchatqtrestapi_debug.h"
 #include <QJsonDocument>
 #include <QJsonObject>
 #include <QUrlQuery>
+using namespace Qt::Literals::StringLiterals;
 using namespace RocketChatRestApi;
 RoomsInfoJob::RoomsInfoJob(QObject *parent)
     : RestApiAbstractJob(parent)
