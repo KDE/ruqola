@@ -5,7 +5,6 @@
 */
 
 #include "messagedelegatehelpertext.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "colorsandmessageviewstyle.h"
 #include "delegateutils/messagedelegateutils.h"
@@ -28,6 +27,7 @@ using namespace Qt::Literals::StringLiterals;
 #include <QStyleOptionViewItem>
 #include <QToolTip>
 
+using namespace Qt::Literals::StringLiterals;
 MessageDelegateHelperText::MessageDelegateHelperText(RocketChatAccount *account, QListView *view, TextSelectionImpl *textSelectionImpl)
     : MessageDelegateHelperBase(account, view, textSelectionImpl)
 {

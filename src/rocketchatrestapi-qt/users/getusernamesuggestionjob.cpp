@@ -5,11 +5,11 @@
 */
 
 #include "getusernamesuggestionjob.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "restapimethod.h"
 #include <QJsonDocument>
 #include <QJsonObject>
+using namespace Qt::Literals::StringLiterals;
 using namespace RocketChatRestApi;
 GetUsernameSuggestionJob::GetUsernameSuggestionJob(QObject *parent)
     : RestApiAbstractJob(parent)

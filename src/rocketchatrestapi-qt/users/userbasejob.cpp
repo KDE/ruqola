@@ -5,11 +5,11 @@
 */
 
 #include "userbasejob.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "rocketchatqtrestapi_debug.h"
 #include <QJsonObject>
 #include <QUrlQuery>
+using namespace Qt::Literals::StringLiterals;
 using namespace RocketChatRestApi;
 
 UserBaseJob::UserBaseJob(QObject *parent)

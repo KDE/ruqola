@@ -5,7 +5,6 @@
 */
 
 #include "setavatarjob.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "restapimethod.h"
 #include "rocketchatqtrestapi_debug.h"
@@ -18,6 +17,7 @@ using namespace Qt::Literals::StringLiterals;
 #include <QJsonObject>
 #include <QMimeDatabase>
 #include <QNetworkReply>
+using namespace Qt::Literals::StringLiterals;
 using namespace RocketChatRestApi;
 SetAvatarJob::SetAvatarJob(QObject *parent)
     : UserBaseJob(parent)

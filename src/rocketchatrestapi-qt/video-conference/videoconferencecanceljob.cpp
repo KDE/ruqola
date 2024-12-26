@@ -5,13 +5,13 @@
 */
 
 #include "videoconferencecanceljob.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "restapimethod.h"
 #include "rocketchatqtrestapi_debug.h"
 
 #include <QJsonDocument>
 #include <QJsonObject>
+using namespace Qt::Literals::StringLiterals;
 using namespace RocketChatRestApi;
 VideoConferenceCancelJob::VideoConferenceCancelJob(QObject *parent)
     : RestApiAbstractJob(parent)

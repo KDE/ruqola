@@ -5,7 +5,6 @@
 */
 
 #include "viewlogwidget.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "config-ruqola.h"
 #include "connection.h"
@@ -19,6 +18,7 @@ using namespace Qt::Literals::StringLiterals;
 #include <QScrollBar>
 #include <QVBoxLayout>
 
+using namespace Qt::Literals::StringLiterals;
 ViewLogWidget::ViewLogWidget(RocketChatAccount *account, QWidget *parent)
     : QWidget(parent)
     , mPlainTextEdit(new ViewLogPlainTextEdit(this))

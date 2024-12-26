@@ -5,7 +5,6 @@
 */
 
 #include "messagetextedit.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "common/commandcompletiondelegate.h"
 #include "common/completionlistview.h"
@@ -32,6 +31,7 @@ using namespace Qt::Literals::StringLiterals;
 #if HAVE_TEXT_AUTOCORRECTION_WIDGETS
 #include <TextAutoCorrectionCore/AutoCorrection>
 #endif
+using namespace Qt::Literals::StringLiterals;
 
 MessageTextEdit::MessageTextEdit(QWidget *parent)
     : KTextEdit(parent)
