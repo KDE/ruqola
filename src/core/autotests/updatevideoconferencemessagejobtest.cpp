@@ -8,7 +8,7 @@
 #include "videoconference/updatevideoconferencemessagejob.h"
 #include <QTest>
 
-QTEST_MAIN(UpdateVideoConferenceMessageJobTest)
+QTEST_GUILESS_MAIN(UpdateVideoConferenceMessageJobTest)
 
 UpdateVideoConferenceMessageJobTest::UpdateVideoConferenceMessageJobTest(QObject *parent)
     : QObject{parent}

@@ -9,7 +9,7 @@
 #include "ruqola_autotest_helper.h"
 #include <QTest>
 using namespace Qt::Literals::StringLiterals;
-QTEST_MAIN(AppsCountInfoTest)
+QTEST_GUILESS_MAIN(AppsCountInfoTest)
 AppsCountInfoTest::AppsCountInfoTest(QObject *parent)
     : QObject{parent}
 {

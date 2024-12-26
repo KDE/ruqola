@@ -7,7 +7,7 @@
 #include "rolesmodeltest.h"
 #include "model/rolesmodel.h"
 #include <QTest>
-QTEST_MAIN(RolesModelTest)
+QTEST_GUILESS_MAIN(RolesModelTest)
 RolesModelTest::RolesModelTest(QObject *parent)
     : QObject(parent)
 {

@@ -7,7 +7,7 @@
 #include "videoconferencenotificationjobtest.h"
 #include "videoconference/videoconferencenotificationjob.h"
 #include <QTest>
-QTEST_MAIN(VideoConferenceNotificationJobTest)
+QTEST_GUILESS_MAIN(VideoConferenceNotificationJobTest)
 
 VideoConferenceNotificationJobTest::VideoConferenceNotificationJobTest(QObject *parent)
     : QObject{parent}

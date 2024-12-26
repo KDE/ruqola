@@ -7,7 +7,7 @@
 #include "statusmodelfilterproxymodeltest.h"
 #include "model/statusmodelfilterproxymodel.h"
 #include <QTest>
-QTEST_MAIN(StatusModelFilterProxyModelTest)
+QTEST_GUILESS_MAIN(StatusModelFilterProxyModelTest)
 StatusModelFilterProxyModelTest::StatusModelFilterProxyModelTest(QObject *parent)
     : QObject(parent)
 {

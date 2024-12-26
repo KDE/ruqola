@@ -7,7 +7,7 @@
 #include "videoconferencemessageinfomanagertest.h"
 #include "videoconference/videoconferencemessageinfomanager.h"
 #include <QTest>
-QTEST_MAIN(VideoConferenceMessageInfoManagerTest)
+QTEST_GUILESS_MAIN(VideoConferenceMessageInfoManagerTest)
 VideoConferenceMessageInfoManagerTest::VideoConferenceMessageInfoManagerTest(QObject *parent)
     : QObject{parent}
 {

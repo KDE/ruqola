@@ -7,7 +7,7 @@
 #include "managelocaldatabasetest.h"
 #include "managelocaldatabase.h"
 #include <QTest>
-QTEST_MAIN(ManageLocalDatabaseTest)
+QTEST_GUILESS_MAIN(ManageLocalDatabaseTest)
 ManageLocalDatabaseTest::ManageLocalDatabaseTest(QObject *parent)
     : QObject{parent}
 {

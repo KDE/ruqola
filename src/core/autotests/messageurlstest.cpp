@@ -7,7 +7,7 @@
 #include "messageurlstest.h"
 #include "messages/messageurls.h"
 #include <QTest>
-QTEST_MAIN(MessageUrlsTest)
+QTEST_GUILESS_MAIN(MessageUrlsTest)
 
 MessageUrlsTest::MessageUrlsTest(QObject *parent)
     : QObject{parent}

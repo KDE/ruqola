@@ -6,7 +6,7 @@
 #include "encryptionutilstest.h"
 #include "encryption/encryptionutils.h"
 #include <QTest>
-QTEST_MAIN(EncryptionUtilsTest)
+QTEST_GUILESS_MAIN(EncryptionUtilsTest)
 EncryptionUtilsTest::EncryptionUtilsTest(QObject *parent)
     : QObject{parent}
 {

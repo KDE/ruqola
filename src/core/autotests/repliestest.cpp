@@ -7,7 +7,7 @@
 #include "repliestest.h"
 #include "messages/replies.h"
 #include <QTest>
-QTEST_MAIN(RepliesTest)
+QTEST_GUILESS_MAIN(RepliesTest)
 
 RepliesTest::RepliesTest(QObject *parent)
     : QObject{parent}

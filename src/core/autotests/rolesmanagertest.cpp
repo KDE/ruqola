@@ -10,7 +10,7 @@
 #include <QJsonArray>
 #include <QSignalSpy>
 using namespace Qt::Literals::StringLiterals;
-QTEST_MAIN(RolesManagerTest)
+QTEST_GUILESS_MAIN(RolesManagerTest)
 RolesManagerTest::RolesManagerTest(QObject *parent)
     : QObject{parent}
 {
