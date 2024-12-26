@@ -22,7 +22,7 @@ void ApplicationsSettingsSettingsInfo::parseSettings(const QJsonObject &obj)
     } else if (mSettingType == ApplicationsSettingsSettingsInfo::SettingType::Boolean) {
         mPackageValue = obj["packageValue"_L1].toBool() ? QStringLiteral("true") : QStringLiteral("false");
     } else {
-        qCWarning(RUQOLA_LOG) << "Unknown type ";
+        qCWarning(RUQOLA_LOG) << "Unknown type " << obj["packageValue"_L1];
     }
 
     // TODO add createdAt/public/required/updatedAt
