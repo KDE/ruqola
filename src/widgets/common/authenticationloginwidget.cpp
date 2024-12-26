@@ -75,6 +75,7 @@ void AuthenticationLoginWidget::setAuthenticationLoginType(AuthenticationLoginTy
         break;
     case AuthenticationLoginType::Login:
         mAccountName->setReadOnly(true);
+        mAccountName->setClearButtonEnabled(false);
         break;
     }
 }
