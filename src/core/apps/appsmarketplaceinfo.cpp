@@ -278,7 +278,6 @@ void AppsMarketPlaceInfo::setCategories(const QStringList &newCategories)
 
 bool AppsMarketPlaceInfo::isValid() const
 {
-    // TODO
     return !mAppId.isEmpty() || mInstalledInfo.isValid();
 }
 
