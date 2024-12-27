@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-12-24 00:40+0000\n"
+"POT-Creation-Date: 2024-12-27 00:41+0000\n"
 "PO-Revision-Date: 2024-12-21 11:10+0100\n"
 "Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>\n"
 "Language-Team: Polish <kde-i18n-doc@kde.org>\n"
@@ -188,211 +188,211 @@ msgstr "miesiąc"
 msgid "year"
 msgstr "rok"
 
-#: core/apps/appsmarketplaceinfo.cpp:393 core/model/adminrolesmodel.cpp:40
+#: core/apps/appsmarketplaceinfo.cpp:391 core/model/adminrolesmodel.cpp:40
 #: widgets/administratorsettingsdialog/ircfederation/ircfederationwidget.cpp:50
 #: widgets/applicationssettingsdialog/applicationssettingsdescriptiontabwidget.cpp:36
 #, kde-format
 msgid "Description"
 msgstr "Opis"
 
-#: core/apps/appsmarketplaceinfo.cpp:402
+#: core/apps/appsmarketplaceinfo.cpp:400
 #: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:163
 #, kde-format
 msgid "Version"
 msgstr "Wersja"
 
-#: core/apps/appsmarketplaceinfo.cpp:405 core/model/appscategoriesmodel.cpp:34
+#: core/apps/appsmarketplaceinfo.cpp:403 core/model/appscategoriesmodel.cpp:34
 #, kde-format
 msgid "Categories"
 msgstr "Kategorie"
 
-#: core/apps/appsmarketplaceinfo.cpp:409
+#: core/apps/appsmarketplaceinfo.cpp:407
 #, kde-format
 msgid "Documentation"
 msgstr "Dokumentacja"
 
-#: core/apps/appsmarketplaceinfo.cpp:421
+#: core/apps/appsmarketplaceinfo.cpp:419
 #, kde-format
 msgid "Author"
 msgstr "Autor"
 
-#: core/apps/appsmarketplaceinfo.cpp:434
+#: core/apps/appsmarketplaceinfo.cpp:432
 #, kde-format
 msgid "Homepage"
 msgstr "Strona domowa"
 
-#: core/apps/appsmarketplaceinfo.cpp:446
+#: core/apps/appsmarketplaceinfo.cpp:444
 #, kde-format
 msgid "Support"
 msgstr "Wsparcie"
 
-#: core/apps/appsmarketplaceinfo.cpp:450
+#: core/apps/appsmarketplaceinfo.cpp:448
 #, kde-format
 msgid "Privacy Summary"
 msgstr "Podsumowanie prywatności"
 
-#: core/apps/appsmarketplaceinfo.cpp:454
+#: core/apps/appsmarketplaceinfo.cpp:452
 #: widgets/administratordialog/administratorwidget.cpp:74
 #, kde-format
 msgid "Permissions"
 msgstr "Uprawnienia"
 
-#: core/apps/appsmarketplaceinfo.cpp:583
+#: core/apps/appsmarketplaceinfo.cpp:581
 #, kde-format
 msgid "Access messages"
 msgstr "Dostęp do wiadomości"
 
-#: core/apps/appsmarketplaceinfo.cpp:585
+#: core/apps/appsmarketplaceinfo.cpp:583
 #, kde-format
 msgid "Send and modify messages"
 msgstr "Wyślij i zmień wiadomości"
 
-#: core/apps/appsmarketplaceinfo.cpp:587
+#: core/apps/appsmarketplaceinfo.cpp:585
 #, kde-format
 msgid "Access room information"
 msgstr "Dostęp do szczegółów o pokoju"
 
-#: core/apps/appsmarketplaceinfo.cpp:589
+#: core/apps/appsmarketplaceinfo.cpp:587
 #, kde-format
 msgid "Create and modify rooms"
 msgstr "Tworzenie i dostosowywanie pokojów"
 
-#: core/apps/appsmarketplaceinfo.cpp:591
+#: core/apps/appsmarketplaceinfo.cpp:589
 #, kde-format
 msgid "Access to this server network"
 msgstr "Dostęp do sieci tego serwera"
 
-#: core/apps/appsmarketplaceinfo.cpp:593
+#: core/apps/appsmarketplaceinfo.cpp:591
 #, kde-format
 msgid "Access user information"
 msgstr "Dostęp do szczegółów o użytkowniku"
 
-#: core/apps/appsmarketplaceinfo.cpp:595
+#: core/apps/appsmarketplaceinfo.cpp:593
 #, kde-format
 msgid "Modify user information"
 msgstr "Zmiana szczegółów o użytkowniku"
 
-#: core/apps/appsmarketplaceinfo.cpp:597
+#: core/apps/appsmarketplaceinfo.cpp:595
 #, kde-format
 msgid "Register new slash commands"
 msgstr "Rejestracja nowych poleceń slash"
 
-#: core/apps/appsmarketplaceinfo.cpp:599
+#: core/apps/appsmarketplaceinfo.cpp:597
 #, kde-format
 msgid "Register and maintain scheduled jobs"
 msgstr "Rejestracja i utrzymanie zaplanowanych zadań"
 
-#: core/apps/appsmarketplaceinfo.cpp:601
+#: core/apps/appsmarketplaceinfo.cpp:599
 #, kde-format
 msgid "Register new HTTP endpoints"
 msgstr "Rejestracja nowych punktów łączących HTTP"
 
-#: core/apps/appsmarketplaceinfo.cpp:603
+#: core/apps/appsmarketplaceinfo.cpp:601
 #, kde-format
 msgid "Access settings in this server"
 msgstr "Dostęp do ustawień na tym serwerze"
 
-#: core/apps/appsmarketplaceinfo.cpp:605
+#: core/apps/appsmarketplaceinfo.cpp:603
 #, kde-format
 msgid "Modify settings in this server"
 msgstr "Zmiana ustawień na tym serwerze"
 
-#: core/apps/appsmarketplaceinfo.cpp:607
+#: core/apps/appsmarketplaceinfo.cpp:605
 #, kde-format
 msgid "Upload files to this server"
 msgstr "Wysyłanie plików na ten serwer"
 
-#: core/apps/appsmarketplaceinfo.cpp:609
+#: core/apps/appsmarketplaceinfo.cpp:607
 #, kde-format
 msgid "Access files uploaded to this server"
 msgstr "Dostęp do plików wysyłanych na ten serwer"
 
-#: core/apps/appsmarketplaceinfo.cpp:611
+#: core/apps/appsmarketplaceinfo.cpp:609
 #, kde-format
 msgid "Interact with Cloud Services on behalf of this server"
 msgstr "Współdziałanie z usługami w chmurze na rzecz tego serwera"
 
-#: core/apps/appsmarketplaceinfo.cpp:613
+#: core/apps/appsmarketplaceinfo.cpp:611
 #, kde-format
 msgid "Access minimal information about this server environment"
 msgstr "Dostęp do podstawowych szczegółów o środowisku tego serwera"
 
-#: core/apps/appsmarketplaceinfo.cpp:615
+#: core/apps/appsmarketplaceinfo.cpp:613
 #, kde-format
 msgid "Access to multiple Livechat departments information"
 msgstr "Dostęp do szczegółów o wielu wydziałach Livechat"
 
-#: core/apps/appsmarketplaceinfo.cpp:617
+#: core/apps/appsmarketplaceinfo.cpp:615
 #, kde-format
 msgid "Access Livechat department information"
 msgstr "Dostęp do szczegółów o wydziale Livechat"
 
-#: core/apps/appsmarketplaceinfo.cpp:619
+#: core/apps/appsmarketplaceinfo.cpp:617
 #, kde-format
 msgid "Modify Livechat department information"
 msgstr "Zmiana szczegółów o wydziale Livechat"
 
-#: core/apps/appsmarketplaceinfo.cpp:621
+#: core/apps/appsmarketplaceinfo.cpp:619
 #, kde-format
 msgid "Modify Livechat room information"
 msgstr "Zmiana szczegółów o pokoju Livechat"
 
-#: core/apps/appsmarketplaceinfo.cpp:623
+#: core/apps/appsmarketplaceinfo.cpp:621
 #, kde-format
 msgid "Access Livechat room information"
 msgstr "Dostęp do szczegółów o pokoju Livechat"
 
-#: core/apps/appsmarketplaceinfo.cpp:625
+#: core/apps/appsmarketplaceinfo.cpp:623
 #, kde-format
 msgid "Modify Livechat message information"
 msgstr "Zmiana szczegółów wiadomości Livechat"
 
-#: core/apps/appsmarketplaceinfo.cpp:627
+#: core/apps/appsmarketplaceinfo.cpp:625
 #, kde-format
 msgid "Access Livechat message information"
 msgstr "Dostęp do szczegółów wiadomości Livechat"
 
-#: core/apps/appsmarketplaceinfo.cpp:629
+#: core/apps/appsmarketplaceinfo.cpp:627
 #, kde-format
 msgid "Modify Livechat visitor information"
 msgstr "Zmiana szczegółów odwiedzających Livechat"
 
-#: core/apps/appsmarketplaceinfo.cpp:631
+#: core/apps/appsmarketplaceinfo.cpp:629
 #, kde-format
 msgid "Access Livechat visitor information"
 msgstr "Dostęp do szczegółów odwiedzających Livechat"
 
-#: core/apps/appsmarketplaceinfo.cpp:633
+#: core/apps/appsmarketplaceinfo.cpp:631
 #, kde-format
 msgid "Access Livechat status information"
 msgstr "Szczegóły o dostępności w rozmowie na żywo"
 
-#: core/apps/appsmarketplaceinfo.cpp:635
+#: core/apps/appsmarketplaceinfo.cpp:633
 #, kde-format
 msgid "Interact with the UI"
 msgstr "Obsługa interfejsu użytkownika"
 
-#: core/apps/appsmarketplaceinfo.cpp:637
+#: core/apps/appsmarketplaceinfo.cpp:635
 #, kde-format
 msgid "Store internal data in the database"
 msgstr "Przechowuj dane wewnętrzne w bazie danych"
 
-#: core/apps/appsmarketplaceinfo.cpp:639
+#: core/apps/appsmarketplaceinfo.cpp:637
 #, kde-format
 msgid "Modify Livechat custom field configuration"
 msgstr "Ustawienia zmiany własnych pól Livechat"
 
-#: core/apps/appsmarketplaceinfo.cpp:649
+#: core/apps/appsmarketplaceinfo.cpp:647
 #, kde-format
 msgid "Allow to write oauth app settings"
 msgstr "Zezwól na zapis ustawień aplikacji OAuth"
 
-#: core/apps/appsmarketplaceinfo.cpp:651
+#: core/apps/appsmarketplaceinfo.cpp:649
 #, kde-format
 msgid "Allow to read oauth app settings"
 msgstr "Zezwól na odczyt ustawień aplikacji OAuth"
 
-#: core/apps/appsmarketplaceinfo.cpp:665
+#: core/apps/appsmarketplaceinfo.cpp:663
 #, kde-format
 msgid "Allow to send email"
 msgstr "Zezwól na wysyłanie pocztą"
@@ -643,8 +643,8 @@ msgstr "Brak"
 #: widgets/dialogs/createsoundmessagewidget.cpp:138
 #: widgets/dialogs/playsoundwidget.cpp:122
 #: widgets/dialogs/showvideowidget.cpp:122
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:258
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:266
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:257
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:265
 #, kde-format
 msgid "Default"
 msgstr "Domyślne"
@@ -1172,7 +1172,7 @@ msgstr "Rola"
 #: core/model/adminuserspendingmodel.cpp:131
 #: widgets/applicationssettingsdialog/applicationssettingsdelegate.cpp:174
 #: widgets/applicationssettingsdialog/applicationssettingsstatuscombobox.cpp:15
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:275
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:274
 #, kde-format
 msgid "Disabled"
 msgstr "Wyłączone"
@@ -1367,19 +1367,19 @@ msgstr[1] "%1 sekundy"
 msgstr[2] "%1 sekund"
 
 #: core/model/notificationpreferencemodel.cpp:51
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:244
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:243
 #, kde-format
 msgid "All Messages"
 msgstr "Wszystkie wiadomości"
 
 #: core/model/notificationpreferencemodel.cpp:57
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:246
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:245
 #, kde-format
 msgid "Mentions"
 msgstr "Wspomnienia"
 
 #: core/model/notificationpreferencemodel.cpp:63
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:248
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:247
 #, kde-format
 msgid "Nothing"
 msgstr "Nic"
@@ -7296,7 +7296,7 @@ msgstr "Nazwa użytkownika lub e-mail"
 msgid "Username or email:"
 msgstr "Nazwa użytkownika lub e-mail:"
 
-#: widgets/common/authenticationloginwidget.cpp:159
+#: widgets/common/authenticationloginwidget.cpp:160
 #: widgets/ruqolamainwindow.cpp:1039
 #, kde-format
 msgid ""
@@ -7307,7 +7307,7 @@ msgstr ""
 "Jeśli nie otrzymałeś tej wiadomości w krótkim czasie, to wróć tutaj i "
 "spróbuj ponownie"
 
-#: widgets/common/authenticationloginwidget.cpp:160
+#: widgets/common/authenticationloginwidget.cpp:161
 #: widgets/ruqolamainwindow.cpp:1040
 #, kde-format
 msgctxt "@title:window"
@@ -9444,98 +9444,98 @@ msgctxt "@title:window"
 msgid "Remove Token"
 msgstr "Usuń tokena"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:35
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:34
 #, kde-format
 msgctxt "@option:check"
 msgid "Receive login detection emails"
 msgstr "Wyślij mi pocztą próby logowania"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:36
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:35
 #, kde-format
 msgctxt "@option:check"
 msgid "Use Emojis"
 msgstr "Użyj Emoji"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:37
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:36
 #, kde-format
 msgctxt "@option:check"
 msgid "Convert Ascii to Emoji"
 msgstr "Przekształć Ascii na Emoji"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:38
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:37
 #, kde-format
 msgctxt "@option:check"
 msgid "Hide roles"
 msgstr "Ukryj role"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:39
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:38
 #, kde-format
 msgctxt "@option:check"
 msgid "Display avatars"
 msgstr "Pokaż awatary"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:40
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:39
 #, kde-format
 msgctxt "@option:check"
 msgid "Enable Auto Away"
 msgstr "Sam ustawiaj z dala od urządzenia"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:42
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:41
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Offline Email notification:"
 msgstr "Powiadomienia na pocztę o niedostępności:"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:46
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:45
 #, kde-format
 msgctxt "@option:check"
 msgid "Mute Focused Conversations"
 msgstr "Wycisz rozmowy tematyczne"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:59
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:58
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Highlight words:"
 msgstr "Podświetl słowa:"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:65
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:64
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Use ',' for separating words"
 msgstr "Stosuj ',' do oddzielania słów"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:66
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:65
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Separate each word with ','."
 msgstr "Oddziel każde słowo znakiem ','."
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:75
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:74
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Desktop notification:"
 msgstr "Powiadomienia na pulpicie:"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:87
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:86
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Push notification:"
 msgstr "Powiadomienia push:"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:94
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:93
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Receive an email each time a new login is detected on your account."
 msgstr ""
 "Wyślij do siebie wiadomość pocztową za każdym zalogowaniem na swoje konto."
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:113
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:112
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Idle Time Limit:"
 msgstr "Granica czasu bezczynności:"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:119
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:118
 #, kde-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -9544,37 +9544,37 @@ msgstr ""
 "Czas po którym stan zmieni się na z dala od urządzenia. Wartość należy podać "
 "w sekundach."
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:132
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:131
 #, kde-format
 msgctxt "@label:textbox"
 msgid "New Room Notification:"
 msgstr "Powiadomienie o nowym pokoju:"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:138
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:137
 #, kde-format
 msgctxt "@label:textbox"
 msgid "New Message Notification:"
 msgstr "Powiadomienie o nowej wiadomości:"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:148
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:147
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Notifications sound volume:"
 msgstr "Głośność powiadomień dźwiękowych:"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:179
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:178
 #, kde-format
 msgctxt "@action:button"
 msgid "Download my Data (HTML)"
 msgstr "Pobierz moje dane (HTML)"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:186
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:185
 #, kde-format
 msgctxt "@action:button"
 msgid "Export my Data (JSON)"
 msgstr "Wyeksportuj moje dane (JSON)"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:237
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:236
 #, kde-format
 msgid ""
 "Your data file will be generated. A link to download it will be sent to your "
@@ -9583,29 +9583,29 @@ msgstr ""
 "Twój plik danych zostanie utworzony, a następnie drogą pocztową dostaniesz "
 "odnośnik do jego pobrania."
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:238
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:237
 #, kde-format
 msgctxt "@title:window"
 msgid "Download File Requested"
 msgstr "Zażądano pobrania pliku"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:257
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:265
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:256
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:264
 #, kde-format
 msgid "Default (%1)"
 msgstr "Domyślne (%1)"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:273
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:272
 #, kde-format
 msgid "Default (Every Mention/DM)"
 msgstr "Domyślny (Każda wzmianka/wiadomość bezpośrednia)"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:274
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:273
 #, kde-format
 msgid "Every Mention/DM"
 msgstr "Każde wspomnienie/wiadomość bezpośrednia"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:278
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:277
 #, kde-format
 msgid "Your Rocket.Chat administrator has disabled email notifications"
 msgstr ""
