@@ -61,7 +61,7 @@ void SoundConfigureWidget::slotPlaySound()
             index += 2;
         }
         const QByteArray identifier = mDesktopSoundModel->currentPreference(index);
-        if (!identifier.isEmpty() || identifier != "none") {
+        if (!identifier.isEmpty() || identifier != QByteArrayView("none")) {
             mRocketChatAccount->playSound(identifier);
         }
     }
