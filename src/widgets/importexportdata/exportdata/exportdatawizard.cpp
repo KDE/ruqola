@@ -34,8 +34,8 @@ ExportDataWizard::ExportDataWizard(QWidget *parent)
     mExportDataSelectAccountPage->setObjectName(QStringLiteral("mExportDataSelectAccountPage"));
     mExportDataFinishPage->setObjectName(QStringLiteral("mExportDataFinishPage"));
 
-    setPage(SelectAccountPage, mExportDataSelectAccountPage);
-    setPage(FinishPage, mExportDataFinishPage);
+    setPage(int(ExportDataWizard::ExportDataEnum::SelectAccountPage), mExportDataSelectAccountPage);
+    setPage(int(ExportDataWizard::ExportDataEnum::FinishPage), mExportDataFinishPage);
 
     readConfig();
     loadAccountInfo();
@@ -82,7 +82,7 @@ void ExportDataWizard::loadAccountInfo()
 
 void ExportDataWizard::slotCurrentIdChanged(int id)
 {
-    if (id == FinishPage) {
+    if (id == int(ExportDataWizard::ExportDataEnum::FinishPage)) {
         mExportDataFinishPage->setListAccounts(mExportDataSelectAccountPage->selectedAccounts());
         // qDebug() << " selected account " << mExportDataSelectAccountPage->selectedAccounts();
         QTimer::singleShot(200ms, this, &ExportDataWizard::exportAccounts);
