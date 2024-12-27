@@ -8,7 +8,7 @@
 
 #include <QDialog>
 
-#include "users/userscreatejob.h"
+#include "createupdateuserinfo.h"
 
 #include "libruqolawidgets_private_export.h"
 class AdministratorAddUserWidget;
