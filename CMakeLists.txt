@@ -54,8 +54,6 @@ option(OPTION_DISABLE_NETWORKMANAGER "Disable Network Manager support (mainly fo
 # -fhardened increase compilation time and produce a lot of warning
 option(OPTION_DISABLE_HARDENED_OPTIMIZATION "Disable -fhardened" OFF)
 
-
-
 if(OPTION_USE_PLASMA_ACTIVITIES)
     if(NOT WIN32 AND NOT APPLE)
         set(OPTION_USE_PLASMA_ACTIVITIES true)
@@ -106,11 +104,9 @@ if(UNITY_SUPPORT)
     set(HAVE_UNITY_SUPPORT true)
 endif()
 
-
 set(KTEXTADDONS_MIN_VERSION "1.5.4")
 set(KLLMWIDGETS_VERSION "0.1.0")
 set(QT6KEYCHAIN_LIB_VERSION "0.14.2")
-
 
 find_package(Qt6 ${REQUIRED_QT_VERSION} REQUIRED COMPONENTS Core Gui Widgets WebSockets Network NetworkAuth MultimediaWidgets Sql)
 
@@ -319,4 +315,3 @@ endif()
 feature_summary(WHAT ALL FATAL_ON_MISSING_REQUIRED_PACKAGES)
 file(GLOB_RECURSE ALL_SOURCE_FILES src/widgets/*.cpp src/widgets/*.h src/rocketchatrestapi-qt/*.cpp src/rocketchatrestapi-qt/*.h  src/core/*.cpp src/core/*.h  src/plugins/*.cpp src/plugins/*.h tests/*.cpp tests/*.h)
 ecm_check_outbound_license(LICENSES GPL-2.0-only  FILES ${ALL_SOURCE_FILES})
-
