@@ -38,9 +38,6 @@ Dependencies:
 - 'on': ['Linux', 'FreeBSD']
   'require':
     'plasma/plasma-activities': '@latest-kf6'
-
-- 'on': ['Linux', 'FreeBSD']
-  'require':
     'frameworks/kdbusaddons': '@latest-kf6'
     'frameworks/purpose': '@latest-kf6'
 
