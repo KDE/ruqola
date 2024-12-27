@@ -109,34 +109,6 @@ public:
     quint64 subscribe(const QString &collection, const QJsonArray &params);
 
     /**
-     * @brief Registers a @class DDPManager object to an event, represented by
-     *   a (collection name, event name) pair.
-     *
-     * @param collection the name of the collection to which the event belongs
-     * @param event the name of the event to which subscribe the @class DDPManager object
-     * @param ddpManager the @class DDPManager instance that will process event messages
-     * @param subscriptionId a manager specific id that helps the manager keep track of
-     *   the subscription
-     */
-    void registerSubscriber(const QString &collection, const QString &event, DDPManager *ddpManager, int subscriptionId);
-
-    /**
-     * @brief Deregisters a @class DDPManager object to from a given event, represented by
-     *   a (collection name, event name) pair.
-     *
-     *   The (collection, event) pair should be enough to deregister the subscribed manager,
-     *   but the extra parameters are helpful to debug if subscription/unsubscription parameters
-     *   don't match.
-     *
-     * @param collection the name of the collection to which the event belongs
-     * @param event the name of the event to which subscribe the @class DDPManager object
-     * @param ddpManager the @class DDPManager instance that will process event messages
-     * @param subscriptionId a manager specific id that helps the manager keep track of
-     *   the subscription
-     */
-    void deregisterSubscriber(const QString &collection, const QString &event, DDPManager *ddpManager, int subscriptionId);
-
-    /**
      * @brief Calls a method on the websocket and registers the DDPManager invoking it
      *   for later response dispatching.
      *

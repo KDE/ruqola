@@ -435,51 +435,6 @@ quint64 DDPClient::subscribe(const QString &collection, const QJsonArray &params
     return registerId;
 }
 
-void DDPClient::registerSubscriber(const QString &collection, const QString &event, DDPManager *ddpManager, int subscriptionId)
-{
-    const QPair<QString, QString> &key{collection, event};
-
-    if (mEventSubscriptionHash.contains(key)) {
-        qCCritical(RUQOLA_DDPAPI_LOG) << "ERROR! Another manager is subscribed to this event, registration failed.";
-        return;
-    }
-
-    mEventSubscriptionHash[key] = {ddpManager, subscriptionId};
-    // Registering the client through its existing subscribe API
-    // TODO: check how useCollection and args are used
-    const QString params = QStringLiteral(R"([
-    "%1",
-    {
-        "useCollection": false,
-        "args": []
-    }
-])")
-                               .arg(event);
-
-    subscribe(collection, Utils::strToJsonArray(params));
-}
-
-void DDPClient::deregisterSubscriber(const QString &collection, const QString &event, DDPManager *ddpManager, int subscriptionId)
-{
-    const QPair<QString, QString> key{collection, event};
-
-    if (!mEventSubscriptionHash.contains(key)) {
-        qCWarning(RUQOLA_DDPAPI_LOG) << "No DDPManager is subscribed to this event" << key;
-        return;
-    }
-
-    const QPair<DDPManager *, int> subscriptionParams = mEventSubscriptionHash.value(key);
-    const auto unsubscriptionParams = QPair<DDPManager *, int>{ddpManager, subscriptionId};
-    if (subscriptionParams != unsubscriptionParams) {
-        qCWarning(RUQOLA_DDPAPI_LOG) << "Unsubscription parameters don't match subscription parameters.";
-        qCWarning(RUQOLA_DDPAPI_LOG).space() << "Subscription parameters: " << subscriptionParams << ", unsubscription parameters: " << unsubscriptionParams;
-        return;
-    }
-
-    qCDebug(RUQOLA_DDPAPI_LOG) << "Subscription to event" << key << "was removed successfully.";
-    mEventSubscriptionHash.remove(key);
-}
-
 quint64 DDPClient::invokeMethodAndRegister(const QString &methodName, const QJsonArray &params, DDPManager *ddpManager, int operationId)
 {
     qCDebug(RUQOLA_DDPAPI_LOG) << "invoked with" << methodName << params;
