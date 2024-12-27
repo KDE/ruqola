@@ -323,5 +323,6 @@ private:
     RocketChatMessage *mRocketChatMessage = nullptr;
     DDPAuthenticationManager *mAuthenticationManager = nullptr;
     std::unique_ptr<DDPClientAccountParameter> mDDPClientAccountParameter;
+    QList<qint64> mSubscribeIdentifiers;
     bool mLoginEnqueued = false;
 };

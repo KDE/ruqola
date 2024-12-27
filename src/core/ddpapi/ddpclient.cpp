@@ -137,14 +137,14 @@ void DDPClient::subscribeRoomMessage(const QByteArray &roomId)
     const QString rId = QString::fromLatin1(roomId);
     QJsonArray params;
     params.append(QJsonValue(rId));
-    subscribe(QStringLiteral("stream-room-messages"), params);
+    mSubscribeIdentifiers.append(subscribe(QStringLiteral("stream-room-messages"), params));
 
     const QJsonArray params2{QJsonValue(QStringLiteral("%1/%2").arg(rId, QStringLiteral("deleteMessage")))};
-    subscribe(QStringLiteral("stream-notify-room"), params2);
+    mSubscribeIdentifiers.append(subscribe(QStringLiteral("stream-notify-room"), params2));
     const QJsonArray params3{QJsonValue(QStringLiteral("%1/%2").arg(rId, QStringLiteral("deleteMessageBulk")))};
-    subscribe(QStringLiteral("stream-notify-room"), params3);
+    mSubscribeIdentifiers.append(subscribe(QStringLiteral("stream-notify-room"), params3));
     const QJsonArray params4{QJsonValue(QStringLiteral("%1/%2").arg(rId, QStringLiteral("user-activity")))}; // It seems that it's the new "typing"
-    subscribe(QStringLiteral("stream-notify-room"), params4);
+    mSubscribeIdentifiers.append(subscribe(QStringLiteral("stream-notify-room"), params4));
 }
 
 quint64 DDPClient::openDirectChannel(const QString &userId)
@@ -431,6 +431,7 @@ quint64 DDPClient::subscribe(const QString &collection, const QJsonArray &params
         qCDebug(RUQOLA_DDPAPI_COMMAND_LOG) << "Successfully sent " << json;
     }
     mUid++;
+    mSubscribeIdentifiers.append(registerId);
     return registerId;
 }
 
