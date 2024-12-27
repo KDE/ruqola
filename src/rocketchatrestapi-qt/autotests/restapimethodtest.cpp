@@ -401,6 +401,7 @@ void RestApiMethodTest::shouldGenerateUrl()
     QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::UsersListByStatus), QUrl(QStringLiteral("http://www.kde.org/api/v1/users.listByStatus")));
     QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::UsersSendWelcomeEmail), QUrl(QStringLiteral("http://www.kde.org/api/v1/users.sendWelcomeEmail")));
     QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::Empty), QUrl(QStringLiteral("http://www.kde.org/api/v1/")));
+    QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::RoomsImages), QUrl(QStringLiteral("http://www.kde.org/api/v1/rooms.images")));
 }
 
 #include "moc_restapimethodtest.cpp"

@@ -618,6 +618,8 @@ QString RestApiUtil::restUrl(RestApiUtil::RestApiUrlType type)
         return QStringLiteral("users.sendWelcomeEmail");
     case RestApiUtil::RestApiUrlType::Empty:
         return {};
+    case RestApiUtil::RestApiUrlType::RoomsImages:
+        return QStringLiteral("rooms.images");
     }
     qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Unknown RestApiUtil::RestApiUrlType " << static_cast<int>(type);
     return {};

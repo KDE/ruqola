@@ -380,6 +380,9 @@ enum class RestApiUrlType {
 
     // Used by apps info => we need empty string here.
     Empty,
+
+    // rooms.images
+    RoomsImages,
 };
 LIBROCKETCHATRESTAPI_QT_EXPORT QString adaptUrl(const QString &url);
 LIBROCKETCHATRESTAPI_QT_EXPORT QString restUrl(RestApiUtil::RestApiUrlType type);
