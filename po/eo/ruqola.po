@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-12-19 02:30+0000\n"
+"POT-Creation-Date: 2024-12-27 02:34+0000\n"
 "PO-Revision-Date: 2024-05-30 07:49+0200\n"
 "Last-Translator: Oliver Kellogg <olivermkellogg@gmail.com>\n"
 "Language-Team: Esperanto <kde-i18n-eo.org>\n"
@@ -7518,7 +7518,7 @@ msgstr "Uzantnomo aŭ retpoŝto"
 msgid "Username or email:"
 msgstr "Uzantnomo aŭ retpoŝto"
 
-#: widgets/common/authenticationloginwidget.cpp:159
+#: widgets/common/authenticationloginwidget.cpp:160
 #: widgets/ruqolamainwindow.cpp:1043
 #, kde-format
 msgid ""
@@ -7528,7 +7528,7 @@ msgstr ""
 "Ni sendis al vi retmesaĝon por konfirmi vian registradon.\n"
 "Se vi ne ricevas retmesaĝon baldaŭ, bonvolu reveni kaj provi denove."
 
-#: widgets/common/authenticationloginwidget.cpp:160
+#: widgets/common/authenticationloginwidget.cpp:161
 #: widgets/ruqolamainwindow.cpp:1044
 #, fuzzy, kde-format
 #| msgid "Register New User"

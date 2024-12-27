@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-12-19 02:30+0000\n"
+"POT-Creation-Date: 2024-12-27 02:34+0000\n"
 "PO-Revision-Date: 2024-05-24 11:20+0200\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
@@ -7558,7 +7558,7 @@ msgstr "Gebruikersnaam of e-mailadres"
 msgid "Username or email:"
 msgstr "Gebruikersnaam of e-mailadres"
 
-#: widgets/common/authenticationloginwidget.cpp:159
+#: widgets/common/authenticationloginwidget.cpp:160
 #: widgets/ruqolamainwindow.cpp:1043
 #, kde-format
 msgid ""
@@ -7569,7 +7569,7 @@ msgstr ""
 "Als u binnenkort geen e-mail hebt ontvangen, kom dan terug en probeer "
 "opnieuw."
 
-#: widgets/common/authenticationloginwidget.cpp:160
+#: widgets/common/authenticationloginwidget.cpp:161
 #: widgets/ruqolamainwindow.cpp:1044
 #, fuzzy, kde-format
 #| msgid "Register New User"

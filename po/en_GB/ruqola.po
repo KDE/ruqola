@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-12-19 02:30+0000\n"
+"POT-Creation-Date: 2024-12-27 02:34+0000\n"
 "PO-Revision-Date: 2024-10-18 18:55+0100\n"
 "Last-Translator: Steve Allewell <steve.allewell@gmail.com>\n"
 "Language-Team: British English\n"
@@ -7274,7 +7274,7 @@ msgstr "Username or email"
 msgid "Username or email:"
 msgstr "Username or email"
 
-#: widgets/common/authenticationloginwidget.cpp:159
+#: widgets/common/authenticationloginwidget.cpp:160
 #: widgets/ruqolamainwindow.cpp:1043
 #, kde-format
 msgid ""
@@ -7284,7 +7284,7 @@ msgstr ""
 "We have sent you an email to confirm your registration.\n"
 "If you do not receive an email shortly, please come back and try again."
 
-#: widgets/common/authenticationloginwidget.cpp:160
+#: widgets/common/authenticationloginwidget.cpp:161
 #: widgets/ruqolamainwindow.cpp:1044
 #, kde-format
 msgctxt "@title:window"

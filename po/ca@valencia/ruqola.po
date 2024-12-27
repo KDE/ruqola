@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-12-19 02:30+0000\n"
+"POT-Creation-Date: 2024-12-27 02:34+0000\n"
 "PO-Revision-Date: 2024-12-18 09:20+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
@@ -7289,7 +7289,7 @@ msgstr "Nom d'usuari o correu"
 msgid "Username or email:"
 msgstr "Nom d'usuari o correu:"
 
-#: widgets/common/authenticationloginwidget.cpp:159
+#: widgets/common/authenticationloginwidget.cpp:160
 #: widgets/ruqolamainwindow.cpp:1043
 #, kde-format
 msgid ""
@@ -7299,7 +7299,7 @@ msgstr ""
 "Vos hem enviat un correu per a confirmar el registre.\n"
 "Si no rebeu un correu ben prompte, torneu i intenteu-ho de nou."
 
-#: widgets/common/authenticationloginwidget.cpp:160
+#: widgets/common/authenticationloginwidget.cpp:161
 #: widgets/ruqolamainwindow.cpp:1044
 #, kde-format
 msgctxt "@title:window"

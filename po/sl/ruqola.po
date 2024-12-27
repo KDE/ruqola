@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-12-19 02:30+0000\n"
+"POT-Creation-Date: 2024-12-27 02:34+0000\n"
 "PO-Revision-Date: 2024-12-18 07:36+0100\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
@@ -7267,7 +7267,7 @@ msgstr "Uporabniško ime ali naslov e-pošte"
 msgid "Username or email:"
 msgstr "Uporabniško ime ali naslov e-pošte:"
 
-#: widgets/common/authenticationloginwidget.cpp:159
+#: widgets/common/authenticationloginwidget.cpp:160
 #: widgets/ruqolamainwindow.cpp:1043
 #, kde-format
 msgid ""
@@ -7277,7 +7277,7 @@ msgstr ""
 "Poslali smo vam e-poštno sporočilo, da potrdite svojo registracijo.\n"
 "Če ne prejmete e-pošte v kratkem, se vrnite in poskusite znova."
 
-#: widgets/common/authenticationloginwidget.cpp:160
+#: widgets/common/authenticationloginwidget.cpp:161
 #: widgets/ruqolamainwindow.cpp:1044
 #, kde-format
 msgctxt "@title:window"

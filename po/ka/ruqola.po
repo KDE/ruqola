@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-12-19 02:30+0000\n"
+"POT-Creation-Date: 2024-12-27 02:34+0000\n"
 "PO-Revision-Date: 2024-12-22 00:05+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
@@ -7241,7 +7241,7 @@ msgstr "მომხმარებლის სახელი ან ელფ
 msgid "Username or email:"
 msgstr "მომხმარებლის სახელი ან ელფოსტა:"
 
-#: widgets/common/authenticationloginwidget.cpp:159
+#: widgets/common/authenticationloginwidget.cpp:160
 #: widgets/ruqolamainwindow.cpp:1043
 #, kde-format
 msgid ""
@@ -7251,7 +7251,7 @@ msgstr ""
 "ელფოსტის დასადასტურებლად შეტყობინება გამოგიგზავნეთ.\n"
 "თუ ელფოსტას მალევე არ მიიღებთ, მობრძანდით და თავიდან სცადეთ გეთაყვა."
 
-#: widgets/common/authenticationloginwidget.cpp:160
+#: widgets/common/authenticationloginwidget.cpp:161
 #: widgets/ruqolamainwindow.cpp:1044
 #, kde-format
 msgctxt "@title:window"
