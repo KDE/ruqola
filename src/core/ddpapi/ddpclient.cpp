@@ -39,6 +39,9 @@ DDPClient::DDPClient(QObject *parent)
 
 DDPClient::~DDPClient()
 {
+    for (qint64 id : std::as_const(mSubscribeIdentifiers)) {
+        unsubscribe(id);
+    }
     disconnect(mWebSocket, &AbstractWebSocket::disconnected, this, &DDPClient::onWSclosed);
     mWebSocket->close();
     delete mWebSocket;
