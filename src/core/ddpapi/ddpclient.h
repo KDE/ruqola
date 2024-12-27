@@ -264,18 +264,6 @@ private:
     /**
      * @brief stores subscription handlers for a given event on a given collection
      *
-     * @def The key of the hash is a QPair<QString, QString>, where the first element
-     *   is the collection (stream) name, and the second is the event name.
-     *   Each value is a pair (DDPManager, int), where the int value is an internal
-     *   reference for the manager to match internally method calls with responses.
-     *   When a subscription response is received by the client, it will be dispatched
-     *   to the corresponding manager iff both the collection and the event name match.
-     */
-    QHash<QPair<QString, QString>, QPair<DDPManager *, int>> mEventSubscriptionHash;
-
-    /**
-     * @brief stores subscription handlers for a given event on a given collection
-     *
      * @def The key of the hash is the generated id of the called method.
      *   When a method response is received by the client, it will be dispatched
      *   to the corresponding manager iff the method call id matches.
