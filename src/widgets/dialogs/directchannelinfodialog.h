@@ -23,7 +23,5 @@ public:
     void setRoles(const QList<RoleInfo> &newRoles);
 
 private:
-    LIBRUQOLAWIDGETS_NO_EXPORT void readConfig();
-    LIBRUQOLAWIDGETS_NO_EXPORT void writeConfig();
     DirectChannelInfoWidget *const mDirectChannelInfoWidget;
 };
