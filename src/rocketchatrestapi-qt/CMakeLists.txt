@@ -516,7 +516,6 @@ ecm_qt_declare_logging_category(librocketchatrestapi_qt_debug_SRCS HEADER rocket
     EXPORT RUQOLA)
 target_sources(librocketchatrestapi-qt PRIVATE ${librocketchatrestapi_qt_debug_SRCS})
 
-ruqola_target_precompile_headers(librocketchatrestapi-qt PUBLIC <QtCore>)
 generate_export_header(librocketchatrestapi-qt BASE_NAME librocketchatrestapi-qt)
 target_link_libraries(librocketchatrestapi-qt
     Qt::Core

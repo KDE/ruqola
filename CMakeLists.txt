@@ -81,17 +81,6 @@ set(COMPILE_WITH_UNITY_CMAKE_SUPPORT false)
 if(USE_UNITY_CMAKE_SUPPORT)
     set(COMPILE_WITH_UNITY_CMAKE_SUPPORT true)
 endif()
-option(USE_PRECOMPILED_HEADERS "Use precompiled headers" OFF) # Set to OFF when using clazy and such
-set(COMPILE_WITH_CMAKE_PCH_SUPPORT false)
-macro(ruqola_target_precompile_headers)
-    if(USE_PRECOMPILED_HEADERS)
-        set(COMPILE_WITH_CMAKE_PCH_SUPPORT true)
-
-        if(COMPILE_WITH_CMAKE_PCH_SUPPORT)
-            target_precompile_headers(${ARGV})
-        endif()
-    endif()
-endmacro()
 
 option(PLUGINS_AUTHENTICATION_BASED_ON_O2 "Build authentication based on o2 lib (experimental)" OFF)
 if(NOT WIN32 AND NOT APPLE)

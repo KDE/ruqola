@@ -1023,7 +1023,6 @@ ecm_qt_declare_logging_category(libruqolawidgets_debug_SRCS HEADER ruqola_cache_
 
 target_sources(libruqolawidgets PRIVATE ${libruqolawidgets_debug_SRCS})
 
-ruqola_target_precompile_headers(libruqolawidgets PUBLIC ../../ruqola_pch.h)
 if(COMPILE_WITH_UNITY_CMAKE_SUPPORT)
     set_target_properties(libruqolawidgets PROPERTIES UNITY_BUILD ON)
 endif()

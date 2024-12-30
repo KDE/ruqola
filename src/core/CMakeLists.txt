@@ -722,7 +722,6 @@ ecm_qt_declare_logging_category(libruqolacore_debug_SRCS HEADER ruqola_channel_m
 
 target_sources(libruqolacore PRIVATE ${libruqolacore_debug_SRCS})
 
-ruqola_target_precompile_headers(libruqolacore PUBLIC ../../ruqola_pch.h)
 if(COMPILE_WITH_UNITY_CMAKE_SUPPORT)
     set_target_properties(libruqolacore PROPERTIES UNITY_BUILD ON)
 endif()
