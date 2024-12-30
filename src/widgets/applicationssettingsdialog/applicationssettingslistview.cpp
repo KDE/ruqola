@@ -179,7 +179,10 @@ void ApplicationsSettingsListView::slotShowApplicationDescription(const QModelIn
     const QByteArray appId = index.data(AppsMarketPlaceModel::AppId).toByteArray();
     dlg.setDescription(description);
     dlg.setApplicationId(appId);
-    dlg.setApplicationInstalled(index.data(AppsMarketPlaceModel::Installed).toBool());
+
+    const bool showLogAndSettings = mRocketChatAccount->isAdministrator() && index.data(AppsMarketPlaceModel::Installed).toBool()
+        && !index.data(AppsMarketPlaceModel::RequestedApps).toBool();
+    dlg.setShowLogAndSettingsInfo(showLogAndSettings);
     dlg.exec();
 }
 

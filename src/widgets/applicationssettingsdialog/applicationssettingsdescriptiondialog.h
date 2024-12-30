@@ -20,7 +20,7 @@ public:
 
     void setApplicationId(const QByteArray &appId);
 
-    void setApplicationInstalled(bool state);
+    void setShowLogAndSettingsInfo(bool state);
 
 private:
     LIBRUQOLAWIDGETS_NO_EXPORT void readConfig();

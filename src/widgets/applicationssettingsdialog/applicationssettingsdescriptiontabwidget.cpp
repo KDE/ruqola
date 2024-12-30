@@ -66,15 +66,10 @@ void ApplicationsSettingsDescriptionTabWidget::setApplicationId(const QByteArray
     mSettingsWidget->setApplicationId(appId);
 }
 
-void ApplicationsSettingsDescriptionTabWidget::setApplicationInstalled(bool state)
+void ApplicationsSettingsDescriptionTabWidget::setShowLogAndSettingsInfo(bool state)
 {
-    if (mRocketChatAccount) {
-        mTabWidget->setTabVisible(mTabWidget->indexOf(mLogsWidget), mRocketChatAccount->isAdministrator());
-        mTabWidget->setTabVisible(mTabWidget->indexOf(mSettingsWidget), mRocketChatAccount->isAdministrator());
-    } else {
-        mTabWidget->setTabVisible(mTabWidget->indexOf(mLogsWidget), false);
-        mTabWidget->setTabVisible(mTabWidget->indexOf(mSettingsWidget), false);
-    }
+    mTabWidget->setTabVisible(mTabWidget->indexOf(mLogsWidget), state);
+    mTabWidget->setTabVisible(mTabWidget->indexOf(mSettingsWidget), state);
 }
 
 #include "moc_applicationssettingsdescriptiontabwidget.cpp"
