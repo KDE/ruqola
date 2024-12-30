@@ -64,7 +64,7 @@ void ApplicationsSettingsLogsWidget::generateInfo(const QJsonObject &obj)
             message += arg.method + QStringLiteral("<br/>");
             message += QStringLiteral("[<br/>");
             for (const QString &str : arg.args) {
-                message += QStringLiteral("\"") + str + QStringLiteral("\"") + QStringLiteral("<br/>");
+                message += QStringLiteral("&nbsp;&nbsp;&nbsp;&nbsp;\"") + str + QStringLiteral("\"") + QStringLiteral("<br/>");
             }
             message += QStringLiteral("]<br/>");
         }
