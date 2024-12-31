@@ -119,4 +119,16 @@ QNetworkRequest AppUpdateInfoJob::request() const
     return request;
 }
 
+void AppUpdateInfoJob::onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
+{
+    const QJsonObject replyObject = replyJson.object();
+    if (replyObject["success"_L1].toBool()) {
+        addLoggerInfo(QByteArrayLiteral("AppUpdateInfoJob success: ") + replyJson.toJson(QJsonDocument::Indented));
+        Q_EMIT appUpdateInfoDone(replyObject["data"_L1].toObject());
+    } else {
+        emitFailedMessage(replyErrorString, replyObject);
+        addLoggerWarning(QByteArrayLiteral("AppUpdateInfoJob: Problem: ") + replyJson.toJson(QJsonDocument::Indented));
+    }
+}
+
 #include "moc_appupdateinfojob.cpp"

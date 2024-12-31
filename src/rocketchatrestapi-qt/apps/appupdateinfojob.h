@@ -44,7 +44,7 @@ public:
     [[nodiscard]] QJsonDocument json() const;
 
 Q_SIGNALS:
-    void appInfoDone(const QJsonObject &obj);
+    void appUpdateInfoDone(const QJsonObject &obj);
 
 private:
     LIBROCKETCHATRESTAPI_QT_NO_EXPORT void onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson) override;
