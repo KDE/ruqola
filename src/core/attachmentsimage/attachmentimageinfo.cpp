@@ -6,6 +6,24 @@
 
 #include "attachmentimageinfo.h"
 
+#include <QJsonObject>
+
 AttachmentImageInfo::AttachmentImageInfo() = default;
 
 AttachmentImageInfo::~AttachmentImageInfo() = default;
+
+void AttachmentImageInfo::parseAttachmentImageInfo(const QJsonObject &object)
+{
+}
+
+bool AttachmentImageInfo::isValid() const
+{
+    // TODO
+    return false;
+}
+
+QDebug operator<<(QDebug d, const AttachmentImageInfo &t)
+{
+    // TODO
+    return d;
+}
