@@ -62,6 +62,16 @@ void RoomsImagesJob::onGetRequestResponse(const QString &replyErrorString, const
     }
 }
 
+RoomsImagesJob::RoomsImagesJobInfo RoomsImagesJob::roomsImagesJobInfo() const
+{
+    return mRoomsImagesJobInfo;
+}
+
+void RoomsImagesJob::setRoomsImagesJobInfo(const RoomsImagesJobInfo &newRoomsImagesJobInfo)
+{
+    mRoomsImagesJobInfo = newRoomsImagesJobInfo;
+}
+
 bool RoomsImagesJob::hasQueryParameterSupport() const
 {
     return true;

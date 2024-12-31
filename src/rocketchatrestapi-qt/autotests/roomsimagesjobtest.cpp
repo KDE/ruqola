@@ -6,7 +6,7 @@
 
 #include "roomsimagesjobtest.h"
 #include "restapimethod.h"
-#include "rooms/getdiscussionsjob.h"
+#include "rooms/roomsimagesjob.h"
 #include <QTest>
 QTEST_GUILESS_MAIN(RoomsImagesJobTest)
 using namespace RocketChatRestApi;
@@ -17,11 +17,11 @@ RoomsImagesJobTest::RoomsImagesJobTest(QObject *parent)
 
 void RoomsImagesJobTest::shouldHaveDefaultValue()
 {
-    GetDiscussionsJob job;
+    RoomsImagesJob job;
     QVERIFY(!job.restApiMethod());
     QVERIFY(!job.networkAccessManager());
     QVERIFY(!job.start());
-    QVERIFY(job.roomId().isEmpty());
+    QVERIFY(!job.roomsImagesJobInfo().isValid());
     QVERIFY(job.requireHttpAuthentication());
     QVERIFY(!job.restApiLogger());
     QVERIFY(job.hasQueryParameterSupport());
@@ -30,19 +30,24 @@ void RoomsImagesJobTest::shouldHaveDefaultValue()
 
 void RoomsImagesJobTest::shouldGenerateRequest()
 {
-    GetDiscussionsJob job;
+    RoomsImagesJob job;
     RestApiMethod method;
     method.setServerUrl(QStringLiteral("http://www.kde.org"));
     job.setRestApiMethod(&method);
     const QByteArray roomId("bla");
-    job.setRoomId(roomId);
+    RoomsImagesJob::RoomsImagesJobInfo info;
+    info.roomId = QByteArrayLiteral("room_id");
+    info.startingFromId = QByteArrayLiteral("start_Id");
+    info.count = 5;
+    info.offset = 0;
+    job.setRoomsImagesJobInfo(info);
     const QNetworkRequest request = job.request();
-    QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/v1/rooms.getDiscussions?roomId=%1").arg(QLatin1StringView(roomId))));
+    QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/v1/rooms.images?roomId=room_id&startingFromId=start_Id&offset=0&count=5")));
 }
 
 void RoomsImagesJobTest::shouldNotStarting()
 {
-    GetDiscussionsJob job;
+    RoomsImagesJob job;
 
     RestApiMethod method;
     method.setServerUrl(QStringLiteral("http://www.kde.org"));
@@ -57,8 +62,19 @@ void RoomsImagesJobTest::shouldNotStarting()
     QVERIFY(!job.canStart());
     job.setUserId(userId);
     QVERIFY(!job.canStart());
-    const QByteArray roomId("foo1");
-    job.setRoomId(roomId);
+    RoomsImagesJob::RoomsImagesJobInfo info;
+    info.roomId = QByteArrayLiteral("room_id");
+    info.startingFromId;
+    info.count = 0;
+    info.offset = 0;
+    job.setRoomsImagesJobInfo(info);
+
+    QVERIFY(!job.canStart());
+    info.startingFromId = QByteArrayLiteral("room33");
+    job.setRoomsImagesJobInfo(info);
+    QVERIFY(!job.canStart());
+    info.count = 4;
+    job.setRoomsImagesJobInfo(info);
     QVERIFY(job.canStart());
 }
 

@@ -36,6 +36,9 @@ public:
 
     [[nodiscard]] bool hasQueryParameterSupport() const override;
 
+    [[nodiscard]] RoomsImagesJobInfo roomsImagesJobInfo() const;
+    void setRoomsImagesJobInfo(const RoomsImagesJobInfo &newRoomsImagesJobInfo);
+
 Q_SIGNALS:
     void roomsImagesDone(const QJsonObject &obj);
 
