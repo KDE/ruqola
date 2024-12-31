@@ -1,6 +1,7 @@
 # SPDX-FileCopyrightText: 2020-2024 Laurent Montel <montel@kde.org>
 # SPDX-License-Identifier: BSD-3-Clause
-add_library(libruqolacore)
+add_library(libruqolacore
+    attachmentsimage/attachmentimageinfos.h attachmentsimage/attachmentimageinfos.cpp)
 
 target_sources(libruqolacore PRIVATE
     abstractwebsocket.cpp
