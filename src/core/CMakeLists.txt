@@ -593,6 +593,9 @@ target_sources(libruqolacore PRIVATE
 
     job/extractserverinfojob.h
     job/extractserverinfojob.cpp
+
+    attachmentsimage/attachmentimageinfo.h
+    attachmentsimage/attachmentimageinfo.cpp
 )
 
 if(USE_E2E_SUPPORT)
