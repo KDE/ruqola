@@ -1,5 +1,5 @@
 /*
- * SPDX-FileCopyrightText: 2020-2024 Laurent Montel <montel@kde.org>
+ * SPDX-FileCopyrightText: 2020-2025 Laurent Montel <montel@kde.org>
  *
  * SPDX-License-Identifier: LGPL-2.0-or-later
  */
@@ -60,7 +60,7 @@ int main(int argc, char *argv[])
                          QStringLiteral(RUQOLA_VERSION),
                          i18n("Rocket Chat Client"),
                          KAboutLicense::GPL_V2,
-                         i18n("Copyright © 2020-2024 Ruqola authors"));
+                         i18n("Copyright © 2020-2025 Ruqola authors"));
 
     aboutData.addAuthor(i18nc("@info:credit", "Laurent Montel"), i18n("Maintainer"), QStringLiteral("montel@kde.org"));
     aboutData.addAuthor(i18nc("@info:credit", "Riccardo Iaconelli"), i18n("Original Author"), QStringLiteral("riccardo@kde.org"));
