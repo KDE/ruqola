@@ -6,6 +6,7 @@
 
 #pragma once
 #include "libruqolawidgets_export.h"
+#include "plugintoolinterface.h"
 #include <QObject>
 
 class LIBRUQOLAWIDGETS_EXPORT PluginTool : public QObject
@@ -25,6 +26,8 @@ public:
     [[nodiscard]] virtual QString iconName() const = 0;
     [[nodiscard]] virtual QString toolTip() const = 0;
     [[nodiscard]] virtual QString description() const = 0;
+
+    virtual PluginToolInterface *createInterface(QObject *parent) = 0;
 
 Q_SIGNALS:
     void activated();
