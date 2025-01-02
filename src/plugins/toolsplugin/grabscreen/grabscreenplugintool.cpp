@@ -6,6 +6,9 @@
 
 #include "grabscreenplugintool.h"
 #include "grabscreenplugintoolinterface.h"
+#include "utils.h"
+#include <KLocalizedString>
+#include <QStandardPaths>
 
 GrabScreenPluginTool::GrabScreenPluginTool(QObject *parent)
     : PluginTool{parent}
@@ -16,8 +19,8 @@ GrabScreenPluginTool::~GrabScreenPluginTool() = default;
 
 bool GrabScreenPluginTool::toolFound() const
 {
-    // TODO
-    return true;
+    const QString path = Utils::findExecutable(QStringLiteral("spectacle"));
+    return !path.isEmpty();
 }
 
 PluginTool::ToolType GrabScreenPluginTool::toolType() const
@@ -32,7 +35,7 @@ QString GrabScreenPluginTool::iconName() const
 
 QString GrabScreenPluginTool::toolTip() const
 {
-    return {};
+    return i18n("Create a screenshot");
 }
 
 QString GrabScreenPluginTool::description() const
