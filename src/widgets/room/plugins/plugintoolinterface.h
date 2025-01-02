@@ -5,9 +5,9 @@
 */
 
 #pragma once
+#include "libruqolawidgets_export.h"
 #include <QObject>
-
-class PluginToolInterface : public QObject
+class LIBRUQOLAWIDGETS_EXPORT PluginToolInterface : public QObject
 {
     Q_OBJECT
 public:
