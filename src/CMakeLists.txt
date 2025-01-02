@@ -22,7 +22,7 @@ if(APPLE)
         MACOSX_BUNDLE_SHORT_VERSION_STRING "${RUQOLA_VERSION}"
         MACOSX_BUNDLE_BUNDLE_VERSION "${RUQOLA_VERSION}"
         MACOSX_BUNDLE_GUI_IDENTIFIER "org.kde.ruqola"
-        MACOSX_BUNDLE_COPYRIGHT "2020-2024 The Ruqola Developers")
+        MACOSX_BUNDLE_COPYRIGHT "2020-2025 The Ruqola Developers")
 endif()
 
 install(PROGRAMS data/org.kde.ruqola.desktop DESTINATION ${KDE_INSTALL_APPDIR})
