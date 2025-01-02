@@ -4,6 +4,7 @@
 kcoreaddons_add_plugin(ruqola_grabscreenplugin INSTALL_NAMESPACE ruqolaplugins/toolsplugins)
 
 target_sources(ruqola_grabscreenplugin PRIVATE
+    grabscreenplugintool.h grabscreenplugintool.cpp
 )
 target_link_libraries(ruqola_grabscreenplugin
     libruqolawidgets
