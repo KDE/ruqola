@@ -30,7 +30,7 @@ PluginTool::ToolType GrabScreenPluginTool::toolType() const
 
 QString GrabScreenPluginTool::iconName() const
 {
-    return {};
+    return QStringLiteral("transform-crop");
 }
 
 QString GrabScreenPluginTool::toolTip() const
