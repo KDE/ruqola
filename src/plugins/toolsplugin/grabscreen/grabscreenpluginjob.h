@@ -16,7 +16,16 @@ public:
     ~GrabScreenPluginJob() override;
 
     void start();
+
+    [[nodiscard]] bool canStart() const;
+
+    [[nodiscard]] QString filePath() const;
+    void setFilePath(const QString &newFilePath);
+
 Q_SIGNALS:
     void captureDone();
     void captureCanceled();
+
+private:
+    QString mFilePath;
 };
