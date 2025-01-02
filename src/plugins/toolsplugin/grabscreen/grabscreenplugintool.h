@@ -12,4 +12,11 @@ class GrabScreenPluginTool : public PluginTool
 public:
     explicit GrabScreenPluginTool(QObject *parent = nullptr);
     ~GrabScreenPluginTool() override;
+
+    [[nodiscard]] bool toolFound() const override;
+    [[nodiscard]] ToolType toolType() const override;
+    [[nodiscard]] QString iconName() const override;
+    [[nodiscard]] QString toolTip() const override;
+    [[nodiscard]] QString description() const override;
+    [[nodiscard]] PluginToolInterface *createInterface(QObject *parent) override;
 };
