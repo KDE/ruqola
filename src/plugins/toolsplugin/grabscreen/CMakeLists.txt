@@ -3,10 +3,11 @@
 
 kcoreaddons_add_plugin(ruqola_grabscreenplugin INSTALL_NAMESPACE ruqolaplugins/toolsplugins)
 
+kconfig_add_kcfg_files(ruqola_grabscreenplugin grabscreenplugintoolconfig.kcfgc)
+
 target_sources(ruqola_grabscreenplugin PRIVATE
     grabscreenplugintool.h grabscreenplugintool.cpp
     grabscreenplugintoolinterface.h grabscreenplugintoolinterface.cpp
-    grabscreenpluginsettings.h grabscreenpluginsettings.cpp
     grabscreenpluginjob.h grabscreenpluginjob.cpp
 )
 target_link_libraries(ruqola_grabscreenplugin

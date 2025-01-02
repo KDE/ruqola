@@ -1,0 +1,5 @@
+File=grabscreenplugintoolconfig.kcfg
+ClassName=GrabScreenPluginToolConfig
+Mutators=true
+Singleton=true
+ItemAccessors=true
