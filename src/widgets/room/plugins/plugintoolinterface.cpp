@@ -12,3 +12,5 @@ PluginToolInterface::PluginToolInterface(QObject *parent)
 }
 
 PluginToolInterface::~PluginToolInterface() = default;
+
+#include "moc_plugintoolinterface.cpp"
