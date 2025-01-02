@@ -16,4 +16,7 @@ public:
     ~GrabScreenPluginJob() override;
 
     void start();
+Q_SIGNALS:
+    void captureDone();
+    void captureCanceled();
 };
