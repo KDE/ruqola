@@ -15,6 +15,8 @@ public:
     explicit PluginTool(QObject *parent = nullptr);
     ~PluginTool() override;
 
+    [[nodiscard]] virtual bool toolFound() const = 0;
+
 Q_SIGNALS:
     void activated();
 };
