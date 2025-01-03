@@ -407,3 +407,8 @@ QString Utils::findExecutable(const QString &exec)
 #endif
     return path;
 }
+
+bool Utils::executableFound(const QString &exec)
+{
+    return !Utils::findExecutable(exec).isEmpty();
+}
