@@ -5,9 +5,8 @@
 */
 #include "grabscreenplugintoolinterface.h"
 #include "grabscreenpluginjob.h"
+#include "grabscreenplugintoolutil.h"
 #include <QDebug>
-#include <QDir>
-#include <QStandardPaths>
 
 GrabScreenPluginToolInterface::GrabScreenPluginToolInterface(QObject *parent)
     : PluginToolInterface{parent}
@@ -19,9 +18,7 @@ GrabScreenPluginToolInterface::~GrabScreenPluginToolInterface() = default;
 void GrabScreenPluginToolInterface::activateTool()
 {
     // TODO add account name ???
-    QString imagePath = QStandardPaths::writableLocation(QStandardPaths::PicturesLocation) + QStringLiteral("/ruqola/");
-    QDir dir(imagePath);
-
+    QString imagePath = GrabScreenPluginToolUtil::picturePath();
     // TODO add filename
     imagePath += QStringLiteral("screenshot.png");
 

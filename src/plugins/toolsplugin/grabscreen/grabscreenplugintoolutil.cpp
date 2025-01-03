@@ -14,7 +14,7 @@ QString GrabScreenPluginToolUtil::picturePath()
     const QString imagePath = QStandardPaths::writableLocation(QStandardPaths::PicturesLocation) + QStringLiteral("/ruqola/");
 
     if (!QDir().mkpath(imagePath)) {
-        qWarning() << "Unable to create video folder: " << imagePath;
+        qWarning() << "Unable to create image folder: " << imagePath;
         return {};
     }
     return imagePath;
