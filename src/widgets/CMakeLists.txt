@@ -731,6 +731,8 @@ target_sources(libruqolawidgets PRIVATE
     room/plugintextmessagewidget.cpp
     room/textpluginmanager.cpp
     room/textpluginmanager.h
+    room/toolspluginmanager.h
+    room/toolspluginmanager.cpp
 
     loginwidget/ruqolaloginwidget.cpp
     loginwidget/ruqolaloginwidget.h
