@@ -9,6 +9,7 @@ target_sources(ruqola_grabscreenplugin PRIVATE
     grabscreenplugintool.h grabscreenplugintool.cpp
     grabscreenplugintoolinterface.h grabscreenplugintoolinterface.cpp
     grabscreenpluginjob.h grabscreenpluginjob.cpp
+    grabscreenplugintoolutil.h grabscreenplugintoolutil.cpp
 )
 target_link_libraries(ruqola_grabscreenplugin
     libruqolawidgets
