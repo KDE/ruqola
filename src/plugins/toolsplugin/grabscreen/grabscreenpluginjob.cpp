@@ -4,6 +4,7 @@
    SPDX-License-Identifier: LGPL-2.0-or-later
 */
 #include "grabscreenpluginjob.h"
+#include "grabscreenplugin_debug.h"
 #include "grabscreenplugintoolconfig.h"
 #include "utils.h"
 #include <QProcess>

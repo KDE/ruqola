@@ -4,9 +4,9 @@
    SPDX-License-Identifier: LGPL-2.0-or-later
 */
 #include "grabscreenplugintoolinterface.h"
+#include "grabscreenplugin_debug.h"
 #include "grabscreenpluginjob.h"
 #include "grabscreenplugintoolutil.h"
-#include <QDebug>
 
 GrabScreenPluginToolInterface::GrabScreenPluginToolInterface(QObject *parent)
     : PluginToolInterface{parent}

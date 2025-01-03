@@ -5,6 +5,7 @@
 */
 
 #include "grabscreenplugintoolutil.h"
+#include "grabscreenplugin_debug.h"
 
 #include <QDir>
 #include <QStandardPaths>
@@ -14,7 +15,7 @@ QString GrabScreenPluginToolUtil::picturePath()
     const QString imagePath = QStandardPaths::writableLocation(QStandardPaths::PicturesLocation) + QStringLiteral("/ruqola/");
 
     if (!QDir().mkpath(imagePath)) {
-        qWarning() << "Unable to create image folder: " << imagePath;
+        qCWarning(RUQOLA_GRABSCREEN_PLUGIN_LOG) << "Unable to create image folder: " << imagePath;
         return {};
     }
     return imagePath;
