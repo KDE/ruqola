@@ -142,12 +142,15 @@ void DDPClient::subscribeRoomMessage(const QByteArray &roomId)
     params.append(QJsonValue(rId));
     mSubscribeIdentifiers.append(subscribe(QStringLiteral("stream-room-messages"), params));
 
-    const QJsonArray params2{QJsonValue(QStringLiteral("%1/%2").arg(rId, QStringLiteral("deleteMessage")))};
-    mSubscribeIdentifiers.append(subscribe(QStringLiteral("stream-notify-room"), params2));
-    const QJsonArray params3{QJsonValue(QStringLiteral("%1/%2").arg(rId, QStringLiteral("deleteMessageBulk")))};
-    mSubscribeIdentifiers.append(subscribe(QStringLiteral("stream-notify-room"), params3));
-    const QJsonArray params4{QJsonValue(QStringLiteral("%1/%2").arg(rId, QStringLiteral("user-activity")))}; // It seems that it's the new "typing"
-    mSubscribeIdentifiers.append(subscribe(QStringLiteral("stream-notify-room"), params4));
+    const QStringList listStreamNotifierRoom{
+        QStringLiteral("deleteMessage"),
+        QStringLiteral("deleteMessageBulk"),
+        QStringLiteral("user-activity"),
+    };
+    for (const QString &str : listStreamNotifierRoom) {
+        const QJsonArray params2{QJsonValue(QStringLiteral("%1/%2").arg(rId, str))};
+        mSubscribeIdentifiers.append(subscribe(QStringLiteral("stream-notify-room"), params2));
+    }
 }
 
 quint64 DDPClient::openDirectChannel(const QString &userId)
