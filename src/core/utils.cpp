@@ -11,6 +11,7 @@
 #include <KLocalizedString>
 
 #include <KColorScheme>
+#include <QCoreApplication>
 #include <QCryptographicHash>
 #include <QDateTime>
 #include <QIcon>
