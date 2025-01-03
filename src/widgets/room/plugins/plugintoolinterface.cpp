@@ -18,4 +18,23 @@ void PluginToolInterface::activateTool()
     // Nothing here. Reimplement it
 }
 
+PluginToolInterface::PluginToolInfo PluginToolInterface::info() const
+{
+    return mInfo;
+}
+
+void PluginToolInterface::setInfo(const PluginToolInfo &newInfo)
+{
+    mInfo = newInfo;
+}
+
+QDebug operator<<(QDebug d, const PluginToolInterface::PluginToolInfo &t)
+{
+    d.space() << "roomId:" << t.roomId;
+    d.space() << "accountName:" << t.accountName;
+    d.space() << "tmid:" << t.tmid;
+    d.space() << "msgId:" << t.msgId;
+    return d;
+}
+
 #include "moc_plugintoolinterface.cpp"
