@@ -133,11 +133,11 @@ void RoomsInfo::setTotal(int total)
 
 QDebug operator<<(QDebug d, const RoomsInfo &t)
 {
-    d << "total " << t.total();
-    d << "offset " << t.offset();
-    d << "roomsCount " << t.roomsCount() << "\n";
+    d.space() << "total" << t.total();
+    d.space() << "offset" << t.offset();
+    d.space() << "roomsCount" << t.roomsCount() << "\n";
     for (int i = 0, total = t.rooms().count(); i < total; ++i) {
-        d << t.rooms().at(i) << "\n";
+        d.space() << t.rooms().at(i) << "\n";
     }
     return d;
 }

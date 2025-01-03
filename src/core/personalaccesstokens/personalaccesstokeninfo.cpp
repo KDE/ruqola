@@ -15,10 +15,10 @@ PersonalAccessTokenInfo::PersonalAccessTokenInfo() = default;
 
 QDebug operator<<(QDebug d, const PersonalAccessTokenInfo &t)
 {
-    d << "mBypassTwoFactor " << t.bypassTwoFactor();
-    d << "mName " << t.name();
-    d << "mLastTokenPart " << t.lastTokenPart();
-    d << "mCreatedAt " << t.createdAt();
+    d.space() << "mBypassTwoFactor" << t.bypassTwoFactor();
+    d.space() << "mName" << t.name();
+    d.space() << "mLastTokenPart" << t.lastTokenPart();
+    d.space() << "mCreatedAt" << t.createdAt();
     return d;
 }
 

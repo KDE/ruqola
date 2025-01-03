@@ -111,10 +111,10 @@ RetentionInfo RetentionInfo::deserialize(const QJsonObject &obj)
 
 QDebug operator<<(QDebug d, RetentionInfo t)
 {
-    d << "Enabled " << t.enabled();
-    d << "overrideGlobal " << t.overrideGlobal();
-    d << "excludePinned " << t.excludePinned();
-    d << "filesOnly " << t.filesOnly();
-    d << "maxAge " << t.maxAge();
+    d.space() << "Enabled" << t.enabled();
+    d.space() << "overrideGlobal" << t.overrideGlobal();
+    d.space() << "excludePinned" << t.excludePinned();
+    d.space() << "filesOnly" << t.filesOnly();
+    d.space() << "maxAge" << t.maxAge();
     return d;
 }

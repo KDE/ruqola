@@ -190,8 +190,8 @@ QDebug operator<<(QDebug d, const NotificationOptions &t)
 
 QDebug operator<<(QDebug d, const NotificationOptions::NotificationValue &t)
 {
-    d << " value " << t.value;
-    d << " preferenceOrigin " << t.preferenceOrigin;
+    d.space() << "value" << t.value;
+    d.space() << "preferenceOrigin" << t.preferenceOrigin;
     return d;
 }
 

@@ -362,8 +362,8 @@ void RuqolaServerConfig::setFaviconUrl(const RuqolaServerConfig::ConfigWithDefau
 
 QDebug operator<<(QDebug d, const RuqolaServerConfig::ConfigWithDefaultValue &t)
 {
-    d.space() << " Value " << t.url;
-    d.space() << " Default Value " << t.defaultUrl;
+    d.space() << "Value" << t.url;
+    d.space() << "Default Value" << t.defaultUrl;
     return d;
 }
 

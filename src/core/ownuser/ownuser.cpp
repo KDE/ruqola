@@ -93,19 +93,19 @@ void OwnUser::setStatus(const QString &status)
 
 QDebug operator<<(QDebug d, const OwnUser &t)
 {
-    d << "UserId " << t.userId();
-    d << "Status " << t.status();
-    d << "UserName " << t.userName();
-    d << "Email " << t.email();
-    d << "StatusText " << t.statusText();
-    d << "Name " << t.name();
-    d << "AvatarUrl " << t.avatarUrl();
-    d << "utcOffset " << t.utcOffset();
-    d << "defaultStatus " << t.statusDefault();
-    d << "nickname " << t.nickName();
-    d << "roles " << t.roles();
-    d << "servicePassword " << t.servicePassword();
-    d << "OwnUserPreferences " << t.ownUserPreferences();
+    d.space() << "UserId" << t.userId();
+    d.space() << "Status" << t.status();
+    d.space() << "UserName" << t.userName();
+    d.space() << "Email" << t.email();
+    d.space() << "StatusText" << t.statusText();
+    d.space() << "Name" << t.name();
+    d.space() << "AvatarUrl" << t.avatarUrl();
+    d.space() << "utcOffset" << t.utcOffset();
+    d.space() << "defaultStatus" << t.statusDefault();
+    d.space() << "nickname" << t.nickName();
+    d.space() << "roles" << t.roles();
+    d.space() << "servicePassword" << t.servicePassword();
+    d.space() << "OwnUserPreferences" << t.ownUserPreferences();
     return d;
 }
 

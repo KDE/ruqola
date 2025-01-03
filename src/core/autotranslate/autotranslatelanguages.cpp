@@ -65,7 +65,7 @@ QDebug operator<<(QDebug d, const AutotranslateLanguages &t)
 {
     const QList<AutotranslateLanguage> autotranslateLanguages = t.autotranslateLanguage();
     for (const AutotranslateLanguage &lang : autotranslateLanguages) {
-        d << "autotranslate :" << lang << "\n";
+        d.space() << "autotranslate:" << lang << "\n";
     }
     return d;
 }

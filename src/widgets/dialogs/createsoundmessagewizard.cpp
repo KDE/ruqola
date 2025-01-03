@@ -148,9 +148,9 @@ QString GenerateSoundMessagePage::description() const
 
 QDebug operator<<(QDebug d, const CreateSoundMessageWizard::CreateSoundMessageInfo &t)
 {
-    d << " mDescription " << t.mDescription;
-    d << " mFileName " << t.mFileName;
-    d << " mDescription " << t.mDescription;
+    d.space() << "mDescription" << t.mDescription;
+    d.space() << "mFileName" << t.mFileName;
+    d.space() << "mDescription" << t.mDescription;
     return d;
 }
 

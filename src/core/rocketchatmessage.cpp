@@ -325,9 +325,9 @@ RocketChatMessage::streamNotifyUserOtrAcknowledge(const QByteArray &roomId, cons
 
 QDebug operator<<(QDebug d, const RocketChatMessage::RocketChatMessageResult &t)
 {
-    d << "json: " << t.jsonDocument;
-    d << "method: " << t.method;
-    d << "result: " << t.result;
+    d.space() << "json:" << t.jsonDocument;
+    d.space() << "method:" << t.method;
+    d.space() << "result:" << t.result;
     return d;
 }
 

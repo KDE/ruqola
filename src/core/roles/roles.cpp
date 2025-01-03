@@ -112,9 +112,9 @@ Role Roles::findRoleByUserId(const QByteArray &userId) const
 
 QDebug operator<<(QDebug d, const Roles &t)
 {
-    d << " count " << t.count();
+    d.space() << "count" << t.count();
     for (int i = 0; i < t.count(); i++) {
-        d << t.at(i) << "\n";
+        d.space() << t.at(i) << "\n";
     }
     return d;
 }

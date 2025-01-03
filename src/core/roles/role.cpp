@@ -107,10 +107,10 @@ void Role::parseRole(const QJsonObject &obj)
 
 QDebug operator<<(QDebug d, const Role &t)
 {
-    d << "UserId: " << t.userId();
-    d << "IsLeader: " << t.isLeader();
-    d << "IsOwner: " << t.isOwner();
-    d << "IsModerator: " << t.isModerator();
-    d << "UserName: " << t.userName();
+    d.space() << "UserId:" << t.userId();
+    d.space() << "IsLeader:" << t.isLeader();
+    d.space() << "IsOwner:" << t.isOwner();
+    d.space() << "IsModerator:" << t.isModerator();
+    d.space() << "UserName:" << t.userName();
     return d;
 }

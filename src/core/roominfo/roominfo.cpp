@@ -364,22 +364,22 @@ bool RoomInfo::operator==(const RoomInfo &other) const
 
 QDebug operator<<(QDebug d, const RoomInfo &t)
 {
-    d << " default Room : " << t.defaultRoom();
-    d << " user count : " << t.usersCount();
-    d << " message count : " << t.messageCount();
-    d << " channel type: " << t.channelType();
-    d << " identifier: " << t.identifier();
-    d << " topic: " << t.topic();
-    d << " name: " << t.name();
-    d << " fname: " << t.fName();
-    d << " usernames: " << t.userNames();
-    d << " users: " << t.users();
-    d << " teaminfo: " << t.teamInfo();
-    d << " lastMessage : " << t.lastMessage();
-    d << " created : " << t.createdRoom();
-    d << " description : " << t.description();
-    d << " announcement : " << t.announcement();
-    d << " OwnerName : " << t.ownerName();
-    d << " ParentRid : " << t.parentRid();
+    d.space() << "default Room :" << t.defaultRoom();
+    d.space() << "user count :" << t.usersCount();
+    d.space() << "message count :" << t.messageCount();
+    d.space() << "channel type:" << t.channelType();
+    d.space() << "identifier:" << t.identifier();
+    d.space() << "topic:" << t.topic();
+    d.space() << "name:" << t.name();
+    d.space() << "fname:" << t.fName();
+    d.space() << "usernames:" << t.userNames();
+    d.space() << "users:" << t.users();
+    d.space() << "teaminfo:" << t.teamInfo();
+    d.space() << "lastMessage" << t.lastMessage();
+    d.space() << "created:" << t.createdRoom();
+    d.space() << "description" << t.description();
+    d.space() << "announcement" << t.announcement();
+    d.space() << "OwnerName:" << t.ownerName();
+    d.space() << "ParentRid:" << t.parentRid();
     return d;
 }

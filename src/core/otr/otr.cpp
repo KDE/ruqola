@@ -90,17 +90,17 @@ bool Otr::isValid() const
 
 QDebug operator<<(QDebug d, const Otr &t)
 {
-    d << "isValid: " << t.isValid();
-    d << "type : " << t.type();
-    d << "userId: " << t.userId();
-    d << "roomId: " << t.roomId();
-    d << "crypto settings " << t.crypto();
+    d.space() << "isValid:" << t.isValid();
+    d.space() << "type :" << t.type();
+    d.space() << "userId:" << t.userId();
+    d.space() << "roomId:" << t.roomId();
+    d.space() << "crypto settings" << t.crypto();
     return d;
 }
 
 QDebug operator<<(QDebug d, const CryptoSettings &t)
 {
-    d << "mCrypt: " << t.mCrypt;
+    d.space() << "mCrypt:" << t.mCrypt;
     return d;
 }
 

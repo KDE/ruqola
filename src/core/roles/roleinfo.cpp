@@ -94,11 +94,11 @@ void RoleInfo::setMandatory2fa(bool newMandatory2fa)
 QDebug operator<<(QDebug d, const RoleInfo &t)
 {
     // TODO add more
-    d << "Identifier: " << t.identifier();
-    d << "Scope: " << t.scope();
-    d << "name: " << t.name();
-    d << "description: " << t.description();
-    d << "protected: " << t.roleProtected();
-    d << "mandatory2fa: " << t.mandatory2fa();
+    d.space() << "Identifier:" << t.identifier();
+    d.space() << "Scope:" << t.scope();
+    d.space() << "name:" << t.name();
+    d.space() << "description:" << t.description();
+    d.space() << "protected:" << t.roleProtected();
+    d.space() << "mandatory2fa:" << t.mandatory2fa();
     return d;
 }

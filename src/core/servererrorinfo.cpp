@@ -19,10 +19,10 @@ ServerErrorInfo::~ServerErrorInfo() = default;
 
 QDebug operator<<(QDebug d, const ServerErrorInfo &t)
 {
-    d << " Account Name " << t.accountName();
-    d << " Message " << t.message();
-    d << " DateTime " << t.dateTime();
-    d << " identifier " << t.identifier();
+    d.space() << "Account Name" << t.accountName();
+    d.space() << "Message" << t.message();
+    d.space() << "DateTime" << t.dateTime();
+    d.space() << "identifier" << t.identifier();
     return d;
 }
 

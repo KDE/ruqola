@@ -88,7 +88,7 @@ int BannerInfos::count() const
 QDebug operator<<(QDebug d, const BannerInfos &t)
 {
     for (int i = 0, total = t.banners().count(); i < total; ++i) {
-        d << t.banners().at(i) << "\n";
+        d.space() << t.banners().at(i) << "\n";
     }
     return d;
 }

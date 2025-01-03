@@ -80,9 +80,9 @@ QList<TeamRoom> TeamRoom::parseTeamRooms(const QJsonObject &obj)
 
 QDebug operator<<(QDebug d, const TeamRoom &t)
 {
-    d << "Name " << t.name();
-    d << "Fname : " << t.fname();
-    d << "autojoin: " << t.autoJoin();
-    d << "identifier: " << t.identifier();
+    d.space() << "Name" << t.name();
+    d.space() << "Fname" << t.fname();
+    d.space() << "autojoin" << t.autoJoin();
+    d.space() << "identifier" << t.identifier();
     return d;
 }

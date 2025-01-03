@@ -108,9 +108,9 @@ bool TeamInfo::hasTeamRoom() const
 
 QDebug operator<<(QDebug d, const TeamInfo &t)
 {
-    d << "team id: " << t.teamId();
-    d << "is Main Team: " << t.mainTeam();
-    d << "autojoin: " << t.autoJoin();
-    d << "roomCount: " << t.roomsCount();
+    d.space() << "team id:" << t.teamId();
+    d.space() << "is Main Team:" << t.mainTeam();
+    d.space() << "autojoin:" << t.autoJoin();
+    d.space() << "roomCount:" << t.roomsCount();
     return d;
 }

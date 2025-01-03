@@ -124,11 +124,11 @@ bool RunCommandJob::RunCommandInfo::isValid() const
 
 QDebug operator<<(QDebug d, const RunCommandJob::RunCommandInfo &t)
 {
-    d << " commandName " << t.commandName;
-    d << " roomId " << t.roomId;
-    d << " threadMessageId " << t.threadMessageId;
-    d << " triggerId " << t.triggerId;
-    d << " params " << t.params;
+    d.space() << "commandName" << t.commandName;
+    d.space() << "roomId" << t.roomId;
+    d.space() << "threadMessageId" << t.threadMessageId;
+    d.space() << "triggerId" << t.triggerId;
+    d.space() << "params" << t.params;
     return d;
 }
 

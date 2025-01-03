@@ -14,20 +14,20 @@ NotificationInfo::~NotificationInfo() = default;
 
 QDebug operator<<(QDebug d, const NotificationInfo &t)
 {
-    d << " accountName " << t.accountName();
-    d << " message " << t.message();
-    d << " title " << t.title();
-    d << " sender " << t.senderId();
-    d << " senderName " << t.senderName();
-    d << " mSenderUserName " << t.senderUserName();
-    d << " roomName " << t.roomName();
-    d << " roomId " << t.roomId();
-    d << " type " << t.channelType();
-    d << " tmId " << t.tmId();
-    d << " pixmap is null ? " << t.pixmap().isNull();
-    d << " date time " << t.dateTime();
-    d << " messageId " << t.messageId();
-    d << " mNotificationType " << t.notificationType();
+    d.space() << "accountName" << t.accountName();
+    d.space() << "message" << t.message();
+    d.space() << "title" << t.title();
+    d.space() << "sender" << t.senderId();
+    d.space() << "senderName" << t.senderName();
+    d.space() << "mSenderUserName" << t.senderUserName();
+    d.space() << "roomName" << t.roomName();
+    d.space() << "roomId" << t.roomId();
+    d.space() << "type" << t.channelType();
+    d.space() << "tmId" << t.tmId();
+    d.space() << "pixmap is null ?" << t.pixmap().isNull();
+    d.space() << "date time" << t.dateTime();
+    d.space() << "messageId" << t.messageId();
+    d.space() << "mNotificationType" << t.notificationType();
     return d;
 }
 

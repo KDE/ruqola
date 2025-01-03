@@ -78,10 +78,10 @@ void ModerationReportUserInfo::setTimeStamp(qint64 newTimeStamp)
 
 QDebug operator<<(QDebug d, const ModerationReportUserInfo &t)
 {
-    d << "description: " << t.description();
-    d << "reportId: " << t.reportId();
-    d << "reportedUser " << t.reportedUser();
-    d << "reportedBy " << t.reportedBy();
-    d << "timeStamp " << t.timeStamp();
+    d.space() << "description:" << t.description();
+    d.space() << "reportId:" << t.reportId();
+    d.space() << "reportedUser" << t.reportedUser();
+    d.space() << "reportedBy" << t.reportedBy();
+    d.space() << "timeStamp" << t.timeStamp();
     return d;
 }

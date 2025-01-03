@@ -54,8 +54,8 @@ void TeamCompleter::setTeamId(const QByteArray &identifier)
 
 QDebug operator<<(QDebug d, const TeamCompleter &t)
 {
-    d << "Name " << t.name();
-    d << "Fname : " << t.fname();
-    d << "identifier: " << t.teamId();
+    d.space() << "Name" << t.name();
+    d.space() << "Fname:" << t.fname();
+    d.space() << "identifier:" << t.teamId();
     return d;
 }

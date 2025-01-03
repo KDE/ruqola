@@ -287,26 +287,26 @@ void OwnUserPreferences::setMuteFocusedConversations(bool newMuteFocusedConversa
 
 QDebug operator<<(QDebug d, const OwnUserPreferences &t)
 {
-    d.space() << "mHighlightWords " << t.highlightWords();
-    d.space() << "mEmailNotificationMode " << t.emailNotificationMode();
-    d.space() << "mDesktopNotifications " << t.desktopNotifications();
-    d.space() << "mUseEmojis " << t.useEmojis();
-    d.space() << "mConvertAsciiEmoji " << t.convertAsciiEmoji();
-    d.space() << "mHideRoles " << t.hideRoles();
-    d.space() << "mDisplayAvatars " << t.displayAvatars();
-    d.space() << "mIdleTimeLimit " << t.idleTimeLimit();
-    d.space() << "mEnableAutoAway " << t.enableAutoAway();
-    d.space() << "mPushNotifications " << t.pushNotifications();
-    d.space() << "mShowUnread " << t.showUnread();
-    d.space() << "mRoomListSortOrder " << t.roomListSortOrder();
-    d.space() << "mShowRoomAvatar " << t.showRoomAvatar();
-    d.space() << "mShowFavorite " << t.showFavorite();
-    d.space() << "mReceiveLoginDetectionEmail " << t.receiveLoginDetectionEmail();
-    d.space() << "mRoomListDisplay " << t.roomListDisplay();
-    d.space() << "newMessageNotification " << t.newMessageNotification();
-    d.space() << "newRoomNotification " << t.newRoomNotification();
-    d.space() << "notificationsSoundVolume " << t.notificationsSoundVolume();
-    d.space() << "muteFocusedConversations " << t.muteFocusedConversations();
+    d.space() << "mHighlightWords" << t.highlightWords();
+    d.space() << "mEmailNotificationMode" << t.emailNotificationMode();
+    d.space() << "mDesktopNotifications" << t.desktopNotifications();
+    d.space() << "mUseEmojis" << t.useEmojis();
+    d.space() << "mConvertAsciiEmoji" << t.convertAsciiEmoji();
+    d.space() << "mHideRoles" << t.hideRoles();
+    d.space() << "mDisplayAvatars" << t.displayAvatars();
+    d.space() << "mIdleTimeLimit" << t.idleTimeLimit();
+    d.space() << "mEnableAutoAway" << t.enableAutoAway();
+    d.space() << "mPushNotifications" << t.pushNotifications();
+    d.space() << "mShowUnread" << t.showUnread();
+    d.space() << "mRoomListSortOrder" << t.roomListSortOrder();
+    d.space() << "mShowRoomAvatar" << t.showRoomAvatar();
+    d.space() << "mShowFavorite" << t.showFavorite();
+    d.space() << "mReceiveLoginDetectionEmail" << t.receiveLoginDetectionEmail();
+    d.space() << "mRoomListDisplay" << t.roomListDisplay();
+    d.space() << "newMessageNotification" << t.newMessageNotification();
+    d.space() << "newRoomNotification" << t.newRoomNotification();
+    d.space() << "notificationsSoundVolume" << t.notificationsSoundVolume();
+    d.space() << "muteFocusedConversations" << t.muteFocusedConversations();
     return d;
 }
 

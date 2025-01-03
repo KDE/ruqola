@@ -465,22 +465,22 @@ bool MessageAttachment::operator==(const MessageAttachment &other) const
 
 QDebug operator<<(QDebug d, const MessageAttachment &t)
 {
-    d << "Title : " << t.title();
-    d << "Description: " << t.description();
-    d << "Link: " << t.link();
-    d << "image dimension: width: " << t.imageWidth() << " height: " << t.imageHeight();
-    d << "color: " << t.color();
-    d << "authorname: " << t.authorName();
-    d << "mimeType: " << t.mimeType();
-    d << "text: " << t.text();
-    d << "collapsed " << t.collapsed();
-    d << "attachmentfields " << t.attachmentFields();
-    d << "showAttachment " << t.showAttachment();
-    d << "AttachmentType: " << t.attachmentType();
-    d << "mAuthorIcon: " << t.authorIcon();
-    d << "imageUrlPreview " << t.imageUrlPreview();
-    d << "attachment size " << t.attachmentSize();
-    d << "attachmentGeneratedTitle " << t.attachmentGeneratedTitle();
+    d.space() << "Title :" << t.title();
+    d.space() << "Description:" << t.description();
+    d.space() << "Link:" << t.link();
+    d.space() << "image dimension: width:" << t.imageWidth() << " height: " << t.imageHeight();
+    d.space() << "color:" << t.color();
+    d.space() << "authorname:" << t.authorName();
+    d.space() << "mimeType:" << t.mimeType();
+    d.space() << "text:" << t.text();
+    d.space() << "collapsed" << t.collapsed();
+    d.space() << "attachmentfields" << t.attachmentFields();
+    d.space() << "showAttachment" << t.showAttachment();
+    d.space() << "AttachmentType:" << t.attachmentType();
+    d.space() << "mAuthorIcon:" << t.authorIcon();
+    d.space() << "imageUrlPreview" << t.imageUrlPreview();
+    d.space() << "attachment size" << t.attachmentSize();
+    d.space() << "attachmentGeneratedTitle" << t.attachmentGeneratedTitle();
     return d;
 }
 
