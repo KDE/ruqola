@@ -13,4 +13,6 @@ class LIBRUQOLAWIDGETS_EXPORT PluginToolInterface : public QObject
 public:
     explicit PluginToolInterface(QObject *parent = nullptr);
     ~PluginToolInterface() override;
+
+    virtual void activateTool();
 };

@@ -13,4 +13,9 @@ PluginToolInterface::PluginToolInterface(QObject *parent)
 
 PluginToolInterface::~PluginToolInterface() = default;
 
+void PluginToolInterface::activateTool()
+{
+    // Nothing here. Reimplement it
+}
+
 #include "moc_plugintoolinterface.cpp"
