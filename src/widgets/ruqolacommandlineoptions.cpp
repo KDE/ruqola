@@ -28,6 +28,8 @@ QString RuqolaCommandLineParser::commandLineFromEnum(CommandLineName e)
         return QStringLiteral("loginddpapi");
     case CommandLineName::FeedBack:
         return QStringLiteral("feedback");
+    case CommandLineName::AttachFile:
+        return QStringLiteral("attachFile");
     }
     return {};
 }
@@ -41,7 +43,8 @@ void RuqolaCommandLineParser::initializeCommandLine(QCommandLineParser *parser)
     parser->addOption(
         QCommandLineOption(QStringList() << commandLineFromEnum(CommandLineName::MessageUrl), i18nc("@info:shell", "Show Message"), QStringLiteral("url")));
     parser->addOption(QCommandLineOption(QStringList() << commandLineFromEnum(CommandLineName::LoginDdpApi), i18nc("@info:shell", "Use ddp api for login")));
-
+    parser->addOption(
+        QCommandLineOption(QStringList() << commandLineFromEnum(CommandLineName::AttachFile), i18nc("@info:shell", "Attach File"), QStringLiteral("url")));
 #if HAVE_KUSERFEEDBACK
     parser->addOption(
         QCommandLineOption(commandLineFromEnum(CommandLineName::FeedBack), i18nc("@info:shell", "Lists the available options for user feedback")));

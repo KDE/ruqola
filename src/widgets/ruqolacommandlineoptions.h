@@ -18,6 +18,7 @@ public:
         MessageUrl,
         LoginDdpApi,
         FeedBack,
+        AttachFile,
     };
 
     explicit RuqolaCommandLineParser(QCommandLineParser *parser);
