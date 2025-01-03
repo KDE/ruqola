@@ -144,7 +144,16 @@ MessageLineWidget::MessageLineWidget(QWidget *parent)
             pluginButton->setToolTip(plugin->toolTip());
             auto interface = plugin->createInterface(this);
             mPluginToolInterface.append(interface);
-            connect(pluginButton, &QToolButton::clicked, interface, &PluginToolInterface::activateTool);
+            connect(pluginButton, &QToolButton::clicked, this, [this, interface]() {
+                const PluginToolInterface::PluginToolInfo info{
+                    .roomId = roomId(),
+                    .accountName = mCurrentRocketChatAccount->accountName(),
+                    .tmid = {},
+                    .msgId = {},
+                };
+                interface->setInfo(info);
+                interface->activateTool();
+            });
             mainLayout->addWidget(pluginButton);
         }
     }
