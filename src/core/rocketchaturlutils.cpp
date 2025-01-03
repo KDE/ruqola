@@ -46,6 +46,7 @@ bool RocketChatUrlUtils::parseUrl(const QString &link)
     case ParseRocketChatUrlUtils::UrlType::Invite: {
         AccountManager::AccountManagerInfo info;
         info.serverUrl = parseUrl.parsingInfo().serverHost;
+        qDebug() << " ParseRocketChatUrlUtils::UrlType Invite Not implement yet ";
         // TODO
         break;
     }
