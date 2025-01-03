@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-01-02 00:41+0000\n"
+"POT-Creation-Date: 2025-01-03 00:41+0000\n"
 "PO-Revision-Date: 2024-12-03 21:01+0100\n"
 "Last-Translator: Stefan Asserhäll <stefan.asserhall@gmail.com>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
@@ -1991,6 +1991,12 @@ msgstr "Filen delades."
 #, kde-format
 msgid "<qt>You can find the new request at:<br /><a href='%1'>%1</a> </qt>"
 msgstr "<qt>Den nya begäran finns på:<br /><a href='%1'>%1</a> </qt>"
+
+#: plugins/toolsplugin/grabscreen/grabscreenplugintool.cpp:38
+#, fuzzy, kde-format
+#| msgid "Created at"
+msgid "Create a screenshot"
+msgstr "Skapad"
 
 #: rocketchatrestapi-qt/autotranslate/getsupportedlanguagesjob.cpp:89
 #, kde-format

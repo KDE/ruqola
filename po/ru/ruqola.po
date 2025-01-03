@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-01-02 00:41+0000\n"
+"POT-Creation-Date: 2025-01-03 00:41+0000\n"
 "PO-Revision-Date: 2024-11-06 16:19+0300\n"
 "Last-Translator: Olesya Gerasimenko <translation-team@basealt.ru>\n"
 "Language-Team: Basealt Translation Team\n"
@@ -2012,6 +2012,12 @@ msgstr "Файл был опубликован."
 #, kde-format
 msgid "<qt>You can find the new request at:<br /><a href='%1'>%1</a> </qt>"
 msgstr "<qt>Новый запрос доступен здесь:<br /><a href='%1'>%1</a> </qt>"
+
+#: plugins/toolsplugin/grabscreen/grabscreenplugintool.cpp:38
+#, fuzzy, kde-format
+#| msgid "Created at"
+msgid "Create a screenshot"
+msgstr "Создано"
 
 #: rocketchatrestapi-qt/autotranslate/getsupportedlanguagesjob.cpp:89
 #, kde-format

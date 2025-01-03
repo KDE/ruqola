@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-01-02 00:41+0000\n"
+"POT-Creation-Date: 2025-01-03 00:41+0000\n"
 "PO-Revision-Date: 2024-10-08 22:03+0300\n"
 "Last-Translator: Moo\n"
 "Language-Team: none\n"
@@ -2070,6 +2070,12 @@ msgstr "Failas yra per didelis"
 #, kde-format
 msgid "<qt>You can find the new request at:<br /><a href='%1'>%1</a> </qt>"
 msgstr ""
+
+#: plugins/toolsplugin/grabscreen/grabscreenplugintool.cpp:38
+#, fuzzy, kde-format
+#| msgid "Create Account"
+msgid "Create a screenshot"
+msgstr "Sukurti paskyrą"
 
 #: rocketchatrestapi-qt/autotranslate/getsupportedlanguagesjob.cpp:89
 #, kde-format

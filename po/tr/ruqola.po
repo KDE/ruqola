@@ -1,14 +1,14 @@
 # Copyright (C) 2023 This file is copyright:
 # This file is distributed under the same license as the ruqola package.
 #
-# SPDX-FileCopyrightText: 2022, 2023, 2024 Emir SARI <emir_sari@icloud.com>
+# SPDX-FileCopyrightText: 2022, 2023, 2024, 2025 Emir SARI <emir_sari@icloud.com>
 # Emir SARI <emir_sari@icloud.com>, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-01-02 00:41+0000\n"
-"PO-Revision-Date: 2024-12-24 12:33+0300\n"
+"POT-Creation-Date: 2025-01-03 00:41+0000\n"
+"PO-Revision-Date: 2025-01-02 12:27+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -29,10 +29,9 @@ msgid "Rocket Chat Client"
 msgstr "Rocket Chat İstemcisi"
 
 #: apps/main.cpp:63
-#, fuzzy, kde-format
-#| msgid "Copyright © 2020-2024 Ruqola authors"
+#, kde-format
 msgid "Copyright © 2020-2025 Ruqola authors"
-msgstr "Telif hakkı © 2020–2024 Roka yazarları"
+msgstr "Telif hakkı © 2020–2025 Roka yazarları"
 
 #: apps/main.cpp:65
 #, kde-format
@@ -1993,6 +1992,12 @@ msgstr "Dosya, paylaşıldı."
 #, kde-format
 msgid "<qt>You can find the new request at:<br /><a href='%1'>%1</a> </qt>"
 msgstr "<qt>Yeni isteği şurada bulabilirsiniz:<br /><a href='%1'>%1</a> </qt>"
+
+#: plugins/toolsplugin/grabscreen/grabscreenplugintool.cpp:38
+#, fuzzy, kde-format
+#| msgid "Created at"
+msgid "Create a screenshot"
+msgstr "Oluşturulma:"
 
 #: rocketchatrestapi-qt/autotranslate/getsupportedlanguagesjob.cpp:89
 #, kde-format

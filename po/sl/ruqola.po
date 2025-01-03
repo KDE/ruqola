@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-01-02 00:41+0000\n"
-"PO-Revision-Date: 2024-12-24 10:04+0100\n"
+"POT-Creation-Date: 2025-01-03 00:41+0000\n"
+"PO-Revision-Date: 2025-01-02 07:46+0100\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
@@ -31,10 +31,9 @@ msgid "Rocket Chat Client"
 msgstr "Odjemalec klepetov Rocket"
 
 #: apps/main.cpp:63
-#, fuzzy, kde-format
-#| msgid "Copyright © 2020-2024 Ruqola authors"
+#, kde-format
 msgid "Copyright © 2020-2025 Ruqola authors"
-msgstr "Copyright/Avtorske pravice © 2020-2024 avtorji programa Ruqola"
+msgstr "Copyright © 2020-2025 avtorji programa Ruqola"
 
 #: apps/main.cpp:65
 #, kde-format
@@ -2003,6 +2002,12 @@ msgstr "Datoteka je bila deljena."
 #, kde-format
 msgid "<qt>You can find the new request at:<br /><a href='%1'>%1</a> </qt>"
 msgstr "<qt>Novi zahtevek lahko najdete na:<br /><a href='%1'>%1</a> </qt>"
+
+#: plugins/toolsplugin/grabscreen/grabscreenplugintool.cpp:38
+#, fuzzy, kde-format
+#| msgid "Created at"
+msgid "Create a screenshot"
+msgstr "Ustvarjeno"
 
 #: rocketchatrestapi-qt/autotranslate/getsupportedlanguagesjob.cpp:89
 #, kde-format
