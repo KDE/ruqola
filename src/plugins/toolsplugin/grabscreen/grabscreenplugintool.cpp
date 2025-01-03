@@ -22,8 +22,7 @@ GrabScreenPluginTool::~GrabScreenPluginTool() = default;
 
 bool GrabScreenPluginTool::toolFound() const
 {
-    const QString path = Utils::findExecutable(QStringLiteral("spectacle"));
-    return !path.isEmpty();
+    return Utils::executableFound(QStringLiteral("spectacle"));
 }
 
 PluginTool::ToolType GrabScreenPluginTool::toolType() const

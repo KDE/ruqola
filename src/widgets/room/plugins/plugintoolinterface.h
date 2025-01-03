@@ -15,4 +15,6 @@ public:
     ~PluginToolInterface() override;
 
     virtual void activateTool();
+Q_SIGNALS:
+    void executed();
 };

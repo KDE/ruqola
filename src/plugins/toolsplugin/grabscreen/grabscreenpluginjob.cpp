@@ -34,7 +34,14 @@ void GrabScreenPluginJob::start()
     arguments << QStringLiteral("-bro") << mFilePath;
     proc->start(path, arguments);
     connect(proc, &QProcess::finished, this, [this](int exitCode, QProcess::ExitStatus exitStatus) {
+        // TODO
         Q_EMIT captureDone();
+        deleteLater();
+    });
+
+    connect(proc, &QProcess::errorOccurred, this, [this](QProcess::ProcessError errors) {
+        // TODO
+        Q_EMIT captureCanceled();
         deleteLater();
     });
 }

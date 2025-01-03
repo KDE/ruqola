@@ -17,6 +17,7 @@ class EmoticonMenuWidget;
 class RocketChatAccount;
 class QMimeData;
 class MessagesModel;
+class PluginToolInterface;
 
 class LIBRUQOLAWIDGETS_TESTS_EXPORT MessageLineWidget : public QWidget
 {
@@ -83,6 +84,7 @@ private:
     LIBRUQOLAWIDGETS_NO_EXPORT void slotSendSoundMessage();
     LIBRUQOLAWIDGETS_NO_EXPORT void slotPrivateSettingsChanged();
 
+    QList<PluginToolInterface *> mPluginToolInterface;
     QByteArray mThreadMessageId;
     QByteArray mMessageIdBeingEdited;
     QString mQuotePermalink;

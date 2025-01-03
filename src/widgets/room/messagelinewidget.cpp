@@ -13,9 +13,12 @@
 #include "misc/emoticonmenuwidget.h"
 #include "ownuser/ownuserpreferences.h"
 #include "rocketchataccount.h"
+#include "room/plugins/plugintextinterface.h"
+#include "room/plugins/plugintool.h"
 #include "ruqolaglobalconfig.h"
 #include "ruqolaserverconfig.h"
 #include "ruqolawidgets_debug.h"
+#include "toolspluginmanager.h"
 
 #include <KLocalizedString>
 #include <KMessageBox>
@@ -45,6 +48,8 @@ MessageLineWidget::MessageLineWidget(QWidget *parent)
     , mEmoticonButton(new QToolButton(this))
     , mSendMessageButton(new QToolButton(this))
 {
+    const QList<PluginTool *> plugins = ToolsPluginManager::self()->pluginsList();
+
     auto mainLayout = new QHBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
     mainLayout->setContentsMargins({});
@@ -126,9 +131,29 @@ MessageLineWidget::MessageLineWidget(QWidget *parent)
     connect(mMessageTextEdit, &MessageTextEdit::handleMimeData, this, &MessageLineWidget::handleMimeData);
 
     setFocusProxy(mMessageTextEdit);
+
+    for (PluginTool *plugin : plugins) {
+        if (plugin->toolType() == PluginTool::ToolType::MessageViewToolBar) {
+            auto pluginButton = new QToolButton(this);
+            pluginButton->setAutoRaise(true);
+            const QString desc = plugin->description();
+            if (desc.isEmpty()) {
+                pluginButton->setText(desc);
+            }
+            pluginButton->setIcon(QIcon::fromTheme(plugin->iconName()));
+            pluginButton->setToolTip(plugin->toolTip());
+            auto interface = plugin->createInterface(this);
+            mPluginToolInterface.append(interface);
+            connect(pluginButton, &QToolButton::clicked, interface, &PluginToolInterface::activateTool);
+            mainLayout->addWidget(pluginButton);
+        }
+    }
 }
 
-MessageLineWidget::~MessageLineWidget() = default;
+MessageLineWidget::~MessageLineWidget()
+{
+    qDeleteAll(mPluginToolInterface);
+}
 
 void MessageLineWidget::slotSendMessage(const QString &msg)
 {
