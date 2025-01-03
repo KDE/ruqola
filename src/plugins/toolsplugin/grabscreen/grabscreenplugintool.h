@@ -6,11 +6,13 @@
 #pragma once
 
 #include "room/plugins/plugintool.h"
+#include <QVariant>
 
 class GrabScreenPluginTool : public PluginTool
 {
+    Q_OBJECT
 public:
-    explicit GrabScreenPluginTool(QObject *parent = nullptr);
+    explicit GrabScreenPluginTool(QObject *parent = nullptr, const QVariantList & = {});
     ~GrabScreenPluginTool() override;
 
     [[nodiscard]] bool toolFound() const override;

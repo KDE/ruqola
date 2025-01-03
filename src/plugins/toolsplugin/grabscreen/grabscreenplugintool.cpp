@@ -8,9 +8,12 @@
 #include "grabscreenplugintoolinterface.h"
 #include "utils.h"
 #include <KLocalizedString>
+#include <KPluginFactory>
 #include <QStandardPaths>
 
-GrabScreenPluginTool::GrabScreenPluginTool(QObject *parent)
+K_PLUGIN_CLASS_WITH_JSON(GrabScreenPluginTool, "ruqola_grabscreentoolsplugin.json")
+
+GrabScreenPluginTool::GrabScreenPluginTool(QObject *parent, const QVariantList &)
     : PluginTool{parent}
 {
 }
@@ -47,3 +50,6 @@ PluginToolInterface *GrabScreenPluginTool::createInterface(QObject *parent)
 {
     return new GrabScreenPluginToolInterface(parent);
 }
+#include "grabscreenplugintool.moc"
+
+#include "moc_grabscreenplugintool.cpp"

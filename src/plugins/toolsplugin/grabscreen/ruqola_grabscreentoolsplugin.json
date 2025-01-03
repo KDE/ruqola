@@ -1,0 +1,8 @@
+{
+    "KPlugin": {
+        "ServiceTypes": [
+            "Ruqola/ToolsPlugin"
+        ],
+        "Version": "1.0"
+    }
+}
