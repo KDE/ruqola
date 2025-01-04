@@ -64,7 +64,7 @@ void RoomsImagesJobTest::shouldNotStarting()
     QVERIFY(!job.canStart());
     RoomsImagesJob::RoomsImagesJobInfo info;
     info.roomId = QByteArrayLiteral("room_id");
-    info.startingFromId;
+    info.startingFromId = QByteArrayLiteral("start_id");
     info.count = 0;
     info.offset = 0;
     job.setRoomsImagesJobInfo(info);
