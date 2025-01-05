@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-01-04 00:41+0000\n"
-"PO-Revision-Date: 2025-01-03 09:52+0100\n"
+"PO-Revision-Date: 2025-01-04 22:36+0100\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
 "Language: eu\n"
@@ -10685,8 +10685,7 @@ msgid "Use ddp api for login"
 msgstr "Erabili DDP APIa saio-sarrerarako"
 
 #: widgets/ruqolacommandlineoptions.cpp:47
-#, fuzzy, kde-format
-#| msgid "Attach File"
+#, kde-format
 msgctxt "@info:shell"
 msgid "Attach File"
 msgstr "Erantsi fitxategia"

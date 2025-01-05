@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-01-04 00:41+0000\n"
-"PO-Revision-Date: 2025-01-03 04:04+0100\n"
+"PO-Revision-Date: 2025-01-04 05:13+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -10629,8 +10629,7 @@ msgid "Use ddp api for login"
 msgstr "შესასვლელად ddp api-ის გამოყენება"
 
 #: widgets/ruqolacommandlineoptions.cpp:47
-#, fuzzy, kde-format
-#| msgid "Attach File"
+#, kde-format
 msgctxt "@info:shell"
 msgid "Attach File"
 msgstr "ფაილის მიმაგრება"

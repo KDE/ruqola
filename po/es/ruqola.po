@@ -3,13 +3,13 @@
 #
 # SPDX-FileCopyrightText: 2019 Manuel Alcaraz <manuelalcarazzam@gmail.com>
 # SPDX-FileCopyrightText: 2019, 2020, 2021, 2022, 2023, 2024 Eloy Cuadra <ecuadra@eloihr.net>
-# SPDX-FileCopyrightText: 2020, 2021, 2022, 2023, 2024 Víctor Rodrigo Córdoba <vrcordoba@gmail.com>
+# SPDX-FileCopyrightText: 2020, 2021, 2022, 2023, 2024, 2025 Víctor Rodrigo Córdoba <vrcordoba@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-01-04 00:41+0000\n"
-"PO-Revision-Date: 2024-12-21 18:07+0100\n"
+"PO-Revision-Date: 2025-01-04 20:13+0100\n"
 "Last-Translator: Víctor Rodrigo Córdoba <vrcordoba@gmail.com>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -30,10 +30,9 @@ msgid "Rocket Chat Client"
 msgstr "Cliente para Rocket.Chat"
 
 #: apps/main.cpp:63
-#, fuzzy, kde-format
-#| msgid "Copyright © 2020-2024 Ruqola authors"
+#, kde-format
 msgid "Copyright © 2020-2025 Ruqola authors"
-msgstr "Copyright © 2020-2024 los autores de Ruqola"
+msgstr "Copyright © 2020-2025 los autores de Ruqola"
 
 #: apps/main.cpp:65
 #, kde-format
@@ -722,7 +721,7 @@ msgstr "(Último mensaje: %1)"
 #: core/job/extractserverinfojob.cpp:28
 #, kde-format
 msgid "Missing server url."
-msgstr ""
+msgstr "URL del servidor no encontrada."
 
 #: core/job/extractserverinfojob.cpp:35
 #, kde-format
@@ -1998,10 +1997,9 @@ msgstr ""
 "<qt>Puede encontrar la nueva petición en:<br /><a href='%1'>%1</a> </qt>"
 
 #: plugins/toolsplugin/grabscreen/grabscreenplugintool.cpp:40
-#, fuzzy, kde-format
-#| msgid "Created at"
+#, kde-format
 msgid "Create a screenshot"
-msgstr "Creado el"
+msgstr "Crear una captura de pantalla"
 
 #: rocketchatrestapi-qt/autotranslate/getsupportedlanguagesjob.cpp:89
 #, kde-format
@@ -7130,7 +7128,7 @@ msgstr "Todos los estados"
 #: widgets/applicationssettingsdialog/applicationssettingsversionwidget.cpp:51
 #, kde-format
 msgid "Fetching version information in progress..."
-msgstr ""
+msgstr "Obteniendo la información de versión en progreso..."
 
 #: widgets/applicationssettingsdialog/applicationssettingsversionwidget.cpp:72
 #, kde-format
@@ -10699,8 +10697,7 @@ msgid "Use ddp api for login"
 msgstr "Uso de ddp api para el inicio de sesión"
 
 #: widgets/ruqolacommandlineoptions.cpp:47
-#, fuzzy, kde-format
-#| msgid "Attach File"
+#, kde-format
 msgctxt "@info:shell"
 msgid "Attach File"
 msgstr "Adjuntar archivo"
@@ -11614,7 +11611,7 @@ msgstr "Permite mostrar las preferencias del mercado de aplicaciones"
 #: widgets/whatsnew/whatsnewtranslations.cpp:153
 #, kde-format
 msgid "Allow to search file from username and filename."
-msgstr ""
+msgstr "Búsqueda de archivo por usuario y nombre."
 
 #: widgets/whatsnew/whatsnewwidget.cpp:44
 #, kde-format
