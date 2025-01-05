@@ -10,9 +10,9 @@
 #include <QDir>
 #include <QStandardPaths>
 
-QString GrabScreenPluginToolUtil::picturePath()
+QString GrabScreenPluginToolUtil::picturePath(const QString &accountName)
 {
-    const QString imagePath = QStandardPaths::writableLocation(QStandardPaths::PicturesLocation) + QStringLiteral("/ruqola/");
+    const QString imagePath = QStandardPaths::writableLocation(QStandardPaths::PicturesLocation) + QStringLiteral("/ruqola/") + accountName;
 
     if (!QDir().mkpath(imagePath)) {
         qCWarning(RUQOLA_GRABSCREEN_PLUGIN_LOG) << "Unable to create image folder: " << imagePath;

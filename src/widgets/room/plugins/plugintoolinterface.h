@@ -30,7 +30,7 @@ public:
 Q_SIGNALS:
     void executed();
 
-private:
+protected:
     PluginToolInfo mInfo;
 };
 LIBRUQOLAWIDGETS_EXPORT QDebug operator<<(QDebug d, const PluginToolInterface::PluginToolInfo &t);
