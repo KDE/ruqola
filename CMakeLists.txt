@@ -51,8 +51,6 @@ option(OPTION_USE_ROUNDED_RECT_PIXMAP "Show avatar in a rounded rect" ON)
 option(OPTION_USE_PLASMA_ACTIVITIES "Activate plasma activities" ON)
 option(OPTION_USE_E2E_SUPPORT "E2E support (experimental)" OFF)
 option(OPTION_DISABLE_NETWORKMANAGER "Disable Network Manager support (mainly for debugging)" OFF)
-# -fhardened increase compilation time and produce a lot of warning
-option(OPTION_DISABLE_HARDENED_OPTIMIZATION "Disable -fhardened" OFF)
 
 if(OPTION_USE_PLASMA_ACTIVITIES)
     if(NOT WIN32 AND NOT APPLE)
@@ -277,11 +275,6 @@ endif()
 
 if(PLUGINS_AUTHENTICATION_BASED_ON_O2)
     find_package(o2)
-endif()
-
-if(OPTION_DISABLE_HARDENED_OPTIMIZATION)
-   string(REPLACE "-fhardened" "" CMAKE_C_FLAGS "${CMAKE_C_FLAGS}")
-   string(REPLACE "-fhardened" "" CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ")
 endif()
 
 add_subdirectory(src)
