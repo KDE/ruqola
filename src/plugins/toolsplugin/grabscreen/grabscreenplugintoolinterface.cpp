@@ -19,10 +19,13 @@ void GrabScreenPluginToolInterface::activateTool()
 {
     // TODO add account name ???
     QString imagePath = GrabScreenPluginToolUtil::picturePath();
+    if (imagePath.isEmpty()) {
+        qCWarning(RUQOLA_GRABSCREEN_PLUGIN_LOG) << " Impossible to create directory";
+        return;
+    }
     // TODO add filename
-    imagePath += QStringLiteral("screenshot.png");
+    imagePath += GrabScreenPluginToolUtil::generateFileName(imagePath);
 
-    qDebug() << " CXXXXXXXXXXXXXXXXXXXXXXX GrabScreenPluginToolInterface::activateTool ";
     auto job = new GrabScreenPluginJob(this);
     job->setFilePath(imagePath);
     connect(job, &GrabScreenPluginJob::captureCanceled, this, []() {
