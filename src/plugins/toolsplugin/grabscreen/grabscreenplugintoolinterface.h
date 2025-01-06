@@ -5,7 +5,7 @@
 */
 
 #pragma once
-
+#include "dialogs/uploadfiledialog.h"
 #include "room/plugins/plugintoolinterface.h"
 
 class GrabScreenPluginToolInterface : public PluginToolInterface
@@ -14,4 +14,7 @@ public:
     explicit GrabScreenPluginToolInterface(QObject *parent = nullptr);
     ~GrabScreenPluginToolInterface() override;
     void activateTool() override;
+
+private:
+    void sendFile(const UploadFileDialog::UploadFileInfo &uploadFileInfo);
 };

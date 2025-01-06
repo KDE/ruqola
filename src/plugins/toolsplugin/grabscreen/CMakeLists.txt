@@ -17,4 +17,5 @@ target_sources(ruqola_grabscreenplugin PRIVATE
 )
 target_link_libraries(ruqola_grabscreenplugin
     libruqolawidgets
+    librocketchatrestapi-qt
 )

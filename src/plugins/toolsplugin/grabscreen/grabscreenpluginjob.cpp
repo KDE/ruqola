@@ -34,7 +34,8 @@ void GrabScreenPluginJob::start()
     arguments << QStringLiteral("-n") << QStringLiteral("-d") << QString::number(GrabScreenPluginToolConfig::self()->delay());
     arguments << QStringLiteral("-bro") << mFilePath;
     connect(proc, &QProcess::finished, this, [this](int exitCode, QProcess::ExitStatus exitStatus) {
-        // TODO
+        Q_UNUSED(exitCode);
+        Q_UNUSED(exitStatus);
         Q_EMIT captureDone();
         deleteLater();
     });
