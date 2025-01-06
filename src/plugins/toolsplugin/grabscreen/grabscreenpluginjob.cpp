@@ -33,7 +33,6 @@ void GrabScreenPluginJob::start()
     QStringList arguments;
     arguments << QStringLiteral("-n") << QStringLiteral("-d") << QString::number(GrabScreenPluginToolConfig::self()->delay());
     arguments << QStringLiteral("-bro") << mFilePath;
-    proc->start(path, arguments);
     connect(proc, &QProcess::finished, this, [this](int exitCode, QProcess::ExitStatus exitStatus) {
         // TODO
         Q_EMIT captureDone();
@@ -41,10 +40,11 @@ void GrabScreenPluginJob::start()
     });
 
     connect(proc, &QProcess::errorOccurred, this, [this](QProcess::ProcessError errors) {
-        // TODO
+        qCWarning(RUQOLA_GRABSCREEN_PLUGIN_LOG) << "Error occurred " << errors;
         Q_EMIT captureCanceled();
         deleteLater();
     });
+    proc->start(path, arguments);
 }
 
 QString GrabScreenPluginJob::filePath() const
