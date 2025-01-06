@@ -4,9 +4,12 @@
    SPDX-License-Identifier: LGPL-2.0-or-later
 */
 #include "grabscreenplugintoolinterface.h"
+#include "dialogs/uploadfiledialog.h"
 #include "grabscreenplugin_debug.h"
 #include "grabscreenpluginjob.h"
 #include "grabscreenplugintoolutil.h"
+
+#include <QPointer>
 
 GrabScreenPluginToolInterface::GrabScreenPluginToolInterface(QObject *parent)
     : PluginToolInterface{parent}
@@ -30,7 +33,14 @@ void GrabScreenPluginToolInterface::activateTool()
         qDebug() << " CANCELED";
         // TODO
     });
-    connect(job, &GrabScreenPluginJob::captureDone, this, [this]() {
+    connect(job, &GrabScreenPluginJob::captureDone, this, [this, imagePath]() {
+        QPointer<UploadFileDialog> dlg = new UploadFileDialog();
+        dlg->setFileUrl(QUrl::fromLocalFile(imagePath));
+        if (dlg->exec()) {
+            const UploadFileDialog::UploadFileInfo uploadFileInfo = dlg->fileInfo();
+            // sendFile(uploadFileInfo);
+        }
+        delete dlg;
         qDebug() << " DONE";
         // TODO open attachment message
         // TODO

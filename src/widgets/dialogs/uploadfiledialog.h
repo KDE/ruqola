@@ -9,10 +9,10 @@
 #include <QDialog>
 #include <QUrl>
 
-#include "libruqolawidgets_private_export.h"
+#include "libruqolawidgets_export.h"
 class UploadFileWidget;
 class QPushButton;
-class LIBRUQOLAWIDGETS_TESTS_EXPORT UploadFileDialog : public QDialog
+class LIBRUQOLAWIDGETS_EXPORT UploadFileDialog : public QDialog
 {
     Q_OBJECT
 public:
