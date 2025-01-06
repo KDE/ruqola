@@ -29,6 +29,6 @@ QString GrabScreenPluginToolUtil::generateFileName(const QString &dirPath)
     do {
         newName = dirPath + QLatin1Char('/') + QStringLiteral("%1-%2.png").arg(filename, QString::number(index));
         index++;
-    } while (QFile(newName).exists());
+    } while (QFile::exists(newName));
     return newName;
 }
