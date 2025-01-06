@@ -7,8 +7,6 @@
 #include "addteamroomcompletionlineedit.h"
 #include "common/teamroomcompletiondelegate.h"
 
-using namespace Qt::Literals::StringLiterals;
-
 #include "common/completionlistview.h"
 #include "connection.h"
 #include "model/teamroomcompletermodel.h"
@@ -23,6 +21,7 @@ using namespace Qt::Literals::StringLiterals;
 #include <QTimer>
 #include <chrono>
 
+using namespace Qt::Literals::StringLiterals;
 using namespace std::chrono_literals;
 
 AddTeamRoomCompletionLineEdit::AddTeamRoomCompletionLineEdit(RocketChatAccount *account, QWidget *parent)

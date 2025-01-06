@@ -5,13 +5,13 @@
 */
 
 #include "roledeletejob.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "restapimethod.h"
 #include "rocketchatqtrestapi_debug.h"
 
 #include <QJsonDocument>
 #include <QJsonObject>
+using namespace Qt::Literals::StringLiterals;
 using namespace RocketChatRestApi;
 RoleDeleteJob::RoleDeleteJob(QObject *parent)
     : RestApiAbstractJob(parent)

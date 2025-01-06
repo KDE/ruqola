@@ -5,7 +5,6 @@
 */
 
 #include "settingswidgetbase.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "connection.h"
 #include "dialogs/confirmpassworddialog.h"
@@ -27,6 +26,7 @@ using namespace Qt::Literals::StringLiterals;
 #include <QSpinBox>
 #include <QToolButton>
 
+using namespace Qt::Literals::StringLiterals;
 namespace
 {
 const char s_property[] = "settings_name";

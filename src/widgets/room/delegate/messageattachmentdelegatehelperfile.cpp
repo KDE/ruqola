@@ -5,7 +5,6 @@
 */
 
 #include "messageattachmentdelegatehelperfile.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "common/delegatepaintutil.h"
 #include "common/delegateutil.h"
@@ -32,6 +31,7 @@ using namespace Qt::Literals::StringLiterals;
 //  Name <download icon>
 //  Description
 
+using namespace Qt::Literals::StringLiterals;
 MessageAttachmentDelegateHelperFile::MessageAttachmentDelegateHelperFile(RocketChatAccount *account, QListView *view, TextSelectionImpl *textSelectionImpl)
     : MessageAttachmentDelegateHelperBase(account, view, textSelectionImpl)
     , mDownloadIcon(QIcon::fromTheme(QStringLiteral("cloud-download")))

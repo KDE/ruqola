@@ -5,7 +5,6 @@
 */
 
 #include "channellistwidget.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "ddpapi/ddpclient.h"
 #include "model/roomfilterproxymodel.h"
@@ -26,6 +25,7 @@ using namespace Qt::Literals::StringLiterals;
 #include <QLineEdit>
 #include <QVBoxLayout>
 
+using namespace Qt::Literals::StringLiterals;
 ChannelListWidget::ChannelListWidget(QWidget *parent)
     : QWidget(parent)
     , mChannelView(new ChannelListView(this))

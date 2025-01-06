@@ -5,12 +5,12 @@
 */
 
 #include "userrequestdatadownloadjob.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "restapimethod.h"
 #include <QJsonDocument>
 #include <QJsonObject>
 #include <QUrlQuery>
+using namespace Qt::Literals::StringLiterals;
 using namespace RocketChatRestApi;
 UserRequestDataDownloadJob::UserRequestDataDownloadJob(QObject *parent)
     : RestApiAbstractJob(parent)

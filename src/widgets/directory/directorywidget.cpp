@@ -5,7 +5,6 @@
 */
 
 #include "directorywidget.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "connection.h"
 #include "ddpapi/ddpclient.h"
@@ -26,6 +25,7 @@ using namespace Qt::Literals::StringLiterals;
 #include <QShowEvent>
 #include <QTreeView>
 
+using namespace Qt::Literals::StringLiterals;
 DirectoryWidget::DirectoryWidget(RocketChatAccount *account, DirectoryType type, QWidget *parent)
     : SearchTreeBaseWidget(account, parent)
     , mType(type)

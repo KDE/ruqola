@@ -5,7 +5,6 @@
 */
 
 #include "removeuserfromrolejob.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "restapimethod.h"
 #include "rocketchatqtrestapi_debug.h"
@@ -15,6 +14,7 @@ using namespace Qt::Literals::StringLiterals;
 
 #include <KLocalizedString>
 
+using namespace Qt::Literals::StringLiterals;
 using namespace RocketChatRestApi;
 RemoveUserFromRoleJob::RemoveUserFromRoleJob(QObject *parent)
     : RestApiAbstractJob(parent)

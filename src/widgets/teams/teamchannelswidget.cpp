@@ -5,7 +5,6 @@
 */
 
 #include "teamchannelswidget.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "channels/createchanneljob.h"
 #include "connection.h"
@@ -32,6 +31,7 @@ using namespace Qt::Literals::StringLiterals;
 #include <QMenu>
 #include <QVBoxLayout>
 
+using namespace Qt::Literals::StringLiterals;
 TeamChannelsWidget::TeamChannelsWidget(RocketChatAccount *account, QWidget *parent)
     : QWidget(parent)
     , mListView(new QListView(this))

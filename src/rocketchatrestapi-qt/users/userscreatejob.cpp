@@ -5,7 +5,6 @@
 */
 
 #include "userscreatejob.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "restapimethod.h"
 #include "rocketchatqtrestapi_debug.h"
@@ -14,6 +13,7 @@ using namespace Qt::Literals::StringLiterals;
 
 #include <QJsonDocument>
 #include <QJsonObject>
+using namespace Qt::Literals::StringLiterals;
 using namespace RocketChatRestApi;
 UsersCreateJob::UsersCreateJob(QObject *parent)
     : RestApiAbstractJob(parent)

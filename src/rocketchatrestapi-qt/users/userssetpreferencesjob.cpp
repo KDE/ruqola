@@ -5,7 +5,6 @@
 */
 
 #include "userssetpreferencesjob.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "restapimethod.h"
 #include "rocketchatqtrestapi_debug.h"
@@ -16,6 +15,7 @@ using namespace Qt::Literals::StringLiterals;
 #include <QJsonDocument>
 #include <QJsonObject>
 using namespace RocketChatRestApi;
+using namespace Qt::Literals::StringLiterals;
 UsersSetPreferencesJob::UsersSetPreferencesJob(QObject *parent)
     : RestApiAbstractJob(parent)
 {

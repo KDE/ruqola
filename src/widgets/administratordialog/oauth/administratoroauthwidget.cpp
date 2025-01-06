@@ -4,7 +4,6 @@
    SPDX-License-Identifier: LGPL-2.0-or-later
 */
 #include "administratoroauthwidget.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "connection.h"
 #include "ddpapi/ddpclient.h"
@@ -20,6 +19,7 @@ using namespace Qt::Literals::StringLiterals;
 #include <QLineEdit>
 #include <QVBoxLayout>
 
+using namespace Qt::Literals::StringLiterals;
 AdministratorOauthWidget::AdministratorOauthWidget(RocketChatAccount *account, QWidget *parent)
     : QWidget{parent}
     , mRocketChatAccount(account)

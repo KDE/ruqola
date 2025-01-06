@@ -5,7 +5,6 @@
 */
 
 #include "searchteamcompletionlineedit.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "common/completionlistview.h"
 #include "connection.h"
@@ -18,6 +17,7 @@ using namespace Qt::Literals::StringLiterals;
 #include <QTimer>
 #include <chrono>
 
+using namespace Qt::Literals::StringLiterals;
 using namespace std::chrono_literals;
 
 SearchTeamCompletionLineEdit::SearchTeamCompletionLineEdit(RocketChatAccount *account, QWidget *parent)

@@ -11,7 +11,6 @@
 #include "encryption/e2ekeymanager.h"
 #include "encryption/e2epassworddecodekeydialog.h"
 #include "encryption/e2esaveencryptionkeywidget.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "accountroomsettings.h"
 #include "conferencecalldialog/conferencecalldialog.h"
@@ -77,6 +76,7 @@ using namespace Qt::Literals::StringLiterals;
 #include <TextEditTextToSpeech/TextToSpeechContainerWidget>
 #endif
 
+using namespace Qt::Literals::StringLiterals;
 RoomWidget::RoomWidget(QWidget *parent)
     : QWidget(parent)
     , mRoomWidgetBase(new RoomWidgetBase(MessageListView::Mode::Editing, this))

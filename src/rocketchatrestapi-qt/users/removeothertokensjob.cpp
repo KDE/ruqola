@@ -5,12 +5,12 @@
 */
 
 #include "removeothertokensjob.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "restapimethod.h"
 
 #include <QJsonDocument>
 #include <QJsonObject>
+using namespace Qt::Literals::StringLiterals;
 using namespace RocketChatRestApi;
 RemoveOtherTokensJob::RemoveOtherTokensJob(QObject *parent)
     : RestApiAbstractJob(parent)

@@ -5,7 +5,6 @@
 */
 
 #include "conferencecallsettingswidget.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "connection.h"
 #include "rocketchataccount.h"
@@ -16,6 +15,7 @@ using namespace Qt::Literals::StringLiterals;
 #include <QFormLayout>
 #include <QJsonArray>
 
+using namespace Qt::Literals::StringLiterals;
 ConferenceCallSettingsWidget::ConferenceCallSettingsWidget(RocketChatAccount *account, QWidget *parent)
     : SettingsWidgetBase{account, parent}
     , mDefaultProvider(new QComboBox(this))

@@ -5,7 +5,6 @@
 */
 
 #include "createsoundmessagewidget.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include <KConfigGroup>
 #include <KLocalizedString>
@@ -21,6 +20,7 @@ using namespace Qt::Literals::StringLiterals;
 #include <QTemporaryFile>
 #include <QToolButton>
 
+using namespace Qt::Literals::StringLiterals;
 namespace
 {
 const char mySoundGroupName[] = "Message Sound";

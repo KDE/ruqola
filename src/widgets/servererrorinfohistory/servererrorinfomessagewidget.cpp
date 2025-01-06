@@ -5,13 +5,13 @@
 */
 
 #include "servererrorinfomessagewidget.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "accountmanager.h"
 #include "ruqola.h"
 #include "servererrorinfohistory/servererrorinfomessagehistorydialog.h"
 #include <KLocalizedString>
 
+using namespace Qt::Literals::StringLiterals;
 ServerErrorInfoMessageWidget::ServerErrorInfoMessageWidget(QWidget *parent)
     : KMessageWidget(parent)
 {

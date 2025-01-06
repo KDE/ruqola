@@ -4,9 +4,8 @@
    SPDX-License-Identifier: LGPL-2.0-or-later
 */
 #include "roomcounterinfowidget.h"
-using namespace Qt::Literals::StringLiterals;
-
 #include <KLocalizedString>
+using namespace Qt::Literals::StringLiterals;
 RoomCounterInfoWidget::RoomCounterInfoWidget(QWidget *parent)
     : KMessageWidget(parent)
 {
