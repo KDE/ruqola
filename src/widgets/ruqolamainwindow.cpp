@@ -170,12 +170,6 @@ void RuqolaMainWindow::parseCommandLine(QCommandLineParser *parser)
             Ruqola::self()->setCurrentAccount(loadAccount);
         }
     }
-    if (parser->isSet(RuqolaCommandLineParser::commandLineFromEnum(RuqolaCommandLineParser::CommandLineName::AttachFile))) {
-        const QString attachmentUrl = parser->value(RuqolaCommandLineParser::commandLineFromEnum(RuqolaCommandLineParser::CommandLineName::AttachFile));
-        if (!attachmentUrl.isEmpty()) {
-            // TODO Ruqola::self()->setCurrentAccount(loadAccount);
-        }
-    }
 }
 
 void RuqolaMainWindow::slotActivateRequested(const QStringList &arguments, const QString &workingDirectory)
