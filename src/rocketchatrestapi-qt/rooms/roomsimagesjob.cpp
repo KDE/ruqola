@@ -81,10 +81,7 @@ QNetworkRequest RoomsImagesJob::request() const
 {
     QUrl url = mRestApiMethod->generateUrl(RestApiUtil::RestApiUrlType::RoomsImages);
     QUrlQuery queryUrl;
-    queryUrl.addQueryItem(QStringLiteral("roomId"), QLatin1StringView(mRoomsImagesJobInfo.roomId));
-    queryUrl.addQueryItem(QStringLiteral("startingFromId"), QLatin1StringView(mRoomsImagesJobInfo.startingFromId));
-    queryUrl.addQueryItem(QStringLiteral("offset"), QString::number(mRoomsImagesJobInfo.offset));
-    queryUrl.addQueryItem(QStringLiteral("count"), QString::number(mRoomsImagesJobInfo.count));
+    mRoomsImagesJobInfo.generateRequest(queryUrl);
     addQueryParameter(queryUrl);
     url.setQuery(queryUrl);
 
@@ -98,6 +95,14 @@ QNetworkRequest RoomsImagesJob::request() const
 bool RoomsImagesJob::RoomsImagesJobInfo::isValid() const
 {
     return !roomId.isEmpty() && !startingFromId.isEmpty() && (count > 0);
+}
+
+void RoomsImagesJob::RoomsImagesJobInfo::generateRequest(QUrlQuery &query) const
+{
+    query.addQueryItem(QStringLiteral("roomId"), QLatin1StringView(roomId));
+    query.addQueryItem(QStringLiteral("startingFromId"), QLatin1StringView(startingFromId));
+    query.addQueryItem(QStringLiteral("offset"), QString::number(offset));
+    query.addQueryItem(QStringLiteral("count"), QString::number(count));
 }
 
 #include "moc_roomsimagesjob.cpp"

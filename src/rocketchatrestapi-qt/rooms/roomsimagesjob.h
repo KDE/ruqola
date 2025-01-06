@@ -21,6 +21,7 @@ public:
         int offset = 0;
         int count = 0;
         [[nodiscard]] bool isValid() const;
+        void generateRequest(QUrlQuery &query) const;
     };
 
     explicit RoomsImagesJob(QObject *parent = nullptr);
