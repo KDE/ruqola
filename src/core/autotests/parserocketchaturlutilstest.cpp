@@ -80,7 +80,7 @@ void ParseRocketChatUrlUtilsTest::shouldParseUrl_data()
 
     QTest::addRow("invite1") << QStringLiteral("https://go.rocket.chat/invite?host=foo.chat.kde.com&path=invite%2FQ67r9r")
                              << ParseRocketChatUrlUtils::UrlType::Invite << QString() << QString() << QStringLiteral("foo.chat.kde.com")
-                             << QStringLiteral("invite%2FQ67r9r") << ParseRocketChatUrlUtils::ChannelType::Unknown
+                             << QStringLiteral("invite/Q67r9r") << ParseRocketChatUrlUtils::ChannelType::Unknown
                              << ParseRocketChatUrlUtils::RoomIdType::Unknown;
 }
 

@@ -57,12 +57,11 @@ ParseRocketChatUrlUtils::UrlType ParseRocketChatUrlUtils::parseUrl(const QString
             return ParseRocketChatUrlUtils::UrlType::Server;
         } else if (urlPath == "/invite"_L1) {
             mParsingInfo.serverHost = query.queryItemValue(QStringLiteral("host"));
-            mParsingInfo.path = query.queryItemValue(QStringLiteral("path"));
-            // TODO
+            mParsingInfo.path = query.queryItemValue(QStringLiteral("path"), QUrl::FullyDecoded);
             return ParseRocketChatUrlUtils::UrlType::Invite;
         } else if (urlPath == "/conference"_L1) {
             mParsingInfo.serverHost = query.queryItemValue(QStringLiteral("host"));
-            mParsingInfo.path = query.queryItemValue(QStringLiteral("path"));
+            mParsingInfo.path = query.queryItemValue(QStringLiteral("path"), QUrl::FullyDecoded);
             // TODO
             return ParseRocketChatUrlUtils::UrlType::ConferenceCall;
         } else {
