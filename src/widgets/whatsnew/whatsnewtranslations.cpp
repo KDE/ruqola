@@ -15,6 +15,7 @@ QList<KLazyLocalizedString> WhatsNewTranslations::lastNewFeatures() const
 {
     const QList<KLazyLocalizedString> info{
         kli18n("Add support for tools plugins"),
+        kli18n("Add screenshot button"),
     };
     return info;
 }
