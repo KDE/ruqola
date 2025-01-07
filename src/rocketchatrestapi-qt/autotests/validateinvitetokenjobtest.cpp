@@ -19,7 +19,7 @@ void ValidateInviteTokenJobTest::shouldHaveDefaultValue()
 {
     ValidateInviteTokenJob job;
     verifyDefaultValue(&job);
-    QVERIFY(job.requireHttpAuthentication());
+    QVERIFY(!job.requireHttpAuthentication());
     QVERIFY(!job.hasQueryParameterSupport());
     QVERIFY(!job.requireTwoFactorAuthentication());
     QVERIFY(job.token().isEmpty());

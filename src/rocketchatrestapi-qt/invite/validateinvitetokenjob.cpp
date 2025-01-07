@@ -56,7 +56,7 @@ void ValidateInviteTokenJob::setToken(const QString &newToken)
 
 bool ValidateInviteTokenJob::requireHttpAuthentication() const
 {
-    return true;
+    return false;
 }
 
 bool ValidateInviteTokenJob::canStart() const
