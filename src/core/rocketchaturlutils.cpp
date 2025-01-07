@@ -46,8 +46,14 @@ bool RocketChatUrlUtils::parseUrl(const QString &link)
     case ParseRocketChatUrlUtils::UrlType::Invite: {
         AccountManager::AccountManagerInfo info;
         info.serverUrl = parseUrl.parsingInfo().serverHost;
-        qDebug() << " ParseRocketChatUrlUtils::UrlType Invite Not implement yet ";
-        // TODO
+        info.enabled = true;
+        info.accountName = QStringLiteral("inviteaccount");
+        Ruqola::self()->accountManager()->addAccount(std::move(info));
+
+        auto notification = new KNotification(QStringLiteral("Account-Added"), KNotification::CloseOnTimeout);
+        notification->setTitle(i18n("Account Added"));
+        notification->setText(i18n("A new account was added."));
+        notification->sendEvent();
         break;
     }
     case ParseRocketChatUrlUtils::UrlType::ConferenceCall:
