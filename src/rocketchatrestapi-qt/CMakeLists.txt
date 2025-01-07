@@ -241,6 +241,8 @@ target_sources(librocketchatrestapi-qt PRIVATE
     invite/sendinvitationemailjob.h
     invite/validateinvitetokenjob.h
     invite/validateinvitetokenjob.cpp
+    invite/useinvitetokenjob.cpp
+    invite/useinvitetokenjob.h
     librestapi_private_export.h
     license/licenseslistjob.cpp
     license/licenseslistjob.h
