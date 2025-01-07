@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-01-06 00:41+0000\n"
-"PO-Revision-Date: 2025-01-04 10:46+0200\n"
+"POT-Creation-Date: 2025-01-07 00:41+0000\n"
+"PO-Revision-Date: 2025-01-06 09:00+0200\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
 "Language: uk\n"
@@ -7340,7 +7340,7 @@ msgid "Username or email:"
 msgstr "Ім'я користувача або адреса ел. пошти:"
 
 #: widgets/common/authenticationloginwidget.cpp:160
-#: widgets/ruqolamainwindow.cpp:1045
+#: widgets/ruqolamainwindow.cpp:1039
 #, kde-format
 msgid ""
 "We have sent you an email to confirm your registration.\n"
@@ -7352,7 +7352,7 @@ msgstr ""
 "поверніться сюди і повторіть спробу."
 
 #: widgets/common/authenticationloginwidget.cpp:161
-#: widgets/ruqolamainwindow.cpp:1046
+#: widgets/ruqolamainwindow.cpp:1040
 #, kde-format
 msgctxt "@title:window"
 msgid "Register New User"
@@ -8693,7 +8693,7 @@ msgstr "Вас не уповноважено на перегляд цієї ст
 
 #: widgets/directory/directorywidget.cpp:35
 #: widgets/misc/joinedchannelcompletionlineeditbase.cpp:26
-#: widgets/teams/addteamroomcompletionlineedit.cpp:34
+#: widgets/teams/addteamroomcompletionlineedit.cpp:33
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Search rooms…"
@@ -10392,19 +10392,19 @@ msgstr "(Спроба повторного з'єднання)"
 msgid "%1 seconds before reconnecting. %2"
 msgstr "%1 секунд до повторного з'єднання. %2"
 
-#: widgets/room/roomcounterinfowidget.cpp:19
+#: widgets/room/roomcounterinfowidget.cpp:18
 #, kde-format
 msgctxt "@action:button"
 msgid "Jump to First Unread"
 msgstr "Перейти до першого непрочитаного"
 
-#: widgets/room/roomcounterinfowidget.cpp:26
+#: widgets/room/roomcounterinfowidget.cpp:25
 #, kde-format
 msgctxt "@action:button"
 msgid "Mark as Read"
 msgstr "Позначити як прочитане"
 
-#: widgets/room/roomcounterinfowidget.cpp:61
+#: widgets/room/roomcounterinfowidget.cpp:60
 #, kde-format
 msgid "%1 new message since %2."
 msgid_plural "%1 new messages since %2."
@@ -10733,315 +10733,309 @@ msgstr[1] "%1 користувачі у кімнаті (загалом: %2)"
 msgstr[2] "%1 користувачів у кімнаті (загалом: %2)"
 msgstr[3] "%1 користувач у кімнаті (загалом: %2)"
 
-#: widgets/ruqolacommandlineoptions.cpp:39
+#: widgets/ruqolacommandlineoptions.cpp:37
 #, kde-format
 msgctxt "@info:shell"
 msgid "Return lists of accounts"
 msgstr "Повернути список облікових записів"
 
-#: widgets/ruqolacommandlineoptions.cpp:41
+#: widgets/ruqolacommandlineoptions.cpp:39
 #, kde-format
 msgctxt "@info:shell"
 msgid "Start with specific account"
 msgstr "Запустити із вказаним обліковим записом"
 
-#: widgets/ruqolacommandlineoptions.cpp:44
+#: widgets/ruqolacommandlineoptions.cpp:42
 #, kde-format
 msgctxt "@info:shell"
 msgid "Show Message"
 msgstr "Показати повідомлення"
 
-#: widgets/ruqolacommandlineoptions.cpp:45
+#: widgets/ruqolacommandlineoptions.cpp:43
 #, kde-format
 msgctxt "@info:shell"
 msgid "Use ddp api for login"
 msgstr "Використати програмний інтерфейс DDP для входу"
 
-#: widgets/ruqolacommandlineoptions.cpp:47
-#, kde-format
-msgctxt "@info:shell"
-msgid "Attach File"
-msgstr "Долучити файл"
-
-#: widgets/ruqolacommandlineoptions.cpp:50
+#: widgets/ruqolacommandlineoptions.cpp:46
 #, kde-format
 msgctxt "@info:shell"
 msgid "Lists the available options for user feedback"
 msgstr "Показати доступні варіанти для відгуків користувача"
 
-#: widgets/ruqolamainwindow.cpp:232
+#: widgets/ruqolamainwindow.cpp:226
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Show New Notifications"
 msgstr "Показати нові сповіщення"
 
-#: widgets/ruqolamainwindow.cpp:234
+#: widgets/ruqolamainwindow.cpp:228
 #, kde-format
 msgid "Show New Notifications"
 msgstr "Показати нові сповіщення"
 
-#: widgets/ruqolamainwindow.cpp:422
+#: widgets/ruqolamainwindow.cpp:416
 #, kde-format
 msgctxt "@action"
 msgid "Add Server…"
 msgstr "Додати сервер…"
 
-#: widgets/ruqolamainwindow.cpp:427
+#: widgets/ruqolamainwindow.cpp:421
 #, kde-format
 msgctxt "@action"
 msgid "Server Info…"
 msgstr "Дані щодо сервера…"
 
-#: widgets/ruqolamainwindow.cpp:431
+#: widgets/ruqolamainwindow.cpp:425
 #, kde-format
 msgctxt "@action"
 msgid "Logout Current Server"
 msgstr "Вийти з поточного сервера"
 
-#: widgets/ruqolamainwindow.cpp:435
+#: widgets/ruqolamainwindow.cpp:429
 #, kde-format
 msgctxt "@action"
 msgid "Jump to Next Unread Channel"
 msgstr "Перейти до наступного непрочитаного каналу"
 
-#: widgets/ruqolamainwindow.cpp:440
+#: widgets/ruqolamainwindow.cpp:434
 #, kde-format
 msgid "Create New Channel…"
 msgstr "Створити канал…"
 
-#: widgets/ruqolamainwindow.cpp:444
+#: widgets/ruqolamainwindow.cpp:438
 #, kde-format
 msgid "Create Direct Messages…"
 msgstr "Створити безпосередні повідомлення…"
 
-#: widgets/ruqolamainwindow.cpp:448
+#: widgets/ruqolamainwindow.cpp:442
 #, kde-format
 msgid "Create Discussion…"
 msgstr "Створити обговорення…"
 
-#: widgets/ruqolamainwindow.cpp:452
+#: widgets/ruqolamainwindow.cpp:446
 #, kde-format
 msgid "Create Team…"
 msgstr "Створити команду…"
 
-#: widgets/ruqolamainwindow.cpp:460
+#: widgets/ruqolamainwindow.cpp:454
 #, kde-format
 msgctxt "@action"
 msgid "Unread on Top"
 msgstr "Непрочитані згори"
 
-#: widgets/ruqolamainwindow.cpp:468
+#: widgets/ruqolamainwindow.cpp:462
 #, kde-format
 msgctxt "@action"
 msgid "By Last Message"
 msgstr "За останнім повідомленням"
 
-#: widgets/ruqolamainwindow.cpp:474
+#: widgets/ruqolamainwindow.cpp:468
 #, kde-format
 msgctxt "@action"
 msgid "Alphabetically"
 msgstr "За абеткою"
 
-#: widgets/ruqolamainwindow.cpp:480
+#: widgets/ruqolamainwindow.cpp:474
 #, kde-format
 msgid "Show Channel Log"
 msgstr "Показати журнал каналу"
 
-#: widgets/ruqolamainwindow.cpp:484
+#: widgets/ruqolamainwindow.cpp:478
 #, kde-format
 msgid "Show Server Errors"
 msgstr "Показати помилки сервера"
 
-#: widgets/ruqolamainwindow.cpp:515
+#: widgets/ruqolamainwindow.cpp:509
 #, kde-format
 msgctxt "@action"
 msgid "Mark All Channels as Read"
 msgstr "Позначити усі канали як прочитані"
 
-#: widgets/ruqolamainwindow.cpp:520
+#: widgets/ruqolamainwindow.cpp:514
 #, kde-format
 msgctxt "@action"
 msgid "Register a New User…"
 msgstr "Зареєструвати нового користувача…"
 
-#: widgets/ruqolamainwindow.cpp:524
+#: widgets/ruqolamainwindow.cpp:518
 #, kde-format
 msgctxt "@action"
 msgid "My Account…"
 msgstr "Обліковий запис…"
 
-#: widgets/ruqolamainwindow.cpp:528
+#: widgets/ruqolamainwindow.cpp:522
 #, kde-format
 msgid "administration"
 msgstr "адміністрування"
 
-#: widgets/ruqolamainwindow.cpp:529
+#: widgets/ruqolamainwindow.cpp:523
 #, kde-format
 msgctxt "@action"
 msgid "Administrator…"
 msgstr "Адміністратор…"
 
-#: widgets/ruqolamainwindow.cpp:535
+#: widgets/ruqolamainwindow.cpp:529
 #, kde-format
 msgctxt "@action"
 msgid "Server Settings…"
 msgstr "Параметри сервера…"
 
-#: widgets/ruqolamainwindow.cpp:542
+#: widgets/ruqolamainwindow.cpp:536
 #, kde-format
 msgctxt "@action"
 msgid "Applications…"
 msgstr "Програми…"
 
-#: widgets/ruqolamainwindow.cpp:547
+#: widgets/ruqolamainwindow.cpp:541
 #, kde-format
 msgctxt "@action"
 msgid "Requested Applications…"
 msgstr "Потрібні програми…"
 
-#: widgets/ruqolamainwindow.cpp:552
+#: widgets/ruqolamainwindow.cpp:546
 #, kde-format
 msgctxt "@action"
 msgid "Installed Applications…"
 msgstr "Встановлені програми…"
 
-#: widgets/ruqolamainwindow.cpp:557
+#: widgets/ruqolamainwindow.cpp:551
 #, kde-format
 msgctxt "@action"
 msgid "Private Applications…"
 msgstr "Конфіденційні програми…"
 
-#: widgets/ruqolamainwindow.cpp:562
+#: widgets/ruqolamainwindow.cpp:556
 #, kde-format
 msgctxt "Action which allows to search room"
 msgid "Join Room…"
 msgstr "Приєднатися до кімнати…"
 
-#: widgets/ruqolamainwindow.cpp:566
+#: widgets/ruqolamainwindow.cpp:560
 #, kde-format
 msgctxt "Action which allows to search team"
 msgid "Join Team…"
 msgstr "Приєднатися до команди…"
 
-#: widgets/ruqolamainwindow.cpp:570
+#: widgets/ruqolamainwindow.cpp:564
 #, kde-format
 msgctxt "Action which allows to open private conversation (direct user)"
 msgid "Open Private Conversation…"
 msgstr "Відкрити конфіденційне спілкування…"
 
-#: widgets/ruqolamainwindow.cpp:591
+#: widgets/ruqolamainwindow.cpp:585
 #, kde-format
 msgid "&Next Server"
 msgstr "&Наступний сервер"
 
-#: widgets/ruqolamainwindow.cpp:596
+#: widgets/ruqolamainwindow.cpp:590
 #, kde-format
 msgid "&Previous Server"
 msgstr "&Попередній сервер"
 
-#: widgets/ruqolamainwindow.cpp:605
+#: widgets/ruqolamainwindow.cpp:599
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Status:"
 msgstr "Стан:"
 
-#: widgets/ruqolamainwindow.cpp:618
+#: widgets/ruqolamainwindow.cpp:612
 #, kde-format
 msgctxt "@action"
 msgid "Previous Selected Channel"
 msgstr "Попередній вибраний канал"
 
-#: widgets/ruqolamainwindow.cpp:625
+#: widgets/ruqolamainwindow.cpp:619
 #, kde-format
 msgctxt "@action"
 msgid "Next Selected Channel"
 msgstr "Наступний вибраний канал"
 
-#: widgets/ruqolamainwindow.cpp:655
+#: widgets/ruqolamainwindow.cpp:649
 #, kde-format
 msgid "Show Notify History"
 msgstr "Показати журнал сповіщень"
 
-#: widgets/ruqolamainwindow.cpp:659
+#: widgets/ruqolamainwindow.cpp:653
 #, kde-format
 msgctxt "@action"
 msgid "Show RocketChat Information"
 msgstr "Показати відомості щодо RocketChat"
 
-#: widgets/ruqolamainwindow.cpp:663
+#: widgets/ruqolamainwindow.cpp:657
 #, kde-format
 msgctxt "@action"
 msgid "Show Room Avatar"
 msgstr "Показувати аватар кімнати"
 
-#: widgets/ruqolamainwindow.cpp:668
+#: widgets/ruqolamainwindow.cpp:662
 #, kde-format
 msgctxt "@action"
 msgid "Show Favorite Room"
 msgstr "Показувати улюблену кімнату"
 
-#: widgets/ruqolamainwindow.cpp:677
+#: widgets/ruqolamainwindow.cpp:671
 #, kde-format
 msgid "What's new"
 msgstr "Що нового?"
 
-#: widgets/ruqolamainwindow.cpp:681
+#: widgets/ruqolamainwindow.cpp:675
 #, kde-format
 msgid "Import Accounts"
 msgstr "Імпортувати облікові записи"
 
-#: widgets/ruqolamainwindow.cpp:685
+#: widgets/ruqolamainwindow.cpp:679
 #, kde-format
 msgid "Export Accounts"
 msgstr "Експортувати облікові записи"
 
-#: widgets/ruqolamainwindow.cpp:702
+#: widgets/ruqolamainwindow.cpp:696
 #, kde-format
 msgctxt "@action"
 msgid "Medium"
 msgstr "Середній"
 
-#: widgets/ruqolamainwindow.cpp:710
+#: widgets/ruqolamainwindow.cpp:704
 #, kde-format
 msgctxt "@action"
 msgid "Condensed"
 msgstr "Стиснений"
 
-#: widgets/ruqolamainwindow.cpp:719
+#: widgets/ruqolamainwindow.cpp:713
 #, kde-format
 msgctxt "@action"
 msgid "Extended"
 msgstr "Розгорнутий"
 
-#: widgets/ruqolamainwindow.cpp:727
+#: widgets/ruqolamainwindow.cpp:721
 #, kde-format
 msgid "Clear history"
 msgstr "Спорожнити журнал"
 
-#: widgets/ruqolamainwindow.cpp:764
+#: widgets/ruqolamainwindow.cpp:758
 #, kde-format
 msgctxt "@title:window"
 msgid "Create Team"
 msgstr "Створення команди"
 
-#: widgets/ruqolamainwindow.cpp:954
+#: widgets/ruqolamainwindow.cpp:948
 #, kde-format
 msgid "Cannot write to log file %1"
 msgstr "Не вдалося виконати запис до файла журналу %1"
 
-#: widgets/ruqolamainwindow.cpp:954
+#: widgets/ruqolamainwindow.cpp:948
 #, kde-format
 msgctxt "@title:window"
 msgid "Show Channel Log"
 msgstr "Показ журналу каналу"
 
-#: widgets/ruqolamainwindow.cpp:1117
+#: widgets/ruqolamainwindow.cpp:1111
 #, kde-format
 msgctxt "@item:inmenu Instant message presence status"
 msgid "Status"
 msgstr "Стан"
 
-#: widgets/ruqolamainwindow.cpp:1204
+#: widgets/ruqolamainwindow.cpp:1198
 #, kde-format
 msgid ""
 "<qt>This will hide the menu bar completely. You can show it again by typing "
@@ -11050,7 +11044,7 @@ msgstr ""
 "<qt>За допомогою цього пункту можна повністю сховати смужку меню. Наказати "
 "програмі знову показувати цю смужку можна клавіатурним скороченням %1.</qt>"
 
-#: widgets/ruqolamainwindow.cpp:1207
+#: widgets/ruqolamainwindow.cpp:1201
 #, kde-format
 msgctxt "@title:window"
 msgid "Hide menu bar"
@@ -11270,7 +11264,7 @@ msgstr "Що нового у %2. %1"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:17
 msgid "Add support for tools plugins"
-msgstr ""
+msgstr "Додано підтримку для додатків інструментів"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:27
 #, kde-format
@@ -11700,6 +11694,10 @@ msgstr "Серед нових можливостей у цьому випуск�
 #, kde-format
 msgid "Some bug fixing:"
 msgstr "Виправлення деяких вад:"
+
+#~ msgctxt "@info:shell"
+#~ msgid "Attach File"
+#~ msgstr "Долучити файл"
 
 #~ msgid "Impossible to open log."
 #~ msgstr "Не вдалося відкрити журнал."
