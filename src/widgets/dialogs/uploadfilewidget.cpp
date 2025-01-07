@@ -90,6 +90,7 @@ void UploadFileWidget::setPixmap(const QPixmap &pix)
 {
     if (!pix.isNull()) {
         mImagePreview->setVisible(true);
+        mImagePreview->setMaximumSize(QSize(500, 600));
         mImagePreview->setPixmap(pix);
     }
 }
