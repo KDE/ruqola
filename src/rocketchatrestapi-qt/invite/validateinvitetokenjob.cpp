@@ -37,21 +37,21 @@ void ValidateInviteTokenJob::onPostRequestResponse(const QString &replyErrorStri
     const QJsonObject replyObject = replyJson.object();
     if (replyObject["success"_L1].toBool()) {
         addLoggerInfo(QByteArrayLiteral("ValidateInviteTokenJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
-        Q_EMIT sendInvitationEmailsDone();
+        Q_EMIT validateInviteTokenDone();
     } else {
         emitFailedMessage(replyErrorString, replyObject);
         addLoggerWarning(QByteArrayLiteral("ValidateInviteTokenJob: Problem: ") + replyJson.toJson(QJsonDocument::Indented));
     }
 }
 
-QStringList ValidateInviteTokenJob::emails() const
+QString ValidateInviteTokenJob::token() const
 {
-    return mEmails;
+    return mToken;
 }
 
-void ValidateInviteTokenJob::setEmails(const QStringList &newEmails)
+void ValidateInviteTokenJob::setToken(const QString &newToken)
 {
-    mEmails = newEmails;
+    mToken = newToken;
 }
 
 bool ValidateInviteTokenJob::requireHttpAuthentication() const
@@ -64,8 +64,8 @@ bool ValidateInviteTokenJob::canStart() const
     if (!RestApiAbstractJob::canStart()) {
         return false;
     }
-    if (mEmails.isEmpty()) {
-        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Any email defined";
+    if (mToken.isEmpty()) {
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Token not defined";
         return false;
     }
     return true;
@@ -73,7 +73,7 @@ bool ValidateInviteTokenJob::canStart() const
 
 QNetworkRequest ValidateInviteTokenJob::request() const
 {
-    const QUrl url = mRestApiMethod->generateUrl(RestApiUtil::RestApiUrlType::SendInvitationEmails);
+    const QUrl url = mRestApiMethod->generateUrl(RestApiUtil::RestApiUrlType::ValidateInviteToken);
     QNetworkRequest request(url);
     addAuthRawHeader(request);
     addRequestAttribute(request);
@@ -83,7 +83,7 @@ QNetworkRequest ValidateInviteTokenJob::request() const
 QJsonDocument ValidateInviteTokenJob::json() const
 {
     QJsonObject jsonObj;
-    jsonObj["emails"_L1] = QJsonArray::fromStringList(mEmails);
+    jsonObj["token"_L1] = mToken;
     const QJsonDocument postData = QJsonDocument(jsonObj);
     return postData;
 }
