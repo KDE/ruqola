@@ -5,7 +5,7 @@
 */
 
 #include "validateinvitetokenjobtest.h"
-#include "invite/sendinvitationemailjob.h"
+#include "invite/validateinvitetokenjob.h"
 #include "ruqola_restapi_helper.h"
 #include <QJsonDocument>
 QTEST_GUILESS_MAIN(ValidateInviteTokenJobTest)
@@ -17,36 +17,33 @@ ValidateInviteTokenJobTest::ValidateInviteTokenJobTest(QObject *parent)
 
 void ValidateInviteTokenJobTest::shouldHaveDefaultValue()
 {
-    SendInvitationEmailJob job;
+    ValidateInviteTokenJob job;
     verifyDefaultValue(&job);
     QVERIFY(job.requireHttpAuthentication());
     QVERIFY(!job.hasQueryParameterSupport());
     QVERIFY(!job.requireTwoFactorAuthentication());
-    QVERIFY(job.emails().isEmpty());
+    QVERIFY(job.token().isEmpty());
 }
 
 void ValidateInviteTokenJobTest::shouldGenerateRequest()
 {
-    SendInvitationEmailJob job;
+    ValidateInviteTokenJob job;
     QNetworkRequest request = QNetworkRequest(QUrl());
     verifyAuthentication(&job, request);
-    QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/v1/sendInvitationEmail")));
+    QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/v1/validateInviteToken")));
     QCOMPARE(request.header(QNetworkRequest::ContentTypeHeader).toString(), QStringLiteral("application/json"));
 }
 
 void ValidateInviteTokenJobTest::shouldGenerateJson()
 {
-    SendInvitationEmailJob job;
-    QStringList emails;
-    emails.append(QStringLiteral("bla@kde.org"));
-    emails.append(QStringLiteral("bli@kde.org"));
-    job.setEmails(emails);
-    QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral(R"({"emails":["bla@kde.org","bli@kde.org"]})").toLatin1());
+    ValidateInviteTokenJob job;
+    job.setToken(QStringLiteral("bla"));
+    QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral(R"({"token":"bla"})").toLatin1());
 }
 
 void ValidateInviteTokenJobTest::shouldNotStarting()
 {
-    SendInvitationEmailJob job;
+    ValidateInviteTokenJob job;
 
     RestApiMethod method;
     method.setServerUrl(QStringLiteral("http://www.kde.org"));
@@ -61,8 +58,7 @@ void ValidateInviteTokenJobTest::shouldNotStarting()
     QVERIFY(!job.canStart());
     job.setUserId(userId);
     QVERIFY(!job.canStart());
-    const QStringList emails{QStringLiteral("foo"), QStringLiteral("bla")};
-    job.setEmails(emails);
+    job.setToken(QStringLiteral("bla1"));
     QVERIFY(job.canStart());
 }
 
