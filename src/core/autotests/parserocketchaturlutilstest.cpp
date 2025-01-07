@@ -77,6 +77,11 @@ void ParseRocketChatUrlUtilsTest::shouldParseUrl_data()
     QTest::addRow("url-2") << QStringLiteral("https://www.kde.org/direct/python?msg=sn3gEQom7NcLxTg5h") << ParseRocketChatUrlUtils::UrlType::Message
                            << QStringLiteral("sn3gEQom7NcLxTg5h") << QStringLiteral("python") << QStringLiteral("www.kde.org")
                            << QStringLiteral("/direct/python") << ParseRocketChatUrlUtils::ChannelType::Direct << ParseRocketChatUrlUtils::RoomIdType::RoomName;
+
+    QTest::addRow("invite1") << QStringLiteral("https://go.rocket.chat/invite?host=foo.chat.kde.com&path=invite%2FQ67r9r")
+                             << ParseRocketChatUrlUtils::UrlType::Invite << QString() << QString() << QStringLiteral("foo.chat.kde.com")
+                             << QStringLiteral("invite%2FQ67r9r") << ParseRocketChatUrlUtils::ChannelType::Unknown
+                             << ParseRocketChatUrlUtils::RoomIdType::Unknown;
 }
 
 void ParseRocketChatUrlUtilsTest::shouldParseUrl()
