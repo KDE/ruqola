@@ -846,18 +846,22 @@ void AccountManager::changeEnableState(RocketChatAccount *account, bool enabled)
 
 void AccountManager::addInvitedAccount(const AccountManagerInfo &info)
 {
+    qDebug() << "info ******************" << info;
     auto job = new RocketChatRestApi::ValidateInviteTokenJob(this);
+    job->setToken(info.inviteToken);
     auto restApi = new Connection(this);
     restApi->setServerUrl(info.serverUrl);
     restApi->initializeRestApiJob(job);
 
     connect(job, &RocketChatRestApi::ValidateInviteTokenJob::validateInviteTokenDone, this, [this, restApi]() {
         restApi->deleteLater();
+        qDebug() << " Token is valid !!!!";
         // TODO it's valid !
         // TODO create account
     });
     connect(job, &RocketChatRestApi::ValidateInviteTokenJob::inviteTokenInvalid, this, [this, restApi]() {
         // TODO show info ?
+        qDebug() << " Token is invalid !!!!";
         restApi->deleteLater();
     });
 
@@ -1045,19 +1049,20 @@ QList<AccountManager::AccountDisplayInfo> AccountManager::accountDisplayInfoSort
 
 QDebug operator<<(QDebug d, const AccountManager::AccountManagerInfo &t)
 {
-    d.space() << " authenticationInfos" << t.authenticationInfos;
-    d.space() << " displayName" << t.displayName;
-    d.space() << " accountName" << t.accountName;
-    d.space() << " userName" << t.userName;
-    d.space() << " serverUrl" << t.serverUrl;
-    d.space() << " token" << t.token;
-    d.space() << " userId" << t.userId;
-    d.space() << " authMethodType" << t.authMethodType;
-    d.space() << " canResetPassword" << t.canResetPassword;
-    d.space() << " enabled" << t.enabled;
-    d.space() << " canRegisterAccount" << t.canRegisterAccount;
-    d.space() << " activities" << t.activitiesSettings.activities;
-    d.space() << " activities enabled" << t.activitiesSettings.enabled;
+    d.space() << "authenticationInfos" << t.authenticationInfos;
+    d.space() << "displayName" << t.displayName;
+    d.space() << "accountName" << t.accountName;
+    d.space() << "userName" << t.userName;
+    d.space() << "serverUrl" << t.serverUrl;
+    d.space() << "token" << t.token;
+    d.space() << "userId" << t.userId;
+    d.space() << "authMethodType" << t.authMethodType;
+    d.space() << "canResetPassword" << t.canResetPassword;
+    d.space() << "enabled" << t.enabled;
+    d.space() << "canRegisterAccount" << t.canRegisterAccount;
+    d.space() << "activities" << t.activitiesSettings.activities;
+    d.space() << "activities enabled" << t.activitiesSettings.enabled;
+    d.space() << "invite token" << t.inviteToken;
     return d;
 }
 

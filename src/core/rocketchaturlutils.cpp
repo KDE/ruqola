@@ -49,8 +49,7 @@ bool RocketChatUrlUtils::parseUrl(const QString &link)
         info.enabled = true;
         info.accountName = QStringLiteral("inviteaccount");
         info.authMethodType = AuthenticationManager::AuthMethodType::Password;
-        // TODO look at parseUrl.parsingInfo().path
-        // TODO verify if we have a valid token
+        info.inviteToken = parseUrl.parsingInfo().path.remove(QStringLiteral("invite/"));
         Ruqola::self()->accountManager()->addInvitedAccount(std::move(info));
         return true;
     }

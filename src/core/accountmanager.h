@@ -56,6 +56,8 @@ public:
         QString serverUrl;
         QString password;
         QString token;
+        QString inviteToken;
+
         QByteArray userId;
         AuthenticationManager::AuthMethodType authMethodType = AuthenticationManager::AuthMethodType::Unknown;
         RuqolaServerConfig::PasswordSettings passwordSettings;
