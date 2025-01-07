@@ -54,7 +54,7 @@ bool RocketChatUrlUtils::parseUrl(const QString &link)
         notification->setTitle(i18n("Account Added"));
         notification->setText(i18n("A new account was added."));
         notification->sendEvent();
-        break;
+        return true;
     }
     case ParseRocketChatUrlUtils::UrlType::ConferenceCall:
         qDebug() << " ParseRocketChatUrlUtils::UrlType ConferenceCall Not implement yet ";
