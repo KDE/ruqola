@@ -37,21 +37,21 @@ void UseInviteTokenJob::onPostRequestResponse(const QString &replyErrorString, c
     const QJsonObject replyObject = replyJson.object();
     if (replyObject["success"_L1].toBool()) {
         addLoggerInfo(QByteArrayLiteral("UseInviteTokenJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
-        Q_EMIT sendInvitationEmailsDone();
+        Q_EMIT useInviteTokenDone();
     } else {
         emitFailedMessage(replyErrorString, replyObject);
         addLoggerWarning(QByteArrayLiteral("UseInviteTokenJob: Problem: ") + replyJson.toJson(QJsonDocument::Indented));
     }
 }
 
-QStringList UseInviteTokenJob::emails() const
+QString UseInviteTokenJob::token() const
 {
-    return mEmails;
+    return mToken;
 }
 
-void UseInviteTokenJob::setEmails(const QStringList &newEmails)
+void UseInviteTokenJob::setToken(const QString &newToken)
 {
-    mEmails = newEmails;
+    mToken = newToken;
 }
 
 bool UseInviteTokenJob::requireHttpAuthentication() const
@@ -64,8 +64,8 @@ bool UseInviteTokenJob::canStart() const
     if (!RestApiAbstractJob::canStart()) {
         return false;
     }
-    if (mEmails.isEmpty()) {
-        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Any email defined";
+    if (mToken.isEmpty()) {
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "token not defined";
         return false;
     }
     return true;
@@ -73,7 +73,7 @@ bool UseInviteTokenJob::canStart() const
 
 QNetworkRequest UseInviteTokenJob::request() const
 {
-    const QUrl url = mRestApiMethod->generateUrl(RestApiUtil::RestApiUrlType::SendInvitationEmails);
+    const QUrl url = mRestApiMethod->generateUrl(RestApiUtil::RestApiUrlType::UseInviteToken);
     QNetworkRequest request(url);
     addAuthRawHeader(request);
     addRequestAttribute(request);
@@ -83,7 +83,7 @@ QNetworkRequest UseInviteTokenJob::request() const
 QJsonDocument UseInviteTokenJob::json() const
 {
     QJsonObject jsonObj;
-    jsonObj["emails"_L1] = QJsonArray::fromStringList(mEmails);
+    jsonObj["token"_L1] = mToken;
     const QJsonDocument postData = QJsonDocument(jsonObj);
     return postData;
 }

@@ -5,7 +5,7 @@
 */
 
 #include "useinvitetokenjobtest.h"
-#include "invite/sendinvitationemailjob.h"
+#include "invite/useinvitetokenjob.h"
 #include "ruqola_restapi_helper.h"
 #include <QJsonDocument>
 QTEST_GUILESS_MAIN(UseInviteTokenJobTest)
@@ -17,36 +17,33 @@ UseInviteTokenJobTest::UseInviteTokenJobTest(QObject *parent)
 
 void UseInviteTokenJobTest::shouldHaveDefaultValue()
 {
-    SendInvitationEmailJob job;
+    UseInviteTokenJob job;
     verifyDefaultValue(&job);
     QVERIFY(job.requireHttpAuthentication());
     QVERIFY(!job.hasQueryParameterSupport());
     QVERIFY(!job.requireTwoFactorAuthentication());
-    QVERIFY(job.emails().isEmpty());
+    QVERIFY(job.token().isEmpty());
 }
 
 void UseInviteTokenJobTest::shouldGenerateRequest()
 {
-    SendInvitationEmailJob job;
+    UseInviteTokenJob job;
     QNetworkRequest request = QNetworkRequest(QUrl());
     verifyAuthentication(&job, request);
-    QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/v1/sendInvitationEmail")));
+    QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/v1/useInviteToken")));
     QCOMPARE(request.header(QNetworkRequest::ContentTypeHeader).toString(), QStringLiteral("application/json"));
 }
 
 void UseInviteTokenJobTest::shouldGenerateJson()
 {
-    SendInvitationEmailJob job;
-    QStringList emails;
-    emails.append(QStringLiteral("bla@kde.org"));
-    emails.append(QStringLiteral("bli@kde.org"));
-    job.setEmails(emails);
-    QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral(R"({"emails":["bla@kde.org","bli@kde.org"]})").toLatin1());
+    UseInviteTokenJob job;
+    job.setToken(QStringLiteral("bla"));
+    QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral(R"({"token":"bla"})").toLatin1());
 }
 
 void UseInviteTokenJobTest::shouldNotStarting()
 {
-    SendInvitationEmailJob job;
+    UseInviteTokenJob job;
 
     RestApiMethod method;
     method.setServerUrl(QStringLiteral("http://www.kde.org"));
@@ -61,8 +58,7 @@ void UseInviteTokenJobTest::shouldNotStarting()
     QVERIFY(!job.canStart());
     job.setUserId(userId);
     QVERIFY(!job.canStart());
-    const QStringList emails{QStringLiteral("foo"), QStringLiteral("bla")};
-    job.setEmails(emails);
+    job.setToken(QStringLiteral("bla"));
     QVERIFY(job.canStart());
 }
 

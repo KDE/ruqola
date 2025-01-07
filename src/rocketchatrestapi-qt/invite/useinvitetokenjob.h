@@ -24,14 +24,14 @@ public:
 
     [[nodiscard]] QJsonDocument json() const;
 
-    [[nodiscard]] QStringList emails() const;
-    void setEmails(const QStringList &newEmails);
+    [[nodiscard]] QString token() const;
+    void setToken(const QString &newToken);
 
 Q_SIGNALS:
-    void sendInvitationEmailsDone();
+    void useInviteTokenDone();
 
 private:
     LIBROCKETCHATRESTAPI_QT_NO_EXPORT void onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson) override;
-    QStringList mEmails;
+    QString mToken;
 };
 }
