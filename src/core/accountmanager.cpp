@@ -844,6 +844,7 @@ void AccountManager::changeEnableState(RocketChatAccount *account, bool enabled)
 
 void AccountManager::addAccount(const AccountManagerInfo &info)
 {
+    qDebug() << " Add account info " << info;
     const QString newAccountName = Utils::createUniqueAccountName(accountsName(), info.accountName);
     auto account = new RocketChatAccount();
     account->setAccountName(newAccountName);
