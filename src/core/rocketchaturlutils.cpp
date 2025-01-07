@@ -48,6 +48,7 @@ bool RocketChatUrlUtils::parseUrl(const QString &link)
         info.serverUrl = parseUrl.parsingInfo().serverHost;
         info.enabled = true;
         info.accountName = QStringLiteral("inviteaccount");
+        info.authMethodType = AuthenticationManager::AuthMethodType::Password;
         Ruqola::self()->accountManager()->addAccount(std::move(info));
 
         auto notification = new KNotification(QStringLiteral("Account-Added"), KNotification::CloseOnTimeout);
