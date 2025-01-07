@@ -859,7 +859,7 @@ void AccountManager::addInvitedAccount(const AccountManagerInfo &info)
         // TODO it's valid !
         // TODO create account
     });
-    connect(job, &RocketChatRestApi::ValidateInviteTokenJob::inviteTokenInvalid, this, [this, restApi]() {
+    connect(job, &RocketChatRestApi::ValidateInviteTokenJob::inviteTokenInvalid, this, [restApi]() {
         // TODO show info ?
         qDebug() << " Token is invalid !!!!";
         restApi->deleteLater();
