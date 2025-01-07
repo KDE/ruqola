@@ -41,6 +41,7 @@ void ValidateInviteTokenJob::onPostRequestResponse(const QString &replyErrorStri
     } else {
         emitFailedMessage(replyErrorString, replyObject);
         addLoggerWarning(QByteArrayLiteral("ValidateInviteTokenJob: Problem: ") + replyJson.toJson(QJsonDocument::Indented));
+        Q_EMIT inviteTokenInvalid();
     }
 }
 

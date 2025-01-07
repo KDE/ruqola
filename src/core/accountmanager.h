@@ -100,6 +100,7 @@ public:
     ActivitiesManager *activitiesManager() const;
 #endif
 
+    void addInvitedAccount(const AccountManagerInfo &info);
 Q_SIGNALS:
     void logoutAccountDone(const QString &accountName);
     void updateNotification(bool hasAlert, int nbUnread, const QString &accountName);

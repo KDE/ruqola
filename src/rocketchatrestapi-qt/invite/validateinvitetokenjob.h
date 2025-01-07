@@ -29,6 +29,7 @@ public:
 
 Q_SIGNALS:
     void validateInviteTokenDone();
+    void inviteTokenInvalid();
 
 private:
     LIBROCKETCHATRESTAPI_QT_NO_EXPORT void onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson) override;

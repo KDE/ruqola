@@ -5,6 +5,8 @@
 */
 
 #include "accountmanager.h"
+#include "connection.h"
+#include "invite/validateinvitetokenjob.h"
 #include "localdatabase/localdatabaseutils.h"
 #include "managerdatapaths.h"
 #include "model/rocketchataccountfilterproxymodel.h"
@@ -839,6 +841,28 @@ void AccountManager::changeEnableState(RocketChatAccount *account, bool enabled)
         connectToAccount(account);
     } else {
         disconnectAccount(account);
+    }
+}
+
+void AccountManager::addInvitedAccount(const AccountManagerInfo &info)
+{
+    auto job = new RocketChatRestApi::ValidateInviteTokenJob(this);
+    auto restApi = new Connection(this);
+    restApi->setServerUrl(info.serverUrl);
+    restApi->initializeRestApiJob(job);
+
+    connect(job, &RocketChatRestApi::ValidateInviteTokenJob::validateInviteTokenDone, this, [this, restApi]() {
+        restApi->deleteLater();
+        // TODO it's valid !
+        // TODO create account
+    });
+    connect(job, &RocketChatRestApi::ValidateInviteTokenJob::inviteTokenInvalid, this, [this, restApi]() {
+        // TODO show info ?
+        restApi->deleteLater();
+    });
+
+    if (!job->start()) {
+        qCWarning(RUQOLA_LOG) << "Impossible to start ValidateInviteTokenJob";
     }
 }
 
