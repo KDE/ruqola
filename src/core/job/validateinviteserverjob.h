@@ -23,6 +23,10 @@ public:
     [[nodiscard]] AccountManager::AccountManagerInfo info() const;
     void setInfo(const AccountManager::AccountManagerInfo &newInfo);
 
+Q_SIGNALS:
+    void tokenIsValid(const AccountManager::AccountManagerInfo &info);
+    void tokenIsInvalid();
+
 private:
     AccountManager::AccountManagerInfo mInfo;
 };

@@ -39,40 +39,13 @@ void ValidateInviteServerJob::start()
     connect(job, &RocketChatRestApi::ValidateInviteTokenJob::validateInviteTokenDone, this, [this, restApi]() {
         restApi->deleteLater();
         qDebug() << " Token is valid !!!!";
-        // TODO it's valid !
-        // TODO create account
-#if 0
-        const QString newAccountName = Utils::createUniqueAccountName(accountsName(), info.accountName);
-        auto account = new RocketChatAccount();
-        account->setAccountName(newAccountName);
-        account->setServerUrl(info.serverUrl);
-        account->setAccountEnabled(info.enabled);
-        account->setActivities(info.activitiesSettings.activities);
-        account->setActivityEnabled(info.activitiesSettings.enabled);
-        if (info.authMethodType == AuthenticationManager::AuthMethodType::Password) {
-            account->setUserName(info.userName);
-            account->setPassword(info.password);
-        } else if (info.authMethodType == AuthenticationManager::AuthMethodType::PersonalAccessToken) {
-            account->setAuthToken(info.token);
-            account->setUserId(info.userId);
-        } else {
-            // TODO for other authMethodType ?
-            // google used ?
-            // Fb ?
-            // Gitlab ?
-            // GitHub ?
-        }
-        account->setAuthMethodType(info.authMethodType);
-        if (info.enabled) {
-            connectToAccount(account);
-        }
-        addAccount(account);
-#endif
+        Q_EMIT tokenIsValid(mInfo);
         deleteLater();
     });
     connect(job, &RocketChatRestApi::ValidateInviteTokenJob::inviteTokenInvalid, this, [restApi, this]() {
         // TODO show info ?
         qDebug() << " Token is invalid !!!!";
+        Q_EMIT tokenIsInvalid();
         restApi->deleteLater();
         deleteLater();
     });
