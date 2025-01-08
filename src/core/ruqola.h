@@ -53,7 +53,6 @@ public:
 
     [[nodiscard]] bool debug() const;
 
-    // Laurent: Temporary or not ?
     [[nodiscard]] static bool useRestApiLogin();
     static void setUseRestApiLogin(bool newUseRestApiLogin);
 
