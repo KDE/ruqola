@@ -58,6 +58,7 @@ public:
 
 Q_SIGNALS:
     void translatorMenuChanged();
+    void addInviteServer();
 
 private:
     AccountManager *mAccountManager = nullptr;
