@@ -5,7 +5,6 @@
 */
 
 #include "extractserverinfojob.h"
-#include "config-ruqola.h"
 #include "ddpapi/ddpclient.h"
 #include "plugins/pluginauthentication.h"
 #include <KLocalizedString>
@@ -26,6 +25,7 @@ void ExtractServerInfoJob::start()
 {
     if (!canStart()) {
         Q_EMIT errorConnection(i18n("Missing server url."));
+        deleteLater();
         return;
     }
     auto ddpClient = new DDPClient(this);
@@ -39,6 +39,7 @@ void ExtractServerInfoJob::start()
         Q_UNUSED(error);
         Q_EMIT errorConnection(strError);
         ddpClient->deleteLater();
+        deleteLater();
     });
 
     connect(ddpClient, &DDPClient::methodRequested, this, [this, ddpClient](const QJsonObject &obj, DDPClient::MethodRequestedType type) {
@@ -81,6 +82,7 @@ void ExtractServerInfoJob::start()
 
             Q_EMIT serverInfoFound(std::move(info));
             ddpClient->deleteLater();
+            deleteLater();
         }
     });
     connect(ddpClient, &DDPClient::connectedChanged, this, [ddpClient]() {
