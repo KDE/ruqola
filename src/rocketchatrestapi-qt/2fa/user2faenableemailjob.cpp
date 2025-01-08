@@ -47,14 +47,6 @@ bool User2FAEnableEmailJob::requireHttpAuthentication() const
     return true;
 }
 
-bool User2FAEnableEmailJob::canStart() const
-{
-    if (!RestApiAbstractJob::canStart()) {
-        return false;
-    }
-    return true;
-}
-
 QNetworkRequest User2FAEnableEmailJob::request() const
 {
     const QUrl url = mRestApiMethod->generateUrl(RestApiUtil::RestApiUrlType::Users2FAEnableEmail);

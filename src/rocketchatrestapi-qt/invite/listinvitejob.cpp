@@ -57,12 +57,4 @@ QNetworkRequest ListInviteJob::request() const
     return request;
 }
 
-bool ListInviteJob::canStart() const
-{
-    if (!RestApiAbstractJob::canStart()) {
-        return false;
-    }
-    return true;
-}
-
 #include "moc_listinvitejob.cpp"

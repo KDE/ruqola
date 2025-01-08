@@ -75,14 +75,6 @@ QNetworkRequest GetSupportedLanguagesJob::request() const
     return request;
 }
 
-bool GetSupportedLanguagesJob::canStart() const
-{
-    if (!RestApiAbstractJob::canStart()) {
-        return false;
-    }
-    return true;
-}
-
 QString GetSupportedLanguagesJob::errorMessage(const QString &str, const QJsonObject &detail)
 {
     if (str == "invalid-params"_L1) {

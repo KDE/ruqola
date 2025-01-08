@@ -69,12 +69,4 @@ bool UsersListJob::hasQueryParameterSupport() const
     return true;
 }
 
-bool UsersListJob::canStart() const
-{
-    if (!RestApiAbstractJob::canStart()) {
-        return false;
-    }
-    return true;
-}
-
 #include "moc_userslistjob.cpp"

@@ -26,14 +26,6 @@ bool GetBannersJob::requireHttpAuthentication() const
     return true;
 }
 
-bool GetBannersJob::canStart() const
-{
-    if (!RestApiAbstractJob::canStart()) {
-        return false;
-    }
-    return true;
-}
-
 bool GetBannersJob::start()
 {
     if (!canStart()) {

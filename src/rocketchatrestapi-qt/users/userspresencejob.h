@@ -23,8 +23,6 @@ public:
 
     [[nodiscard]] bool start() override;
 
-    [[nodiscard]] bool canStart() const override;
-
     [[nodiscard]] QNetworkRequest request() const override;
 
 Q_SIGNALS:

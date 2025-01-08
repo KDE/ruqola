@@ -48,14 +48,6 @@ bool ResetOwnE2eKeyJob::requireHttpAuthentication() const
     return true;
 }
 
-bool ResetOwnE2eKeyJob::canStart() const
-{
-    if (!RestApiAbstractJob::canStart()) {
-        return false;
-    }
-    return true;
-}
-
 QNetworkRequest ResetOwnE2eKeyJob::request() const
 {
     const QUrl url = mRestApiMethod->generateUrl(RestApiUtil::RestApiUrlType::E2EResetOwnE2EKey);

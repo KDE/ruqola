@@ -24,8 +24,6 @@ public:
 
     [[nodiscard]] QNetworkRequest request() const override;
 
-    [[nodiscard]] bool canStart() const override;
-
     [[nodiscard]] bool needTargetLanguage() const;
     void setNeedTargetLanguage(bool newNeedTargetLanguage);
 

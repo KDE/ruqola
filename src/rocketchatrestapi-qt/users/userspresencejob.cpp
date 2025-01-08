@@ -59,12 +59,4 @@ QNetworkRequest UsersPresenceJob::request() const
     return request;
 }
 
-bool UsersPresenceJob::canStart() const
-{
-    if (!RestApiAbstractJob::canStart()) {
-        return false;
-    }
-    return true;
-}
-
 #include "moc_userspresencejob.cpp"

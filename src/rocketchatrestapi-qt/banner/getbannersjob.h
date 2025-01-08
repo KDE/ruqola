@@ -26,8 +26,6 @@ public:
 
     [[nodiscard]] bool hasQueryParameterSupport() const override;
 
-    [[nodiscard]] bool canStart() const override;
-
 Q_SIGNALS:
     void getBannersDone(const QJsonObject &obj);
 

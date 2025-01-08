@@ -19,7 +19,6 @@ public:
 
     [[nodiscard]] bool start() override;
     [[nodiscard]] bool requireHttpAuthentication() const override;
-    [[nodiscard]] bool canStart() const override;
     [[nodiscard]] QNetworkRequest request() const override;
 
     [[nodiscard]] QJsonDocument json() const;

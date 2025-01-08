@@ -19,14 +19,6 @@ UserRequestDataDownloadJob::UserRequestDataDownloadJob(QObject *parent)
 
 UserRequestDataDownloadJob::~UserRequestDataDownloadJob() = default;
 
-bool UserRequestDataDownloadJob::canStart() const
-{
-    if (!RestApiAbstractJob::canStart()) {
-        return false;
-    }
-    return true;
-}
-
 bool UserRequestDataDownloadJob::start()
 {
     if (!canStart()) {

@@ -23,8 +23,6 @@ public:
 
     [[nodiscard]] QNetworkRequest request() const override;
 
-    [[nodiscard]] bool canStart() const override;
-
     [[nodiscard]] bool fullExport() const;
     void setFullExport(bool newFullExport);
 

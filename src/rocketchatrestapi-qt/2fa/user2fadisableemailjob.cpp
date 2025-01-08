@@ -48,14 +48,6 @@ bool User2FADisableEmailJob::requireHttpAuthentication() const
     return true;
 }
 
-bool User2FADisableEmailJob::canStart() const
-{
-    if (!RestApiAbstractJob::canStart()) {
-        return false;
-    }
-    return true;
-}
-
 QNetworkRequest User2FADisableEmailJob::request() const
 {
     const QUrl url = mRestApiMethod->generateUrl(RestApiUtil::RestApiUrlType::Users2FADisableEmail);

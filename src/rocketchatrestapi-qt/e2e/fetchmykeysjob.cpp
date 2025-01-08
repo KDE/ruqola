@@ -18,14 +18,6 @@ FetchMyKeysJob::FetchMyKeysJob(QObject *parent)
 
 FetchMyKeysJob::~FetchMyKeysJob() = default;
 
-bool FetchMyKeysJob::canStart() const
-{
-    if (!RestApiAbstractJob::canStart()) {
-        return false;
-    }
-    return true;
-}
-
 bool FetchMyKeysJob::start()
 {
     if (!canStart()) {

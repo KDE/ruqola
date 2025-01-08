@@ -23,8 +23,6 @@ public:
 
     [[nodiscard]] QNetworkRequest request() const override;
 
-    [[nodiscard]] bool canStart() const override;
-
 Q_SIGNALS:
     void fetchMyKeysDone(const QJsonObject &replyObject);
 

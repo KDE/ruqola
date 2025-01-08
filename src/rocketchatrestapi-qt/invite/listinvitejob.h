@@ -24,8 +24,6 @@ public:
 
     [[nodiscard]] QNetworkRequest request() const override;
 
-    [[nodiscard]] bool canStart() const override;
-
     [[nodiscard]] bool hasQueryParameterSupport() const override;
 
 Q_SIGNALS:

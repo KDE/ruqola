@@ -48,14 +48,6 @@ bool UsersLogoutOtherClientsJob::requireHttpAuthentication() const
     return true;
 }
 
-bool UsersLogoutOtherClientsJob::canStart() const
-{
-    if (!RestApiAbstractJob::canStart()) {
-        return false;
-    }
-    return true;
-}
-
 QNetworkRequest UsersLogoutOtherClientsJob::request() const
 {
     const QUrl url = mRestApiMethod->generateUrl(RestApiUtil::RestApiUrlType::UsersLogoutOtherClients);
