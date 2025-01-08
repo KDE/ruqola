@@ -594,6 +594,9 @@ target_sources(libruqolacore PRIVATE
     job/extractserverinfojob.h
     job/extractserverinfojob.cpp
 
+    job/validateinviteserverjob.h
+    job/validateinviteserverjob.cpp
+
     attachmentsimage/attachmentimageinfo.h
     attachmentsimage/attachmentimageinfo.cpp
 
