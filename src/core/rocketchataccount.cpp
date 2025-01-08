@@ -89,7 +89,6 @@
 #include "videoconference/videoconferencemessageinfomanager.h"
 
 #include <KLocalizedString>
-#include <KNotification>
 #include <QJsonArray>
 #include <QTimer>
 #include <TextEmoticonsCore/EmojiModel>
