@@ -6,7 +6,7 @@
 
 #include "accountmanager.h"
 #include "connection.h"
-#include "invite/validateinvitetokenjob.h"
+#include "job/validateinviteserverjob.h"
 #include "localdatabase/localdatabaseutils.h"
 #include "managerdatapaths.h"
 #include "model/rocketchataccountfilterproxymodel.h"
@@ -25,6 +25,7 @@
 #include "activities/activitiesmanager.h"
 #endif
 #include <KLocalizedString>
+#include <KNotification>
 #include <QDir>
 #include <QDirIterator>
 #include <QSettings>
@@ -846,60 +847,22 @@ void AccountManager::changeEnableState(RocketChatAccount *account, bool enabled)
 
 void AccountManager::addInvitedAccount(const AccountManagerInfo &info)
 {
-    qDebug() << "info ******************" << info;
-    auto job = new RocketChatRestApi::ValidateInviteTokenJob(this);
-    job->setToken(info.inviteToken);
-    auto restApi = new Connection(this);
-    restApi->setServerUrl(info.serverUrl);
-    restApi->initializeRestApiJob(job);
-
-    connect(job, &RocketChatRestApi::ValidateInviteTokenJob::validateInviteTokenDone, this, [this, restApi, info]() {
-        restApi->deleteLater();
-        qDebug() << " Token is valid !!!!";
-        // TODO it's valid !
+    auto job = new ValidateInviteServerJob(this);
+    job->setInfo(info);
+    connect(job, &ValidateInviteServerJob::tokenIsInvalid, this, []() {
+        auto notification = new KNotification(QStringLiteral("Invite-Account-Invalid"), KNotification::CloseOnTimeout);
+        notification->setTitle(i18n("Account Added"));
+        notification->setText(i18n("A new account was added."));
+        notification->sendEvent();
+    });
+    connect(job, &ValidateInviteServerJob::tokenIsValid, this, [this](const AccountManager::AccountManagerInfo &info) {
         // TODO create account
-#if 0
-        const QString newAccountName = Utils::createUniqueAccountName(accountsName(), info.accountName);
-        auto account = new RocketChatAccount();
-        account->setAccountName(newAccountName);
-        account->setServerUrl(info.serverUrl);
-        account->setAccountEnabled(info.enabled);
-        account->setActivities(info.activitiesSettings.activities);
-        account->setActivityEnabled(info.activitiesSettings.enabled);
-        if (info.authMethodType == AuthenticationManager::AuthMethodType::Password) {
-            account->setUserName(info.userName);
-            account->setPassword(info.password);
-        } else if (info.authMethodType == AuthenticationManager::AuthMethodType::PersonalAccessToken) {
-            account->setAuthToken(info.token);
-            account->setUserId(info.userId);
-        } else {
-            // TODO for other authMethodType ?
-            // google used ?
-            // Fb ?
-            // Gitlab ?
-            // GitHub ?
-        }
-        account->setAuthMethodType(info.authMethodType);
-        if (info.enabled) {
-            connectToAccount(account);
-        }
-        addAccount(account);
-#endif
     });
-    connect(job, &RocketChatRestApi::ValidateInviteTokenJob::inviteTokenInvalid, this, [restApi]() {
-        // TODO show info ?
-        qDebug() << " Token is invalid !!!!";
-        restApi->deleteLater();
-    });
-
-    if (!job->start()) {
-        qCWarning(RUQOLA_LOG) << "Impossible to start ValidateInviteTokenJob";
-    }
+    job->start();
 }
 
 void AccountManager::addAccount(const AccountManagerInfo &info)
 {
-    qDebug() << " Add account info " << info;
     const QString newAccountName = Utils::createUniqueAccountName(accountsName(), info.accountName);
     auto account = new RocketChatAccount();
     account->setAccountName(newAccountName);

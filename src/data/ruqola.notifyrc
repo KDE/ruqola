@@ -264,6 +264,11 @@ Name[x-test]=xxIncoming Video Conference Callxx
 Action=Popup
 Urgency=Normal
 
+[Event/Invite-Account-Invalid]
+Name=Invalid invite token
+Action=Popup
+Urgency=Normal
+
 [Event/Account-Added]
 Name=New Account Added
 Name[ca]=S'ha afegit un compte nou
