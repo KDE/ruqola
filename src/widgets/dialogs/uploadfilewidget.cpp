@@ -32,6 +32,8 @@ UploadFileWidget::UploadFileWidget(QWidget *parent)
     mainLayout->addWidget(mImagePreview, 0, Qt::AlignCenter);
     mImagePreview->hide(); // Hide by default
 
+    mainLayout->addStretch(1);
+
     auto layout = new QFormLayout;
     layout->setObjectName(QStringLiteral("layout"));
     layout->setContentsMargins({});
