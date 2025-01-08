@@ -853,11 +853,38 @@ void AccountManager::addInvitedAccount(const AccountManagerInfo &info)
     restApi->setServerUrl(info.serverUrl);
     restApi->initializeRestApiJob(job);
 
-    connect(job, &RocketChatRestApi::ValidateInviteTokenJob::validateInviteTokenDone, this, [this, restApi]() {
+    connect(job, &RocketChatRestApi::ValidateInviteTokenJob::validateInviteTokenDone, this, [this, restApi, info]() {
         restApi->deleteLater();
         qDebug() << " Token is valid !!!!";
         // TODO it's valid !
         // TODO create account
+#if 0
+        const QString newAccountName = Utils::createUniqueAccountName(accountsName(), info.accountName);
+        auto account = new RocketChatAccount();
+        account->setAccountName(newAccountName);
+        account->setServerUrl(info.serverUrl);
+        account->setAccountEnabled(info.enabled);
+        account->setActivities(info.activitiesSettings.activities);
+        account->setActivityEnabled(info.activitiesSettings.enabled);
+        if (info.authMethodType == AuthenticationManager::AuthMethodType::Password) {
+            account->setUserName(info.userName);
+            account->setPassword(info.password);
+        } else if (info.authMethodType == AuthenticationManager::AuthMethodType::PersonalAccessToken) {
+            account->setAuthToken(info.token);
+            account->setUserId(info.userId);
+        } else {
+            // TODO for other authMethodType ?
+            // google used ?
+            // Fb ?
+            // Gitlab ?
+            // GitHub ?
+        }
+        account->setAuthMethodType(info.authMethodType);
+        if (info.enabled) {
+            connectToAccount(account);
+        }
+        addAccount(account);
+#endif
     });
     connect(job, &RocketChatRestApi::ValidateInviteTokenJob::inviteTokenInvalid, this, [restApi]() {
         // TODO show info ?
