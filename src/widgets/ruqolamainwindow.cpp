@@ -1341,7 +1341,16 @@ void RuqolaMainWindow::slotPrivateApplicationsSettings()
 
 void RuqolaMainWindow::slotAddInviteServer(const AccountManager::AccountManagerInfo &info)
 {
-    // TODO
+    QPointer<CreateNewServerDialog> dlg = new CreateNewServerDialog(this);
+    const QStringList lst = mAccountManager->accountsName();
+    dlg->setExistingAccountName(lst);
+    dlg->setAccountInfo(info);
+    // TODO check server info first
+    if (dlg->exec()) {
+        // const AccountManager::AccountManagerInfo info = dlg->accountInfo();
+        // mAccountManager->addAccount(std::move(info));
+    }
+    delete dlg;
 }
 
 #include "moc_ruqolamainwindow.cpp"
