@@ -1006,9 +1006,7 @@ void RocketChatAccount::userAutocomplete(const QString &searchText, const QStrin
 {
     userCompleterModel()->clear();
     if (!searchText.isEmpty()) {
-        RocketChatRestApi::UsersAutocompleteJob::UsersAutocompleterInfo info;
-        info.pattern = searchText;
-        info.exception = exception;
+        const RocketChatRestApi::UsersAutocompleteJob::UsersAutocompleterInfo info{.pattern = searchText, .exception = exception};
         restApi()->usersAutocomplete(info);
     }
 }
