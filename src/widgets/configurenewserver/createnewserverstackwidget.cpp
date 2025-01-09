@@ -95,6 +95,11 @@ AccountManager::AccountManagerInfo CreateNewServerStackWidget::accountInfo() con
     return info;
 }
 
+void CreateNewServerStackWidget::checkServerUrl(const QString &serverUrl)
+{
+    // TODO
+}
+
 void CreateNewServerStackWidget::setAccountInfo(const AccountManager::AccountManagerInfo &info)
 {
     if (info.authenticationInfos.isEmpty()) {

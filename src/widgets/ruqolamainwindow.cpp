@@ -11,6 +11,7 @@
 #include "databasedialog/exploredatabasedialog.h"
 #include "directmessage/createdmjob.h"
 #include "explorepermissionsdialog/explorepermissionsdialog.h"
+#include "job/extractserverinfojob.h"
 #include "misc/changefontsizemenu.h"
 #include "notificationhistorymanager.h"
 #include "rocketchaturlutils.h"
@@ -1344,11 +1345,11 @@ void RuqolaMainWindow::slotAddInviteServer(const AccountManager::AccountManagerI
     QPointer<CreateNewServerDialog> dlg = new CreateNewServerDialog(this);
     const QStringList lst = mAccountManager->accountsName();
     dlg->setExistingAccountName(lst);
-    dlg->setAccountInfo(info);
+    dlg->checkServerUrl(info.serverUrl);
     // TODO check server info first
     if (dlg->exec()) {
-        // const AccountManager::AccountManagerInfo info = dlg->accountInfo();
-        // mAccountManager->addAccount(std::move(info));
+        const AccountManager::AccountManagerInfo newInfo = dlg->accountInfo();
+        mAccountManager->addAccount(std::move(newInfo));
     }
     delete dlg;
 }

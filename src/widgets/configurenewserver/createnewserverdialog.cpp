@@ -66,6 +66,11 @@ void CreateNewServerDialog::setAccountInfo(const AccountManager::AccountManagerI
     mCreateNewServerStackWidget->setAccountInfo(info);
 }
 
+void CreateNewServerDialog::checkServerUrl(const QString &serverUrl)
+{
+    mCreateNewServerStackWidget->checkServerUrl(serverUrl);
+}
+
 void CreateNewServerDialog::setExistingAccountName(const QStringList &lst)
 {
     mCreateNewServerStackWidget->setExistingAccountNames(lst);

@@ -25,6 +25,7 @@ public:
     void setAccountInfo(const AccountManager::AccountManagerInfo &info);
 
     void slotConfigureActivities();
+    void checkServerUrl(const QString &serverUrl);
 Q_SIGNALS:
     void settingsIsValid(bool state);
     void tryLogin();
