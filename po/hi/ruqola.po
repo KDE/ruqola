@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-01-08 00:41+0000\n"
+"POT-Creation-Date: 2025-01-09 00:41+0000\n"
 "PO-Revision-Date: 2024-12-15 19:31+0530\n"
 "Last-Translator: kali <skkalwar999@gmail.com>\n"
 "Language-Team: Hindi <kde-i18n-doc@kde.org>\n"
@@ -174,6 +174,16 @@ msgstr "नई सुविधा"
 #, kde-format
 msgid "The following accounts are available:"
 msgstr "निम्नलिखित खाते उपलब्ध हैं:"
+
+#: core/accountmanager.cpp:854 core/rocketchaturlutils.cpp:41
+#, kde-format
+msgid "Account Added"
+msgstr "खाता जोड़ा गया"
+
+#: core/accountmanager.cpp:855 core/rocketchaturlutils.cpp:42
+#, kde-format
+msgid "A new account was added."
+msgstr "एक नया खाता जोड़ा गया."
 
 #: core/apps/appsmarketplaceinfo.cpp:98
 #, kde-format
@@ -716,7 +726,7 @@ msgstr "रिंगटोन"
 msgid "(Last Message: %1)"
 msgstr "(अंतिम संदेश: %1)"
 
-#: core/job/extractserverinfojob.cpp:28
+#: core/job/extractserverinfojob.cpp:27
 #, kde-format
 msgid "Missing server url."
 msgstr ""
@@ -1759,7 +1769,7 @@ msgctxt "WARNING!!!!!!: PLEASE We need a space between after </strong>"
 msgid "<strong>%1</strong> are typing..."
 msgstr "<strong>%1</strong> टाइप कर रहे हैं..."
 
-#: core/rocketchataccount.cpp:711
+#: core/rocketchataccount.cpp:710
 #, kde-format
 msgid ""
 "REST: %1\n"
@@ -1768,25 +1778,15 @@ msgstr ""
 "शेष: %1\n"
 "डीडीपी: %2"
 
-#: core/rocketchataccount.cpp:719 core/rocketchataccount.cpp:731
+#: core/rocketchataccount.cpp:718 core/rocketchataccount.cpp:730
 #, kde-format
 msgid "Not connected"
 msgstr "जुड़े नहीं हैं"
 
-#: core/rocketchataccount.cpp:726
+#: core/rocketchataccount.cpp:725
 #, kde-format
 msgid "Not connected yet"
 msgstr "अभी तक कनेक्ट नहीं हुआ"
-
-#: core/rocketchaturlutils.cpp:41
-#, kde-format
-msgid "Account Added"
-msgstr "खाता जोड़ा गया"
-
-#: core/rocketchaturlutils.cpp:42
-#, kde-format
-msgid "A new account was added."
-msgstr "एक नया खाता जोड़ा गया."
 
 #: core/room.cpp:1168
 #, kde-format
@@ -1999,7 +1999,7 @@ msgstr "<qt>आप नया अनुरोध यहां पा सकते
 msgid "Create a screenshot"
 msgstr "पर बनाया गया"
 
-#: rocketchatrestapi-qt/autotranslate/getsupportedlanguagesjob.cpp:89
+#: rocketchatrestapi-qt/autotranslate/getsupportedlanguagesjob.cpp:81
 #, kde-format
 msgid "Invalid Parameters"
 msgstr "अमान्य मापदण्ड"
@@ -3470,7 +3470,7 @@ msgstr "दो कारक प्रमाणीकरण का उपयो�
 #: widgets/administratordialog/rooms/administratorroomseditwidget.cpp:53
 #: widgets/dialogs/channelinfoeditablewidget.cpp:69
 #: widgets/dialogs/channelinforeadonlywidget.cpp:47
-#: widgets/dialogs/uploadfilewidget.cpp:53
+#: widgets/dialogs/uploadfilewidget.cpp:55
 #: widgets/messagemaximumsizedialog/messagemaximumsizewidget.cpp:27
 #, kde-format
 msgid "Description:"
@@ -8517,7 +8517,7 @@ msgctxt "@title:window"
 msgid "Upload Image"
 msgstr "तस्विर अपलोड करना"
 
-#: widgets/dialogs/uploadfilewidget.cpp:47
+#: widgets/dialogs/uploadfilewidget.cpp:49
 #, kde-format
 msgid "File Name:"
 msgstr "फ़ाइल का नाम:"
@@ -11100,7 +11100,7 @@ msgid "Add support for tools plugins"
 msgstr ""
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:18
-msgid "Add screenshot button"
+msgid "Plugin: Add screenshot button (near send message button)"
 msgstr ""
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:28

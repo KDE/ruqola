@@ -5,8 +5,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-01-08 00:41+0000\n"
-"PO-Revision-Date: 2025-01-05 09:39+0100\n"
+"POT-Creation-Date: 2025-01-09 00:41+0000\n"
+"PO-Revision-Date: 2025-01-07 11:10+0100\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
 "Language-Team: French <French <kde-francophone@kde.org>>\n"
 "Language: fr\n"
@@ -170,6 +170,16 @@ msgstr "Nouvelle fonctionnalité"
 #, kde-format
 msgid "The following accounts are available:"
 msgstr "Les comptes suivants sont disponibles :"
+
+#: core/accountmanager.cpp:854 core/rocketchaturlutils.cpp:41
+#, kde-format
+msgid "Account Added"
+msgstr "Ajout d'un compte"
+
+#: core/accountmanager.cpp:855 core/rocketchaturlutils.cpp:42
+#, kde-format
+msgid "A new account was added."
+msgstr "Un nouveau compte a été ajouté."
 
 #: core/apps/appsmarketplaceinfo.cpp:98
 #, kde-format
@@ -693,7 +703,7 @@ msgstr "Téléphone"
 #: core/customsound/customsoundsmanager.cpp:130
 #, kde-format
 msgid "Outbound Call Ringing"
-msgstr "Sonnerie d’appel sortant"
+msgstr "Sonnerie d'appel sortant"
 
 #: core/customsound/customsoundsmanager.cpp:138
 #, kde-format
@@ -715,7 +725,7 @@ msgstr "Sonnerie"
 msgid "(Last Message: %1)"
 msgstr "(Dernier message : %1)"
 
-#: core/job/extractserverinfojob.cpp:28
+#: core/job/extractserverinfojob.cpp:27
 #, kde-format
 msgid "Missing server url."
 msgstr "Absence de l'URL du serveur."
@@ -1762,7 +1772,7 @@ msgctxt "WARNING!!!!!!: PLEASE We need a space between after </strong>"
 msgid "<strong>%1</strong> are typing..."
 msgstr "<strong>%1</strong>sont en train d'écrire des messages..."
 
-#: core/rocketchataccount.cpp:711
+#: core/rocketchataccount.cpp:710
 #, kde-format
 msgid ""
 "REST: %1\n"
@@ -1771,25 +1781,15 @@ msgstr ""
 "REST : %1\n"
 "DDP : %2"
 
-#: core/rocketchataccount.cpp:719 core/rocketchataccount.cpp:731
+#: core/rocketchataccount.cpp:718 core/rocketchataccount.cpp:730
 #, kde-format
 msgid "Not connected"
 msgstr "Non connecté"
 
-#: core/rocketchataccount.cpp:726
+#: core/rocketchataccount.cpp:725
 #, kde-format
 msgid "Not connected yet"
 msgstr "Pas encore connecté"
-
-#: core/rocketchaturlutils.cpp:41
-#, kde-format
-msgid "Account Added"
-msgstr "Ajout d'un compte"
-
-#: core/rocketchaturlutils.cpp:42
-#, kde-format
-msgid "A new account was added."
-msgstr "Un nouveau compte a été ajouté."
 
 #: core/room.cpp:1168
 #, kde-format
@@ -2005,7 +2005,7 @@ msgstr ""
 msgid "Create a screenshot"
 msgstr "Créer une copie d'écran"
 
-#: rocketchatrestapi-qt/autotranslate/getsupportedlanguagesjob.cpp:89
+#: rocketchatrestapi-qt/autotranslate/getsupportedlanguagesjob.cpp:81
 #, kde-format
 msgid "Invalid Parameters"
 msgstr "Paramètres non valables"
@@ -3512,7 +3512,7 @@ msgstr "Utiliser une authentification à deux facteurs"
 #: widgets/administratordialog/rooms/administratorroomseditwidget.cpp:53
 #: widgets/dialogs/channelinfoeditablewidget.cpp:69
 #: widgets/dialogs/channelinforeadonlywidget.cpp:47
-#: widgets/dialogs/uploadfilewidget.cpp:53
+#: widgets/dialogs/uploadfilewidget.cpp:55
 #: widgets/messagemaximumsizedialog/messagemaximumsizewidget.cpp:27
 #, kde-format
 msgid "Description:"
@@ -5771,7 +5771,7 @@ msgstr "Supprimer les métadonnées « EXIF » des fichiers pris en charge"
 #, kde-format
 msgctxt "@option:check"
 msgid "Enable image thumbnails to save bandwidth"
-msgstr "Activer les vignettes d'images pour sauvegarder de la bande passante"
+msgstr "Activer les vignettes d'images pour économiser de la bande passante"
 
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:34
 #, kde-format
@@ -8467,7 +8467,7 @@ msgid ""
 "Regular_expression\">Regular Expression</a>. e.g. <code>/^text$/i</code>"
 msgstr ""
 "Vous pouvez effectuer une recherche à l'aide de l'<a href=\"https://fr."
-"wikipedia.org/wiki/Expression_r%C3%A9guli%C3%A8re\">expression régulière</"
+"wikipedia.org/wiki/Expression_r%C3%A9guli%C3%A8re\">expression rationnelle</"
 "a>. Par exemple,<code>/^text$ / i</code>"
 
 #: widgets/dialogs/serverinfo/serverinfodialog.cpp:17
@@ -8648,7 +8648,7 @@ msgctxt "@title:window"
 msgid "Upload Image"
 msgstr "Envoyer une image"
 
-#: widgets/dialogs/uploadfilewidget.cpp:47
+#: widgets/dialogs/uploadfilewidget.cpp:49
 #, kde-format
 msgid "File Name:"
 msgstr "Nom du fichier :"
@@ -10084,7 +10084,7 @@ msgstr "Le message a été épinglé."
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Message has been starred"
-msgstr "Le message a été mis en favori."
+msgstr "Le message a été mis dans les signets."
 
 #: widgets/room/delegate/messagelistdelegate.cpp:995
 #, kde-format
@@ -11257,10 +11257,10 @@ msgstr "Quoi de neuf dans %2. %1"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:17
 msgid "Add support for tools plugins"
-msgstr ""
+msgstr "Ajouter une prise en charge pour les modules externes d'outils"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:18
-msgid "Add screenshot button"
+msgid "Plugin: Add screenshot button (near send message button)"
 msgstr ""
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:28
@@ -11558,8 +11558,8 @@ msgid ""
 "Delete oldest files from some cache directories (file-upload and media) so "
 "it doesn't grow forever."
 msgstr ""
-"Supprimez les fichiers les plus anciens de certains répertoires de cache "
-"(Téléchargements de fichiers et de media) afin que le cache ne croisse pas "
+"Supprimez les fichiers les plus anciens de certains dossiers de cache "
+"(Téléchargements de fichiers et de média) afin que le cache ne croisse pas "
 "éternellement."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:105

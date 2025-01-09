@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-01-08 00:41+0000\n"
+"POT-Creation-Date: 2025-01-09 00:41+0000\n"
 "PO-Revision-Date: 2024-10-02 22:38+0200\n"
 "Last-Translator: Kristof Kiszel <ulysses@fsf.hu>\n"
 "Language-Team: Hungarian <kde-l10n-hu@kde.org>\n"
@@ -174,6 +174,16 @@ msgstr "Kiemelt"
 #, kde-format
 msgid "The following accounts are available:"
 msgstr "A következő fiókok érhetők el:"
+
+#: core/accountmanager.cpp:854 core/rocketchaturlutils.cpp:41
+#, kde-format
+msgid "Account Added"
+msgstr "Fiók hozzáadva"
+
+#: core/accountmanager.cpp:855 core/rocketchaturlutils.cpp:42
+#, kde-format
+msgid "A new account was added."
+msgstr "Egy új fiók hozzáadva."
 
 #: core/apps/appsmarketplaceinfo.cpp:98
 #, kde-format
@@ -732,7 +742,7 @@ msgstr "Csengőhang"
 msgid "(Last Message: %1)"
 msgstr "(Utolsó üzenet: %1)"
 
-#: core/job/extractserverinfojob.cpp:28
+#: core/job/extractserverinfojob.cpp:27
 #, kde-format
 msgid "Missing server url."
 msgstr ""
@@ -1780,33 +1790,23 @@ msgctxt "WARNING!!!!!!: PLEASE We need a space between after </strong>"
 msgid "<strong>%1</strong> are typing..."
 msgstr "<strong>%1</strong> gépelnek…"
 
-#: core/rocketchataccount.cpp:711
+#: core/rocketchataccount.cpp:710
 #, kde-format
 msgid ""
 "REST: %1\n"
 "DDP: %2"
 msgstr ""
 
-#: core/rocketchataccount.cpp:719 core/rocketchataccount.cpp:731
+#: core/rocketchataccount.cpp:718 core/rocketchataccount.cpp:730
 #, kde-format
 msgid "Not connected"
 msgstr "Nincs kapcsolódva"
 
-#: core/rocketchataccount.cpp:726
+#: core/rocketchataccount.cpp:725
 #, fuzzy, kde-format
 #| msgid "Not connected"
 msgid "Not connected yet"
 msgstr "Nincs kapcsolódva"
-
-#: core/rocketchaturlutils.cpp:41
-#, kde-format
-msgid "Account Added"
-msgstr "Fiók hozzáadva"
-
-#: core/rocketchaturlutils.cpp:42
-#, kde-format
-msgid "A new account was added."
-msgstr "Egy új fiók hozzáadva."
 
 #: core/room.cpp:1168
 #, kde-format
@@ -2020,7 +2020,7 @@ msgstr "<qt>Az új kérést itt találhatja meg:<br /><a href='%1'>%1</a> </qt>"
 msgid "Create a screenshot"
 msgstr "Létrehozva"
 
-#: rocketchatrestapi-qt/autotranslate/getsupportedlanguagesjob.cpp:89
+#: rocketchatrestapi-qt/autotranslate/getsupportedlanguagesjob.cpp:81
 #, kde-format
 msgid "Invalid Parameters"
 msgstr "Érvénytelen paraméterek"
@@ -3514,7 +3514,7 @@ msgstr "Kétfaktoros hitelesítés használata"
 #: widgets/administratordialog/rooms/administratorroomseditwidget.cpp:53
 #: widgets/dialogs/channelinfoeditablewidget.cpp:69
 #: widgets/dialogs/channelinforeadonlywidget.cpp:47
-#: widgets/dialogs/uploadfilewidget.cpp:53
+#: widgets/dialogs/uploadfilewidget.cpp:55
 #: widgets/messagemaximumsizedialog/messagemaximumsizewidget.cpp:27
 #, kde-format
 msgid "Description:"
@@ -8659,7 +8659,7 @@ msgctxt "@title:window"
 msgid "Upload Image"
 msgstr "Kép feltöltése"
 
-#: widgets/dialogs/uploadfilewidget.cpp:47
+#: widgets/dialogs/uploadfilewidget.cpp:49
 #, kde-format
 msgid "File Name:"
 msgstr "Fájlnév:"
@@ -11306,7 +11306,7 @@ msgid "Add support for tools plugins"
 msgstr ""
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:18
-msgid "Add screenshot button"
+msgid "Plugin: Add screenshot button (near send message button)"
 msgstr ""
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:28

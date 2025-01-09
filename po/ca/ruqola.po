@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-01-08 00:41+0000\n"
-"PO-Revision-Date: 2025-01-06 10:27+0100\n"
+"POT-Creation-Date: 2025-01-09 00:41+0000\n"
+"PO-Revision-Date: 2025-01-08 11:07+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca\n"
@@ -175,6 +175,16 @@ msgstr "Característica nova"
 #, kde-format
 msgid "The following accounts are available:"
 msgstr "Estan disponibles els comptes següents:"
+
+#: core/accountmanager.cpp:854 core/rocketchaturlutils.cpp:41
+#, kde-format
+msgid "Account Added"
+msgstr "S'ha afegit un compte"
+
+#: core/accountmanager.cpp:855 core/rocketchaturlutils.cpp:42
+#, kde-format
+msgid "A new account was added."
+msgstr "S'ha afegit un compte nou."
 
 #: core/apps/appsmarketplaceinfo.cpp:98
 #, kde-format
@@ -720,7 +730,7 @@ msgstr "To de trucada"
 msgid "(Last Message: %1)"
 msgstr "(Últim missatge: %1)"
 
-#: core/job/extractserverinfojob.cpp:28
+#: core/job/extractserverinfojob.cpp:27
 #, kde-format
 msgid "Missing server url."
 msgstr "Manca l'URL del servidor."
@@ -1763,7 +1773,7 @@ msgctxt "WARNING!!!!!!: PLEASE We need a space between after </strong>"
 msgid "<strong>%1</strong> are typing..."
 msgstr "<strong>%1</strong> estan escrivint..."
 
-#: core/rocketchataccount.cpp:711
+#: core/rocketchataccount.cpp:710
 #, kde-format
 msgid ""
 "REST: %1\n"
@@ -1772,25 +1782,15 @@ msgstr ""
 "REST: %1\n"
 "DDP: %2"
 
-#: core/rocketchataccount.cpp:719 core/rocketchataccount.cpp:731
+#: core/rocketchataccount.cpp:718 core/rocketchataccount.cpp:730
 #, kde-format
 msgid "Not connected"
 msgstr "No connectat"
 
-#: core/rocketchataccount.cpp:726
+#: core/rocketchataccount.cpp:725
 #, kde-format
 msgid "Not connected yet"
 msgstr "Encara no connectat"
-
-#: core/rocketchaturlutils.cpp:41
-#, kde-format
-msgid "Account Added"
-msgstr "S'ha afegit un compte"
-
-#: core/rocketchaturlutils.cpp:42
-#, kde-format
-msgid "A new account was added."
-msgstr "S'ha afegit un compte nou."
 
 #: core/room.cpp:1168
 #, kde-format
@@ -2002,7 +2002,7 @@ msgstr "<qt>Trobareu la nova sol·licitud a:<br /><a href='%1'>%1</a></qt>"
 msgid "Create a screenshot"
 msgstr "Crea una captura de pantalla"
 
-#: rocketchatrestapi-qt/autotranslate/getsupportedlanguagesjob.cpp:89
+#: rocketchatrestapi-qt/autotranslate/getsupportedlanguagesjob.cpp:81
 #, kde-format
 msgid "Invalid Parameters"
 msgstr "Paràmetres no vàlids"
@@ -3497,7 +3497,7 @@ msgstr "Usa una autenticació de dos factors"
 #: widgets/administratordialog/rooms/administratorroomseditwidget.cpp:53
 #: widgets/dialogs/channelinfoeditablewidget.cpp:69
 #: widgets/dialogs/channelinforeadonlywidget.cpp:47
-#: widgets/dialogs/uploadfilewidget.cpp:53
+#: widgets/dialogs/uploadfilewidget.cpp:55
 #: widgets/messagemaximumsizedialog/messagemaximumsizewidget.cpp:27
 #, kde-format
 msgid "Description:"
@@ -8596,7 +8596,7 @@ msgctxt "@title:window"
 msgid "Upload Image"
 msgstr "Pujada d'imatge"
 
-#: widgets/dialogs/uploadfilewidget.cpp:47
+#: widgets/dialogs/uploadfilewidget.cpp:49
 #, kde-format
 msgid "File Name:"
 msgstr "Nom del fitxer:"
@@ -11203,7 +11203,7 @@ msgid "Add support for tools plugins"
 msgstr "Afegeix la implementació dels connectors d'eines"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:18
-msgid "Add screenshot button"
+msgid "Plugin: Add screenshot button (near send message button)"
 msgstr ""
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:28
@@ -11638,6 +11638,9 @@ msgstr ""
 #, kde-format
 msgid "Some bug fixing:"
 msgstr "Correcció d'errors:"
+
+#~ msgid "Add screenshot button"
+#~ msgstr "Afegeix un botó de captura de pantalla"
 
 #~ msgctxt "@info:shell"
 #~ msgid "Attach File"

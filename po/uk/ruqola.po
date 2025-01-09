@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-01-08 00:41+0000\n"
-"PO-Revision-Date: 2025-01-06 09:00+0200\n"
+"POT-Creation-Date: 2025-01-09 00:41+0000\n"
+"PO-Revision-Date: 2025-01-08 11:15+0200\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
 "Language: uk\n"
@@ -176,6 +176,16 @@ msgstr "Нова можливість"
 #, kde-format
 msgid "The following accounts are available:"
 msgstr "Доступні такі облікові записи:"
+
+#: core/accountmanager.cpp:854 core/rocketchaturlutils.cpp:41
+#, kde-format
+msgid "Account Added"
+msgstr "Додано обліковий запис"
+
+#: core/accountmanager.cpp:855 core/rocketchaturlutils.cpp:42
+#, kde-format
+msgid "A new account was added."
+msgstr "Було додано новий обліковий запис."
 
 #: core/apps/appsmarketplaceinfo.cpp:98
 #, kde-format
@@ -718,7 +728,7 @@ msgstr "Мелодія дзвінка"
 msgid "(Last Message: %1)"
 msgstr "(Останнє повідомлення: %1)"
 
-#: core/job/extractserverinfojob.cpp:28
+#: core/job/extractserverinfojob.cpp:27
 #, kde-format
 msgid "Missing server url."
 msgstr "Пропущено адресу сервера."
@@ -1772,7 +1782,7 @@ msgctxt "WARNING!!!!!!: PLEASE We need a space between after </strong>"
 msgid "<strong>%1</strong> are typing..."
 msgstr "<strong>%1</strong> вводить текст…"
 
-#: core/rocketchataccount.cpp:711
+#: core/rocketchataccount.cpp:710
 #, kde-format
 msgid ""
 "REST: %1\n"
@@ -1781,25 +1791,15 @@ msgstr ""
 "REST: %1\n"
 "DDP: %2"
 
-#: core/rocketchataccount.cpp:719 core/rocketchataccount.cpp:731
+#: core/rocketchataccount.cpp:718 core/rocketchataccount.cpp:730
 #, kde-format
 msgid "Not connected"
 msgstr "Не з'єднано"
 
-#: core/rocketchataccount.cpp:726
+#: core/rocketchataccount.cpp:725
 #, kde-format
 msgid "Not connected yet"
 msgstr "Ще не з'єднано"
-
-#: core/rocketchaturlutils.cpp:41
-#, kde-format
-msgid "Account Added"
-msgstr "Додано обліковий запис"
-
-#: core/rocketchaturlutils.cpp:42
-#, kde-format
-msgid "A new account was added."
-msgstr "Було додано новий обліковий запис."
 
 #: core/room.cpp:1168
 #, kde-format
@@ -2011,7 +2011,7 @@ msgstr "<qt>Новий запит можна знайти тут:<br /><a href='
 msgid "Create a screenshot"
 msgstr "Створити знімок"
 
-#: rocketchatrestapi-qt/autotranslate/getsupportedlanguagesjob.cpp:89
+#: rocketchatrestapi-qt/autotranslate/getsupportedlanguagesjob.cpp:81
 #, kde-format
 msgid "Invalid Parameters"
 msgstr "Некоректні параметри"
@@ -3516,7 +3516,7 @@ msgstr "Двофакторне розпізнавання"
 #: widgets/administratordialog/rooms/administratorroomseditwidget.cpp:53
 #: widgets/dialogs/channelinfoeditablewidget.cpp:69
 #: widgets/dialogs/channelinforeadonlywidget.cpp:47
-#: widgets/dialogs/uploadfilewidget.cpp:53
+#: widgets/dialogs/uploadfilewidget.cpp:55
 #: widgets/messagemaximumsizedialog/messagemaximumsizewidget.cpp:27
 #, kde-format
 msgid "Description:"
@@ -8651,7 +8651,7 @@ msgctxt "@title:window"
 msgid "Upload Image"
 msgstr "Вивантаження зображення"
 
-#: widgets/dialogs/uploadfilewidget.cpp:47
+#: widgets/dialogs/uploadfilewidget.cpp:49
 #, kde-format
 msgid "File Name:"
 msgstr "Назва файла:"
@@ -11267,7 +11267,7 @@ msgid "Add support for tools plugins"
 msgstr "Додано підтримку для додатків інструментів"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:18
-msgid "Add screenshot button"
+msgid "Plugin: Add screenshot button (near send message button)"
 msgstr ""
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:28
@@ -11698,6 +11698,9 @@ msgstr "Серед нових можливостей у цьому випуск�
 #, kde-format
 msgid "Some bug fixing:"
 msgstr "Виправлення деяких вад:"
+
+#~ msgid "Add screenshot button"
+#~ msgstr "Додано кнопку знімків екрана"
 
 #~ msgctxt "@info:shell"
 #~ msgid "Attach File"

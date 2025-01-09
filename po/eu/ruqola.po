@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-01-08 00:41+0000\n"
-"PO-Revision-Date: 2025-01-06 08:32+0100\n"
+"POT-Creation-Date: 2025-01-09 00:41+0000\n"
+"PO-Revision-Date: 2025-01-08 22:58+0100\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
 "Language: eu\n"
@@ -174,6 +174,16 @@ msgstr "Ezaugarri berria"
 #, kde-format
 msgid "The following accounts are available:"
 msgstr "Ondoko kontuak erabilgarri daude:"
+
+#: core/accountmanager.cpp:854 core/rocketchaturlutils.cpp:41
+#, kde-format
+msgid "Account Added"
+msgstr "Kontua gehitu da"
+
+#: core/accountmanager.cpp:855 core/rocketchaturlutils.cpp:42
+#, kde-format
+msgid "A new account was added."
+msgstr "Kontu berria gehitu da."
 
 #: core/apps/appsmarketplaceinfo.cpp:98
 #, kde-format
@@ -732,7 +742,7 @@ msgstr "Txirrin-hotsa"
 msgid "(Last Message: %1)"
 msgstr "(Azken mezua: %1)"
 
-#: core/job/extractserverinfojob.cpp:28
+#: core/job/extractserverinfojob.cpp:27
 #, kde-format
 msgid "Missing server url."
 msgstr "Zerbitzariaren URLa falta da."
@@ -1775,7 +1785,7 @@ msgctxt "WARNING!!!!!!: PLEASE We need a space between after </strong>"
 msgid "<strong>%1</strong> are typing..."
 msgstr "<strong>%1</strong> tekleatzen ari dira..."
 
-#: core/rocketchataccount.cpp:711
+#: core/rocketchataccount.cpp:710
 #, kde-format
 msgid ""
 "REST: %1\n"
@@ -1784,25 +1794,15 @@ msgstr ""
 "REST: %1\n"
 "DDP: %2"
 
-#: core/rocketchataccount.cpp:719 core/rocketchataccount.cpp:731
+#: core/rocketchataccount.cpp:718 core/rocketchataccount.cpp:730
 #, kde-format
 msgid "Not connected"
 msgstr "Konektatu gabe"
 
-#: core/rocketchataccount.cpp:726
+#: core/rocketchataccount.cpp:725
 #, kde-format
 msgid "Not connected yet"
 msgstr "Oraindik konektatu gabe"
-
-#: core/rocketchaturlutils.cpp:41
-#, kde-format
-msgid "Account Added"
-msgstr "Kontua gehitu da"
-
-#: core/rocketchaturlutils.cpp:42
-#, kde-format
-msgid "A new account was added."
-msgstr "Kontu berria gehitu da."
 
 #: core/room.cpp:1168
 #, kde-format
@@ -2015,7 +2015,7 @@ msgstr ""
 msgid "Create a screenshot"
 msgstr "Sortu pantaila-argazki bat"
 
-#: rocketchatrestapi-qt/autotranslate/getsupportedlanguagesjob.cpp:89
+#: rocketchatrestapi-qt/autotranslate/getsupportedlanguagesjob.cpp:81
 #, kde-format
 msgid "Invalid Parameters"
 msgstr "Parametro baliogabeak"
@@ -3506,7 +3506,7 @@ msgstr "Erabili bi faktoreko kautotzea"
 #: widgets/administratordialog/rooms/administratorroomseditwidget.cpp:53
 #: widgets/dialogs/channelinfoeditablewidget.cpp:69
 #: widgets/dialogs/channelinforeadonlywidget.cpp:47
-#: widgets/dialogs/uploadfilewidget.cpp:53
+#: widgets/dialogs/uploadfilewidget.cpp:55
 #: widgets/messagemaximumsizedialog/messagemaximumsizewidget.cpp:27
 #, kde-format
 msgid "Description:"
@@ -8591,7 +8591,7 @@ msgctxt "@title:window"
 msgid "Upload Image"
 msgstr "Zama-igo irudia"
 
-#: widgets/dialogs/uploadfilewidget.cpp:47
+#: widgets/dialogs/uploadfilewidget.cpp:49
 #, kde-format
 msgid "File Name:"
 msgstr "Fitxategi-izena:"
@@ -11195,7 +11195,7 @@ msgid "Add support for tools plugins"
 msgstr "Tresnen pluginentzako euskarria gehitzea"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:18
-msgid "Add screenshot button"
+msgid "Plugin: Add screenshot button (near send message button)"
 msgstr ""
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:28
@@ -11625,6 +11625,9 @@ msgstr "Ruqola-ren askapen berri honetako ezaugarri berrien artean daude:"
 #, kde-format
 msgid "Some bug fixing:"
 msgstr "Akatsak konponketa batzuk:"
+
+#~ msgid "Add screenshot button"
+#~ msgstr "Gehitu pantaila-argazki botoia"
 
 #~ msgctxt "@info:shell"
 #~ msgid "Attach File"

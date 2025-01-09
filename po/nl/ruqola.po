@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-01-08 00:41+0000\n"
-"PO-Revision-Date: 2025-01-06 18:12+0100\n"
+"POT-Creation-Date: 2025-01-09 00:41+0000\n"
+"PO-Revision-Date: 2025-01-09 00:30+0100\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
 "Language: nl\n"
@@ -171,6 +171,16 @@ msgstr "Nieuwe mogelijkheid"
 #, kde-format
 msgid "The following accounts are available:"
 msgstr "De volgende accounts zijn beschikbaar:"
+
+#: core/accountmanager.cpp:854 core/rocketchaturlutils.cpp:41
+#, kde-format
+msgid "Account Added"
+msgstr "Account toegevoegd"
+
+#: core/accountmanager.cpp:855 core/rocketchaturlutils.cpp:42
+#, kde-format
+msgid "A new account was added."
+msgstr "Een nieuw account is ingevoerd."
 
 #: core/apps/appsmarketplaceinfo.cpp:98
 #, kde-format
@@ -716,7 +726,7 @@ msgstr "Oproeptoon"
 msgid "(Last Message: %1)"
 msgstr "(Laatste bericht: %1)"
 
-#: core/job/extractserverinfojob.cpp:28
+#: core/job/extractserverinfojob.cpp:27
 #, kde-format
 msgid "Missing server url."
 msgstr "Server-URL ontbreekt."
@@ -1761,7 +1771,7 @@ msgctxt "WARNING!!!!!!: PLEASE We need a space between after </strong>"
 msgid "<strong>%1</strong> are typing..."
 msgstr "<strong>%1</strong> zijn aan het typen..."
 
-#: core/rocketchataccount.cpp:711
+#: core/rocketchataccount.cpp:710
 #, kde-format
 msgid ""
 "REST: %1\n"
@@ -1770,25 +1780,15 @@ msgstr ""
 "REST: %1\n"
 "DDP: %2"
 
-#: core/rocketchataccount.cpp:719 core/rocketchataccount.cpp:731
+#: core/rocketchataccount.cpp:718 core/rocketchataccount.cpp:730
 #, kde-format
 msgid "Not connected"
 msgstr "Niet verbonden"
 
-#: core/rocketchataccount.cpp:726
+#: core/rocketchataccount.cpp:725
 #, kde-format
 msgid "Not connected yet"
 msgstr "Nog niet verbonden"
-
-#: core/rocketchaturlutils.cpp:41
-#, kde-format
-msgid "Account Added"
-msgstr "Account toegevoegd"
-
-#: core/rocketchaturlutils.cpp:42
-#, kde-format
-msgid "A new account was added."
-msgstr "Een nieuw account is ingevoerd."
 
 #: core/room.cpp:1168
 #, kde-format
@@ -2001,7 +2001,7 @@ msgstr ""
 msgid "Create a screenshot"
 msgstr "Een schermafdruk maken"
 
-#: rocketchatrestapi-qt/autotranslate/getsupportedlanguagesjob.cpp:89
+#: rocketchatrestapi-qt/autotranslate/getsupportedlanguagesjob.cpp:81
 #, kde-format
 msgid "Invalid Parameters"
 msgstr "Ongeldige parameters"
@@ -3498,7 +3498,7 @@ msgstr "Twee-factor-authenticatie gebruiken"
 #: widgets/administratordialog/rooms/administratorroomseditwidget.cpp:53
 #: widgets/dialogs/channelinfoeditablewidget.cpp:69
 #: widgets/dialogs/channelinforeadonlywidget.cpp:47
-#: widgets/dialogs/uploadfilewidget.cpp:53
+#: widgets/dialogs/uploadfilewidget.cpp:55
 #: widgets/messagemaximumsizedialog/messagemaximumsizewidget.cpp:27
 #, kde-format
 msgid "Description:"
@@ -8597,7 +8597,7 @@ msgctxt "@title:window"
 msgid "Upload Image"
 msgstr "Afbeelding uploaden"
 
-#: widgets/dialogs/uploadfilewidget.cpp:47
+#: widgets/dialogs/uploadfilewidget.cpp:49
 #, kde-format
 msgid "File Name:"
 msgstr "Bestandsnaam:"
@@ -11197,7 +11197,7 @@ msgid "Add support for tools plugins"
 msgstr "Ondersteuning voor plug-ins voor hulpmiddelen toevoegen"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:18
-msgid "Add screenshot button"
+msgid "Plugin: Add screenshot button (near send message button)"
 msgstr ""
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:28
@@ -11631,6 +11631,9 @@ msgstr "Enige van de nieuwe functies in deze uitgave van Ruqola omvatten:"
 #, kde-format
 msgid "Some bug fixing:"
 msgstr "Enig repareren van bugs:"
+
+#~ msgid "Add screenshot button"
+#~ msgstr "Knop voor schermafdruk toevoegen"
 
 #~ msgctxt "@info:shell"
 #~ msgid "Attach File"
