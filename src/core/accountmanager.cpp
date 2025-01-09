@@ -871,6 +871,7 @@ void AccountManager::addAccount(const AccountManagerInfo &info)
     account->setAccountEnabled(info.enabled);
     account->setActivities(info.activitiesSettings.activities);
     account->setActivityEnabled(info.activitiesSettings.enabled);
+    account->setInviteToken(info.inviteToken);
     if (info.authMethodType == AuthenticationManager::AuthMethodType::Password) {
         account->setUserName(info.userName);
         account->setPassword(info.password);

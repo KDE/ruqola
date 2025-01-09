@@ -500,6 +500,7 @@ public:
 
     [[nodiscard]] QString getTranslatedIdentifier(const QString &lang, const QString &identifier) const;
 
+    void setInviteToken(const QString &token);
 Q_SIGNALS:
     void roomRemoved(const QByteArray &roomId);
     void disabledTotpValid(bool checked);

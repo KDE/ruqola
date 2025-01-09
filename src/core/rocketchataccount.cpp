@@ -1750,6 +1750,11 @@ QString RocketChatAccount::serverUrl() const
     return settings()->serverUrl();
 }
 
+void RocketChatAccount::setInviteToken(const QString &token)
+{
+    settings()->setInviteToken(token);
+}
+
 void RocketChatAccount::setServerUrl(const QString &serverURL)
 {
     settings()->setServerUrl(serverURL);
