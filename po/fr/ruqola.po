@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-12-27 02:34+0000\n"
-"PO-Revision-Date: 2024-12-18 10:00+0100\n"
+"PO-Revision-Date: 2025-01-07 11:10+0100\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
 "Language-Team: French <French <kde-francophone@kde.org>>\n"
 "Language: fr\n"
@@ -693,7 +693,7 @@ msgstr "Téléphone"
 #: core/customsound/customsoundsmanager.cpp:130
 #, kde-format
 msgid "Outbound Call Ringing"
-msgstr "Sonnerie d’appel sortant"
+msgstr "Sonnerie d'appel sortant"
 
 #: core/customsound/customsoundsmanager.cpp:138
 #, kde-format
@@ -5756,7 +5756,7 @@ msgstr "Supprimer les métadonnées « EXIF » des fichiers pris en charge"
 #, kde-format
 msgctxt "@option:check"
 msgid "Enable image thumbnails to save bandwidth"
-msgstr "Activer les vignettes d'images pour sauvegarder de la bande passante"
+msgstr "Activer les vignettes d'images pour économiser de la bande passante"
 
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:34
 #, kde-format
@@ -8452,7 +8452,7 @@ msgid ""
 "Regular_expression\">Regular Expression</a>. e.g. <code>/^text$/i</code>"
 msgstr ""
 "Vous pouvez effectuer une recherche à l'aide de l'<a href=\"https://fr."
-"wikipedia.org/wiki/Expression_r%C3%A9guli%C3%A8re\">expression régulière</"
+"wikipedia.org/wiki/Expression_r%C3%A9guli%C3%A8re\">expression rationnelle</"
 "a>. Par exemple,<code>/^text$ / i</code>"
 
 #: widgets/dialogs/serverinfo/serverinfodialog.cpp:17
@@ -10069,7 +10069,7 @@ msgstr "Le message a été épinglé."
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Message has been starred"
-msgstr "Le message a été mis en favori."
+msgstr "Le message a été mis dans les signets."
 
 #: widgets/room/delegate/messagelistdelegate.cpp:995
 #, kde-format
@@ -11572,8 +11572,8 @@ msgid ""
 "Delete oldest files from some cache directories (file-upload and media) so "
 "it doesn't grow forever."
 msgstr ""
-"Supprimez les fichiers les plus anciens de certains répertoires de cache "
-"(Téléchargements de fichiers et de media) afin que le cache ne croisse pas "
+"Supprimez les fichiers les plus anciens de certains dossiers de cache "
+"(Téléchargements de fichiers et de média) afin que le cache ne croisse pas "
 "éternellement."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:110
