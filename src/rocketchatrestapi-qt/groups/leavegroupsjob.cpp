@@ -51,11 +51,11 @@ bool LeaveGroupsJob::requireHttpAuthentication() const
 
 bool LeaveGroupsJob::canStart() const
 {
-    if (!hasIdentifier()) {
-        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "LeaveGroupsJob: RoomId is empty";
+    if (!RestApiAbstractJob::canStart()) {
         return false;
     }
-    if (!RestApiAbstractJob::canStart()) {
+    if (!hasIdentifier()) {
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "LeaveGroupsJob: RoomId is empty";
         return false;
     }
     return true;

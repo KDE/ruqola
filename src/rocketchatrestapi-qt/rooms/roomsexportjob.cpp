@@ -51,14 +51,14 @@ bool RoomsExportJob::requireHttpAuthentication() const
 
 bool RoomsExportJob::canStart() const
 {
+    if (!RestApiAbstractJob::canStart()) {
+        return false;
+    }
     if (!mRoomExportInfo.isValid()) {
         qCWarning(ROCKETCHATQTRESTAPI_LOG) << "mRoomExportInfo: mRoomExportInfo is not valid.";
         return false;
     }
 
-    if (!RestApiAbstractJob::canStart()) {
-        return false;
-    }
     return true;
 }
 

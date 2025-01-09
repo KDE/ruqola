@@ -76,11 +76,11 @@ QNetworkRequest TeamsAutoCompleteJob::request() const
 
 bool TeamsAutoCompleteJob::canStart() const
 {
-    if (mName.isEmpty()) {
-        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "TeamsAutoCompleteJob: mName is empty";
+    if (!RestApiAbstractJob::canStart()) {
         return false;
     }
-    if (!RestApiAbstractJob::canStart()) {
+    if (mName.isEmpty()) {
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "TeamsAutoCompleteJob: mName is empty";
         return false;
     }
     return true;

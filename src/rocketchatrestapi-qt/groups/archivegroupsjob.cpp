@@ -63,11 +63,11 @@ bool ArchiveGroupsJob::requireHttpAuthentication() const
 
 bool ArchiveGroupsJob::canStart() const
 {
-    if (!hasIdentifier()) {
-        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "ArchiveGroupsJob: RoomId is empty";
+    if (!RestApiAbstractJob::canStart()) {
         return false;
     }
-    if (!RestApiAbstractJob::canStart()) {
+    if (!hasIdentifier()) {
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "ArchiveGroupsJob: RoomId is empty";
         return false;
     }
     return true;

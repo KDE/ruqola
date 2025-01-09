@@ -61,15 +61,15 @@ bool SetGroupTypeJob::requireHttpAuthentication() const
 
 bool SetGroupTypeJob::canStart() const
 {
+    if (!RestApiAbstractJob::canStart()) {
+        return false;
+    }
     if (!hasIdentifier()) {
         qCWarning(ROCKETCHATQTRESTAPI_LOG) << "SetGroupTypeJob: mRoomId is empty";
         return false;
     }
     if (mType == Unknown) {
         qCWarning(ROCKETCHATQTRESTAPI_LOG) << "SetGroupTypeJob: type is not defined";
-        return false;
-    }
-    if (!RestApiAbstractJob::canStart()) {
         return false;
     }
     return true;

@@ -52,11 +52,11 @@ bool GroupsInfoJob::requireHttpAuthentication() const
 
 bool GroupsInfoJob::canStart() const
 {
-    if (mRoomId.isEmpty()) {
-        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "GroupsInfoJob: RoomId is empty";
+    if (!RestApiAbstractJob::canStart()) {
         return false;
     }
-    if (!RestApiAbstractJob::canStart()) {
+    if (mRoomId.isEmpty()) {
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "GroupsInfoJob: RoomId is empty";
         return false;
     }
     return true;

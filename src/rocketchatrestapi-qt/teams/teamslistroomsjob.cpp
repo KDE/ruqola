@@ -78,11 +78,11 @@ QNetworkRequest TeamsListRoomsJob::request() const
 
 bool TeamsListRoomsJob::canStart() const
 {
-    if (mTeamId.isEmpty()) {
-        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "TeamsListRoomsJob: mTeamId is empty";
+    if (!RestApiAbstractJob::canStart()) {
         return false;
     }
-    if (!RestApiAbstractJob::canStart()) {
+    if (mTeamId.isEmpty()) {
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "TeamsListRoomsJob: mTeamId is empty";
         return false;
     }
     return true;

@@ -61,11 +61,11 @@ bool CreateGroupsJob::requireHttpAuthentication() const
 
 bool CreateGroupsJob::canStart() const
 {
-    if (!mCreateGroupInfo.canStart()) {
-        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "CreateGroupsJob: channelname is empty";
+    if (!RestApiAbstractJob::canStart()) {
         return false;
     }
-    if (!RestApiAbstractJob::canStart()) {
+    if (!mCreateGroupInfo.canStart()) {
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "CreateGroupsJob: channelname is empty";
         return false;
     }
     return true;

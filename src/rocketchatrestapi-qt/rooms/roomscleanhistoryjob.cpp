@@ -62,14 +62,14 @@ bool RoomsCleanHistoryJob::requireHttpAuthentication() const
 
 bool RoomsCleanHistoryJob::canStart() const
 {
+    if (!RestApiAbstractJob::canStart()) {
+        return false;
+    }
     if (!mCleanHistoryInfo.isValid()) {
         qCWarning(ROCKETCHATQTRESTAPI_LOG) << "mCleanHistoryInfo: mCleanHistoryInfo is not valid.";
         return false;
     }
 
-    if (!RestApiAbstractJob::canStart()) {
-        return false;
-    }
     return true;
 }
 

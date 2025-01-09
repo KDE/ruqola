@@ -72,14 +72,14 @@ bool RoomsUnmuteUserJob::requireHttpAuthentication() const
 
 bool RoomsUnmuteUserJob::canStart() const
 {
+    if (!RestApiAbstractJob::canStart()) {
+        return false;
+    }
     if (mUserName.isEmpty() || mRoomId.isEmpty()) {
         qCWarning(ROCKETCHATQTRESTAPI_LOG) << "RoomsUnmuteUserJob: mUserName or mRoomId is empty.";
         return false;
     }
 
-    if (!RestApiAbstractJob::canStart()) {
-        return false;
-    }
     return true;
 }
 

@@ -65,15 +65,15 @@ bool GroupRemoveOwnerJob::requireHttpAuthentication() const
 
 bool GroupRemoveOwnerJob::canStart() const
 {
+    if (!RestApiAbstractJob::canStart()) {
+        return false;
+    }
     if (mRemoveUserId.isEmpty()) {
         qCWarning(ROCKETCHATQTRESTAPI_LOG) << "GroupRemoveOwnerJob: remove userid is empty";
         return false;
     }
     if (!hasIdentifier()) {
         qCWarning(ROCKETCHATQTRESTAPI_LOG) << "GroupRemoveOwnerJob: RoomId is empty";
-        return false;
-    }
-    if (!RestApiAbstractJob::canStart()) {
         return false;
     }
     return true;

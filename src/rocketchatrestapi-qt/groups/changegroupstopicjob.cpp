@@ -51,11 +51,11 @@ bool ChangeGroupsTopicJob::requireHttpAuthentication() const
 
 bool ChangeGroupsTopicJob::canStart() const
 {
-    if (!hasIdentifier()) {
-        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "ChangeGroupsTopicJob: RoomId is empty";
+    if (!RestApiAbstractJob::canStart()) {
         return false;
     }
-    if (!RestApiAbstractJob::canStart()) {
+    if (!hasIdentifier()) {
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "ChangeGroupsTopicJob: RoomId is empty";
         return false;
     }
     return true;

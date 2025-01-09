@@ -21,11 +21,11 @@ ForgotPasswordJob::~ForgotPasswordJob() = default;
 
 bool ForgotPasswordJob::canStart() const
 {
-    if (mEmail.isEmpty()) {
-        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Email is empty";
+    if (!RestApiAbstractJob::canStart()) {
         return false;
     }
-    if (!RestApiAbstractJob::canStart()) {
+    if (mEmail.isEmpty()) {
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Email is empty";
         return false;
     }
     return true;
