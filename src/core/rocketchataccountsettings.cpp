@@ -61,6 +61,7 @@ void RocketChatAccountSettings::initializeSettings(const QString &accountFileNam
     mActivityEnabled = mSetting->value("ActivityEnabled"_L1, false).toBool();
     mDisplayName = mSetting->value("displayName"_L1).toString();
     mLastCheckedPreviewUrlCacheDate = mSetting->value("lastCheckedPreviewUrlDate"_L1).toDate();
+    mInviteToken = mSetting->value("inviteToken"_L1).toString();
     mAuthMethodType =
         mSetting->value("authenticationMethodType"_L1, AuthenticationManager::AuthMethodType::Password).value<AuthenticationManager::AuthMethodType>();
     mKeySaved = mSetting->value("keySaved"_L1, false).toBool();
@@ -93,6 +94,22 @@ void RocketChatAccountSettings::slotPasswordWritten(QKeychain::Job *baseJob)
     if (baseJob->error()) {
         qCWarning(RUQOLA_PASSWORD_CORE_LOG) << "Error writing password using QKeychain:" << baseJob->errorString();
     }
+}
+
+QString RocketChatAccountSettings::inviteToken() const
+{
+    return mInviteToken;
+}
+
+void RocketChatAccountSettings::setInviteToken(const QString &newInviteToken)
+{
+    if (mInviteToken == newInviteToken) {
+        return;
+    }
+
+    mSetting->setValue("inviteToken"_L1, newInviteToken);
+    mSetting->sync();
+    mInviteToken = newInviteToken;
 }
 
 bool RocketChatAccountSettings::activityEnabled() const
@@ -396,6 +413,7 @@ QDebug operator<<(QDebug d, const RocketChatAccountSettings &t)
     d.space() << "mActivities" << t.activities();
     d.space() << "mActivityEnabled" << t.activityEnabled();
     d.space() << "mKeySaved" << t.keySaved();
+    d.space() << "mInviteToken" << t.inviteToken();
     return d;
 }
 

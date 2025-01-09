@@ -85,6 +85,9 @@ public:
     [[nodiscard]] bool keySaved() const;
     void setKeySaved(bool newKeySaved);
 
+    [[nodiscard]] QString inviteToken() const;
+    void setInviteToken(const QString &newInviteToken);
+
 Q_SIGNALS:
     void serverURLChanged();
     void userNameChanged();
@@ -108,6 +111,7 @@ private:
     QString mDisplayName;
     QString mUserName;
     QString mPassword;
+    QString mInviteToken;
     QStringList mActivities;
     QDate mLastCheckedPreviewUrlCacheDate;
     QString mTwoFactorAuthenticationCode;
