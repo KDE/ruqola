@@ -83,12 +83,4 @@ QNetworkRequest ModerationUserReportsJob::request() const
     return request;
 }
 
-bool ModerationUserReportsJob::canStart() const
-{
-    if (!RestApiAbstractJob::canStart()) {
-        return false;
-    }
-    return true;
-}
-
 #include "moc_moderationuserreportsjob.cpp"

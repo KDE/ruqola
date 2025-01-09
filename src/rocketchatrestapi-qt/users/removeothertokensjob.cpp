@@ -47,14 +47,6 @@ bool RemoveOtherTokensJob::requireHttpAuthentication() const
     return true;
 }
 
-bool RemoveOtherTokensJob::canStart() const
-{
-    if (!RestApiAbstractJob::canStart()) {
-        return false;
-    }
-    return true;
-}
-
 QNetworkRequest RemoveOtherTokensJob::request() const
 {
     const QUrl url = mRestApiMethod->generateUrl(RestApiUtil::RestApiUrlType::UsersRemoveOtherTokens);

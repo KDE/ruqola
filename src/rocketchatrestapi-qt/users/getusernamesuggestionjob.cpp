@@ -18,14 +18,6 @@ GetUsernameSuggestionJob::GetUsernameSuggestionJob(QObject *parent)
 
 GetUsernameSuggestionJob::~GetUsernameSuggestionJob() = default;
 
-bool GetUsernameSuggestionJob::canStart() const
-{
-    if (!RestApiAbstractJob::canStart()) {
-        return false;
-    }
-    return true;
-}
-
 bool GetUsernameSuggestionJob::start()
 {
     if (!canStart()) {

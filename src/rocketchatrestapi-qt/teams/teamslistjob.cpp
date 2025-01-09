@@ -90,12 +90,4 @@ bool TeamsListJob::hasQueryParameterSupport() const
     return true;
 }
 
-bool TeamsListJob::canStart() const
-{
-    if (!RestApiAbstractJob::canStart()) {
-        return false;
-    }
-    return true;
-}
-
 #include "moc_teamslistjob.cpp"
