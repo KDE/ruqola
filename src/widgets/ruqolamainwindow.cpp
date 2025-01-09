@@ -1346,9 +1346,9 @@ void RuqolaMainWindow::slotAddInviteServer(const AccountManager::AccountManagerI
     const QStringList lst = mAccountManager->accountsName();
     dlg->setExistingAccountName(lst);
     dlg->checkServerUrl(info.serverUrl);
-    // TODO check server info first
     if (dlg->exec()) {
-        const AccountManager::AccountManagerInfo newInfo = dlg->accountInfo();
+        AccountManager::AccountManagerInfo newInfo = dlg->accountInfo();
+        newInfo.inviteToken = info.inviteToken;
         mAccountManager->addAccount(std::move(newInfo));
     }
     delete dlg;
