@@ -9,12 +9,12 @@
 
 #pragma once
 
+#include "accountmanager.h"
 #include "config-ruqola.h"
 #include "libruqolacore_export.h"
 #include <QObject>
 
 class RocketChatAccount;
-class AccountManager;
 namespace TextAutoCorrection
 {
 class AutoCorrection;
@@ -58,7 +58,7 @@ public:
 
 Q_SIGNALS:
     void translatorMenuChanged();
-    void addInviteServer();
+    void addInviteServer(const AccountManager::AccountManagerInfo &info);
 
 private:
     AccountManager *mAccountManager = nullptr;

@@ -7,7 +7,6 @@
  */
 
 #include "ruqola.h"
-#include "accountmanager.h"
 #include "customemojiiconmanager.h"
 #include "managerdatapaths.h"
 #include "rocketchataccount.h"

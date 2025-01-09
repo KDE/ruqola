@@ -17,6 +17,7 @@
 #include "rocketchataccountsettings.h"
 #include "ruqola_debug.h"
 
+#include "ruqola.h"
 #include "ruqola_sound_debug.h"
 #include "ruqolaglobalconfig.h"
 #include "utils.h"
@@ -851,12 +852,12 @@ void AccountManager::addInvitedAccount(const AccountManagerInfo &info)
     job->setInfo(info);
     connect(job, &ValidateInviteServerJob::tokenIsInvalid, this, []() {
         auto notification = new KNotification(QStringLiteral("Invite-Account-Invalid"), KNotification::CloseOnTimeout);
-        notification->setTitle(i18n("Account Added"));
-        notification->setText(i18n("A new account was added."));
+        notification->setTitle(i18n("Invalid invite token"));
+        notification->setText(i18n("Invite Token is invalid. Creating account canceled."));
         notification->sendEvent();
     });
-    connect(job, &ValidateInviteServerJob::tokenIsValid, this, [this](const AccountManager::AccountManagerInfo &info) {
-        // TODO create account
+    connect(job, &ValidateInviteServerJob::tokenIsValid, this, [](const AccountManager::AccountManagerInfo &info) {
+        Q_EMIT Ruqola::self()->addInviteServer(info);
     });
     job->start();
 }

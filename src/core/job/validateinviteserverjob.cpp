@@ -38,13 +38,10 @@ void ValidateInviteServerJob::start()
 
     connect(job, &RocketChatRestApi::ValidateInviteTokenJob::validateInviteTokenDone, this, [this, restApi]() {
         restApi->deleteLater();
-        qDebug() << " Token is valid !!!!";
         Q_EMIT tokenIsValid(mInfo);
         deleteLater();
     });
     connect(job, &RocketChatRestApi::ValidateInviteTokenJob::inviteTokenInvalid, this, [restApi, this]() {
-        // TODO show info ?
-        qDebug() << " Token is invalid !!!!";
         Q_EMIT tokenIsInvalid();
         restApi->deleteLater();
         deleteLater();
