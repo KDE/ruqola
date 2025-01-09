@@ -97,7 +97,7 @@ AccountManager::AccountManagerInfo CreateNewServerStackWidget::accountInfo() con
 
 void CreateNewServerStackWidget::checkServerUrl(const QString &serverUrl)
 {
-    // TODO
+    mCheckNewServerUrlWidget->setServerUrl(serverUrl);
 }
 
 void CreateNewServerStackWidget::setAccountInfo(const AccountManager::AccountManagerInfo &info)

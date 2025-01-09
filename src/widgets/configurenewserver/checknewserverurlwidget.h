@@ -19,6 +19,8 @@ public:
     explicit CheckNewServerUrlWidget(QWidget *parent = nullptr);
     ~CheckNewServerUrlWidget() override;
 
+    void setServerUrl(const QString &serverUrl);
+
 Q_SIGNALS:
     void serverUrlFound(const ExtractServerInfoJob::ServerInfo &info);
 

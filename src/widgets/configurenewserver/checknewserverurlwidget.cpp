@@ -76,6 +76,12 @@ CheckNewServerUrlWidget::CheckNewServerUrlWidget(QWidget *parent)
     mFailedError->hide();
 }
 
+void CheckNewServerUrlWidget::setServerUrl(const QString &serverUrl)
+{
+    mServerUrl->setText(serverUrl);
+    mConnectionPushButton->click();
+}
+
 CheckNewServerUrlWidget::~CheckNewServerUrlWidget() = default;
 
 void CheckNewServerUrlWidget::slotTestConnection()
