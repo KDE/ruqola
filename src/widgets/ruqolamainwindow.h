@@ -6,6 +6,7 @@
 
 #pragma once
 
+#include "accountmanager.h"
 #include "applicationssettingsdialog/applicationssettingssearchwidget.h"
 #include "channelgroupbasejob.h"
 #include "config-ruqola.h"
@@ -28,7 +29,6 @@ class KHamburgerMenu;
 class KToggleFullScreenAction;
 class QToolButton;
 class KActionMenu;
-class AccountManager;
 class MessageStyleLayoutMenu;
 class ChangeFontSizeMenu;
 #if defined(Q_OS_WIN) || defined(Q_OS_MACOS)
@@ -125,6 +125,7 @@ private:
     LIBRUQOLAWIDGETS_NO_EXPORT void slotShowRestApiLogsFile();
     LIBRUQOLAWIDGETS_NO_EXPORT void applicationSettings(ApplicationsSettingsSearchWidget::Feature feature);
     LIBRUQOLAWIDGETS_NO_EXPORT void slotPrivateApplicationsSettings();
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotAddInviteServer(const AccountManager::AccountManagerInfo &info);
 
     bool mReallyClose{false};
 

@@ -5,14 +5,12 @@
 */
 
 #include "ruqolamainwindow.h"
-#include "accountmanager.h"
 #include "administratordialog/administratordialog.h"
 #include "administratorsettingsdialog/administratorsettingsdialog.h"
 #include "applicationssettingsdialog/applicationssettingsdialog.h"
 #include "databasedialog/exploredatabasedialog.h"
 #include "directmessage/createdmjob.h"
 #include "explorepermissionsdialog/explorepermissionsdialog.h"
-#include "kcolorscheme_version.h"
 #include "misc/changefontsizemenu.h"
 #include "notificationhistorymanager.h"
 #include "rocketchaturlutils.h"
@@ -133,6 +131,8 @@ RuqolaMainWindow::RuqolaMainWindow(QWidget *parent)
     connect(mAccountManager, &AccountManager::updateNotification, this, &RuqolaMainWindow::updateNotification);
     connect(mAccountManager, &AccountManager::roomNeedAttention, this, &RuqolaMainWindow::slotRoomNeedAttention);
     connect(mAccountManager, &AccountManager::logoutAccountDone, this, &RuqolaMainWindow::logout);
+
+    connect(Ruqola::self(), &Ruqola::addInviteServer, this, &RuqolaMainWindow::slotAddInviteServer);
 
     slotAccountChanged();
 #if HAVE_KUSERFEEDBACK
@@ -1337,6 +1337,11 @@ void RuqolaMainWindow::slotShowRestApiLogsFile()
 void RuqolaMainWindow::slotPrivateApplicationsSettings()
 {
     applicationSettings(ApplicationsSettingsSearchWidget::Feature::Private);
+}
+
+void RuqolaMainWindow::slotAddInviteServer(const AccountManager::AccountManagerInfo &info)
+{
+    // TODO
 }
 
 #include "moc_ruqolamainwindow.cpp"
