@@ -868,16 +868,16 @@ void AccountManager::addAccount(const AccountManagerInfo &info)
     auto account = new RocketChatAccount();
     account->setAccountName(newAccountName);
     account->setServerUrl(info.serverUrl);
-    account->setAccountEnabled(info.enabled);
-    account->setActivities(info.activitiesSettings.activities);
-    account->setActivityEnabled(info.activitiesSettings.enabled);
-    account->setInviteToken(info.inviteToken);
+    account->settings()->setAccountEnabled(info.enabled);
+    account->settings()->setActivities(info.activitiesSettings.activities);
+    account->settings()->setActivityEnabled(info.activitiesSettings.enabled);
+    account->settings()->setInviteToken(info.inviteToken);
     if (info.authMethodType == AuthenticationManager::AuthMethodType::Password) {
-        account->setUserName(info.userName);
-        account->setPassword(info.password);
+        account->settings()->setUserName(info.userName);
+        account->settings()->setPassword(info.password);
     } else if (info.authMethodType == AuthenticationManager::AuthMethodType::PersonalAccessToken) {
-        account->setAuthToken(info.token);
-        account->setUserId(info.userId);
+        account->settings()->setAuthToken(info.token);
+        account->settings()->setUserId(info.userId);
     } else {
         // TODO for other authMethodType ?
         // google used ?
@@ -885,7 +885,7 @@ void AccountManager::addAccount(const AccountManagerInfo &info)
         // Gitlab ?
         // GitHub ?
     }
-    account->setAuthMethodType(info.authMethodType);
+    account->settings()->setAuthMethodType(info.authMethodType);
     if (info.enabled) {
         connectToAccount(account);
     }
@@ -896,18 +896,18 @@ void AccountManager::modifyAccount(const AccountManagerInfo &info)
 {
     RocketChatAccount *account = mRocketChatAccountModel->account(info.accountName);
     if (account) {
-        account->setDisplayName(info.displayName);
+        account->settings()->setDisplayName(info.displayName);
         account->setServerUrl(info.serverUrl);
-        account->setAccountEnabled(info.enabled);
-        account->setAuthMethodType(info.authMethodType);
-        account->setActivities(info.activitiesSettings.activities);
-        account->setActivityEnabled(info.activitiesSettings.enabled);
+        account->settings()->setAccountEnabled(info.enabled);
+        account->settings()->setAuthMethodType(info.authMethodType);
+        account->settings()->setActivities(info.activitiesSettings.activities);
+        account->settings()->setActivityEnabled(info.activitiesSettings.enabled);
         if (info.authMethodType == AuthenticationManager::AuthMethodType::Password) {
-            account->setUserName(info.userName);
+            account->settings()->setUserName(info.userName);
             // TODO add password ???
         } else if (info.authMethodType == AuthenticationManager::AuthMethodType::PersonalAccessToken) {
-            account->setAuthToken(info.token);
-            account->setUserId(info.userId);
+            account->settings()->setAuthToken(info.token);
+            account->settings()->setUserId(info.userId);
         } else {
             // TODO ????
         }
@@ -1031,7 +1031,7 @@ QList<AccountManager::AccountDisplayInfo> AccountManager::accountDisplayInfoSort
         auto account = index.data(RocketChatAccountModel::Account).value<RocketChatAccount *>();
         if (account->accountEnabled()) {
             AccountManager::AccountDisplayInfo info;
-            info.name = account->displayName();
+            info.name = account->settings()->displayName();
             info.icon = Utils::iconFromAccount(account);
             lst.append(std::move(info));
         }

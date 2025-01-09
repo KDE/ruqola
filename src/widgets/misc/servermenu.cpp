@@ -9,6 +9,7 @@
 #include "model/rocketchataccountfilterproxymodel.h"
 #include "model/rocketchataccountmodel.h"
 #include "rocketchataccount.h"
+#include "rocketchataccountsettings.h"
 #include "ruqola.h"
 #include <KActionCollection>
 #include <KLocalizedString>
@@ -41,7 +42,7 @@ void ServerMenu::slotUpdateAccountMenu()
     } else if (accountNumber == 1) {
         const auto index = model->index(0, 0);
         auto account = index.data(RocketChatAccountModel::Account).value<RocketChatAccount *>();
-        auto action = new QAction(account->displayName(), this);
+        auto action = new QAction(account->settings()->displayName(), this);
         menu()->addAction(action);
         action->setEnabled(false);
     } else {
@@ -51,8 +52,8 @@ void ServerMenu::slotUpdateAccountMenu()
             const auto index = model->index(i, 0);
             auto account = index.data(RocketChatAccountModel::Account).value<RocketChatAccount *>();
             if (account->accountEnabled()) {
-                const QString accountName = account->accountName();
-                const QString displayName = account->displayName();
+                const QString accountName = account->settings()->accountName();
+                const QString displayName = account->settings()->displayName();
                 auto action = new QAction(displayName, this);
                 action->setCheckable(true);
                 group->addAction(action);

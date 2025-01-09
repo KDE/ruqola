@@ -242,18 +242,18 @@ void RocketChatBackend::tryAutoLogin()
         qCDebug(RUQOLA_RECONNECT_LOG) << "tryAutoLogin: can't autologin yet, waiting for parseServerVersionDone";
         return;
     }
-    if (mRocketChatAccount->authMethodType() == AuthenticationManager::AuthMethodType::Password) {
-        if (mRocketChatAccount->password().isEmpty()) {
+    if (mRocketChatAccount->settings()->authMethodType() == AuthenticationManager::AuthMethodType::Password) {
+        if (mRocketChatAccount->settings()->password().isEmpty()) {
             qCDebug(RUQOLA_RECONNECT_LOG) << "tryAutoLogin: can't autologin (yet?), no password set";
             return;
         }
-    } else if (mRocketChatAccount->authMethodType() == AuthenticationManager::AuthMethodType::PersonalAccessToken) {
-        if (mRocketChatAccount->authToken().isEmpty()) {
+    } else if (mRocketChatAccount->settings()->authMethodType() == AuthenticationManager::AuthMethodType::PersonalAccessToken) {
+        if (mRocketChatAccount->settings()->authToken().isEmpty()) {
             qCDebug(RUQOLA_RECONNECT_LOG) << "tryAutoLogin: can't autologin (yet?), no authToken";
             return;
         }
     } else {
-        qCWarning(RUQOLA_RECONNECT_LOG) << " tryAutoLogin: check not implemented for " << mRocketChatAccount->authMethodType();
+        qCWarning(RUQOLA_RECONNECT_LOG) << " tryAutoLogin: check not implemented for " << mRocketChatAccount->settings()->authMethodType();
     }
     if (Ruqola::useRestApiLogin()) {
         qCDebug(RUQOLA_RECONNECT_LOG) << "tryAutoLogin: try login REST API" << mRocketChatAccount->accountName();
@@ -486,7 +486,7 @@ void RocketChatBackend::slotChanged(const QJsonObject &object)
         } else if (eventname.endsWith("/force_logout"_L1)) {
             qCDebug(RUQOLA_LOG) << " FORCE LOGOUT!!!!";
             // Clear auth token otherwise we can't reconnect.
-            mRocketChatAccount->setAuthToken({});
+            mRocketChatAccount->settings()->setAuthToken({});
             qCDebug(RUQOLA_LOG) << "stream-notify-user : message event " << eventname << " contents " << contents;
         } else {
             if (mRocketChatAccount->ruqolaLogger()) {

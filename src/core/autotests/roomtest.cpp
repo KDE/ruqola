@@ -6,6 +6,7 @@
 
 #include "roomtest.h"
 #include "rocketchataccount.h"
+#include "rocketchataccountsettings.h"
 #include "room.h"
 #include "ruqola_autotest_helper.h"
 #include <QCborValue>
@@ -413,7 +414,7 @@ void RoomTest::shouldParseRoomAndUpdate()
     const QJsonObject fields = doc.object();
 
     RocketChatAccount account;
-    account.setUserId(QByteArrayLiteral("uKK39zoewTkdacidH"));
+    account.settings()->setUserId(QByteArrayLiteral("uKK39zoewTkdacidH"));
     Room r(&account);
     r.parseSubscriptionRoom(fields);
 

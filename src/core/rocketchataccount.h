@@ -238,23 +238,12 @@ public:
 
     [[nodiscard]] RuqolaServerConfig *ruqolaServerConfig() const;
 
-    void setUserName(const QString &username);
     [[nodiscard]] QString userName() const;
 
     void setAccountName(const QString &accountname);
     [[nodiscard]] QString accountName() const;
 
-    void setUserId(const QByteArray &userID);
     [[nodiscard]] QByteArray userId() const;
-
-    void setPassword(const QString &password);
-    [[nodiscard]] QString password() const;
-
-    void setTwoFactorAuthenticationCode(const QString &twoFactorAuthenticationCode);
-    [[nodiscard]] QString twoFactorAuthenticationCode() const;
-
-    void setAuthToken(const QString &token);
-    [[nodiscard]] QString authToken() const;
 
     void setServerUrl(const QString &serverUrl);
 
@@ -305,7 +294,6 @@ public:
 
     [[nodiscard]] User fullUserInfo(const QString &userName) const;
 
-    void setAccountEnabled(bool enabled);
     [[nodiscard]] bool accountEnabled() const;
 
     void insertAvatarUrl(const QString &userId, const QUrl &url);
@@ -342,11 +330,6 @@ public:
 
     [[nodiscard]] bool audioRecorderEnabled() const;
     [[nodiscard]] bool videoRecorderEnabled() const;
-
-    void setDisplayName(const QString &displayName);
-    [[nodiscard]] QString displayName() const;
-
-    [[nodiscard]] QStringList activities() const;
 
     void deleteCustomUserStatus(const QJsonArray &replyArray);
 
@@ -453,13 +436,6 @@ public:
 
     void setRoomListDisplay(OwnUserPreferences::RoomListDisplay roomListDisplay);
 
-    [[nodiscard]] AuthenticationManager::AuthMethodType authMethodType() const;
-    void setAuthMethodType(const AuthenticationManager::AuthMethodType &newAuthMethodType);
-
-    void setActivities(const QStringList &activities);
-
-    void setActivityEnabled(bool enabled);
-    [[nodiscard]] bool activityEnabled() const;
     [[nodiscard]] NotificationPreferences *notificationPreferences() const;
 
     void playSound(const QByteArray &soundIdentifier);
@@ -500,7 +476,6 @@ public:
 
     [[nodiscard]] QString getTranslatedIdentifier(const QString &lang, const QString &identifier) const;
 
-    void setInviteToken(const QString &token);
 Q_SIGNALS:
     void roomRemoved(const QByteArray &roomId);
     void disabledTotpValid(bool checked);

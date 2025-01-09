@@ -319,7 +319,7 @@ void RocketChatAccount::reconnectToServer()
 {
     qCDebug(RUQOLA_RECONNECT_LOG) << "reconnecting" << accountName();
     // Clear auth token otherwise we can't reconnect.
-    setAuthToken({});
+    mSettings->setAuthToken({});
     ddp();
     if (accountEnabled()) {
         Q_ASSERT(mDdp);
@@ -1553,14 +1553,9 @@ PluginAuthenticationInterface *RocketChatAccount::defaultAuthenticationInterface
     return mDefaultAuthenticationInterface;
 }
 
-QString RocketChatAccount::authToken() const
-{
-    return settings()->authToken();
-}
-
 QString RocketChatAccount::userName() const
 {
-    return settings()->userName();
+    return mSettings->userName();
 }
 
 void RocketChatAccount::setAccountName(const QString &accountname)
@@ -1568,27 +1563,12 @@ void RocketChatAccount::setAccountName(const QString &accountname)
     // Initialize new account room
     // qDebug() << "void RocketChatAccount::setAccountName(const QString &accountname)"<<accountname;
     loadSettings(ManagerDataPaths::self()->accountConfigFileName(accountname));
-    settings()->setAccountName(accountname);
+    mSettings->setAccountName(accountname);
 }
 
 QString RocketChatAccount::accountName() const
 {
-    return settings()->accountName();
-}
-
-QString RocketChatAccount::displayName() const
-{
-    return settings()->displayName();
-}
-
-bool RocketChatAccount::activityEnabled() const
-{
-    return settings()->activityEnabled();
-}
-
-QStringList RocketChatAccount::activities() const
-{
-    return settings()->activities();
+    return mSettings->accountName();
 }
 
 void RocketChatAccount::addUpdateEmojiCustomList(const QJsonArray &replyArray)
@@ -1626,16 +1606,6 @@ const QList<RoleInfo> &RocketChatAccount::roleInfo() const
 void RocketChatAccount::deleteCustomSound(const QJsonArray &replyArray)
 {
     mCustomSoundManager->deleteCustomSounds(replyArray);
-}
-
-AuthenticationManager::AuthMethodType RocketChatAccount::authMethodType() const
-{
-    return settings()->authMethodType();
-}
-
-void RocketChatAccount::setAuthMethodType(const AuthenticationManager::AuthMethodType &newAuthMethodType)
-{
-    settings()->setAuthMethodType(newAuthMethodType);
 }
 
 void RocketChatAccount::updateRoles(const QJsonArray &contents)
@@ -1678,84 +1648,24 @@ void RocketChatAccount::updateCustomUserStatus(const QJsonArray &replyArray)
     qDebug() << " void RocketChatAccount::updateCustomUserStatus(const QJsonObject &replyObject)" << replyArray;
 }
 
-void RocketChatAccount::setDisplayName(const QString &displayName)
-{
-    settings()->setDisplayName(displayName);
-}
-
 QByteArray RocketChatAccount::userId() const
 {
-    return settings()->userId();
-}
-
-QString RocketChatAccount::password() const
-{
-    return settings()->password();
-}
-
-QString RocketChatAccount::twoFactorAuthenticationCode() const
-{
-    return settings()->twoFactorAuthenticationCode();
-}
-
-void RocketChatAccount::setAuthToken(const QString &token)
-{
-    settings()->setAuthToken(token);
-}
-
-void RocketChatAccount::setPassword(const QString &password)
-{
-    settings()->setPassword(password);
-}
-
-void RocketChatAccount::setTwoFactorAuthenticationCode(const QString &twoFactorAuthenticationCode)
-{
-    settings()->setTwoFactorAuthenticationCode(twoFactorAuthenticationCode);
-}
-
-void RocketChatAccount::setActivityEnabled(bool enabled)
-{
-    settings()->setActivityEnabled(enabled);
-}
-
-void RocketChatAccount::setActivities(const QStringList &activities)
-{
-    settings()->setActivities(activities);
-}
-
-void RocketChatAccount::setAccountEnabled(bool enabled)
-{
-    settings()->setAccountEnabled(enabled);
-}
-
-void RocketChatAccount::setUserName(const QString &username)
-{
-    settings()->setUserName(username);
+    return mSettings->userId();
 }
 
 bool RocketChatAccount::accountEnabled() const
 {
-    return settings()->accountEnabled();
-}
-
-void RocketChatAccount::setUserId(const QByteArray &userID)
-{
-    settings()->setUserId(userID);
+    return mSettings->accountEnabled();
 }
 
 QString RocketChatAccount::serverUrl() const
 {
-    return settings()->serverUrl();
-}
-
-void RocketChatAccount::setInviteToken(const QString &token)
-{
-    settings()->setInviteToken(token);
+    return mSettings->serverUrl();
 }
 
 void RocketChatAccount::setServerUrl(const QString &serverURL)
 {
-    settings()->setServerUrl(serverURL);
+    mSettings->setServerUrl(serverURL);
     restApi()->setServerUrl(serverURL);
     mEmojiManager->setServerUrl(serverURL);
 }
@@ -1765,7 +1675,7 @@ QUrl RocketChatAccount::urlForLink(const QString &link) const
     if (link.startsWith("https:"_L1) || link.startsWith("http:"_L1)) {
         return QUrl(link);
     }
-    QString tmpUrl = settings()->serverUrl();
+    QString tmpUrl = mSettings->serverUrl();
     if (!tmpUrl.startsWith("https://"_L1)) {
         tmpUrl = "https://"_L1 + tmpUrl;
     }
@@ -2472,7 +2382,7 @@ void RocketChatAccount::autoReconnectDelayed()
 {
     qCDebug(RUQOLA_RECONNECT_LOG) << "starting single shot timer with" << mDelayReconnect << "ms" << "account name" << accountName();
     // Clear auth token otherwise we can't reconnect.
-    setAuthToken({});
+    mSettings->setAuthToken({});
 
     // This happens when we didn't react to pings for a while
     // (e.g. while stopped in gdb, or if network went down for a bit)
@@ -2704,7 +2614,7 @@ void RocketChatAccount::setLastSelectedRoom(const QByteArray &roomId)
     if (r) {
         r->setLastOpenedAt(QDateTime::currentSecsSinceEpoch());
     }
-    settings()->setLastSelectedRoom(roomId);
+    mSettings->setLastSelectedRoom(roomId);
 }
 
 bool RocketChatAccount::e2EPasswordMustBeSave() const
@@ -2725,7 +2635,7 @@ void RocketChatAccount::slotLoginStatusChanged() // only used in DDP-only mode (
         qCDebug(RUQOLA_RECONNECT_LOG) << "Successfully logged in!";
     } else if (loginStatus() == AuthenticationManager::LoginFailedInvalidUserOrPassword) {
         // clear auth token to refresh it with the next login
-        setAuthToken({});
+        mSettings->setAuthToken({});
     }
     Q_EMIT loginStatusChanged();
 }

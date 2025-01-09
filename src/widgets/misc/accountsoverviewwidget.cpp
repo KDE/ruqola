@@ -14,6 +14,7 @@
 #include "model/rocketchataccountmodel.h"
 #include "model/roommodel.h"
 #include "rocketchataccount.h"
+#include "rocketchataccountsettings.h"
 #include "ruqola.h"
 
 #include <KLocalizedString>
@@ -39,7 +40,7 @@ struct UnreadAlert {
 
 [[nodiscard]] QString currentText(RocketChatAccount *account)
 {
-    QString text = account->displayName();
+    QString text = account->settings()->displayName();
     if (text.isEmpty()) {
         text = i18n("(Unnamed)");
     }

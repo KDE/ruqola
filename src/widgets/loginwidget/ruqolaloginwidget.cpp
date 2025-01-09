@@ -10,6 +10,7 @@
 #include "misc/passwordlineeditwidget.h"
 #include "misc/twoauthenticationpasswordwidget.h"
 #include "rocketchataccount.h"
+#include "rocketchataccountsettings.h"
 #include "ruqolaloginstackwidget.h"
 #include <KBusyIndicatorWidget>
 #include <KColorScheme>
@@ -96,13 +97,13 @@ void RuqolaLoginWidget::setRocketChatAccount(RocketChatAccount *rocketChatAccoun
     mRocketChatAccount = rocketChatAccount;
 
     AccountManager::AccountManagerInfo info;
-    info.accountName = mRocketChatAccount->displayName();
+    info.accountName = mRocketChatAccount->settings()->displayName();
     info.serverUrl = mRocketChatAccount->serverUrl();
     info.userName = mRocketChatAccount->userName();
-    info.password = mRocketChatAccount->password();
+    info.password = mRocketChatAccount->settings()->password();
     info.canRegisterAccount = mRocketChatAccount->registrationFormEnabled();
     info.canResetPassword = (mRocketChatAccount->allowPasswordReset() && mRocketChatAccount->allowPasswordChange());
-    info.authMethodType = mRocketChatAccount->authMethodType();
+    info.authMethodType = mRocketChatAccount->settings()->authMethodType();
     info.authenticationInfos = mRocketChatAccount->authenticationMethodInfos();
     // qDebug() << " info " << info;
     mRuqolaLoginStackWidget->setAccountInfo(std::move(info));
@@ -123,12 +124,12 @@ void RuqolaLoginWidget::setRocketChatAccount(RocketChatAccount *rocketChatAccoun
 void RuqolaLoginWidget::slotLogin()
 {
     const AccountManager::AccountManagerInfo info = mRuqolaLoginStackWidget->accountInfo();
-    mRocketChatAccount->setUserName(info.userName);
-    mRocketChatAccount->setPassword(info.password);
+    mRocketChatAccount->settings()->setUserName(info.userName);
+    mRocketChatAccount->settings()->setPassword(info.password);
     if (mTwoFactorAuthenticationPasswordLineEdit->isHidden()) {
         mTwoFactorAuthenticationPasswordLineEdit->clear();
     } else {
-        mRocketChatAccount->setTwoFactorAuthenticationCode(mTwoFactorAuthenticationPasswordLineEdit->code());
+        mRocketChatAccount->settings()->setTwoFactorAuthenticationCode(mTwoFactorAuthenticationPasswordLineEdit->code());
     }
     mRocketChatAccount->tryLogin();
 }

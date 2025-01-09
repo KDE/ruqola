@@ -10,6 +10,7 @@
 #include "model/rocketchataccountfilterproxymodel.h"
 #include "model/rocketchataccountmodel.h"
 #include "rocketchataccount.h"
+#include "rocketchataccountsettings.h"
 #include "ruqola.h"
 #include "ruqolaglobalconfig.h"
 #include <KLocalizedString>
@@ -43,17 +44,17 @@ void AccountServerTreeWidget::load()
         const auto index = model->index(i, 0);
         auto account = index.data(RocketChatAccountModel::Account).value<RocketChatAccount *>();
         AccountManager::AccountManagerInfo info;
-        info.displayName = account->displayName();
+        info.displayName = account->settings()->displayName();
         info.accountName = account->accountName();
         info.serverUrl = account->serverUrl();
         info.userName = account->userName();
-        info.password = account->password();
+        info.password = account->settings()->password();
         info.canResetPassword = account->allowPasswordReset() && account->allowPasswordChange();
         info.authenticationInfos = account->authenticationMethodInfos();
-        info.authMethodType = account->authMethodType();
-        info.token = account->authToken();
+        info.authMethodType = account->settings()->authMethodType();
+        info.token = account->settings()->authToken();
         info.userId = account->userId();
-        info.activitiesSettings = {account->activities(), account->activityEnabled()};
+        info.activitiesSettings = {account->settings()->activities(), account->settings()->activityEnabled()};
         item->setToolTip(0, info.serverUrl);
         item->setNewAccount(false);
         item->setCheckState(0, account->accountEnabled() ? Qt::Checked : Qt::Unchecked);

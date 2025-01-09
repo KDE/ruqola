@@ -6,6 +6,7 @@
 
 #include "rocketchataccountmodel.h"
 #include "rocketchataccount.h"
+#include "rocketchataccountsettings.h"
 #include "ruqola_debug.h"
 #include "ruqolaserverconfig.h"
 
@@ -114,7 +115,7 @@ QVariant RocketChatAccountModel::data(const QModelIndex &index, int role) const
     switch (role) {
     case Qt::DisplayRole:
     case Name:
-        return account->displayName();
+        return account->settings()->displayName();
     case SiteUrl:
         return account->ruqolaServerConfig()->siteUrl();
     case UserName:
@@ -124,9 +125,9 @@ QVariant RocketChatAccountModel::data(const QModelIndex &index, int role) const
     case AccountName:
         return account->accountName();
     case Activities:
-        return account->activities();
+        return account->settings()->activities();
     case ActivitiesEnabled:
-        return account->activityEnabled();
+        return account->settings()->activityEnabled();
     }
     // Add icon ???
     return {};
