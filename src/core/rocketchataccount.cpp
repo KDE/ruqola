@@ -449,11 +449,6 @@ RocketChatBackend *RocketChatAccount::rocketChatBackend() const
     return mRocketChatBackend;
 }
 
-MessageQueue *RocketChatAccount::messageQueue() const
-{
-    return mMessageQueue;
-}
-
 RocketChatAccountSettings *RocketChatAccount::settings() const
 {
     return mSettings;

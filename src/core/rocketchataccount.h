@@ -222,13 +222,9 @@ public:
 
     [[nodiscard]] AuthenticationManager::LoginStatus loginStatus() const;
     [[nodiscard]] QString loginStatusText() const;
-    [[nodiscard]] QString restLoginStatusText() const;
-    [[nodiscard]] QString ddpLoginStatusText() const;
     Connection *restApi();
 
     [[nodiscard]] Room *room(const QByteArray &roomId) const;
-
-    [[nodiscard]] MessageQueue *messageQueue() const;
 
     [[nodiscard]] RocketChatBackend *rocketChatBackend() const;
 
@@ -255,7 +251,7 @@ public:
     [[nodiscard]] EmojiManager *emojiManager() const;
     [[nodiscard]] QString userStatusIconFileName(const QString &id);
 
-    PluginAuthenticationInterface *defaultAuthenticationInterface() const;
+    [[nodiscard]] PluginAuthenticationInterface *defaultAuthenticationInterface() const;
 
     void removeSettings();
 
@@ -600,6 +596,8 @@ private:
     LIBRUQOLACORE_NO_EXPORT void roomsParsing(const QJsonObject &root);
     LIBRUQOLACORE_NO_EXPORT void getsubscriptionParsing(const QJsonObject &root);
     LIBRUQOLACORE_NO_EXPORT void displayLogInfo(const QByteArray &ba, const QJsonObject &obj);
+    [[nodiscard]] LIBRUQOLACORE_NO_EXPORT QString restLoginStatusText() const;
+    [[nodiscard]] LIBRUQOLACORE_NO_EXPORT QString ddpLoginStatusText() const;
 
     AccountRoomSettings *const mAccountRoomSettings;
 
