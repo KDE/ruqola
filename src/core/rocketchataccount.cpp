@@ -1435,7 +1435,7 @@ void RocketChatAccount::changeNotificationsSettings(const QByteArray &roomId,
 
 void RocketChatAccount::parseCustomSounds(const QJsonArray &obj)
 {
-    customSoundManager()->parseCustomSounds(obj);
+    mCustomSoundManager->parseCustomSounds(obj);
 }
 
 void RocketChatAccount::parsePublicSettings(const QJsonObject &obj, bool update)
@@ -2938,7 +2938,7 @@ QList<Permission> RocketChatAccount::permissions() const
 void RocketChatAccount::playSound(const QByteArray &soundIdentifier)
 {
     if (!soundIdentifier.isEmpty()) {
-        const QString url = customSoundManager()->soundFilePath(soundIdentifier);
+        const QString url = mCustomSoundManager->soundFilePath(soundIdentifier);
         if (!url.isEmpty()) {
             mSoundManager->playSound(soundUrlFromLocalCache(url));
         }
