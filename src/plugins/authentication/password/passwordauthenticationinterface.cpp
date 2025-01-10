@@ -26,14 +26,15 @@ PasswordAuthenticationInterface::~PasswordAuthenticationInterface() = default;
 
 bool PasswordAuthenticationInterface::login()
 {
-    if (!mAccount->settings()->authToken().isEmpty() && !mAccount->settings()->tokenExpired()) {
+    auto settings = mAccount->settings();
+    if (!settings->authToken().isEmpty() && !settings->tokenExpired()) {
         if (Ruqola::useRestApiLogin()) {
-            mAccount->restApi()->authenticationManager()->setAuthToken(mAccount->settings()->authToken());
+            mAccount->restApi()->authenticationManager()->setAuthToken(settings->authToken());
             if (!mAccount->restApi()->authenticationManager()->login()) {
                 return false;
             }
         } else {
-            mAccount->ddp()->authenticationManager()->setAuthToken(mAccount->settings()->authToken());
+            mAccount->ddp()->authenticationManager()->setAuthToken(settings->authToken());
             if (!mAccount->ddp()->authenticationManager()->login()) {
                 return false;
             }
@@ -41,40 +42,40 @@ bool PasswordAuthenticationInterface::login()
         return true;
     }
 
-    if (!mAccount->settings()->twoFactorAuthenticationCode().isEmpty()) {
+    if (!settings->twoFactorAuthenticationCode().isEmpty()) {
         if (Ruqola::useRestApiLogin()) {
-            if (!mAccount->restApi()->authenticationManager()->sendOTP(mAccount->settings()->twoFactorAuthenticationCode())) {
+            if (!mAccount->restApi()->authenticationManager()->sendOTP(settings->twoFactorAuthenticationCode())) {
                 return false;
             }
         } else {
-            if (!mAccount->ddp()->authenticationManager()->sendOTP(mAccount->settings()->twoFactorAuthenticationCode())) {
+            if (!mAccount->ddp()->authenticationManager()->sendOTP(settings->twoFactorAuthenticationCode())) {
                 return false;
             }
         }
         return true;
     }
 
-    if (mAccount->settings()->password().isEmpty()) {
+    if (settings->password().isEmpty()) {
         return false;
     }
 
     if (Ruqola::useRestApiLogin()) {
         if (mAccount->ruqolaServerConfig()->ldapEnabled()) {
-            if (!mAccount->restApi()->authenticationManager()->loginLDAP(mAccount->settings()->userName(), mAccount->settings()->password())) {
+            if (!mAccount->restApi()->authenticationManager()->loginLDAP(settings->userName(), settings->password())) {
                 return false;
             }
         } else {
-            if (!mAccount->restApi()->authenticationManager()->loginPassword(mAccount->settings()->userName(), mAccount->settings()->password())) {
+            if (!mAccount->restApi()->authenticationManager()->loginPassword(settings->userName(), settings->password())) {
                 return false;
             }
         }
     } else {
         if (mAccount->ruqolaServerConfig()->ldapEnabled()) {
-            if (!mAccount->ddp()->authenticationManager()->loginLDAP(mAccount->settings()->userName(), mAccount->settings()->password())) {
+            if (!mAccount->ddp()->authenticationManager()->loginLDAP(settings->userName(), settings->password())) {
                 return false;
             }
         } else {
-            if (!mAccount->ddp()->authenticationManager()->loginPassword(mAccount->settings()->userName(), mAccount->settings()->password())) {
+            if (!mAccount->ddp()->authenticationManager()->loginPassword(settings->userName(), settings->password())) {
                 return false;
             }
         }

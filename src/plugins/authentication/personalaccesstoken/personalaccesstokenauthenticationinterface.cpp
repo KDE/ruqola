@@ -26,16 +26,17 @@ bool PersonalAccessTokenAuthenticationInterface::login()
 {
     qCDebug(RUQOLA_PERSONALACCESSTOKENAUTHENTICATION_PLUGIN_LOG) << " login personal access token";
     // FIXME: expire token!
-    if (!mAccount->settings()->authToken().isEmpty()) {
+    auto settings = mAccount->settings();
+    if (!settings->authToken().isEmpty()) {
         // https://developer.rocket.chat/reference/api/rest-api#access-tokens
-        mAccount->restApi()->authenticationManager()->setAuthToken(mAccount->settings()->authToken());
-        mAccount->restApi()->authenticationManager()->setUserId(QString::fromLatin1(mAccount->settings()->userId()));
-        // qDebug() << " mAccount->settings()->authToken() " << mAccount->settings()->authToken() << "mAccount->settings()->userId()  "
-        //          << mAccount->settings()->userId();
+        mAccount->restApi()->authenticationManager()->setAuthToken(settings->authToken());
+        mAccount->restApi()->authenticationManager()->setUserId(QString::fromLatin1(settings->userId()));
+        // qDebug() << " settings->authToken() " << settings->authToken() << "settings->userId()  "
+        //          << settings->userId();
         mAccount->restApi()->authenticationManager()->setLoginStatus(AuthenticationManager::LoggedIn);
 
         // https://developer.rocket.chat/reference/api/realtime-api/method-calls/authentication/login#using-an-authentication-token
-        mAccount->ddp()->authenticationManager()->setAuthToken(mAccount->settings()->authToken());
+        mAccount->ddp()->authenticationManager()->setAuthToken(settings->authToken());
         if (!mAccount->ddp()->authenticationManager()->login()) {
             return false;
         }

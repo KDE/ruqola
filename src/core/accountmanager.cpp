@@ -868,16 +868,17 @@ void AccountManager::addAccount(const AccountManagerInfo &info)
     auto account = new RocketChatAccount();
     account->setAccountName(newAccountName);
     account->setServerUrl(info.serverUrl);
-    account->settings()->setAccountEnabled(info.enabled);
-    account->settings()->setActivities(info.activitiesSettings.activities);
-    account->settings()->setActivityEnabled(info.activitiesSettings.enabled);
-    account->settings()->setInviteToken(info.inviteToken);
+    auto settings = account->settings();
+    settings->setAccountEnabled(info.enabled);
+    settings->setActivities(info.activitiesSettings.activities);
+    settings->setActivityEnabled(info.activitiesSettings.enabled);
+    settings->setInviteToken(info.inviteToken);
     if (info.authMethodType == AuthenticationManager::AuthMethodType::Password) {
-        account->settings()->setUserName(info.userName);
-        account->settings()->setPassword(info.password);
+        settings->setUserName(info.userName);
+        settings->setPassword(info.password);
     } else if (info.authMethodType == AuthenticationManager::AuthMethodType::PersonalAccessToken) {
-        account->settings()->setAuthToken(info.token);
-        account->settings()->setUserId(info.userId);
+        settings->setAuthToken(info.token);
+        settings->setUserId(info.userId);
     } else {
         // TODO for other authMethodType ?
         // google used ?
@@ -885,7 +886,7 @@ void AccountManager::addAccount(const AccountManagerInfo &info)
         // Gitlab ?
         // GitHub ?
     }
-    account->settings()->setAuthMethodType(info.authMethodType);
+    settings->setAuthMethodType(info.authMethodType);
     if (info.enabled) {
         connectToAccount(account);
     }
@@ -896,18 +897,19 @@ void AccountManager::modifyAccount(const AccountManagerInfo &info)
 {
     RocketChatAccount *account = mRocketChatAccountModel->account(info.accountName);
     if (account) {
-        account->settings()->setDisplayName(info.displayName);
+        auto settings = account->settings();
+        settings->setDisplayName(info.displayName);
         account->setServerUrl(info.serverUrl);
-        account->settings()->setAccountEnabled(info.enabled);
-        account->settings()->setAuthMethodType(info.authMethodType);
-        account->settings()->setActivities(info.activitiesSettings.activities);
-        account->settings()->setActivityEnabled(info.activitiesSettings.enabled);
+        settings->setAccountEnabled(info.enabled);
+        settings->setAuthMethodType(info.authMethodType);
+        settings->setActivities(info.activitiesSettings.activities);
+        settings->setActivityEnabled(info.activitiesSettings.enabled);
         if (info.authMethodType == AuthenticationManager::AuthMethodType::Password) {
-            account->settings()->setUserName(info.userName);
+            settings->setUserName(info.userName);
             // TODO add password ???
         } else if (info.authMethodType == AuthenticationManager::AuthMethodType::PersonalAccessToken) {
-            account->settings()->setAuthToken(info.token);
-            account->settings()->setUserId(info.userId);
+            settings->setAuthToken(info.token);
+            settings->setUserId(info.userId);
         } else {
             // TODO ????
         }
