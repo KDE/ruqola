@@ -3361,7 +3361,7 @@ void RocketChatAccount::inputUserChannelAutocomplete(const QJsonObject &root)
 {
     displayLogInfo(QByteArrayLiteral("Input channel/User autocomplete"), root);
     const QJsonObject obj = root.value("result"_L1).toObject();
-    inputTextManager()->inputTextCompleter(obj);
+    mInputTextManager->inputTextCompleter(obj);
 }
 
 void RocketChatAccount::inputUserChannelAutocompleteThread(const QJsonObject &root)
@@ -3369,7 +3369,7 @@ void RocketChatAccount::inputUserChannelAutocompleteThread(const QJsonObject &ro
     displayLogInfo(QByteArrayLiteral("Input channel/User autocomplete thread dialog"), root);
     const QJsonObject obj = root.value("result"_L1).toObject();
 
-    inputThreadMessageTextManager()->inputTextCompleter(obj);
+    mInputThreadMessageTextManager->inputTextCompleter(obj);
 }
 
 void RocketChatAccount::createJitsiConfCall(const QJsonObject &root)
