@@ -1,14 +1,14 @@
 # Copyright (C) 2023 This file is copyright:
 # This file is distributed under the same license as the ruqola package.
 #
-# SPDX-FileCopyrightText: 2022, 2023, 2024 Emir SARI <emir_sari@icloud.com>
+# SPDX-FileCopyrightText: 2022, 2023, 2024, 2025 Emir SARI <emir_sari@icloud.com>
 # Emir SARI <emir_sari@icloud.com>, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-12-27 02:34+0000\n"
-"PO-Revision-Date: 2024-12-23 14:12+0300\n"
+"PO-Revision-Date: 2025-01-09 15:55+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -4883,7 +4883,7 @@ msgid ""
 msgstr ""
 "Dış özniteliklerden iç öznitelikler (anahtarlar) oluşturmak için bu JSON "
 "girdisini kullanın (değer).\n"
-"‘%’ ile çevrelenen dış öznitelik adları, değer dizilerinde "
+"“%” ile çevrelenen dış öznitelik adları, değer dizilerinde "
 "aradeğerleneceklerdir.<br/>Örnek, {\"email\":\"%email%\", \"name\":"
 "\"%firstname%, %lastname%\"}\n"
 "Öznitelik haritası her zaman aradeğerlendirilir. CAS 1.0'da yalnızca "
@@ -9889,7 +9889,7 @@ msgstr "Sözcükleri ayırmak için ‘,’ kullan"
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Separate each word with ','."
-msgstr "Her bir sözcüğü ‘,’ ile ayır."
+msgstr "Her bir sözcüğü “,” ile ayır."
 
 #: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:75
 #, fuzzy, kde-format
@@ -11746,7 +11746,7 @@ msgstr ""
 #: widgets/whatsnew/whatsnewtranslations.cpp:39
 #, kde-format
 msgid "Add support for quoted text (text which starts by '>')"
-msgstr "Alıntı metinler için destek ekle (‘>’ ile başlayan metinler)"
+msgstr "Alıntı metinler için destek ekle (“>” ile başlayan metinler)"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:40
 #, kde-format

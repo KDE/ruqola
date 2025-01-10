@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-12-27 02:34+0000\n"
-"PO-Revision-Date: 2024-09-17 15:18+0200\n"
+"PO-Revision-Date: 2024-10-31 16:18+0100\n"
 "Last-Translator: Vit Pelcak <vit@pelcak.org>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
 "Language: cs\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
-"X-Generator: Lokalize 24.08.1\n"
+"X-Generator: Lokalize 24.08.2\n"
 
 #: apps/main.cpp:73
 #, kde-format
@@ -178,16 +178,14 @@ msgid "per %1"
 msgstr ""
 
 #: core/apps/appsmarketplaceinfo.cpp:147
-#, fuzzy, kde-format
-#| msgctxt "@action"
-#| msgid "This month"
+#, kde-format
 msgid "month"
-msgstr "Tento měsíc"
+msgstr "měsíc"
 
 #: core/apps/appsmarketplaceinfo.cpp:149
 #, kde-format
 msgid "year"
-msgstr ""
+msgstr "rok"
 
 #: core/apps/appsmarketplaceinfo.cpp:393 core/model/adminrolesmodel.cpp:40
 #: widgets/administratorsettingsdialog/ircfederation/ircfederationwidget.cpp:50
@@ -215,7 +213,7 @@ msgstr "Dokumentace"
 #: core/apps/appsmarketplaceinfo.cpp:421
 #, kde-format
 msgid "Author"
-msgstr ""
+msgstr "Autor"
 
 #: core/apps/appsmarketplaceinfo.cpp:434
 #, kde-format
@@ -1832,8 +1830,7 @@ msgid "Channel was blocked."
 msgstr "Kanál byl zablokován."
 
 #: core/roominfo/roominfo.cpp:128
-#, fuzzy, kde-format
-#| msgid "Discussions"
+#, kde-format
 msgid "Discussion"
 msgstr "Diskuze"
 
@@ -3982,10 +3979,9 @@ msgid "All"
 msgstr "Vše"
 
 #: widgets/administratordialog/users/administratoruserstabwidget.cpp:36
-#, fuzzy, kde-format
-#| msgid "Activate"
+#, kde-format
 msgid "Activated"
-msgstr "Aktivovat"
+msgstr "Zapnuto"
 
 #: widgets/administratordialog/users/administratoruserswidget.cpp:236
 #, kde-format
@@ -6863,23 +6859,20 @@ msgid "Enabled"
 msgstr "Povoleno"
 
 #: widgets/applicationssettingsdialog/applicationssettingsdescriptiondialog.cpp:25
-#, fuzzy, kde-format
-#| msgid "Description"
+#, kde-format
 msgctxt "@title:window"
 msgid "Description"
 msgstr "Popis"
 
 #: widgets/applicationssettingsdialog/applicationssettingsdescriptiontabwidget.cpp:39
-#, fuzzy, kde-format
-#| msgid "Version"
+#, kde-format
 msgid "Versions"
 msgstr "Verze"
 
 #: widgets/applicationssettingsdialog/applicationssettingsdescriptiontabwidget.cpp:45
-#, fuzzy, kde-format
-#| msgid "&Settings"
+#, kde-format
 msgid "Settings"
-msgstr "Na&stavení"
+msgstr "Nastavení"
 
 #: widgets/applicationssettingsdialog/applicationssettingsdialog.cpp:27
 #, kde-format
@@ -9712,10 +9705,9 @@ msgid "Register"
 msgstr "Registrovat"
 
 #: widgets/registeruser/registeruserwidget.cpp:26
-#, fuzzy, kde-format
-#| msgid "Seasons"
+#, kde-format
 msgid "Reason:"
-msgstr "Roční období"
+msgstr "Důvod:"
 
 #: widgets/room/channelactionpopupmenu.cpp:29
 #, kde-format
@@ -10536,8 +10528,7 @@ msgid "Unignore"
 msgstr "Zrušit ignorování"
 
 #: widgets/room/usersinroommenu.cpp:183
-#, fuzzy, kde-format
-#| msgid "Ignore"
+#, kde-format
 msgctxt "@action"
 msgid "Ignore"
 msgstr "Ignorovat"
