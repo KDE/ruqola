@@ -623,7 +623,6 @@ void RocketChatBackend::slotChanged(const QJsonObject &object)
 void RocketChatBackend::subscribeRegistration()
 {
     qCDebug(RUQOLA_LOG) << "subscribe registration";
-    // TODO verify if we don"t send two subscription.
     const QString userId{QString::fromLatin1(mRocketChatAccount->settings()->userId())};
     const QStringList listStreamNotifierUser{
         QStringLiteral("notification"),
