@@ -1931,8 +1931,8 @@ bool RocketChatAccount::isMessageEditable(const Message &message) const
     if (ruqolaServerConfig()->blockEditingMessageInMinutes() == 0) {
         return true;
     }
-    constexpr int minute = 60 * 1000;
-    return (message.timeStamp() + ruqolaServerConfig()->blockEditingMessageInMinutes() * minute) > QDateTime::currentMSecsSinceEpoch();
+    constexpr int minutes = 60 * 1000;
+    return (message.timeStamp() + ruqolaServerConfig()->blockEditingMessageInMinutes() * minutes) > QDateTime::currentMSecsSinceEpoch();
 }
 
 bool RocketChatAccount::isMessageDeletable(const Message &message) const
