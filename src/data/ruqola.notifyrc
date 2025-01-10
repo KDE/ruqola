@@ -266,6 +266,14 @@ Urgency=Normal
 
 [Event/Invite-Account-Invalid]
 Name=Invalid invite token
+Name[ca]=Testimoni d'invitació no vàlid
+Name[eu]=Gonbidapen token baliogabea
+Name[ka]=არასწორი მოწვევის კოდი
+Name[nl]=Ongeldig uitnodigingstoken
+Name[sl]=Neveljavni žeton povabila
+Name[tr]=Geçersiz davet jetonu
+Name[uk]=Некоректний жетон запрошення
+Name[x-test]=xxInvalid invite tokenxx
 Action=Popup
 Urgency=Normal
 
