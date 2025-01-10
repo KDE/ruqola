@@ -39,6 +39,8 @@ public:
 
     void removeToken(const QString &tokenName);
 
+    [[nodiscard]] QStringList tokenNames() const;
+
 private:
     PersonalAccessTokenInfos mPersonalAccessTokenInfos;
 };
