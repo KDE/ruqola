@@ -97,6 +97,7 @@ void MyAccountPersonalAccessTokenConfigureWidget::initialize()
 void MyAccountPersonalAccessTokenConfigureWidget::slotCreateToken()
 {
     QPointer<MyAccountPersonalAccessCreateDialog> createDialog = new MyAccountPersonalAccessCreateDialog(this);
+    createDialog->setExistingTokenNames(mPersonalAccessTokenModel->tokenNames());
     if (createDialog->exec()) {
         if (mRocketChatAccount) {
             QString password;

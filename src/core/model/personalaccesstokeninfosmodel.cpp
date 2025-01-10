@@ -109,4 +109,15 @@ void PersonalAccessTokenInfosModel::removeToken(const QString &tokenName)
     }
 }
 
+QStringList PersonalAccessTokenInfosModel::tokenNames() const
+{
+    QStringList lst;
+    const int roomCount = mPersonalAccessTokenInfos.count();
+    lst.resize(roomCount);
+    for (int i = 0; i < roomCount; ++i) {
+        lst << mPersonalAccessTokenInfos.at(i).name();
+    }
+    return lst;
+}
+
 #include "moc_personalaccesstokeninfosmodel.cpp"
