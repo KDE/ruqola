@@ -1169,4 +1169,139 @@ QDebug operator<<(QDebug d, const RuqolaServerConfig::PasswordSettings &t)
     return d;
 }
 
+bool RuqolaServerConfig::otrEnabled() const
+{
+    return mServerConfigFeatureTypes & RuqolaServerConfig::ServerConfigFeatureType::OtrEnabled;
+}
+
+bool RuqolaServerConfig::allowProfileChange() const
+{
+    return mServerConfigFeatureTypes & RuqolaServerConfig::ServerConfigFeatureType::AllowUserProfileChange;
+}
+
+bool RuqolaServerConfig::allowMessagePinningEnabled() const
+{
+    return mServerConfigFeatureTypes & RuqolaServerConfig::ServerConfigFeatureType::AllowMessagePinning;
+}
+
+bool RuqolaServerConfig::allowMessageStarringEnabled() const
+{
+    return mServerConfigFeatureTypes & RuqolaServerConfig::ServerConfigFeatureType::AllowMessageStarring;
+}
+
+bool RuqolaServerConfig::allowMessageDeletingEnabled() const
+{
+    return mServerConfigFeatureTypes & RuqolaServerConfig::ServerConfigFeatureType::AllowMessageDeleting;
+}
+
+bool RuqolaServerConfig::threadsEnabled() const
+{
+    return mServerConfigFeatureTypes & RuqolaServerConfig::ServerConfigFeatureType::ThreadsEnabled;
+}
+
+bool RuqolaServerConfig::autoTranslateEnabled() const
+{
+    return mServerConfigFeatureTypes & RuqolaServerConfig::ServerConfigFeatureType::AutoTranslateEnabled;
+}
+
+bool RuqolaServerConfig::encryptionEnabled() const
+{
+    return mServerConfigFeatureTypes & RuqolaServerConfig::ServerConfigFeatureType::EncryptionEnabled;
+}
+
+bool RuqolaServerConfig::twoFactorAuthenticationEnabled() const
+{
+    return mServerConfigFeatureTypes & RuqolaServerConfig::ServerConfigFeatureType::TwoFactorAuthenticationEnabled;
+}
+
+bool RuqolaServerConfig::twoFactorAuthenticationByEmailEnabled() const
+{
+    return mServerConfigFeatureTypes & RuqolaServerConfig::ServerConfigFeatureType::TwoFactorAuthenticationByEmailEnabled;
+}
+
+bool RuqolaServerConfig::twoFactorAuthenticationEnforcePasswordFallback() const
+{
+    return mServerConfigFeatureTypes & RuqolaServerConfig::ServerConfigFeatureType::TwoFactorAuthenticationEnforcePasswordFallback;
+}
+
+bool RuqolaServerConfig::twoFactorAuthenticationByTOTPEnabled() const
+{
+    return mServerConfigFeatureTypes & RuqolaServerConfig::ServerConfigFeatureType::TwoFactorAuthenticationByTOTPEnabled;
+}
+
+bool RuqolaServerConfig::broadCastEnabled() const
+{
+    return mServerConfigFeatureTypes & RuqolaServerConfig::ServerConfigFeatureType::BroadCastEnabled;
+}
+
+bool RuqolaServerConfig::registrationFormEnabled() const
+{
+    return mServerConfigFeatureTypes & RuqolaServerConfig::ServerConfigFeatureType::RegistrationFormEnabled;
+}
+
+bool RuqolaServerConfig::allowDeleteOwnAccount() const
+{
+    return mServerConfigFeatureTypes & RuqolaServerConfig::ServerConfigFeatureType::AllowDeleteOwnAccount;
+}
+
+bool RuqolaServerConfig::discussionEnabled() const
+{
+    return mServerConfigFeatureTypes & RuqolaServerConfig::ServerConfigFeatureType::DiscussionEnabled;
+}
+
+bool RuqolaServerConfig::allowAvatarChanged() const
+{
+    return mServerConfigFeatureTypes & RuqolaServerConfig::ServerConfigFeatureType::AllowUserAvatarChange;
+}
+
+bool RuqolaServerConfig::audioRecorderEnabled() const
+{
+    return mServerConfigFeatureTypes & RuqolaServerConfig::ServerConfigFeatureType::AudioRecorderEnabled;
+}
+
+bool RuqolaServerConfig::videoRecorderEnabled() const
+{
+    return mServerConfigFeatureTypes & RuqolaServerConfig::ServerConfigFeatureType::VideoRecorderEnabled;
+}
+
+bool RuqolaServerConfig::allowEditingMessages() const
+{
+    return mServerConfigFeatureTypes & RuqolaServerConfig::ServerConfigFeatureType::AllowEditingMessage;
+}
+
+bool RuqolaServerConfig::uploadFileEnabled() const
+{
+    return mServerConfigFeatureTypes & RuqolaServerConfig::ServerConfigFeatureType::UploadFileEnabled;
+}
+
+bool RuqolaServerConfig::jitsiEnabled() const
+{
+    return mServerConfigFeatureTypes & RuqolaServerConfig::ServerConfigFeatureType::JitsiEnabled;
+}
+
+bool RuqolaServerConfig::ldapEnabled() const
+{
+    return mServerConfigFeatureTypes & RuqolaServerConfig::ServerConfigFeatureType::LdapEnabled;
+}
+
+bool RuqolaServerConfig::allowEmailChange() const
+{
+    return mServerConfigFeatureTypes & RuqolaServerConfig::ServerConfigFeatureType::AllowEmailChange;
+}
+
+bool RuqolaServerConfig::allowPasswordChange() const
+{
+    return mServerConfigFeatureTypes & RuqolaServerConfig::ServerConfigFeatureType::AllowPasswordChange;
+}
+
+bool RuqolaServerConfig::allowPasswordReset() const
+{
+    return mServerConfigFeatureTypes & RuqolaServerConfig::ServerConfigFeatureType::AllowPasswordReset;
+}
+
+bool RuqolaServerConfig::allowUsernameChange() const
+{
+    return serverConfigFeatureTypes() & RuqolaServerConfig::ServerConfigFeatureType::AllowUsernameChange;
+}
+
 #include "moc_ruqolaserverconfig.cpp"

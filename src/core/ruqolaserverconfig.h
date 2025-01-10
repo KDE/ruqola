@@ -248,6 +248,34 @@ public:
     [[nodiscard]] bool accountsManuallyApproveNewUsers() const;
     void setAccountsManuallyApproveNewUsers(bool newAccountsManuallyApproveNewUsers);
 
+    [[nodiscard]] bool videoRecorderEnabled() const;
+    [[nodiscard]] bool audioRecorderEnabled() const;
+    [[nodiscard]] bool allowAvatarChanged() const;
+    [[nodiscard]] bool discussionEnabled() const;
+    [[nodiscard]] bool allowDeleteOwnAccount() const;
+    [[nodiscard]] bool registrationFormEnabled() const;
+    [[nodiscard]] bool broadCastEnabled() const;
+    [[nodiscard]] bool twoFactorAuthenticationByTOTPEnabled() const;
+    [[nodiscard]] bool twoFactorAuthenticationEnforcePasswordFallback() const;
+    [[nodiscard]] bool twoFactorAuthenticationByEmailEnabled() const;
+    [[nodiscard]] bool twoFactorAuthenticationEnabled() const;
+    [[nodiscard]] bool encryptionEnabled() const;
+    [[nodiscard]] bool autoTranslateEnabled() const;
+    [[nodiscard]] bool threadsEnabled() const;
+    [[nodiscard]] bool allowMessageDeletingEnabled() const;
+    [[nodiscard]] bool allowMessageStarringEnabled() const;
+    [[nodiscard]] bool allowMessagePinningEnabled() const;
+    [[nodiscard]] bool allowProfileChange() const;
+    [[nodiscard]] bool otrEnabled() const;
+    [[nodiscard]] bool allowEditingMessages() const;
+    [[nodiscard]] bool uploadFileEnabled() const;
+    [[nodiscard]] bool jitsiEnabled() const;
+    [[nodiscard]] bool ldapEnabled() const;
+    [[nodiscard]] bool allowEmailChange() const;
+    [[nodiscard]] bool allowPasswordChange() const;
+    [[nodiscard]] bool allowPasswordReset() const;
+    [[nodiscard]] bool allowUsernameChange() const;
+
 private:
     Q_DISABLE_COPY(RuqolaServerConfig)
     LIBRUQOLACORE_NO_EXPORT void assignSettingValue(bool value, ServerConfigFeatureType type);

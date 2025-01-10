@@ -218,13 +218,13 @@ void TeamChannelsWidget::slotCreateRoom()
 {
     QPointer<CreateNewChannelDialog> dlg = new CreateNewChannelDialog(mRocketChatAccount, this);
     CreateNewChannelWidget::Features flags;
-    if (mRocketChatAccount->broadCastEnabled()) {
+    if (mRocketChatAccount->ruqolaServerConfig()->broadCastEnabled()) {
         flags |= CreateNewChannelWidget::Feature::BroadCast;
     }
-    if (mRocketChatAccount->encryptionEnabled()) {
+    if (mRocketChatAccount->ruqolaServerConfig()->encryptionEnabled()) {
         flags |= CreateNewChannelWidget::Feature::Encrypted;
     }
-    if (mRocketChatAccount->federationEnabled()) {
+    if (mRocketChatAccount->ruqolaServerConfig()->federationEnabled()) {
         flags |= CreateNewChannelWidget::Feature::Federated;
     }
     dlg->setFeatures(flags);

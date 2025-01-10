@@ -79,10 +79,10 @@ void MyAccount2FaConfigureWidget::slot2FAViaTOTPActivated(bool checked)
 void MyAccount2FaConfigureWidget::load()
 {
     if (mRocketChatAccount) {
-        if (mRocketChatAccount->twoFactorAuthenticationByEmailEnabled()) {
+        if (mRocketChatAccount->ruqolaServerConfig()->twoFactorAuthenticationByEmailEnabled()) {
             mActivate2FAViaEmailCheckbox->setChecked(mRocketChatAccount->ownUser().servicePassword().email2faEnabled());
         }
-        if (mRocketChatAccount->twoFactorAuthenticationByTOTPEnabled()) {
+        if (mRocketChatAccount->ruqolaServerConfig()->twoFactorAuthenticationByTOTPEnabled()) {
             mActivate2FAViaTOTPCheckbox->setChecked(mRocketChatAccount->ownUser().servicePassword().totp());
         }
     }
@@ -91,7 +91,7 @@ void MyAccount2FaConfigureWidget::load()
 void MyAccount2FaConfigureWidget::save()
 {
     if (mRocketChatAccount) {
-        if (mRocketChatAccount->twoFactorAuthenticationByEmailEnabled()) {
+        if (mRocketChatAccount->ruqolaServerConfig()->twoFactorAuthenticationByEmailEnabled()) {
             if (mActivate2FAViaEmailCheckbox->isChecked()) {
                 auto job = new RocketChatRestApi::User2FAEnableEmailJob(this);
                 mRocketChatAccount->restApi()->initializeRestApiJob(job);
@@ -107,7 +107,7 @@ void MyAccount2FaConfigureWidget::save()
             }
         }
         // Not necessary
-        if (mRocketChatAccount->twoFactorAuthenticationByTOTPEnabled()) {
+        if (mRocketChatAccount->ruqolaServerConfig()->twoFactorAuthenticationByTOTPEnabled()) {
             // TODO
         }
     }
@@ -116,8 +116,8 @@ void MyAccount2FaConfigureWidget::save()
 void MyAccount2FaConfigureWidget::initialize()
 {
     if (mRocketChatAccount) {
-        mActivate2FAViaEmailCheckbox->setVisible(mRocketChatAccount->twoFactorAuthenticationByEmailEnabled());
-        mActivate2FAViaTOTPCheckbox->setVisible(mRocketChatAccount->twoFactorAuthenticationByTOTPEnabled());
+        mActivate2FAViaEmailCheckbox->setVisible(mRocketChatAccount->ruqolaServerConfig()->twoFactorAuthenticationByEmailEnabled());
+        mActivate2FAViaTOTPCheckbox->setVisible(mRocketChatAccount->ruqolaServerConfig()->twoFactorAuthenticationByTOTPEnabled());
     }
 }
 

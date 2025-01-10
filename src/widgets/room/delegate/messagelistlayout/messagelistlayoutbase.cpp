@@ -54,7 +54,7 @@ QString MessageListLayoutBase::senderText(const Message *message) const
 {
     if (mRocketChatAccount) {
         QString displayName;
-        if (mRocketChatAccount->useRealName() && !message->name().isEmpty()) {
+        if (mRocketChatAccount->ruqolaServerConfig()->useRealName() && !message->name().isEmpty()) {
             displayName = message->name();
         } else {
             if (!message->alias().isEmpty()) {
@@ -131,7 +131,7 @@ void MessageListLayoutBase::generateAttachmentBlockAndUrlPreviewLayout(MessageLi
             // qDebug() << " topBlock " << topBlock;
             layout.blocksRect = QRect(textLeft, topBlock, blocksSize.width(), blocksSize.height());
         }
-        if (mRocketChatAccount && mRocketChatAccount->previewEmbed()) {
+        if (mRocketChatAccount && mRocketChatAccount->ruqolaServerConfig()->previewEmbed()) {
             if (message->urls() && !message->urls()->isEmpty()) {
                 const auto urls = message->urls()->messageUrls();
                 QSize urlsPreviewSize;

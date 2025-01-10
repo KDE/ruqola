@@ -251,7 +251,6 @@ public:
     void parseOtr(const QJsonArray &contents);
 
     void setServerVersion(const QString &version);
-    [[nodiscard]] QString serverVersion() const;
 
     [[nodiscard]] EmojiManager *emojiManager() const;
     [[nodiscard]] QString userStatusIconFileName(const QString &id);
@@ -269,10 +268,7 @@ public:
     void updateThreadMessageList(const Message &m);
 
     void initializeAccount();
-    [[nodiscard]] bool allowEditingMessages() const;
     [[nodiscard]] bool isMessageEditable(const Message &message) const;
-
-    [[nodiscard]] bool otrEnabled() const;
 
     [[nodiscard]] ListMessagesModel *listMessageModel() const;
     [[nodiscard]] ListMessagesFilterProxyModel *listMessagesFilterProxyModel() const;
@@ -280,15 +276,6 @@ public:
     [[nodiscard]] QString serverUrl() const;
     [[nodiscard]] StatusModel *statusModel() const;
 
-    [[nodiscard]] bool jitsiEnabled() const;
-    [[nodiscard]] bool allowMessagePinningEnabled() const;
-    [[nodiscard]] bool allowMessageStarringEnabled() const;
-    [[nodiscard]] bool allowMessageDeletingEnabled() const;
-
-    [[nodiscard]] bool autoTranslateEnabled() const;
-    [[nodiscard]] bool threadsEnabled() const;
-
-    [[nodiscard]] bool discussionEnabled() const;
     [[nodiscard]] QString recordingVideoPath() const;
     [[nodiscard]] QString recordingImagePath() const;
 
@@ -307,29 +294,10 @@ public:
     [[nodiscard]] bool runCommand(const QString &msg, const QByteArray &roomId, const QByteArray &tmid = QByteArray());
 
     void avatarChanged(const QJsonArray &contents);
-    [[nodiscard]] bool allowDeleteOwnAccount() const;
-    [[nodiscard]] bool registrationFormEnabled() const;
     void registerNewUser(const RocketChatRestApi::RegisterUserJob::RegisterUserInfo &userInfo);
 
-    [[nodiscard]] bool allowEmailChange() const;
-
-    [[nodiscard]] bool allowPasswordChange() const;
-
-    [[nodiscard]] bool allowUsernameChange() const;
-
-    [[nodiscard]] RuqolaServerConfig::ServerConfigFeatureTypes serverConfigFeatureTypes() const;
     void parseOwnInfoDone(const QJsonObject &replyObject);
     [[nodiscard]] OwnUser ownUser() const;
-
-    [[nodiscard]] bool broadCastEnabled() const;
-    [[nodiscard]] bool encryptionEnabled() const;
-    [[nodiscard]] bool uploadFileEnabled() const;
-    [[nodiscard]] bool isAdministrator() const;
-    [[nodiscard]] bool allowProfileChange() const;
-    [[nodiscard]] bool allowAvatarChanged() const;
-
-    [[nodiscard]] bool audioRecorderEnabled() const;
-    [[nodiscard]] bool videoRecorderEnabled() const;
 
     void deleteCustomUserStatus(const QJsonArray &replyArray);
 
@@ -345,7 +313,6 @@ public:
     [[nodiscard]] QStringList ownUserPermission() const;
     [[nodiscard]] bool hasAutotranslateSupport() const;
     [[nodiscard]] OwnUserPreferences ownUserPreferences() const;
-    [[nodiscard]] bool ldapEnabled() const;
     UsersForRoomModel *usersModelForRoom(const QByteArray &roomId) const;
 
     void deleteUser(const QJsonArray &replyArray);
@@ -385,9 +352,6 @@ public:
     void privateSettingsUpdated(const QJsonArray &replyArray);
     void updateUserInRoom(const QJsonObject &roomData);
     void updateUserData(const QJsonArray &contents);
-    [[nodiscard]] bool twoFactorAuthenticationEnabled() const;
-    [[nodiscard]] bool twoFactorAuthenticationByEmailEnabled() const;
-    [[nodiscard]] bool twoFactorAuthenticationByTOTPEnabled() const;
     void generate2FaTotp(const QJsonObject &obj);
     void totpVerify(const QJsonObject &obj);
     void totpDisabledVerify(const QJsonObject &root);
@@ -396,16 +360,9 @@ public:
     void setSearchListCompletion(const QStringList &newSearchListCompletion);
     [[nodiscard]] SwitchChannelHistoryModel *switchChannelHistoryModel() const;
 
-    [[nodiscard]] bool twoFactorAuthenticationEnforcePasswordFallback() const;
     UploadFileManager *uploadFileManager() const;
 
-    [[nodiscard]] int messageMaximumAllowedSize() const;
-    [[nodiscard]] bool messageAllowConvertLongMessagesToAttachment() const;
-
-    [[nodiscard]] bool allowPasswordReset() const;
     [[nodiscard]] const BannerInfos &bannerInfos() const;
-
-    [[nodiscard]] bool useRealName() const;
 
     [[nodiscard]] bool hasLicense(const QString &name);
     void parseLicenses(const QJsonArray &replyArray);
@@ -428,7 +385,6 @@ public:
     [[nodiscard]] QList<AuthenticationInfo> authenticationMethodInfos() const;
 
     [[nodiscard]] QUrl previewUrlFromLocalCache(const QString &url);
-    [[nodiscard]] bool previewEmbed() const;
     [[nodiscard]] QUrl avatarUrlFromLocalCache(const QString &url);
     [[nodiscard]] QUrl soundUrlFromLocalCache(const QString &url);
 
@@ -441,7 +397,6 @@ public:
     void playSound(const QByteArray &soundIdentifier);
     void playNewRoomNotification();
 
-    [[nodiscard]] bool allowCustomStatusMessage() const;
     [[nodiscard]] AppsMarketPlaceModel *appsMarketPlaceModel() const;
     [[nodiscard]] AppsCategoriesModel *appsCategoriesModel() const;
 
@@ -461,8 +416,6 @@ public:
 
     void setLastSelectedRoom(const QByteArray &roomId);
 
-    [[nodiscard]] bool federationEnabled() const;
-
     void streamNotifyUserOtrEnd(const QByteArray &roomId, const QByteArray &userId);
 
     void muteUser(const QByteArray &rid, const QString &userId, bool mute);
@@ -476,6 +429,7 @@ public:
 
     [[nodiscard]] QString getTranslatedIdentifier(const QString &lang, const QString &identifier) const;
 
+    [[nodiscard]] bool isAdministrator() const;
 Q_SIGNALS:
     void roomRemoved(const QByteArray &roomId);
     void disabledTotpValid(bool checked);

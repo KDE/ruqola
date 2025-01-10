@@ -238,7 +238,7 @@ void RocketChatBackend::parseServerVersionDone(const QString &version)
 void RocketChatBackend::tryAutoLogin()
 {
     qCDebug(RUQOLA_RECONNECT_LOG) << "tryAutoLogin for account" << mRocketChatAccount->accountName();
-    if (mRocketChatAccount->serverVersion().isEmpty()) {
+    if (mRocketChatAccount->ruqolaServerConfig()->serverVersion().isEmpty()) {
         qCDebug(RUQOLA_RECONNECT_LOG) << "tryAutoLogin: can't autologin yet, waiting for parseServerVersionDone";
         return;
     }

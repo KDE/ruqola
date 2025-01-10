@@ -99,7 +99,7 @@ QVariant RoomModel::data(const QModelIndex &index, int role) const
             return r->fName();
         } else {
             if (mRocketChatAccount) {
-                if (mRocketChatAccount->useRealName()) {
+                if (mRocketChatAccount->ruqolaServerConfig()->useRealName()) {
                     return r->displayFName();
                 } else {
                     if (r->channelType() == Room::RoomType::Direct) {

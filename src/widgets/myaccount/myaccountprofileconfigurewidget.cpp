@@ -149,16 +149,16 @@ void MyAccountProfileConfigureWidget::slotDeleteMyAccount()
 
 void MyAccountProfileConfigureWidget::initialize()
 {
-    mUserName->setReadOnly(!mRocketChatAccount->allowUsernameChange());
-    mUserNameInfo->setVisible(!mRocketChatAccount->allowUsernameChange());
+    mUserName->setReadOnly(!mRocketChatAccount->ruqolaServerConfig()->allowUsernameChange());
+    mUserNameInfo->setVisible(!mRocketChatAccount->ruqolaServerConfig()->allowUsernameChange());
 
-    mEmail->setReadOnly(!mRocketChatAccount->allowEmailChange());
-    mEmailInfo->setVisible(!mRocketChatAccount->allowEmailChange());
+    mEmail->setReadOnly(!mRocketChatAccount->ruqolaServerConfig()->allowEmailChange());
+    mEmailInfo->setVisible(!mRocketChatAccount->ruqolaServerConfig()->allowEmailChange());
 
-    mStatusTextInfo->setVisible(!mRocketChatAccount->allowCustomStatusMessage());
-    mPasswordConfirmWidget->setVisible(mRocketChatAccount->allowPasswordChange());
-    mDeleteMyAccount->setVisible(mRocketChatAccount->allowDeleteOwnAccount());
-    mConfigureAvatarWidget->setVisible(mRocketChatAccount->allowAvatarChanged());
+    mStatusTextInfo->setVisible(!mRocketChatAccount->ruqolaServerConfig()->allowCustomStatusMessage());
+    mPasswordConfirmWidget->setVisible(mRocketChatAccount->ruqolaServerConfig()->allowPasswordChange());
+    mDeleteMyAccount->setVisible(mRocketChatAccount->ruqolaServerConfig()->allowDeleteOwnAccount());
+    mConfigureAvatarWidget->setVisible(mRocketChatAccount->ruqolaServerConfig()->allowAvatarChanged());
 }
 
 void MyAccountProfileConfigureWidget::load()

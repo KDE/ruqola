@@ -1500,7 +1500,7 @@ void Room::setDescription(const QString &description)
 bool Room::encryptedEnabled() const
 {
     if (mRocketChatAccount) {
-        return mRocketChatAccount->encryptionEnabled();
+        return mRocketChatAccount->ruqolaServerConfig()->encryptionEnabled();
     }
     return false;
 }

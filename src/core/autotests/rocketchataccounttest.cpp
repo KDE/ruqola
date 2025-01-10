@@ -47,18 +47,18 @@ void RocketChatAccountTest::shouldHaveDefaultValue()
     QVERIFY(w.autoTranslateLanguagesModel());
     QVERIFY(w.accountRoomSettings());
     QVERIFY(w.commandsModel());
-    QVERIFY(!w.allowAvatarChanged());
+    QVERIFY(!w.ruqolaServerConfig()->allowAvatarChanged());
     QVERIFY(w.customSoundManager());
 
-    QVERIFY(!w.twoFactorAuthenticationEnabled());
-    QVERIFY(!w.twoFactorAuthenticationByEmailEnabled());
-    QVERIFY(!w.twoFactorAuthenticationByTOTPEnabled());
+    QVERIFY(!w.ruqolaServerConfig()->twoFactorAuthenticationEnabled());
+    QVERIFY(!w.ruqolaServerConfig()->twoFactorAuthenticationByEmailEnabled());
+    QVERIFY(!w.ruqolaServerConfig()->twoFactorAuthenticationByTOTPEnabled());
 
-    QVERIFY(!w.twoFactorAuthenticationEnforcePasswordFallback());
+    QVERIFY(!w.ruqolaServerConfig()->twoFactorAuthenticationEnforcePasswordFallback());
 
     QVERIFY(w.searchListCompletion().isEmpty());
     QVERIFY(w.uploadFileManager());
-    QVERIFY(!w.allowPasswordReset());
+    QVERIFY(!w.ruqolaServerConfig()->allowPasswordReset());
     QVERIFY(w.bannerInfos().isEmpty());
     QVERIFY(w.videoConferenceManager());
     QVERIFY(w.videoConferenceMessageInfoManager());

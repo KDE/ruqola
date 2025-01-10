@@ -59,7 +59,7 @@ bool PasswordAuthenticationInterface::login()
     }
 
     if (Ruqola::useRestApiLogin()) {
-        if (mAccount->ldapEnabled()) {
+        if (mAccount->ruqolaServerConfig()->ldapEnabled()) {
             if (!mAccount->restApi()->authenticationManager()->loginLDAP(mAccount->settings()->userName(), mAccount->settings()->password())) {
                 return false;
             }
@@ -69,7 +69,7 @@ bool PasswordAuthenticationInterface::login()
             }
         }
     } else {
-        if (mAccount->ldapEnabled()) {
+        if (mAccount->ruqolaServerConfig()->ldapEnabled()) {
             if (!mAccount->ddp()->authenticationManager()->loginLDAP(mAccount->settings()->userName(), mAccount->settings()->password())) {
                 return false;
             }

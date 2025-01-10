@@ -960,7 +960,7 @@ bool MessageListDelegate::helpEvent(QHelpEvent *helpEvent, QAbstractItemView *vi
         if (layout.senderRect.contains(helpEventPos)) {
             QString tooltip = message->name();
 
-            if (mRocketChatAccount && mRocketChatAccount->useRealName() && !tooltip.isEmpty()) {
+            if (mRocketChatAccount && mRocketChatAccount->ruqolaServerConfig()->useRealName() && !tooltip.isEmpty()) {
                 tooltip = QLatin1Char('@') + message->username();
             }
 
@@ -1059,7 +1059,7 @@ bool MessageListDelegate::helpEvent(QHelpEvent *helpEvent, QAbstractItemView *vi
 
 void MessageListDelegate::slotPrivateSettingsChanged()
 {
-    mPreviewEmbed = mRocketChatAccount ? mRocketChatAccount->previewEmbed() : true;
+    mPreviewEmbed = mRocketChatAccount ? mRocketChatAccount->ruqolaServerConfig()->previewEmbed() : true;
 }
 
 void MessageListDelegate::clearAvatarSizeHintCache()
@@ -1088,7 +1088,7 @@ void MessageListDelegate::switchMessageLayout()
         break;
     }
     mMessageListLayoutBase->setRocketChatAccount(mRocketChatAccount);
-    mPreviewEmbed = mRocketChatAccount ? mRocketChatAccount->previewEmbed() : true;
+    mPreviewEmbed = mRocketChatAccount ? mRocketChatAccount->ruqolaServerConfig()->previewEmbed() : true;
     Q_EMIT updateView();
 }
 

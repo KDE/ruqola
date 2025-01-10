@@ -35,7 +35,7 @@ MyAccountConfigureWidget::MyAccountConfigureWidget(RocketChatAccount *account, Q
 
     mMyAccount2ProfileConfigureWidget->setObjectName(QStringLiteral("mMyAccount2ProfileConfigureWidget"));
     const int profileIndexPage = tabWidget->addTab(mMyAccount2ProfileConfigureWidget, i18n("Profile"));
-    if (account && !account->allowProfileChange()) {
+    if (account && !account->ruqolaServerConfig()->allowProfileChange()) {
         tabWidget->setTabVisible(profileIndexPage, false);
     }
 
@@ -44,13 +44,13 @@ MyAccountConfigureWidget::MyAccountConfigureWidget(RocketChatAccount *account, Q
 
     mMyAccount2FaConfigureWidget->setObjectName(QStringLiteral("mMyAccount2FaConfigureWidget"));
     const int index2faPage = tabWidget->addTab(mMyAccount2FaConfigureWidget, i18n("Two Authentication Factor"));
-    if (account && !account->twoFactorAuthenticationEnabled()) {
+    if (account && !account->ruqolaServerConfig()->twoFactorAuthenticationEnabled()) {
         tabWidget->setTabVisible(index2faPage, false);
     }
 
     mMyAccount2e2ConfigureWidget->setObjectName(QStringLiteral("mMyAccount2e2ConfigureWidget"));
     const int index2e2Page = tabWidget->addTab(mMyAccount2e2ConfigureWidget, i18n("E2E Encryption"));
-    if (account && !account->encryptionEnabled()) {
+    if (account && !account->ruqolaServerConfig()->encryptionEnabled()) {
         tabWidget->setTabVisible(index2e2Page, false);
     }
     if (account && account->hasLicense(QStringLiteral("device-management"))) {
@@ -71,10 +71,10 @@ void MyAccountConfigureWidget::save()
 {
     mMyAccountPreferenceConfigureWidget->save();
     if (mRocketChatAccount) {
-        if (mRocketChatAccount->allowProfileChange()) {
+        if (mRocketChatAccount->ruqolaServerConfig()->allowProfileChange()) {
             mMyAccount2ProfileConfigureWidget->save();
         }
-        if (mRocketChatAccount->twoFactorAuthenticationEnabled()) {
+        if (mRocketChatAccount->ruqolaServerConfig()->twoFactorAuthenticationEnabled()) {
             mMyAccount2FaConfigureWidget->save();
         }
     }
@@ -84,10 +84,10 @@ void MyAccountConfigureWidget::load()
 {
     mMyAccountPreferenceConfigureWidget->load();
     if (mRocketChatAccount) {
-        if (mRocketChatAccount->allowProfileChange()) {
+        if (mRocketChatAccount->ruqolaServerConfig()->allowProfileChange()) {
             mMyAccount2ProfileConfigureWidget->load();
         }
-        if (mRocketChatAccount->twoFactorAuthenticationEnabled()) {
+        if (mRocketChatAccount->ruqolaServerConfig()->twoFactorAuthenticationEnabled()) {
             mMyAccount2FaConfigureWidget->load();
         }
     }

@@ -101,8 +101,8 @@ void RuqolaLoginWidget::setRocketChatAccount(RocketChatAccount *rocketChatAccoun
     info.serverUrl = mRocketChatAccount->serverUrl();
     info.userName = mRocketChatAccount->userName();
     info.password = mRocketChatAccount->settings()->password();
-    info.canRegisterAccount = mRocketChatAccount->registrationFormEnabled();
-    info.canResetPassword = (mRocketChatAccount->allowPasswordReset() && mRocketChatAccount->allowPasswordChange());
+    info.canRegisterAccount = mRocketChatAccount->ruqolaServerConfig()->registrationFormEnabled();
+    info.canResetPassword = (mRocketChatAccount->ruqolaServerConfig()->allowPasswordReset() && mRocketChatAccount->ruqolaServerConfig()->allowPasswordChange());
     info.authMethodType = mRocketChatAccount->settings()->authMethodType();
     info.authenticationInfos = mRocketChatAccount->authenticationMethodInfos();
     // qDebug() << " info " << info;

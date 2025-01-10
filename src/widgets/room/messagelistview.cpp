@@ -281,7 +281,7 @@ void MessageListView::contextMenuEvent(QContextMenuEvent *event)
         copyMessageToClipboard(index);
     });
     QAction *setPinnedMessage = nullptr;
-    if (mCurrentRocketChatAccount->allowMessagePinningEnabled() && mRoom && mRoom->allowToPinMessage()) {
+    if (mCurrentRocketChatAccount->ruqolaServerConfig()->allowMessagePinningEnabled() && mRoom && mRoom->allowToPinMessage()) {
         const bool isPinned = index.data(MessagesModel::Pinned).toBool();
         setPinnedMessage =
             new QAction(QIcon::fromTheme(QStringLiteral("pin")), isPinned ? i18nc("@action", "Unpin Message") : i18nc("@action", "Pin Message"), &menu);
@@ -290,7 +290,7 @@ void MessageListView::contextMenuEvent(QContextMenuEvent *event)
         });
     }
     QAction *setAsFavoriteAction = nullptr;
-    if (mCurrentRocketChatAccount->allowMessageStarringEnabled()) {
+    if (mCurrentRocketChatAccount->ruqolaServerConfig()->allowMessageStarringEnabled()) {
         const bool isStarred = index.data(MessagesModel::Starred).toBool();
         setAsFavoriteAction = new QAction(QIcon::fromTheme(QStringLiteral("favorite")),
                                           isStarred ? i18nc("@action", "Remove as Favorite") : i18nc("@action", "Set as Favorite"),
@@ -412,7 +412,7 @@ void MessageListView::contextMenuEvent(QContextMenuEvent *event)
 
     auto threadInfoActions = [&]() -> QList<QAction *> {
         QList<QAction *> listActions;
-        if (mCurrentRocketChatAccount->threadsEnabled()) {
+        if (mCurrentRocketChatAccount->ruqolaServerConfig()->threadsEnabled()) {
             const QString threadMessageId = index.data(MessagesModel::ThreadMessageId).toString();
             const int threadMessageCount = index.data(MessagesModel::ThreadCount).toInt();
             if (!threadMessageId.isEmpty() || threadMessageCount > 0) {

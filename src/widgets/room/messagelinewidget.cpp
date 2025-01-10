@@ -175,8 +175,8 @@ void MessageLineWidget::slotSendMessage(const QString &msg)
                     return;
                 }
             }
-            if (msg.size() > mCurrentRocketChatAccount->messageMaximumAllowedSize()) {
-                if (mCurrentRocketChatAccount->messageAllowConvertLongMessagesToAttachment()) {
+            if (msg.size() > mCurrentRocketChatAccount->ruqolaServerConfig()->messageMaximumAllowedSize()) {
+                if (mCurrentRocketChatAccount->ruqolaServerConfig()->messageAllowConvertLongMessagesToAttachment()) {
                     if (KMessageBox::ButtonCode::PrimaryAction
                         == KMessageBox::questionTwoActions(this,
                                                            i18n("Do you want to convert this big text as attachment?"),
@@ -324,7 +324,7 @@ void MessageLineWidget::setEditMessage(const QByteArray &messageId, const QStrin
 
 void MessageLineWidget::slotPublicSettingChanged()
 {
-    mSendFileButton->setVisible(mCurrentRocketChatAccount->uploadFileEnabled());
+    mSendFileButton->setVisible(mCurrentRocketChatAccount->ruqolaServerConfig()->uploadFileEnabled());
     slotPrivateSettingsChanged();
 }
 
@@ -335,8 +335,8 @@ void MessageLineWidget::slotOwnUserPreferencesChanged()
 
 void MessageLineWidget::slotPrivateSettingsChanged()
 {
-    mSoundMessageButton->setVisible(mCurrentRocketChatAccount->audioRecorderEnabled());
-    mVideoMessageButton->setVisible(mCurrentRocketChatAccount->videoRecorderEnabled());
+    mSoundMessageButton->setVisible(mCurrentRocketChatAccount->ruqolaServerConfig()->audioRecorderEnabled());
+    mVideoMessageButton->setVisible(mCurrentRocketChatAccount->ruqolaServerConfig()->videoRecorderEnabled());
 }
 
 void MessageLineWidget::setCurrentRocketChatAccount(RocketChatAccount *account, bool threadMessageDialog)

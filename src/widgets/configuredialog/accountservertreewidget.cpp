@@ -49,7 +49,7 @@ void AccountServerTreeWidget::load()
         info.serverUrl = account->serverUrl();
         info.userName = account->userName();
         info.password = account->settings()->password();
-        info.canResetPassword = account->allowPasswordReset() && account->allowPasswordChange();
+        info.canResetPassword = account->ruqolaServerConfig()->allowPasswordReset() && account->ruqolaServerConfig()->allowPasswordChange();
         info.authenticationInfos = account->authenticationMethodInfos();
         info.authMethodType = account->settings()->authMethodType();
         info.token = account->settings()->authToken();

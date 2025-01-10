@@ -258,7 +258,7 @@ bool NotificationHistoryDelegate::helpEvent(QHelpEvent *helpEvent, QAbstractItem
         if (account) {
             const QString senderName = index.data(NotificationHistoryModel::SenderName).toString();
             QString tooltip = senderName;
-            if (account->useRealName() && !tooltip.isEmpty()) {
+            if (account->ruqolaServerConfig()->useRealName() && !tooltip.isEmpty()) {
                 const QString senderUserName = index.data(NotificationHistoryModel::SenderUserName).toString();
                 tooltip = QLatin1Char('@') + senderUserName;
             }

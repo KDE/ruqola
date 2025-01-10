@@ -602,26 +602,6 @@ UploadFileManager *RocketChatAccount::uploadFileManager() const
     return mUploadFileManager;
 }
 
-int RocketChatAccount::messageMaximumAllowedSize() const
-{
-    return mRuqolaServerConfig->messageMaximumAllowedSize();
-}
-
-bool RocketChatAccount::previewEmbed() const
-{
-    return mRuqolaServerConfig->previewEmbed();
-}
-
-bool RocketChatAccount::messageAllowConvertLongMessagesToAttachment() const
-{
-    return mRuqolaServerConfig->messageAllowConvertLongMessagesToAttachment();
-}
-
-bool RocketChatAccount::useRealName() const
-{
-    return mRuqolaServerConfig->useRealName();
-}
-
 SwitchChannelHistoryModel *RocketChatAccount::switchChannelHistoryModel() const
 {
     return mSwitchChannelHistoryModel;
@@ -802,7 +782,7 @@ void RocketChatAccount::markRoomAsRead(const QByteArray &roomId)
 {
     mMarkUnreadThreadsAsReadOnNextReply = true;
     restApi()->markRoomAsRead(roomId);
-    if (threadsEnabled()) {
+    if (mRuqolaServerConfig->threadsEnabled()) {
         getListMessages(roomId, ListMessagesModel::UnreadThreadsMessages);
     }
 }
@@ -1765,129 +1745,14 @@ void RocketChatAccount::setServerVersion(const QString &version)
     Q_EMIT serverVersionChanged();
 }
 
-QString RocketChatAccount::serverVersion() const
-{
-    return mRuqolaServerConfig->serverVersion();
-}
-
-bool RocketChatAccount::otrEnabled() const
-{
-    return mRuqolaServerConfig->serverConfigFeatureTypes() & RuqolaServerConfig::ServerConfigFeatureType::OtrEnabled;
-}
-
-bool RocketChatAccount::allowProfileChange() const
-{
-    return mRuqolaServerConfig->serverConfigFeatureTypes() & RuqolaServerConfig::ServerConfigFeatureType::AllowUserProfileChange;
-}
-
-bool RocketChatAccount::allowMessagePinningEnabled() const
-{
-    return mRuqolaServerConfig->serverConfigFeatureTypes() & RuqolaServerConfig::ServerConfigFeatureType::AllowMessagePinning;
-}
-
-bool RocketChatAccount::allowMessageStarringEnabled() const
-{
-    return mRuqolaServerConfig->serverConfigFeatureTypes() & RuqolaServerConfig::ServerConfigFeatureType::AllowMessageStarring;
-}
-
-bool RocketChatAccount::allowMessageDeletingEnabled() const
-{
-    return mRuqolaServerConfig->serverConfigFeatureTypes() & RuqolaServerConfig::ServerConfigFeatureType::AllowMessageDeleting;
-}
-
-bool RocketChatAccount::threadsEnabled() const
-{
-    return mRuqolaServerConfig->serverConfigFeatureTypes() & RuqolaServerConfig::ServerConfigFeatureType::ThreadsEnabled;
-}
-
-bool RocketChatAccount::autoTranslateEnabled() const
-{
-    return mRuqolaServerConfig->serverConfigFeatureTypes() & RuqolaServerConfig::ServerConfigFeatureType::AutoTranslateEnabled;
-}
-
-bool RocketChatAccount::encryptionEnabled() const
-{
-    return mRuqolaServerConfig->serverConfigFeatureTypes() & RuqolaServerConfig::ServerConfigFeatureType::EncryptionEnabled;
-}
-
-bool RocketChatAccount::twoFactorAuthenticationEnabled() const
-{
-    return mRuqolaServerConfig->serverConfigFeatureTypes() & RuqolaServerConfig::ServerConfigFeatureType::TwoFactorAuthenticationEnabled;
-}
-
-bool RocketChatAccount::twoFactorAuthenticationByEmailEnabled() const
-{
-    return mRuqolaServerConfig->serverConfigFeatureTypes() & RuqolaServerConfig::ServerConfigFeatureType::TwoFactorAuthenticationByEmailEnabled;
-}
-
-bool RocketChatAccount::twoFactorAuthenticationEnforcePasswordFallback() const
-{
-    return mRuqolaServerConfig->serverConfigFeatureTypes() & RuqolaServerConfig::ServerConfigFeatureType::TwoFactorAuthenticationEnforcePasswordFallback;
-}
-
-bool RocketChatAccount::twoFactorAuthenticationByTOTPEnabled() const
-{
-    return mRuqolaServerConfig->serverConfigFeatureTypes() & RuqolaServerConfig::ServerConfigFeatureType::TwoFactorAuthenticationByTOTPEnabled;
-}
-
-bool RocketChatAccount::broadCastEnabled() const
-{
-    return mRuqolaServerConfig->serverConfigFeatureTypes() & RuqolaServerConfig::ServerConfigFeatureType::BroadCastEnabled;
-}
-
-bool RocketChatAccount::registrationFormEnabled() const
-{
-    return mRuqolaServerConfig->serverConfigFeatureTypes() & RuqolaServerConfig::ServerConfigFeatureType::RegistrationFormEnabled;
-}
-
-bool RocketChatAccount::allowDeleteOwnAccount() const
-{
-    return mRuqolaServerConfig->serverConfigFeatureTypes() & RuqolaServerConfig::ServerConfigFeatureType::AllowDeleteOwnAccount;
-}
-
-bool RocketChatAccount::discussionEnabled() const
-{
-    return mRuqolaServerConfig->serverConfigFeatureTypes() & RuqolaServerConfig::ServerConfigFeatureType::DiscussionEnabled;
-}
-
-bool RocketChatAccount::allowAvatarChanged() const
-{
-    return mRuqolaServerConfig->serverConfigFeatureTypes() & RuqolaServerConfig::ServerConfigFeatureType::AllowUserAvatarChange;
-}
-
-bool RocketChatAccount::audioRecorderEnabled() const
-{
-    return mRuqolaServerConfig->serverConfigFeatureTypes() & RuqolaServerConfig::ServerConfigFeatureType::AudioRecorderEnabled;
-}
-
-bool RocketChatAccount::videoRecorderEnabled() const
-{
-    return mRuqolaServerConfig->serverConfigFeatureTypes() & RuqolaServerConfig::ServerConfigFeatureType::VideoRecorderEnabled;
-}
-
 bool RocketChatAccount::teamEnabled() const
 {
     return hasPermission(QStringLiteral("create-team"));
 }
 
-bool RocketChatAccount::ldapEnabled() const
-{
-    return mRuqolaServerConfig->serverConfigFeatureTypes() & RuqolaServerConfig::ServerConfigFeatureType::LdapEnabled;
-}
-
 ServerConfigInfo *RocketChatAccount::serverConfigInfo() const
 {
     return mServerConfigInfo;
-}
-
-bool RocketChatAccount::jitsiEnabled() const
-{
-    return mRuqolaServerConfig->serverConfigFeatureTypes() & RuqolaServerConfig::ServerConfigFeatureType::JitsiEnabled;
-}
-
-bool RocketChatAccount::federationEnabled() const
-{
-    return mRuqolaServerConfig->federationEnabled();
 }
 
 void RocketChatAccount::setSortUnreadOnTop(bool checked)
@@ -2053,20 +1918,10 @@ void RocketChatAccount::changeRoles(const QByteArray &roomId, const QString &use
     }
 }
 
-bool RocketChatAccount::allowEditingMessages() const
-{
-    return mRuqolaServerConfig->serverConfigFeatureTypes() & RuqolaServerConfig::ServerConfigFeatureType::AllowEditingMessage;
-}
-
-bool RocketChatAccount::uploadFileEnabled() const
-{
-    return mRuqolaServerConfig->serverConfigFeatureTypes() & RuqolaServerConfig::ServerConfigFeatureType::UploadFileEnabled;
-}
-
 bool RocketChatAccount::isMessageEditable(const Message &message) const
 {
     const bool canEditMessage = hasPermission(QStringLiteral("edit-message"), message.roomId());
-    const bool isEditAllowed = allowEditingMessages();
+    const bool isEditAllowed = mRuqolaServerConfig->allowEditingMessages();
     const bool editOwn = message.userId() == userId();
 
     if (!(canEditMessage || (isEditAllowed && editOwn))) {
@@ -2082,7 +1937,7 @@ bool RocketChatAccount::isMessageEditable(const Message &message) const
 
 bool RocketChatAccount::isMessageDeletable(const Message &message) const
 {
-    if (!allowMessageDeletingEnabled()) {
+    if (!mRuqolaServerConfig->allowMessageDeletingEnabled()) {
         return false;
     }
     if (hasPermission(QStringLiteral("force-delete-message"))) {
@@ -2300,7 +2155,7 @@ void RocketChatAccount::rolesChanged(const QJsonArray &contents)
 
 void RocketChatAccount::threadsInRoom(const QByteArray &roomId, bool onlyUnread)
 {
-    if (threadsEnabled()) {
+    if (mRuqolaServerConfig->threadsEnabled()) {
         mListMessageModel->clear();
         mListMessageModel->setRoomId(roomId);
         restApi()->getThreadsList(roomId, onlyUnread, 0, 50, hasAtLeastVersion(7, 0, 0));
@@ -2316,7 +2171,7 @@ void RocketChatAccount::discussionsInRoom(const QByteArray &roomId)
 
 void RocketChatAccount::getSupportedLanguages()
 {
-    if (autoTranslateEnabled()) {
+    if (mRuqolaServerConfig->autoTranslateEnabled()) {
         const bool needTargetLanguage = true;
         auto job = new RocketChatRestApi::GetSupportedLanguagesJob(this);
         job->setNeedTargetLanguage(needTargetLanguage);
@@ -2416,8 +2271,8 @@ void RocketChatAccount::initializeAccount()
     restApi()->customUserStatus();
     slotLoadRoles();
     checkLicenses();
-    qDebug() << "initializeAccount: encryptionEnabled =" << encryptionEnabled() << "account name" << accountName();
-    if (encryptionEnabled()) {
+    qDebug() << "initializeAccount: encryptionEnabled =" << mRuqolaServerConfig->encryptionEnabled() << "account name" << accountName();
+    if (mRuqolaServerConfig->encryptionEnabled()) {
         mE2eKeyManager->fetchMyKeys();
     }
 
@@ -2645,34 +2500,9 @@ void RocketChatAccount::registerNewUser(const RocketChatRestApi::RegisterUserJob
     restApi()->registerNewUser(userInfo);
 }
 
-bool RocketChatAccount::allowEmailChange() const
-{
-    return serverConfigFeatureTypes() & RuqolaServerConfig::ServerConfigFeatureType::AllowEmailChange;
-}
-
-bool RocketChatAccount::allowPasswordChange() const
-{
-    return serverConfigFeatureTypes() & RuqolaServerConfig::ServerConfigFeatureType::AllowPasswordChange;
-}
-
-bool RocketChatAccount::allowPasswordReset() const
-{
-    return serverConfigFeatureTypes() & RuqolaServerConfig::ServerConfigFeatureType::AllowPasswordReset;
-}
-
-bool RocketChatAccount::allowUsernameChange() const
-{
-    return serverConfigFeatureTypes() & RuqolaServerConfig::ServerConfigFeatureType::AllowUsernameChange;
-}
-
 void RocketChatAccount::slotRegisterUserDone()
 {
     Q_EMIT registerUserSuccess();
-}
-
-RuqolaServerConfig::ServerConfigFeatureTypes RocketChatAccount::serverConfigFeatureTypes() const
-{
-    return mRuqolaServerConfig->serverConfigFeatureTypes();
 }
 
 void RocketChatAccount::parseOwnInfoDone(const QJsonObject &replyObject)
@@ -2999,7 +2829,7 @@ void RocketChatAccount::slotUsersSetPreferencesDone(const QJsonObject &replyObje
 
 bool RocketChatAccount::hasAutotranslateSupport() const
 {
-    return autoTranslateEnabled() && hasPermission(QStringLiteral("auto-translate"));
+    return mRuqolaServerConfig->autoTranslateEnabled() && hasPermission(QStringLiteral("auto-translate"));
 }
 
 MessageCache *RocketChatAccount::messageCache() const
@@ -3119,11 +2949,6 @@ void RocketChatAccount::playNewRoomNotification()
 {
     const QByteArray identifier = mOwnUser.ownUserPreferences().newRoomNotification();
     playSound(identifier);
-}
-
-bool RocketChatAccount::allowCustomStatusMessage() const
-{
-    return mRuqolaServerConfig->allowCustomStatusMessage();
 }
 
 bool RocketChatAccount::appMarketPlaceLoaded() const

@@ -347,8 +347,8 @@ void RuqolaMainWindow::updateActions()
     mRoomListDisplayCondensed->setChecked(roomListDisplay == OwnUserPreferences::RoomListDisplay::Condensed);
     mRoomListDisplayExtended->setChecked(roomListDisplay == OwnUserPreferences::RoomListDisplay::Extended);
 
-    mRegisterNewUser->setVisible(mCurrentRocketChatAccount && mCurrentRocketChatAccount->registrationFormEnabled());
-    mCreateDiscussion->setEnabled(mCurrentRocketChatAccount && mCurrentRocketChatAccount->discussionEnabled()
+    mRegisterNewUser->setVisible(mCurrentRocketChatAccount && mCurrentRocketChatAccount->ruqolaServerConfig()->registrationFormEnabled());
+    mCreateDiscussion->setEnabled(mCurrentRocketChatAccount && mCurrentRocketChatAccount->ruqolaServerConfig()->discussionEnabled()
                                   && (mCurrentRocketChatAccount->loginStatus() == AuthenticationManager::LoggedIn));
     const bool isAdministrator{mCurrentRocketChatAccount && mCurrentRocketChatAccount->isAdministrator()};
     mAdministrator->setVisible(isAdministrator);
@@ -758,13 +758,13 @@ void RuqolaMainWindow::slotCreateTeam()
     QPointer<CreateNewChannelDialog> dlg = new CreateNewChannelDialog(mCurrentRocketChatAccount, this);
     dlg->setWindowTitle(i18nc("@title:window", "Create Team"));
     CreateNewChannelWidget::Features flags;
-    if (mCurrentRocketChatAccount->broadCastEnabled()) {
+    if (mCurrentRocketChatAccount->ruqolaServerConfig()->broadCastEnabled()) {
         flags |= CreateNewChannelWidget::Feature::BroadCast;
     }
-    if (mCurrentRocketChatAccount->encryptionEnabled()) {
+    if (mCurrentRocketChatAccount->ruqolaServerConfig()->encryptionEnabled()) {
         flags |= CreateNewChannelWidget::Feature::Encrypted;
     }
-    if (mCurrentRocketChatAccount->federationEnabled()) {
+    if (mCurrentRocketChatAccount->ruqolaServerConfig()->federationEnabled()) {
         flags |= CreateNewChannelWidget::Feature::Federated;
     }
     dlg->setFeatures(flags);
@@ -829,13 +829,13 @@ void RuqolaMainWindow::slotCreateNewChannel()
 {
     QPointer<CreateNewChannelDialog> dlg = new CreateNewChannelDialog(mCurrentRocketChatAccount, this);
     CreateNewChannelWidget::Features flags;
-    if (mCurrentRocketChatAccount->broadCastEnabled()) {
+    if (mCurrentRocketChatAccount->ruqolaServerConfig()->broadCastEnabled()) {
         flags |= CreateNewChannelWidget::Feature::BroadCast;
     }
-    if (mCurrentRocketChatAccount->encryptionEnabled()) {
+    if (mCurrentRocketChatAccount->ruqolaServerConfig()->encryptionEnabled()) {
         flags |= CreateNewChannelWidget::Feature::Encrypted;
     }
-    if (mCurrentRocketChatAccount->federationEnabled()) {
+    if (mCurrentRocketChatAccount->ruqolaServerConfig()->federationEnabled()) {
         flags |= CreateNewChannelWidget::Feature::Federated;
     }
     dlg->setFeatures(flags);

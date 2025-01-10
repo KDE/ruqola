@@ -193,7 +193,7 @@ void AdministratorUsersWidget::slotUserInfoDone(const QJsonObject &obj)
     dlg->setUser(user);
     if (dlg->exec()) {
         QString password;
-        const bool twoFactorAuthenticationEnforcePasswordFallback = mRocketChatAccount->twoFactorAuthenticationEnforcePasswordFallback();
+        const bool twoFactorAuthenticationEnforcePasswordFallback = mRocketChatAccount->ruqolaServerConfig()->twoFactorAuthenticationEnforcePasswordFallback();
         if (twoFactorAuthenticationEnforcePasswordFallback) {
             QPointer<ConfirmPasswordDialog> dialog(new ConfirmPasswordDialog(this));
             bool accepted = false;
@@ -328,7 +328,8 @@ void AdministratorUsersWidget::slotCustomContextMenuRequested(const QPoint &pos)
                 slotResetE2EKey(modelIndex);
             });
         }
-        if (mRocketChatAccount->hasPermission(QStringLiteral("edit-other-user-totp")) && mRocketChatAccount->twoFactorAuthenticationEnabled()) {
+        if (mRocketChatAccount->hasPermission(QStringLiteral("edit-other-user-totp"))
+            && mRocketChatAccount->ruqolaServerConfig()->twoFactorAuthenticationEnabled()) {
             menu.addAction(i18nc("@action", "Reset Totp"), this, [this, newModelIndex]() {
                 const QModelIndex modelIndex = mModel->index(newModelIndex.row(), AdminUsersAllModel::UserId);
                 slotResetTOTPKey(modelIndex);
@@ -440,7 +441,7 @@ void AdministratorUsersWidget::slotResetE2EKey(const QModelIndex &index)
             KStandardGuiItem::reset(),
             KStandardGuiItem::cancel())) {
         QString password;
-        const bool twoFactorAuthenticationEnforcePasswordFallback = mRocketChatAccount->twoFactorAuthenticationEnforcePasswordFallback();
+        const bool twoFactorAuthenticationEnforcePasswordFallback = mRocketChatAccount->ruqolaServerConfig()->twoFactorAuthenticationEnforcePasswordFallback();
         if (twoFactorAuthenticationEnforcePasswordFallback) {
             QPointer<ConfirmPasswordDialog> dialog(new ConfirmPasswordDialog(this));
             bool accepted = false;
@@ -486,7 +487,7 @@ void AdministratorUsersWidget::slotResetTOTPKey(const QModelIndex &index)
             KStandardGuiItem::reset(),
             KStandardGuiItem::cancel())) {
         QString password;
-        const bool twoFactorAuthenticationEnforcePasswordFallback = mRocketChatAccount->twoFactorAuthenticationEnforcePasswordFallback();
+        const bool twoFactorAuthenticationEnforcePasswordFallback = mRocketChatAccount->ruqolaServerConfig()->twoFactorAuthenticationEnforcePasswordFallback();
         if (twoFactorAuthenticationEnforcePasswordFallback) {
             QPointer<ConfirmPasswordDialog> dialog(new ConfirmPasswordDialog(this));
             bool accepted = false;
