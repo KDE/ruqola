@@ -500,8 +500,6 @@ Q_SIGNALS:
     void appsCountLoadDone();
 
 private:
-    Q_DISABLE_COPY(RocketChatAccount)
-
     LIBRUQOLACORE_NO_EXPORT void setE2EPasswordMustBeDecrypt(bool newE2EPasswordMustBeDecrypt);
 
     LIBRUQOLACORE_NO_EXPORT void rolesInRoom(const QByteArray &roomId, Room::RoomType channelType);
