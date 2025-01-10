@@ -19,6 +19,8 @@ public:
     [[nodiscard]] bool bypassTwoFactor() const;
     [[nodiscard]] QString tokenName() const;
 
+    void setExistingTokenNames(const QStringList &lst);
+
 private:
     MyAccountPersonalAccessCreateWidget *const mCreateWidget;
 };

@@ -29,7 +29,8 @@ MyAccountPersonalAccessCreateWidget::MyAccountPersonalAccessCreateWidget(QWidget
     formLayout->addWidget(mBypassTwoFactor);
 
     connect(mTokenName, &QLineEdit::textChanged, this, [this](const QString &str) {
-        Q_EMIT updateOkButton(!str.trimmed().isEmpty());
+        const QString strTrimmed = str.trimmed();
+        Q_EMIT updateOkButton(!strTrimmed.isEmpty() && !mExistingTokenNames.contains(strTrimmed));
     });
 }
 
@@ -43,6 +44,11 @@ bool MyAccountPersonalAccessCreateWidget::bypassTwoFactor() const
 QString MyAccountPersonalAccessCreateWidget::tokenName() const
 {
     return mTokenName->text().trimmed();
+}
+
+void MyAccountPersonalAccessCreateWidget::setExistingTokenNames(const QStringList &lst)
+{
+    mExistingTokenNames = lst;
 }
 
 #include "moc_myaccountpersonalaccesscreatewidget.cpp"

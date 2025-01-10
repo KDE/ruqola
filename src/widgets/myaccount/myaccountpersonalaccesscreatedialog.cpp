@@ -46,4 +46,9 @@ QString MyAccountPersonalAccessCreateDialog::tokenName() const
     return mCreateWidget->tokenName();
 }
 
+void MyAccountPersonalAccessCreateDialog::setExistingTokenNames(const QStringList &lst)
+{
+    mCreateWidget->setExistingTokenNames(lst);
+}
+
 #include "moc_myaccountpersonalaccesscreatedialog.cpp"
