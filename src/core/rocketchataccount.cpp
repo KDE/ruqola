@@ -2746,9 +2746,10 @@ QStringList RocketChatAccount::highlightWords() const
 
 void RocketChatAccount::setAvatarUrl(const QString &url)
 {
-    RocketChatRestApi::UserBaseJob::UserInfo userInfo;
-    userInfo.userInfoType = RocketChatRestApi::UserBaseJob::UserInfoType::UserId;
-    userInfo.userIdentifier = QString::fromLatin1(userId());
+    const RocketChatRestApi::UserBaseJob::UserInfo userInfo{
+        .userIdentifier = QString::fromLatin1(userId()),
+        .userInfoType = RocketChatRestApi::UserBaseJob::UserInfoType::UserId,
+    };
     RocketChatRestApi::SetAvatarJob::SetAvatarInfo avatarInfo;
     avatarInfo.mAvatarUrl = url;
     restApi()->setAvatar(userInfo, avatarInfo);
@@ -2756,9 +2757,10 @@ void RocketChatAccount::setAvatarUrl(const QString &url)
 
 void RocketChatAccount::setImageUrl(const QUrl &url)
 {
-    RocketChatRestApi::UserBaseJob::UserInfo userInfo;
-    userInfo.userInfoType = RocketChatRestApi::UserBaseJob::UserInfoType::UserId;
-    userInfo.userIdentifier = QString::fromLatin1(userId());
+    const RocketChatRestApi::UserBaseJob::UserInfo userInfo{
+        .userIdentifier = QString::fromLatin1(userId()),
+        .userInfoType = RocketChatRestApi::UserBaseJob::UserInfoType::UserId,
+    };
     RocketChatRestApi::SetAvatarJob::SetAvatarInfo avatarInfo;
     avatarInfo.mImageUrl = url;
     restApi()->setAvatar(userInfo, avatarInfo);
