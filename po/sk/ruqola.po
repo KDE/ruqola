@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-12-27 02:34+0000\n"
+"POT-Creation-Date: 2025-01-11 02:28+0000\n"
 "PO-Revision-Date: 2019-07-29 20:25+0200\n"
 "Last-Translator: Roman Paholík <wizzardsk@gmail.com>\n"
 "Language-Team: Slovak <kde-sk@linux.sk>\n"
@@ -9720,35 +9720,35 @@ msgctxt "@info:placeholder"
 msgid "Search Personal Access Token…"
 msgstr "Hľadať súbor..."
 
-#: widgets/myaccount/myaccountpersonalaccesstokenconfigurewidget.cpp:124
-#: widgets/myaccount/myaccountpersonalaccesstokenconfigurewidget.cpp:198
+#: widgets/myaccount/myaccountpersonalaccesstokenconfigurewidget.cpp:125
+#: widgets/myaccount/myaccountpersonalaccesstokenconfigurewidget.cpp:199
 #, kde-format
 msgid ""
 "<qt>Please save your token carefully as you will no longer be able to view "
 "it afterwards.<br><b>Token:</b> %1<br><b>Your user Id:</b> %2</qt>"
 msgstr ""
 
-#: widgets/myaccount/myaccountpersonalaccesstokenconfigurewidget.cpp:129
+#: widgets/myaccount/myaccountpersonalaccesstokenconfigurewidget.cpp:130
 #, fuzzy, kde-format
 #| msgid "Search File..."
 msgctxt "@title:window"
 msgid "Personal Token Created"
 msgstr "Hľadať súbor..."
 
-#: widgets/myaccount/myaccountpersonalaccesstokenconfigurewidget.cpp:165
+#: widgets/myaccount/myaccountpersonalaccesstokenconfigurewidget.cpp:166
 #, fuzzy, kde-format
 #| msgid "Search File..."
 msgid "Personal Token removed."
 msgstr "Hľadať súbor..."
 
-#: widgets/myaccount/myaccountpersonalaccesstokenconfigurewidget.cpp:165
+#: widgets/myaccount/myaccountpersonalaccesstokenconfigurewidget.cpp:166
 #, fuzzy, kde-format
 #| msgid "Delete Account"
 msgctxt "@title:window"
 msgid "Remove Personal Token"
 msgstr "Odstrániť účet"
 
-#: widgets/myaccount/myaccountpersonalaccesstokenconfigurewidget.cpp:203
+#: widgets/myaccount/myaccountpersonalaccesstokenconfigurewidget.cpp:204
 #, fuzzy, kde-format
 #| msgid "Search File..."
 msgctxt "@title:window"

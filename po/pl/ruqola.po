@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-12-27 02:34+0000\n"
+"POT-Creation-Date: 2025-01-11 02:28+0000\n"
 "PO-Revision-Date: 2024-12-21 11:10+0100\n"
 "Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>\n"
 "Language-Team: Polish <kde-i18n-doc@kde.org>\n"
@@ -9384,8 +9384,8 @@ msgctxt "@info:placeholder"
 msgid "Search Personal Access Token…"
 msgstr "Poszukaj osobistego tokena dostępowego…"
 
-#: widgets/myaccount/myaccountpersonalaccesstokenconfigurewidget.cpp:124
-#: widgets/myaccount/myaccountpersonalaccesstokenconfigurewidget.cpp:198
+#: widgets/myaccount/myaccountpersonalaccesstokenconfigurewidget.cpp:125
+#: widgets/myaccount/myaccountpersonalaccesstokenconfigurewidget.cpp:199
 #, kde-format
 msgid ""
 "<qt>Please save your token carefully as you will no longer be able to view "
@@ -9394,24 +9394,24 @@ msgstr ""
 "<qt>Zapisz swój token w bezpiecznym miejscu, bo nie będzie go można później "
 "zobaczyć.<br><b>Token:</b>%1<br><b>ID twojego użytkownika:</b>%2</qt>"
 
-#: widgets/myaccount/myaccountpersonalaccesstokenconfigurewidget.cpp:129
+#: widgets/myaccount/myaccountpersonalaccesstokenconfigurewidget.cpp:130
 #, kde-format
 msgctxt "@title:window"
 msgid "Personal Token Created"
 msgstr "Utworzono token osobisty"
 
-#: widgets/myaccount/myaccountpersonalaccesstokenconfigurewidget.cpp:165
+#: widgets/myaccount/myaccountpersonalaccesstokenconfigurewidget.cpp:166
 #, kde-format
 msgid "Personal Token removed."
 msgstr "Usunięto token osobisty."
 
-#: widgets/myaccount/myaccountpersonalaccesstokenconfigurewidget.cpp:165
+#: widgets/myaccount/myaccountpersonalaccesstokenconfigurewidget.cpp:166
 #, kde-format
 msgctxt "@title:window"
 msgid "Remove Personal Token"
 msgstr "Usuń osobisty token"
 
-#: widgets/myaccount/myaccountpersonalaccesstokenconfigurewidget.cpp:203
+#: widgets/myaccount/myaccountpersonalaccesstokenconfigurewidget.cpp:204
 #, kde-format
 msgctxt "@title:window"
 msgid "Personal Token Regenerated"

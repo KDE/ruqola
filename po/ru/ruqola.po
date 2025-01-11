@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-12-27 02:34+0000\n"
+"POT-Creation-Date: 2025-01-11 02:28+0000\n"
 "PO-Revision-Date: 2024-11-06 16:19+0300\n"
 "Last-Translator: Olesya Gerasimenko <translation-team@basealt.ru>\n"
 "Language-Team: Basealt Translation Team\n"
@@ -9522,8 +9522,8 @@ msgctxt "@info:placeholder"
 msgid "Search Personal Access Token…"
 msgstr "Поиск личного маркера доступа…"
 
-#: widgets/myaccount/myaccountpersonalaccesstokenconfigurewidget.cpp:124
-#: widgets/myaccount/myaccountpersonalaccesstokenconfigurewidget.cpp:198
+#: widgets/myaccount/myaccountpersonalaccesstokenconfigurewidget.cpp:125
+#: widgets/myaccount/myaccountpersonalaccesstokenconfigurewidget.cpp:199
 #, kde-format
 msgid ""
 "<qt>Please save your token carefully as you will no longer be able to view "
@@ -9532,24 +9532,24 @@ msgstr ""
 "<qt>Сохраните маркер в надёжном месте, так как он не будет показан снова."
 "<br><b>Маркер:</b> %1<br><b>Ваш идентификатор пользователя:</b> %2</qt>"
 
-#: widgets/myaccount/myaccountpersonalaccesstokenconfigurewidget.cpp:129
+#: widgets/myaccount/myaccountpersonalaccesstokenconfigurewidget.cpp:130
 #, kde-format
 msgctxt "@title:window"
 msgid "Personal Token Created"
 msgstr "Личный маркер создан"
 
-#: widgets/myaccount/myaccountpersonalaccesstokenconfigurewidget.cpp:165
+#: widgets/myaccount/myaccountpersonalaccesstokenconfigurewidget.cpp:166
 #, kde-format
 msgid "Personal Token removed."
 msgstr "Личный маркер удалён."
 
-#: widgets/myaccount/myaccountpersonalaccesstokenconfigurewidget.cpp:165
+#: widgets/myaccount/myaccountpersonalaccesstokenconfigurewidget.cpp:166
 #, kde-format
 msgctxt "@title:window"
 msgid "Remove Personal Token"
 msgstr "Удаление личного маркера"
 
-#: widgets/myaccount/myaccountpersonalaccesstokenconfigurewidget.cpp:203
+#: widgets/myaccount/myaccountpersonalaccesstokenconfigurewidget.cpp:204
 #, kde-format
 msgctxt "@title:window"
 msgid "Personal Token Regenerated"

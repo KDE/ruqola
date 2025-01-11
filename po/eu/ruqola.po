@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-12-27 02:34+0000\n"
+"POT-Creation-Date: 2025-01-11 02:28+0000\n"
 "PO-Revision-Date: 2024-12-21 08:34+0100\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
@@ -9361,8 +9361,8 @@ msgctxt "@info:placeholder"
 msgid "Search Personal Access Token…"
 msgstr "Bilatu sarbide pertsonaleko tokena..."
 
-#: widgets/myaccount/myaccountpersonalaccesstokenconfigurewidget.cpp:124
-#: widgets/myaccount/myaccountpersonalaccesstokenconfigurewidget.cpp:198
+#: widgets/myaccount/myaccountpersonalaccesstokenconfigurewidget.cpp:125
+#: widgets/myaccount/myaccountpersonalaccesstokenconfigurewidget.cpp:199
 #, kde-format
 msgid ""
 "<qt>Please save your token carefully as you will no longer be able to view "
@@ -9371,24 +9371,24 @@ msgstr ""
 "<qt>Mesedez, gorde zure tokena kontuz, ondoren ez baituzu hura ikusteko "
 "aukera izango.<br><b>Tokena:</b> %1<br><b>Zure erabiltzaile ID:</b> %2</qt>"
 
-#: widgets/myaccount/myaccountpersonalaccesstokenconfigurewidget.cpp:129
+#: widgets/myaccount/myaccountpersonalaccesstokenconfigurewidget.cpp:130
 #, kde-format
 msgctxt "@title:window"
 msgid "Personal Token Created"
 msgstr "Token pertsonala sortu da"
 
-#: widgets/myaccount/myaccountpersonalaccesstokenconfigurewidget.cpp:165
+#: widgets/myaccount/myaccountpersonalaccesstokenconfigurewidget.cpp:166
 #, kde-format
 msgid "Personal Token removed."
 msgstr "Token pertsonala kendu da."
 
-#: widgets/myaccount/myaccountpersonalaccesstokenconfigurewidget.cpp:165
+#: widgets/myaccount/myaccountpersonalaccesstokenconfigurewidget.cpp:166
 #, kde-format
 msgctxt "@title:window"
 msgid "Remove Personal Token"
 msgstr "Kendu token pertsonala"
 
-#: widgets/myaccount/myaccountpersonalaccesstokenconfigurewidget.cpp:203
+#: widgets/myaccount/myaccountpersonalaccesstokenconfigurewidget.cpp:204
 #, kde-format
 msgctxt "@title:window"
 msgid "Personal Token Regenerated"
