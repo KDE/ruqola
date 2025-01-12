@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-01-11 00:40+0000\n"
-"PO-Revision-Date: 2025-01-07 11:10+0100\n"
+"PO-Revision-Date: 2025-01-10 14:34+0100\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
 "Language-Team: French <French <kde-francophone@kde.org>>\n"
 "Language: fr\n"
@@ -11273,6 +11273,8 @@ msgstr "Ajouter une prise en charge pour les modules externes d'outils"
 #: widgets/whatsnew/whatsnewtranslations.cpp:18
 msgid "Plugin: Add screenshot button (near send message button)"
 msgstr ""
+"Module externe : ajout d'un bouton de copie d'écran (Près du bouton d'envoi "
+"de messages)"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:19
 #, fuzzy

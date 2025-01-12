@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-01-11 00:40+0000\n"
-"PO-Revision-Date: 2025-01-06 18:58+0100\n"
+"PO-Revision-Date: 2025-01-11 22:49+0100\n"
 "Last-Translator: Oliver Kellogg <olivermkellogg@gmail.com>\n"
 "Language-Team: Esperanto <kde-i18n-doc@kde.org>\n"
 "Language: eo\n"
@@ -174,15 +174,14 @@ msgid "The following accounts are available:"
 msgstr "La jenaj kontoj disponeblas:"
 
 #: core/accountmanager.cpp:855
-#, fuzzy, kde-format
-#| msgid "Invalid token"
+#, kde-format
 msgid "Invalid invite token"
-msgstr "Nevalida ĵetono"
+msgstr "Nevalida invit-ĵetono"
 
 #: core/accountmanager.cpp:856
 #, kde-format
 msgid "Invite Token is invalid. Creating account canceled."
-msgstr ""
+msgstr "Invit-ĵetono estas nevalida. Kontokreado nuligita."
 
 #: core/apps/appsmarketplaceinfo.cpp:98
 #, kde-format
@@ -11143,10 +11142,8 @@ msgid "Plugin: Add screenshot button (near send message button)"
 msgstr ""
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:19
-#, fuzzy
-#| msgid "Improve mentions support."
 msgid "Implement invite RC url support"
-msgstr "Plibonigi subtenon de mencioj."
+msgstr "Realigi subtenon de RC-URL por invito."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:29
 #, kde-format
@@ -11536,7 +11533,7 @@ msgstr "Permesi montri aplikaĵomerkatan agordon"
 #: widgets/whatsnew/whatsnewtranslations.cpp:157
 #, kde-format
 msgid "Allow to search file from username and filename."
-msgstr ""
+msgstr "Permesi serĉi dosieron el uzantnomo kaj dosiernomo."
 
 #: widgets/whatsnew/whatsnewwidget.cpp:44
 #, kde-format
@@ -11562,7 +11559,3 @@ msgstr "Kelkaj el la novaj funkcioj en ĉi tiu eldono de Ruqola inkluzivas:"
 #, kde-format
 msgid "Some bug fixing:"
 msgstr "Iu erarkorektado:"
-
-#~ msgctxt "@info:shell"
-#~ msgid "Attach File"
-#~ msgstr "Kunsendi Dosieron"

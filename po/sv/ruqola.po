@@ -1,13 +1,13 @@
 # Copyright (C) 2024 This file is copyright:
 # This file is distributed under the same license as the ruqola package.
 #
-# SPDX-FileCopyrightText: 2019, 2020, 2021, 2022, 2023, 2024 Stefan Asserhäll <stefan.asserhall@gmail.com>
+# SPDX-FileCopyrightText: 2019, 2020, 2021, 2022, 2023, 2024, 2025 Stefan Asserhäll <stefan.asserhall@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-01-11 00:40+0000\n"
-"PO-Revision-Date: 2024-12-03 21:01+0100\n"
+"PO-Revision-Date: 2025-01-11 20:54+0100\n"
 "Last-Translator: Stefan Asserhäll <stefan.asserhall@gmail.com>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
 "Language: sv\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 24.08.3\n"
+"X-Generator: Lokalize 24.12.0\n"
 
 #: apps/main.cpp:59
 #, kde-format
@@ -28,10 +28,9 @@ msgid "Rocket Chat Client"
 msgstr "Rocket Chat-klient"
 
 #: apps/main.cpp:63
-#, fuzzy, kde-format
-#| msgid "Copyright © 2020-2024 Ruqola authors"
+#, kde-format
 msgid "Copyright © 2020-2025 Ruqola authors"
-msgstr "Copyright © 2020-2024 Ruqola-upphovsmännen"
+msgstr "Copyright © 2020-2025 Ruqola-upphovsmännen"
 
 #: apps/main.cpp:65
 #, kde-format
@@ -174,15 +173,14 @@ msgid "The following accounts are available:"
 msgstr "Följande konton är tillgängliga:"
 
 #: core/accountmanager.cpp:855
-#, fuzzy, kde-format
-#| msgid "Invalid token"
+#, kde-format
 msgid "Invalid invite token"
-msgstr "Ogiltig symbol"
+msgstr "Ogiltig inbjudningssymbol"
 
 #: core/accountmanager.cpp:856
 #, kde-format
 msgid "Invite Token is invalid. Creating account canceled."
-msgstr ""
+msgstr "Inbjudningssymbolen är ogiltig. Skapa konto avbröts."
 
 #: core/apps/appsmarketplaceinfo.cpp:98
 #, kde-format
@@ -404,10 +402,9 @@ msgid "Allow to read oauth app settings"
 msgstr "Tillåt läsning av oauth-programinställningar"
 
 #: core/apps/appsmarketplaceinfo.cpp:663
-#, fuzzy, kde-format
-#| msgid "Allow to send multi files."
+#, kde-format
 msgid "Allow to send email"
-msgstr "Tillåt att flera filer skickas."
+msgstr "Tillåt att skicka e-post"
 
 #: core/authenticationmanager.cpp:85
 #, kde-format
@@ -729,7 +726,7 @@ msgstr "(Senaste meddelande: %1)"
 #: core/job/extractserverinfojob.cpp:27
 #, kde-format
 msgid "Missing server url."
-msgstr ""
+msgstr "Saknar serverwebbadress."
 
 #: core/job/extractserverinfojob.cpp:35
 #, kde-format
@@ -2004,10 +2001,9 @@ msgid "<qt>You can find the new request at:<br /><a href='%1'>%1</a> </qt>"
 msgstr "<qt>Den nya begäran finns på:<br /><a href='%1'>%1</a> </qt>"
 
 #: plugins/toolsplugin/grabscreen/grabscreenplugintool.cpp:40
-#, fuzzy, kde-format
-#| msgid "Created at"
+#, kde-format
 msgid "Create a screenshot"
-msgstr "Skapad"
+msgstr "Skapa en skärmbild"
 
 #: rocketchatrestapi-qt/autotranslate/getsupportedlanguagesjob.cpp:81
 #, kde-format
@@ -6970,16 +6966,14 @@ msgid "Description"
 msgstr "Beskrivning"
 
 #: widgets/applicationssettingsdialog/applicationssettingsdescriptiontabwidget.cpp:39
-#, fuzzy, kde-format
-#| msgid "Version"
+#, kde-format
 msgid "Versions"
-msgstr "Version"
+msgstr "Versioner"
 
 #: widgets/applicationssettingsdialog/applicationssettingsdescriptiontabwidget.cpp:45
-#, fuzzy, kde-format
-#| msgid "&Settings"
+#, kde-format
 msgid "Settings"
-msgstr "In&ställningar"
+msgstr "Inställningar"
 
 #: widgets/applicationssettingsdialog/applicationssettingsdialog.cpp:27
 #, kde-format
@@ -7019,16 +7013,14 @@ msgid "Copy Text"
 msgstr "Kopiera text"
 
 #: widgets/applicationssettingsdialog/applicationssettingslogswidget.cpp:63
-#, fuzzy, kde-format
-#| msgid "%1: %2"
+#, kde-format
 msgid "%1 Caller: %2"
-msgstr "%1: %2"
+msgstr "%1 anropar: %2"
 
 #: widgets/applicationssettingsdialog/applicationssettingslogswidget.cpp:73
-#, fuzzy, kde-format
-#| msgid "No room found"
+#, kde-format
 msgid "No logs info found."
-msgstr "Inget rum hittades"
+msgstr "Ingen logginformation hittades."
 
 #: widgets/applicationssettingsdialog/applicationssettingspricecombobox.cpp:13
 #, kde-format
@@ -7097,18 +7089,17 @@ msgstr "All status"
 #: widgets/applicationssettingsdialog/applicationssettingsversionwidget.cpp:51
 #, kde-format
 msgid "Fetching version information in progress..."
-msgstr ""
+msgstr "Hämtning av versionsinformation pågår..."
 
 #: widgets/applicationssettingsdialog/applicationssettingsversionwidget.cpp:72
 #, kde-format
 msgid "No release information provided"
-msgstr ""
+msgstr "Ingen utgivningsinformation angiven"
 
 #: widgets/applicationssettingsdialog/applicationssettingsversionwidget.cpp:81
-#, fuzzy, kde-format
-#| msgid "No room found"
+#, kde-format
 msgid "No version info found."
-msgstr "Inget rum hittades"
+msgstr "Ingen versionsinformation hittades."
 
 #: widgets/applicationssettingsdialog/appscountinfowidget.cpp:47
 #, kde-format
@@ -10914,11 +10905,10 @@ msgstr "Skapa lag"
 #: widgets/ruqolamainwindow.cpp:949
 #, kde-format
 msgid "Cannot write to log file %1"
-msgstr ""
+msgstr "Kan inte skriva till loggfil %1"
 
 #: widgets/ruqolamainwindow.cpp:949
-#, fuzzy, kde-format
-#| msgid "Show Channel Log"
+#, kde-format
 msgctxt "@title:window"
 msgid "Show Channel Log"
 msgstr "Visa kanallogg"
@@ -11157,17 +11147,17 @@ msgstr "Vad är nytt i %2. %1"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:17
 msgid "Add support for tools plugins"
-msgstr ""
+msgstr "Lägg stöd för verktygsinsticksprogram"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:18
 msgid "Plugin: Add screenshot button (near send message button)"
 msgstr ""
+"Insticksprogram: Lägg till skärmbildsknapp (nära knappen för att skicka "
+"meddelande)"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:19
-#, fuzzy
-#| msgid "Improve mentions support."
 msgid "Implement invite RC url support"
-msgstr "Förbättra stöd för omnämnanden."
+msgstr "Implementera stöd för RC-webbadressinbjudan"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:29
 #, kde-format
@@ -11508,10 +11498,9 @@ msgid "Add color to the text in the account tab"
 msgstr "Lägg till färg på texten under kontofliken"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:129
-#, fuzzy, kde-format
-#| msgid "Allow to write oauth app settings"
+#, kde-format
 msgid "Allow to show private installed applications"
-msgstr "Tillåt skrivning av oauth-programinställningar"
+msgstr "Tillåt att privata installerade program visas"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:134
 #, kde-format
@@ -11559,15 +11548,14 @@ msgid "Fix open discussion channel"
 msgstr "Rätta öppen sStarta diskussion"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:143
-#, fuzzy, kde-format
-#| msgid "Allow to write oauth app settings"
+#, kde-format
 msgid "Allow to show application market settings"
-msgstr "Tillåt skrivning av oauth-programinställningar"
+msgstr "tillåt att programmens marknadsinställningar visas"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:157
 #, kde-format
 msgid "Allow to search file from username and filename."
-msgstr ""
+msgstr "Tillåt att söka efter fil från användarnamn och filnamn."
 
 #: widgets/whatsnew/whatsnewwidget.cpp:44
 #, kde-format

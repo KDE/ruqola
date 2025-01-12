@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-01-11 00:40+0000\n"
-"PO-Revision-Date: 2025-01-09 14:36+0100\n"
+"PO-Revision-Date: 2025-01-11 12:17+0100\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
 "Language: nl\n"
@@ -173,15 +173,14 @@ msgid "The following accounts are available:"
 msgstr "De volgende accounts zijn beschikbaar:"
 
 #: core/accountmanager.cpp:855
-#, fuzzy, kde-format
-#| msgid "Invalid token"
+#, kde-format
 msgid "Invalid invite token"
-msgstr "Ongeldig token"
+msgstr "Ongeldig uitnodigingstoken"
 
 #: core/accountmanager.cpp:856
 #, kde-format
 msgid "Invite Token is invalid. Creating account canceled."
-msgstr ""
+msgstr "Uitnodigingstoken is ongeldig. Aanmaken account geannuleerd."
 
 #: core/apps/appsmarketplaceinfo.cpp:98
 #, kde-format
@@ -11214,10 +11213,8 @@ msgstr ""
 "bericht)"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:19
-#, fuzzy
-#| msgid "Improve mentions support."
 msgid "Implement invite RC url support"
-msgstr "Ondersteuning van vermeldingen verbeteren."
+msgstr "Ondersteuning voor uitnodiging-RC-url implementeren"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:29
 #, kde-format
