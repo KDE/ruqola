@@ -6,8 +6,10 @@
 
 #pragma once
 
-class NeedUpdateParseHtmlUtil
+#include "libruqolawidgets_private_export.h"
+#include <QString>
+
+namespace NeedUpdateParseHtmlUtil
 {
-public:
-    NeedUpdateParseHtmlUtil();
+[[nodiscard]] LIBRUQOLAWIDGETS_TESTS_EXPORT QString extractDate(const QString &dataHtml);
 };

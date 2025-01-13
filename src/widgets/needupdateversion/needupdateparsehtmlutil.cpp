@@ -5,7 +5,13 @@
 */
 
 #include "needupdateparsehtmlutil.h"
-
-NeedUpdateParseHtmlUtil::NeedUpdateParseHtmlUtil()
+#include <QRegularExpression>
+QString NeedUpdateParseHtmlUtil::extractDate(const QString &dataHtml)
 {
+    if (dataHtml.isEmpty()) {
+        return {};
+    }
+    static const QRegularExpression reg(QStringLiteral("<td align=\"right\">(\\d+\\-\\d\\d\\-\\d\\dd).*<"));
+    // TODO
+    return {};
 }
