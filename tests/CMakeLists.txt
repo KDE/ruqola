@@ -17,3 +17,4 @@ if(OPTION_USE_E2E_SUPPORT)
 endif()
 
 add_subdirectory(passwordvalidategui)
+add_subdirectory(needupdateparsehtmlgui)
