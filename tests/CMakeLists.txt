@@ -18,3 +18,4 @@ endif()
 
 add_subdirectory(passwordvalidategui)
 add_subdirectory(needupdateparsehtmlgui)
+add_subdirectory(needupdatecheckexistingnextversiongui)
