@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-01-11 00:40+0000\n"
-"PO-Revision-Date: 2025-01-10 14:34+0100\n"
+"PO-Revision-Date: 2025-01-11 10:09+0100\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
 "Language-Team: French <French <kde-francophone@kde.org>>\n"
 "Language: fr\n"
@@ -172,15 +172,15 @@ msgid "The following accounts are available:"
 msgstr "Les comptes suivants sont disponibles :"
 
 #: core/accountmanager.cpp:855
-#, fuzzy, kde-format
-#| msgid "Invalid token"
+#, kde-format
 msgid "Invalid invite token"
-msgstr "Jeton non valable"
+msgstr "Jeton d'invitation non valable"
 
 #: core/accountmanager.cpp:856
 #, kde-format
 msgid "Invite Token is invalid. Creating account canceled."
 msgstr ""
+"Le jeton d'invitation n'est pas valable. La création du compte a été annulée."
 
 #: core/apps/appsmarketplaceinfo.cpp:98
 #, kde-format
@@ -11277,10 +11277,8 @@ msgstr ""
 "de messages)"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:19
-#, fuzzy
-#| msgid "Improve mentions support."
 msgid "Implement invite RC url support"
-msgstr "Améliorer la prise en charge des citations."
+msgstr "Implémenter la prise en charge d'URL « rc » d'invitation."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:29
 #, kde-format

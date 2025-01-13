@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-01-11 00:40+0000\n"
-"PO-Revision-Date: 2025-01-04 20:13+0100\n"
+"PO-Revision-Date: 2025-01-11 19:33+0100\n"
 "Last-Translator: Víctor Rodrigo Córdoba <vrcordoba@gmail.com>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -175,15 +175,15 @@ msgid "The following accounts are available:"
 msgstr "Las siguientes cuentas están disponibles:"
 
 #: core/accountmanager.cpp:855
-#, fuzzy, kde-format
-#| msgid "Invalid token"
+#, kde-format
 msgid "Invalid invite token"
-msgstr "Símbolo inválido"
+msgstr "Símbolo de invitación inválido"
 
 #: core/accountmanager.cpp:856
 #, kde-format
 msgid "Invite Token is invalid. Creating account canceled."
 msgstr ""
+"El símbolo de invitación es inválido. Se canceló la creación de cuenta."
 
 #: core/apps/appsmarketplaceinfo.cpp:98
 #, kde-format
@@ -11214,17 +11214,17 @@ msgstr "¿Qué hay de nuevo en %2?. %1"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:17
 msgid "Add support for tools plugins"
-msgstr ""
+msgstr "Añadido soporte para los complementos de herramientas"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:18
 msgid "Plugin: Add screenshot button (near send message button)"
 msgstr ""
+"Complemento: Añadir botón de captura de pantalla (al lado del botón de "
+"enviar mensaje)"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:19
-#, fuzzy
-#| msgid "Improve mentions support."
 msgid "Implement invite RC url support"
-msgstr "Mejora en el soporte de menciones."
+msgstr "Añadido soporte para invitar por URL RC"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:29
 #, kde-format
@@ -11657,7 +11657,3 @@ msgstr ""
 #, kde-format
 msgid "Some bug fixing:"
 msgstr "Algunas correcciones de errores:"
-
-#~ msgctxt "@info:shell"
-#~ msgid "Attach File"
-#~ msgstr "Adjuntar archivo"
