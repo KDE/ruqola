@@ -6,6 +6,8 @@
 
 #include "needupdateparsehtmljob.h"
 #include "ruqolawidgets_debug.h"
+#include <QUrl>
+#include <kio/transferjob.h>
 
 NeedUpdateParseHtmlJob::NeedUpdateParseHtmlJob(QObject *parent)
     : QObject{parent}
@@ -36,8 +38,19 @@ void NeedUpdateParseHtmlJob::start()
         deleteLater();
         return;
     }
-    // TODO
-    deleteLater();
+    KIO::TransferJob *tjob = KIO::get(QUrl(mUrl), KIO::Reload);
+    connect(tjob, &KIO::TransferJob::data, this, &NeedUpdateParseHtmlJob::slotHttpDataFile);
+}
+
+void NeedUpdateParseHtmlJob::slotHttpDataFile(KIO::Job *job, const QByteArray &data)
+{
+    Q_UNUSED(job);
+    if (data.isEmpty()) {
+        Q_EMIT downLoadDone(mData);
+        deleteLater();
+    } else {
+        mData.append(QString::fromUtf8(data));
+    }
 }
 
 #include "moc_needupdateparsehtmljob.cpp"

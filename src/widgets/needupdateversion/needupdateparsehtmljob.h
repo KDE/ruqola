@@ -7,7 +7,10 @@
 #pragma once
 #include "libruqolawidgets_private_export.h"
 #include <QObject>
-
+namespace KIO
+{
+class Job;
+}
 class LIBRUQOLAWIDGETS_TESTS_EXPORT NeedUpdateParseHtmlJob : public QObject
 {
     Q_OBJECT
@@ -22,6 +25,11 @@ public:
 
     void start();
 
+Q_SIGNALS:
+    void downLoadDone(const QString &data);
+
 private:
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotHttpDataFile(KIO::Job *job, const QByteArray &data);
     QString mUrl;
+    QString mData;
 };
