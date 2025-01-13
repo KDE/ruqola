@@ -11,7 +11,12 @@ QString NeedUpdateParseHtmlUtil::extractDate(const QString &dataHtml)
     if (dataHtml.isEmpty()) {
         return {};
     }
-    static const QRegularExpression reg(QStringLiteral("<td align=\"right\">(\\d+\\-\\d\\d\\-\\d\\dd).*<"));
-    // TODO
+    static const QRegularExpression reg(QStringLiteral("<td align=\"right\">(\\d+\\-\\d\\d\\-\\d\\d).*<"));
+
+    const QRegularExpressionMatch match = reg.match(dataHtml);
+    if (match.hasMatch()) {
+        const QString matched = match.captured(1);
+        return matched;
+    }
     return {};
 }

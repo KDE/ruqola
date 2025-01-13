@@ -30,7 +30,6 @@ void NeedUpdateParseHtmlUtilTest::shouldExtraDate()
     f.close();
 
     QCOMPARE(NeedUpdateParseHtmlUtil::extractDate(QString::fromUtf8(content)), dateStr);
-    // TODO
 }
 
 void NeedUpdateParseHtmlUtilTest::shouldExtraDate_data()
@@ -38,7 +37,7 @@ void NeedUpdateParseHtmlUtilTest::shouldExtraDate_data()
     QTest::addColumn<QString>("name");
     QTest::addColumn<QString>("dateStr");
 
-    QTest::addRow("test1") << QStringLiteral("test1") << QStringLiteral("24-12-28");
+    QTest::addRow("test1") << QStringLiteral("test1") << QStringLiteral("2024-12-28");
 }
 
 #include "moc_needupdateparsehtmlutiltest.cpp"
