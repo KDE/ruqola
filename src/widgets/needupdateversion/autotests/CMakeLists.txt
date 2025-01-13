@@ -10,3 +10,4 @@ endmacro()
 
 add_needupdateversion_unittest(needupdateversionwidgettest.cpp)
 add_needupdateversion_unittest(needupdateversionutilstest.cpp)
+add_needupdateversion_unittest(needupdateparsehtmljobtest.cpp)
