@@ -63,7 +63,9 @@ void NeedUpdateVersionWidget::slotCheckNewVersion()
 {
     const QUrl url = NeedUpdateVersionUtils::newVersionUrl();
     if (!url.isEmpty()) {
-        QDesktopServices::openUrl(url);
+        if (!QDesktopServices::openUrl(url)) {
+            qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to open url: " << url;
+        }
         animatedHide();
     }
 }
