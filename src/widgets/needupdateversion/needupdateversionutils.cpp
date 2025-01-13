@@ -68,6 +68,11 @@ bool NeedUpdateVersionUtils::checkVersion()
     return group.readEntry("checkerVersionEnabled", true);
 }
 
+QString NeedUpdateVersionUtils::compileDate()
+{
+    return QString::fromLatin1(__DATE__);
+}
+
 QUrl NeedUpdateVersionUtils::newVersionUrl()
 {
 #if defined(Q_OS_MACOS) || defined(Q_OS_WIN)
