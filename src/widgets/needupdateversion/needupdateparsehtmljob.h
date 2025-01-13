@@ -2,7 +2,6 @@
   SPDX-FileCopyrightText: 2025 Laurent Montel <montel@kde.org>
 
   SPDX-License-Identifier: GPL-2.0-or-later
-  code based on kdenlive
 */
 
 #pragma once
@@ -20,6 +19,8 @@ public:
 
     [[nodiscard]] QString url() const;
     void setUrl(const QString &newUrl);
+
+    void start();
 
 private:
     QString mUrl;

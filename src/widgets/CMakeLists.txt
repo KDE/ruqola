@@ -894,6 +894,9 @@ target_sources(libruqolawidgets PRIVATE
     needupdateversion/needupdateparsehtmljob.h
     needupdateversion/needupdateparsehtmljob.cpp
 
+    needupdateversion/needupdateparsehtmlutil.h
+    needupdateversion/needupdateparsehtmlutil.cpp
+
     encryption/e2esaveencryptionkeywidget.h
     encryption/e2esaveencryptionkeywidget.cpp
     encryption/e2edecodeencryptionkeywidget.cpp
