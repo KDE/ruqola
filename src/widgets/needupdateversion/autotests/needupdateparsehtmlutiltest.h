@@ -14,4 +14,8 @@ class NeedUpdateParseHtmlUtilTest : public QObject
 public:
     explicit NeedUpdateParseHtmlUtilTest(QObject *parent = nullptr);
     ~NeedUpdateParseHtmlUtilTest() override = default;
+
+private Q_SLOTS:
+    void shouldExtraDate();
+    void shouldExtraDate_data();
 };
