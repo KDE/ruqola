@@ -6,6 +6,7 @@
 
 #include "verifynewversionwidget.h"
 #include "needupdateversion/needupdateversionutils.h"
+#include "ruqolawidgets_debug.h"
 #include <KLocalizedString>
 #include <QAction>
 #include <QDesktopServices>
@@ -37,7 +38,9 @@ void VerifyNewVersionWidget::slotVerifyNewVersion()
 {
     const QUrl url = NeedUpdateVersionUtils::newVersionUrl();
     if (!url.isEmpty()) {
-        QDesktopServices::openUrl(url);
+        if (!QDesktopServices::openUrl(url)) {
+            qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to open url: " << url;
+        }
     }
 }
 
