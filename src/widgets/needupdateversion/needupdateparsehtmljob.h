@@ -17,4 +17,10 @@ public:
     ~NeedUpdateParseHtmlJob() override;
 
     [[nodiscard]] bool canStart() const;
+
+    [[nodiscard]] QString url() const;
+    void setUrl(const QString &newUrl);
+
+private:
+    QString mUrl;
 };

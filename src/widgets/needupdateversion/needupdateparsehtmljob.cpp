@@ -16,6 +16,17 @@ NeedUpdateParseHtmlJob::~NeedUpdateParseHtmlJob() = default;
 
 bool NeedUpdateParseHtmlJob::canStart() const
 {
-    // TODO
-    return false;
+    return !mUrl.isEmpty();
 }
+
+QString NeedUpdateParseHtmlJob::url() const
+{
+    return mUrl;
+}
+
+void NeedUpdateParseHtmlJob::setUrl(const QString &newUrl)
+{
+    mUrl = newUrl;
+}
+
+#include "moc_needupdateparsehtmljob.cpp"

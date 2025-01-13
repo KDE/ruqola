@@ -14,4 +14,7 @@ class NeedUpdateParseHtmlJobTest : public QObject
 public:
     explicit NeedUpdateParseHtmlJobTest(QObject *parent = nullptr);
     ~NeedUpdateParseHtmlJobTest() override = default;
+
+private Q_SLOTS:
+    void shouldHaveDefaultValues();
 };
