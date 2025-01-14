@@ -11,3 +11,5 @@ VerifyNewVersionDialog::VerifyNewVersionDialog(QWidget *parent)
 }
 
 VerifyNewVersionDialog::~VerifyNewVersionDialog() = default;
+
+#include "moc_verifynewversiondialog.cpp"

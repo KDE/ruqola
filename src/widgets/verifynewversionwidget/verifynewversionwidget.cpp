@@ -14,3 +14,5 @@ VerifyNewVersionWidget::VerifyNewVersionWidget(QWidget *parent)
 }
 
 VerifyNewVersionWidget::~VerifyNewVersionWidget() = default;
+
+#include "moc_verifynewversionwidget.cpp"
