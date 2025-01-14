@@ -18,12 +18,8 @@ Message::~Message() = default;
 
 void Message::parseMessage(const QJsonObject &o, bool restApi, EmojiManager *emojiManager)
 {
-    const QByteArray roomId = o.value("rid"_L1).toString().toLatin1();
-
-    const QString type = o.value("t"_L1).toString();
-
     mMessageId = o.value("_id"_L1).toString().toLatin1();
-    mRoomId = roomId;
+    mRoomId = o.value("rid"_L1).toString().toLatin1();
     mText = o.value("msg"_L1).toString();
     if (restApi) {
         mUpdatedAt = Utils::parseIsoDate(QStringLiteral("_updatedAt"), o);
@@ -95,6 +91,7 @@ void Message::parseMessage(const QJsonObject &o, bool restApi, EmojiManager *emo
     assignMessageStateValue(Private, o.value("private"_L1).toBool(false));
 
     mMessageType = Message::MessageType::NormalText;
+    const QString type = o.value("t"_L1).toString();
     if (!type.isEmpty()) {
         if (type == "videoconf"_L1) {
             mMessageType = MessageType::VideoConference;
