@@ -40,13 +40,12 @@ void NeedUpdateCheckExistingNewVersionJob::slotDownloadDone(const QString &str)
         return;
     }
 
-    const QDate currentCompiledDate = QDate::fromString(mCompileDate, QStringLiteral("MMM dd yyyy"));
-    qCDebug(RUQOLAWIDGETS_LOG) << " currentCompiledDate " << currentCompiledDate << " original " << mCompileDate;
+    qCDebug(RUQOLAWIDGETS_LOG) << " currentCompiledDate " << mCompileDate;
 
     const QDate dateFromUrl = QDate::fromString(compileDateStr, QStringLiteral("yyyy-MM-dd"));
     qCDebug(RUQOLAWIDGETS_LOG) << " dateFromUrl " << dateFromUrl << " original " << compileDateStr;
 
-    if (dateFromUrl > currentCompiledDate) {
+    if (dateFromUrl > mCompileDate) {
         Q_EMIT foundNewVersion(true);
     } else {
         Q_EMIT foundNewVersion(false);
@@ -66,15 +65,15 @@ void NeedUpdateCheckExistingNewVersionJob::setUrl(const QUrl &newUrl)
 
 bool NeedUpdateCheckExistingNewVersionJob::canStart() const
 {
-    return !mUrl.isEmpty() && !mCompileDate.isEmpty();
+    return !mUrl.isEmpty() && mCompileDate.isValid();
 }
 
-QString NeedUpdateCheckExistingNewVersionJob::compileDate() const
+QDate NeedUpdateCheckExistingNewVersionJob::compileDate() const
 {
     return mCompileDate;
 }
 
-void NeedUpdateCheckExistingNewVersionJob::setCompileDate(const QString &newCompileDate)
+void NeedUpdateCheckExistingNewVersionJob::setCompileDate(const QDate &newCompileDate)
 {
     mCompileDate = newCompileDate;
 }

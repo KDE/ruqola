@@ -68,9 +68,9 @@ bool NeedUpdateVersionUtils::checkVersion()
     return group.readEntry("checkerVersionEnabled", true);
 }
 
-QString NeedUpdateVersionUtils::compileDate()
+QDate NeedUpdateVersionUtils::compileDate()
 {
-    return QString::fromLatin1(__DATE__);
+    return QDate::fromString(QString::fromLatin1(__DATE__), QStringLiteral("MMM dd yyyy"));
 }
 
 QUrl NeedUpdateVersionUtils::newVersionUrl()

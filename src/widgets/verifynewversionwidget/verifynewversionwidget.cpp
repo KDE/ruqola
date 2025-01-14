@@ -8,6 +8,7 @@
 #include "needupdateversion/needupdatecheckexistingnewversionjob.h"
 #include "needupdateversion/needupdateversionutils.h"
 #include <KLocalizedString>
+#include <QLabel>
 #include <QVBoxLayout>
 
 VerifyNewVersionWidget::VerifyNewVersionWidget(QWidget *parent)

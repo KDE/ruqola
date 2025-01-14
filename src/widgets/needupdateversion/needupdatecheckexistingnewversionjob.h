@@ -7,6 +7,7 @@
 #pragma once
 
 #include "libruqolawidgets_private_export.h"
+#include <QDate>
 #include <QObject>
 #include <QUrl>
 
@@ -24,8 +25,8 @@ public:
 
     [[nodiscard]] bool canStart() const;
 
-    [[nodiscard]] QString compileDate() const;
-    void setCompileDate(const QString &newCompileDate);
+    [[nodiscard]] QDate compileDate() const;
+    void setCompileDate(const QDate &newCompileDate);
 
 Q_SIGNALS:
     void foundNewVersion(bool state);
@@ -33,5 +34,5 @@ Q_SIGNALS:
 private:
     LIBRUQOLAWIDGETS_NO_EXPORT void slotDownloadDone(const QString &str);
     QUrl mUrl;
-    QString mCompileDate;
+    QDate mCompileDate;
 };
