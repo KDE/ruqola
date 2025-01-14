@@ -14,4 +14,7 @@ class VerifyNewVersionWidget : public QWidget
 public:
     explicit VerifyNewVersionWidget(QWidget *parent = nullptr);
     ~VerifyNewVersionWidget() override;
+
+private:
+    void checkNewVersion();
 };
