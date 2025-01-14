@@ -3,6 +3,7 @@
 
   SPDX-License-Identifier: GPL-2.0-or-later
 */
+
 #include "verifynewversiondialog.h"
 #include "verifynewversionwidget/verifynewversionwidget.h"
 #include <KLocalizedString>
@@ -33,4 +34,5 @@ void VerifyNewVersionDialog::checkNewVersion()
 {
     mVerifyNewVersionWidget->checkNewVersion();
 }
+
 #include "moc_verifynewversiondialog.cpp"

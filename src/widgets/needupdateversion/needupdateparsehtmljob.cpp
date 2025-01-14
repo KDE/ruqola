@@ -35,6 +35,7 @@ void NeedUpdateParseHtmlJob::start()
 {
     if (!canStart()) {
         qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start NeedUpdateParseHtmlJob";
+        Q_EMIT downLoadDone({});
         deleteLater();
         return;
     }

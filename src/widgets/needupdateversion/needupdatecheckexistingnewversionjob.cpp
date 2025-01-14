@@ -22,6 +22,7 @@ void NeedUpdateCheckExistingNewVersionJob::start()
 {
     if (!canStart()) {
         qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start NeedUpdateCheckExistingNewVersionJob";
+        Q_EMIT foundNewVersion(false);
         deleteLater();
         return;
     }
