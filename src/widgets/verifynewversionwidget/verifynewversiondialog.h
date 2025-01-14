@@ -5,9 +5,11 @@
 */
 #pragma once
 
+#include "libruqolawidgets_private_export.h"
 #include <QDialog>
+
 class VerifyNewVersionWidget;
-class VerifyNewVersionDialog : public QDialog
+class LIBRUQOLAWIDGETS_TESTS_EXPORT VerifyNewVersionDialog : public QDialog
 {
     Q_OBJECT
 public:

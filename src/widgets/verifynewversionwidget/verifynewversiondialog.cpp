@@ -13,6 +13,8 @@ VerifyNewVersionDialog::VerifyNewVersionDialog(QWidget *parent)
     : QDialog(parent)
     , mVerifyNewVersionWidget(new VerifyNewVersionWidget(this))
 {
+    setWindowTitle(i18nc("@title:window", "Check New Version"));
+
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
 

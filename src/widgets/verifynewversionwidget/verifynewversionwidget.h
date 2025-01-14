@@ -6,9 +6,10 @@
 
 #pragma once
 
+#include "libruqolawidgets_private_export.h"
 #include <QWidget>
-
-class VerifyNewVersionWidget : public QWidget
+class QLabel;
+class LIBRUQOLAWIDGETS_TESTS_EXPORT VerifyNewVersionWidget : public QWidget
 {
     Q_OBJECT
 public:
@@ -16,5 +17,7 @@ public:
     ~VerifyNewVersionWidget() override;
 
 private:
-    void checkNewVersion();
+    LIBRUQOLAWIDGETS_NO_EXPORT void checkNewVersion();
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotFoundNewVersion(bool found);
+    QLabel *const mCheckVersionResultLabel;
 };
