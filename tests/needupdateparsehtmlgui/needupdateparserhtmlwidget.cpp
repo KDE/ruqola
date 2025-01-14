@@ -28,7 +28,7 @@ NeedUpdateParserHtmlWidget::NeedUpdateParserHtmlWidget(QWidget *parent)
     connect(pushButton, &QPushButton::clicked, this, [this, lineEdit, plainTextEdit]() {
         if (!lineEdit->text().isEmpty()) {
             auto job = new NeedUpdateParseHtmlJob(this);
-            job->setUrl(lineEdit->text());
+            job->setUrl(QUrl(lineEdit->text()));
             connect(job, &NeedUpdateParseHtmlJob::downLoadDone, this, [plainTextEdit](const QString &data) {
                 plainTextEdit->setPlainText(data);
             });

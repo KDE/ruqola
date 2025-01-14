@@ -21,12 +21,12 @@ bool NeedUpdateParseHtmlJob::canStart() const
     return !mUrl.isEmpty();
 }
 
-QString NeedUpdateParseHtmlJob::url() const
+QUrl NeedUpdateParseHtmlJob::url() const
 {
     return mUrl;
 }
 
-void NeedUpdateParseHtmlJob::setUrl(const QString &newUrl)
+void NeedUpdateParseHtmlJob::setUrl(const QUrl &newUrl)
 {
     mUrl = newUrl;
 }
@@ -38,7 +38,7 @@ void NeedUpdateParseHtmlJob::start()
         deleteLater();
         return;
     }
-    KIO::TransferJob *tjob = KIO::get(QUrl(mUrl), KIO::Reload);
+    KIO::TransferJob *tjob = KIO::get(mUrl, KIO::Reload);
     connect(tjob, &KIO::TransferJob::data, this, &NeedUpdateParseHtmlJob::slotHttpDataFile);
 }
 

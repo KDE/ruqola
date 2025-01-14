@@ -54,12 +54,12 @@ void NeedUpdateCheckExistingNewVersionJob::slotDownloadDone(const QString &str)
     deleteLater();
 }
 
-QString NeedUpdateCheckExistingNewVersionJob::url() const
+QUrl NeedUpdateCheckExistingNewVersionJob::url() const
 {
     return mUrl;
 }
 
-void NeedUpdateCheckExistingNewVersionJob::setUrl(const QString &newUrl)
+void NeedUpdateCheckExistingNewVersionJob::setUrl(const QUrl &newUrl)
 {
     mUrl = newUrl;
 }

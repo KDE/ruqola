@@ -8,6 +8,7 @@
 
 #include "libruqolawidgets_private_export.h"
 #include <QObject>
+#include <QUrl>
 
 class LIBRUQOLAWIDGETS_TESTS_EXPORT NeedUpdateCheckExistingNewVersionJob : public QObject
 {
@@ -18,8 +19,8 @@ public:
 
     void start();
 
-    [[nodiscard]] QString url() const;
-    void setUrl(const QString &newUrl);
+    [[nodiscard]] QUrl url() const;
+    void setUrl(const QUrl &newUrl);
 
     [[nodiscard]] bool canStart() const;
 
@@ -31,6 +32,6 @@ Q_SIGNALS:
 
 private:
     LIBRUQOLAWIDGETS_NO_EXPORT void slotDownloadDone(const QString &str);
-    QString mUrl;
+    QUrl mUrl;
     QString mCompileDate;
 };

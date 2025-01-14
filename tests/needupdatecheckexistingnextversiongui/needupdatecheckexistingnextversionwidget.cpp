@@ -29,7 +29,7 @@ NeedUpdateCheckExistingNextVersionWidget::NeedUpdateCheckExistingNextVersionWidg
     connect(pushButton, &QPushButton::clicked, this, [this, lineEdit, plainTextEdit]() {
         if (!lineEdit->text().isEmpty()) {
             auto job = new NeedUpdateCheckExistingNewVersionJob(this);
-            job->setUrl(lineEdit->text());
+            job->setUrl(QUrl(lineEdit->text()));
             job->setCompileDate(NeedUpdateVersionUtils::compileDate());
             job->start();
         }

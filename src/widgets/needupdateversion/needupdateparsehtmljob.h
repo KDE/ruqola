@@ -7,6 +7,7 @@
 #pragma once
 #include "libruqolawidgets_private_export.h"
 #include <QObject>
+#include <QUrl>
 namespace KIO
 {
 class Job;
@@ -20,8 +21,8 @@ public:
 
     [[nodiscard]] bool canStart() const;
 
-    [[nodiscard]] QString url() const;
-    void setUrl(const QString &newUrl);
+    [[nodiscard]] QUrl url() const;
+    void setUrl(const QUrl &newUrl);
 
     void start();
 
@@ -30,6 +31,6 @@ Q_SIGNALS:
 
 private:
     LIBRUQOLAWIDGETS_NO_EXPORT void slotHttpDataFile(KIO::Job *job, const QByteArray &data);
-    QString mUrl;
+    QUrl mUrl;
     QString mData;
 };
