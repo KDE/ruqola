@@ -41,12 +41,6 @@ void VerifyNewVersionWidget::checkNewVersion()
 void VerifyNewVersionWidget::slotFoundNewVersion(bool found)
 {
     if (found) {
-        auto labelRegularExpression = new QLabel(i18n("You can search using <a href=\"https://en.wikipedia.org/wiki/Regular_expression\">Regular "
-                                                      "Expression</a>. e.g. <code>/^text$/i</code>"),
-                                                 this);
-        labelRegularExpression->setObjectName(QStringLiteral("labelRegularExpression"));
-        labelRegularExpression->setOpenExternalLinks(true);
-
         mCheckVersionResultLabel->setTextFormat(Qt::RichText);
         const QUrl url = NeedUpdateVersionUtils::newVersionUrl();
         mCheckVersionResultLabel->setText(i18n("A new version found. Click <a href=\"%1\">here</a> for downloading it.", url.toString()));

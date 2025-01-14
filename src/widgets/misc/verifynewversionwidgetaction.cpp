@@ -39,6 +39,7 @@ void VerifyNewVersionWidgetAction::slotVerifyNewVersion()
 {
     // TODO add parent
     VerifyNewVersionDialog dlg(nullptr);
+    dlg.checkNewVersion();
     dlg.exec();
 }
 

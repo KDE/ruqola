@@ -16,6 +16,8 @@ public:
     explicit VerifyNewVersionDialog(QWidget *parent = nullptr);
     ~VerifyNewVersionDialog() override;
 
+    void checkNewVersion();
+
 private:
     VerifyNewVersionWidget *const mVerifyNewVersionWidget;
 };

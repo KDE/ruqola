@@ -16,8 +16,9 @@ public:
     explicit VerifyNewVersionWidget(QWidget *parent = nullptr);
     ~VerifyNewVersionWidget() override;
 
+    void checkNewVersion();
+
 private:
-    LIBRUQOLAWIDGETS_NO_EXPORT void checkNewVersion();
     LIBRUQOLAWIDGETS_NO_EXPORT void slotFoundNewVersion(bool found);
     QLabel *const mCheckVersionResultLabel;
 };

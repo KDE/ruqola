@@ -29,4 +29,8 @@ VerifyNewVersionDialog::VerifyNewVersionDialog(QWidget *parent)
 
 VerifyNewVersionDialog::~VerifyNewVersionDialog() = default;
 
+void VerifyNewVersionDialog::checkNewVersion()
+{
+    mVerifyNewVersionWidget->checkNewVersion();
+}
 #include "moc_verifynewversiondialog.cpp"
