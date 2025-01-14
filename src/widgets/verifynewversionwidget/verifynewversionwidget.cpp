@@ -7,7 +7,9 @@
 #include "verifynewversionwidget.h"
 #include "needupdateversion/needupdatecheckexistingnewversionjob.h"
 #include "needupdateversion/needupdateversionutils.h"
+#include "ruqolawidgets_debug.h"
 #include <KLocalizedString>
+#include <QDesktopServices>
 #include <QLabel>
 #include <QVBoxLayout>
 
@@ -21,6 +23,7 @@ VerifyNewVersionWidget::VerifyNewVersionWidget(QWidget *parent)
 
     mCheckVersionResultLabel->setObjectName(QStringLiteral("mCheckVersionResultLabel"));
     mCheckVersionResultLabel->setWordWrap(true);
+    mCheckVersionResultLabel->setOpenExternalLinks(true);
     mainLayout->addWidget(mCheckVersionResultLabel);
 }
 
@@ -38,7 +41,20 @@ void VerifyNewVersionWidget::checkNewVersion()
 void VerifyNewVersionWidget::slotFoundNewVersion(bool found)
 {
     if (found) {
-        mCheckVersionResultLabel->setText(i18n("A new version found. Do you want to download it?"));
+        auto labelRegularExpression = new QLabel(i18n("You can search using <a href=\"https://en.wikipedia.org/wiki/Regular_expression\">Regular "
+                                                      "Expression</a>. e.g. <code>/^text$/i</code>"),
+                                                 this);
+        labelRegularExpression->setObjectName(QStringLiteral("labelRegularExpression"));
+        labelRegularExpression->setOpenExternalLinks(true);
+
+        mCheckVersionResultLabel->setTextFormat(Qt::RichText);
+        const QUrl url = NeedUpdateVersionUtils::newVersionUrl();
+        mCheckVersionResultLabel->setText(i18n("A new version found. Click <a href=\"%1\">here</a> for downloading it.", url.toString()));
+        connect(mCheckVersionResultLabel, &QLabel::linkActivated, this, [](const QString &url) {
+            if (!QDesktopServices::openUrl(QUrl(url))) {
+                qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to open url: " << url;
+            }
+        });
     } else {
         mCheckVersionResultLabel->setText(i18n("No new version found."));
     }
