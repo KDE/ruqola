@@ -32,7 +32,7 @@ class KActionMenu;
 class MessageStyleLayoutMenu;
 class ChangeFontSizeMenu;
 #if defined(Q_OS_WIN) || defined(Q_OS_MACOS)
-class VerifyNewVersionWidget;
+class VerifyNewVersionWidgetAction;
 #endif
 class LIBRUQOLAWIDGETS_EXPORT RuqolaMainWindow : public KXmlGuiWindow
 {
@@ -192,6 +192,6 @@ private:
     MessageStyleLayoutMenu *mMessageStyleAction = nullptr;
     ChangeFontSizeMenu *mChangeFontSizeAction = nullptr;
 #if defined(Q_OS_WIN) || defined(Q_OS_MACOS)
-    VerifyNewVersionWidget *const mVerifyNewVersionWidget;
+    VerifyNewVersionWidgetAction *const mVerifyNewVersionWidgetAction;
 #endif
 };

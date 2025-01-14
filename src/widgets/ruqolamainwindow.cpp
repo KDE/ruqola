@@ -90,7 +90,7 @@
 #include <KWindowSystem>
 #endif
 #if defined(Q_OS_WIN) || defined(Q_OS_MACOS)
-#include "misc/verifynewversionwidget.h"
+#include "misc/verifynewversionwidgetaction.h"
 #endif
 
 #if HAVE_KUSERFEEDBACK
@@ -112,7 +112,7 @@ RuqolaMainWindow::RuqolaMainWindow(QWidget *parent)
     , mStatusProxyModel(new StatusModelFilterProxyModel(this))
     , mSwitchChannelTreeManager(new SwitchChannelTreeViewManager(this))
 #if defined(Q_OS_WIN) || defined(Q_OS_MACOS)
-    , mVerifyNewVersionWidget(new VerifyNewVersionWidget(this))
+    , mVerifyNewVersionWidgetAction(new VerifyNewVersionWidgetAction(this))
 #endif
 
 {
@@ -665,7 +665,7 @@ void RuqolaMainWindow::setupActions()
     connect(mRoomFavorite, &QAction::triggered, this, &RuqolaMainWindow::slotShowFavoriteRoom);
     ac->addAction(QStringLiteral("room_favorite"), mRoomFavorite);
 #if defined(Q_OS_WIN) || defined(Q_OS_MACOS)
-    auto verifyNewVersionAction = mVerifyNewVersionWidget->verifyNewVersionAction();
+    auto verifyNewVersionAction = mVerifyNewVersionWidgetAction->verifyNewVersionAction();
     ac->addAction(QStringLiteral("verify_check_version"), verifyNewVersionAction);
 #endif
 
