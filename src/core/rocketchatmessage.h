@@ -11,7 +11,6 @@
 #include <QDebug>
 #include <QJsonDocument>
 #include <QString>
-class QDateTime;
 class LIBRUQOLACORE_TESTS_EXPORT RocketChatMessage
 {
     Q_GADGET

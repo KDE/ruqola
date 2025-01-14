@@ -10,7 +10,6 @@
 #include "createnewchannelwidget.h"
 #include "libruqolawidgets_private_export.h"
 #include <QDialog>
-class QPushButton;
 class RocketChatAccount;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT CreateNewChannelDialog : public QDialog
 {

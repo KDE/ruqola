@@ -12,7 +12,6 @@
 #include "libruqolacore_export.h"
 #include "messages/message.h"
 #include <QObject>
-class DDPClient;
 class RocketChatAccount;
 class LIBRUQOLACORE_EXPORT RocketChatBackend : public QObject
 {
