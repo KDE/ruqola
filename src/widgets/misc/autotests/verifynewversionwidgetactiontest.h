@@ -8,12 +8,12 @@
 
 #include <QObject>
 
-class VerifyNewVersionWidgetTest : public QObject
+class VerifyNewVersionWidgetActionTest : public QObject
 {
     Q_OBJECT
 public:
-    explicit VerifyNewVersionWidgetTest(QObject *parent = nullptr);
-    ~VerifyNewVersionWidgetTest() override = default;
+    explicit VerifyNewVersionWidgetActionTest(QObject *parent = nullptr);
+    ~VerifyNewVersionWidgetActionTest() override = default;
 
 private Q_SLOTS:
     void shouldHaveDefaultValues();

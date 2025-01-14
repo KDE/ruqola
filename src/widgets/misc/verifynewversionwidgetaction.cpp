@@ -4,7 +4,7 @@
    SPDX-License-Identifier: LGPL-2.0-or-later
 */
 
-#include "verifynewversionwidget.h"
+#include "verifynewversionwidgetaction.h"
 #include "needupdateversion/needupdateversionutils.h"
 #include "ruqolawidgets_debug.h"
 #include <KLocalizedString>
@@ -12,29 +12,29 @@
 #include <QDesktopServices>
 #include <QUrl>
 using namespace Qt::Literals::StringLiterals;
-VerifyNewVersionWidget::VerifyNewVersionWidget(QObject *parent)
+VerifyNewVersionWidgetAction::VerifyNewVersionWidgetAction(QObject *parent)
     : QObject{parent}
 {
 }
 
-VerifyNewVersionWidget::~VerifyNewVersionWidget() = default;
+VerifyNewVersionWidgetAction::~VerifyNewVersionWidgetAction() = default;
 
-bool VerifyNewVersionWidget::canVerifyNewVersion() const
+bool VerifyNewVersionWidgetAction::canVerifyNewVersion() const
 {
     return NeedUpdateVersionUtils::canVerifyNewVersion();
 }
 
-QAction *VerifyNewVersionWidget::verifyNewVersionAction()
+QAction *VerifyNewVersionWidgetAction::verifyNewVersionAction()
 {
     if (!mVerifyNewVersionAction) {
         // TODO add icon
         mVerifyNewVersionAction = new QAction(i18n("Check New Version"), this);
-        connect(mVerifyNewVersionAction, &QAction::triggered, this, &VerifyNewVersionWidget::slotVerifyNewVersion);
+        connect(mVerifyNewVersionAction, &QAction::triggered, this, &VerifyNewVersionWidgetAction::slotVerifyNewVersion);
     }
     return mVerifyNewVersionAction;
 }
 
-void VerifyNewVersionWidget::slotVerifyNewVersion()
+void VerifyNewVersionWidgetAction::slotVerifyNewVersion()
 {
     const QUrl url = NeedUpdateVersionUtils::newVersionUrl();
     if (!url.isEmpty()) {
@@ -44,4 +44,4 @@ void VerifyNewVersionWidget::slotVerifyNewVersion()
     }
 }
 
-#include "moc_verifynewversionwidget.cpp"
+#include "moc_verifynewversionwidgetaction.cpp"

@@ -570,8 +570,8 @@ target_sources(libruqolawidgets PRIVATE
     misc/configuresoundcombobox.h
     misc/configuresoundcombobox.cpp
 
-    misc/verifynewversionwidget.h
-    misc/verifynewversionwidget.cpp
+    misc/verifynewversionwidgetaction.h
+    misc/verifynewversionwidgetaction.cpp
 
     misc/passwordvalidatewidget.h
     misc/passwordvalidatewidget.cpp

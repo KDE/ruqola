@@ -8,12 +8,12 @@
 #include "libruqolawidgets_private_export.h"
 #include <QObject>
 class QAction;
-class LIBRUQOLAWIDGETS_TESTS_EXPORT VerifyNewVersionWidget : public QObject
+class LIBRUQOLAWIDGETS_TESTS_EXPORT VerifyNewVersionWidgetAction : public QObject
 {
     Q_OBJECT
 public:
-    explicit VerifyNewVersionWidget(QObject *parent = nullptr);
-    ~VerifyNewVersionWidget() override;
+    explicit VerifyNewVersionWidgetAction(QObject *parent = nullptr);
+    ~VerifyNewVersionWidgetAction() override;
 
     [[nodiscard]] bool canVerifyNewVersion() const;
 
