@@ -6,11 +6,14 @@
 #pragma once
 
 #include <QDialog>
-
+class VerifyNewVersionWidget;
 class VerifyNewVersionDialog : public QDialog
 {
     Q_OBJECT
 public:
     explicit VerifyNewVersionDialog(QWidget *parent = nullptr);
     ~VerifyNewVersionDialog() override;
+
+private:
+    VerifyNewVersionWidget *const mVerifyNewVersionWidget;
 };
