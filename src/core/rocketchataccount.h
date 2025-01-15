@@ -205,11 +205,8 @@ public:
 
     UsersModel *usersModel() const;
     MessagesModel *threadMessageModel() const;
-    EmoticonModel *emoticonModel() const;
-    CommandsModel *commandsModel() const;
     AutotranslateLanguagesModel *autoTranslateLanguagesModel() const;
     DiscussionsFilterProxyModel *discussionsFilterProxyModel() const;
-    UserCompleterModel *userCompleterModel() const;
     RocketChatAccountSettings *settings() const;
 
     LocalDatabaseManager *localDatabaseManager() const;
@@ -320,7 +317,6 @@ public:
     void updateAvatarCache(const Utils::AvatarInfo &info);
     [[nodiscard]] bool userIsOffline(const QString &name);
     [[nodiscard]] QString userStatusStr(const QString &name);
-    [[nodiscard]] OtrManager *otrManager() const;
 
     // Custom Sound
     void deleteCustomSound(const QJsonArray &replyArray);

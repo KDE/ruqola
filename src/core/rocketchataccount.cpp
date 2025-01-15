@@ -389,11 +389,6 @@ void RocketChatAccount::clearModels()
     mMessageQueue->processQueue();
 }
 
-UserCompleterModel *RocketChatAccount::userCompleterModel() const
-{
-    return mUserCompleterModel;
-}
-
 UserCompleterFilterProxyModel *RocketChatAccount::userCompleterFilterProxyModel() const
 {
     return mUserCompleterFilterModelProxy;
@@ -972,14 +967,9 @@ void RocketChatAccount::updateCustomEmojiList(bool fetchListCustom)
     }
 }
 
-OtrManager *RocketChatAccount::otrManager() const
-{
-    return mOtrManager;
-}
-
 void RocketChatAccount::userAutocomplete(const QString &searchText, const QString &exception)
 {
-    userCompleterModel()->clear();
+    mUserCompleterModel->clear();
     if (!searchText.isEmpty()) {
         const RocketChatRestApi::UsersAutocompleteJob::UsersAutocompleterInfo info{.pattern = searchText, .exception = exception};
         restApi()->usersAutocomplete(info);
@@ -1049,16 +1039,6 @@ DiscussionsModel *RocketChatAccount::discussionsModel() const
 FilesForRoomModel *RocketChatAccount::filesModelForRoom() const
 {
     return mFilesModelForRoom;
-}
-
-EmoticonModel *RocketChatAccount::emoticonModel() const
-{
-    return mEmoticonModel;
-}
-
-CommandsModel *RocketChatAccount::commandsModel() const
-{
-    return mCommandsModel;
 }
 
 ReceiveTypingNotificationManager *RocketChatAccount::receiveTypingNotificationManager() const
