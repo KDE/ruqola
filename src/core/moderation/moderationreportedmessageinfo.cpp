@@ -5,10 +5,10 @@
 */
 
 #include "moderationreportedmessageinfo.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "utils.h"
 
+using namespace Qt::Literals::StringLiterals;
 ModerationReportedMessageInfo::ModerationReportedMessageInfo() = default;
 
 QDebug operator<<(QDebug d, const ModerationReportedMessageInfo &t)

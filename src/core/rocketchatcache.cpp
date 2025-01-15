@@ -324,7 +324,7 @@ void RocketChatCache::insertAvatarUrl(const QString &userIdentifier, const QUrl 
 {
     mAvatarUrl.insert(userIdentifier, url);
     if (!url.isEmpty() && !fileInCache(url)) {
-        mAccount->restApi()->downloadFile(url, QUrl::fromLocalFile(fileCachePath(url)), "image/png");
+        mAccount->restApi()->downloadFile(url, QUrl::fromLocalFile(fileCachePath(url)), "image/png"_ba);
         // this will call slotDataDownloaded
     }
 }
@@ -336,7 +336,7 @@ QString RocketChatCache::recordingVideoPath(const QString &accountName) const
         qCWarning(RUQOLA_LOG) << "Unable to create video folder: " << path;
         return {};
     }
-    const QString filePath = path + QLatin1Char('/') + QString::number(QDateTime::currentDateTime().toMSecsSinceEpoch()) + QStringLiteral(".mp4");
+    const QString filePath = path + QLatin1Char('/') + QString::number(QDateTime::currentDateTime().toMSecsSinceEpoch()) + ".mp4"_L1;
     return filePath;
 }
 
@@ -347,7 +347,7 @@ QString RocketChatCache::recordingImagePath(const QString &accountName) const
         qCWarning(RUQOLA_LOG) << "Unable to create picture folder: " << path;
         return {};
     }
-    const QString filePath = path + QLatin1Char('/') + QString::number(QDateTime::currentDateTime().toMSecsSinceEpoch()) + QStringLiteral(".jpg");
+    const QString filePath = path + QLatin1Char('/') + QString::number(QDateTime::currentDateTime().toMSecsSinceEpoch()) + ".jpg"_L1;
     return filePath;
 }
 

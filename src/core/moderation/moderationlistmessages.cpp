@@ -4,11 +4,11 @@
    SPDX-License-Identifier: LGPL-2.0-or-later
 */
 #include "moderationlistmessages.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "moderationmessage.h"
 #include "ruqola_debug.h"
 
+using namespace Qt::Literals::StringLiterals;
 ModerationListMessages::ModerationListMessages() = default;
 
 ModerationListMessages::~ModerationListMessages() = default;
