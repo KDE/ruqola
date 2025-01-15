@@ -73,7 +73,13 @@ void ModerationReportInfoListView::slotCustomContextMenuRequested(const QPoint &
         QMenu menu(this);
         const QModelIndex index = indexAt(pos);
         if (index.isValid()) {
-            auto copyAction = new QAction(QIcon::fromTheme(QStringLiteral("edit-copy")), i18nc("@action", "Copy Message"), &menu);
+            auto copyAction = new QAction(&menu);
+            copyAction->setIcon(QIcon::fromTheme(QStringLiteral("edit-copy")));
+            if (hasSelection()) {
+                copyAction->setText(i18nc("@action", "Copy Selection"));
+            } else {
+                copyAction->setText(i18nc("@action", "Copy Message"));
+            }
             copyAction->setShortcut(QKeySequence::Copy);
             connect(copyAction, &QAction::triggered, this, [this, index]() {
                 copyMessageToClipboard(index);
@@ -116,6 +122,11 @@ QString ModerationReportInfoListView::selectedText(const QModelIndex &index)
         messageText = index.data(ModerationReportInfoModel::Message).toString();
     }
     return messageText;
+}
+
+bool ModerationReportInfoListView::hasSelection() const
+{
+    return mModerationReportInfoDelegate->hasSelection();
 }
 
 #include "moc_moderationreportinfolistview.cpp"

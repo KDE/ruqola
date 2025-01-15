@@ -174,6 +174,11 @@ QString MessageListViewBase::selectedText(const QModelIndex &index)
     return {};
 }
 
+bool MessageListViewBase::hasSelection() const
+{
+    return false;
+}
+
 void MessageListViewBase::copyMessageToClipboard(const QModelIndex &index)
 {
     const QString messageText = selectedText(index);

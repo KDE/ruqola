@@ -80,7 +80,13 @@ void NotificationHistoryListView::slotCustomContextMenuRequested(const QPoint &p
                 Q_EMIT showMessage(index);
             });
             menu.addSeparator();
-            auto copyAction = new QAction(QIcon::fromTheme(QStringLiteral("edit-copy")), i18nc("@action", "Copy Message"), &menu);
+            auto copyAction = new QAction(&menu);
+            copyAction->setIcon(QIcon::fromTheme(QStringLiteral("edit-copy")));
+            if (hasSelection()) {
+                copyAction->setText(i18nc("@action", "Copy Selection"));
+            } else {
+                copyAction->setText(i18nc("@action", "Copy Message"));
+            }
             copyAction->setShortcut(QKeySequence::Copy);
             connect(copyAction, &QAction::triggered, this, [this, index]() {
                 copyMessageToClipboard(index);
@@ -123,6 +129,11 @@ QString NotificationHistoryListView::selectedText(const QModelIndex &index)
         messageText = index.data(NotificationHistoryModel::MessageStr).toString();
     }
     return messageText;
+}
+
+bool NotificationHistoryListView::hasSelection() const
+{
+    return mListNotificationsDelegate->hasSelection();
 }
 
 void NotificationHistoryListView::slotClearList()

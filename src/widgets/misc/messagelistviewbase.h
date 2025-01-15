@@ -48,6 +48,7 @@ protected:
     QList<PluginTextInterface *> mPluginTextInterface;
 
     [[nodiscard]] virtual QString selectedText(const QModelIndex &index);
+    [[nodiscard]] virtual bool hasSelection() const;
 
 private:
     LIBRUQOLAWIDGETS_NO_EXPORT void handleMouseEvent(QMouseEvent *event);

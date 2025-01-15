@@ -275,7 +275,13 @@ void MessageListView::contextMenuEvent(QContextMenuEvent *event)
     mMessageListDelegate->attachmentContextMenu(options, index, info, &menu);
     const bool isNotOwnerOfMessage = (index.data(MessagesModel::UserId).toByteArray() != mCurrentRocketChatAccount->userId());
 
-    auto copyAction = new QAction(QIcon::fromTheme(QStringLiteral("edit-copy")), i18nc("@action", "Copy Message"), &menu);
+    auto copyAction = new QAction(&menu);
+    copyAction->setIcon(QIcon::fromTheme(QStringLiteral("edit-copy")));
+    if (hasSelection()) {
+        copyAction->setText(i18nc("@action", "Copy Selection"));
+    } else {
+        copyAction->setText(i18nc("@action", "Copy Message"));
+    }
     copyAction->setShortcut(QKeySequence::Copy);
     connect(copyAction, &QAction::triggered, this, [this, index]() {
         copyMessageToClipboard(index);
@@ -937,6 +943,11 @@ void MessageListView::slotStartDiscussion(const QModelIndex &index)
     const QString message = index.data(MessagesModel::OriginalMessage).toString();
     const QByteArray messageId = index.data(MessagesModel::MessageId).toByteArray();
     Q_EMIT createNewDiscussion(messageId, message);
+}
+
+bool MessageListView::hasSelection() const
+{
+    return mMessageListDelegate->hasSelection();
 }
 
 QString MessageListView::selectedText(const QModelIndex &index)

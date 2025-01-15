@@ -47,7 +47,13 @@ void ServerErrorInfoMessageHistoryListView::slotCustomContextMenuRequested(const
         const QModelIndex index = indexAt(pos);
         if (index.isValid()) {
             menu.addSeparator();
-            auto copyAction = new QAction(QIcon::fromTheme(QStringLiteral("edit-copy")), i18nc("@action", "Copy Message"), &menu);
+            auto copyAction = new QAction(&menu);
+            copyAction->setIcon(QIcon::fromTheme(QStringLiteral("edit-copy")));
+            if (hasSelection()) {
+                copyAction->setText(i18nc("@action", "Copy Selection"));
+            } else {
+                copyAction->setText(i18nc("@action", "Copy Message"));
+            }
             copyAction->setShortcut(QKeySequence::Copy);
             connect(copyAction, &QAction::triggered, this, [this, index]() {
                 copyMessageToClipboard(index);
@@ -127,6 +133,11 @@ QString ServerErrorInfoMessageHistoryListView::selectedText(const QModelIndex &i
         messageText = index.data(ServerErrorInfoHistoryModel::MessageStr).toString();
     }
     return messageText;
+}
+
+bool ServerErrorInfoMessageHistoryListView::hasSelection() const
+{
+    return mListServerErrorInfosDelegate->hasSelection();
 }
 
 void ServerErrorInfoMessageHistoryListView::slotClearList()

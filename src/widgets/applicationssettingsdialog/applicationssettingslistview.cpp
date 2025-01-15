@@ -97,6 +97,11 @@ QString ApplicationsSettingsListView::selectedText() const
     return mApplicationsSettingsListDelegate->selectedText();
 }
 
+bool ApplicationsSettingsListView::hasSelection() const
+{
+    return mApplicationsSettingsListDelegate->hasSelection();
+}
+
 QString ApplicationsSettingsListView::selectedText(const QModelIndex &index)
 {
     QString messageText = selectedText();

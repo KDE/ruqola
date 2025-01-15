@@ -25,5 +25,6 @@ private:
     LIBRUQOLAWIDGETS_NO_EXPORT void slotSelectAll(const QModelIndex &index);
     [[nodiscard]] LIBRUQOLAWIDGETS_NO_EXPORT QString selectedText(const QModelIndex &index) override;
     [[nodiscard]] LIBRUQOLAWIDGETS_NO_EXPORT QString selectedText() const;
+    [[nodiscard]] LIBRUQOLAWIDGETS_NO_EXPORT bool hasSelection() const override;
     BannerInfoListViewDelegate *const mBannerInfoListViewDelegate;
 };
