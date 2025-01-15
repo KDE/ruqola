@@ -101,19 +101,6 @@ User::PresenceStatus UsersModel::status(const QByteArray &userId) const
     return User::PresenceStatus::Offline;
 }
 
-User UsersModel::fullUserInfo(const QString &userName) const
-{
-    const int userCount = mUsers.count();
-
-    for (int i = 0; i < userCount; ++i) {
-        const User user = mUsers.at(i);
-        if (user.userName() == userName) {
-            return user;
-        }
-    }
-    return {};
-}
-
 void UsersModel::removeUser(const QByteArray &userId)
 {
     qCDebug(RUQOLA_LOG) << " User removed " << userId;

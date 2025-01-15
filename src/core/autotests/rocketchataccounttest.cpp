@@ -60,7 +60,6 @@ void RocketChatAccountTest::shouldHaveDefaultValue()
     QVERIFY(w.uploadFileManager());
     QVERIFY(!w.ruqolaServerConfig()->allowPasswordReset());
     QVERIFY(w.bannerInfos().isEmpty());
-    QVERIFY(w.videoConferenceManager());
     QVERIFY(w.videoConferenceMessageInfoManager());
     QVERIFY(w.notificationPreferences());
     QVERIFY(w.appsMarketPlaceModel());

@@ -2090,11 +2090,6 @@ void RocketChatAccount::checkInitializedRoom(const QByteArray &roomId)
     }
 }
 
-void RocketChatAccount::openDocumentation()
-{
-    RuqolaUtils::self()->openUrl(QUrl(QStringLiteral("help:/")));
-}
-
 void RocketChatAccount::updateAvatarCache(const Utils::AvatarInfo &info)
 {
     mCache->updateAvatar(info);
@@ -2340,11 +2335,6 @@ VideoConferenceMessageInfoManager *RocketChatAccount::videoConferenceMessageInfo
     return mVideoConferenceMessageInfoManager;
 }
 
-VideoConferenceManager *RocketChatAccount::videoConferenceManager() const
-{
-    return mVideoConferenceManager;
-}
-
 void RocketChatAccount::downloadAppsLanguages()
 {
     mDownloadAppsLanguagesManager->setServerVersion(mServerConfigInfo->serverVersionStr());
@@ -2393,11 +2383,6 @@ bool RocketChatAccount::runCommand(const QString &msg, const QByteArray &roomId,
         return true;
     }
     return false;
-}
-
-User RocketChatAccount::fullUserInfo(const QString &userName) const
-{
-    return mUserModel->fullUserInfo(userName);
 }
 
 void RocketChatAccount::slotDDpLoginStatusChanged()

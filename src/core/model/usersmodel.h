@@ -35,7 +35,6 @@ public:
     [[nodiscard]] QString userStatusIconFileName(const QString &name) const;
 
     [[nodiscard]] User::PresenceStatus status(const QByteArray &userId) const;
-    [[nodiscard]] User fullUserInfo(const QString &userName) const;
     [[nodiscard]] bool userIsOffline(const QString &name) const;
 
     [[nodiscard]] QString userStatusStr(const QString &name) const;

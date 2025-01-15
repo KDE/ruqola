@@ -175,7 +175,6 @@ public:
     [[nodiscard]] QList<Permission> permissions() const;
 
     void blockUser(const QString &userId, bool block);
-    void openDocumentation();
     void reactOnMessage(const QByteArray &messageId, const QString &emoji, bool shouldReact);
     void ignoreUser(const QByteArray &rid, const QByteArray &userId, bool ignore);
     void setSortUnreadOnTop(bool b);
@@ -273,8 +272,6 @@ public:
     [[nodiscard]] QString recordingVideoPath() const;
     [[nodiscard]] QString recordingImagePath() const;
 
-    [[nodiscard]] User fullUserInfo(const QString &userName) const;
-
     [[nodiscard]] bool accountEnabled() const;
 
     void insertAvatarUrl(const QString &userId, const QUrl &url);
@@ -366,8 +363,6 @@ public:
     [[nodiscard]] bool sortFavoriteChannels() const;
     void setShowFavoriteRoom(bool checked);
     void parseVideoConference(const QJsonArray &contents);
-    [[nodiscard]] VideoConferenceManager *videoConferenceManager() const;
-
     [[nodiscard]] VideoConferenceMessageInfoManager *videoConferenceMessageInfoManager() const;
 
     [[nodiscard]] QUrl faviconLogoUrlFromLocalCache(const QString &url);
