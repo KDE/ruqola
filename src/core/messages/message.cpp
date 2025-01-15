@@ -1302,11 +1302,11 @@ QDebug operator<<(QDebug d, const Message &t)
     d.space() << "mGroupable:" << t.groupable();
     d.space() << "mParseUrls:" << t.parseUrls();
     if (t.attachments()) {
-        d.space() << "Attachment:" << *t.attachments();
+        d.space() << "\nAttachment:" << *t.attachments();
     }
 
     if (t.urls()) {
-        d.space() << "Urls:" << *t.urls();
+        d.space() << "\nUrls:" << *t.urls();
     }
     d.space() << "Mentions:" << t.mentions();
     d.space() << "mMessageType:" << t.messageType();
