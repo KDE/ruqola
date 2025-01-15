@@ -156,6 +156,7 @@ QList<WhatsNewInfo> WhatsNewTranslations::createWhatsNewInfo() const
         info.setVersion(QStringLiteral("2.5"));
         info.setBugFixings({
             i18n("Allow to search file from username and filename."),
+            i18n("Fix copy action text when we copy a text selection."),
         });
 
         listInfo.append(std::move(info));
