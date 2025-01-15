@@ -748,13 +748,13 @@ void RocketChatAccount::logOut()
     mSettings->logout();
     mRoomModel->clear();
     if (mRestApi) {
-        if (!mRestApi->authenticationManager()->logoutAndCleanup(ownUser())) {
+        if (!mRestApi->authenticationManager()->logoutAndCleanup(mOwnUser)) {
             qCDebug(RUQOLA_RECONNECT_LOG) << "impossible to logout cleanup (restapi): " << accountName();
             mRestApi.reset();
         } // in the normal case, a job was launched and mRestApi will be deleted in slotRESTLoginStatusChanged
     }
     if (mDdp) {
-        if (!mDdp->authenticationManager()->logoutAndCleanup(ownUser())) {
+        if (!mDdp->authenticationManager()->logoutAndCleanup(mOwnUser)) {
             qCDebug(RUQOLA_RECONNECT_LOG) << "impossible to logout cleanup (ddp): " << accountName();
             mDdp.reset();
         }
@@ -1755,12 +1755,12 @@ void RocketChatAccount::setSortUnreadOnTop(bool checked)
 
 bool RocketChatAccount::sortUnreadOnTop() const
 {
-    return ownUser().ownUserPreferences().showUnread();
+    return mOwnUser.ownUserPreferences().showUnread();
 }
 
 bool RocketChatAccount::sortFavoriteChannels() const
 {
-    return ownUser().ownUserPreferences().showFavorite();
+    return mOwnUser.ownUserPreferences().showFavorite();
 }
 
 void RocketChatAccount::setRoomListDisplay(OwnUserPreferences::RoomListDisplay roomListDisplay)
@@ -1804,12 +1804,12 @@ void RocketChatAccount::setRoomListSortOrder(OwnUserPreferences::RoomListSortOrd
 
 OwnUserPreferences::RoomListSortOrder RocketChatAccount::roomListSortOrder() const
 {
-    return ownUser().ownUserPreferences().roomListSortOrder();
+    return mOwnUser.ownUserPreferences().roomListSortOrder();
 }
 
 OwnUserPreferences::RoomListDisplay RocketChatAccount::roomListDisplay() const
 {
-    return ownUser().ownUserPreferences().roomListDisplay();
+    return mOwnUser.ownUserPreferences().roomListDisplay();
 }
 
 void RocketChatAccount::kickUser(const QByteArray &roomId, const QByteArray &userId, Room::RoomType channelType)
@@ -2726,12 +2726,12 @@ void RocketChatAccount::addMessage(const QJsonObject &replyObject, bool useRestA
 
 OwnUserPreferences RocketChatAccount::ownUserPreferences() const
 {
-    return ownUser().ownUserPreferences();
+    return mOwnUser.ownUserPreferences();
 }
 
 QStringList RocketChatAccount::highlightWords() const
 {
-    return ownUser().ownUserPreferences().highlightWords();
+    return mOwnUser.ownUserPreferences().highlightWords();
 }
 
 void RocketChatAccount::setAvatarUrl(const QString &url)
@@ -2837,12 +2837,12 @@ void RocketChatAccount::slotUpdateCustomUserStatus()
 
 bool RocketChatAccount::hideRoles() const
 {
-    return ownUser().ownUserPreferences().hideRoles();
+    return mOwnUser.ownUserPreferences().hideRoles();
 }
 
 bool RocketChatAccount::displayAvatars() const
 {
-    return ownUser().ownUserPreferences().displayAvatars();
+    return mOwnUser.ownUserPreferences().displayAvatars();
 }
 
 void RocketChatAccount::slotLoadRoles()
