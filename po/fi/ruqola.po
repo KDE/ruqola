@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-01-14 00:41+0000\n"
+"POT-Creation-Date: 2025-01-15 00:41+0000\n"
 "PO-Revision-Date: 2024-12-07 18:13+0200\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
@@ -741,120 +741,120 @@ msgstr ""
 msgid "Socket was unexpectedly closed."
 msgstr "Pistoke suljettiin odottamatta."
 
-#: core/messages/block.cpp:128 core/messages/message.cpp:859
+#: core/messages/block.cpp:128 core/messages/message.cpp:856
 #: core/model/notificationhistorymodel.cpp:63
 #: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:128
 #, kde-format
 msgid "Conference Call"
 msgstr "Konferenssipuhelu"
 
-#: core/messages/message.cpp:755
+#: core/messages/message.cpp:752
 #, kde-format
 msgid "%1 has joined the channel"
 msgstr "%1 on liittynyt kanavalle"
 
-#: core/messages/message.cpp:757
+#: core/messages/message.cpp:754
 #, kde-format
 msgid "%1 has left the channel"
 msgstr "%1 on poistunut kanavalta"
 
-#: core/messages/message.cpp:759
+#: core/messages/message.cpp:756
 #, kde-format
 msgid "%1 left this Team"
 msgstr "%1 jätti tämän työryhmän"
 
-#: core/messages/message.cpp:762
+#: core/messages/message.cpp:759
 #, kde-format
 msgid "Topic was cleared by: %1"
 msgstr "%1 on tyhjentänyt aiheen"
 
-#: core/messages/message.cpp:764
+#: core/messages/message.cpp:761
 #, kde-format
 msgid "%2 changed topic to: <i>%1</i>"
 msgstr "%2 muutti aiheeksi <i>%1</i>"
 
-#: core/messages/message.cpp:767
+#: core/messages/message.cpp:764
 #, kde-format
 msgid "%2 added %1 to the conversation"
 msgstr "%2 lisäsi henkilön %1 keskusteluun"
 
-#: core/messages/message.cpp:769
+#: core/messages/message.cpp:766
 #, kde-format
 msgid "%2 changed room name to <a href=\"ruqola:/room/%1\">#%1</a>"
 msgstr "%2 muutti huoneen nimeksi <a href=\"ruqola:/room/%1\">#%1</a>"
 
-#: core/messages/message.cpp:771
+#: core/messages/message.cpp:768
 #, kde-format
 msgid "%2 removed user %1"
 msgstr "%2 poisti käyttäjän %1"
 
-#: core/messages/message.cpp:774
+#: core/messages/message.cpp:771
 #, kde-format
 msgid "Description was cleared by %1"
 msgstr "%1 on tyhjentänyt kuvauksen"
 
-#: core/messages/message.cpp:776
+#: core/messages/message.cpp:773
 #, kde-format
 msgid "%2 changed room description to %1"
 msgstr "%2 muutti huoneen kuvaukseksi %1"
 
-#: core/messages/message.cpp:780
+#: core/messages/message.cpp:777
 #, kde-format
 msgid "Announcement was cleared by %1"
 msgstr "%1 on tyhjentänyt ilmoituksen"
 
-#: core/messages/message.cpp:782
+#: core/messages/message.cpp:779
 #, kde-format
 msgid "%2 changed room announcement to %1"
 msgstr "%2 muutti huoneen ilmoitukseksi %1"
 
-#: core/messages/message.cpp:785
+#: core/messages/message.cpp:782
 #, kde-format
 msgid "%2 changed room privacy to %1"
 msgstr "%2 muutti huoneen yksityisyydeksi %1"
 
-#: core/messages/message.cpp:787
+#: core/messages/message.cpp:784
 #, kde-format
 msgid "Click to join to video"
 msgstr "Liity videoon napsauttamalla"
 
-#: core/messages/message.cpp:790
+#: core/messages/message.cpp:787
 #, kde-format
 msgid "Message Deleted"
 msgstr "Viesti poistettu"
 
-#: core/messages/message.cpp:792
+#: core/messages/message.cpp:789
 #, kde-format
 msgid "Message Pinned"
 msgstr "Viesti kiinnitetty"
 
-#: core/messages/message.cpp:794
+#: core/messages/message.cpp:791
 #, kde-format
 msgid "Encrypted Message"
 msgstr "Salattu viesti"
 
-#: core/messages/message.cpp:796
+#: core/messages/message.cpp:793
 #, kde-format
 msgid "%1 was unmuted by %2"
 msgstr "%2 poisti vaimennuksen käyttäjältä %1"
 
-#: core/messages/message.cpp:798
+#: core/messages/message.cpp:795
 #, kde-format
 msgid "%1 was muted by %2"
 msgstr "%2 vaimensi käyttäjän %1"
 
-#: core/messages/message.cpp:800
+#: core/messages/message.cpp:797
 #, kde-format
 msgid "Role '%3' was added to %1 by %2"
 msgstr "%2 lisäsi käyttäjälle %1 roolin ”%3”"
 
-#: core/messages/message.cpp:802
+#: core/messages/message.cpp:799
 #, kde-format
 msgid "Role '%3' was removed to %1 by %2"
 msgstr "%2 poisti käyttäjältä %1 roolin ”%3”"
 
 #. i18n("Encrypted message: %1", mText);
-#: core/messages/message.cpp:806
+#: core/messages/message.cpp:803
 #, kde-format
 msgid ""
 "This message is end-to-end encrypted. To view it, you must enter your "
@@ -863,122 +863,122 @@ msgstr ""
 "Tämä viesti on salattu päästä päähän. Nähdäksesi sen tilin asetuksiin on "
 "syötettävä salausavain."
 
-#: core/messages/message.cpp:808
+#: core/messages/message.cpp:805
 #, kde-format
 msgid "Discussion created about \"%1\""
 msgstr "Luotu keskustelu aiheesta ”%1”"
 
-#: core/messages/message.cpp:810
+#: core/messages/message.cpp:807
 #, kde-format
 msgid "%1 has joined the conversation"
 msgstr "%1 on liittynyt keskusteluun"
 
-#: core/messages/message.cpp:812
+#: core/messages/message.cpp:809
 #, kde-format
 msgid "This room has been archived by %1"
 msgstr "%1 on arkistoinut huoneen"
 
-#: core/messages/message.cpp:814
+#: core/messages/message.cpp:811
 #, kde-format
 msgid "This room has been unarchived by %1"
 msgstr "%1 on palauttanut huoneen arkistosta"
 
-#: core/messages/message.cpp:817 core/messages/message.cpp:864
+#: core/messages/message.cpp:814 core/messages/message.cpp:861
 #, kde-format
 msgid "Unknown action!"
 msgstr "Tuntematon toiminto!"
 
-#: core/messages/message.cpp:821
+#: core/messages/message.cpp:818
 #, kde-format
 msgid "Welcome %1!"
 msgstr "Tervetuloa, %1!"
 
-#: core/messages/message.cpp:823
+#: core/messages/message.cpp:820
 #, kde-format
 msgid "Room avatar changed by %1"
 msgstr "%1 vaihtoi huoneen avatarin"
 
-#: core/messages/message.cpp:825
+#: core/messages/message.cpp:822
 #, kde-format
 msgid "This room's encryption has been enabled by %1"
 msgstr "%1 otti käyttöön tämän huoneen salauksen."
 
-#: core/messages/message.cpp:827
+#: core/messages/message.cpp:824
 #, kde-format
 msgid "This room's encryption has been disabled by %1"
 msgstr "%1 on poistanut salauksen käytössä tässä huoneessa"
 
-#: core/messages/message.cpp:829
+#: core/messages/message.cpp:826
 #, kde-format
 msgid "Room set as Read Only by  %1"
 msgstr "%1 asetti huoneen vain luettavaksi"
 
-#: core/messages/message.cpp:831
+#: core/messages/message.cpp:828
 #, kde-format
 msgid "Room added writing permission by %1"
 msgstr "%1 lisäsi huoneeseen kirjoitusoikeuden"
 
-#: core/messages/message.cpp:833
+#: core/messages/message.cpp:830
 #, kde-format
 msgid "%1 added @%2 to this Team"
 msgstr "%1 lisäsi käyttäjän @%2 tähän työryhmään"
 
-#: core/messages/message.cpp:835
+#: core/messages/message.cpp:832
 #, kde-format
 msgid "%1 removed @%2 from this Team"
 msgstr "%1 poisti käyttäjän @%2 tästä työryhmästä"
 
-#: core/messages/message.cpp:837
+#: core/messages/message.cpp:834
 #, kde-format
 msgid "%1 converted #%2 to a Team"
 msgstr "%1 muunsi työryhmäksi: #%2"
 
-#: core/messages/message.cpp:839
+#: core/messages/message.cpp:836
 #, kde-format
 msgid "%1 converted #%2 to a Channel"
 msgstr "%1 muunsi kanavaksi: #%2"
 
-#: core/messages/message.cpp:841
+#: core/messages/message.cpp:838
 #, kde-format
 msgid "%1 removed #%2 from this Team"
 msgstr "%1 poisti tästä työryhmästä: #%2"
 
-#: core/messages/message.cpp:843
+#: core/messages/message.cpp:840
 #, kde-format
 msgid "%1 deleted #%2"
 msgstr "%1 poisti: #%2"
 
-#: core/messages/message.cpp:845
+#: core/messages/message.cpp:842
 #, kde-format
 msgid "%1 added #%2 to this Team"
 msgstr "%1 lisäsi tähän työryhmään: #%2"
 
-#: core/messages/message.cpp:847
+#: core/messages/message.cpp:844
 #, kde-format
 msgid "Room allowed reacting by %1"
 msgstr "%1 otti reagoinnin huoneessa käyttöön"
 
-#: core/messages/message.cpp:849
+#: core/messages/message.cpp:846
 #, kde-format
 msgid "Room disallowed reacting by %1"
 msgstr "%1 esti huoneessa reagoinnin"
 
-#: core/messages/message.cpp:851
+#: core/messages/message.cpp:848
 #, kde-format
 msgid "%1 joined this Team"
 msgstr "%1 liittyi tähän työryhmään"
 
-#: core/messages/message.cpp:853
+#: core/messages/message.cpp:850
 #, kde-format
 msgid "%1 has joined OTR chat."
 msgstr "%1 liittyi OTR-keskusteluun."
 
-#: core/messages/message.cpp:855
+#: core/messages/message.cpp:852
 #, kde-format
 msgid "%1 key refreshed successfully"
 msgstr "%1 avaimen virkistys onnistui"
 
-#: core/messages/message.cpp:857
+#: core/messages/message.cpp:854
 #, kde-format
 msgid "%1 has requested key refresh."
 msgstr "%1 pyysi avaimen virkistystä."
@@ -9109,7 +9109,7 @@ msgctxt "@action:button"
 msgid "Send new code"
 msgstr "Lähetä uusi koodi"
 
-#: widgets/misc/verifynewversionwidget.cpp:31
+#: widgets/misc/verifynewversionwidgetaction.cpp:32
 #, kde-format
 msgid "Check New Version"
 msgstr "Etsi uutta versiota"
@@ -11076,6 +11076,24 @@ msgstr "Tilin tiedot"
 msgid "Return the number of account."
 msgstr "Palauta tilien lukumäärä."
 
+#: widgets/verifynewversionwidget/verifynewversiondialog.cpp:17
+#, fuzzy, kde-format
+#| msgid "Check New Version"
+msgctxt "@title:window"
+msgid "Check New Version"
+msgstr "Etsi uutta versiota"
+
+#: widgets/verifynewversionwidget/verifynewversionwidget.cpp:46
+#, kde-format
+msgid "A new version found. Click <a href=\"%1\">here</a> for downloading it."
+msgstr ""
+
+#: widgets/verifynewversionwidget/verifynewversionwidget.cpp:53
+#, fuzzy, kde-format
+#| msgid "No room found"
+msgid "No new version found."
+msgstr "Huonetta ei löytynyt"
+
 #: widgets/welcome/welcomewidget.cpp:21
 #, kde-format
 msgctxt "@action:button"
@@ -11118,104 +11136,108 @@ msgstr ""
 msgid "Implement invite RC url support"
 msgstr "Toteutettu mainintatuki."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:29
+#: widgets/whatsnew/whatsnewtranslations.cpp:20
+msgid "Implement verify if a new Ruqola version exist"
+msgstr ""
+
+#: widgets/whatsnew/whatsnewtranslations.cpp:30
 #, kde-format
 msgid "Store Message in Local Database (experimental)"
 msgstr "Talleta viestit paikalliseen tietokantaan (kokeellinen)"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:31
+#: widgets/whatsnew/whatsnewtranslations.cpp:32
 #, kde-format
 msgid "Download Server Icon from Server"
 msgstr "Lataa palvelimelta palvelinkuvake"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:32
+#: widgets/whatsnew/whatsnewtranslations.cpp:33
 #, kde-format
 msgid "Show Server Error Info in Specific DialogBox"
 msgstr "Näytä palvelimen virhetiedot erityisikkunassa"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:33
+#: widgets/whatsnew/whatsnewtranslations.cpp:34
 #, kde-format
 msgid "Allow to Copy Image in Clipboard"
 msgstr "Salli kuvan kopioiminen leikepöydälle"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:34
+#: widgets/whatsnew/whatsnewtranslations.cpp:35
 #, kde-format
 msgid "Improve debug support (Allow to show current account permissions)"
 msgstr ""
 "Paranna virheenpaikannustukea (salli nykyisen tilin käyttöoikeuksien "
 "näyttäminen)"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:35
+#: widgets/whatsnew/whatsnewtranslations.cpp:36
 #, kde-format
 msgid "Add support for quoted text (text which starts by '>')"
 msgstr "Lisää tuki lainatulle tekstille (tekstille, joka alkaa ”>”)"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:36
+#: widgets/whatsnew/whatsnewtranslations.cpp:37
 #, kde-format
 msgid "Show leader/moderator/owner in channel info."
 msgstr "Näytä kanavatiedoissa johtaja/moderaattori/omistaja."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:37
+#: widgets/whatsnew/whatsnewtranslations.cpp:38
 #, kde-format
 msgid "Video/Sound Message support (kf6 only)."
 msgstr "Video/ääniviestituki (vain kf6)."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:38
+#: widgets/whatsnew/whatsnewtranslations.cpp:39
 #, kde-format
 msgid "Import/Export Accounts."
 msgstr "Tilien tuonti ja vienti."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:40
+#: widgets/whatsnew/whatsnewtranslations.cpp:41
 #, kde-format
 msgid "Fix avatar support"
 msgstr "Avatartuen korjaus"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:41
+#: widgets/whatsnew/whatsnewtranslations.cpp:42
 #, kde-format
 msgid "Fix emoji support (use new ktextaddons/textemoticons)"
 msgstr "Emojituen korjaus (käytössä uusi ktextaddons/textemoticons)"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:42
+#: widgets/whatsnew/whatsnewtranslations.cpp:43
 #, kde-format
 msgid "Fix animated gif in reactions"
 msgstr "Korjaa reaktioiden animoidut GIFfit"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:43
+#: widgets/whatsnew/whatsnewtranslations.cpp:44
 #, kde-format
 msgid "Fix kf6 support"
 msgstr "Korjattu kf6-tuki"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:49
+#: widgets/whatsnew/whatsnewtranslations.cpp:50
 #, kde-format
 msgid "Add Moderation Console (Administration, RC server 6.2)"
 msgstr "Lisätty moderointikonsoli (ylläpito, RC-palvelin 6.2)"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:49
+#: widgets/whatsnew/whatsnewtranslations.cpp:50
 #, kde-format
 msgid "Implement message style"
 msgstr "Toteutettu viestityyli"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:49
+#: widgets/whatsnew/whatsnewtranslations.cpp:50
 #, kde-format
 msgid "Implement Url Preview"
 msgstr "Toteutettu verkko-osoitteiden esikatselu"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:51
+#: widgets/whatsnew/whatsnewtranslations.cpp:52
 #, kde-format
 msgid "Fix markdown support (header + check mark)"
 msgstr "Korjattu Markdown-tuki (otsake + valintamerkki)"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:52
+#: widgets/whatsnew/whatsnewtranslations.cpp:53
 #, kde-format
 msgid "Fix mem leak"
 msgstr "Korjattu muistivuoto"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:53
+#: widgets/whatsnew/whatsnewtranslations.cpp:54
 #, kde-format
 msgid "Cache message size (optimization)"
 msgstr "Viestivälimuistin koko (optimointi)"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:54
+#: widgets/whatsnew/whatsnewtranslations.cpp:55
 #, kde-format
 msgid ""
 "Improve select room or user in message line edit (show icon, inform if user "
@@ -11224,7 +11246,7 @@ msgstr ""
 "Parannettu huoneen tai käyttäjän valintaa viestirivimuokkauksessa (näyttää "
 "kuvakkeen, ilmoittaa onko käyttäjä kanavalla)"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:55
+#: widgets/whatsnew/whatsnewtranslations.cpp:56
 #, kde-format
 msgid ""
 "Fix show commands in message line edit (Hide action when room doesn't "
@@ -11233,43 +11255,43 @@ msgstr ""
 "Korjattu komentojen näyttöä viestirivimuokkauksessa (piilottaa toiminnon, "
 "jota huone ei tue)."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:56
+#: widgets/whatsnew/whatsnewtranslations.cpp:57
 #, kde-format
 msgid "Fix download sound/video file when it's not in cache."
 msgstr ""
 "Korjattu ääni- tai videotiedoston lataaminen, kun sitä ei ole välimuistissa."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:57
+#: widgets/whatsnew/whatsnewtranslations.cpp:58
 #, kde-format
 msgid "Fix list of authentication method."
 msgstr "Korjattu todennustapaluettelo."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:58
+#: widgets/whatsnew/whatsnewtranslations.cpp:59
 #, kde-format
 msgid "Fix show avatar url."
 msgstr "Korjattu avatarin verkko-osoitteen näyttäminen."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:66
+#: widgets/whatsnew/whatsnewtranslations.cpp:67
 #, kde-format
 msgid "Allow to increase/decrease font (CTRL++/CTRL+-)"
 msgstr "Sallittu suurentaa/pienentää fonttia (Ctrl++/Ctrl+-)"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:67
+#: widgets/whatsnew/whatsnewtranslations.cpp:68
 #, kde-format
 msgid "Add channel list style (Condensed/Medium/Extended)"
 msgstr "Lisätty kanavaluettelotyylit (tiivis/tavallinen/laajennettu)"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:68
+#: widgets/whatsnew/whatsnewtranslations.cpp:69
 #, kde-format
 msgid "Add forward message"
 msgstr "Lisätty viestin edennys"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:69
+#: widgets/whatsnew/whatsnewtranslations.cpp:70
 #, kde-format
 msgid "Improve mentions support."
 msgstr "Toteutettu mainintatuki."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:70
+#: widgets/whatsnew/whatsnewtranslations.cpp:71
 #, kde-format
 msgid ""
 "Add support for deep linking <a href=\"https://developer.rocket.chat/getting-"
@@ -11278,12 +11300,12 @@ msgstr ""
 "Lisätty <a href=\"https://developer.rocket.chat/getting-started/deep-linking"
 "\">syvälinkityksen</a> tuki"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:71
+#: widgets/whatsnew/whatsnewtranslations.cpp:72
 #, kde-format
 msgid "Implement block actions."
 msgstr ""
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:72
+#: widgets/whatsnew/whatsnewtranslations.cpp:73
 #, kde-format
 msgid ""
 "Implement personal token authentication. <a href=\"https://bugs.kde.org/"
@@ -11292,108 +11314,108 @@ msgstr ""
 "Toteutettu henkilökohtaisen pääsymerkin todennus. <a href=\"https://bugs.kde."
 "org/show_bug.cgi?id=481400\">Vikailmoitus 481400</a>"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:73
+#: widgets/whatsnew/whatsnewtranslations.cpp:74
 #, kde-format
 msgid "Add Plasma Activities Support"
 msgstr "Lisätty Plasma-aktiviteettien tuki"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:74
+#: widgets/whatsnew/whatsnewtranslations.cpp:75
 #, kde-format
 msgid "Add Report User Support"
 msgstr "Lisätty käyttäjästä ilmoittamisen tuki"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:75
+#: widgets/whatsnew/whatsnewtranslations.cpp:76
 #, kde-format
 msgid "Implement Channel Sound Notification."
 msgstr "Toteutettu kanavan ääni-ilmoitukset."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:76
+#: widgets/whatsnew/whatsnewtranslations.cpp:77
 #, kde-format
 msgid "Implement New Room Sound Notification."
 msgstr "Toteutettu uuden huoneen ääni-ilmoitus."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:77
+#: widgets/whatsnew/whatsnewtranslations.cpp:78
 #, kde-format
 msgid "Implement Sorted/Unsorted markdown list."
 msgstr "Toteutettu lajiteltu ja lajittelematon Markdown-luettelo."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:80
+#: widgets/whatsnew/whatsnewtranslations.cpp:81
 #, kde-format
 msgid "Fix dark mode support."
 msgstr "Korjattu tumman tilan tuki."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:81
+#: widgets/whatsnew/whatsnewtranslations.cpp:82
 #, kde-format
 msgid "Fix jitsi support."
 msgstr "Korjattu Jitsi-tuki."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:82
+#: widgets/whatsnew/whatsnewtranslations.cpp:83
 #, kde-format
 msgid "Fix translate message in direct channel."
 msgstr "Korjattu suorakanavan viestin kääntäminen."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:83
+#: widgets/whatsnew/whatsnewtranslations.cpp:84
 #, kde-format
 msgid "Don't show @here/@all as user."
 msgstr "Älä näytä käyttäjäksi @here/@all."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:84
+#: widgets/whatsnew/whatsnewtranslations.cpp:85
 #, kde-format
 msgid "Reduce memory footprint."
 msgstr "Vähennetty muistijälkeä."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:85
+#: widgets/whatsnew/whatsnewtranslations.cpp:86
 #, kde-format
 msgid "Use RESTAPI for logging."
 msgstr "Käytä lokiin RESTAPIa."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:86
+#: widgets/whatsnew/whatsnewtranslations.cpp:87
 #, kde-format
 msgid "Allow to send multi files."
 msgstr "Salli useamman tiedoston lähettäminen."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:87
+#: widgets/whatsnew/whatsnewtranslations.cpp:88
 #, kde-format
 msgid "Fix preview url."
 msgstr "Korjattu verkko-osoitteen esikatselu."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:95
+#: widgets/whatsnew/whatsnewtranslations.cpp:96
 #, kde-format
 msgid "Implement Rocket.Chat Marketplace."
 msgstr "Toteutettu Rocket.Chat-tori."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:96
+#: widgets/whatsnew/whatsnewtranslations.cpp:97
 #, kde-format
 msgid "Allow to clean room history."
 msgstr "Sallittu tyhjentää huoneen historia."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:97
+#: widgets/whatsnew/whatsnewtranslations.cpp:98
 #, kde-format
 msgid "Allow to check new version."
 msgstr "Sallittu etsiä uutta versiota."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:98
+#: widgets/whatsnew/whatsnewtranslations.cpp:99
 #, kde-format
 msgid "Implement moderation (administrator mode)."
 msgstr "Toteutettu moderointi (ylläpitotila)."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:99
+#: widgets/whatsnew/whatsnewtranslations.cpp:100
 #, kde-format
 msgid "Add welcome page."
 msgstr "Lisätty tervetulosivu."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:100
+#: widgets/whatsnew/whatsnewtranslations.cpp:101
 #, kde-format
 msgid "Implement pending users info (administrator mode)."
 msgstr "Toteutettu jonossa olevien käyttäjien tiedot (ylläpitotila)."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:101
+#: widgets/whatsnew/whatsnewtranslations.cpp:102
 #, kde-format
 msgid "Use cmark-rc (https://github.com/dfaure/cmark-rc) for markdown support."
 msgstr ""
 "Markdown-tukeen käytetty cmark-rc:tä (https://github.com/dfaure/cmark-rc)."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:102
+#: widgets/whatsnew/whatsnewtranslations.cpp:103
 #, kde-format
 msgid ""
 "Delete oldest files from some cache directories (file-upload and media) so "
@@ -11402,122 +11424,122 @@ msgstr ""
 "Poistettu vanhimmat viestit välimuistikansioista (tiedoston lähetys ja "
 "media), jottei välimuisti kasva loputtomasti."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:106
+#: widgets/whatsnew/whatsnewtranslations.cpp:107
 #, kde-format
 msgid ""
 "Clean market application model after 30 minutes (reduce memory footprint)."
 msgstr ""
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:107
+#: widgets/whatsnew/whatsnewtranslations.cpp:108
 #, kde-format
 msgid "Fix show discussion name in completion."
 msgstr "Korjattu keskustelun nimen näyttö täydennyksissä."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:108
+#: widgets/whatsnew/whatsnewtranslations.cpp:109
 #, kde-format
 msgid "Fix duplicated messages in search message dialog."
 msgstr "Korjattu toistuvat viestit viestihakuikkunassa."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:109
+#: widgets/whatsnew/whatsnewtranslations.cpp:110
 #, fuzzy, kde-format
 #| msgid "Total Messages in Channels"
 msgid "Add delegate in search rooms in team dialog."
 msgstr "Viestejä kanavilla yhteensä"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:123
+#: widgets/whatsnew/whatsnewtranslations.cpp:124
 #, kde-format
 msgid "Allow to clean up room history when room was not opened from long time."
 msgstr ""
 "Salli huoneen historian siivoaminen, kun huonetta ei ole avattu pitkään "
 "aikaan."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:124
+#: widgets/whatsnew/whatsnewtranslations.cpp:125
 #, kde-format
 msgid "Add restore button in administrator server settings dialog."
 msgstr "Lisää palautuspainike ylläpitäjän palvelinasetusikkunaan."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:125
+#: widgets/whatsnew/whatsnewtranslations.cpp:126
 #, kde-format
 msgid "Improve changing password (show validation info)."
 msgstr "Parannettu salasanavaihto (näyttää todennustiedot)."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:126
+#: widgets/whatsnew/whatsnewtranslations.cpp:127
 #, kde-format
 msgid "Improve register new account (Add reason support)."
 msgstr "Parannettu uuden tilin rekisteröimistä (lisätty syyn tuki)."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:127
+#: widgets/whatsnew/whatsnewtranslations.cpp:128
 #, kde-format
 msgid "Implement mute/unmute user."
 msgstr "Toteutettu käyttäjän vaimennus."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:128
+#: widgets/whatsnew/whatsnewtranslations.cpp:129
 #, kde-format
 msgid "Add color to the text in the account tab"
 msgstr ""
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:129
+#: widgets/whatsnew/whatsnewtranslations.cpp:130
 #, fuzzy, kde-format
 #| msgctxt "@info:placeholder"
 #| msgid "Search Installed Applications"
 msgid "Allow to show private installed applications"
 msgstr "Etsi asennettuja sovelluksia"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:134
+#: widgets/whatsnew/whatsnewtranslations.cpp:135
 #, kde-format
 msgid "Fix editing message."
 msgstr "Korjattu viestin muokkaus."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:135
+#: widgets/whatsnew/whatsnewtranslations.cpp:136
 #, kde-format
 msgid "Show permissions in Rocket.Chat Marketplace."
 msgstr "Käyttöoikeuksien näyttäminen Rocket.Chat-torilla."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:136
+#: widgets/whatsnew/whatsnewtranslations.cpp:137
 #, kde-format
 msgid "Fix reconnect server."
 msgstr "Korjattu palvelimeen uudelleenyhdistäminen."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:137
+#: widgets/whatsnew/whatsnewtranslations.cpp:138
 #, kde-format
 msgid "Fix single application on Windows/MacOs"
 msgstr ""
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:138
+#: widgets/whatsnew/whatsnewtranslations.cpp:139
 #, kde-format
 msgid "Fix select created room/discussion/teams"
 msgstr ""
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:139
+#: widgets/whatsnew/whatsnewtranslations.cpp:140
 #, kde-format
 msgid "Fix filter discussion in administrator mode"
 msgstr ""
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:140
+#: widgets/whatsnew/whatsnewtranslations.cpp:141
 #, fuzzy, kde-format
 #| msgid "Fix kf6 support"
 msgid "Fix message video support"
 msgstr "Korjattu kf6-tuki"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:141
+#: widgets/whatsnew/whatsnewtranslations.cpp:142
 #, kde-format
 msgid "Fix highlight text in quoted message"
 msgstr ""
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:142
+#: widgets/whatsnew/whatsnewtranslations.cpp:143
 #, fuzzy, kde-format
 #| msgid "Open Discussion"
 msgid "Fix open discussion channel"
 msgstr "Avaa keskustelu"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:143
+#: widgets/whatsnew/whatsnewtranslations.cpp:144
 #, fuzzy, kde-format
 #| msgctxt "@info:placeholder"
 #| msgid "Search Installed Applications"
 msgid "Allow to show application market settings"
 msgstr "Etsi asennettuja sovelluksia"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:157
+#: widgets/whatsnew/whatsnewtranslations.cpp:158
 #, kde-format
 msgid "Allow to search file from username and filename."
 msgstr ""
