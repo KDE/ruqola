@@ -275,8 +275,12 @@ MessageDelegateHelperUrlPreview::adaptMousePosition(const QPoint &pos, const Mes
 
 QPoint MessageDelegateHelperUrlPreview::relativePos(const QPoint &pos, const PreviewLayout &layout, QRect previewRect) const
 {
-    const auto dpr = layout.pixmap.devicePixelRatioF();
-    return pos - previewRect.topLeft() - QPoint(0, layout.imageSize.height() / dpr + layout.previewTitleSize.height() + DelegatePaintUtil::margin());
+    int offsetHeightImage = 0;
+    if (layout.imageSize.height() > 0) {
+        const auto dpr = layout.pixmap.devicePixelRatioF();
+        offsetHeightImage = layout.imageSize.height() / dpr;
+    }
+    return pos - previewRect.topLeft() - QPoint(0, offsetHeightImage + layout.previewTitleSize.height() + DelegatePaintUtil::margin());
 }
 
 QString MessageDelegateHelperUrlPreview::urlAt(const QStyleOptionViewItem &option, const MessageUrl &messageUrl, QRect previewsRect, QPoint pos)
