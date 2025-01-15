@@ -654,7 +654,7 @@ DDPClient *RocketChatAccount::ddp()
         ddpclientAccountParameter->logger = mRuqolaLogger;
         ddpclientAccountParameter->messageQueue = mMessageQueue;
         ddpclientAccountParameter->accountName = accountName();
-        ddpclientAccountParameter->defaultAuthenticationInterface = defaultAuthenticationInterface();
+        ddpclientAccountParameter->defaultAuthenticationInterface = mDefaultAuthenticationInterface;
         mDdp->setDDPClientAccountParameter(ddpclientAccountParameter);
         // Delay the call to mDdp->start() in case it emits disconnectedByServer right away
         // The caller doesn't expect ddp() to get reset to nullptr right away.
@@ -711,7 +711,7 @@ void RocketChatAccount::tryLogin()
     Q_ASSERT(ddp());
 
     if (Ruqola::useRestApiLogin()) {
-        if (auto interface = defaultAuthenticationInterface()) {
+        if (auto interface = mDefaultAuthenticationInterface) {
             qCDebug(RUQOLA_RECONNECT_LOG) << "RESTAPI login" << accountName();
             if (!interface->login()) {
                 qCDebug(RUQOLA_RECONNECT_LOG) << "RESTAPI impossible to login" << accountName();
@@ -1521,11 +1521,6 @@ void RocketChatAccount::initializeAuthenticationPlugins()
         qCDebug(RUQOLA_LOG) << " plugin type " << abstractPlugin->authenticationType();
     }
     // TODO fill ??? or store QList<AuthenticationInfo>
-}
-
-PluginAuthenticationInterface *RocketChatAccount::defaultAuthenticationInterface() const
-{
-    return mDefaultAuthenticationInterface;
 }
 
 QString RocketChatAccount::userName() const

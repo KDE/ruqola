@@ -251,8 +251,6 @@ public:
     [[nodiscard]] EmojiManager *emojiManager() const;
     [[nodiscard]] QString userStatusIconFileName(const QString &id);
 
-    [[nodiscard]] PluginAuthenticationInterface *defaultAuthenticationInterface() const;
-
     void removeSettings();
 
     void rolesChanged(const QJsonArray &contents);
