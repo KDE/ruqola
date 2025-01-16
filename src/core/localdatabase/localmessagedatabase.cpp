@@ -117,6 +117,7 @@ QList<Message> LocalMessageDatabase::loadMessages(const QString &accountName,
         const QString fileName = dbFileName(accountName, roomName);
         // qDebug() << " fileName " << fileName;
         if (!QFileInfo::exists(fileName)) {
+            qCWarning(RUQOLA_DATABASE_LOG) << "Filename doesn't exist: " << fileName;
             return {};
         }
         db = QSqlDatabase::addDatabase(QStringLiteral("QSQLITE"), dbName);
