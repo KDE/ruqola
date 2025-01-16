@@ -353,7 +353,6 @@ Q_SIGNALS:
     void teamInfoChanged();
 
 private:
-    Q_DISABLE_COPY(Room)
     LIBRUQOLACORE_NO_EXPORT void parseCommonData(const QJsonObject &json);
     LIBRUQOLACORE_NO_EXPORT void parseDisplaySystemMessage(const QJsonObject &json);
     LIBRUQOLACORE_NO_EXPORT void parseRetentionInfo(const QJsonObject &json);
