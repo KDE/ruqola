@@ -25,18 +25,18 @@ bool CreateUpdateUserInfo::isValid() const
 
 QDebug operator<<(QDebug d, const RocketChatRestApi::CreateUpdateUserInfo &t)
 {
-    d << "roles " << t.mRoles;
-    d << "mUserId " << t.mUserId;
-    d << "mEmail " << t.mEmail;
-    d << "mName " << t.mName;
-    d << "mUserName " << t.mUserName;
-    d << "mBio " << t.mBio;
-    // d << "mPassword " << t.mPassword;
-    d << "mStatusText " << t.mStatusText;
-    d << "mNickName " << t.mNickName;
-    d << "mRequirePasswordChange " << t.mRequirePasswordChange;
-    d << "mAssignRandomPassword " << t.mSetRandomPassword;
-    d << "mSendWelcomeEmail " << t.mSendWelcomeEmail;
+    d.space() << "roles " << t.mRoles;
+    d.space() << "mUserId " << t.mUserId;
+    d.space() << "mEmail " << t.mEmail;
+    d.space() << "mName " << t.mName;
+    d.space() << "mUserName " << t.mUserName;
+    d.space() << "mBio " << t.mBio;
+    // d.space() << "mPassword " << t.mPassword;
+    d.space() << "mStatusText " << t.mStatusText;
+    d.space() << "mNickName " << t.mNickName;
+    d.space() << "mRequirePasswordChange " << t.mRequirePasswordChange;
+    d.space() << "mAssignRandomPassword " << t.mSetRandomPassword;
+    d.space() << "mSendWelcomeEmail " << t.mSendWelcomeEmail;
     return d;
 }
 

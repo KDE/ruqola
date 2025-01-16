@@ -96,10 +96,10 @@ bool VideoConference::isValid() const
 
 QDebug operator<<(QDebug d, const VideoConference &t)
 {
-    d << "mCallId " << t.callId();
-    d << "mRoomId " << t.roomId();
-    d << "mUserId " << t.userId();
-    d << "mAction " << t.action();
+    d.space() << "mCallId " << t.callId();
+    d.space() << "mRoomId " << t.roomId();
+    d.space() << "mUserId " << t.userId();
+    d.space() << "mAction " << t.action();
     return d;
 }
 

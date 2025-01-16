@@ -50,9 +50,9 @@ bool TranslateTextJob::TranslateInfo::isValid() const
 
 QDebug operator<<(QDebug d, const TranslateTextJob::TranslateInfo &t)
 {
-    d << "From " << t.from;
-    d << "To " << t.to;
-    d << "inputtext " << t.inputText;
+    d.space() << "From " << t.from;
+    d.space() << "To " << t.to;
+    d.space() << "inputtext " << t.inputText;
     return d;
 }
 

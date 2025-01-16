@@ -132,15 +132,15 @@ QNetworkRequest RoomsExportJob::request() const
 
 QDebug operator<<(QDebug d, const RocketChatRestApi::RoomsExportJob::RoomsExportInfo &t)
 {
-    d << "roomId " << t.roomId;
-    d << "toUsers " << t.toUsers;
-    d << "toEmails " << t.toEmails;
-    d << "subject " << t.subject;
-    d << "messages " << t.messages;
-    d << "dateFrom " << t.dateFrom;
-    d << "dateTo " << t.dateTo;
-    d << "fileFormat " << static_cast<int>(t.fileFormat);
-    d << "exportAs " << static_cast<int>(t.exportAs);
+    d.space() << "roomId " << t.roomId;
+    d.space() << "toUsers " << t.toUsers;
+    d.space() << "toEmails " << t.toEmails;
+    d.space() << "subject " << t.subject;
+    d.space() << "messages " << t.messages;
+    d.space() << "dateFrom " << t.dateFrom;
+    d.space() << "dateTo " << t.dateTo;
+    d.space() << "fileFormat " << static_cast<int>(t.fileFormat);
+    d.space() << "exportAs " << static_cast<int>(t.exportAs);
     return d;
 }
 

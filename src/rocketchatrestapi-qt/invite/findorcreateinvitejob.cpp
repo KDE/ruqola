@@ -142,11 +142,11 @@ QString FindOrCreateInviteJob::errorMessage(const QString &str, const QJsonObjec
 
 QDebug operator<<(QDebug d, const FindOrCreateInviteJob::InviteUsersInfo &t)
 {
-    d.space() << " url: " << t.url;
-    d.space() << " roomId: " << t.roomId;
-    d.space() << " userId: " << t.userId;
-    d.space() << " expireDateTime: " << t.expireDateTime;
-    d.space() << " maxUses: " << t.maxUses;
+    d.space() << "url: " << t.url;
+    d.space() << "roomId: " << t.roomId;
+    d.space() << "userId: " << t.userId;
+    d.space() << "expireDateTime: " << t.expireDateTime;
+    d.space() << "maxUses: " << t.maxUses;
     return d;
 }
 

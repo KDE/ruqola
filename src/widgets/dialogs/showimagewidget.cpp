@@ -375,11 +375,11 @@ void ShowImageWidget::copyLocation()
 
 QDebug operator<<(QDebug d, const ShowImageWidget::ImageInfo &t)
 {
-    d << "bigImagePath : " << t.bigImagePath;
-    d << "previewImagePath : " << t.previewImagePath;
-    d << "isAnimatedImage : " << t.isAnimatedImage;
-    d << " pixmap is null ? " << t.pixmap.isNull();
-    d << " needToDownloadBigImage ? " << t.needToDownloadBigImage;
+    d.space() << "bigImagePath : " << t.bigImagePath;
+    d.space() << "previewImagePath : " << t.previewImagePath;
+    d.space() << "isAnimatedImage : " << t.isAnimatedImage;
+    d.space() << "pixmap is null ? " << t.pixmap.isNull();
+    d.space() << "needToDownloadBigImage ? " << t.needToDownloadBigImage;
     return d;
 }
 

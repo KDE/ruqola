@@ -33,7 +33,7 @@ QString ImportExportUtils::databasePath()
 
 QDebug operator<<(QDebug d, const ImportExportUtils::AccountImportExportInfo &t)
 {
-    d << "path " << t.path;
-    d << "accountName " << t.accountName;
+    d.space() << "path " << t.path;
+    d.space() << "accountName " << t.accountName;
     return d;
 }

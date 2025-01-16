@@ -144,11 +144,11 @@ User Users::takeAt(int index)
 
 QDebug operator<<(QDebug d, const Users &t)
 {
-    d << "total " << t.total();
-    d << "offset " << t.offset();
-    d << "usersCount " << t.usersCount() << "\n";
+    d.space() << "total " << t.total();
+    d.space() << "offset " << t.offset();
+    d.space() << "usersCount " << t.usersCount() << "\n";
     for (int i = 0, total = t.users().count(); i < total; ++i) {
-        d << t.users().at(i) << "\n";
+        d.space() << t.users().at(i) << "\n";
     }
     return d;
 }

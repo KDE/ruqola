@@ -101,28 +101,28 @@ void User::setStatusText(const QString &statusText)
 
 QDebug operator<<(QDebug d, const User::UserEmailsInfo &t)
 {
-    d << "email " << t.email;
-    d << "verified " << t.verified;
+    d.space() << "email " << t.email;
+    d.space() << "verified " << t.verified;
     return d;
 }
 
 QDebug operator<<(QDebug d, const User &t)
 {
-    d << " Name " << t.name();
-    d << " UserId " << t.userId();
-    d << " Status " << t.status();
-    d << " UserName " << t.userName();
-    d << " UtcOffset " << t.utcOffset();
-    d << " StatusText " << t.statusText();
-    d << " roles " << t.roles();
-    d << " CreatedAt " << t.createdAt();
-    d << " Last Login " << t.lastLogin();
-    d << " userEmailsInfo " << t.userEmailsInfo();
-    d << " active " << t.active();
-    d << " mRequirePasswordChange " << t.requirePasswordChange();
-    d << " mBio " << t.bio();
-    d << " mNickName " << t.nickName();
-    d << " mType " << t.type();
+    d.space() << "Name " << t.name();
+    d.space() << "UserId " << t.userId();
+    d.space() << "Status " << t.status();
+    d.space() << "UserName " << t.userName();
+    d.space() << "UtcOffset " << t.utcOffset();
+    d.space() << "StatusText " << t.statusText();
+    d.space() << "roles " << t.roles();
+    d.space() << "CreatedAt " << t.createdAt();
+    d.space() << "Last Login " << t.lastLogin();
+    d.space() << "userEmailsInfo " << t.userEmailsInfo();
+    d.space() << "active " << t.active();
+    d.space() << "mRequirePasswordChange " << t.requirePasswordChange();
+    d.space() << "mBio " << t.bio();
+    d.space() << "mNickName " << t.nickName();
+    d.space() << "mType " << t.type();
     return d;
 }
 

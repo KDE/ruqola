@@ -57,9 +57,9 @@ void AdministratorOauthCreateWidget::setOauthInfo(const OauthCreateInfo &info)
 
 QDebug operator<<(QDebug d, const AdministratorOauthCreateWidget::OauthCreateInfo &info)
 {
-    d << "active : " << info.active;
-    d << "applicationName : " << info.applicationName;
-    d << "redirectUrl : " << info.redirectUrl;
+    d.space() << "active : " << info.active;
+    d.space() << "applicationName : " << info.applicationName;
+    d.space() << "redirectUrl : " << info.redirectUrl;
     return d;
 }
 

@@ -139,8 +139,8 @@ void AdministratorModerationRangeWidget::initializeMenu()
 
 QDebug operator<<(QDebug d, const AdministratorModerationRangeWidget::DateTimeRange &t)
 {
-    d << "fromDate : " << t.fromDate;
-    d << "toDate : " << t.toDate;
+    d.space() << "fromDate : " << t.fromDate;
+    d.space() << "toDate : " << t.toDate;
     return d;
 }
 

@@ -57,8 +57,8 @@ void TeamRoomCompleter::setIdentifier(const QByteArray &identifier)
 
 QDebug operator<<(QDebug d, const TeamRoomCompleter &t)
 {
-    d << "Name " << t.name();
-    d << "Fname : " << t.fname();
-    d << "identifier: " << t.identifier();
+    d.space() << "Name " << t.name();
+    d.space() << "Fname : " << t.fname();
+    d.space() << "identifier: " << t.identifier();
     return d;
 }

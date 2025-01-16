@@ -258,17 +258,17 @@ void VideoConferenceInfo::setConferenceType(VideoConferenceType newConferenceTyp
 
 QDebug operator<<(QDebug d, const VideoConferenceInfo &t)
 {
-    d << "mUrl " << t.url();
-    d << "mStatus " << t.status();
-    d << "mRinging " << t.ringing();
-    d << "mRoomId " << t.roomId();
-    d << "mCreatedAtDateTime " << t.createdAtDateTime();
-    d << "mEndedAtDateTime " << t.endedAtDateTime();
-    d << "mProviderName " << t.providerName();
-    d << "mUsers " << t.users();
-    d << "mConferenceType " << t.conferenceType();
-    d << "mMessageId " << t.messageId();
-    d << "mBlockId " << t.blockId();
+    d.space() << "mUrl " << t.url();
+    d.space() << "mStatus " << t.status();
+    d.space() << "mRinging " << t.ringing();
+    d.space() << "mRoomId " << t.roomId();
+    d.space() << "mCreatedAtDateTime " << t.createdAtDateTime();
+    d.space() << "mEndedAtDateTime " << t.endedAtDateTime();
+    d.space() << "mProviderName " << t.providerName();
+    d.space() << "mUsers " << t.users();
+    d.space() << "mConferenceType " << t.conferenceType();
+    d.space() << "mMessageId " << t.messageId();
+    d.space() << "mBlockId " << t.blockId();
     return d;
 }
 

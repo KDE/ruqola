@@ -120,14 +120,14 @@ bool RoomsCleanHistoryJob::CleanHistoryInfo::isValid() const
 
 QDebug operator<<(QDebug d, const RocketChatRestApi::RoomsCleanHistoryJob::CleanHistoryInfo &t)
 {
-    d << "latest " << t.latest;
-    d << "oldest " << t.oldest;
-    d << "roomId " << t.roomId;
-    d << "users " << t.users;
-    d << "inclusive " << t.inclusive;
-    d << "excludePinned " << t.excludePinned;
-    d << "filesOnly " << t.filesOnly;
-    d << "ignoreThreads " << t.ignoreThreads;
+    d.space() << "latest " << t.latest;
+    d.space() << "oldest " << t.oldest;
+    d.space() << "roomId " << t.roomId;
+    d.space() << "users " << t.users;
+    d.space() << "inclusive " << t.inclusive;
+    d.space() << "excludePinned " << t.excludePinned;
+    d.space() << "filesOnly " << t.filesOnly;
+    d.space() << "ignoreThreads " << t.ignoreThreads;
     return d;
 }
 

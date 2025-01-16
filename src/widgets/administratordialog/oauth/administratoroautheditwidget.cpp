@@ -89,13 +89,13 @@ void AdministratorOauthEditWidget::setOauthInfo(const OauthEditInfo &info)
 
 QDebug operator<<(QDebug d, const AdministratorOauthEditWidget::OauthEditInfo &info)
 {
-    d << "active : " << info.active;
-    d << "applicationName : " << info.applicationName;
-    d << "redirectUrl : " << info.redirectUrl;
-    d << "clientId : " << info.clientId;
-    d << "clientSecret : " << info.clientSecret;
-    d << "authorizationUrl : " << info.authorizationUrl;
-    d << "accessTokenUrl : " << info.accessTokenUrl;
+    d.space() << "active : " << info.active;
+    d.space() << "applicationName : " << info.applicationName;
+    d.space() << "redirectUrl : " << info.redirectUrl;
+    d.space() << "clientId : " << info.clientId;
+    d.space() << "clientSecret : " << info.clientSecret;
+    d.space() << "authorizationUrl : " << info.authorizationUrl;
+    d.space() << "accessTokenUrl : " << info.accessTokenUrl;
     return d;
 }
 

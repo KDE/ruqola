@@ -179,26 +179,26 @@ bool SaveRoomSettingsJob::SaveRoomSettingsInfo::isValid() const
 
 QDebug operator<<(QDebug d, const RocketChatRestApi::SaveRoomSettingsJob::SaveRoomSettingsInfo &t)
 {
-    d << "systemMessages : " << t.systemMessages;
-    d << "roomId : " << t.roomId;
-    d << "roomName : " << t.roomName;
-    d << "roomTopic : " << t.roomTopic;
-    d << "roomAnnouncement : " << t.roomAnnouncement;
-    d << "roomDescription : " << t.roomDescription;
-    d << "retentionEnabled : " << t.retentionEnabled;
-    d << "retentionExcludePinned : " << t.retentionExcludePinned;
-    d << "retentionFilesOnly : " << t.retentionFilesOnly;
-    d << "retentionIgnoreThreads : " << t.retentionIgnoreThreads;
-    d << "retentionOverrideGlobal : " << t.retentionOverrideGlobal;
-    d << "retentionMaxAge : " << t.retentionMaxAge;
-    d << "favorite : " << t.favorite;
-    d << "roomType : " << t.roomType;
-    d << "readOnly : " << t.readOnly;
-    d << "encrypted : " << t.encrypted;
-    d << "roomAvatar : " << t.roomAvatar;
-    d << "featured : " << t.featured;
-    // hide password d << "joinCode : " << t.joinCode;
-    d << " mSettingsWillBeChanged " << t.mSettingsWillBeChanged;
+    d.space() << "systemMessages : " << t.systemMessages;
+    d.space() << "roomId : " << t.roomId;
+    d.space() << "roomName : " << t.roomName;
+    d.space() << "roomTopic : " << t.roomTopic;
+    d.space() << "roomAnnouncement : " << t.roomAnnouncement;
+    d.space() << "roomDescription : " << t.roomDescription;
+    d.space() << "retentionEnabled : " << t.retentionEnabled;
+    d.space() << "retentionExcludePinned : " << t.retentionExcludePinned;
+    d.space() << "retentionFilesOnly : " << t.retentionFilesOnly;
+    d.space() << "retentionIgnoreThreads : " << t.retentionIgnoreThreads;
+    d.space() << "retentionOverrideGlobal : " << t.retentionOverrideGlobal;
+    d.space() << "retentionMaxAge : " << t.retentionMaxAge;
+    d.space() << "favorite : " << t.favorite;
+    d.space() << "roomType : " << t.roomType;
+    d.space() << "readOnly : " << t.readOnly;
+    d.space() << "encrypted : " << t.encrypted;
+    d.space() << "roomAvatar : " << t.roomAvatar;
+    d.space() << "featured : " << t.featured;
+    // hide password d.space() << "joinCode : " << t.joinCode;
+    d.space() << "mSettingsWillBeChanged " << t.mSettingsWillBeChanged;
     return d;
 }
 

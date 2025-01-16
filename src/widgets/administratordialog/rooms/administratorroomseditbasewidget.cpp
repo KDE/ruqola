@@ -15,17 +15,17 @@ AdministratorRoomsEditBaseWidget::~AdministratorRoomsEditBaseWidget() = default;
 
 QDebug operator<<(QDebug d, const AdministratorRoomsEditBaseWidget::RoomEditInfo &t)
 {
-    d << "Name " << t.name;
-    d << "featured " << t.featured;
-    d << "defaultRoom " << t.defaultRoom;
-    d << "comment " << t.topic;
-    d << "announcement " << t.announcement;
-    d << "description " << t.description;
-    d << "readOnly " << t.readOnly;
-    d << "privateRoom " << t.privateRoom;
-    d << "archived " << t.archived;
-    d << "userOwnerName " << t.userOwnerName;
-    d << "favorite " << t.favorite;
+    d.space() << "Name " << t.name;
+    d.space() << "featured " << t.featured;
+    d.space() << "defaultRoom " << t.defaultRoom;
+    d.space() << "comment " << t.topic;
+    d.space() << "announcement " << t.announcement;
+    d.space() << "description " << t.description;
+    d.space() << "readOnly " << t.readOnly;
+    d.space() << "privateRoom " << t.privateRoom;
+    d.space() << "archived " << t.archived;
+    d.space() << "userOwnerName " << t.userOwnerName;
+    d.space() << "favorite " << t.favorite;
     return d;
 }
 

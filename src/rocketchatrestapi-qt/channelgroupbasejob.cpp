@@ -67,8 +67,8 @@ void ChannelGroupBaseJob::setChannelGroupInfo(const ChannelGroupInfo &channelInf
 
 QDebug operator<<(QDebug d, const RocketChatRestApi::ChannelGroupBaseJob::ChannelGroupInfo &t)
 {
-    d << "channelInfoIdentifier " << t.identifier;
-    d << "channelInfoType " << t.channelGroupInfoType;
+    d.space() << "channelInfoIdentifier " << t.identifier;
+    d.space() << "channelInfoType " << t.channelGroupInfoType;
     return d;
 }
 

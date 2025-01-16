@@ -155,11 +155,11 @@ QString UsersListByStatusJob::UsersListByStatusJobInfo::loggedInToString() const
 
 QDebug operator<<(QDebug d, const RocketChatRestApi::UsersListByStatusJob::UsersListByStatusJobInfo &t)
 {
-    d << "status " << t.status;
-    d << "type " << t.type;
-    d << "hasLoggedIn " << t.hasLoggedIn;
-    d << "roles " << t.roles;
-    d << "searchName " << t.searchName;
+    d.space() << "status " << t.status;
+    d.space() << "type " << t.type;
+    d.space() << "hasLoggedIn " << t.hasLoggedIn;
+    d.space() << "roles " << t.roles;
+    d.space() << "searchName " << t.searchName;
     return d;
 }
 

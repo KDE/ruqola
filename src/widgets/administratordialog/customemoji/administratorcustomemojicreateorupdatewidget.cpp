@@ -122,9 +122,9 @@ void AdministratorCustomEmojiCreateOrUpdateWidget::setType(AdministratorCustomEm
 
 QDebug operator<<(QDebug d, const AdministratorCustomEmojiCreateOrUpdateWidget::CustomEmojiCreateInfo &t)
 {
-    d << "alias " << t.alias;
-    d << "name " << t.name;
-    d << "fileNameUrl " << t.fileNameUrl;
+    d.space() << "alias " << t.alias;
+    d.space() << "name " << t.name;
+    d.space() << "fileNameUrl " << t.fileNameUrl;
     return d;
 }
 

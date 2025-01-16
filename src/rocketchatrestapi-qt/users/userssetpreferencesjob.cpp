@@ -171,7 +171,7 @@ QDebug operator<<(QDebug d, const RocketChatRestApi::UsersSetPreferencesJob::Use
     d.space() << "pushNotifications:" << t.pushNotifications;
     d.space() << "emailNotificationMode:" << t.emailNotificationMode;
     d.space() << "userId:" << t.userId;
-    d.space() << " highlights:" << t.highlights;
+    d.space() << "highlights:" << t.highlights;
     d.space() << "useEmoji:" << t.useEmoji;
     d.space() << "convertAsciiToEmoji:" << t.convertAsciiToEmoji;
     d.space() << "hideRoles:" << t.hideRoles;

@@ -19,7 +19,7 @@ QDebug operator<<(QDebug d, const ModerationReportInfos &t)
     d.space() << "offset" << t.offset();
     d.space() << "ModerationReportInfosCount" << t.moderationReportInfosCount() << "\n";
     for (int i = 0, total = t.moderationReportInfosList().count(); i < total; ++i) {
-        d << t.moderationReportInfosList().at(i) << "\n";
+        d.space() << t.moderationReportInfosList().at(i) << "\n";
     }
     return d;
 }

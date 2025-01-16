@@ -117,13 +117,13 @@ bool UsersUpdateOwnBasicInfoJob::UpdateOwnBasicInfo::isValid() const
 
 QDebug operator<<(QDebug d, const RocketChatRestApi::UsersUpdateOwnBasicInfoJob::UpdateOwnBasicInfo &t)
 {
-    d << " type " << t.type;
-    d << " email " << t.email;
-    d << " name " << t.name;
-    d << " userName " << t.userName;
-    d << " statusText " << t.statusText;
-    d << " currentPassword " << t.currentPassword;
-    d << " newPassword " << t.newPassword;
+    d.space() << "type " << t.type;
+    d.space() << "email " << t.email;
+    d.space() << "name " << t.name;
+    d.space() << "userName " << t.userName;
+    d.space() << "statusText " << t.statusText;
+    d.space() << "currentPassword " << t.currentPassword;
+    d.space() << "newPassword " << t.newPassword;
 
     return d;
 }

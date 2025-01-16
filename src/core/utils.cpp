@@ -328,9 +328,9 @@ QUrl Utils::avatarUrl(const QString &serverRcUrl, const AvatarInfo &avatarInfo)
 
 QDebug operator<<(QDebug d, const Utils::AvatarInfo &t)
 {
-    d << "etag " << t.etag;
-    d << "identifier " << t.identifier;
-    d << "avatarType " << static_cast<int>(t.avatarType);
+    d.space() << "etag " << t.etag;
+    d.space() << "identifier " << t.identifier;
+    d.space() << "avatarType " << static_cast<int>(t.avatarType);
     return d;
 }
 
