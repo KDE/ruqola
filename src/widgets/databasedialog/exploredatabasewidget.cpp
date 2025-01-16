@@ -101,6 +101,9 @@ void ExploreDatabaseWidget::slotLoad()
         const QList<Message> listMessages = mLocalMessageDatabase->loadMessages(mRocketChatAccount, roomName, startId, endId, mNumberOfMessages->value());
         mMessageModel->clear();
         mMessageModel->addMessages(listMessages);
+        if (listMessages.isEmpty()) {
+            KMessageBox::error(this, QStringLiteral("Room '%1' does not have database").arg(roomName), QStringLiteral("Database empty"));
+        }
     } else {
         KMessageBox::error(this, QStringLiteral("Room '%1' does not have database").arg(roomName), QStringLiteral("Database empty"));
     }
