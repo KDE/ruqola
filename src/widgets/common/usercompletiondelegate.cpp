@@ -65,7 +65,7 @@ void UserCompletionDelegate::paint(QPainter *painter, const QStyleOptionViewItem
         xPos += nameWidth;
         if (!userName.isEmpty()) {
             painter->setFont(oldFont);
-            painter->drawText(xPos + margin * 2, defaultCharHeight, userName);
+            DelegatePaintUtil::drawLighterText(painter, QStringLiteral("(%1)").arg(userName), QPoint(xPos + margin * 2, defaultCharHeight));
         }
     }
     painter->setFont(oldFont);

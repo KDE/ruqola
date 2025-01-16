@@ -43,14 +43,23 @@ void AddUsersCompletionLineEdit::slotSearchTextEdited()
     }
 
     mSearchTimer->setSingleShot(true);
-    mSearchTimer->start(1s);
+    mSearchTimer->start(200ms);
 }
 
 void AddUsersCompletionLineEdit::slotSearchTimerFired()
 {
     mSearchTimer->stop();
-    if (!text().trimmed().isEmpty()) {
-        slotTextChanged(text());
+    QString str = text();
+    if (!str.trimmed().isEmpty()) {
+        if (str.startsWith(QLatin1Char('@'))) {
+            str.removeFirst();
+        }
+        if (!str.isEmpty()) {
+            slotTextChanged(str);
+        } else {
+            // We just have @ => hide it
+            mCompletionListView->hide();
+        }
     } else {
         clear();
     }

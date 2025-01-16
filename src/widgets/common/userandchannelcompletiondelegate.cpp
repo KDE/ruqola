@@ -72,7 +72,7 @@ void UserAndChannelCompletionDelegate::paint(QPainter *painter, const QStyleOpti
             painter->setFont(oldFont);
             fontMetrics = QFontMetrics(oldFont);
             nameWidth = fontMetrics.horizontalAdvance(userName);
-            painter->drawText(xPos + margin * 2, defaultCharHeight, userName);
+            DelegatePaintUtil::drawLighterText(painter, QStringLiteral("(%1)").arg(userName), QPoint(xPos + margin * 2, defaultCharHeight));
             xPos += nameWidth;
         }
     }
