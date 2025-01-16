@@ -103,7 +103,6 @@ private:
     LIBRUQOLAWIDGETS_NO_EXPORT void slotCloseOtr();
     LIBRUQOLAWIDGETS_NO_EXPORT void slotRefreshOtrKeys();
     LIBRUQOLAWIDGETS_NO_EXPORT void slotCallRequested();
-    LIBRUQOLAWIDGETS_NO_EXPORT void slotTextToSpeech(const QString &messageText);
     LIBRUQOLAWIDGETS_NO_EXPORT void createOtrWidget();
     LIBRUQOLAWIDGETS_NO_EXPORT void createOffLineWidget();
     LIBRUQOLAWIDGETS_NO_EXPORT void createRoomReconnectInfoWidget();

@@ -38,8 +38,6 @@ protected:
 
 private:
     LIBRUQOLAWIDGETS_NO_EXPORT void slotOpen(const QModelIndex &index);
-    LIBRUQOLAWIDGETS_NO_EXPORT void slotSearchRequested(const QString &str);
-    LIBRUQOLAWIDGETS_NO_EXPORT void slotSearchCleared();
     [[nodiscard]] LIBRUQOLAWIDGETS_NO_EXPORT QString displayShowMessageInRoom() const;
     [[nodiscard]] LIBRUQOLAWIDGETS_NO_EXPORT QString noFoundInfo() const;
     LIBRUQOLAWIDGETS_NO_EXPORT void finishSearching();

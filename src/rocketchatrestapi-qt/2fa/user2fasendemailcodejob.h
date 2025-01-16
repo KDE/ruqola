@@ -34,7 +34,6 @@ Q_SIGNALS:
     void sendEmailCodeDone();
 
 private:
-    LIBROCKETCHATRESTAPI_QT_NO_EXPORT void slotSendEmailCode();
     QString mUsernameOrEmail;
 };
 }

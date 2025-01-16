@@ -22,7 +22,6 @@ public:
         QString mDescription;
         QString mFileName;
         QUrl mFileUrl;
-        [[nodiscard]] bool isValid() const;
     };
 
     explicit CreateSoundMessageWizard(RocketChatAccount *account, QWidget *parent = nullptr);
