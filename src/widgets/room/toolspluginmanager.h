@@ -13,11 +13,7 @@
 
 class PluginTool;
 
-class PluginToolsUtilData
-{
-public:
-    PluginToolsUtilData() = default;
-
+struct PluginToolsUtilData {
     QStringList mExtraInfo;
     QString mIdentifier;
     QString mName;

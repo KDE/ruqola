@@ -79,9 +79,11 @@ QList<PluginTool *> ToolsPluginManager::pluginsList() const
 
 PluginToolsUtilData ToolsPluginManager::createPluginMetaData(const KPluginMetaData &metaData)
 {
-    PluginToolsUtilData pluginData;
-    pluginData.mName = metaData.name();
-    pluginData.mIdentifier = metaData.pluginId();
+    const PluginToolsUtilData pluginData{
+        .mExtraInfo = {},
+        .mIdentifier = metaData.pluginId(),
+        .mName = metaData.name(),
+    };
     return pluginData;
 }
 
