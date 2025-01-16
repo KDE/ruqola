@@ -252,16 +252,7 @@ void Room::parseUpdateRoom(const QJsonObject &json)
     if (json.contains("autoTranslate"_L1)) {
         setAutoTranslate(json["autoTranslate"_L1].toBool());
     }
-    if (json.contains("archived"_L1)) {
-        setArchived(json["archived"_L1].toBool());
-    } else {
-        setArchived(false);
-    }
-    if (json.contains("blocker"_L1)) {
-        setBlocker(json["blocker"_L1].toBool());
-    } else {
-        setBlocker(false);
-    }
+    parseBlockerArchived(json);
     if (json.contains("blocked"_L1)) {
         setBlocked(json["blocked"_L1].toBool());
     } else {
@@ -660,12 +651,8 @@ void Room::parseInsertRoom(const QJsonObject &json)
     setUnread(json["unread"_L1].toInt());
     setOpen(json["open"_L1].toBool());
     setAlert(json["alert"_L1].toBool());
-    const QJsonValue blockerValue = json.value("blocker"_L1);
-    if (!blockerValue.isUndefined()) {
-        setBlocker(blockerValue.toBool());
-    } else {
-        setBlocker(false);
-    }
+
+    parseBlockerArchived(json);
 
     // setE2eKeyId(json["e2eKeyId"_L1].toString());
     setE2EKey(json["E2EKey"_L1].toString());
@@ -674,14 +661,6 @@ void Room::parseInsertRoom(const QJsonObject &json)
         setEncrypted(json["encrypted"_L1].toBool());
     } else {
         setEncrypted(false);
-    }
-
-    // Blocked ???
-    const QJsonValue archivedValue = json.value("archived"_L1);
-    if (!archivedValue.isUndefined()) {
-        setArchived(archivedValue.toBool());
-    } else {
-        setArchived(false);
     }
 
     parseCommonData(json);
@@ -701,6 +680,23 @@ void Room::parseInsertRoom(const QJsonObject &json)
     // qDebug() << " *thus" << *this;
     mNotificationOptions.parseNotificationOptions(json);
     parseTeamInfo(json);
+}
+
+void Room::parseBlockerArchived(const QJsonObject &json)
+{
+    const QJsonValue blockerValue = json.value("blocker"_L1);
+    if (blockerValue.isUndefined()) {
+        setBlocker(false);
+    } else {
+        setBlocker(blockerValue.toBool());
+    }
+    // Blocked ???
+    const QJsonValue archivedValue = json.value("archived"_L1);
+    if (archivedValue.isUndefined()) {
+        setArchived(false);
+    } else {
+        setArchived(archivedValue.toBool());
+    }
 }
 
 void Room::parseSubscriptionRoom(const QJsonObject &json)
@@ -732,20 +728,8 @@ void Room::parseSubscriptionRoom(const QJsonObject &json)
     setGroupMentions(json["groupMentions"_L1].toInt());
     setOpen(json["open"_L1].toBool());
     setAlert(json["alert"_L1].toBool());
-    const QJsonValue blockerValue = json.value("blocker"_L1);
-    if (!blockerValue.isUndefined()) {
-        setBlocker(blockerValue.toBool());
-    } else {
-        setBlocker(false);
-    }
+    parseBlockerArchived(json);
     // TODO e2ekey
-    // TODO blocked ?
-    const QJsonValue archivedValue = json.value("archived"_L1);
-    if (!archivedValue.isUndefined()) {
-        setArchived(archivedValue.toBool());
-    } else {
-        setArchived(false);
-    }
 
     parseCommonData(json);
     parseDisplaySystemMessage(json);

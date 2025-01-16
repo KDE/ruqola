@@ -363,6 +363,7 @@ private:
 
     LIBRUQOLACORE_NO_EXPORT void assignRoomStateValue(RoomState type, bool status);
     [[nodiscard]] LIBRUQOLACORE_NO_EXPORT bool roomStateValue(RoomState type) const;
+    LIBRUQOLACORE_NO_EXPORT void parseBlockerArchived(const QJsonObject &json);
 
     [[nodiscard]] RoomExtra *roomExtra();
 
