@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-01-15 00:41+0000\n"
+"POT-Creation-Date: 2025-01-16 00:41+0000\n"
 "PO-Revision-Date: 2024-08-06 05:33+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
@@ -1798,19 +1798,19 @@ msgctxt "WARNING!!!!!!: PLEASE We need a space between after </strong>"
 msgid "<strong>%1</strong> are typing..."
 msgstr ""
 
-#: core/rocketchataccount.cpp:685
+#: core/rocketchataccount.cpp:680
 #, kde-format
 msgid ""
 "REST: %1\n"
 "DDP: %2"
 msgstr ""
 
-#: core/rocketchataccount.cpp:693 core/rocketchataccount.cpp:705
+#: core/rocketchataccount.cpp:688 core/rocketchataccount.cpp:700
 #, kde-format
 msgid "Not connected"
 msgstr "未連線"
 
-#: core/rocketchataccount.cpp:700
+#: core/rocketchataccount.cpp:695
 #, fuzzy, kde-format
 #| msgid "Not connected"
 msgid "Not connected yet"
@@ -3320,34 +3320,44 @@ msgctxt "@title:window"
 msgid "Dismiss All Reports"
 msgstr "忽略所有檢舉"
 
-#: widgets/administratordialog/moderationconsole/moderationreportinfolistview.cpp:76
-#: widgets/notificationhistory/notificationhistorylistview.cpp:83
-#: widgets/room/messagelistview.cpp:278
-#: widgets/servererrorinfohistory/servererrorinfomessagehistorylistview.cpp:50
+#: widgets/administratordialog/moderationconsole/moderationreportinfolistview.cpp:79
+#: widgets/notificationhistory/notificationhistorylistview.cpp:86
+#: widgets/room/messagelistview.cpp:281
+#: widgets/servererrorinfohistory/servererrorinfomessagehistorylistview.cpp:53
+#, fuzzy, kde-format
+#| msgid "Copy link"
+msgctxt "@action"
+msgid "Copy Selection"
+msgstr "複製連結"
+
+#: widgets/administratordialog/moderationconsole/moderationreportinfolistview.cpp:81
+#: widgets/notificationhistory/notificationhistorylistview.cpp:88
+#: widgets/room/messagelistview.cpp:283
+#: widgets/servererrorinfohistory/servererrorinfomessagehistorylistview.cpp:55
 #, fuzzy, kde-format
 #| msgid "Copy Message"
 msgctxt "@action"
 msgid "Copy Message"
 msgstr "複製訊息"
 
-#: widgets/administratordialog/moderationconsole/moderationreportinfolistview.cpp:87
+#: widgets/administratordialog/moderationconsole/moderationreportinfolistview.cpp:93
 #: widgets/discussions/discussionlistview.cpp:69
-#: widgets/notificationhistory/notificationhistorylistview.cpp:94
-#: widgets/room/messagelistview.cpp:647
-#: widgets/servererrorinfohistory/servererrorinfomessagehistorylistview.cpp:62
+#: widgets/notificationhistory/notificationhistorylistview.cpp:100
+#: widgets/room/messagelistview.cpp:653
+#: widgets/servererrorinfohistory/servererrorinfomessagehistorylistview.cpp:68
 #, fuzzy, kde-format
 #| msgid "Speak Text"
 msgctxt "@action"
 msgid "Speak Text"
 msgstr "唸出文字"
 
-#: widgets/administratordialog/moderationconsole/moderationreportinfolistview.cpp:93
+#: widgets/administratordialog/moderationconsole/moderationreportinfolistview.cpp:99
 #: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:87
 #: widgets/bannerinfodialog/bannerinfolistview.cpp:51
 #: widgets/discussions/discussionlistview.cpp:75
-#: widgets/notificationhistory/notificationhistorylistview.cpp:100
-#: widgets/room/messagelistview.cpp:310
-#: widgets/servererrorinfohistory/servererrorinfomessagehistorylistview.cpp:69
+#: widgets/notificationhistory/notificationhistorylistview.cpp:106
+#: widgets/room/messagelistview.cpp:316
+#: widgets/servererrorinfohistory/servererrorinfomessagehistorylistview.cpp:75
 #, fuzzy, kde-format
 #| msgid "Select All"
 msgctxt "@action"
@@ -7306,7 +7316,7 @@ msgid "Mark as Unread"
 msgstr "標記為未讀"
 
 #: widgets/channellist/channellistview.cpp:131
-#: widgets/room/messagelistview.cpp:296
+#: widgets/room/messagelistview.cpp:302
 #, fuzzy, kde-format
 #| msgid "Set as Favorite"
 msgctxt "@action"
@@ -9967,7 +9977,7 @@ msgid "Clear"
 msgstr "清除"
 
 #: widgets/notificationhistory/notificationhistorylistview.cpp:79
-#: widgets/room/messagelistview.cpp:629
+#: widgets/room/messagelistview.cpp:635
 #, fuzzy, kde-format
 #| msgid "Go to Message"
 msgctxt "@action"
@@ -10246,7 +10256,7 @@ msgid "User Info"
 msgstr "使用者資訊"
 
 #: widgets/room/delegate/messagelistdelegate.cpp:438
-#: widgets/room/messagelistview.cpp:399
+#: widgets/room/messagelistview.cpp:405
 #, fuzzy, kde-format
 #| msgid "Start a Private Conversation"
 msgctxt "@action"
@@ -10416,164 +10426,164 @@ msgstr "您已加入新的私訊"
 msgid "Start of conversation"
 msgstr "對話開頭"
 
-#: widgets/room/messagelistview.cpp:287
+#: widgets/room/messagelistview.cpp:293
 #, fuzzy, kde-format
 #| msgid "Unpin Message"
 msgctxt "@action"
 msgid "Unpin Message"
 msgstr "取消訊息置頂"
 
-#: widgets/room/messagelistview.cpp:287
+#: widgets/room/messagelistview.cpp:293
 #, fuzzy, kde-format
 #| msgid "Pin Message"
 msgctxt "@action"
 msgid "Pin Message"
 msgstr "置頂訊息"
 
-#: widgets/room/messagelistview.cpp:296
+#: widgets/room/messagelistview.cpp:302
 #, fuzzy, kde-format
 #| msgid "Remove as Favorite"
 msgctxt "@action"
 msgid "Remove as Favorite"
 msgstr "移出收藏"
 
-#: widgets/room/messagelistview.cpp:304
+#: widgets/room/messagelistview.cpp:310
 #, fuzzy, kde-format
 #| msgid "Delete"
 msgctxt "@action"
 msgid "Delete"
 msgstr "刪除"
 
-#: widgets/room/messagelistview.cpp:315
+#: widgets/room/messagelistview.cpp:321
 #, fuzzy, kde-format
 #| msgid "Mark Message As Unread"
 msgctxt "@action"
 msgid "Mark Message As Unread"
 msgstr "將訊息標記為未讀"
 
-#: widgets/room/messagelistview.cpp:320
+#: widgets/room/messagelistview.cpp:326
 #, fuzzy, kde-format
 #| msgid "Show Full Thread"
 msgctxt "@action"
 msgid "Show Full Thread"
 msgstr "顯示完整對話串"
 
-#: widgets/room/messagelistview.cpp:325
+#: widgets/room/messagelistview.cpp:331
 #, fuzzy, kde-format
 #| msgid "Edit"
 msgctxt "@action"
 msgid "Edit"
 msgstr "編輯"
 
-#: widgets/room/messagelistview.cpp:330
+#: widgets/room/messagelistview.cpp:336
 #, kde-format
 msgctxt "@action"
 msgid "Quote"
 msgstr ""
 
-#: widgets/room/messagelistview.cpp:335
+#: widgets/room/messagelistview.cpp:341
 #, fuzzy, kde-format
 #| msgid "Copy Link To Message"
 msgctxt "@action"
 msgid "Copy Link To Message"
 msgstr "複製訊息連結"
 
-#: widgets/room/messagelistview.cpp:340
+#: widgets/room/messagelistview.cpp:346
 #, fuzzy, kde-format
 #| msgid "Forward Message"
 msgctxt "@action"
 msgid "Forward Message"
 msgstr "轉寄訊息"
 
-#: widgets/room/messagelistview.cpp:354
+#: widgets/room/messagelistview.cpp:360
 #, fuzzy, kde-format
 #| msgid "Unfollow Message"
 msgctxt "@action"
 msgid "Unfollow Message"
 msgstr "取消跟隨訊息"
 
-#: widgets/room/messagelistview.cpp:354
+#: widgets/room/messagelistview.cpp:360
 #, fuzzy, kde-format
 #| msgid "Follow Message"
 msgctxt "@action"
 msgid "Follow Message"
 msgstr "跟隨訊息"
 
-#: widgets/room/messagelistview.cpp:367
+#: widgets/room/messagelistview.cpp:373
 #, fuzzy, kde-format
 #| msgid "Copy URL"
 msgctxt "@action"
 msgid "Copy URL"
 msgstr "複製網址"
 
-#: widgets/room/messagelistview.cpp:390 widgets/room/usersinroommenu.cpp:122
+#: widgets/room/messagelistview.cpp:396 widgets/room/usersinroommenu.cpp:122
 #, fuzzy, kde-format
 #| msgid "User Info"
 msgctxt "@action"
 msgid "User Info"
 msgstr "使用者資訊"
 
-#: widgets/room/messagelistview.cpp:436
+#: widgets/room/messagelistview.cpp:442
 #, fuzzy, kde-format
 #| msgid "Start a Discussion"
 msgctxt "@action"
 msgid "Start a Discussion"
 msgstr "開始討論"
 
-#: widgets/room/messagelistview.cpp:442
+#: widgets/room/messagelistview.cpp:448
 #, fuzzy, kde-format
 #| msgid "Reply in Thread"
 msgctxt "@action"
 msgid "Reply in Thread"
 msgstr "在對話串中回覆"
 
-#: widgets/room/messagelistview.cpp:504
+#: widgets/room/messagelistview.cpp:510
 #, fuzzy, kde-format
 #| msgid "Show Original Message"
 msgctxt "@action"
 msgid "Show Original Message"
 msgstr "顯示原始訊息"
 
-#: widgets/room/messagelistview.cpp:504
+#: widgets/room/messagelistview.cpp:510
 #, fuzzy, kde-format
 #| msgid "Translate Message"
 msgctxt "@action"
 msgid "Translate Message"
 msgstr "翻譯訊息"
 
-#: widgets/room/messagelistview.cpp:551
+#: widgets/room/messagelistview.cpp:557
 #, fuzzy, kde-format
 #| msgid "View Reports"
 msgctxt "@action"
 msgid "View Reports"
 msgstr "檢視檢舉"
 
-#: widgets/room/messagelistview.cpp:574
+#: widgets/room/messagelistview.cpp:580
 #, fuzzy, kde-format
 #| msgid "Dismiss reports"
 msgctxt "@action"
 msgid "Dismiss Reports"
 msgstr "忽略檢舉"
 
-#: widgets/room/messagelistview.cpp:656
+#: widgets/room/messagelistview.cpp:662
 #, fuzzy, kde-format
 #| msgid "Report Message"
 msgctxt "@action"
 msgid "Report Message"
 msgstr "檢舉訊息"
 
-#: widgets/room/messagelistview.cpp:859
+#: widgets/room/messagelistview.cpp:865
 #, kde-format
 msgid "Do you want to delete this message?"
 msgstr "您確定要刪除此則訊息嗎？"
 
-#: widgets/room/messagelistview.cpp:860
+#: widgets/room/messagelistview.cpp:866
 #, kde-format
 msgctxt "@title"
 msgid "Delete Message"
 msgstr "刪除訊息"
 
-#: widgets/room/messagelistview.cpp:1036
+#: widgets/room/messagelistview.cpp:1047
 #, fuzzy, kde-format
 #| msgid "Translator Error"
 msgctxt "@title:window"
@@ -11967,6 +11977,11 @@ msgstr "應用程式…"
 #: widgets/whatsnew/whatsnewtranslations.cpp:158
 #, kde-format
 msgid "Allow to search file from username and filename."
+msgstr ""
+
+#: widgets/whatsnew/whatsnewtranslations.cpp:159
+#, kde-format
+msgid "Fix copy action text when we copy a text selection."
 msgstr ""
 
 #: widgets/whatsnew/whatsnewwidget.cpp:44
