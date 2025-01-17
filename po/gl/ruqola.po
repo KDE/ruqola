@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-01-16 00:41+0000\n"
+"POT-Creation-Date: 2025-01-17 00:41+0000\n"
 "PO-Revision-Date: 2025-01-12 16:38+0100\n"
 "Last-Translator: Adrián Chaves (Gallaecio) <adrian@chaves.io>\n"
 "Language-Team: Proxecto Trasno (proxecto@trasno.gal)\n"
@@ -1800,32 +1800,32 @@ msgstr "Engadiuse unha conta"
 msgid "A new account was added."
 msgstr "Engadiuse unha nova conta."
 
-#: core/room.cpp:1168
+#: core/room.cpp:1152
 #, kde-format
 msgid "Owner"
 msgstr "Pertenza"
 
-#: core/room.cpp:1171
+#: core/room.cpp:1155
 #, kde-format
 msgid "Leader"
 msgstr "Líder"
 
-#: core/room.cpp:1174
+#: core/room.cpp:1158
 #, kde-format
 msgid "Moderator"
 msgstr "Moderación"
 
-#: core/room.cpp:1535
+#: core/room.cpp:1519
 #, kde-format
 msgid "Channel is read only."
 msgstr "A canle é de só lectura."
 
-#: core/room.cpp:1538
+#: core/room.cpp:1522
 #, kde-format
 msgid "You have blocked this channel."
 msgstr "Bloqueou a canle."
 
-#: core/room.cpp:1541
+#: core/room.cpp:1525
 #, kde-format
 msgid "Channel was blocked."
 msgstr "Bloqueouse a canle."

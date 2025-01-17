@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-01-16 00:41+0000\n"
+"POT-Creation-Date: 2025-01-17 00:41+0000\n"
 "PO-Revision-Date: 2020-06-13 21:18+0300\n"
 "Last-Translator: Marek Laane <qiilaq69@gmail.com>\n"
 "Language-Team: Estonian <kde-et@lists.linux.ee>\n"
@@ -1937,32 +1937,32 @@ msgstr "Konto nimi:"
 msgid "A new account was added."
 msgstr "Konto nimi"
 
-#: core/room.cpp:1168
+#: core/room.cpp:1152
 #, kde-format
 msgid "Owner"
 msgstr "Omanik"
 
-#: core/room.cpp:1171
+#: core/room.cpp:1155
 #, kde-format
 msgid "Leader"
 msgstr "Juht"
 
-#: core/room.cpp:1174
+#: core/room.cpp:1158
 #, kde-format
 msgid "Moderator"
 msgstr "Moderaator"
 
-#: core/room.cpp:1535
+#: core/room.cpp:1519
 #, kde-format
 msgid "Channel is read only."
 msgstr "Kanal on kirjutuskaitstud."
 
-#: core/room.cpp:1538
+#: core/room.cpp:1522
 #, kde-format
 msgid "You have blocked this channel."
 msgstr "Oled selle kanali blokkinud."
 
-#: core/room.cpp:1541
+#: core/room.cpp:1525
 #, kde-format
 msgid "Channel was blocked."
 msgstr "Kanal on blokitud."

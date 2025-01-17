@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-01-16 00:41+0000\n"
-"PO-Revision-Date: 2025-01-15 09:43+0200\n"
+"POT-Creation-Date: 2025-01-17 00:41+0000\n"
+"PO-Revision-Date: 2025-01-16 08:57+0200\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
 "Language: uk\n"
@@ -1811,32 +1811,32 @@ msgstr "Додано обліковий запис"
 msgid "A new account was added."
 msgstr "Було додано новий обліковий запис."
 
-#: core/room.cpp:1168
+#: core/room.cpp:1152
 #, kde-format
 msgid "Owner"
 msgstr "Власник"
 
-#: core/room.cpp:1171
+#: core/room.cpp:1155
 #, kde-format
 msgid "Leader"
 msgstr "Лідер"
 
-#: core/room.cpp:1174
+#: core/room.cpp:1158
 #, kde-format
 msgid "Moderator"
 msgstr "Модератор"
 
-#: core/room.cpp:1535
+#: core/room.cpp:1519
 #, kde-format
 msgid "Channel is read only."
 msgstr "Канал призначено лише для читання."
 
-#: core/room.cpp:1538
+#: core/room.cpp:1522
 #, kde-format
 msgid "You have blocked this channel."
 msgstr "Вас заблоковано на цьому каналі."
 
-#: core/room.cpp:1541
+#: core/room.cpp:1525
 #, kde-format
 msgid "Channel was blocked."
 msgstr "Канал заблоковано."
@@ -3337,12 +3337,10 @@ msgstr "Відкинути усі скарги"
 #: widgets/notificationhistory/notificationhistorylistview.cpp:86
 #: widgets/room/messagelistview.cpp:281
 #: widgets/servererrorinfohistory/servererrorinfomessagehistorylistview.cpp:53
-#, fuzzy, kde-format
-#| msgctxt "@info:tooltip"
-#| msgid "Copy link"
+#, kde-format
 msgctxt "@action"
 msgid "Copy Selection"
-msgstr "Копіювати посилання"
+msgstr "Копіювати позначене"
 
 #: widgets/administratordialog/moderationconsole/moderationreportinfolistview.cpp:81
 #: widgets/notificationhistory/notificationhistorylistview.cpp:88
@@ -11726,6 +11724,7 @@ msgstr "Уможливлено пошук файла за іменем кори�
 #, kde-format
 msgid "Fix copy action text when we copy a text selection."
 msgstr ""
+"Виправлено текст дії з копіювання, якщо копіюють позначений фрагмент тексту."
 
 #: widgets/whatsnew/whatsnewwidget.cpp:44
 #, kde-format
