@@ -24,10 +24,6 @@ public:
 
     enum class AppInfoType : uint8_t {
         Unknown,
-        Versions,
-        Logs,
-        Apis,
-        ScreenShots,
         Settings,
         Delete,
     };

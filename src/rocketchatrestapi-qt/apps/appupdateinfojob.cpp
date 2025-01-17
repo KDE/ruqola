@@ -94,18 +94,6 @@ QString AppUpdateInfoJob::generateUrlExtension() const
     case AppInfoType::Unknown:
         qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Unknown type";
         break;
-    case AppInfoType::Versions:
-        url += QLatin1Char('/') + QStringLiteral("versions");
-        break;
-    case AppInfoType::Logs:
-        url += QLatin1Char('/') + QStringLiteral("logs");
-        break;
-    case AppInfoType::Apis:
-        url += QLatin1Char('/') + QStringLiteral("apis");
-        break;
-    case AppInfoType::ScreenShots:
-        url += QLatin1Char('/') + QStringLiteral("screenshots");
-        break;
     case AppInfoType::Settings:
         url += QLatin1Char('/') + QStringLiteral("settings");
         break;
