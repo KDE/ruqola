@@ -15,7 +15,7 @@ class LIBROCKETCHATRESTAPI_QT_EXPORT AppUpdateInfoJob : public RestApiAbstractJo
 {
     Q_OBJECT
 public:
-    enum class AppInfoType {
+    enum class AppInfoType : uint8_t {
         Unknown,
         Versions,
         Logs,
