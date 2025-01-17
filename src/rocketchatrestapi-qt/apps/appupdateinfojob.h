@@ -15,6 +15,13 @@ class LIBROCKETCHATRESTAPI_QT_EXPORT AppUpdateInfoJob : public RestApiAbstractJo
 {
     Q_OBJECT
 public:
+    enum class AppMode : uint8_t {
+        Unknown,
+        Post,
+        Get,
+        Delete,
+    };
+
     enum class AppInfoType : uint8_t {
         Unknown,
         Versions,
@@ -44,6 +51,9 @@ public:
 
     [[nodiscard]] QJsonDocument json() const;
 
+    [[nodiscard]] AppMode appMode() const;
+    void setAppMode(AppMode newAppMode);
+
 Q_SIGNALS:
     void appUpdateInfoDone(const QJsonObject &obj);
 
@@ -52,5 +62,6 @@ private:
     [[nodiscard]] LIBROCKETCHATRESTAPI_QT_NO_EXPORT QString generateUrlExtension() const;
     QByteArray mAppsId;
     AppInfoType mAppInfoType = AppInfoType::Unknown;
+    AppMode mAppMode = AppMode::Unknown;
 };
 }

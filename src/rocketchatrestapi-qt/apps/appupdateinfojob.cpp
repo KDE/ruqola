@@ -47,6 +47,10 @@ bool AppUpdateInfoJob::canStart() const
         qCWarning(ROCKETCHATQTRESTAPI_LOG) << "mAppInfoType undefined";
         return false;
     }
+    if (mAppMode == AppMode::Unknown) {
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "mAppMode undefined";
+        return false;
+    }
     if (mAppsId.isEmpty()) {
         qCWarning(ROCKETCHATQTRESTAPI_LOG) << "mAppsId is empty";
         return false;
@@ -109,6 +113,16 @@ QString AppUpdateInfoJob::generateUrlExtension() const
         break;
     }
     return url;
+}
+
+AppUpdateInfoJob::AppMode AppUpdateInfoJob::appMode() const
+{
+    return mAppMode;
+}
+
+void AppUpdateInfoJob::setAppMode(AppMode newAppMode)
+{
+    mAppMode = newAppMode;
 }
 
 QNetworkRequest AppUpdateInfoJob::request() const
