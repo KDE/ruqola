@@ -80,6 +80,11 @@ void ApplicationsSettingsListView::slotCustomContextMenuRequested(const QPoint &
                     menu.addAction(i18nc("@action", "Uninstall"), this, [this, index]() {
                         slotUninstallApplication(index);
                     });
+
+                    menu.addSeparator();
+                    menu.addAction(i18nc("@action", "Disable"), this, [this, index]() {
+                        // TODO slotUninstallApplication(index);
+                    });
                 }
             }
 
