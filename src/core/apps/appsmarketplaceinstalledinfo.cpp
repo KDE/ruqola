@@ -46,6 +46,8 @@ AppsMarketPlaceInstalledInfo::Status AppsMarketPlaceInstalledInfo::convertStatus
         return AppsMarketPlaceInstalledInfo::Status::ManuallyEnabled;
     } else if (str == "initialized"_L1) {
         return AppsMarketPlaceInstalledInfo::Status::Initialized;
+    } else if (str == "manually_disabled"_L1) {
+        return AppsMarketPlaceInstalledInfo::Status::ManuallyDisabled;
     } else {
         qCWarning(RUQOLA_LOG) << "Unknown status type " << str;
         return AppsMarketPlaceInstalledInfo::Status::Unknown;

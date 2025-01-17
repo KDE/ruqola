@@ -20,6 +20,7 @@ public:
         AutoEnabled,
         Initialized,
         ManuallyEnabled,
+        ManuallyDisabled,
     };
     Q_ENUM(Status);
 
