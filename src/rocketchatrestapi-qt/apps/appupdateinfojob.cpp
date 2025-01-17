@@ -114,6 +114,9 @@ QString AppUpdateInfoJob::generateUrlExtension() const
     case AppInfoType::Settings:
         url += QLatin1Char('/') + QStringLiteral("settings");
         break;
+    case AppInfoType::Status:
+        url += QLatin1Char('/') + QStringLiteral("status");
+        break;
     }
     return url;
 }

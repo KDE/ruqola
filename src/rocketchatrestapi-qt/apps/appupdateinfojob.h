@@ -26,6 +26,7 @@ public:
         Unknown,
         Settings,
         Apps,
+        Status,
     };
 
     explicit AppUpdateInfoJob(QObject *parent = nullptr);
