@@ -24,12 +24,24 @@ void AppUpdateInfoJobTest::shouldHaveDefaultValue()
 
 void AppUpdateInfoJobTest::shouldGenerateRequest()
 {
-    AppUpdateInfoJob job;
-    job.setAppMode(AppUpdateInfoJob::AppMode::Delete);
-    job.setAppsId(QByteArrayLiteral("foo"));
-    QNetworkRequest request = QNetworkRequest(QUrl());
-    verifyAuthentication(&job, request);
-    QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/apps/foo")));
+    {
+        AppUpdateInfoJob job;
+        job.setAppMode(AppUpdateInfoJob::AppMode::Delete);
+        job.setAppsId(QByteArrayLiteral("foo"));
+        QNetworkRequest request = QNetworkRequest(QUrl());
+        verifyAuthentication(&job, request);
+        QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/apps/foo")));
+    }
+
+    {
+        AppUpdateInfoJob job;
+        job.setAppMode(AppUpdateInfoJob::AppMode::Post);
+        job.setAppInfoType(AppUpdateInfoJob::AppInfoType::Settings);
+        job.setAppsId(QByteArrayLiteral("foo"));
+        QNetworkRequest request = QNetworkRequest(QUrl());
+        verifyAuthentication(&job, request);
+        QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/apps/foo/settings")));
+    }
 }
 
 #include "moc_appupdateinfojobtest.cpp"
