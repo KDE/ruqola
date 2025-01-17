@@ -15,6 +15,7 @@
 #include "rocketchataccount.h"
 #include "ruqolawidgets_debug.h"
 #include <KLocalizedString>
+#include <KMessageBox>
 #include <QMenu>
 #include <QMouseEvent>
 #include <QPointer>
@@ -155,17 +156,24 @@ void ApplicationsSettingsListView::setIsPrivate(bool isPrivate)
 
 void ApplicationsSettingsListView::slotUninstallApplication(const QModelIndex &index)
 {
-    auto job = new RocketChatRestApi::AppUpdateInfoJob(this);
-    job->setAppInfoType(RocketChatRestApi::AppUpdateInfoJob::AppInfoType::Apps);
-    job->setAppMode(RocketChatRestApi::AppUpdateInfoJob::AppMode::Delete);
-    job->setAppsId(index.data(AppsMarketPlaceModel::AppId).toByteArray());
-    mRocketChatAccount->restApi()->initializeRestApiJob(job);
-    connect(job, &RocketChatRestApi::AppUpdateInfoJob::appUpdateInfoDone, this, [](const QJsonObject &obj) {
-        qDebug() << " obj " << obj;
-        // TODO update listview !!
-    });
-    if (!job->start()) {
-        qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start appUpdateInfoDone";
+    if (KMessageBox::questionTwoActions(this,
+                                        i18n("Do you want to uninstall this application?"),
+                                        i18nc("@title:window", "Uninstall Application"),
+                                        KStandardGuiItem::remove(),
+                                        KStandardGuiItem::cancel())
+        == KMessageBox::ButtonCode::PrimaryAction) {
+        auto job = new RocketChatRestApi::AppUpdateInfoJob(this);
+        job->setAppInfoType(RocketChatRestApi::AppUpdateInfoJob::AppInfoType::Apps);
+        job->setAppMode(RocketChatRestApi::AppUpdateInfoJob::AppMode::Delete);
+        job->setAppsId(index.data(AppsMarketPlaceModel::AppId).toByteArray());
+        mRocketChatAccount->restApi()->initializeRestApiJob(job);
+        connect(job, &RocketChatRestApi::AppUpdateInfoJob::appUpdateInfoDone, this, [](const QJsonObject &obj) {
+            qDebug() << " obj " << obj;
+            // TODO update listview !!
+        });
+        if (!job->start()) {
+            qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start appUpdateInfoDone";
+        }
     }
 }
 
