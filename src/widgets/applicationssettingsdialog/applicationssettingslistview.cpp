@@ -8,6 +8,7 @@
 #include "applicationssettingsaskapplicationdialog.h"
 #include "applicationssettingsdelegate.h"
 #include "applicationssettingsdescriptiondialog.h"
+#include "apps/appupdateinfojob.h"
 #include "apps/notifyadminsappsjob.h"
 #include "connection.h"
 #include "model/appsmarketplacemodel.h"
@@ -155,7 +156,17 @@ void ApplicationsSettingsListView::setIsPrivate(bool isPrivate)
 void ApplicationsSettingsListView::slotUninstallApplication(const QModelIndex &index)
 {
     qCWarning(RUQOLAWIDGETS_LOG) << "ApplicationsSettingsListView::slotUninstallApplication not implemented yet.";
-    // TODO
+    auto job = new RocketChatRestApi::AppUpdateInfoJob(this);
+    job->setAppInfoType(RocketChatRestApi::AppUpdateInfoJob::AppInfoType::Apps);
+    job->setAppMode(RocketChatRestApi::AppUpdateInfoJob::AppMode::Delete);
+    job->setAppsId(index.data(AppsMarketPlaceModel::AppId).toByteArray());
+    mRocketChatAccount->restApi()->initializeRestApiJob(job);
+    connect(job, &RocketChatRestApi::AppUpdateInfoJob::appUpdateInfoDone, this, [](const QJsonObject &obj) {
+        qDebug() << " obj " << obj;
+    });
+    if (!job->start()) {
+        qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start appUpdateInfoDone";
+    }
 }
 
 void ApplicationsSettingsListView::slotInstallApplication(const QModelIndex &index)
