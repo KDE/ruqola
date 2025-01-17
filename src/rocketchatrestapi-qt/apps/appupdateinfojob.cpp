@@ -84,26 +84,28 @@ void AppUpdateInfoJob::setAppsId(const QByteArray &newAppsId)
 
 QString AppUpdateInfoJob::generateUrlExtension() const
 {
-    QString url = QString::fromLatin1(mAppsId) + QLatin1Char('/');
+    QString url = QString::fromLatin1(mAppsId);
 
     switch (mAppInfoType) {
     case AppInfoType::Unknown:
         qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Unknown type";
         break;
     case AppInfoType::Versions:
-        url += QStringLiteral("versions");
+        url += QLatin1Char('/') + QStringLiteral("versions");
         break;
     case AppInfoType::Logs:
-        url += QStringLiteral("logs");
+        url += QLatin1Char('/') + QStringLiteral("logs");
         break;
     case AppInfoType::Apis:
-        url += QStringLiteral("apis");
+        url += QLatin1Char('/') + QStringLiteral("apis");
         break;
     case AppInfoType::ScreenShots:
-        url += QStringLiteral("screenshots");
+        url += QLatin1Char('/') + QStringLiteral("screenshots");
         break;
     case AppInfoType::Settings:
-        url += QStringLiteral("settings");
+        url += QLatin1Char('/') + QStringLiteral("settings");
+        break;
+    case AppInfoType::Delete:
         break;
     }
     return url;

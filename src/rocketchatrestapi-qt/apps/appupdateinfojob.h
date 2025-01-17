@@ -22,6 +22,7 @@ public:
         Apis,
         ScreenShots,
         Settings,
+        Delete,
     };
 
     explicit AppUpdateInfoJob(QObject *parent = nullptr);
