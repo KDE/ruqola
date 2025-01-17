@@ -33,8 +33,23 @@ bool AppUpdateInfoJob::start()
         deleteLater();
         return false;
     }
-    submitPostRequest(json());
-    addStartRestApiInfo(QByteArrayLiteral("AppUpdateInfoJob: get app count info starting"));
+    switch (mAppMode) {
+    case AppMode::Unknown:
+        break;
+    case AppMode::Delete:
+        submitDeleteRequest();
+        addStartRestApiInfo(QByteArrayLiteral("AppUpdateInfoJob: delete starting"));
+        break;
+    case AppMode::Get:
+        submitGetRequest();
+        addStartRestApiInfo(QByteArrayLiteral("AppUpdateInfoJob: get starting"));
+        break;
+    case AppMode::Post:
+        submitPostRequest(json());
+        addStartRestApiInfo(QByteArrayLiteral("AppUpdateInfoJob: post starting"));
+        break;
+    }
+
     return true;
 }
 
@@ -94,10 +109,11 @@ QString AppUpdateInfoJob::generateUrlExtension() const
     case AppInfoType::Unknown:
         qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Unknown type";
         break;
+    case AppInfoType::Apps:
+        url = QLatin1Char('/') + QStringLiteral("apps") + QLatin1Char('/') + url;
+        break;
     case AppInfoType::Settings:
         url += QLatin1Char('/') + QStringLiteral("settings");
-        break;
-    case AppInfoType::Delete:
         break;
     }
     return url;
@@ -115,7 +131,7 @@ void AppUpdateInfoJob::setAppMode(AppMode newAppMode)
 
 QNetworkRequest AppUpdateInfoJob::request() const
 {
-    const QUrl url = mRestApiMethod->generateUrl(RestApiUtil::RestApiUrlType::Empty, RestApiUtil::RestApiUrlExtensionType::Apps, generateUrlExtension());
+    QUrl url = mRestApiMethod->generateUrl(RestApiUtil::RestApiUrlType::Empty, RestApiUtil::RestApiUrlExtensionType::Apps, generateUrlExtension());
     QNetworkRequest request(url);
     addAuthRawHeader(request);
     addRequestAttribute(request);

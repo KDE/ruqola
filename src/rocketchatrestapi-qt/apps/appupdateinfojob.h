@@ -25,7 +25,7 @@ public:
     enum class AppInfoType : uint8_t {
         Unknown,
         Settings,
-        Delete,
+        Apps,
     };
 
     explicit AppUpdateInfoJob(QObject *parent = nullptr);
