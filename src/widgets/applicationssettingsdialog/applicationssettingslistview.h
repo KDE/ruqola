@@ -36,6 +36,7 @@ private:
     LIBRUQOLAWIDGETS_NO_EXPORT void slotShowApplicationDescription(const QModelIndex &index);
     LIBRUQOLAWIDGETS_NO_EXPORT void slotCustomContextMenuRequested(const QPoint &pos);
     LIBRUQOLAWIDGETS_NO_EXPORT void slotSelectAll(const QModelIndex &index);
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotUninstallApplication(const QModelIndex &index);
     [[nodiscard]] LIBRUQOLAWIDGETS_NO_EXPORT QString selectedText(const QModelIndex &index) override;
     [[nodiscard]] LIBRUQOLAWIDGETS_NO_EXPORT QString selectedText() const;
     [[nodiscard]] LIBRUQOLAWIDGETS_NO_EXPORT bool hasSelection() const override;

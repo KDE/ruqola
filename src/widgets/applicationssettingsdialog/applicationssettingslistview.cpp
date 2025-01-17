@@ -72,6 +72,14 @@ void ApplicationsSettingsListView::slotCustomContextMenuRequested(const QPoint &
                     });
                 }
             }
+            if (index.data(AppsMarketPlaceModel::Installed).toBool()) {
+                if (mRocketChatAccount->isAdministrator()) {
+                    menu.addSeparator();
+                    menu.addAction(i18nc("@action", "Uninstall"), this, [this, index]() {
+                        slotUninstallApplication(index);
+                    });
+                }
+            }
 
             if (mApplicationsSettingsListDelegate->hasSelection()) {
                 menu.addSeparator();
@@ -142,6 +150,12 @@ void ApplicationsSettingsListView::setInstalled(bool installed)
 void ApplicationsSettingsListView::setIsPrivate(bool isPrivate)
 {
     mAppsMarketPlaceFilterProxyModel->setIsPrivate(isPrivate);
+}
+
+void ApplicationsSettingsListView::slotUninstallApplication(const QModelIndex &index)
+{
+    qCWarning(RUQOLAWIDGETS_LOG) << "ApplicationsSettingsListView::slotUninstallApplication not implemented yet.";
+    // TODO
 }
 
 void ApplicationsSettingsListView::slotInstallApplication(const QModelIndex &index)
