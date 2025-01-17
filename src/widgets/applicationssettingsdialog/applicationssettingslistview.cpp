@@ -155,7 +155,6 @@ void ApplicationsSettingsListView::setIsPrivate(bool isPrivate)
 
 void ApplicationsSettingsListView::slotUninstallApplication(const QModelIndex &index)
 {
-    qCWarning(RUQOLAWIDGETS_LOG) << "ApplicationsSettingsListView::slotUninstallApplication not implemented yet.";
     auto job = new RocketChatRestApi::AppUpdateInfoJob(this);
     job->setAppInfoType(RocketChatRestApi::AppUpdateInfoJob::AppInfoType::Apps);
     job->setAppMode(RocketChatRestApi::AppUpdateInfoJob::AppMode::Delete);
@@ -163,6 +162,7 @@ void ApplicationsSettingsListView::slotUninstallApplication(const QModelIndex &i
     mRocketChatAccount->restApi()->initializeRestApiJob(job);
     connect(job, &RocketChatRestApi::AppUpdateInfoJob::appUpdateInfoDone, this, [](const QJsonObject &obj) {
         qDebug() << " obj " << obj;
+        // TODO update listview !!
     });
     if (!job->start()) {
         qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start appUpdateInfoDone";
@@ -173,6 +173,20 @@ void ApplicationsSettingsListView::slotInstallApplication(const QModelIndex &ind
 {
     qCWarning(RUQOLAWIDGETS_LOG) << "ApplicationsSettingsListView::slotInstallApplication not implemented yet.";
     // TODO
+
+    auto job = new RocketChatRestApi::AppUpdateInfoJob(this);
+    job->setAppInfoType(RocketChatRestApi::AppUpdateInfoJob::AppInfoType::Apps);
+    job->setAppMode(RocketChatRestApi::AppUpdateInfoJob::AppMode::Post);
+    job->setAppsId(index.data(AppsMarketPlaceModel::AppId).toByteArray());
+    // TODO add version
+    mRocketChatAccount->restApi()->initializeRestApiJob(job);
+    connect(job, &RocketChatRestApi::AppUpdateInfoJob::appUpdateInfoDone, this, [](const QJsonObject &obj) {
+        qDebug() << " obj " << obj;
+        // TODO update listview !!
+    });
+    if (!job->start()) {
+        qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start appUpdateInfoDone";
+    }
 }
 
 void ApplicationsSettingsListView::slotAskApplication(const QModelIndex &index)
