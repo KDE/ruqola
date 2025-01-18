@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-01-17 00:41+0000\n"
+"POT-Creation-Date: 2025-01-18 00:41+0000\n"
 "PO-Revision-Date: 2024-02-25 21:19+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
@@ -1200,7 +1200,7 @@ msgstr "الدّور"
 #: core/model/adminusersallmodel.cpp:76 core/model/adminusersallmodel.cpp:127
 #: core/model/adminuserspendingmodel.cpp:74
 #: core/model/adminuserspendingmodel.cpp:131
-#: widgets/applicationssettingsdialog/applicationssettingsdelegate.cpp:174
+#: widgets/applicationssettingsdialog/applicationssettingsdelegate.cpp:163
 #: widgets/applicationssettingsdialog/applicationssettingsstatuscombobox.cpp:15
 #: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:274
 #, kde-format
@@ -3394,7 +3394,7 @@ msgid "Speak Text"
 msgstr "انطق النّصّ"
 
 #: widgets/administratordialog/moderationconsole/moderationreportinfolistview.cpp:99
-#: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:87
+#: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:102
 #: widgets/bannerinfodialog/bannerinfolistview.cpp:51
 #: widgets/discussions/discussionlistview.cpp:75
 #: widgets/notificationhistory/notificationhistorylistview.cpp:106
@@ -6954,13 +6954,19 @@ msgstr ""
 msgid "Want to use %1"
 msgstr ""
 
-#: widgets/applicationssettingsdialog/applicationssettingsdelegate.cpp:132
+#: widgets/applicationssettingsdialog/applicationssettingsdelegate.cpp:131
 #: widgets/applicationssettingsdialog/applicationssettingspricecombobox.cpp:16
 #, kde-format
 msgid "Premium"
 msgstr ""
 
 #: widgets/applicationssettingsdialog/applicationssettingsdelegate.cpp:160
+#: widgets/applicationssettingsdialog/applicationssettingsstatuscombobox.cpp:14
+#, kde-format
+msgid "Enabled"
+msgstr "ممكّن"
+
+#: widgets/applicationssettingsdialog/applicationssettingsdelegate.cpp:172
 #, kde-format
 msgid "%1 request"
 msgid_plural "%1 requests"
@@ -6970,12 +6976,6 @@ msgstr[2] ""
 msgstr[3] ""
 msgstr[4] ""
 msgstr[5] ""
-
-#: widgets/applicationssettingsdialog/applicationssettingsdelegate.cpp:171
-#: widgets/applicationssettingsdialog/applicationssettingsstatuscombobox.cpp:14
-#, kde-format
-msgid "Enabled"
-msgstr "ممكّن"
 
 #: widgets/applicationssettingsdialog/applicationssettingsdescriptiondialog.cpp:25
 #, fuzzy, kde-format
@@ -7010,33 +7010,59 @@ msgctxt "@label:textbox"
 msgid "Loading in progress…"
 msgstr "يحمّل..."
 
-#: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:58
+#: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:60
 #, fuzzy, kde-format
 #| msgid "Mentions"
 msgctxt "@action"
 msgid "Show Description…"
 msgstr "الذّكورات"
 
-#: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:65
+#: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:67
 #, kde-format
 msgctxt "@action"
 msgid "Install"
 msgstr ""
 
-#: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:70
+#: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:72
 #, fuzzy, kde-format
 #| msgid "Notifications"
 msgctxt "@action"
 msgid "Ask Application…"
 msgstr "الإخطارات"
 
-#: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:78
+#: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:80
+#, kde-format
+msgctxt "@action"
+msgid "Uninstall"
+msgstr ""
+
+#: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:85
+#, fuzzy, kde-format
+#| msgid "Disabled"
+msgctxt "@action"
+msgid "Disable"
+msgstr "معطّل"
+
+#: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:93
 #: widgets/bannerinfodialog/bannerinfolistview.cpp:55
 #, fuzzy, kde-format
 #| msgid "Copy Text"
 msgctxt "@action"
 msgid "Copy Text"
 msgstr "انسخ نص"
+
+#: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:165
+#, fuzzy, kde-format
+#| msgid "Do you want to remove \"%1\"?"
+msgid "Do you want to uninstall this application?"
+msgstr "أتريد إزالة \"%1\"؟"
+
+#: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:166
+#, fuzzy, kde-format
+#| msgid "Notifications"
+msgctxt "@title:window"
+msgid "Uninstall Application"
+msgstr "الإخطارات"
 
 #: widgets/applicationssettingsdialog/applicationssettingslogswidget.cpp:63
 #, kde-format

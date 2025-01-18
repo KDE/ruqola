@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-01-17 00:41+0000\n"
+"POT-Creation-Date: 2025-01-18 00:41+0000\n"
 "PO-Revision-Date: 2025-01-16 08:57+0200\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
@@ -1182,7 +1182,7 @@ msgstr "Роль"
 #: core/model/adminusersallmodel.cpp:76 core/model/adminusersallmodel.cpp:127
 #: core/model/adminuserspendingmodel.cpp:74
 #: core/model/adminuserspendingmodel.cpp:131
-#: widgets/applicationssettingsdialog/applicationssettingsdelegate.cpp:174
+#: widgets/applicationssettingsdialog/applicationssettingsdelegate.cpp:163
 #: widgets/applicationssettingsdialog/applicationssettingsstatuscombobox.cpp:15
 #: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:274
 #, kde-format
@@ -3362,7 +3362,7 @@ msgid "Speak Text"
 msgstr "Декламувати текст"
 
 #: widgets/administratordialog/moderationconsole/moderationreportinfolistview.cpp:99
-#: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:87
+#: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:102
 #: widgets/bannerinfodialog/bannerinfolistview.cpp:51
 #: widgets/discussions/discussionlistview.cpp:75
 #: widgets/notificationhistory/notificationhistorylistview.cpp:106
@@ -7016,13 +7016,19 @@ msgstr "Повідомлення для адміністратора робоч�
 msgid "Want to use %1"
 msgstr "Хочете скористатися %1"
 
-#: widgets/applicationssettingsdialog/applicationssettingsdelegate.cpp:132
+#: widgets/applicationssettingsdialog/applicationssettingsdelegate.cpp:131
 #: widgets/applicationssettingsdialog/applicationssettingspricecombobox.cpp:16
 #, kde-format
 msgid "Premium"
 msgstr "преміум"
 
 #: widgets/applicationssettingsdialog/applicationssettingsdelegate.cpp:160
+#: widgets/applicationssettingsdialog/applicationssettingsstatuscombobox.cpp:14
+#, kde-format
+msgid "Enabled"
+msgstr "Увімкнено"
+
+#: widgets/applicationssettingsdialog/applicationssettingsdelegate.cpp:172
 #, kde-format
 msgid "%1 request"
 msgid_plural "%1 requests"
@@ -7030,12 +7036,6 @@ msgstr[0] "%1 запит"
 msgstr[1] "%1 запити"
 msgstr[2] "%1 запитів"
 msgstr[3] "%1 запит"
-
-#: widgets/applicationssettingsdialog/applicationssettingsdelegate.cpp:171
-#: widgets/applicationssettingsdialog/applicationssettingsstatuscombobox.cpp:14
-#, kde-format
-msgid "Enabled"
-msgstr "Увімкнено"
 
 #: widgets/applicationssettingsdialog/applicationssettingsdescriptiondialog.cpp:25
 #, kde-format
@@ -7065,30 +7065,59 @@ msgctxt "@label:textbox"
 msgid "Loading in progress…"
 msgstr "Триває завантаження…"
 
-#: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:58
+#: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:60
 #, kde-format
 msgctxt "@action"
 msgid "Show Description…"
 msgstr "Показати опис…"
 
-#: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:65
+#: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:67
 #, kde-format
 msgctxt "@action"
 msgid "Install"
 msgstr "Встановити"
 
-#: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:70
+#: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:72
 #, kde-format
 msgctxt "@action"
 msgid "Ask Application…"
 msgstr "Запитати програму…"
 
-#: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:78
+#: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:80
+#, fuzzy, kde-format
+#| msgctxt "@action"
+#| msgid "Install"
+msgctxt "@action"
+msgid "Uninstall"
+msgstr "Встановити"
+
+#: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:85
+#, fuzzy, kde-format
+#| msgid "Disable"
+msgctxt "@action"
+msgid "Disable"
+msgstr "Вимкнути"
+
+#: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:93
 #: widgets/bannerinfodialog/bannerinfolistview.cpp:55
 #, kde-format
 msgctxt "@action"
 msgid "Copy Text"
 msgstr "Скопіювати текст"
+
+#: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:165
+#, fuzzy, kde-format
+#| msgid "Do you want to unarchive this room?"
+msgid "Do you want to uninstall this application?"
+msgstr "Хочете розархівувати цю кімнату?"
+
+#: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:166
+#, fuzzy, kde-format
+#| msgctxt "@action"
+#| msgid "Installed Applications…"
+msgctxt "@title:window"
+msgid "Uninstall Application"
+msgstr "Встановлені програми…"
 
 #: widgets/applicationssettingsdialog/applicationssettingslogswidget.cpp:63
 #, kde-format
@@ -12828,9 +12857,6 @@ msgstr "Виправлення деяких вад:"
 
 #~ msgid "Encrypted message: %1"
 #~ msgstr "Зашифроване повідомлення: %1"
-
-#~ msgid "Disable"
-#~ msgstr "Вимкнути"
 
 #~ msgctxt "@title:window"
 #~ msgid "Add User in Role"

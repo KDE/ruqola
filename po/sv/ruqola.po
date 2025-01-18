@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-01-17 00:41+0000\n"
+"POT-Creation-Date: 2025-01-18 00:41+0000\n"
 "PO-Revision-Date: 2025-01-16 17:41+0100\n"
 "Last-Translator: Stefan Asserhäll <stefan.asserhall@gmail.com>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
@@ -1177,7 +1177,7 @@ msgstr "Roll"
 #: core/model/adminusersallmodel.cpp:76 core/model/adminusersallmodel.cpp:127
 #: core/model/adminuserspendingmodel.cpp:74
 #: core/model/adminuserspendingmodel.cpp:131
-#: widgets/applicationssettingsdialog/applicationssettingsdelegate.cpp:174
+#: widgets/applicationssettingsdialog/applicationssettingsdelegate.cpp:163
 #: widgets/applicationssettingsdialog/applicationssettingsstatuscombobox.cpp:15
 #: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:274
 #, kde-format
@@ -3322,7 +3322,7 @@ msgid "Speak Text"
 msgstr "Läs upp text"
 
 #: widgets/administratordialog/moderationconsole/moderationreportinfolistview.cpp:99
-#: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:87
+#: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:102
 #: widgets/bannerinfodialog/bannerinfolistview.cpp:51
 #: widgets/discussions/discussionlistview.cpp:75
 #: widgets/notificationhistory/notificationhistorylistview.cpp:106
@@ -6949,24 +6949,24 @@ msgstr "Meddelande till administratörer av arbetsytan"
 msgid "Want to use %1"
 msgstr "Vill använda %1"
 
-#: widgets/applicationssettingsdialog/applicationssettingsdelegate.cpp:132
+#: widgets/applicationssettingsdialog/applicationssettingsdelegate.cpp:131
 #: widgets/applicationssettingsdialog/applicationssettingspricecombobox.cpp:16
 #, kde-format
 msgid "Premium"
 msgstr "Premium"
 
 #: widgets/applicationssettingsdialog/applicationssettingsdelegate.cpp:160
+#: widgets/applicationssettingsdialog/applicationssettingsstatuscombobox.cpp:14
+#, kde-format
+msgid "Enabled"
+msgstr "Aktiverad"
+
+#: widgets/applicationssettingsdialog/applicationssettingsdelegate.cpp:172
 #, kde-format
 msgid "%1 request"
 msgid_plural "%1 requests"
 msgstr[0] "%1 förfrågan"
 msgstr[1] "%1 förfrågningar"
-
-#: widgets/applicationssettingsdialog/applicationssettingsdelegate.cpp:171
-#: widgets/applicationssettingsdialog/applicationssettingsstatuscombobox.cpp:14
-#, kde-format
-msgid "Enabled"
-msgstr "Aktiverad"
 
 #: widgets/applicationssettingsdialog/applicationssettingsdescriptiondialog.cpp:25
 #, kde-format
@@ -6996,30 +6996,59 @@ msgctxt "@label:textbox"
 msgid "Loading in progress…"
 msgstr "Inläsning pågår…"
 
-#: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:58
+#: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:60
 #, kde-format
 msgctxt "@action"
 msgid "Show Description…"
 msgstr "Visa beskrivning…"
 
-#: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:65
+#: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:67
 #, kde-format
 msgctxt "@action"
 msgid "Install"
 msgstr "Installera"
 
-#: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:70
+#: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:72
 #, kde-format
 msgctxt "@action"
 msgid "Ask Application…"
 msgstr "Fråga program…"
 
-#: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:78
+#: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:80
+#, fuzzy, kde-format
+#| msgctxt "@action"
+#| msgid "Install"
+msgctxt "@action"
+msgid "Uninstall"
+msgstr "Installera"
+
+#: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:85
+#, fuzzy, kde-format
+#| msgid "Disable"
+msgctxt "@action"
+msgid "Disable"
+msgstr "Inaktivera"
+
+#: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:93
 #: widgets/bannerinfodialog/bannerinfolistview.cpp:55
 #, kde-format
 msgctxt "@action"
 msgid "Copy Text"
 msgstr "Kopiera text"
+
+#: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:165
+#, fuzzy, kde-format
+#| msgid "Do you want to unarchive this room?"
+msgid "Do you want to uninstall this application?"
+msgstr "Vill du packa upp rummet?"
+
+#: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:166
+#, fuzzy, kde-format
+#| msgctxt "@action"
+#| msgid "Installed Applications…"
+msgctxt "@title:window"
+msgid "Uninstall Application"
+msgstr "Installerade program…"
 
 #: widgets/applicationssettingsdialog/applicationssettingslogswidget.cpp:63
 #, kde-format
@@ -12635,9 +12664,6 @@ msgstr "En del felrättning:"
 #~ msgctxt "@title:window"
 #~ msgid "Add User in Role"
 #~ msgstr "Lägg till användare i roll"
-
-#~ msgid "Disable"
-#~ msgstr "Inaktivera"
 
 #~ msgctxt "@title:window"
 #~ msgid "Show Snippered Messages"

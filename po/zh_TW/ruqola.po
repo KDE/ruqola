@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-01-17 00:41+0000\n"
+"POT-Creation-Date: 2025-01-18 00:41+0000\n"
 "PO-Revision-Date: 2024-08-06 05:33+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
@@ -1199,7 +1199,7 @@ msgstr "角色"
 #: core/model/adminusersallmodel.cpp:76 core/model/adminusersallmodel.cpp:127
 #: core/model/adminuserspendingmodel.cpp:74
 #: core/model/adminuserspendingmodel.cpp:131
-#: widgets/applicationssettingsdialog/applicationssettingsdelegate.cpp:174
+#: widgets/applicationssettingsdialog/applicationssettingsdelegate.cpp:163
 #: widgets/applicationssettingsdialog/applicationssettingsstatuscombobox.cpp:15
 #: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:274
 #, kde-format
@@ -3352,7 +3352,7 @@ msgid "Speak Text"
 msgstr "唸出文字"
 
 #: widgets/administratordialog/moderationconsole/moderationreportinfolistview.cpp:99
-#: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:87
+#: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:102
 #: widgets/bannerinfodialog/bannerinfolistview.cpp:51
 #: widgets/discussions/discussionlistview.cpp:75
 #: widgets/notificationhistory/notificationhistorylistview.cpp:106
@@ -7095,23 +7095,23 @@ msgstr ""
 msgid "Want to use %1"
 msgstr ""
 
-#: widgets/applicationssettingsdialog/applicationssettingsdelegate.cpp:132
+#: widgets/applicationssettingsdialog/applicationssettingsdelegate.cpp:131
 #: widgets/applicationssettingsdialog/applicationssettingspricecombobox.cpp:16
 #, kde-format
 msgid "Premium"
 msgstr ""
 
 #: widgets/applicationssettingsdialog/applicationssettingsdelegate.cpp:160
-#, kde-format
-msgid "%1 request"
-msgid_plural "%1 requests"
-msgstr[0] ""
-
-#: widgets/applicationssettingsdialog/applicationssettingsdelegate.cpp:171
 #: widgets/applicationssettingsdialog/applicationssettingsstatuscombobox.cpp:14
 #, kde-format
 msgid "Enabled"
 msgstr "已啟用"
+
+#: widgets/applicationssettingsdialog/applicationssettingsdelegate.cpp:172
+#, kde-format
+msgid "%1 request"
+msgid_plural "%1 requests"
+msgstr[0] ""
 
 #: widgets/applicationssettingsdialog/applicationssettingsdescriptiondialog.cpp:25
 #, fuzzy, kde-format
@@ -7146,20 +7146,20 @@ msgctxt "@label:textbox"
 msgid "Loading in progress…"
 msgstr "載入中…"
 
-#: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:58
+#: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:60
 #, fuzzy, kde-format
 #| msgid "Show Mentions…"
 msgctxt "@action"
 msgid "Show Description…"
 msgstr "顯示提及…"
 
-#: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:65
+#: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:67
 #, kde-format
 msgctxt "@action"
 msgid "Install"
 msgstr ""
 
-#: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:70
+#: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:72
 #, fuzzy, kde-format
 #| msgctxt "@action"
 #| msgid "Applications…"
@@ -7167,13 +7167,40 @@ msgctxt "@action"
 msgid "Ask Application…"
 msgstr "應用程式…"
 
-#: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:78
+#: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:80
+#, kde-format
+msgctxt "@action"
+msgid "Uninstall"
+msgstr ""
+
+#: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:85
+#, fuzzy, kde-format
+#| msgid "Disabled"
+msgctxt "@action"
+msgid "Disable"
+msgstr "已停用"
+
+#: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:93
 #: widgets/bannerinfodialog/bannerinfolistview.cpp:55
 #, fuzzy, kde-format
 #| msgid "Copy Text"
 msgctxt "@action"
 msgid "Copy Text"
 msgstr "複製文字"
+
+#: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:165
+#, fuzzy, kde-format
+#| msgid "Do you want to unarchive this room?"
+msgid "Do you want to uninstall this application?"
+msgstr "您確定要解除封存此聊天室嗎？"
+
+#: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:166
+#, fuzzy, kde-format
+#| msgctxt "@action"
+#| msgid "Applications…"
+msgctxt "@title:window"
+msgid "Uninstall Application"
+msgstr "應用程式…"
 
 #: widgets/applicationssettingsdialog/applicationssettingslogswidget.cpp:63
 #, fuzzy, kde-format

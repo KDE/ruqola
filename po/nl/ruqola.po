@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-01-17 00:41+0000\n"
+"POT-Creation-Date: 2025-01-18 00:41+0000\n"
 "PO-Revision-Date: 2025-01-16 14:37+0100\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
@@ -1180,7 +1180,7 @@ msgstr "Rol"
 #: core/model/adminusersallmodel.cpp:76 core/model/adminusersallmodel.cpp:127
 #: core/model/adminuserspendingmodel.cpp:74
 #: core/model/adminuserspendingmodel.cpp:131
-#: widgets/applicationssettingsdialog/applicationssettingsdelegate.cpp:174
+#: widgets/applicationssettingsdialog/applicationssettingsdelegate.cpp:163
 #: widgets/applicationssettingsdialog/applicationssettingsstatuscombobox.cpp:15
 #: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:274
 #, kde-format
@@ -3344,7 +3344,7 @@ msgid "Speak Text"
 msgstr "Tekst uitspreken"
 
 #: widgets/administratordialog/moderationconsole/moderationreportinfolistview.cpp:99
-#: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:87
+#: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:102
 #: widgets/bannerinfodialog/bannerinfolistview.cpp:51
 #: widgets/discussions/discussionlistview.cpp:75
 #: widgets/notificationhistory/notificationhistorylistview.cpp:106
@@ -6992,24 +6992,24 @@ msgstr "Bericht voor beheerder van werkruimte"
 msgid "Want to use %1"
 msgstr "Wil %1 gebruiken"
 
-#: widgets/applicationssettingsdialog/applicationssettingsdelegate.cpp:132
+#: widgets/applicationssettingsdialog/applicationssettingsdelegate.cpp:131
 #: widgets/applicationssettingsdialog/applicationssettingspricecombobox.cpp:16
 #, kde-format
 msgid "Premium"
 msgstr "Eerste klas"
 
 #: widgets/applicationssettingsdialog/applicationssettingsdelegate.cpp:160
+#: widgets/applicationssettingsdialog/applicationssettingsstatuscombobox.cpp:14
+#, kde-format
+msgid "Enabled"
+msgstr "Ingeschakeld"
+
+#: widgets/applicationssettingsdialog/applicationssettingsdelegate.cpp:172
 #, kde-format
 msgid "%1 request"
 msgid_plural "%1 requests"
 msgstr[0] "%1 verzoek"
 msgstr[1] "%1 verzoeken"
-
-#: widgets/applicationssettingsdialog/applicationssettingsdelegate.cpp:171
-#: widgets/applicationssettingsdialog/applicationssettingsstatuscombobox.cpp:14
-#, kde-format
-msgid "Enabled"
-msgstr "Ingeschakeld"
 
 #: widgets/applicationssettingsdialog/applicationssettingsdescriptiondialog.cpp:25
 #, kde-format
@@ -7039,30 +7039,59 @@ msgctxt "@label:textbox"
 msgid "Loading in progress…"
 msgstr "Er wordt geladen…"
 
-#: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:58
+#: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:60
 #, kde-format
 msgctxt "@action"
 msgid "Show Description…"
 msgstr "Beschrijving tonen…"
 
-#: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:65
+#: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:67
 #, kde-format
 msgctxt "@action"
 msgid "Install"
 msgstr "Installeren"
 
-#: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:70
+#: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:72
 #, kde-format
 msgctxt "@action"
 msgid "Ask Application…"
 msgstr "Aan toepassing vragen…"
 
-#: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:78
+#: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:80
+#, fuzzy, kde-format
+#| msgctxt "@action"
+#| msgid "Install"
+msgctxt "@action"
+msgid "Uninstall"
+msgstr "Installeren"
+
+#: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:85
+#, fuzzy, kde-format
+#| msgid "Disable"
+msgctxt "@action"
+msgid "Disable"
+msgstr "Uitschakelen"
+
+#: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:93
 #: widgets/bannerinfodialog/bannerinfolistview.cpp:55
 #, kde-format
 msgctxt "@action"
 msgid "Copy Text"
 msgstr "Tekst kopiëren"
+
+#: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:165
+#, fuzzy, kde-format
+#| msgid "Do you want to unarchive this room?"
+msgid "Do you want to uninstall this application?"
+msgstr "Wilt u deze room uit het archief halen?"
+
+#: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:166
+#, fuzzy, kde-format
+#| msgctxt "@action"
+#| msgid "Installed Applications…"
+msgctxt "@title:window"
+msgid "Uninstall Application"
+msgstr "Geïnstalleerde toepassingen…"
 
 #: widgets/applicationssettingsdialog/applicationssettingslogswidget.cpp:63
 #, kde-format
@@ -12766,9 +12795,6 @@ msgstr "Enig repareren van bugs:"
 
 #~ msgid "Encrypted message: %1"
 #~ msgstr "Versleuteld bericht: %1"
-
-#~ msgid "Disable"
-#~ msgstr "Uitschakelen"
 
 #~ msgctxt "@title:window"
 #~ msgid "Add User in Role"

@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-01-17 00:41+0000\n"
-"PO-Revision-Date: 2025-01-15 10:01+0100\n"
+"POT-Creation-Date: 2025-01-18 00:41+0000\n"
+"PO-Revision-Date: 2025-01-17 12:23+0100\n"
 "Last-Translator: giovanni <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
 "Language: ia\n"
@@ -1178,7 +1178,7 @@ msgstr "Rolo"
 #: core/model/adminusersallmodel.cpp:76 core/model/adminusersallmodel.cpp:127
 #: core/model/adminuserspendingmodel.cpp:74
 #: core/model/adminuserspendingmodel.cpp:131
-#: widgets/applicationssettingsdialog/applicationssettingsdelegate.cpp:174
+#: widgets/applicationssettingsdialog/applicationssettingsdelegate.cpp:163
 #: widgets/applicationssettingsdialog/applicationssettingsstatuscombobox.cpp:15
 #: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:274
 #, kde-format
@@ -3300,12 +3300,10 @@ msgstr "Abbandona Omne Reportos"
 #: widgets/notificationhistory/notificationhistorylistview.cpp:86
 #: widgets/room/messagelistview.cpp:281
 #: widgets/servererrorinfohistory/servererrorinfomessagehistorylistview.cpp:53
-#, fuzzy, kde-format
-#| msgctxt "@info:tooltip"
-#| msgid "Copy link"
+#, kde-format
 msgctxt "@action"
 msgid "Copy Selection"
-msgstr "Copia Ligamine"
+msgstr "Copia selection"
 
 #: widgets/administratordialog/moderationconsole/moderationreportinfolistview.cpp:81
 #: widgets/notificationhistory/notificationhistorylistview.cpp:88
@@ -3327,7 +3325,7 @@ msgid "Speak Text"
 msgstr "Pronuncia texto"
 
 #: widgets/administratordialog/moderationconsole/moderationreportinfolistview.cpp:99
-#: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:87
+#: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:102
 #: widgets/bannerinfodialog/bannerinfolistview.cpp:51
 #: widgets/discussions/discussionlistview.cpp:75
 #: widgets/notificationhistory/notificationhistorylistview.cpp:106
@@ -6795,24 +6793,24 @@ msgstr ""
 msgid "Want to use %1"
 msgstr ""
 
-#: widgets/applicationssettingsdialog/applicationssettingsdelegate.cpp:132
+#: widgets/applicationssettingsdialog/applicationssettingsdelegate.cpp:131
 #: widgets/applicationssettingsdialog/applicationssettingspricecombobox.cpp:16
 #, kde-format
 msgid "Premium"
 msgstr ""
 
 #: widgets/applicationssettingsdialog/applicationssettingsdelegate.cpp:160
+#: widgets/applicationssettingsdialog/applicationssettingsstatuscombobox.cpp:14
+#, kde-format
+msgid "Enabled"
+msgstr "Habilitate"
+
+#: widgets/applicationssettingsdialog/applicationssettingsdelegate.cpp:172
 #, kde-format
 msgid "%1 request"
 msgid_plural "%1 requests"
 msgstr[0] "%1 Requesta"
 msgstr[1] "%1 Requestas"
-
-#: widgets/applicationssettingsdialog/applicationssettingsdelegate.cpp:171
-#: widgets/applicationssettingsdialog/applicationssettingsstatuscombobox.cpp:14
-#, kde-format
-msgid "Enabled"
-msgstr "Habilitate"
 
 #: widgets/applicationssettingsdialog/applicationssettingsdescriptiondialog.cpp:25
 #, kde-format
@@ -6842,30 +6840,59 @@ msgctxt "@label:textbox"
 msgid "Loading in progress…"
 msgstr "Cargar in progresso..."
 
-#: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:58
+#: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:60
 #, kde-format
 msgctxt "@action"
 msgid "Show Description…"
 msgstr "Monstra Description..."
 
-#: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:65
+#: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:67
 #, kde-format
 msgctxt "@action"
 msgid "Install"
 msgstr "Installa"
 
-#: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:70
+#: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:72
 #, kde-format
 msgctxt "@action"
 msgid "Ask Application…"
 msgstr "Demanda Application…"
 
-#: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:78
+#: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:80
+#, fuzzy, kde-format
+#| msgctxt "@action"
+#| msgid "Install"
+msgctxt "@action"
+msgid "Uninstall"
+msgstr "Installa"
+
+#: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:85
+#, fuzzy, kde-format
+#| msgid "Disable"
+msgctxt "@action"
+msgid "Disable"
+msgstr "Dishabilita"
+
+#: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:93
 #: widgets/bannerinfodialog/bannerinfolistview.cpp:55
 #, kde-format
 msgctxt "@action"
 msgid "Copy Text"
 msgstr "Copia texto"
+
+#: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:165
+#, fuzzy, kde-format
+#| msgid "Do you want to unarchive this room?"
+msgid "Do you want to uninstall this application?"
+msgstr "Tu vole de-archivar iste sala?"
+
+#: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:166
+#, fuzzy, kde-format
+#| msgctxt "@action"
+#| msgid "Installed Applications…"
+msgctxt "@title:window"
+msgid "Uninstall Application"
+msgstr "Applicationes installate …"
 
 #: widgets/applicationssettingsdialog/applicationssettingslogswidget.cpp:63
 #, kde-format
@@ -12432,9 +12459,6 @@ msgstr "Alcun correction de faltas (bug)"
 
 #~ msgid "Encrypted message: %1"
 #~ msgstr "Message Cryptate: %1"
-
-#~ msgid "Disable"
-#~ msgstr "Dishabilita"
 
 #~ msgctxt "@title:window"
 #~ msgid "Add User in Role"
