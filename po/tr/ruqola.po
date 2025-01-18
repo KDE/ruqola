@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-01-18 00:41+0000\n"
-"PO-Revision-Date: 2025-01-16 16:01+0300\n"
+"PO-Revision-Date: 2025-01-18 13:17+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -7000,19 +7000,16 @@ msgid "Ask Application…"
 msgstr "Uygulamaya Sor…"
 
 #: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:80
-#, fuzzy, kde-format
-#| msgctxt "@action"
-#| msgid "Install"
+#, kde-format
 msgctxt "@action"
 msgid "Uninstall"
-msgstr "Kur"
+msgstr "Kaldır"
 
 #: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:85
-#, fuzzy, kde-format
-#| msgid "Disabled"
+#, kde-format
 msgctxt "@action"
 msgid "Disable"
-msgstr "Devre Dışı"
+msgstr "Devre Dışı Bırak"
 
 #: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:93
 #: widgets/bannerinfodialog/bannerinfolistview.cpp:55
@@ -7022,18 +7019,15 @@ msgid "Copy Text"
 msgstr "Metni Kopyala"
 
 #: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:165
-#, fuzzy, kde-format
-#| msgid "Do you want to unarchive this room?"
+#, kde-format
 msgid "Do you want to uninstall this application?"
-msgstr "Bu odanın arşivini açmak istediğinizden emin misiniz?"
+msgstr "Bu uygulamayı kaldırmak istiyor musunuz?"
 
 #: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:166
-#, fuzzy, kde-format
-#| msgctxt "@action"
-#| msgid "Installed Applications…"
+#, kde-format
 msgctxt "@title:window"
 msgid "Uninstall Application"
-msgstr "İstenen Uygulamalar…"
+msgstr "Uygulamayı Kaldır"
 
 #: widgets/applicationssettingsdialog/applicationssettingslogswidget.cpp:63
 #, kde-format

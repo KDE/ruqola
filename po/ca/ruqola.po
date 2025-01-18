@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-01-18 00:41+0000\n"
-"PO-Revision-Date: 2025-01-16 10:44+0100\n"
+"PO-Revision-Date: 2025-01-18 10:16+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca\n"
@@ -7060,19 +7060,16 @@ msgid "Ask Application…"
 msgstr "Demana una aplicació…"
 
 #: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:80
-#, fuzzy, kde-format
-#| msgctxt "@action"
-#| msgid "Install"
+#, kde-format
 msgctxt "@action"
 msgid "Uninstall"
-msgstr "Instal·la"
+msgstr "Desinstal·la"
 
 #: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:85
-#, fuzzy, kde-format
-#| msgid "Disabled"
+#, kde-format
 msgctxt "@action"
 msgid "Disable"
-msgstr "Desactivat"
+msgstr "Desactiva"
 
 #: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:93
 #: widgets/bannerinfodialog/bannerinfolistview.cpp:55
@@ -7082,18 +7079,15 @@ msgid "Copy Text"
 msgstr "Copia el text"
 
 #: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:165
-#, fuzzy, kde-format
-#| msgid "Do you want to unarchive this room?"
+#, kde-format
 msgid "Do you want to uninstall this application?"
-msgstr "Voleu desarxivar aquesta sala?"
+msgstr "Voleu desinstal·lar aquesta aplicació?"
 
 #: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:166
-#, fuzzy, kde-format
-#| msgctxt "@action"
-#| msgid "Installed Applications…"
+#, kde-format
 msgctxt "@title:window"
 msgid "Uninstall Application"
-msgstr "Aplicacions instal·lades…"
+msgstr "Desinstal·lació d'aplicació"
 
 #: widgets/applicationssettingsdialog/applicationssettingslogswidget.cpp:63
 #, kde-format
@@ -11721,304 +11715,3 @@ msgstr ""
 #, kde-format
 msgid "Some bug fixing:"
 msgstr "Correcció d'errors:"
-
-#~ msgid "Add screenshot button"
-#~ msgstr "Afegeix un botó de captura de pantalla"
-
-#~ msgctxt "@info:shell"
-#~ msgid "Attach File"
-#~ msgstr "Adjunta un fitxer"
-
-#~ msgid "Impossible to open log."
-#~ msgstr "Impossible obrir el registre."
-
-#~ msgctxt "@title:window"
-#~ msgid "Show Log"
-#~ msgstr "Mostra el registre"
-
-#~ msgid "Private"
-#~ msgstr "Privada"
-
-#~ msgid "Installed"
-#~ msgstr "Instal·lada"
-
-#~ msgid "BigBlueButton"
-#~ msgstr "BigBlueButton"
-
-#~ msgid "Jitsi"
-#~ msgstr "Jitsi"
-
-#~ msgctxt "@option:check"
-#~ msgid "Join Default Channels"
-#~ msgstr "Uneix-te als canals predeterminats"
-
-#~ msgid "Starred Messages"
-#~ msgstr "Missatges destacats"
-
-#~ msgid "Pinned Messages"
-#~ msgstr "Missatges fixats"
-
-#~ msgid "Mentions Messages"
-#~ msgstr "Missatges que mencionen"
-
-#~ msgid "Threads Messages"
-#~ msgstr "Missatges dels fils"
-
-#~ msgid "Unread Threads Messages"
-#~ msgstr "Missatges dels fils no llegits"
-
-#~ msgid "@option:check"
-#~ msgstr "@option:check"
-
-#~ msgid "(Mark as Read)"
-#~ msgstr "(Marca com a llegit)"
-
-#~ msgid "Username or Email:"
-#~ msgstr "Nom d'usuari o correu:"
-
-#~ msgctxt "@option:check"
-#~ msgid "Show images by default"
-#~ msgstr "Mostra les imatges de manera predeterminada"
-
-#~ msgctxt "@option:check"
-#~ msgid "Show preview url by default"
-#~ msgstr "Mostra l'URL de la vista prèvia de manera predeterminada"
-
-#~ msgctxt "@option:check"
-#~ msgid "Show hover highlights"
-#~ msgstr "Mostra els ressaltats en passar-hi per sobre"
-
-#~ msgctxt "@option:check"
-#~ msgid "Use local dataBase (experimental)"
-#~ msgstr "Usa una base de dades local (experimental)"
-
-#~ msgctxt "@title Preferences page name"
-#~ msgid "Account"
-#~ msgstr "Compte"
-
-#~ msgctxt "@action:button"
-#~ msgid "Connection"
-#~ msgstr "Connexió"
-
-#~ msgctxt "@label:textbox"
-#~ msgid "Server Url:"
-#~ msgstr "URL del servidor:"
-
-#~ msgid "Impossible to access to server."
-#~ msgstr "És impossible accedir al servidor."
-
-#~ msgid "Message %1"
-#~ msgstr "Missatge %1"
-
-#~ msgctxt "@action"
-#~ msgid "Mark As Read"
-#~ msgstr "Marca com a llegit"
-
-#~| msgctxt "@title:window"
-#~| msgid "Reset E2E"
-#~ msgctxt "@info:tooltip"
-#~ msgid "Reset"
-#~ msgstr "Reinicia"
-
-#~ msgctxt "@info:tooltip"
-#~ msgid "All users in this team can write messages"
-#~ msgstr "Tots els usuaris d'aquest equip poden escriure missatges"
-
-#~ msgctxt "@option:check"
-#~ msgid "Verified"
-#~ msgstr "Verificat"
-
-#~ msgid "System Messages"
-#~ msgstr "Missatges del sistema"
-
-#~ msgid "Reset TOTP"
-#~ msgstr "Reinicia el TOTP"
-
-#~ msgid "Create"
-#~ msgstr "Crea"
-
-#~ msgid "Set as Favorite"
-#~ msgstr "Estableix com a preferit"
-
-#~ msgid "Search rooms…"
-#~ msgstr "Cerca sales…"
-
-#~ msgid "Copy Message"
-#~ msgstr "Copia el missatge"
-
-#~| msgid "Search rooms…"
-#~ msgctxt "Placeholder"
-#~ msgid "Search rooms…"
-#~ msgstr "Cerca sales…"
-
-#~| msgid "Search users…"
-#~ msgctxt "Placeholder"
-#~ msgid "Search users…"
-#~ msgstr "Cerca usuaris…"
-
-#~ msgid "Cancel"
-#~ msgstr "Cancel·la"
-
-#~ msgid "Search channels…"
-#~ msgstr "Cerca de canals…"
-
-#~ msgid "Open…"
-#~ msgstr "Obre…"
-
-#~ msgctxt "@title:window"
-#~ msgid "Directory - %1"
-#~ msgstr "Directori - %1"
-
-#~ msgctxt "Action which allows to search room/user/team"
-#~ msgid "Directory…"
-#~ msgstr "Directori…"
-
-#~ msgid "Version 2.0"
-#~ msgstr "Versió 2.0"
-
-#~ msgid "Version 2.2"
-#~ msgstr "Versió 2.2"
-
-#~ msgid "Version 2.3"
-#~ msgstr "Versió 2.3"
-
-#~ msgctxt "@title:window"
-#~ msgid "What's new in Ruqola"
-#~ msgstr "Què hi ha de nou al Ruqola"
-
-#~ msgid "Select All"
-#~ msgstr "Selecciona-ho tot"
-
-#~ msgid "Go to Message"
-#~ msgstr "Ves al missatge"
-
-#~ msgid "Add..."
-#~ msgstr "Afegeix..."
-
-#~ msgid "Modify..."
-#~ msgstr "Modifica..."
-
-#~ msgid "(Click here for Loading more...)"
-#~ msgstr "(Feu clic aquí per a carregar-ne més...)"
-
-#~ msgid "Droplet"
-#~ msgstr "Gota"
-
-#~ msgid "Modify Status..."
-#~ msgstr "Modifica l'estat..."
-
-#~ msgid "Reply..."
-#~ msgstr "Respon..."
-
-#~ msgid "Add Users In Role..."
-#~ msgstr "Afegeix usuaris al rol..."
-
-#~ msgid "Invite..."
-#~ msgstr "Invita..."
-
-#~ msgid "Configure Notification..."
-#~ msgstr "Configura la notificació..."
-
-#~ msgid "Invite users..."
-#~ msgstr "Convida usuaris..."
-
-#~ msgid "Search messages..."
-#~ msgstr "Cerca missatges..."
-
-#~ msgid "Search channels..."
-#~ msgstr "Cerca de canals..."
-
-#~ msgid "Open..."
-#~ msgstr "Obre..."
-
-#~ msgid "Search rooms..."
-#~ msgstr "Cerca de sales..."
-
-#~ msgid "Download Image..."
-#~ msgstr "Baixa la imatge..."
-
-#~ msgid "Download Video..."
-#~ msgstr "Baixa el vídeo..."
-
-#~ msgid "Download Sound..."
-#~ msgstr "Baixa el so..."
-
-#~ msgid "Prune Messages..."
-#~ msgstr "Eliminació de missatges..."
-
-#~ msgid "Configure Auto-Translate..."
-#~ msgstr "Configura la traducció automàtica..."
-
-#~ msgid "Export Messages..."
-#~ msgstr "Exporta missatges..."
-
-#~ msgid "Search Messages..."
-#~ msgstr "Cerca als missatges..."
-
-#~ msgid "Add Server..."
-#~ msgstr "Afegeix un servidor..."
-
-#~ msgid "Server Info..."
-#~ msgstr "Informació del servidor..."
-
-#~ msgid "Create New Channel..."
-#~ msgstr "Crea un canal nou..."
-
-#~ msgid "Create Team..."
-#~ msgstr "Crea un equip..."
-
-#~ msgid "Register a New User..."
-#~ msgstr "Registra un usuari nou..."
-
-#~ msgid "Administrator..."
-#~ msgstr "Administrador..."
-
-#~ msgid "Search room..."
-#~ msgstr "Cerca una sala..."
-
-#~ msgid "Hash"
-#~ msgstr "Resum"
-
-#~ msgid "Branch"
-#~ msgstr "Branca"
-
-#~ msgid "Tag"
-#~ msgstr "Etiqueta"
-
-#~ msgid "Arch"
-#~ msgstr "Arquitectura"
-
-#~ msgid "Room topic changed to: %1 by %2"
-#~ msgstr "%2 ha canviat el tema de la sala: %1"
-
-#~ msgid "Server not found: %1"
-#~ msgstr "No s'ha trobat el servidor: %1"
-
-#~ msgid "Commit"
-#~ msgstr "Comissió"
-
-#~ msgid "Build Environment"
-#~ msgstr "Entorn de construcció"
-
-#~ msgid "Account Name:"
-#~ msgstr "Nom del compte:"
-
-#~ msgid "Account name"
-#~ msgstr "Nom del compte"
-
-#~ msgid "File Uploaded:"
-#~ msgstr "Fitxer pujat:"
-
-#~ msgid "File Uploaded: %1"
-#~ msgstr "Fitxer pujat: %1"
-
-#~ msgid "Authentication Method"
-#~ msgstr "Mètode d'autenticació"
-
-#~ msgctxt "@title:window"
-#~ msgid "Configure"
-#~ msgstr "Configuració"
-
-#~ msgctxt "@title:window"
-#~ msgid "Start a Direct Call"
-#~ msgstr "Inicia una trucada directa"

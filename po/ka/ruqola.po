@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-01-18 00:41+0000\n"
-"PO-Revision-Date: 2025-01-16 02:40+0100\n"
+"PO-Revision-Date: 2025-01-18 03:25+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -7012,19 +7012,16 @@ msgid "Ask Application…"
 msgstr "აპლიკაციისთვის კითხვა…"
 
 #: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:80
-#, fuzzy, kde-format
-#| msgctxt "@action"
-#| msgid "Install"
+#, kde-format
 msgctxt "@action"
 msgid "Uninstall"
-msgstr "დაყენება"
+msgstr "წაშლა"
 
 #: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:85
-#, fuzzy, kde-format
-#| msgid "Disabled"
+#, kde-format
 msgctxt "@action"
 msgid "Disable"
-msgstr "გამორთულია"
+msgstr "გამორთვა"
 
 #: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:93
 #: widgets/bannerinfodialog/bannerinfolistview.cpp:55
@@ -7034,18 +7031,15 @@ msgid "Copy Text"
 msgstr "ტექსტის კოპირება"
 
 #: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:165
-#, fuzzy, kde-format
-#| msgid "Do you want to unarchive this room?"
+#, kde-format
 msgid "Do you want to uninstall this application?"
-msgstr "გნებავთ, ამოიღოთ არქივიდან ეს ოთახი?"
+msgstr "მართლა გნებავთ ამ პროგრამის წაშლა?"
 
 #: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:166
-#, fuzzy, kde-format
-#| msgctxt "@action"
-#| msgid "Installed Applications…"
+#, kde-format
 msgctxt "@title:window"
 msgid "Uninstall Application"
-msgstr "დაყენებული აპლიკაციები…"
+msgstr "აპლიკაციის წაშლა"
 
 #: widgets/applicationssettingsdialog/applicationssettingslogswidget.cpp:63
 #, kde-format
