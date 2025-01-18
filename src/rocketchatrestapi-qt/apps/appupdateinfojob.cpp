@@ -178,7 +178,19 @@ void AppUpdateInfoJob::onPostRequestResponse(const QString &replyErrorString, co
 
 bool AppUpdateInfoJob::AppUpdateInfo::isValid() const
 {
-    return false;
+    if (mAppInfoType == AppInfoType::Unknown) {
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "mAppInfoType undefined";
+        return false;
+    }
+    if (mAppMode == AppMode::Unknown) {
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "mAppMode undefined";
+        return false;
+    }
+    if (mAppsId.isEmpty()) {
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "mAppsId is empty";
+        return false;
+    }
+    return true;
 }
 
 #include "moc_appupdateinfojob.cpp"
