@@ -124,6 +124,16 @@ QString AppUpdateInfoJob::generateUrlExtension() const
     return url;
 }
 
+AppUpdateInfoJob::AppUpdateInfo AppUpdateInfoJob::appUpdateInfo() const
+{
+    return mAppUpdateInfo;
+}
+
+void AppUpdateInfoJob::setAppUpdateInfo(const AppUpdateInfo &newAppUpdateInfo)
+{
+    mAppUpdateInfo = newAppUpdateInfo;
+}
+
 QString AppUpdateInfoJob::appVersion() const
 {
     return mAppVersion;
@@ -164,6 +174,11 @@ void AppUpdateInfoJob::onPostRequestResponse(const QString &replyErrorString, co
         emitFailedMessage(replyErrorString, replyObject);
         addLoggerWarning(QByteArrayLiteral("AppUpdateInfoJob: Problem: ") + replyJson.toJson(QJsonDocument::Indented));
     }
+}
+
+bool AppUpdateInfoJob::AppUpdateInfo::isValid() const
+{
+    return false;
 }
 
 #include "moc_appupdateinfojob.cpp"

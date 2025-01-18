@@ -29,6 +29,14 @@ public:
         Status,
     };
 
+    struct AppUpdateInfo {
+        QByteArray mAppsId;
+        QString mAppVersion;
+        AppInfoType mAppInfoType = AppInfoType::Unknown;
+        AppMode mAppMode = AppMode::Unknown;
+        [[nodiscard]] bool isValid() const;
+    };
+
     explicit AppUpdateInfoJob(QObject *parent = nullptr);
     ~AppUpdateInfoJob() override;
 
@@ -54,12 +62,16 @@ public:
     [[nodiscard]] QString appVersion() const;
     void setAppVersion(const QString &newAppVersion);
 
+    [[nodiscard]] AppUpdateInfo appUpdateInfo() const;
+    void setAppUpdateInfo(const AppUpdateInfo &newAppUpdateInfo);
+
 Q_SIGNALS:
     void appUpdateInfoDone(const QJsonObject &obj);
 
 private:
     LIBROCKETCHATRESTAPI_QT_NO_EXPORT void onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson) override;
     [[nodiscard]] LIBROCKETCHATRESTAPI_QT_NO_EXPORT QString generateUrlExtension() const;
+    AppUpdateInfo mAppUpdateInfo;
     QByteArray mAppsId;
     QString mAppVersion;
     AppInfoType mAppInfoType = AppInfoType::Unknown;
