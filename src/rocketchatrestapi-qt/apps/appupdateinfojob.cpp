@@ -121,6 +121,16 @@ QString AppUpdateInfoJob::generateUrlExtension() const
     return url;
 }
 
+QString AppUpdateInfoJob::appVersion() const
+{
+    return mAppVersion;
+}
+
+void AppUpdateInfoJob::setAppVersion(const QString &newAppVersion)
+{
+    mAppVersion = newAppVersion;
+}
+
 AppUpdateInfoJob::AppMode AppUpdateInfoJob::appMode() const
 {
     return mAppMode;

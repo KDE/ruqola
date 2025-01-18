@@ -51,6 +51,9 @@ public:
     [[nodiscard]] AppMode appMode() const;
     void setAppMode(AppMode newAppMode);
 
+    [[nodiscard]] QString appVersion() const;
+    void setAppVersion(const QString &newAppVersion);
+
 Q_SIGNALS:
     void appUpdateInfoDone(const QJsonObject &obj);
 
@@ -58,6 +61,7 @@ private:
     LIBROCKETCHATRESTAPI_QT_NO_EXPORT void onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson) override;
     [[nodiscard]] LIBROCKETCHATRESTAPI_QT_NO_EXPORT QString generateUrlExtension() const;
     QByteArray mAppsId;
+    QString mAppVersion;
     AppInfoType mAppInfoType = AppInfoType::Unknown;
     AppMode mAppMode = AppMode::Unknown;
 };

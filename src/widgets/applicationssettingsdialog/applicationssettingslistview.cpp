@@ -83,7 +83,7 @@ void ApplicationsSettingsListView::slotCustomContextMenuRequested(const QPoint &
 
                     menu.addSeparator();
                     menu.addAction(i18nc("@action", "Disable"), this, [this, index]() {
-                        // TODO slotUninstallApplication(index);
+                        slotDisableApplication(index);
                     });
                 }
             }
@@ -182,6 +182,12 @@ void ApplicationsSettingsListView::slotUninstallApplication(const QModelIndex &i
     }
 }
 
+void ApplicationsSettingsListView::slotDisableApplication(const QModelIndex &index)
+{
+    qCWarning(RUQOLAWIDGETS_LOG) << "ApplicationsSettingsListView::slotInstallApplication not implemented yet.";
+    // TODO
+}
+
 void ApplicationsSettingsListView::slotInstallApplication(const QModelIndex &index)
 {
     qCWarning(RUQOLAWIDGETS_LOG) << "ApplicationsSettingsListView::slotInstallApplication not implemented yet.";
@@ -191,7 +197,7 @@ void ApplicationsSettingsListView::slotInstallApplication(const QModelIndex &ind
     job->setAppInfoType(RocketChatRestApi::AppUpdateInfoJob::AppInfoType::Apps);
     job->setAppMode(RocketChatRestApi::AppUpdateInfoJob::AppMode::Post);
     job->setAppsId(index.data(AppsMarketPlaceModel::AppId).toByteArray());
-    // TODO add version
+    job->setAppVersion(index.data(AppsMarketPlaceModel::AppVersion).toString());
     mRocketChatAccount->restApi()->initializeRestApiJob(job);
     connect(job, &RocketChatRestApi::AppUpdateInfoJob::appUpdateInfoDone, this, [](const QJsonObject &obj) {
         qDebug() << " obj " << obj;
