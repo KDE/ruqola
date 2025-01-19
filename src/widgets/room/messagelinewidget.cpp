@@ -6,7 +6,6 @@
 
 #include "messagelinewidget.h"
 
-#include "commands/runcommandjob.h"
 #include "connection.h"
 #include "dialogs/createsoundmessagewizard.h"
 #include "dialogs/createvideomessagewizard.h"
@@ -173,12 +172,18 @@ bool MessageLineWidget::runCommand(const QString &msg, const QByteArray &roomId,
         auto job = new RocketChatRestApi::RunCommandJob(this);
         mCurrentRocketChatAccount->restApi()->initializeRestApiJob(job);
         job->setRunCommandInfo(info);
+        connect(job, &RocketChatRestApi::RunCommandJob::runCommandFailed, this, &MessageLineWidget::slotRunCommandFailed);
         if (!job->start()) {
             qCDebug(RUQOLAWIDGETS_LOG) << "Impossible to start RunCommandJob job";
         }
         return true;
     }
     return false;
+}
+
+void MessageLineWidget::slotRunCommandFailed(const RocketChatRestApi::RunCommandJob::RunCommandInfo &info)
+{
+    // TODO
 }
 
 void MessageLineWidget::slotSendMessage(const QString &msg)
