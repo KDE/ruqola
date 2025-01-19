@@ -157,6 +157,8 @@ QList<WhatsNewInfo> WhatsNewTranslations::createWhatsNewInfo() const
         info.setBugFixings({
             i18n("Allow to search file from username and filename."),
             i18n("Fix copy action text when we copy a text selection."),
+            i18n("A command start with '/' and not /* or // "),
+            i18n("Allow to put command line in clipboard when an error occurred"),
         });
 
         listInfo.append(std::move(info));
