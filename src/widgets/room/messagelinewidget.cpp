@@ -6,6 +6,8 @@
 
 #include "messagelinewidget.h"
 
+#include "commands/runcommandjob.h"
+#include "connection.h"
 #include "dialogs/createsoundmessagewizard.h"
 #include "dialogs/createvideomessagewizard.h"
 #include "messagemaximumsizedialog/messagemaximumsizedialog.h"
@@ -164,13 +166,28 @@ MessageLineWidget::~MessageLineWidget()
     qDeleteAll(mPluginToolInterface);
 }
 
+bool MessageLineWidget::runCommand(const QString &msg, const QByteArray &roomId, const QByteArray &tmid)
+{
+    const RocketChatRestApi::RunCommandJob::RunCommandInfo info = RocketChatRestApi::RunCommandJob::parseString(msg, roomId, tmid);
+    if (info.isValid()) {
+        auto job = new RocketChatRestApi::RunCommandJob(this);
+        mCurrentRocketChatAccount->restApi()->initializeRestApiJob(job);
+        job->setRunCommandInfo(info);
+        if (!job->start()) {
+            qCDebug(RUQOLAWIDGETS_LOG) << "Impossible to start RunCommandJob job";
+        }
+        return true;
+    }
+    return false;
+}
+
 void MessageLineWidget::slotSendMessage(const QString &msg)
 {
     if (!msg.isEmpty()) {
         if (mMessageIdBeingEdited.isEmpty() && mQuotePermalink.isEmpty()) {
             if (msg.startsWith(QLatin1Char('/'))) {
                 // a command ?
-                if (mCurrentRocketChatAccount->runCommand(msg, roomId(), mThreadMessageId)) {
+                if (runCommand(msg, roomId(), mThreadMessageId)) {
                     setMode(MessageLineWidget::EditingMode::NewMessage);
                     return;
                 }

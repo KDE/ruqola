@@ -83,6 +83,7 @@ private:
     LIBRUQOLAWIDGETS_NO_EXPORT void slotSendVideoMessage();
     LIBRUQOLAWIDGETS_NO_EXPORT void slotSendSoundMessage();
     LIBRUQOLAWIDGETS_NO_EXPORT void slotPrivateSettingsChanged();
+    [[nodiscard]] LIBRUQOLAWIDGETS_NO_EXPORT bool runCommand(const QString &msg, const QByteArray &roomId, const QByteArray &tmid);
 
     QList<PluginToolInterface *> mPluginToolInterface;
     QByteArray mThreadMessageId;

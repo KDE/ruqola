@@ -279,8 +279,6 @@ public:
     void setNameChanged(const QJsonArray &array);
     [[nodiscard]] User::PresenceStatus presenceStatus() const;
 
-    [[nodiscard]] bool runCommand(const QString &msg, const QByteArray &roomId, const QByteArray &tmid = QByteArray());
-
     void avatarChanged(const QJsonArray &contents);
     void registerNewUser(const RocketChatRestApi::RegisterUserJob::RegisterUserInfo &userInfo);
 

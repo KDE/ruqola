@@ -24,7 +24,6 @@
 #include "authenticationmanager/ddpauthenticationmanager.h"
 #include "autotranslate/getsupportedlanguagesjob.h"
 #include "commands/listcommandsjob.h"
-#include "commands/runcommandjob.h"
 #include "customemojiiconmanager.h"
 #include "downloadappslanguages/downloadappslanguagesmanager.h"
 #include "emoticons/emojimanager.h"
@@ -2353,21 +2352,6 @@ void RocketChatAccount::slotListCommandDone(const QJsonObject &obj)
         mInputThreadMessageTextManager->setCommandModel(mCommandsModel);
     }
     // qCDebug(RUQOLA_COMMANDS_LOG) << "accountname " << accountName() << "\nslotListCommandDone " << obj;
-}
-
-bool RocketChatAccount::runCommand(const QString &msg, const QByteArray &roomId, const QByteArray &tmid)
-{
-    const RocketChatRestApi::RunCommandJob::RunCommandInfo info = RocketChatRestApi::RunCommandJob::parseString(msg, roomId, tmid);
-    if (info.isValid()) {
-        auto job = new RocketChatRestApi::RunCommandJob(this);
-        restApi()->initializeRestApiJob(job);
-        job->setRunCommandInfo(info);
-        if (!job->start()) {
-            qCDebug(RUQOLA_LOG) << "Impossible to start RunCommandJob job";
-        }
-        return true;
-    }
-    return false;
 }
 
 void RocketChatAccount::slotDDpLoginStatusChanged()
