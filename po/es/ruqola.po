@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-01-18 00:41+0000\n"
-"PO-Revision-Date: 2025-01-11 19:33+0100\n"
+"PO-Revision-Date: 2025-01-18 19:31+0100\n"
 "Last-Translator: Víctor Rodrigo Córdoba <vrcordoba@gmail.com>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -3320,12 +3320,10 @@ msgstr "Descartar todos los reportes"
 #: widgets/notificationhistory/notificationhistorylistview.cpp:86
 #: widgets/room/messagelistview.cpp:281
 #: widgets/servererrorinfohistory/servererrorinfomessagehistorylistview.cpp:53
-#, fuzzy, kde-format
-#| msgctxt "@info:tooltip"
-#| msgid "Copy link"
+#, kde-format
 msgctxt "@action"
 msgid "Copy Selection"
-msgstr "Copiar enlace"
+msgstr "Copiar selección"
 
 #: widgets/administratordialog/moderationconsole/moderationreportinfolistview.cpp:81
 #: widgets/notificationhistory/notificationhistorylistview.cpp:88
@@ -7067,19 +7065,16 @@ msgid "Ask Application…"
 msgstr "Preguntar a la aplicación..."
 
 #: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:80
-#, fuzzy, kde-format
-#| msgctxt "@action"
-#| msgid "Install"
+#, kde-format
 msgctxt "@action"
 msgid "Uninstall"
-msgstr "Instalar"
+msgstr "Desinstalar"
 
 #: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:85
-#, fuzzy, kde-format
-#| msgid "Disabled"
+#, kde-format
 msgctxt "@action"
 msgid "Disable"
-msgstr "Deshabilitado"
+msgstr "Desactivar"
 
 #: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:93
 #: widgets/bannerinfodialog/bannerinfolistview.cpp:55
@@ -7089,18 +7084,15 @@ msgid "Copy Text"
 msgstr "Copiar texto"
 
 #: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:165
-#, fuzzy, kde-format
-#| msgid "Do you want to unarchive this room?"
+#, kde-format
 msgid "Do you want to uninstall this application?"
-msgstr "¿Desea desarchivar esta sala?"
+msgstr "¿Desea desinstalar la aplicación?"
 
 #: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:166
-#, fuzzy, kde-format
-#| msgctxt "@action"
-#| msgid "Installed Applications…"
+#, kde-format
 msgctxt "@title:window"
 msgid "Uninstall Application"
-msgstr "Aplicaciones instaladas..."
+msgstr "Desinstalar aplicación"
 
 #: widgets/applicationssettingsdialog/applicationssettingslogswidget.cpp:63
 #, kde-format
@@ -11225,8 +11217,7 @@ msgid "Return the number of account."
 msgstr "Devolver el número de cuenta"
 
 #: widgets/verifynewversionwidget/verifynewversiondialog.cpp:17
-#, fuzzy, kde-format
-#| msgid "Check New Version"
+#, kde-format
 msgctxt "@title:window"
 msgid "Check New Version"
 msgstr "Comprobar nueva versión"
@@ -11235,12 +11226,12 @@ msgstr "Comprobar nueva versión"
 #, kde-format
 msgid "A new version found. Click <a href=\"%1\">here</a> for downloading it."
 msgstr ""
+"Nueva versión disponible. Pulse <a href=\"%1\">aquí</a> para descargarla."
 
 #: widgets/verifynewversionwidget/verifynewversionwidget.cpp:53
-#, fuzzy, kde-format
-#| msgid "No version info found."
+#, kde-format
 msgid "No new version found."
-msgstr "No se encontró información de la versión."
+msgstr "No se encontró ninguna versión nueva."
 
 #: widgets/welcome/welcomewidget.cpp:21
 #, kde-format
@@ -11286,7 +11277,7 @@ msgstr "Añadido soporte para invitar por URL RC"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:20
 msgid "Implement verify if a new Ruqola version exist"
-msgstr ""
+msgstr "Verificación de nueva versión disponible."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:30
 #, kde-format
@@ -11698,6 +11689,7 @@ msgstr "Búsqueda de archivo por usuario y nombre."
 #, kde-format
 msgid "Fix copy action text when we copy a text selection."
 msgstr ""
+"Mejora en la acción de copiar texto cuando se copia una sección de texto."
 
 #: widgets/whatsnew/whatsnewwidget.cpp:44
 #, kde-format

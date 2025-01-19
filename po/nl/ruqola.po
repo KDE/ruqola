@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-01-18 00:41+0000\n"
-"PO-Revision-Date: 2025-01-16 14:37+0100\n"
+"PO-Revision-Date: 2025-01-18 15:41+0100\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
 "Language: nl\n"
@@ -7058,16 +7058,13 @@ msgid "Ask Application…"
 msgstr "Aan toepassing vragen…"
 
 #: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:80
-#, fuzzy, kde-format
-#| msgctxt "@action"
-#| msgid "Install"
+#, kde-format
 msgctxt "@action"
 msgid "Uninstall"
-msgstr "Installeren"
+msgstr "Installatie ongedaan maken"
 
 #: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:85
-#, fuzzy, kde-format
-#| msgid "Disable"
+#, kde-format
 msgctxt "@action"
 msgid "Disable"
 msgstr "Uitschakelen"
@@ -7080,18 +7077,15 @@ msgid "Copy Text"
 msgstr "Tekst kopiëren"
 
 #: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:165
-#, fuzzy, kde-format
-#| msgid "Do you want to unarchive this room?"
+#, kde-format
 msgid "Do you want to uninstall this application?"
-msgstr "Wilt u deze room uit het archief halen?"
+msgstr "Wilt u de installatie van deze toepassing ongedaan maken?"
 
 #: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:166
-#, fuzzy, kde-format
-#| msgctxt "@action"
-#| msgid "Installed Applications…"
+#, kde-format
 msgctxt "@title:window"
 msgid "Uninstall Application"
-msgstr "Geïnstalleerde toepassingen…"
+msgstr "Installatie van toepassing ongedaan maken"
 
 #: widgets/applicationssettingsdialog/applicationssettingslogswidget.cpp:63
 #, kde-format
