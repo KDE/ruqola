@@ -83,11 +83,11 @@ void ApplicationsSettingsListView::slotCustomContextMenuRequested(const QPoint &
 
                     menu.addSeparator();
                     menu.addAction(i18nc("@action", "Disable"), this, [this, index]() {
-                        slotChangeStatusApplication(index, QString()); // TODO
+                        slotChangeStatusApplication(index, "manually_disabled"_L1);
                     });
                     menu.addSeparator();
                     menu.addAction(i18nc("@action", "Enable"), this, [this, index]() {
-                        slotChangeStatusApplication(index, QString()); // TODO
+                        slotChangeStatusApplication(index, "manually_enabled"_L1);
                     });
                 }
             }
@@ -191,6 +191,24 @@ void ApplicationsSettingsListView::slotUninstallApplication(const QModelIndex &i
 void ApplicationsSettingsListView::slotChangeStatusApplication(const QModelIndex &index, const QString &status)
 {
     qCWarning(RUQOLAWIDGETS_LOG) << "ApplicationsSettingsListView::slotChangeStatusApplication not implemented yet.";
+
+    auto job = new RocketChatRestApi::AppUpdateInfoJob(this);
+    RocketChatRestApi::AppUpdateInfoJob::AppUpdateInfo info;
+    info.mAppInfoType = RocketChatRestApi::AppUpdateInfoJob::AppInfoType::Status;
+    info.mAppMode = RocketChatRestApi::AppUpdateInfoJob::AppMode::Post;
+    info.mAppsId = index.data(AppsMarketPlaceModel::AppId).toByteArray();
+    info.mStatus = status;
+
+    job->setAppUpdateInfo(info);
+    mRocketChatAccount->restApi()->initializeRestApiJob(job);
+    connect(job, &RocketChatRestApi::AppUpdateInfoJob::appUpdateInfoDone, this, [](const QJsonObject &obj) {
+        qDebug() << " obj " << obj;
+        // TODO update listview !!
+    });
+    if (!job->start()) {
+        qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start appUpdateInfoDone";
+    }
+
     // TODO
 }
 

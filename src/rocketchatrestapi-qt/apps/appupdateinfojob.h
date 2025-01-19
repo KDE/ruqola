@@ -32,6 +32,7 @@ public:
     struct AppUpdateInfo {
         QByteArray mAppsId;
         QString mAppVersion;
+        QString mStatus;
         AppInfoType mAppInfoType = AppInfoType::Unknown;
         AppMode mAppMode = AppMode::Unknown;
         [[nodiscard]] bool isValid() const;
