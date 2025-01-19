@@ -2152,6 +2152,10 @@ bool RocketChatAccount::uploadFileEnabled() const
 
 bool RocketChatAccount::isMessageEditable(const Message &message) const
 {
+    if (message.messageType() == Message::Information) {
+        return false;
+    }
+
     const bool canEditMessage = hasPermission(QStringLiteral("edit-message"), message.roomId());
     const bool isEditAllowed = allowEditingMessages();
     const bool editOwn = message.userId() == userId();
