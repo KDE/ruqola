@@ -183,7 +183,17 @@ bool MessageLineWidget::runCommand(const QString &msg, const QByteArray &roomId,
 
 void MessageLineWidget::slotRunCommandFailed(const RocketChatRestApi::RunCommandJob::RunCommandInfo &info)
 {
-    // TODO
+    if (KMessageBox::questionTwoActions(this,
+                                        i18n("Command was failed. Do you want to copy command in clipboard ?"),
+                                        i18nc("@title:window", "Command Error"),
+                                        KStandardGuiItem::ok(),
+                                        KStandardGuiItem::cancel())
+        == KMessageBox::ButtonCode::PrimaryAction) {
+        QClipboard *clipboard = QGuiApplication::clipboard();
+        const QString msg = QStringLiteral("/%1 %2").arg(info.commandName, info.params);
+        clipboard->setText(msg, QClipboard::Clipboard);
+        clipboard->setText(msg, QClipboard::Selection);
+    }
 }
 
 void MessageLineWidget::slotSendMessage(const QString &msg)
