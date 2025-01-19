@@ -122,7 +122,6 @@ public:
     void getSnippetedMessages(const QByteArray &roomId, int offset = 0, int count = 50);
     void customUserStatus();
     void usersAutocomplete(const RocketChatRestApi::UsersAutocompleteJob::UsersAutocompleterInfo &info);
-    void runCommand(const RocketChatRestApi::RunCommandJob::RunCommandInfo &runCommandInfo);
     void registerNewUser(const RocketChatRestApi::RegisterUserJob::RegisterUserInfo &userInfo);
     void getChannelsCounter(const QByteArray &roomId);
     void setUserPreferences(const RocketChatRestApi::UsersSetPreferencesJob::UsersSetPreferencesInfo &info);

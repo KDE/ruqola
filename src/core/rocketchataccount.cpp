@@ -2359,7 +2359,12 @@ bool RocketChatAccount::runCommand(const QString &msg, const QByteArray &roomId,
 {
     const RocketChatRestApi::RunCommandJob::RunCommandInfo info = RocketChatRestApi::RunCommandJob::parseString(msg, roomId, tmid);
     if (info.isValid()) {
-        restApi()->runCommand(info);
+        auto job = new RocketChatRestApi::RunCommandJob(this);
+        restApi()->initializeRestApiJob(job);
+        job->setRunCommandInfo(info);
+        if (!job->start()) {
+            qCDebug(RUQOLA_LOG) << "Impossible to start RunCommandJob job";
+        }
         return true;
     }
     return false;

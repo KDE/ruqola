@@ -745,16 +745,6 @@ void Connection::listAllPermissions()
     }
 }
 
-void Connection::runCommand(const RunCommandJob::RunCommandInfo &runCommandInfo)
-{
-    auto job = new RunCommandJob(this);
-    initializeRestApiJob(job);
-    job->setRunCommandInfo(runCommandInfo);
-    if (!job->start()) {
-        qCDebug(RUQOLA_LOG) << "Impossible to start RunCommandJob job";
-    }
-}
-
 void Connection::setJoinCodeChannel(const QString &roomId, const QString &joinCode)
 {
     auto job = new SetJoinCodeChannelJob(this);
