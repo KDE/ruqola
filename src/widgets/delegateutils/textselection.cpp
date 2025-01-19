@@ -115,13 +115,15 @@ QString TextSelection::selectedText(Format format) const
             if (message->urls()) {
                 const auto messageUrls = message->urls()->messageUrls();
                 for (const auto &url : messageUrls) {
-                    doc = mMessageUrlHelperFactory->documentForUrlPreview(url);
-                    if (doc) {
-                        if (!str.endsWith(QLatin1Char('\n'))) {
-                            str += QLatin1Char('\n');
+                    if (url.showPreview()) {
+                        doc = mMessageUrlHelperFactory->documentForUrlPreview(url);
+                        if (doc) {
+                            if (!str.endsWith(QLatin1Char('\n'))) {
+                                str += QLatin1Char('\n');
+                            }
+                            selectionText(ordered, format, row, index, doc, str, {}, url);
+                            break;
                         }
-                        selectionText(ordered, format, row, index, doc, str, {}, url);
-                        break;
                     }
                 }
             }
