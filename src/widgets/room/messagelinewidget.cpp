@@ -137,7 +137,7 @@ void MessageLineWidget::slotSendMessage(const QString &msg)
             if (msg.startsWith(QLatin1Char('/'))) {
                 if (!msg.startsWith("//"_L1) && !msg.startsWith("/*"_L1)) {
                     // a command ?
-                    if (runCommand(msg, roomId(), mThreadMessageId)) {
+                    if (mCurrentRocketChatAccount->runCommand(msg, roomId(), mThreadMessageId)) {
                         setMode(MessageLineWidget::EditingMode::NewMessage);
                         return;
                     }
