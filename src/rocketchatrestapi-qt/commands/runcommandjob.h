@@ -39,6 +39,7 @@ public:
     static RunCommandInfo parseString(const QString &str, const QByteArray &roomId, const QByteArray &tmid);
 Q_SIGNALS:
     void runCommandDone();
+    void runCommandFailed(const RunCommandJob::RunCommandInfo &info);
 
 private:
     LIBROCKETCHATRESTAPI_QT_NO_EXPORT void onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson) override;
