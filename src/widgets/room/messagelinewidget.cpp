@@ -191,10 +191,12 @@ void MessageLineWidget::slotSendMessage(const QString &msg)
     if (!msg.isEmpty()) {
         if (mMessageIdBeingEdited.isEmpty() && mQuotePermalink.isEmpty()) {
             if (msg.startsWith(QLatin1Char('/'))) {
-                // a command ?
-                if (runCommand(msg, roomId(), mThreadMessageId)) {
-                    setMode(MessageLineWidget::EditingMode::NewMessage);
-                    return;
+                if (!msg.startsWith("//"_L1) && !msg.startsWith("/*"_L1)) {
+                    // a command ?
+                    if (runCommand(msg, roomId(), mThreadMessageId)) {
+                        setMode(MessageLineWidget::EditingMode::NewMessage);
+                        return;
+                    }
                 }
             }
             if (msg.size() > mCurrentRocketChatAccount->ruqolaServerConfig()->messageMaximumAllowedSize()) {
