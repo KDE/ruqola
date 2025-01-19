@@ -83,7 +83,11 @@ void ApplicationsSettingsListView::slotCustomContextMenuRequested(const QPoint &
 
                     menu.addSeparator();
                     menu.addAction(i18nc("@action", "Disable"), this, [this, index]() {
-                        slotDisableApplication(index);
+                        slotChangeStatusApplication(index, QString()); // TODO
+                    });
+                    menu.addSeparator();
+                    menu.addAction(i18nc("@action", "Enable"), this, [this, index]() {
+                        slotChangeStatusApplication(index, QString()); // TODO
                     });
                 }
             }
@@ -184,9 +188,9 @@ void ApplicationsSettingsListView::slotUninstallApplication(const QModelIndex &i
     }
 }
 
-void ApplicationsSettingsListView::slotDisableApplication(const QModelIndex &index)
+void ApplicationsSettingsListView::slotChangeStatusApplication(const QModelIndex &index, const QString &status)
 {
-    qCWarning(RUQOLAWIDGETS_LOG) << "ApplicationsSettingsListView::slotInstallApplication not implemented yet.";
+    qCWarning(RUQOLAWIDGETS_LOG) << "ApplicationsSettingsListView::slotChangeStatusApplication not implemented yet.";
     // TODO
 }
 

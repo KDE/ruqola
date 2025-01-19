@@ -40,7 +40,7 @@ private:
     [[nodiscard]] LIBRUQOLAWIDGETS_NO_EXPORT QString selectedText(const QModelIndex &index) override;
     [[nodiscard]] LIBRUQOLAWIDGETS_NO_EXPORT QString selectedText() const;
     [[nodiscard]] LIBRUQOLAWIDGETS_NO_EXPORT bool hasSelection() const override;
-    LIBRUQOLAWIDGETS_NO_EXPORT void slotDisableApplication(const QModelIndex &index);
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotChangeStatusApplication(const QModelIndex &index, const QString &status);
     LIBRUQOLAWIDGETS_NO_EXPORT void slotInstallApplication(const QModelIndex &index);
     RocketChatAccount *const mRocketChatAccount;
     ApplicationsSettingsDelegate *const mApplicationsSettingsListDelegate;
