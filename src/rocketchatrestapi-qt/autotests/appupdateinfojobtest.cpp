@@ -26,8 +26,13 @@ void AppUpdateInfoJobTest::shouldGenerateRequest()
 {
     {
         AppUpdateInfoJob job;
-        job.setAppMode(AppUpdateInfoJob::AppMode::Delete);
-        job.setAppsId(QByteArrayLiteral("foo"));
+
+        RocketChatRestApi::AppUpdateInfoJob::AppUpdateInfo info;
+        info.mAppInfoType = RocketChatRestApi::AppUpdateInfoJob::AppInfoType::Apps;
+        info.mAppMode = RocketChatRestApi::AppUpdateInfoJob::AppMode::Delete;
+        info.mAppsId = QByteArrayLiteral("foo");
+        job.setAppUpdateInfo(info);
+
         QNetworkRequest request = QNetworkRequest(QUrl());
         verifyAuthentication(&job, request);
         QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/apps/foo")));
@@ -35,9 +40,12 @@ void AppUpdateInfoJobTest::shouldGenerateRequest()
 
     {
         AppUpdateInfoJob job;
-        job.setAppMode(AppUpdateInfoJob::AppMode::Post);
-        job.setAppInfoType(AppUpdateInfoJob::AppInfoType::Settings);
-        job.setAppsId(QByteArrayLiteral("foo"));
+        RocketChatRestApi::AppUpdateInfoJob::AppUpdateInfo info;
+        info.mAppInfoType = RocketChatRestApi::AppUpdateInfoJob::AppInfoType::Settings;
+        info.mAppMode = RocketChatRestApi::AppUpdateInfoJob::AppMode::Post;
+        info.mAppsId = QByteArrayLiteral("foo");
+        job.setAppUpdateInfo(info);
+
         QNetworkRequest request = QNetworkRequest(QUrl());
         verifyAuthentication(&job, request);
         QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/apps/foo/settings")));

@@ -168,9 +168,11 @@ void ApplicationsSettingsListView::slotUninstallApplication(const QModelIndex &i
                                         KStandardGuiItem::cancel())
         == KMessageBox::ButtonCode::PrimaryAction) {
         auto job = new RocketChatRestApi::AppUpdateInfoJob(this);
-        job->setAppInfoType(RocketChatRestApi::AppUpdateInfoJob::AppInfoType::Apps);
-        job->setAppMode(RocketChatRestApi::AppUpdateInfoJob::AppMode::Delete);
-        job->setAppsId(index.data(AppsMarketPlaceModel::AppId).toByteArray());
+        RocketChatRestApi::AppUpdateInfoJob::AppUpdateInfo info;
+        info.mAppInfoType = RocketChatRestApi::AppUpdateInfoJob::AppInfoType::Apps;
+        info.mAppMode = RocketChatRestApi::AppUpdateInfoJob::AppMode::Delete;
+        info.mAppsId = index.data(AppsMarketPlaceModel::AppId).toByteArray();
+        job->setAppUpdateInfo(info);
         mRocketChatAccount->restApi()->initializeRestApiJob(job);
         connect(job, &RocketChatRestApi::AppUpdateInfoJob::appUpdateInfoDone, this, [](const QJsonObject &obj) {
             qDebug() << " obj " << obj;
@@ -194,10 +196,12 @@ void ApplicationsSettingsListView::slotInstallApplication(const QModelIndex &ind
     // TODO
 
     auto job = new RocketChatRestApi::AppUpdateInfoJob(this);
-    job->setAppInfoType(RocketChatRestApi::AppUpdateInfoJob::AppInfoType::Apps);
-    job->setAppMode(RocketChatRestApi::AppUpdateInfoJob::AppMode::Post);
-    job->setAppsId(index.data(AppsMarketPlaceModel::AppId).toByteArray());
-    job->setAppVersion(index.data(AppsMarketPlaceModel::AppVersion).toString());
+    RocketChatRestApi::AppUpdateInfoJob::AppUpdateInfo info;
+    info.mAppInfoType = RocketChatRestApi::AppUpdateInfoJob::AppInfoType::Apps;
+    info.mAppMode = RocketChatRestApi::AppUpdateInfoJob::AppMode::Delete;
+    info.mAppsId = index.data(AppsMarketPlaceModel::AppId).toByteArray();
+    info.mAppVersion = index.data(AppsMarketPlaceModel::AppVersion).toString();
+    job->setAppUpdateInfo(info);
     mRocketChatAccount->restApi()->initializeRestApiJob(job);
     connect(job, &RocketChatRestApi::AppUpdateInfoJob::appUpdateInfoDone, this, [](const QJsonObject &obj) {
         qDebug() << " obj " << obj;

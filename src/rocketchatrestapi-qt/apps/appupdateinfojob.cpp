@@ -33,7 +33,7 @@ bool AppUpdateInfoJob::start()
         deleteLater();
         return false;
     }
-    switch (mAppMode) {
+    switch (mAppUpdateInfo.mAppMode) {
     case AppMode::Unknown:
         break;
     case AppMode::Delete:
@@ -58,16 +58,7 @@ bool AppUpdateInfoJob::canStart() const
     if (!RestApiAbstractJob::canStart()) {
         return false;
     }
-    if (mAppInfoType == AppInfoType::Unknown) {
-        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "mAppInfoType undefined";
-        return false;
-    }
-    if (mAppMode == AppMode::Unknown) {
-        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "mAppMode undefined";
-        return false;
-    }
-    if (mAppsId.isEmpty()) {
-        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "mAppsId is empty";
+    if (!mAppUpdateInfo.isValid()) {
         return false;
     }
     return true;
@@ -77,38 +68,18 @@ QJsonDocument AppUpdateInfoJob::json() const
 {
     QJsonObject jsonObj;
     const QJsonDocument postData = QJsonDocument(jsonObj);
-    if (mAppInfoType == AppInfoType::Status) {
+    if (mAppUpdateInfo.mAppInfoType == AppInfoType::Status) {
         jsonObj["status"_L1] = "manually_disabled"_L1;
     }
     // TODO status {"status":"manually_enabled"} or {"status":"manually_disabled"}
     return postData;
 }
 
-AppUpdateInfoJob::AppInfoType AppUpdateInfoJob::appInfoType() const
-{
-    return mAppInfoType;
-}
-
-void AppUpdateInfoJob::setAppInfoType(AppInfoType newAppInfoType)
-{
-    mAppInfoType = newAppInfoType;
-}
-
-QByteArray AppUpdateInfoJob::appsId() const
-{
-    return mAppsId;
-}
-
-void AppUpdateInfoJob::setAppsId(const QByteArray &newAppsId)
-{
-    mAppsId = newAppsId;
-}
-
 QString AppUpdateInfoJob::generateUrlExtension() const
 {
-    QString url = QString::fromLatin1(mAppsId);
+    QString url = QString::fromLatin1(mAppUpdateInfo.mAppsId);
 
-    switch (mAppInfoType) {
+    switch (mAppUpdateInfo.mAppInfoType) {
     case AppInfoType::Unknown:
         qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Unknown type";
         break;
@@ -132,26 +103,6 @@ AppUpdateInfoJob::AppUpdateInfo AppUpdateInfoJob::appUpdateInfo() const
 void AppUpdateInfoJob::setAppUpdateInfo(const AppUpdateInfo &newAppUpdateInfo)
 {
     mAppUpdateInfo = newAppUpdateInfo;
-}
-
-QString AppUpdateInfoJob::appVersion() const
-{
-    return mAppVersion;
-}
-
-void AppUpdateInfoJob::setAppVersion(const QString &newAppVersion)
-{
-    mAppVersion = newAppVersion;
-}
-
-AppUpdateInfoJob::AppMode AppUpdateInfoJob::appMode() const
-{
-    return mAppMode;
-}
-
-void AppUpdateInfoJob::setAppMode(AppMode newAppMode)
-{
-    mAppMode = newAppMode;
 }
 
 QNetworkRequest AppUpdateInfoJob::request() const
