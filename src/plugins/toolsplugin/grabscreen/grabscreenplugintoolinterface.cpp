@@ -44,7 +44,6 @@ void GrabScreenPluginToolInterface::activateTool()
         QPointer<UploadFileDialog> dlg = new UploadFileDialog();
         dlg->setFileUrl(QUrl::fromLocalFile(imagePath));
         const QPixmap pix(imagePath);
-        dlg->setPixmap(pix);
         if (dlg->exec()) {
             const UploadFileDialog::UploadFileInfo uploadFileInfo = dlg->fileInfo();
             sendFile(uploadFileInfo);

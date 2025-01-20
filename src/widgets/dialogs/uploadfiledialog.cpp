@@ -35,32 +35,13 @@ UploadFileDialog::UploadFileDialog(QWidget *parent)
     connect(buttonBox, &QDialogButtonBox::accepted, this, &UploadFileDialog::accept);
     connect(buttonBox, &QDialogButtonBox::rejected, this, &UploadFileDialog::reject);
     mainLayout->addWidget(buttonBox);
-    readConfig();
 }
 
-UploadFileDialog::~UploadFileDialog()
-{
-    writeConfig();
-}
+UploadFileDialog::~UploadFileDialog() = default;
 
 void UploadFileDialog::setFileUrl(const QUrl &url)
 {
     mUploadFileWidget->setFileUrl(url);
-}
-
-void UploadFileDialog::readConfig()
-{
-    create(); // ensure a window is created
-    windowHandle()->resize(QSize(800, 600));
-    KConfigGroup group(KSharedConfig::openStateConfig(), QLatin1StringView(myUploadFileDialogGroupName));
-    KWindowConfig::restoreWindowSize(windowHandle(), group);
-    resize(windowHandle()->size()); // workaround for QTBUG-40584
-}
-
-void UploadFileDialog::writeConfig()
-{
-    KConfigGroup group(KSharedConfig::openStateConfig(), QLatin1StringView(myUploadFileDialogGroupName));
-    KWindowConfig::saveWindowSize(windowHandle(), group);
 }
 
 UploadFileDialog::UploadFileInfo UploadFileDialog::fileInfo() const

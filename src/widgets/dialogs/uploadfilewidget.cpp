@@ -83,16 +83,20 @@ void UploadFileWidget::setFileUrl(const QUrl &url)
 
     QMimeDatabase db;
     const QMimeType mimeType = db.mimeTypeForFile(fileInfo);
-    const QPixmap pix =
+    const QPixmap pixmapMimetype =
         QIcon::fromTheme(mimeType.iconName(), QIcon::fromTheme(QStringLiteral("unknown"))).pixmap(style()->pixelMetric(QStyle::PM_LargeIconSize));
-    mMimeTypeLabel->setPixmap(pix);
+    mMimeTypeLabel->setPixmap(pixmapMimetype);
+    const QPixmap pixmap(mUrl.toLocalFile());
+    if (!pixmap.isNull()) {
+        setPixmap(pixmap);
+    }
 }
 
 void UploadFileWidget::setPixmap(const QPixmap &pix)
 {
     if (!pix.isNull()) {
         mImagePreview->setVisible(true);
-        const QSize s = QSize(400, 600);
+        const QSize s = QSize(600, 800);
         const QPixmap p = pix.scaled(s, Qt::KeepAspectRatio);
         mImagePreview->setMaximumSize(s);
         mImagePreview->setPixmap(p);
