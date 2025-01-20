@@ -23,7 +23,7 @@ QString GrabScreenPluginToolUtil::picturePath(const QString &accountName)
 
 QString GrabScreenPluginToolUtil::generateFileName(const QString &dirPath)
 {
-    QString filename = QStringLiteral("screenshot");
+    const QString filename = QStringLiteral("screenshot");
     int index = 1;
     QString newName;
     do {
