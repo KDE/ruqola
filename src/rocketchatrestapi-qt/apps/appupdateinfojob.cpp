@@ -67,11 +67,11 @@ bool AppUpdateInfoJob::canStart() const
 QJsonDocument AppUpdateInfoJob::json() const
 {
     QJsonObject jsonObj;
-    const QJsonDocument postData = QJsonDocument(jsonObj);
     if (mAppUpdateInfo.mAppInfoType == AppInfoType::Status) {
         jsonObj["status"_L1] = mAppUpdateInfo.mStatus;
     }
-    // TODO status {"status":"manually_enabled"} or {"status":"manually_disabled"}
+
+    const QJsonDocument postData = QJsonDocument(jsonObj);
     return postData;
 }
 
