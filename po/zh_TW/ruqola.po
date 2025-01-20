@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-01-18 00:41+0000\n"
+"POT-Creation-Date: 2025-01-20 00:41+0000\n"
 "PO-Revision-Date: 2024-08-06 05:33+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
@@ -1798,19 +1798,19 @@ msgctxt "WARNING!!!!!!: PLEASE We need a space between after </strong>"
 msgid "<strong>%1</strong> are typing..."
 msgstr ""
 
-#: core/rocketchataccount.cpp:680
+#: core/rocketchataccount.cpp:679
 #, kde-format
 msgid ""
 "REST: %1\n"
 "DDP: %2"
 msgstr ""
 
-#: core/rocketchataccount.cpp:688 core/rocketchataccount.cpp:700
+#: core/rocketchataccount.cpp:687 core/rocketchataccount.cpp:699
 #, kde-format
 msgid "Not connected"
 msgstr "未連線"
 
-#: core/rocketchataccount.cpp:695
+#: core/rocketchataccount.cpp:694
 #, fuzzy, kde-format
 #| msgid "Not connected"
 msgid "Not connected yet"
@@ -3352,7 +3352,7 @@ msgid "Speak Text"
 msgstr "唸出文字"
 
 #: widgets/administratordialog/moderationconsole/moderationreportinfolistview.cpp:99
-#: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:102
+#: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:106
 #: widgets/bannerinfodialog/bannerinfolistview.cpp:51
 #: widgets/discussions/discussionlistview.cpp:75
 #: widgets/notificationhistory/notificationhistorylistview.cpp:106
@@ -7180,7 +7180,14 @@ msgctxt "@action"
 msgid "Disable"
 msgstr "已停用"
 
-#: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:93
+#: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:89
+#, fuzzy, kde-format
+#| msgid "Enable"
+msgctxt "@action"
+msgid "Enable"
+msgstr "啟用"
+
+#: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:97
 #: widgets/bannerinfodialog/bannerinfolistview.cpp:55
 #, fuzzy, kde-format
 #| msgid "Copy Text"
@@ -7188,13 +7195,13 @@ msgctxt "@action"
 msgid "Copy Text"
 msgstr "複製文字"
 
-#: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:165
+#: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:169
 #, fuzzy, kde-format
 #| msgid "Do you want to unarchive this room?"
 msgid "Do you want to uninstall this application?"
 msgstr "您確定要解除封存此聊天室嗎？"
 
-#: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:166
+#: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:170
 #, fuzzy, kde-format
 #| msgctxt "@action"
 #| msgid "Applications…"
@@ -8832,7 +8839,7 @@ msgid "Video: %1"
 msgstr "影片：%1"
 
 #: widgets/dialogs/uploadfiledialog.cpp:26
-#: widgets/room/messagelinewidget.cpp:402
+#: widgets/room/messagelinewidget.cpp:436
 #, kde-format
 msgctxt "@title:window"
 msgid "Upload File"
@@ -10342,103 +10349,114 @@ msgctxt "@info:tooltip"
 msgid "Add reaction"
 msgstr "新增表情符號"
 
-#: widgets/room/messagelinewidget.cpp:67
+#: widgets/room/messagelinewidget.cpp:68
 #, fuzzy, kde-format
 #| msgid "Attach File"
 msgctxt "@info:tooltip"
 msgid "Attach a file…"
 msgstr "附加檔案"
 
-#: widgets/room/messagelinewidget.cpp:70
+#: widgets/room/messagelinewidget.cpp:71
 #, kde-format
 msgid "Attach File"
 msgstr "附加檔案"
 
-#: widgets/room/messagelinewidget.cpp:78
+#: widgets/room/messagelinewidget.cpp:79
 #, fuzzy, kde-format
 #| msgid "Search moderation message…"
 msgctxt "@info:tooltip"
 msgid "Send a video message…"
 msgstr "搜尋站務訊息…"
 
-#: widgets/room/messagelinewidget.cpp:80
+#: widgets/room/messagelinewidget.cpp:81
 #, kde-format
 msgid "Video Message"
 msgstr "影片訊息"
 
-#: widgets/room/messagelinewidget.cpp:89 widgets/room/messagelinewidget.cpp:96
+#: widgets/room/messagelinewidget.cpp:90 widgets/room/messagelinewidget.cpp:97
 #, fuzzy, kde-format
 #| msgid "Search moderation message…"
 msgctxt "@info:tooltip"
 msgid "Send a sound message…"
 msgstr "搜尋站務訊息…"
 
-#: widgets/room/messagelinewidget.cpp:91
+#: widgets/room/messagelinewidget.cpp:92
 #, kde-format
 msgid "Sound Message"
 msgstr "語音訊息"
 
-#: widgets/room/messagelinewidget.cpp:103
+#: widgets/room/messagelinewidget.cpp:104
 #, fuzzy, kde-format
 #| msgid "Add Emoticon"
 msgctxt "@info:tooltip"
 msgid "Add emoticon…"
 msgstr "新增表情符號"
 
-#: widgets/room/messagelinewidget.cpp:105
+#: widgets/room/messagelinewidget.cpp:106
 #, kde-format
 msgid "Add Emoticon"
 msgstr "新增表情符號"
 
-#: widgets/room/messagelinewidget.cpp:112
+#: widgets/room/messagelinewidget.cpp:113
 #, fuzzy, kde-format
 #| msgid "Send Message"
 msgctxt "@info:tooltip"
 msgid "Send message"
 msgstr "傳送訊息"
 
-#: widgets/room/messagelinewidget.cpp:114
+#: widgets/room/messagelinewidget.cpp:115
 #, kde-format
 msgid "Send Message"
 msgstr "傳送訊息"
 
-#: widgets/room/messagelinewidget.cpp:182
+#: widgets/room/messagelinewidget.cpp:187
+#, kde-format
+msgid "Command was failed. Do you want to copy command in clipboard ?"
+msgstr ""
+
+#: widgets/room/messagelinewidget.cpp:188
+#, kde-format
+msgctxt "@title:window"
+msgid "Command Error"
+msgstr ""
+
+#: widgets/room/messagelinewidget.cpp:216
 #, fuzzy, kde-format
 #| msgid "Do you want to delete this attachment?"
 msgid "Do you want to convert this big text as attachment?"
 msgstr "您確定要刪除此附件嗎？"
 
-#: widgets/room/messagelinewidget.cpp:183
+#: widgets/room/messagelinewidget.cpp:217
 #, kde-format
 msgctxt "@title:window"
 msgid "Message Too Big"
 msgstr "訊息太大"
 
-#: widgets/room/messagelinewidget.cpp:284
+#: widgets/room/messagelinewidget.cpp:318
 #, fuzzy, kde-format
 #| msgid "Message Pinned"
 msgid "Message %1 in thread"
 msgstr "訊息已置頂"
 
-#: widgets/room/messagelinewidget.cpp:284
+#: widgets/room/messagelinewidget.cpp:318
 #, fuzzy, kde-format
 #| msgid "Search moderation message…"
 msgid "Send a message in %1…"
 msgstr "搜尋站務訊息…"
 
-#: widgets/room/messagelinewidget.cpp:425
+#: widgets/room/messagelinewidget.cpp:459
 #, kde-format
 msgid "File selected is too big (Maximum size %1)"
 msgstr ""
 
-#: widgets/room/messagelinewidget.cpp:426
+#: widgets/room/messagelinewidget.cpp:460
 #, fuzzy, kde-format
 #| msgid "File upload"
 msgctxt "@title:window"
 msgid "File upload"
 msgstr "檔案上傳"
 
-#: widgets/room/messagelinewidget.cpp:431
+#: widgets/room/messagelinewidget.cpp:465
 #, kde-format
 msgid "Server doesn't authorized this file (invalid mimetype)"
 msgstr "伺服器未授權此檔案（無效的 MIME 類型）"
@@ -12009,6 +12027,16 @@ msgstr ""
 #: widgets/whatsnew/whatsnewtranslations.cpp:159
 #, kde-format
 msgid "Fix copy action text when we copy a text selection."
+msgstr ""
+
+#: widgets/whatsnew/whatsnewtranslations.cpp:160
+#, kde-format
+msgid "A command start with '/' and not /* or // "
+msgstr ""
+
+#: widgets/whatsnew/whatsnewtranslations.cpp:161
+#, kde-format
+msgid "Allow to put command line in clipboard when an error occurred"
 msgstr ""
 
 #: widgets/whatsnew/whatsnewwidget.cpp:44
