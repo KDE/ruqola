@@ -153,6 +153,8 @@ public:
     [[nodiscard]] AppsMarketPlaceInstalledInfo installedInfo() const;
     void setInstalledInfo(const AppsMarketPlaceInstalledInfo &newInstalledInfo);
 
+    void clearInstalledInfo();
+
 private:
     LIBRUQOLACORE_NO_EXPORT void parsePrincingPlan(const QJsonArray &array);
     LIBRUQOLACORE_NO_EXPORT void parseAuthor(const QJsonObject &authorObject);

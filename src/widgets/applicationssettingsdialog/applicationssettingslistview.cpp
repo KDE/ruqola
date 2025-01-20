@@ -183,9 +183,8 @@ void ApplicationsSettingsListView::slotUninstallApplication(const QModelIndex &i
         info.mAppsId = index.data(AppsMarketPlaceModel::AppId).toByteArray();
         job->setAppUpdateInfo(info);
         mRocketChatAccount->restApi()->initializeRestApiJob(job);
-        connect(job, &RocketChatRestApi::AppUpdateInfoJob::appUpdateInfoDone, this, [](const QJsonObject &obj) {
-            qDebug() << "appUpdateInfoDone obj " << obj;
-            // TODO update listview !!
+        connect(job, &RocketChatRestApi::AppUpdateInfoJob::appUpdateInfoDone, this, [this]() {
+            Q_EMIT refreshListApplications();
         });
         if (!job->start()) {
             qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start appUpdateInfoDone";
@@ -204,9 +203,8 @@ void ApplicationsSettingsListView::slotChangeStatusApplication(const QModelIndex
 
     job->setAppUpdateInfo(info);
     mRocketChatAccount->restApi()->initializeRestApiJob(job);
-    connect(job, &RocketChatRestApi::AppUpdateInfoJob::appUpdateInfoDone, this, [](const QJsonObject &obj) {
-        qDebug() << "appUpdateInfoDone  obj " << obj;
-        // TODO update listview !!
+    connect(job, &RocketChatRestApi::AppUpdateInfoJob::appUpdateInfoDone, this, [this]() {
+        Q_EMIT refreshListApplications();
     });
     if (!job->start()) {
         qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start appUpdateInfoDone";
@@ -215,9 +213,6 @@ void ApplicationsSettingsListView::slotChangeStatusApplication(const QModelIndex
 
 void ApplicationsSettingsListView::slotInstallApplication(const QModelIndex &index)
 {
-    qCWarning(RUQOLAWIDGETS_LOG) << "ApplicationsSettingsListView::slotInstallApplication not implemented yet.";
-    // TODO
-
     auto job = new RocketChatRestApi::AppUpdateInfoJob(this);
     RocketChatRestApi::AppUpdateInfoJob::AppUpdateInfo info;
     info.mAppInfoType = RocketChatRestApi::AppUpdateInfoJob::AppInfoType::Apps;
@@ -226,9 +221,8 @@ void ApplicationsSettingsListView::slotInstallApplication(const QModelIndex &ind
     info.mAppVersion = index.data(AppsMarketPlaceModel::AppVersion).toString();
     job->setAppUpdateInfo(info);
     mRocketChatAccount->restApi()->initializeRestApiJob(job);
-    connect(job, &RocketChatRestApi::AppUpdateInfoJob::appUpdateInfoDone, this, [](const QJsonObject &obj) {
-        qDebug() << "appUpdateInfoDone: obj " << obj;
-        // TODO update listview !!
+    connect(job, &RocketChatRestApi::AppUpdateInfoJob::appUpdateInfoDone, this, [this]() {
+        Q_EMIT refreshListApplications();
     });
     if (!job->start()) {
         qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start appUpdateInfoDone";

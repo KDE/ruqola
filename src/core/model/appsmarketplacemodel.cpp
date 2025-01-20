@@ -27,6 +27,17 @@ QList<AppsMarketPlaceInfo> AppsMarketPlaceModel::appsMarketPlaceInfos() const
     return mAppsMarketPlaceInfos;
 }
 
+void AppsMarketPlaceModel::clearInstalledAppsInformation()
+{
+    for (AppsMarketPlaceInfo &info : mAppsMarketPlaceInfos) {
+        if (info.isValid()) {
+            info.clearInstalledInfo();
+        }
+    }
+    beginResetModel();
+    endResetModel();
+}
+
 void AppsMarketPlaceModel::addInstalledInfo(const AppsMarketPlaceInstalledInfo &installedInfo)
 {
     bool found = false;

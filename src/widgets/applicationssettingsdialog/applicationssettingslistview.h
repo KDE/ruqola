@@ -31,6 +31,9 @@ protected:
     [[nodiscard]] bool maybeStartDrag(QMouseEvent *event, const QStyleOptionViewItem &option, const QModelIndex &index) override;
     [[nodiscard]] bool mouseEvent(QMouseEvent *event, const QStyleOptionViewItem &option, const QModelIndex &index) override;
 
+Q_SIGNALS:
+    void refreshListApplications();
+
 private:
     LIBRUQOLAWIDGETS_NO_EXPORT void slotAskApplication(const QModelIndex &index);
     LIBRUQOLAWIDGETS_NO_EXPORT void slotShowApplicationDescription(const QModelIndex &index);

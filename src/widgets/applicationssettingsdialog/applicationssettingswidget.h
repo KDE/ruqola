@@ -28,6 +28,7 @@ public:
 private:
     LIBRUQOLAWIDGETS_NO_EXPORT void slotFilterChanged();
     LIBRUQOLAWIDGETS_NO_EXPORT void slotSortingChanged();
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotRefreshListApplications();
     RocketChatAccount *const mCurrentRocketChatAccount;
     ApplicationsSettingsSearchWidget *const mApplicationsSettingsSearchWidget;
     ApplicationsSettingsListView *const mApplicationsSettingsListView;

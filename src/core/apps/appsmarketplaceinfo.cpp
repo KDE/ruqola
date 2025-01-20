@@ -70,6 +70,11 @@ void AppsMarketPlaceInfo::setInstalledInfo(const AppsMarketPlaceInstalledInfo &n
     mInstalledInfo = newInstalledInfo;
 }
 
+void AppsMarketPlaceInfo::clearInstalledInfo()
+{
+    mInstalledInfo = {};
+}
+
 void AppsMarketPlaceInfo::parsePrincingPlan(const QJsonArray &array)
 {
     mPricePlan.clear();

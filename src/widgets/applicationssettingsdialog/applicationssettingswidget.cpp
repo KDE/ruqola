@@ -54,6 +54,15 @@ ApplicationsSettingsWidget::ApplicationsSettingsWidget(RocketChatAccount *accoun
 
     connect(mApplicationsSettingsSearchWidget, &ApplicationsSettingsSearchWidget::filterChanged, this, &ApplicationsSettingsWidget::slotFilterChanged);
     connect(mApplicationsSettingsSearchWidget, &ApplicationsSettingsSearchWidget::sortingChanged, this, &ApplicationsSettingsWidget::slotSortingChanged);
+    connect(mApplicationsSettingsListView,
+            &ApplicationsSettingsListView::refreshListApplications,
+            this,
+            &ApplicationsSettingsWidget::slotRefreshListApplications);
+}
+
+void ApplicationsSettingsWidget::slotRefreshListApplications()
+{
+    // TODO
 }
 
 void ApplicationsSettingsWidget::initialize()
