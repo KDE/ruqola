@@ -79,8 +79,7 @@ void UploadFileWidget::setFileUrl(const QUrl &url)
     mUrl = url;
     const QFileInfo fileInfo(mUrl.toLocalFile());
     mFileName->setText(fileInfo.fileName());
-    KFormat format;
-    mFileNameInfo->setText(QStringLiteral("%1 - %2").arg(fileInfo.fileName(), format.formatByteSize(fileInfo.size())));
+    mFileNameInfo->setText(QStringLiteral("%1 - %2").arg(fileInfo.fileName(), KFormat().formatByteSize(fileInfo.size())));
 
     QMimeDatabase db;
     const QMimeType mimeType = db.mimeTypeForFile(fileInfo);
