@@ -34,8 +34,6 @@ public:
 
     [[nodiscard]] UploadFileInfo fileInfo() const;
 
-    void setPixmap(const QPixmap &pix);
-
 private:
     UploadFileWidget *const mUploadFileWidget;
     QPushButton *mOkButton = nullptr;

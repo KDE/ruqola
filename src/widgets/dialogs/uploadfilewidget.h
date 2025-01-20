@@ -24,6 +24,9 @@ public:
     void setFileUrl(const QUrl &url);
     void setPixmap(const QPixmap &pix);
 
+Q_SIGNALS:
+    void uploadImage();
+
 private:
     QLineEdit *const mFileName;
     QLineEdit *const mDescription;

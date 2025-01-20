@@ -34,6 +34,9 @@ UploadFileDialog::UploadFileDialog(QWidget *parent)
     buttonBox->setObjectName(QStringLiteral("buttonBox"));
     connect(buttonBox, &QDialogButtonBox::accepted, this, &UploadFileDialog::accept);
     connect(buttonBox, &QDialogButtonBox::rejected, this, &UploadFileDialog::reject);
+    connect(mUploadFileWidget, &UploadFileWidget::uploadImage, this, [this]() {
+        setWindowTitle(i18nc("@title:window", "Upload Image"));
+    });
     mainLayout->addWidget(buttonBox);
 }
 
@@ -51,14 +54,6 @@ UploadFileDialog::UploadFileInfo UploadFileDialog::fileInfo() const
     result.fileUrl = mUploadFileWidget->fileUrl();
     result.fileName = mUploadFileWidget->fileName();
     return result;
-}
-
-void UploadFileDialog::setPixmap(const QPixmap &pix)
-{
-    if (!pix.isNull()) {
-        setWindowTitle(i18nc("@title:window", "Upload Image"));
-    }
-    mUploadFileWidget->setPixmap(pix);
 }
 
 #include "moc_uploadfiledialog.cpp"

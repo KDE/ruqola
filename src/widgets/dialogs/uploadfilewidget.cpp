@@ -14,6 +14,7 @@
 #include <QFormLayout>
 #include <QLabel>
 #include <QMimeDatabase>
+#include <QScreen>
 #include <QStyle>
 
 UploadFileWidget::UploadFileWidget(QWidget *parent)
@@ -96,10 +97,11 @@ void UploadFileWidget::setPixmap(const QPixmap &pix)
 {
     if (!pix.isNull()) {
         mImagePreview->setVisible(true);
-        const QSize s = QSize(600, 800);
-        const QPixmap p = pix.scaled(s, Qt::KeepAspectRatio);
+        const QSize s = QSize(600, 800) * screen()->devicePixelRatio();
+        const QPixmap p = pix.scaled(s, Qt::KeepAspectRatio, Qt::SmoothTransformation);
         mImagePreview->setMaximumSize(s);
         mImagePreview->setPixmap(p);
+        Q_EMIT uploadImage();
     }
 }
 
