@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-01-18 13:23+0000\n"
+"POT-Creation-Date: 2025-01-20 02:40+0000\n"
 "PO-Revision-Date: 2024-12-19 22:19+0200\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
@@ -8624,7 +8624,7 @@ msgid "Video: %1"
 msgstr "Відео: %1"
 
 #: widgets/dialogs/uploadfiledialog.cpp:26
-#: widgets/room/messagelinewidget.cpp:368
+#: widgets/room/messagelinewidget.cpp:370
 #, kde-format
 msgctxt "@title:window"
 msgid "Upload File"
@@ -10142,39 +10142,39 @@ msgstr "Надіслати повідомлення"
 msgid "Send Message"
 msgstr "Надіслати повідомлення"
 
-#: widgets/room/messagelinewidget.cpp:148
+#: widgets/room/messagelinewidget.cpp:150
 #, kde-format
 msgid "Do you want to convert this big text as attachment?"
 msgstr "Хочете перетворити цей значний фрагмент тексту на долучення?"
 
-#: widgets/room/messagelinewidget.cpp:149
+#: widgets/room/messagelinewidget.cpp:151
 #, kde-format
 msgctxt "@title:window"
 msgid "Message Too Big"
 msgstr "Надто велике повідомлення"
 
-#: widgets/room/messagelinewidget.cpp:250
+#: widgets/room/messagelinewidget.cpp:252
 #, kde-format
 msgid "Message %1 in thread"
 msgstr "Повідомлення %1 у гілці"
 
-#: widgets/room/messagelinewidget.cpp:250
+#: widgets/room/messagelinewidget.cpp:252
 #, kde-format
 msgid "Send a message in %1…"
 msgstr "Надіслати повідомлення у %1…"
 
-#: widgets/room/messagelinewidget.cpp:391
+#: widgets/room/messagelinewidget.cpp:393
 #, kde-format
 msgid "File selected is too big (Maximum size %1)"
 msgstr "Вибраний файл є надто великим (максимальний розмір — %1)"
 
-#: widgets/room/messagelinewidget.cpp:392
+#: widgets/room/messagelinewidget.cpp:394
 #, kde-format
 msgctxt "@title:window"
 msgid "File upload"
 msgstr "Вивантаження файла"
 
-#: widgets/room/messagelinewidget.cpp:397
+#: widgets/room/messagelinewidget.cpp:399
 #, kde-format
 msgid "Server doesn't authorized this file (invalid mimetype)"
 msgstr "Сервером не надано уповноваження на цей файл (некоректний тип MIME)"
