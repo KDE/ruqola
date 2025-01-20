@@ -159,6 +159,7 @@ QList<WhatsNewInfo> WhatsNewTranslations::createWhatsNewInfo() const
             i18n("Fix copy action text when we copy a text selection."),
             i18n("A command start with '/' and not /* or // "),
             i18n("Allow to put command line in clipboard when an error occurred"),
+            i18n("Allow to activate/desactivate apps market."),
         });
 
         listInfo.append(std::move(info));
