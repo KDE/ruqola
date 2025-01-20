@@ -81,14 +81,19 @@ void ApplicationsSettingsListView::slotCustomContextMenuRequested(const QPoint &
                         slotUninstallApplication(index);
                     });
 
-                    menu.addSeparator();
-                    menu.addAction(i18nc("@action", "Disable"), this, [this, index]() {
-                        slotChangeStatusApplication(index, "manually_disabled"_L1);
-                    });
-                    menu.addSeparator();
-                    menu.addAction(i18nc("@action", "Enable"), this, [this, index]() {
-                        slotChangeStatusApplication(index, "manually_enabled"_L1);
-                    });
+                    const AppsMarketPlaceInstalledInfo::Status appsStatus =
+                        index.data(AppsMarketPlaceModel::Status).value<AppsMarketPlaceInstalledInfo::Status>();
+                    if (appsStatus == AppsMarketPlaceInstalledInfo::Status::ManuallyEnabled) {
+                        menu.addSeparator();
+                        menu.addAction(i18nc("@action", "Disable"), this, [this, index]() {
+                            slotChangeStatusApplication(index, "manually_disabled"_L1);
+                        });
+                    } else {
+                        menu.addSeparator();
+                        menu.addAction(i18nc("@action", "Enable"), this, [this, index]() {
+                            slotChangeStatusApplication(index, "manually_enabled"_L1);
+                        });
+                    }
                 }
             }
 
@@ -179,7 +184,7 @@ void ApplicationsSettingsListView::slotUninstallApplication(const QModelIndex &i
         job->setAppUpdateInfo(info);
         mRocketChatAccount->restApi()->initializeRestApiJob(job);
         connect(job, &RocketChatRestApi::AppUpdateInfoJob::appUpdateInfoDone, this, [](const QJsonObject &obj) {
-            qDebug() << " obj " << obj;
+            qDebug() << "appUpdateInfoDone obj " << obj;
             // TODO update listview !!
         });
         if (!job->start()) {
@@ -190,8 +195,6 @@ void ApplicationsSettingsListView::slotUninstallApplication(const QModelIndex &i
 
 void ApplicationsSettingsListView::slotChangeStatusApplication(const QModelIndex &index, const QString &status)
 {
-    qCWarning(RUQOLAWIDGETS_LOG) << "ApplicationsSettingsListView::slotChangeStatusApplication not implemented yet.";
-
     auto job = new RocketChatRestApi::AppUpdateInfoJob(this);
     RocketChatRestApi::AppUpdateInfoJob::AppUpdateInfo info;
     info.mAppInfoType = RocketChatRestApi::AppUpdateInfoJob::AppInfoType::Status;
@@ -202,14 +205,12 @@ void ApplicationsSettingsListView::slotChangeStatusApplication(const QModelIndex
     job->setAppUpdateInfo(info);
     mRocketChatAccount->restApi()->initializeRestApiJob(job);
     connect(job, &RocketChatRestApi::AppUpdateInfoJob::appUpdateInfoDone, this, [](const QJsonObject &obj) {
-        qDebug() << " obj " << obj;
+        qDebug() << "appUpdateInfoDone  obj " << obj;
         // TODO update listview !!
     });
     if (!job->start()) {
         qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start appUpdateInfoDone";
     }
-
-    // TODO
 }
 
 void ApplicationsSettingsListView::slotInstallApplication(const QModelIndex &index)
@@ -226,7 +227,7 @@ void ApplicationsSettingsListView::slotInstallApplication(const QModelIndex &ind
     job->setAppUpdateInfo(info);
     mRocketChatAccount->restApi()->initializeRestApiJob(job);
     connect(job, &RocketChatRestApi::AppUpdateInfoJob::appUpdateInfoDone, this, [](const QJsonObject &obj) {
-        qDebug() << " obj " << obj;
+        qDebug() << "appUpdateInfoDone: obj " << obj;
         // TODO update listview !!
     });
     if (!job->start()) {
@@ -251,7 +252,7 @@ void ApplicationsSettingsListView::slotAskApplication(const QModelIndex &index)
             job->setInfo(info);
             mRocketChatAccount->restApi()->initializeRestApiJob(job);
             connect(job, &RocketChatRestApi::NotifyAdminsAppsJob::notifyAdminsAppsDone, this, [](const QJsonObject &obj) {
-                qDebug() << " obj " << obj;
+                qDebug() << "NotifyAdminsAppsJob: obj " << obj;
             });
             if (!job->start()) {
                 qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start NotifyAdminsAppsJob";
