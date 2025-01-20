@@ -30,9 +30,8 @@ void GrabScreenPluginJob::start()
     }
     const QString path = Utils::findExecutable(QStringLiteral("spectacle"));
     auto proc = new QProcess(this);
-    QStringList arguments;
-    arguments << QStringLiteral("-n") << QStringLiteral("-d") << QString::number(GrabScreenPluginToolConfig::self()->delay());
-    arguments << QStringLiteral("-bro") << mFilePath;
+    const QStringList arguments = QStringList() << QStringLiteral("-n") << QStringLiteral("-d") << QString::number(GrabScreenPluginToolConfig::self()->delay())
+                                                << QStringLiteral("-bro") << mFilePath;
     connect(proc, &QProcess::finished, this, [this](int exitCode, QProcess::ExitStatus exitStatus) {
         Q_UNUSED(exitCode);
         Q_UNUSED(exitStatus);
