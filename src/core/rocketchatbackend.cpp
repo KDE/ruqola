@@ -686,6 +686,11 @@ void RocketChatBackend::subscribeRegistration()
         const QJsonArray params{QJsonValue(QStringLiteral("roles"))};
         mRocketChatAccount->ddp()->subscribe(QStringLiteral("stream-roles"), params);
     }
+
+    {
+        const QJsonArray params{QJsonValue(QStringLiteral("apps"))};
+        mRocketChatAccount->ddp()->subscribe(QStringLiteral("stream-apps"), params);
+    }
 }
 
 #include "moc_rocketchatbackend.cpp"
