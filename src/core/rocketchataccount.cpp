@@ -1564,6 +1564,7 @@ void RocketChatAccount::updateRoles(const QJsonArray &contents)
 
 void RocketChatAccount::updateApps(const QJsonArray &contents)
 {
+    //  QJsonArray(["app/statusUpdate",[{"appId":"ebb7f05b-ea65-4565-880b-8c2360f14500","status":"manually_enabled"}]])
     qDebug() << " RocketChatAccount::updateApps " << contents;
     const auto count{contents.count()};
     for (auto i = 0; i < count; ++i) {
