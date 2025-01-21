@@ -615,6 +615,11 @@ void RocketChatBackend::slotChanged(const QJsonObject &object)
         if (eventname == "roles"_L1) {
             mRocketChatAccount->updateRoles(contents);
         }
+    } else if (collection == "stream-apps"_L1) {
+        const QString eventname = fields.value("eventName"_L1).toString();
+        if (eventname == "apps"_L1) {
+            mRocketChatAccount->updateApps(contents);
+        }
     } else {
         qCDebug(RUQOLA_UNKNOWN_COLLECTIONTYPE_LOG) << " Other collection type changed " << collection << " object " << object;
     }

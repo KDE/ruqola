@@ -414,6 +414,7 @@ public:
 
     [[nodiscard]] bool isAdministrator() const;
     void updateInstalledApps();
+    void updateApps(const QJsonArray &contents);
 Q_SIGNALS:
     void roomRemoved(const QByteArray &roomId);
     void disabledTotpValid(bool checked);

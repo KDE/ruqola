@@ -1562,6 +1562,12 @@ void RocketChatAccount::updateRoles(const QJsonArray &contents)
     mRolesManager.updateRoles(contents);
 }
 
+void RocketChatAccount::updateApps(const QJsonArray &contents)
+{
+    // TODO
+    qDebug() << " RocketChatAccount::updateApps " << contents;
+}
+
 void RocketChatAccount::addStdoutInfo(const QJsonArray &contents)
 {
     const auto count{contents.count()};
