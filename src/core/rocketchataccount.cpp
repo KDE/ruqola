@@ -1576,12 +1576,15 @@ void RocketChatAccount::updateApps(const QJsonArray &contents)
             if (appElement.isString()) {
                 const QString type = appElement.toString();
                 if (type == "app/removed"_L1) {
+                    qDebug() << " array.at(1)" << array.at(1);
                     // mAppsMarketPlaceModel->removeApp(<ID>);
                     // TODO
                 } else if (type == "app/statusUpdate"_L1) {
+                    qDebug() << " array.at(1)" << array.at(1);
                     // mAppsMarketPlaceModel->updateApp(<ID>, <STATUS>);
                     // TODO
                 } else if (type == "app/added"_L1) {
+                    qDebug() << " array.at(1)" << array.at(1);
                     // mAppsMarketPlaceModel->addApp(<ID>);
                     // TODO
                 } else {
