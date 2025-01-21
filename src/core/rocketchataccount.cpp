@@ -1564,12 +1564,28 @@ void RocketChatAccount::updateRoles(const QJsonArray &contents)
 
 void RocketChatAccount::updateApps(const QJsonArray &contents)
 {
-    //  QJsonArray(["app/statusUpdate",[{"appId":"ebb7f05b-ea65-4565-880b-8c2360f14500","status":"manually_enabled"}]])
+    // QJsonArray(["app/statusUpdate",[{"appId":"ebb7f05b-ea65-4565-880b-8c2360f14500","status":"manually_enabled"}]])
+    // QJsonArray([["app/removed",["ebb7f05b-ea65-4565-880b-8c2360f14500"]]])
+    // QJsonArray([["app/added",["ebb7f05b-ea65-4565-880b-8c2360f14500"]]])
     qDebug() << " RocketChatAccount::updateApps " << contents;
     const auto count{contents.count()};
     for (auto i = 0; i < count; ++i) {
         const QJsonArray array = contents.at(i).toArray();
-        qDebug() << " array " << array;
+        if (array.count() == 2) {
+            const QJsonValue appElement = array.at(0);
+            if (appElement.isString()) {
+                const QString type = appElement.toString();
+                if (type == "app/removed"_L1) {
+                    // TODO
+                } else if (type == "app/statusUpdate"_L1) {
+                    // TODO
+                } else if (type == "app/added"_L1) {
+                    // TODO
+                } else {
+                    qWarning() << " type unknown " << type;
+                }
+            }
+        }
     }
 }
 
