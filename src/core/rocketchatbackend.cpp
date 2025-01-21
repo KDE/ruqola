@@ -577,6 +577,13 @@ void RocketChatBackend::slotChanged(const QJsonObject &object)
     } else if (collection == "stream-notify-logged"_L1) {
         const QString eventname = fields.value("eventName"_L1).toString();
         qCDebug(RUQOLA_LOG) << " EVENT " << eventname << " contents " << contents << fields.value("args"_L1).toArray().toVariantList();
+        if (mRocketChatAccount->ruqolaLogger()) {
+            QJsonDocument d;
+            d.setObject(object);
+            mRocketChatAccount->ruqolaLogger()->dataReceived(QByteArrayLiteral("stream-notify-logged: ") + d.toJson());
+        } else {
+            qCDebug(RUQOLA_UNKNOWN_COLLECTIONTYPE_LOG) << "stream-notify-logged: " << eventname;
+        }
         if (eventname == "roles-change"_L1) {
             mRocketChatAccount->rolesChanged(contents);
         } else if (eventname == "updateAvatar"_L1) {
@@ -604,6 +611,14 @@ void RocketChatBackend::slotChanged(const QJsonObject &object)
         }
     } else if (collection == "stream-notify-all"_L1) {
         const QString eventname = fields.value("eventName"_L1).toString();
+        if (mRocketChatAccount->ruqolaLogger()) {
+            QJsonDocument d;
+            d.setObject(object);
+            mRocketChatAccount->ruqolaLogger()->dataReceived(QByteArrayLiteral("stream-notify-all: ") + d.toJson());
+        } else {
+            qCDebug(RUQOLA_UNKNOWN_COLLECTIONTYPE_LOG) << "stream-notify-all: " << eventname;
+        }
+
         if (eventname == "deleteCustomSound"_L1) {
             mRocketChatAccount->deleteCustomSound(contents);
         } else if (eventname == "updateCustomSound"_L1) {
@@ -614,13 +629,34 @@ void RocketChatBackend::slotChanged(const QJsonObject &object)
         //{"collection":"stream-notify-all","fields":{"args":[{"soundData":{"_id":"LmShBQiqaCJDbgduR","_updatedAt":{"$date":1603350386481},"extension":"mp3","name":"ss"}}],"eventName":"deleteCustomSound"},"id":"id","msg":"changed"}
     } else if (collection == "stream-stdout"_L1) {
         mRocketChatAccount->addStdoutInfo(contents);
+        if (mRocketChatAccount->ruqolaLogger()) {
+            QJsonDocument d;
+            d.setObject(object);
+            mRocketChatAccount->ruqolaLogger()->dataReceived(QByteArrayLiteral("stream-stdout: ") + d.toJson());
+        } else {
+            qCDebug(RUQOLA_UNKNOWN_COLLECTIONTYPE_LOG) << "stream-stdout: " << contents;
+        }
     } else if (collection == "stream-roles"_L1) {
         const QString eventname = fields.value("eventName"_L1).toString();
+        if (mRocketChatAccount->ruqolaLogger()) {
+            QJsonDocument d;
+            d.setObject(object);
+            mRocketChatAccount->ruqolaLogger()->dataReceived(QByteArrayLiteral("stream-roles: ") + d.toJson());
+        } else {
+            qCDebug(RUQOLA_UNKNOWN_COLLECTIONTYPE_LOG) << "stream-roles: " << contents;
+        }
         if (eventname == "roles"_L1) {
             mRocketChatAccount->updateRoles(contents);
         }
     } else if (collection == "stream-apps"_L1) {
         const QString eventname = fields.value("eventName"_L1).toString();
+        if (mRocketChatAccount->ruqolaLogger()) {
+            QJsonDocument d;
+            d.setObject(object);
+            mRocketChatAccount->ruqolaLogger()->dataReceived(QByteArrayLiteral("stream-apps: ") + d.toJson());
+        } else {
+            qCDebug(RUQOLA_UNKNOWN_COLLECTIONTYPE_LOG) << "stream-apps: " << eventname;
+        }
         if (eventname == "apps"_L1) {
             mRocketChatAccount->updateApps(contents);
         }
