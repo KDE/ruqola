@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-01-20 00:41+0000\n"
+"POT-Creation-Date: 2025-01-21 00:41+0000\n"
 "PO-Revision-Date: 2024-08-06 05:33+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
@@ -189,239 +189,239 @@ msgstr "無效的權杖"
 msgid "Invite Token is invalid. Creating account canceled."
 msgstr ""
 
-#: core/apps/appsmarketplaceinfo.cpp:98
+#: core/apps/appsmarketplaceinfo.cpp:103
 #, kde-format
 msgid "per %1"
 msgstr ""
 
-#: core/apps/appsmarketplaceinfo.cpp:147
+#: core/apps/appsmarketplaceinfo.cpp:152
 #, fuzzy, kde-format
 #| msgctxt "@action"
 #| msgid "This month"
 msgid "month"
 msgstr "這個月"
 
-#: core/apps/appsmarketplaceinfo.cpp:149
+#: core/apps/appsmarketplaceinfo.cpp:154
 #, kde-format
 msgid "year"
 msgstr ""
 
-#: core/apps/appsmarketplaceinfo.cpp:391 core/model/adminrolesmodel.cpp:40
+#: core/apps/appsmarketplaceinfo.cpp:396 core/model/adminrolesmodel.cpp:40
 #: widgets/administratorsettingsdialog/ircfederation/ircfederationwidget.cpp:50
 #: widgets/applicationssettingsdialog/applicationssettingsdescriptiontabwidget.cpp:36
 #, kde-format
 msgid "Description"
 msgstr "描述"
 
-#: core/apps/appsmarketplaceinfo.cpp:400
+#: core/apps/appsmarketplaceinfo.cpp:405
 #: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:163
 #, kde-format
 msgid "Version"
 msgstr "版本"
 
-#: core/apps/appsmarketplaceinfo.cpp:403 core/model/appscategoriesmodel.cpp:34
+#: core/apps/appsmarketplaceinfo.cpp:408 core/model/appscategoriesmodel.cpp:34
 #, kde-format
 msgid "Categories"
 msgstr "分類"
 
-#: core/apps/appsmarketplaceinfo.cpp:407
+#: core/apps/appsmarketplaceinfo.cpp:412
 #, fuzzy, kde-format
 #| msgid "Authentication"
 msgid "Documentation"
 msgstr "認證"
 
-#: core/apps/appsmarketplaceinfo.cpp:419
+#: core/apps/appsmarketplaceinfo.cpp:424
 #, kde-format
 msgid "Author"
 msgstr "作者"
 
-#: core/apps/appsmarketplaceinfo.cpp:432
+#: core/apps/appsmarketplaceinfo.cpp:437
 #, kde-format
 msgid "Homepage"
 msgstr "首頁"
 
-#: core/apps/appsmarketplaceinfo.cpp:444
+#: core/apps/appsmarketplaceinfo.cpp:449
 #, fuzzy, kde-format
 #| msgid "Report a Bug"
 msgid "Support"
 msgstr "回報臭蟲"
 
-#: core/apps/appsmarketplaceinfo.cpp:448
+#: core/apps/appsmarketplaceinfo.cpp:453
 #, fuzzy, kde-format
 #| msgid "Privacy"
 msgid "Privacy Summary"
 msgstr "隱私"
 
-#: core/apps/appsmarketplaceinfo.cpp:452
+#: core/apps/appsmarketplaceinfo.cpp:457
 #: widgets/administratordialog/administratorwidget.cpp:74
 #, kde-format
 msgid "Permissions"
 msgstr "權限"
 
-#: core/apps/appsmarketplaceinfo.cpp:581
+#: core/apps/appsmarketplaceinfo.cpp:586
 #, fuzzy, kde-format
 #| msgid "1 message"
 #| msgid_plural "%1 messages"
 msgid "Access messages"
 msgstr "%1 則訊息"
 
-#: core/apps/appsmarketplaceinfo.cpp:583
+#: core/apps/appsmarketplaceinfo.cpp:588
 #, fuzzy, kde-format
 #| msgid "Search moderation message…"
 msgid "Send and modify messages"
 msgstr "搜尋站務訊息…"
 
-#: core/apps/appsmarketplaceinfo.cpp:585
+#: core/apps/appsmarketplaceinfo.cpp:590
 #, fuzzy, kde-format
 #| msgid "Account information"
 msgid "Access room information"
 msgstr "帳戶資訊"
 
-#: core/apps/appsmarketplaceinfo.cpp:587
+#: core/apps/appsmarketplaceinfo.cpp:592
 #, kde-format
 msgid "Create and modify rooms"
 msgstr ""
 
-#: core/apps/appsmarketplaceinfo.cpp:589
+#: core/apps/appsmarketplaceinfo.cpp:594
 #, kde-format
 msgid "Access to this server network"
 msgstr ""
 
-#: core/apps/appsmarketplaceinfo.cpp:591
+#: core/apps/appsmarketplaceinfo.cpp:596
 #, fuzzy, kde-format
 #| msgid "Account information"
 msgid "Access user information"
 msgstr "帳戶資訊"
 
-#: core/apps/appsmarketplaceinfo.cpp:593
+#: core/apps/appsmarketplaceinfo.cpp:598
 #, fuzzy, kde-format
 #| msgid "Account information"
 msgid "Modify user information"
 msgstr "帳戶資訊"
 
-#: core/apps/appsmarketplaceinfo.cpp:595
+#: core/apps/appsmarketplaceinfo.cpp:600
 #, kde-format
 msgid "Register new slash commands"
 msgstr ""
 
-#: core/apps/appsmarketplaceinfo.cpp:597
+#: core/apps/appsmarketplaceinfo.cpp:602
 #, kde-format
 msgid "Register and maintain scheduled jobs"
 msgstr ""
 
-#: core/apps/appsmarketplaceinfo.cpp:599
+#: core/apps/appsmarketplaceinfo.cpp:604
 #, kde-format
 msgid "Register new HTTP endpoints"
 msgstr ""
 
-#: core/apps/appsmarketplaceinfo.cpp:601
+#: core/apps/appsmarketplaceinfo.cpp:606
 #, kde-format
 msgid "Access settings in this server"
 msgstr ""
 
-#: core/apps/appsmarketplaceinfo.cpp:603
+#: core/apps/appsmarketplaceinfo.cpp:608
 #, kde-format
 msgid "Modify settings in this server"
 msgstr ""
 
-#: core/apps/appsmarketplaceinfo.cpp:605
+#: core/apps/appsmarketplaceinfo.cpp:610
 #, kde-format
 msgid "Upload files to this server"
 msgstr ""
 
-#: core/apps/appsmarketplaceinfo.cpp:607
+#: core/apps/appsmarketplaceinfo.cpp:612
 #, kde-format
 msgid "Access files uploaded to this server"
 msgstr ""
 
-#: core/apps/appsmarketplaceinfo.cpp:609
+#: core/apps/appsmarketplaceinfo.cpp:614
 #, kde-format
 msgid "Interact with Cloud Services on behalf of this server"
 msgstr ""
 
-#: core/apps/appsmarketplaceinfo.cpp:611
+#: core/apps/appsmarketplaceinfo.cpp:616
 #, kde-format
 msgid "Access minimal information about this server environment"
 msgstr ""
 
-#: core/apps/appsmarketplaceinfo.cpp:613
+#: core/apps/appsmarketplaceinfo.cpp:618
 #, kde-format
 msgid "Access to multiple Livechat departments information"
 msgstr ""
 
-#: core/apps/appsmarketplaceinfo.cpp:615
+#: core/apps/appsmarketplaceinfo.cpp:620
 #, kde-format
 msgid "Access Livechat department information"
 msgstr ""
 
-#: core/apps/appsmarketplaceinfo.cpp:617
+#: core/apps/appsmarketplaceinfo.cpp:622
 #, kde-format
 msgid "Modify Livechat department information"
 msgstr ""
 
-#: core/apps/appsmarketplaceinfo.cpp:619
+#: core/apps/appsmarketplaceinfo.cpp:624
 #, kde-format
 msgid "Modify Livechat room information"
 msgstr ""
 
-#: core/apps/appsmarketplaceinfo.cpp:621
+#: core/apps/appsmarketplaceinfo.cpp:626
 #, fuzzy, kde-format
 #| msgid "Account information"
 msgid "Access Livechat room information"
 msgstr "帳戶資訊"
 
-#: core/apps/appsmarketplaceinfo.cpp:623
+#: core/apps/appsmarketplaceinfo.cpp:628
 #, kde-format
 msgid "Modify Livechat message information"
 msgstr ""
 
-#: core/apps/appsmarketplaceinfo.cpp:625
+#: core/apps/appsmarketplaceinfo.cpp:630
 #, kde-format
 msgid "Access Livechat message information"
 msgstr ""
 
-#: core/apps/appsmarketplaceinfo.cpp:627
+#: core/apps/appsmarketplaceinfo.cpp:632
 #, kde-format
 msgid "Modify Livechat visitor information"
 msgstr ""
 
-#: core/apps/appsmarketplaceinfo.cpp:629
+#: core/apps/appsmarketplaceinfo.cpp:634
 #, kde-format
 msgid "Access Livechat visitor information"
 msgstr ""
 
-#: core/apps/appsmarketplaceinfo.cpp:631
+#: core/apps/appsmarketplaceinfo.cpp:636
 #, fuzzy, kde-format
 #| msgid "Account information"
 msgid "Access Livechat status information"
 msgstr "帳戶資訊"
 
-#: core/apps/appsmarketplaceinfo.cpp:633
+#: core/apps/appsmarketplaceinfo.cpp:638
 #, kde-format
 msgid "Interact with the UI"
 msgstr ""
 
-#: core/apps/appsmarketplaceinfo.cpp:635
+#: core/apps/appsmarketplaceinfo.cpp:640
 #, kde-format
 msgid "Store internal data in the database"
 msgstr ""
 
-#: core/apps/appsmarketplaceinfo.cpp:637
+#: core/apps/appsmarketplaceinfo.cpp:642
 #, kde-format
 msgid "Modify Livechat custom field configuration"
 msgstr ""
 
-#: core/apps/appsmarketplaceinfo.cpp:647
+#: core/apps/appsmarketplaceinfo.cpp:652
 #, kde-format
 msgid "Allow to write oauth app settings"
 msgstr ""
 
-#: core/apps/appsmarketplaceinfo.cpp:649
+#: core/apps/appsmarketplaceinfo.cpp:654
 #, kde-format
 msgid "Allow to read oauth app settings"
 msgstr ""
 
-#: core/apps/appsmarketplaceinfo.cpp:663
+#: core/apps/appsmarketplaceinfo.cpp:668
 #, fuzzy, kde-format
 #| msgid "Allow to send multi files."
 msgid "Allow to send email"
@@ -3352,7 +3352,7 @@ msgid "Speak Text"
 msgstr "唸出文字"
 
 #: widgets/administratordialog/moderationconsole/moderationreportinfolistview.cpp:99
-#: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:106
+#: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:111
 #: widgets/bannerinfodialog/bannerinfolistview.cpp:51
 #: widgets/discussions/discussionlistview.cpp:75
 #: widgets/notificationhistory/notificationhistorylistview.cpp:106
@@ -3547,7 +3547,7 @@ msgstr "身份驗證方式"
 #: widgets/administratordialog/rooms/administratorroomseditwidget.cpp:53
 #: widgets/dialogs/channelinfoeditablewidget.cpp:69
 #: widgets/dialogs/channelinforeadonlywidget.cpp:47
-#: widgets/dialogs/uploadfilewidget.cpp:55
+#: widgets/dialogs/uploadfilewidget.cpp:56
 #: widgets/messagemaximumsizedialog/messagemaximumsizewidget.cpp:27
 #, kde-format
 msgid "Description:"
@@ -7173,21 +7173,21 @@ msgctxt "@action"
 msgid "Uninstall"
 msgstr ""
 
-#: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:85
+#: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:88
 #, fuzzy, kde-format
 #| msgid "Disabled"
 msgctxt "@action"
 msgid "Disable"
 msgstr "已停用"
 
-#: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:89
+#: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:93
 #, fuzzy, kde-format
 #| msgid "Enable"
 msgctxt "@action"
 msgid "Enable"
 msgstr "啟用"
 
-#: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:97
+#: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:102
 #: widgets/bannerinfodialog/bannerinfolistview.cpp:55
 #, fuzzy, kde-format
 #| msgid "Copy Text"
@@ -7195,13 +7195,13 @@ msgctxt "@action"
 msgid "Copy Text"
 msgstr "複製文字"
 
-#: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:169
+#: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:174
 #, fuzzy, kde-format
 #| msgid "Do you want to unarchive this room?"
 msgid "Do you want to uninstall this application?"
 msgstr "您確定要解除封存此聊天室嗎？"
 
-#: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:170
+#: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:175
 #, fuzzy, kde-format
 #| msgctxt "@action"
 #| msgid "Applications…"
@@ -8845,13 +8845,13 @@ msgctxt "@title:window"
 msgid "Upload File"
 msgstr "上傳檔案"
 
-#: widgets/dialogs/uploadfiledialog.cpp:78
+#: widgets/dialogs/uploadfiledialog.cpp:38
 #, kde-format
 msgctxt "@title:window"
 msgid "Upload Image"
 msgstr "上傳影像"
 
-#: widgets/dialogs/uploadfilewidget.cpp:49
+#: widgets/dialogs/uploadfilewidget.cpp:50
 #, fuzzy, kde-format
 #| msgid "Filename:"
 msgid "File Name:"
@@ -12037,6 +12037,11 @@ msgstr ""
 #: widgets/whatsnew/whatsnewtranslations.cpp:161
 #, kde-format
 msgid "Allow to put command line in clipboard when an error occurred"
+msgstr ""
+
+#: widgets/whatsnew/whatsnewtranslations.cpp:162
+#, kde-format
+msgid "Allow to activate/desactivate apps market."
 msgstr ""
 
 #: widgets/whatsnew/whatsnewwidget.cpp:44
