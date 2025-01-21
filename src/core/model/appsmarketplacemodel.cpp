@@ -30,7 +30,8 @@ QList<AppsMarketPlaceInfo> AppsMarketPlaceModel::appsMarketPlaceInfos() const
 void AppsMarketPlaceModel::clearInstalledAppsInformation()
 {
     for (AppsMarketPlaceInfo &info : mAppsMarketPlaceInfos) {
-        if (info.isValid()) {
+        if (info.installedInfo().isValid()) {
+            qDebug() << " info " << info;
             info.clearInstalledInfo();
         }
     }
