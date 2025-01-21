@@ -1564,8 +1564,12 @@ void RocketChatAccount::updateRoles(const QJsonArray &contents)
 
 void RocketChatAccount::updateApps(const QJsonArray &contents)
 {
-    // TODO
     qDebug() << " RocketChatAccount::updateApps " << contents;
+    const auto count{contents.count()};
+    for (auto i = 0; i < count; ++i) {
+        const QJsonArray array = contents.at(i).toArray();
+        qDebug() << " array " << array;
+    }
 }
 
 void RocketChatAccount::addStdoutInfo(const QJsonArray &contents)
