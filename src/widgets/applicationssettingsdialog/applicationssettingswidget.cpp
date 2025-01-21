@@ -62,7 +62,7 @@ ApplicationsSettingsWidget::ApplicationsSettingsWidget(RocketChatAccount *accoun
 
 void ApplicationsSettingsWidget::slotRefreshListApplications()
 {
-    // TODO
+    mCurrentRocketChatAccount->updateInstalledApps();
 }
 
 void ApplicationsSettingsWidget::initialize()

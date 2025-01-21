@@ -413,6 +413,7 @@ public:
     [[nodiscard]] QString getTranslatedIdentifier(const QString &lang, const QString &identifier) const;
 
     [[nodiscard]] bool isAdministrator() const;
+    void updateInstalledApps();
 Q_SIGNALS:
     void roomRemoved(const QByteArray &roomId);
     void disabledTotpValid(bool checked);

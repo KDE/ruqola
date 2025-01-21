@@ -2960,6 +2960,12 @@ void RocketChatAccount::loadAppCategories()
     }
 }
 
+void RocketChatAccount::updateInstalledApps()
+{
+    mAppsMarketPlaceModel->clearInstalledAppsInformation();
+    loadInstalledApps();
+}
+
 void RocketChatAccount::loadInstalledApps()
 {
     auto job = new RocketChatRestApi::AppInstalledJob(this);
