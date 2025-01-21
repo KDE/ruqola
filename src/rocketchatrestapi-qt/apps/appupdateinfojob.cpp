@@ -127,6 +127,18 @@ void AppUpdateInfoJob::onPostRequestResponse(const QString &replyErrorString, co
     }
 }
 
+void AppUpdateInfoJob::onDeleteRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
+{
+    const QJsonObject replyObject = replyJson.object();
+    if (replyObject["success"_L1].toBool()) {
+        addLoggerInfo(QByteArrayLiteral("Delete AppUpdateInfoJob success: ") + replyJson.toJson(QJsonDocument::Indented));
+        Q_EMIT appUpdateInfoDone(replyObject["data"_L1].toObject());
+    } else {
+        emitFailedMessage(replyErrorString, replyObject);
+        addLoggerWarning(QByteArrayLiteral("Delete AppUpdateInfoJob: Problem: ") + replyJson.toJson(QJsonDocument::Indented));
+    }
+}
+
 bool AppUpdateInfoJob::AppUpdateInfo::isValid() const
 {
     if (mAppInfoType == AppInfoType::Unknown) {
