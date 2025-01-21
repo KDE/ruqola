@@ -294,7 +294,7 @@
       <li xml:lang="eu">Mezu-harien euskarria</li>
       <li xml:lang="fi">Säikeistetty viestituki</li>
       <li xml:lang="fr">Prise en charge d'un message en fil de discussions</li>
-      <li xml:lang="gl">Mensaxes de fíos.</li>
+      <li xml:lang="gl">Compatibilidade con mensaxes de fíos.</li>
       <li xml:lang="hu">Szálüzenetek támogatása</li>
       <li xml:lang="ia">Supporto de message de topico</li>
       <li xml:lang="id">Dukungan perpesanan utas</li>
@@ -344,7 +344,7 @@
       <li xml:lang="eu">Taldearen gelaren euskarria</li>
       <li xml:lang="fi">Ryhmähuonetuki</li>
       <li xml:lang="fr">Prise en charge des salles de discussions « Teams »</li>
-      <li xml:lang="gl">Salas de equipos.</li>
+      <li xml:lang="gl">Compatibilidade con salas de equipos.</li>
       <li xml:lang="hu">Csapatszobák támogatása</li>
       <li xml:lang="ia">Supporto de Sala de Equipas</li>
       <li xml:lang="id">Dukungan ruang regu</li>
@@ -419,7 +419,7 @@
       <li xml:lang="eu">Kontu-anitzen euskarria</li>
       <li xml:lang="fi">Useampien tilien tuki</li>
       <li xml:lang="fr">Prend en charge le compte multiple</li>
-      <li xml:lang="gl">Combinación de varias contas.</li>
+      <li xml:lang="gl">Permitir a combinación de varias contas.</li>
       <li xml:lang="hu">Több fiók támogatása</li>
       <li xml:lang="ia">Supporta conto multiple</li>
       <li xml:lang="id">Dukungan banyak akun</li>
@@ -493,7 +493,7 @@
       <li xml:lang="eu">Emoji-en euskarria</li>
       <li xml:lang="fi">Emojituki</li>
       <li xml:lang="fr">Prendre en charge les émoticônes</li>
-      <li xml:lang="gl">Expresións.</li>
+      <li xml:lang="gl">Permitir expresións.</li>
       <li xml:lang="hu">Emodzsi támogatás</li>
       <li xml:lang="ia">Supporta emoji</li>
       <li xml:lang="id">Dukungan emoji</li>
@@ -519,7 +519,7 @@
       <li xml:lang="eu">Bideoen euskarria</li>
       <li xml:lang="fi">Videotuki</li>
       <li xml:lang="fr">Prise en charge de la vidéo</li>
-      <li xml:lang="gl">Vídeo.</li>
+      <li xml:lang="gl">Compatibilidade con vídeo.</li>
       <li xml:lang="hu">Videó támogatás</li>
       <li xml:lang="ia">Supporto video</li>
       <li xml:lang="id">Dukungan video</li>
@@ -544,7 +544,7 @@
       <li xml:lang="eu">Konfiguratu administratzailearen euskarria (eginkizunak gehitzea/kentzea, erabiltzaileak gehitzea/kentzea, baimenak gehitzea/kentzea, gelak konfiguratzea etab.)</li>
       <li xml:lang="fi">Määritä ylläpitotuki (lisää ja poista rooleja, käyttäjiä tai käyttöoikeuksia, määritä huoneita jne.)</li>
       <li xml:lang="fr">Configurer la prise en charge du rôle administrateur (ajouter / supprimer des rôles, ajouter / supprimer des utilisateurs, ajouter / supprimer des permissions, configurer des salons, etc.)</li>
-      <li xml:lang="gl">Configuración de administración (roles, xente, permisos, salas, etc.).</li>
+      <li xml:lang="gl">Permitir configurar a administración (roles, xente, permisos, salas, etc.).</li>
       <li xml:lang="hu">Adminisztrátori beállítások támogatása (szerepek, felhasználók és jogosultságok hozzáadása/eltávolítása szobák beállítása, stb.)</li>
       <li xml:lang="id">Mengonfigurasi dukungan administrator (menambah/menghapus peran, menambah/menyingkirkan pengguna, menambah/menghapus izin, mengonfigurasi ruang, dll.)</li>
       <li xml:lang="it">Configurazione del supporto dell'amministratore (aggiungi/rimuovi ruoli, aggiungi/rimuovi utenti, aggiungi/rimuovi permessi, configura stanze ecc.)</li>
@@ -568,7 +568,7 @@
       <li xml:lang="eu">«OTR» euskarria (egiten ari da)</li>
       <li xml:lang="fi">OTR-tuki (tekeillä)</li>
       <li xml:lang="fr">Prise en charge de « OTR » (en cours)</li>
-      <li xml:lang="gl">Confidencialidade (en progreso).</li>
+      <li xml:lang="gl">Permitir confidencialidade (en progreso).</li>
       <li xml:lang="hu">OTR támogatása (folyamatban)</li>
       <li xml:lang="ia">Supporta OTR (in progresso)</li>
       <li xml:lang="id">Dukungan OTR (dalam progres)</li>
@@ -593,7 +593,7 @@
       <li xml:lang="eu">gif irudien euskarria</li>
       <li xml:lang="fi">GIF-kuvien tuki</li>
       <li xml:lang="fr">Prend en charge les images « gif »</li>
-      <li xml:lang="gl">Imaxes GIF.</li>
+      <li xml:lang="gl">Compatibilidade con imaxes GIF.</li>
       <li xml:lang="hu">GIF-képek támogatása</li>
       <li xml:lang="ia">supporta imagine gif</li>
       <li xml:lang="id">Dukungan gambar gift</li>
@@ -618,7 +618,7 @@
       <li xml:lang="eu">Erantsitako fitxategiak zama-igotzeko euskarria gehitu da</li>
       <li xml:lang="fi">Lisää tuki liitetiedostojen lähettämiseksi</li>
       <li xml:lang="fr">Ajouter la prise en charge de l'envoi de fichiers en pièce jointe</li>
-      <li xml:lang="gl">Envío de ficheiros anexos.</li>
+      <li xml:lang="gl">Permitir enviar ficheiros anexos.</li>
       <li xml:lang="hu">Fájlmellékletek feltöltésének támogatása</li>
       <li xml:lang="ia">Adde supporto per incarcar files de attachamento</li>
       <li xml:lang="id">Menambahkan dukungan untuk mengunggah pelampiran file</li>
@@ -769,7 +769,7 @@
       <li xml:lang="eu">Administratzaile euskarria (Zerbitzariaren informazioa, Gelak, Erabiltzailearen egoera pertsonalizatua, Neurrira ipinitako soinuak, neurrira ipinitako Emoji, Erabiltzailea, Gonbidatuak, Egunkaria ikustea, Baimenak, Eginkizunak, «Oauth»), Administratzailearen ezarpenak (Mezua, Kontua, Atxikitze gidalerroa, Fitxategia zama-igotzea, Zifratzea)</li>
       <li xml:lang="fi">Ylläpitotuki (palvelintiedot, huoneet, käyttäjän mukautettu tila, mukautetut äänet, mukautettu emoji, käyttäjät, kutsut, lokin näyttö, käyttöoikeudet, roolit, OAuth), ylläpitoasetukset (viesti, tili, säilytyskäytäntö, tiedostojen lähetys, salaus)</li>
       <li xml:lang="fr">Prise en charge du rôle d'administrateur (Informations serveur, Salons, État personnalisé utilisateur, Sons personnalisés, Émoticônes personnalisées, Utilisateurs, Invitations, Journal d'affichage, Permissions, Rôles, Oauth), Paramètres d'administration (Message, Compte, Politique de rétention, Envoi de fichiers, Chiffrement)</li>
-      <li xml:lang="gl">Administración (información de servidor, salas, estado de persoa personalizado, sons personalizados, expresións personalizadas, xente, invitacións, ver o rexistro, permisos, roles, OAuth), configuración de administración (mensaxe, conta, regras de retención, envío de ficheiros, cifraxe).</li>
+      <li xml:lang="gl">Permitir administración (información de servidor, salas, estado de persoa personalizado, sons personalizados, expresións personalizadas, xente, invitacións, ver o rexistro, permisos, roles, OAuth), configuración de administración (mensaxe, conta, regras de retención, envío de ficheiros, cifraxe).</li>
       <li xml:lang="hu">Adminisztrátori támogatás (kiszolgálóinformáció, szobál, egyéni felhasználóállapot, egyéni hangok, egyéni emodzsik, felhasználók, meghívások, napló megtekintése, jogosultságok szerepek, Oauth), Adminisztrátori beállítások (üzenet, fiók, megőrzési házirend, fájlfeltöltés, titkosítás)</li>
       <li xml:lang="id">Dukungan administrator (Info Server, Ruangan, Status Pengguna Kustom, Suara Kustom, Emoji Kustom, Pengguna, Undangan, Lihat Log, Izin, Peran, Oauth), Pengaturan Administrator (Pesan, Akun, Kebijakan Retensi, Unggah File, Enkripsi)</li>
       <li xml:lang="it">Supporto amministratore (informazioni server, stanze, stato utente personalizzato, suoni personalizzati, emoji personalizzati, utenti, inviti, visualizza registro, permessi, ruoli, Oauth), Impostazioni amministratore (messaggio, account, criteri di conservazione, caricamento file, cifratura)</li>
@@ -989,7 +989,7 @@
       <li xml:lang="eu">RocketChat zerbitzariaren informazio euskarri berria</li>
       <li xml:lang="fi">Uusi RocketChat-palvelintietojen tuki</li>
       <li xml:lang="fr">Nouvelle prise en charge des informations du serveur RocketChat</li>
-      <li xml:lang="gl">Nova información de servidor de Rocket.Chat.</li>
+      <li xml:lang="gl">Compatibilidade con nova información de servidor de Rocket.Chat.</li>
       <li xml:lang="hu">Új Rocket.Chat kiszolgálóinformációk támogatása</li>
       <li xml:lang="id">Dukungan Informasi Server RocketChat Baru</li>
       <li xml:lang="it">Nuovo supporto per le informazioni del server RocketChat</li>
@@ -1065,7 +1065,7 @@
       <li xml:lang="eu">Itzulpen lokalen euskarria gehitzea</li>
       <li xml:lang="fi">Lisätty tuki automaattiselle kääntämiselle</li>
       <li xml:lang="fr">Ajouter la prise en charge de la traduction en langue locale</li>
-      <li xml:lang="gl">Tradución local.</li>
+      <li xml:lang="gl">Permitir traducións locais.</li>
       <li xml:lang="hu">Helyi fordítás támogatása</li>
       <li xml:lang="ia">Adde supporto per traduction local</li>
       <li xml:lang="id">Menambahkan dukungan terjemahan lokal</li>
@@ -1091,7 +1091,7 @@
       <li xml:lang="eu">Testuaren zuzenketa-automatikorako euskarria gehitzea</li>
       <li xml:lang="fi">Lisätty tuki tekstin automaattikorjaukselle</li>
       <li xml:lang="fr">Ajouter la prise en charge de la correction automatique de texte</li>
-      <li xml:lang="gl">Corrección automática de texto.</li>
+      <li xml:lang="gl">Permitir corrección automática de texto.</li>
       <li xml:lang="hu">Automatikus szövegjavítás támogatása</li>
       <li xml:lang="ia">Adde supporto per auto-correction de texto</li>
       <li xml:lang="id">Menambahkan dukungan untuk auto koreksi teks</li>
