@@ -17,3 +17,5 @@ include:
       - /gitlab-templates/clang-format.yml
       - /gitlab-templates/alpine-qt6.yml
       - /gitlab-templates/json-validation.yml
+      - /gitlab-templates/xml-lint.yml
+      - /gitlab-templates/yaml-lint.yml

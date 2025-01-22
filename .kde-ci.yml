@@ -2,12 +2,12 @@
 # SPDX-License-Identifier: CC0-1.0
 
 Dependencies:
-- 'on': ['@all']
-  'require':
+ - 'on': ['@all']
+   'require':
     'third-party/qtkeychain': '@latest'
 
-- 'on': ['Linux', 'FreeBSD', 'Windows']
-  'require':
+ - 'on': ['Linux', 'FreeBSD', 'Windows']
+   'require':
     'frameworks/extra-cmake-modules': '@latest-qt6'
     'frameworks/kcoreaddons': '@latest-kf6'
     'frameworks/kwidgetsaddons': '@latest-kf6'
@@ -25,7 +25,7 @@ Dependencies:
     'frameworks/sonnet': '@latest-kf6'
     'frameworks/ktextwidgets': '@latest-kf6'
     'frameworks/syntax-highlighting': '@latest-kf6'
-    'frameworks/prison' : '@latest-kf6'
+    'frameworks/prison': '@latest-kf6'
     'frameworks/kidletime': '@latest-kf6'
     'frameworks/knotifyconfig': '@latest-kf6'
     'frameworks/breeze-icons': '@latest-kf6'
@@ -35,12 +35,11 @@ Dependencies:
     'libraries/ktextaddons': '@latest-kf6'
     'frameworks/kcolorscheme': '@latest-kf6'
 
-- 'on': ['Linux', 'FreeBSD']
-  'require':
+ - 'on': ['Linux', 'FreeBSD']
+   'require':
     'plasma/plasma-activities': '@latest-kf6'
     'frameworks/kdbusaddons': '@latest-kf6'
     'frameworks/purpose': '@latest-kf6'
 
 Options:
-  require-passing-tests-on: [ 'Linux', 'Windows' ]
-
+ require-passing-tests-on: ['Linux', 'Windows']
