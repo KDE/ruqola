@@ -3021,6 +3021,9 @@ void RocketChatAccount::updateInstalledApps()
 
 void RocketChatAccount::loadInstalledApps()
 {
+    if (!mAppsMarketPlaceModel->wasFilled()) {
+        return;
+    }
     auto job = new RocketChatRestApi::AppInstalledJob(this);
     restApi()->initializeRestApiJob(job);
 

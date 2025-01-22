@@ -29,12 +29,15 @@ QList<AppsMarketPlaceInfo> AppsMarketPlaceModel::appsMarketPlaceInfos() const
 
 void AppsMarketPlaceModel::clearInstalledAppsInformation()
 {
+    if (mAppsMarketPlaceInfos.isEmpty()) {
+        return;
+    }
+    beginResetModel();
     for (AppsMarketPlaceInfo &info : mAppsMarketPlaceInfos) {
         if (info.installedInfo().isValid()) {
             info.clearInstalledInfo();
         }
     }
-    beginResetModel();
     endResetModel();
 }
 
@@ -64,20 +67,13 @@ void AppsMarketPlaceModel::updateAppStatus(const QString &appId, const QString &
 
 void AppsMarketPlaceModel::addInstalledInfo(const AppsMarketPlaceInstalledInfo &installedInfo)
 {
-    bool found = false;
+    beginResetModel();
     for (AppsMarketPlaceInfo &info : mAppsMarketPlaceInfos) {
         if (info.appId() == installedInfo.appId()) {
             info.setInstalledInfo(installedInfo);
-            found = true;
             break;
         }
     }
-    if (!found) {
-        AppsMarketPlaceInfo info;
-        info.setInstalledInfo(installedInfo);
-        mAppsMarketPlaceInfos.append(std::move(info));
-    }
-    beginResetModel();
     endResetModel();
 }
 
