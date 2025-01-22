@@ -31,7 +31,6 @@ void AppsMarketPlaceModel::clearInstalledAppsInformation()
 {
     for (AppsMarketPlaceInfo &info : mAppsMarketPlaceInfos) {
         if (info.installedInfo().isValid()) {
-            qDebug() << " info " << info;
             info.clearInstalledInfo();
         }
     }
