@@ -756,10 +756,18 @@ void RocketChatBackend::slotChanged(const QJsonObject &object)
             const QString typingUserName = contents.toVariantList().at(0).toString();
             if (typingUserName != mRocketChatAccount->settings()->userName()) {
                 const QString val = contents.toVariantList().at(1).toString();
+                // qDebug() << " val ************ " << val << " contents.toVariantList().at(1 " << contents.toVariantList().at(1);
                 bool status = false;
-                if ((val == "user-typing"_L1) || contents.toVariantList().at(1).toBool()) {
+                if (contents.toVariantList().at(1).toBool()) {
+                    // qDebug() << " TYPING *************************************************";
                     status = true;
+                } else if (!contents.toVariantList().at(1).toList().isEmpty()) {
+                    if (contents.toVariantList().at(1).toList().at(0).toString() == "user-typing"_L1) {
+                        // qDebug() << " FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF typing user";
+                        status = true;
+                    }
                 }
+                // qDebug() << " typing : object " << object << " status " << status;
                 mRocketChatAccount->receiveTypingNotificationManager()->insertTypingNotification(roomId.toLatin1(), typingUserName, status);
             }
         } else if (eventname.endsWith("/deleteMessageBulk"_L1)) {
