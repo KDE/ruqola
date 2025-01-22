@@ -33,6 +33,7 @@ protected:
 
 Q_SIGNALS:
     void refreshListApplications();
+    void refreshCountApplications();
 
 private:
     LIBRUQOLAWIDGETS_NO_EXPORT void slotAskApplication(const QModelIndex &index);

@@ -185,6 +185,7 @@ void ApplicationsSettingsListView::slotUninstallApplication(const QModelIndex &i
         mRocketChatAccount->restApi()->initializeRestApiJob(job);
         connect(job, &RocketChatRestApi::AppUpdateInfoJob::appUpdateInfoDone, this, [this]() {
             Q_EMIT refreshListApplications();
+            Q_EMIT refreshCountApplications();
         });
         if (!job->start()) {
             qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start appUpdateInfoDone";

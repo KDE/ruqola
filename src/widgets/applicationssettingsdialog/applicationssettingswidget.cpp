@@ -58,6 +58,15 @@ ApplicationsSettingsWidget::ApplicationsSettingsWidget(RocketChatAccount *accoun
             &ApplicationsSettingsListView::refreshListApplications,
             this,
             &ApplicationsSettingsWidget::slotRefreshListApplications);
+    connect(mApplicationsSettingsListView,
+            &ApplicationsSettingsListView::refreshCountApplications,
+            this,
+            &ApplicationsSettingsWidget::slotRefreshCountApplications);
+}
+
+void ApplicationsSettingsWidget::slotRefreshCountApplications()
+{
+    mCurrentRocketChatAccount->updateCountApplications();
 }
 
 void ApplicationsSettingsWidget::slotRefreshListApplications()

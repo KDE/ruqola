@@ -1577,6 +1577,7 @@ void RocketChatAccount::updateApps(const QJsonArray &contents)
                 const QString type = appElement.toString();
                 if (type == "app/removed"_L1) {
                     mAppsMarketPlaceModel->removeApp(array.at(1).toString());
+                    updateCountApplications();
                 } else if (type == "app/statusUpdate"_L1) {
                     const QJsonArray arrayApps = array.at(1).toArray();
                     for (auto j = 0; j < arrayApps.count(); ++j) {
@@ -1585,6 +1586,7 @@ void RocketChatAccount::updateApps(const QJsonArray &contents)
                     }
                 } else if (type == "app/added"_L1) {
                     updateInstalledApps();
+                    updateCountApplications();
                 } else {
                     qWarning() << " type unknown " << type;
                 }
@@ -2988,6 +2990,21 @@ void RocketChatAccount::loadAppCategories()
     });
     if (!job->start()) {
         qCWarning(RUQOLA_LOG) << "Impossible to start AppCategoriesJob";
+    }
+}
+
+void RocketChatAccount::updateCountApplications()
+{
+    auto job = new RocketChatRestApi::AppCountJob(this);
+    restApi()->initializeRestApiJob(job);
+    connect(job, &RocketChatRestApi::AppCountJob::appCountDone, this, [this](const QJsonObject &obj) {
+        AppsCountInfo countinfo;
+        countinfo.parseCountInfo(obj);
+        mAppsMarketPlaceModel->setAppsCountInfo(countinfo);
+        Q_EMIT appsCountLoadDone();
+    });
+    if (!job->start()) {
+        qCWarning(RUQOLA_LOG) << "Impossible to start AppCountJob";
     }
 }
 
