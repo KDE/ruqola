@@ -183,10 +183,6 @@ void ApplicationsSettingsListView::slotUninstallApplication(const QModelIndex &i
         info.mAppsId = index.data(AppsMarketPlaceModel::AppId).toByteArray();
         job->setAppUpdateInfo(info);
         mRocketChatAccount->restApi()->initializeRestApiJob(job);
-        connect(job, &RocketChatRestApi::AppUpdateInfoJob::appUpdateInfoDone, this, [this]() {
-            Q_EMIT refreshListApplications();
-            Q_EMIT refreshCountApplications();
-        });
         if (!job->start()) {
             qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start appUpdateInfoDone";
         }
@@ -222,10 +218,6 @@ void ApplicationsSettingsListView::slotInstallApplication(const QModelIndex &ind
     info.mAppVersion = index.data(AppsMarketPlaceModel::AppVersion).toString();
     job->setAppUpdateInfo(info);
     mRocketChatAccount->restApi()->initializeRestApiJob(job);
-    connect(job, &RocketChatRestApi::AppUpdateInfoJob::appUpdateInfoDone, this, [this]() {
-        Q_EMIT refreshListApplications();
-        Q_EMIT refreshCountApplications();
-    });
     if (!job->start()) {
         qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start appUpdateInfoDone";
     }

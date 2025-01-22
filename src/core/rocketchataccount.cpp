@@ -1577,6 +1577,11 @@ void RocketChatAccount::updateApps(const QJsonArray &contents)
                 const QString type = appElement.toString();
                 if (type == "app/removed"_L1) {
                     mAppsMarketPlaceModel->removeApp(array.at(1).toString());
+                    const QJsonArray arrayApps = array.at(1).toArray();
+                    for (auto j = 0; j < arrayApps.count(); ++j) {
+                        const QString appsId = arrayApps.at(j).toString();
+                        mAppsMarketPlaceModel->removeApp(appsId);
+                    }
                     updateCountApplications();
                 } else if (type == "app/statusUpdate"_L1) {
                     const QJsonArray arrayApps = array.at(1).toArray();
