@@ -1576,17 +1576,15 @@ void RocketChatAccount::updateApps(const QJsonArray &contents)
             if (appElement.isString()) {
                 const QString type = appElement.toString();
                 if (type == "app/removed"_L1) {
-                    qDebug() << " array.at(1)" << array.at(1);
-                    // mAppsMarketPlaceModel->removeApp(<ID>);
-                    // TODO
+                    mAppsMarketPlaceModel->removeApp(array.at(1).toString());
                 } else if (type == "app/statusUpdate"_L1) {
-                    qDebug() << " array.at(1)" << array.at(1);
-                    // mAppsMarketPlaceModel->updateApp(<ID>, <STATUS>);
-                    // TODO
+                    const QJsonArray arrayApps = array.at(1).toArray();
+                    for (auto j = 0; j < arrayApps.count(); ++j) {
+                        const QJsonObject obj = arrayApps.at(j).toObject();
+                        mAppsMarketPlaceModel->updateAppStatus(obj["appId"_L1].toString(), obj["status"_L1].toString());
+                    }
                 } else if (type == "app/added"_L1) {
-                    qDebug() << " array.at(1)" << array.at(1);
-                    // mAppsMarketPlaceModel->addApp(<ID>);
-                    // TODO
+                    updateInstalledApps();
                 } else {
                     qWarning() << " type unknown " << type;
                 }

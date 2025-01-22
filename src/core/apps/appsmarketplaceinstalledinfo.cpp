@@ -38,6 +38,11 @@ bool AppsMarketPlaceInstalledInfo::operator==(const AppsMarketPlaceInstalledInfo
         && mAppId == other.mAppId && mStatus == other.mStatus;
 }
 
+void AppsMarketPlaceInstalledInfo::changeApplicationStatus(const QString &str)
+{
+    mStatus = convertStatusFromString(str);
+}
+
 AppsMarketPlaceInstalledInfo::Status AppsMarketPlaceInstalledInfo::convertStatusFromString(const QString &str)
 {
     if (str == "auto_enabled"_L1) {

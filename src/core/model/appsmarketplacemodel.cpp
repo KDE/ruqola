@@ -39,6 +39,30 @@ void AppsMarketPlaceModel::clearInstalledAppsInformation()
     endResetModel();
 }
 
+void AppsMarketPlaceModel::removeApp(const QString &appId)
+{
+    for (AppsMarketPlaceInfo &info : mAppsMarketPlaceInfos) {
+        if (info.appId() == appId.toLatin1()) {
+            info.clearInstalledInfo();
+            beginResetModel();
+            endResetModel();
+            break;
+        }
+    }
+}
+
+void AppsMarketPlaceModel::updateAppStatus(const QString &appId, const QString &status)
+{
+    for (AppsMarketPlaceInfo &info : mAppsMarketPlaceInfos) {
+        if (info.appId() == appId.toLatin1()) {
+            info.changeApplicationStatus(status);
+            beginResetModel();
+            endResetModel();
+            break;
+        }
+    }
+}
+
 void AppsMarketPlaceModel::addInstalledInfo(const AppsMarketPlaceInstalledInfo &installedInfo)
 {
     bool found = false;

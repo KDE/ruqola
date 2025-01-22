@@ -65,6 +65,8 @@ public:
 
     [[nodiscard]] QPixmap pixmap() const;
 
+    void changeApplicationStatus(const QString &str);
+
 private:
     LIBRUQOLACORE_NO_EXPORT void parseAuthor(const QJsonObject &authorObject);
     [[nodiscard]] LIBRUQOLACORE_NO_EXPORT AppsMarketPlaceInstalledInfo::Status convertStatusFromString(const QString &str);

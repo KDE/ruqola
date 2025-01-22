@@ -75,6 +75,11 @@ void AppsMarketPlaceInfo::clearInstalledInfo()
     mInstalledInfo = {};
 }
 
+void AppsMarketPlaceInfo::changeApplicationStatus(const QString &str)
+{
+    mInstalledInfo.changeApplicationStatus(str);
+}
+
 void AppsMarketPlaceInfo::parsePrincingPlan(const QJsonArray &array)
 {
     mPricePlan.clear();

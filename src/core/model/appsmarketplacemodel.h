@@ -58,6 +58,10 @@ public:
 
     void clearInstalledAppsInformation();
 
+    void removeApp(const QString &appId);
+
+    void updateAppStatus(const QString &appId, const QString &status);
+
 private:
     [[nodiscard]] LIBRUQOLACORE_NO_EXPORT QString appName(const AppsMarketPlaceInfo &appsMarketPlaceInfo) const;
     [[nodiscard]] LIBRUQOLACORE_NO_EXPORT QByteArray appId(const AppsMarketPlaceInfo &appsMarketPlaceInfo) const;

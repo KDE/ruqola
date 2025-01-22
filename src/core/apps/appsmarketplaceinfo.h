@@ -154,6 +154,7 @@ public:
     void setInstalledInfo(const AppsMarketPlaceInstalledInfo &newInstalledInfo);
 
     void clearInstalledInfo();
+    void changeApplicationStatus(const QString &str);
 
 private:
     LIBRUQOLACORE_NO_EXPORT void parsePrincingPlan(const QJsonArray &array);
