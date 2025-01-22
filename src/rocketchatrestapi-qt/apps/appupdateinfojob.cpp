@@ -70,6 +70,11 @@ QJsonDocument AppUpdateInfoJob::json() const
     if (mAppUpdateInfo.mAppInfoType == AppInfoType::Status) {
         jsonObj["status"_L1] = mAppUpdateInfo.mStatus;
     }
+    if (mAppUpdateInfo.mAppMode == AppMode::Post && mAppUpdateInfo.mAppInfoType == AppInfoType::Apps) {
+        jsonObj["appId"_L1] = QString::fromLatin1(mAppUpdateInfo.mAppsId);
+        jsonObj["version"_L1] = mAppUpdateInfo.mAppVersion;
+        jsonObj["marketplace"_L1] = true;
+    }
 
     const QJsonDocument postData = QJsonDocument(jsonObj);
     return postData;
@@ -84,6 +89,10 @@ QString AppUpdateInfoJob::generateUrlExtension() const
         qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Unknown type";
         break;
     case AppInfoType::Apps:
+        // In post mode we need only https://<url>/api/apps
+        if (mAppUpdateInfo.mAppMode == AppMode::Post) {
+            return {};
+        }
         break;
     case AppInfoType::Settings:
         url += QLatin1Char('/') + QStringLiteral("settings");
