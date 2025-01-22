@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-01-21 00:41+0000\n"
-"PO-Revision-Date: 2025-01-20 07:20+0100\n"
+"PO-Revision-Date: 2025-01-21 07:10+0100\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
@@ -11693,7 +11693,7 @@ msgstr ""
 #: widgets/whatsnew/whatsnewtranslations.cpp:162
 #, kde-format
 msgid "Allow to activate/desactivate apps market."
-msgstr ""
+msgstr "Dovoli aktiviranje/deaktiviranje trga aplikacij."
 
 #: widgets/whatsnew/whatsnewwidget.cpp:44
 #, kde-format
