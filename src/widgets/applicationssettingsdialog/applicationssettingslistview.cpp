@@ -216,7 +216,7 @@ void ApplicationsSettingsListView::slotInstallApplication(const QModelIndex &ind
     auto job = new RocketChatRestApi::AppUpdateInfoJob(this);
     RocketChatRestApi::AppUpdateInfoJob::AppUpdateInfo info;
     info.mAppInfoType = RocketChatRestApi::AppUpdateInfoJob::AppInfoType::Apps;
-    info.mAppMode = RocketChatRestApi::AppUpdateInfoJob::AppMode::Delete;
+    info.mAppMode = RocketChatRestApi::AppUpdateInfoJob::AppMode::Post;
     info.mAppsId = index.data(AppsMarketPlaceModel::AppId).toByteArray();
     info.mAppVersion = index.data(AppsMarketPlaceModel::AppVersion).toString();
     job->setAppUpdateInfo(info);
