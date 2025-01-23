@@ -458,15 +458,21 @@ QString AppsMarketPlaceInfo::applicationInformations() const
         str += QStringLiteral("<b>%1</b><br/>").arg(i18n("Privacy Summary")) + mPrivacyPolicySummary + QStringLiteral("<br/><br/>");
     }
 
+    str += permissionsDescription();
+    return str;
+}
+
+QString AppsMarketPlaceInfo::permissionsDescription() const
+{
+    QString str;
     if (!mPermissions.isEmpty()) {
-        str += QStringLiteral("<b>%1</b><br/>").arg(i18n("Permissions"));
+        str = QStringLiteral("<b>%1</b><br/>").arg(i18n("Permissions"));
         str += QStringLiteral("<ol>");
         for (const Permission &p : mPermissions) {
             str += QStringLiteral("<li>%1</li>").arg(p.convertTypeToI18n());
         }
         str += QStringLiteral("</ol>");
     }
-
     return str;
 }
 

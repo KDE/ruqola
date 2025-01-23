@@ -210,6 +210,7 @@ void ApplicationsSettingsListView::slotChangeStatusApplication(const QModelIndex
 
 void ApplicationsSettingsListView::slotInstallApplication(const QModelIndex &index)
 {
+    // TODO add dialogbox
     auto job = new RocketChatRestApi::AppUpdateInfoJob(this);
     RocketChatRestApi::AppUpdateInfoJob::AppUpdateInfo info;
     info.mAppInfoType = RocketChatRestApi::AppUpdateInfoJob::AppInfoType::Apps;

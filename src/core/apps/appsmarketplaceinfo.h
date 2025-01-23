@@ -162,6 +162,7 @@ private:
     LIBRUQOLACORE_NO_EXPORT void parseAppRequestStats(const QJsonObject &replyObject);
     [[nodiscard]] LIBRUQOLACORE_NO_EXPORT QString generatePriceInfo() const;
     LIBRUQOLACORE_NO_EXPORT void parsePermissions(const QJsonArray &array);
+    [[nodiscard]] LIBRUQOLACORE_NO_EXPORT QString permissionsDescription() const;
 
     AppsMarketPlaceInstalledInfo mInstalledInfo;
     QList<PricePlan> mPricePlan;
