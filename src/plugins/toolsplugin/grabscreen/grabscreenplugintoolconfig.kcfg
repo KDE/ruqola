@@ -6,7 +6,7 @@
 
   <group name="General">
     <entry name="Delay" type="Int">
-      <default>2000</default>
+      <default>1500</default>
     </entry>
   </group>
 
