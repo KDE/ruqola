@@ -415,6 +415,9 @@ bool Utils::executableFound(const QString &exec)
 
 bool Utils::userActivity(const QJsonArray &contents)
 {
+    if (contents.toVariantList().isEmpty()) {
+        return false;
+    }
     const QString val = contents.toVariantList().at(1).toString();
     // qDebug() << " val ************ " << val << " contents.toVariantList().at(1 " << contents.toVariantList().at(1);
     bool status = false;

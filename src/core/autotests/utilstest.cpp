@@ -6,6 +6,7 @@
 
 #include "utilstest.h"
 #include "utils.h"
+#include <QJsonDocument>
 #include <QTest>
 
 QTEST_GUILESS_MAIN(UtilsTest)
@@ -241,6 +242,35 @@ void UtilsTest::shouldGenerateUniqueAccountName_data()
         lst << QStringLiteral("bla2");
         lst << QStringLiteral("bla3");
         QTest::newRow("accountlist4") << lst << QStringLiteral("bla") << QStringLiteral("bla4");
+    }
+}
+
+void UtilsTest::shouldTestUserActivity()
+{
+    QFETCH(QJsonArray, array);
+    QFETCH(bool, status);
+    QCOMPARE(Utils::userActivity(array), status);
+}
+
+void UtilsTest::shouldTestUserActivity_data()
+{
+    QTest::addColumn<QJsonArray>("array");
+    QTest::addColumn<bool>("status");
+    QTest::newRow("empty") << QJsonArray() << false;
+    {
+        const QJsonDocument doc = QJsonDocument::fromJson("[\"bla\",[\"user-typing\"],{}]");
+        const QJsonArray array = doc.array();
+        QTest::newRow("test1") << array << true;
+    }
+    {
+        const QJsonDocument doc = QJsonDocument::fromJson("[\"bla\",[],{}]");
+        const QJsonArray array = doc.array();
+        QTest::newRow("test2") << array << false;
+    }
+    {
+        const QJsonDocument doc = QJsonDocument::fromJson("[\"bla\",true]");
+        const QJsonArray array = doc.array();
+        QTest::newRow("test3") << array << true;
     }
 }
 

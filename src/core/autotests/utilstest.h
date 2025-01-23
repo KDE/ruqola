@@ -34,4 +34,7 @@ private Q_SLOTS:
 
     void shouldGenerateUniqueAccountName();
     void shouldGenerateUniqueAccountName_data();
+
+    void shouldTestUserActivity();
+    void shouldTestUserActivity_data();
 };
