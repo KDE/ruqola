@@ -15,6 +15,7 @@
 #include "uploadfilejob.h"
 #include "uploadfilemanager.h"
 
+#include <QFileInfo>
 #include <QPixmap>
 #include <QPointer>
 #include <QUrl>
@@ -41,6 +42,10 @@ void GrabScreenPluginToolInterface::activateTool()
         qCWarning(RUQOLA_GRABSCREEN_PLUGIN_LOG) << " CANCELED!!!!!";
     });
     connect(job, &GrabScreenPluginJob::captureDone, this, [this, imagePath]() {
+        const QFileInfo fi(imagePath);
+        if (fi.size() == 0) { // Canceled
+            return;
+        }
         QPointer<UploadFileDialog> dlg = new UploadFileDialog();
         dlg->setFileUrl(QUrl::fromLocalFile(imagePath));
         const QPixmap pix(imagePath);
