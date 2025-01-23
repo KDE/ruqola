@@ -43,6 +43,8 @@ struct LIBRUQOLACORE_EXPORT QuotedRichTextInfo {
 [[nodiscard]] LIBRUQOLACORE_EXPORT QString createUniqueAccountName(const QStringList &list, const QString &accountName);
 [[nodiscard]] LIBRUQOLACORE_EXPORT QString findExecutable(const QString &exec);
 [[nodiscard]] LIBRUQOLACORE_EXPORT bool executableFound(const QString &exec);
+[[nodiscard]] LIBRUQOLACORE_TESTS_EXPORT bool userActivity(const QJsonArray &contents);
+
 /**
  * @brief Convert []() style Markdown URLS with proper HTML tags
  *

@@ -412,3 +412,20 @@ bool Utils::executableFound(const QString &exec)
 {
     return !Utils::findExecutable(exec).isEmpty();
 }
+
+bool Utils::userActivity(const QJsonArray &contents)
+{
+    const QString val = contents.toVariantList().at(1).toString();
+    // qDebug() << " val ************ " << val << " contents.toVariantList().at(1 " << contents.toVariantList().at(1);
+    bool status = false;
+    if (contents.toVariantList().at(1).toBool()) {
+        // qDebug() << " TYPING *************************************************";
+        status = true;
+    } else if (!contents.toVariantList().at(1).toList().isEmpty()) {
+        if (contents.toVariantList().at(1).toList().at(0).toString() == "user-typing"_L1) {
+            // qDebug() << " FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF typing user";
+            status = true;
+        }
+    }
+    return status;
+}
