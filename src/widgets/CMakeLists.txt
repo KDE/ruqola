@@ -683,6 +683,9 @@ target_sources(libruqolawidgets PRIVATE
     room/plugins/plugintoolinterface.h
     room/plugins/plugintoolinterface.cpp
 
+    room/plugins/plugintoolconfigurewidget.h
+    room/plugins/plugintoolconfigurewidget.cpp
+
     room/readonlylineeditwidget.cpp
     room/readonlylineeditwidget.h
     room/reconnectinfowidget.cpp
