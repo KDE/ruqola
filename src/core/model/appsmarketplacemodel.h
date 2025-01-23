@@ -35,6 +35,7 @@ public:
         Migrated,
         Installed,
         Status,
+        ApplicationPermissions,
     };
     Q_ENUM(AppsCategoriesRoles)
 

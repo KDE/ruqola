@@ -5,6 +5,7 @@
 */
 
 #include "applicationssettingslistview.h"
+#include "applicationspermissiondialog.h"
 #include "applicationssettingsaskapplicationdialog.h"
 #include "applicationssettingsdelegate.h"
 #include "applicationssettingsdescriptiondialog.h"
@@ -210,18 +211,23 @@ void ApplicationsSettingsListView::slotChangeStatusApplication(const QModelIndex
 
 void ApplicationsSettingsListView::slotInstallApplication(const QModelIndex &index)
 {
-    // TODO add dialogbox
-    auto job = new RocketChatRestApi::AppUpdateInfoJob(this);
-    RocketChatRestApi::AppUpdateInfoJob::AppUpdateInfo info;
-    info.mAppInfoType = RocketChatRestApi::AppUpdateInfoJob::AppInfoType::Apps;
-    info.mAppMode = RocketChatRestApi::AppUpdateInfoJob::AppMode::Post;
-    info.mAppsId = index.data(AppsMarketPlaceModel::AppId).toByteArray();
-    info.mAppVersion = index.data(AppsMarketPlaceModel::AppVersion).toString();
-    job->setAppUpdateInfo(info);
-    mRocketChatAccount->restApi()->initializeRestApiJob(job);
-    if (!job->start()) {
-        qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start appUpdateInfoDone";
+    QPointer<ApplicationsPermissionDialog> dlg = new ApplicationsPermissionDialog(this);
+    const QString permissions = index.data(AppsMarketPlaceModel::ApplicationPermissions).toString();
+    dlg->setApplicationPermission(permissions);
+    if (dlg->exec()) {
+        auto job = new RocketChatRestApi::AppUpdateInfoJob(this);
+        RocketChatRestApi::AppUpdateInfoJob::AppUpdateInfo info;
+        info.mAppInfoType = RocketChatRestApi::AppUpdateInfoJob::AppInfoType::Apps;
+        info.mAppMode = RocketChatRestApi::AppUpdateInfoJob::AppMode::Post;
+        info.mAppsId = index.data(AppsMarketPlaceModel::AppId).toByteArray();
+        info.mAppVersion = index.data(AppsMarketPlaceModel::AppVersion).toString();
+        job->setAppUpdateInfo(info);
+        mRocketChatAccount->restApi()->initializeRestApiJob(job);
+        if (!job->start()) {
+            qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start appUpdateInfoDone";
+        }
     }
+    delete dlg;
 }
 
 void ApplicationsSettingsListView::slotAskApplication(const QModelIndex &index)

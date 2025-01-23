@@ -174,6 +174,8 @@ QVariant AppsMarketPlaceModel::data(const QModelIndex &index, int role) const
         return appsMarketPlaceInfo.installedInfo().isValid();
     case AppsMarketPlaceModel::Status:
         return QVariant::fromValue(appsMarketPlaceInfo.installedInfo().status());
+    case AppsMarketPlaceModel::ApplicationPermissions:
+        return QVariant::fromValue(appsMarketPlaceInfo.permissionsDescription());
     }
     return {};
 }

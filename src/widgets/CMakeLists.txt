@@ -1,8 +1,6 @@
 # SPDX-FileCopyrightText: 2020-2025 Laurent Montel <montel@kde.org>
 # SPDX-License-Identifier: BSD-3-Clause
-add_library(libruqolawidgets
-    verifynewversionwidget/verifynewversionwidget.h verifynewversionwidget/verifynewversionwidget.cpp
-    verifynewversionwidget/verifynewversiondialog.h verifynewversionwidget/verifynewversiondialog.cpp)
+add_library(libruqolawidgets)
 
 if(TARGET KF6::UserFeedbackWidgets)
     target_sources(libruqolawidgets PRIVATE
@@ -981,9 +979,18 @@ target_sources(libruqolawidgets PRIVATE
 
     applicationssettingsdialog/applicationssettingssettingswidget.cpp
     applicationssettingsdialog/applicationssettingssettingswidget.h
+    applicationssettingsdialog/applicationspermissiondialog.h
+    applicationssettingsdialog/applicationspermissiondialog.cpp
+    applicationssettingsdialog/applicationspermissionwidget.h
+    applicationssettingsdialog/applicationspermissionwidget.cpp
 
     welcome/welcomewidget.h
     welcome/welcomewidget.cpp
+
+    verifynewversionwidget/verifynewversionwidget.h
+    verifynewversionwidget/verifynewversionwidget.cpp
+    verifynewversionwidget/verifynewversiondialog.h
+    verifynewversionwidget/verifynewversiondialog.cpp
 )
 
 if(HAVE_TEXT_AUTOCORRECTION_WIDGETS)
