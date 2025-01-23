@@ -158,7 +158,8 @@ ApplicationsSettingsDelegate::Layout ApplicationsSettingsDelegate::doLayout(cons
     if (status == AppsMarketPlaceInstalledInfo::Status::AutoEnabled || status == AppsMarketPlaceInstalledInfo::Status::ManuallyEnabled) {
         layout.status = Status::Enabled;
         layout.statusText = i18n("Enabled");
-    } else if (status == AppsMarketPlaceInstalledInfo::Status::Initialized || status == AppsMarketPlaceInstalledInfo::Status::ManuallyDisabled) {
+    } else if (status == AppsMarketPlaceInstalledInfo::Status::Initialized || status == AppsMarketPlaceInstalledInfo::Status::ManuallyDisabled
+               || status == AppsMarketPlaceInstalledInfo::Status::Disabled) {
         layout.status = Status::Disabled;
         layout.statusText = i18n("Disabled");
     } else {

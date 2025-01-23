@@ -21,6 +21,7 @@ public:
         Initialized,
         ManuallyEnabled,
         ManuallyDisabled,
+        Disabled,
     };
     Q_ENUM(Status);
 
