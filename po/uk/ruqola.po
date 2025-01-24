@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-01-23 00:40+0000\n"
+"POT-Creation-Date: 2025-01-24 00:41+0000\n"
 "PO-Revision-Date: 2025-01-21 22:52+0200\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
@@ -245,168 +245,168 @@ msgstr "Підтримка"
 msgid "Privacy Summary"
 msgstr "Резюме щодо конфіденційності"
 
-#: core/apps/appsmarketplaceinfo.cpp:462
+#: core/apps/appsmarketplaceinfo.cpp:469
 #: widgets/administratordialog/administratorwidget.cpp:74
 #, kde-format
 msgid "Permissions"
 msgstr "Права доступу"
 
-#: core/apps/appsmarketplaceinfo.cpp:591
+#: core/apps/appsmarketplaceinfo.cpp:597
 #, kde-format
 msgid "Access messages"
 msgstr "Доступ до повідомлень"
 
-#: core/apps/appsmarketplaceinfo.cpp:593
+#: core/apps/appsmarketplaceinfo.cpp:599
 #, kde-format
 msgid "Send and modify messages"
 msgstr "Надсилання і зміна повідомлень"
 
-#: core/apps/appsmarketplaceinfo.cpp:595
+#: core/apps/appsmarketplaceinfo.cpp:601
 #, kde-format
 msgid "Access room information"
 msgstr "Доступ до даних кімнати"
 
-#: core/apps/appsmarketplaceinfo.cpp:597
+#: core/apps/appsmarketplaceinfo.cpp:603
 #, kde-format
 msgid "Create and modify rooms"
 msgstr "Створення і змінювання кімнат"
 
-#: core/apps/appsmarketplaceinfo.cpp:599
+#: core/apps/appsmarketplaceinfo.cpp:605
 #, kde-format
 msgid "Access to this server network"
 msgstr "Доступ до мережі цього сервера"
 
-#: core/apps/appsmarketplaceinfo.cpp:601
+#: core/apps/appsmarketplaceinfo.cpp:607
 #, kde-format
 msgid "Access user information"
 msgstr "Доступ до даних користувачів"
 
-#: core/apps/appsmarketplaceinfo.cpp:603
+#: core/apps/appsmarketplaceinfo.cpp:609
 #, kde-format
 msgid "Modify user information"
 msgstr "Зміна даних користувачів"
 
-#: core/apps/appsmarketplaceinfo.cpp:605
+#: core/apps/appsmarketplaceinfo.cpp:611
 #, kde-format
 msgid "Register new slash commands"
 msgstr "Реєстрація нових команд з рискою"
 
-#: core/apps/appsmarketplaceinfo.cpp:607
+#: core/apps/appsmarketplaceinfo.cpp:613
 #, kde-format
 msgid "Register and maintain scheduled jobs"
 msgstr "Реєстрація і супровід запланованих завдань"
 
-#: core/apps/appsmarketplaceinfo.cpp:609
+#: core/apps/appsmarketplaceinfo.cpp:615
 #, kde-format
 msgid "Register new HTTP endpoints"
 msgstr "Реєстрація нових кінцевих точок HTTP"
 
-#: core/apps/appsmarketplaceinfo.cpp:611
+#: core/apps/appsmarketplaceinfo.cpp:617
 #, kde-format
 msgid "Access settings in this server"
 msgstr "Доступ до параметрів на цьому сервері"
 
-#: core/apps/appsmarketplaceinfo.cpp:613
+#: core/apps/appsmarketplaceinfo.cpp:619
 #, kde-format
 msgid "Modify settings in this server"
 msgstr "Зміна параметрів на цьому сервері"
 
-#: core/apps/appsmarketplaceinfo.cpp:615
+#: core/apps/appsmarketplaceinfo.cpp:621
 #, kde-format
 msgid "Upload files to this server"
 msgstr "Вивантаження файлів на цей сервер"
 
-#: core/apps/appsmarketplaceinfo.cpp:617
+#: core/apps/appsmarketplaceinfo.cpp:623
 #, kde-format
 msgid "Access files uploaded to this server"
 msgstr "Доступ до файлів, які вивантажено на цей сервер"
 
-#: core/apps/appsmarketplaceinfo.cpp:619
+#: core/apps/appsmarketplaceinfo.cpp:625
 #, kde-format
 msgid "Interact with Cloud Services on behalf of this server"
 msgstr "Взаємодія із хмарними службами від імені цього сервера"
 
-#: core/apps/appsmarketplaceinfo.cpp:621
+#: core/apps/appsmarketplaceinfo.cpp:627
 #, kde-format
 msgid "Access minimal information about this server environment"
 msgstr "Доступ до мінімальних даних щодо середовища цього сервера"
 
-#: core/apps/appsmarketplaceinfo.cpp:623
+#: core/apps/appsmarketplaceinfo.cpp:629
 #, kde-format
 msgid "Access to multiple Livechat departments information"
 msgstr "Доступ до даних щодо декількох розділів інтерактивного спілкування"
 
-#: core/apps/appsmarketplaceinfo.cpp:625
+#: core/apps/appsmarketplaceinfo.cpp:631
 #, kde-format
 msgid "Access Livechat department information"
 msgstr "Доступ до даних щодо розділу інтерактивного спілкування"
 
-#: core/apps/appsmarketplaceinfo.cpp:627
+#: core/apps/appsmarketplaceinfo.cpp:633
 #, kde-format
 msgid "Modify Livechat department information"
 msgstr "Зміна даних щодо розділу інтерактивного спілкування"
 
-#: core/apps/appsmarketplaceinfo.cpp:629
+#: core/apps/appsmarketplaceinfo.cpp:635
 #, kde-format
 msgid "Modify Livechat room information"
 msgstr "Зміна даних щодо кімнати інтерактивного спілкування"
 
-#: core/apps/appsmarketplaceinfo.cpp:631
+#: core/apps/appsmarketplaceinfo.cpp:637
 #, kde-format
 msgid "Access Livechat room information"
 msgstr "Доступ до даних кімнати інтерактивного спілкування"
 
-#: core/apps/appsmarketplaceinfo.cpp:633
+#: core/apps/appsmarketplaceinfo.cpp:639
 #, kde-format
 msgid "Modify Livechat message information"
 msgstr "Зміна даних щодо повідомлень інтерактивного спілкування"
 
-#: core/apps/appsmarketplaceinfo.cpp:635
+#: core/apps/appsmarketplaceinfo.cpp:641
 #, kde-format
 msgid "Access Livechat message information"
 msgstr "Доступ до даних повідомлень інтерактивного спілкування"
 
-#: core/apps/appsmarketplaceinfo.cpp:637
+#: core/apps/appsmarketplaceinfo.cpp:643
 #, kde-format
 msgid "Modify Livechat visitor information"
 msgstr "Зміна даних щодо відвідувачів інтерактивного спілкування"
 
-#: core/apps/appsmarketplaceinfo.cpp:639
+#: core/apps/appsmarketplaceinfo.cpp:645
 #, kde-format
 msgid "Access Livechat visitor information"
 msgstr "Доступ до даних щодо відвідувачів інтерактивного спілкування"
 
-#: core/apps/appsmarketplaceinfo.cpp:641
+#: core/apps/appsmarketplaceinfo.cpp:647
 #, kde-format
 msgid "Access Livechat status information"
 msgstr "Доступ до даних щодо стану інтерактивного спілкування"
 
-#: core/apps/appsmarketplaceinfo.cpp:643
+#: core/apps/appsmarketplaceinfo.cpp:649
 #, kde-format
 msgid "Interact with the UI"
 msgstr "Взаємодія із інтерфейсом"
 
-#: core/apps/appsmarketplaceinfo.cpp:645
+#: core/apps/appsmarketplaceinfo.cpp:651
 #, kde-format
 msgid "Store internal data in the database"
 msgstr "Збереження внутрішніх даних у базі даних"
 
-#: core/apps/appsmarketplaceinfo.cpp:647
+#: core/apps/appsmarketplaceinfo.cpp:653
 #, kde-format
 msgid "Modify Livechat custom field configuration"
 msgstr "Зміна налаштувань нетипових полів інтерактивного спілкування"
 
-#: core/apps/appsmarketplaceinfo.cpp:657
+#: core/apps/appsmarketplaceinfo.cpp:663
 #, kde-format
 msgid "Allow to write oauth app settings"
 msgstr "Дозволити запис параметрів oauth програми"
 
-#: core/apps/appsmarketplaceinfo.cpp:659
+#: core/apps/appsmarketplaceinfo.cpp:665
 #, kde-format
 msgid "Allow to read oauth app settings"
 msgstr "Дозволити читання параметрів oauth програми"
 
-#: core/apps/appsmarketplaceinfo.cpp:673
+#: core/apps/appsmarketplaceinfo.cpp:679
 #, kde-format
 msgid "Allow to send email"
 msgstr "Дозволено надсилання електронної пошти"
@@ -1182,7 +1182,7 @@ msgstr "Роль"
 #: core/model/adminusersallmodel.cpp:76 core/model/adminusersallmodel.cpp:127
 #: core/model/adminuserspendingmodel.cpp:74
 #: core/model/adminuserspendingmodel.cpp:131
-#: widgets/applicationssettingsdialog/applicationssettingsdelegate.cpp:163
+#: widgets/applicationssettingsdialog/applicationssettingsdelegate.cpp:164
 #: widgets/applicationssettingsdialog/applicationssettingsstatuscombobox.cpp:15
 #: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:274
 #, kde-format
@@ -3362,7 +3362,7 @@ msgid "Speak Text"
 msgstr "Декламувати текст"
 
 #: widgets/administratordialog/moderationconsole/moderationreportinfolistview.cpp:99
-#: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:111
+#: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:112
 #: widgets/bannerinfodialog/bannerinfolistview.cpp:51
 #: widgets/discussions/discussionlistview.cpp:75
 #: widgets/notificationhistory/notificationhistorylistview.cpp:106
@@ -6993,6 +6993,19 @@ msgstr ""
 msgid "STUN/TURN Servers"
 msgstr "Сервери STUN/TURN"
 
+#: widgets/applicationssettingsdialog/applicationspermissiondialog.cpp:17
+#: widgets/explorepermissionsdialog/explorepermissionsdialog.cpp:24
+#, kde-format
+msgctxt "@title:window"
+msgid "Permissions"
+msgstr "Права доступу"
+
+#: widgets/applicationssettingsdialog/applicationspermissionwidget.cpp:29
+#, fuzzy, kde-format
+#| msgid "No version info found."
+msgid "No permissions information found."
+msgstr "Не знайдено відомостей щодо версії."
+
 #: widgets/applicationssettingsdialog/applicationssettingsaskapplicationdialog.cpp:25
 #, kde-format
 msgctxt "@title:window"
@@ -7028,7 +7041,7 @@ msgstr "преміум"
 msgid "Enabled"
 msgstr "Увімкнено"
 
-#: widgets/applicationssettingsdialog/applicationssettingsdelegate.cpp:172
+#: widgets/applicationssettingsdialog/applicationssettingsdelegate.cpp:173
 #, kde-format
 msgid "%1 request"
 msgid_plural "%1 requests"
@@ -7065,55 +7078,55 @@ msgctxt "@label:textbox"
 msgid "Loading in progress…"
 msgstr "Триває завантаження…"
 
-#: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:60
+#: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:61
 #, kde-format
 msgctxt "@action"
 msgid "Show Description…"
 msgstr "Показати опис…"
 
-#: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:67
+#: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:68
 #, kde-format
 msgctxt "@action"
 msgid "Install"
 msgstr "Встановити"
 
-#: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:72
+#: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:73
 #, kde-format
 msgctxt "@action"
 msgid "Ask Application…"
 msgstr "Запитати програму…"
 
-#: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:80
+#: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:81
 #, kde-format
 msgctxt "@action"
 msgid "Uninstall"
 msgstr "Вилучити"
 
-#: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:88
+#: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:89
 #, kde-format
 msgctxt "@action"
 msgid "Disable"
 msgstr "Вимкнути"
 
-#: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:93
+#: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:94
 #, kde-format
 msgctxt "@action"
 msgid "Enable"
 msgstr "Увімкнути"
 
-#: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:102
+#: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:103
 #: widgets/bannerinfodialog/bannerinfolistview.cpp:55
 #, kde-format
 msgctxt "@action"
 msgid "Copy Text"
 msgstr "Скопіювати текст"
 
-#: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:174
+#: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:175
 #, kde-format
 msgid "Do you want to uninstall this application?"
 msgstr "Хочете вилучити цю програму?"
 
-#: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:175
+#: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:176
 #, kde-format
 msgctxt "@title:window"
 msgid "Uninstall Application"
@@ -8930,12 +8943,6 @@ msgstr ""
 msgctxt "@action"
 msgid "Save Encryption Key"
 msgstr "Зберегти ключ шифрування"
-
-#: widgets/explorepermissionsdialog/explorepermissionsdialog.cpp:24
-#, kde-format
-msgctxt "@title:window"
-msgid "Permissions"
-msgstr "Права доступу"
 
 #: widgets/explorepermissionsdialog/explorepermissionswidget.cpp:70
 #, kde-format
