@@ -13,4 +13,6 @@ class PluginToolConfigureWidget : public QWidget
 public:
     explicit PluginToolConfigureWidget(QWidget *parent = nullptr);
     ~PluginToolConfigureWidget() override;
+    virtual void save() = 0;
+    virtual void read() = 0;
 };
