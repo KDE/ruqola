@@ -82,6 +82,8 @@ RuqolaLoginWidget::RuqolaLoginWidget(QWidget *parent)
     // Hide by default
     mFailedError->hide();
     mLoginButton->setAutoDefault(true);
+    mLoginButton->setEnabled(false);
+    connect(mRuqolaLoginStackWidget, &RuqolaLoginStackWidget::settingsIsValid, mLoginButton, &QPushButton::setEnabled);
 }
 
 RuqolaLoginWidget::~RuqolaLoginWidget() = default;

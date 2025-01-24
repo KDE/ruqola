@@ -701,6 +701,10 @@ QString RocketChatAccount::ddpLoginStatusText() const
 
 void RocketChatAccount::tryLogin()
 {
+    if (mSettings->userName().isEmpty()) {
+        qCDebug(RUQOLA_RECONNECT_LOG) << "Username is empty!!!";
+        return;
+    }
     qCDebug(RUQOLA_RECONNECT_LOG) << accountName() << "attempting login" << mSettings->userName() << "on" << mSettings->serverUrl();
     Q_ASSERT(ddp());
 
