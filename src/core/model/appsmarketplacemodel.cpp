@@ -38,6 +38,11 @@ void AppsMarketPlaceModel::clearInstalledAppsInformation()
             info.clearInstalledInfo();
         }
     }
+    for (AppsMarketPlaceInfo &info : mAppsMarketPlaceInfos) {
+        if (!info.isValid()) {
+            mAppsMarketPlaceInfos.removeAll(info);
+        }
+    }
     endResetModel();
 }
 
@@ -46,6 +51,9 @@ void AppsMarketPlaceModel::removeApp(const QString &appId)
     for (AppsMarketPlaceInfo &info : mAppsMarketPlaceInfos) {
         if (info.appId() == appId.toLatin1()) {
             info.clearInstalledInfo();
+            if (!info.isValid()) {
+                mAppsMarketPlaceInfos.removeAll(info);
+            }
             beginResetModel();
             endResetModel();
             break;
@@ -68,11 +76,18 @@ void AppsMarketPlaceModel::updateAppStatus(const QString &appId, const QString &
 void AppsMarketPlaceModel::addInstalledInfo(const AppsMarketPlaceInstalledInfo &installedInfo)
 {
     beginResetModel();
+    bool found = false;
     for (AppsMarketPlaceInfo &info : mAppsMarketPlaceInfos) {
         if (info.appId() == installedInfo.appId()) {
             info.setInstalledInfo(installedInfo);
+            found = true;
             break;
         }
+    }
+    if (!found) {
+        AppsMarketPlaceInfo info;
+        info.setInstalledInfo(installedInfo);
+        mAppsMarketPlaceInfos.append(info);
     }
     endResetModel();
 }
