@@ -12,3 +12,5 @@ PluginToolConfigureWidget::PluginToolConfigureWidget(QWidget *parent)
 }
 
 PluginToolConfigureWidget::~PluginToolConfigureWidget() = default;
+
+#include "moc_plugintoolconfigurewidget.cpp"
