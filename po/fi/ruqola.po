@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-01-24 00:41+0000\n"
+"POT-Creation-Date: 2025-01-25 00:41+0000\n"
 "PO-Revision-Date: 2024-12-07 18:13+0200\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
@@ -460,7 +460,7 @@ msgid "A one-time password is required to complete the login procedure."
 msgstr "Kirjautumisen viimeistelyyn vaaditaan kertakäyttöinen salasana."
 
 #: core/authenticationmanager.cpp:103
-#: widgets/loginwidget/ruqolaloginwidget.cpp:166
+#: widgets/loginwidget/ruqolaloginwidget.cpp:168
 #, kde-format
 msgid "Login failed: Invalid OTP code."
 msgstr "Kirjautuminen epäonnistui: virheellinen OTP-koodi."
@@ -8957,37 +8957,37 @@ msgstr ""
 "Käytössä on kahden tekijän todennus.\n"
 "Anna luotu koodi tai varmistuskoodi."
 
-#: widgets/loginwidget/ruqolaloginwidget.cpp:162
+#: widgets/loginwidget/ruqolaloginwidget.cpp:164
 #, kde-format
 msgid "Login Failed: invalid username or password"
 msgstr "Kirjautuminen epäonnistui: virheellinen käyttäjätunnus tai salasana"
 
-#: widgets/loginwidget/ruqolaloginwidget.cpp:176
+#: widgets/loginwidget/ruqolaloginwidget.cpp:178
 #, kde-format
 msgid "Installation Problem found. No plugins found here."
 msgstr "Havaittiin asennusongelma: liitännäisiä ei löytynyt."
 
-#: widgets/loginwidget/ruqolaloginwidget.cpp:182
+#: widgets/loginwidget/ruqolaloginwidget.cpp:184
 #, kde-format
 msgid "Login Failed: generic error"
 msgstr "Kirjautuminen epäonnistui: yleinen virhe"
 
-#: widgets/loginwidget/ruqolaloginwidget.cpp:188
+#: widgets/loginwidget/ruqolaloginwidget.cpp:190
 #, kde-format
 msgid "Login Failed: Login has been temporarily blocked For IP."
 msgstr "Kirjautuminen on tilapäisesti estetty käyttäjätunnuksen perusteella."
 
-#: widgets/loginwidget/ruqolaloginwidget.cpp:194
+#: widgets/loginwidget/ruqolaloginwidget.cpp:196
 #, kde-format
 msgid "Login Failed: Login has been temporarily blocked For User."
 msgstr "Kirjautuminen on tilapäisesti estetty käyttäjätunnuksen perusteella."
 
-#: widgets/loginwidget/ruqolaloginwidget.cpp:200
+#: widgets/loginwidget/ruqolaloginwidget.cpp:202
 #, kde-format
 msgid "Login Failed: User is not activated."
 msgstr "Kirjautuminen epäonnistui: Käyttäjää ei ole aktivoitu."
 
-#: widgets/loginwidget/ruqolaloginwidget.cpp:206
+#: widgets/loginwidget/ruqolaloginwidget.cpp:208
 #, kde-format
 msgid "Login Failed: App user is not allowed to login."
 msgstr "Kirjautuminen epäonnistui: Sovelluskäyttäjän ei sallita kirjautua."
