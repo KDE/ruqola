@@ -51,7 +51,7 @@ void AppsCountInfoWidget::setAppCountInfo(const AppsCountInfo &info)
         mProgressBar->setMaximum(info.maxPrivateApps());
         mProgressBar->setValue(info.totalPrivateEnabled());
         mApplicationInfo->setText(QStringLiteral("%1/%2").arg(QString::number(info.totalPrivateEnabled()), QString::number(info.maxPrivateApps())));
-        mEnableAppsLabel->setText(i18np("%1 private app enabled", "%1 private apps enabled", info.totalMarketplaceEnabled()));
+        mEnableAppsLabel->setText(i18np("%1 private app enabled", "%1 private apps enabled", info.totalPrivateEnabled()));
         break;
     }
     }
