@@ -267,7 +267,9 @@ void ApplicationsSettingsListView::slotShowApplicationDescription(const QModelIn
 
     const bool showLogAndSettings = mRocketChatAccount->isAdministrator() && index.data(AppsMarketPlaceModel::Installed).toBool()
         && !index.data(AppsMarketPlaceModel::RequestedApps).toBool();
+    const bool showVersion = mRocketChatAccount->isAdministrator() && !index.data(AppsMarketPlaceModel::Private).toBool();
     dlg.setShowLogAndSettingsInfo(showLogAndSettings);
+    dlg.setShowVersionInfo(showVersion);
     dlg.exec();
 }
 

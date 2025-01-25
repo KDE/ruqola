@@ -71,4 +71,9 @@ void ApplicationsSettingsDescriptionDialog::setShowLogAndSettingsInfo(bool state
     mApplicationsSettingsDescriptionTabWidget->setShowLogAndSettingsInfo(state);
 }
 
+void ApplicationsSettingsDescriptionDialog::setShowVersionInfo(bool state)
+{
+    mApplicationsSettingsDescriptionTabWidget->setShowVersionInfo(state);
+}
+
 #include "moc_applicationssettingsdescriptiondialog.cpp"

@@ -26,6 +26,8 @@ public:
 
     void setShowLogAndSettingsInfo(bool state);
 
+    void setShowVersionInfo(bool state);
+
 private:
     QTabWidget *const mTabWidget;
     ApplicationsSettingsDescriptionWidget *const mDescriptionWidget;

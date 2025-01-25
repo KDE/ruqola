@@ -72,4 +72,9 @@ void ApplicationsSettingsDescriptionTabWidget::setShowLogAndSettingsInfo(bool st
     mTabWidget->setTabVisible(mTabWidget->indexOf(mSettingsWidget), state);
 }
 
+void ApplicationsSettingsDescriptionTabWidget::setShowVersionInfo(bool state)
+{
+    mTabWidget->setTabVisible(mTabWidget->indexOf(mVersionWidget), state);
+}
+
 #include "moc_applicationssettingsdescriptiontabwidget.cpp"
