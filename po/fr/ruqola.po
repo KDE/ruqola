@@ -1771,7 +1771,7 @@ msgstr "<strong>%1</strong> est en train d'écrire un message..."
 #, kde-format
 msgctxt "WARNING!!!!!!: PLEASE We need a space between after </strong>"
 msgid "<strong>%1</strong> are typing..."
-msgstr "<strong>%1</strong>sont en train d'écrire des messages..."
+msgstr "<strong>%1</strong> sont en train d'écrire des messages..."
 
 #: core/rocketchataccount.cpp:679
 #, kde-format

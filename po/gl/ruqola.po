@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-01-25 00:41+0000\n"
-"PO-Revision-Date: 2025-01-19 11:12+0100\n"
+"PO-Revision-Date: 2025-01-25 12:09+0100\n"
 "Last-Translator: Adrián Chaves (Gallaecio) <adrian@chaves.io>\n"
 "Language-Team: Proxecto Trasno (proxecto@trasno.gal)\n"
 "Language: gl\n"
@@ -6980,10 +6980,9 @@ msgid "Permissions"
 msgstr "Permisos"
 
 #: widgets/applicationssettingsdialog/applicationspermissionwidget.cpp:29
-#, fuzzy, kde-format
-#| msgid "No version info found."
+#, kde-format
 msgid "No permissions information found."
-msgstr "Non se atopou información da versión."
+msgstr "Non se atopou información dos permisos."
 
 #: widgets/applicationssettingsdialog/applicationssettingsaskapplicationdialog.cpp:25
 #, kde-format
@@ -7087,12 +7086,10 @@ msgid "Disable"
 msgstr "Desactivar"
 
 #: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:94
-#, fuzzy, kde-format
-#| msgctxt "@option:check"
-#| msgid "Enable"
+#, kde-format
 msgctxt "@action"
 msgid "Enable"
-msgstr "Activar."
+msgstr "Activar"
 
 #: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:103
 #: widgets/bannerinfodialog/bannerinfolistview.cpp:55
@@ -10158,13 +10155,13 @@ msgstr "Enviar a mensaxe"
 #: widgets/room/messagelinewidget.cpp:187
 #, kde-format
 msgid "Command was failed. Do you want to copy command in clipboard ?"
-msgstr ""
+msgstr "A orde fallou. Quere copiala no portapapeis?"
 
 #: widgets/room/messagelinewidget.cpp:188
 #, kde-format
 msgctxt "@title:window"
 msgid "Command Error"
-msgstr ""
+msgstr "Erro da orde"
 
 #: widgets/room/messagelinewidget.cpp:216
 #, kde-format
@@ -11722,17 +11719,17 @@ msgstr "Corrixir o texto da acción de copia ao copiar unha selección de texto.
 #: widgets/whatsnew/whatsnewtranslations.cpp:160
 #, kde-format
 msgid "A command start with '/' and not /* or // "
-msgstr ""
+msgstr "Un inicio de orde con «/» e non «/*» ou «//»."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:161
 #, kde-format
 msgid "Allow to put command line in clipboard when an error occurred"
-msgstr ""
+msgstr "Permitir copiar a liña de ordes no portapapeis ao produciuse un erro."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:162
 #, kde-format
 msgid "Allow to activate/desactivate apps market."
-msgstr ""
+msgstr "Permitir activar ou desactivar o mercado de aplicacións."
 
 #: widgets/whatsnew/whatsnewwidget.cpp:44
 #, kde-format
