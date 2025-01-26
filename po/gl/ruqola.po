@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-01-20 02:40+0000\n"
+"POT-Creation-Date: 2025-01-26 02:33+0000\n"
 "PO-Revision-Date: 2025-01-12 16:38+0100\n"
 "Last-Translator: Adrián Chaves (Gallaecio) <adrian@chaves.io>\n"
 "Language-Team: Proxecto Trasno (proxecto@trasno.gal)\n"
@@ -444,7 +444,7 @@ msgstr ""
 "Requírese un contrasinal dun uso para completar o procedemento de acceso."
 
 #: core/authenticationmanager.cpp:103
-#: widgets/loginwidget/ruqolaloginwidget.cpp:165
+#: widgets/loginwidget/ruqolaloginwidget.cpp:167
 #, kde-format
 msgid "Login failed: Invalid OTP code."
 msgstr "O acceso fallou: o código de pase dun uso non é válido."
@@ -8968,41 +8968,41 @@ msgstr ""
 "Activou a autenticación mediante un segundo factor.\n"
 "Insira o código xerado ou un código de salvagarda."
 
-#: widgets/loginwidget/ruqolaloginwidget.cpp:161
+#: widgets/loginwidget/ruqolaloginwidget.cpp:163
 #, kde-format
 msgid "Login Failed: invalid username or password"
 msgstr ""
 "O acceso fallou: o nome de persoa usuaria ou o contrasinal son incorrectos."
 
-#: widgets/loginwidget/ruqolaloginwidget.cpp:175
+#: widgets/loginwidget/ruqolaloginwidget.cpp:177
 #, kde-format
 msgid "Installation Problem found. No plugins found here."
 msgstr ""
 "Atopouse un problema na instalación. Non se atoparon complementos aquí."
 
-#: widgets/loginwidget/ruqolaloginwidget.cpp:181
+#: widgets/loginwidget/ruqolaloginwidget.cpp:183
 #, kde-format
 msgid "Login Failed: generic error"
 msgstr "O acceso fallou: erro xenérico."
 
-#: widgets/loginwidget/ruqolaloginwidget.cpp:187
+#: widgets/loginwidget/ruqolaloginwidget.cpp:189
 #, kde-format
 msgid "Login Failed: Login has been temporarily blocked For IP."
 msgstr "O acceso fallou: o acceso está temporalmente bloqueado para o seu IP."
 
-#: widgets/loginwidget/ruqolaloginwidget.cpp:193
+#: widgets/loginwidget/ruqolaloginwidget.cpp:195
 #, kde-format
 msgid "Login Failed: Login has been temporarily blocked For User."
 msgstr ""
 "O acceso fallou: o acceso está temporalmente bloqueado para a súa persoa "
 "usuaria."
 
-#: widgets/loginwidget/ruqolaloginwidget.cpp:199
+#: widgets/loginwidget/ruqolaloginwidget.cpp:201
 #, kde-format
 msgid "Login Failed: User is not activated."
 msgstr "O acceso fallou: a persoa usuaria non está activada."
 
-#: widgets/loginwidget/ruqolaloginwidget.cpp:205
+#: widgets/loginwidget/ruqolaloginwidget.cpp:207
 #, kde-format
 msgid "Login Failed: App user is not allowed to login."
 msgstr ""
