@@ -113,7 +113,9 @@ void ApplicationsSettingsSettingsWidget::addBooleanSettings(const ApplicationsSe
     checkBox->setToolTip(getTranslatedIdentifier(lang, info.i18nDescription()));
     hbox->addWidget(checkBox);
     checkBox->setCheckState(info.packageValue() == "true"_L1 ? Qt::Checked : Qt::Unchecked);
-    // TODO add apply button
+    connect(checkBox, &QCheckBox::clicked, this, [this]() {
+        Q_EMIT dataChanged(true);
+    });
     mMainLayout->addLayout(hbox);
 }
 
@@ -129,8 +131,9 @@ void ApplicationsSettingsSettingsWidget::addStringSettings(const ApplicationsSet
     lineEdit->setObjectName(info.id());
     hbox->addWidget(lineEdit);
     lineEdit->setText(info.packageValue());
-
-    // TODO add apply button
+    connect(lineEdit, &QLineEdit::textChanged, this, [this]() {
+        Q_EMIT dataChanged(true);
+    });
 
     mMainLayout->addLayout(hbox);
 }
