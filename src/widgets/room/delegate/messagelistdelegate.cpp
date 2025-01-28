@@ -48,6 +48,8 @@
 #include <KLocalizedString>
 #include <QMenu>
 
+// #define DEBUG_PAINTING
+
 MessageListDelegate::MessageListDelegate(RocketChatAccount *account, QListView *view)
     : QItemDelegate(view)
     , mEditedIcon(QIcon::fromTheme(QStringLiteral("document-edit")))
@@ -537,7 +539,7 @@ void MessageListDelegate::paint(QPainter *painter, const QStyleOptionViewItem &o
 
     // Message
     if (layout.textRect.isValid()) {
-#if 0
+#ifdef DEBUG_PAINTING
         painter->save();
         painter->setPen(QPen(Qt::red));
         painter->drawRect(layout.textRect);
@@ -562,7 +564,7 @@ void MessageListDelegate::paint(QPainter *painter, const QStyleOptionViewItem &o
         painter->drawText(layout.senderRect.x(), layout.baseLine, layout.senderText);
         painter->setFont(oldFont);
 
-#if 0
+#ifdef DEBUG_PAINTING
         painter->save();
         painter->setPen(QPen(Qt::red));
         painter->drawRect(layout.senderRect);
@@ -608,7 +610,7 @@ void MessageListDelegate::paint(QPainter *painter, const QStyleOptionViewItem &o
         for (const MessageAttachment &att : attachments) {
             const MessageAttachmentDelegateHelperBase *helper = attachmentsHelper(att);
             if (helper) {
-#if 0
+#ifdef DEBUG_PAINTING
                 painter->save();
                 painter->setPen(QPen(Qt::green));
                 painter->drawRect(layout.attachmentsRectList.at(i));
@@ -627,7 +629,7 @@ void MessageListDelegate::paint(QPainter *painter, const QStyleOptionViewItem &o
         for (const Block &block : blocks) {
             const MessageBlockDelegateHelperBase *helper = blocksHelper(block);
             if (helper) {
-#if 0
+#ifdef DEBUG_PAINTING
                 painter->save();
                 painter->setPen(QPen(Qt::red));
                 painter->drawRect(layout.blocksRectList.at(blockIndex));
