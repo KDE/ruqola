@@ -73,9 +73,15 @@ void ApplicationsSettingsSettingsWidget::generateSettingsWidgets(const QList<App
     hLayout->setContentsMargins({});
     hLayout->addStretch(1);
     auto cancelButton = new QPushButton(i18n("Cancel"), this);
+    connect(cancelButton, &QPushButton::clicked, this, [this]() {
+        // TODO
+    });
     hLayout->addWidget(cancelButton);
 
     auto applyButton = new QPushButton(i18n("Apply"), this);
+    connect(applyButton, &QPushButton::clicked, this, [this]() {
+        // TODO
+    });
     hLayout->addWidget(applyButton);
 
     mMainLayout->addLayout(hLayout);
