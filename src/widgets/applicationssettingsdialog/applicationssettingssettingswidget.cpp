@@ -74,17 +74,23 @@ void ApplicationsSettingsSettingsWidget::generateSettingsWidgets(const QList<App
     hLayout->addStretch(1);
     auto cancelButton = new QPushButton(i18n("Cancel"), this);
     connect(cancelButton, &QPushButton::clicked, this, [this]() {
-        // TODO
+        // TODO revert value
     });
+    cancelButton->setEnabled(false);
     hLayout->addWidget(cancelButton);
 
     auto applyButton = new QPushButton(i18n("Apply"), this);
     connect(applyButton, &QPushButton::clicked, this, [this]() {
-        // TODO
+        // TODO apply value
     });
+    applyButton->setEnabled(false);
     hLayout->addWidget(applyButton);
 
     mMainLayout->addLayout(hLayout);
+    connect(this, &ApplicationsSettingsSettingsWidget::dataChanged, this, [cancelButton, applyButton](bool status) {
+        applyButton->setEnabled(status);
+        cancelButton->setEnabled(status);
+    });
 }
 
 QString ApplicationsSettingsSettingsWidget::getTranslatedIdentifier(const QString &lang, const QString &id) const

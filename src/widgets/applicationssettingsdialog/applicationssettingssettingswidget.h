@@ -22,6 +22,9 @@ public:
 protected:
     void showEvent(QShowEvent *event) override;
 
+Q_SIGNALS:
+    void dataChanged(bool status);
+
 private:
     LIBRUQOLAWIDGETS_NO_EXPORT void generateSettings(const QJsonObject &obj);
     LIBRUQOLAWIDGETS_NO_EXPORT void initialize();
