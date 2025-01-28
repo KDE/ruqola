@@ -1001,7 +1001,7 @@ bool MessageListDelegate::helpEvent(QHelpEvent *helpEvent, QAbstractItemView *vi
             QToolTip::showText(helpEvent->globalPos(), i18nc("@info:tooltip", "Add reaction"), view);
             return true;
         }
-        if (layout.textRect.contains(helpEvent->pos()) && mHelperText->handleHelpEvent(helpEvent, layout.textRect, index)) {
+        if (layout.textRect.contains(helpEventPos) && mHelperText->handleHelpEvent(helpEvent, layout.textRect, index)) {
             return true;
         }
         // Attachments
@@ -1050,8 +1050,10 @@ bool MessageListDelegate::helpEvent(QHelpEvent *helpEvent, QAbstractItemView *vi
                 }
             }
         }
-        if (layout.timeStampRect.contains(helpEvent->pos())) {
+        // qDebug() << " layout.timeStampRect " << layout.timeStampRect << " helpEvent->pos() " << helpEvent->pos();
+        if (layout.timeStampRect.contains(helpEventPos)) {
             const QString dateStr = index.data(MessagesModel::Date).toString();
+            // qDebug() << " XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX" << dateStr;
             QToolTip::showText(helpEvent->globalPos(), dateStr, view);
             return true;
         }
