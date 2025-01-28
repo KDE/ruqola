@@ -1050,10 +1050,8 @@ bool MessageListDelegate::helpEvent(QHelpEvent *helpEvent, QAbstractItemView *vi
                 }
             }
         }
-        // qDebug() << " layout.timeStampRect " << layout.timeStampRect << " helpEvent->pos() " << helpEvent->pos();
         if (layout.timeStampRect.contains(helpEventPos)) {
             const QString dateStr = index.data(MessagesModel::Date).toString();
-            // qDebug() << " XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX" << dateStr;
             QToolTip::showText(helpEvent->globalPos(), dateStr, view);
             return true;
         }
