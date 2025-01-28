@@ -158,7 +158,7 @@ MessageListLayoutBase::Layout MessageListCozyLayout::doLayout(const QStyleOption
     layout.addReactionRect = QRect(textLeft + textSize.width() + margin, senderRectY, iconSize, iconSize);
     layout.replyToThreadRect = QRect(textLeft + textSize.width() + 2 * margin + iconSize, senderRectY, iconSize, iconSize);
     layout.timeStampPos = QPoint(option.rect.width() - timeSize.width() - margin / 2, layout.baseLine);
-    layout.timeStampRect = QRect(QPoint(layout.timeStampPos.x(), usableRect.top()), timeSize);
+    layout.timeStampRect = QRect(QPoint(layout.timeStampPos.x(), senderRectY), timeSize);
     generateAttachmentBlockAndUrlPreviewLayout(mDelegate, layout, message, attachmentsY, textLeft, maxWidth, option, index);
     layout.reactionsHeight = mDelegate->helperReactions()->sizeHint(index, maxWidth, option).height();
 
