@@ -10,10 +10,12 @@
 #include "connection.h"
 #include "rocketchataccount.h"
 #include "ruqolawidgets_debug.h"
+#include <KLocalizedString>
 #include <QCheckBox>
 #include <QHBoxLayout>
 #include <QLabel>
 #include <QLineEdit>
+#include <QPushButton>
 #include <QShowEvent>
 #include <QVBoxLayout>
 
@@ -66,6 +68,17 @@ void ApplicationsSettingsSettingsWidget::generateSettingsWidgets(const QList<App
         }
     }
     mMainLayout->addStretch(1);
+    // TODO show or not
+    auto hLayout = new QHBoxLayout;
+    hLayout->setContentsMargins({});
+    hLayout->addStretch(1);
+    auto cancelButton = new QPushButton(i18n("Cancel"), this);
+    hLayout->addWidget(cancelButton);
+
+    auto applyButton = new QPushButton(i18n("Apply"), this);
+    hLayout->addWidget(applyButton);
+
+    mMainLayout->addLayout(hLayout);
 }
 
 QString ApplicationsSettingsSettingsWidget::getTranslatedIdentifier(const QString &lang, const QString &id) const
