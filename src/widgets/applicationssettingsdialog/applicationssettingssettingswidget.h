@@ -24,6 +24,7 @@ protected:
 
 Q_SIGNALS:
     void dataChanged(bool status);
+    void resetValue();
 
 private:
     LIBRUQOLAWIDGETS_NO_EXPORT void generateSettings(const QJsonObject &obj);

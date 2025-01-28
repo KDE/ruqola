@@ -74,7 +74,8 @@ void ApplicationsSettingsSettingsWidget::generateSettingsWidgets(const QList<App
     hLayout->addStretch(1);
     auto cancelButton = new QPushButton(i18n("Cancel"), this);
     connect(cancelButton, &QPushButton::clicked, this, [this]() {
-        // TODO revert value
+        Q_EMIT resetValue();
+        Q_EMIT dataChanged(false);
     });
     cancelButton->setEnabled(false);
     hLayout->addWidget(cancelButton);
@@ -112,9 +113,14 @@ void ApplicationsSettingsSettingsWidget::addBooleanSettings(const ApplicationsSe
     checkBox->setObjectName(info.id());
     checkBox->setToolTip(getTranslatedIdentifier(lang, info.i18nDescription()));
     hbox->addWidget(checkBox);
-    checkBox->setCheckState(info.packageValue() == "true"_L1 ? Qt::Checked : Qt::Unchecked);
+    const auto defaultValue = info.packageValue() == "true"_L1 ? Qt::Checked : Qt::Unchecked;
+    checkBox->setCheckState(defaultValue);
     connect(checkBox, &QCheckBox::clicked, this, [this]() {
         Q_EMIT dataChanged(true);
+    });
+    connect(this, &ApplicationsSettingsSettingsWidget::resetValue, this, [checkBox, defaultValue]() {
+        QSignalBlocker b(checkBox);
+        checkBox->setCheckState(defaultValue);
     });
     mMainLayout->addLayout(hbox);
 }
@@ -130,9 +136,14 @@ void ApplicationsSettingsSettingsWidget::addStringSettings(const ApplicationsSet
     auto lineEdit = new QLineEdit(this);
     lineEdit->setObjectName(info.id());
     hbox->addWidget(lineEdit);
-    lineEdit->setText(info.packageValue());
+    const QString defaultValue = info.packageValue();
+    lineEdit->setText(defaultValue);
     connect(lineEdit, &QLineEdit::textChanged, this, [this]() {
         Q_EMIT dataChanged(true);
+    });
+    connect(this, &ApplicationsSettingsSettingsWidget::resetValue, this, [lineEdit, defaultValue]() {
+        QSignalBlocker b(lineEdit);
+        lineEdit->setText(defaultValue);
     });
 
     mMainLayout->addLayout(hbox);
