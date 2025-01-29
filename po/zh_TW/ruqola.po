@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-01-25 00:41+0000\n"
+"POT-Creation-Date: 2025-01-29 00:41+0000\n"
 "PO-Revision-Date: 2024-08-06 05:33+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
@@ -6711,6 +6711,7 @@ msgstr "私訊中的最大訊息年齡"
 #: widgets/administratorsettingsdialog/settingswidgetbase.cpp:256
 #: widgets/administratorsettingsdialog/settingswidgetbase.cpp:309
 #: widgets/administratorsettingsdialog/settingswidgetbase.cpp:354
+#: widgets/applicationssettingsdialog/applicationssettingssettingswidget.cpp:83
 #, kde-format
 msgid "Apply"
 msgstr "套用"
@@ -7278,6 +7279,11 @@ msgstr "應用程式…"
 msgctxt "@info:placeholder"
 msgid "Search Private Applications"
 msgstr "應用程式 ID (iss)"
+
+#: widgets/applicationssettingsdialog/applicationssettingssettingswidget.cpp:75
+#, kde-format
+msgid "Cancel"
+msgstr "取消"
 
 #: widgets/applicationssettingsdialog/applicationssettingssortingcombobox.cpp:12
 #, kde-format
@@ -10291,12 +10297,12 @@ msgstr "加入"
 msgid "Link Preview"
 msgstr "連結預覽"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:428
+#: widgets/room/delegate/messagelistdelegate.cpp:430
 #, kde-format
 msgid "User Info"
 msgstr "使用者資訊"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:438
+#: widgets/room/delegate/messagelistdelegate.cpp:440
 #: widgets/room/messagelistview.cpp:405
 #, fuzzy, kde-format
 #| msgid "Start a Private Conversation"
@@ -10304,52 +10310,52 @@ msgctxt "@action"
 msgid "Start a Private Conversation"
 msgstr "開始私人對話"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:664
+#: widgets/room/delegate/messagelistdelegate.cpp:666
 #, kde-format
 msgid "1 reply"
 msgid_plural "%1 replies"
 msgstr[0] "%1 則回覆"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:674
+#: widgets/room/delegate/messagelistdelegate.cpp:676
 #, kde-format
 msgid "1 message"
 msgid_plural "%1 messages"
 msgstr[0] "%1 則訊息"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:674
+#: widgets/room/delegate/messagelistdelegate.cpp:676
 #, kde-format
 msgid "No message yet"
 msgstr "尚無訊息"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:983
+#: widgets/room/delegate/messagelistdelegate.cpp:985
 #, fuzzy, kde-format
 #| msgid "Follow Message"
 msgctxt "@info:tooltip"
 msgid "Following"
 msgstr "跟隨訊息"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:987
+#: widgets/room/delegate/messagelistdelegate.cpp:989
 #, fuzzy, kde-format
 #| msgid "Message has been pinned"
 msgctxt "@info:tooltip"
 msgid "Message has been pinned"
 msgstr "訊息已置頂"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:991
+#: widgets/room/delegate/messagelistdelegate.cpp:993
 #, fuzzy, kde-format
 #| msgid "No Messages found"
 msgctxt "@info:tooltip"
 msgid "Message has been starred"
 msgstr "找不到訊息"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:995
+#: widgets/room/delegate/messagelistdelegate.cpp:997
 #, fuzzy, kde-format
 #| msgid "Reply in Thread"
 msgctxt "@info:tooltip"
 msgid "Reply in Thread"
 msgstr "在對話串中回覆"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:999
+#: widgets/room/delegate/messagelistdelegate.cpp:1001
 #, fuzzy, kde-format
 #| msgid "Add Emoticon"
 msgctxt "@info:tooltip"
@@ -12223,9 +12229,6 @@ msgstr "一些錯誤修正："
 #~ msgctxt "Placeholder"
 #~ msgid "Search users…"
 #~ msgstr "搜尋使用者…"
-
-#~ msgid "Cancel"
-#~ msgstr "取消"
 
 #, fuzzy
 #~| msgid "Search Channels"
