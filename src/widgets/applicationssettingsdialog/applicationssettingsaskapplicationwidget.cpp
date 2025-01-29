@@ -50,7 +50,7 @@ void ApplicationsSettingsAskApplicationWidget::setApplicationName(const QString 
 
 void ApplicationsSettingsAskApplicationWidget::slotUpdateOkButton()
 {
-    Q_EMIT updateOkButton(!mMessage->document()->isEmpty());
+    Q_EMIT updateOkButton(!mMessage->toPlainText().trimmed().isEmpty());
 }
 
 #include "moc_applicationssettingsaskapplicationwidget.cpp"
