@@ -103,6 +103,9 @@ QString AppInfoJob::generateUrlExtension() const
     case AppInfoType::Apis:
         url += QStringLiteral("apis");
         break;
+    case AppInfoType::Languages:
+        url += QStringLiteral("languages");
+        break;
     case AppInfoType::ScreenShots:
         url += QStringLiteral("screenshots");
         break;

@@ -22,6 +22,7 @@ public:
         Apis,
         ScreenShots,
         Settings,
+        Languages,
     };
 
     explicit AppInfoJob(QObject *parent = nullptr);
