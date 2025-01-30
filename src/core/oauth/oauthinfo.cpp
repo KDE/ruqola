@@ -5,10 +5,10 @@
 */
 
 #include "oauthinfo.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "utils.h"
 
+using namespace Qt::Literals::StringLiterals;
 OauthInfo::OauthInfo() = default;
 
 QDebug operator<<(QDebug d, const OauthInfo &t)

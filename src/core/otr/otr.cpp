@@ -5,10 +5,10 @@
 */
 
 #include "otr.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "ruqola_debug.h"
 #include <QJsonObject>
+using namespace Qt::Literals::StringLiterals;
 
 Otr::Otr() = default;
 

@@ -5,12 +5,12 @@
 */
 
 #include "moderationreportinfo.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "utils.h"
 
 #include <QLocale>
 
+using namespace Qt::Literals::StringLiterals;
 ModerationReportInfo::ModerationReportInfo() = default;
 
 ModerationReportInfo::~ModerationReportInfo() = default;

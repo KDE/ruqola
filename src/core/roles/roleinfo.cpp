@@ -5,10 +5,10 @@
 */
 
 #include "roleinfo.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include <QJsonObject>
 
+using namespace Qt::Literals::StringLiterals;
 //{"_id":"admin","description":"Admin","mandatory2fa":false,"name":"admin","protected":true,"scope":"Users"},
 RoleInfo::RoleInfo() = default;
 

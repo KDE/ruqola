@@ -56,7 +56,7 @@ void AvatarManager::insertInDownloadQueue(const Utils::AvatarInfo &info)
 void AvatarManager::slotInsertAvatarUrl(const Utils::AvatarInfo &info, const QUrl &url)
 {
     const QString identifier = info.generateAvatarIdentifier();
-    qDebug() << "AvatarManager::slotInsertAvatarUrl: identifier " << identifier;
+    // qDebug() << "AvatarManager::slotInsertAvatarUrl: identifier " << identifier;
     // Use etag in identifier ?
     if (!url.isEmpty()) {
         Q_EMIT insertAvatarUrl(identifier, url);

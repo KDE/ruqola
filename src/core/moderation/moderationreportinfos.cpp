@@ -5,12 +5,12 @@
 */
 
 #include "moderationreportinfos.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "ruqola_debug.h"
 
 #include <QJsonArray>
 
+using namespace Qt::Literals::StringLiterals;
 ModerationReportInfos::ModerationReportInfos() = default;
 
 QDebug operator<<(QDebug d, const ModerationReportInfos &t)

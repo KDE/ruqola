@@ -5,13 +5,13 @@
 */
 
 #include "role.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "ruqola_debug.h"
 
 #include <QJsonArray>
 #include <QJsonObject>
 
+using namespace Qt::Literals::StringLiterals;
 Role::Role() = default;
 
 QByteArray Role::userId() const

@@ -5,9 +5,9 @@
 */
 
 #include "manageloadhistoryparsesyncmessagesutils.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "rocketchataccount.h"
+using namespace Qt::Literals::StringLiterals;
 
 ManageLoadHistoryParseSyncMessagesUtils::ManageLoadHistoryParseSyncMessagesUtils(RocketChatAccount *account)
     : mRocketChatAccount(account)

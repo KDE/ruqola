@@ -6,7 +6,6 @@
 
 #include "managelocaldatabase.h"
 #include "misc/methodcalljob.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "chat/syncmessagesjob.h"
 #include "connection.h"
@@ -19,6 +18,7 @@ using namespace Qt::Literals::StringLiterals;
 #include "ruqola_loadhistory_debug.h"
 #include "ruqolaglobalconfig.h"
 
+using namespace Qt::Literals::StringLiterals;
 #define USE_LOCALDATABASE
 ManageLocalDatabase::ManageLocalDatabase(RocketChatAccount *account, QObject *parent)
     : QObject{parent}
@@ -117,7 +117,7 @@ void ManageLocalDatabase::loadMessagesHistory(const ManageLocalDatabase::ManageL
         params.append(dateObjectEnd);
 
         params.append(QJsonValue(175)); // Max number of messages to load;
-        qDebug() << " params" << params;
+        // qDebug() << " params" << params;
     } else {
         const qint64 startDateTime = info.roomModel->generateNewStartTimeStamp(endDateTime);
         int downloadMessage = 50;
