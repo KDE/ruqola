@@ -48,7 +48,13 @@ void ApplicationsSettingsSettingsWidget::generateSettings(const QJsonObject &obj
         i.parseSettings(current.toObject());
         infos.append(std::move(i));
     }
-    generateSettingsWidgets(infos);
+    if (infos.isEmpty()) {
+        auto label = new QLabel(i18n("Applications does not have settings."), this);
+        mMainLayout->addWidget(label);
+        mMainLayout->addStretch(1);
+    } else {
+        generateSettingsWidgets(infos);
+    }
 }
 
 void ApplicationsSettingsSettingsWidget::generateSettingsWidgets(const QList<ApplicationsSettingsSettingsInfo> &infos)
