@@ -5,10 +5,14 @@
 */
 
 #include "grabscreenplugintoolconfigurewidget.h"
+#include <QVBoxLayout>
 
 GrabScreenPluginToolConfigureWidget::GrabScreenPluginToolConfigureWidget(QWidget *parent)
     : PluginToolConfigureWidget(parent)
 {
+    auto mainLayout = new QVBoxLayout(this);
+    mainLayout->setObjectName(QStringLiteral("mainLayout"));
+    // TODO add more
 }
 
 GrabScreenPluginToolConfigureWidget::~GrabScreenPluginToolConfigureWidget() = default;
