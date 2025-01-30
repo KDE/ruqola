@@ -12,7 +12,6 @@
 #include "rocketchataccount.h"
 #include "rooms/roomsautocompletechannelandprivatejob.h"
 #include "ruqolawidgets_debug.h"
-#include <KLineEditEventHandler>
 #include <QJsonObject>
 
 ChannelSearchNameLineEdit::ChannelSearchNameLineEdit(RocketChatAccount *account, QWidget *parent)
@@ -21,7 +20,6 @@ ChannelSearchNameLineEdit::ChannelSearchNameLineEdit(RocketChatAccount *account,
     , mChannelCompleterModel(new InputCompleterModel(account, this))
     , mRocketChatAccount(account)
 {
-    KLineEditEventHandler::catchReturnKey(this);
     mChannelCompleterFilterProxyModel->setSourceModel(mChannelCompleterModel);
     connect(this, &QLineEdit::textChanged, this, &ChannelSearchNameLineEdit::slotTextChanged);
     setCompletionModel(mChannelCompleterFilterProxyModel);
