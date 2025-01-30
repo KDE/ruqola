@@ -143,12 +143,6 @@ void RoomWidgetBase::slotCreateNewDiscussion(const QByteArray &messageId, const 
     dlg.exec();
 }
 
-void RoomWidgetBase::closeQuoteAndThreadInfo()
-{
-    mRoomReplyThreadWidget->setVisible(false);
-    mRoomQuoteMessageWidget->setVisible(false);
-}
-
 void RoomWidgetBase::slotCreatePrivateDiscussion(const QString &userName)
 {
     Q_EMIT mCurrentRocketChatAccount->openLinkRequested(RoomUtil::generateUserLink(userName));

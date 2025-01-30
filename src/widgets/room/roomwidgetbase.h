@@ -40,7 +40,6 @@ public:
     void updateListView();
     void updateRoomReadOnly(Room *room);
     void slotCreateNewDiscussion(const QByteArray &messageId, const QString &originalMessage, const QString &channelName);
-    void closeQuoteAndThreadInfo();
 Q_SIGNALS:
     void loadHistory();
     void createNewDiscussion(const QByteArray &messageId, const QString &originalMessage);
