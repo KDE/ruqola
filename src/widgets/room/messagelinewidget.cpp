@@ -495,6 +495,7 @@ bool MessageLineWidget::handleMimeData(const QMimeData *mimeData)
         if (dlg->exec()) {
             const UploadFileDialog::UploadFileInfo uploadFileInfo = dlg->fileInfo();
             sendFile(uploadFileInfo);
+            setThreadMessageId({});
         }
         delete dlg;
     };
