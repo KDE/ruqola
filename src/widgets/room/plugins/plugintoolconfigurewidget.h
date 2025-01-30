@@ -4,10 +4,10 @@
    SPDX-License-Identifier: LGPL-2.0-or-later
 */
 #pragma once
-
+#include "libruqolawidgets_export.h"
 #include <QWidget>
 
-class PluginToolConfigureWidget : public QWidget
+class LIBRUQOLAWIDGETS_EXPORT PluginToolConfigureWidget : public QWidget
 {
     Q_OBJECT
 public:
