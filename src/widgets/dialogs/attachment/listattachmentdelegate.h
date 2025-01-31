@@ -9,6 +9,7 @@
 #include "libruqolawidgets_private_export.h"
 #include <QItemDelegate>
 class RocketChatAccount;
+class File;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT ListAttachmentDelegate : public QItemDelegate
 {
     Q_OBJECT
@@ -50,6 +51,7 @@ private:
         QRect deleteAttachmentRect;
     };
     [[nodiscard]] LIBRUQOLAWIDGETS_NO_EXPORT ListAttachmentDelegate::Layout doLayout(const QStyleOptionViewItem &option, const QModelIndex &index) const;
+    LIBRUQOLAWIDGETS_NO_EXPORT void saveAttachment(const QStyleOptionViewItem &option, const File *file);
     const QIcon mDownloadIcon;
     const QIcon mDeleteIcon;
     RocketChatAccount *const mRocketChatAccount;

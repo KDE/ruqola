@@ -80,6 +80,16 @@ void ListAttachmentDelegate::paint(QPainter *painter, const QStyleOptionViewItem
     painter->restore();
 }
 
+void ListAttachmentDelegate::saveAttachment(const QStyleOptionViewItem &option, const File *file)
+{
+    auto parentWidget = const_cast<QWidget *>(option.widget);
+    const QString fileName = DelegateUtil::querySaveFileName(parentWidget, i18nc("@title:window", "Save Attachment"), QUrl(file->url()));
+
+    if (!fileName.isEmpty()) {
+        mRocketChatAccount->downloadFile(file->url(), QUrl::fromLocalFile(fileName));
+    }
+}
+
 bool ListAttachmentDelegate::editorEvent(QEvent *event, QAbstractItemModel *model, const QStyleOptionViewItem &option, const QModelIndex &index)
 {
     const QEvent::Type eventType = event->type();
@@ -91,12 +101,7 @@ bool ListAttachmentDelegate::editorEvent(QEvent *event, QAbstractItemModel *mode
         const Layout layout = doLayout(option, index);
 
         if (layout.downloadAttachmentRect.contains(mev->pos())) {
-            auto parentWidget = const_cast<QWidget *>(option.widget);
-            const QString fileName = DelegateUtil::querySaveFileName(parentWidget, i18nc("@title:window", "Save Attachment"), QUrl(file->url()));
-
-            if (!fileName.isEmpty()) {
-                mRocketChatAccount->downloadFile(file->url(), QUrl::fromLocalFile(fileName));
-            }
+            saveAttachment(option, file);
             return true;
         }
         if (layout.deleteAttachmentRect.contains(mev->pos()) && (file->userId() == mRocketChatAccount->userId())) {
@@ -115,12 +120,7 @@ bool ListAttachmentDelegate::editorEvent(QEvent *event, QAbstractItemModel *mode
     } else if (eventType == QEvent::MouseButtonDblClick) {
         const File *file = index.data(FilesForRoomModel::FilePointer).value<File *>();
         if (file) {
-            auto parentWidget = const_cast<QWidget *>(option.widget);
-            const QString fileName = DelegateUtil::querySaveFileName(parentWidget, i18nc("@title:window", "Save Attachment"), QUrl(file->url()));
-
-            if (!fileName.isEmpty()) {
-                mRocketChatAccount->downloadFile(file->url(), QUrl::fromLocalFile(fileName));
-            }
+            saveAttachment(option, file);
             return true;
         }
     }
