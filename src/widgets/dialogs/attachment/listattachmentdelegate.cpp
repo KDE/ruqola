@@ -109,8 +109,17 @@ bool ListAttachmentDelegate::editorEvent(QEvent *event, QAbstractItemModel *mode
                                                    KStandardGuiItem::cancel())) {
                 const QByteArray fileId = file->fileId();
                 Q_EMIT deleteAttachment(fileId);
-                // TODO
-                // appid.rocketChatAccount.deleteFileMessage(appid.selectedRoomID, fileId, appid.selectedRoom.channelType)
+            }
+            return true;
+        }
+    } else if (eventType == QEvent::MouseButtonDblClick) {
+        const File *file = index.data(FilesForRoomModel::FilePointer).value<File *>();
+        if (file) {
+            auto parentWidget = const_cast<QWidget *>(option.widget);
+            const QString fileName = DelegateUtil::querySaveFileName(parentWidget, i18nc("@title:window", "Save Attachment"), QUrl(file->url()));
+
+            if (!fileName.isEmpty()) {
+                mRocketChatAccount->downloadFile(file->url(), QUrl::fromLocalFile(fileName));
             }
             return true;
         }
