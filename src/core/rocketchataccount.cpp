@@ -1304,25 +1304,26 @@ void RocketChatAccount::loadMoreListMessages(const QByteArray &roomId)
         const int offset = mListMessageModel->rowCount();
         if (offset < mListMessageModel->total()) {
             mListMessageModel->setLoadMoreListMessagesInProgress(true);
+            const int diff = qMin(50, mListMessageModel->total() - offset);
             switch (mListMessageModel->listMessageType()) {
             case ListMessagesModel::Unknown:
                 qCWarning(RUQOLA_LOG) << " Error when using loadMoreListMessages";
                 break;
             case ListMessagesModel::StarredMessages:
-                restApi()->getStarredMessages(roomId, offset, qMin(50, mListMessageModel->total() - offset));
+                restApi()->getStarredMessages(roomId, offset, diff);
                 break;
             case ListMessagesModel::PinnedMessages:
-                restApi()->getPinnedMessages(roomId, offset, qMin(50, mListMessageModel->total() - offset));
+                restApi()->getPinnedMessages(roomId, offset, diff);
                 break;
             case ListMessagesModel::MentionsMessages:
-                restApi()->getMentionedMessages(roomId, offset, qMin(50, mListMessageModel->total() - offset));
+                restApi()->getMentionedMessages(roomId, offset, diff);
                 break;
             case ListMessagesModel::ThreadsMessages:
                 // TODO allow to search by type
-                restApi()->getThreadsList(roomId, false, offset, qMin(50, mListMessageModel->total() - offset), hasAtLeastVersion(7, 0, 0));
+                restApi()->getThreadsList(roomId, false, offset, diff, hasAtLeastVersion(7, 0, 0));
                 break;
             case ListMessagesModel::UnreadThreadsMessages:
-                restApi()->getThreadsList(roomId, true, offset, qMin(50, mListMessageModel->total() - offset), hasAtLeastVersion(7, 0, 0));
+                restApi()->getThreadsList(roomId, true, offset, diff, hasAtLeastVersion(7, 0, 0));
                 break;
             }
         }
