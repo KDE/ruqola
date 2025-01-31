@@ -8,7 +8,7 @@
 
 #include "channelgroupbasejob.h"
 #include "channels/channelhistoryjob.h"
-#include "commands/runcommandjob.h"
+#include "chat/getthreadsjob.h"
 #include "config-ruqola.h"
 #include "createchannelteaminfo.h"
 #include "libruqolacore_export.h"
@@ -112,7 +112,12 @@ public:
     void desktopDurationNotifications(const QByteArray &roomId, int value);
     void desktopSoundNotifications(const QByteArray &roomId, const QString &value);
     void getDiscussions(const QByteArray &roomId, int offset = 0, int count = 50);
-    void getThreadsList(const QByteArray &roomId, bool onlyUnread, int offset = 0, int count = 50, bool useSyntaxRc70 = false);
+    void getThreadsList(const QByteArray &roomId,
+                        bool onlyUnread,
+                        int offset = 0,
+                        int count = 50,
+                        bool useSyntaxRc70 = false,
+                        RocketChatRestApi::GetThreadsJob::TheadSearchType type = RocketChatRestApi::GetThreadsJob::TheadSearchType::All);
     void getThreadMessages(const QByteArray &threadMessageId);
     void sendMessage(const QByteArray &roomId, const QString &text, const QString &messageId = QString(), const QByteArray &threadMessageId = QByteArray());
     void getPinnedMessages(const QByteArray &roomId, int offset = 0, int count = 50);

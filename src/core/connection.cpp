@@ -29,7 +29,6 @@
 #include "chat/getsnippetedmessagesjob.h"
 #include "chat/getstarredmessagesjob.h"
 #include "chat/getthreadmessagesjob.h"
-#include "chat/getthreadsjob.h"
 #include "chat/ignoreuserjob.h"
 #include "chat/postmessagejob.h"
 #include "chat/reactonmessagejob.h"
@@ -999,12 +998,13 @@ void Connection::getDiscussions(const QByteArray &roomId, int offset, int count)
     }
 }
 
-void Connection::getThreadsList(const QByteArray &roomId, bool onlyUnread, int offset, int count, bool useSyntaxRc70)
+void Connection::getThreadsList(const QByteArray &roomId, bool onlyUnread, int offset, int count, bool useSyntaxRc70, GetThreadsJob::TheadSearchType type)
 {
     auto job = new GetThreadsJob(this);
     job->setUseSyntaxRc70(useSyntaxRc70);
     initializeRestApiJob(job);
     job->setRoomId(QString::fromLatin1(roomId));
+    job->setSearchType(type);
     QueryParameters parameters;
     QMap<QString, QueryParameters::SortOrder> map;
     map.insert(QStringLiteral("ts"), QueryParameters::SortOrder::Descendant);
