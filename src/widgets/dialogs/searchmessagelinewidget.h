@@ -5,11 +5,11 @@
 */
 
 #pragma once
-
+#include "libruqolawidgets_private_export.h"
 #include <QWidget>
 class QHBoxLayout;
 class QLineEdit;
-class SearchMessageLineWidget : public QWidget
+class LIBRUQOLAWIDGETS_TESTS_EXPORT SearchMessageLineWidget : public QWidget
 {
     Q_OBJECT
 public:

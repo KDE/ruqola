@@ -1,7 +1,6 @@
 # SPDX-FileCopyrightText: 2020-2025 Laurent Montel <montel@kde.org>
 # SPDX-License-Identifier: BSD-3-Clause
-add_library(libruqolawidgets
-    dialogs/searchmessagelinewidget.h dialogs/searchmessagelinewidget.cpp)
+add_library(libruqolawidgets)
 
 if(TARGET KF6::UserFeedbackWidgets)
     target_sources(libruqolawidgets PRIVATE
@@ -997,6 +996,9 @@ target_sources(libruqolawidgets PRIVATE
     verifynewversionwidget/verifynewversionwidget.cpp
     verifynewversionwidget/verifynewversiondialog.h
     verifynewversionwidget/verifynewversiondialog.cpp
+
+    dialogs/searchmessagelinewidget.h
+    dialogs/searchmessagelinewidget.cpp
 )
 
 if(HAVE_TEXT_AUTOCORRECTION_WIDGETS)
