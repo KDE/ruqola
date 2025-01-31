@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-01-30 00:41+0000\n"
-"PO-Revision-Date: 2025-01-24 11:29+0100\n"
+"POT-Creation-Date: 2025-01-31 00:41+0000\n"
+"PO-Revision-Date: 2025-01-30 11:01+0100\n"
 "Last-Translator: giovanni <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
 "Language: ia\n"
@@ -408,16 +408,14 @@ msgid "Allow to send email"
 msgstr "Permitte inviar eposta"
 
 #: core/apps/appsmarketplaceinfo.cpp:685
-#, fuzzy, kde-format
-#| msgid "Allow to send email"
+#, kde-format
 msgid "Allow to write role"
-msgstr "Permitte inviar eposta"
+msgstr "Permitte scriber rolo"
 
 #: core/apps/appsmarketplaceinfo.cpp:687
-#, fuzzy, kde-format
-#| msgid "Allow to send email"
+#, kde-format
 msgid "Allow to read role"
-msgstr "Permitte inviar eposta"
+msgstr "Permitte leger rolo"
 
 #: core/authenticationmanager.cpp:85
 #, kde-format
@@ -6449,7 +6447,7 @@ msgstr "Etate de Message Maxime  in messages directe"
 #: widgets/administratorsettingsdialog/settingswidgetbase.cpp:256
 #: widgets/administratorsettingsdialog/settingswidgetbase.cpp:309
 #: widgets/administratorsettingsdialog/settingswidgetbase.cpp:354
-#: widgets/applicationssettingsdialog/applicationssettingssettingswidget.cpp:83
+#: widgets/applicationssettingsdialog/applicationssettingssettingswidget.cpp:89
 #, kde-format
 msgid "Apply"
 msgstr "Applica"
@@ -6968,7 +6966,12 @@ msgctxt "@info:placeholder"
 msgid "Search Private Applications"
 msgstr "Cerca applicationes private"
 
-#: widgets/applicationssettingsdialog/applicationssettingssettingswidget.cpp:75
+#: widgets/applicationssettingsdialog/applicationssettingssettingswidget.cpp:52
+#, kde-format
+msgid "Applications does not have settings."
+msgstr ""
+
+#: widgets/applicationssettingsdialog/applicationssettingssettingswidget.cpp:81
 #, kde-format
 msgid "Cancel"
 msgstr "Cancella"

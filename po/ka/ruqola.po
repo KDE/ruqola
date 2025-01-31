@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-01-30 00:41+0000\n"
-"PO-Revision-Date: 2025-01-24 04:53+0100\n"
+"POT-Creation-Date: 2025-01-31 00:41+0000\n"
+"PO-Revision-Date: 2025-01-30 05:23+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -408,16 +408,14 @@ msgid "Allow to send email"
 msgstr "ელფოსტის გაგზავნის დაშვება"
 
 #: core/apps/appsmarketplaceinfo.cpp:685
-#, fuzzy, kde-format
-#| msgid "Allow to write oauth app settings"
+#, kde-format
 msgid "Allow to write role"
-msgstr "OAuth აპის პარამეტრების ჩაწერის დაშვება"
+msgstr "როლის ჩაწერის უფლება"
 
 #: core/apps/appsmarketplaceinfo.cpp:687
-#, fuzzy, kde-format
-#| msgid "Allow to send email"
+#, kde-format
 msgid "Allow to read role"
-msgstr "ელფოსტის გაგზავნის დაშვება"
+msgstr "როლის წაკითხვის უფლება"
 
 #: core/authenticationmanager.cpp:85
 #, kde-format
@@ -6574,7 +6572,7 @@ msgstr "პირად შეტყობინებების მაქს�
 #: widgets/administratorsettingsdialog/settingswidgetbase.cpp:256
 #: widgets/administratorsettingsdialog/settingswidgetbase.cpp:309
 #: widgets/administratorsettingsdialog/settingswidgetbase.cpp:354
-#: widgets/applicationssettingsdialog/applicationssettingssettingswidget.cpp:83
+#: widgets/applicationssettingsdialog/applicationssettingssettingswidget.cpp:89
 #, kde-format
 msgid "Apply"
 msgstr "გამოყენება"
@@ -7121,7 +7119,12 @@ msgctxt "@info:placeholder"
 msgid "Search Private Applications"
 msgstr "პირადი აპლიკაციების ძებნა"
 
-#: widgets/applicationssettingsdialog/applicationssettingssettingswidget.cpp:75
+#: widgets/applicationssettingsdialog/applicationssettingssettingswidget.cpp:52
+#, kde-format
+msgid "Applications does not have settings."
+msgstr ""
+
+#: widgets/applicationssettingsdialog/applicationssettingssettingswidget.cpp:81
 #, kde-format
 msgid "Cancel"
 msgstr "გაუქმება"

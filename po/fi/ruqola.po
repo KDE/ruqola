@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-01-30 00:41+0000\n"
+"POT-Creation-Date: 2025-01-31 00:41+0000\n"
 "PO-Revision-Date: 2024-12-07 18:13+0200\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
@@ -6539,7 +6539,7 @@ msgstr "Viestin enimmäisikä suoraviesteissä"
 #: widgets/administratorsettingsdialog/settingswidgetbase.cpp:256
 #: widgets/administratorsettingsdialog/settingswidgetbase.cpp:309
 #: widgets/administratorsettingsdialog/settingswidgetbase.cpp:354
-#: widgets/applicationssettingsdialog/applicationssettingssettingswidget.cpp:83
+#: widgets/applicationssettingsdialog/applicationssettingssettingswidget.cpp:89
 #, kde-format
 msgid "Apply"
 msgstr "Käytä"
@@ -7097,7 +7097,12 @@ msgctxt "@info:placeholder"
 msgid "Search Private Applications"
 msgstr "Etsi sovelluksia"
 
-#: widgets/applicationssettingsdialog/applicationssettingssettingswidget.cpp:75
+#: widgets/applicationssettingsdialog/applicationssettingssettingswidget.cpp:52
+#, kde-format
+msgid "Applications does not have settings."
+msgstr ""
+
+#: widgets/applicationssettingsdialog/applicationssettingssettingswidget.cpp:81
 #, kde-format
 msgid "Cancel"
 msgstr "Peru"

@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-01-30 00:41+0000\n"
-"PO-Revision-Date: 2025-01-24 07:18+0100\n"
+"POT-Creation-Date: 2025-01-31 00:41+0000\n"
+"PO-Revision-Date: 2025-01-30 07:32+0100\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
@@ -410,16 +410,14 @@ msgid "Allow to send email"
 msgstr "Dovoli pošiljanje elektronske pošte"
 
 #: core/apps/appsmarketplaceinfo.cpp:685
-#, fuzzy, kde-format
-#| msgid "Allow to write oauth app settings"
+#, kde-format
 msgid "Allow to write role"
-msgstr "Dovoli pisanje nastavitev aplikacije oauth"
+msgstr "Dovoli pisanje vloge"
 
 #: core/apps/appsmarketplaceinfo.cpp:687
-#, fuzzy, kde-format
-#| msgid "Allow to send email"
+#, kde-format
 msgid "Allow to read role"
-msgstr "Dovoli pošiljanje elektronske pošte"
+msgstr "Dovoli branje vloge"
 
 #: core/authenticationmanager.cpp:85
 #, kde-format
@@ -6594,7 +6592,7 @@ msgstr "Največja starost sporočil v neposrednih sporočilih"
 #: widgets/administratorsettingsdialog/settingswidgetbase.cpp:256
 #: widgets/administratorsettingsdialog/settingswidgetbase.cpp:309
 #: widgets/administratorsettingsdialog/settingswidgetbase.cpp:354
-#: widgets/applicationssettingsdialog/applicationssettingssettingswidget.cpp:83
+#: widgets/applicationssettingsdialog/applicationssettingssettingswidget.cpp:89
 #, kde-format
 msgid "Apply"
 msgstr "Uveljavi"
@@ -7141,7 +7139,12 @@ msgctxt "@info:placeholder"
 msgid "Search Private Applications"
 msgstr "Išči zasebne aplikacije"
 
-#: widgets/applicationssettingsdialog/applicationssettingssettingswidget.cpp:75
+#: widgets/applicationssettingsdialog/applicationssettingssettingswidget.cpp:52
+#, kde-format
+msgid "Applications does not have settings."
+msgstr ""
+
+#: widgets/applicationssettingsdialog/applicationssettingssettingswidget.cpp:81
 #, kde-format
 msgid "Cancel"
 msgstr "Prekliči"

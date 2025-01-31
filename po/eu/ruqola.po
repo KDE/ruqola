@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-01-30 00:41+0000\n"
-"PO-Revision-Date: 2025-01-24 06:22+0100\n"
+"POT-Creation-Date: 2025-01-31 00:41+0000\n"
+"PO-Revision-Date: 2025-01-31 00:27+0100\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
 "Language: eu\n"
@@ -397,29 +397,27 @@ msgstr "Livechat-eko neurrira ipinitako eremuaren konfigurazioa aldatu"
 #: core/apps/appsmarketplaceinfo.cpp:667
 #, kde-format
 msgid "Allow to write oauth app settings"
-msgstr "«oauth» aplikazioen ezarpenak idaztea baimendu"
+msgstr "Baimendu «oauth» aplikazioen ezarpenak idaztea"
 
 #: core/apps/appsmarketplaceinfo.cpp:669
 #, kde-format
 msgid "Allow to read oauth app settings"
-msgstr "«oauth» aplikazioen ezarpenak irakurtzea baimendu"
+msgstr "Baimendu «oauth» aplikazioen ezarpenak irakurtzea"
 
 #: core/apps/appsmarketplaceinfo.cpp:683
 #, kde-format
 msgid "Allow to send email"
-msgstr "E-posta bidaltzea baimendu"
+msgstr "Baimendu e-posta bidaltzea"
 
 #: core/apps/appsmarketplaceinfo.cpp:685
-#, fuzzy, kde-format
-#| msgid "Allow to write oauth app settings"
+#, kde-format
 msgid "Allow to write role"
-msgstr "«oauth» aplikazioen ezarpenak idaztea baimendu"
+msgstr "Baimendu eginkizuna idaztea"
 
 #: core/apps/appsmarketplaceinfo.cpp:687
-#, fuzzy, kde-format
-#| msgid "Allow to send email"
+#, kde-format
 msgid "Allow to read role"
-msgstr "E-posta bidaltzea baimendu"
+msgstr "Baimendu eginkizuna irakurtzea"
 
 #: core/authenticationmanager.cpp:85
 #, kde-format
@@ -6611,7 +6609,7 @@ msgstr "Zuzeneko mezuetan mezuen gehienezko adina"
 #: widgets/administratorsettingsdialog/settingswidgetbase.cpp:256
 #: widgets/administratorsettingsdialog/settingswidgetbase.cpp:309
 #: widgets/administratorsettingsdialog/settingswidgetbase.cpp:354
-#: widgets/applicationssettingsdialog/applicationssettingssettingswidget.cpp:83
+#: widgets/applicationssettingsdialog/applicationssettingssettingswidget.cpp:89
 #, kde-format
 msgid "Apply"
 msgstr "Ezarri"
@@ -7163,7 +7161,12 @@ msgctxt "@info:placeholder"
 msgid "Search Private Applications"
 msgstr "Bilatu aplikazio pribatuak"
 
-#: widgets/applicationssettingsdialog/applicationssettingssettingswidget.cpp:75
+#: widgets/applicationssettingsdialog/applicationssettingssettingswidget.cpp:52
+#, kde-format
+msgid "Applications does not have settings."
+msgstr ""
+
+#: widgets/applicationssettingsdialog/applicationssettingssettingswidget.cpp:81
 #, kde-format
 msgid "Cancel"
 msgstr "Utzi"
@@ -11325,7 +11328,7 @@ msgstr "Erakutsi zerbitzariaren informazioa elkarrizketa-koadro jakin batean"
 #: widgets/whatsnew/whatsnewtranslations.cpp:34
 #, kde-format
 msgid "Allow to Copy Image in Clipboard"
-msgstr "Irudia arbelera kopiatzea baimendu"
+msgstr "Baimendu irudia arbelera kopiatzea"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:35
 #, kde-format
@@ -11439,7 +11442,7 @@ msgstr "Erakutsi abatararen URLa konpontzea."
 #: widgets/whatsnew/whatsnewtranslations.cpp:67
 #, kde-format
 msgid "Allow to increase/decrease font (CTRL++/CTRL+-)"
-msgstr "Letra-tipoa handitzea/txikiagotzea baimendu (KTRL++/KTRL+-)"
+msgstr "Baimendu letra-tipoa handitzea/txikiagotzea (KTRL++/KTRL+-)"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:68
 #, kde-format
@@ -11537,7 +11540,7 @@ msgstr "Erabili RESTAPI erregistratzeko."
 #: widgets/whatsnew/whatsnewtranslations.cpp:87
 #, kde-format
 msgid "Allow to send multi files."
-msgstr "Hainbat fitxategi bidaltzea baimendu."
+msgstr "Baimendu hainbat fitxategi bidaltzea."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:88
 #, kde-format
@@ -11552,12 +11555,12 @@ msgstr "Rocket.Chat-en merkatu-plaza inplementatzea."
 #: widgets/whatsnew/whatsnewtranslations.cpp:97
 #, kde-format
 msgid "Allow to clean room history."
-msgstr "Gelaren historia garbitzea baimendu."
+msgstr "Baimendu gelaren historia garbitzea."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:98
 #, kde-format
 msgid "Allow to check new version."
-msgstr "Bertsio berria egiaztatzea baimendu."
+msgstr "Baimendu bertsio berria egiaztatzea."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:99
 #, kde-format
@@ -11619,7 +11622,7 @@ msgstr "Gehitu ordezkaria bilaketa-geletan taldeko elkarrizketa-koadroan."
 #, kde-format
 msgid "Allow to clean up room history when room was not opened from long time."
 msgstr ""
-"Gela denbora luzez ireki ez denean, gelaren historia garbitzea baimendu."
+"Baimendu gela denbora luzez ireki ez denean, gelaren historia garbitzea."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:125
 #, kde-format
@@ -11651,7 +11654,7 @@ msgstr "Gehitu kolorea kontu-fitxako testuari"
 #: widgets/whatsnew/whatsnewtranslations.cpp:130
 #, kde-format
 msgid "Allow to show private installed applications"
-msgstr "Pribatuan instalatutako aplikazioak erakustea baimendu"
+msgstr "Baimendu pribatuan instalatutako aplikazioak erakustea"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:135
 #, kde-format
@@ -11701,7 +11704,7 @@ msgstr "Elkarrizketa irekiko kanala konpontzea"
 #: widgets/whatsnew/whatsnewtranslations.cpp:144
 #, kde-format
 msgid "Allow to show application market settings"
-msgstr "Aplikazioaren merkatuko ezarpenak erakustea baimendu"
+msgstr "Baimendu aplikazioaren merkatuko ezarpenak erakustea"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:158
 #, kde-format
