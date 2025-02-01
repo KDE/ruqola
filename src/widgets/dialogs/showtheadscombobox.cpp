@@ -11,7 +11,7 @@ ShowTheadsComboBox::ShowTheadsComboBox(QWidget *parent)
     : QComboBox(parent)
 {
     addItem(i18n("All"), ShowTheadsComboBox::ThreadType::All);
-    addItem(i18n("Z-A"), ShowTheadsComboBox::ThreadType::Following);
+    addItem(i18n("Following"), ShowTheadsComboBox::ThreadType::Following);
     addItem(i18n("Unread"), ShowTheadsComboBox::ThreadType::Unread);
 }
 
