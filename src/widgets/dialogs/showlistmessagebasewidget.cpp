@@ -5,6 +5,7 @@
 */
 
 #include "showlistmessagebasewidget.h"
+#include "dialogs/searchmessagelinewidget.h"
 #include "model/listmessagesfilterproxymodel.h"
 #include "room/messagelistview.h"
 #include <KLineEditEventHandler>
@@ -22,7 +23,7 @@
 
 ShowListMessageBaseWidget::ShowListMessageBaseWidget(RocketChatAccount *account, QWidget *parent)
     : QWidget(parent)
-    , mSearchMessageLineEdit(new QLineEdit(this))
+    , mSearchMessageLineWidget(new SearchMessageLineWidget(this))
     , mMessageListInfo(new QLabel(this))
     , mMessageListView(new MessageListView(account, MessageListView::Mode::Viewing, this))
 #if HAVE_TEXT_TO_SPEECH
@@ -33,12 +34,9 @@ ShowListMessageBaseWidget::ShowListMessageBaseWidget(RocketChatAccount *account,
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
     mainLayout->setContentsMargins({});
 
-    mSearchMessageLineEdit->setObjectName(QStringLiteral("mSearchMessageLineEdit"));
-    mSearchMessageLineEdit->setClearButtonEnabled(true);
-    KLineEditEventHandler::catchReturnKey(mSearchMessageLineEdit);
-    mSearchMessageLineEdit->setPlaceholderText(i18nc("@info:placeholder", "Search messages…"));
-    connect(mSearchMessageLineEdit, &QLineEdit::textChanged, this, &ShowListMessageBaseWidget::slotSearchMessageTextChanged);
-    mainLayout->addWidget(mSearchMessageLineEdit);
+    mSearchMessageLineWidget->setObjectName(QStringLiteral("mSearchMessageLineWidget"));
+    connect(mSearchMessageLineWidget, &SearchMessageLineWidget::textChanged, this, &ShowListMessageBaseWidget::slotSearchMessageTextChanged);
+    mainLayout->addWidget(mSearchMessageLineWidget);
 
     mMessageListInfo->setObjectName(QStringLiteral("mMessageListInfo"));
     mMessageListInfo->setTextFormat(Qt::RichText);

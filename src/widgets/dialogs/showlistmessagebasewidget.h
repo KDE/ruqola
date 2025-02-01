@@ -9,13 +9,12 @@
 #include <QWidget>
 
 #include "libruqolawidgets_private_export.h"
-class QLineEdit;
 class MessageListView;
 class QLabel;
 class ListMessagesFilterProxyModel;
 class RocketChatAccount;
 class Room;
-
+class SearchMessageLineWidget;
 namespace TextEditTextToSpeech
 {
 class TextToSpeechContainerWidget;
@@ -41,7 +40,7 @@ private:
     LIBRUQOLAWIDGETS_NO_EXPORT void slotSearchMessageTextChanged(const QString &str);
 
     [[nodiscard]] LIBRUQOLAWIDGETS_NO_EXPORT QString displayShowMessageInRoom() const;
-    QLineEdit *const mSearchMessageLineEdit;
+    SearchMessageLineWidget *const mSearchMessageLineWidget;
     QLabel *const mMessageListInfo;
     MessageListView *const mMessageListView;
     ListMessagesFilterProxyModel *mModel = nullptr;

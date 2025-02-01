@@ -5,10 +5,10 @@
 */
 
 #include "showlistmessagebasewidgettest.h"
+#include "dialogs/searchmessagelinewidget.h"
 #include "dialogs/showlistmessagebasewidget.h"
 #include "room/messagelistview.h"
 #include <QLabel>
-#include <QLineEdit>
 #include <QTest>
 #include <QVBoxLayout>
 
@@ -26,10 +26,8 @@ void ShowListMessageBaseWidgetTest::shouldHaveDefaultValues()
     QVERIFY(mainLayout);
     QCOMPARE(mainLayout->contentsMargins(), QMargins{});
 
-    auto mSearchMessageLineEdit = w.findChild<QLineEdit *>(QStringLiteral("mSearchMessageLineEdit"));
-    QVERIFY(mSearchMessageLineEdit);
-    QVERIFY(mSearchMessageLineEdit->isClearButtonEnabled());
-    QVERIFY(!mSearchMessageLineEdit->placeholderText().isEmpty());
+    auto mSearchMessageLineWidget = w.findChild<SearchMessageLineWidget *>(QStringLiteral("mSearchMessageLineWidget"));
+    QVERIFY(mSearchMessageLineWidget);
 
     auto mMessageListInfo = w.findChild<QLabel *>(QStringLiteral("mMessageListInfo"));
     QVERIFY(mMessageListInfo);
