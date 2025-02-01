@@ -28,3 +28,5 @@ void SearchMessageLineWidgetTest::shouldHaveDefaultValues()
     QVERIFY(mSearchMessageLineEdit->isClearButtonEnabled());
     QVERIFY(!mSearchMessageLineEdit->placeholderText().isEmpty());
 }
+
+#include "moc_searchmessagelinewidgettest.cpp"
