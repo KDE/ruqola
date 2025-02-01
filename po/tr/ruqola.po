@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-01-31 00:41+0000\n"
-"PO-Revision-Date: 2025-01-30 16:46+0300\n"
+"POT-Creation-Date: 2025-02-01 00:41+0000\n"
+"PO-Revision-Date: 2025-01-31 17:16+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -1483,7 +1483,7 @@ msgstr "Tartışma Odası"
 msgid "Channel Room"
 msgstr "Kanal Odası"
 
-#: core/model/roommodel.cpp:577
+#: core/model/roommodel.cpp:577 widgets/dialogs/showtheadscombobox.cpp:15
 #, kde-format
 msgid "Unread"
 msgstr "Okunmamış"
@@ -3984,6 +3984,7 @@ msgstr "E-postaları ayırmak için “,” kullan"
 
 #: widgets/administratordialog/users/administratoruserstabwidget.cpp:33
 #: widgets/dialogs/showattachmentcombobox.cpp:19
+#: widgets/dialogs/showtheadscombobox.cpp:13
 #: widgets/room/usersinroomcombobox.cpp:20
 #: widgets/teams/teamchannelscombobox.cpp:19
 #, kde-format
@@ -7110,7 +7111,7 @@ msgstr "Özel uygulamalar ara…"
 #: widgets/applicationssettingsdialog/applicationssettingssettingswidget.cpp:52
 #, kde-format
 msgid "Applications does not have settings."
-msgstr ""
+msgstr "Uygulamanın ayarları yok."
 
 #: widgets/applicationssettingsdialog/applicationssettingssettingswidget.cpp:81
 #, kde-format
@@ -7123,6 +7124,7 @@ msgid "A-Z"
 msgstr "A–Z"
 
 #: widgets/applicationssettingsdialog/applicationssettingssortingcombobox.cpp:13
+#: widgets/dialogs/showtheadscombobox.cpp:14
 #, kde-format
 msgid "Z-A"
 msgstr "Z–A"
@@ -7673,18 +7675,18 @@ msgctxt "@title:window"
 msgid "Channel Info"
 msgstr "Kanal Bilgisi"
 
-#: widgets/dialogs/attachment/listattachmentdelegate.cpp:95
+#: widgets/dialogs/attachment/listattachmentdelegate.cpp:86
 #, kde-format
 msgctxt "@title:window"
 msgid "Save Attachment"
 msgstr "Eki Kaydet"
 
-#: widgets/dialogs/attachment/listattachmentdelegate.cpp:106
+#: widgets/dialogs/attachment/listattachmentdelegate.cpp:111
 #, kde-format
 msgid "Do you want to Delete this File?"
 msgstr "Bu dosyası silmek istediğinizden emin misiniz?"
 
-#: widgets/dialogs/attachment/listattachmentdelegate.cpp:107
+#: widgets/dialogs/attachment/listattachmentdelegate.cpp:112
 #, kde-format
 msgctxt "@title"
 msgid "Delete File"
@@ -8426,6 +8428,13 @@ msgctxt "@title:window"
 msgid "Search Messages in '%1' (%2)"
 msgstr "“%1” (%2) İçindeki İletileri Ara"
 
+#: widgets/dialogs/searchmessagelinewidget.cpp:24
+#: widgets/dialogs/showlistmessagebasewidget.cpp:39
+#, kde-format
+msgctxt "@info:placeholder"
+msgid "Search messages…"
+msgstr "İletiler ara…"
+
 #: widgets/dialogs/searchmessagewidget.cpp:47
 #, kde-format
 msgctxt "@info:placeholder"
@@ -8556,12 +8565,6 @@ msgstr "Görünüme Sığdır"
 #, kde-format
 msgid "Save Image"
 msgstr "Görseli Kaydet"
-
-#: widgets/dialogs/showlistmessagebasewidget.cpp:39
-#, kde-format
-msgctxt "@info:placeholder"
-msgid "Search messages…"
-msgstr "İletiler ara…"
 
 #: widgets/dialogs/showlistmessagebasewidget.cpp:105
 #, kde-format
@@ -10496,7 +10499,7 @@ msgstr "İletileri Dışa Aktar"
 msgid "Your email has been queued for sending."
 msgstr "E-postanız, gönderme için kuyruğa eklendi."
 
-#: widgets/room/roomwidget.cpp:524
+#: widgets/room/roomwidget.cpp:527
 #, kde-format
 msgid ""
 "A workspace admin needs to install and configure a conference call apps."
@@ -10504,7 +10507,7 @@ msgstr ""
 "Bir çalışma alanı yöneticisinin bir konferans araması uygulaması kurması ve "
 "yapılandırması gerekir."
 
-#: widgets/room/roomwidget.cpp:525
+#: widgets/room/roomwidget.cpp:528
 #, kde-format
 msgctxt "@title:window"
 msgid "Video Conference"

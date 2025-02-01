@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-01-31 00:41+0000\n"
-"PO-Revision-Date: 2025-01-30 19:57+0100\n"
+"POT-Creation-Date: 2025-02-01 00:41+0000\n"
+"PO-Revision-Date: 2025-01-31 07:47+0100\n"
 "Last-Translator: Stefan Asserhäll <stefan.asserhall@gmail.com>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
 "Language: sv\n"
@@ -1480,7 +1480,7 @@ msgstr "Diskussionsrum"
 msgid "Channel Room"
 msgstr "Kanalrum"
 
-#: core/model/roommodel.cpp:577
+#: core/model/roommodel.cpp:577 widgets/dialogs/showtheadscombobox.cpp:15
 #, kde-format
 msgid "Unread"
 msgstr "Oläst"
@@ -3990,6 +3990,7 @@ msgstr "Använd ',' för att separera e-post"
 
 #: widgets/administratordialog/users/administratoruserstabwidget.cpp:33
 #: widgets/dialogs/showattachmentcombobox.cpp:19
+#: widgets/dialogs/showtheadscombobox.cpp:13
 #: widgets/room/usersinroomcombobox.cpp:20
 #: widgets/teams/teamchannelscombobox.cpp:19
 #, kde-format
@@ -7125,7 +7126,7 @@ msgstr "Sök efter privata program"
 #: widgets/applicationssettingsdialog/applicationssettingssettingswidget.cpp:52
 #, kde-format
 msgid "Applications does not have settings."
-msgstr ""
+msgstr "Programmen har inga inställningar."
 
 #: widgets/applicationssettingsdialog/applicationssettingssettingswidget.cpp:81
 #, kde-format
@@ -7138,6 +7139,7 @@ msgid "A-Z"
 msgstr "A-Z"
 
 #: widgets/applicationssettingsdialog/applicationssettingssortingcombobox.cpp:13
+#: widgets/dialogs/showtheadscombobox.cpp:14
 #, kde-format
 msgid "Z-A"
 msgstr "Z-A"
@@ -7688,18 +7690,18 @@ msgctxt "@title:window"
 msgid "Channel Info"
 msgstr "Kanalinformation"
 
-#: widgets/dialogs/attachment/listattachmentdelegate.cpp:95
+#: widgets/dialogs/attachment/listattachmentdelegate.cpp:86
 #, kde-format
 msgctxt "@title:window"
 msgid "Save Attachment"
 msgstr "Spara bilaga"
 
-#: widgets/dialogs/attachment/listattachmentdelegate.cpp:106
+#: widgets/dialogs/attachment/listattachmentdelegate.cpp:111
 #, kde-format
 msgid "Do you want to Delete this File?"
 msgstr "Vill du ta bort den här filen?"
 
-#: widgets/dialogs/attachment/listattachmentdelegate.cpp:107
+#: widgets/dialogs/attachment/listattachmentdelegate.cpp:112
 #, kde-format
 msgctxt "@title"
 msgid "Delete File"
@@ -8439,6 +8441,13 @@ msgctxt "@title:window"
 msgid "Search Messages in '%1' (%2)"
 msgstr "Sök meddelanden i '%1' (%2)"
 
+#: widgets/dialogs/searchmessagelinewidget.cpp:24
+#: widgets/dialogs/showlistmessagebasewidget.cpp:39
+#, kde-format
+msgctxt "@info:placeholder"
+msgid "Search messages…"
+msgstr "Sök efter meddelanden…"
+
 #: widgets/dialogs/searchmessagewidget.cpp:47
 #, kde-format
 msgctxt "@info:placeholder"
@@ -8569,12 +8578,6 @@ msgstr "Anpassa"
 #, kde-format
 msgid "Save Image"
 msgstr "Spara bild"
-
-#: widgets/dialogs/showlistmessagebasewidget.cpp:39
-#, kde-format
-msgctxt "@info:placeholder"
-msgid "Search messages…"
-msgstr "Sök efter meddelanden…"
 
 #: widgets/dialogs/showlistmessagebasewidget.cpp:105
 #, kde-format
@@ -10498,7 +10501,7 @@ msgstr "Exportera meddelanden"
 msgid "Your email has been queued for sending."
 msgstr "Brevet har köats för att skickas."
 
-#: widgets/room/roomwidget.cpp:524
+#: widgets/room/roomwidget.cpp:527
 #, kde-format
 msgid ""
 "A workspace admin needs to install and configure a conference call apps."
@@ -10506,7 +10509,7 @@ msgstr ""
 "En administratör av arbetsytan måste installera och ställa in ett program "
 "för konferenssamtal."
 
-#: widgets/room/roomwidget.cpp:525
+#: widgets/room/roomwidget.cpp:528
 #, kde-format
 msgctxt "@title:window"
 msgid "Video Conference"

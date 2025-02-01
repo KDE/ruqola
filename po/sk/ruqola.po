@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-01-31 00:41+0000\n"
+"POT-Creation-Date: 2025-02-01 00:41+0000\n"
 "PO-Revision-Date: 2019-07-29 20:25+0200\n"
 "Last-Translator: Roman Paholík <wizzardsk@gmail.com>\n"
 "Language-Team: Slovak <kde-sk@linux.sk>\n"
@@ -1572,7 +1572,7 @@ msgstr "Hľadať súbor..."
 msgid "Channel Room"
 msgstr "Názov kanála"
 
-#: core/model/roommodel.cpp:577
+#: core/model/roommodel.cpp:577 widgets/dialogs/showtheadscombobox.cpp:15
 #, fuzzy, kde-format
 #| msgid "Threads"
 msgid "Unread"
@@ -4232,6 +4232,7 @@ msgstr ""
 
 #: widgets/administratordialog/users/administratoruserstabwidget.cpp:33
 #: widgets/dialogs/showattachmentcombobox.cpp:19
+#: widgets/dialogs/showtheadscombobox.cpp:13
 #: widgets/room/usersinroomcombobox.cpp:20
 #: widgets/teams/teamchannelscombobox.cpp:19
 #, kde-format
@@ -7370,6 +7371,7 @@ msgid "A-Z"
 msgstr ""
 
 #: widgets/applicationssettingsdialog/applicationssettingssortingcombobox.cpp:13
+#: widgets/dialogs/showtheadscombobox.cpp:14
 #, kde-format
 msgid "Z-A"
 msgstr ""
@@ -7968,19 +7970,19 @@ msgctxt "@title:window"
 msgid "Channel Info"
 msgstr "Názov kanála"
 
-#: widgets/dialogs/attachment/listattachmentdelegate.cpp:95
+#: widgets/dialogs/attachment/listattachmentdelegate.cpp:86
 #, fuzzy, kde-format
 #| msgid "Attachments"
 msgctxt "@title:window"
 msgid "Save Attachment"
 msgstr "Prílohy"
 
-#: widgets/dialogs/attachment/listattachmentdelegate.cpp:106
+#: widgets/dialogs/attachment/listattachmentdelegate.cpp:111
 #, kde-format
 msgid "Do you want to Delete this File?"
 msgstr ""
 
-#: widgets/dialogs/attachment/listattachmentdelegate.cpp:107
+#: widgets/dialogs/attachment/listattachmentdelegate.cpp:112
 #, fuzzy, kde-format
 #| msgid "Select File..."
 msgctxt "@title"
@@ -8786,6 +8788,14 @@ msgctxt "@title:window"
 msgid "Search Messages in '%1' (%2)"
 msgstr "Hľadať súbor..."
 
+#: widgets/dialogs/searchmessagelinewidget.cpp:24
+#: widgets/dialogs/showlistmessagebasewidget.cpp:39
+#, fuzzy, kde-format
+#| msgid "Search File..."
+msgctxt "@info:placeholder"
+msgid "Search messages…"
+msgstr "Hľadať súbor..."
+
 #: widgets/dialogs/searchmessagewidget.cpp:47
 #, fuzzy, kde-format
 #| msgid "Search File..."
@@ -8926,13 +8936,6 @@ msgstr ""
 #| msgid "Image"
 msgid "Save Image"
 msgstr "Obrázok"
-
-#: widgets/dialogs/showlistmessagebasewidget.cpp:39
-#, fuzzy, kde-format
-#| msgid "Search File..."
-msgctxt "@info:placeholder"
-msgid "Search messages…"
-msgstr "Hľadať súbor..."
 
 #: widgets/dialogs/showlistmessagebasewidget.cpp:105
 #, kde-format
@@ -11013,13 +11016,13 @@ msgstr "Správa"
 msgid "Your email has been queued for sending."
 msgstr ""
 
-#: widgets/room/roomwidget.cpp:524
+#: widgets/room/roomwidget.cpp:527
 #, kde-format
 msgid ""
 "A workspace admin needs to install and configure a conference call apps."
 msgstr ""
 
-#: widgets/room/roomwidget.cpp:525
+#: widgets/room/roomwidget.cpp:528
 #, kde-format
 msgctxt "@title:window"
 msgid "Video Conference"

@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-01-31 00:41+0000\n"
-"PO-Revision-Date: 2025-01-30 10:26+0100\n"
+"POT-Creation-Date: 2025-02-01 00:41+0000\n"
+"PO-Revision-Date: 2025-01-31 11:16+0100\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
 "Language: nl\n"
@@ -1483,7 +1483,7 @@ msgstr "Discussieroom"
 msgid "Channel Room"
 msgstr "Kanaalroom"
 
-#: core/model/roommodel.cpp:577
+#: core/model/roommodel.cpp:577 widgets/dialogs/showtheadscombobox.cpp:15
 #, kde-format
 msgid "Unread"
 msgstr "Ongelezen"
@@ -4012,6 +4012,7 @@ msgstr "Gebruik ',' voor scheiden van e-mails"
 
 #: widgets/administratordialog/users/administratoruserstabwidget.cpp:33
 #: widgets/dialogs/showattachmentcombobox.cpp:19
+#: widgets/dialogs/showtheadscombobox.cpp:13
 #: widgets/room/usersinroomcombobox.cpp:20
 #: widgets/teams/teamchannelscombobox.cpp:19
 #, kde-format
@@ -7168,7 +7169,7 @@ msgstr "Private toepassingen zoeken"
 #: widgets/applicationssettingsdialog/applicationssettingssettingswidget.cpp:52
 #, kde-format
 msgid "Applications does not have settings."
-msgstr ""
+msgstr "Toepassingen hebben geen instellingen."
 
 #: widgets/applicationssettingsdialog/applicationssettingssettingswidget.cpp:81
 #, kde-format
@@ -7181,6 +7182,7 @@ msgid "A-Z"
 msgstr "A-Z"
 
 #: widgets/applicationssettingsdialog/applicationssettingssortingcombobox.cpp:13
+#: widgets/dialogs/showtheadscombobox.cpp:14
 #, kde-format
 msgid "Z-A"
 msgstr "Z-A"
@@ -7732,18 +7734,18 @@ msgctxt "@title:window"
 msgid "Channel Info"
 msgstr "Kanaalinformatie"
 
-#: widgets/dialogs/attachment/listattachmentdelegate.cpp:95
+#: widgets/dialogs/attachment/listattachmentdelegate.cpp:86
 #, kde-format
 msgctxt "@title:window"
 msgid "Save Attachment"
 msgstr "Bijlage opslaan"
 
-#: widgets/dialogs/attachment/listattachmentdelegate.cpp:106
+#: widgets/dialogs/attachment/listattachmentdelegate.cpp:111
 #, kde-format
 msgid "Do you want to Delete this File?"
 msgstr "Wilt u dit bestand verwijderen?"
 
-#: widgets/dialogs/attachment/listattachmentdelegate.cpp:107
+#: widgets/dialogs/attachment/listattachmentdelegate.cpp:112
 #, kde-format
 msgctxt "@title"
 msgid "Delete File"
@@ -8485,6 +8487,13 @@ msgctxt "@title:window"
 msgid "Search Messages in '%1' (%2)"
 msgstr "Berichten zoeken in '%1' (%2)"
 
+#: widgets/dialogs/searchmessagelinewidget.cpp:24
+#: widgets/dialogs/showlistmessagebasewidget.cpp:39
+#, kde-format
+msgctxt "@info:placeholder"
+msgid "Search messages…"
+msgstr "Berichten doorzoeken…"
+
 #: widgets/dialogs/searchmessagewidget.cpp:47
 #, kde-format
 msgctxt "@info:placeholder"
@@ -8615,12 +8624,6 @@ msgstr "Laten passen om te bekijken"
 #, kde-format
 msgid "Save Image"
 msgstr "Afbeelding opslaan"
-
-#: widgets/dialogs/showlistmessagebasewidget.cpp:39
-#, kde-format
-msgctxt "@info:placeholder"
-msgid "Search messages…"
-msgstr "Berichten doorzoeken…"
 
 #: widgets/dialogs/showlistmessagebasewidget.cpp:105
 #, kde-format
@@ -10554,7 +10557,7 @@ msgstr "Berichten exporteren"
 msgid "Your email has been queued for sending."
 msgstr "Uw e-mailbericht is klaargezet voor verzending."
 
-#: widgets/room/roomwidget.cpp:524
+#: widgets/room/roomwidget.cpp:527
 #, kde-format
 msgid ""
 "A workspace admin needs to install and configure a conference call apps."
@@ -10562,7 +10565,7 @@ msgstr ""
 "Een beheerder van werkruimte moet een toepassing voor een conferentieoproep "
 "installeren en configureren."
 
-#: widgets/room/roomwidget.cpp:525
+#: widgets/room/roomwidget.cpp:528
 #, kde-format
 msgctxt "@title:window"
 msgid "Video Conference"

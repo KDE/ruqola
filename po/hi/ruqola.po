@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-01-31 00:41+0000\n"
+"POT-Creation-Date: 2025-02-01 00:41+0000\n"
 "PO-Revision-Date: 2024-12-15 19:31+0530\n"
 "Last-Translator: kali <skkalwar999@gmail.com>\n"
 "Language-Team: Hindi <kde-i18n-doc@kde.org>\n"
@@ -1486,7 +1486,7 @@ msgstr "चर्चा कक्ष"
 msgid "Channel Room"
 msgstr "चैनल रूम"
 
-#: core/model/roommodel.cpp:577
+#: core/model/roommodel.cpp:577 widgets/dialogs/showtheadscombobox.cpp:15
 #, kde-format
 msgid "Unread"
 msgstr "अपठित ग"
@@ -3989,6 +3989,7 @@ msgstr "अलग-अलग ईमेल के लिए ',' का प्र�
 
 #: widgets/administratordialog/users/administratoruserstabwidget.cpp:33
 #: widgets/dialogs/showattachmentcombobox.cpp:19
+#: widgets/dialogs/showtheadscombobox.cpp:13
 #: widgets/room/usersinroomcombobox.cpp:20
 #: widgets/teams/teamchannelscombobox.cpp:19
 #, kde-format
@@ -7125,6 +7126,7 @@ msgid "A-Z"
 msgstr "ए-जेड"
 
 #: widgets/applicationssettingsdialog/applicationssettingssortingcombobox.cpp:13
+#: widgets/dialogs/showtheadscombobox.cpp:14
 #, kde-format
 msgid "Z-A"
 msgstr "जेड-ए"
@@ -7674,18 +7676,18 @@ msgctxt "@title:window"
 msgid "Channel Info"
 msgstr "चैनल जानकारी"
 
-#: widgets/dialogs/attachment/listattachmentdelegate.cpp:95
+#: widgets/dialogs/attachment/listattachmentdelegate.cpp:86
 #, kde-format
 msgctxt "@title:window"
 msgid "Save Attachment"
 msgstr "अनुलग्नक सहेजें"
 
-#: widgets/dialogs/attachment/listattachmentdelegate.cpp:106
+#: widgets/dialogs/attachment/listattachmentdelegate.cpp:111
 #, kde-format
 msgid "Do you want to Delete this File?"
 msgstr "क्या आप इस फ़ाइल को हटाना चाहते हैं?"
 
-#: widgets/dialogs/attachment/listattachmentdelegate.cpp:107
+#: widgets/dialogs/attachment/listattachmentdelegate.cpp:112
 #, kde-format
 msgctxt "@title"
 msgid "Delete File"
@@ -8421,6 +8423,13 @@ msgctxt "@title:window"
 msgid "Search Messages in '%1' (%2)"
 msgstr "'%1' (%2) में संदेश खोजें"
 
+#: widgets/dialogs/searchmessagelinewidget.cpp:24
+#: widgets/dialogs/showlistmessagebasewidget.cpp:39
+#, kde-format
+msgctxt "@info:placeholder"
+msgid "Search messages…"
+msgstr "संदेश खोजें…"
+
 #: widgets/dialogs/searchmessagewidget.cpp:47
 #, kde-format
 msgctxt "@info:placeholder"
@@ -8551,12 +8560,6 @@ msgstr "देखने के लिए उपयुक्त"
 #, kde-format
 msgid "Save Image"
 msgstr "चित्र को सेव करें"
-
-#: widgets/dialogs/showlistmessagebasewidget.cpp:39
-#, kde-format
-msgctxt "@info:placeholder"
-msgid "Search messages…"
-msgstr "संदेश खोजें…"
 
 #: widgets/dialogs/showlistmessagebasewidget.cpp:105
 #, kde-format
@@ -10475,7 +10478,7 @@ msgstr "संदेश निर्यात करें"
 msgid "Your email has been queued for sending."
 msgstr "आपका ईमेल भेजने के लिए कतारबद्ध कर दिया गया है."
 
-#: widgets/room/roomwidget.cpp:524
+#: widgets/room/roomwidget.cpp:527
 #, kde-format
 msgid ""
 "A workspace admin needs to install and configure a conference call apps."
@@ -10483,7 +10486,7 @@ msgstr ""
 "कार्यस्थान व्यवस्थापक को कॉन्फ़्रेंस कॉल एप्लिकेशन इंस्टॉल और कॉन्फ़िगर करने की आवश्यकता होती "
 "है।"
 
-#: widgets/room/roomwidget.cpp:525
+#: widgets/room/roomwidget.cpp:528
 #, kde-format
 msgctxt "@title:window"
 msgid "Video Conference"

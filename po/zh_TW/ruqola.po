@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-01-31 00:41+0000\n"
+"POT-Creation-Date: 2025-02-01 00:41+0000\n"
 "PO-Revision-Date: 2024-08-06 05:33+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
@@ -1506,7 +1506,7 @@ msgstr "討論室"
 msgid "Channel Room"
 msgstr "頻道聊天室"
 
-#: core/model/roommodel.cpp:577
+#: core/model/roommodel.cpp:577 widgets/dialogs/showtheadscombobox.cpp:15
 #, kde-format
 msgid "Unread"
 msgstr "未讀"
@@ -4102,6 +4102,7 @@ msgstr ""
 
 #: widgets/administratordialog/users/administratoruserstabwidget.cpp:33
 #: widgets/dialogs/showattachmentcombobox.cpp:19
+#: widgets/dialogs/showtheadscombobox.cpp:13
 #: widgets/room/usersinroomcombobox.cpp:20
 #: widgets/teams/teamchannelscombobox.cpp:19
 #, kde-format
@@ -7308,6 +7309,7 @@ msgid "A-Z"
 msgstr "A 到 Z"
 
 #: widgets/applicationssettingsdialog/applicationssettingssortingcombobox.cpp:13
+#: widgets/dialogs/showtheadscombobox.cpp:14
 #, kde-format
 msgid "Z-A"
 msgstr "Z 到 A"
@@ -7899,19 +7901,19 @@ msgctxt "@title:window"
 msgid "Channel Info"
 msgstr "頻道資訊"
 
-#: widgets/dialogs/attachment/listattachmentdelegate.cpp:95
+#: widgets/dialogs/attachment/listattachmentdelegate.cpp:86
 #, fuzzy, kde-format
 #| msgid "Save Attachment"
 msgctxt "@title:window"
 msgid "Save Attachment"
 msgstr "儲存附件"
 
-#: widgets/dialogs/attachment/listattachmentdelegate.cpp:106
+#: widgets/dialogs/attachment/listattachmentdelegate.cpp:111
 #, kde-format
 msgid "Do you want to Delete this File?"
 msgstr "您確定要刪除這個檔案嗎？"
 
-#: widgets/dialogs/attachment/listattachmentdelegate.cpp:107
+#: widgets/dialogs/attachment/listattachmentdelegate.cpp:112
 #, kde-format
 msgctxt "@title"
 msgid "Delete File"
@@ -8691,6 +8693,14 @@ msgctxt "@title:window"
 msgid "Search Messages in '%1' (%2)"
 msgstr "在「%1」中搜尋訊息（%2）"
 
+#: widgets/dialogs/searchmessagelinewidget.cpp:24
+#: widgets/dialogs/showlistmessagebasewidget.cpp:39
+#, fuzzy, kde-format
+#| msgid "Search messages"
+msgctxt "@info:placeholder"
+msgid "Search messages…"
+msgstr "搜尋訊息"
+
 #: widgets/dialogs/searchmessagewidget.cpp:47
 #, fuzzy, kde-format
 #| msgid "Search messages"
@@ -8824,13 +8834,6 @@ msgstr "適合檢視大小"
 #, kde-format
 msgid "Save Image"
 msgstr "儲存影像"
-
-#: widgets/dialogs/showlistmessagebasewidget.cpp:39
-#, fuzzy, kde-format
-#| msgid "Search messages"
-msgctxt "@info:placeholder"
-msgid "Search messages…"
-msgstr "搜尋訊息"
 
 #: widgets/dialogs/showlistmessagebasewidget.cpp:105
 #, kde-format
@@ -10863,13 +10866,13 @@ msgstr "匯出訊息"
 msgid "Your email has been queued for sending."
 msgstr ""
 
-#: widgets/room/roomwidget.cpp:524
+#: widgets/room/roomwidget.cpp:527
 #, kde-format
 msgid ""
 "A workspace admin needs to install and configure a conference call apps."
 msgstr "需要有工作空間管理員安裝並設定會議通話 app。"
 
-#: widgets/room/roomwidget.cpp:525
+#: widgets/room/roomwidget.cpp:528
 #, fuzzy, kde-format
 #| msgid "Video Conference"
 msgctxt "@title:window"

@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-01-31 00:41+0000\n"
+"POT-Creation-Date: 2025-02-01 00:41+0000\n"
 "PO-Revision-Date: 2025-01-25 10:35+0100\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
 "Language-Team: French <French <kde-francophone@kde.org>>\n"
@@ -1486,7 +1486,7 @@ msgstr "Salon de discussions"
 msgid "Channel Room"
 msgstr "Salon de canal"
 
-#: core/model/roommodel.cpp:577
+#: core/model/roommodel.cpp:577 widgets/dialogs/showtheadscombobox.cpp:15
 #, kde-format
 msgid "Unread"
 msgstr "Non lu"
@@ -4029,6 +4029,7 @@ msgstr "Utiliser « , » pour la séparation des courriels"
 
 #: widgets/administratordialog/users/administratoruserstabwidget.cpp:33
 #: widgets/dialogs/showattachmentcombobox.cpp:19
+#: widgets/dialogs/showtheadscombobox.cpp:13
 #: widgets/room/usersinroomcombobox.cpp:20
 #: widgets/teams/teamchannelscombobox.cpp:19
 #, kde-format
@@ -7231,6 +7232,7 @@ msgid "A-Z"
 msgstr "A - Z"
 
 #: widgets/applicationssettingsdialog/applicationssettingssortingcombobox.cpp:13
+#: widgets/dialogs/showtheadscombobox.cpp:14
 #, kde-format
 msgid "Z-A"
 msgstr "Z - A"
@@ -7783,18 +7785,18 @@ msgctxt "@title:window"
 msgid "Channel Info"
 msgstr "Informations sur le canal"
 
-#: widgets/dialogs/attachment/listattachmentdelegate.cpp:95
+#: widgets/dialogs/attachment/listattachmentdelegate.cpp:86
 #, kde-format
 msgctxt "@title:window"
 msgid "Save Attachment"
 msgstr "Enregistrer une pièce jointe"
 
-#: widgets/dialogs/attachment/listattachmentdelegate.cpp:106
+#: widgets/dialogs/attachment/listattachmentdelegate.cpp:111
 #, kde-format
 msgid "Do you want to Delete this File?"
 msgstr "Voulez-vous vraiment supprimer ce fichier ?"
 
-#: widgets/dialogs/attachment/listattachmentdelegate.cpp:107
+#: widgets/dialogs/attachment/listattachmentdelegate.cpp:112
 #, kde-format
 msgctxt "@title"
 msgid "Delete File"
@@ -8538,6 +8540,13 @@ msgctxt "@title:window"
 msgid "Search Messages in '%1' (%2)"
 msgstr "Rechercher des messages dans « %1 » (%2)"
 
+#: widgets/dialogs/searchmessagelinewidget.cpp:24
+#: widgets/dialogs/showlistmessagebasewidget.cpp:39
+#, kde-format
+msgctxt "@info:placeholder"
+msgid "Search messages…"
+msgstr "Rechercher des messages..."
+
 #: widgets/dialogs/searchmessagewidget.cpp:47
 #, kde-format
 msgctxt "@info:placeholder"
@@ -8669,12 +8678,6 @@ msgstr "Adapter à l'affichage"
 #, kde-format
 msgid "Save Image"
 msgstr "Enregistrer une image"
-
-#: widgets/dialogs/showlistmessagebasewidget.cpp:39
-#, kde-format
-msgctxt "@info:placeholder"
-msgid "Search messages…"
-msgstr "Rechercher des messages..."
 
 #: widgets/dialogs/showlistmessagebasewidget.cpp:105
 #, kde-format
@@ -10622,7 +10625,7 @@ msgstr "Exporter des messages"
 msgid "Your email has been queued for sending."
 msgstr "Un courrier électronique a été mis dans la liste d'attente pour envoi."
 
-#: widgets/room/roomwidget.cpp:524
+#: widgets/room/roomwidget.cpp:527
 #, kde-format
 msgid ""
 "A workspace admin needs to install and configure a conference call apps."
@@ -10630,7 +10633,7 @@ msgstr ""
 "Un administrateur d'espace de travail doit installer et configurer des "
 "applications de conférence téléphonique."
 
-#: widgets/room/roomwidget.cpp:525
+#: widgets/room/roomwidget.cpp:528
 #, kde-format
 msgctxt "@title:window"
 msgid "Video Conference"

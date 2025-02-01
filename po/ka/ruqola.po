@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-01-31 00:41+0000\n"
-"PO-Revision-Date: 2025-01-30 05:23+0100\n"
+"POT-Creation-Date: 2025-02-01 00:41+0000\n"
+"PO-Revision-Date: 2025-01-31 05:29+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -1481,7 +1481,7 @@ msgstr "კამათის ოთახი"
 msgid "Channel Room"
 msgstr "არხის ოთახი"
 
-#: core/model/roommodel.cpp:577
+#: core/model/roommodel.cpp:577 widgets/dialogs/showtheadscombobox.cpp:15
 #, kde-format
 msgid "Unread"
 msgstr "წაუკითხავი"
@@ -3998,6 +3998,7 @@ msgstr "ელფოსტების დასაშორებლად ',' 
 
 #: widgets/administratordialog/users/administratoruserstabwidget.cpp:33
 #: widgets/dialogs/showattachmentcombobox.cpp:19
+#: widgets/dialogs/showtheadscombobox.cpp:13
 #: widgets/room/usersinroomcombobox.cpp:20
 #: widgets/teams/teamchannelscombobox.cpp:19
 #, kde-format
@@ -7122,7 +7123,7 @@ msgstr "პირადი აპლიკაციების ძებნა"
 #: widgets/applicationssettingsdialog/applicationssettingssettingswidget.cpp:52
 #, kde-format
 msgid "Applications does not have settings."
-msgstr ""
+msgstr "აპლიკაციებს პარამეტრები არ აქვთ."
 
 #: widgets/applicationssettingsdialog/applicationssettingssettingswidget.cpp:81
 #, kde-format
@@ -7135,6 +7136,7 @@ msgid "A-Z"
 msgstr "A-Z"
 
 #: widgets/applicationssettingsdialog/applicationssettingssortingcombobox.cpp:13
+#: widgets/dialogs/showtheadscombobox.cpp:14
 #, kde-format
 msgid "Z-A"
 msgstr "Z-A"
@@ -7685,18 +7687,18 @@ msgctxt "@title:window"
 msgid "Channel Info"
 msgstr "არხის ინფორმაცია"
 
-#: widgets/dialogs/attachment/listattachmentdelegate.cpp:95
+#: widgets/dialogs/attachment/listattachmentdelegate.cpp:86
 #, kde-format
 msgctxt "@title:window"
 msgid "Save Attachment"
 msgstr "მიმაგრებული ფაილის შენახვა"
 
-#: widgets/dialogs/attachment/listattachmentdelegate.cpp:106
+#: widgets/dialogs/attachment/listattachmentdelegate.cpp:111
 #, kde-format
 msgid "Do you want to Delete this File?"
 msgstr "ნამდვილად გსურთ, წაშალოთ ეს ფაილი?"
 
-#: widgets/dialogs/attachment/listattachmentdelegate.cpp:107
+#: widgets/dialogs/attachment/listattachmentdelegate.cpp:112
 #, kde-format
 msgctxt "@title"
 msgid "Delete File"
@@ -8434,6 +8436,13 @@ msgctxt "@title:window"
 msgid "Search Messages in '%1' (%2)"
 msgstr "'%1'-ის შეტყობინებებში ძებნა (%2)"
 
+#: widgets/dialogs/searchmessagelinewidget.cpp:24
+#: widgets/dialogs/showlistmessagebasewidget.cpp:39
+#, kde-format
+msgctxt "@info:placeholder"
+msgid "Search messages…"
+msgstr "შეტყობინებებში ძებნა…"
+
 #: widgets/dialogs/searchmessagewidget.cpp:47
 #, kde-format
 msgctxt "@info:placeholder"
@@ -8564,12 +8573,6 @@ msgstr "ხედში ჩატევა"
 #, kde-format
 msgid "Save Image"
 msgstr "გამოსახულების შენახვა"
-
-#: widgets/dialogs/showlistmessagebasewidget.cpp:39
-#, kde-format
-msgctxt "@info:placeholder"
-msgid "Search messages…"
-msgstr "შეტყობინებებში ძებნა…"
 
 #: widgets/dialogs/showlistmessagebasewidget.cpp:105
 #, kde-format
@@ -10495,7 +10498,7 @@ msgstr "შეტყობინებების გატანა"
 msgid "Your email has been queued for sending."
 msgstr "თქვენი ელფოსტა რიგშია გასაგზავნად."
 
-#: widgets/room/roomwidget.cpp:524
+#: widgets/room/roomwidget.cpp:527
 #, kde-format
 msgid ""
 "A workspace admin needs to install and configure a conference call apps."
@@ -10503,7 +10506,7 @@ msgstr ""
 "სამუშაო სივრცის ადმინისტრატორმა საკონფერენციო ზარის აპები უნდა დააყენოს და "
 "მოირგოს."
 
-#: widgets/room/roomwidget.cpp:525
+#: widgets/room/roomwidget.cpp:528
 #, kde-format
 msgctxt "@title:window"
 msgid "Video Conference"
