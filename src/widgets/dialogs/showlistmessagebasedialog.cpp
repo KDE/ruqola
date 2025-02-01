@@ -64,4 +64,9 @@ void ShowListMessageBaseDialog::setRoom(Room *room)
     mShowListMessage->setRoom(room);
 }
 
+void ShowListMessageBaseDialog::addMessageLineWidget(QWidget *w)
+{
+    mShowListMessage->addMessageLineWidget(w);
+}
+
 #include "moc_showlistmessagebasedialog.cpp"

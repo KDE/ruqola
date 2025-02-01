@@ -26,6 +26,8 @@ public:
     [[nodiscard]] QByteArray roomId() const;
     void setRoom(Room *room);
 
+    void addMessageLineWidget(QWidget *w);
+
 Q_SIGNALS:
     void goToMessageRequested(const QByteArray &messageId, const QString &messageDateTimeUtc);
 

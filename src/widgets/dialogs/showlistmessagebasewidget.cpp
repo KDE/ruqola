@@ -89,6 +89,11 @@ void ShowListMessageBaseWidget::setRoom(Room *room)
     mMessageListView->setRoom(room);
 }
 
+void ShowListMessageBaseWidget::addMessageLineWidget(QWidget *w)
+{
+    mSearchMessageLineWidget->addMessageLineWidget(w);
+}
+
 void ShowListMessageBaseWidget::updateLabel()
 {
     if (mModel->loadMoreListMessagesInProgress()) {

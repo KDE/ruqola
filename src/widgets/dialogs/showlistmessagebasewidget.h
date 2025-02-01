@@ -32,6 +32,8 @@ public:
 
     void setRoom(Room *room);
 
+    void addMessageLineWidget(QWidget *w);
+
 Q_SIGNALS:
     void loadMoreElements();
 
