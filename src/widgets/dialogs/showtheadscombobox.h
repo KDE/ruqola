@@ -5,10 +5,10 @@
 */
 
 #pragma once
-
+#include "libruqolawidgets_private_export.h"
 #include <QComboBox>
 
-class ShowTheadsComboBox : public QComboBox
+class LIBRUQOLAWIDGETS_TESTS_EXPORT ShowTheadsComboBox : public QComboBox
 {
     Q_OBJECT
 public:

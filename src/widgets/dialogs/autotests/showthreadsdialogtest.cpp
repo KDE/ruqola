@@ -5,6 +5,7 @@
 */
 
 #include "showthreadsdialogtest.h"
+#include "dialogs/showtheadscombobox.h"
 #include "dialogs/showthreadsdialog.h"
 #include <QDialogButtonBox>
 #include <QStandardPaths>
@@ -28,6 +29,9 @@ void ShowThreadsDialogTest::shouldHaveDefaultValues()
 
     auto button = w.findChild<QDialogButtonBox *>(QStringLiteral("button"));
     QVERIFY(button);
+
+    auto mShowTheadsComboBox = w.findChild<ShowTheadsComboBox *>(QStringLiteral("mShowTheadsComboBox"));
+    QVERIFY(mShowTheadsComboBox);
 }
 
 #include "moc_showthreadsdialogtest.cpp"

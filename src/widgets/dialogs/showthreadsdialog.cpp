@@ -24,6 +24,7 @@ ShowThreadsDialog::ShowThreadsDialog(RocketChatAccount *account, QWidget *parent
 {
     setWindowTitle(i18nc("@title:window", "Show Threads Messages"));
     readConfig();
+    mShowTheadsComboBox->setObjectName(QStringLiteral("mShowTheadsComboBox"));
     addMessageLineWidget(mShowTheadsComboBox);
 }
 
