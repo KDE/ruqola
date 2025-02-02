@@ -18,6 +18,7 @@ public:
         Unread,
         Following,
     };
+    Q_ENUM(FilteringByType)
 
     explicit ListMessagesFilterProxyModel(ListMessagesModel *model = nullptr, QObject *parent = nullptr);
     ~ListMessagesFilterProxyModel() override;

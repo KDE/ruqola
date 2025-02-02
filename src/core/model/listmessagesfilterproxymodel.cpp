@@ -47,6 +47,7 @@ ListMessagesFilterProxyModel::FilteringByType ListMessagesFilterProxyModel::getF
 void ListMessagesFilterProxyModel::setFilteringByType(FilteringByType newFilteringByType)
 {
     if (mFilteringByType != newFilteringByType) {
+        qDebug() << " ddddddddddddddddddddddd" << mFilteringByType;
         mFilteringByType = newFilteringByType;
         invalidateFilter();
     }
