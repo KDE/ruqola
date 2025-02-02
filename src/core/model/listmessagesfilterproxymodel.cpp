@@ -64,4 +64,28 @@ void ListMessagesFilterProxyModel::clear()
     mModel->clear();
 }
 
+bool ListMessagesFilterProxyModel::filterAcceptsRow(int source_row, const QModelIndex &source_parent) const
+{
+    return QSortFilterProxyModel::filterAcceptsRow(source_row, source_parent);
+#if 0
+    const QModelIndex sourceIndex = sourceModel()->index(source_row, 0, source_parent);
+    const QString typegroup = sourceIndex.data(ListMessagesModel::TypeGroup).toString();
+    const QString fileName = sourceIndex.data(FilesForRoomModel::FileName).toString();
+    const QString username = sourceIndex.data(FilesForRoomModel::UserName).toString();
+
+    if (mSearchText.isEmpty() && mTypeGroup.isEmpty()) {
+        return true;
+    } else {
+        const bool indexContains = fileName.contains(mSearchText) || username.contains(mSearchText);
+        if (!mSearchText.isEmpty() && mTypeGroup.isEmpty()) {
+            return indexContains;
+        }
+        if (!mTypeGroup.isEmpty()) {
+            return (mTypeGroup == typegroup) && (indexContains);
+        }
+    }
+    return false;
+#endif
+}
+
 #include "moc_listmessagesfilterproxymodel.cpp"
