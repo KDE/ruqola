@@ -69,7 +69,7 @@ ShowListMessageBaseWidget::~ShowListMessageBaseWidget()
     }
 }
 
-void ShowListMessageBaseWidget::setModel(ListMessagesFilterProxyModel *model)
+void ShowListMessageBaseWidget::setFilterProxyModel(ListMessagesFilterProxyModel *model)
 {
     mModel = model;
     mMessageListView->setModel(model);

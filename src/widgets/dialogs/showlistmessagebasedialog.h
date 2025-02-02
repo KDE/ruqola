@@ -20,7 +20,7 @@ public:
     explicit ShowListMessageBaseDialog(RocketChatAccount *account, QWidget *parent = nullptr);
     ~ShowListMessageBaseDialog() override;
 
-    void setModel(ListMessagesFilterProxyModel *model);
+    void setFilterProxyModel(ListMessagesFilterProxyModel *model);
 
     void setRoomId(const QByteArray &roomId);
     [[nodiscard]] QByteArray roomId() const;

@@ -44,9 +44,9 @@ void ShowListMessageBaseDialog::slotLoadMoreMessages()
     mRocketChatAccount->loadMoreListMessages(roomId());
 }
 
-void ShowListMessageBaseDialog::setModel(ListMessagesFilterProxyModel *model)
+void ShowListMessageBaseDialog::setFilterProxyModel(ListMessagesFilterProxyModel *model)
 {
-    mShowListMessage->setModel(model);
+    mShowListMessage->setFilterProxyModel(model);
 }
 
 void ShowListMessageBaseDialog::setRoomId(const QByteArray &roomId)

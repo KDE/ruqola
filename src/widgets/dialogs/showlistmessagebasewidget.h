@@ -27,7 +27,7 @@ public:
     explicit ShowListMessageBaseWidget(RocketChatAccount *account, QWidget *parent = nullptr);
     ~ShowListMessageBaseWidget() override;
 
-    void setModel(ListMessagesFilterProxyModel *model);
+    void setFilterProxyModel(ListMessagesFilterProxyModel *model);
     [[nodiscard]] MessageListView *messageListView() const;
 
     void setRoom(Room *room);
