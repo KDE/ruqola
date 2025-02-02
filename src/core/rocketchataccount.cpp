@@ -1337,7 +1337,7 @@ void RocketChatAccount::loadMoreListMessages(const QByteArray &roomId)
             case ListMessagesModel::ThreadsMessages:
                 // TODO allow to search by type
                 info.useSyntaxRc70 = hasAtLeastVersion(7, 0, 0);
-                info.type = RocketChatRestApi::GetThreadsJob::TheadSearchType::All;
+                // Update info.type = RocketChatRestApi::GetThreadsJob::TheadSearchType::All;
                 restApi()->getThreadsList(std::move(info));
                 break;
             case ListMessagesModel::UnreadThreadsMessages:
