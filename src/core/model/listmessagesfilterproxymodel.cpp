@@ -89,6 +89,7 @@ bool ListMessagesFilterProxyModel::filterAcceptsRow(int source_row, const QModel
     }
     case FilteringByType::Following: {
         const bool following = sourceIndex.data(ListMessagesModel::ThreadMessageFollowed).toBool();
+        qDebug() << " following******************** " << following;
         if (!following) {
             return false;
         }

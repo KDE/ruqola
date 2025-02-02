@@ -5,6 +5,7 @@
 */
 
 #include "showthreadsdialog.h"
+#include "model/listmessagesfilterproxymodel.h"
 #include "rocketchataccount.h"
 #include "showtheadscombobox.h"
 
@@ -27,8 +28,20 @@ ShowThreadsDialog::ShowThreadsDialog(RocketChatAccount *account, QWidget *parent
     mShowTheadsComboBox->setObjectName(QStringLiteral("mShowTheadsComboBox"));
     addMessageLineWidget(mShowTheadsComboBox);
     connect(mShowTheadsComboBox, &QComboBox::activated, this, [this]() {
-        const auto type = mShowTheadsComboBox->currentThreadType();
-        // TODO change type in filter proxy model
+        const ShowTheadsComboBox::ThreadType type = mShowTheadsComboBox->currentThreadType();
+        ListMessagesFilterProxyModel::FilteringByType filteringByType;
+        switch (type) {
+        case ShowTheadsComboBox::ThreadType::All:
+            filteringByType = ListMessagesFilterProxyModel::FilteringByType::All;
+            break;
+        case ShowTheadsComboBox::ThreadType::Following:
+            filteringByType = ListMessagesFilterProxyModel::FilteringByType::Following;
+            break;
+        case ShowTheadsComboBox::ThreadType::Unread:
+            filteringByType = ListMessagesFilterProxyModel::FilteringByType::Unread;
+            break;
+        }
+        setFilteringByType(filteringByType);
     });
 }
 

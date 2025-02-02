@@ -49,6 +49,11 @@ void ShowListMessageBaseDialog::setFilterProxyModel(ListMessagesFilterProxyModel
     mShowListMessage->setFilterProxyModel(model);
 }
 
+void ShowListMessageBaseDialog::setFilteringByType(ListMessagesFilterProxyModel::FilteringByType type)
+{
+    mShowListMessage->setFilteringByType(type);
+}
+
 void ShowListMessageBaseDialog::setRoomId(const QByteArray &roomId)
 {
     mRoomId = roomId;

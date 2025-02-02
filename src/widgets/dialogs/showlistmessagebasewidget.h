@@ -9,6 +9,7 @@
 #include <QWidget>
 
 #include "libruqolawidgets_private_export.h"
+#include "model/listmessagesfilterproxymodel.h"
 class MessageListView;
 class QLabel;
 class ListMessagesFilterProxyModel;
@@ -34,6 +35,7 @@ public:
 
     void addMessageLineWidget(QWidget *w);
 
+    void setFilteringByType(ListMessagesFilterProxyModel::FilteringByType type);
 Q_SIGNALS:
     void loadMoreElements();
 

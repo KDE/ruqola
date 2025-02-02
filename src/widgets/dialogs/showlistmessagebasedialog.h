@@ -7,6 +7,7 @@
 #pragma once
 
 #include "libruqolawidgets_export.h"
+#include "model/listmessagesfilterproxymodel.h"
 #include <QDialog>
 
 class ShowListMessageBaseWidget;
@@ -21,7 +22,7 @@ public:
     ~ShowListMessageBaseDialog() override;
 
     void setFilterProxyModel(ListMessagesFilterProxyModel *model);
-
+    void setFilteringByType(ListMessagesFilterProxyModel::FilteringByType type);
     void setRoomId(const QByteArray &roomId);
     [[nodiscard]] QByteArray roomId() const;
     void setRoom(Room *room);

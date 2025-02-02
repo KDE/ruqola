@@ -6,7 +6,6 @@
 
 #include "showlistmessagebasewidget.h"
 #include "dialogs/searchmessagelinewidget.h"
-#include "model/listmessagesfilterproxymodel.h"
 #include "room/messagelistview.h"
 #include <KLineEditEventHandler>
 
@@ -69,6 +68,10 @@ ShowListMessageBaseWidget::~ShowListMessageBaseWidget()
     }
 }
 
+void ShowListMessageBaseWidget::setFilteringByType(ListMessagesFilterProxyModel::FilteringByType type)
+{
+    mModel->setFilteringByType(type);
+}
 void ShowListMessageBaseWidget::setFilterProxyModel(ListMessagesFilterProxyModel *model)
 {
     mModel = model;
