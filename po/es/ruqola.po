@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-02-01 00:41+0000\n"
+"POT-Creation-Date: 2025-02-02 00:42+0000\n"
 "PO-Revision-Date: 2025-01-25 19:36+0100\n"
 "Last-Translator: Víctor Rodrigo Córdoba <vrcordoba@gmail.com>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
@@ -3185,7 +3185,7 @@ msgstr "Mostrar mensajes de moderación"
 
 #: widgets/administratordialog/moderationconsole/moderationmessageswidget.cpp:50
 #: widgets/dialogs/searchmessagewidget.cpp:184
-#: widgets/dialogs/showlistmessagebasewidget.cpp:97
+#: widgets/dialogs/showlistmessagebasewidget.cpp:100
 #: widgets/discussions/showdiscussionswidget.cpp:88
 #: widgets/room/usersinroomwidget.cpp:135
 #, kde-format
@@ -3194,7 +3194,7 @@ msgstr "Cargando..."
 
 #: widgets/administratordialog/moderationconsole/moderationmessageswidget.cpp:52
 #: widgets/dialogs/searchmessagewidget.cpp:188
-#: widgets/dialogs/showlistmessagebasewidget.cpp:99
+#: widgets/dialogs/showlistmessagebasewidget.cpp:102
 #: widgets/room/usersinroomwidget.cpp:137
 #, kde-format
 msgid "No Message found"
@@ -7193,7 +7193,6 @@ msgid "A-Z"
 msgstr "A-Z"
 
 #: widgets/applicationssettingsdialog/applicationssettingssortingcombobox.cpp:13
-#: widgets/dialogs/showtheadscombobox.cpp:14
 #, kde-format
 msgid "Z-A"
 msgstr "Z-A"
@@ -8495,7 +8494,6 @@ msgid "Search Messages in '%1' (%2)"
 msgstr "Buscar mensajes en «%1» (%2)"
 
 #: widgets/dialogs/searchmessagelinewidget.cpp:24
-#: widgets/dialogs/showlistmessagebasewidget.cpp:39
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Search messages…"
@@ -8583,7 +8581,7 @@ msgstr[0] "%1 adjunto en la sala (total: %2)"
 msgstr[1] "%1 adjuntos en la sala (total: %2)"
 
 #: widgets/dialogs/showattachmentwidget.cpp:100
-#: widgets/dialogs/showlistmessagebasewidget.cpp:107
+#: widgets/dialogs/showlistmessagebasewidget.cpp:110
 #: widgets/discussions/showdiscussionswidget.cpp:99
 #: widgets/misc/searchtreebasewidget.cpp:78
 #: widgets/room/usersinroomflowwidget.cpp:129
@@ -8633,7 +8631,7 @@ msgstr "Ajustar a la vista"
 msgid "Save Image"
 msgstr "Guardar imagen"
 
-#: widgets/dialogs/showlistmessagebasewidget.cpp:105
+#: widgets/dialogs/showlistmessagebasewidget.cpp:108
 #, kde-format
 msgid "%1 Message in room (Total: %2)"
 msgid_plural "%1 Messages in room (Total: %2)"
@@ -8657,6 +8655,13 @@ msgstr "Mostrar mensajes fijados - %1"
 msgctxt "@title:window"
 msgid "Show Starred Messages - %1"
 msgstr "Mostrar mensajes favoritos - %1"
+
+#: widgets/dialogs/showtheadscombobox.cpp:14
+#, fuzzy, kde-format
+#| msgctxt "@info:tooltip"
+#| msgid "Following"
+msgid "Following"
+msgstr "Siguiendo"
 
 #: widgets/dialogs/showthreadsdialog.cpp:23
 #, kde-format
