@@ -13,6 +13,12 @@ class LIBRUQOLACORE_EXPORT ListMessagesFilterProxyModel : public QSortFilterProx
 {
     Q_OBJECT
 public:
+    enum class FilteringByType : uint8_t {
+        All,
+        Unread,
+        Following,
+    };
+
     explicit ListMessagesFilterProxyModel(ListMessagesModel *model = nullptr, QObject *parent = nullptr);
     ~ListMessagesFilterProxyModel() override;
     void setFilterString(const QString &string);
@@ -26,6 +32,9 @@ public:
 
     void clear();
 
+    [[nodiscard]] FilteringByType getFilteringByType() const;
+    void setFilteringByType(FilteringByType newFilteringByType);
+
 protected:
     bool filterAcceptsRow(int source_row, const QModelIndex &source_parent) const override;
 
@@ -38,4 +47,5 @@ Q_SIGNALS:
 private:
     [[nodiscard]] LIBRUQOLACORE_NO_EXPORT ListMessagesModel::ListMessageType listMessageType() const;
     ListMessagesModel *const mModel;
+    FilteringByType mFilteringByType = FilteringByType::All;
 };

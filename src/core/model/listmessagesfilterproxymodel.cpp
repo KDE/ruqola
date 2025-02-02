@@ -39,6 +39,16 @@ ListMessagesModel::ListMessageType ListMessagesFilterProxyModel::listMessageType
     return mModel->listMessageType();
 }
 
+ListMessagesFilterProxyModel::FilteringByType ListMessagesFilterProxyModel::getFilteringByType() const
+{
+    return mFilteringByType;
+}
+
+void ListMessagesFilterProxyModel::setFilteringByType(FilteringByType newFilteringByType)
+{
+    mFilteringByType = newFilteringByType;
+}
+
 ListMessagesModel *ListMessagesFilterProxyModel::listMessageModel() const
 {
     return mModel;
@@ -66,26 +76,23 @@ void ListMessagesFilterProxyModel::clear()
 
 bool ListMessagesFilterProxyModel::filterAcceptsRow(int source_row, const QModelIndex &source_parent) const
 {
-    return QSortFilterProxyModel::filterAcceptsRow(source_row, source_parent);
-#if 0
     const QModelIndex sourceIndex = sourceModel()->index(source_row, 0, source_parent);
-    const QString typegroup = sourceIndex.data(ListMessagesModel::TypeGroup).toString();
-    const QString fileName = sourceIndex.data(FilesForRoomModel::FileName).toString();
-    const QString username = sourceIndex.data(FilesForRoomModel::UserName).toString();
-
-    if (mSearchText.isEmpty() && mTypeGroup.isEmpty()) {
-        return true;
-    } else {
-        const bool indexContains = fileName.contains(mSearchText) || username.contains(mSearchText);
-        if (!mSearchText.isEmpty() && mTypeGroup.isEmpty()) {
-            return indexContains;
-        }
-        if (!mTypeGroup.isEmpty()) {
-            return (mTypeGroup == typegroup) && (indexContains);
-        }
+    switch (mFilteringByType) {
+    case FilteringByType::All:
+        break;
+    case FilteringByType::Unread: {
+        // TODO
+        break;
     }
-    return false;
-#endif
+    case FilteringByType::Following: {
+        const bool following = sourceIndex.data(ListMessagesModel::ThreadMessageFollowed).toBool();
+        if (!following) {
+            return false;
+        }
+        break;
+    }
+    }
+    return QSortFilterProxyModel::filterAcceptsRow(source_row, source_parent);
 }
 
 #include "moc_listmessagesfilterproxymodel.cpp"
