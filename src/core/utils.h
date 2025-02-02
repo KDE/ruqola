@@ -5,6 +5,7 @@
 */
 #pragma once
 
+#include "chat/getthreadsjob.h"
 #include "libruqola_private_export.h"
 #include "user.h"
 
@@ -16,6 +17,15 @@ class RocketChatAccount;
 
 namespace Utils
 {
+struct LIBRUQOLACORE_EXPORT ListMessagesInfo {
+    QByteArray roomId;
+    bool onlyUnread = false;
+    int offset = -1;
+    int count = -1;
+    bool useSyntaxRc70 = false;
+    RocketChatRestApi::GetThreadsJob::TheadSearchType type = RocketChatRestApi::GetThreadsJob::TheadSearchType::All;
+};
+
 struct LIBRUQOLACORE_EXPORT QuotedRichTextInfo {
     QString richText;
     QString url;
