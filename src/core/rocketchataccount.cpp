@@ -1170,7 +1170,9 @@ void RocketChatAccount::getMentionsMessages(const QByteArray &roomId)
     mListMessageModel->clear();
     mListMessageModel->setRoomId(roomId);
     mListMessageModel->setLoadMoreListMessagesInProgress(true);
-    restApi()->getMentionedMessages(roomId);
+    Utils::ListMessagesInfo info;
+    info.roomId = roomId;
+    restApi()->getMentionedMessages(std::move(info));
 }
 
 void RocketChatAccount::getPinnedMessages(const QByteArray &roomId)
@@ -1178,7 +1180,9 @@ void RocketChatAccount::getPinnedMessages(const QByteArray &roomId)
     mListMessageModel->clear();
     mListMessageModel->setLoadMoreListMessagesInProgress(true);
     mListMessageModel->setRoomId(roomId);
-    restApi()->getPinnedMessages(roomId);
+    Utils::ListMessagesInfo info;
+    info.roomId = roomId;
+    restApi()->getPinnedMessages(std::move(info));
 }
 
 void RocketChatAccount::getStarredMessages(const QByteArray &roomId)
@@ -1186,7 +1190,10 @@ void RocketChatAccount::getStarredMessages(const QByteArray &roomId)
     mListMessageModel->clear();
     mListMessageModel->setRoomId(roomId);
     mListMessageModel->setLoadMoreListMessagesInProgress(true);
-    restApi()->getStarredMessages(roomId);
+    Utils::ListMessagesInfo info;
+    info.roomId = roomId;
+
+    restApi()->getStarredMessages(std::move(info));
 }
 
 void RocketChatAccount::loadMoreFileAttachments(const QByteArray &roomId, Room::RoomType channelType)
@@ -1206,7 +1213,12 @@ void RocketChatAccount::loadMoreDiscussions(const QByteArray &roomId)
         const int offset = mDiscussionsModel->discussions()->discussionsCount();
         if (offset < mDiscussionsModel->discussions()->total()) {
             mDiscussionsModel->setLoadMoreDiscussionsInProgress(true);
-            restApi()->getDiscussions(roomId, offset, qMin(50, mDiscussionsModel->discussions()->total() - offset));
+            Utils::ListMessagesInfo info;
+            info.roomId = roomId;
+            info.offset = offset;
+            info.count = qMin(50, mDiscussionsModel->discussions()->total() - offset);
+
+            restApi()->getDiscussions(std::move(info));
         }
     }
 }
@@ -1305,25 +1317,33 @@ void RocketChatAccount::loadMoreListMessages(const QByteArray &roomId)
         if (offset < mListMessageModel->total()) {
             mListMessageModel->setLoadMoreListMessagesInProgress(true);
             const int diff = qMin(50, mListMessageModel->total() - offset);
+            Utils::ListMessagesInfo info;
+            info.roomId = roomId;
+            info.offset = offset;
+            info.count = diff;
             switch (mListMessageModel->listMessageType()) {
             case ListMessagesModel::Unknown:
                 qCWarning(RUQOLA_LOG) << " Error when using loadMoreListMessages";
                 break;
             case ListMessagesModel::StarredMessages:
-                restApi()->getStarredMessages(roomId, offset, diff);
+                restApi()->getStarredMessages(std::move(info));
                 break;
             case ListMessagesModel::PinnedMessages:
-                restApi()->getPinnedMessages(roomId, offset, diff);
+                restApi()->getPinnedMessages(std::move(info));
                 break;
             case ListMessagesModel::MentionsMessages:
-                restApi()->getMentionedMessages(roomId, offset, diff);
+                restApi()->getMentionedMessages(std::move(info));
                 break;
             case ListMessagesModel::ThreadsMessages:
                 // TODO allow to search by type
-                restApi()->getThreadsList(roomId, false, offset, diff, hasAtLeastVersion(7, 0, 0));
+                info.useSyntaxRc70 = hasAtLeastVersion(7, 0, 0);
+                info.type = RocketChatRestApi::GetThreadsJob::TheadSearchType::All;
+                restApi()->getThreadsList(std::move(info));
                 break;
             case ListMessagesModel::UnreadThreadsMessages:
-                restApi()->getThreadsList(roomId, true, offset, diff, hasAtLeastVersion(7, 0, 0));
+                info.useSyntaxRc70 = hasAtLeastVersion(7, 0, 0);
+                info.type = RocketChatRestApi::GetThreadsJob::TheadSearchType::Unread;
+                restApi()->getThreadsList(std::move(info));
                 break;
             }
         }
@@ -2169,7 +2189,13 @@ void RocketChatAccount::threadsInRoom(const QByteArray &roomId, bool onlyUnread)
     if (mRuqolaServerConfig->threadsEnabled()) {
         mListMessageModel->clear();
         mListMessageModel->setRoomId(roomId);
-        restApi()->getThreadsList(roomId, onlyUnread, 0, 50, hasAtLeastVersion(7, 0, 0));
+        Utils::ListMessagesInfo info;
+        info.roomId = roomId;
+        info.offset = 0;
+        info.count = 50;
+        info.useSyntaxRc70 = hasAtLeastVersion(7, 0, 0);
+        info.type = onlyUnread ? RocketChatRestApi::GetThreadsJob::TheadSearchType::Unread : RocketChatRestApi::GetThreadsJob::TheadSearchType::All;
+        restApi()->getThreadsList(std::move(info));
     }
 }
 
@@ -2177,7 +2203,10 @@ void RocketChatAccount::discussionsInRoom(const QByteArray &roomId)
 {
     mDiscussionsModel->initialize();
     mDiscussionsModel->setLoadMoreDiscussionsInProgress(true);
-    restApi()->getDiscussions(roomId);
+    Utils::ListMessagesInfo info;
+    info.roomId = roomId;
+
+    restApi()->getDiscussions(std::move(info));
 }
 
 void RocketChatAccount::getSupportedLanguages()

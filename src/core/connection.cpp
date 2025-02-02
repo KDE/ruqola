@@ -983,37 +983,35 @@ void Connection::groupDelete(const QByteArray &roomId)
     }
 }
 
-void Connection::getDiscussions(const QByteArray &roomId, int offset, int count)
+void Connection::getDiscussions(const Utils::ListMessagesInfo &info)
 {
     auto job = new GetDiscussionsJob(this);
     initializeRestApiJob(job);
     QueryParameters parameters;
-    parameters.setCount(count);
-    parameters.setOffset(offset);
+    parameters.setCount(info.count);
+    parameters.setOffset(info.offset);
     job->setQueryParameters(parameters);
-    job->setRoomId(roomId);
+    job->setRoomId(info.roomId);
     connect(job, &GetDiscussionsJob::getDiscussionsDone, this, &Connection::getDiscussionsDone);
     if (!job->start()) {
         qCDebug(RUQOLA_LOG) << "Impossible to start getDiscussions";
     }
 }
 
-void Connection::getThreadsList(const QByteArray &roomId, bool onlyUnread, int offset, int count, bool useSyntaxRc70, GetThreadsJob::TheadSearchType type)
+void Connection::getThreadsList(const Utils::ListMessagesInfo &info)
 {
     auto job = new GetThreadsJob(this);
-    job->setUseSyntaxRc70(useSyntaxRc70);
+    job->setUseSyntaxRc70(info.useSyntaxRc70);
     initializeRestApiJob(job);
-    job->setRoomId(QString::fromLatin1(roomId));
-    job->setSearchType(type);
+    job->setRoomId(QString::fromLatin1(info.roomId));
+    job->setSearchType(info.type);
     QueryParameters parameters;
     QMap<QString, QueryParameters::SortOrder> map;
     map.insert(QStringLiteral("ts"), QueryParameters::SortOrder::Descendant);
     parameters.setSorting(map);
-    parameters.setCount(count);
-    parameters.setOffset(offset);
-    if (onlyUnread) {
-        job->setSearchType(GetThreadsJob::TheadSearchType::Unread);
-    }
+    parameters.setCount(info.count);
+    parameters.setOffset(info.offset);
+    bool onlyUnread = info.type == GetThreadsJob::TheadSearchType::Unread;
     job->setQueryParameters(parameters);
     connect(job, &GetThreadsJob::getThreadsDone, this, [this, onlyUnread](const QJsonObject &obj, const QString &roomId) {
         Q_EMIT getThreadsDone(obj, roomId, onlyUnread);
@@ -1023,14 +1021,14 @@ void Connection::getThreadsList(const QByteArray &roomId, bool onlyUnread, int o
     }
 }
 
-void Connection::getPinnedMessages(const QByteArray &roomId, int offset, int count)
+void Connection::getPinnedMessages(const Utils::ListMessagesInfo &info)
 {
     auto job = new GetPinnedMessagesJob(this);
     initializeRestApiJob(job);
-    job->setRoomId(roomId);
+    job->setRoomId(info.roomId);
     QueryParameters parameters;
-    parameters.setCount(count);
-    parameters.setOffset(offset);
+    parameters.setCount(info.count);
+    parameters.setOffset(info.offset);
     QMap<QString, QueryParameters::SortOrder> map;
     map.insert(QStringLiteral("ts"), QueryParameters::SortOrder::Descendant);
 
@@ -1041,17 +1039,17 @@ void Connection::getPinnedMessages(const QByteArray &roomId, int offset, int cou
     }
 }
 
-void Connection::getMentionedMessages(const QByteArray &roomId, int offset, int count)
+void Connection::getMentionedMessages(const Utils::ListMessagesInfo &info)
 {
     auto job = new GetMentionedMessagesJob(this);
     initializeRestApiJob(job);
-    job->setRoomId(roomId);
+    job->setRoomId(info.roomId);
     QueryParameters parameters;
     QMap<QString, QueryParameters::SortOrder> map;
     map.insert(QStringLiteral("ts"), QueryParameters::SortOrder::Descendant);
     parameters.setSorting(map);
-    parameters.setCount(count);
-    parameters.setOffset(offset);
+    parameters.setCount(info.count);
+    parameters.setOffset(info.offset);
     job->setQueryParameters(parameters);
 
     connect(job, &GetMentionedMessagesJob::getMentionedMessagesDone, this, &Connection::getMentionedMessagesDone);
@@ -1060,17 +1058,17 @@ void Connection::getMentionedMessages(const QByteArray &roomId, int offset, int 
     }
 }
 
-void Connection::getStarredMessages(const QByteArray &roomId, int offset, int count)
+void Connection::getStarredMessages(const Utils::ListMessagesInfo &info)
 {
     auto job = new GetStarredMessagesJob(this);
     initializeRestApiJob(job);
-    job->setRoomId(roomId);
+    job->setRoomId(info.roomId);
     QueryParameters parameters;
     QMap<QString, QueryParameters::SortOrder> map;
     map.insert(QStringLiteral("ts"), QueryParameters::SortOrder::Descendant);
     parameters.setSorting(map);
-    parameters.setCount(count);
-    parameters.setOffset(offset);
+    parameters.setCount(info.count);
+    parameters.setOffset(info.offset);
     job->setQueryParameters(parameters);
 
     connect(job, &GetStarredMessagesJob::getStarredMessagesDone, this, &Connection::getStarredMessagesDone);
@@ -1079,14 +1077,14 @@ void Connection::getStarredMessages(const QByteArray &roomId, int offset, int co
     }
 }
 
-void Connection::getSnippetedMessages(const QByteArray &roomId, int offset, int count)
+void Connection::getSnippetedMessages(const Utils::ListMessagesInfo &info)
 {
     auto job = new GetSnippetedMessagesJob(this);
     initializeRestApiJob(job);
-    job->setRoomId(roomId);
+    job->setRoomId(info.roomId);
     QueryParameters parameters;
-    parameters.setCount(count);
-    parameters.setOffset(offset);
+    parameters.setCount(info.count);
+    parameters.setOffset(info.offset);
 
     QMap<QString, QueryParameters::SortOrder> map;
     map.insert(QStringLiteral("ts"), QueryParameters::SortOrder::Descendant);

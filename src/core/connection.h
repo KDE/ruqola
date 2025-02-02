@@ -18,6 +18,7 @@
 #include "users/userbasejob.h"
 #include "users/usersautocompletejob.h"
 #include "users/userssetpreferencesjob.h"
+#include "utils.h"
 #include <QObject>
 #include <QSslError>
 #include <QUrl>
@@ -111,26 +112,23 @@ public:
     void channelRemoveLeader(const QByteArray &roomId, const QString &userId);
     void desktopDurationNotifications(const QByteArray &roomId, int value);
     void desktopSoundNotifications(const QByteArray &roomId, const QString &value);
-    void getDiscussions(const QByteArray &roomId, int offset = 0, int count = 50);
-    void getThreadsList(const QByteArray &roomId,
-                        bool onlyUnread,
-                        int offset = 0,
-                        int count = 50,
-                        bool useSyntaxRc70 = false,
-                        RocketChatRestApi::GetThreadsJob::TheadSearchType type = RocketChatRestApi::GetThreadsJob::TheadSearchType::All);
+
+    void getDiscussions(const Utils::ListMessagesInfo &info);
+    void getThreadsList(const Utils::ListMessagesInfo &info);
+    void getPinnedMessages(const Utils::ListMessagesInfo &info);
+    void getStarredMessages(const Utils::ListMessagesInfo &info);
+    void getSnippetedMessages(const Utils::ListMessagesInfo &info);
+    void getMentionedMessages(const Utils::ListMessagesInfo &info);
+
     void getThreadMessages(const QByteArray &threadMessageId);
     void sendMessage(const QByteArray &roomId, const QString &text, const QString &messageId = QString(), const QByteArray &threadMessageId = QByteArray());
-    void getPinnedMessages(const QByteArray &roomId, int offset = 0, int count = 50);
     void setUserStatus(const QString &userId, RocketChatRestApi::SetStatusJob::StatusType status, const QString &message = QString());
     void usersPresence();
-    void getStarredMessages(const QByteArray &roomId, int offset = 0, int count = 50);
-    void getSnippetedMessages(const QByteArray &roomId, int offset = 0, int count = 50);
     void customUserStatus();
     void usersAutocomplete(const RocketChatRestApi::UsersAutocompleteJob::UsersAutocompleterInfo &info);
     void registerNewUser(const RocketChatRestApi::RegisterUserJob::RegisterUserInfo &userInfo);
     void getChannelsCounter(const QByteArray &roomId);
     void setUserPreferences(const RocketChatRestApi::UsersSetPreferencesJob::UsersSetPreferencesInfo &info);
-    void getMentionedMessages(const QByteArray &roomId, int offset = 0, int count = 50);
     void hideMentionStatus(const QByteArray &roomId, bool value);
     void historyChannel(const RocketChatRestApi::ChannelHistoryJob::ChannelHistoryInfo &info);
 
