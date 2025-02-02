@@ -20,8 +20,8 @@ namespace Utils
 struct LIBRUQOLACORE_EXPORT ListMessagesInfo {
     QByteArray roomId;
     bool onlyUnread = false;
-    int offset = -1;
-    int count = -1;
+    int offset = 0;
+    int count = 50;
     bool useSyntaxRc70 = false;
     RocketChatRestApi::GetThreadsJob::TheadSearchType type = RocketChatRestApi::GetThreadsJob::TheadSearchType::All;
 };
