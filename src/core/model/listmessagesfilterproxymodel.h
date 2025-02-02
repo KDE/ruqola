@@ -17,7 +17,7 @@ public:
     ~ListMessagesFilterProxyModel() override;
     void setFilterString(const QString &string);
 
-    ListMessagesModel *listMessageModel() const;
+    [[nodiscard]] ListMessagesModel *listMessageModel() const;
     [[nodiscard]] int total() const;
     [[nodiscard]] bool hasFullList() const;
     [[nodiscard]] bool loadMoreListMessagesInProgress() const;
