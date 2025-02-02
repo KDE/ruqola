@@ -6,6 +6,7 @@
 
 #include "showthreadsdialog.h"
 #include "rocketchataccount.h"
+#include "showtheadscombobox.h"
 
 #include <KConfigGroup>
 #include <KLocalizedString>
@@ -19,9 +20,11 @@ static const char myShowThreadsDialogGroupName[] = "ShowThreadsDialog";
 }
 ShowThreadsDialog::ShowThreadsDialog(RocketChatAccount *account, QWidget *parent)
     : ShowListMessageBaseDialog(account, parent)
+    , mShowTheadsComboBox(new ShowTheadsComboBox(this))
 {
     setWindowTitle(i18nc("@title:window", "Show Threads Messages"));
     readConfig();
+    addMessageLineWidget(mShowTheadsComboBox);
 }
 
 ShowThreadsDialog::~ShowThreadsDialog()

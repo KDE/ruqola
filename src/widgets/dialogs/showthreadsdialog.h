@@ -7,6 +7,7 @@
 #pragma once
 #include "libruqolawidgets_private_export.h"
 #include "showlistmessagebasedialog.h"
+class ShowTheadsComboBox;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT ShowThreadsDialog : public ShowListMessageBaseDialog
 {
     Q_OBJECT
@@ -17,4 +18,5 @@ public:
 private:
     LIBRUQOLAWIDGETS_NO_EXPORT void readConfig();
     LIBRUQOLAWIDGETS_NO_EXPORT void writeConfig();
+    ShowTheadsComboBox *const mShowTheadsComboBox;
 };
