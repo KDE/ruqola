@@ -26,6 +26,10 @@ ShowThreadsDialog::ShowThreadsDialog(RocketChatAccount *account, QWidget *parent
     readConfig();
     mShowTheadsComboBox->setObjectName(QStringLiteral("mShowTheadsComboBox"));
     addMessageLineWidget(mShowTheadsComboBox);
+    connect(mShowTheadsComboBox, &QComboBox::activated, this, [this]() {
+        const auto type = mShowTheadsComboBox->currentThreadType();
+        // TODO change type in filter proxy model
+    });
 }
 
 ShowThreadsDialog::~ShowThreadsDialog()

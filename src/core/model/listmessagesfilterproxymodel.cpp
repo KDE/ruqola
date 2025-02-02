@@ -46,7 +46,10 @@ ListMessagesFilterProxyModel::FilteringByType ListMessagesFilterProxyModel::getF
 
 void ListMessagesFilterProxyModel::setFilteringByType(FilteringByType newFilteringByType)
 {
-    mFilteringByType = newFilteringByType;
+    if (mFilteringByType != newFilteringByType) {
+        mFilteringByType = newFilteringByType;
+        invalidateFilter();
+    }
 }
 
 ListMessagesModel *ListMessagesFilterProxyModel::listMessageModel() const
