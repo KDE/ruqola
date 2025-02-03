@@ -5,6 +5,7 @@
 */
 
 #include "showattachmentdialog.h"
+#include "attachments/fileattachments.h"
 #include "connection.h"
 #include "misc/methodcalljob.h"
 #include "rocketchataccount.h"
@@ -65,6 +66,9 @@ void ShowAttachmentDialog::slotShowImage(const QByteArray &fileId)
     mRocketChatAccount->restApi()->initializeRestApiJob(job);
     connect(job, &RocketChatRestApi::RoomsImagesJob::roomsImagesDone, this, [this](const QJsonObject &replyObject) {
         qDebug() << " replyObject " << replyObject;
+        FileAttachments imageAttachments;
+        imageAttachments.parseFileAttachments(replyObject);
+        qDebug() << " imageAttachments " << imageAttachments;
     });
     if (!job->start()) {
         qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start RoomsImagesJob job";
