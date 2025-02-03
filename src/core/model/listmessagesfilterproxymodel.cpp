@@ -80,7 +80,7 @@ void ListMessagesFilterProxyModel::clear()
 
 bool ListMessagesFilterProxyModel::filterAcceptsRow(int source_row, const QModelIndex &source_parent) const
 {
-    const QModelIndex sourceIndex = sourceModel()->index(source_row, 0, source_parent);
+    const QModelIndex sourceIndex = mModel->index(source_row, 0, source_parent);
     switch (mFilteringByType) {
     case FilteringByType::All:
         break;
@@ -89,8 +89,7 @@ bool ListMessagesFilterProxyModel::filterAcceptsRow(int source_row, const QModel
         break;
     }
     case FilteringByType::Following: {
-        const bool following = sourceIndex.data(ListMessagesModel::ThreadMessageFollowed).toBool();
-        qDebug() << " following******************** " << following;
+        const bool following = sourceIndex.data(ListMessagesModel::MessageReplies).toBool();
         if (!following) {
             return false;
         }

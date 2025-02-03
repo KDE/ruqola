@@ -76,6 +76,7 @@ public:
         HoverHighLight,
         LocalTranslation,
         OriginalMessageOrAttachmentDescription,
+        MessageReplies,
         PrivateMessage,
         LastMessageRoles = PrivateMessage,
     };
@@ -160,6 +161,7 @@ private:
     [[nodiscard]] LIBRUQOLACORE_NO_EXPORT QList<Message>::iterator findMessage(const QByteArray &messageId);
     [[nodiscard]] LIBRUQOLACORE_NO_EXPORT QList<Message>::const_iterator findMessage(const QByteArray &messageId) const;
     [[nodiscard]] LIBRUQOLACORE_NO_EXPORT QString convertedText(const Message &message, const QString &searchedText) const;
+    [[nodiscard]] bool messageReplies(const Message &message) const;
 
     QString mSearchText;
     QByteArray mRoomId;

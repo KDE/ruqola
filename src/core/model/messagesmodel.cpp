@@ -353,6 +353,8 @@ QVariant MessagesModel::data(const QModelIndex &index, int role) const
         return message.originalMessageOrAttachmentDescription();
     case MessagesModel::PrivateMessage:
         return message.privateMessage();
+    case MessagesModel::MessageReplies:
+        return messageReplies(message);
     }
 
     return {};
@@ -621,6 +623,14 @@ QString MessagesModel::threadMessagePreview(const QByteArray &threadMessageId) c
         }
     }
     return {};
+}
+
+bool MessagesModel::messageReplies(const Message &message) const
+{
+    if (mRocketChatAccount) {
+        return message.replies() && message.replies()->replies().contains(mRocketChatAccount->userId());
+    }
+    return false;
 }
 
 bool MessagesModel::threadMessageFollowed(const QByteArray &threadMessageId) const
