@@ -54,6 +54,9 @@ public:
     [[nodiscard]] QString typeGroup() const;
     void setTypeGroup(const QString &typeGroup);
 
+    [[nodiscard]] QString path() const;
+    void setPath(const QString &newPath);
+
 private:
     QString mFileName;
     QString mDescription;
@@ -64,6 +67,7 @@ private:
     QString mUserName;
     QString mUploadedDateTimeStr;
     QString mTypeGroup;
+    QString mPath;
 
     bool mComplete = false;
     qint64 mUploadedAt = -1;

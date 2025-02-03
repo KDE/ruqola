@@ -22,6 +22,7 @@ void File::parseFile(const QJsonObject &object, bool restApi)
     setUrl(fields.value("url"_L1).toString());
     setComplete(fields.value("complete"_L1).toBool());
     setTypeGroup(fields.value("typeGroup"_L1).toString());
+    setPath(fields.value("path"_L1).toString());
     if (restApi) {
         setUploadedAt(Utils::parseIsoDate(QStringLiteral("uploadedAt"), fields));
     } else {
@@ -58,7 +59,7 @@ bool File::operator==(const File &other) const
 {
     return (description() == other.description()) && (fileName() == other.fileName()) && (url() == other.url()) && (userId() == other.userId())
         && (mimeType() == other.mimeType()) && (uploadedAt() == other.uploadedAt()) && (fileId() == other.fileId()) && (userName() == other.userName())
-        && (complete() == other.complete()) && (typeGroup() == other.typeGroup());
+        && (complete() == other.complete()) && (typeGroup() == other.typeGroup()) && (path() == other.path());
 }
 
 QByteArray File::userId() const
@@ -148,6 +149,16 @@ void File::setTypeGroup(const QString &typeGroup)
     mTypeGroup = typeGroup;
 }
 
+QString File::path() const
+{
+    return mPath;
+}
+
+void File::setPath(const QString &newPath)
+{
+    mPath = newPath;
+}
+
 QDebug operator<<(QDebug d, const File &t)
 {
     d.space() << "Name:" << t.fileName();
@@ -160,6 +171,7 @@ QDebug operator<<(QDebug d, const File &t)
     d.space() << "Username:" << t.userName();
     d.space() << "Complete:" << t.complete();
     d.space() << "TypeGroup:" << t.typeGroup();
+    d.space() << "Path:" << t.path();
     return d;
 }
 
