@@ -55,6 +55,7 @@ ShowAttachmentWidget::ShowAttachmentWidget(RocketChatAccount *account, QWidget *
     mainLayout->addWidget(mListAttachment);
     auto delegate = new ListAttachmentDelegate(account, this);
     connect(delegate, &ListAttachmentDelegate::deleteAttachment, this, &ShowAttachmentWidget::deleteAttachment);
+    connect(delegate, &ListAttachmentDelegate::showImage, this, &ShowAttachmentWidget::showImage);
     mListAttachment->setItemDelegate(delegate);
 }
 

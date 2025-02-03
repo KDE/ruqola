@@ -23,6 +23,7 @@ public:
 
 Q_SIGNALS:
     void deleteAttachment(const QByteArray &fileId);
+    void showImage(const QByteArray &fileId);
 
 private:
     struct Layout {

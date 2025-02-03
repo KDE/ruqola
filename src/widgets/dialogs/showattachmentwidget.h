@@ -25,6 +25,7 @@ public:
 Q_SIGNALS:
     void loadMoreFileAttachment();
     void deleteAttachment(const QByteArray &fileId);
+    void showImage(const QByteArray &fileId);
 
 private:
     LIBRUQOLAWIDGETS_NO_EXPORT void slotSearchMessageTextChanged(const QString &str);

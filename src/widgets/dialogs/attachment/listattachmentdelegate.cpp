@@ -120,7 +120,11 @@ bool ListAttachmentDelegate::editorEvent(QEvent *event, QAbstractItemModel *mode
     } else if (eventType == QEvent::MouseButtonDblClick) {
         const File *file = index.data(FilesForRoomModel::FilePointer).value<File *>();
         if (file) {
-            saveAttachment(option, file);
+            if (file->typeGroup() == "image"_L1) {
+                Q_EMIT showImage(file->fileId());
+            } else {
+                saveAttachment(option, file);
+            }
             return true;
         }
     }

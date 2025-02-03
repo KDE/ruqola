@@ -42,12 +42,18 @@ ShowAttachmentDialog::ShowAttachmentDialog(RocketChatAccount *account, QWidget *
     connect(button, &QDialogButtonBox::rejected, this, &ShowAttachmentDialog::reject);
     connect(mShowAttachmentWidget, &ShowAttachmentWidget::loadMoreFileAttachment, this, &ShowAttachmentDialog::slotLoadMoreAttachment);
     connect(mShowAttachmentWidget, &ShowAttachmentWidget::deleteAttachment, this, &ShowAttachmentDialog::slotDeleteAttachment);
+    connect(mShowAttachmentWidget, &ShowAttachmentWidget::showImage, this, &ShowAttachmentDialog::slotShowImage);
     readConfig();
 }
 
 ShowAttachmentDialog::~ShowAttachmentDialog()
 {
     writeConfig();
+}
+
+void ShowAttachmentDialog::slotShowImage(const QByteArray &fileId)
+{
+    // TODO
 }
 
 void ShowAttachmentDialog::slotDeleteAttachment(const QByteArray &fileId)
