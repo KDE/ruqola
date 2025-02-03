@@ -52,8 +52,10 @@ void Message::parseMessage(const QJsonObject &o, bool restApi, EmojiManager *emo
     mEditedByUsername = o.value("editedBy"_L1).toObject().value("username"_L1).toString();
     mAlias = o.value("alias"_L1).toString();
     mAvatar = o.value("avatar"_L1).toString();
-    assignMessageStateValue(Groupable, o.value("groupable"_L1).toBool(/*true*/ false)); // Laurent, disable for the moment groupable
-    assignMessageStateValue(ParsedUrl, o.value("parseUrls"_L1).toBool());
+
+    setUnread(o.value("unread"_L1).toBool());
+    setGroupable(o.value("groupable"_L1).toBool(/*true*/ false)); // Laurent, disable for the moment groupable
+    setParseUrls(o.value("parseUrls"_L1).toBool());
     mRole = o.value("role"_L1).toString();
     if (o.contains("tcount"_L1)) {
         setThreadCount(o.value("tcount"_L1).toInt());
@@ -88,7 +90,7 @@ void Message::parseMessage(const QJsonObject &o, bool restApi, EmojiManager *emo
     } else {
         mMessageTranslation.reset();
     }
-    assignMessageStateValue(Private, o.value("private"_L1).toBool(false));
+    setPrivateMessage(o.value("private"_L1).toBool(false));
 
     mMessageType = Message::MessageType::NormalText;
     const QString type = o.value("t"_L1).toString();
@@ -113,7 +115,6 @@ void Message::parseMessage(const QJsonObject &o, bool restApi, EmojiManager *emo
     parseReactions(o.value("reactions"_L1).toObject(), emojiManager);
     parseChannels(o.value("channels"_L1).toArray());
     parseReplies(o.value("replies"_L1).toArray());
-    // TODO unread element
 }
 
 void Message::parseReactions(const QJsonObject &reacts, EmojiManager *emojiManager)
@@ -1069,7 +1070,7 @@ Message Message::deserialize(const QJsonObject &o, EmojiManager *emojiManager)
         message.setDiscussionRoomId(o.value("drid"_L1).toString().toLatin1());
     }
 
-    message.assignMessageStateValue(Private, o["private"_L1].toBool(false));
+    message.setPrivateMessage(o["private"_L1].toBool(false));
     if (o.contains("tlm"_L1)) {
         message.setThreadLastMessage(static_cast<qint64>(o["tlm"_L1].toDouble()));
     }
@@ -1089,8 +1090,9 @@ Message Message::deserialize(const QJsonObject &o, EmojiManager *emojiManager)
     message.mEditedByUsername = o["editedByUsername"_L1].toString();
     message.mAlias = o["alias"_L1].toString();
     message.mAvatar = o["avatar"_L1].toString();
-    message.assignMessageStateValue(Message::MessageState::Groupable, o["groupable"_L1].toBool());
-    message.assignMessageStateValue(Message::MessageState::ParsedUrl, o["parseUrls"_L1].toBool());
+    message.setGroupable(o["groupable"_L1].toBool());
+    message.setParseUrls(o["parseUrls"_L1].toBool());
+    message.setUnread(o["unread"_L1].toBool());
     message.mMessageStarred.setIsStarred(o["starred"_L1].toBool());
 
     if (o.contains("pinnedMessage"_L1)) {
@@ -1190,8 +1192,11 @@ QByteArray Message::serialize(const Message &message, bool toBinary)
     o["editedByUsername"_L1] = message.mEditedByUsername;
     o["alias"_L1] = message.mAlias;
     o["avatar"_L1] = message.mAvatar;
-    o["groupable"_L1] = message.messageStateValue(Message::MessageState::Groupable);
+    o["groupable"_L1] = message.groupable();
     o["parseUrls"_L1] = message.parseUrls();
+    if (message.unread()) {
+        o["unread"_L1] = true;
+    }
     o["starred"_L1] = message.mMessageStarred.isStarred();
 
     if (message.mMessagePinned) {
@@ -1272,7 +1277,7 @@ QByteArray Message::serialize(const Message &message, bool toBinary)
     if (message.messageTranslation() && !message.messageTranslation()->isEmpty()) {
         o["messageTranslation"_L1] = MessageTranslation::serialize(*message.messageTranslation());
     }
-    if (message.messageStateValue(Private)) {
+    if (message.privateMessage()) {
         o["private"_L1] = true;
     }
 
