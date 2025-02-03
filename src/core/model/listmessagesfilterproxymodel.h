@@ -14,7 +14,7 @@ class LIBRUQOLACORE_EXPORT ListMessagesFilterProxyModel : public QSortFilterProx
     Q_OBJECT
 public:
     enum class FilteringByType : uint8_t {
-        All,
+        All = 0,
         Unread,
         Following,
     };
