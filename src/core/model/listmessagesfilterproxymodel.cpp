@@ -84,7 +84,10 @@ bool ListMessagesFilterProxyModel::filterAcceptsRow(int source_row, const QModel
     case FilteringByType::All:
         break;
     case FilteringByType::Unread: {
-        // TODO
+        const bool unread = sourceIndex.data(ListMessagesModel::Unread).toBool();
+        if (!unread) {
+            return false;
+        }
         break;
     }
     case FilteringByType::Following: {

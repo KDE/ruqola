@@ -355,6 +355,8 @@ QVariant MessagesModel::data(const QModelIndex &index, int role) const
         return message.privateMessage();
     case MessagesModel::MessageReplies:
         return messageReplies(message);
+    case MessagesModel::Unread:
+        return message.unread();
     }
 
     return {};

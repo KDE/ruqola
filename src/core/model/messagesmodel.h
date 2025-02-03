@@ -77,6 +77,7 @@ public:
         LocalTranslation,
         OriginalMessageOrAttachmentDescription,
         MessageReplies,
+        Unread,
         PrivateMessage,
         LastMessageRoles = PrivateMessage,
     };
