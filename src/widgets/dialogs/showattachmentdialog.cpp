@@ -8,6 +8,7 @@
 #include "connection.h"
 #include "misc/methodcalljob.h"
 #include "rocketchataccount.h"
+#include "rooms/roomsimagesjob.h"
 #include "ruqolawidgets_debug.h"
 #include "showattachmentwidget.h"
 
@@ -54,6 +55,20 @@ ShowAttachmentDialog::~ShowAttachmentDialog()
 void ShowAttachmentDialog::slotShowImage(const QByteArray &fileId)
 {
     // TODO
+    auto job = new RocketChatRestApi::RoomsImagesJob(this);
+    RocketChatRestApi::RoomsImagesJob::RoomsImagesJobInfo info;
+    info.roomId = mRoomId;
+    info.count = 5;
+    info.offset = 0;
+    info.startingFromId = fileId;
+    job->setRoomsImagesJobInfo(std::move(info));
+    mRocketChatAccount->restApi()->initializeRestApiJob(job);
+    connect(job, &RocketChatRestApi::RoomsImagesJob::roomsImagesDone, this, [this](const QJsonObject &replyObject) {
+        qDebug() << " replyObject " << replyObject;
+    });
+    if (!job->start()) {
+        qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start RoomsImagesJob job";
+    }
 }
 
 void ShowAttachmentDialog::slotDeleteAttachment(const QByteArray &fileId)
