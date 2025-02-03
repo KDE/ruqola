@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-02-02 00:42+0000\n"
+"POT-Creation-Date: 2025-02-03 00:40+0000\n"
 "PO-Revision-Date: 2024-08-06 05:33+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
@@ -3194,7 +3194,7 @@ msgstr "顯示站務訊息"
 
 #: widgets/administratordialog/moderationconsole/moderationmessageswidget.cpp:50
 #: widgets/dialogs/searchmessagewidget.cpp:184
-#: widgets/dialogs/showlistmessagebasewidget.cpp:100
+#: widgets/dialogs/showlistmessagebasewidget.cpp:103
 #: widgets/discussions/showdiscussionswidget.cpp:88
 #: widgets/room/usersinroomwidget.cpp:135
 #, kde-format
@@ -3203,7 +3203,7 @@ msgstr "載入中…"
 
 #: widgets/administratordialog/moderationconsole/moderationmessageswidget.cpp:52
 #: widgets/dialogs/searchmessagewidget.cpp:188
-#: widgets/dialogs/showlistmessagebasewidget.cpp:102
+#: widgets/dialogs/showlistmessagebasewidget.cpp:105
 #: widgets/room/usersinroomwidget.cpp:137
 #, kde-format
 msgid "No Message found"
@@ -8779,7 +8779,7 @@ msgid_plural "%1 Attachments in room (Total: %2)"
 msgstr[0] "聊天室中有 %1 個附件（總數：%2）"
 
 #: widgets/dialogs/showattachmentwidget.cpp:100
-#: widgets/dialogs/showlistmessagebasewidget.cpp:110
+#: widgets/dialogs/showlistmessagebasewidget.cpp:113
 #: widgets/discussions/showdiscussionswidget.cpp:99
 #: widgets/misc/searchtreebasewidget.cpp:78
 #: widgets/room/usersinroomflowwidget.cpp:129
@@ -8833,7 +8833,7 @@ msgstr "適合檢視大小"
 msgid "Save Image"
 msgstr "儲存影像"
 
-#: widgets/dialogs/showlistmessagebasewidget.cpp:108
+#: widgets/dialogs/showlistmessagebasewidget.cpp:111
 #, kde-format
 msgid "%1 Message in room (Total: %2)"
 msgid_plural "%1 Messages in room (Total: %2)"
@@ -8863,7 +8863,7 @@ msgstr "顯示收藏的訊息 - %1"
 msgid "Following"
 msgstr "跟隨訊息"
 
-#: widgets/dialogs/showthreadsdialog.cpp:23
+#: widgets/dialogs/showthreadsdialog.cpp:26
 #, kde-format
 msgctxt "@title:window"
 msgid "Show Threads Messages"

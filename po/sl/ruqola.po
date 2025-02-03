@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-02-02 00:42+0000\n"
-"PO-Revision-Date: 2025-02-01 07:08+0100\n"
+"POT-Creation-Date: 2025-02-03 00:40+0000\n"
+"PO-Revision-Date: 2025-02-02 08:29+0100\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
@@ -3181,7 +3181,7 @@ msgstr "Pokaži sporočila moderiranja"
 
 #: widgets/administratordialog/moderationconsole/moderationmessageswidget.cpp:50
 #: widgets/dialogs/searchmessagewidget.cpp:184
-#: widgets/dialogs/showlistmessagebasewidget.cpp:100
+#: widgets/dialogs/showlistmessagebasewidget.cpp:103
 #: widgets/discussions/showdiscussionswidget.cpp:88
 #: widgets/room/usersinroomwidget.cpp:135
 #, kde-format
@@ -3190,7 +3190,7 @@ msgstr "Nalaganje…"
 
 #: widgets/administratordialog/moderationconsole/moderationmessageswidget.cpp:52
 #: widgets/dialogs/searchmessagewidget.cpp:188
-#: widgets/dialogs/showlistmessagebasewidget.cpp:102
+#: widgets/dialogs/showlistmessagebasewidget.cpp:105
 #: widgets/room/usersinroomwidget.cpp:137
 #, kde-format
 msgid "No Message found"
@@ -8557,7 +8557,7 @@ msgstr[2] "%1 priponke v sobi (skupaj: %2)"
 msgstr[3] "%1 priponk v sobi (skupaj: %2)"
 
 #: widgets/dialogs/showattachmentwidget.cpp:100
-#: widgets/dialogs/showlistmessagebasewidget.cpp:110
+#: widgets/dialogs/showlistmessagebasewidget.cpp:113
 #: widgets/discussions/showdiscussionswidget.cpp:99
 #: widgets/misc/searchtreebasewidget.cpp:78
 #: widgets/room/usersinroomflowwidget.cpp:129
@@ -8607,7 +8607,7 @@ msgstr "Prilagodi pogledu"
 msgid "Save Image"
 msgstr "Shrani sliko"
 
-#: widgets/dialogs/showlistmessagebasewidget.cpp:108
+#: widgets/dialogs/showlistmessagebasewidget.cpp:111
 #, kde-format
 msgid "%1 Message in room (Total: %2)"
 msgid_plural "%1 Messages in room (Total: %2)"
@@ -8635,13 +8635,11 @@ msgid "Show Starred Messages - %1"
 msgstr "Pokaži sporočila z zvezdico - %1"
 
 #: widgets/dialogs/showtheadscombobox.cpp:14
-#, fuzzy, kde-format
-#| msgctxt "@info:tooltip"
-#| msgid "Following"
+#, kde-format
 msgid "Following"
-msgstr "Sledi"
+msgstr "Sledim"
 
-#: widgets/dialogs/showthreadsdialog.cpp:23
+#: widgets/dialogs/showthreadsdialog.cpp:26
 #, kde-format
 msgctxt "@title:window"
 msgid "Show Threads Messages"

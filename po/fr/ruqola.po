@@ -5,8 +5,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-02-02 00:42+0000\n"
-"PO-Revision-Date: 2025-01-31 09:51+0100\n"
+"POT-Creation-Date: 2025-02-03 00:40+0000\n"
+"PO-Revision-Date: 2025-02-01 10:37+0100\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
 "Language-Team: French <French <kde-francophone@kde.org>>\n"
 "Language: fr\n"
@@ -3197,7 +3197,7 @@ msgstr "Afficher les messages de modération"
 
 #: widgets/administratordialog/moderationconsole/moderationmessageswidget.cpp:50
 #: widgets/dialogs/searchmessagewidget.cpp:184
-#: widgets/dialogs/showlistmessagebasewidget.cpp:100
+#: widgets/dialogs/showlistmessagebasewidget.cpp:103
 #: widgets/discussions/showdiscussionswidget.cpp:88
 #: widgets/room/usersinroomwidget.cpp:135
 #, kde-format
@@ -3206,7 +3206,7 @@ msgstr "Chargement en cours..."
 
 #: widgets/administratordialog/moderationconsole/moderationmessageswidget.cpp:52
 #: widgets/dialogs/searchmessagewidget.cpp:188
-#: widgets/dialogs/showlistmessagebasewidget.cpp:102
+#: widgets/dialogs/showlistmessagebasewidget.cpp:105
 #: widgets/room/usersinroomwidget.cpp:137
 #, kde-format
 msgid "No Message found"
@@ -7217,7 +7217,7 @@ msgstr "Rechercher des applications privées"
 #: widgets/applicationssettingsdialog/applicationssettingssettingswidget.cpp:52
 #, kde-format
 msgid "Applications does not have settings."
-msgstr ""
+msgstr "Les applications n'ont aucune configuration."
 
 #: widgets/applicationssettingsdialog/applicationssettingssettingswidget.cpp:81
 #, kde-format
@@ -8625,7 +8625,7 @@ msgstr[0] "%1 pièce jointe dans le salon (Total : %2)"
 msgstr[1] "%1 pièces jointes dans le salon (Total : %2)"
 
 #: widgets/dialogs/showattachmentwidget.cpp:100
-#: widgets/dialogs/showlistmessagebasewidget.cpp:110
+#: widgets/dialogs/showlistmessagebasewidget.cpp:113
 #: widgets/discussions/showdiscussionswidget.cpp:99
 #: widgets/misc/searchtreebasewidget.cpp:78
 #: widgets/room/usersinroomflowwidget.cpp:129
@@ -8675,7 +8675,7 @@ msgstr "Adapter à l'affichage"
 msgid "Save Image"
 msgstr "Enregistrer une image"
 
-#: widgets/dialogs/showlistmessagebasewidget.cpp:108
+#: widgets/dialogs/showlistmessagebasewidget.cpp:111
 #, kde-format
 msgid "%1 Message in room (Total: %2)"
 msgid_plural "%1 Messages in room (Total: %2)"
@@ -8701,13 +8701,11 @@ msgid "Show Starred Messages - %1"
 msgstr "Afficher les messages notés - %1"
 
 #: widgets/dialogs/showtheadscombobox.cpp:14
-#, fuzzy, kde-format
-#| msgctxt "@info:tooltip"
-#| msgid "Following"
+#, kde-format
 msgid "Following"
 msgstr "En suivant"
 
-#: widgets/dialogs/showthreadsdialog.cpp:23
+#: widgets/dialogs/showthreadsdialog.cpp:26
 #, kde-format
 msgctxt "@title:window"
 msgid "Show Threads Messages"

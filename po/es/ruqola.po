@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-02-02 00:42+0000\n"
-"PO-Revision-Date: 2025-01-25 19:36+0100\n"
+"POT-Creation-Date: 2025-02-03 00:40+0000\n"
+"PO-Revision-Date: 2025-02-02 23:26+0100\n"
 "Last-Translator: Víctor Rodrigo Córdoba <vrcordoba@gmail.com>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 22.12.3\n"
+"X-Generator: Lokalize 24.12.1\n"
 
 #: apps/main.cpp:59
 #, kde-format
@@ -410,16 +410,14 @@ msgid "Allow to send email"
 msgstr "Permitir el envío de correos electrónicos"
 
 #: core/apps/appsmarketplaceinfo.cpp:685
-#, fuzzy, kde-format
-#| msgid "Allow to write oauth app settings"
+#, kde-format
 msgid "Allow to write role"
-msgstr "Permitir escribir las preferencias de la aplicación oauth"
+msgstr "Permitir el papel de escritura"
 
 #: core/apps/appsmarketplaceinfo.cpp:687
-#, fuzzy, kde-format
-#| msgid "Allow to send email"
+#, kde-format
 msgid "Allow to read role"
-msgstr "Permitir el envío de correos electrónicos"
+msgstr "Permitir el papel de lectura"
 
 #: core/authenticationmanager.cpp:85
 #, kde-format
@@ -3185,7 +3183,7 @@ msgstr "Mostrar mensajes de moderación"
 
 #: widgets/administratordialog/moderationconsole/moderationmessageswidget.cpp:50
 #: widgets/dialogs/searchmessagewidget.cpp:184
-#: widgets/dialogs/showlistmessagebasewidget.cpp:100
+#: widgets/dialogs/showlistmessagebasewidget.cpp:103
 #: widgets/discussions/showdiscussionswidget.cpp:88
 #: widgets/room/usersinroomwidget.cpp:135
 #, kde-format
@@ -3194,7 +3192,7 @@ msgstr "Cargando..."
 
 #: widgets/administratordialog/moderationconsole/moderationmessageswidget.cpp:52
 #: widgets/dialogs/searchmessagewidget.cpp:188
-#: widgets/dialogs/showlistmessagebasewidget.cpp:102
+#: widgets/dialogs/showlistmessagebasewidget.cpp:105
 #: widgets/room/usersinroomwidget.cpp:137
 #, kde-format
 msgid "No Message found"
@@ -7178,12 +7176,10 @@ msgstr "Buscar aplicaciones privadas"
 #: widgets/applicationssettingsdialog/applicationssettingssettingswidget.cpp:52
 #, kde-format
 msgid "Applications does not have settings."
-msgstr ""
+msgstr "Las aplicaciones no tienen preferencias."
 
 #: widgets/applicationssettingsdialog/applicationssettingssettingswidget.cpp:81
-#, fuzzy, kde-format
-#| msgctxt "@action"
-#| msgid "Cancel"
+#, kde-format
 msgid "Cancel"
 msgstr "Cancelar"
 
@@ -8581,7 +8577,7 @@ msgstr[0] "%1 adjunto en la sala (total: %2)"
 msgstr[1] "%1 adjuntos en la sala (total: %2)"
 
 #: widgets/dialogs/showattachmentwidget.cpp:100
-#: widgets/dialogs/showlistmessagebasewidget.cpp:110
+#: widgets/dialogs/showlistmessagebasewidget.cpp:113
 #: widgets/discussions/showdiscussionswidget.cpp:99
 #: widgets/misc/searchtreebasewidget.cpp:78
 #: widgets/room/usersinroomflowwidget.cpp:129
@@ -8631,7 +8627,7 @@ msgstr "Ajustar a la vista"
 msgid "Save Image"
 msgstr "Guardar imagen"
 
-#: widgets/dialogs/showlistmessagebasewidget.cpp:108
+#: widgets/dialogs/showlistmessagebasewidget.cpp:111
 #, kde-format
 msgid "%1 Message in room (Total: %2)"
 msgid_plural "%1 Messages in room (Total: %2)"
@@ -8657,13 +8653,11 @@ msgid "Show Starred Messages - %1"
 msgstr "Mostrar mensajes favoritos - %1"
 
 #: widgets/dialogs/showtheadscombobox.cpp:14
-#, fuzzy, kde-format
-#| msgctxt "@info:tooltip"
-#| msgid "Following"
+#, kde-format
 msgid "Following"
 msgstr "Siguiendo"
 
-#: widgets/dialogs/showthreadsdialog.cpp:23
+#: widgets/dialogs/showthreadsdialog.cpp:26
 #, kde-format
 msgctxt "@title:window"
 msgid "Show Threads Messages"

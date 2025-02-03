@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-02-02 00:42+0000\n"
+"POT-Creation-Date: 2025-02-03 00:40+0000\n"
 "PO-Revision-Date: 2024-02-25 21:19+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
@@ -3224,7 +3224,7 @@ msgstr ""
 
 #: widgets/administratordialog/moderationconsole/moderationmessageswidget.cpp:50
 #: widgets/dialogs/searchmessagewidget.cpp:184
-#: widgets/dialogs/showlistmessagebasewidget.cpp:100
+#: widgets/dialogs/showlistmessagebasewidget.cpp:103
 #: widgets/discussions/showdiscussionswidget.cpp:88
 #: widgets/room/usersinroomwidget.cpp:135
 #, fuzzy, kde-format
@@ -3234,7 +3234,7 @@ msgstr "يحمّل..."
 
 #: widgets/administratordialog/moderationconsole/moderationmessageswidget.cpp:52
 #: widgets/dialogs/searchmessagewidget.cpp:188
-#: widgets/dialogs/showlistmessagebasewidget.cpp:102
+#: widgets/dialogs/showlistmessagebasewidget.cpp:105
 #: widgets/room/usersinroomwidget.cpp:137
 #, kde-format
 msgid "No Message found"
@@ -8645,7 +8645,7 @@ msgstr[4] ""
 msgstr[5] ""
 
 #: widgets/dialogs/showattachmentwidget.cpp:100
-#: widgets/dialogs/showlistmessagebasewidget.cpp:110
+#: widgets/dialogs/showlistmessagebasewidget.cpp:113
 #: widgets/discussions/showdiscussionswidget.cpp:99
 #: widgets/misc/searchtreebasewidget.cpp:78
 #: widgets/room/usersinroomflowwidget.cpp:129
@@ -8696,7 +8696,7 @@ msgstr ""
 msgid "Save Image"
 msgstr "احفظ الصّورة"
 
-#: widgets/dialogs/showlistmessagebasewidget.cpp:108
+#: widgets/dialogs/showlistmessagebasewidget.cpp:111
 #, kde-format
 msgid "%1 Message in room (Total: %2)"
 msgid_plural "%1 Messages in room (Total: %2)"
@@ -8731,7 +8731,7 @@ msgstr ""
 msgid "Following"
 msgstr "كل الرسائل"
 
-#: widgets/dialogs/showthreadsdialog.cpp:23
+#: widgets/dialogs/showthreadsdialog.cpp:26
 #, kde-format
 msgctxt "@title:window"
 msgid "Show Threads Messages"
