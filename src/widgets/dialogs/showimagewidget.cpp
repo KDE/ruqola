@@ -176,16 +176,23 @@ void ShowImageWidget::showImages(const QByteArray &fileId, const QByteArray &roo
         mImageListInfo.imageAttachments.parseFileAttachments(replyObject);
         mImageListInfo.roomId = info.roomId;
         mImageListInfo.fileId = info.startingFromId;
-        // TODO load first image
 
-        ShowImageWidget::ImageInfo info;
-        info.bigImagePath = mImageListInfo.imageAttachments.at(0).path();
-        info.needToDownloadBigImage = true;
-        setImageInfo(info);
+        setImageInfo(mImageListInfo.imageFromIndex(0));
     });
     if (!job->start()) {
         qCWarning(RUQOLAWIDGETS_SHOWIMAGE_LOG) << "Impossible to start RoomsImagesJob job";
     }
+}
+
+ShowImageWidget::ImageInfo ShowImageWidget::ImageListInfo::imageFromIndex(int index) const
+{
+    if (!imageAttachments.isEmpty() && (index < imageAttachments.count() - 1)) {
+        ShowImageWidget::ImageInfo info;
+        info.bigImagePath = imageAttachments.at(index).path();
+        info.needToDownloadBigImage = true;
+        return info;
+    }
+    return ShowImageWidget::ImageInfo();
 }
 
 QDebug operator<<(QDebug d, const ShowImageWidget::ImageListInfo &t)

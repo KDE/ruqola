@@ -30,6 +30,7 @@ public:
     };
 
     struct ImageListInfo {
+        [[nodiscard]] ImageInfo imageFromIndex(int index) const;
         FileAttachments imageAttachments;
         QByteArray fileId;
         QByteArray roomId;
