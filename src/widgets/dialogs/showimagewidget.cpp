@@ -14,18 +14,13 @@
 #include <QApplication>
 #include <QClipboard>
 #include <QDoubleSpinBox>
-#include <QGraphicsPixmapItem>
-#include <QGraphicsProxyWidget>
 
+#include <QKeyEvent>
 #include <QLabel>
 #include <QMimeData>
-#include <QMovie>
 #include <QPushButton>
-#include <QScopedValueRollback>
 #include <QSlider>
-#include <QTimer>
 #include <QVBoxLayout>
-#include <QWheelEvent>
 
 ShowImageWidget::ShowImageWidget(RocketChatAccount *account, QWidget *parent)
     : QWidget(parent)

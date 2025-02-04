@@ -6,7 +6,6 @@
 
 #pragma once
 
-#include <QGraphicsView>
 #include <QWidget>
 
 #include "libruqolawidgets_private_export.h"
