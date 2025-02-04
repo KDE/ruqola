@@ -122,8 +122,6 @@ bool ListAttachmentDelegate::editorEvent(QEvent *event, QAbstractItemModel *mode
         if (file) {
             if (file->typeGroup() == "image"_L1) {
                 Q_EMIT showImage(file->fileId());
-                // TODO remove when port to showImage
-                saveAttachment(option, file);
             } else {
                 saveAttachment(option, file);
             }

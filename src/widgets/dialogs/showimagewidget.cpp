@@ -171,16 +171,30 @@ void ShowImageWidget::showImages(const QByteArray &fileId, const QByteArray &roo
     info.startingFromId = fileId;
     job->setRoomsImagesJobInfo(std::move(info));
     mRocketChatAccount->restApi()->initializeRestApiJob(job);
-    connect(job, &RocketChatRestApi::RoomsImagesJob::roomsImagesDone, this, [this](const QJsonObject &replyObject) {
+    connect(job, &RocketChatRestApi::RoomsImagesJob::roomsImagesDone, this, [this, info](const QJsonObject &replyObject) {
         qDebug() << " replyObject " << replyObject;
-        FileAttachments imageAttachments;
-        imageAttachments.parseFileAttachments(replyObject);
-        qDebug() << " imageAttachments " << imageAttachments;
+        mImageListInfo.imageAttachments.parseFileAttachments(replyObject);
+        mImageListInfo.roomId = info.roomId;
+        mImageListInfo.fileId = info.startingFromId;
+        // TODO load first image
+
+        ShowImageWidget::ImageInfo info;
+        info.bigImagePath = mImageListInfo.imageAttachments.at(0).path();
+        info.needToDownloadBigImage = true;
+        setImageInfo(info);
     });
     if (!job->start()) {
         qCWarning(RUQOLAWIDGETS_SHOWIMAGE_LOG) << "Impossible to start RoomsImagesJob job";
     }
-    // TODO load list images
+}
+
+QDebug operator<<(QDebug d, const ShowImageWidget::ImageListInfo &t)
+{
+    d.space() << "fileId : " << t.fileId;
+    d.space() << "roomId : " << t.roomId;
+    d.space() << "index : " << t.index;
+    d.space() << "imageAttachments " << t.imageAttachments;
+    return d;
 }
 
 QDebug operator<<(QDebug d, const ShowImageWidget::ImageInfo &t)

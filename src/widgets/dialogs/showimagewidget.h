@@ -8,6 +8,7 @@
 
 #include <QWidget>
 
+#include "attachments/fileattachments.h"
 #include "libruqolawidgets_private_export.h"
 
 class QLabel;
@@ -26,6 +27,13 @@ public:
         QPixmap pixmap;
         bool isAnimatedImage = false;
         bool needToDownloadBigImage = false;
+    };
+
+    struct ImageListInfo {
+        FileAttachments imageAttachments;
+        QByteArray fileId;
+        QByteArray roomId;
+        int index = 0;
     };
 
     explicit ShowImageWidget(RocketChatAccount *account, QWidget *parent = nullptr);
@@ -47,6 +55,7 @@ protected:
 private:
     LIBRUQOLAWIDGETS_NO_EXPORT void updateRanges();
     LIBRUQOLAWIDGETS_NO_EXPORT void slotFileDownloaded(const QString &filePath, const QUrl &cacheImageUrl);
+    ImageListInfo mImageListInfo;
     ShowImageGraphicsView *const mImageGraphicsView;
     QWidget *const mZoomControls;
     QDoubleSpinBox *const mZoomSpin;
@@ -55,3 +64,4 @@ private:
 };
 Q_DECLARE_TYPEINFO(ShowImageWidget::ImageInfo, Q_RELOCATABLE_TYPE);
 LIBRUQOLAWIDGETS_EXPORT QDebug operator<<(QDebug d, const ShowImageWidget::ImageInfo &t);
+LIBRUQOLAWIDGETS_EXPORT QDebug operator<<(QDebug d, const ShowImageWidget::ImageListInfo &t);

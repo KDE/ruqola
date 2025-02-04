@@ -7,6 +7,7 @@
 #include "showattachmentdialog.h"
 #include "attachments/fileattachments.h"
 #include "connection.h"
+#include "dialogs/showimagedialog.h"
 #include "misc/methodcalljob.h"
 #include "rocketchataccount.h"
 #include "rooms/roomsimagesjob.h"
@@ -55,24 +56,10 @@ ShowAttachmentDialog::~ShowAttachmentDialog()
 
 void ShowAttachmentDialog::slotShowImage(const QByteArray &fileId)
 {
-    // TODO
-    auto job = new RocketChatRestApi::RoomsImagesJob(this);
-    RocketChatRestApi::RoomsImagesJob::RoomsImagesJobInfo info;
-    info.roomId = mRoomId;
-    info.count = 5;
-    info.offset = 0;
-    info.startingFromId = fileId;
-    job->setRoomsImagesJobInfo(std::move(info));
-    mRocketChatAccount->restApi()->initializeRestApiJob(job);
-    connect(job, &RocketChatRestApi::RoomsImagesJob::roomsImagesDone, this, [this](const QJsonObject &replyObject) {
-        qDebug() << " replyObject " << replyObject;
-        FileAttachments imageAttachments;
-        imageAttachments.parseFileAttachments(replyObject);
-        qDebug() << " imageAttachments " << imageAttachments;
-    });
-    if (!job->start()) {
-        qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start RoomsImagesJob job";
-    }
+    auto dlg = new ShowImageDialog(mRocketChatAccount, this);
+    dlg->setAttribute(Qt::WA_DeleteOnClose);
+    dlg->showImages(fileId, mRoomId);
+    dlg->show();
 }
 
 void ShowAttachmentDialog::slotDeleteAttachment(const QByteArray &fileId)
