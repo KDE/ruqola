@@ -34,7 +34,7 @@ void ShowImageWidgetTest::shouldHaveDefaultValues()
     QVERIFY(mainLayout);
     QCOMPARE(mainLayout->contentsMargins(), QMargins{});
 
-    auto graphicsView = w.findChild<ImageGraphicsView *>(QStringLiteral("mImageGraphicsView"));
+    auto graphicsView = w.findChild<ShowImageGraphicsView *>(QStringLiteral("mImageGraphicsView"));
     QVERIFY(graphicsView);
 
     auto zoomLayout = w.findChild<QHBoxLayout *>(QStringLiteral("zoomLayout"));

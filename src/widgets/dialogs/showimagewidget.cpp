@@ -44,7 +44,7 @@ qreal fitToViewZoomScale(QSize imageSize, QSize widgetSize)
 
 }
 
-ImageGraphicsView::ImageGraphicsView(RocketChatAccount *account, QWidget *parent)
+ShowImageGraphicsView::ShowImageGraphicsView(RocketChatAccount *account, QWidget *parent)
     : QGraphicsView(parent)
     , mAnimatedLabel(new QLabel)
     , mRocketChatAccount(account)
@@ -70,9 +70,9 @@ ImageGraphicsView::ImageGraphicsView(RocketChatAccount *account, QWidget *parent
     updateRanges();
 }
 
-ImageGraphicsView::~ImageGraphicsView() = default;
+ShowImageGraphicsView::~ShowImageGraphicsView() = default;
 
-void ImageGraphicsView::updatePixmap(const QPixmap &pix, const QString &path)
+void ShowImageGraphicsView::updatePixmap(const QPixmap &pix, const QString &path)
 {
     clearContents();
     if (!mImageInfo.isAnimatedImage) {
@@ -99,7 +99,7 @@ void ImageGraphicsView::updatePixmap(const QPixmap &pix, const QString &path)
     }
 }
 
-void ImageGraphicsView::setImageInfo(const ShowImageWidget::ImageInfo &info)
+void ShowImageGraphicsView::setImageInfo(const ShowImageWidget::ImageInfo &info)
 {
     mImageInfo = info;
     qCDebug(RUQOLAWIDGETS_SHOWIMAGE_LOG) << "ShowImageWidget::ImageInfo  " << info;
@@ -121,17 +121,17 @@ void ImageGraphicsView::setImageInfo(const ShowImageWidget::ImageInfo &info)
     }
 }
 
-void ImageGraphicsView::zoomIn(QPointF centerPos)
+void ShowImageGraphicsView::zoomIn(QPointF centerPos)
 {
     setZoom(zoom() * 1.1, centerPos);
 }
 
-void ImageGraphicsView::zoomOut(QPointF centerPos)
+void ShowImageGraphicsView::zoomOut(QPointF centerPos)
 {
     setZoom(zoom() * 0.9, centerPos);
 }
 
-void ImageGraphicsView::clearContents()
+void ShowImageGraphicsView::clearContents()
 {
     mOriginalMovieSize = {};
     mAnimatedLabel->setMovie(nullptr);
@@ -140,22 +140,22 @@ void ImageGraphicsView::clearContents()
     mGraphicsPixmapItem->setPixmap({});
 }
 
-QPixmap ImageGraphicsView::pixmap() const
+QPixmap ShowImageGraphicsView::pixmap() const
 {
     return mGraphicsPixmapItem->pixmap();
 }
 
-qreal ImageGraphicsView::minimumZoom() const
+qreal ShowImageGraphicsView::minimumZoom() const
 {
     return mMinimumZoom;
 }
 
-qreal ImageGraphicsView::maximumZoom() const
+qreal ShowImageGraphicsView::maximumZoom() const
 {
     return mMaximumZoom;
 }
 
-void ImageGraphicsView::updateRanges()
+void ShowImageGraphicsView::updateRanges()
 {
     const auto newMinimumZoom = fitToViewZoomScale(originalImageSize(), size());
     if (!qFuzzyCompare(mMinimumZoom, newMinimumZoom)) {
@@ -165,7 +165,7 @@ void ImageGraphicsView::updateRanges()
     // note: mMaximumZoom is constant for now
 }
 
-void ImageGraphicsView::wheelEvent(QWheelEvent *e)
+void ShowImageGraphicsView::wheelEvent(QWheelEvent *e)
 {
     if (e->modifiers() == Qt::ControlModifier) {
         const int y = e->angleDelta().y();
@@ -179,7 +179,7 @@ void ImageGraphicsView::wheelEvent(QWheelEvent *e)
     }
 }
 
-QSize ImageGraphicsView::originalImageSize() const
+QSize ShowImageGraphicsView::originalImageSize() const
 {
     if (mOriginalMovieSize.isValid()) {
         return mOriginalMovieSize;
@@ -188,17 +188,17 @@ QSize ImageGraphicsView::originalImageSize() const
     return mGraphicsPixmapItem->pixmap().size();
 }
 
-const ShowImageWidget::ImageInfo &ImageGraphicsView::imageInfo() const
+const ShowImageWidget::ImageInfo &ShowImageGraphicsView::imageInfo() const
 {
     return mImageInfo;
 }
 
-qreal ImageGraphicsView::zoom() const
+qreal ShowImageGraphicsView::zoom() const
 {
     return transform().m11();
 }
 
-void ImageGraphicsView::setZoom(qreal zoom, QPointF centerPos)
+void ShowImageGraphicsView::setZoom(qreal zoom, QPointF centerPos)
 {
     // clamp value
     zoom = qBound(minimumZoom(), zoom, maximumZoom());
@@ -231,7 +231,7 @@ void ImageGraphicsView::setZoom(qreal zoom, QPointF centerPos)
     Q_EMIT zoomChanged(zoom);
 }
 
-void ImageGraphicsView::fitToView()
+void ShowImageGraphicsView::fitToView()
 {
     setZoom(fitToViewZoomScale(originalImageSize(), size()));
     centerOn(mGraphicsPixmapItem);
@@ -239,7 +239,7 @@ void ImageGraphicsView::fitToView()
 
 ShowImageWidget::ShowImageWidget(RocketChatAccount *account, QWidget *parent)
     : QWidget(parent)
-    , mImageGraphicsView(new ImageGraphicsView(account, this))
+    , mImageGraphicsView(new ShowImageGraphicsView(account, this))
     , mZoomControls(new QWidget(this))
     , mZoomSpin(new QDoubleSpinBox(this))
     , mSlider(new QSlider(this))
@@ -251,12 +251,12 @@ ShowImageWidget::ShowImageWidget(RocketChatAccount *account, QWidget *parent)
 
     mImageGraphicsView->setObjectName(QStringLiteral("mImageGraphicsView"));
     mainLayout->addWidget(mImageGraphicsView);
-    connect(mImageGraphicsView, &ImageGraphicsView::zoomChanged, this, [this](qreal zoom) {
+    connect(mImageGraphicsView, &ShowImageGraphicsView::zoomChanged, this, [this](qreal zoom) {
         mSlider->setValue(static_cast<int>(zoom * 100));
         mZoomSpin->setValue(zoom);
     });
-    connect(mImageGraphicsView, &ImageGraphicsView::minimumZoomChanged, this, &ShowImageWidget::updateRanges);
-    connect(mImageGraphicsView, &ImageGraphicsView::maximumZoomChanged, this, &ShowImageWidget::updateRanges);
+    connect(mImageGraphicsView, &ShowImageGraphicsView::minimumZoomChanged, this, &ShowImageWidget::updateRanges);
+    connect(mImageGraphicsView, &ShowImageGraphicsView::maximumZoomChanged, this, &ShowImageWidget::updateRanges);
 
     mZoomControls->setObjectName(QStringLiteral("zoomControls"));
     auto zoomLayout = new QHBoxLayout;
@@ -290,7 +290,7 @@ ShowImageWidget::ShowImageWidget(RocketChatAccount *account, QWidget *parent)
     auto fitToViewButton = new QPushButton(i18nc("@action:button", "Fit to View"), this);
     fitToViewButton->setObjectName(QStringLiteral("fitToViewButton"));
     zoomLayout->addWidget(fitToViewButton);
-    connect(fitToViewButton, &QPushButton::clicked, mImageGraphicsView, &ImageGraphicsView::fitToView);
+    connect(fitToViewButton, &QPushButton::clicked, mImageGraphicsView, &ShowImageGraphicsView::fitToView);
 
     connect(mZoomSpin, &QDoubleSpinBox::valueChanged, this, [this](double value) {
         mImageGraphicsView->setZoom(static_cast<qreal>(value));

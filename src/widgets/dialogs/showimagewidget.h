@@ -15,7 +15,7 @@ class QLabel;
 class QSlider;
 class QDoubleSpinBox;
 class QMovie;
-class ImageGraphicsView;
+class ShowImageGraphicsView;
 class RocketChatAccount;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT ShowImageWidget : public QWidget
 {
@@ -46,20 +46,21 @@ protected:
 private:
     LIBRUQOLAWIDGETS_NO_EXPORT void updateRanges();
     LIBRUQOLAWIDGETS_NO_EXPORT void slotFileDownloaded(const QString &filePath, const QUrl &cacheImageUrl);
-    ImageGraphicsView *const mImageGraphicsView;
+    ShowImageGraphicsView *const mImageGraphicsView;
     QWidget *const mZoomControls;
     QDoubleSpinBox *const mZoomSpin;
     QSlider *const mSlider;
     RocketChatAccount *const mRocketChatAccount;
 };
 Q_DECLARE_TYPEINFO(ShowImageWidget::ImageInfo, Q_RELOCATABLE_TYPE);
+LIBRUQOLAWIDGETS_EXPORT QDebug operator<<(QDebug d, const ShowImageWidget::ImageInfo &t);
 
-class LIBRUQOLAWIDGETS_TESTS_EXPORT ImageGraphicsView : public QGraphicsView
+class LIBRUQOLAWIDGETS_TESTS_EXPORT ShowImageGraphicsView : public QGraphicsView
 {
     Q_OBJECT
 public:
-    explicit ImageGraphicsView(RocketChatAccount *account, QWidget *parent = nullptr);
-    ~ImageGraphicsView() override;
+    explicit ShowImageGraphicsView(RocketChatAccount *account, QWidget *parent = nullptr);
+    ~ShowImageGraphicsView() override;
 
     void clearContents();
 
@@ -106,4 +107,3 @@ private:
     qreal mMaximumZoom;
     bool mIsUpdatingZoom = false;
 };
-LIBRUQOLAWIDGETS_EXPORT QDebug operator<<(QDebug d, const ShowImageWidget::ImageInfo &t);
