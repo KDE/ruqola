@@ -7,7 +7,7 @@
 #pragma once
 #include "libruqolawidgets_private_export.h"
 #include <QWidget>
-
+class QToolButton;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT ShowImagePrevNextImageWidget : public QWidget
 {
     Q_OBJECT
@@ -15,7 +15,12 @@ public:
     explicit ShowImagePrevNextImageWidget(QWidget *parent = nullptr);
     ~ShowImagePrevNextImageWidget() override;
 
+    void setUpdateButtons(bool hasPrevious, bool hasNext);
 Q_SIGNALS:
-    void updateButton(bool hasPrevious, bool hasNext);
-    void showImage(int index);
+    void showNextImage();
+    void showPreviousImage();
+
+private:
+    QToolButton *const mNextButton;
+    QToolButton *const mPreviousButton;
 };

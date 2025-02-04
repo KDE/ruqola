@@ -17,6 +17,7 @@ class QDoubleSpinBox;
 class QMovie;
 class ShowImageGraphicsView;
 class RocketChatAccount;
+class ShowImagePrevNextImageWidget;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT ShowImageWidget : public QWidget
 {
     Q_OBJECT
@@ -54,6 +55,7 @@ protected:
     void keyPressEvent(QKeyEvent *event) override;
 
 private:
+    LIBRUQOLAWIDGETS_NO_EXPORT void updateButtons();
     LIBRUQOLAWIDGETS_NO_EXPORT void updateRanges();
     LIBRUQOLAWIDGETS_NO_EXPORT void slotFileDownloaded(const QString &filePath, const QUrl &cacheImageUrl);
     ImageListInfo mImageListInfo;
@@ -61,6 +63,7 @@ private:
     QWidget *const mZoomControls;
     QDoubleSpinBox *const mZoomSpin;
     QSlider *const mSlider;
+    ShowImagePrevNextImageWidget *const mShowImagePrevNextImageWidget;
     RocketChatAccount *const mRocketChatAccount;
 };
 Q_DECLARE_TYPEINFO(ShowImageWidget::ImageInfo, Q_RELOCATABLE_TYPE);

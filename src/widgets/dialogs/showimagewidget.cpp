@@ -11,6 +11,7 @@
 #include "rocketchataccount.h"
 #include "rooms/roomsimagesjob.h"
 #include "showimagegraphicsview.h"
+#include "showimageprevnextimagewidget.h"
 
 #include "ruqolawidgets_showimage_debug.h"
 #include <KLocalizedString>
@@ -31,6 +32,7 @@ ShowImageWidget::ShowImageWidget(RocketChatAccount *account, QWidget *parent)
     , mZoomControls(new QWidget(this))
     , mZoomSpin(new QDoubleSpinBox(this))
     , mSlider(new QSlider(this))
+    , mShowImagePrevNextImageWidget(new ShowImagePrevNextImageWidget(this))
     , mRocketChatAccount(account)
 {
     auto mainLayout = new QVBoxLayout(this);
@@ -51,6 +53,23 @@ ShowImageWidget::ShowImageWidget(RocketChatAccount *account, QWidget *parent)
     zoomLayout->setObjectName(QStringLiteral("zoomLayout"));
     mZoomControls->setLayout(zoomLayout);
     mainLayout->addWidget(mZoomControls);
+
+    mShowImagePrevNextImageWidget->setObjectName(QStringLiteral("mShowImagePrevNextImageWidget"));
+    zoomLayout->addWidget(mShowImagePrevNextImageWidget);
+    mShowImagePrevNextImageWidget->setVisible(false); // hide by default
+
+    connect(mShowImagePrevNextImageWidget, &ShowImagePrevNextImageWidget::showNextImage, this, [this]() {
+        // TODO show next image
+        qDebug() << " mImageListInfo.index next " << mImageListInfo.index;
+        setImageInfo(mImageListInfo.imageFromIndex(++mImageListInfo.index));
+        updateButtons();
+    });
+    connect(mShowImagePrevNextImageWidget, &ShowImagePrevNextImageWidget::showPreviousImage, this, [this]() {
+        setImageInfo(mImageListInfo.imageFromIndex(--mImageListInfo.index));
+        qDebug() << " mImageListInfo.index previous " << mImageListInfo.index;
+        // TODO show next image
+        updateButtons();
+    });
 
     auto mLabel = new QLabel(i18nc("@label:textbox", "Zoom:"), this);
     mLabel->setObjectName(QStringLiteral("zoomLabel"));
@@ -130,6 +149,11 @@ void ShowImageWidget::updateRanges()
     mSlider->setRange(min * 100.0, max * 100.0);
 }
 
+void ShowImageWidget::updateButtons()
+{
+    mShowImagePrevNextImageWidget->setUpdateButtons(mImageListInfo.index > 0, mImageListInfo.index < mImageListInfo.imageAttachments.count());
+}
+
 void ShowImageWidget::setImageInfo(const ShowImageWidget::ImageInfo &info)
 {
     mImageGraphicsView->setImageInfo(info);
@@ -178,6 +202,8 @@ void ShowImageWidget::showImages(const QByteArray &fileId, const QByteArray &roo
         mImageListInfo.fileId = info.startingFromId;
 
         setImageInfo(mImageListInfo.imageFromIndex(0));
+        mShowImagePrevNextImageWidget->setVisible(true);
+        mShowImagePrevNextImageWidget->setUpdateButtons(false, mImageListInfo.imageAttachments.count() > 1);
     });
     if (!job->start()) {
         qCWarning(RUQOLAWIDGETS_SHOWIMAGE_LOG) << "Impossible to start RoomsImagesJob job";
