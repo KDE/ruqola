@@ -115,6 +115,7 @@ void FileTest::shouldParseFile_data()
         expected.setUploadedAt(1517990371911);
         expected.setFileId(QByteArrayLiteral("AoqRSa6GMt3wXCeSo"));
         expected.setUserName(QStringLiteral("bli"));
+        expected.setPath(QStringLiteral("/ufs/FileSystem:Uploads/AoqRSa6GMt3wXCeSo/Clipboard%20-%20February%207,%202018%208:59%20AM"));
         expected.setComplete(true);
         QTest::newRow("roomfile1-restapi") << QStringLiteral("roomfile1") << expected << true;
     }
