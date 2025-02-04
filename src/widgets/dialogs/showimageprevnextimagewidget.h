@@ -14,4 +14,7 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT ShowImagePrevNextImageWidget : public QWidge
 public:
     explicit ShowImagePrevNextImageWidget(QWidget *parent = nullptr);
     ~ShowImagePrevNextImageWidget() override;
+
+Q_SIGNALS:
+    void updateButton(bool hasPrevious, bool hasNext);
 };
