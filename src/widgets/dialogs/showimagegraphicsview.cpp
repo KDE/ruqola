@@ -221,3 +221,5 @@ void ShowImageGraphicsView::fitToView()
     setZoom(fitToViewZoomScale(originalImageSize(), size()));
     centerOn(mGraphicsPixmapItem);
 }
+
+#include "moc_showimagegraphicsview.cpp"
