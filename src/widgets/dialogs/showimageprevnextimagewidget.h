@@ -17,4 +17,5 @@ public:
 
 Q_SIGNALS:
     void updateButton(bool hasPrevious, bool hasNext);
+    void showImage(int index);
 };

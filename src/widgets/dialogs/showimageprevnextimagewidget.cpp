@@ -15,10 +15,12 @@ ShowImagePrevNextImageWidget::ShowImagePrevNextImageWidget(QWidget *parent)
     auto previousButton = new QToolButton(this);
     previousButton->setIcon(QIcon::fromTheme(QStringLiteral("go-previous")));
     previousButton->setEnabled(false);
+    connect(previousButton, &QToolButton::triggered, this, []() { });
 
     auto nextButton = new QToolButton(this);
     nextButton->setIcon(QIcon::fromTheme(QStringLiteral("nextButton")));
     nextButton->setEnabled(false);
+    connect(nextButton, &QToolButton::triggered, this, []() { });
 
     mainLayout->addWidget(previousButton);
     mainLayout->addWidget(nextButton);
