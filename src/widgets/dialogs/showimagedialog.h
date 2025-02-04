@@ -19,6 +19,8 @@ public:
 
     void setImageInfo(const ShowImageWidget::ImageInfo &info);
 
+    void showImages(const QByteArray &fileId, const QByteArray &roomId);
+
 private:
     LIBRUQOLAWIDGETS_NO_EXPORT void readConfig();
     LIBRUQOLAWIDGETS_NO_EXPORT void writeConfig();

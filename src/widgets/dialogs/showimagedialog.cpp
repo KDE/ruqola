@@ -92,4 +92,8 @@ void ShowImageDialog::writeConfig()
     KWindowConfig::saveWindowSize(windowHandle(), group);
 }
 
+void ShowImageDialog::showImages(const QByteArray &fileId, const QByteArray &roomId)
+{
+    mShowImageWidget->showImages(fileId, roomId);
+}
 #include "moc_showimagedialog.cpp"

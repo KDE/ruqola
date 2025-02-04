@@ -5,8 +5,11 @@
 */
 
 #include "showimagewidget.h"
+#include "attachments/fileattachments.h"
 #include "common/delegateutil.h"
+#include "connection.h"
 #include "rocketchataccount.h"
+#include "rooms/roomsimagesjob.h"
 #include "showimagegraphicsview.h"
 
 #include "ruqolawidgets_showimage_debug.h"
@@ -156,6 +159,28 @@ void ShowImageWidget::copyLocation()
 {
     const QString imagePath = mRocketChatAccount->attachmentUrlFromLocalCache(mImageGraphicsView->imageInfo().bigImagePath).toLocalFile();
     QApplication::clipboard()->setText(imagePath);
+}
+
+void ShowImageWidget::showImages(const QByteArray &fileId, const QByteArray &roomId)
+{
+    auto job = new RocketChatRestApi::RoomsImagesJob(this);
+    RocketChatRestApi::RoomsImagesJob::RoomsImagesJobInfo info;
+    info.roomId = roomId;
+    info.count = 5;
+    info.offset = 0;
+    info.startingFromId = fileId;
+    job->setRoomsImagesJobInfo(std::move(info));
+    mRocketChatAccount->restApi()->initializeRestApiJob(job);
+    connect(job, &RocketChatRestApi::RoomsImagesJob::roomsImagesDone, this, [this](const QJsonObject &replyObject) {
+        qDebug() << " replyObject " << replyObject;
+        FileAttachments imageAttachments;
+        imageAttachments.parseFileAttachments(replyObject);
+        qDebug() << " imageAttachments " << imageAttachments;
+    });
+    if (!job->start()) {
+        qCWarning(RUQOLAWIDGETS_SHOWIMAGE_LOG) << "Impossible to start RoomsImagesJob job";
+    }
+    // TODO load list images
 }
 
 QDebug operator<<(QDebug d, const ShowImageWidget::ImageInfo &t)

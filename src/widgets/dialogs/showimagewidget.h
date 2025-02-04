@@ -39,6 +39,8 @@ public:
     void copyImage();
     void copyLocation();
 
+    void showImages(const QByteArray &fileId, const QByteArray &roomId);
+
 protected:
     void keyPressEvent(QKeyEvent *event) override;
 
