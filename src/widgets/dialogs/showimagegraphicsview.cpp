@@ -23,10 +23,8 @@ qreal fitToViewZoomScale(QSize imageSize, QSize widgetSize)
         const qreal vZoom = (qreal)widgetSize.height() / imageSize.height();
         return std::max((int)(std::min(hZoom, vZoom) * 100) / 100.0, defaultMinimumZoomScale);
     }
-
     return 1.0;
 }
-
 }
 
 ShowImageGraphicsView::ShowImageGraphicsView(RocketChatAccount *account, QWidget *parent)
