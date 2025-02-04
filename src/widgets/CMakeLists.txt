@@ -1,6 +1,7 @@
 # SPDX-FileCopyrightText: 2020-2025 Laurent Montel <montel@kde.org>
 # SPDX-License-Identifier: BSD-3-Clause
-add_library(libruqolawidgets)
+add_library(libruqolawidgets
+    dialogs/showimagegraphicsview.h)
 
 if(TARGET KF6::UserFeedbackWidgets)
     target_sources(libruqolawidgets PRIVATE
@@ -443,6 +444,8 @@ target_sources(libruqolawidgets PRIVATE
     dialogs/showimagedialog.h
     dialogs/showimagewidget.cpp
     dialogs/showimagewidget.h
+    dialogs/showimagegraphicsview.h
+    dialogs/showimagegraphicsview.cpp
     dialogs/showlistmessagebasedialog.cpp
     dialogs/showlistmessagebasedialog.h
     dialogs/showlistmessagebasewidget.cpp

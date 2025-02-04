@@ -5,6 +5,7 @@
 */
 
 #include "showimagewidgettest.h"
+#include "dialogs/showimagegraphicsview.h"
 #include "dialogs/showimagewidget.h"
 
 #include <QDoubleSpinBox>
