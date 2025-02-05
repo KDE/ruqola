@@ -63,7 +63,9 @@ ShowImageWidget::ShowImageWidget(RocketChatAccount *account, QWidget *parent)
         qDebug() << " mImageListInfo.imageAttachments.count() " << mImageListInfo.imageAttachments.count() << " mImageListInfo.index " << mImageListInfo.index;
         if (mImageListInfo.index == mImageListInfo.imageAttachments.count()) {
             qDebug() << "Need to download next image";
-            showImages(mImageListInfo.fileId, mImageListInfo.roomId, mImageListInfo.index + 1);
+            if (mImageListInfo.index + 1 < mImageListInfo.imageAttachments.total()) {
+                showImages(mImageListInfo.fileId, mImageListInfo.roomId, mImageListInfo.index + 1);
+            }
             return;
         }
         setImageInfo(mImageListInfo.imageFromIndex(mImageListInfo.index, mRocketChatAccount));
@@ -199,7 +201,7 @@ void ShowImageWidget::showImages(const QByteArray &fileId, const QByteArray &roo
     job->setRoomsImagesJobInfo(std::move(info));
     mRocketChatAccount->restApi()->initializeRestApiJob(job);
     connect(job, &RocketChatRestApi::RoomsImagesJob::roomsImagesDone, this, [this, info](const QJsonObject &replyObject) {
-        qDebug() << " replyObject " << replyObject;
+        // qDebug() << " replyObject " << replyObject;
         FileAttachments imagesList;
         imagesList.parseFileAttachments(replyObject);
         mImageListInfo.imageAttachments.setFilesCount(mImageListInfo.imageAttachments.filesCount() + imagesList.filesCount());
@@ -209,8 +211,9 @@ void ShowImageWidget::showImages(const QByteArray &fileId, const QByteArray &roo
         mImageListInfo.roomId = info.roomId;
         mImageListInfo.fileId = info.startingFromId;
         setImageInfo(mImageListInfo.imageFromIndex(info.offset, mRocketChatAccount));
-        qDebug() << " info.offset " << info.offset;
-        qDebug() << " mImageListInfo " << mImageListInfo.imageAttachments;
+        // qDebug() << " info.offset " << info.offset;
+        // qDebug() << " info.totla " << mImageListInfo.imageAttachments.total();
+        // qDebug() << " mImageListInfo " << mImageListInfo.imageAttachments;
         mShowImagePrevNextImageWidget->setVisible(true);
         updateButtons();
     });
