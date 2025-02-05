@@ -59,15 +59,11 @@ ShowImageWidget::ShowImageWidget(RocketChatAccount *account, QWidget *parent)
     mShowImagePrevNextImageWidget->setVisible(false); // hide by default
 
     connect(mShowImagePrevNextImageWidget, &ShowImagePrevNextImageWidget::showNextImage, this, [this]() {
-        // TODO show next image
-        qDebug() << " mImageListInfo.index next " << mImageListInfo.index;
         setImageInfo(mImageListInfo.imageFromIndex(++mImageListInfo.index, mRocketChatAccount));
         updateButtons();
     });
     connect(mShowImagePrevNextImageWidget, &ShowImagePrevNextImageWidget::showPreviousImage, this, [this]() {
         setImageInfo(mImageListInfo.imageFromIndex(--mImageListInfo.index, mRocketChatAccount));
-        qDebug() << " mImageListInfo.index previous " << mImageListInfo.index;
-        // TODO show next image
         updateButtons();
     });
 
