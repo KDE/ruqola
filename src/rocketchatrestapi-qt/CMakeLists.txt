@@ -351,6 +351,8 @@ target_sources(librocketchatrestapi-qt PRIVATE
     rooms/roomsunmuteuserjob.cpp
     rooms/roomsimagesjob.cpp
     rooms/roomsimagesjob.h
+    rooms/roomsmembersorderedbyrolejob.cpp
+    rooms/roomsmembersorderedbyrolejob.h
 
     serverinfojob.cpp
     serverinfojob.h
