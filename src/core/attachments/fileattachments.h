@@ -7,11 +7,11 @@
 #pragma once
 
 #include "file.h"
-#include "libruqola_private_export.h"
+#include "libruqolacore_export.h"
 #include <QDebug>
 #include <QList>
 
-class LIBRUQOLACORE_TESTS_EXPORT FileAttachments
+class LIBRUQOLACORE_EXPORT FileAttachments
 {
 public:
     FileAttachments();
