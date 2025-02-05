@@ -55,14 +55,14 @@ void RoomsMembersOrderedByRoleJob::onGetRequestResponse(const QString &replyErro
     const QJsonObject replyObject = replyJson.object();
     if (replyObject["success"_L1].toBool()) {
         addLoggerInfo(QByteArrayLiteral("RoomsMembersOrderedByRoleJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
-        Q_EMIT roomsImagesDone(replyObject);
+        Q_EMIT roomsMembersOrderedByRoleDone(replyObject);
     } else {
         emitFailedMessage(replyErrorString, replyObject);
         addLoggerWarning(QByteArrayLiteral("RoomsMembersOrderedByRoleJob: Problem: ") + replyJson.toJson(QJsonDocument::Indented));
     }
 }
 
-RoomsMembersOrderedByRoleJob::RoomsMembersOrderedByRoleJobInfo RoomsMembersOrderedByRoleJob::roomsImagesJobInfo() const
+RoomsMembersOrderedByRoleJob::RoomsMembersOrderedByRoleJobInfo RoomsMembersOrderedByRoleJob::roomsMembersOrderedByRoleJobInfo() const
 {
     return mRoomsMembersOrderedByRoleJobInfo;
 }
@@ -79,7 +79,7 @@ bool RoomsMembersOrderedByRoleJob::hasQueryParameterSupport() const
 
 QNetworkRequest RoomsMembersOrderedByRoleJob::request() const
 {
-    QUrl url = mRestApiMethod->generateUrl(RestApiUtil::RestApiUrlType::RoomsImages);
+    QUrl url = mRestApiMethod->generateUrl(RestApiUtil::RestApiUrlType::RoomsMembersOrderedByRole);
     QUrlQuery queryUrl;
     mRoomsMembersOrderedByRoleJobInfo.generateRequest(queryUrl);
     addQueryParameter(queryUrl);

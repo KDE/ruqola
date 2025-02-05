@@ -37,11 +37,11 @@ public:
 
     [[nodiscard]] bool hasQueryParameterSupport() const override;
 
-    [[nodiscard]] RoomsMembersOrderedByRoleJobInfo roomsImagesJobInfo() const;
+    [[nodiscard]] RoomsMembersOrderedByRoleJobInfo roomsMembersOrderedByRoleJobInfo() const;
     void setRoomsMembersOrderedByRoleJobInfo(const RoomsMembersOrderedByRoleJobInfo &newRoomsMembersOrderedByRoleJobInfo);
 
 Q_SIGNALS:
-    void roomsImagesDone(const QJsonObject &obj);
+    void roomsMembersOrderedByRoleDone(const QJsonObject &obj);
 
 private:
     LIBROCKETCHATRESTAPI_QT_NO_EXPORT void onGetRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson) override;
