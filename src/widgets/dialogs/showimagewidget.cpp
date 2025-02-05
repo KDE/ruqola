@@ -61,11 +61,11 @@ ShowImageWidget::ShowImageWidget(RocketChatAccount *account, QWidget *parent)
     connect(mShowImagePrevNextImageWidget, &ShowImagePrevNextImageWidget::showNextImage, this, [this]() {
         // TODO show next image
         qDebug() << " mImageListInfo.index next " << mImageListInfo.index;
-        setImageInfo(mImageListInfo.imageFromIndex(++mImageListInfo.index));
+        setImageInfo(mImageListInfo.imageFromIndex(++mImageListInfo.index, mRocketChatAccount));
         updateButtons();
     });
     connect(mShowImagePrevNextImageWidget, &ShowImagePrevNextImageWidget::showPreviousImage, this, [this]() {
-        setImageInfo(mImageListInfo.imageFromIndex(--mImageListInfo.index));
+        setImageInfo(mImageListInfo.imageFromIndex(--mImageListInfo.index, mRocketChatAccount));
         qDebug() << " mImageListInfo.index previous " << mImageListInfo.index;
         // TODO show next image
         updateButtons();
@@ -199,8 +199,7 @@ void ShowImageWidget::showImages(const QByteArray &fileId, const QByteArray &roo
         mImageListInfo.imageAttachments.parseFileAttachments(replyObject);
         mImageListInfo.roomId = info.roomId;
         mImageListInfo.fileId = info.startingFromId;
-
-        setImageInfo(mImageListInfo.imageFromIndex(0));
+        setImageInfo(mImageListInfo.imageFromIndex(0, mRocketChatAccount));
         mShowImagePrevNextImageWidget->setVisible(true);
         updateButtons();
     });
@@ -209,12 +208,12 @@ void ShowImageWidget::showImages(const QByteArray &fileId, const QByteArray &roo
     }
 }
 
-ShowImageWidget::ImageInfo ShowImageWidget::ImageListInfo::imageFromIndex(int index) const
+ShowImageWidget::ImageInfo ShowImageWidget::ImageListInfo::imageFromIndex(int index, RocketChatAccount *account) const
 {
     if (!imageAttachments.isEmpty() && (index < imageAttachments.count() - 1)) {
         ShowImageWidget::ImageInfo info;
         info.bigImagePath = imageAttachments.at(index).path();
-        info.needToDownloadBigImage = true;
+        info.needToDownloadBigImage = !account->attachmentIsInLocalCache(info.bigImagePath);
         return info;
     }
     return ShowImageWidget::ImageInfo();

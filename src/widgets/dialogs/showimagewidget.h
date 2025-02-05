@@ -31,7 +31,7 @@ public:
     };
 
     struct ImageListInfo {
-        [[nodiscard]] ImageInfo imageFromIndex(int index) const;
+        [[nodiscard]] ImageInfo imageFromIndex(int index, RocketChatAccount *account) const;
         FileAttachments imageAttachments;
         QByteArray fileId;
         QByteArray roomId;
