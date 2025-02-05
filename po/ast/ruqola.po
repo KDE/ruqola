@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-02-04 00:40+0000\n"
+"POT-Creation-Date: 2025-02-05 00:41+0000\n"
 "PO-Revision-Date: 2024-03-27 23:08+0100\n"
 "Last-Translator: Enol P. <enolp@softastur.org>\n"
 "Language-Team: Asturian <alministradores@softastur.org>\n"
@@ -8284,7 +8284,7 @@ msgstr ""
 msgid "Files"
 msgstr ""
 
-#: widgets/dialogs/showattachmentdialog.cpp:33
+#: widgets/dialogs/showattachmentdialog.cpp:34
 #, kde-format
 msgctxt "@title:window"
 msgid "Show Attachments - %1"
@@ -8335,25 +8335,35 @@ msgstr ""
 msgid "Copy Location to Clipboard"
 msgstr ""
 
-#: widgets/dialogs/showimagewidget.cpp:267
+#: widgets/dialogs/showimageprevnextimagewidget.cpp:21
+#, kde-format
+msgid "Show previous image"
+msgstr ""
+
+#: widgets/dialogs/showimageprevnextimagewidget.cpp:29
+#, kde-format
+msgid "Show next image"
+msgstr ""
+
+#: widgets/dialogs/showimagewidget.cpp:74
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Zoom:"
 msgstr ""
 
-#: widgets/dialogs/showimagewidget.cpp:283
+#: widgets/dialogs/showimagewidget.cpp:90
 #, kde-format
 msgctxt "@action:button"
 msgid "100%"
 msgstr ""
 
-#: widgets/dialogs/showimagewidget.cpp:290
+#: widgets/dialogs/showimagewidget.cpp:97
 #, kde-format
 msgctxt "@action:button"
 msgid "Fit to View"
 msgstr ""
 
-#: widgets/dialogs/showimagewidget.cpp:359
+#: widgets/dialogs/showimagewidget.cpp:171
 #: widgets/misc/messageattachmentdownloadandsavejob.cpp:59
 #, kde-format
 msgid "Save Image"

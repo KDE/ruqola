@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-02-04 00:40+0000\n"
+"POT-Creation-Date: 2025-02-05 00:41+0000\n"
 "PO-Revision-Date: 2024-12-24 20:22+0530\n"
 "Last-Translator: kali <shreekantkalwar@gmail.com>\n"
 "Language-Team: Sanskrit <kde-i18n-doc@kde.org>\n"
@@ -8468,7 +8468,7 @@ msgstr "ग्रन्थाः"
 msgid "Files"
 msgstr "सञ्चिकाः"
 
-#: widgets/dialogs/showattachmentdialog.cpp:33
+#: widgets/dialogs/showattachmentdialog.cpp:34
 #, kde-format
 msgctxt "@title:window"
 msgid "Show Attachments - %1"
@@ -8519,25 +8519,39 @@ msgstr "चित्रं Clipboard मध्ये प्रतिलिख्
 msgid "Copy Location to Clipboard"
 msgstr "स्थानस्य प्रतिलिपिं Clipboard मध्ये कुर्वन्तु"
 
-#: widgets/dialogs/showimagewidget.cpp:267
+#: widgets/dialogs/showimageprevnextimagewidget.cpp:21
+#, fuzzy, kde-format
+#| msgctxt "@info:shell"
+#| msgid "Show Message"
+msgid "Show previous image"
+msgstr "सन्देशं दर्शयतु"
+
+#: widgets/dialogs/showimageprevnextimagewidget.cpp:29
+#, fuzzy, kde-format
+#| msgctxt "@info:shell"
+#| msgid "Show Message"
+msgid "Show next image"
+msgstr "सन्देशं दर्शयतु"
+
+#: widgets/dialogs/showimagewidget.cpp:74
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Zoom:"
 msgstr "जूम :"
 
-#: widgets/dialogs/showimagewidget.cpp:283
+#: widgets/dialogs/showimagewidget.cpp:90
 #, kde-format
 msgctxt "@action:button"
 msgid "100%"
 msgstr "१००%"
 
-#: widgets/dialogs/showimagewidget.cpp:290
+#: widgets/dialogs/showimagewidget.cpp:97
 #, kde-format
 msgctxt "@action:button"
 msgid "Fit to View"
 msgstr "Fit to View इति"
 
-#: widgets/dialogs/showimagewidget.cpp:359
+#: widgets/dialogs/showimagewidget.cpp:171
 #: widgets/misc/messageattachmentdownloadandsavejob.cpp:59
 #, kde-format
 msgid "Save Image"

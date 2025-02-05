@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-02-04 00:40+0000\n"
-"PO-Revision-Date: 2025-02-02 08:26+0100\n"
+"POT-Creation-Date: 2025-02-05 00:41+0000\n"
+"PO-Revision-Date: 2025-02-04 16:21+0100\n"
 "Last-Translator: Stefan Asserhäll <stefan.asserhall@gmail.com>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
 "Language: sv\n"
@@ -8502,7 +8502,7 @@ msgstr "Texter"
 msgid "Files"
 msgstr "Filer"
 
-#: widgets/dialogs/showattachmentdialog.cpp:33
+#: widgets/dialogs/showattachmentdialog.cpp:34
 #, kde-format
 msgctxt "@title:window"
 msgid "Show Attachments - %1"
@@ -8553,25 +8553,39 @@ msgstr "Kopiera bild till klippbordet"
 msgid "Copy Location to Clipboard"
 msgstr "Kopiera plats till klippbordet"
 
-#: widgets/dialogs/showimagewidget.cpp:267
+#: widgets/dialogs/showimageprevnextimagewidget.cpp:21
+#, fuzzy, kde-format
+#| msgctxt "@info:shell"
+#| msgid "Show Message"
+msgid "Show previous image"
+msgstr "Visa meddelande"
+
+#: widgets/dialogs/showimageprevnextimagewidget.cpp:29
+#, fuzzy, kde-format
+#| msgctxt "@info:shell"
+#| msgid "Show Message"
+msgid "Show next image"
+msgstr "Visa meddelande"
+
+#: widgets/dialogs/showimagewidget.cpp:74
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Zoom:"
 msgstr "Zoom:"
 
-#: widgets/dialogs/showimagewidget.cpp:283
+#: widgets/dialogs/showimagewidget.cpp:90
 #, kde-format
 msgctxt "@action:button"
 msgid "100%"
 msgstr "100 %"
 
-#: widgets/dialogs/showimagewidget.cpp:290
+#: widgets/dialogs/showimagewidget.cpp:97
 #, kde-format
 msgctxt "@action:button"
 msgid "Fit to View"
 msgstr "Anpassa"
 
-#: widgets/dialogs/showimagewidget.cpp:359
+#: widgets/dialogs/showimagewidget.cpp:171
 #: widgets/misc/messageattachmentdownloadandsavejob.cpp:59
 #, kde-format
 msgid "Save Image"
@@ -11264,7 +11278,7 @@ msgstr "Implementera verifiering av om en ny version av Ruqola finns"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:21
 msgid "Allow to search threads by unread/following"
-msgstr ""
+msgstr "Tillåt att söka efter trådar enligt oläst/följer"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:31
 #, kde-format

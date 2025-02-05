@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-02-04 00:40+0000\n"
+"POT-Creation-Date: 2025-02-05 00:41+0000\n"
 "PO-Revision-Date: 2025-01-26 21:02+0100\n"
 "Last-Translator: Adrián Chaves (Gallaecio) <adrian@chaves.io>\n"
 "Language-Team: Proxecto Trasno (proxecto@trasno.gal)\n"
@@ -8550,7 +8550,7 @@ msgstr "Textos"
 msgid "Files"
 msgstr "Ficheiros"
 
-#: widgets/dialogs/showattachmentdialog.cpp:33
+#: widgets/dialogs/showattachmentdialog.cpp:34
 #, kde-format
 msgctxt "@title:window"
 msgid "Show Attachments - %1"
@@ -8601,25 +8601,39 @@ msgstr "Copiar a imaxe no portapapeis"
 msgid "Copy Location to Clipboard"
 msgstr "Copiar a localización no portapapeis"
 
-#: widgets/dialogs/showimagewidget.cpp:267
+#: widgets/dialogs/showimageprevnextimagewidget.cpp:21
+#, fuzzy, kde-format
+#| msgctxt "@info:shell"
+#| msgid "Show Message"
+msgid "Show previous image"
+msgstr "Amosar a mensaxe"
+
+#: widgets/dialogs/showimageprevnextimagewidget.cpp:29
+#, fuzzy, kde-format
+#| msgctxt "@info:shell"
+#| msgid "Show Message"
+msgid "Show next image"
+msgstr "Amosar a mensaxe"
+
+#: widgets/dialogs/showimagewidget.cpp:74
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Zoom:"
 msgstr "Ampliación:"
 
-#: widgets/dialogs/showimagewidget.cpp:283
+#: widgets/dialogs/showimagewidget.cpp:90
 #, kde-format
 msgctxt "@action:button"
 msgid "100%"
 msgstr "100%"
 
-#: widgets/dialogs/showimagewidget.cpp:290
+#: widgets/dialogs/showimagewidget.cpp:97
 #, kde-format
 msgctxt "@action:button"
 msgid "Fit to View"
 msgstr "Axustar á vista"
 
-#: widgets/dialogs/showimagewidget.cpp:359
+#: widgets/dialogs/showimagewidget.cpp:171
 #: widgets/misc/messageattachmentdownloadandsavejob.cpp:59
 #, kde-format
 msgid "Save Image"

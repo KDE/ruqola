@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-02-04 00:40+0000\n"
-"PO-Revision-Date: 2025-02-02 12:43+0300\n"
+"POT-Creation-Date: 2025-02-05 00:41+0000\n"
+"PO-Revision-Date: 2025-02-04 11:01+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -8489,7 +8489,7 @@ msgstr "Metinler"
 msgid "Files"
 msgstr "Dosyalar"
 
-#: widgets/dialogs/showattachmentdialog.cpp:33
+#: widgets/dialogs/showattachmentdialog.cpp:34
 #, kde-format
 msgctxt "@title:window"
 msgid "Show Attachments - %1"
@@ -8540,25 +8540,39 @@ msgstr "Görseli Panoya Kopyala"
 msgid "Copy Location to Clipboard"
 msgstr "Konumu Panoya Kopyala"
 
-#: widgets/dialogs/showimagewidget.cpp:267
+#: widgets/dialogs/showimageprevnextimagewidget.cpp:21
+#, fuzzy, kde-format
+#| msgctxt "@info:shell"
+#| msgid "Show Message"
+msgid "Show previous image"
+msgstr "İletiyi göster"
+
+#: widgets/dialogs/showimageprevnextimagewidget.cpp:29
+#, fuzzy, kde-format
+#| msgctxt "@info:shell"
+#| msgid "Show Message"
+msgid "Show next image"
+msgstr "İletiyi göster"
+
+#: widgets/dialogs/showimagewidget.cpp:74
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Zoom:"
 msgstr "Yakınlaştır:"
 
-#: widgets/dialogs/showimagewidget.cpp:283
+#: widgets/dialogs/showimagewidget.cpp:90
 #, kde-format
 msgctxt "@action:button"
 msgid "100%"
 msgstr "%​100"
 
-#: widgets/dialogs/showimagewidget.cpp:290
+#: widgets/dialogs/showimagewidget.cpp:97
 #, kde-format
 msgctxt "@action:button"
 msgid "Fit to View"
 msgstr "Görünüme Sığdır"
 
-#: widgets/dialogs/showimagewidget.cpp:359
+#: widgets/dialogs/showimagewidget.cpp:171
 #: widgets/misc/messageattachmentdownloadandsavejob.cpp:59
 #, kde-format
 msgid "Save Image"
@@ -11261,7 +11275,7 @@ msgstr "Yeni bir Ruqola sürümü varsa bildirim desteği"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:21
 msgid "Allow to search threads by unread/following"
-msgstr ""
+msgstr "Okunmamış/takip edilen kıstaslarına göre dizileri aramaya izin vr"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:31
 #, kde-format

@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-02-04 00:40+0000\n"
+"POT-Creation-Date: 2025-02-05 00:41+0000\n"
 "PO-Revision-Date: 2024-08-06 05:33+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
@@ -8754,7 +8754,7 @@ msgstr "文字"
 msgid "Files"
 msgstr "檔案"
 
-#: widgets/dialogs/showattachmentdialog.cpp:33
+#: widgets/dialogs/showattachmentdialog.cpp:34
 #, kde-format
 msgctxt "@title:window"
 msgid "Show Attachments - %1"
@@ -8806,28 +8806,42 @@ msgstr "複製影像到剪貼簿"
 msgid "Copy Location to Clipboard"
 msgstr "複製位置到剪貼簿"
 
-#: widgets/dialogs/showimagewidget.cpp:267
+#: widgets/dialogs/showimageprevnextimagewidget.cpp:21
+#, fuzzy, kde-format
+#| msgctxt "@info:shell"
+#| msgid "Show Message"
+msgid "Show previous image"
+msgstr "顯示訊息"
+
+#: widgets/dialogs/showimageprevnextimagewidget.cpp:29
+#, fuzzy, kde-format
+#| msgctxt "@info:shell"
+#| msgid "Show Message"
+msgid "Show next image"
+msgstr "顯示訊息"
+
+#: widgets/dialogs/showimagewidget.cpp:74
 #, fuzzy, kde-format
 #| msgid "Zoom:"
 msgctxt "@label:textbox"
 msgid "Zoom:"
 msgstr "縮放："
 
-#: widgets/dialogs/showimagewidget.cpp:283
+#: widgets/dialogs/showimagewidget.cpp:90
 #, fuzzy, kde-format
 #| msgid "100%"
 msgctxt "@action:button"
 msgid "100%"
 msgstr "100%"
 
-#: widgets/dialogs/showimagewidget.cpp:290
+#: widgets/dialogs/showimagewidget.cpp:97
 #, fuzzy, kde-format
 #| msgid "Fit to View"
 msgctxt "@action:button"
 msgid "Fit to View"
 msgstr "適合檢視大小"
 
-#: widgets/dialogs/showimagewidget.cpp:359
+#: widgets/dialogs/showimagewidget.cpp:171
 #: widgets/misc/messageattachmentdownloadandsavejob.cpp:59
 #, kde-format
 msgid "Save Image"
