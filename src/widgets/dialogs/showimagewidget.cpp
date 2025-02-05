@@ -196,14 +196,13 @@ void ShowImageWidget::showImages(const QByteArray &fileId, const QByteArray &roo
     job->setRoomsImagesJobInfo(std::move(info));
     mRocketChatAccount->restApi()->initializeRestApiJob(job);
     connect(job, &RocketChatRestApi::RoomsImagesJob::roomsImagesDone, this, [this, info](const QJsonObject &replyObject) {
-        qDebug() << " replyObject " << replyObject;
         mImageListInfo.imageAttachments.parseFileAttachments(replyObject);
         mImageListInfo.roomId = info.roomId;
         mImageListInfo.fileId = info.startingFromId;
 
         setImageInfo(mImageListInfo.imageFromIndex(0));
         mShowImagePrevNextImageWidget->setVisible(true);
-        mShowImagePrevNextImageWidget->setUpdateButtons(false, mImageListInfo.imageAttachments.count() > 1);
+        updateButtons();
     });
     if (!job->start()) {
         qCWarning(RUQOLAWIDGETS_SHOWIMAGE_LOG) << "Impossible to start RoomsImagesJob job";
