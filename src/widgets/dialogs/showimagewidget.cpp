@@ -60,9 +60,10 @@ ShowImageWidget::ShowImageWidget(RocketChatAccount *account, QWidget *parent)
 
     connect(mShowImagePrevNextImageWidget, &ShowImagePrevNextImageWidget::showNextImage, this, [this]() {
         ++mImageListInfo.index;
-        qDebug() << " mImageListInfo.imageAttachments.count() " << mImageListInfo.imageAttachments.count() << " mImageListInfo.index " << mImageListInfo.index;
+        // qDebug() << " mImageListInfo.imageAttachments.count() " << mImageListInfo.imageAttachments.count() << " mImageListInfo.index " <<
+        // mImageListInfo.index;
         if (mImageListInfo.index == mImageListInfo.imageAttachments.count()) {
-            qDebug() << "Need to download next image";
+            // qDebug() << "Need to download next image";
             if (mImageListInfo.index + 1 < mImageListInfo.imageAttachments.total()) {
                 showImages(mImageListInfo.fileId, mImageListInfo.roomId, mImageListInfo.index + 1);
             }
