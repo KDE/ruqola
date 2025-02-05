@@ -36,6 +36,8 @@ public:
     void parseFileAttachments(const QJsonObject &fileAttachmentsObj);
     void parseMoreFileAttachments(const QJsonObject &fileAttachmentsObj);
 
+    void addFileAttachments(const QList<File> &fileAttachments);
+
 private:
     LIBRUQOLACORE_NO_EXPORT void parseFiles(const QJsonObject &fileAttachmentsObj);
     QList<File> mFileAttachments;

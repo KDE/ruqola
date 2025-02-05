@@ -49,7 +49,7 @@ public:
     void copyImage();
     void copyLocation();
 
-    void showImages(const QByteArray &fileId, const QByteArray &roomId);
+    void showImages(const QByteArray &fileId, const QByteArray &roomId, int offset = 0);
 
 protected:
     void keyPressEvent(QKeyEvent *event) override;

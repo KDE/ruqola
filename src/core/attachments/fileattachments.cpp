@@ -111,6 +111,11 @@ void FileAttachments::setFileAttachments(const QList<File> &fileAttachments)
     mFileAttachments = fileAttachments;
 }
 
+void FileAttachments::addFileAttachments(const QList<File> &fileAttachments)
+{
+    mFileAttachments << fileAttachments;
+}
+
 QDebug operator<<(QDebug d, const FileAttachments &t)
 {
     d.space() << "total" << t.total();

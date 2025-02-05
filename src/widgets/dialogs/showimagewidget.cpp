@@ -59,7 +59,14 @@ ShowImageWidget::ShowImageWidget(RocketChatAccount *account, QWidget *parent)
     mShowImagePrevNextImageWidget->setVisible(false); // hide by default
 
     connect(mShowImagePrevNextImageWidget, &ShowImagePrevNextImageWidget::showNextImage, this, [this]() {
-        setImageInfo(mImageListInfo.imageFromIndex(++mImageListInfo.index, mRocketChatAccount));
+        ++mImageListInfo.index;
+        qDebug() << " mImageListInfo.imageAttachments.count() " << mImageListInfo.imageAttachments.count() << " mImageListInfo.index " << mImageListInfo.index;
+        if (mImageListInfo.index == mImageListInfo.imageAttachments.count()) {
+            qDebug() << "Need to download next image";
+            showImages(mImageListInfo.fileId, mImageListInfo.roomId, mImageListInfo.index);
+            return;
+        }
+        setImageInfo(mImageListInfo.imageFromIndex(mImageListInfo.index, mRocketChatAccount));
         updateButtons();
     });
     connect(mShowImagePrevNextImageWidget, &ShowImagePrevNextImageWidget::showPreviousImage, this, [this]() {
@@ -181,21 +188,26 @@ void ShowImageWidget::copyLocation()
     QApplication::clipboard()->setText(imagePath);
 }
 
-void ShowImageWidget::showImages(const QByteArray &fileId, const QByteArray &roomId)
+void ShowImageWidget::showImages(const QByteArray &fileId, const QByteArray &roomId, int offset)
 {
     auto job = new RocketChatRestApi::RoomsImagesJob(this);
     RocketChatRestApi::RoomsImagesJob::RoomsImagesJobInfo info;
     info.roomId = roomId;
     info.count = 5;
-    info.offset = 0;
+    info.offset = offset;
     info.startingFromId = fileId;
     job->setRoomsImagesJobInfo(std::move(info));
     mRocketChatAccount->restApi()->initializeRestApiJob(job);
     connect(job, &RocketChatRestApi::RoomsImagesJob::roomsImagesDone, this, [this, info](const QJsonObject &replyObject) {
-        mImageListInfo.imageAttachments.parseFileAttachments(replyObject);
+        qDebug() << " replyObject " << replyObject;
+        FileAttachments imagesList;
+        imagesList.parseFileAttachments(replyObject);
+        mImageListInfo.imageAttachments.setFilesCount(mImageListInfo.imageAttachments.filesCount() + imagesList.filesCount());
+        mImageListInfo.imageAttachments.addFileAttachments(imagesList.fileAttachments());
         mImageListInfo.roomId = info.roomId;
         mImageListInfo.fileId = info.startingFromId;
-        setImageInfo(mImageListInfo.imageFromIndex(0, mRocketChatAccount));
+        setImageInfo(mImageListInfo.imageFromIndex(info.offset, mRocketChatAccount));
+        qDebug() << " mImageListInfo " << mImageListInfo.imageAttachments;
         mShowImagePrevNextImageWidget->setVisible(true);
         updateButtons();
     });
