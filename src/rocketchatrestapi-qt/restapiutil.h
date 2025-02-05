@@ -383,6 +383,9 @@ enum class RestApiUrlType {
 
     // rooms.images
     RoomsImages,
+
+    // rooms.membersOrderedByRole (7.3.0)
+    RoomsMembersOrderedByRole,
 };
 LIBROCKETCHATRESTAPI_QT_EXPORT QString adaptUrl(const QString &url);
 LIBROCKETCHATRESTAPI_QT_EXPORT QString restUrl(RestApiUtil::RestApiUrlType type);
