@@ -94,13 +94,12 @@ QNetworkRequest RoomsMembersOrderedByRoleJob::request() const
 
 bool RoomsMembersOrderedByRoleJob::RoomsMembersOrderedByRoleJobInfo::isValid() const
 {
-    return !roomId.isEmpty() && !startingFromId.isEmpty() && (count > 0);
+    return !roomId.isEmpty() && (count > 0);
 }
 
 void RoomsMembersOrderedByRoleJob::RoomsMembersOrderedByRoleJobInfo::generateRequest(QUrlQuery &query) const
 {
     query.addQueryItem(QStringLiteral("roomId"), QLatin1StringView(roomId));
-    query.addQueryItem(QStringLiteral("startingFromId"), QLatin1StringView(startingFromId));
     query.addQueryItem(QStringLiteral("offset"), QString::number(offset));
     query.addQueryItem(QStringLiteral("count"), QString::number(count));
 }
