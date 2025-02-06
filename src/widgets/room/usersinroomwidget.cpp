@@ -5,6 +5,7 @@
 */
 
 #include "usersinroomwidget.h"
+#include "common/usersforroommodeldelegate.h"
 #include "dialogs/directchannelinfodialog.h"
 #include "model/usersforroomfilterproxymodel.h"
 #include "model/usersforroommodel.h"
@@ -61,6 +62,11 @@ UsersInRoomWidget::UsersInRoomWidget(RocketChatAccount *account, QWidget *parent
     connect(mListView, &QListView::customContextMenuRequested, this, &UsersInRoomWidget::slotCustomContextMenuRequested);
     connect(mListView, &QListView::doubleClicked, this, &UsersInRoomWidget::slotShowUserInfo);
     mListView->setModel(mUsersForRoomFilterProxy);
+    if (account) {
+        auto delegate = new UsersForRoomModelDelegate(mListView);
+        delegate->setRocketChatAccount(account);
+        mListView->setItemDelegate(delegate);
+    }
     connect(mUsersForRoomFilterProxy, &UsersForRoomFilterProxyModel::hasFullListChanged, this, &UsersInRoomWidget::updateLabel);
     connect(mUsersForRoomFilterProxy, &UsersForRoomFilterProxyModel::loadingInProgressChanged, this, &UsersInRoomWidget::updateLabel);
 }
