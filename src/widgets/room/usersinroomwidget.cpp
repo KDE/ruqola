@@ -114,7 +114,7 @@ void UsersInRoomWidget::slotCustomContextMenuRequested(const QPoint &pos)
         mMenu->setUserId(userId);
         mMenu->setUserName(userName);
     }
-    mMenu->setParentWidget(this);
+    mMenu->setParentWidget(mListView);
     mMenu->setRoom(mRoom);
     mMenu->slotCustomContextMenuRequested(pos);
 }
