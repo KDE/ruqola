@@ -7,7 +7,7 @@
 #include "model/adminusersallmodel.h"
 #include "adminusersallmodeltest.h"
 #include <QTest>
-QTEST_MAIN(AdminUsersAllModelTest)
+QTEST_GUILESS_MAIN(AdminUsersAllModelTest)
 
 AdminUsersAllModelTest::AdminUsersAllModelTest(QObject *parent)
     : QObject(parent)

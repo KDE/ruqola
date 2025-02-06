@@ -7,7 +7,7 @@
 #include "awaymanagertest.h"
 #include "away/awaymanager.h"
 #include <QTest>
-QTEST_MAIN(AwayManagerTest)
+QTEST_GUILESS_MAIN(AwayManagerTest)
 AwayManagerTest::AwayManagerTest(QObject *parent)
     : QObject{parent}
 {

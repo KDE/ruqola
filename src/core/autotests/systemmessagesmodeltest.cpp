@@ -7,7 +7,7 @@
 #include "systemmessagesmodeltest.h"
 #include "model/systemmessagesmodel.h"
 #include <QTest>
-QTEST_MAIN(SystemMessagesModelTest)
+QTEST_GUILESS_MAIN(SystemMessagesModelTest)
 SystemMessagesModelTest::SystemMessagesModelTest(QObject *parent)
     : QObject(parent)
 {

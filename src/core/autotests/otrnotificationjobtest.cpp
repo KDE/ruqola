@@ -7,7 +7,7 @@
 #include "otrnotificationjobtest.h"
 #include "otr/otrnotificationjob.h"
 #include <QTest>
-QTEST_MAIN(OtrNotificationJobTest)
+QTEST_GUILESS_MAIN(OtrNotificationJobTest)
 OtrNotificationJobTest::OtrNotificationJobTest(QObject *parent)
     : QObject{parent}
 {
