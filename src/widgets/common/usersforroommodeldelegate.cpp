@@ -54,7 +54,7 @@ void UsersForRoomModelDelegate::paint(QPainter *painter, const QStyleOptionViewI
     }
 
     QFontMetrics fontMetrics(boldFont);
-    const QString name = index.data(UsersForRoomModel::DisplayName).toString();
+    const QString name = index.data(UsersForRoomModel::Name).toString();
     const QString userName = index.data(UsersForRoomModel::UserName).toString();
     const int defaultCharHeight = option.rect.y() + fontMetrics.ascent();
     if (name.isEmpty()) {
