@@ -106,6 +106,8 @@ void UsersInRoomWidget::slotCustomContextMenuRequested(const QPoint &pos)
 {
     if (!mMenu) {
         mMenu = new UsersInRoomMenu(this);
+        mMenu->setParentWidget(mListView);
+        mMenu->setRoom(mRoom);
     }
     const QModelIndex index = mListView->indexAt(pos);
     if (index.isValid()) {
@@ -114,8 +116,6 @@ void UsersInRoomWidget::slotCustomContextMenuRequested(const QPoint &pos)
         mMenu->setUserId(userId);
         mMenu->setUserName(userName);
     }
-    mMenu->setParentWidget(mListView);
-    mMenu->setRoom(mRoom);
     mMenu->slotCustomContextMenuRequested(pos);
 }
 
