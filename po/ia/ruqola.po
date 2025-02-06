@@ -1,13 +1,13 @@
 # Copyright (C) 2024 This file is copyright:
 # This file is distributed under the same license as the ruqola package.
 #
-# SPDX-FileCopyrightText: 2021, 2022, 2023, 2024 giovanni <g.sora@tiscali.it>
+# SPDX-FileCopyrightText: 2021, 2022, 2023, 2024, 2025 giovanni <g.sora@tiscali.it>
 msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-01-26 02:33+0000\n"
-"PO-Revision-Date: 2024-12-18 18:51+0100\n"
+"PO-Revision-Date: 2025-02-05 10:42+0100\n"
 "Last-Translator: giovanni <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
 "Language: ia\n"
@@ -11311,7 +11311,7 @@ msgstr "Fixa canal de discussion aperite"
 #: widgets/whatsnew/whatsnewtranslations.cpp:136
 #, kde-format
 msgid "Allow to show application market settings"
-msgstr ""
+msgstr "Permitte monstrar preferentias de application de mercato "
 
 #: widgets/whatsnew/whatsnewwidget.cpp:44
 #, kde-format
