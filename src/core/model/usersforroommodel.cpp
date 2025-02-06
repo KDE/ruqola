@@ -75,6 +75,8 @@ QVariant UsersForRoomModel::data(const QModelIndex &index, int role) const
         return user.name();
     case Status:
         return Utils::presenceStatusToString(user.status()); // Translate it ?
+    case AvatarInfo:
+        return QVariant::fromValue(avatarInfo(user));
     case Qt::DecorationRole:
         return QIcon::fromTheme(user.iconFromStatus());
     }
@@ -129,6 +131,14 @@ int UsersForRoomModel::total() const
 void UsersForRoomModel::setTotal(int total)
 {
     mTotal = total;
+}
+
+Utils::AvatarInfo UsersForRoomModel::avatarInfo(const User &user) const
+{
+    Utils::AvatarInfo info;
+    info.avatarType = Utils::AvatarType::User;
+    info.identifier = user.userName();
+    return info;
 }
 
 void UsersForRoomModel::parseUsersForRooms(const QJsonObject &root, UsersModel *model, bool restapi)

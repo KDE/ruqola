@@ -8,6 +8,7 @@
 
 #include "libruqolacore_export.h"
 #include "user.h"
+#include "utils.h"
 #include <QAbstractListModel>
 #include <QList>
 class UsersModel;
@@ -22,6 +23,7 @@ public:
         IconStatus,
         DisplayName,
         Status,
+        AvatarInfo,
     };
     Q_ENUM(UsersForRoomRoles)
 
@@ -55,6 +57,7 @@ Q_SIGNALS:
     void loadingInProgressChanged();
 
 private:
+    [[nodiscard]] LIBRUQOLACORE_NO_EXPORT Utils::AvatarInfo avatarInfo(const User &user) const;
     [[nodiscard]] LIBRUQOLACORE_NO_EXPORT QString generateDisplayName(const User &user) const;
     LIBRUQOLACORE_NO_EXPORT void checkFullList();
     QList<User> mUsers;
