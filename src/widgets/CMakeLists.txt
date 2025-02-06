@@ -286,6 +286,9 @@ target_sources(libruqolawidgets PRIVATE
     common/teamroomcompletiondelegate.cpp
     common/teamroomcompletiondelegate.h
 
+    common/usersforroommodeldelegate.cpp
+    common/usersforroommodeldelegate.h
+
     configuredialog/accountservertreewidget.cpp
     configuredialog/accountservertreewidget.h
     configuredialog/configureaccountserverwidget.cpp
