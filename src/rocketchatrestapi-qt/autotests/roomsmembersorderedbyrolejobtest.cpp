@@ -6,7 +6,7 @@
 
 #include "roomsmembersorderedbyrolejobtest.h"
 #include "restapimethod.h"
-#include "rooms/roomsimagesjob.h"
+#include "rooms/roomsmembersorderedbyrolejob.h"
 #include <QTest>
 QTEST_GUILESS_MAIN(RoomsMembersOrderedByRoleJobTest)
 using namespace RocketChatRestApi;
@@ -17,11 +17,11 @@ RoomsMembersOrderedByRoleJobTest::RoomsMembersOrderedByRoleJobTest(QObject *pare
 
 void RoomsMembersOrderedByRoleJobTest::shouldHaveDefaultValue()
 {
-    RoomsImagesJob job;
+    RoomsMembersOrderedByRoleJob job;
     QVERIFY(!job.restApiMethod());
     QVERIFY(!job.networkAccessManager());
     QVERIFY(!job.start());
-    QVERIFY(!job.roomsImagesJobInfo().isValid());
+    QVERIFY(!job.roomsMembersOrderedByRoleJobInfo().isValid());
     QVERIFY(job.requireHttpAuthentication());
     QVERIFY(!job.restApiLogger());
     QVERIFY(job.hasQueryParameterSupport());
@@ -30,24 +30,23 @@ void RoomsMembersOrderedByRoleJobTest::shouldHaveDefaultValue()
 
 void RoomsMembersOrderedByRoleJobTest::shouldGenerateRequest()
 {
-    RoomsImagesJob job;
+    RoomsMembersOrderedByRoleJob job;
     RestApiMethod method;
     method.setServerUrl(QStringLiteral("http://www.kde.org"));
     job.setRestApiMethod(&method);
     const QByteArray roomId("bla");
-    RoomsImagesJob::RoomsImagesJobInfo info;
+    RoomsMembersOrderedByRoleJob::RoomsMembersOrderedByRoleJobInfo info;
     info.roomId = QByteArrayLiteral("room_id");
-    info.startingFromId = QByteArrayLiteral("start_Id");
     info.count = 5;
     info.offset = 0;
-    job.setRoomsImagesJobInfo(info);
+    job.setRoomsMembersOrderedByRoleJobInfo(info);
     const QNetworkRequest request = job.request();
-    QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/v1/rooms.images?roomId=room_id&startingFromId=start_Id&offset=0&count=5")));
+    QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/v1/rooms.membersOrderedByRole?roomId=room_id&offset=0&count=5")));
 }
 
 void RoomsMembersOrderedByRoleJobTest::shouldNotStarting()
 {
-    RoomsImagesJob job;
+    RoomsMembersOrderedByRoleJob job;
 
     RestApiMethod method;
     method.setServerUrl(QStringLiteral("http://www.kde.org"));
@@ -62,19 +61,17 @@ void RoomsMembersOrderedByRoleJobTest::shouldNotStarting()
     QVERIFY(!job.canStart());
     job.setUserId(userId);
     QVERIFY(!job.canStart());
-    RoomsImagesJob::RoomsImagesJobInfo info;
+    RoomsMembersOrderedByRoleJob::RoomsMembersOrderedByRoleJobInfo info;
     info.roomId = QByteArrayLiteral("room_id");
-    info.startingFromId = QByteArrayLiteral("start_id");
     info.count = 0;
     info.offset = 0;
-    job.setRoomsImagesJobInfo(info);
+    job.setRoomsMembersOrderedByRoleJobInfo(info);
 
     QVERIFY(!job.canStart());
-    info.startingFromId = QByteArrayLiteral("room33");
-    job.setRoomsImagesJobInfo(info);
+    job.setRoomsMembersOrderedByRoleJobInfo(info);
     QVERIFY(!job.canStart());
     info.count = 4;
-    job.setRoomsImagesJobInfo(info);
+    job.setRoomsMembersOrderedByRoleJobInfo(info);
     QVERIFY(job.canStart());
 }
 
