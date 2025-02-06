@@ -162,6 +162,7 @@ QList<WhatsNewInfo> WhatsNewTranslations::createWhatsNewInfo() const
             i18n("A command start with '/' and not /* or // "),
             i18n("Allow to put command line in clipboard when an error occurred"),
             i18n("Allow to activate/desactivate apps market."),
+            i18n("Improve list of user in room."),
         });
 
         listInfo.append(std::move(info));
