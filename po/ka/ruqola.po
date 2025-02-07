@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-02-06 00:41+0000\n"
-"PO-Revision-Date: 2025-02-05 04:57+0100\n"
+"POT-Creation-Date: 2025-02-07 00:42+0000\n"
+"PO-Revision-Date: 2025-02-06 04:10+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -3173,7 +3173,7 @@ msgstr "მოდერაციის შეტყობინებები�
 #: widgets/dialogs/searchmessagewidget.cpp:184
 #: widgets/dialogs/showlistmessagebasewidget.cpp:103
 #: widgets/discussions/showdiscussionswidget.cpp:88
-#: widgets/room/usersinroomwidget.cpp:135
+#: widgets/room/usersinroomwidget.cpp:141
 #, kde-format
 msgid "Loading…"
 msgstr "ჩატვირთვა…"
@@ -3181,7 +3181,7 @@ msgstr "ჩატვირთვა…"
 #: widgets/administratordialog/moderationconsole/moderationmessageswidget.cpp:52
 #: widgets/dialogs/searchmessagewidget.cpp:188
 #: widgets/dialogs/showlistmessagebasewidget.cpp:105
-#: widgets/room/usersinroomwidget.cpp:137
+#: widgets/room/usersinroomwidget.cpp:143
 #, kde-format
 msgid "No Message found"
 msgstr "შეტყობინებების გარეშე."
@@ -3539,7 +3539,7 @@ msgstr "მომხმარებლები როლში"
 #: widgets/administratordialog/users/administratoruserswidget.cpp:80
 #: widgets/dialogs/addusersinroomwidget.cpp:23
 #: widgets/directory/directorywidget.cpp:40
-#: widgets/room/usersinroomwidget.cpp:40
+#: widgets/room/usersinroomwidget.cpp:41
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Search users…"
@@ -8526,7 +8526,7 @@ msgstr[1] "ოთახში %1 მიბმული ფაილია (ს�
 #: widgets/discussions/showdiscussionswidget.cpp:99
 #: widgets/misc/searchtreebasewidget.cpp:78
 #: widgets/room/usersinroomflowwidget.cpp:129
-#: widgets/room/usersinroomwidget.cpp:146
+#: widgets/room/usersinroomwidget.cpp:152
 #, kde-format
 msgid "(Click here for Loading more…)"
 msgstr "(მეტის ჩასატვირთად დააწკაპუნეთ…)"
@@ -10699,7 +10699,7 @@ msgctxt "@action"
 msgid "Report User"
 msgstr "მომხმარებლის დარეპორტება"
 
-#: widgets/room/usersinroomwidget.cpp:144
+#: widgets/room/usersinroomwidget.cpp:150
 #, kde-format
 msgid "%1 User in room (Total: %2)"
 msgid_plural "%1 Users in room (Total: %2)"
@@ -11275,7 +11275,7 @@ msgstr "დისკუსიებში მოძებნის დაშვ�
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:22
 msgid "Show images from attachment dialog box"
-msgstr ""
+msgstr "გამოსახულებების ჩვენება მიმაგრებული ფაილის დიალოგის ფანჯრიდან"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:32
 #, kde-format
@@ -11698,6 +11698,11 @@ msgstr ""
 #, kde-format
 msgid "Allow to activate/desactivate apps market."
 msgstr "აპების მაღაზიის აქტივაციის/დეაქტივაციის დაშვება."
+
+#: widgets/whatsnew/whatsnewtranslations.cpp:165
+#, kde-format
+msgid "Improve list of user in room."
+msgstr ""
 
 #: widgets/whatsnew/whatsnewwidget.cpp:44
 #, kde-format
