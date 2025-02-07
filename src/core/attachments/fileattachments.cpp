@@ -113,7 +113,11 @@ void FileAttachments::setFileAttachments(const QList<File> &fileAttachments)
 
 void FileAttachments::addFileAttachments(const QList<File> &fileAttachments)
 {
-    mFileAttachments << fileAttachments;
+    for (const auto &att : fileAttachments) {
+        if (!mFileAttachments.contains(att)) {
+            mFileAttachments.append(att);
+        }
+    }
 }
 
 QDebug operator<<(QDebug d, const FileAttachments &t)
