@@ -29,7 +29,6 @@ QString AccountInfoSource::description() const
 
 QVariant AccountInfoSource::data()
 {
-    QVariantMap m;
-    m.insert(QStringLiteral("value"), Ruqola::self()->accountManager()->accountNumber());
+    const QVariantMap m{{QStringLiteral("value"), Ruqola::self()->accountManager()->accountNumber()}};
     return m;
 }
