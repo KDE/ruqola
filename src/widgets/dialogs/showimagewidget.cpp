@@ -225,7 +225,7 @@ void ShowImageWidget::showImages(const QByteArray &fileId, const QByteArray &roo
 
 ShowImageWidget::ImageInfo ShowImageWidget::ImageListInfo::imageFromIndex(int index, RocketChatAccount *account) const
 {
-    if (!imageAttachments.isEmpty() && (index < imageAttachments.count() - 1)) {
+    if (!imageAttachments.isEmpty() && (index < imageAttachments.count())) {
         ShowImageWidget::ImageInfo info;
         info.bigImagePath = imageAttachments.at(index).path();
         info.needToDownloadBigImage = !account->attachmentIsInLocalCache(info.bigImagePath);
