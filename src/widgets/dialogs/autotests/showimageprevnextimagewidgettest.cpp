@@ -33,3 +33,5 @@ void ShowImagePrevNextImageWidgetTest::shouldHaveDefaultValues()
     QVERIFY(!mPreviousButton->isEnabled());
     QVERIFY(!mPreviousButton->toolTip().isEmpty());
 }
+
+#include "moc_showimageprevnextimagewidgettest.cpp"
