@@ -58,24 +58,8 @@ ShowImageWidget::ShowImageWidget(RocketChatAccount *account, QWidget *parent)
     zoomLayout->addWidget(mShowImagePrevNextImageWidget);
     mShowImagePrevNextImageWidget->setVisible(false); // hide by default
 
-    connect(mShowImagePrevNextImageWidget, &ShowImagePrevNextImageWidget::showNextImage, this, [this]() {
-        ++mImageListInfo.index;
-        // qDebug() << " mImageListInfo.imageAttachments.count() " << mImageListInfo.imageAttachments.count() << " mImageListInfo.index " <<
-        //  mImageListInfo.index;
-        if (mImageListInfo.index == mImageListInfo.imageAttachments.count()) {
-            // qDebug() << "Need to download next image";
-            if (mImageListInfo.index + 1 < mImageListInfo.imageAttachments.total()) {
-                showImages(mImageListInfo.fileId, mImageListInfo.roomId, mImageListInfo.index - 1);
-            }
-            return;
-        }
-        setImageInfo(mImageListInfo.imageFromIndex(mImageListInfo.index, mRocketChatAccount));
-        updateButtons();
-    });
-    connect(mShowImagePrevNextImageWidget, &ShowImagePrevNextImageWidget::showPreviousImage, this, [this]() {
-        setImageInfo(mImageListInfo.imageFromIndex(--mImageListInfo.index, mRocketChatAccount));
-        updateButtons();
-    });
+    connect(mShowImagePrevNextImageWidget, &ShowImagePrevNextImageWidget::showNextImage, this, &ShowImageWidget::slotShowNextImage);
+    connect(mShowImagePrevNextImageWidget, &ShowImagePrevNextImageWidget::showPreviousImage, this, &ShowImageWidget::slotShowPreviousImage);
 
     auto mLabel = new QLabel(i18nc("@label:textbox", "Zoom:"), this);
     mLabel->setObjectName(QStringLiteral("zoomLabel"));
@@ -120,6 +104,28 @@ ShowImageWidget::ShowImageWidget(RocketChatAccount *account, QWidget *parent)
 
 ShowImageWidget::~ShowImageWidget() = default;
 
+void ShowImageWidget::slotShowPreviousImage()
+{
+    setImageInfo(mImageListInfo.imageFromIndex(--mImageListInfo.index, mRocketChatAccount));
+    updateButtons();
+}
+
+void ShowImageWidget::slotShowNextImage()
+{
+    ++mImageListInfo.index;
+    // qDebug() << " mImageListInfo.imageAttachments.count() " << mImageListInfo.imageAttachments.count() << " mImageListInfo.index " <<
+    //  mImageListInfo.index;
+    if (mImageListInfo.index == mImageListInfo.imageAttachments.count()) {
+        // qDebug() << "Need to download next image";
+        if (mImageListInfo.index + 1 < mImageListInfo.imageAttachments.total()) {
+            showImages(mImageListInfo.fileId, mImageListInfo.roomId, mImageListInfo.index - 1);
+        }
+        return;
+    }
+    setImageInfo(mImageListInfo.imageFromIndex(mImageListInfo.index, mRocketChatAccount));
+    updateButtons();
+}
+
 void ShowImageWidget::keyPressEvent(QKeyEvent *event)
 {
     const bool isControlClicked = event->modifiers() & Qt::ControlModifier;
@@ -130,6 +136,17 @@ void ShowImageWidget::keyPressEvent(QKeyEvent *event)
             mSlider->setValue(mSlider->value() - mSlider->singleStep());
         }
     } else {
+#if 0 // It's intercepted by ShowImageGraphicsView
+        const bool isShiftClicked = event->modifiers() & Qt::ShiftModifier;
+        if (isShiftClicked && event->key() == Qt::Key_Left) {
+            qDebug() << " XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXx";
+            slotShowNextImage();
+            return;
+        } else if (isShiftClicked && event->key() == Qt::Key_Right) {
+            slotShowPreviousImage();
+            return;
+        }
+#endif
         QWidget::keyPressEvent(event);
     }
 }

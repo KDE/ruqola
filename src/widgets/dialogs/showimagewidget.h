@@ -58,6 +58,8 @@ private:
     LIBRUQOLAWIDGETS_NO_EXPORT void updateButtons();
     LIBRUQOLAWIDGETS_NO_EXPORT void updateRanges();
     LIBRUQOLAWIDGETS_NO_EXPORT void slotFileDownloaded(const QString &filePath, const QUrl &cacheImageUrl);
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotShowPreviousImage();
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotShowNextImage();
     ImageListInfo mImageListInfo;
     ShowImageGraphicsView *const mImageGraphicsView;
     QWidget *const mZoomControls;
