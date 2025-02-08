@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-02-07 00:42+0000\n"
-"PO-Revision-Date: 2025-02-06 18:26+0100\n"
+"POT-Creation-Date: 2025-02-08 00:40+0000\n"
+"PO-Revision-Date: 2025-02-07 21:40+0100\n"
 "Last-Translator: Stefan Asserhäll <stefan.asserhall@gmail.com>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
 "Language: sv\n"
@@ -8563,25 +8563,25 @@ msgstr "Visa föregående bild"
 msgid "Show next image"
 msgstr "Visa nästa bild"
 
-#: widgets/dialogs/showimagewidget.cpp:80
+#: widgets/dialogs/showimagewidget.cpp:64
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Zoom:"
 msgstr "Zoom:"
 
-#: widgets/dialogs/showimagewidget.cpp:96
+#: widgets/dialogs/showimagewidget.cpp:80
 #, kde-format
 msgctxt "@action:button"
 msgid "100%"
 msgstr "100 %"
 
-#: widgets/dialogs/showimagewidget.cpp:103
+#: widgets/dialogs/showimagewidget.cpp:87
 #, kde-format
 msgctxt "@action:button"
 msgid "Fit to View"
 msgstr "Anpassa"
 
-#: widgets/dialogs/showimagewidget.cpp:177
+#: widgets/dialogs/showimagewidget.cpp:194
 #: widgets/misc/messageattachmentdownloadandsavejob.cpp:59
 #, kde-format
 msgid "Save Image"
@@ -11701,7 +11701,7 @@ msgstr "Tillåt att aktivera eller inaktivera programmarknad."
 #: widgets/whatsnew/whatsnewtranslations.cpp:165
 #, kde-format
 msgid "Improve list of user in room."
-msgstr ""
+msgstr "Förbättra användarlista i rum."
 
 #: widgets/whatsnew/whatsnewwidget.cpp:44
 #, kde-format

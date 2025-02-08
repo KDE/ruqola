@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-02-07 00:42+0000\n"
+"POT-Creation-Date: 2025-02-08 00:40+0000\n"
 "PO-Revision-Date: 2024-10-08 22:03+0300\n"
 "Last-Translator: Moo\n"
 "Language-Team: none\n"
@@ -8876,25 +8876,25 @@ msgstr "Šifruota žinutė"
 msgid "Show next image"
 msgstr "Šifruota žinutė"
 
-#: widgets/dialogs/showimagewidget.cpp:80
+#: widgets/dialogs/showimagewidget.cpp:64
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Zoom:"
 msgstr ""
 
-#: widgets/dialogs/showimagewidget.cpp:96
+#: widgets/dialogs/showimagewidget.cpp:80
 #, kde-format
 msgctxt "@action:button"
 msgid "100%"
 msgstr ""
 
-#: widgets/dialogs/showimagewidget.cpp:103
+#: widgets/dialogs/showimagewidget.cpp:87
 #, kde-format
 msgctxt "@action:button"
 msgid "Fit to View"
 msgstr ""
 
-#: widgets/dialogs/showimagewidget.cpp:177
+#: widgets/dialogs/showimagewidget.cpp:194
 #: widgets/misc/messageattachmentdownloadandsavejob.cpp:59
 #, kde-format
 msgid "Save Image"

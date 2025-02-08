@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-02-07 00:42+0000\n"
+"POT-Creation-Date: 2025-02-08 00:40+0000\n"
 "PO-Revision-Date: 2025-02-06 04:10+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
@@ -8558,25 +8558,25 @@ msgstr "წინა გამოსახულების ჩვენებ�
 msgid "Show next image"
 msgstr "შემდეგი გამოსახულების ჩვენება"
 
-#: widgets/dialogs/showimagewidget.cpp:80
+#: widgets/dialogs/showimagewidget.cpp:64
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Zoom:"
 msgstr "გადიდება:"
 
-#: widgets/dialogs/showimagewidget.cpp:96
+#: widgets/dialogs/showimagewidget.cpp:80
 #, kde-format
 msgctxt "@action:button"
 msgid "100%"
 msgstr "100%"
 
-#: widgets/dialogs/showimagewidget.cpp:103
+#: widgets/dialogs/showimagewidget.cpp:87
 #, kde-format
 msgctxt "@action:button"
 msgid "Fit to View"
 msgstr "ხედში ჩატევა"
 
-#: widgets/dialogs/showimagewidget.cpp:177
+#: widgets/dialogs/showimagewidget.cpp:194
 #: widgets/misc/messageattachmentdownloadandsavejob.cpp:59
 #, kde-format
 msgid "Save Image"

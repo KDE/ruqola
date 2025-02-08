@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-02-07 00:42+0000\n"
+"POT-Creation-Date: 2025-02-08 00:40+0000\n"
 "PO-Revision-Date: 2025-02-05 10:28+0100\n"
 "Last-Translator: giovanni <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
@@ -8404,25 +8404,25 @@ msgstr "Monstra previe imagine"
 msgid "Show next image"
 msgstr "Monstra proxime imagine"
 
-#: widgets/dialogs/showimagewidget.cpp:80
+#: widgets/dialogs/showimagewidget.cpp:64
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Zoom:"
 msgstr "Zoom: "
 
-#: widgets/dialogs/showimagewidget.cpp:96
+#: widgets/dialogs/showimagewidget.cpp:80
 #, kde-format
 msgctxt "@action:button"
 msgid "100%"
 msgstr "100%"
 
-#: widgets/dialogs/showimagewidget.cpp:103
+#: widgets/dialogs/showimagewidget.cpp:87
 #, kde-format
 msgctxt "@action:button"
 msgid "Fit to View"
 msgstr "Adapta a Vista"
 
-#: widgets/dialogs/showimagewidget.cpp:177
+#: widgets/dialogs/showimagewidget.cpp:194
 #: widgets/misc/messageattachmentdownloadandsavejob.cpp:59
 #, kde-format
 msgid "Save Image"

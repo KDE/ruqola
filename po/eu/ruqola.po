@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-02-07 00:42+0000\n"
-"PO-Revision-Date: 2025-02-02 21:23+0100\n"
+"POT-Creation-Date: 2025-02-08 00:40+0000\n"
+"PO-Revision-Date: 2025-02-08 01:26+0100\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
 "Language: eu\n"
@@ -8594,38 +8594,34 @@ msgid "Copy Location to Clipboard"
 msgstr "Kopiatu kokalekua arbelera"
 
 #: widgets/dialogs/showimageprevnextimagewidget.cpp:21
-#, fuzzy, kde-format
-#| msgctxt "@info:shell"
-#| msgid "Show Message"
+#, kde-format
 msgid "Show previous image"
-msgstr "Erakutsi mezua"
+msgstr "Erakutsi aurreko irudia"
 
 #: widgets/dialogs/showimageprevnextimagewidget.cpp:29
-#, fuzzy, kde-format
-#| msgctxt "@info:shell"
-#| msgid "Show Message"
+#, kde-format
 msgid "Show next image"
-msgstr "Erakutsi mezua"
+msgstr "Erakutsi hurrengo irudia"
 
-#: widgets/dialogs/showimagewidget.cpp:80
+#: widgets/dialogs/showimagewidget.cpp:64
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Zoom:"
 msgstr "Zooma:"
 
-#: widgets/dialogs/showimagewidget.cpp:96
+#: widgets/dialogs/showimagewidget.cpp:80
 #, kde-format
 msgctxt "@action:button"
 msgid "100%"
 msgstr "% 100"
 
-#: widgets/dialogs/showimagewidget.cpp:103
+#: widgets/dialogs/showimagewidget.cpp:87
 #, kde-format
 msgctxt "@action:button"
 msgid "Fit to View"
 msgstr "Egokitu ikuspegira"
 
-#: widgets/dialogs/showimagewidget.cpp:177
+#: widgets/dialogs/showimagewidget.cpp:194
 #: widgets/misc/messageattachmentdownloadandsavejob.cpp:59
 #, kde-format
 msgid "Save Image"
@@ -11332,11 +11328,11 @@ msgstr "Ruqola-ren bertsio berri bat dagoen egiaztatzea inplementatzea"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:21
 msgid "Allow to search threads by unread/following"
-msgstr ""
+msgstr "Hariak irakurri gabeen/jarraitutakoen arabera bilatzea"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:22
 msgid "Show images from attachment dialog box"
-msgstr ""
+msgstr "Eranskin elkarrizketa-koadroan irudiak erakustea"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:32
 #, kde-format
@@ -11765,7 +11761,7 @@ msgstr "Aplikazioen merkatua aktibatzeko/desaktibatzeko aukera ematen du."
 #: widgets/whatsnew/whatsnewtranslations.cpp:165
 #, kde-format
 msgid "Improve list of user in room."
-msgstr ""
+msgstr "Gelako erabiltzaileen zerrenda hobetzea."
 
 #: widgets/whatsnew/whatsnewwidget.cpp:44
 #, kde-format
