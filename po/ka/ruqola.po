@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-02-08 00:40+0000\n"
-"PO-Revision-Date: 2025-02-06 04:10+0100\n"
+"PO-Revision-Date: 2025-02-08 04:21+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -11702,7 +11702,7 @@ msgstr "აპების მაღაზიის აქტივაციი�
 #: widgets/whatsnew/whatsnewtranslations.cpp:165
 #, kde-format
 msgid "Improve list of user in room."
-msgstr ""
+msgstr "გაუმჯობესდა ოთახის მომხმარებლების ჩამონათვალის გამოტანა."
 
 #: widgets/whatsnew/whatsnewwidget.cpp:44
 #, kde-format

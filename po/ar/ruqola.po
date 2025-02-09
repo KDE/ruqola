@@ -1,13 +1,13 @@
 # Copyright (C) 2024 This file is copyright:
 # This file is distributed under the same license as the ruqola package.
+# SPDX-FileCopyrightText: 2024, 2025 Zayed Al-Saidi <zayed.alsaidi@gmail.com>
 #
-# SPDX-FileCopyrightText: 2024 Zayed Al-Saidi <zayed.alsaidi@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-02-08 00:40+0000\n"
-"PO-Revision-Date: 2024-02-25 21:19+0400\n"
+"PO-Revision-Date: 2025-02-08 11:58+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
 "Language: ar\n"
@@ -16,6 +16,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
 "&& n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5;\n"
+"X-Generator: Lokalize 23.08.5\n"
 
 #: apps/main.cpp:59
 #, kde-format
@@ -28,17 +29,15 @@ msgid "Rocket Chat Client"
 msgstr "عميل روكت تشات"
 
 #: apps/main.cpp:63
-#, fuzzy, kde-format
-#| msgid "Copyright © 2020-2024 Ruqola authors"
+#, kde-format
 msgid "Copyright © 2020-2025 Ruqola authors"
-msgstr "حقوق النَّشر © 2020-2024 ، مُؤلفو رقولة"
+msgstr "حقوق الطبع والنشر © 2020-2025 مُؤلفو رقولة"
 
 #: apps/main.cpp:65
-#, fuzzy, kde-format
-#| msgid "Laurent Montel"
+#, kde-format
 msgctxt "@info:credit"
 msgid "Laurent Montel"
-msgstr "لوران مونتال"
+msgstr "لوران مونتيل"
 
 #: apps/main.cpp:65
 #, kde-format
@@ -46,11 +45,10 @@ msgid "Maintainer"
 msgstr "المصين"
 
 #: apps/main.cpp:66
-#, fuzzy, kde-format
-#| msgid "Riccardo Iaconelli"
+#, kde-format
 msgctxt "@info:credit"
 msgid "Riccardo Iaconelli"
-msgstr "ريكاردو إياكونيلي"
+msgstr "ريكاردو ياكونيلي"
 
 #: apps/main.cpp:66
 #, kde-format
@@ -58,20 +56,18 @@ msgid "Original Author"
 msgstr "المؤلف الأصلي"
 
 #: apps/main.cpp:70
-#, fuzzy, kde-format
-#| msgid "David Faure"
+#, kde-format
 msgctxt "@info:credit"
 msgid "David Faure"
-msgstr "ديفيد فيور"
+msgstr "ديفيد فور"
 
 #: apps/main.cpp:70
 #, kde-format
 msgid "Bug fixing, delegates etc."
-msgstr ""
+msgstr "إصلاح الأخطاء والمندوبين وما إلى ذلك."
 
 #: apps/main.cpp:71
-#, fuzzy, kde-format
-#| msgid "Kevin Funk"
+#, kde-format
 msgctxt "@info:credit"
 msgid "Kevin Funk"
 msgstr "كيفن فانك"
@@ -83,15 +79,13 @@ msgid "Bug fixing"
 msgstr "إصلاح علل"
 
 #: apps/main.cpp:72
-#, fuzzy, kde-format
-#| msgid "Olivier JG"
+#, kde-format
 msgctxt "@info:credit"
 msgid "Olivier JG"
 msgstr "أوليفييه جي جي"
 
 #: apps/main.cpp:73
-#, fuzzy, kde-format
-#| msgid "Milian Wolff"
+#, kde-format
 msgctxt "@info:credit"
 msgid "Milian Wolff"
 msgstr "ميليان وولف"
@@ -100,39 +94,38 @@ msgstr "ميليان وولف"
 #, kde-format
 msgctxt "@info:credit"
 msgid "Till Adam"
-msgstr ""
+msgstr "تال آدم"
 
 #: apps/main.cpp:74
 #, kde-format
 msgid "Windows compile bug fixing"
-msgstr ""
+msgstr "إصلاح الأخطاء في تجميع Windows"
 
 #: apps/main.cpp:75
 #, kde-format
 msgctxt "@info:credit"
 msgid "Shantanu Tushar"
-msgstr ""
+msgstr "شانتانو توشار"
 
 #: apps/main.cpp:76
 #, kde-format
 msgctxt "@info:credit"
 msgid "Alessandro Ambrosano"
-msgstr ""
+msgstr "اليساندرو أمبروسانو"
 
 #: apps/main.cpp:77
 #, kde-format
 msgctxt "@info:credit"
 msgid "Hannah von Reth"
-msgstr ""
+msgstr "هانا فون ريث"
 
 #: apps/main.cpp:77
 #, kde-format
 msgid "Bug fixing for Windows/Mac"
-msgstr ""
+msgstr "إصلاح الأخطاء لنظام التشغيل Windows/Mac"
 
 #: apps/main.cpp:78
-#, fuzzy, kde-format
-#| msgid "Allen Winter"
+#, kde-format
 msgctxt "@info:credit"
 msgid "Allen Winter"
 msgstr "ألين وينتر"
@@ -143,8 +136,7 @@ msgid "Packaging"
 msgstr "التحزيم"
 
 #: apps/main.cpp:79
-#, fuzzy, kde-format
-#| msgid "Waqar Ahmed"
+#, kde-format
 msgctxt "@info:credit"
 msgid "Waqar Ahmed"
 msgstr "وقار أحمد"
@@ -152,63 +144,59 @@ msgstr "وقار أحمد"
 #: apps/main.cpp:79
 #, kde-format
 msgid "Bug fixing (compile, network crash...)"
-msgstr ""
+msgstr "إصلاح الأخطاء (ترجمة، تعطل الشبكة...)"
 
 #: apps/main.cpp:80
-#, fuzzy, kde-format
-#| msgid "Nicolas Fella"
+#, kde-format
 msgctxt "@info:credit"
 msgid "Nicolas Fella"
-msgstr "نيكولاس فلا"
+msgstr "نيكولاس فيلا"
 
 #: apps/main.cpp:80
 #, kde-format
 msgid "Optimization, fix windows/mac support"
-msgstr ""
+msgstr "التحسين، إصلاح دعم Windows/Mac"
 
 #: apps/main.cpp:81
 #, kde-format
 msgctxt "@info:credit"
 msgid "Daniele E. Domenichelli"
-msgstr ""
+msgstr "دانييلي إي دومينيشيلي"
 
 #: apps/main.cpp:81
-#, fuzzy, kde-format
-#| msgid "Featured"
+#, kde-format
 msgid "New feature"
-msgstr "مُختارة"
+msgstr "ميزة جديدة"
 
 #: apps/main.cpp:107
 #, kde-format
 msgid "The following accounts are available:"
-msgstr ""
+msgstr "الحسابات التالية متاحة:"
 
 #: core/accountmanager.cpp:855
-#, fuzzy, kde-format
-#| msgid "Invalid name"
+#, kde-format
 msgid "Invalid invite token"
-msgstr "الاسم غير صالح"
+msgstr "رمز الدعوة غير صالح"
 
 #: core/accountmanager.cpp:856
 #, kde-format
 msgid "Invite Token is invalid. Creating account canceled."
-msgstr ""
+msgstr "رمز الدعوة غير صالح. ألغي إنشاء الحساب."
 
 #: core/apps/appsmarketplaceinfo.cpp:108
 #, kde-format
 msgid "per %1"
-msgstr ""
+msgstr "لكل %1"
 
 #: core/apps/appsmarketplaceinfo.cpp:157
-#, fuzzy, kde-format
-#| msgid "This month"
+#, kde-format
 msgid "month"
-msgstr "هذا الشّهر"
+msgstr "شهر"
 
 #: core/apps/appsmarketplaceinfo.cpp:159
 #, kde-format
 msgid "year"
-msgstr ""
+msgstr "سنة"
 
 #: core/apps/appsmarketplaceinfo.cpp:401 core/model/adminrolesmodel.cpp:40
 #: widgets/administratorsettingsdialog/ircfederation/ircfederationwidget.cpp:50
@@ -226,36 +214,32 @@ msgstr "الإصدارة"
 #: core/apps/appsmarketplaceinfo.cpp:413 core/model/appscategoriesmodel.cpp:34
 #, kde-format
 msgid "Categories"
-msgstr ""
+msgstr "الفئات"
 
 #: core/apps/appsmarketplaceinfo.cpp:417
-#, fuzzy, kde-format
-#| msgid "Authentication"
+#, kde-format
 msgid "Documentation"
-msgstr "الاستيثاق"
+msgstr "التوثيق"
 
 #: core/apps/appsmarketplaceinfo.cpp:429
-#, fuzzy, kde-format
-#| msgid "Author"
+#, kde-format
 msgid "Author"
-msgstr "المؤلف"
+msgstr "المؤلّف"
 
 #: core/apps/appsmarketplaceinfo.cpp:442
 #, kde-format
 msgid "Homepage"
-msgstr ""
+msgstr "الصفحة الرئيسة"
 
 #: core/apps/appsmarketplaceinfo.cpp:454
-#, fuzzy, kde-format
-#| msgid "Reports"
+#, kde-format
 msgid "Support"
-msgstr "التّقارير"
+msgstr "الدعم"
 
 #: core/apps/appsmarketplaceinfo.cpp:458
-#, fuzzy, kde-format
-#| msgid "Privacy"
+#, kde-format
 msgid "Privacy Summary"
-msgstr "الخصوصية"
+msgstr "ملخص الخصوصية"
 
 #: core/apps/appsmarketplaceinfo.cpp:469
 #: widgets/administratordialog/administratorwidget.cpp:74
@@ -264,171 +248,164 @@ msgid "Permissions"
 msgstr "التّصاريح"
 
 #: core/apps/appsmarketplaceinfo.cpp:601
-#, fuzzy, kde-format
-#| msgid "All messages"
+#, kde-format
 msgid "Access messages"
-msgstr "كلّ الرّسائل"
+msgstr "الوصول إلى الرسائل"
 
 #: core/apps/appsmarketplaceinfo.cpp:603
-#, fuzzy, kde-format
-#| msgid "Search messages"
+#, kde-format
 msgid "Send and modify messages"
-msgstr "ابحث في الرسائل"
+msgstr "إرسال وتعديل الرسائل"
 
 #: core/apps/appsmarketplaceinfo.cpp:605
-#, fuzzy, kde-format
-#| msgid "Account information"
+#, kde-format
 msgid "Access room information"
-msgstr "معلومات الحساب"
+msgstr "الوصول إلى معلومات الغرفة"
 
 #: core/apps/appsmarketplaceinfo.cpp:607
 #, kde-format
 msgid "Create and modify rooms"
-msgstr ""
+msgstr "إنشاء وتعديل الغرف"
 
 #: core/apps/appsmarketplaceinfo.cpp:609
 #, kde-format
 msgid "Access to this server network"
-msgstr ""
+msgstr "الوصول إلى شبكة الخادم هذه"
 
 #: core/apps/appsmarketplaceinfo.cpp:611
-#, fuzzy, kde-format
-#| msgid "Account information"
+#, kde-format
 msgid "Access user information"
-msgstr "معلومات الحساب"
+msgstr "الوصول إلى معلومات المستخدم"
 
 #: core/apps/appsmarketplaceinfo.cpp:613
-#, fuzzy, kde-format
-#| msgid "Account information"
+#, kde-format
 msgid "Modify user information"
-msgstr "معلومات الحساب"
+msgstr "تعديل معلومات المستخدم"
 
 #: core/apps/appsmarketplaceinfo.cpp:615
 #, kde-format
 msgid "Register new slash commands"
-msgstr ""
+msgstr "تسجيل أوامر شرطة مائلة جديدة"
 
 #: core/apps/appsmarketplaceinfo.cpp:617
 #, kde-format
 msgid "Register and maintain scheduled jobs"
-msgstr ""
+msgstr "تسجيل والحفاظ على الوظائف المجدولة"
 
 #: core/apps/appsmarketplaceinfo.cpp:619
 #, kde-format
 msgid "Register new HTTP endpoints"
-msgstr ""
+msgstr "تسجيل نقاط نهاية HTTP جديدة"
 
 #: core/apps/appsmarketplaceinfo.cpp:621
 #, kde-format
 msgid "Access settings in this server"
-msgstr ""
+msgstr "إعدادات الوصول في هذا الخادم"
 
 #: core/apps/appsmarketplaceinfo.cpp:623
 #, kde-format
 msgid "Modify settings in this server"
-msgstr ""
+msgstr "تعديل الإعدادات في هذا الخادم"
 
 #: core/apps/appsmarketplaceinfo.cpp:625
 #, kde-format
 msgid "Upload files to this server"
-msgstr ""
+msgstr "رفع الملفات إلى هذا الخادم"
 
 #: core/apps/appsmarketplaceinfo.cpp:627
 #, kde-format
 msgid "Access files uploaded to this server"
-msgstr ""
+msgstr "الوصول إلى الملفات المرفوعة على هذا الخادم"
 
 #: core/apps/appsmarketplaceinfo.cpp:629
 #, kde-format
 msgid "Interact with Cloud Services on behalf of this server"
-msgstr ""
+msgstr "التفاعل مع الخدمات السحابية نيابة عن هذا الخادم"
 
 #: core/apps/appsmarketplaceinfo.cpp:631
 #, kde-format
 msgid "Access minimal information about this server environment"
-msgstr ""
+msgstr "الوصول إلى الحد الأدنى من المعلومات حول بيئة الخادم هذه"
 
 #: core/apps/appsmarketplaceinfo.cpp:633
 #, kde-format
 msgid "Access to multiple Livechat departments information"
-msgstr ""
+msgstr "الوصول إلى معلومات أقسام الدردشة المباشرة"
 
 #: core/apps/appsmarketplaceinfo.cpp:635
 #, kde-format
 msgid "Access Livechat department information"
-msgstr ""
+msgstr "الوصول إلى معلومات قسم الدردشة المباشرة"
 
 #: core/apps/appsmarketplaceinfo.cpp:637
 #, kde-format
 msgid "Modify Livechat department information"
-msgstr ""
+msgstr "تعديل معلومات قسم الدردشة المباشرة"
 
 #: core/apps/appsmarketplaceinfo.cpp:639
 #, kde-format
 msgid "Modify Livechat room information"
-msgstr ""
+msgstr "تعديل معلومات غرفة الدردشة المباشرة"
 
 #: core/apps/appsmarketplaceinfo.cpp:641
-#, fuzzy, kde-format
-#| msgid "Account information"
+#, kde-format
 msgid "Access Livechat room information"
-msgstr "معلومات الحساب"
+msgstr "الوصول إلى معلومات غرفة الدردشة المباشرة"
 
 #: core/apps/appsmarketplaceinfo.cpp:643
 #, kde-format
 msgid "Modify Livechat message information"
-msgstr ""
+msgstr "تعديل معلومات رسالة الدردشة المباشرة"
 
 #: core/apps/appsmarketplaceinfo.cpp:645
 #, kde-format
 msgid "Access Livechat message information"
-msgstr ""
+msgstr "الوصول إلى معلومات رسالة الدردشة المباشرة"
 
 #: core/apps/appsmarketplaceinfo.cpp:647
 #, kde-format
 msgid "Modify Livechat visitor information"
-msgstr ""
+msgstr "تعديل معلومات زوار الدردشة المباشرة"
 
 #: core/apps/appsmarketplaceinfo.cpp:649
 #, kde-format
 msgid "Access Livechat visitor information"
-msgstr ""
+msgstr "الوصول إلى معلومات زوار الدردشة المباشرة"
 
 #: core/apps/appsmarketplaceinfo.cpp:651
-#, fuzzy, kde-format
-#| msgid "Account information"
+#, kde-format
 msgid "Access Livechat status information"
-msgstr "معلومات الحساب"
+msgstr "الوصول إلى معلومات حالة الدردشة المباشرة"
 
 #: core/apps/appsmarketplaceinfo.cpp:653
 #, kde-format
 msgid "Interact with the UI"
-msgstr ""
+msgstr "التفاعل مع واجهة المستخدم"
 
 #: core/apps/appsmarketplaceinfo.cpp:655
 #, kde-format
 msgid "Store internal data in the database"
-msgstr ""
+msgstr "تخزين البيانات الداخلية في قاعدة البيانات"
 
 #: core/apps/appsmarketplaceinfo.cpp:657
 #, kde-format
 msgid "Modify Livechat custom field configuration"
-msgstr ""
+msgstr "تعديل تكوين الحقل المخصص للدردشة المباشرة"
 
 #: core/apps/appsmarketplaceinfo.cpp:667
 #, kde-format
 msgid "Allow to write oauth app settings"
-msgstr ""
+msgstr "السماح بكتابة إعدادات تطبيق oauth"
 
 #: core/apps/appsmarketplaceinfo.cpp:669
 #, kde-format
 msgid "Allow to read oauth app settings"
-msgstr ""
+msgstr "السماح بقراءة إعدادات تطبيق oauth"
 
 #: core/apps/appsmarketplaceinfo.cpp:683
 #, kde-format
 msgid "Allow to send email"
-msgstr ""
+msgstr "السماح بإرسال البريد الإلكتروني"
 
 #: core/apps/appsmarketplaceinfo.cpp:685
 #, kde-format
@@ -448,12 +425,12 @@ msgstr "يتّصل"
 #: core/authenticationmanager.cpp:87
 #, kde-format
 msgid "Login OTP code required"
-msgstr ""
+msgstr "مطلوب رمز الولوج لمرة واحدة فقط"
 
 #: core/authenticationmanager.cpp:89
 #, kde-format
 msgid "Login failed: invalid username or password"
-msgstr ""
+msgstr "فشل الولوج: اسم المستخدم أو كلمة السر غير صالحة"
 
 #: core/authenticationmanager.cpp:91
 #, kde-format
@@ -473,48 +450,48 @@ msgstr "خرج"
 #: core/authenticationmanager.cpp:97
 #, kde-format
 msgid "Failed to login due to plugin problem"
-msgstr ""
+msgstr "فشل الولوج بسبب مشكلة في الملحق"
 
 #: core/authenticationmanager.cpp:99
 #, kde-format
 msgid "Login failed: generic error"
-msgstr ""
+msgstr "فشل الولوج: خطأ عام"
 
 #: core/authenticationmanager.cpp:101
 #, kde-format
 msgid "A one-time password is required to complete the login procedure."
-msgstr ""
+msgstr "مطلوب كلمة مرور لمرة واحدة لإكمال إجراء الولوج."
 
 #: core/authenticationmanager.cpp:103
 #: widgets/loginwidget/ruqolaloginwidget.cpp:168
 #, kde-format
 msgid "Login failed: Invalid OTP code."
-msgstr ""
+msgstr "فشل الولوج: رمز OTP غير صالح."
 
 #: core/authenticationmanager.cpp:105
 #, kde-format
 msgid "Login failed: User is not activated."
-msgstr ""
+msgstr "فشل الولوج: المستخدم غير منشط."
 
 #: core/authenticationmanager.cpp:107
 #, kde-format
 msgid "Login has been temporarily blocked For IP."
-msgstr ""
+msgstr "عنوان آي بي IP محظور من الولوج مؤقتًا."
 
 #: core/authenticationmanager.cpp:109
 #, kde-format
 msgid "Login has been temporarily blocked For User."
-msgstr ""
+msgstr "المستخدم محظور من الولوج مؤقتًا."
 
 #: core/authenticationmanager.cpp:111
 #, kde-format
 msgid "App user is not allowed to login."
-msgstr ""
+msgstr "لا يسمح لمستخدم التطبيق بالولوج."
 
 #: core/authenticationmanager.cpp:113
 #, kde-format
 msgid "Logout ongoing"
-msgstr ""
+msgstr "تسجيل الخروج مستمر"
 
 #: core/authenticationmanager.cpp:115
 #, kde-format
@@ -3017,8 +2994,7 @@ msgstr "عدّل..."
 #: widgets/administratordialog/rooms/administratorroomswidget.cpp:67
 #: widgets/administratordialog/users/administratoruserswidget.cpp:340
 #: widgets/myaccount/myaccountpersonalaccesstokentreeview.cpp:42
-#, fuzzy, kde-format
-#| msgid "Remove"
+#, kde-format
 msgctxt "@action"
 msgid "Remove"
 msgstr "أزل"
@@ -3155,15 +3131,13 @@ msgid "Reported Users"
 msgstr "التّقارير"
 
 #: widgets/administratordialog/moderationconsole/administratormoderationrangewidget.cpp:32
-#, fuzzy, kde-format
-#| msgid "From:"
+#, kde-format
 msgctxt "@label:textbox"
 msgid "From:"
 msgstr "من:"
 
 #: widgets/administratordialog/moderationconsole/administratormoderationrangewidget.cpp:35
-#, fuzzy, kde-format
-#| msgid "To:"
+#, kde-format
 msgctxt "@label:textbox"
 msgid "To:"
 msgstr "إلى:"
@@ -3397,11 +3371,10 @@ msgstr "انسخ الرِّسالة"
 #: widgets/notificationhistory/notificationhistorylistview.cpp:100
 #: widgets/room/messagelistview.cpp:653
 #: widgets/servererrorinfohistory/servererrorinfomessagehistorylistview.cpp:68
-#, fuzzy, kde-format
-#| msgid "Speak Text"
+#, kde-format
 msgctxt "@action"
 msgid "Speak Text"
-msgstr "انطق النّصّ"
+msgstr "نطق النص"
 
 #: widgets/administratordialog/moderationconsole/moderationreportinfolistview.cpp:99
 #: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:112
@@ -3661,11 +3634,10 @@ msgstr[5] ""
 
 #: widgets/administratordialog/rooms/administratordirectroomseditwidget.cpp:16
 #: widgets/administratordialog/rooms/administratorroomseditwidget.cpp:20
-#, fuzzy, kde-format
-#| msgid "Default"
+#, kde-format
 msgctxt "@option:check"
 msgid "Default"
-msgstr "المبدئيّ"
+msgstr "المبدئي:"
 
 #: widgets/administratordialog/rooms/administratordirectroomseditwidget.cpp:17
 #: widgets/administratordialog/rooms/administratorroomseditwidget.cpp:21
@@ -3816,8 +3788,7 @@ msgid "Remove Room"
 msgstr "أزل الغرفة"
 
 #: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:50
-#, fuzzy, kde-format
-#| msgid "Refresh"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Refresh"
 msgstr "أنعش"
@@ -5033,7 +5004,7 @@ msgstr ""
 #: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:148
 #, kde-format
 msgid "Invitation"
-msgstr ""
+msgstr "دعوة"
 
 #: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:158
 #, kde-format
@@ -7003,8 +6974,7 @@ msgstr[4] ""
 msgstr[5] ""
 
 #: widgets/applicationssettingsdialog/applicationssettingsdescriptiondialog.cpp:25
-#, fuzzy, kde-format
-#| msgid "Description"
+#, kde-format
 msgctxt "@title:window"
 msgid "Description"
 msgstr "الوصف"
@@ -7016,10 +6986,9 @@ msgid "Versions"
 msgstr "الإصدارة"
 
 #: widgets/applicationssettingsdialog/applicationssettingsdescriptiontabwidget.cpp:45
-#, fuzzy, kde-format
-#| msgid "&Settings"
+#, kde-format
 msgid "Settings"
-msgstr "إ&عدادات"
+msgstr "إعدادات"
 
 #: widgets/applicationssettingsdialog/applicationssettingsdialog.cpp:27
 #, fuzzy, kde-format
@@ -7062,15 +7031,13 @@ msgid "Uninstall"
 msgstr ""
 
 #: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:89
-#, fuzzy, kde-format
-#| msgid "Disabled"
+#, kde-format
 msgctxt "@action"
 msgid "Disable"
 msgstr "معطّل"
 
 #: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:94
-#, fuzzy, kde-format
-#| msgid "Enable"
+#, kde-format
 msgctxt "@action"
 msgid "Enable"
 msgstr "مكّن"
@@ -7792,8 +7759,7 @@ msgid "Auto-Translate"
 msgstr "ترجم"
 
 #: widgets/dialogs/autotranslateconfigurewidget.cpp:41
-#, fuzzy, kde-format
-#| msgid "Language:"
+#, kde-format
 msgctxt "@label:textbox"
 msgid "Language:"
 msgstr "اللغة:"
@@ -8283,8 +8249,7 @@ msgstr ""
 
 #: widgets/dialogs/createsoundmessagewizard.cpp:27
 #: widgets/dialogs/createvideomessagewizard.cpp:35
-#, fuzzy, kde-format
-#| msgid "Send"
+#, kde-format
 msgctxt "@action:button"
 msgid "Send"
 msgstr "أرسل"
@@ -8299,8 +8264,7 @@ msgstr "اسم الملفّ:"
 
 #: widgets/dialogs/createsoundmessagewizard.cpp:120
 #: widgets/dialogs/createvideomessagewizard.cpp:146
-#, fuzzy, kde-format
-#| msgid "Description:"
+#, kde-format
 msgctxt "@label:textbox"
 msgid "Description:"
 msgstr "الوصف:"
@@ -10758,7 +10722,7 @@ msgstr "مؤتمرات الفيديو"
 #, kde-format
 msgctxt "Percent value; %p is the value, % is the percent sign"
 msgid "%p%"
-msgstr ""
+msgstr "%p%"
 
 #: widgets/room/uploadfileprogressstatuswidget.cpp:35
 #, fuzzy, kde-format

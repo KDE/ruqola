@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-02-08 00:40+0000\n"
-"PO-Revision-Date: 2025-02-06 08:06+0100\n"
+"PO-Revision-Date: 2025-02-07 09:38+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca@valencia\n"
@@ -11775,7 +11775,7 @@ msgstr "Permet activar/desactivar el mercat d'aplicacions."
 #: widgets/whatsnew/whatsnewtranslations.cpp:165
 #, kde-format
 msgid "Improve list of user in room."
-msgstr ""
+msgstr "Millora la llista d'usuaris de la sala."
 
 #: widgets/whatsnew/whatsnewwidget.cpp:44
 #, kde-format
