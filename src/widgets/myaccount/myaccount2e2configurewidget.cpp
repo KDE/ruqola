@@ -64,7 +64,8 @@ MyAccount2e2ConfigureWidget::~MyAccount2e2ConfigureWidget() = default;
 
 void MyAccount2e2ConfigureWidget::slotModifyPassword()
 {
-    // TODO use api/v1/e2e.setUserPublicAndPrivateKeys
+    // TODO generate new public/private keys
+    // TODO send it: api/v1/e2e.setUserPublicAndPrivateKeys
 }
 
 void MyAccount2e2ConfigureWidget::slotResetE2EKey()
