@@ -72,6 +72,8 @@ void MyAccount2e2ConfigureWidget::slotResetE2EKey()
     auto job = new RocketChatRestApi::MethodCallJob(this);
     RocketChatRestApi::MethodCallJob::MethodCallJobInfo info;
     info.methodName = QStringLiteral("e2e.resetOwnE2EKey");
+    const QJsonArray params;
+    info.messageObj = mRocketChatAccount->ddp()->generateJsonObject(info.methodName, params);
     info.anonymous = false;
     job->setMethodCallJobInfo(std::move(info));
     mRocketChatAccount->restApi()->initializeRestApiJob(job);
