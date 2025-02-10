@@ -15,3 +15,5 @@ E2eDisableWidgetTest::E2eDisableWidgetTest(QObject *parent)
 }
 
 E2eDisableWidgetTest::~E2eDisableWidgetTest() = default;
+
+#include "moc_e2edisablewidgettest.cpp"

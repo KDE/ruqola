@@ -5,6 +5,9 @@
 */
 
 #include "e2edisablewidget.h"
+#include <KLocalizedString>
+#include <QLabel>
+#include <QVBoxLayout>
 
 E2eDisableWidget::E2eDisableWidget(QWidget *parent)
     : QWidget{parent}
