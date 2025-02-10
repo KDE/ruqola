@@ -19,6 +19,8 @@ QDebug operator<<(QDebug d, const DeviceInfo &t)
     d.space() << "Ip" << t.ip();
     d.space() << "UserId" << t.userId();
     d.space() << "LoginAt" << t.loginAt();
+    d.space() << "client" << t.client();
+    d.space() << "os" << t.os();
     return d;
 }
 
