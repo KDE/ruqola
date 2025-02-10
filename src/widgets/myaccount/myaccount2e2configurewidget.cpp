@@ -11,6 +11,7 @@
 #include "rocketchataccount.h"
 #include "ruqolawidgets_debug.h"
 #include <KLocalizedString>
+#include <KSeparator>
 #include <QLabel>
 #include <QPushButton>
 #include <QVBoxLayout>
@@ -19,6 +20,7 @@ MyAccount2e2ConfigureWidget::MyAccount2e2ConfigureWidget(RocketChatAccount *acco
     : QWidget{parent}
     , mPasswordConfirmWidget(new PasswordConfirmWidget(this))
     , mResetE2eKey(new QPushButton(i18nc("@action:button", "Reset E2E Key"), this))
+    , mModifyE2ePassword(new QPushButton(i18nc("@action:button", "Modify"), this))
     , mRocketChatAccount(account)
 {
     auto mainLayout = new QVBoxLayout(this);
@@ -37,7 +39,11 @@ MyAccount2e2ConfigureWidget::MyAccount2e2ConfigureWidget(RocketChatAccount *acco
     // TODO add change password
     mPasswordConfirmWidget->setObjectName(QStringLiteral("mPasswordConfirmWidget"));
     mainLayout->addWidget(mPasswordConfirmWidget);
+    mModifyE2ePassword->setObjectName(QStringLiteral("mModifyE2ePassword"));
+    mainLayout->addWidget(mModifyE2ePassword);
+    connect(mModifyE2ePassword, &QPushButton::clicked, this, &MyAccount2e2ConfigureWidget::slotModifyPassword);
 
+    mainLayout->addWidget(new KSeparator(this));
     auto removePasswordlabel = new QLabel(
         i18n("This option will remove your current E2E key and log you out. "
              "When you login again, Rocket.Chat will generate you a new key and restore your access to any encrypted room that has one or more members online."
@@ -54,6 +60,11 @@ MyAccount2e2ConfigureWidget::MyAccount2e2ConfigureWidget(RocketChatAccount *acco
 }
 
 MyAccount2e2ConfigureWidget::~MyAccount2e2ConfigureWidget() = default;
+
+void MyAccount2e2ConfigureWidget::slotModifyPassword()
+{
+    // TODO
+}
 
 void MyAccount2e2ConfigureWidget::slotResetE2EKey()
 {

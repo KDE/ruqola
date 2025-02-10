@@ -22,7 +22,9 @@ public:
 private:
     LIBRUQOLAWIDGETS_NO_EXPORT void slotReset2E2KeyDone(const QJsonObject &replyObject);
     LIBRUQOLAWIDGETS_NO_EXPORT void slotResetE2EKey();
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotModifyPassword();
     PasswordConfirmWidget *const mPasswordConfirmWidget;
     QPushButton *const mResetE2eKey;
+    QPushButton *const mModifyE2ePassword;
     RocketChatAccount *const mRocketChatAccount;
 };

@@ -40,6 +40,10 @@ void MyAccount2e2ConfigureWidgetTest::shouldHaveDefaultValues()
 
     auto mPasswordConfirmWidget = w.findChild<PasswordConfirmWidget *>(QStringLiteral("mPasswordConfirmWidget"));
     QVERIFY(mPasswordConfirmWidget);
+
+    auto mModifyE2ePassword = w.findChild<QPushButton *>(QStringLiteral("mModifyE2ePassword"));
+    QVERIFY(mModifyE2ePassword);
+    QVERIFY(!mModifyE2ePassword->text().isEmpty());
 }
 
 #include "moc_myaccount2e2configurewidgettest.cpp"
