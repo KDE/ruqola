@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-02-08 00:40+0000\n"
-"PO-Revision-Date: 2025-02-01 12:24+0100\n"
+"PO-Revision-Date: 2025-02-08 17:53+0100\n"
 "Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>\n"
 "Language-Team: Polish <kde-i18n-doc@kde.org>\n"
 "Language: pl\n"
@@ -8599,18 +8599,14 @@ msgid "Copy Location to Clipboard"
 msgstr "Skopiuj położenie do schowka"
 
 #: widgets/dialogs/showimageprevnextimagewidget.cpp:21
-#, fuzzy, kde-format
-#| msgctxt "@info:shell"
-#| msgid "Show Message"
+#, kde-format
 msgid "Show previous image"
-msgstr "Pokaż wiadomość"
+msgstr "Pokaż poprzedni obraz"
 
 #: widgets/dialogs/showimageprevnextimagewidget.cpp:29
-#, fuzzy, kde-format
-#| msgctxt "@info:shell"
-#| msgid "Show Message"
+#, kde-format
 msgid "Show next image"
-msgstr "Pokaż wiadomość"
+msgstr "Pokaż następny obraz"
 
 #: widgets/dialogs/showimagewidget.cpp:64
 #, kde-format
@@ -8663,9 +8659,7 @@ msgid "Show Starred Messages - %1"
 msgstr "Pokaż wyróżnione wiadomości - %1"
 
 #: widgets/dialogs/showtheadscombobox.cpp:14
-#, fuzzy, kde-format
-#| msgctxt "@info:tooltip"
-#| msgid "Following"
+#, kde-format
 msgid "Following"
 msgstr "Podążanie"
 
@@ -11342,13 +11336,11 @@ msgstr "Dodano sprawdzanie, czy istnieje nowsza wersja Ruqoli"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:21
 msgid "Allow to search threads by unread/following"
-msgstr ""
+msgstr "Zezwól na wyszukiwanie wątków po nieprzeczytanych/śledzonych"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:22
-#, fuzzy
-#| msgid "Show Files Attachment In Room"
 msgid "Show images from attachment dialog box"
-msgstr "Pokaż załączniki w pokoju"
+msgstr "Pokazywanie obrazów z okna załącznika"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:32
 #, kde-format
@@ -11776,7 +11768,7 @@ msgstr "Umożliwiono włączanie/wyłączanie sklepu z aplikacjami."
 #: widgets/whatsnew/whatsnewtranslations.cpp:165
 #, kde-format
 msgid "Improve list of user in room."
-msgstr ""
+msgstr "Ulepszenie listy użytkowników w pokoju."
 
 #: widgets/whatsnew/whatsnewwidget.cpp:44
 #, kde-format

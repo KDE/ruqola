@@ -8666,11 +8666,9 @@ msgid "Show Starred Messages - %1"
 msgstr "Amosar as mensaxes marcadas — %1"
 
 #: widgets/dialogs/showtheadscombobox.cpp:14
-#, fuzzy, kde-format
-#| msgctxt "@info:tooltip"
-#| msgid "Following"
+#, kde-format
 msgid "Following"
-msgstr "Seguindo"
+msgstr "En seguimento"
 
 #: widgets/dialogs/showthreadsdialog.cpp:26
 #, kde-format
