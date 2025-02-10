@@ -62,6 +62,13 @@ void EncryptionSettingsWidgetTest::shouldHaveDefaultValues()
     QVERIFY(!mEnableOtr->text().isEmpty());
     QVERIFY(!mEnableOtr->toolTip().isEmpty());
     QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mEnableOtr), QStringLiteral("OTR_Enabled"));
+
+    auto mEnableMentions = w.findChild<QCheckBox *>(QStringLiteral("mEnableMentions"));
+    QVERIFY(mEnableMentions);
+    QVERIFY(!mEnableMentions->isChecked());
+    QVERIFY(!mEnableMentions->text().isEmpty());
+    QVERIFY(!mEnableMentions->toolTip().isEmpty());
+    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mEnableMentions), QStringLiteral("E2E_Enabled_Mentions"));
 }
 
 #include "moc_encryptionsettingswidgettest.cpp"

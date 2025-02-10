@@ -18,6 +18,7 @@ EncryptionSettingsWidget::EncryptionSettingsWidget(RocketChatAccount *account, Q
     , mEnableEncryptionPrivateRoomsByDefault(new QCheckBox(i18nc("@option:check", "Enable encryption for Private Rooms by default"), this))
     , mEnableEncryptFiles(new QCheckBox(i18nc("@option:check", "Encrypt files"), this))
     , mAllowUnencryptedMessages(new QCheckBox(i18nc("@option:check", "Access unencrypted content in encrypted rooms"), this))
+    , mEnableMentions(new QCheckBox(i18nc("@option:check", "Mentions"), this))
     , mEnableOtr(new QCheckBox(i18nc("@option:check", "Enable OTR"), this))
 {
     mEnableE2E->setObjectName(QStringLiteral("mEnableE2E"));
@@ -45,6 +46,11 @@ EncryptionSettingsWidget::EncryptionSettingsWidget(RocketChatAccount *account, Q
               "Allow access to encrypted rooms to people without room encryption keys. They'll be able to see and send unencrypted messages."));
     connectCheckBox(mAllowUnencryptedMessages, QStringLiteral("E2E_Allow_Unencrypted_Messages"));
 
+    mEnableMentions->setObjectName(QStringLiteral("mEnableMentions"));
+    mMainLayout->addWidget(mEnableMentions);
+    mEnableMentions->setToolTip(i18nc("@info:tooltip", "Notify people, and highlight user, channel, and team mentions in encrypted content."));
+    connectCheckBox(mEnableMentions, QStringLiteral("E2E_Enabled_Mentions"));
+
     mEnableOtr->setObjectName(QStringLiteral("mEnableOtr"));
     mEnableOtr->setToolTip(
         i18n("Enable option to use off-the-record (OTR) messages in direct messages between 2 users. OTR messages are not recorded on the server and exchanged "
@@ -62,6 +68,7 @@ void EncryptionSettingsWidget::initialize(const QMap<QString, QVariant> &mapSett
     initializeWidget(mEnableEncryptionPrivateRoomsByDefault, mapSettings, false);
     initializeWidget(mEnableEncryptFiles, mapSettings, true);
     initializeWidget(mAllowUnencryptedMessages, mapSettings, true);
+    initializeWidget(mEnableMentions, mapSettings, true);
     initializeWidget(mEnableOtr, mapSettings);
 }
 
