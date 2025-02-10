@@ -36,7 +36,6 @@ MyAccount2e2ConfigureWidget::MyAccount2e2ConfigureWidget(RocketChatAccount *acco
     changePasswordLabel->setObjectName(QStringLiteral("changePasswordLabel"));
     mainLayout->addWidget(changePasswordLabel);
 
-    // TODO add change password
     mPasswordConfirmWidget->setObjectName(QStringLiteral("mPasswordConfirmWidget"));
     mainLayout->addWidget(mPasswordConfirmWidget);
     mModifyE2ePassword->setObjectName(QStringLiteral("mModifyE2ePassword"));
@@ -65,7 +64,7 @@ MyAccount2e2ConfigureWidget::~MyAccount2e2ConfigureWidget() = default;
 
 void MyAccount2e2ConfigureWidget::slotModifyPassword()
 {
-    // TODO
+    // TODO use api/v1/e2e.setUserPublicAndPrivateKeys
 }
 
 void MyAccount2e2ConfigureWidget::slotResetE2EKey()
