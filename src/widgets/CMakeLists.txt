@@ -1,8 +1,6 @@
 # SPDX-FileCopyrightText: 2020-2025 Laurent Montel <montel@kde.org>
 # SPDX-License-Identifier: BSD-3-Clause
-add_library(libruqolawidgets
-    encryption/e2edisabledialog.h encryption/e2edisabledialog.cpp
-    encryption/e2edisablewidget.h encryption/e2edisablewidget.cpp)
+add_library(libruqolawidgets)
 
 if(TARGET KF6::UserFeedbackWidgets)
     target_sources(libruqolawidgets PRIVATE
@@ -933,6 +931,12 @@ target_sources(libruqolawidgets PRIVATE
 
     encryption/e2epassworddecodekeywidget.h
     encryption/e2epassworddecodekeywidget.cpp
+
+
+    encryption/e2edisabledialog.h
+    encryption/e2edisabledialog.cpp
+    encryption/e2edisablewidget.h
+    encryption/e2edisablewidget.cpp
 
     forwardmessage/forwardmessagedialog.h
     forwardmessage/forwardmessagedialog.cpp
