@@ -256,4 +256,8 @@ void RoomHeaderWidget::setCurrentRocketChatAccount(RocketChatAccount *account)
     mAvatarCacheManager->setCurrentRocketChatAccount(account);
 }
 
+void RoomHeaderWidget::slotDisabledEncryption()
+{
+}
+
 #include "moc_roomheaderwidget.cpp"

@@ -72,6 +72,7 @@ Q_SIGNALS:
     void openTeam(const QByteArray &identifier);
 
 private:
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotDisabledEncryption();
     QLabel *const mRoomName;
     TeamNameLabel *const mTeamName;
     RoomHeaderLabel *const mRoomHeaderLabel;
