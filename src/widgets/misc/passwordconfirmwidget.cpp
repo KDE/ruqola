@@ -10,19 +10,29 @@
 #include <KAuthorized>
 #include <KLocalizedString>
 #include <KPasswordLineEdit>
+#include <KStatefulBrush>
 #include <QFormLayout>
+#include <QLabel>
 
 PasswordConfirmWidget::PasswordConfirmWidget(QWidget *parent)
     : QWidget(parent)
     , mNewPasswordLineEdit(new KPasswordLineEdit(this))
     , mConfirmPasswordLineEdit(new KPasswordLineEdit(this))
     , mPasswordValidateWidget(new PasswordValidateWidget(this))
+    , mInvalidPassword(new QLabel(i18n("Your passwords do no match."), this))
 {
+    const KStatefulBrush bgBrush(KColorScheme::View, KColorScheme::NegativeText);
+    const QColor color = bgBrush.brush(palette()).color();
+    QPalette pal = this->palette();
+    pal.setColor(QPalette::WindowText, color);
+    mInvalidPassword->setPalette(pal);
+
     auto mainLayout = new QFormLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
     mainLayout->setContentsMargins({});
 
     mNewPasswordLineEdit->setObjectName(QStringLiteral("mNewPasswordLineEdit"));
+
     mainLayout->addRow(i18n("New Password:"), mNewPasswordLineEdit);
     mNewPasswordLineEdit->setRevealPasswordMode(KAuthorized::authorize(QStringLiteral("lineedit_reveal_password")) ? KPassword::RevealMode::OnlyNew
                                                                                                                    : KPassword::RevealMode::Never);
@@ -35,6 +45,9 @@ PasswordConfirmWidget::PasswordConfirmWidget(QWidget *parent)
     mainLayout->addRow(i18n("Confirm Password:"), mConfirmPasswordLineEdit);
     mConfirmPasswordLineEdit->setRevealPasswordMode(KAuthorized::authorize(QStringLiteral("lineedit_reveal_password")) ? KPassword::RevealMode::OnlyNew
                                                                                                                        : KPassword::RevealMode::Never);
+    mInvalidPassword->setObjectName(QStringLiteral("mInvalidPassword"));
+    mInvalidPassword->setVisible(false);
+    mainLayout->addWidget(mInvalidPassword);
     connect(mConfirmPasswordLineEdit, &KPasswordLineEdit::passwordChanged, this, &PasswordConfirmWidget::slotVerifyPassword);
     connect(mNewPasswordLineEdit, &KPasswordLineEdit::passwordChanged, this, &PasswordConfirmWidget::slotVerifyPassword);
 }
@@ -43,7 +56,9 @@ PasswordConfirmWidget::~PasswordConfirmWidget() = default;
 
 void PasswordConfirmWidget::slotVerifyPassword()
 {
-    Q_EMIT passwordValidated(isNewPasswordConfirmed());
+    const bool state = isNewPasswordConfirmed();
+    mInvalidPassword->setVisible(!state);
+    Q_EMIT passwordValidated(state);
 }
 
 bool PasswordConfirmWidget::isNewPasswordConfirmed() const

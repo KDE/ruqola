@@ -11,6 +11,7 @@
 #include <QWidget>
 class KPasswordLineEdit;
 class PasswordValidateWidget;
+class QLabel;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT PasswordConfirmWidget : public QWidget
 {
     Q_OBJECT
@@ -30,4 +31,5 @@ private:
     KPasswordLineEdit *const mNewPasswordLineEdit;
     KPasswordLineEdit *const mConfirmPasswordLineEdit;
     PasswordValidateWidget *const mPasswordValidateWidget;
+    QLabel *const mInvalidPassword;
 };
