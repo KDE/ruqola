@@ -42,6 +42,8 @@ MyAccount2e2ConfigureWidget::MyAccount2e2ConfigureWidget(RocketChatAccount *acco
     mModifyE2ePassword->setObjectName(QStringLiteral("mModifyE2ePassword"));
     mainLayout->addWidget(mModifyE2ePassword);
     connect(mModifyE2ePassword, &QPushButton::clicked, this, &MyAccount2e2ConfigureWidget::slotModifyPassword);
+    mModifyE2ePassword->setEnabled(false);
+    connect(mPasswordConfirmWidget, &PasswordConfirmWidget::passwordValidated, mModifyE2ePassword, &QPushButton::setEnabled);
 
     mainLayout->addWidget(new KSeparator(this));
     auto removePasswordlabel = new QLabel(
