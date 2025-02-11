@@ -5,7 +5,7 @@
 */
 
 #include "resetroomkeyjobtest.h"
-#include "e2e/resetowne2ekeyjob.h"
+#include "e2e/resetroomkeyjob.h"
 #include "ruqola_restapi_helper.h"
 #include <QJsonDocument>
 QTEST_GUILESS_MAIN(ResetRoomKeyJobTest)
@@ -17,7 +17,7 @@ ResetRoomKeyJobTest::ResetRoomKeyJobTest(QObject *parent)
 
 void ResetRoomKeyJobTest::shouldHaveDefaultValue()
 {
-    ResetOwnE2eKeyJob job;
+    ResetRoomKeyJob job;
     verifyDefaultValue(&job);
     QVERIFY(job.requireHttpAuthentication());
     QVERIFY(!job.hasQueryParameterSupport());
@@ -25,23 +25,23 @@ void ResetRoomKeyJobTest::shouldHaveDefaultValue()
 
 void ResetRoomKeyJobTest::shouldGenerateRequest()
 {
-    ResetOwnE2eKeyJob job;
+    ResetRoomKeyJob job;
     QNetworkRequest request = QNetworkRequest(QUrl());
     verifyAuthentication(&job, request);
-    QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/v1/e2e.resetOwnE2EKey")));
+    QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/v1/e2e.resetRoomKey")));
     QCOMPARE(request.header(QNetworkRequest::ContentTypeHeader).toString(), QStringLiteral("application/json"));
 }
 
 void ResetRoomKeyJobTest::shouldGenerateJson()
 {
-    ResetOwnE2eKeyJob job;
+    ResetRoomKeyJob job;
     // TODO
     // QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral(R"({"private_key":"%2","public_key":"%1"})").arg(rsapublic, rsaprivate).toLatin1());
 }
 
 void ResetRoomKeyJobTest::shouldNotStarting()
 {
-    ResetOwnE2eKeyJob job;
+    ResetRoomKeyJob job;
 
     RestApiMethod method;
     method.setServerUrl(QStringLiteral("http://www.kde.org"));
