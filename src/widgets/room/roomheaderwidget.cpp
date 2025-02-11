@@ -6,6 +6,7 @@
 
 #include "roomheaderwidget.h"
 #include "channelactionpopupmenu.h"
+#include "encryption/e2edisabledialog.h"
 #include "misc/avatarcachemanager.h"
 #include "roomheaderlabel.h"
 #include "teamnamelabel.h"
@@ -70,7 +71,13 @@ RoomHeaderWidget::RoomHeaderWidget(QWidget *parent)
     mEncryptedButton->setCheckable(true);
     mEncryptedButton->setVisible(false);
     headerLayout->addWidget(mEncryptedButton, 0, Qt::AlignTop);
-    connect(mEncryptedButton, &QToolButton::clicked, this, &RoomHeaderWidget::encryptedChanged);
+    connect(mEncryptedButton, &QToolButton::clicked, this, [this](bool checked) {
+        if (!checked) {
+            slotDisabledEncryption();
+        } else {
+            Q_EMIT encryptedChanged(checked);
+        }
+    });
 
     mRoomIcon->setMargin(1);
     headerLayout->addWidget(mRoomIcon, 0, Qt::AlignTop);
@@ -258,6 +265,12 @@ void RoomHeaderWidget::setCurrentRocketChatAccount(RocketChatAccount *account)
 
 void RoomHeaderWidget::slotDisabledEncryption()
 {
+    E2eDisableDialog d(this);
+    if (d.exec()) {
+        Q_EMIT encryptedChanged(false);
+    } else {
+        mEncryptedButton->setChecked(true);
+    }
 }
 
 #include "moc_roomheaderwidget.cpp"
