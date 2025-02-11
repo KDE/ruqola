@@ -224,6 +224,7 @@ enum class RestApiUrlType {
     E2ERejectSuggestedGroupKey,
     E2EProvideUsersWithSuggestedGroupKeys,
     E2EResetRoomKey,
+    E2EFetchUsersWaitingForGroupKey,
 
     RolesList,
     RolesCreate,
