@@ -71,7 +71,7 @@ QNetworkRequest AcceptSuggestedGroupKeyJob::request() const
 QJsonDocument AcceptSuggestedGroupKeyJob::json() const
 {
     QJsonObject jsonObj;
-    // TODO
+    jsonObj["rid"_L1] = mRoomId;
     const QJsonDocument postData = QJsonDocument(jsonObj);
     return postData;
 }
