@@ -43,6 +43,16 @@ void ResetRoomKeyJob::onPostRequestResponse(const QString &replyErrorString, con
     }
 }
 
+ResetRoomKeyJob::ResetRoomKeyInfo ResetRoomKeyJob::resetRoomKeyInfo() const
+{
+    return mResetRoomKeyInfo;
+}
+
+void ResetRoomKeyJob::setResetRoomKeyInfo(const ResetRoomKeyInfo &newResetRoomKeyInfo)
+{
+    mResetRoomKeyInfo = newResetRoomKeyInfo;
+}
+
 bool ResetRoomKeyJob::requireHttpAuthentication() const
 {
     return true;
@@ -60,9 +70,15 @@ QNetworkRequest ResetRoomKeyJob::request() const
 QJsonDocument ResetRoomKeyJob::json() const
 {
     QJsonObject jsonObj;
-    // TODO
+    jsonObj["rid"_L1] = mResetRoomKeyInfo.rid;
+    jsonObj["e2eKey"_L1] = mResetRoomKeyInfo.e2eKey;
+    jsonObj["e2eKeyId"_L1] = mResetRoomKeyInfo.e2eKeyId;
     const QJsonDocument postData = QJsonDocument(jsonObj);
     return postData;
 }
 
+bool ResetRoomKeyJob::ResetRoomKeyInfo::isValid() const
+{
+    return !rid.isEmpty() && !e2eKey.isEmpty() && !e2eKeyId.isEmpty();
+}
 #include "moc_resetroomkeyjob.cpp"
