@@ -23,10 +23,16 @@ public:
 
     [[nodiscard]] QJsonDocument json() const;
 
+    [[nodiscard]] QString getRoomId() const;
+    void setRoomId(const QString &newRoomId);
+
+    [[nodiscard]] bool canStart() const override;
+
 Q_SIGNALS:
-    void resetE2eKeyDone(const QJsonObject &replyObject);
+    void acceptSuggestedGroupKeyDone(const QJsonObject &replyObject);
 
 private:
     LIBROCKETCHATRESTAPI_QT_NO_EXPORT void onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson) override;
+    QString mRoomId;
 };
 }

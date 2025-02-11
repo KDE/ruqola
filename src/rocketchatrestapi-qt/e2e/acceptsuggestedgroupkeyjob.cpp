@@ -5,12 +5,13 @@
 */
 
 #include "acceptsuggestedgroupkeyjob.h"
-using namespace Qt::Literals::StringLiterals;
+#include "rocketchatqtrestapi_debug.h"
 
 #include "restapimethod.h"
 
 #include <QJsonDocument>
 #include <QJsonObject>
+using namespace Qt::Literals::StringLiterals;
 using namespace RocketChatRestApi;
 AcceptSuggestedGroupKeyJob::AcceptSuggestedGroupKeyJob(QObject *parent)
     : RestApiAbstractJob(parent)
@@ -36,11 +37,21 @@ void AcceptSuggestedGroupKeyJob::onPostRequestResponse(const QString &replyError
 
     if (replyObject["success"_L1].toBool()) {
         addLoggerInfo(QByteArrayLiteral("AcceptSuggestedGroupKeyJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
-        Q_EMIT resetE2eKeyDone(replyObject);
+        Q_EMIT acceptSuggestedGroupKeyDone(replyObject);
     } else {
         emitFailedMessage(replyErrorString, replyObject);
         addLoggerWarning(QByteArrayLiteral("AcceptSuggestedGroupKeyJob: Problem: ") + replyJson.toJson(QJsonDocument::Indented));
     }
+}
+
+QString AcceptSuggestedGroupKeyJob::getRoomId() const
+{
+    return mRoomId;
+}
+
+void AcceptSuggestedGroupKeyJob::setRoomId(const QString &newRoomId)
+{
+    mRoomId = newRoomId;
 }
 
 bool AcceptSuggestedGroupKeyJob::requireHttpAuthentication() const
@@ -50,7 +61,7 @@ bool AcceptSuggestedGroupKeyJob::requireHttpAuthentication() const
 
 QNetworkRequest AcceptSuggestedGroupKeyJob::request() const
 {
-    const QUrl url = mRestApiMethod->generateUrl(RestApiUtil::RestApiUrlType::E2EResetOwnE2EKey);
+    const QUrl url = mRestApiMethod->generateUrl(RestApiUtil::RestApiUrlType::E2EAcceptSuggestedGroupKey);
     QNetworkRequest request(url);
     addAuthRawHeader(request);
     addRequestAttribute(request);
@@ -65,4 +76,15 @@ QJsonDocument AcceptSuggestedGroupKeyJob::json() const
     return postData;
 }
 
+bool AcceptSuggestedGroupKeyJob::canStart() const
+{
+    if (!RestApiAbstractJob::canStart()) {
+        return false;
+    }
+    if (mRoomId.isEmpty()) {
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "RejectSuggestedGroupKeyJob: roomId is empty";
+        return false;
+    }
+    return true;
+}
 #include "moc_acceptsuggestedgroupkeyjob.cpp"

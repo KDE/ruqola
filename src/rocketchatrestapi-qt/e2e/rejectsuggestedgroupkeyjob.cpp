@@ -5,6 +5,7 @@
 */
 
 #include "rejectsuggestedgroupkeyjob.h"
+#include "rocketchatqtrestapi_debug.h"
 using namespace Qt::Literals::StringLiterals;
 
 #include "restapimethod.h"
@@ -36,11 +37,21 @@ void RejectSuggestedGroupKeyJob::onPostRequestResponse(const QString &replyError
 
     if (replyObject["success"_L1].toBool()) {
         addLoggerInfo(QByteArrayLiteral("RejectSuggestedGroupKeyJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
-        Q_EMIT resetE2eKeyDone(replyObject);
+        Q_EMIT rejectSuggestedGroupKeyDone(replyObject);
     } else {
         emitFailedMessage(replyErrorString, replyObject);
         addLoggerWarning(QByteArrayLiteral("RejectSuggestedGroupKeyJob: Problem: ") + replyJson.toJson(QJsonDocument::Indented));
     }
+}
+
+QString RejectSuggestedGroupKeyJob::getRoomId() const
+{
+    return mRoomId;
+}
+
+void RejectSuggestedGroupKeyJob::setRoomId(const QString &newRoomId)
+{
+    mRoomId = newRoomId;
 }
 
 bool RejectSuggestedGroupKeyJob::requireHttpAuthentication() const
@@ -50,7 +61,7 @@ bool RejectSuggestedGroupKeyJob::requireHttpAuthentication() const
 
 QNetworkRequest RejectSuggestedGroupKeyJob::request() const
 {
-    const QUrl url = mRestApiMethod->generateUrl(RestApiUtil::RestApiUrlType::E2EResetOwnE2EKey);
+    const QUrl url = mRestApiMethod->generateUrl(RestApiUtil::RestApiUrlType::E2ERejectSuggestedGroupKey);
     QNetworkRequest request(url);
     addAuthRawHeader(request);
     addRequestAttribute(request);
@@ -63,6 +74,18 @@ QJsonDocument RejectSuggestedGroupKeyJob::json() const
     // TODO
     const QJsonDocument postData = QJsonDocument(jsonObj);
     return postData;
+}
+
+bool RejectSuggestedGroupKeyJob::canStart() const
+{
+    if (!RestApiAbstractJob::canStart()) {
+        return false;
+    }
+    if (mRoomId.isEmpty()) {
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "RejectSuggestedGroupKeyJob: roomId is empty";
+        return false;
+    }
+    return true;
 }
 
 #include "moc_rejectsuggestedgroupkeyjob.cpp"
