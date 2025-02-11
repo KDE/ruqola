@@ -8,6 +8,7 @@
 #include "encryption/e2edisablewidget.h"
 #include <KSeparator>
 #include <QLabel>
+#include <QPushButton>
 #include <QTest>
 #include <QVBoxLayout>
 
@@ -34,6 +35,14 @@ void E2eDisableWidgetTest::shouldHaveDefaultValues()
 
     auto separator = w.findChild<KSeparator *>(QStringLiteral("separator"));
     QVERIFY(separator);
+
+    auto labelReset = w.findChild<QLabel *>(QStringLiteral("labelReset"));
+    QVERIFY(labelReset);
+    QVERIFY(!labelReset->text().isEmpty());
+
+    auto pushButton = w.findChild<QPushButton *>(QStringLiteral("pushButton"));
+    QVERIFY(pushButton);
+    QVERIFY(!pushButton->text().isEmpty());
 }
 
 #include "moc_e2edisablewidgettest.cpp"
