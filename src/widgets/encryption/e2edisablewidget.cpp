@@ -39,7 +39,7 @@ E2eDisableWidget::E2eDisableWidget(QWidget *parent)
     mainLayout->addWidget(labelReset);
 
     auto pushButton = new QPushButton(i18n("Reset encryption keys"), this);
-    label->setObjectName("pushButton"_L1);
+    pushButton->setObjectName("pushButton"_L1);
     mainLayout->addWidget(pushButton);
     connect(pushButton, &QPushButton::clicked, this, [this]() {
         // TODO
