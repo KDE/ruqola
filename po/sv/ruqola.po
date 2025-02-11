@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-02-08 00:40+0000\n"
+"POT-Creation-Date: 2025-02-11 00:41+0000\n"
 "PO-Revision-Date: 2025-02-07 21:40+0100\n"
 "Last-Translator: Stefan Asserhäll <stefan.asserhall@gmail.com>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
@@ -4994,12 +4994,19 @@ msgid "Access unencrypted content in encrypted rooms"
 msgstr "Åtkomst av okrypterat innehåll i krypterade rum"
 
 #: widgets/administratorsettingsdialog/encryption/encryptionsettingswidget.cpp:21
+#, fuzzy, kde-format
+#| msgid "Mentions"
+msgctxt "@option:check"
+msgid "Mentions"
+msgstr "Omnämnanden"
+
+#: widgets/administratorsettingsdialog/encryption/encryptionsettingswidget.cpp:22
 #, kde-format
 msgctxt "@option:check"
 msgid "Enable OTR"
 msgstr "Aktivera OTR"
 
-#: widgets/administratorsettingsdialog/encryption/encryptionsettingswidget.cpp:25
+#: widgets/administratorsettingsdialog/encryption/encryptionsettingswidget.cpp:26
 #, kde-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -5009,7 +5016,7 @@ msgstr ""
 "Aktivera alternativ för att skapa krypterade grupper och kunna ändra så att "
 "grupper och direktmeddelanden krypteras."
 
-#: widgets/administratorsettingsdialog/encryption/encryptionsettingswidget.cpp:45
+#: widgets/administratorsettingsdialog/encryption/encryptionsettingswidget.cpp:46
 #, kde-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -5019,7 +5026,15 @@ msgstr ""
 "Tillåt åtkomst till krypterade rum för personer utan rummens "
 "krypteringsnycklar. De kan se och skicka okrypterade meddelanden."
 
-#: widgets/administratorsettingsdialog/encryption/encryptionsettingswidget.cpp:50
+#: widgets/administratorsettingsdialog/encryption/encryptionsettingswidget.cpp:51
+#, kde-format
+msgctxt "@info:tooltip"
+msgid ""
+"Notify people, and highlight user, channel, and team mentions in encrypted "
+"content."
+msgstr ""
+
+#: widgets/administratorsettingsdialog/encryption/encryptionsettingswidget.cpp:56
 #, kde-format
 msgid ""
 "Enable option to use off-the-record (OTR) messages in direct messages "
@@ -8839,6 +8854,14 @@ msgctxt "@action"
 msgid "Decode Encryption Key"
 msgstr "Avkoda krypteringsnyckel"
 
+#: widgets/encryption/e2edisabledialog.cpp:16
+#, fuzzy, kde-format
+#| msgctxt "@option:check"
+#| msgid "Enabled E2E encryption"
+msgctxt "@title:window"
+msgid "Disable Encryption"
+msgstr "Aktivera E2E-kryptering"
+
 #: widgets/encryption/e2epassworddecodekeydialog.cpp:17
 #, kde-format
 msgctxt "@title:window"
@@ -9156,12 +9179,17 @@ msgctxt "Message Style"
 msgid "Compact"
 msgstr "Kompakt"
 
-#: widgets/misc/passwordconfirmwidget.cpp:26
+#: widgets/misc/passwordconfirmwidget.cpp:22
+#, kde-format
+msgid "Your passwords do no match."
+msgstr ""
+
+#: widgets/misc/passwordconfirmwidget.cpp:36
 #, kde-format
 msgid "New Password:"
 msgstr "Nytt lösenord:"
 
-#: widgets/misc/passwordconfirmwidget.cpp:35
+#: widgets/misc/passwordconfirmwidget.cpp:45
 #, kde-format
 msgid "Confirm Password:"
 msgstr "Bekräfta lösenord:"
@@ -9240,13 +9268,20 @@ msgstr "Skicka ny kod"
 msgid "Check New Version"
 msgstr "Kontrollera ny version"
 
-#: widgets/myaccount/myaccount2e2configurewidget.cpp:21
+#: widgets/myaccount/myaccount2e2configurewidget.cpp:22
 #, kde-format
 msgctxt "@action:button"
 msgid "Reset E2E Key"
 msgstr "Nollställ E2E-nyckel"
 
-#: widgets/myaccount/myaccount2e2configurewidget.cpp:29
+#: widgets/myaccount/myaccount2e2configurewidget.cpp:23
+#, fuzzy, kde-format
+#| msgid "Modify…"
+msgctxt "@action:button"
+msgid "Modify"
+msgstr "Ändra…"
+
+#: widgets/myaccount/myaccount2e2configurewidget.cpp:31
 #, kde-format
 msgctxt "@label:textbox"
 msgid ""
@@ -9264,7 +9299,7 @@ msgstr ""
 "lagra ditt lösenord på en säker plats. Du blir ombedd att mata in den på "
 "andra apparater som du vill använda kryptering hela vägen på."
 
-#: widgets/myaccount/myaccount2e2configurewidget.cpp:42
+#: widgets/myaccount/myaccount2e2configurewidget.cpp:49
 #, kde-format
 msgid ""
 "This option will remove your current E2E key and log you out. When you login "

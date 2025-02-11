@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-02-08 00:40+0000\n"
+"POT-Creation-Date: 2025-02-11 00:41+0000\n"
 "PO-Revision-Date: 2025-02-07 07:13+0100\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
@@ -5020,12 +5020,19 @@ msgid "Access unencrypted content in encrypted rooms"
 msgstr "Dostopaj do nešifrirane vsebine v šifriranih sobah"
 
 #: widgets/administratorsettingsdialog/encryption/encryptionsettingswidget.cpp:21
+#, fuzzy, kde-format
+#| msgid "Mentions"
+msgctxt "@option:check"
+msgid "Mentions"
+msgstr "Omembe"
+
+#: widgets/administratorsettingsdialog/encryption/encryptionsettingswidget.cpp:22
 #, kde-format
 msgctxt "@option:check"
 msgid "Enable OTR"
 msgstr "Omogoči OTR"
 
-#: widgets/administratorsettingsdialog/encryption/encryptionsettingswidget.cpp:25
+#: widgets/administratorsettingsdialog/encryption/encryptionsettingswidget.cpp:26
 #, kde-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -5035,7 +5042,7 @@ msgstr ""
 "Omogoči možnost ustvarjanja šifriranih skupin in omogočanja sprememb skupin "
 "ter šifriranje neposrednih sporočil."
 
-#: widgets/administratorsettingsdialog/encryption/encryptionsettingswidget.cpp:45
+#: widgets/administratorsettingsdialog/encryption/encryptionsettingswidget.cpp:46
 #, kde-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -5045,7 +5052,15 @@ msgstr ""
 "Dovoli dostop do šifriranih sob osebam brez ključev za šifriranje sobe. "
 "Lahko bodo videli in pošiljali nešifrirana sporočila."
 
-#: widgets/administratorsettingsdialog/encryption/encryptionsettingswidget.cpp:50
+#: widgets/administratorsettingsdialog/encryption/encryptionsettingswidget.cpp:51
+#, kde-format
+msgctxt "@info:tooltip"
+msgid ""
+"Notify people, and highlight user, channel, and team mentions in encrypted "
+"content."
+msgstr ""
+
+#: widgets/administratorsettingsdialog/encryption/encryptionsettingswidget.cpp:56
 #, kde-format
 msgid ""
 "Enable option to use off-the-record (OTR) messages in direct messages "
@@ -8876,6 +8891,14 @@ msgctxt "@action"
 msgid "Decode Encryption Key"
 msgstr "Dekodiraj ključ šifriranja"
 
+#: widgets/encryption/e2edisabledialog.cpp:16
+#, fuzzy, kde-format
+#| msgctxt "@option:check"
+#| msgid "Enabled E2E encryption"
+msgctxt "@title:window"
+msgid "Disable Encryption"
+msgstr "Omogočeno šifriranje E2E"
+
 #: widgets/encryption/e2epassworddecodekeydialog.cpp:17
 #, kde-format
 msgctxt "@title:window"
@@ -9191,12 +9214,17 @@ msgctxt "Message Style"
 msgid "Compact"
 msgstr "Kompaktni"
 
-#: widgets/misc/passwordconfirmwidget.cpp:26
+#: widgets/misc/passwordconfirmwidget.cpp:22
+#, kde-format
+msgid "Your passwords do no match."
+msgstr ""
+
+#: widgets/misc/passwordconfirmwidget.cpp:36
 #, kde-format
 msgid "New Password:"
 msgstr "Novo geslo:"
 
-#: widgets/misc/passwordconfirmwidget.cpp:35
+#: widgets/misc/passwordconfirmwidget.cpp:45
 #, kde-format
 msgid "Confirm Password:"
 msgstr "Potrdite geslo:"
@@ -9275,13 +9303,20 @@ msgstr "Pošlji novo kodo"
 msgid "Check New Version"
 msgstr "Preveri novo različico"
 
-#: widgets/myaccount/myaccount2e2configurewidget.cpp:21
+#: widgets/myaccount/myaccount2e2configurewidget.cpp:22
 #, kde-format
 msgctxt "@action:button"
 msgid "Reset E2E Key"
 msgstr "Ponastavi ključ E2E"
 
-#: widgets/myaccount/myaccount2e2configurewidget.cpp:29
+#: widgets/myaccount/myaccount2e2configurewidget.cpp:23
+#, fuzzy, kde-format
+#| msgid "Modify…"
+msgctxt "@action:button"
+msgid "Modify"
+msgstr "Spremeni…"
+
+#: widgets/myaccount/myaccount2e2configurewidget.cpp:31
 #, kde-format
 msgctxt "@label:textbox"
 msgid ""
@@ -9299,7 +9334,7 @@ msgstr ""
 "shraniti nekje na varnem. Morali ga boste vnesti za vstop na druge naprave, "
 "ki jih želite uporabiti za šifriranje od začetka do konca."
 
-#: widgets/myaccount/myaccount2e2configurewidget.cpp:42
+#: widgets/myaccount/myaccount2e2configurewidget.cpp:49
 #, kde-format
 msgid ""
 "This option will remove your current E2E key and log you out. When you login "

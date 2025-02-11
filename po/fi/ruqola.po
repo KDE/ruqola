@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-02-08 00:40+0000\n"
+"POT-Creation-Date: 2025-02-11 00:41+0000\n"
 "PO-Revision-Date: 2024-12-07 18:13+0200\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
@@ -4979,12 +4979,19 @@ msgid "Access unencrypted content in encrypted rooms"
 msgstr "Salli pääsy salattujen huoneiden salaamattomaan sisältöön"
 
 #: widgets/administratorsettingsdialog/encryption/encryptionsettingswidget.cpp:21
+#, fuzzy, kde-format
+#| msgid "Mentions"
+msgctxt "@option:check"
+msgid "Mentions"
+msgstr "Maininnat"
+
+#: widgets/administratorsettingsdialog/encryption/encryptionsettingswidget.cpp:22
 #, kde-format
 msgctxt "@option:check"
 msgid "Enable OTR"
 msgstr "Käytä OTR:ää"
 
-#: widgets/administratorsettingsdialog/encryption/encryptionsettingswidget.cpp:25
+#: widgets/administratorsettingsdialog/encryption/encryptionsettingswidget.cpp:26
 #, kde-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -4994,7 +5001,7 @@ msgstr ""
 "Ota käyttöön mahdollisuus luoda salattuja ryhmiä ja muuttaa ryhmiä ja "
 "suoraviestejä salatuiksi."
 
-#: widgets/administratorsettingsdialog/encryption/encryptionsettingswidget.cpp:45
+#: widgets/administratorsettingsdialog/encryption/encryptionsettingswidget.cpp:46
 #, kde-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -5004,7 +5011,15 @@ msgstr ""
 "Salli pääsy salattuihin huoneisiin huoneen salausavaimitta. Tällöin voi "
 "lukea ja lähettää vain salaamattomia viestejä."
 
-#: widgets/administratorsettingsdialog/encryption/encryptionsettingswidget.cpp:50
+#: widgets/administratorsettingsdialog/encryption/encryptionsettingswidget.cpp:51
+#, kde-format
+msgctxt "@info:tooltip"
+msgid ""
+"Notify people, and highlight user, channel, and team mentions in encrypted "
+"content."
+msgstr ""
+
+#: widgets/administratorsettingsdialog/encryption/encryptionsettingswidget.cpp:56
 #, kde-format
 msgid ""
 "Enable option to use off-the-record (OTR) messages in direct messages "
@@ -8817,6 +8832,14 @@ msgctxt "@action"
 msgid "Decode Encryption Key"
 msgstr "Pura salausavaimen salaus"
 
+#: widgets/encryption/e2edisabledialog.cpp:16
+#, fuzzy, kde-format
+#| msgctxt "@option:check"
+#| msgid "Enabled E2E encryption"
+msgctxt "@title:window"
+msgid "Disable Encryption"
+msgstr "E2E-salaus käytössä"
+
 #: widgets/encryption/e2epassworddecodekeydialog.cpp:17
 #, kde-format
 msgctxt "@title:window"
@@ -9130,12 +9153,17 @@ msgctxt "Message Style"
 msgid "Compact"
 msgstr "Tiivis"
 
-#: widgets/misc/passwordconfirmwidget.cpp:26
+#: widgets/misc/passwordconfirmwidget.cpp:22
+#, kde-format
+msgid "Your passwords do no match."
+msgstr ""
+
+#: widgets/misc/passwordconfirmwidget.cpp:36
 #, kde-format
 msgid "New Password:"
 msgstr "Uusi salasana:"
 
-#: widgets/misc/passwordconfirmwidget.cpp:35
+#: widgets/misc/passwordconfirmwidget.cpp:45
 #, kde-format
 msgid "Confirm Password:"
 msgstr "Vahvista salasana:"
@@ -9214,13 +9242,20 @@ msgstr "Lähetä uusi koodi"
 msgid "Check New Version"
 msgstr "Etsi uutta versiota"
 
-#: widgets/myaccount/myaccount2e2configurewidget.cpp:21
+#: widgets/myaccount/myaccount2e2configurewidget.cpp:22
 #, kde-format
 msgctxt "@action:button"
 msgid "Reset E2E Key"
 msgstr "Nollaa E2E-avain"
 
-#: widgets/myaccount/myaccount2e2configurewidget.cpp:29
+#: widgets/myaccount/myaccount2e2configurewidget.cpp:23
+#, fuzzy, kde-format
+#| msgid "Modify…"
+msgctxt "@action:button"
+msgid "Modify"
+msgstr "Muuta…"
+
+#: widgets/myaccount/myaccount2e2configurewidget.cpp:31
 #, kde-format
 msgctxt "@label:textbox"
 msgid ""
@@ -9237,7 +9272,7 @@ msgstr ""
 "sinun on tallennettava salasana jonnekin turvaan. Se vaaditaan kaikilla "
 "laitteilla, joissa haluat käyttää E2E-salausta."
 
-#: widgets/myaccount/myaccount2e2configurewidget.cpp:42
+#: widgets/myaccount/myaccount2e2configurewidget.cpp:49
 #, kde-format
 msgid ""
 "This option will remove your current E2E key and log you out. When you login "

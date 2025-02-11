@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-02-08 00:40+0000\n"
+"POT-Creation-Date: 2025-02-11 00:41+0000\n"
 "PO-Revision-Date: 2025-02-08 04:21+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
@@ -4999,12 +4999,19 @@ msgid "Access unencrypted content in encrypted rooms"
 msgstr "დაშიფრულ ოთახებში დაშიფრულ შემცველობაზე წვდომა"
 
 #: widgets/administratorsettingsdialog/encryption/encryptionsettingswidget.cpp:21
+#, fuzzy, kde-format
+#| msgid "Mentions"
+msgctxt "@option:check"
+msgid "Mentions"
+msgstr "მოხსენებები"
+
+#: widgets/administratorsettingsdialog/encryption/encryptionsettingswidget.cpp:22
 #, kde-format
 msgctxt "@option:check"
 msgid "Enable OTR"
 msgstr "OTR-ის ჩართვა"
 
-#: widgets/administratorsettingsdialog/encryption/encryptionsettingswidget.cpp:25
+#: widgets/administratorsettingsdialog/encryption/encryptionsettingswidget.cpp:26
 #, kde-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -5014,7 +5021,7 @@ msgstr ""
 "ჩართეთ პარამეტრი, რომ შექმნათ დაშიფრული არხები და გქონდეთ საშუალება, ჯგუფური "
 "და პირდაპირი შეტყობინებები დაშიფროთ."
 
-#: widgets/administratorsettingsdialog/encryption/encryptionsettingswidget.cpp:45
+#: widgets/administratorsettingsdialog/encryption/encryptionsettingswidget.cpp:46
 #, kde-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -5025,7 +5032,15 @@ msgstr ""
 "დაშიფვრის გასაღებები. მათ შეეძლებათ დაინახონ და გააგზავნონ დაუშიფრავი "
 "შეტყობინებები."
 
-#: widgets/administratorsettingsdialog/encryption/encryptionsettingswidget.cpp:50
+#: widgets/administratorsettingsdialog/encryption/encryptionsettingswidget.cpp:51
+#, kde-format
+msgctxt "@info:tooltip"
+msgid ""
+"Notify people, and highlight user, channel, and team mentions in encrypted "
+"content."
+msgstr ""
+
+#: widgets/administratorsettingsdialog/encryption/encryptionsettingswidget.cpp:56
 #, kde-format
 msgid ""
 "Enable option to use off-the-record (OTR) messages in direct messages "
@@ -8834,6 +8849,14 @@ msgctxt "@action"
 msgid "Decode Encryption Key"
 msgstr "დაშიფვრის გასაღების გაშიფვრა"
 
+#: widgets/encryption/e2edisabledialog.cpp:16
+#, fuzzy, kde-format
+#| msgctxt "@option:check"
+#| msgid "Enabled E2E encryption"
+msgctxt "@title:window"
+msgid "Disable Encryption"
+msgstr "E2E დაშიფვრა ჩართულია"
+
 #: widgets/encryption/e2epassworddecodekeydialog.cpp:17
 #, kde-format
 msgctxt "@title:window"
@@ -9149,12 +9172,17 @@ msgctxt "Message Style"
 msgid "Compact"
 msgstr "დაპატარავება"
 
-#: widgets/misc/passwordconfirmwidget.cpp:26
+#: widgets/misc/passwordconfirmwidget.cpp:22
+#, kde-format
+msgid "Your passwords do no match."
+msgstr ""
+
+#: widgets/misc/passwordconfirmwidget.cpp:36
 #, kde-format
 msgid "New Password:"
 msgstr "ახალი პაროლი:"
 
-#: widgets/misc/passwordconfirmwidget.cpp:35
+#: widgets/misc/passwordconfirmwidget.cpp:45
 #, kde-format
 msgid "Confirm Password:"
 msgstr "გაიმეორეთ პაროლი:"
@@ -9233,13 +9261,20 @@ msgstr "ახალი კოდის გაგზავნა"
 msgid "Check New Version"
 msgstr "ახალი ვერსიის შემოწმება"
 
-#: widgets/myaccount/myaccount2e2configurewidget.cpp:21
+#: widgets/myaccount/myaccount2e2configurewidget.cpp:22
 #, kde-format
 msgctxt "@action:button"
 msgid "Reset E2E Key"
 msgstr "E2E გასაღების ჩამოყრა"
 
-#: widgets/myaccount/myaccount2e2configurewidget.cpp:29
+#: widgets/myaccount/myaccount2e2configurewidget.cpp:23
+#, fuzzy, kde-format
+#| msgid "Modify…"
+msgctxt "@action:button"
+msgid "Modify"
+msgstr "შეცვლა…"
+
+#: widgets/myaccount/myaccount2e2configurewidget.cpp:31
 #, kde-format
 msgctxt "@label:textbox"
 msgid ""
@@ -9258,7 +9293,7 @@ msgstr ""
 "პაროლი აუცილებელი იქნება ხოლმე შეიყვანოთ მოწყობილობებზე, რომლებზეც გამჭოლი "
 "დაშიფვრის გამოყენება გნებავთ."
 
-#: widgets/myaccount/myaccount2e2configurewidget.cpp:42
+#: widgets/myaccount/myaccount2e2configurewidget.cpp:49
 #, kde-format
 msgid ""
 "This option will remove your current E2E key and log you out. When you login "

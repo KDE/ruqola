@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-02-08 00:40+0000\n"
+"POT-Creation-Date: 2025-02-11 00:41+0000\n"
 "PO-Revision-Date: 2023-07-14 22:16+0100\n"
 "Last-Translator: José Nuno Coelho Pires <zepires@gmail.com>\n"
 "Language-Team: Portuguese <kde-i18n-pt@kde.org>\n"
@@ -5283,12 +5283,19 @@ msgstr ""
 
 #: widgets/administratorsettingsdialog/encryption/encryptionsettingswidget.cpp:21
 #, fuzzy, kde-format
+#| msgid "Mentions"
+msgctxt "@option:check"
+msgid "Mentions"
+msgstr "Menções"
+
+#: widgets/administratorsettingsdialog/encryption/encryptionsettingswidget.cpp:22
+#, fuzzy, kde-format
 #| msgid "Enable OTR"
 msgctxt "@option:check"
 msgid "Enable OTR"
 msgstr "Activar o OTR"
 
-#: widgets/administratorsettingsdialog/encryption/encryptionsettingswidget.cpp:25
+#: widgets/administratorsettingsdialog/encryption/encryptionsettingswidget.cpp:26
 #, fuzzy, kde-format
 #| msgid ""
 #| "Enable option to create encrypted groups and be able to change groups and "
@@ -5301,7 +5308,7 @@ msgstr ""
 "Activar a opção para criar grupos encriptados e poder mudar a encriptação "
 "dos grupos e das mensagens directas."
 
-#: widgets/administratorsettingsdialog/encryption/encryptionsettingswidget.cpp:45
+#: widgets/administratorsettingsdialog/encryption/encryptionsettingswidget.cpp:46
 #, kde-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -5309,7 +5316,15 @@ msgid ""
 "They'll be able to see and send unencrypted messages."
 msgstr ""
 
-#: widgets/administratorsettingsdialog/encryption/encryptionsettingswidget.cpp:50
+#: widgets/administratorsettingsdialog/encryption/encryptionsettingswidget.cpp:51
+#, kde-format
+msgctxt "@info:tooltip"
+msgid ""
+"Notify people, and highlight user, channel, and team mentions in encrypted "
+"content."
+msgstr ""
+
+#: widgets/administratorsettingsdialog/encryption/encryptionsettingswidget.cpp:56
 #, kde-format
 msgid ""
 "Enable option to use off-the-record (OTR) messages in direct messages "
@@ -9492,6 +9507,13 @@ msgctxt "@action"
 msgid "Decode Encryption Key"
 msgstr "Encriptação"
 
+#: widgets/encryption/e2edisabledialog.cpp:16
+#, fuzzy, kde-format
+#| msgid "Enabled E2E encryption"
+msgctxt "@title:window"
+msgid "Disable Encryption"
+msgstr "Encriptação E2E desactivada"
+
 #: widgets/encryption/e2epassworddecodekeydialog.cpp:17
 #, fuzzy, kde-format
 #| msgid "DeepL API Key"
@@ -9833,12 +9855,17 @@ msgctxt "Message Style"
 msgid "Compact"
 msgstr ""
 
-#: widgets/misc/passwordconfirmwidget.cpp:26
+#: widgets/misc/passwordconfirmwidget.cpp:22
+#, kde-format
+msgid "Your passwords do no match."
+msgstr ""
+
+#: widgets/misc/passwordconfirmwidget.cpp:36
 #, kde-format
 msgid "New Password:"
 msgstr "Nova Senha:"
 
-#: widgets/misc/passwordconfirmwidget.cpp:35
+#: widgets/misc/passwordconfirmwidget.cpp:45
 #, kde-format
 msgid "Confirm Password:"
 msgstr "Confirmar a Senha:"
@@ -9929,14 +9956,21 @@ msgstr "Enviar um novo código"
 msgid "Check New Version"
 msgstr "Versão do Nó"
 
-#: widgets/myaccount/myaccount2e2configurewidget.cpp:21
+#: widgets/myaccount/myaccount2e2configurewidget.cpp:22
 #, fuzzy, kde-format
 #| msgid "Reset E2E Key"
 msgctxt "@action:button"
 msgid "Reset E2E Key"
 msgstr "Repor a Chave E2E"
 
-#: widgets/myaccount/myaccount2e2configurewidget.cpp:29
+#: widgets/myaccount/myaccount2e2configurewidget.cpp:23
+#, fuzzy, kde-format
+#| msgid "Modify..."
+msgctxt "@action:button"
+msgid "Modify"
+msgstr "Modificar..."
+
+#: widgets/myaccount/myaccount2e2configurewidget.cpp:31
 #, fuzzy, kde-format
 #| msgid ""
 #| "You can now create encrypted private groups and direct messages. You may "
@@ -9962,7 +9996,7 @@ msgstr ""
 "lhe-á pedido para a introduzir noutros dispositivos, caso deseje manter a "
 "encriptação ponto-a-ponto activada."
 
-#: widgets/myaccount/myaccount2e2configurewidget.cpp:42
+#: widgets/myaccount/myaccount2e2configurewidget.cpp:49
 #, kde-format
 msgid ""
 "This option will remove your current E2E key and log you out. When you login "

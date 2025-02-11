@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-02-08 00:40+0000\n"
+"POT-Creation-Date: 2025-02-11 00:41+0000\n"
 "PO-Revision-Date: 2024-12-24 20:22+0530\n"
 "Last-Translator: kali <shreekantkalwar@gmail.com>\n"
 "Language-Team: Sanskrit <kde-i18n-doc@kde.org>\n"
@@ -4976,12 +4976,19 @@ msgid "Access unencrypted content in encrypted rooms"
 msgstr "एन्क्रिप्टेड्-कक्षेषु अगुप्त-सामग्री-प्रवेशं कुर्वन्तु"
 
 #: widgets/administratorsettingsdialog/encryption/encryptionsettingswidget.cpp:21
+#, fuzzy, kde-format
+#| msgid "Mentions"
+msgctxt "@option:check"
+msgid "Mentions"
+msgstr "उल्लेखः"
+
+#: widgets/administratorsettingsdialog/encryption/encryptionsettingswidget.cpp:22
 #, kde-format
 msgctxt "@option:check"
 msgid "Enable OTR"
 msgstr "OTR सक्षमं कुर्वन्तु"
 
-#: widgets/administratorsettingsdialog/encryption/encryptionsettingswidget.cpp:25
+#: widgets/administratorsettingsdialog/encryption/encryptionsettingswidget.cpp:26
 #, kde-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -4991,7 +4998,7 @@ msgstr ""
 "एन्क्रिप्टेड् ग्रुप्स् निर्मातुं विकल्पं सक्षमं कुर्वन्तु तथा च एन्क्रिप्टेड् भवितुं समूहान् परिवर्तयितुं "
 "प्रत्यक्षसन्देशान् च कर्तुं समर्थाः भवेयुः ।"
 
-#: widgets/administratorsettingsdialog/encryption/encryptionsettingswidget.cpp:45
+#: widgets/administratorsettingsdialog/encryption/encryptionsettingswidget.cpp:46
 #, kde-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -5001,7 +5008,15 @@ msgstr ""
 "कक्षगुप्तीकरणकुंजीविहीनानां जनानां कृते एन्क्रिप्टेड्-कक्षेषु प्रवेशं अनुमन्यताम् । ते अगुप्तसन्देशान् "
 "द्रष्टुं प्रेषयितुं च शक्नुवन्ति।"
 
-#: widgets/administratorsettingsdialog/encryption/encryptionsettingswidget.cpp:50
+#: widgets/administratorsettingsdialog/encryption/encryptionsettingswidget.cpp:51
+#, kde-format
+msgctxt "@info:tooltip"
+msgid ""
+"Notify people, and highlight user, channel, and team mentions in encrypted "
+"content."
+msgstr ""
+
+#: widgets/administratorsettingsdialog/encryption/encryptionsettingswidget.cpp:56
 #, kde-format
 msgid ""
 "Enable option to use off-the-record (OTR) messages in direct messages "
@@ -8810,6 +8825,14 @@ msgctxt "@action"
 msgid "Decode Encryption Key"
 msgstr "एन्क्रिप्शन कुंजी डिकोड कुर्वन्तु"
 
+#: widgets/encryption/e2edisabledialog.cpp:16
+#, fuzzy, kde-format
+#| msgctxt "@option:check"
+#| msgid "Enabled E2E encryption"
+msgctxt "@title:window"
+msgid "Disable Encryption"
+msgstr "E2E एन्क्रिप्शन सक्षमम्"
+
 #: widgets/encryption/e2epassworddecodekeydialog.cpp:17
 #, kde-format
 msgctxt "@title:window"
@@ -9123,12 +9146,17 @@ msgctxt "Message Style"
 msgid "Compact"
 msgstr "संकुचित"
 
-#: widgets/misc/passwordconfirmwidget.cpp:26
+#: widgets/misc/passwordconfirmwidget.cpp:22
+#, kde-format
+msgid "Your passwords do no match."
+msgstr ""
+
+#: widgets/misc/passwordconfirmwidget.cpp:36
 #, kde-format
 msgid "New Password:"
 msgstr "नवीनः गुप्तशब्दः :"
 
-#: widgets/misc/passwordconfirmwidget.cpp:35
+#: widgets/misc/passwordconfirmwidget.cpp:45
 #, kde-format
 msgid "Confirm Password:"
 msgstr "गुप्तशब्दस्य पुष्टिः कुर्वन्तु:"
@@ -9207,13 +9235,20 @@ msgstr "नूतनं कोडं प्रेषयन्तु"
 msgid "Check New Version"
 msgstr "नवीनसंस्करणं पश्यन्तु"
 
-#: widgets/myaccount/myaccount2e2configurewidget.cpp:21
+#: widgets/myaccount/myaccount2e2configurewidget.cpp:22
 #, kde-format
 msgctxt "@action:button"
 msgid "Reset E2E Key"
 msgstr "E2E कुञ्जी पुनः सेट् कुर्वन्तु"
 
-#: widgets/myaccount/myaccount2e2configurewidget.cpp:29
+#: widgets/myaccount/myaccount2e2configurewidget.cpp:23
+#, fuzzy, kde-format
+#| msgid "Modify…"
+msgctxt "@action:button"
+msgid "Modify"
+msgstr "परिवर्तनं कुर्वन्तु..."
+
+#: widgets/myaccount/myaccount2e2configurewidget.cpp:31
 #, kde-format
 msgctxt "@label:textbox"
 msgid ""
@@ -9230,7 +9265,7 @@ msgstr ""
 "गुप्तशब्दं कुत्रचित् सुरक्षिते संग्रहणीयम् । अन्येषु उपकरणेषु भवन्तः तत् प्रविष्टुं प्रवृत्ताः भविष्यन्ति "
 "येषु भवन्तः e2e एन्क्रिप्शनस्य उपयोगं कर्तुम् इच्छन्ति ।"
 
-#: widgets/myaccount/myaccount2e2configurewidget.cpp:42
+#: widgets/myaccount/myaccount2e2configurewidget.cpp:49
 #, kde-format
 msgid ""
 "This option will remove your current E2E key and log you out. When you login "
