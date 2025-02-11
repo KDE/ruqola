@@ -20,7 +20,7 @@ E2eDisableDialogTest::E2eDisableDialogTest(QObject *parent)
 
 E2eDisableDialogTest::~E2eDisableDialogTest() = default;
 
-void E2eDisableDialogTest::shouldHaveDefaultValuess()
+void E2eDisableDialogTest::shouldHaveDefaultValues()
 {
     E2eDisableDialog d;
     QVERIFY(!d.windowTitle().isEmpty());

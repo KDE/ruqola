@@ -14,4 +14,7 @@ class E2eDisableWidgetTest : public QObject
 public:
     explicit E2eDisableWidgetTest(QObject *parent = nullptr);
     ~E2eDisableWidgetTest() override;
+
+private Q_SLOTS:
+    void shouldHaveDefaultValues();
 };

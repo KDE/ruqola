@@ -16,5 +16,5 @@ public:
     ~E2eDisableDialogTest() override;
 
 private Q_SLOTS:
-    void shouldHaveDefaultValuess();
+    void shouldHaveDefaultValues();
 };
