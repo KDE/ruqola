@@ -6,6 +6,8 @@
 
 #include "e2edisablewidgettest.h"
 #include "encryption/e2edisablewidget.h"
+#include <KSeparator>
+#include <QLabel>
 #include <QTest>
 #include <QVBoxLayout>
 
@@ -25,6 +27,13 @@ void E2eDisableWidgetTest::shouldHaveDefaultValues()
     auto mainLayout = w.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
     QVERIFY(mainLayout);
     QCOMPARE(mainLayout->contentsMargins(), QMargins{});
+
+    auto label = w.findChild<QLabel *>(QStringLiteral("label"));
+    QVERIFY(label);
+    QVERIFY(!label->text().isEmpty());
+
+    auto separator = w.findChild<KSeparator *>(QStringLiteral("separator"));
+    QVERIFY(separator);
 }
 
 #include "moc_e2edisablewidgettest.cpp"
