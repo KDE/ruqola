@@ -5,13 +5,13 @@
 */
 
 #include "updategroupkeyjob.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "restapimethod.h"
 #include "rocketchatqtrestapi_debug.h"
 
 #include <QJsonDocument>
 #include <QJsonObject>
+using namespace Qt::Literals::StringLiterals;
 using namespace RocketChatRestApi;
 UpdateGroupKeyJob::UpdateGroupKeyJob(QObject *parent)
     : RestApiAbstractJob(parent)
@@ -84,7 +84,9 @@ QNetworkRequest UpdateGroupKeyJob::request() const
 QJsonDocument UpdateGroupKeyJob::json() const
 {
     QJsonObject jsonObj;
-    // TODO !
+    jsonObj["uid"_L1] = mUpdateGroupInfo.uid;
+    jsonObj["rid"_L1] = mUpdateGroupInfo.roomId;
+    jsonObj["key"_L1] = mUpdateGroupInfo.uid;
     const QJsonDocument postData = QJsonDocument(jsonObj);
     return postData;
 }
