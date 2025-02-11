@@ -220,6 +220,11 @@ enum class RestApiUrlType {
     E2ERequestSubscriptionKeys,
     E2EResetOwnE2EKey,
 
+    E2EAcceptSuggestedGroupKey,
+    E2ERejectSuggestedGroupKey,
+    E2EProvideUsersWithSuggestedGroupKeys,
+    E2EResetRoomKey,
+
     RolesList,
     RolesCreate,
     RolesUpdate,

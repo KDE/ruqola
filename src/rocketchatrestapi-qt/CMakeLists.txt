@@ -177,6 +177,12 @@ target_sources(librocketchatrestapi-qt PRIVATE
     e2e/setuserpublicandprivatekeysjob.h
     e2e/updategroupkeyjob.cpp
     e2e/updategroupkeyjob.h
+
+    e2e/acceptsuggestedgroupkeyjob.cpp
+    e2e/acceptsuggestedgroupkeyjob.h
+    e2e/rejectsuggestedgroupkeyjob.cpp
+    e2e/rejectsuggestedgroupkeyjob.h
+
     emoji/emojicustomalljob.cpp
     emoji/emojicustomalljob.h
     emoji/emojicustomcreatejob.cpp

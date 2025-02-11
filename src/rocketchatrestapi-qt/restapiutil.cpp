@@ -381,6 +381,15 @@ QString RestApiUtil::restUrl(RestApiUtil::RestApiUrlType type)
     case RestApiUtil::RestApiUrlType::E2EResetOwnE2EKey:
         return QStringLiteral("e2e.resetOwnE2EKey");
 
+    case RestApiUtil::RestApiUrlType::E2EAcceptSuggestedGroupKey:
+        return QStringLiteral("e2e.acceptSuggestedGroupKey");
+    case RestApiUtil::RestApiUrlType::E2ERejectSuggestedGroupKey:
+        return QStringLiteral("e2e.rejectSuggestedGroupKey");
+    case RestApiUtil::RestApiUrlType::E2EProvideUsersWithSuggestedGroupKeys:
+        return QStringLiteral("e2e.provideUsersWithSuggestedGroupKeys");
+    case RestApiUtil::RestApiUrlType::E2EResetRoomKey:
+        return QStringLiteral("e2e.resetRoomKey");
+
     case RestApiUtil::RestApiUrlType::RolesList:
         return QStringLiteral("roles.list");
     case RestApiUtil::RestApiUrlType::RolesCreate:
