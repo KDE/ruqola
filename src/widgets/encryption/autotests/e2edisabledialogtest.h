@@ -14,4 +14,7 @@ class E2eDisableDialogTest : public QObject
 public:
     explicit E2eDisableDialogTest(QObject *parent = nullptr);
     ~E2eDisableDialogTest() override;
+
+private Q_SLOTS:
+    void shouldHaveDefaultValuess();
 };
