@@ -16,7 +16,7 @@ class LIBROCKETCHATRESTAPI_QT_EXPORT SetUserPublicAndPrivateKeysJob : public Res
 
     // Since rocketchat 0.70
 public:
-    struct SetUserPublicAndPrivateKeysInfo {
+    struct LIBROCKETCHATRESTAPI_QT_EXPORT SetUserPublicAndPrivateKeysInfo {
         QString rsaPublicKey;
         QString rsaPrivateKey;
         bool force = false;
