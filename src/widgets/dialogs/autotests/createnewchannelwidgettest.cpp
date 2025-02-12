@@ -31,12 +31,17 @@ void CreateNewChannelWidgetTest::shouldHaveDefaultValues()
 
     auto mReadOnly = w.findChild<QCheckBox *>(QStringLiteral("mReadOnly"));
     QVERIFY(mReadOnly);
+    QVERIFY(!mReadOnly->toolTip().isEmpty());
     auto mBroadcast = w.findChild<QCheckBox *>(QStringLiteral("mBroadcast"));
     QVERIFY(mBroadcast);
+    QVERIFY(!mBroadcast->toolTip().isEmpty());
     auto mPrivate = w.findChild<QCheckBox *>(QStringLiteral("mPrivate"));
     QVERIFY(mPrivate);
+    QVERIFY(!mPrivate->toolTip().isEmpty());
+
     auto mEncryptedRoom = w.findChild<QCheckBox *>(QStringLiteral("mEncryptedRoom"));
     QVERIFY(mEncryptedRoom);
+    QVERIFY(!mEncryptedRoom->toolTip().isEmpty());
 
     auto mFederated = w.findChild<QCheckBox *>(QStringLiteral("mFederated"));
     QVERIFY(mFederated);

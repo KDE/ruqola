@@ -68,6 +68,10 @@ CreateNewChannelWidget::CreateNewChannelWidget(RocketChatAccount *account, QWidg
 
     mEncryptedRoom->setObjectName(QStringLiteral("mEncryptedRoom"));
     mEncryptedRoom->setChecked(false);
+    mEncryptedRoom->setToolTip(
+        i18nc("@label:textbox",
+              "End-to-end encrypted channel. Search will not work with encrypted channel and notifications may not show the messages content."));
+
     mMainLayout->addRow(i18n("Encrypted Room:"), mEncryptedRoom);
 
     mFederated->setObjectName(QStringLiteral("mFederated"));
