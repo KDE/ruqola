@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-02-11 00:41+0000\n"
-"PO-Revision-Date: 2025-02-07 12:06+0100\n"
+"POT-Creation-Date: 2025-02-12 00:41+0000\n"
+"PO-Revision-Date: 2025-02-11 11:24+0100\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
 "Language: nl\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 24.12.1\n"
+"X-Generator: Lokalize 24.12.2\n"
 
 #: apps/main.cpp:59
 #, kde-format
@@ -4441,7 +4441,7 @@ msgid "Accounts"
 msgstr "Accounts"
 
 #: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:108
-#: widgets/room/roomheaderwidget.cpp:67
+#: widgets/room/roomheaderwidget.cpp:68
 #, kde-format
 msgid "Encryption"
 msgstr "Versleuteling"
@@ -5019,8 +5019,7 @@ msgid "Access unencrypted content in encrypted rooms"
 msgstr "Heb toegang tot niet versleutelde inhoud in versleutelde rooms"
 
 #: widgets/administratorsettingsdialog/encryption/encryptionsettingswidget.cpp:21
-#, fuzzy, kde-format
-#| msgid "Mentions"
+#, kde-format
 msgctxt "@option:check"
 msgid "Mentions"
 msgstr "Vermeldingen"
@@ -5059,6 +5058,8 @@ msgid ""
 "Notify people, and highlight user, channel, and team mentions in encrypted "
 "content."
 msgstr ""
+"Laat mensen weten en accentueer gebruiker, kanaal en team vermelding in "
+"versleutelde inhoud."
 
 #: widgets/administratorsettingsdialog/encryption/encryptionsettingswidget.cpp:56
 #, kde-format
@@ -8901,12 +8902,34 @@ msgid "Decode Encryption Key"
 msgstr "Versleutelde sleutel ontcijferen"
 
 #: widgets/encryption/e2edisabledialog.cpp:16
-#, fuzzy, kde-format
-#| msgctxt "@option:check"
-#| msgid "Enabled E2E encryption"
+#, kde-format
 msgctxt "@title:window"
 msgid "Disable Encryption"
-msgstr "Ingeschakelde E2E-versleuteling"
+msgstr "Versleuteling uitschakelen"
+
+#: widgets/encryption/e2edisablewidget.cpp:23
+#, kde-format
+msgid ""
+"Disabling E2EE will compromise the privacy of this groupe privé. Access to "
+"any encrypted content will be lost for all groupe privé members.\n"
+"Encryption can be re-enabled later. Proceed with caution.\n"
+"If no one is able to access the encrypted content you can reset encryption "
+"keys instead."
+msgstr ""
+
+#: widgets/encryption/e2edisablewidget.cpp:36
+#, kde-format
+msgid ""
+"Alternatively, resetting encryption keys will keep encryption enabled but "
+"access to previously encrypted content may be lost."
+msgstr ""
+
+#: widgets/encryption/e2edisablewidget.cpp:41
+#, fuzzy, kde-format
+#| msgctxt "@action"
+#| msgid "Decode Encryption Key"
+msgid "Reset encryption keys"
+msgstr "Versleutelde sleutel ontcijferen"
 
 #: widgets/encryption/e2epassworddecodekeydialog.cpp:17
 #, kde-format
@@ -9229,7 +9252,7 @@ msgstr "Compact"
 #: widgets/misc/passwordconfirmwidget.cpp:22
 #, kde-format
 msgid "Your passwords do no match."
-msgstr ""
+msgstr "Uw wachtwoorden komen niet overeen."
 
 #: widgets/misc/passwordconfirmwidget.cpp:36
 #, kde-format
@@ -9322,11 +9345,10 @@ msgid "Reset E2E Key"
 msgstr "E2E-sleutel resetten"
 
 #: widgets/myaccount/myaccount2e2configurewidget.cpp:23
-#, fuzzy, kde-format
-#| msgid "Modify…"
+#, kde-format
 msgctxt "@action:button"
 msgid "Modify"
-msgstr "Wijzigen…"
+msgstr "Wijzigen"
 
 #: widgets/myaccount/myaccount2e2configurewidget.cpp:31
 #, kde-format
@@ -10492,79 +10514,79 @@ msgstr "(Meer informatie tonen…)"
 msgid "(Show Less Info…)"
 msgstr "(Minder informatie tonen…)"
 
-#: widgets/room/roomheaderwidget.cpp:47
+#: widgets/room/roomheaderwidget.cpp:48
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Favorite"
 msgstr "Favoriet"
 
-#: widgets/room/roomheaderwidget.cpp:49
+#: widgets/room/roomheaderwidget.cpp:50
 #, kde-format
 msgid "Favorite"
 msgstr "Favoriet"
 
-#: widgets/room/roomheaderwidget.cpp:65
+#: widgets/room/roomheaderwidget.cpp:66
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "E2E Enabled"
 msgstr "E2E ingeschakeld"
 
-#: widgets/room/roomheaderwidget.cpp:112
+#: widgets/room/roomheaderwidget.cpp:119
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Call"
 msgstr "Oproep"
 
-#: widgets/room/roomheaderwidget.cpp:114
+#: widgets/room/roomheaderwidget.cpp:121
 #, kde-format
 msgid "Call"
 msgstr "Oproep"
 
-#: widgets/room/roomheaderwidget.cpp:123
+#: widgets/room/roomheaderwidget.cpp:130
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Channel's Information"
 msgstr "Informatie over kanaal"
 
-#: widgets/room/roomheaderwidget.cpp:125 widgets/room/roomheaderwidget.cpp:232
+#: widgets/room/roomheaderwidget.cpp:132 widgets/room/roomheaderwidget.cpp:239
 #, kde-format
 msgid "Channel's Information"
 msgstr "Informatie over kanaal"
 
-#: widgets/room/roomheaderwidget.cpp:134
+#: widgets/room/roomheaderwidget.cpp:141
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Team Channels"
 msgstr "Teamkanalen"
 
-#: widgets/room/roomheaderwidget.cpp:136
+#: widgets/room/roomheaderwidget.cpp:143
 #, kde-format
 msgid "Team Channels"
 msgstr "Teamkanalen"
 
-#: widgets/room/roomheaderwidget.cpp:146
+#: widgets/room/roomheaderwidget.cpp:153
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Show List of Users"
 msgstr "Lijst van gebruikers tonen"
 
-#: widgets/room/roomheaderwidget.cpp:148
+#: widgets/room/roomheaderwidget.cpp:155
 #, kde-format
 msgid "Show List of Users"
 msgstr "Lijst van gebruikers tonen"
 
-#: widgets/room/roomheaderwidget.cpp:159
+#: widgets/room/roomheaderwidget.cpp:166
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Search Messages…"
 msgstr "Berichten doorzoeken…"
 
-#: widgets/room/roomheaderwidget.cpp:161
+#: widgets/room/roomheaderwidget.cpp:168
 #, kde-format
 msgid "Search Messages…"
 msgstr "Berichten doorzoeken…"
 
-#: widgets/room/roomheaderwidget.cpp:232
+#: widgets/room/roomheaderwidget.cpp:239
 #, kde-format
 msgid "Team's Information"
 msgstr "Informatie over team"

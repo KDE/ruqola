@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-02-11 00:41+0000\n"
+"POT-Creation-Date: 2025-02-12 00:41+0000\n"
 "PO-Revision-Date: 2025-02-08 09:37+0100\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
 "Language-Team: French <French <kde-francophone@kde.org>>\n"
@@ -4466,7 +4466,7 @@ msgid "Accounts"
 msgstr "Comptes"
 
 #: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:108
-#: widgets/room/roomheaderwidget.cpp:67
+#: widgets/room/roomheaderwidget.cpp:68
 #, kde-format
 msgid "Encryption"
 msgstr "Chiffrement"
@@ -8961,6 +8961,30 @@ msgctxt "@title:window"
 msgid "Disable Encryption"
 msgstr "Chiffrement « E2E » activé"
 
+#: widgets/encryption/e2edisablewidget.cpp:23
+#, kde-format
+msgid ""
+"Disabling E2EE will compromise the privacy of this groupe privé. Access to "
+"any encrypted content will be lost for all groupe privé members.\n"
+"Encryption can be re-enabled later. Proceed with caution.\n"
+"If no one is able to access the encrypted content you can reset encryption "
+"keys instead."
+msgstr ""
+
+#: widgets/encryption/e2edisablewidget.cpp:36
+#, kde-format
+msgid ""
+"Alternatively, resetting encryption keys will keep encryption enabled but "
+"access to previously encrypted content may be lost."
+msgstr ""
+
+#: widgets/encryption/e2edisablewidget.cpp:41
+#, fuzzy, kde-format
+#| msgctxt "@action"
+#| msgid "Decode Encryption Key"
+msgid "Reset encryption keys"
+msgstr "Déchiffrer la clé de chiffrement"
+
 #: widgets/encryption/e2epassworddecodekeydialog.cpp:17
 #, kde-format
 msgctxt "@title:window"
@@ -10558,79 +10582,79 @@ msgstr "(Afficher plus d'informations...)"
 msgid "(Show Less Info…)"
 msgstr "(Afficher moins d'informations...)"
 
-#: widgets/room/roomheaderwidget.cpp:47
+#: widgets/room/roomheaderwidget.cpp:48
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Favorite"
 msgstr "Préféré"
 
-#: widgets/room/roomheaderwidget.cpp:49
+#: widgets/room/roomheaderwidget.cpp:50
 #, kde-format
 msgid "Favorite"
 msgstr "Favoris"
 
-#: widgets/room/roomheaderwidget.cpp:65
+#: widgets/room/roomheaderwidget.cpp:66
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "E2E Enabled"
 msgstr "« E2E » activé"
 
-#: widgets/room/roomheaderwidget.cpp:112
+#: widgets/room/roomheaderwidget.cpp:119
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Call"
 msgstr "Appeler"
 
-#: widgets/room/roomheaderwidget.cpp:114
+#: widgets/room/roomheaderwidget.cpp:121
 #, kde-format
 msgid "Call"
 msgstr "Appeler"
 
-#: widgets/room/roomheaderwidget.cpp:123
+#: widgets/room/roomheaderwidget.cpp:130
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Channel's Information"
 msgstr "Informations du canal"
 
-#: widgets/room/roomheaderwidget.cpp:125 widgets/room/roomheaderwidget.cpp:232
+#: widgets/room/roomheaderwidget.cpp:132 widgets/room/roomheaderwidget.cpp:239
 #, kde-format
 msgid "Channel's Information"
 msgstr "Informations du canal"
 
-#: widgets/room/roomheaderwidget.cpp:134
+#: widgets/room/roomheaderwidget.cpp:141
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Team Channels"
 msgstr "Canaux des équipes"
 
-#: widgets/room/roomheaderwidget.cpp:136
+#: widgets/room/roomheaderwidget.cpp:143
 #, kde-format
 msgid "Team Channels"
 msgstr "Canaux des équipes"
 
-#: widgets/room/roomheaderwidget.cpp:146
+#: widgets/room/roomheaderwidget.cpp:153
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Show List of Users"
 msgstr "Afficher la liste des utilisateurs"
 
-#: widgets/room/roomheaderwidget.cpp:148
+#: widgets/room/roomheaderwidget.cpp:155
 #, kde-format
 msgid "Show List of Users"
 msgstr "Afficher la liste des utilisateurs"
 
-#: widgets/room/roomheaderwidget.cpp:159
+#: widgets/room/roomheaderwidget.cpp:166
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Search Messages…"
 msgstr "Rechercher des messages..."
 
-#: widgets/room/roomheaderwidget.cpp:161
+#: widgets/room/roomheaderwidget.cpp:168
 #, kde-format
 msgid "Search Messages…"
 msgstr "Rechercher des messages..."
 
-#: widgets/room/roomheaderwidget.cpp:232
+#: widgets/room/roomheaderwidget.cpp:239
 #, kde-format
 msgid "Team's Information"
 msgstr "Informations de l'équipe"

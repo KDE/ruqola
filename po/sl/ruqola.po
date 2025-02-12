@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-02-11 00:41+0000\n"
-"PO-Revision-Date: 2025-02-07 07:13+0100\n"
+"POT-Creation-Date: 2025-02-12 00:41+0000\n"
+"PO-Revision-Date: 2025-02-11 07:20+0100\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
@@ -4444,7 +4444,7 @@ msgid "Accounts"
 msgstr "Računi"
 
 #: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:108
-#: widgets/room/roomheaderwidget.cpp:67
+#: widgets/room/roomheaderwidget.cpp:68
 #, kde-format
 msgid "Encryption"
 msgstr "Šifriranje"
@@ -5020,8 +5020,7 @@ msgid "Access unencrypted content in encrypted rooms"
 msgstr "Dostopaj do nešifrirane vsebine v šifriranih sobah"
 
 #: widgets/administratorsettingsdialog/encryption/encryptionsettingswidget.cpp:21
-#, fuzzy, kde-format
-#| msgid "Mentions"
+#, kde-format
 msgctxt "@option:check"
 msgid "Mentions"
 msgstr "Omembe"
@@ -5059,6 +5058,8 @@ msgid ""
 "Notify people, and highlight user, channel, and team mentions in encrypted "
 "content."
 msgstr ""
+"Obvesti ljudi in označi omembe uporabnikov, kanalov in ekip v šifrirani "
+"vsebini."
 
 #: widgets/administratorsettingsdialog/encryption/encryptionsettingswidget.cpp:56
 #, kde-format
@@ -8892,12 +8893,34 @@ msgid "Decode Encryption Key"
 msgstr "Dekodiraj ključ šifriranja"
 
 #: widgets/encryption/e2edisabledialog.cpp:16
-#, fuzzy, kde-format
-#| msgctxt "@option:check"
-#| msgid "Enabled E2E encryption"
+#, kde-format
 msgctxt "@title:window"
 msgid "Disable Encryption"
-msgstr "Omogočeno šifriranje E2E"
+msgstr "Onemogoči šifriranje"
+
+#: widgets/encryption/e2edisablewidget.cpp:23
+#, kde-format
+msgid ""
+"Disabling E2EE will compromise the privacy of this groupe privé. Access to "
+"any encrypted content will be lost for all groupe privé members.\n"
+"Encryption can be re-enabled later. Proceed with caution.\n"
+"If no one is able to access the encrypted content you can reset encryption "
+"keys instead."
+msgstr ""
+
+#: widgets/encryption/e2edisablewidget.cpp:36
+#, kde-format
+msgid ""
+"Alternatively, resetting encryption keys will keep encryption enabled but "
+"access to previously encrypted content may be lost."
+msgstr ""
+
+#: widgets/encryption/e2edisablewidget.cpp:41
+#, fuzzy, kde-format
+#| msgctxt "@action"
+#| msgid "Decode Encryption Key"
+msgid "Reset encryption keys"
+msgstr "Dekodiraj ključ šifriranja"
 
 #: widgets/encryption/e2epassworddecodekeydialog.cpp:17
 #, kde-format
@@ -9217,7 +9240,7 @@ msgstr "Kompaktni"
 #: widgets/misc/passwordconfirmwidget.cpp:22
 #, kde-format
 msgid "Your passwords do no match."
-msgstr ""
+msgstr "Vaši gesli se ne ujemata."
 
 #: widgets/misc/passwordconfirmwidget.cpp:36
 #, kde-format
@@ -9310,11 +9333,10 @@ msgid "Reset E2E Key"
 msgstr "Ponastavi ključ E2E"
 
 #: widgets/myaccount/myaccount2e2configurewidget.cpp:23
-#, fuzzy, kde-format
-#| msgid "Modify…"
+#, kde-format
 msgctxt "@action:button"
 msgid "Modify"
-msgstr "Spremeni…"
+msgstr "Spremeni"
 
 #: widgets/myaccount/myaccount2e2configurewidget.cpp:31
 #, kde-format
@@ -10484,79 +10506,79 @@ msgstr "(Pokaži več informacij…)"
 msgid "(Show Less Info…)"
 msgstr "(Pokaži manj informacij…)"
 
-#: widgets/room/roomheaderwidget.cpp:47
+#: widgets/room/roomheaderwidget.cpp:48
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Favorite"
 msgstr "Priljubljeni"
 
-#: widgets/room/roomheaderwidget.cpp:49
+#: widgets/room/roomheaderwidget.cpp:50
 #, kde-format
 msgid "Favorite"
 msgstr "Priljubljeni"
 
-#: widgets/room/roomheaderwidget.cpp:65
+#: widgets/room/roomheaderwidget.cpp:66
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "E2E Enabled"
 msgstr "E2E omogočeno"
 
-#: widgets/room/roomheaderwidget.cpp:112
+#: widgets/room/roomheaderwidget.cpp:119
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Call"
 msgstr "Klic"
 
-#: widgets/room/roomheaderwidget.cpp:114
+#: widgets/room/roomheaderwidget.cpp:121
 #, kde-format
 msgid "Call"
 msgstr "Klic"
 
-#: widgets/room/roomheaderwidget.cpp:123
+#: widgets/room/roomheaderwidget.cpp:130
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Channel's Information"
 msgstr "Informacije o kanalu"
 
-#: widgets/room/roomheaderwidget.cpp:125 widgets/room/roomheaderwidget.cpp:232
+#: widgets/room/roomheaderwidget.cpp:132 widgets/room/roomheaderwidget.cpp:239
 #, kde-format
 msgid "Channel's Information"
 msgstr "Podatki o kanalu"
 
-#: widgets/room/roomheaderwidget.cpp:134
+#: widgets/room/roomheaderwidget.cpp:141
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Team Channels"
 msgstr "Kanali ekipe"
 
-#: widgets/room/roomheaderwidget.cpp:136
+#: widgets/room/roomheaderwidget.cpp:143
 #, kde-format
 msgid "Team Channels"
 msgstr "Kanali ekipe"
 
-#: widgets/room/roomheaderwidget.cpp:146
+#: widgets/room/roomheaderwidget.cpp:153
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Show List of Users"
 msgstr "Pokaži seznam uporabnikov"
 
-#: widgets/room/roomheaderwidget.cpp:148
+#: widgets/room/roomheaderwidget.cpp:155
 #, kde-format
 msgid "Show List of Users"
 msgstr "Pokaži seznam uporabnikov"
 
-#: widgets/room/roomheaderwidget.cpp:159
+#: widgets/room/roomheaderwidget.cpp:166
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Search Messages…"
 msgstr "Išči sporočila…"
 
-#: widgets/room/roomheaderwidget.cpp:161
+#: widgets/room/roomheaderwidget.cpp:168
 #, kde-format
 msgid "Search Messages…"
 msgstr "Išči sporočila…"
 
-#: widgets/room/roomheaderwidget.cpp:232
+#: widgets/room/roomheaderwidget.cpp:239
 #, kde-format
 msgid "Team's Information"
 msgstr "Podatki o ekipi"

@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-02-11 00:41+0000\n"
-"PO-Revision-Date: 2025-02-07 09:57+0300\n"
+"POT-Creation-Date: 2025-02-12 00:41+0000\n"
+"PO-Revision-Date: 2025-02-11 10:35+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -4413,7 +4413,7 @@ msgid "Accounts"
 msgstr "Hesaplar"
 
 #: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:108
-#: widgets/room/roomheaderwidget.cpp:67
+#: widgets/room/roomheaderwidget.cpp:68
 #, kde-format
 msgid "Encryption"
 msgstr "Şifreleme"
@@ -4986,8 +4986,7 @@ msgid "Access unencrypted content in encrypted rooms"
 msgstr "Şifrelenmiş odalardaki şifrelenmemiş içeriğe eriş"
 
 #: widgets/administratorsettingsdialog/encryption/encryptionsettingswidget.cpp:21
-#, fuzzy, kde-format
-#| msgid "Mentions"
+#, kde-format
 msgctxt "@option:check"
 msgid "Mentions"
 msgstr "Değinmeler"
@@ -5025,6 +5024,8 @@ msgid ""
 "Notify people, and highlight user, channel, and team mentions in encrypted "
 "content."
 msgstr ""
+"Kişilere bildirim gönderin ve şifrelenmiş içerikte kullanıcıları, kanalları, "
+"takımları vurgulayın."
 
 #: widgets/administratorsettingsdialog/encryption/encryptionsettingswidget.cpp:56
 #, kde-format
@@ -8842,12 +8843,34 @@ msgid "Decode Encryption Key"
 msgstr "Şifreleme Anahtarının Şifresini Çöz"
 
 #: widgets/encryption/e2edisabledialog.cpp:16
-#, fuzzy, kde-format
-#| msgctxt "@option:check"
-#| msgid "Enabled E2E encryption"
+#, kde-format
 msgctxt "@title:window"
 msgid "Disable Encryption"
-msgstr "Etkinleştirilmiş uçtan uca şifreleme"
+msgstr "Şifrelemeyi Devre Dışı Bırak"
+
+#: widgets/encryption/e2edisablewidget.cpp:23
+#, kde-format
+msgid ""
+"Disabling E2EE will compromise the privacy of this groupe privé. Access to "
+"any encrypted content will be lost for all groupe privé members.\n"
+"Encryption can be re-enabled later. Proceed with caution.\n"
+"If no one is able to access the encrypted content you can reset encryption "
+"keys instead."
+msgstr ""
+
+#: widgets/encryption/e2edisablewidget.cpp:36
+#, kde-format
+msgid ""
+"Alternatively, resetting encryption keys will keep encryption enabled but "
+"access to previously encrypted content may be lost."
+msgstr ""
+
+#: widgets/encryption/e2edisablewidget.cpp:41
+#, fuzzy, kde-format
+#| msgctxt "@action"
+#| msgid "Decode Encryption Key"
+msgid "Reset encryption keys"
+msgstr "Şifreleme Anahtarının Şifresini Çöz"
 
 #: widgets/encryption/e2epassworddecodekeydialog.cpp:17
 #, kde-format
@@ -9172,7 +9195,7 @@ msgstr "Sıkışık"
 #: widgets/misc/passwordconfirmwidget.cpp:22
 #, kde-format
 msgid "Your passwords do no match."
-msgstr ""
+msgstr "Parolalarınız eşleşmiyor."
 
 #: widgets/misc/passwordconfirmwidget.cpp:36
 #, kde-format
@@ -9265,11 +9288,10 @@ msgid "Reset E2E Key"
 msgstr "Uçtan Uca Şifreleme Anahtarını Kaldır"
 
 #: widgets/myaccount/myaccount2e2configurewidget.cpp:23
-#, fuzzy, kde-format
-#| msgid "Modify…"
+#, kde-format
 msgctxt "@action:button"
 msgid "Modify"
-msgstr "Değiştir…"
+msgstr "Değişiklik Yap"
 
 #: widgets/myaccount/myaccount2e2configurewidget.cpp:31
 #, kde-format
@@ -10434,79 +10456,79 @@ msgstr "(Daha Fazla Bilgi Göster…)"
 msgid "(Show Less Info…)"
 msgstr "(Daha Az Bilgi Göster…)"
 
-#: widgets/room/roomheaderwidget.cpp:47
+#: widgets/room/roomheaderwidget.cpp:48
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Favorite"
 msgstr "Sık kullanılanlara ekle"
 
-#: widgets/room/roomheaderwidget.cpp:49
+#: widgets/room/roomheaderwidget.cpp:50
 #, kde-format
 msgid "Favorite"
 msgstr "Sık Kullanılan"
 
-#: widgets/room/roomheaderwidget.cpp:65
+#: widgets/room/roomheaderwidget.cpp:66
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "E2E Enabled"
 msgstr "Uçtan Uca Şifreleme etkinleştirildi"
 
-#: widgets/room/roomheaderwidget.cpp:112
+#: widgets/room/roomheaderwidget.cpp:119
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Call"
 msgstr "Ara"
 
-#: widgets/room/roomheaderwidget.cpp:114
+#: widgets/room/roomheaderwidget.cpp:121
 #, kde-format
 msgid "Call"
 msgstr "Ara"
 
-#: widgets/room/roomheaderwidget.cpp:123
+#: widgets/room/roomheaderwidget.cpp:130
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Channel's Information"
 msgstr "Kanalın bilgisi"
 
-#: widgets/room/roomheaderwidget.cpp:125 widgets/room/roomheaderwidget.cpp:232
+#: widgets/room/roomheaderwidget.cpp:132 widgets/room/roomheaderwidget.cpp:239
 #, kde-format
 msgid "Channel's Information"
 msgstr "Kanal Bilgisi"
 
-#: widgets/room/roomheaderwidget.cpp:134
+#: widgets/room/roomheaderwidget.cpp:141
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Team Channels"
 msgstr "Takım kanalları"
 
-#: widgets/room/roomheaderwidget.cpp:136
+#: widgets/room/roomheaderwidget.cpp:143
 #, kde-format
 msgid "Team Channels"
 msgstr "Takım Kanalları"
 
-#: widgets/room/roomheaderwidget.cpp:146
+#: widgets/room/roomheaderwidget.cpp:153
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Show List of Users"
 msgstr "Kullanıcıların listesini göster"
 
-#: widgets/room/roomheaderwidget.cpp:148
+#: widgets/room/roomheaderwidget.cpp:155
 #, kde-format
 msgid "Show List of Users"
 msgstr "Kullanıcı Listesini Göster"
 
-#: widgets/room/roomheaderwidget.cpp:159
+#: widgets/room/roomheaderwidget.cpp:166
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Search Messages…"
 msgstr "İletiler ara…"
 
-#: widgets/room/roomheaderwidget.cpp:161
+#: widgets/room/roomheaderwidget.cpp:168
 #, kde-format
 msgid "Search Messages…"
 msgstr "İletiler Ara…"
 
-#: widgets/room/roomheaderwidget.cpp:232
+#: widgets/room/roomheaderwidget.cpp:239
 #, kde-format
 msgid "Team's Information"
 msgstr "Takım Bilgisi"
