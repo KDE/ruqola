@@ -508,6 +508,10 @@ void RoomWidget::slotSearchMessages()
     if (!mRoom) {
         return;
     }
+    if (mRoom->encrypted()) {
+        KMessageBox::information(this, i18n("Encrypted content cannot be searched."), i18nc("@title:window", "Search Message"));
+        return;
+    }
     SearchMessageDialog dlg(mCurrentRocketChatAccount, this);
     dlg.setRoomId(mRoomWidgetBase->roomId());
     dlg.setRoom(mRoom);
