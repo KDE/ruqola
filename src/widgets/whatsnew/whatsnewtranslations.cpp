@@ -163,6 +163,7 @@ QList<WhatsNewInfo> WhatsNewTranslations::createWhatsNewInfo() const
             i18n("Allow to put command line in clipboard when an error occurred"),
             i18n("Allow to activate/desactivate apps market."),
             i18n("Improve list of user in room."),
+            i18n("Search in encrypted room is not possible."),
         });
 
         listInfo.append(std::move(info));
