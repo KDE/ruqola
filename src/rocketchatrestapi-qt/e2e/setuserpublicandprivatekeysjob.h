@@ -33,11 +33,11 @@ public:
 
     [[nodiscard]] QJsonDocument json() const;
 
-    SetUserPublicAndPrivateKeysInfo setUserPublicAndPrivateKeysInfo() const;
+    [[nodiscard]] SetUserPublicAndPrivateKeysInfo setUserPublicAndPrivateKeysInfo() const;
     void setSetUserPublicAndPrivateKeysInfo(const SetUserPublicAndPrivateKeysInfo &newSetUserPublicAndPrivateKeysInfo);
 
 Q_SIGNALS:
-    void addKeyToChainDone();
+    void setUserPublicAndPrivateKeysDone();
 
 private:
     LIBROCKETCHATRESTAPI_QT_NO_EXPORT void onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson) override;
