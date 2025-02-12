@@ -20,8 +20,8 @@ void SetUserPublicAndPrivateKeysJobTest::shouldHaveDefaultValue()
     SetUserPublicAndPrivateKeysJob job;
     verifyDefaultValue(&job);
     QVERIFY(job.requireHttpAuthentication());
-    QVERIFY(job.rsaPrivateKey().isEmpty());
-    QVERIFY(job.rsaPublicKey().isEmpty());
+
+    QVERIFY(!job.setUserPublicAndPrivateKeysInfo().isValid());
     QVERIFY(!job.hasQueryParameterSupport());
 }
 
@@ -37,11 +37,19 @@ void SetUserPublicAndPrivateKeysJobTest::shouldGenerateRequest()
 void SetUserPublicAndPrivateKeysJobTest::shouldGenerateJson()
 {
     SetUserPublicAndPrivateKeysJob job;
+    SetUserPublicAndPrivateKeysJob::SetUserPublicAndPrivateKeysInfo info;
     const QString rsapublic = QStringLiteral("foo1");
-    job.setRsaPublicKey(rsapublic);
     const QString rsaprivate = QStringLiteral("private");
-    job.setRsaPrivateKey(rsaprivate);
-    QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral(R"({"private_key":"%2","public_key":"%1"})").arg(rsapublic, rsaprivate).toLatin1());
+    info.rsaPrivateKey = rsaprivate;
+    info.rsaPublicKey = rsapublic;
+    job.setSetUserPublicAndPrivateKeysInfo(info);
+    QCOMPARE(job.json().toJson(QJsonDocument::Compact),
+             QStringLiteral(R"({"force":false,"private_key":"%2","public_key":"%1"})").arg(rsapublic, rsaprivate).toLatin1());
+
+    info.force = true;
+    job.setSetUserPublicAndPrivateKeysInfo(info);
+    QCOMPARE(job.json().toJson(QJsonDocument::Compact),
+             QStringLiteral(R"({"force":true,"private_key":"%2","public_key":"%1"})").arg(rsapublic, rsaprivate).toLatin1());
 }
 
 void SetUserPublicAndPrivateKeysJobTest::shouldNotStarting()
@@ -61,12 +69,15 @@ void SetUserPublicAndPrivateKeysJobTest::shouldNotStarting()
     QVERIFY(!job.canStart());
     job.setUserId(userId);
     QVERIFY(!job.canStart());
-    const QString rsaprivate = QStringLiteral("foo1");
-    job.setRsaPrivateKey(rsaprivate);
-    QVERIFY(!job.canStart());
 
-    const QString rsapublic = QStringLiteral("bla");
-    job.setRsaPublicKey(rsapublic);
+    SetUserPublicAndPrivateKeysJob::SetUserPublicAndPrivateKeysInfo info;
+    const QString rsapublic = QStringLiteral("foo1");
+    const QString rsaprivate = QStringLiteral("private");
+    info.rsaPrivateKey = rsaprivate;
+    job.setSetUserPublicAndPrivateKeysInfo(info);
+    QVERIFY(!job.canStart());
+    info.rsaPublicKey = rsapublic;
+    job.setSetUserPublicAndPrivateKeysInfo(info);
     QVERIFY(job.canStart());
 }
 

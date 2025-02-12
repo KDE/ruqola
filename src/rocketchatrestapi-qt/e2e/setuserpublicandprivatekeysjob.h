@@ -16,6 +16,13 @@ class LIBROCKETCHATRESTAPI_QT_EXPORT SetUserPublicAndPrivateKeysJob : public Res
 
     // Since rocketchat 0.70
 public:
+    struct SetUserPublicAndPrivateKeysInfo {
+        QString rsaPublicKey;
+        QString rsaPrivateKey;
+        bool force = false;
+        [[nodiscard]] bool isValid() const;
+    };
+
     explicit SetUserPublicAndPrivateKeysJob(QObject *parent = nullptr);
     ~SetUserPublicAndPrivateKeysJob() override;
 
@@ -26,18 +33,14 @@ public:
 
     [[nodiscard]] QJsonDocument json() const;
 
-    [[nodiscard]] QString rsaPublicKey() const;
-    void setRsaPublicKey(const QString &rsaPublicKey);
-
-    [[nodiscard]] QString rsaPrivateKey() const;
-    void setRsaPrivateKey(const QString &rsaPrivateKey);
+    SetUserPublicAndPrivateKeysInfo setUserPublicAndPrivateKeysInfo() const;
+    void setSetUserPublicAndPrivateKeysInfo(const SetUserPublicAndPrivateKeysInfo &newSetUserPublicAndPrivateKeysInfo);
 
 Q_SIGNALS:
     void addKeyToChainDone();
 
 private:
     LIBROCKETCHATRESTAPI_QT_NO_EXPORT void onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson) override;
-    QString mRsaPublicKey;
-    QString mRsaPrivateKey;
+    SetUserPublicAndPrivateKeysInfo mSetUserPublicAndPrivateKeysInfo;
 };
 }

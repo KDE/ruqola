@@ -45,24 +45,14 @@ void SetUserPublicAndPrivateKeysJob::onPostRequestResponse(const QString &replyE
     }
 }
 
-QString SetUserPublicAndPrivateKeysJob::rsaPrivateKey() const
+SetUserPublicAndPrivateKeysJob::SetUserPublicAndPrivateKeysInfo SetUserPublicAndPrivateKeysJob::setUserPublicAndPrivateKeysInfo() const
 {
-    return mRsaPrivateKey;
+    return mSetUserPublicAndPrivateKeysInfo;
 }
 
-void SetUserPublicAndPrivateKeysJob::setRsaPrivateKey(const QString &rsaPrivateKey)
+void SetUserPublicAndPrivateKeysJob::setSetUserPublicAndPrivateKeysInfo(const SetUserPublicAndPrivateKeysInfo &newSetUserPublicAndPrivateKeysInfo)
 {
-    mRsaPrivateKey = rsaPrivateKey;
-}
-
-QString SetUserPublicAndPrivateKeysJob::rsaPublicKey() const
-{
-    return mRsaPublicKey;
-}
-
-void SetUserPublicAndPrivateKeysJob::setRsaPublicKey(const QString &rsaPublicKey)
-{
-    mRsaPublicKey = rsaPublicKey;
+    mSetUserPublicAndPrivateKeysInfo = newSetUserPublicAndPrivateKeysInfo;
 }
 
 bool SetUserPublicAndPrivateKeysJob::requireHttpAuthentication() const
@@ -75,12 +65,8 @@ bool SetUserPublicAndPrivateKeysJob::canStart() const
     if (!RestApiAbstractJob::canStart()) {
         return false;
     }
-    if (mRsaPrivateKey.isEmpty()) {
-        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "SetUserPublicAndPrivateKeysJob: private key is empty";
-        return false;
-    }
-    if (mRsaPublicKey.isEmpty()) {
-        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "SetUserPublicAndPrivateKeysJob: public key is empty";
+    if (!mSetUserPublicAndPrivateKeysInfo.isValid()) {
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "SetUserPublicAndPrivateKeysJob: mSetUserPublicAndPrivateKeysInfo is invalid";
         return false;
     }
     return true;
@@ -98,11 +84,17 @@ QNetworkRequest SetUserPublicAndPrivateKeysJob::request() const
 QJsonDocument SetUserPublicAndPrivateKeysJob::json() const
 {
     QJsonObject jsonObj;
-    jsonObj["public_key"_L1] = mRsaPublicKey;
-    jsonObj["private_key"_L1] = mRsaPrivateKey;
+    jsonObj["public_key"_L1] = mSetUserPublicAndPrivateKeysInfo.rsaPublicKey;
+    jsonObj["private_key"_L1] = mSetUserPublicAndPrivateKeysInfo.rsaPrivateKey;
+    jsonObj["force"_L1] = mSetUserPublicAndPrivateKeysInfo.force;
 
     const QJsonDocument postData = QJsonDocument(jsonObj);
     return postData;
+}
+
+bool SetUserPublicAndPrivateKeysJob::SetUserPublicAndPrivateKeysInfo::isValid() const
+{
+    return !rsaPublicKey.isEmpty() && !rsaPrivateKey.isEmpty();
 }
 
 #include "moc_setuserpublicandprivatekeysjob.cpp"
