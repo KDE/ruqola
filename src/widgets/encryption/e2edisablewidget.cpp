@@ -42,6 +42,7 @@ E2eDisableWidget::E2eDisableWidget(QWidget *parent)
     pushButton->setObjectName("pushButton"_L1);
     mainLayout->addWidget(pushButton);
     connect(pushButton, &QPushButton::clicked, this, [this]() {
+        qDebug() << " Not implemented yet";
         // TODO
     });
     mainLayout->addStretch(1);
