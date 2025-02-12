@@ -71,9 +71,16 @@ CreateNewChannelWidget::CreateNewChannelWidget(RocketChatAccount *account, QWidg
     mEncryptedRoom->setToolTip(
         i18nc("@label:textbox",
               "End-to-end encrypted channel. Search will not work with encrypted channel and notifications may not show the messages content."));
+    mEncryptedRoom->setEnabled(false);
+    // See https://docs.rocket.chat/v1/docs/end-to-end-encryption-user-guide
+    // E2E is only available for DMs, private channels, and private teams. Enable the Encrypted option while creating the room to create an encrypted channel or
+    // team.
 
     mMainLayout->addRow(i18n("Encrypted Room:"), mEncryptedRoom);
 
+    connect(mPrivate, &QCheckBox::clicked, this, [this](bool clicked) {
+        mEncryptedRoom->setEnabled(clicked);
+    });
     mFederated->setObjectName(QStringLiteral("mFederated"));
     mFederated->setChecked(false);
     mMainLayout->addRow(i18n("Federated:"), mFederated);
