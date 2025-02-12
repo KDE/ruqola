@@ -17,14 +17,14 @@ RuqolaWebSocket::RuqolaWebSocket(RuqolaLogger *logger, QObject *parent)
     , mLogger(logger)
     , mWebSocket(new QWebSocket)
 {
-    connect(mWebSocket, &QWebSocket::connected, this, []() {
-        qCDebug(RUQOLA_RECONNECT_LOG) << "QWebSocket emitted connected";
+    connect(mWebSocket, &QWebSocket::connected, this, [this]() {
+        qDebug(RUQOLA_RECONNECT_LOG) << "QWebSocket emitted connected";
+        Q_EMIT connected();
     });
-    connect(mWebSocket, &QWebSocket::connected, this, &RuqolaWebSocket::connected);
-    connect(mWebSocket, &QWebSocket::disconnected, this, []() {
-        qCDebug(RUQOLA_RECONNECT_LOG) << "QWebSocket emitted disconnected";
+    connect(mWebSocket, &QWebSocket::disconnected, this, [this]() {
+        qDebug(RUQOLA_RECONNECT_LOG) << "QWebSocket emitted disconnected";
+        Q_EMIT disconnected();
     });
-    connect(mWebSocket, &QWebSocket::disconnected, this, &RuqolaWebSocket::disconnected);
     connect(mWebSocket, &QWebSocket::textMessageReceived, this, &RuqolaWebSocket::slotTextMessageReceived);
     connect(mWebSocket, &QWebSocket::sslErrors, this, &RuqolaWebSocket::sslErrors);
     connect(mWebSocket, &QWebSocket::errorOccurred, this, &RuqolaWebSocket::slotError);
