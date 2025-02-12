@@ -42,10 +42,12 @@ DDPClient::~DDPClient()
     for (qint64 id : std::as_const(mSubscribeIdentifiers)) {
         unsubscribe(id);
     }
-    disconnect(mWebSocket, &AbstractWebSocket::disconnected, this, &DDPClient::onWSclosed);
-    mWebSocket->close();
-    delete mWebSocket;
-    mWebSocket = nullptr;
+    if (mWebSocket) {
+        disconnect(mWebSocket, &AbstractWebSocket::disconnected, this, &DDPClient::onWSclosed);
+        mWebSocket->close();
+        delete mWebSocket;
+        mWebSocket = nullptr;
+    }
     delete mRocketChatMessage;
     mRocketChatMessage = nullptr;
 }
