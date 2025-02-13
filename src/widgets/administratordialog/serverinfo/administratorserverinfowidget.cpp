@@ -88,45 +88,22 @@ void AdministratorServerInfoWidget::initialize()
 
 void AdministratorServerInfoWidget::loadLicensesInfo()
 {
-    if (mRocketChatAccount->ruqolaServerConfig()->hasAtLeastVersion(6, 5, 0)) {
-        auto job = new RocketChatRestApi::LicensesInfoJob(this);
-        mRocketChatAccount->restApi()->initializeRestApiJob(job);
-        connect(job, &RocketChatRestApi::LicensesInfoJob::licensesInfoDone, this, [this](const QJsonObject &obj) {
-            const QJsonObject license = obj["license"_L1].toObject();
-            slotLicensesListDone(license);
-        });
-        if (!job->start()) {
-            qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start LicensesInfoJob job";
-        }
-    } else {
-        auto licenseInfoJob = new RocketChatRestApi::LicensesListJob(this);
-        mRocketChatAccount->restApi()->initializeRestApiJob(licenseInfoJob);
-        connect(licenseInfoJob, &RocketChatRestApi::LicensesListJob::licensesListDone, this, &AdministratorServerInfoWidget::slotLicensesListDone);
-        if (!licenseInfoJob->start()) {
-            qCDebug(RUQOLAWIDGETS_LOG) << "Impossible to start LicensesListJob";
-        }
+    auto job = new RocketChatRestApi::LicensesInfoJob(this);
+    mRocketChatAccount->restApi()->initializeRestApiJob(job);
+    connect(job, &RocketChatRestApi::LicensesInfoJob::licensesInfoDone, this, [this](const QJsonObject &obj) {
+        slotLicensesListDone(obj);
+    });
+    if (!job->start()) {
+        qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start LicensesInfoJob job";
     }
 }
 
 void AdministratorServerInfoWidget::slotLicensesListDone(const QJsonObject &obj)
 {
-    // Load Statistic after loading licenses info
-    fillLicenses(obj);
-    loadStatisticInfo(false);
-}
-
-void AdministratorServerInfoWidget::fillLicenses(const QJsonObject &obj)
-{
-    QStringList listLicences;
-    QJsonArray licenses;
-    if (mRocketChatAccount->ruqolaServerConfig()->hasAtLeastVersion(6, 5, 0)) {
-        licenses = obj.value("activeModules"_L1).toArray();
-    } else {
-        licenses = obj.value("licenses"_L1).toArray();
-    }
-    for (const auto &a : licenses) {
-        listLicences.append(a.toString());
-    }
+    LicensesManager m;
+    m.parseLicenses(obj);
+    const QJsonObject license = obj["license"_L1].toObject();
+    const QStringList listLicences = m.licenses();
     auto licenseItem = new QTreeWidgetItem(mTreeWidget);
     licenseItem->setText(0, i18n("Licenses"));
     QFont f = licenseItem->font(0);
@@ -137,6 +114,8 @@ void AdministratorServerInfoWidget::fillLicenses(const QJsonObject &obj)
     createItemFromLicense(licenseItem, i18n("Canned Responses"), listLicences.contains(QStringLiteral("canned-responses")));
     createItemFromLicense(licenseItem, i18n("Engagement Dashboard"), listLicences.contains(QStringLiteral("engagement-dashboard")));
     createItemFromLicense(licenseItem, i18n("Read Receipts"), listLicences.contains(QStringLiteral("message-read-receipt")));
+    // Load Statistic after loading licenses info
+    loadStatisticInfo(false);
 }
 
 void AdministratorServerInfoWidget::createItemFromLicense(QTreeWidgetItem *licenseInfoItem, const QString &name, bool valid)
