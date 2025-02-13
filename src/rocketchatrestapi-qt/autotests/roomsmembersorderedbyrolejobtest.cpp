@@ -24,7 +24,7 @@ void RoomsMembersOrderedByRoleJobTest::shouldHaveDefaultValue()
     QVERIFY(!job.roomsMembersOrderedByRoleJobInfo().isValid());
     QVERIFY(job.requireHttpAuthentication());
     QVERIFY(!job.restApiLogger());
-    QVERIFY(job.hasQueryParameterSupport());
+    QVERIFY(!job.hasQueryParameterSupport());
     QVERIFY(!job.requireTwoFactorAuthentication());
 }
 
