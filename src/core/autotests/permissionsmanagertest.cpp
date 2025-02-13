@@ -4,29 +4,29 @@
    SPDX-License-Identifier: LGPL-2.0-or-later
 */
 
-#include "permissionmanagertest.h"
-#include "permissions/permissionmanager.h"
+#include "permissionsmanagertest.h"
+#include "permissions/permissionsmanager.h"
 #include "ruqola_autotest_helper.h"
 using namespace Qt::Literals::StringLiterals;
-QTEST_GUILESS_MAIN(PermissionManagerTest)
-PermissionManagerTest::PermissionManagerTest(QObject *parent)
+QTEST_GUILESS_MAIN(PermissionsManagerTest)
+PermissionsManagerTest::PermissionsManagerTest(QObject *parent)
     : QObject(parent)
 {
 }
 
-void PermissionManagerTest::shouldHaveDefaultValues()
+void PermissionsManagerTest::shouldHaveDefaultValues()
 {
-    PermissionManager w;
+    PermissionsManager w;
     QCOMPARE(w.permissionCount(), 0);
 }
 
-void PermissionManagerTest::shouldHasRoles()
+void PermissionsManagerTest::shouldHasRoles()
 {
-    PermissionManager w;
+    PermissionsManager w;
     QVERIFY(w.roles(QStringLiteral("bla")).isEmpty());
 }
 
-void PermissionManagerTest::shouldLoadPermissions_data()
+void PermissionsManagerTest::shouldLoadPermissions_data()
 {
     QTest::addColumn<QString>("name");
     QTest::addColumn<int>("permissionsCount");
@@ -67,7 +67,7 @@ void PermissionManagerTest::shouldLoadPermissions_data()
     }
 }
 
-void PermissionManagerTest::shouldLoadPermissions()
+void PermissionsManagerTest::shouldLoadPermissions()
 {
     QFETCH(QString, name);
     QFETCH(int, permissionsCount);
@@ -78,7 +78,7 @@ void PermissionManagerTest::shouldLoadPermissions()
     QCOMPARE(obj.count(), permissionsCount);
     // qDebug() << " OBJ " << obj;
 
-    PermissionManager r;
+    PermissionsManager r;
     r.parseUpdatePermission(obj);
     QCOMPARE(r.permissionCount(), permissionsAdded);
     QCOMPARE(r.permissionCount(), permissions.count());
@@ -93,7 +93,7 @@ void PermissionManagerTest::shouldLoadPermissions()
     }
 }
 
-void PermissionManagerTest::shouldUpdatePermissions_data()
+void PermissionsManagerTest::shouldUpdatePermissions_data()
 {
     QTest::addColumn<QString>("name");
     QTest::addColumn<QString>("updateName");
@@ -175,7 +175,7 @@ void PermissionManagerTest::shouldUpdatePermissions_data()
     }
 }
 
-void PermissionManagerTest::shouldUpdatePermissions()
+void PermissionsManagerTest::shouldUpdatePermissions()
 {
     QFETCH(QString, name);
     QFETCH(QString, updateName);
@@ -188,7 +188,7 @@ void PermissionManagerTest::shouldUpdatePermissions()
     const QString originalUpdateJsonFile = QLatin1StringView(RUQOLA_DATA_DIR) + "/permissions/"_L1 + updateName + ".json"_L1;
     const QJsonArray updateArray = AutoTestHelper::loadJsonArrayObject(originalUpdateJsonFile);
 
-    PermissionManager r;
+    PermissionsManager r;
     r.parseUpdatePermission(obj);
     QCOMPARE(r.permissionCount(), permissions.count());
 
@@ -215,4 +215,4 @@ void PermissionManagerTest::shouldUpdatePermissions()
     }
 }
 
-#include "moc_permissionmanagertest.cpp"
+#include "moc_permissionsmanagertest.cpp"

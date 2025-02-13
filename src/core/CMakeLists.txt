@@ -370,8 +370,8 @@ target_sources(libruqolacore PRIVATE
 
     permissions/permission.cpp
     permissions/permission.h
-    permissions/permissionmanager.cpp
-    permissions/permissionmanager.h
+    permissions/permissionsmanager.cpp
+    permissions/permissionsmanager.h
     permissions/permissions.cpp
     permissions/permissions.h
 

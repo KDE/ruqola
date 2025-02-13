@@ -4,17 +4,17 @@
    SPDX-License-Identifier: LGPL-2.0-or-later
 */
 
-#include "permissionmanager.h"
+#include "permissionsmanager.h"
 #include "ruqola_debug.h"
 #include <QDebug>
 #include <QJsonArray>
 #include <QJsonObject>
 using namespace Qt::Literals::StringLiterals;
-PermissionManager::PermissionManager() = default;
+PermissionsManager::PermissionsManager() = default;
 
-PermissionManager::~PermissionManager() = default;
+PermissionsManager::~PermissionsManager() = default;
 
-void PermissionManager::parsePermissions(const QJsonObject &replyObject)
+void PermissionsManager::parsePermissions(const QJsonObject &replyObject)
 {
     const QJsonArray removeArray = replyObject["remove"_L1].toArray();
     if (!removeArray.isEmpty()) {
@@ -25,22 +25,22 @@ void PermissionManager::parsePermissions(const QJsonObject &replyObject)
     // qDebug() << "mMapPermissions  " << mMapPermissions;
 }
 
-const Permission PermissionManager::permission(const QString &permissionId) const
+const Permission PermissionsManager::permission(const QString &permissionId) const
 {
     return mMapPermissions.value(permissionId);
 }
 
-QList<Permission> PermissionManager::permissions() const
+QList<Permission> PermissionsManager::permissions() const
 {
     return mMapPermissions.values().toVector();
 }
 
-bool PermissionManager::contains(const QString &permissionId) const
+bool PermissionsManager::contains(const QString &permissionId) const
 {
     return mMapPermissions.contains(permissionId);
 }
 
-QStringList PermissionManager::roles(const QString &permissionId) const
+QStringList PermissionsManager::roles(const QString &permissionId) const
 {
     const Permission p = mMapPermissions.value(permissionId);
     if (p.isValid()) {
@@ -49,17 +49,17 @@ QStringList PermissionManager::roles(const QString &permissionId) const
     return {};
 }
 
-int PermissionManager::permissionCount() const
+int PermissionsManager::permissionCount() const
 {
     return mMapPermissions.count();
 }
 
-void PermissionManager::parseRemovePermission(const QJsonArray &removeArray)
+void PermissionsManager::parseRemovePermission(const QJsonArray &removeArray)
 {
     qCWarning(RUQOLA_LOG) << " void PermissionManager::parseRemovePermission(const QJsonArray &removeArray) not implemented yet" << removeArray;
 }
 
-bool PermissionManager::storePermission(const QString &id)
+bool PermissionsManager::storePermission(const QString &id)
 {
     return id == "mail-messages"_L1 || id == "pin-message"_L1 || id == "delete-own-message"_L1 || id == "create-invite-links"_L1 || id == "edit-message"_L1
         || id == "delete-message"_L1 || id == "edit-room"_L1 || id == "clean-channel-history"_L1 || id == "auto-translate"_L1 || id == "snippet-message"_L1
@@ -83,7 +83,7 @@ bool PermissionManager::storePermission(const QString &id)
         || id == "create-team-channel"_L1 || id == "create-team-group"_L1 || id == "delete-team-channel"_L1 || id == "delete-team-group"_L1;
 }
 
-void PermissionManager::parseUpdatePermission(const QJsonArray &updateArray)
+void PermissionsManager::parseUpdatePermission(const QJsonArray &updateArray)
 {
     for (int i = 0; i < updateArray.count(); ++i) {
         const QJsonObject obj = updateArray.at(i).toObject();
@@ -102,7 +102,7 @@ void PermissionManager::parseUpdatePermission(const QJsonArray &updateArray)
     // qDebug() << "mMapPermissions " << mMapPermissions;
 }
 
-bool PermissionManager::updatePermission(const QJsonArray &updateArray)
+bool PermissionsManager::updatePermission(const QJsonArray &updateArray)
 {
     bool updatedPermission = false;
     if (updateArray.count() == 2) {

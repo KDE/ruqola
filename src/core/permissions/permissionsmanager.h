@@ -11,11 +11,11 @@
 #include <QMap>
 #include <QString>
 
-class LIBRUQOLACORE_TESTS_EXPORT PermissionManager
+class LIBRUQOLACORE_TESTS_EXPORT PermissionsManager
 {
 public:
-    PermissionManager();
-    ~PermissionManager();
+    PermissionsManager();
+    ~PermissionsManager();
 
     void parsePermissions(const QJsonObject &replyObject);
 

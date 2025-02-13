@@ -8,12 +8,12 @@
 
 #include <QObject>
 
-class PermissionManagerTest : public QObject
+class PermissionsManagerTest : public QObject
 {
     Q_OBJECT
 public:
-    explicit PermissionManagerTest(QObject *parent = nullptr);
-    ~PermissionManagerTest() override = default;
+    explicit PermissionsManagerTest(QObject *parent = nullptr);
+    ~PermissionsManagerTest() override = default;
 private Q_SLOTS:
     void shouldHaveDefaultValues();
     void shouldHasRoles();

@@ -23,7 +23,7 @@
 #include "ownuser/ownuser.h"
 #include "ownuser/ownuserpreferences.h"
 #include "parserocketchaturlutils.h"
-#include "permissions/permissionmanager.h"
+#include "permissions/permissionsmanager.h"
 
 #include "roles/rolesmanager.h"
 #include "room.h"
@@ -642,7 +642,7 @@ private:
     UploadFileManager *const mUploadFileManager;
     OwnUser mOwnUser;
     CustomUserStatuses mCustomUserStatuses;
-    PermissionManager mPermissionManager;
+    PermissionsManager mPermissionManager;
     RolesManager mRolesManager;
     LicensesManager mLicensesManager;
     QStringList mSearchListCompletion;
