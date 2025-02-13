@@ -133,6 +133,7 @@ public:
     void historyChannel(const RocketChatRestApi::ChannelHistoryJob::ChannelHistoryInfo &info);
 
     void muteUser(const QByteArray &roomId, const QString &userName, bool mute);
+    void membersInRoomByRole(const QByteArray &roomId, int offset, int count);
 Q_SIGNALS:
     void downloadFileDone(const QUrl &url, const QUrl &localFileUrl);
     void serverInfoDone(const QString &version);

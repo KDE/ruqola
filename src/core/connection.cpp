@@ -7,6 +7,7 @@
 #include "connection.h"
 #include "authenticationmanager/restauthenticationmanager.h"
 #include "restapimethod.h"
+#include "rooms/roomsmembersorderedbyrolejob.h"
 #include "ruqola.h"
 #include "ruqola_debug.h"
 
@@ -463,6 +464,24 @@ void Connection::filesInRoom(const QByteArray &roomId, const QString &type, int 
     }
 }
 
+void Connection::membersInRoomByRole(const QByteArray &roomId, int offset, int count)
+{
+    auto job = new RoomsMembersOrderedByRoleJob(this);
+    QueryParameters parameters;
+    parameters.setCount(count);
+    parameters.setOffset(offset);
+    job->setQueryParameters(parameters);
+    // TODO FIXME connect(job, &RoomsMembersOrderedByRoleJob::roomsMembersOrderedByRoleDone, this, &Connection::channelMembersDone);
+    initializeRestApiJob(job);
+    RoomsMembersOrderedByRoleJob::RoomsMembersOrderedByRoleJobInfo info;
+    info.count = count;
+    info.offset = offset;
+    info.roomId = roomId;
+    job->setRoomsMembersOrderedByRoleJobInfo(info);
+    if (!job->start()) {
+        qCWarning(RUQOLA_LOG) << "Impossible to start RoomsMembersOrderedByRoleJob job";
+    }
+}
 void Connection::membersInRoom(const QByteArray &roomId, const QString &type, int offset, int count)
 {
     auto job = new ChannelMembersJob(this);
