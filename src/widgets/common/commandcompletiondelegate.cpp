@@ -20,7 +20,7 @@ CommandCompletionDelegate::~CommandCompletionDelegate() = default;
 
 void CommandCompletionDelegate::paint(QPainter *painter, const QStyleOptionViewItem &option, const QModelIndex &index) const
 {
-    // command <parameter> description at end
+    // command <parameter> description at the end
     drawBackground(painter, option, index);
 
     if (option.state & QStyle::State_Selected) {

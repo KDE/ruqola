@@ -44,8 +44,8 @@ void UserAndChannelCompletionDelegate::paint(QPainter *painter, const QStyleOpti
         const QPixmap pix = mAvatarCacheManager->makeRoundedAvatarPixmap(option.widget, info, option.rect.height());
         if (!pix.isNull()) {
             drawDecoration(painter, option, displayRect, pix);
-            xPos = margin + option.rect.height();
         }
+        xPos = margin + option.rect.height();
     }
 
     const QIcon iconStatus = index.data(InputCompleterModel::IconStatus).value<QIcon>();

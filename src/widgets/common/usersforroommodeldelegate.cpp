@@ -42,8 +42,9 @@ void UsersForRoomModelDelegate::paint(QPainter *painter, const QStyleOptionViewI
         const QPixmap pix = mAvatarCacheManager->makeRoundedAvatarPixmap(option.widget, info, option.rect.height());
         if (!pix.isNull()) {
             drawDecoration(painter, option, displayRect, pix);
-            xPos = margin + option.rect.height();
         }
+        // Add extra size even if we don't have avatar pix
+        xPos = margin + option.rect.height();
     }
 
     const QString iconStatusStr = index.data(UsersForRoomModel::IconStatus).value<QString>();
