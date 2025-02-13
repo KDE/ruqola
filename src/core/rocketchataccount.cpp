@@ -1010,11 +1010,10 @@ void RocketChatAccount::updateUserInRoom(const QJsonObject &roomData)
     }
 }
 
-void RocketChatAccount::parseUsersForRooms(const QJsonObject &obj, const RocketChatRestApi::ChannelGroupBaseJob::ChannelGroupInfo &channelInfo)
+void RocketChatAccount::parseUsersForRooms(const QJsonObject &obj, const QByteArray &channelInfoIdentifier)
 {
     // FIXME channelInfo
-    const QString channelInfoIdentifier = channelInfo.identifier;
-    UsersForRoomModel *usersModelForRoom = roomModel()->usersModelForRoom(channelInfoIdentifier.toLatin1());
+    UsersForRoomModel *usersModelForRoom = roomModel()->usersModelForRoom(channelInfoIdentifier);
     if (usersModelForRoom) {
         usersModelForRoom->parseUsersForRooms(obj, mUserModel, true);
         usersModelForRoom->setLoadMoreUsersInProgress(false);

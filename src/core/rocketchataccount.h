@@ -493,7 +493,7 @@ private:
     LIBRUQOLACORE_NO_EXPORT void getPinnedMessages(const QByteArray &roomId);
     LIBRUQOLACORE_NO_EXPORT void getStarredMessages(const QByteArray &roomId);
     LIBRUQOLACORE_NO_EXPORT void getMentionsMessages(const QByteArray &roomId);
-    LIBRUQOLACORE_NO_EXPORT void parseUsersForRooms(const QJsonObject &obj, const RocketChatRestApi::ChannelGroupBaseJob::ChannelGroupInfo &channelInfo);
+    LIBRUQOLACORE_NO_EXPORT void parseUsersForRooms(const QJsonObject &obj, const QByteArray &channelInfoIdentifier);
 
     LIBRUQOLACORE_NO_EXPORT void threadsInRoom(const QByteArray &roomId, bool onlyUnread);
 
