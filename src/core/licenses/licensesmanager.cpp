@@ -5,6 +5,8 @@
 */
 
 #include "licensesmanager.h"
+#include <QJsonArray>
+using namespace Qt::Literals::StringLiterals;
 
 LicensesManager::LicensesManager() = default;
 
@@ -25,8 +27,10 @@ bool LicensesManager::hasLicense(const QString &name)
     return mLicenses.contains(name);
 }
 
-void LicensesManager::parseLicenses(const QJsonArray &replyArray)
+void LicensesManager::parseLicenses(const QJsonObject &root)
 {
+    const QJsonObject license = root["license"_L1].toObject();
+    const QJsonArray replyArray = license["activeModules"_L1].toArray();
     mLicenses.clear();
     for (int i = 0, total = replyArray.count(); i < total; ++i) {
         mLicenses.append(replyArray.at(i).toString());

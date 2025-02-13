@@ -72,8 +72,6 @@ public:
 
     [[nodiscard]] RocketChatMessage::RocketChatMessageResult bannerDismiss(const QByteArray &bannerId, quint64 id);
 
-    [[nodiscard]] RocketChatMessage::RocketChatMessageResult licenseGetModules(quint64 id);
-
     [[nodiscard]] RocketChatMessage::RocketChatMessageResult
     videoConferenceAccepted(const QString &roomId, const QString &callId, const QString &userId, quint64 id);
 

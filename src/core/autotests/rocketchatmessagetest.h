@@ -56,8 +56,6 @@ private Q_SLOTS:
 
     void bannerDismiss();
 
-    void licenseGetModules();
-
     void videoConferenceAccepted();
     void videoConferenceRejected();
     void videoConferenceCall();

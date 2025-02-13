@@ -69,12 +69,6 @@ RocketChatMessage::generateVideoConferenceAction(const QString &action, const QS
     return generateMethod(QStringLiteral("stream-notify-user"), params, id);
 }
 
-RocketChatMessage::RocketChatMessageResult RocketChatMessage::licenseGetModules(quint64 id)
-{
-    const QJsonArray params{{}};
-    return generateMethod(QStringLiteral("license:getModules"), params, id);
-}
-
 RocketChatMessage::RocketChatMessageResult RocketChatMessage::bannerDismiss(const QByteArray &bannerId, quint64 id)
 {
     const QJsonObject obj{

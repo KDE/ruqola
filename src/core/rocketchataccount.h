@@ -350,7 +350,6 @@ public:
     [[nodiscard]] const BannerInfos &bannerInfos() const;
 
     [[nodiscard]] bool hasLicense(const QString &name);
-    void parseLicenses(const QJsonArray &replyArray);
     // Only for test
     void setOwnUserPreferences(const OwnUserPreferences &ownUserPreferences);
 
@@ -578,7 +577,6 @@ private:
     LIBRUQOLACORE_NO_EXPORT void disable2fa(const QJsonObject &root);
     LIBRUQOLACORE_NO_EXPORT void validateTempToken2fa(const QJsonObject &root);
     LIBRUQOLACORE_NO_EXPORT void listCustomSounds(const QJsonObject &root);
-    LIBRUQOLACORE_NO_EXPORT void licenseGetModules(const QJsonObject &root);
 
     LIBRUQOLACORE_NO_EXPORT void processPublicsettingsAdministrator(const QJsonObject &obj);
     LIBRUQOLACORE_NO_EXPORT void processPrivatesettingsAdministrator(const QJsonObject &obj);

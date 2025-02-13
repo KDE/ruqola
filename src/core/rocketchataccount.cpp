@@ -2332,52 +2332,32 @@ bool RocketChatAccount::hasAtLeastVersion(int major, int minor, int patch) const
 
 void RocketChatAccount::checkLicenses()
 {
-    if (ruqolaServerConfig()->hasAtLeastVersion(6, 5, 0)) {
-        auto job = new RocketChatRestApi::LicensesInfoJob(this);
-        restApi()->initializeRestApiJob(job);
-        connect(job, &RocketChatRestApi::LicensesInfoJob::licensesInfoDone, this, [this](const QJsonObject &obj) {
-            const QJsonObject license = obj["license"_L1].toObject();
-            if (!license.isEmpty()) {
-                const bool isEnterprise = !license["activeModules"_L1].toArray().isEmpty();
-                mRuqolaServerConfig->setHasEnterpriseSupport(isEnterprise);
-                if (isEnterprise) {
-                    licenseGetModules();
-                }
-            }
-        });
-        if (!job->start()) {
-            qCWarning(RUQOLA_LOG) << "Impossible to start LicensesInfoJob job";
-        }
-    } else {
-        auto job = new RocketChatRestApi::LicensesIsEnterpriseJob(this);
-        restApi()->initializeRestApiJob(job);
-        connect(job, &RocketChatRestApi::LicensesIsEnterpriseJob::licensesIsEnterpriseDone, this, [this](bool isEnterprise) {
+    auto job = new RocketChatRestApi::LicensesInfoJob(this);
+    restApi()->initializeRestApiJob(job);
+    connect(job, &RocketChatRestApi::LicensesInfoJob::licensesInfoDone, this, [this](const QJsonObject &obj) {
+        const QJsonObject license = obj["license"_L1].toObject();
+        if (!license.isEmpty()) {
+            const bool isEnterprise = !license["activeModules"_L1].toArray().isEmpty();
             mRuqolaServerConfig->setHasEnterpriseSupport(isEnterprise);
             if (isEnterprise) {
                 licenseGetModules();
             }
-        });
-        if (!job->start()) {
-            qCWarning(RUQOLA_LOG) << "Impossible to start LicensesIsEnterpriseJob job";
         }
+    });
+    if (!job->start()) {
+        qCWarning(RUQOLA_LOG) << "Impossible to start LicensesInfoJob job";
     }
 }
 
 void RocketChatAccount::licenseGetModules()
 {
-    if (mRuqolaServerConfig->hasAtLeastVersion(6, 5, 0)) {
-        auto job = new RocketChatRestApi::LicensesInfoJob(this);
-        restApi()->initializeRestApiJob(job);
-        connect(job, &RocketChatRestApi::LicensesInfoJob::licensesInfoDone, this, [this](const QJsonObject &obj) {
-            const QJsonObject license = obj["license"_L1].toObject();
-            const QJsonArray activeModules = license["activeModules"_L1].toArray();
-            parseLicenses(activeModules);
-        });
-        if (!job->start()) {
-            qCWarning(RUQOLA_LOG) << "Impossible to start LicensesInfoJob job";
-        }
-    } else {
-        ddp()->licenseGetModules();
+    auto job = new RocketChatRestApi::LicensesInfoJob(this);
+    restApi()->initializeRestApiJob(job);
+    connect(job, &RocketChatRestApi::LicensesInfoJob::licensesInfoDone, this, [this](const QJsonObject &obj) {
+        mLicensesManager.parseLicenses(obj);
+    });
+    if (!job->start()) {
+        qCWarning(RUQOLA_LOG) << "Impossible to start LicensesInfoJob job";
     }
 }
 
@@ -2941,12 +2921,6 @@ bool RocketChatAccount::hasLicense(const QString &name)
     return mLicensesManager.hasLicense(name);
 }
 
-void RocketChatAccount::parseLicenses(const QJsonArray &replyArray)
-{
-    // qDebug() << " replyArray " << replyArray;
-    mLicensesManager.parseLicenses(replyArray);
-}
-
 void RocketChatAccount::addMessageToDataBase(const QString &roomName, const Message &message)
 {
     mLocalDatabaseManager->addMessage(accountName(), roomName, message);
@@ -3208,9 +3182,6 @@ void RocketChatAccount::parseMethodRequested(const QJsonObject &obj, DDPClient::
     case DDPClient::MethodRequestedType::BannerDismiss:
         displayLogInfo(QByteArrayLiteral("Banner Dismiss"), obj);
         break;
-    case DDPClient::MethodRequestedType::GetLicenseModules:
-        licenseGetModules(obj);
-        break;
     case DDPClient::MethodRequestedType::VideoConferenceCall:
         displayLogInfo(QByteArrayLiteral("Video Conference Call"), obj);
         break;
@@ -3358,13 +3329,6 @@ void RocketChatAccount::getsubscriptionParsing(const QJsonObject &root)
     ddp()->getRooms(params);
 
     initializeAccount();
-}
-
-void RocketChatAccount::licenseGetModules(const QJsonObject &root)
-{
-    displayLogInfo(QByteArrayLiteral("License GetModule"), root);
-    const QJsonArray obj = root.value("result"_L1).toArray();
-    parseLicenses(obj);
 }
 
 void RocketChatAccount::listCustomSounds(const QJsonObject &root)

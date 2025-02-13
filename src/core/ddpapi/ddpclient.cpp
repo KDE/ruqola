@@ -290,12 +290,6 @@ quint64 DDPClient::bannerDismiss(const QByteArray &bannerId)
     return method(result, DDPClient::MethodRequestedType::BannerDismiss, DDPClient::MessageType::Persistent);
 }
 
-quint64 DDPClient::licenseGetModules()
-{
-    const RocketChatMessage::RocketChatMessageResult result = mRocketChatMessage->licenseGetModules(mUid);
-    return method(result, DDPClient::MethodRequestedType::GetLicenseModules, DDPClient::MessageType::Persistent);
-}
-
 quint64 DDPClient::videoConferenceAccepted(const QString &roomId, const QString &callId, const QString &userId)
 {
     const RocketChatMessage::RocketChatMessageResult result = mRocketChatMessage->videoConferenceAccepted(roomId, callId, userId, mUid);

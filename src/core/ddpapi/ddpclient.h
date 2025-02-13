@@ -37,7 +37,6 @@ public:
         Unknown,
         PublicSettings,
         UpdatePublicsettings,
-        GetLicenseModules,
         ListCustomSounds,
         BlockUser,
         UnBlockUser,
@@ -192,7 +191,6 @@ public:
     quint64 setAdminStatus(const QByteArray &userId, bool admin);
     quint64 openRoom(const QByteArray &roomId);
     quint64 bannerDismiss(const QByteArray &bannerId);
-    quint64 licenseGetModules();
     quint64 videoConferenceAccepted(const QString &roomId, const QString &callId, const QString &userId);
     quint64 videoConferenceRejected(const QString &roomId, const QString &callId, const QString &userId);
     quint64 videoConferenceCall(const QString &roomId, const QString &callId, const QString &userId);
