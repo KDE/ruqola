@@ -102,7 +102,6 @@ void AdministratorServerInfoWidget::slotLicensesListDone(const QJsonObject &obj)
 {
     LicensesManager m;
     m.parseLicenses(obj);
-    const QJsonObject license = obj["license"_L1].toObject();
     const QStringList listLicences = m.licenses();
     auto licenseItem = new QTreeWidgetItem(mTreeWidget);
     licenseItem->setText(0, i18n("Licenses"));
