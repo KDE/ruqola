@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-02-12 00:41+0000\n"
+"POT-Creation-Date: 2025-02-13 00:44+0000\n"
 "PO-Revision-Date: 2025-02-08 19:40+0100\n"
 "Last-Translator: Víctor Rodrigo Córdoba <vrcordoba@gmail.com>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
@@ -8188,12 +8188,26 @@ msgstr "Solo las personas invitadas pueden unirse"
 msgid "Private Room:"
 msgstr "Sala privada:"
 
-#: widgets/dialogs/createnewchannelwidget.cpp:71
+#: widgets/dialogs/createnewchannelwidget.cpp:73
+#, fuzzy, kde-format
+#| msgctxt "@info:tooltip"
+#| msgid ""
+#| "Messages are end-to-end encrypted, search will not work and notifications "
+#| "may not show message content"
+msgctxt "@label:textbox"
+msgid ""
+"End-to-end encrypted channel. Search will not work with encrypted channel "
+"and notifications may not show the messages content."
+msgstr ""
+"Los mensajes están cifrados extremo a extremo, la búsqueda no funcionará y "
+"las notificaciones no mostrarán el contenido del mensaje"
+
+#: widgets/dialogs/createnewchannelwidget.cpp:79
 #, kde-format
 msgid "Encrypted Room:"
 msgstr "Sala cifrada:"
 
-#: widgets/dialogs/createnewchannelwidget.cpp:75
+#: widgets/dialogs/createnewchannelwidget.cpp:86
 #, kde-format
 msgid "Federated:"
 msgstr "Federado:"
@@ -10640,7 +10654,21 @@ msgstr "Exportar mensajes"
 msgid "Your email has been queued for sending."
 msgstr "Su email se ha encolado para ser enviado."
 
-#: widgets/room/roomwidget.cpp:527
+#: widgets/room/roomwidget.cpp:512
+#, fuzzy, kde-format
+#| msgid "Direct Messages can not be archived"
+msgid "Encrypted content cannot be searched."
+msgstr "No se pueden archivar los mensajes directos"
+
+#: widgets/room/roomwidget.cpp:512
+#, fuzzy, kde-format
+#| msgctxt "@title:window"
+#| msgid "Search Messages"
+msgctxt "@title:window"
+msgid "Search Message"
+msgstr "Buscar mensajes"
+
+#: widgets/room/roomwidget.cpp:531
 #, kde-format
 msgid ""
 "A workspace admin needs to install and configure a conference call apps."
@@ -10648,7 +10676,7 @@ msgstr ""
 "Un administrador del espacio de trabajo necesita instalar y configurar una "
 "aplicación de llamadas de conferencia."
 
-#: widgets/room/roomwidget.cpp:528
+#: widgets/room/roomwidget.cpp:532
 #, kde-format
 msgctxt "@title:window"
 msgid "Video Conference"
@@ -11840,6 +11868,11 @@ msgstr "Capacidad para activar/desactivar el mercado de aplicaciones"
 #, kde-format
 msgid "Improve list of user in room."
 msgstr "Mejoras en la lista de usuarios de una sala."
+
+#: widgets/whatsnew/whatsnewtranslations.cpp:166
+#, kde-format
+msgid "Search in encrypted room is not possible."
+msgstr ""
 
 #: widgets/whatsnew/whatsnewwidget.cpp:44
 #, kde-format

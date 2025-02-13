@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-02-12 00:41+0000\n"
-"PO-Revision-Date: 2025-02-11 10:35+0300\n"
+"POT-Creation-Date: 2025-02-13 00:44+0000\n"
+"PO-Revision-Date: 2025-02-12 09:10+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -8125,12 +8125,26 @@ msgstr "Yalnızca davet edilmiş kullanıcılar katılabilir"
 msgid "Private Room:"
 msgstr "Özel oda:"
 
-#: widgets/dialogs/createnewchannelwidget.cpp:71
+#: widgets/dialogs/createnewchannelwidget.cpp:73
+#, fuzzy, kde-format
+#| msgctxt "@info:tooltip"
+#| msgid ""
+#| "Messages are end-to-end encrypted, search will not work and notifications "
+#| "may not show message content"
+msgctxt "@label:textbox"
+msgid ""
+"End-to-end encrypted channel. Search will not work with encrypted channel "
+"and notifications may not show the messages content."
+msgstr ""
+"İletiler uçtan uca şifrelidir; arama çalışmaz ve bildirimler ileti içeriğini "
+"göstermeyebilir"
+
+#: widgets/dialogs/createnewchannelwidget.cpp:79
 #, kde-format
 msgid "Encrypted Room:"
 msgstr "Şifreli oda:"
 
-#: widgets/dialogs/createnewchannelwidget.cpp:75
+#: widgets/dialogs/createnewchannelwidget.cpp:86
 #, kde-format
 msgid "Federated:"
 msgstr "Federe edilen:"
@@ -8857,6 +8871,12 @@ msgid ""
 "If no one is able to access the encrypted content you can reset encryption "
 "keys instead."
 msgstr ""
+"Uçtan uca şifrelemenin devre dışı bırakılması bu gizli grubun gizliliğini "
+"tehlikeye atacaktır. Şifrelenmiş içeriğe erişim tüm gizli grup üyeleri için "
+"kaybolur.\n"
+"Şifreleme daha sonra yeniden etkinleştirilebilir. Dikkatli olun.\n"
+"Şifrelenmiş içeriğe kimse erişemiyorsa bunun yerine şifreleme anahtarlarını "
+"sıfırlayabilirsiniz."
 
 #: widgets/encryption/e2edisablewidget.cpp:36
 #, kde-format
@@ -8864,13 +8884,13 @@ msgid ""
 "Alternatively, resetting encryption keys will keep encryption enabled but "
 "access to previously encrypted content may be lost."
 msgstr ""
+"Alternatif olarak, şifreleme anahtarlarını sıfırlamak şifrelemeyi etkin "
+"tutacaktır; ancak önceden şifrelenmiş içeriğe erişim kaybolabilir."
 
 #: widgets/encryption/e2edisablewidget.cpp:41
-#, fuzzy, kde-format
-#| msgctxt "@action"
-#| msgid "Decode Encryption Key"
+#, kde-format
 msgid "Reset encryption keys"
-msgstr "Şifreleme Anahtarının Şifresini Çöz"
+msgstr "Şifreleme Anahtarlarını Sıfırla"
 
 #: widgets/encryption/e2epassworddecodekeydialog.cpp:17
 #, kde-format
@@ -10569,7 +10589,21 @@ msgstr "İletileri Dışa Aktar"
 msgid "Your email has been queued for sending."
 msgstr "E-postanız, gönderme için kuyruğa eklendi."
 
-#: widgets/room/roomwidget.cpp:527
+#: widgets/room/roomwidget.cpp:512
+#, fuzzy, kde-format
+#| msgid "Direct Messages can not be archived"
+msgid "Encrypted content cannot be searched."
+msgstr "Doğrudan İletiler arşivlenemez"
+
+#: widgets/room/roomwidget.cpp:512
+#, fuzzy, kde-format
+#| msgctxt "@title:window"
+#| msgid "Search Messages"
+msgctxt "@title:window"
+msgid "Search Message"
+msgstr "İletileri Ara"
+
+#: widgets/room/roomwidget.cpp:531
 #, kde-format
 msgid ""
 "A workspace admin needs to install and configure a conference call apps."
@@ -10577,7 +10611,7 @@ msgstr ""
 "Bir çalışma alanı yöneticisinin bir konferans araması uygulaması kurması ve "
 "yapılandırması gerekir."
 
-#: widgets/room/roomwidget.cpp:528
+#: widgets/room/roomwidget.cpp:532
 #, kde-format
 msgctxt "@title:window"
 msgid "Video Conference"
@@ -11755,6 +11789,11 @@ msgstr "Uygulama marketini etkinleştirmeye/devre dışı bırakmaya izin ver"
 #, kde-format
 msgid "Improve list of user in room."
 msgstr "Odadaki kullanıcı listesini iyileştir"
+
+#: widgets/whatsnew/whatsnewtranslations.cpp:166
+#, kde-format
+msgid "Search in encrypted room is not possible."
+msgstr ""
 
 #: widgets/whatsnew/whatsnewwidget.cpp:44
 #, kde-format

@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-02-12 00:41+0000\n"
-"PO-Revision-Date: 2025-02-11 22:14+0100\n"
+"POT-Creation-Date: 2025-02-13 00:44+0000\n"
+"PO-Revision-Date: 2025-02-12 15:59+0100\n"
 "Last-Translator: Stefan Asserhäll <stefan.asserhall@gmail.com>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
 "Language: sv\n"
@@ -8141,12 +8141,26 @@ msgstr "Bara inbjudna personer kan gå med"
 msgid "Private Room:"
 msgstr "Privat rum:"
 
-#: widgets/dialogs/createnewchannelwidget.cpp:71
+#: widgets/dialogs/createnewchannelwidget.cpp:73
+#, fuzzy, kde-format
+#| msgctxt "@info:tooltip"
+#| msgid ""
+#| "Messages are end-to-end encrypted, search will not work and notifications "
+#| "may not show message content"
+msgctxt "@label:textbox"
+msgid ""
+"End-to-end encrypted channel. Search will not work with encrypted channel "
+"and notifications may not show the messages content."
+msgstr ""
+"Meddelanden är krypterade från början till slut, sökning fungerar inte och "
+"underrättelser kanske inte visar meddelandeinnehåll"
+
+#: widgets/dialogs/createnewchannelwidget.cpp:79
 #, kde-format
 msgid "Encrypted Room:"
 msgstr "Krypterat rum:"
 
-#: widgets/dialogs/createnewchannelwidget.cpp:75
+#: widgets/dialogs/createnewchannelwidget.cpp:86
 #, kde-format
 msgid "Federated:"
 msgstr "Federerad:"
@@ -8870,6 +8884,12 @@ msgid ""
 "If no one is able to access the encrypted content you can reset encryption "
 "keys instead."
 msgstr ""
+"Att inaktivera E2EE äventyrar integriteten för den här privata gruppen. "
+"Tillgång till krypterat innehåll går förlorad för alla medlemmar av den "
+"privata gruppen.\n"
+"Kryptering kan återaktiveras senare. Fortsätt med försiktighet.\n"
+"Om ingen kan komma åt det krypterade innehållet kan krypteringsnycklarna "
+"nollställas istället."
 
 #: widgets/encryption/e2edisablewidget.cpp:36
 #, kde-format
@@ -8877,13 +8897,13 @@ msgid ""
 "Alternatively, resetting encryption keys will keep encryption enabled but "
 "access to previously encrypted content may be lost."
 msgstr ""
+"Alternativt gör nollställning av krypteringsnycklar att kryptering förblir "
+"aktiverad men åtkomst till tidigare krypterat innehåll kan gå förlorad."
 
 #: widgets/encryption/e2edisablewidget.cpp:41
-#, fuzzy, kde-format
-#| msgctxt "@action"
-#| msgid "Decode Encryption Key"
+#, kde-format
 msgid "Reset encryption keys"
-msgstr "Avkoda krypteringsnyckel"
+msgstr "Nollställ krypteringsnycklar"
 
 #: widgets/encryption/e2epassworddecodekeydialog.cpp:17
 #, kde-format
@@ -10571,7 +10591,20 @@ msgstr "Exportera meddelanden"
 msgid "Your email has been queued for sending."
 msgstr "Brevet har köats för att skickas."
 
-#: widgets/room/roomwidget.cpp:527
+#: widgets/room/roomwidget.cpp:512
+#, fuzzy, kde-format
+#| msgid "Direct Messages can not be archived"
+msgid "Encrypted content cannot be searched."
+msgstr "Direktmeddelanden kan inte arkiveras"
+
+#: widgets/room/roomwidget.cpp:512
+#, fuzzy, kde-format
+#| msgid "Search Message"
+msgctxt "@title:window"
+msgid "Search Message"
+msgstr "Sök meddelande"
+
+#: widgets/room/roomwidget.cpp:531
 #, kde-format
 msgid ""
 "A workspace admin needs to install and configure a conference call apps."
@@ -10579,7 +10612,7 @@ msgstr ""
 "En administratör av arbetsytan måste installera och ställa in ett program "
 "för konferenssamtal."
 
-#: widgets/room/roomwidget.cpp:528
+#: widgets/room/roomwidget.cpp:532
 #, kde-format
 msgctxt "@title:window"
 msgid "Video Conference"
@@ -11759,6 +11792,11 @@ msgstr "Tillåt att aktivera eller inaktivera programmarknad."
 #, kde-format
 msgid "Improve list of user in room."
 msgstr "Förbättra användarlista i rum."
+
+#: widgets/whatsnew/whatsnewtranslations.cpp:166
+#, kde-format
+msgid "Search in encrypted room is not possible."
+msgstr ""
 
 #: widgets/whatsnew/whatsnewwidget.cpp:44
 #, kde-format
@@ -13053,9 +13091,6 @@ msgstr "En del felrättning:"
 #~ msgid_plural "%1 attachments in room (Total: %2)"
 #~ msgstr[0] "%1 bilaga i rummet (totalt : %2)"
 #~ msgstr[1] "%1 bilagor i rummet (totalt : %2)"
-
-#~ msgid "Search Message"
-#~ msgstr "Sök meddelande"
 
 #~ msgid "Search Word... (You can use regular expression as /^text$/i)"
 #~ msgstr "Sök ord... (du kan använda reguljära uttryck som /^text$/i)"

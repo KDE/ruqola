@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-02-12 00:41+0000\n"
+"POT-Creation-Date: 2025-02-13 00:44+0000\n"
 "PO-Revision-Date: 2023-05-10 20:24+0200\n"
 "Last-Translator: Frederik Schwarzer <schwarzer@kde.org>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
@@ -8512,12 +8512,20 @@ msgstr ""
 msgid "Private Room:"
 msgstr "Privater Raum:"
 
-#: widgets/dialogs/createnewchannelwidget.cpp:71
+#: widgets/dialogs/createnewchannelwidget.cpp:73
+#, kde-format
+msgctxt "@label:textbox"
+msgid ""
+"End-to-end encrypted channel. Search will not work with encrypted channel "
+"and notifications may not show the messages content."
+msgstr ""
+
+#: widgets/dialogs/createnewchannelwidget.cpp:79
 #, kde-format
 msgid "Encrypted Room:"
 msgstr "Verschlüsselter Raum:"
 
-#: widgets/dialogs/createnewchannelwidget.cpp:75
+#: widgets/dialogs/createnewchannelwidget.cpp:86
 #, fuzzy, kde-format
 #| msgid "Moderator"
 msgid "Federated:"
@@ -11152,13 +11160,25 @@ msgstr "Nachrichten exportieren"
 msgid "Your email has been queued for sending."
 msgstr ""
 
-#: widgets/room/roomwidget.cpp:527
+#: widgets/room/roomwidget.cpp:512
+#, kde-format
+msgid "Encrypted content cannot be searched."
+msgstr ""
+
+#: widgets/room/roomwidget.cpp:512
+#, fuzzy, kde-format
+#| msgid "Search Message"
+msgctxt "@title:window"
+msgid "Search Message"
+msgstr "Nachricht suchen"
+
+#: widgets/room/roomwidget.cpp:531
 #, kde-format
 msgid ""
 "A workspace admin needs to install and configure a conference call apps."
 msgstr ""
 
-#: widgets/room/roomwidget.cpp:528
+#: widgets/room/roomwidget.cpp:532
 #, fuzzy, kde-format
 #| msgid "Preference"
 msgctxt "@title:window"
@@ -12431,6 +12451,11 @@ msgstr ""
 msgid "Improve list of user in room."
 msgstr ""
 
+#: widgets/whatsnew/whatsnewtranslations.cpp:166
+#, kde-format
+msgid "Search in encrypted room is not possible."
+msgstr ""
+
 #: widgets/whatsnew/whatsnewwidget.cpp:44
 #, fuzzy, kde-format
 #| msgid "Version"
@@ -13325,9 +13350,6 @@ msgstr "Fehlerkorrekturen"
 
 #~ msgid "No Attachment found"
 #~ msgstr "Kein Anhang gefunden"
-
-#~ msgid "Search Message"
-#~ msgstr "Nachricht suchen"
 
 #~ msgid "There is no camera available."
 #~ msgstr "Es ist keine Kamera verfügbar"

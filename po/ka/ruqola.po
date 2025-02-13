@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-02-12 00:41+0000\n"
-"PO-Revision-Date: 2025-02-11 04:15+0100\n"
+"POT-Creation-Date: 2025-02-13 00:44+0000\n"
+"PO-Revision-Date: 2025-02-12 03:39+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -8137,12 +8137,26 @@ msgstr "შემოსვლა მხოლოდ მოწვეულ ხა
 msgid "Private Room:"
 msgstr "პირადი ოთახი:"
 
-#: widgets/dialogs/createnewchannelwidget.cpp:71
+#: widgets/dialogs/createnewchannelwidget.cpp:73
+#, fuzzy, kde-format
+#| msgctxt "@info:tooltip"
+#| msgid ""
+#| "Messages are end-to-end encrypted, search will not work and notifications "
+#| "may not show message content"
+msgctxt "@label:textbox"
+msgid ""
+"End-to-end encrypted channel. Search will not work with encrypted channel "
+"and notifications may not show the messages content."
+msgstr ""
+"შეტყობინებები გამჭოლად დაშიფრულია. ძებნა არ იმუშავებს და გაფრთხილებებმა, "
+"შეიძლება, შეტყობინების შემცველობა არ აჩვენოს"
+
+#: widgets/dialogs/createnewchannelwidget.cpp:79
 #, kde-format
 msgid "Encrypted Room:"
 msgstr "დაშიფრული ოთახი:"
 
-#: widgets/dialogs/createnewchannelwidget.cpp:75
+#: widgets/dialogs/createnewchannelwidget.cpp:86
 #, kde-format
 msgid "Federated:"
 msgstr "ფედერაციული:"
@@ -8865,6 +8879,11 @@ msgid ""
 "If no one is able to access the encrypted content you can reset encryption "
 "keys instead."
 msgstr ""
+"E2EE-ის გათიშვა ამ ჯგუფის კონფიდენციალობას დაარღვევს. დაშიფრულ "
+"შემცველობასთან წვდომა ყველა კონფიდენციალური ჯგუფის წევრისთვის დაიკარგება.\n"
+"დაშიფვრის ჩართვა მოგვიანებითაც შეგეძლებათ.\n"
+"თუ დაშიფრულ შემცველობასთან წვდომა არავის აქვს, შეგიძლიათ, დაშიფვრის "
+"გასაღებები ჩამოყაროთ."
 
 #: widgets/encryption/e2edisablewidget.cpp:36
 #, kde-format
@@ -8872,13 +8891,14 @@ msgid ""
 "Alternatively, resetting encryption keys will keep encryption enabled but "
 "access to previously encrypted content may be lost."
 msgstr ""
+"გარდა ამისა, დაშიფვრის გასაღებების ჩამოყრა საშუალებას მოგცემთ, იქონიოთ "
+"დაშიფრულ შემცველობასთან წვდომა, მაგრამ ადრე დაშიფრული შემცველობა, ალბათ, "
+"დაიკარგება."
 
 #: widgets/encryption/e2edisablewidget.cpp:41
-#, fuzzy, kde-format
-#| msgctxt "@action"
-#| msgid "Decode Encryption Key"
+#, kde-format
 msgid "Reset encryption keys"
-msgstr "დაშიფვრის გასაღების გაშიფვრა"
+msgstr "დაშიფვრის გასაღებების ჩამოყრა"
 
 #: widgets/encryption/e2epassworddecodekeydialog.cpp:17
 #, kde-format
@@ -10568,7 +10588,21 @@ msgstr "შეტყობინებების გატანა"
 msgid "Your email has been queued for sending."
 msgstr "თქვენი ელფოსტა რიგშია გასაგზავნად."
 
-#: widgets/room/roomwidget.cpp:527
+#: widgets/room/roomwidget.cpp:512
+#, fuzzy, kde-format
+#| msgid "Direct Messages can not be archived"
+msgid "Encrypted content cannot be searched."
+msgstr "პირდაპირი შეტყობინებების დაარქივება შეუძლებელია"
+
+#: widgets/room/roomwidget.cpp:512
+#, fuzzy, kde-format
+#| msgctxt "@title:window"
+#| msgid "Search Messages"
+msgctxt "@title:window"
+msgid "Search Message"
+msgstr "შეტყობინებებში ძებნა"
+
+#: widgets/room/roomwidget.cpp:531
 #, kde-format
 msgid ""
 "A workspace admin needs to install and configure a conference call apps."
@@ -10576,7 +10610,7 @@ msgstr ""
 "სამუშაო სივრცის ადმინისტრატორმა საკონფერენციო ზარის აპები უნდა დააყენოს და "
 "მოირგოს."
 
-#: widgets/room/roomwidget.cpp:528
+#: widgets/room/roomwidget.cpp:532
 #, kde-format
 msgctxt "@title:window"
 msgid "Video Conference"
@@ -11760,6 +11794,11 @@ msgstr "აპების მაღაზიის აქტივაციი�
 #, kde-format
 msgid "Improve list of user in room."
 msgstr "გაუმჯობესდა ოთახის მომხმარებლების ჩამონათვალის გამოტანა."
+
+#: widgets/whatsnew/whatsnewtranslations.cpp:166
+#, kde-format
+msgid "Search in encrypted room is not possible."
+msgstr ""
 
 #: widgets/whatsnew/whatsnewwidget.cpp:44
 #, kde-format

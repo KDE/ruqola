@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-02-12 00:41+0000\n"
-"PO-Revision-Date: 2025-02-11 08:54+0200\n"
+"POT-Creation-Date: 2025-02-13 00:44+0000\n"
+"PO-Revision-Date: 2025-02-12 14:05+0200\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
 "Language: uk\n"
@@ -8226,12 +8226,26 @@ msgstr "Долучатися можуть лише запрошені"
 msgid "Private Room:"
 msgstr "Приватна кімната:"
 
-#: widgets/dialogs/createnewchannelwidget.cpp:71
+#: widgets/dialogs/createnewchannelwidget.cpp:73
+#, fuzzy, kde-format
+#| msgctxt "@info:tooltip"
+#| msgid ""
+#| "Messages are end-to-end encrypted, search will not work and notifications "
+#| "may not show message content"
+msgctxt "@label:textbox"
+msgid ""
+"End-to-end encrypted channel. Search will not work with encrypted channel "
+"and notifications may not show the messages content."
+msgstr ""
+"Повідомлення зашифровано міжвузловим шифруванням — пошук не працюватиме, а у "
+"сповіщеннях може бути не показано вміст повідомлень"
+
+#: widgets/dialogs/createnewchannelwidget.cpp:79
 #, kde-format
 msgid "Encrypted Room:"
 msgstr "Зашифрована кімната:"
 
-#: widgets/dialogs/createnewchannelwidget.cpp:75
+#: widgets/dialogs/createnewchannelwidget.cpp:86
 #, kde-format
 msgid "Federated:"
 msgstr "Інтегрований:"
@@ -8976,6 +8990,11 @@ msgid ""
 "If no one is able to access the encrypted content you can reset encryption "
 "keys instead."
 msgstr ""
+"Вимикання E2EE зашкодить конфіденційності у цій приватній групі. Доступ до "
+"зашифрованих даних буде втрачено для усіх учасників приватної групи.\n"
+"Шифрування можна згодом увімкнути повторно. Будьте обережні.\n"
+"Якщо доступу до зашифрованих даних ні у кого немає, ви можете просто скинути "
+"ключі шифрування."
 
 #: widgets/encryption/e2edisablewidget.cpp:36
 #, kde-format
@@ -8983,13 +9002,13 @@ msgid ""
 "Alternatively, resetting encryption keys will keep encryption enabled but "
 "access to previously encrypted content may be lost."
 msgstr ""
+"Крім того, скидання ключів шифрування лишить шифрування увімкненим, але "
+"доступ до раніше зашифрованих даних може бути втрачено."
 
 #: widgets/encryption/e2edisablewidget.cpp:41
-#, fuzzy, kde-format
-#| msgctxt "@action"
-#| msgid "Decode Encryption Key"
+#, kde-format
 msgid "Reset encryption keys"
-msgstr "Розшифрувати ключ шифрування"
+msgstr "Скинути ключі шифрування"
 
 #: widgets/encryption/e2epassworddecodekeydialog.cpp:17
 #, kde-format
@@ -10697,7 +10716,20 @@ msgstr "Експортувати повідомлення"
 msgid "Your email has been queued for sending."
 msgstr "Вашу електронну пошту додано до черги надсилання."
 
-#: widgets/room/roomwidget.cpp:527
+#: widgets/room/roomwidget.cpp:512
+#, fuzzy, kde-format
+#| msgid "Direct Messages can not be archived"
+msgid "Encrypted content cannot be searched."
+msgstr "Безпосередні повідомлення не можна архівувати"
+
+#: widgets/room/roomwidget.cpp:512
+#, fuzzy, kde-format
+#| msgid "Search Message"
+msgctxt "@title:window"
+msgid "Search Message"
+msgstr "Шукати повідомлення"
+
+#: widgets/room/roomwidget.cpp:531
 #, kde-format
 msgid ""
 "A workspace admin needs to install and configure a conference call apps."
@@ -10705,7 +10737,7 @@ msgstr ""
 "Адміністратор робочого простору має встановити і налаштувати програми для "
 "викликів-конференцій."
 
-#: widgets/room/roomwidget.cpp:528
+#: widgets/room/roomwidget.cpp:532
 #, kde-format
 msgctxt "@title:window"
 msgid "Video Conference"
@@ -11897,6 +11929,11 @@ msgstr "Надано змогу вмикати і вимикати крамни�
 #, kde-format
 msgid "Improve list of user in room."
 msgstr "Удосконалено список користувачів у кімнаті."
+
+#: widgets/whatsnew/whatsnewtranslations.cpp:166
+#, kde-format
+msgid "Search in encrypted room is not possible."
+msgstr ""
 
 #: widgets/whatsnew/whatsnewwidget.cpp:44
 #, kde-format
@@ -13257,9 +13294,6 @@ msgstr "Виправлення деяких вад:"
 #~ msgstr[1] "%1 долучення у кімнаті (загалом: %2)"
 #~ msgstr[2] "%1 долучень у кімнаті (загалом: %2)"
 #~ msgstr[3] "%1 долучення у кімнаті (загалом: %2)"
-
-#~ msgid "Search Message"
-#~ msgstr "Шукати повідомлення"
 
 #~ msgid "Search Word... (You can use regular expression as /^text$/i)"
 #~ msgstr ""

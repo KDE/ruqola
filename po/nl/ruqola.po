@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-02-12 00:41+0000\n"
-"PO-Revision-Date: 2025-02-11 11:24+0100\n"
+"POT-Creation-Date: 2025-02-13 00:44+0000\n"
+"PO-Revision-Date: 2025-02-12 10:40+0100\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
 "Language: nl\n"
@@ -8186,12 +8186,26 @@ msgstr "Alleen uitgenodigde mensen kunnen meedoen"
 msgid "Private Room:"
 msgstr "Privéroom:"
 
-#: widgets/dialogs/createnewchannelwidget.cpp:71
+#: widgets/dialogs/createnewchannelwidget.cpp:73
+#, fuzzy, kde-format
+#| msgctxt "@info:tooltip"
+#| msgid ""
+#| "Messages are end-to-end encrypted, search will not work and notifications "
+#| "may not show message content"
+msgctxt "@label:textbox"
+msgid ""
+"End-to-end encrypted channel. Search will not work with encrypted channel "
+"and notifications may not show the messages content."
+msgstr ""
+"Berichten zijn eind-tot-eind versleuteld, zoeken zal niet werken en "
+"meldingen kunnen de inhoud van het bericht niet tonen"
+
+#: widgets/dialogs/createnewchannelwidget.cpp:79
 #, kde-format
 msgid "Encrypted Room:"
 msgstr "Versleutelde room:"
 
-#: widgets/dialogs/createnewchannelwidget.cpp:75
+#: widgets/dialogs/createnewchannelwidget.cpp:86
 #, kde-format
 msgid "Federated:"
 msgstr "Samengebracht:"
@@ -8916,6 +8930,12 @@ msgid ""
 "If no one is able to access the encrypted content you can reset encryption "
 "keys instead."
 msgstr ""
+"E2EE uitschakelen zal de privacy van deze private groep compromitteren. "
+"Toegang tot elke versleutelde inhoud zal verloren gaan voor alle leden van "
+"private groepen.\n"
+"Versleuteling kan later weer ingeschakeld worden. Ga voorzichtig verder.\n"
+"Als niemand in staat is om toegang te hebben tot de versleutelde inhoud, dan "
+"kunt u versleutelingssleutels in plaats daarvan resetten."
 
 #: widgets/encryption/e2edisablewidget.cpp:36
 #, kde-format
@@ -8923,13 +8943,14 @@ msgid ""
 "Alternatively, resetting encryption keys will keep encryption enabled but "
 "access to previously encrypted content may be lost."
 msgstr ""
+"Een alternatief is het resetten van versleutelingssleutels die versleuteling "
+"ingeschakeld laat maar toegang tot eerder versleutelde inhoud kan verloren "
+"zijn."
 
 #: widgets/encryption/e2edisablewidget.cpp:41
-#, fuzzy, kde-format
-#| msgctxt "@action"
-#| msgid "Decode Encryption Key"
+#, kde-format
 msgid "Reset encryption keys"
-msgstr "Versleutelde sleutel ontcijferen"
+msgstr "Versleutelingssleutels resetten"
 
 #: widgets/encryption/e2epassworddecodekeydialog.cpp:17
 #, kde-format
@@ -10627,7 +10648,20 @@ msgstr "Berichten exporteren"
 msgid "Your email has been queued for sending."
 msgstr "Uw e-mailbericht is klaargezet voor verzending."
 
-#: widgets/room/roomwidget.cpp:527
+#: widgets/room/roomwidget.cpp:512
+#, fuzzy, kde-format
+#| msgid "Direct Messages can not be archived"
+msgid "Encrypted content cannot be searched."
+msgstr "Directe berichten kunnen niet gearchiveerd worden"
+
+#: widgets/room/roomwidget.cpp:512
+#, fuzzy, kde-format
+#| msgid "Search Message"
+msgctxt "@title:window"
+msgid "Search Message"
+msgstr "Bericht doorzoeken"
+
+#: widgets/room/roomwidget.cpp:531
 #, kde-format
 msgid ""
 "A workspace admin needs to install and configure a conference call apps."
@@ -10635,7 +10669,7 @@ msgstr ""
 "Een beheerder van werkruimte moet een toepassing voor een conferentieoproep "
 "installeren en configureren."
 
-#: widgets/room/roomwidget.cpp:528
+#: widgets/room/roomwidget.cpp:532
 #, kde-format
 msgctxt "@title:window"
 msgid "Video Conference"
@@ -11827,6 +11861,11 @@ msgstr "Sta toe activeren/deactiveren van apps-markt."
 #, kde-format
 msgid "Improve list of user in room."
 msgstr "Lijst van gebruikers in room."
+
+#: widgets/whatsnew/whatsnewtranslations.cpp:166
+#, kde-format
+msgid "Search in encrypted room is not possible."
+msgstr ""
 
 #: widgets/whatsnew/whatsnewwidget.cpp:44
 #, kde-format
@@ -13187,9 +13226,6 @@ msgstr "Enig repareren van bugs:"
 #~ msgid_plural "%1 attachments in room (Total: %2)"
 #~ msgstr[0] "%1 bijlage in room (totaal: %2)"
 #~ msgstr[1] "%1 bijlagen in room (totaal: %2)"
-
-#~ msgid "Search Message"
-#~ msgstr "Bericht doorzoeken"
 
 #~ msgid "Search Word... (You can use regular expression as /^text$/i)"
 #~ msgstr ""

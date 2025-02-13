@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-02-12 00:41+0000\n"
+"POT-Creation-Date: 2025-02-13 00:44+0000\n"
 "PO-Revision-Date: 2020-06-13 21:18+0300\n"
 "Last-Translator: Marek Laane <qiilaq69@gmail.com>\n"
 "Language-Team: Estonian <kde-et@lists.linux.ee>\n"
@@ -8593,12 +8593,20 @@ msgstr "Kirjutada võivad ainult autoriseeritud isikud."
 msgid "Private Room:"
 msgstr "Privaattuba:"
 
-#: widgets/dialogs/createnewchannelwidget.cpp:71
+#: widgets/dialogs/createnewchannelwidget.cpp:73
+#, kde-format
+msgctxt "@label:textbox"
+msgid ""
+"End-to-end encrypted channel. Search will not work with encrypted channel "
+"and notifications may not show the messages content."
+msgstr ""
+
+#: widgets/dialogs/createnewchannelwidget.cpp:79
 #, kde-format
 msgid "Encrypted Room:"
 msgstr "Krüptitud tuba:"
 
-#: widgets/dialogs/createnewchannelwidget.cpp:75
+#: widgets/dialogs/createnewchannelwidget.cpp:86
 #, fuzzy, kde-format
 #| msgid "Moderator"
 msgid "Federated:"
@@ -11261,13 +11269,26 @@ msgstr "Anna sõnumist teada"
 msgid "Your email has been queued for sending."
 msgstr ""
 
-#: widgets/room/roomwidget.cpp:527
+#: widgets/room/roomwidget.cpp:512
+#, fuzzy, kde-format
+#| msgid "Direct Messages can not be archived"
+msgid "Encrypted content cannot be searched."
+msgstr "Otsesõnumeid ei saa arhiveerida"
+
+#: widgets/room/roomwidget.cpp:512
+#, fuzzy, kde-format
+#| msgid "Search Message"
+msgctxt "@title:window"
+msgid "Search Message"
+msgstr "Sõnumi otsimine"
+
+#: widgets/room/roomwidget.cpp:531
 #, kde-format
 msgid ""
 "A workspace admin needs to install and configure a conference call apps."
 msgstr ""
 
-#: widgets/room/roomwidget.cpp:528
+#: widgets/room/roomwidget.cpp:532
 #, kde-format
 msgctxt "@title:window"
 msgid "Video Conference"
@@ -12549,6 +12570,11 @@ msgstr ""
 msgid "Improve list of user in room."
 msgstr ""
 
+#: widgets/whatsnew/whatsnewtranslations.cpp:166
+#, kde-format
+msgid "Search in encrypted room is not possible."
+msgstr ""
+
 #: widgets/whatsnew/whatsnewwidget.cpp:44
 #, fuzzy, kde-format
 #| msgid "Version %1"
@@ -13471,9 +13497,6 @@ msgstr "Vigade parandamine"
 #~ msgid_plural "%1 attachments in room (Total: %2)"
 #~ msgstr[0] "%1 manus toas (kokku: %2)"
 #~ msgstr[1] "%1 manust toas (kokku: %2)"
-
-#~ msgid "Search Message"
-#~ msgstr "Sõnumi otsimine"
 
 #~ msgid "Search Word... (You can use regular expression as /^text$/i)"
 #~ msgstr "Sõna otsimine ... (kasutada võib regulaaravaldisi, nt /^text$/i)"
