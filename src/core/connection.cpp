@@ -463,7 +463,6 @@ void Connection::filesInRoom(const QByteArray &roomId, const QString &type, int 
     }
 }
 
-// FIXME
 void Connection::membersInRoom(const QByteArray &roomId, const QString &type, int offset, int count)
 {
     auto job = new ChannelMembersJob(this);
