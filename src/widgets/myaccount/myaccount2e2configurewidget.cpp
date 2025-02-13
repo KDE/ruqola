@@ -6,6 +6,7 @@
 
 #include "myaccount2e2configurewidget.h"
 #include "connection.h"
+#include "ddpapi/ddpclient.h"
 #include "misc/methodcalljob.h"
 #include "misc/passwordconfirmwidget.h"
 #include "rocketchataccount.h"

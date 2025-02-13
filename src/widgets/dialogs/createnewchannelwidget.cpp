@@ -35,6 +35,7 @@ CreateNewChannelWidget::CreateNewChannelWidget(RocketChatAccount *account, QWidg
     mMainLayout->addRow(i18n("Name:"), mChannelName);
 
     mTopicLineEdit->setObjectName(QStringLiteral("mTopicLineEdit"));
+    mTopicLineEdit->setClearButtonEnabled(true);
     mMainLayout->addRow(i18n("Topic:"), mTopicLineEdit);
     KLineEditEventHandler::catchReturnKey(mTopicLineEdit);
 
