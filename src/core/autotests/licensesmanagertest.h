@@ -16,4 +16,7 @@ public:
     ~LicensesManagerTest() override = default;
 private Q_SLOTS:
     void shouldHaveDefaultValues();
+
+    void shouldParseLicenses_data();
+    void shouldParseLicenses();
 };
