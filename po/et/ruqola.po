@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-02-13 00:44+0000\n"
+"POT-Creation-Date: 2025-02-14 00:43+0000\n"
 "PO-Revision-Date: 2020-06-13 21:18+0300\n"
 "Last-Translator: Marek Laane <qiilaq69@gmail.com>\n"
 "Language-Team: Estonian <kde-et@lists.linux.ee>\n"
@@ -219,7 +219,7 @@ msgid "Description"
 msgstr "Kirjeldus"
 
 #: core/apps/appsmarketplaceinfo.cpp:410
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:163
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:141
 #, fuzzy, kde-format
 #| msgid "Version %1"
 msgid "Version"
@@ -2014,7 +2014,7 @@ msgid "Direct message"
 msgstr "Otsesõnum kellelegi"
 
 #: core/roominfo/roominfo.cpp:145
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:135
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:111
 #, fuzzy, kde-format
 #| msgctxt "Open channel"
 #| msgid "Open Channel"
@@ -3015,7 +3015,7 @@ msgid "Administrator"
 msgstr ""
 
 #: widgets/administratordialog/administratorwidget.cpp:50
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:258
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:236
 #, kde-format
 msgid "Server Info"
 msgstr "Serveri teave"
@@ -3929,7 +3929,7 @@ msgid "Only authorized users can write new messages"
 msgstr "Kas tõesti kustutada see sõnum?"
 
 #: widgets/administratordialog/rooms/administratorroomseditwidget.cpp:67
-#: widgets/dialogs/createnewchannelwidget.cpp:66
+#: widgets/dialogs/createnewchannelwidget.cpp:67
 #, fuzzy, kde-format
 #| msgid "Only Authorized people can write."
 msgctxt "@label:textbox"
@@ -4014,210 +4014,210 @@ msgctxt "@action"
 msgid "Copy"
 msgstr "Kopeeri"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:131
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:107
 #, fuzzy, kde-format
 #| msgid "License"
 msgid "Licenses"
 msgstr "Litsents"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:136
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:112
 #, fuzzy, kde-format
 #| msgid "Audio:"
 msgid "Auditing"
 msgstr "Heli:"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:137
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:113
 #, fuzzy, kde-format
 #| msgid "Pinned Messages"
 msgid "Canned Responses"
 msgstr "Kinnistatud sõnumid"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:138
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:114
 #, kde-format
 msgid "Engagement Dashboard"
 msgstr ""
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:139
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:115
 #, fuzzy, kde-format
 #| msgid "Clear Recents"
 msgid "Read Receipts"
 msgstr "Puhasta hiljutised"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:164
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:142
 #, kde-format
 msgid "Deployment ID"
 msgstr ""
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:184
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:162
 #, fuzzy, kde-format
 #| msgid "Rocket.Chat Server"
 msgid "Rocket.Chat App Users"
 msgstr "Rocket.Chati server"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:185
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:163
 #, fuzzy, kde-format
 #| msgid "Invite Users"
 msgid "Total Uploads Size"
 msgstr "Kutsu kasutajaid"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:186
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:164
 #, kde-format
 msgid "Total Uploads"
 msgstr ""
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:188
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:166
 #, fuzzy, kde-format
 #| msgid "Invite Users"
 msgid "Online Users"
 msgstr "Kutsu kasutajaid"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:189
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:167
 #, fuzzy, kde-format
 #| msgid "Invite Users"
 msgid "Away Users"
 msgstr "Kutsu kasutajaid"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:190
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:168
 #, fuzzy, kde-format
 #| msgid "Offline"
 msgid "Offline Users"
 msgstr "Pole võrgus"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:191
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:169
 #, fuzzy, kde-format
 #| msgid "Invite Users"
 msgid "Busy Users"
 msgstr "Kutsu kasutajaid"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:193
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:171
 #, fuzzy, kde-format
 #| msgid "Add Users"
 msgid "Activated Users"
 msgstr "Kasutajate lisamine"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:194
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:172
 #, kde-format
 msgid "Activated Guests"
 msgstr ""
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:195
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:173
 #, fuzzy, kde-format
 #| msgid "Add Users"
 msgid "Deactivated Users"
 msgstr "Kasutajate lisamine"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:197
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:175
 #, fuzzy, kde-format
 #| msgid "Quit Channel"
 msgid "Total Channels"
 msgstr "Välju kanalilt"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:198
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:176
 #, fuzzy, kde-format
 #| msgid "Rooms"
 msgid "Total Rooms"
 msgstr "Toad"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:199
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:177
 #, kde-format
 msgid "Total Private Groups"
 msgstr ""
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:200
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:178
 #, fuzzy, kde-format
 #| msgctxt "@title:window"
 #| msgid "Create Video Message"
 msgid "Total Direct Message Rooms"
 msgstr "Videosõnumi loomine"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:201
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:179
 #, fuzzy, kde-format
 #| msgid "Threads"
 msgid "Total Threads"
 msgstr "Lõimed"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:202
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:180
 #, fuzzy, kde-format
 #| msgid "Invite Users"
 msgid "Total Users"
 msgstr "Kutsu kasutajaid"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:203
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:181
 #, fuzzy, kde-format
 #| msgctxt "@title:window"
 #| msgid "Show Discussions"
 msgid "Total Discussions"
 msgstr "Diskussioonide näitamine"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:204
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:182
 #, fuzzy, kde-format
 #| msgid "Quit Channel"
 msgid "Total Omnichannel Rooms"
 msgstr "Välju kanalilt"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:206
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:184
 #, fuzzy, kde-format
 #| msgid "All Messages"
 msgid "Total Messages"
 msgstr "Kõik sõnumid"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:207
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:185
 #, fuzzy, kde-format
 #| msgid "Quit Channel"
 msgid "Total Messages in Channels"
 msgstr "Välju kanalilt"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:208
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:186
 #, kde-format
 msgid "Total Messages in Private Groups"
 msgstr ""
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:209
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:187
 #, fuzzy, kde-format
 #| msgctxt "@title:window"
 #| msgid "Create Video Message"
 msgid "Total Messages in Direct Messages"
 msgstr "Videosõnumi loomine"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:210
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:188
 #, fuzzy, kde-format
 #| msgid "Invite Users"
 msgid "Total Connected Users"
 msgstr "Kutsu kasutajaid"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:244
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:222
 #, kde-format
 msgid "OS Release"
 msgstr ""
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:245
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:223
 #, kde-format
 msgid "OS Type"
 msgstr ""
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:246
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:224
 #, kde-format
 msgid "OS Platform"
 msgstr ""
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:247
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:225
 #, fuzzy, kde-format
 #| msgid "Invite Users"
 msgid "OS Total Memory"
 msgstr "Kutsu kasutajaid"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:248
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:226
 #, kde-format
 msgid "OS Free Memory"
 msgstr ""
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:263
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:241
 #, fuzzy, kde-format
 #| msgid "Message"
 msgid "Usage"
 msgstr "Sõnum"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:269
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:247
 #, kde-format
 msgid "Runtime Environment"
 msgstr ""
@@ -8515,12 +8515,12 @@ msgctxt "@title:window"
 msgid "Create Channel"
 msgstr "Kanali loomine"
 
-#: widgets/dialogs/createnewchannelwidget.cpp:38
+#: widgets/dialogs/createnewchannelwidget.cpp:39
 #, kde-format
 msgid "Topic:"
 msgstr ""
 
-#: widgets/dialogs/createnewchannelwidget.cpp:42
+#: widgets/dialogs/createnewchannelwidget.cpp:43
 #: widgets/dialogs/createnewdiscussionwidget.cpp:51
 #, fuzzy, kde-format
 #| msgid "Invite Users"
@@ -8528,47 +8528,47 @@ msgctxt "@info:placeholder"
 msgid "Invite users…"
 msgstr "Kutsu kasutajaid"
 
-#: widgets/dialogs/createnewchannelwidget.cpp:43
+#: widgets/dialogs/createnewchannelwidget.cpp:44
 #, kde-format
 msgid "Users:"
 msgstr "Kasutajad:"
 
-#: widgets/dialogs/createnewchannelwidget.cpp:47
-#: widgets/dialogs/createnewchannelwidget.cpp:51
+#: widgets/dialogs/createnewchannelwidget.cpp:48
+#: widgets/dialogs/createnewchannelwidget.cpp:52
 #, fuzzy, kde-format
 #| msgid "Do you want to delete this message?"
 msgctxt "@info:tooltip"
 msgid "Anyone can send new messages"
 msgstr "Kas tõesti kustutada see sõnum?"
 
-#: widgets/dialogs/createnewchannelwidget.cpp:48
+#: widgets/dialogs/createnewchannelwidget.cpp:49
 #, kde-format
 msgid "Read-Only:"
 msgstr "Kirjutuskaitstud:"
 
-#: widgets/dialogs/createnewchannelwidget.cpp:49
-#: widgets/dialogs/createnewchannelwidget.cpp:52
+#: widgets/dialogs/createnewchannelwidget.cpp:50
+#: widgets/dialogs/createnewchannelwidget.cpp:53
 #, fuzzy, kde-format
 #| msgid "Do you want to delete this message?"
 msgctxt "@label:textbox"
 msgid "Anyone can send new messages"
 msgstr "Kas tõesti kustutada see sõnum?"
 
-#: widgets/dialogs/createnewchannelwidget.cpp:51
+#: widgets/dialogs/createnewchannelwidget.cpp:52
 #, fuzzy, kde-format
 #| msgid "Do you want to delete this message?"
 msgctxt "@info:tooltip"
 msgid "Only owners can send new messages"
 msgstr "Kas tõesti kustutada see sõnum?"
 
-#: widgets/dialogs/createnewchannelwidget.cpp:52
+#: widgets/dialogs/createnewchannelwidget.cpp:53
 #, fuzzy, kde-format
 #| msgid "Do you want to delete this message?"
 msgctxt "@label:textbox"
 msgid "Only owners can send new messages"
 msgstr "Kas tõesti kustutada see sõnum?"
 
-#: widgets/dialogs/createnewchannelwidget.cpp:58
+#: widgets/dialogs/createnewchannelwidget.cpp:59
 #, kde-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -8576,24 +8576,24 @@ msgid ""
 "able to reply"
 msgstr ""
 
-#: widgets/dialogs/createnewchannelwidget.cpp:59
+#: widgets/dialogs/createnewchannelwidget.cpp:60
 #, kde-format
 msgid "Broadcast:"
 msgstr "Üldlevi:"
 
-#: widgets/dialogs/createnewchannelwidget.cpp:63
+#: widgets/dialogs/createnewchannelwidget.cpp:64
 #, fuzzy, kde-format
 #| msgid "Only Authorized people can write."
 msgctxt "@info:tooltip"
 msgid "Only invited people can join"
 msgstr "Kirjutada võivad ainult autoriseeritud isikud."
 
-#: widgets/dialogs/createnewchannelwidget.cpp:65
+#: widgets/dialogs/createnewchannelwidget.cpp:66
 #, kde-format
 msgid "Private Room:"
 msgstr "Privaattuba:"
 
-#: widgets/dialogs/createnewchannelwidget.cpp:73
+#: widgets/dialogs/createnewchannelwidget.cpp:74
 #, kde-format
 msgctxt "@label:textbox"
 msgid ""
@@ -8601,12 +8601,12 @@ msgid ""
 "and notifications may not show the messages content."
 msgstr ""
 
-#: widgets/dialogs/createnewchannelwidget.cpp:79
+#: widgets/dialogs/createnewchannelwidget.cpp:80
 #, kde-format
 msgid "Encrypted Room:"
 msgstr "Krüptitud tuba:"
 
-#: widgets/dialogs/createnewchannelwidget.cpp:86
+#: widgets/dialogs/createnewchannelwidget.cpp:87
 #, fuzzy, kde-format
 #| msgid "Moderator"
 msgid "Federated:"
@@ -9861,21 +9861,21 @@ msgstr "Konto nimi"
 msgid "Check New Version"
 msgstr "Versioon %1"
 
-#: widgets/myaccount/myaccount2e2configurewidget.cpp:22
+#: widgets/myaccount/myaccount2e2configurewidget.cpp:23
 #, fuzzy, kde-format
 #| msgid "Get Avatar"
 msgctxt "@action:button"
 msgid "Reset E2E Key"
 msgstr "Hangi avatar"
 
-#: widgets/myaccount/myaccount2e2configurewidget.cpp:23
+#: widgets/myaccount/myaccount2e2configurewidget.cpp:24
 #, fuzzy, kde-format
 #| msgid "Modify..."
 msgctxt "@action:button"
 msgid "Modify"
 msgstr "Muuda ..."
 
-#: widgets/myaccount/myaccount2e2configurewidget.cpp:31
+#: widgets/myaccount/myaccount2e2configurewidget.cpp:32
 #, kde-format
 msgctxt "@label:textbox"
 msgid ""
@@ -9887,7 +9887,7 @@ msgid ""
 "encryption on."
 msgstr ""
 
-#: widgets/myaccount/myaccount2e2configurewidget.cpp:49
+#: widgets/myaccount/myaccount2e2configurewidget.cpp:50
 #, kde-format
 msgid ""
 "This option will remove your current E2E key and log you out. When you login "
