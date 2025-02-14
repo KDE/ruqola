@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-02-11 02:39+0000\n"
+"POT-Creation-Date: 2025-02-14 02:44+0000\n"
 "PO-Revision-Date: 2025-02-05 10:42+0100\n"
 "Last-Translator: giovanni <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
@@ -3606,7 +3606,7 @@ msgid "Only authorized users can write new messages"
 msgstr "Solmente usatores authorisate pote scriber nove messages"
 
 #: widgets/administratordialog/rooms/administratorroomseditwidget.cpp:67
-#: widgets/dialogs/createnewchannelwidget.cpp:66
+#: widgets/dialogs/createnewchannelwidget.cpp:67
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Just invited people can access this channel."
@@ -7795,55 +7795,55 @@ msgctxt "@title:window"
 msgid "Create Channel"
 msgstr "Crea Canal"
 
-#: widgets/dialogs/createnewchannelwidget.cpp:38
+#: widgets/dialogs/createnewchannelwidget.cpp:39
 #, kde-format
 msgid "Topic:"
 msgstr "Topico:"
 
-#: widgets/dialogs/createnewchannelwidget.cpp:42
+#: widgets/dialogs/createnewchannelwidget.cpp:43
 #: widgets/dialogs/createnewdiscussionwidget.cpp:51
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Invite users…"
 msgstr "Invita Usatores…"
 
-#: widgets/dialogs/createnewchannelwidget.cpp:43
+#: widgets/dialogs/createnewchannelwidget.cpp:44
 #, kde-format
 msgid "Users:"
 msgstr "Usatores:"
 
-#: widgets/dialogs/createnewchannelwidget.cpp:47
-#: widgets/dialogs/createnewchannelwidget.cpp:51
+#: widgets/dialogs/createnewchannelwidget.cpp:48
+#: widgets/dialogs/createnewchannelwidget.cpp:52
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Anyone can send new messages"
 msgstr "Alcun pote inviar nove messages"
 
-#: widgets/dialogs/createnewchannelwidget.cpp:48
+#: widgets/dialogs/createnewchannelwidget.cpp:49
 #, kde-format
 msgid "Read-Only:"
 msgstr "Solmente de lectura:"
 
-#: widgets/dialogs/createnewchannelwidget.cpp:49
-#: widgets/dialogs/createnewchannelwidget.cpp:52
+#: widgets/dialogs/createnewchannelwidget.cpp:50
+#: widgets/dialogs/createnewchannelwidget.cpp:53
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Anyone can send new messages"
 msgstr "Alcun pote inviar nove messages"
 
-#: widgets/dialogs/createnewchannelwidget.cpp:51
+#: widgets/dialogs/createnewchannelwidget.cpp:52
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Only owners can send new messages"
 msgstr "Solmente proprietarios pote inviar nove messages"
 
-#: widgets/dialogs/createnewchannelwidget.cpp:52
+#: widgets/dialogs/createnewchannelwidget.cpp:53
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Only owners can send new messages"
 msgstr "Solmente proprietarios pote inviar nove messages"
 
-#: widgets/dialogs/createnewchannelwidget.cpp:58
+#: widgets/dialogs/createnewchannelwidget.cpp:59
 #, kde-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -7853,28 +7853,28 @@ msgstr ""
 "Solmente usatores authorisate pote scriber nove messages, ma le altere "
 "usatores potera responder"
 
-#: widgets/dialogs/createnewchannelwidget.cpp:59
+#: widgets/dialogs/createnewchannelwidget.cpp:60
 #, kde-format
 msgid "Broadcast:"
 msgstr "Broadcast(diffusion):"
 
-#: widgets/dialogs/createnewchannelwidget.cpp:63
+#: widgets/dialogs/createnewchannelwidget.cpp:64
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Only invited people can join"
 msgstr "Solmente personas invitate pote unir se"
 
-#: widgets/dialogs/createnewchannelwidget.cpp:65
+#: widgets/dialogs/createnewchannelwidget.cpp:66
 #, kde-format
 msgid "Private Room:"
 msgstr "Sala Private:"
 
-#: widgets/dialogs/createnewchannelwidget.cpp:71
+#: widgets/dialogs/createnewchannelwidget.cpp:72
 #, kde-format
 msgid "Encrypted Room:"
 msgstr "Sala Cryptate:"
 
-#: widgets/dialogs/createnewchannelwidget.cpp:75
+#: widgets/dialogs/createnewchannelwidget.cpp:76
 #, kde-format
 msgid "Federated:"
 msgstr "Federate:"

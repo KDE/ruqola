@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-02-11 02:39+0000\n"
+"POT-Creation-Date: 2025-02-14 02:44+0000\n"
 "PO-Revision-Date: 2024-10-08 22:03+0300\n"
 "Last-Translator: Moo\n"
 "Language-Team: none\n"
@@ -3746,7 +3746,7 @@ msgid "Only authorized users can write new messages"
 msgstr "Ar norite ištrinti šią žinutę?"
 
 #: widgets/administratordialog/rooms/administratorroomseditwidget.cpp:67
-#: widgets/dialogs/createnewchannelwidget.cpp:66
+#: widgets/dialogs/createnewchannelwidget.cpp:67
 #, fuzzy, kde-format
 #| msgid "Only Authorized people can write."
 msgctxt "@label:textbox"
@@ -8207,12 +8207,12 @@ msgctxt "@title:window"
 msgid "Create Channel"
 msgstr "Sukurti kanalą"
 
-#: widgets/dialogs/createnewchannelwidget.cpp:38
+#: widgets/dialogs/createnewchannelwidget.cpp:39
 #, kde-format
 msgid "Topic:"
 msgstr ""
 
-#: widgets/dialogs/createnewchannelwidget.cpp:42
+#: widgets/dialogs/createnewchannelwidget.cpp:43
 #: widgets/dialogs/createnewdiscussionwidget.cpp:51
 #, fuzzy, kde-format
 #| msgid "Search Messages..."
@@ -8220,47 +8220,47 @@ msgctxt "@info:placeholder"
 msgid "Invite users…"
 msgstr "Ieškoti žinučių..."
 
-#: widgets/dialogs/createnewchannelwidget.cpp:43
+#: widgets/dialogs/createnewchannelwidget.cpp:44
 #, kde-format
 msgid "Users:"
 msgstr "Naudotojai:"
 
-#: widgets/dialogs/createnewchannelwidget.cpp:47
-#: widgets/dialogs/createnewchannelwidget.cpp:51
+#: widgets/dialogs/createnewchannelwidget.cpp:48
+#: widgets/dialogs/createnewchannelwidget.cpp:52
 #, fuzzy, kde-format
 #| msgid "Only you can see this message"
 msgctxt "@info:tooltip"
 msgid "Anyone can send new messages"
 msgstr "Šią žinutę matote tik jūs"
 
-#: widgets/dialogs/createnewchannelwidget.cpp:48
+#: widgets/dialogs/createnewchannelwidget.cpp:49
 #, kde-format
 msgid "Read-Only:"
 msgstr "Tik skaitymui:"
 
-#: widgets/dialogs/createnewchannelwidget.cpp:49
-#: widgets/dialogs/createnewchannelwidget.cpp:52
+#: widgets/dialogs/createnewchannelwidget.cpp:50
+#: widgets/dialogs/createnewchannelwidget.cpp:53
 #, fuzzy, kde-format
 #| msgid "Only you can see this message"
 msgctxt "@label:textbox"
 msgid "Anyone can send new messages"
 msgstr "Šią žinutę matote tik jūs"
 
-#: widgets/dialogs/createnewchannelwidget.cpp:51
+#: widgets/dialogs/createnewchannelwidget.cpp:52
 #, fuzzy, kde-format
 #| msgid "Do you want to delete this message?"
 msgctxt "@info:tooltip"
 msgid "Only owners can send new messages"
 msgstr "Ar norite ištrinti šią žinutę?"
 
-#: widgets/dialogs/createnewchannelwidget.cpp:52
+#: widgets/dialogs/createnewchannelwidget.cpp:53
 #, fuzzy, kde-format
 #| msgid "Do you want to delete this message?"
 msgctxt "@label:textbox"
 msgid "Only owners can send new messages"
 msgstr "Ar norite ištrinti šią žinutę?"
 
-#: widgets/dialogs/createnewchannelwidget.cpp:58
+#: widgets/dialogs/createnewchannelwidget.cpp:59
 #, kde-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -8268,29 +8268,29 @@ msgid ""
 "able to reply"
 msgstr ""
 
-#: widgets/dialogs/createnewchannelwidget.cpp:59
+#: widgets/dialogs/createnewchannelwidget.cpp:60
 #, kde-format
 msgid "Broadcast:"
 msgstr ""
 
-#: widgets/dialogs/createnewchannelwidget.cpp:63
+#: widgets/dialogs/createnewchannelwidget.cpp:64
 #, fuzzy, kde-format
 #| msgid "Only Authorized people can write."
 msgctxt "@info:tooltip"
 msgid "Only invited people can join"
 msgstr "Gali rašyti tik įgalioti asmenys."
 
-#: widgets/dialogs/createnewchannelwidget.cpp:65
+#: widgets/dialogs/createnewchannelwidget.cpp:66
 #, kde-format
 msgid "Private Room:"
 msgstr "Privatus kambarys:"
 
-#: widgets/dialogs/createnewchannelwidget.cpp:71
+#: widgets/dialogs/createnewchannelwidget.cpp:72
 #, kde-format
 msgid "Encrypted Room:"
 msgstr "Šifruotas kambarys:"
 
-#: widgets/dialogs/createnewchannelwidget.cpp:75
+#: widgets/dialogs/createnewchannelwidget.cpp:76
 #, kde-format
 msgid "Federated:"
 msgstr ""

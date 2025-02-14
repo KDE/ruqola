@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-02-11 02:39+0000\n"
+"POT-Creation-Date: 2025-02-14 02:44+0000\n"
 "PO-Revision-Date: 2025-01-31 00:27+0100\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
@@ -3619,7 +3619,7 @@ msgid "Only authorized users can write new messages"
 msgstr "Baimena duten erabiltzaileek bakarrik idatz ditzakete mezuak"
 
 #: widgets/administratordialog/rooms/administratorroomseditwidget.cpp:67
-#: widgets/dialogs/createnewchannelwidget.cpp:66
+#: widgets/dialogs/createnewchannelwidget.cpp:67
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Just invited people can access this channel."
@@ -7978,55 +7978,55 @@ msgctxt "@title:window"
 msgid "Create Channel"
 msgstr "Sortu kanala"
 
-#: widgets/dialogs/createnewchannelwidget.cpp:38
+#: widgets/dialogs/createnewchannelwidget.cpp:39
 #, kde-format
 msgid "Topic:"
 msgstr "Gaia:"
 
-#: widgets/dialogs/createnewchannelwidget.cpp:42
+#: widgets/dialogs/createnewchannelwidget.cpp:43
 #: widgets/dialogs/createnewdiscussionwidget.cpp:51
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Invite users…"
 msgstr "Gonbidatu erabiltzaileak..."
 
-#: widgets/dialogs/createnewchannelwidget.cpp:43
+#: widgets/dialogs/createnewchannelwidget.cpp:44
 #, kde-format
 msgid "Users:"
 msgstr "Erabiltzaileak:"
 
-#: widgets/dialogs/createnewchannelwidget.cpp:47
-#: widgets/dialogs/createnewchannelwidget.cpp:51
+#: widgets/dialogs/createnewchannelwidget.cpp:48
+#: widgets/dialogs/createnewchannelwidget.cpp:52
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Anyone can send new messages"
 msgstr "Edozeinek mezuak bidal ditzake"
 
-#: widgets/dialogs/createnewchannelwidget.cpp:48
+#: widgets/dialogs/createnewchannelwidget.cpp:49
 #, kde-format
 msgid "Read-Only:"
 msgstr "Irakurtzeko soilik:"
 
-#: widgets/dialogs/createnewchannelwidget.cpp:49
-#: widgets/dialogs/createnewchannelwidget.cpp:52
+#: widgets/dialogs/createnewchannelwidget.cpp:50
+#: widgets/dialogs/createnewchannelwidget.cpp:53
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Anyone can send new messages"
 msgstr "Edozeinek mezu berriak bidal ditzake"
 
-#: widgets/dialogs/createnewchannelwidget.cpp:51
+#: widgets/dialogs/createnewchannelwidget.cpp:52
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Only owners can send new messages"
 msgstr "Jabeek bakarrik bidal ditzakete mezu berriak"
 
-#: widgets/dialogs/createnewchannelwidget.cpp:52
+#: widgets/dialogs/createnewchannelwidget.cpp:53
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Only owners can send new messages"
 msgstr "Jabeek bakarrik bidal ditzakete mezu berriak"
 
-#: widgets/dialogs/createnewchannelwidget.cpp:58
+#: widgets/dialogs/createnewchannelwidget.cpp:59
 #, kde-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -8036,28 +8036,28 @@ msgstr ""
 "Baimena duten erabiltzaileek bakarrik sor ditzakete mezuak, baina beste "
 "erabiltzaileak erantzuteko gai izango dira"
 
-#: widgets/dialogs/createnewchannelwidget.cpp:59
+#: widgets/dialogs/createnewchannelwidget.cpp:60
 #, kde-format
 msgid "Broadcast:"
 msgstr "Igorpena:"
 
-#: widgets/dialogs/createnewchannelwidget.cpp:63
+#: widgets/dialogs/createnewchannelwidget.cpp:64
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Only invited people can join"
 msgstr "Gonbidatutako jendea bakarrik elkartu daiteke"
 
-#: widgets/dialogs/createnewchannelwidget.cpp:65
+#: widgets/dialogs/createnewchannelwidget.cpp:66
 #, kde-format
 msgid "Private Room:"
 msgstr "Gela pribatua:"
 
-#: widgets/dialogs/createnewchannelwidget.cpp:71
+#: widgets/dialogs/createnewchannelwidget.cpp:72
 #, kde-format
 msgid "Encrypted Room:"
 msgstr "Zifratutako gela:"
 
-#: widgets/dialogs/createnewchannelwidget.cpp:75
+#: widgets/dialogs/createnewchannelwidget.cpp:76
 #, kde-format
 msgid "Federated:"
 msgstr "Federatua:"
