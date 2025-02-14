@@ -1020,7 +1020,6 @@ void RocketChatAccount::updateUserInRoom(const QJsonObject &roomData)
 
 void RocketChatAccount::parseUsersForRooms(const QJsonObject &obj, const QByteArray &channelInfoIdentifier)
 {
-    qDebug() << " OBJ " << obj;
     UsersForRoomModel *usersModelForRoom = roomModel()->usersModelForRoom(channelInfoIdentifier);
     if (usersModelForRoom) {
         usersModelForRoom->parseUsersForRooms(obj, mUserModel, true);
