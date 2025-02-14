@@ -1166,8 +1166,9 @@ void RocketChatAccount::loadMoreUsersInRoom(const QByteArray &roomId, Room::Room
         } else {
             restApi()->membersInRoom(roomId, Room::roomFromRoomType(channelType), offset, qMin(50, usersModelForRoom->total() - offset));
         }
-#endif
+#else
         restApi()->membersInRoom(roomId, Room::roomFromRoomType(channelType), offset, qMin(50, usersModelForRoom->total() - offset));
+#endif
     }
 }
 
