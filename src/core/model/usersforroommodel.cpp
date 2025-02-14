@@ -77,6 +77,8 @@ QVariant UsersForRoomModel::data(const QModelIndex &index, int role) const
         return Utils::presenceStatusToString(user.status()); // Translate it ?
     case AvatarInfo:
         return QVariant::fromValue(avatarInfo(user));
+    case Roles:
+        return user.roles();
     case Qt::DecorationRole:
         return QIcon::fromTheme(user.iconFromStatus());
     }
@@ -157,12 +159,20 @@ void UsersForRoomModel::parseUsersForRooms(const QJsonObject &root, UsersModel *
                 const QByteArray id = userObject["_id"_L1].toString().toLatin1();
                 const double utcOffset = userObject["utcOffset"_L1].toDouble();
                 const QString status = userObject["status"_L1].toString();
+                const QJsonArray rolesArray = userObject["roles"_L1].toArray();
+                QStringList roles;
+                const int total = rolesArray.size();
+                roles.reserve(total);
+                for (int i = 0; i < total; ++i) {
+                    roles.append(rolesArray.at(i).toString());
+                }
                 User user;
                 user.setName(name);
                 user.setUserName(userName);
                 user.setUserId(id);
                 user.setUtcOffset(utcOffset);
                 user.setStatus(Utils::presenceStatusFromString(status));
+                user.setRoles(roles, {}); // TODO add roleInfo
                 if (user.isValid()) {
                     users.append(std::move(user));
                 } else {

@@ -9,7 +9,10 @@
 #include "misc/avatarcachemanager.h"
 #include "model/usersforroommodel.h"
 
+#include <QAbstractItemView>
+#include <QHelpEvent>
 #include <QPainter>
+#include <QToolTip>
 
 UsersForRoomModelDelegate::UsersForRoomModelDelegate(QObject *parent)
     : QItemDelegate{parent}
@@ -82,4 +85,16 @@ QSize UsersForRoomModelDelegate::sizeHint(const QStyleOptionViewItem &option, co
 {
     const QSize size = QItemDelegate::sizeHint(option, index);
     return size + QSize(0, 4 * option.widget->devicePixelRatioF());
+}
+
+bool UsersForRoomModelDelegate::helpEvent(QHelpEvent *helpEvent, QAbstractItemView *view, const QStyleOptionViewItem &, const QModelIndex &index)
+{
+    if (helpEvent->type() == QEvent::ToolTip) {
+        const QStringList roles = index.data(UsersForRoomModel::Roles).toStringList();
+        if (!roles.isEmpty()) {
+            QToolTip::showText(helpEvent->globalPos(), roles.join(QLatin1Char(',')), view);
+            return true;
+        }
+    }
+    return false;
 }

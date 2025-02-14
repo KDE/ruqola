@@ -24,6 +24,7 @@ public:
         DisplayName,
         Status,
         AvatarInfo,
+        Roles,
     };
     Q_ENUM(UsersForRoomRoles)
 

@@ -22,6 +22,8 @@ public:
 
     [[nodiscard]] QSize sizeHint(const QStyleOptionViewItem &option, const QModelIndex &index) const override;
 
+    [[nodiscard]] bool helpEvent(QHelpEvent *event, QAbstractItemView *view, const QStyleOptionViewItem &option, const QModelIndex &index) override;
+
 private:
     AvatarCacheManager *const mAvatarCacheManager;
 };
