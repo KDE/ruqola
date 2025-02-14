@@ -5,11 +5,11 @@
 */
 
 #pragma once
-#include "libruqola_private_export.h"
+#include "libruqolacore_export.h"
 #include <QJsonObject>
 #include <QString>
 
-class LIBRUQOLACORE_TESTS_EXPORT LicensesManager
+class LIBRUQOLACORE_EXPORT LicensesManager
 {
 public:
     LicensesManager();
