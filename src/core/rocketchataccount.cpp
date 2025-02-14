@@ -991,7 +991,11 @@ void RocketChatAccount::membersInRoom(const QByteArray &roomId, Room::RoomType c
         usersModelForRoom->setLoadMoreUsersInProgress(true);
     }
     if (hasAtLeastVersion(7, 3, 0)) {
-        restApi()->membersInRoomByRole(roomId);
+        if (channelType != Room::RoomType::Direct) {
+            restApi()->membersInRoomByRole(roomId);
+        } else {
+            restApi()->membersInRoom(roomId, Room::roomFromRoomType(channelType));
+        }
     } else {
         restApi()->membersInRoom(roomId, Room::roomFromRoomType(channelType));
     }
