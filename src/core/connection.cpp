@@ -471,7 +471,7 @@ void Connection::membersInRoomByRole(const QByteArray &roomId, int offset, int c
     parameters.setCount(count);
     parameters.setOffset(offset);
     job->setQueryParameters(parameters);
-    // TODO FIXME connect(job, &RoomsMembersOrderedByRoleJob::roomsMembersOrderedByRoleDone, this, &Connection::channelMembersDone);
+    connect(job, &RoomsMembersOrderedByRoleJob::roomsMembersOrderedByRoleDone, this, &Connection::channelMembersDone);
     initializeRestApiJob(job);
     RoomsMembersOrderedByRoleJob::RoomsMembersOrderedByRoleJobInfo info;
     info.count = count;
