@@ -22,6 +22,9 @@ void UsersInRoomComboBox::fillCombobox()
     addItem(i18n("Disconnected"), QStringLiteral("offline"));
     addItem(i18n("Away"), QStringLiteral("away"));
     addItem(i18n("Busy"), QStringLiteral("busy"));
+    addItem(i18n("Owners"), QStringLiteral("owners"));
+
+    // TODO add owners
 }
 
 #include "moc_usersinroomcombobox.cpp"

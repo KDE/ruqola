@@ -13,6 +13,16 @@ class LIBRUQOLACORE_EXPORT UsersForRoomFilterProxyModel : public QSortFilterProx
 {
     Q_OBJECT
 public:
+    enum class FilterUserType : uint8_t {
+        All,
+        Online,
+        Offline,
+        Away,
+        Busy,
+        Owners,
+    };
+    Q_ENUM(FilterUserType);
+
     explicit UsersForRoomFilterProxyModel(QObject *parent = nullptr);
     ~UsersForRoomFilterProxyModel() override;
     void setFilterString(const QString &string);

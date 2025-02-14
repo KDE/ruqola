@@ -77,6 +77,7 @@ bool UsersForRoomFilterProxyModel::filterAcceptsRow(int source_row, const QModel
     if (mStatusType.isEmpty()) {
         return QSortFilterProxyModel::filterAcceptsRow(source_row, source_parent);
     }
+    // TODO add owner support
     const QModelIndex sourceIndex = sourceModel()->index(source_row, 0, source_parent);
     const QString statusType = sourceIndex.data(UsersForRoomModel::Status).toString();
     return (mStatusType == statusType) && QSortFilterProxyModel::filterAcceptsRow(source_row, source_parent);
