@@ -990,7 +990,11 @@ void RocketChatAccount::membersInRoom(const QByteArray &roomId, Room::RoomType c
         }
         usersModelForRoom->setLoadMoreUsersInProgress(true);
     }
-    restApi()->membersInRoom(roomId, Room::roomFromRoomType(channelType));
+    if (hasAtLeastVersion(7, 3, 0)) {
+        restApi()->membersInRoomByRole(roomId);
+    } else {
+        restApi()->membersInRoom(roomId, Room::roomFromRoomType(channelType));
+    }
 }
 
 void RocketChatAccount::updateUserInRoom(const QJsonObject &roomData)
@@ -1012,7 +1016,7 @@ void RocketChatAccount::updateUserInRoom(const QJsonObject &roomData)
 
 void RocketChatAccount::parseUsersForRooms(const QJsonObject &obj, const QByteArray &channelInfoIdentifier)
 {
-    // FIXME channelInfo
+    qDebug() << " OBJ " << obj;
     UsersForRoomModel *usersModelForRoom = roomModel()->usersModelForRoom(channelInfoIdentifier);
     if (usersModelForRoom) {
         usersModelForRoom->parseUsersForRooms(obj, mUserModel, true);
@@ -1160,15 +1164,11 @@ void RocketChatAccount::loadMoreUsersInRoom(const QByteArray &roomId, Room::Room
     const int offset = usersModelForRoom->usersCount();
     if (offset < usersModelForRoom->total()) {
         usersModelForRoom->setLoadMoreUsersInProgress(true);
-#if 0
         if (hasAtLeastVersion(7, 3, 0)) {
             restApi()->membersInRoomByRole(roomId, offset, qMin(50, usersModelForRoom->total() - offset));
         } else {
             restApi()->membersInRoom(roomId, Room::roomFromRoomType(channelType), offset, qMin(50, usersModelForRoom->total() - offset));
         }
-#else
-        restApi()->membersInRoom(roomId, Room::roomFromRoomType(channelType), offset, qMin(50, usersModelForRoom->total() - offset));
-#endif
     }
 }
 
