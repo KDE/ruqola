@@ -5,6 +5,7 @@
 */
 
 #include "usersinroomcomboboxtest.h"
+#include "model/usersforroomfilterproxymodel.h"
 #include "room/usersinroomcombobox.h"
 #include <QTest>
 QTEST_MAIN(UsersInRoomComboBoxTest)
@@ -15,10 +16,9 @@ UsersInRoomComboBoxTest::UsersInRoomComboBoxTest(QObject *parent)
 
 void UsersInRoomComboBoxTest::shouldHaveDefaultValues()
 {
-    UsersInRoomComboBox w;
+    UsersInRoomComboBox w(false);
     QVERIFY(w.count() > 0);
-    QVERIFY(w.currentData().toString().isEmpty());
-    // TODO
+    QCOMPARE(w.currentData().value<UsersForRoomFilterProxyModel::FilterUserType>(), UsersForRoomFilterProxyModel::FilterUserType::All);
 }
 
 #include "moc_usersinroomcomboboxtest.cpp"

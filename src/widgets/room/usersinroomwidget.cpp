@@ -25,7 +25,7 @@ UsersInRoomWidget::UsersInRoomWidget(RocketChatAccount *account, QWidget *parent
     , mSearchLineEdit(new QLineEdit(this))
     , mMessageListInfo(new QLabel(this))
     , mUsersForRoomFilterProxy(new UsersForRoomFilterProxyModel(this))
-    , mUsersInRoomComboBox(new UsersInRoomComboBox(this))
+    , mUsersInRoomComboBox(new UsersInRoomComboBox(account ? account->hasAtLeastVersion(7, 3, 0) : false, this))
     , mRocketChatAccount(account)
 {
     auto mainLayout = new QVBoxLayout(this);
@@ -79,6 +79,7 @@ UsersInRoomWidget::~UsersInRoomWidget()
 
 void UsersInRoomWidget::slotChangeStatusType(int index)
 {
+    Q_UNUSED(index);
     mUsersForRoomFilterProxy->setStatusType(mUsersInRoomComboBox->currentData().value<UsersForRoomFilterProxyModel::FilterUserType>());
 }
 

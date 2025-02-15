@@ -13,9 +13,9 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT UsersInRoomComboBox : public QComboBox
 {
     Q_OBJECT
 public:
-    explicit UsersInRoomComboBox(QWidget *parent = nullptr);
+    explicit UsersInRoomComboBox(bool hasOwnerSupport, QWidget *parent = nullptr);
     ~UsersInRoomComboBox() override;
 
 private:
-    LIBRUQOLAWIDGETS_NO_EXPORT void fillCombobox();
+    LIBRUQOLAWIDGETS_NO_EXPORT void fillCombobox(bool hasOwnerSupport);
 };

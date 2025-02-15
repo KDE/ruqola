@@ -8,22 +8,24 @@
 #include "model/usersforroomfilterproxymodel.h"
 #include <KLocalizedString>
 
-UsersInRoomComboBox::UsersInRoomComboBox(QWidget *parent)
+UsersInRoomComboBox::UsersInRoomComboBox(bool hasOwnerSupport, QWidget *parent)
     : QComboBox(parent)
 {
-    fillCombobox();
+    fillCombobox(hasOwnerSupport);
 }
 
 UsersInRoomComboBox::~UsersInRoomComboBox() = default;
 
-void UsersInRoomComboBox::fillCombobox()
+void UsersInRoomComboBox::fillCombobox(bool hasOwnerSupport)
 {
     addItem(i18n("All"), QVariant::fromValue(UsersForRoomFilterProxyModel::FilterUserType::All));
     addItem(i18n("Connected"), QVariant::fromValue(UsersForRoomFilterProxyModel::FilterUserType::Online));
     addItem(i18n("Disconnected"), QVariant::fromValue(UsersForRoomFilterProxyModel::FilterUserType::Offline));
     addItem(i18n("Away"), QVariant::fromValue(UsersForRoomFilterProxyModel::FilterUserType::Away));
     addItem(i18n("Busy"), QVariant::fromValue(UsersForRoomFilterProxyModel::FilterUserType::Busy));
-    addItem(i18n("Owners"), QVariant::fromValue(UsersForRoomFilterProxyModel::FilterUserType::Owners));
+    if (hasOwnerSupport) {
+        addItem(i18n("Owners"), QVariant::fromValue(UsersForRoomFilterProxyModel::FilterUserType::Owners));
+    }
 }
 
 #include "moc_usersinroomcombobox.cpp"
