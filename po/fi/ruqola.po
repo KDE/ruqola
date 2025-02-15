@@ -1,13 +1,13 @@
 # Copyright (C) 2024 This file is copyright:
 # This file is distributed under the same license as the ruqola package.
-# SPDX-FileCopyrightText: 2020, 2021, 2023, 2024 Tommi Nieminen <translator@legisign.org>
+# SPDX-FileCopyrightText: 2020, 2021, 2023, 2024, 2025 Tommi Nieminen <translator@legisign.org>
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-02-14 02:44+0000\n"
-"PO-Revision-Date: 2024-12-07 18:13+0200\n"
+"PO-Revision-Date: 2025-02-04 19:21+0200\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
 "Language: fi\n"
@@ -4016,6 +4016,11 @@ msgid ""
 "E2E encryption, Rocket.Chat will not be able to restore access to any "
 "encrypted room that has no member online."
 msgstr ""
+"Nykyisen E2E-avaimen nollaaminen kirjaa käyttäjän ulos. Uudelleen "
+"kirjauduttaessa Rocket.Chat luo uuden avaimen ja palauttaa käyttäjän pääsyn "
+"salattuihin huoneisiin, joissa on paikalla vähintään yksi käyttäjä. E2E-"
+"salauksen luonteen takia Rocket.Chat ei voi palauttaa pääsyä salattuihin "
+"huoneisiin, joissa ei käyttäjiä ole paikalla."
 
 #: widgets/administratordialog/users/administratoruserswidget.cpp:439
 #, kde-format
@@ -4452,7 +4457,7 @@ msgstr "Käyttäjätietojen lataus"
 #: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:123
 #, kde-format
 msgid "Slack Bridge"
-msgstr ""
+msgstr "Slack-silta"
 
 #: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:124
 #: widgets/applicationssettingsdialog/applicationssettingsdescriptiontabwidget.cpp:42
@@ -4692,6 +4697,11 @@ msgid ""
 "This may be needed if a user is renamed on CAS, but may also allow people to "
 "take control of Rocket.Chat accounts by renaming their own CAS users."
 msgstr ""
+"Jos on valittu, Rocket.Chat luottaa, että mikä tahansa CAS-käyttäjätunnus "
+"kuuluu Rocket.Chatissä samalle käyttäjälle.\n"
+"Tätä voi tarvita, jos CAS:ssä käyttäjän nimeä on muutettu, mutta se voi myös "
+"mahdollistaa jonkun ottavan Rocket.Chat-tilejä haltuun muuttamalla omien CAS-"
+"käyttäjiensä nimiä."
 
 #: widgets/administratorsettingsdialog/cas/cassettingswidget.cpp:56
 #, kde-format
@@ -6872,7 +6882,7 @@ msgstr "Haluaa käyttää: %1"
 #: widgets/applicationssettingsdialog/applicationssettingspricecombobox.cpp:16
 #, kde-format
 msgid "Premium"
-msgstr ""
+msgstr "Premium"
 
 #: widgets/applicationssettingsdialog/applicationssettingsdelegate.cpp:160
 #: widgets/applicationssettingsdialog/applicationssettingsstatuscombobox.cpp:14
@@ -6894,16 +6904,14 @@ msgid "Description"
 msgstr "Kuvaus"
 
 #: widgets/applicationssettingsdialog/applicationssettingsdescriptiontabwidget.cpp:39
-#, fuzzy, kde-format
-#| msgid "Version"
+#, kde-format
 msgid "Versions"
-msgstr "Versio"
+msgstr "Versiot"
 
 #: widgets/applicationssettingsdialog/applicationssettingsdescriptiontabwidget.cpp:45
-#, fuzzy, kde-format
-#| msgid "&Settings"
+#, kde-format
 msgid "Settings"
-msgstr "&Asetukset"
+msgstr "Asetukset"
 
 #: widgets/applicationssettingsdialog/applicationssettingsdialog.cpp:27
 #, kde-format
@@ -6949,10 +6957,9 @@ msgid "%1 Caller: %2"
 msgstr "%1: %2"
 
 #: widgets/applicationssettingsdialog/applicationssettingslogswidget.cpp:73
-#, fuzzy, kde-format
-#| msgid "No room found"
+#, kde-format
 msgid "No logs info found."
-msgstr "Huonetta ei löytynyt"
+msgstr "Lokitietoa ei löytynyt."
 
 #: widgets/applicationssettingsdialog/applicationssettingspricecombobox.cpp:13
 #, kde-format
@@ -6988,12 +6995,10 @@ msgid "Search Requested Applications"
 msgstr "Etsi pyydettyjä sovelluksia"
 
 #: widgets/applicationssettingsdialog/applicationssettingssearchwidget.cpp:89
-#, fuzzy, kde-format
-#| msgctxt "@info:placeholder"
-#| msgid "Search Applications"
+#, kde-format
 msgctxt "@info:placeholder"
 msgid "Search Private Applications"
-msgstr "Etsi sovelluksia"
+msgstr "Etsi yksityissovelluksia"
 
 #: widgets/applicationssettingsdialog/applicationssettingssortingcombobox.cpp:12
 #, kde-format
@@ -7023,13 +7028,12 @@ msgstr "Kaikki tilat"
 #: widgets/applicationssettingsdialog/applicationssettingsversionwidget.cpp:71
 #, kde-format
 msgid "No release information provided"
-msgstr ""
+msgstr "Julkaisutietoja ei ole tarjottu"
 
 #: widgets/applicationssettingsdialog/applicationssettingsversionwidget.cpp:80
-#, fuzzy, kde-format
-#| msgid "No room found"
+#, kde-format
 msgid "No version info found."
-msgstr "Huonetta ei löytynyt"
+msgstr "Versiotietoa ei löytynyt."
 
 #: widgets/applicationssettingsdialog/appscountinfowidget.cpp:47
 #, kde-format
@@ -7042,8 +7046,8 @@ msgstr[1] ""
 #, kde-format
 msgid "%1 private app enabled"
 msgid_plural "%1 private apps enabled"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%1 yksityissovellus käytössä"
+msgstr[1] "%1 yksityissovellusta käytössä"
 
 #: widgets/bannerinfodialog/bannerinfodialog.cpp:27
 #, fuzzy, kde-format
@@ -10712,12 +10716,10 @@ msgid "Installed Applications…"
 msgstr "Asennetut sovellukset…"
 
 #: widgets/ruqolamainwindow.cpp:551
-#, fuzzy, kde-format
-#| msgctxt "@action"
-#| msgid "Applications…"
+#, kde-format
 msgctxt "@action"
 msgid "Private Applications…"
-msgstr "Sovellukset…"
+msgstr "Yksityissovellukset…"
 
 #: widgets/ruqolamainwindow.cpp:556
 #, kde-format
@@ -10835,11 +10837,10 @@ msgstr "Luo työryhmä"
 #: widgets/ruqolamainwindow.cpp:952
 #, kde-format
 msgid "Cannot write to log file %1"
-msgstr ""
+msgstr "Ei voida kirjoittaa lokitiedostoon %1"
 
 #: widgets/ruqolamainwindow.cpp:952
-#, fuzzy, kde-format
-#| msgid "Show Channel Log"
+#, kde-format
 msgctxt "@title:window"
 msgid "Show Channel Log"
 msgstr "Näytä kanavaloki"
