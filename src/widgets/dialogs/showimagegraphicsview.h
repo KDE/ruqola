@@ -12,6 +12,7 @@
 #include "libruqolawidgets_private_export.h"
 #include "showimagewidget.h"
 class RocketChatAccount;
+class QLabel;
 
 class LIBRUQOLAWIDGETS_TESTS_EXPORT ShowImageGraphicsView : public QGraphicsView
 {

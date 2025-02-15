@@ -11,10 +11,8 @@
 #include "attachments/fileattachments.h"
 #include "libruqolawidgets_private_export.h"
 
-class QLabel;
 class QSlider;
 class QDoubleSpinBox;
-class QMovie;
 class ShowImageGraphicsView;
 class RocketChatAccount;
 class ShowImagePrevNextImageWidget;
