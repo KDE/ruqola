@@ -45,5 +45,5 @@ protected:
     [[nodiscard]] bool lessThan(const QModelIndex &left, const QModelIndex &right) const override;
 
 private:
-    UsersForRoomFilterProxyModel::FilterUserType mStatusType;
+    UsersForRoomFilterProxyModel::FilterUserType mStatusType = UsersForRoomFilterProxyModel::FilterUserType::All;
 };
