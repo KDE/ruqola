@@ -85,11 +85,12 @@ bool UsersForRoomFilterProxyModel::filterAcceptsRow(int source_row, const QModel
         break;
     }
 
+    const QModelIndex sourceIndex = sourceModel()->index(source_row, 0, source_parent);
     if (mStatusType == UsersForRoomFilterProxyModel::FilterUserType::Owners) {
-        // TODO
+        const QStringList roles = sourceIndex.data(UsersForRoomModel::Roles).toStringList();
+        return roles.contains(QStringLiteral("owner")) && QSortFilterProxyModel::filterAcceptsRow(source_row, source_parent);
     } else {
         UsersForRoomFilterProxyModel::FilterUserType userStatus = UsersForRoomFilterProxyModel::FilterUserType::All;
-        const QModelIndex sourceIndex = sourceModel()->index(source_row, 0, source_parent);
         const User::PresenceStatus statusType = sourceIndex.data(UsersForRoomModel::Status).value<User::PresenceStatus>();
         switch (statusType) {
         case User::PresenceStatus::Online:
