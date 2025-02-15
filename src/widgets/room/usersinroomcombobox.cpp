@@ -5,6 +5,7 @@
 */
 
 #include "usersinroomcombobox.h"
+#include "model/usersforroomfilterproxymodel.h"
 #include <KLocalizedString>
 
 UsersInRoomComboBox::UsersInRoomComboBox(QWidget *parent)
@@ -17,14 +18,12 @@ UsersInRoomComboBox::~UsersInRoomComboBox() = default;
 
 void UsersInRoomComboBox::fillCombobox()
 {
-    addItem(i18n("All"), QString());
-    addItem(i18n("Connected"), QStringLiteral("online"));
-    addItem(i18n("Disconnected"), QStringLiteral("offline"));
-    addItem(i18n("Away"), QStringLiteral("away"));
-    addItem(i18n("Busy"), QStringLiteral("busy"));
-    addItem(i18n("Owners"), QStringLiteral("owners"));
-
-    // TODO add owners
+    addItem(i18n("All"), QVariant::fromValue(UsersForRoomFilterProxyModel::FilterUserType::All));
+    addItem(i18n("Connected"), QVariant::fromValue(UsersForRoomFilterProxyModel::FilterUserType::Online));
+    addItem(i18n("Disconnected"), QVariant::fromValue(UsersForRoomFilterProxyModel::FilterUserType::Offline));
+    addItem(i18n("Away"), QVariant::fromValue(UsersForRoomFilterProxyModel::FilterUserType::Away));
+    addItem(i18n("Busy"), QVariant::fromValue(UsersForRoomFilterProxyModel::FilterUserType::Busy));
+    addItem(i18n("Owners"), QVariant::fromValue(UsersForRoomFilterProxyModel::FilterUserType::Owners));
 }
 
 #include "moc_usersinroomcombobox.cpp"

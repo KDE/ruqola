@@ -33,7 +33,7 @@ public:
     [[nodiscard]] int total() const;
     [[nodiscard]] int numberOfUsers() const;
 
-    void setStatusType(const QString &statusType);
+    void setStatusType(UsersForRoomFilterProxyModel::FilterUserType statusType);
 
     void clearFilter();
 Q_SIGNALS:
@@ -45,5 +45,5 @@ protected:
     [[nodiscard]] bool lessThan(const QModelIndex &left, const QModelIndex &right) const override;
 
 private:
-    QString mStatusType;
+    UsersForRoomFilterProxyModel::FilterUserType mStatusType;
 };

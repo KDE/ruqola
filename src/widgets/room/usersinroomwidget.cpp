@@ -79,7 +79,7 @@ UsersInRoomWidget::~UsersInRoomWidget()
 
 void UsersInRoomWidget::slotChangeStatusType(int index)
 {
-    mUsersForRoomFilterProxy->setStatusType(mUsersInRoomComboBox->itemData(index).toString());
+    mUsersForRoomFilterProxy->setStatusType(mUsersInRoomComboBox->currentData().value<UsersForRoomFilterProxyModel::FilterUserType>());
 }
 
 void UsersInRoomWidget::slotTextChanged(const QString &str)

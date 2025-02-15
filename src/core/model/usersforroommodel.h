@@ -22,6 +22,7 @@ public:
         Name,
         IconStatus,
         DisplayName,
+        StatusStr,
         Status,
         AvatarInfo,
         Roles,

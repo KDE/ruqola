@@ -74,6 +74,8 @@ QVariant UsersForRoomModel::data(const QModelIndex &index, int role) const
     case Name:
         return user.name();
     case Status:
+        return QVariant::fromValue(user.status());
+    case StatusStr:
         return Utils::presenceStatusToString(user.status()); // Translate it ?
     case AvatarInfo:
         return QVariant::fromValue(avatarInfo(user));

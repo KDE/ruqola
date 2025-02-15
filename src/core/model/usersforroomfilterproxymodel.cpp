@@ -22,7 +22,7 @@ UsersForRoomFilterProxyModel::~UsersForRoomFilterProxyModel() = default;
 void UsersForRoomFilterProxyModel::clearFilter()
 {
     setFilterFixedString({});
-    mStatusType.clear();
+    mStatusType = UsersForRoomFilterProxyModel::FilterUserType::All;
 }
 
 void UsersForRoomFilterProxyModel::setFilterString(const QString &string)
@@ -49,7 +49,7 @@ bool UsersForRoomFilterProxyModel::lessThan(const QModelIndex &left, const QMode
     }
 }
 
-void UsersForRoomFilterProxyModel::setStatusType(const QString &statusType)
+void UsersForRoomFilterProxyModel::setStatusType(UsersForRoomFilterProxyModel::FilterUserType statusType)
 {
     if (mStatusType != statusType) {
         mStatusType = statusType;
@@ -74,13 +74,43 @@ int UsersForRoomFilterProxyModel::numberOfUsers() const
 
 bool UsersForRoomFilterProxyModel::filterAcceptsRow(int source_row, const QModelIndex &source_parent) const
 {
-    if (mStatusType.isEmpty()) {
+    switch (mStatusType) {
+    case UsersForRoomFilterProxyModel::FilterUserType::All:
         return QSortFilterProxyModel::filterAcceptsRow(source_row, source_parent);
+    case UsersForRoomFilterProxyModel::FilterUserType::Online:
+    case UsersForRoomFilterProxyModel::FilterUserType::Offline:
+    case UsersForRoomFilterProxyModel::FilterUserType::Away:
+    case UsersForRoomFilterProxyModel::FilterUserType::Busy:
+    case UsersForRoomFilterProxyModel::FilterUserType::Owners:
+        break;
     }
-    // TODO add owner support
-    const QModelIndex sourceIndex = sourceModel()->index(source_row, 0, source_parent);
-    const QString statusType = sourceIndex.data(UsersForRoomModel::Status).toString();
-    return (mStatusType == statusType) && QSortFilterProxyModel::filterAcceptsRow(source_row, source_parent);
+
+    if (mStatusType == UsersForRoomFilterProxyModel::FilterUserType::Owners) {
+        // TODO
+    } else {
+        UsersForRoomFilterProxyModel::FilterUserType userStatus = UsersForRoomFilterProxyModel::FilterUserType::All;
+        const QModelIndex sourceIndex = sourceModel()->index(source_row, 0, source_parent);
+        const User::PresenceStatus statusType = sourceIndex.data(UsersForRoomModel::Status).value<User::PresenceStatus>();
+        switch (statusType) {
+        case User::PresenceStatus::Online:
+            userStatus = UsersForRoomFilterProxyModel::FilterUserType::Online;
+            break;
+        case User::PresenceStatus::Busy:
+            userStatus = UsersForRoomFilterProxyModel::FilterUserType::Busy;
+            break;
+        case User::PresenceStatus::Away:
+            userStatus = UsersForRoomFilterProxyModel::FilterUserType::Away;
+            break;
+        case User::PresenceStatus::Offline:
+            userStatus = UsersForRoomFilterProxyModel::FilterUserType::Offline;
+            break;
+        case User::PresenceStatus::Unknown:
+            break;
+        }
+        return (mStatusType == userStatus) && QSortFilterProxyModel::filterAcceptsRow(source_row, source_parent);
+    }
+
+    return QSortFilterProxyModel::filterAcceptsRow(source_row, source_parent);
 }
 
 #include "moc_usersforroomfilterproxymodel.cpp"
