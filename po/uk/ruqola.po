@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-02-15 00:42+0000\n"
-"PO-Revision-Date: 2025-02-13 09:46+0200\n"
+"POT-Creation-Date: 2025-02-16 00:41+0000\n"
+"PO-Revision-Date: 2025-02-15 09:27+0200\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
 "Language: uk\n"
@@ -1913,12 +1913,12 @@ msgstr "Бот"
 msgid "Online"
 msgstr "У мережі"
 
-#: core/utils.cpp:87 core/utils.cpp:348 widgets/room/usersinroomcombobox.cpp:24
+#: core/utils.cpp:87 core/utils.cpp:348 widgets/room/usersinroomcombobox.cpp:25
 #, kde-format
 msgid "Busy"
 msgstr "Зайнято"
 
-#: core/utils.cpp:89 core/utils.cpp:350 widgets/room/usersinroomcombobox.cpp:23
+#: core/utils.cpp:89 core/utils.cpp:350 widgets/room/usersinroomcombobox.cpp:24
 #, kde-format
 msgid "Away"
 msgstr "Відсутність"
@@ -3198,7 +3198,7 @@ msgstr "Показ повідомлень модерування"
 #: widgets/dialogs/searchmessagewidget.cpp:184
 #: widgets/dialogs/showlistmessagebasewidget.cpp:103
 #: widgets/discussions/showdiscussionswidget.cpp:88
-#: widgets/room/usersinroomwidget.cpp:142
+#: widgets/room/usersinroomwidget.cpp:143
 #, kde-format
 msgid "Loading…"
 msgstr "Завантаження…"
@@ -3206,7 +3206,7 @@ msgstr "Завантаження…"
 #: widgets/administratordialog/moderationconsole/moderationmessageswidget.cpp:52
 #: widgets/dialogs/searchmessagewidget.cpp:188
 #: widgets/dialogs/showlistmessagebasewidget.cpp:105
-#: widgets/room/usersinroomwidget.cpp:144
+#: widgets/room/usersinroomwidget.cpp:145
 #, kde-format
 msgid "No Message found"
 msgstr "Відповідного повідомлення не знайдено"
@@ -4035,7 +4035,7 @@ msgstr "Скористайтеся «,» для відокремлення ад�
 #: widgets/administratordialog/users/administratoruserstabwidget.cpp:33
 #: widgets/dialogs/showattachmentcombobox.cpp:19
 #: widgets/dialogs/showtheadscombobox.cpp:13
-#: widgets/room/usersinroomcombobox.cpp:20
+#: widgets/room/usersinroomcombobox.cpp:21
 #: widgets/teams/teamchannelscombobox.cpp:19
 #, kde-format
 msgid "All"
@@ -8655,7 +8655,7 @@ msgstr[3] "%1 долучення у кімнаті (загалом: %2)"
 #: widgets/discussions/showdiscussionswidget.cpp:99
 #: widgets/misc/searchtreebasewidget.cpp:78
 #: widgets/room/usersinroomflowwidget.cpp:129
-#: widgets/room/usersinroomwidget.cpp:153
+#: widgets/room/usersinroomwidget.cpp:154
 #, kde-format
 msgid "(Click here for Loading more…)"
 msgstr "(Натисніть тут, щоб завантажити ще…)"
@@ -10749,21 +10749,20 @@ msgctxt "@info:tooltip"
 msgid "Cancel Upload"
 msgstr "Скасувати вивантаження"
 
-#: widgets/room/usersinroomcombobox.cpp:21
+#: widgets/room/usersinroomcombobox.cpp:22
 #, kde-format
 msgid "Connected"
 msgstr "З'єднано"
 
-#: widgets/room/usersinroomcombobox.cpp:22
+#: widgets/room/usersinroomcombobox.cpp:23
 #, kde-format
 msgid "Disconnected"
 msgstr "Від'єднано"
 
-#: widgets/room/usersinroomcombobox.cpp:25
-#, fuzzy, kde-format
-#| msgid "Owner"
+#: widgets/room/usersinroomcombobox.cpp:27
+#, kde-format
 msgid "Owners"
-msgstr "Власник"
+msgstr "Власники"
 
 #: widgets/room/usersinroomdialog.cpp:27
 #, kde-format
@@ -10917,7 +10916,7 @@ msgctxt "@action"
 msgid "Report User"
 msgstr "Скарга на користувача"
 
-#: widgets/room/usersinroomwidget.cpp:151
+#: widgets/room/usersinroomwidget.cpp:152
 #, kde-format
 msgid "%1 User in room (Total: %2)"
 msgid_plural "%1 Users in room (Total: %2)"
@@ -11936,10 +11935,9 @@ msgid "Search in encrypted room is not possible."
 msgstr "Пошук у зашифрованій кімнаті неможливий."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:167
-#, fuzzy, kde-format
-#| msgid "Improve list of user in room."
+#, kde-format
 msgid "Show roles for users in rooms."
-msgstr "Удосконалено список користувачів у кімнаті."
+msgstr "Реалізовано показ ролей користувачів у кімнатах."
 
 #: widgets/whatsnew/whatsnewwidget.cpp:44
 #, kde-format

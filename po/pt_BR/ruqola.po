@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-02-14 00:43+0000\n"
+"POT-Creation-Date: 2025-02-16 00:41+0000\n"
 "PO-Revision-Date: 2023-06-07 13:29-0300\n"
 "Last-Translator: Luiz Fernando Ranghetti <elchevive@opensuse.org>\n"
 "Language-Team: Brazilian Portuguese <kde-i18n-pt_BR@kde.org>\n"
@@ -1983,12 +1983,12 @@ msgstr "Bot"
 msgid "Online"
 msgstr "Conectado"
 
-#: core/utils.cpp:87 core/utils.cpp:348 widgets/room/usersinroomcombobox.cpp:24
+#: core/utils.cpp:87 core/utils.cpp:348 widgets/room/usersinroomcombobox.cpp:25
 #, kde-format
 msgid "Busy"
 msgstr "Ocupado"
 
-#: core/utils.cpp:89 core/utils.cpp:350 widgets/room/usersinroomcombobox.cpp:23
+#: core/utils.cpp:89 core/utils.cpp:350 widgets/room/usersinroomcombobox.cpp:24
 #, kde-format
 msgid "Away"
 msgstr "Ausente"
@@ -3310,7 +3310,7 @@ msgstr "Mostrar mensagens de menções"
 #: widgets/dialogs/searchmessagewidget.cpp:184
 #: widgets/dialogs/showlistmessagebasewidget.cpp:103
 #: widgets/discussions/showdiscussionswidget.cpp:88
-#: widgets/room/usersinroomwidget.cpp:141
+#: widgets/room/usersinroomwidget.cpp:143
 #, fuzzy, kde-format
 #| msgid "Loading..."
 msgid "Loading…"
@@ -3319,7 +3319,7 @@ msgstr "Carregando..."
 #: widgets/administratordialog/moderationconsole/moderationmessageswidget.cpp:52
 #: widgets/dialogs/searchmessagewidget.cpp:188
 #: widgets/dialogs/showlistmessagebasewidget.cpp:105
-#: widgets/room/usersinroomwidget.cpp:143
+#: widgets/room/usersinroomwidget.cpp:145
 #, kde-format
 msgid "No Message found"
 msgstr "Nenhuma mensagem encontrada"
@@ -4201,7 +4201,7 @@ msgstr "Use ',' para separar palavras"
 #: widgets/administratordialog/users/administratoruserstabwidget.cpp:33
 #: widgets/dialogs/showattachmentcombobox.cpp:19
 #: widgets/dialogs/showtheadscombobox.cpp:13
-#: widgets/room/usersinroomcombobox.cpp:20
+#: widgets/room/usersinroomcombobox.cpp:21
 #: widgets/teams/teamchannelscombobox.cpp:19
 #, kde-format
 msgid "All"
@@ -8975,7 +8975,7 @@ msgstr[1] "%1 anexos na sala (total: %2)"
 #: widgets/discussions/showdiscussionswidget.cpp:99
 #: widgets/misc/searchtreebasewidget.cpp:78
 #: widgets/room/usersinroomflowwidget.cpp:129
-#: widgets/room/usersinroomwidget.cpp:152
+#: widgets/room/usersinroomwidget.cpp:154
 #, fuzzy, kde-format
 #| msgid "(Click here for Loading more...)"
 msgid "(Click here for Loading more…)"
@@ -11229,15 +11229,21 @@ msgctxt "@info:tooltip"
 msgid "Cancel Upload"
 msgstr "Total dos envios"
 
-#: widgets/room/usersinroomcombobox.cpp:21
+#: widgets/room/usersinroomcombobox.cpp:22
 #, kde-format
 msgid "Connected"
 msgstr "Conectado"
 
-#: widgets/room/usersinroomcombobox.cpp:22
+#: widgets/room/usersinroomcombobox.cpp:23
 #, kde-format
 msgid "Disconnected"
 msgstr "Desconectado"
+
+#: widgets/room/usersinroomcombobox.cpp:27
+#, fuzzy, kde-format
+#| msgid "Owner"
+msgid "Owners"
+msgstr "Proprietário"
 
 #: widgets/room/usersinroomdialog.cpp:27
 #, kde-format
@@ -11410,7 +11416,7 @@ msgctxt "@action"
 msgid "Report User"
 msgstr "Reportar mensagem"
 
-#: widgets/room/usersinroomwidget.cpp:150
+#: widgets/room/usersinroomwidget.cpp:152
 #, kde-format
 msgid "%1 User in room (Total: %2)"
 msgid_plural "%1 Users in room (Total: %2)"
@@ -12475,6 +12481,11 @@ msgstr ""
 #: widgets/whatsnew/whatsnewtranslations.cpp:166
 #, kde-format
 msgid "Search in encrypted room is not possible."
+msgstr ""
+
+#: widgets/whatsnew/whatsnewtranslations.cpp:167
+#, kde-format
+msgid "Show roles for users in rooms."
 msgstr ""
 
 #: widgets/whatsnew/whatsnewwidget.cpp:44
