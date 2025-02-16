@@ -42,7 +42,7 @@
 #include <private/qtx11extras_p.h>
 #endif
 #endif
-
+using namespace Qt::Literals::StringLiterals;
 int main(int argc, char *argv[])
 {
     KIconTheme::initTheme();
@@ -53,7 +53,7 @@ int main(int argc, char *argv[])
 #if !WITH_DBUS
     KDSingleApplication sapp;
 #endif
-    KLocalizedString::setApplicationDomain(QByteArrayLiteral("ruqola"));
+    KLocalizedString::setApplicationDomain("ruqola"_ba);
 
     KAboutData aboutData(QStringLiteral("ruqola"),
                          i18n("Ruqola"),
@@ -65,8 +65,8 @@ int main(int argc, char *argv[])
     aboutData.addAuthor(i18nc("@info:credit", "Laurent Montel"), i18n("Maintainer"), QStringLiteral("montel@kde.org"));
     aboutData.addAuthor(i18nc("@info:credit", "Riccardo Iaconelli"), i18n("Original Author"), QStringLiteral("riccardo@kde.org"));
 
-    aboutData.setOrganizationDomain(QByteArrayLiteral("kde.org"));
-    aboutData.setProductName(QByteArrayLiteral("ruqola"));
+    aboutData.setOrganizationDomain("kde.org"_ba);
+    aboutData.setProductName("ruqola"_ba);
     aboutData.addCredit(i18nc("@info:credit", "David Faure"), i18n("Bug fixing, delegates etc."), QStringLiteral("faure@kde.org"));
     aboutData.addCredit(i18nc("@info:credit", "Kevin Funk"), i18n("Bug fixing"), QStringLiteral("kfunk@kde.org"));
     aboutData.addCredit(i18nc("@info:credit", "Olivier JG"), i18n("Bug fixing"), QStringLiteral("olivier.de.gaalon@kdab.com"));
