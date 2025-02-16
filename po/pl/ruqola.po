@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-02-14 02:44+0000\n"
-"PO-Revision-Date: 2025-02-01 12:24+0100\n"
+"PO-Revision-Date: 2025-02-15 11:12+0100\n"
 "Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>\n"
 "Language-Team: Polish <kde-i18n-doc@kde.org>\n"
 "Language: pl\n"
@@ -451,7 +451,7 @@ msgstr "Nie udało się zalogować: Nieprawidłowy kod OTP."
 #: core/authenticationmanager.cpp:105
 #, kde-format
 msgid "Login failed: User is not activated."
-msgstr "Nie udało się wejść: Użytkownik nie został włączony"
+msgstr "Nie udało się zalogować: Użytkownik nie został włączony"
 
 #: core/authenticationmanager.cpp:107
 #, kde-format
