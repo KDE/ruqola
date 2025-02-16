@@ -26,22 +26,25 @@ void CommandsTest::shouldLoadCommands_data()
 {
     QTest::addColumn<QString>("name");
     QTest::addColumn<int>("commandsCount");
+    QTest::addColumn<int>("total");
 
-    QTest::addRow("command1") << QStringLiteral("command1") << 0;
-    QTest::addRow("command2") << QStringLiteral("command2") << 25;
-    QTest::addRow("command3") << QStringLiteral("command3") << 3;
+    QTest::addRow("command1") << QStringLiteral("command1") << 0 << 0;
+    QTest::addRow("command2") << QStringLiteral("command2") << 25 << 25;
+    QTest::addRow("command3") << QStringLiteral("command3") << 3 << 3;
 }
 
 void CommandsTest::shouldLoadCommands()
 {
     QFETCH(QString, name);
     QFETCH(int, commandsCount);
+    QFETCH(int, total);
     const QString originalJsonFile = QLatin1StringView(RUQOLA_DATA_DIR) + "/commands/"_L1 + name + ".json"_L1;
     const QJsonObject obj = AutoTestHelper::loadJsonObject(originalJsonFile);
 
     Commands r;
     r.parseCommands(obj);
     QCOMPARE(r.commandsCount(), commandsCount);
+    QCOMPARE(r.total(), total);
 }
 
 void CommandsTest::shouldLoadPermissions()
