@@ -5,7 +5,6 @@
 */
 
 #include "usersforroommodel.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "ruqola_debug.h"
 #include "usersmodel.h"
@@ -15,6 +14,7 @@ using namespace Qt::Literals::StringLiterals;
 #include <QJsonArray>
 #include <QJsonObject>
 
+using namespace Qt::Literals::StringLiterals;
 UsersForRoomModel::UsersForRoomModel(QObject *parent)
     : QAbstractListModel(parent)
 {
