@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-02-16 00:41+0000\n"
-"PO-Revision-Date: 2025-02-08 19:40+0100\n"
+"PO-Revision-Date: 2025-02-15 18:31+0100\n"
 "Last-Translator: Víctor Rodrigo Córdoba <vrcordoba@gmail.com>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -5030,8 +5030,7 @@ msgid "Access unencrypted content in encrypted rooms"
 msgstr "Acceder a contenido no cifrado en salas cifradas"
 
 #: widgets/administratorsettingsdialog/encryption/encryptionsettingswidget.cpp:21
-#, fuzzy, kde-format
-#| msgid "Mentions"
+#, kde-format
 msgctxt "@option:check"
 msgid "Mentions"
 msgstr "Menciones"
@@ -5069,6 +5068,8 @@ msgid ""
 "Notify people, and highlight user, channel, and team mentions in encrypted "
 "content."
 msgstr ""
+"Notificar personas, y destacar menciones a usuarios, canales y equipos en "
+"contenido cifrado."
 
 #: widgets/administratorsettingsdialog/encryption/encryptionsettingswidget.cpp:56
 #, kde-format
@@ -8189,18 +8190,14 @@ msgid "Private Room:"
 msgstr "Sala privada:"
 
 #: widgets/dialogs/createnewchannelwidget.cpp:74
-#, fuzzy, kde-format
-#| msgctxt "@info:tooltip"
-#| msgid ""
-#| "Messages are end-to-end encrypted, search will not work and notifications "
-#| "may not show message content"
+#, kde-format
 msgctxt "@label:textbox"
 msgid ""
 "End-to-end encrypted channel. Search will not work with encrypted channel "
 "and notifications may not show the messages content."
 msgstr ""
-"Los mensajes están cifrados extremo a extremo, la búsqueda no funcionará y "
-"las notificaciones no mostrarán el contenido del mensaje"
+"Canal cifrado extremo a extremo. La búsqueda no funcionará en canales "
+"cifrados y las notificaciones no mostrarán el contenido del mensaje"
 
 #: widgets/dialogs/createnewchannelwidget.cpp:80
 #, kde-format
@@ -8919,12 +8916,10 @@ msgid "Decode Encryption Key"
 msgstr "Descodificar clave de cifrado"
 
 #: widgets/encryption/e2edisabledialog.cpp:16
-#, fuzzy, kde-format
-#| msgctxt "@option:check"
-#| msgid "Enabled E2E encryption"
+#, kde-format
 msgctxt "@title:window"
 msgid "Disable Encryption"
-msgstr "Cifrado E2E activado"
+msgstr "Desactivar cifrado"
 
 #: widgets/encryption/e2edisablewidget.cpp:23
 #, kde-format
@@ -8935,6 +8930,12 @@ msgid ""
 "If no one is able to access the encrypted content you can reset encryption "
 "keys instead."
 msgstr ""
+"Desactivar el cifrado extremo a extremo comprometerá la privacidad de este "
+"grupo privado. El acceso a todo contenido cifrado se perderá para todos los "
+"miembros del grupo.\n"
+"El cifrado se puede reactivar a posteriori. Proceda con cuidado.\n"
+"Si alguien no puede acceder a contenido cifrado, puede restablecer las "
+"claves de cifrado."
 
 #: widgets/encryption/e2edisablewidget.cpp:36
 #, kde-format
@@ -8942,13 +8943,14 @@ msgid ""
 "Alternatively, resetting encryption keys will keep encryption enabled but "
 "access to previously encrypted content may be lost."
 msgstr ""
+"De manera alternativa, el restablecimiento de las claves de cifrado "
+"mantendrá el cifrado activo pero se perderá el acceso al contenido cifrado "
+"anteriormente."
 
 #: widgets/encryption/e2edisablewidget.cpp:41
-#, fuzzy, kde-format
-#| msgctxt "@action"
-#| msgid "Decode Encryption Key"
+#, kde-format
 msgid "Reset encryption keys"
-msgstr "Descodificar clave de cifrado"
+msgstr "Restablecer claves de cifrado"
 
 #: widgets/encryption/e2epassworddecodekeydialog.cpp:17
 #, kde-format
@@ -9276,7 +9278,7 @@ msgstr "Compacto"
 #: widgets/misc/passwordconfirmwidget.cpp:22
 #, kde-format
 msgid "Your passwords do no match."
-msgstr ""
+msgstr "Sus contraseñas no coinciden."
 
 #: widgets/misc/passwordconfirmwidget.cpp:36
 #, kde-format
@@ -9369,11 +9371,10 @@ msgid "Reset E2E Key"
 msgstr "Reiniciar clave E2E"
 
 #: widgets/myaccount/myaccount2e2configurewidget.cpp:24
-#, fuzzy, kde-format
-#| msgid "Modify…"
+#, kde-format
 msgctxt "@action:button"
 msgid "Modify"
-msgstr "Modificar..."
+msgstr "Modificar"
 
 #: widgets/myaccount/myaccount2e2configurewidget.cpp:32
 #, kde-format
@@ -10655,18 +10656,15 @@ msgid "Your email has been queued for sending."
 msgstr "Su email se ha encolado para ser enviado."
 
 #: widgets/room/roomwidget.cpp:512
-#, fuzzy, kde-format
-#| msgid "Direct Messages can not be archived"
+#, kde-format
 msgid "Encrypted content cannot be searched."
-msgstr "No se pueden archivar los mensajes directos"
+msgstr "No es posible buscar en contenido cifrado."
 
 #: widgets/room/roomwidget.cpp:512
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Search Messages"
+#, kde-format
 msgctxt "@title:window"
 msgid "Search Message"
-msgstr "Buscar mensajes"
+msgstr "Buscar mensaje"
 
 #: widgets/room/roomwidget.cpp:531
 #, kde-format
@@ -10705,10 +10703,9 @@ msgid "Disconnected"
 msgstr "Disconectado"
 
 #: widgets/room/usersinroomcombobox.cpp:27
-#, fuzzy, kde-format
-#| msgid "Owner"
+#, kde-format
 msgid "Owners"
-msgstr "Propietario"
+msgstr "Propietarios"
 
 #: widgets/room/usersinroomdialog.cpp:27
 #, kde-format
@@ -11878,13 +11875,12 @@ msgstr "Mejoras en la lista de usuarios de una sala."
 #: widgets/whatsnew/whatsnewtranslations.cpp:166
 #, kde-format
 msgid "Search in encrypted room is not possible."
-msgstr ""
+msgstr "No es posible buscar en salas cifradas."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:167
-#, fuzzy, kde-format
-#| msgid "Improve list of user in room."
+#, kde-format
 msgid "Show roles for users in rooms."
-msgstr "Mejoras en la lista de usuarios de una sala."
+msgstr "Mostrar los roles de los usuarios en salas."
 
 #: widgets/whatsnew/whatsnewwidget.cpp:44
 #, kde-format
