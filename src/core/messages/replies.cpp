@@ -46,7 +46,7 @@ void Replies::parseReplies(const QJsonArray &replieArray)
     const auto nbReplieArrayCount{replieArray.count()};
     lst.reserve(nbReplieArrayCount);
     for (auto i = 0; i < nbReplieArrayCount; ++i) {
-        lst.append(replieArray.at(i).toVariant().toString().toLatin1());
+        lst.append(replieArray.at(i).toString().toLatin1());
     }
     mReplies = lst;
 }
