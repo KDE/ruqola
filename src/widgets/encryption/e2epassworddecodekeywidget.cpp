@@ -34,6 +34,7 @@ E2ePasswordDecodeKeyWidget::E2ePasswordDecodeKeyWidget(QWidget *parent)
     mainLayout->addWidget(label);
     mPassword->setObjectName(QStringLiteral("mPassword"));
     mainLayout->addWidget(mPassword);
+    mainLayout->addStretch(1);
 }
 
 E2ePasswordDecodeKeyWidget::~E2ePasswordDecodeKeyWidget() = default;
