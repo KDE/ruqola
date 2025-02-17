@@ -103,6 +103,8 @@ ChannelInfoEditableWidget::ChannelInfoEditableWidget(Room *room, RocketChatAccou
     mEncryptedLabel->setToolTip(
         i18nc("@info:tooltip", "Messages are end-to-end encrypted, search will not work and notifications may not show message content"));
 
+    mEncrypted->setEnabled(false);
+
     mSystemMessageCombox->setObjectName(QStringLiteral("mSystemMessageCombox"));
     layout->addRow(i18n("Hide System Messages:"), mSystemMessageCombox);
 
@@ -135,6 +137,10 @@ ChannelInfoEditableWidget::ChannelInfoEditableWidget(Room *room, RocketChatAccou
                 Q_EMIT channelDeleted();
             }
         }
+    });
+
+    connect(mPrivate, &QCheckBox::clicked, this, [this](bool clicked) {
+        mEncrypted->setEnabled(clicked);
     });
 }
 
