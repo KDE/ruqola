@@ -46,7 +46,7 @@ bool RoomsNameExistsJob::start()
     }
     submitGetRequest();
 
-    addStartRestApiInfo(QByteArrayLiteral("RoomsNameExistsJob: Ask if room name already exists"));
+    addStartRestApiInfo("RoomsNameExistsJob: Ask if room name already exists"_ba);
     return true;
 }
 
@@ -54,11 +54,11 @@ void RoomsNameExistsJob::onGetRequestResponse(const QString &replyErrorString, c
 {
     const QJsonObject replyObject = replyJson.object();
     if (replyObject["success"_L1].toBool()) {
-        addLoggerInfo(QByteArrayLiteral("RoomsNameExistsJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
+        addLoggerInfo("RoomsNameExistsJob: success: "_ba + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT roomNameExistsDone(replyObject["exists"_L1].toBool());
     } else {
         emitFailedMessage(replyErrorString, replyObject);
-        addLoggerWarning(QByteArrayLiteral("RoomsNameExistsJob: Problem: ") + replyJson.toJson(QJsonDocument::Indented));
+        addLoggerWarning("RoomsNameExistsJob: Problem: "_ba + replyJson.toJson(QJsonDocument::Indented));
     }
 }
 

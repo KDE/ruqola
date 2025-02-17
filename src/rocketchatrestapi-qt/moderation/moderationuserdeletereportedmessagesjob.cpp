@@ -37,11 +37,11 @@ void ModerationUserDeleteReportedMessagesJob::onPostRequestResponse(const QStrin
     const QJsonObject replyObject = replyJson.object();
 
     if (replyObject["success"_L1].toBool()) {
-        addLoggerInfo(QByteArrayLiteral("ModerationUserDeleteReportedMessagesJob success: ") + replyJson.toJson(QJsonDocument::Indented));
+        addLoggerInfo("ModerationUserDeleteReportedMessagesJob success: "_ba + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT moderationUserDeleteReportedMessagesDone();
     } else {
         emitFailedMessage(replyErrorString, replyObject);
-        addLoggerWarning(QByteArrayLiteral("ModerationUserDeleteReportedMessagesJob: Problem: ") + replyJson.toJson(QJsonDocument::Indented));
+        addLoggerWarning("ModerationUserDeleteReportedMessagesJob: Problem: "_ba + replyJson.toJson(QJsonDocument::Indented));
     }
 }
 

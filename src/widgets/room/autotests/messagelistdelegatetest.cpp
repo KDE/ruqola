@@ -34,8 +34,8 @@ void MessageListDelegateTest::layoutChecks_data()
     QTest::addColumn<bool>("withDateHeader");
 
     Message message;
-    message.setMessageId(QByteArrayLiteral("someNonEmptyId"));
-    message.setUserId(QByteArrayLiteral("dfaureUserId"));
+    message.setMessageId("someNonEmptyId"_ba);
+    message.setUserId("dfaureUserId"_ba);
     message.setUsername(QStringLiteral("dfaure"));
     message.setTimeStamp(QDateTime(QDate(2020, 2, 1), QTime(4, 7, 15)).toMSecsSinceEpoch());
     message.setMessageType(Message::NormalText);

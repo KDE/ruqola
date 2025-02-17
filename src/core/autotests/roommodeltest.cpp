@@ -18,7 +18,7 @@
 
 #include "rocketchataccount.h"
 #include <qglobal.h>
-
+using namespace Qt::Literals::StringLiterals;
 QTEST_GUILESS_MAIN(RoomModelTest)
 
 // TEST signal/slot
@@ -46,7 +46,7 @@ void RoomModelTest::shouldReturnRowCount()
 
     QCOMPARE(sampleModel.rowCount(), 0);
 
-    sampleModel.addRoom(QByteArrayLiteral("myRoomID1"), QStringLiteral("myRoom1"));
+    sampleModel.addRoom("myRoomID1"_ba, QStringLiteral("myRoom1"));
     QCOMPARE(sampleModel.rowCount(), 1);
 
     QCOMPARE(rowInsertedSpy.count(), 1);
@@ -61,7 +61,7 @@ void RoomModelTest::shouldReturnRowCount()
     rowRemovedSpy.clear();
     rowABTRemoved.clear();
 
-    sampleModel.addRoom(QByteArrayLiteral("myRoomID1"), QStringLiteral("bla bla"));
+    sampleModel.addRoom("myRoomID1"_ba, QStringLiteral("bla bla"));
     QCOMPARE(sampleModel.rowCount(), 1);
 
     // Fix it. We remove + re-add after that ! it's not optimal
@@ -75,7 +75,7 @@ void RoomModelTest::shouldReturnRowCount()
     rowRemovedSpy.clear();
     rowABTRemoved.clear();
 
-    sampleModel.addRoom(QByteArrayLiteral("myRoomID2"), QStringLiteral("myRoom2"), true);
+    sampleModel.addRoom("myRoomID2"_ba, QStringLiteral("myRoom2"), true);
     QCOMPARE(sampleModel.rowCount(), 2);
     QCOMPARE(rowInsertedSpy.count(), 1);
     QCOMPARE(rowABTInserted.count(), 1);
@@ -90,12 +90,12 @@ void RoomModelTest::shouldFindRoom()
     RoomModel sampleModel;
     Room *room = nullptr;
 
-    sampleModel.addRoom(QByteArrayLiteral("RA15"), QStringLiteral("master"));
-    room = sampleModel.findRoom(QByteArrayLiteral("RA151100ECE"));
+    sampleModel.addRoom("RA15"_ba, QStringLiteral("master"));
+    room = sampleModel.findRoom("RA151100ECE"_ba);
     QVERIFY(!room);
 
-    sampleModel.addRoom(QByteArrayLiteral("RA151100ECE"), QStringLiteral("myRoom"));
-    room = sampleModel.findRoom(QByteArrayLiteral("RA151100ECE"));
+    sampleModel.addRoom("RA151100ECE"_ba, QStringLiteral("myRoom"));
+    room = sampleModel.findRoom("RA151100ECE"_ba);
     QVERIFY(room);
     QCOMPARE(QStringLiteral("myRoom"), room->name());
 }
@@ -106,10 +106,10 @@ void RoomModelTest::shouldAddRoom()
     Room *room = nullptr;
 
     QCOMPARE(sampleModel.rowCount(), 0);
-    sampleModel.addRoom(QByteArrayLiteral("RA151100ECE"), QStringLiteral("myRoom"));
+    sampleModel.addRoom("RA151100ECE"_ba, QStringLiteral("myRoom"));
     QCOMPARE(sampleModel.rowCount(), 1);
 
-    room = sampleModel.findRoom(QByteArrayLiteral("RA151100ECE"));
+    room = sampleModel.findRoom("RA151100ECE"_ba);
     QVERIFY(room);
     QCOMPARE(QStringLiteral("myRoom"), room->name());
 }
@@ -159,12 +159,12 @@ void RoomModelTest::shouldUpdateRoomFromQJsonObject()
     roomData.insert(QStringLiteral("topic"), topic);
 
     QCOMPARE(sampleModel.rowCount(), 0);
-    sampleModel.addRoom(QByteArrayLiteral("RA151100ECE"), QStringLiteral("myRoom"));
+    sampleModel.addRoom("RA151100ECE"_ba, QStringLiteral("myRoom"));
     QCOMPARE(sampleModel.rowCount(), 1);
 
     QSignalSpy spy(&sampleModel, &RoomModel::dataChanged);
     sampleModel.updateRoom(roomData);
-    room = sampleModel.findRoom(QByteArrayLiteral("RA151100ECE"));
+    room = sampleModel.findRoom("RA151100ECE"_ba);
     QVERIFY(room);
 
     QCOMPARE(name, room->name());
@@ -184,7 +184,7 @@ void RoomModelTest::shouldUpdateSubcriptionActionRemoved()
     input.append(QJsonValue(roomData));
 
     QCOMPARE(sampleModel.rowCount(), 0);
-    sampleModel.addRoom(QByteArrayLiteral("RA151100ECE"), QStringLiteral("myRoom"));
+    sampleModel.addRoom("RA151100ECE"_ba, QStringLiteral("myRoom"));
     QCOMPARE(sampleModel.rowCount(), 1);
     sampleModel.updateSubscription(input);
     QCOMPARE(sampleModel.rowCount(), 0);
@@ -223,7 +223,7 @@ void RoomModelTest::shouldUpdateSubcriptionActionUpdated()
     QJsonObject roomData;
     Room *room = nullptr;
 
-    sampleModel.addRoom(QByteArrayLiteral("RA151100ECE"), QStringLiteral("myRoom"));
+    sampleModel.addRoom("RA151100ECE"_ba, QStringLiteral("myRoom"));
 
     const QString name = QStringLiteral("newName");
     const QString topic = QStringLiteral("myTopic");
@@ -240,7 +240,7 @@ void RoomModelTest::shouldUpdateSubcriptionActionUpdated()
     sampleModel.updateRoom(roomData);
     QCOMPARE(sampleModel.rowCount(), 1);
 
-    room = sampleModel.findRoom(QByteArrayLiteral("RA151100ECE"));
+    room = sampleModel.findRoom("RA151100ECE"_ba);
     QVERIFY(room);
 
     QCOMPARE(name, room->name());
@@ -257,7 +257,7 @@ void RoomModelTest::shouldClear()
     QSignalSpy rowABTInserted(&sampleModel, &RoomModel::rowsAboutToBeInserted);
 
     QCOMPARE(sampleModel.rowCount(), 0);
-    sampleModel.addRoom(QByteArrayLiteral("RA151100ECE"), QStringLiteral("myRoom"));
+    sampleModel.addRoom("RA151100ECE"_ba, QStringLiteral("myRoom"));
     QCOMPARE(sampleModel.rowCount(), 1);
 
     QCOMPARE(rowInsertedSpy.count(), 1);
@@ -293,7 +293,7 @@ void RoomModelTest::shouldReset()
     RoomModel sampleModel;
     // RoomWrapper *sampleWrapper;
 
-    const QByteArray Id = QByteArrayLiteral("RA151100ECE");
+    const QByteArray Id = "RA151100ECE"_ba;
     const QString name = QStringLiteral("myRoom");
     QCOMPARE(sampleModel.rowCount(), 0);
     sampleModel.addRoom(Id, name);
@@ -354,7 +354,7 @@ void RoomModelTest::shouldReturnData()
     const QString name = QStringLiteral("myRoom");
     const bool selected = true;
     const QString roomType = QStringLiteral("p");
-    const QByteArray userId = QByteArrayLiteral("sdfsdfs");
+    const QByteArray userId = "sdfsdfs"_ba;
     const QString userName = QStringLiteral("pp");
     const QString topic = QStringLiteral("topic");
     const QStringList mutedUsers = QStringList{QStringLiteral("mutedUsers"), QStringLiteral("muted2")};
@@ -422,8 +422,8 @@ void RoomModelTest::shouldInsertRoom_data()
 {
     QTest::addColumn<QString>("insertRoomFileName");
     QTest::addColumn<QByteArray>("roomId");
-    QTest::newRow("insertroom1") << QStringLiteral("insertroom1") << QByteArrayLiteral("fooid");
-    QTest::newRow("insertroom2") << QStringLiteral("insertroom2") << QByteArrayLiteral("bla1");
+    QTest::newRow("insertroom1") << QStringLiteral("insertroom1") << "fooid"_ba;
+    QTest::newRow("insertroom2") << QStringLiteral("insertroom2") << "bla1"_ba;
 }
 
 void RoomModelTest::shouldInsertRoom()

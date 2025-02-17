@@ -53,7 +53,7 @@ void RoomStartDiscussionJobTest::shouldGenerateJson()
     QCOMPARE(job.json().toJson(QJsonDocument::Compact),
              QStringLiteral(R"({"prid":"%1","reply":"%2","t_name":"%3"})").arg(QLatin1StringView(pRid), replyMessage, discussionName).toLatin1());
 
-    const QList<QByteArray> users{QByteArrayLiteral("aaa"), QByteArrayLiteral("bbb"), QByteArrayLiteral("ddd")};
+    const QList<QByteArray> users{QByteArrayLiteral("aaa"), QByteArrayLiteral("bbb"), "ddd"_ba};
     job.setUsers(users);
     QCOMPARE(job.json().toJson(QJsonDocument::Compact),
              QStringLiteral(R"({"prid":"%1","reply":"%2","t_name":"%3","users":["aaa","bbb","ddd"]})")

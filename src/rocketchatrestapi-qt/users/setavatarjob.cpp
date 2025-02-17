@@ -87,11 +87,11 @@ void SetAvatarJob::onPostRequestResponse(const QString &replyErrorString, const 
 {
     const QJsonObject replyObject = replyJson.object();
     if (replyObject["success"_L1].toBool()) {
-        addLoggerInfo(QByteArrayLiteral("SetAvatarJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
+        addLoggerInfo("SetAvatarJob: success: "_ba + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT setAvatarDone();
     } else {
         emitFailedMessage(replyErrorString, replyObject);
-        addLoggerWarning(QByteArrayLiteral("SetAvatarJob: Problem: ") + replyJson.toJson(QJsonDocument::Indented));
+        addLoggerWarning("SetAvatarJob: Problem: "_ba + replyJson.toJson(QJsonDocument::Indented));
     }
 }
 

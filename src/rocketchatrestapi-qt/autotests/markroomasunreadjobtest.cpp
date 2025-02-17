@@ -62,7 +62,7 @@ void MarkRoomAsUnReadJobTest::shouldNotStarting()
     QVERIFY(!job.canStart());
     job.setUserId(userId);
     QVERIFY(!job.canStart());
-    const QByteArray roomId = QByteArrayLiteral("foo1");
+    const QByteArray roomId = "foo1"_ba;
     job.setObjectId(roomId);
     QVERIFY(!job.canStart());
     job.setUnReadObject(MarkRoomAsUnReadJob::MarkAsUnReadObject::FromMessage);

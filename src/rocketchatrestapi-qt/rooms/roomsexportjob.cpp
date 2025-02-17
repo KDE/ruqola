@@ -36,11 +36,11 @@ void RoomsExportJob::onPostRequestResponse(const QString &replyErrorString, cons
 {
     const QJsonObject replyObject = replyJson.object();
     if (replyObject["success"_L1].toBool()) {
-        addLoggerInfo(QByteArrayLiteral("RoomsExportJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
+        addLoggerInfo("RoomsExportJob: success: "_ba + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT roomExportDone();
     } else {
         emitFailedMessage(replyErrorString, replyObject);
-        addLoggerWarning(QByteArrayLiteral("RoomsExportJob: problem: ") + replyJson.toJson(QJsonDocument::Indented));
+        addLoggerWarning("RoomsExportJob: problem: "_ba + replyJson.toJson(QJsonDocument::Indented));
     }
 }
 

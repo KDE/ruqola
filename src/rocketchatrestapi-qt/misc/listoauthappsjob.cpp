@@ -33,7 +33,7 @@ bool ListOauthAppsJob::start()
     }
     submitGetRequest();
 
-    addStartRestApiInfo(QByteArrayLiteral("ListOauthAppsJob: Ask settings oauth"));
+    addStartRestApiInfo("ListOauthAppsJob: Ask settings oauth"_ba);
     return true;
 }
 
@@ -42,11 +42,11 @@ void ListOauthAppsJob::onGetRequestResponse(const QString &replyErrorString, con
     const QJsonObject replyObject = replyJson.object();
 
     if (replyObject["success"_L1].toBool()) {
-        addLoggerInfo(QByteArrayLiteral("ListOauthAppsJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
+        addLoggerInfo("ListOauthAppsJob: success: "_ba + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT listOauthDone(replyObject);
     } else {
         emitFailedMessage(replyErrorString, replyObject);
-        addLoggerWarning(QByteArrayLiteral("ListOauthAppsJob: Problem: ") + replyJson.toJson(QJsonDocument::Indented));
+        addLoggerWarning("ListOauthAppsJob: Problem: "_ba + replyJson.toJson(QJsonDocument::Indented));
     }
 }
 

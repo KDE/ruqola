@@ -202,7 +202,7 @@ bool NotificationOptions::NotificationValue::operator==(const NotificationValue 
 
 QByteArray NotificationOptions::NotificationValue::currentValue() const
 {
-    if (preferenceOrigin == QByteArrayLiteral("subscription") && !value.isEmpty()) {
+    if (preferenceOrigin == "subscription"_ba && !value.isEmpty()) {
         return value;
     }
     // Keep compatibility
@@ -212,7 +212,7 @@ QByteArray NotificationOptions::NotificationValue::currentValue() const
     if (preferenceOrigin.isEmpty() && value.isEmpty()) {
         return QByteArray();
     }
-    return QByteArrayLiteral("default");
+    return "default"_ba;
 }
 
 bool NotificationOptions::NotificationValue::isEmpty() const

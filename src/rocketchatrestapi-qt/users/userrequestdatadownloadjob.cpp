@@ -35,12 +35,12 @@ void UserRequestDataDownloadJob::onGetRequestResponse(const QString &replyErrorS
     const QJsonObject replyObject = replyJson.object();
     if (replyObject["success"_L1].toBool()) {
         // qDebug() << " replyObject " << replyObject;
-        addLoggerInfo(QByteArrayLiteral("UserRequestDataDownloadJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
+        addLoggerInfo("UserRequestDataDownloadJob: success: "_ba + replyJson.toJson(QJsonDocument::Indented));
         const QString result = replyObject["result"_L1].toString();
         Q_EMIT userRequestDataDownloadDone(result);
     } else {
         emitFailedMessage(replyErrorString, replyObject);
-        addLoggerWarning(QByteArrayLiteral("UserRequestDataDownloadJob problem: ") + replyJson.toJson(QJsonDocument::Indented));
+        addLoggerWarning("UserRequestDataDownloadJob problem: "_ba + replyJson.toJson(QJsonDocument::Indented));
     }
 }
 

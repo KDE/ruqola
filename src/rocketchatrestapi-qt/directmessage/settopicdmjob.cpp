@@ -36,11 +36,11 @@ void SetTopicDmJob::onPostRequestResponse(const QString &replyErrorString, const
     const QJsonObject replyObject = replyJson.object();
 
     if (replyObject["success"_L1].toBool()) {
-        addLoggerInfo(QByteArrayLiteral("Create direct message success: ") + replyJson.toJson(QJsonDocument::Indented));
+        addLoggerInfo("Create direct message success: "_ba + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT setTopicDmDone();
     } else {
         emitFailedMessage(replyErrorString, replyObject);
-        addLoggerWarning(QByteArrayLiteral("Create direct message Problem: ") + replyJson.toJson(QJsonDocument::Indented));
+        addLoggerWarning("Create direct message Problem: "_ba + replyJson.toJson(QJsonDocument::Indented));
     }
 }
 

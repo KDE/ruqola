@@ -7,6 +7,8 @@
  */
 
 #include "roommodel.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "rocketchataccount.h"
 #include "ruqola_rooms_debug.h"
 #include "usersforroommodel.h"

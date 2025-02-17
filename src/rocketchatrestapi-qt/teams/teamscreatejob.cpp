@@ -35,11 +35,11 @@ void TeamsCreateJob::onPostRequestResponse(const QString &replyErrorString, cons
 {
     const QJsonObject replyObject = replyJson.object();
     if (replyObject["success"_L1].toBool()) {
-        addLoggerInfo(QByteArrayLiteral("TeamsCreateJob success: ") + replyJson.toJson(QJsonDocument::Indented));
+        addLoggerInfo("TeamsCreateJob success: "_ba + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT teamCreateDone(replyObject);
     } else {
         emitFailedMessage(replyErrorString, replyObject);
-        addLoggerWarning(QByteArrayLiteral("TeamsCreateJob problem: ") + replyJson.toJson(QJsonDocument::Indented));
+        addLoggerWarning("TeamsCreateJob problem: "_ba + replyJson.toJson(QJsonDocument::Indented));
     }
 }
 

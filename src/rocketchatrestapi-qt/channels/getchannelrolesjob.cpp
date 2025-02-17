@@ -67,11 +67,11 @@ void GetChannelRolesJob::onGetRequestResponse(const QString &replyErrorString, c
 {
     const QJsonObject replyObject = replyJson.object();
     if (replyObject["success"_L1].toBool()) {
-        addLoggerInfo(QByteArrayLiteral("GetChannelRolesJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
+        addLoggerInfo("GetChannelRolesJob: success: "_ba + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT channelRolesDone(replyObject, channelGroupInfo());
     } else {
         emitFailedMessage(replyErrorString, replyObject);
-        addLoggerWarning(QByteArrayLiteral("GetChannelRolesJob problem: ") + replyJson.toJson(QJsonDocument::Indented));
+        addLoggerWarning("GetChannelRolesJob problem: "_ba + replyJson.toJson(QJsonDocument::Indented));
     }
 }
 

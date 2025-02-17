@@ -29,14 +29,14 @@ bool ListInviteJob::start()
     }
     submitGetRequest();
 
-    addStartRestApiInfo(QByteArrayLiteral("ListInviteJob: Ask for displaying all invite link url"));
+    addStartRestApiInfo("ListInviteJob: Ask for displaying all invite link url"_ba);
     return true;
 }
 
 void ListInviteJob::onGetRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
     Q_UNUSED(replyErrorString)
-    addLoggerInfo(QByteArrayLiteral("ListInviteJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
+    addLoggerInfo("ListInviteJob: success: "_ba + replyJson.toJson(QJsonDocument::Indented));
     Q_EMIT listInviteDone(replyJson);
 }
 

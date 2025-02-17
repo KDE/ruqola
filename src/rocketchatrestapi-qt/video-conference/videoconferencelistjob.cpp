@@ -47,7 +47,7 @@ bool VideoConferenceListJob::start()
     }
     submitGetRequest();
 
-    addStartRestApiInfo(QByteArrayLiteral("VideoConferenceListJob: Ask for capabilities"));
+    addStartRestApiInfo("VideoConferenceListJob: Ask for capabilities"_ba);
     return true;
 }
 
@@ -56,11 +56,11 @@ void VideoConferenceListJob::onGetRequestResponse(const QString &replyErrorStrin
     const QJsonObject replyObject = replyJson.object();
 
     if (replyObject["success"_L1].toBool()) {
-        addLoggerInfo(QByteArrayLiteral("VideoConferenceListJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
+        addLoggerInfo("VideoConferenceListJob: success: "_ba + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT videoConferenceInfoDone(replyObject);
     } else {
         emitFailedMessage(replyErrorString, replyObject);
-        addLoggerWarning(QByteArrayLiteral("VideoConferenceListJob: Problem: ") + replyJson.toJson(QJsonDocument::Indented));
+        addLoggerWarning("VideoConferenceListJob: Problem: "_ba + replyJson.toJson(QJsonDocument::Indented));
     }
 }
 

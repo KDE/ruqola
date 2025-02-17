@@ -36,7 +36,7 @@ void FileTest::shouldAssignValue()
     const QString url = QStringLiteral("foo");
     const QString name = QStringLiteral("bla");
     const QString description = QStringLiteral("des");
-    const QByteArray userId = QByteArrayLiteral("ble");
+    const QByteArray userId = "ble"_ba;
     const QString mimetype = QStringLiteral("ble1");
     const qint64 timeUploaded = 55;
     const QByteArray fileId("blabla");
@@ -70,7 +70,7 @@ void FileTest::shouldCopyValue()
     const QString url = QStringLiteral("foo");
     const QString name = QStringLiteral("bla");
     const QString description = QStringLiteral("des");
-    const QByteArray userId = QByteArrayLiteral("ble");
+    const QByteArray userId = "ble"_ba;
     const QString mimetype = QStringLiteral("ble1");
     const QByteArray fileId("blabla");
     const qint64 timeUploaded = 55;
@@ -97,11 +97,11 @@ void FileTest::shouldParseFile_data()
         File expected;
         expected.setFileName(QStringLiteral("191135.jpg"));
         expected.setUrl(QStringLiteral("/ufs/FileSystem:Uploads/ybWLKB4FpCkzQXsa/191135.jpg"));
-        expected.setUserId(QByteArrayLiteral("aX7va58FuNuq4bcti"));
+        expected.setUserId("aX7va58FuNuq4bcti"_ba);
         expected.setDescription(QString());
         expected.setMimeType(QStringLiteral("image/jpeg"));
         expected.setUploadedAt(1507828418338);
-        expected.setFileId(QByteArrayLiteral("ybWLKB4FepCkzQXsa"));
+        expected.setFileId("ybWLKB4FepCkzQXsa"_ba);
         QTest::newRow("roomfile1") << QStringLiteral("roomfile1") << expected << false;
     }
     {
@@ -109,11 +109,11 @@ void FileTest::shouldParseFile_data()
         File expected;
         expected.setFileName(QStringLiteral("Clipboard - February 7, 2018 8:59 AM"));
         expected.setUrl(QStringLiteral("/ufs/FileSystem:Uploads/AoqRSa6GMt3wXCeSo/Clipboard%20-%20February%207,%202018%208:59%20AM"));
-        expected.setUserId(QByteArrayLiteral("vEETYfDxakqpM88Zt"));
+        expected.setUserId("vEETYfDxakqpM88Zt"_ba);
         expected.setDescription(QString());
         expected.setMimeType(QStringLiteral("image/png"));
         expected.setUploadedAt(1517990371911);
-        expected.setFileId(QByteArrayLiteral("AoqRSa6GMt3wXCeSo"));
+        expected.setFileId("AoqRSa6GMt3wXCeSo"_ba);
         expected.setUserName(QStringLiteral("bli"));
         expected.setPath(QStringLiteral("/ufs/FileSystem:Uploads/AoqRSa6GMt3wXCeSo/Clipboard%20-%20February%207,%202018%208:59%20AM"));
         expected.setComplete(true);

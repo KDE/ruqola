@@ -45,7 +45,7 @@ void SelectedMessageBackgroundAnimation::setBackgroundColor(const QColor &newBac
 
 void SelectedMessageBackgroundAnimation::start()
 {
-    auto animation = new QPropertyAnimation(this, QByteArrayLiteral("backgroundColor"), this);
+    auto animation = new QPropertyAnimation(this, "backgroundColor"_ba, this);
     animation->setDuration(2000);
     const auto color = ColorsAndMessageViewStyle::self().schemeView().foreground(KColorScheme::NeutralText).color();
     animation->setStartValue(color);

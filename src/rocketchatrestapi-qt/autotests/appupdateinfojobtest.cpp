@@ -30,7 +30,7 @@ void AppUpdateInfoJobTest::shouldGenerateRequest()
         RocketChatRestApi::AppUpdateInfoJob::AppUpdateInfo info;
         info.mAppInfoType = RocketChatRestApi::AppUpdateInfoJob::AppInfoType::Apps;
         info.mAppMode = RocketChatRestApi::AppUpdateInfoJob::AppMode::Delete;
-        info.mAppsId = QByteArrayLiteral("foo");
+        info.mAppsId = "foo"_ba;
         job.setAppUpdateInfo(info);
 
         QNetworkRequest request = QNetworkRequest(QUrl());
@@ -43,7 +43,7 @@ void AppUpdateInfoJobTest::shouldGenerateRequest()
         RocketChatRestApi::AppUpdateInfoJob::AppUpdateInfo info;
         info.mAppInfoType = RocketChatRestApi::AppUpdateInfoJob::AppInfoType::Settings;
         info.mAppMode = RocketChatRestApi::AppUpdateInfoJob::AppMode::Post;
-        info.mAppsId = QByteArrayLiteral("foo");
+        info.mAppsId = "foo"_ba;
         job.setAppUpdateInfo(info);
 
         QNetworkRequest request = QNetworkRequest(QUrl());

@@ -34,7 +34,7 @@ void ModerationReportsByUserIdJobTest::shouldGenerateRequest()
     }
     {
         ModerationReportsByUserIdJob job;
-        job.setModerationUserId(QByteArrayLiteral("foo"));
+        job.setModerationUserId("foo"_ba);
         QNetworkRequest request = QNetworkRequest(QUrl());
         verifyAuthentication(&job, request);
         QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/v1/moderation.user.reportsByUserId?userId=foo")));

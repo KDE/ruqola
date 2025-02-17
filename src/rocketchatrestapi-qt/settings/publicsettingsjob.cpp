@@ -27,7 +27,7 @@ bool PublicSettingsJob::start()
         return false;
     }
     submitGetRequest();
-    addStartRestApiInfo(QByteArrayLiteral("PublicSettingsJob: Ask public info"));
+    addStartRestApiInfo("PublicSettingsJob: Ask public info"_ba);
 
     return true;
 }
@@ -37,11 +37,11 @@ void PublicSettingsJob::onGetRequestResponse(const QString &replyErrorString, co
     const QJsonObject replyObject = replyJson.object();
 
     if (replyObject["success"_L1].toBool()) {
-        addLoggerInfo(QByteArrayLiteral("PublicSettingsJob done: ") + replyJson.toJson(QJsonDocument::Indented));
+        addLoggerInfo("PublicSettingsJob done: "_ba + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT publicSettingsDone(replyObject);
     } else {
         emitFailedMessage(replyErrorString, replyObject);
-        addLoggerWarning(QByteArrayLiteral("PublicSettingsJob: Problem: ") + replyJson.toJson(QJsonDocument::Indented));
+        addLoggerWarning("PublicSettingsJob: Problem: "_ba + replyJson.toJson(QJsonDocument::Indented));
     }
 }
 

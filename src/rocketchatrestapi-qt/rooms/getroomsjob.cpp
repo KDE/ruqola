@@ -33,7 +33,7 @@ bool GetRoomsJob::start()
     }
     submitGetRequest();
 
-    addStartRestApiInfo(QByteArrayLiteral("GetRoomsJob: Ask all rooms"));
+    addStartRestApiInfo("GetRoomsJob: Ask all rooms"_ba);
     return true;
 }
 
@@ -41,11 +41,11 @@ void GetRoomsJob::onGetRequestResponse(const QString &replyErrorString, const QJ
 {
     const QJsonObject replyObject = replyJson.object();
     if (replyObject["success"_L1].toBool()) {
-        addLoggerInfo(QByteArrayLiteral("GetRoomsJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
+        addLoggerInfo("GetRoomsJob: success: "_ba + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT getRoomsDone(replyObject);
     } else {
         emitFailedMessage(replyErrorString, replyObject);
-        addLoggerWarning(QByteArrayLiteral("GetRoomsJob: Problem: ") + replyJson.toJson(QJsonDocument::Indented));
+        addLoggerWarning("GetRoomsJob: Problem: "_ba + replyJson.toJson(QJsonDocument::Indented));
     }
 }
 

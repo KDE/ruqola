@@ -37,7 +37,7 @@ void MarkRoomAsReadJobTest::shouldGenerateRequest()
 void MarkRoomAsReadJobTest::shouldGenerateJson()
 {
     MarkRoomAsReadJob job;
-    const QByteArray roomId = QByteArrayLiteral("foo1");
+    const QByteArray roomId = "foo1"_ba;
     job.setRoomId(roomId);
     QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral(R"({"rid":"%1"})").arg(QLatin1StringView(roomId)).toLatin1());
 }
@@ -59,7 +59,7 @@ void MarkRoomAsReadJobTest::shouldNotStarting()
     QVERIFY(!job.canStart());
     job.setUserId(userId);
     QVERIFY(!job.canStart());
-    const QByteArray roomId = QByteArrayLiteral("foo1");
+    const QByteArray roomId = "foo1"_ba;
     job.setRoomId(roomId);
     QVERIFY(job.canStart());
 }

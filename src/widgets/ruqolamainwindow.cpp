@@ -5,6 +5,8 @@
 */
 
 #include "ruqolamainwindow.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "administratordialog/administratordialog.h"
 #include "administratorsettingsdialog/administratorsettingsdialog.h"
 #include "applicationssettingsdialog/applicationssettingsdialog.h"

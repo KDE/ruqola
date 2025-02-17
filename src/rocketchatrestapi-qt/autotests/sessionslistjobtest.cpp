@@ -44,8 +44,8 @@ void SessionsListJobTest::shouldGenerateRequest()
         job.setRestApiMethod(&method);
         const QNetworkRequest request = job.request();
         QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/v1/sessions/list")));
-        QCOMPARE(request.rawHeader(QByteArrayLiteral("X-Auth-Token")), authToken.toLocal8Bit());
-        QCOMPARE(request.rawHeader(QByteArrayLiteral("X-User-Id")), userId.toLocal8Bit());
+        QCOMPARE(request.rawHeader("X-Auth-Token"_ba), authToken.toLocal8Bit());
+        QCOMPARE(request.rawHeader("X-User-Id"_ba), userId.toLocal8Bit());
     }
     {
         SessionsListJob job;
@@ -69,8 +69,8 @@ void SessionsListJobTest::shouldGenerateRequest()
         const QNetworkRequest request = job.request();
         QCOMPARE(request.url().query(),
                  QStringLiteral("count=3&offset=1&query=%7B%22name%22:%7B%22$regex%22:%22bla%22,%22$options%22:%22i%22%7D%7D&sort=%7B%22name%22:1%7D"));
-        QCOMPARE(request.rawHeader(QByteArrayLiteral("X-Auth-Token")), authToken.toLocal8Bit());
-        QCOMPARE(request.rawHeader(QByteArrayLiteral("X-User-Id")), userId.toLocal8Bit());
+        QCOMPARE(request.rawHeader("X-Auth-Token"_ba), authToken.toLocal8Bit());
+        QCOMPARE(request.rawHeader("X-User-Id"_ba), userId.toLocal8Bit());
     }
 }
 

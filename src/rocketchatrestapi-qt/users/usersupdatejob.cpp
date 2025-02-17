@@ -36,11 +36,11 @@ void UsersUpdateJob::onPostRequestResponse(const QString &replyErrorString, cons
 {
     const QJsonObject replyObject = replyJson.object();
     if (replyObject["success"_L1].toBool()) {
-        addLoggerInfo(QByteArrayLiteral("UsersUpdateJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
+        addLoggerInfo("UsersUpdateJob: success: "_ba + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT usersUpdateDone(replyObject);
     } else {
         emitFailedMessage(replyErrorString, replyObject);
-        addLoggerWarning(QByteArrayLiteral("UsersUpdateJob: Problem: ") + replyJson.toJson(QJsonDocument::Indented));
+        addLoggerWarning("UsersUpdateJob: Problem: "_ba + replyJson.toJson(QJsonDocument::Indented));
     }
 }
 

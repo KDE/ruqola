@@ -36,11 +36,11 @@ void FetchMyKeysJob::onGetRequestResponse(const QString &replyErrorString, const
     const QJsonObject replyObject = replyJson.object();
 
     if (replyObject["success"_L1].toBool()) {
-        addLoggerInfo(QByteArrayLiteral("FetchMyKeysJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
+        addLoggerInfo("FetchMyKeysJob: success: "_ba + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT fetchMyKeysDone(replyObject);
     } else {
         emitFailedMessage(replyErrorString, replyObject);
-        addLoggerWarning(QByteArrayLiteral("FetchMyKeysJob: problem: ") + replyJson.toJson(QJsonDocument::Indented));
+        addLoggerWarning("FetchMyKeysJob: problem: "_ba + replyJson.toJson(QJsonDocument::Indented));
     }
 }
 

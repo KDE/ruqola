@@ -37,11 +37,11 @@ void ChannelRemoveOwnerJob::onPostRequestResponse(const QString &replyErrorStrin
     const QJsonObject replyObject = replyJson.object();
 
     if (replyObject["success"_L1].toBool()) {
-        addLoggerInfo(QByteArrayLiteral("ChannelRemoveOwnerJob success: ") + replyJson.toJson(QJsonDocument::Indented));
+        addLoggerInfo("ChannelRemoveOwnerJob success: "_ba + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT channelRemoveOwnerDone();
     } else {
         emitFailedMessage(replyErrorString, replyObject);
-        addLoggerWarning(QByteArrayLiteral("ChannelRemoveOwnerJob problem: ") + replyJson.toJson(QJsonDocument::Indented));
+        addLoggerWarning("ChannelRemoveOwnerJob problem: "_ba + replyJson.toJson(QJsonDocument::Indented));
     }
 }
 

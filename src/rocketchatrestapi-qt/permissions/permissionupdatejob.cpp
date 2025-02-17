@@ -37,11 +37,11 @@ void PermissionUpdateJob::onPostRequestResponse(const QString &replyErrorString,
 {
     const QJsonObject replyObject = replyJson.object();
     if (replyObject["success"_L1].toBool()) {
-        addLoggerInfo(QByteArrayLiteral("PermissionUpdateJob success: ") + replyJson.toJson(QJsonDocument::Indented));
+        addLoggerInfo("PermissionUpdateJob success: "_ba + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT permissionUpdateDone(replyObject);
     } else {
         emitFailedMessage(replyErrorString, replyObject);
-        addLoggerWarning(QByteArrayLiteral("PermissionUpdateJob: Problem: ") + replyJson.toJson(QJsonDocument::Indented));
+        addLoggerWarning("PermissionUpdateJob: Problem: "_ba + replyJson.toJson(QJsonDocument::Indented));
     }
 }
 

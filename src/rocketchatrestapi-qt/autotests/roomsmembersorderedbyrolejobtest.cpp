@@ -36,7 +36,7 @@ void RoomsMembersOrderedByRoleJobTest::shouldGenerateRequest()
     job.setRestApiMethod(&method);
     const QByteArray roomId("bla");
     RoomsMembersOrderedByRoleJob::RoomsMembersOrderedByRoleJobInfo info;
-    info.roomId = QByteArrayLiteral("room_id");
+    info.roomId = "room_id"_ba;
     info.count = 5;
     info.offset = 0;
     job.setRoomsMembersOrderedByRoleJobInfo(info);
@@ -62,7 +62,7 @@ void RoomsMembersOrderedByRoleJobTest::shouldNotStarting()
     job.setUserId(userId);
     QVERIFY(!job.canStart());
     RoomsMembersOrderedByRoleJob::RoomsMembersOrderedByRoleJobInfo info;
-    info.roomId = QByteArrayLiteral("room_id");
+    info.roomId = "room_id"_ba;
     info.count = 0;
     info.offset = 0;
     job.setRoomsMembersOrderedByRoleJobInfo(info);

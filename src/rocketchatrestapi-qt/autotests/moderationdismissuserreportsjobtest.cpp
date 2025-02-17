@@ -34,7 +34,7 @@ void ModerationDismissUserReportsJobTest::shouldGenerateRequest()
     }
     {
         ModerationDismissUserReportsJob job;
-        job.setModerationReportedUserId(QByteArrayLiteral("foo"));
+        job.setModerationReportedUserId("foo"_ba);
         QNetworkRequest request = QNetworkRequest(QUrl());
         verifyAuthentication(&job, request);
         QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/v1/moderation.dismissUserReports?userId=foo")));

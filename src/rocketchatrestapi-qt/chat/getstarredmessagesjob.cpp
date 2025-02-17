@@ -47,7 +47,7 @@ bool GetStarredMessagesJob::start()
     }
     submitGetRequest();
 
-    addStartRestApiInfo(QByteArrayLiteral("GetStarredMessagesJob: Ask starred messages"));
+    addStartRestApiInfo("GetStarredMessagesJob: Ask starred messages"_ba);
     return true;
 }
 
@@ -55,11 +55,11 @@ void GetStarredMessagesJob::onGetRequestResponse(const QString &replyErrorString
 {
     const QJsonObject replyObject = replyJson.object();
     if (replyObject["success"_L1].toBool()) {
-        addLoggerInfo(QByteArrayLiteral("GetStarredMessagesJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
+        addLoggerInfo("GetStarredMessagesJob: success: "_ba + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT getStarredMessagesDone(replyObject, mRoomId);
     } else {
         emitFailedMessage(replyErrorString, replyObject);
-        addLoggerWarning(QByteArrayLiteral("GetStarredMessagesJob: Problem: ") + replyJson.toJson(QJsonDocument::Indented));
+        addLoggerWarning("GetStarredMessagesJob: Problem: "_ba + replyJson.toJson(QJsonDocument::Indented));
     }
 }
 

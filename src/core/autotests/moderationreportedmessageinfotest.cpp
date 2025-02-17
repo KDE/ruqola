@@ -50,10 +50,10 @@ void ModerationReportedMessageInfoTest::shouldModerationInfo_data()
     QTest::addRow("moderationempty") << QStringLiteral("moderationempty") << ModerationReportedMessageInfo();
     {
         ModerationReportedMessageInfo info;
-        info.setUserId(QByteArrayLiteral("SSSSSQ4iShzD9T2"));
+        info.setUserId("SSSSSQ4iShzD9T2"_ba);
         info.setName(QStringLiteral("Name Laur"));
         info.setUserName(QStringLiteral("laurent"));
-        info.setMsgId(QByteArrayLiteral("XBHe3ocWiDApCc"));
+        info.setMsgId("XBHe3ocWiDApCc"_ba);
         info.setCount(3);
         info.setIsUserDeleted(false);
         info.setMessage(QStringLiteral("H"));

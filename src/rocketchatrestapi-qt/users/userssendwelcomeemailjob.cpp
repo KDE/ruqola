@@ -36,11 +36,11 @@ void UsersSendWelcomeEmailJob::onPostRequestResponse(const QString &replyErrorSt
 {
     const QJsonObject replyObject = replyJson.object();
     if (replyObject["success"_L1].toBool()) {
-        addLoggerInfo(QByteArrayLiteral("UsersSendWelcomeEmailJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
+        addLoggerInfo("UsersSendWelcomeEmailJob: success: "_ba + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT sendWelcomeEmailDone();
     } else {
         emitFailedMessage(replyErrorString, replyObject);
-        addLoggerWarning(QByteArrayLiteral("UsersSendWelcomeEmailJob: Problem: ") + replyJson.toJson(QJsonDocument::Indented));
+        addLoggerWarning("UsersSendWelcomeEmailJob: Problem: "_ba + replyJson.toJson(QJsonDocument::Indented));
     }
 }
 

@@ -35,11 +35,11 @@ void TranslateSaveSettingsJob::onPostRequestResponse(const QString &replyErrorSt
     const QJsonObject replyObject = replyJson.object();
 
     if (replyObject["success"_L1].toBool()) {
-        addLoggerInfo(QByteArrayLiteral("TranslateSaveSettingsJob success: ") + replyJson.toJson(QJsonDocument::Indented));
+        addLoggerInfo("TranslateSaveSettingsJob success: "_ba + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT translateSavesettingsDone();
     } else {
         emitFailedMessage(replyErrorString, replyObject);
-        addLoggerWarning(QByteArrayLiteral("TranslateSaveSettingsJob: Problem: ") + replyJson.toJson(QJsonDocument::Indented));
+        addLoggerWarning("TranslateSaveSettingsJob: Problem: "_ba + replyJson.toJson(QJsonDocument::Indented));
     }
 }
 

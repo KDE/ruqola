@@ -39,11 +39,11 @@ void ReactOnMessageJob::onPostRequestResponse(const QString &replyErrorString, c
     const QJsonObject replyObject = replyJson.object();
 
     if (replyObject["success"_L1].toBool()) {
-        addLoggerInfo(QByteArrayLiteral("ReactOnMessageJob success: ") + replyJson.toJson(QJsonDocument::Indented));
+        addLoggerInfo("ReactOnMessageJob success: "_ba + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT reactOnMessageDone();
     } else {
         emitFailedMessage(replyErrorString, replyObject);
-        addLoggerWarning(QByteArrayLiteral("ReactOnMessageJob problem: ") + replyJson.toJson(QJsonDocument::Indented));
+        addLoggerWarning("ReactOnMessageJob problem: "_ba + replyJson.toJson(QJsonDocument::Indented));
     }
 }
 

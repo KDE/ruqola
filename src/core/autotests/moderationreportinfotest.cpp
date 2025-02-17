@@ -33,10 +33,10 @@ void ModerationReportInfoTest::shouldLoadReportInfo_data()
     QTest::addRow("empty") << QStringLiteral("empty") << ModerationReportInfo();
     ModerationReportInfo moderationReportInfo;
     moderationReportInfo.setDescription(QStringLiteral("test report 22222"));
-    moderationReportInfo.setReportIdentifier(QByteArrayLiteral("65278f64533fd6f8588e"));
+    moderationReportInfo.setReportIdentifier("65278f64533fd6f8588e"_ba);
     moderationReportInfo.setTimeStamp(1697091428125);
-    moderationReportInfo.setRoomId(QByteArrayLiteral("xxib9aFXMGN3o"));
-    moderationReportInfo.setUserId(QByteArrayLiteral("H7Q9djXQ4iShzD9T2"));
+    moderationReportInfo.setRoomId("xxib9aFXMGN3o"_ba);
+    moderationReportInfo.setUserId("H7Q9djXQ4iShzD9T2"_ba);
     moderationReportInfo.setUserName(QStringLiteral("bla"));
 
     QTest::addRow("moderationinfo1") << QStringLiteral("moderationinfo1") << moderationReportInfo;

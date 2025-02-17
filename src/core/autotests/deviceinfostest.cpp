@@ -38,20 +38,20 @@ void DeviceInfosTest::shouldLoadDeviceInfos_data()
         {
             DeviceInfo info;
             info.setHost(QStringLiteral("kde.com"));
-            info.setIdentifier(QByteArrayLiteral("LAS7ingGiy78NiKzd"));
+            info.setIdentifier("LAS7ingGiy78NiKzd"_ba);
             info.setIp(QStringLiteral("279.4.8.1"));
-            info.setSessionId(QByteArrayLiteral("Giy78NiKzd"));
-            info.setUserId(QByteArrayLiteral("uKK39zoewTkd"));
+            info.setSessionId("Giy78NiKzd"_ba);
+            info.setUserId("uKK39zoewTkd"_ba);
             info.setLoginAt(1660405994979);
             infos.append(info);
         }
         {
             DeviceInfo info;
             info.setHost(QStringLiteral("kde.com"));
-            info.setIdentifier(QByteArrayLiteral("mxEY4NmYtise87pMW"));
+            info.setIdentifier("mxEY4NmYtise87pMW"_ba);
             info.setIp(QStringLiteral("1.1.1.2"));
-            info.setSessionId(QByteArrayLiteral("mxEse87pMW"));
-            info.setUserId(QByteArrayLiteral("uKKkdacidH"));
+            info.setSessionId("mxEse87pMW"_ba);
+            info.setUserId("uKKkdacidH"_ba);
             info.setLoginAt(1660404361954);
             info.setClient(QStringLiteral("Firefox"));
             info.setOs(QStringLiteral("Linux x86_64"));

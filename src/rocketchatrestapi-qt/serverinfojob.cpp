@@ -52,11 +52,11 @@ void ServerInfoJob::onGetRequestResponse(const QString &replyErrorString, const 
     // TODO send replyObject too. Need by administrator server info.
     if (replyObject["success"_L1].toBool()) {
         const QString versionStr = replyObject.value("version"_L1).toString();
-        addLoggerInfo(QByteArrayLiteral("ServerInfoJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
+        addLoggerInfo("ServerInfoJob: success: "_ba + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT serverInfoDone(versionStr, replyObject);
     } else {
         Q_EMIT serverInfoFailed(false);
-        addLoggerWarning(QByteArrayLiteral("ServerInfoJob::slotServerInfoFinished: Problem: ") + replyJson.toJson(QJsonDocument::Indented));
+        addLoggerWarning("ServerInfoJob::slotServerInfoFinished: Problem: "_ba + replyJson.toJson(QJsonDocument::Indented));
         emitFailedMessage(replyErrorString, replyObject);
     }
 }

@@ -36,11 +36,11 @@ void NotifyAdminsAppsJob::onPostRequestResponse(const QString &replyErrorString,
 {
     const QJsonObject replyObject = replyJson.object();
     if (replyObject["success"_L1].toBool()) {
-        addLoggerInfo(QByteArrayLiteral("NotifyAdminsAppsJob success: ") + replyJson.toJson(QJsonDocument::Indented));
+        addLoggerInfo("NotifyAdminsAppsJob success: "_ba + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT notifyAdminsAppsDone(replyObject["data"_L1].toObject());
     } else {
         emitFailedMessage(replyErrorString, replyObject);
-        addLoggerWarning(QByteArrayLiteral("NotifyAdminsAppsJob: Problem: ") + replyJson.toJson(QJsonDocument::Indented));
+        addLoggerWarning("NotifyAdminsAppsJob: Problem: "_ba + replyJson.toJson(QJsonDocument::Indented));
     }
 }
 

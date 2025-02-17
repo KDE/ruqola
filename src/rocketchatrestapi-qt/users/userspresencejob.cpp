@@ -32,7 +32,7 @@ bool UsersPresenceJob::start()
         return false;
     }
     submitGetRequest();
-    addStartRestApiInfo(QByteArrayLiteral("UsersPresenceJob: Ask info about me"));
+    addStartRestApiInfo("UsersPresenceJob: Ask info about me"_ba);
     return true;
 }
 
@@ -40,11 +40,11 @@ void UsersPresenceJob::onGetRequestResponse(const QString &replyErrorString, con
 {
     const QJsonObject replyObject = replyJson.object();
     if (replyObject["success"_L1].toBool()) {
-        addLoggerInfo(QByteArrayLiteral("UsersPresenceJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
+        addLoggerInfo("UsersPresenceJob: success: "_ba + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT usersPresenceDone(replyObject);
     } else {
         emitFailedMessage(replyErrorString, replyObject);
-        addLoggerWarning(QByteArrayLiteral("UsersPresenceJob: Problem: ") + replyJson.toJson(QJsonDocument::Indented));
+        addLoggerWarning("UsersPresenceJob: Problem: "_ba + replyJson.toJson(QJsonDocument::Indented));
     }
 }
 

@@ -35,11 +35,11 @@ void User2FADisableEmailJob::onPostRequestResponse(const QString &replyErrorStri
 {
     const QJsonObject replyObject = replyJson.object();
     if (replyObject["success"_L1].toBool()) {
-        addLoggerInfo(QByteArrayLiteral("User2FADisableEmailJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
+        addLoggerInfo("User2FADisableEmailJob: success: "_ba + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT disableEmailDone();
     } else {
         emitFailedMessage(replyErrorString, replyObject);
-        addLoggerWarning(QByteArrayLiteral("User2FADisableEmailJob: Problem: ") + replyJson.toJson(QJsonDocument::Indented));
+        addLoggerWarning("User2FADisableEmailJob: Problem: "_ba + replyJson.toJson(QJsonDocument::Indented));
     }
 }
 

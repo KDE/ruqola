@@ -36,11 +36,11 @@ void SetChannelTypeJob::onPostRequestResponse(const QString &replyErrorString, c
     const QJsonObject replyObject = replyJson.object();
 
     if (replyObject["success"_L1].toBool()) {
-        addLoggerInfo(QByteArrayLiteral("SetChannelTypeJob success: ") + replyJson.toJson(QJsonDocument::Indented));
+        addLoggerInfo("SetChannelTypeJob success: "_ba + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT setGroupTypeDone();
     } else {
         emitFailedMessage(replyErrorString, replyObject);
-        addLoggerWarning(QByteArrayLiteral("SetChannelTypeJob problem: ") + replyJson.toJson(QJsonDocument::Indented));
+        addLoggerWarning("SetChannelTypeJob problem: "_ba + replyJson.toJson(QJsonDocument::Indented));
     }
 }
 

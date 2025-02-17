@@ -44,7 +44,7 @@ void PinMessageJobTest::shouldHaveMessageId()
     QVERIFY(!job.canStart());
     job.setUserId(userId);
     QVERIFY(!job.canStart());
-    job.setMessageId(QByteArrayLiteral("bla"));
+    job.setMessageId("bla"_ba);
     QVERIFY(job.canStart());
 }
 

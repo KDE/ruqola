@@ -35,11 +35,11 @@ void SetUserActiveStatusJob::onPostRequestResponse(const QString &replyErrorStri
 {
     const QJsonObject replyObject = replyJson.object();
     if (replyObject["success"_L1].toBool()) {
-        addLoggerInfo(QByteArrayLiteral("SetUserActiveStatusJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
+        addLoggerInfo("SetUserActiveStatusJob: success: "_ba + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT setUserActiveStatusDone(replyObject);
     } else {
         emitFailedMessage(replyErrorString, replyObject);
-        addLoggerWarning(QByteArrayLiteral("SetUserActiveStatusJob: Problem: ") + replyJson.toJson(QJsonDocument::Indented));
+        addLoggerWarning("SetUserActiveStatusJob: Problem: "_ba + replyJson.toJson(QJsonDocument::Indented));
     }
 }
 

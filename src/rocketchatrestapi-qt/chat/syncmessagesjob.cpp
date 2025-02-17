@@ -50,7 +50,7 @@ bool SyncMessagesJob::start()
     }
     submitGetRequest();
 
-    addStartRestApiInfo(QByteArrayLiteral("SyncMessagesJob: sync messages in room"));
+    addStartRestApiInfo("SyncMessagesJob: sync messages in room"_ba);
     return true;
 }
 
@@ -58,11 +58,11 @@ void SyncMessagesJob::onGetRequestResponse(const QString &replyErrorString, cons
 {
     const QJsonObject replyObject = replyJson.object();
     if (replyObject["success"_L1].toBool()) {
-        addLoggerInfo(QByteArrayLiteral("SyncMessagesJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
+        addLoggerInfo("SyncMessagesJob: success: "_ba + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT syncMessagesDone(replyObject, mRoomId);
     } else {
         emitFailedMessage(replyErrorString, replyObject);
-        addLoggerWarning(QByteArrayLiteral("SyncMessagesJob: Problem: ") + replyJson.toJson(QJsonDocument::Indented));
+        addLoggerWarning("SyncMessagesJob: Problem: "_ba + replyJson.toJson(QJsonDocument::Indented));
     }
 }
 

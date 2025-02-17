@@ -10,6 +10,7 @@
 #include <QSignalSpy>
 
 #include <QTest>
+using namespace Qt::Literals::StringLiterals;
 QTEST_GUILESS_MAIN(TypingNotificationTest)
 
 extern LIBRUQOLACORE_TESTS_EXPORT int timerTimeOutValueMs;
@@ -34,7 +35,7 @@ void TypingNotificationTest::shouldEmitSignalWhenTyping()
     timerTimeOutValueMs = 100; // 100ms
     TypingNotification t;
     QSignalSpy signal(&t, &TypingNotification::informTypingStatus);
-    t.textNotificationChanged(QByteArrayLiteral("foo"), false);
+    t.textNotificationChanged("foo"_ba, false);
     // Wait 500ms
     QTest::qWait(50);
     QCOMPARE(signal.count(), 1);
@@ -45,7 +46,7 @@ void TypingNotificationTest::shouldEmitSignalWhenTypingAndEmitTypingFalseAfterTi
     timerTimeOutValueMs = 100; // 100ms
     TypingNotification t;
     QSignalSpy signal(&t, &TypingNotification::informTypingStatus);
-    t.textNotificationChanged(QByteArrayLiteral("foo"), false);
+    t.textNotificationChanged("foo"_ba, false);
     // Wait 50ms
     QTest::qWait(50);
     QCOMPARE(signal.count(), 1);
@@ -59,14 +60,14 @@ void TypingNotificationTest::shouldDontEmitSignalWhenTypingSeveralTextBeforeTime
     timerTimeOutValueMs = 100; // 100ms
     TypingNotification t;
     QSignalSpy signal(&t, &TypingNotification::informTypingStatus);
-    t.textNotificationChanged(QByteArrayLiteral("foo"), false);
+    t.textNotificationChanged("foo"_ba, false);
     // Wait 50ms
     QTest::qWait(50);
     QCOMPARE(signal.count(), 1);
-    t.textNotificationChanged(QByteArrayLiteral("foo"), false);
+    t.textNotificationChanged("foo"_ba, false);
     QTest::qWait(50);
     QCOMPARE(signal.count(), 1);
-    t.textNotificationChanged(QByteArrayLiteral("foo"), false);
+    t.textNotificationChanged("foo"_ba, false);
     QTest::qWait(50);
     QCOMPARE(signal.count(), 1);
 
@@ -79,8 +80,8 @@ void TypingNotificationTest::shouldEmitTwoSignalWhenChangeRoom()
     timerTimeOutValueMs = 100; // 100ms
     TypingNotification t;
     QSignalSpy signal(&t, &TypingNotification::informTypingStatus);
-    QByteArray room1 = QByteArrayLiteral("room1");
-    QByteArray room2 = QByteArrayLiteral("room2");
+    QByteArray room1 = "room1"_ba;
+    QByteArray room2 = "room2"_ba;
     t.textNotificationChanged(room1, false);
     // Wait 50ms
     QTest::qWait(50);

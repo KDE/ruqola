@@ -57,8 +57,8 @@ void OwnUserPreferencesTest::shouldLoadOwnUserPreferencesInfo_data()
         preferences.setRoomListSortOrder(OwnUserPreferences::RoomListSortOrder::ByLastMessage);
         preferences.setRoomListDisplay(OwnUserPreferences::RoomListDisplay::Medium);
         preferences.setReceiveLoginDetectionEmail(true);
-        preferences.setNewRoomNotification(QByteArrayLiteral("door"));
-        preferences.setNewMessageNotification(QByteArrayLiteral("chime"));
+        preferences.setNewRoomNotification("door"_ba);
+        preferences.setNewMessageNotification("chime"_ba);
         preferences.setNotificationsSoundVolume(100);
         preferences.setMuteFocusedConversations(true);
 

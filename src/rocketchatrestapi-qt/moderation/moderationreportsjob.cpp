@@ -34,7 +34,7 @@ bool ModerationReportsJob::start()
     }
     submitGetRequest();
 
-    addStartRestApiInfo(QByteArrayLiteral("ModerationReportJob: get moderation reports starting"));
+    addStartRestApiInfo("ModerationReportJob: get moderation reports starting"_ba);
     return true;
 }
 
@@ -42,12 +42,11 @@ void ModerationReportsJob::onGetRequestResponse(const QString &replyErrorString,
 {
     const QJsonObject replyObject = replyJson.object();
     if (replyObject["success"_L1].toBool()) {
-        addLoggerInfo(QByteArrayLiteral("ModerationReportJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
+        addLoggerInfo("ModerationReportJob: success: "_ba + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT moderationReportsDone(replyObject);
     } else {
         emitFailedMessage(replyErrorString, replyObject);
-        addLoggerWarning(QByteArrayLiteral("ModerationReportJob: Problem when we tried to get moderation reports message : ")
-                         + replyJson.toJson(QJsonDocument::Indented));
+        addLoggerWarning("ModerationReportJob: Problem when we tried to get moderation reports message : "_ba + replyJson.toJson(QJsonDocument::Indented));
     }
 }
 

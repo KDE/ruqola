@@ -35,11 +35,11 @@ void ChangeChannelTopicJob::onPostRequestResponse(const QString &replyErrorStrin
     const QJsonObject replyObject = replyJson.object();
 
     if (replyObject["success"_L1].toBool()) {
-        addLoggerInfo(QByteArrayLiteral("Change Topic success: ") + replyJson.toJson(QJsonDocument::Indented));
+        addLoggerInfo("Change Topic success: "_ba + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT changeTopicDone();
     } else {
         emitFailedMessage(replyErrorString, replyObject);
-        addLoggerWarning(QByteArrayLiteral("Problem when we tried to change topic: ") + replyJson.toJson(QJsonDocument::Indented));
+        addLoggerWarning("Problem when we tried to change topic: "_ba + replyJson.toJson(QJsonDocument::Indented));
     }
 }
 

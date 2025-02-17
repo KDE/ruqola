@@ -34,11 +34,11 @@ void RemoveOtherTokensJob::onPostRequestResponse(const QString &replyErrorString
 {
     const QJsonObject replyObject = replyJson.object();
     if (replyObject["success"_L1].toBool()) {
-        addLoggerInfo(QByteArrayLiteral("RemoveOtherTokensJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
+        addLoggerInfo("RemoveOtherTokensJob: success: "_ba + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT removeOtherTokensDone();
     } else {
         emitFailedMessage(replyErrorString, replyObject);
-        addLoggerWarning(QByteArrayLiteral("RemoveOtherTokensJob: Problem: ") + replyJson.toJson(QJsonDocument::Indented));
+        addLoggerWarning("RemoveOtherTokensJob: Problem: "_ba + replyJson.toJson(QJsonDocument::Indented));
     }
 }
 

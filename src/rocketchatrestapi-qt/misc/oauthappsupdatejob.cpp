@@ -36,11 +36,11 @@ void OauthAppsUpdateJob::onPostRequestResponse(const QString &replyErrorString, 
 {
     const QJsonObject replyObject = replyJson.object();
     if (replyObject["success"_L1].toBool()) {
-        addLoggerInfo(QByteArrayLiteral("OauthAppsUpdateJob success: ") + replyJson.toJson(QJsonDocument::Indented));
+        addLoggerInfo("OauthAppsUpdateJob success: "_ba + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT oauthAppsUpdateDone(replyObject);
     } else {
         emitFailedMessage(replyErrorString, replyObject);
-        addLoggerWarning(QByteArrayLiteral("OauthAppsUpdateJob: Problem: ") + replyJson.toJson(QJsonDocument::Indented));
+        addLoggerWarning("OauthAppsUpdateJob: Problem: "_ba + replyJson.toJson(QJsonDocument::Indented));
     }
 }
 

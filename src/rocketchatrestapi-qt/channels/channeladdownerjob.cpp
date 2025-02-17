@@ -36,11 +36,11 @@ void ChannelAddOwnerJob::onPostRequestResponse(const QString &replyErrorString, 
     const QJsonObject replyObject = replyJson.object();
 
     if (replyObject["success"_L1].toBool()) {
-        addLoggerInfo(QByteArrayLiteral("Add owner success: ") + replyJson.toJson(QJsonDocument::Indented));
+        addLoggerInfo("Add owner success: "_ba + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT addOwnerDone();
     } else {
         emitFailedMessage(replyErrorString, replyObject);
-        addLoggerWarning(QByteArrayLiteral("Problem when we tried to add owner: ") + replyJson.toJson(QJsonDocument::Indented));
+        addLoggerWarning("Problem when we tried to add owner: "_ba + replyJson.toJson(QJsonDocument::Indented));
     }
 }
 

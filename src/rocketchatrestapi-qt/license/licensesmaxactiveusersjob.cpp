@@ -32,7 +32,7 @@ bool LicensesMaxActiveUsersJob::start()
         return false;
     }
     submitGetRequest();
-    addStartRestApiInfo(QByteArrayLiteral("LicensesMaxActiveUsers: Ask for licenses max actives users."));
+    addStartRestApiInfo("LicensesMaxActiveUsers: Ask for licenses max actives users."_ba);
     return true;
 }
 
@@ -41,11 +41,11 @@ void LicensesMaxActiveUsersJob::onGetRequestResponse(const QString &replyErrorSt
     const QJsonObject replyObject = replyJson.object();
 
     if (replyObject["success"_L1].toBool()) {
-        addLoggerInfo(QByteArrayLiteral("LicensesMaxActiveUsers: success: ") + replyJson.toJson(QJsonDocument::Indented));
+        addLoggerInfo("LicensesMaxActiveUsers: success: "_ba + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT licensesMaxActiveUsersDone(replyObject);
     } else {
         emitFailedMessage(replyErrorString, replyObject);
-        addLoggerWarning(QByteArrayLiteral("LicensesMaxActiveUsers: Problem: ") + replyJson.toJson(QJsonDocument::Indented));
+        addLoggerWarning("LicensesMaxActiveUsers: Problem: "_ba + replyJson.toJson(QJsonDocument::Indented));
     }
 }
 

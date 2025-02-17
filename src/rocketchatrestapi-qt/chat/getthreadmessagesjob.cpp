@@ -47,7 +47,7 @@ bool GetThreadMessagesJob::start()
     }
     submitGetRequest();
 
-    addStartRestApiInfo(QByteArrayLiteral("GetThreadMessagesJob: Ask threads messages"));
+    addStartRestApiInfo("GetThreadMessagesJob: Ask threads messages"_ba);
     return true;
 }
 
@@ -55,11 +55,11 @@ void GetThreadMessagesJob::onGetRequestResponse(const QString &replyErrorString,
 {
     const QJsonObject replyObject = replyJson.object();
     if (replyObject["success"_L1].toBool()) {
-        addLoggerInfo(QByteArrayLiteral("GetThreadMessagesJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
+        addLoggerInfo("GetThreadMessagesJob: success: "_ba + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT getThreadMessagesDone(replyObject, mThreadMessageId);
     } else {
         emitFailedMessage(replyErrorString, replyObject);
-        addLoggerWarning(QByteArrayLiteral("GetThreadMessagesJob: Problem: ") + replyJson.toJson(QJsonDocument::Indented));
+        addLoggerWarning("GetThreadMessagesJob: Problem: "_ba + replyJson.toJson(QJsonDocument::Indented));
     }
 }
 

@@ -36,11 +36,11 @@ void ArchiveGroupsJob::onPostRequestResponse(const QString &replyErrorString, co
     const QJsonObject replyObject = replyJson.object();
 
     if (replyObject["success"_L1].toBool()) {
-        addLoggerInfo(QByteArrayLiteral("ArchiveGroupsJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
+        addLoggerInfo("ArchiveGroupsJob: success: "_ba + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT archiveGroupsDone();
     } else {
         emitFailedMessage(replyErrorString, replyObject);
-        addLoggerWarning(QByteArrayLiteral("ArchiveGroupsJob: problem: ") + replyJson.toJson(QJsonDocument::Indented));
+        addLoggerWarning("ArchiveGroupsJob: problem: "_ba + replyJson.toJson(QJsonDocument::Indented));
         // FIXME report error
         Q_EMIT archiveGroupsError(QString());
     }

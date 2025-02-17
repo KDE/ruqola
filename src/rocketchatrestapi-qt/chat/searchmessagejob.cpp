@@ -34,7 +34,7 @@ bool SearchMessageJob::start()
     }
     submitGetRequest();
 
-    addStartRestApiInfo(QByteArrayLiteral("SearchMessageJob: search message starting"));
+    addStartRestApiInfo("SearchMessageJob: search message starting"_ba);
     return true;
 }
 
@@ -42,11 +42,11 @@ void SearchMessageJob::onGetRequestResponse(const QString &replyErrorString, con
 {
     const QJsonObject replyObject = replyJson.object();
     if (replyObject["success"_L1].toBool()) {
-        addLoggerInfo(QByteArrayLiteral("SearchMessageJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
+        addLoggerInfo("SearchMessageJob: success: "_ba + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT searchMessageDone(replyObject);
     } else {
         emitFailedMessage(replyErrorString, replyObject);
-        addLoggerWarning(QByteArrayLiteral("SearchMessageJob: problem: ") + replyJson.toJson(QJsonDocument::Indented));
+        addLoggerWarning("SearchMessageJob: problem: "_ba + replyJson.toJson(QJsonDocument::Indented));
     }
 }
 

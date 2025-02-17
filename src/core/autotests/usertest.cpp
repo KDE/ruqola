@@ -43,7 +43,7 @@ void UserTest::shouldBeValid()
     QVERIFY(u.isValid());
 
     User u2;
-    u2.setUserId(QByteArrayLiteral("bla"));
+    u2.setUserId("bla"_ba);
     QVERIFY(!u2.isValid());
 
     User u3;
@@ -51,7 +51,7 @@ void UserTest::shouldBeValid()
     QVERIFY(u3.isValid());
 
     User u4;
-    u4.setUserId(QByteArrayLiteral("d"));
+    u4.setUserId("d"_ba);
     u4.setUserName(QStringLiteral("dd"));
     u4.setName(QStringLiteral("foo"));
     QVERIFY(u4.isValid());
@@ -77,16 +77,16 @@ void UserTest::shouldSetAndGetName()
 void UserTest::shouldSetAndGetUserId()
 {
     User sampleUser;
-    QByteArray Id = QByteArrayLiteral("RA1511ECE");
+    QByteArray Id = "RA1511ECE"_ba;
     sampleUser.setUserId(Id);
 
     QCOMPARE(sampleUser.userId(), Id);
 
-    Id = QByteArrayLiteral("RA1511ECE_NEW");
+    Id = "RA1511ECE_NEW"_ba;
     sampleUser.setUserId(Id);
     QCOMPARE(sampleUser.userId(), Id);
 
-    Id = QByteArrayLiteral("RA1511ECE_NEW");
+    Id = "RA1511ECE_NEW"_ba;
     sampleUser.setUserId(Id);
     QCOMPARE(sampleUser.userId(), Id);
 }
@@ -127,7 +127,7 @@ void UserTest::checkEqualsAndUnequalsOperator()
 {
     User sampleuser;
     User sampleuserOther;
-    QByteArray Id = QByteArrayLiteral("RA151100ECE");
+    QByteArray Id = "RA151100ECE"_ba;
     QString name = QStringLiteral("Robert Segwick");
 
     sampleuser.setUserId(Id);
@@ -151,7 +151,7 @@ void UserTest::shouldParseJson_data()
     User expected;
     expected.setName(QStringLiteral("Laurent M"));
     expected.setStatus(User::PresenceStatus::Away);
-    expected.setUserId(QByteArrayLiteral("yi2ucvqkdkxiTkyZ5"));
+    expected.setUserId("yi2ucvqkdkxiTkyZ5"_ba);
     expected.setUserName(QStringLiteral("laurent"));
     expected.setUtcOffset(1);
     QTest::newRow("user1") << QStringLiteral("adduser") << expected;
@@ -181,7 +181,7 @@ void UserTest::shouldParseRestApiJson_data()
         User expected;
         expected.setName(QStringLiteral("name_user"));
         expected.setStatus(User::PresenceStatus::Offline);
-        expected.setUserId(QByteArrayLiteral("BDFj6E7Z9RYucn8C"));
+        expected.setUserId("BDFj6E7Z9RYucn8C"_ba);
         expected.setUserName(QStringLiteral("username"));
         expected.setUtcOffset(0);
         expected.setRoles({QStringLiteral("user")}, {});
@@ -198,7 +198,7 @@ void UserTest::shouldParseRestApiJson_data()
         User expected;
         expected.setName(QStringLiteral("Bla bla"));
         expected.setStatus(User::PresenceStatus::Online);
-        expected.setUserId(QByteArrayLiteral("XQZAk3998f9hSNwh"));
+        expected.setUserId("XQZAk3998f9hSNwh"_ba);
         expected.setUserName(QStringLiteral("steffen"));
         expected.setUtcOffset(2);
         expected.setType("user"_L1);

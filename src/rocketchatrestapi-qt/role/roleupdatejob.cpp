@@ -35,11 +35,11 @@ void RoleUpdateJob::onPostRequestResponse(const QString &replyErrorString, const
 {
     const QJsonObject replyObject = replyJson.object();
     if (replyObject["success"_L1].toBool()) {
-        addLoggerInfo(QByteArrayLiteral("RoleUpdateJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
+        addLoggerInfo("RoleUpdateJob: success: "_ba + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT updateRoleDone();
     } else {
         emitFailedMessage(replyErrorString, replyObject);
-        addLoggerWarning(QByteArrayLiteral("RoleUpdateJob: Problem: ") + replyJson.toJson(QJsonDocument::Indented));
+        addLoggerWarning("RoleUpdateJob: Problem: "_ba + replyJson.toJson(QJsonDocument::Indented));
     }
 }
 

@@ -32,7 +32,7 @@ bool UserInfoJob::start()
         return false;
     }
     submitGetRequest();
-    addStartRestApiInfo(QByteArrayLiteral("UsersInfoJob: Ask info about me"));
+    addStartRestApiInfo("UsersInfoJob: Ask info about me"_ba);
     return true;
 }
 
@@ -40,11 +40,11 @@ void UserInfoJob::onGetRequestResponse(const QString &replyErrorString, const QJ
 {
     const QJsonObject replyObject = replyJson.object();
     if (replyObject["success"_L1].toBool()) {
-        addLoggerInfo(QByteArrayLiteral("UsersInfoJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
+        addLoggerInfo("UsersInfoJob: success: "_ba + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT userInfoDone(replyObject);
     } else {
         emitFailedMessage(replyErrorString, replyObject);
-        addLoggerWarning(QByteArrayLiteral("UsersInfoJob: Problem: ") + replyJson.toJson(QJsonDocument::Indented));
+        addLoggerWarning("UsersInfoJob: Problem: "_ba + replyJson.toJson(QJsonDocument::Indented));
     }
 }
 

@@ -209,9 +209,9 @@ QByteArray MessageAttachmentDelegateHelperBase::documendIdPrefix(DocumentIdType 
     case MessageAttachmentDelegateHelperBase::DocumentIdType::Unknown:
         return {};
     case MessageAttachmentDelegateHelperBase::DocumentIdType::Title:
-        return QByteArrayLiteral("title_");
+        return "title_"_ba;
     case MessageAttachmentDelegateHelperBase::DocumentIdType::Description:
-        return QByteArrayLiteral("description_");
+        return "description_"_ba;
     }
     return {};
 }

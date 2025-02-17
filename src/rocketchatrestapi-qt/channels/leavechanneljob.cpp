@@ -36,11 +36,11 @@ void LeaveChannelJob::onPostRequestResponse(const QString &replyErrorString, con
     const QJsonObject replyObject = replyJson.object();
 
     if (replyObject["success"_L1].toBool()) {
-        addLoggerInfo(QByteArrayLiteral("LeaveChannelJob success: ") + replyJson.toJson(QJsonDocument::Indented));
+        addLoggerInfo("LeaveChannelJob success: "_ba + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT leaveChannelDone();
     } else {
         emitFailedMessage(replyErrorString, replyObject);
-        addLoggerWarning(QByteArrayLiteral("LeaveChannelJob problem: ") + replyJson.toJson(QJsonDocument::Indented));
+        addLoggerWarning("LeaveChannelJob problem: "_ba + replyJson.toJson(QJsonDocument::Indented));
     }
 }
 

@@ -127,12 +127,12 @@ void RestApiAbstractJob::addRequestAttribute(QNetworkRequest &request, bool addC
 
 void RestApiAbstractJob::addAuthRawHeader(QNetworkRequest &request) const
 {
-    request.setRawHeader(QByteArrayLiteral("X-Auth-Token"), mAuthToken.toLocal8Bit());
-    request.setRawHeader(QByteArrayLiteral("X-User-Id"), mUserId.toLocal8Bit());
+    request.setRawHeader("X-Auth-Token"_ba, mAuthToken.toLocal8Bit());
+    request.setRawHeader("X-User-Id"_ba, mUserId.toLocal8Bit());
     if (requireTwoFactorAuthentication() && mEnforcePasswordFallBack) {
         if (!mAuthMethod.isEmpty() && !mAuthCode.isEmpty()) {
-            request.setRawHeader(QByteArrayLiteral("x-2fa-code"), mAuthCode.toLocal8Bit());
-            request.setRawHeader(QByteArrayLiteral("x-2fa-method"), mAuthMethod.toLocal8Bit());
+            request.setRawHeader("x-2fa-code"_ba, mAuthCode.toLocal8Bit());
+            request.setRawHeader("x-2fa-method"_ba, mAuthMethod.toLocal8Bit());
         }
     }
 }

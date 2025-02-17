@@ -9,6 +9,7 @@
 #include "model/discussionsmodel.h"
 #include "test_model_helpers.h"
 #include <QTest>
+using namespace Qt::Literals::StringLiterals;
 QTEST_GUILESS_MAIN(DiscussionsModelTest)
 DiscussionsModelTest::DiscussionsModelTest(QObject *parent)
     : QObject(parent)
@@ -33,7 +34,7 @@ void DiscussionsModelTest::shouldAssignValues()
         Discussion c;
         c.setDescription(QStringLiteral("roomid%1").arg(i));
         c.setNumberMessages(i);
-        c.setParentRoomId(QByteArrayLiteral("online"));
+        c.setParentRoomId("online"_ba);
         discussionList.append(std::move(c));
     }
     w.setDiscussions(discussionList);
@@ -81,7 +82,7 @@ void DiscussionsModelTest::shouldAssignValues()
         Discussion c;
         c.setDescription(QStringLiteral("roomid%1").arg(i));
         c.setNumberMessages(i);
-        c.setParentRoomId(QByteArrayLiteral("online"));
+        c.setParentRoomId("online"_ba);
         discussionList.append(std::move(c));
     }
     w.setDiscussions(discussionList);

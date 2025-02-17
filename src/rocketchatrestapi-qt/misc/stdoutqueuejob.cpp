@@ -33,7 +33,7 @@ bool StdoutQueueJob::start()
     }
     submitGetRequest();
 
-    addStartRestApiInfo(QByteArrayLiteral("StdoutQueueJob: Ask for stdout queue"));
+    addStartRestApiInfo("StdoutQueueJob: Ask for stdout queue"_ba);
     return true;
 }
 
@@ -42,11 +42,11 @@ void StdoutQueueJob::onGetRequestResponse(const QString &replyErrorString, const
     const QJsonObject replyObject = replyJson.object();
 
     if (replyObject["success"_L1].toBool()) {
-        addLoggerInfo(QByteArrayLiteral("StdoutQueueJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
+        addLoggerInfo("StdoutQueueJob: success: "_ba + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT stdoutQueueDone(replyObject);
     } else {
         emitFailedMessage(replyErrorString, replyObject);
-        addLoggerWarning(QByteArrayLiteral("StdoutQueueJob: Problem: ") + replyJson.toJson(QJsonDocument::Indented));
+        addLoggerWarning("StdoutQueueJob: Problem: "_ba + replyJson.toJson(QJsonDocument::Indented));
     }
 }
 

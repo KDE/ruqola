@@ -10,7 +10,7 @@
 #include <QFile>
 #include <QFileInfo>
 #include <QNetworkReply>
-
+using namespace Qt::Literals::StringLiterals;
 using namespace RocketChatRestApi;
 
 DownloadFileJob::DownloadFileJob(QObject *parent)
@@ -56,7 +56,7 @@ void DownloadFileJob::slotDownloadDone()
         } else {
             // FIXME
             // emitFailedMessage(replyObject, reply);
-            addLoggerWarning(QByteArrayLiteral("DownloadFileJob problem data: [") + data + "] :END");
+            addLoggerWarning("DownloadFileJob problem data: [" + data + "] :END");
         }
         reply->deleteLater();
     }

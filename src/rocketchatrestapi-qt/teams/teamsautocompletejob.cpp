@@ -34,7 +34,7 @@ bool TeamsAutoCompleteJob::start()
     }
     submitGetRequest();
 
-    addStartRestApiInfo(QByteArrayLiteral("TeamsAutoCompleteJob: ask list of rooms in team"));
+    addStartRestApiInfo("TeamsAutoCompleteJob: ask list of rooms in team"_ba);
     return true;
 }
 
@@ -42,11 +42,11 @@ void TeamsAutoCompleteJob::onGetRequestResponse(const QString &replyErrorString,
 {
     const QJsonObject replyObject = replyJson.object();
     if (replyObject["success"_L1].toBool()) {
-        addLoggerInfo(QByteArrayLiteral("TeamsAutoCompleteJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
+        addLoggerInfo("TeamsAutoCompleteJob: success: "_ba + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT teamAutoCompleteDone(replyObject);
     } else {
         emitFailedMessage(replyErrorString, replyObject);
-        addLoggerWarning(QByteArrayLiteral("TeamsAutoCompleteJob: Problem: ") + replyJson.toJson(QJsonDocument::Indented));
+        addLoggerWarning("TeamsAutoCompleteJob: Problem: "_ba + replyJson.toJson(QJsonDocument::Indented));
     }
 }
 

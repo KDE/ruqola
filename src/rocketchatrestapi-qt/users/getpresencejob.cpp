@@ -47,11 +47,11 @@ void GetPresenceJob::onGetRequestResponse(const QString &replyErrorString, const
     const QJsonObject replyObject = replyJson.object();
 
     if (replyObject["success"_L1].toBool()) {
-        addLoggerInfo(QByteArrayLiteral("GetPresenceJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
+        addLoggerInfo("GetPresenceJob: success: "_ba + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT getPresenceDone(replyObject["presence"_L1].toString());
     } else {
         emitFailedMessage(replyErrorString, replyObject);
-        addLoggerWarning(QByteArrayLiteral("GetPresenceJob problem: ") + replyJson.toJson(QJsonDocument::Indented));
+        addLoggerWarning("GetPresenceJob problem: "_ba + replyJson.toJson(QJsonDocument::Indented));
     }
 }
 

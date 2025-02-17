@@ -37,11 +37,11 @@ void GroupsInfoJob::onGetRequestResponse(const QString &replyErrorString, const 
     const QJsonObject replyObject = replyJson.object();
 
     if (replyObject["success"_L1].toBool()) {
-        addLoggerInfo(QByteArrayLiteral("groupInfoDone success: ") + replyJson.toJson(QJsonDocument::Indented));
+        addLoggerInfo("groupInfoDone success: "_ba + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT channelInfoDone(replyObject, mRoomId);
     } else {
         emitFailedMessage(replyErrorString, replyObject);
-        addLoggerWarning(QByteArrayLiteral("groupInfoDone problem: ") + replyJson.toJson(QJsonDocument::Indented));
+        addLoggerWarning("groupInfoDone problem: "_ba + replyJson.toJson(QJsonDocument::Indented));
     }
 }
 

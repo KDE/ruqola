@@ -36,11 +36,11 @@ void VideoConferenceCancelJob::onPostRequestResponse(const QString &replyErrorSt
 {
     const QJsonObject replyObject = replyJson.object();
     if (replyObject["success"_L1].toBool()) {
-        addLoggerInfo(QByteArrayLiteral("VideoConferenceCancelJob success: ") + replyJson.toJson(QJsonDocument::Indented));
+        addLoggerInfo("VideoConferenceCancelJob success: "_ba + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT videoConferenceCancelDone(replyObject["data"_L1].toObject());
     } else {
         emitFailedMessage(replyErrorString, replyObject);
-        addLoggerWarning(QByteArrayLiteral("VideoConferenceCancelJob: Problem: ") + replyJson.toJson(QJsonDocument::Indented));
+        addLoggerWarning("VideoConferenceCancelJob: Problem: "_ba + replyJson.toJson(QJsonDocument::Indented));
     }
 }
 

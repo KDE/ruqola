@@ -9,6 +9,7 @@
 #include "model/discussionsfilterproxymodel.h"
 #include "model/discussionsmodel.h"
 #include <QTest>
+using namespace Qt::Literals::StringLiterals;
 QTEST_GUILESS_MAIN(DiscussionsFilterProxyModelTest)
 DiscussionsFilterProxyModelTest::DiscussionsFilterProxyModelTest(QObject *parent)
     : QObject(parent)
@@ -38,7 +39,7 @@ void DiscussionsFilterProxyModelTest::shouldAssignValue()
         Discussion c;
         c.setDescription(QStringLiteral("roomid%1").arg(i));
         c.setNumberMessages(i);
-        c.setParentRoomId(QByteArrayLiteral("online"));
+        c.setParentRoomId("online"_ba);
         discussionList.append(std::move(c));
     }
     model.setDiscussions(discussionList);
@@ -51,7 +52,7 @@ void DiscussionsFilterProxyModelTest::shouldAssignValue()
         Discussion c;
         c.setDescription(QStringLiteral("roomid%1").arg(i));
         c.setNumberMessages(i);
-        c.setParentRoomId(QByteArrayLiteral("online"));
+        c.setParentRoomId("online"_ba);
         discussionList.append(std::move(c));
     }
     model.setDiscussions(discussionList);

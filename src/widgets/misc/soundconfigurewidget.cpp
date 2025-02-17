@@ -84,7 +84,7 @@ void SoundConfigureWidget::updateButtonState()
         index += 2;
     }
     const QByteArray identifier = mDesktopSoundModel->currentPreference(index);
-    mPlaySoundToolButton->setEnabled(identifier != QByteArrayLiteral("none"));
+    mPlaySoundToolButton->setEnabled(identifier != "none"_ba);
 }
 
 QByteArray SoundConfigureWidget::identifier() const

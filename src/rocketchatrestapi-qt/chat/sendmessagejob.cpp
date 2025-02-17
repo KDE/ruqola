@@ -41,11 +41,11 @@ void SendMessageJob::onPostRequestResponse(const QString &replyErrorString, cons
     const QJsonObject replyObject = replyJson.object();
 
     if (replyObject["success"_L1].toBool()) {
-        addLoggerInfo(QByteArrayLiteral("SendMessageJob success: ") + replyJson.toJson(QJsonDocument::Indented));
+        addLoggerInfo("SendMessageJob success: "_ba + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT sendMessageDone();
     } else {
         emitFailedMessage(replyErrorString, replyObject);
-        addLoggerWarning(QByteArrayLiteral("SendMessageJob problem: ") + replyJson.toJson(QJsonDocument::Indented));
+        addLoggerWarning("SendMessageJob problem: "_ba + replyJson.toJson(QJsonDocument::Indented));
     }
 }
 

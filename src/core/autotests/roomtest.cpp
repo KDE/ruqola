@@ -96,12 +96,12 @@ void RoomTest::shouldSerialized()
 {
     {
         Room input(nullptr);
-        input.setRoomId(QByteArrayLiteral("foo"));
+        input.setRoomId("foo"_ba);
         input.setChannelType(Room::roomTypeFromString(QStringLiteral("p")));
         input.setName(QStringLiteral("d"));
         input.setAnnouncement(QStringLiteral("AA"));
         input.setRoomCreatorUserName(QStringLiteral("pp"));
-        input.setRoomCreatorUserId(QByteArrayLiteral("sdfsdfs"));
+        input.setRoomCreatorUserId("sdfsdfs"_ba);
         input.setTopic(QStringLiteral("topic"));
         input.setMutedUsers(QStringList{QStringLiteral("mutedUsers"), QStringLiteral("muted2")});
         input.setJitsiTimeout(55);
@@ -143,12 +143,12 @@ void RoomTest::shouldSerialized()
     }
     {
         Room input(nullptr);
-        input.setRoomId(QByteArrayLiteral("foo"));
+        input.setRoomId("foo"_ba);
         input.setChannelType(Room::roomTypeFromString(QStringLiteral("p")));
         input.setName(QStringLiteral("p"));
         input.setAnnouncement(QStringLiteral("AA"));
         input.setRoomCreatorUserName(QStringLiteral("pp"));
-        input.setRoomCreatorUserId(QByteArrayLiteral("sdfsdfs"));
+        input.setRoomCreatorUserId("sdfsdfs"_ba);
         input.setTopic(QStringLiteral("topic"));
         input.setMutedUsers(QStringList{QStringLiteral("mutedUsers"), QStringLiteral("muted2")});
         input.setJitsiTimeout(55);
@@ -181,7 +181,7 @@ void RoomTest::shouldSerialized()
 
         // TeamInfo
         TeamInfo teamInfo;
-        teamInfo.setTeamId(QByteArrayLiteral("dddd"));
+        teamInfo.setTeamId("dddd"_ba);
         teamInfo.setMainTeam(true);
         teamInfo.setAutoJoin(true);
         teamInfo.setRoomsCount(12);
@@ -190,26 +190,26 @@ void RoomTest::shouldSerialized()
         // Notification
         NotificationOptions w;
         NotificationOptions::NotificationValue w1;
-        w1.value = QByteArrayLiteral("notification1");
+        w1.value = "notification1"_ba;
         w.setDesktopNotifications(w1);
         NotificationOptions::NotificationValue w2;
-        w2.value = QByteArrayLiteral("notification2");
+        w2.value = "notification2"_ba;
         w.setMobilePushNotification(w2);
         NotificationOptions::NotificationValue w3;
-        w3.value = QByteArrayLiteral("notification3");
+        w3.value = "notification3"_ba;
         w.setEmailNotifications(w3);
         w.setUnreadTrayIconAlert(QStringLiteral("ssssf"));
         w.setDisableNotifications(false);
         w.setHideUnreadStatus(true);
         w.setMuteGroupMentions(true);
-        w.setAudioNotificationValue(QByteArrayLiteral("test1"));
+        w.setAudioNotificationValue("test1"_ba);
         input.setNotificationOptions(w);
 
         // setParentRid
-        input.setParentRid(QByteArrayLiteral("parentId1"));
+        input.setParentRid("parentId1"_ba);
 
         // Avatar
-        input.setAvatarETag(QByteArrayLiteral("avatar1"));
+        input.setAvatarETag("avatar1"_ba);
 
         // setE2EKey
         input.setE2EKey(QStringLiteral("e2ekey-1"));
@@ -273,12 +273,12 @@ void RoomTest::shouldEmitSignals()
     QSignalSpy spydirectChannelUserIdChanged(&input, &Room::directChannelUserIdChanged);
     QSignalSpy spylastMessageAtChanged(&input, &Room::lastMessageAtChanged);
 
-    input.setRoomId(QByteArrayLiteral("foo"));
+    input.setRoomId("foo"_ba);
     input.setChannelType(Room::roomTypeFromString(QStringLiteral("p")));
     input.setName(QStringLiteral("d"));
     input.setAnnouncement(QStringLiteral("AA"));
     input.setRoomCreatorUserName(QStringLiteral("pp"));
-    input.setRoomCreatorUserId(QByteArrayLiteral("sdfsdfs"));
+    input.setRoomCreatorUserId("sdfsdfs"_ba);
     input.setTopic(QStringLiteral("topic"));
     input.setMutedUsers(QStringList{QStringLiteral("mutedUsers"), QStringLiteral("muted2")});
     input.setJitsiTimeout(55);
@@ -296,10 +296,10 @@ void RoomTest::shouldEmitSignals()
     input.setDescription(QStringLiteral("ddd"));
     input.setRoles({QStringLiteral("bla"), QStringLiteral("blu")});
     input.setIgnoredUsers({QStringLiteral("bla"), QStringLiteral("blu3")});
-    input.setParentRid(QByteArrayLiteral("bla"));
+    input.setParentRid("bla"_ba);
     input.setAutoTranslateLanguage(QStringLiteral("bli"));
     input.setAutoTranslate(true);
-    input.setDirectChannelUserId(QByteArrayLiteral("naninani"));
+    input.setDirectChannelUserId("naninani"_ba);
     input.setLastMessageAt(QDateTime::currentMSecsSinceEpoch());
 
     QCOMPARE(spyNameChanged.count(), 1);
@@ -414,7 +414,7 @@ void RoomTest::shouldParseRoomAndUpdate()
     const QJsonObject fields = doc.object();
 
     RocketChatAccount account;
-    account.settings()->setUserId(QByteArrayLiteral("uKK39zoewTkdacidH"));
+    account.settings()->setUserId("uKK39zoewTkdacidH"_ba);
     Room r(&account);
     r.parseSubscriptionRoom(fields);
 

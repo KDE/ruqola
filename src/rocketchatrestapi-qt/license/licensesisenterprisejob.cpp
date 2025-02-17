@@ -32,7 +32,7 @@ bool LicensesIsEnterpriseJob::start()
         return false;
     }
     submitGetRequest();
-    addStartRestApiInfo(QByteArrayLiteral("LicensesIsEnterpriseJob: Ask for licenses"));
+    addStartRestApiInfo("LicensesIsEnterpriseJob: Ask for licenses"_ba);
     return true;
 }
 
@@ -41,11 +41,11 @@ void LicensesIsEnterpriseJob::onGetRequestResponse(const QString &replyErrorStri
     const QJsonObject replyObject = replyJson.object();
 
     if (replyObject["success"_L1].toBool()) {
-        addLoggerInfo(QByteArrayLiteral("LicensesIsEnterpriseJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
+        addLoggerInfo("LicensesIsEnterpriseJob: success: "_ba + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT licensesIsEnterpriseDone(replyObject["isEnterprise"_L1].toBool());
     } else {
         emitFailedMessage(replyErrorString, replyObject);
-        addLoggerWarning(QByteArrayLiteral("LicensesIsEnterpriseJob: Problem: ") + replyJson.toJson(QJsonDocument::Indented));
+        addLoggerWarning("LicensesIsEnterpriseJob: Problem: "_ba + replyJson.toJson(QJsonDocument::Indented));
     }
 }
 

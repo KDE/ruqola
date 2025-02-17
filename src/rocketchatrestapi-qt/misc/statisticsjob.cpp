@@ -34,7 +34,7 @@ bool StatisticsJob::start()
     }
     submitGetRequest();
 
-    addStartRestApiInfo(QByteArrayLiteral("StatisticsJob: Ask for server statistics"));
+    addStartRestApiInfo("StatisticsJob: Ask for server statistics"_ba);
     return true;
 }
 
@@ -43,11 +43,11 @@ void StatisticsJob::onGetRequestResponse(const QString &replyErrorString, const 
     const QJsonObject replyObject = replyJson.object();
 
     if (replyObject["success"_L1].toBool()) {
-        addLoggerInfo(QByteArrayLiteral("StatisticsJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
+        addLoggerInfo("StatisticsJob: success: "_ba + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT statisticDone(replyObject);
     } else {
         emitFailedMessage(replyErrorString, replyObject);
-        addLoggerWarning(QByteArrayLiteral("StatisticsJob: Problem: ") + replyJson.toJson(QJsonDocument::Indented));
+        addLoggerWarning("StatisticsJob: Problem: "_ba + replyJson.toJson(QJsonDocument::Indented));
     }
 }
 

@@ -42,8 +42,8 @@ void PublicSettingsJobTest::shouldGenerateRequest()
     job.setRestApiMethod(&method);
     const QNetworkRequest request = job.request();
     QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/v1/settings.public")));
-    QCOMPARE(request.rawHeader(QByteArrayLiteral("X-Auth-Token")), authToken.toLocal8Bit());
-    QCOMPARE(request.rawHeader(QByteArrayLiteral("X-User-Id")), userId.toLocal8Bit());
+    QCOMPARE(request.rawHeader("X-Auth-Token"_ba), authToken.toLocal8Bit());
+    QCOMPARE(request.rawHeader("X-User-Id"_ba), userId.toLocal8Bit());
 }
 
 #include "moc_publicsettingsjobtest.cpp"

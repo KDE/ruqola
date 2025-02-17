@@ -26,7 +26,7 @@ void AppInfoJobTest::shouldGenerateRequest()
 {
     {
         AppInfoJob job;
-        const QByteArray ba{QByteArrayLiteral("foo-bla-bli")};
+        const QByteArray ba{"foo-bla-bli"_ba};
         job.setAppsId(ba);
         QNetworkRequest request = QNetworkRequest(QUrl());
         verifyAuthentication(&job, request);
@@ -34,7 +34,7 @@ void AppInfoJobTest::shouldGenerateRequest()
     }
     {
         AppInfoJob job;
-        const QByteArray ba{QByteArrayLiteral("foo-bla-bli")};
+        const QByteArray ba{"foo-bla-bli"_ba};
         job.setAppsId(ba);
         job.setAppInfoType(AppInfoJob::AppInfoType::Logs);
         QNetworkRequest request = QNetworkRequest(QUrl());
@@ -43,7 +43,7 @@ void AppInfoJobTest::shouldGenerateRequest()
     }
     {
         AppInfoJob job;
-        const QByteArray ba{QByteArrayLiteral("foo-bla-bli")};
+        const QByteArray ba{"foo-bla-bli"_ba};
         job.setAppsId(ba);
         job.setAppInfoType(AppInfoJob::AppInfoType::Versions);
         QNetworkRequest request = QNetworkRequest(QUrl());
@@ -52,7 +52,7 @@ void AppInfoJobTest::shouldGenerateRequest()
     }
     {
         AppInfoJob job;
-        const QByteArray ba{QByteArrayLiteral("foo-bla-bli")};
+        const QByteArray ba{"foo-bla-bli"_ba};
         job.setAppsId(ba);
         job.setAppInfoType(AppInfoJob::AppInfoType::ScreenShots);
         QNetworkRequest request = QNetworkRequest(QUrl());
@@ -61,7 +61,7 @@ void AppInfoJobTest::shouldGenerateRequest()
     }
     {
         AppInfoJob job;
-        const QByteArray ba{QByteArrayLiteral("foo-bla-bli")};
+        const QByteArray ba{"foo-bla-bli"_ba};
         job.setAppsId(ba);
         job.setAppInfoType(AppInfoJob::AppInfoType::Settings);
         QNetworkRequest request = QNetworkRequest(QUrl());

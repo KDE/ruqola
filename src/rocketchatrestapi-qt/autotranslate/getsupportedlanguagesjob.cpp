@@ -34,7 +34,7 @@ bool GetSupportedLanguagesJob::start()
         return false;
     }
     submitGetRequest();
-    addStartRestApiInfo(QByteArrayLiteral("GetSupportedLanguagesJob: get message starting"));
+    addStartRestApiInfo("GetSupportedLanguagesJob: get message starting"_ba);
     return true;
 }
 
@@ -42,12 +42,11 @@ void GetSupportedLanguagesJob::onGetRequestResponse(const QString &replyErrorStr
 {
     const QJsonObject replyObject = replyJson.object();
     if (replyObject["success"_L1].toBool()) {
-        addLoggerInfo(QByteArrayLiteral("GetSupportedLanguagesJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
+        addLoggerInfo("GetSupportedLanguagesJob: success: "_ba + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT getSupportedLanguagesDone(replyObject);
     } else {
         emitFailedMessage(replyErrorString, replyObject);
-        addLoggerWarning(QByteArrayLiteral("GetSupportedLanguagesJob: Problem when we tried to GetSupportedLanguages : ")
-                         + replyJson.toJson(QJsonDocument::Indented));
+        addLoggerWarning("GetSupportedLanguagesJob: Problem when we tried to GetSupportedLanguages : "_ba + replyJson.toJson(QJsonDocument::Indented));
     }
 }
 

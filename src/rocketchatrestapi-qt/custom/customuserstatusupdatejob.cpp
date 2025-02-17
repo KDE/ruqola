@@ -36,11 +36,11 @@ void CustomUserStatusUpdateJob::onPostRequestResponse(const QString &replyErrorS
 {
     const QJsonObject replyObject = replyJson.object();
     if (replyObject["success"_L1].toBool()) {
-        addLoggerInfo(QByteArrayLiteral("CustomUserStatusUpdateJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
+        addLoggerInfo("CustomUserStatusUpdateJob: success: "_ba + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT customUserUpdateDone();
     } else {
         emitFailedMessage(replyErrorString, replyObject);
-        addLoggerWarning(QByteArrayLiteral("CustomUserStatusUpdateJob: Problem: ") + replyJson.toJson(QJsonDocument::Indented));
+        addLoggerWarning("CustomUserStatusUpdateJob: Problem: "_ba + replyJson.toJson(QJsonDocument::Indented));
     }
 }
 

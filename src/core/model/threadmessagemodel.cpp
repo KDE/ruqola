@@ -9,7 +9,7 @@
 #include "listmessages.h"
 
 ThreadMessageModel::ThreadMessageModel(RocketChatAccount *account, QObject *parent)
-    : MessagesModel(QByteArrayLiteral("no_room"), account, nullptr, parent)
+    : MessagesModel("no_room"_ba, account, nullptr, parent)
 {
 }
 

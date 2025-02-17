@@ -33,7 +33,7 @@ bool RolesListJob::start()
     }
     submitGetRequest();
 
-    addStartRestApiInfo(QByteArrayLiteral("RolesListJob: Ask for roles"));
+    addStartRestApiInfo("RolesListJob: Ask for roles"_ba);
     return true;
 }
 
@@ -42,11 +42,11 @@ void RolesListJob::onGetRequestResponse(const QString &replyErrorString, const Q
     const QJsonObject replyObject = replyJson.object();
 
     if (replyObject["success"_L1].toBool()) {
-        addLoggerInfo(QByteArrayLiteral("RolesListJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
+        addLoggerInfo("RolesListJob: success: "_ba + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT rolesListDone(replyObject);
     } else {
         emitFailedMessage(replyErrorString, replyObject);
-        addLoggerWarning(QByteArrayLiteral("RolesListJob: Problem: ") + replyJson.toJson(QJsonDocument::Indented));
+        addLoggerWarning("RolesListJob: Problem: "_ba + replyJson.toJson(QJsonDocument::Indented));
     }
 }
 

@@ -33,7 +33,7 @@ void GetSnippetedMessagesJobTest::shouldGenerateRequest()
     RestApiMethod method;
     method.setServerUrl(QStringLiteral("http://www.kde.org"));
     job.setRestApiMethod(&method);
-    const QByteArray roomId = QByteArrayLiteral("bla");
+    const QByteArray roomId = "bla"_ba;
     job.setRoomId(roomId);
     const QNetworkRequest request = job.request();
     QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/v1/chat.getSnippetedMessages?roomId=%1").arg(QLatin1StringView(roomId))));
@@ -56,7 +56,7 @@ void GetSnippetedMessagesJobTest::shouldNotStarting()
     QVERIFY(!job.canStart());
     job.setUserId(userId);
     QVERIFY(!job.canStart());
-    const QByteArray roomId = QByteArrayLiteral("foo1");
+    const QByteArray roomId = "foo1"_ba;
     job.setRoomId(roomId);
     QVERIFY(job.canStart());
 }

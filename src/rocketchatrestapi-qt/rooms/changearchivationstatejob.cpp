@@ -37,11 +37,11 @@ void ChangeArchivationStateJob::onPostRequestResponse(const QString &replyErrorS
     const QJsonObject replyObject = replyJson.object();
 
     if (replyObject["success"_L1].toBool()) {
-        addLoggerInfo(QByteArrayLiteral("ChangeArchivationStateJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
+        addLoggerInfo("ChangeArchivationStateJob: success: "_ba + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT changeArchivationStateDone();
     } else {
         emitFailedMessage(replyErrorString, replyObject);
-        addLoggerWarning(QByteArrayLiteral("ChangeArchivationStateJob: Problem: ") + replyJson.toJson(QJsonDocument::Indented));
+        addLoggerWarning("ChangeArchivationStateJob: Problem: "_ba + replyJson.toJson(QJsonDocument::Indented));
     }
 }
 

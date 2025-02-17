@@ -5,6 +5,8 @@
 */
 
 #include "channellistview.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "channellistdelegate.h"
 #include "connection.h"
 #include "dialogs/configurenotificationdialog.h"

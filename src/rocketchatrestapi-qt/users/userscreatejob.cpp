@@ -37,11 +37,11 @@ void UsersCreateJob::onPostRequestResponse(const QString &replyErrorString, cons
 {
     const QJsonObject replyObject = replyJson.object();
     if (replyObject["success"_L1].toBool()) {
-        addLoggerInfo(QByteArrayLiteral("UsersCreateJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
+        addLoggerInfo("UsersCreateJob: success: "_ba + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT usersCreateDone(replyObject);
     } else {
         emitFailedMessage(replyErrorString, replyObject);
-        addLoggerWarning(QByteArrayLiteral("UsersCreateJob: Problem: ") + replyJson.toJson(QJsonDocument::Indented));
+        addLoggerWarning("UsersCreateJob: Problem: "_ba + replyJson.toJson(QJsonDocument::Indented));
     }
 }
 

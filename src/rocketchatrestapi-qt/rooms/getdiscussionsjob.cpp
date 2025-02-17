@@ -46,7 +46,7 @@ bool GetDiscussionsJob::start()
     }
     submitGetRequest();
 
-    addStartRestApiInfo(QByteArrayLiteral("GetDiscussionsJob: Ask discussions in room"));
+    addStartRestApiInfo("GetDiscussionsJob: Ask discussions in room"_ba);
     return true;
 }
 
@@ -54,11 +54,11 @@ void GetDiscussionsJob::onGetRequestResponse(const QString &replyErrorString, co
 {
     const QJsonObject replyObject = replyJson.object();
     if (replyObject["success"_L1].toBool()) {
-        addLoggerInfo(QByteArrayLiteral("GetDiscussionsJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
+        addLoggerInfo("GetDiscussionsJob: success: "_ba + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT getDiscussionsDone(replyObject, mRoomId);
     } else {
         emitFailedMessage(replyErrorString, replyObject);
-        addLoggerWarning(QByteArrayLiteral("GetDiscussionsJob: Problem: ") + replyJson.toJson(QJsonDocument::Indented));
+        addLoggerWarning("GetDiscussionsJob: Problem: "_ba + replyJson.toJson(QJsonDocument::Indented));
     }
 }
 

@@ -59,6 +59,7 @@ void DirectChannelInfoWidget::fetchUserInfo(const QString &userName)
 void DirectChannelInfoWidget::slotUserInfoDone(const QJsonObject &obj)
 {
     const QJsonObject userJson = obj.value("user"_L1).toObject();
+    qDebug() << " userJson " << userJson;
     User user;
     user.parseUserRestApi(userJson, mListRoleInfos);
     if (user.isValid()) {

@@ -39,7 +39,7 @@ void ReportMessageJob::onPostRequestResponse(const QString &replyErrorString, co
     auto reply = mReply;
     if (reply) {
         const QByteArray data = reply->readAll();
-        addLoggerInfo(QByteArrayLiteral("ReportMessageJob: success: ") + data);
+        addLoggerInfo("ReportMessageJob: success: "_ba + data);
         Q_EMIT reportMessageDone();
         reply->deleteLater();
     }

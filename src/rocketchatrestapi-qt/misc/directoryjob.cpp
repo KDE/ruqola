@@ -34,7 +34,7 @@ bool DirectoryJob::start()
     initialQueryParameters();
     submitGetRequest();
 
-    addStartRestApiInfo(QByteArrayLiteral("DirectoryJob: Ask for search room or users or teams"));
+    addStartRestApiInfo("DirectoryJob: Ask for search room or users or teams"_ba);
     return true;
 }
 
@@ -68,11 +68,11 @@ void DirectoryJob::onGetRequestResponse(const QString &replyErrorString, const Q
     const QJsonObject replyObject = replyJson.object();
 
     if (replyObject["success"_L1].toBool()) {
-        addLoggerInfo(QByteArrayLiteral("DirectoryJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
+        addLoggerInfo("DirectoryJob: success: "_ba + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT directoryDone(replyObject);
     } else {
         emitFailedMessage(replyErrorString, replyObject);
-        addLoggerWarning(QByteArrayLiteral("DirectoryJob: Problem: ") + replyJson.toJson(QJsonDocument::Indented));
+        addLoggerWarning("DirectoryJob: Problem: "_ba + replyJson.toJson(QJsonDocument::Indented));
     }
 }
 

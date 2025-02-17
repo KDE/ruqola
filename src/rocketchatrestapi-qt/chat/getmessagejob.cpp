@@ -35,7 +35,7 @@ bool GetMessageJob::start()
     }
     submitGetRequest();
 
-    addStartRestApiInfo(QByteArrayLiteral("GetMessageJob: get message starting"));
+    addStartRestApiInfo("GetMessageJob: get message starting"_ba);
     return true;
 }
 
@@ -43,11 +43,11 @@ void GetMessageJob::onGetRequestResponse(const QString &replyErrorString, const 
 {
     const QJsonObject replyObject = replyJson.object();
     if (replyObject["success"_L1].toBool()) {
-        addLoggerInfo(QByteArrayLiteral("GetMessageJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
+        addLoggerInfo("GetMessageJob: success: "_ba + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT getMessageDone(replyObject, mMessageId, mRoomId);
     } else {
         emitFailedMessage(replyErrorString, replyObject);
-        addLoggerWarning(QByteArrayLiteral("GetMessageJob: Problem when we tried to get message : ") + replyJson.toJson(QJsonDocument::Indented));
+        addLoggerWarning("GetMessageJob: Problem when we tried to get message : "_ba + replyJson.toJson(QJsonDocument::Indented));
     }
 }
 

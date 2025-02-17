@@ -49,7 +49,7 @@ bool RemoveInviteJob::start()
     mReply->setProperty("jobClassName", className);
 
     connect(mReply, &QNetworkReply::finished, this, &RemoveInviteJob::slotRemoveInviteFinished);
-    addStartRestApiInfo(QByteArrayLiteral("RemoveInviteJob: Ask for displaying all invite link url"));
+    addStartRestApiInfo("RemoveInviteJob: Ask for displaying all invite link url"_ba);
     return true;
 }
 
@@ -58,22 +58,22 @@ void RemoveInviteJob::slotRemoveInviteFinished()
     auto reply = mReply;
     if (reply) {
         if (reply->readAll() == "true") {
-            addLoggerInfo(QByteArrayLiteral("RemoveInviteJob: success: "));
+            addLoggerInfo("RemoveInviteJob: success: "_ba);
             Q_EMIT removeInviteDone(mIdentifier);
         } else {
             // emitFailedMessage(replyObject, reply);
-            addLoggerWarning(QByteArrayLiteral("RemoveInviteJob: Problem: "));
+            addLoggerWarning("RemoveInviteJob: Problem: "_ba);
         }
 #if 0
         const QJsonDocument replyJson = convertToJsonDocument(reply);
         const QJsonObject replyObject = replyJson.object();
 
         if (replyObject["success"_L1].toBool()) {
-            addLoggerInfo(QByteArrayLiteral("RemoveInviteJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
+            addLoggerInfo("RemoveInviteJob: success: "_ba + replyJson.toJson(QJsonDocument::Indented));
             Q_EMIT removeInviteDone();
         } else {
             emitFailedMessage(replyObject, reply);
-            addLoggerWarning(QByteArrayLiteral("RemoveInviteJob: Problem: ") + replyJson.toJson(QJsonDocument::Indented));
+            addLoggerWarning("RemoveInviteJob: Problem: "_ba + replyJson.toJson(QJsonDocument::Indented));
         }
 #endif
         reply->deleteLater();

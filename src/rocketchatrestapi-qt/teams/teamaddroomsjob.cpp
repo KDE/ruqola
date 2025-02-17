@@ -39,11 +39,11 @@ void TeamAddRoomsJob::onPostRequestResponse(const QString &replyErrorString, con
     const QJsonObject replyObject = replyJson.object();
 
     if (replyObject["success"_L1].toBool()) {
-        addLoggerInfo(QByteArrayLiteral("TeamAddRoomsJob success: ") + replyJson.toJson(QJsonDocument::Indented));
+        addLoggerInfo("TeamAddRoomsJob success: "_ba + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT teamAddRoomsDone(replyObject);
     } else {
         emitFailedMessage(replyErrorString, replyObject);
-        addLoggerWarning(QByteArrayLiteral("TeamAddRoomsJob: Problem: ") + replyJson.toJson(QJsonDocument::Indented));
+        addLoggerWarning("TeamAddRoomsJob: Problem: "_ba + replyJson.toJson(QJsonDocument::Indented));
     }
 }
 

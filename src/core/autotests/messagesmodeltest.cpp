@@ -29,23 +29,23 @@ void MessagesModelTest::initTestCase()
     Ruqola::self()->accountManager()->addAccount(new RocketChatAccount());
     rcAccount = Ruqola::self()->rocketChatAccount();
     QVERIFY(rcAccount);
-    rcAccount->settings()->setUserId(QByteArrayLiteral("userid1"));
+    rcAccount->settings()->setUserId("userid1"_ba);
 }
 
 void MessagesModelTest::shouldHaveDefaultValue()
 {
-    MessagesModel w(QByteArrayLiteral("roomId"), Ruqola::self()->rocketChatAccount());
+    MessagesModel w("roomId"_ba, Ruqola::self()->rocketChatAccount());
     QCOMPARE(w.rowCount(), 0);
     QVERIFY(w.searchText().isEmpty());
 }
 
 static void fillTestMessage(Message &input)
 {
-    input.setRoomId(QByteArrayLiteral("room2"));
+    input.setRoomId("room2"_ba);
     input.setText(QStringLiteral("message1"));
     input.setTimeStamp(QDateTime::currentMSecsSinceEpoch());
     input.setUsername(QStringLiteral("user1"));
-    input.setUserId(QByteArrayLiteral("userid1"));
+    input.setUserId("userid1"_ba);
     input.setUpdatedAt(45);
     input.setEditedAt(89);
     input.setEditedByUsername(QStringLiteral("editeduser1"));
@@ -62,7 +62,7 @@ void MessagesModelTest::shouldAddMessage()
     MessagesModel w;
     Message input;
     fillTestMessage(input);
-    input.setMessageId(QByteArrayLiteral("ff"));
+    input.setMessageId("ff"_ba);
     w.addMessages({input});
 
     QCOMPARE(w.rowCount(), 1);
@@ -71,22 +71,22 @@ void MessagesModelTest::shouldAddMessage()
     QCOMPARE(w.rowCount(), 1);
 
     // Add other messageId
-    input.setMessageId(QByteArrayLiteral("ff2"));
+    input.setMessageId("ff2"_ba);
     input.setTimeStamp(43);
     w.addMessages({input});
     QCOMPARE(w.rowCount(), 2);
 
-    input.setMessageId(QByteArrayLiteral("ff3"));
+    input.setMessageId("ff3"_ba);
     input.setTimeStamp(44);
     w.addMessages({input});
     QCOMPARE(w.rowCount(), 3);
 
-    input.setMessageId(QByteArrayLiteral("ff4"));
+    input.setMessageId("ff4"_ba);
     input.setTimeStamp(45);
     w.addMessages({input});
     QCOMPARE(w.rowCount(), 4);
 
-    input.setMessageId(QByteArrayLiteral("ff2"));
+    input.setMessageId("ff2"_ba);
     input.setTimeStamp(43);
     w.addMessages({input});
     QCOMPARE(w.rowCount(), 4);
@@ -103,7 +103,7 @@ void MessagesModelTest::shouldRemoveMessage()
     QSignalSpy rowRemovedSpy(&w, &MessagesModel::rowsRemoved);
     QSignalSpy rowABTRemoved(&w, &MessagesModel::rowsAboutToBeRemoved);
 
-    const QByteArray messageId = QByteArrayLiteral("ff");
+    const QByteArray messageId = "ff"_ba;
     input.setMessageId(messageId);
     w.addMessages({input});
 
@@ -152,25 +152,25 @@ void MessagesModelTest::shouldRemoveNotExistingMessage()
     MessagesModel w;
     Message input;
     fillTestMessage(input);
-    const QByteArray messageId = QByteArrayLiteral("ff");
+    const QByteArray messageId = "ff"_ba;
     input.setMessageId(messageId);
     w.addMessages({input});
 
     QCOMPARE(w.rowCount(), 1);
     // Remove non-existing message
-    w.deleteMessage(QByteArrayLiteral("Bla"));
+    w.deleteMessage("Bla"_ba);
     QCOMPARE(w.rowCount(), 1);
 
-    input.setMessageId(QByteArrayLiteral("ff3"));
+    input.setMessageId("ff3"_ba);
     w.addMessages({input});
     QCOMPARE(w.rowCount(), 2);
 
-    input.setMessageId(QByteArrayLiteral("ff4"));
+    input.setMessageId("ff4"_ba);
     w.addMessages({input});
     QCOMPARE(w.rowCount(), 3);
 
     // Remove 3th element
-    w.deleteMessage(QByteArrayLiteral("ff3"));
+    w.deleteMessage("ff3"_ba);
     QCOMPARE(w.rowCount(), 2);
 }
 
@@ -178,14 +178,14 @@ void MessagesModelTest::shouldDetectDateChange()
 {
     MessagesModel model;
     Message first;
-    first.setMessageId(QByteArrayLiteral("first"));
+    first.setMessageId("first"_ba);
     first.setTimeStamp(QDateTime(QDate(2019, 6, 7), QTime(23, 50, 50), QTimeZone::UTC).toMSecsSinceEpoch());
     model.addMessages({first});
     QCOMPARE(model.rowCount(), 1);
     QVERIFY(model.index(0, 0).data(MessagesModel::DateDiffersFromPrevious).toBool()); // first message
 
     Message second;
-    second.setMessageId(QByteArrayLiteral("second"));
+    second.setMessageId("second"_ba);
     second.setTimeStamp(QDateTime(QDate(2019, 6, 8), QTime(1, 2, 3), QTimeZone::UTC).toMSecsSinceEpoch());
     model.addMessages({second});
     QCOMPARE(model.rowCount(), 2);
@@ -193,7 +193,7 @@ void MessagesModelTest::shouldDetectDateChange()
 
     Message third;
     third.setTimeStamp(QDateTime(QDate(2019, 6, 8), QTime(1, 4, 3), QTimeZone::UTC).toMSecsSinceEpoch());
-    third.setMessageId(QByteArrayLiteral("third"));
+    third.setMessageId("third"_ba);
     model.addMessages({third});
     QCOMPARE(model.rowCount(), 3);
     QVERIFY(!model.index(2, 0).data(MessagesModel::DateDiffersFromPrevious).toBool()); // same day
@@ -269,7 +269,7 @@ void MessagesModelTest::shouldUpdateFirstMessage()
 void MessagesModelTest::shouldAllowEditing()
 {
     // GIVEN a message from me
-    MessagesModel model(QByteArrayLiteral("roomId"), Ruqola::self()->rocketChatAccount());
+    MessagesModel model("roomId"_ba, Ruqola::self()->rocketChatAccount());
     RuqolaServerConfig::ServerConfigFeatureTypes settings;
     settings |= RuqolaServerConfig::ServerConfigFeatureType::AllowEditingMessage;
     settings |= RuqolaServerConfig::ServerConfigFeatureType::AllowMessageDeleting;
@@ -284,8 +284,8 @@ void MessagesModelTest::shouldAllowEditing()
     QVERIFY(model.index(0, 0).data(MessagesModel::CanEditMessage).toBool());
 
     // GIVEN a message from someone else
-    input.setMessageId(QByteArrayLiteral("msg2"));
-    input.setUserId(QByteArrayLiteral("someone_else"));
+    input.setMessageId("msg2"_ba);
+    input.setUserId("someone_else"_ba);
     model.addMessages({input});
 
     // THEN
@@ -296,17 +296,17 @@ void MessagesModelTest::shouldAllowEditing()
 void MessagesModelTest::shouldFindPrevNextMessage()
 {
     // GIVEN an empty model
-    MessagesModel model(QByteArrayLiteral("roomId"), Ruqola::self()->rocketChatAccount());
+    MessagesModel model("roomId"_ba, Ruqola::self()->rocketChatAccount());
 
     auto isByMe = [](const Message &msg) {
-        return msg.userId() == QByteArrayLiteral("userid1");
+        return msg.userId() == "userid1"_ba;
     };
 
     // THEN there is no prev/next message
     QCOMPARE(model.findNextMessageAfter(QByteArray(), isByMe).messageId(), QByteArray());
     QCOMPARE(model.findLastMessageBefore(QByteArray(), isByMe).messageId(), QByteArray());
-    QCOMPARE(model.findNextMessageAfter(QByteArrayLiteral("doesnotexist"), isByMe).messageId(), QByteArray());
-    QCOMPARE(model.findLastMessageBefore(QByteArrayLiteral("doesnotexist"), isByMe).messageId(), QByteArray());
+    QCOMPARE(model.findNextMessageAfter("doesnotexist"_ba, isByMe).messageId(), QByteArray());
+    QCOMPARE(model.findLastMessageBefore("doesnotexist"_ba, isByMe).messageId(), QByteArray());
 
     // GIVEN a non-empty model
     Message input;
@@ -319,18 +319,18 @@ void MessagesModelTest::shouldFindPrevNextMessage()
         input.setTimeStamp(timestamp);
         return input;
     };
-    messages << makeMessage(QByteArrayLiteral("msgA"), QByteArrayLiteral("userid1"));
-    messages << makeMessage(QByteArrayLiteral("msgB"), QByteArrayLiteral("userid2"));
-    messages << makeMessage(QByteArrayLiteral("msgC"), QByteArrayLiteral("userid1"));
+    messages << makeMessage(QByteArrayLiteral("msgA"), "userid1"_ba);
+    messages << makeMessage(QByteArrayLiteral("msgB"), "userid2"_ba);
+    messages << makeMessage(QByteArrayLiteral("msgC"), "userid1"_ba);
     model.addMessages(messages);
 
     // WHEN/THEN
-    QCOMPARE(model.findLastMessageBefore(QByteArray(), isByMe).messageId(), QByteArrayLiteral("msgC"));
-    QCOMPARE(model.findLastMessageBefore(QByteArrayLiteral("msgC"), isByMe).messageId(), QByteArrayLiteral("msgA"));
-    QCOMPARE(model.findLastMessageBefore(QByteArrayLiteral("msgA"), isByMe).messageId(), QByteArray());
+    QCOMPARE(model.findLastMessageBefore(QByteArray(), isByMe).messageId(), "msgC"_ba);
+    QCOMPARE(model.findLastMessageBefore(QByteArrayLiteral("msgC"), isByMe).messageId(), "msgA"_ba);
+    QCOMPARE(model.findLastMessageBefore("msgA"_ba, isByMe).messageId(), QByteArray());
     QCOMPARE(model.findNextMessageAfter(QByteArray(), isByMe).messageId(), QByteArray());
-    QCOMPARE(model.findNextMessageAfter(QByteArrayLiteral("msgC"), isByMe).messageId(), QByteArray());
-    QCOMPARE(model.findNextMessageAfter(QByteArrayLiteral("msgA"), isByMe).messageId(), QByteArrayLiteral("msgC"));
+    QCOMPARE(model.findNextMessageAfter("msgC"_ba, isByMe).messageId(), QByteArray());
+    QCOMPARE(model.findNextMessageAfter(QByteArrayLiteral("msgA"), isByMe).messageId(), "msgC"_ba);
 }
 
 #include "moc_messagesmodeltest.cpp"

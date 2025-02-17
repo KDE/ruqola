@@ -34,11 +34,11 @@ void ArchiveChannelJob::onPostRequestResponse(const QString &replyErrorString, c
 {
     const QJsonObject replyObject = replyJson.object();
     if (replyObject["success"_L1].toBool()) {
-        addLoggerInfo(QByteArrayLiteral("archive or unarchive channel success: ") + replyJson.toJson(QJsonDocument::Indented));
+        addLoggerInfo("archive or unarchive channel success: "_ba + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT archiveChannelDone();
     } else {
         emitFailedMessage(replyErrorString, replyObject);
-        addLoggerWarning(QByteArrayLiteral("Problem when we tried to archive or unarchive a channel: ") + replyJson.toJson(QJsonDocument::Indented));
+        addLoggerWarning("Problem when we tried to archive or unarchive a channel: "_ba + replyJson.toJson(QJsonDocument::Indented));
     }
 }
 

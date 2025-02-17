@@ -7,6 +7,7 @@
 #include "teaminfotest.h"
 #include "teams/teaminfo.h"
 #include <QTest>
+using namespace Qt::Literals::StringLiterals;
 QTEST_GUILESS_MAIN(TeamInfoTest)
 TeamInfoTest::TeamInfoTest(QObject *parent)
     : QObject(parent)
@@ -29,7 +30,7 @@ void TeamInfoTest::shouldVerifyHasTeamRoom()
     TeamInfo info;
     QVERIFY(!info.hasTeamRoom());
     info.setMainTeam(true);
-    info.setTeamId(QByteArrayLiteral("ff"));
+    info.setTeamId("ff"_ba);
     QVERIFY(!info.hasTeamRoom());
     info.setMainTeam(false);
     QVERIFY(info.hasTeamRoom());

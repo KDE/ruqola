@@ -36,11 +36,11 @@ void SetJoinCodeChannelJob::onPostRequestResponse(const QString &replyErrorStrin
     const QJsonObject replyObject = replyJson.object();
 
     if (replyObject["success"_L1].toBool()) {
-        addLoggerInfo(QByteArrayLiteral("SetJoinCodeChannelJob success: ") + replyJson.toJson(QJsonDocument::Indented));
+        addLoggerInfo("SetJoinCodeChannelJob success: "_ba + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT setJoinCodeDone();
     } else {
         emitFailedMessage(replyErrorString, replyObject);
-        addLoggerWarning(QByteArrayLiteral("SetJoinCodeChannelJob problem: ") + replyJson.toJson(QJsonDocument::Indented));
+        addLoggerWarning("SetJoinCodeChannelJob problem: "_ba + replyJson.toJson(QJsonDocument::Indented));
     }
 }
 

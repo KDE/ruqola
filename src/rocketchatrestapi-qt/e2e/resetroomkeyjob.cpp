@@ -35,11 +35,11 @@ void ResetRoomKeyJob::onPostRequestResponse(const QString &replyErrorString, con
     const QJsonObject replyObject = replyJson.object();
 
     if (replyObject["success"_L1].toBool()) {
-        addLoggerInfo(QByteArrayLiteral("ResetRoomKeyJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
+        addLoggerInfo("ResetRoomKeyJob: success: "_ba + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT resetRoomKeyDone(replyObject);
     } else {
         emitFailedMessage(replyErrorString, replyObject);
-        addLoggerWarning(QByteArrayLiteral("ResetRoomKeyJob: Problem: ") + replyJson.toJson(QJsonDocument::Indented));
+        addLoggerWarning("ResetRoomKeyJob: Problem: "_ba + replyJson.toJson(QJsonDocument::Indented));
     }
 }
 

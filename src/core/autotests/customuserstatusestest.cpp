@@ -37,7 +37,7 @@ void CustomUserStatusesTest::shouldLoadUserCustomStatuses_data()
         QList<CustomUserStatus> result;
         {
             CustomUserStatus f;
-            f.setIdentifier(QByteArrayLiteral("GZHpA5fENrWHRfaoN"));
+            f.setIdentifier("GZHpA5fENrWHRfaoN"_ba);
             f.setName(QStringLiteral("CM"));
             f.setStatusType(Utils::presenceStatusFromString(QStringLiteral("busy")));
             f.setUpdatedAt(1603106197911);
@@ -45,7 +45,7 @@ void CustomUserStatusesTest::shouldLoadUserCustomStatuses_data()
         }
         {
             CustomUserStatus f;
-            f.setIdentifier(QByteArrayLiteral("tygCbhbgCojk8G28G"));
+            f.setIdentifier("tygCbhbgCojk8G28G"_ba);
             f.setName(QStringLiteral("Vacation"));
             f.setStatusType(Utils::presenceStatusFromString(QStringLiteral("away")));
             f.setUpdatedAt(1588199612532);
@@ -85,7 +85,7 @@ void CustomUserStatusesTest::shouldUpdateUserCustomStatuses_data()
         QList<CustomUserStatus> result;
         {
             CustomUserStatus f;
-            f.setIdentifier(QByteArrayLiteral("GZHpA5fENrWHRfaoN"));
+            f.setIdentifier("GZHpA5fENrWHRfaoN"_ba);
             f.setName(QStringLiteral("CM"));
             f.setStatusType(Utils::presenceStatusFromString(QStringLiteral("busy")));
             f.setUpdatedAt(1603106197911);
@@ -93,7 +93,7 @@ void CustomUserStatusesTest::shouldUpdateUserCustomStatuses_data()
         }
         {
             CustomUserStatus f;
-            f.setIdentifier(QByteArrayLiteral("tygCbhbgCojk8G28G"));
+            f.setIdentifier("tygCbhbgCojk8G28G"_ba);
             f.setName(QStringLiteral("Vacation"));
             f.setStatusType(Utils::presenceStatusFromString(QStringLiteral("away")));
             f.setUpdatedAt(1588199612532);
@@ -103,7 +103,7 @@ void CustomUserStatusesTest::shouldUpdateUserCustomStatuses_data()
         QList<CustomUserStatus> updating;
         {
             CustomUserStatus f;
-            f.setIdentifier(QByteArrayLiteral("GZHpA5fENrWHRfaoN"));
+            f.setIdentifier("GZHpA5fENrWHRfaoN"_ba);
             f.setName(QStringLiteral("CMs"));
             f.setStatusType(Utils::presenceStatusFromString(QStringLiteral("away")));
             f.setUpdatedAt(1603106197911);
@@ -111,7 +111,7 @@ void CustomUserStatusesTest::shouldUpdateUserCustomStatuses_data()
         }
         {
             CustomUserStatus f;
-            f.setIdentifier(QByteArrayLiteral("tygCbhbgCojk8G28G"));
+            f.setIdentifier("tygCbhbgCojk8G28G"_ba);
             f.setName(QStringLiteral("Vacation"));
             f.setStatusType(Utils::presenceStatusFromString(QStringLiteral("away")));
             f.setUpdatedAt(1588199612532);
@@ -125,7 +125,7 @@ void CustomUserStatusesTest::shouldUpdateUserCustomStatuses_data()
         QList<CustomUserStatus> result;
         {
             CustomUserStatus f;
-            f.setIdentifier(QByteArrayLiteral("GZHpA5fENrWHRfaoN"));
+            f.setIdentifier("GZHpA5fENrWHRfaoN"_ba);
             f.setName(QStringLiteral("CM"));
             f.setStatusType(Utils::presenceStatusFromString(QStringLiteral("busy")));
             f.setUpdatedAt(1603106197911);
@@ -133,7 +133,7 @@ void CustomUserStatusesTest::shouldUpdateUserCustomStatuses_data()
         }
         {
             CustomUserStatus f;
-            f.setIdentifier(QByteArrayLiteral("tygCbhbgCojk8G28G"));
+            f.setIdentifier("tygCbhbgCojk8G28G"_ba);
             f.setName(QStringLiteral("Vacation"));
             f.setStatusType(Utils::presenceStatusFromString(QStringLiteral("away")));
             f.setUpdatedAt(1588199612532);
@@ -143,7 +143,7 @@ void CustomUserStatusesTest::shouldUpdateUserCustomStatuses_data()
         QList<CustomUserStatus> adding;
         {
             CustomUserStatus f;
-            f.setIdentifier(QByteArrayLiteral("GZHpA5fENrWHRfaoN"));
+            f.setIdentifier("GZHpA5fENrWHRfaoN"_ba);
             f.setName(QStringLiteral("CM"));
             f.setStatusType(Utils::presenceStatusFromString(QStringLiteral("busy")));
             f.setUpdatedAt(1603106197911);
@@ -151,7 +151,7 @@ void CustomUserStatusesTest::shouldUpdateUserCustomStatuses_data()
         }
         {
             CustomUserStatus f;
-            f.setIdentifier(QByteArrayLiteral("tygCbhbgCojk8G28G"));
+            f.setIdentifier("tygCbhbgCojk8G28G"_ba);
             f.setName(QStringLiteral("Vacation"));
             f.setStatusType(Utils::presenceStatusFromString(QStringLiteral("away")));
             f.setUpdatedAt(1588199612532);
@@ -159,7 +159,7 @@ void CustomUserStatusesTest::shouldUpdateUserCustomStatuses_data()
         }
         {
             CustomUserStatus f;
-            f.setIdentifier(QByteArrayLiteral("ycbgxsKtP7sv8HNiS"));
+            f.setIdentifier("ycbgxsKtP7sv8HNiS"_ba);
             f.setName(QStringLiteral("bla"));
             f.setStatusType(Utils::presenceStatusFromString(QStringLiteral("away")));
             f.setUpdatedAt(1603108134976);
@@ -212,7 +212,7 @@ void CustomUserStatusesTest::shouldDeleteUserCustomStatuses_data()
         QList<CustomUserStatus> result;
         {
             CustomUserStatus f;
-            f.setIdentifier(QByteArrayLiteral("GZHpA5fENrWHRfaoN"));
+            f.setIdentifier("GZHpA5fENrWHRfaoN"_ba);
             f.setName(QStringLiteral("CM"));
             f.setStatusType(Utils::presenceStatusFromString(QStringLiteral("busy")));
             f.setUpdatedAt(1603106197911);
@@ -220,7 +220,7 @@ void CustomUserStatusesTest::shouldDeleteUserCustomStatuses_data()
         }
         {
             CustomUserStatus f;
-            f.setIdentifier(QByteArrayLiteral("tygCbhbgCojk8G28G"));
+            f.setIdentifier("tygCbhbgCojk8G28G"_ba);
             f.setName(QStringLiteral("Vacation"));
             f.setStatusType(Utils::presenceStatusFromString(QStringLiteral("away")));
             f.setUpdatedAt(1588199612532);
@@ -230,7 +230,7 @@ void CustomUserStatusesTest::shouldDeleteUserCustomStatuses_data()
         QList<CustomUserStatus> updating;
         {
             CustomUserStatus f;
-            f.setIdentifier(QByteArrayLiteral("tygCbhbgCojk8G28G"));
+            f.setIdentifier("tygCbhbgCojk8G28G"_ba);
             f.setName(QStringLiteral("Vacation"));
             f.setStatusType(Utils::presenceStatusFromString(QStringLiteral("away")));
             f.setUpdatedAt(1588199612532);

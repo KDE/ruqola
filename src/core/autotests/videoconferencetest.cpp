@@ -48,41 +48,41 @@ void VideoConferenceTest::shouldExtractVideoConference_data()
     {
         VideoConference conference;
         conference.setAction(VideoConference::Action::IncomingCall);
-        conference.setCallId(QByteArrayLiteral("6398e61e29673367a61e6f23"));
-        conference.setRoomId(QByteArrayLiteral("YbwG4T2uB3wZSZSKBxkNpoB3T98EEPCj2K"));
-        conference.setUserId(QByteArrayLiteral("YbwG4T2uB3wZSZSKB"));
+        conference.setCallId("6398e61e29673367a61e6f23"_ba);
+        conference.setRoomId("YbwG4T2uB3wZSZSKBxkNpoB3T98EEPCj2K"_ba);
+        conference.setUserId("YbwG4T2uB3wZSZSKB"_ba);
         QTest::addRow("call") << QStringLiteral("call") << conference;
     }
     {
         VideoConference conference;
         conference.setAction(VideoConference::Action::Accepted);
-        conference.setCallId(QByteArrayLiteral("6398e79daa2274c5a48a02c2"));
-        conference.setRoomId(QByteArrayLiteral("YbwG4T2uB3wZSZSKBxkNpoB3T98EEPCj2K"));
-        conference.setUserId(QByteArrayLiteral("YbwG4T2uB3wZSZSKB"));
+        conference.setCallId("6398e79daa2274c5a48a02c2"_ba);
+        conference.setRoomId("YbwG4T2uB3wZSZSKBxkNpoB3T98EEPCj2K"_ba);
+        conference.setUserId("YbwG4T2uB3wZSZSKB"_ba);
         QTest::addRow("accept") << QStringLiteral("accept") << conference;
     }
     {
         VideoConference conference;
         conference.setAction(VideoConference::Action::Confirmed);
-        conference.setCallId(QByteArrayLiteral("6398e79daa2274c5a48a02c2"));
-        conference.setRoomId(QByteArrayLiteral("YbwG4T2uB3wZSZSKBxkNpoB3T98EEPCj2K"));
-        conference.setUserId(QByteArrayLiteral("xkNpoB3T98EEPCj2K"));
+        conference.setCallId("6398e79daa2274c5a48a02c2"_ba);
+        conference.setRoomId("YbwG4T2uB3wZSZSKBxkNpoB3T98EEPCj2K"_ba);
+        conference.setUserId("xkNpoB3T98EEPCj2K"_ba);
         QTest::addRow("confirmed") << QStringLiteral("confirmed") << conference;
     }
     {
         VideoConference conference;
         conference.setAction(VideoConference::Action::Rejected);
-        conference.setCallId(QByteArrayLiteral("6398e888fc94d2587faae3c6"));
-        conference.setRoomId(QByteArrayLiteral("YbwG4T2uB3wZSZSKBxkNpoB3T98EEPCj2K"));
-        conference.setUserId(QByteArrayLiteral("YbwG4T2uB3wZSZSKB"));
+        conference.setCallId("6398e888fc94d2587faae3c6"_ba);
+        conference.setRoomId("YbwG4T2uB3wZSZSKBxkNpoB3T98EEPCj2K"_ba);
+        conference.setUserId("YbwG4T2uB3wZSZSKB"_ba);
         QTest::addRow("rejected") << QStringLiteral("rejected") << conference;
     }
     {
         VideoConference conference;
         conference.setAction(VideoConference::Action::Canceled);
-        conference.setCallId(QByteArrayLiteral("6398e944aa2274c5a48a02ea"));
-        conference.setRoomId(QByteArrayLiteral("YbwG4T2uB3wZSZSKBxkNpoB3T98EEPCj2K"));
-        conference.setUserId(QByteArrayLiteral("YbwG4T2uB3wZSZSKB"));
+        conference.setCallId("6398e944aa2274c5a48a02ea"_ba);
+        conference.setRoomId("YbwG4T2uB3wZSZSKBxkNpoB3T98EEPCj2K"_ba);
+        conference.setUserId("YbwG4T2uB3wZSZSKB"_ba);
         QTest::addRow("canceled") << QStringLiteral("canceled") << conference;
     }
 }

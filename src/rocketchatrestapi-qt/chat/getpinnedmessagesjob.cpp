@@ -47,7 +47,7 @@ bool GetPinnedMessagesJob::start()
     }
     submitGetRequest();
 
-    addStartRestApiInfo(QByteArrayLiteral("GetPinnedMessagesJob: Ask pinned messages"));
+    addStartRestApiInfo("GetPinnedMessagesJob: Ask pinned messages"_ba);
     return true;
 }
 
@@ -55,11 +55,11 @@ void GetPinnedMessagesJob::onGetRequestResponse(const QString &replyErrorString,
 {
     const QJsonObject replyObject = replyJson.object();
     if (replyObject["success"_L1].toBool()) {
-        addLoggerInfo(QByteArrayLiteral("GetPinnedMessagesJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
+        addLoggerInfo("GetPinnedMessagesJob: success: "_ba + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT getPinnedMessagesDone(replyObject, mRoomId);
     } else {
         emitFailedMessage(replyErrorString, replyObject);
-        addLoggerWarning(QByteArrayLiteral("GetPinnedMessagesJob: Problem: ") + replyJson.toJson(QJsonDocument::Indented));
+        addLoggerWarning("GetPinnedMessagesJob: Problem: "_ba + replyJson.toJson(QJsonDocument::Indented));
     }
 }
 

@@ -41,7 +41,7 @@ void ModerationReportUserInfoTest::shouldLoadReportUserInfo_data()
         reportedUser.setName("test1"_L1);
         reportedUser.setUserName("test1"_L1);
         reportedUser.setStatus(User::PresenceStatus::Unknown);
-        reportedUser.setUserId(QByteArrayLiteral("tXCejybNBEvjHcJ6F"));
+        reportedUser.setUserId("tXCejybNBEvjHcJ6F"_ba);
         User::UserEmailsInfo info;
         info.email = "foo@kde.org"_L1;
         reportedUser.setUserEmailsInfo(info);
@@ -51,12 +51,12 @@ void ModerationReportUserInfoTest::shouldLoadReportUserInfo_data()
         reportedBy.setName("bla"_L1);
         reportedBy.setUserName("doo"_L1);
         reportedBy.setStatus(User::PresenceStatus::Unknown);
-        reportedBy.setUserId(QByteArrayLiteral("H7Q9djXQ4iSD9T2"));
+        reportedBy.setUserId("H7Q9djXQ4iSD9T2"_ba);
         reportedBy.setCreatedAt(QDateTime(QDate(2018, 03, 13), QTime(16, 11, 51, 761), QTimeZone::UTC));
 
         moderationReportUserInfo.setReportedBy(reportedBy);
         moderationReportUserInfo.setDescription("test signal user (only test :) )"_L1);
-        moderationReportUserInfo.setReportId(QByteArrayLiteral("663608573b610aa5d35b3b"));
+        moderationReportUserInfo.setReportId("663608573b610aa5d35b3b"_ba);
         moderationReportUserInfo.setTimeStamp(1714817111681);
 
         QTest::addRow("test1") << QStringLiteral("test1") << moderationReportUserInfo;

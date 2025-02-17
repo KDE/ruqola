@@ -56,7 +56,7 @@ void ChannelHistoryJobTest::shouldGenerateRequest()
     QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/v1/groups.history?inclusive=false&unreads=false")));
     QCOMPARE(request.header(QNetworkRequest::ContentTypeHeader).toString(), QStringLiteral("application/json"));
 
-    info.roomId = QByteArrayLiteral("foo");
+    info.roomId = "foo"_ba;
     info.channelType = ChannelHistoryJob::ChannelType::Groups;
     job.setChannelHistoryInfo(info);
     verifyAuthentication(&job, request);
@@ -103,7 +103,7 @@ void ChannelHistoryJobTest::shouldNotStarting()
 
     job.setChannelHistoryInfo(historyInfo);
     QVERIFY(!job.canStart());
-    historyInfo.roomId = QByteArrayLiteral("bla");
+    historyInfo.roomId = "bla"_ba;
     job.setChannelHistoryInfo(historyInfo);
     QVERIFY(job.canStart());
 }

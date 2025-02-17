@@ -43,7 +43,7 @@ void UsersSetPreferencesJobTest::shouldGenerateJson()
         job.setUsersSetPreferencesInfo(info);
         QVERIFY(!job.canStart());
 
-        const QByteArray userId = QByteArrayLiteral("foo");
+        const QByteArray userId = "foo"_ba;
         info.userId = userId;
         job.setUsersSetPreferencesInfo(info);
         QCOMPARE(job.json().toJson(QJsonDocument::Compact),
@@ -73,7 +73,7 @@ void UsersSetPreferencesJobTest::shouldNotStarting()
     job.setUsersSetPreferencesInfo(info);
     QVERIFY(!job.canStart());
 
-    info.userId = QByteArrayLiteral("foo");
+    info.userId = "foo"_ba;
     job.setUsersSetPreferencesInfo(info);
     QVERIFY(job.canStart());
 }

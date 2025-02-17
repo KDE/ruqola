@@ -28,7 +28,7 @@ bool CustomUserStatusListJob::start()
         return false;
     }
     submitGetRequest();
-    addStartRestApiInfo(QByteArrayLiteral("CustomUserStatusJob: Ask custom user status info"));
+    addStartRestApiInfo("CustomUserStatusJob: Ask custom user status info"_ba);
 
     return true;
 }
@@ -38,11 +38,11 @@ void CustomUserStatusListJob::onGetRequestResponse(const QString &replyErrorStri
     const QJsonObject replyObject = replyJson.object();
 
     if (replyObject["success"_L1].toBool()) {
-        addLoggerInfo(QByteArrayLiteral("CustomUserStatusJob done: ") + replyJson.toJson(QJsonDocument::Indented));
+        addLoggerInfo("CustomUserStatusJob done: "_ba + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT customUserStatusDone(replyObject);
     } else {
         emitFailedMessage(replyErrorString, replyObject);
-        addLoggerWarning(QByteArrayLiteral("CustomUserStatusJob: Problem: ") + replyJson.toJson(QJsonDocument::Indented));
+        addLoggerWarning("CustomUserStatusJob: Problem: "_ba + replyJson.toJson(QJsonDocument::Indented));
     }
 }
 

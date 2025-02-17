@@ -35,12 +35,12 @@ void MethodCallJob::onPostRequestResponse(const QString &replyErrorString, const
     // qDebug() << " response " << replyErrorString << "replyJson  " << replyJson;
     const QJsonObject replyObject = replyJson.object();
     if (replyObject["success"_L1].toBool()) {
-        addLoggerInfo(QByteArrayLiteral("MethodCallJob success: ") + replyJson.toJson(QJsonDocument::Indented));
+        addLoggerInfo("MethodCallJob success: "_ba + replyJson.toJson(QJsonDocument::Indented));
         const QJsonObject obj = QJsonDocument::fromJson(replyObject["message"_L1].toString().toUtf8()).object();
         Q_EMIT methodCallDone(obj);
     } else {
         emitFailedMessage(replyErrorString, replyObject);
-        addLoggerWarning(QByteArrayLiteral("MethodCallJob: Problem: ") + replyJson.toJson(QJsonDocument::Indented));
+        addLoggerWarning("MethodCallJob: Problem: "_ba + replyJson.toJson(QJsonDocument::Indented));
     }
 }
 

@@ -38,7 +38,7 @@ void CustomUserStatusUpdateTestJob::shouldGenerateJson()
 
     const QString name = QStringLiteral("foo1");
     const QString statusType = QStringLiteral("topic1");
-    const QByteArray identifier = QByteArrayLiteral("id1");
+    const QByteArray identifier = "id1"_ba;
     CustomUserStatusUpdateJob::StatusUpdateInfo info;
     info.name = name;
     info.statusType = statusType;
@@ -67,7 +67,7 @@ void CustomUserStatusUpdateTestJob::shouldNotStarting()
 
     const QString name = QStringLiteral("foo1");
     const QString statusType = QStringLiteral("topic1");
-    const QByteArray identifier = QByteArrayLiteral("id1");
+    const QByteArray identifier = "id1"_ba;
 
     CustomUserStatusUpdateJob::StatusUpdateInfo info;
     info.name = name;

@@ -41,7 +41,7 @@ void OwnUserTest::shouldLoadOwnUser_data()
     QTest::addColumn<QString>("name");
     QTest::addColumn<OwnUser>("ownuser");
     OwnUser result;
-    result.setUserId(QByteArrayLiteral("YbwG4T2uB3wZSZSKB"));
+    result.setUserId("YbwG4T2uB3wZSZSKB"_ba);
     result.setStatus(QStringLiteral("online"));
     result.setUserName(QStringLiteral("foo-bla"));
     result.setEmail(QStringLiteral("bla@kde.org"));
@@ -67,8 +67,8 @@ void OwnUserTest::shouldLoadOwnUser_data()
     ownUser.setRoomListSortOrder(OwnUserPreferences::RoomListSortOrder::ByLastMessage);
     ownUser.setRoomListDisplay(OwnUserPreferences::RoomListDisplay::Medium);
     ownUser.setReceiveLoginDetectionEmail(true);
-    ownUser.setNewRoomNotification(QByteArrayLiteral("door"));
-    ownUser.setNewMessageNotification(QByteArrayLiteral("chime"));
+    ownUser.setNewRoomNotification("door"_ba);
+    ownUser.setNewMessageNotification("chime"_ba);
     ownUser.setNotificationsSoundVolume(100);
     ownUser.setMuteFocusedConversations(true);
 

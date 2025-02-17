@@ -37,11 +37,11 @@ void SaveNotificationJob::onPostRequestResponse(const QString &replyErrorString,
     const QJsonObject replyObject = replyJson.object();
 
     if (replyObject["success"_L1].toBool()) {
-        addLoggerInfo(QByteArrayLiteral("SaveNotificationJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
+        addLoggerInfo("SaveNotificationJob: success: "_ba + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT changeNotificationDone();
     } else {
         emitFailedMessage(replyErrorString, replyObject);
-        addLoggerWarning(QByteArrayLiteral("SaveNotificationJob: Problem: ") + replyJson.toJson(QJsonDocument::Indented));
+        addLoggerWarning("SaveNotificationJob: Problem: "_ba + replyJson.toJson(QJsonDocument::Indented));
     }
 }
 

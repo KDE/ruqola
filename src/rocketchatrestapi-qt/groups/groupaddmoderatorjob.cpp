@@ -36,11 +36,11 @@ void GroupAddModeratorJob::onPostRequestResponse(const QString &replyErrorString
     const QJsonObject replyObject = replyJson.object();
 
     if (replyObject["success"_L1].toBool()) {
-        addLoggerInfo(QByteArrayLiteral("GroupAddModeratorJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
+        addLoggerInfo("GroupAddModeratorJob: success: "_ba + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT addModeratorDone();
     } else {
         emitFailedMessage(replyErrorString, replyObject);
-        addLoggerWarning(QByteArrayLiteral("GroupAddModeratorJob: problem: ") + replyJson.toJson(QJsonDocument::Indented));
+        addLoggerWarning("GroupAddModeratorJob: problem: "_ba + replyJson.toJson(QJsonDocument::Indented));
     }
 }
 

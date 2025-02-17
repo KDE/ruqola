@@ -36,11 +36,11 @@ void SendInvitationEmailJob::onPostRequestResponse(const QString &replyErrorStri
 {
     const QJsonObject replyObject = replyJson.object();
     if (replyObject["success"_L1].toBool()) {
-        addLoggerInfo(QByteArrayLiteral("SendInvitationEmailJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
+        addLoggerInfo("SendInvitationEmailJob: success: "_ba + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT sendInvitationEmailsDone();
     } else {
         emitFailedMessage(replyErrorString, replyObject);
-        addLoggerWarning(QByteArrayLiteral("SendInvitationEmailJob: Problem: ") + replyJson.toJson(QJsonDocument::Indented));
+        addLoggerWarning("SendInvitationEmailJob: Problem: "_ba + replyJson.toJson(QJsonDocument::Indented));
     }
 }
 

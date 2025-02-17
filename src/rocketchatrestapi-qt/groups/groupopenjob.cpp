@@ -37,11 +37,11 @@ void GroupOpenJob::onPostRequestResponse(const QString &replyErrorString, const 
     const QJsonObject replyObject = replyJson.object();
 
     if (replyObject["success"_L1].toBool()) {
-        addLoggerInfo(QByteArrayLiteral("GroupOpenJob success: ") + replyJson.toJson(QJsonDocument::Indented));
+        addLoggerInfo("GroupOpenJob success: "_ba + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT groupOpenDone(replyObject, channelGroupInfo());
     } else {
         emitFailedMessage(replyErrorString, replyObject);
-        addLoggerWarning(QByteArrayLiteral("GroupOpenJob problem: ") + replyJson.toJson(QJsonDocument::Indented));
+        addLoggerWarning("GroupOpenJob problem: "_ba + replyJson.toJson(QJsonDocument::Indented));
     }
 }
 

@@ -34,7 +34,7 @@ bool GetCommandsJob::start()
     }
     submitGetRequest();
 
-    addStartRestApiInfo(QByteArrayLiteral("GetCommandsJob: Ask info about me"));
+    addStartRestApiInfo("GetCommandsJob: Ask info about me"_ba);
     return true;
 }
 
@@ -42,11 +42,11 @@ void GetCommandsJob::onGetRequestResponse(const QString &replyErrorString, const
 {
     const QJsonObject replyObject = replyJson.object();
     if (replyObject["success"_L1].toBool()) {
-        addLoggerInfo(QByteArrayLiteral("GetCommandsJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
+        addLoggerInfo("GetCommandsJob: success: "_ba + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT getCommandsDone(replyObject);
     } else {
         emitFailedMessage(replyErrorString, replyObject);
-        addLoggerWarning(QByteArrayLiteral("GetCommandsJob: problem: ") + replyJson.toJson(QJsonDocument::Indented));
+        addLoggerWarning("GetCommandsJob: problem: "_ba + replyJson.toJson(QJsonDocument::Indented));
     }
 }
 

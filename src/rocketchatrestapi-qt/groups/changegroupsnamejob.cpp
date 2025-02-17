@@ -36,11 +36,11 @@ void ChangeGroupsNameJob::onPostRequestResponse(const QString &replyErrorString,
     const QJsonObject replyObject = replyJson.object();
 
     if (replyObject["success"_L1].toBool()) {
-        addLoggerInfo(QByteArrayLiteral("ChangeGroupsNameJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
+        addLoggerInfo("ChangeGroupsNameJob: success: "_ba + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT changeGroupsnameDone();
     } else {
         emitFailedMessage(replyErrorString, replyObject);
-        addLoggerWarning(QByteArrayLiteral("ChangeGroupsNameJob: problem: ") + replyJson.toJson(QJsonDocument::Indented));
+        addLoggerWarning("ChangeGroupsNameJob: problem: "_ba + replyJson.toJson(QJsonDocument::Indented));
     }
 }
 

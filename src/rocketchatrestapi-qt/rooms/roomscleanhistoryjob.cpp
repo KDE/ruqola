@@ -37,11 +37,11 @@ void RoomsCleanHistoryJob::onPostRequestResponse(const QString &replyErrorString
     const QJsonObject replyObject = replyJson.object();
 
     if (replyObject["success"_L1].toBool()) {
-        addLoggerInfo(QByteArrayLiteral("ChannelCleanHistoryJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
+        addLoggerInfo("ChannelCleanHistoryJob: success: "_ba + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT cleanHistoryDone();
     } else {
         emitFailedMessage(replyErrorString, replyObject);
-        addLoggerWarning(QByteArrayLiteral("ChannelCleanHistoryJob: problem: ") + replyJson.toJson(QJsonDocument::Indented));
+        addLoggerWarning("ChannelCleanHistoryJob: problem: "_ba + replyJson.toJson(QJsonDocument::Indented));
     }
 }
 

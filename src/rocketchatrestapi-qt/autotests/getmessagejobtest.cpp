@@ -27,7 +27,7 @@ void GetMessageJobTest::shouldGenerateRequest()
 {
     GetMessageJob job;
     QNetworkRequest request = QNetworkRequest(QUrl());
-    job.setMessageId(QByteArrayLiteral("foo"));
+    job.setMessageId("foo"_ba);
     verifyAuthentication(&job, request);
     QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/v1/chat.getMessage?msgId=foo")));
 }

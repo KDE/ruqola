@@ -48,13 +48,13 @@ void GetAvatarJob::onGetRequestResponse(const QString &, const QJsonDocument &)
     if (!mReply->error()) {
         const QUrl url = mReply->url();
         if (url.isValid() && !url.scheme().isEmpty()) {
-            addLoggerInfo(QByteArrayLiteral("GetAvatarJob success: ") + userId.toUtf8());
+            addLoggerInfo("GetAvatarJob success: "_ba + userId.toUtf8());
             Q_EMIT avatar(mUserInfo, url);
         } else {
             qCWarning(ROCKETCHATQTRESTAPI_LOG) << "expected a URL, got something else:";
         }
     } else {
-        addLoggerWarning(QByteArrayLiteral("GetAvatarJob error: ") + userId.toUtf8());
+        addLoggerWarning("GetAvatarJob error: "_ba + userId.toUtf8());
         Q_EMIT avatar(mUserInfo, QUrl());
     }
 }

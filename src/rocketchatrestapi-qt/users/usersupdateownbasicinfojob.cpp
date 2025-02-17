@@ -37,14 +37,14 @@ void UsersUpdateOwnBasicInfoJob::onPostRequestResponse(const QString &replyError
 {
     const QJsonObject replyObject = replyJson.object();
     if (replyObject["success"_L1].toBool()) {
-        addLoggerInfo(QByteArrayLiteral("UsersUpdateOwnBasicInfo: success: ") + replyJson.toJson(QJsonDocument::Indented));
+        addLoggerInfo("UsersUpdateOwnBasicInfo: success: "_ba + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT updateOwnBasicInfoDone();
         if (mUpdateOwnBasicInfo.type & UpdateOwnBasicInfo::BasicInfoType::Password) {
             Q_EMIT passwordChanged();
         }
     } else {
         emitFailedMessage(replyErrorString, replyObject);
-        addLoggerWarning(QByteArrayLiteral("UsersUpdateOwnBasicInfo: Problem: ") + replyJson.toJson(QJsonDocument::Indented));
+        addLoggerWarning("UsersUpdateOwnBasicInfo: Problem: "_ba + replyJson.toJson(QJsonDocument::Indented));
     }
 }
 

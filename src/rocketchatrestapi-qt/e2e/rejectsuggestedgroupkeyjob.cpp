@@ -36,11 +36,11 @@ void RejectSuggestedGroupKeyJob::onPostRequestResponse(const QString &replyError
     const QJsonObject replyObject = replyJson.object();
 
     if (replyObject["success"_L1].toBool()) {
-        addLoggerInfo(QByteArrayLiteral("RejectSuggestedGroupKeyJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
+        addLoggerInfo("RejectSuggestedGroupKeyJob: success: "_ba + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT rejectSuggestedGroupKeyDone(replyObject);
     } else {
         emitFailedMessage(replyErrorString, replyObject);
-        addLoggerWarning(QByteArrayLiteral("RejectSuggestedGroupKeyJob: Problem: ") + replyJson.toJson(QJsonDocument::Indented));
+        addLoggerWarning("RejectSuggestedGroupKeyJob: Problem: "_ba + replyJson.toJson(QJsonDocument::Indented));
     }
 }
 

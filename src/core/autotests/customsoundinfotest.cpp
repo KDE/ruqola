@@ -7,6 +7,7 @@
 #include "customsoundinfotest.h"
 #include "customsound/customsoundinfo.h"
 #include <QTest>
+using namespace Qt::Literals::StringLiterals;
 QTEST_GUILESS_MAIN(CustomSoundInfoTest)
 CustomSoundInfoTest::CustomSoundInfoTest(QObject *parent)
     : QObject(parent)
@@ -31,7 +32,7 @@ void CustomSoundInfoTest::shouldGenerateUrl()
         info.setDefaultSound(true);
         info.setExtension(QStringLiteral("jjj"));
         info.setName(QStringLiteral("bla"));
-        info.setIdentifier(QByteArrayLiteral("foo"));
+        info.setIdentifier("foo"_ba);
         QCOMPARE(info.generateUrl(), QStringLiteral("/sounds/foo.jjj"));
     }
     {
@@ -39,7 +40,7 @@ void CustomSoundInfoTest::shouldGenerateUrl()
         info.setDefaultSound(false);
         info.setExtension(QStringLiteral("bbb"));
         info.setName(QStringLiteral("bla"));
-        info.setIdentifier(QByteArrayLiteral("kde"));
+        info.setIdentifier("kde"_ba);
         QCOMPARE(info.generateUrl(), QStringLiteral("/custom-sounds/kde.bbb"));
     }
 }

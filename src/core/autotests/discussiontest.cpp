@@ -38,7 +38,7 @@ void DiscussionTest::shouldLoadDiscussion_data()
     Discussion discussion;
 
     discussion.setNumberMessages(0);
-    discussion.setDiscussionRoomId(QByteArrayLiteral("652e69986a344bea24b4ce55"));
+    discussion.setDiscussionRoomId("652e69986a344bea24b4ce55"_ba);
     discussion.setTimeStamp(1697540504599);
     discussion.setUserName(QStringLiteral("bla"));
     QTest::addRow("one-discussion") << QStringLiteral("one-discussion") << discussion;

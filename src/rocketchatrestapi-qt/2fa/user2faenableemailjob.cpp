@@ -34,11 +34,11 @@ void User2FAEnableEmailJob::onPostRequestResponse(const QString &replyErrorStrin
 {
     const QJsonObject replyObject = replyJson.object();
     if (replyObject["success"_L1].toBool()) {
-        addLoggerInfo(QByteArrayLiteral("User2FAEnableEmail: success: ") + replyJson.toJson(QJsonDocument::Indented));
+        addLoggerInfo("User2FAEnableEmail: success: "_ba + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT enableEmailDone();
     } else {
         emitFailedMessage(replyErrorString, replyObject);
-        addLoggerWarning(QByteArrayLiteral("User2FAEnableEmail: Problem: ") + replyJson.toJson(QJsonDocument::Indented));
+        addLoggerWarning("User2FAEnableEmail: Problem: "_ba + replyJson.toJson(QJsonDocument::Indented));
     }
 }
 

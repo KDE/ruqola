@@ -36,11 +36,11 @@ void EmojiCustomDeleteJob::onPostRequestResponse(const QString &replyErrorString
     const QJsonObject replyObject = replyJson.object();
 
     if (replyObject["success"_L1].toBool()) {
-        addLoggerInfo(QByteArrayLiteral("DeleteEmojiCustomJob success: ") + replyJson.toJson(QJsonDocument::Indented));
+        addLoggerInfo("DeleteEmojiCustomJob success: "_ba + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT emojiCustomDeleteDone();
     } else {
         emitFailedMessage(replyErrorString, replyObject);
-        addLoggerWarning(QByteArrayLiteral("DeleteEmojiCustomJob problem: ") + replyJson.toJson(QJsonDocument::Indented));
+        addLoggerWarning("DeleteEmojiCustomJob problem: "_ba + replyJson.toJson(QJsonDocument::Indented));
     }
 }
 

@@ -35,11 +35,11 @@ void RoleDeleteJob::onPostRequestResponse(const QString &replyErrorString, const
 {
     const QJsonObject replyObject = replyJson.object();
     if (replyObject["success"_L1].toBool()) {
-        addLoggerInfo(QByteArrayLiteral("RoleDeleteJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
+        addLoggerInfo("RoleDeleteJob: success: "_ba + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT deleteRoleDone();
     } else {
         emitFailedMessage(replyErrorString, replyObject);
-        addLoggerWarning(QByteArrayLiteral("RoleDeleteJob: Problem: ") + replyJson.toJson(QJsonDocument::Indented));
+        addLoggerWarning("RoleDeleteJob: Problem: "_ba + replyJson.toJson(QJsonDocument::Indented));
     }
 }
 

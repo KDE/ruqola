@@ -28,7 +28,7 @@ bool GetPersonalAccessTokensJob::start()
         return false;
     }
     submitGetRequest();
-    addStartRestApiInfo(QByteArrayLiteral("GetPersonalAccessTokensJob: Ask custom sounds info"));
+    addStartRestApiInfo("GetPersonalAccessTokensJob: Ask custom sounds info"_ba);
 
     return true;
 }
@@ -38,11 +38,11 @@ void GetPersonalAccessTokensJob::onGetRequestResponse(const QString &replyErrorS
     const QJsonObject replyObject = replyJson.object();
 
     if (replyObject["success"_L1].toBool()) {
-        addLoggerInfo(QByteArrayLiteral("GetPersonalAccessTokensJob done: ") + replyJson.toJson(QJsonDocument::Indented));
+        addLoggerInfo("GetPersonalAccessTokensJob done: "_ba + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT getPersonalAccessTokensDone(replyObject);
     } else {
         emitFailedMessage(replyErrorString, replyObject);
-        addLoggerWarning(QByteArrayLiteral("GetPersonalAccessTokensJob: Problem: ") + replyJson.toJson(QJsonDocument::Indented));
+        addLoggerWarning("GetPersonalAccessTokensJob: Problem: "_ba + replyJson.toJson(QJsonDocument::Indented));
     }
 }
 

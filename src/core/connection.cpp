@@ -131,7 +131,7 @@ void Connection::initializeCookies()
         if (!mUserId.isEmpty()) {
             QNetworkCookie userIdCookie;
             userIdCookie.setDomain(host);
-            userIdCookie.setName(QByteArrayLiteral("rc_uid"));
+            userIdCookie.setName("rc_uid"_ba);
             userIdCookie.setValue(mUserId.toLocal8Bit());
             mCookieJar->insertCookie(userIdCookie);
         }
@@ -139,7 +139,7 @@ void Connection::initializeCookies()
         if (!mAuthToken.isEmpty()) {
             QNetworkCookie tokenCookie;
             tokenCookie.setDomain(host);
-            tokenCookie.setName(QByteArrayLiteral("rc_token"));
+            tokenCookie.setName("rc_token"_ba);
             tokenCookie.setValue(mAuthToken.toLocal8Bit());
             mCookieJar->insertCookie(tokenCookie);
         }

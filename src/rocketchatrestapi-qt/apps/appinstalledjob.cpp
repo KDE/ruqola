@@ -35,7 +35,7 @@ bool AppInstalledJob::start()
         return false;
     }
     submitGetRequest();
-    addStartRestApiInfo(QByteArrayLiteral("AppInstalledJob: get app installed info starting"));
+    addStartRestApiInfo("AppInstalledJob: get app installed info starting"_ba);
     return true;
 }
 
@@ -48,11 +48,11 @@ void AppInstalledJob::onGetRequestResponse(const QString &replyErrorString, cons
 #if 0
     const QJsonObject replyObject = replyJson.object();
     if (replyObject["success"_L1].toBool()) {
-        addLoggerInfo(QByteArrayLiteral("AppInstalledJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
+        addLoggerInfo("AppInstalledJob: success: "_ba + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT appInstalledDone(replyObject);
     } else {
         emitFailedMessage(replyErrorString, replyObject);
-        addLoggerWarning(QByteArrayLiteral("AppInstalledJob: Problem when we tried to get app installed info : ") + replyJson.toJson(QJsonDocument::Indented));
+        addLoggerWarning("AppInstalledJob: Problem when we tried to get app installed info : "_ba + replyJson.toJson(QJsonDocument::Indented));
     }
 #endif
 }

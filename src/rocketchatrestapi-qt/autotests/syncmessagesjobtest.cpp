@@ -34,7 +34,7 @@ void SyncMessagesJobTest::shouldGenerateRequest()
     RestApiMethod method;
     method.setServerUrl(QStringLiteral("http://www.kde.org"));
     job.setRestApiMethod(&method);
-    const QByteArray roomId = QByteArrayLiteral("bla");
+    const QByteArray roomId = "bla"_ba;
     job.setRoomId(roomId);
     const QDateTime lastUpdate{QDateTime(QDate(2023, 7, 21), QTime(1, 1, 1))};
     job.setLastUpdate(lastUpdate);
@@ -62,7 +62,7 @@ void SyncMessagesJobTest::shouldNotStarting()
     QVERIFY(!job.canStart());
     job.setUserId(userId);
     QVERIFY(!job.canStart());
-    const QByteArray roomId = QByteArrayLiteral("foo1");
+    const QByteArray roomId = "foo1"_ba;
     job.setRoomId(roomId);
     QVERIFY(!job.canStart());
     const QDateTime lastUpdate{QDateTime::currentDateTime()};

@@ -65,11 +65,11 @@ void ChannelGetCountersJob::onGetRequestResponse(const QString &replyErrorString
 {
     const QJsonObject replyObject = replyJson.object();
     if (replyObject["success"_L1].toBool()) {
-        addLoggerInfo(QByteArrayLiteral("ChannelGetCountersJob success: ") + replyJson.toJson(QJsonDocument::Indented));
+        addLoggerInfo("ChannelGetCountersJob success: "_ba + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT channelGetCountersDone(replyObject, channelGroupInfo());
     } else {
         emitFailedMessage(replyErrorString, replyObject);
-        addLoggerWarning(QByteArrayLiteral("ChannelGetCountersJob problem: ") + replyJson.toJson(QJsonDocument::Indented));
+        addLoggerWarning("ChannelGetCountersJob problem: "_ba + replyJson.toJson(QJsonDocument::Indented));
     }
 }
 

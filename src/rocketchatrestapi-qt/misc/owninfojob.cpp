@@ -33,7 +33,7 @@ bool OwnInfoJob::start()
     }
     submitGetRequest();
 
-    addStartRestApiInfo(QByteArrayLiteral("OwnInfoJob: Ask info about me"));
+    addStartRestApiInfo("OwnInfoJob: Ask info about me"_ba);
     return true;
 }
 
@@ -42,9 +42,9 @@ void OwnInfoJob::onGetRequestResponse(const QString &replyErrorString, const QJs
     const QJsonObject replyObject = replyJson.object();
     if (replyObject["status"_L1].toString() == "error"_L1) {
         emitFailedMessage(replyErrorString, replyObject);
-        addLoggerWarning(QByteArrayLiteral("OwnInfoJob: Problem: ") + replyJson.toJson(QJsonDocument::Indented));
+        addLoggerWarning("OwnInfoJob: Problem: "_ba + replyJson.toJson(QJsonDocument::Indented));
     } else {
-        addLoggerInfo(QByteArrayLiteral("OwnInfoJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
+        addLoggerInfo("OwnInfoJob: success: "_ba + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT ownInfoDone(replyObject);
     }
 }

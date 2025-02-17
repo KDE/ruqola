@@ -6,6 +6,7 @@
 
 #include "notificationpreferencemodel.h"
 #include <KLocalizedString>
+using namespace Qt::Literals::StringLiterals;
 NotificationPreferenceModel::NotificationPreferenceModel(QObject *parent)
     : QAbstractListModel(parent)
 {
@@ -43,25 +44,25 @@ void NotificationPreferenceModel::fillModel()
     {
         NotificationPreferenceInfo preferenceInfo;
         preferenceInfo.displayText = i18n("Default");
-        preferenceInfo.preference = QByteArrayLiteral("default");
+        preferenceInfo.preference = "default"_ba;
         mNotificationPreferenceList.append(std::move(preferenceInfo));
     }
     {
         NotificationPreferenceInfo preferenceInfo;
         preferenceInfo.displayText = i18n("All Messages");
-        preferenceInfo.preference = QByteArrayLiteral("all");
+        preferenceInfo.preference = "all"_ba;
         mNotificationPreferenceList.append(std::move(preferenceInfo));
     }
     {
         NotificationPreferenceInfo preferenceInfo;
         preferenceInfo.displayText = i18n("Mentions");
-        preferenceInfo.preference = QByteArrayLiteral("mentions");
+        preferenceInfo.preference = "mentions"_ba;
         mNotificationPreferenceList.append(std::move(preferenceInfo));
     }
     {
         NotificationPreferenceInfo preferenceInfo;
         preferenceInfo.displayText = i18n("Nothing");
-        preferenceInfo.preference = QByteArrayLiteral("nothing");
+        preferenceInfo.preference = "nothing"_ba;
         mNotificationPreferenceList.append(std::move(preferenceInfo));
     }
 }

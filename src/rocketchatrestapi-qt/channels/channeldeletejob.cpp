@@ -36,11 +36,11 @@ void ChannelDeleteJob::onPostRequestResponse(const QString &replyErrorString, co
     const QJsonObject replyObject = replyJson.object();
 
     if (replyObject["success"_L1].toBool()) {
-        addLoggerInfo(QByteArrayLiteral("ChannelDeleteJob success: ") + replyJson.toJson(QJsonDocument::Indented));
+        addLoggerInfo("ChannelDeleteJob success: "_ba + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT deletechannelDone(channelGroupInfo().identifier);
     } else {
         emitFailedMessage(replyErrorString, replyObject);
-        addLoggerWarning(QByteArrayLiteral("ChannelDeleteJob problem: ") + replyJson.toJson(QJsonDocument::Indented));
+        addLoggerWarning("ChannelDeleteJob problem: "_ba + replyJson.toJson(QJsonDocument::Indented));
     }
 }
 

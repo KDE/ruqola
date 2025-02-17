@@ -35,11 +35,11 @@ void DeleteOwnAccountJob::onPostRequestResponse(const QString &replyErrorString,
 {
     const QJsonObject replyObject = replyJson.object();
     if (replyObject["success"_L1].toBool()) {
-        addLoggerInfo(QByteArrayLiteral("DeleteOwnAccountJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
+        addLoggerInfo("DeleteOwnAccountJob: success: "_ba + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT deleteOwnAccountDone();
     } else {
         emitFailedMessage(replyErrorString, replyObject);
-        addLoggerWarning(QByteArrayLiteral("DeleteOwnAccountJob: Problem: ") + replyJson.toJson(QJsonDocument::Indented));
+        addLoggerWarning("DeleteOwnAccountJob: Problem: "_ba + replyJson.toJson(QJsonDocument::Indented));
     }
 }
 

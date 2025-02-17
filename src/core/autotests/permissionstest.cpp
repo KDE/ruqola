@@ -5,6 +5,8 @@
 */
 
 #include "permissionstest.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "permissions/permissions.h"
 #include "ruqola_autotest_helper.h"
 

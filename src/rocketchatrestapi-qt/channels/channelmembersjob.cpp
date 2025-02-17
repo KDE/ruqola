@@ -35,11 +35,11 @@ void ChannelMembersJob::onGetRequestResponse(const QString &replyErrorString, co
 {
     const QJsonObject replyObject = replyJson.object();
     if (replyObject["success"_L1].toBool()) {
-        addLoggerInfo(QByteArrayLiteral("channelMembersDone success: ") + replyJson.toJson(QJsonDocument::Indented));
+        addLoggerInfo("channelMembersDone success: "_ba + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT channelMembersDone(replyObject, channelGroupInfo());
     } else {
         emitFailedMessage(replyErrorString, replyObject);
-        addLoggerWarning(QByteArrayLiteral("channelMembersDone problem: ") + replyJson.toJson(QJsonDocument::Indented));
+        addLoggerWarning("channelMembersDone problem: "_ba + replyJson.toJson(QJsonDocument::Indented));
     }
 }
 

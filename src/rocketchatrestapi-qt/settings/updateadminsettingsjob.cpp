@@ -36,11 +36,11 @@ void UpdateAdminSettingsJob::onPostRequestResponse(const QString &replyErrorStri
 {
     const QJsonObject replyObject = replyJson.object();
     if (replyObject["success"_L1].toBool()) {
-        addLoggerInfo(QByteArrayLiteral("UpdateAdminSettingsJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
+        addLoggerInfo("UpdateAdminSettingsJob: success: "_ba + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT updateAdminSettingsDone(replyObject);
     } else {
         emitFailedMessage(replyErrorString, replyObject);
-        addLoggerWarning(QByteArrayLiteral("UpdateAdminSettingsJob: Problem: ") + replyJson.toJson(QJsonDocument::Indented));
+        addLoggerWarning("UpdateAdminSettingsJob: Problem: "_ba + replyJson.toJson(QJsonDocument::Indented));
     }
 }
 

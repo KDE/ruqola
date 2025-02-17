@@ -36,11 +36,11 @@ void ResetE2EKeyJob::onPostRequestResponse(const QString &replyErrorString, cons
 {
     const QJsonObject replyObject = replyJson.object();
     if (replyObject["success"_L1].toBool()) {
-        addLoggerInfo(QByteArrayLiteral("ResetE2EKeyJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
+        addLoggerInfo("ResetE2EKeyJob: success: "_ba + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT resetE2EKeyDone();
     } else {
         emitFailedMessage(replyErrorString, replyObject);
-        addLoggerWarning(QByteArrayLiteral("ResetE2EKeyJob: Problem: ") + replyJson.toJson(QJsonDocument::Indented));
+        addLoggerWarning("ResetE2EKeyJob: Problem: "_ba + replyJson.toJson(QJsonDocument::Indented));
     }
 }
 

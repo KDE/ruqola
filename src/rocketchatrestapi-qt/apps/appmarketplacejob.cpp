@@ -35,7 +35,7 @@ bool AppMarketPlaceJob::start()
         return false;
     }
     submitGetRequest();
-    addStartRestApiInfo(QByteArrayLiteral("AppMarketPlaceJob: get app marketplace info starting"));
+    addStartRestApiInfo("AppMarketPlaceJob: get app marketplace info starting"_ba);
     return true;
 }
 
@@ -47,11 +47,11 @@ void AppMarketPlaceJob::onGetRequestResponse(const QString &replyErrorString, co
 #if 0
     const QJsonObject replyObject = replyJson.object();
     if (replyObject["success"_L1].toBool()) {
-        addLoggerInfo(QByteArrayLiteral("AppMarketPlaceJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
+        addLoggerInfo("AppMarketPlaceJob: success: "_ba + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT appMarketPlaceDone(replyObject);
     } else {
         emitFailedMessage(replyErrorString, replyObject);
-        addLoggerWarning(QByteArrayLiteral("AppMarketPlaceJob: Problem when we tried to get app marketplace info : ")
+        addLoggerWarning("AppMarketPlaceJob: Problem when we tried to get app marketplace info : "_ba
                          + replyJson.toJson(QJsonDocument::Indented));
     }
 #endif

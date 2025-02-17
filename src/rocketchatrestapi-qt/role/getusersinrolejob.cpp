@@ -45,7 +45,7 @@ bool GetUsersInRoleJob::start()
         return false;
     }
     submitGetRequest();
-    addStartRestApiInfo(QByteArrayLiteral("GetUsersInRoleJob: Ask info about users in role"));
+    addStartRestApiInfo("GetUsersInRoleJob: Ask info about users in role"_ba);
     return true;
 }
 
@@ -53,11 +53,11 @@ void GetUsersInRoleJob::onGetRequestResponse(const QString &replyErrorString, co
 {
     const QJsonObject replyObject = replyJson.object();
     if (replyObject["success"_L1].toBool()) {
-        addLoggerInfo(QByteArrayLiteral("GetUsersInRoleJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
+        addLoggerInfo("GetUsersInRoleJob: success: "_ba + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT getUsersInRoleDone(replyObject);
     } else {
         emitFailedMessage(replyErrorString, replyObject);
-        addLoggerWarning(QByteArrayLiteral("GetUsersInRoleJob: Problem: ") + replyJson.toJson(QJsonDocument::Indented));
+        addLoggerWarning("GetUsersInRoleJob: Problem: "_ba + replyJson.toJson(QJsonDocument::Indented));
     }
 }
 

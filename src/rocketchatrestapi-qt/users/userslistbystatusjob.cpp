@@ -33,7 +33,7 @@ bool UsersListByStatusJob::start()
         return false;
     }
     submitGetRequest();
-    addStartRestApiInfo(QByteArrayLiteral("UsersListByStatusJob: ask list of user "));
+    addStartRestApiInfo("UsersListByStatusJob: ask list of user "_ba);
     return true;
 }
 
@@ -41,11 +41,11 @@ void UsersListByStatusJob::onGetRequestResponse(const QString &replyErrorString,
 {
     const QJsonObject replyObject = replyJson.object();
     if (replyObject["success"_L1].toBool()) {
-        addLoggerInfo(QByteArrayLiteral("UsersListByStatusJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
+        addLoggerInfo("UsersListByStatusJob: success: "_ba + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT usersListByStatusDone(replyObject);
     } else {
         emitFailedMessage(replyErrorString, replyObject);
-        addLoggerWarning(QByteArrayLiteral("UsersListByStatusJob: Problem: ") + replyJson.toJson(QJsonDocument::Indented));
+        addLoggerWarning("UsersListByStatusJob: Problem: "_ba + replyJson.toJson(QJsonDocument::Indented));
     }
 }
 

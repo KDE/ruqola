@@ -34,7 +34,7 @@ bool AppCountJob::start()
         return false;
     }
     submitGetRequest();
-    addStartRestApiInfo(QByteArrayLiteral("AppCountJob: get app count info starting"));
+    addStartRestApiInfo("AppCountJob: get app count info starting"_ba);
     return true;
 }
 
@@ -42,11 +42,11 @@ void AppCountJob::onGetRequestResponse(const QString &replyErrorString, const QJ
 {
     const QJsonObject replyObject = replyJson.object();
     if (replyObject["success"_L1].toBool()) {
-        addLoggerInfo(QByteArrayLiteral("AppCountJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
+        addLoggerInfo("AppCountJob: success: "_ba + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT appCountDone(replyObject);
     } else {
         emitFailedMessage(replyErrorString, replyObject);
-        addLoggerWarning(QByteArrayLiteral("AppCountJob: Problem when we tried to get app count info : ") + replyJson.toJson(QJsonDocument::Indented));
+        addLoggerWarning("AppCountJob: Problem when we tried to get app count info : "_ba + replyJson.toJson(QJsonDocument::Indented));
     }
 }
 

@@ -36,11 +36,11 @@ void SetGroupTypeJob::onPostRequestResponse(const QString &replyErrorString, con
     const QJsonObject replyObject = replyJson.object();
 
     if (replyObject["success"_L1].toBool()) {
-        addLoggerInfo(QByteArrayLiteral("SetGroupTypeJob: Success: ") + replyJson.toJson(QJsonDocument::Indented));
+        addLoggerInfo("SetGroupTypeJob: Success: "_ba + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT setGroupTypeDone();
     } else {
         emitFailedMessage(replyErrorString, replyObject);
-        addLoggerWarning(QByteArrayLiteral("SetGroupTypeJob: Problem: ") + replyJson.toJson(QJsonDocument::Indented));
+        addLoggerWarning("SetGroupTypeJob: Problem: "_ba + replyJson.toJson(QJsonDocument::Indented));
     }
 }
 

@@ -36,11 +36,11 @@ void VideoConferenceJoinJob::onPostRequestResponse(const QString &replyErrorStri
 {
     const QJsonObject replyObject = replyJson.object();
     if (replyObject["success"_L1].toBool()) {
-        addLoggerInfo(QByteArrayLiteral("VideoConferenceJoinJob success: ") + replyJson.toJson(QJsonDocument::Indented));
+        addLoggerInfo("VideoConferenceJoinJob success: "_ba + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT videoConferenceJoinDone(replyObject);
     } else {
         emitFailedMessage(replyErrorString, replyObject);
-        addLoggerWarning(QByteArrayLiteral("VideoConferenceJoinJob: Problem: ") + replyJson.toJson(QJsonDocument::Indented));
+        addLoggerWarning("VideoConferenceJoinJob: Problem: "_ba + replyJson.toJson(QJsonDocument::Indented));
     }
 }
 

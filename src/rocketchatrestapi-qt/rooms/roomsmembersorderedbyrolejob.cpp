@@ -46,7 +46,7 @@ bool RoomsMembersOrderedByRoleJob::start()
     }
     submitGetRequest();
 
-    addStartRestApiInfo(QByteArrayLiteral("RoomsMembersOrderedByRoleJob: Ask discussions in room"));
+    addStartRestApiInfo("RoomsMembersOrderedByRoleJob: Ask discussions in room"_ba);
     return true;
 }
 
@@ -54,11 +54,11 @@ void RoomsMembersOrderedByRoleJob::onGetRequestResponse(const QString &replyErro
 {
     const QJsonObject replyObject = replyJson.object();
     if (replyObject["success"_L1].toBool()) {
-        addLoggerInfo(QByteArrayLiteral("RoomsMembersOrderedByRoleJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
+        addLoggerInfo("RoomsMembersOrderedByRoleJob: success: "_ba + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT roomsMembersOrderedByRoleDone(replyObject, mRoomsMembersOrderedByRoleJobInfo.roomId);
     } else {
         emitFailedMessage(replyErrorString, replyObject);
-        addLoggerWarning(QByteArrayLiteral("RoomsMembersOrderedByRoleJob: Problem: ") + replyJson.toJson(QJsonDocument::Indented));
+        addLoggerWarning("RoomsMembersOrderedByRoleJob: Problem: "_ba + replyJson.toJson(QJsonDocument::Indented));
     }
 }
 

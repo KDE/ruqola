@@ -22,7 +22,7 @@ RESTAuthenticationManager::~RESTAuthenticationManager() = default;
 
 QByteArray RESTAuthenticationManager::authenticationName() const
 {
-    return QByteArrayLiteral("RESTAPI");
+    return "RESTAPI"_ba;
 }
 
 QJsonObject RESTAuthenticationManager::generateJsonMethod(const QString &method, const QJsonDocument &params, quint64 id)

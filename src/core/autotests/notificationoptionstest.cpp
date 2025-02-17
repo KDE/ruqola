@@ -35,19 +35,19 @@ void NotificationOptionsTest::shouldHaveDefaultValue()
 void NotificationOptionsTest::shouldAssignValue()
 {
     NotificationOptions w;
-    NotificationOptions::NotificationValue desktopNotifications = NotificationOptions::NotificationValue{QByteArrayLiteral("bla"), QByteArray()};
+    NotificationOptions::NotificationValue desktopNotifications = NotificationOptions::NotificationValue{"bla"_ba, QByteArray()};
     w.setDesktopNotifications(desktopNotifications);
 
-    NotificationOptions::NotificationValue mobilePushNotification = NotificationOptions::NotificationValue{QByteArrayLiteral("bli"), QByteArray()};
+    NotificationOptions::NotificationValue mobilePushNotification = NotificationOptions::NotificationValue{"bli"_ba, QByteArray()};
     w.setMobilePushNotification(mobilePushNotification);
 
-    NotificationOptions::NotificationValue emailNotifications = NotificationOptions::NotificationValue{QByteArrayLiteral("blu"), QByteArray()};
+    NotificationOptions::NotificationValue emailNotifications = NotificationOptions::NotificationValue{"blu"_ba, QByteArray()};
     w.setEmailNotifications(emailNotifications);
 
     QString unreadTrayIconAlert = QStringLiteral("Ablu");
     w.setUnreadTrayIconAlert(unreadTrayIconAlert);
 
-    QByteArray audioNotificationValue = QByteArrayLiteral("ZZZZ");
+    QByteArray audioNotificationValue = "ZZZZ"_ba;
     w.setAudioNotificationValue(audioNotificationValue);
 
     bool disableNotifications = true;
@@ -80,7 +80,7 @@ void NotificationOptionsTest::shouldParseNotification_data()
     QTest::addColumn<QByteArray>("mobilePushNotification");
     QTest::addColumn<QByteArray>("emailNotifications");
     NotificationOptions notif;
-    QTest::addRow("notification1") << QStringLiteral("notification1") << QByteArrayLiteral("default") << QByteArrayLiteral("all") << QByteArrayLiteral("all");
+    QTest::addRow("notification1") << QStringLiteral("notification1") << QByteArrayLiteral("default") << QByteArrayLiteral("all") << "all"_ba;
 }
 
 void NotificationOptionsTest::shouldParseNotification()

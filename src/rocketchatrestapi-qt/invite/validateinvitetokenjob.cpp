@@ -36,7 +36,7 @@ void ValidateInviteTokenJob::onPostRequestResponse(const QString &replyErrorStri
 {
     const QJsonObject replyObject = replyJson.object();
     if (replyObject["success"_L1].toBool()) {
-        addLoggerInfo(QByteArrayLiteral("ValidateInviteTokenJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
+        addLoggerInfo("ValidateInviteTokenJob: success: "_ba + replyJson.toJson(QJsonDocument::Indented));
 
         if (replyObject["valid"_L1].toBool()) {
             Q_EMIT validateInviteTokenDone();
@@ -45,7 +45,7 @@ void ValidateInviteTokenJob::onPostRequestResponse(const QString &replyErrorStri
         }
     } else {
         emitFailedMessage(replyErrorString, replyObject);
-        addLoggerWarning(QByteArrayLiteral("ValidateInviteTokenJob: Problem: ") + replyJson.toJson(QJsonDocument::Indented));
+        addLoggerWarning("ValidateInviteTokenJob: Problem: "_ba + replyJson.toJson(QJsonDocument::Indented));
     }
 }
 

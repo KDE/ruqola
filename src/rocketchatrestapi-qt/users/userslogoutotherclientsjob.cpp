@@ -35,11 +35,11 @@ void UsersLogoutOtherClientsJob::onPostRequestResponse(const QString &replyError
 {
     const QJsonObject replyObject = replyJson.object();
     if (replyObject["success"_L1].toBool()) {
-        addLoggerInfo(QByteArrayLiteral("UsersLogoutOtherClientsJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
+        addLoggerInfo("UsersLogoutOtherClientsJob: success: "_ba + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT usersLogoutOtherClientsDone();
     } else {
         emitFailedMessage(replyErrorString, replyObject);
-        addLoggerWarning(QByteArrayLiteral("UsersLogoutOtherClientsJob: Problem: ") + replyJson.toJson(QJsonDocument::Indented));
+        addLoggerWarning("UsersLogoutOtherClientsJob: Problem: "_ba + replyJson.toJson(QJsonDocument::Indented));
     }
 }
 

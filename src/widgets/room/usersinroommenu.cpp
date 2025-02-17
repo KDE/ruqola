@@ -5,6 +5,8 @@
 */
 
 #include "usersinroommenu.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "connection.h"
 #include "dialogs/directchannelinfodialog.h"
 #include "dialogs/reportuserdialog.h"

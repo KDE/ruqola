@@ -34,7 +34,7 @@ bool RoomsAutocompleteAvailableForTeamsJob::start()
     }
     submitGetRequest();
 
-    addStartRestApiInfo(QByteArrayLiteral("RoomsAutocompleteAvailableForTeamsJob: Ask all rooms"));
+    addStartRestApiInfo("RoomsAutocompleteAvailableForTeamsJob: Ask all rooms"_ba);
     return true;
 }
 
@@ -42,11 +42,11 @@ void RoomsAutocompleteAvailableForTeamsJob::onGetRequestResponse(const QString &
 {
     const QJsonObject replyObject = replyJson.object();
     if (replyObject["success"_L1].toBool()) {
-        addLoggerInfo(QByteArrayLiteral("RoomsAutocompleteAvailableForTeamsJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
+        addLoggerInfo("RoomsAutocompleteAvailableForTeamsJob: success: "_ba + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT roomsAutoCompleteChannelAndPrivateDone(replyObject);
     } else {
         emitFailedMessage(replyErrorString, replyObject);
-        addLoggerWarning(QByteArrayLiteral("RoomsAutocompleteAvailableForTeamsJob: Problem: ") + replyJson.toJson(QJsonDocument::Indented));
+        addLoggerWarning("RoomsAutocompleteAvailableForTeamsJob: Problem: "_ba + replyJson.toJson(QJsonDocument::Indented));
     }
 }
 

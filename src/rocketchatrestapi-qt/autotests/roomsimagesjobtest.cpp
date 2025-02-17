@@ -36,8 +36,8 @@ void RoomsImagesJobTest::shouldGenerateRequest()
     job.setRestApiMethod(&method);
     const QByteArray roomId("bla");
     RoomsImagesJob::RoomsImagesJobInfo info;
-    info.roomId = QByteArrayLiteral("room_id");
-    info.startingFromId = QByteArrayLiteral("start_Id");
+    info.roomId = "room_id"_ba;
+    info.startingFromId = "start_Id"_ba;
     info.count = 5;
     info.offset = 0;
     job.setRoomsImagesJobInfo(info);
@@ -63,14 +63,14 @@ void RoomsImagesJobTest::shouldNotStarting()
     job.setUserId(userId);
     QVERIFY(!job.canStart());
     RoomsImagesJob::RoomsImagesJobInfo info;
-    info.roomId = QByteArrayLiteral("room_id");
-    info.startingFromId = QByteArrayLiteral("start_id");
+    info.roomId = "room_id"_ba;
+    info.startingFromId = "start_id"_ba;
     info.count = 0;
     info.offset = 0;
     job.setRoomsImagesJobInfo(info);
 
     QVERIFY(!job.canStart());
-    info.startingFromId = QByteArrayLiteral("room33");
+    info.startingFromId = "room33"_ba;
     job.setRoomsImagesJobInfo(info);
     QVERIFY(!job.canStart());
     info.count = 4;

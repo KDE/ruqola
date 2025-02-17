@@ -37,11 +37,11 @@ void DeleteMessageJob::onPostRequestResponse(const QString &replyErrorString, co
     const QJsonObject replyObject = replyJson.object();
 
     if (replyObject["success"_L1].toBool()) {
-        addLoggerInfo(QByteArrayLiteral("DeleteMessageJob success: ") + replyJson.toJson(QJsonDocument::Indented));
+        addLoggerInfo("DeleteMessageJob success: "_ba + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT deleteMessageDone();
     } else {
         emitFailedMessage(replyErrorString, replyObject);
-        addLoggerWarning(QByteArrayLiteral("DeleteMessageJob problem: ") + replyJson.toJson(QJsonDocument::Indented));
+        addLoggerWarning("DeleteMessageJob problem: "_ba + replyJson.toJson(QJsonDocument::Indented));
     }
 }
 

@@ -65,7 +65,7 @@ void ResetE2EKeyJobTest::shouldNotStarting()
     job.setUserId(userId);
     QVERIFY(!job.canStart());
 
-    job.setResetUserId(QByteArrayLiteral("ss"));
+    job.setResetUserId("ss"_ba);
     QVERIFY(!job.canStart());
 
     job.setAuthCode(QStringLiteral("bla"));

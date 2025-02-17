@@ -36,11 +36,11 @@ void CustomUserStatusDeleteJob::onPostRequestResponse(const QString &replyErrorS
 {
     const QJsonObject replyObject = replyJson.object();
     if (replyObject["success"_L1].toBool()) {
-        addLoggerInfo(QByteArrayLiteral("CustomUserStatusDeleteJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
+        addLoggerInfo("CustomUserStatusDeleteJob: success: "_ba + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT userStatusDeletedDone();
     } else {
         emitFailedMessage(replyErrorString, replyObject);
-        addLoggerWarning(QByteArrayLiteral("CustomUserStatusDeleteJob: Problem: ") + replyJson.toJson(QJsonDocument::Indented));
+        addLoggerWarning("CustomUserStatusDeleteJob: Problem: "_ba + replyJson.toJson(QJsonDocument::Indented));
     }
 }
 

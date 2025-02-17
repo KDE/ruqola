@@ -47,7 +47,7 @@ bool GetSnippetedMessagesJob::start()
     }
     submitGetRequest();
 
-    addStartRestApiInfo(QByteArrayLiteral("GetSnippetedMessagesJob: Ask starred messages"));
+    addStartRestApiInfo("GetSnippetedMessagesJob: Ask starred messages"_ba);
     return true;
 }
 
@@ -55,11 +55,11 @@ void GetSnippetedMessagesJob::onGetRequestResponse(const QString &replyErrorStri
 {
     const QJsonObject replyObject = replyJson.object();
     if (replyObject["success"_L1].toBool()) {
-        addLoggerInfo(QByteArrayLiteral("GetSnippetedMessagesJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
+        addLoggerInfo("GetSnippetedMessagesJob: success: "_ba + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT getSnippetedMessagesDone(replyObject, mRoomId);
     } else {
         emitFailedMessage(replyErrorString, replyObject);
-        addLoggerWarning(QByteArrayLiteral("GetSnippetedMessagesJob: Problem: ") + replyJson.toJson(QJsonDocument::Indented));
+        addLoggerWarning("GetSnippetedMessagesJob: Problem: "_ba + replyJson.toJson(QJsonDocument::Indented));
     }
 }
 

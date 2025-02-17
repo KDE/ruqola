@@ -33,7 +33,7 @@ bool VideoConferenceCapabilitiesJob::start()
     }
     submitGetRequest();
 
-    addStartRestApiInfo(QByteArrayLiteral("VideoConferenceCapabilitiesJob: Ask for capabilities"));
+    addStartRestApiInfo("VideoConferenceCapabilitiesJob: Ask for capabilities"_ba);
     return true;
 }
 
@@ -42,16 +42,16 @@ void VideoConferenceCapabilitiesJob::onGetRequestResponse(const QString &replyEr
     const QJsonObject replyObject = replyJson.object();
 
     if (replyObject["success"_L1].toBool()) {
-        addLoggerInfo(QByteArrayLiteral("VideoConferenceCapabilitiesJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
+        addLoggerInfo("VideoConferenceCapabilitiesJob: success: "_ba + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT videoConferenceCapabilitiesDone(replyObject);
     } else {
         const QString errorType = replyObject["error"_L1].toString();
         if (errorType == "no-videoconf-provider-app"_L1) {
             Q_EMIT noVideoConferenceProviderApps();
-            addLoggerWarning(QByteArrayLiteral("VideoConferenceCapabilitiesJob: Problem: ") + replyJson.toJson(QJsonDocument::Indented));
+            addLoggerWarning("VideoConferenceCapabilitiesJob: Problem: "_ba + replyJson.toJson(QJsonDocument::Indented));
         } else {
             emitFailedMessage(replyErrorString, replyObject);
-            addLoggerWarning(QByteArrayLiteral("VideoConferenceCapabilitiesJob: Problem: ") + replyJson.toJson(QJsonDocument::Indented));
+            addLoggerWarning("VideoConferenceCapabilitiesJob: Problem: "_ba + replyJson.toJson(QJsonDocument::Indented));
         }
     }
 }

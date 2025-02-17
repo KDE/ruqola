@@ -141,7 +141,7 @@ void RocketChatBackend::processIncomingMessages(const QJsonArray &messages, bool
         if (mRocketChatAccount->ruqolaLogger()) {
             QJsonDocument d;
             d.setObject(o);
-            mRocketChatAccount->ruqolaLogger()->dataReceived(QByteArrayLiteral("Message:") + d.toJson());
+            mRocketChatAccount->ruqolaLogger()->dataReceived("Message:"_ba + d.toJson());
         } else {
             qCDebug(RUQOLA_MESSAGE_LOG) << " new message: " << o;
         }
@@ -273,7 +273,7 @@ void RocketChatBackend::slotRemoved(const QJsonObject &object)
         if (mRocketChatAccount->ruqolaLogger()) {
             QJsonDocument d;
             d.setObject(object);
-            mRocketChatAccount->ruqolaLogger()->dataReceived(QByteArrayLiteral("users: Removed user:") + d.toJson());
+            mRocketChatAccount->ruqolaLogger()->dataReceived("users: Removed user:"_ba + d.toJson());
         } else {
             qDebug() << "USER REMOVED VALUE" << object;
         }
@@ -301,10 +301,11 @@ void RocketChatBackend::slotAdded(const QJsonObject &object)
             // TODO add current user ? me ?
             User user;
             user.parseUser(object);
+            qDebug() << " SSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS" << object;
             if (mRocketChatAccount->ruqolaLogger()) {
                 QJsonDocument d;
                 d.setObject(object);
-                mRocketChatAccount->ruqolaLogger()->dataReceived(QByteArrayLiteral("users: Add User:") + d.toJson());
+                mRocketChatAccount->ruqolaLogger()->dataReceived("users: Add User:"_ba + d.toJson());
             } else {
                 qCDebug(RUQOLA_LOG) << "USER ADDED VALUE" << object;
             }
@@ -326,7 +327,7 @@ void RocketChatBackend::slotAdded(const QJsonObject &object)
         if (mRocketChatAccount->ruqolaLogger()) {
             QJsonDocument d;
             d.setObject(object);
-            mRocketChatAccount->ruqolaLogger()->dataReceived(QByteArrayLiteral("autocompleteRecords: Add User:") + d.toJson());
+            mRocketChatAccount->ruqolaLogger()->dataReceived("autocompleteRecords: Add User:"_ba + d.toJson());
         } else {
             qCDebug(RUQOLA_LOG) << "AutoCompleteRecords VALUE" << object;
         }
@@ -336,7 +337,7 @@ void RocketChatBackend::slotAdded(const QJsonObject &object)
         if (mRocketChatAccount->ruqolaLogger()) {
             QJsonDocument d;
             d.setObject(object);
-            mRocketChatAccount->ruqolaLogger()->dataReceived(QByteArrayLiteral("room_files: Add Files:") + d.toJson());
+            mRocketChatAccount->ruqolaLogger()->dataReceived("room_files: Add Files:"_ba + d.toJson());
         } else {
             qCDebug(RUQOLA_LOG) << "room_files VALUE" << object;
         }
@@ -366,7 +367,7 @@ void RocketChatBackend::slotChanged(const QJsonObject &object)
         if (mRocketChatAccount->ruqolaLogger()) {
             QJsonDocument d;
             d.setObject(object);
-            mRocketChatAccount->ruqolaLogger()->dataReceived(QByteArrayLiteral("users: User Changed:") + d.toJson());
+            mRocketChatAccount->ruqolaLogger()->dataReceived("users: User Changed:"_ba + d.toJson());
         } else {
             qCDebug(RUQOLA_LOG) << "USER CHANGED" << object;
         }
@@ -374,7 +375,7 @@ void RocketChatBackend::slotChanged(const QJsonObject &object)
         if (mRocketChatAccount->ruqolaLogger()) {
             QJsonDocument d;
             d.setObject(object);
-            mRocketChatAccount->ruqolaLogger()->dataReceived(QByteArrayLiteral("rooms: Room Changed:") + d.toJson());
+            mRocketChatAccount->ruqolaLogger()->dataReceived("rooms: Room Changed:"_ba + d.toJson());
         } else {
             qCDebug(RUQOLA_LOG) << "ROOMS CHANGED: " << object;
         }
@@ -389,7 +390,7 @@ void RocketChatBackend::slotChanged(const QJsonObject &object)
             if (mRocketChatAccount->ruqolaLogger()) {
                 QJsonDocument d;
                 d.setObject(fields);
-                mRocketChatAccount->ruqolaLogger()->dataReceived(QByteArrayLiteral("stream-notify-user: subscriptions-changed:") + d.toJson());
+                mRocketChatAccount->ruqolaLogger()->dataReceived("stream-notify-user: subscriptions-changed:"_ba + d.toJson());
             } else {
                 qCDebug(RUQOLA_LOG) << "stream-notify-user: subscriptions-changed " << object;
             }
@@ -418,13 +419,13 @@ void RocketChatBackend::slotChanged(const QJsonObject &object)
             if (mRocketChatAccount->ruqolaLogger()) {
                 QJsonDocument d;
                 d.setObject(object);
-                mRocketChatAccount->ruqolaLogger()->dataReceived(QByteArrayLiteral("stream-notify-user: Room Changed:") + d.toJson());
+                mRocketChatAccount->ruqolaLogger()->dataReceived("stream-notify-user: Room Changed:"_ba + d.toJson());
             }
         } else if (eventname.endsWith("/notification"_L1)) {
             if (mRocketChatAccount->ruqolaLogger()) {
                 QJsonDocument d;
                 d.setObject(object);
-                mRocketChatAccount->ruqolaLogger()->dataReceived(QByteArrayLiteral("stream-notify-user: notification:") + d.toJson());
+                mRocketChatAccount->ruqolaLogger()->dataReceived("stream-notify-user: notification:"_ba + d.toJson());
             } else {
                 qCDebug(RUQOLA_UNKNOWN_COLLECTIONTYPE_LOG) << "NOTIFICATION: " << object;
             }
@@ -433,7 +434,7 @@ void RocketChatBackend::slotChanged(const QJsonObject &object)
             if (mRocketChatAccount->ruqolaLogger()) {
                 QJsonDocument d;
                 d.setObject(object);
-                mRocketChatAccount->ruqolaLogger()->dataReceived(QByteArrayLiteral("stream-notify-user: webrtc: ") + d.toJson());
+                mRocketChatAccount->ruqolaLogger()->dataReceived("stream-notify-user: webrtc: "_ba + d.toJson());
             } else {
                 qCDebug(RUQOLA_LOG) << "WEBRTC CHANGED: " << object;
             }
@@ -442,7 +443,7 @@ void RocketChatBackend::slotChanged(const QJsonObject &object)
             if (mRocketChatAccount->ruqolaLogger()) {
                 QJsonDocument d;
                 d.setObject(object);
-                mRocketChatAccount->ruqolaLogger()->dataReceived(QByteArrayLiteral("stream-notify-user: otr: ") + d.toJson());
+                mRocketChatAccount->ruqolaLogger()->dataReceived("stream-notify-user: otr: "_ba + d.toJson());
             } else {
                 qCDebug(RUQOLA_LOG) << "OTR CHANGED: " << object;
             }
@@ -452,7 +453,7 @@ void RocketChatBackend::slotChanged(const QJsonObject &object)
             if (mRocketChatAccount->ruqolaLogger()) {
                 QJsonDocument d;
                 d.setObject(object);
-                mRocketChatAccount->ruqolaLogger()->dataReceived(QByteArrayLiteral("stream-notify-user: message: ") + d.toJson());
+                mRocketChatAccount->ruqolaLogger()->dataReceived("stream-notify-user: message: "_ba + d.toJson());
             } else {
                 qCDebug(RUQOLA_LOG) << "stream-notify-user : Message: " << object;
             }
@@ -464,7 +465,7 @@ void RocketChatBackend::slotChanged(const QJsonObject &object)
             if (mRocketChatAccount->ruqolaLogger()) {
                 QJsonDocument d;
                 d.setObject(object);
-                mRocketChatAccount->ruqolaLogger()->dataReceived(QByteArrayLiteral("stream-notify-user: userData event: ") + d.toJson());
+                mRocketChatAccount->ruqolaLogger()->dataReceived("stream-notify-user: userData event: "_ba + d.toJson());
             } else {
                 qCDebug(RUQOLA_LOG) << "stream-notify-user: userData event: " << object;
             }
@@ -477,7 +478,7 @@ void RocketChatBackend::slotChanged(const QJsonObject &object)
             if (mRocketChatAccount->ruqolaLogger()) {
                 QJsonDocument d;
                 d.setObject(object);
-                mRocketChatAccount->ruqolaLogger()->dataReceived(QByteArrayLiteral("stream-notify-user: video-conference ") + d.toJson());
+                mRocketChatAccount->ruqolaLogger()->dataReceived("stream-notify-user: video-conference "_ba + d.toJson());
             } else {
                 qCDebug(RUQOLA_LOG) << "stream-notify-user: video-conference :account name:" << mRocketChatAccount->accountName() << "object" << object;
             }
@@ -492,7 +493,7 @@ void RocketChatBackend::slotChanged(const QJsonObject &object)
             if (mRocketChatAccount->ruqolaLogger()) {
                 QJsonDocument d;
                 d.setObject(object);
-                mRocketChatAccount->ruqolaLogger()->dataReceived(QByteArrayLiteral("stream-notify-user: Unknown event: ") + d.toJson());
+                mRocketChatAccount->ruqolaLogger()->dataReceived("stream-notify-user: Unknown event: "_ba + d.toJson());
             } else {
                 qCDebug(RUQOLA_UNKNOWN_COLLECTIONTYPE_LOG) << "Unknown change: " << object;
             }
@@ -508,7 +509,7 @@ void RocketChatBackend::slotChanged(const QJsonObject &object)
             if (mRocketChatAccount->ruqolaLogger()) {
                 QJsonDocument d;
                 d.setObject(object);
-                mRocketChatAccount->ruqolaLogger()->dataReceived(QByteArrayLiteral("stream-notify-room: DeleteMessage:") + d.toJson());
+                mRocketChatAccount->ruqolaLogger()->dataReceived("stream-notify-room: DeleteMessage:"_ba + d.toJson());
             } else {
                 qCDebug(RUQOLA_LOG) << "Delete message" << object;
             }
@@ -534,7 +535,7 @@ void RocketChatBackend::slotChanged(const QJsonObject &object)
             if (mRocketChatAccount->ruqolaLogger()) {
                 QJsonDocument d;
                 d.setObject(object);
-                mRocketChatAccount->ruqolaLogger()->dataReceived(QByteArrayLiteral("stream-notify-room: typing:") + d.toJson());
+                mRocketChatAccount->ruqolaLogger()->dataReceived("stream-notify-room: typing:"_ba + d.toJson());
             } else {
                 qCDebug(RUQOLA_LOG) << "typing message" << object;
             }
@@ -552,7 +553,7 @@ void RocketChatBackend::slotChanged(const QJsonObject &object)
             if (mRocketChatAccount->ruqolaLogger()) {
                 QJsonDocument d;
                 d.setObject(object);
-                mRocketChatAccount->ruqolaLogger()->dataReceived(QByteArrayLiteral("deleteMessageBulk: DeleteMessage:") + d.toJson());
+                mRocketChatAccount->ruqolaLogger()->dataReceived("deleteMessageBulk: DeleteMessage:"_ba + d.toJson());
             } else {
                 qCDebug(RUQOLA_LOG) << "Delete message" << object;
             }
@@ -565,7 +566,7 @@ void RocketChatBackend::slotChanged(const QJsonObject &object)
             if (mRocketChatAccount->ruqolaLogger()) {
                 QJsonDocument d;
                 d.setObject(object);
-                mRocketChatAccount->ruqolaLogger()->dataReceived(QByteArrayLiteral("stream-notify-room:  Unknown event ?") + d.toJson());
+                mRocketChatAccount->ruqolaLogger()->dataReceived("stream-notify-room:  Unknown event ?"_ba + d.toJson());
             } else {
                 qCDebug(RUQOLA_UNKNOWN_COLLECTIONTYPE_LOG) << "stream-notify-room:  Unknown event ? " << eventname;
             }
@@ -576,7 +577,7 @@ void RocketChatBackend::slotChanged(const QJsonObject &object)
         if (mRocketChatAccount->ruqolaLogger()) {
             QJsonDocument d;
             d.setObject(object);
-            mRocketChatAccount->ruqolaLogger()->dataReceived(QByteArrayLiteral("stream-notify-logged: ") + d.toJson());
+            mRocketChatAccount->ruqolaLogger()->dataReceived("stream-notify-logged: "_ba + d.toJson());
         } else {
             qCDebug(RUQOLA_UNKNOWN_COLLECTIONTYPE_LOG) << "stream-notify-logged: " << eventname;
         }
@@ -610,7 +611,7 @@ void RocketChatBackend::slotChanged(const QJsonObject &object)
         if (mRocketChatAccount->ruqolaLogger()) {
             QJsonDocument d;
             d.setObject(object);
-            mRocketChatAccount->ruqolaLogger()->dataReceived(QByteArrayLiteral("stream-notify-all: ") + d.toJson());
+            mRocketChatAccount->ruqolaLogger()->dataReceived("stream-notify-all: "_ba + d.toJson());
         } else {
             qCDebug(RUQOLA_UNKNOWN_COLLECTIONTYPE_LOG) << "stream-notify-all: " << eventname;
         }
@@ -628,7 +629,7 @@ void RocketChatBackend::slotChanged(const QJsonObject &object)
         if (mRocketChatAccount->ruqolaLogger()) {
             QJsonDocument d;
             d.setObject(object);
-            mRocketChatAccount->ruqolaLogger()->dataReceived(QByteArrayLiteral("stream-stdout: ") + d.toJson());
+            mRocketChatAccount->ruqolaLogger()->dataReceived("stream-stdout: "_ba + d.toJson());
         } else {
             qCDebug(RUQOLA_UNKNOWN_COLLECTIONTYPE_LOG) << "stream-stdout: " << contents;
         }
@@ -637,7 +638,7 @@ void RocketChatBackend::slotChanged(const QJsonObject &object)
         if (mRocketChatAccount->ruqolaLogger()) {
             QJsonDocument d;
             d.setObject(object);
-            mRocketChatAccount->ruqolaLogger()->dataReceived(QByteArrayLiteral("stream-roles: ") + d.toJson());
+            mRocketChatAccount->ruqolaLogger()->dataReceived("stream-roles: "_ba + d.toJson());
         } else {
             qCDebug(RUQOLA_UNKNOWN_COLLECTIONTYPE_LOG) << "stream-roles: " << contents;
         }
@@ -649,7 +650,7 @@ void RocketChatBackend::slotChanged(const QJsonObject &object)
         if (mRocketChatAccount->ruqolaLogger()) {
             QJsonDocument d;
             d.setObject(object);
-            mRocketChatAccount->ruqolaLogger()->dataReceived(QByteArrayLiteral("stream-apps: ") + d.toJson());
+            mRocketChatAccount->ruqolaLogger()->dataReceived("stream-apps: "_ba + d.toJson());
         } else {
             qCDebug(RUQOLA_UNKNOWN_COLLECTIONTYPE_LOG) << "stream-apps: " << eventname;
         }

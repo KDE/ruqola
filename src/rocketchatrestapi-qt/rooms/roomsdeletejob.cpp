@@ -37,11 +37,11 @@ void RoomsDeleteJob::onPostRequestResponse(const QString &replyErrorString, cons
     const QJsonObject replyObject = replyJson.object();
 
     if (replyObject["success"_L1].toBool()) {
-        addLoggerInfo(QByteArrayLiteral("RoomsDeleteJob success: ") + replyJson.toJson(QJsonDocument::Indented));
+        addLoggerInfo("RoomsDeleteJob success: "_ba + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT roomDeleteDone();
     } else {
         emitFailedMessage(replyErrorString, replyObject);
-        addLoggerWarning(QByteArrayLiteral("RoomsDeleteJob: Problem: ") + replyJson.toJson(QJsonDocument::Indented));
+        addLoggerWarning("RoomsDeleteJob: Problem: "_ba + replyJson.toJson(QJsonDocument::Indented));
     }
 }
 

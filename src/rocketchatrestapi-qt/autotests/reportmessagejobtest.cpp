@@ -46,7 +46,7 @@ void ReportMessageJobTest::shouldHaveMessageId()
     QVERIFY(!job.canStart());
     job.setReportMessage(QStringLiteral("bla"));
     QVERIFY(!job.canStart());
-    job.setMessageId(QByteArrayLiteral("sbla"));
+    job.setMessageId("sbla"_ba);
     QVERIFY(job.canStart());
 }
 

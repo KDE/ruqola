@@ -134,7 +134,7 @@ void UploadFileJob::slotUploadFinished()
         const QJsonDocument replyJson = convertToJsonDocument(reply);
         const QJsonObject replyObject = replyJson.object();
         if (replyObject.value("success"_L1).toBool()) {
-            addLoggerInfo(QByteArrayLiteral("UploadFileJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
+            addLoggerInfo("UploadFileJob: success: "_ba + replyJson.toJson(QJsonDocument::Indented));
         } else {
             if (reply->error() != QNetworkReply::NoError) {
                 if (mReply->error() == QNetworkReply::NetworkSessionFailedError) {
@@ -147,7 +147,7 @@ void UploadFileJob::slotUploadFinished()
                 Q_EMIT failed(mReply->errorString() + QLatin1Char('\n') + errorStr(replyObject));
             } else {
                 emitFailedMessage(reply->errorString(), replyObject);
-                addLoggerWarning(QByteArrayLiteral("UploadFileJob: Problem: ") + replyJson.toJson(QJsonDocument::Indented));
+                addLoggerWarning("UploadFileJob: Problem: "_ba + replyJson.toJson(QJsonDocument::Indented));
             }
         }
         reply->deleteLater();

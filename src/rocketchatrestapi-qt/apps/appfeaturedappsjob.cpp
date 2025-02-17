@@ -35,7 +35,7 @@ bool AppFeaturedAppsJob::start()
     }
     submitGetRequest();
 
-    addStartRestApiInfo(QByteArrayLiteral("AppFeaturedAppsJob: get report info starting"));
+    addStartRestApiInfo("AppFeaturedAppsJob: get report info starting"_ba);
     return true;
 }
 
@@ -43,12 +43,11 @@ void AppFeaturedAppsJob::onGetRequestResponse(const QString &replyErrorString, c
 {
     const QJsonObject replyObject = replyJson.object();
     if (replyObject["success"_L1].toBool()) {
-        addLoggerInfo(QByteArrayLiteral("AppFeaturedAppsJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
+        addLoggerInfo("AppFeaturedAppsJob: success: "_ba + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT appFeaturedAppsDone(replyObject);
     } else {
         emitFailedMessage(replyErrorString, replyObject);
-        addLoggerWarning(QByteArrayLiteral("AppFeaturedAppsJob: Problem when we tried to get app featured info : ")
-                         + replyJson.toJson(QJsonDocument::Indented));
+        addLoggerWarning("AppFeaturedAppsJob: Problem when we tried to get app featured info : "_ba + replyJson.toJson(QJsonDocument::Indented));
     }
 }
 

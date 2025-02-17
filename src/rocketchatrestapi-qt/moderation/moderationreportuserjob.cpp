@@ -37,11 +37,11 @@ void ModerationReportUserJob::onPostRequestResponse(const QString &replyErrorStr
     const QJsonObject replyObject = replyJson.object();
 
     if (replyObject["success"_L1].toBool()) {
-        addLoggerInfo(QByteArrayLiteral("ModerationReportUserJob success: ") + replyJson.toJson(QJsonDocument::Indented));
+        addLoggerInfo("ModerationReportUserJob success: "_ba + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT moderationReportUserDone();
     } else {
         emitFailedMessage(replyErrorString, replyObject);
-        addLoggerWarning(QByteArrayLiteral("ModerationReportUserJob: Problem: ") + replyJson.toJson(QJsonDocument::Indented));
+        addLoggerWarning("ModerationReportUserJob: Problem: "_ba + replyJson.toJson(QJsonDocument::Indented));
     }
 }
 

@@ -40,11 +40,11 @@ void ChannelsConvertToTeamJob::onPostRequestResponse(const QString &replyErrorSt
     const QJsonObject replyObject = replyJson.object();
 
     if (replyObject["success"_L1].toBool()) {
-        addLoggerInfo(QByteArrayLiteral("ChannelsConvertToTeamJob success: ") + replyJson.toJson(QJsonDocument::Indented));
+        addLoggerInfo("ChannelsConvertToTeamJob success: "_ba + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT channelConvertToTeamDone(replyObject);
     } else {
         emitFailedMessage(replyErrorString, replyObject);
-        addLoggerWarning(QByteArrayLiteral("ChannelsConvertToTeamJob: Problem: ") + replyJson.toJson(QJsonDocument::Indented));
+        addLoggerWarning("ChannelsConvertToTeamJob: Problem: "_ba + replyJson.toJson(QJsonDocument::Indented));
     }
 }
 

@@ -34,7 +34,7 @@ bool IgnoreUserJob::start()
     }
     submitGetRequest();
 
-    addStartRestApiInfo(QByteArrayLiteral("IgnoreUserJob: ignore user starting"));
+    addStartRestApiInfo("IgnoreUserJob: ignore user starting"_ba);
     return true;
 }
 
@@ -42,11 +42,11 @@ void IgnoreUserJob::onGetRequestResponse(const QString &replyErrorString, const 
 {
     const QJsonObject replyObject = replyJson.object();
     if (replyObject["success"_L1].toBool()) {
-        addLoggerInfo(QByteArrayLiteral("IgnoreUserJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
+        addLoggerInfo("IgnoreUserJob: success: "_ba + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT ignoreUserDone(replyObject, mRoomId);
     } else {
         emitFailedMessage(replyErrorString, replyObject);
-        addLoggerWarning(QByteArrayLiteral("Problem when we tried to ignore user message: ") + replyJson.toJson(QJsonDocument::Indented));
+        addLoggerWarning("Problem when we tried to ignore user message: "_ba + replyJson.toJson(QJsonDocument::Indented));
     }
 }
 

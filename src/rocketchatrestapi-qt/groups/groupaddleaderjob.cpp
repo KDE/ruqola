@@ -36,11 +36,11 @@ void GroupAddLeaderJob::onPostRequestResponse(const QString &replyErrorString, c
     const QJsonObject replyObject = replyJson.object();
 
     if (replyObject["success"_L1].toBool()) {
-        addLoggerInfo(QByteArrayLiteral("GroupAddLeaderJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
+        addLoggerInfo("GroupAddLeaderJob: success: "_ba + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT addLeaderDone();
     } else {
         emitFailedMessage(replyErrorString, replyObject);
-        addLoggerWarning(QByteArrayLiteral("GroupAddLeaderJob: problem: ") + replyJson.toJson(QJsonDocument::Indented));
+        addLoggerWarning("GroupAddLeaderJob: problem: "_ba + replyJson.toJson(QJsonDocument::Indented));
     }
 }
 

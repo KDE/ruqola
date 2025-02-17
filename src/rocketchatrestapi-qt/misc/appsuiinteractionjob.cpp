@@ -41,12 +41,12 @@ void AppsUiInteractionJob::onPostRequestResponse(const QString &replyErrorString
     // qDebug() << " response " << replyErrorString << "replyJson  " << replyJson;
     const QJsonObject replyObject = replyJson.object();
     if (replyObject["success"_L1].toBool()) {
-        addLoggerInfo(QByteArrayLiteral("AppsUiInteractionJob success: ") + replyJson.toJson(QJsonDocument::Indented));
+        addLoggerInfo("AppsUiInteractionJob success: "_ba + replyJson.toJson(QJsonDocument::Indented));
         const QJsonObject obj = QJsonDocument::fromJson(replyObject["message"_L1].toString().toUtf8()).object();
         Q_EMIT AppsUiInteractionDone(obj);
     } else {
         emitFailedMessage(replyErrorString, replyObject);
-        addLoggerWarning(QByteArrayLiteral("AppsUiInteractionJob: Problem: ") + replyJson.toJson(QJsonDocument::Indented));
+        addLoggerWarning("AppsUiInteractionJob: Problem: "_ba + replyJson.toJson(QJsonDocument::Indented));
     }
 #endif
 }

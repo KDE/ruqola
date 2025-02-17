@@ -38,15 +38,15 @@ bool AppUpdateInfoJob::start()
         break;
     case AppMode::Delete:
         submitDeleteRequest();
-        addStartRestApiInfo(QByteArrayLiteral("AppUpdateInfoJob: delete starting"));
+        addStartRestApiInfo("AppUpdateInfoJob: delete starting"_ba);
         break;
     case AppMode::Get:
         submitGetRequest();
-        addStartRestApiInfo(QByteArrayLiteral("AppUpdateInfoJob: get starting"));
+        addStartRestApiInfo("AppUpdateInfoJob: get starting"_ba);
         break;
     case AppMode::Post:
         submitPostRequest(json());
-        addStartRestApiInfo(QByteArrayLiteral("AppUpdateInfoJob: post starting"));
+        addStartRestApiInfo("AppUpdateInfoJob: post starting"_ba);
         break;
     }
 
@@ -128,11 +128,11 @@ void AppUpdateInfoJob::onPostRequestResponse(const QString &replyErrorString, co
 {
     const QJsonObject replyObject = replyJson.object();
     if (replyObject["success"_L1].toBool()) {
-        addLoggerInfo(QByteArrayLiteral("AppUpdateInfoJob success: ") + replyJson.toJson(QJsonDocument::Indented));
+        addLoggerInfo("AppUpdateInfoJob success: "_ba + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT appUpdateInfoDone(replyObject["data"_L1].toObject());
     } else {
         emitFailedMessage(replyErrorString, replyObject);
-        addLoggerWarning(QByteArrayLiteral("AppUpdateInfoJob: Problem: ") + replyJson.toJson(QJsonDocument::Indented));
+        addLoggerWarning("AppUpdateInfoJob: Problem: "_ba + replyJson.toJson(QJsonDocument::Indented));
     }
 }
 
@@ -140,11 +140,11 @@ void AppUpdateInfoJob::onDeleteRequestResponse(const QString &replyErrorString, 
 {
     const QJsonObject replyObject = replyJson.object();
     if (replyObject["success"_L1].toBool()) {
-        addLoggerInfo(QByteArrayLiteral("Delete AppUpdateInfoJob success: ") + replyJson.toJson(QJsonDocument::Indented));
+        addLoggerInfo("Delete AppUpdateInfoJob success: "_ba + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT appUpdateInfoDone(replyObject["data"_L1].toObject());
     } else {
         emitFailedMessage(replyErrorString, replyObject);
-        addLoggerWarning(QByteArrayLiteral("Delete AppUpdateInfoJob: Problem: ") + replyJson.toJson(QJsonDocument::Indented));
+        addLoggerWarning("Delete AppUpdateInfoJob: Problem: "_ba + replyJson.toJson(QJsonDocument::Indented));
     }
 }
 

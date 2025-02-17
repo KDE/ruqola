@@ -28,7 +28,7 @@ bool LoadEmojiCustomJob::start()
         return false;
     }
     submitGetRequest();
-    addStartRestApiInfo(QByteArrayLiteral("LoadEmojiCustomJob: Load Emoji custom"));
+    addStartRestApiInfo("LoadEmojiCustomJob: Load Emoji custom"_ba);
 
     return true;
 }
@@ -38,11 +38,11 @@ void LoadEmojiCustomJob::onGetRequestResponse(const QString &replyErrorString, c
     const QJsonObject replyObject = replyJson.object();
 
     if (replyObject["success"_L1].toBool()) {
-        addLoggerInfo(QByteArrayLiteral("LoadEmojiCustomJob done: ") + replyJson.toJson(QJsonDocument::Indented));
+        addLoggerInfo("LoadEmojiCustomJob done: "_ba + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT loadEmojiCustomDone(replyObject);
     } else {
         emitFailedMessage(replyErrorString, replyObject);
-        addLoggerWarning(QByteArrayLiteral("LoadEmojiCustomJob: Problem: ") + replyJson.toJson(QJsonDocument::Indented));
+        addLoggerWarning("LoadEmojiCustomJob: Problem: "_ba + replyJson.toJson(QJsonDocument::Indented));
     }
 }
 

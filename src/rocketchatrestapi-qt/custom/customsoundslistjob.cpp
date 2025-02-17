@@ -28,7 +28,7 @@ bool CustomSoundsListJob::start()
         return false;
     }
     submitGetRequest();
-    addStartRestApiInfo(QByteArrayLiteral("CustomSoundsJob: Ask custom sounds info"));
+    addStartRestApiInfo("CustomSoundsJob: Ask custom sounds info"_ba);
 
     return true;
 }
@@ -38,11 +38,11 @@ void CustomSoundsListJob::onGetRequestResponse(const QString &replyErrorString, 
     const QJsonObject replyObject = replyJson.object();
 
     if (replyObject["success"_L1].toBool()) {
-        addLoggerInfo(QByteArrayLiteral("CustomSoundsJob done: ") + replyJson.toJson(QJsonDocument::Indented));
+        addLoggerInfo("CustomSoundsJob done: "_ba + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT customSoundsListDone(replyObject); // TODO fix return value!
     } else {
         emitFailedMessage(replyErrorString, replyObject);
-        addLoggerWarning(QByteArrayLiteral("CustomSoundsJob: Problem: ") + replyJson.toJson(QJsonDocument::Indented));
+        addLoggerWarning("CustomSoundsJob: Problem: "_ba + replyJson.toJson(QJsonDocument::Indented));
     }
 }
 

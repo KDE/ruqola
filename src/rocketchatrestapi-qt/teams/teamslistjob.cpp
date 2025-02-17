@@ -34,7 +34,7 @@ bool TeamsListJob::start()
     }
     submitGetRequest();
 
-    addStartRestApiInfo(QByteArrayLiteral("TeamsListJob: ask users list"));
+    addStartRestApiInfo("TeamsListJob: ask users list"_ba);
     return true;
 }
 
@@ -42,11 +42,11 @@ void TeamsListJob::onGetRequestResponse(const QString &replyErrorString, const Q
 {
     const QJsonObject replyObject = replyJson.object();
     if (replyObject["success"_L1].toBool()) {
-        addLoggerInfo(QByteArrayLiteral("TeamsListJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
+        addLoggerInfo("TeamsListJob: success: "_ba + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT teamsListDone(replyObject);
     } else {
         emitFailedMessage(replyErrorString, replyObject);
-        addLoggerWarning(QByteArrayLiteral("TeamsListJob: Problem: ") + replyJson.toJson(QJsonDocument::Indented));
+        addLoggerWarning("TeamsListJob: Problem: "_ba + replyJson.toJson(QJsonDocument::Indented));
     }
 }
 

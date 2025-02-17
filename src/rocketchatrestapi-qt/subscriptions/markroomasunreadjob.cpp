@@ -38,11 +38,11 @@ void MarkRoomAsUnReadJob::onPostRequestResponse(const QString &replyErrorString,
     const QJsonObject replyObject = replyJson.object();
 
     if (replyObject["success"_L1].toBool()) {
-        addLoggerInfo(QByteArrayLiteral("MarkRoomAsUnReadJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
+        addLoggerInfo("MarkRoomAsUnReadJob: success: "_ba + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT markAsUnReadDone();
     } else {
         emitFailedMessage(replyErrorString, replyObject);
-        addLoggerWarning(QByteArrayLiteral("MarkRoomAsUnReadJob: Problem: ") + replyJson.toJson(QJsonDocument::Indented));
+        addLoggerWarning("MarkRoomAsUnReadJob: Problem: "_ba + replyJson.toJson(QJsonDocument::Indented));
     }
 }
 

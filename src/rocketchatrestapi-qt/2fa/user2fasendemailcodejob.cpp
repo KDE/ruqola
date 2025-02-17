@@ -36,7 +36,7 @@ void User2FASendEmailCodeJob::onPostRequestResponse(const QString &replyErrorStr
     Q_UNUSED(replyErrorString);
     // TODO it reports only email.
 
-    addLoggerInfo(QByteArrayLiteral("User2FASendEmailCodeJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
+    addLoggerInfo("User2FASendEmailCodeJob: success: "_ba + replyJson.toJson(QJsonDocument::Indented));
     Q_EMIT sendEmailCodeDone();
 
     // const QJsonObject replyObject = replyJson.object();
@@ -44,7 +44,7 @@ void User2FASendEmailCodeJob::onPostRequestResponse(const QString &replyErrorStr
     // if (replyObject["success"_L1].toBool()) {
     // } else {
     // emitFailedMessage(replyObject, reply);
-    // addLoggerWarning(QByteArrayLiteral("User2FASendEmailCodeJob: Problem: ") + replyJson.toJson(QJsonDocument::Indented));
+    // addLoggerWarning("User2FASendEmailCodeJob: Problem: "_ba + replyJson.toJson(QJsonDocument::Indented));
     // }
 }
 

@@ -34,7 +34,7 @@ bool GetBannersJob::start()
         return false;
     }
     submitGetRequest();
-    addStartRestApiInfo(QByteArrayLiteral("GetBannersJob: Ask about banners"));
+    addStartRestApiInfo("GetBannersJob: Ask about banners"_ba);
     return true;
 }
 
@@ -42,11 +42,11 @@ void GetBannersJob::onGetRequestResponse(const QString &replyErrorString, const 
 {
     const QJsonObject replyObject = replyJson.object();
     if (replyObject["success"_L1].toBool()) {
-        addLoggerInfo(QByteArrayLiteral("GetBannersJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
+        addLoggerInfo("GetBannersJob: success: "_ba + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT getBannersDone(replyObject);
     } else {
         emitFailedMessage(replyErrorString, replyObject);
-        addLoggerWarning(QByteArrayLiteral("GetBannersJob: Problem: ") + replyJson.toJson(QJsonDocument::Indented));
+        addLoggerWarning("GetBannersJob: Problem: "_ba + replyJson.toJson(QJsonDocument::Indented));
     }
 }
 

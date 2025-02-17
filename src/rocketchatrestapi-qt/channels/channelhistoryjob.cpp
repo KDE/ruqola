@@ -37,11 +37,11 @@ void ChannelHistoryJob::onGetRequestResponse(const QString &replyErrorString, co
     const QJsonObject replyObject = replyJson.object();
 
     if (replyObject["success"_L1].toBool()) {
-        addLoggerInfo(QByteArrayLiteral("ChannelHistoryJob success: ") + replyJson.toJson(QJsonDocument::Indented));
+        addLoggerInfo("ChannelHistoryJob success: "_ba + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT channelHistoryDone(replyObject, channelGroupInfo());
     } else {
         emitFailedMessage(replyErrorString, replyObject);
-        addLoggerWarning(QByteArrayLiteral("ChannelHistoryJob problem: ") + replyJson.toJson(QJsonDocument::Indented));
+        addLoggerWarning("ChannelHistoryJob problem: "_ba + replyJson.toJson(QJsonDocument::Indented));
     }
 }
 

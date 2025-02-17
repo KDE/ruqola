@@ -46,7 +46,7 @@ bool AdminRoomsGetRoomJob::start()
     }
     submitGetRequest();
 
-    addStartRestApiInfo(QByteArrayLiteral("AdminRoomsGetRoomJob: Ask info about room admin info"));
+    addStartRestApiInfo("AdminRoomsGetRoomJob: Ask info about room admin info"_ba);
     return true;
 }
 
@@ -54,11 +54,11 @@ void AdminRoomsGetRoomJob::onGetRequestResponse(const QString &replyErrorString,
 {
     const QJsonObject replyObject = replyJson.object();
     if (replyObject["success"_L1].toBool()) {
-        addLoggerInfo(QByteArrayLiteral("AdminRoomsGetRoomJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
+        addLoggerInfo("AdminRoomsGetRoomJob: success: "_ba + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT adminRoomGetRoomDone(replyObject);
     } else {
         emitFailedMessage(replyErrorString, replyObject);
-        addLoggerWarning(QByteArrayLiteral("AdminRoomsGetRoomJob: Problem: ") + replyJson.toJson(QJsonDocument::Indented));
+        addLoggerWarning("AdminRoomsGetRoomJob: Problem: "_ba + replyJson.toJson(QJsonDocument::Indented));
     }
 }
 

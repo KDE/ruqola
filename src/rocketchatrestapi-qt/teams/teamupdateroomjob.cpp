@@ -36,11 +36,11 @@ void TeamUpdateRoomJob::onPostRequestResponse(const QString &replyErrorString, c
 {
     const QJsonObject replyObject = replyJson.object();
     if (replyObject["success"_L1].toBool()) {
-        addLoggerInfo(QByteArrayLiteral("TeamUpdateRoomJob success: ") + replyJson.toJson(QJsonDocument::Indented));
+        addLoggerInfo("TeamUpdateRoomJob success: "_ba + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT teamUpdateRoomDone(replyObject);
     } else {
         emitFailedMessage(replyErrorString, replyObject);
-        addLoggerWarning(QByteArrayLiteral("TeamUpdateRoomJob: Problem: ") + replyJson.toJson(QJsonDocument::Indented));
+        addLoggerWarning("TeamUpdateRoomJob: Problem: "_ba + replyJson.toJson(QJsonDocument::Indented));
     }
 }
 

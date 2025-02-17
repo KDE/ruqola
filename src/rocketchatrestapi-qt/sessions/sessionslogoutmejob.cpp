@@ -37,11 +37,11 @@ void SessionsLogoutMeJob::onPostRequestResponse(const QString &replyErrorString,
     const QJsonObject replyObject = replyJson.object();
 
     if (replyObject["success"_L1].toBool()) {
-        addLoggerInfo(QByteArrayLiteral("SessionsLogoutMeJob success: ") + replyJson.toJson(QJsonDocument::Indented));
+        addLoggerInfo("SessionsLogoutMeJob success: "_ba + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT logoutMeDone();
     } else {
         emitFailedMessage(replyErrorString, replyObject);
-        addLoggerWarning(QByteArrayLiteral("SessionsLogoutMeJob: Problem: ") + replyJson.toJson(QJsonDocument::Indented));
+        addLoggerWarning("SessionsLogoutMeJob: Problem: "_ba + replyJson.toJson(QJsonDocument::Indented));
     }
 }
 

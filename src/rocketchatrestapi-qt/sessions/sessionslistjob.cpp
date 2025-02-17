@@ -28,7 +28,7 @@ bool SessionsListJob::start()
         return false;
     }
     submitGetRequest();
-    addStartRestApiInfo(QByteArrayLiteral("SessionsListJob: Ask custom sounds info"));
+    addStartRestApiInfo("SessionsListJob: Ask custom sounds info"_ba);
 
     return true;
 }
@@ -38,11 +38,11 @@ void SessionsListJob::onGetRequestResponse(const QString &replyErrorString, cons
     const QJsonObject replyObject = replyJson.object();
 
     if (replyObject["success"_L1].toBool()) {
-        addLoggerInfo(QByteArrayLiteral("SessionsListJob done: ") + replyJson.toJson(QJsonDocument::Indented));
+        addLoggerInfo("SessionsListJob done: "_ba + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT sessionsListDone(replyObject);
     } else {
         emitFailedMessage(replyErrorString, replyObject);
-        addLoggerWarning(QByteArrayLiteral("SessionsListJob: Problem: ") + replyJson.toJson(QJsonDocument::Indented));
+        addLoggerWarning("SessionsListJob: Problem: "_ba + replyJson.toJson(QJsonDocument::Indented));
     }
 }
 

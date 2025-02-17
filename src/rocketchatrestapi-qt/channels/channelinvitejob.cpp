@@ -36,11 +36,11 @@ void ChannelInviteJob::onPostRequestResponse(const QString &replyErrorString, co
     const QJsonObject replyObject = replyJson.object();
 
     if (replyObject["success"_L1].toBool()) {
-        addLoggerInfo(QByteArrayLiteral("ChannelInviteJob success: ") + replyJson.toJson(QJsonDocument::Indented));
+        addLoggerInfo("ChannelInviteJob success: "_ba + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT inviteDone();
     } else {
         emitFailedMessage(replyErrorString, replyObject);
-        addLoggerWarning(QByteArrayLiteral("ChannelInviteJob problem: ") + replyJson.toJson(QJsonDocument::Indented));
+        addLoggerWarning("ChannelInviteJob problem: "_ba + replyJson.toJson(QJsonDocument::Indented));
     }
 }
 

@@ -34,11 +34,11 @@ void TranslateMessageJob::onPostRequestResponse(const QString &replyErrorString,
 {
     const QJsonObject replyObject = replyJson.object();
     if (replyObject["success"_L1].toBool()) {
-        addLoggerInfo(QByteArrayLiteral("TranslateMessageJob success: ") + replyJson.toJson(QJsonDocument::Indented));
+        addLoggerInfo("TranslateMessageJob success: "_ba + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT translateMessageDone();
     } else {
         emitFailedMessage(replyErrorString, replyObject);
-        addLoggerWarning(QByteArrayLiteral("TranslateMessageJob: Problem: ") + replyJson.toJson(QJsonDocument::Indented));
+        addLoggerWarning("TranslateMessageJob: Problem: "_ba + replyJson.toJson(QJsonDocument::Indented));
     }
 }
 

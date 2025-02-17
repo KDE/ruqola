@@ -28,7 +28,7 @@ bool ChannelListJob::start()
     }
 
     submitGetRequest();
-    addStartRestApiInfo(QByteArrayLiteral("ChannelListJob: ask channel list"));
+    addStartRestApiInfo("ChannelListJob: ask channel list"_ba);
     return false;
 }
 
@@ -36,11 +36,11 @@ void ChannelListJob::onGetRequestResponse(const QString &replyErrorString, const
 {
     const QJsonObject replyObject = replyJson.object();
     if (replyObject["success"_L1].toBool()) {
-        addLoggerInfo(QByteArrayLiteral("ChannelListJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
+        addLoggerInfo("ChannelListJob: success: "_ba + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT channelListDone(replyObject);
     } else {
         emitFailedMessage(replyErrorString, replyObject);
-        addLoggerWarning(QByteArrayLiteral("ChannelListJob: Problem: ") + replyJson.toJson(QJsonDocument::Indented));
+        addLoggerWarning("ChannelListJob: Problem: "_ba + replyJson.toJson(QJsonDocument::Indented));
     }
 }
 

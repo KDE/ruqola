@@ -7,7 +7,7 @@
 #include "rocketchatmessagetest.h"
 #include "rocketchatmessage.h"
 #include "ruqola_autotest_helper.h"
-
+using namespace Qt::Literals::StringLiterals;
 QTEST_GUILESS_MAIN(RocketChatMessageTest)
 
 RocketChatMessageTest::RocketChatMessageTest(QObject *parent)
@@ -111,13 +111,13 @@ void RocketChatMessageTest::setAdminStatus()
     {
         RocketChatMessage m;
         m.setJsonFormat(QJsonDocument::Indented);
-        RocketChatMessage::RocketChatMessageResult r = m.setAdminStatus(QByteArrayLiteral("userId"), false, 43);
+        RocketChatMessage::RocketChatMessageResult r = m.setAdminStatus("userId"_ba, false, 43);
         compareFile(r.result, QStringLiteral("setAdminStatusFalse"));
     }
     {
         RocketChatMessage m;
         m.setJsonFormat(QJsonDocument::Indented);
-        RocketChatMessage::RocketChatMessageResult r = m.setAdminStatus(QByteArrayLiteral("userId"), false, 43);
+        RocketChatMessage::RocketChatMessageResult r = m.setAdminStatus("userId"_ba, false, 43);
         compareFile(r.result, QStringLiteral("setAdminStatusTrue"));
     }
 }
@@ -152,7 +152,7 @@ void RocketChatMessageTest::streamNotifyUserOtrAcknowledge()
     RocketChatMessage m;
     m.setJsonFormat(QJsonDocument::Indented);
     RocketChatMessage::RocketChatMessageResult r =
-        m.streamNotifyUserOtrAcknowledge(QByteArrayLiteral("userFrom"), QByteArrayLiteral("userTo"), QStringLiteral("publickeys"), 43);
+        m.streamNotifyUserOtrAcknowledge(QByteArrayLiteral("userFrom"), "userTo"_ba, QStringLiteral("publickeys"), 43);
     compareFile(r.result, QStringLiteral("streamNotifyUserOtrAcknowledge"));
 }
 
@@ -168,7 +168,7 @@ void RocketChatMessageTest::deleteFileMessage()
 {
     RocketChatMessage m;
     m.setJsonFormat(QJsonDocument::Indented);
-    RocketChatMessage::RocketChatMessageResult r = m.deleteFileMessage(QByteArrayLiteral("fileid"), 43);
+    RocketChatMessage::RocketChatMessageResult r = m.deleteFileMessage("fileid"_ba, 43);
     compareFile(r.result, QStringLiteral("deleteFileMessage"));
 }
 
@@ -176,7 +176,7 @@ void RocketChatMessageTest::deleteCustomSound()
 {
     RocketChatMessage m;
     m.setJsonFormat(QJsonDocument::Indented);
-    RocketChatMessage::RocketChatMessageResult r = m.deleteCustomSound(QByteArrayLiteral("identifier"), 43);
+    RocketChatMessage::RocketChatMessageResult r = m.deleteCustomSound("identifier"_ba, 43);
     compareFile(r.result, QStringLiteral("deleteCustomSound"));
 }
 
@@ -216,7 +216,7 @@ void RocketChatMessageTest::openRoom()
 {
     RocketChatMessage m;
     m.setJsonFormat(QJsonDocument::Indented);
-    RocketChatMessage::RocketChatMessageResult r = m.openRoom(QByteArrayLiteral("bla"), 43);
+    RocketChatMessage::RocketChatMessageResult r = m.openRoom("bla"_ba, 43);
     compareFile(r.result, QStringLiteral("openroom"));
 }
 
@@ -224,7 +224,7 @@ void RocketChatMessageTest::bannerDismiss()
 {
     RocketChatMessage m;
     m.setJsonFormat(QJsonDocument::Indented);
-    RocketChatMessage::RocketChatMessageResult r = m.bannerDismiss(QByteArrayLiteral("banner_read"), 43);
+    RocketChatMessage::RocketChatMessageResult r = m.bannerDismiss("banner_read"_ba, 43);
     compareFile(r.result, QStringLiteral("bannerDismiss"));
 }
 
@@ -281,7 +281,7 @@ void RocketChatMessageTest::getRoomByTypeAndName()
     RocketChatMessage m;
     m.setJsonFormat(QJsonDocument::Indented);
 
-    RocketChatMessage::RocketChatMessageResult r = m.getRoomByTypeAndName(QByteArrayLiteral("oHfocsBTwc9bSdAxt"), QStringLiteral("c"), 43);
+    RocketChatMessage::RocketChatMessageResult r = m.getRoomByTypeAndName("oHfocsBTwc9bSdAxt"_ba, QStringLiteral("c"), 43);
     compareFile(r.result, QStringLiteral("getRoomByTypeAndName"));
 }
 

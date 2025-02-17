@@ -37,11 +37,11 @@ void TeamRemoveRoomJob::onPostRequestResponse(const QString &replyErrorString, c
     const QJsonObject replyObject = replyJson.object();
 
     if (replyObject["success"_L1].toBool()) {
-        addLoggerInfo(QByteArrayLiteral("TeamRemoveRoomJob success: ") + replyJson.toJson(QJsonDocument::Indented));
+        addLoggerInfo("TeamRemoveRoomJob success: "_ba + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT removeTeamRoomDone();
     } else {
         emitFailedMessage(replyErrorString, replyObject);
-        addLoggerWarning(QByteArrayLiteral("TeamRemoveRoomJob: Problem: ") + replyJson.toJson(QJsonDocument::Indented));
+        addLoggerWarning("TeamRemoveRoomJob: Problem: "_ba + replyJson.toJson(QJsonDocument::Indented));
     }
 }
 

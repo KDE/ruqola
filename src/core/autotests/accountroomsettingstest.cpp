@@ -7,6 +7,7 @@
 #include "accountroomsettingstest.h"
 #include "accountroomsettings.h"
 #include <QTest>
+using namespace Qt::Literals::StringLiterals;
 QTEST_GUILESS_MAIN(AccountRoomSettingsTest)
 AccountRoomSettingsTest::AccountRoomSettingsTest(QObject *parent)
     : QObject(parent)
@@ -31,7 +32,7 @@ void AccountRoomSettingsTest::shouldChangePendingTypedInfo()
     {
         AccountRoomSettings::PendingTypedInfo info;
         QVERIFY(!info.isValid());
-        info.messageIdBeingEdited = QByteArrayLiteral("foo");
+        info.messageIdBeingEdited = "foo"_ba;
         QVERIFY(info.isValid());
     }
     {

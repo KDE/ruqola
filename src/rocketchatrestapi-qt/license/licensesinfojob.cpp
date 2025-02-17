@@ -32,7 +32,7 @@ bool LicensesInfoJob::start()
         return false;
     }
     submitGetRequest();
-    addStartRestApiInfo(QByteArrayLiteral("LicensesInfoJob: Ask for licenses info."));
+    addStartRestApiInfo("LicensesInfoJob: Ask for licenses info."_ba);
     return true;
 }
 
@@ -41,11 +41,11 @@ void LicensesInfoJob::onGetRequestResponse(const QString &replyErrorString, cons
     const QJsonObject replyObject = replyJson.object();
 
     if (replyObject["success"_L1].toBool()) {
-        addLoggerInfo(QByteArrayLiteral("LicensesInfoJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
+        addLoggerInfo("LicensesInfoJob: success: "_ba + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT licensesInfoDone(replyObject);
     } else {
         emitFailedMessage(replyErrorString, replyObject);
-        addLoggerWarning(QByteArrayLiteral("LicensesInfoJob: Problem: ") + replyJson.toJson(QJsonDocument::Indented));
+        addLoggerWarning("LicensesInfoJob: Problem: "_ba + replyJson.toJson(QJsonDocument::Indented));
     }
 }
 

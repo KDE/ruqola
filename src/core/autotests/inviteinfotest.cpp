@@ -35,10 +35,10 @@ void InviteInfoTest::shouldParseInviteInfo_data()
         // RestAPI
         InviteInfo expected;
 
-        expected.setIdentifier(QByteArrayLiteral("D2F6of"));
+        expected.setIdentifier("D2F6of"_ba);
         expected.setMaxUses(25);
-        expected.setUserIdentifier(QByteArrayLiteral("H7Q9djXQ4iShzD9T2"));
-        expected.setRoomId(QByteArrayLiteral("n2GWePY4zjG48g7qA"));
+        expected.setUserIdentifier("H7Q9djXQ4iShzD9T2"_ba);
+        expected.setRoomId("n2GWePY4zjG48g7qA"_ba);
         expected.setUses(0);
 
         QDateTime expireDateTime;

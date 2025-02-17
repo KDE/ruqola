@@ -11,7 +11,7 @@
 #include "ddpapi/ddpclient.h"
 
 #include <QJsonArray>
-
+using namespace Qt::Literals::StringLiterals;
 DDPAuthenticationManager::DDPAuthenticationManager(DDPClient *ddpClient, QObject *parent)
     : DDPManager(ddpClient, parent)
 {
@@ -25,7 +25,7 @@ DDPAuthenticationManager::~DDPAuthenticationManager() = default;
 
 QByteArray DDPAuthenticationManager::authenticationName() const
 {
-    return QByteArrayLiteral("DDP");
+    return "DDP"_ba;
 }
 
 void DDPAuthenticationManager::callLoginImpl(const QJsonArray &params, AuthenticationManagerBase::Method method)

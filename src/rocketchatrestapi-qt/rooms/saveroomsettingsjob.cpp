@@ -40,11 +40,11 @@ void SaveRoomSettingsJob::onPostRequestResponse(const QString &replyErrorString,
     const QJsonObject replyObject = replyJson.object();
 
     if (replyObject["success"_L1].toBool()) {
-        addLoggerInfo(QByteArrayLiteral("SaveRoomSettingsJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
+        addLoggerInfo("SaveRoomSettingsJob: success: "_ba + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT saveRoomSettingsDone(replyObject.value("rid"_L1).toString());
     } else {
         emitFailedMessage(replyErrorString, replyObject);
-        addLoggerWarning(QByteArrayLiteral("SaveRoomSettingsJob: Problem: ") + replyJson.toJson(QJsonDocument::Indented));
+        addLoggerWarning("SaveRoomSettingsJob: Problem: "_ba + replyJson.toJson(QJsonDocument::Indented));
     }
 }
 

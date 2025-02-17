@@ -41,11 +41,11 @@ void OauthAppsDeleteJob::onPostRequestResponse(const QString &replyErrorString, 
 
     // qDebug() << " DDDDDDDDDDDDDDDDDD " << replyJson;
     // if (replyObject["success"_L1].toBool()) {
-    //     addLoggerInfo(QByteArrayLiteral("OauthAppsDeleteJob success: ") + replyJson.toJson(QJsonDocument::Indented));
+    //     addLoggerInfo("OauthAppsDeleteJob success: "_ba + replyJson.toJson(QJsonDocument::Indented));
     //     Q_EMIT oauthAppsDeleteDone(replyObject);
     // } else {
     //     emitFailedMessage(replyErrorString, replyObject);
-    //     addLoggerWarning(QByteArrayLiteral("OauthAppsDeleteJob: Problem: ") + replyJson.toJson(QJsonDocument::Indented));
+    //     addLoggerWarning("OauthAppsDeleteJob: Problem: "_ba + replyJson.toJson(QJsonDocument::Indented));
     // }
 }
 

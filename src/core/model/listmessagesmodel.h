@@ -23,10 +23,7 @@ public:
     };
     Q_ENUM(ListMessageType)
 
-    explicit ListMessagesModel(const QByteArray &roomID = QByteArrayLiteral("no_room"),
-                               RocketChatAccount *account = nullptr,
-                               Room *room = nullptr,
-                               QObject *parent = nullptr);
+    explicit ListMessagesModel(const QByteArray &roomID = "no_room"_ba, RocketChatAccount *account = nullptr, Room *room = nullptr, QObject *parent = nullptr);
     ~ListMessagesModel() override;
 
     void parseListMessages(const QJsonObject &obj);

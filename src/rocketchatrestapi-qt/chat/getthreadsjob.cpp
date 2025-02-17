@@ -46,7 +46,7 @@ bool GetThreadsJob::start()
     }
     submitGetRequest();
 
-    addStartRestApiInfo(QByteArrayLiteral("GetThreadsJob: Ask All threads in room"));
+    addStartRestApiInfo("GetThreadsJob: Ask All threads in room"_ba);
     return true;
 }
 
@@ -54,11 +54,11 @@ void GetThreadsJob::onGetRequestResponse(const QString &replyErrorString, const 
 {
     const QJsonObject replyObject = replyJson.object();
     if (replyObject["success"_L1].toBool()) {
-        addLoggerInfo(QByteArrayLiteral("GetThreadsJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
+        addLoggerInfo("GetThreadsJob: success: "_ba + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT getThreadsDone(replyObject, mRoomId);
     } else {
         emitFailedMessage(replyErrorString, replyObject);
-        addLoggerWarning(QByteArrayLiteral("GetThreadsJob: Problem: ") + replyJson.toJson(QJsonDocument::Indented));
+        addLoggerWarning("GetThreadsJob: Problem: "_ba + replyJson.toJson(QJsonDocument::Indented));
     }
 }
 

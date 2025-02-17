@@ -5,6 +5,8 @@
 */
 
 #include "userslistbystatusjobtest.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "ruqola_restapi_helper.h"
 #include "users/userslistbystatusjob.h"
 QTEST_GUILESS_MAIN(UsersListByStatusJobTest)

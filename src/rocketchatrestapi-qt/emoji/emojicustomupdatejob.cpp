@@ -83,11 +83,11 @@ void EmojiCustomUpdateJob::onPostRequestResponse(const QString &replyErrorString
     const QJsonObject replyObject = replyJson.object();
 
     if (replyObject["success"_L1].toBool()) {
-        addLoggerInfo(QByteArrayLiteral("EmojiCustomUpdateJob success: ") + replyJson.toJson(QJsonDocument::Indented));
+        addLoggerInfo("EmojiCustomUpdateJob success: "_ba + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT emojiCustomUpdateDone(replyObject);
     } else {
         emitFailedMessage(replyErrorString, replyObject);
-        addLoggerWarning(QByteArrayLiteral("EmojiCustomUpdateJob problem: ") + replyJson.toJson(QJsonDocument::Indented));
+        addLoggerWarning("EmojiCustomUpdateJob problem: "_ba + replyJson.toJson(QJsonDocument::Indented));
     }
 }
 
@@ -110,11 +110,11 @@ void EmojiCustomUpdateJob::slotEmojiCustomUpdateFinished()
         const QJsonObject replyObject = replyJson.object();
 
         if (replyObject["success"_L1].toBool()) {
-            addLoggerInfo(QByteArrayLiteral("EmojiCustomUpdateJob success: ") + replyJson.toJson(QJsonDocument::Indented));
+            addLoggerInfo("EmojiCustomUpdateJob success: "_ba + replyJson.toJson(QJsonDocument::Indented));
             Q_EMIT emojiCustomUpdateDone(replyObject);
         } else {
             emitFailedMessage(reply->errorString(), replyObject);
-            addLoggerWarning(QByteArrayLiteral("EmojiCustomUpdateJob problem: ") + replyJson.toJson(QJsonDocument::Indented));
+            addLoggerWarning("EmojiCustomUpdateJob problem: "_ba + replyJson.toJson(QJsonDocument::Indented));
         }
         reply->deleteLater();
     }

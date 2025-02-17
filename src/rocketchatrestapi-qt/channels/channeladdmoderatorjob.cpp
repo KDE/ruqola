@@ -36,11 +36,11 @@ void ChannelAddModeratorJob::onPostRequestResponse(const QString &replyErrorStri
     const QJsonObject replyObject = replyJson.object();
 
     if (replyObject["success"_L1].toBool()) {
-        addLoggerInfo(QByteArrayLiteral("Add moderator success: ") + replyJson.toJson(QJsonDocument::Indented));
+        addLoggerInfo("Add moderator success: "_ba + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT addModeratorDone();
     } else {
         emitFailedMessage(replyErrorString, replyObject);
-        addLoggerWarning(QByteArrayLiteral("Problem when we tried to add moderator: ") + replyJson.toJson(QJsonDocument::Indented));
+        addLoggerWarning("Problem when we tried to add moderator: "_ba + replyJson.toJson(QJsonDocument::Indented));
     }
 }
 

@@ -28,7 +28,7 @@ void ModerationUserReportedMessagesJobTest::shouldHaveDefaultValue()
 void ModerationUserReportedMessagesJobTest::shouldGenerateRequest()
 {
     ModerationUserReportedMessagesJob job;
-    job.setReportedMessageFromUserId(QByteArrayLiteral("bla"));
+    job.setReportedMessageFromUserId("bla"_ba);
     {
         QNetworkRequest request = QNetworkRequest(QUrl());
         verifyAuthentication(&job, request);

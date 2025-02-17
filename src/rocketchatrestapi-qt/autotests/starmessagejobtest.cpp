@@ -49,7 +49,7 @@ void StarMessageJobTest::shouldHaveMessageId()
     QVERIFY(!job.canStart());
     job.setUserId(userId);
     QVERIFY(!job.canStart());
-    job.setMessageId(QByteArrayLiteral("bla"));
+    job.setMessageId("bla"_ba);
     QVERIFY(job.canStart());
 }
 
@@ -70,8 +70,8 @@ void StarMessageJobTest::shouldGenerateStarMessageRequest()
     QCOMPARE(request.attribute(QNetworkRequest::HttpPipeliningAllowedAttribute).toBool(), true);
     QCOMPARE(request.attribute(QNetworkRequest::Http2AllowedAttribute).toBool(), true);
     QCOMPARE(request.header(QNetworkRequest::ContentTypeHeader).toString(), QStringLiteral("application/json"));
-    QCOMPARE(request.rawHeader(QByteArrayLiteral("X-Auth-Token")), authToken.toLocal8Bit());
-    QCOMPARE(request.rawHeader(QByteArrayLiteral("X-User-Id")), userId.toLocal8Bit());
+    QCOMPARE(request.rawHeader("X-Auth-Token"_ba), authToken.toLocal8Bit());
+    QCOMPARE(request.rawHeader("X-User-Id"_ba), userId.toLocal8Bit());
 }
 
 void StarMessageJobTest::shouldGenerateUnStarMessageRequest()

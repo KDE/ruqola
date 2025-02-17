@@ -33,7 +33,7 @@ bool VideoConferenceProvidersJob::start()
     }
     submitGetRequest();
 
-    addStartRestApiInfo(QByteArrayLiteral("VideoConferenceProvidersJob: Ask for provider lists"));
+    addStartRestApiInfo("VideoConferenceProvidersJob: Ask for provider lists"_ba);
     return true;
 }
 
@@ -42,12 +42,12 @@ void VideoConferenceProvidersJob::onGetRequestResponse(const QString &replyError
     const QJsonObject replyObject = replyJson.object();
 
     if (replyObject["success"_L1].toBool()) {
-        addLoggerInfo(QByteArrayLiteral("VideoConferenceProvidersJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
+        addLoggerInfo("VideoConferenceProvidersJob: success: "_ba + replyJson.toJson(QJsonDocument::Indented));
         // {"data":[{"key":"jitsi","label":"Jitsi"}]
         Q_EMIT videoConferenceProvidersDone(replyObject);
     } else {
         emitFailedMessage(replyErrorString, replyObject);
-        addLoggerWarning(QByteArrayLiteral("VideoConferenceProvidersJob: Problem: ") + replyJson.toJson(QJsonDocument::Indented));
+        addLoggerWarning("VideoConferenceProvidersJob: Problem: "_ba + replyJson.toJson(QJsonDocument::Indented));
     }
 }
 

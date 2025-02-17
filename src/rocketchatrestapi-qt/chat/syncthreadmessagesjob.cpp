@@ -50,7 +50,7 @@ bool SyncThreadMessagesJob::start()
     }
     submitGetRequest();
 
-    addStartRestApiInfo(QByteArrayLiteral("SyncThreadMessagesJob: update threads message in room"));
+    addStartRestApiInfo("SyncThreadMessagesJob: update threads message in room"_ba);
     return true;
 }
 
@@ -58,11 +58,11 @@ void SyncThreadMessagesJob::onGetRequestResponse(const QString &replyErrorString
 {
     const QJsonObject replyObject = replyJson.object();
     if (replyObject["success"_L1].toBool()) {
-        addLoggerInfo(QByteArrayLiteral("SyncThreadMessagesJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
+        addLoggerInfo("SyncThreadMessagesJob: success: "_ba + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT syncThreadMessagesDone(replyObject, mThreadMessageId);
     } else {
         emitFailedMessage(replyErrorString, replyObject);
-        addLoggerWarning(QByteArrayLiteral("SyncThreadMessagesJob: Problem: ") + replyJson.toJson(QJsonDocument::Indented));
+        addLoggerWarning("SyncThreadMessagesJob: Problem: "_ba + replyJson.toJson(QJsonDocument::Indented));
     }
 }
 

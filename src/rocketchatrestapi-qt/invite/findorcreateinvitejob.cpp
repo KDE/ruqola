@@ -39,11 +39,11 @@ void FindOrCreateInviteJob::onPostRequestResponse(const QString &replyErrorStrin
     const QJsonObject replyObject = replyJson.object();
 
     if (replyObject["success"_L1].toBool()) {
-        addLoggerInfo(QByteArrayLiteral("FindOrCreateInviteJob success: ") + replyJson.toJson(QJsonDocument::Indented));
+        addLoggerInfo("FindOrCreateInviteJob success: "_ba + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT findOrCreateInviteDone(parseResult(replyObject));
     } else {
         emitFailedMessage(replyErrorString, replyObject);
-        addLoggerWarning(QByteArrayLiteral("FindOrCreateInviteJob: Problem: ") + replyJson.toJson(QJsonDocument::Indented));
+        addLoggerWarning("FindOrCreateInviteJob: Problem: "_ba + replyJson.toJson(QJsonDocument::Indented));
     }
 }
 

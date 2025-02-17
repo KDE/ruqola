@@ -24,8 +24,8 @@ void verifyAuthentication(RestApiAbstractJob *job, QNetworkRequest &request)
     request = job->request();
     QCOMPARE(request.attribute(QNetworkRequest::HttpPipeliningAllowedAttribute).toBool(), true);
     QCOMPARE(request.attribute(QNetworkRequest::Http2AllowedAttribute).toBool(), true);
-    QCOMPARE(request.rawHeader(QByteArrayLiteral("X-Auth-Token")), authToken.toLocal8Bit());
-    QCOMPARE(request.rawHeader(QByteArrayLiteral("X-User-Id")), userId.toLocal8Bit());
+    QCOMPARE(request.rawHeader("X-Auth-Token"_ba), authToken.toLocal8Bit());
+    QCOMPARE(request.rawHeader("X-User-Id"_ba), userId.toLocal8Bit());
 }
 
 void verifyDefaultValue(RestApiAbstractJob *job)

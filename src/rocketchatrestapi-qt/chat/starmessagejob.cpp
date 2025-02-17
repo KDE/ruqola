@@ -48,11 +48,11 @@ void StarMessageJob::onPostRequestResponse(const QString &replyErrorString, cons
     const QJsonObject replyObject = replyJson.object();
 
     if (replyObject["success"_L1].toBool()) {
-        addLoggerInfo(QByteArrayLiteral("StarMessageJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
+        addLoggerInfo("StarMessageJob: success: "_ba + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT messageStarred();
     } else {
         emitFailedMessage(replyErrorString, replyObject);
-        addLoggerWarning(QByteArrayLiteral("StarMessageJob: problem: ") + replyJson.toJson(QJsonDocument::Indented));
+        addLoggerWarning("StarMessageJob: problem: "_ba + replyJson.toJson(QJsonDocument::Indented));
     }
 }
 

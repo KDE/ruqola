@@ -35,11 +35,11 @@ void AddUserToRoleJob::onPostRequestResponse(const QString &replyErrorString, co
 {
     const QJsonObject replyObject = replyJson.object();
     if (replyObject["success"_L1].toBool()) {
-        addLoggerInfo(QByteArrayLiteral("AddUserToRoleJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
+        addLoggerInfo("AddUserToRoleJob: success: "_ba + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT addUsersToRoleDone(replyObject);
     } else {
         emitFailedMessage(replyErrorString, replyObject);
-        addLoggerWarning(QByteArrayLiteral("AddUserToRoleJob: Problem: ") + replyJson.toJson(QJsonDocument::Indented));
+        addLoggerWarning("AddUserToRoleJob: Problem: "_ba + replyJson.toJson(QJsonDocument::Indented));
     }
 }
 

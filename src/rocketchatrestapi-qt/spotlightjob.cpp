@@ -28,7 +28,7 @@ bool SpotlightJob::start()
         return false;
     }
     submitGetRequest();
-    addStartRestApiInfo(QByteArrayLiteral("SpotlightJob start"));
+    addStartRestApiInfo("SpotlightJob start"_ba);
     return true;
 }
 
@@ -36,11 +36,11 @@ void SpotlightJob::onGetRequestResponse(const QString &replyErrorString, const Q
 {
     const QJsonObject replyObject = replyJson.object();
     if (replyObject["success"_L1].toBool()) {
-        addLoggerInfo(QByteArrayLiteral("SpotlightJob success: ") + replyJson.toJson(QJsonDocument::Indented));
+        addLoggerInfo("SpotlightJob success: "_ba + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT spotlightDone(replyObject);
     } else {
         emitFailedMessage(replyErrorString, replyObject);
-        addLoggerWarning(QByteArrayLiteral("SpotlightJob: Problem: ") + replyJson.toJson(QJsonDocument::Indented));
+        addLoggerWarning("SpotlightJob: Problem: "_ba + replyJson.toJson(QJsonDocument::Indented));
     }
 }
 

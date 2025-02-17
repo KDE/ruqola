@@ -27,7 +27,7 @@ bool PrivateInfoJob::start()
         return false;
     }
     submitGetRequest();
-    addStartRestApiInfo(QByteArrayLiteral("PrivateInfoJob: Ask private info"));
+    addStartRestApiInfo("PrivateInfoJob: Ask private info"_ba);
 
     return true;
 }
@@ -37,11 +37,11 @@ void PrivateInfoJob::onGetRequestResponse(const QString &replyErrorString, const
     const QJsonObject replyObject = replyJson.object();
 
     if (replyObject["success"_L1].toBool()) {
-        addLoggerInfo(QByteArrayLiteral("PrivateInfoJob done: ") + replyJson.toJson(QJsonDocument::Indented));
+        addLoggerInfo("PrivateInfoJob done: "_ba + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT privateInfoDone(replyObject);
     } else {
         emitFailedMessage(replyErrorString, replyObject);
-        addLoggerWarning(QByteArrayLiteral("PrivateInfoJob: Problem: ") + replyJson.toJson(QJsonDocument::Indented));
+        addLoggerWarning("PrivateInfoJob: Problem: "_ba + replyJson.toJson(QJsonDocument::Indented));
     }
 }
 

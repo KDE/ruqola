@@ -37,7 +37,7 @@ void PinMessageJob::onPostRequestResponse(const QString &replyErrorString, const
     const QJsonObject replyObject = replyJson.object();
 
     if (replyObject["success"_L1].toBool()) {
-        addLoggerInfo(QByteArrayLiteral("PinMessageJob success: ") + replyJson.toJson(QJsonDocument::Indented));
+        addLoggerInfo("PinMessageJob success: "_ba + replyJson.toJson(QJsonDocument::Indented));
         if (mPinMessage) {
             Q_EMIT pinMessageDone();
         } else {
@@ -45,7 +45,7 @@ void PinMessageJob::onPostRequestResponse(const QString &replyErrorString, const
         }
     } else {
         emitFailedMessage(replyErrorString, replyObject);
-        addLoggerWarning(QByteArrayLiteral("PinMessageJob problem: ") + replyJson.toJson(QJsonDocument::Indented));
+        addLoggerWarning("PinMessageJob problem: "_ba + replyJson.toJson(QJsonDocument::Indented));
     }
 }
 

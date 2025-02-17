@@ -36,11 +36,11 @@ void GroupRemoveModeratorJob::onPostRequestResponse(const QString &replyErrorStr
     const QJsonObject replyObject = replyJson.object();
 
     if (replyObject["success"_L1].toBool()) {
-        addLoggerInfo(QByteArrayLiteral("GroupRemoveModeratorJob success: ") + replyJson.toJson(QJsonDocument::Indented));
+        addLoggerInfo("GroupRemoveModeratorJob success: "_ba + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT removeModeratorDone();
     } else {
         emitFailedMessage(replyErrorString, replyObject);
-        addLoggerWarning(QByteArrayLiteral("GroupRemoveModeratorJob problem: ") + replyJson.toJson(QJsonDocument::Indented));
+        addLoggerWarning("GroupRemoveModeratorJob problem: "_ba + replyJson.toJson(QJsonDocument::Indented));
     }
 }
 

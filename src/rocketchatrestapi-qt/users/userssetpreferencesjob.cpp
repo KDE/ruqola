@@ -38,11 +38,11 @@ void UsersSetPreferencesJob::onPostRequestResponse(const QString &replyErrorStri
 {
     const QJsonObject replyObject = replyJson.object();
     if (replyObject["success"_L1].toBool()) {
-        addLoggerInfo(QByteArrayLiteral("UsersSetPreferencesJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
+        addLoggerInfo("UsersSetPreferencesJob: success: "_ba + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT usersSetPreferencesDone(replyObject);
     } else {
         emitFailedMessage(replyErrorString, replyObject);
-        addLoggerWarning(QByteArrayLiteral("UsersSetPreferencesJob: Problem: ") + replyJson.toJson(QJsonDocument::Indented));
+        addLoggerWarning("UsersSetPreferencesJob: Problem: "_ba + replyJson.toJson(QJsonDocument::Indented));
     }
 }
 
