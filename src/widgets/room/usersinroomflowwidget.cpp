@@ -53,7 +53,6 @@ void UsersInRoomFlowWidget::setRoom(Room *room)
 
         connect(model, &UsersForRoomModel::hasFullListChanged, mUsersForRoomFilterProxyModel, &UsersForRoomFilterProxyModel::hasFullListChanged);
         connect(model, &UsersForRoomModel::loadingInProgressChanged, mUsersForRoomFilterProxyModel, &UsersForRoomFilterProxyModel::loadingInProgressChanged);
-        // generateListUsersWidget();
     } else {
         mFlowLayout->clearAndDeleteWidgets();
     }
@@ -119,19 +118,18 @@ void UsersInRoomFlowWidget::generateListUsersWidget()
             mListUsersWidget.insert(userId, userLabel);
         }
         if (count > 0) {
-            if (numberOfUsers >= MAX_NUMBER_USER) {
-                auto openExternalDialogLabel = new QLabel(QStringLiteral("<a href=\"openexternaldialog\">%1</a>").arg(i18n("(Open External Dialog…)")), this);
-                openExternalDialogLabel->setTextFormat(Qt::RichText);
-                openExternalDialogLabel->setContextMenuPolicy(Qt::NoContextMenu);
-                connect(openExternalDialogLabel, &QLabel::linkActivated, this, &UsersInRoomFlowWidget::loadExternalDialog);
-                mFlowLayout->addWidget(openExternalDialogLabel);
-            } else if (!mUsersForRoomFilterProxyModel->hasFullList()) {
+            if (!mUsersForRoomFilterProxyModel->hasFullList()) {
                 auto loadingMoreLabel = new QLabel(QStringLiteral("<a href=\"loadmoreelement\">%1</a>").arg(i18n("(Click here for Loading more…)")), this);
                 loadingMoreLabel->setTextFormat(Qt::RichText);
                 loadingMoreLabel->setContextMenuPolicy(Qt::NoContextMenu);
                 connect(loadingMoreLabel, &QLabel::linkActivated, this, &UsersInRoomFlowWidget::loadMoreUsers);
                 mFlowLayout->addWidget(loadingMoreLabel);
             }
+            auto openExternalDialogLabel = new QLabel(QStringLiteral("<a href=\"openexternaldialog\">%1</a>").arg(i18n("(Open External Dialog…)")), this);
+            openExternalDialogLabel->setTextFormat(Qt::RichText);
+            openExternalDialogLabel->setContextMenuPolicy(Qt::NoContextMenu);
+            connect(openExternalDialogLabel, &QLabel::linkActivated, this, &UsersInRoomFlowWidget::loadExternalDialog);
+            mFlowLayout->addWidget(openExternalDialogLabel);
         }
     }
 }
