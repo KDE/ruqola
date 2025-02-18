@@ -5,13 +5,13 @@
 */
 
 #include "channelremovemoderatorjob.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "restapimethod.h"
 #include "rocketchatqtrestapi_debug.h"
 #include <KLocalizedString>
 #include <QJsonDocument>
 #include <QJsonObject>
+using namespace Qt::Literals::StringLiterals;
 using namespace RocketChatRestApi;
 ChannelRemoveModeratorJob::ChannelRemoveModeratorJob(QObject *parent)
     : ChannelGroupBaseJob(parent)

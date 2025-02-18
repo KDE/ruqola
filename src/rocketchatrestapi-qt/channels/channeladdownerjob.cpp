@@ -5,13 +5,13 @@
 */
 
 #include "channeladdownerjob.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "restapimethod.h"
 #include "rocketchatqtrestapi_debug.h"
 #include <QJsonDocument>
 #include <QJsonObject>
 using namespace RocketChatRestApi;
+using namespace Qt::Literals::StringLiterals;
 ChannelAddOwnerJob::ChannelAddOwnerJob(QObject *parent)
     : ChannelGroupBaseJob(parent)
 {
