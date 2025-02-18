@@ -454,7 +454,9 @@ bool MessagesModel::setData(const QModelIndex &index, const QVariant &value, int
         return true;
     case MessagesModel::LocalTranslation:
         message.setLocalTranslation(value.toString());
-        Q_EMIT dataChanged(index, index, {MessagesModel::LocalTranslation});
+        // Make sure that we show translated message
+        message.setShowTranslatedMessage(true);
+        Q_EMIT dataChanged(index, index, {MessagesModel::ShowTranslatedMessage, MessagesModel::LocalTranslation});
         return true;
     }
     return false;
