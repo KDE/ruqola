@@ -19,7 +19,7 @@ QString Reaction::convertedUsersNameAtToolTip() const
     if (mUserNames.isEmpty()) {
         return {};
     } else if (mUserNames.count() == 1) {
-        return i18n("%1 reacted with %2", mUserNames[0], mReactionName);
+        return i18n("%1 reacted with %2", mUserNames.constFirst(), mReactionName);
     } else {
         QString notificationStr;
         for (int i = 0, total = mUserNames.count(); i < total; ++i) {
