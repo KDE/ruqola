@@ -23,6 +23,7 @@ E2ePasswordDecodeKeyWidget::E2ePasswordDecodeKeyWidget(QWidget *parent)
     mPassword->setRevealPasswordMode(KAuthorized::authorize(QStringLiteral("lineedit_reveal_password")) ? KPassword::RevealMode::OnlyNew
                                                                                                         : KPassword::RevealMode::Never);
 
+    mPassword->lineEdit()->setPlaceholderText(i18nc("@info:placeholder", "Please enter your E2EE password"));
     KLineEditEventHandler::catchReturnKey(mPassword->lineEdit());
     auto label =
         new QLabel(i18nc("@label:textbox",
