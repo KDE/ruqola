@@ -103,6 +103,7 @@ AccountsOverviewWidget::AccountsOverviewWidget(QWidget *parent)
         auto account = mTabBar->tabData(i).value<RocketChatAccount *>();
         mAccountManager->setCurrentAccount(account ? account->accountName() : QString());
     });
+    connect(&ColorsAndMessageViewStyle::self(), &ColorsAndMessageViewStyle::needToUpdateColors, this, &AccountsOverviewWidget::updateButtons);
 }
 
 AccountsOverviewWidget::~AccountsOverviewWidget() = default;
