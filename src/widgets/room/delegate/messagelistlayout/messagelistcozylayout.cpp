@@ -91,7 +91,7 @@ MessageListLayoutBase::Layout MessageListCozyLayout::doLayout(const QStyleOption
 
     const int translatedIconX = textLeft;
     // translated icon
-    if (message->isAutoTranslated()) {
+    if (message->isAutoTranslated() || !message->localTranslation().isEmpty()) {
         textLeft += iconSizeMargin;
     }
 
@@ -146,7 +146,7 @@ MessageListLayoutBase::Layout MessageListCozyLayout::doLayout(const QStyleOption
     if (layout.messageIsFollowing) {
         layout.followingIconRect = QRect(followingIconX, senderRectY, iconSize, iconSize);
     }
-    if (message->isAutoTranslated()) {
+    if (message->isAutoTranslated() || !message->localTranslation().isEmpty()) {
         layout.translatedIconRect = QRect(translatedIconX, senderRectY, iconSize, iconSize);
     }
 

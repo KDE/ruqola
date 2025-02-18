@@ -58,7 +58,7 @@ MessageListDelegate::MessageListDelegate(RocketChatAccount *account, QListView *
     , mFavoriteIcon(QIcon::fromTheme(QStringLiteral("favorite")))
     , mFollowingIcon(QIcon::fromTheme(QStringLiteral("notifications")))
     , mPinIcon(QIcon::fromTheme(QStringLiteral("pin")))
-    , mTranslatedIcon(QIcon::fromTheme(QStringLiteral("languages"))) // TODO use another icon for it. But kde doesn't correct icon perhaps flags ?
+    , mTranslatedIcon(QIcon::fromTheme(QStringLiteral("translate")))
     , mReplyInThreadIcon(QIcon::fromTheme(QStringLiteral("view-conversation-balloon-symbolic")))
     , mListView(view)
     , mTextSelectionImpl(new TextSelectionImpl)
@@ -594,7 +594,7 @@ void MessageListDelegate::paint(QPainter *painter, const QStyleOptionViewItem &o
         mFollowingIcon.paint(painter, layout.followingIconRect);
     }
     // Draw translated string
-    if (message->isAutoTranslated()) {
+    if (message->isAutoTranslated() || !message->localTranslation().isEmpty()) {
         mTranslatedIcon.paint(painter, layout.translatedIconRect);
     }
 
