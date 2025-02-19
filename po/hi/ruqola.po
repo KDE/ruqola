@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-02-18 00:40+0000\n"
+"POT-Creation-Date: 2025-02-19 00:41+0000\n"
 "PO-Revision-Date: 2024-12-15 19:31+0530\n"
 "Last-Translator: kali <skkalwar999@gmail.com>\n"
 "Language-Team: Hindi <kde-i18n-doc@kde.org>\n"
@@ -8541,7 +8541,7 @@ msgstr[1] "कमरे में %1 अटैचमेंट (कुल: %2)"
 #: widgets/dialogs/showlistmessagebasewidget.cpp:113
 #: widgets/discussions/showdiscussionswidget.cpp:99
 #: widgets/misc/searchtreebasewidget.cpp:78
-#: widgets/room/usersinroomflowwidget.cpp:129
+#: widgets/room/usersinroomflowwidget.cpp:122
 #: widgets/room/usersinroomwidget.cpp:154
 #, kde-format
 msgid "(Click here for Loading more…)"
@@ -8802,6 +8802,7 @@ msgid "I saved my Password"
 msgstr "मैंने अपना पासवर्ड सहेज लिया है"
 
 #: widgets/encryption/e2ecopypassworddialog.cpp:34
+#: widgets/encryption/e2epassworddecodekeydialog.cpp:31
 #, kde-format
 msgctxt "@action:button"
 msgid "Do it later"
@@ -8886,13 +8887,28 @@ msgstr ""
 msgid "Reset encryption keys"
 msgstr "एन्क्रिप्शन कुंजी को डिकोड करें"
 
-#: widgets/encryption/e2epassworddecodekeydialog.cpp:17
+#: widgets/encryption/e2epassworddecodekeydialog.cpp:18
 #, kde-format
 msgctxt "@title:window"
 msgid "Decode Key"
 msgstr "डिकोड कुंजी"
 
-#: widgets/encryption/e2epassworddecodekeywidget.cpp:29
+#: widgets/encryption/e2epassworddecodekeydialog.cpp:30
+#, fuzzy, kde-format
+#| msgctxt "@option:check"
+#| msgid "Enabled E2E encryption"
+msgctxt "@action:button"
+msgid "Enable Encryption"
+msgstr "सक्षम E2E एन्क्रिप्शन"
+
+#: widgets/encryption/e2epassworddecodekeywidget.cpp:26
+#, fuzzy, kde-format
+#| msgid "Click here to enter your e2e password."
+msgctxt "@info:placeholder"
+msgid "Please enter your E2EE password"
+msgstr "अपना e2e पासवर्ड दर्ज करने के लिए यहां क्लिक करें।"
+
+#: widgets/encryption/e2epassworddecodekeywidget.cpp:30
 #, kde-format
 msgctxt "@label:textbox"
 msgid ""
@@ -10632,7 +10648,7 @@ msgctxt "@title:window"
 msgid "Users"
 msgstr "उपयोगकर्ताओं"
 
-#: widgets/room/usersinroomflowwidget.cpp:123
+#: widgets/room/usersinroomflowwidget.cpp:128
 #, kde-format
 msgid "(Open External Dialog…)"
 msgstr "(बाहरी संवाद खोलें…)"

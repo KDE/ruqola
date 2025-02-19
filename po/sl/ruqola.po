@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-02-18 00:40+0000\n"
+"POT-Creation-Date: 2025-02-19 00:41+0000\n"
 "PO-Revision-Date: 2025-02-15 09:26+0100\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
@@ -8586,7 +8586,7 @@ msgstr[3] "%1 priponk v sobi (skupaj: %2)"
 #: widgets/dialogs/showlistmessagebasewidget.cpp:113
 #: widgets/discussions/showdiscussionswidget.cpp:99
 #: widgets/misc/searchtreebasewidget.cpp:78
-#: widgets/room/usersinroomflowwidget.cpp:129
+#: widgets/room/usersinroomflowwidget.cpp:122
 #: widgets/room/usersinroomwidget.cpp:154
 #, kde-format
 msgid "(Click here for Loading more…)"
@@ -8849,6 +8849,7 @@ msgid "I saved my Password"
 msgstr "Shranil sem moje geslo"
 
 #: widgets/encryption/e2ecopypassworddialog.cpp:34
+#: widgets/encryption/e2epassworddecodekeydialog.cpp:31
 #, kde-format
 msgctxt "@action:button"
 msgid "Do it later"
@@ -8937,13 +8938,28 @@ msgstr ""
 msgid "Reset encryption keys"
 msgstr "Ponovno nastavi ključe šifriranja"
 
-#: widgets/encryption/e2epassworddecodekeydialog.cpp:17
+#: widgets/encryption/e2epassworddecodekeydialog.cpp:18
 #, kde-format
 msgctxt "@title:window"
 msgid "Decode Key"
 msgstr "Dekodiraj ključ"
 
-#: widgets/encryption/e2epassworddecodekeywidget.cpp:29
+#: widgets/encryption/e2epassworddecodekeydialog.cpp:30
+#, fuzzy, kde-format
+#| msgctxt "@option:check"
+#| msgid "Enabled E2E encryption"
+msgctxt "@action:button"
+msgid "Enable Encryption"
+msgstr "Omogočeno šifriranje E2E"
+
+#: widgets/encryption/e2epassworddecodekeywidget.cpp:26
+#, fuzzy, kde-format
+#| msgid "Click here to enter your e2e password."
+msgctxt "@info:placeholder"
+msgid "Please enter your E2EE password"
+msgstr "Kliknite sem, da vnesete vaše geslo e2e."
+
+#: widgets/encryption/e2epassworddecodekeywidget.cpp:30
 #, kde-format
 msgctxt "@label:textbox"
 msgid ""
@@ -10692,7 +10708,7 @@ msgctxt "@title:window"
 msgid "Users"
 msgstr "Uporabniki"
 
-#: widgets/room/usersinroomflowwidget.cpp:123
+#: widgets/room/usersinroomflowwidget.cpp:128
 #, kde-format
 msgid "(Open External Dialog…)"
 msgstr "(Odpri zunanje pogovorno okno…)"
