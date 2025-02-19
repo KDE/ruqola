@@ -26,7 +26,7 @@ public:
     [[nodiscard]] bool operator==(const Reaction &other) const;
 
     [[nodiscard]] QString convertedReactionName() const;
-    [[nodiscard]] QString convertedUsersNameAtToolTip() const;
+    [[nodiscard]] QString convertedUsersNameAsToolTip() const;
 
     [[nodiscard]] bool isAnimatedImage() const;
     void setIsAnimatedImage(bool isAnimatedImage);

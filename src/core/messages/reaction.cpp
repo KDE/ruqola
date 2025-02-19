@@ -14,7 +14,7 @@ QString Reaction::convertedReactionName() const
     return mCacheConvertedReactionName;
 }
 
-QString Reaction::convertedUsersNameAtToolTip() const
+QString Reaction::convertedUsersNameAsToolTip() const
 {
     if (mUserNames.isEmpty()) {
         return {};

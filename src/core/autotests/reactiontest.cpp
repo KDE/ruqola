@@ -37,17 +37,17 @@ void ReactionTest::shouldShowReactionsToolTip()
 {
     Reaction r;
     r.setReactionName(QStringLiteral(":foo:"));
-    QCOMPARE(r.convertedUsersNameAtToolTip(), QString());
+    QCOMPARE(r.convertedUsersNameAsToolTip(), QString());
     QStringList userNames;
     userNames.append(QStringLiteral("bla"));
     r.setUserNames(userNames);
-    QCOMPARE(r.convertedUsersNameAtToolTip(), QStringLiteral("bla reacted with :foo:"));
+    QCOMPARE(r.convertedUsersNameAsToolTip(), QStringLiteral("bla reacted with :foo:"));
     userNames.append(QStringLiteral("blo"));
     r.setUserNames(userNames);
-    QCOMPARE(r.convertedUsersNameAtToolTip(), QStringLiteral("bla and blo reacted with :foo:"));
+    QCOMPARE(r.convertedUsersNameAsToolTip(), QStringLiteral("bla and blo reacted with :foo:"));
     userNames.append(QStringLiteral("bli"));
     r.setUserNames(userNames);
-    QCOMPARE(r.convertedUsersNameAtToolTip(), QStringLiteral("bla, blo and bli reacted with :foo:"));
+    QCOMPARE(r.convertedUsersNameAsToolTip(), QStringLiteral("bla, blo and bli reacted with :foo:"));
 }
 
 #include "moc_reactiontest.cpp"
