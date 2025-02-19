@@ -1,8 +1,6 @@
 # SPDX-FileCopyrightText: 2020-2025 Laurent Montel <montel@kde.org>
 # SPDX-License-Identifier: BSD-3-Clause
-add_library(libruqolawidgets
-    room/encryptedroominfo/roomencryptsavepasswordwidget.h room/encryptedroominfo/roomencryptsavepasswordwidget.cpp
-    room/encryptedroominfo/roomencryptwaitpasswordwidget.h room/encryptedroominfo/roomencryptwaitpasswordwidget.cpp)
+add_library(libruqolawidgets)
 
 if(TARGET KF6::UserFeedbackWidgets)
     target_sources(libruqolawidgets PRIVATE
@@ -747,6 +745,11 @@ target_sources(libruqolawidgets PRIVATE
     room/textpluginmanager.h
     room/toolspluginmanager.h
     room/toolspluginmanager.cpp
+
+    room/encryptedroominfo/roomencryptsavepasswordwidget.h
+    room/encryptedroominfo/roomencryptsavepasswordwidget.cpp
+    room/encryptedroominfo/roomencryptwaitpasswordwidget.h
+    room/encryptedroominfo/roomencryptwaitpasswordwidget.cpp
 
     loginwidget/ruqolaloginwidget.cpp
     loginwidget/ruqolaloginwidget.h
