@@ -602,6 +602,9 @@ target_sources(libruqolacore PRIVATE
 
     attachmentsimage/attachmentimageinfos.h
     attachmentsimage/attachmentimageinfos.cpp
+
+    actionbuttons/actionbutton.h
+    actionbuttons/actionbutton.cpp
 )
 
 if(USE_E2E_SUPPORT)
