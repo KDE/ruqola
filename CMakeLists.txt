@@ -91,7 +91,6 @@ if(UNITY_SUPPORT)
 endif()
 
 set(KTEXTADDONS_MIN_VERSION "1.5.4")
-set(KLLMWIDGETS_VERSION "0.1.0")
 set(QT6KEYCHAIN_LIB_VERSION "0.14.2")
 
 find_package(Qt6 ${REQUIRED_QT_VERSION} REQUIRED COMPONENTS Core Gui Widgets WebSockets Network NetworkAuth MultimediaWidgets Sql)
@@ -218,14 +217,6 @@ find_package(KF6DocTools ${KF_MIN_VERSION})
 set_package_properties(KF6DocTools PROPERTIES DESCRIPTION
     "Tools to generate documentation"
     TYPE OPTIONAL
-)
-
-find_package(KLLMWidgets ${KLLMWIDGETS_VERSION} CONFIG)
-set_package_properties(KLLMWidgets PROPERTIES
-    TYPE OPTIONAL
-    PURPOSE "Required for building IA plugins support"
-    DESCRIPTION "Use local IA plugin"
-    URL https://invent.kde.org/utilities/alpaka
 )
 
 find_package(KF6StatusNotifierItem ${KF_MIN_VERSION} REQUIRED)
