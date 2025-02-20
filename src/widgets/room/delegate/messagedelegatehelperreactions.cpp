@@ -244,7 +244,7 @@ bool MessageDelegateHelperReactions::handleHelpEvent(QHelpEvent *helpEvent,
         for (const ReactionLayout &reactionLayout : reactions) {
             if (reactionLayout.reactionRect.contains(helpEvent->pos())) {
                 const Reaction &reaction = reactionLayout.reaction;
-                const QString tooltip = reaction.convertedUsersNameAtToolTip();
+                const QString tooltip = reaction.convertedUsersNameAsToolTip();
                 QToolTip::showText(helpEvent->globalPos(), tooltip, view);
                 return true;
             }
