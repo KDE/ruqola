@@ -27,7 +27,7 @@ AvatarManager::~AvatarManager() = default;
 void AvatarManager::slotLoadNextAvatar()
 {
     const Utils::AvatarInfo info = mAvatarDownloadIdentifer.constFirst();
-    const QUrl url = Utils::avatarUrl(mAccount->serverUrl(), info);
+    const QUrl url = info.avatarUrl(mAccount->serverUrl());
     // qDebug() << " url " << url;
     if (url.isEmpty()) {
         return;

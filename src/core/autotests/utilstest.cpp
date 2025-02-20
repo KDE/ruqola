@@ -174,7 +174,7 @@ void UtilsTest::shouldGenerateAvatarUrl()
     QFETCH(QString, serverUrl);
     QFETCH(Utils::AvatarInfo, avatarInfo);
     QFETCH(QUrl, result);
-    QCOMPARE(Utils::avatarUrl(serverUrl, avatarInfo), result);
+    QCOMPARE(avatarInfo.avatarUrl(serverUrl), result);
 }
 
 void UtilsTest::shouldTestAvatarInfoValues()

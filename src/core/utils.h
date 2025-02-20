@@ -84,13 +84,13 @@ struct LIBRUQOLACORE_EXPORT AvatarInfo {
         return etag == other.etag && identifier == other.identifier && avatarType == other.avatarType;
     }
 
+    [[nodiscard]] QUrl avatarUrl(const QString &url) const;
     [[nodiscard]] QString generateAvatarIdentifier() const;
     QString etag;
     QString identifier;
     AvatarType avatarType = AvatarType::Unknown;
 };
 
-[[nodiscard]] LIBRUQOLACORE_TESTS_EXPORT QUrl avatarUrl(const QString &url, const AvatarInfo &avatarInfo);
 [[nodiscard]] LIBRUQOLACORE_EXPORT QIcon iconFromAccount(RocketChatAccount *account);
 }
 Q_DECLARE_METATYPE(Utils::AvatarInfo)

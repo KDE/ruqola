@@ -300,14 +300,14 @@ QByteArray Utils::convertSha256Password(const QString &pwd)
     return sha256pw;
 }
 
-QUrl Utils::avatarUrl(const QString &serverRcUrl, const AvatarInfo &avatarInfo)
+QUrl Utils::AvatarInfo::avatarUrl(const QString &serverRcUrl) const
 {
     if (serverRcUrl.isEmpty()) {
         return {};
     }
     QString serverUrl = serverRcUrl;
     QString subFolder;
-    switch (avatarInfo.avatarType) {
+    switch (avatarType) {
     case AvatarType::Room:
         subFolder = QStringLiteral("/room");
         break;
@@ -316,10 +316,10 @@ QUrl Utils::avatarUrl(const QString &serverRcUrl, const AvatarInfo &avatarInfo)
     case AvatarType::UserAndRoom:
         break;
     }
-    subFolder += QLatin1Char('/') + avatarInfo.identifier;
+    subFolder += QLatin1Char('/') + identifier;
     subFolder += QStringLiteral("?format=png");
-    if (!avatarInfo.etag.isEmpty()) {
-        subFolder += QStringLiteral("&etag=%1").arg(avatarInfo.etag);
+    if (!etag.isEmpty()) {
+        subFolder += QStringLiteral("&etag=%1").arg(etag);
     }
     subFolder += QStringLiteral("&size=22");
     if (!serverUrl.startsWith(QStringView(u"https://")) && !serverUrl.startsWith(QStringView(u"http://"))) {
