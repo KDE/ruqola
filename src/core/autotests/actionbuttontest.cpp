@@ -18,6 +18,8 @@ void ActionButtonTest::shouldHaveDefaultValues()
     ActionButton b;
     QVERIFY(b.appId().isEmpty());
     QVERIFY(b.actionId().isEmpty());
+    QVERIFY(b.labelI18n().isEmpty());
+    QCOMPARE(b.roomTypeFilter(), ActionButton::RoomTypeFilter::Unknown);
 }
 
 #include "moc_actionbuttontest.cpp"
