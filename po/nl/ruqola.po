@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-02-19 00:41+0000\n"
-"PO-Revision-Date: 2025-02-15 18:54+0100\n"
+"POT-Creation-Date: 2025-02-20 00:41+0000\n"
+"PO-Revision-Date: 2025-02-19 18:56+0100\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
 "Language: nl\n"
@@ -8956,19 +8956,16 @@ msgid "Decode Key"
 msgstr "Sleutel decoderen"
 
 #: widgets/encryption/e2epassworddecodekeydialog.cpp:30
-#, fuzzy, kde-format
-#| msgctxt "@option:check"
-#| msgid "Enabled E2E encryption"
+#, kde-format
 msgctxt "@action:button"
 msgid "Enable Encryption"
-msgstr "Ingeschakelde E2E-versleuteling"
+msgstr "Versleuteling inschakelen"
 
 #: widgets/encryption/e2epassworddecodekeywidget.cpp:26
-#, fuzzy, kde-format
-#| msgid "Click here to enter your e2e password."
+#, kde-format
 msgctxt "@info:placeholder"
 msgid "Please enter your E2EE password"
-msgstr "Klik hier om uw tweede password in te voeren."
+msgstr "Voer uw E2EE-wachtwoord in"
 
 #: widgets/encryption/e2epassworddecodekeywidget.cpp:30
 #, kde-format
@@ -11647,6 +11644,7 @@ msgid "Implement Sorted/Unsorted markdown list."
 msgstr "Gesorteerde/niet-gesorteerde markdown-lijst implementeren."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:83
+#: widgets/whatsnew/whatsnewtranslations.cpp:168
 #, kde-format
 msgid "Fix dark mode support."
 msgstr "Ondersteuning voor modus Donker repareren."
