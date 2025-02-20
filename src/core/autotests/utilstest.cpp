@@ -96,6 +96,14 @@ void UtilsTest::shouldConvertTextWithUrl()
     QCOMPARE(Utils::convertTextWithUrl(text), convertedText);
 }
 
+void UtilsTest::shouldGenerateAvatarUrl()
+{
+    QFETCH(QString, serverUrl);
+    QFETCH(Utils::AvatarInfo, avatarInfo);
+    QFETCH(QUrl, result);
+    QCOMPARE(avatarInfo.avatarUrl(serverUrl), result);
+}
+
 void UtilsTest::shouldGenerateAvatarUrl_data()
 {
     QTest::addColumn<QString>("serverUrl");
@@ -167,14 +175,6 @@ void UtilsTest::shouldGenerateCheckMark()
     QFETCH(QString, text);
     QFETCH(QString, convertedText);
     QCOMPARE(Utils::convertTextWithCheckMark(text), convertedText);
-}
-
-void UtilsTest::shouldGenerateAvatarUrl()
-{
-    QFETCH(QString, serverUrl);
-    QFETCH(Utils::AvatarInfo, avatarInfo);
-    QFETCH(QUrl, result);
-    QCOMPARE(avatarInfo.avatarUrl(serverUrl), result);
 }
 
 void UtilsTest::shouldTestAvatarInfoValues()
