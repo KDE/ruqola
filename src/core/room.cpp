@@ -1483,10 +1483,7 @@ void Room::setDescription(const QString &description)
 
 bool Room::encryptedEnabled() const
 {
-    if (mRocketChatAccount) {
-        return mRocketChatAccount->ruqolaServerConfig()->encryptionEnabled();
-    }
-    return false;
+    return mRocketChatAccount ? mRocketChatAccount->ruqolaServerConfig()->encryptionEnabled() : false;
 }
 
 bool Room::userIsIgnored(const QByteArray &userId)
