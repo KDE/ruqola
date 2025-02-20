@@ -19,3 +19,5 @@ void ActionButtonTest::shouldHaveDefaultValues()
     QVERIFY(b.appId().isEmpty());
     QVERIFY(b.actionId().isEmpty());
 }
+
+#include "moc_actionbuttontest.cpp"
