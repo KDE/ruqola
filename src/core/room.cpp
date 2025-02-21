@@ -923,15 +923,16 @@ Utils::AvatarInfo Room::avatarInfo() const
     Utils::AvatarInfo info;
     info.etag = QString::fromLatin1(mAvatarETag);
     // Group => uids >= 3
-    if (mUids.count() > 2) {
+    const int uidsCount = mUids.count();
+    if (uidsCount > 2) {
         QString identifier;
         for (const QString &username : mUserNames) {
             identifier.append(username);
         }
-        identifier.prepend(QString::number(mUids.count()));
+        identifier.prepend(QString::number(uidsCount));
         info.avatarType = Utils::AvatarType::User;
         info.identifier = identifier;
-    } else if (mUids.count() == 2) {
+    } else if (uidsCount == 2) {
         info.avatarType = Utils::AvatarType::User;
         if (mRocketChatAccount) {
             QString otherUserName;
