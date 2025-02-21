@@ -89,6 +89,16 @@ void ActionButton::parseWhen(const QJsonObject &json)
     for (const auto &r : hasAllRoles) {
         mHasAllRoles.append(r.toString());
     }
+
+    const QJsonArray hasOnePermission = json["hasOnePermission"_L1].toArray();
+    for (const auto &r : hasOnePermission) {
+        mHasOnePermission.append(r.toString());
+    }
+
+    const QJsonArray hasAllPermissions = json["hasAllPermissions?"_L1].toArray();
+    for (const auto &r : hasAllPermissions) {
+        mHasAllPermissions.append(r.toString());
+    }
 }
 
 ActionButton::RoomTypeFilter ActionButton::convertRoomTypeFiltersFromString(const QString &str) const
@@ -118,6 +128,26 @@ ActionButton::RoomTypeFilter ActionButton::convertRoomTypeFiltersFromString(cons
     }
 
     return ActionButton::RoomTypeFilter::Unknown;
+}
+
+QStringList ActionButton::hasAllPermissions() const
+{
+    return mHasAllPermissions;
+}
+
+void ActionButton::setHasAllPermissions(const QStringList &newHasAllPermissions)
+{
+    mHasAllPermissions = newHasAllPermissions;
+}
+
+QStringList ActionButton::hasOnePermission() const
+{
+    return mHasOnePermission;
+}
+
+void ActionButton::setHasOnePermission(const QStringList &newHasOnePermission)
+{
+    mHasOnePermission = newHasOnePermission;
 }
 
 QStringList ActionButton::hasAllRoles() const
@@ -154,7 +184,8 @@ ActionButton::ButtonContext ActionButton::convertContextFromString(const QString
 bool ActionButton::operator==(const ActionButton &other) const
 {
     return other.actionId() == actionId() && other.appId() == appId() && other.labelI18n() == labelI18n() && other.roomTypeFilters() == roomTypeFilters()
-        && other.hasOneRole() == hasOneRole() && other.context() == context() && other.hasAllRoles() == hasAllRoles();
+        && other.hasOneRole() == hasOneRole() && other.context() == context() && other.hasAllRoles() == hasAllRoles()
+        && other.hasAllPermissions() == hasAllPermissions() && other.hasOnePermission() == hasOnePermission();
 }
 
 ActionButton::ButtonContext ActionButton::context() const
@@ -174,6 +205,8 @@ QDebug operator<<(QDebug d, const ActionButton &t)
     d.space() << "labelI18n:" << t.labelI18n();
     d.space() << "hasOneRole:" << t.hasOneRole();
     d.space() << "hasAllRoles:" << t.hasAllRoles();
+    d.space() << "hasOnePermission:" << t.hasOnePermission();
+    d.space() << "hasAllPermissions:" << t.hasAllPermissions();
     d.space() << "context:" << t.context();
     d.space() << "roomTypeFilter:" << static_cast<int>(t.roomTypeFilters());
     return d;
