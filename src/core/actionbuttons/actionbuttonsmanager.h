@@ -19,6 +19,8 @@ public:
     [[nodiscard]] QList<ActionButton> actionButtons() const;
     void setActionButtons(const QList<ActionButton> &newActionButtons);
 
+    void parseActionButtons(const QJsonArray &array);
+
 Q_SIGNALS:
     void actionButtonsChanged();
 
