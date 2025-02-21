@@ -41,6 +41,61 @@ void ActionButtonsManagerTest::shouldLoadActionButtons_data()
         buttons.append(b);
         QTest::addRow("actionbuttons-test1") << QStringLiteral("actionbuttons-test1") << buttons;
     }
+    {
+        QList<ActionButton> buttons;
+        {
+            ActionButton b;
+            b.setAppId("821cd5c6-1fb5-4d9e-8e88-e6176463efb6");
+            b.setActionId("auto-reply-room-action-id");
+            b.setLabelI18n("auto-reply-room-action-name"_L1);
+            b.setContext(ActionButton::ButtonContext::RoomAction);
+            b.setRoomTypeFilters(ActionButton::RoomTypeFilter::Direct);
+            buttons.append(b);
+        }
+        {
+            ActionButton b;
+            b.setAppId("7a8cd36b-5f7b-4177-bd7f-bfc9be908bf8");
+            b.setActionId("remind_me_about_this_msg_action");
+            b.setLabelI18n("remind_me_about_this_msg_action"_L1);
+            b.setContext(ActionButton::ButtonContext::MessageAction);
+            buttons.append(b);
+        }
+        {
+            ActionButton b;
+            b.setAppId("7a8cd36b-5f7b-4177-bd7f-bfc9be908bf8");
+            b.setActionId("add_reminder_message_box_action");
+            b.setLabelI18n("add_reminder_message_box_action"_L1);
+            b.setContext(ActionButton::ButtonContext::MessageBoxAction);
+            buttons.append(b);
+        }
+        {
+            ActionButton b;
+            b.setAppId("7a8cd36b-5f7b-4177-bd7f-bfc9be908bf8");
+            b.setActionId("show_my_reminders_room_action");
+            b.setLabelI18n("show_my_reminders_room_action"_L1);
+            b.setContext(ActionButton::ButtonContext::RoomAction);
+            buttons.append(b);
+        }
+        {
+            ActionButton b;
+            b.setAppId("7a8cd36b-5f7b-4177-bd7f-bfc9be908bf8");
+            b.setActionId("manage_all_reminders_room_action");
+            b.setLabelI18n("manage_all_reminders_room_action"_L1);
+            b.setContext(ActionButton::ButtonContext::RoomAction);
+            b.setHasOneRole({"admin"_L1, "owner"_L1});
+            ActionButton::RoomTypeFilters f;
+            f |= ActionButton::RoomTypeFilter::PublicChannel;
+            f |= ActionButton::RoomTypeFilter::PublicTeam;
+            f |= ActionButton::RoomTypeFilter::PublicDiscussion;
+            f |= ActionButton::RoomTypeFilter::PrivateChannel;
+            f |= ActionButton::RoomTypeFilter::PrivateTeam;
+            f |= ActionButton::RoomTypeFilter::PrivateDiscussion;
+
+            b.setRoomTypeFilters(f);
+            buttons.append(b);
+        }
+        QTest::addRow("actionbuttons-test2") << QStringLiteral("actionbuttons-test2") << buttons;
+    }
     // TODO
 }
 
