@@ -33,8 +33,17 @@ void ActionButtonTest::shouldLoadActionButton_data()
     QTest::addColumn<ActionButton>("actionButton");
 
     {
-        ActionButton appsCountInfo;
-        QTest::addRow("actionbutton-empty") << QStringLiteral("actionbutton-empty") << appsCountInfo;
+        ActionButton b;
+        QTest::addRow("actionbutton-empty") << QStringLiteral("actionbutton-empty") << b;
+    }
+
+    {
+        ActionButton b;
+        b.setAppId("821cd5c6-1fb5-4d9e-8e88-e6176463efb6");
+        b.setActionId("auto-reply-room-action-id");
+        b.setLabelI18n("auto-reply-room-action-name"_L1);
+        b.setContext(ActionButton::ButtonContext::RoomAction);
+        QTest::addRow("actionbutton-test1") << QStringLiteral("actionbutton-test1") << b;
     }
 }
 
