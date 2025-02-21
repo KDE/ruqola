@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-02-20 00:41+0000\n"
+"POT-Creation-Date: 2025-02-21 00:41+0000\n"
 "PO-Revision-Date: 2025-02-04 19:21+0200\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
@@ -1829,17 +1829,17 @@ msgstr "Johtaja"
 msgid "Moderator"
 msgstr "Moderaattori"
 
-#: core/room.cpp:1519
+#: core/room.cpp:1516
 #, kde-format
 msgid "Channel is read only."
 msgstr "Kanavaa voi vain lukea."
 
-#: core/room.cpp:1522
+#: core/room.cpp:1519
 #, kde-format
 msgid "You have blocked this channel."
 msgstr "Olet estänyt tämän kanavan."
 
-#: core/room.cpp:1525
+#: core/room.cpp:1522
 #, kde-format
 msgid "Channel was blocked."
 msgstr "Kanava oli estetty."
