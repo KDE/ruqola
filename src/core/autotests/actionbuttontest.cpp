@@ -21,7 +21,8 @@ void ActionButtonTest::shouldHaveDefaultValues()
     QVERIFY(b.appId().isEmpty());
     QVERIFY(b.actionId().isEmpty());
     QVERIFY(b.labelI18n().isEmpty());
-    QVERIFY(b.oneRole().isEmpty());
+    QVERIFY(b.hasOneRole().isEmpty());
+    QVERIFY(b.hasAllRoles().isEmpty());
 
     QCOMPARE(b.roomTypeFilters(), ActionButton::RoomTypeFilter::Unknown);
     QCOMPARE(b.context(), ActionButton::ButtonContext::Unknown);

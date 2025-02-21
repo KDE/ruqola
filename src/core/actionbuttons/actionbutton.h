@@ -54,8 +54,8 @@ public:
     [[nodiscard]] RoomTypeFilters roomTypeFilters() const;
     void setRoomTypeFilters(RoomTypeFilters newRoomTypeFilter);
 
-    [[nodiscard]] QStringList oneRole() const;
-    void setOneRole(const QStringList &newOneRole);
+    [[nodiscard]] QStringList hasOneRole() const;
+    void setHasOneRole(const QStringList &newOneRole);
 
     void parseActionButton(const QJsonObject &json);
 
@@ -64,12 +64,16 @@ public:
     [[nodiscard]] ButtonContext context() const;
     void setContext(ButtonContext newContext);
 
+    [[nodiscard]] QStringList hasAllRoles() const;
+    void setHasAllRoles(const QStringList &newHasAllRoles);
+
 private:
     [[nodiscard]] LIBRUQOLACORE_NO_EXPORT ActionButton::ButtonContext convertContextFromString(const QString &str) const;
     LIBRUQOLACORE_NO_EXPORT void parseWhen(const QJsonObject &json);
     [[nodiscard]] LIBRUQOLACORE_NO_EXPORT ActionButton::RoomTypeFilter convertRoomTypeFiltersFromString(const QString &str) const;
 
-    QStringList mOneRole;
+    QStringList mHasAllRoles;
+    QStringList mHasOneRole;
     QByteArray mAppId;
     QByteArray mActionId;
     QString mLabelI18n;

@@ -54,14 +54,14 @@ void ActionButton::setRoomTypeFilters(RoomTypeFilters newRoomTypeFilter)
     mRoomTypeFilters = newRoomTypeFilter;
 }
 
-QStringList ActionButton::oneRole() const
+QStringList ActionButton::hasOneRole() const
 {
-    return mOneRole;
+    return mHasOneRole;
 }
 
-void ActionButton::setOneRole(const QStringList &newOneRole)
+void ActionButton::setHasOneRole(const QStringList &newOneRole)
 {
-    mOneRole = newOneRole;
+    mHasOneRole = newOneRole;
 }
 
 void ActionButton::parseActionButton(const QJsonObject &json)
@@ -79,7 +79,16 @@ void ActionButton::parseWhen(const QJsonObject &json)
     for (const auto &r : roomTypes) {
         mRoomTypeFilters |= convertRoomTypeFiltersFromString(r.toString());
     }
-    // TODO add hasOneRole and when
+
+    const QJsonArray hasOneRole = json["hasOneRole"_L1].toArray();
+    for (const auto &r : hasOneRole) {
+        mHasOneRole.append(r.toString());
+    }
+
+    const QJsonArray hasAllRoles = json["hasAllRoles?"_L1].toArray();
+    for (const auto &r : hasAllRoles) {
+        mHasAllRoles.append(r.toString());
+    }
 }
 
 ActionButton::RoomTypeFilter ActionButton::convertRoomTypeFiltersFromString(const QString &str) const
@@ -111,6 +120,16 @@ ActionButton::RoomTypeFilter ActionButton::convertRoomTypeFiltersFromString(cons
     return ActionButton::RoomTypeFilter::Unknown;
 }
 
+QStringList ActionButton::hasAllRoles() const
+{
+    return mHasAllRoles;
+}
+
+void ActionButton::setHasAllRoles(const QStringList &newHasAllRoles)
+{
+    mHasAllRoles = newHasAllRoles;
+}
+
 ActionButton::ButtonContext ActionButton::convertContextFromString(const QString &str) const
 {
     if (str.isEmpty()) {
@@ -135,7 +154,7 @@ ActionButton::ButtonContext ActionButton::convertContextFromString(const QString
 bool ActionButton::operator==(const ActionButton &other) const
 {
     return other.actionId() == actionId() && other.appId() == appId() && other.labelI18n() == labelI18n() && other.roomTypeFilters() == roomTypeFilters()
-        && other.oneRole() == oneRole() && other.context() == context();
+        && other.hasOneRole() == hasOneRole() && other.context() == context() && other.hasAllRoles() == hasAllRoles();
 }
 
 ActionButton::ButtonContext ActionButton::context() const
@@ -153,7 +172,8 @@ QDebug operator<<(QDebug d, const ActionButton &t)
     d.space() << "appId:" << t.appId();
     d.space() << "actionId:" << t.actionId();
     d.space() << "labelI18n:" << t.labelI18n();
-    d.space() << "oneRole:" << t.oneRole();
+    d.space() << "hasOneRole:" << t.hasOneRole();
+    d.space() << "hasAllRoles:" << t.hasAllRoles();
     d.space() << "context:" << t.context();
     d.space() << "roomTypeFilter:" << static_cast<int>(t.roomTypeFilters());
     return d;
