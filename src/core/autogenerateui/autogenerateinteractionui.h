@@ -6,9 +6,10 @@
 
 #pragma once
 
+#include "libruqolacore_export.h"
 #include <QJsonObject>
 
-class AutoGenerateInteractionUi
+class LIBRUQOLACORE_EXPORT AutoGenerateInteractionUi
 {
     Q_GADGET
 public:

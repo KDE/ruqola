@@ -9,3 +9,7 @@
 AutoGenerateInteractionUiViewClose::AutoGenerateInteractionUiViewClose() = default;
 
 AutoGenerateInteractionUiViewClose::~AutoGenerateInteractionUiViewClose() = default;
+
+void AutoGenerateInteractionUiViewClose::parseClose(const QJsonObject &json)
+{
+}

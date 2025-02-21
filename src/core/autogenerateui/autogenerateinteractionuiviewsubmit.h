@@ -9,10 +9,10 @@
 #include "libruqola_private_export.h"
 #include <QJsonObject>
 
-class LIBRUQOLACORE_TESTS_EXPORT AutoGenerateInteractionUiViewClose
+class LIBRUQOLACORE_TESTS_EXPORT AutoGenerateInteractionUiViewSubmit
 {
 public:
-    AutoGenerateInteractionUiViewClose();
-    ~AutoGenerateInteractionUiViewClose();
+    AutoGenerateInteractionUiViewSubmit();
+    ~AutoGenerateInteractionUiViewSubmit();
     void parseClose(const QJsonObject &json);
 };
