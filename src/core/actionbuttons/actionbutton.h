@@ -83,6 +83,9 @@ public:
     [[nodiscard]] QStringList hasAllPermissions() const;
     void setHasAllPermissions(const QStringList &newHasAllPermissions);
 
+    [[nodiscard]] MessageActionContexts messageActionContexts() const;
+    void setMessageActionContexts(const MessageActionContexts &newMessageActionContexts);
+
 private:
     [[nodiscard]] LIBRUQOLACORE_NO_EXPORT ActionButton::ButtonContext convertContextFromString(const QString &str) const;
     LIBRUQOLACORE_NO_EXPORT void parseWhen(const QJsonObject &json);
@@ -98,6 +101,7 @@ private:
     QString mLabelI18n;
     ButtonContext mButtonContext = ButtonContext::Unknown;
     RoomTypeFilters mRoomTypeFilters = RoomTypeFilter::Unknown;
+    MessageActionContexts mMessageActionContexts = MessageActionContext::Unknown;
 };
 
 Q_DECLARE_METATYPE(ActionButton)

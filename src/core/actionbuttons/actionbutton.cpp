@@ -101,6 +101,7 @@ void ActionButton::parseWhen(const QJsonObject &json)
     for (const auto &r : hasAllPermissions) {
         mHasAllPermissions.append(r.toString());
     }
+    // Parse MessageActionContext
 }
 
 ActionButton::RoomTypeFilter ActionButton::convertRoomTypeFiltersFromString(const QString &str) const
@@ -130,6 +131,16 @@ ActionButton::RoomTypeFilter ActionButton::convertRoomTypeFiltersFromString(cons
     }
 
     return ActionButton::RoomTypeFilter::Unknown;
+}
+
+ActionButton::MessageActionContexts ActionButton::messageActionContexts() const
+{
+    return mMessageActionContexts;
+}
+
+void ActionButton::setMessageActionContexts(const MessageActionContexts &newMessageActionContexts)
+{
+    mMessageActionContexts = newMessageActionContexts;
 }
 
 QStringList ActionButton::hasAllPermissions() const
@@ -187,7 +198,8 @@ bool ActionButton::operator==(const ActionButton &other) const
 {
     return other.actionId() == actionId() && other.appId() == appId() && other.labelI18n() == labelI18n() && other.roomTypeFilters() == roomTypeFilters()
         && other.hasOneRole() == hasOneRole() && other.buttonContext() == buttonContext() && other.hasAllRoles() == hasAllRoles()
-        && other.hasAllPermissions() == hasAllPermissions() && other.hasOnePermission() == hasOnePermission();
+        && other.hasAllPermissions() == hasAllPermissions() && other.hasOnePermission() == hasOnePermission()
+        && other.messageActionContexts() == messageActionContexts();
 }
 
 ActionButton::ButtonContext ActionButton::buttonContext() const
@@ -210,7 +222,8 @@ QDebug operator<<(QDebug d, const ActionButton &t)
     d.space() << "hasOnePermission:" << t.hasOnePermission();
     d.space() << "hasAllPermissions:" << t.hasAllPermissions();
     d.space() << "buttonContext:" << t.buttonContext();
-    d.space() << "roomTypeFilter:" << static_cast<int>(t.roomTypeFilters());
+    d.space() << "roomTypeFilters:" << static_cast<int>(t.roomTypeFilters());
+    d.space() << "messageActionContexts:" << static_cast<int>(t.messageActionContexts());
     return d;
 }
 
