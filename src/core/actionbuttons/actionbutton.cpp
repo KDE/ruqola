@@ -69,7 +69,7 @@ void ActionButton::parseActionButton(const QJsonObject &json)
     mActionId = json["actionId"_L1].toString().toLatin1();
     mLabelI18n = json["labelI18n"_L1].toString();
     mAppId = json["appId"_L1].toString().toLatin1();
-    mContext = convertContextFromString(json["context"_L1].toString());
+    mButtonContext = convertContextFromString(json["context"_L1].toString());
     parseWhen(json["when"_L1].toObject());
 
     // TODO category or variant
@@ -186,18 +186,18 @@ ActionButton::ButtonContext ActionButton::convertContextFromString(const QString
 bool ActionButton::operator==(const ActionButton &other) const
 {
     return other.actionId() == actionId() && other.appId() == appId() && other.labelI18n() == labelI18n() && other.roomTypeFilters() == roomTypeFilters()
-        && other.hasOneRole() == hasOneRole() && other.context() == context() && other.hasAllRoles() == hasAllRoles()
+        && other.hasOneRole() == hasOneRole() && other.buttonContext() == buttonContext() && other.hasAllRoles() == hasAllRoles()
         && other.hasAllPermissions() == hasAllPermissions() && other.hasOnePermission() == hasOnePermission();
 }
 
-ActionButton::ButtonContext ActionButton::context() const
+ActionButton::ButtonContext ActionButton::buttonContext() const
 {
-    return mContext;
+    return mButtonContext;
 }
 
-void ActionButton::setContext(ButtonContext newContext)
+void ActionButton::setButtonContext(ButtonContext newContext)
 {
-    mContext = newContext;
+    mButtonContext = newContext;
 }
 
 QDebug operator<<(QDebug d, const ActionButton &t)
@@ -209,7 +209,7 @@ QDebug operator<<(QDebug d, const ActionButton &t)
     d.space() << "hasAllRoles:" << t.hasAllRoles();
     d.space() << "hasOnePermission:" << t.hasOnePermission();
     d.space() << "hasAllPermissions:" << t.hasAllPermissions();
-    d.space() << "context:" << t.context();
+    d.space() << "context:" << t.buttonContext();
     d.space() << "roomTypeFilter:" << static_cast<int>(t.roomTypeFilters());
     return d;
 }

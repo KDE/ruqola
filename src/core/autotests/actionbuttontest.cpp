@@ -25,7 +25,7 @@ void ActionButtonTest::shouldHaveDefaultValues()
     QVERIFY(b.hasAllRoles().isEmpty());
 
     QCOMPARE(b.roomTypeFilters(), ActionButton::RoomTypeFilter::Unknown);
-    QCOMPARE(b.context(), ActionButton::ButtonContext::Unknown);
+    QCOMPARE(b.buttonContext(), ActionButton::ButtonContext::Unknown);
 }
 
 void ActionButtonTest::shouldLoadActionButton_data()
@@ -43,7 +43,7 @@ void ActionButtonTest::shouldLoadActionButton_data()
         b.setAppId("821cd5c6-1fb5-4d9e-8e88-e6176463efb6");
         b.setActionId("auto-reply-room-action-id");
         b.setLabelI18n("auto-reply-room-action-name"_L1);
-        b.setContext(ActionButton::ButtonContext::RoomAction);
+        b.setButtonContext(ActionButton::ButtonContext::RoomAction);
         b.setRoomTypeFilters(ActionButton::RoomTypeFilter::Direct);
         QTest::addRow("actionbutton-test1") << QStringLiteral("actionbutton-test1") << b;
     }
@@ -53,7 +53,7 @@ void ActionButtonTest::shouldLoadActionButton_data()
         b.setAppId("7a8cd36b-5f7b-4177-bd7f-bfc9be908bf8");
         b.setActionId("manage_all_reminders_room_action");
         b.setLabelI18n("manage_all_reminders_room_action"_L1);
-        b.setContext(ActionButton::ButtonContext::RoomAction);
+        b.setButtonContext(ActionButton::ButtonContext::RoomAction);
         b.setHasOneRole({"admin"_L1, "owner"_L1});
         ActionButton::RoomTypeFilters f;
         f |= ActionButton::RoomTypeFilter::PublicChannel;

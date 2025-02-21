@@ -39,6 +39,26 @@ public:
     };
     Q_ENUM(ButtonContext);
 
+    enum class UiMessageActionContext : uint8_t {
+        Unknown,
+        MessageAction,
+        RoomAction,
+        MessageBoxAction,
+        UserDropDownAction,
+        RoomSideBarAction,
+    };
+    Q_ENUM(UiMessageActionContext);
+
+    enum class MessageActionContext : uint8_t {
+        Unknown = 0,
+        Message = 1,
+        MessageMobile = 2,
+        Threads = 4,
+        Starred = 8,
+    };
+    Q_FLAGS(MessageActionContext MessageActionContexts)
+    Q_DECLARE_FLAGS(MessageActionContexts, MessageActionContext)
+
     ActionButton();
     ~ActionButton();
 
@@ -61,8 +81,8 @@ public:
 
     [[nodiscard]] bool operator==(const ActionButton &other) const;
 
-    [[nodiscard]] ButtonContext context() const;
-    void setContext(ButtonContext newContext);
+    [[nodiscard]] ButtonContext buttonContext() const;
+    void setButtonContext(ButtonContext newContext);
 
     [[nodiscard]] QStringList hasAllRoles() const;
     void setHasAllRoles(const QStringList &newHasAllRoles);
@@ -86,7 +106,7 @@ private:
     QByteArray mAppId;
     QByteArray mActionId;
     QString mLabelI18n;
-    ButtonContext mContext = ButtonContext::Unknown;
+    ButtonContext mButtonContext = ButtonContext::Unknown;
     RoomTypeFilters mRoomTypeFilters = RoomTypeFilter::Unknown;
 };
 
