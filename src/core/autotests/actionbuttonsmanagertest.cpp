@@ -30,6 +30,17 @@ void ActionButtonsManagerTest::shouldLoadActionButtons_data()
         QList<ActionButton> buttons;
         QTest::addRow("actionbuttons-empty") << QStringLiteral("actionbuttons-empty") << buttons;
     }
+    {
+        QList<ActionButton> buttons;
+        ActionButton b;
+        b.setAppId("821cd5c6-1fb5-4d9e-8e88-e6176463efb6");
+        b.setActionId("auto-reply-room-action-id");
+        b.setLabelI18n("auto-reply-room-action-name"_L1);
+        b.setContext(ActionButton::ButtonContext::RoomAction);
+        b.setRoomTypeFilters(ActionButton::RoomTypeFilter::Direct);
+        buttons.append(b);
+        QTest::addRow("actionbuttons-test1") << QStringLiteral("actionbuttons-test1") << buttons;
+    }
     // TODO
 }
 
@@ -38,9 +49,9 @@ void ActionButtonsManagerTest::shouldLoadActionButtons()
     QFETCH(QString, name);
     QFETCH(QList<ActionButton>, actionButtons);
     const QString originalJsonFile = QLatin1StringView(RUQOLA_DATA_DIR) + "/actionbuttons/"_L1 + name + ".json"_L1;
-    const QJsonObject obj = AutoTestHelper::loadJsonObject(originalJsonFile);
+    const QJsonArray array = AutoTestHelper::loadJsonArrayObject(originalJsonFile);
     ActionButtonsManager m;
-    // m.parseActionButton(obj);
+    m.parseActionButtons(array);
     QCOMPARE(m.actionButtons(), actionButtons);
 }
 
