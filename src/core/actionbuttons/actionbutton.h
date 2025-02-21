@@ -51,8 +51,8 @@ public:
     [[nodiscard]] QString labelI18n() const;
     void setLabelI18n(const QString &newLabelI18n);
 
-    [[nodiscard]] RoomTypeFilter roomTypeFilter() const;
-    void setRoomTypeFilter(RoomTypeFilter newRoomTypeFilter);
+    [[nodiscard]] RoomTypeFilters roomTypeFilters() const;
+    void setRoomTypeFilters(RoomTypeFilters newRoomTypeFilter);
 
     [[nodiscard]] QStringList oneRole() const;
     void setOneRole(const QStringList &newOneRole);
@@ -66,13 +66,15 @@ public:
 
 private:
     [[nodiscard]] LIBRUQOLACORE_NO_EXPORT ActionButton::ButtonContext convertContextFromString(const QString &str) const;
+    LIBRUQOLACORE_NO_EXPORT void parseWhen(const QJsonObject &json);
+    [[nodiscard]] LIBRUQOLACORE_NO_EXPORT ActionButton::RoomTypeFilter convertRoomTypeFiltersFromString(const QString &str) const;
 
     QStringList mOneRole;
     QByteArray mAppId;
     QByteArray mActionId;
     QString mLabelI18n;
     ButtonContext mContext = ButtonContext::Unknown;
-    RoomTypeFilter mRoomTypeFilter = RoomTypeFilter::Unknown;
+    RoomTypeFilters mRoomTypeFilters = RoomTypeFilter::Unknown;
 };
 
 Q_DECLARE_METATYPE(ActionButton)

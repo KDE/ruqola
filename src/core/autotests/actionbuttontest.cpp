@@ -23,7 +23,7 @@ void ActionButtonTest::shouldHaveDefaultValues()
     QVERIFY(b.labelI18n().isEmpty());
     QVERIFY(b.oneRole().isEmpty());
 
-    QCOMPARE(b.roomTypeFilter(), ActionButton::RoomTypeFilter::Unknown);
+    QCOMPARE(b.roomTypeFilters(), ActionButton::RoomTypeFilter::Unknown);
     QCOMPARE(b.context(), ActionButton::ButtonContext::Unknown);
 }
 
@@ -43,6 +43,7 @@ void ActionButtonTest::shouldLoadActionButton_data()
         b.setActionId("auto-reply-room-action-id");
         b.setLabelI18n("auto-reply-room-action-name"_L1);
         b.setContext(ActionButton::ButtonContext::RoomAction);
+        b.setRoomTypeFilters(ActionButton::RoomTypeFilter::Direct);
         QTest::addRow("actionbutton-test1") << QStringLiteral("actionbutton-test1") << b;
     }
 }

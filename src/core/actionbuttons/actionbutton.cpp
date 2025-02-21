@@ -7,6 +7,7 @@
 #include "actionbutton.h"
 #include "ruqola_action_buttons_debug.h"
 
+#include <QJsonArray>
 #include <QJsonObject>
 using namespace Qt::Literals::StringLiterals;
 ActionButton::ActionButton() = default;
@@ -43,14 +44,14 @@ void ActionButton::setLabelI18n(const QString &newLabelI18n)
     mLabelI18n = newLabelI18n;
 }
 
-ActionButton::RoomTypeFilter ActionButton::roomTypeFilter() const
+ActionButton::RoomTypeFilters ActionButton::roomTypeFilters() const
 {
-    return mRoomTypeFilter;
+    return mRoomTypeFilters;
 }
 
-void ActionButton::setRoomTypeFilter(RoomTypeFilter newRoomTypeFilter)
+void ActionButton::setRoomTypeFilters(RoomTypeFilters newRoomTypeFilter)
 {
-    mRoomTypeFilter = newRoomTypeFilter;
+    mRoomTypeFilters = newRoomTypeFilter;
 }
 
 QStringList ActionButton::oneRole() const
@@ -69,7 +70,45 @@ void ActionButton::parseActionButton(const QJsonObject &json)
     mLabelI18n = json["labelI18n"_L1].toString();
     mAppId = json["appId"_L1].toString().toLatin1();
     mContext = convertContextFromString(json["context"_L1].toString());
+    parseWhen(json["when"_L1].toObject());
+}
+
+void ActionButton::parseWhen(const QJsonObject &json)
+{
+    const QJsonArray roomTypes = json["roomTypes"_L1].toArray();
+    for (const auto &r : roomTypes) {
+        mRoomTypeFilters |= convertRoomTypeFiltersFromString(r.toString());
+    }
     // TODO add hasOneRole and when
+}
+
+ActionButton::RoomTypeFilter ActionButton::convertRoomTypeFiltersFromString(const QString &str) const
+{
+    if (str.isEmpty()) {
+        return ActionButton::RoomTypeFilter::Unknown;
+    } else if (str == "public_channel"_L1) {
+        return ActionButton::RoomTypeFilter::PublicChannel;
+    } else if (str == "private_channel"_L1) {
+        return ActionButton::RoomTypeFilter::PrivateChannel;
+    } else if (str == "public_team"_L1) {
+        return ActionButton::RoomTypeFilter::PublicTeam;
+    } else if (str == "private_team"_L1) {
+        return ActionButton::RoomTypeFilter::PrivateTeam;
+    } else if (str == "public_discussion"_L1) {
+        return ActionButton::RoomTypeFilter::PublicDiscussion;
+    } else if (str == "private_discussion"_L1) {
+        return ActionButton::RoomTypeFilter::PrivateDiscussion;
+    } else if (str == "direct"_L1) {
+        return ActionButton::RoomTypeFilter::Direct;
+    } else if (str == "direct_multiple"_L1) {
+        return ActionButton::RoomTypeFilter::DirectMultiple;
+    } else if (str == "livechat"_L1) {
+        return ActionButton::RoomTypeFilter::LiveChat;
+    } else {
+        qCWarning(RUQOLA_ACTION_BUTTONS_LOG) << "Unknown RoomTypeFilter type " << str;
+    }
+
+    return ActionButton::RoomTypeFilter::Unknown;
 }
 
 ActionButton::ButtonContext ActionButton::convertContextFromString(const QString &str) const
@@ -88,14 +127,14 @@ ActionButton::ButtonContext ActionButton::convertContextFromString(const QString
     } else if (str == "roomSideBarAction"_L1) {
         return ActionButton::ButtonContext::RoomSideBarAction;
     } else {
-        qCWarning(RUQOLA_ACTION_BUTTONS_LOG) << "Unknonw button action type " << str;
+        qCWarning(RUQOLA_ACTION_BUTTONS_LOG) << "Unknown button action type " << str;
         return ActionButton::ButtonContext::Unknown;
     }
 }
 
 bool ActionButton::operator==(const ActionButton &other) const
 {
-    return other.actionId() == actionId() && other.appId() == appId() && other.labelI18n() == labelI18n() && other.roomTypeFilter() == roomTypeFilter()
+    return other.actionId() == actionId() && other.appId() == appId() && other.labelI18n() == labelI18n() && other.roomTypeFilters() == roomTypeFilters()
         && other.oneRole() == oneRole() && other.context() == context();
 }
 
@@ -116,6 +155,6 @@ QDebug operator<<(QDebug d, const ActionButton &t)
     d.space() << "labelI18n:" << t.labelI18n();
     d.space() << "oneRole:" << t.oneRole();
     d.space() << "context:" << t.context();
-    d.space() << "roomTypeFilter:" << static_cast<int>(t.roomTypeFilter());
+    d.space() << "roomTypeFilter:" << static_cast<int>(t.roomTypeFilters());
     return d;
 }
