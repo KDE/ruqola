@@ -19,7 +19,10 @@ void ActionButtonTest::shouldHaveDefaultValues()
     QVERIFY(b.appId().isEmpty());
     QVERIFY(b.actionId().isEmpty());
     QVERIFY(b.labelI18n().isEmpty());
+    QVERIFY(b.oneRole().isEmpty());
+
     QCOMPARE(b.roomTypeFilter(), ActionButton::RoomTypeFilter::Unknown);
+    QCOMPARE(b.context(), ActionButton::ButtonContext::Unknown);
 }
 
 #include "moc_actionbuttontest.cpp"

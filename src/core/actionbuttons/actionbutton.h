@@ -54,10 +54,24 @@ public:
     [[nodiscard]] RoomTypeFilter roomTypeFilter() const;
     void setRoomTypeFilter(RoomTypeFilter newRoomTypeFilter);
 
+    [[nodiscard]] QStringList oneRole() const;
+    void setOneRole(const QStringList &newOneRole);
+
+    void parseActionButton(const QJsonObject &json);
+
+    [[nodiscard]] bool operator==(const ActionButton &other) const;
+
+    [[nodiscard]] ButtonContext context() const;
+    void setContext(const ButtonContext &newContext);
+
 private:
+    [[nodiscard]] LIBRUQOLACORE_NO_EXPORT ActionButton::ButtonContext convertContextFromString(const QString &str) const;
+
+    QStringList mOneRole;
     QByteArray mAppId;
     QByteArray mActionId;
     QString mLabelI18n;
+    ButtonContext mContext = ButtonContext::Unknown;
     RoomTypeFilter mRoomTypeFilter = RoomTypeFilter::Unknown;
 };
 

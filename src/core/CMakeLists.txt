@@ -732,6 +732,9 @@ ecm_qt_declare_logging_category(libruqolacore_debug_SRCS HEADER ruqola_memory_ma
 ecm_qt_declare_logging_category(libruqolacore_debug_SRCS HEADER ruqola_channel_management_debug.h IDENTIFIER RUQOLA_CHANNEL_MANAGEMENT_LOG
     CATEGORY_NAME org.kde.ruqola.channelmanagement DESCRIPTION "ruqola channel management" EXPORT RUQOLA)
 
+ecm_qt_declare_logging_category(libruqolacore_debug_SRCS HEADER ruqola_action_buttons_debug.h IDENTIFIER RUQOLA_ACTION_BUTTONS_LOG
+    CATEGORY_NAME org.kde.ruqola.action_buttons DESCRIPTION "ruqola action buttons" EXPORT RUQOLA)
+
 target_sources(libruqolacore PRIVATE ${libruqolacore_debug_SRCS})
 
 if(COMPILE_WITH_UNITY_CMAKE_SUPPORT)
