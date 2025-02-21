@@ -62,7 +62,7 @@ public:
     [[nodiscard]] bool operator==(const ActionButton &other) const;
 
     [[nodiscard]] ButtonContext context() const;
-    void setContext(const ButtonContext &newContext);
+    void setContext(ButtonContext newContext);
 
 private:
     [[nodiscard]] LIBRUQOLACORE_NO_EXPORT ActionButton::ButtonContext convertContextFromString(const QString &str) const;

@@ -104,7 +104,7 @@ ActionButton::ButtonContext ActionButton::context() const
     return mContext;
 }
 
-void ActionButton::setContext(const ButtonContext &newContext)
+void ActionButton::setContext(ButtonContext newContext)
 {
     mContext = newContext;
 }
