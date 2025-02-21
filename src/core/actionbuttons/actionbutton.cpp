@@ -71,6 +71,8 @@ void ActionButton::parseActionButton(const QJsonObject &json)
     mAppId = json["appId"_L1].toString().toLatin1();
     mContext = convertContextFromString(json["context"_L1].toString());
     parseWhen(json["when"_L1].toObject());
+
+    // TODO category or variant
 }
 
 void ActionButton::parseWhen(const QJsonObject &json)

@@ -47,6 +47,25 @@ void ActionButtonTest::shouldLoadActionButton_data()
         b.setRoomTypeFilters(ActionButton::RoomTypeFilter::Direct);
         QTest::addRow("actionbutton-test1") << QStringLiteral("actionbutton-test1") << b;
     }
+
+    {
+        ActionButton b;
+        b.setAppId("7a8cd36b-5f7b-4177-bd7f-bfc9be908bf8");
+        b.setActionId("manage_all_reminders_room_action");
+        b.setLabelI18n("manage_all_reminders_room_action"_L1);
+        b.setContext(ActionButton::ButtonContext::RoomAction);
+        b.setHasOneRole({"admin"_L1, "owner"_L1});
+        ActionButton::RoomTypeFilters f;
+        f |= ActionButton::RoomTypeFilter::PublicChannel;
+        f |= ActionButton::RoomTypeFilter::PublicTeam;
+        f |= ActionButton::RoomTypeFilter::PublicDiscussion;
+        f |= ActionButton::RoomTypeFilter::PrivateChannel;
+        f |= ActionButton::RoomTypeFilter::PrivateTeam;
+        f |= ActionButton::RoomTypeFilter::PrivateDiscussion;
+
+        b.setRoomTypeFilters(f);
+        QTest::addRow("actionbutton-test2") << QStringLiteral("actionbutton-test2") << b;
+    }
 }
 
 void ActionButtonTest::shouldLoadActionButton()
