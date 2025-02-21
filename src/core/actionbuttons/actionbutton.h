@@ -90,6 +90,7 @@ private:
     [[nodiscard]] LIBRUQOLACORE_NO_EXPORT ActionButton::ButtonContext convertContextFromString(const QString &str) const;
     LIBRUQOLACORE_NO_EXPORT void parseWhen(const QJsonObject &json);
     [[nodiscard]] LIBRUQOLACORE_NO_EXPORT ActionButton::RoomTypeFilter convertRoomTypeFiltersFromString(const QString &str) const;
+    [[nodiscard]] LIBRUQOLACORE_NO_EXPORT ActionButton::MessageActionContext convertMessageActionContextsFromString(const QString &str) const;
 
     QStringList mHasOnePermission;
     QStringList mHasAllPermissions;

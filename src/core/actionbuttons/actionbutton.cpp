@@ -101,7 +101,29 @@ void ActionButton::parseWhen(const QJsonObject &json)
     for (const auto &r : hasAllPermissions) {
         mHasAllPermissions.append(r.toString());
     }
-    // Parse MessageActionContext
+
+    const QJsonArray messageActionContexts = json["messageActionContext"_L1].toArray();
+    for (const auto &r : messageActionContexts) {
+        mMessageActionContexts |= convertMessageActionContextsFromString(r.toString());
+    }
+}
+
+ActionButton::MessageActionContext ActionButton::convertMessageActionContextsFromString(const QString &str) const
+{
+    if (str.isEmpty()) {
+        return ActionButton::MessageActionContext::Unknown;
+    } else if (str == "message"_L1) {
+        return ActionButton::MessageActionContext::Message;
+    } else if (str == "message-mobile"_L1) {
+        return ActionButton::MessageActionContext::MessageMobile;
+    } else if (str == "threads"_L1) {
+        return ActionButton::MessageActionContext::Threads;
+    } else if (str == "starred"_L1) {
+        return ActionButton::MessageActionContext::Starred;
+    } else {
+        qCWarning(RUQOLA_ACTION_BUTTONS_LOG) << "Unknown MessageActionContext type " << str;
+    }
+    return ActionButton::MessageActionContext::Unknown;
 }
 
 ActionButton::RoomTypeFilter ActionButton::convertRoomTypeFiltersFromString(const QString &str) const
