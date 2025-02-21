@@ -605,6 +605,9 @@ target_sources(libruqolacore PRIVATE
 
     actionbuttons/actionbutton.h
     actionbuttons/actionbutton.cpp
+
+    actionbuttons/actionbuttonsmanager.h
+    actionbuttons/actionbuttonsmanager.cpp
 )
 
 if(USE_E2E_SUPPORT)
