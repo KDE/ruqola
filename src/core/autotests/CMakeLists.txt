@@ -179,3 +179,5 @@ add_ruqola_test(appsmarketplaceinstalledinfotest.cpp)
 add_ruqola_test(applicationssettingssettingsinfotest.cpp)
 add_ruqola_test(applicationssettingslogsinfotest.cpp)
 add_ruqola_test(actionbuttontest.cpp)
+add_ruqola_test(actionbuttonsmanagertest.cpp)
+

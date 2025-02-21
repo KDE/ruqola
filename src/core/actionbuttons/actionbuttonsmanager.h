@@ -19,6 +19,9 @@ public:
     [[nodiscard]] QList<ActionButton> actionButtons() const;
     void setActionButtons(const QList<ActionButton> &newActionButtons);
 
+Q_SIGNALS:
+    void actionButtonsChanged();
+
 private:
     QList<ActionButton> mActionButtons;
 };
