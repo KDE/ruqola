@@ -14,4 +14,7 @@ class ActionButtonsManagerTest : public QObject
 public:
     explicit ActionButtonsManagerTest(QObject *parent = nullptr);
     ~ActionButtonsManagerTest() override = default;
+
+private Q_SLOTS:
+    void shouldHaveDefaultValues();
 };
