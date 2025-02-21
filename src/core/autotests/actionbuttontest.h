@@ -16,4 +16,6 @@ public:
     ~ActionButtonTest() = default;
 private Q_SLOTS:
     void shouldHaveDefaultValues();
+    void shouldLoadActionButton();
+    void shouldLoadActionButton_data();
 };

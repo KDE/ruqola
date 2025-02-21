@@ -68,11 +68,15 @@ void ActionButton::parseActionButton(const QJsonObject &json)
     mActionId = json["actionId"_L1].toString().toLatin1();
     mLabelI18n = json["labelI18n"_L1].toString();
     mAppId = json["appId"_L1].toString().toLatin1();
-    // TODO
+    mContext = convertContextFromString(json["context"_L1].toString());
+    // TODO add hasOneRole and when
 }
 
 ActionButton::ButtonContext ActionButton::convertContextFromString(const QString &str) const
 {
+    if (str.isEmpty()) {
+        return ActionButton::ButtonContext::Unknown;
+    }
     if (str == "messageAction"_L1) {
         return ActionButton::ButtonContext::MessageAction;
     } else if (str == "roomAction"_L1) {
