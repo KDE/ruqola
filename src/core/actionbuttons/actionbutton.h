@@ -39,16 +39,6 @@ public:
     };
     Q_ENUM(ButtonContext);
 
-    enum class UiMessageActionContext : uint8_t {
-        Unknown,
-        MessageAction,
-        RoomAction,
-        MessageBoxAction,
-        UserDropDownAction,
-        RoomSideBarAction,
-    };
-    Q_ENUM(UiMessageActionContext);
-
     enum class MessageActionContext : uint8_t {
         Unknown = 0,
         Message = 1,

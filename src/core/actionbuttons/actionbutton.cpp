@@ -209,7 +209,7 @@ QDebug operator<<(QDebug d, const ActionButton &t)
     d.space() << "hasAllRoles:" << t.hasAllRoles();
     d.space() << "hasOnePermission:" << t.hasOnePermission();
     d.space() << "hasAllPermissions:" << t.hasAllPermissions();
-    d.space() << "context:" << t.buttonContext();
+    d.space() << "buttonContext:" << t.buttonContext();
     d.space() << "roomTypeFilter:" << static_cast<int>(t.roomTypeFilters());
     return d;
 }
