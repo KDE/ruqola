@@ -22,3 +22,5 @@ void ActionButtonsManager::setActionButtons(const QList<ActionButton> &newAction
 {
     mActionButtons = newActionButtons;
 }
+
+#include "moc_actionbuttonsmanager.cpp"

@@ -213,3 +213,5 @@ QDebug operator<<(QDebug d, const ActionButton &t)
     d.space() << "roomTypeFilter:" << static_cast<int>(t.roomTypeFilters());
     return d;
 }
+
+#include "moc_actionbutton.cpp"
