@@ -26,6 +26,7 @@ void ActionButtonTest::shouldHaveDefaultValues()
 
     QCOMPARE(b.roomTypeFilters(), ActionButton::RoomTypeFilter::Unknown);
     QCOMPARE(b.buttonContext(), ActionButton::ButtonContext::Unknown);
+    QCOMPARE(b.messageActionContexts(), ActionButton::MessageActionContext::Unknown);
 }
 
 void ActionButtonTest::shouldLoadActionButton_data()
