@@ -14,7 +14,7 @@ void AutoGenerateInteractionUiViewActionable::parse(const QJsonObject &json)
 {
     mAppId = json["appId"_L1].toString().toLatin1();
     mBlockId = json["blockId"_L1].toString().toLatin1();
-    mActionId = json["blockId"_L1].toString().toLatin1();
+    mActionId = json["actionId"_L1].toString().toLatin1();
 }
 
 QByteArray AutoGenerateInteractionUiViewActionable::appId() const
