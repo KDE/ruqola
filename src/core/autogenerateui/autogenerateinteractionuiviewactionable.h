@@ -13,20 +13,22 @@ class LIBRUQOLACORE_TESTS_EXPORT AutoGenerateInteractionUiViewActionable
 {
 public:
     AutoGenerateInteractionUiViewActionable();
-    ~AutoGenerateInteractionUiViewActionable();
-    void parse(const QJsonObject &json);
+    virtual ~AutoGenerateInteractionUiViewActionable();
+    virtual void parse(const QJsonObject &json);
 
-    [[nodiscard]] QString appId() const;
-    void setAppId(const QString &newAppId);
+    [[nodiscard]] QByteArray appId() const;
+    void setAppId(const QByteArray &newAppId);
 
-    [[nodiscard]] QString blockId() const;
-    void setBlockId(const QString &newBlockId);
+    [[nodiscard]] QByteArray blockId() const;
+    void setBlockId(const QByteArray &newBlockId);
 
-    [[nodiscard]] QString actionId() const;
-    void setActionId(const QString &newActionId);
+    [[nodiscard]] QByteArray actionId() const;
+    void setActionId(const QByteArray &newActionId);
+
+    [[nodiscard]] bool operator==(const AutoGenerateInteractionUiViewActionable &other) const;
 
 private:
-    QString mAppId;
-    QString mBlockId;
-    QString mActionId;
+    QByteArray mAppId;
+    QByteArray mBlockId;
+    QByteArray mActionId;
 };

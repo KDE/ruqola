@@ -5,41 +5,49 @@
 */
 
 #include "autogenerateinteractionuiviewactionable.h"
-
+using namespace Qt::Literals::StringLiterals;
 AutoGenerateInteractionUiViewActionable::AutoGenerateInteractionUiViewActionable() = default;
 
 AutoGenerateInteractionUiViewActionable::~AutoGenerateInteractionUiViewActionable() = default;
 
 void AutoGenerateInteractionUiViewActionable::parse(const QJsonObject &json)
 {
+    mAppId = json["appId"_L1].toString().toLatin1();
+    mBlockId = json["blockId"_L1].toString().toLatin1();
+    mActionId = json["blockId"_L1].toString().toLatin1();
 }
 
-QString AutoGenerateInteractionUiViewActionable::appId() const
+QByteArray AutoGenerateInteractionUiViewActionable::appId() const
 {
     return mAppId;
 }
 
-void AutoGenerateInteractionUiViewActionable::setAppId(const QString &newAppId)
+void AutoGenerateInteractionUiViewActionable::setAppId(const QByteArray &newAppId)
 {
     mAppId = newAppId;
 }
 
-QString AutoGenerateInteractionUiViewActionable::blockId() const
+QByteArray AutoGenerateInteractionUiViewActionable::blockId() const
 {
     return mBlockId;
 }
 
-void AutoGenerateInteractionUiViewActionable::setBlockId(const QString &newBlockId)
+void AutoGenerateInteractionUiViewActionable::setBlockId(const QByteArray &newBlockId)
 {
     mBlockId = newBlockId;
 }
 
-QString AutoGenerateInteractionUiViewActionable::actionId() const
+QByteArray AutoGenerateInteractionUiViewActionable::actionId() const
 {
     return mActionId;
 }
 
-void AutoGenerateInteractionUiViewActionable::setActionId(const QString &newActionId)
+void AutoGenerateInteractionUiViewActionable::setActionId(const QByteArray &newActionId)
 {
     mActionId = newActionId;
+}
+
+bool AutoGenerateInteractionUiViewActionable::operator==(const AutoGenerateInteractionUiViewActionable &other) const
+{
+    return other.appId() == appId() && other.blockId() == blockId() && other.actionId() == other.actionId();
 }
