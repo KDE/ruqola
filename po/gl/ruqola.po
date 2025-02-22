@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-02-21 00:41+0000\n"
-"PO-Revision-Date: 2025-02-16 06:12+0100\n"
+"POT-Creation-Date: 2025-02-22 00:41+0000\n"
+"PO-Revision-Date: 2025-02-21 07:31+0100\n"
 "Last-Translator: Adrián Chaves (Gallaecio) <adrian@chaves.gal>\n"
 "Language-Team: Proxecto Trasno (proxecto@trasno.gal)\n"
 "Language: gl\n"
@@ -1810,32 +1810,32 @@ msgstr "Engadiuse unha conta"
 msgid "A new account was added."
 msgstr "Engadiuse unha nova conta."
 
-#: core/room.cpp:1152
+#: core/room.cpp:1153
 #, kde-format
 msgid "Owner"
 msgstr "Pertenza"
 
-#: core/room.cpp:1155
+#: core/room.cpp:1156
 #, kde-format
 msgid "Leader"
 msgstr "Líder"
 
-#: core/room.cpp:1158
+#: core/room.cpp:1159
 #, kde-format
 msgid "Moderator"
 msgstr "Moderación"
 
-#: core/room.cpp:1516
+#: core/room.cpp:1517
 #, kde-format
 msgid "Channel is read only."
 msgstr "A canle é de só lectura."
 
-#: core/room.cpp:1519
+#: core/room.cpp:1520
 #, kde-format
 msgid "You have blocked this channel."
 msgstr "Bloqueou a canle."
 
-#: core/room.cpp:1522
+#: core/room.cpp:1523
 #, kde-format
 msgid "Channel was blocked."
 msgstr "Bloqueouse a canle."
@@ -8957,19 +8957,16 @@ msgid "Decode Key"
 msgstr "Descodificar a chave"
 
 #: widgets/encryption/e2epassworddecodekeydialog.cpp:30
-#, fuzzy, kde-format
-#| msgctxt "@option:check"
-#| msgid "Enabled E2E encryption"
+#, kde-format
 msgctxt "@action:button"
 msgid "Enable Encryption"
-msgstr "Activar a cifraxe de extremo a extremo"
+msgstr "Activar a cifraxe"
 
 #: widgets/encryption/e2epassworddecodekeywidget.cpp:26
-#, fuzzy, kde-format
-#| msgid "Click here to enter your e2e password."
+#, kde-format
 msgctxt "@info:placeholder"
 msgid "Please enter your E2EE password"
-msgstr "Prema aquí para introducir o seu contrasinal de extremo a extremo."
+msgstr "Insira o seu contrasinal de cifraxe de extremo a extremo."
 
 #: widgets/encryption/e2epassworddecodekeywidget.cpp:30
 #, kde-format

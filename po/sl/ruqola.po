@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-02-21 00:41+0000\n"
+"POT-Creation-Date: 2025-02-22 00:41+0000\n"
 "PO-Revision-Date: 2025-02-19 07:25+0100\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
@@ -1818,32 +1818,32 @@ msgstr "Račun dodan"
 msgid "A new account was added."
 msgstr "Novi račun je bil dodan."
 
-#: core/room.cpp:1152
+#: core/room.cpp:1153
 #, kde-format
 msgid "Owner"
 msgstr "Lastnik"
 
-#: core/room.cpp:1155
+#: core/room.cpp:1156
 #, kde-format
 msgid "Leader"
 msgstr "Vodja"
 
-#: core/room.cpp:1158
+#: core/room.cpp:1159
 #, kde-format
 msgid "Moderator"
 msgstr "Moderator"
 
-#: core/room.cpp:1516
+#: core/room.cpp:1517
 #, kde-format
 msgid "Channel is read only."
 msgstr "Kanal je samo za branje."
 
-#: core/room.cpp:1519
+#: core/room.cpp:1520
 #, kde-format
 msgid "You have blocked this channel."
 msgstr "Blokirali ste ta kanal."
 
-#: core/room.cpp:1522
+#: core/room.cpp:1523
 #, kde-format
 msgid "Channel was blocked."
 msgstr "Kanal je bil blokiran."

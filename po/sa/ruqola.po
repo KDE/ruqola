@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-02-21 00:41+0000\n"
+"POT-Creation-Date: 2025-02-22 00:41+0000\n"
 "PO-Revision-Date: 2024-12-24 20:22+0530\n"
 "Last-Translator: kali <shreekantkalwar@gmail.com>\n"
 "Language-Team: Sanskrit <kde-i18n-doc@kde.org>\n"
@@ -1811,32 +1811,32 @@ msgstr "खाता योजितः"
 msgid "A new account was added."
 msgstr "नूतनं खातं योजितम्।"
 
-#: core/room.cpp:1152
+#: core/room.cpp:1153
 #, kde-format
 msgid "Owner"
 msgstr "स्वामी"
 
-#: core/room.cpp:1155
+#: core/room.cpp:1156
 #, kde-format
 msgid "Leader"
 msgstr "नेता"
 
-#: core/room.cpp:1158
+#: core/room.cpp:1159
 #, kde-format
 msgid "Moderator"
 msgstr "संचालकः"
 
-#: core/room.cpp:1516
+#: core/room.cpp:1517
 #, kde-format
 msgid "Channel is read only."
 msgstr "चैनलः केवलं पठनीयः अस्ति।"
 
-#: core/room.cpp:1519
+#: core/room.cpp:1520
 #, kde-format
 msgid "You have blocked this channel."
 msgstr "भवता एतत् चैनलं अवरुद्धम् अस्ति।"
 
-#: core/room.cpp:1522
+#: core/room.cpp:1523
 #, kde-format
 msgid "Channel was blocked."
 msgstr "चैनल् अवरुद्धम् आसीत्।"

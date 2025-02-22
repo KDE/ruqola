@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-02-21 00:41+0000\n"
+"POT-Creation-Date: 2025-02-22 00:41+0000\n"
 "PO-Revision-Date: 2025-02-19 09:59+0200\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
@@ -1821,32 +1821,32 @@ msgstr "Додано обліковий запис"
 msgid "A new account was added."
 msgstr "Було додано новий обліковий запис."
 
-#: core/room.cpp:1152
+#: core/room.cpp:1153
 #, kde-format
 msgid "Owner"
 msgstr "Власник"
 
-#: core/room.cpp:1155
+#: core/room.cpp:1156
 #, kde-format
 msgid "Leader"
 msgstr "Лідер"
 
-#: core/room.cpp:1158
+#: core/room.cpp:1159
 #, kde-format
 msgid "Moderator"
 msgstr "Модератор"
 
-#: core/room.cpp:1516
+#: core/room.cpp:1517
 #, kde-format
 msgid "Channel is read only."
 msgstr "Канал призначено лише для читання."
 
-#: core/room.cpp:1519
+#: core/room.cpp:1520
 #, kde-format
 msgid "You have blocked this channel."
 msgstr "Вас заблоковано на цьому каналі."
 
-#: core/room.cpp:1522
+#: core/room.cpp:1523
 #, kde-format
 msgid "Channel was blocked."
 msgstr "Канал заблоковано."
