@@ -7,6 +7,7 @@
 #pragma once
 
 #include "autogenerateinteractionuiviewbuttonelement.h"
+#include "autogenerateui/autogenerateinteractionuiviewblocks.h"
 #include "libruqolacore_export.h"
 #include <QJsonObject>
 
@@ -34,11 +35,16 @@ public:
     [[nodiscard]] AutoGenerateInteractionUiViewButtonElement submitButton() const;
     void setSubmitButton(const AutoGenerateInteractionUiViewButtonElement &newSubmitButton);
 
+    [[nodiscard]] AutoGenerateInteractionUiViewText title() const;
+    void setTitle(const AutoGenerateInteractionUiViewText &newTitle);
+
 private:
     QByteArray mId;
     bool mShowIcon = false;
     AutoGenerateInteractionUiViewButtonElement mCloseButton;
     AutoGenerateInteractionUiViewButtonElement mSubmitButton;
+    AutoGenerateInteractionUiViewText mTitle;
+    AutoGenerateInteractionUiViewBlocks mBlocks;
 };
 
 Q_DECLARE_METATYPE(AutoGenerateInteractionUiView)
