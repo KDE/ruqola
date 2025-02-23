@@ -5,14 +5,29 @@
 */
 
 #include "autogenerateinteractionui.h"
-
+#include "ruqola_action_buttons_debug.h"
+using namespace Qt::Literals::StringLiterals;
 AutoGenerateInteractionUi::AutoGenerateInteractionUi() = default;
 
 AutoGenerateInteractionUi::~AutoGenerateInteractionUi() = default;
 
 void AutoGenerateInteractionUi::parseInteractionUi(const QJsonObject &json)
 {
-    // TODO
+    mTriggerId = json["triggerId"_L1].toString().toLatin1();
+    mAppId = json["appId"_L1].toString().toLatin1();
+    mTypeUi = convertTypeUiFromString(json["type"_L1].toString());
+}
+
+AutoGenerateInteractionUi::TypeUi AutoGenerateInteractionUi::convertTypeUiFromString(const QString &str) const
+{
+    if (str == "modal.open"_L1) {
+        return AutoGenerateInteractionUi::TypeUi::ModalDialog;
+    } else if (str == "contextual_bar.open"_L1) {
+        return AutoGenerateInteractionUi::TypeUi::ContextualBar;
+    } else {
+        qCWarning(RUQOLA_ACTION_BUTTONS_LOG) << "Unknown TypeUi type " << str;
+    }
+    return AutoGenerateInteractionUi::TypeUi::Unknown;
 }
 
 QByteArray AutoGenerateInteractionUi::appId() const
@@ -57,3 +72,5 @@ QDebug operator<<(QDebug d, const AutoGenerateInteractionUi &t)
     d.space() << "typeUi:" << t.typeUi();
     return d;
 }
+
+#include "moc_autogenerateinteractionui.cpp"

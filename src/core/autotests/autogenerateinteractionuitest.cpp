@@ -24,3 +24,5 @@ void AutoGenerateInteractionUiTest::shouldHaveDefaultValues()
     QVERIFY(ui.triggerId().isEmpty());
     QCOMPARE(ui.typeUi(), AutoGenerateInteractionUi::TypeUi::Unknown);
 }
+
+#include "moc_autogenerateinteractionuitest.cpp"

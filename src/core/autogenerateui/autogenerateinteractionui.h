@@ -36,6 +36,7 @@ public:
     void setTriggerId(const QByteArray &newTriggerId);
 
 private:
+    [[nodiscard]] LIBRUQOLACORE_NO_EXPORT AutoGenerateInteractionUi::TypeUi convertTypeUiFromString(const QString &str) const;
     QByteArray mAppId;
     QByteArray mTriggerId;
     TypeUi mTypeUi = TypeUi::Unknown;
