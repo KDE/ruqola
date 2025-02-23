@@ -6,9 +6,11 @@
 
 #pragma once
 
+#include "autogenerateinteractionuiviewbuttonelement.h"
 #include "libruqolacore_export.h"
 #include <QJsonObject>
 
+// Rocket.Chat/packages/ui-kit/src/surfaces/modal/ModalView.ts
 // TODO make it private export symbol ?
 class LIBRUQOLACORE_EXPORT AutoGenerateInteractionUiView
 {
@@ -23,8 +25,14 @@ public:
 
     [[nodiscard]] bool operator==(const AutoGenerateInteractionUiView &other) const;
 
+    [[nodiscard]] bool showIcon() const;
+    void setShowIcon(bool newShowIcon);
+
 private:
     QByteArray mId;
+    bool mShowIcon = false;
+    AutoGenerateInteractionUiViewButtonElement mCloseButton;
+    AutoGenerateInteractionUiViewButtonElement mSubmitButton;
 };
 
 Q_DECLARE_METATYPE(AutoGenerateInteractionUiView)

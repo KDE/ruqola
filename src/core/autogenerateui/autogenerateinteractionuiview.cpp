@@ -27,11 +27,22 @@ void AutoGenerateInteractionUiView::setId(const QByteArray &newId)
 
 bool AutoGenerateInteractionUiView::operator==(const AutoGenerateInteractionUiView &other) const
 {
-    return other.id() == id();
+    return other.id() == id() && other.showIcon() == showIcon();
+}
+
+bool AutoGenerateInteractionUiView::showIcon() const
+{
+    return mShowIcon;
+}
+
+void AutoGenerateInteractionUiView::setShowIcon(bool newShowIcon)
+{
+    mShowIcon = newShowIcon;
 }
 
 QDebug operator<<(QDebug d, const AutoGenerateInteractionUiView &t)
 {
     d.space() << "id:" << t.id();
+    d.space() << "showIcon:" << t.showIcon();
     return d;
 }
