@@ -623,6 +623,9 @@ target_sources(libruqolacore PRIVATE
     autogenerateui/autogenerateinteractionuiviewblocks.h
     autogenerateui/autogenerateinteractionuiviewactionable.cpp
     autogenerateui/autogenerateinteractionuiviewactionable.h
+
+    autogenerateui/autogenerateinteractionuiview.h
+    autogenerateui/autogenerateinteractionuiview.cpp
 )
 
 if(USE_E2E_SUPPORT)

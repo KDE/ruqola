@@ -16,6 +16,8 @@ void AutoGenerateInteractionUi::parseInteractionUi(const QJsonObject &json)
     mTriggerId = json["triggerId"_L1].toString().toLatin1();
     mAppId = json["appId"_L1].toString().toLatin1();
     mTypeUi = convertTypeUiFromString(json["type"_L1].toString());
+
+    mView.parseView(json["view"_L1].toObject());
 }
 
 AutoGenerateInteractionUi::TypeUi AutoGenerateInteractionUi::convertTypeUiFromString(const QString &str) const
@@ -28,6 +30,16 @@ AutoGenerateInteractionUi::TypeUi AutoGenerateInteractionUi::convertTypeUiFromSt
         qCWarning(RUQOLA_ACTION_BUTTONS_LOG) << "Unknown TypeUi type " << str;
     }
     return AutoGenerateInteractionUi::TypeUi::Unknown;
+}
+
+AutoGenerateInteractionUiView AutoGenerateInteractionUi::view() const
+{
+    return mView;
+}
+
+void AutoGenerateInteractionUi::setView(const AutoGenerateInteractionUiView &newView)
+{
+    mView = newView;
 }
 
 QByteArray AutoGenerateInteractionUi::appId() const

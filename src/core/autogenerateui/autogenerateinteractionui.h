@@ -6,6 +6,7 @@
 
 #pragma once
 
+#include "autogenerateinteractionuiview.h"
 #include "libruqolacore_export.h"
 #include <QJsonObject>
 
@@ -35,11 +36,15 @@ public:
     [[nodiscard]] QByteArray triggerId() const;
     void setTriggerId(const QByteArray &newTriggerId);
 
+    [[nodiscard]] AutoGenerateInteractionUiView view() const;
+    void setView(const AutoGenerateInteractionUiView &newView);
+
 private:
     [[nodiscard]] LIBRUQOLACORE_NO_EXPORT AutoGenerateInteractionUi::TypeUi convertTypeUiFromString(const QString &str) const;
     QByteArray mAppId;
     QByteArray mTriggerId;
     TypeUi mTypeUi = TypeUi::Unknown;
+    AutoGenerateInteractionUiView mView;
 };
 Q_DECLARE_METATYPE(AutoGenerateInteractionUi)
 Q_DECLARE_TYPEINFO(AutoGenerateInteractionUi, Q_RELOCATABLE_TYPE);
