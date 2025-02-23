@@ -1,0 +1,18 @@
+/*
+   SPDX-FileCopyrightText: 2025 Laurent Montel <montel@kde.org>
+
+   SPDX-License-Identifier: LGPL-2.0-or-later
+*/
+#include "autogenerateinteractionuiviewblockstest.h"
+#include <QTest>
+QTEST_GUILESS_MAIN(AutoGenerateInteractionUiViewBlocksTest)
+
+AutoGenerateInteractionUiViewBlocksTest::AutoGenerateInteractionUiViewBlocksTest(QObject *parent)
+    : QObject{parent}
+{
+}
+
+void AutoGenerateInteractionUiViewBlocksTest::shouldHaveDefaultValues()
+{
+    // TODO
+}

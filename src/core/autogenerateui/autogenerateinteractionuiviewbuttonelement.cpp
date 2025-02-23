@@ -34,6 +34,16 @@ AutoGenerateInteractionUiViewButtonElement::Style AutoGenerateInteractionUiViewB
     return AutoGenerateInteractionUiViewButtonElement::Style::Unknown;
 }
 
+bool AutoGenerateInteractionUiViewButtonElement::secondary() const
+{
+    return mSecondary;
+}
+
+void AutoGenerateInteractionUiViewButtonElement::setSecondary(bool newSecondary)
+{
+    mSecondary = newSecondary;
+}
+
 AutoGenerateInteractionUiViewButtonElement::Style AutoGenerateInteractionUiViewButtonElement::style() const
 {
     return mStyle;
@@ -46,7 +56,7 @@ void AutoGenerateInteractionUiViewButtonElement::setStyle(Style newStyle)
 
 bool AutoGenerateInteractionUiViewButtonElement::operator==(const AutoGenerateInteractionUiViewButtonElement &other) const
 {
-    return other.style() == style();
+    return other.style() == style() && other.text() == text() && other.secondary() == secondary();
 }
 
 AutoGenerateInteractionUiViewText AutoGenerateInteractionUiViewButtonElement::text() const
@@ -63,6 +73,7 @@ void AutoGenerateInteractionUiViewButtonElement::parse(const QJsonObject &json)
 {
     mStyle = convertStyleFromString(json["style"_L1].toString());
     mText.parse(json["text"_L1].toObject());
+    mSecondary = json["secondary"_L1].toBool();
     // TODO
 }
 
@@ -70,6 +81,7 @@ QDebug operator<<(QDebug d, const AutoGenerateInteractionUiViewButtonElement &t)
 {
     d.space() << "style:" << t.style();
     d.space() << "text:" << t.text();
+    d.space() << "secondary:" << t.secondary();
     return d;
 }
 

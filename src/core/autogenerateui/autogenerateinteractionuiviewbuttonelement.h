@@ -36,10 +36,14 @@ public:
     void setText(const AutoGenerateInteractionUiViewText &newText);
     void parse(const QJsonObject &json) override;
 
+    [[nodiscard]] bool secondary() const;
+    void setSecondary(bool newSecondary);
+
 private:
     [[nodiscard]] LIBRUQOLACORE_NO_EXPORT AutoGenerateInteractionUiViewButtonElement::Style convertStyleFromString(const QString &str) const;
     Style mStyle = Style::Unknown;
     AutoGenerateInteractionUiViewText mText;
+    bool mSecondary = false;
 };
 Q_DECLARE_METATYPE(AutoGenerateInteractionUiViewButtonElement)
 Q_DECLARE_TYPEINFO(AutoGenerateInteractionUiViewButtonElement, Q_RELOCATABLE_TYPE);
