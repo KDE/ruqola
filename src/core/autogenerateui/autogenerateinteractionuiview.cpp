@@ -34,7 +34,8 @@ void AutoGenerateInteractionUiView::setId(const QByteArray &newId)
 
 bool AutoGenerateInteractionUiView::operator==(const AutoGenerateInteractionUiView &other) const
 {
-    return other.id() == id() && other.showIcon() == showIcon();
+    return other.id() == id() && other.showIcon() == showIcon() && other.closeButton() == closeButton() && other.submitButton() == submitButton()
+        && other.title() == title() && other.blocks() == blocks();
 }
 
 bool AutoGenerateInteractionUiView::showIcon() const
@@ -77,6 +78,16 @@ void AutoGenerateInteractionUiView::setTitle(const AutoGenerateInteractionUiView
     mTitle = newTitle;
 }
 
+AutoGenerateInteractionUiViewBlocks AutoGenerateInteractionUiView::blocks() const
+{
+    return mBlocks;
+}
+
+void AutoGenerateInteractionUiView::setBlocks(const AutoGenerateInteractionUiViewBlocks &newBlocks)
+{
+    mBlocks = newBlocks;
+}
+
 QDebug operator<<(QDebug d, const AutoGenerateInteractionUiView &t)
 {
     d.space() << "id:" << t.id();
@@ -84,5 +95,6 @@ QDebug operator<<(QDebug d, const AutoGenerateInteractionUiView &t)
     d.space() << "closeButton:" << t.closeButton();
     d.space() << "submitButton:" << t.submitButton();
     d.space() << "title:" << t.title();
+    d.space() << "blocks:" << t.blocks();
     return d;
 }

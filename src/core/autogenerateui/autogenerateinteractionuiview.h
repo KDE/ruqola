@@ -38,6 +38,9 @@ public:
     [[nodiscard]] AutoGenerateInteractionUiViewText title() const;
     void setTitle(const AutoGenerateInteractionUiViewText &newTitle);
 
+    [[nodiscard]] AutoGenerateInteractionUiViewBlocks blocks() const;
+    void setBlocks(const AutoGenerateInteractionUiViewBlocks &newBlocks);
+
 private:
     QByteArray mId;
     bool mShowIcon = false;
