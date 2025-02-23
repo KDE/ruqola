@@ -18,7 +18,7 @@ public:
     // PlainText/Mardown?
     AutoGenerateInteractionUiViewText();
     ~AutoGenerateInteractionUiViewText();
-    void parseTitle(const QJsonObject &json);
+    void parse(const QJsonObject &json);
 
     [[nodiscard]] QString text() const;
     void setText(const QString &newText);

@@ -36,6 +36,7 @@ public:
     void parse(const QJsonObject &json);
 
 private:
+    [[nodiscard]] LIBRUQOLACORE_NO_EXPORT AutoGenerateInteractionUiViewButtonElement::Style convertStyleFromString(const QString &str) const;
     Style mStyle = Style::Unknown;
     AutoGenerateInteractionUiViewText mText;
 };

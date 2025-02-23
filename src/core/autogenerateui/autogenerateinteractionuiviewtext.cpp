@@ -10,8 +10,9 @@ AutoGenerateInteractionUiViewText::AutoGenerateInteractionUiViewText() = default
 
 AutoGenerateInteractionUiViewText::~AutoGenerateInteractionUiViewText() = default;
 
-void AutoGenerateInteractionUiViewText::parseTitle(const QJsonObject &json)
+void AutoGenerateInteractionUiViewText::parse(const QJsonObject &json)
 {
+    // TODO
 }
 
 bool AutoGenerateInteractionUiViewText::operator==(const AutoGenerateInteractionUiViewText &other) const
