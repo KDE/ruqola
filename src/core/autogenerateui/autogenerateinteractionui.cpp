@@ -15,12 +15,45 @@ void AutoGenerateInteractionUi::parseInteractionUi(const QJsonObject &json)
     // TODO
 }
 
-QString AutoGenerateInteractionUi::appId() const
+QByteArray AutoGenerateInteractionUi::appId() const
 {
     return mAppId;
 }
 
-void AutoGenerateInteractionUi::setAppId(const QString &newAppId)
+void AutoGenerateInteractionUi::setAppId(const QByteArray &newAppId)
 {
     mAppId = newAppId;
+}
+
+AutoGenerateInteractionUi::TypeUi AutoGenerateInteractionUi::typeUi() const
+{
+    return mTypeUi;
+}
+
+void AutoGenerateInteractionUi::setTypeUi(TypeUi newTypeUi)
+{
+    mTypeUi = newTypeUi;
+}
+
+bool AutoGenerateInteractionUi::operator==(const AutoGenerateInteractionUi &other) const
+{
+    return other.appId() == appId() && other.typeUi() == typeUi() && other.triggerId() == triggerId();
+}
+
+QByteArray AutoGenerateInteractionUi::triggerId() const
+{
+    return mTriggerId;
+}
+
+void AutoGenerateInteractionUi::setTriggerId(const QByteArray &newTriggerId)
+{
+    mTriggerId = newTriggerId;
+}
+
+QDebug operator<<(QDebug d, const AutoGenerateInteractionUi &t)
+{
+    d.space() << "appId:" << t.appId();
+    d.space() << "triggerId:" << t.triggerId();
+    d.space() << "typeUi:" << t.typeUi();
+    return d;
 }
