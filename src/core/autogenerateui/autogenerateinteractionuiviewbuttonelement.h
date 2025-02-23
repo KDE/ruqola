@@ -4,6 +4,7 @@
    SPDX-License-Identifier: LGPL-2.0-or-later
 */
 #pragma once
+#include "autogenerateinteractionuiviewtext.h"
 #include "libruqola_private_export.h"
 #include <QJsonObject>
 
@@ -14,4 +15,7 @@ public:
     ~AutoGenerateInteractionUiViewButtonElement();
 
     [[nodiscard]] bool isValid() const;
+
+private:
+    AutoGenerateInteractionUiViewText mText;
 };
