@@ -4,11 +4,12 @@
    SPDX-License-Identifier: LGPL-2.0-or-later
 */
 #pragma once
+#include "autogenerateinteractionuiviewelement.h"
 #include "autogenerateinteractionuiviewtext.h"
 #include "libruqola_private_export.h"
 #include <QJsonObject>
 
-class LIBRUQOLACORE_TESTS_EXPORT AutoGenerateInteractionUiViewButtonElement
+class LIBRUQOLACORE_TESTS_EXPORT AutoGenerateInteractionUiViewButtonElement : public AutoGenerateInteractionUiViewElement
 {
     Q_GADGET
 public:
@@ -22,7 +23,7 @@ public:
     };
     Q_ENUM(Style)
     AutoGenerateInteractionUiViewButtonElement();
-    ~AutoGenerateInteractionUiViewButtonElement();
+    ~AutoGenerateInteractionUiViewButtonElement() override;
 
     [[nodiscard]] bool isValid() const;
 
@@ -33,7 +34,7 @@ public:
 
     [[nodiscard]] AutoGenerateInteractionUiViewText text() const;
     void setText(const AutoGenerateInteractionUiViewText &newText);
-    void parse(const QJsonObject &json);
+    void parse(const QJsonObject &json) override;
 
 private:
     [[nodiscard]] LIBRUQOLACORE_NO_EXPORT AutoGenerateInteractionUiViewButtonElement::Style convertStyleFromString(const QString &str) const;

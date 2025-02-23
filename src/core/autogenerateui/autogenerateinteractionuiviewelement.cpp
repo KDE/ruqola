@@ -11,7 +11,7 @@ AutoGenerateInteractionUiViewElement::AutoGenerateInteractionUiViewElement() = d
 
 AutoGenerateInteractionUiViewElement::~AutoGenerateInteractionUiViewElement() = default;
 
-void AutoGenerateInteractionUiViewElement::parseElement(const QJsonObject &json)
+void AutoGenerateInteractionUiViewElement::parse(const QJsonObject &json)
 {
-    // TODO
+    // Implement in sub class
 }

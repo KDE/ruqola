@@ -12,6 +12,6 @@ class LIBRUQOLACORE_TESTS_EXPORT AutoGenerateInteractionUiViewElement
 {
 public:
     AutoGenerateInteractionUiViewElement();
-    ~AutoGenerateInteractionUiViewElement();
-    void parseElement(const QJsonObject &json);
+    virtual ~AutoGenerateInteractionUiViewElement();
+    virtual void parse(const QJsonObject &json);
 };

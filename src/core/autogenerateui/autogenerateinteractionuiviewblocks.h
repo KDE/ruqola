@@ -6,8 +6,10 @@
 
 #pragma once
 
+#include "autogenerateinteractionuiviewelement.h"
 #include "libruqola_private_export.h"
 #include <QJsonArray>
+#include <QList>
 
 class LIBRUQOLACORE_TESTS_EXPORT AutoGenerateInteractionUiViewBlocks
 {
@@ -16,6 +18,9 @@ public:
     ~AutoGenerateInteractionUiViewBlocks();
     void parse(const QJsonArray &array);
     [[nodiscard]] bool operator==(const AutoGenerateInteractionUiViewBlocks &other) const;
+
+private:
+    QList<AutoGenerateInteractionUiViewElement> mElements;
 };
 
 Q_DECLARE_METATYPE(AutoGenerateInteractionUiViewBlocks)
