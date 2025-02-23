@@ -28,6 +28,12 @@ public:
     [[nodiscard]] bool showIcon() const;
     void setShowIcon(bool newShowIcon);
 
+    [[nodiscard]] AutoGenerateInteractionUiViewButtonElement closeButton() const;
+    void setCloseButton(const AutoGenerateInteractionUiViewButtonElement &newCloseButton);
+
+    [[nodiscard]] AutoGenerateInteractionUiViewButtonElement submitButton() const;
+    void setSubmitButton(const AutoGenerateInteractionUiViewButtonElement &newSubmitButton);
+
 private:
     QByteArray mId;
     bool mShowIcon = false;

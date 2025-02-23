@@ -5,14 +5,17 @@
 */
 
 #include "autogenerateinteractionuiview.h"
-
+using namespace Qt::Literals::StringLiterals;
 AutoGenerateInteractionUiView::AutoGenerateInteractionUiView() = default;
 
 AutoGenerateInteractionUiView::~AutoGenerateInteractionUiView() = default;
 
 void AutoGenerateInteractionUiView::parseView(const QJsonObject &json)
 {
-    // TODO
+    mCloseButton.parse(json["close"_L1].toObject());
+    mSubmitButton.parse(json["submit"_L1].toObject());
+    mShowIcon = json["showIcon"_L1].toBool();
+    mId = json["id"_L1].toString().toLatin1();
 }
 
 QByteArray AutoGenerateInteractionUiView::id() const
@@ -40,9 +43,31 @@ void AutoGenerateInteractionUiView::setShowIcon(bool newShowIcon)
     mShowIcon = newShowIcon;
 }
 
+AutoGenerateInteractionUiViewButtonElement AutoGenerateInteractionUiView::closeButton() const
+{
+    return mCloseButton;
+}
+
+void AutoGenerateInteractionUiView::setCloseButton(const AutoGenerateInteractionUiViewButtonElement &newCloseButton)
+{
+    mCloseButton = newCloseButton;
+}
+
+AutoGenerateInteractionUiViewButtonElement AutoGenerateInteractionUiView::submitButton() const
+{
+    return mSubmitButton;
+}
+
+void AutoGenerateInteractionUiView::setSubmitButton(const AutoGenerateInteractionUiViewButtonElement &newSubmitButton)
+{
+    mSubmitButton = newSubmitButton;
+}
+
 QDebug operator<<(QDebug d, const AutoGenerateInteractionUiView &t)
 {
     d.space() << "id:" << t.id();
     d.space() << "showIcon:" << t.showIcon();
+    d.space() << "closeButton:" << t.closeButton();
+    d.space() << "submitButton:" << t.submitButton();
     return d;
 }

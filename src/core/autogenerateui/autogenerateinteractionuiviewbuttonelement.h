@@ -33,6 +33,7 @@ public:
 
     [[nodiscard]] AutoGenerateInteractionUiViewText text() const;
     void setText(const AutoGenerateInteractionUiViewText &newText);
+    void parse(const QJsonObject &json);
 
 private:
     Style mStyle = Style::Unknown;

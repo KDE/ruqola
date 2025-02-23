@@ -39,6 +39,11 @@ void AutoGenerateInteractionUiViewButtonElement::setText(const AutoGenerateInter
     mText = newText;
 }
 
+void AutoGenerateInteractionUiViewButtonElement::parse(const QJsonObject &json)
+{
+    // TODO
+}
+
 QDebug operator<<(QDebug d, const AutoGenerateInteractionUiViewButtonElement &t)
 {
     d.space() << "style:" << t.style();
