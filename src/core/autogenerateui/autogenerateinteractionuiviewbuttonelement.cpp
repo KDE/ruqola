@@ -50,3 +50,5 @@ QDebug operator<<(QDebug d, const AutoGenerateInteractionUiViewButtonElement &t)
     d.space() << "text:" << t.text();
     return d;
 }
+
+#include "moc_autogenerateinteractionuiviewbuttonelement.cpp"
