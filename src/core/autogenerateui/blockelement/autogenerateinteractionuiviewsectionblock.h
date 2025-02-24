@@ -16,6 +16,14 @@ public:
     AutoGenerateInteractionUiViewSectionBlock();
     ~AutoGenerateInteractionUiViewSectionBlock() override;
     [[nodiscard]] bool operator==(const AutoGenerateInteractionUiViewSectionBlock &other) const;
+
+private:
+    /*
+        text?: TextObject;
+        fields?: readonly TextObject[];
+        accessory?: ButtonElement | DatePickerElement | ImageElement | MultiStaticSelectElement | OverflowElement | StaticSelectElement;
+
+    */
 };
 
 Q_DECLARE_METATYPE(AutoGenerateInteractionUiViewSectionBlock)

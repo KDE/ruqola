@@ -71,6 +71,7 @@ void AutoGenerateInteractionUiViewButtonElement::setText(const AutoGenerateInter
 
 void AutoGenerateInteractionUiViewButtonElement::parse(const QJsonObject &json)
 {
+    AutoGenerateInteractionUiViewActionable::parse(json);
     mStyle = convertStyleFromString(json["style"_L1].toString());
     mText.parse(json["text"_L1].toObject());
     mSecondary = json["secondary"_L1].toBool();

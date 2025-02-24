@@ -1,8 +1,6 @@
 # SPDX-FileCopyrightText: 2020-2025 Laurent Montel <montel@kde.org>
 # SPDX-License-Identifier: BSD-3-Clause
-add_library(libruqolacore
-    autogenerateui/blockelement/autogenerateinteractionuiviewsectionblock.h autogenerateui/blockelement/autogenerateinteractionuiviewsectionblock.cpp
-    autogenerateui/blockelement/autogenerateinteractionuiviewblockbase.h autogenerateui/blockelement/autogenerateinteractionuiviewblockbase.cpp)
+add_library(libruqolacore)
 
 target_sources(libruqolacore PRIVATE
     abstractwebsocket.cpp
@@ -625,6 +623,16 @@ target_sources(libruqolacore PRIVATE
     autogenerateui/autogenerateinteractionuiview.cpp
     autogenerateui/autogenerateinteractionuiviewbuttonelement.h
     autogenerateui/autogenerateinteractionuiviewbuttonelement.cpp
+    autogenerateui/blockelement/autogenerateinteractionuiviewsectionblock.h
+    autogenerateui/blockelement/autogenerateinteractionuiviewsectionblock.cpp
+    autogenerateui/blockelement/autogenerateinteractionuiviewblockbase.h
+    autogenerateui/blockelement/autogenerateinteractionuiviewblockbase.cpp
+    autogenerateui/blockelement/autogenerateinteractionuiviewactionsblock.h
+    autogenerateui/blockelement/autogenerateinteractionuiviewactionsblock.cpp
+    autogenerateui/blockelement/autogenerateinteractionuiviewinputblock.cpp
+    autogenerateui/blockelement/autogenerateinteractionuiviewinputblock.h
+    autogenerateui/blockelement/autogenerateinteractionuiviewdividerblock.cpp
+    autogenerateui/blockelement/autogenerateinteractionuiviewdividerblock.h
 )
 
 if(USE_E2E_SUPPORT)

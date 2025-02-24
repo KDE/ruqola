@@ -4,12 +4,12 @@
    SPDX-License-Identifier: LGPL-2.0-or-later
 */
 #pragma once
-#include "autogenerateinteractionuiviewelement.h"
+#include "autogenerateinteractionuiviewactionable.h"
 #include "autogenerateinteractionuiviewtext.h"
 #include "libruqola_private_export.h"
 #include <QJsonObject>
 
-class LIBRUQOLACORE_TESTS_EXPORT AutoGenerateInteractionUiViewButtonElement : public AutoGenerateInteractionUiViewElement
+class LIBRUQOLACORE_TESTS_EXPORT AutoGenerateInteractionUiViewButtonElement : public AutoGenerateInteractionUiViewActionable
 {
     Q_GADGET
 public:

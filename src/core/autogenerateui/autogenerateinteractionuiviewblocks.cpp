@@ -5,6 +5,9 @@
 */
 
 #include "autogenerateinteractionuiviewblocks.h"
+#include "blockelement/autogenerateinteractionuiviewactionsblock.h"
+#include "blockelement/autogenerateinteractionuiviewdividerblock.h"
+#include "blockelement/autogenerateinteractionuiviewinputblock.h"
 #include "blockelement/autogenerateinteractionuiviewsectionblock.h"
 #include "ruqola_action_buttons_debug.h"
 
@@ -22,11 +25,26 @@ void AutoGenerateInteractionUiViewBlocks::parse(const QJsonArray &array)
             section.parse(r.toObject());
             mBlockElements.append(std::move(section));
         } else if (type == "divider"_L1) {
+            AutoGenerateInteractionUiViewDividerBlock divider;
+            divider.parse(r.toObject());
+            mBlockElements.append(std::move(divider));
         } else if (type == "actions"_L1) {
-        } else if (type == "context"_L1) {
-        } else if (type == "image"_L1) {
-        } else if (type == "callout"_L1) {
+            AutoGenerateInteractionUiViewActionsBlock actions;
+            actions.parse(r.toObject());
+            mBlockElements.append(std::move(actions));
         } else if (type == "input"_L1) {
+            AutoGenerateInteractionUiViewInputBlock input;
+            input.parse(r.toObject());
+            mBlockElements.append(std::move(input));
+        } else if (type == "context"_L1) {
+            qCWarning(RUQOLA_ACTION_BUTTONS_LOG) << "Not implemented yet:" << type;
+            // TODO
+        } else if (type == "image"_L1) {
+            qCWarning(RUQOLA_ACTION_BUTTONS_LOG) << "Not implemented yet:" << type;
+            // TODO
+        } else if (type == "callout"_L1) {
+            qCWarning(RUQOLA_ACTION_BUTTONS_LOG) << "Not implemented yet:" << type;
+            // TODO
         } else {
             qCWarning(RUQOLA_ACTION_BUTTONS_LOG) << "Unknown type " << type;
         }
