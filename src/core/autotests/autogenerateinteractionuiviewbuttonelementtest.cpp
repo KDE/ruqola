@@ -4,6 +4,7 @@
    SPDX-License-Identifier: LGPL-2.0-or-later
 */
 #include "autogenerateinteractionuiviewbuttonelementtest.h"
+#include "autogenerateui/autogenerateinteractionuiviewbuttonelement.h"
 #include <QTest>
 QTEST_GUILESS_MAIN(AutoGenerateInteractionUiViewButtonElementTest)
 
@@ -14,6 +15,8 @@ AutoGenerateInteractionUiViewButtonElementTest::AutoGenerateInteractionUiViewBut
 
 void AutoGenerateInteractionUiViewButtonElementTest::shouldHaveDefaultValues()
 {
+    AutoGenerateInteractionUiViewButtonElement b;
+    QVERIFY(!b.secondary());
     // TODO
 }
 

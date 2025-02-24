@@ -59,7 +59,6 @@ QDebug operator<<(QDebug d, const AutoGenerateInteractionUiViewBlocks &t)
 
 bool AutoGenerateInteractionUiViewBlocks::operator==(const AutoGenerateInteractionUiViewBlocks &other) const
 {
-    // TODO
     return other.mBlockElements == mBlockElements;
 }
 

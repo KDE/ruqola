@@ -16,6 +16,10 @@ AutoGenerateInteractionUiViewTest::AutoGenerateInteractionUiViewTest(QObject *pa
 void AutoGenerateInteractionUiViewTest::shouldHaveDefaultValues()
 {
     AutoGenerateInteractionUiView w;
+    QVERIFY(!w.showIcon());
+    QVERIFY(w.id().isEmpty());
+    QVERIFY(!w.closeButton());
+    QVERIFY(!w.submitButton());
     // TODO
 }
 

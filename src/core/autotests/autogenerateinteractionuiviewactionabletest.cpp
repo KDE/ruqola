@@ -4,6 +4,7 @@
    SPDX-License-Identifier: LGPL-2.0-or-later
 */
 #include "autogenerateinteractionuiviewactionabletest.h"
+#include "autogenerateui/autogenerateinteractionuiviewactionable.h"
 #include <QTest>
 QTEST_GUILESS_MAIN(AutoGenerateInteractionUiViewActionableTest)
 
@@ -14,7 +15,10 @@ AutoGenerateInteractionUiViewActionableTest::AutoGenerateInteractionUiViewAction
 
 void AutoGenerateInteractionUiViewActionableTest::shouldHaveDefaultValues()
 {
-    // TODO
+    AutoGenerateInteractionUiViewActionable a;
+    QVERIFY(a.appId().isEmpty());
+    QVERIFY(a.blockId().isEmpty());
+    QVERIFY(a.actionId().isEmpty());
 }
 
 #include "moc_autogenerateinteractionuiviewactionabletest.cpp"

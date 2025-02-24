@@ -6,6 +6,9 @@
 
 #include "autogenerateinteractionuiviewactionsblock.h"
 #include "autogenerateui/autogenerateinteractionuiviewbuttonelement.h"
+#include "autogenerateui/autogenerateinteractionuiviewcheckboxelement.h"
+#include "autogenerateui/autogenerateinteractionuiviewradiobuttonelement.h"
+#include "autogenerateui/autogenerateinteractionuiviewtoggleswitchelement.h"
 #include "ruqola_action_buttons_debug.h"
 #include <QJsonArray>
 using namespace Qt::Literals::StringLiterals;
@@ -31,6 +34,20 @@ bool AutoGenerateInteractionUiViewActionsBlock::operator==(const AutoGenerateInt
 
 void AutoGenerateInteractionUiViewActionsBlock::parse(const QJsonObject &json)
 {
+    /*
+                | ChannelsSelectElement
+                | ConversationsSelectElement
+                | DatePickerElement
+                | LinearScaleElement
+                | MultiChannelsSelectElement
+                | MultiConversationsSelectElement
+                | MultiStaticSelectElement
+                | MultiUsersSelectElement
+                | OverflowElement
+                | StaticSelectElement
+                | UsersSelectElement
+                | TimePickerElement
+*/
     AutoGenerateInteractionUiViewBlockBase::parse(json);
     for (const auto &r : json["elements"_L1].toArray()) {
         const QString type = r["type"_L1].toString();
@@ -39,15 +56,21 @@ void AutoGenerateInteractionUiViewActionsBlock::parse(const QJsonObject &json)
             e.parse(r["text"_L1].toObject());
             mElements.append(std::move(e));
         } else if (type == "checkbox"_L1) {
-            // TODO
+            AutoGenerateInteractionUiViewCheckboxElement e;
+            e.parse(r["text"_L1].toObject());
+            mElements.append(std::move(e));
         } else if (type == "radio_button"_L1) {
-            // TODO
+            AutoGenerateInteractionUiViewRadioButtonElement e;
+            e.parse(r["text"_L1].toObject());
+            mElements.append(std::move(e));
+        } else if (type == "toggle_switch"_L1) {
+            AutoGenerateInteractionUiViewToggleSwitchElement e;
+            e.parse(r["text"_L1].toObject());
+            mElements.append(std::move(e));
         } else {
             qCWarning(RUQOLA_ACTION_BUTTONS_LOG) << "Unknown type " << type;
         }
-        // TODO
     }
-    // TODO elements
 }
 
 QList<AutoGenerateInteractionUiViewActionable> AutoGenerateInteractionUiViewActionsBlock::elements() const
