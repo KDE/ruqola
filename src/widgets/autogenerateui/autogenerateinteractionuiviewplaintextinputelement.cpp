@@ -7,7 +7,7 @@
 #include "autogenerateinteractionuiviewplaintextinputelement.h"
 
 #include <QPlainTextEdit>
-
+using namespace Qt::Literals::StringLiterals;
 AutoGenerateInteractionUiViewPlainTextInputElement::AutoGenerateInteractionUiViewPlainTextInputElement()
     : AutoGenerateInteractionUiViewActionable()
 {
@@ -20,7 +20,11 @@ AutoGenerateInteractionUiViewPlainTextInputElement::~AutoGenerateInteractionUiVi
 void AutoGenerateInteractionUiViewPlainTextInputElement::parse(const QJsonObject &json)
 {
     AutoGenerateInteractionUiViewActionable::parse(json);
-    // TODO
+    // TODO mPlaceHolder = json["placeholder"_L1].toString();
+    mInitialValue = json["initialValue"_L1].toString();
+    mMultiLine = json["multiline"_L1].toBool();
+    mMinLength = json["minLength"_L1].toInt(-1);
+    mMaxLength = json["maxLength"_L1].toInt(-1);
 }
 
 QWidget *AutoGenerateInteractionUiViewPlainTextInputElement::generateWidget(QWidget *parent)
@@ -28,7 +32,9 @@ QWidget *AutoGenerateInteractionUiViewPlainTextInputElement::generateWidget(QWid
     auto plainText = new QPlainTextEdit(parent);
     plainText->setPlaceholderText(mPlaceHolder);
     plainText->setPlainText(mInitialValue);
-
+    if (!mMultiLine) {
+        plainText->setMaximumBlockCount(1);
+    }
     return plainText;
 }
 

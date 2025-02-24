@@ -6,6 +6,11 @@
 
 #include "autogenerateinteractionuiviewinputblock.h"
 #include "autogenerateui/autogenerateinteractionuiviewactionable.h"
+#include "autogenerateui/autogenerateinteractionuiviewplaintextinputelement.h"
+#include "ruqola_autogenerateui_debug.h"
+
+#include <QLayout>
+#include <QWidget>
 using namespace Qt::Literals::StringLiterals;
 AutoGenerateInteractionUiViewInputBlock::AutoGenerateInteractionUiViewInputBlock()
     : AutoGenerateInteractionUiViewBlockBase()
@@ -35,7 +40,13 @@ void AutoGenerateInteractionUiViewInputBlock::parse(const QJsonObject &json)
     AutoGenerateInteractionUiViewBlockBase::parse(json);
     mOptional = json["optional"_L1].toBool();
     mLabel.parse(json["label"_L1].toObject());
-    // TODO element
+    const QJsonObject elementObj = json["element"_L1].toObject();
+    const QString type = elementObj["type"_L1].toString();
+    if (type == "plain_text_input"_L1) {
+        mElement = new AutoGenerateInteractionUiViewPlainTextInputElement;
+    } else {
+        qCWarning(RUQOLA_AUTOGENERATEUI_LOG) << "AutoGenerateInteractionUiViewInputBlock Unknown type " << type;
+    }
 }
 
 bool AutoGenerateInteractionUiViewInputBlock::optional() const
@@ -60,6 +71,13 @@ void AutoGenerateInteractionUiViewInputBlock::setLabel(const AutoGenerateInterac
 
 QWidget *AutoGenerateInteractionUiViewInputBlock::generateWidget(QWidget *parent) const
 {
+    if (mElement) {
+        auto widget = new QWidget(parent);
+        parent->layout()->addWidget(widget);
+        auto vboxLayout = new QVBoxLayout;
+        widget->setLayout(vboxLayout);
+        vboxLayout->addWidget(mElement->generateWidget(parent));
+        return widget;
+    }
     return nullptr;
-    // TODO
 }
