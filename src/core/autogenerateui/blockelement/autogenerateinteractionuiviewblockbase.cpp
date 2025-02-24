@@ -5,7 +5,7 @@
 */
 
 #include "autogenerateinteractionuiviewblockbase.h"
-
+using namespace Qt::Literals::StringLiterals;
 AutoGenerateInteractionUiViewBlockBase::AutoGenerateInteractionUiViewBlockBase() = default;
 
 AutoGenerateInteractionUiViewBlockBase::~AutoGenerateInteractionUiViewBlockBase() = default;
@@ -40,4 +40,10 @@ QDebug operator<<(QDebug d, const AutoGenerateInteractionUiViewBlockBase &t)
 bool AutoGenerateInteractionUiViewBlockBase::operator==(const AutoGenerateInteractionUiViewBlockBase &other) const
 {
     return other.blockId() == blockId() && other.appId() == appId();
+}
+
+void AutoGenerateInteractionUiViewBlockBase::parse(const QJsonObject &json)
+{
+    mAppId = json["appId"_L1].toString();
+    mBlockId = json["blockId"_L1].toString();
 }

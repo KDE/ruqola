@@ -8,13 +8,14 @@
 
 #include "libruqola_private_export.h"
 #include <QDebug>
+#include <QJsonObject>
 #include <QString>
 
 class LIBRUQOLACORE_TESTS_EXPORT AutoGenerateInteractionUiViewBlockBase
 {
 public:
     AutoGenerateInteractionUiViewBlockBase();
-    ~AutoGenerateInteractionUiViewBlockBase();
+    virtual ~AutoGenerateInteractionUiViewBlockBase();
     [[nodiscard]] QString appId() const;
     void setAppId(const QString &newAppId);
 
@@ -22,6 +23,8 @@ public:
     void setBlockId(const QString &newBlockId);
 
     [[nodiscard]] bool operator==(const AutoGenerateInteractionUiViewBlockBase &other) const;
+
+    virtual void parse(const QJsonObject &json);
 
 private:
     QString mAppId;

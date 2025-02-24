@@ -5,7 +5,9 @@
 */
 
 #include "autogenerateinteractionuiviewblocks.h"
+#include "blockelement/autogenerateinteractionuiviewsectionblock.h"
 #include "ruqola_action_buttons_debug.h"
+
 using namespace Qt::Literals::StringLiterals;
 AutoGenerateInteractionUiViewBlocks::AutoGenerateInteractionUiViewBlocks() = default;
 
@@ -16,6 +18,9 @@ void AutoGenerateInteractionUiViewBlocks::parse(const QJsonArray &array)
     for (const auto &r : array) {
         const QString type = r["type"_L1].toString();
         if (type == "section"_L1) {
+            AutoGenerateInteractionUiViewSectionBlock section;
+            section.parse(r.toObject());
+            mBlockElements.append(std::move(section));
         } else if (type == "divider"_L1) {
         } else if (type == "actions"_L1) {
         } else if (type == "context"_L1) {
@@ -30,12 +35,22 @@ void AutoGenerateInteractionUiViewBlocks::parse(const QJsonArray &array)
 
 QDebug operator<<(QDebug d, const AutoGenerateInteractionUiViewBlocks &t)
 {
-    // TODO
+    d.space() << "blockElements:" << t.blockElements();
     return d;
 }
 
 bool AutoGenerateInteractionUiViewBlocks::operator==(const AutoGenerateInteractionUiViewBlocks &other) const
 {
     // TODO
-    return false;
+    return other.mBlockElements == mBlockElements;
+}
+
+QList<AutoGenerateInteractionUiViewBlockBase> AutoGenerateInteractionUiViewBlocks::blockElements() const
+{
+    return mBlockElements;
+}
+
+void AutoGenerateInteractionUiViewBlocks::setBlockElements(const QList<AutoGenerateInteractionUiViewBlockBase> &newBlockElements)
+{
+    mBlockElements = newBlockElements;
 }

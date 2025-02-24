@@ -6,7 +6,7 @@
 
 #pragma once
 
-#include "autogenerateinteractionuiviewelement.h"
+#include "autogenerateui/blockelement/autogenerateinteractionuiviewblockbase.h"
 #include "libruqola_private_export.h"
 #include <QJsonArray>
 #include <QList>
@@ -19,8 +19,11 @@ public:
     void parse(const QJsonArray &array);
     [[nodiscard]] bool operator==(const AutoGenerateInteractionUiViewBlocks &other) const;
 
+    [[nodiscard]] QList<AutoGenerateInteractionUiViewBlockBase> blockElements() const;
+    void setBlockElements(const QList<AutoGenerateInteractionUiViewBlockBase> &newBlockElements);
+
 private:
-    QList<AutoGenerateInteractionUiViewElement> mElements;
+    QList<AutoGenerateInteractionUiViewBlockBase> mBlockElements;
 };
 
 Q_DECLARE_METATYPE(AutoGenerateInteractionUiViewBlocks)

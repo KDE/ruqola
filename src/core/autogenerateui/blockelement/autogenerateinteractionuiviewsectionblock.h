@@ -14,7 +14,7 @@ class LIBRUQOLACORE_TESTS_EXPORT AutoGenerateInteractionUiViewSectionBlock : pub
 {
 public:
     AutoGenerateInteractionUiViewSectionBlock();
-    ~AutoGenerateInteractionUiViewSectionBlock();
+    ~AutoGenerateInteractionUiViewSectionBlock() override;
     [[nodiscard]] bool operator==(const AutoGenerateInteractionUiViewSectionBlock &other) const;
 };
 
