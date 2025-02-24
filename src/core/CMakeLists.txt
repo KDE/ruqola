@@ -623,6 +623,12 @@ target_sources(libruqolacore PRIVATE
     autogenerateui/autogenerateinteractionuiview.cpp
     autogenerateui/autogenerateinteractionuiviewbuttonelement.h
     autogenerateui/autogenerateinteractionuiviewbuttonelement.cpp
+    autogenerateui/autogenerateinteractionuiviewcheckboxelement.cpp
+    autogenerateui/autogenerateinteractionuiviewcheckboxelement.h
+    autogenerateui/autogenerateinteractionuiviewradiobuttonelement.cpp
+    autogenerateui/autogenerateinteractionuiviewradiobuttonelement.h
+    autogenerateui/autogenerateinteractionuiviewtoggleswitchelement.cpp
+    autogenerateui/autogenerateinteractionuiviewtoggleswitchelement.h
     autogenerateui/blockelement/autogenerateinteractionuiviewsectionblock.h
     autogenerateui/blockelement/autogenerateinteractionuiviewsectionblock.cpp
     autogenerateui/blockelement/autogenerateinteractionuiviewblockbase.h
@@ -633,6 +639,8 @@ target_sources(libruqolacore PRIVATE
     autogenerateui/blockelement/autogenerateinteractionuiviewinputblock.h
     autogenerateui/blockelement/autogenerateinteractionuiviewdividerblock.cpp
     autogenerateui/blockelement/autogenerateinteractionuiviewdividerblock.h
+    autogenerateui/autogenerateinteractionuiviewoptionelement.h
+    autogenerateui/autogenerateinteractionuiviewoptionelement.cpp
 )
 
 if(USE_E2E_SUPPORT)

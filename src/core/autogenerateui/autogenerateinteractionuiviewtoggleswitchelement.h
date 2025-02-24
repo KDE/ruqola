@@ -1,0 +1,31 @@
+/*
+   SPDX-FileCopyrightText: 2025 Laurent Montel <montel@kde.org>
+
+   SPDX-License-Identifier: LGPL-2.0-or-later
+*/
+#pragma once
+#include "autogenerateinteractionuiviewactionable.h"
+#include "autogenerateui/autogenerateinteractionuiviewoptionelement.h"
+#include "libruqola_private_export.h"
+#include <QJsonObject>
+
+// see packages/ui-kit/src/blocks/elements/ToggleSwitchElement.ts
+class LIBRUQOLACORE_TESTS_EXPORT AutoGenerateInteractionUiViewToggleSwitchElement : public AutoGenerateInteractionUiViewActionable
+{
+    Q_GADGET
+public:
+    AutoGenerateInteractionUiViewToggleSwitchElement();
+    ~AutoGenerateInteractionUiViewToggleSwitchElement() override;
+
+    void parse(const QJsonObject &json) override;
+
+    [[nodiscard]] QList<AutoGenerateInteractionUiViewOptionElement> options() const;
+    void setOptions(const QList<AutoGenerateInteractionUiViewOptionElement> &newOptions);
+
+private:
+    // TODO initialOptions
+    QList<AutoGenerateInteractionUiViewOptionElement> mOptions;
+};
+Q_DECLARE_METATYPE(AutoGenerateInteractionUiViewToggleSwitchElement)
+Q_DECLARE_TYPEINFO(AutoGenerateInteractionUiViewToggleSwitchElement, Q_RELOCATABLE_TYPE);
+LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const AutoGenerateInteractionUiViewToggleSwitchElement &t);
