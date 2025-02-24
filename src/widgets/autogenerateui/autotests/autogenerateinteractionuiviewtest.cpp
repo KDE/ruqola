@@ -6,7 +6,7 @@
 #include "autogenerateinteractionuiviewtest.h"
 #include "autogenerateui/autogenerateinteractionuiview.h"
 #include <QTest>
-QTEST_GUILESS_MAIN(AutoGenerateInteractionUiViewTest)
+QTEST_MAIN(AutoGenerateInteractionUiViewTest)
 
 AutoGenerateInteractionUiViewTest::AutoGenerateInteractionUiViewTest(QObject *parent)
     : QObject{parent}

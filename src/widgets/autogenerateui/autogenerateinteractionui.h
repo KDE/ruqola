@@ -39,6 +39,8 @@ public:
     [[nodiscard]] AutoGenerateInteractionUiView view() const;
     void setView(const AutoGenerateInteractionUiView &newView);
 
+    QWidget *generateWidget(QWidget *parent = nullptr);
+
 private:
     [[nodiscard]] LIBRUQOLAWIDGETS_NO_EXPORT AutoGenerateInteractionUi::TypeUi convertTypeUiFromString(const QString &str) const;
     QByteArray mAppId;

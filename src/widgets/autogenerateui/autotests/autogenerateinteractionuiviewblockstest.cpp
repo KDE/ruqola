@@ -6,7 +6,7 @@
 #include "autogenerateinteractionuiviewblockstest.h"
 #include "autogenerateui/autogenerateinteractionuiviewblocks.h"
 #include <QTest>
-QTEST_GUILESS_MAIN(AutoGenerateInteractionUiViewBlocksTest)
+QTEST_MAIN(AutoGenerateInteractionUiViewBlocksTest)
 
 AutoGenerateInteractionUiViewBlocksTest::AutoGenerateInteractionUiViewBlocksTest(QObject *parent)
     : QObject{parent}

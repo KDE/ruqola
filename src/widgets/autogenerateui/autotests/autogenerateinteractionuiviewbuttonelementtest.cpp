@@ -6,7 +6,7 @@
 #include "autogenerateinteractionuiviewbuttonelementtest.h"
 #include "autogenerateui/autogenerateinteractionuiviewbuttonelement.h"
 #include <QTest>
-QTEST_GUILESS_MAIN(AutoGenerateInteractionUiViewButtonElementTest)
+QTEST_MAIN(AutoGenerateInteractionUiViewButtonElementTest)
 
 AutoGenerateInteractionUiViewButtonElementTest::AutoGenerateInteractionUiViewButtonElementTest(QObject *parent)
     : QObject{parent}

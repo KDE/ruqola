@@ -10,7 +10,7 @@
 #include <QJsonObject>
 #include <QTest>
 
-QTEST_GUILESS_MAIN(AutoGenerateInteractionUiTest)
+QTEST_MAIN(AutoGenerateInteractionUiTest)
 
 AutoGenerateInteractionUiTest::AutoGenerateInteractionUiTest(QObject *parent)
     : QObject{parent}
