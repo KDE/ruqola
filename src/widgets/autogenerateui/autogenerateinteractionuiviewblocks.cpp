@@ -5,6 +5,7 @@
 */
 
 #include "autogenerateinteractionuiviewblocks.h"
+#include "autogenerateinteractionuiviewcontextblock.h"
 #include "blockelement/autogenerateinteractionuiviewactionsblock.h"
 #include "blockelement/autogenerateinteractionuiviewdividerblock.h"
 #include "blockelement/autogenerateinteractionuiviewinputblock.h"
@@ -44,8 +45,9 @@ void AutoGenerateInteractionUiViewBlocks::parse(const QJsonArray &array)
             input->parse(r.toObject());
             mBlockElements.append(std::move(input));
         } else if (type == "context"_L1) {
-            qCWarning(RUQOLA_AUTOGENERATEUI_LOG) << "Not implemented yet:" << type;
-            // TODO
+            AutoGenerateInteractionUiViewContextBlock *context = new AutoGenerateInteractionUiViewContextBlock;
+            context->parse(r.toObject());
+            mBlockElements.append(std::move(context));
         } else if (type == "image"_L1) {
             qCWarning(RUQOLA_AUTOGENERATEUI_LOG) << "Not implemented yet:" << type;
             // TODO
