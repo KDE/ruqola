@@ -5,6 +5,7 @@
 */
 
 #include "autogenerateinteractionuiviewactionsblock.h"
+#include "autogenerateui/autogenerateinteractionuiviewbuttonelement.h"
 #include "ruqola_action_buttons_debug.h"
 #include <QJsonArray>
 using namespace Qt::Literals::StringLiterals;
@@ -34,6 +35,9 @@ void AutoGenerateInteractionUiViewActionsBlock::parse(const QJsonObject &json)
     for (const auto &r : json["elements"_L1].toArray()) {
         const QString type = r["type"_L1].toString();
         if (type == "button"_L1) {
+            AutoGenerateInteractionUiViewButtonElement e;
+            e.parse(r["text"_L1].toObject());
+            mElements.append(std::move(e));
             // TODO
         } else {
             qCWarning(RUQOLA_ACTION_BUTTONS_LOG) << "Unknown type " << type;
