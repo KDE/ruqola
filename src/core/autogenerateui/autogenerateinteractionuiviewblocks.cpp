@@ -15,7 +15,6 @@ void AutoGenerateInteractionUiViewBlocks::parse(const QJsonArray &array)
 {
     for (const auto &r : array) {
         const QString type = r["type"_L1].toString();
-        // TODO parse type
         if (type == "section"_L1) {
         } else if (type == "divider"_L1) {
         } else if (type == "actions"_L1) {

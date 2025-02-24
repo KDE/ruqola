@@ -1,6 +1,8 @@
 # SPDX-FileCopyrightText: 2020-2025 Laurent Montel <montel@kde.org>
 # SPDX-License-Identifier: BSD-3-Clause
-add_library(libruqolacore)
+add_library(libruqolacore
+    autogenerateui/blockelement/autogenerateinteractionuiviewsectionblock.h autogenerateui/blockelement/autogenerateinteractionuiviewsectionblock.cpp
+    autogenerateui/blockelement/autogenerateinteractionuiviewblockbase.h autogenerateui/blockelement/autogenerateinteractionuiviewblockbase.cpp)
 
 target_sources(libruqolacore PRIVATE
     abstractwebsocket.cpp
