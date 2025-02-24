@@ -7,10 +7,14 @@
 #pragma once
 
 #include <QWidget>
+class QPlainTextEdit;
 class AutoGenerateInteractionGui : public QWidget
 {
     Q_OBJECT
 public:
     explicit AutoGenerateInteractionGui(QWidget *parent = nullptr);
     ~AutoGenerateInteractionGui() override;
+
+private:
+    QPlainTextEdit *const mPlainTextEdit;
 };

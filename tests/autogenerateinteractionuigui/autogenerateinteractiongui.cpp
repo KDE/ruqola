@@ -6,23 +6,36 @@
 
 #include "autogenerateinteractiongui.h"
 
+#include "autogenerateui/autogenerateinteractionui.h"
 #include <QApplication>
 #include <QFormLayout>
 #include <QHBoxLayout>
 #include <QJsonDocument>
 #include <QJsonObject>
+#include <QPlainTextEdit>
+#include <QPushButton>
 #include <QStandardPaths>
 
 AutoGenerateInteractionGui::AutoGenerateInteractionGui(QWidget *parent)
     : QWidget(parent)
+    , mPlainTextEdit(new QPlainTextEdit(this))
 {
     auto mainLayout = new QVBoxLayout(this);
-    auto hboxLayout = new QHBoxLayout;
-    hboxLayout->setContentsMargins({});
-    mainLayout->addLayout(hboxLayout);
+    mainLayout->addWidget(mPlainTextEdit);
 
-    auto mainComponentLayout = new QVBoxLayout;
-    mainComponentLayout->setContentsMargins({});
+    auto button = new QPushButton(QStringLiteral("Generate"), this);
+    mainLayout->addWidget(button);
+    connect(button, &QPushButton::clicked, this, [this]() {
+        const QString json = mPlainTextEdit->toPlainText();
+        if (!json.isEmpty()) {
+            AutoGenerateInteractionUi engine;
+            const QJsonDocument doc = QJsonDocument::fromJson(json.toUtf8());
+            engine.parseInteractionUi(doc.object());
+            auto w = engine.generateWidget(nullptr);
+            w->show();
+        }
+    });
+    resize(800, 600);
 }
 
 AutoGenerateInteractionGui::~AutoGenerateInteractionGui() = default;

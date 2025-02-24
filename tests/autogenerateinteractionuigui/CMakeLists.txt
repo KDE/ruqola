@@ -5,7 +5,7 @@ target_sources(autogenerateinteractiongui PRIVATE autogenerateinteractiongui.cpp
 
 target_link_libraries(autogenerateinteractiongui
     Qt::Widgets
-    libruqolacore
+    libruqolawidgets
 )
 
 set_target_properties(autogenerateinteractiongui PROPERTIES DISABLE_PRECOMPILE_HEADERS ON)
