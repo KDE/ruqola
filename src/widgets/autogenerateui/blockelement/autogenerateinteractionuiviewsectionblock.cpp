@@ -20,7 +20,9 @@ AutoGenerateInteractionUiViewSectionBlock::~AutoGenerateInteractionUiViewSection
 
 QDebug operator<<(QDebug d, const AutoGenerateInteractionUiViewSectionBlock &t)
 {
-    // TODO implement debug t
+    if (t.text()) {
+        d.space() << "text:" << *t.text();
+    }
     return d;
 }
 
