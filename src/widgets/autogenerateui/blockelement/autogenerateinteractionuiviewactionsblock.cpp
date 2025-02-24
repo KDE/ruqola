@@ -82,3 +82,9 @@ void AutoGenerateInteractionUiViewActionsBlock::setElements(const QList<AutoGene
 {
     mElements = newElements;
 }
+
+QWidget *AutoGenerateInteractionUiViewActionsBlock::generateWidget(QWidget *parent)
+{
+    // TODO
+    return nullptr;
+}

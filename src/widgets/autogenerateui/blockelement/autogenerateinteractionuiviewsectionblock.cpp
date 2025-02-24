@@ -25,3 +25,9 @@ bool AutoGenerateInteractionUiViewSectionBlock::operator==(const AutoGenerateInt
 {
     return AutoGenerateInteractionUiViewBlockBase::operator==(other);
 }
+
+QWidget *AutoGenerateInteractionUiViewSectionBlock::generateWidget(QWidget *parent)
+{
+    // TODO
+    return nullptr;
+}

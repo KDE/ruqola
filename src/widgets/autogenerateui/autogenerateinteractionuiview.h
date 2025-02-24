@@ -41,6 +41,8 @@ public:
     [[nodiscard]] AutoGenerateInteractionUiViewBlocks blocks() const;
     void setBlocks(const AutoGenerateInteractionUiViewBlocks &newBlocks);
 
+    [[nodiscard]] QWidget *generateWidget(QWidget *parent = nullptr);
+
 private:
     QByteArray mId;
     bool mShowIcon = false;

@@ -44,8 +44,7 @@ void AutoGenerateInteractionUi::setView(const AutoGenerateInteractionUiView &new
 
 QWidget *AutoGenerateInteractionUi::generateWidget(QWidget *parent)
 {
-    // TODO
-    return nullptr;
+    return mView.generateWidget(parent);
 }
 
 QByteArray AutoGenerateInteractionUi::appId() const

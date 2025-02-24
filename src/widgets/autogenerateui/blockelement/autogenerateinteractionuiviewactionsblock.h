@@ -21,6 +21,7 @@ public:
     void parse(const QJsonObject &json) override;
     [[nodiscard]] QList<AutoGenerateInteractionUiViewActionable> elements() const;
     void setElements(const QList<AutoGenerateInteractionUiViewActionable> &newElements);
+    [[nodiscard]] QWidget *generateWidget(QWidget *parent = nullptr) override;
 
 private:
     /*

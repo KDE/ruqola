@@ -6,6 +6,7 @@
 
 #include "autogenerateinteractionuiview.h"
 #include <QJsonArray>
+#include <QWidget>
 
 using namespace Qt::Literals::StringLiterals;
 AutoGenerateInteractionUiView::AutoGenerateInteractionUiView() = default;
@@ -96,6 +97,13 @@ AutoGenerateInteractionUiViewBlocks AutoGenerateInteractionUiView::blocks() cons
 void AutoGenerateInteractionUiView::setBlocks(const AutoGenerateInteractionUiViewBlocks &newBlocks)
 {
     mBlocks = newBlocks;
+}
+
+QWidget *AutoGenerateInteractionUiView::generateWidget(QWidget *parent)
+{
+    // TODO parent->setWindowTitle();
+    // TODO
+    return nullptr;
 }
 
 QDebug operator<<(QDebug d, const AutoGenerateInteractionUiView &t)
