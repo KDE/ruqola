@@ -51,3 +51,11 @@ bool AutoGenerateInteractionUiViewActionable::operator==(const AutoGenerateInter
 {
     return other.appId() == appId() && other.blockId() == blockId() && other.actionId() == other.actionId();
 }
+
+QDebug operator<<(QDebug d, const AutoGenerateInteractionUiViewActionable &t)
+{
+    d.space() << "appId:" << t.appId();
+    d.space() << "blockId:" << t.blockId();
+    d.space() << "actionId:" << t.actionId();
+    return d;
+}

@@ -7,6 +7,7 @@
 #pragma once
 
 #include "autogenerateinteractionuiviewblockbase.h"
+#include "autogenerateui/autogenerateinteractionuiviewactionable.h"
 #include "libruqola_private_export.h"
 #include <QDebug>
 
@@ -17,6 +18,10 @@ public:
     ~AutoGenerateInteractionUiViewActionsBlock() override;
     [[nodiscard]] bool operator==(const AutoGenerateInteractionUiViewActionsBlock &other) const;
 
+    void parse(const QJsonObject &json) override;
+    [[nodiscard]] QList<AutoGenerateInteractionUiViewActionable> elements() const;
+    void setElements(const QList<AutoGenerateInteractionUiViewActionable> &newElements);
+
 private:
     /*
         text?: TextObject;
@@ -24,6 +29,7 @@ private:
         accessory?: ButtonElement | DatePickerElement | ImageElement | MultiStaticSelectElement | OverflowElement | StaticSelectElement;
 
     */
+    QList<AutoGenerateInteractionUiViewActionable> mElements;
 };
 
 Q_DECLARE_METATYPE(AutoGenerateInteractionUiViewActionsBlock)

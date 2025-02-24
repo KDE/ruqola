@@ -83,6 +83,7 @@ QDebug operator<<(QDebug d, const AutoGenerateInteractionUiViewButtonElement &t)
     d.space() << "style:" << t.style();
     d.space() << "text:" << t.text();
     d.space() << "secondary:" << t.secondary();
+    // TODO use qDebug with AutoGenerateInteractionUiViewActionable
     return d;
 }
 

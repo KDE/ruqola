@@ -32,3 +32,7 @@ private:
     QByteArray mBlockId;
     QByteArray mActionId;
 };
+
+Q_DECLARE_METATYPE(AutoGenerateInteractionUiViewActionable)
+Q_DECLARE_TYPEINFO(AutoGenerateInteractionUiViewActionable, Q_RELOCATABLE_TYPE);
+LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const AutoGenerateInteractionUiViewActionable &t);

@@ -18,12 +18,6 @@ public:
     [[nodiscard]] bool operator==(const AutoGenerateInteractionUiViewInputBlock &other) const;
 
 private:
-    /*
-        text?: TextObject;
-        fields?: readonly TextObject[];
-        accessory?: ButtonElement | DatePickerElement | ImageElement | MultiStaticSelectElement | OverflowElement | StaticSelectElement;
-
-    */
 };
 
 Q_DECLARE_METATYPE(AutoGenerateInteractionUiViewInputBlock)
