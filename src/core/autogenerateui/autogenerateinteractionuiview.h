@@ -29,11 +29,11 @@ public:
     [[nodiscard]] bool showIcon() const;
     void setShowIcon(bool newShowIcon);
 
-    [[nodiscard]] AutoGenerateInteractionUiViewButtonElement closeButton() const;
-    void setCloseButton(const AutoGenerateInteractionUiViewButtonElement &newCloseButton);
+    [[nodiscard]] AutoGenerateInteractionUiViewButtonElement *closeButton() const;
+    void setCloseButton(AutoGenerateInteractionUiViewButtonElement *newCloseButton);
 
-    [[nodiscard]] AutoGenerateInteractionUiViewButtonElement submitButton() const;
-    void setSubmitButton(const AutoGenerateInteractionUiViewButtonElement &newSubmitButton);
+    [[nodiscard]] AutoGenerateInteractionUiViewButtonElement *submitButton() const;
+    void setSubmitButton(AutoGenerateInteractionUiViewButtonElement *newSubmitButton);
 
     [[nodiscard]] AutoGenerateInteractionUiViewText title() const;
     void setTitle(const AutoGenerateInteractionUiViewText &newTitle);
@@ -44,8 +44,8 @@ public:
 private:
     QByteArray mId;
     bool mShowIcon = false;
-    AutoGenerateInteractionUiViewButtonElement mCloseButton;
-    AutoGenerateInteractionUiViewButtonElement mSubmitButton;
+    AutoGenerateInteractionUiViewButtonElement *mCloseButton = nullptr;
+    AutoGenerateInteractionUiViewButtonElement *mSubmitButton = nullptr;
     AutoGenerateInteractionUiViewText mTitle;
     AutoGenerateInteractionUiViewBlocks mBlocks;
 };
