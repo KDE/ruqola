@@ -16,3 +16,5 @@ void AutoGenerateInteractionUiViewBlocksTest::shouldHaveDefaultValues()
 {
     // TODO
 }
+
+#include "moc_autogenerateinteractionuiviewblockstest.cpp"

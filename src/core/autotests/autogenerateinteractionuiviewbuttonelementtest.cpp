@@ -16,3 +16,5 @@ void AutoGenerateInteractionUiViewButtonElementTest::shouldHaveDefaultValues()
 {
     // TODO
 }
+
+#include "moc_autogenerateinteractionuiviewbuttonelementtest.cpp"

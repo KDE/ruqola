@@ -16,3 +16,5 @@ void AutoGenerateInteractionUiViewActionableTest::shouldHaveDefaultValues()
 {
     // TODO
 }
+
+#include "moc_autogenerateinteractionuiviewactionabletest.cpp"

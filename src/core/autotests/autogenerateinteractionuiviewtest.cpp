@@ -18,3 +18,5 @@ void AutoGenerateInteractionUiViewTest::shouldHaveDefaultValues()
     AutoGenerateInteractionUiView w;
     // TODO
 }
+
+#include "moc_autogenerateinteractionuiviewtest.cpp"
