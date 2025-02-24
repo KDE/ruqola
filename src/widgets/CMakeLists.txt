@@ -1049,12 +1049,13 @@ target_sources(libruqolawidgets PRIVATE
     autogenerateui/blockelement/autogenerateinteractionuiviewinputblock.h
     autogenerateui/blockelement/autogenerateinteractionuiviewdividerblock.cpp
     autogenerateui/blockelement/autogenerateinteractionuiviewdividerblock.h
+    autogenerateui/blockelement/autogenerateinteractionuiviewcontextblock.h
+    autogenerateui/blockelement/autogenerateinteractionuiviewcontextblock.cpp
+    
     autogenerateui/autogenerateinteractionuiviewoptionelement.h
     autogenerateui/autogenerateinteractionuiviewoptionelement.cpp
     autogenerateui/autogenerateinteractionuiviewplaintextinputelement.h
     autogenerateui/autogenerateinteractionuiviewplaintextinputelement.cpp
-    autogenerateui/autogenerateinteractionuiviewcontextblock.h
-    autogenerateui/autogenerateinteractionuiviewcontextblock.cpp
 )
 
 if(HAVE_TEXT_AUTOCORRECTION_WIDGETS)

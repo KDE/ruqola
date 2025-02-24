@@ -5,8 +5,8 @@
 */
 
 #include "autogenerateinteractionuiviewblocks.h"
-#include "autogenerateinteractionuiviewcontextblock.h"
 #include "blockelement/autogenerateinteractionuiviewactionsblock.h"
+#include "blockelement/autogenerateinteractionuiviewcontextblock.h"
 #include "blockelement/autogenerateinteractionuiviewdividerblock.h"
 #include "blockelement/autogenerateinteractionuiviewinputblock.h"
 #include "blockelement/autogenerateinteractionuiviewsectionblock.h"
