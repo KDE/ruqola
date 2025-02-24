@@ -27,7 +27,7 @@ public:
     [[nodiscard]] AutoGenerateInteractionUiViewText label() const;
     void setLabel(const AutoGenerateInteractionUiViewText &newLabel);
 
-    [[nodiscard]] QWidget *generateWidget(QWidget *parent = nullptr) override;
+    void generateWidget(QWidget *parent) override;
 
 private:
     AutoGenerateInteractionUiViewText mLabel;

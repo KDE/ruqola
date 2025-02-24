@@ -26,7 +26,7 @@ public:
 
     virtual void parse(const QJsonObject &json);
 
-    [[nodiscard]] virtual QWidget *generateWidget(QWidget *parent = nullptr);
+    virtual void generateWidget(QWidget *parent);
 
 private:
     QString mAppId;

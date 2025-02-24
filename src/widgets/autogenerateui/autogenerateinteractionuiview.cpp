@@ -99,11 +99,11 @@ void AutoGenerateInteractionUiView::setBlocks(const AutoGenerateInteractionUiVie
     mBlocks = newBlocks;
 }
 
-QWidget *AutoGenerateInteractionUiView::generateWidget(QWidget *parent)
+void AutoGenerateInteractionUiView::generateWidget(QWidget *widget)
 {
-    // TODO parent->setWindowTitle();
-    // TODO
-    return nullptr;
+    // TODO customize title
+    widget->setWindowTitle(mTitle.text());
+    mBlocks.generateWidget(widget);
 }
 
 QDebug operator<<(QDebug d, const AutoGenerateInteractionUiView &t)

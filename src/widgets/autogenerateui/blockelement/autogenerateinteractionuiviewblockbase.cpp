@@ -48,8 +48,7 @@ void AutoGenerateInteractionUiViewBlockBase::parse(const QJsonObject &json)
     mBlockId = json["blockId"_L1].toString();
 }
 
-QWidget *AutoGenerateInteractionUiViewBlockBase::generateWidget(QWidget *parent)
+void AutoGenerateInteractionUiViewBlockBase::generateWidget(QWidget *parent)
 {
     // TODO
-    return nullptr;
 }

@@ -6,6 +6,9 @@
 
 #include "autogenerateinteractionui.h"
 #include "ruqola_autogenerateui_debug.h"
+
+#include <QWidget>
+
 using namespace Qt::Literals::StringLiterals;
 AutoGenerateInteractionUi::AutoGenerateInteractionUi() = default;
 
@@ -44,7 +47,9 @@ void AutoGenerateInteractionUi::setView(const AutoGenerateInteractionUiView &new
 
 QWidget *AutoGenerateInteractionUi::generateWidget(QWidget *parent)
 {
-    return mView.generateWidget(parent);
+    auto widget = new QWidget(parent);
+    mView.generateWidget(widget);
+    return widget;
 }
 
 QByteArray AutoGenerateInteractionUi::appId() const

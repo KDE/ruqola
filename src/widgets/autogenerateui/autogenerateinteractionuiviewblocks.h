@@ -22,7 +22,7 @@ public:
     [[nodiscard]] QList<AutoGenerateInteractionUiViewBlockBase> blockElements() const;
     void setBlockElements(const QList<AutoGenerateInteractionUiViewBlockBase> &newBlockElements);
 
-    [[nodiscard]] QWidget *generateWidget(QWidget *parent = nullptr);
+    void generateWidget(QWidget *parent);
 
 private:
     QList<AutoGenerateInteractionUiViewBlockBase> mBlockElements;

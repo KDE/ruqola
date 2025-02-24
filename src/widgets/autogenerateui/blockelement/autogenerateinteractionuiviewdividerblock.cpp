@@ -26,8 +26,7 @@ bool AutoGenerateInteractionUiViewDividerBlock::operator==(const AutoGenerateInt
     return AutoGenerateInteractionUiViewBlockBase::operator==(other);
 }
 
-QWidget *AutoGenerateInteractionUiViewDividerBlock::generateWidget(QWidget *parent)
+void AutoGenerateInteractionUiViewDividerBlock::generateWidget(QWidget *parent)
 {
     // TODO
-    return nullptr;
 }

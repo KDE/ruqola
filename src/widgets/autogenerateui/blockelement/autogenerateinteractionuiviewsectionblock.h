@@ -16,7 +16,7 @@ public:
     AutoGenerateInteractionUiViewSectionBlock();
     ~AutoGenerateInteractionUiViewSectionBlock() override;
     [[nodiscard]] bool operator==(const AutoGenerateInteractionUiViewSectionBlock &other) const;
-    [[nodiscard]] QWidget *generateWidget(QWidget *parent = nullptr) override;
+    void generateWidget(QWidget *parent) override;
 
 private:
     /*

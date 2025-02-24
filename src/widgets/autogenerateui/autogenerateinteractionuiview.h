@@ -41,7 +41,7 @@ public:
     [[nodiscard]] AutoGenerateInteractionUiViewBlocks blocks() const;
     void setBlocks(const AutoGenerateInteractionUiViewBlocks &newBlocks);
 
-    [[nodiscard]] QWidget *generateWidget(QWidget *parent = nullptr);
+    void generateWidget(QWidget *parent);
 
 private:
     QByteArray mId;
