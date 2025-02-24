@@ -29,6 +29,9 @@ public:
 
     [[nodiscard]] QWidget *generateWidget(QWidget *parent) const override;
 
+    [[nodiscard]] AutoGenerateInteractionUiViewActionable *element() const;
+    void setElement(AutoGenerateInteractionUiViewActionable *newElement);
+
 private:
     AutoGenerateInteractionUiViewText mLabel;
     AutoGenerateInteractionUiViewActionable *mElement = nullptr;
@@ -37,4 +40,4 @@ private:
 
 Q_DECLARE_METATYPE(AutoGenerateInteractionUiViewInputBlock)
 Q_DECLARE_TYPEINFO(AutoGenerateInteractionUiViewInputBlock, Q_RELOCATABLE_TYPE);
-LIBRUQOLAWIDGETS_NO_EXPORT QDebug operator<<(QDebug d, const AutoGenerateInteractionUiViewInputBlock &t);
+LIBRUQOLAWIDGETS_EXPORT QDebug operator<<(QDebug d, const AutoGenerateInteractionUiViewInputBlock &t);

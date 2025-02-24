@@ -81,3 +81,13 @@ QWidget *AutoGenerateInteractionUiViewInputBlock::generateWidget(QWidget *parent
     }
     return nullptr;
 }
+
+AutoGenerateInteractionUiViewActionable *AutoGenerateInteractionUiViewInputBlock::element() const
+{
+    return mElement;
+}
+
+void AutoGenerateInteractionUiViewInputBlock::setElement(AutoGenerateInteractionUiViewActionable *newElement)
+{
+    mElement = newElement;
+}
