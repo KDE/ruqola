@@ -1,5 +1,7 @@
 # SPDX-FileCopyrightText: 2025 Laurent Montel <montel@kde.org>
 # SPDX-License-Identifier: BSD-3-Clause
+add_definitions(-DRUQOLA_AUTOGENERATEUI_DATA_DIR="${CMAKE_CURRENT_SOURCE_DIR}/data")
+
 macro(add_ruqola_autogenerateui_test _source)
     set(_test ${_source})
     get_filename_component(_name ${_source} NAME_WE)
@@ -16,4 +18,4 @@ add_ruqola_autogenerateui_test(autogenerateinteractionuiviewtest.cpp)
 add_ruqola_autogenerateui_test(autogenerateinteractionuiviewactionabletest.cpp)
 add_ruqola_autogenerateui_test(autogenerateinteractionuiviewblockstest.cpp)
 add_ruqola_autogenerateui_test(autogenerateinteractionuiviewbuttonelementtest.cpp)
-
+add_ruqola_autogenerateui_test(autogenerateinteractionuiviewtexttest.cpp)
