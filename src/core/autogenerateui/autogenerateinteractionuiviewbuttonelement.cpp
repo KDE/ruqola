@@ -10,12 +10,6 @@ using namespace Qt::Literals::StringLiterals;
 AutoGenerateInteractionUiViewButtonElement::AutoGenerateInteractionUiViewButtonElement() = default;
 AutoGenerateInteractionUiViewButtonElement::~AutoGenerateInteractionUiViewButtonElement() = default;
 
-bool AutoGenerateInteractionUiViewButtonElement::isValid() const
-{
-    // TODO
-    return false;
-}
-
 AutoGenerateInteractionUiViewButtonElement::Style AutoGenerateInteractionUiViewButtonElement::convertStyleFromString(const QString &str) const
 {
     if (str == "primary"_L1) {

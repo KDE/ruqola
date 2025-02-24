@@ -25,8 +25,6 @@ public:
     AutoGenerateInteractionUiViewButtonElement();
     ~AutoGenerateInteractionUiViewButtonElement() override;
 
-    [[nodiscard]] bool isValid() const;
-
     [[nodiscard]] Style style() const;
     void setStyle(Style newStyle);
 

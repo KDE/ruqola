@@ -38,6 +38,9 @@ void AutoGenerateInteractionUiViewActionsBlock::parse(const QJsonObject &json)
             AutoGenerateInteractionUiViewButtonElement e;
             e.parse(r["text"_L1].toObject());
             mElements.append(std::move(e));
+        } else if (type == "checkbox"_L1) {
+            // TODO
+        } else if (type == "radio_button"_L1) {
             // TODO
         } else {
             qCWarning(RUQOLA_ACTION_BUTTONS_LOG) << "Unknown type " << type;
