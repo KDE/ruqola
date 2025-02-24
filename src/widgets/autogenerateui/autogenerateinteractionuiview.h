@@ -54,4 +54,4 @@ private:
 
 Q_DECLARE_METATYPE(AutoGenerateInteractionUiView)
 Q_DECLARE_TYPEINFO(AutoGenerateInteractionUiView, Q_RELOCATABLE_TYPE);
-LIBRUQOLAWIDGETS_NO_EXPORT QDebug operator<<(QDebug d, const AutoGenerateInteractionUiView &t);
+LIBRUQOLAWIDGETS_EXPORT QDebug operator<<(QDebug d, const AutoGenerateInteractionUiView &t);

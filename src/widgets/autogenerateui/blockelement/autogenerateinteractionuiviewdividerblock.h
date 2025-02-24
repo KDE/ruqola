@@ -21,4 +21,4 @@ public:
 
 Q_DECLARE_METATYPE(AutoGenerateInteractionUiViewDividerBlock)
 Q_DECLARE_TYPEINFO(AutoGenerateInteractionUiViewDividerBlock, Q_RELOCATABLE_TYPE);
-LIBRUQOLAWIDGETS_NO_EXPORT QDebug operator<<(QDebug d, const AutoGenerateInteractionUiViewDividerBlock &t);
+LIBRUQOLAWIDGETS_EXPORT QDebug operator<<(QDebug d, const AutoGenerateInteractionUiViewDividerBlock &t);

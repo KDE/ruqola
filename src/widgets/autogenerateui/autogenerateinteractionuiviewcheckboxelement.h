@@ -25,4 +25,4 @@ private:
 };
 Q_DECLARE_METATYPE(AutoGenerateInteractionUiViewCheckboxElement)
 Q_DECLARE_TYPEINFO(AutoGenerateInteractionUiViewCheckboxElement, Q_RELOCATABLE_TYPE);
-LIBRUQOLAWIDGETS_NO_EXPORT QDebug operator<<(QDebug d, const AutoGenerateInteractionUiViewCheckboxElement &t);
+LIBRUQOLAWIDGETS_EXPORT QDebug operator<<(QDebug d, const AutoGenerateInteractionUiViewCheckboxElement &t);

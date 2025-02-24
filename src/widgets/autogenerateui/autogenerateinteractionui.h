@@ -50,4 +50,4 @@ private:
 };
 Q_DECLARE_METATYPE(AutoGenerateInteractionUi)
 Q_DECLARE_TYPEINFO(AutoGenerateInteractionUi, Q_RELOCATABLE_TYPE);
-LIBRUQOLAWIDGETS_NO_EXPORT QDebug operator<<(QDebug d, const AutoGenerateInteractionUi &t);
+LIBRUQOLAWIDGETS_EXPORT QDebug operator<<(QDebug d, const AutoGenerateInteractionUi &t);
