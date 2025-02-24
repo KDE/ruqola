@@ -19,9 +19,9 @@ public:
     [[nodiscard]] bool operator==(const AutoGenerateInteractionUiViewActionsBlock &other) const;
 
     void parse(const QJsonObject &json) override;
-    [[nodiscard]] QList<AutoGenerateInteractionUiViewActionable> elements() const;
-    void setElements(const QList<AutoGenerateInteractionUiViewActionable> &newElements);
-    void generateWidget(QWidget *parent = nullptr) override;
+    [[nodiscard]] QList<AutoGenerateInteractionUiViewActionable *> elements() const;
+    void setElements(const QList<AutoGenerateInteractionUiViewActionable *> &newElements);
+    QWidget *generateWidget(QWidget *parent = nullptr) const override;
 
 private:
     /*
@@ -30,7 +30,7 @@ private:
         accessory?: ButtonElement | DatePickerElement | ImageElement | MultiStaticSelectElement | OverflowElement | StaticSelectElement;
 
     */
-    QList<AutoGenerateInteractionUiViewActionable> mElements;
+    QList<AutoGenerateInteractionUiViewActionable *> mElements;
 };
 
 Q_DECLARE_METATYPE(AutoGenerateInteractionUiViewActionsBlock)

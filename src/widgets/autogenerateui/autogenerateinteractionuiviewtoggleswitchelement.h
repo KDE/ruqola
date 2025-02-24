@@ -21,11 +21,11 @@ public:
 
     [[nodiscard]] QList<AutoGenerateInteractionUiViewOptionElement> options() const;
     void setOptions(const QList<AutoGenerateInteractionUiViewOptionElement> &newOptions);
+    [[nodiscard]] QWidget *generateWidget(QWidget *parent) override;
 
 private:
     // TODO initialOptions
     QList<AutoGenerateInteractionUiViewOptionElement> mOptions;
 };
 Q_DECLARE_METATYPE(AutoGenerateInteractionUiViewToggleSwitchElement)
-Q_DECLARE_TYPEINFO(AutoGenerateInteractionUiViewToggleSwitchElement, Q_RELOCATABLE_TYPE);
 LIBRUQOLAWIDGETS_NO_EXPORT QDebug operator<<(QDebug d, const AutoGenerateInteractionUiViewToggleSwitchElement &t);

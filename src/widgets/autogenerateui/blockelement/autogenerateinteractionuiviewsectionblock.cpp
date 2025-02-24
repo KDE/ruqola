@@ -5,7 +5,9 @@
 */
 
 #include "autogenerateinteractionuiviewsectionblock.h"
-
+#include "autogenerateui/autogenerateinteractionuiviewtext.h"
+#include <QLabel>
+using namespace Qt::Literals::StringLiterals;
 AutoGenerateInteractionUiViewSectionBlock::AutoGenerateInteractionUiViewSectionBlock()
     : AutoGenerateInteractionUiViewBlockBase()
 {
@@ -13,6 +15,7 @@ AutoGenerateInteractionUiViewSectionBlock::AutoGenerateInteractionUiViewSectionB
 
 AutoGenerateInteractionUiViewSectionBlock::~AutoGenerateInteractionUiViewSectionBlock()
 {
+    delete mText;
 }
 
 QDebug operator<<(QDebug d, const AutoGenerateInteractionUiViewSectionBlock &t)
@@ -26,7 +29,31 @@ bool AutoGenerateInteractionUiViewSectionBlock::operator==(const AutoGenerateInt
     return AutoGenerateInteractionUiViewBlockBase::operator==(other);
 }
 
-void AutoGenerateInteractionUiViewSectionBlock::generateWidget(QWidget *parent)
+QWidget *AutoGenerateInteractionUiViewSectionBlock::generateWidget(QWidget *parent) const
 {
+    if (mText) {
+        auto label = new QLabel(parent);
+        label->setText(mText->text());
+        return label;
+    }
+    return nullptr;
+}
+
+AutoGenerateInteractionUiViewText *AutoGenerateInteractionUiViewSectionBlock::text() const
+{
+    return mText;
+}
+
+void AutoGenerateInteractionUiViewSectionBlock::setText(AutoGenerateInteractionUiViewText *newText)
+{
+    mText = newText;
+}
+
+void AutoGenerateInteractionUiViewSectionBlock::parse(const QJsonObject &json)
+{
+    if (json.contains("text"_L1)) {
+        mText = new AutoGenerateInteractionUiViewText;
+        mText->parse(json["text"_L1].toObject());
+    }
     // TODO
 }

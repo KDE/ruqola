@@ -15,6 +15,11 @@ void AutoGenerateInteractionUiViewRadioButtonElement::parse(const QJsonObject &j
     AutoGenerateInteractionUiViewActionable::parse(json);
 }
 
+QWidget *AutoGenerateInteractionUiViewRadioButtonElement::generateWidget(QWidget *parent)
+{
+    return nullptr;
+}
+
 QDebug operator<<(QDebug d, const AutoGenerateInteractionUiViewRadioButtonElement &t)
 {
     // TODO use qDebug with AutoGenerateInteractionUiViewActionable

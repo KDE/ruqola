@@ -18,3 +18,9 @@ void AutoGenerateInteractionUiViewOptionElement::parse(const QJsonObject &json)
 {
     // TODO
 }
+
+QWidget *AutoGenerateInteractionUiViewOptionElement::generateWidget(QWidget *parent)
+{
+    // TODO
+    return nullptr;
+}

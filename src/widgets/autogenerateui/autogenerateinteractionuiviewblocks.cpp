@@ -11,30 +11,37 @@
 #include "blockelement/autogenerateinteractionuiviewsectionblock.h"
 #include "ruqola_autogenerateui_debug.h"
 
+#include <QLayout>
+#include <QWidget>
+
 using namespace Qt::Literals::StringLiterals;
 AutoGenerateInteractionUiViewBlocks::AutoGenerateInteractionUiViewBlocks() = default;
 
-AutoGenerateInteractionUiViewBlocks::~AutoGenerateInteractionUiViewBlocks() = default;
+AutoGenerateInteractionUiViewBlocks::~AutoGenerateInteractionUiViewBlocks()
+{
+    qDeleteAll(mBlockElements);
+}
 
 void AutoGenerateInteractionUiViewBlocks::parse(const QJsonArray &array)
 {
     for (const auto &r : array) {
         const QString type = r["type"_L1].toString();
+        qDebug() << " LOAD TYPE " << type;
         if (type == "section"_L1) {
-            AutoGenerateInteractionUiViewSectionBlock section;
-            section.parse(r.toObject());
+            AutoGenerateInteractionUiViewSectionBlock *section = new AutoGenerateInteractionUiViewSectionBlock;
+            section->parse(r.toObject());
             mBlockElements.append(std::move(section));
         } else if (type == "divider"_L1) {
-            AutoGenerateInteractionUiViewDividerBlock divider;
-            divider.parse(r.toObject());
+            AutoGenerateInteractionUiViewDividerBlock *divider = new AutoGenerateInteractionUiViewDividerBlock;
+            divider->parse(r.toObject());
             mBlockElements.append(std::move(divider));
         } else if (type == "actions"_L1) {
-            AutoGenerateInteractionUiViewActionsBlock actions;
-            actions.parse(r.toObject());
+            AutoGenerateInteractionUiViewActionsBlock *actions = new AutoGenerateInteractionUiViewActionsBlock;
+            actions->parse(r.toObject());
             mBlockElements.append(std::move(actions));
         } else if (type == "input"_L1) {
-            AutoGenerateInteractionUiViewInputBlock input;
-            input.parse(r.toObject());
+            AutoGenerateInteractionUiViewInputBlock *input = new AutoGenerateInteractionUiViewInputBlock;
+            input->parse(r.toObject());
             mBlockElements.append(std::move(input));
         } else if (type == "context"_L1) {
             qCWarning(RUQOLA_AUTOGENERATEUI_LOG) << "Not implemented yet:" << type;
@@ -62,17 +69,24 @@ bool AutoGenerateInteractionUiViewBlocks::operator==(const AutoGenerateInteracti
     return other.mBlockElements == mBlockElements;
 }
 
-QList<AutoGenerateInteractionUiViewBlockBase> AutoGenerateInteractionUiViewBlocks::blockElements() const
+QList<AutoGenerateInteractionUiViewBlockBase *> AutoGenerateInteractionUiViewBlocks::blockElements() const
 {
     return mBlockElements;
 }
 
-void AutoGenerateInteractionUiViewBlocks::setBlockElements(const QList<AutoGenerateInteractionUiViewBlockBase> &newBlockElements)
+void AutoGenerateInteractionUiViewBlocks::setBlockElements(const QList<AutoGenerateInteractionUiViewBlockBase *> &newBlockElements)
 {
     mBlockElements = newBlockElements;
 }
 
 void AutoGenerateInteractionUiViewBlocks::generateWidget(QWidget *parent)
 {
-    // TODO
+    auto widget = new QWidget(parent);
+    parent->layout()->addWidget(widget);
+
+    auto vboxLayout = new QVBoxLayout;
+    widget->setLayout(vboxLayout);
+    for (const auto &e : std::as_const(mBlockElements)) {
+        vboxLayout->addWidget(e->generateWidget(widget));
+    }
 }

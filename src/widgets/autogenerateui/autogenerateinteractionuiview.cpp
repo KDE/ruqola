@@ -5,7 +5,10 @@
 */
 
 #include "autogenerateinteractionuiview.h"
+#include <QDialogButtonBox>
 #include <QJsonArray>
+#include <QPushButton>
+#include <QVBoxLayout>
 #include <QWidget>
 
 using namespace Qt::Literals::StringLiterals;
@@ -103,7 +106,22 @@ void AutoGenerateInteractionUiView::generateWidget(QWidget *widget)
 {
     // TODO customize title
     widget->setWindowTitle(mTitle.text());
+    auto mainLayout = new QVBoxLayout(widget);
     mBlocks.generateWidget(widget);
+    if (mCloseButton || mSubmitButton) {
+        auto buttonDialog = new QDialogButtonBox(widget);
+        // TODO connect button
+        if (mCloseButton) {
+            auto closeButton = buttonDialog->addButton(QDialogButtonBox::Close);
+            closeButton->setText(mCloseButton->text().text());
+        }
+        if (mSubmitButton) {
+            auto okButton = buttonDialog->addButton(QDialogButtonBox::Ok);
+            okButton->setText(mSubmitButton->text().text());
+        }
+        mainLayout->addStretch(1);
+        mainLayout->addWidget(buttonDialog);
+    }
 }
 
 QDebug operator<<(QDebug d, const AutoGenerateInteractionUiView &t)

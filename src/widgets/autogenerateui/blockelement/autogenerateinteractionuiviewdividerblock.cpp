@@ -6,6 +6,8 @@
 
 #include "autogenerateinteractionuiviewdividerblock.h"
 
+#include <KSeparator>
+
 AutoGenerateInteractionUiViewDividerBlock::AutoGenerateInteractionUiViewDividerBlock()
     : AutoGenerateInteractionUiViewBlockBase()
 {
@@ -26,7 +28,7 @@ bool AutoGenerateInteractionUiViewDividerBlock::operator==(const AutoGenerateInt
     return AutoGenerateInteractionUiViewBlockBase::operator==(other);
 }
 
-void AutoGenerateInteractionUiViewDividerBlock::generateWidget(QWidget *parent)
+QWidget *AutoGenerateInteractionUiViewDividerBlock::generateWidget(QWidget *parent) const
 {
-    // TODO
+    return new KSeparator(parent);
 }

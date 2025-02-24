@@ -19,13 +19,13 @@ public:
     void parse(const QJsonArray &array);
     [[nodiscard]] bool operator==(const AutoGenerateInteractionUiViewBlocks &other) const;
 
-    [[nodiscard]] QList<AutoGenerateInteractionUiViewBlockBase> blockElements() const;
-    void setBlockElements(const QList<AutoGenerateInteractionUiViewBlockBase> &newBlockElements);
+    [[nodiscard]] QList<AutoGenerateInteractionUiViewBlockBase *> blockElements() const;
+    void setBlockElements(const QList<AutoGenerateInteractionUiViewBlockBase *> &newBlockElements);
 
     void generateWidget(QWidget *parent);
 
 private:
-    QList<AutoGenerateInteractionUiViewBlockBase> mBlockElements;
+    QList<AutoGenerateInteractionUiViewBlockBase *> mBlockElements;
 };
 
 Q_DECLARE_METATYPE(AutoGenerateInteractionUiViewBlocks)

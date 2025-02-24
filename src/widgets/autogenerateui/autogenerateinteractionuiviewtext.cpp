@@ -20,9 +20,11 @@ void AutoGenerateInteractionUiViewText::parse(const QJsonObject &json)
 
 AutoGenerateInteractionUiViewText::TextType AutoGenerateInteractionUiViewText::convertTypeFromString(const QString &str) const
 {
-    if (str == "mrkdwn"_L1) {
-        return AutoGenerateInteractionUiViewText::TextType::Markdown;
+    if (str.isEmpty()) {
+        return AutoGenerateInteractionUiViewText::TextType::Unknown;
     } else if (str == "mrkdwn"_L1) {
+        return AutoGenerateInteractionUiViewText::TextType::Markdown;
+    } else if (str == "plain_text"_L1) {
         return AutoGenerateInteractionUiViewText::TextType::PlainText;
     } else {
         qCWarning(RUQOLA_AUTOGENERATEUI_LOG) << "convertTypeFromString Unknown type " << str;

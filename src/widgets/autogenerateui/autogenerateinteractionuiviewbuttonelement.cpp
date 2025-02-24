@@ -5,6 +5,8 @@
 */
 #include "autogenerateinteractionuiviewbuttonelement.h"
 #include "ruqola_autogenerateui_debug.h"
+#include <QPushButton>
+
 using namespace Qt::Literals::StringLiterals;
 
 AutoGenerateInteractionUiViewButtonElement::AutoGenerateInteractionUiViewButtonElement() = default;
@@ -12,7 +14,9 @@ AutoGenerateInteractionUiViewButtonElement::~AutoGenerateInteractionUiViewButton
 
 AutoGenerateInteractionUiViewButtonElement::Style AutoGenerateInteractionUiViewButtonElement::convertStyleFromString(const QString &str) const
 {
-    if (str == "primary"_L1) {
+    if (str.isEmpty()) {
+        return AutoGenerateInteractionUiViewButtonElement::Style::Unknown;
+    } else if (str == "primary"_L1) {
         return AutoGenerateInteractionUiViewButtonElement::Style::Primary;
     } else if (str == "secondary"_L1) {
         return AutoGenerateInteractionUiViewButtonElement::Style::Secondary;
@@ -36,6 +40,13 @@ bool AutoGenerateInteractionUiViewButtonElement::secondary() const
 void AutoGenerateInteractionUiViewButtonElement::setSecondary(bool newSecondary)
 {
     mSecondary = newSecondary;
+}
+
+QWidget *AutoGenerateInteractionUiViewButtonElement::generateWidget(QWidget *parent)
+{
+    auto b = new QPushButton(parent);
+    b->setText(mText.text());
+    return b;
 }
 
 AutoGenerateInteractionUiViewButtonElement::Style AutoGenerateInteractionUiViewButtonElement::style() const
@@ -65,11 +76,13 @@ void AutoGenerateInteractionUiViewButtonElement::setText(const AutoGenerateInter
 
 void AutoGenerateInteractionUiViewButtonElement::parse(const QJsonObject &json)
 {
+    qDebug() << " AutoGenerateInteractionUiViewButtonElement::parse " << json;
     AutoGenerateInteractionUiViewActionable::parse(json);
     mStyle = convertStyleFromString(json["style"_L1].toString());
     mText.parse(json["text"_L1].toObject());
     mSecondary = json["secondary"_L1].toBool();
     // TODO
+    qDebug() << "AutoGenerateInteractionUiViewButtonElement *this " << *this;
 }
 
 QDebug operator<<(QDebug d, const AutoGenerateInteractionUiViewButtonElement &t)

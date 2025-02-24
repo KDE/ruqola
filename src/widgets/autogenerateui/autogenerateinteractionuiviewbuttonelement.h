@@ -37,6 +37,8 @@ public:
     [[nodiscard]] bool secondary() const;
     void setSecondary(bool newSecondary);
 
+    [[nodiscard]] QWidget *generateWidget(QWidget *parent) override;
+
 private:
     [[nodiscard]] LIBRUQOLAWIDGETS_NO_EXPORT AutoGenerateInteractionUiViewButtonElement::Style convertStyleFromString(const QString &str) const;
     Style mStyle = Style::Unknown;

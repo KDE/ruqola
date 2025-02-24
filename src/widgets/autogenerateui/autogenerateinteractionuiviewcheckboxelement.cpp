@@ -7,12 +7,22 @@
 #include "ruqola_action_buttons_debug.h"
 using namespace Qt::Literals::StringLiterals;
 
-AutoGenerateInteractionUiViewCheckboxElement::AutoGenerateInteractionUiViewCheckboxElement() = default;
+AutoGenerateInteractionUiViewCheckboxElement::AutoGenerateInteractionUiViewCheckboxElement()
+    : AutoGenerateInteractionUiViewActionable()
+{
+}
+
 AutoGenerateInteractionUiViewCheckboxElement::~AutoGenerateInteractionUiViewCheckboxElement() = default;
 
 void AutoGenerateInteractionUiViewCheckboxElement::parse(const QJsonObject &json)
 {
     AutoGenerateInteractionUiViewActionable::parse(json);
+}
+
+QWidget *AutoGenerateInteractionUiViewCheckboxElement::generateWidget(QWidget *parent)
+{
+    // TODO
+    return nullptr;
 }
 
 QDebug operator<<(QDebug d, const AutoGenerateInteractionUiViewCheckboxElement &t)

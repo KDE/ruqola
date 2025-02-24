@@ -9,12 +9,14 @@
 #include "autogenerateinteractionuiviewactionable.h"
 
 // See ./packages/ui-kit/src/blocks/Option.ts
-class AutoGenerateInteractionUiViewOptionElement : public AutoGenerateInteractionUiViewActionable
+class LIBRUQOLAWIDGETS_TESTS_EXPORT AutoGenerateInteractionUiViewOptionElement : public AutoGenerateInteractionUiViewActionable
 {
 public:
     AutoGenerateInteractionUiViewOptionElement();
     ~AutoGenerateInteractionUiViewOptionElement() override;
     void parse(const QJsonObject &json) override;
+
+    [[nodiscard]] QWidget *generateWidget(QWidget *parent) override;
 
 private:
     QString value;

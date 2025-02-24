@@ -17,6 +17,7 @@ public:
     ~AutoGenerateInteractionUiViewRadioButtonElement() override;
 
     void parse(const QJsonObject &json) override;
+    [[nodiscard]] QWidget *generateWidget(QWidget *parent) override;
 
 private:
     // TODO initialOptions
@@ -24,4 +25,4 @@ private:
 };
 Q_DECLARE_METATYPE(AutoGenerateInteractionUiViewRadioButtonElement)
 Q_DECLARE_TYPEINFO(AutoGenerateInteractionUiViewRadioButtonElement, Q_RELOCATABLE_TYPE);
-LIBRUQOLAWIDGETS_NO_EXPORT QDebug operator<<(QDebug d, const AutoGenerateInteractionUiViewRadioButtonElement &t);
+LIBRUQOLAWIDGETS_EXPORT QDebug operator<<(QDebug d, const AutoGenerateInteractionUiViewRadioButtonElement &t);

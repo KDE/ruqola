@@ -16,7 +16,7 @@ public:
     AutoGenerateInteractionUiViewDividerBlock();
     ~AutoGenerateInteractionUiViewDividerBlock() override;
     [[nodiscard]] bool operator==(const AutoGenerateInteractionUiViewDividerBlock &other) const;
-    void generateWidget(QWidget *parent) override;
+    [[nodiscard]] QWidget *generateWidget(QWidget *parent) const override;
 };
 
 Q_DECLARE_METATYPE(AutoGenerateInteractionUiViewDividerBlock)

@@ -9,16 +9,22 @@
 #include "autogenerateinteractionuiviewblockbase.h"
 #include "libruqolawidgets_private_export.h"
 #include <QDebug>
-
+class AutoGenerateInteractionUiViewText;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT AutoGenerateInteractionUiViewSectionBlock : public AutoGenerateInteractionUiViewBlockBase
 {
 public:
     AutoGenerateInteractionUiViewSectionBlock();
     ~AutoGenerateInteractionUiViewSectionBlock() override;
     [[nodiscard]] bool operator==(const AutoGenerateInteractionUiViewSectionBlock &other) const;
-    void generateWidget(QWidget *parent) override;
+    [[nodiscard]] QWidget *generateWidget(QWidget *parent) const override;
+
+    [[nodiscard]] AutoGenerateInteractionUiViewText *text() const;
+    void setText(AutoGenerateInteractionUiViewText *newText);
+
+    void parse(const QJsonObject &json) override;
 
 private:
+    AutoGenerateInteractionUiViewText *mText = nullptr;
     /*
         text?: TextObject;
         fields?: readonly TextObject[];

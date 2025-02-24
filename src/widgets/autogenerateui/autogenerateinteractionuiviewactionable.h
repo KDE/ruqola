@@ -27,6 +27,8 @@ public:
 
     [[nodiscard]] bool operator==(const AutoGenerateInteractionUiViewActionable &other) const;
 
+    virtual QWidget *generateWidget(QWidget *parent);
+
 private:
     QByteArray mAppId;
     QByteArray mBlockId;
@@ -34,5 +36,5 @@ private:
 };
 
 Q_DECLARE_METATYPE(AutoGenerateInteractionUiViewActionable)
-Q_DECLARE_TYPEINFO(AutoGenerateInteractionUiViewActionable, Q_RELOCATABLE_TYPE);
+// Q_DECLARE_TYPEINFO(AutoGenerateInteractionUiViewActionable, Q_RELOCATABLE_TYPE);
 LIBRUQOLAWIDGETS_NO_EXPORT QDebug operator<<(QDebug d, const AutoGenerateInteractionUiViewActionable &t);

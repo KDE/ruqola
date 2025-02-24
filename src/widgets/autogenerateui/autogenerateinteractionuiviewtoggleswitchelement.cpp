@@ -25,6 +25,12 @@ void AutoGenerateInteractionUiViewToggleSwitchElement::setOptions(const QList<Au
     mOptions = newOptions;
 }
 
+QWidget *AutoGenerateInteractionUiViewToggleSwitchElement::generateWidget(QWidget *parent)
+{
+    return nullptr;
+    // TODO
+}
+
 QDebug operator<<(QDebug d, const AutoGenerateInteractionUiViewToggleSwitchElement &t)
 {
     // TODO use qDebug with AutoGenerateInteractionUiViewActionable

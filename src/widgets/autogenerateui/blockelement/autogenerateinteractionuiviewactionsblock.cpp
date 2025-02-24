@@ -11,6 +11,8 @@
 #include "autogenerateui/autogenerateinteractionuiviewtoggleswitchelement.h"
 #include "ruqola_autogenerateui_debug.h"
 #include <QJsonArray>
+#include <QLayout>
+#include <QWidget>
 using namespace Qt::Literals::StringLiterals;
 AutoGenerateInteractionUiViewActionsBlock::AutoGenerateInteractionUiViewActionsBlock()
     : AutoGenerateInteractionUiViewBlockBase()
@@ -19,6 +21,7 @@ AutoGenerateInteractionUiViewActionsBlock::AutoGenerateInteractionUiViewActionsB
 
 AutoGenerateInteractionUiViewActionsBlock::~AutoGenerateInteractionUiViewActionsBlock()
 {
+    qDeleteAll(mElements);
 }
 
 QDebug operator<<(QDebug d, const AutoGenerateInteractionUiViewActionsBlock &t)
@@ -52,20 +55,20 @@ void AutoGenerateInteractionUiViewActionsBlock::parse(const QJsonObject &json)
     for (const auto &r : json["elements"_L1].toArray()) {
         const QString type = r["type"_L1].toString();
         if (type == "button"_L1) {
-            AutoGenerateInteractionUiViewButtonElement e;
-            e.parse(r["text"_L1].toObject());
+            AutoGenerateInteractionUiViewButtonElement *e = new AutoGenerateInteractionUiViewButtonElement;
+            e->parse(r.toObject());
             mElements.append(std::move(e));
         } else if (type == "checkbox"_L1) {
-            AutoGenerateInteractionUiViewCheckboxElement e;
-            e.parse(r["text"_L1].toObject());
+            AutoGenerateInteractionUiViewCheckboxElement *e = new AutoGenerateInteractionUiViewCheckboxElement;
+            e->parse(r.toObject());
             mElements.append(std::move(e));
         } else if (type == "radio_button"_L1) {
-            AutoGenerateInteractionUiViewRadioButtonElement e;
-            e.parse(r["text"_L1].toObject());
+            AutoGenerateInteractionUiViewRadioButtonElement *e = new AutoGenerateInteractionUiViewRadioButtonElement;
+            e->parse(r.toObject());
             mElements.append(std::move(e));
         } else if (type == "toggle_switch"_L1) {
-            AutoGenerateInteractionUiViewToggleSwitchElement e;
-            e.parse(r["text"_L1].toObject());
+            AutoGenerateInteractionUiViewToggleSwitchElement *e = new AutoGenerateInteractionUiViewToggleSwitchElement;
+            e->parse(r.toObject());
             mElements.append(std::move(e));
         } else {
             qCWarning(RUQOLA_AUTOGENERATEUI_LOG) << "Unknown type " << type;
@@ -73,17 +76,24 @@ void AutoGenerateInteractionUiViewActionsBlock::parse(const QJsonObject &json)
     }
 }
 
-QList<AutoGenerateInteractionUiViewActionable> AutoGenerateInteractionUiViewActionsBlock::elements() const
+QList<AutoGenerateInteractionUiViewActionable *> AutoGenerateInteractionUiViewActionsBlock::elements() const
 {
     return mElements;
 }
 
-void AutoGenerateInteractionUiViewActionsBlock::setElements(const QList<AutoGenerateInteractionUiViewActionable> &newElements)
+void AutoGenerateInteractionUiViewActionsBlock::setElements(const QList<AutoGenerateInteractionUiViewActionable *> &newElements)
 {
     mElements = newElements;
 }
 
-void AutoGenerateInteractionUiViewActionsBlock::generateWidget(QWidget *parent)
+QWidget *AutoGenerateInteractionUiViewActionsBlock::generateWidget(QWidget *parent) const
 {
-    // TODO
+    auto widget = new QWidget(parent);
+    parent->layout()->addWidget(widget);
+    auto vboxLayout = new QVBoxLayout;
+    widget->setLayout(vboxLayout);
+    for (const auto &e : std::as_const(mElements)) {
+        vboxLayout->addWidget(e->generateWidget(parent));
+    }
+    return widget;
 }

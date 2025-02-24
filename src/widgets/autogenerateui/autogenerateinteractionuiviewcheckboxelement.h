@@ -17,6 +17,8 @@ public:
     ~AutoGenerateInteractionUiViewCheckboxElement() override;
     void parse(const QJsonObject &json) override;
 
+    [[nodiscard]] QWidget *generateWidget(QWidget *parent) override;
+
 private:
     // TODO initialOptions
     QList<AutoGenerateInteractionUiViewOptionElement> mOptions;

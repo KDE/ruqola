@@ -58,7 +58,8 @@ void AutoGenerateInteractionUiViewInputBlock::setLabel(const AutoGenerateInterac
     mLabel = newLabel;
 }
 
-void AutoGenerateInteractionUiViewInputBlock::generateWidget(QWidget *parent)
+QWidget *AutoGenerateInteractionUiViewInputBlock::generateWidget(QWidget *parent) const
 {
+    return nullptr;
     // TODO
 }
