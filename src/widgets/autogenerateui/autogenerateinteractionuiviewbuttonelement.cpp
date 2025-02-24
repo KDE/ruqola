@@ -4,7 +4,7 @@
    SPDX-License-Identifier: LGPL-2.0-or-later
 */
 #include "autogenerateinteractionuiviewbuttonelement.h"
-#include "ruqola_action_buttons_debug.h"
+#include "ruqola_autogenerateui_debug.h"
 using namespace Qt::Literals::StringLiterals;
 
 AutoGenerateInteractionUiViewButtonElement::AutoGenerateInteractionUiViewButtonElement() = default;
@@ -23,7 +23,7 @@ AutoGenerateInteractionUiViewButtonElement::Style AutoGenerateInteractionUiViewB
     } else if (str == "success"_L1) {
         return AutoGenerateInteractionUiViewButtonElement::Style::Success;
     } else {
-        qCWarning(RUQOLA_ACTION_BUTTONS_LOG) << "Unknown Style type " << str;
+        qCWarning(RUQOLA_AUTOGENERATEUI_LOG) << "Unknown Style type " << str;
     }
     return AutoGenerateInteractionUiViewButtonElement::Style::Unknown;
 }

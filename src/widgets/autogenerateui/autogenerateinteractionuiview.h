@@ -8,12 +8,12 @@
 
 #include "autogenerateinteractionuiviewbuttonelement.h"
 #include "autogenerateui/autogenerateinteractionuiviewblocks.h"
-#include "libruqola_private_export.h"
+#include "libruqolawidgets_private_export.h"
 #include <QJsonObject>
 
 // Rocket.Chat/packages/ui-kit/src/surfaces/modal/ModalView.ts
 // TODO make it private export symbol ?
-class LIBRUQOLACORE_TESTS_EXPORT AutoGenerateInteractionUiView
+class LIBRUQOLAWIDGETS_TESTS_EXPORT AutoGenerateInteractionUiView
 {
 public:
     AutoGenerateInteractionUiView();
@@ -52,4 +52,4 @@ private:
 
 Q_DECLARE_METATYPE(AutoGenerateInteractionUiView)
 Q_DECLARE_TYPEINFO(AutoGenerateInteractionUiView, Q_RELOCATABLE_TYPE);
-LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const AutoGenerateInteractionUiView &t);
+LIBRUQOLAWIDGETS_NO_EXPORT QDebug operator<<(QDebug d, const AutoGenerateInteractionUiView &t);

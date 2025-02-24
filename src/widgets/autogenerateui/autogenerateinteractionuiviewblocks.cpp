@@ -9,7 +9,7 @@
 #include "blockelement/autogenerateinteractionuiviewdividerblock.h"
 #include "blockelement/autogenerateinteractionuiviewinputblock.h"
 #include "blockelement/autogenerateinteractionuiviewsectionblock.h"
-#include "ruqola_action_buttons_debug.h"
+#include "ruqola_autogenerateui_debug.h"
 
 using namespace Qt::Literals::StringLiterals;
 AutoGenerateInteractionUiViewBlocks::AutoGenerateInteractionUiViewBlocks() = default;
@@ -37,16 +37,16 @@ void AutoGenerateInteractionUiViewBlocks::parse(const QJsonArray &array)
             input.parse(r.toObject());
             mBlockElements.append(std::move(input));
         } else if (type == "context"_L1) {
-            qCWarning(RUQOLA_ACTION_BUTTONS_LOG) << "Not implemented yet:" << type;
+            qCWarning(RUQOLA_AUTOGENERATEUI_LOG) << "Not implemented yet:" << type;
             // TODO
         } else if (type == "image"_L1) {
-            qCWarning(RUQOLA_ACTION_BUTTONS_LOG) << "Not implemented yet:" << type;
+            qCWarning(RUQOLA_AUTOGENERATEUI_LOG) << "Not implemented yet:" << type;
             // TODO
         } else if (type == "callout"_L1) {
-            qCWarning(RUQOLA_ACTION_BUTTONS_LOG) << "Not implemented yet:" << type;
+            qCWarning(RUQOLA_AUTOGENERATEUI_LOG) << "Not implemented yet:" << type;
             // TODO
         } else {
-            qCWarning(RUQOLA_ACTION_BUTTONS_LOG) << "Unknown type " << type;
+            qCWarning(RUQOLA_AUTOGENERATEUI_LOG) << "Unknown type " << type;
         }
     }
 }

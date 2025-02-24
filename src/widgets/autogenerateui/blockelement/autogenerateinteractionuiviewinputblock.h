@@ -8,12 +8,12 @@
 
 #include "autogenerateinteractionuiviewblockbase.h"
 #include "autogenerateui/autogenerateinteractionuiviewtext.h"
-#include "libruqola_private_export.h"
+#include "libruqolawidgets_private_export.h"
 #include <QDebug>
 
 // see ./packages/ui-kit/src/blocks/layout/InputBlock.ts
 class AutoGenerateInteractionUiViewActionable;
-class LIBRUQOLACORE_TESTS_EXPORT AutoGenerateInteractionUiViewInputBlock : public AutoGenerateInteractionUiViewBlockBase
+class LIBRUQOLAWIDGETS_TESTS_EXPORT AutoGenerateInteractionUiViewInputBlock : public AutoGenerateInteractionUiViewBlockBase
 {
 public:
     AutoGenerateInteractionUiViewInputBlock();
@@ -35,4 +35,4 @@ private:
 
 Q_DECLARE_METATYPE(AutoGenerateInteractionUiViewInputBlock)
 Q_DECLARE_TYPEINFO(AutoGenerateInteractionUiViewInputBlock, Q_RELOCATABLE_TYPE);
-LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const AutoGenerateInteractionUiViewInputBlock &t);
+LIBRUQOLAWIDGETS_NO_EXPORT QDebug operator<<(QDebug d, const AutoGenerateInteractionUiViewInputBlock &t);

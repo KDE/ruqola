@@ -6,10 +6,10 @@
 #pragma once
 #include "autogenerateinteractionuiviewactionable.h"
 #include "autogenerateinteractionuiviewoptionelement.h"
-#include "libruqola_private_export.h"
+#include "libruqolawidgets_private_export.h"
 #include <QJsonObject>
 // see ./packages/ui-kit/src/blocks/elements/RadioButtonElement.ts
-class LIBRUQOLACORE_TESTS_EXPORT AutoGenerateInteractionUiViewRadioButtonElement : public AutoGenerateInteractionUiViewActionable
+class LIBRUQOLAWIDGETS_TESTS_EXPORT AutoGenerateInteractionUiViewRadioButtonElement : public AutoGenerateInteractionUiViewActionable
 {
     Q_GADGET
 public:
@@ -24,4 +24,4 @@ private:
 };
 Q_DECLARE_METATYPE(AutoGenerateInteractionUiViewRadioButtonElement)
 Q_DECLARE_TYPEINFO(AutoGenerateInteractionUiViewRadioButtonElement, Q_RELOCATABLE_TYPE);
-LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const AutoGenerateInteractionUiViewRadioButtonElement &t);
+LIBRUQOLAWIDGETS_NO_EXPORT QDebug operator<<(QDebug d, const AutoGenerateInteractionUiViewRadioButtonElement &t);

@@ -6,10 +6,10 @@
 
 #pragma once
 
-#include "libruqola_private_export.h"
+#include "libruqolawidgets_private_export.h"
 #include <QJsonObject>
 
-class LIBRUQOLACORE_TESTS_EXPORT AutoGenerateInteractionUiViewActionable
+class LIBRUQOLAWIDGETS_TESTS_EXPORT AutoGenerateInteractionUiViewActionable
 {
 public:
     AutoGenerateInteractionUiViewActionable();
@@ -35,4 +35,4 @@ private:
 
 Q_DECLARE_METATYPE(AutoGenerateInteractionUiViewActionable)
 Q_DECLARE_TYPEINFO(AutoGenerateInteractionUiViewActionable, Q_RELOCATABLE_TYPE);
-LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const AutoGenerateInteractionUiViewActionable &t);
+LIBRUQOLAWIDGETS_NO_EXPORT QDebug operator<<(QDebug d, const AutoGenerateInteractionUiViewActionable &t);

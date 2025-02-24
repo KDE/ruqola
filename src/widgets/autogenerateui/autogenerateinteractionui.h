@@ -10,7 +10,7 @@
 #include "libruqolacore_export.h"
 #include <QJsonObject>
 
-class LIBRUQOLACORE_EXPORT AutoGenerateInteractionUi
+class LIBRUQOLAWIDGETS_NO_EXPORT AutoGenerateInteractionUi
 {
     Q_GADGET
 public:
@@ -40,7 +40,7 @@ public:
     void setView(const AutoGenerateInteractionUiView &newView);
 
 private:
-    [[nodiscard]] LIBRUQOLACORE_NO_EXPORT AutoGenerateInteractionUi::TypeUi convertTypeUiFromString(const QString &str) const;
+    [[nodiscard]] LIBRUQOLAWIDGETS_NO_EXPORT AutoGenerateInteractionUi::TypeUi convertTypeUiFromString(const QString &str) const;
     QByteArray mAppId;
     QByteArray mTriggerId;
     TypeUi mTypeUi = TypeUi::Unknown;
@@ -48,4 +48,4 @@ private:
 };
 Q_DECLARE_METATYPE(AutoGenerateInteractionUi)
 Q_DECLARE_TYPEINFO(AutoGenerateInteractionUi, Q_RELOCATABLE_TYPE);
-LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const AutoGenerateInteractionUi &t);
+LIBRUQOLAWIDGETS_NO_EXPORT QDebug operator<<(QDebug d, const AutoGenerateInteractionUi &t);

@@ -5,7 +5,7 @@
 */
 
 #include "autogenerateinteractionui.h"
-#include "ruqola_action_buttons_debug.h"
+#include "ruqola_autogenerateui_debug.h"
 using namespace Qt::Literals::StringLiterals;
 AutoGenerateInteractionUi::AutoGenerateInteractionUi() = default;
 
@@ -27,7 +27,7 @@ AutoGenerateInteractionUi::TypeUi AutoGenerateInteractionUi::convertTypeUiFromSt
     } else if (str == "contextual_bar.open"_L1) {
         return AutoGenerateInteractionUi::TypeUi::ContextualBar;
     } else {
-        qCWarning(RUQOLA_ACTION_BUTTONS_LOG) << "Unknown TypeUi type " << str;
+        qCWarning(RUQOLA_AUTOGENERATEUI_LOG) << "Unknown TypeUi type " << str;
     }
     return AutoGenerateInteractionUi::TypeUi::Unknown;
 }

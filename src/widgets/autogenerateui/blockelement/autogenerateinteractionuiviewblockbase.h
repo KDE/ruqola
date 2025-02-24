@@ -6,12 +6,12 @@
 
 #pragma once
 
-#include "libruqola_private_export.h"
+#include "libruqolawidgets_private_export.h"
 #include <QDebug>
 #include <QJsonObject>
 #include <QString>
 
-class LIBRUQOLACORE_TESTS_EXPORT AutoGenerateInteractionUiViewBlockBase
+class LIBRUQOLAWIDGETS_TESTS_EXPORT AutoGenerateInteractionUiViewBlockBase
 {
 public:
     AutoGenerateInteractionUiViewBlockBase();
@@ -32,4 +32,4 @@ private:
 };
 Q_DECLARE_METATYPE(AutoGenerateInteractionUiViewBlockBase)
 Q_DECLARE_TYPEINFO(AutoGenerateInteractionUiViewBlockBase, Q_RELOCATABLE_TYPE);
-LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const AutoGenerateInteractionUiViewBlockBase &t);
+LIBRUQOLAWIDGETS_NO_EXPORT QDebug operator<<(QDebug d, const AutoGenerateInteractionUiViewBlockBase &t);

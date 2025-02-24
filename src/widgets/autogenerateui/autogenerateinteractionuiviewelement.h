@@ -5,10 +5,10 @@
 */
 #pragma once
 
-#include "libruqola_private_export.h"
+#include "libruqolawidgets_private_export.h"
 #include <QJsonObject>
 
-class LIBRUQOLACORE_TESTS_EXPORT AutoGenerateInteractionUiViewElement
+class LIBRUQOLAWIDGETS_TESTS_EXPORT AutoGenerateInteractionUiViewElement
 {
 public:
     AutoGenerateInteractionUiViewElement();

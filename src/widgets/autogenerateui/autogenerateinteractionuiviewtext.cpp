@@ -5,7 +5,7 @@
 */
 
 #include "autogenerateinteractionuiviewtext.h"
-#include "ruqola_action_buttons_debug.h"
+#include "ruqola_autogenerateui_debug.h"
 using namespace Qt::Literals::StringLiterals;
 AutoGenerateInteractionUiViewText::AutoGenerateInteractionUiViewText() = default;
 
@@ -25,7 +25,7 @@ AutoGenerateInteractionUiViewText::TextType AutoGenerateInteractionUiViewText::c
     } else if (str == "mrkdwn"_L1) {
         return AutoGenerateInteractionUiViewText::TextType::PlainText;
     } else {
-        qCWarning(RUQOLA_ACTION_BUTTONS_LOG) << "convertTypeFromString Unknown type " << str;
+        qCWarning(RUQOLA_AUTOGENERATEUI_LOG) << "convertTypeFromString Unknown type " << str;
     }
     return AutoGenerateInteractionUiViewText::TextType::Unknown;
 }

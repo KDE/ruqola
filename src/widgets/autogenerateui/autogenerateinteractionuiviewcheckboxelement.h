@@ -6,10 +6,10 @@
 #pragma once
 #include "autogenerateinteractionuiviewactionable.h"
 #include "autogenerateinteractionuiviewoptionelement.h"
-#include "libruqola_private_export.h"
+#include "libruqolawidgets_private_export.h"
 #include <QJsonObject>
 // see ./packages/ui-kit/src/blocks/elements/CheckboxElement.ts
-class LIBRUQOLACORE_TESTS_EXPORT AutoGenerateInteractionUiViewCheckboxElement : public AutoGenerateInteractionUiViewActionable
+class LIBRUQOLAWIDGETS_TESTS_EXPORT AutoGenerateInteractionUiViewCheckboxElement : public AutoGenerateInteractionUiViewActionable
 {
     Q_GADGET
 public:
@@ -23,4 +23,4 @@ private:
 };
 Q_DECLARE_METATYPE(AutoGenerateInteractionUiViewCheckboxElement)
 Q_DECLARE_TYPEINFO(AutoGenerateInteractionUiViewCheckboxElement, Q_RELOCATABLE_TYPE);
-LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const AutoGenerateInteractionUiViewCheckboxElement &t);
+LIBRUQOLAWIDGETS_NO_EXPORT QDebug operator<<(QDebug d, const AutoGenerateInteractionUiViewCheckboxElement &t);

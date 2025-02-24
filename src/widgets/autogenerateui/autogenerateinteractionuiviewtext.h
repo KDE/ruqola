@@ -5,10 +5,10 @@
 */
 #pragma once
 
-#include "libruqola_private_export.h"
+#include "libruqolawidgets_private_export.h"
 #include <QJsonObject>
 
-class LIBRUQOLACORE_TESTS_EXPORT AutoGenerateInteractionUiViewText
+class LIBRUQOLAWIDGETS_TESTS_EXPORT AutoGenerateInteractionUiViewText
 {
     Q_GADGET
 public:
@@ -34,11 +34,11 @@ public:
     void setType(TextType newType);
 
 private:
-    [[nodiscard]] LIBRUQOLACORE_NO_EXPORT AutoGenerateInteractionUiViewText::TextType convertTypeFromString(const QString &str) const;
+    [[nodiscard]] LIBRUQOLAWIDGETS_NO_EXPORT AutoGenerateInteractionUiViewText::TextType convertTypeFromString(const QString &str) const;
     TextType mType = TextType::Unknown;
     QString mText;
     bool mEmoji = false;
 };
 Q_DECLARE_METATYPE(AutoGenerateInteractionUiViewText)
 Q_DECLARE_TYPEINFO(AutoGenerateInteractionUiViewText, Q_RELOCATABLE_TYPE);
-LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const AutoGenerateInteractionUiViewText &t);
+LIBRUQOLAWIDGETS_NO_EXPORT QDebug operator<<(QDebug d, const AutoGenerateInteractionUiViewText &t);

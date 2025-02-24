@@ -9,7 +9,7 @@
 #include "autogenerateui/autogenerateinteractionuiviewcheckboxelement.h"
 #include "autogenerateui/autogenerateinteractionuiviewradiobuttonelement.h"
 #include "autogenerateui/autogenerateinteractionuiviewtoggleswitchelement.h"
-#include "ruqola_action_buttons_debug.h"
+#include "ruqola_autogenerateui_debug.h"
 #include <QJsonArray>
 using namespace Qt::Literals::StringLiterals;
 AutoGenerateInteractionUiViewActionsBlock::AutoGenerateInteractionUiViewActionsBlock()
@@ -68,7 +68,7 @@ void AutoGenerateInteractionUiViewActionsBlock::parse(const QJsonObject &json)
             e.parse(r["text"_L1].toObject());
             mElements.append(std::move(e));
         } else {
-            qCWarning(RUQOLA_ACTION_BUTTONS_LOG) << "Unknown type " << type;
+            qCWarning(RUQOLA_AUTOGENERATEUI_LOG) << "Unknown type " << type;
         }
     }
 }

@@ -1017,6 +1017,41 @@ target_sources(libruqolawidgets PRIVATE
 
     dialogs/searchmessagelinewidget.h
     dialogs/searchmessagelinewidget.cpp
+
+
+    autogenerateui/autogenerateinteractionui.h
+    autogenerateui/autogenerateinteractionui.cpp
+    autogenerateui/autogenerateinteractionuiviewelement.h
+    autogenerateui/autogenerateinteractionuiviewelement.cpp
+    autogenerateui/autogenerateinteractionuiviewtext.h
+    autogenerateui/autogenerateinteractionuiviewtext.cpp
+    autogenerateui/autogenerateinteractionuiviewblocks.cpp
+    autogenerateui/autogenerateinteractionuiviewblocks.h
+    autogenerateui/autogenerateinteractionuiviewactionable.cpp
+    autogenerateui/autogenerateinteractionuiviewactionable.h
+    autogenerateui/autogenerateinteractionuiview.h
+    autogenerateui/autogenerateinteractionuiview.cpp
+    autogenerateui/autogenerateinteractionuiviewbuttonelement.h
+    autogenerateui/autogenerateinteractionuiviewbuttonelement.cpp
+    autogenerateui/autogenerateinteractionuiviewcheckboxelement.cpp
+    autogenerateui/autogenerateinteractionuiviewcheckboxelement.h
+    autogenerateui/autogenerateinteractionuiviewradiobuttonelement.cpp
+    autogenerateui/autogenerateinteractionuiviewradiobuttonelement.h
+    autogenerateui/autogenerateinteractionuiviewtoggleswitchelement.cpp
+    autogenerateui/autogenerateinteractionuiviewtoggleswitchelement.h
+    autogenerateui/blockelement/autogenerateinteractionuiviewsectionblock.h
+    autogenerateui/blockelement/autogenerateinteractionuiviewsectionblock.cpp
+    autogenerateui/blockelement/autogenerateinteractionuiviewblockbase.h
+    autogenerateui/blockelement/autogenerateinteractionuiviewblockbase.cpp
+    autogenerateui/blockelement/autogenerateinteractionuiviewactionsblock.h
+    autogenerateui/blockelement/autogenerateinteractionuiviewactionsblock.cpp
+    autogenerateui/blockelement/autogenerateinteractionuiviewinputblock.cpp
+    autogenerateui/blockelement/autogenerateinteractionuiviewinputblock.h
+    autogenerateui/blockelement/autogenerateinteractionuiviewdividerblock.cpp
+    autogenerateui/blockelement/autogenerateinteractionuiviewdividerblock.h
+    autogenerateui/autogenerateinteractionuiviewoptionelement.h
+    autogenerateui/autogenerateinteractionuiviewoptionelement.cpp
+    
 )
 
 if(HAVE_TEXT_AUTOCORRECTION_WIDGETS)
@@ -1075,6 +1110,8 @@ ecm_qt_declare_logging_category(libruqolawidgets_debug_SRCS HEADER ruqola_jitsi_
 ecm_qt_declare_logging_category(libruqolawidgets_debug_SRCS HEADER ruqola_cache_debug.h IDENTIFIER RUQOLA_CACHE_LOG CATEGORY_NAME org.kde.ruqola.widgets.cache
     DESCRIPTION "ruqola cache support" EXPORT RUQOLA)
 
+ecm_qt_declare_logging_category(libruqolawidgets_debug_SRCS HEADER ruqola_autogenerateui_debug.h IDENTIFIER RUQOLA_AUTOGENERATEUI_LOG CATEGORY_NAME org.kde.ruqola.widgets.autogenerateui
+    DESCRIPTION "ruqola autogenerate ui" EXPORT RUQOLA)
 
 target_sources(libruqolawidgets PRIVATE ${libruqolawidgets_debug_SRCS})
 
@@ -1185,6 +1222,7 @@ if(BUILD_TESTING)
     add_subdirectory(forwardmessage/autotests)
     add_subdirectory(welcome/autotests)
     add_subdirectory(applicationssettingsdialog/autotests)
+    add_subdirectory(autogenerateui/autotests)
 endif()
 
 install(TARGETS libruqolawidgets ${KDE_INSTALL_TARGETS_DEFAULT_ARGS} LIBRARY NAMELINK_SKIP)

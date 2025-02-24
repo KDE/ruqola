@@ -6,10 +6,10 @@
 #pragma once
 #include "autogenerateinteractionuiviewactionable.h"
 #include "autogenerateinteractionuiviewtext.h"
-#include "libruqola_private_export.h"
+#include "libruqolawidgets_private_export.h"
 #include <QJsonObject>
 
-class LIBRUQOLACORE_TESTS_EXPORT AutoGenerateInteractionUiViewButtonElement : public AutoGenerateInteractionUiViewActionable
+class LIBRUQOLAWIDGETS_TESTS_EXPORT AutoGenerateInteractionUiViewButtonElement : public AutoGenerateInteractionUiViewActionable
 {
     Q_GADGET
 public:
@@ -38,11 +38,11 @@ public:
     void setSecondary(bool newSecondary);
 
 private:
-    [[nodiscard]] LIBRUQOLACORE_NO_EXPORT AutoGenerateInteractionUiViewButtonElement::Style convertStyleFromString(const QString &str) const;
+    [[nodiscard]] LIBRUQOLAWIDGETS_NO_EXPORT AutoGenerateInteractionUiViewButtonElement::Style convertStyleFromString(const QString &str) const;
     Style mStyle = Style::Unknown;
     AutoGenerateInteractionUiViewText mText;
     bool mSecondary = false;
 };
 Q_DECLARE_METATYPE(AutoGenerateInteractionUiViewButtonElement)
 Q_DECLARE_TYPEINFO(AutoGenerateInteractionUiViewButtonElement, Q_RELOCATABLE_TYPE);
-LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const AutoGenerateInteractionUiViewButtonElement &t);
+LIBRUQOLAWIDGETS_NO_EXPORT QDebug operator<<(QDebug d, const AutoGenerateInteractionUiViewButtonElement &t);

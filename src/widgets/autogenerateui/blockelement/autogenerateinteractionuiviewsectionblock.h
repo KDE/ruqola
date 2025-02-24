@@ -7,10 +7,10 @@
 #pragma once
 
 #include "autogenerateinteractionuiviewblockbase.h"
-#include "libruqola_private_export.h"
+#include "libruqolawidgets_private_export.h"
 #include <QDebug>
 
-class LIBRUQOLACORE_TESTS_EXPORT AutoGenerateInteractionUiViewSectionBlock : public AutoGenerateInteractionUiViewBlockBase
+class LIBRUQOLAWIDGETS_TESTS_EXPORT AutoGenerateInteractionUiViewSectionBlock : public AutoGenerateInteractionUiViewBlockBase
 {
 public:
     AutoGenerateInteractionUiViewSectionBlock();
@@ -28,4 +28,4 @@ private:
 
 Q_DECLARE_METATYPE(AutoGenerateInteractionUiViewSectionBlock)
 Q_DECLARE_TYPEINFO(AutoGenerateInteractionUiViewSectionBlock, Q_RELOCATABLE_TYPE);
-LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const AutoGenerateInteractionUiViewSectionBlock &t);
+LIBRUQOLAWIDGETS_NO_EXPORT QDebug operator<<(QDebug d, const AutoGenerateInteractionUiViewSectionBlock &t);
