@@ -36,3 +36,8 @@ QDebug operator<<(QDebug d, const AutoGenerateInteractionUiViewBlockBase &t)
     d.space() << "appId:" << t.appId();
     return d;
 }
+
+bool AutoGenerateInteractionUiViewBlockBase::operator==(const AutoGenerateInteractionUiViewBlockBase &other) const
+{
+    return other.blockId() == blockId() && other.appId() == appId();
+}

@@ -15,6 +15,7 @@ class LIBRUQOLACORE_TESTS_EXPORT AutoGenerateInteractionUiViewSectionBlock : pub
 public:
     AutoGenerateInteractionUiViewSectionBlock();
     ~AutoGenerateInteractionUiViewSectionBlock();
+    [[nodiscard]] bool operator==(const AutoGenerateInteractionUiViewSectionBlock &other) const;
 };
 
 Q_DECLARE_METATYPE(AutoGenerateInteractionUiViewSectionBlock)

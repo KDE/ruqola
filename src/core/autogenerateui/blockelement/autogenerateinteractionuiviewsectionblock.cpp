@@ -7,6 +7,7 @@
 #include "autogenerateinteractionuiviewsectionblock.h"
 
 AutoGenerateInteractionUiViewSectionBlock::AutoGenerateInteractionUiViewSectionBlock()
+    : AutoGenerateInteractionUiViewBlockBase()
 {
 }
 
@@ -16,6 +17,11 @@ AutoGenerateInteractionUiViewSectionBlock::~AutoGenerateInteractionUiViewSection
 
 QDebug operator<<(QDebug d, const AutoGenerateInteractionUiViewSectionBlock &t)
 {
-    // TODO
+    // TODO implement debug t
     return d;
+}
+
+bool AutoGenerateInteractionUiViewSectionBlock::operator==(const AutoGenerateInteractionUiViewSectionBlock &other) const
+{
+    return AutoGenerateInteractionUiViewBlockBase::operator==(other);
 }
