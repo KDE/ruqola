@@ -7,10 +7,10 @@
 #pragma once
 
 #include "autogenerateinteractionuiview.h"
-#include "libruqolacore_export.h"
+#include "libruqolawidgets_private_export.h"
 #include <QJsonObject>
 
-class LIBRUQOLAWIDGETS_NO_EXPORT AutoGenerateInteractionUi
+class LIBRUQOLAWIDGETS_TESTS_EXPORT AutoGenerateInteractionUi
 {
     Q_GADGET
 public:
