@@ -10,7 +10,10 @@
 #include <QWidget>
 
 using namespace Qt::Literals::StringLiterals;
-AutoGenerateInteractionUi::AutoGenerateInteractionUi() = default;
+AutoGenerateInteractionUi::AutoGenerateInteractionUi(QObject *parent)
+    : QObject(parent)
+{
+}
 
 AutoGenerateInteractionUi::~AutoGenerateInteractionUi() = default;
 
@@ -20,7 +23,10 @@ void AutoGenerateInteractionUi::parseInteractionUi(const QJsonObject &json)
     mAppId = json["appId"_L1].toString().toLatin1();
     mTypeUi = convertTypeUiFromString(json["type"_L1].toString());
 
-    mView.parseView(json["view"_L1].toObject());
+    if (!mView) {
+        mView = new AutoGenerateInteractionUiView(this);
+    }
+    mView->parseView(json["view"_L1].toObject());
 }
 
 AutoGenerateInteractionUi::TypeUi AutoGenerateInteractionUi::convertTypeUiFromString(const QString &str) const
@@ -35,12 +41,12 @@ AutoGenerateInteractionUi::TypeUi AutoGenerateInteractionUi::convertTypeUiFromSt
     return AutoGenerateInteractionUi::TypeUi::Unknown;
 }
 
-AutoGenerateInteractionUiView AutoGenerateInteractionUi::view() const
+AutoGenerateInteractionUiView *AutoGenerateInteractionUi::view() const
 {
     return mView;
 }
 
-void AutoGenerateInteractionUi::setView(const AutoGenerateInteractionUiView &newView)
+void AutoGenerateInteractionUi::setView(AutoGenerateInteractionUiView *newView)
 {
     mView = newView;
 }
@@ -48,7 +54,7 @@ void AutoGenerateInteractionUi::setView(const AutoGenerateInteractionUiView &new
 QWidget *AutoGenerateInteractionUi::generateWidget(QWidget *parent)
 {
     auto widget = new QWidget(parent);
-    mView.generateWidget(widget);
+    mView->generateWidget(widget);
     return widget;
 }
 

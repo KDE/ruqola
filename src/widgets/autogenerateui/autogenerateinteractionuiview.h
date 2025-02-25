@@ -13,11 +13,12 @@
 
 // Rocket.Chat/packages/ui-kit/src/surfaces/modal/ModalView.ts
 // TODO make it private export symbol ?
-class LIBRUQOLAWIDGETS_TESTS_EXPORT AutoGenerateInteractionUiView
+class LIBRUQOLAWIDGETS_TESTS_EXPORT AutoGenerateInteractionUiView : public QObject
 {
+    Q_OBJECT
 public:
-    AutoGenerateInteractionUiView();
-    ~AutoGenerateInteractionUiView();
+    explicit AutoGenerateInteractionUiView(QObject *parent = nullptr);
+    ~AutoGenerateInteractionUiView() override;
 
     void parseView(const QJsonObject &json);
 
@@ -43,6 +44,10 @@ public:
 
     void generateWidget(QWidget *parent);
 
+Q_SIGNALS:
+    void submited();
+    void closed();
+
 private:
     QByteArray mId;
     bool mShowIcon = false;
@@ -53,5 +58,4 @@ private:
 };
 
 Q_DECLARE_METATYPE(AutoGenerateInteractionUiView)
-Q_DECLARE_TYPEINFO(AutoGenerateInteractionUiView, Q_RELOCATABLE_TYPE);
 LIBRUQOLAWIDGETS_EXPORT QDebug operator<<(QDebug d, const AutoGenerateInteractionUiView &t);

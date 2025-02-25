@@ -12,7 +12,10 @@
 #include <QWidget>
 
 using namespace Qt::Literals::StringLiterals;
-AutoGenerateInteractionUiView::AutoGenerateInteractionUiView() = default;
+AutoGenerateInteractionUiView::AutoGenerateInteractionUiView(QObject *parent)
+    : QObject(parent)
+{
+}
 
 AutoGenerateInteractionUiView::~AutoGenerateInteractionUiView()
 {
@@ -110,14 +113,15 @@ void AutoGenerateInteractionUiView::generateWidget(QWidget *widget)
     mBlocks.generateWidget(widget);
     if (mCloseButton || mSubmitButton) {
         auto buttonDialog = new QDialogButtonBox(widget);
-        // TODO connect button
         if (mCloseButton) {
             auto closeButton = buttonDialog->addButton(QDialogButtonBox::Close);
             closeButton->setText(mCloseButton->text().generateText());
+            connect(closeButton, &QPushButton::clicked, this, &AutoGenerateInteractionUiView::closed);
         }
         if (mSubmitButton) {
             auto okButton = buttonDialog->addButton(QDialogButtonBox::Ok);
             okButton->setText(mSubmitButton->text().generateText());
+            connect(okButton, &QPushButton::clicked, this, &AutoGenerateInteractionUiView::submited);
         }
         mainLayout->addStretch(1);
         mainLayout->addWidget(buttonDialog);
