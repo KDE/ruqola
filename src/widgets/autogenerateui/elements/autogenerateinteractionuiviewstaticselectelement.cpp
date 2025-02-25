@@ -5,8 +5,11 @@
 */
 #include "autogenerateinteractionuiviewstaticselectelement.h"
 #include "autogenerateui/autogenerateinteractionuiviewtext.h"
+#include "autogenerateui/elements/autogenerateinteractionuiviewoptionelement.h"
+
 #include "ruqola_action_buttons_debug.h"
 #include <QComboBox>
+#include <QJsonArray>
 using namespace Qt::Literals::StringLiterals;
 
 AutoGenerateInteractionUiViewStaticSelectElement::AutoGenerateInteractionUiViewStaticSelectElement()
@@ -17,6 +20,7 @@ AutoGenerateInteractionUiViewStaticSelectElement::AutoGenerateInteractionUiViewS
 AutoGenerateInteractionUiViewStaticSelectElement::~AutoGenerateInteractionUiViewStaticSelectElement()
 {
     delete mPlaceHolder;
+    qDeleteAll(mOptions);
 }
 
 void AutoGenerateInteractionUiViewStaticSelectElement::parse(const QJsonObject &json)
@@ -27,12 +31,22 @@ void AutoGenerateInteractionUiViewStaticSelectElement::parse(const QJsonObject &
         mPlaceHolder = new AutoGenerateInteractionUiViewText;
         mPlaceHolder->parse(json["placeholder"_L1].toObject());
     }
+    // Options
+    const QJsonArray optionsArray = json["options"_L1].toArray();
+    for (const auto &opt : optionsArray) {
+        AutoGenerateInteractionUiViewOptionElement *option = new AutoGenerateInteractionUiViewOptionElement;
+        option->parse(opt.toObject());
+        mOptions.append(option);
+    }
 }
 
 QWidget *AutoGenerateInteractionUiViewStaticSelectElement::generateWidget(QWidget *parent)
 {
-    // TODO
-    return new QComboBox(parent);
+    auto comboBox = new QComboBox(parent);
+    for (const auto &r : std::as_const(mOptions)) {
+        comboBox->addItem(r->value());
+    }
+    return comboBox;
 }
 
 AutoGenerateInteractionUiViewText *AutoGenerateInteractionUiViewStaticSelectElement::placeHolder() const
@@ -55,8 +69,20 @@ void AutoGenerateInteractionUiViewStaticSelectElement::setInitialValue(const QSt
     mInitialValue = newInitialValue;
 }
 
+QList<AutoGenerateInteractionUiViewOptionElement *> AutoGenerateInteractionUiViewStaticSelectElement::options() const
+{
+    return mOptions;
+}
+
+void AutoGenerateInteractionUiViewStaticSelectElement::setOptions(const QList<AutoGenerateInteractionUiViewOptionElement *> &newOptions)
+{
+    mOptions = newOptions;
+}
+
 QDebug operator<<(QDebug d, const AutoGenerateInteractionUiViewStaticSelectElement &t)
 {
     d.space() << "AutoGenerateInteractionUiViewActionable:" << static_cast<AutoGenerateInteractionUiViewActionable>(t);
+    d.space() << "initialValue:" << t.initialValue();
+    d.space() << "options:" << t.options();
     return d;
 }

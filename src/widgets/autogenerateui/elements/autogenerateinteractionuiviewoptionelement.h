@@ -18,8 +18,17 @@ public:
 
     [[nodiscard]] QWidget *generateWidget(QWidget *parent) override;
 
+    [[nodiscard]] QString value() const;
+    void setValue(const QString &newValue);
+
+    [[nodiscard]] QString url() const;
+    void setUrl(const QString &newUrl);
+
+    [[nodiscard]] bool operator==(const AutoGenerateInteractionUiViewOptionElement &other) const;
+
 private:
-    QString value;
+    QString mValue;
+    QString mUrl;
     // TODO add url/description
     // TODO add textobject
 };

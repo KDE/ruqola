@@ -9,6 +9,7 @@
 #include "libruqolawidgets_private_export.h"
 #include <QJsonObject>
 class AutoGenerateInteractionUiViewText;
+class AutoGenerateInteractionUiViewOptionElement;
 // see ./packages/ui-kit/src/blocks/elements/StaticSelectElement.ts
 class LIBRUQOLAWIDGETS_TESTS_EXPORT AutoGenerateInteractionUiViewStaticSelectElement : public AutoGenerateInteractionUiViewActionable
 {
@@ -25,9 +26,13 @@ public:
     [[nodiscard]] QString initialValue() const;
     void setInitialValue(const QString &newInitialValue);
 
+    [[nodiscard]] QList<AutoGenerateInteractionUiViewOptionElement *> options() const;
+    void setOptions(const QList<AutoGenerateInteractionUiViewOptionElement *> &newOptions);
+
 private:
     QString mInitialValue;
     AutoGenerateInteractionUiViewText *mPlaceHolder = nullptr;
+    QList<AutoGenerateInteractionUiViewOptionElement *> mOptions;
 };
 
 Q_DECLARE_METATYPE(AutoGenerateInteractionUiViewStaticSelectElement)
