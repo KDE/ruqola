@@ -4,7 +4,11 @@
    SPDX-License-Identifier: LGPL-2.0-or-later
 */
 #include "autogenerateinteractionuiviewmultistaticselectelement.h"
+#include "autogenerateui/autogenerateinteractionuiviewtext.h"
+#include "autogenerateui/elements/autogenerateinteractionuiviewoptionelement.h"
 
+#include <QJsonArray>
+using namespace Qt::Literals::StringLiterals;
 AutoGenerateInteractionUiViewMultiStaticSelectElement::AutoGenerateInteractionUiViewMultiStaticSelectElement()
     : AutoGenerateInteractionUiViewActionable()
 {
@@ -12,19 +16,58 @@ AutoGenerateInteractionUiViewMultiStaticSelectElement::AutoGenerateInteractionUi
 
 AutoGenerateInteractionUiViewMultiStaticSelectElement::~AutoGenerateInteractionUiViewMultiStaticSelectElement()
 {
+    delete mPlaceHolder;
+    qDeleteAll(mOptions);
 }
 
 void AutoGenerateInteractionUiViewMultiStaticSelectElement::parse(const QJsonObject &json)
 {
+    AutoGenerateInteractionUiViewActionable::parse(json);
+    if (json.contains("placeholder"_L1)) {
+        mPlaceHolder = new AutoGenerateInteractionUiViewText;
+        mPlaceHolder->parse(json["placeholder"_L1].toObject());
+    }
+    // Options
+    const QJsonArray optionsArray = json["options"_L1].toArray();
+    for (const auto &opt : optionsArray) {
+        AutoGenerateInteractionUiViewOptionElement *option = new AutoGenerateInteractionUiViewOptionElement;
+        option->parse(opt.toObject());
+        mOptions.append(option);
+    }
 }
 
 QWidget *AutoGenerateInteractionUiViewMultiStaticSelectElement::generateWidget(QWidget *parent)
 {
+    // TODO QListWidget ??
     return nullptr;
+}
+
+AutoGenerateInteractionUiViewText *AutoGenerateInteractionUiViewMultiStaticSelectElement::placeHolder() const
+{
+    return mPlaceHolder;
+}
+
+void AutoGenerateInteractionUiViewMultiStaticSelectElement::setPlaceHolder(AutoGenerateInteractionUiViewText *newPlaceHolder)
+{
+    mPlaceHolder = newPlaceHolder;
+}
+
+QList<AutoGenerateInteractionUiViewOptionElement *> AutoGenerateInteractionUiViewMultiStaticSelectElement::options() const
+{
+    return mOptions;
+}
+
+void AutoGenerateInteractionUiViewMultiStaticSelectElement::setOptions(const QList<AutoGenerateInteractionUiViewOptionElement *> &newOptions)
+{
+    mOptions = newOptions;
 }
 
 QDebug operator<<(QDebug d, const AutoGenerateInteractionUiViewMultiStaticSelectElement &t)
 {
     d.space() << "AutoGenerateInteractionUiViewActionable:" << static_cast<AutoGenerateInteractionUiViewActionable>(t);
+    if (t.placeHolder()) {
+        d.space() << "placeHolder:" << *t.placeHolder();
+    }
+    d.space() << "options:" << t.options();
     return d;
 }
