@@ -19,7 +19,7 @@ AutoGenerateInteractionUiViewDividerBlock::~AutoGenerateInteractionUiViewDivider
 
 QDebug operator<<(QDebug d, const AutoGenerateInteractionUiViewDividerBlock &t)
 {
-    // TODO implement debug t
+    d.space() << "AutoGenerateInteractionUiViewBlockBase:" << static_cast<const AutoGenerateInteractionUiViewBlockBase &>(t);
     return d;
 }
 

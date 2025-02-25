@@ -87,6 +87,7 @@ void AutoGenerateInteractionUiViewBlocks::generateWidget(QWidget *parent)
     parent->layout()->addWidget(widget);
 
     auto vboxLayout = new QVBoxLayout;
+    vboxLayout->setContentsMargins({});
     widget->setLayout(vboxLayout);
     for (const auto &e : std::as_const(mBlockElements)) {
         vboxLayout->addWidget(e->generateWidget(widget));

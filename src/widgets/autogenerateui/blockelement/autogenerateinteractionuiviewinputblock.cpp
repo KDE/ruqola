@@ -6,9 +6,12 @@
 
 #include "autogenerateinteractionuiviewinputblock.h"
 #include "autogenerateui/autogenerateinteractionuiviewactionable.h"
+#include "autogenerateui/elements/autogenerateinteractionuiviewdatepickerelement.h"
 #include "autogenerateui/elements/autogenerateinteractionuiviewplaintextinputelement.h"
+#include "autogenerateui/elements/autogenerateinteractionuiviewstaticselectelement.h"
 #include "ruqola_autogenerateui_debug.h"
 
+#include <QLabel>
 #include <QLayout>
 #include <QWidget>
 using namespace Qt::Literals::StringLiterals;
@@ -24,9 +27,9 @@ AutoGenerateInteractionUiViewInputBlock::~AutoGenerateInteractionUiViewInputBloc
 
 QDebug operator<<(QDebug d, const AutoGenerateInteractionUiViewInputBlock &t)
 {
+    d.space() << "AutoGenerateInteractionUiViewBlockBase:" << static_cast<const AutoGenerateInteractionUiViewBlockBase &>(t);
     d.space() << "optional:" << t.optional();
     d.space() << "label:" << t.label();
-    // TODO implement debug t
     return d;
 }
 
@@ -44,6 +47,13 @@ void AutoGenerateInteractionUiViewInputBlock::parse(const QJsonObject &json)
     const QString type = elementObj["type"_L1].toString();
     if (type == "plain_text_input"_L1) {
         mElement = new AutoGenerateInteractionUiViewPlainTextInputElement;
+        mElement->parse(elementObj);
+    } else if (type == "datepicker"_L1) {
+        mElement = new AutoGenerateInteractionUiViewDatePickerElement;
+        mElement->parse(elementObj);
+    } else if (type == "static_select"_L1) {
+        mElement = new AutoGenerateInteractionUiViewStaticSelectElement;
+        mElement->parse(elementObj);
     } else {
         qCWarning(RUQOLA_AUTOGENERATEUI_LOG) << "AutoGenerateInteractionUiViewInputBlock Unknown type " << type;
     }
@@ -71,16 +81,18 @@ void AutoGenerateInteractionUiViewInputBlock::setLabel(const AutoGenerateInterac
 
 QWidget *AutoGenerateInteractionUiViewInputBlock::generateWidget(QWidget *parent) const
 {
+    auto widget = new QWidget(parent);
+    parent->layout()->addWidget(widget);
+    auto vboxLayout = new QVBoxLayout;
+    vboxLayout->setContentsMargins({});
+    widget->setLayout(vboxLayout);
+    auto label = new QLabel(parent);
+    label->setText(mLabel.generateText());
+    vboxLayout->addWidget(label);
     if (mElement) {
-        auto widget = new QWidget(parent);
-        parent->layout()->addWidget(widget);
-        auto vboxLayout = new QVBoxLayout;
-        vboxLayout->setContentsMargins({});
-        widget->setLayout(vboxLayout);
         vboxLayout->addWidget(mElement->generateWidget(parent));
-        return widget;
     }
-    return nullptr;
+    return widget;
 }
 
 AutoGenerateInteractionUiViewActionable *AutoGenerateInteractionUiViewInputBlock::element() const

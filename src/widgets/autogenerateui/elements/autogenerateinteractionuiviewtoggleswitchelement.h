@@ -28,4 +28,5 @@ private:
     QList<AutoGenerateInteractionUiViewOptionElement> mOptions;
 };
 Q_DECLARE_METATYPE(AutoGenerateInteractionUiViewToggleSwitchElement)
+Q_DECLARE_TYPEINFO(AutoGenerateInteractionUiViewToggleSwitchElement, Q_RELOCATABLE_TYPE);
 LIBRUQOLAWIDGETS_EXPORT QDebug operator<<(QDebug d, const AutoGenerateInteractionUiViewToggleSwitchElement &t);

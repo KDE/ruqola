@@ -7,8 +7,10 @@
 #include "autogenerateinteractionuiviewsectionblock.h"
 #include "autogenerateui/autogenerateinteractionuiviewtext.h"
 #include "autogenerateui/elements/autogenerateinteractionuiviewbuttonelement.h"
+#include "autogenerateui/elements/autogenerateinteractionuiviewdatepickerelement.h"
 #include "autogenerateui/elements/autogenerateinteractionuiviewimageelement.h"
 #include "autogenerateui/elements/autogenerateinteractionuiviewoverflowelement.h"
+#include "autogenerateui/elements/autogenerateinteractionuiviewstaticselectelement.h"
 #include "ruqola_autogenerateui_debug.h"
 #include <QLabel>
 #include <QLayout>
@@ -26,6 +28,7 @@ AutoGenerateInteractionUiViewSectionBlock::~AutoGenerateInteractionUiViewSection
 
 QDebug operator<<(QDebug d, const AutoGenerateInteractionUiViewSectionBlock &t)
 {
+    d.space() << "AutoGenerateInteractionUiViewBlockBase:" << static_cast<const AutoGenerateInteractionUiViewBlockBase &>(t);
     if (t.text()) {
         d.space() << "text:" << *t.text();
     }
@@ -87,7 +90,9 @@ void AutoGenerateInteractionUiViewSectionBlock::parse(const QJsonObject &json)
             b->parse(accessoryObj);
             mAccessory = b;
         } else if (type == "datepicker"_L1) {
-            qCWarning(RUQOLA_AUTOGENERATEUI_LOG) << "AutoGenerateInteractionUiViewInputBlock not implemented yet " << type;
+            AutoGenerateInteractionUiViewDatePickerElement *datePicker = new AutoGenerateInteractionUiViewDatePickerElement;
+            datePicker->parse(accessoryObj);
+            mAccessory = datePicker;
         } else if (type == "image"_L1) {
             AutoGenerateInteractionUiViewImageElement *img = new AutoGenerateInteractionUiViewImageElement;
             img->parse(accessoryObj);
@@ -99,7 +104,9 @@ void AutoGenerateInteractionUiViewSectionBlock::parse(const QJsonObject &json)
         } else if (type == "multi_static_select"_L1) {
             qCWarning(RUQOLA_AUTOGENERATEUI_LOG) << "AutoGenerateInteractionUiViewInputBlock not implemented yet " << type;
         } else if (type == "static_select"_L1) {
-            qCWarning(RUQOLA_AUTOGENERATEUI_LOG) << "AutoGenerateInteractionUiViewInputBlock not implemented yet " << type;
+            AutoGenerateInteractionUiViewStaticSelectElement *select = new AutoGenerateInteractionUiViewStaticSelectElement;
+            select->parse(accessoryObj);
+            mAccessory = select;
         } else {
             qCWarning(RUQOLA_AUTOGENERATEUI_LOG) << "AutoGenerateInteractionUiViewInputBlock Unknown type " << type;
         }

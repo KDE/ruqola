@@ -45,7 +45,6 @@ QWidget *AutoGenerateInteractionUiViewContextBlock::generateWidget(QWidget *pare
             // TODO
         }
     }
-    hboxLayout->addStretch(1);
     return widget;
 }
 
@@ -80,6 +79,7 @@ void AutoGenerateInteractionUiViewContextBlock::setElements(const QList<AutoGene
 
 QDebug operator<<(QDebug d, const AutoGenerateInteractionUiViewContextBlock &t)
 {
+    d.space() << "AutoGenerateInteractionUiViewBlockBase:" << static_cast<const AutoGenerateInteractionUiViewBlockBase &>(t);
     d.space() << "elements:" << t.elements();
     return d;
 }

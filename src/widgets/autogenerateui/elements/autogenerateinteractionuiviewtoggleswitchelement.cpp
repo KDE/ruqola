@@ -33,7 +33,7 @@ QWidget *AutoGenerateInteractionUiViewToggleSwitchElement::generateWidget(QWidge
 
 QDebug operator<<(QDebug d, const AutoGenerateInteractionUiViewToggleSwitchElement &t)
 {
-    // TODO use qDebug with AutoGenerateInteractionUiViewActionable
+    d.space() << "AutoGenerateInteractionUiViewActionable:" << static_cast<AutoGenerateInteractionUiViewActionable>(t);
     return d;
 }
 

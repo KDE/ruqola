@@ -17,3 +17,7 @@ public:
     void parse(const QJsonObject &json) override;
     [[nodiscard]] QWidget *generateWidget(QWidget *parent) override;
 };
+
+Q_DECLARE_METATYPE(AutoGenerateInteractionUiViewOverflowElement)
+Q_DECLARE_TYPEINFO(AutoGenerateInteractionUiViewOverflowElement, Q_RELOCATABLE_TYPE);
+LIBRUQOLAWIDGETS_EXPORT QDebug operator<<(QDebug d, const AutoGenerateInteractionUiViewOverflowElement &t);

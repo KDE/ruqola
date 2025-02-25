@@ -24,3 +24,9 @@ QWidget *AutoGenerateInteractionUiViewOptionElement::generateWidget(QWidget *par
     // TODO
     return nullptr;
 }
+
+QDebug operator<<(QDebug d, const AutoGenerateInteractionUiViewOptionElement &t)
+{
+    d.space() << "AutoGenerateInteractionUiViewActionable:" << static_cast<AutoGenerateInteractionUiViewActionable>(t);
+    return d;
+}

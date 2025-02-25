@@ -26,7 +26,8 @@ AutoGenerateInteractionUiViewActionsBlock::~AutoGenerateInteractionUiViewActions
 
 QDebug operator<<(QDebug d, const AutoGenerateInteractionUiViewActionsBlock &t)
 {
-    d << "elements:" << t.elements();
+    d.space() << "AutoGenerateInteractionUiViewBlockBase:" << static_cast<const AutoGenerateInteractionUiViewBlockBase &>(t);
+    d.space() << "elements:" << t.elements();
     return d;
 }
 

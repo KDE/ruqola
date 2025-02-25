@@ -23,3 +23,7 @@ private:
     // TODO add url/description
     // TODO add textobject
 };
+
+Q_DECLARE_METATYPE(AutoGenerateInteractionUiViewOptionElement)
+Q_DECLARE_TYPEINFO(AutoGenerateInteractionUiViewOptionElement, Q_RELOCATABLE_TYPE);
+LIBRUQOLAWIDGETS_EXPORT QDebug operator<<(QDebug d, const AutoGenerateInteractionUiViewOptionElement &t);

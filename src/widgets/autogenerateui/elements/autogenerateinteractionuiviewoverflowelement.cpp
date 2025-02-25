@@ -25,3 +25,9 @@ QWidget *AutoGenerateInteractionUiViewOverflowElement::generateWidget(QWidget *p
     // TODO
     return nullptr;
 }
+
+QDebug operator<<(QDebug d, const AutoGenerateInteractionUiViewOverflowElement &t)
+{
+    d.space() << "AutoGenerateInteractionUiViewActionable:" << static_cast<AutoGenerateInteractionUiViewActionable>(t);
+    return d;
+}

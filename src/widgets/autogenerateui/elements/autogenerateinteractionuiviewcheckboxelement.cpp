@@ -42,8 +42,8 @@ void AutoGenerateInteractionUiViewCheckboxElement::setOptions(const QList<AutoGe
 
 QDebug operator<<(QDebug d, const AutoGenerateInteractionUiViewCheckboxElement &t)
 {
+    d.space() << "AutoGenerateInteractionUiViewActionable:" << static_cast<AutoGenerateInteractionUiViewActionable>(t);
     d.space() << "options:" << t.options();
-    // TODO use qDebug with AutoGenerateInteractionUiViewActionable
     return d;
 }
 

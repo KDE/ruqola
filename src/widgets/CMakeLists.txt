@@ -1063,6 +1063,10 @@ target_sources(libruqolawidgets PRIVATE
     autogenerateui/elements/autogenerateinteractionuiviewimageelement.cpp
     autogenerateui/elements/autogenerateinteractionuiviewoverflowelement.h
     autogenerateui/elements/autogenerateinteractionuiviewoverflowelement.cpp
+    autogenerateui/elements/autogenerateinteractionuiviewdatepickerelement.h
+    autogenerateui/elements/autogenerateinteractionuiviewdatepickerelement.cpp
+    autogenerateui/elements/autogenerateinteractionuiviewstaticselectelement.h
+    autogenerateui/elements/autogenerateinteractionuiviewstaticselectelement.cpp
 )
 
 if(HAVE_TEXT_AUTOCORRECTION_WIDGETS)
