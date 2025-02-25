@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-02-22 00:41+0000\n"
-"PO-Revision-Date: 2025-02-18 15:31+0100\n"
+"PO-Revision-Date: 2025-02-24 16:29+0100\n"
 "Last-Translator: giovanni <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
 "Language: ia\n"
@@ -8729,12 +8729,10 @@ msgid "Decode Key"
 msgstr ""
 
 #: widgets/encryption/e2epassworddecodekeydialog.cpp:30
-#, fuzzy, kde-format
-#| msgctxt "@option:check"
-#| msgid "Enabled E2E encryption"
+#, kde-format
 msgctxt "@action:button"
 msgid "Enable Encryption"
-msgstr "Habilita Cryptation E2E"
+msgstr "Habilita Cryptation"
 
 #: widgets/encryption/e2epassworddecodekeywidget.cpp:26
 #, kde-format

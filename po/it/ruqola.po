@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-02-22 00:41+0000\n"
-"PO-Revision-Date: 2025-02-01 20:48+0100\n"
+"PO-Revision-Date: 2025-02-21 09:11+0100\n"
 "Last-Translator: Vincenzo Reale <smart2128vr@gmail.com>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
 "Language: it\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 24.12.1\n"
+"X-Generator: Lokalize 24.12.2\n"
 
 #: apps/main.cpp:59
 #, kde-format
@@ -1162,7 +1162,7 @@ msgstr "In attesa"
 #: widgets/administratordialog/users/administratoruserstabwidget.cpp:35
 #, kde-format
 msgid "Deactivated"
-msgstr "Disattivatato"
+msgstr "Disattivato"
 
 #: core/model/adminusersallmodel.cpp:70
 #: core/model/adminuserspendingmodel.cpp:68
@@ -2829,7 +2829,7 @@ msgstr "Parametri non validi"
 #: rocketchatrestapi-qt/users/usersupdatejob.cpp:65
 #, kde-format
 msgid "Error trying to send email %1"
-msgstr "Errore durante il tentativo di invio dell messaggio di posta %1"
+msgstr "Errore durante il tentativo di invio del messaggio di posta %1"
 
 #: widgets/administratordialog/administratordialog.cpp:27
 #, kde-format
@@ -5025,8 +5025,7 @@ msgid "Access unencrypted content in encrypted rooms"
 msgstr "Accedi a contenuti non cifrati nelle stanze cifrate"
 
 #: widgets/administratorsettingsdialog/encryption/encryptionsettingswidget.cpp:21
-#, fuzzy, kde-format
-#| msgid "Mentions"
+#, kde-format
 msgctxt "@option:check"
 msgid "Mentions"
 msgstr "Menzioni"
@@ -5065,6 +5064,8 @@ msgid ""
 "Notify people, and highlight user, channel, and team mentions in encrypted "
 "content."
 msgstr ""
+"Notifica le persone ed evidenzia le menzioni di utenti, canali e squadre nei "
+"contenuti cifrati."
 
 #: widgets/administratorsettingsdialog/encryption/encryptionsettingswidget.cpp:56
 #, kde-format
@@ -8188,18 +8189,14 @@ msgid "Private Room:"
 msgstr "Stanza privata:"
 
 #: widgets/dialogs/createnewchannelwidget.cpp:74
-#, fuzzy, kde-format
-#| msgctxt "@info:tooltip"
-#| msgid ""
-#| "Messages are end-to-end encrypted, search will not work and notifications "
-#| "may not show message content"
+#, kde-format
 msgctxt "@label:textbox"
 msgid ""
 "End-to-end encrypted channel. Search will not work with encrypted channel "
 "and notifications may not show the messages content."
 msgstr ""
-"I messaggi sono cifrati end-to-end, la ricerca non funzionerà e le notifiche "
-"potrebbero non mostrare il contenuto del messaggio"
+"Canale cifrato end-to-end. La ricerca non funzionerà con il canale cifratoe "
+"le notifiche potrebbero non mostrare il contenuto dei messaggi."
 
 #: widgets/dialogs/createnewchannelwidget.cpp:80
 #, kde-format
@@ -8632,18 +8629,14 @@ msgid "Copy Location to Clipboard"
 msgstr "Copia la posizione negli appunti"
 
 #: widgets/dialogs/showimageprevnextimagewidget.cpp:21
-#, fuzzy, kde-format
-#| msgctxt "@info:shell"
-#| msgid "Show Message"
+#, kde-format
 msgid "Show previous image"
-msgstr "Mostra messaggio"
+msgstr "Mostra l'immagine precedente"
 
 #: widgets/dialogs/showimageprevnextimagewidget.cpp:29
-#, fuzzy, kde-format
-#| msgctxt "@info:shell"
-#| msgid "Show Message"
+#, kde-format
 msgid "Show next image"
-msgstr "Mostra messaggio"
+msgstr "Mostra l'immagine successiva"
 
 #: widgets/dialogs/showimagewidget.cpp:64
 #, kde-format
@@ -8923,12 +8916,10 @@ msgid "Decode Encryption Key"
 msgstr "Decodifica chiave di cifratura"
 
 #: widgets/encryption/e2edisabledialog.cpp:16
-#, fuzzy, kde-format
-#| msgctxt "@option:check"
-#| msgid "Enabled E2E encryption"
+#, kde-format
 msgctxt "@title:window"
 msgid "Disable Encryption"
-msgstr "Abilita cifratura E2E"
+msgstr "Disabilita cifratura"
 
 #: widgets/encryption/e2edisablewidget.cpp:23
 #, kde-format
@@ -8939,6 +8930,12 @@ msgid ""
 "If no one is able to access the encrypted content you can reset encryption "
 "keys instead."
 msgstr ""
+"La disattivazione di E2EE comprometterà la riservatezza di questo gruppo "
+"privato. L'accesso a qualsiasi contenuto cifrato andrà perso per tutti i "
+"membri del gruppo privato.\n"
+"La cifratura può essere riattivata in seguito. Procedi con cautela.\n"
+"Se nessuno è in grado di accedere al contenuto cifrato, è possibile "
+"reimpostare le chiavi di cifratura."
 
 #: widgets/encryption/e2edisablewidget.cpp:36
 #, kde-format
@@ -8946,13 +8943,14 @@ msgid ""
 "Alternatively, resetting encryption keys will keep encryption enabled but "
 "access to previously encrypted content may be lost."
 msgstr ""
+"In alternativa, la reimpostazione delle chiavi di cifratura manterrà la "
+"cifratura abilitata, ma l'accesso ai contenuti precedentemente cifrati "
+"potrebbe andare perso."
 
 #: widgets/encryption/e2edisablewidget.cpp:41
-#, fuzzy, kde-format
-#| msgctxt "@action"
-#| msgid "Decode Encryption Key"
+#, kde-format
 msgid "Reset encryption keys"
-msgstr "Decodifica chiave di cifratura"
+msgstr "Reimposta le chiavi di cifratura"
 
 #: widgets/encryption/e2epassworddecodekeydialog.cpp:18
 #, kde-format
@@ -8961,19 +8959,16 @@ msgid "Decode Key"
 msgstr "Decodifica chiave"
 
 #: widgets/encryption/e2epassworddecodekeydialog.cpp:30
-#, fuzzy, kde-format
-#| msgctxt "@option:check"
-#| msgid "Enabled E2E encryption"
+#, kde-format
 msgctxt "@action:button"
 msgid "Enable Encryption"
-msgstr "Abilita cifratura E2E"
+msgstr "Abilita cifratura"
 
 #: widgets/encryption/e2epassworddecodekeywidget.cpp:26
-#, fuzzy, kde-format
-#| msgid "Click here to enter your e2e password."
+#, kde-format
 msgctxt "@info:placeholder"
 msgid "Please enter your E2EE password"
-msgstr "Fai clic qui per digitare la tua password e2e."
+msgstr "Digita la tua password E2EE"
 
 #: widgets/encryption/e2epassworddecodekeywidget.cpp:30
 #, kde-format
@@ -9292,7 +9287,7 @@ msgstr "Compatto"
 #: widgets/misc/passwordconfirmwidget.cpp:22
 #, kde-format
 msgid "Your passwords do no match."
-msgstr ""
+msgstr "Le tue password non corrispondono."
 
 #: widgets/misc/passwordconfirmwidget.cpp:36
 #, kde-format
@@ -9385,11 +9380,10 @@ msgid "Reset E2E Key"
 msgstr "Ripristina la chiave E2E"
 
 #: widgets/myaccount/myaccount2e2configurewidget.cpp:24
-#, fuzzy, kde-format
-#| msgid "Modify…"
+#, kde-format
 msgctxt "@action:button"
 msgid "Modify"
-msgstr "Modifica…"
+msgstr "Modifica"
 
 #: widgets/myaccount/myaccount2e2configurewidget.cpp:32
 #, kde-format
@@ -10672,17 +10666,15 @@ msgid "Your email has been queued for sending."
 msgstr "La tua email è stata messa in coda per la spedizione."
 
 #: widgets/room/roomwidget.cpp:512
-#, fuzzy, kde-format
-#| msgid "Direct Messages can not be archived"
+#, kde-format
 msgid "Encrypted content cannot be searched."
-msgstr "I messaggi diretti non possono essere archiviati"
+msgstr "Non è possibile effettuare ricerche sui contenuti cifrati."
 
 #: widgets/room/roomwidget.cpp:512
-#, fuzzy, kde-format
-#| msgid "Search Message"
+#, kde-format
 msgctxt "@title:window"
 msgid "Search Message"
-msgstr "Cerca messaggio"
+msgstr "Ricerca messaggio"
 
 #: widgets/room/roomwidget.cpp:531
 #, kde-format
@@ -10721,10 +10713,9 @@ msgid "Disconnected"
 msgstr "Disconnesso"
 
 #: widgets/room/usersinroomcombobox.cpp:27
-#, fuzzy, kde-format
-#| msgid "Owner"
+#, kde-format
 msgid "Owners"
-msgstr "Proprietario"
+msgstr "Proprietari"
 
 #: widgets/room/usersinroomdialog.cpp:27
 #, kde-format
@@ -11452,13 +11443,11 @@ msgstr "Implementa la verifica se esiste una nuova versione di Ruqola"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:21
 msgid "Allow to search threads by unread/following"
-msgstr ""
+msgstr "Consenti di cercare le discussioni per non letti/seguiti"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:22
-#, fuzzy
-#| msgid "Show Files Attachment In Room"
 msgid "Show images from attachment dialog box"
-msgstr "Mostra i file allegati della stanza"
+msgstr "Mostra le immagini dalla finestra degli allegati"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:32
 #, kde-format
@@ -11898,17 +11887,17 @@ msgstr "Consenti di attivare/disattivare il negozio delle applicazioni."
 #: widgets/whatsnew/whatsnewtranslations.cpp:165
 #, kde-format
 msgid "Improve list of user in room."
-msgstr ""
+msgstr "Migliora l'elenco degli utenti nella stanza."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:166
 #, kde-format
 msgid "Search in encrypted room is not possible."
-msgstr ""
+msgstr "Non è possibile effettuare ricerche in una stanza cifrata."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:167
 #, kde-format
 msgid "Show roles for users in rooms."
-msgstr ""
+msgstr "Mostra i ruoli per gli utenti nelle stanze."
 
 #: widgets/whatsnew/whatsnewwidget.cpp:44
 #, kde-format
