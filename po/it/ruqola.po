@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-02-14 02:44+0000\n"
-"PO-Revision-Date: 2024-12-24 18:13+0100\n"
+"PO-Revision-Date: 2025-02-21 09:11+0100\n"
 "Last-Translator: Vincenzo Reale <smart2128vr@gmail.com>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
 "Language: it\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 24.12.1\n"
+"X-Generator: Lokalize 24.12.2\n"
 
 #: apps/main.cpp:73
 #, kde-format
@@ -1132,7 +1132,7 @@ msgstr "In attesa"
 #: widgets/administratordialog/users/administratoruserstabwidget.cpp:35
 #, kde-format
 msgid "Deactivated"
-msgstr "Disattivatato"
+msgstr "Disattivato"
 
 #: core/model/adminusersallmodel.cpp:70
 #: core/model/adminuserspendingmodel.cpp:68
@@ -2794,7 +2794,7 @@ msgstr "Parametri non validi"
 #: rocketchatrestapi-qt/users/usersupdatejob.cpp:65
 #, kde-format
 msgid "Error trying to send email %1"
-msgstr "Errore durante il tentativo di invio dell messaggio di posta %1"
+msgstr "Errore durante il tentativo di invio del messaggio di posta %1"
 
 #: widgets/administratordialog/administratordialog.cpp:27
 #, kde-format
