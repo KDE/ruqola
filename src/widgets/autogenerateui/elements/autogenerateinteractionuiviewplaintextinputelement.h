@@ -6,7 +6,7 @@
 
 #pragma once
 
-#include "autogenerateinteractionuiviewactionable.h"
+#include "autogenerateui/autogenerateinteractionuiviewactionable.h"
 
 class AutoGenerateInteractionUiViewText;
 // see ./packages/ui-kit/src/blocks/elements/PlainTextInputElement.ts

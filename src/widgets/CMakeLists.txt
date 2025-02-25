@@ -1021,8 +1021,6 @@ target_sources(libruqolawidgets PRIVATE
 
     autogenerateui/autogenerateinteractionui.h
     autogenerateui/autogenerateinteractionui.cpp
-    autogenerateui/autogenerateinteractionuiviewelement.h
-    autogenerateui/autogenerateinteractionuiviewelement.cpp
     autogenerateui/autogenerateinteractionuiviewtext.h
     autogenerateui/autogenerateinteractionuiviewtext.cpp
     autogenerateui/autogenerateinteractionuiviewblocks.cpp
@@ -1031,14 +1029,9 @@ target_sources(libruqolawidgets PRIVATE
     autogenerateui/autogenerateinteractionuiviewactionable.h
     autogenerateui/autogenerateinteractionuiview.h
     autogenerateui/autogenerateinteractionuiview.cpp
-    autogenerateui/autogenerateinteractionuiviewbuttonelement.h
-    autogenerateui/autogenerateinteractionuiviewbuttonelement.cpp
-    autogenerateui/autogenerateinteractionuiviewcheckboxelement.cpp
-    autogenerateui/autogenerateinteractionuiviewcheckboxelement.h
-    autogenerateui/autogenerateinteractionuiviewradiobuttonelement.cpp
-    autogenerateui/autogenerateinteractionuiviewradiobuttonelement.h
-    autogenerateui/autogenerateinteractionuiviewtoggleswitchelement.cpp
-    autogenerateui/autogenerateinteractionuiviewtoggleswitchelement.h
+    autogenerateui/autogenerateinteractionuiviewimage.h
+    autogenerateui/autogenerateinteractionuiviewimage.cpp
+
     autogenerateui/blockelement/autogenerateinteractionuiviewsectionblock.h
     autogenerateui/blockelement/autogenerateinteractionuiviewsectionblock.cpp
     autogenerateui/blockelement/autogenerateinteractionuiviewblockbase.h
@@ -1051,19 +1044,25 @@ target_sources(libruqolawidgets PRIVATE
     autogenerateui/blockelement/autogenerateinteractionuiviewdividerblock.h
     autogenerateui/blockelement/autogenerateinteractionuiviewcontextblock.h
     autogenerateui/blockelement/autogenerateinteractionuiviewcontextblock.cpp
-    
-    autogenerateui/autogenerateinteractionuiviewoptionelement.h
-    autogenerateui/autogenerateinteractionuiviewoptionelement.cpp
-    autogenerateui/autogenerateinteractionuiviewplaintextinputelement.h
-    autogenerateui/autogenerateinteractionuiviewplaintextinputelement.cpp
 
-    autogenerateui/autogenerateinteractionuiviewimage.h
-    autogenerateui/autogenerateinteractionuiviewimage.cpp
-    autogenerateui/autogenerateinteractionuiviewimageelement.h
-    autogenerateui/autogenerateinteractionuiviewimageelement.cpp
-
-    autogenerateui/autogenerateinteractionuiviewoverflowelement.h
-    autogenerateui/autogenerateinteractionuiviewoverflowelement.cpp
+    autogenerateui/elements/autogenerateinteractionuiviewelement.h
+    autogenerateui/elements/autogenerateinteractionuiviewelement.cpp
+    autogenerateui/elements/autogenerateinteractionuiviewbuttonelement.h
+    autogenerateui/elements/autogenerateinteractionuiviewbuttonelement.cpp
+    autogenerateui/elements/autogenerateinteractionuiviewcheckboxelement.cpp
+    autogenerateui/elements/autogenerateinteractionuiviewcheckboxelement.h
+    autogenerateui/elements/autogenerateinteractionuiviewradiobuttonelement.cpp
+    autogenerateui/elements/autogenerateinteractionuiviewradiobuttonelement.h
+    autogenerateui/elements/autogenerateinteractionuiviewtoggleswitchelement.cpp
+    autogenerateui/elements/autogenerateinteractionuiviewtoggleswitchelement.h
+    autogenerateui/elements/autogenerateinteractionuiviewoptionelement.h
+    autogenerateui/elements/autogenerateinteractionuiviewoptionelement.cpp
+    autogenerateui/elements/autogenerateinteractionuiviewplaintextinputelement.h
+    autogenerateui/elements/autogenerateinteractionuiviewplaintextinputelement.cpp
+    autogenerateui/elements/autogenerateinteractionuiviewimageelement.h
+    autogenerateui/elements/autogenerateinteractionuiviewimageelement.cpp
+    autogenerateui/elements/autogenerateinteractionuiviewoverflowelement.h
+    autogenerateui/elements/autogenerateinteractionuiviewoverflowelement.cpp
 )
 
 if(HAVE_TEXT_AUTOCORRECTION_WIDGETS)

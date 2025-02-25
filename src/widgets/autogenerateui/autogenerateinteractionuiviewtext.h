@@ -5,7 +5,7 @@
 */
 #pragma once
 
-#include "autogenerateinteractionuiviewelement.h"
+#include "elements/autogenerateinteractionuiviewelement.h"
 #include "libruqolawidgets_private_export.h"
 #include <QJsonObject>
 

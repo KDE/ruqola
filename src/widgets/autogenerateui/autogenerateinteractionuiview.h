@@ -6,8 +6,8 @@
 
 #pragma once
 
-#include "autogenerateinteractionuiviewbuttonelement.h"
 #include "autogenerateui/autogenerateinteractionuiviewblocks.h"
+#include "autogenerateui/elements/autogenerateinteractionuiviewbuttonelement.h"
 #include "libruqolawidgets_private_export.h"
 #include <QJsonObject>
 

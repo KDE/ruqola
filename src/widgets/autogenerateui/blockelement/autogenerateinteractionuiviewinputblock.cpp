@@ -6,7 +6,7 @@
 
 #include "autogenerateinteractionuiviewinputblock.h"
 #include "autogenerateui/autogenerateinteractionuiviewactionable.h"
-#include "autogenerateui/autogenerateinteractionuiviewplaintextinputelement.h"
+#include "autogenerateui/elements/autogenerateinteractionuiviewplaintextinputelement.h"
 #include "ruqola_autogenerateui_debug.h"
 
 #include <QLayout>

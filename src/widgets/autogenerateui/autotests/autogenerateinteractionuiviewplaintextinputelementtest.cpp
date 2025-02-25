@@ -4,7 +4,7 @@
    SPDX-License-Identifier: LGPL-2.0-or-later
 */
 #include "autogenerateinteractionuiviewplaintextinputelementtest.h"
-#include "autogenerateui/autogenerateinteractionuiviewplaintextinputelement.h"
+#include "autogenerateui/elements/autogenerateinteractionuiviewplaintextinputelement.h"
 #include <QTest>
 
 QTEST_MAIN(AutoGenerateInteractionUiViewPlainTextInputElementTest)

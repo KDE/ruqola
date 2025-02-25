@@ -6,7 +6,7 @@
 
 #pragma once
 
-#include "autogenerateinteractionuiviewactionable.h"
+#include "autogenerateui/autogenerateinteractionuiviewactionable.h"
 #include "libruqolawidgets_private_export.h"
 // ./packages/ui-kit/src/blocks/elements/OverflowElement.ts
 class LIBRUQOLAWIDGETS_TESTS_EXPORT AutoGenerateInteractionUiViewOverflowElement : public AutoGenerateInteractionUiViewActionable

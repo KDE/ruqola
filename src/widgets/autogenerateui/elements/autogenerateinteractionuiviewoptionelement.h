@@ -6,7 +6,7 @@
 
 #pragma once
 
-#include "autogenerateinteractionuiviewactionable.h"
+#include "autogenerateui/autogenerateinteractionuiviewactionable.h"
 
 // See ./packages/ui-kit/src/blocks/Option.ts
 class LIBRUQOLAWIDGETS_TESTS_EXPORT AutoGenerateInteractionUiViewOptionElement : public AutoGenerateInteractionUiViewActionable

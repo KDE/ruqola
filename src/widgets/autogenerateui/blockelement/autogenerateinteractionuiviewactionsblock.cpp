@@ -5,10 +5,10 @@
 */
 
 #include "autogenerateinteractionuiviewactionsblock.h"
-#include "autogenerateui/autogenerateinteractionuiviewbuttonelement.h"
-#include "autogenerateui/autogenerateinteractionuiviewcheckboxelement.h"
-#include "autogenerateui/autogenerateinteractionuiviewradiobuttonelement.h"
-#include "autogenerateui/autogenerateinteractionuiviewtoggleswitchelement.h"
+#include "autogenerateui/elements/autogenerateinteractionuiviewbuttonelement.h"
+#include "autogenerateui/elements/autogenerateinteractionuiviewcheckboxelement.h"
+#include "autogenerateui/elements/autogenerateinteractionuiviewradiobuttonelement.h"
+#include "autogenerateui/elements/autogenerateinteractionuiviewtoggleswitchelement.h"
 #include "ruqola_autogenerateui_debug.h"
 #include <QJsonArray>
 #include <QLayout>

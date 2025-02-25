@@ -5,7 +5,7 @@
 */
 
 #include "autogenerateinteractionuiviewoverflowelementtest.h"
-#include "autogenerateui/autogenerateinteractionuiviewoverflowelement.h"
+#include "autogenerateui/elements/autogenerateinteractionuiviewoverflowelement.h"
 #include <QTest>
 QTEST_MAIN(AutoGenerateInteractionUiViewOverflowElementTest)
 

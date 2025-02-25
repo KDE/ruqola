@@ -4,7 +4,7 @@
    SPDX-License-Identifier: LGPL-2.0-or-later
 */
 #include "autogenerateinteractionuiviewbuttonelementtest.h"
-#include "autogenerateui/autogenerateinteractionuiviewbuttonelement.h"
+#include "autogenerateui/elements/autogenerateinteractionuiviewbuttonelement.h"
 #include <QTest>
 QTEST_MAIN(AutoGenerateInteractionUiViewButtonElementTest)
 

@@ -4,8 +4,8 @@
    SPDX-License-Identifier: LGPL-2.0-or-later
 */
 #pragma once
-#include "autogenerateinteractionuiviewactionable.h"
-#include "autogenerateinteractionuiviewoptionelement.h"
+#include "autogenerateui/autogenerateinteractionuiviewactionable.h"
+#include "autogenerateui/elements/autogenerateinteractionuiviewoptionelement.h"
 #include "libruqolawidgets_private_export.h"
 #include <QJsonObject>
 // see ./packages/ui-kit/src/blocks/elements/CheckboxElement.ts

@@ -5,10 +5,10 @@
 */
 
 #include "autogenerateinteractionuiviewsectionblock.h"
-#include "autogenerateui/autogenerateinteractionuiviewbuttonelement.h"
-#include "autogenerateui/autogenerateinteractionuiviewimageelement.h"
-#include "autogenerateui/autogenerateinteractionuiviewoverflowelement.h"
 #include "autogenerateui/autogenerateinteractionuiviewtext.h"
+#include "autogenerateui/elements/autogenerateinteractionuiviewbuttonelement.h"
+#include "autogenerateui/elements/autogenerateinteractionuiviewimageelement.h"
+#include "autogenerateui/elements/autogenerateinteractionuiviewoverflowelement.h"
 #include "ruqola_autogenerateui_debug.h"
 #include <QLabel>
 #include <QLayout>
