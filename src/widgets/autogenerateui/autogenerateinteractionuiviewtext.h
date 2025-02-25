@@ -32,6 +32,7 @@ public:
 
     [[nodiscard]] TextType type() const;
     void setType(TextType newType);
+    [[nodiscard]] QString generateText() const;
 
 private:
     [[nodiscard]] LIBRUQOLAWIDGETS_NO_EXPORT AutoGenerateInteractionUiViewText::TextType convertTypeFromString(const QString &str) const;

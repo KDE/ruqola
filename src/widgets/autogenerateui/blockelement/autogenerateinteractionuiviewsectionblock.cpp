@@ -35,7 +35,7 @@ QWidget *AutoGenerateInteractionUiViewSectionBlock::generateWidget(QWidget *pare
 {
     if (mText) {
         auto label = new QLabel(parent);
-        label->setText(mText->text());
+        label->setText(mText->generateText());
         return label;
     }
     return nullptr;

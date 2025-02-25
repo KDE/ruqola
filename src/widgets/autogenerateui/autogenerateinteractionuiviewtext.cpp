@@ -6,6 +6,8 @@
 
 #include "autogenerateinteractionuiviewtext.h"
 #include "ruqola_autogenerateui_debug.h"
+
+#include <QTextDocument>
 using namespace Qt::Literals::StringLiterals;
 AutoGenerateInteractionUiViewText::AutoGenerateInteractionUiViewText() = default;
 
@@ -60,6 +62,23 @@ void AutoGenerateInteractionUiViewText::setType(TextType newType)
 QString AutoGenerateInteractionUiViewText::text() const
 {
     return mText;
+}
+
+QString AutoGenerateInteractionUiViewText::generateText() const
+{
+    switch (mType) {
+    case TextType::Unknown:
+        qCWarning(RUQOLA_AUTOGENERATEUI_LOG) << "generateText unknown type ";
+        return mText;
+    case TextType::PlainText:
+        return mText;
+    case TextType::Markdown: {
+        QTextDocument doc;
+        doc.setMarkdown(mText);
+        return doc.toHtml();
+    }
+    }
+    return {};
 }
 
 void AutoGenerateInteractionUiViewText::setText(const QString &newText)
