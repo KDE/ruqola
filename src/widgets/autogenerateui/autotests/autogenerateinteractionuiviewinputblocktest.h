@@ -3,17 +3,17 @@
 
    SPDX-License-Identifier: LGPL-2.0-or-later
 */
+
 #pragma once
 
 #include <QObject>
 
-class AutoGenerateInteractionUiViewPlainTextInputElementTest : public QObject
+class AutoGenerateInteractionUiViewInputBlockTest : public QObject
 {
     Q_OBJECT
 public:
-    explicit AutoGenerateInteractionUiViewPlainTextInputElementTest(QObject *parent = nullptr);
-    ~AutoGenerateInteractionUiViewPlainTextInputElementTest() override = default;
-
+    explicit AutoGenerateInteractionUiViewInputBlockTest(QObject *parent = nullptr);
+    ~AutoGenerateInteractionUiViewInputBlockTest() override = default;
 private Q_SLOTS:
     void shouldHaveDefaultValues();
     void shouldLoadJson();

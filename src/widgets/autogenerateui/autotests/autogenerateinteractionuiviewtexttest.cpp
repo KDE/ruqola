@@ -35,7 +35,7 @@ void AutoGenerateInteractionUiViewTextTest::shouldLoadJson()
     const bool equal = result == textelement;
     if (!equal) {
         qDebug() << " result " << result;
-        qDebug() << " deviceInfo " << textelement;
+        qDebug() << " textelement " << textelement;
     }
     QVERIFY(equal);
 }
