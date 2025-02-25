@@ -6,6 +6,7 @@
 
 #include "autogenerateinteractionuiviewsectionblock.h"
 #include "autogenerateui/autogenerateinteractionuiviewbuttonelement.h"
+#include "autogenerateui/autogenerateinteractionuiviewimageelement.h"
 #include "autogenerateui/autogenerateinteractionuiviewtext.h"
 #include "ruqola_autogenerateui_debug.h"
 #include <QLabel>
@@ -86,7 +87,9 @@ void AutoGenerateInteractionUiViewSectionBlock::parse(const QJsonObject &json)
         } else if (type == "datepicker"_L1) {
             qCWarning(RUQOLA_AUTOGENERATEUI_LOG) << "AutoGenerateInteractionUiViewInputBlock not implemented yet " << type;
         } else if (type == "image"_L1) {
-            qCWarning(RUQOLA_AUTOGENERATEUI_LOG) << "AutoGenerateInteractionUiViewInputBlock not implemented yet " << type;
+            AutoGenerateInteractionUiViewImageElement *img = new AutoGenerateInteractionUiViewImageElement;
+            img->parse(accessoryObj);
+            mAccessory = img;
         } else if (type == "multi_static_select"_L1) {
             qCWarning(RUQOLA_AUTOGENERATEUI_LOG) << "AutoGenerateInteractionUiViewInputBlock not implemented yet " << type;
         } else if (type == "overflow"_L1) {
