@@ -1,0 +1,48 @@
+/*
+   SPDX-FileCopyrightText: 2025 Laurent Montel <montel@kde.org>
+
+   SPDX-License-Identifier: LGPL-2.0-or-later
+*/
+
+#include "autogenerateinteractionuiviewimage.h"
+using namespace Qt::Literals::StringLiterals;
+
+AutoGenerateInteractionUiViewImage::AutoGenerateInteractionUiViewImage() = default;
+
+AutoGenerateInteractionUiViewImage::~AutoGenerateInteractionUiViewImage() = default;
+
+QDebug operator<<(QDebug d, const AutoGenerateInteractionUiViewImage &t)
+{
+    d.space() << "altText:" << t.altText();
+    d.space() << "imageUrl:" << t.imageUrl();
+    return d;
+}
+void AutoGenerateInteractionUiViewImage::parse(const QJsonObject &json)
+{
+    // TODO
+}
+
+QString AutoGenerateInteractionUiViewImage::altText() const
+{
+    return mAltText;
+}
+
+void AutoGenerateInteractionUiViewImage::setAltText(const QString &newAltText)
+{
+    mAltText = newAltText;
+}
+
+QString AutoGenerateInteractionUiViewImage::imageUrl() const
+{
+    return mImageUrl;
+}
+
+void AutoGenerateInteractionUiViewImage::setImageUrl(const QString &newImageUrl)
+{
+    mImageUrl = newImageUrl;
+}
+
+bool AutoGenerateInteractionUiViewImage::operator==(const AutoGenerateInteractionUiViewImage &other) const
+{
+    return other.altText() == altText() && other.imageUrl() == imageUrl();
+}

@@ -5,10 +5,11 @@
 */
 #pragma once
 
+#include "autogenerateinteractionuiviewelement.h"
 #include "libruqolawidgets_private_export.h"
 #include <QJsonObject>
 
-class LIBRUQOLAWIDGETS_TESTS_EXPORT AutoGenerateInteractionUiViewText
+class LIBRUQOLAWIDGETS_TESTS_EXPORT AutoGenerateInteractionUiViewText : public AutoGenerateInteractionUiViewElement
 {
     Q_GADGET
 public:
@@ -21,7 +22,7 @@ public:
     // PlainText/Mardown?
     AutoGenerateInteractionUiViewText();
     ~AutoGenerateInteractionUiViewText();
-    void parse(const QJsonObject &json);
+    void parse(const QJsonObject &json) override;
 
     [[nodiscard]] QString text() const;
     void setText(const QString &newText);

@@ -19,9 +19,13 @@ public:
 
     [[nodiscard]] QWidget *generateWidget(QWidget *parent) override;
 
+    [[nodiscard]] bool operator==(const AutoGenerateInteractionUiViewCheckboxElement &other) const;
+    [[nodiscard]] QList<AutoGenerateInteractionUiViewOptionElement *> options() const;
+    void setOptions(const QList<AutoGenerateInteractionUiViewOptionElement *> &newOptions);
+
 private:
     // TODO initialOptions
-    QList<AutoGenerateInteractionUiViewOptionElement> mOptions;
+    QList<AutoGenerateInteractionUiViewOptionElement *> mOptions;
 };
 Q_DECLARE_METATYPE(AutoGenerateInteractionUiViewCheckboxElement)
 Q_DECLARE_TYPEINFO(AutoGenerateInteractionUiViewCheckboxElement, Q_RELOCATABLE_TYPE);

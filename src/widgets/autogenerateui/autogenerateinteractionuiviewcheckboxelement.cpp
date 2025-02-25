@@ -25,8 +25,24 @@ QWidget *AutoGenerateInteractionUiViewCheckboxElement::generateWidget(QWidget *p
     return nullptr;
 }
 
+bool AutoGenerateInteractionUiViewCheckboxElement::operator==(const AutoGenerateInteractionUiViewCheckboxElement &other) const
+{
+    return other.options() == options();
+}
+
+QList<AutoGenerateInteractionUiViewOptionElement *> AutoGenerateInteractionUiViewCheckboxElement::options() const
+{
+    return mOptions;
+}
+
+void AutoGenerateInteractionUiViewCheckboxElement::setOptions(const QList<AutoGenerateInteractionUiViewOptionElement *> &newOptions)
+{
+    mOptions = newOptions;
+}
+
 QDebug operator<<(QDebug d, const AutoGenerateInteractionUiViewCheckboxElement &t)
 {
+    d.space() << "options:" << t.options();
     // TODO use qDebug with AutoGenerateInteractionUiViewActionable
     return d;
 }
