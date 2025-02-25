@@ -1061,6 +1061,9 @@ target_sources(libruqolawidgets PRIVATE
     autogenerateui/autogenerateinteractionuiviewimage.cpp
     autogenerateui/autogenerateinteractionuiviewimageelement.h
     autogenerateui/autogenerateinteractionuiviewimageelement.cpp
+
+    autogenerateui/autogenerateinteractionuiviewoverflowelement.h
+    autogenerateui/autogenerateinteractionuiviewoverflowelement.cpp
 )
 
 if(HAVE_TEXT_AUTOCORRECTION_WIDGETS)
