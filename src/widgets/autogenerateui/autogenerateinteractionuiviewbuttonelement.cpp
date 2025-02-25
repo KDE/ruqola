@@ -45,7 +45,7 @@ void AutoGenerateInteractionUiViewButtonElement::setSecondary(bool newSecondary)
 QWidget *AutoGenerateInteractionUiViewButtonElement::generateWidget(QWidget *parent)
 {
     auto b = new QPushButton(parent);
-    b->setText(mText.text());
+    b->setText(mText.generateText());
     // TODO add Style
     return b;
 }

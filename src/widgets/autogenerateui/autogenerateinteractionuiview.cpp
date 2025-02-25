@@ -105,7 +105,7 @@ void AutoGenerateInteractionUiView::setBlocks(const AutoGenerateInteractionUiVie
 void AutoGenerateInteractionUiView::generateWidget(QWidget *widget)
 {
     // TODO customize title
-    widget->setWindowTitle(mTitle.text());
+    widget->setWindowTitle(mTitle.generateText());
     auto mainLayout = new QVBoxLayout(widget);
     mBlocks.generateWidget(widget);
     if (mCloseButton || mSubmitButton) {
@@ -113,11 +113,11 @@ void AutoGenerateInteractionUiView::generateWidget(QWidget *widget)
         // TODO connect button
         if (mCloseButton) {
             auto closeButton = buttonDialog->addButton(QDialogButtonBox::Close);
-            closeButton->setText(mCloseButton->text().text());
+            closeButton->setText(mCloseButton->text().generateText());
         }
         if (mSubmitButton) {
             auto okButton = buttonDialog->addButton(QDialogButtonBox::Ok);
-            okButton->setText(mSubmitButton->text().text());
+            okButton->setText(mSubmitButton->text().generateText());
         }
         mainLayout->addStretch(1);
         mainLayout->addWidget(buttonDialog);
