@@ -25,7 +25,7 @@ AutoGenerateInteractionUiViewContextBlock::~AutoGenerateInteractionUiViewContext
 
 bool AutoGenerateInteractionUiViewContextBlock::operator==(const AutoGenerateInteractionUiViewContextBlock &other) const
 {
-    return other.elements() == elements();
+    return AutoGenerateInteractionUiViewBlockBase::operator==(other) && other.elements() == elements();
 }
 
 QWidget *AutoGenerateInteractionUiViewContextBlock::generateWidget(QWidget *parent) const

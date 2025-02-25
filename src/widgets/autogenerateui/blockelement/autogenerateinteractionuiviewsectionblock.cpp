@@ -32,11 +32,9 @@ QDebug operator<<(QDebug d, const AutoGenerateInteractionUiViewSectionBlock &t)
     if (t.text()) {
         d.space() << "text:" << *t.text();
     }
-    /*
     if (t.accessory()) {
         d.space() << "accessory:" << *t.accessory();
     }
-    */
     return d;
 }
 
