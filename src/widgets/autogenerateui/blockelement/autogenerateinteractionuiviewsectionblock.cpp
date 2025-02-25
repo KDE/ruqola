@@ -5,6 +5,7 @@
 */
 
 #include "autogenerateinteractionuiviewsectionblock.h"
+#include "autogenerateui/autogenerateinteractionuiviewbuttonelement.h"
 #include "autogenerateui/autogenerateinteractionuiviewtext.h"
 #include "ruqola_autogenerateui_debug.h"
 #include <QLabel>
@@ -18,6 +19,7 @@ AutoGenerateInteractionUiViewSectionBlock::AutoGenerateInteractionUiViewSectionB
 AutoGenerateInteractionUiViewSectionBlock::~AutoGenerateInteractionUiViewSectionBlock()
 {
     delete mText;
+    delete mAccessory;
 }
 
 QDebug operator<<(QDebug d, const AutoGenerateInteractionUiViewSectionBlock &t)
@@ -42,17 +44,18 @@ QWidget *AutoGenerateInteractionUiViewSectionBlock::generateWidget(QWidget *pare
 {
     auto widget = new QWidget(parent);
     parent->layout()->addWidget(widget);
-    auto vboxLayout = new QVBoxLayout;
-    vboxLayout->setContentsMargins({});
-    widget->setLayout(vboxLayout);
+    auto hboxLayout = new QHBoxLayout;
+    hboxLayout->setContentsMargins({});
+    widget->setLayout(hboxLayout);
 
     if (mText) {
         auto label = new QLabel(parent);
         label->setText(mText->generateText());
-        vboxLayout->addWidget(label);
+        hboxLayout->addWidget(label);
     }
     if (mAccessory) {
-        // TODO
+        auto w = mAccessory->generateWidget(parent);
+        hboxLayout->addWidget(w);
     }
     return widget;
 }
@@ -77,6 +80,9 @@ void AutoGenerateInteractionUiViewSectionBlock::parse(const QJsonObject &json)
         const QJsonObject accessoryObj = json["accessory"_L1].toObject();
         const QString type = accessoryObj["type"_L1].toString();
         if (type == "button"_L1) {
+            AutoGenerateInteractionUiViewButtonElement *b = new AutoGenerateInteractionUiViewButtonElement;
+            b->parse(accessoryObj);
+            mAccessory = b;
         } else if (type == "datepicker"_L1) {
             qCWarning(RUQOLA_AUTOGENERATEUI_LOG) << "AutoGenerateInteractionUiViewInputBlock not implemented yet " << type;
         } else if (type == "image"_L1) {
