@@ -91,6 +91,7 @@ QWidget *AutoGenerateInteractionUiViewActionsBlock::generateWidget(QWidget *pare
     auto widget = new QWidget(parent);
     parent->layout()->addWidget(widget);
     auto hboxLayout = new QHBoxLayout;
+    hboxLayout->setContentsMargins({});
     widget->setLayout(hboxLayout);
     for (const auto &e : std::as_const(mElements)) {
         hboxLayout->addWidget(e->generateWidget(parent));
