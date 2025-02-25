@@ -19,7 +19,8 @@ QDebug operator<<(QDebug d, const AutoGenerateInteractionUiViewImage &t)
 }
 void AutoGenerateInteractionUiViewImage::parse(const QJsonObject &json)
 {
-    // TODO
+    mAltText = json["altText"_L1].toString();
+    mImageUrl = json["imageUrl"_L1].toString();
 }
 
 QString AutoGenerateInteractionUiViewImage::altText() const
