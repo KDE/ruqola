@@ -5,6 +5,7 @@
 */
 
 #include "autogenerateinteractionuiviewplaintextinputelement.h"
+#include "autogenerateui/autogenerateinteractionuiviewtext.h"
 
 #include <QPlainTextEdit>
 using namespace Qt::Literals::StringLiterals;
@@ -15,12 +16,16 @@ AutoGenerateInteractionUiViewPlainTextInputElement::AutoGenerateInteractionUiVie
 
 AutoGenerateInteractionUiViewPlainTextInputElement::~AutoGenerateInteractionUiViewPlainTextInputElement()
 {
+    delete mPlaceHolder;
 }
 
 void AutoGenerateInteractionUiViewPlainTextInputElement::parse(const QJsonObject &json)
 {
     AutoGenerateInteractionUiViewActionable::parse(json);
-    // TODO mPlaceHolder = json["placeholder"_L1].toString();
+    if (json.contains("placeholder"_L1)) {
+        mPlaceHolder = new AutoGenerateInteractionUiViewText;
+        mPlaceHolder->parse(json["placeholder"_L1].toObject());
+    }
     mInitialValue = json["initialValue"_L1].toString();
     mMultiLine = json["multiline"_L1].toBool();
     mMinLength = json["minLength"_L1].toInt(-1);
@@ -30,7 +35,9 @@ void AutoGenerateInteractionUiViewPlainTextInputElement::parse(const QJsonObject
 QWidget *AutoGenerateInteractionUiViewPlainTextInputElement::generateWidget(QWidget *parent)
 {
     auto plainText = new QPlainTextEdit(parent);
-    plainText->setPlaceholderText(mPlaceHolder);
+    if (mPlaceHolder) {
+        plainText->setPlaceholderText(mPlaceHolder->generateText());
+    }
     plainText->setPlainText(mInitialValue);
     if (!mMultiLine) {
         plainText->setMaximumBlockCount(1);
@@ -38,12 +45,12 @@ QWidget *AutoGenerateInteractionUiViewPlainTextInputElement::generateWidget(QWid
     return plainText;
 }
 
-QString AutoGenerateInteractionUiViewPlainTextInputElement::placeHolder() const
+AutoGenerateInteractionUiViewText *AutoGenerateInteractionUiViewPlainTextInputElement::placeHolder() const
 {
     return mPlaceHolder;
 }
 
-void AutoGenerateInteractionUiViewPlainTextInputElement::setPlaceHolder(const QString &newPlaceHolder)
+void AutoGenerateInteractionUiViewPlainTextInputElement::setPlaceHolder(AutoGenerateInteractionUiViewText *newPlaceHolder)
 {
     mPlaceHolder = newPlaceHolder;
 }
@@ -76,7 +83,9 @@ bool AutoGenerateInteractionUiViewPlainTextInputElement::operator==(const AutoGe
 
 QDebug operator<<(QDebug d, const AutoGenerateInteractionUiViewPlainTextInputElement &t)
 {
-    d.space() << "placeHolder:" << t.placeHolder();
+    if (t.placeHolder()) {
+        d.space() << "placeHolder:" << *t.placeHolder();
+    }
     d.space() << "initialValue:" << t.initialValue();
     d.space() << "multiLine:" << t.multiLine();
     d.space() << "minLength:" << t.minLength();

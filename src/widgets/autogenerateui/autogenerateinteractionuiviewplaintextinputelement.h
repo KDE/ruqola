@@ -8,6 +8,7 @@
 
 #include "autogenerateinteractionuiviewactionable.h"
 
+class AutoGenerateInteractionUiViewText;
 // see ./packages/ui-kit/src/blocks/elements/PlainTextInputElement.ts
 class LIBRUQOLAWIDGETS_TESTS_EXPORT AutoGenerateInteractionUiViewPlainTextInputElement : public AutoGenerateInteractionUiViewActionable
 {
@@ -18,8 +19,8 @@ public:
 
     [[nodiscard]] QWidget *generateWidget(QWidget *parent) override;
 
-    [[nodiscard]] QString placeHolder() const;
-    void setPlaceHolder(const QString &newPlaceHolder);
+    [[nodiscard]] AutoGenerateInteractionUiViewText *placeHolder() const;
+    void setPlaceHolder(AutoGenerateInteractionUiViewText *newPlaceHolder);
 
     [[nodiscard]] QString initialValue() const;
     void setInitialValue(const QString &newInitialValue);
@@ -36,7 +37,7 @@ public:
     void setMaxLength(int newMaxLength);
 
 private:
-    QString mPlaceHolder;
+    AutoGenerateInteractionUiViewText *mPlaceHolder = nullptr;
     QString mInitialValue;
     bool mMultiLine = false;
     int mMinLength = -1;

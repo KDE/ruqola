@@ -17,9 +17,11 @@ AutoGenerateInteractionUiViewPlainTextInputElementTest::AutoGenerateInteractionU
 void AutoGenerateInteractionUiViewPlainTextInputElementTest::shouldHaveDefaultValues()
 {
     AutoGenerateInteractionUiViewPlainTextInputElement e;
-    QVERIFY(e.placeHolder().isEmpty());
+    QVERIFY(!e.placeHolder());
     QVERIFY(e.initialValue().isEmpty());
     QVERIFY(!e.multiLine());
     QCOMPARE(e.minLength(), -1);
     QCOMPARE(e.maxLength(), -1);
 }
+
+#include "moc_autogenerateinteractionuiviewplaintextinputelementtest.cpp"
