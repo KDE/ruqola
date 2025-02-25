@@ -5,6 +5,8 @@
 */
 
 #include "autogenerateinteractionuiviewcontextblock.h"
+#include "autogenerateui/autogenerateinteractionuiviewimage.h"
+#include "autogenerateui/autogenerateinteractionuiviewtext.h"
 #include "ruqola_autogenerateui_debug.h"
 #include <QJsonArray>
 using namespace Qt::Literals::StringLiterals;
@@ -15,12 +17,12 @@ AutoGenerateInteractionUiViewContextBlock::AutoGenerateInteractionUiViewContextB
 
 AutoGenerateInteractionUiViewContextBlock::~AutoGenerateInteractionUiViewContextBlock()
 {
+    qDeleteAll(mElements);
 }
 
 bool AutoGenerateInteractionUiViewContextBlock::operator==(const AutoGenerateInteractionUiViewContextBlock &other) const
 {
-    // TODO
-    return false;
+    return other.elements() == elements();
 }
 
 QWidget *AutoGenerateInteractionUiViewContextBlock::generateWidget(QWidget *parent) const
@@ -34,9 +36,14 @@ void AutoGenerateInteractionUiViewContextBlock::parse(const QJsonObject &json)
     AutoGenerateInteractionUiViewBlockBase::parse(json);
     for (const auto &r : json["elements"_L1].toArray()) {
         const QString type = r["type"_L1].toString();
-        if (type == "plain_text"_L1) {
-        } else if (type == "mrkdwn"_L1) {
+        if (type == "plain_text"_L1 || type == "mrkdwn"_L1) {
+            AutoGenerateInteractionUiViewText *text = new AutoGenerateInteractionUiViewText;
+            text->parse(r.toObject());
+            mElements.append(std::move(text));
         } else if (type == "image"_L1) {
+            AutoGenerateInteractionUiViewImage *img = new AutoGenerateInteractionUiViewImage;
+            img->parse(r.toObject());
+            mElements.append(std::move(img));
         } else {
             qCWarning(RUQOLA_AUTOGENERATEUI_LOG) << "AutoGenerateInteractionUiViewInputBlock Unknown type " << type;
         }
