@@ -50,7 +50,5 @@ void AutoGenerateInteractionUiViewBlockBase::parse(const QJsonObject &json)
 
 QWidget *AutoGenerateInteractionUiViewBlockBase::generateWidget(QWidget *parent) const
 {
-    qDebug() << " CCCCCCCCCCCCCCCCCCCCCCsdfsdfdsfsdf";
     return nullptr;
-    // TODO
 }

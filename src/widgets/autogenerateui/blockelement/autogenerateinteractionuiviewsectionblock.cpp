@@ -57,5 +57,4 @@ void AutoGenerateInteractionUiViewSectionBlock::parse(const QJsonObject &json)
         mText = new AutoGenerateInteractionUiViewText;
         mText->parse(json["text"_L1].toObject());
     }
-    // TODO
 }
