@@ -11,6 +11,7 @@
 #include <QDebug>
 // packages/ui-kit/src/blocks/layout/SectionBlock.ts:14
 class AutoGenerateInteractionUiViewText;
+class AutoGenerateInteractionUiViewActionable;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT AutoGenerateInteractionUiViewSectionBlock : public AutoGenerateInteractionUiViewBlockBase
 {
 public:
@@ -24,10 +25,13 @@ public:
 
     void parse(const QJsonObject &json) override;
 
+    [[nodiscard]] AutoGenerateInteractionUiViewActionable *accessory() const;
+    void setAccessory(AutoGenerateInteractionUiViewActionable *newAccessory);
+
 private:
     AutoGenerateInteractionUiViewText *mText = nullptr;
+    AutoGenerateInteractionUiViewActionable *mAccessory = nullptr;
     /*
-        text?: TextObject;
         fields?: readonly TextObject[];
         accessory?: ButtonElement | DatePickerElement | ImageElement | MultiStaticSelectElement | OverflowElement | StaticSelectElement;
 
