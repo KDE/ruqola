@@ -18,3 +18,5 @@ void AutoGenerateInteractionUiViewImageElementTest::shouldHaveDefaultValues()
 {
     // TODO
 }
+
+#include "moc_autogenerateinteractionuiviewimageelementtest.cpp"
