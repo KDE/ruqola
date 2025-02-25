@@ -52,6 +52,7 @@ QWidget *AutoGenerateInteractionUiViewSectionBlock::generateWidget(QWidget *pare
 
     if (mText) {
         auto label = new QLabel(parent);
+        label->setWordWrap(true);
         label->setText(mText->generateText());
         hboxLayout->addWidget(label);
     }

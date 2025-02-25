@@ -38,6 +38,7 @@ QWidget *AutoGenerateInteractionUiViewContextBlock::generateWidget(QWidget *pare
     for (auto e : std::as_const(mElements)) {
         if (auto f = dynamic_cast<AutoGenerateInteractionUiViewText *>(e)) {
             auto label = new QLabel(parent);
+            label->setWordWrap(true);
             label->setText(f->generateText());
             hboxLayout->addWidget(label);
         } else if (auto f = dynamic_cast<AutoGenerateInteractionUiViewImage *>(e)) {
