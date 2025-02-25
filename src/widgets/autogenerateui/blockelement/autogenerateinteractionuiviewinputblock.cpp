@@ -75,6 +75,7 @@ QWidget *AutoGenerateInteractionUiViewInputBlock::generateWidget(QWidget *parent
         auto widget = new QWidget(parent);
         parent->layout()->addWidget(widget);
         auto vboxLayout = new QVBoxLayout;
+        vboxLayout->setContentsMargins({});
         widget->setLayout(vboxLayout);
         vboxLayout->addWidget(mElement->generateWidget(parent));
         return widget;
