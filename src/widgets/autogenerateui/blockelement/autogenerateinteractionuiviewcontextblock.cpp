@@ -9,6 +9,9 @@
 #include "autogenerateui/autogenerateinteractionuiviewtext.h"
 #include "ruqola_autogenerateui_debug.h"
 #include <QJsonArray>
+#include <QLabel>
+#include <QLayout>
+#include <QWidget>
 using namespace Qt::Literals::StringLiterals;
 AutoGenerateInteractionUiViewContextBlock::AutoGenerateInteractionUiViewContextBlock()
     : AutoGenerateInteractionUiViewBlockBase()
@@ -27,8 +30,22 @@ bool AutoGenerateInteractionUiViewContextBlock::operator==(const AutoGenerateInt
 
 QWidget *AutoGenerateInteractionUiViewContextBlock::generateWidget(QWidget *parent) const
 {
-    // TODO
-    return nullptr;
+    auto widget = new QWidget(parent);
+    parent->layout()->addWidget(widget);
+    auto hboxLayout = new QHBoxLayout;
+    hboxLayout->setContentsMargins({});
+    widget->setLayout(hboxLayout);
+    for (auto e : std::as_const(mElements)) {
+        if (auto f = dynamic_cast<AutoGenerateInteractionUiViewText *>(e)) {
+            auto label = new QLabel(parent);
+            label->setText(f->generateText());
+            hboxLayout->addWidget(label);
+        } else if (auto f = dynamic_cast<AutoGenerateInteractionUiViewImage *>(e)) {
+            // TODO
+        }
+    }
+    hboxLayout->addStretch(1);
+    return widget;
 }
 
 void AutoGenerateInteractionUiViewContextBlock::parse(const QJsonObject &json)
