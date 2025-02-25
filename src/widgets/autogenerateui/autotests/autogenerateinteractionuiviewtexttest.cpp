@@ -62,3 +62,5 @@ void AutoGenerateInteractionUiViewTextTest::shouldLoadJson_data()
         QTest::addRow("plaintextelement") << QStringLiteral("plaintextelement") << textElement;
     }
 }
+
+#include "moc_autogenerateinteractionuiviewtexttest.cpp"

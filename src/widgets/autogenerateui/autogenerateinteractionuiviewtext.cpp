@@ -93,3 +93,5 @@ QDebug operator<<(QDebug d, const AutoGenerateInteractionUiViewText &t)
     d.space() << "type:" << t.type();
     return d;
 }
+
+#include "moc_autogenerateinteractionuiviewtext.cpp"
