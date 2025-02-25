@@ -90,10 +90,11 @@ QWidget *AutoGenerateInteractionUiViewActionsBlock::generateWidget(QWidget *pare
 {
     auto widget = new QWidget(parent);
     parent->layout()->addWidget(widget);
-    auto vboxLayout = new QVBoxLayout;
-    widget->setLayout(vboxLayout);
+    auto hboxLayout = new QHBoxLayout;
+    widget->setLayout(hboxLayout);
     for (const auto &e : std::as_const(mElements)) {
-        vboxLayout->addWidget(e->generateWidget(parent));
+        hboxLayout->addWidget(e->generateWidget(parent));
     }
+    hboxLayout->addStretch(1);
     return widget;
 }
