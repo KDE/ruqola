@@ -20,3 +20,5 @@ void AutoGenerateInteractionUiViewDatePickerElementTest::shouldHaveDefaultValues
     QVERIFY(e.initialDate().isEmpty());
     // TODO
 }
+
+#include "moc_autogenerateinteractionuiviewdatepickerelementtest.cpp"

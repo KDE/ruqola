@@ -7,7 +7,10 @@
 #include "autogenerateinteractionuiviewimage.h"
 using namespace Qt::Literals::StringLiterals;
 
-AutoGenerateInteractionUiViewImage::AutoGenerateInteractionUiViewImage() = default;
+AutoGenerateInteractionUiViewImage::AutoGenerateInteractionUiViewImage()
+    : AutoGenerateInteractionUiViewElement()
+{
+}
 
 AutoGenerateInteractionUiViewImage::~AutoGenerateInteractionUiViewImage() = default;
 
