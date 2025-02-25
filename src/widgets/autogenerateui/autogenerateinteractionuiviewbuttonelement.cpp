@@ -46,6 +46,7 @@ QWidget *AutoGenerateInteractionUiViewButtonElement::generateWidget(QWidget *par
 {
     auto b = new QPushButton(parent);
     b->setText(mText.text());
+    // TODO add Style
     return b;
 }
 
