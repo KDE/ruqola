@@ -15,6 +15,7 @@ void AutoGenerateInteractionUiViewActionable::parse(const QJsonObject &json)
     mAppId = json["appId"_L1].toString().toLatin1();
     mBlockId = json["blockId"_L1].toString().toLatin1();
     mActionId = json["actionId"_L1].toString().toLatin1();
+    mType = json["type"_L1].toString().toLatin1();
 }
 
 QByteArray AutoGenerateInteractionUiViewActionable::appId() const
@@ -49,13 +50,24 @@ void AutoGenerateInteractionUiViewActionable::setActionId(const QByteArray &newA
 
 bool AutoGenerateInteractionUiViewActionable::operator==(const AutoGenerateInteractionUiViewActionable &other) const
 {
-    return other.appId() == appId() && other.blockId() == blockId() && other.actionId() == other.actionId();
+    return other.appId() == appId() && other.blockId() == blockId() && other.actionId() == actionId() && other.type() == type();
 }
 
 QWidget *AutoGenerateInteractionUiViewActionable::generateWidget(QWidget *parent)
 {
+    Q_UNUSED(parent)
     // TODO
     return nullptr;
+}
+
+QByteArray AutoGenerateInteractionUiViewActionable::type() const
+{
+    return mType;
+}
+
+void AutoGenerateInteractionUiViewActionable::setType(const QByteArray &newType)
+{
+    mType = newType;
 }
 
 QDebug operator<<(QDebug d, const AutoGenerateInteractionUiViewActionable &t)
@@ -63,5 +75,6 @@ QDebug operator<<(QDebug d, const AutoGenerateInteractionUiViewActionable &t)
     d.space() << "appId:" << t.appId();
     d.space() << "blockId:" << t.blockId();
     d.space() << "actionId:" << t.actionId();
+    d.space() << "type:" << t.type();
     return d;
 }

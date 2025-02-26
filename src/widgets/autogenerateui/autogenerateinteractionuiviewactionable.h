@@ -29,10 +29,14 @@ public:
 
     virtual QWidget *generateWidget(QWidget *parent);
 
+    [[nodiscard]] QByteArray type() const;
+    void setType(const QByteArray &newType);
+
 private:
     QByteArray mAppId;
     QByteArray mBlockId;
     QByteArray mActionId;
+    QByteArray mType;
 };
 
 Q_DECLARE_METATYPE(AutoGenerateInteractionUiViewActionable)
