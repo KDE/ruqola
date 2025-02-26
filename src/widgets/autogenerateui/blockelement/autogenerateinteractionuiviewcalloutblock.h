@@ -7,7 +7,9 @@
 #pragma once
 
 #include "autogenerateinteractionuiviewblockbase.h"
-
+class AutoGenerateInteractionUiViewText;
+class AutoGenerateInteractionUiViewActionable;
+// ./src/blocks/layout/CalloutBlock.ts
 class AutoGenerateInteractionUiViewCalloutBlock : public AutoGenerateInteractionUiViewBlockBase
 {
 public:
@@ -15,6 +17,16 @@ public:
     ~AutoGenerateInteractionUiViewCalloutBlock();
     [[nodiscard]] QWidget *generateWidget(QWidget *parent) const override;
     void parse(const QJsonObject &json) override;
+
+    [[nodiscard]] AutoGenerateInteractionUiViewText *text() const;
+    void setText(AutoGenerateInteractionUiViewText *newText);
+
+    [[nodiscard]] AutoGenerateInteractionUiViewActionable *accessory() const;
+    void setAccessory(AutoGenerateInteractionUiViewActionable *newAccessory);
+
+private:
+    AutoGenerateInteractionUiViewText *mText = nullptr;
+    AutoGenerateInteractionUiViewActionable *mAccessory = nullptr;
 };
 
 Q_DECLARE_METATYPE(AutoGenerateInteractionUiViewCalloutBlock)

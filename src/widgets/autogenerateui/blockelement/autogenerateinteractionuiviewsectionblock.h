@@ -33,8 +33,6 @@ private:
     AutoGenerateInteractionUiViewActionable *mAccessory = nullptr;
     /*
         fields?: readonly TextObject[];
-        accessory?: ButtonElement | DatePickerElement | ImageElement | MultiStaticSelectElement | OverflowElement | StaticSelectElement;
-
     */
 };
 

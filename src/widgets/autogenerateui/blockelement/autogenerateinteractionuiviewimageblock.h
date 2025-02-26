@@ -8,6 +8,7 @@
 
 #include "autogenerateinteractionuiviewblockbase.h"
 
+// ./src/blocks/layout/ImageBlock.ts
 class AutoGenerateInteractionUiViewImageBlock : public AutoGenerateInteractionUiViewBlockBase
 {
 public:
