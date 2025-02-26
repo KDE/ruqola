@@ -36,7 +36,10 @@ void AutoGenerateInteractionUiView::parseView(const QJsonObject &json)
     mShowIcon = json["showIcon"_L1].toBool();
     mId = json["id"_L1].toString().toLatin1();
     mTitle.parse(json["title"_L1].toObject());
-    mBlocks.parse(json["blocks"_L1].toArray());
+    if (!mBlocks) {
+        mBlocks = new AutoGenerateInteractionUiViewBlocks(this);
+    }
+    mBlocks->parse(json["blocks"_L1].toArray());
 }
 
 QByteArray AutoGenerateInteractionUiView::id() const
@@ -95,12 +98,12 @@ void AutoGenerateInteractionUiView::setTitle(const AutoGenerateInteractionUiView
     mTitle = newTitle;
 }
 
-AutoGenerateInteractionUiViewBlocks AutoGenerateInteractionUiView::blocks() const
+AutoGenerateInteractionUiViewBlocks *AutoGenerateInteractionUiView::blocks() const
 {
     return mBlocks;
 }
 
-void AutoGenerateInteractionUiView::setBlocks(const AutoGenerateInteractionUiViewBlocks &newBlocks)
+void AutoGenerateInteractionUiView::setBlocks(AutoGenerateInteractionUiViewBlocks *newBlocks)
 {
     mBlocks = newBlocks;
 }
@@ -110,7 +113,10 @@ void AutoGenerateInteractionUiView::generateWidget(QWidget *widget)
     // TODO customize title
     widget->setWindowTitle(mTitle.generateText());
     auto mainLayout = new QVBoxLayout(widget);
-    mBlocks.generateWidget(widget);
+    if (!mBlocks) {
+        mBlocks = new AutoGenerateInteractionUiViewBlocks(this);
+    }
+    mBlocks->generateWidget(widget);
     if (mCloseButton || mSubmitButton) {
         auto buttonDialog = new QDialogButtonBox(widget);
         if (mCloseButton) {

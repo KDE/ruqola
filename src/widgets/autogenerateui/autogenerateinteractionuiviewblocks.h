@@ -11,10 +11,11 @@
 #include <QJsonArray>
 #include <QList>
 
-class LIBRUQOLAWIDGETS_TESTS_EXPORT AutoGenerateInteractionUiViewBlocks
+class LIBRUQOLAWIDGETS_TESTS_EXPORT AutoGenerateInteractionUiViewBlocks : public QObject
 {
+    Q_OBJECT
 public:
-    AutoGenerateInteractionUiViewBlocks();
+    explicit AutoGenerateInteractionUiViewBlocks(QObject *parent = nullptr);
     ~AutoGenerateInteractionUiViewBlocks();
     void parse(const QJsonArray &array);
     [[nodiscard]] bool operator==(const AutoGenerateInteractionUiViewBlocks &other) const;
@@ -29,5 +30,4 @@ private:
 };
 
 Q_DECLARE_METATYPE(AutoGenerateInteractionUiViewBlocks)
-Q_DECLARE_TYPEINFO(AutoGenerateInteractionUiViewBlocks, Q_RELOCATABLE_TYPE);
 LIBRUQOLAWIDGETS_EXPORT QDebug operator<<(QDebug d, const AutoGenerateInteractionUiViewBlocks &t);

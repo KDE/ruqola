@@ -39,8 +39,8 @@ public:
     [[nodiscard]] AutoGenerateInteractionUiViewText title() const;
     void setTitle(const AutoGenerateInteractionUiViewText &newTitle);
 
-    [[nodiscard]] AutoGenerateInteractionUiViewBlocks blocks() const;
-    void setBlocks(const AutoGenerateInteractionUiViewBlocks &newBlocks);
+    [[nodiscard]] AutoGenerateInteractionUiViewBlocks *blocks() const;
+    void setBlocks(AutoGenerateInteractionUiViewBlocks *newBlocks);
 
     void generateWidget(QWidget *parent);
 
@@ -54,7 +54,7 @@ private:
     AutoGenerateInteractionUiViewButtonElement *mCloseButton = nullptr;
     AutoGenerateInteractionUiViewButtonElement *mSubmitButton = nullptr;
     AutoGenerateInteractionUiViewText mTitle;
-    AutoGenerateInteractionUiViewBlocks mBlocks;
+    AutoGenerateInteractionUiViewBlocks *mBlocks = nullptr;
 };
 
 Q_DECLARE_METATYPE(AutoGenerateInteractionUiView)

@@ -16,7 +16,10 @@
 #include <QWidget>
 
 using namespace Qt::Literals::StringLiterals;
-AutoGenerateInteractionUiViewBlocks::AutoGenerateInteractionUiViewBlocks() = default;
+AutoGenerateInteractionUiViewBlocks::AutoGenerateInteractionUiViewBlocks(QObject *parent)
+    : QObject(parent)
+{
+}
 
 AutoGenerateInteractionUiViewBlocks::~AutoGenerateInteractionUiViewBlocks()
 {
