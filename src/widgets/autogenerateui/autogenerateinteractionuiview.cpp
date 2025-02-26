@@ -144,3 +144,5 @@ QDebug operator<<(QDebug d, const AutoGenerateInteractionUiView &t)
     d.space() << "blocks:" << t.blocks();
     return d;
 }
+
+#include "moc_autogenerateinteractionuiview.cpp"

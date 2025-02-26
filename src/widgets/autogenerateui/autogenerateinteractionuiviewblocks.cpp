@@ -96,3 +96,5 @@ void AutoGenerateInteractionUiViewBlocks::generateWidget(QWidget *parent)
         vboxLayout->addWidget(e->generateWidget(widget));
     }
 }
+
+#include "moc_autogenerateinteractionuiviewblocks.cpp"
