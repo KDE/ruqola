@@ -16,8 +16,10 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT AutoGenerateInteractionUi : public QObject
 public:
     enum class TypeUi : uint8_t {
         Unknown,
-        ModalDialog,
-        ContextualBar,
+        ModalDialogUpdate,
+        ModalDialogOpen,
+        ContextualBarOpen,
+        ContextualBarUpdate,
     };
     Q_ENUM(TypeUi)
 
@@ -40,6 +42,8 @@ public:
     void setView(AutoGenerateInteractionUiView *newView);
 
     [[nodiscard]] QWidget *generateWidget(QWidget *parent = nullptr);
+
+    [[nodiscard]] QJsonObject generateJson() const;
 
 private:
     [[nodiscard]] LIBRUQOLAWIDGETS_NO_EXPORT AutoGenerateInteractionUi::TypeUi convertTypeUiFromString(const QString &str) const;

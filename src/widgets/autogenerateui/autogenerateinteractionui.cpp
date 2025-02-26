@@ -17,6 +17,11 @@ AutoGenerateInteractionUi::AutoGenerateInteractionUi(QObject *parent)
 
 AutoGenerateInteractionUi::~AutoGenerateInteractionUi() = default;
 
+QJsonObject AutoGenerateInteractionUi::generateJson() const
+{
+    return {};
+}
+
 bool AutoGenerateInteractionUi::parseInteractionUi(const QJsonObject &json)
 {
     mTypeUi = convertTypeUiFromString(json["type"_L1].toString());
@@ -35,10 +40,14 @@ bool AutoGenerateInteractionUi::parseInteractionUi(const QJsonObject &json)
 
 AutoGenerateInteractionUi::TypeUi AutoGenerateInteractionUi::convertTypeUiFromString(const QString &str) const
 {
-    if (str == "modal.open"_L1) {
-        return AutoGenerateInteractionUi::TypeUi::ModalDialog;
+    if (str == "modal.update"_L1) {
+        return AutoGenerateInteractionUi::TypeUi::ModalDialogUpdate;
+    } else if (str == "modal.open"_L1) {
+        return AutoGenerateInteractionUi::TypeUi::ModalDialogOpen;
     } else if (str == "contextual_bar.open"_L1) {
-        return AutoGenerateInteractionUi::TypeUi::ContextualBar;
+        return AutoGenerateInteractionUi::TypeUi::ContextualBarOpen;
+    } else if (str == "contextual_bar.update"_L1) {
+        return AutoGenerateInteractionUi::TypeUi::ContextualBarUpdate;
     } else {
         qCWarning(RUQOLA_AUTOGENERATEUI_LOG) << "Unknown TypeUi type " << str;
     }
@@ -102,6 +111,9 @@ QDebug operator<<(QDebug d, const AutoGenerateInteractionUi &t)
     d.space() << "appId:" << t.appId();
     d.space() << "triggerId:" << t.triggerId();
     d.space() << "typeUi:" << t.typeUi();
+    if (t.view()) {
+        d.space() << "view" << *t.view();
+    }
     return d;
 }
 
