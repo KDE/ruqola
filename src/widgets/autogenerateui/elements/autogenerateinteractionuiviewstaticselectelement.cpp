@@ -44,7 +44,7 @@ QWidget *AutoGenerateInteractionUiViewStaticSelectElement::generateWidget(QWidge
 {
     auto comboBox = new QComboBox(parent);
     for (const auto &r : std::as_const(mOptions)) {
-        comboBox->addItem(r->value());
+        comboBox->addItem(r->text().text(), r->value());
     }
     return comboBox;
 }
