@@ -20,6 +20,7 @@ QList<KLazyLocalizedString> WhatsNewTranslations::lastNewFeatures() const
         kli18n("Implement verify if a new Ruqola version exist"),
         kli18n("Allow to search threads by unread/following"),
         kli18n("Show images from attachment dialog box"),
+        kli18n("Implement Rocket.Chat application support."),
     };
     return info;
 }
