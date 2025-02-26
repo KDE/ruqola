@@ -28,9 +28,13 @@ NeedUpdateCheckExistingNextVersionWidget::NeedUpdateCheckExistingNextVersionWidg
     mainLayout->addWidget(plainTextEdit);
     connect(pushButton, &QPushButton::clicked, this, [this, lineEdit, plainTextEdit]() {
         if (!lineEdit->text().isEmpty()) {
+            plainTextEdit->clear();
             auto job = new NeedUpdateCheckExistingNewVersionJob(this);
             job->setUrl(QUrl(lineEdit->text()));
             job->setCompileDate(NeedUpdateVersionUtils::compileDate());
+            connect(job, &NeedUpdateCheckExistingNewVersionJob::foundNewVersion, this, [plainTextEdit](bool state) {
+                plainTextEdit->setPlainText(QStringLiteral("New version found ? %1").arg(state));
+            });
             job->start();
         }
     });
