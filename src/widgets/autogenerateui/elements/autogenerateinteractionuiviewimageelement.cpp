@@ -20,7 +20,6 @@ QWidget *AutoGenerateInteractionUiViewImageElement::generateWidget(QWidget *pare
 
 bool AutoGenerateInteractionUiViewImageElement::operator==(const AutoGenerateInteractionUiViewImageElement &other) const
 {
-    // TODO
     return other.image() == image() && AutoGenerateInteractionUiViewActionable::operator==(other);
 }
 

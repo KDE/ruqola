@@ -26,4 +26,9 @@ QDebug operator<<(QDebug d, const AutoGenerateInteractionUiViewRadioButtonElemen
     return d;
 }
 
+bool AutoGenerateInteractionUiViewRadioButtonElement::operator==(const AutoGenerateInteractionUiViewRadioButtonElement &other) const
+{
+    return AutoGenerateInteractionUiViewActionable::operator==(other);
+}
+
 #include "moc_autogenerateinteractionuiviewradiobuttonelement.cpp"

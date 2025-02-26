@@ -26,6 +26,8 @@ public:
     [[nodiscard]] QList<AutoGenerateInteractionUiViewOption *> options() const;
     void setOptions(const QList<AutoGenerateInteractionUiViewOption *> &newOptions);
 
+    [[nodiscard]] bool operator==(const AutoGenerateInteractionUiViewMultiStaticSelectElement &other) const;
+
 private:
     AutoGenerateInteractionUiViewText *mPlaceHolder = nullptr;
     QList<AutoGenerateInteractionUiViewOption *> mOptions;

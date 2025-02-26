@@ -71,3 +71,9 @@ QDebug operator<<(QDebug d, const AutoGenerateInteractionUiViewMultiStaticSelect
     d.space() << "options:" << t.options();
     return d;
 }
+
+bool AutoGenerateInteractionUiViewMultiStaticSelectElement::operator==(const AutoGenerateInteractionUiViewMultiStaticSelectElement &other) const
+{
+    // TODO add placeholder too
+    return other.options() == options() && AutoGenerateInteractionUiViewActionable::operator==(other);
+}

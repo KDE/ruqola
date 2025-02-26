@@ -23,6 +23,8 @@ public:
     void setOptions(const QList<AutoGenerateInteractionUiViewOption> &newOptions);
     [[nodiscard]] QWidget *generateWidget(QWidget *parent) override;
 
+    [[nodiscard]] bool operator==(const AutoGenerateInteractionUiViewToggleSwitchElement &other) const;
+
 private:
     // TODO initialOptions
     QList<AutoGenerateInteractionUiViewOption> mOptions;

@@ -19,6 +19,8 @@ public:
     void parse(const QJsonObject &json) override;
     [[nodiscard]] QWidget *generateWidget(QWidget *parent) override;
 
+    [[nodiscard]] bool operator==(const AutoGenerateInteractionUiViewRadioButtonElement &other) const;
+
 private:
     // TODO initialOptions
     QList<AutoGenerateInteractionUiViewOption> mOptions;

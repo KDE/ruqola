@@ -21,6 +21,8 @@ public:
     [[nodiscard]] QList<AutoGenerateInteractionUiViewOption *> options() const;
     void setOptions(const QList<AutoGenerateInteractionUiViewOption *> &newOptions);
 
+    [[nodiscard]] bool operator==(const AutoGenerateInteractionUiViewOverflowElement &other) const;
+
 private:
     QList<AutoGenerateInteractionUiViewOption *> mOptions;
 };

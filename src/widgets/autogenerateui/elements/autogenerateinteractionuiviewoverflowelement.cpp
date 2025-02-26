@@ -42,3 +42,8 @@ QDebug operator<<(QDebug d, const AutoGenerateInteractionUiViewOverflowElement &
     d.space() << "options:" << t.options();
     return d;
 }
+
+bool AutoGenerateInteractionUiViewOverflowElement::operator==(const AutoGenerateInteractionUiViewOverflowElement &other) const
+{
+    return other.options() == options() && AutoGenerateInteractionUiViewActionable::operator==(other);
+}
