@@ -18,7 +18,7 @@ AutoGenerateInteractionUiViewDatePickerElement::~AutoGenerateInteractionUiViewDa
 
 bool AutoGenerateInteractionUiViewDatePickerElement::operator==(const AutoGenerateInteractionUiViewDatePickerElement &other) const
 {
-    return other.initialDate() == initialDate();
+    return other.initialDate() == initialDate() && AutoGenerateInteractionUiViewActionable::operator==(other);
 }
 
 void AutoGenerateInteractionUiViewDatePickerElement::parse(const QJsonObject &json)

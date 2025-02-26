@@ -13,5 +13,6 @@ AutoGenerateInteractionUiViewElement::~AutoGenerateInteractionUiViewElement() = 
 
 void AutoGenerateInteractionUiViewElement::parse(const QJsonObject &json)
 {
+    Q_UNUSED(json);
     // Implement in sub class
 }

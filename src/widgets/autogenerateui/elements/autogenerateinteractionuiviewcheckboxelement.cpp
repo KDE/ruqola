@@ -27,7 +27,7 @@ QWidget *AutoGenerateInteractionUiViewCheckboxElement::generateWidget(QWidget *p
 
 bool AutoGenerateInteractionUiViewCheckboxElement::operator==(const AutoGenerateInteractionUiViewCheckboxElement &other) const
 {
-    return other.options() == options();
+    return other.options() == options() && AutoGenerateInteractionUiViewActionable::operator==(other);
 }
 
 QList<AutoGenerateInteractionUiViewOption *> AutoGenerateInteractionUiViewCheckboxElement::options() const
