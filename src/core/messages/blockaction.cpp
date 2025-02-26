@@ -16,6 +16,7 @@ QDebug operator<<(QDebug d, const BlockAction &t)
     d.space() << "type" << t.type();
     d.space() << "blockId" << t.blockId();
     d.space() << "value" << t.value();
+    d.space() << "url" << t.url();
     return d;
 }
 
@@ -29,9 +30,19 @@ void BlockAction::setValue(const QString &newValue)
     mValue = newValue;
 }
 
+QString BlockAction::url() const
+{
+    return mUrl;
+}
+
+void BlockAction::setUrl(const QString &newUrl)
+{
+    mUrl = newUrl;
+}
+
 bool BlockAction::isValid() const
 {
-    return !mActionId.isEmpty() && !mBlockId.isEmpty() && !mType.isEmpty() && !mText.isEmpty();
+    return !mActionId.isEmpty() /*&& !mBlockId.isEmpty()*/ && !mType.isEmpty() && !mText.isEmpty();
 }
 
 void BlockAction::parseAction(const QJsonObject &o)
@@ -40,6 +51,7 @@ void BlockAction::parseAction(const QJsonObject &o)
     mBlockId = o["blockId"_L1].toString();
     mType = o["type"_L1].toString();
     mValue = o["value"_L1].toString();
+    mUrl = o["url"_L1].toString();
     const QJsonObject objText = o["text"_L1].toObject();
     mText = objText["text"_L1].toString();
 }
@@ -56,7 +68,8 @@ void BlockAction::setActionId(const QString &newActionId)
 
 bool BlockAction::operator==(const BlockAction &other) const
 {
-    return mActionId == other.actionId() && mText == other.text() && mType == other.type() && mBlockId == other.blockId() && mValue == other.value();
+    return mActionId == other.actionId() && mText == other.text() && mType == other.type() && mBlockId == other.blockId() && mValue == other.value()
+        && mUrl == other.url();
 }
 
 QString BlockAction::text() const

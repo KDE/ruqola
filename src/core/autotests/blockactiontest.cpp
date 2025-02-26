@@ -22,6 +22,7 @@ void BlockActionTest::shouldHaveDefaultValues()
     QVERIFY(b.type().isEmpty());
     QVERIFY(b.blockId().isEmpty());
     QVERIFY(b.value().isEmpty());
+    QVERIFY(b.url().isEmpty());
     QVERIFY(!b.isValid());
 }
 

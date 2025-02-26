@@ -35,12 +35,16 @@ public:
     [[nodiscard]] QString value() const;
     void setValue(const QString &newValue);
 
+    [[nodiscard]] QString url() const;
+    void setUrl(const QString &newUrl);
+
 private:
     QString mActionId;
     QString mText;
     QString mType;
     QString mBlockId;
     QString mValue;
+    QString mUrl;
 };
 LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const BlockAction &t);
 Q_DECLARE_TYPEINFO(BlockAction, Q_RELOCATABLE_TYPE);
