@@ -83,15 +83,21 @@ bool MessageDelegateHelperActions::handleMouseEvent(const Block &block,
         const ActionsLayout layout = layoutActions(block, option, blocksRect.width());
         for (const ButtonLayout &button : layout.buttonList) {
             if (button.buttonRect.translated(blocksRect.topLeft()).contains(pos)) {
-                // qDebug() << " button.appId" << button.appId;
-                // qDebug() << " button.actionId" << button.actionId;
-                // qDebug() << " button.value" << button.value;
-                // qDebug() << " button.blockId" << button.blockId;
+                qDebug() << " button.appId" << button.appId;
+                qDebug() << " button.actionId" << button.actionId;
+                qDebug() << " button.value" << button.value;
+                qDebug() << " button.blockId" << button.blockId;
+                qDebug() << " button.url" << button.blockId;
                 const Message *message = index.data(MessagesModel::MessagePointer).value<Message *>();
                 Q_ASSERT(message);
-                // qDebug() << " message->roomId" << message->roomId();
-                // qDebug() << " message->messageId" << message->messageId();
-                executeBlockAction(button.appId, button.actionId, button.value, button.blockId, message->roomId(), message->messageId());
+                qDebug() << " message->roomId" << message->roomId();
+                qDebug() << " message->messageId" << message->messageId();
+
+                if (!button.url.isEmpty()) {
+                    Q_EMIT mRocketChatAccount->openLinkRequested(button.url);
+                } else {
+                    executeBlockAction(button.appId, button.actionId, button.value, button.blockId, message->roomId(), message->messageId());
+                }
                 return true;
             }
         }
@@ -133,6 +139,7 @@ MessageDelegateHelperActions::layoutActions(const Block &block, const QStyleOpti
         buttonLayout.appId = block.appId();
         buttonLayout.value = act.value();
         buttonLayout.blockId = act.blockId();
+        buttonLayout.url = act.url();
         const QSize buttonSize = option.fontMetrics.size(Qt::TextSingleLine, buttonLayout.text);
         buttonLayout.buttonRect = QRectF(x, 0, buttonSize.width() + 2 * DelegatePaintUtil::margin(), buttonSize.height());
         layout.buttonList.append(std::move(buttonLayout));
