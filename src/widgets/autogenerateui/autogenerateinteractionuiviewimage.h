@@ -15,7 +15,7 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT AutoGenerateInteractionUiViewImage : public 
 {
 public:
     AutoGenerateInteractionUiViewImage();
-    ~AutoGenerateInteractionUiViewImage();
+    ~AutoGenerateInteractionUiViewImage() override;
     void parse(const QJsonObject &json) override;
 
     [[nodiscard]] QString altText() const;

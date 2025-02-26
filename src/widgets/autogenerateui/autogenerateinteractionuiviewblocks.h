@@ -16,7 +16,7 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT AutoGenerateInteractionUiViewBlocks : public
     Q_OBJECT
 public:
     explicit AutoGenerateInteractionUiViewBlocks(QObject *parent = nullptr);
-    ~AutoGenerateInteractionUiViewBlocks();
+    ~AutoGenerateInteractionUiViewBlocks() override;
     void parse(const QJsonArray &array);
     [[nodiscard]] bool operator==(const AutoGenerateInteractionUiViewBlocks &other) const;
 

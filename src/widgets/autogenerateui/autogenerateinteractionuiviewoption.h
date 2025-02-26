@@ -13,7 +13,7 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT AutoGenerateInteractionUiViewOption : public
 {
 public:
     AutoGenerateInteractionUiViewOption();
-    ~AutoGenerateInteractionUiViewOption();
+    ~AutoGenerateInteractionUiViewOption() override;
     void parse(const QJsonObject &json) override;
 
     [[nodiscard]] QString value() const;

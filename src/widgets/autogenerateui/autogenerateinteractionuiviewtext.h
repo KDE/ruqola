@@ -21,7 +21,7 @@ public:
     Q_ENUM(TextType)
     // PlainText/Mardown?
     AutoGenerateInteractionUiViewText();
-    ~AutoGenerateInteractionUiViewText();
+    ~AutoGenerateInteractionUiViewText() override;
     void parse(const QJsonObject &json) override;
 
     [[nodiscard]] QString text() const;
