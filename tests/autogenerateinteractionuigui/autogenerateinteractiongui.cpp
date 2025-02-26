@@ -30,9 +30,12 @@ AutoGenerateInteractionGui::AutoGenerateInteractionGui(QWidget *parent)
         if (!json.isEmpty()) {
             AutoGenerateInteractionUi engine;
             const QJsonDocument doc = QJsonDocument::fromJson(json.toUtf8());
-            engine.parseInteractionUi(doc.object());
-            auto w = engine.generateWidget(nullptr);
-            w->show();
+            if (engine.parseInteractionUi(doc.object())) {
+                auto w = engine.generateWidget(nullptr);
+                w->show();
+            } else {
+                qWarning() << "Invalid Json" << json;
+            }
         }
     });
     resize(800, 600);

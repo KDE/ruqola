@@ -17,16 +17,20 @@ AutoGenerateInteractionUi::AutoGenerateInteractionUi(QObject *parent)
 
 AutoGenerateInteractionUi::~AutoGenerateInteractionUi() = default;
 
-void AutoGenerateInteractionUi::parseInteractionUi(const QJsonObject &json)
+bool AutoGenerateInteractionUi::parseInteractionUi(const QJsonObject &json)
 {
+    mTypeUi = convertTypeUiFromString(json["type"_L1].toString());
+    if (mTypeUi == AutoGenerateInteractionUi::TypeUi::Unknown) {
+        return false;
+    }
     mTriggerId = json["triggerId"_L1].toString().toLatin1();
     mAppId = json["appId"_L1].toString().toLatin1();
-    mTypeUi = convertTypeUiFromString(json["type"_L1].toString());
 
     if (!mView) {
         mView = new AutoGenerateInteractionUiView(this);
     }
     mView->parseView(json["view"_L1].toObject());
+    return true;
 }
 
 AutoGenerateInteractionUi::TypeUi AutoGenerateInteractionUi::convertTypeUiFromString(const QString &str) const

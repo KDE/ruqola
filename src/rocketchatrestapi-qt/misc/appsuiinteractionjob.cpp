@@ -36,18 +36,18 @@ void AppsUiInteractionJob::onPostRequestResponse(const QString &replyErrorString
     Q_UNUSED(replyJson)
     // qDebug() << " response " << replyErrorString << "replyJson  " << replyJson;
     // It doesn't return success or not!
-    Q_EMIT appsUiInteractionDone();
-#if 0
+#if 1
     // qDebug() << " response " << replyErrorString << "replyJson  " << replyJson;
     const QJsonObject replyObject = replyJson.object();
     if (replyObject["success"_L1].toBool()) {
         addLoggerInfo("AppsUiInteractionJob success: "_ba + replyJson.toJson(QJsonDocument::Indented));
-        const QJsonObject obj = QJsonDocument::fromJson(replyObject["message"_L1].toString().toUtf8()).object();
-        Q_EMIT AppsUiInteractionDone(obj);
+        Q_EMIT appsUiInteractionDone(replyObject);
     } else {
         emitFailedMessage(replyErrorString, replyObject);
         addLoggerWarning("AppsUiInteractionJob: Problem: "_ba + replyJson.toJson(QJsonDocument::Indented));
     }
+#else
+    Q_EMIT appsUiInteractionDone();
 #endif
 }
 

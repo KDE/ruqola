@@ -5,6 +5,7 @@
 */
 
 #include "messagedelegatehelperactions.h"
+#include "autogenerateui/autogenerateinteractionui.h"
 #include "common/delegatepaintutil.h"
 #include "connection.h"
 #include "misc/appsuiinteractionjob.h"
@@ -119,6 +120,14 @@ void MessageDelegateHelperActions::executeBlockAction(const QString &appId,
     job->setAppsUiInteractionJobInfo(info);
 
     mRocketChatAccount->restApi()->initializeRestApiJob(job);
+    connect(job, &RocketChatRestApi::AppsUiInteractionJob::appsUiInteractionDone, this, [](const QJsonObject &replyObject) {
+        AutoGenerateInteractionUi view;
+        if (view.parseInteractionUi(replyObject)) {
+            // TODO autodelete ?
+            QWidget *widget = view.generateWidget();
+            widget->show();
+        }
+    });
     if (!job->start()) {
         qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start AppsUiInteractionJob job";
     }

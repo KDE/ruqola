@@ -36,7 +36,7 @@ public:
     void setAppsUiInteractionJobInfo(const AppsUiInteractionJobInfo &newAppsUiInteractionJobInfo);
 
 Q_SIGNALS:
-    void appsUiInteractionDone();
+    void appsUiInteractionDone(const QJsonObject &replyObject);
 
 private:
     LIBROCKETCHATRESTAPI_QT_NO_EXPORT void onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson) override;

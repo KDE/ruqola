@@ -23,7 +23,7 @@ public:
 
     explicit AutoGenerateInteractionUi(QObject *parent = nullptr);
     ~AutoGenerateInteractionUi() override;
-    void parseInteractionUi(const QJsonObject &json);
+    [[nodiscard]] bool parseInteractionUi(const QJsonObject &json);
 
     [[nodiscard]] QByteArray appId() const;
     void setAppId(const QByteArray &newAppId);
