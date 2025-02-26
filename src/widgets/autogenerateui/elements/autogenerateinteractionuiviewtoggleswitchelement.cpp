@@ -15,12 +15,12 @@ void AutoGenerateInteractionUiViewToggleSwitchElement::parse(const QJsonObject &
     AutoGenerateInteractionUiViewActionable::parse(json);
 }
 
-QList<AutoGenerateInteractionUiViewOptionElement> AutoGenerateInteractionUiViewToggleSwitchElement::options() const
+QList<AutoGenerateInteractionUiViewOption> AutoGenerateInteractionUiViewToggleSwitchElement::options() const
 {
     return mOptions;
 }
 
-void AutoGenerateInteractionUiViewToggleSwitchElement::setOptions(const QList<AutoGenerateInteractionUiViewOptionElement> &newOptions)
+void AutoGenerateInteractionUiViewToggleSwitchElement::setOptions(const QList<AutoGenerateInteractionUiViewOption> &newOptions)
 {
     mOptions = newOptions;
 }

@@ -9,11 +9,11 @@
 #include "autogenerateui/autogenerateinteractionuiviewactionable.h"
 
 // See ./packages/ui-kit/src/blocks/Option.ts
-class LIBRUQOLAWIDGETS_TESTS_EXPORT AutoGenerateInteractionUiViewOptionElement : public AutoGenerateInteractionUiViewActionable
+class LIBRUQOLAWIDGETS_TESTS_EXPORT AutoGenerateInteractionUiViewOption : public AutoGenerateInteractionUiViewActionable
 {
 public:
-    AutoGenerateInteractionUiViewOptionElement();
-    ~AutoGenerateInteractionUiViewOptionElement() override;
+    AutoGenerateInteractionUiViewOption();
+    ~AutoGenerateInteractionUiViewOption() override;
     void parse(const QJsonObject &json) override;
 
     [[nodiscard]] QWidget *generateWidget(QWidget *parent) override;
@@ -24,7 +24,7 @@ public:
     [[nodiscard]] QString url() const;
     void setUrl(const QString &newUrl);
 
-    [[nodiscard]] bool operator==(const AutoGenerateInteractionUiViewOptionElement &other) const;
+    [[nodiscard]] bool operator==(const AutoGenerateInteractionUiViewOption &other) const;
 
 private:
     QString mValue;
@@ -33,6 +33,6 @@ private:
     // TODO add textobject
 };
 
-Q_DECLARE_METATYPE(AutoGenerateInteractionUiViewOptionElement)
-Q_DECLARE_TYPEINFO(AutoGenerateInteractionUiViewOptionElement, Q_RELOCATABLE_TYPE);
-LIBRUQOLAWIDGETS_EXPORT QDebug operator<<(QDebug d, const AutoGenerateInteractionUiViewOptionElement &t);
+Q_DECLARE_METATYPE(AutoGenerateInteractionUiViewOption)
+Q_DECLARE_TYPEINFO(AutoGenerateInteractionUiViewOption, Q_RELOCATABLE_TYPE);
+LIBRUQOLAWIDGETS_EXPORT QDebug operator<<(QDebug d, const AutoGenerateInteractionUiViewOption &t);

@@ -10,7 +10,7 @@
 #include "libruqolawidgets_private_export.h"
 #include <QJsonObject>
 class AutoGenerateInteractionUiViewText;
-class AutoGenerateInteractionUiViewOptionElement;
+class AutoGenerateInteractionUiViewOption;
 // see ./packages/ui-kit/src/blocks/elements/MultiStaticSelectElement.ts
 class LIBRUQOLAWIDGETS_TESTS_EXPORT AutoGenerateInteractionUiViewMultiStaticSelectElement : public AutoGenerateInteractionUiViewActionable
 {
@@ -23,12 +23,12 @@ public:
     [[nodiscard]] AutoGenerateInteractionUiViewText *placeHolder() const;
     void setPlaceHolder(AutoGenerateInteractionUiViewText *newPlaceHolder);
 
-    [[nodiscard]] QList<AutoGenerateInteractionUiViewOptionElement *> options() const;
-    void setOptions(const QList<AutoGenerateInteractionUiViewOptionElement *> &newOptions);
+    [[nodiscard]] QList<AutoGenerateInteractionUiViewOption *> options() const;
+    void setOptions(const QList<AutoGenerateInteractionUiViewOption *> &newOptions);
 
 private:
     AutoGenerateInteractionUiViewText *mPlaceHolder = nullptr;
-    QList<AutoGenerateInteractionUiViewOptionElement *> mOptions;
+    QList<AutoGenerateInteractionUiViewOption *> mOptions;
 };
 
 Q_DECLARE_METATYPE(AutoGenerateInteractionUiViewMultiStaticSelectElement)

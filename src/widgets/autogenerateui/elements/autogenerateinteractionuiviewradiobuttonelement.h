@@ -5,7 +5,7 @@
 */
 #pragma once
 #include "autogenerateui/autogenerateinteractionuiviewactionable.h"
-#include "autogenerateui/elements/autogenerateinteractionuiviewoptionelement.h"
+#include "autogenerateui/elements/autogenerateinteractionuiviewoption.h"
 #include "libruqolawidgets_private_export.h"
 #include <QJsonObject>
 // see ./packages/ui-kit/src/blocks/elements/RadioButtonElement.ts
@@ -21,7 +21,7 @@ public:
 
 private:
     // TODO initialOptions
-    QList<AutoGenerateInteractionUiViewOptionElement> mOptions;
+    QList<AutoGenerateInteractionUiViewOption> mOptions;
 };
 Q_DECLARE_METATYPE(AutoGenerateInteractionUiViewRadioButtonElement)
 Q_DECLARE_TYPEINFO(AutoGenerateInteractionUiViewRadioButtonElement, Q_RELOCATABLE_TYPE);

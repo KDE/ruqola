@@ -5,7 +5,7 @@
 */
 #include "autogenerateinteractionuiviewstaticselectelement.h"
 #include "autogenerateui/autogenerateinteractionuiviewtext.h"
-#include "autogenerateui/elements/autogenerateinteractionuiviewoptionelement.h"
+#include "autogenerateui/elements/autogenerateinteractionuiviewoption.h"
 
 #include "ruqola_action_buttons_debug.h"
 #include <QComboBox>
@@ -34,7 +34,7 @@ void AutoGenerateInteractionUiViewStaticSelectElement::parse(const QJsonObject &
     // Options
     const QJsonArray optionsArray = json["options"_L1].toArray();
     for (const auto &opt : optionsArray) {
-        AutoGenerateInteractionUiViewOptionElement *option = new AutoGenerateInteractionUiViewOptionElement;
+        AutoGenerateInteractionUiViewOption *option = new AutoGenerateInteractionUiViewOption;
         option->parse(opt.toObject());
         mOptions.append(option);
     }
@@ -69,12 +69,12 @@ void AutoGenerateInteractionUiViewStaticSelectElement::setInitialValue(const QSt
     mInitialValue = newInitialValue;
 }
 
-QList<AutoGenerateInteractionUiViewOptionElement *> AutoGenerateInteractionUiViewStaticSelectElement::options() const
+QList<AutoGenerateInteractionUiViewOption *> AutoGenerateInteractionUiViewStaticSelectElement::options() const
 {
     return mOptions;
 }
 
-void AutoGenerateInteractionUiViewStaticSelectElement::setOptions(const QList<AutoGenerateInteractionUiViewOptionElement *> &newOptions)
+void AutoGenerateInteractionUiViewStaticSelectElement::setOptions(const QList<AutoGenerateInteractionUiViewOption *> &newOptions)
 {
     mOptions = newOptions;
 }

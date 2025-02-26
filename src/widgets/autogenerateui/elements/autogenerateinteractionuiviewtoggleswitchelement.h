@@ -5,7 +5,7 @@
 */
 #pragma once
 #include "autogenerateui/autogenerateinteractionuiviewactionable.h"
-#include "autogenerateui/elements/autogenerateinteractionuiviewoptionelement.h"
+#include "autogenerateui/elements/autogenerateinteractionuiviewoption.h"
 #include "libruqolawidgets_private_export.h"
 #include <QJsonObject>
 
@@ -19,13 +19,13 @@ public:
 
     void parse(const QJsonObject &json) override;
 
-    [[nodiscard]] QList<AutoGenerateInteractionUiViewOptionElement> options() const;
-    void setOptions(const QList<AutoGenerateInteractionUiViewOptionElement> &newOptions);
+    [[nodiscard]] QList<AutoGenerateInteractionUiViewOption> options() const;
+    void setOptions(const QList<AutoGenerateInteractionUiViewOption> &newOptions);
     [[nodiscard]] QWidget *generateWidget(QWidget *parent) override;
 
 private:
     // TODO initialOptions
-    QList<AutoGenerateInteractionUiViewOptionElement> mOptions;
+    QList<AutoGenerateInteractionUiViewOption> mOptions;
 };
 Q_DECLARE_METATYPE(AutoGenerateInteractionUiViewToggleSwitchElement)
 Q_DECLARE_TYPEINFO(AutoGenerateInteractionUiViewToggleSwitchElement, Q_RELOCATABLE_TYPE);

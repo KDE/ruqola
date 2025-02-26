@@ -5,7 +5,7 @@
 */
 #include "autogenerateinteractionuiviewmultistaticselectelement.h"
 #include "autogenerateui/autogenerateinteractionuiviewtext.h"
-#include "autogenerateui/elements/autogenerateinteractionuiviewoptionelement.h"
+#include "autogenerateui/elements/autogenerateinteractionuiviewoption.h"
 
 #include <QJsonArray>
 using namespace Qt::Literals::StringLiterals;
@@ -30,7 +30,7 @@ void AutoGenerateInteractionUiViewMultiStaticSelectElement::parse(const QJsonObj
     // Options
     const QJsonArray optionsArray = json["options"_L1].toArray();
     for (const auto &opt : optionsArray) {
-        AutoGenerateInteractionUiViewOptionElement *option = new AutoGenerateInteractionUiViewOptionElement;
+        AutoGenerateInteractionUiViewOption *option = new AutoGenerateInteractionUiViewOption;
         option->parse(opt.toObject());
         mOptions.append(option);
     }
@@ -52,12 +52,12 @@ void AutoGenerateInteractionUiViewMultiStaticSelectElement::setPlaceHolder(AutoG
     mPlaceHolder = newPlaceHolder;
 }
 
-QList<AutoGenerateInteractionUiViewOptionElement *> AutoGenerateInteractionUiViewMultiStaticSelectElement::options() const
+QList<AutoGenerateInteractionUiViewOption *> AutoGenerateInteractionUiViewMultiStaticSelectElement::options() const
 {
     return mOptions;
 }
 
-void AutoGenerateInteractionUiViewMultiStaticSelectElement::setOptions(const QList<AutoGenerateInteractionUiViewOptionElement *> &newOptions)
+void AutoGenerateInteractionUiViewMultiStaticSelectElement::setOptions(const QList<AutoGenerateInteractionUiViewOption *> &newOptions)
 {
     mOptions = newOptions;
 }

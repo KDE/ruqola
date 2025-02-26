@@ -30,12 +30,12 @@ bool AutoGenerateInteractionUiViewCheckboxElement::operator==(const AutoGenerate
     return other.options() == options();
 }
 
-QList<AutoGenerateInteractionUiViewOptionElement *> AutoGenerateInteractionUiViewCheckboxElement::options() const
+QList<AutoGenerateInteractionUiViewOption *> AutoGenerateInteractionUiViewCheckboxElement::options() const
 {
     return mOptions;
 }
 
-void AutoGenerateInteractionUiViewCheckboxElement::setOptions(const QList<AutoGenerateInteractionUiViewOptionElement *> &newOptions)
+void AutoGenerateInteractionUiViewCheckboxElement::setOptions(const QList<AutoGenerateInteractionUiViewOption *> &newOptions)
 {
     mOptions = newOptions;
 }

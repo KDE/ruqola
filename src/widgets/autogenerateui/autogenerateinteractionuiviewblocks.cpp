@@ -30,7 +30,7 @@ void AutoGenerateInteractionUiViewBlocks::parse(const QJsonArray &array)
 {
     for (const auto &r : array) {
         const QString type = r["type"_L1].toString();
-        qDebug() << " LOAD TYPE " << type;
+        // qDebug() << " LOAD TYPE " << type;
         if (type == "section"_L1) {
             AutoGenerateInteractionUiViewSectionBlock *section = new AutoGenerateInteractionUiViewSectionBlock;
             section->parse(r.toObject());

@@ -5,7 +5,7 @@
 */
 #pragma once
 #include "autogenerateui/autogenerateinteractionuiviewactionable.h"
-#include "autogenerateui/elements/autogenerateinteractionuiviewoptionelement.h"
+#include "autogenerateui/elements/autogenerateinteractionuiviewoption.h"
 #include "libruqolawidgets_private_export.h"
 #include <QJsonObject>
 // see ./packages/ui-kit/src/blocks/elements/CheckboxElement.ts
@@ -20,12 +20,12 @@ public:
     [[nodiscard]] QWidget *generateWidget(QWidget *parent) override;
 
     [[nodiscard]] bool operator==(const AutoGenerateInteractionUiViewCheckboxElement &other) const;
-    [[nodiscard]] QList<AutoGenerateInteractionUiViewOptionElement *> options() const;
-    void setOptions(const QList<AutoGenerateInteractionUiViewOptionElement *> &newOptions);
+    [[nodiscard]] QList<AutoGenerateInteractionUiViewOption *> options() const;
+    void setOptions(const QList<AutoGenerateInteractionUiViewOption *> &newOptions);
 
 private:
     // TODO initialOptions
-    QList<AutoGenerateInteractionUiViewOptionElement *> mOptions;
+    QList<AutoGenerateInteractionUiViewOption *> mOptions;
 };
 Q_DECLARE_METATYPE(AutoGenerateInteractionUiViewCheckboxElement)
 Q_DECLARE_TYPEINFO(AutoGenerateInteractionUiViewCheckboxElement, Q_RELOCATABLE_TYPE);
