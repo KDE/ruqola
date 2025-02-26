@@ -87,6 +87,9 @@ QWidget *AutoGenerateInteractionUiViewInputBlock::generateWidget(QWidget *parent
     vboxLayout->setContentsMargins({});
     widget->setLayout(vboxLayout);
     auto label = new QLabel(parent);
+    QFont f = label->font();
+    f.setBold(true);
+    label->setFont(f);
     label->setText(mLabel.generateText());
     vboxLayout->addWidget(label);
     if (mElement) {
