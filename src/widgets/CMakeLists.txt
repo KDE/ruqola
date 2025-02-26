@@ -1,7 +1,6 @@
 # SPDX-FileCopyrightText: 2020-2025 Laurent Montel <montel@kde.org>
 # SPDX-License-Identifier: BSD-3-Clause
-add_library(libruqolawidgets
-    autogenerateui/blockelement/autogenerateinteractionuiviewcalloutblock.h autogenerateui/blockelement/autogenerateinteractionuiviewcalloutblock.cpp)
+add_library(libruqolawidgets)
 
 if(TARGET KF6::UserFeedbackWidgets)
     target_sources(libruqolawidgets PRIVATE
@@ -1047,6 +1046,10 @@ target_sources(libruqolawidgets PRIVATE
     autogenerateui/blockelement/autogenerateinteractionuiviewdividerblock.h
     autogenerateui/blockelement/autogenerateinteractionuiviewcontextblock.h
     autogenerateui/blockelement/autogenerateinteractionuiviewcontextblock.cpp
+    autogenerateui/blockelement/autogenerateinteractionuiviewcalloutblock.h
+    autogenerateui/blockelement/autogenerateinteractionuiviewcalloutblock.cpp
+    autogenerateui/blockelement/autogenerateinteractionuiviewimageblock.cpp
+    autogenerateui/blockelement/autogenerateinteractionuiviewimageblock.h
 
     autogenerateui/elements/autogenerateinteractionuiviewelement.h
     autogenerateui/elements/autogenerateinteractionuiviewelement.cpp
