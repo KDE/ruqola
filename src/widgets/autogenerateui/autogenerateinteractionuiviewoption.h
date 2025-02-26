@@ -6,17 +6,15 @@
 
 #pragma once
 
-#include "autogenerateui/autogenerateinteractionuiviewactionable.h"
+#include "autogenerateui/autogenerateinteractionuiviewtext.h"
 
 // See ./packages/ui-kit/src/blocks/Option.ts
-class LIBRUQOLAWIDGETS_TESTS_EXPORT AutoGenerateInteractionUiViewOption : public AutoGenerateInteractionUiViewActionable
+class LIBRUQOLAWIDGETS_TESTS_EXPORT AutoGenerateInteractionUiViewOption : public AutoGenerateInteractionUiViewElement
 {
 public:
     AutoGenerateInteractionUiViewOption();
-    ~AutoGenerateInteractionUiViewOption() override;
+    ~AutoGenerateInteractionUiViewOption();
     void parse(const QJsonObject &json) override;
-
-    [[nodiscard]] QWidget *generateWidget(QWidget *parent) override;
 
     [[nodiscard]] QString value() const;
     void setValue(const QString &newValue);
@@ -26,11 +24,14 @@ public:
 
     [[nodiscard]] bool operator==(const AutoGenerateInteractionUiViewOption &other) const;
 
+    [[nodiscard]] AutoGenerateInteractionUiViewText text() const;
+    void setText(const AutoGenerateInteractionUiViewText &newText);
+
 private:
+    AutoGenerateInteractionUiViewText mText;
     QString mValue;
     QString mUrl;
     // TODO add url/description
-    // TODO add textobject
 };
 
 Q_DECLARE_METATYPE(AutoGenerateInteractionUiViewOption)
