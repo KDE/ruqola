@@ -4,8 +4,8 @@
    SPDX-License-Identifier: LGPL-2.0-or-later
 */
 #include "autogenerateinteractionuiviewmultistaticselectelement.h"
+#include "autogenerateui/autogenerateinteractionuiviewoption.h"
 #include "autogenerateui/autogenerateinteractionuiviewtext.h"
-#include "autogenerateui/elements/autogenerateinteractionuiviewoption.h"
 
 #include <QJsonArray>
 using namespace Qt::Literals::StringLiterals;

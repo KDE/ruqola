@@ -4,8 +4,8 @@
    SPDX-License-Identifier: LGPL-2.0-or-later
 */
 #include "autogenerateinteractionuiviewstaticselectelement.h"
+#include "autogenerateui/autogenerateinteractionuiviewoption.h"
 #include "autogenerateui/autogenerateinteractionuiviewtext.h"
-#include "autogenerateui/elements/autogenerateinteractionuiviewoption.h"
 
 #include "ruqola_action_buttons_debug.h"
 #include <QComboBox>

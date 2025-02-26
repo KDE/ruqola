@@ -5,7 +5,7 @@
 */
 #pragma once
 #include "autogenerateui/autogenerateinteractionuiviewactionable.h"
-#include "autogenerateui/elements/autogenerateinteractionuiviewoption.h"
+#include "autogenerateui/autogenerateinteractionuiviewoption.h"
 #include "libruqolawidgets_private_export.h"
 #include <QJsonObject>
 // see ./packages/ui-kit/src/blocks/elements/RadioButtonElement.ts

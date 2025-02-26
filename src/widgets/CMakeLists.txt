@@ -1031,6 +1031,8 @@ target_sources(libruqolawidgets PRIVATE
     autogenerateui/autogenerateinteractionuiview.cpp
     autogenerateui/autogenerateinteractionuiviewimage.h
     autogenerateui/autogenerateinteractionuiviewimage.cpp
+    autogenerateui/autogenerateinteractionuiviewoption.h
+    autogenerateui/autogenerateinteractionuiviewoption.cpp
 
     autogenerateui/blockelement/autogenerateinteractionuiviewsectionblock.h
     autogenerateui/blockelement/autogenerateinteractionuiviewsectionblock.cpp
@@ -1055,8 +1057,6 @@ target_sources(libruqolawidgets PRIVATE
     autogenerateui/elements/autogenerateinteractionuiviewradiobuttonelement.h
     autogenerateui/elements/autogenerateinteractionuiviewtoggleswitchelement.cpp
     autogenerateui/elements/autogenerateinteractionuiviewtoggleswitchelement.h
-    autogenerateui/elements/autogenerateinteractionuiviewoption.h
-    autogenerateui/elements/autogenerateinteractionuiviewoption.cpp
     autogenerateui/elements/autogenerateinteractionuiviewplaintextinputelement.h
     autogenerateui/elements/autogenerateinteractionuiviewplaintextinputelement.cpp
     autogenerateui/elements/autogenerateinteractionuiviewimageelement.h
