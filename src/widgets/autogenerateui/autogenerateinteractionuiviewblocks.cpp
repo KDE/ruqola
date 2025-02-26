@@ -5,6 +5,7 @@
 */
 
 #include "autogenerateinteractionuiviewblocks.h"
+#include "autogenerateui/blockelement/autogenerateinteractionuiviewcalloutblock.h"
 #include "blockelement/autogenerateinteractionuiviewactionsblock.h"
 #include "blockelement/autogenerateinteractionuiviewcontextblock.h"
 #include "blockelement/autogenerateinteractionuiviewdividerblock.h"
@@ -55,8 +56,9 @@ void AutoGenerateInteractionUiViewBlocks::parse(const QJsonArray &array)
             qCWarning(RUQOLA_AUTOGENERATEUI_LOG) << "Not implemented yet:" << type;
             // TODO
         } else if (type == "callout"_L1) {
-            qCWarning(RUQOLA_AUTOGENERATEUI_LOG) << "Not implemented yet:" << type;
-            // TODO
+            AutoGenerateInteractionUiViewCalloutBlock *callout = new AutoGenerateInteractionUiViewCalloutBlock;
+            callout->parse(r.toObject());
+            mBlockElements.append(std::move(callout));
         } else {
             qCWarning(RUQOLA_AUTOGENERATEUI_LOG) << "Unknown type " << type;
         }
