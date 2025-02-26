@@ -83,6 +83,41 @@ void BlockTest::shouldLoadBlock_data()
         info.setBlockActions(lstAct);
         QTest::addRow("actions1") << QStringLiteral("actions1") << info;
     }
+
+    {
+        Block info;
+        info.setAppId(QStringLiteral("7a8cd36b-5f7b-4177-bd7f-bfc9be908bf8"));
+        info.setBlockId(QStringLiteral("366e6622-f43a-11ef-9cd7-3df7975443e9"));
+        info.setBlockTypeStr(QStringLiteral("actions"));
+        QList<BlockAction> lstAct;
+        {
+            BlockAction act;
+            act.setActionId(QStringLiteral("366e3f1a-f43a-11ef-9cd7-3df7975443e9"));
+            act.setText(QStringLiteral("Upgrade Account"));
+            act.setType(QStringLiteral("button"));
+            act.setUrl("https://appsforchat.com/reminder-bot-license"_L1);
+            lstAct.append(act);
+        }
+        {
+            BlockAction act;
+            act.setActionId(QStringLiteral("366e6620-f43a-11ef-9cd7-3df7975443e9"));
+            act.setText(QStringLiteral("More Help"));
+            act.setType(QStringLiteral("button"));
+            act.setUrl("https://docs.appsforchat.com/reminder-bot"_L1);
+            lstAct.append(act);
+        }
+        {
+            BlockAction act;
+            act.setActionId(QStringLiteral("366e6621-f43a-11ef-9cd7-3df7975443e9"));
+            act.setText(QStringLiteral("contact Us"));
+            act.setType(QStringLiteral("button"));
+            act.setUrl("https://appsforchat.com/contact"_L1);
+            lstAct.append(act);
+        }
+        info.setBlockActions(lstAct);
+
+        QTest::addRow("action3-url") << QStringLiteral("action3-url") << info;
+    }
 }
 
 void BlockTest::shouldLoadBlock()
