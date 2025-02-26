@@ -26,8 +26,19 @@ QWidget *AutoGenerateInteractionUiViewOverflowElement::generateWidget(QWidget *p
     return nullptr;
 }
 
+QList<AutoGenerateInteractionUiViewOption *> AutoGenerateInteractionUiViewOverflowElement::options() const
+{
+    return mOptions;
+}
+
+void AutoGenerateInteractionUiViewOverflowElement::setOptions(const QList<AutoGenerateInteractionUiViewOption *> &newOptions)
+{
+    mOptions = newOptions;
+}
+
 QDebug operator<<(QDebug d, const AutoGenerateInteractionUiViewOverflowElement &t)
 {
     d.space() << "AutoGenerateInteractionUiViewActionable:" << static_cast<AutoGenerateInteractionUiViewActionable>(t);
+    d.space() << "options:" << t.options();
     return d;
 }

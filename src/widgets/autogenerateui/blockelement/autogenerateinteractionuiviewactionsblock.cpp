@@ -7,7 +7,9 @@
 #include "autogenerateinteractionuiviewactionsblock.h"
 #include "autogenerateui/elements/autogenerateinteractionuiviewbuttonelement.h"
 #include "autogenerateui/elements/autogenerateinteractionuiviewcheckboxelement.h"
+#include "autogenerateui/elements/autogenerateinteractionuiviewoverflowelement.h"
 #include "autogenerateui/elements/autogenerateinteractionuiviewradiobuttonelement.h"
+#include "autogenerateui/elements/autogenerateinteractionuiviewstaticselectelement.h"
 #include "autogenerateui/elements/autogenerateinteractionuiviewtoggleswitchelement.h"
 #include "ruqola_autogenerateui_debug.h"
 #include <QJsonArray>
@@ -47,8 +49,6 @@ void AutoGenerateInteractionUiViewActionsBlock::parse(const QJsonObject &json)
                 | MultiConversationsSelectElement
                 | MultiStaticSelectElement
                 | MultiUsersSelectElement
-                | OverflowElement
-                | StaticSelectElement
                 | UsersSelectElement
                 | TimePickerElement
 */
@@ -71,8 +71,16 @@ void AutoGenerateInteractionUiViewActionsBlock::parse(const QJsonObject &json)
             AutoGenerateInteractionUiViewToggleSwitchElement *e = new AutoGenerateInteractionUiViewToggleSwitchElement;
             e->parse(r.toObject());
             mElements.append(std::move(e));
+        } else if (type == "static_select"_L1) {
+            AutoGenerateInteractionUiViewStaticSelectElement *e = new AutoGenerateInteractionUiViewStaticSelectElement;
+            e->parse(r.toObject());
+            mElements.append(std::move(e));
+        } else if (type == "overflow"_L1) {
+            AutoGenerateInteractionUiViewOverflowElement *e = new AutoGenerateInteractionUiViewOverflowElement;
+            e->parse(r.toObject());
+            mElements.append(std::move(e));
         } else {
-            qCWarning(RUQOLA_AUTOGENERATEUI_LOG) << "Unknown type " << type;
+            qCWarning(RUQOLA_AUTOGENERATEUI_LOG) << "Unknown elements type " << type;
         }
     }
 }

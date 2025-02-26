@@ -7,6 +7,7 @@
 #pragma once
 
 #include "autogenerateinteractionuiviewblockbase.h"
+#include "autogenerateui/autogenerateinteractionuiviewimage.h"
 
 // ./src/blocks/layout/ImageBlock.ts
 class AutoGenerateInteractionUiViewImageBlock : public AutoGenerateInteractionUiViewBlockBase
@@ -16,6 +17,15 @@ public:
     ~AutoGenerateInteractionUiViewImageBlock();
     [[nodiscard]] QWidget *generateWidget(QWidget *parent) const override;
     void parse(const QJsonObject &json) override;
+
+    [[nodiscard]] AutoGenerateInteractionUiViewImage image() const;
+    void setImage(const AutoGenerateInteractionUiViewImage &newImage);
+
+    [[nodiscard]] bool operator==(const AutoGenerateInteractionUiViewImageBlock &other) const;
+
+private:
+    AutoGenerateInteractionUiViewImage mImage;
+    // TODO title?: PlainText;
 };
 
 Q_DECLARE_METATYPE(AutoGenerateInteractionUiViewImageBlock)

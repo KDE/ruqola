@@ -8,6 +8,7 @@
 
 #include "autogenerateui/autogenerateinteractionuiviewactionable.h"
 #include "libruqolawidgets_private_export.h"
+class AutoGenerateInteractionUiViewOption;
 // ./packages/ui-kit/src/blocks/elements/OverflowElement.ts
 class LIBRUQOLAWIDGETS_TESTS_EXPORT AutoGenerateInteractionUiViewOverflowElement : public AutoGenerateInteractionUiViewActionable
 {
@@ -16,6 +17,12 @@ public:
     ~AutoGenerateInteractionUiViewOverflowElement();
     void parse(const QJsonObject &json) override;
     [[nodiscard]] QWidget *generateWidget(QWidget *parent) override;
+
+    [[nodiscard]] QList<AutoGenerateInteractionUiViewOption *> options() const;
+    void setOptions(const QList<AutoGenerateInteractionUiViewOption *> &newOptions);
+
+private:
+    QList<AutoGenerateInteractionUiViewOption *> mOptions;
 };
 
 Q_DECLARE_METATYPE(AutoGenerateInteractionUiViewOverflowElement)
