@@ -203,6 +203,7 @@ void MessageLineWidget::slotSendMessage(const QString &msg)
             if (msg.startsWith(QLatin1Char('/'))) {
                 if (!msg.startsWith("//"_L1) && !msg.startsWith("/*"_L1)) {
                     // a command ?
+                    // TODO verify if we have preview command.
                     if (runCommand(msg, roomId(), mThreadMessageId)) {
                         setMode(MessageLineWidget::EditingMode::NewMessage);
                         return;
