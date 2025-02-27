@@ -23,6 +23,8 @@ public:
     void setElements(const QList<AutoGenerateInteractionUiViewActionable *> &newElements);
     QWidget *generateWidget(QWidget *parent = nullptr) const override;
 
+    [[nodiscard]] QJsonObject serialize() const override;
+
 private:
     /*
         text?: TextObject;

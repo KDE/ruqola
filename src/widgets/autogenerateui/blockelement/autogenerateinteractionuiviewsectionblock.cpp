@@ -121,3 +121,9 @@ void AutoGenerateInteractionUiViewSectionBlock::setAccessory(AutoGenerateInterac
 {
     mAccessory = newAccessory;
 }
+
+QJsonObject AutoGenerateInteractionUiViewSectionBlock::serialize() const
+{
+    // TODO
+    return {};
+}

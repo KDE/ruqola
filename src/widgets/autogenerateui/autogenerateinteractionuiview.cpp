@@ -134,7 +134,7 @@ void AutoGenerateInteractionUiView::generateWidget(QWidget *widget)
     }
 }
 
-QJsonObject AutoGenerateInteractionUiView::serialize()
+QJsonObject AutoGenerateInteractionUiView::serialize() const
 {
     // TODO
     return {};

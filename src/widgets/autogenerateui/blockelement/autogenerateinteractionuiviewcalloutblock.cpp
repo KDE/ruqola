@@ -90,6 +90,11 @@ void AutoGenerateInteractionUiViewCalloutBlock::setAccessory(AutoGenerateInterac
     mAccessory = newAccessory;
 }
 
+QJsonObject AutoGenerateInteractionUiViewCalloutBlock::serialize() const
+{
+    return {};
+}
+
 QDebug operator<<(QDebug d, const AutoGenerateInteractionUiViewCalloutBlock &t)
 {
     d.space() << "AutoGenerateInteractionUiViewBlockBase:" << static_cast<const AutoGenerateInteractionUiViewBlockBase &>(t);

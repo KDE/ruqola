@@ -111,3 +111,8 @@ void AutoGenerateInteractionUiViewInputBlock::setElement(AutoGenerateInteraction
 {
     mElement = newElement;
 }
+
+QJsonObject AutoGenerateInteractionUiViewInputBlock::serialize() const
+{
+    return {};
+}

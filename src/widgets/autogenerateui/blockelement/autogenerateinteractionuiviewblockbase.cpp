@@ -48,6 +48,12 @@ void AutoGenerateInteractionUiViewBlockBase::parse(const QJsonObject &json)
     mBlockId = json["blockId"_L1].toString();
 }
 
+QJsonObject AutoGenerateInteractionUiViewBlockBase::serialize() const
+{
+    Q_UNREACHABLE();
+    return {};
+}
+
 QWidget *AutoGenerateInteractionUiViewBlockBase::generateWidget(QWidget *parent) const
 {
     return nullptr;

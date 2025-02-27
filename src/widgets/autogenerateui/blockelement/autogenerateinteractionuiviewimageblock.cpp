@@ -45,3 +45,9 @@ bool AutoGenerateInteractionUiViewImageBlock::operator==(const AutoGenerateInter
 {
     return AutoGenerateInteractionUiViewBlockBase::operator==(other) && other.image() == image();
 }
+
+QJsonObject AutoGenerateInteractionUiViewImageBlock::serialize() const
+{
+    // TODO
+    return {};
+}

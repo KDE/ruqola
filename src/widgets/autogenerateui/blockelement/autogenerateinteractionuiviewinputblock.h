@@ -32,6 +32,8 @@ public:
     [[nodiscard]] AutoGenerateInteractionUiViewActionable *element() const;
     void setElement(AutoGenerateInteractionUiViewActionable *newElement);
 
+    [[nodiscard]] QJsonObject serialize() const override;
+
 private:
     AutoGenerateInteractionUiViewText mLabel;
     AutoGenerateInteractionUiViewActionable *mElement = nullptr;

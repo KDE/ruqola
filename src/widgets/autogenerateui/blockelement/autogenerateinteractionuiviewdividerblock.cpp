@@ -13,9 +13,7 @@ AutoGenerateInteractionUiViewDividerBlock::AutoGenerateInteractionUiViewDividerB
 {
 }
 
-AutoGenerateInteractionUiViewDividerBlock::~AutoGenerateInteractionUiViewDividerBlock()
-{
-}
+AutoGenerateInteractionUiViewDividerBlock::~AutoGenerateInteractionUiViewDividerBlock() = default;
 
 QDebug operator<<(QDebug d, const AutoGenerateInteractionUiViewDividerBlock &t)
 {
@@ -31,4 +29,9 @@ bool AutoGenerateInteractionUiViewDividerBlock::operator==(const AutoGenerateInt
 QWidget *AutoGenerateInteractionUiViewDividerBlock::generateWidget(QWidget *parent) const
 {
     return new KSeparator(parent);
+}
+
+QJsonObject AutoGenerateInteractionUiViewDividerBlock::serialize() const
+{
+    return {};
 }

@@ -25,6 +25,7 @@ public:
     [[nodiscard]] bool operator==(const AutoGenerateInteractionUiViewBlockBase &other) const;
 
     virtual void parse(const QJsonObject &json);
+    [[nodiscard]] virtual QJsonObject serialize() const;
 
     virtual QWidget *generateWidget(QWidget *parent) const;
 

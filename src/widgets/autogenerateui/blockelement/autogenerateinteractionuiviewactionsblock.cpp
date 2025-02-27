@@ -108,3 +108,8 @@ QWidget *AutoGenerateInteractionUiViewActionsBlock::generateWidget(QWidget *pare
     hboxLayout->addStretch(1);
     return widget;
 }
+
+QJsonObject AutoGenerateInteractionUiViewActionsBlock::serialize() const
+{
+    return {};
+}
