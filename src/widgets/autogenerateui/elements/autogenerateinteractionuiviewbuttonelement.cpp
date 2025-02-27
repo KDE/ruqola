@@ -77,13 +77,13 @@ void AutoGenerateInteractionUiViewButtonElement::setText(const AutoGenerateInter
 
 void AutoGenerateInteractionUiViewButtonElement::parse(const QJsonObject &json)
 {
-    qDebug() << " AutoGenerateInteractionUiViewButtonElement::parse " << json;
+    // qDebug() << " AutoGenerateInteractionUiViewButtonElement::parse " << json;
     AutoGenerateInteractionUiViewActionable::parse(json);
     mStyle = convertStyleFromString(json["style"_L1].toString());
     mText.parse(json["text"_L1].toObject());
     mSecondary = json["secondary"_L1].toBool();
     // TODO
-    qDebug() << "AutoGenerateInteractionUiViewButtonElement *this " << *this;
+    // qDebug() << "AutoGenerateInteractionUiViewButtonElement *this " << *this;
 }
 
 QDebug operator<<(QDebug d, const AutoGenerateInteractionUiViewButtonElement &t)
