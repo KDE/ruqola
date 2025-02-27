@@ -5,12 +5,12 @@
 */
 
 #include "listcommandsjob.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "restapimethod.h"
 #include "rocketchatqtrestapi_debug.h"
 #include <QJsonDocument>
 #include <QJsonObject>
+using namespace Qt::Literals::StringLiterals;
 using namespace RocketChatRestApi;
 ListCommandsJob::ListCommandsJob(QObject *parent)
     : RestApiAbstractJob(parent)

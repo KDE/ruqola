@@ -36,7 +36,7 @@ public:
     [[nodiscard]] RunCommandInfo runCommandInfo() const;
     void setRunCommandInfo(const RunCommandInfo &runCommandInfo);
 
-    static RunCommandInfo parseString(const QString &str, const QByteArray &roomId, const QByteArray &tmid);
+    [[nodiscard]] static RunCommandInfo parseString(const QString &str, const QByteArray &roomId, const QByteArray &tmid);
 Q_SIGNALS:
     void runCommandDone();
     void runCommandFailed(const RunCommandJob::RunCommandInfo &info);
