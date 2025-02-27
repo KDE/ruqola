@@ -19,7 +19,11 @@ AutoGenerateInteractionUi::~AutoGenerateInteractionUi() = default;
 
 QJsonObject AutoGenerateInteractionUi::generateJson() const
 {
-    return {};
+    QJsonObject o;
+    if (mView) {
+        o["view"_L1] = mView->serialize();
+    }
+    return o;
 }
 
 bool AutoGenerateInteractionUi::parseInteractionUi(const QJsonObject &json)

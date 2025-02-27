@@ -44,6 +44,7 @@ public:
 
     void generateWidget(QWidget *parent);
 
+    [[nodiscard]] QJsonObject serialize();
 Q_SIGNALS:
     void submited();
     void closed();

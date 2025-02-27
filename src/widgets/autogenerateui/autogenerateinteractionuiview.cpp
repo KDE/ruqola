@@ -134,6 +134,12 @@ void AutoGenerateInteractionUiView::generateWidget(QWidget *widget)
     }
 }
 
+QJsonObject AutoGenerateInteractionUiView::serialize()
+{
+    // TODO
+    return {};
+}
+
 QDebug operator<<(QDebug d, const AutoGenerateInteractionUiView &t)
 {
     d.space() << "id:" << t.id();
