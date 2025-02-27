@@ -29,7 +29,6 @@ void AutoGenerateInteractionUiViewDatePickerElement::parse(const QJsonObject &js
         mPlaceHolder = new AutoGenerateInteractionUiViewText;
         mPlaceHolder->parse(json["placeholder"_L1].toObject());
     }
-    // TODO
 }
 
 QWidget *AutoGenerateInteractionUiViewDatePickerElement::generateWidget(QWidget *parent)

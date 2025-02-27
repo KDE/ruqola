@@ -9,6 +9,7 @@
 #include "autogenerateui/elements/autogenerateinteractionuiviewdatepickerelement.h"
 #include "autogenerateui/elements/autogenerateinteractionuiviewplaintextinputelement.h"
 #include "autogenerateui/elements/autogenerateinteractionuiviewstaticselectelement.h"
+#include "autogenerateui/elements/autogenerateinteractionuiviewtimepickerelement.h"
 #include "ruqola_autogenerateui_debug.h"
 
 #include <QLabel>
@@ -50,6 +51,9 @@ void AutoGenerateInteractionUiViewInputBlock::parse(const QJsonObject &json)
         mElement->parse(elementObj);
     } else if (type == "datepicker"_L1) {
         mElement = new AutoGenerateInteractionUiViewDatePickerElement;
+        mElement->parse(elementObj);
+    } else if (type == "time_picker"_L1) {
+        mElement = new AutoGenerateInteractionUiViewTimePickerElement;
         mElement->parse(elementObj);
     } else if (type == "static_select"_L1) {
         mElement = new AutoGenerateInteractionUiViewStaticSelectElement;
