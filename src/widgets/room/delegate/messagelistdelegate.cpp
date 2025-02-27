@@ -169,6 +169,10 @@ MessageBlockDelegateHelperBase *MessageListDelegate::blocksHelper(const Block &b
         return mHelperActions.get();
     case Block::BlockType::Section:
         return mHelperSection.get();
+    case Block::BlockType::Context: // TODO look at it!
+        return mHelperActions.get();
+    case Block::BlockType::Divider: // TODO look at it! Draw line
+        return nullptr;
     }
     return nullptr;
 }
