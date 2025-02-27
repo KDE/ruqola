@@ -48,6 +48,7 @@ void AutoGenerateInteractionUiViewInputBlockTest::shouldLoadJson_data()
         AutoGenerateInteractionUiViewInputBlock textElement;
         textElement.setBlockId("autoReplySettings"_L1);
         textElement.setAppId("821cd5c6-1fb5-4d9e-8e88-e6176463efb6"_L1);
+        textElement.setType("input"_L1);
         AutoGenerateInteractionUiViewText text;
         text.setText("Auto-reply Message:"_L1);
         text.setType(AutoGenerateInteractionUiViewText::TextType::PlainText);
