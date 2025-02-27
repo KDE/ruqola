@@ -12,6 +12,25 @@ using namespace Qt::Literals::StringLiterals;
 AutoGenerateInteractionUiViewButtonElement::AutoGenerateInteractionUiViewButtonElement() = default;
 AutoGenerateInteractionUiViewButtonElement::~AutoGenerateInteractionUiViewButtonElement() = default;
 
+QString AutoGenerateInteractionUiViewButtonElement::convertStyleToString() const
+{
+    switch (mStyle) {
+    case AutoGenerateInteractionUiViewButtonElement::Style::Unknown:
+        return {};
+    case AutoGenerateInteractionUiViewButtonElement::Style::Primary:
+        return "primary"_L1;
+    case AutoGenerateInteractionUiViewButtonElement::Style::Secondary:
+        return "secondary"_L1;
+    case AutoGenerateInteractionUiViewButtonElement::Style::Danger:
+        return "danger"_L1;
+    case AutoGenerateInteractionUiViewButtonElement::Style::Warning:
+        return "warning"_L1;
+    case AutoGenerateInteractionUiViewButtonElement::Style::Success:
+        return "success"_L1;
+    }
+    return {};
+}
+
 AutoGenerateInteractionUiViewButtonElement::Style AutoGenerateInteractionUiViewButtonElement::convertStyleFromString(const QString &str) const
 {
     if (str.isEmpty()) {
@@ -92,6 +111,16 @@ QDebug operator<<(QDebug d, const AutoGenerateInteractionUiViewButtonElement &t)
     d.space() << "text:" << t.text();
     d.space() << "secondary:" << t.secondary();
     return d;
+}
+
+QJsonObject AutoGenerateInteractionUiViewButtonElement::serialize() const
+{
+    QJsonObject o = AutoGenerateInteractionUiViewActionable::serialize();
+    o["text"_L1] = mText.serialize();
+    o["style"_L1] = convertStyleToString();
+    // TODO secondary ?
+
+    return o;
 }
 
 #include "moc_autogenerateinteractionuiviewbuttonelement.cpp"

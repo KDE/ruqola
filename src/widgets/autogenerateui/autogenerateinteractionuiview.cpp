@@ -138,7 +138,13 @@ QJsonObject AutoGenerateInteractionUiView::serialize() const
 {
     QJsonObject o;
     o["blocks"_L1] = mBlocks->serialize();
-    // TODO
+    o["title"_L1] = mTitle.serialize();
+    if (mSubmitButton) {
+        o["submit"_L1] = mSubmitButton->serialize();
+    }
+    if (mCloseButton) {
+        o["close"_L1] = mCloseButton->serialize();
+    }
     return o;
 }
 

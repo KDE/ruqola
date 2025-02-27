@@ -32,6 +32,8 @@ public:
     [[nodiscard]] QByteArray type() const;
     void setType(const QByteArray &newType);
 
+    [[nodiscard]] virtual QJsonObject serialize() const;
+
 private:
     QByteArray mAppId;
     QByteArray mBlockId;

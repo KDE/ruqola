@@ -39,8 +39,11 @@ public:
 
     [[nodiscard]] QWidget *generateWidget(QWidget *parent) override;
 
+    [[nodiscard]] QJsonObject serialize() const override;
+
 private:
     [[nodiscard]] LIBRUQOLAWIDGETS_NO_EXPORT AutoGenerateInteractionUiViewButtonElement::Style convertStyleFromString(const QString &str) const;
+    [[nodiscard]] LIBRUQOLAWIDGETS_NO_EXPORT QString convertStyleToString() const;
     Style mStyle = Style::Unknown;
     AutoGenerateInteractionUiViewText mText;
     bool mSecondary = false;

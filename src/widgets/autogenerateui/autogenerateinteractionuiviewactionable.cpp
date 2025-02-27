@@ -70,6 +70,22 @@ void AutoGenerateInteractionUiViewActionable::setType(const QByteArray &newType)
     mType = newType;
 }
 
+QJsonObject AutoGenerateInteractionUiViewActionable::serialize() const
+{
+    QJsonObject o;
+    o["type"_L1] = QString::fromLatin1(mType);
+    if (!mActionId.isEmpty()) {
+        o["actionId"_L1] = QString::fromLatin1(mActionId);
+    }
+    if (!mAppId.isEmpty()) {
+        o["appId"_L1] = QString::fromLatin1(mAppId);
+    }
+    if (!mBlockId.isEmpty()) {
+        o["blockId"_L1] = QString::fromLatin1(mBlockId);
+    }
+    return o;
+}
+
 QDebug operator<<(QDebug d, const AutoGenerateInteractionUiViewActionable &t)
 {
     d.space() << "appId:" << t.appId();

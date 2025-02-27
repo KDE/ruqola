@@ -16,3 +16,8 @@ void AutoGenerateInteractionUiViewElement::parse(const QJsonObject &json)
     Q_UNUSED(json);
     // Implement in sub class
 }
+
+QJsonObject AutoGenerateInteractionUiViewElement::serialize() const
+{
+    return {};
+}

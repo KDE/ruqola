@@ -34,9 +34,11 @@ public:
     [[nodiscard]] TextType type() const;
     void setType(TextType newType);
     [[nodiscard]] QString generateText() const;
+    [[nodiscard]] QJsonObject serialize() const override;
 
 private:
     [[nodiscard]] LIBRUQOLAWIDGETS_NO_EXPORT AutoGenerateInteractionUiViewText::TextType convertTypeFromString(const QString &str) const;
+    [[nodiscard]] LIBRUQOLAWIDGETS_NO_EXPORT QString convertTextTypeToString() const;
     TextType mType = TextType::Unknown;
     QString mText;
     bool mEmoji = false;

@@ -23,6 +23,19 @@ void AutoGenerateInteractionUiViewText::parse(const QJsonObject &json)
     mType = convertTypeFromString(json["type"_L1].toString());
 }
 
+QString AutoGenerateInteractionUiViewText::convertTextTypeToString() const
+{
+    switch (mType) {
+    case TextType::Unknown:
+        return {};
+    case TextType::PlainText:
+        return "plain_text"_L1;
+    case TextType::Markdown:
+        return "mrkdwn"_L1;
+    }
+    return {};
+}
+
 AutoGenerateInteractionUiViewText::TextType AutoGenerateInteractionUiViewText::convertTypeFromString(const QString &str) const
 {
     if (str.isEmpty()) {
@@ -82,6 +95,15 @@ QString AutoGenerateInteractionUiViewText::generateText() const
     }
     }
     return {};
+}
+
+QJsonObject AutoGenerateInteractionUiViewText::serialize() const
+{
+    QJsonObject o;
+    o["type"_L1] = convertTextTypeToString();
+    o["text"_L1] = mText;
+    o["emoji"_L1] = mEmoji;
+    return o;
 }
 
 void AutoGenerateInteractionUiViewText::setText(const QString &newText)

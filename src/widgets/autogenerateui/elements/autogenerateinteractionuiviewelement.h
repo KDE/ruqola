@@ -14,4 +14,5 @@ public:
     AutoGenerateInteractionUiViewElement();
     virtual ~AutoGenerateInteractionUiViewElement();
     virtual void parse(const QJsonObject &json);
+    [[nodiscard]] virtual QJsonObject serialize() const;
 };
