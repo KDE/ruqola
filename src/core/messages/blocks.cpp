@@ -61,8 +61,11 @@ void Blocks::parseBlocks(const QJsonArray &blocks)
         b.parseBlock(blockObject);
         if (b.isValid()) {
             mBlocks.append(std::move(b));
+        } else {
+            qWarning() << " Invalid b " << blockObject;
         }
     }
+    qDebug() << "Blocks::parseBlocks " << mBlocks;
 }
 
 bool Blocks::operator==(const Blocks &other) const
