@@ -17,4 +17,5 @@ public:
 
 private:
     QPlainTextEdit *const mPlainTextEdit;
+    QPlainTextEdit *const mSerializeTextEdit;
 };

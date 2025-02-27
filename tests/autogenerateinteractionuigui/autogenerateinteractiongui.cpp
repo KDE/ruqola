@@ -19,25 +19,39 @@
 AutoGenerateInteractionGui::AutoGenerateInteractionGui(QWidget *parent)
     : QWidget(parent)
     , mPlainTextEdit(new QPlainTextEdit(this))
+    , mSerializeTextEdit(new QPlainTextEdit(this))
 {
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->addWidget(mPlainTextEdit);
 
     auto button = new QPushButton(QStringLiteral("Generate"), this);
     mainLayout->addWidget(button);
-    connect(button, &QPushButton::clicked, this, [this]() {
+    AutoGenerateInteractionUi *engine = new AutoGenerateInteractionUi(this);
+    connect(button, &QPushButton::clicked, this, [this, engine]() {
         const QString json = mPlainTextEdit->toPlainText();
         if (!json.isEmpty()) {
-            AutoGenerateInteractionUi engine;
             const QJsonDocument doc = QJsonDocument::fromJson(json.toUtf8());
-            if (engine.parseInteractionUi(doc.object())) {
-                auto w = engine.generateWidget(nullptr);
+            if (engine->parseInteractionUi(doc.object())) {
+                auto w = engine->generateWidget(nullptr);
                 w->show();
             } else {
                 qWarning() << "Invalid Json" << json;
             }
         }
     });
+
+    mSerializeTextEdit->setReadOnly(true);
+    mainLayout->addWidget(mSerializeTextEdit);
+    auto generateJsonbutton = new QPushButton(QStringLiteral("Generate Json"), this);
+    mainLayout->addWidget(generateJsonbutton);
+    connect(generateJsonbutton, &QPushButton::clicked, this, [this, engine]() {
+        mSerializeTextEdit->clear();
+        const QJsonObject o = engine->generateJson();
+        QJsonDocument d(o);
+        const QByteArray ba = d.toJson();
+        mSerializeTextEdit->setPlainText(QString::fromUtf8(ba));
+    });
+
     resize(800, 600);
 }
 
