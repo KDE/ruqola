@@ -79,8 +79,12 @@ void AutoGenerateInteractionUiViewContextBlock::setElements(const QList<AutoGene
 
 QJsonObject AutoGenerateInteractionUiViewContextBlock::serialize() const
 {
-    const QJsonObject o = AutoGenerateInteractionUiViewBlockBase::serialize();
-    // TODO
+    QJsonObject o = AutoGenerateInteractionUiViewBlockBase::serialize();
+    QJsonArray r;
+    for (const auto &e : mElements) {
+        r.append(e->serialize());
+    }
+    o["<NEED>"_L1] = r;
     return o;
 }
 

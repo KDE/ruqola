@@ -114,7 +114,11 @@ void AutoGenerateInteractionUiViewInputBlock::setElement(AutoGenerateInteraction
 
 QJsonObject AutoGenerateInteractionUiViewInputBlock::serialize() const
 {
-    const QJsonObject o = AutoGenerateInteractionUiViewBlockBase::serialize();
+    QJsonObject o = AutoGenerateInteractionUiViewBlockBase::serialize();
+    o["label"_L1] = mLabel.serialize();
+    if (mElement) {
+        // TODO
+    }
     // TODO
     return o;
 }

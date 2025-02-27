@@ -124,7 +124,13 @@ void AutoGenerateInteractionUiViewSectionBlock::setAccessory(AutoGenerateInterac
 
 QJsonObject AutoGenerateInteractionUiViewSectionBlock::serialize() const
 {
-    const QJsonObject o = AutoGenerateInteractionUiViewBlockBase::serialize();
+    QJsonObject o = AutoGenerateInteractionUiViewBlockBase::serialize();
+    if (mText) {
+        // TODO
+    }
+    if (mAccessory) {
+        // TODO
+    }
     // TODO
     return o;
 }

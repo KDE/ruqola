@@ -34,6 +34,7 @@ QDebug operator<<(QDebug d, const AutoGenerateInteractionUiViewBlockBase &t)
 {
     d.space() << "blockId:" << t.blockId();
     d.space() << "appId:" << t.appId();
+    d.space() << "type:" << t.type();
     return d;
 }
 
