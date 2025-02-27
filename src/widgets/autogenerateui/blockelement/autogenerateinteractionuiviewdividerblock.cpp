@@ -33,5 +33,6 @@ QWidget *AutoGenerateInteractionUiViewDividerBlock::generateWidget(QWidget *pare
 
 QJsonObject AutoGenerateInteractionUiViewDividerBlock::serialize() const
 {
-    return {};
+    const QJsonObject o = AutoGenerateInteractionUiViewBlockBase::serialize();
+    return o;
 }

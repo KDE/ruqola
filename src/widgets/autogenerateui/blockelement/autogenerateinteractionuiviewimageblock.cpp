@@ -48,6 +48,7 @@ bool AutoGenerateInteractionUiViewImageBlock::operator==(const AutoGenerateInter
 
 QJsonObject AutoGenerateInteractionUiViewImageBlock::serialize() const
 {
+    const QJsonObject o = AutoGenerateInteractionUiViewBlockBase::serialize();
     // TODO
-    return {};
+    return o;
 }

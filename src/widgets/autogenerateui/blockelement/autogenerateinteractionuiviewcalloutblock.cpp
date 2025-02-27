@@ -92,7 +92,9 @@ void AutoGenerateInteractionUiViewCalloutBlock::setAccessory(AutoGenerateInterac
 
 QJsonObject AutoGenerateInteractionUiViewCalloutBlock::serialize() const
 {
-    return {};
+    const QJsonObject o = AutoGenerateInteractionUiViewBlockBase::serialize();
+    // TODO
+    return o;
 }
 
 QDebug operator<<(QDebug d, const AutoGenerateInteractionUiViewCalloutBlock &t)

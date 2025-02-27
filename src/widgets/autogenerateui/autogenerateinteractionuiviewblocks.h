@@ -24,7 +24,7 @@ public:
     void setBlockElements(const QList<AutoGenerateInteractionUiViewBlockBase *> &newBlockElements);
 
     void generateWidget(QWidget *parent);
-    [[nodiscard]] QJsonObject serialize() const;
+    [[nodiscard]] QJsonArray serialize() const;
 
 private:
     QList<AutoGenerateInteractionUiViewBlockBase *> mBlockElements;

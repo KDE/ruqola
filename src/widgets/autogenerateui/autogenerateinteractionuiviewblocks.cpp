@@ -101,10 +101,13 @@ void AutoGenerateInteractionUiViewBlocks::generateWidget(QWidget *parent)
     }
 }
 
-QJsonObject AutoGenerateInteractionUiViewBlocks::serialize() const
+QJsonArray AutoGenerateInteractionUiViewBlocks::serialize() const
 {
-    // TODO
-    return {};
+    QJsonArray array;
+    for (const auto &e : mBlockElements) {
+        array.append(e->serialize());
+    }
+    return array;
 }
 
 #include "moc_autogenerateinteractionuiviewblocks.cpp"

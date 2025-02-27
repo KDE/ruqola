@@ -29,9 +29,13 @@ public:
 
     virtual QWidget *generateWidget(QWidget *parent) const;
 
+    [[nodiscard]] QString type() const;
+    void setType(const QString &newType);
+
 private:
     QString mAppId;
     QString mBlockId;
+    QString mType;
 };
 Q_DECLARE_METATYPE(AutoGenerateInteractionUiViewBlockBase)
 Q_DECLARE_TYPEINFO(AutoGenerateInteractionUiViewBlockBase, Q_RELOCATABLE_TYPE);

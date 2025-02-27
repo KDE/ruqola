@@ -136,8 +136,10 @@ void AutoGenerateInteractionUiView::generateWidget(QWidget *widget)
 
 QJsonObject AutoGenerateInteractionUiView::serialize() const
 {
+    QJsonObject o;
+    o["blocks"_L1] = mBlocks->serialize();
     // TODO
-    return {};
+    return o;
 }
 
 QDebug operator<<(QDebug d, const AutoGenerateInteractionUiView &t)

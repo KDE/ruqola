@@ -79,8 +79,9 @@ void AutoGenerateInteractionUiViewContextBlock::setElements(const QList<AutoGene
 
 QJsonObject AutoGenerateInteractionUiViewContextBlock::serialize() const
 {
+    const QJsonObject o = AutoGenerateInteractionUiViewBlockBase::serialize();
     // TODO
-    return {};
+    return o;
 }
 
 QDebug operator<<(QDebug d, const AutoGenerateInteractionUiViewContextBlock &t)

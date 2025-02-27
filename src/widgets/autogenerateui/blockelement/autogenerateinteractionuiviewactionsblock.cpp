@@ -111,5 +111,7 @@ QWidget *AutoGenerateInteractionUiViewActionsBlock::generateWidget(QWidget *pare
 
 QJsonObject AutoGenerateInteractionUiViewActionsBlock::serialize() const
 {
-    return {};
+    const QJsonObject o = AutoGenerateInteractionUiViewBlockBase::serialize();
+    // TODO
+    return o;
 }
