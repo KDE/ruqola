@@ -20,6 +20,8 @@ public:
         VideoConf,
         Actions,
         Section,
+        Context,
+        Divider,
     };
     Q_ENUM(BlockType)
 
