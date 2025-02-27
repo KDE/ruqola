@@ -23,7 +23,7 @@ public:
 
 private:
     // TODO initialOptions
-    QList<AutoGenerateInteractionUiViewOption> mOptions;
+    QList<AutoGenerateInteractionUiViewOption *> mOptions;
 };
 Q_DECLARE_METATYPE(AutoGenerateInteractionUiViewRadioButtonElement)
 Q_DECLARE_TYPEINFO(AutoGenerateInteractionUiViewRadioButtonElement, Q_RELOCATABLE_TYPE);

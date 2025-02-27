@@ -5,6 +5,9 @@
 */
 #include "autogenerateinteractionuiviewcheckboxelement.h"
 #include "ruqola_action_buttons_debug.h"
+
+#include <QJsonArray>
+
 using namespace Qt::Literals::StringLiterals;
 
 AutoGenerateInteractionUiViewCheckboxElement::AutoGenerateInteractionUiViewCheckboxElement()
@@ -12,11 +15,21 @@ AutoGenerateInteractionUiViewCheckboxElement::AutoGenerateInteractionUiViewCheck
 {
 }
 
-AutoGenerateInteractionUiViewCheckboxElement::~AutoGenerateInteractionUiViewCheckboxElement() = default;
+AutoGenerateInteractionUiViewCheckboxElement::~AutoGenerateInteractionUiViewCheckboxElement()
+{
+    qDeleteAll(mOptions);
+}
 
 void AutoGenerateInteractionUiViewCheckboxElement::parse(const QJsonObject &json)
 {
     AutoGenerateInteractionUiViewActionable::parse(json);
+    // Options
+    const QJsonArray optionsArray = json["options"_L1].toArray();
+    for (const auto &opt : optionsArray) {
+        AutoGenerateInteractionUiViewOption *option = new AutoGenerateInteractionUiViewOption;
+        option->parse(opt.toObject());
+        mOptions.append(option);
+    }
 }
 
 QWidget *AutoGenerateInteractionUiViewCheckboxElement::generateWidget(QWidget *parent)
