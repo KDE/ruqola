@@ -1627,6 +1627,14 @@ void RocketChatAccount::updateApps(const QJsonArray &contents)
                 } else if (type == "app/added"_L1) {
                     updateInstalledApps();
                     updateCountApplications();
+                } else if (type == "command/removed"_L1) {
+                    qWarning() << " Not implemented yet " << type;
+                } else if (type == "command/added"_L1) {
+                    qWarning() << " Not implemented yet " << type;
+                } else if (type == "actions/changed"_L1) {
+                    qWarning() << " Not implemented yet " << type;
+                } else if (type == "actions/changed"_L1) {
+                    qWarning() << " Not implemented yet " << type;
                 } else {
                     qWarning() << " type unknown " << type;
                 }
