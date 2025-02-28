@@ -5,12 +5,18 @@
 */
 
 #include "commandpreviewwidget.h"
+#include "commandpreviewimagedelegate.h"
+#include "connection.h"
+#include "model/previewcommandmodel.h"
+#include "rocketchataccount.h"
+#include "ruqolawidgets_debug.h"
 #include <QHBoxLayout>
 #include <QListView>
 
 CommandPreviewWidget::CommandPreviewWidget(QWidget *parent)
     : QWidget{parent}
     , mListView(new QListView(this))
+    , mPreviewCommandModel(new PreviewCommandModel(this))
 {
     auto mainLayout = new QHBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
@@ -22,8 +28,59 @@ CommandPreviewWidget::CommandPreviewWidget(QWidget *parent)
     mListView->setFlow(QListView::LeftToRight);
     mListView->setResizeMode(QListView::Adjust);
     mListView->setWrapping(false);
+    // TODO mListView->setItemDelegate(new CommandPreviewImageDelegate(this));
+
+    mListView->setModel(mPreviewCommandModel);
+    connect(mListView, &QListView::doubleClicked, this, &CommandPreviewWidget::slotDoubleClicked);
 }
 
 CommandPreviewWidget::~CommandPreviewWidget() = default;
+
+void CommandPreviewWidget::setCurrentRocketChatAccount(RocketChatAccount *account)
+{
+    mCurrentRocketChatAccount = account;
+    // Hide it when we switch account
+    setVisible(false);
+}
+
+void CommandPreviewWidget::setPreviewCommandInfo(const RocketChatRestApi::PreviewsCommandJob::PreviewsCommandInfo &info)
+{
+    if (mCurrentRocketChatAccount) {
+        auto job = new RocketChatRestApi::PreviewsCommandJob(this);
+        mCurrentRocketChatAccount->restApi()->initializeRestApiJob(job);
+        job->setPreviewsCommandInfo(info);
+        connect(job, &RocketChatRestApi::PreviewsCommandJob::previewsCommandDone, this, &CommandPreviewWidget::slotParsePreviewCommandItems);
+        if (!job->start()) {
+            qCDebug(RUQOLAWIDGETS_LOG) << "Impossible to start PreviewsCommandJob job";
+        }
+    }
+}
+
+void CommandPreviewWidget::slotParsePreviewCommandItems(const QJsonObject &replyObject)
+{
+    const QJsonObject previewObj = replyObject["preview"_L1].toObject();
+    if (!previewObj.isEmpty()) {
+        const QJsonArray items = previewObj["items"_L1].toArray();
+        QList<PreviewCommand> commands;
+        for (const auto &i : items) {
+            PreviewCommand command;
+            command.parse(i.toObject());
+            if (command.isValid()) {
+                commands.append(std::move(command));
+            }
+        }
+        mPreviewCommandModel->setPreviewCommands(commands);
+        setVisible(!commands.isEmpty());
+    }
+}
+
+void CommandPreviewWidget::slotDoubleClicked(const QModelIndex &)
+{
+    // TODO
+    // todo send message
+    // hide
+    setVisible(false);
+    mPreviewCommandModel->clear();
+}
 
 #include "moc_commandpreviewwidget.cpp"
