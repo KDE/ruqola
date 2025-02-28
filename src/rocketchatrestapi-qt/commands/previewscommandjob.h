@@ -15,10 +15,18 @@ class LIBROCKETCHATRESTAPI_QT_EXPORT PreviewsCommandJob : public RestApiAbstract
 {
     Q_OBJECT
 public:
+    struct LIBROCKETCHATRESTAPI_QT_EXPORT PreviewsCommandItemInfo {
+        QString id;
+        QString value;
+        QString type;
+        [[nodiscard]] bool isValid() const;
+    };
+
     struct LIBROCKETCHATRESTAPI_QT_EXPORT PreviewsCommandInfo {
         QString commandName;
         QString roomId;
         QString params;
+        PreviewsCommandItemInfo itemInfo;
         [[nodiscard]] bool isValid() const;
     };
     explicit PreviewsCommandJob(QObject *parent = nullptr);
@@ -41,6 +49,7 @@ Q_SIGNALS:
 
 private:
     LIBROCKETCHATRESTAPI_QT_NO_EXPORT void onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson) override;
+    LIBROCKETCHATRESTAPI_QT_NO_EXPORT void onGetRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson) override;
     PreviewsCommandInfo mPreviewsCommandInfo;
 };
 }

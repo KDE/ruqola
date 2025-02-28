@@ -26,13 +26,31 @@ bool PreviewsCommandJob::start()
         deleteLater();
         return false;
     }
-    addStartRestApiInfo("PreviewsCommandJob::start");
-    submitPostRequest(json());
+    if (mPreviewsCommandInfo.itemInfo.isValid()) {
+        addStartRestApiInfo("PreviewsCommandJob::start");
+        submitPostRequest(json());
+    } else {
+        submitGetRequest();
+        addStartRestApiInfo("PreviewsCommandJob: get starting"_ba);
+    }
 
     return true;
 }
 
 void PreviewsCommandJob::onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
+{
+    const QJsonObject replyObject = replyJson.object();
+    if (replyObject["success"_L1].toBool()) {
+        addLoggerInfo("PreviewsCommandJob: success: "_ba + replyJson.toJson(QJsonDocument::Indented));
+        Q_EMIT previewsCommandDone(replyObject);
+    } else {
+        Q_EMIT previewsCommandFailed(mPreviewsCommandInfo);
+        emitFailedMessage(replyErrorString, replyObject);
+        addLoggerWarning("PreviewsCommandJob: Problem: "_ba + replyJson.toJson(QJsonDocument::Indented));
+    }
+}
+
+void PreviewsCommandJob::onGetRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
     const QJsonObject replyObject = replyJson.object();
     if (replyObject["success"_L1].toBool()) {
@@ -90,7 +108,16 @@ bool PreviewsCommandJob::canStart() const
 
 QNetworkRequest PreviewsCommandJob::request() const
 {
-    const QUrl url = mRestApiMethod->generateUrl(RestApiUtil::RestApiUrlType::CommandsPreview);
+    QUrl url = mRestApiMethod->generateUrl(RestApiUtil::RestApiUrlType::CommandsPreview);
+    if (!mPreviewsCommandInfo.itemInfo.isValid()) {
+        QUrlQuery queryUrl;
+        queryUrl.addQueryItem(QStringLiteral("command"), mPreviewsCommandInfo.commandName);
+        queryUrl.addQueryItem(QStringLiteral("roomId"), mPreviewsCommandInfo.roomId);
+        queryUrl.addQueryItem(QStringLiteral("params"), mPreviewsCommandInfo.params);
+        addQueryParameter(queryUrl);
+        url.setQuery(queryUrl);
+    }
+
     QNetworkRequest request(url);
     addAuthRawHeader(request);
     addRequestAttribute(request);
@@ -121,6 +148,11 @@ QDebug operator<<(QDebug d, const PreviewsCommandJob::PreviewsCommandInfo &t)
     d.space() << "roomId" << t.roomId;
     d.space() << "params" << t.params;
     return d;
+}
+
+bool PreviewsCommandJob::PreviewsCommandItemInfo::isValid() const
+{
+    return !id.isEmpty() && !value.isEmpty() && !type.isEmpty();
 }
 
 #include "moc_previewscommandjob.cpp"
