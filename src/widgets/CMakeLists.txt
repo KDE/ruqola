@@ -751,6 +751,9 @@ target_sources(libruqolawidgets PRIVATE
     room/encryptedroominfo/roomencryptwaitpasswordwidget.h
     room/encryptedroominfo/roomencryptwaitpasswordwidget.cpp
 
+    room/commandpreviewwidget.h
+    room/commandpreviewwidget.cpp
+
     loginwidget/ruqolaloginwidget.cpp
     loginwidget/ruqolaloginwidget.h
 
