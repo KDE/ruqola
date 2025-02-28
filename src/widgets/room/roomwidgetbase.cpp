@@ -69,6 +69,7 @@ RoomWidgetBase::RoomWidgetBase(MessageListView::Mode mode, QWidget *parent)
     mMainLayout->addWidget(mCommandPreviewWidget);
 
     connect(mMessageLineWidget, &MessageLineWidget::showCommandPreview, mCommandPreviewWidget, &CommandPreviewWidget::setPreviewCommandInfo);
+    connect(mCommandPreviewWidget, &CommandPreviewWidget::sendPreviewCommandInfo, mMessageLineWidget, &MessageLineWidget::setSendPreviewCommandInfo);
 
     mStackedWidget->setObjectName(QStringLiteral("mStackedWidget"));
     mMainLayout->addWidget(mStackedWidget);

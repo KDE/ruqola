@@ -199,9 +199,7 @@ void MessageLineWidget::slotRunCommandFailed(const RocketChatRestApi::RunCommand
 bool MessageLineWidget::hasCommandPreview(const QString &msg, const QByteArray &roomId)
 {
     const RocketChatRestApi::PreviewsCommandJob::PreviewsCommandInfo info = RocketChatRestApi::PreviewsCommandJob::parseString(msg, roomId);
-    qDebug() << " preview command info " << info;
     if (info.isValid()) {
-        qDebug() << " info.commandName " << info.commandName;
         if (mCurrentRocketChatAccount->commandHasPreview(info.commandName)) {
             Q_EMIT showCommandPreview(info);
             return true;
@@ -211,18 +209,29 @@ bool MessageLineWidget::hasCommandPreview(const QString &msg, const QByteArray &
     return false;
 }
 
+void MessageLineWidget::setSendPreviewCommandInfo(const RocketChatRestApi::PreviewsCommandJob::PreviewsCommandInfo &info)
+{
+    auto job = new RocketChatRestApi::PreviewsCommandJob(this);
+    mCurrentRocketChatAccount->restApi()->initializeRestApiJob(job);
+    job->setPreviewsCommandInfo(info);
+    // connect(job, &RocketChatRestApi::PreviewsCommandJob::previewsCommandDone, this, &CommandPreviewWidget::slotParsePreviewCommandItems);
+    if (!job->start()) {
+        qCDebug(RUQOLAWIDGETS_LOG) << "Impossible to start PreviewsCommandJob job";
+    }
+    setMode(MessageLineWidget::EditingMode::NewMessage);
+}
+
 void MessageLineWidget::slotSendMessage(const QString &msg)
 {
     if (!msg.isEmpty()) {
         if (mMessageIdBeingEdited.isEmpty() && mQuotePermalink.isEmpty()) {
             if (msg.startsWith(QLatin1Char('/'))) {
                 if (!msg.startsWith("//"_L1) && !msg.startsWith("/*"_L1)) {
-#if 0
                     // a command ?
                     if (hasCommandPreview(msg, roomId())) {
-                        // TODO
+                        return;
                     }
-#endif
+
                     if (runCommand(msg, roomId(), mThreadMessageId)) {
                         setMode(MessageLineWidget::EditingMode::NewMessage);
                         return;
