@@ -40,6 +40,7 @@ QWidget *AutoGenerateInteractionUiViewContextBlock::generateWidget(QWidget *pare
             auto label = new QLabel(parent);
             label->setWordWrap(true);
             label->setText(f->generateText());
+            label->setOpenExternalLinks(true);
             hboxLayout->addWidget(label);
         } else if (auto f = dynamic_cast<AutoGenerateInteractionUiViewImage *>(e)) {
             // TODO
@@ -84,6 +85,7 @@ QJsonObject AutoGenerateInteractionUiViewContextBlock::serialize() const
     for (const auto &e : mElements) {
         r.append(e->serialize());
     }
+    // TODO fix me
     o["<NEED>"_L1] = r;
     return o;
 }
