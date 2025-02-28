@@ -15,6 +15,7 @@ CommandPreviewImageDelegate::~CommandPreviewImageDelegate() = default;
 
 void CommandPreviewImageDelegate::paint(QPainter *painter, const QStyleOptionViewItem &option, const QModelIndex &index) const
 {
+    // Draw image !
 }
 
 QSize CommandPreviewImageDelegate::sizeHint(const QStyleOptionViewItem &option, const QModelIndex &index) const
