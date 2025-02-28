@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-02-27 00:41+0000\n"
+"POT-Creation-Date: 2025-02-28 00:41+0000\n"
 "PO-Revision-Date: 2024-12-24 20:22+0530\n"
 "Last-Translator: kali <shreekantkalwar@gmail.com>\n"
 "Language-Team: Sanskrit <kde-i18n-doc@kde.org>\n"
@@ -749,7 +749,7 @@ msgstr "सेवकस्य URL अनुपस्थितम्।"
 msgid "Socket was unexpectedly closed."
 msgstr "सॉकेट् अप्रत्याशितरूपेण बन्दः आसीत् ।"
 
-#: core/messages/block.cpp:128 core/messages/message.cpp:857
+#: core/messages/block.cpp:137 core/messages/message.cpp:857
 #: core/model/notificationhistorymodel.cpp:63
 #: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:128
 #, kde-format
@@ -8637,7 +8637,7 @@ msgid "Video: %1"
 msgstr "विडियो: %1"
 
 #: widgets/dialogs/uploadfiledialog.cpp:26
-#: widgets/room/messagelinewidget.cpp:436
+#: widgets/room/messagelinewidget.cpp:437
 #, kde-format
 msgctxt "@title:window"
 msgid "Upload File"
@@ -10063,62 +10063,62 @@ msgstr "आबन्धम्"
 msgid "Link Preview"
 msgstr "लिङ्क पूर्वावलोकन"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:430
+#: widgets/room/delegate/messagelistdelegate.cpp:434
 #, kde-format
 msgid "User Info"
 msgstr "उपयोक्तृसूचना"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:440
+#: widgets/room/delegate/messagelistdelegate.cpp:444
 #: widgets/room/messagelistview.cpp:405
 #, kde-format
 msgctxt "@action"
 msgid "Start a Private Conversation"
 msgstr "निजी वार्तालापं आरभत"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:666
+#: widgets/room/delegate/messagelistdelegate.cpp:670
 #, kde-format
 msgid "1 reply"
 msgid_plural "%1 replies"
 msgstr[0] "१ उत्तरम्"
 msgstr[1] "%1 उत्तरं ददाति"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:676
+#: widgets/room/delegate/messagelistdelegate.cpp:680
 #, kde-format
 msgid "1 message"
 msgid_plural "%1 messages"
 msgstr[0] "१ सन्देशः"
 msgstr[1] "%1 सन्देशाः"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:676
+#: widgets/room/delegate/messagelistdelegate.cpp:680
 #, kde-format
 msgid "No message yet"
 msgstr "अद्यापि कोऽपि सन्देशः नास्ति"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:985
+#: widgets/room/delegate/messagelistdelegate.cpp:989
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Following"
 msgstr "अनुसरण"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:989
+#: widgets/room/delegate/messagelistdelegate.cpp:993
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Message has been pinned"
 msgstr "सन्देशः पिन कृतः अस्ति"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:993
+#: widgets/room/delegate/messagelistdelegate.cpp:997
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Message has been starred"
 msgstr "सन्देशः अभिनीतः अस्ति"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:997
+#: widgets/room/delegate/messagelistdelegate.cpp:1001
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Reply in Thread"
 msgstr "Thread इत्यत्र उत्तरं ददातु"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:1001
+#: widgets/room/delegate/messagelistdelegate.cpp:1005
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Add reaction"
@@ -10190,39 +10190,39 @@ msgctxt "@title:window"
 msgid "Command Error"
 msgstr ""
 
-#: widgets/room/messagelinewidget.cpp:216
+#: widgets/room/messagelinewidget.cpp:217
 #, kde-format
 msgid "Do you want to convert this big text as attachment?"
 msgstr "किं भवन्तः एतत् महत् पाठं संलग्नकरूपेण परिवर्तयितुम् इच्छन्ति?"
 
-#: widgets/room/messagelinewidget.cpp:217
+#: widgets/room/messagelinewidget.cpp:218
 #, kde-format
 msgctxt "@title:window"
 msgid "Message Too Big"
 msgstr "सन्देशः अतीव विशालः"
 
-#: widgets/room/messagelinewidget.cpp:318
+#: widgets/room/messagelinewidget.cpp:319
 #, kde-format
 msgid "Message %1 in thread"
 msgstr "थ्रेड् मध्ये %1 सन्देशः"
 
-#: widgets/room/messagelinewidget.cpp:318
+#: widgets/room/messagelinewidget.cpp:319
 #, kde-format
 msgid "Send a message in %1…"
 msgstr "%1 इत्यत्र सन्देशं प्रेषयन्तु..."
 
-#: widgets/room/messagelinewidget.cpp:459
+#: widgets/room/messagelinewidget.cpp:460
 #, kde-format
 msgid "File selected is too big (Maximum size %1)"
 msgstr "चयनिता सञ्चिका अतीव विशाला अस्ति (अधिकतमः आकारः %1) ।"
 
-#: widgets/room/messagelinewidget.cpp:460
+#: widgets/room/messagelinewidget.cpp:461
 #, kde-format
 msgctxt "@title:window"
 msgid "File upload"
 msgstr "सञ्चिका अपलोड्"
 
-#: widgets/room/messagelinewidget.cpp:465
+#: widgets/room/messagelinewidget.cpp:466
 #, kde-format
 msgid "Server doesn't authorized this file (invalid mimetype)"
 msgstr "सर्वरः एतां सञ्चिकां न अधिकृतयति (अवैधं mimetype)"

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-02-27 00:41+0000\n"
+"POT-Creation-Date: 2025-02-28 00:41+0000\n"
 "PO-Revision-Date: 2020-06-13 21:18+0300\n"
 "Last-Translator: Marek Laane <qiilaq69@gmail.com>\n"
 "Language-Team: Estonian <kde-et@lists.linux.ee>\n"
@@ -782,7 +782,7 @@ msgstr ""
 msgid "Socket was unexpectedly closed."
 msgstr ""
 
-#: core/messages/block.cpp:128 core/messages/message.cpp:857
+#: core/messages/block.cpp:137 core/messages/message.cpp:857
 #: core/model/notificationhistorymodel.cpp:63
 #: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:128
 #, kde-format
@@ -9164,7 +9164,7 @@ msgid "Video: %1"
 msgstr "Video: %1"
 
 #: widgets/dialogs/uploadfiledialog.cpp:26
-#: widgets/room/messagelinewidget.cpp:436
+#: widgets/room/messagelinewidget.cpp:437
 #, kde-format
 msgctxt "@title:window"
 msgid "Upload File"
@@ -10706,12 +10706,12 @@ msgstr ""
 msgid "Link Preview"
 msgstr ""
 
-#: widgets/room/delegate/messagelistdelegate.cpp:430
+#: widgets/room/delegate/messagelistdelegate.cpp:434
 #, kde-format
 msgid "User Info"
 msgstr "Kasutaja teave"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:440
+#: widgets/room/delegate/messagelistdelegate.cpp:444
 #: widgets/room/messagelistview.cpp:405
 #, fuzzy, kde-format
 #| msgid "Start a Private Conversation"
@@ -10719,54 +10719,54 @@ msgctxt "@action"
 msgid "Start a Private Conversation"
 msgstr "Alusta privaatvestlust"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:666
+#: widgets/room/delegate/messagelistdelegate.cpp:670
 #, kde-format
 msgid "1 reply"
 msgid_plural "%1 replies"
 msgstr[0] "1 vastus"
 msgstr[1] "%1 vastust"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:676
+#: widgets/room/delegate/messagelistdelegate.cpp:680
 #, kde-format
 msgid "1 message"
 msgid_plural "%1 messages"
 msgstr[0] "1 sõnum"
 msgstr[1] "%1 sõnumit"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:676
+#: widgets/room/delegate/messagelistdelegate.cpp:680
 #, kde-format
 msgid "No message yet"
 msgstr "Ühtegi sõnumit pole veel"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:985
+#: widgets/room/delegate/messagelistdelegate.cpp:989
 #, fuzzy, kde-format
 #| msgid "All Messages"
 msgctxt "@info:tooltip"
 msgid "Following"
 msgstr "Kõik sõnumid"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:989
+#: widgets/room/delegate/messagelistdelegate.cpp:993
 #, fuzzy, kde-format
 #| msgid "Message Pinned"
 msgctxt "@info:tooltip"
 msgid "Message has been pinned"
 msgstr "Sõnum kinnistatud"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:993
+#: widgets/room/delegate/messagelistdelegate.cpp:997
 #, fuzzy, kde-format
 #| msgid "Message Deleted"
 msgctxt "@info:tooltip"
 msgid "Message has been starred"
 msgstr "Sõnum kustutatud"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:997
+#: widgets/room/delegate/messagelistdelegate.cpp:1001
 #, fuzzy, kde-format
 #| msgid "Reply in Thread"
 msgctxt "@info:tooltip"
 msgid "Reply in Thread"
 msgstr "Vasta lõimes"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:1001
+#: widgets/room/delegate/messagelistdelegate.cpp:1005
 #, fuzzy, kde-format
 #| msgctxt "@title:window"
 #| msgid "Add Account"
@@ -10852,44 +10852,44 @@ msgctxt "@title:window"
 msgid "Command Error"
 msgstr ""
 
-#: widgets/room/messagelinewidget.cpp:216
+#: widgets/room/messagelinewidget.cpp:217
 #, fuzzy, kde-format
 #| msgid "Do you want to delete this attachment?"
 msgid "Do you want to convert this big text as attachment?"
 msgstr "Kas tõesti kustutada see manus?"
 
-#: widgets/room/messagelinewidget.cpp:217
+#: widgets/room/messagelinewidget.cpp:218
 #, fuzzy, kde-format
 #| msgid "Message"
 msgctxt "@title:window"
 msgid "Message Too Big"
 msgstr "Sõnum"
 
-#: widgets/room/messagelinewidget.cpp:318
+#: widgets/room/messagelinewidget.cpp:319
 #, fuzzy, kde-format
 #| msgid "Message Pinned"
 msgid "Message %1 in thread"
 msgstr "Sõnum kinnistatud"
 
-#: widgets/room/messagelinewidget.cpp:318
+#: widgets/room/messagelinewidget.cpp:319
 #, fuzzy, kde-format
 #| msgid "Search Messages..."
 msgid "Send a message in %1…"
 msgstr "Otsi sõnumeid ..."
 
-#: widgets/room/messagelinewidget.cpp:459
+#: widgets/room/messagelinewidget.cpp:460
 #, kde-format
 msgid "File selected is too big (Maximum size %1)"
 msgstr "Valitud fail on liiga suur (maks. suurus %1)"
 
-#: widgets/room/messagelinewidget.cpp:460
+#: widgets/room/messagelinewidget.cpp:461
 #, fuzzy, kde-format
 #| msgid "File upload"
 msgctxt "@title:window"
 msgid "File upload"
 msgstr "Fail üles laaditud"
 
-#: widgets/room/messagelinewidget.cpp:465
+#: widgets/room/messagelinewidget.cpp:466
 #, kde-format
 msgid "Server doesn't authorized this file (invalid mimetype)"
 msgstr ""
