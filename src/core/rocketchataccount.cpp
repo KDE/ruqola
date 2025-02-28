@@ -3039,6 +3039,11 @@ void RocketChatAccount::updateCountApplications()
     }
 }
 
+bool RocketChatAccount::commandHasPreview(const QString &commandName) const
+{
+    return mCommandsModel->commandHasPreview(commandName);
+}
+
 void RocketChatAccount::updateInstalledApps()
 {
     mAppsMarketPlaceModel->clearInstalledAppsInformation();

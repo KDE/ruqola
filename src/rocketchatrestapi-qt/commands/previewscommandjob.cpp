@@ -35,10 +35,9 @@ bool PreviewsCommandJob::start()
 void PreviewsCommandJob::onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
     const QJsonObject replyObject = replyJson.object();
-
     if (replyObject["success"_L1].toBool()) {
         addLoggerInfo("PreviewsCommandJob: success: "_ba + replyJson.toJson(QJsonDocument::Indented));
-        Q_EMIT previewsCommandDone();
+        Q_EMIT previewsCommandDone(replyObject);
     } else {
         Q_EMIT previewsCommandFailed(mPreviewsCommandInfo);
         emitFailedMessage(replyErrorString, replyObject);

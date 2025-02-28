@@ -36,6 +36,8 @@ public:
 
     void setCommands(const Commands &emoticons);
 
+    [[nodiscard]] bool commandHasPreview(const QString &commandName) const;
+
 private:
     LIBRUQOLACORE_NO_EXPORT void clear();
     Commands mCommands;

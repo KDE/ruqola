@@ -6,6 +6,7 @@
 
 #pragma once
 
+#include "commands/previewscommandjob.h"
 #include "commands/runcommandjob.h"
 #include "dialogs/uploadfiledialog.h"
 #include "libruqolawidgets_private_export.h"
@@ -86,6 +87,7 @@ private:
     LIBRUQOLAWIDGETS_NO_EXPORT void slotPrivateSettingsChanged();
     [[nodiscard]] LIBRUQOLAWIDGETS_NO_EXPORT bool runCommand(const QString &msg, const QByteArray &roomId, const QByteArray &tmid);
     LIBRUQOLAWIDGETS_NO_EXPORT void slotRunCommandFailed(const RocketChatRestApi::RunCommandJob::RunCommandInfo &info);
+    [[nodiscard]] LIBRUQOLAWIDGETS_NO_EXPORT bool hasCommandPreview(const QString &msg, const QByteArray &roomId);
 
     QList<PluginToolInterface *> mPluginToolInterface;
     QByteArray mThreadMessageId;

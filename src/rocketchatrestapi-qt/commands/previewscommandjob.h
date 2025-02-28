@@ -36,7 +36,7 @@ public:
 
     [[nodiscard]] static PreviewsCommandInfo parseString(const QString &str, const QByteArray &roomId);
 Q_SIGNALS:
-    void previewsCommandDone();
+    void previewsCommandDone(const QJsonObject &replyObject);
     void previewsCommandFailed(const PreviewsCommandJob::PreviewsCommandInfo &info);
 
 private:

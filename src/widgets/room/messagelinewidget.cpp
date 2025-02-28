@@ -196,14 +196,43 @@ void MessageLineWidget::slotRunCommandFailed(const RocketChatRestApi::RunCommand
     }
 }
 
+bool MessageLineWidget::hasCommandPreview(const QString &msg, const QByteArray &roomId)
+{
+    const RocketChatRestApi::PreviewsCommandJob::PreviewsCommandInfo info = RocketChatRestApi::PreviewsCommandJob::parseString(msg, roomId);
+    qDebug() << " preview command info " << info;
+    if (info.isValid()) {
+        qDebug() << " info.commandName " << info.commandName;
+        if (mCurrentRocketChatAccount->commandHasPreview(info.commandName)) {
+            qDebug() << " HAS PREVIEW ";
+            auto job = new RocketChatRestApi::PreviewsCommandJob(this);
+            mCurrentRocketChatAccount->restApi()->initializeRestApiJob(job);
+            job->setPreviewsCommandInfo(info);
+            connect(job, &RocketChatRestApi::PreviewsCommandJob::previewsCommandDone, this, [this](const QJsonObject replyObject) {
+                // TODO
+                qDebug() << " replyObject *********************" << replyObject;
+            });
+            if (!job->start()) {
+                qCDebug(RUQOLAWIDGETS_LOG) << "Impossible to start PreviewsCommandJob job";
+            }
+            return true;
+        }
+        return false;
+    }
+    return false;
+}
+
 void MessageLineWidget::slotSendMessage(const QString &msg)
 {
     if (!msg.isEmpty()) {
         if (mMessageIdBeingEdited.isEmpty() && mQuotePermalink.isEmpty()) {
             if (msg.startsWith(QLatin1Char('/'))) {
                 if (!msg.startsWith("//"_L1) && !msg.startsWith("/*"_L1)) {
+#if 0
                     // a command ?
-                    // TODO verify if we have preview command.
+                    if (hasCommandPreview(msg, roomId())) {
+                        // TODO
+                    }
+#endif
                     if (runCommand(msg, roomId(), mThreadMessageId)) {
                         setMode(MessageLineWidget::EditingMode::NewMessage);
                         return;

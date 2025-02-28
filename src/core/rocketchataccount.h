@@ -415,6 +415,8 @@ public:
     void updateInstalledApps();
     void updateApps(const QJsonArray &contents);
     void updateCountApplications();
+
+    [[nodiscard]] bool commandHasPreview(const QString &commandName) const;
 Q_SIGNALS:
     void roomRemoved(const QByteArray &roomId);
     void disabledTotpValid(bool checked);
