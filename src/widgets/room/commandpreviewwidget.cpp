@@ -13,3 +13,5 @@ CommandPreviewWidget::CommandPreviewWidget(QWidget *parent)
 }
 
 CommandPreviewWidget::~CommandPreviewWidget() = default;
+
+#include "moc_commandpreviewwidget.cpp"
