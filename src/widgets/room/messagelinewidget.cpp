@@ -203,17 +203,7 @@ bool MessageLineWidget::hasCommandPreview(const QString &msg, const QByteArray &
     if (info.isValid()) {
         qDebug() << " info.commandName " << info.commandName;
         if (mCurrentRocketChatAccount->commandHasPreview(info.commandName)) {
-            qDebug() << " HAS PREVIEW ";
-            auto job = new RocketChatRestApi::PreviewsCommandJob(this);
-            mCurrentRocketChatAccount->restApi()->initializeRestApiJob(job);
-            job->setPreviewsCommandInfo(info);
-            connect(job, &RocketChatRestApi::PreviewsCommandJob::previewsCommandDone, this, [this](const QJsonObject replyObject) {
-                // TODO
-                qDebug() << " replyObject *********************" << replyObject;
-            });
-            if (!job->start()) {
-                qCDebug(RUQOLAWIDGETS_LOG) << "Impossible to start PreviewsCommandJob job";
-            }
+            Q_EMIT showCommandPreview(info);
             return true;
         }
         return false;
