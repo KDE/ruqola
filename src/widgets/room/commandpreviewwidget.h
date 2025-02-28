@@ -22,9 +22,13 @@ public:
     void setCurrentRocketChatAccount(RocketChatAccount *account);
     void setPreviewCommandInfo(const RocketChatRestApi::PreviewsCommandJob::PreviewsCommandInfo &info);
 
+Q_SIGNALS:
+    void sendPreviewCommandInfo(const RocketChatRestApi::PreviewsCommandJob::PreviewsCommandInfo &info);
+
 private:
     LIBRUQOLAWIDGETS_NO_EXPORT void slotParsePreviewCommandItems(const QJsonObject &replyObject);
     LIBRUQOLAWIDGETS_NO_EXPORT void slotDoubleClicked(const QModelIndex &);
+    RocketChatRestApi::PreviewsCommandJob::PreviewsCommandInfo mPreviewCommandInfo;
     QListView *const mListView;
     PreviewCommandModel *const mPreviewCommandModel;
     QPointer<RocketChatAccount> mCurrentRocketChatAccount;

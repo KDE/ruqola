@@ -49,6 +49,7 @@ void CommandPreviewWidget::setPreviewCommandInfo(const RocketChatRestApi::Previe
         auto job = new RocketChatRestApi::PreviewsCommandJob(this);
         mCurrentRocketChatAccount->restApi()->initializeRestApiJob(job);
         job->setPreviewsCommandInfo(info);
+        mPreviewCommandInfo = info;
         connect(job, &RocketChatRestApi::PreviewsCommandJob::previewsCommandDone, this, &CommandPreviewWidget::slotParsePreviewCommandItems);
         if (!job->start()) {
             qCDebug(RUQOLAWIDGETS_LOG) << "Impossible to start PreviewsCommandJob job";
@@ -74,13 +75,19 @@ void CommandPreviewWidget::slotParsePreviewCommandItems(const QJsonObject &reply
     }
 }
 
-void CommandPreviewWidget::slotDoubleClicked(const QModelIndex &)
+void CommandPreviewWidget::slotDoubleClicked(const QModelIndex &index)
 {
-    // TODO
+    const PreviewCommand command = index.data(static_cast<int>(PreviewCommandModel::PreviewCommandRoles::PreviewCommandInfo)).value<PreviewCommand>();
+    RocketChatRestApi::PreviewsCommandJob::PreviewsCommandItemInfo info;
+    info.value = command.value();
+    info.id = command.id();
+    info.type = command.typeStr();
+
+    mPreviewCommandInfo.itemInfo = std::move(info);
     // todo send message
-    // hide
     setVisible(false);
     mPreviewCommandModel->clear();
+    Q_EMIT sendPreviewCommandInfo(mPreviewCommandInfo);
 }
 
 #include "moc_commandpreviewwidget.cpp"
