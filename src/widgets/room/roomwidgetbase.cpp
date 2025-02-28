@@ -5,6 +5,7 @@
 */
 
 #include "roomwidgetbase.h"
+#include "commandpreviewwidget.h"
 #include "dialogs/createnewdiscussiondialog.h"
 #include "messagelinewidget.h"
 #include "messagetextedit.h"
@@ -29,6 +30,7 @@ RoomWidgetBase::RoomWidgetBase(MessageListView::Mode mode, QWidget *parent)
     , mRoomQuoteMessageWidget(new RoomQuoteMessageWidget(this))
     , mStackedWidget(new QStackedWidget(this))
     , mMessageLineWidget(new MessageLineWidget(this))
+    , mCommandPreviewWidget(new CommandPreviewWidget(this))
     , mReadOnlyLineEditWidget(new ReadOnlyLineEditWidget(this))
     , mMainLayout(new QVBoxLayout(this))
 {
@@ -61,6 +63,12 @@ RoomWidgetBase::RoomWidgetBase(MessageListView::Mode mode, QWidget *parent)
 
     mMainLayout->addWidget(mRoomReplyThreadWidget);
     mMainLayout->addWidget(mRoomQuoteMessageWidget);
+
+    mCommandPreviewWidget->setObjectName(QStringLiteral("mCommandPreviewWidget"));
+    mCommandPreviewWidget->setVisible(false);
+    mMainLayout->addWidget(mCommandPreviewWidget);
+
+    connect(mMessageLineWidget, &MessageLineWidget::showCommandPreview, mCommandPreviewWidget, &CommandPreviewWidget::setPreviewCommandInfo);
 
     mStackedWidget->setObjectName(QStringLiteral("mStackedWidget"));
     mMainLayout->addWidget(mStackedWidget);
@@ -202,6 +210,7 @@ void RoomWidgetBase::setCurrentRocketChatAccount(RocketChatAccount *account)
     connect(mCurrentRocketChatAccount, &RocketChatAccount::ownUserUiPreferencesChanged, mMessageLineWidget, &MessageLineWidget::slotOwnUserPreferencesChanged);
     mMessageListView->setCurrentRocketChatAccount(account);
     mMessageLineWidget->setCurrentRocketChatAccount(account, false);
+    mCommandPreviewWidget->setCurrentRocketChatAccount(account);
     // When we switch we need to update it.
     mMessageLineWidget->slotPublicSettingChanged();
     mMessageLineWidget->slotOwnUserPreferencesChanged();

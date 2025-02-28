@@ -21,6 +21,7 @@ class RocketChatAccount;
 class Room;
 class UploadFileProgressStatusListWidget;
 class QVBoxLayout;
+class CommandPreviewWidget;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT RoomWidgetBase : public QWidget
 {
     Q_OBJECT
@@ -64,6 +65,7 @@ private:
     RoomQuoteMessageWidget *const mRoomQuoteMessageWidget;
     QStackedWidget *const mStackedWidget;
     MessageLineWidget *const mMessageLineWidget;
+    CommandPreviewWidget *const mCommandPreviewWidget;
     ReadOnlyLineEditWidget *const mReadOnlyLineEditWidget;
     QPointer<RocketChatAccount> mCurrentRocketChatAccount;
     QVBoxLayout *const mMainLayout;
