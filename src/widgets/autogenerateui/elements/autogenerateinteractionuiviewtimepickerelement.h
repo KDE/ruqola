@@ -25,6 +25,8 @@ public:
     [[nodiscard]] AutoGenerateInteractionUiViewText *placeHolder() const;
     void setPlaceHolder(AutoGenerateInteractionUiViewText *newPlaceHolder);
 
+    [[nodiscard]] QJsonObject serialize() const override;
+
 private:
     QString mInitialTime;
     AutoGenerateInteractionUiViewText *mPlaceHolder = nullptr;

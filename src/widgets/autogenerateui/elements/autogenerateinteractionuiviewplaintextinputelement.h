@@ -36,6 +36,8 @@ public:
     [[nodiscard]] int maxLength() const;
     void setMaxLength(int newMaxLength);
 
+    [[nodiscard]] QJsonObject serialize() const override;
+
 private:
     AutoGenerateInteractionUiViewText *mPlaceHolder = nullptr;
     QString mInitialValue;

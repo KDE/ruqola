@@ -25,6 +25,11 @@ void AutoGenerateInteractionUiViewToggleSwitchElement::setOptions(const QList<Au
     mOptions = newOptions;
 }
 
+QJsonObject AutoGenerateInteractionUiViewToggleSwitchElement::serialize() const
+{
+    return {};
+}
+
 QWidget *AutoGenerateInteractionUiViewToggleSwitchElement::generateWidget(QWidget *parent)
 {
     return nullptr;

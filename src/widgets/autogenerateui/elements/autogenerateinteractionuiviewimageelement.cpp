@@ -39,6 +39,11 @@ void AutoGenerateInteractionUiViewImageElement::setImage(const AutoGenerateInter
     mImage = newImage;
 }
 
+QJsonObject AutoGenerateInteractionUiViewImageElement::serialize() const
+{
+    return {};
+}
+
 QDebug operator<<(QDebug d, const AutoGenerateInteractionUiViewImageElement &t)
 {
     d.space() << "AutoGenerateInteractionUiViewActionable:" << static_cast<AutoGenerateInteractionUiViewActionable>(t);

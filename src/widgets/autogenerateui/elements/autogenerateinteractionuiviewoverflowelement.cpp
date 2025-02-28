@@ -47,3 +47,8 @@ bool AutoGenerateInteractionUiViewOverflowElement::operator==(const AutoGenerate
 {
     return other.options() == options() && AutoGenerateInteractionUiViewActionable::operator==(other);
 }
+
+QJsonObject AutoGenerateInteractionUiViewOverflowElement::serialize() const
+{
+    return {};
+}

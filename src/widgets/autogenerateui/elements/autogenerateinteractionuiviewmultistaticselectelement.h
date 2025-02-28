@@ -28,6 +28,8 @@ public:
 
     [[nodiscard]] bool operator==(const AutoGenerateInteractionUiViewMultiStaticSelectElement &other) const;
 
+    [[nodiscard]] QJsonObject serialize() const override;
+
 private:
     AutoGenerateInteractionUiViewText *mPlaceHolder = nullptr;
     QList<AutoGenerateInteractionUiViewOption *> mOptions;

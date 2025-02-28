@@ -77,3 +77,8 @@ bool AutoGenerateInteractionUiViewMultiStaticSelectElement::operator==(const Aut
     // TODO add placeholder too
     return other.options() == options() && AutoGenerateInteractionUiViewActionable::operator==(other);
 }
+
+QJsonObject AutoGenerateInteractionUiViewMultiStaticSelectElement::serialize() const
+{
+    return {};
+}

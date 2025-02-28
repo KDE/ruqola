@@ -117,7 +117,10 @@ QJsonObject AutoGenerateInteractionUiViewButtonElement::serialize() const
 {
     QJsonObject o = AutoGenerateInteractionUiViewActionable::serialize();
     o["text"_L1] = mText.serialize();
-    o["style"_L1] = convertStyleToString();
+    const QString style = convertStyleToString();
+    if (!style.isEmpty()) {
+        o["style"_L1] = style;
+    }
     // TODO secondary ?
 
     return o;

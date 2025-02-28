@@ -23,6 +23,8 @@ public:
     [[nodiscard]] AutoGenerateInteractionUiViewImage image() const;
     void setImage(const AutoGenerateInteractionUiViewImage &newImage);
 
+    [[nodiscard]] QJsonObject serialize() const override;
+
 private:
     AutoGenerateInteractionUiViewImage mImage;
 };

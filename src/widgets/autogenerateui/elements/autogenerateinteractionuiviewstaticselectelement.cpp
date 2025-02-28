@@ -79,6 +79,12 @@ void AutoGenerateInteractionUiViewStaticSelectElement::setOptions(const QList<Au
     mOptions = newOptions;
 }
 
+QJsonObject AutoGenerateInteractionUiViewStaticSelectElement::serialize() const
+{
+    // TODO
+    return {};
+}
+
 QDebug operator<<(QDebug d, const AutoGenerateInteractionUiViewStaticSelectElement &t)
 {
     d.space() << "AutoGenerateInteractionUiViewActionable:" << static_cast<AutoGenerateInteractionUiViewActionable>(t);

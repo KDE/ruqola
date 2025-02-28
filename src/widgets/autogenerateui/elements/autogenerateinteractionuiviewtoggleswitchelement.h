@@ -25,6 +25,8 @@ public:
 
     [[nodiscard]] bool operator==(const AutoGenerateInteractionUiViewToggleSwitchElement &other) const;
 
+    [[nodiscard]] QJsonObject serialize() const override;
+
 private:
     // TODO initialOptions
     QList<AutoGenerateInteractionUiViewOption> mOptions;

@@ -29,6 +29,8 @@ public:
     [[nodiscard]] QList<AutoGenerateInteractionUiViewOption *> options() const;
     void setOptions(const QList<AutoGenerateInteractionUiViewOption *> &newOptions);
 
+    [[nodiscard]] QJsonObject serialize() const override;
+
 private:
     QString mInitialValue;
     AutoGenerateInteractionUiViewText *mPlaceHolder = nullptr;

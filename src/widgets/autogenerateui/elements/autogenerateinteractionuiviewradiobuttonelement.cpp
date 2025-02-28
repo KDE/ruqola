@@ -47,4 +47,9 @@ bool AutoGenerateInteractionUiViewRadioButtonElement::operator==(const AutoGener
     return AutoGenerateInteractionUiViewActionable::operator==(other);
 }
 
+QJsonObject AutoGenerateInteractionUiViewRadioButtonElement::serialize() const
+{
+    return {};
+}
+
 #include "moc_autogenerateinteractionuiviewradiobuttonelement.cpp"

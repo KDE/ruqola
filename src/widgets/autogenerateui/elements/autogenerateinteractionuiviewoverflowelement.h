@@ -23,6 +23,8 @@ public:
 
     [[nodiscard]] bool operator==(const AutoGenerateInteractionUiViewOverflowElement &other) const;
 
+    [[nodiscard]] QJsonObject serialize() const override;
+
 private:
     QList<AutoGenerateInteractionUiViewOption *> mOptions;
 };
