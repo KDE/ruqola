@@ -60,7 +60,7 @@ QVariant PreviewCommandModel::data(const QModelIndex &index, int role) const
         // TODO
         return {};
     }
-    return permissionInfo.value();
+    return {};
 }
 
 #include "moc_previewcommandmodel.cpp"
