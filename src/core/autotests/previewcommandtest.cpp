@@ -20,3 +20,5 @@ void PreviewCommandTest::shouldHaveDefaultValues()
     QVERIFY(c.type().isEmpty());
     QVERIFY(c.value().isEmpty());
 }
+
+#include "moc_previewcommandtest.cpp"
