@@ -15,9 +15,7 @@ PreviewCommandModel::~PreviewCommandModel() = default;
 
 int PreviewCommandModel::rowCount(const QModelIndex &parent) const
 {
-    if (parent.isValid()) {
-        return 0; // flat model
-    }
+    Q_UNUSED(parent);
     return mPreviewCommands.count();
 }
 
