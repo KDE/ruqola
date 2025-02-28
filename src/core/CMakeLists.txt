@@ -44,6 +44,9 @@ target_sources(libruqolacore PRIVATE
     commands/command.h
     commands/commands.cpp
     commands/commands.h
+    commands/previewcommand.h
+    commands/previewcommand.cpp
+
     customsound/customsoundinfo.cpp
     customsound/customsoundinfo.h
     customsound/customsoundsinfo.cpp
