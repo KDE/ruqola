@@ -34,6 +34,8 @@ public:
     [[nodiscard]] PreviewCommand::TypePreview type() const;
     void setType(PreviewCommand::TypePreview newType);
 
+    [[nodiscard]] QString typeStr() const;
+
     void parse(const QJsonObject &obj);
     [[nodiscard]] bool operator==(const PreviewCommand &other) const;
 
@@ -41,6 +43,7 @@ public:
 
 private:
     [[nodiscard]] LIBRUQOLACORE_NO_EXPORT PreviewCommand::TypePreview convertStringToPreviewType(const QString &str) const;
+    [[nodiscard]] LIBRUQOLACORE_NO_EXPORT QString convertPreviewTypeToString() const;
     QString mId;
     QString mValue;
     PreviewCommand::TypePreview mType = PreviewCommand::TypePreview::Unknown;

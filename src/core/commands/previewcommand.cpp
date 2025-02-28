@@ -30,6 +30,25 @@ PreviewCommand::TypePreview PreviewCommand::convertStringToPreviewType(const QSt
     return PreviewCommand::TypePreview::Unknown;
 }
 
+QString PreviewCommand::convertPreviewTypeToString() const
+{
+    switch (mType) {
+    case PreviewCommand::TypePreview::Unknown:
+        return {};
+    case PreviewCommand::TypePreview::Image:
+        return "image"_L1;
+    case PreviewCommand::TypePreview::Video:
+        return "video"_L1;
+    case PreviewCommand::TypePreview::Audio:
+        return "audio"_L1;
+    case PreviewCommand::TypePreview::Text:
+        return "text"_L1;
+    case PreviewCommand::TypePreview::Other:
+        return "other"_L1;
+    }
+    return {};
+}
+
 QDebug operator<<(QDebug d, const PreviewCommand &t)
 {
     d.space() << "id:" << t.id();
@@ -66,6 +85,11 @@ PreviewCommand::TypePreview PreviewCommand::type() const
 void PreviewCommand::setType(PreviewCommand::TypePreview newType)
 {
     mType = newType;
+}
+
+QString PreviewCommand::typeStr() const
+{
+    return convertPreviewTypeToString();
 }
 
 void PreviewCommand::parse(const QJsonObject &obj)
