@@ -151,6 +151,19 @@ void AppUpdateInfoJob::onDeleteRequestResponse(const QString &replyErrorString, 
     }
 }
 
+void AppUpdateInfoJob::onGetRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
+{
+    const QJsonObject replyObject = replyJson.object();
+    if (replyObject["status"_L1].toString() == "success"_L1) {
+        addLoggerInfo("Get: success: "_ba + replyJson.toJson(QJsonDocument::Indented));
+        qCDebug(ROCKETCHATQTRESTAPI_LOG) << " Logout";
+        Q_EMIT appUpdateInfoDone(replyObject["data"_L1].toObject());
+    } else {
+        emitFailedMessage(replyErrorString, replyObject);
+        addLoggerWarning("AppUpdateInfoJob: Error" + replyJson.toJson(QJsonDocument::Indented));
+    }
+}
+
 bool AppUpdateInfoJob::AppUpdateInfo::isValid() const
 {
     if (mAppInfoType == AppInfoType::Unknown) {
