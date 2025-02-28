@@ -111,9 +111,15 @@ QNetworkRequest PreviewsCommandJob::request() const
     QUrl url = mRestApiMethod->generateUrl(RestApiUtil::RestApiUrlType::CommandsPreview);
     if (!mPreviewsCommandInfo.itemInfo.isValid()) {
         QUrlQuery queryUrl;
-        queryUrl.addQueryItem(QStringLiteral("command"), mPreviewsCommandInfo.commandName);
-        queryUrl.addQueryItem(QStringLiteral("roomId"), mPreviewsCommandInfo.roomId);
-        queryUrl.addQueryItem(QStringLiteral("params"), mPreviewsCommandInfo.params);
+        if (!mPreviewsCommandInfo.commandName.isEmpty()) {
+            queryUrl.addQueryItem(QStringLiteral("command"), mPreviewsCommandInfo.commandName);
+        }
+        if (!mPreviewsCommandInfo.roomId.isEmpty()) {
+            queryUrl.addQueryItem(QStringLiteral("roomId"), mPreviewsCommandInfo.roomId);
+        }
+        if (!mPreviewsCommandInfo.params.isEmpty()) {
+            queryUrl.addQueryItem(QStringLiteral("params"), mPreviewsCommandInfo.params);
+        }
         addQueryParameter(queryUrl);
         url.setQuery(queryUrl);
     }
