@@ -5,6 +5,8 @@
 */
 #include "commandpreviewwidgettest.h"
 #include "room/commandpreviewwidget.h"
+#include <QHBoxLayout>
+#include <QListView>
 #include <QTest>
 QTEST_MAIN(CommandPreviewWidgetTest)
 
@@ -16,5 +18,17 @@ CommandPreviewWidgetTest::CommandPreviewWidgetTest(QObject *parent)
 void CommandPreviewWidgetTest::shouldHaveDefaultValues()
 {
     CommandPreviewWidget w;
-    // TODO
+
+    auto mainLayout = w.findChild<QHBoxLayout *>(QStringLiteral("mainLayout"));
+    QVERIFY(mainLayout);
+    QCOMPARE(mainLayout->contentsMargins(), QMargins{});
+
+    auto mListView = w.findChild<QListView *>(QStringLiteral("mListView"));
+    QVERIFY(mListView);
+    QCOMPARE(mListView->viewMode(), QListView::IconMode);
+    QCOMPARE(mListView->flow(), QListView::LeftToRight);
+    QCOMPARE(mListView->resizeMode(), QListView::Adjust);
+    QVERIFY(!mListView->wordWrap());
 }
+
+#include "moc_commandpreviewwidgettest.cpp"

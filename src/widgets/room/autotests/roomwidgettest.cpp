@@ -7,6 +7,7 @@
 #include "roomwidgettest.h"
 #include "model/roommodel.h"
 #include "rocketchataccount.h"
+#include "room/commandpreviewwidget.h"
 #include "room/messagelinewidget.h"
 #include "room/messagelistview.h"
 #include "room/readonlylineeditwidget.h"
@@ -77,6 +78,10 @@ void RoomWidgetTest::shouldHaveDefaultValues()
     auto mRoomQuoteMessageWidget = w.findChild<RoomQuoteMessageWidget *>(QStringLiteral("mRoomQuoteMessageWidget"));
     QVERIFY(mRoomQuoteMessageWidget);
     QVERIFY(!mRoomQuoteMessageWidget->isVisible());
+
+    auto mCommandPreviewWidget = w.findChild<CommandPreviewWidget *>(QStringLiteral("mCommandPreviewWidget"));
+    QVERIFY(mCommandPreviewWidget);
+    QVERIFY(!mCommandPreviewWidget->isVisible());
 
     auto mUploadFileProgressStatusListWidget = w.findChild<UploadFileProgressStatusListWidget *>(QStringLiteral("mUploadFileProgressStatusListWidget"));
     QVERIFY(mUploadFileProgressStatusListWidget);
