@@ -7,11 +7,14 @@
 #pragma once
 #include "libruqolawidgets_private_export.h"
 #include <QWidget>
-
+class QListView;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT CommandPreviewWidget : public QWidget
 {
     Q_OBJECT
 public:
     explicit CommandPreviewWidget(QWidget *parent = nullptr);
     ~CommandPreviewWidget() override;
+
+private:
+    QListView *const mListView;
 };
