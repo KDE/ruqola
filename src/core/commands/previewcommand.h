@@ -11,7 +11,18 @@
 
 class LIBRUQOLACORE_EXPORT PreviewCommand
 {
+    Q_GADGET
 public:
+    enum class TypePreview : uint8_t {
+        Unknown,
+        Image,
+        Video,
+        Audio,
+        Text,
+        Other,
+    };
+    Q_ENUM(TypePreview);
+
     PreviewCommand();
     ~PreviewCommand();
     [[nodiscard]] QString id() const;
@@ -20,16 +31,19 @@ public:
     [[nodiscard]] QString value() const;
     void setValue(const QString &newValue);
 
-    [[nodiscard]] QString type() const;
-    void setType(const QString &newType);
+    [[nodiscard]] PreviewCommand::TypePreview type() const;
+    void setType(PreviewCommand::TypePreview newType);
 
     void parse(const QJsonObject &obj);
     [[nodiscard]] bool operator==(const PreviewCommand &other) const;
 
+    [[nodiscard]] bool isValid() const;
+
 private:
+    [[nodiscard]] LIBRUQOLACORE_NO_EXPORT PreviewCommand::TypePreview convertStringToPreviewType(const QString &str) const;
     QString mId;
     QString mValue;
-    QString mType;
+    PreviewCommand::TypePreview mType = PreviewCommand::TypePreview::Unknown;
 };
 
 Q_DECLARE_METATYPE(PreviewCommand)

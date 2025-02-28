@@ -17,8 +17,9 @@ void PreviewCommandTest::shouldHaveDefaultValues()
 {
     PreviewCommand c;
     QVERIFY(c.id().isEmpty());
-    QVERIFY(c.type().isEmpty());
+    QCOMPARE(c.type(), PreviewCommand::TypePreview::Unknown);
     QVERIFY(c.value().isEmpty());
+    QVERIFY(!c.isValid());
 }
 
 #include "moc_previewcommandtest.cpp"
