@@ -222,8 +222,8 @@ RocketChatAccount::RocketChatAccount(const QString &accountFileName, QObject *pa
     mTypingNotification = new TypingNotification(this);
     mCache = new RocketChatCache(this, this);
 
-    connect(mDownloadAppsLanguagesManager, &DownloadAppsLanguagesManager::fileLanguagesParseSuccess, this, &RocketChatAccount::slotFileLanguagedParsed);
-    connect(mDownloadAppsLanguagesManager, &DownloadAppsLanguagesManager::fileLanguagesParseFailed, this, &RocketChatAccount::slotFileLanguagedParsed);
+    connect(mDownloadAppsLanguagesManager, &DownloadAppsLanguagesManager::fileLanguagesParseSuccess, this, &RocketChatAccount::slotUpdateCommands);
+    connect(mDownloadAppsLanguagesManager, &DownloadAppsLanguagesManager::fileLanguagesParseFailed, this, &RocketChatAccount::slotUpdateCommands);
 
     connect(mCache, &RocketChatCache::fileDownloaded, this, &RocketChatAccount::fileDownloaded);
     connect(mTypingNotification, &TypingNotification::informTypingStatus, this, &RocketChatAccount::slotInformTypingStatus);
@@ -1628,9 +1628,9 @@ void RocketChatAccount::updateApps(const QJsonArray &contents)
                     updateInstalledApps();
                     updateCountApplications();
                 } else if (type == "command/removed"_L1) {
-                    slotFileLanguagedParsed();
+                    slotUpdateCommands();
                 } else if (type == "command/added"_L1) {
-                    slotFileLanguagedParsed();
+                    slotUpdateCommands();
                 } else if (type == "actions/changed"_L1) {
                     qWarning() << " Not implemented yet " << type;
                 } else {
@@ -2393,7 +2393,7 @@ void RocketChatAccount::downloadAppsLanguages()
     mDownloadAppsLanguagesManager->parse(mSettings->serverUrl());
 }
 
-void RocketChatAccount::slotFileLanguagedParsed()
+void RocketChatAccount::slotUpdateCommands()
 {
     // We need mDownloadAppsLanguagesManager result for updating command
     auto job = new RocketChatRestApi::ListCommandsJob(this);

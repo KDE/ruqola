@@ -540,7 +540,7 @@ private:
     LIBRUQOLACORE_NO_EXPORT void slotListCommandDone(const QJsonObject &obj);
 
     LIBRUQOLACORE_NO_EXPORT void slotLoginStatusChanged();
-    LIBRUQOLACORE_NO_EXPORT void slotFileLanguagedParsed();
+    LIBRUQOLACORE_NO_EXPORT void slotUpdateCommands();
     LIBRUQOLACORE_NO_EXPORT void slotRegisterUserDone();
     LIBRUQOLACORE_NO_EXPORT void slotRoomNeedAttention();
     LIBRUQOLACORE_NO_EXPORT void slotMarkAsReadDone(const QByteArray &roomId);
