@@ -23,6 +23,9 @@ public:
     [[nodiscard]] QString type() const;
     void setType(const QString &newType);
 
+    void parse(const QJsonObject &obj);
+    [[nodiscard]] bool operator==(const PreviewCommand &other) const;
+
 private:
     QString mId;
     QString mValue;

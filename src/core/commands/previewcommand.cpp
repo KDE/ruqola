@@ -47,3 +47,13 @@ void PreviewCommand::setType(const QString &newType)
 {
     mType = newType;
 }
+
+void PreviewCommand::parse(const QJsonObject &obj)
+{
+    // TODO
+}
+
+bool PreviewCommand::operator==(const PreviewCommand &other) const
+{
+    return other.id() == id() && other.type() == type() && other.value() == value();
+}
