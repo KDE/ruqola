@@ -53,6 +53,9 @@ private:
     PreviewsCommandInfo mPreviewsCommandInfo;
 };
 }
+Q_DECLARE_METATYPE(RocketChatRestApi::PreviewsCommandJob::PreviewsCommandItemInfo)
+Q_DECLARE_TYPEINFO(RocketChatRestApi::PreviewsCommandJob::PreviewsCommandItemInfo, Q_RELOCATABLE_TYPE);
 Q_DECLARE_METATYPE(RocketChatRestApi::PreviewsCommandJob::PreviewsCommandInfo)
 Q_DECLARE_TYPEINFO(RocketChatRestApi::PreviewsCommandJob::PreviewsCommandInfo, Q_RELOCATABLE_TYPE);
 LIBROCKETCHATRESTAPI_QT_EXPORT QDebug operator<<(QDebug d, const RocketChatRestApi::PreviewsCommandJob::PreviewsCommandInfo &t);
+LIBROCKETCHATRESTAPI_QT_EXPORT QDebug operator<<(QDebug d, const RocketChatRestApi::PreviewsCommandJob::PreviewsCommandItemInfo &t);

@@ -153,6 +153,15 @@ QDebug operator<<(QDebug d, const PreviewsCommandJob::PreviewsCommandInfo &t)
     d.space() << "commandName" << t.commandName;
     d.space() << "roomId" << t.roomId;
     d.space() << "params" << t.params;
+    d.space() << "itemInfo" << t.itemInfo;
+    return d;
+}
+
+QDebug operator<<(QDebug d, const PreviewsCommandJob::PreviewsCommandItemInfo &t)
+{
+    d.space() << "id" << t.id;
+    d.space() << "value" << t.value;
+    d.space() << "type" << t.type;
     return d;
 }
 
