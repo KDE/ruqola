@@ -38,7 +38,7 @@ QWidget *AutoGenerateInteractionUiViewRadioButtonElement::generateWidget(QWidget
 
 QDebug operator<<(QDebug d, const AutoGenerateInteractionUiViewRadioButtonElement &t)
 {
-    d.space() << "AutoGenerateInteractionUiViewActionable:" << static_cast<AutoGenerateInteractionUiViewActionable>(t);
+    // d.space() << "AutoGenerateInteractionUiViewActionable:" << static_cast<AutoGenerateInteractionUiViewActionable>(t);
     return d;
 }
 
@@ -47,9 +47,8 @@ bool AutoGenerateInteractionUiViewRadioButtonElement::operator==(const AutoGener
     return AutoGenerateInteractionUiViewActionable::operator==(other);
 }
 
-QJsonObject AutoGenerateInteractionUiViewRadioButtonElement::serialize() const
+void AutoGenerateInteractionUiViewRadioButtonElement::serializeElement(QJsonObject &o) const
 {
-    return {};
 }
 
 #include "moc_autogenerateinteractionuiviewradiobuttonelement.cpp"

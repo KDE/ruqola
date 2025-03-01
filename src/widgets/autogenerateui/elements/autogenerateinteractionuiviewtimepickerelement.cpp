@@ -60,14 +60,13 @@ void AutoGenerateInteractionUiViewTimePickerElement::setPlaceHolder(AutoGenerate
     mPlaceHolder = newPlaceHolder;
 }
 
-QJsonObject AutoGenerateInteractionUiViewTimePickerElement::serialize() const
+void AutoGenerateInteractionUiViewTimePickerElement::serializeElement(QJsonObject &o) const
 {
-    return {};
 }
 
 QDebug operator<<(QDebug d, const AutoGenerateInteractionUiViewTimePickerElement &t)
 {
-    d.space() << "AutoGenerateInteractionUiViewActionable:" << static_cast<AutoGenerateInteractionUiViewActionable>(t);
+    // d.space() << "AutoGenerateInteractionUiViewActionable:" << static_cast<AutoGenerateInteractionUiViewActionable>(t);
     d.space() << "initialTime:" << t.initialTime();
     if (t.placeHolder()) {
         d.space() << "placeHolder:" << *t.placeHolder();

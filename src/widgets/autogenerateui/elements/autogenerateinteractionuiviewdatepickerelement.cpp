@@ -60,14 +60,13 @@ void AutoGenerateInteractionUiViewDatePickerElement::setPlaceHolder(AutoGenerate
     mPlaceHolder = newPlaceHolder;
 }
 
-QJsonObject AutoGenerateInteractionUiViewDatePickerElement::serialize() const
+void AutoGenerateInteractionUiViewDatePickerElement::serializeElement(QJsonObject &o) const
 {
-    return {};
 }
 
 QDebug operator<<(QDebug d, const AutoGenerateInteractionUiViewDatePickerElement &t)
 {
-    d.space() << "AutoGenerateInteractionUiViewActionable:" << static_cast<AutoGenerateInteractionUiViewActionable>(t);
+    // d.space() << "AutoGenerateInteractionUiViewActionable:" << static_cast<AutoGenerateInteractionUiViewActionable>(t);
     d.space() << "initialDate:" << t.initialDate();
     if (t.placeHolder()) {
         d.space() << "placeHolder:" << *t.placeHolder();

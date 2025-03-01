@@ -21,7 +21,8 @@ public:
 
     [[nodiscard]] bool operator==(const AutoGenerateInteractionUiViewRadioButtonElement &other) const;
 
-    [[nodiscard]] QJsonObject serialize() const override;
+protected:
+    void serializeElement(QJsonObject &o) const override;
 
 private:
     // TODO initialOptions

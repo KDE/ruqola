@@ -83,6 +83,7 @@ QJsonObject AutoGenerateInteractionUiViewActionable::serialize() const
     if (!mBlockId.isEmpty()) {
         o["blockId"_L1] = QString::fromLatin1(mBlockId);
     }
+    serializeElement(o);
     return o;
 }
 

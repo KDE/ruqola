@@ -83,7 +83,7 @@ bool AutoGenerateInteractionUiViewPlainTextInputElement::operator==(const AutoGe
 
 QDebug operator<<(QDebug d, const AutoGenerateInteractionUiViewPlainTextInputElement &t)
 {
-    d.space() << "AutoGenerateInteractionUiViewActionable:" << static_cast<AutoGenerateInteractionUiViewActionable>(t);
+    // d.space() << "AutoGenerateInteractionUiViewActionable:" << static_cast<AutoGenerateInteractionUiViewActionable>(t);
     if (t.placeHolder()) {
         d.space() << "placeHolder:" << *t.placeHolder();
     }
@@ -114,7 +114,6 @@ void AutoGenerateInteractionUiViewPlainTextInputElement::setMaxLength(int newMax
     mMaxLength = newMaxLength;
 }
 
-QJsonObject AutoGenerateInteractionUiViewPlainTextInputElement::serialize() const
+void AutoGenerateInteractionUiViewPlainTextInputElement::serializeElement(QJsonObject &o) const
 {
-    return {};
 }

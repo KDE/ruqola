@@ -36,7 +36,8 @@ public:
     [[nodiscard]] int maxLength() const;
     void setMaxLength(int newMaxLength);
 
-    [[nodiscard]] QJsonObject serialize() const override;
+protected:
+    void serializeElement(QJsonObject &o) const override;
 
 private:
     AutoGenerateInteractionUiViewText *mPlaceHolder = nullptr;

@@ -32,7 +32,10 @@ public:
     [[nodiscard]] QByteArray type() const;
     void setType(const QByteArray &newType);
 
-    [[nodiscard]] virtual QJsonObject serialize() const;
+    [[nodiscard]] QJsonObject serialize() const;
+
+protected:
+    virtual void serializeElement(QJsonObject &o) const = 0;
 
 private:
     QByteArray mAppId;
@@ -42,5 +45,4 @@ private:
 };
 
 Q_DECLARE_METATYPE(AutoGenerateInteractionUiViewActionable)
-// Q_DECLARE_TYPEINFO(AutoGenerateInteractionUiViewActionable, Q_RELOCATABLE_TYPE);
 LIBRUQOLAWIDGETS_EXPORT QDebug operator<<(QDebug d, const AutoGenerateInteractionUiViewActionable &t);

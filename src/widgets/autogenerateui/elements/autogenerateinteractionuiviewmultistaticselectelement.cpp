@@ -64,7 +64,7 @@ void AutoGenerateInteractionUiViewMultiStaticSelectElement::setOptions(const QLi
 
 QDebug operator<<(QDebug d, const AutoGenerateInteractionUiViewMultiStaticSelectElement &t)
 {
-    d.space() << "AutoGenerateInteractionUiViewActionable:" << static_cast<AutoGenerateInteractionUiViewActionable>(t);
+    // d.space() << "AutoGenerateInteractionUiViewActionable:" << static_cast<AutoGenerateInteractionUiViewActionable>(t);
     if (t.placeHolder()) {
         d.space() << "placeHolder:" << *t.placeHolder();
     }
@@ -78,7 +78,6 @@ bool AutoGenerateInteractionUiViewMultiStaticSelectElement::operator==(const Aut
     return other.options() == options() && AutoGenerateInteractionUiViewActionable::operator==(other);
 }
 
-QJsonObject AutoGenerateInteractionUiViewMultiStaticSelectElement::serialize() const
+void AutoGenerateInteractionUiViewMultiStaticSelectElement::serializeElement(QJsonObject &o) const
 {
-    return {};
 }

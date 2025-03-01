@@ -39,7 +39,8 @@ public:
 
     [[nodiscard]] QWidget *generateWidget(QWidget *parent) override;
 
-    [[nodiscard]] QJsonObject serialize() const override;
+protected:
+    void serializeElement(QJsonObject &o) const override;
 
 private:
     [[nodiscard]] LIBRUQOLAWIDGETS_NO_EXPORT AutoGenerateInteractionUiViewButtonElement::Style convertStyleFromString(const QString &str) const;

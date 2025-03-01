@@ -106,24 +106,21 @@ void AutoGenerateInteractionUiViewButtonElement::parse(const QJsonObject &json)
 
 QDebug operator<<(QDebug d, const AutoGenerateInteractionUiViewButtonElement &t)
 {
-    d.space() << "AutoGenerateInteractionUiViewActionable:" << static_cast<AutoGenerateInteractionUiViewActionable>(t);
+    // d.space() << "AutoGenerateInteractionUiViewActionable:" << t;
     d.space() << "style:" << t.style();
     d.space() << "text:" << t.text();
     d.space() << "secondary:" << t.secondary();
     return d;
 }
 
-QJsonObject AutoGenerateInteractionUiViewButtonElement::serialize() const
+void AutoGenerateInteractionUiViewButtonElement::serializeElement(QJsonObject &o) const
 {
-    QJsonObject o = AutoGenerateInteractionUiViewActionable::serialize();
     o["text"_L1] = mText.serialize();
     const QString style = convertStyleToString();
     if (!style.isEmpty()) {
         o["style"_L1] = style;
     }
     // TODO secondary ?
-
-    return o;
 }
 
 #include "moc_autogenerateinteractionuiviewbuttonelement.cpp"
