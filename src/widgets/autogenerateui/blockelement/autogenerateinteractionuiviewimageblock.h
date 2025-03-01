@@ -14,7 +14,7 @@ class AutoGenerateInteractionUiViewImageBlock : public AutoGenerateInteractionUi
 {
 public:
     AutoGenerateInteractionUiViewImageBlock();
-    ~AutoGenerateInteractionUiViewImageBlock();
+    ~AutoGenerateInteractionUiViewImageBlock() override;
     [[nodiscard]] QWidget *generateWidget(QWidget *parent) const override;
 
     [[nodiscard]] AutoGenerateInteractionUiViewImage image() const;

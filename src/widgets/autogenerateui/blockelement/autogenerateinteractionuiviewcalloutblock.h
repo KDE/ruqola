@@ -14,7 +14,7 @@ class AutoGenerateInteractionUiViewCalloutBlock : public AutoGenerateInteraction
 {
 public:
     AutoGenerateInteractionUiViewCalloutBlock();
-    ~AutoGenerateInteractionUiViewCalloutBlock();
+    ~AutoGenerateInteractionUiViewCalloutBlock() override;
     [[nodiscard]] QWidget *generateWidget(QWidget *parent) const override;
 
     [[nodiscard]] AutoGenerateInteractionUiViewText *text() const;

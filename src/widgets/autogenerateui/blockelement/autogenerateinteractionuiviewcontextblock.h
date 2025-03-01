@@ -14,7 +14,7 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT AutoGenerateInteractionUiViewContextBlock : 
 {
 public:
     AutoGenerateInteractionUiViewContextBlock();
-    ~AutoGenerateInteractionUiViewContextBlock();
+    ~AutoGenerateInteractionUiViewContextBlock() override;
     [[nodiscard]] bool operator==(const AutoGenerateInteractionUiViewContextBlock &other) const;
     [[nodiscard]] QWidget *generateWidget(QWidget *parent) const override;
 
