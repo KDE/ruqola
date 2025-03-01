@@ -13,6 +13,6 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT AutoGenerateInteractionUiViewElement
 public:
     AutoGenerateInteractionUiViewElement();
     virtual ~AutoGenerateInteractionUiViewElement();
-    virtual void parse(const QJsonObject &json);
-    [[nodiscard]] virtual QJsonObject serialize() const;
+    virtual void parse(const QJsonObject &json) = 0;
+    [[nodiscard]] virtual QJsonObject serialize() const = 0;
 };

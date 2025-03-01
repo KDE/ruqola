@@ -61,6 +61,10 @@ void AutoGenerateInteractionUiViewTimePickerElement::setPlaceHolder(AutoGenerate
 
 void AutoGenerateInteractionUiViewTimePickerElement::serializeElement(QJsonObject &o) const
 {
+    if (mPlaceHolder) {
+        o["placeholder"_L1] = mPlaceHolder->serialize();
+    }
+    o["initialTime"_L1] = mInitialTime;
 }
 
 QDebug operator<<(QDebug d, const AutoGenerateInteractionUiViewTimePickerElement &t)

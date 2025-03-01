@@ -26,6 +26,8 @@ public:
 
     [[nodiscard]] bool operator==(const AutoGenerateInteractionUiViewImage &other) const;
 
+    [[nodiscard]] QJsonObject serialize() const override;
+
 private:
     QString mAltText;
     QString mImageUrl;

@@ -50,3 +50,8 @@ bool AutoGenerateInteractionUiViewImage::operator==(const AutoGenerateInteractio
 {
     return other.altText() == altText() && other.imageUrl() == imageUrl();
 }
+
+QJsonObject AutoGenerateInteractionUiViewImage::serialize() const
+{
+    return {};
+}
