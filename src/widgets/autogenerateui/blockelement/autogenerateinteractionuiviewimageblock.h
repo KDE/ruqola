@@ -16,7 +16,6 @@ public:
     AutoGenerateInteractionUiViewImageBlock();
     ~AutoGenerateInteractionUiViewImageBlock();
     [[nodiscard]] QWidget *generateWidget(QWidget *parent) const override;
-    void parse(const QJsonObject &json) override;
 
     [[nodiscard]] AutoGenerateInteractionUiViewImage image() const;
     void setImage(const AutoGenerateInteractionUiViewImage &newImage);
@@ -25,6 +24,7 @@ public:
 
 protected:
     void serializeBlock(QJsonObject &o) const override;
+    void parseBlock(const QJsonObject &json) override;
 
 private:
     AutoGenerateInteractionUiViewImage mImage;

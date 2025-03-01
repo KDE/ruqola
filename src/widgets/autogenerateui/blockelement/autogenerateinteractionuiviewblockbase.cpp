@@ -48,6 +48,7 @@ void AutoGenerateInteractionUiViewBlockBase::parse(const QJsonObject &json)
     mAppId = json["appId"_L1].toString();
     mBlockId = json["blockId"_L1].toString();
     mType = json["type"_L1].toString();
+    parseBlock(json);
 }
 
 QJsonObject AutoGenerateInteractionUiViewBlockBase::serialize() const

@@ -19,7 +19,6 @@ public:
     AutoGenerateInteractionUiViewInputBlock();
     ~AutoGenerateInteractionUiViewInputBlock() override;
     [[nodiscard]] bool operator==(const AutoGenerateInteractionUiViewInputBlock &other) const;
-    void parse(const QJsonObject &json) override;
 
     [[nodiscard]] bool optional() const;
     void setOptional(bool newOptional);
@@ -34,6 +33,7 @@ public:
 
 protected:
     void serializeBlock(QJsonObject &o) const override;
+    void parseBlock(const QJsonObject &json) override;
 
 private:
     AutoGenerateInteractionUiViewText mLabel;

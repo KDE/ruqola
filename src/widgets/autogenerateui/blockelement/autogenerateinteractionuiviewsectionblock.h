@@ -23,13 +23,12 @@ public:
     [[nodiscard]] AutoGenerateInteractionUiViewText *text() const;
     void setText(AutoGenerateInteractionUiViewText *newText);
 
-    void parse(const QJsonObject &json) override;
-
     [[nodiscard]] AutoGenerateInteractionUiViewActionable *accessory() const;
     void setAccessory(AutoGenerateInteractionUiViewActionable *newAccessory);
 
 protected:
     void serializeBlock(QJsonObject &o) const override;
+    void parseBlock(const QJsonObject &json) override;
 
 private:
     AutoGenerateInteractionUiViewText *mText = nullptr;

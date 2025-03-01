@@ -49,9 +49,8 @@ QWidget *AutoGenerateInteractionUiViewContextBlock::generateWidget(QWidget *pare
     return widget;
 }
 
-void AutoGenerateInteractionUiViewContextBlock::parse(const QJsonObject &json)
+void AutoGenerateInteractionUiViewContextBlock::parseBlock(const QJsonObject &json)
 {
-    AutoGenerateInteractionUiViewBlockBase::parse(json);
     for (const auto &r : json["elements"_L1].toArray()) {
         const QString type = r["type"_L1].toString();
         if (type == "plain_text"_L1 || type == "mrkdwn"_L1) {

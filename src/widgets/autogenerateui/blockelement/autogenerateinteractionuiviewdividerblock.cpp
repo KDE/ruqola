@@ -35,7 +35,6 @@ void AutoGenerateInteractionUiViewDividerBlock::serializeBlock(QJsonObject &o) c
 {
 }
 
-void AutoGenerateInteractionUiViewDividerBlock::parse(const QJsonObject &json)
+void AutoGenerateInteractionUiViewDividerBlock::parseBlock(const QJsonObject &json)
 {
-    AutoGenerateInteractionUiViewBlockBase::parse(json);
 }

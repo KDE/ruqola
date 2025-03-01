@@ -39,9 +39,8 @@ bool AutoGenerateInteractionUiViewInputBlock::operator==(const AutoGenerateInter
     return AutoGenerateInteractionUiViewBlockBase::operator==(other) && other.optional() == optional() && other.label() == label();
 }
 
-void AutoGenerateInteractionUiViewInputBlock::parse(const QJsonObject &json)
+void AutoGenerateInteractionUiViewInputBlock::parseBlock(const QJsonObject &json)
 {
-    AutoGenerateInteractionUiViewBlockBase::parse(json);
     mOptional = json["optional"_L1].toBool();
     mLabel.parse(json["label"_L1].toObject());
     const QJsonObject elementObj = json["element"_L1].toObject();
@@ -116,6 +115,7 @@ void AutoGenerateInteractionUiViewInputBlock::serializeBlock(QJsonObject &o) con
 {
     o["label"_L1] = mLabel.serialize();
     if (mElement) {
+        // mElement->serialize();
         // TODO
     }
 }

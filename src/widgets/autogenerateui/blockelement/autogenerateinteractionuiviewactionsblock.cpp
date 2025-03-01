@@ -38,7 +38,7 @@ bool AutoGenerateInteractionUiViewActionsBlock::operator==(const AutoGenerateInt
     return AutoGenerateInteractionUiViewBlockBase::operator==(other);
 }
 
-void AutoGenerateInteractionUiViewActionsBlock::parse(const QJsonObject &json)
+void AutoGenerateInteractionUiViewActionsBlock::parseBlock(const QJsonObject &json)
 {
     /*
                 | ChannelsSelectElement
@@ -52,7 +52,6 @@ void AutoGenerateInteractionUiViewActionsBlock::parse(const QJsonObject &json)
                 | UsersSelectElement
                 | TimePickerElement
 */
-    AutoGenerateInteractionUiViewBlockBase::parse(json);
     for (const auto &r : json["elements"_L1].toArray()) {
         const QString type = r["type"_L1].toString();
         if (type == "button"_L1) {

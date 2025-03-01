@@ -16,7 +16,6 @@ public:
     AutoGenerateInteractionUiViewCalloutBlock();
     ~AutoGenerateInteractionUiViewCalloutBlock();
     [[nodiscard]] QWidget *generateWidget(QWidget *parent) const override;
-    void parse(const QJsonObject &json) override;
 
     [[nodiscard]] AutoGenerateInteractionUiViewText *text() const;
     void setText(AutoGenerateInteractionUiViewText *newText);
@@ -26,6 +25,7 @@ public:
 
 protected:
     void serializeBlock(QJsonObject &o) const override;
+    void parseBlock(const QJsonObject &json) override;
 
 private:
     AutoGenerateInteractionUiViewText *mText = nullptr;

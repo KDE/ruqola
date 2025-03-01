@@ -18,13 +18,13 @@ public:
     ~AutoGenerateInteractionUiViewActionsBlock() override;
     [[nodiscard]] bool operator==(const AutoGenerateInteractionUiViewActionsBlock &other) const;
 
-    void parse(const QJsonObject &json) override;
     [[nodiscard]] QList<AutoGenerateInteractionUiViewActionable *> elements() const;
     void setElements(const QList<AutoGenerateInteractionUiViewActionable *> &newElements);
     QWidget *generateWidget(QWidget *parent = nullptr) const override;
 
 protected:
     void serializeBlock(QJsonObject &o) const override;
+    void parseBlock(const QJsonObject &json) override;
 
 private:
     /*

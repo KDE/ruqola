@@ -47,10 +47,8 @@ QWidget *AutoGenerateInteractionUiViewCalloutBlock::generateWidget(QWidget *pare
     return widget;
 }
 
-void AutoGenerateInteractionUiViewCalloutBlock::parse(const QJsonObject &json)
+void AutoGenerateInteractionUiViewCalloutBlock::parseBlock(const QJsonObject &json)
 {
-    AutoGenerateInteractionUiViewBlockBase::parse(json);
-
     if (json.contains("text"_L1)) {
         mText = new AutoGenerateInteractionUiViewText;
         mText->parse(json["text"_L1].toObject());

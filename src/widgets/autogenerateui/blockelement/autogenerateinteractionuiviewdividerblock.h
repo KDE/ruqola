@@ -18,9 +18,8 @@ public:
     [[nodiscard]] bool operator==(const AutoGenerateInteractionUiViewDividerBlock &other) const;
     [[nodiscard]] QWidget *generateWidget(QWidget *parent) const override;
 
-    void parse(const QJsonObject &json) override;
-
 protected:
+    void parseBlock(const QJsonObject &json) override;
     void serializeBlock(QJsonObject &o) const override;
 };
 

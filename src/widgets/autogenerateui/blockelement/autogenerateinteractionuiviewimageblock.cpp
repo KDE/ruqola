@@ -18,9 +18,8 @@ QWidget *AutoGenerateInteractionUiViewImageBlock::generateWidget(QWidget *parent
     return nullptr;
 }
 
-void AutoGenerateInteractionUiViewImageBlock::parse(const QJsonObject &json)
+void AutoGenerateInteractionUiViewImageBlock::parseBlock(const QJsonObject &json)
 {
-    AutoGenerateInteractionUiViewBlockBase::parse(json);
     mImage.parse(json);
     // TODO
 }
