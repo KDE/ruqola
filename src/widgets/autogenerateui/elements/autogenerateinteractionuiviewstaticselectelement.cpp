@@ -80,6 +80,14 @@ void AutoGenerateInteractionUiViewStaticSelectElement::setOptions(const QList<Au
 
 void AutoGenerateInteractionUiViewStaticSelectElement::serializeElement(QJsonObject &o) const
 {
+    // TODO initial value ? is current value §????
+    o["initialValue"_L1] = mInitialValue;
+    if (mPlaceHolder) {
+        o["placeholder"_L1] = mPlaceHolder->serialize();
+    }
+    for (const auto &r : std::as_const(mOptions)) {
+        o["options"_L1] = r->serialize();
+    }
 }
 
 QDebug operator<<(QDebug d, const AutoGenerateInteractionUiViewStaticSelectElement &t)

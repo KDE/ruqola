@@ -11,8 +11,17 @@ AutoGenerateInteractionUiViewOption::AutoGenerateInteractionUiViewOption()
 {
 }
 
-AutoGenerateInteractionUiViewOption::~AutoGenerateInteractionUiViewOption()
+AutoGenerateInteractionUiViewOption::~AutoGenerateInteractionUiViewOption() = default;
+
+QJsonObject AutoGenerateInteractionUiViewOption::serialize() const
 {
+    QJsonObject o;
+    o["value"_L1] = mValue;
+    if (!mUrl.isEmpty()) {
+        o["url"_L1] = mUrl;
+    }
+    o["text"_L1] = mText.serialize();
+    return o;
 }
 
 void AutoGenerateInteractionUiViewOption::parse(const QJsonObject &json)

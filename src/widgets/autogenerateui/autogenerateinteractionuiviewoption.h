@@ -27,6 +27,8 @@ public:
     [[nodiscard]] AutoGenerateInteractionUiViewText text() const;
     void setText(const AutoGenerateInteractionUiViewText &newText);
 
+    [[nodiscard]] QJsonObject serialize() const override;
+
 private:
     AutoGenerateInteractionUiViewText mText;
     QString mValue;
