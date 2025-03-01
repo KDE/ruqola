@@ -22,7 +22,9 @@ public:
     void setImage(const AutoGenerateInteractionUiViewImage &newImage);
 
     [[nodiscard]] bool operator==(const AutoGenerateInteractionUiViewImageBlock &other) const;
-    [[nodiscard]] QJsonObject serialize() const override;
+
+protected:
+    void serializeBlock(QJsonObject &o) const override;
 
 private:
     AutoGenerateInteractionUiViewImage mImage;

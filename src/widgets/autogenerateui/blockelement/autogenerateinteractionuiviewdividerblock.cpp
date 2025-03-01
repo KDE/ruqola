@@ -31,10 +31,8 @@ QWidget *AutoGenerateInteractionUiViewDividerBlock::generateWidget(QWidget *pare
     return new KSeparator(parent);
 }
 
-QJsonObject AutoGenerateInteractionUiViewDividerBlock::serialize() const
+void AutoGenerateInteractionUiViewDividerBlock::serializeBlock(QJsonObject &o) const
 {
-    const QJsonObject o = AutoGenerateInteractionUiViewBlockBase::serialize();
-    return o;
 }
 
 void AutoGenerateInteractionUiViewDividerBlock::parse(const QJsonObject &json)

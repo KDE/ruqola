@@ -25,12 +25,15 @@ public:
     [[nodiscard]] bool operator==(const AutoGenerateInteractionUiViewBlockBase &other) const;
 
     virtual void parse(const QJsonObject &json);
-    [[nodiscard]] virtual QJsonObject serialize() const;
+    [[nodiscard]] QJsonObject serialize() const;
 
     virtual QWidget *generateWidget(QWidget *parent) const;
 
     [[nodiscard]] QString type() const;
     void setType(const QString &newType);
+
+protected:
+    virtual void serializeBlock(QJsonObject &obj) const = 0;
 
 private:
     QString mAppId;
@@ -38,5 +41,4 @@ private:
     QString mType;
 };
 Q_DECLARE_METATYPE(AutoGenerateInteractionUiViewBlockBase)
-Q_DECLARE_TYPEINFO(AutoGenerateInteractionUiViewBlockBase, Q_RELOCATABLE_TYPE);
 LIBRUQOLAWIDGETS_EXPORT QDebug operator<<(QDebug d, const AutoGenerateInteractionUiViewBlockBase &t);

@@ -27,7 +27,9 @@ public:
 
     [[nodiscard]] AutoGenerateInteractionUiViewActionable *accessory() const;
     void setAccessory(AutoGenerateInteractionUiViewActionable *newAccessory);
-    [[nodiscard]] QJsonObject serialize() const override;
+
+protected:
+    void serializeBlock(QJsonObject &o) const override;
 
 private:
     AutoGenerateInteractionUiViewText *mText = nullptr;

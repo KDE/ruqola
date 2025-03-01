@@ -17,8 +17,11 @@ public:
     ~AutoGenerateInteractionUiViewDividerBlock() override;
     [[nodiscard]] bool operator==(const AutoGenerateInteractionUiViewDividerBlock &other) const;
     [[nodiscard]] QWidget *generateWidget(QWidget *parent) const override;
-    [[nodiscard]] QJsonObject serialize() const override;
+
     void parse(const QJsonObject &json) override;
+
+protected:
+    void serializeBlock(QJsonObject &o) const override;
 };
 
 Q_DECLARE_METATYPE(AutoGenerateInteractionUiViewDividerBlock)

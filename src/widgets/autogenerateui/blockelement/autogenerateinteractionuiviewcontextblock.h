@@ -22,7 +22,8 @@ public:
     [[nodiscard]] QList<AutoGenerateInteractionUiViewElement *> elements() const;
     void setElements(const QList<AutoGenerateInteractionUiViewElement *> &newElements);
 
-    [[nodiscard]] QJsonObject serialize() const override;
+protected:
+    void serializeBlock(QJsonObject &o) const override;
 
 private:
     QList<AutoGenerateInteractionUiViewElement *> mElements;

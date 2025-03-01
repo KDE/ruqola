@@ -109,13 +109,11 @@ QWidget *AutoGenerateInteractionUiViewActionsBlock::generateWidget(QWidget *pare
     return widget;
 }
 
-QJsonObject AutoGenerateInteractionUiViewActionsBlock::serialize() const
+void AutoGenerateInteractionUiViewActionsBlock::serializeBlock(QJsonObject &o) const
 {
-    QJsonObject o = AutoGenerateInteractionUiViewBlockBase::serialize();
     QJsonArray array;
     for (const auto &e : mElements) {
         array.append(e->serialize());
     }
     o["elements"_L1] = array;
-    return o;
 }

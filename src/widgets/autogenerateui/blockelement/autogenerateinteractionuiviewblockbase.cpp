@@ -56,6 +56,7 @@ QJsonObject AutoGenerateInteractionUiViewBlockBase::serialize() const
     o["type"_L1] = mType;
     o["appId"_L1] = mAppId;
     o["blockId"_L1] = mBlockId;
+    serializeBlock(o);
     return o;
 }
 
