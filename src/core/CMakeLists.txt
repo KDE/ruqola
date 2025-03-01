@@ -1,7 +1,6 @@
 # SPDX-FileCopyrightText: 2020-2025 Laurent Montel <montel@kde.org>
 # SPDX-License-Identifier: BSD-3-Clause
-add_library(libruqolacore
-    model/previewcommandmodel.h model/previewcommandmodel.cpp)
+add_library(libruqolacore)
 
 target_sources(libruqolacore PRIVATE
     abstractwebsocket.cpp
@@ -47,6 +46,9 @@ target_sources(libruqolacore PRIVATE
     commands/commands.h
     commands/previewcommand.h
     commands/previewcommand.cpp
+
+    commands/previewcommandutils.h
+    commands/previewcommandutils.cpp
 
     customsound/customsoundinfo.cpp
     customsound/customsoundinfo.h
@@ -338,6 +340,8 @@ target_sources(libruqolacore PRIVATE
 
     model/appsmarketplacefilterproxymodel.h
     model/appsmarketplacefilterproxymodel.cpp
+    model/previewcommandmodel.h
+    model/previewcommandmodel.cpp
 
     notificationinfo.cpp
     notificationinfo.h

@@ -6,6 +6,7 @@
 
 #include "commandpreviewwidget.h"
 #include "commandpreviewimagedelegate.h"
+#include "commands/previewcommandutils.h"
 #include "connection.h"
 #include "model/previewcommandmodel.h"
 #include "rocketchataccount.h"
@@ -59,20 +60,9 @@ void CommandPreviewWidget::setPreviewCommandInfo(const RocketChatRestApi::Previe
 
 void CommandPreviewWidget::slotParsePreviewCommandItems(const QJsonObject &replyObject)
 {
-    const QJsonObject previewObj = replyObject["preview"_L1].toObject();
-    if (!previewObj.isEmpty()) {
-        const QJsonArray items = previewObj["items"_L1].toArray();
-        QList<PreviewCommand> commands;
-        for (const auto &i : items) {
-            PreviewCommand command;
-            command.parse(i.toObject());
-            if (command.isValid()) {
-                commands.append(std::move(command));
-            }
-        }
-        mPreviewCommandModel->setPreviewCommands(commands);
-        setVisible(!commands.isEmpty());
-    }
+    const QList<PreviewCommand> commands = PreviewCommandUtils::parsePreviewJson(replyObject);
+    mPreviewCommandModel->setPreviewCommands(commands);
+    setVisible(!commands.isEmpty());
 }
 
 void CommandPreviewWidget::slotDoubleClicked(const QModelIndex &index)
@@ -84,7 +74,6 @@ void CommandPreviewWidget::slotDoubleClicked(const QModelIndex &index)
     info.type = command.typeStr();
 
     mPreviewCommandInfo.itemInfo = std::move(info);
-    // todo send message
     setVisible(false);
     mPreviewCommandModel->clear();
     Q_EMIT sendPreviewCommandInfo(mPreviewCommandInfo);
