@@ -35,6 +35,8 @@ void AutoGenerateInteractionUiView::parseView(const QJsonObject &json)
     }
     mShowIcon = json["showIcon"_L1].toBool();
     mId = json["id"_L1].toString().toLatin1();
+    mAppId = json["appId"_L1].toString().toLatin1();
+    mType = json["type"_L1].toString().toLatin1();
     mTitle.parse(json["title"_L1].toObject());
     if (!mBlocks) {
         mBlocks = new AutoGenerateInteractionUiViewBlocks(this);
@@ -55,7 +57,7 @@ void AutoGenerateInteractionUiView::setId(const QByteArray &newId)
 bool AutoGenerateInteractionUiView::operator==(const AutoGenerateInteractionUiView &other) const
 {
     return other.id() == id() && other.showIcon() == showIcon() && *other.closeButton() == *closeButton() && *other.submitButton() == *submitButton()
-        && other.title() == title() && other.blocks() == blocks();
+        && other.title() == title() && other.blocks() == blocks() && other.appId() == appId() && other.type() == type();
 }
 
 bool AutoGenerateInteractionUiView::showIcon() const
@@ -145,12 +147,37 @@ QJsonObject AutoGenerateInteractionUiView::serialize() const
     if (mCloseButton) {
         o["close"_L1] = mCloseButton->serialize();
     }
+    o["id"_L1] = QString::fromLatin1(mId);
+    o["type"_L1] = QString::fromLatin1(mType);
+    o["appId"_L1] = QString::fromLatin1(mAppId);
     return o;
+}
+
+QByteArray AutoGenerateInteractionUiView::type() const
+{
+    return mType;
+}
+
+void AutoGenerateInteractionUiView::setType(const QByteArray &newType)
+{
+    mType = newType;
+}
+
+QByteArray AutoGenerateInteractionUiView::appId() const
+{
+    return mAppId;
+}
+
+void AutoGenerateInteractionUiView::setAppId(const QByteArray &newAppId)
+{
+    mAppId = newAppId;
 }
 
 QDebug operator<<(QDebug d, const AutoGenerateInteractionUiView &t)
 {
     d.space() << "id:" << t.id();
+    d.space() << "type:" << t.type();
+    d.space() << "appId:" << t.appId();
     d.space() << "showIcon:" << t.showIcon();
     d.space() << "closeButton:" << *t.closeButton();
     d.space() << "submitButton:" << *t.submitButton();

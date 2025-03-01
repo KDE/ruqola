@@ -45,12 +45,20 @@ public:
     void generateWidget(QWidget *parent);
 
     [[nodiscard]] QJsonObject serialize() const;
+    [[nodiscard]] QByteArray type() const;
+    void setType(const QByteArray &newType);
+
+    [[nodiscard]] QByteArray appId() const;
+    void setAppId(const QByteArray &newAppId);
+
 Q_SIGNALS:
     void submited();
     void closed();
 
 private:
     QByteArray mId;
+    QByteArray mType;
+    QByteArray mAppId;
     bool mShowIcon = false;
     AutoGenerateInteractionUiViewButtonElement *mCloseButton = nullptr;
     AutoGenerateInteractionUiViewButtonElement *mSubmitButton = nullptr;
