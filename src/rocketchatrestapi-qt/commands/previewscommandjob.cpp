@@ -139,11 +139,13 @@ QJsonDocument PreviewsCommandJob::json() const
     if (!mPreviewsCommandInfo.params.isEmpty()) {
         jsonObj["params"_L1] = mPreviewsCommandInfo.params;
     }
-    QJsonObject previewItem;
-    previewItem["id"_L1] = mPreviewsCommandInfo.itemInfo.id;
-    previewItem["type"_L1] = mPreviewsCommandInfo.itemInfo.type;
-    previewItem["value"_L1] = mPreviewsCommandInfo.itemInfo.value;
-    jsonObj["previewItem"_L1] = previewItem;
+    if (mPreviewsCommandInfo.itemInfo.isValid()) {
+        QJsonObject previewItem;
+        previewItem["id"_L1] = mPreviewsCommandInfo.itemInfo.id;
+        previewItem["type"_L1] = mPreviewsCommandInfo.itemInfo.type;
+        previewItem["value"_L1] = mPreviewsCommandInfo.itemInfo.value;
+        jsonObj["previewItem"_L1] = previewItem;
+    }
     const QJsonDocument postData = QJsonDocument(jsonObj);
     return postData;
 }
