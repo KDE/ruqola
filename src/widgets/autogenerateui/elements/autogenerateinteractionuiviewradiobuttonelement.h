@@ -16,13 +16,13 @@ public:
     AutoGenerateInteractionUiViewRadioButtonElement();
     ~AutoGenerateInteractionUiViewRadioButtonElement() override;
 
-    void parse(const QJsonObject &json) override;
     [[nodiscard]] QWidget *generateWidget(QWidget *parent) override;
 
     [[nodiscard]] bool operator==(const AutoGenerateInteractionUiViewRadioButtonElement &other) const;
 
 protected:
     void serializeElement(QJsonObject &o) const override;
+    void parseElement(const QJsonObject &json) override;
 
 private:
     // TODO initialOptions

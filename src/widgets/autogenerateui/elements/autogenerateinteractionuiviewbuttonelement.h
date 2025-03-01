@@ -32,7 +32,6 @@ public:
 
     [[nodiscard]] AutoGenerateInteractionUiViewText text() const;
     void setText(const AutoGenerateInteractionUiViewText &newText);
-    void parse(const QJsonObject &json) override;
 
     [[nodiscard]] bool secondary() const;
     void setSecondary(bool newSecondary);
@@ -41,6 +40,7 @@ public:
 
 protected:
     void serializeElement(QJsonObject &o) const override;
+    void parseElement(const QJsonObject &json) override;
 
 private:
     [[nodiscard]] LIBRUQOLAWIDGETS_NO_EXPORT AutoGenerateInteractionUiViewButtonElement::Style convertStyleFromString(const QString &str) const;

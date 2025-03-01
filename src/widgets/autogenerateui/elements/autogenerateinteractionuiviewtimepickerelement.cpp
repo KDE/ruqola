@@ -21,9 +21,8 @@ bool AutoGenerateInteractionUiViewTimePickerElement::operator==(const AutoGenera
     return other.initialTime() == initialTime() && AutoGenerateInteractionUiViewActionable::operator==(other);
 }
 
-void AutoGenerateInteractionUiViewTimePickerElement::parse(const QJsonObject &json)
+void AutoGenerateInteractionUiViewTimePickerElement::parseElement(const QJsonObject &json)
 {
-    AutoGenerateInteractionUiViewActionable::parse(json);
     mInitialTime = json["initialTime"_L1].toString();
     if (json.contains("placeholder"_L1)) {
         mPlaceHolder = new AutoGenerateInteractionUiViewText;

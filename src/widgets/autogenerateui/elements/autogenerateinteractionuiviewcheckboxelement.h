@@ -15,7 +15,6 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT AutoGenerateInteractionUiViewCheckboxElement
 public:
     AutoGenerateInteractionUiViewCheckboxElement();
     ~AutoGenerateInteractionUiViewCheckboxElement() override;
-    void parse(const QJsonObject &json) override;
 
     [[nodiscard]] QWidget *generateWidget(QWidget *parent) override;
 
@@ -25,6 +24,7 @@ public:
 
 protected:
     void serializeElement(QJsonObject &o) const override;
+    void parseElement(const QJsonObject &json) override;
 
 private:
     // TODO initialOptions

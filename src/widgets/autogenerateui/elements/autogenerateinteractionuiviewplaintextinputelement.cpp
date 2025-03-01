@@ -19,9 +19,8 @@ AutoGenerateInteractionUiViewPlainTextInputElement::~AutoGenerateInteractionUiVi
     delete mPlaceHolder;
 }
 
-void AutoGenerateInteractionUiViewPlainTextInputElement::parse(const QJsonObject &json)
+void AutoGenerateInteractionUiViewPlainTextInputElement::parseElement(const QJsonObject &json)
 {
-    AutoGenerateInteractionUiViewActionable::parse(json);
     if (json.contains("placeholder"_L1)) {
         mPlaceHolder = new AutoGenerateInteractionUiViewText;
         mPlaceHolder->parse(json["placeholder"_L1].toObject());

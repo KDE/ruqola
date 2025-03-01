@@ -23,9 +23,8 @@ bool AutoGenerateInteractionUiViewImageElement::operator==(const AutoGenerateInt
     return other.image() == image() && AutoGenerateInteractionUiViewActionable::operator==(other);
 }
 
-void AutoGenerateInteractionUiViewImageElement::parse(const QJsonObject &json)
+void AutoGenerateInteractionUiViewImageElement::parseElement(const QJsonObject &json)
 {
-    AutoGenerateInteractionUiViewActionable::parse(json);
     mImage.parse(json);
 }
 

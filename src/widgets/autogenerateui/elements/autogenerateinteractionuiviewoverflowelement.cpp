@@ -15,9 +15,8 @@ AutoGenerateInteractionUiViewOverflowElement::~AutoGenerateInteractionUiViewOver
 {
 }
 
-void AutoGenerateInteractionUiViewOverflowElement::parse(const QJsonObject &json)
+void AutoGenerateInteractionUiViewOverflowElement::parseElement(const QJsonObject &json)
 {
-    AutoGenerateInteractionUiViewActionable::parse(json);
 }
 
 QWidget *AutoGenerateInteractionUiViewOverflowElement::generateWidget(QWidget *parent)

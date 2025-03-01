@@ -16,7 +16,6 @@ public:
     ~AutoGenerateInteractionUiViewTimePickerElement();
 
     [[nodiscard]] bool operator==(const AutoGenerateInteractionUiViewTimePickerElement &other) const;
-    void parse(const QJsonObject &json) override;
 
     [[nodiscard]] QWidget *generateWidget(QWidget *parent) override;
     [[nodiscard]] QString initialTime() const;
@@ -26,6 +25,7 @@ public:
     void setPlaceHolder(AutoGenerateInteractionUiViewText *newPlaceHolder);
 
 protected:
+    void parseElement(const QJsonObject &json) override;
     void serializeElement(QJsonObject &o) const override;
 
 private:

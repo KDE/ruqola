@@ -36,6 +36,7 @@ public:
 
 protected:
     virtual void serializeElement(QJsonObject &o) const = 0;
+    virtual void parseElement(const QJsonObject &json) = 0;
 
 private:
     QByteArray mAppId;

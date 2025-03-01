@@ -18,13 +18,13 @@ public:
 
     [[nodiscard]] QWidget *generateWidget(QWidget *parent) override;
     [[nodiscard]] bool operator==(const AutoGenerateInteractionUiViewImageElement &other) const;
-    void parse(const QJsonObject &json) override;
 
     [[nodiscard]] AutoGenerateInteractionUiViewImage image() const;
     void setImage(const AutoGenerateInteractionUiViewImage &newImage);
 
 protected:
     void serializeElement(QJsonObject &o) const override;
+    void parseElement(const QJsonObject &json) override;
 
 private:
     AutoGenerateInteractionUiViewImage mImage;

@@ -17,8 +17,6 @@ public:
     AutoGenerateInteractionUiViewToggleSwitchElement();
     ~AutoGenerateInteractionUiViewToggleSwitchElement() override;
 
-    void parse(const QJsonObject &json) override;
-
     [[nodiscard]] QList<AutoGenerateInteractionUiViewOption> options() const;
     void setOptions(const QList<AutoGenerateInteractionUiViewOption> &newOptions);
     [[nodiscard]] QWidget *generateWidget(QWidget *parent) override;
@@ -26,6 +24,7 @@ public:
     [[nodiscard]] bool operator==(const AutoGenerateInteractionUiViewToggleSwitchElement &other) const;
 
 protected:
+    void parseElement(const QJsonObject &json) override;
     void serializeElement(QJsonObject &o) const override;
 
 private:

@@ -15,7 +15,6 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT AutoGenerateInteractionUiViewPlainTextInputE
 public:
     AutoGenerateInteractionUiViewPlainTextInputElement();
     ~AutoGenerateInteractionUiViewPlainTextInputElement() override;
-    void parse(const QJsonObject &json) override;
 
     [[nodiscard]] QWidget *generateWidget(QWidget *parent) override;
 
@@ -37,6 +36,7 @@ public:
     void setMaxLength(int newMaxLength);
 
 protected:
+    void parseElement(const QJsonObject &json) override;
     void serializeElement(QJsonObject &o) const override;
 
 private:

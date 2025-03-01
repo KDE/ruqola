@@ -23,9 +23,8 @@ AutoGenerateInteractionUiViewStaticSelectElement::~AutoGenerateInteractionUiView
     qDeleteAll(mOptions);
 }
 
-void AutoGenerateInteractionUiViewStaticSelectElement::parse(const QJsonObject &json)
+void AutoGenerateInteractionUiViewStaticSelectElement::parseElement(const QJsonObject &json)
 {
-    AutoGenerateInteractionUiViewActionable::parse(json);
     mInitialValue = json["initialValue"_L1].toString();
     if (json.contains("placeholder"_L1)) {
         mPlaceHolder = new AutoGenerateInteractionUiViewText;

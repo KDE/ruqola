@@ -15,7 +15,6 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT AutoGenerateInteractionUiViewOverflowElement
 public:
     AutoGenerateInteractionUiViewOverflowElement();
     ~AutoGenerateInteractionUiViewOverflowElement();
-    void parse(const QJsonObject &json) override;
     [[nodiscard]] QWidget *generateWidget(QWidget *parent) override;
 
     [[nodiscard]] QList<AutoGenerateInteractionUiViewOption *> options() const;
@@ -25,6 +24,7 @@ public:
 
 protected:
     void serializeElement(QJsonObject &o) const override;
+    void parseElement(const QJsonObject &json) override;
 
 private:
     QList<AutoGenerateInteractionUiViewOption *> mOptions;

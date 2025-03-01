@@ -20,9 +20,8 @@ AutoGenerateInteractionUiViewCheckboxElement::~AutoGenerateInteractionUiViewChec
     qDeleteAll(mOptions);
 }
 
-void AutoGenerateInteractionUiViewCheckboxElement::parse(const QJsonObject &json)
+void AutoGenerateInteractionUiViewCheckboxElement::parseElement(const QJsonObject &json)
 {
-    AutoGenerateInteractionUiViewActionable::parse(json);
     // Options
     const QJsonArray optionsArray = json["options"_L1].toArray();
     for (const auto &opt : optionsArray) {

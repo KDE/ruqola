@@ -21,9 +21,8 @@ bool AutoGenerateInteractionUiViewDatePickerElement::operator==(const AutoGenera
     return other.initialDate() == initialDate() && AutoGenerateInteractionUiViewActionable::operator==(other);
 }
 
-void AutoGenerateInteractionUiViewDatePickerElement::parse(const QJsonObject &json)
+void AutoGenerateInteractionUiViewDatePickerElement::parseElement(const QJsonObject &json)
 {
-    AutoGenerateInteractionUiViewActionable::parse(json);
     mInitialDate = json["initialValue"_L1].toString();
     if (json.contains("placeholder"_L1)) {
         mPlaceHolder = new AutoGenerateInteractionUiViewText;

@@ -10,9 +10,8 @@ using namespace Qt::Literals::StringLiterals;
 AutoGenerateInteractionUiViewToggleSwitchElement::AutoGenerateInteractionUiViewToggleSwitchElement() = default;
 AutoGenerateInteractionUiViewToggleSwitchElement::~AutoGenerateInteractionUiViewToggleSwitchElement() = default;
 
-void AutoGenerateInteractionUiViewToggleSwitchElement::parse(const QJsonObject &json)
+void AutoGenerateInteractionUiViewToggleSwitchElement::parseElement(const QJsonObject &json)
 {
-    AutoGenerateInteractionUiViewActionable::parse(json);
 }
 
 QList<AutoGenerateInteractionUiViewOption> AutoGenerateInteractionUiViewToggleSwitchElement::options() const

@@ -19,9 +19,8 @@ AutoGenerateInteractionUiViewRadioButtonElement::~AutoGenerateInteractionUiViewR
     qDeleteAll(mOptions);
 }
 
-void AutoGenerateInteractionUiViewRadioButtonElement::parse(const QJsonObject &json)
+void AutoGenerateInteractionUiViewRadioButtonElement::parseElement(const QJsonObject &json)
 {
-    AutoGenerateInteractionUiViewActionable::parse(json);
     // Options
     const QJsonArray optionsArray = json["options"_L1].toArray();
     for (const auto &opt : optionsArray) {

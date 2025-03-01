@@ -17,7 +17,6 @@ public:
     AutoGenerateInteractionUiViewStaticSelectElement();
     ~AutoGenerateInteractionUiViewStaticSelectElement();
 
-    void parse(const QJsonObject &json) override;
     [[nodiscard]] QWidget *generateWidget(QWidget *parent) override;
 
     [[nodiscard]] AutoGenerateInteractionUiViewText *placeHolder() const;
@@ -31,6 +30,7 @@ public:
 
 protected:
     void serializeElement(QJsonObject &o) const override;
+    void parseElement(const QJsonObject &json) override;
 
 private:
     QString mInitialValue;
