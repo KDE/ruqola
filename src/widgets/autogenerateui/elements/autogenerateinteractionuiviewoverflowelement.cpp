@@ -38,7 +38,7 @@ void AutoGenerateInteractionUiViewOverflowElement::setOptions(const QList<AutoGe
 
 QDebug operator<<(QDebug d, const AutoGenerateInteractionUiViewOverflowElement &t)
 {
-    // d.space() << "AutoGenerateInteractionUiViewActionable:" << static_cast<AutoGenerateInteractionUiViewActionable>(t);
+    d.space() << "AutoGenerateInteractionUiViewActionable:" << static_cast<const AutoGenerateInteractionUiViewActionable &>(t);
     d.space() << "options:" << t.options();
     return d;
 }

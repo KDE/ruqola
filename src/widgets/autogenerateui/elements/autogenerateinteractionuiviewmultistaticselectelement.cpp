@@ -64,7 +64,7 @@ void AutoGenerateInteractionUiViewMultiStaticSelectElement::setOptions(const QLi
 
 QDebug operator<<(QDebug d, const AutoGenerateInteractionUiViewMultiStaticSelectElement &t)
 {
-    // d.space() << "AutoGenerateInteractionUiViewActionable:" << static_cast<AutoGenerateInteractionUiViewActionable>(t);
+    d.space() << "AutoGenerateInteractionUiViewActionable:" << static_cast<const AutoGenerateInteractionUiViewActionable &>(t);
     if (t.placeHolder()) {
         d.space() << "placeHolder:" << *t.placeHolder();
     }

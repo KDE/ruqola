@@ -59,7 +59,7 @@ void AutoGenerateInteractionUiViewCheckboxElement::serializeElement(QJsonObject 
 
 QDebug operator<<(QDebug d, const AutoGenerateInteractionUiViewCheckboxElement &t)
 {
-    // d.space() << "AutoGenerateInteractionUiViewActionable:" << static_cast<AutoGenerateInteractionUiViewActionable>(t);
+    d.space() << "AutoGenerateInteractionUiViewActionable:" << static_cast<const AutoGenerateInteractionUiViewActionable &>(t);
     d.space() << "options:" << t.options();
     return d;
 }

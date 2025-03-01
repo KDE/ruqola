@@ -83,7 +83,7 @@ bool AutoGenerateInteractionUiViewPlainTextInputElement::operator==(const AutoGe
 
 QDebug operator<<(QDebug d, const AutoGenerateInteractionUiViewPlainTextInputElement &t)
 {
-    // d.space() << "AutoGenerateInteractionUiViewActionable:" << static_cast<AutoGenerateInteractionUiViewActionable>(t);
+    d.space() << "AutoGenerateInteractionUiViewActionable:" << static_cast<const AutoGenerateInteractionUiViewActionable &>(t);
     if (t.placeHolder()) {
         d.space() << "placeHolder:" << *t.placeHolder();
     }

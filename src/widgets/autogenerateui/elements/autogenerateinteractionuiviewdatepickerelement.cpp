@@ -66,7 +66,7 @@ void AutoGenerateInteractionUiViewDatePickerElement::serializeElement(QJsonObjec
 
 QDebug operator<<(QDebug d, const AutoGenerateInteractionUiViewDatePickerElement &t)
 {
-    // d.space() << "AutoGenerateInteractionUiViewActionable:" << static_cast<AutoGenerateInteractionUiViewActionable>(t);
+    d.space() << "AutoGenerateInteractionUiViewActionable:" << static_cast<const AutoGenerateInteractionUiViewActionable &>(t);
     d.space() << "initialDate:" << t.initialDate();
     if (t.placeHolder()) {
         d.space() << "placeHolder:" << *t.placeHolder();
