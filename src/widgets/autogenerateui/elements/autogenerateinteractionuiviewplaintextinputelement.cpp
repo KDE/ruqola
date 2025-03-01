@@ -115,4 +115,15 @@ void AutoGenerateInteractionUiViewPlainTextInputElement::setMaxLength(int newMax
 
 void AutoGenerateInteractionUiViewPlainTextInputElement::serializeElement(QJsonObject &o) const
 {
+    if (mPlaceHolder) {
+        o["placeholder"_L1] = mPlaceHolder->serialize();
+    }
+    o["initialValue"_L1] = mInitialValue;
+    o["multiline"_L1] = mMultiLine;
+    if (mMinLength != -1) {
+        o["minLength"_L1] = mMinLength;
+    }
+    if (mMaxLength != -1) {
+        o["maxLength"_L1] = mMaxLength;
+    }
 }
