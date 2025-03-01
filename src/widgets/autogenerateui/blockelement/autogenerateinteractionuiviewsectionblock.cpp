@@ -77,6 +77,7 @@ void AutoGenerateInteractionUiViewSectionBlock::setText(AutoGenerateInteractionU
 
 void AutoGenerateInteractionUiViewSectionBlock::parse(const QJsonObject &json)
 {
+    AutoGenerateInteractionUiViewBlockBase::parse(json);
     if (json.contains("text"_L1)) {
         mText = new AutoGenerateInteractionUiViewText;
         mText->parse(json["text"_L1].toObject());
@@ -126,11 +127,11 @@ QJsonObject AutoGenerateInteractionUiViewSectionBlock::serialize() const
 {
     QJsonObject o = AutoGenerateInteractionUiViewBlockBase::serialize();
     if (mText) {
+        o["text"_L1] = mText->serialize();
         // TODO
     }
     if (mAccessory) {
-        // TODO
+        o["accessory"_L1] = mAccessory->serialize();
     }
-    // TODO
     return o;
 }

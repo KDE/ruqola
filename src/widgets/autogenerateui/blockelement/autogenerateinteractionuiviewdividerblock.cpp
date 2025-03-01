@@ -36,3 +36,8 @@ QJsonObject AutoGenerateInteractionUiViewDividerBlock::serialize() const
     const QJsonObject o = AutoGenerateInteractionUiViewBlockBase::serialize();
     return o;
 }
+
+void AutoGenerateInteractionUiViewDividerBlock::parse(const QJsonObject &json)
+{
+    AutoGenerateInteractionUiViewBlockBase::parse(json);
+}
