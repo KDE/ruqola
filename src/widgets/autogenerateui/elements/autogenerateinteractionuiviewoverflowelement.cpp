@@ -34,6 +34,7 @@ void AutoGenerateInteractionUiViewOverflowElement::parseElement(const QJsonObjec
 QWidget *AutoGenerateInteractionUiViewOverflowElement::generateWidget(QWidget *parent)
 {
     auto toolButton = new QToolButton(parent);
+    toolButton->setPopupMode(QToolButton::InstantPopup);
     auto menu = new QMenu(parent);
     for (const auto &r : std::as_const(mOptions)) {
         auto act = new QAction(menu);
