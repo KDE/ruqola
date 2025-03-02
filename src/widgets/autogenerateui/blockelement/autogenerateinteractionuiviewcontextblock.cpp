@@ -83,8 +83,7 @@ void AutoGenerateInteractionUiViewContextBlock::serializeBlock(QJsonObject &o) c
     for (const auto &e : mElements) {
         r.append(e->serialize());
     }
-    // TODO fix me
-    o["<NEED>"_L1] = r;
+    o["elements"_L1] = r;
 }
 
 QDebug operator<<(QDebug d, const AutoGenerateInteractionUiViewContextBlock &t)
