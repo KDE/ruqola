@@ -5,7 +5,10 @@
 */
 
 #include "autogenerateinteractionuiviewoverflowelement.h"
+#include "autogenerateui/autogenerateinteractionuiviewoption.h"
 
+#include <QJsonArray>
+using namespace Qt::Literals::StringLiterals;
 AutoGenerateInteractionUiViewOverflowElement::AutoGenerateInteractionUiViewOverflowElement()
     : AutoGenerateInteractionUiViewActionable()
 {
@@ -17,6 +20,13 @@ AutoGenerateInteractionUiViewOverflowElement::~AutoGenerateInteractionUiViewOver
 
 void AutoGenerateInteractionUiViewOverflowElement::parseElement(const QJsonObject &json)
 {
+    // Options
+    const QJsonArray optionsArray = json["options"_L1].toArray();
+    for (const auto &opt : optionsArray) {
+        AutoGenerateInteractionUiViewOption *option = new AutoGenerateInteractionUiViewOption;
+        option->parse(opt.toObject());
+        mOptions.append(option);
+    }
 }
 
 QWidget *AutoGenerateInteractionUiViewOverflowElement::generateWidget(QWidget *parent)
