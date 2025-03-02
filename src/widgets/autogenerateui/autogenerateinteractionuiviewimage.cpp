@@ -53,5 +53,8 @@ bool AutoGenerateInteractionUiViewImage::operator==(const AutoGenerateInteractio
 
 QJsonObject AutoGenerateInteractionUiViewImage::serialize() const
 {
-    return {};
+    QJsonObject o;
+    o["altText"_L1] = mAltText;
+    o["imageUrl"_L1] = mImageUrl;
+    return o;
 }
