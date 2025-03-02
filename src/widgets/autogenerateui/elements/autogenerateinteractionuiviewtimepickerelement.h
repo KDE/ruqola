@@ -13,7 +13,7 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT AutoGenerateInteractionUiViewTimePickerEleme
 {
 public:
     AutoGenerateInteractionUiViewTimePickerElement();
-    ~AutoGenerateInteractionUiViewTimePickerElement();
+    ~AutoGenerateInteractionUiViewTimePickerElement() override;
 
     [[nodiscard]] bool operator==(const AutoGenerateInteractionUiViewTimePickerElement &other) const;
 

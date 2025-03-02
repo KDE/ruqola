@@ -15,7 +15,7 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT AutoGenerateInteractionUiViewStaticSelectEle
 {
 public:
     AutoGenerateInteractionUiViewStaticSelectElement();
-    ~AutoGenerateInteractionUiViewStaticSelectElement();
+    ~AutoGenerateInteractionUiViewStaticSelectElement() override;
 
     [[nodiscard]] QWidget *generateWidget(RocketChatAccount *account, QWidget *parent) override;
 

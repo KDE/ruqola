@@ -14,7 +14,7 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT AutoGenerateInteractionUiViewImageElement : 
 {
 public:
     AutoGenerateInteractionUiViewImageElement();
-    ~AutoGenerateInteractionUiViewImageElement();
+    ~AutoGenerateInteractionUiViewImageElement() override;
 
     [[nodiscard]] QWidget *generateWidget(RocketChatAccount *account, QWidget *parent) override;
     [[nodiscard]] bool operator==(const AutoGenerateInteractionUiViewImageElement &other) const;

@@ -13,7 +13,7 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT AutoGenerateInteractionUiViewDatePickerEleme
 {
 public:
     AutoGenerateInteractionUiViewDatePickerElement();
-    ~AutoGenerateInteractionUiViewDatePickerElement();
+    ~AutoGenerateInteractionUiViewDatePickerElement() override;
 
     [[nodiscard]] bool operator==(const AutoGenerateInteractionUiViewDatePickerElement &other) const;
 
