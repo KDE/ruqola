@@ -59,4 +59,7 @@ bool AutoGenerateInteractionUiViewOverflowElement::operator==(const AutoGenerate
 
 void AutoGenerateInteractionUiViewOverflowElement::serializeElement(QJsonObject &o) const
 {
+    for (const auto &r : std::as_const(mOptions)) {
+        o["options"_L1] = r->serialize();
+    }
 }

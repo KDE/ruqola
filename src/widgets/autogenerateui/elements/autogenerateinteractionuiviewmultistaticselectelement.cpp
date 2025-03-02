@@ -79,4 +79,7 @@ bool AutoGenerateInteractionUiViewMultiStaticSelectElement::operator==(const Aut
 
 void AutoGenerateInteractionUiViewMultiStaticSelectElement::serializeElement(QJsonObject &o) const
 {
+    for (const auto &r : std::as_const(mOptions)) {
+        o["options"_L1] = r->serialize();
+    }
 }

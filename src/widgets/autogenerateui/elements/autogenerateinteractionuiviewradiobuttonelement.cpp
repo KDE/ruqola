@@ -48,6 +48,9 @@ bool AutoGenerateInteractionUiViewRadioButtonElement::operator==(const AutoGener
 
 void AutoGenerateInteractionUiViewRadioButtonElement::serializeElement(QJsonObject &o) const
 {
+    for (const auto &r : std::as_const(mOptions)) {
+        o["options"_L1] = r->serialize();
+    }
 }
 
 #include "moc_autogenerateinteractionuiviewradiobuttonelement.cpp"
