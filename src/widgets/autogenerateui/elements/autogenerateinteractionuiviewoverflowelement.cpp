@@ -18,6 +18,7 @@ AutoGenerateInteractionUiViewOverflowElement::AutoGenerateInteractionUiViewOverf
 
 AutoGenerateInteractionUiViewOverflowElement::~AutoGenerateInteractionUiViewOverflowElement()
 {
+    qDeleteAll(mOptions);
 }
 
 void AutoGenerateInteractionUiViewOverflowElement::parseElement(const QJsonObject &json)
