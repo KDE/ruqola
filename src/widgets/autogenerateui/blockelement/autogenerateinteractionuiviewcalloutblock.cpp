@@ -25,7 +25,7 @@ AutoGenerateInteractionUiViewCalloutBlock::~AutoGenerateInteractionUiViewCallout
     delete mAccessory;
 }
 
-QWidget *AutoGenerateInteractionUiViewCalloutBlock::generateWidget(QWidget *parent) const
+QWidget *AutoGenerateInteractionUiViewCalloutBlock::generateWidget(RocketChatAccount *account, QWidget *parent) const
 {
     auto widget = new QWidget(parent);
     parent->layout()->addWidget(widget);

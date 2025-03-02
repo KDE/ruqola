@@ -26,7 +26,7 @@ public:
     [[nodiscard]] AutoGenerateInteractionUiViewText label() const;
     void setLabel(const AutoGenerateInteractionUiViewText &newLabel);
 
-    [[nodiscard]] QWidget *generateWidget(QWidget *parent) const override;
+    [[nodiscard]] QWidget *generateWidget(RocketChatAccount *account, QWidget *parent) const override;
 
     [[nodiscard]] AutoGenerateInteractionUiViewActionable *element() const;
     void setElement(AutoGenerateInteractionUiViewActionable *newElement);

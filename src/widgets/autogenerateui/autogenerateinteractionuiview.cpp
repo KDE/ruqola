@@ -110,7 +110,7 @@ void AutoGenerateInteractionUiView::setBlocks(AutoGenerateInteractionUiViewBlock
     mBlocks = newBlocks;
 }
 
-void AutoGenerateInteractionUiView::generateWidget(QWidget *widget)
+void AutoGenerateInteractionUiView::generateWidget(QWidget *widget, RocketChatAccount *account)
 {
     // TODO customize title
     widget->setWindowTitle(mTitle.generateText());
@@ -118,7 +118,7 @@ void AutoGenerateInteractionUiView::generateWidget(QWidget *widget)
     if (!mBlocks) {
         mBlocks = new AutoGenerateInteractionUiViewBlocks(this);
     }
-    mBlocks->generateWidget(widget);
+    mBlocks->generateWidget(account, widget);
     if (mCloseButton || mSubmitButton) {
         auto buttonDialog = new QDialogButtonBox(widget);
         if (mCloseButton) {

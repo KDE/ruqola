@@ -16,7 +16,7 @@ public:
     AutoGenerateInteractionUiViewRadioButtonElement();
     ~AutoGenerateInteractionUiViewRadioButtonElement() override;
 
-    [[nodiscard]] QWidget *generateWidget(QWidget *parent) override;
+    [[nodiscard]] QWidget *generateWidget(RocketChatAccount *account, QWidget *parent) override;
 
     [[nodiscard]] bool operator==(const AutoGenerateInteractionUiViewRadioButtonElement &other) const;
 

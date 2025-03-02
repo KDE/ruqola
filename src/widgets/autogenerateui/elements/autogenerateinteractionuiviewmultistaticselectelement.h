@@ -18,7 +18,7 @@ public:
     AutoGenerateInteractionUiViewMultiStaticSelectElement();
     ~AutoGenerateInteractionUiViewMultiStaticSelectElement();
 
-    [[nodiscard]] QWidget *generateWidget(QWidget *parent) override;
+    [[nodiscard]] QWidget *generateWidget(RocketChatAccount *account, QWidget *parent) override;
     [[nodiscard]] AutoGenerateInteractionUiViewText *placeHolder() const;
     void setPlaceHolder(AutoGenerateInteractionUiViewText *newPlaceHolder);
 

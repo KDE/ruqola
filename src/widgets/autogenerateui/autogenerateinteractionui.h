@@ -9,7 +9,7 @@
 #include "autogenerateinteractionuiview.h"
 #include "libruqolawidgets_private_export.h"
 #include <QJsonObject>
-
+class RocketChatAccount;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT AutoGenerateInteractionUi : public QObject
 {
     Q_OBJECT
@@ -41,7 +41,7 @@ public:
     [[nodiscard]] AutoGenerateInteractionUiView *view() const;
     void setView(AutoGenerateInteractionUiView *newView);
 
-    [[nodiscard]] QWidget *generateWidget(QWidget *parent = nullptr);
+    [[nodiscard]] QWidget *generateWidget(QWidget *parent = nullptr, RocketChatAccount *account = nullptr);
 
     [[nodiscard]] QJsonObject generateJson() const;
 

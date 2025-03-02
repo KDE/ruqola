@@ -19,7 +19,7 @@ public:
 
     [[nodiscard]] QList<AutoGenerateInteractionUiViewOption> options() const;
     void setOptions(const QList<AutoGenerateInteractionUiViewOption> &newOptions);
-    [[nodiscard]] QWidget *generateWidget(QWidget *parent) override;
+    [[nodiscard]] QWidget *generateWidget(RocketChatAccount *account, QWidget *parent) override;
 
     [[nodiscard]] bool operator==(const AutoGenerateInteractionUiViewToggleSwitchElement &other) const;
 

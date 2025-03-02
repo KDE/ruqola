@@ -16,7 +16,7 @@ public:
     AutoGenerateInteractionUiViewImageElement();
     ~AutoGenerateInteractionUiViewImageElement();
 
-    [[nodiscard]] QWidget *generateWidget(QWidget *parent) override;
+    [[nodiscard]] QWidget *generateWidget(RocketChatAccount *account, QWidget *parent) override;
     [[nodiscard]] bool operator==(const AutoGenerateInteractionUiViewImageElement &other) const;
 
     [[nodiscard]] AutoGenerateInteractionUiViewImage image() const;

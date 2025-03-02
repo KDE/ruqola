@@ -17,7 +17,7 @@ public:
 
     [[nodiscard]] bool operator==(const AutoGenerateInteractionUiViewTimePickerElement &other) const;
 
-    [[nodiscard]] QWidget *generateWidget(QWidget *parent) override;
+    [[nodiscard]] QWidget *generateWidget(RocketChatAccount *account, QWidget *parent) override;
     [[nodiscard]] QString initialTime() const;
     void setInitialTime(const QString &newInitialDate);
 

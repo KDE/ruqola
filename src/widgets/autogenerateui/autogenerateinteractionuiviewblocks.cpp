@@ -88,7 +88,7 @@ void AutoGenerateInteractionUiViewBlocks::setBlockElements(const QList<AutoGener
     mBlockElements = newBlockElements;
 }
 
-void AutoGenerateInteractionUiViewBlocks::generateWidget(QWidget *parent)
+void AutoGenerateInteractionUiViewBlocks::generateWidget(RocketChatAccount *account, QWidget *parent)
 {
     auto widget = new QWidget(parent);
     parent->layout()->addWidget(widget);
@@ -97,7 +97,7 @@ void AutoGenerateInteractionUiViewBlocks::generateWidget(QWidget *parent)
     vboxLayout->setContentsMargins({});
     widget->setLayout(vboxLayout);
     for (const auto &e : std::as_const(mBlockElements)) {
-        vboxLayout->addWidget(e->generateWidget(widget));
+        vboxLayout->addWidget(e->generateWidget(account, widget));
     }
 }
 

@@ -5,6 +5,7 @@
 */
 
 #include "autogenerateinteractionuiviewblockbase.h"
+#include "rocketchataccount.h"
 using namespace Qt::Literals::StringLiterals;
 AutoGenerateInteractionUiViewBlockBase::AutoGenerateInteractionUiViewBlockBase() = default;
 
@@ -61,8 +62,10 @@ QJsonObject AutoGenerateInteractionUiViewBlockBase::serialize() const
     return o;
 }
 
-QWidget *AutoGenerateInteractionUiViewBlockBase::generateWidget(QWidget *parent) const
+QWidget *AutoGenerateInteractionUiViewBlockBase::generateWidget(RocketChatAccount *account, QWidget *parent) const
 {
+    Q_UNUSED(account);
+    Q_UNUSED(parent);
     return nullptr;
 }
 

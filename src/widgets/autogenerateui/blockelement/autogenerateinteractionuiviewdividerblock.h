@@ -16,7 +16,7 @@ public:
     AutoGenerateInteractionUiViewDividerBlock();
     ~AutoGenerateInteractionUiViewDividerBlock() override;
     [[nodiscard]] bool operator==(const AutoGenerateInteractionUiViewDividerBlock &other) const;
-    [[nodiscard]] QWidget *generateWidget(QWidget *parent) const override;
+    [[nodiscard]] QWidget *generateWidget(RocketChatAccount *account, QWidget *parent) const override;
 
 protected:
     void parseBlock(const QJsonObject &json) override;

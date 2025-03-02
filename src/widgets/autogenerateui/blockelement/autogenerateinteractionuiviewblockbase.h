@@ -10,7 +10,7 @@
 #include <QDebug>
 #include <QJsonObject>
 #include <QString>
-
+class RocketChatAccount;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT AutoGenerateInteractionUiViewBlockBase
 {
 public:
@@ -27,7 +27,7 @@ public:
     void parse(const QJsonObject &json);
     [[nodiscard]] QJsonObject serialize() const;
 
-    virtual QWidget *generateWidget(QWidget *parent) const;
+    virtual QWidget *generateWidget(RocketChatAccount *account, QWidget *parent) const;
 
     [[nodiscard]] QString type() const;
     void setType(const QString &newType);

@@ -28,7 +28,7 @@ bool AutoGenerateInteractionUiViewContextBlock::operator==(const AutoGenerateInt
     return AutoGenerateInteractionUiViewBlockBase::operator==(other) && other.elements() == elements();
 }
 
-QWidget *AutoGenerateInteractionUiViewContextBlock::generateWidget(QWidget *parent) const
+QWidget *AutoGenerateInteractionUiViewContextBlock::generateWidget(RocketChatAccount *account, QWidget *parent) const
 {
     auto widget = new QWidget(parent);
     parent->layout()->addWidget(widget);

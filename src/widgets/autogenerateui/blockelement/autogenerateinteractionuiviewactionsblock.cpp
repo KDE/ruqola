@@ -94,7 +94,7 @@ void AutoGenerateInteractionUiViewActionsBlock::setElements(const QList<AutoGene
     mElements = newElements;
 }
 
-QWidget *AutoGenerateInteractionUiViewActionsBlock::generateWidget(QWidget *parent) const
+QWidget *AutoGenerateInteractionUiViewActionsBlock::generateWidget(RocketChatAccount *account, QWidget *parent) const
 {
     auto widget = new QWidget(parent);
     parent->layout()->addWidget(widget);

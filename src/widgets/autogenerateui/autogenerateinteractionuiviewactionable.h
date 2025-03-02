@@ -8,7 +8,7 @@
 
 #include "libruqolawidgets_private_export.h"
 #include <QJsonObject>
-
+class RocketChatAccount;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT AutoGenerateInteractionUiViewActionable
 {
 public:
@@ -27,7 +27,7 @@ public:
 
     [[nodiscard]] bool operator==(const AutoGenerateInteractionUiViewActionable &other) const;
 
-    virtual QWidget *generateWidget(QWidget *parent);
+    virtual QWidget *generateWidget(RocketChatAccount *account, QWidget *parent);
 
     [[nodiscard]] QByteArray type() const;
     void setType(const QByteArray &newType);

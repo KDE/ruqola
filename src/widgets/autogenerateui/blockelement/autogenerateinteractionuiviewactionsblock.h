@@ -20,7 +20,7 @@ public:
 
     [[nodiscard]] QList<AutoGenerateInteractionUiViewActionable *> elements() const;
     void setElements(const QList<AutoGenerateInteractionUiViewActionable *> &newElements);
-    QWidget *generateWidget(QWidget *parent = nullptr) const override;
+    QWidget *generateWidget(RocketChatAccount *account, QWidget *parent = nullptr) const override;
 
 protected:
     void serializeBlock(QJsonObject &o) const override;

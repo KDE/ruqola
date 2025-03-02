@@ -13,6 +13,7 @@
 
 // Rocket.Chat/packages/ui-kit/src/surfaces/modal/ModalView.ts
 // TODO make it private export symbol ?
+class RocketChatAccount;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT AutoGenerateInteractionUiView : public QObject
 {
     Q_OBJECT
@@ -42,7 +43,7 @@ public:
     [[nodiscard]] AutoGenerateInteractionUiViewBlocks *blocks() const;
     void setBlocks(AutoGenerateInteractionUiViewBlocks *newBlocks);
 
-    void generateWidget(QWidget *parent);
+    void generateWidget(QWidget *parent, RocketChatAccount *account = nullptr);
 
     [[nodiscard]] QJsonObject serialize() const;
     [[nodiscard]] QByteArray type() const;

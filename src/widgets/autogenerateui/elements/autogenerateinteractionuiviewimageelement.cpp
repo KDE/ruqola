@@ -12,8 +12,10 @@ AutoGenerateInteractionUiViewImageElement::AutoGenerateInteractionUiViewImageEle
 
 AutoGenerateInteractionUiViewImageElement::~AutoGenerateInteractionUiViewImageElement() = default;
 
-QWidget *AutoGenerateInteractionUiViewImageElement::generateWidget(QWidget *parent)
+QWidget *AutoGenerateInteractionUiViewImageElement::generateWidget(RocketChatAccount *account, QWidget *parent)
 {
+    Q_UNUSED(account)
+    Q_UNUSED(parent)
     // TODO
     return nullptr;
 }

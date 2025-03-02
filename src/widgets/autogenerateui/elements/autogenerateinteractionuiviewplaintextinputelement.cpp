@@ -31,8 +31,9 @@ void AutoGenerateInteractionUiViewPlainTextInputElement::parseElement(const QJso
     mMaxLength = json["maxLength"_L1].toInt(-1);
 }
 
-QWidget *AutoGenerateInteractionUiViewPlainTextInputElement::generateWidget(QWidget *parent)
+QWidget *AutoGenerateInteractionUiViewPlainTextInputElement::generateWidget(RocketChatAccount *account, QWidget *parent)
 {
+    Q_UNUSED(account)
     auto plainText = new QPlainTextEdit(parent);
     if (mPlaceHolder) {
         plainText->setPlaceholderText(mPlaceHolder->generateText());

@@ -82,7 +82,7 @@ void AutoGenerateInteractionUiViewInputBlock::setLabel(const AutoGenerateInterac
     mLabel = newLabel;
 }
 
-QWidget *AutoGenerateInteractionUiViewInputBlock::generateWidget(QWidget *parent) const
+QWidget *AutoGenerateInteractionUiViewInputBlock::generateWidget(RocketChatAccount *account, QWidget *parent) const
 {
     auto widget = new QWidget(parent);
     parent->layout()->addWidget(widget);
@@ -96,7 +96,7 @@ QWidget *AutoGenerateInteractionUiViewInputBlock::generateWidget(QWidget *parent
     label->setText(mLabel.generateText());
     vboxLayout->addWidget(label);
     if (mElement) {
-        vboxLayout->addWidget(mElement->generateWidget(parent));
+        vboxLayout->addWidget(mElement->generateWidget(account, parent));
     }
     return widget;
 }

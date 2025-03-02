@@ -30,8 +30,9 @@ void AutoGenerateInteractionUiViewTimePickerElement::parseElement(const QJsonObj
     }
 }
 
-QWidget *AutoGenerateInteractionUiViewTimePickerElement::generateWidget(QWidget *parent)
+QWidget *AutoGenerateInteractionUiViewTimePickerElement::generateWidget(RocketChatAccount *account, QWidget *parent)
 {
+    Q_UNUSED(account)
     auto w = new QTimeEdit(parent);
     if (!mInitialTime.isEmpty()) {
         w->setTime(QTime::fromString(mInitialTime)); // TODO verify ?

@@ -13,8 +13,10 @@ AutoGenerateInteractionUiViewImageBlock::AutoGenerateInteractionUiViewImageBlock
 
 AutoGenerateInteractionUiViewImageBlock::~AutoGenerateInteractionUiViewImageBlock() = default;
 
-QWidget *AutoGenerateInteractionUiViewImageBlock::generateWidget(QWidget *parent) const
+QWidget *AutoGenerateInteractionUiViewImageBlock::generateWidget(RocketChatAccount *account, QWidget *parent) const
 {
+    Q_UNUSED(parent);
+    Q_UNUSED(account);
     return nullptr;
 }
 

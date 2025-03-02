@@ -68,10 +68,10 @@ void AutoGenerateInteractionUi::setView(AutoGenerateInteractionUiView *newView)
     mView = newView;
 }
 
-QWidget *AutoGenerateInteractionUi::generateWidget(QWidget *parent)
+QWidget *AutoGenerateInteractionUi::generateWidget(QWidget *parent, RocketChatAccount *account)
 {
     auto widget = new QWidget(parent);
-    mView->generateWidget(widget);
+    mView->generateWidget(widget, account);
     return widget;
 }
 

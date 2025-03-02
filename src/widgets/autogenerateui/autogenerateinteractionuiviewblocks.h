@@ -10,7 +10,7 @@
 #include "libruqolawidgets_private_export.h"
 #include <QJsonArray>
 #include <QList>
-
+class RocketChatAccount;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT AutoGenerateInteractionUiViewBlocks : public QObject
 {
     Q_OBJECT
@@ -23,7 +23,7 @@ public:
     [[nodiscard]] QList<AutoGenerateInteractionUiViewBlockBase *> blockElements() const;
     void setBlockElements(const QList<AutoGenerateInteractionUiViewBlockBase *> &newBlockElements);
 
-    void generateWidget(QWidget *parent);
+    void generateWidget(RocketChatAccount *account, QWidget *parent);
     [[nodiscard]] QJsonArray serialize() const;
 
 private:
