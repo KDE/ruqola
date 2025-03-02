@@ -4,7 +4,7 @@
    SPDX-License-Identifier: LGPL-2.0-or-later
 */
 #include "autogenerateinteractionuiviewimageelement.h"
-
+using namespace Qt::Literals::StringLiterals;
 AutoGenerateInteractionUiViewImageElement::AutoGenerateInteractionUiViewImageElement()
     : AutoGenerateInteractionUiViewActionable()
 {
@@ -42,6 +42,8 @@ void AutoGenerateInteractionUiViewImageElement::setImage(const AutoGenerateInter
 
 void AutoGenerateInteractionUiViewImageElement::serializeElement(QJsonObject &o) const
 {
+    // TODO verify it
+    o["image"_L1] = mImage.serialize();
 }
 
 QDebug operator<<(QDebug d, const AutoGenerateInteractionUiViewImageElement &t)
