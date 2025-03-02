@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-03-01 00:46+0000\n"
-"PO-Revision-Date: 2025-02-27 08:34+0200\n"
+"PO-Revision-Date: 2025-03-01 12:20+0200\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
 "Language: uk\n"
@@ -11515,10 +11515,8 @@ msgid "Implement Rocket.Chat application support."
 msgstr "Реалізовано підтримку програм Rocket.Chat."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:24
-#, fuzzy
-#| msgid "Implement Url Preview"
 msgid "Implement command preview."
-msgstr "Реалізовано попередній перегляд адрес"
+msgstr "Реалізовано попередній перегляд команди."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:34
 #, kde-format

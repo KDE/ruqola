@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-03-01 00:46+0000\n"
-"PO-Revision-Date: 2025-02-27 13:54+0300\n"
+"PO-Revision-Date: 2025-03-01 13:12+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -11384,10 +11384,8 @@ msgid "Implement Rocket.Chat application support."
 msgstr "Rocket.Chat uygulama desteğini gerçekle"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:24
-#, fuzzy
-#| msgid "Implement Url Preview"
 msgid "Implement command preview."
-msgstr "URL önizlemesini gerçekle"
+msgstr "Komut önizlemesini gerçekle"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:34
 #, kde-format

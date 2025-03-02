@@ -1,4 +1,5 @@
-# Translation of ruqola to Spanish
+# Translation of ruqola.po to Spanish
+# Copyright (C) 2019-2025 This file is copyright:
 # This file is distributed under the same license as the ruqola package.
 #
 # SPDX-FileCopyrightText: 2019 Manuel Alcaraz <manuelalcarazzam@gmail.com>
@@ -9,7 +10,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-03-01 00:46+0000\n"
-"PO-Revision-Date: 2025-02-22 19:53+0100\n"
+"PO-Revision-Date: 2025-03-01 17:21+0100\n"
 "Last-Translator: Víctor Rodrigo Córdoba <vrcordoba@gmail.com>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -11452,16 +11453,12 @@ msgid "Show images from attachment dialog box"
 msgstr "Mostrar imágenes en el cuadro de diálogos de adjuntos"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:23
-#, fuzzy
-#| msgid "Implement Rocket.Chat Marketplace."
 msgid "Implement Rocket.Chat application support."
-msgstr "Implementación del mercado Rocket.Chat."
+msgstr "Implementación de la aplicación Rocket.Chat."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:24
-#, fuzzy
-#| msgid "Implement Url Preview"
 msgid "Implement command preview."
-msgstr "Implementación de la vista previa de URL"
+msgstr "Implementación de la vista previa de órdenes"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:34
 #, kde-format

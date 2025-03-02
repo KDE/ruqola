@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-03-01 00:46+0000\n"
-"PO-Revision-Date: 2025-02-20 09:26+0100\n"
+"PO-Revision-Date: 2025-02-28 11:03+0100\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
 "Language-Team: French <French <kde-francophone@kde.org>>\n"
 "Language: fr\n"
@@ -11511,10 +11511,8 @@ msgid "Show images from attachment dialog box"
 msgstr "Afficher les images à partir de la boîte de dialogue des pièce jointes"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:23
-#, fuzzy
-#| msgid "Implement Rocket.Chat Marketplace."
 msgid "Implement Rocket.Chat application support."
-msgstr "Implémenter la place de marché de Rocket.Chat."
+msgstr "Implémenter la prise en charge d'une application avec Rocket.Chat."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:24
 #, fuzzy

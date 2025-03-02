@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-03-01 00:46+0000\n"
-"PO-Revision-Date: 2025-02-21 09:11+0100\n"
+"PO-Revision-Date: 2025-02-28 12:00+0100\n"
 "Last-Translator: Vincenzo Reale <smart2128vr@gmail.com>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
 "Language: it\n"
@@ -11450,10 +11450,8 @@ msgid "Show images from attachment dialog box"
 msgstr "Mostra le immagini dalla finestra degli allegati"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:23
-#, fuzzy
-#| msgid "Implement Rocket.Chat Marketplace."
 msgid "Implement Rocket.Chat application support."
-msgstr "Implementa Rocket.Chat Marketplace."
+msgstr "Implementa il supporto delle applicazioni Rocket.Chat."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:24
 #, fuzzy
