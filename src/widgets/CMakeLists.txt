@@ -1079,6 +1079,9 @@ target_sources(libruqolawidgets PRIVATE
     autogenerateui/elements/autogenerateinteractionuiviewmultistaticselectelement.cpp
     autogenerateui/elements/autogenerateinteractionuiviewtimepickerelement.cpp
     autogenerateui/elements/autogenerateinteractionuiviewtimepickerelement.h
+    autogenerateui/elements/autogenerateinteractionuiviewlinearscaleelement.cpp
+    autogenerateui/elements/autogenerateinteractionuiviewlinearscaleelement.h
+
 )
 
 if(HAVE_TEXT_AUTOCORRECTION_WIDGETS)
