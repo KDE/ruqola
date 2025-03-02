@@ -8,6 +8,8 @@
 #include "autogenerateui/autogenerateinteractionuiviewoption.h"
 
 #include <QJsonArray>
+#include <QMenu>
+#include <QToolButton>
 using namespace Qt::Literals::StringLiterals;
 AutoGenerateInteractionUiViewOverflowElement::AutoGenerateInteractionUiViewOverflowElement()
     : AutoGenerateInteractionUiViewActionable()
@@ -31,8 +33,16 @@ void AutoGenerateInteractionUiViewOverflowElement::parseElement(const QJsonObjec
 
 QWidget *AutoGenerateInteractionUiViewOverflowElement::generateWidget(QWidget *parent)
 {
-    // TODO
-    return nullptr;
+    auto toolButton = new QToolButton(parent);
+    auto menu = new QMenu(parent);
+    for (const auto &r : std::as_const(mOptions)) {
+        auto act = new QAction(menu);
+        act->setText(r->text().generateText());
+        act->setData(r->value());
+        menu->addAction(act);
+    }
+    toolButton->setMenu(menu);
+    return toolButton;
 }
 
 QList<AutoGenerateInteractionUiViewOption *> AutoGenerateInteractionUiViewOverflowElement::options() const
