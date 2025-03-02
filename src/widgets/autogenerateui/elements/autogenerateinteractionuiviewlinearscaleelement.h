@@ -6,7 +6,6 @@
 #pragma once
 
 #include "autogenerateui/autogenerateinteractionuiviewactionable.h"
-#include "autogenerateui/autogenerateinteractionuiviewimage.h"
 #include "libruqolawidgets_private_export.h"
 #include <QJsonObject>
 // ./packages/ui-kit/src/blocks/elements/LinearScaleElement.ts range ?
@@ -19,9 +18,23 @@ public:
     [[nodiscard]] QWidget *generateWidget(RocketChatAccount *account, QWidget *parent) override;
     [[nodiscard]] bool operator==(const AutoGenerateInteractionUiViewLinearScaleElement &other) const;
 
+    [[nodiscard]] int minValue() const;
+    void setMinValue(int newMinValue);
+
+    [[nodiscard]] int maxValue() const;
+    void setMaxValue(int newMaxValue);
+
+    [[nodiscard]] int initialValue() const;
+    void setInitialValue(int newInitialValue);
+
 protected:
     void serializeElement(QJsonObject &o) const override;
     void parseElement(const QJsonObject &json) override;
+
+private:
+    int mMinValue = -1;
+    int mMaxValue = -1;
+    int mInitialValue = -1;
 };
 
 Q_DECLARE_METATYPE(AutoGenerateInteractionUiViewLinearScaleElement)
