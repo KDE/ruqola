@@ -44,6 +44,7 @@
   <name xml:lang="x-test">xxRuqolaxx</name>
   <name xml:lang="zh-TW">Ruqola</name>
   <summary>Rocket Chat Client</summary>
+  <summary xml:lang="ar">عميل روكت تشات</summary>
   <summary xml:lang="ca">Client de xat del Rocket</summary>
   <summary xml:lang="ca-valencia">Client de xat de Rocket</summary>
   <summary xml:lang="cs">Klient pro Rocket Chat</summary>
@@ -664,7 +665,7 @@
       <li xml:lang="eu">Erantsitako fitxategiak zama-igotzeko euskarria gehitu da</li>
       <li xml:lang="fi">Lisää tuki liitetiedostojen lähettämiseksi</li>
       <li xml:lang="fr">Ajouter la prise en charge de l'envoi de fichiers en pièce jointe</li>
-      <li xml:lang="gl">Permitir enviar ficheiros anexos.</li>
+      <li xml:lang="gl">Permitir subir ficheiros anexos.</li>
       <li xml:lang="hi">अनुलग्नक फ़ाइलें अपलोड करने के लिए समर्थन जोड़ें</li>
       <li xml:lang="hu">Fájlmellékletek feltöltésének támogatása</li>
       <li xml:lang="ia">Adde supporto per incarcar files de attachamento</li>
