@@ -14,4 +14,8 @@ class PreviewCommandUtilsTest : public QObject
 public:
     explicit PreviewCommandUtilsTest(QObject *parent = nullptr);
     ~PreviewCommandUtilsTest() override = default;
+
+private Q_SLOTS:
+    void shouldParsePreviewCommandUtils();
+    void shouldParsePreviewCommandUtils_data();
 };
