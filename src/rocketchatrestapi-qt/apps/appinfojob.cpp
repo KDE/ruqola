@@ -47,9 +47,11 @@ bool AppInfoJob::canStart() const
         qCWarning(ROCKETCHATQTRESTAPI_LOG) << "mAppInfoType undefined";
         return false;
     }
-    if (mAppsId.isEmpty()) {
-        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "mAppsId is empty";
-        return false;
+    if (mAppInfoType != AppInfoType::Languages) {
+        if (mAppsId.isEmpty()) {
+            qCWarning(ROCKETCHATQTRESTAPI_LOG) << "mAppsId is empty";
+            return false;
+        }
     }
     return true;
 }
@@ -88,7 +90,10 @@ void AppInfoJob::setAppsId(const QByteArray &newAppsId)
 
 QString AppInfoJob::generateUrlExtension() const
 {
-    QString url = QString::fromLatin1(mAppsId) + QLatin1Char('/');
+    QString url;
+    if (!mAppsId.isEmpty()) {
+        url += QString::fromLatin1(mAppsId) + QLatin1Char('/');
+    }
 
     switch (mAppInfoType) {
     case AppInfoType::Unknown:

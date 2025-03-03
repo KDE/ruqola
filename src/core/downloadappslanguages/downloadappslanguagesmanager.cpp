@@ -5,107 +5,44 @@
 */
 
 #include "downloadappslanguagesmanager.h"
-#include "downloadappslanguagesjob.h"
+#include "apps/appinfojob.h"
+#include "connection.h"
 #include "downloadappslanguagesparser.h"
-#include "managerdatapaths.h"
+#include "rocketchataccount.h"
 #include "ruqola_debug.h"
-#include <QFileInfo>
-#include <QStandardPaths>
-#include <QTextStream>
 using namespace Qt::Literals::StringLiterals;
-DownloadAppsLanguagesManager::DownloadAppsLanguagesManager(QObject *parent)
+DownloadAppsLanguagesManager::DownloadAppsLanguagesManager(RocketChatAccount *account, QObject *parent)
     : QObject(parent)
+    , mRocketChatAccount(account)
 {
 }
 
 DownloadAppsLanguagesManager::~DownloadAppsLanguagesManager() = default;
 
-QString DownloadAppsLanguagesManager::storedFileName() const
+void DownloadAppsLanguagesManager::parse()
 {
-    return ManagerDataPaths::self()->path(ManagerDataPaths::Config, mAccountName) + QStringLiteral("/languages-%1.json").arg(mServerVersion);
-}
-
-void DownloadAppsLanguagesManager::parse(const QString &serverUrl)
-{
-    if (mFileParsed) {
-        Q_EMIT fileLanguagesParseSuccess();
-        return;
-    }
-    if (mAccountName.isEmpty()) {
-        qCWarning(RUQOLA_LOG) << "account name is empty. It's a bug";
-        Q_EMIT fileLanguagesParseFailed(); // Need to load commandlist
-        return;
-    }
-    if (mServerVersion.isEmpty()) {
-        qCWarning(RUQOLA_LOG) << "serverVersion is empty. It's a bug";
-        Q_EMIT fileLanguagesParseFailed(); // Need to load commandlist
-        return;
-    }
-    if (QFileInfo::exists(storedFileName())) {
-        parseLanguageFile();
-    } else {
-        auto job = new DownloadAppsLanguagesJob(this);
-        job->setServerUrl(serverUrl);
-        connect(job, &DownloadAppsLanguagesJob::fileDownloaded, this, &DownloadAppsLanguagesManager::slotFileDownloaded);
-        job->start();
+    if (mRocketChatAccount) {
+        auto job = new RocketChatRestApi::AppInfoJob(this);
+        job->setAppInfoType(RocketChatRestApi::AppInfoJob::AppInfoType::Languages);
+        mRocketChatAccount->restApi()->initializeRestApiJob(job);
+        connect(job, &RocketChatRestApi::AppInfoJob::appInfoDone, this, &DownloadAppsLanguagesManager::slotFileDownloaded);
+        if (!job->start()) {
+            qCWarning(RUQOLA_LOG) << "Impossible to start AppInfoJob";
+            Q_EMIT fileLanguagesParseFailed();
+        }
     }
 }
 
-void DownloadAppsLanguagesManager::slotFileDownloaded(const QByteArray &data)
-{
-    QFile f(storedFileName());
-    if (f.open(QIODevice::WriteOnly)) {
-        QTextStream out(&f);
-        out << data;
-        f.close();
-    }
-    parseLanguageFile();
-}
-
-void DownloadAppsLanguagesManager::parseLanguageFile()
+void DownloadAppsLanguagesManager::slotFileDownloaded(const QJsonObject &json)
 {
     DownloadAppsLanguagesParser parser;
-    parser.setFilename(storedFileName());
-    if (parser.parse()) {
-        mLanguageMap = parser.map();
-        mFileParsed = true;
-        Q_EMIT fileLanguagesParseSuccess();
-    } else {
-        Q_EMIT fileLanguagesParseFailed();
-    }
-}
-
-QString DownloadAppsLanguagesManager::serverVersion() const
-{
-    return mServerVersion;
-}
-
-void DownloadAppsLanguagesManager::setServerVersion(const QString &serverVersion)
-{
-    mServerVersion = serverVersion;
-}
-
-QString DownloadAppsLanguagesManager::accountName() const
-{
-    return mAccountName;
-}
-
-void DownloadAppsLanguagesManager::setAccountName(const QString &accountName)
-{
-    mAccountName = accountName;
-}
-
-bool DownloadAppsLanguagesManager::fileParsed() const
-{
-    return mFileParsed;
+    parser.parse(json);
+    mLanguageMap = parser.map();
+    Q_EMIT fileLanguagesParseSuccess();
 }
 
 QString DownloadAppsLanguagesManager::translatedString(const QString &language, const QString &id)
 {
-    if (!mFileParsed) {
-        qCWarning(RUQOLA_LOG) << "language file is not parsed yet!";
-        return {};
-    }
     QMap<QString, DownloadAppsLanguagesInfo>::const_iterator i = mLanguageMap.constBegin();
     while (i != mLanguageMap.constEnd()) {
         if (id.contains(i.key())) {
