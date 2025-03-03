@@ -7,6 +7,7 @@
 #include "autogenerateinteractionuiviewinputblock.h"
 #include "autogenerateui/autogenerateinteractionuiviewactionable.h"
 #include "autogenerateui/elements/autogenerateinteractionuiviewdatepickerelement.h"
+#include "autogenerateui/elements/autogenerateinteractionuiviewlinearscaleelement.h"
 #include "autogenerateui/elements/autogenerateinteractionuiviewplaintextinputelement.h"
 #include "autogenerateui/elements/autogenerateinteractionuiviewstaticselectelement.h"
 #include "autogenerateui/elements/autogenerateinteractionuiviewtimepickerelement.h"
@@ -56,6 +57,9 @@ void AutoGenerateInteractionUiViewInputBlock::parseBlock(const QJsonObject &json
         mElement->parse(elementObj);
     } else if (type == "static_select"_L1) {
         mElement = new AutoGenerateInteractionUiViewStaticSelectElement;
+        mElement->parse(elementObj);
+    } else if (type == "linear_scale"_L1) {
+        mElement = new AutoGenerateInteractionUiViewLinearScaleElement;
         mElement->parse(elementObj);
     } else {
         qCWarning(RUQOLA_AUTOGENERATEUI_LOG) << "AutoGenerateInteractionUiViewInputBlock Unknown type " << type;

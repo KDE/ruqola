@@ -7,6 +7,7 @@
 #include "autogenerateinteractionuiviewactionsblock.h"
 #include "autogenerateui/elements/autogenerateinteractionuiviewbuttonelement.h"
 #include "autogenerateui/elements/autogenerateinteractionuiviewcheckboxelement.h"
+#include "autogenerateui/elements/autogenerateinteractionuiviewlinearscaleelement.h"
 #include "autogenerateui/elements/autogenerateinteractionuiviewoverflowelement.h"
 #include "autogenerateui/elements/autogenerateinteractionuiviewradiobuttonelement.h"
 #include "autogenerateui/elements/autogenerateinteractionuiviewstaticselectelement.h"
@@ -44,7 +45,6 @@ void AutoGenerateInteractionUiViewActionsBlock::parseBlock(const QJsonObject &js
                 | ChannelsSelectElement
                 | ConversationsSelectElement
                 | DatePickerElement
-                | LinearScaleElement
                 | MultiChannelsSelectElement
                 | MultiConversationsSelectElement
                 | MultiStaticSelectElement
@@ -76,6 +76,10 @@ void AutoGenerateInteractionUiViewActionsBlock::parseBlock(const QJsonObject &js
             mElements.append(std::move(e));
         } else if (type == "overflow"_L1) {
             AutoGenerateInteractionUiViewOverflowElement *e = new AutoGenerateInteractionUiViewOverflowElement;
+            e->parse(r.toObject());
+            mElements.append(std::move(e));
+        } else if (type == "linear_scale"_L1) {
+            AutoGenerateInteractionUiViewLinearScaleElement *e = new AutoGenerateInteractionUiViewLinearScaleElement;
             e->parse(r.toObject());
             mElements.append(std::move(e));
         } else {
