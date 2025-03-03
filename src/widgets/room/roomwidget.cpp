@@ -396,14 +396,20 @@ void RoomWidget::slotInviteUsers()
     dlg.generateLink();
     dlg.exec();
 }
-
+#include <QDialog>
 void RoomWidget::slotShowUiInteraction(const QJsonArray &array)
 {
     for (const auto &r : array) {
         auto job = new AutoGenerateInteractionUi(this);
         if (job->parseInteractionUi(r.toObject())) {
-            auto w = job->generateWidget(this, mCurrentRocketChatAccount);
-            w->show();
+            auto d = new QDialog(this);
+            auto mainLayout = new QVBoxLayout(d);
+
+            auto parent = new QWidget;
+            auto w = job->generateWidget(parent, mCurrentRocketChatAccount);
+            mainLayout->addWidget(w);
+            d->exec();
+            delete d;
         } else {
             job->deleteLater();
         }
