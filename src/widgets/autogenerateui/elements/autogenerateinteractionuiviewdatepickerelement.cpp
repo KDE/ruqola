@@ -62,6 +62,10 @@ void AutoGenerateInteractionUiViewDatePickerElement::setPlaceHolder(AutoGenerate
 
 void AutoGenerateInteractionUiViewDatePickerElement::serializeElement(QJsonObject &o) const
 {
+    if (mPlaceHolder) {
+        o["placeholder"_L1] = mPlaceHolder->serialize();
+    }
+    o["initialValue"_L1] = mInitialDate;
 }
 
 QDebug operator<<(QDebug d, const AutoGenerateInteractionUiViewDatePickerElement &t)

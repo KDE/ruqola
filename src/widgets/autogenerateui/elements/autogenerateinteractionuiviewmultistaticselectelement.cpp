@@ -84,7 +84,9 @@ void AutoGenerateInteractionUiViewMultiStaticSelectElement::serializeElement(QJs
     if (mPlaceHolder) {
         o["placeholder"_L1] = mPlaceHolder->serialize();
     }
+    QJsonArray options;
     for (const auto &r : std::as_const(mOptions)) {
-        o["options"_L1] = r->serialize();
+        options.append(r->serialize());
     }
+    o["options"_L1] = options;
 }
