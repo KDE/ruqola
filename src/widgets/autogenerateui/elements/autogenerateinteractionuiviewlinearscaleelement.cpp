@@ -16,7 +16,7 @@ QWidget *AutoGenerateInteractionUiViewLinearScaleElement::generateWidget(RocketC
 {
     Q_UNUSED(account)
     Q_UNUSED(parent)
-    // TODO
+    // TODO return range widget
     return nullptr;
 }
 
