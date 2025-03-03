@@ -29,7 +29,7 @@ CommandPreviewWidget::CommandPreviewWidget(QWidget *parent)
     mListView->setFlow(QListView::LeftToRight);
     mListView->setResizeMode(QListView::Adjust);
     mListView->setWrapping(false);
-    // TODO mListView->setItemDelegate(new CommandPreviewImageDelegate(this));
+    mListView->setItemDelegate(new CommandPreviewImageDelegate(this));
 
     mListView->setModel(mPreviewCommandModel);
     connect(mListView, &QListView::doubleClicked, this, &CommandPreviewWidget::slotDoubleClicked);

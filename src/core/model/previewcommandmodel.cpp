@@ -5,6 +5,9 @@
 */
 
 #include "previewcommandmodel.h"
+#include <KIO/TransferJob>
+#include <QPixmap>
+#include <QUrl>
 
 PreviewCommandModel::PreviewCommandModel(QObject *parent)
     : QAbstractListModel{parent}
@@ -31,6 +34,35 @@ void PreviewCommandModel::setPreviewCommands(const QList<PreviewCommand> &newPre
         beginInsertRows(QModelIndex(), 0, newPreviewCommands.count() - 1);
         mPreviewCommands = newPreviewCommands;
         endInsertRows();
+        fetchImages();
+    }
+}
+
+void PreviewCommandModel::fetchImage(const PreviewCommand &command, int index)
+{
+    QByteArray imageData;
+    const QString url = command.value();
+    KIO::TransferJob *job = KIO::get(QUrl(url), KIO::NoReload);
+    connect(job, &KIO::TransferJob::data, this, [&imageData](KIO::Job *, const QByteArray &data) {
+        imageData.append(data);
+    });
+    if (job->exec()) {
+        QPixmap image;
+        if (image.loadFromData(imageData)) {
+            mMapUrlToImage.insert(url, image);
+            const int row = index;
+            if (row != -1) {
+                QModelIndex index = createIndex(row, 0);
+                Q_EMIT dataChanged(index, index, {static_cast<int>(PreviewCommandRoles::Image)});
+            }
+        }
+    }
+}
+
+void PreviewCommandModel::fetchImages()
+{
+    for (int i = 0; i < mPreviewCommands.count(); ++i) {
+        fetchImage(mPreviewCommands.at(i), i);
     }
 }
 
@@ -41,6 +73,7 @@ void PreviewCommandModel::clear()
         mPreviewCommands.clear();
         endResetModel();
     }
+    mMapUrlToImage.clear();
 }
 
 QVariant PreviewCommandModel::data(const QModelIndex &index, int role) const
@@ -49,13 +82,15 @@ QVariant PreviewCommandModel::data(const QModelIndex &index, int role) const
         return {};
     }
 
-    const PreviewCommand &permissionInfo = mPreviewCommands.at(index.row());
+    const PreviewCommand &commandPreviewInfo = mPreviewCommands.at(index.row());
     if (role == Qt::DisplayRole) {
-        return permissionInfo.value();
+        return commandPreviewInfo.value();
     } else if (role == static_cast<int>(PreviewCommandRoles::PreviewCommandInfo)) {
-        return QVariant::fromValue(permissionInfo);
+        return QVariant::fromValue(commandPreviewInfo);
     } else if (role == static_cast<int>(PreviewCommandRoles::Image)) {
-        // TODO
+        if (mMapUrlToImage.contains(commandPreviewInfo.value())) {
+            return mMapUrlToImage.value(commandPreviewInfo.value());
+        }
         return {};
     }
     return {};
